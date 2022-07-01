@@ -40,6 +40,16 @@ Starring a repository is a simple two-step process.
 1. Optionally, to unstar a previously starred repository, click **Unstar**. ![Untarring a repository](/assets/images/help/stars/unstarring-a-repository.png)
 
 {% ifversion fpt or ghec %}
+
+## Viewing who has starred a repository
+
+
+You can view everyone who has starred a public repository or a private repository you have access to.
+
+
+To view everyone who has starred a repository, add `/stargazers` to the end of the URL of a repository. For example, to view stargazers for the github/docs repository, visit https://github.com/github/docs/stargazers.
+
+
 ## Organizing starred repositories with lists
 
 {% note %}

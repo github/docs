@@ -1,11 +1,11 @@
-You can specify multiple variables to create a multi-dimensional matrix. A job will run for each possible combination of the variables.
+複数の変数を指定して、多次元マトリックスを作成できます。 変数の取り得るそれぞれの組み合わせに対してジョブが実行されます。
 
-For example, the following workflow specifies two variables:
+たとえば、以下のワークフローは2つの変数を指定しています。
 
-- Two operating systems specified in the `os` variable
-- Three Node.js versions specified in the `version` variable
+- `os`変数では2つのオペレーティングシステムが指定されています
+- `version`変数では、3つのNode.jsのバージョンが指定されています
 
-The workflow will run six jobs, one for each combination of the `os` and `version` variables. Each job will set the `runs-on` value to the current `os` value and will pass the current `version` value to the `actions/setup-node` action.
+このワークフローは、`os`及び`version`変数のそれぞれの組み合わせに応じた6のジョブを実行します。 各ジョブは、`runs-on`の値を現在の`os`の値に設定し、現在の`version`の値を`actions/setup-node`アクションに渡します。
 
 ```yaml
 jobs:

@@ -5,7 +5,7 @@ import { latest } from '../../lib/enterprise-server-releases.js'
 import schema from '../helpers/schemas/versions-schema.js'
 import nonEnterpriseDefaultVersion from '../../lib/non-enterprise-default-version.js'
 
-jest.useFakeTimers('legacy')
+jest.useFakeTimers({ legacyFakeTimers: true })
 
 describe('versions module', () => {
   test('is an object with versions as keys', () => {

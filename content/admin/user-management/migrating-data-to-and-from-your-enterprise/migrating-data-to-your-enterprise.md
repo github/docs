@@ -128,7 +128,7 @@ After your migration is applied to your target instance and you have reviewed th
 
 ### Unlocking repositories from an organization on {% data variables.product.prodname_dotcom_the_website %}
 
-To unlock the repositories on a {% data variables.product.prodname_dotcom_the_website %} organization, you'll send a `DELETE` request to <a href="/rest/reference/migrations#unlock-an-organization-repository" class="dotcom-only">the migration unlock endpoint</a>. You'll need:
+To unlock the repositories on a {% data variables.product.prodname_dotcom_the_website %} organization, you'll send a `DELETE` request to [the migration unlock endpoint](/free-pro-team@latest/rest/reference/migrations#unlock-an-organization-repository). You'll need:
   * Your access token for authentication
   * The unique `id` of the migration
   * The name of the repository to unlock

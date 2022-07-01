@@ -24,32 +24,13 @@ As execuções do fluxo de trabalho geralmente reutilizam as mesmas saídas ou d
 
 Para armazenar dependências em cache para um trabalho, você pode usar a ação {% data variables.product.prodname_dotcom %} de [`cache`](https://github.com/actions/cache). A ação cria e restaura um cache identificado por uma chave única. Como alternativa, se você estiver armazenando em cache os gerentes de pacotes listados abaixo, usar suas respectivas ações de setup-* exige uma configuração mínima e irá criar e restaurar caches de dependências para você.
 
-<table>
-<thead>
-  <tr>
-    <th>Gerentes de pacotes</th>
-    <th>ação setup-* para cache</th>
-  </tr>
-</thead>
-<tbody>
-  <tr>
-    <td>npm, yarn, pnpm</td>
-    <td><a href="https://github.com/actions/setup-node#caching-global-packages-data">setup-node</a></td>
-  </tr>
-  <tr>
-    <td>pip, pipenv, poetry</td>
-    <td><a href="https://github.com/actions/setup-python#caching-packages-dependencies">setup-python</a></td>
-  </tr>
-  <tr>
-    <td>gradle, maven</td>
-    <td><a href="https://github.com/actions/setup-java#caching-packages-dependencies">setup-java</a></td>
-  </tr>
-  <tr>
-    <td>ruby gems</td>
-    <td><a href="https://github.com/ruby/setup-ruby#caching-bundle-install-automatically">setup-ruby</a></td>
-  </tr>
-</tbody>
-</table>
+| Gerentes de pacotes | ação setup-* para cache                                                                    |
+| ------------------- | ------------------------------------------------------------------------------------------ |
+| npm, Yarn, pnpm     | [setup-node](https://github.com/actions/setup-node#caching-global-packages-data)           |
+| pip, pipenv, Poetry | [setup-python](https://github.com/actions/setup-python#caching-packages-dependencies)      |
+| Gradle, Maven       | [setup-java](https://github.com/actions/setup-java#caching-packages-dependencies)          |
+| RubyGems            | [setup-ruby](https://github.com/ruby/setup-ruby#caching-bundle-install-automatically)      |
+| Go `go.sum`         | [setup-go](https://github.com/actions/setup-go#caching-dependency-files-and-build-outputs) |
 
 {% warning %}
 
@@ -311,7 +292,7 @@ Por exemplo, se um pull request contiver um branch de `recurso` e tiver como alv
 
 ## Limites de uso e política de eliminação
 
-{% data variables.product.prodname_dotcom %} removerá todas as entradas da cache não acessadas há mais de 7 dias. There is no limit on the number of caches you can store, but the total size of all caches in a repository is limited{% ifversion actions-cache-policy-apis %}. Por padrão, o limite é 10 GB por repositório, mas este limite pode ser diferente dependendo das políticas definidas pelos proprietários da empresa ou administradores de repositório.{% else %} a 10 GB.{% endif %} 
+{% data variables.product.prodname_dotcom %} removerá todas as entradas da cache não acessadas há mais de 7 dias. Não há limite no número de caches que você pode armazenar, mas o tamanho total de todos os caches em um repositório é limitado{% ifversion actions-cache-policy-apis %}. Por padrão, o limite é 10 GB por repositório, mas este limite pode ser diferente dependendo das políticas definidas pelos proprietários da empresa ou administradores de repositório.{% else %} a 10 GB.{% endif %} 
 
 {% data reusables.actions.cache-eviction-process %}
 
@@ -327,6 +308,6 @@ Para informações sobre como alterar as políticas para o limite de tamanho do 
 
 ## Gerenciando caches
 
-Você pode usar a API REST de {% data variables.product.product_name %} para gerenciar seus caches. No momento, você pode usar a API para ver o uso ddo seu cache, cpodendo esperar outras funcionalidades em atualizações futuras. Para obter mais informações, consulte as "[Ações](/rest/reference/actions#cache)" na documentação da API REST.
+Você pode usar a API REST de {% data variables.product.product_name %} para gerenciar seus caches. {% ifversion actions-cache-list-delete-apis %}You can use the API to list and delete cache entries, and see your cache usage.{% elsif actions-cache-management %}At present, you can use the API to see your cache usage, with more functionality expected in future updates.{% endif %} For more information, see the "[{% data variables.product.prodname_actions %} Cache](/rest/actions/cache)" REST API documentation.
 
 {% endif %}

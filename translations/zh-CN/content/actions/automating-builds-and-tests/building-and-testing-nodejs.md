@@ -134,7 +134,7 @@ jobs:
 
 {% data variables.product.prodname_dotcom %} 托管的运行器安装了 npm 和 Yarn 依赖项管理器。 在构建和测试代码之前，可以使用 npm 和 Yarn 在工作流程中安装依赖项。 Windows 和 Linux {% data variables.product.prodname_dotcom %} 托管的运行器也安装了 Grunt、Gulp 和 Bower。
 
-{% ifversion actions-caching %}You can also cache dependencies to speed up your workflow. 更多信息请参阅“[缓存依赖项以加快工作流程](/actions/using-workflows/caching-dependencies-to-speed-up-workflows)”。{% endif %}
+{% ifversion actions-caching %}您也可以缓存依赖项来加快工作流程。 更多信息请参阅“[缓存依赖项以加快工作流程](/actions/using-workflows/caching-dependencies-to-speed-up-workflows)”。{% endif %}
 
 ### 使用 npm 的示例
 

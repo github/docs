@@ -12,8 +12,6 @@ product: '{% data reusables.gated-features.codespaces %}'
 miniTocMaxHeadingLevel: 3
 ---
 
-{% data reusables.codespaces.prebuilds-beta-note %}
-
 ## 检查、更改和删除预构建配置
 
 您为存储库配置的预构建是使用 {% data variables.product.prodname_actions %} 工作流程创建和更新的，由 {% data variables.product.prodname_codespaces %} 服务管理。

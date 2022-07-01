@@ -102,7 +102,7 @@ Requests can opt to receive those text fragments in the response, and every frag
 To get this metadata in your search results, specify the `text-match` media type in your `Accept` header.
 
 ```shell
-application/vnd.github.v3.text-match+json
+application/vnd.github.text-match+json
 ```
 
 When you provide the `text-match` media type, you will receive an extra key in the JSON payload called `text_matches` that provides information about the position of your search terms within the text and the `property` that includes the search term. Inside the `text_matches` array, each object includes
@@ -122,7 +122,7 @@ Using cURL, and the [example issue search](#search-issues-and-pull-requests) abo
 request would look like this:
 
 ``` shell
-curl -H 'Accept: application/vnd.github.v3.text-match+json' \
+curl -H 'Accept: application/vnd.github.text-match+json' \
 '{% data variables.product.api_url_pre %}/search/issues?q=windows+label:bug+language:python+state:open&sort=created&order=asc'
 ```
 

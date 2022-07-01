@@ -17,7 +17,7 @@ versions:
 
 ## About re-running workflows and jobs
 
-Re-running a workflow{% ifversion re-run-jobs %} or jobs in a workflow{% endif %} uses the same `GITHUB_SHA` (commit SHA) and `GITHUB_REF` (Git ref) of the original event that triggered the workflow run. You can re-run a workflow{% ifversion re-run-jobs %} or jobs in a workflow{% endif %} for up to 30 days after the initial run.{% ifversion debug-reruns %} When you re-run a workflow or jobs in a workflow, you can enable debug logging for the re-run. This will enable runner diagnostic logging and step debug logging for the re-run. For more information about debug logging, see "[Enabling debug logging](/actions/monitoring-and-troubleshooting-workflows/enabling-debug-logging)."{% endif %}
+Re-running a workflow{% ifversion re-run-jobs %} or jobs in a workflow{% endif %} uses the same `GITHUB_SHA` (commit SHA) and `GITHUB_REF` (Git ref) of the original event that triggered the workflow run. You can re-run a workflow{% ifversion re-run-jobs %} or jobs in a workflow{% endif %} for up to 30 days after the initial run.{% ifversion re-run-jobs %} You cannot re-run jobs in a workflow once its logs have passed their retention limits. For more information, see "[Usage limits, billing, and administration](/actions/learn-github-actions/usage-limits-billing-and-administration#artifact-and-log-retention-policy)."{% endif %}{% ifversion debug-reruns %} When you re-run a workflow or jobs in a workflow, you can enable debug logging for the re-run. This will enable runner diagnostic logging and step debug logging for the re-run. For more information about debug logging, see "[Enabling debug logging](/actions/monitoring-and-troubleshooting-workflows/enabling-debug-logging)."{% endif %}
 
 ## Re-running all the jobs in a workflow
 
@@ -134,6 +134,14 @@ gh run rerun --job <em>job-id</em> --debug
 
 {% endif %}
 {% endcli %}
+
+{% endif %}
+
+{% ifversion partial-reruns-with-reusable %}
+
+## Re-running workflows and jobs with reusable workflows
+
+{% data reusables.actions.partial-reruns-with-reusable %}
 
 {% endif %}
 

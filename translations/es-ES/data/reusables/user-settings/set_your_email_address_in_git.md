@@ -1,1 +1,1 @@
-Configurar una dirección de correo electrónico en Git. Puedes utilizar {% ifversion fpt or ghec %} tu [dirección de correo electrónico de `no-reply` proporcionada por {% data variables.product.product_name %}](/articles/setting-your-commit-email-address) o {% endif %} cualquier otra.
+Configurar una dirección de correo electrónico en Git. Puedes utilizar {% ifversion fpt or ghec %}tu [dirección de correo electrónico de `noreply` que proporciona {% data variables.product.product_name %}](/articles/setting-your-commit-email-address) o {% endif %}cualquier otra.

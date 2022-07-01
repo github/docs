@@ -1,5 +1,6 @@
 ---
 title: Configurar tu periodo de inactividad para los Codespaces
+shortTitle: Configurar el tiempo de inactividad
 intro: 'Puedes configurar tu periodo de inactividad predeterminado para los {% data variables.product.prodname_codespaces %} en tu página de ajustes personales.'
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
@@ -7,7 +8,7 @@ versions:
   ghec: '*'
 topics:
   - Codespaces
-shortTitle: Configurar el tiempo de inactividad
+type: how_to
 ---
 
 Un codespace dejará de ejecutarse después de un periodo de inactividad. Puedes especificar la longitud de este periodo. El ajuste actualizado se aplicará a cualquier codespace recién creado.
@@ -22,7 +23,7 @@ Algunas organizaciones podrían tener una política de tiempo de inactividad má
 
 {% webui %}
 
-## Configurar tu tiempo de inactividad predeterminado
+## Configurar tu periodo predeterminado de tiempo de inactividad
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.codespaces-tab %}
@@ -32,7 +33,7 @@ Algunas organizaciones podrían tener una política de tiempo de inactividad má
 
 {% cli %}
 
-## Configurar tu periodo de inactividad
+## Configurar el periodo de tiempo de inactividad para un codespace
 
 {% data reusables.cli.cli-learn-more %}
 
@@ -45,3 +46,11 @@ gh codespace create --idle-timeout 90m
 Si no especificas un periodo de inactividad cuando creas un codespace, entonces se utilizará el predeterminado. Para obtener más información sobre un periodo de inactividad predeterminado, haz clic en la pestaña de "Buscador web" en esta página. Actualmente, no puedes especificar un periodo de inactividad predeterminado a través del {% data variables.product.prodname_cli %}.
 
 {% endcli %}
+
+{% vscode %}
+
+## Configurar un periodo de tiempo de inactividad
+
+Puedes configurar tu periodo predeterminado de tiempo de inactividad en tu buscador web, en {% data variables.product.prodname_dotcom_the_website %}. Como alternativa, si utilizas el {% data variables.product.prodname_cli %} para crear un codespace, puedes configurar un periodo de tiempo de inactividad para ese codespace en particular. Para obtener más información, haz clic en la pestaña adecuada arriba.
+
+{% endvscode %}

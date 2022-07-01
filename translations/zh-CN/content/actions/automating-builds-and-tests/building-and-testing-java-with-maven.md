@@ -22,7 +22,7 @@ shortTitle: 使用 Maven 构建和测试 Java
 
 ## 简介
 
-本指南介绍如何使用 Maven 软件项目管理工具为 Java 项目创建执行持续集成 (CI) 的工作流程。 您创建的工作流程将允许您查看拉取请求提交何时会在默认分支上导致构建或测试失败； 这个方法可帮助确保您的代码始终是健康的。 You can extend your CI workflow to {% ifversion actions-caching %}cache files and{% endif %} upload artifacts from a workflow run.
+本指南介绍如何使用 Maven 软件项目管理工具为 Java 项目创建执行持续集成 (CI) 的工作流程。 您创建的工作流程将允许您查看拉取请求提交何时会在默认分支上导致构建或测试失败； 这个方法可帮助确保您的代码始终是健康的。 您可以扩展 CI 工作流程以{% ifversion actions-caching %}缓存文件并且{% endif %}从工作流程运行上传构件。
 
 {% ifversion ghae %}
 {% data reusables.actions.self-hosted-runners-software %}

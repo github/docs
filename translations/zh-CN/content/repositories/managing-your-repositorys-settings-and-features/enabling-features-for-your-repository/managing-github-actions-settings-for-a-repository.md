@@ -29,11 +29,11 @@ miniTocMaxHeadingLevel: 3
 
 您可以对您的仓库启用 {% data variables.product.prodname_actions %}。 {% data reusables.actions.enabled-actions-description %} 您可以对您的仓库完全禁用 {% data variables.product.prodname_actions %}。 {% data reusables.actions.disabled-actions-description %}
 
-Alternatively, you can enable {% data variables.product.prodname_actions %} in your repository but limit the actions {% ifversion actions-workflow-policy %}and reusable workflows{% endif %} a workflow can run.
+或者，您也可以在存储库中启用 {% data variables.product.prodname_actions %}，但限制工作流程可以运行的操作{% ifversion actions-workflow-policy %}和可重用工作流程{% endif %}。
 
 ## 管理仓库的 {% data variables.product.prodname_actions %} 权限
 
-You can disable {% data variables.product.prodname_actions %} for a repository, or set a policy that configures which actions{% ifversion actions-workflow-policy %} and reusable workflows{% endif %} can be used in the repository.
+您可以禁用存储库的 {% data variables.product.prodname_actions %} ，或设置策略来配置可在存储库中使用的 {% ifversion actions-workflow-policy %} 和可重用工作流{% endif %} 。
 
 {% note %}
 
@@ -147,7 +147,7 @@ You can disable {% data variables.product.prodname_actions %} for a repository, 
 
 企业成员可以使用内部存储库来处理项目，而无需公开共享信息。 更多信息请参阅“[关于仓库](/repositories/creating-and-managing-repositories/about-repositories#about-internal-repositories)”。
 
-You can use the steps below to configure whether {% ifversion internal-actions%}actions and {% endif %}workflows in an internal repository can be accessed from outside the repository.{% ifversion internal-actions %} For more information, see "[Sharing actions and workflows with your enterprise](/actions/creating-actions/sharing-actions-and-workflows-with-your-enterprise)." 或者，您可以使用 REST API 来设置或获取访问级别的详细信息。 更多信息请参阅“[获取存储库外部工作流程的访问级别](/rest/reference/actions#get-the-level-of-access-for-workflows-outside-of-the-repository#get-the-level-of-access-for-workflows-outside-of-the-repository)”和“[设置存储库外部工作流程的访问级别](/rest/reference/actions#get-the-level-of-access-for-workflows-outside-of-the-repository#set-the-level-of-access-for-workflows-outside-of-the-repository)”。{% endif %}
+您可以使用以下步骤配置是否可以从存储库外部访问内部存储库中的 {% ifversion internal-actions%}操作和 {% endif %}工作流程。{% ifversion internal-actions %} 更多信息请参阅“[与企业共享操作和工作流程](/actions/creating-actions/sharing-actions-and-workflows-with-your-enterprise)”。 或者，您可以使用 REST API 来设置或获取访问级别的详细信息。 更多信息请参阅“[获取存储库外部工作流程的访问级别](/rest/reference/actions#get-the-level-of-access-for-workflows-outside-of-the-repository#get-the-level-of-access-for-workflows-outside-of-the-repository)”和“[设置存储库外部工作流程的访问级别](/rest/reference/actions#get-the-level-of-access-for-workflows-outside-of-the-repository#set-the-level-of-access-for-workflows-outside-of-the-repository)”。{% endif %}
 
 1. 在 {% data variables.product.prodname_dotcom %} 上，导航到内部仓库的主页面。
 1. 在仓库名称下，单击 {% octicon "gear" aria-label="The gear icon" %}**Settings（设置）**。

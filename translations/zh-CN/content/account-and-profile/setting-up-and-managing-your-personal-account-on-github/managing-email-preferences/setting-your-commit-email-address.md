@@ -42,7 +42,7 @@ shortTitle: 设置提交电子邮件地址
 
 {% endif %}
 
-{% ifversion fpt or ghec %}如果您想将个人电子邮件地址设为私密，则可以使用 {% data variables.product.product_name %} 的 `no-reply` 电子邮件地址作为您的提交电子邮件地址。 要将 `noreply` 电子邮件地址用于从命令行推送的提交，请在 Git 中设置提交电子邮件地址时使用该电子邮件地址。 要将 `noreply` 地址用于基于 web 的 Git 操作，请在 GitHub 上设置提交电子邮件地址并选择**对我的电子邮件地址保密**。
+{% ifversion fpt or ghec %}如果您想将个人电子邮件地址设为私密，则可以使用 {% data variables.product.product_name %} 的 `noreply` 电子邮件地址作为您的提交电子邮件地址。 要将 `noreply` 电子邮件地址用于从命令行推送的提交，请在 Git 中设置提交电子邮件地址时使用该电子邮件地址。 要将 `noreply` 地址用于基于 web 的 Git 操作，请在 GitHub 上设置提交电子邮件地址并选择**对我的电子邮件地址保密**。
 
 您也可以选择阻止从命令行推送的提交显示您的个人电子邮件地址。 更多信息请参阅“[阻止推送的命令行显示您的个人电子邮件地址](/articles/blocking-command-line-pushes-that-expose-your-personal-email-address)”。{% endif %}
 
@@ -52,7 +52,7 @@ shortTitle: 设置提交电子邮件地址
 
 {% note %}
 
-**注意：**如果您在 2017 年 7 月 18 日_之后_在 {% data variables.product.product_location %} 上创建了您的帐户，则 {% data variables.product.product_name %} `no-reply` 电子邮件地址是七位数的 ID 号，您的用户名以 <code><em>ID+用户名</em>@users.noreply.github.com</code> 的形式提供。 如果您在 2017 年 7 月 18 日_之前_在 {% data variables.product.product_location %} 上创建了帐户，则 {% data variables.product.product_name %} `no-reply` 电子邮件地址是 <code><em>用户名</em>@users.noreply.github.com</code>。 通过在电子邮件设置中选择（或取消选择并重新选择）**Keep my email address private（将我的电子邮件地址设为私密）**，您可以获得基于 ID 的 {% data variables.product.product_name %} `no-reply` 电子邮件地址。
+**注意：**如果您在 2017 年 7 月 18 日_之后_在 {% data variables.product.product_location %} 上创建了您的帐户，则 {% data variables.product.product_name %} `noreply` 电子邮件地址是七位数的 ID 号，您的用户名以 <code><em>ID+用户名</em>@users.noreply.github.com</code> 的形式提供。 如果您在 2017 年 7 月 18 日_之前_在 {% data variables.product.product_location %} 上创建了帐户，则 {% data variables.product.product_name %} `noreply` 电子邮件地址是 <code><em>用户名</em>@users.noreply.github.com</code>。 通过在电子邮件设置中选择（或取消选择并重新选择）**Keep my email address private（将我的电子邮件地址设为私密）**，您可以获得基于 ID 的 {% data variables.product.product_name %} `noreply` 电子邮件地址。
 
 {% endnote %}
 

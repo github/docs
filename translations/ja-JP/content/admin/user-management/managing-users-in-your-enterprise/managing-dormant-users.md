@@ -18,6 +18,12 @@ topics:
   - Licensing
 ---
 
+{% ifversion ghec %}
+{% data reusables.enterprise-accounts.dormant-user-release-phase %}
+{% endif %}
+
+## About dormant users
+
 {% data reusables.enterprise-accounts.dormant-user-activity %}
 
 {% ifversion ghes or ghae%}
@@ -48,13 +54,18 @@ topics:
 {% endif %}
 
 {% ifversion ghec %}
-
-{% data reusables.enterprise-accounts.dormant-user-release-phase %}
-
 ## Downloading the dormant users report from your enterprise account
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.enterprise-accounts-compliance-tab %}
 1. To download your Dormant Users (beta) report as a CSV file, under "Other", click {% octicon "download" aria-label="The Download icon" %} **Download**. ![Download button under "Other" on the Compliance page](/assets/images/help/business-accounts/dormant-users-download-button.png)
+
+{% tip %}
+
+**Tip:** For the purposes of assessing user dormancy, user activity is scoped to include only user activity associated with organizations, repositories, or sign-on events that are associated with the enterprise. For example, if a user has recently commented on an issue in a public repository not associated with the enterprise, they may be considered dormant. However, if they have recently commented on an issue in a public repository associated with an organization in your enterprise, they will not be considered dormant and will not appear in the Dormant User report.
+
+In the case of web sign-on events, only sign-on events through via an SSO domain associated with your enterprise are considered user activity associated with the enterprise.
+
+{% endtip %}
 
 {% endif %}

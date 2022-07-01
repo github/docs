@@ -15,8 +15,8 @@ security_advisories:
     - /code-security/repository-security-advisories/removing-a-collaborator-from-a-repository-security-advisory
 #Feature available on dotcom and GHES 3.3+, so articles available on GHAE and earlier GHES hidden to hide the learning track
 dependabot_alerts:
-  title: 'Obter notificações para dependências vulneráveis'
-  description: 'Configure o Dependabot para alertá-lo sobre novas vulnerabilidades nas suas dependências.'
+  title: 'Get notifications for insecure dependencies'
+  description: 'Set up Dependabot to alert you to new vulnerabilities{% ifversion GH-advisory-db-supports-malware %} or malware{% endif %} in your dependencies.'
   guides:
     - /code-security/dependabot/dependabot-alerts/about-dependabot-alerts
     - '{% ifversion fpt or ghec or ghes > 3.2 %}/github/administering-a-repository/managing-repository-settings/managing-security-and-analysis-settings-for-your-repository{% endif %}'

@@ -25,7 +25,7 @@ sections:
       heading: GitHub Container registry in public beta
       notes:
         - |
-          The GitHub Container registry (GHCR) is now available in GitHub Enterprise Server 3.5 as a public beta, offering developers the ability to publish, download, and manage containers. GitHub Packages container support implements the OCI standards for hosting Docker images. For more information, see "[GitHub Container registry](/packages/working-with-a-github-packages-registry/working-with-the-container-registry)."
+          El registro de contenedores de GitHub (GHCR) está ahora disponible en GitHub Enterprise Server 3.5 como un beta público. Este ofrece a los desarrolladores la capacidad de publicar, descargar y administrar contenedores. La compatibilidad de contenedores de GitHub Packages implementa los estándares OCI para hospedar imágenes de Docker. Para obtener más información, consulta la sección "[Registro de contenedores de GitHub](/packages/working-with-a-github-packages-registry/working-with-the-container-registry)".
     - 
       heading: Dependabot updates are generally available
       notes:
@@ -120,34 +120,34 @@ sections:
       heading: Dependency graph supports GitHub Actions
       notes:
         - |
-          The dependency graph now detects YAML files for GitHub Actions workflows. GitHub Enterprise Server will display the workflow files within the **Insights** tab's dependency graph section. Repositories that publish actions will also be able to see the number of repositories that depend on that action from the "Used By" control on the repository homepage. For more information, see "[About the dependency graph](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph)."
+          La gráfica de dependencias ahora detecta archivos YAML para los flujos de trabajo de GitHub Actions. GitHub Enterprise Server mostrará los archivos de flujo de trabajo dentro de la sección de gráfica de dependencias de la pestaña **Perspectivas**. Los repositorios que publiquen acciones también podrán ver la cantidad de repositorios que dependen de esa acción desde el control de "Utilizado por" en la página principal del repositorio. Para obtener más información, consulta la sección "[Acerca de la gráfica de dependencias](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph)".
     - 
       heading: Security overview for enterprises in public beta
       notes:
         - |
-          GitHub Advanced Security customers can now view an overview of security alerts at the enterprise level. The new **Security** tab at the enterprise level provides a repository-centric view of application security risks, as well as an alert-centric view of all secret scanning alerts. For more information, see "[About the security overview](/code-security/security-overview/about-the-security-overview)."
+          Los clientes de GitHub Advanced Security ahora pueden ver un resumen de las alertas de seguridad a nivel empresarial. La nueva pestaña de **Seguridad** a nivel empresarial proporciona una vista centrada en los repositorios de los riesgos de seguridad de las aplicaciones, así como una vista centrada en las alertas para todas las alertas del escaneo de secretos. Para obtener más información, consulta la sección "[Acerca del resumen de seguridad](/code-security/security-overview/about-the-security-overview)".
     - 
       heading: Security view for organizations is generally available
       notes:
         - |
-          The overview of security alerts at the organization level is now generally available. GitHub Advanced Security customers can use the security overview to view a repository-centric view of application security risks, or an alert-centric view of all code scanning, Dependabot, and secret scanning alerts for all repositories in an organization. For more information, see "[About the security overview](/code-security/security-overview/about-the-security-overview)."
+          El resumen de alertas de seguridad a nivel organizacional ahora está disponible en general. Los clientes de GitHub Advanced Security pueden utilizar el resumen de seguridad para obtener una vista centrada en el repositorio de los riesgos de seguridad de las aplicaciones o una vista centrada en las alertas de todo el escaneo de código, el Dependabot y las alertas de escaneo para todos los repositorios en una organización. Para obtener más información, consulta la sección "[Acerca de la revisión de seguridad](/code-security/security-overview/about-the-security-overview)".
     - 
       heading: Code scanning detects more security issues, supports new language versions
       notes:
         - |
-          Code scanning now detects a larger number of CWEs, and CodeQL code scanning fully supports the standard language features in the following language releases.
+          El escaneo de código ahora detecta una cantidad mayor de CWE y el escaneo de código de CodeQL es totalmente compatible con las características de lenguaje en los lanzamientos de los siguientes lenguajes.
 
           - C# 10 / .NET 6
           - Python 3.10
           - Java 17
           - TypeScript 4.5
 
-          For more information, see the [GitHub Blog](https://github.blog/changelog/2022-02-25-code-scanning-detects-more-security-issues-supports-new-language-versions/).
+          Para obtener más información, consulta el [Blog de GitHub](https://github.blog/changelog/2022-02-25-code-scanning-detects-more-security-issues-supports-new-language-versions/).
     - 
       heading: View code scanning alerts across an organization
       notes:
         - |
-          GitHub Advanced Security customers can now view code scanning alerts in an organization's **Security** tab. This view is available to organization owners and members of teams with the [security manager role](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-security-managers-in-your-organization). For more information, see "[About the security overview](/code-security/security-overview/about-the-security-overview)."
+          Los clientes de GitHub Advanced Security ahora pueden ver las alertas del escaneo de código en la pestaña de **Seguridad** de una organización. Esta vista está disponible para los propietarios de las organizaciones y miembros de los equipos con el [rol de gerente de seguridad](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-security-managers-in-your-organization). Para obtener más información, consulta la sección "[Acerca del resumen de seguridad](/code-security/security-overview/about-the-security-overview)".
         - |
           Users can now retrieve code scanning alerts for an organization on your GitHub Enterprise Server instance via the REST API. This new API endpoint supplements the existing [endpoint for repositories](/rest/reference/code-scanning#list-code-scanning-alerts-for-a-repository). For more information, see [Code Scanning](/rest/code-scanning) in the REST API documentation.
     - 
@@ -169,37 +169,37 @@ sections:
       heading: Configure permissions for secret scanning with custom repository roles
       notes:
         - |
-          You can now configure two new permissions for secret scanning when managing custom repository roles.
+          Ahora puedes configurar dos permisos nuevos para el escaneo de secretos cuando administras roles de repositorio personalizados.
 
-          - View secret scanning results
-          - Dismiss or reopen secret scanning results
+          - Ver los resultados del escaneo de código
+          - Descartar o reabrir los resultados del escaneo de secretos
 
-          For more information, see  "[Managing custom repository roles for an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization)."
+          Para obtener más información, consulta la sección "[Administrar los roles de repositorio personalizados para una organización](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization)".
     - 
       heading: Secret scanning now supports archived repositories
       notes:
         - |
-          GitHub Advanced Security customers can now enable secret scanning for archived repositories via the UI and API. For more information, see "[About secret scanning](/code-security/secret-scanning/about-secret-scanning#about-secret-scanning-for-private-repositories)," "[About archived repositories](/repositories/archiving-a-github-repository/archiving-repositories)," and "[Repositories](/rest/repos/repos#update-a-repository)" in the REST API documentation.
+          Los clientes de GitHub Advanced Security ahora pueden habilitar el escaneo de secretos para los repositorios archivados a través de la IU y de la API. Para obtener más información, consulta las secciones "[Acerca del escaneo de secretos](/code-security/secret-scanning/about-secret-scanning#about-secret-scanning-for-private-repositories)", "[Acerca de los repositorios archivados](/repositories/archiving-a-github-repository/archiving-repositories)" y "[Repositories](/rest/repos/repos#update-a-repository)" en la documentación de la API de REST.
     - 
       heading: Secret scanning webhooks for alert locations
       notes:
         - |
-          GitHub Advanced Security customers using secret scanning can now opt to receive a webhook each time a secret is detected in a new location. The `secret_scanning_alert_location` webhook event includes location details, like the commit SHA, and the associated alert for the detection. A location is created for every new file path containing the detected secret. For more information, see "[Webhook events and payloads](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#secret_scanning_alert_location)."
+          Los clientes de GitHub Advanced Security que utilizan el escaneo de secretos ahora pueden decidir participar para recibir un webhook cada que se detecta un secreto en una ubicación nueva. El evento de webhook `secret_scanning_alert_location` incluye detalles de ubicación como el SHA de confirmación y la alerta asociada a la detección. Se crea una ubicación por cada ruta de archivo nueva que contenga el secreto detectado. Para obtener más información, consulta la sección "[Cargas útiles y eventos de webhook](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#secret_scanning_alert_location)".
     - 
       heading: View Dependabot alerts across an organization
       notes:
         - |
-          GitHub Advanced Security customers can now view Dependabot alerts in in an organization's **Security** tab. This view is available to organization owners and members of teams with the [security manager role](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-security-managers-in-your-organization). For more information, see "[About the security overview](/code-security/security-overview/about-the-security-overview)."
+          Los clientes de GitHub Advanced Security ahora pueden ver las alertas del Dependabot en la pestaña de **Seguridad** de una organización. Esta vista está disponible para los propietarios de las organizaciones y miembros de los equipos con el [rol de gerente de seguridad](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-security-managers-in-your-organization). Para obtener más información, consulta la sección "[Acerca del resumen de seguridad](/code-security/security-overview/about-the-security-overview)".
     - 
       heading: Configure permissions for Dependabot alerts with custom repository roles
       notes:
         - |
-          You can now configure two new permissions for Dependabot alerts when managing custom repository roles.
+          Ahora puedes configurar dos permisos nuevos para las alertas del Dependabot cuando administres roles de repositorio personalizados.
 
-          - View Dependabot alerts
-          - Dismiss or reopen Dependabot alerts
+          - Ver las alertas del Dependabot
+          - Descartar o reabrir las alertas del Dependabot
 
-          For more information, see  "[Managing custom repository roles for an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization)."
+          Para obtener más información, consulta la sección "[Administrar los roles de repositorio personalizados para una organización](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization)".
     - 
       heading: Reopen dismissed Dependabot alerts
       notes:
@@ -230,14 +230,14 @@ sections:
       heading: Access more information about Dependabot alerts via GraphQL API
       notes:
         - |
-          You can now view fixed alerts from Dependabot with the GraphQL API. You can also access and filter by state, as well as by unique numeric identifier, and you can filter by state on the vulnerability alert object. The following fields now exist for a `RepositoryVulnerabilityAlert`.
+          Ahora puedes ver las alertas fijas del Dependabot con la API de GraphQL. También puedes acceder y filtrar por estado y por identificador numérico único y puedes filtrar por estado en el objeto de alerta de la vulnerabilidad. Ahora existen los siguientes campos para una `RepositoryVulnerabilityAlert`.
 
           - `number`
           - `fixed_at`
           - `fix_reason`
           - `state`
 
-          For more information, see "[Objects](/graphql/reference/objects#repositoryvulnerabilityalert)" in the GraphQL API documentation.
+          Para obtener más información, consulta la sección "[Objects](/graphql/reference/objects#repositoryvulnerabilityalert)" en la documentación de la API de GraphQL.
     - 
       heading: Git events in the enterprise audit log
       notes:
@@ -288,11 +288,18 @@ sections:
       heading: Reglas de protección de etiquetas
       notes:
         - |
-          Repository owners can now configure tag protection rules to protect a repository's tags. Once protected by a tag protection rule, tags matching a specified name pattern can only be created and deleted by users with the Maintain or Admin role in the repository. For more information, see "[Configuring tag protection rules](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/configuring-tag-protection-rules)."
+          Los propietarios de los repositorios ahora pueden configurar reglas de protección de etiqueta para proteger las etiquetas de un repositorio, una vez que se encuentren protegidas con una regla de protección de etiqueta, solo los usuarios con rol de administrador o mantenedor en el repositorio podrán crear y borrar aquellas que coincidan con un patrón de nombre específico. Para obtener más información, consulta la sección "[Configurar reglas de protección de etiqueta](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/configuring-tag-protection-rules)".
   bugs:
     - |
       It is now possible for GitHub Apps to upload release assets.
   changes:
+    - |
+      Los requisitos mínimos de memoria y almacenamiento en raíz aumentaron para GitHub Enterprise Server 2.10 y 3.0 y ahora se ofrecen desde la versión 3.5.0.
+
+        - En la versión 2.10, el requisito mínimo para almacenamiento en raíz subió de 80 GB a 200 GB. Desde la versión 3.5.0, las verificaciones preliminares de sistema fallarán si el almacenamiento en raíz es menor a 80 GB.
+        - En la versión 3.0, el requisito mínimo de memoria subió de 16 GB a 32 GB. Desde la versión 3.5.0, las verificaciones preliminares de sistema fallarán si el sistema tiene menos de 28 GB de memoria.
+
+      Para obtener más información, consulta los requisitos mínimos para cada plataforma de despliegue compatible en la sección "[Configurar una instancia de GitHub Enterprise Server](/admin/installation/setting-up-a-github-enterprise-server-instance)." [Actualizado: 2022-06-20]
     - |
       Para utilizar el flujo de autorización de dispositivos para las OAuth y GitHub Apps, debes habilitar la característica manualmente. Este cambio reduce la probabilidad de que se utilicen las apps en ataques de phishing contra los usuarios de GitHub Enterprise Server al asegurarse de que los integradores están consientes de los riesgos y toman decisiones conscientes para apoyar esta forma de autenticación. Si eres propietario o administras una OAuth App o GitHub App y quieres utilizar el flujo de dispositivos, puedes habilitarlo para tu app a través de la página de ajustes de la misma. Las terminales de la API de flujo de dispositivos responderán con el código de estado `400` a las apps que no hayan habilitado esta característica. Para obtener más información consulta la sección "[Autorizar las OAuth Apps](/developers/apps/building-oauth-apps/authorizing-oauth-apps#device-flow)".
     - |
@@ -316,13 +323,13 @@ sections:
     - |
       Creating and removing repository invitations, whether done through the API or web interface, are now subject to rate limits that may be enabled on your GitHub Enterprise Server instance. For more information about rate limits, see "[Configuring rate limits](/admin/configuration/configuring-your-enterprise/configuring-rate-limits)."
     - |
-      MinIO has announced the removal of the MinIO Gateways starting June 1st, 2022. While MinIO Gateway for NAS continues to be one of the supported storage providers for Github Actions and Github Packages, we recommend moving to MinIO LTS support to avail support and bug fixes from MinIO. For more information about rate limits, see "[Scheduled removal of MinIO Gateway for GCS, Azure, HDFS in the minio/minio repository](https://github.com/minio/minio/issues/14331)."
+      MinIO anunció la eliminación de MinIO Gateways desde el 1 de junio de 2022. Si bien MinIO Gateway para NAS sigue siendo uno de los proveedores de almacenamiento compatibles para GitHub Actions y GitHub Packages, recomendamos que te migres al soporte de MinIO LTS para obtener compatibilidad y correcciones de errores desde MinIO. Para obtener más información sobre los límites de tasa, consulta la "[Eliminación programada de MinIO Gateway para GCS, Azure, HDFS en el repositorio minio/minio](https://github.com/minio/minio/issues/14331)".
   deprecations:
     - 
-      heading: Change to the format of authentication tokens
+      heading: Change to the format of authentication tokens affects GitHub Connect
       notes:
         - |
-          GitHub Connect will no longer work after June 3rd for instances running GitHub Enterprise Server 3.1 or older, due to the format of GitHub authentication tokens changing. For more information, see the [GitHub changelog](https://github.blog/changelog/2021-03-31-authentication-token-format-updates-are-generally-available/).
+          GitHub Connect ya no funcionará después del 3 de junio para las instancias que ejecuten GitHub Enterprise Server 3.1 o anterior, debido al cambio en el formato de los tokens de autenticación de GitHub. Para seguir utilizando GitHub Connect, mejora a GitHub Enterprise Server 3.2 o posterior. Para obtener más información, consulta el [Blog de GitHub](https://github.blog/2022-05-20-action-needed-by-github-connect-customers-using-ghes-3-1-and-older-to-adopt-new-authentication-token-format-updates/). [Actualizado: 2022-06-14]
     - 
       heading: CodeQL runner deprecated in favor of CodeQL CLI
       notes:
@@ -332,7 +339,7 @@ sections:
       heading: Theme picker for GitHub Pages has been removed
       notes:
         - |
-          The theme picker for GitHub Pages has been removed from the Pages settings. For more information about configuration of themes for GitHub Pages, see "[Adding a theme to your GitHub Pages site using Jekyll](/pages/setting-up-a-github-pages-site-with-jekyll/adding-a-theme-to-your-github-pages-site-using-jekyll)."
+          El selector de tema de GitHub Pages se eliminó de los ajustes de las páginas. Para obtener más información sobre la configuración de temas para GitHub Pages, consulta la sección "[Agregar un tema a tu sitio de GitHub pages utilizando Jekyll](/pages/setting-up-a-github-pages-site-with-jekyll/adding-a-theme-to-your-github-pages-site-using-jekyll)".
   known_issues:
     - En una instancia recién configurada de {% data variables.product.prodname_ghe_server %} sin ningún usuario, un atacante podría crear el primer usuario adminsitrador.
     - Las reglas de cortafuegos personalizadas se eliminan durante el proceso de actualización.
@@ -343,3 +350,4 @@ sections:
     - Los límites de recursos que son específicos para procesar ganchos de pre-recepción podrían ocasionar que fallen algunos ganchos de pre-recepción.
     - Actions services need to be restarted after restoring an appliance from a backup taken on a different host.
     - 'Deleted repositories will not be purged from disk automatically after the 90-day retention period ends. [Updated: 2022-06-08]'
+    - 'Management Console may appear stuck on the _Starting_ screen after upgrading an under-provisioned instance to GitHub Enterprise Server 3.5. [Updated: 2022-06-20]'

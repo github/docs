@@ -1,6 +1,6 @@
 ---
 title: 恢复已删除的仓库
-intro: '{% ifversion ghes or ghae %}An enterprise owner{% elsif fpt or ghec %}You{% endif %} can restore some deleted repositories to recover their contents.'
+intro: '{% ifversion ghes or ghae %}企业所有者{% elsif fpt or ghec %}您{% endif %} 可以还原某些已删除的存储库以恢复其内容。'
 permissions: '{% ifversion ghes or ghae %}{% elsif fpt or ghec %}Anyone can restore deleted repositories that were owned by their own personal account. Organization owners can restore deleted repositories that were owned by the organization.{% endif %}'
 redirect_from:
   - /articles/restoring-a-deleted-repository
@@ -18,7 +18,7 @@ shortTitle: 恢复已删除的仓库
 
 {% ifversion ghes or ghae %}
 
-Usually, deleted repositories can be restored within 90 days by an enterprise owner{% ifversion ghes %} on {% data variables.product.product_location %}{% endif %}. 更多信息请参阅“[恢复删除的仓库](/admin/user-management/managing-repositories-in-your-enterprise/restoring-a-deleted-repository)”。
+通常，{% ifversion ghes %}{% data variables.product.product_location %}上{% endif %}已删除的存储库可以在 90 天内由企业所有者恢复。 更多信息请参阅“[恢复删除的仓库](/admin/user-management/managing-repositories-in-your-enterprise/restoring-a-deleted-repository)”。
 
 {% else %}
 

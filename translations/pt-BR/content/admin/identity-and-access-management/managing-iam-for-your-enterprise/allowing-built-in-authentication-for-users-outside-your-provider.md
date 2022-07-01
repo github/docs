@@ -28,7 +28,7 @@ Se você configurar a autenticação integrada e uma pessoa autenticada com suce
 
 {% warning %}
 
-**Aviso:** se desabilitar a autenticação integrada, você terá que suspender individualmente todos os usuários que não devem mais ter acesso à instância. Para obter mais informações, consulte "[Suspender e cancelar a suspensão de usuários](/enterprise/{{ currentVersion }}/admin/guides/user-management/suspending-and-unsuspending-users)."
+**Aviso:** se desabilitar a autenticação integrada, você terá que suspender individualmente todos os usuários que não devem mais ter acesso à instância. Para obter mais informações, consulte "[Suspender e cancelar a suspensão de usuários](/enterprise/admin/guides/user-management/suspending-and-unsuspending-users)."
 
 {% endwarning %}
 

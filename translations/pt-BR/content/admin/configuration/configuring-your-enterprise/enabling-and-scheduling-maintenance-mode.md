@@ -79,7 +79,7 @@ Você também pode usar um utilitário de linha de comando para configurar a lis
 
 ## Programar o modo de manutenção com a {% data variables.product.prodname_enterprise_api %}
 
-Você pode programar o modo de manutenção para horas ou datas diferentes na {% data variables.product.prodname_enterprise_api %}. Para obter mais informações, consulte "[Console de gerenciamento](/enterprise/{{ currentVersion }}/user/rest/reference/enterprise-admin#enable-or-disable-maintenance-mode)".
+Você pode programar o modo de manutenção para horas ou datas diferentes na {% data variables.product.prodname_enterprise_api %}. Para obter mais informações, consulte "[Console de gerenciamento](/enterprise/user/rest/reference/enterprise-admin#enable-or-disable-maintenance-mode)".
 
 ## Habilitar ou desabilitar o modo de manutenção para todos os nós do cluster
 

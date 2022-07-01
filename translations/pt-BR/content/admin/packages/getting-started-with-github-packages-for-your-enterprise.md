@@ -45,8 +45,8 @@ Se o isolamento de subdomínio estiver habilitado para {% data variables.product
 
   Você pode criar o certificado manualmente ou pode usar _Let's Encrypt_. Se você já usa _Let's Encrypt_, você deverá solicitar um novo certificado TLS depois de habilitar {% data variables.product.prodname_registry %}. Para obter mais informações sobre as URLs de host do pacote, consulte "[Habilitar o isolamento de subdomínio](/enterprise/admin/configuration/enabling-subdomain-isolation)". Para obter mais informações sobre o upload de certificados TLS para {% data variables.product.product_name %}, consulte "[Configurar TLS](/enterprise/admin/configuration/configuring-tls)".
 
-## Step 5: Check for and rename reserved names
+## Etapa5: Verifique e renomeie nomes reservados
 
-If you want to use the Docker ecosystem with subdomain isolation disabled, you **must** first rename any user or organization named `v2` on {% data variables.product.product_location %}, prior to enabling Docker ecosystem support in the {% data variables.enterprise.management_console %}. Docker uses a `v2` account name to manage path conflicts with the Docker API, and once Docker registry support is enabled, you won't be able to use this name anymore.
+Se você quiser usar o ecossistema Docker com o isolamento de subdomínio desabilitado, você **deve** primeiro renomear qualquer usuário ou organização denominada `v2` em {% data variables.product.product_location %}, antes de habilitar o suporte ao ecossistema Docker no {% data variables.enterprise.management_console %}. O Docker usa um nome de conta `v2` para gerenciar conflitos de caminho com a API do Docker, e assim que o suporte ao registro Docker estiver habilitado, você não poderá mais usar esse nome.
 
-You can view a full list of logins reserved for internal use by navigating to the "Reserved logins" page in the Site admin dashboard. For more information, see "[Reserved logins](/admin/configuration/configuring-your-enterprise/site-admin-dashboard#reserved-logins)."
+Você pode visualizar uma lista completa de logins reservados para uso interno, acessando a página "Logins reservados" no painel de administração do site. Para obter mais informações, consulte "[logins reservados](/admin/configuration/configuring-your-enterprise/site-admin-dashboard#reserved-logins). "

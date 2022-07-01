@@ -52,7 +52,7 @@ HTTPS エラーの例を次に示します:
 
 フェッチするリポジトリが {% data variables.product.product_location %} に存在する必要があります。また、URL では大文字と小文字が区別されます。
 
-コマンドラインを開き、`git remot -v` と入力して、ローカルリポジトリの URL を見つけることができます。
+コマンドラインを開き、`git remote -v` と入力して、ローカルリポジトリの URL を見つけることができます。
 
 ```shell
 $ git remote -v
@@ -125,9 +125,11 @@ $ ssh -T git@{% data variables.command_line.codeblock %}
 > provide shell access.
 ```
 
-リポジトリが Organization に属し、OAuth App によって生成された SSH キーを使用している場合、OAuth App へのアクセスは Organization のオーナーによって制限されている可能性があります。 詳しい情報については、「<a href="/organizations/restricting-access-to-your-organizations-data/about-oauth-app-access-restrictions" class="dotcom-only">OAuth App のアクセス制限について</a>」を参照してください。
+{% ifversion fpt or ghec %}
+リポジトリが Organization に属し、OAuth App によって生成された SSH キーを使用している場合、OAuth App へのアクセスは Organization のオーナーによって制限されている可能性があります。 詳しい情報については、「[OAuth App のアクセス制限について](/organizations/restricting-access-to-your-organizations-data/about-oauth-app-access-restrictions)」を参照してください。
+{% endif %}
 
-詳細は「[GitHub アカウントに新しい GPG キーを追加する](/articles/adding-a-new-gpg-key-to-your-github-account)」を参照してください。
+For more information, see [Adding a new SSH key to your GitHub account](/articles/adding-a-new-ssh-key-to-your-github-account).
 
 {% ifversion ghes %}
 ### インスタンスがプライベートモードであるかを確認する
