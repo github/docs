@@ -1,5 +1,5 @@
 ---
-title: Setting your default region for GitHub Codespaces
+title: Setting your default region for Codespaces
 shortTitle: Set the default region
 intro: 'You can set your default region in the {% data variables.product.prodname_github_codespaces %} profile settings page to personalize where your data is held.'
 product: '{% data reusables.gated-features.codespaces %}'
@@ -8,7 +8,6 @@ versions:
   ghec: '*'
 redirect_from:
   - /codespaces/managing-your-codespaces/setting-your-default-region-for-codespaces
-  - /codespaces/customizing-your-codespace/setting-your-default-region-for-codespaces
 topics:
   - Codespaces
 type: how_to
