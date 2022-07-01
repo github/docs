@@ -10,12 +10,11 @@ redirect_from:
 topics:
   - Codespaces
 children:
-  - /personalizing-codespaces-for-your-account
+  - /personalizing-github-codespaces-for-your-account
   - /changing-the-machine-type-for-your-codespace
   - /setting-your-default-editor-for-codespaces
   - /setting-your-default-region-for-codespaces
   - /setting-your-timeout-period-for-codespaces
   - /configuring-automatic-deletion-of-your-codespaces
-  
 ---
  

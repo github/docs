@@ -6,6 +6,7 @@ redirect_from:
   - /github/developing-online-with-github-codespaces/personalizing-github-codespaces-for-your-account
   - /github/developing-online-with-codespaces/personalizing-codespaces-for-your-account
   - /codespaces/setting-up-your-codespace/personalizing-codespaces-for-your-account
+  - /codespaces/customizing-your-codespace/personalizing-codespaces-for-your-account
 versions:
   fpt: '*'
   ghec: '*'
