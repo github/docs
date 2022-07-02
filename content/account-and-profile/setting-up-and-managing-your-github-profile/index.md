@@ -10,7 +10,7 @@ versions:
   ghes: '*'
   ghae: '*'
   ghec: '*'
-topics:
+topic:
   - Profiles
 children:
   - /customizing-your-profile
