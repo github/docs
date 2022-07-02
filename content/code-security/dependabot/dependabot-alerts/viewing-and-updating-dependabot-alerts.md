@@ -1,6 +1,6 @@
 ---
 title: Viewing and updating Dependabot alerts
-intro: 'If {% data variables.product.product_name %} discovers vulnerable dependencies in your project, you can view them on the Dependabot alerts tab of your repository. Then, you can update your project to resolve or dismiss the vulnerability.'
+intro: 'If {% data variables.product.product_name %} discovers insecure dependencies in your project, you can view details on the Dependabot alerts tab of your repository. Then, you can update your project to resolve or dismiss the alert.'
 redirect_from:
   - /articles/viewing-and-updating-vulnerable-dependencies-in-your-repository
   - /github/managing-security-vulnerabilities/viewing-and-updating-vulnerable-dependencies-in-your-repository
@@ -35,11 +35,25 @@ You can enable automatic security updates for any repository that uses {% data v
 {% ifversion fpt or ghec or ghes > 3.2 %}
 ## About updates for vulnerable dependencies in your repository
 
-{% data variables.product.product_name %} generates {% data variables.product.prodname_dependabot_alerts %} when we detect that your codebase is using dependencies with known vulnerabilities. For repositories where {% data variables.product.prodname_dependabot_security_updates %} are enabled, when {% data variables.product.product_name %} detects a vulnerable dependency in the default branch, {% data variables.product.prodname_dependabot %} creates a pull request to fix it. The pull request will upgrade the dependency to the minimum possible secure version needed to avoid the vulnerability.
+{% data variables.product.product_name %} generates {% data variables.product.prodname_dependabot_alerts %} when we detect that your codebase is using dependencies with known security risks. For repositories where {% data variables.product.prodname_dependabot_security_updates %} are enabled, when {% data variables.product.product_name %} detects a vulnerable dependency in the default branch, {% data variables.product.prodname_dependabot %} creates a pull request to fix it. The pull request will upgrade the dependency to the minimum possible secure version needed to avoid the vulnerability.
 
-{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-5638 %}You can sort and filter {% data variables.product.prodname_dependabot_alerts %} with the dropdown menus in the {% data variables.product.prodname_dependabot_alerts %} tab or by typing filters as `key:value` pairs into the search bar. The available filters are repository (for example, `repo:my-repository`), package (for example, `package:django`), ecosystem (for example, `ecosystem:npm`), manifest (for example, `manifest:webwolf/pom.xml`), state (for example, `is:open`), and whether an advisory has a patch (for example, `has: patch`).
+{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-5638 %}You can sort and filter {% data variables.product.prodname_dependabot_alerts %} with the dropdown menus in the {% data variables.product.prodname_dependabot_alerts %} tab or by typing filters as `key:value` pairs into the search bar. The available filters are repository (for example, `repo:my-repository`), package (for example, `package:django`), ecosystem (for example, `ecosystem:npm`), manifest (for example, `manifest:webwolf/pom.xml`), state (for example, `is:open`), and whether an advisory has a patch (for example, `has: patch`).{% ifversion dependabot-alerts-development-label %} You can also filter alerts with dependency scope data using `scope`, for example: `scope:development` or `scope:runtime`. With `scope:development`, the list of alerts will only show dependencies used during development, not production.{% endif %}
 
 Each {% data variables.product.prodname_dependabot %} alert has a unique numeric identifier and the {% data variables.product.prodname_dependabot_alerts %} tab lists an alert for every detected vulnerability. Legacy {% data variables.product.prodname_dependabot_alerts %} grouped vulnerabilities by dependency and generated a single alert per dependency. If you navigate to a legacy {% data variables.product.prodname_dependabot %} alert, you will be redirected to a {% data variables.product.prodname_dependabot_alerts %} tab filtered for that package. {% endif %}
+{% endif %}
+
+{% ifversion dependabot-alerts-development-label %}
+## Supported ecosystems and manifests for dependency scope
+
+<!-- TODO: for now we'd have this table and heading as they are, but we're planning to replace this with at a later date a new heading containing all the available filters in one or more tables -->
+{% data reusables.dependabot.dependabot-alerts-dependency-scope %}
+
+Alerts for packages listed as development dependencies are marked with the `Development` label on the {% data variables.product.prodname_dependabot_alerts %} page and are also available for filtering via the `scope` filter.
+![Screenshot showing the "Development" label in the list of alerts](/assets/images/help/repository/dependabot-alerts-development-label.png)
+
+The alert details page of alerts on development-scoped packages shows a "Tags" section containing a `Development` label.
+![Screenshot showing the "Tags" section in the alert details page](/assets/images/help/repository/dependabot-alerts-tags-section.png)
+
 {% endif %}
 
 {% ifversion dependabot-alerts-vulnerable-calls %}
@@ -78,10 +92,15 @@ For more information, see "[Reviewing and fixing alerts](#reviewing-and-fixing-a
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-security %}
 {% data reusables.repositories.sidebar-dependabot-alerts %}
-1. Optionally, to filter alerts, select the **Repository**, **Package**, **Ecosystem**, or **Manifest** dropdown menu then click the filter that you would like to apply. You can also type filters into the search bar. For example, `ecosystem:npm` or `has:patch`. To sort alerts, select the **Sort** dropdown menu then click the option that you would like to sort by.{% ifversion dependabot-bulk-alerts %}
+1. Optionally, to filter alerts, select the **Repository**, **Package**, **Ecosystem**, or **Manifest** dropdown menu then click the filter that you would like to apply. You can also type filters into the search bar. For example, `ecosystem:npm`{% ifversion ghes < 3.7 or ghae-issue-5638 %} or `has:patch`{% endif %}{% ifversion dependabot-alerts-development-label %}, `has:patch` or `scope:development`{% endif %}. To sort alerts, select the **Sort** dropdown menu then click the option that you would like to sort by. 
+   
+   You can also click a label on an alert to only show alerts of that type.{% ifversion dependabot-alerts-development-label %} For example, clicking the `Development` label in the list of alerts will only show alerts relating to dependencies used in development, not production. For information about the list of ecosystems supported, see "[Supported ecosystems and manifests for dependency scope ](#supported-ecosystems-and-manifests-for-dependency-scope)."
+
+{% endif %}
+{%- ifversion dependabot-bulk-alerts %}
   ![Screenshot of the filter and sort menus in the {% data variables.product.prodname_dependabot_alerts %} tab](/assets/images/help/graphs/dependabot-alerts-filters-checkbox.png){% else %}
    ![Screenshot of the filter and sort menus in the {% data variables.product.prodname_dependabot_alerts %} tab](/assets/images/enterprise/3.5/dependabot/dependabot-alerts-filters.png){% endif %}
-2. Click the alert that you would like to view.{% ifversion dependabot-bulk-alerts %}
+1. Click the alert that you would like to view.{% ifversion dependabot-bulk-alerts %}
    ![Alert selected in list of alerts](/assets/images/help/graphs/click-alert-in-alerts-list-checkbox.png){% else %}
    ![Alert selected in list of alerts](/assets/images/enterprise/3.5/dependabot/click-alert-in-alerts-list-ungrouped.png){% endif %}
 
@@ -95,11 +114,11 @@ For more information, see "[Reviewing and fixing alerts](#reviewing-and-fixing-a
 
 ## Reviewing and fixing alerts
 
-It’s important to ensure that all of your dependencies are clean of any security weaknesses. When {% data variables.product.prodname_dependabot %} discovers vulnerabilities in your dependencies, you should assess your project’s level of exposure and determine what remediation steps to take to secure your application.
+It’s important to ensure that all of your dependencies are clean of any security weaknesses. When {% data variables.product.prodname_dependabot %} discovers vulnerabilities {% ifversion GH-advisory-db-supports-malware %}or malware{% endif %} in your dependencies, you should assess your project’s level of exposure and determine what remediation steps to take to secure your application.
 
-If a patched version is available, you can generate a {% data variables.product.prodname_dependabot %} pull request to update this dependency directly from a {% data variables.product.prodname_dependabot %} alert. If you have {% data variables.product.prodname_dependabot_security_updates %} enabled, the pull request may be linked will in the Dependabot alert. 
+If a patched version of the dependency is available, you can generate a {% data variables.product.prodname_dependabot %} pull request to update this dependency directly from a {% data variables.product.prodname_dependabot %} alert. If you have {% data variables.product.prodname_dependabot_security_updates %} enabled, the pull request may be linked will in the Dependabot alert. 
 
-In cases where a patched version is not available, or you can’t update to the secure version, {% data variables.product.prodname_dependabot %} shares additional information to help you determine next steps. When you click through to view a {% data variables.product.prodname_dependabot %} alert, you can see the full details of the security advisory for the dependency including the affected functions. You can then check whether your code calls the impacted functions. This information can help you further assess your risk level, and determine workarounds or if you’re able to accept the risk represented by the security vulnerability.
+In cases where a patched version is not available, or you can’t update to the secure version, {% data variables.product.prodname_dependabot %} shares additional information to help you determine next steps. When you click through to view a {% data variables.product.prodname_dependabot %} alert, you can see the full details of the security advisory for the dependency including the affected functions. You can then check whether your code calls the impacted functions. This information can help you further assess your risk level, and determine workarounds or if you’re able to accept the risk represented by the security advisory.
 
 {% ifversion dependabot-alerts-vulnerable-calls %}
 

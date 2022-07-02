@@ -1,6 +1,23 @@
-“活动”包括但不限于：
-- 登录 {% data variables.product.product_name %}。
-- 评论问题和拉取请求。
-- 创建、删除、关注仓库和加星标。
-- 推送提交。
-- 使用个人访问令牌或 SSH 密钥访问资源。
+A user is considered active if the user has performed any of the following activities on {% ifversion fpt or ghec or ghes %}{% data variables.product.product_location %}{% elsif ghae %}{% data variables.product.product_name %}{% endif %}.
+
+- Signing into {% data variables.product.product_location %}
+- 创建仓库
+- Pushing to a repository
+- Being added to a repository
+- Changing the visibility of a repository
+- 创建议题或拉取请求
+- Commenting on an issue or pull request
+- Closing or reopening an issue or pull request
+- Applying a label to an issue or pull request, or removing a label
+- Assigning or unassigning an issue or pull request
+- Requesting a review of a pull request, or removing a review request
+- Creating or editing a comment in a pull request review
+- Dismissing a comment in a pull request
+- Synchronizing a pull request
+- Commenting on a commit
+- Publishing a release
+- Pushing to a wiki
+- 关注仓库
+- 对仓库标星
+- 删除仓库
+- Accessing resources by using a personal access token or SSH key

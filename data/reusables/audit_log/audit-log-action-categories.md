@@ -29,7 +29,7 @@
 | `config_entry` |  Contains activities related to configuration settings. These events are only visible in the site admin audit log.
 {%- endif %}
 {%- ifversion fpt or ghec or ghes > 3.2 or ghae %} |
-| `dependabot_alerts`  | Contains organization-level configuration activities for {% data variables.product.prodname_dependabot_alerts %} in existing repositories. For more information, see "[About alerts for vulnerable dependencies](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)."
+| `dependabot_alerts`  | Contains organization-level configuration activities for {% data variables.product.prodname_dependabot_alerts %} in existing repositories. For more information, see "[About {% data variables.product.prodname_dependabot_alerts %}](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)."
 | `dependabot_alerts_new_repos`   | Contains organization-level configuration activities for  {% data variables.product.prodname_dependabot_alerts %} in new repositories created in the organization.
 | `dependabot_repository_access` | Contains activities related to which private repositories in an organization {% data variables.product.prodname_dependabot %} is allowed to access.
 {%- endif %}
@@ -156,7 +156,7 @@
 | `repository_visibility_change` | Contains activities related to allowing organization members to change repository visibilities for the organization.
 {%- endif %}
 {%- ifversion fpt or ghec or ghes or ghae %}
-| `repository_vulnerability_alert`   | Contains activities related to [{% data variables.product.prodname_dependabot_alerts %} for vulnerable dependencies](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies).
+| `repository_vulnerability_alert`   | Contains activities related to [{% data variables.product.prodname_dependabot_alerts %}](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts).
 {%- endif %}
 {%- ifversion fpt or ghec %}
 | `repository_vulnerability_alerts` | Contains repository-level configuration activities for {% data variables.product.prodname_dependabot_alerts %}.

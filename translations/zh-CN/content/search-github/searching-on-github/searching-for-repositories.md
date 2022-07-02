@@ -24,12 +24,13 @@ shortTitle: 搜索仓库
 
 ## 按仓库名称、说明或自述文件内容搜索
 
-通过 `in` 限定符，您可以将搜索限制为仓库名称、仓库说明、自述文件内容或这些的任意组合。 如果省略此限定符，则只搜索仓库名称和说明。
+通过 `in` 限定符，您可以将搜索限制为仓库名称、仓库说明、仓库主题、自述文件内容或这些的任意组合。 如果省略此限定符，则只搜索仓库名称、说明和主题。
 
 | 限定符               | 示例                                                                                                                                        |
 | ----------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
 | `in:name`         | [**jquery in:name**](https://github.com/search?q=jquery+in%3Aname&type=Repositories) 匹配仓库名称中含有 "jquery" 的仓库。                              |
 | `in:description`  | [**jquery in:name,description**](https://github.com/search?q=jquery+in%3Aname%2Cdescription&type=Repositories) 匹配仓库名称或说明中含有 "jquery" 的仓库。 |
+| `in:topics`       | [**jquery in:topics**](https://github.com/search?q=jquery+in%3Atopics&type=Repositories) 匹配标记为“jquery”作为主题的存储库。                           |
 | `in:readme`       | [**jquery in:readme**](https://github.com/search?q=jquery+in%3Areadme&type=Repositories) 匹配仓库自述文件中提及 "jquery" 的仓库。                        |
 | `repo:owner/name` | [**repo:octocat/hello-world**](https://github.com/search?q=repo%3Aoctocat%2Fhello-world) 匹配特定仓库名称。                                        |
 

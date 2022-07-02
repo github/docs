@@ -15,6 +15,7 @@ miniTocMaxHeadingLevel: 3
 children:
   - /artifacts
   - /cache
+  - /oidc
   - /permissions
   - /secrets
   - /self-hosted-runner-groups

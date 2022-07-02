@@ -22,7 +22,7 @@ shortTitle: MinIO Gateway for NAS storage
 Before enabling {% data variables.product.prodname_actions %}, make sure you have completed the following steps:
 
 * To avoid resource contention on the appliance, we recommend that MinIO be hosted separately from {% data variables.product.product_location %}.
-* Create your bucket for storing workflow data. To set up your bucket and access key, see the [MinIO documentation](https://docs.min.io/docs/minio-gateway-for-nas.html). {% indented_data_reference reusables.actions.enterprise-s3-permission spaces=2 %}
+* Create your bucket for storing workflow data. {% indented_data_reference reusables.actions.enterprise-s3-permission spaces=2 %}
   
 {% data reusables.actions.enterprise-common-prereqs %}
 
@@ -38,7 +38,7 @@ Before enabling {% data variables.product.prodname_actions %}, make sure you hav
 
    * **AWS Service URL**: The URL to your MinIO service. For example, `https://my-minio.example:9000`.
    * **AWS S3 Bucket**: The name of your S3 bucket.
-   * **AWS S3 Access Key** and **AWS S3 Secret Key**: The `MINIO_ACCESS_KEY` and `MINIO_SECRET_KEY` used for your MinIO instance. For more information, see the [MinIO documentation](https://docs.min.io/docs/minio-gateway-for-nas.html).
+   * **AWS S3 Access Key** and **AWS S3 Secret Key**: The `MINIO_ACCESS_KEY` and `MINIO_SECRET_KEY` used for your MinIO instance.
 
    ![Radio button for selecting Amazon S3 Storage and fields for MinIO configuration](/assets/images/enterprise/management-console/actions-minio-s3-storage.png)
 1. Under "Artifact & Log Storage", select **Force path style**.

@@ -1343,7 +1343,7 @@ O conjunto de dados consultivos de segurança também alimentam o GitHub {% data
 
 ## security_and_analysis
 
-Activity related to enabling or disabling code security and analysis features for a repository or organization.
+Atividade relacionada à habilitação ou desabilitação de recursos de segurança e análise de código para um repositório ou organização.
 
 ### Disponibilidade
 
@@ -1353,9 +1353,9 @@ Activity related to enabling or disabling code security and analysis features fo
 
 ### Objeto da carga do webhook
 
-| Tecla        | Tipo     | Descrição                                                              |
-| ------------ | -------- | ---------------------------------------------------------------------- |
-| `alterações` | `objeto` | The changes that were made to the code security and analysis features. |
+| Tecla        | Tipo     | Descrição                                                                            |
+| ------------ | -------- | ------------------------------------------------------------------------------------ |
+| `alterações` | `objeto` | As alterações que foram feitas nas funcionalidades de segurança e análise do código. |
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.app_desc %}

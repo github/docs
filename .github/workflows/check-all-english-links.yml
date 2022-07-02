@@ -17,7 +17,7 @@ jobs:
   check_all_english_links:
     name: Check all links
     if: github.repository == 'github/docs-internal'
-    runs-on: self-hosted
+    runs-on: ubuntu-20.04-xl
     env:
       GITHUB_TOKEN: ${{ secrets.DOCUBOT_READORG_REPO_WORKFLOW_SCOPES }}
       FIRST_RESPONDER_PROJECT: Docs content first responder
@@ -25,6 +25,9 @@ jobs:
       REPORT_LABEL: broken link report
       REPORT_REPOSITORY: github/docs-content
     steps:
+      - name: Check that gh CLI is installed
+        run: gh --version
+
       - name: Check out repo's default branch
         uses: actions/checkout@dcd71f646680f2efd8db4afa5ad64fdcba30e748
       - name: Setup Node
@@ -60,8 +63,8 @@ jobs:
           DISABLE_REWRITE_ASSET_URLS: true
         run: |
           node server.mjs > /tmp/stdout.log 2> /tmp/stderr.log &
-          sleep 5
-          curl --retry-connrefused --retry 4 -I http://localhost:4000/
+          sleep 6
+          curl --retry-connrefused --retry 5 -I http://localhost:4000/
 
       - if: ${{ failure() }}
         name: Debug server outputs on errors
