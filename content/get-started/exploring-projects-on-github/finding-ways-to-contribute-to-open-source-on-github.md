@@ -1,3 +1,5 @@
+## Finding ways to contribute
+
 ---
 title: Finding ways to contribute to open source on GitHub
 intro: 'You can find ways to contribute to open source projects on {% data variables.product.product_location %} that are relevant to you.'
