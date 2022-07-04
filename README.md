@@ -52,7 +52,7 @@ In addition to the README you're reading right now, this repo includes other REA
 
 ## License
 
-The GitHub product documentation in the assets, content, and data folders are licensed under a [CC-BY license](LICENSE).
+The GitHub product documentation in the assets, content and data folders are licensed under a [CC-BY license](LICENSE).
 
 All other code in this repository is licensed under the [MIT license](LICENSE-CODE).
 
@@ -60,4 +60,4 @@ When using the GitHub logos, be sure to follow the [GitHub logo guidelines](http
 
 ## Thanks :purple_heart:
 
-Thanks for all your contributions and efforts towards improving the GitHub documentation. We thank you being part of our :sparkles: community :sparkles:!
+Thanks for all your contributions and efforts towards improving the GitHub documentation. We thank you for being part of our :sparkles: community :sparkles:!
