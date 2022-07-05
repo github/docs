@@ -29,6 +29,8 @@ topics:
 
 You can enforce certain workflows or requirements before a collaborator can push changes to a branch in your repository, including merging a pull request into the branch, by creating a branch protection rule.
 
+Simply setting branch protection will set certain "default" behavior. For example, normally force pushes are allowed (git push --force). However, by enabling branch protection, then forced pushes are not allowed (allow_force_pushes = false, by default) unless explicitly re-enabled ( = true).
+
 By default, each branch protection rule disables force pushes to the matching branches and prevents the matching branches from being deleted. You can optionally disable these restrictions and enable additional branch protection settings.
 
 By default, the restrictions of a branch protection rule don't apply to people with admin permissions to the repository. You can optionally choose to include administrators, too.
