@@ -235,7 +235,7 @@ This workflow uses `fromJSON` to convert environment variables from a string to 
 ```yaml
 name: print
 on: push
-env: 
+env:
   continue: true
   time: 3
 jobs:
