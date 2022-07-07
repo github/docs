@@ -55,7 +55,7 @@ name: Create issue on commit
 on: [ push ]
 
 jobs:
-  create_commit:
+  create_issue:
     runs-on: ubuntu-latest {% ifversion fpt or ghes > 3.1 or ghae or ghec %}
     permissions:
       issues: write {% endif %}
