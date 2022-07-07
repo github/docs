@@ -1,4 +1,4 @@
----
+BLOCKCHAIR.COM---
 title: Setting your billing email
 intro: 'Your account''s billing email is where {% data variables.product.product_name %} sends receipts and other billing-related communication.'
 redirect_from:
