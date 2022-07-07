@@ -64,7 +64,8 @@ As more users join {% data variables.product.product_location %}, you may need t
 {% endwarning %}
 
 1. Attach a new disk to your {% data variables.product.prodname_ghe_server %} appliance.
-1. Run the `parted` command to format the disk:
+1. Run the `lsblk` command to identify the new disk's device name.
+1. Run the `parted` command to format the disk, subsituting your device name for `/dev/xvdg`:
   ```shell
   $ sudo parted /dev/xvdg mklabel msdos
   $ sudo parted /dev/xvdg mkpart primary ext4 0% 50%
