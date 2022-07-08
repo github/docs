@@ -150,7 +150,9 @@ Members of your enterprise can use internal repositories to work on projects wit
 You can use the steps below to configure whether {% ifversion internal-actions%}actions and {% endif %}workflows in an internal repository can be accessed from outside the repository.{% ifversion internal-actions %} For more information, see "[Sharing actions and workflows with your enterprise](/actions/creating-actions/sharing-actions-and-workflows-with-your-enterprise)." Alternatively, you can use the REST API to set, or get details of, the level of access. For more information, see "[Get the level of access for workflows outside of the repository](/rest/reference/actions#get-the-level-of-access-for-workflows-outside-of-the-repository#get-the-level-of-access-for-workflows-outside-of-the-repository)" and "[Set the level of access for workflows outside of the repository](/rest/reference/actions#get-the-level-of-access-for-workflows-outside-of-the-repository#set-the-level-of-access-for-workflows-outside-of-the-repository)."{% endif %}
 
 {% note %}
-This functionality is only avaialbe for **internal** repositories and **not** for commponents stored in private repositories.
+
+**Note:** This functionality is only availalbe for **internal** repositories and **not** for commponents stored in private repositories.
+
 {% endnote %}
 
 1. On {% data variables.product.prodname_dotcom %}, navigate to the main page of the internal repository.
