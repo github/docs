@@ -151,7 +151,7 @@ You can use the steps below to configure whether {% ifversion internal-actions%}
 
 {% note %}
 
-**Note:** This functionality is only availalbe for **internal** repositories and **not** for commponents stored in private repositories.
+**Note:** This functionality is only availalbe for **internal** repositories and **not** for components stored in private repositories.
 
 {% endnote %}
 
