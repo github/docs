@@ -4,6 +4,22 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "Type `RepositoryVulnerabilityAlertDependencyScope` was added",
+          "Argument 'dependencyScopes: [RepositoryVulnerabilityAlertDependencyScope!]` added to field `Repository.vulnerabilityAlerts'",
+          "Field `dependencyScope` was added to object type `RepositoryVulnerabilityAlert`",
+          "Enum value `ERLANG` was added to enum `SecurityAdvisoryEcosystem`"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2022-06-29"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "Input field `AddProjectDraftIssueInput.projectId` changed type from `ID!` to `ID`",
           "Input field `AddProjectDraftIssueInput.title` changed type from `String!` to `String`",
           "Input field `AddProjectNextItemInput.contentId` changed type from `ID!` to `ID`",

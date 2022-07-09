@@ -91,6 +91,7 @@ translations/zh-CN/content/admin/monitoring-activity-in-your-enterprise/analyzin
 translations/zh-CN/content/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise.md,broken liquid tags
 translations/zh-CN/content/admin/overview/about-enterprise-accounts.md,Listed in localization-support#489
 translations/zh-CN/content/admin/overview/about-enterprise-accounts.md,rendering error
+translations/zh-CN/content/admin/overview/about-github-enterprise-server.md,broken liquid tags
 translations/zh-CN/content/admin/overview/creating-an-enterprise-account.md,broken liquid tags
 translations/zh-CN/content/admin/packages/configuring-package-ecosystem-support-for-your-enterprise.md,broken liquid tags
 translations/zh-CN/content/admin/packages/enabling-github-packages-with-aws.md,broken liquid tags
@@ -156,6 +157,8 @@ translations/zh-CN/content/code-security/code-scanning/using-codeql-code-scannin
 translations/zh-CN/content/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/installing-codeql-cli-in-your-ci-system.md,broken liquid tags
 translations/zh-CN/content/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/running-codeql-runner-in-your-ci-system.md,broken liquid tags
 translations/zh-CN/content/code-security/dependabot/dependabot-alerts/about-dependabot-alerts.md,rendering error
+translations/zh-CN/content/code-security/dependabot/dependabot-alerts/browsing-security-advisories-in-the-github-advisory-database.md,broken liquid tags
+translations/zh-CN/content/code-security/dependabot/dependabot-alerts/configuring-dependabot-alerts.md,broken liquid tags
 translations/zh-CN/content/code-security/dependabot/dependabot-security-updates/about-dependabot-security-updates.md,broken liquid tags
 translations/zh-CN/content/code-security/dependabot/dependabot-security-updates/configuring-dependabot-security-updates.md,broken liquid tags
 translations/zh-CN/content/code-security/dependabot/index.md,broken liquid tags
@@ -185,6 +188,11 @@ translations/zh-CN/content/codespaces/managing-codespaces-for-your-organization/
 translations/zh-CN/content/codespaces/the-githubdev-web-based-editor.md,broken liquid tags
 translations/zh-CN/content/codespaces/troubleshooting/troubleshooting-your-connection-to-codespaces.md,broken liquid tags
 translations/zh-CN/content/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam.md,broken liquid tags
+translations/zh-CN/content/copilot/configuring-github-copilot/configuring-github-copilot-in-visual-studio-code.md,broken liquid tags
+translations/zh-CN/content/copilot/configuring-github-copilot/configuring-github-copilot-in-visual-studio.md,broken liquid tags
+translations/zh-CN/content/copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-visual-studio-code.md,broken liquid tags
+translations/zh-CN/content/copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-visual-studio.md,broken liquid tags
+translations/zh-CN/content/copilot/quickstart.md,broken liquid tags
 translations/zh-CN/content/desktop/contributing-and-collaborating-using-github-desktop/adding-and-cloning-repositories/adding-an-existing-project-to-github-using-github-desktop.md,broken liquid tags
 translations/zh-CN/content/desktop/installing-and-configuring-github-desktop/configuring-and-customizing-github-desktop/about-git-large-file-storage-and-github-desktop.md,broken liquid tags
 translations/zh-CN/content/desktop/installing-and-configuring-github-desktop/installing-and-authenticating-to-github-desktop/about-connections-to-github.md,broken liquid tags

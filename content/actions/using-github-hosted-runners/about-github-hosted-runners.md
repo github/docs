@@ -88,13 +88,13 @@ While the job runs, the logs and output can be viewed in the {% data variables.p
 
 Hardware specification for Windows and Linux virtual machines:
 - 2-core CPU having `amd64` architecture.
-- 7 GB of RAM memory
-- 14 GB of SSD disk space
+- 7 GB of RAM
+- 14 GB of SSD space
 
 Hardware specification for macOS virtual machines:
 - 3-core CPU having `Intel x86_64` architecture.
-- 14 GB of RAM memory
-- 14 GB of SSD disk space
+- 14 GB of RAM
+- 14 GB of SSD space
 
 {% data reusables.actions.supported-github-runners %}
 

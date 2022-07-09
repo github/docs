@@ -1,5 +1,6 @@
 ---
 title: Configurar tu editor predeterminado para Codesapces
+shortTitle: Configurar el editor predeterminado
 intro: 'Puedes configurar tu editor predeterminado para {% data variables.product.prodname_codespaces %} en tu página de ajustes personal.'
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
@@ -9,7 +10,7 @@ redirect_from:
   - /codespaces/managing-your-codespaces/setting-your-default-editor-for-codespaces
 topics:
   - Codespaces
-shortTitle: Configurar el editor predeterminado
+type: how_to
 ---
 
 En la página de ajustes, puedes configurar las preferencias de tu editor para que los codespaces recién creados se abran automáticamente, ya sea en {% data variables.product.prodname_vscode %} para la Web o en {% data variables.product.prodname_vscode %} para escritorio.

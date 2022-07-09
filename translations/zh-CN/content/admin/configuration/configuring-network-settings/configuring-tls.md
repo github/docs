@@ -36,6 +36,8 @@ topics:
 
 您可以使用 `ghe-ssl-generate-csr` 命令为实例生成证书签名请求 (CSR)。 更多信息请参阅“[命令行实用程序](/enterprise/admin/guides/installation/command-line-utilities/#ghe-ssl-generate-csr)”。
 
+您的密钥必须是 RSA 密钥，并且不能有密码。 更多信息请参阅“[将密码从密钥文件中移除](/admin/guides/installation/troubleshooting-ssl-errors#removing-the-passphrase-from-your-key-file)”。
+
 ## 上传自定义 TLS 证书
 
 {% data reusables.enterprise_site_admin_settings.tls-downtime %}
@@ -48,11 +50,6 @@ topics:
 5. 在“Certificate”下，单击 **Choose File**，选择要安装的 TLS 证书或证书链（PEM 格式）。 此文件通常采用 *.pem*、*.crt* 或 *.cer* 扩展名。 ![用于查找 TLS 证书文件的按钮](/assets/images/enterprise/management-console/install-tls-certificate.png)
 6. 在“Unencrypted key（未加密密钥）”下，单击 **Choose File（选择文件）**选择要安装的 RSA 密钥（PEM 格式）。 此文件通常采用 *.key* 扩展名。 ![用于查找 TLS 密钥文件的按钮](/assets/images/enterprise/management-console/install-tls-key.png)
 
-  {% warning %}
-
-  **警告**：您的密钥必须是 RSA 密钥，并且不能有密码。 更多信息请参阅“[将密码从密钥文件中移除](/admin/guides/installation/troubleshooting-ssl-errors#removing-the-passphrase-from-your-key-file)”。
-
-  {% endwarning %}
 {% data reusables.enterprise_management_console.save-settings %}
 
 ## 关于 Let's Encrypt 支持

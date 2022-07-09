@@ -16,6 +16,7 @@ children:
   - /restricting-access-to-machine-types
   - /restricting-the-visibility-of-forwarded-ports
   - /restricting-the-idle-timeout-period
+  - /restricting-the-retention-period-for-codespaces
 shortTitle: Managing your organization
 ---
 

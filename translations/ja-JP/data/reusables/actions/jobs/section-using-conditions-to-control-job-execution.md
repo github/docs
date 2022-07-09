@@ -1,10 +1,10 @@
-You can use the `jobs.<job_id>.if` conditional to prevent a job from running unless a condition is met. 条件文を作成するには、サポートされている任意のコンテキストや式が使えます。
+`jobs.<job_id>.if`条件文を使って、条件が満たされていなければジョブを実行しないようにすることができます。 条件文を作成するには、サポートされている任意のコンテキストや式が使えます。
 
-{% data reusables.actions.expression-syntax-if %} For more information, see "[Expressions](/actions/learn-github-actions/expressions)."
+{% data reusables.actions.expression-syntax-if %} 詳しい情報については「[式](/actions/learn-github-actions/expressions)」を参照してください。
 
-### Example: Only run job for specific repository
+### 例: 特定のリポジトリのジョブだけを実行する
 
-This example uses `if` to control when the `production-deploy` job can run. It will only run if the repository is named `octo-repo-prod` and is within the `octo-org` organization. Otherwise, the job will be marked as _skipped_.
+この例は`if`を使っていつ`production-deploy`ジョブが実行できるかを制御しています。 このジョブは、リポジトリの名前が`octo-repo-prod`で、`octo-org`というOrganization内にあるときだけ実行されます。 そうでない場合、このジョブは_skipped_とマークされます。
 
 ```yaml{:copy}
 name: example-workflow

@@ -30,7 +30,7 @@ We strongly recommend using a time-based one-time password (TOTP) application to
 
 {% ifversion fpt or ghec %}
 
-If you're a member of an {% data variables.product.prodname_emu_enterprise %}, you cannot configure 2FA for your {% data variables.product.prodname_managed_user %} account. 2FA should be configured through your identity provider. 
+If you're a member of an {% data variables.product.prodname_emu_enterprise %}, you cannot configure 2FA for your {% data variables.product.prodname_managed_user %} account unless you're signed in as the setup user. For users other than the setup user, an administrator must configure 2FA on your identity provider (IdP).
 
 {% endif %}
 

@@ -88,13 +88,13 @@ Enquanto o trabalho é executado, os logs e saídas podem ser visualizados na in
 
 Especificação de hardware para máquinas virtuais do Windows e Linux:
 - CPU dual core
-- 7 GB de memória RAM
-- 14 GB de espaço de disco SSD
+- 7 GB of RAM
+- 14 GB of SSD space
 
 Especificação de hardware para máquinas virtuais do macOS:
 - CPU de 3 núcleos
-- 14 GB de memória RAM
-- 14 GB de espaço de disco SSD
+- 14 GB of RAM
+- 14 GB of SSD space
 
 {% data reusables.actions.supported-github-runners %}
 

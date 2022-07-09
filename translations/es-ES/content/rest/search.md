@@ -88,7 +88,7 @@ Las solicitudes pueden decidir recibir esos fragmentos de texto en la respuesta,
 Para obtener estos metadatos en tus resultados de búsqueda, especifica el tipo de medios `text-match` en tu encabezado de `Accept`.
 
 ```shell
-application/vnd.github.v3.text-match+json
+application/vnd.github.text-match+json
 ```
 
 Cuando proporcionas el tipo de medios `text-match`, recibirás una clave extra en la carga útil de JSON llamada `text_matches`, la cual proporciona información acerca de la posición de tus términos de búsqueda dentro del texto y la `property` que incluye dicho término de búsqueda. Dentro de la matriz `text_matches`, cada objeto incluye los siguientes atributos:
@@ -106,7 +106,7 @@ Cuando proporcionas el tipo de medios `text-match`, recibirás una clave extra e
 Si utilizas cURL y también el [ejemplo de búsqueda de informe de problemas](#search-issues-and-pull-requests) anterior, nuestra solicitud de la API se vería así:
 
 ``` shell
-curl -H 'Accept: application/vnd.github.v3.text-match+json' \
+curl -H 'Accept: application/vnd.github.text-match+json' \
 '{% data variables.product.api_url_pre %}/search/issues?q=windows+label:bug+language:python+state:open&sort=created&order=asc'
 ```
 

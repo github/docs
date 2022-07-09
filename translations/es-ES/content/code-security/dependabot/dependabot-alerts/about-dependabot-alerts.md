@@ -1,6 +1,6 @@
 ---
-title: About Dependabot alerts
-intro: '{% data variables.product.product_name %} sends {% data variables.product.prodname_dependabot_alerts %} when we detect that your repository uses a vulnerable dependency{% ifversion GH-advisory-db-supports-malware %} or malware{% endif %}.'
+title: Acerca de las alertas del Dependabot
+intro: '{% data variables.product.product_name %} envía {% data variables.product.prodname_dependabot_alerts %} cuando detectamos que tu repositorio utiliza una dependencia vulnerabile{% ifversion GH-advisory-db-supports-malware %} o malware{% endif %}.'
 redirect_from:
   - /articles/about-security-alerts-for-vulnerable-dependencies
   - /github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies
@@ -30,20 +30,20 @@ shortTitle: Las alertas del dependabot
 {% data reusables.advisory-database.beta-malware-advisories %}
 {% endif %}
 
-{% data variables.product.prodname_dependabot_alerts %} tell you that your code depends on a package that is insecure.
+Las {% data variables.product.prodname_dependabot_alerts %} te indican cuando tu código depende de un paquete que no es seguro.
 
-If your code depends on a package with a security vulnerability, this can cause a range of problems for your project or the people who use it. You should upgrade to a secure version of the package as soon as possible.{% ifversion GH-advisory-db-supports-malware %} If your code uses malware, you need to replace the package with a secure alternative.{% endif %}
+Si tu código depende de un paquete con una vulnerabilidad de seguridad, esto puede ocasionar varios problemas para tu proyecto o para la persona que lo utiliza. Deberás mejorar a una versión segura del paquete tan pronto sea posible.{% ifversion GH-advisory-db-supports-malware %} si tu código utiliza malware, necesitarás reemplazar el paquete con una alternativa segura.{% endif %}
 
 {% data reusables.security-advisory.link-browsing-advisory-db %}
 
-## Detection of insecure dependencies
+## Detección de dependencias inseguras
 
 {% data reusables.dependabot.dependabot-alerts-beta %}
 
-{% data variables.product.prodname_dependabot %} performs a scan to detect insecure dependencies, and sends {% data variables.product.prodname_dependabot_alerts %} when:
+El {% data variables.product.prodname_dependabot %} realiza un escaneo para detectar las dependencias inseguras y envía {% data variables.product.prodname_dependabot_alerts %} cuando:
 
 {% ifversion fpt or ghec %}
-- A new advisory is added to the {% data variables.product.prodname_advisory_database %}. For more information, see "[Browsing security advisories in the {% data variables.product.prodname_advisory_database %}](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/browsing-security-vulnerabilities-in-the-github-advisory-database)."{% else %}
+- Se agrega una asesoría nueva a la {% data variables.product.prodname_advisory_database %}. Para obtener más información, consulta la sección "[Buscar asesorías de seguridad en la {% data variables.product.prodname_advisory_database %}](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/browsing-security-vulnerabilities-in-the-github-advisory-database)".{% else %}
 - Se sincronizan los datos de las asesorías nuevas en {% data variables.product.product_location %} cada hora desde {% data variables.product.prodname_dotcom_the_website %}. {% data reusables.security-advisory.link-browsing-advisory-db %}{% endif %}
   {% note %}
 
@@ -54,19 +54,19 @@ If your code depends on a package with a security vulnerability, this can cause 
 
 {% data reusables.repositories.dependency-review %}
 
-For a list of the ecosystems that {% data variables.product.product_name %} detects insecure dependencies in, see "[Supported package ecosystems](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph#supported-package-ecosystems)."
+Para encontrar una lista de ecosistemas en los cuales {% data variables.product.product_name %} detecta dependencias inseguras, consulta la sección "[Ecosistemas de paquete compatibles](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph#supported-package-ecosystems)".
 
 {% note %}
 
-**Nota:** Es importante mantener actualizados tu manifiesto y tus archivos bloqueados. If the dependency graph doesn't accurately reflect your current dependencies and versions, then you could miss alerts for insecure dependencies that you use. También podrías obtener alertas de las dependencias que ya no utilizas.
+**Nota:** Es importante mantener actualizados tu manifiesto y tus archivos bloqueados. Si la gráfica de dependencia no refleja tus dependencias y versiones actuales con exactitud, entonces podrías perderte de las alertas para las dependencias inseguras que utilizas. También podrías obtener alertas de las dependencias que ya no utilizas.
 
 {% endnote %}
 
-## Configuration of {% data variables.product.prodname_dependabot_alerts %}
+## Configuración de las {% data variables.product.prodname_dependabot_alerts %}
 
 {% data reusables.repositories.enable-security-alerts %}
 
-{% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %} detects vulnerable dependencies and malware in _public_ repositories and displays the dependency graph, but does not generate {% data variables.product.prodname_dependabot_alerts %} by default. Los propietarios de repositorios o las personas con acceso administrativo pueden habilitar las {% data variables.product.prodname_dependabot_alerts %} para los repositorios públicos. Los propietarios de los repositorios privados o las personas con acceso administrativo puede habilitar las {% data variables.product.prodname_dependabot_alerts %} si habilitan la gráfica de dependencias y las {% data variables.product.prodname_dependabot_alerts %} para sus repositorios.
+{% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %} detecta las dependencias vulnerables y el malware en los repositorios _públicos_ y muestra la gráfica de dependencias, pero no genera {% data variables.product.prodname_dependabot_alerts %} predeterminadamente. Los propietarios de repositorios o las personas con acceso administrativo pueden habilitar las {% data variables.product.prodname_dependabot_alerts %} para los repositorios públicos. Los propietarios de los repositorios privados o las personas con acceso administrativo puede habilitar las {% data variables.product.prodname_dependabot_alerts %} si habilitan la gráfica de dependencias y las {% data variables.product.prodname_dependabot_alerts %} para sus repositorios.
 
 También puedes habilitar o inhabilitar las {% data variables.product.prodname_dependabot_alerts %} para todos los repositorios que pertenezcan atu cuenta de usuario u organización. Para obtener más información, consulta la sección "[Configurar las {% data variables.product.prodname_dependabot_alerts %}](/code-security/dependabot/dependabot-alerts/configuring-dependabot-alerts)".
 
@@ -95,7 +95,7 @@ Predeterminadamente, notificamos a las personas con permisos administrativos en 
 {% endif %}
 
 {% data reusables.notifications.vulnerable-dependency-notification-enable %}
-{% data reusables.notifications.vulnerable-dependency-notification-delivery-method-customization2 %} For more information, see "[Configuring notifications for {% data variables.product.prodname_dependabot_alerts %}](/code-security/dependabot/dependabot-alerts/configuring-notifications-for-dependabot-alerts)."
+{% data reusables.notifications.vulnerable-dependency-notification-delivery-method-customization2 %}Para obtener más información, consulta la sección "[Configurar notificaciones para las {% data variables.product.prodname_dependabot_alerts %}](/code-security/dependabot/dependabot-alerts/configuring-notifications-for-dependabot-alerts)".
 
 You can also see all the {% data variables.product.prodname_dependabot_alerts %} that correspond to a particular advisory in the {% data variables.product.prodname_advisory_database %}. {% data reusables.security-advisory.link-browsing-advisory-db %}
 

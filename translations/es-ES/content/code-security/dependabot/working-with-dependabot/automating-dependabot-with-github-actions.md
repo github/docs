@@ -452,9 +452,9 @@ jobs:
 
 ### Habilita la fusión automática en una solicitud de cambios
 
-If you want to allow maintainers to mark certain pull requests for auto-merge, you can use {% data variables.product.prodname_dotcom %}'s auto-merge functionality. Esto habilita a la solicitud de cambios para que se fusione cuando se cumpla con todas las pruebas y aprobaciones requeridas. For more information on auto-merge, see "[Automatically merging a pull request](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/automatically-merging-a-pull-request)."
+Si quieres permitir que los mantenedores marquen solicitudes de cambio específicas para su fusión automática, puedes utilizar la funcionalidad de fusión automática de {% data variables.product.prodname_dotcom %}. Esto habilita a la solicitud de cambios para que se fusione cuando se cumpla con todas las pruebas y aprobaciones requeridas. Para obtener más información sobre la fusión automática, consulta la sección "[Fusionar una solicitud de cambios automáticamente](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/automatically-merging-a-pull-request)".
 
-You can instead use {% data variables.product.prodname_actions %} and the {% data variables.product.prodname_cli %}. Here is an example that auto merges all patch updates to `my-dependency`:
+En vez de esto, puedes trabajar con las {% data variables.product.prodname_actions %} y el {% data variables.product.prodname_cli %}. Aquí tienes un ejemplo que fusiona todas las actualizaciones de parches automáticamente a `my-dependency`:
 
 {% ifversion ghes = 3.3 %}
 

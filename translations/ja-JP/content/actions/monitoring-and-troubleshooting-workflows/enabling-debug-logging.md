@@ -41,7 +41,7 @@ Additionally, anyone who has access to run a workflow can enable runner diagnost
 
 ## ステップのデバッグロギングの有効化
 
-酢鉄粉デバッグロギングは、ジョブの実行の間と実行後のジョブのログの詳細度を高めます。
+ステップデバッグロギングは、ジョブの実行の間と実行後のジョブのログの詳細度を高めます。
 
 1. ステップのデバッグロギングを有効化するには、ワークフローを含むリポジトリで以下のシークレットを設定しなければなりません： `ACTIONS_STEP_DEBUG`を`true`にしてください。
 
