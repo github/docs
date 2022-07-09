@@ -1,3 +1,4 @@
+![20220511_191951](https://user-images.githubusercontent.com/97209197/178086156-0366fdd0-5151-4c3c-9a01-45f59214c574.gif)
 ---
 title: Setting your commit email address
 intro: 'You can set the email address that is used to author commits on {% data variables.product.product_location %} and on your computer.'
