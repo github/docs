@@ -308,6 +308,6 @@ Para informações sobre como alterar as políticas para o limite de tamanho do 
 
 ## Gerenciando caches
 
-Você pode usar a API REST de {% data variables.product.product_name %} para gerenciar seus caches. {% ifversion actions-cache-list-delete-apis %}You can use the API to list and delete cache entries, and see your cache usage.{% elsif actions-cache-management %}At present, you can use the API to see your cache usage, with more functionality expected in future updates.{% endif %} For more information, see the "[{% data variables.product.prodname_actions %} Cache](/rest/actions/cache)" REST API documentation.
+Você pode usar a API REST de {% data variables.product.product_name %} para gerenciar seus caches. {% ifversion actions-cache-list-delete-apis %}Você pode usar a API para listar e excluir entradas de cache e ver o seu uso de cache.{% elsif actions-cache-management %}Atualmente você pode usar a API para ver seu uso de cache, com mais funcionalidades em atualizações futuras.{% endif %} Para obter mais informações, consulte o "[{% data variables.product.prodname_actions %} Cache](/rest/actions/cache)" na documentação da API REST.
 
 {% endif %}

@@ -21,7 +21,7 @@ Este artigo demonstra como usar a API do GraphQL para gerenciar um projeto. Para
 
 {% curl %}
 
-In all of the following cURL examples, replace `TOKEN` with a token that has the `read:project` scope (for queries) or `project` scope (for queries and mutations). O token pode ser um token de acesso pessoal para um usuário ou um token de acesso de instalação para um {% data variables.product.prodname_github_app %}. Para obter mais informações sobre a criação de um token de acesso pessoal, consulte[Criando um token de acesso pessoal](/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token)." Para obter mais informações sobre a criação de um token de acesso de instalação para um {% data variables.product.prodname_github_app %}, consulte "[Efetuando a autenticação com {% data variables.product.prodname_github_apps %}](/developers/apps/building-github-apps/authenticating-with-github-apps#authenticating-as-a-github-app)".
+Em todos os exemplos cURL a seguir, substitua `TOKEN` por um token que tem o escopo `read:project` (para consultas) ou `project` (para consultas e mutações). O token pode ser um token de acesso pessoal para um usuário ou um token de acesso de instalação para um {% data variables.product.prodname_github_app %}. Para obter mais informações sobre a criação de um token de acesso pessoal, consulte[Criando um token de acesso pessoal](/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token)." Para obter mais informações sobre a criação de um token de acesso de instalação para um {% data variables.product.prodname_github_app %}, consulte "[Efetuando a autenticação com {% data variables.product.prodname_github_apps %}](/developers/apps/building-github-apps/authenticating-with-github-apps#authenticating-as-a-github-app)".
 
 {% endcurl %}
 
@@ -29,7 +29,7 @@ In all of the following cURL examples, replace `TOKEN` with a token that has the
 
 {% data reusables.cli.cli-learn-more %}
 
-Before running {% data variables.product.prodname_cli %} commands, you must authenticate by running `gh auth login --scopes "project"`. If you only need to read, but not edit, projects, you can provide the `read:project` scope instead of `project`. Para obter mais informações sobre a autenticação de linha de comando, consulte "[gh auth login](https://cli.github.com/manual/gh_auth_login)".
+Antes de executar os comandos {% data variables.product.prodname_cli %}, você deve efetuar a autenticação, executando `gh auth login --scopes "project"`. Se você só precisa ler, mas não editar projetos, você pode fornecer o escopo `read:projeto` ao invés do `project`. Para obter mais informações sobre a autenticação de linha de comando, consulte "[gh auth login](https://cli.github.com/manual/gh_auth_login)".
 
 {% endcli %}
 
@@ -174,7 +174,7 @@ gh api graphql -f query='
 
 Para atualizar o valor de um campo, você precisará saber o ID do nó do campo. Além disso, você precisará saber o ID das opções para um único campo selecionado e o ID das iterações para os campos de iteração.
 
-The following example will return the ID, name, settings, and configuration for the first 20 fields in a project. Substitua `PROJECT_ID` pelo ID do nó do seu projeto.
+O exemplo a seguir retornará o ID, nome e a configuração para os primeiros 20 campos de um projeto. Substitua `PROJECT_ID` pelo ID do nó do seu projeto.
 
 {% curl %}
 ```shell
@@ -276,9 +276,9 @@ A resposta ficará semelhante ao seguinte exemplo:
 }
 ```
 
-Each field has an ID and name. Single select fields are returned as a `ProjectV2SingleSelectField` object and have an `options` field where you can find the ID of each option for the single select. Iteration fields are returned as a `ProjectV2IterationField` object and have a `configuration` field which includes an `iterations` field containing the ID and information about each iteration.
+Cada campo tem um ID e nome. Os campos de seleção única são retornados como um objeto `ProjectV2SingleSelectField` e têm um campo `opções` onde você pode encontrar o ID de cada opção para o seletor único. Os campos de iteração são devolvidos como um objeto `ProjectV2IterationField` e têm um campo `configuração` que inclui um campo `iterações`, que contém o ID e as informações sobre cada iteração.
 
-If you just need the name and ID of a field, and do not need information about iterations or a single select field's options, you can make use of the `ProjectV2FieldCommon` object.
+Se você precisa apenas do nome e ID de um campo e não precisa de informações sobre iterações ou opções de um único campo selecionado, você pode usar o objeto `ProjectV2FieldCommon`.
 
 {% curl %}
 ```shell
@@ -309,7 +309,7 @@ gh api graphql -f query='
 ```
 {% endcli %}
 
-The response when using the `ProjectV2FieldCommon` object will look similar to the following example:
+A resposta ao usar o objeto `ProjectV2FieldCommon` será semelhante ao exemplo a seguir:
 
 ```json
 {
@@ -348,7 +348,7 @@ The response when using the `ProjectV2FieldCommon` object will look similar to t
 
 Você pode consultar a API para encontrar informações sobre itens no seu projeto.
 
-The following example will return the first 20 issues, pull requests, and draft issues in a project. For issues and pull requests, it will also return title and the first 10 assignees. For draft issue, it will return the title and body. The example will also return the field name and value for any text, date, or single select fields in the first 8 fields of the project. Substitua `PROJECT_ID` pelo ID do nó do seu projeto.
+O exemplo a seguir retornará os primeiros 20 problemas, pull requests e rascunhos problemas de rascunho em um projeto. Para issues e pull requests, ele também retornará o título e os primeiros 10 responsáveis. Para os rascunhos do problema, ele retornará o título e o texto. O exemplo também retornará o nome do campo e o valor para qualquer texto, data ou campos de seleção única nos primeiros 8 campos do projeto. Substitua `PROJECT_ID` pelo ID do nó do seu projeto.
 
 {% curl %}
 ```shell
@@ -426,7 +426,7 @@ gh api graphql -f query='
 ```
 {% endcli %}
 
-Um projeto pode conter itens que um usuário não tem permissão para visualizar. In this case, the item type will be returned as `REDACTED`.
+Um projeto pode conter itens que um usuário não tem permissão para visualizar. Neste caso, o tipo de item será retornado como `REDATADO`.
 
 ## Atualizando projetos
 
@@ -434,7 +434,7 @@ Use mutações para atualizar projetos. Para obter mais informações, consulte 
 
 {% note %}
 
-**Observação:** Você não pode adicionar e atualizar um item na mesma chamada. You must use `addProjectV2ItemById` to add the item and then use `updateProjectV2ItemFieldValue` to update the item.
+**Observação:** Você não pode adicionar e atualizar um item na mesma chamada. Você deve usar `addProjectV2ItemById` para adicionar o item e, em seguida, usar `updateProjectV2ItemFieldValue` para atualizar o item.
 
 {% endnote %}
 
@@ -480,9 +480,9 @@ A resposta conterá o ID do nó do item recém-criado.
 
 Se você tentar adicionar um item que já existe, o ID do item existente será retornado.
 
-### Adding a draft issue to a project
+### Adicionando o rascunho de um problema a um projeto
 
-The following example will add a draft issue to your project. Substitua `PROJECT_ID` pelo ID do nó do seu projeto. Replace `TITLE` and `BODY` with the content you want for the new draft issue.
+O exemplo a seguir adicionará o rascunho de um problema ao seu projeto. Substitua `PROJECT_ID` pelo ID do nó do seu projeto. Substitua `TITLE` e `BODY` pelo conteúdo que você deseja para o novo rascunho do problema.
 
 {% curl %}
 ```shell
@@ -506,7 +506,7 @@ gh api graphql -f query='
 ```
 {% endcli %}
 
-The response will contain the node ID of the newly created draft issue.
+A resposta conterá a identificação do nó rascunho do problema recém-criado.
 
 ```json
 {
@@ -522,7 +522,7 @@ The response will contain the node ID of the newly created draft issue.
 
 ### Atualizando configurações de um projeto
 
-O exemplo a seguir irá atualizar as configurações do seu projeto. Substitua `PROJECT_ID` pelo ID do nó do seu projeto. Defina `público` como `verdadeiro` para tornar o seu projeto público em {% data variables.product.product_name %}. Modify `readme` to make changes to your project's README.
+O exemplo a seguir irá atualizar as configurações do seu projeto. Substitua `PROJECT_ID` pelo ID do nó do seu projeto. Defina `público` como `verdadeiro` para tornar o seu projeto público em {% data variables.product.product_name %}. Modifique `readme` para fazer alterações no README do seu projeto.
 
 {% curl %}
 ```shell
@@ -559,7 +559,7 @@ gh api graphql -f query='
 
 ### Atualizando um campo de texto, número ou data personalizado
 
-The following example will update the value of a text field for an item. Substitua `PROJECT_ID` pelo ID do nó do seu projeto. Substitua `ITEM_ID` pelo ID do nó do item que você deseja atualizar. Substitua `FIELD_ID` pelo ID do campo que você deseja atualizar.
+O exemplo a seguir atualizará o valor de um campo de texto para um item. Substitua `PROJECT_ID` pelo ID do nó do seu projeto. Substitua `ITEM_ID` pelo ID do nó do item que você deseja atualizar. Substitua `FIELD_ID` pelo ID do campo que você deseja atualizar.
 
 {% curl %}
 ```shell
@@ -594,7 +594,7 @@ gh api graphql -f query='
 
 {% note %}
 
-**Note:** You cannot use `updateProjectV2ItemFieldValue` to change `Assignees`, `Labels`, `Milestone`, or `Repository` because these fields are properties of pull requests and issues, not of project items. Em vez disso, você deverá usar a mutação [addAssigneesToAssignable]({% ifversion ghec%}/free-pro-team@latest{% endif %}/graphql/reference/mutations#addassigneestoassignable), [removeAssigneesFromAssignable]({% ifversion ghec%}/free-pro-team@latest{% endif %}/graphql/reference/mutations#removeassigneesfromassignable), [addLabelsToLabelable]({% ifversion ghec%}/free-pro-team@latest{% endif %}/graphql/reference/mutations#addlabelstolabelable), [removeLabelsFromLabelable]({% ifversion ghec%}/free-pro-team@latest{% endif %}/graphql/reference/mutations#removelabelsfromlabelable), [updateIssue]({% ifversion ghec%}/free-pro-team@latest{% endif %}/graphql/reference/mutations#updateissue), [updatePullRequest]({% ifversion ghec%}/free-pro-team@latest{% endif %}/graphql/reference/mutations#updatepullrequest) ou [transferIssue]({% ifversion ghec%}/free-pro-team@latest{% endif %}/graphql/reference/mutations#transferissue).
+**Observação:** Você não pode usar `updateProjectV2ItemFieldValue` para alterar os `Responsáveis`, `Etiquetas`, `Marcos` ou `Repositório`, pois esses campos são propriedades de pull requests e problemas, não itens de projeto. Em vez disso, você deverá usar a mutação [addAssigneesToAssignable]({% ifversion ghec%}/free-pro-team@latest{% endif %}/graphql/reference/mutations#addassigneestoassignable), [removeAssigneesFromAssignable]({% ifversion ghec%}/free-pro-team@latest{% endif %}/graphql/reference/mutations#removeassigneesfromassignable), [addLabelsToLabelable]({% ifversion ghec%}/free-pro-team@latest{% endif %}/graphql/reference/mutations#addlabelstolabelable), [removeLabelsFromLabelable]({% ifversion ghec%}/free-pro-team@latest{% endif %}/graphql/reference/mutations#removelabelsfromlabelable), [updateIssue]({% ifversion ghec%}/free-pro-team@latest{% endif %}/graphql/reference/mutations#updateissue), [updatePullRequest]({% ifversion ghec%}/free-pro-team@latest{% endif %}/graphql/reference/mutations#updatepullrequest) ou [transferIssue]({% ifversion ghec%}/free-pro-team@latest{% endif %}/graphql/reference/mutations#transferissue).
 
 {% endnote %}
 
@@ -645,7 +645,7 @@ O exemplo a seguir atualizará o valor de um campo de iteração para um item.
 - `PROJET_ID` - Substituir isso pelo ID do nó do seu projeto.
 - `ITEM_ID` - Substituir isso pelo ID do nó do item que você deseja atualizar.
 - `FIELD_ID` - Substitua este ID do campo de iteração que você deseja atualizar.
-- `ITERATION_ID` - Substitua o ID da iteração desejada. This can be either an active or completed iteration.
+- `ITERATION_ID` - Substitua o ID da iteração desejada. Isto pode ser uma iteração ativa ou completa.
 
 {% curl %}
 ```shell

@@ -20,7 +20,7 @@ Para atividades com ambientes de configuração complexos, os professores podem 
 
 {% note %}
 
-**Note**: Individual codespaces are automatically deleted if they are stopped and left unused for a prolonged period. For more information, see "[Configuring automatic deletion of your codespaces](/codespaces/customizing-your-codespace/configuring-automatic-deletion-of-your-codespaces)."
+**Observação**: Os codespaces individuais são excluídos automaticamente se forem interrompidos e deixados sem serem utilizados por um período prolongado. Para obter mais informações, consulte[Configurando a exclusão automática dos seus codespaces](/codespaces/customizing-your-codespace/configuring-automatic-deletion-of-your-codespaces)".
 
 {% endnote %}
 

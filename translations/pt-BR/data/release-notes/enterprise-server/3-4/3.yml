@@ -19,6 +19,7 @@ sections:
     - Ao usar o GitHub Enterprise Importer para importar um repositório, alguns problemas falhariam na importação devido a eventos da linha do tempo do projeto configurados incorretamente.
     - Ao usar `ghe-migrator`, uma migração falharia na importação de anexos do arquivo de vídeo em problemas e pull requests.
     - 'The Releases page would return a 500 error when the repository has tags that contain non-ASCII characters. [Updated: 2022-06-10]'
+    - 'Upgrades would sometimes fail while migrating dependency graph data. [Updated: 2022-06-30]'
   changes:
     - Nas configurações de alta disponibilidade, explique que a página de visão geral de replicação no Console de Gerenciamento exibe somente a configuração de replicação atual, não o status de replicação atual.
     - O tempo limite de alocação do Nomad para o gráfico de dependência foi aumentado para garantir que as migrações pós-atualização possam ser concluídas.

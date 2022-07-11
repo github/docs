@@ -85,7 +85,7 @@ Você pode escolher se objetos {% data variables.large_files.product_name_long %
    
    
    
-   {% ifversion fpt or ghec or ghes > 3.3 %} Alternatively, you can automatically generate your release notes by clicking {% ifversion previous-release-tag %}**Generate release notes**{% else %}**Auto-generate release notes**{% endif %}.{% endif %}{% ifversion previous-release-tag %} 
+   {% ifversion fpt or ghec or ghes > 3.3 %} Como alternativa, você pode gerar as suas observações de versão automaticamente, clicando em {% ifversion previous-release-tag %}**Gerar observações de versão**{% else %}**Gerar observações de versão automaticamente**{% endif %}.{% endif %}{% ifversion previous-release-tag %} 
    
    ![Descrição das versões](/assets/images/help/releases/releases_description_auto.png){% else %}
 ![Releases description](/assets/images/enterprise/3.5/releases/releases_description_auto.png){% endif %}
