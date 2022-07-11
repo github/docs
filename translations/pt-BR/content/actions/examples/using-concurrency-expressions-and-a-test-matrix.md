@@ -7,19 +7,12 @@ versions:
   ghes: '>= 3.5'
   ghae: issue-4925
   ghec: '*'
-showMiniToc: false
 type: how_to
 topics:
   - Workflows
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}
-
-- [Visão geral do exemplo](#example-overview)
-- [Características utilizadas neste exemplo](#features-used-in-this-example)
-- [Exemplo de fluxo de trabalho](#example-workflow)
-- [Entendendo o exemplo](#understanding-the-example)
-- [Próximas etapas](#next-steps)
 
 ## Visão geral do exemplo
 
@@ -54,7 +47,7 @@ topics:
 
 {% data reusables.actions.note-understanding-example %}
 
-<table style="width:350px">
+<table style="table-layout: fixed;">
 <thead>
   <tr>
     <th style="width:100%"></th>
@@ -222,7 +215,7 @@ jobs:
 
  {% data reusables.actions.example-explanation-table-intro %}
 
-<table style="width:350px">
+<table style="table-layout: fixed;">
 <thead>
   <tr>
     <th style="width:60%"><b>Código</b></th>

@@ -285,11 +285,11 @@ To learn how to view and close alerts for secrets checked into your repository, 
 
 ### Step 7: Set up dependency management
 
-GitHub helps you avoid using third-party software that contains known vulnerabilities. We provide the following tools for removing and avoiding vulnerable dependencies.
+GitHub helps you avoid using third-party software that contains known vulnerabilities. We provide the following tools for updating vulnerable dependencies{% ifversion GH-advisory-db-supports-malware %} and removing malware{% endif %}.
 
 | Dependency Management Tool | Description |
 |----|----|
-| Dependabot Alerts | You can track your repository's dependencies and receive Dependabot alerts when your enterprise detects vulnerable dependencies. For more information, see "[About {% data variables.product.prodname_dependabot_alerts %}](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-alerts-for-vulnerable-dependencies)." |
+| Dependabot Alerts | You can track your repository's dependencies and receive Dependabot alerts when your enterprise detects insecure dependencies. For more information, see "[About {% data variables.product.prodname_dependabot_alerts %}](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-alerts-for-vulnerable-dependencies)." |
 | Dependency Graph | The dependency graph is a summary of the manifest and lock files stored in a repository. It shows you the ecosystems and packages your codebase depends on (its dependencies) and the repositories and packages that depend on your project (its dependents). For more information, see "[About the dependency graph](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph)." |{% ifversion ghes > 3.1 or ghec %}
 | Dependency Review | If a pull request contains changes to dependencies, you can view a summary of what has changed and whether there are known vulnerabilities in any of the dependencies. For more information, see "[About dependency review](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review)" or  "[Reviewing Dependency Changes in a Pull Request](/github/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-dependency-changes-in-a-pull-request)." | {% endif %} {% ifversion ghec or ghes > 3.2 %}
 | Dependabot Security Updates | Dependabot can fix vulnerable dependencies for you by raising pull requests with security updates. For more information, see "[About Dependabot security updates](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-dependabot-security-updates)." |

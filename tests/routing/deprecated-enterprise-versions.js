@@ -5,7 +5,7 @@ import { get, getDOM } from '../helpers/e2etest.js'
 import { SURROGATE_ENUMS } from '../../middleware/set-fastly-surrogate-key.js'
 import { PREFERRED_LOCALE_COOKIE_NAME } from '../../middleware/detect-language.js'
 
-jest.useFakeTimers('legacy')
+jest.useFakeTimers({ legacyFakeTimers: true })
 
 describe('enterprise deprecation', () => {
   jest.setTimeout(60 * 1000)

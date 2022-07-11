@@ -57,7 +57,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: ["3.6", "3.7", "3.8", "3.9"]
+        python-version: ["3.7", "3.8", "3.9", "3.10"]
 
     steps:
       - uses: {% data reusables.actions.action-checkout %}
@@ -114,7 +114,7 @@ jobs:
       # You can use PyPy versions in python-version.
       # For example, {% ifversion actions-node16-action %}pypy-2.7 and pypy-3.8{% else %}pypy2 and pypy3{% endif %}
       matrix:
-        python-version: ["2.7", "3.6", "3.7", "3.8", "3.9"]
+        python-version: ["2.7", "3.7", "3.8", "3.9", "3.10"]
 
     steps:
       - uses: {% data reusables.actions.action-checkout %}
@@ -129,7 +129,7 @@ jobs:
 
 ### Using a specific Python version
 
-You can configure a specific version of python. For example, 3.8. Alternatively, you can use semantic version syntax to get the latest minor release. This example uses the latest minor release of Python 3.
+You can configure a specific version of python. For example, 3.9. Alternatively, you can use semantic version syntax to get the latest minor release. This example uses the latest minor release of Python 3.
 
 ```yaml{:copy}
 name: Python package
@@ -173,12 +173,12 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest, macos-latest, windows-latest]
-        python-version: ["3.6", "3.7", "3.8", "3.9", {% ifversion actions-node16-action %}pypy-2.7, pypy-3.8{% else %}pypy2, pypy3{% endif %}]
+        python-version: ["3.7", "3.8", "3.9", "3.10", {% ifversion actions-node16-action %}pypy-2.7, pypy-3.8{% else %}pypy2, pypy3{% endif %}]
         exclude:
           - os: macos-latest
-            python-version: "3.6"
+            python-version: "3.7"
           - os: windows-latest
-            python-version: "3.6"
+            python-version: "3.7"
 ```
 
 ### Using the default Python version
@@ -238,7 +238,7 @@ steps:
 - uses: {% data reusables.actions.action-checkout %}
 - uses: {% data reusables.actions.action-setup-python %}
   with:
-    python-version: '3.9'
+    python-version: '3.10'
     cache: 'pip'
 - run: pip install -r requirements.txt
 - run: pip test
@@ -315,7 +315,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python: ["3.7", "3.8", "3.9"]
+        python: ["3.8", "3.9", "3.10"]
 
     steps:
       - uses: {% data reusables.actions.action-checkout %}
@@ -347,7 +347,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: ["3.6", "3.7", "3.8", "3.9"]
+        python-version: ["3.7", "3.8", "3.9", "3.10"]
 
     steps:
       - uses: {% data reusables.actions.action-checkout %}

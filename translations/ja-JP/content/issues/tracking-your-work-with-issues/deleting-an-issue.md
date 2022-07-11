@@ -15,7 +15,9 @@ topics:
   - Pull requests
 ---
 
-自分の個人アカウントが所有するリポジトリ内のIssueだけが削除できます。 他の個人アカウントが所有するリポジトリでは、たとえそこでコラボレータになっていたとしても、Issueを削除することはできません。
+Issueを削除できるかは、リポジトリを自分の個人アカウントもしくはOrganizationが所有しているかどうかによります。
+- 自分の個人アカウントが所有するリポジトリ内のIssueだけが削除できます。
+- Organizationもしくは他の個人アカウントが持っているリポジトリでは、仮にそこでコラボレータになっているとしても、Issueを削除することはできません。
 
 Organization が所有するリポジトリの Issue を削除するには、Organization のオーナーが Organization のリポジトリの削除を有効にし、さらに削除する人がそのリポジトリの管理者権限かオーナー権限を持っている必要があります。 詳しい情報については「[OrganizationのIssueの削除を許可する](/articles/allowing-people-to-delete-issues-in-your-organization)」と「[Organizationのリポジトリロール](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)」を参照してください。
 

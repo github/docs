@@ -22,7 +22,7 @@ shortTitle: Puerta de enlace de MinIO para el almacenamiento en NAS
 Antes de que habilites las {% data variables.product.prodname_actions %}, asegúrate de que has completado los siguientes pasos:
 
 * Para evitar la contención de recursos en el aplicativo, te recomendamos que hospedes a MinIO separado de {% data variables.product.product_location %}.
-* Crea tu bucket para almacenar datos de flujo de trabajo. Para configurar tu bucket y clave de acceso, consulta la [Documentación de MinIO](https://docs.min.io/docs/minio-gateway-for-nas.html). {% indented_data_reference reusables.actions.enterprise-s3-permission spaces=2 %}
+* Crea tu bucket para almacenar datos de flujo de trabajo. {% indented_data_reference reusables.actions.enterprise-s3-permission spaces=2 %}
 
 {% data reusables.actions.enterprise-common-prereqs %}
 
@@ -38,7 +38,7 @@ Antes de que habilites las {% data variables.product.prodname_actions %}, asegú
 
    * **URL de servicio de AWS**: La URL para tu servicio de MinIO. Por ejemplo, `https://my-minio.example:9000`.
    * **AWS S3 Bucket**: El nombre de tu bucket de S3.
-   * **Clave de AWS S3 Access** y **Clave de AWS S3 Secret**: La `MINIO_ACCESS_KEY` y `MINIO_SECRET_KEY` que se utiliza para tu instancia de MinIO. Para obtener más información, consulta la [Documentación de MinIO](https://docs.min.io/docs/minio-gateway-for-nas.html).
+   * **Clave de AWS S3 Access** y **Clave de AWS S3 Secret**: La `MINIO_ACCESS_KEY` y `MINIO_SECRET_KEY` que se utiliza para tu instancia de MinIO.
 
    ![Botón radial para seleccionar el almacenamiento de Amazon S3 y los campos para la configuración de MinIO](/assets/images/enterprise/management-console/actions-minio-s3-storage.png)
 1. Debajo de "Almacenamiento de artefactos & bitácoras", selecciona **Forzar el estilo de la ruta**. ![Casilla de verificación para forzar el estilo de ruta](/assets/images/enterprise/management-console/actions-minio-force-path-style.png)

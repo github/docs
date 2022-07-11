@@ -33,7 +33,7 @@ shortTitle: 配置 dependabot.yml
 
 下次安全警报触发安全更新的拉取请求时将使用所有同时影响安全更新的选项。  更多信息请参阅“[配置 {% data variables.product.prodname_dependabot_security_updates %}](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/configuring-dependabot-security-updates)。”
 
-*dependabot.yml* 文件有两个必需的顶级密钥：`version` 和 `updates`。 您可以选择包括顶级 `registries` 密钥{% ifversion fpt or ghec or ghes > 3.4 %} 和/或 `enable-beta-ecosystems` 密钥{% endif %}。 该文件必须以 `version: 2` 开头。
+*dependabot.yml* 文件有两个必需的顶级密钥：`version` 和 `updates`。 您可以选择包括顶级 `registries` 密钥{% ifversion ghes = 3.5 %} 和/或 `enable-beta-ecosystems` 密钥{% endif %}。 该文件必须以 `version: 2` 开头。
 
 ## *dependabot.yml* 文件的配置选项
 
@@ -975,8 +975,9 @@ registries:
 
 version: 2
 enable-beta-ecosystems: true
-updates:
-  - package-ecosystem: "pub"
+updates:{% ifversion fpt or ghec or ghes > 3.5 %}
+  - package-ecosystem: "beta-ecosystem"{% else %}
+  - package-ecosystem: "pub"{% endif %}
     directory: "/"
     schedule:
       interval: "daily"

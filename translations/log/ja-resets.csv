@@ -49,7 +49,6 @@ translations/ja-JP/content/admin/identity-and-access-management/using-saml-for-e
 translations/ja-JP/content/admin/identity-and-access-management/using-saml-for-enterprise-iam/saml-configuration-reference.md,broken liquid tags
 translations/ja-JP/content/admin/installation/setting-up-a-github-enterprise-server-instance/installing-github-enterprise-server-on-aws.md,broken liquid tags
 translations/ja-JP/content/admin/monitoring-activity-in-your-enterprise/exploring-user-activity/managing-global-webhooks.md,rendering error
-translations/ja-JP/content/admin/overview/system-overview.md,broken liquid tags
 translations/ja-JP/content/admin/packages/enabling-github-packages-with-aws.md,broken liquid tags
 translations/ja-JP/content/admin/packages/enabling-github-packages-with-azure-blob-storage.md,broken liquid tags
 translations/ja-JP/content/admin/packages/enabling-github-packages-with-minio.md,broken liquid tags
@@ -108,7 +107,8 @@ translations/ja-JP/content/code-security/code-scanning/using-codeql-code-scannin
 translations/ja-JP/content/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/migrating-from-the-codeql-runner-to-codeql-cli.md,broken liquid tags
 translations/ja-JP/content/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/running-codeql-runner-in-your-ci-system.md,broken liquid tags
 translations/ja-JP/content/code-security/dependabot/dependabot-alerts/about-dependabot-alerts.md,broken liquid tags
-translations/ja-JP/content/code-security/dependabot/dependabot-alerts/browsing-security-vulnerabilities-in-the-github-advisory-database.md,broken liquid tags
+translations/ja-JP/content/code-security/dependabot/dependabot-alerts/browsing-security-advisories-in-the-github-advisory-database.md,broken liquid tags
+translations/ja-JP/content/code-security/dependabot/dependabot-alerts/configuring-dependabot-alerts.md,broken liquid tags
 translations/ja-JP/content/code-security/dependabot/dependabot-security-updates/about-dependabot-security-updates.md,broken liquid tags
 translations/ja-JP/content/code-security/dependabot/dependabot-security-updates/configuring-dependabot-security-updates.md,broken liquid tags
 translations/ja-JP/content/code-security/dependabot/index.md,broken liquid tags
@@ -130,6 +130,7 @@ translations/ja-JP/content/code-security/supply-chain-security/understanding-you
 translations/ja-JP/content/code-security/supply-chain-security/understanding-your-software-supply-chain/troubleshooting-the-dependency-graph.md,broken liquid tags
 translations/ja-JP/content/codespaces/customizing-your-codespace/personalizing-codespaces-for-your-account.md,broken liquid tags
 translations/ja-JP/content/codespaces/developing-in-codespaces/using-codespaces-in-visual-studio-code.md,broken liquid tags
+translations/ja-JP/content/codespaces/managing-codespaces-for-your-organization/restricting-the-retention-period-for-codespaces.md,broken liquid tags
 translations/ja-JP/content/codespaces/prebuilding-your-codespaces/configuring-prebuilds.md,broken liquid tags
 translations/ja-JP/content/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam.md,broken liquid tags
 translations/ja-JP/content/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file.md,Listed in localization-support#489
@@ -250,8 +251,11 @@ translations/ja-JP/data/release-notes/enterprise-server/3-3/0-rc1.yml,broken liq
 translations/ja-JP/data/release-notes/enterprise-server/3-3/0.yml,broken liquid tags
 translations/ja-JP/data/release-notes/enterprise-server/3-4/0-rc1.yml,broken liquid tags
 translations/ja-JP/data/release-notes/enterprise-server/3-4/0.yml,broken liquid tags
+translations/ja-JP/data/release-notes/enterprise-server/3-4/4.yml,broken liquid tags
+translations/ja-JP/data/release-notes/enterprise-server/3-5/1.yml,broken liquid tags
 translations/ja-JP/data/release-notes/github-ae/2021-03/2021-03-03.yml,broken liquid tags
 translations/ja-JP/data/release-notes/github-ae/2021-06/2021-12-06.yml,broken liquid tags
+translations/ja-JP/data/release-notes/github-ae/2022-05/2022-05-17.yml,broken liquid tags
 translations/ja-JP/data/reusables/actions/allow-specific-actions-intro.md,broken liquid tags
 translations/ja-JP/data/reusables/actions/disabling-github-actions.md,broken liquid tags
 translations/ja-JP/data/reusables/actions/enterprise-common-prereqs.md,broken liquid tags

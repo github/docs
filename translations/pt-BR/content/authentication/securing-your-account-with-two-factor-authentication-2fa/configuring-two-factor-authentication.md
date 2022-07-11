@@ -31,7 +31,7 @@ Você pode configurar a autenticação de dois fatores usando um app móvel{% if
 
 {% ifversion fpt or ghec %}
 
-Se você for um integrante de um {% data variables.product.prodname_emu_enterprise %}, você não poderá configurar a 2FA para sua conta de {% data variables.product.prodname_managed_user %}. A 2FA deve ser configurado por meio do seu provedor de identidade.
+If you're a member of an {% data variables.product.prodname_emu_enterprise %}, you cannot configure 2FA for your {% data variables.product.prodname_managed_user %} account unless you're signed in as the setup user. For users other than the setup user, an administrator must configure 2FA on your identity provider (IdP).
 
 {% endif %}
 
