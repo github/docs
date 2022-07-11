@@ -59,7 +59,7 @@ topics:
 
 {% data reusables.codespaces.codespaces-policy-targets %}
 1. 如果要向策略添加其他约束，请单击 **Add constraint（添加约束）** ，然后选择另一个约束。 有关其他约束的信息，请参阅“[限制对计算机类型的访问](/codespaces/managing-codespaces-for-your-organization/restricting-access-to-machine-types)”、“[限制转发端口的可见性](/codespaces/managing-codespaces-for-your-organization/restricting-the-visibility-of-forwarded-ports)”和“[限制代码空间的保留期](/codespaces/managing-codespaces-for-your-organization/restricting-the-retention-period-for-codespaces)”。
-1. After you've finished adding constraints to your policy, click **Save**.
+1. 向策略添加完约束后，单击 **Save（保存）**。
 
 该策略将应用于创建的所有新代码空间，在现有代码空间下次启动时也会应用于它们。
 

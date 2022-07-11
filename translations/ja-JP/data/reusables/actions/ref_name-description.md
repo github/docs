@@ -1,1 +1,1 @@
-The branch or tag name that triggered the workflow run.
+ワークフローの実行をトリガーしたブランチもしくはタグ名。

@@ -1,1 +1,1 @@
-Contexts, objects, and properties will vary significantly under different workflow run conditions.
+在不同的工作流程运行条件下，上下文、对象和属性将有很大差异。

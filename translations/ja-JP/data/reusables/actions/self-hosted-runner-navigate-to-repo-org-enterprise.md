@@ -1,6 +1,6 @@
 {% ifversion fpt %}
 1. Navigate to the main page of the organization or repository where your self-hosted runner group is registered.
-2. Click {% octicon "gear" aria-label="The Settings gear" %} **Settings**.
+2. {% octicon "gear" aria-label="The Settings gear" %} **Settings（設定）**をクリックしてください。
 {% data reusables.organizations.settings-sidebar-actions-runners %}
 {% elsif ghec or ghes or ghae %}
 1. セルフホストランナーが登録されているところへアクセスしてください:
