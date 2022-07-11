@@ -1,5 +1,5 @@
 {% ifversion fpt %}
-1. Navigate to the main page of the organization where your self-hosted runner is registered.
+1. セルフホストランナーが登録されているOrganizationのメインページにアクセスしてください。
 2. {% octicon "gear" aria-label="The Settings gear" %} **Settings（設定）**をクリックしてください。
 {% data reusables.organizations.settings-sidebar-actions-runners %}
 {% elsif ghec or ghes or ghae %}

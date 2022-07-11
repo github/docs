@@ -23,7 +23,6 @@ translations/ja-JP/content/admin/code-security/managing-github-advanced-security
 translations/ja-JP/content/admin/configuration/configuring-github-connect/about-github-connect.md,broken liquid tags
 translations/ja-JP/content/admin/configuration/configuring-network-settings/network-ports.md,broken liquid tags
 translations/ja-JP/content/admin/configuration/configuring-your-enterprise/accessing-the-management-console.md,broken liquid tags
-translations/ja-JP/content/admin/configuration/configuring-your-enterprise/command-line-utilities.md,broken liquid tags
 translations/ja-JP/content/admin/configuration/configuring-your-enterprise/configuring-backups-on-your-appliance.md,broken liquid tags
 translations/ja-JP/content/admin/configuration/configuring-your-enterprise/configuring-rate-limits.md,broken liquid tags
 translations/ja-JP/content/admin/configuration/configuring-your-enterprise/initializing-github-ae.md,broken liquid tags
@@ -268,6 +267,7 @@ translations/ja-JP/data/reusables/actions/enterprise-postinstall-nextsteps.md,br
 translations/ja-JP/data/reusables/actions/ghes-actions-not-enabled-by-default.md,broken liquid tags
 translations/ja-JP/data/reusables/actions/self-hosted-runner-architecture.md,broken liquid tags
 translations/ja-JP/data/reusables/actions/self-hosted-runner-auto-removal.md,broken liquid tags
+translations/ja-JP/data/reusables/actions/self-hosted-runner-reusing.md,broken liquid tags
 translations/ja-JP/data/reusables/actions/self-hosted-runners-prerequisites.md,broken liquid tags
 translations/ja-JP/data/reusables/advanced-security/about-committer-numbers-ghec-ghes.md,broken liquid tags
 translations/ja-JP/data/reusables/classroom/classroom-codespaces-link.md,broken liquid tags
