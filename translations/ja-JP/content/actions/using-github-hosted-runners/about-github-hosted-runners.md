@@ -88,13 +88,13 @@ While the job runs, the logs and output can be viewed in the {% data variables.p
 
 Windows および Linux 仮想マシンのハードウェア仕様:
 - 2コアCPU
-- 7 GBのRAMメモリー
-- 14 GBのSSDディスク容量
+- 7 GB of RAM
+- 14 GB of SSD space
 
 macOS 仮想マシンのハードウェア仕様:
 - 3-core CPU
-- 14 GB of RAM memory
-- 14 GBのSSDディスク容量
+- 14 GB of RAM
+- 14 GB of SSD space
 
 {% data reusables.actions.supported-github-runners %}
 
