@@ -23,10 +23,6 @@ You can execute these commands from anywhere on the VM after signing in as an SS
 
 This utility sets a banner at the top of every {% data variables.product.prodname_enterprise %} page. You can use it to broadcast a message to your users.
 
-{% ifversion ghes %}
-You can also set an announcement banner using the enterprise settings on {% data variables.product.product_name %}. For more information, see "[Customizing user messages on your instance](/enterprise/admin/user-management/customizing-user-messages-on-your-instance#creating-a-global-announcement-banner)."
-{% endif %}
-
 ```shell
 # Sets a message that's visible to everyone
 $ ghe-announce -s MESSAGE
@@ -35,6 +31,22 @@ $ ghe-announce -s MESSAGE
 $ ghe-announce -u
 > Removed the announcement message
 ```
+
+{% ifversion ghe-announce-dismiss %}
+To allow each user to dismiss the announcement for themselves, use the `-d` flag.
+```shell
+# Sets a user-dismissible message that's visible to everyone
+$ ghe-announce -d -s MESSAGE
+> Announcement message set.
+# Removes a previously set message
+$ ghe-announce -u
+> Removed the announcement message, which was user dismissible: MESSAGE
+```
+{% endif %}
+
+{% ifversion ghes %}
+You can also set an announcement banner using the enterprise settings on {% data variables.product.product_name %}. For more information, see "[Customizing user messages on your instance](/enterprise/admin/user-management/customizing-user-messages-on-your-instance#creating-a-global-announcement-banner)."
+{% endif %}
 
 {% ifversion ghes > 3.1 %}
 <!--For earlier releases of GHES, see the previous service `ghe-resque-info`-->
