@@ -28,7 +28,7 @@ describe('header', () => {
       )
       expect(
         $(
-          '[data-testid=desktop-header] [data-testid=language-picker] a[href="/ja/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/managing-a-branch-protection-rule"]'
+          'li a[href="/ja/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/managing-a-branch-protection-rule"]'
         ).length
       ).toBe(1)
     })
@@ -36,20 +36,14 @@ describe('header', () => {
     test('display the native name and the English name for each translated language', async () => {
       const $ = await getDOM('/en')
 
-      expect(
-        $('[data-testid=desktop-header] [data-testid=language-picker] a[href="/en"]').text().trim()
-      ).toBe('English')
-      expect(
-        $('[data-testid=desktop-header] [data-testid=language-picker] a[href="/cn"]').text().trim()
-      ).toBe('简体中文 (Simplified Chinese)')
-      expect(
-        $('[data-testid=desktop-header] [data-testid=language-picker] a[href="/ja"]').text().trim()
-      ).toBe('日本語 (Japanese)')
+      expect($('[data-testid=language-picker] li a[href="/en"]').text().trim()).toBe('English')
+      expect($('[data-testid=language-picker] li a[href="/cn"]').text().trim()).toBe('简体中文')
+      expect($('[data-testid=language-picker] li a[href="/ja"]').text().trim()).toBe('日本語')
     })
 
     test('emphasize the current language', async () => {
       const $ = await getDOM('/en')
-      expect($('[data-testid=desktop-header] [data-testid=language-picker] summary').text()).toBe(
+      expect($('[data-testid=desktop-header] [data-testid=language-picker] button').text()).toBe(
         'English'
       )
     })
@@ -125,9 +119,7 @@ describe('header', () => {
       const $ = await getDOM(
         '/en/get-started/importing-your-projects-to-github/importing-source-code-to-github/about-github-importer'
       )
-      const getStarted = $(
-        '[data-testid=product-picker][data-current-product-path="/get-started"] summary'
-      )
+      const getStarted = $('div ul ul li a[href="/en/get-started"]')
       expect(getStarted.length).toBe(1)
       expect(getStarted.text().trim()).toBe('Get started')
 
