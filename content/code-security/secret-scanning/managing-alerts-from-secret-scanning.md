@@ -72,7 +72,7 @@ Once a secret has been committed to a repository, you should consider the secret
 {% endnote %}
 {% endif %}
 
-{% ifversion fpt or ghes > 3.1 or ghae-issue-4910 or ghec %}
+{% ifversion fpt or ghes or ghae-issue-4910 or ghec %}
 ## Configuring notifications for {% data variables.product.prodname_secret_scanning %} alerts
 
 When a new secret is detected, {% data variables.product.product_name %} notifies all users with access to security alerts for the repository according to their notification preferences. You will receive an email notification if you are watching the repository, have enabled notifications for security alerts or for all the activity on the repository, or are the author of the commit that contains the secret and are not ignoring the repository.

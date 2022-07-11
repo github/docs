@@ -1,5 +1,5 @@
 ---
-title: 'SAML configuration reference'
+title: SAML configuration reference
 shortTitle: SAML reference
 intro: 'You can see SAML metadata for {% ifversion ghec %}your organization or enterprise on {% data variables.product.product_name %}{% elsif ghes %}{% data variables.product.product_location %}{% elsif ghae %}your enterprise on {% data variables.product.product_name %}{% endif %}, and you can learn more about available SAML attributes and response requirements.'
 versions:
