@@ -23,7 +23,7 @@ Algumas organizações podem ter uma política máxima de tempo ocioso. Se a pol
 
 {% webui %}
 
-## Setting your default timeout period
+## Definir seu período de tempo limite padrão
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.codespaces-tab %}
@@ -33,7 +33,7 @@ Algumas organizações podem ter uma política máxima de tempo ocioso. Se a pol
 
 {% cli %}
 
-## Setting the timeout period for a codespace
+## Definindo o período de tempo limite para um codespace
 
 {% data reusables.cli.cli-learn-more %}
 
@@ -49,8 +49,8 @@ Se você não especificar um período de tempo limite ao criar um codespace, ser
 
 {% vscode %}
 
-## Setting a timeout period
+## Definindo um período de tempo limite
 
-You can set your default timeout period in your web browser, on {% data variables.product.prodname_dotcom_the_website %}. Alternatively, if you use {% data variables.product.prodname_cli %} to create a codespace you can set a timeout period for that particular codespace. For more information, click the appropriate tab above.
+Você pode definir seu período de tempo limite padrão no seu navegador web em {% data variables.product.prodname_dotcom_the_website %}. Como alternativa, se você usar o {% data variables.product.prodname_cli %} para criar um codespace, você poderá definir um período de tempo limite para esse codespace específico. Para mais informações, clique na guia apropriada acima.
 
 {% endvscode %}

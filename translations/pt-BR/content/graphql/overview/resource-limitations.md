@@ -130,7 +130,7 @@ Estes dois exemplos mostram como calcular os nós totais em uma chamada.
 
 ## Limite de taxa
 
-The GraphQL API limit is different from the REST API's [rate limits](/rest/overview/resources-in-the-rest-api#rate-limiting).
+O limite da API do GraphQL é diferente dos [limites de taxa](/rest/overview/resources-in-the-rest-api#rate-limiting) da API REST.
 
 Por que os limites de taxa de API são diferentes? Com o [GraphQL](/graphql), uma chamada do GraphQL pode substituir [várias chamadas de REST](/graphql/guides/migrating-from-rest-to-graphql). Uma chamada única e complexa do GraphQL poderia ser o equivalente a milhares de solicitações de REST. Embora uma única chamada GraphQL fique bem abaixo do limite de taxa de API REST, a consulta pode ser muito cara para os servidores do GitHub calcularem.
 

@@ -30,7 +30,7 @@ Ao se inscrever em uma conta, o {% data variables.product.product_name %} fornec
 
 **Observação{% ifversion ghec %}s{% endif %}**: {% ifversion ghec %}
 
-* {% endif %}Your profile picture should be a PNG, JPG, or GIF file, and it must be less than 1 MB in size and smaller than 3000 by 3000 pixels. Para melhor qualidade de renderização, recomendamos uma imagem de aproximadamente 500 por 500 pixels.
+* {% endif %}Sua foto de perfil deve ser um arquivo PNG, JPG ou GIF, e deve ter um tamanho inferior a 1 MB de tamanho e menor que 3000 por 3000 pixels. Para melhor qualidade de renderização, recomendamos uma imagem de aproximadamente 500 por 500 pixels.
 {% ifversion ghec %}* As imagens de perfil do Gravatar não são compatíveis com {% data variables.product.prodname_emus %}.{% endif %}
 
 {% endnote %}
@@ -39,14 +39,14 @@ Ao se inscrever em uma conta, o {% data variables.product.product_name %} fornec
 
 {% data reusables.user-settings.access_settings %}
 2. Em **Profile Picture** (Imagem de perfil), clique em {% octicon "pencil" aria-label="The edit icon" %} **Edit** (Editar). ![Editar imagem de perfil](/assets/images/help/profile/edit-profile-photo.png)
-3. Click **Upload a photo...**.{% ifversion not ghae %} ![Update profile picture](/assets/images/help/profile/edit-profile-picture-options.png){% endif %}
+3. Clique em **Fazer o upload de uma foto...**.{% ifversion not ghae %} ![Update profile picture](/assets/images/help/profile/edit-profile-picture-options.png){% endif %}
 3. Recorte sua imagem. Quando terminar, clique em **Set new profile picture** (Definir nova imagem de perfil). ![Cortar foto carregada](/assets/images/help/profile/avatar_crop_and_save.png)
 
 ### Redefinir sua imagem de perfil para a identicon
 
 {% data reusables.user-settings.access_settings %}
 2. Em **Profile Picture** (Imagem de perfil), clique em {% octicon "pencil" aria-label="The edit icon" %} **Edit** (Editar). ![Editar imagem de perfil](/assets/images/help/profile/edit-profile-photo.png)
-3. Para reverter para sua identicon, clique em **Remove photo** (Remover foto). {% ifversion not ghae %}If your email address is associated with a [Gravatar](https://en.gravatar.com/), you cannot revert to your identicon. Em vez disso, clique em **Revert to Gravatar** (Reverter para Gravatar). ![Update profile picture](/assets/images/help/profile/edit-profile-picture-options.png){% endif %}
+3. Para reverter para sua identicon, clique em **Remove photo** (Remover foto). {% ifversion not ghae %}}Se o seu endereço de e-mail estiver associado a um [Gravatar](https://en.gravatar.com/), você não poderá reverter para o seu identicon. Em vez disso, clique em **Revert to Gravatar** (Reverter para Gravatar). ![Update profile picture](/assets/images/help/profile/edit-profile-picture-options.png){% endif %}
 
 ## Alterar seu nome de perfil
 
