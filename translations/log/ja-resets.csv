@@ -174,6 +174,7 @@ translations/ja-JP/content/organizations/collaborating-with-groups-in-organizati
 translations/ja-JP/content/organizations/collaborating-with-your-team/about-team-discussions.md,Listed in localization-support#489
 translations/ja-JP/content/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization.md,broken liquid tags
 translations/ja-JP/content/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/reviewing-the-audit-log-for-your-organization.md,broken liquid tags
+translations/ja-JP/content/organizations/managing-access-to-your-organizations-repositories/converting-an-organization-member-to-an-outside-collaborator.md,broken liquid tags
 translations/ja-JP/content/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization.md,broken liquid tags
 translations/ja-JP/content/organizations/managing-organization-settings/managing-the-default-branch-name-for-repositories-in-your-organization.md,broken liquid tags
 translations/ja-JP/content/organizations/managing-peoples-access-to-your-organization-with-roles/managing-security-managers-in-your-organization.md,broken liquid tags
@@ -256,12 +257,15 @@ translations/ja-JP/data/release-notes/enterprise-server/3-5/1.yml,broken liquid 
 translations/ja-JP/data/release-notes/github-ae/2021-03/2021-03-03.yml,broken liquid tags
 translations/ja-JP/data/release-notes/github-ae/2021-06/2021-12-06.yml,broken liquid tags
 translations/ja-JP/data/release-notes/github-ae/2022-05/2022-05-17.yml,broken liquid tags
+translations/ja-JP/data/reusables/actions/actions-use-policy-settings.md,broken liquid tags
 translations/ja-JP/data/reusables/actions/allow-specific-actions-intro.md,broken liquid tags
 translations/ja-JP/data/reusables/actions/disabling-github-actions.md,broken liquid tags
+translations/ja-JP/data/reusables/actions/enabled-actions-description.md,broken liquid tags
 translations/ja-JP/data/reusables/actions/enterprise-common-prereqs.md,broken liquid tags
 translations/ja-JP/data/reusables/actions/enterprise-marketplace-actions.md,broken liquid tags
 translations/ja-JP/data/reusables/actions/enterprise-no-internet-actions.md,broken liquid tags
 translations/ja-JP/data/reusables/actions/enterprise-postinstall-nextsteps.md,broken liquid tags
+translations/ja-JP/data/reusables/actions/ghes-actions-not-enabled-by-default.md,broken liquid tags
 translations/ja-JP/data/reusables/actions/self-hosted-runner-architecture.md,broken liquid tags
 translations/ja-JP/data/reusables/actions/self-hosted-runner-auto-removal.md,broken liquid tags
 translations/ja-JP/data/reusables/actions/self-hosted-runners-prerequisites.md,broken liquid tags
