@@ -1,7 +1,7 @@
-You can specify a single event or multiple events. For example, a workflow with the following `on` value will run when a push is made to any branch in the repository or when someone forks the repository:
+単一のイベントもしくは複数のイベントを指定できます。 たとえば、以下の`on`の値を持つワークフローは、リポジトリ内の任意のブランチにプッシュが行われたとき、あるいは誰かがリポジトリをフォークした時に実行されます。
 
 ```yaml
 on: [push, fork]
 ```
 
-If you specify multiple events, only one of those events needs to occur to trigger your workflow. If multiple triggering events for your workflow occur at the same time, multiple workflow runs will be triggered.
+複数のイベントを指定した場合、ワークフローがトリガされるのに必要なのはそれらのイベントの中の1つだけです。 ワークフローをトリガーする複数のイベントが同時に生じた場合、複数のワークフローの実行がトリガーされます。

@@ -336,7 +336,7 @@ describe('server', () => {
       )
       expect($('h2#in-this-article').length).toBe(1)
       expect($('h2#in-this-article + div div ul').length).toBeGreaterThan(0) // non-indented items
-      expect($('h2#in-this-article + div div ul li div div div ul.ml-3').length).toBeGreaterThan(0) // indented items
+      expect($('h2#in-this-article + div div ul li div div ul.ml-3').length).toBeGreaterThan(0) // indented items
     })
 
     test('does not render mini TOC in articles with only one heading', async () => {

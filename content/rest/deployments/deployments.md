@@ -1,6 +1,6 @@
 ---
 title: Deployments
-intro: 'The Deployments API allows you to create and delete deployments and deployment environments.'
+intro: The Deployments API allows you to create and delete deployments and deployment environments.
 versions:
   fpt: '*'
   ghes: '*'

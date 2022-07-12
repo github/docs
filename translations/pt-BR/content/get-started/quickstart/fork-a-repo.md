@@ -34,7 +34,7 @@ Por exemplo, você pode usar bifurcações para propor alterações relacionadas
 
 ### Use o projeto de outra pessoa como ponto de partida para sua própria ideia.
 
-O software de código aberto baseia-se na ideia de que ao compartilhar códigos, podemos criar softwares melhores e mais confiáveis. Para obter mais informações, consulte "[Sobre a Iniciativa Open Source](http://opensource.org/about)" em Iniciativa Open Source.
+O software de código aberto baseia-se na ideia de que ao compartilhar códigos, podemos criar softwares melhores e mais confiáveis. For more information, see the "[About the Open Source Initiative](https://opensource.org/about)" on the Open Source Initiative.
 
 Para obter mais informações sobre a aplicação dos princípios de código aberto ao trabalho de desenvolvimento da sua organização em {% data variables.product.product_location %}, consulte o white paper de {% data variables.product.prodname_dotcom %} "[Uma introdução ao innersource](https://resources.github.com/whitepapers/introduction-to-innersource/)."
 

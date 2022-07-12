@@ -97,7 +97,7 @@ You can set up automation to scale the number of self-hosted runners. For more i
 
 {% ifversion ghec or ghes > 3.3 or ghae-issue-5091 %}
 
-To add a self-hosted runner to an enterprise, you must be an enterprise owner. For information about how to add a self-hosted runner with the REST API,  see the enterprise endpoints in the [{% data variables.product.prodname_actions %} REST API](/rest/reference/actions#self-hosted-runners).
+セルフホストランナーをEnterpriseに追加するには、Enterpriseのオーナーでなければなりません。 For information about how to add a self-hosted runner with the REST API,  see the enterprise endpoints in the [{% data variables.product.prodname_actions %} REST API](/rest/reference/actions#self-hosted-runners).
 
 {% endif %}
 

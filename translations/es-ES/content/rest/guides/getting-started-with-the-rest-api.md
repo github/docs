@@ -101,7 +101,7 @@ $ curl -i https://api.github.com/users/defunkt
 
 Hay algunas partes interesantes en los encabezados de la respuesta. Como lo esperábamos, el `Content-Type` es `application/json`.
 
-Cualquier encabezado que comience como `X` se refiere a un encabezado personalizado, y no se incluirá en la especificación de HTTPS. For example, take note of the `X-RateLimit-Limit` and `X-RateLimit-Remaining` headers. Este par de encabezados indican [cuántas solicitudes puede hacer un cliente][rate-limiting] en un periodo continuo (habitualmente, una hora) y cuántas de ellas ya ha gastado el cliente.
+Cualquier encabezado que comience como `X` se refiere a un encabezado personalizado, y no se incluirá en la especificación de HTTPS. Por ejemplo, toma en cuenta los encabezados `X-RateLimit-Limit` y `X-RateLimit-Remaining`. Este par de encabezados indican [cuántas solicitudes puede hacer un cliente][rate-limiting] en un periodo continuo (habitualmente, una hora) y cuántas de ellas ya ha gastado el cliente.
 
 ## Autenticación
 

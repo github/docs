@@ -1,6 +1,6 @@
 ---
 title: Filtering projects (beta)
-intro: 'You can filter your projects to focus on specific information.'
+intro: You can filter your projects to focus on specific information.
 allowTitleToDifferFromFilename: true
 miniTocMaxHeadingLevel: 2
 versions:

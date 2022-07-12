@@ -52,7 +52,7 @@ versions:
 children:
   - /quickstart
   - /learn-github-actions
-  - /examples  
+  - /examples
   - /using-workflows
   - /using-jobs
   - /managing-workflow-runs
@@ -69,3 +69,4 @@ children:
   - /creating-actions
   - /guides
 ---
+

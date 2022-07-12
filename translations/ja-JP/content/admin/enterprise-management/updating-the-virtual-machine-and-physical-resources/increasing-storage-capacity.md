@@ -65,7 +65,8 @@ shortTitle: Increase storage capacity
 {% endwarning %}
 
 1. {% data variables.product.prodname_ghe_server %} アプライアンスに新しいディスクを取り付けます。
-1. `parted` コマンドを実行して、ディスクをフォーマットします。
+1. Run the `lsblk` command to identify the new disk's device name.
+1. Run the `parted` command to format the disk, substituting your device name for `/dev/xvdg`:
   ```shell
   $ sudo parted /dev/xvdg mklabel msdos
   $ sudo parted /dev/xvdg mkpart primary ext4 0% 50%

@@ -2,7 +2,7 @@
 title: Repository invitations
 allowTitleToDifferFromFilename: true
 shortTitle: Invitations
-intro: 'The Repository invitations API allows you to view and manage invitations to collaborate on a repository.'
+intro: The Repository invitations API allows you to view and manage invitations to collaborate on a repository.
 versions:
   fpt: '*'
   ghes: '*'
