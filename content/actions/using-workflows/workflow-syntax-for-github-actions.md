@@ -620,8 +620,8 @@ For information about the software included on GitHub-hosted runners, see "[Spec
 For built-in shell keywords, we provide the following defaults that are executed by {% data variables.product.prodname_dotcom %}-hosted runners. You should use these guidelines when running shell scripts.
 
 - `bash`/`sh`:
-  - Fail-fast behavior using `set -eo pipefail`: Default for `bash` and built-in `shell`. It is also the default when you don't provide an option on non-Windows platforms.
-  - You can opt out of fail-fast and take full control by providing a template string to the shell options. For example, `bash {0}`.
+  - Fail-fast behavior using `set -eo pipefail`: This option is set when `shell: bash` is explicitly specified. It is not applied by default.
+  - You can take full control over shell parameters by providing a template string to the shell options. For example, `bash {0}`.
   - sh-like shells exit with the exit code of the last command executed in a script, which is also the default behavior for actions. The runner will report the status of the step as fail/succeed based on this exit code.
 
 - `powershell`/`pwsh`

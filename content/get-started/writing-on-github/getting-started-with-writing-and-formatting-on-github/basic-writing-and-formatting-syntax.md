@@ -87,6 +87,33 @@ For more information, see "[Creating and highlighting code blocks](/articles/cre
 
 {% data reusables.user-settings.enabling-fixed-width-fonts %}
 
+## Supported color models
+
+In issues, pull requests, and discussions, you can call out colors within a sentence by using backticks. A supported color model within backticks will display a visualization of the color.
+
+```markdown
+The background color should be `#ffffff` for light mode and `#0d1117` for dark mode.
+```
+
+![Rendered supported color model.](/assets/images/help/writing/supported-color-models-rendered.png)
+
+Here are the currently supported color models.
+
+| Color | Syntax | Example | Output |
+| --- | --- | --- | --- |
+| HEX | <code>\`#RRGGBB\`</code> | <code>\`#0969DA\`</code> | ![Rendered supported color model in HEX format.](/assets/images/help/writing/supported-color-models-hex-rendered.png) |
+| RGB | <code>\`rgb(R,G,B)\`</code> | <code>\`rgb(9, 105, 218)\`</code> | ![Rendered supported color model in RGB format.](/assets/images/help/writing/supported-color-models-rgb-rendered.png) |
+| HSL | <code>\`hsl(H,S,L)\`</code> | <code>\`hsl(212, 92%, 45%)\`</code> | ![Rendered supported color model in HSL format.](/assets/images/help/writing/supported-color-models-hsl-rendered.png) |
+
+{% note %}
+
+**Notes:**
+
+- A supported color model cannot have any leading or trailing spaces within the backticks.
+- The visualization of the color is only supported in issues, pull requests, and discussions.
+
+{% endnote %}
+
 ## Links
 
 You can create an inline link by wrapping link text in brackets `[ ]`, and then wrapping the URL in parentheses `( )`. You can also use the keyboard shortcut <kbd>Command</kbd>+<kbd>K</kbd> to create a link.{% ifversion fpt or ghae-issue-5434 or ghes > 3.3 or ghec %} When you have text selected, you can paste a URL from your clipboard to automatically create a link from the selection.{% endif %}
