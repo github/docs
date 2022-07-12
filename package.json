@@ -177,7 +177,7 @@
     "image-size": "^1.0.1",
     "jest-puppeteer": "^5.0.4",
     "jimp": "^0.16.1",
-    "puppeteer": "^9.1.1",
+    "puppeteer": "^15.3.2",
     "website-scraper": "^5.0.0"
   },
   "private": true,
