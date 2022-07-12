@@ -88,7 +88,7 @@ GitHub では、コードスニペットが提供するコンテキストとと�
 検索結果でこのメタデータを取得するには、`Accept` ヘッダで `text-match` メディアタイプを指定します。
 
 ```shell
-application/vnd.github.v3.text-match+json
+application/vnd.github.text-match+json
 ```
 
 `text-match` メディアタイプを指定すると、JSON ペイロード内にある `text_matches` と呼ばれる追加の鍵を受け取ります。この鍵は、テキスト内の検索用語の位置と、検索用語を含む `property` についての情報を提供します。 `text_matches` 配列内の各オブジェクトには、以下の属性が含まれています。
@@ -106,7 +106,7 @@ application/vnd.github.v3.text-match+json
 cURL と、上記の [Issue 検索例](#search-issues-and-pull-requests) を使用すると、API リクエストは次のようになります。
 
 ``` shell
-curl -H 'Accept: application/vnd.github.v3.text-match+json' \
+curl -H 'Accept: application/vnd.github.text-match+json' \
 '{% data variables.product.api_url_pre %}/search/issues?q=windows+label:bug+language:python+state:open&sort=created&order=asc'
 ```
 

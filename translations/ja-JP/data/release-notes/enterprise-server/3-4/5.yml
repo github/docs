@@ -1,0 +1,34 @@
+date: '2022-06-28'
+sections:
+  security_fixes:
+    - "**中**: GitHub Enterprise Server URLにクエリ文字列パラメータの`org`を指定して、他のOrganizationのアクティブなコミッターにアクセスを与える攻撃を防ぎました。"
+    - "**中**: `github.company.com`及び`github-company.com`が内部のサービスによって同じホスト名と評価されないようにして、潜在的なサーバーサイドセキュリティフォージェリ（SSRF）攻撃を防ぎます。"
+    - "**低**: 外部のファイアウォールールがHTTPアクセスをブロックしている場合でも、HTTP経由のパストラバーサル攻撃で攻撃者がManagement Consoleにアクセスできました。"
+    - パッケージは最新のセキュリティバージョンにアップデートされました。
+  bugs:
+    - 制限された権限のため、成果物のアーカイブ内のファイルを展開後にオープンできませんでした。
+    - '`ghe-config-apply`を実行中のRedisのタイムアウトはデータベースの移行を停止させなくなりました。'
+    - バックグラウンドジョブプロセッサが部分的なシャットダウン状態で停止し、ある種のバックグラウンドジョブ（コードスキャンニングなど）が停止しているように見えるようになります。
+    - サイト管理者が自動的にEnterpriseオーナーとして追加されないことがありました。
+    - レンダリングの問題が、リポジトリ内のSecret scanningアラートのフィルタリングのためのドロップダウンリストに影響することがあります。
+  changes:
+    - 最初に有効化されたあとのDependabotバージョンアップデートのパフォーマンスが改善されました。
+    - GitHub Pagesのビルド及び同期のタイムアウトは、Management Consoleで設定できるようになりました。
+    - 名前のような特定のフィールドの値が長すぎる場合に、チェックの実行もしくはチェックスイートの作成ないしアップデートが`500 Internal Server Error`を返すことがあります。
+    - '[キャッシュサーバーノードのデプロイ](/admin/enterprise-management/caching-repositories/configuring-a-repository-cache#configuring-a-repository-cache)の際に、システム内のすべてのノードについてデータセンターのトポロジーを記述する（`--datacenter`引数を使用）ことが必須となりました。この要求は、データセンターのメンバーシップを"default"のままにしておくことによって、ワークロードが複数のデータセンター間で不適切にバランスされるような状況を回避します。'
+  known_issues:
+    - 新しくセットアップされたユーザを持たない{% data variables.product.prodname_ghe_server %}インスタンスで、攻撃者が最初の管理ユーザを作成できました。
+    - アップグレードの過程で、カスタムのファイアウォールのルールが削除されます。
+    - Git LFSが追跡するファイル[Webインターフェースからアップロードされたもの](https://github.com/blog/2105-upload-files-to-your-repositories)が、不正にリポジトリに直接追加されてしまいます。
+    - 同じリポジトリ内のファイルパスが255文字を超えるblobへのパーマリンクを含むIssueをクローズできませんでした。
+    - '{% data variables.product.prodname_github_connect %}で"Users can search GitHub.com（ユーザはGitHub.comの検索が可能）" が有効化されたとき、プライベート及びインターナルリポジトリのIssueが{% data variables.product.prodname_dotcom_the_website %}の検索結果に含まれません。'
+    - '{% data variables.product.prodname_registry %}のnpmレジストリは、メタデータのレスポンス中で時間の値を返さなくなります。これは、大きなパフォーマンス改善のために行われました。メタデータレスポンスの一部として時間の値を返すために必要なすべてのデータは保持し続け、既存のパフォーマンスの問題を解決した将来に、この値を返すことを再開します。'
+    - pre-receive フックの処理に固有のリソース制限によって、pre-receive フックに失敗するものが生じることがあります。
+    - |
+      セルフホストランナーを--ephemeral`パラメータ付きで複数レベル（たとえばEnterpriseとOrganizationというように）に登録したあと、ランナーがアイドル状態で停止し、再登録が必要になることがあります。[更新: 2022年6月17日]
+    - |
+      SAMLの暗号化されたアサーションを{% data variables.product.prodname_ghe_server %} 3.4.0及び3.4.1で使用する場合、`SPSSODescriptor`内の新しいXML属性である`WantAssertionsEncrypted`にはSAMLメタデータの不正な属性が含まれます。このSAMLエンドポイントを利用するIdPは、SAMLメタデータのXMLスキーマの検証の際にエラーが生じることがあります。修正は次回のパッチリリースで提供されます。[2022年04月11日更新]
+
+      この問題を回避するためには、以下の2つの方法のいずれかを取ることができます。
+      - `WantAssertionsEncrypted`属性なしのSAMLメタデータの静的なコピーをアップロードして、IdPを再設定する。
+      - SAMLメタデータをコピーし、`WantAssertionsEncrypted`を削除し、それをWebサーバーでホストして、そのURLを指してIdPを再設定する。

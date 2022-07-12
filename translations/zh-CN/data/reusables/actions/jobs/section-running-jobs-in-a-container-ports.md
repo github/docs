@@ -1,1 +1,1 @@
-Use `jobs.<job_id>.container.ports` to set an `array` of ports to expose on the container.
+使用 `jobs.<job_id>.container.ports` 设置要在容器上公开的端口 `array`。

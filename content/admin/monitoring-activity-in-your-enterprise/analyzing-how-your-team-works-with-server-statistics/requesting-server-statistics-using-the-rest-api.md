@@ -3,7 +3,7 @@ title: Requesting Server Statistics using the REST API
 shortTitle: Server Statistics and REST API
 intro: 'You can use your own tools to analyze your {% data variables.product.prodname_ghe_server %} usage over time by requesting the {% data variables.product.prodname_server_statistics %} metrics collected using the REST API.'
 versions:
-  feature: 'server-statistics'
+  feature: server-statistics
 redirect_from:
   - /early-access/github/analyze-how-your-team-works-with-server-statistics/requesting-server-statistics-using-the-rest-api
 ---

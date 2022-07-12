@@ -1,6 +1,6 @@
 ---
 title: Introduction to dev containers
-intro: When you work in a codespace, the environment you are working in is created using a development container, or dev container, hosted on a virtual machine.
+intro: 'When you work in a codespace, the environment you are working in is created using a development container, or dev container, hosted on a virtual machine.'
 permissions: People with write permissions to a repository can create or edit the codespace configuration.
 redirect_from:
   - /github/developing-online-with-github-codespaces/configuring-github-codespaces-for-your-project

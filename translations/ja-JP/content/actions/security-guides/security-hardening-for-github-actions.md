@@ -192,7 +192,7 @@ To help mitigate the risk of an exposed token, consider restricting the assigned
 {% ifversion fpt or ghes > 3.3 or ghae-issue-4757 or ghec %}
 ## Reusing third-party workflows
 
-The same principles described above for using third-party actions also apply to using third-party workflows. You can help mitigate the risks associated with reusing workflows by following the same good practices outlined above. For more information, see "[Reusing workflows](/actions/learn-github-actions/reusing-workflows)."
+The same principles described above for using third-party actions also apply to using third-party workflows. You can help mitigate the risks associated with reusing workflows by following the same good practices outlined above. 詳しい情報については「[ワークフローの再利用](/actions/learn-github-actions/reusing-workflows)」を参照してください。
 {% endif %}
 
 {% ifversion internal-actions %}

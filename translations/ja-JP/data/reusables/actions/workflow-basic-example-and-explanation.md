@@ -1,8 +1,8 @@
 ## サンプルワークフローを作成する
 
-{% data variables.product.prodname_actions %} uses YAML syntax to define the workflow.  Each workflow is stored as a separate YAML file in your code repository, in a directory named `.github/workflows`.
+{% data variables.product.prodname_actions %}はワークフローの定義にYAMLの構文を使います。  各ワークフローはコードリポジトリ中の`.github/workflows`というディレクトリに個別のYAMLファイルとして保存されます。
 
-コードがプッシュされるたびに一連のコマンドを自動的にトリガーするサンプルワークフローをリポジトリに作成できます。 In this workflow, {% data variables.product.prodname_actions %} checks out the pushed code, installs the [bats](https://www.npmjs.com/package/bats) testing framework, and runs a basic command to output the bats version: `bats -v`.
+コードがプッシュされるたびに一連のコマンドを自動的にトリガーするサンプルワークフローをリポジトリに作成できます。 このワークフローでは、{% data variables.product.prodname_actions %}はプッシュされたコードをチェックアウトし、[bats](https://www.npmjs.com/package/bats)テスティングフレームワークをインストールし、`bats -v`というbatsのバージョンを出力するための基本的なコマンドを実行します。
 
 1. リポジトリに、ワークフローファイルを保存するための `.github/workflows/` ディレクトリを作成します。
 1. `.github/workflows/` ディレクトリに、`learn-github-actions.yml` という名前の新しいファイルを作成し、次のコードを追加します。
@@ -23,7 +23,7 @@
    ```
 1. これらの変更をコミットして、{% data variables.product.prodname_dotcom %} リポジトリにプッシュします。
 
-これで、新しい {% data variables.product.prodname_actions %} ワークフローファイルがリポジトリにインストールされ、別のユーザがリポジトリに変更をプッシュするたびに自動的に実行されます。 To see the details about a workflow's execution history, see "[Viewing the activity for a workflow run](#viewing-the-activity-for-a-workflow-run)."
+これで、新しい {% data variables.product.prodname_actions %} ワークフローファイルがリポジトリにインストールされ、別のユーザがリポジトリに変更をプッシュするたびに自動的に実行されます。 ワークフローの実行履歴に関する詳細を見るには、「[ワークフローの実行のアクティビティの表示](#viewing-the-activity-for-a-workflow-run)」を参照してください。
 
 ## ワークフローファイルを理解する
 
@@ -49,7 +49,7 @@ YAML 構文を使用してワークフローファイルを作成する方法を
   ```
 </td>
 <td>
-Specifies the trigger for this workflow. This example uses the <code>push</code> event, so a workflow run is triggered every time someone pushes a change to the repository or merges a pull request.  This is triggered by a push to every branch; for examples of syntax that runs only on pushes to specific branches, paths, or tags, see "<a href="/actions/reference/workflow-syntax-for-github-actions#onpushpull_requestpull_request_targetpathspaths-ignore">Workflow syntax for {% data variables.product.prodname_actions %}</a>."
+このワークフローのトリガーを指定します。 この例は<code>push</code>イベントを使っているので、ワークフローの実行は誰かが変更をリポジトリにプッシュするか、Pull Requestをマージするたびにトリガーされます。  これは、すべてのブランチに対するプッシュによってトリガーされます。特定のブランチ、パス、タグへのプッシュでのみ実行するための構文の例については「<a href="/actions/reference/workflow-syntax-for-github-actions#onpushpull_requestpull_request_targetpathspaths-ignore">{% data variables.product.prodname_actions %}のワークフロー構文</a>」を参照してください。
 </td>
 </tr>
 <tr>
@@ -60,7 +60,7 @@ Specifies the trigger for this workflow. This example uses the <code>push</code>
   ```
 </td>
 <td>
- Groups together all the jobs that run in the <code>learn-github-actions</code> workflow.
+ <code>learn-github-actions</code>ワークフロー中で実行されるすべてのジョブをグループ化します。
 </td>
 </tr>
 <tr>
@@ -71,7 +71,7 @@ Specifies the trigger for this workflow. This example uses the <code>push</code>
   ```
 </td>
 <td>
-Defines a job named <code>check-bats-version</code>. The child keys will define properties of the job.
+<code>check-bats-version</code>という名前のジョブを定義します。 子キーはジョブのプロパティを定義します。
 </td>
 </tr>
 <tr>
@@ -82,7 +82,7 @@ Defines a job named <code>check-bats-version</code>. The child keys will define 
   ```
 </td>
 <td>
-  Configures the job to run on the latest version of an Ubuntu Linux runner. これは、ジョブが GitHub によってホストされている新しい仮想マシンで実行されるということです。 For syntax examples using other runners, see "<a href="/actions/reference/workflow-syntax-for-github-actions#jobsjob_idruns-on">Workflow syntax for {% data variables.product.prodname_actions %}</a>."
+  Ubuntu Linuxランナーの最新バージョンで実行されるよう、ジョブを設定します。 これは、ジョブが GitHub によってホストされている新しい仮想マシンで実行されるということです。 他のランナーを使う構文の例については「<a href="/actions/reference/workflow-syntax-for-github-actions#jobsjob_idruns-on">{% data variables.product.prodname_actions %}のワークフロー構文</a>」を参照してください。
 </td>
 </tr>
 <tr>
@@ -93,7 +93,7 @@ Defines a job named <code>check-bats-version</code>. The child keys will define 
   ```
 </td>
 <td>
-  <code>check-bats-version</code> ジョブで実行されるすべてのステップをグループ化します。 Each item nested under this section is a separate action or shell script.
+  <code>check-bats-version</code> ジョブで実行されるすべてのステップをグループ化します。 このセクションの下にネストされている各アイテムは、個別のアクションもしくはシェルスクリプトです。
 </td>
 </tr>
 <tr>
@@ -104,7 +104,7 @@ Defines a job named <code>check-bats-version</code>. The child keys will define 
   ```
 </td>
 <td>
-The <code>uses</code> keyword specifies that this step will run <code>v3</code> of the <code>actions/checkout</code> action. This is an action that checks out your repository onto the runner, allowing you to run scripts or other actions against your code (such as build and test tools). You should use the checkout action any time your workflow will run against the repository's code.
+<code>uses</code>　キーワードは、このステップが<code>actions/checkout</code>アクションの<code>v3</code>を実行することを指定しています。 これは、リポジトリをランナーにチェックアウトするアクションで、コードに対してスクリプトや他のアクション（ビルドやテストツールなど）を実行できるようにしてくれます。 ワークフローがリポジトリのコードに対して実行されるときには、いつでもチェックアウトのアクションを使うべきです。
 </td>
 </tr>
 <tr>
@@ -117,7 +117,7 @@ The <code>uses</code> keyword specifies that this step will run <code>v3</code> 
   ```
 </td>
 <td>
-  This step uses the <code>{% data reusables.actions.action-setup-node %}</code> action to install the specified version of the Node.js (this example uses v14). This puts both the <code>node</code> and <code>npm</code> commands in your <code>PATH</code>.
+  このステップは<code>{% data reusables.actions.action-setup-node %}</code>アクションを使ってNode.jsの指定されたバージョンをインストールします（この例ではv14が使われます）。 これは、<code>node</code>及び<code>npm</code>コマンドをどちらも<code>PATH</code>に置きます。
 </td>
 </tr>
 <tr>
@@ -146,13 +146,13 @@ The <code>uses</code> keyword specifies that this step will run <code>v3</code> 
 
 ### ワークフローファイルの視覚化
 
-この図では、作成したワークフローファイルと、{% data variables.product.prodname_actions %} コンポーネントが階層にどのように整理されているかを確認できます。 Each step executes a single action or shell script. Steps 1 and 2 run actions, while steps 3 and 4 run shell scripts. ワークフローのビルド済みアクションの詳細については、「[アクションの検索とカスタマイズ](/actions/learn-github-actions/finding-and-customizing-actions)」を参照してください。
+この図では、作成したワークフローファイルと、{% data variables.product.prodname_actions %} コンポーネントが階層にどのように整理されているかを確認できます。 それぞれのステップは、1つのアクションもしくはシェルスクリプトを実行します。 ステップ1と2はアクションを実行しますが、ステップ3と4はシェルスクリプトを実行します。 ワークフローのビルド済みアクションの詳細については、「[アクションの検索とカスタマイズ](/actions/learn-github-actions/finding-and-customizing-actions)」を参照してください。
 
 ![ワークフローの概要](/assets/images/help/images/overview-actions-event.png)
 
-## Viewing the activity for a workflow run
+## ワークフローの実行のアクティビティの表示
 
-When your workflow is triggered, a _workflow run_ is created that executes the workflow. After a workflow run has started, you can see a visualization graph of the run's progress and view each step's activity on {% data variables.product.prodname_dotcom %}.
+ワークフローがトリガーされると、ワークフローを実行する_ワークフローの実行_が生成されます。 ワークフローの実行が開始されると、実行の進行の可視化グラフを見ることができ、{% data variables.product.prodname_dotcom %}上の各ステップのアクティビティを表示できます。
 
 {% data reusables.repositories.navigate-to-repo %}
 1. リポジトリ名の下で**Actions（アクション）**をクリックしてください。
@@ -167,6 +167,6 @@ When your workflow is triggered, a _workflow run_ is created that executes the w
 1. [**Jobs**] または視覚化グラフで、表示するジョブをクリックします。
 
    ![ジョブを選択](/assets/images/help/images/overview-actions-result-navigate.png)
-1. View the results of each step.
+1. 各ステップの結果を表示させます。
 
    ![ワークフロー実行の詳細のスクリーンショット](/assets/images/help/images/overview-actions-result-updated-2.png)

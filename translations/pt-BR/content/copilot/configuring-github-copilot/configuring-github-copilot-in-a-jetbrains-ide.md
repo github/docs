@@ -25,11 +25,11 @@ Você pode usar os atalhos de teclado padrão para sugestões inline no IDE do s
 
 | Ação                                                                                          | Atalho                                        |
 |:--------------------------------------------------------------------------------------------- |:--------------------------------------------- |
-| Accept an inline suggestion                                                                   | <kbd>Tab</kbd>                                |
-| Dismiss an inline suggestion                                                                  | <kbd>Esc</kbd>                                |
-| Show next inline suggestion                                                                   | <kbd>Option (⌥) or Alt</kbd>+<kbd>]</kbd>     |
-| Show previous inline suggestion                                                               | <kbd>Option (⌥) ou Alt</kbd>+<kbd>[</kbd>     |
-| Trigger inline suggestion                                                                     | <kbd>Option (⌥)</kbd>+<kbd>\</kbd>           |
+| Aceite uma sugestão inline                                                                    | <kbd>Tab</kbd>                                |
+| Ignorar uma sugestão inline                                                                   | <kbd>Esc</kbd>                                |
+| Mostrar próxima sugestão inline                                                               | <kbd>Option (⌥) or Alt</kbd>+<kbd>]</kbd>     |
+| Mostrar sugestão inline anterior                                                              | <kbd>Option (⌥) ou Alt</kbd>+<kbd>[</kbd>     |
+| Acionar sugestão inline                                                                       | <kbd>Option (⌥)</kbd>+<kbd>\</kbd>           |
 | Abrir {% data variables.product.prodname_copilot %} (sugestões adicionais em painel separado) | <kbd>Opção (⌥) ou Alt</kbd>+<kbd>Return</kbd> |
 
 {% endmac %}
@@ -38,11 +38,11 @@ Você pode usar os atalhos de teclado padrão para sugestões inline no IDE do s
 
 | Ação                                                                                          | Atalho                          |
 |:--------------------------------------------------------------------------------------------- |:------------------------------- |
-| Accept an inline suggestion                                                                   | <kbd>Tab</kbd>                  |
-| Dismiss an inline suggestion                                                                  | <kbd>Esc</kbd>                  |
-| Show next inline suggestion                                                                   | <kbd>Alt</kbd>+<kbd>]</kbd>     |
-| Show previous inline suggestion                                                               | <kbd>Alt</kbd>+<kbd>[</kbd>     |
-| Trigger inline suggestion                                                                     | <kbd>Alt</kbd>+<kbd>\</kbd>    |
+| Aceite uma sugestão inline                                                                    | <kbd>Tab</kbd>                  |
+| Ignorar uma sugestão inline                                                                   | <kbd>Esc</kbd>                  |
+| Mostrar próxima sugestão inline                                                               | <kbd>Alt</kbd>+<kbd>]</kbd>     |
+| Mostrar sugestão inline anterior                                                              | <kbd>Alt</kbd>+<kbd>[</kbd>     |
+| Acionar sugestão inline                                                                       | <kbd>Alt</kbd>+<kbd>\</kbd>    |
 | Abrir {% data variables.product.prodname_copilot %} (sugestões adicionais em painel separado) | <kbd>Alt</kbd>+<kbd>Enter</kbd> |
 
 {% endwindows %}
@@ -51,21 +51,21 @@ Você pode usar os atalhos de teclado padrão para sugestões inline no IDE do s
 
 | Ação                                                                                          | Atalho                          |
 |:--------------------------------------------------------------------------------------------- |:------------------------------- |
-| Accept an inline suggestion                                                                   | <kbd>Tab</kbd>                  |
-| Dismiss an inline suggestion                                                                  | <kbd>Esc</kbd>                  |
-| Show next inline suggestion                                                                   | <kbd>Alt</kbd>+<kbd>]</kbd>     |
-| Show previous inline suggestion                                                               | <kbd>Alt</kbd>+<kbd>[</kbd>     |
-| Trigger inline suggestion                                                                     | <kbd>Alt</kbd>+<kbd>\</kbd>    |
+| Aceite uma sugestão inline                                                                    | <kbd>Tab</kbd>                  |
+| Ignorar uma sugestão inline                                                                   | <kbd>Esc</kbd>                  |
+| Mostrar próxima sugestão inline                                                               | <kbd>Alt</kbd>+<kbd>]</kbd>     |
+| Mostrar sugestão inline anterior                                                              | <kbd>Alt</kbd>+<kbd>[</kbd>     |
+| Acionar sugestão inline                                                                       | <kbd>Alt</kbd>+<kbd>\</kbd>    |
 | Abrir {% data variables.product.prodname_copilot %} (sugestões adicionais em painel separado) | <kbd>Alt</kbd>+<kbd>Enter</kbd> |
 
 {% endlinux %}
 
 ## Habilitar ou desabilitar {% data variables.product.prodname_copilot %}
 
-Você pode habilitar ou desabilitar {% data variables.product.prodname_copilot %} dentro do seu JetBrains IDE. O ícone de status {% data variables.product.prodname_copilot %} na parte inferior da janela do JetBrains indica se o {% data variables.product.prodname_copilot %} está habilitado ou desabilitado. When enabled, the icon is highlighted. When disabled, the icon is grayed out.
+Você pode habilitar ou desabilitar {% data variables.product.prodname_copilot %} dentro do seu JetBrains IDE. O ícone de status {% data variables.product.prodname_copilot %} na parte inferior da janela do JetBrains indica se o {% data variables.product.prodname_copilot %} está habilitado ou desabilitado. Quando habilitado, o ícone é destacado. Quando desabilitado, o ícone fica inativo.
 
-1. To enable or disable {% data variables.product.prodname_copilot %}, click the status icon in the bottom panel of the JetBrains window. ![Ícone de status no JetBrains](/assets/images/help/copilot/status-icon-jetbrains.png)
-2. If you are disabling {% data variables.product.prodname_copilot %}, you will be asked whether you want to disable it globally, or for the language of the file you are currently editing. Para desabilitar globalmente, clique em **Desabilitar as conclusões**. Como alternativa, clique no botão da linguagem específica para desabilitar {% data variables.product.prodname_copilot %} para a linguagem especificada. ![Desabilite {% data variables.product.prodname_copilot %} globalmente ou para a linguagem atual](/assets/images/help/copilot/disable-copilot-global-or-langugage-jetbrains.png)
+1. Para habilitar ou desabilitar {% data variables.product.prodname_copilot %}, clique no ícone de status no painel inferior da janela do JetBrains. ![Ícone de status no JetBrains](/assets/images/help/copilot/status-icon-jetbrains.png)
+2. Se você estiver desabilitando {% data variables.product.prodname_copilot %}, será perguntado se deseja desativá-lo globalmente ou para a linguagem do arquivo que você está editando atualmente. Para desabilitar globalmente, clique em **Desabilitar as conclusões**. Como alternativa, clique no botão da linguagem específica para desabilitar {% data variables.product.prodname_copilot %} para a linguagem especificada. ![Desabilite {% data variables.product.prodname_copilot %} globalmente ou para a linguagem atual](/assets/images/help/copilot/disable-copilot-global-or-langugage-jetbrains.png)
 
 ## Definindo as configurações avançadas para {% data variables.product.prodname_copilot %}
 

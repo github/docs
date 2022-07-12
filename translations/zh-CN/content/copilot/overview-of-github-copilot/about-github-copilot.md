@@ -30,7 +30,7 @@ GitHub Copilot 从 OpenAI 构建自数十亿行开源代码的模型提供建议
 
 {% data variables.product.prodname_copilot %} 是一项付费功能，需要按月或按年订阅。 {% data variables.product.prodname_dotcom %} 上经过验证的常用开源项目的学生和维护者有资格免费使用 {% data variables.product.prodname_copilot %}。 如果您符合免费 {% data variables.product.prodname_copilot %} 订阅的条件，则当您访问 {% data variables.product.prodname_copilot %} 订阅页面时，系统会自动通知您。 如果您不符合免费 {% data variables.product.prodname_copilot %} 订阅的条件，您将获得 60 天免费试用，之后需要付费订阅才能继续使用。 更多信息请参阅“[关于 {% data variables.product.prodname_copilot %} 的计费](/billing/managing-billing-for-github-copilot/about-billing-for-github-copilot)”。
 
-## {% data variables.product.prodname_copilot %} JetBrains 插件的许可信息
+## 关于 JetBrains IDE 中 {% data variables.product.prodname_copilot %} 插件的许可证
 
 {% data variables.product.prodname_dotcom %}, Inc. 是 JetBrains 插件的许可方。 此插件的最终用户许可协议是[{% data variables.product.prodname_dotcom %} 附加产品和功能条款](/free-pro-team@latest/site-policy/github-terms/github-terms-for-additional-products-and-features#github-copilot)，使用此插件受这些条款的约束。 JetBrains 对插件或此类协议不承担任何责任或义务。 使用插件即表示您同意上述条款。
 

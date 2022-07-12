@@ -47,9 +47,9 @@ Em uma janela ampla do navegador, a palavra "Enterprise" segue imediatamente o l
 
 ![Captura de tela da barra de endereços e header {% data variables.product.prodname_ghe_server %} em um navegador](/assets/images/help/docs/header-ghes.png)
 
-You can view the version of {% data variables.product.prodname_ghe_server %} that you're using in the footer of any page.
+Você pode ver a versão do {% data variables.product.prodname_ghe_server %} que você está usando no rodapé de qualquer página.
 
-![Screenshot of the footer of {% data variables.product.prodname_ghe_server %}, with the version highlighted](/assets/images/help/docs/ghes-version-in-footer.png)
+![Captura de tela do rodapé de {% data variables.product.prodname_ghe_server %}, com a versão destacada](/assets/images/help/docs/ghes-version-in-footer.png)
 
 ### {% data variables.product.prodname_ghe_managed %}
 

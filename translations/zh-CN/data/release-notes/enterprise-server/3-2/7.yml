@@ -2,17 +2,17 @@
 date: '2022-01-18'
 sections:
   security_fixes:
-    - 'Packages have been updated to the latest security versions. In these updates, Log4j has been updated to version 2.17.1. Note: previous mitigations released in 3.3.1, 3.2.6, 3.1.14, and 3.0.22 are sufficient to address the impact of CVE-2021-44228, CVE-2021-45046, CVE-2021-45105, and CVE-2021-44832 in these versions of GitHub Enterprise Server.'
-    - Sanitize more secrets in the generated support bundles
+    - '程序包已更新到最新的安全版本。在这些更新中，Log4j 已更新到版本 2.17.1。注意：3.3.1、3.2.6、3.1.14 和 3.0.22 中发布的先前缓解措施足以解决这些版本的 GitHub 企业服务器中 CVE-2021-44228、CVE-2021-45046、CVE-2021-45105 和 CVE-2021-44832 的影响。'
+    - 清理生成的支持包中的更多机密
     - 包已更新到最新的安全版本。
   bugs:
-    - Actions self hosted runners would fail to self-update or run new jobs after upgrading from an older GHES installation.
-    - Storage settings could not be validated when configuring MinIO as blob storage for GitHub Packages.
-    - Running `ghe-config-apply` could sometimes fail because of permission issues in `/data/user/tmp/pages`.
-    - The save button in management console was unreachable by scrolling in lower resolution browsers.
-    - IOPS and Storage Traffic monitoring graphs were not updating after collectd version upgrade.
-    - Some webhook related jobs could generated large amount of logs.
-    - Several documentation links resulted in a 404 Not Found error.
+    - 操作自托管运行器在从较旧的 GHES 安装升级后将无法自行更新或运行新作业。
+    - 将 MinIO 配置为 GitHub 包的 Blob 存储时，无法验证存储设置。
+    - 运行“ghe-config-apply”有时可能会因为“/data/user/tmp/pages”中的权限问题而失败。
+    - 管理控制台中的保存按钮无法在较低分辨率的浏览器中滚动访问。
+    - 收集的版本升级后，IOPS 和存储流量监控图表未更新。
+    - 一些与 web 挂钩相关的作业可能会生成大量日志。
+    - 多个文档链接导致“404 未找到”错误。
   known_issues:
     - 在新建的没有任何用户的 {% data variables.product.prodname_ghe_server %} 上，攻击者可以创建第一个管理员用户。
     - 自定义防火墙规则在升级过程中被删除。

@@ -26,7 +26,7 @@ Los tipos de medios más básicos que la API acepta son:
 
 {% note %}
 
-**Note:** In the past, we recommended including `v3` in your `Accept` header. This is no longer required and will have no impact on your API requests.
+**Nota:** Anteriormente, recomendamos incluir `v3` en tu encabezado de `Accept`. This is no longer required and will have no impact on your API requests.
 
 {% endnote %}
 

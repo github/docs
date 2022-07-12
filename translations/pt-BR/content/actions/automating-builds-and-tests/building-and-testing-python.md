@@ -129,7 +129,7 @@ trabalhos:
 
 ### Usar uma versão específica do Python
 
-Você pode configurar uma versão específica do python. For example, 3.9. Como alternativa, você pode usar a sintaxe da versão semântica para obter a última versão secundária. Este exemplo usa a última versão secundária do Python 3.
+Você pode configurar uma versão específica do python. Por exemplo, 3,9. Como alternativa, você pode usar a sintaxe da versão semântica para obter a última versão secundária. Este exemplo usa a última versão secundária do Python 3.
 
 ```yaml{:copy}
 name: Python package

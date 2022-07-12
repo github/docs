@@ -1,4 +1,4 @@
-For example, a workflow with the following `on` value will run when a push is made to any branch in the workflow's repository:
+たとえば、以下の`on`の値を持つワークフローは、ワークフローのリポジトリの任意のブランチにプッシュが行われたときに実行されます。
 
 ```yaml
 on: push
