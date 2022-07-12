@@ -6,6 +6,7 @@ redirect_from:
   - /enterprise/admin/guides/installation/finding-the-current-github-enterprise-release
   - /enterprise/admin/enterprise-management/upgrade-requirements
   - /admin/enterprise-management/upgrade-requirements
+  - /enterprise/admin/guides/installation/about-upgrade-requirements
 versions:
   ghes: '*'
 type: reference

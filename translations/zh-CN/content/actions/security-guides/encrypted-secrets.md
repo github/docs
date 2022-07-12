@@ -7,6 +7,7 @@ redirect_from:
   - /actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets
   - /actions/configuring-and-managing-workflows/using-variables-and-secrets-in-a-workflow
   - /actions/reference/encrypted-secrets
+miniTocMaxHeadingLevel: 3
 versions:
   fpt: '*'
   ghes: '*'
@@ -283,49 +284,64 @@ steps:
 * 如果分配仓库访问超过 100 个组织密钥，则工作流程只能使用前 100 个组织密钥（按密钥名称字母顺序排序）。
 * 所有 100 个环境机密。
 
-密码大小限于 64 KB。 要使用大于 64 KB 的密码，可以将加密的密码存储在仓库中，并将解密短语在 {% data variables.product.prodname_dotcom %} 上存储为密码。 例如，在将文件检入您在 {% data variables.product.prodname_dotcom %} 上的仓库之前，可以使用 `gpg` 在本地对您的凭据加密。 更多信息请参阅“[gpg manpage](https://www.gnupg.org/gph/de/manual/r1023.html)”。
+密码大小限于 64 KB。 要存储较大的机密，请参阅下面的“[存储大机密](#storing-large-secrets)”解决方法。
+
+### 存储大型机密
+
+要使用大于 64 KB 的密码，可以使用解决方法将加密的密码存储在仓库中，并将解密短语在 {% data variables.product.prodname_dotcom %} 上存储为密码。 例如，您可以使用 `gpg` 在本地加密包含密钥的文件，然后再将加密文件签入 {% data variables.product.prodname_dotcom %} 上的存储库。 更多信息请参阅“[gpg manpage](https://www.gnupg.org/gph/de/manual/r1023.html)”。
 
 {% warning %}
 
-**警告**：请注意，在操作运行时不会打印您的机密。 使用此解决方法时，{% data variables.product.prodname_dotcom %} 不会编写日志中印出的密码。
+**警告**：请注意，在工作流程运行时不会打印您的机密。 使用此解决方法时，{% data variables.product.prodname_dotcom %} 不会编写日志中印出的密码。
 
 {% endwarning %}
 
-1. 从终端运行以下命令，以使用 `gpg` 和 AES256 密码算法对 `my_secret.json` 文件加密。
+1. 从终端运行以下命令，使用 `gpg` 和 AES256 密码算法加密包含密钥的文件。 在此示例中，`my_secret.json` 是包含密钥的文件。
 
- ``` shell
- $ gpg --symmetric --cipher-algo AES256 my_secret.json
- ```
+   ```bash
+   gpg --symmetric --cipher-algo AES256 my_secret.json
+   ```
 
 1. 将会提示您输入密码短语。 请记住该密码短语，因为需要在使用该密码短语作为值的 {% data variables.product.prodname_dotcom %} 上创建新密码。
 
-1. 创建包含密码短语的新密码。 例如，使用名称 `LARGE_SECRET_PASSPHRASE` 创建新密码，并将密码的值设为上一步所选的密码短语。
+1. 创建包含密码短语的新密码。 例如，使用名称 `LARGE_SECRET_PASSPHRASE` 创建新密码，并将密码的值设为上一步使用的密码短语。
 
-1. 将加密的文件复制到仓库并提交。 在本例中，加密的文件是 `my_secret.json.gpg`。
+1. 将加密文件复制到存储库中的路径并提交。 在本例中，加密的文件是 `my_secret.json.gpg`。
 
-1. 创建 shell 脚本对密码解密。 将此文件另存为 `decrypt_secret.sh`。
+   {% warning %}
 
-  ``` shell
-  #!/bin/sh
+   **警告**：请确保复制以 `.gpg` 文件扩展名结尾的加密 `my_secret.json.gpg` 文件，而**非**未加密的 `my_secret.json` 文件。
 
-  # Decrypt the file
-  mkdir $HOME/secrets
-  # --batch to prevent interactive command
-  # --yes to assume "yes" for questions
-  gpg --quiet --batch --yes --decrypt --passphrase="$LARGE_SECRET_PASSPHRASE" \
-  --output $HOME/secrets/my_secret.json my_secret.json.gpg
-  ```
+   {% endwarning %}
+
+   ```bash
+   git add my_secret.json.gpg
+   git commit -m "Add new encrypted secret JSON file"
+   ```
+
+1. 在存储库中创建一个 shell 脚本来解密机密文件。 在此示例中，脚本名为 `decrypt_secret.sh`。
+
+   ```bash
+   #!/bin/sh
+
+   # Decrypt the file
+   mkdir $HOME/secrets
+   # --batch to prevent interactive command
+   # --yes to assume "yes" for questions
+   gpg --quiet --batch --yes --decrypt --passphrase="$LARGE_SECRET_PASSPHRASE" \
+   --output $HOME/secrets/my_secret.json my_secret.json.gpg
+   ```
 
 1. 确保 shell 脚本在检入仓库之前可执行。
 
-  ``` shell
-  $ chmod +x decrypt_secret.sh
-  $ git add decrypt_secret.sh
-  $ git commit -m "Add new decryption script"
-  $ git push
-  ```
+   ```bash
+   chmod +x decrypt_secret.sh
+   git add decrypt_secret.sh
+   git commit -m "Add new decryption script"
+   git push
+   ```
 
-1. 从工作流程使用 `step` 调用 shell 脚本并对密码解密。 要在工作流程运行的环境中创建仓库的副本，需要使用 [`actions/checkout`](https://github.com/actions/checkout) 操作。 使用与仓库根目录相关的 `run` 命令引用 shell 脚本。
+1. 在 {% data variables.product.prodname_actions %} 工作流程中，使用 `step` 调用 shell 脚本并解密密钥。 要在工作流程运行的环境中创建仓库的副本，需要使用 [`actions/checkout`](https://github.com/actions/checkout) 操作。 使用与仓库根目录相关的 `run` 命令引用 shell 脚本。
 
    ```yaml
    name: Workflows with large secrets
@@ -339,7 +355,7 @@ steps:
        steps:
          - uses: {% data reusables.actions.action-checkout %}
          - name: Decrypt large secret
-           run: ./.github/scripts/decrypt_secret.sh
+           run: ./decrypt_secret.sh
            env:
              LARGE_SECRET_PASSPHRASE: {% raw %}${{ secrets.LARGE_SECRET_PASSPHRASE }}{% endraw %}
          # This command is just an example to show your secret being printed

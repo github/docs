@@ -81,7 +81,9 @@ Los codespaces se diseñan para estar fortalecidos en seguridad predeterminadame
 
 Utiliza siempre secretos cifrados cuando quieras utilizar información sensible (tal como tokens de acceso) en un codespace. Puedes acceder a tus secretos como variables de ambiente en el codespace, incluso desde la terminal. Por ejemplo, puedes lanzar una terminal dentro de tu codespace y utilizar `echo $SECRET_NAME` para ver el valor del secreto.
 
-Los valores del secreto se copian a las variables de ambiente cada que el codespace se reanuda o se crea, así que, si actualizas un valor secreto mientras el codespace se ejecuta, necesitarás suspender y reanudar para para tomar el valor actualziado.
+The secret values are copied to environment variables whenever the codespace is resumed or created and are also synced when they are changed.
+
+Secrets are not copied into the environment if you don't have write access to the codespace's repository.
 
 Para obtener más información sobre los secretos, consulta:
 - "[Administrar los secretos cifrados para tus codespaces](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)"
@@ -92,6 +94,8 @@ Para obtener más información sobre los secretos, consulta:
 Cuando creas un codespace desde una rama de solicitud de cambios desde una bifurcación, el token en el codespace variará dependiendo de si el repositorio es público o privado:
 - En el caso de un repositorio privado, el codespace obtiene acceso tanto a la bifurcación como al padre.
 - En el caso de un repositorio público, el codespace solo tendrá acceso a la bifurcación y a abrir solicitudes de cambios en el padre.
+
+We also further protect you in these scenarios by not injecting any of your [codespace secrets](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces) into the environment.
 
 ### Buenas prácticas adicionales
 

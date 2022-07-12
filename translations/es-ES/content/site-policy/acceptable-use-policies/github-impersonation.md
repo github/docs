@@ -1,6 +1,6 @@
 ---
-title: GitHub Impersonation
-shortTitle: Impersonation
+title: Suplantación de identidad en GitHub
+shortTitle: Suplantación de identidad
 versions:
   fpt: '*'
 topics:
@@ -11,13 +11,13 @@ redirect_from:
   - /github/site-policy/github-community-guidelines#impersonation
 ---
 
-You may not misrepresent your identity or your association with another person or organization. This includes doing any of the following in a way that misleads or deceives others:
+No puedes falsificar tu identidad o tu asociación con otra persona u organización. Esto incluye el realizar cualquiera de las siguientes acciones de forma que engañe a otros:
 
-- Copying another user's avatar or other personal profile information
-- Posting content under another user's email address
-- Using a deceptively similar username, organization name, or other namespace
-- Otherwise posing as another individual or organization
+- Copiar el avatar de otro usuario o cualquier otra información de perfil personal
+- Publicar contenido bajo la dirección de correo electrónico de otro usuario
+- Utilizar un nombre de usuario, organización o designador de nombre engañosamente similar
+- Hacerse pasar de otra manera como otro individuo u organización
 
-Impersonation is a form of harassment and violation of this policy may lead to loss of access to your account.
+La suplantación de identidad es una forma de acoso y las violaciones a esta política podrían ocasionar la pérdida de acceso a tu cuenta.
 
-Please note, having a username similar to another is not necessarily impersonation. GitHub will take context into account. For example, as in cases involving claims of [misinformation or disinformation](/github/site-policy/github-misinformation-and-disinformation), we generally allow parody and satire that is in line with our [Acceptable Use Polices](/github/site-policy/github-acceptable-use-policies).
+Toma en cuenta que, tener un nombre de usuario similar a otro no necesariamente constituye una suplantación de identidad. GitHub tomará en cuenta el contexto. Por ejemplo, en los casos que involucren reclamos de [mala información o desinformación](/github/site-policy/github-misinformation-and-disinformation), generalmente permitimos las parodias y sátiras que se alineen con nuestras [Políticas de uso aceptable](/github/site-policy/github-acceptable-use-policies).

@@ -8,6 +8,12 @@
         "requestPath": "/enterprises/{enterprise}/actions/cache/usage"
       },
       {
+        "slug": "set-the-github-actions-oidc-custom-issuer-policy-for-an-enterprise",
+        "subcategory": "oidc",
+        "verb": "put",
+        "requestPath": "/enterprises/{enterprise}/actions/oidc/customization/issuer"
+      },
+      {
         "slug": "get-default-workflow-permissions-for-an-enterprise",
         "subcategory": "permissions",
         "verb": "get",
@@ -30,6 +36,18 @@
         "subcategory": "cache",
         "verb": "get",
         "requestPath": "/orgs/{org}/actions/cache/usage-by-repository"
+      },
+      {
+        "slug": "get-the-customization-template-for-an-oidc-subject-claim-for-an-organization",
+        "subcategory": "oidc",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/actions/oidc/customization/sub"
+      },
+      {
+        "slug": "set-the-customization-template-for-an-oidc-subject-claim-for-an-organization",
+        "subcategory": "oidc",
+        "verb": "put",
+        "requestPath": "/orgs/{org}/actions/oidc/customization/sub"
       },
       {
         "slug": "get-github-actions-permissions-for-an-organization",
@@ -320,6 +338,24 @@
         "requestPath": "/repos/{owner}/{repo}/actions/cache/usage"
       },
       {
+        "slug": "list-github-actions-caches-for-a-repository",
+        "subcategory": "cache",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/actions/caches"
+      },
+      {
+        "slug": "delete-github-actions-caches-for-a-repository-using-a-cache-key",
+        "subcategory": "cache",
+        "verb": "delete",
+        "requestPath": "/repos/{owner}/{repo}/actions/caches"
+      },
+      {
+        "slug": "delete-a-github-actions-cache-for-a-repository-using-a-cache-id",
+        "subcategory": "cache",
+        "verb": "delete",
+        "requestPath": "/repos/{owner}/{repo}/actions/caches/{cache_id}"
+      },
+      {
         "slug": "get-a-job-for-a-workflow-run",
         "subcategory": "workflow-jobs",
         "verb": "get",
@@ -336,6 +372,18 @@
         "subcategory": "workflow-runs",
         "verb": "post",
         "requestPath": "/repos/{owner}/{repo}/actions/jobs/{job_id}/rerun"
+      },
+      {
+        "slug": "get-the-opt-out-flag-of-an-oidc-subject-claim-customization-for-a-repository",
+        "subcategory": "oidc",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/actions/oidc/customization/sub"
+      },
+      {
+        "slug": "set-the-opt-out-flag-of-an-oidc-subject-claim-customization-for-a-repository",
+        "subcategory": "oidc",
+        "verb": "put",
+        "requestPath": "/repos/{owner}/{repo}/actions/oidc/customization/sub"
       },
       {
         "slug": "get-github-actions-permissions-for-a-repository",

@@ -16,18 +16,6 @@ topics:
 
 Esto describe los recursos que conforman la API de REST oficial de {% data variables.product.product_name %}. Si tienes cualquier tipo de problema o solicitud, por favor contacta a {% data variables.contact.contact_support %}.
 
-## Versión actual
-
-Predeterminadamente, todas las solicitudes a `{% data variables.product.api_url_code %}` reciben la [versión](/developers/overview/about-githubs-apis)**v3** de la API de REST. Te alentamos a [solicitar explícitamente esta versión a través del encabezado `Aceptar`](/rest/overview/media-types#request-specific-version).
-
-    Accept: application/vnd.github.v3+json
-
-{% ifversion fpt or ghec %}
-
-For information about GitHub's GraphQL API, see the [documentation]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql). Para obtener más información acerca de cómo migrarse a GraphQL, consulta la sección "[Migrarse desde REST]({% ifversion ghec%}/free-pro-team@latest{% endif %}/graphql/guides/migrating-from-rest-to-graphql)".
-
-{% endif %}
-
 ## Modelo
 
 {% ifversion fpt or ghec %}Todos los accesos de las API son através de HTTPS y se accede a{% else %}La API{% endif %} desde `{% data variables.product.api_url_code %}`.  Todos los datos se
@@ -228,7 +216,7 @@ Los recursos también podría enviar errores de validación personalizados (en d
 
 ## Redireccionamientos HTTP
 
-La API v3 utiliza redireccionamientos HTTP cuando sea adecuado. Los clientes deberán asumir que cualquier solicitud podría resultar en un redireccionamiento. Recibir un redireccionamiento HTTP *no* es un error y los clientes deberán seguirlo. Las respuestas de redireccionamiento tendrán un campo de encabezado de tipo `Location` que contendrá el URI del recurso al cual el cliente deberá repetir la solicitud.
+The {% data variables.product.product_name %} REST API uses HTTP redirection where appropriate. Los clientes deberán asumir que cualquier solicitud podría resultar en un redireccionamiento. Recibir un redireccionamiento HTTP *no* es un error y los clientes deberán seguirlo. Las respuestas de redireccionamiento tendrán un campo de encabezado de tipo `Location` que contendrá el URI del recurso al cual el cliente deberá repetir la solicitud.
 
 | Código de estado | Descripción                                                                                                                                                                                                                          |
 | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -239,7 +227,7 @@ Podrían utilizarse otros códigos de estado de redirección de acuerdo con la e
 
 ## Verbos HTTP
 
-Cuando sea posible, la API v3 intentará utilizar los verbos HTTP adecuados para cada acción.
+Where possible, the {% data variables.product.product_name %} REST API strives to use appropriate HTTP verbs for each action.
 
 | Verbo    | Descripción                                                                                                                                                                                                                                  |
 | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

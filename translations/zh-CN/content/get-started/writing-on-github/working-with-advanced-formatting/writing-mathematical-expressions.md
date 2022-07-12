@@ -32,19 +32,28 @@ $$\left( \sum_{k=1}^n a_k b_k \right)^2 \leq \left( \sum_{k=1}^n a_k^2 \right) \
 
 ![作为块渲染的数学表达式](/assets/images/help/writing/math-expression-as-a-block-rendering.png)
 
+{% ifversion math-fenced-blocks %}
+
+或者，可以使用 <code>\`\`\`math</code> 代码块语法将数学表达式显示为块。 使用此语法，无需使用 `$$` 分隔符。
+
+````
+**Here is some math!**
+
+```math
+\sqrt{3}
+```
+````
+![围栏代码块中的数学表达式](/assets/images/help/writing/math-expression-as-a-fenced-code-block.png)
+{% endif %}
 ## 联接数学表达式以及在数学表达式内编写美元符号
-
 要将美元符号显示为与数学表达式相同的行中的字符，需要对非分隔符 `$` 进行转义，以确保该行正确呈现。
-
-  - 在数学表达式中，在显式 `$`之前添加 `\` 符号。
+- 在数学表达式中，在显式 `$`之前添加 `\` 符号。
 
   ```
   此表达式使用 `\$` 来显示美元符号：$\sqrt{\$4}$
   ```
-
-  ![数学表达式中的美元符号](/assets/images/help/writing/dollar-sign-within-math-expression.png)
-
-  - 在数学表达式之外，但在同一行上，在显式 `$` 周围使用 span 标记。
+![数学表达式中的美元符号](/assets/images/help/writing/dollar-sign-within-math-expression.png)
+- 在数学表达式之外，但在同一行上，在显式 `$` 周围使用 span 标记。
 
   ```
   要 <span>$</span>100 分成两半，我们计算 $100/2$

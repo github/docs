@@ -18339,7 +18339,7 @@ type Mutation {
   ): UpdatePullRequestPayload
 
   """
-  Merge HEAD from upstream branch into pull request branch
+  Merge or Rebase HEAD from upstream branch into pull request branch
   """
   updatePullRequestBranch(
     """
@@ -20714,6 +20714,11 @@ enum OrgRemoveMemberAuditEntryMembershipType {
   repositories in the organization.
   """
   OUTSIDE_COLLABORATOR
+
+  """
+  A suspended member.
+  """
+  SUSPENDED
 
   """
   An unaffiliated collaborator is a person who is not a member of the
@@ -25523,6 +25528,11 @@ type PullRequest implements Assignable & Closable & Comment & Labelable & Lockab
   Whether or not the viewer can disable auto-merge
   """
   viewerCanDisableAutoMerge: Boolean!
+
+  """
+  Can the viewer edit files within this pull request.
+  """
+  viewerCanEditFiles: Boolean!
 
   """
   Whether or not the viewer can enable auto-merge
@@ -31696,6 +31706,12 @@ A repository contains the content for a project.
 """
 type Repository implements Node & ProjectOwner & RepositoryInfo & Starrable & Subscribable & UniformResourceLocatable {
   """
+  Whether or not a pull request head branch that is behind its base branch can
+  always be updated even if it is not required to be up to date before merging.
+  """
+  allowUpdateBranch: Boolean!
+
+  """
   A list of users that can be assigned to issues in this repository.
   """
   assignableUsers(
@@ -32980,6 +32996,11 @@ type Repository implements Node & ProjectOwner & RepositoryInfo & Starrable & Su
     Returns the elements in the list that come before the specified cursor.
     """
     before: String
+
+    """
+    Filter by the scope of the alert's dependency
+    """
+    dependencyScopes: [RepositoryVulnerabilityAlertDependencyScope!]
 
     """
     Returns the first _n_ elements from the list.
@@ -34273,6 +34294,11 @@ type RepositoryVulnerabilityAlert implements Node & RepositoryNode {
   dependabotUpdate: DependabotUpdate
 
   """
+  The scope of an alert's dependency
+  """
+  dependencyScope: RepositoryVulnerabilityAlertDependencyScope
+
+  """
   The reason the alert was dismissed
   """
   dismissReason: String
@@ -34291,6 +34317,9 @@ type RepositoryVulnerabilityAlert implements Node & RepositoryNode {
   The reason the alert was marked as fixed.
   """
   fixReason: String
+    @deprecated(
+      reason: "The `fixReason` field is being removed. You can still use `fixedAt` and `dismissReason`. Removal on 2022-10-01 UTC."
+    )
 
   """
   When was the alert fixed?
@@ -34362,6 +34391,21 @@ type RepositoryVulnerabilityAlertConnection {
   Identifies the total count of items in the connection.
   """
   totalCount: Int!
+}
+
+"""
+The possible scopes of an alert's dependency.
+"""
+enum RepositoryVulnerabilityAlertDependencyScope {
+  """
+  A dependency that is only used in development
+  """
+  DEVELOPMENT
+
+  """
+  A dependency that is leveraged during application runtime
+  """
+  RUNTIME
 }
 
 """
@@ -35459,6 +35503,11 @@ enum SecurityAdvisoryEcosystem {
   PHP packages hosted at packagist.org
   """
   COMPOSER
+
+  """
+  Erlang/Elixir packages hosted at hex.pm
+  """
+  ERLANG
 
   """
   Go modules

@@ -13,7 +13,7 @@ Si especificas tipos de actividad múltiples, solo uno de ellos necesitará ocur
 
 ```yaml
 on:
-  issue:
+  issues:
     types:
       - opened
       - labeled

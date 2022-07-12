@@ -27,8 +27,6 @@ describe('learning tracks', () => {
       const found = href.match(/.*\?learn=(.*)/i)
       expect(found).not.toBeNull()
       const trackName = found[1]
-
-      // check all the links contain track name
       $(trackElem)
         .find('a.Box-row')
         .each((i, elem) => {

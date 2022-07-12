@@ -360,10 +360,10 @@ There are transformations for image paths in GitHub Enterprise Server (versions 
 
 ### Preventing transformations
 
-Sometimes you want to link to a Dotcom-only article in Enterprise content and you don't want the link to be Enterprise-ified. To prevent the transformation, write the link using HTML and add a class of `dotcom-only`. For example:
+Sometimes you want to link to a Dotcom-only article in Enterprise content and you don't want the link to be Enterprise-ified. To prevent the transformation, include the preferred version in the path.
 
-```html
-<a href="/github/site-policy/github-terms-of-service" class="dotcom-only">GitHub's Terms of Service</a>
+```markdown
+"[GitHub's Terms of Service](/free-pro-team@latest/github/site-policy/github-terms-of-service)"
 ```
 
 Sometimes the canonical home of content moves outside the docs site. None of the links included in [`lib/redirects/external-sites.json`](/lib/redirects/external-sites.json) get rewritten. See  [`contributing/redirects.md`](/contributing/redirects.md) for more info about this type of redirect.

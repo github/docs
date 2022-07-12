@@ -24,32 +24,13 @@ miniTocMaxHeadingLevel: 3
 
 要缓存作业的依赖项，可以使用 {% data variables.product.prodname_dotcom %} 的 [`cache` 操作](https://github.com/actions/cache)。 该操作将创建并还原由唯一键标识的缓存。 或者，如果要缓存下面列出的包管理器，则使用其各自的 setup-* 操作时需要的配置最少，并且将为您创建和还原依赖项缓存。
 
-<table>
-<thead>
-  <tr>
-    <th>包管理器</th>
-    <th>用于缓存的 setup-* 操作</th>
-  </tr>
-</thead>
-<tbody>
-  <tr>
-    <td>npm, yarn, pnpm</td>
-    <td><a href="https://github.com/actions/setup-node#caching-global-packages-data">setup-node</a></td>
-  </tr>
-  <tr>
-    <td>pip, pipenv, poetry</td>
-    <td><a href="https://github.com/actions/setup-python#caching-packages-dependencies">setup-python</a></td>
-  </tr>
-  <tr>
-    <td>gradle, maven</td>
-    <td><a href="https://github.com/actions/setup-java#caching-packages-dependencies">setup-java</a></td>
-  </tr>
-  <tr>
-    <td>ruby gems</td>
-    <td><a href="https://github.com/ruby/setup-ruby#caching-bundle-install-automatically">setup-ruby</a></td>
-  </tr>
-</tbody>
-</table>
+| 包管理器                | 用于缓存的 setup-* 操作                                                                           |
+| ------------------- | ------------------------------------------------------------------------------------------ |
+| npm, Yarn, pnpm     | [setup-node](https://github.com/actions/setup-node#caching-global-packages-data)           |
+| pip, pipenv, Poetry | [setup-python](https://github.com/actions/setup-python#caching-packages-dependencies)      |
+| Gradle, Maven       | [setup-java](https://github.com/actions/setup-java#caching-packages-dependencies)          |
+| RubyGems            | [setup-ruby](https://github.com/ruby/setup-ruby#caching-bundle-install-automatically)      |
+| Go `go.sum`         | [setup-go](https://github.com/actions/setup-go#caching-dependency-files-and-build-outputs) |
 
 {% warning %}
 
@@ -269,6 +250,6 @@ restore-keys: |
 
 ## 管理缓存
 
-您可以使用 {% data variables.product.product_name %} REST API 来管理缓存。 目前，您可以使用 API 来查看缓存使用情况，并期望在未来的更新中提供更多功能。 更多信息请参阅 REST API 文档中的“[操作](/rest/reference/actions#cache)”。
+您可以使用 {% data variables.product.product_name %} REST API 来管理缓存。 {% ifversion actions-cache-list-delete-apis %}您可以使用 API 列出和删除缓存条目，并查看缓存使用情况。{% elsif actions-cache-management %}目前，您可以使用 API 查看缓存使用情况，预计在将来的更新中会有更多的功能。{% endif %} 有关详细信息，请参阅“[{% data variables.product.prodname_actions %} 缓存](/rest/actions/cache)”REST API 文档。
 
 {% endif %}
