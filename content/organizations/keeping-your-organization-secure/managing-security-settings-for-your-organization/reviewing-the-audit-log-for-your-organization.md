@@ -164,7 +164,7 @@ Note that you can't retrieve Git events using the GraphQL API. To retrieve Git e
 
 The GraphQL response can include data for up to 90 to 120 days.
 
-For example, you can make a GraphQL request to see all the new organization members added to your organization. For more information, see the "[GraphQL API Audit Log]({% ifversion ghec%}/free-pro-team@latest{% endif %}/graphql/reference/interfaces#auditentry/)."
+For example, you can make a GraphQL request to see all the new organization members added to your organization. For more information, see the "[GraphQL API Audit Log](/graphql/reference/interfaces#auditentry/)."
 
 {% ifversion ghec %}
 
