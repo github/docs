@@ -923,7 +923,7 @@ on:
 
 {% note %}
 
-**Note**: When a `push` webhook event triggers a workflow run, the Actions UI's "pushed by" field shows the account of the pusher and not the author or committer. However, if the changes are pushed to a repository using SSH authentication with a deploy key, then the "pushed by" field will be the repository admin who verified the deploy key when it was added it to a repository.
+**Observação**: Quando um evento de webhook `push` aciona a execução de um fluxo de trabalho, o campo "enviado por" da Interface do Actions mostra a conta do pusher e não o autor ou autor oiu committer. No entanto, se as alterações forem enviadas para um repositório que usa a autenticação SSH com uma chave de implantação, o campo "enviado por" será o administrador do repositório que verificou a chave de implantação quando foi adicionado a um repositório.
 
 {% endnote %}
 
@@ -1013,7 +1013,7 @@ on:
 
 Executa o fluxo de trabalho quando uma atividade relacionada ao {% data variables.product.prodname_registry %} ocorre no seu repositório. Para obter mais informações, consulte "[Documentação do {% data variables.product.prodname_registry %}](/packages)".
 
-Por exemplo, você pode executar um fluxo de trabalho quando um pacote tiver sido `publicado`.
+Por exemplo, você pode executar um fluxo de trabalho quando a nova versão de um pacote tiver sido `publicada`.
 
 ```yaml
 em:

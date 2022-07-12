@@ -282,7 +282,7 @@ jobs:
 
 作业包含一系列任务，称为 `steps`。 步骤可以运行命令、运行设置任务，或者运行您的仓库、公共仓库中的操作或 Docker 注册表中发布的操作。 并非所有步骤都会运行操作，但所有操作都会作为步骤运行。 每个步骤在运行器环境中以其自己的进程运行，且可以访问工作区和文件系统。 因为步骤以自己的进程运行，所以步骤之间不会保留环境变量的更改。 {% data variables.product.prodname_dotcom %} 提供内置的步骤来设置和完成作业。
 
-在工作流程的使用限制之内可运行无限数量的步骤。 For more information, see {% ifversion fpt or ghec or ghes %}"[Usage limits and billing](/actions/reference/usage-limits-billing-and-administration)" for {% data variables.product.prodname_dotcom %}-hosted runners and {% endif %}"[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners/#usage-limits){% ifversion fpt or ghec or ghes %}" for self-hosted runner usage limits.{% elsif ghae %}."{% endif %}
+在工作流程的使用限制之内可运行无限数量的步骤。 更多信息请参阅 {% ifversion fpt or ghec or ghes %}“[使用限制和计费](/actions/reference/usage-limits-billing-and-administration)”（对于 {% data variables.product.prodname_dotcom %} 托管的运行器）和 {% endif %}“[关于自托管的运行器](/actions/hosting-your-own-runners/about-self-hosted-runners/#usage-limits){% ifversion fpt or ghec or ghes %}”（对于自托管运行器使用限制）。{% elsif ghae %}。”{% endif %}
 
 ### 示例
 

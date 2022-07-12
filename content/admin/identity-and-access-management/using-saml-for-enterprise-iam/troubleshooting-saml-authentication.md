@@ -1,7 +1,7 @@
 ---
 title: Troubleshooting SAML authentication
 shortTitle: Troubleshoot SAML SSO
-intro: If you use SAML single sign-on (SSO) and people are unable to authenticate to access {% data variables.product.product_location %}, you can troubleshoot the problem.
+intro: 'If you use SAML single sign-on (SSO) and people are unable to authenticate to access {% data variables.product.product_location %}, you can troubleshoot the problem.'
 versions:
   ghes: '*'
 type: how_to

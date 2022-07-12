@@ -4,7 +4,7 @@ intro: 'You can use {% data variables.product.prodname_secret_scanning %} to pre
 product: '{% data reusables.gated-features.secret-scanning %}'
 miniTocMaxHeadingLevel: 3
 versions:
-  feature: 'secret-scanning-push-protection'
+  feature: secret-scanning-push-protection
 redirect_from:
   - /early-access/code-security/secret-scanning/protecting-pushes-with-secret-scanning
 type: how_to

@@ -19,7 +19,7 @@ shortTitle: JetBrains
 
 ## {% data variables.product.prodname_copilot %} 的键盘快捷键
 
-使用 {% data variables.product.prodname_copilot %} 时，您可以在 JetBrains IDE 中对内联建议使用默认键盘快捷键。 Alternatively, you can rebind the shortcuts to your preferred keyboard shortcuts for each specific command. For more information on rebinding keyboard shortcuts in your JetBrains IDE, see the JetBrains documentation. For example, you can view the [IntelliJ IDEA](https://www.jetbrains.com/help/idea/mastering-keyboard-shortcuts.html#choose-keymap) documentation.
+使用 {% data variables.product.prodname_copilot %} 时，您可以在 JetBrains IDE 中对内联建议使用默认键盘快捷键。 或者，您可以将每个特定命令的快捷键重新绑定到首选键盘快捷键。 有关在 JetBrains IDE 中重新绑定键盘快捷键的更多信息，请参阅 JetBrains 文档。 例如，您可以查看 [IntelliJ IDEA](https://www.jetbrains.com/help/idea/mastering-keyboard-shortcuts.html#choose-keymap) 文档。
 
 {% mac %}
 
@@ -62,20 +62,20 @@ shortTitle: JetBrains
 
 ## 启用或禁用 {% data variables.product.prodname_copilot %}
 
-您可以从 JetBrains IDE 中启用或禁用 {% data variables.product.prodname_copilot %}。 The {% data variables.product.prodname_copilot %} status icon in the bottom panel of the JetBrains window indicates whether {% data variables.product.prodname_copilot %} is enabled or disabled. 启用后，该图标将突出显示。 禁用后，图标将灰显。
+您可以从 JetBrains IDE 中启用或禁用 {% data variables.product.prodname_copilot %}。 JetBrains 窗口底部面板中的 {% data variables.product.prodname_copilot %} 状态图标指示是启用还是禁用 {% data variables.product.prodname_copilot %}。 启用后，该图标将突出显示。 禁用后，图标将灰显。
 
-1. 要启用或禁用 {% data variables.product.prodname_copilot %}，请单击 JetBrains 窗口底部面板中的状态图标。 ![Status icon in JetBrains](/assets/images/help/copilot/status-icon-jetbrains.png)
-2. 如果要禁用 {% data variables.product.prodname_copilot %}，系统将询问您是要全局禁用它，还是要禁用当前正在编辑的文件的语言。 要全局禁用，请单击 **Disable Completions（禁用完成）**。 或者，单击特定于语言的按钮以禁用指定语言的 {% data variables.product.prodname_copilot %}。 ![Disable {% data variables.product.prodname_copilot %} globally or for the current language](/assets/images/help/copilot/disable-copilot-global-or-langugage-jetbrains.png)
+1. 要启用或禁用 {% data variables.product.prodname_copilot %}，请单击 JetBrains 窗口底部面板中的状态图标。 ![JetBrains 中的状态图标](/assets/images/help/copilot/status-icon-jetbrains.png)
+2. 如果要禁用 {% data variables.product.prodname_copilot %}，系统将询问您是要全局禁用它，还是要禁用当前正在编辑的文件的语言。 要全局禁用，请单击 **Disable Completions（禁用完成）**。 或者，单击特定于语言的按钮以禁用指定语言的 {% data variables.product.prodname_copilot %}。 ![全局禁用 {% data variables.product.prodname_copilot %} 或当前语言](/assets/images/help/copilot/disable-copilot-global-or-langugage-jetbrains.png)
 
-## Configuring advanced settings for {% data variables.product.prodname_copilot %}
+## 配置 {% data variables.product.prodname_copilot %} 的高级设置
 
-You can manage advanced settings for {% data variables.product.prodname_copilot %} in your JetBrains IDE, such as how your IDE displays code completions, and which languages you want to enable or disable for {% data variables.product.prodname_copilot %}.
+您可以在 JetBrains IDE 中管理 {% data variables.product.prodname_copilot %} 的高级设置，例如 IDE 显示代码完成的方式，以及要为 {% data variables.product.prodname_copilot %} 启用或禁用的语言。
 
-1. In your JetBrains IDE, click the **File** menu, then click **Settings**.
-1. Under **Languages & Frameworks**, click **{% data variables.product.prodname_copilot %}**.
-1. Edit the settings according to your personal preferences.
-   - To adjust the behaviour and appearance of code suggestions, and whether to automatically check for updates, select or deselect the corresponding checkboxes.
-   - If you have selected to receive automatic updates, you can choose whether to receive stable, but less frequent updates, or nightly updates, which may be less stable. Click the **Update channel** dropdown and select **Stable** for stable updates, or **Nightly** for nightly updates.
-   - Under "Disabled languages", use the checkboxes to select or deselect the languages you want to disable {% data variables.product.prodname_copilot %} for.
+1. 在 JetBrains IDE 中，单击 **File（文件）**菜单，然后单击 **Settings（设置）**。
+1. 在 **Languages & Frameworks（语言和框架）**下，单击 **{% data variables.product.prodname_copilot %}**。
+1. 根据您的个人喜好编辑设置。
+   - 要调整代码建议的行为和外观，以及是否自动检查更新，请选中或取消选中相应的复选框。
+   - 如果已选择接收自动更新，则可以选择是接收稳定但频率较低的更新，还是接收可能不太稳定的每夜更新。 单击 **Update channel（更新通道）**下拉列表，然后选择 **Stable（稳定）**以接收稳定更新，或选择 **Nightly（每夜）**以接收每夜更新。
+   - 在“Disabled languages（禁用的语言）”下，使用复选框选择或取消选择您想要对 {% data variables.product.prodname_copilot %} 禁用的语言。
 
 {% data reusables.copilot.dotcom-settings %}

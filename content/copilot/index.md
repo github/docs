@@ -22,13 +22,13 @@ featuredLinks:
     - /copilot/configuring-github-copilot/configuring-github-copilot-in-visual-studio
 layout: product-landing
 versions:
-  feature: 'copilot'
+  feature: copilot
 children:
   - /quickstart
   - /overview-of-github-copilot
   - /getting-started-with-github-copilot
   - /configuring-github-copilot
-topics: 
+topics:
   - Copilot
 ---
 

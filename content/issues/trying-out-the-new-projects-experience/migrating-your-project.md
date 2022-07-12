@@ -1,6 +1,6 @@
 ---
 title: Migrating your project to Projects (beta)
-intro: 'You can migrate your projects from the old projects experience to Projects (beta).' 
+intro: You can migrate your projects from the old projects experience to Projects (beta).
 allowTitleToDifferFromFilename: true
 miniTocMaxHeadingLevel: 2
 versions:

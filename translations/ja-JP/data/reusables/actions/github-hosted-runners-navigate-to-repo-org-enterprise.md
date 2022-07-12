@@ -1,12 +1,12 @@
 {% ifversion fpt %}
-1. Navigate to the main page of the organization or repository.
-1. Click {% octicon "gear" aria-label="The Settings gear" %} **Settings**.
-1. In the left sidebar, click **Actions**, then click **Runners**.
+1. Organizationもしくはリポジトリのメインページにアクセスしてください。
+1. {% octicon "gear" aria-label="The Settings gear" %} **Settings（設定）**をクリックしてください。
+1. 左のサイドバーで、**Actionsをクリック**し、続いて**Runners（ランナー）**をクリックしてください。
 {% elsif ghec %}
-1. Navigate to your runner settings:
-   * **In an organization or repository**: Navigate to the main page, then click {% octicon "gear" aria-label="The Settings gear" %} **Settings**.
-   * **If using an enterprise account**: Navigate to your enterprise account by clicking your profile photo in the top-right corner of {% data variables.product.prodname_dotcom_the_website %}, then clicking **Your enterprises**, then clicking the enterprise.
+1. ランナーの設定にアクセスしてください。
+   * **Organizationもしくはリポジトリ内**: メインページにアクセスし、続いて{% octicon "gear" aria-label="The Settings gear" %} **Settings（設定）**をクリックしてください。
+   * **Enterpriseアカウントを使っている場合**: {% data variables.product.prodname_dotcom_the_website %}の右上にあるプロフィール写真をクリックしてEnterpriseアカウントにアクセスし、続いて**Your enterprises（あなたのEnterprise）**をクリックし、Enterpriseをクリックしてください。
 1. {% data variables.product.prodname_actions %}設定にアクセスしてください:
-   * **In an organization or repository**: Click **Actions** in the left sidebar, then click **Runners**.
-   * **If using an enterprise account**: In the left sidebar, click **"{% octicon "law" aria-label="The law icon" %} Policies"**, then click **Actions**, then click the **Runners** tab.
+   * **Organizationもしくはリポジトリ内**: 左のサイドバーの**Actions**をクリックし、続いて**Runners（ランナー）**をクリックしてください。
+   * **Enterpriseアカウントを使っている場合**: 左のサイドバーで**「{% octicon "law" aria-label="The law icon" %} Policies（ポリシー）」**をクリックし、続いて**Actions**をクリックし、**Runners（ランナー）**タブをクリックしてください。
 {% endif %}

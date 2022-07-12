@@ -15,9 +15,9 @@ topics:
 
 ## Sobre insights
 
-Você pode usar os insights para visualizar e personalizar gráficos que usam os itens adicionados ao seu projeto como seus dados de origem. The default "Burn up" chart shows item status over time, allowing you to visualize progress and spot patterns over time.
+Você pode usar os insights para visualizar e personalizar gráficos que usam os itens adicionados ao seu projeto como seus dados de origem. O gráfico padrão "Burn up" mostra o status do item ao longo do tempo, permitindo que você visualize o progresso e os padrões de ponto ao longo do tempo.
 
-![Screenshot showing an example of the default burn up chart for the current iteration](/assets/images/help/issues/burnup-example.png)
+![Captura de tela que mostra um exemplo do gráfico padrão de burn up para a iteração atual](/assets/images/help/issues/burnup-example.png)
 
 Você pode aplicar filtros ao gráfico padrão e também criar seus próprios gráficos. Ao criar um gráfico, você define os filtros, o tipo de gráfico e as informações exibidas, e o gráfico está disponível para qualquer pessoa que possa visualizar o projeto.
 
@@ -38,6 +38,6 @@ Você pode aplicar filtros ao gráfico padrão e também criar seus próprios gr
 1. No lado direito da página, clique em **Configurar**. Será aberto um painel à direita.
 1. Para alterar o tipo de gráfico, selecione a lista suspensa do **Layout** e clique no tipo de gráfico que você deseja usar.
 1. Para alterar o campo usado no eixo X do gráfico, selecione o menu suspenso **Eixo X** e clique no campo que você deseja usar.
-1. Optionally, to group the items on your X-axis by another field, select **Group by** and click on the field you want to use, or click "None" to disable grouping.
-1. Optionally, if your project contains number fields and you want the Y-axis to display the sum, average, minimum, or maximum of one of those number fields, select **Y-axis** and click an option. Then, select the dropdown that appears beneath and click on the number field you want to use.
-1. To save your chart, click **Save changes**.
+1. Opcionalmente, para agrupar os itens no seu eixo X por outro campo, selecione **Agrupar por** e clique no campo que você deseja usar ou clique em "Nenhum" para desabilitar o agrupamento.
+1. Opcionalmente, se o seu projeto contiver campos numéricos e você quiser que o eixo Y exiba a soma, média, mínimo ou máximo de um desses campos numéricos, selecione **eixo Y** e clique em uma opção. Em seguida, selecione o menu suspenso que aparece abaixo e clique no campo número que você deseja usar.
+1. Para salvar seu gráfico, clique em **Salvar alterações**.

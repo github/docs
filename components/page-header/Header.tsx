@@ -78,10 +78,7 @@ export const Header = () => {
             <Breadcrumbs />
           </div>
           <div className="d-flex flex-items-center">
-            <div className="mr-2">
-              <VersionPicker />
-            </div>
-
+            <VersionPicker />
             <LanguagePicker />
 
             {signupCTAVisible && (

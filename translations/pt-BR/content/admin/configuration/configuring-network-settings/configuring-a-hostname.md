@@ -17,7 +17,7 @@ topics:
 
 Se configurar um nome de host em vez de um endereço IP codificado, você poderá alterar o hardware físico em que a {% data variables.product.product_location %} é executada sem afetar os usuários ou o software cliente.
 
-A configuração do nome de host no {% data variables.enterprise.management_console %} deve ser definida como um nome de domínio totalmente qualificado (FQDN) que seja resolvido na internet ou dentro da sua rede interna. Por exemplo, a configuração do nome de host pode ser `github.companyname.com.`As solicitações da web e da API serão automaticamente redirecionadas para o nome de host configurado no {% data variables.enterprise.management_console %}. Note that `localhost` is not a valid hostname setting.
+A configuração do nome de host no {% data variables.enterprise.management_console %} deve ser definida como um nome de domínio totalmente qualificado (FQDN) que seja resolvido na internet ou dentro da sua rede interna. Por exemplo, a configuração do nome de host pode ser `github.companyname.com.`As solicitações da web e da API serão automaticamente redirecionadas para o nome de host configurado no {% data variables.enterprise.management_console %}. Observe que `localhost` não é uma configuração válida para o nome de host.
 
 Depois de configurar um nome de host, você poderá habilitar o isolamento de subdomínio para aumentar ainda mais a segurança de {% data variables.product.product_location %}. Para obter mais informações, consulte "[Habilitar isolamento de subdomínio](/enterprise/admin/guides/installation/enabling-subdomain-isolation/)".
 

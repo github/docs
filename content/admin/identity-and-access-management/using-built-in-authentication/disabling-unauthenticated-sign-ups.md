@@ -7,8 +7,8 @@ redirect_from:
   - /admin/authentication/disabling-unauthenticated-sign-ups
   - /enterprise/admin/authentication/authenticating-users-for-your-github-enterprise-server-instance/disabling-unauthenticated-sign-ups
   - /admin/identity-and-access-management/authenticating-users-for-your-github-enterprise-server-instance/disabling-unauthenticated-sign-ups
-intro: "If you're using built-in authentication for {% data variables.product.product_location %}, you can block unauthenticated people from creating new user accounts on your instance."
-permissions: Site administrators can disable unauthenticated sign-ups on a {% data variables.product.product_name %} instance.
+intro: 'If you''re using built-in authentication for {% data variables.product.product_location %}, you can block unauthenticated people from creating new user accounts on your instance.'
+permissions: 'Site administrators can disable unauthenticated sign-ups on a {% data variables.product.product_name %} instance.'
 versions:
   ghes: '*'
 type: how_to

@@ -95,7 +95,7 @@ jobs:
 ```
 {% endraw %}
 
-For more information, see "[Reusing workflows](/actions/learn-github-actions/reusing-workflows)."
+詳しい情報については「[ワークフローの再利用](/actions/learn-github-actions/reusing-workflows)」を参照してください。
 
 #### `on.workflow_call.inputs.<input_id>.type`
 
@@ -124,7 +124,7 @@ on:
 ```
 {% endraw %}
 
-For information on how to reference a job output, see [`jobs.<job_id>.outputs`](#jobsjob_idoutputs). For more information, see "[Reusing workflows](/actions/learn-github-actions/reusing-workflows)."
+For information on how to reference a job output, see [`jobs.<job_id>.outputs`](#jobsjob_idoutputs). 詳しい情報については「[ワークフローの再利用](/actions/learn-github-actions/reusing-workflows)」を参照してください。
 
 ### `on.workflow_call.secrets`
 
@@ -948,7 +948,7 @@ The location and version of a reusable workflow file to run as a job. {% ifversi
 
 {% data reusables.actions.uses-keyword-example %}
 
-For more information, see "[Reusing workflows](/actions/learn-github-actions/reusing-workflows)."
+詳しい情報については「[ワークフローの再利用](/actions/learn-github-actions/reusing-workflows)」を参照してください。
 
 ### `jobs.<job_id>.with`
 
