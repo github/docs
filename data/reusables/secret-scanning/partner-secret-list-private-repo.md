@@ -230,3 +230,5 @@ Yandex | Yandex.Cloud Access Secret | yandex_iam_access_secret{% endif %}
 Yandex | Yandex.Predictor API Key | yandex_predictor_api_key{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5845 %}
 Yandex | Yandex.Translate API Key | yandex_translate_api_key{% endif %}
+{%- ifversion fpt or ghec or ghes > 3.6 or ghae-issue-7456 %}
+Zuplo | Zuplo Consumer API Key | zuplo_consumer_api_key{% endif %}
