@@ -42,7 +42,7 @@ Issue templates are stored on the repository's default branch, in a hidden `.git
 
 It is possible to manually create a single issue template in Markdown using the legacy issue template workflow, and project contributors will automatically see the template's contents in the issue body. However, we recommend using the upgraded multiple issue template builder{% ifversion fpt or ghec %} or issue forms{% endif %} to create issue templates. For more information about the legacy workflow, see "[Manually creating a single issue template for your repository](/articles/manually-creating-a-single-issue-template-for-your-repository)."
 
-{% data reusables.repositories.security-guidelines %} A link to this policy will be displayed alongside the issue templates in the template chooser.
+{% data reusables.repositories.security-guidelines %}
 
 ## Pull request templates
 
