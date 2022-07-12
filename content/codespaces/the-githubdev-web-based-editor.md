@@ -36,16 +36,11 @@ You can open any {% data variables.product.prodname_dotcom %} repository in the 
 
 - Press `.` while browsing any repository or pull request on {% data variables.product.prodname_dotcom %}.
 - Change the URL from "github.com" to "github.dev".
-<<<<<<< HEAD
-  
-## {% data variables.product.prodname_github_codespaces %} and the {% data variables.product.prodname_serverless %}
-=======
 - When viewing a file, use the dropdown menu next to {% octicon "pencil" aria-label="The edit icon" %} and select **Open in github.dev**.
 
   ![Edit file button dropdown menu](/assets/images/help/repository/edit-file-edit-dropdown.png)
 
 ## {% data variables.product.prodname_codespaces %} and the {% data variables.product.prodname_serverless %}
->>>>>>> main
 
 Both the {% data variables.product.prodname_serverless %} and {% data variables.product.prodname_github_codespaces %} allow you to edit your code straight from your repository. However, both have slightly different benefits, depending on your use case.
 
