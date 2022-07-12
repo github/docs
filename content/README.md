@@ -334,7 +334,7 @@ Just add a hyphen on either the left, right, or both sides to indicate that ther
 {%- ifversion fpt %}
 ```
 
-## Links and image paths
+## Links
 
 Links to docs in the `docs-internal` repository must start with a product ID (like `/actions` or `/admin`) and contain the entire filepath, but not the file extension. For example, `/actions/creating-actions/about-custom-actions`.
 
@@ -355,8 +355,6 @@ and when viewed on GitHub Enterprise Server docs, the version is included as wel
 ```
 /en/enterprise-server@2.20/github/writing-on-github/creating-a-saved-reply
 ```
-
-There are transformations for image paths in GitHub Enterprise Server (versions 2.20-3.0) only. Once those versions are deprecation, there will no longer be any transformations for image paths. For more information, see [/assets/images/enterprise/legacy-format/README.md](/assets/images/enterprise/legacy-format/README.md).
 
 ### Preventing transformations
 

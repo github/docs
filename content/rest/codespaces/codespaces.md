@@ -1,6 +1,6 @@
 ---
 title: Codespaces
-intro: 'The Codespaces API enables you to manage your codespaces using the REST API.'
+intro: The Codespaces API enables you to manage your codespaces using the REST API.
 versions:
   fpt: '*'
   ghec: '*'

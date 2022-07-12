@@ -32,7 +32,7 @@ You can extend the CI and CD capabilities of your repository by publishing or in
 
 ### Authenticating to package registries on {% data variables.product.prodname_dotcom %}
 
-{% ifversion fpt or ghec %}If you want your workflow to authenticate to {% data variables.product.prodname_registry %} to access a package registry other than the {% data variables.product.prodname_container_registry %} on {% data variables.product.product_location %}, then{% else %}To authenticate to package registries on {% data variables.product.product_name %},{% endif %} we recommend using the `GITHUB_TOKEN` that {% data variables.product.product_name %} automatically creates for your repository when you enable {% data variables.product.prodname_actions %} instead of a personal access token for authentication. {% ifversion fpt or ghes > 3.1 or ghae or ghec %}You should set the permissions for this access token in the workflow file to grant read access for the `contents` scope and write access for the `packages` scope. {% else %}It has read and write permissions for packages in the repository where the workflow runs. {% endif %}For forks, the `GITHUB_TOKEN` is granted read access for the parent repository. For more information, see "[Authenticating with the GITHUB_TOKEN](/actions/configuring-and-managing-workflows/authenticating-with-the-github_token)."
+{% ifversion fpt or ghec %}If you want your workflow to authenticate to {% data variables.product.prodname_registry %} to access a package registry other than the {% data variables.product.prodname_container_registry %} on {% data variables.product.product_location %}, then{% else %}To authenticate to package registries on {% data variables.product.product_name %},{% endif %} we recommend using the `GITHUB_TOKEN` that {% data variables.product.product_name %} automatically creates for your repository when you enable {% data variables.product.prodname_actions %} instead of a personal access token for authentication. You should set the permissions for this access token in the workflow file to grant read access for the `contents` scope and write access for the `packages` scope. For forks, the `GITHUB_TOKEN` is granted read access for the parent repository. For more information, see "[Authenticating with the GITHUB_TOKEN](/actions/configuring-and-managing-workflows/authenticating-with-the-github_token)."
 
 You can reference the `GITHUB_TOKEN` in your workflow file using the {% raw %}`{{secrets.GITHUB_TOKEN}}`{% endraw %} context. For more information, see "[Authenticating with the GITHUB_TOKEN](/actions/automating-your-workflow-with-github-actions/authenticating-with-the-github_token)."
 
@@ -138,7 +138,7 @@ jobs:
 
   build-and-push-image:
     runs-on: ubuntu-latest
-    needs: run-npm-test {% ifversion ghes > 3.1 or ghae %}
+    needs: run-npm-test {% ifversion ghes or ghae %}
     permissions: 
       contents: read
       packages: write {% endif %}
@@ -288,7 +288,6 @@ build-and-push-image:
 
 {% endif %}
 
-{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
 <tr>
 <td>
 {% raw %}
@@ -303,7 +302,6 @@ permissions:
   Sets the permissions granted to the <code>GITHUB_TOKEN</code> for the actions in this job.
 </td>
 </tr> 
-{% endif %}
 
 {% ifversion fpt or ghec %}
 <tr>
@@ -474,7 +472,6 @@ This new workflow will run automatically every time you push a change to a branc
 
 A few minutes after the workflow has completed, the new package will visible in your repository. To find your available packages, see "[Viewing a repository's packages](/packages/publishing-and-managing-packages/viewing-packages#viewing-a-repositorys-packages)."
 
-
 ## Installing a package using an action
 
 You can install packages as part of your CI flow using {% data variables.product.prodname_actions %}. For example, you could configure a workflow so that anytime a developer pushes code to a pull request, the workflow resolves dependencies by downloading and installing packages hosted by {% data variables.product.prodname_registry %}. Then, the workflow can run CI tests that require the dependencies.
@@ -532,10 +529,10 @@ jobs:
   # Push image to GitHub Packages.
   # See also https://docs.docker.com/docker-hub/builds/
   push:
-    runs-on: ubuntu-latest{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
+    runs-on: ubuntu-latest
     permissions:
       packages: write
-      contents: read{% endif %}
+      contents: read
 
     steps:
       - uses: {% data reusables.actions.action-checkout %}

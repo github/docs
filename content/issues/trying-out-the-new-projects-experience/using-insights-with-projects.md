@@ -1,6 +1,6 @@
 ---
 title: Using insights with projects (beta)
-intro: 'You can view and customize charts that are built from your project''s data.' 
+intro: You can view and customize charts that are built from your project's data.
 allowTitleToDifferFromFilename: true
 miniTocMaxHeadingLevel: 2
 versions:

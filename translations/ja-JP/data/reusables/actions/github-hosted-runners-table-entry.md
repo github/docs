@@ -1,1 +1,1 @@
-1. In the "Runners" table, click the entry for **GitHub-hosted runners**. This entry will only be present if you're using {% data variables.product.prodname_dotcom %}-hosted runners.
+1. "Runners（ランナー）"の表で、**GitHub-hosted runners（GitHubホストランナー）**のエントリをクリックしてください。 このエントリは、{% data variables.product.prodname_dotcom %}ホストランナーを使っている場合にのみ現れます。

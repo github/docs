@@ -7,7 +7,7 @@
 | Amazon                    | Amazon OAuth Client Secret                         | amazon_oauth_client_secret                             |
 | Amazon Web Services (AWS) | Amazon AWS 访问密钥 ID                                 | aws_access_key_id                                      |
 | Amazon Web Services (AWS) | Amazon AWS 机密访问密钥                                  | aws_secret_access_key                                  |
-| Amazon Web Services (AWS) | Amazon AWS Session Token                           | aws_session_token                                      |
+| Amazon Web Services (AWS) | Amazon AWS 会话令牌                                    | aws_session_token                                      |
 | Amazon Web Services (AWS) | Amazon AWS Temporary Access Key ID                 | aws_temporary_access_key_id                          |
 | Asana                     | Asana 个人访问令牌                                       | asana_personal_access_token                            |
 | Atlassian                 | Bitbucket 服务器个人访问令牌                                | bitbucket_server_personal_access_token               |

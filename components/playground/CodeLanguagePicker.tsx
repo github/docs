@@ -1,55 +1,26 @@
-import { SelectMenu, Button, Dropdown } from '@primer/react'
+import { SubNav } from '@primer/react'
 import { Link } from 'components/Link'
 import { useRouter } from 'next/router'
 import { usePlaygroundContext } from 'components/context/PlaygroundContext'
 
-type Props = {
-  variant?: 'tabs' | 'dropdown'
-}
-export const CodeLanguagePicker = ({ variant }: Props) => {
+export const CodeLanguagePicker = () => {
   const router = useRouter()
   const { codeLanguages, currentLanguage } = usePlaygroundContext()
   const routePath = router.asPath.split('?')[0]
 
-  if (variant === 'tabs') {
-    return (
-      <nav aria-label="Programming Language">
-        {codeLanguages.map((language) => {
-          return (
-            <Link
-              key={language.id}
-              className="subnav-item"
-              href={`${routePath}?langId=${language.id}`}
-              aria-current={language.id === currentLanguage.id ? 'page' : undefined}
-            >
-              {language.label}
-            </Link>
-          )
-        })}
-      </nav>
-    )
-  }
-
   return (
-    <SelectMenu className="position-relative">
-      <Button as="summary">
-        {currentLanguage.label} <Dropdown.Caret />
-      </Button>
-      <SelectMenu.Modal style={{ minWidth: 300 }} align="right">
-        <SelectMenu.Header>Programming Language</SelectMenu.Header>
-        <SelectMenu.List>
-          {codeLanguages.map((language) => (
-            <SelectMenu.Item
-              key={language.id}
-              as="a"
-              href={`${routePath}?langId=${language.id}`}
-              selected={language.id === currentLanguage.id}
-            >
-              {language.label}
-            </SelectMenu.Item>
-          ))}
-        </SelectMenu.List>
-      </SelectMenu.Modal>
-    </SelectMenu>
+    <SubNav>
+      <SubNav.Links>
+        {codeLanguages.map((language) => (
+          <SubNav.Link
+            as={Link}
+            href={`${routePath}?langId=${language.id}`}
+            selected={language.id === currentLanguage.id}
+          >
+            {language.label}
+          </SubNav.Link>
+        ))}
+      </SubNav.Links>
+    </SubNav>
   )
 }

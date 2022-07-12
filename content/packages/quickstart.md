@@ -70,10 +70,10 @@ In this guide, you'll create a {% data variables.product.prodname_actions %} wor
 
       publish-gpr:
         needs: build
-        runs-on: ubuntu-latest{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
+        runs-on: ubuntu-latest
         permissions:
           packages: write
-          contents: read{% endif %}
+          contents: read
         steps:
           - uses: {% data reusables.actions.action-checkout %}
           - uses: {% data reusables.actions.action-setup-node %}

@@ -1,1 +1,1 @@
-The following workflow was created by the {% data variables.product.prodname_dotcom %} Docs Engineering team. To review the latest version of this file in the [`github/docs`](https://github.com/github/docs) repository, see 
+以下のワークフローは、{% data variables.product.prodname_dotcom %} Docs Engineeringチームが作成しました。 [`github/docs`](https://github.com/github/docs)リポジトリ内のこのファイルの最新バージョンをレビューするには、次を参照してください。 

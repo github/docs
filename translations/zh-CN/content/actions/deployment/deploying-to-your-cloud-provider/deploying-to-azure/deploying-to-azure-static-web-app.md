@@ -61,7 +61,7 @@ env:
   API_LOCATION: "api" # location of your api source code - optional
   APP_ARTIFACT_LOCATION: "build" # location of client code build output
 
-  on:
+on:
   push:
     branches:
       - main
@@ -72,6 +72,7 @@ env:
 
 permissions:
   issues: write
+  contents: read
 
 jobs:
   build_and_deploy:

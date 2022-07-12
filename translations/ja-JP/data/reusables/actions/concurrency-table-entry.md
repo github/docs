@@ -1,1 +1,1 @@
-| Controlling how many workflow runs or jobs can run at the same time: | [`concurrency`](/actions/using-jobs/using-concurrency)|
+| 同時に実行できるワークフローの実行もしくはジョブ数を制御: | [`concurrency`](/actions/using-jobs/using-concurrency)|

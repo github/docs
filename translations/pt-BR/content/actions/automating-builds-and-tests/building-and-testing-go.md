@@ -1,6 +1,6 @@
 ---
-title: Building and testing Go
-intro: You can create a continuous integration (CI) workflow to build and test your Go project.
+title: Criando e testando o Go
+intro: É possível criar um fluxo de trabalho de integração contínua (CI) para criar e testar o seu projeto Go.
 versions:
   fpt: '*'
   ghes: '*'
@@ -9,7 +9,7 @@ versions:
 type: tutorial
 topics:
   - CI
-shortTitle: Build & test Go
+shortTitle: Compilar e & testar o Go
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -17,22 +17,22 @@ shortTitle: Build & test Go
 
 ## Introdução
 
-This guide shows you how to build, test, and publish a Go package.
+Este guia mostra como criar, testar e publicar um pacote no Go.
 
 {% ifversion ghae %}
 {% data reusables.actions.self-hosted-runners-software %}
-{% else %} {% data variables.product.prodname_dotcom %}-hosted runners have a tools cache with preinstalled software, which includes the dependencies for Go. For a full list of up-to-date software and the preinstalled versions of Go, see "[About {% data variables.product.prodname_dotcom %}-hosted runners](/actions/using-github-hosted-runners/about-github-hosted-runners#preinstalled-software)."
+{% else %} Os executores hospedados em {% data variables.product.prodname_dotcom %} têm um cache de ferramentas com software pré-instalado, que inclui as dependências do Go. Para obter uma lista completa de software atualizado e as versões pré-instaladas do Go, consulte "[Sobre os executores hospedados em {% data variables.product.prodname_dotcom %}](/actions/using-github-hosted-runners/about-github-hosted-runners#preinstalled-software)."
 {% endif %}
 
 ## Pré-requisitos
 
 Você já deve estar familiarizado com a sintaxe YAML e como é usado com {% data variables.product.prodname_actions %}. Para obter mais informações, consulte "[Sintaxe de fluxo de trabalho para o {% data variables.product.prodname_actions %}](/actions/using-workflows/workflow-syntax-for-github-actions)".
 
-We recommend that you have a basic understanding of the Go language. For more information, see [Getting started with Go](https://golang.org/doc/tutorial/getting-started).
+Recomendamos que você tenha um entendimento básico da linguagem Go. Para obter mais informações, consulte [Primeiros passos com o Go](https://golang.org/doc/tutorial/getting-started).
 
-## Using the Go starter workflow
+## Usando o fluxo de trabalho inicial do Go
 
-{% data variables.product.prodname_dotcom %} provides a Go starter workflow that should work for most Go projects. Este guia inclui exemplos que você pode usar para personalizar o fluxo de trabalho inicial. For more information, see the [Go starter workflow](https://github.com/actions/starter-workflows/blob/main/ci/go.yml).
+{% data variables.product.prodname_dotcom %} fornece um fluxo de trabalho inicial do Go que deve funcionar para a maioria dos projetos do Go. Este guia inclui exemplos que você pode usar para personalizar o fluxo de trabalho inicial. Para obter mais informações, consulte o [fluxo de trabalho inicial do Go](https://github.com/actions/starter-workflows/blob/main/ci/go.yml).
 
 Para iniciar rapidamente, adicione o fluxo de trabalho inicial para o diretório `.github/workflows` do seu repositório.
 
@@ -60,15 +60,15 @@ jobs:
         run: go test -v ./...
 ```
 
-## Specifying a Go version
+## Especificando uma versão do Go
 
-The easiest way to specify a Go version is by using the `setup-go` action provided by {% data variables.product.prodname_dotcom %}. For more information see, the [`setup-go` action](https://github.com/actions/setup-go/).
+A maneira mais fácil de especificar uma versão do Go é usando a ação `setup-go` fornecida por {% data variables.product.prodname_dotcom %}. Para mais informações, consulte a ação [`setup-go`](https://github.com/actions/setup-go/).
 
-To use a preinstalled version of Go on a {% data variables.product.prodname_dotcom %}-hosted runner, pass the relevant version to the `go-version` property of the `setup-go` action. This action finds a specific version of Go from the tools cache on each runner, and adds the necessary binaries to `PATH`. Estas alterações persistirão para o resto do trabalho.
+Para usar uma versão pré-instalada do em um executor hospedado em {% data variables.product.prodname_dotcom %}, passe a versão relevante para a propriedade `go-version` da ação `setup-go`. Esta ação encontra uma versão específica de Go do cache de ferramentas em cada executor e adiciona os binários necessários ao `PATH`. Estas alterações persistirão para o resto do trabalho.
 
-The `setup-go` action is the recommended way of using Go with {% data variables.product.prodname_actions %}, because it helps ensure consistent behavior across different runners and different versions of Go. If you are using a self-hosted runner, you must install Go and add it to `PATH`.
+A ação `setup-go` é a forma recomendada de usar Go com {% data variables.product.prodname_actions %}, porque ajuda a garantir um comportamento consistente em executores diferentes e versões diferentes do Go. Se você estiver usando um executor auto-hospedado, você deverá instalar o Go e adicioná-lo ao `PATH`.
 
-### Using multiple versions of Go
+### Usando várias versões do Go
 
 ```yaml{:copy}
 name: Go
@@ -94,9 +94,9 @@ jobs:
         run: go version
 ```
 
-### Using a specific Go version
+### Usando uma versão específica do Go
 
-You can configure your job to use a specific version of Go, such as `1.16.2`. Como alternativa, você pode usar a sintaxe da versão semântica para obter a última versão secundária. This example uses the latest patch release of Go 1.16:
+Você pode configurar o seu trabalho para usar uma versão específica do Go, como `1.16.2`. Como alternativa, você pode usar a sintaxe da versão semântica para obter a última versão secundária. Esse exemplo usa a última versão de patch 1.16 do Go:
 
 ```yaml{:copy}
       - name: Setup Go 1.16.x
@@ -108,7 +108,7 @@ You can configure your job to use a specific version of Go, such as `1.16.2`. Co
 
 ## Instalar dependências
 
-You can use `go get` to install dependencies:
+Você pode usar `go get` para instalar as dependências:
 
 ```yaml{:copy}
     steps:
@@ -128,9 +128,9 @@ You can use `go get` to install dependencies:
 
 ### Memorizar dependências
 
-You can cache and restore the dependencies using the [`setup-go` action](https://github.com/actions/setup-go). By default, caching is disabled, but you can set the `cache` parameter to `true` to enable it.
+Você pode armazenar em cache e restaurar as dependências usando a ação [`setup-go`](https://github.com/actions/setup-go). Por padrão, o cache está desabilitado, mas você pode definir o parâmetro `cache` como `verdadeiro` para habilitá-lo.
 
-When caching is enabled, the `setup-go` action searches for the dependency file, `go.sum`, in the repository root and uses the hash of the dependency file as a part of the cache key.
+Quando o cache está habilitado, a ação `setup-go` pesquisa o arquivo de dependência, `go.sum` na raiz do repositório e usa o hash do arquivo de dependência como parte da chave de cache.
 
 ```yaml{:copy}
       - name: Setup Go
@@ -140,7 +140,7 @@ When caching is enabled, the `setup-go` action searches for the dependency file,
           cache: true
 ```
 
-Alternatively, you can use the `cache-dependency-path` parameter for cases when multiple dependency files are used, or when they are located in different subdirectories.
+Como alternativa, você pode usar o parâmetro `cache-dependency-path` para casos em que são usados vários arquivos de dependências ou quando estão localizados em subdiretórios diferentes.
 
 ```yaml{:copy}
       - uses: {% data reusables.actions.action-setup-go %}
@@ -156,7 +156,7 @@ Se você tiver um requisito personalizado ou precisar de melhores controles para
 
 ## Criar e testar seu código
 
-Você pode usar os mesmos comandos usados localmente para criar e testar seu código. This example workflow demonstrates how to use `go build` and `go test` in a job:
+Você pode usar os mesmos comandos usados localmente para criar e testar seu código. Este exemplo de fluxo de trabalho demonstra como usar `go build` and `go test` em um trabalho:
 
 ```yaml{:copy}
 name: Go
@@ -184,7 +184,7 @@ jobs:
 
 Após a conclusão de um fluxo de trabalho, você poderá fazer o upload dos artefatos resultantes para análise. Por exemplo, é possível que você precise salvar os arquivos de registro, os despejos de núcleo, os resultados de teste ou capturas de tela. O exemplo a seguir demonstra como você pode usar a ação `upload-artefato` para fazer o upload de resultados de testes.
 
-For more information, see "[Storing workflow data as artifacts](/actions/using-workflows/storing-workflow-data-as-artifacts)."
+Para obter mais informações, consulte "[Armazenar dados de fluxo de trabalho como artefatos](/actions/using-workflows/storing-workflow-data-as-artifacts)".
 
 ```yaml{:copy}
 name: Upload Go test results
