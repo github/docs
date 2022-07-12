@@ -97,7 +97,7 @@ For more information, see "[Reviewing and fixing alerts](#reviewing-and-fixing-a
    {% ifversion dependabot-most-important-sort-option %}
    {% tip %}
 
-   **Tip:** By default, alerts are sorted by importance. The "Most important" sort helps you prioritize which {% data variables.product.prodname_dependabot_alerts %} to focus on first. Alerts are ranked based on their potential impact, actionability, and relevance. Our prioritization calculation is constantly being improved and includes factors like CVSS score, dependency scope, and whether vulnerable function calls are found for the alert.
+   **Tip:** By default, {% data variables.product.prodname_dependabot_alerts %} are sorted by importance. The "Most important" sort helps you prioritize which {% data variables.product.prodname_dependabot_alerts %} to focus on first. Alerts are ranked based on their potential impact, actionability, and relevance. Our prioritization calculation is constantly being improved and includes factors like CVSS score, dependency scope, and whether vulnerable function calls are found for the alert.
    {% endtip %}
 
    ![Screenshot of Sort dropdown with "Most important" sort](/assets/images/help/dependabot/dependabot-alerts-sort-dropdown.png)
