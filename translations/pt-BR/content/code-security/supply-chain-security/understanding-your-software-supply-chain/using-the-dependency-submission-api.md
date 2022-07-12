@@ -13,11 +13,11 @@ versions:
 
 {% data reusables.dependency-submission.dependency-submission-api-beta %}
 
-## About the Dependency submission API
+## Sobre a API de envio de dependência
 
 {% data reusables.dependency-submission.about-dependency-submission %}
 
-Dependencies are submitted to the dependency submission API in the form of a snapshot. A snapshot is a set of dependencies associated with a commit SHA and other metadata, that reflects the current state of your repository for a commit. Para obter mais informações sobre a API de envio de dependência, consulte a [a documentação da API de envio de dependência](/rest/dependency-graph/dependency-submission).
+As dependências são enviadas para a API de envio de dependência na forma de um instantâneo. Um instantâneo é um conjunto de dependências associadas a um commit SHA e outros metadados, que reflete o estado atual do seu repositório para um commit. Para obter mais informações sobre a API de envio de dependência, consulte a [a documentação da API de envio de dependência](/rest/dependency-graph/dependency-submission).
 
 ## Envio de dependências em tempo de compilação
 

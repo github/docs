@@ -2,8 +2,7 @@
 title: O editor github.dev baseado na web
 intro: 'Use o github.dev {% data variables.product.prodname_serverless %} do seu repositório ou pull request para criar e fazer commit das alterações.'
 versions:
-  fpt: '*'
-  ghec: '*'
+  feature: githubdev-editor
 type: how_to
 miniTocMaxHeadingLevel: 3
 topics:
@@ -37,6 +36,9 @@ Você pode abrir qualquer repositório de {% data variables.product.prodname_dot
 
 - Pressione `.` enquanto navega em qualquer repositório ou pull request no {% data variables.product.prodname_dotcom %}.
 - Alterando a URL de "github.com" para "github.dev".
+- When viewing a file, use the dropdown menu next to {% octicon "pencil" aria-label="The edit icon" %} and select **Open in github.dev**.
+
+  ![Edit file button dropdown menu](/assets/images/help/repository/edit-file-edit-dropdown.png)
 
 ## {% data variables.product.prodname_codespaces %} e {% data variables.product.prodname_serverless %}
 

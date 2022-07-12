@@ -1,10 +1,10 @@
-If you specify activity types or filters for an event and your workflow triggers on multiple events, you must configure each event separately. 設定を持たないイベントも含め、すべてのイベントにはコロン (`:`)を追加しなければなりません。
+イベントに対してアクティビティタイプもしくはフィルタを指定し、ワークフローが複数のイベントをトリガーするなら、それぞれのイベントは個別に設定しなければなりません。 設定を持たないイベントも含め、すべてのイベントにはコロン (`:`)を追加しなければなりません。
 
-For example, a workflow with the following `on` value will run when:
+たとえば、以下の`on`値を持つワークフローは、次の場合に実行されます。
 
-- A label is created
-- A push is made to the `main` branch in the repository
-- A push is made to a {% data variables.product.prodname_pages %}-enabled branch
+- ラベルが作成された
+- リポジトリの`main`ブランチにプッシュが行われた
+- {% data variables.product.prodname_pages %}が有効化されたブランチにプッシュが行われた
 
 ```yaml
 on:

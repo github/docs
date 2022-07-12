@@ -25,11 +25,11 @@ Você pode usar os atalhos de teclado padrão em {% data variables.product.prodn
 
 | Ação                                                                                          | Atalho                                        | Nome do comando                          |
 |:--------------------------------------------------------------------------------------------- |:--------------------------------------------- |:---------------------------------------- |
-| Accept an inline suggestion                                                                   | <kbd>Tab</kbd>                                | editor.action.inlineSuggest.commit       |
-| Dismiss an inline suggestion                                                                  | <kbd>Esc</kbd>                                | editor.action.inlineSuggest.hide         |
-| Show next inline suggestion                                                                   | <kbd>Option (⌥)</kbd>+<kbd>]</kbd><br>  | editor.action.inlineSuggest.showNext     |
-| Show previous inline suggestion                                                               | <kbd>Option (⌥)</kbd>+<kbd>[</kbd><br>  | editor.action.inlineSuggest.showPrevious |
-| Trigger inline suggestion                                                                     | <kbd>Option (⌥)</kbd>+<kbd>\</kbd><br> | editor.action.inlineSuggest.trigger      |
+| Aceite uma sugestão inline                                                                    | <kbd>Tab</kbd>                                | editor.action.inlineSuggest.commit       |
+| Ignorar uma sugestão inline                                                                   | <kbd>Esc</kbd>                                | editor.action.inlineSuggest.hide         |
+| Mostrar próxima sugestão inline                                                               | <kbd>Option (⌥)</kbd>+<kbd>]</kbd><br>  | editor.action.inlineSuggest.showNext     |
+| Mostrar sugestão inline anterior                                                              | <kbd>Option (⌥)</kbd>+<kbd>[</kbd><br>  | editor.action.inlineSuggest.showPrevious |
+| Acionar sugestão inline                                                                       | <kbd>Option (⌥)</kbd>+<kbd>\</kbd><br> | editor.action.inlineSuggest.trigger      |
 | Abrir {% data variables.product.prodname_copilot %} (sugestões adicionais em painel separado) | <kbd>Ctrl</kbd>+<kbd>Return</kbd>             | github.copilot.generate                  |
 | Ativar/desativar {% data variables.product.prodname_copilot %}                                | _Sem atalho padrão_                           | github.copilot.toggleCopilot             |
 
@@ -39,11 +39,11 @@ Você pode usar os atalhos de teclado padrão em {% data variables.product.prodn
 
 | Ação                                                                                          | Atalho                           | Nome do comando                          |
 |:--------------------------------------------------------------------------------------------- |:-------------------------------- |:---------------------------------------- |
-| Accept an inline suggestion                                                                   | <kbd>Tab</kbd>                   | editor.action.inlineSuggest.commit       |
-| Dismiss an inline suggestion                                                                  | <kbd>Esc</kbd>                   | editor.action.inlineSuggest.hide         |
-| Show next inline suggestion                                                                   | <kbd>Alt</kbd>+<kbd>]</kbd>      | editor.action.inlineSuggest.showNext     |
-| Show previous inline suggestion                                                               | <kbd>Alt</kbd>+<kbd>[</kbd>      | editor.action.inlineSuggest.showPrevious |
-| Trigger inline suggestion                                                                     | <kbd>Alt</kbd>+<kbd>\</kbd>     | editor.action.inlineSuggest.trigger      |
+| Aceite uma sugestão inline                                                                    | <kbd>Tab</kbd>                   | editor.action.inlineSuggest.commit       |
+| Ignorar uma sugestão inline                                                                   | <kbd>Esc</kbd>                   | editor.action.inlineSuggest.hide         |
+| Mostrar próxima sugestão inline                                                               | <kbd>Alt</kbd>+<kbd>]</kbd>      | editor.action.inlineSuggest.showNext     |
+| Mostrar sugestão inline anterior                                                              | <kbd>Alt</kbd>+<kbd>[</kbd>      | editor.action.inlineSuggest.showPrevious |
+| Acionar sugestão inline                                                                       | <kbd>Alt</kbd>+<kbd>\</kbd>     | editor.action.inlineSuggest.trigger      |
 | Abrir {% data variables.product.prodname_copilot %} (sugestões adicionais em painel separado) | <kbd>Ctrl</kbd>+<kbd>Enter</kbd> | github.copilot.generate                  |
 | Ativar/desativar {% data variables.product.prodname_copilot %}                                | _Sem atalho padrão_              | github.copilot.toggleCopilot             |
 
@@ -54,11 +54,11 @@ Você pode usar os atalhos de teclado padrão em {% data variables.product.prodn
 
 | Ação                                                                                          | Atalho                           | Nome do comando                          |
 |:--------------------------------------------------------------------------------------------- |:-------------------------------- |:---------------------------------------- |
-| Accept an inline suggestion                                                                   | <kbd>Tab</kbd>                   | editor.action.inlineSuggest.commit       |
-| Dismiss an inline suggestion                                                                  | <kbd>Esc</kbd>                   | editor.action.inlineSuggest.hide         |
-| Show next inline suggestion                                                                   | <kbd>Alt</kbd>+<kbd>]</kbd>      | editor.action.inlineSuggest.showNext     |
-| Show previous inline suggestion                                                               | <kbd>Alt</kbd>+<kbd>[</kbd>      | editor.action.inlineSuggest.showPrevious |
-| Trigger inline suggestion                                                                     | <kbd>Alt</kbd>+<kbd>\</kbd>     | editor.action.inlineSuggest.trigger      |
+| Aceite uma sugestão inline                                                                    | <kbd>Tab</kbd>                   | editor.action.inlineSuggest.commit       |
+| Ignorar uma sugestão inline                                                                   | <kbd>Esc</kbd>                   | editor.action.inlineSuggest.hide         |
+| Mostrar próxima sugestão inline                                                               | <kbd>Alt</kbd>+<kbd>]</kbd>      | editor.action.inlineSuggest.showNext     |
+| Mostrar sugestão inline anterior                                                              | <kbd>Alt</kbd>+<kbd>[</kbd>      | editor.action.inlineSuggest.showPrevious |
+| Acionar sugestão inline                                                                       | <kbd>Alt</kbd>+<kbd>\</kbd>     | editor.action.inlineSuggest.trigger      |
 | Abrir {% data variables.product.prodname_copilot %} (sugestões adicionais em painel separado) | <kbd>Ctrl</kbd>+<kbd>Enter</kbd> | github.copilot.generate                  |
 | Ativar/desativar {% data variables.product.prodname_copilot %}                                | _Sem atalho padrão_              | github.copilot.toggleCopilot             |
 
@@ -75,21 +75,21 @@ Se você não quiser usar os atalhos de teclado padrão em {% data variables.pro
 
 {% data reusables.copilot.enabling-or-disabling-in-vsc %}
 
-## Enabling or disabling inline suggestions
+## Habilitando ou desabilitando sugestões inline
 
-You can choose to enable or disable inline suggestions for {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vscode %}.
+Você pode optar por habilitar ou desabilitar sugestões inline para {% data variables.product.prodname_copilot %} em {% data variables.product.prodname_vscode %}.
 
 1. No menu **Arquivo**, acesse para **Preferências** e clique em **Configurações**. ![Captura de tela das configurações de {% data variables.product.prodname_vscode %}](/assets/images/help/copilot/vsc-settings.png)
 1. No painel do lado esquerdo da guia de configurações, clique em **Extensões** e, em seguida, selecione **Copilot**.
-1. Under "Inline Suggest:Enable", select or deselect the checkbox to enable or disable inline suggestions.
+1. Em "Inline Suggest:Enable", selecione ou desmarque a caixa de seleção para habilitar ou desabilitar sugestões inline.
 
 ## Habilitando ou desabilitando {% data variables.product.prodname_copilot %} para linguagens específicas
 
 Você pode especificar para quais linguagens você deseja habilitar ou desabilitar {% data variables.product.prodname_copilot %}.
 
-1. From the {% data variables.product.prodname_vscode %}, click the **Extensions** tab, then navigate to the **Copilot** section. For more information, see "[Enabling and disabling inline suggestions](#enabling-and-disabling-inline-suggestions)."
-1. Under "Enable or disable Copilot for specified languages", click **Edit in settings.json**.
-1. In the _settings.json_ file, add or remove the languages you want to enable or disable {% data variables.product.prodname_copilot %} for. For example, to enable Python in {% data variables.product.prodname_copilot %}, add `"python": true` to the list, ensuring there is a trailing comma after all but the last list item.
+1. A partir do {% data variables.product.prodname_vscode %}, clique na guia **Extensões** e, em seguida, acesse a seção **Copilot**. Para obter mais informações, consulte "[Habilitando e desabilitando sugestões inline](#enabling-and-disabling-inline-suggestions)".
+1. Em "Habilitar ou desabilitar o Copilot para linguagens especificadas", clique em **Editar em settings.json**.
+1. No arquivo _settings.json_, adicione ou remova as linguagens para as quais você deseja habilitar ou desabilitar {% data variables.product.prodname_copilot %}. Por exemplo, para habilitar o Python em {% data variables.product.prodname_copilot %}, adicione `"python": verdadeiro` à lista, garantindo que haja uma vírgula depois de tudo menos o último item da lista.
 
     ```json
     {

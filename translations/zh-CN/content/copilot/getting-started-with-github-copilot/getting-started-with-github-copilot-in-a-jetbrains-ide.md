@@ -108,4 +108,4 @@ topics:
 ## 延伸阅读
 
 - [{% data variables.product.prodname_copilot %} 网站](https://copilot.github.com/)
-- [{% data variables.product.prodname_copilot %} JetBrains 插件的许可信息](/copilot/overview-of-github-copilot/about-github-copilot#github-copilot-licensing-information-for-jetbrains-plugin)
+- [关于 {% data variables.product.prodname_copilot %}](/copilot/overview-of-github-copilot/about-github-copilot#about-the-license-for-the-github-copilot-plugin-in-jetbrains-ides)

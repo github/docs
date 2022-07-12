@@ -1,6 +1,6 @@
 ---
 title: Managing moderators in your organization
-intro: You can give an individual or team in your organization the ability to block and limit access, by assigning them to the moderator role.
+intro: 'You can give an individual or team in your organization the ability to block and limit access, by assigning them to the moderator role.'
 permissions: Organization owners can assign the moderator role.
 versions:
   fpt: '*'

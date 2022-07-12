@@ -88,13 +88,13 @@ jobs:
 
 Windows 和 Linux 虚拟机的硬件规格：
 - 2 核 CPU
-- 7 GB of RAM
-- 14 GB of SSD space
+- 7 GB RAM
+- 14 GB SSD 空间
 
 MacOS 虚拟机的硬件规格：
 - 3 核 CPU
-- 14 GB of RAM
-- 14 GB of SSD space
+- 14 GB RAM
+- 14 GB SSD 空间
 
 {% data reusables.actions.supported-github-runners %}
 

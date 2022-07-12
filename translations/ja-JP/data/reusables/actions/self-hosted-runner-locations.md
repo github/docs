@@ -1,1 +1,1 @@
-Self-hosted runners can be physical, virtual, in a container, on-premises, or in a cloud.
+セルフホストランナーは、物理、仮想、コンテナ内、オンプレミス、クラウドにできます。

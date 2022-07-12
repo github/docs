@@ -2,7 +2,7 @@
 title: GitHub Actions OIDC
 allowTitleToDifferFromFilename: true
 shortTitle: OIDC
-intro: 'The {% data variables.product.prodname_actions %} OIDC API allows you to customize the JWT token claims.'
+intro: 'A API OIDC de {% data variables.product.prodname_actions %} permite que você personalize as reivindicações do token JWT.'
 topics:
   - API
 versions:

@@ -16,19 +16,6 @@ topics:
 
 This describes the resources that make up the official {% data variables.product.product_name %} REST API. If you have any problems or requests, please contact {% data variables.contact.contact_support %}.
 
-## Current version
-
-By default, all requests to `{% data variables.product.api_url_code %}` receive the **v3** [version](/developers/overview/about-githubs-apis) of the REST API.
-We encourage you to [explicitly request this version via the `Accept` header](/rest/overview/media-types#request-specific-version).
-
-    Accept: application/vnd.github.v3+json
-
-{% ifversion fpt or ghec %}
-
-For information about GitHub's GraphQL API, see the [documentation]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql). For information about migrating to GraphQL, see "[Migrating from REST]({% ifversion ghec%}/free-pro-team@latest{% endif %}/graphql/guides/migrating-from-rest-to-graphql)."
-
-{% endif %}
-
 ## Schema
 
 {% ifversion fpt or ghec %}All API access is over HTTPS, and{% else %}The API is{% endif %} accessed from `{% data variables.product.api_url_code %}`.  All data is
@@ -253,7 +240,7 @@ Resources may also send custom validation errors (where `code` is `custom`). Cus
 
 ## HTTP redirects
 
-API v3 uses HTTP redirection where appropriate. Clients should assume that any
+The {% data variables.product.product_name %} REST API uses HTTP redirection where appropriate. Clients should assume that any
 request may result in a redirection. Receiving an HTTP redirection is *not* an
 error and clients should follow that redirect. Redirect responses will have a
 `Location` header field which contains the URI of the resource to which the
@@ -268,7 +255,7 @@ Other redirection status codes may be used in accordance with the HTTP 1.1 spec.
 
 ## HTTP verbs
 
-Where possible, API v3 strives to use appropriate HTTP verbs for each
+Where possible, the {% data variables.product.product_name %} REST API strives to use appropriate HTTP verbs for each
 action.
 
 Verb | Description

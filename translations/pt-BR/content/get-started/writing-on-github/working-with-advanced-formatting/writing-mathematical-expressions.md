@@ -10,12 +10,12 @@ Para habilitar uma comunicação clara de expressões matemáticas, {% data vari
 
 A capacidade de renderização matemática de {% data variables.product.company_short %} usa MathJax; um motor de exibição baseado em JavaScript. O MathJax é compatível com uma ampla variedade de macros de LaTeX e várias extensões de acessibilidade úteis. Para obter mais informações, consulte [a documentação do MathJax](http://docs.mathjax.org/en/latest/input/tex/index.html#tex-and-latex-support) e [a documentação de extensões de acessibilidade do MathJax](https://mathjax.github.io/MathJax-a11y/docs/#reader-guide).
 
-## Writing inline expressions
+## Escrevendo expressões inline
 
-To include a math expression inline with your text, delimit the expression with a dollar symbol `$`.
+Para incluir uma expressão matemática inline com seu texto, delimite a expressão com um cifrção `$`.
 
 ```
-This sentence uses `$` delimiters to show math inline:  $\sqrt{3x-1}+(1+x)^2$
+Esta frase usa "delimitadores "$" para mostrar matemática inline: $\sqrt{3x-1}+(1+x)^2$
 ```
 
 ![Inline math markdown rendering](/assets/images/help/writing/inline-math-markdown-rendering.png)
