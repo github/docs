@@ -1,6 +1,6 @@
-When using the `workflow_dispatch` event, you can optionally specify inputs that are passed to the workflow.
+`workflow_dispatch`イベントを使う場合、ワークフローに渡す入力を指定することもできます。
 
-The triggered workflow receives the inputs in the {% ifversion actions-unified-inputs %}`inputs`{% else %}`github.event.inputs`{% endif %} context. For more information, see "[Contexts]({% ifversion actions-unified-inputs %}/actions/learn-github-actions/contexts#inputs-context{% else %}/actions/learn-github-actions/contexts#github-context{% endif %})."
+トリガーされたワークフローは、入力を{% ifversion actions-unified-inputs %}`inputs`{% else %}`github.event.inputs`{% endif %}コンテキストで受け取ります。 詳しい情報については「[コンテキスト]({% ifversion actions-unified-inputs %}/actions/learn-github-actions/contexts#inputs-context{% else %}/actions/learn-github-actions/contexts#github-context{% endif %})」を参照してください。
 
 {% data reusables.actions.inputs-vs-github-event-inputs %}
 

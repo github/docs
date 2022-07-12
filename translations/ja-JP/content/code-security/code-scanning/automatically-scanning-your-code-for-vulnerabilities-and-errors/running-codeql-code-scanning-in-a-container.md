@@ -66,17 +66,17 @@ on:
 jobs:
   analyze:
     name: Analyze
-    runs-on: ubuntu-latest{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
+    runs-on: ubuntu-latest
     permissions:
       security-events: write
-      actions: read{% endif %}
+      actions: read
 
     strategy:
       fail-fast: false
       matrix:
         language: [java]
 
-    # アクションが実行されるコンテナを指定
+    # Specify the container in which actions will run
     container:
       image: codeql-container:f0f91db
 
