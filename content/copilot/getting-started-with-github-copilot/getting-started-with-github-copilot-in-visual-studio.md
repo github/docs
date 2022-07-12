@@ -52,7 +52,7 @@ To use {% data variables.product.prodname_copilot %}, you must first install the
 {% data reusables.copilot.create-c-file %}
 1. In the C# file, type the following function signature. {% data variables.product.prodname_copilot %} will automatically suggest an entire function body in grayed text, as shown below. The exact suggestion may vary.
   ```csharp{:copy}
-  function calculateDaysBetweenDates(begin, end) {
+  int CalculateDaysBetweenDates(
   ```
   ![Screenshot of a first suggestion Visual Studio Code](/assets/images/help/copilot/first-suggestion-visual-studio.png)
 {% data reusables.copilot.accept-suggestion %}
@@ -63,7 +63,7 @@ To use {% data variables.product.prodname_copilot %}, you must first install the
 1. In the C# file, type the following function signature. {% data variables.product.prodname_copilot %} will show you a suggestion.
 
    ```csharp{:copy}
-   function calculateDaysBetweenDates(begin, end) {
+   int CalculateDaysBetweenDates(
    ```
 1. If alternative suggestions are available, you can see these alternatives by pressing <kbd>Alt</kbd>+<kbd>]</kbd> (or <kbd>Alt</kbd>+<kbd>[</kbd>).
 1. Optionally, you can hover over the suggestion to see the {% data variables.product.prodname_copilot %} command palette for choosing suggestions.
