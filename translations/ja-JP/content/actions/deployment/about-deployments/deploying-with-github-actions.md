@@ -136,7 +136,7 @@ For guidance on writing deployment-specific steps, see "[Finding deployment exam
 
 ## デプロイメント履歴の表示
 
-When a {% data variables.product.prodname_actions %} workflow deploys to an environment, the environment is displayed on the main page of the repository. For more information about viewing deployments to environments, see "[Viewing deployment history](/developers/overview/viewing-deployment-history)."
+{% data variables.product.prodname_actions %}ワークフローが環境にデプロイする場合、その環境はリポジトリのメインページに表示されます。 For more information about viewing deployments to environments, see "[Viewing deployment history](/developers/overview/viewing-deployment-history)."
 
 ## Monitoring workflow runs
 

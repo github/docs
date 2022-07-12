@@ -252,6 +252,7 @@ When you click the paper icon on the right, you'll also see the changes made to 
 
 Maps on {% data variables.product.product_name %} use [Leaflet.js](http://leafletjs.com) and support all the geometry types outlined in [the geoJSON spec](http://www.geojson.org/geojson-spec.html) (Point, LineString, Polygon, MultiPoint, MultiLineString, MultiPolygon, and GeometryCollection). TopoJSON files should be type "Topology" and adhere to the [topoJSON spec](https://github.com/mbostock/topojson/wiki/Specification).
 
+{% ifversion geoJSON-with-MapBox %}
 ### Styling features
 
 You can customize the way features are displayed, such as specifying a particular color or adding a descriptive icon, by passing additional metadata within the geoJSON object's properties. The options are:
@@ -266,6 +267,7 @@ You can customize the way features are displayed, such as specifying a particula
 * `fill-opacity` - the opacity of the interior of a polygon (0.0-1.0)
 
 See [version 1.1.0 of the open simplestyle spec](https://github.com/mapbox/simplestyle-spec/tree/master/1.1.0) for more information.
+{% endif %}
 
 ### Embedding your map elsewhere
 
@@ -315,8 +317,12 @@ It may still be possible to render the data by converting the `.geojson` file to
 
 ### Further reading
 
+{% ifversion geoJSON-with-MapBox %}
 * [Leaflet.js documentation](https://leafletjs.com/)
 * [MapBox marker-styling documentation](http://www.mapbox.com/developers/simplestyle/)
+{%- else %}
+* [Azure Maps documentation](https://docs.microsoft.com/en-us/azure/azure-maps/)
+{%- endif %}
 * [TopoJSON Wiki](https://github.com/mbostock/topojson/wiki)
 
 ## Working with Jupyter Notebook files on {% data variables.product.prodname_dotcom %}

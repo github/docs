@@ -108,12 +108,7 @@ There are a few interesting bits in the response headers. As expected, the
 `Content-Type` is `application/json`.
 
 Any headers beginning with `X-` are custom headers, and are not included in the
-HTTP spec. For example:
-
-* `X-GitHub-Media-Type` has a value of `github.v3`. This lets us know the [media type][media types]
-for the response. Media types have helped us version our output in API v3. We'll
-talk more about that later.
-* Take note of the `X-RateLimit-Limit` and `X-RateLimit-Remaining` headers. This
+HTTP spec. For example, take note of the `X-RateLimit-Limit` and `X-RateLimit-Remaining` headers. This
 pair of headers indicate [how many requests a client can make][rate-limiting] in
 a rolling time period (typically an hour) and how many of those requests the
 client has already spent.

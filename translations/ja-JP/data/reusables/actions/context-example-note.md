@@ -1,5 +1,5 @@
 {% note %}
 
-**Note:** This context is an example only. The contents of a context depends on the workflow that you are running. {% data reusables.actions.context-contents %}
+**ノート:** このコンテキストは例のみです。 コンテキストの内容は、実行しているワークフローによります。 {% data reusables.actions.context-contents %}
 
 {% endnote %}

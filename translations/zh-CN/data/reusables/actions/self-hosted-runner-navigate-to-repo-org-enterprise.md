@@ -1,6 +1,6 @@
 {% ifversion fpt %}
 1. Navigate to the main page of the organization or repository where your self-hosted runner group is registered.
-2. Click {% octicon "gear" aria-label="The Settings gear" %} **Settings**.
+2. 单击 {% octicon "gear" aria-label="The Settings gear" %} **Settings（设置）**。
 {% data reusables.organizations.settings-sidebar-actions-runners %}
 {% elsif ghec or ghes or ghae %}
 1. 导航到自托管运行器注册的位置：

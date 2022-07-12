@@ -8,7 +8,7 @@ redirect_from:
   - /organizations/managing-organization-settings/verifying-your-organizations-domain
 permissions: Organization owners can verify or approve a domain for an organization.
 versions:
-  ghes: '>=3.2'
+  ghes: '*'
   ghec: '*'
 type: how_to
 topics:
@@ -35,7 +35,7 @@ After verifying ownership of your organization's domains, a "Verified" badge wil
 
 {% data reusables.organizations.verified-domains-details %}
 
-{% ifversion ghec or ghes > 3.1 %}
+{% ifversion ghec or ghes %}
 After verifying ownership of your organization's domain, you can restrict email notifications for the organization to that domain. For more information, see "[Restricting email notifications for your organization](/organizations/keeping-your-organization-secure/restricting-email-notifications-for-your-organization)."
 {% endif %}
 
@@ -51,7 +51,7 @@ After you approve domains for your organization, you can restrict email notifica
 
 Enterprise owners cannot see which organization members or email addresses receive notifications within approved domains.
 
-Enterprise owners can also approve additional domains for organizations owned by the enterprise. {% ifversion ghec %}For more information, see "[Verifying or approving a domain for your enterprise](/enterprise-cloud@latest/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise)."{% endif %}{% ifversion ghes > 3.1 %}For more information, see "[Verifying or approving a domain for your enterprise](/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise)."{% endif %}
+Enterprise owners can also approve additional domains for organizations owned by the enterprise. {% ifversion ghec %}For more information, see "[Verifying or approving a domain for your enterprise](/enterprise-cloud@latest/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise)."{% endif %}{% ifversion ghes %}For more information, see "[Verifying or approving a domain for your enterprise](/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise)."{% endif %}
 
 ## Verifying a domain for your organization
 

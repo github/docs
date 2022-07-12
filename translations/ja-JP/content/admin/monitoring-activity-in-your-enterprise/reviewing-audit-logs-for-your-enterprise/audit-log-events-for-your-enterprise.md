@@ -1097,11 +1097,11 @@ The scope of the events that appear in your enterprise's audit log depend on whe
 {%- endif %}
 
 {% ifversion secret-scanning-push-protection-bypasses %}
-## `secret_scanning_push_protection` category actions
+## `secret_scanning_push_protection`カテゴリアクション
 
-| アクション    | 説明                                                                                                                                                                                                                                                                                         |
-| -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `bypass` | Triggered when a user bypasses the push protection on a secret detected by secret scanning. For more information, see "[Bypassing push protection for a secret](/code-security/secret-scanning/protecting-pushes-with-secret-scanning#bypassing-push-protection-for-a-secret)."{% endif %}
+| アクション    | 説明                                                                                                                                                                                                                                                           |
+| -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `bypass` | ユーザがSecret scanningによって検出されたシークレットに対するプッシュ保護をバイパスするとトリガーされます。 For more information, see "[Bypassing push protection for a secret](/code-security/secret-scanning/protecting-pushes-with-secret-scanning#bypassing-push-protection-for-a-secret)."{% endif %}
 
 {%- ifversion ghec or ghes or ghae %}
 ## `security_key` category actions

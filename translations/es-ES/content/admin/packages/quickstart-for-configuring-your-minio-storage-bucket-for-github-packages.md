@@ -105,9 +105,7 @@ Otros modos de MinIO siguen disponibles con el soporte estándar.
              minio/minio gateway nas /data
      ```
 
-     Para obtener más información, consulta la sección "[Puerta de enlace de MinIO para NAS](https://docs.min.io/docs/minio-gateway-for-nas.html)".
-
-   * Ejecuta MinIO utilizando Docker como un agrupamiento. Este despliegue de MinIO utiliza diversos hosts y el código de borrado de MinIO para tener la mayor protección de los datos. Para ejecutar MinIO en modo de agrupamiento, consulta la "[Guía Rápida para MinIO Distribuído](https://docs.min.io/docs/distributed-minio-quickstart-guide.html).
+   * Ejecuta MinIO utilizando Docker como un agrupamiento. Este despliegue de MinIO utiliza diversos hosts y el código de borrado de MinIO para tener la mayor protección de los datos. Para ejecutar MinIO en modo de agrupamiento, consulta la "[Guía Rápida para MinIO Distribuído](https://docs.min.io/docs/distributed-minio-quickstart-guide.html)."
 
 ## 3. Crea tu bucket de MinIO para {% data variables.product.prodname_registry %}
 

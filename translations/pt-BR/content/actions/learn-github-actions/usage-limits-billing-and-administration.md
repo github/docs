@@ -57,6 +57,12 @@ Existem alguns limites sobre o uso de {% data variables.product.prodname_actions
   | Pro          | 40                           | 5                                   |
   | Equipe       | 60                           | 5                                   |
   | Enterprise   | 180                          | 50                                  |
+
+  {% note %}
+
+  **Observação:** Se necessário, os clientes em planos corporativos podem solicitar um limite maior para trabalhos simultâneos. Para mais informações, entre em contato com {% data variables.contact.contact_ent_support %} ou com o seu representante de vendas.
+
+  {% endnote %}
 - **Matriz de vagas** - {% data reusables.actions.usage-matrix-limits %}
 {% data reusables.actions.usage-workflow-queue-limits %}
 
@@ -75,7 +81,7 @@ Além dos limites de uso, você deve garantir que você usa {% data variables.pr
 
 {% data reusables.actions.reusable-workflows-ghes-beta %}
 
-Se você reutilizar um fluxo de trabalho, a cobrança será sempre associada ao fluxo de trabalho de chamadas. A atribuição de executores hospedados em {% data variables.product.prodname_dotcom %} é sempre avaliada usando apenas o contexto do invocador. O invocador não pode usar os executores hospedados em {% data variables.product.prodname_dotcom %} do repositório chamado.
+Se você reutilizar um fluxo de trabalho, a cobrança será sempre associada ao fluxo de trabalho de chamadas. A atribuição de executores hospedados em {% data variables.product.prodname_dotcom %}é sempre avaliada usando apenas o contexto do invocador. O invocador não pode usar os executores hospedados em {% data variables.product.prodname_dotcom %} do repositório invocado.
 
 Para obter mais informações, consulte "[Reutilizando fluxos de trabalho](/actions/learn-github-actions/reusing-workflows)".
 {% endif %}

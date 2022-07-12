@@ -1,0 +1,35 @@
+date: '2022-06-28'
+sections:
+  security_fixes:
+    - "**MEDIUM**: Prevents an attack where an `org` query string parameter can be specified for a GitHub Enterprise Server URL that then gives access to another organization's active committers."
+    - "**MEDIUM**: Ensures that `github.company.com` and `github-company.com` are not evaluated by internal services as identical hostnames, preventing a potential server-side security forgery (SSRF) attack."
+    - "**LOW**: An attacker could access the Management Console with a path traversal attack via HTTP even if external firewall rules blocked HTTP access."
+    - Los paquetes se actualizaron a las últimas versiones de seguridad.
+  bugs:
+    - Files inside an artifact archive were unable to be opened after decompression due to restrictive permissions.
+    - In some cases, packages pushed to the Container registry were not visible in GitHub Enterprise Server's web UI.
+    - Management Console would appear stuck on the _Starting_ screen after upgrading an under-provisioned instance to GitHub Enterprise Server 3.5.
+    - Redis timeouts no longer halt database migrations while running `ghe-config-apply`.
+    - Background job processors would get stuck in a partially shut-down state, resulting in certain kinds of background jobs (like code scanning) appearing stuck.
+    - In some cases, site administrators were not automatically added as enterprise owners.
+    - Actions workflows calling other reusable workflows failed to run on a schedule.
+    - Resolving Actions using GitHub Connect failed briefly after changing repository visibility from public to internal.
+  changes:
+    - Improved the performance of Dependabot Updates when first enabled.
+    - 'Increase maximum concurrent connections for Actions runners to support [the GHES performance target](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server#review-hardware-requirements).'
+    - The GitHub Pages build and synchronization timeouts are now configurable in the Management Console.
+    - Added environment variable to configure Redis timeouts.
+    - Creating or updating check runs or check suites could return `500 Internal Server Error` if the value for certain fields, like the name, was too long.
+    - Improves performance in pull requests' "Files changed" tab when the diff includes many changes.
+    - 'The Actions repository cache usage policy no longer accepts a maximum value less than 1 for [`max_repo_cache_size_limit_in_gb`](/rest/actions/cache#set-github-actions-cache-usage-policy-for-an-enterprise).'
+    - 'When [deploying cache-server nodes](/admin/enterprise-management/caching-repositories/configuring-a-repository-cache#configuring-a-repository-cache), it is now mandatory to describe the datacenter topology (using the `--datacenter` argument) for every node in the system. This requirement prevents situations where leaving datacenter membership set to "default" leads to workloads being inappropriately balanced across multiple datacenters.'
+  known_issues:
+    - En una instancia recién configurada de {% data variables.product.prodname_ghe_server %} sin ningún usuario, un atacante podría crear el primer usuario adminsitrador.
+    - Las reglas de cortafuegos personalizadas se eliminan durante el proceso de actualización.
+    - Los archivos rastreados del LFS de Git que se [cargaron mediante la interface web](https://github.com/blog/2105-upload-files-to-your-repositories) se agregaron incorrecta y directamente al repositorio.
+    - Las propuestas no pudieron cerrarse si contenían un permalink a un blob en el mismo repositorio en donde la ruta de archvio del blob era más grande a 255 caracteres.
+    - Cuando se habilita "Los usuarios pueden buscar en GitHub.com" con GitHub Connect, las propuestas en los repositorios privados e internos no se incluirán en los resultados de búsqueda de GitHub.com.
+    - El registor de npm del {% data variables.product.prodname_registry %} ya no regresa un valor de tiempo en las respuestas de metadatos. Esto se hizo para permitir mejoras de rendimiento sustanciales. Seguimos teniendo todos los datos necesarios para devolver un valor de tiempo como parte de la respuesta de metadatos y terminaremos de devolver este valor ene l futuro una vez que hayamos resuelto los problemas de rendimiento existentes.
+    - Los límites de recursos que son específicos para procesar ganchos de pre-recepción podrían ocasionar que fallen algunos ganchos de pre-recepción.
+    - Actions services need to be restarted after restoring an appliance from a backup taken on a different host.
+    - 'Deleted repositories will not be purged from disk automatically after the 90-day retention period ends. This issue is resolved in the 3.5.1 release. [Updated: 2022-06-10]'

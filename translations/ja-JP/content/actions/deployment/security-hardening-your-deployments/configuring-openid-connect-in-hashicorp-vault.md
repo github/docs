@@ -46,8 +46,8 @@ To update your workflows for OIDC, you will need to make two changes to your YAM
 
 To add OIDC integration to your workflows that allow them to access secrets in Vault, you will need to add the following code changes:
 
-- Grant permission to fetch the token from the {% data variables.product.prodname_dotcom %} OIDC provider:
-  - The workflow needs `permissions:` settings with the `id-token` value set to `write`. This lets you fetch the OIDC token from every job in the workflow.
+- {% data variables.product.prodname_dotcom %} OIDCプロバイダーからトークンをフェッチする権限の付与:
+  - The workflow needs `permissions:` settings with the `id-token` value set to `write`. これによって、ワークフロー中のすべてのジョブからODICトークンをフェッチできるようになります。
 - Request the JWT from the {% data variables.product.prodname_dotcom %} OIDC provider, and present it to HashiCorp Vault to receive an access token:
   - You could use the [Actions toolkit](https://github.com/actions/toolkit/) to fetch the tokens for your job, or you can use the [`hashicorp/vault-action`](https://github.com/hashicorp/vault-action) action to fetch the JWT and receive the access token from the Vault.
 

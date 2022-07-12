@@ -6,6 +6,7 @@ redirect_from:
   - /enterprise/admin/guides/installation/finding-the-current-github-enterprise-release
   - /enterprise/admin/enterprise-management/upgrade-requirements
   - /admin/enterprise-management/upgrade-requirements
+  - /enterprise/admin/guides/installation/about-upgrade-requirements
 versions:
   ghes: '*'
 type: reference
@@ -46,8 +47,6 @@ topics:
 curl -s http://localhost:9201/audit_log/_stats/store | jq ._all.primaries.store.size_in_bytes
 ```
 Use the number to estimate the amount of disk space the MySQL audit logs will need. The script also monitors your free disk space while the import is in progress. Monitoring this number is especially useful if your free disk space is close to the amount of disk space necessary for migration.
-
-{% data reusables.enterprise_installation.upgrade-hardware-requirements %}
 
 ## Next steps
 

@@ -47,6 +47,10 @@ Em uma janela ampla do navegador, a palavra "Enterprise" segue imediatamente o l
 
 ![Captura de tela da barra de endereços e header {% data variables.product.prodname_ghe_server %} em um navegador](/assets/images/help/docs/header-ghes.png)
 
+Você pode ver a versão do {% data variables.product.prodname_ghe_server %} que você está usando no rodapé de qualquer página.
+
+![Captura de tela do rodapé de {% data variables.product.prodname_ghe_server %}, com a versão destacada](/assets/images/help/docs/ghes-version-in-footer.png)
+
 ### {% data variables.product.prodname_ghe_managed %}
 
 Se você acessar {% data variables.product.prodname_dotcom %} em `https://*.githubenterprise.com`, `https://*.github.us` ou `https://*.ghe.com`, você estará usando {% data variables.product.prodname_ghe_managed %}.
