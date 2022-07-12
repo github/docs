@@ -2,8 +2,7 @@
 title: El editor basado en web de github.dev
 intro: 'Utiliza el github.dev {% data variables.product.prodname_serverless %} desde tu repositorio o solicitud de cambios para crear y confirmar cambios.'
 versions:
-  fpt: '*'
-  ghec: '*'
+  feature: githubdev-editor
 type: how_to
 miniTocMaxHeadingLevel: 3
 topics:
@@ -37,6 +36,9 @@ Puedes abrir cualquier repositorio de {% data variables.product.prodname_dotcom 
 
 - Presiona `.` cuando estés buscando cualquier repositorio o solicitud de cambios en {% data variables.product.prodname_dotcom %}.
 - Cambiando la URL de "github.com" a "github.dev".
+- When viewing a file, use the dropdown menu next to {% octicon "pencil" aria-label="The edit icon" %} and select **Open in github.dev**.
+
+  ![Edit file button dropdown menu](/assets/images/help/repository/edit-file-edit-dropdown.png)
 
 ## {% data variables.product.prodname_codespaces %} y el {% data variables.product.prodname_serverless %}
 

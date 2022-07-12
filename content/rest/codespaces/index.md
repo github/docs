@@ -10,9 +10,11 @@ topics:
 miniTocMaxHeadingLevel: 3
 children:
   - /codespaces
+  - /organizations
   - /machines
   - /repository-secrets
   - /secrets
 redirect_from:
   - /rest/reference/codespaces
 ---
+

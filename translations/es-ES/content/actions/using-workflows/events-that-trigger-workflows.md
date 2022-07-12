@@ -563,25 +563,19 @@ on:
 
 {% note %}
 
-**Nota**: {% data reusables.developer-site.multiple_activity_types %} Para obtener más información acerca de cada tipo de actividad, consulta la sección "[Cargas útiles y eventos de webhook](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#pull_request)". Predeterminadamente, un flujo de trabajo solo se ejecuta cuando el tipo de actividad de en evento de `pull_request` es `opened`, `synchronize`, o `reopened`. Puedes especificar tipos de actividad diferentes utilizando la palabra clave `types`. Para obtener más información, consulta "[Sintaxis del flujo de trabajo para {% data variables.product.prodname_actions %}](/articles/workflow-syntax-for-github-actions#onevent_nametypes)".
+**Nota**: {% data reusables.developer-site.multiple_activity_types %} Para obtener más información acerca de cada tipo de actividad, consulta la sección "[Cargas útiles y eventos de webhook](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#pull_request)". Predeterminadamente, un flujo de trabajo solo se ejecuta cuando el tipo de actividad de en evento de `pull_request` es `opened`, `synchronize`, o `reopened`. Para activar los flujos de trabajo de acuerdo a sus tipos de actividad, utiliza la palabra clave `types`. Para obtener más información, consulta "[Sintaxis del flujo de trabajo para {% data variables.product.prodname_actions %}](/articles/workflow-syntax-for-github-actions#onevent_nametypes)".
 
 {% endnote %}
 
 {% note %}
 
-**Nota:** Predeterminadamente, solo los tipos de actividad `opened`, `synchronize` y `reopened` activan flujos de trabajo que se ejecutan en el evento `pull_request`. Para activar flujos de trabajo mediante tipos de actividad diferentes, utiliza la palabra clave `types`.
-
-{% endnote %}
-
-{% note %}
-
-**Nota:** Los flujos de trabajo no se ejecutarán en la actividad de `pull_request` si la solicitud de cambio tiene un conflicto de fusión. El conflicto de fusión se debe resolver primero.
+**Nota:** Los flujos de trabajo no se ejecutarán en la actividad de `pull_request` si la solicitud de cambios tiene un conflicto de fusión. El conflicto de fusión se debe resolver primero.
 
 Por el contrario, los flujos de trabajo con el evento `pull_request_target` se ejecutarán incluso si la solicitud de cambios presenta un conflicto de fusión. Antes de utilizar el activador `pull_request_target`, deberás estar consciente de los riesgos de seguridad. Para obtener más información, consulta la sección [`pull_request_target`](#pull_request_target).
 
 {% endnote %}
 
-Ejecuta tu flujo de trabajo cuando ocurre alguna actividad en la solicitud de trabajo del repositorio del flujo de trabajo. Por ejemplo, si no se especifican tipos de actividad, el flujo de trabajo se ejecutará cuando se abra o vuelva a abrir una solicitud de cambios o cuando se actualice la rama de encabezado de la misma. Para encontrar actividad relacionada con las revisiones, comentarios de revisión o comentarios de las solicitudes de cambios, utiliza los eventos [`pull_request_review`](#pull_request_review), [`pull_request_review_comment`](#pull_request_review_comment) o [`issue_comment`](#issue_comment) en su lugar. Para obtener más información sobre las API de solicitud de cambios, consulta la sección "[PullRequest](/graphql/reference/objects#pullrequest)" en la documentación de la API de GraphQL o "[Solicitudes de cambios](/rest/reference/pulls)" en la documentación de la API de REST.
+Ejecuta tu flujo de trabajo cuando ocurre alguna actividad en la solicitud de cambios del flujo de trabajo del repositorio. Por ejemplo, si no se especifican tipos de actividad, el flujo de trabajo se ejecutará cuando se abra o vuelva a abrir una solicitud de cambios o cuando se actualice la rama de encabezado de la misma. Para encontrar actividad relacionada con las revisiones, comentarios de revisión o comentarios de las solicitudes de cambios, utiliza los eventos [`pull_request_review`](#pull_request_review), [`pull_request_review_comment`](#pull_request_review_comment) o [`issue_comment`](#issue_comment) en su lugar. Para obtener más información sobre las API de solicitud de cambios, consulta la sección "[PullRequest](/graphql/reference/objects#pullrequest)" en la documentación de la API de GraphQL o "[Solicitudes de cambios](/rest/reference/pulls)" en la documentación de la API de REST.
 
 Nota que el `GITHUB_SHA` para este evento es la última confirmación de fusión de la rama fusionada de la solicitud de cambios. Si quieres obtener la ID de confirmación para la última confirmación de la rama de encabezado de la solicitud de cambios, utiliza `github.event.pull_request.head.sha` en su lugar.
 
@@ -721,9 +715,9 @@ Para ejecutar tu flujo de trabajo cuando se crea, edita o borra un comentario en
 
 {% endnote %}
 
-Ejecuta tu flujo de trabajo cuando se emite, edita o descarta una revisión de una solicitud de cambios. Una revisión de solicitud de cambios es un grupo de comentarios de dicha revisión junto con un comentario del cuerpo y un estado. Para encontrar actividad relacionada con los comentarios o comentarios de revisión de una solicitud de cambios, utiliza los eventos [`pull_request_review_comment`](#pull_request_review_comment) o [`issue_comment`](#issue_comment) en su lugar. Para obtener más información acerca de las API de revisión de solicitudes de cambio, consulta la sección "[PullRequestReview](/graphql/reference/objects#pullrequest)" en la documentación de la API de GraphQL o "[Revisiones de solicitudes de cambio](/rest/reference/pulls#reviews)" en la documentación de la API de REST.
+Ejecuta tu flujo de trabajo cuando se emite, edita o descarta una revisión de una solicitud de cambios. Una revisión de solicitud de cambios es un grupo de comentarios de dicha revisión junto con un comentario del cuerpo y un estado. Para encontrar actividad relacionada con los comentarios de revisión de solicitudes de cambio o comentarios de solicitudes de cambios, utiliza los eventos [`pull_request_review_comment`](#pull_request_review_comment) o [`issue_comment`](#issue_comment) en su lugar. Para obtener más información acerca de las API de revisión de solicitudes de cambio, consulta la sección "[PullRequestReview](/graphql/reference/objects#pullrequest)" en la documentación de la API de GraphQL o "[Revisiones de solicitudes de cambio](/rest/reference/pulls#reviews)" en la documentación de la API de REST.
 
-Por ejemplo, puedes ejecutar un flujo de trabajo cuando una revisión de solicitud de extracción ha sido `editada` o `descartada`.
+Por ejemplo, puedes ejecutar un flujo de trabajo cuando una revisión de solicitud de cambios está como `edited` o `dismissed`.
 
 ```yaml
 on:
@@ -764,7 +758,7 @@ jobs:
 
 Ejecuta tu flujo de trabajo cuando se modifica un comentario de una revisión de solicitud de cambios. Un comentario de revisión de una solicitud de cambios es un comentario en el diff de dicha solicitud. Para encontrar actividad relacionada con las revisiones o comentarios de las solicitudes de cambio, utiliza los eventos [`pull_request_review`](#pull_request_review) o [`issue_comment`](#issue_comment) en su lugar. Para obtener más información acerca de las API de comentarios de las revisiones de solicitudes de cambio, consulta la sección "[PullRequestReviewComment](/graphql/reference/objects#pullrequestreviewcomment)" en la documentación de la API de GraphQL o "[Comentarios de revisión](/rest/reference/pulls#comments)" en la documentación de la API de REST.
 
-Por ejemplo, puedes ejecutar un flujo de trabajo cuando un comentario de revisión de solicitud de extracción ha sido `creado` o `eliminado`.
+Por ejemplo, puedes ejecutar un flujo de trabajo cuando un comentario de revisión de solicitud de cambios está como `created` o `deleted`.
 
 ```yaml
 on:
@@ -782,27 +776,21 @@ on:
 
 {% note %}
 
-**Nota**: {% data reusables.developer-site.multiple_activity_types %} para obtener más información acerca de cada tipo de actividad, consulta la sección "[Cargas útiles y eventos de webhook](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#pull_request_target)". Predeterminadamente, un flujo de trabajo se ejecuta únicamente cuando el tipo de actividad de un `pull_request_target` se encuentra como `opened`, `synchronize`, o `reopened`. Para activar los flujos de trabajo para más tipos de actividades, usa la palabra clave `tipos`. Puedes especificar tipos de actividad diferentes utilizando la palabra clave `types`. Para obtener más información, consulta "[Sintaxis del flujo de trabajo para {% data variables.product.prodname_actions %}](/articles/workflow-syntax-for-github-actions#onevent_nametypes)".
+**Nota**: {% data reusables.developer-site.multiple_activity_types %} para obtener más información acerca de cada tipo de actividad, consulta la sección "[Cargas útiles y eventos de webhook](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#pull_request_target)". Predeterminadamente, un flujo de trabajo se ejecuta únicamente cuando el tipo de actividad de evento `pull_request_target` se encuentra como `opened`, `synchronize` o `reopened`. Para activar los flujos de trabajo de acuerdo a sus tipos de actividad, utiliza la palabra clave `types`. Para obtener más información, consulta "[Sintaxis del flujo de trabajo para {% data variables.product.prodname_actions %}](/articles/workflow-syntax-for-github-actions#onevent_nametypes)".
 
 {% endnote %}
 
-{% note %}
-
-**Nota:** Predeterminadamente, solo los tipos de actividad `opened`, `synchronize` y `reopened` activan flujos de trabajo que se ejecutan en el evento `pull_request`. Para activar flujos de trabajo mediante tipos de actividad diferentes, utiliza la palabra clave `types`.
-
-{% endnote %}
-
-Ejecuta tu flujo de trabajo cuando ocurre alguna actividad en la solicitud de trabajo del repositorio del flujo de trabajo. Por ejemplo, si no se especifican tipos de actividad, el flujo de trabajo se ejecutará cuando se abra o vuelva a abrir una solicitud de cambios o cuando se actualice la rama de encabezado de la misma.
+Ejecuta tu flujo de trabajo cuando ocurre alguna actividad en la solicitud de cambios del flujo de trabajo del repositorio. Por ejemplo, si no se especifican tipos de actividad, el flujo de trabajo se ejecutará cuando se abra o vuelva a abrir una solicitud de cambios o cuando se actualice la rama de encabezado de la misma.
 
 Este evento se ejecuta en el contexto de la base de la solicitud de cambios en vez de en aquel de la confirmación de fusión, como lo hace el evento `pull_request`. Esto previene la ejecución del código no seguro desde el encabezado de la solicitud de cambios que pudiera alterar tu repositorio o robar cualquier secreto que utilices en tu flujo de trabajo. Este evento permite que tu flujo de trabajo haga cosas como etiquetar o comentar en las solicitudes de cambios de las bifurcaciones. Evita utilizar este evento si necesitas compilar o ejecutar código desde la solicitud de cambios.
 
 {% warning %}
 
-**Advertencia:** En el caso de los flujos de trabajo que se activan con el evento `pull_request_target`, se otorgarán permisos de lectura/escritura en el repositorio al `GITHUB_TOKEN` a menos de que se especifique la clave `permissions` y que el flujo de trabajo pueda acceder a los secretos, incluso cuando se activa desde una bifurcación. Aunque las ejecuciones de flujo de trabajo se ejecutan en el contexto de la base de la solicitud de cambios, debes asegurarte de que no revisas, compilas o ejecutas código no confiable desde ella con este evento. Adicionalmente, cualquier caché comparte el mismo alcance que la rama base. Para ayudar a prevenir el envenenamiento del caché, no debes guardar el caché si existe la posibilidad de que su contenido se haya alterado. Para obtener más información, consulta la sección "[Mantener seguros tus GitHub Actions y flujos de trabajo: Prevenir solicitudes de pwn](https://securitylab.github.com/research/github-actions-preventing-pwn-requests)" en el sitio web de GitHub Security Lab.
+**Advertencia:** En el caso de los flujos de trabajo que se activan con el evento `pull_request_target`, se otorgarán permisos de lectura/escritura en el repositorio al `GITHUB_TOKEN` a menos de que se especifique la clave `permissions` y que el flujo de trabajo pueda acceder a los secretos, incluso cuando se activa desde una bifurcación. Aunque las ejecuciones de flujo de trabajo se ejecutan en el contexto de la base de la solicitud de cambios, debes asegurarte de que no revisas, compilas o ejecutas código no confiable desde ella con este evento. Adicionalmente, cualquier caché comparte el mismo alcance que la rama base. Para ayudar a prevenir el envenenamiento del caché, no debes guardarlo si existe la posibilidad de que su contenido se haya alterado. Para obtener más información, consulta la sección "[Mantener seguros tus GitHub Actions y flujos de trabajo: Prevenir solicitudes de pwn](https://securitylab.github.com/research/github-actions-preventing-pwn-requests)" en el sitio web de GitHub Security Lab.
 
 {% endwarning %}
 
-Por ejemplo, puedes ejecutar un flujo de trabajo cuando una solicitud de extracción ha sido `assigned` (asignada), `opened`, `syncronize` o `reopened`.
+Por ejemplo, puedes ejecutar un flujo de trabajo cuando una solicitud de cambios esté como `assigned`, `opened`, `syncronize` o `reopened`.
 
 ```yaml
 on:
@@ -933,6 +921,12 @@ on:
   push
 ```
 
+{% note %}
+
+**Note**: When a `push` webhook event triggers a workflow run, the Actions UI's "pushed by" field shows the account of the pusher and not the author or committer. However, if the changes are pushed to a repository using SSH authentication with a deploy key, then the "pushed by" field will be the repository admin who verified the deploy key when it was added it to a repository.
+
+{% endnote %}
+
 #### Ejecutar tu flujo de trabajo solo cuando ocurra una subida de información a ramas específicas
 
 Puedes utilizar el filtro `branches` o `branches-ignore` para configurar tu flujo de trabajo para que solo se ejecute cuando se suben ramas específicas. Para obtener más información, consulta la sección "[Sintaxis de flujo de trabajo para las GitHub Actions](/actions/learn-github-actions/workflow-syntax-for-github-actions#onpushbranchestagsbranches-ignoretags-ignore)".
@@ -949,7 +943,7 @@ on:
 
 {% note %}
 
-**Nota:** {% data reusables.actions.branch-paths-filter %} Por ejemplo, el siguiente flujo de trabajo solo se ejecutará cuando se haga una subida que incluya un cambio a un archivo de JavaScript (`.js`) a una rama cuyo nombre inicie con `releases/`:
+**Nota:** {% data reusables.actions.branch-paths-filter %} Por ejemplo, el siguiente flujo de trabajo solo se ejecutará cuando se suba información que incluya un cambio a un archivo de JavaScript (`.js`) en una rama cuyo nombre inicie con `releases/`:
 
 ```yaml
 on:
@@ -964,7 +958,7 @@ on:
 
 #### Ejecutar tu flujo de trabajo únicamente cuando ocurra una subida de etiquetas específicas
 
-Puedes utilizar el filtro `tags` o `tags-ignore` para configurar que tu flujo de trabajo solo se ejecute cuando se suban etiquetas específicas. Para obtener más información, consulta la sección "[Sintaxis de flujo de trabajo para las GitHub Actions](/actions/learn-github-actions/workflow-syntax-for-github-actions#onpushbranchestagsbranches-ignoretags-ignore)".
+You can use the `tags` or `tags-ignore` filter to configure your workflow to only run when specific tags are pushed. Para obtener más información, consulta la sección "[Sintaxis de flujo de trabajo para las GitHub Actions](/actions/learn-github-actions/workflow-syntax-for-github-actions#onpushbranchestagsbranches-ignoretags-ignore)".
 
 Por ejemplo, este flujo de trabajo se ejecutará cuando alguien suba una etiqueta que inicie con `v1.`.
 
@@ -1019,7 +1013,7 @@ on:
 
 Ejecuta tu flujo de trabajo cuando ocurre actividad relacionada con el {% data variables.product.prodname_registry %} en tu repositorio. Para obtener más información, consulta la "[Documentación del {% data variables.product.prodname_registry %}](/packages)".
 
-Por ejemplo, puedes ejecutar un flujo de trabajo cuando un paquete ha sido `publicado`.
+For example, you can run a workflow when a new package version has been `published`.
 
 ```yaml
 on:
@@ -1047,13 +1041,13 @@ on:
 
 {% note %}
 
-**Nota:** El tipo `prereleased` no se activará para los pre-lanzamientos publicados desde los borradores de lanzamientos, pero el tipo `published` sí lo hará. Si quieres que se ejecute un flujo de trabajo cuando se publiquen los lanzamientos estables *y* los pre-lanzamientos, mejor suscríbete a `published` en vez de a `released` y `prereleased`.
+**Nota:** El tipo `prereleased` no se activará para los pre-lanzamientos publicados desde los borradores de lanzamientos, pero el tipo `published` sí lo hará. Si quieres que un flujo de trabajo se ejecute cuando se publiquen los lanzamientos estables *y* los prelanzamientos, suscríbete a `published` en vez de a `released` y `prereleased`.
 
 {% endnote %}
 
 Ejecuta tu flujo de trabajo cuando ocurre una actividad de lanzamiento en tu repositorio. Para obtener más información sobre las API de lanzamiento, consulta la sección de "[Lanzamiento](/graphql/reference/objects#release)" en la documentación de la API de GraphQL o "[Lanzamientos](/rest/reference/releases)" en la documentación de la API de REST.
 
-Por ejemplo, puedes ejecutar un flujo de trabajo cuando un lanzamiento ha sido `publicado`.
+Por ejemplo, puedes ejecutar un flujo de trabajo cuando un lanzamiento ha sido `publish`.
 
 ```yaml
 on:
@@ -1140,7 +1134,7 @@ La sintaxis de cron tiene cinco campos separados por un espacio, y cada campo re
 * * * * *
 ```
 
-Puedes usar estos operadores en cualquiera de los cinco campos:
+Puedes utilizar estos operadores en cualquiera de los cinco campos:
 
 | Operador | Descripción                      | Ejemplo                                                                                                     |
 | -------- | -------------------------------- | ----------------------------------------------------------------------------------------------------------- |
@@ -1151,7 +1145,7 @@ Puedes usar estos operadores en cualquiera de los cinco campos:
 
 {% note %}
 
-**Nota:** {% data variables.product.prodname_actions %} no es compatible con la sintaxis que no es estándar `@yearly`, `@monthly`, `@weekly`, `@daily`, `@hourly` y `@reboot`.
+**Nota:** {% data variables.product.prodname_actions %} no es compatible con la sintaxis no estándar de `@yearly`, `@monthly`, `@weekly`, `@daily`, `@hourly` y `@reboot`.
 
 {% endnote %}
 
@@ -1351,7 +1345,7 @@ jobs:
 
 {% note %}
 
-**Nota:** No puedes utilizar `workflow_run` para concatenar más de tres niveles de flujos de trabajo. Por ejemplo, si intentas activar cinco flujos de trabajo (denominados de la `B` a la `F`) para que se ejecuten secuencialmente después de que el flujo de trabajo inicial `A` se ejecute (esto quiere decir: `A` → `B` → `C` → `D` → `E` → `F`), los flujos de trabajo `E` y `F` no se ejecutarán.
+**Nota:** No puedes utilizar `workflow_run` para concatenar más de tres niveles de flujos de trabajo. Por ejemplo, si intentas activar cinco flujos de trabajo (denominados de la `B` a la `F`) para que se ejecuten secuencialmente después de que se ejecute el flujo de trabajo inicial `A` (esto quiere decir: `A` → `B` → `C` → `D` → `E` → `F`), los flujos de trabajo `E` y `F` no se ejecutarán.
 
 {% endnote %}
 

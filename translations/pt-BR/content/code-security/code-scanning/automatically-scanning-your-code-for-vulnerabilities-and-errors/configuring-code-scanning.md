@@ -74,7 +74,7 @@ By default, the {% data variables.product.prodname_codeql_workflow %} uses the `
 If you scan on push, then the results appear in the **Security** tab for your repository. For more information, see "[Managing code scanning alerts for your repository](/code-security/secure-coding/managing-code-scanning-alerts-for-your-repository#viewing-the-alerts-for-a-repository)."
 
 {% ifversion fpt or ghes > 3.2 or ghae or ghec %}
-Additionally, when an `on:push` scan returns results that can be mapped to an open pull request, these alerts will automatically appear on the pull request in the same places as other pull request alerts. The alerts are identified by comparing the existing analysis of the head of the branch to the analysis for the target branch. For more information on {% data variables.product.prodname_code_scanning %} alerts in pull requests, see "[Triaging {% data variables.product.prodname_code_scanning %} alerts in pull requests](/code-security/secure-coding/triaging-code-scanning-alerts-in-pull-requests)."  
+Additionally, when an `on:push` scan returns results that can be mapped to an open pull request, these alerts will automatically appear on the pull request in the same places as other pull request alerts. The alerts are identified by comparing the existing analysis of the head of the branch to the analysis for the target branch. For more information on {% data variables.product.prodname_code_scanning %} alerts in pull requests, see "[Triaging {% data variables.product.prodname_code_scanning %} alerts in pull requests](/code-security/secure-coding/triaging-code-scanning-alerts-in-pull-requests)."
 {% endif %}
 
 ### Scanning pull requests
@@ -97,7 +97,7 @@ By default, only alerts with the severity level of `Error`{% ifversion fpt or gh
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.navigate-to-code-security-and-analysis %}
-1. Under "Code scanning", to the right of "Check Failure", use the drop-down menu to select the level of severity you would like to cause a pull request check failure. 
+1. Under "Code scanning", to the right of "Check Failure", use the drop-down menu to select the level of severity you would like to cause a pull request check failure.
 {% ifversion fpt or ghes > 3.1  or ghae or ghec %}
 ![Check failure setting](/assets/images/help/repository/code-scanning-check-failure-setting.png)
 {% else %}
@@ -280,7 +280,7 @@ jobs:
 {% ifversion fpt or ghes > 3.1 or ghae or ghec %}
 ## Configuring a category for the analysis
 
-Use `category` to distinguish between multiple analyses for the same tool and commit, but performed on different languages or different parts of the code. The category you specify in your workflow will be included in the SARIF results file. 
+Use `category` to distinguish between multiple analyses for the same tool and commit, but performed on different languages or different parts of the code. The category you specify in your workflow will be included in the SARIF results file.
 
 This parameter is particularly useful if you work with monorepos and have multiple SARIF files for different components of the monorepo.
 
@@ -289,7 +289,7 @@ This parameter is particularly useful if you work with monorepos and have multip
       uses: {% data reusables.actions.action-codeql-action-analyze %}
       with:
         # Optional. Specify a category to distinguish between multiple analyses
-        # for the same tool and ref. If you don't use `category` in your workflow, 
+        # for the same tool and ref. If you don't use `category` in your workflow,
         # GitHub will generate a default category name for you
         category: "my_category"
 ```
@@ -298,7 +298,7 @@ If you don't specify a `category` parameter in your workflow, {% data variables.
 - The `.github/workflows/codeql-analysis.yml` workflow and the `analyze` action will produce the category `.github/workflows/codeql.yml:analyze`.
 - The `.github/workflows/codeql-analysis.yml` workflow, the `analyze` action, and the `{language: javascript, os: linux}` matrix variables will produce the category `.github/workflows/codeql-analysis.yml:analyze/language:javascript/os:linux`.
 
-The `category` value will appear as the `<run>.automationDetails.id` property in SARIF v2.1.0. For more information, see "[SARIF support for {% data variables.product.prodname_code_scanning %}](/code-security/secure-coding/sarif-support-for-code-scanning#runautomationdetails-object)." 
+The `category` value will appear as the `<run>.automationDetails.id` property in SARIF v2.1.0. For more information, see "[SARIF support for {% data variables.product.prodname_code_scanning %}](/code-security/secure-coding/sarif-support-for-code-scanning#runautomationdetails-object)."
 
 Your specified category will not overwrite the details of the `runAutomationDetails` object in the SARIF file, if included.
 
@@ -321,13 +321,17 @@ To add one or more {% data variables.product.prodname_codeql %} query packs (bet
 
 {% endnote %}
 
-In the example below, `scope` is the organization or personal account that published the package. When the workflow runs, the three {% data variables.product.prodname_codeql %} query packs are downloaded from {% data variables.product.product_name %} and the default queries or query suite for each pack run. The latest version of `pack1` is downloaded as no version is specified. Version 1.2.3 of `pack2` is downloaded, as well as the latest version of `pack3` that is compatible with version 1.2.3.
+In the example below, `scope` is the organization or personal account that published the package. When the workflow runs, the four {% data variables.product.prodname_codeql %} query packs are downloaded from {% data variables.product.product_name %} and the default queries or query suite for each pack run:
+- The latest version of `pack1` is downloaded and all default queries are run.
+- Version 1.2.3 of `pack2` is downloaded and all default queries are run.
+- The latest version of `pack3` that is compatible with version 3.2.1 is downloaded and all queries are run.
+- Version 4.5.6 of `pack4` is downloaded and only the queries found in `path/to/queries` are run.
 
 ``` yaml
 - uses: {% data reusables.actions.action-codeql-action-init %}
   with:
     # Comma-separated list of packs to download
-    packs: scope/pack1,scope/pack2@1.2.3,scope/pack3@~1.2.3
+    packs: scope/pack1,scope/pack2@1.2.3,scope/pack3@~3.2.1,scope/pack4@4.5.6:path/to/queries
 ```
 
 ### Using queries in QL packs
@@ -360,7 +364,7 @@ In the following example, the `+` symbol ensures that the specified additional {
     config-file: ./.github/codeql/codeql-config.yml
     queries: +security-and-quality,octo-org/python-qlpack/show_ifs.ql@main
     {%- ifversion codeql-packs %}
-    packs: +scope/pack1,scope/pack2@v1.2.3
+    packs: +scope/pack1,scope/pack2@1.2.3,scope/pack3@4.5.6:path/to/queries
     {%- endif %}
 ```
 
@@ -397,15 +401,23 @@ You specify {% data variables.product.prodname_codeql %} query packs in an array
 
 {% raw %}
 ``` yaml
-packs: 
+packs:
   # Use the latest version of 'pack1' published by 'scope'
-  - scope/pack1 
-  # Use version 1.23 of 'pack2' 
-  - scope/pack2@v1.2.3
-  # Use the latest version of 'pack3' compatible with 1.23
-  - scope/pack3@~1.2.3
+  - scope/pack1
+  # Use version 1.2.3 of 'pack2'
+  - scope/pack2@1.2.3
+  # Use the latest version of 'pack3' compatible with 3.2.1
+  - scope/pack3@~3.2.1
+  # Use pack4 and restrict it to queries found in the 'path/to/queries' directory
+  - scope/pack4:path/to/queries
+  # Use pack5 and restrict it to the query 'path/to/single/query.ql'
+  - scope/pack5:path/to/single/query.ql
+  # Use pack6 and restrict it to the query suite 'path/to/suite.qls'
+  - scope/pack6:path/to/suite.qls
 ```
 {% endraw %}
+
+The full format for specifying a query pack is `scope/name[@version][:path]`. Both `version` and `path` are optional. `version` is semver version range. If it is missing, the latest version is used. For more information about semver ranges, see the [semver docs on npm](https://docs.npmjs.com/cli/v6/using-npm/semver#ranges).
 
 If you have a workflow that generates more than one {% data variables.product.prodname_codeql %} database, you can specify any {% data variables.product.prodname_codeql %} query packs to run in a custom configuration file using a nested map of packs.
 

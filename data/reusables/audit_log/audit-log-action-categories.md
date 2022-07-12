@@ -37,10 +37,8 @@
 | `dependabot_security_updates`   | Contains organization-level configuration activities for {% data variables.product.prodname_dependabot_security_updates %} in existing repositories. For more information, see "[Configuring {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/configuring-dependabot-security-updates)."
 | `dependabot_security_updates_new_repos` | Contains organization-level configuration activities for {% data variables.product.prodname_dependabot_security_updates %} for new repositories created in the organization.
 {%- endif %}
-{%- ifversion fpt or ghec or ghes or ghae %}
 | `dependency_graph` | Contains organization-level configuration activities for dependency graphs for repositories. For more information, see "[About the dependency graph](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)."
 | `dependency_graph_new_repos`  | Contains organization-level configuration activities for new repositories created in the organization.
-{%- endif %}
 {%- ifversion fpt or ghec %}
 | `discussion` | Contains activities related to team discussions.
 | `discussion_comment` | Contains activities related to comments posted in discussions on a team page.
@@ -103,12 +101,9 @@
 | `org.secret_scanning_push_protection` | Contains activities related to secret scanning custom patterns in an organization. For more information, see "[Protecting pushes with secret scanning](/code-security/secret-scanning/protecting-pushes-with-secret-scanning)."
 {%- endif %}
 | `organization_default_label` | Contains activities related to default labels for repositories in an organization.
-{%- ifversion fpt or ghec or ghes > 3.1 %}
+{%- ifversion fpt or ghec or ghes %}
 | `organization_domain` | Contains activities related to verified organization domains.
 | `organization_projects_change` | Contains activities related to organization-wide project boards in an enterprise.
-{%- endif %}
-{%- ifversion fpt or ghec or ghes > 3.0 or ghae %}
-| `packages`  | Contains activities related to {% data variables.product.prodname_registry %}.
 {%- endif %}
 {%- ifversion fpt or ghec %}
 | `pages_protected_domain` | Contains activities related to verified custom domains for {% data variables.product.prodname_pages %}.
@@ -131,11 +126,9 @@
 | `project_view` | Contains activities related to view creation and deletion in a project board.
 | `protected_branch` | Contains activities related to protected branches.
 | `public_key` | Contains activities related to SSH keys and deploy keys.
-{%- ifversion fpt or ghec or ghes > 3.1 or ghae %}
 | `pull_request` | Contains activities related to pull requests.
 | `pull_request_review` | Contains activities related to pull request reviews.
 | `pull_request_review_comment` | Contains activities related to pull request review comments.
-{%- endif %}
 | `repo` | Contains activities related to the repositories owned by an organization.
 {%- ifversion fpt or ghec %}
 | `repository_advisory` | Contains repository-level activities related to security advisories in the {% data variables.product.prodname_advisory_database %}.  For more information, see "[About {% data variables.product.prodname_dotcom %} Security Advisories](/github/managing-security-vulnerabilities/about-github-security-advisories)."
@@ -155,14 +148,12 @@
 {%- ifversion fpt or ghec %}
 | `repository_visibility_change` | Contains activities related to allowing organization members to change repository visibilities for the organization.
 {%- endif %}
-{%- ifversion fpt or ghec or ghes or ghae %}
 | `repository_vulnerability_alert`   | Contains activities related to [{% data variables.product.prodname_dependabot_alerts %}](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts).
-{%- endif %}
 {%- ifversion fpt or ghec %}
 | `repository_vulnerability_alerts` | Contains repository-level configuration activities for {% data variables.product.prodname_dependabot_alerts %}.
 | `required_status_check` | Contains activities related to required status checks for protected branches.
 {%- endif %}
-{%- ifversion ghec or ghes > 3.1 %}
+{%- ifversion ghec or ghes %}
 | `restrict_notification_delivery` | Contains activities related to the restriction of email notifications to approved or verified domains for an enterprise.
 {%- endif %}
 {%- ifversion custom-repository-roles %}
@@ -191,12 +182,8 @@
 {%- ifversion fpt or ghes %}
 | `two_factor_authentication` | Contains activities related to two-factor authentication.
 {%- endif %}
-{%- ifversion fpt or ghec or ghes or ghae %}
 | `user` | Contains activities related to users in an enterprise or organization.
-{%- endif %}
 {%- ifversion ghec or ghes %}
 | `user_license` | Contains activities related to a user occupying a licensed seat in, and being a member of, an enterprise.
 {%- endif %}
-{%- ifversion fpt or ghec or ghes > 3.1 or ghae %}
 | `workflows`   | Contains activities related to {% data variables.product.prodname_actions %} workflows.
-{%- endif %}

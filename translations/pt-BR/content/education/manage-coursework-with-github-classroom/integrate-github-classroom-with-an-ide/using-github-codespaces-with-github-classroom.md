@@ -18,6 +18,12 @@ Definir {% data variables.product.prodname_codespaces %} como editor preferido p
 
 Para atividades com ambientes de configuração complexos, os professores podem personalizar a configuração do contêiner de desenvolvimento para os codespaces de um repositório. Isto garante que, quando um aluno cria um codespace, ele será aberto automaticamente com o ambiente de desenvolvimento configurado pelo professor. Para obter mais informações sobre contêineres de desenvolvimento, consulte "[Introdução a contêineres de desenvolvimento](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers)".
 
+{% note %}
+
+**Observação**: Os codespaces individuais são excluídos automaticamente se forem interrompidos e deixados sem serem utilizados por um período prolongado. Para obter mais informações, consulte[Configurando a exclusão automática dos seus codespaces](/codespaces/customizing-your-codespace/configuring-automatic-deletion-of-your-codespaces)".
+
+{% endnote %}
+
 ## Sobre o benefício de educação de {% data variables.product.prodname_codespaces %} para professores verificados
 
 O benefício da educação de {% data variables.product.prodname_codespaces %} dá aos professores verificados um subsídio mensal gratuito de horas de {% data variables.product.prodname_codespaces %} para ser usado em {% data variables.product.prodname_classroom %}. Estima-se que o subsídio gratuito seja suficiente para uma classe de 50 com 5 atribuições por mês. em uma máquina central com 1 codespace armazenado por aluno.
@@ -26,7 +32,7 @@ O benefício da educação de {% data variables.product.prodname_codespaces %} d
 
 Para tornar-se um professor verificado, você precisa ser aprovado para obter um benefício de educador para o professor. Para obter mais informações, consulte "[Candidatando-se a um benefício de professor ou educador](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-in-your-classroom-and-research/apply-for-an-educator-or-researcher-discount#applying-for-an-educator-or-researcher-discount)."
 
-After you have confirmation that you are a verified teacher, visit [{% data variables.product.prodname_global_campus %} for Teachers](https://education.github.com/globalcampus/teacher) to upgrade the organization to GitHub Team. Para obter mais informações, consulte [Produtos do GitHub](/get-started/learning-about-github/githubs-products#github-team).
+Depois de ter a confirmação de que é um professor verificado, acesse [{% data variables.product.prodname_global_campus %} para professores](https://education.github.com/globalcampus/teacher) para atualizar a organização para o GitHub Team. Para obter mais informações, consulte [Produtos do GitHub](/get-started/learning-about-github/githubs-products#github-team).
 
 Se você for elegível ao benefício de Educação de {% data variables.product.prodname_codespaces %}, ao habilitar {% data variables.product.prodname_codespaces %} em {% data variables.product.prodname_classroom %} para sua organização, o GitHub adiciona automaticamente uma política de codespace para restringir os tipos de máquina para todos os codespaces da organização a duas máquinas principais. Isso ajuda você a aproveitar ao máximo o uso gratuito de {% data variables.product.prodname_codespaces %}. No entanto, você pode alterar ou remover essas políticas nas configurações da sua organização. Para obter mais informações, consulte "[Restringindo o acesso aos tipos de máquina](/codespaces/managing-codespaces-for-your-organization/restricting-access-to-machine-types)."
 

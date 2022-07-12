@@ -33,7 +33,7 @@ You can set up a trial of {% data variables.product.prodname_ghe_cloud %} to eva
 
 ## {% data variables.product.prodname_ghe_cloud %} のトライアルについて
 
-You can set up a 30-day trial to evaluate {% data variables.product.prodname_ghe_cloud %}. 支払方法が必要な {% data variables.product.prodname_marketplace %} アプリを Organization に追加しない限り、トライアル期間中に支払方法を指定する必要はありません。 詳しい情報については、「<a href="/articles/about-billing-for-github-marketplace/" class="dotcom-only">{% data variables.product.prodname_marketplace %}の支払いについて</a>」を参照してください。
+You can set up a 30-day trial to evaluate {% data variables.product.prodname_ghe_cloud %}. 支払方法が必要な {% data variables.product.prodname_marketplace %} アプリを Organization に追加しない限り、トライアル期間中に支払方法を指定する必要はありません。 詳しい情報については、[{% data variables.product.prodname_marketplace %}の支払いについて](/enterprise-cloud@latest/articles/about-billing-for-github-marketplace/)を参照してください。
 
 トライアルには50シートが含まれています。 {% data variables.product.prodname_ghe_cloud %} を評価するためにより多くのシートが必要な場合は、{% data variables.contact.contact_enterprise_sales %} にお問い合わせください。 トライアルの終了時に、別のシート数を選択できます。
 
@@ -45,7 +45,7 @@ You can set up a 30-day trial to evaluate {% data variables.product.prodname_ghe
 
 ## {% data variables.product.prodname_ghe_cloud %} のトライアルを設定する
 
-Before you can try {% data variables.product.prodname_ghe_cloud %}, you must be signed into a personal account. If you don't already have a personal account on {% data variables.product.prodname_dotcom_the_website %}, you must create one. 詳しい情報については、「<a href="/articles/signing-up-for-a-new-github-account" class="dotcom-only">新しい {% data variables.product.prodname_dotcom %} アカウントにサインアップする</a>」を参照してください。
+Before you can try {% data variables.product.prodname_ghe_cloud %}, you must be signed into a personal account. If you don't already have a personal account on {% data variables.product.prodname_dotcom_the_website %}, you must create one. 詳しい情報については、「[新しい {% data variables.product.prodname_dotcom %} アカウントにサインアップする](/free-pro-team@latest/articles/signing-up-for-a-new-github-account)」を参照してください。
 
 1. Navigate to [{% data variables.product.prodname_dotcom %} for enterprises](https://github.com/enterprise).
 1. Click **Start a free trial**. !["Start a free trial" button](/assets/images/help/organizations/start-a-free-trial-button.png)

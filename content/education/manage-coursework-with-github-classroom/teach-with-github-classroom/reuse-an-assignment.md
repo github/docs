@@ -1,6 +1,6 @@
 ---
 title: Reuse an assignment
-intro: You can reuse existing assignments in more than one classroom, including classrooms in a different organization.
+intro: 'You can reuse existing assignments in more than one classroom, including classrooms in a different organization.'
 versions:
   fpt: '*'
 permissions: 'Organization owners who are admins for a classroom can reuse assignments from a classroom. {% data reusables.classroom.classroom-admins-link %}'

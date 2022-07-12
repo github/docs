@@ -26,7 +26,7 @@ shortTitle: Gerenciar versões
 Você pode criar novas versões com observações de versões, @menções de contribuidores e links para arquivos binários, bem como editar ou excluir versões existentes.
 
 {% ifversion fpt or ghec %}
-Você também pode publicar uma ação a partir de uma versão específica em {% data variables.product.prodname_marketplace %}. Para obter mais informações, consulte "<a href="/actions/creating-actions/publishing-actions-in-github-marketplace" class="dotcom-only">Publicar uma ação no {% data variables.product.prodname_marketplace %}</a>"
+Você também pode publicar uma ação de uma versão específica em {% data variables.product.prodname_marketplace %}. Para obter mais informações, consulte "[Publicar uma ação no {% data variables.product.prodname_marketplace %}](/actions/creating-actions/publishing-actions-in-github-marketplace)"
 
 Você pode escolher se objetos {% data variables.large_files.product_name_long %} ({% data variables.large_files.product_name_short %}) estão incluídos nos arquivos ZIP e tarballs que {% data variables.product.product_name %} cria para cada versão. Para obter mais informações, consulte "
 
@@ -85,7 +85,7 @@ Você pode escolher se objetos {% data variables.large_files.product_name_long %
    
    
    
-   {% ifversion fpt or ghec or ghes > 3.3 %} Alternatively, you can automatically generate your release notes by clicking {% ifversion previous-release-tag %}**Generate release notes**{% else %}**Auto-generate release notes**{% endif %}.{% endif %}{% ifversion previous-release-tag %} 
+   {% ifversion fpt or ghec or ghes > 3.3 %} Como alternativa, você pode gerar as suas observações de versão automaticamente, clicando em {% ifversion previous-release-tag %}**Gerar observações de versão**{% else %}**Gerar observações de versão automaticamente**{% endif %}.{% endif %}{% ifversion previous-release-tag %} 
    
    ![Descrição das versões](/assets/images/help/releases/releases_description_auto.png){% else %}
 ![Releases description](/assets/images/enterprise/3.5/releases/releases_description_auto.png){% endif %}

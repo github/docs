@@ -4,7 +4,7 @@ intro: '{% data variables.product.prodname_copilot %} can help you work, by offe
 product: '{% data reusables.gated-features.copilot %}'
 allowTitleToDifferFromFilename: true
 versions:
-  feature: 'copilot'
+  feature: copilot
 shortTitle: Quickstart
 topics:
   - Copilot
@@ -23,17 +23,7 @@ This guide will show you how to sign up for {% data variables.product.prodname_c
 
 ## Signing up for {% data variables.product.prodname_copilot %}
 
-Before you can start using {% data variables.product.prodname_copilot %}, you will need to set up a free trial or subscription.
-
-{% data reusables.user-settings.access_settings %}
-1. In the "Code, planning, and automation" section of the sidebar, click **GitHub Copilot**.
-2. On the {% data variables.product.prodname_copilot %} settings page, click **Start your free trial**. 
-   ![Screenshot of GitHub Copilot settings with start your free trial button emphasized](/assets/images/help/copilot/copilot-settings-start-trial-button.png) 
-3. Choose whether you want to pay monthly or yearly, and click **Continue to get access to Copilot**.
-    - If your personal account meets the criteria for a free {% data variables.product.prodname_copilot %} subscription instead of a trial, you will automatically be taken to step 6.
-  ![Screenshot of trial setup with Continue to get access to Copilot button emphasized](/assets/images/help/copilot/copilot-billing-cycle.png)
-4. Confirm your payment details. 
-5. Select your preferences, then click **Save and get started**.
+{% data reusables.copilot.signup-procedure %}
 
 ## Installing the {% data variables.product.prodname_copilot %} extension for {% data variables.product.prodname_vscode %}
 

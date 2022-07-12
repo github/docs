@@ -47,7 +47,7 @@ topics:
 
 ### 自动检测依赖项中的漏洞
 
-{% data variables.product.prodname_dependabot %} 可以监控依赖项并在依赖项中包含已知漏洞时通知您。 {% ifversion fpt or ghec or ghes > 3.2 %}您甚至可以让 {% data variables.product.prodname_dependabot %} 自动提取拉取请求以将依赖项更新为安全版本。{% endif %} 更多信息请参阅“[关于漏洞依赖项的警报](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-alerts-for-vulnerable-dependencies)”{% ifversion fpt or ghec or ghes > 3.2 %} 和“[关于 Dependabot 安全更新](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-dependabot-security-updates)”{% endif %}。
+{% data variables.product.prodname_dependabot %} 可以监控依赖项并在依赖项中包含已知漏洞时通知您。 {% ifversion fpt or ghec or ghes > 3.2 %}您甚至可以启用 {% data variables.product.prodname_dependabot %} 以自动引发将依赖项更新为安全版本的拉取请求。{% endif %} 更多信息请参阅[关于 {% data variables.product.prodname_dependabot_alerts %}](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts){% ifversion fpt or ghec or ghes > 3.2 %} 和[关于 Dependabot 安全更新](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-dependabot-security-updates){% endif %}。
 
 ### 评估易有漏洞依赖项的风险暴露情况
 

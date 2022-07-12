@@ -1,6 +1,6 @@
 ---
 title: 查看和更新 Dependabot 警报
-intro: '如果 {% data variables.product.product_name %} 发现项目中存在有漏洞的依赖项，您可以在仓库的 Dependabot 警报选项卡中查看它们。 然后，您可以更新项目以解决或忽略漏洞。'
+intro: '如果 {% data variables.product.product_name %} 发现项目中存在不安全的依赖项，您可以在仓库的 Dependabot 警报选项卡中查看详细信息。 然后，您可以更新项目以解决或忽略警报。'
 redirect_from:
   - /articles/viewing-and-updating-vulnerable-dependencies-in-your-repository
   - /github/managing-security-vulnerabilities/viewing-and-updating-vulnerable-dependencies-in-your-repository
@@ -35,11 +35,23 @@ topics:
 {% ifversion fpt or ghec or ghes > 3.2 %}
 ## 关于仓库中有漏洞的依赖项的更新
 
-{% data variables.product.product_name %} 在检测到您的代码库正在使用具有已知漏洞的依赖项时会生成 {% data variables.product.prodname_dependabot_alerts %}。 对于启用了 {% data variables.product.prodname_dependabot_security_updates %} 的仓库，当 {% data variables.product.product_name %} 在默认分支中检测到有漏洞的依赖项时，{% data variables.product.prodname_dependabot %} 会创建拉取请求来修复它。 拉取请求会将依赖项升级到避免漏洞所需的最低安全版本。
+{% data variables.product.product_name %} 在检测到您的代码库正在使用具有已知安全风险的依赖项时会生成 {% data variables.product.prodname_dependabot_alerts %}。 对于启用了 {% data variables.product.prodname_dependabot_security_updates %} 的仓库，当 {% data variables.product.product_name %} 在默认分支中检测到有漏洞的依赖项时，{% data variables.product.prodname_dependabot %} 会创建拉取请求来修复它。 拉取请求会将依赖项升级到避免漏洞所需的最低安全版本。
 
-{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-5638 %}您可以使用 {% data variables.product.prodname_dependabot_alerts %} 选项卡中的下拉菜单对 {% data variables.product.prodname_dependabot_alerts %} 进行排序和过滤，也可以在搜索栏中键入过滤条件作为`键:值`对。 可用的过滤器包括仓库（例如 `repo:my-repository`）、包（例如 `package:django`）、生态系统（例如 `ecosystem:npm`）、清单（例如 `manifest:webwolf/pom.xml`）、状态（例如 `is:open`）以及公告是否有补丁（例如 `has: patch`）。
+{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-5638 %}您可以使用 {% data variables.product.prodname_dependabot_alerts %} 选项卡中的下拉菜单对 {% data variables.product.prodname_dependabot_alerts %} 进行排序和过滤，也可以在搜索栏中键入过滤条件作为`键:值`对。 可用的过滤器是存储库（例如 `repo:my-repository`）、包（例如 `package:django`）、生态系统（例如 `ecosystem:npm`）、清单（例如 `manifest:webwolf/pom.xml`）、状态（例如 `is:open`） 以及公告是否有补丁（例如 `has: patch`）。{% ifversion dependabot-alerts-development-label %} 还可以使用 `scope`（例如：`scope:development` 或 `scope:runtime`）筛选具有依赖关系范围数据的警报。 使用 `scope:development`，警报列表将仅显示开发期间使用的依赖项，而不显示生产期间使用的依赖项。{% endif %}
 
 每个 {% data variables.product.prodname_dependabot %} 警报都有一个唯一的数字标识符，{% data variables.product.prodname_dependabot_alerts %} 选项卡列出了每个检测到的漏洞的警报。 旧版 {% data variables.product.prodname_dependabot_alerts %} 按依赖项对漏洞进行分组，并为每个依赖项生成一个警报。 如果导航到旧版 {% data variables.product.prodname_dependabot %} 警报，则会将您重定向到为该包筛选的 {% data variables.product.prodname_dependabot_alerts %} 选项卡。 {% endif %}
+{% endif %}
+
+{% ifversion dependabot-alerts-development-label %}
+## 支持的生态系统和依赖范围清单
+
+<!-- TODO: for now we'd have this table and heading as they are, but we're planning to replace this with at a later date a new heading containing all the available filters in one or more tables -->
+{% data reusables.dependabot.dependabot-alerts-dependency-scope %}
+
+列为开发依赖项的包的警报在 {% data variables.product.prodname_dependabot_alerts %} 页上标有 `Development` 标签，并且还可以通过 `scope` 筛选器进行筛选。 ![在警报列表中显示"开发"标签的屏幕截图](/assets/images/help/repository/dependabot-alerts-development-label.png)
+
+开发范围的包上警报的警报详细信息页显示“标记”部分，其中包含 `Development` 标签。 ![在警报详细信息页面中显示"标记"部分的屏幕截图](/assets/images/help/repository/dependabot-alerts-tags-section.png)
+
 {% endif %}
 
 {% ifversion dependabot-alerts-vulnerable-calls %}
@@ -78,9 +90,15 @@ topics:
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-security %}
 {% data reusables.repositories.sidebar-dependabot-alerts %}
-1. （可选）若要筛选警报，请选择 **Repository（仓库）**、**Package（包）**、**Ecosystem（生态系统）**或 **Manifest（清单）**下拉菜单，然后单击要应用的筛选器。 您还可以在搜索栏中键入过滤条件。 例如 `ecosystem:npm` 或 `has:patch`。 要对警报进行排序，请选择 **Sort（排序）**下拉菜单，然后单击要作为排序依据的选项。{% ifversion dependabot-bulk-alerts %} ![Screenshot of the filter and sort menus in the {% data variables.product.prodname_dependabot_alerts %} tab](/assets/images/help/graphs/dependabot-alerts-filters-checkbox.png){% else %}
-![Screenshot of the filter and sort menus in the {% data variables.product.prodname_dependabot_alerts %} tab](/assets/images/enterprise/3.5/dependabot/dependabot-alerts-filters.png){% endif %}
-2. 单击要查看的警报。{% ifversion dependabot-bulk-alerts %} ![Alert selected in list of alerts](/assets/images/help/graphs/click-alert-in-alerts-list-checkbox.png){% else %}
+1. （可选）若要筛选警报，请选择 **Repository（仓库）**、**Package（包）**、**Ecosystem（生态系统）**或 **Manifest（清单）**下拉菜单，然后单击要应用的筛选器。 您还可以在搜索栏中键入过滤条件。 例如 `ecosystem:npm`{% ifversion ghes < 3.7 or ghae-issue-5638 %} 或 `has:patch`{% endif %}{% ifversion dependabot-alerts-development-label %}、`has:patch` 或 `scope:development`{% endif %}。 要对警报进行排序，请选择 **Sort（排序）**下拉菜单，然后单击要作为排序依据的选项。
+
+   还可以单击警报上的标签以仅显示该类型的警报。{% ifversion dependabot-alerts-development-label %} 例如，单击警报列表中的 `Development` 标签将仅显示与开发中使用的依赖项相关的警报，而不显示与生产中使用的依赖项相关的警报。 有关支持的生态系统列表的信息，请参阅[依赖项范围支持的生态系统和清单](#supported-ecosystems-and-manifests-for-dependency-scope)”。
+
+{% endif %}
+{%- ifversion dependabot-bulk-alerts %}
+  ![{% data variables.product.prodname_dependabot_alerts %} 选项卡中过滤器和排序菜单的屏幕截图](/assets/images/help/graphs/dependabot-alerts-filters-checkbox.png){% else %}
+   ![Screenshot of the filter and sort menus in the {% data variables.product.prodname_dependabot_alerts %} tab](/assets/images/enterprise/3.5/dependabot/dependabot-alerts-filters.png){% endif %}
+1. 单击要查看的警报。{% ifversion dependabot-bulk-alerts %} ![Alert selected in list of alerts](/assets/images/help/graphs/click-alert-in-alerts-list-checkbox.png){% else %}
 ![Alert selected in list of alerts](/assets/images/enterprise/3.5/dependabot/click-alert-in-alerts-list-ungrouped.png){% endif %}
 
 {% else %}
@@ -92,11 +110,11 @@ topics:
 
 ## 查看和修复警报
 
-请务必确保所有依赖项都没有任何安全漏洞。 当 {% data variables.product.prodname_dependabot %} 发现依赖项中的漏洞时，应评估项目的暴露水平，并确定要采取哪些补救措施来保护应用程序。
+请务必确保所有依赖项都没有任何安全漏洞。 当 {% data variables.product.prodname_dependabot %} 发现依赖项中的漏洞{% ifversion GH-advisory-db-supports-malware %}或恶意软件{% endif %}时，应评估项目的暴露水平，并确定要采取哪些补救措施来保护应用程序。
 
-如果有修补的版本可用，则可以生成 {% data variables.product.prodname_dependabot %} 请求，以直接从 {% data variables.product.prodname_dependabot %} 警报更新此依赖项。 如果您启用了 {% data variables.product.prodname_dependabot_security_updates %}，则拉取请求可能会在 Dependabot 警报中链接。
+如果依赖项有修补的版本可用，则可以生成 {% data variables.product.prodname_dependabot %} 请求，以直接从 {% data variables.product.prodname_dependabot %} 警报更新此依赖项。 如果您启用了 {% data variables.product.prodname_dependabot_security_updates %}，则拉取请求可能会在 Dependabot 警报中链接。
 
-如果修补的版本不可用，或者您无法更新到安全版本，{% data variables.product.prodname_dependabot %} 会共享其他信息，以帮助您确定后续步骤。 单击以查看 {% data variables.product.prodname_dependabot %} 警报时，可以看到依赖项的安全通告的完整详细信息，包括受影响的功能。 然后，可以检查代码是否调用受影响的函数。 此信息可以帮助您进一步评估风险级别，并确定解决方法或是否能够接受安全漏洞所代表的风险。
+如果修补的版本不可用，或者您无法更新到安全版本，{% data variables.product.prodname_dependabot %} 会共享其他信息，以帮助您确定后续步骤。 单击以查看 {% data variables.product.prodname_dependabot %} 警报时，可以看到依赖项的安全通告的完整详细信息，包括受影响的功能。 然后，可以检查代码是否调用受影响的函数。 此信息可以帮助您进一步评估风险级别，并确定解决方法或是否能够接受安全公告所代表的风险。
 
 {% ifversion dependabot-alerts-vulnerable-calls %}
 

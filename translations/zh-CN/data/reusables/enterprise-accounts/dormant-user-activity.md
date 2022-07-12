@@ -1,6 +1,23 @@
-“活动”包括但不限于：
-- 登录 {% data variables.product.product_name %}。
-- 评论问题和拉取请求。
-- 创建、删除、关注仓库和加星标。
-- 推送提交。
+如果用户在 {% ifversion fpt or ghec or ghes %}{% data variables.product.product_location %}{% elsif ghae %}{% data variables.product.product_name %}{% endif %}上执行了以下任何活动，则该用户被视为活动用户。
+
+- 登录 {% data variables.product.product_location %}
+- 创建仓库
+- 推送到存储库
+- 添加到存储库
+- 更改存储库的可见性
+- 创建议题或拉取请求
+- 评论议题或拉取请求
+- 关闭或重新打开议题或拉取请求
+- 对议题或拉取请求应用标签，或删除标签
+- 分配或取消分配议题或拉取请求
+- 请求审核拉取请求或删除审核请求
+- 在拉取请求审阅中创建或编辑注释
+- 关闭拉取请求中的注释
+- 同步拉取请求
+- 评论提交
+- 发布版本
+- 推送到 wiki
+- 关注仓库
+- 对仓库标星
+- 删除仓库
 - 使用个人访问令牌或 SSH 密钥访问资源。

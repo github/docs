@@ -54,7 +54,7 @@ Se você adicionar uma política para toda a organização, você deverá defini
    ![Escolha as opções de visibilidade da porta](/assets/images/help/codespaces/choose-port-visibility-options.png)
 
 {% data reusables.codespaces.codespaces-policy-targets %}
-1. Se você quiser adicionar outra restrição à política, clique em **Adicionar restrição** e escolha outra restrição. Para obter informações sobre outras restrições, consulte "[Restringindo o acesso aos tipos de máquina](/codespaces/managing-codespaces-for-your-organization/restricting-access-to-machine-types)" e "[Restringindo o período de tempo limite ocioso](/codespaces/managing-codespaces-for-your-organization/restricting-the-idle-timeout-period). "
+1. Se você quiser adicionar outra restrição à política, clique em **Adicionar restrição** e escolha outra restrição. Para informações sobre outras restrições, consulte "[Restringindo o acesso aos tipos de máquina](/codespaces/managing-codespaces-for-your-organization/restricting-access-to-machine-types), "[Restringir o período de tempo limite ocioso de](/codespaces/managing-codespaces-for-your-organization/restricting-the-idle-timeout-period)e "[Restringindo o período de retenção para codespaces](/codespaces/managing-codespaces-for-your-organization/restricting-the-retention-period-for-codespaces)".
 1. Após terminar de adicionar restrições à sua política, clique em **Salvar**.
 ## Editando uma política
 

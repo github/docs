@@ -1,10 +1,10 @@
-You can control how job failures are handled with `jobs.<job_id>.strategy.fail-fast` and `jobs.<job_id>.continue-on-error`.
+您可以使用 `jobs.<job_id>.strategy.fail-fast` and `jobs.<job_id>.continue-on-error` 控制如何处理作业失败。
 
-`jobs.<job_id>.strategy.fail-fast` applies to the entire matrix. If `jobs.<job_id>.strategy.fail-fast` is set to `true`, {% data variables.product.product_name %} will cancel all in-progress and queued jobs in the matrix if any job in the matrix fails. This property defaults to `true`.
+`jobs.<job_id>.strategy.fail-fast` 适用于整个矩阵。 如果`jobs.<job_id>.strategy.fail-fast` 设置为 `true`，如果矩阵中的任何作业失败， {% data variables.product.product_name %} 将取消矩阵中所有正在进行的作业和排队的作业。 此属性默认为 `true`。
 
-`jobs.<job_id>.continue-on-error` applies to a single job. If `jobs.<job_id>.continue-on-error` is `true`, other jobs in the matrix will continue running even if the job with `jobs.<job_id>.continue-on-error: true` fails.
+`jobs.<job_id>.continue-on-error` 适用于单个作业。 如果 `jobs.<job_id>.continue-on-error` 为 `true`，则矩阵中的其他作业将继续运行，即使具有 `jobs.<job_id>.continue-on-error: true` 的作业失败也一样。
 
-You can use `jobs.<job_id>.strategy.fail-fast` and `jobs.<job_id>.continue-on-error` together. For example, the following workflow will start four jobs. For each job, `continue-on-error` is determined by the value of `matrix.experimental`. If any of the jobs with `continue-on-error: false` fail, all jobs that are in progress or queued will be cancelled. If the job with `continue-on-error: true` fails, the other jobs will not be affected.
+您可以同时使用 `jobs.<job_id>.strategy.fail-fast` 和 `jobs.<job_id>.continue-on-error`。 例如，以下工作流程将启动四个作业。 对于每个作业，`continue-on-error` 由 `matrix.experimental` 的值确定。 如果任何具有 `continue-on-error: false` 的作业失败，则将取消所有正在进行的作业或排队的作业。 如果具有 `continue-on-error: true` 的作业失败，其他作业将不受影响。
 
 
 ```yaml
