@@ -95,10 +95,10 @@ For more information, see "[Reviewing and fixing alerts](#reviewing-and-fixing-a
 1. Optionally, to filter alerts, select the **Repository**, **Package**, **Ecosystem**, or **Manifest** dropdown menu then click the filter that you would like to apply. You can also type filters into the search bar. For example, `ecosystem:npm`{% ifversion ghes < 3.7 or ghae-issue-5638 %} or `has:patch`{% endif %}{% ifversion dependabot-alerts-development-label %}, `has:patch` or `scope:development`{% endif %}. To sort alerts, select the **Sort** dropdown menu then click the option that you would like to sort by, or type `sort:` into the search bar and choose an option from the suggestions (for example, `sort:newest`).
    
    {% ifversion dependabot-most-important-sort-option %}
-   {% tip %}
+   {% note %}
 
-   **Tip:** By default, {% data variables.product.prodname_dependabot_alerts %} are sorted by importance. The "Most important" sort helps you prioritize which {% data variables.product.prodname_dependabot_alerts %} to focus on first. Alerts are ranked based on their potential impact, actionability, and relevance. Our prioritization calculation is constantly being improved and includes factors like CVSS score, dependency scope, and whether vulnerable function calls are found for the alert.
-   {% endtip %}
+   **Note:** By default, {% data variables.product.prodname_dependabot_alerts %} are sorted by importance. The "Most important" sort helps you prioritize which {% data variables.product.prodname_dependabot_alerts %} to focus on first. Alerts are ranked based on their potential impact, actionability, and relevance. Our prioritization calculation is constantly being improved and includes factors like CVSS score, dependency scope, and whether vulnerable function calls are found for the alert.
+   {% endnote %}
 
    ![Screenshot of Sort dropdown with "Most important" sort](/assets/images/help/dependabot/dependabot-alerts-sort-dropdown.png)
    {% endif %}
