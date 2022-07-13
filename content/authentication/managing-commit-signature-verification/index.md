@@ -25,5 +25,5 @@ children:
   - /signing-commits
   - /signing-tags
 shortTitle: Verify commit signatures
----
+---00000000-0000
 
