@@ -26,4 +26,4 @@ The security log includes details on what action occurred and when you performed
 
 ## Further reading
 
-- "[Reviewing your organization's audit logs for {% data variables.product.prodname_codespaces %}](/codespaces/managing-codespaces-for-your-organization/reviewing-your-organizations-audit-logs-for-codespaces)"
+- "[Reviewing your organization's audit logs for {% data variables.product.prodname_github_codespaces %}](/codespaces/managing-codespaces-for-your-organization/reviewing-your-organizations-audit-logs-for-github-codespaces)"

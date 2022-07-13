@@ -91,7 +91,7 @@ For more information, see "[Creating a codespace](/codespaces/developing-in-code
 gh codespace stop -c <em>codespace-name</em>
 ```
 
-For more information, see "[Deep dive into Codespaces](/codespaces/getting-started/deep-dive#closing-or-stopping-your-codespace)."
+For more information, see "[Deep dive into {% data variables.product.prodname_github_codespaces %}](/codespaces/getting-started/deep-dive#closing-or-stopping-your-codespace)."
 
 ### Delete a codespace
 
@@ -201,4 +201,4 @@ You can see the creation log for a codespace. After entering this command you wi
 gh codespace logs -c <em>codespace-name</em>
 ```
 
-For more information about the creation log, see "[Codespaces logs](/codespaces/troubleshooting/codespaces-logs#creation-logs)."
+For more information about the creation log, see "[{% data variables.product.prodname_github_codespaces %} logs](/codespaces/troubleshooting/github-codespaces-logs#creation-logs)."

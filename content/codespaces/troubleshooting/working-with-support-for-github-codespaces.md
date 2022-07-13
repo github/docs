@@ -13,7 +13,7 @@ redirect_from:
   - /codespaces/troubleshooting/working-with-support-for-codespaces
 ---
 
-Before support can help you with problems with codespaces, you need to know the name of the codespace and its codespaces ID (identifier). In addition, support may ask you to share some logs with them. For more information, see "[Codespaces logs](/codespaces/troubleshooting/codespaces-logs)" and "[About GitHub Support](/github/working-with-github-support/about-github-support)."
+Before support can help you with problems with codespaces, you need to know the name of the codespace and its codespaces ID (identifier). In addition, support may ask you to share some logs with them. For more information, see "[{% data variables.product.prodname_github_codespaces %} logs](/codespaces/troubleshooting/github-codespaces-logs)" and "[About GitHub Support](/github/working-with-github-support/about-github-support)."
 
 ### Codespace names
 
@@ -25,7 +25,7 @@ To find the name of a codespace:
 - If you cannot open a codespace, you can access the name in {% data variables.product.product_name %} on https://github.com/codespaces. The name is shown in a pop-up when you hover over the **Open in browser** option on https://github.com/codespaces. 
   ![Codespace name shown on hover over](/assets/images/help/codespaces/find-codespace-name-github.png)
 
-The name the codespace is also included in many of the log files. For example, in the codespace logs as the value of `friendlyName`, in the {% data variables.product.prodname_github_codespaces %} extension log after `making GET request for`, and in the browser console log after `clientUrl`. For more information, see "[Codespaces logs](/codespaces/troubleshooting/codespaces-logs)."
+The name the codespace is also included in many of the log files. For example, in the codespace logs as the value of `friendlyName`, in the {% data variables.product.prodname_github_codespaces %} extension log after `making GET request for`, and in the browser console log after `clientUrl`. For more information, see "[{% data variables.product.prodname_github_codespaces %} logs](/codespaces/troubleshooting/github-codespaces-logs)."
 
 ### Codespaces IDs
 

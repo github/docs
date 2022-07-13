@@ -42,4 +42,4 @@ For more information about the Meta API, see "[Meta](/rest/reference/meta)."
 
 At present, there is no way to restrict codespaces from accessing the public internet, or to restrict appropriately authenticated users from accessing a forwarded port.
 
-For more information on how to secure your codespaces, see "[Security in Codespaces](/codespaces/codespaces-reference/security-in-codespaces)."
+For more information on how to secure your codespaces, see "[Security in {% data variables.product.prodname_github_codespaces %}](/codespaces/codespaces-reference/security-in-github-codespaces)."

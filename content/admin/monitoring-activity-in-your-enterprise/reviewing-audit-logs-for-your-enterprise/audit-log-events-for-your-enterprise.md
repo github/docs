@@ -829,10 +829,10 @@ Action                        | Description
 
 | Action | Description
 |--------|-------------
-| `prebuild_configuration.create` | A {% data variables.product.prodname_codespaces %} prebuild configuration for a repository was created. For more information, see "[About Codespaces prebuilds](/codespaces/prebuilding-your-codespaces/about-codespaces-prebuilds)."
-| `prebuild_configuration.destroy` | A {% data variables.product.prodname_codespaces %} prebuild configuration for a repository was deleted. For more information, see "[About Codespaces prebuilds](/codespaces/prebuilding-your-codespaces/about-codespaces-prebuilds)."
-| `prebuild_configuration.run_triggered` | A user initiated a run of a {% data variables.product.prodname_codespaces %} prebuild configuration for a repository branch. For more information, see "[About Codespaces prebuilds](/codespaces/prebuilding-your-codespaces/about-codespaces-prebuilds)."
-| `prebuild_configuration.update` | A {% data variables.product.prodname_codespaces %} prebuild configuration for a repository was edited. For more information, see "[About Codespaces prebuilds](/codespaces/prebuilding-your-codespaces/about-codespaces-prebuilds)."
+| `prebuild_configuration.create` | A {% data variables.product.prodname_codespaces %} prebuild configuration for a repository was created. For more information, see "[About {% data variables.product.prodname_github_codespaces %} prebuilds](/codespaces/prebuilding-your-codespaces/about-github-codespaces-prebuilds)."
+| `prebuild_configuration.destroy` | A {% data variables.product.prodname_codespaces %} prebuild configuration for a repository was deleted. For more information, see "[About {% data variables.product.prodname_github_codespaces %} prebuilds](/codespaces/prebuilding-your-codespaces/about-github-codespaces-prebuilds)."
+| `prebuild_configuration.run_triggered` | A user initiated a run of a {% data variables.product.prodname_codespaces %} prebuild configuration for a repository branch. For more information, see "[About {% data variables.product.prodname_github_codespaces %} prebuilds](/codespaces/prebuilding-your-codespaces/about-github-codespaces-prebuilds)."
+| `prebuild_configuration.update` | A {% data variables.product.prodname_codespaces %} prebuild configuration for a repository was edited. For more information, see "[About {% data variables.product.prodname_github_codespaces %} prebuilds](/codespaces/prebuilding-your-codespaces/about-github-codespaces-prebuilds)."
 {%- endif %}
 
 {%- ifversion ghes %}

@@ -24,7 +24,7 @@ Typically, when you configure prebuilds for a branch, prebuilds will be availabl
 ## Prerequisites 
 
 Before you can configure prebuilds for your project the following must be true: 
-* {% data variables.product.prodname_github_codespaces %} must be enabled for your organization. For more information, see "[Enabling {% data variables.product.prodname_codespaces %} for your organization](/codespaces/managing-codespaces-for-your-organization/enabling-codespaces-for-your-organization)."
+* {% data variables.product.prodname_github_codespaces %} must be enabled for your organization. For more information, see "[Enabling {% data variables.product.prodname_github_codespaces %} for your organization](/codespaces/managing-codespaces-for-your-organization/enabling-github-codespaces-for-your-organization)."
 * {% data variables.product.prodname_actions %} must be enabled for your repository. Each prebuild configuration needs to be able to trigger an associated Actions workflow. For more information, see "[Managing {% data variables.product.prodname_actions %} settings for a repository](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository)."
 
 ## Configuring a prebuild
@@ -61,14 +61,14 @@ Before you can configure prebuilds for your project the following must be true:
    {% note %}
 
    **Notes**: 
-   * The prebuild template for each region will incur individual charges. You should, therefore, only enable prebuilds for regions in which you know they'll be used. For more information, see "[About {% data variables.product.prodname_codespaces %} prebuilds](/codespaces/prebuilding-your-codespaces/about-codespaces-prebuilds#about-billing-for-codespaces-prebuilds)."
-   * Developers can set their default region for {% data variables.product.prodname_codespaces %}, which can allow you to enable prebuilds for fewer regions. For more information, see "[Setting your default region for {% data variables.product.prodname_codespaces %}](/codespaces/customizing-your-codespace/setting-your-default-region-for-codespaces)."
+   * The prebuild template for each region will incur individual charges. You should, therefore, only enable prebuilds for regions in which you know they'll be used. For more information, see "[About {% data variables.product.prodname_github_codespaces %} prebuilds](/codespaces/prebuilding-your-codespaces/about-codespaces-prebuilds#about-billing-for-github-codespaces-prebuilds)."
+   * Developers can set their default region for {% data variables.product.prodname_codespaces %}, which can allow you to enable prebuilds for fewer regions. For more information, see "[Setting your default region for {% data variables.product.prodname_github_codespaces %}](/codespaces/customizing-your-codespace/setting-your-default-region-for-github-codespaces)."
 
    {% endnote %}
 
 1. Set the number of prebuild template versions to be retained. You can input any number between 1 and 5. The default number of saved versions is 2, which means that only the latest template version and the previous version are saved.
 
-   Depending on your prebuild trigger settings, your prebuild template could change with each push or on each dev container configuration change. Retaining older versions of prebuild templates enables you to create a prebuild from an older commit with a different dev container configuration than the current prebuild template. Since there is a storage cost associated with retaining prebuild template versions, you can choose the number of versions to be retained based on the needs of your team. For more information on billing, see "[About billing for {% data variables.product.prodname_codespaces %}](/billing/managing-billing-for-github-codespaces/about-billing-for-codespaces#codespaces-pricing)."
+   Depending on your prebuild trigger settings, your prebuild template could change with each push or on each dev container configuration change. Retaining older versions of prebuild templates enables you to create a prebuild from an older commit with a different dev container configuration than the current prebuild template. Since there is a storage cost associated with retaining prebuild template versions, you can choose the number of versions to be retained based on the needs of your team. For more information on billing, see "[About billing for {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#codespaces-pricing)."
 
    If you set the number of prebuild template versions to save to 1, {% data variables.product.prodname_codespaces %} will only save the latest version of the prebuild template and will delete the older version each time the template is updated. This means you will not get a prebuilt codespace if you go back to an older dev container configuration.
 

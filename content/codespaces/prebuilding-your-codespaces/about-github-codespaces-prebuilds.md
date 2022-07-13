@@ -30,7 +30,7 @@ When prebuilds are available for a particular branch of a repository, and for yo
 
 ## About billing for {% data variables.product.prodname_codespaces %} prebuilds
 
-{% data reusables.codespaces.billing-for-prebuilds %} For details of {% data variables.product.prodname_codespaces %} storage pricing, see "[About billing for {% data variables.product.prodname_codespaces %}](/billing/managing-billing-for-github-codespaces/about-billing-for-codespaces)." 
+{% data reusables.codespaces.billing-for-prebuilds %} For details of {% data variables.product.prodname_codespaces %} storage pricing, see "[About billing for {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces)." 
 
 Use of codespaces created using prebuilds is charged at the same rate as regular codespaces.
 
