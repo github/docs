@@ -48,6 +48,7 @@ translations/ja-JP/content/admin/identity-and-access-management/using-saml-for-e
 translations/ja-JP/content/admin/identity-and-access-management/using-saml-for-enterprise-iam/saml-configuration-reference.md,broken liquid tags
 translations/ja-JP/content/admin/installation/setting-up-a-github-enterprise-server-instance/installing-github-enterprise-server-on-aws.md,broken liquid tags
 translations/ja-JP/content/admin/monitoring-activity-in-your-enterprise/exploring-user-activity/managing-global-webhooks.md,rendering error
+translations/ja-JP/content/admin/overview/system-overview.md,broken liquid tags
 translations/ja-JP/content/admin/packages/enabling-github-packages-with-aws.md,broken liquid tags
 translations/ja-JP/content/admin/packages/enabling-github-packages-with-azure-blob-storage.md,broken liquid tags
 translations/ja-JP/content/admin/packages/enabling-github-packages-with-minio.md,broken liquid tags
@@ -121,7 +122,6 @@ translations/ja-JP/content/code-security/index.md,broken liquid tags
 translations/ja-JP/content/code-security/secret-scanning/about-secret-scanning.md,broken liquid tags
 translations/ja-JP/content/code-security/secret-scanning/protecting-pushes-with-secret-scanning.md,broken liquid tags
 translations/ja-JP/content/code-security/secret-scanning/secret-scanning-patterns.md,broken liquid tags
-translations/ja-JP/content/code-security/security-overview/about-the-security-overview.md,broken liquid tags
 translations/ja-JP/content/code-security/supply-chain-security/end-to-end-supply-chain/securing-accounts.md,broken liquid tags
 translations/ja-JP/content/code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review.md,broken liquid tags
 translations/ja-JP/content/code-security/supply-chain-security/understanding-your-software-supply-chain/about-supply-chain-security.md,broken liquid tags
@@ -286,7 +286,6 @@ translations/ja-JP/data/reusables/enterprise-accounts/messages-tab.md,Listed in 
 translations/ja-JP/data/reusables/enterprise-accounts/messages-tab.md,rendering error
 translations/ja-JP/data/reusables/enterprise-accounts/pages-tab.md,broken liquid tags
 translations/ja-JP/data/reusables/enterprise_installation/hardware-considerations-all-platforms.md,broken liquid tags
-translations/ja-JP/data/reusables/enterprise_installation/upgrade-hardware-requirements.md,broken liquid tags
 translations/ja-JP/data/reusables/enterprise_management_console/advanced-security-license.md,broken liquid tags
 translations/ja-JP/data/reusables/enterprise_management_console/badge_indicator.md,broken liquid tags
 translations/ja-JP/data/reusables/gated-features/code-scanning.md,Listed in localization-support#489

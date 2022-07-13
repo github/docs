@@ -71,16 +71,16 @@ Enterprise オーナーがメンバーによる特定のタイプのリポジト
 
 {% endif %}
 
-## Enforcing a policy for {% ifversion ghec or ghes > 3.1 or ghae %}base{% else %}default{% endif %} repository permissions
+## Enforcing a policy for {% ifversion ghec or ghes or ghae %}base{% else %}default{% endif %} repository permissions
 
-Across all organizations owned by your enterprise, you can set a {% ifversion ghec or ghes > 3.1 or ghae %}base{% else %}default{% endif %} repository permission level (none, read, write, or admin) for organization members, or allow owners to administer the setting on the organization level.
+Across all organizations owned by your enterprise, you can set a {% ifversion ghec or ghes or ghae %}base{% else %}default{% endif %} repository permission level (none, read, write, or admin) for organization members, or allow owners to administer the setting on the organization level.
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.repositories-tab %}
-4. Under "{% ifversion ghec or ghes > 3.1 or ghae %}Base{% else %}Default{% endif %} permissions", review the information about changing the setting. {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
-5. Under "{% ifversion ghec or ghes > 3.1 or ghae %}Base{% else %}Default{% endif %} permissions", use the drop-down menu and choose a policy.
-  {% ifversion ghec or ghes > 3.1 or ghae %}
+4. Under "{% ifversion ghec or ghes or ghae %}Base{% else %}Default{% endif %} permissions", review the information about changing the setting. {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
+5. Under "{% ifversion ghec or ghes or ghae %}Base{% else %}Default{% endif %} permissions", use the drop-down menu and choose a policy.
+  {% ifversion ghec or ghes or ghae %}
   ![リポジトリ権限ポリシーオプションのドロップダウンメニュー](/assets/images/help/business-accounts/repository-permissions-policy-drop-down.png)
   {% else %}
   ![リポジトリ権限ポリシーオプションのドロップダウンメニュー](/assets/images/enterprise/business-accounts/repository-permissions-policy-drop-down.png)

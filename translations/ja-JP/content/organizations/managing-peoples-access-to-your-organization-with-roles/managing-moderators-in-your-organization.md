@@ -30,11 +30,10 @@ Organizationのモデレーターに指名しても、上記のリスト以外�
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-{% data reusables.organizations.security-and-analysis %}
 1. サイドバーの"Access"セクションで**{% octicon "report" aria-label="The report icon" %} Moderation**を選択し、続いて**Moderators（モデレーター）**をクリックしてください。
 1. **Moderators（モデレーター）**の下で、moderatorロールを割り当てたい人やTeamを検索して選択してください。 選択した人もしくはTeamは、検索バーの下のリストに表示されます。 ![モデレーターの検索フィールド及びリスト](/assets/images/help/organizations/add-moderators.png)
 
 
 ## Organizationモデレーターの削除
 
-上記のステップ1-4を行ってから、モデレーターから削除したい人もしくはTeamの横の**Remove moderator（モデレーターを削除）** をクリックしてください。
+上記のステップ1-3を行ってから、モデレーターから削除したい人もしくはTeamの横の**Remove moderator（モデレーターを削除）** をクリックしてください。

@@ -47,13 +47,13 @@ GitHub Appが`login`パラメータを指定すると、ユーザに対して利
 
 #### パラメータ
 
-| 名前             | 種類       | 説明                                                                                                                                                                                                                                                                                                                         |
-| -------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `client_id`    | `string` | **必須。**GitHub App のクライアント IDです。 アプリケーションを選択したときに、[GitHub App 設定](https://github.com/settings/apps)に表示されます。 **注釈:** アプリケーション ID とクライアント ID は同一ではなく、お互いを置き換えることはできません。                                                                                                                                                       |
-| `redirect_uri` | `string` | 認可の後にユーザが送られるアプリケーション中のURL。 This must be an exact match to {% ifversion fpt or ghes or ghec %} one of the URLs you provided as a **Callback URL** {% else %} the URL you provided in the **User authorization callback URL** field{% endif %} when setting up your GitHub App and can't contain any additional parameters. |
-| `state`        | `string` | これはフォージェリアタックを防ぐためにランダムな文字列を含める必要があり、あらゆる任意のデータを含めることができます。                                                                                                                                                                                                                                                                |
-| `login`        | `string` | サインインとアプリケーションの認可に使われるアカウントを指示します。                                                                                                                                                                                                                                                                                         |
-| `allow_signup` | `string` | OAuthフローの間に、認証されていないユーザに対して{% data variables.product.prodname_dotcom %}へのサインアップの選択肢が提示されるかどうか。 デフォルトは `true` です。 ポリシーでサインアップが禁止されている場合は`false`を使ってください。                                                                                                                                                                    |
+| 名前             | 種類       | 説明                                                                                                                                                                                                                                     |
+| -------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `client_id`    | `string` | **必須。**GitHub App のクライアント IDです。 アプリケーションを選択したときに、[GitHub App 設定](https://github.com/settings/apps)に表示されます。 **注釈:** アプリケーション ID とクライアント ID は同一ではなく、お互いを置き換えることはできません。                                                                   |
+| `redirect_uri` | `string` | 認可の後にユーザが送られるアプリケーション中のURL。 これは、GitHub App をセットアップする際に{% ifversion fpt or ghes or ghec %}**コールバック URL** として指定された URL の １つ{% else %}[**User authorization callback URL**] フィールドで指定された URL {% endif %}と一致させる必要があり、他の追加パラメータを含めることはできません。 |
+| `state`        | `string` | これはフォージェリアタックを防ぐためにランダムな文字列を含める必要があり、あらゆる任意のデータを含めることができます。                                                                                                                                                                            |
+| `login`        | `string` | サインインとアプリケーションの認可に使われるアカウントを指示します。                                                                                                                                                                                                     |
+| `allow_signup` | `string` | OAuthフローの間に、認証されていないユーザに対して{% data variables.product.prodname_dotcom %}へのサインアップの選択肢が提示されるかどうか。 デフォルトは `true` です。 ポリシーでサインアップが禁止されている場合は`false`を使ってください。                                                                                |
 
 {% note %}
 
@@ -73,7 +73,7 @@ GitHub Appが`login`パラメータを指定すると、ユーザに対して利
 
 この `code` をアクセストークンと交換します。  トークンの期限設定が有効になっている場合、アクセストークンは 8 時間で期限切れとなり、リフレッシュトークンは 6 か月で期限切れとなります。 トークンを更新するたびに、新しいリフレッシュトークンを取得します。 詳しい情報については、「[ユーザからサーバーに対するアクセストークンをリフレッシュする](/developers/apps/refreshing-user-to-server-access-tokens)」を参照してください。
 
-ユーザトークンの期限設定は、現在のところオプション機能であり、変更される可能性があります。 To opt-in to the user-to-server token expiration feature, see "[Activating optional features for apps](/developers/apps/activating-optional-features-for-apps)."
+ユーザトークンの期限設定は、現在のところオプション機能であり、変更される可能性があります。 ユーザからサーバーに対するトークンの期限設定にオプトインするには、「[アプリケーションのオプション機能を有効化する](/developers/apps/activating-optional-features-for-apps)」を参照してください。
 
 アクセストークンを受け取るため、次のエンドポイントをリクエストします。
 
@@ -81,13 +81,13 @@ GitHub Appが`login`パラメータを指定すると、ユーザに対して利
 
 #### パラメータ
 
-| 名前              | 種類       | 説明                                                                                                                                                                                                                                                                                                                         |
-| --------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `client_id`     | `string` | **必須。**GitHub App のクライアント ID。                                                                                                                                                                                                                                                                                              |
-| `client_secret` | `string` | **必須。**GitHub App のクライアントシークレット。                                                                                                                                                                                                                                                                                           |
-| `コード`           | `string` | **必須。** ステップ1でレスポンスとして受け取ったコード。                                                                                                                                                                                                                                                                                            |
-| `redirect_uri`  | `string` | 認可の後にユーザが送られるアプリケーション中のURL。 This must be an exact match to {% ifversion fpt or ghes or ghec %} one of the URLs you provided as a **Callback URL** {% else %} the URL you provided in the **User authorization callback URL** field{% endif %} when setting up your GitHub App and can't contain any additional parameters. |
-| `state`         | `string` | ステップ1で提供した推測できないランダムな文字列。                                                                                                                                                                                                                                                                                                  |
+| 名前              | 種類       | 説明                                                                                                                                                                                                                                     |
+| --------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `client_id`     | `string` | **必須。**GitHub App のクライアント ID。                                                                                                                                                                                                          |
+| `client_secret` | `string` | **必須。**GitHub App のクライアントシークレット。                                                                                                                                                                                                       |
+| `コード`           | `string` | **必須。** ステップ1でレスポンスとして受け取ったコード。                                                                                                                                                                                                        |
+| `redirect_uri`  | `string` | 認可の後にユーザが送られるアプリケーション中のURL。 これは、GitHub App をセットアップする際に{% ifversion fpt or ghes or ghec %}**コールバック URL** として指定された URL の １つ{% else %}[**User authorization callback URL**] フィールドで指定された URL {% endif %}と一致させる必要があり、他の追加パラメータを含めることはできません。 |
+| `state`         | `string` | ステップ1で提供した推測できないランダムな文字列。                                                                                                                                                                                                              |
 
 #### レスポンス
 
@@ -95,9 +95,9 @@ GitHub Appが`login`パラメータを指定すると、ユーザに対して利
 
 ```json
 {
-  "access_token": "{% ifversion fpt or ghes > 3.1 or ghae or ghec %}ghu_16C7e42F292c6912E7710c838347Ae178B4a{% else %}e72e16c7e42f292c6912e7710c838347ae178b4a{% endif %}",
+  "access_token": "ghu_16C7e42F292c6912E7710c838347Ae178B4a",
   "expires_in": 28800,
-  "refresh_token": "{% ifversion fpt or ghes > 3.1 or ghae or ghec %}ghr_1B4a2e77838347a7E420ce178F2E7c6912E169246c34E1ccbF66C46812d16D5B1A9Dc86A1498{% else %}r1.c1b4a2e77838347a7e420ce178f2e7c6912e1692{% endif %}",
+  "refresh_token": "ghr_1B4a2e77838347a7E420ce178F2E7c6912E169246c34E1ccbF66C46812d16D5B1A9Dc86A1498",
   "refresh_token_expires_in": 15811200,
   "scope": "",
   "token_type": "bearer"
@@ -159,7 +159,7 @@ curl -H "Authorization: token OAUTH-TOKEN" {% data variables.product.api_url_pre
 
 ## ユーザからサーバーへのリクエスト
 
-While most of your API インタラクションのほとんどは、サーバーからサーバーへのインストールアクセストークンを用いて行われますが、一部のエンドポイントでは、ユーザアクセストークンを使用し、API 経由でアクションを実行できます。 Your app can make the following requests using [GraphQL]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql) or [REST](/rest) endpoints.
+While most of your API インタラクションのほとんどは、サーバーからサーバーへのインストールアクセストークンを用いて行われますが、一部のエンドポイントでは、ユーザアクセストークンを使用し、API 経由でアクションを実行できます。 Your app can make the following requests using [GraphQL](/graphql) or [REST](/rest) endpoints.
 
 ### 対応しているエンドポイント
 
@@ -913,10 +913,7 @@ While most of your API インタラクションのほとんどは、サーバー
 * [ワークフロー利用状況の取得](/rest/actions#get-workflow-usage)
 {% endif %}
 
-{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
-
 ## 参考リンク
 
 - "[{% data variables.product.prodname_dotcom %} への認証について](/github/authenticating-to-github/about-authentication-to-github#githubs-token-formats)"
 
-{% endif %}
