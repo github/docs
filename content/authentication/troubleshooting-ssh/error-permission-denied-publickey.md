@@ -215,3 +215,11 @@ If you don't see your public key in {% data variables.product.product_name %}, y
 **Warning**: If you see an SSH key you're not familiar with on {% data variables.product.product_name %}, delete it immediately and contact {% data variables.contact.contact_support %}, for further help. An unidentified public key may indicate a possible security concern. For more information, see "[Reviewing your SSH keys](/articles/reviewing-your-ssh-keys)."
 
 {% endwarning %}
+
+## Verify you used a supported key name
+
+By default, the filenames of supported public keys for GitHub are one of the following.
+
+id_rsa.pub  
+id_ecdsa.pub  
+id_ed25519.pub  
