@@ -180,7 +180,7 @@ jobs:
 
 ### Exemplo de fluxo de trabalho que efetua a autenticação com um token de acesso pessoal
 
-1. Create a personal access token with the `project` and `repo` scopes. Para obter mais informações, consulte "[Criando um token de acesso pessoal](/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token)."
+1. Crie um token de acesso pessoal com os escopos `projeto` e `repositório`. Para obter mais informações, consulte "[Criando um token de acesso pessoal](/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token)."
 2. Salve o token de acesso pessoal como um segredo no seu repositório ou organização.
 3. No fluxo de trabalho a seguir, substitua `YOUR_TOKEN` pelo nome do segredo. Substitua `YOUR_ORGANIZATION` pelo nome da sua organização. Por exemplo, `octo-org`. Substitua `YOUR_PROJECT_NUMBER` pelo número do seu projeto. Para encontrar o número do projeto, consulte a URL do projeto. Por exemplo, `https://github.com/orgs/octo-org/projects/5` tem um número de projeto de 5.
 
@@ -406,7 +406,7 @@ gh api graphql -f query='
 
 </td>
 <td>
-<p>Uses <a href="https://cli.github.com/manual/">{% data variables.product.prodname_cli %}</a> to query the API for the ID of the project and return the name and ID of the first 20 fields in the project. <code>fields</code> returns a union and the query uses inline fragments (<code>... on</code>) to return information about any <code>ProjectV2Field</code> and <code>ProjectV2SingleSelectField</code> fields.</p>
+<p>Usa <a href="https://cli.github.com/manual/">{% data variables.product.prodname_cli %}</a> para consultar a API para o ID do projeto e devolver o nome e o ID dos primeiros 20 campos do projeto. <code>campos</code> retorna uma união e a consulta usa fragmentos inline (<code>... on</code>) para retornar informações sobre os campos <code>ProjectV2Field</code> e <code>ProjectV2SingleSelectField</code>.</p>
 
 <p>A resposta é armazenada em um arquivo denominado <code>project_data.json</code>.</p>
 </td>
@@ -426,8 +426,8 @@ echo 'TODO_OPTION_ID='$(jq '.data.organization.projectV2.fields.nodes[] | select
 <td>
 Analisa a resposta da consulta da API e armazena os IDs relevantes como variáveis de ambiente. Modifique este ID para obter o ID para diferentes campos ou opções. Por exemplo:
 <ul>
-<li>To get the ID of a field called <code>Team</code>, add <code>echo 'TEAM_FIELD_ID='$(jq '.data.organization.projectV2.fields.nodes[] | select(.name== "Team") | .id' project_data.json) >> $GITHUB_ENV</code>.</li>
-<li>To get the ID of an option called <code>Octoteam</code> for the <code>Team</code> single select field, add <code>echo 'OCTOTEAM_OPTION_ID='$(jq '.data.organization.projectV2.fields.nodes[] | select(.name== "Team") |.options[] | select(.name=="Octoteam") |.id' project_data.json) >> $GITHUB_ENV</code></li>
+<li>Para obter o ID de um campo denominado <code>Team</code>, adicione <code>echo 'TEAM_FIELD_ID='$(jq '.data.organization.projectV2.fields.nodes[] | select(.name== "Team") | .id' project_data.json) >> $GITHUB_ENV</code>.</li>
+<li>Para obter o ID de uma opção denominada <code>Octoteam</code> para <code>Team</code> selecione o campo, adicione <code>echo 'OCTOTEAM_OPTION_ID='$(jq '.data.organization.projectV2.fields.nodes[] | select(.name== "Team") |.options[] | select(.name=="Octoteam") |.id' project_data.json) >> $GITHUB_ENV</code></li>
 </ul>
 <strong>Observação: </strong>Este fluxo de trabalho pressupõe que você tem um projeto com um único campo selecionado denominado "Status" que inclui uma opção denominada "Todo" e um campo de data denominado "Date posted". Você deve modificar esta seção para corresponder aos campos presentes na sua tabela.
 </td>

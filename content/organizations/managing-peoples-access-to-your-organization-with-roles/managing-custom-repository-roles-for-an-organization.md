@@ -3,7 +3,7 @@ title: Managing custom repository roles for an organization
 intro: You can more granularly control access to your organization's repositories by creating custom repository roles.
 permissions: Organization owners can manage custom repository roles.
 versions:
-  feature: 'custom-repository-roles'
+  feature: custom-repository-roles
 topics:
   - Organizations
   - Teams

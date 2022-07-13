@@ -43,7 +43,6 @@ You can also enable {% data variables.product.prodname_secret_scanning %} as a p
 
 {% endif %}
 
-
 {% ifversion fpt or ghec %}
 ## About {% data variables.product.prodname_secret_scanning_partner %}
 
@@ -59,7 +58,6 @@ You cannot change the configuration of {% data variables.product.prodname_secret
 {% endnote %}
 {% endif %}
 
-
 {% endif %}
 
 {% ifversion not fpt %}
@@ -74,14 +72,11 @@ You cannot change the configuration of {% data variables.product.prodname_secret
 
 If you're a repository administrator you can enable {% data variables.product.prodname_secret_scanning_GHAS %} for any repository{% ifversion ghec or ghes > 3.4 or ghae-issue-6329 %}, including archived repositories{% endif %}. Organization owners can also enable {% data variables.product.prodname_secret_scanning_GHAS %} for all repositories or for all new repositories within an organization. For more information, see "[Managing security and analysis settings for your repository](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository)" and "[Managing security and analysis settings for your organization](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)."
 
-{% ifversion ghes > 3.1 or ghae or ghec %}You can also define custom {% data variables.product.prodname_secret_scanning %} patterns for a repository, organization, or enterprise. For more information, see "[Defining custom patterns for {% data variables.product.prodname_secret_scanning %}](/code-security/secret-security/defining-custom-patterns-for-secret-scanning)."
-{% elsif ghes < 3.2 %}
-Versions 3.1 and lower of {% data variables.product.product_name %} do not allow you to define your own patterns for detecting secrets.
+{% ifversion ghes or ghae or ghec %}You can also define custom {% data variables.product.prodname_secret_scanning %} patterns for a repository, organization, or enterprise. For more information, see "[Defining custom patterns for {% data variables.product.prodname_secret_scanning %}](/code-security/secret-security/defining-custom-patterns-for-secret-scanning)."
 {% endif %}
-
 ### About {% data variables.product.prodname_secret_scanning %} alerts
 
-When you push commits to a repository with {% data variables.product.prodname_secret_scanning %} enabled, {% data variables.product.prodname_dotcom %} scans the contents of those commits for secrets that match patterns defined by service providers{% ifversion ghes > 3.1 or ghae or ghec %} and any custom patterns defined in your enterprise, organization, or repository{% endif %}. 
+When you push commits to a repository with {% data variables.product.prodname_secret_scanning %} enabled, {% data variables.product.prodname_dotcom %} scans the contents of those commits for secrets that match patterns defined by service providers{% ifversion ghes or ghae or ghec %} and any custom patterns defined in your enterprise, organization, or repository{% endif %}. 
 
 If {% data variables.product.prodname_secret_scanning %} detects a secret, {% data variables.product.prodname_dotcom %} generates an alert.
 
@@ -89,19 +84,19 @@ If {% data variables.product.prodname_secret_scanning %} detects a secret, {% da
 {% ifversion ghes or ghae or ghec %}
 - {% data variables.product.prodname_dotcom %} sends an email alert to the contributor who committed the secret to the repository, with a link to the related {% data variables.product.prodname_secret_scanning %} alert. The commit author can then view the alert in the repository, and resolve the alert.
 {% endif %}
-- {% data variables.product.prodname_dotcom %} displays an alert in the "Security" tab of the repository.{% ifversion ghes = 3.0 %} For more information, see "[Managing alerts from {% data variables.product.prodname_secret_scanning %}](/github/administering-a-repository/managing-alerts-from-secret-scanning)."{% endif %}
+- {% data variables.product.prodname_dotcom %} displays an alert in the "Security" tab of the repository.
 
 {% ifversion ghes or ghae or ghec %}
 For more information about viewing and resolving {% data variables.product.prodname_secret_scanning %} alerts, see "[Managing alerts from {% data variables.product.prodname_secret_scanning %}](/github/administering-a-repository/managing-alerts-from-secret-scanning)."{% endif %}
 
 Repository administrators and organization owners can grant users and teams access to {% data variables.product.prodname_secret_scanning %} alerts. For more information, see "[Managing security and analysis settings for your repository](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository#granting-access-to-security-alerts)."
 
-{% ifversion ghec or ghes > 3.1 %}
+{% ifversion ghec or ghes %}
 You can use the security overview to see an organization-level view of which repositories have enabled {% data variables.product.prodname_secret_scanning %} and the alerts found. For more information, see "[Viewing the security overview](/code-security/security-overview/viewing-the-security-overview)."
 {% endif %}
 
-{%- ifversion ghec or ghes > 3.1 %}You can also use the REST API to {% elsif ghes = 3.1 %}You can use the REST API to {% endif %}
-monitor results from {% data variables.product.prodname_secret_scanning %} across your {% ifversion ghec %}private {% endif %}repositories{% ifversion ghes > 3.1 %} or your organization{% endif %}. For more information about API endpoints, see "[{% data variables.product.prodname_secret_scanning_caps %}](/rest/reference/secret-scanning)."
+{%- ifversion ghec or ghes %}You can also use the REST API to {% endif %}
+monitor results from {% data variables.product.prodname_secret_scanning %} across your {% ifversion ghec %}private {% endif %}repositories{% ifversion ghes %} or your organization{% endif %}. For more information about API endpoints, see "[{% data variables.product.prodname_secret_scanning_caps %}](/rest/reference/secret-scanning)."
 
 {% endif %}
 

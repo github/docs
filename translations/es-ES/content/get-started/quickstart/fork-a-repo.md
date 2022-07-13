@@ -33,7 +33,7 @@ For example, you can use forks to propose changes related to fixing a bug. Rathe
 
 ### Use someone else's project as a starting point for your own idea.
 
-Open source software is based on the idea that by sharing code, we can make better, more reliable software. For more information, see the "[About the Open Source Initiative](http://opensource.org/about)" on the Open Source Initiative.
+Open source software is based on the idea that by sharing code, we can make better, more reliable software. For more information, see the "[About the Open Source Initiative](https://opensource.org/about)" on the Open Source Initiative.
 
 For more information about applying open source principles to your organization's development work on {% data variables.product.product_location %}, see {% data variables.product.prodname_dotcom %}'s white paper "[An introduction to innersource](https://resources.github.com/whitepapers/introduction-to-innersource/)."
 
@@ -204,7 +204,7 @@ Fork a repository to start contributing to a project. {% data reusables.reposito
 
 ## Next Steps
 
-You have now forked a repository, practiced cloning your fork, and configured an upstream repository. 
+You have now forked a repository, practiced cloning your fork, and configured an upstream repository.
 
 * For more information about cloning the fork and syncing the changes in a forked repository from your computer, see "[Set up Git](/articles/set-up-git)."
 

@@ -1,15 +1,15 @@
 {% ifversion fpt %}
-1. Navigate to the main page of the organization where your self-hosted runner is registered.
-2. Click {% octicon "gear" aria-label="The Settings gear" %} **Settings**.
+1. セルフホストランナーが登録されているOrganizationのメインページにアクセスしてください。
+2. {% octicon "gear" aria-label="The Settings gear" %} **Settings（設定）**をクリックしてください。
 {% data reusables.organizations.settings-sidebar-actions-runners %}
 {% elsif ghec or ghes or ghae %}
 1. セルフホストランナーが登録されているところへアクセスしてください:
-   * **In an organization**: navigate to the main page and click {% octicon "gear" aria-label="The Settings gear" %} **Settings**.
+   * **Organizationの場合**: メインページにアクセスして{% octicon "gear" aria-label="The Settings gear" %} **Settings（設定）**をクリックしてください。
    * **Enterpriseレベルのランナーを使っている場合**:
 
 {% indented_data_reference reusables.enterprise-accounts.access-enterprise spaces=5 %}
 1. {% data variables.product.prodname_actions %}設定にアクセスしてください:
-   * **In an organization**:
+   * **Organizationの場合**:
 
 {% indented_data_reference reusables.actions.settings-ui.settings-actions-runners spaces=5 %}
    * **Enterpriseレベルのランナーを使っている場合**:

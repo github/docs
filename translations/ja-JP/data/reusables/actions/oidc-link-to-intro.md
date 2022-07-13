@@ -1,1 +1,1 @@
-- To learn the basic concepts of how {% data variables.product.prodname_dotcom %} uses OpenID Connect (OIDC), and its architecture and benefits, see "[About security hardening with OpenID Connect](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect)."
+- {% data variables.product.prodname_dotcom %}のOpenID Connect (OIDC)の利用方法と、そのアーキテクチャ及び利点の基本概念を学ぶには、「[OpenID Connectでのセキュリティ強化について](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect)」を参照してください。

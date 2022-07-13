@@ -6,4 +6,4 @@ You can enable or disable {% data variables.product.prodname_copilot %} from wit
 2. If you are disabling {% data variables.product.prodname_copilot %}, you will be asked whether you want to disable suggestions globally, or for the language of the file you are currently editing.
 
    - To disable suggestions from {% data variables.product.prodname_copilot %} globally, click **Disable Globally**.
-   - To disable suggestions from {% data variables.product.prodname_copilot %} for the specified language, click **Disable for _LANGUAGE_**. ![Screenshot of option to disable {% data variables.product.prodname_copilot %} globally or for the current language](/assets/images/help/copilot/disable-copilot-global-or-langugage.png)
+   - To disable suggestions from {% data variables.product.prodname_copilot %} for the specified language, click **Disable for _LANGUAGE_**. ![Captura de tela da opção de desabilitar {% data variables.product.prodname_copilot %} globalmente ou para a linguagem atual](/assets/images/help/copilot/disable-copilot-global-or-langugage.png)

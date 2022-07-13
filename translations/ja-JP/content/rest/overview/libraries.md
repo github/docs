@@ -74,7 +74,7 @@ topics:
 | ライブラリ名                                                           | リポジトリ                                                                   |
 | ---------------------------------------------------------------- | ----------------------------------------------------------------------- |
 | **NodeJS GitHub library**                                        | [pksunkara/octonode](https://github.com/pksunkara/octonode)             |
-| **gh3 client-side API v3 wrapper**                               | [k33g/gh3](https://github.com/k33g/gh3)                                 |
+| **gh3 client-side API wrapper**                                  | [k33g/gh3](https://github.com/k33g/gh3)                                 |
 | **Github.js wrapper around the GitHub API**                      | [michael/github](https://github.com/michael/github)                     |
 | **Promise-Based CoffeeScript library for the Browser or NodeJS** | [philschatz/github-client](https://github.com/philschatz/github-client) |
 

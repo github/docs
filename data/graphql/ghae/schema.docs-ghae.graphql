@@ -4987,7 +4987,8 @@ type ContributionsCollection {
   ): [PullRequestContributionsByRepository!]!
 
   """
-  Pull request review contributions made by the user.
+  Pull request review contributions made by the user. Returns the most recently
+  submitted review for each PR reviewed by the user.
   """
   pullRequestReviewContributions(
     """

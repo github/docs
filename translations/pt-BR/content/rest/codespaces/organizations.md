@@ -1,8 +1,8 @@
 ---
-title: Codespaces organizations
+title: Organizações de codespaces
 allowTitleToDifferFromFilename: true
 shortTitle: Organizações
-intro: The Codespaces organizations API enables you to manage your organization members codespaces using the REST API.
+intro: A API de organizações de codespaces permite que você gerencie os codespaces dos seus integrantes da organização usando a API REST.
 versions:
   fpt: '*'
   ghec: '*'
@@ -13,6 +13,6 @@ miniTocMaxHeadingLevel: 3
 
 {% data reusables.codespaces.codespaces-api-beta-note %}
 
-## About the Codespaces organizations API
+## Sobre a API das organizações de codespaces
 
-The {% data variables.product.prodname_codespaces %} organizations API enables you to manage {% data variables.product.prodname_codespaces %} billed to your organization using the REST API. This API is available for authenticated organization admins and OAuth Apps, but not GitHub Apps. For more information, see "[{% data variables.product.prodname_codespaces %}](/codespaces)."
+A API de organizações do {% data variables.product.prodname_codespaces %} permite a que você gerencie {% data variables.product.prodname_codespaces %} cobrados para sua organização usando a API REST. Esta API está disponível para administradores de organização autenticados e aplicativos OAuth, mas não para aplicativos GitHub. Para mais informações, consulte "[{% data variables.product.prodname_codespaces %}"](/codespaces)".

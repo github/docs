@@ -2,7 +2,7 @@
 title: Project boards
 shortTitle: Boards
 allowTitleToDifferFromFilename: true
-intro: 'The Project boards API lets you create and manage projects in a repository.'
+intro: The Project boards API lets you create and manage projects in a repository.
 versions:
   fpt: '*'
   ghes: '*'
