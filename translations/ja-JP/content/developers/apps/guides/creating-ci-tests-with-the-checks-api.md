@@ -53,7 +53,7 @@ Checks API は、新しいコードがリポジトリにプッシュされるた
 
 ## 必要な環境
 
-[GitHub Apps](/apps/)、[webhook](/webhooks)、[Checks API](/rest/reference/checks) を使い慣れていない場合は、以下の作業に取りかかる前にある程度慣れておくとよいでしょう。 [REST API ドキュメント](/rest)には、さらに多くの API が掲載されています。 Checks API は [GraphQL]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql) でも使用できますが、このクイックスタートでは REST に焦点を当てます。 詳細については、GraphQL [Checks Suite]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql/reference/objects#checksuite) および [Check Run]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql/reference/objects#checkrun) オブジェクトを参照してください。
+[GitHub Apps](/apps/)、[webhook](/webhooks)、[Checks API](/rest/reference/checks) を使い慣れていない場合は、以下の作業に取りかかる前にある程度慣れておくとよいでしょう。 [REST API ドキュメント](/rest)には、さらに多くの API が掲載されています。 Checks API は [GraphQL](/graphql) でも使用できますが、このクイックスタートでは REST に焦点を当てます。 詳細については、GraphQL [Checks Suite](/graphql/reference/objects#checksuite) および [Check Run](/graphql/reference/objects#checkrun) オブジェクトを参照してください。
 
 [Ruby プログラミング言語](https://www.ruby-lang.org/en/)、[Smee](https://smee.io/) webhook ペイロード配信サービス、GitHub REST API 用の [Octokit.rb Ruby ライブラリ](http://octokit.github.io/octokit.rb/)、および [Sinatra ウェブフレームワーク](http://sinatrarb.com/) を使用して、Checks API CI サーバーアプリケーションを作成します。
 

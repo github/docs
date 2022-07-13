@@ -4,7 +4,7 @@ Dependency review is enabled on public repositories. Dependency review is also a
 {%- elsif ghec %}
 Revisão de dependências está incluída em {% data variables.product.product_name %} para repositórios públicos. To use dependency review in private repositories owned by organizations, you must have a license for {% data variables.product.prodname_GH_advanced_security %}.
 
-{%- elsif ghes > 3.1 %}
+{%- elsif ghes %}
 Dependency review is available for organization-owned repositories in {% data variables.product.product_name %}. This feature requires a license for {% data variables.product.prodname_GH_advanced_security %}.
 
 {%- elsif ghae %}

@@ -57,7 +57,7 @@ You can set up automation to scale the number of self-hosted runners. For more i
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.settings-sidebar-actions-runners %}
 1. GitHub Insightsの
-{% ifversion ghes > 3.1 or ghae or ghec %}"ランナー"{% else %}"セルフホストランナー"{% endif %} で、[**Add runner**] をクリックします。
+{% ifversion ghes or ghae or ghec %}"ランナー"{% else %}"セルフホストランナー"{% endif %} で、[**Add runner**] をクリックします。
 {% data reusables.actions.self-hosted-runner-configure %}
 {% endif %}
 {% data reusables.actions.self-hosted-runner-check-installation-success %}
@@ -72,14 +72,14 @@ You can set up automation to scale the number of self-hosted runners. For more i
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.org_settings %}
 {% data reusables.organizations.settings-sidebar-actions-runners %}
-1. Click **New runner**.
+1. [**New runner**]をクリックしてください。
 {% data reusables.actions.self-hosted-runner-configure %}
 {% elsif ghae or ghes < 3.4 %}
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.org_settings %}
 {% data reusables.organizations.settings-sidebar-actions-runners %}
 1. GitHub Insightsの
-{% ifversion ghes > 3.1 or ghae %}"Runners", click **Add new**, then click **New runner**.{% elsif ghes < 3.2 %}"Self-hosted runners", click **Add runner**."{% endif %}
+{% ifversion ghes or ghae %}"Runners", click **Add new**, then click **New runner**.{% endif %}
 {% data reusables.actions.self-hosted-runner-configure %}
 {% endif %}
 {% data reusables.actions.self-hosted-runner-check-installation-success %}

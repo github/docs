@@ -43,8 +43,7 @@ Por padrão, as restrições de uma regra de proteção de branch não se aplica
 Para cada regra de proteção do branch, você pode escolher habilitar ou desabilitar as seguintes configurações.
 - [Exigir revisões de pull request antes do merge](#require-pull-request-reviews-before-merging)
 - [Exigir verificações de status antes do merge](#require-status-checks-before-merging)
-{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
-- [Exigir resolução de conversas antes do merge](#require-conversation-resolution-before-merging){% endif %}
+- [Exigir resolução de conversa antes de merge](#require-conversation-resolution-before-merging)
 - [Exigir commits assinados](#require-signed-commits)
 - [Exigir histórico linear](#require-linear-history)
 {% ifversion fpt or ghec %}
@@ -103,11 +102,9 @@ Você pode configurar as verificações de status obrigatórias como "flexível"
 
 Para obter informações sobre a solução de problemas, consulte "[Solucionar problemas para as verificações de status obrigatórias](/github/administering-a-repository/troubleshooting-required-status-checks)".
 
-{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
 ### Exigir resolução de conversa antes de merge
 
 Exige que todos os comentários no pull request sejam resolvidos antes de poder fazer merge em um branch protegido. Isso garante que todos os comentários sejam resolvidos ou reconhecidos antes do merge.
-{% endif %}
 
 ### Exigir commits assinados
 

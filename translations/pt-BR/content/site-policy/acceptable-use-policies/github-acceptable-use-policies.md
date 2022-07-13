@@ -81,7 +81,7 @@ Você pode usar as informações do nosso Serviço pelos motivos a seguir, indep
 
 Scraping refere-se à extração de informações do nosso Serviço por meio de um processo automatizado, como um bot ou webcrawler. Scraping não se refere à coleta de informações por meio de nossa API. Por favor, consulte a Seção H de nossos [Termos de Serviço](/articles/github-terms-of-service#h-api-terms) para nossos Termos da API.
 
-You may not use information from the Service (whether scraped, collected through our API, or obtained otherwise) for spamming purposes, including for the purposes of sending unsolicited emails to users or selling personal information, such as to recruiters, headhunters, and job boards.
+Você não pode usar as informações do Serviço (seja por meio de raspagem, coletadas por nossa API ou obtidas de outra forma) para fins de spam ou e-mails não solicitados, incluindo para fins de envio de e-mails não solicitados para os usuários ou venda de informações pessoais, como recrutadores, headhunters e portais de trabalho.
 
 Seu uso de informações do Serviço deve estar em conformidade com a [Declaração de Privacidade do GitHub](/github/site-policy/github-privacy-statement).
 

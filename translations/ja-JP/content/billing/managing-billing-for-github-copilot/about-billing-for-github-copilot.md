@@ -12,7 +12,7 @@ shortTitle: GitHub Copilotの支払い
 
 {% data variables.product.prodname_copilot %}を使いたい場合、{% data variables.product.prodname_dotcom %}の個人アカウントにプランが必要になります。 {% data variables.product.prodname_copilot %} の詳細については、「[{% data variables.product.prodname_copilot %} について](/en/copilot/overview-of-github-copilot/about-github-copilot)」を参照してください。
 
-有料プランを始める前に、{% data variables.product.prodname_copilot %}を評価するために1回限定の60日の試用をセットアップできます。 試用を開始するには、月次もしくは年次の支払いサイクルを選択し、支払い方法を提供しなければなりません。 60日の終わりまでに試用をキャンセルしなかった場合、試用は自動的に有料プランに変換されます。 {% data variables.product.prodname_copilot %}の試用は、60日の間いつでもキャンセルでき、そうすれば課金されることはありません。 試用の終了前にキャンセルした場合、60日の試用期間が終了するまでは{% data variables.product.prodname_copilot %}にアクセスできます。 詳しい情報については「[GitHub Copilotのプランの管理](/en/billing/managing-billing-for-github-copilot/managing-your-github-copilot-subscription)」を参照してください。
+有料プランを始める前に、{% data variables.product.prodname_copilot %}を評価するために1回限定の60日の試用をセットアップできます。 試用を開始するには、月次もしくは年次の支払いサイクルを選択し、支払い方法を提供しなければなりません。 60日の終わりまでに試用をキャンセルしなかった場合、試用は自動的に有料プランに変換されます。 {% data variables.product.prodname_copilot %}の試用は、60日の間いつでもキャンセルでき、そうすれば課金されることはありません。 試用の終了前にキャンセルした場合、60日の試用期間が終了するまでは{% data variables.product.prodname_copilot %}にアクセスできます。 For more information, see "[Managing your GitHub Copilot subscription](/en/billing/managing-billing-for-github-copilot/managing-your-github-copilot-subscription)."
 
 ## {% data variables.product.prodname_copilot %}の価格
 
