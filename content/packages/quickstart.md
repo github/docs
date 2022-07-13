@@ -27,7 +27,7 @@ In this guide, you'll create a {% data variables.product.prodname_actions %} wor
 3. Create an `index.js` file and add a basic alert to say "Hello world!"
     {% raw %}
     ```javascript{:copy}
-    alert("Hello, World!");
+    console.log("Hello, World!");
     ```
     {% endraw %}
 4. Initialize an npm package with `npm init`. In the package initialization wizard, enter your package with the name: _`@YOUR-USERNAME/YOUR-REPOSITORY`_, and set the test script to `exit 0`. This will generate a `package.json` file with information about your package.
