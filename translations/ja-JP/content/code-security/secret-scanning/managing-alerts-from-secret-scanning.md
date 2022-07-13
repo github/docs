@@ -75,7 +75,7 @@ shortTitle: シークレットのアラートの管理
 {% ifversion fpt or ghes > 3.1 or ghae-issue-4910 or ghec %}
 ## {% data variables.product.prodname_secret_scanning %}アラートの通知の設定
 
-新しいシークレットが検出されると、{% data variables.product.product_name %}は通知設定に従ってリポジトリのセキュリティアラートにアクセスできるすべてのユーザに通知します。 あなたがリポジトリをWatchしていて、セキュリティアラートもしくはリポジトリのすべてのアクティビティに対する通知を有効化しているか、検出されたシークレットを含むコミットの作者でそのリポジトリを無視していなければ、あなたは通知を受け取ることになります。
+新しいシークレットが検出されると、{% data variables.product.product_name %}は通知設定に従ってリポジトリのセキュリティアラートにアクセスできるすべてのユーザに通知します。 You will receive an email notification if you are watching the repository, have enabled notifications for security alerts or for all the activity on the repository, or are the author of the commit that contains the secret and are not ignoring the repository.
 
 詳しい情報については、「[リポジトリのセキュリティ及び分析の設定の管理](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository#granting-access-to-security-alerts)」及び「[通知の設定](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#configuring-your-watch-settings-for-an-individual-repository)」を参照してください。
 {% endif %}

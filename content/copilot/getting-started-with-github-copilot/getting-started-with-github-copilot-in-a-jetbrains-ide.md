@@ -4,8 +4,8 @@ shortTitle: JetBrains IDE
 intro: 'Learn how to install {% data variables.product.prodname_copilot %} in a JetBrains IDE, and start seeing suggestions as you write comments and code.'
 product: '{% data reusables.gated-features.copilot %}'
 versions:
-  feature: 'copilot'
-topics: 
+  feature: copilot
+topics:
   - Copilot
 ---
 
@@ -116,4 +116,4 @@ You can enable or disable {% data variables.product.prodname_copilot %} for all 
 ## Further reading
 
 - [The {% data variables.product.prodname_copilot %} website](https://copilot.github.com/)
-- [{% data variables.product.prodname_copilot %} Licensing Information for JetBrains Plugin](/copilot/overview-of-github-copilot/about-github-copilot#github-copilot-licensing-information-for-jetbrains-plugin)
+- [About {% data variables.product.prodname_copilot %}](/copilot/overview-of-github-copilot/about-github-copilot#about-the-license-for-the-github-copilot-plugin-in-jetbrains-ides)

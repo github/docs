@@ -2,7 +2,7 @@
 title: Gist comments
 allowTitleToDifferFromFilename: true
 shortTitle: Comments
-intro: 'The Gist comments API lets you view and modify comments on a gist.'
+intro: The Gist comments API lets you view and modify comments on a gist.
 versions:
   fpt: '*'
   ghes: '*'

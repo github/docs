@@ -1,10 +1,10 @@
-Use `jobs.<job_id>.runs-on` to define the type of machine to run the job on. {% ifversion fpt or ghec %}The machine can be either a {% data variables.product.prodname_dotcom %}-hosted runner or a self-hosted runner.{% endif %} You can provide `runs-on` as a single string or as an array of strings. If you specify an array of strings, your workflow will run on a self-hosted runner whose labels match all of the specified `runs-on` values, if available. If you would like to run your workflow on multiple machines, use [`jobs.<job_id>.strategy`](/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idstrategy).
+`jobs.<job_id>.runs-on`を使って、ジョブを実行するマシンのタイプを定義してください。 {% ifversion fpt or ghec %}マシンは、{% data variables.product.prodname_dotcom %}ホストランナーでも、セルフホストランナーでもかまいません。{% endif %}`runs-on`は単一の文字列として、あるいは文字列の配列として渡せます。 文字列の配列を指定した場合、ワークフローは指定されたすべての`runs-on`の値にラベルがマッチしたセルフホストランナーが利用可能であれば、そのランナーで実行されます。 複数のマシン上でワークフローを実行したいのであれば、[`jobs.<job_id>.strategy`](/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idstrategy)を使ってください。
 
 
 {% ifversion fpt or ghec or ghes %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-### Choosing {% data variables.product.prodname_dotcom %}-hosted runners
+### {% data variables.product.prodname_dotcom %}ホストランナーの選択
 
 {% data variables.product.prodname_dotcom %}ホストランナーを使う場合、それぞれのジョブは`runs-on`で指定された仮想環境の新しいインスタンスで実行されます。
 
@@ -12,7 +12,7 @@ Use `jobs.<job_id>.runs-on` to define the type of machine to run the job on. {% 
 
 {% data reusables.actions.supported-github-runners %}
 
-#### Example: Specifying an operating system
+#### 例: オペレーティングシステムの指定
 
 ```yaml
 runs-on: ubuntu-latest
@@ -22,12 +22,12 @@ runs-on: ubuntu-latest
 {% endif %}
 
 {% ifversion fpt or ghec or ghes %}
-### Choosing self-hosted runners
+### セルフホストランナーの選択
 {% endif %}
 
 {% data reusables.actions.self-hosted-runner-labels-runs-on %}
 
-#### Example: Using labels for runner selection
+#### 例: ランナーの選択にラベルを使用
 
 ```yaml
 runs-on: [self-hosted, linux]

@@ -26,11 +26,11 @@ Os tipos mais básicos de mídia que a API suporta são:
 
 {% note %}
 
-**Note:** In the past, we recommended including `v3` in your `Accept` header. This is no longer required and will have no impact on your API requests.
+**Observação:** Anteriormente, recomendávamos incluir `v3` no seu cabeçalho `Aceitar`. Isso não é mais necessário e não terá impacto nas suas solicitações de API.
 
 {% endnote %}
 
-If you're specifying a property (such as full/raw/etc defined below), put it after `github`:
+Se você estiver especificando uma propriedade (como full/raw/etc definido abaixo), coloque-a após `github`:
 
     application/vnd.github.raw+json
 

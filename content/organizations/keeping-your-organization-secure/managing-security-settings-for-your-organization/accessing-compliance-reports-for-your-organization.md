@@ -1,6 +1,6 @@
 ---
 title: Accessing compliance reports for your organization
-intro: "You can access {% data variables.product.company_short %}'s compliance reports, such as our SOC reports and Cloud Security Alliance CAIQ self-assessment (CSA CAIQ), for your organization."
+intro: 'You can access {% data variables.product.company_short %}''s compliance reports, such as our SOC reports and Cloud Security Alliance CAIQ self-assessment (CSA CAIQ), for your organization.'
 versions:
   ghec: '*'
 type: how_to

@@ -23,8 +23,8 @@ shortTitle: 配置依赖关系图
 更多信息请参阅“[关于依赖关系图](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph)”。
 
 {% ifversion fpt or ghec %}
-## About configuring the dependency graph
-To generate a dependency graph, {% data variables.product.product_name %} needs read-only access to the dependency manifest and lock files for a repository. 依赖关系图自动为所有公共仓库生成，您可以选择为私有仓库启用它。 有关查看依赖关系图的更多信息，请参阅“[探索存储库的依赖关系](/github/visualizing-repository-data-with-graphs/exploring-the-dependencies-of-a-repository)”。
+## 关于配置依赖关系图
+要生成依赖关系图，{% data variables.product.product_name %} 需要对仓库的依赖项清单和锁定文件的只读访问权限。 依赖关系图自动为所有公共仓库生成，您可以选择为私有仓库启用它。 有关查看依赖关系图的更多信息，请参阅“[探索存储库的依赖关系](/github/visualizing-repository-data-with-graphs/exploring-the-dependencies-of-a-repository)”。
 
 {% data reusables.dependency-submission.dependency-submission-link %}
 {% endif %}

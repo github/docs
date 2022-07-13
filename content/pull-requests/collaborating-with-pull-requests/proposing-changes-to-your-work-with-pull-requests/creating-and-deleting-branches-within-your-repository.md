@@ -30,9 +30,11 @@ You can create a branch in different ways on {% data variables.product.product_n
 {% data reusables.repositories.navigate-to-branches %}
 1. Click **New branch**.
    ![Screenshot of branches overview page with new branch button emphasized](/assets/images/help/branches/new-branch-button.png)
-2. In the dialog box, enter the branch name and optionally change the branch source. 
+2. In the dialog box, enter the branch name and optionally change the branch source.  
+   If the repository is a fork, you also have the option to select the upstream repository as the branch source.
+   ![Screenshot of branch creation modal for a fork with branch source emphasized](/assets/images/help/branches/branch-creation-popup-branch-source.png)
 3. Click **Create branch**.
-   ![Screenshot of branch creation modal with create branch button emphasized](/assets/images/help/branches/branch-creation-popup.png)
+   ![Screenshot of branch creation modal with create branch button emphasized](/assets/images/help/branches/branch-creation-popup-button.png)
 
 ### Creating a branch using the branch dropdown
 {% data reusables.repositories.navigate-to-repo %}

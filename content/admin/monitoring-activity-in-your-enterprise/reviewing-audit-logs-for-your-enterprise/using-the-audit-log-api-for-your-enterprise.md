@@ -2,11 +2,11 @@
 title: Using the audit log API for your enterprise
 intro: 'You can programmatically retrieve enterprise events with the{% ifversion ghec or ghes > 3.2 %} REST or{% endif %} GraphQL API.'
 shortTitle: Audit log API
-permissions: Enterprise owners {% ifversion ghes %}and site administrators {% endif %}can use the audit log API.
+permissions: 'Enterprise owners {% ifversion ghes %}and site administrators {% endif %}can use the audit log API.'
 miniTocMaxHeadingLevel: 3
 versions:
   ghec: '*'
-  ghes: '>=3.0'
+  ghes: '*'
   ghae: '*'
 type: tutorial
 topics:
@@ -22,7 +22,6 @@ You can interact with the audit log using the GraphQL API{% ifversion ghec or gh
 
 Timestamps and date fields in the API response are measured in [UTC epoch milliseconds](http://en.wikipedia.org/wiki/Unix_time).
 
-{% ifversion ghec or ghes > 3.0 or ghae %}
 ## Querying the audit log GraphQL API
 
 To ensure your intellectual property is secure, and you maintain compliance for your enterprise, you can use the audit log GraphQL API to keep copies of your audit log data and monitor:
@@ -107,7 +106,6 @@ This query uses the [AuditEntry](/graphql/reference/interfaces#auditentry) inter
 
 For more query examples, see the [platform-samples repository](https://github.com/github/platform-samples/blob/master/graphql/queries).
 
-{% endif %}
 {% ifversion ghec or ghes > 3.2 or ghae-issue-6648 %}
 ## Querying the audit log REST API
 

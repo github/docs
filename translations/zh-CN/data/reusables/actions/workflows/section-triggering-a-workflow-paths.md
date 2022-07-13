@@ -1,15 +1,15 @@
 
-When using the `push` and `pull_request` events, you can configure a workflow to run based on what file paths are changed. Path filters are not evaluated for pushes of tags.
+使用 `push` 和 `pull_request` 事件时，可以将工作流程配置为根据更改的文件路径运行。 路径过滤器不评估标签的推送。
 
-Use the `paths` filter when you want to include file path patterns or when you want to both include and exclude file path patterns. Use the `paths-ignore` filter when you only want to exclude file path patterns. You cannot use both the `paths` and `paths-ignore` filters for the same event in a workflow.
+如果要包括文件路径模式，或者要同时包含和排除文件路径模式，请使用 `paths` 筛选器。 当您只想排除文件路径模式时，请使用 `paths-ignore` 筛选器。 不能同时对工作流程中的同一事件使用 `paths` and `paths-ignore` 筛选器。
 
-If you define both `branches`/`branches-ignore` and `paths`, the workflow will only run when both filters are satisfied.
+如果同时定义 `branches`/`branches-ignore` 和 `paths`，则工作流程仅在同时满足两个筛选器时才会运行。
 
-The `paths` and `paths-ignore` keywords accept glob patterns that use the `*` and `**` wildcard characters to match more than one path name. 更多信息请参阅“[过滤器模式备忘清单](/actions/using-workflows/workflow-syntax-for-github-actions#filter-pattern-cheat-sheet)”。
+`paths` 和 `paths-ignore` 关键词接受使用 `*` 和 `**` 通配符匹配多个路径名称的 glob 模式。 更多信息请参阅“[过滤器模式备忘清单](/actions/using-workflows/workflow-syntax-for-github-actions#filter-pattern-cheat-sheet)”。
 
 #### 示例：包括路径
 
-如果至少有一个路径与 `paths` 过滤器中的模式匹配，工作流程将会运行。 For example, the following workflow would run anytime you push a JavaScript file (`.js`).
+如果至少有一个路径与 `paths` 过滤器中的模式匹配，工作流程将会运行。 例如，以下工作流程将在推送 JavaScript 文件 (`.js`) 时运行。
 
 ```yaml
 on:
@@ -20,13 +20,13 @@ on:
 
 {% note %}
 
-**注意：**如果由于[路径过滤](/actions/using-workflows/workflow-syntax-for-github-actions#onpushpull_requestpull_request_targetpathspaths-ignore)、 [分支过滤](/actions/using-workflows/workflow-syntax-for-github-actions#onpull_requestpull_request_targetbranchesbranches-ignore)或[提交消息](/actions/managing-workflow-runs/skipping-workflow-runs)而跳过工作流程，则与该工作流程关联的检查将保持“挂起”状态。 需要这些检查成功的拉取请求将被阻止合并。 For more information, see "[Handling skipped but required checks](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/troubleshooting-required-status-checks#handling-skipped-but-required-checks)."
+**注意：**如果由于[路径过滤](/actions/using-workflows/workflow-syntax-for-github-actions#onpushpull_requestpull_request_targetpathspaths-ignore)、 [分支过滤](/actions/using-workflows/workflow-syntax-for-github-actions#onpull_requestpull_request_targetbranchesbranches-ignore)或[提交消息](/actions/managing-workflow-runs/skipping-workflow-runs)而跳过工作流程，则与该工作流程关联的检查将保持“挂起”状态。 需要这些检查成功的拉取请求将被阻止合并。 更多信息请参阅“[处理已跳过但必要的检查](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/troubleshooting-required-status-checks#handling-skipped-but-required-checks)”。
 
 {% endnote %}
 
-#### Example: Excluding paths
+#### 示例：排除路径
 
-当所有路径名称匹配 `paths-ignore` 中的模式时，工作流程不会运行。 If any path names do not match patterns in `paths-ignore`, even if some path names match the patterns, the workflow will run.
+当所有路径名称匹配 `paths-ignore` 中的模式时，工作流程不会运行。 如果任何路径名与 `paths-ignore` 中的模式不匹配，则即使某些路径名与模式匹配，工作流程也将运行。
 
 具有以下路径过滤器的工作流程仅在 `push` 事件上运行，这些事件包括至少一个位于仓库根目录的 `docs` 目录外的文件。
 
@@ -37,11 +37,11 @@ on:
       - 'docs/**'
 ```
 
-#### Example: Including and excluding paths
+#### 示例：包括和排除路径
 
-You can not use `paths` and `paths-ignore` to filter the same event in a single workflow. If you want to both include and exclude path patterns for a single event, use the `paths` filter along with the `!` character to indicate which paths should be excluded.
+不能使用 `paths` 和 `paths-ignore` 来筛选单个工作流程中的同一事件。 如果要同时包含和排除单个事件的路径模式，请使用 `paths` 筛选器与 `!` 字符指示应排除哪些路径。
 
-If you define a path with the `!` character, you must also define at least one path without the `!` character. If you only want to exclude paths, use `paths-ignore` instead.
+如果使用 `!` 字符定义路径，还必须定义至少一个不带 `!` 字符的路径。 如果只想排除路径，请改用 `paths-ignore`。
 
 您定义模式事项的顺序：
 

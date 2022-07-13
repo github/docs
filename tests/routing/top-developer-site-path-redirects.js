@@ -2,7 +2,7 @@ import { jest } from '@jest/globals'
 
 import { head } from '../helpers/e2etest.js'
 
-jest.useFakeTimers('legacy')
+jest.useFakeTimers({ legacyFakeTimers: true })
 
 describe('developer.github.com redirects', () => {
   jest.setTimeout(60 * 1000)

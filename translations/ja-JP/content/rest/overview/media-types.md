@@ -17,46 +17,22 @@ API でカスタムメディアタイプを使用して、ユーザが受信す�
 
 {% data variables.product.product_name %} のすべてのメディアタイプは次のとおりです。
 
-    application/vnd.github[.version].param[+json]
+    application/vnd.github.param[+json]
 
 API がサポートする最も基本的なメディアタイプは次のとおりです。
 
-    application/json
     application/vnd.github+json
-
-これらはどちらも[バージョン][versions]を指定しないため、常にリソースの現在のデフォルトの JSON 表現を取得します。
+    application/json
 
 {% note %}
 
-**重要:** API のデフォルトバージョンは将来変更される可能性があります。 アプリケーションをビルドしていて、API の安定性を重視している場合は、以下の例に示すように、必ず `Accept` ヘッダで特定のバージョンをリクエストしてください。
+**ノート:** 以前は`Accept`ヘッダに`v3`を含めることをおすすめしていました。 これは必要ではなくなっており、APIリクエストに影響を及ぼしません。
 
 {% endnote %}
 
-以下のようにバージョンを指定できます。
+プロパティ（以下で定義されているfull/raw/etcなど）を指定している場合、それは`github`のあとに置いてください:
 
-    application/vnd.github.v3+json
-
-プロパティ（以下で定義されている full/raw/etc など）を指定する場合は、プロパティの前にバージョンを置きます。
-
-    application/vnd.github.v3.raw+json
-
-すべてのレスポンスのヘッダから現在のバージョンを確認できます。  `X-GitHub-Media-Type` ヘッダを探します。
-
-```shell
-$ curl {% data variables.product.api_url_pre %}/users/technoweenie -I
-> HTTP/2 200
-> X-GitHub-Media-Type: github.v3
-
-$ curl {% data variables.product.api_url_pre %}/users/technoweenie -I \
-$  -H "Accept: application/vnd.github.full+json"
-> HTTP/2 200
-> X-GitHub-Media-Type: github.v3; param=full; format=json
-
-$ curl {% data variables.product.api_url_pre %}/users/technoweenie -I \
-$  -H "Accept: application/vnd.github.v3.full+json"
-> HTTP/2 200
-> X-GitHub-Media-Type: github.v3; param=full; format=json
-```
+    application/vnd.github.raw+json
 
 ## コメント本文のプロパティ
 
@@ -64,25 +40,25 @@ $  -H "Accept: application/vnd.github.v3.full+json"
 
 ### Raw
 
-    application/vnd.github.VERSION.raw+json
+    application/vnd.github.raw+json
 
 Raw 形式の Markdown 本文を返します。 レスポンスには `body` が含まれます。 これは、特定のメディアタイプを渡さない場合のデフォルトです。
 
 ### Text
 
-    application/vnd.github.VERSION.text+json
+    application/vnd.github.text+json
 
 Markdown 本文の表現のみのテキストを返します。 レスポンスには `body_text` が含まれます。
 
 ### HTML
 
-    application/vnd.github.VERSION.html+json
+    application/vnd.github.html+json
 
 本文の Markdown からレンダリングされた HTML を返します。 レスポンスには `body_html` が含まれます。
 
 ### Full
 
-    application/vnd.github.VERSION.full+json
+    application/vnd.github.full+json
 
 Raw 形式のテキストおよび HTML 表現を返します。 レスポンスには `body`、 `body_text`、および `body_html` が含まれます。
 
@@ -92,14 +68,14 @@ Raw 形式のテキストおよび HTML 表現を返します。 レスポンス
 
 ### JSON
 
-    application/vnd.github.VERSION+json
+    application/vnd.github+json
     application/json
 
 `content` を含む blob の JSON 表現を base64 でエンコードされた文字列型として返します。 これは、何も渡されていない場合のデフォルトです。
 
 ### Raw
 
-    application/vnd.github.VERSION.raw
+    application/vnd.github.raw
 
 Raw 形式の blob データを返します。
 
@@ -109,27 +85,27 @@ Raw 形式の blob データを返します。
 
 ### diff
 
-    application/vnd.github.VERSION.diff
+    application/vnd.github.diff
 
 ### patch
 
-    application/vnd.github.VERSION.patch
+    application/vnd.github.patch
 
 ### sha
 
-    application/vnd.github.VERSION.sha
+    application/vnd.github.sha
 
 ## リポジトリコンテンツ
 
 ### Raw
 
-    application/vnd.github.VERSION.raw
+    application/vnd.github.raw
 
 ファイルの内容を Raw 形式で返します。 これは、特定のメディアタイプを渡さない場合のデフォルトです。
 
 ### HTML
 
-    application/vnd.github.VERSION.html
+    application/vnd.github.html
 
 Markdown や AsciiDoc などのマークアップファイルでは、`.html` メディアタイプを使用して、レンダリングされた HTML を取得できます。 マークアップ言語は、オープンソースの[マークアップライブラリ](https://github.com/github/markup)を使用して HTML にレンダリングされます。
 
@@ -137,17 +113,16 @@ Markdown や AsciiDoc などのマークアップファイルでは、`.html` �
 
 ### Raw
 
-    application/vnd.github.VERSION.raw
+    application/vnd.github.raw
 
 Gist の内容を Raw 形式で返します。 これは、特定のメディアタイプを渡さない場合のデフォルトです。
 
 ### base64
 
-    application/vnd.github.VERSION.base64
+    application/vnd.github.base64
 
 Gist の内容は、送信前に base64 でエンコードされます。 これは、Gist に無効な UTF-8 シーケンスが含まれている場合に役立ちます。
 
 [gfm]: http://github.github.com/github-flavored-markdown/
 [git-diff]: http://git-scm.com/docs/git-diff
 [git-patch]: http://git-scm.com/docs/git-format-patch
-[versions]: /developers/overview/about-githubs-apis

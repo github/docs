@@ -6,6 +6,11 @@ redirect_from:
   - /articles/syncing-a-fork
   - /github/collaborating-with-issues-and-pull-requests/syncing-a-fork
   - /github/collaborating-with-pull-requests/working-with-forks/syncing-a-fork
+  - /pull-requests/collaborating-with-pull-requests/working-with-forks/merging-an-upstream-repository-into-your-fork
+  - /github/collaborating-with-issues-and-pull-requests/working-with-forks/merging-an-upstream-repository-into-your-fork
+  - /articles/merging-an-upstream-repository-into-your-fork
+  - /github/collaborating-with-issues-and-pull-requests/merging-an-upstream-repository-into-your-fork
+  - /github/collaborating-with-pull-requests/working-with-forks/merging-an-upstream-repository-into-your-fork
 versions:
   fpt: '*'
   ghes: '*'
@@ -18,7 +23,7 @@ permissions: People with write access for a forked repository can sync the fork 
 
 {% ifversion fpt or ghes > 3.1 or ghae or ghec %}
 
-## Syncing a fork from the web UI
+## Syncing a fork branch from the web UI
 
 1. On {% data variables.product.product_name %}, navigate to the main page of the forked repository that you want to sync with the upstream repository.
 2. Select the **Fetch upstream** drop-down. !["Fetch upstream" drop-down](/assets/images/help/repository/fetch-upstream-drop-down.png)
@@ -26,19 +31,19 @@ permissions: People with write access for a forked repository can sync the fork 
 
 If the changes from the upstream repository cause conflicts, {% data variables.product.company_short %} will prompt you to create a pull request to resolve the conflicts.
 
-## Syncing a fork with the {% data variables.product.prodname_cli %}
+## Syncing a fork branch with the {% data variables.product.prodname_cli %}
 
 {% data reusables.cli.about-cli %} {% data variables.product.prodname_cli %}について学ぶには、「[{% data variables.product.prodname_cli %}について](/github-cli/github-cli/about-github-cli)」を参照してください。
 
-To update the remote fork from its parent, use the `gh repo sync` subcommand and supply your fork name as argument.
+To update the remote fork from its parent, use the `gh repo sync -b BRANCHNAME` subcommand and supply your fork and branch name as arguments.
 
 ```shell
-$ gh repo sync owner/cli-fork
+$ gh repo sync owner/cli-fork -b BRANCHNAME
 ```
 
 If the changes from the upstream repository cause conflict then the {% data variables.product.prodname_cli %} can't sync. You can set the `-force` flag to overwrite the destination branch.
 
-## Syncing a fork from the command line
+## Syncing a fork branch from the command line
 
 {% endif %}
 上流リポジトリとフォークを同期する前に、Git で[上流リポジトリをポイントするリモートの設定](/pull-requests/collaborating-with-pull-requests/working-with-forks/configuring-a-remote-for-a-fork)をする必要があります。
@@ -77,6 +82,15 @@ If the changes from the upstream repository cause conflict then the {% data vari
   >  create mode 100644 README.md
   ```
 
+  If your local branch didn't have any unique commits, Git will perform a fast-forward. For more information, see [Basic Branching and Merging](https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging) in the Git documentation.
+  ```shell
+  $ git merge upstream/main
+  > Updating 34e91da..16c56ad
+  > Fast-forward
+  >  README.md                 |    5 +++--
+  >  1 file changed, 3 insertions(+), 2 deletions(-)
+  ```
+  If your local branch had unique commits, you may need to resolve conflicts. 詳細は「[マージコンフリクトに対処する](/github/collaborating-with-pull-requests/addressing-merge-conflicts)」を参照してください。
 
 {% tip %}
 

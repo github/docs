@@ -6,6 +6,11 @@ redirect_from:
   - /articles/syncing-a-fork
   - /github/collaborating-with-issues-and-pull-requests/syncing-a-fork
   - /github/collaborating-with-pull-requests/working-with-forks/syncing-a-fork
+  - /pull-requests/collaborating-with-pull-requests/working-with-forks/merging-an-upstream-repository-into-your-fork
+  - /github/collaborating-with-issues-and-pull-requests/working-with-forks/merging-an-upstream-repository-into-your-fork
+  - /articles/merging-an-upstream-repository-into-your-fork
+  - /github/collaborating-with-issues-and-pull-requests/merging-an-upstream-repository-into-your-fork
+  - /github/collaborating-with-pull-requests/working-with-forks/merging-an-upstream-repository-into-your-fork
 versions:
   fpt: '*'
   ghes: '*'
@@ -18,7 +23,7 @@ permissions: People with write access for a forked repository can sync the fork 
 
 {% ifversion fpt or ghes > 3.1 or ghae or ghec %}
 
-## 从 web UI 同步复刻
+## 从 web UI 同步复刻分支
 
 1. 在 {% data variables.product.product_name %} 上，导航到您想要与上游版本库同步的复刻仓库主页。
 2. 选择 **Fetch upstream（提取上游）**下拉菜单。 !["Fetch upstream（提取上游）"下拉菜单](/assets/images/help/repository/fetch-upstream-drop-down.png)
@@ -26,19 +31,19 @@ permissions: People with write access for a forked repository can sync the fork 
 
 如果上游仓库的更改导致冲突，{% data variables.product.company_short %} 将提示您创建拉取请求以解决冲突。
 
-## 使用 {% data variables.product.prodname_cli %} 同步复刻
+## 使用 {% data variables.product.prodname_cli %} 同步复刻分支
 
 {% data reusables.cli.about-cli %} 要了解 {% data variables.product.prodname_cli %} 的更多信息，请参阅“[关于 {% data variables.product.prodname_cli %}](/github-cli/github-cli/about-github-cli)”。
 
-若要从其父级更新远程复刻，请使用 `gh repo sync` 子命令，并提供复刻名称作为参数。
+要从其父级更新远程复刻，请使用 `gh repo sync -b BRANCHNAME` 子命令，并提供复刻和分支名称作为参数。
 
 ```shell
-$ gh repo sync owner/cli-fork
+$ gh repo sync owner/cli-fork -b BRANCHNAME
 ```
 
 如果来自上游存储库的更改导致冲突，则 {% data variables.product.prodname_cli %} 无法同步。 您可以设置 `-force` 标志以覆盖目标分支。
 
-## 从命令行同步复刻
+## 从命令行同步复刻分支
 
 {% endif %}
 必须在 Git 中[配置指向上游仓库的远程仓库](/pull-requests/collaborating-with-pull-requests/working-with-forks/configuring-a-remote-for-a-fork)，然后才能将您的复刻与上游仓库同步。
@@ -77,6 +82,15 @@ $ gh repo sync owner/cli-fork
   >  create mode 100644 README.md
   ```
 
+  如果您的本地分支没有任何唯一的提交，Git 将执行快进。 更多信息请参阅 Git 文档中的“[基本分支与合并](https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging)”。
+  ```shell
+  $ git merge upstream/main
+  > Updating 34e91da..16c56ad
+  > Fast-forward
+  >  README.md                 |    5 +++--
+  >  1 file changed, 3 insertions(+), 2 deletions(-)
+  ```
+  如果本地分支具有唯一的提交，则可能需要解决冲突。 更多信息请参阅“[解决合并冲突](/github/collaborating-with-pull-requests/addressing-merge-conflicts)”。
 
 {% tip %}
 

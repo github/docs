@@ -1,1 +1,1 @@
-If you exceed the limit, {% data variables.product.prodname_dotcom %} will save the new cache but will begin evicting caches until the total size is less than the repository limit.
+この制限を超えた場合、{% data variables.product.prodname_dotcom %}は新しいキャッシュを保存しますが、合計サイズがリポジトリの制限以下になるまでキャッシュを退去させはじめます。
