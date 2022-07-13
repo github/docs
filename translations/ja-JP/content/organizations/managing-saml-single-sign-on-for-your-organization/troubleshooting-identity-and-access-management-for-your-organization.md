@@ -1,5 +1,5 @@
 ---
-title: アイデンティティとアクセス管理のトラブルシューティング
+title: Troubleshooting identity and access management for your organization
 intro: OrganizationのSAML SSO、Team同期、アイデンティティプロバイダ（IdP）との接続に関するエラーに対する一般的なトラブルシューティングをレビューして解決してください。
 versions:
   ghec: '*'
@@ -7,7 +7,13 @@ topics:
   - Organizations
   - Teams
 shortTitle: アクセスのトラブルシューティング
+redirect_from:
+  - /organizations/managing-saml-single-sign-on-for-your-organization/troubleshooting-identity-and-access-management
 ---
+
+{% data reusables.saml.current-time-earlier-than-notbefore-condition %}
+
+{% data reusables.saml.authentication-loop %}
 
 ## プロビジョニングされていない、あるいはSCIMによってプロビジョニング解除されたユーザがいる
 
@@ -87,3 +93,7 @@ IdPを介して、ユーザのSCIMを手動で再プロビジョニングでき�
 ユーザのSCIMアイデンティティが作成されたことを確認するには、SCIMの外部アイデンティティを持っていないことが確認された一人のOrganizationメンバーで、このプロセスをテストすることをおすすめします。 手動でIdP内のユーザを更新したら、ユーザのSCIMアイデンティティが作成されたかを{% data variables.product.prodname_dotcom %} の SCIM APIを使ってチェックできます。 詳しい情報については「[ユーザのSCIMメタデータの欠如の監査](#auditing-users-for-missing-scim-metadata)」あるいはREST APIエンドポイントの「[ユーザのSCIMプロビジョニング情報の取得](/rest/reference/scim#get-scim-provisioning-information-for-a-user)」を参照してください。
 
 ユーザのSCIMの再プロビジョニングでもうまくいかない場合は、{% data variables.product.prodname_dotcom %}サポートにお問い合わせください。
+
+## 参考リンク
+
+- "[Troubleshooting identity and access management for your enterprise](/admin/identity-and-access-management/managing-iam-for-your-enterprise/troubleshooting-identity-and-access-management-for-your-enterprise)"
