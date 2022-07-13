@@ -9,6 +9,7 @@
     ".next/cache"
   ],
   "dependencies": {
+    "@elastic/elasticsearch": "8.2.1",
     "@github/failbot": "0.8.0",
     "@primer/css": "^19.8.2",
     "@primer/octicons": "17.3.0",
