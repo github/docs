@@ -37,7 +37,7 @@ Os proprietários das empresas também podem habilitar {% data variables.product
 
 ## Configurar notificações para {% data variables.product.prodname_dependabot_alerts %}
 
-{% ifversion fpt or ghes > 3.1 or ghec %}
+{% ifversion fpt or ghes or ghec %}
 Quando um novo alerta do {% data variables.product.prodname_dependabot %} é detectado, {% data variables.product.product_name %} notifica todos os usuários com acesso a {% data variables.product.prodname_dependabot_alerts %} para o repositório de acordo com suas preferências de notificação. Você receberá alertas se estiver acompanhando o repositório, caso tenha habilitado notificações para alertas de segurança ou para toda a atividade no repositório e não estiver ignorando o repositório. Para obter mais informações, consulte “[Configurando notificações](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#configuring-your-watch-settings-for-an-individual-repository)".
 {% endif %}
 

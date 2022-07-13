@@ -1,1 +1,1 @@
-暗号化されたシークレットを使うと、アクセストークンのような機密情報をリポジトリ{% ifversion fpt or ghes > 3.1 or ghae or ghec %}、リポジトリの環境{% endif %}あるいはOrganizationに保存できます。
+Encrypted secrets allow you to store sensitive information, such as access tokens, in your repository, repository environments, or organization.

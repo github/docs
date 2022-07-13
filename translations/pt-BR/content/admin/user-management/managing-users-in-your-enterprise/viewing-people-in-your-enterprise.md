@@ -64,7 +64,6 @@ Você pode ver mais informações sobre o acesso da pessoa à sua empresa como, 
 
 {% endif %}
 
-
 {% ifversion ghec %}
 ## Visualizando convites pendentes
 
@@ -92,7 +91,6 @@ Se você usar {% data variables.product.prodname_vss_ghe %}, a lista de convites
 
    ![Captura de tela das abas "Membros", "Administradores", e "Colaboradores externos"](/assets/images/help/enterprises/pending-invitations-type-tabs.png)
 
-
 ## Visualizando integrantes suspensos em um {% data variables.product.prodname_emu_enterprise %}
 
 Se sua empresa usa {% data variables.product.prodname_emus %}, você também pode visualizar usuários suspensos. Os usuários suspensos são integrantes que foram desprovisionados depois que o aplicativo de {% data variables.product.prodname_emu_idp_application %} cancelou ou excluiu sua atribuição do provedor de identidade. Para obter mais informações, consulte[Sobre usuários gerenciados pela empresa](/admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/about-enterprise-managed-users)".
@@ -107,7 +105,7 @@ Se sua empresa usa {% data variables.product.prodname_emus %}, você também pod
 
 Você pode ver uma lista de todos os usuários desativados {% ifversion ghes or ghae %} que não foram suspensos e {% endif %}que não são administradores do site. {% data reusables.enterprise-accounts.dormant-user-activity-threshold %} Para obter mais informações, consulte "[Gerenciar usuários inativos](/admin/user-management/managing-users-in-your-enterprise/managing-dormant-users)".
 
-{% ifversion ghec or ghes > 3.1 %}
+{% ifversion ghec or ghes %}
 ## Visualizando os integrantes sem um endereço de e-mail de um domínio verificado
 
 Você pode visualizar uma lista de integrantes da sua empresa que não têm um endereço de e-mail a partir de um domínio verificado associado à sua conta de usuário em {% data variables.product.prodname_dotcom_the_website %}.

@@ -52,12 +52,6 @@ For more detailed instructions, please see this [VS Code recipe](https://github.
 
 The [`script/bookmarklets`](../script/bookmarklets) directory contains some browser shortcuts that can help with reviewing GitHub documentation. See [`script/bookmarklets/README.md`](../script/bookmarklets/README.md) for details.
 
-### Viewing a top-level table of contents
-
-While running the local server, you can visit [localhost:4000/dev-toc](http://localhost:4000/dev-toc) to view a top-level TOC of all the content in the site. This page is not available on https://docs.github.com. It was created for internal GitHub writers' use.
-
-At the `/dev-toc` path, you'll see a list of available versions. Click a version, and a list of products will appear. Note that the TOC content is versioned. If you are viewing the `GitHub.com` version and you click the `Enterprise Admin` product, it will be empty, because there isn't any Admin content available on that version.
-
 ### Enabling different languages
 
 By default the local server won't run with all supported languages enabled.  If you need to run the server with a particular language, you can temporarily edit the `start` script in `package.json` and update the `ENABLED_LANGUAGES` variable.  For example, to enable Japanese and Portuguese, you can set it to `ENABLED_LANGUAGES='en,ja,pt'` and then you need to restart the server for the change to take effect.

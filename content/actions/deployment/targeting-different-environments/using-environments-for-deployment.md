@@ -129,7 +129,7 @@ You can also delete environments through the REST API. For more information, see
 
 {% data reusables.actions.environment-deployment-event %}
 
-You can access these objects through the REST API or GraphQL API. You can also subscribe to these webhook events. For more information, see "[Repositories](/rest/reference/repos#deployments)" (REST API), "[Objects]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql/reference/objects#deployment)" (GraphQL API), or "[Webhook events and payloads](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#deployment)."
+You can access these objects through the REST API or GraphQL API. You can also subscribe to these webhook events. For more information, see "[Repositories](/rest/reference/repos#deployments)" (REST API), "[Objects](/graphql/reference/objects#deployment)" (GraphQL API), or "[Webhook events and payloads](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#deployment)."
 
 ## Next steps
 

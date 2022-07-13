@@ -38,8 +38,6 @@ shortTitle: Upgrading GHES
 
   {% endnote %}
 
-{% data reusables.enterprise_installation.upgrade-hardware-requirements %}
-
 ## スナップショットの取得
 
 スナップショットは、ある時点での仮想マシン（VM）のチェックポイントです。 アップグレードに失敗した場合にスナップショットからVMを回復できるよう、仮想マシンをアップグレードする前にスナップショットを取っておくことを強くおすすめします。 We only recommend taking a VM snapshot when the appliance is powered down or in maintenance mode and all background jobs have finished.

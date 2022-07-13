@@ -1,6 +1,5 @@
 #!/usr/bin/env node
 
-import fs from 'fs'
 import github from '@actions/github'
 
 const OPTIONS = Object.fromEntries(
@@ -33,7 +32,6 @@ const {
   BASE,
   HEAD,
   LANGUAGE,
-  BODY_FILE,
   GITHUB_TOKEN,
 } = OPTIONS
 const [OWNER, REPO] = GITHUB_REPOSITORY.split('/')
@@ -121,7 +119,7 @@ async function main() {
     title: TITLE,
     base: BASE,
     head: HEAD,
-    body: fs.readFileSync(BODY_FILE, 'utf8'),
+    body: `New translation batch for ${LANGUAGE}. You can see the log in [\`translations/log/${LANGUAGE}-resets.csv\`](https://github.com/${OWNER}/${REPO}/tree/${HEAD}/translations/log/${LANGUAGE}-resets.csv).`,
     labels: ['translation-batch', `translation-batch-${LANGUAGE}`],
     owner: OWNER,
     repo: REPO,
