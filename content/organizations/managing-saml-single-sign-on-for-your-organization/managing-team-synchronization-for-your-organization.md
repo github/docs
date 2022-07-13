@@ -75,7 +75,7 @@ To avoid potential team synchronization errors with Okta, we recommend that you 
 
 If an organization member does not have a linked SCIM identity, then team synchronization will not work as expected and the user may not be added or removed from teams as expected. If any of these users are missing a SCIM linked identity, you will need to re-provision them.
 
-For help on provisioning users that have missing a missing SCIM linked identity, see "[Troubleshooting identity and access management](/organizations/managing-saml-single-sign-on-for-your-organization/troubleshooting-identity-and-access-management)."
+For help on provisioning users that have missing a missing SCIM linked identity, see "[Troubleshooting identity and access management for your organization](/organizations/managing-saml-single-sign-on-for-your-organization/troubleshooting-identity-and-access-management-for-your-organization)."
 
 {% data reusables.identity-and-permissions.team-sync-okta-requirements %}
 
