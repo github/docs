@@ -1,5 +1,5 @@
 ---
-title: Solução de problemas de identidade e gerenciamento de acesso
+title: Troubleshooting identity and access management for your organization
 intro: 'Revise e solucuone erros comuns para gerenciar a o SAML SSO da sua organização, sincronização de equipes ou provedor de identidade (IdP).'
 versions:
   ghec: '*'
@@ -7,7 +7,13 @@ topics:
   - Organizations
   - Teams
 shortTitle: Solução de problemas de acesso
+redirect_from:
+  - /organizations/managing-saml-single-sign-on-for-your-organization/troubleshooting-identity-and-access-management
 ---
+
+{% data reusables.saml.current-time-earlier-than-notbefore-condition %}
+
+{% data reusables.saml.authentication-loop %}
 
 ## Alguns usuários não são provisionados ou desprovisionados pelo SCIM
 
@@ -87,3 +93,7 @@ Você pode provisionar o SCIM novamente para os usuários manualmente por meio d
 Para confirmar que a identidade do SCIM de um usuário foi criada. Recomendamos testar este processo com um único integrante de uma organização que você tenha confirmado que não tem uma identidade externa do SCIM. Depois de atualizar manualmente os usuários do seu IdP, você poderá verificar se a identidade SCIM do usuário foi criada usando a API SCIM ou em {% data variables.product.prodname_dotcom %}. Para mais informações consulte "[Usuários de auditoria por falta de metadados SCIM](#auditing-users-for-missing-scim-metadata)" ou o ponto de extremidade da API REST "[Obtenha informações de provisionamento do SCIM para um usuário](/rest/reference/scim#get-scim-provisioning-information-for-a-user)."
 
 Se o novo provisionamento do SCIM para os usuários não ajudar, entre em contato com o suporte de {% data variables.product.prodname_dotcom %}.
+
+## Leia mais
+
+- "[Troubleshooting identity and access management for your enterprise](/admin/identity-and-access-management/managing-iam-for-your-enterprise/troubleshooting-identity-and-access-management-for-your-enterprise)"
