@@ -15,7 +15,6 @@ versions:
 topics:
   - Pull requests
 ---
-
 ## About pull requests
 
 {% note %}
