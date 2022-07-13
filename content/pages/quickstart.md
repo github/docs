@@ -25,12 +25,6 @@ This guide will lead you through creating a user site at `username.github.io`.
 {% data reusables.repositories.create_new %}
 1. Enter `username.github.io` as the repository name. Replace `username` with your {% data variables.product.prodname_dotcom %} username. For example, if your username is `octocat`, the repository name should be `octocat.github.io`.
    ![Repository name field](/assets/images/help/pages/create-repository-name-pages.png)
-   
-   {% note %}
-   
-   **Note** : Depending upon your plan, GitHub Pages may **not** be available on your **private** repositories. You should select the visibility of your repository in the above step accordingly. For more information, see ["About GitHub's Products"](/get-started/learning-about-github/githubs-products).
-   
-   {% endnote %}
 2. Under your repository name, click **{% octicon "gear" aria-label="The gear icon" %} Settings**.
    ![Repository settings button](/assets/images/help/pages/quickstart-settings-nav.png)
 {% data reusables.pages.sidebar-pages %}
