@@ -1,11 +1,11 @@
 ---
-title: Using concurrency, expressions, and a test matrix
-shortTitle: Using concurrency, expressions, and a test matrix
+title: 'Using concurrency, expressions, and a test matrix'
+shortTitle: 'Using concurrency, expressions, and a test matrix'
 intro: 'How to use advanced {% data variables.product.prodname_actions %} features for continuous integration (CI).'
 versions:
   fpt: '*'
   ghes: '>= 3.5'
-  ghae: 'issue-4925'
+  ghae: issue-4925
   ghec: '*'
 type: how_to
 topics:

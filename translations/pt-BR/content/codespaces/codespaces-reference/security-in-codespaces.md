@@ -81,9 +81,9 @@ Os codespaces são projetados para ter segurança enrijecida por padrão. Para a
 
 Sempre use segredos criptografados quando você deseja usar informações confidenciais (como tokens de acesso) em um codespace. Você pode acessar seus segredos como variáveis de ambiente no codespace, inclusive a partir do terminal. Por exemplo, você pode iniciar um terminal dentro do seu codespace e usar `echo $SECRET_NAME` para ver o valor de um segredo.
 
-The secret values are copied to environment variables whenever the codespace is resumed or created and are also synced when they are changed.
+Os valores dos segredos são copiados para variáveis de ambiente sempre que o codespace for retomado ou criado e também são sincronizados quando são alterados.
 
-Secrets are not copied into the environment if you don't have write access to the codespace's repository.
+Os segredos não são copiados para o ambiente se você não tiver acesso de gravação ao repositório do codespace.
 
 Para mais informações sobre segredos, consulte:
 - "[Gerenciar segredos criptografados nos seus codespaces](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)"
@@ -95,7 +95,7 @@ Quando você cria um codespace a partir de um branch de PR a partir de uma bifur
 - Para um repositório privado, o codespace recebe acesso tanto à bigurcação quanto ao principal.
 - Para um repositório público, o código só terá acesso à bifurcação e à abertura de PRs no principal.
 
-We also further protect you in these scenarios by not injecting any of your [codespace secrets](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces) into the environment.
+Nós também protegemos você nesses casos ao não injetar nenhum dos seus [segredos do codespace](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces) no ambiente.
 
 ### Práticas recomendadas adicionais
 

@@ -88,7 +88,7 @@ const queryString = 'q=' + encodeURIComponent('GitHub Octocat in:readme user:def
 要在搜索结果中获取这种元数据，请在 `Accept` 标头中指定 `text-match` 媒体类型。
 
 ```shell
-application/vnd.github.v3.text-match+json
+application/vnd.github.text-match+json
 ```
 
 提供 `text-match` 媒体类型时，您将在 JSON 有效负载中收到一个额外的键，名为 `text_matches`，它提供有关搜索词在文本中的位置以及包含该搜索词的 `property` 的信息。 在 `text_matches` 数组中，每个对象包含以下属性：
@@ -106,7 +106,7 @@ application/vnd.github.v3.text-match+json
 使用 cURL 和上面的[示例议题搜索](#search-issues-and-pull-requests)时，我们的 API 请求如下所示：
 
 ``` shell
-curl -H 'Accept: application/vnd.github.v3.text-match+json' \
+curl -H 'Accept: application/vnd.github.text-match+json' \
 '{% data variables.product.api_url_pre %}/search/issues?q=windows+label:bug+language:python+state:open&sort=created&order=asc'
 ```
 

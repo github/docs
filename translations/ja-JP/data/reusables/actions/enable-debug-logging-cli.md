@@ -1,1 +1,1 @@
-To enable enable runner diagnostic logging and step debug logging for the re-run, use the `--debug` flag.
+ランナーの診断ロギングと再実行のステップデバッグロギングを有効化するには、`--debug`フラグを使ってください。

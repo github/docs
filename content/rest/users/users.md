@@ -1,6 +1,6 @@
 ---
 title: Users
-intro: 'The Users API allows to get public and private information about the authenticated user.'
+intro: The Users API allows to get public and private information about the authenticated user.
 versions:
   fpt: '*'
   ghes: '*'

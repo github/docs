@@ -29,8 +29,8 @@ shortTitle: 创建和删除分支
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.navigate-to-branches %}
 1. 单击 **New Branch（新分支）**。 ![突出显示了新分支按钮的分支概述页面的屏幕截图](/assets/images/help/branches/new-branch-button.png)
-2. In the dialog box, enter the branch name and optionally change the branch source.  
-   If the repository is a fork, you also have the option to select the upstream repository as the branch source. ![Screenshot of branch creation modal for a fork with branch source emphasized](/assets/images/help/branches/branch-creation-popup-branch-source.png)
+2. 在对话框中，输入分支名称，并根据需要更改分支源。  
+   如果存储库是复刻，您还可以选择上游存储库作为分支源。 ![强调分支源的复刻的分支创建模式屏幕截图](/assets/images/help/branches/branch-creation-popup-branch-source.png)
 3. 单击 **Create Branch（创建分支）**。 ![突出显示了创建分支按钮的分支创建模式的屏幕截图](/assets/images/help/branches/branch-creation-popup-button.png)
 
 ### 使用分支下拉列表创建分支

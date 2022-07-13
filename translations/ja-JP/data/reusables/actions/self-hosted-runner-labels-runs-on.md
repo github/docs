@@ -1,5 +1,5 @@
 ジョブでセルフホストランナーを指定するには、ワークフローファイル中でセルフホストランナーのラベルで`runs-on`を設定してください。
 
-All self-hosted runners have the `self-hosted` label. Using only this label will select any self-hosted runner. To select runners that meet certain criteria, such as operating system or architecture, we recommend providing an array of labels that begins with `self-hosted` (this must be listed first) and then includes additional labels as needed. When you specify an array of labels, jobs will be queued on runners that have all the labels that you specify.
+すべてのセルフホストランナーは`self-hosted`ラベルを持っています。 このラベルだけを使えば、任意のセルフホストランナーを選択することになります。 オペレーティングシステムやアーキテクチャなど、特定の条件を満たすランナーを選択するには、`self-hosted`（これは先頭になければなりません）で始まり、必要に応じて追加のラベルを含むラベルの配列を提供することをおすすめします。 ラベルの配列を指定すると、ジョブは指定したすべてのラベルを持つランナーにキューイングされます。
 
-Although the `self-hosted` label is not required, we strongly recommend specifying it when using self-hosted runners to ensure that your job does not unintentionally specify any current or future {% data variables.product.prodname_dotcom %}-hosted runners.
+`self-hosted`ラベルは必須ではありませんが、セルフホストランナーを使う際には意図せず現在もしくは将来の{% data variables.product.prodname_dotcom %}ホストランナーをジョブが指定しまうことがないよう、このラベルを指定することを強くおすすめします。

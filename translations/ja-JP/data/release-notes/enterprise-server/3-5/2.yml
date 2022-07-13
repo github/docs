@@ -1,0 +1,35 @@
+date: '2022-06-28'
+sections:
+  security_fixes:
+    - "**中**: GitHub Enterprise Server URLにクエリ文字列パラメータの`org`を指定して、他のOrganizationのアクティブなコミッターにアクセスを与える攻撃を防ぎました。"
+    - "**中**: `github.company.com`及び`github-company.com`が内部のサービスによって同じホスト名と評価されないようにして、潜在的なサーバーサイドセキュリティフォージェリ（SSRF）攻撃を防ぎます。"
+    - "**低**: 外部のファイアウォールールがHTTPアクセスをブロックしている場合でも、HTTP経由のパストラバーサル攻撃で攻撃者がManagement Consoleにアクセスできました。"
+    - パッケージは最新のセキュリティバージョンにアップデートされました。
+  bugs:
+    - 制限された権限のため、成果物のアーカイブ内のファイルを展開後にオープンできませんでした。
+    - コンテナレジストリにプッシュされたパッケージが、GitHub Enterprise ServerのWeb UI上で見えないことがありました。
+    - 十分にプロビジョニングされていないインスタンスをGitHub Enterprise Server 3.5にアップグレードしたあと、Management Consoleはが_Starting_ screenで停止します。
+    - '`ghe-config-apply`を実行中のRedisのタイムアウトはデータベースの移行を停止させなくなりました。'
+    - バックグラウンドジョブプロセッサが部分的なシャットダウン状態で停止し、ある種のバックグラウンドジョブ（コードスキャンニングなど）が停止しているように見えるようになります。
+    - サイト管理者が自動的にEnterpriseオーナーとして追加されないことがありました。
+    - 他の再利用可能なワークフローを呼び出すActionsワークフローがスケジュール実行に失敗しました。
+    - リポジトリの可視性をパブリックからインターナルに変更したあと、GitHub Connectを使用するActionsの解決が一時的に失敗しました。
+  changes:
+    - 最初に有効化されたあとのDependabotのアップデートのパフォーマンスが改善されました。
+    - '「GHESパフォーマンスターゲット](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server#review-hardware-requirements)をサポートするために、Actionsランナーの最大同時接続数を増加させます。'
+    - GitHub Pagesのビルド及び同期のタイムアウトは、Management Consoleで設定できるようになりました。
+    - Redisのタイムアウトを設定するための環境変数を追加しました。
+    - 名前のような特定のフィールドの値が長すぎる場合に、チェックの実行もしくはチェックスイートの作成ないしアップデートが`500 Internal Server Error`を返すことがあります。
+    - diffに多くの変更が含まれている場合のPull Requestの"Files changed"タブのパフォーマンスが改善されました。
+    - 'Actionsのリポジトリキャッシュの利用ポリシーは、[`max_repo_cache_size_limit_in_gb`](/rest/actions/cache#set-github-actions-cache-usage-policy-for-an-enterprise)に対して1未満の最大値を受け付けなくなりました。'
+    - '[キャッシュサーバーノードのデプロイ](/admin/enterprise-management/caching-repositories/configuring-a-repository-cache#configuring-a-repository-cache)の際に、システム内のすべてのノードについてデータセンターのトポロジーを記述する（`--datacenter`引数を使用）ことが必須となりました。この要求は、データセンターのメンバーシップを"default"のままにしておくことによって、ワークロードが複数のデータセンター間で不適切にバランスされるような状況を回避します。'
+  known_issues:
+    - 新しくセットアップされたユーザを持たない{% data variables.product.prodname_ghe_server %}インスタンスで、攻撃者が最初の管理ユーザを作成できました。
+    - アップグレードの過程で、カスタムのファイアウォールのルールが削除されます。
+    - Git LFSが追跡するファイル[Webインターフェースからアップロードされたもの](https://github.com/blog/2105-upload-files-to-your-repositories)が、不正にリポジトリに直接追加されてしまいます。
+    - 同じリポジトリ内のファイルパスが255文字を超えるblobへのパーマリンクを含むIssueをクローズできませんでした。
+    - GitHub Connectで"Users can search GitHub.com"が有効化されている場合、GitHub.comの検索結果にプライベート及びインターナルリポジトリのIssueが含まれません。
+    - '{% data variables.product.prodname_registry %}のnpmレジストリは、メタデータのレスポンス中で時間の値を返さなくなります。これは、大きなパフォーマンス改善のために行われました。メタデータレスポンスの一部として時間の値を返すために必要なすべてのデータは保持し続け、既存のパフォーマンスの問題を解決した将来に、この値を返すことを再開します。'
+    - pre-receive フックの処理に固有のリソース制限によって、pre-receive フックに失敗するものが生じることがあります。
+    - 別のホスト上で取られたバックアップからのアプライアンスのリストア後、Actionsサービスを再起動する必要があります。
+    - '削除されたリポジトリは、90日の保持期間が終了したあとも自動的にディスクからパージされません。この問題は3.5.1リリースで解決されました。[更新: 2022年6月10日]'
