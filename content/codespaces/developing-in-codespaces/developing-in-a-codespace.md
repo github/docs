@@ -41,7 +41,7 @@ For more information on using {% data variables.product.prodname_vscode_shortnam
 
 ### Personalizing your codespace
 
-{% data reusables.codespaces.about-personalization %} For more information, see "[Personalizing {% data variables.product.prodname_github_codespaces %} for your account](/codespaces/setting-up-your-codespace/personalizing-github-codespaces-for-your-account)."
+{% data reusables.codespaces.about-personalization %} For more information, see "[Personalizing {% data variables.product.prodname_github_codespaces %} for your account](/codespaces/customizing-your-codespace/personalizing-github-codespaces-for-your-account)."
 
 {% data reusables.codespaces.apply-devcontainer-changes %} For more information, see "[Configuring {% data variables.product.prodname_codespaces %} for your project](/github/developing-online-with-codespaces/configuring-codespaces-for-your-project#apply-changes-to-your-configuration)."
 

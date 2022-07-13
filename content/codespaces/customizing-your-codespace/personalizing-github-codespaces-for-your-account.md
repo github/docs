@@ -94,11 +94,11 @@ If your codespace fails to pick up configuration settings from dotfiles, see "[T
 
 You can also personalize {% data variables.product.prodname_codespaces %} using additional [{% data variables.product.prodname_codespaces %} settings](https://github.com/settings/codespaces):
 
-- To set your default region, see "[Setting your default region for {% data variables.product.prodname_github_codespaces %}](/codespaces/managing-your-codespaces/setting-your-default-region-for-github-codespaces)."
-- To set your editor, see "[Setting your default editor for {% data variables.product.prodname_github_codespaces %}](/codespaces/managing-your-codespaces/setting-your-default-editor-for-github-codespaces)."
-- To add encrypted secrets, see "[Managing encrypted secrets for {% data variables.product.prodname_github_codespaces %}](/github/developing-online-with-codespaces/managing-encrypted-secrets-for-github-codespaces)."
+- To set your default region, see "[Setting your default region for {% data variables.product.prodname_github_codespaces %}](/codespaces/customizing-your-codespace/setting-your-default-region-for-github-codespaces)."
+- To set your editor, see "[Setting your default editor for {% data variables.product.prodname_github_codespaces %}](/codespaces/customizing-your-codespace/setting-your-default-editor-for-github-codespaces)."
+- To add encrypted secrets, see "[Managing encrypted secrets for {% data variables.product.prodname_github_codespaces %}](/codespaces/managing-codespaces-for-your-organization/managing-encrypted-secrets-for-your-repository-and-organization-for-github-codespaces)."
 - To enable GPG verification, see "[Managing GPG verification for {% data variables.product.prodname_github_codespaces %}](/github/developing-online-with-codespaces/managing-gpg-verification-for-github-codespaces)."
-- To allow your codespaces to access other repositories, see "[Managing access and security for {% data variables.product.prodname_github_codespaces %}](/github/developing-online-with-codespaces/managing-access-and-security-for-github-codespaces)."
+- To allow your codespaces to access other repositories, see "[Managing repository access for your organization's codespaces](/codespaces/managing-codespaces-for-your-organization/managing-repository-access-for-your-organizations-codespaces)."
 
 ## Further reading
 
