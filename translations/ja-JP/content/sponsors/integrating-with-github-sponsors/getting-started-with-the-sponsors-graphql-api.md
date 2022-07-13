@@ -11,6 +11,6 @@ topics:
 shortTitle: Sponsors GraphQL API
 ---
 
-GraphQL API の使用を始めるには、「[GraphQL の概要]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql/guides/introduction-to-graphql)」を参照してください。
+GraphQL API の使用を始めるには、「[GraphQL の概要](/graphql/guides/introduction-to-graphql)」を参照してください。
 
-Sponsors GraphQL API の詳細については、リファレンスドキュメントをご覧ください。 詳しい情報については、「[GraphQL リファレンス]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql/reference)」を参照してください。 GraphQL エクスプローラーを使用して GraphQL 呼び出しを構築することをお勧めします。 詳しい情報については「[Explorerの利用]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql/guides/using-the-explorer)」を参照してください。
+Sponsors GraphQL API の詳細については、リファレンスドキュメントをご覧ください。 詳しい情報については、「[GraphQL リファレンス](/graphql/reference)」を参照してください。 GraphQL エクスプローラーを使用して GraphQL 呼び出しを構築することをお勧めします。 詳しい情報については「[Explorerの利用](/graphql/guides/using-the-explorer)」を参照してください。

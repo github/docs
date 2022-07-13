@@ -9,9 +9,7 @@ import abort from './abort.js'
 import timeout from './timeout.js'
 import morgan from 'morgan'
 import datadog from './connect-datadog.js'
-import cors from './cors.js'
-import helmet from 'helmet'
-import csp from './csp.js'
+import helmet from './helmet.js'
 import cookieParser from './cookie-parser.js'
 import csrf from './csrf.js'
 import handleCsrfErrors from './handle-csrf-errors.js'
@@ -68,8 +66,13 @@ import trailingSlashes from './trailing-slashes.js'
 import fastlyBehavior from './fastly-behavior.js'
 
 const { DEPLOYMENT_ENV, NODE_ENV } = process.env
-const isAzureDeployment = DEPLOYMENT_ENV === 'azure'
 const isTest = NODE_ENV === 'test' || process.env.GITHUB_ACTIONS === 'true'
+// By default, logging each request (with morgan), is on. And by default
+// it's off if you're in a production environment or running automated tests.
+// But if you set the env var, that takes precedence.
+const ENABLE_DEV_LOGGING = JSON.parse(
+  process.env.ENABLE_DEV_LOGGING || !(DEPLOYMENT_ENV === 'azure' || isTest)
+)
 
 const ENABLE_FASTLY_TESTING = JSON.parse(process.env.ENABLE_FASTLY_TESTING || 'false')
 
@@ -110,8 +113,7 @@ export default function (app) {
   }
 
   // *** Request logging ***
-  // Not enabled in Azure deployment because the request information is logged via another layer of the stack
-  if (!isAzureDeployment) {
+  if (ENABLE_DEV_LOGGING) {
     app.use(morgan('dev'))
   }
 
@@ -208,17 +210,7 @@ export default function (app) {
   app.use(instrument(handleNextDataPath, './handle-next-data-path'))
 
   // *** Security ***
-  app.use(cors)
-  app.use(
-    helmet({
-      // Override referrerPolicy to match the browser's default: "strict-origin-when-cross-origin".
-      // Helmet now defaults to "no-referrer", which is a problem for our archived assets proxying.
-      referrerPolicy: {
-        policy: 'strict-origin-when-cross-origin',
-      },
-    })
-  )
-  app.use(csp) // Must come after helmet
+  app.use(helmet)
   app.use(cookieParser) // Must come before csrf
   app.use(express.json()) // Must come before csrf
 

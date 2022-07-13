@@ -34,7 +34,7 @@ Most commonly, forks are used to either propose changes to someone else's projec
 
 ### 他のユーザのプロジェクトを自分のアイディアの出発点として活用する。
 
-オープンソースソフトウェアは、コードを共有することで、より優れた、より信頼性の高いソフトウェアを作成可能にするという考えに基づいています。 詳しい情報については、Open Source Initiative の「[Open Source Initiative について](http://opensource.org/about)」を参照してください。
+オープンソースソフトウェアは、コードを共有することで、より優れた、より信頼性の高いソフトウェアを作成可能にするという考えに基づいています。 For more information, see the "[About the Open Source Initiative](https://opensource.org/about)" on the Open Source Initiative.
 
 {% data variables.product.product_location %} に関する Organization の開発作業にオープンソースの原則を適用する方法の詳細については、{% data variables.product.prodname_dotcom %} のホワイトペーパー「[インナーソース入門](https://resources.github.com/whitepapers/introduction-to-innersource/)」を参照してください。
 

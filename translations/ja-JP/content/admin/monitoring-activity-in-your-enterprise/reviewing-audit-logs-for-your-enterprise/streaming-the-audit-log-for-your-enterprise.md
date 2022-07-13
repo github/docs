@@ -42,6 +42,15 @@ You set up the audit log stream on {% data variables.product.product_name %} by 
 
 ### Setting up streaming to Amazon S3
 
+{% ifversion streaming-oidc-s3 %}
+You can set up streaming to S3 with access keys or, to avoid storing long-lived secrets in {% data variables.product.product_name %}, with OpenID Connect (OIDC).
+
+- [Setting up streaming to S3 with access keys](#setting-up-streaming-to-s3-with-access-keys)
+- [Setting up streaming to S3 with OpenID Connect](#setting-up-streaming-to-s3-with-openid-connect)
+
+#### Setting up streaming to S3 with access keys
+{% endif %}
+
 To stream audit logs to Amazon's S3 endpoint, you must have a bucket and access keys. For more information, see [Creating, configuring, and working with Amazon S3 buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/creating-buckets-s3.html) in the the AWS documentation. Make sure to block public access to the bucket to protect your audit log information.
 
 To set up audit log streaming from {% data variables.product.prodname_dotcom %} you will need:
@@ -52,22 +61,69 @@ To set up audit log streaming from {% data variables.product.prodname_dotcom %} 
 For information on creating or accessing your access key ID and secret key, see [Understanding and getting your AWS credentials](https://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html) in the AWS documentation.
 
 {% data reusables.enterprise.navigate-to-log-streaming-tab %}
-1. Click **Configure stream** and select **Amazon S3**.
+{% data reusables.audit_log.streaming-choose-s3 %}{% ifversion streaming-oidc-s3 %}
+1. Under "Authentication", click **Access keys**.
 
-   ![Choose Amazon S3 from the drop-down menu](/assets/images/help/enterprises/audit-stream-choice-s3.png)
+   ![Screenshot of the authentication options for streaming to Amazon S3](/assets/images/help/enterprises/audit-log-streaming-s3-access-keys.png){% endif %}
+1. Configure the stream settings.
 
-1. On the configuration page, enter:
-   * The name of the bucket you want to stream to. For example, `auditlog-streaming-test`.
-   * Your access key ID. For example, `ABCAIOSFODNN7EXAMPLE1`.
-   * Your secret key. For example, `aBcJalrXUtnWXYZ/A1MDENG/zPxRfiCYEXAMPLEKEY`.
-
-   ![Enter the stream settings](/assets/images/help/enterprises/audit-stream-add-s3.png)
-
-1. Click **Check endpoint** to verify that {% data variables.product.prodname_dotcom %} can connect and write to the Amazon S3 endpoint.
-
-   ![Check the endpoint](/assets/images/help/enterprises/audit-stream-check.png)
-
+   - Under "Bucket", type the name of the bucket you want to stream to. For example, `auditlog-streaming-test`.
+   - Under "Access Key ID", type your access key ID. For example, `ABCAIOSFODNN7EXAMPLE1`.
+   - Under "Secret Key", type your secret key. For example, `aBcJalrXUtnWXYZ/A1MDENG/zPxRfiCYEXAMPLEKEY`.
+{% data reusables.audit_log.streaming-check-s3-endpoint %}
 {% data reusables.enterprise.verify-audit-log-streaming-endpoint %}
+
+{% ifversion streaming-oidc-s3 %}
+#### Setting up streaming to S3 with OpenID Connect
+
+1. In AWS, add the {% data variables.product.prodname_dotcom %} OIDC provider to IAM. For more information, see [Creating OpenID Connect (OIDC) identity providers](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_create_oidc.html) in the AWS documentation.
+
+   - For the provider URL, use `https://oidc-configuration.audit-log.githubusercontent.com`.
+   - For "Audience", use `sts.amazonaws.com`.
+1. Create a bucket, and block public access to the bucket. For more information, see [Creating, configuring, and working with Amazon S3 buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/creating-buckets-s3.html) in the AWS documentation.
+1. Create a policy that allows {% data variables.product.company_short %} to write to the bucket. {% data variables.product.prodname_dotcom %} requires only the following permissions.
+
+   ```
+   {
+      "Version": "2012-10-17",
+      "Statement": [
+         {
+            "Sid": "VisualEditor0",
+            "Effect": "Allow",
+            "Action": [
+               "s3:PutObject"
+            ],
+            "Resource": "arn:aws:s3:::example-bucket/*"
+        }
+      ]
+   }
+   ```
+   For more information, see [Creating IAM policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_create.html) in the AWS documentation.
+1. Configure the role and trust policy for the {% data variables.product.prodname_dotcom %} IdP. For more information, see [Creating a role for web identity or OpenID Connect Federation (console)](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-idp_oidc.html) in the AWS documentation.
+
+   - Add the permissions policy you created above to allow writes to the bucket.
+   - Edit the trust relationship to add the `sub` field to the validation conditions, replacing `ENTERPRISE` with the name of your enterprise.
+     ```
+     "Condition": {
+        "StringEquals": {
+           "oidc-configuration.audit-log.githubusercontent.com:aud": "sts.amazonaws.com",
+           "oidc-configuration.audit-log.githubusercontent.com:sub": "https://github.com/ENTERPRISE"
+         }
+      }
+      ```
+   - Make note of the Amazon Resource Name (ARN) of the created role.
+{% data reusables.enterprise.navigate-to-log-streaming-tab %}
+{% data reusables.audit_log.streaming-choose-s3 %}
+1. Under "Authentication", click **OpenID Connect**.
+
+   ![Screenshot of the authentication options for streaming to Amazon S3](/assets/images/help/enterprises/audit-log-streaming-s3-oidc.png)
+1. Configure the stream settings.
+
+   - Under "Bucket", type the name of the bucket you want to stream to. For example, `auditlog-streaming-test`.
+   - Under "ARN Role" type the ARN role you noted earlier. For example, `arn:aws::iam::1234567890:role/github-audit-log-streaming-role`.
+{% data reusables.audit_log.streaming-check-s3-endpoint %}
+{% data reusables.enterprise.verify-audit-log-streaming-endpoint %}
+{% endif %}
 
 ### Setting up streaming to Azure Blob Storage
 

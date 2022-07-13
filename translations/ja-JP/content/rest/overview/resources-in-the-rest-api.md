@@ -16,18 +16,6 @@ topics:
 
 公式の {% data variables.product.product_name %} REST API を構成するリソースについて説明しています。 ご不明な点やご要望がございましたら、{% data variables.contact.contact_support %} までご連絡ください。
 
-## 最新バージョン
-
-デフォルトでは、`{% data variables.product.api_url_code %}` へのすべてのリクエストが REST API の **v3** [バージョン](/developers/overview/about-githubs-apis)を受け取ります。 [`Accept` ヘッダを介してこのバージョンを明示的にリクエストする](/rest/overview/media-types#request-specific-version)ことをお勧めします。
-
-    Accept: application/vnd.github.v3+json
-
-{% ifversion fpt or ghec %}
-
-GitHub の GraphQL API についての情報は、[v4 ドキュメント]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql)を参照してください。 GraphQL への移行についての情報は、「[REST から移行する]({% ifversion ghec%}/free-pro-team@latest{% endif %}/graphql/guides/migrating-from-rest-to-graphql)」を参照してください。
-
-{% endif %}
-
 ## スキーマ
 
 {% ifversion fpt or ghec %}すべての API アクセスは HTTPS 経由で行われ、{% else %}API は{% endif %} `{% data variables.product.api_url_code %}` からアクセスされます。  すべてのデータは
@@ -177,7 +165,7 @@ $ curl {% ifversion fpt or ghae or ghec %}
 
 ## GraphQL グローバルノード ID
 
-REST API を介して `node_id` を検索し、それらを GraphQL 操作で使用する方法について詳しくは、「[グローバルノード ID を使用する]({% ifversion ghec%}/free-pro-team@latest{% endif %}/graphql/guides/using-global-node-ids)」のガイドを参照してください。
+See the guide on "[Using Global Node IDs](/graphql/guides/using-global-node-ids)" for detailed information about how to find `node_id`s via the REST API and use them in GraphQL operations.
 
 ## クライアントエラー
 
@@ -227,7 +215,7 @@ REST API を介して `node_id` を検索し、それらを GraphQL 操作で使
 
 ## HTTP リダイレクト
 
-API v3 は、必要に応じて HTTP リダイレクトを使用します。 クライアントは、リクエストがリダイレクトされる可能性があることを想定する必要があります。 HTTP リダイレクトの受信はエラー*ではなく*、クライアントはそのリダイレクトに従う必要があります。 リダイレクトのレスポンスには、クライアントがリクエストを繰り返す必要があるリソースの URI を含む `Location` ヘッダフィールドがあります。
+{% data variables.product.product_name %} REST APIは、適切な場合はHTTPリダイレクトを使用します。 クライアントは、リクエストがリダイレクトされる可能性があることを想定する必要があります。 HTTP リダイレクトの受信はエラー*ではなく*、クライアントはそのリダイレクトに従う必要があります。 リダイレクトのレスポンスには、クライアントがリクエストを繰り返す必要があるリソースの URI を含む `Location` ヘッダフィールドがあります。
 
 | ステータスコード    | 説明                                                                                                                                       |
 | ----------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
@@ -238,7 +226,7 @@ API v3 は、必要に応じて HTTP リダイレクトを使用します。 ク
 
 ## HTTP メソッド
 
-API v3 は、可能な限り各アクションに適切な HTTPメソッドを使用しようとします。
+可能な場合、{% data variables.product.product_name %} REST APIはそれぞれのアクションに対して適切なHTTPメソッドを使うように努めます。
 
 | メソッド     | 説明                                                                                                                            |
 | -------- | ----------------------------------------------------------------------------------------------------------------------------- |
@@ -298,7 +286,7 @@ _この例は、読みやすいように改行されています。_
 
     Link: <{% data variables.product.api_url_code %}/orgs/ORG/audit-log?after=MTYwMTkxOTU5NjQxM3xZbGI4VE5EZ1dvZTlla09uWjhoZFpR&before=>; rel="next",
 
-この `Link` レスポンスヘッダには、1 つ以上の[ハイパーメディア](/rest#hypermedia)リンク関係が含まれています。その一部には、[URI テンプレート](https://datatracker.ietf.org/doc/html/rfc6570)としての拡張が必要な場合があります。
+この `Link` レスポンスヘッダには、1 つ以上の[ハイパーメディア](/rest#hypermedia)リンク関係が含まれています。その一部は、[URI テンプレート](https://datatracker.ietf.org/doc/html/rfc6570)としての拡張が必要な場合があります。
 
 使用可能な `rel` の値は以下のとおりです。
 

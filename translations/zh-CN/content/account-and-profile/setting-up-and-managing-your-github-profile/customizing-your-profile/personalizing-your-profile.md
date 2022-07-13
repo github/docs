@@ -30,7 +30,7 @@ shortTitle: 个性化
 
 **注意{% ifversion ghec %}s{% endif %}**：{% ifversion ghec %}
 
-* {% endif %}头像应为 1 MB 以下的 PNG、JPG 或 GIF 文件。 为获取质量最佳的渲染，建议图像的像素保持在大约 500 x 500 像素。
+* {% endif %}您的头像应为 PNG、JPG 或 GIF 文件，并且其大小必须小于 1 MB 且小于 3000 x 3000 像素。 为获取质量最佳的渲染，建议图像的像素保持在大约 500 x 500 像素。
 {% ifversion ghec %}* {% data variables.product.prodname_emus %} 不支持 Gravatar 头像。{% endif %}
 
 {% endnote %}
@@ -39,14 +39,14 @@ shortTitle: 个性化
 
 {% data reusables.user-settings.access_settings %}
 2. 在 **Profile Picture（头像）**下，单击 {% octicon "pencil" aria-label="The edit icon" %} **Edit（编辑）**。 ![编辑头像](/assets/images/help/profile/edit-profile-photo.png)
-3. 单击 **Upload a photo...（上传图片...）**。 ![更新头像](/assets/images/help/profile/edit-profile-picture-options.png)
+3. 单击 **Upload a photo...（上传照片...）**。{% ifversion not ghae %} ![Update profile picture](/assets/images/help/profile/edit-profile-picture-options.png){% endif %}
 3. 裁剪图片。 完成后，单击 **Set new profile picture（设置新头像）**。 ![裁剪上传的照片](/assets/images/help/profile/avatar_crop_and_save.png)
 
 ### 将头像重置为默认肖像
 
 {% data reusables.user-settings.access_settings %}
 2. 在 **Profile Picture（头像）**下，单击 {% octicon "pencil" aria-label="The edit icon" %} **Edit（编辑）**。 ![编辑头像](/assets/images/help/profile/edit-profile-photo.png)
-3. 要还原为默认肖像，请单击 **Remove photo（删除照片）**。 如果您的电子邮件地址与[个人全球统一标识](https://en.gravatar.com/)关联，则无法还原到默认肖像。 此时请单击 **Revert to Gravatar（还原到个人全球统一标识）**。 ![更新头像](/assets/images/help/profile/edit-profile-picture-options.png)
+3. 要还原为默认肖像，请单击 **Remove photo（删除照片）**。 {% ifversion not ghae %}如果您的电子邮件地址与[个人全球统一标识](https://en.gravatar.com/)关联，则无法还原到默认肖像。 此时请单击 **Revert to Gravatar（还原到个人全球统一标识）**。 ![Update profile picture](/assets/images/help/profile/edit-profile-picture-options.png){% endif %}
 
 ## 更改个人资料名称
 
@@ -132,23 +132,23 @@ shortTitle: 个性化
 
 {% ifversion fpt or ghec %}
 
-## Earning Achievements
+## 获取成就
 
-Achievements celebrate specific events and actions that happen on {% data variables.product.prodname_dotcom %}. They will appear as small badges listed in the sidebar of your profile. Clicking or hovering on an achievement will show a detailed view that hints at how the achievement was earned, with a short description and links to the contributing events. The event links will only be visible to users that have access to the repository or organization that the event took place in. Event links will appear inaccessible to all users without access.
+成就用于庆祝 {% data variables.product.prodname_dotcom %} 上发生的具体活动和行动。 它们将显示为小徽章，列在个人资料的侧边栏中。 单击或悬停在成就上将显示一个详细视图，提示该成就是如何获得的，并带有简短描述和指向贡献事件的链接。 事件链接仅对有权访问事件发生的存储库或组织的用户可见。 没有访问权限的所有用户都将无法访问事件链接。
 
-To stop private contributions from counting toward your Achievements, or to turn off Achievements entirely, see "[Showing your private contributions and Achievements on your profile](/articles/publicizing-or-hiding-your-private-contributions-on-your-profile)."
+要阻止私人贡献计入您的成就，或完全关闭成就，请参阅“[在个人资料上显示您的私人贡献和成就](/articles/publicizing-or-hiding-your-private-contributions-on-your-profile)”。
 
 {% note %}
 
-**Note:** This feature is currently in beta and subject to change.
+**注意**：此功能目前在测试中，可能会更改。
 
 {% endnote %}
 
 {% endif %}
 
-## List of qualifying repositories for Mars 2020 Helicopter Contributor achievement
+## Mars 2020 Helicopter 贡献者成就的合格仓库列表
 
-If you authored any commit(s) present in the commit history for the listed tag of one or more of the repositories below, you'll receive the Mars 2020 Helicopter Contributor achievement on your profile. 撰写的提交必须有验证过的电子邮件地址，该电子邮件地址在 {% data variables.product.prodname_dotcom %} 确定符合条件的贡献时与您帐户关联，表示该贡献归属于您。 您可以是提交的原始作者或 [共同作者](/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/creating-a-commit-with-multiple-authors)。 将来对经过验证的电子邮件的更改不会对徽章产生影响。 我们根据从美国航天局喷气推进实验室获得的资料编制了清单。
+如果您为下面一个或多个仓库列出的标记撰写了提交历史记录中的任何提交，您的个人资料中将获得 Mars 2020 Helicopter 贡献者成就。 撰写的提交必须有验证过的电子邮件地址，该电子邮件地址在 {% data variables.product.prodname_dotcom %} 确定符合条件的贡献时与您帐户关联，表示该贡献归属于您。 您可以是提交的原始作者或 [共同作者](/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/creating-a-commit-with-multiple-authors)。 将来对经过验证的电子邮件的更改不会对徽章产生影响。 我们根据从美国航天局喷气推进实验室获得的资料编制了清单。
 
 | {% data variables.product.prodname_dotcom %} 仓库                               | 版本        | 标记                                                                                                         |
 | ----------------------------------------------------------------------------- | --------- | ---------------------------------------------------------------------------------------------------------- |

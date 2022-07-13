@@ -2,7 +2,7 @@
 title: Securing your end-to-end supply chain
 shortTitle: Overview
 allowTitleToDifferFromFilename: true
-intro: Introducing best practice guides on complete end-to-end supply chain security including personal accounts, code, and build processes.
+intro: 'Introducing best practice guides on complete end-to-end supply chain security including personal accounts, code, and build processes.'
 versions:
   fpt: '*'
   ghec: '*'

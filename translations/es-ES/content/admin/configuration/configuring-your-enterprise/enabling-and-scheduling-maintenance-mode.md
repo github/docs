@@ -79,7 +79,7 @@ También puedes utilizar una utilidad de línea de comandos para configurar la l
 
 ## Programar el modo de mantenimiento con {% data variables.product.prodname_enterprise_api %}
 
-Puedes programar el mantenimiento para horarios o días diferentes con {% data variables.product.prodname_enterprise_api %}. Para obtener más información, consulta la sección "[Consola de Administración](/enterprise/{{ currentVersion }}/user/rest/reference/enterprise-admin#enable-or-disable-maintenance-mode)".
+Puedes programar el mantenimiento para horarios o días diferentes con {% data variables.product.prodname_enterprise_api %}. Para obtener más información, consulta la sección "[Consola de Administración](/enterprise/user/rest/reference/enterprise-admin#enable-or-disable-maintenance-mode)".
 
 ## Habilitar o inhabilitar el modo de mantenimientos para todos los nodos de una agrupación
 

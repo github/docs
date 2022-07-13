@@ -177,7 +177,7 @@ GitHub 可能会向执法部门或其他政府机构披露我们收集的有关�
 
 如果 GitHub 处理除您的个人资料信息以外的个人数据，例如 GitHub 从[第三方](/github/site-policy/github-privacy-statement#information-we-collect-from-third-parties)收到的有关您的信息，则根据适用法律，您可以联系 [GitHub 支持](https://support.github.com/contact) 或 [GitHub 高级支持](https://enterprise.githubsupport.com/hc/en-us)访问、更新、更改、删除、反对或限制处理您的个人数据。
 
-您可以通过[个人资料设置](https://github.com/settings/profile)来调整帐户上的设置，包括将您的个人数据显示在私人或公共存储库中，或与社区功能（例如 GitHub Feed、GitHub Globe、GitHub Explore、GitHub 讨论排行榜）相关的个人数据。
+您可以通过[个人资料设置](https://github.com/settings/profile)来调整帐户上的设置，包括将您的个人数据显示在私人或公共存储库中，或与社区功能（例如 GitHub Feed、GitHub Sponsors 和 GitHub Explore）相关的个人数据。
 
 此外，如果您无法通过上述方式访问我们拥有的某些个人数据，您可以按照本隐私声明底部所述与我们联系以请求访问。
 

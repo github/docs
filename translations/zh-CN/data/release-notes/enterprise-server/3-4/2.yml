@@ -27,56 +27,52 @@ sections:
     - '{% data variables.product.prodname_registry %} npm 注册表不再返回元数据响应的时间值。这样做是为了大幅改善性能。作为元数据响应的一部分，我们继续拥有返回时间值所需的所有数据，并将在我们解决现有性能问题后恢复返回这个值。'
     - 特定于处理预接收挂钩的资源限制可能会导致某些预接收挂钩失败。
     - |
-      When using SAML encrypted assertions with {% data variables.product.prodname_ghe_server %} 3.4.0 and 3.4.1, a new XML attribute `WantAssertionsEncrypted` in the `SPSSODescriptor` contains an invalid attribute for SAML metadata. IdPs that consume this SAML metadata endpoint may encounter errors when validating the SAML metadata XML schema. A fix will be available in the next patch release. [Updated: 2022-04-11]
-
-      To work around this problem, you can take one of the two following actions.
-      - Reconfigure the IdP by uploading a static copy of the SAML metadata without the `WantAssertionsEncrypted` attribute.
-      - Copy the SAML metadata, remove `WantAssertionsEncrypted` attribute, host it on a web server, and reconfigure the IdP to point to that URL.
+      After registering a self-hosted runner with the `--ephemeral` parameter on more than one level (for example, both enterprise and organization), the runner may get stuck in an idle state and require re-registration. [Updated: 2022-06-17]
   deprecations:
     - 
       heading: 弃用 GitHub Enterprise Server 3.0
       notes:
-        - '**{% data variables.product.prodname_ghe_server %} 3.0 was discontinued on February 16, 2022**. This means that no patch releases will be made, even for critical security issues, after this date. For better performance, improved security, and new features, [upgrade to the newest version of {% data variables.product.prodname_ghe_server %}](/enterprise-server@3.4/admin/enterprise-management/upgrading-github-enterprise-server) as soon as possible.'
+        - '*{% data variables.product.prodname_ghe_server %} 3.0 自 2022 年 2 月 16 日起停止使用**。这意味着在此日期之后，即使对于关键的安全问题，也不会发布修补程序。为获得更好的性能、更高的安全性和新功能，请尽快[升级到最新版本的 {% data variables.product.prodname_ghe_server %}](/enterprise-server@3.4/admin/enterprise-management/upgrading-github-enterprise-server)。'
     - 
-      heading: Deprecation of GitHub Enterprise Server 3.1
+      heading: 弃用 GitHub Enterprise Server 3.1
       notes:
-        - '**{% data variables.product.prodname_ghe_server %} 3.1 will be discontinued on June 3, 2022**. This means that no patch releases will be made, even for critical security issues, after this date. For better performance, improved security, and new features, [upgrade to the newest version of {% data variables.product.prodname_ghe_server %}](/enterprise-server@3.4/admin/enterprise-management/upgrading-github-enterprise-server) as soon as possible.'
+        - '*{% data variables.product.prodname_ghe_server %} 3.1 自 2022 年 6 月 3 日起停止使用**。这意味着在此日期之后，即使对于关键的安全问题，也不会发布修补程序。为获得更好的性能、更高的安全性和新功能，请尽快[升级到最新版本的 {% data variables.product.prodname_ghe_server %}](/enterprise-server@3.4/admin/enterprise-management/upgrading-github-enterprise-server)。'
     - 
       heading: XenServer Hypervisor 支持终止
       notes:
-        - Starting in {% data variables.product.prodname_ghe_server %} 3.3, {% data variables.product.prodname_ghe_server %} on XenServer was deprecated and is no longer supported. Please contact [GitHub Support](https://support.github.com) with questions or concerns.
+        - 从 {% data variables.product.prodname_ghe_server %} 3.3 开始，XenServer 上的 {% data variables.product.prodname_ghe_server %} 已弃用，不再受支持。如有疑问或疑虑，请联系 [GitHub 支持](https://support.github.com)。
     - 
-      heading: Deprecation of the Content Attachments API preview
+      heading: 内容附件 API 预览版的弃用
       notes:
-        - Due to low usage, we have deprecated the Content References API preview in {% data variables.product.prodname_ghe_server %} 3.4. The API was previously accessible with the `corsair-preview` header. Users can continue to navigate to external URLs without this API. Any registered usages of the Content References API will no longer receive a webhook notification for URLs from your registered domain(s) and we no longer return valid response codes for attempted updates to existing content attachments.
+        - 由于使用率低，我们已弃用 {% data variables.product.prodname_ghe_server %} 3.4 中的内容引用 API 预览版。该 API 以前可通过“corsair-preview”标头进行访问。用户可以继续导航到没有此 API 的外部 URL。内容引用 API 的任何已注册用法将不再收到来自已注册域的 URL 的 web 挂钩通知，并且我们不再为尝试更新现有内容附件返回有效的响应代码。
     - 
-      heading: Deprecation of the Codes of Conduct API preview
+      heading: 弃用行为准则 API 预览
       notes:
-        - 'The Codes of Conduct API preview, which was accessible with the `scarlet-witch-preview` header, is deprecated and no longer accessible in {% data variables.product.prodname_ghe_server %} 3.4. We instead recommend using the "[Get community profile metrics](/rest/reference/repos#get-community-profile-metrics)" endpoint to retrieve information about a repository''s code of conduct. For more information, see the "[Deprecation Notice: Codes of Conduct API preview](https://github.blog/changelog/2021-10-06-deprecation-notice-codes-of-conduct-api-preview/)" in the {% data variables.product.prodname_dotcom %} changelog.'
+        - '行为准则 API 预览（可通过“scarlet-witch-preview”标头访问）已弃用，在 {% data variables.product.prodname_ghe_server %} 3.4 中不再可访问。相反，我们建议使用“[获取社区配置文件指标](/rest/reference/repos#get-community-profile-metrics)”端点来检索有关存储库行为准则的信息。更多信息请参阅 {% data variables.product.prodname_dotcom %} 更改日志中的“[弃用通知：行为准则 API 预览](https://github.blog/changelog/2021-10-06-deprecation-notice-codes-of-conduct-api-preview/)”。'
     - 
       heading: OAuth 应用程序 API 端点的弃用和通过查询参数的 API 身份验证
       notes:
         - |
-          Starting with {% data variables.product.prodname_ghe_server %} 3.4, the [deprecated version of the OAuth Application API endpoints](https://developer.github.com/changes/2020-02-14-deprecating-oauth-app-endpoint/#endpoints-affected) have been removed. If you encounter 404 error messages on these endpoints, convert your code to the versions of the OAuth Application API that do not have `access_tokens` in the URL. We've also disabled the use of API authentication using query parameters. We instead recommend using [API authentication in the request header](https://developer.github.com/changes/2020-02-10-deprecating-auth-through-query-param/#changes-to-make).
+          从 {% data variables.product.prodname_ghe_server %} 3.4 开始，[OAuth Application API 端点的已弃用版本](https://developer.github.com/changes/2020-02-14-deprecating-oauth-app-endpoint/#endpoints-affected) 已被删除。如果在这些端点上遇到 404 错误消息，请将代码转换为 URL 中没有“access_tokens”的 OAuth 应用程序 API 版本。我们还禁用了使用查询参数的 API 身份验证。相反，我们建议使用[请求标头中的API身份验证](https://developer.github.com/changes/2020-02-10-deprecating-auth-through-query-param/#changes-to-make)。
     - 
       heading: 废弃 CodeQL 运行器
       notes:
-        - The {% data variables.product.prodname_codeql %} runner is deprecated in {% data variables.product.prodname_ghe_server %} 3.4 and is no longer supported. The deprecation only affects users who use {% data variables.product.prodname_codeql %} code scanning in third party CI/CD systems; {% data variables.product.prodname_actions %} users are not affected. We strongly recommend that customers migrate to the {% data variables.product.prodname_codeql %} CLI, which is a feature-complete replacement for the {% data variables.product.prodname_codeql %} runner. For more information, see the [{% data variables.product.prodname_dotcom %} changelog](https://github.blog/changelog/2021-09-21-codeql-runner-deprecation/).
+        - '{% data variables.product.prodname_codeql %} 运行器在 {% data variables.product.prodname_ghe_server %} 3.4 中已弃用，不再受支持。弃用仅影响在第三方 CI/CD 系统中使用 {% data variables.product.prodname_codeql %} 代码扫描的用户。{% data variables.product.prodname_actions %} 用户不受影响。我们强烈建议客户迁移到 {% data variables.product.prodname_codeql %} CLI，这是 {% data variables.product.prodname_codeql %} 运行器的功能完整替代品。更多信息请参阅 [{% data variables.product.prodname_dotcom %} 变更日志](https://github.blog/changelog/2021-09-21-codeql-runner-deprecation/)。'
     - 
       heading: 废弃自定义位缓存扩展
       notes:
         - |
-          Starting in {% data variables.product.prodname_ghe_server %} 3.1, support for {% data variables.product.company_short %}'s proprietary bit-cache extensions began to be phased out. These extensions are deprecated in {% data variables.product.prodname_ghe_server %} 3.3 onwards.
+          从 {% data variables.product.prodname_ghe_server %} 3.1 开始，对 {% data variables.product.company_short %} 专有的位缓存扩展的支持开始逐步淘汰。这些扩展现在已在 {% data variables.product.prodname_ghe_server %} 3.3 及以后版本中弃用。
 
-          Any repositories that were already present and active on {% data variables.product.product_location %} running version 3.1 or 3.2 will have been automatically updated.
+          运行版本 3.1 或 3.2 {% data variables.product.product_location %} 上已存在且处于活动状态的任何储存库都将自动更新。
 
-          Repositories which were not present and active before upgrading to {% data variables.product.prodname_ghe_server %} 3.3 may not perform optimally until a repository maintenance task is run and has successfully completed.
+          在升级到 {% data variables.product.prodname_ghe_server %} 3.3 之前不存在且处于活动状态的存储库可能无法以最佳状态执行，直到运行存储库维护任务并成功完成。
 
-          To start a repository maintenance task manually, browse to `https://<hostname>/stafftools/repositories/<owner>/<repository>/network` for each affected repository and click the Schedule button.
+          要手动启动存储库维护任务，请浏览到每个受影响的存储库的 `https://<hostname>/stafftools/repositories/<owner>/<repository>/network`，然后单击 Schedule（计划）按钮。
     - 
       heading: Theme picker for GitHub Pages has been removed
       notes:
         - |
           The theme picker for GitHub Pages has been removed from the Pages settings. For more information about configuration of themes for GitHub Pages, see "[Adding a theme to your GitHub Pages site using Jekyll](/pages/setting-up-a-github-pages-site-with-jekyll/adding-a-theme-to-your-github-pages-site-using-jekyll)."
   backups:
-    - '{% data variables.product.prodname_ghe_server %} 3.4 requires at least [GitHub Enterprise Backup Utilities 3.4.0](https://github.com/github/backup-utils) for [Backups and Disaster Recovery](/admin/configuration/configuring-your-enterprise/configuring-backups-on-your-appliance).'
+    - '{% data variables.product.prodname_ghe_server %} 3.4 至少需要 [GitHub Enterprise Backup Utilities 3.4.0](https://github.com/github/backup-utils) 才可进行[备份和灾难恢复](/admin/configuration/configuring-your-enterprise/configuring-backups-on-your-appliance)。'

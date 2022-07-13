@@ -1,1 +1,1 @@
-Use `jobs.<job_id>.name` to set a name for the job, which is displayed in the {% data variables.product.prodname_dotcom %} UI.
+`jobs.<job_id>.name`を使ってジョブの名前を設定してください。この名前は{% data variables.product.prodname_dotcom %}のUIに表示されます。

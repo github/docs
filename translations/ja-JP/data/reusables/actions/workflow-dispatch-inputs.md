@@ -1,6 +1,8 @@
-When using the `workflow_dispatch` event, you can optionally specify inputs that are passed to the workflow.
+`workflow_dispatch`イベントを使う場合、ワークフローに渡す入力を指定することもできます。
 
-The triggered workflow receives the inputs in the `github.event.inputs` context. 詳細については、「[コンテキスト](/actions/learn-github-actions/contexts#github-context)」を参照してください。
+トリガーされたワークフローは、入力を{% ifversion actions-unified-inputs %}`inputs`{% else %}`github.event.inputs`{% endif %}コンテキストで受け取ります。 詳しい情報については「[コンテキスト]({% ifversion actions-unified-inputs %}/actions/learn-github-actions/contexts#inputs-context{% else %}/actions/learn-github-actions/contexts#github-context{% endif %})」を参照してください。
+
+{% data reusables.actions.inputs-vs-github-event-inputs %}
 
 ```yaml
 on:
@@ -31,8 +33,8 @@ on:
 jobs:
   print-tag:
     runs-on: ubuntu-latest
-    if: {% raw %} ${{ github.event.inputs.print_tags == 'true' }} {% endraw %}
+    if: {% ifversion actions-unified-inputs %}{% raw %} ${{ inputs.print_tags }} {% endraw %}{% else %}{% raw %} ${{ github.event.inputs.print_tags == 'true' }} {% endraw %}{% endif %}
     steps:
       - name: Print the input tag to STDOUT
-        run: echo {% raw %} The tags are ${{ github.event.inputs.tags }} {% endraw %}
+        run: {% ifversion actions-unified-inputs %}echo {% raw %} The tags are ${{ inputs.tags }} {% endraw %}{% else %}echo {% raw %} The tags are ${{ github.event.inputs.tags }} {% endraw %}{% endif %}
 ```

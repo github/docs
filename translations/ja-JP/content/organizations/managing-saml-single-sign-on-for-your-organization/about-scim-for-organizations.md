@@ -20,7 +20,7 @@ Organizationが[SAML SSO](/articles/about-identity-and-access-management-with-sa
 
 {% data reusables.scim.enterprise-account-scim %}
 
-SCIM を実装せずに SAML SSO を使った場合、自動のプロビジョニング解除は行われません。 Organization のメンバーのアクセスが ldP から削除された後、セッションの有効期限が切れても、そのメンバーは Organization から自動的には削除されません。 認証済みのトークンにより、セッションが期限切れになった後も Organization へのアクセスが許可されます。 SCIMが疲れていないなら、メンバーのアクセスを完全に削除するためには、OrganizationのオーナーはメンバーのアクセスをIdPで削除し、手動で{% data variables.product.prodname_dotcom %}上のOrganizationからそのメンバーを削除しなければなりません。
+SCIM を実装せずに SAML SSO を使った場合、自動のプロビジョニング解除は行われません。 Organization のメンバーのアクセスが ldP から削除された後、セッションの有効期限が切れても、そのメンバーは Organization から自動的には削除されません。 認証済みのトークンにより、セッションが期限切れになった後も Organization へのアクセスが許可されます。 SCIMが使用されていないなら、メンバーのアクセスを完全に削除するためには、OrganizationのオーナーはメンバーのアクセスをIdPで削除し、手動で{% data variables.product.prodname_dotcom %}上のOrganizationからそのメンバーを削除しなければなりません。
 
 {% data reusables.scim.changes-should-come-from-idp %}
 

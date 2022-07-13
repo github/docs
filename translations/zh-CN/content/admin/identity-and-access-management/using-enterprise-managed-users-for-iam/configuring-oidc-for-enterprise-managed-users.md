@@ -4,7 +4,7 @@ shortTitle: OIDC for managed users
 intro: 'You can automatically manage access to your enterprise account on {% data variables.product.prodname_dotcom %} by configuring OpenID Connect (OIDC) single sign-on (SSO) and enable support for your IdP''s Conditional Access Policy (CAP).'
 product: '{% data reusables.gated-features.emus %}'
 versions:
-  feature: oidc-for-emu
+  feature: 'oidc-for-emu'
 topics:
   - Accounts
   - Authentication
@@ -22,17 +22,19 @@ With {% data variables.product.prodname_emus %}, your enterprise uses your ident
 
 You can adjust the lifetime of a session, and how often a {% data variables.product.prodname_managed_user %} needs to reauthenticate with your IdP, by changing the lifetime policy property of the ID tokens issued for {% data variables.product.prodname_dotcom %} from  your IdP. The default lifetime is one hour. For more information, see "[Configurable token lifetimes in the Microsoft identity platform](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-configurable-token-lifetimes)" in the Azure AD documentation.
 
-If you currently use SAML SSO for authentication and would prefer to use OIDC and benefit from CAP support, you can follow a migration path. For more information, see "[Migrating from SAML to OIDC](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/migrating-from-saml-to-oidc)."
+If you currently use SAML SSO for authentication and would prefer to use OIDC and benefit from CAP support, you can follow a migration path. For more information, see "[Migrating from SAML to OIDC](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/migrating-from-saml-to-oidc)." 
 
 {% data reusables.enterprise-accounts.oidc-gei-warning %}
 
-## 身份提供程序支持
+## Identity provider support
 
-Support for OIDC is in public beta and available for customers using Azure Active Directory (Azure AD).
+Support for OIDC is in public beta and available for customers using Azure Active Directory (Azure AD). 
+
+Each Azure AD tenant can support only one OIDC integration with {% data variables.product.prodname_emus %}. If you want to connect Azure AD to more than one enterprise on {% data variables.product.prodname_dotcom %}, use SAML instead. For more information, see "[Configuring SAML single sign-on for {% data variables.product.prodname_emus %}](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/configuring-saml-single-sign-on-for-enterprise-managed-users)."
 
 ## Configuring OIDC for Enterprise Managed Users
 
-1. 以新企业的设置用户身份登录 {% data variables.product.prodname_dotcom_the_website %} ，用户名为 **@<em>SHORT-CODE</em>_admin**。
+1. Sign into {% data variables.product.prodname_dotcom_the_website %} as the setup user for your new enterprise with the username **@<em>SHORT-CODE</em>_admin**.
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.security-tab %}
@@ -42,6 +44,6 @@ Support for OIDC is in public beta and available for customers using Azure Activ
 {% data reusables.enterprise-accounts.emu-azure-admin-consent %}
 {% data reusables.enterprise-accounts.download-recovery-codes %}
 
-## 启用预配
+## Enabling provisioning
 
-After you enable OIDC SSO, enable provisioning. 更多信息请参阅“[配置企业托管用户的 SCIM 预配](/admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/configuring-scim-provisioning-for-enterprise-managed-users)”。
+After you enable OIDC SSO, enable provisioning. For more information, see "[Configuring SCIM provisioning for enterprise managed users](/admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/configuring-scim-provisioning-for-enterprise-managed-users)."

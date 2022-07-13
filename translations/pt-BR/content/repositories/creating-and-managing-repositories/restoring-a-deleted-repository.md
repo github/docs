@@ -1,6 +1,6 @@
 ---
 title: Restaurar um repositório excluído
-intro: '{% ifversion ghes or ghae %}An enterprise owner{% elsif fpt or ghec %}You{% endif %} can restore some deleted repositories to recover their contents.'
+intro: '{% ifversion ghes or ghae %}O proprietário de uma empresa{% elsif fpt or ghec %}Você{% endif %} pode restaurar alguns repositórios excluídos para recuperar seu conteúdo.'
 permissions: '{% ifversion ghes or ghae %}{% elsif fpt or ghec %}Anyone can restore deleted repositories that were owned by their own personal account. Organization owners can restore deleted repositories that were owned by the organization.{% endif %}'
 redirect_from:
   - /articles/restoring-a-deleted-repository
@@ -18,7 +18,7 @@ shortTitle: Restaurar repositório excluído
 
 {% ifversion ghes or ghae %}
 
-Usually, deleted repositories can be restored within 90 days by an enterprise owner{% ifversion ghes %} on {% data variables.product.product_location %}{% endif %}. Para obter mais informações, consulte "[Restaurar um repositório excluído](/admin/user-management/managing-repositories-in-your-enterprise/restoring-a-deleted-repository)".
+Normalmente, os repositórios excluídos podem ser restaurados dentro de 90 dias pelo proprietário da empresa{% ifversion ghes %} em {% data variables.product.product_location %}{% endif %}. Para obter mais informações, consulte "[Restaurar um repositório excluído](/admin/user-management/managing-repositories-in-your-enterprise/restoring-a-deleted-repository)".
 
 {% else %}
 

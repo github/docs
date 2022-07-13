@@ -36,7 +36,7 @@ Ubuntu 22.04
 <code>ubuntu-22.04</code>
 </td>
 <td>
-Ubuntu 22.04 is currently in public beta.
+Ubuntu 22.04 目前处于公开测试阶段。
 </td>
 </tr>
 <tr>
@@ -63,10 +63,7 @@ macOS Monterey 12
 </td>
 <td>
 <code>macos-12</code>
-</td>
-<td>
-macOS 12 is currently in public beta.
-</td>
+  </td>
 </tr>
 <tr>
 <td>
@@ -76,7 +73,7 @@ macOS Big Sur 11
 <code>macos-latest</code> 或 <code>macos-11</code>
 </td>
 <td>
-The <code>macos-latest</code> label currently uses the macOS 11 runner image.
+<code>macos-latest</code> 标签目前使用 macOS 11 运行器映像。
 </td>
 </tr>
 <tr>

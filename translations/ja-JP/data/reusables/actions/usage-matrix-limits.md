@@ -1,1 +1,1 @@
-ジョブマトリックスは、ワークフローの実行ごとに最大で256のジョブを生成できます。 This limit applies to both {% data variables.product.product_name %}-hosted and self-hosted runners.
+ジョブマトリックスは、ワークフローの実行ごとに最大で256のジョブを生成できます。 この制限は、{% data variables.product.product_name %}ホスト及びセルフホストランナーの双方に適用されます。

@@ -20,7 +20,7 @@ shortTitle: Mejores prácticas de seguridad de usuario
 
 La autenticación de dos factores (2FA) es una manera de iniciar sesión en sitios web y servicios que requieren de un segundo factor además de una contraseña para la autenticación. En el caso de {% data variables.product.prodname_ghe_server %}, este segundo factor es un código de autenticación de un solo uso generado por una aplicación en el smartphone de un usuario. Te recomendamos que le solicites a tus usuarios activar la autenticación de dos factores en sus cuentas. Con la autenticación de dos factores, tanto la contraseña del usuario como su smartphone deben verse comprometidos para permitir que la propia cuenta se vea comprometida.
 
-Para obtener más información sobre cómo configurar la autenticación de dos factores, consulta "[Acerca de la autenticación de dos factores](/enterprise/{{ currentVersion }}/user/articles/about-two-factor-authentication)".
+Para obtener más información sobre cómo configurar la autenticación de dos factores, consulta "[Acerca de la autenticación de dos factores](/enterprise/user/articles/about-two-factor-authentication)".
 {% endif %}
 
 ## Solicitar un administrador de contraseñas

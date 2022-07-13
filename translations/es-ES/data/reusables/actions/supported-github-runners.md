@@ -63,10 +63,7 @@ macOS Monterey 12
 </td>
 <td>
 <code>macos-12</code>
-</td>
-<td>
-macOS 12 se encuentra actualmente en beta público.
-</td>
+  </td>
 </tr>
 <tr>
 <td>

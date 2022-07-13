@@ -57,8 +57,8 @@ For guidance on a phased deployment of GitHub Advanced Security, see "[Deploying
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% data reusables.enterprise_management_console.advanced-security-tab %}{% ifversion ghes %}
-1. Under "{% ifversion ghes < 3.2 %}{% data variables.product.prodname_advanced_security %}{% else %}Security{% endif %}," select the features that you want to enable and deselect any features you want to disable.
-{% ifversion ghes > 3.1 %}![Checkbox to enable or disable {% data variables.product.prodname_advanced_security %} features](/assets/images/enterprise/3.2/management-console/enable-security-checkboxes.png){% else %}![Checkbox to enable or disable {% data variables.product.prodname_advanced_security %} features](/assets/images/enterprise/management-console/enable-advanced-security-checkboxes.png){% endif %}{% else %}
+1. Under "Security," select the features that you want to enable and deselect any features you want to disable.
+{% ifversion ghes %}![Checkbox to enable or disable {% data variables.product.prodname_advanced_security %} features](/assets/images/enterprise/3.2/management-console/enable-security-checkboxes.png){% else %}![Checkbox to enable or disable {% data variables.product.prodname_advanced_security %} features](/assets/images/enterprise/management-console/enable-advanced-security-checkboxes.png){% endif %}{% else %}
 1. [{% data variables.product.prodname_advanced_security %}] で、[**{% data variables.product.prodname_code_scanning_capc %}**] をクリックします。 ![Checkbox to enable or disable {% data variables.product.prodname_code_scanning %}](/assets/images/enterprise/management-console/enable-code-scanning-checkbox.png){% endif %}
 {% data reusables.enterprise_management_console.save-settings %}
 
@@ -82,8 +82,8 @@ For example, you can enable any {% data variables.product.prodname_GH_advanced_s
     ```shell
     ghe-config app.secret-scanning.enabled true
     ```
-    - To enable the dependency graph, enter the following {% ifversion ghes > 3.1 %}command{% else %}commands{% endif %}.
-    {% ifversion ghes > 3.1 %}```shell
+    - To enable the dependency graph, enter the following {% ifversion ghes %}command{% else %}commands{% endif %}.
+    {% ifversion ghes %}```shell
     ghe-config app.dependency-graph.enabled true
     ```
     {% else %}```shell
@@ -101,8 +101,8 @@ For example, you can enable any {% data variables.product.prodname_GH_advanced_s
     ```shell
     ghe-config app.secret-scanning.enabled false
     ```
-    - To disable the dependency graph, enter the following {% ifversion ghes > 3.1 %}command{% else %}commands{% endif %}.
-    {% ifversion ghes > 3.1 %}```shell
+    - To disable the dependency graph, enter the following {% ifversion ghes %}command{% else %}commands{% endif %}.
+    {% ifversion ghes %}```shell
     ghe-config app.dependency-graph.enabled false
     ```
     {% else %}```shell

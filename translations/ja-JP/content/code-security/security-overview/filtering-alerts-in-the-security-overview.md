@@ -5,7 +5,7 @@ permissions: '{% data reusables.security-center.permissions %}'
 product: '{% data reusables.gated-features.security-center %}'
 versions:
   ghae: '*'
-  ghes: '>3.1'
+  ghes: '*'
   ghec: '*'
 type: how_to
 topics:
@@ -23,7 +23,7 @@ shortTitle: アラートのフィルタリング
 
 ## セキュリティの概要のフィルタリングについて
 
-アラートのリスクレベル、アラートの種類、機能の有効化の状況といった様々な要素に基づいて焦点を絞り込むために、セキュリティの概要でフィルタを利用できます。 特定のビューや、分析しているのがOrganization、Team、リポジトリのレベルなのかといったことに応じて、様々なフィルタが利用できます。
+アラートのリスクレベル、アラートの種類、機能の有効化の状況といった様々な要素に基づいて焦点を絞り込むために、セキュリティの概要でフィルタを利用できます。 特定のビューや、分析がOrganization、Team、リポジトリのレベルなのかといったことに応じて、様々なフィルタが利用できます。
 
 ## リポジトリでフィルタリング
 

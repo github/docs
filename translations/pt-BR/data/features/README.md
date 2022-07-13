@@ -45,7 +45,7 @@ versions:
 
 ## Aplicação de esquema
 
-O esquema para validar a versão do recurso encontra-se em [`tests/helpers/schemas/feature-versions-schema.js`](/tests/helpers/schemas/feature-versions-schema.js) e é exercido por [`tests/linting/lint-files.js`](/tests/linting/lint-files.js).
+O esquema para validar a versão do recurso encontra-se em [`tests/helpers/schemas/feature-versions-schema.js`](/tests/helpers/schemas/feature-versions-schema.js) e é exercido por [`tests/linting/lint-versioning.js`](/tests/linting/lint-versioning.js).
 
 ## Script para remover tags de recursos
 

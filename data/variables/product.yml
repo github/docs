@@ -79,6 +79,11 @@ prodname_pages: 'GitHub Pages'
 prodname_codeql: 'CodeQL'
 prodname_ql: 'QL'
 prodname_codeql_cli: 'CodeQL CLI'
+# The CodeQL CLI version recommended for each GHES version.
+# CodeQL usually bumps its minor version for each minor version of GHES.
+# Update this whenever a new enterprise version of CodeQL is being prepared.
+codeql_cli_ghes_recommended_version: >-
+  {% ifversion ghes < 3.3 %}2.6.3{% elsif ghes < 3.5 %}2.7.6{% elsif ghes = 3.5 %}2.8.5{% elsif ghes = 3.6 %}2.9.4{% elsif ghae-issue-7470 %}2.8.5{% elsif ghae %}2.7.6{% endif %}
 
 # Apps, GitHub Marketplace, and integrations
 prodname_marketplace: 'GitHub Marketplace'
@@ -181,6 +186,7 @@ prodname_code_scanning_capc: 'Code scanning'
 prodname_codeql_runner: 'CodeQL runner'
 prodname_advisory_database: 'GitHub Advisory Database'
 prodname_codeql_workflow: 'CodeQL analysis workflow'
+prodname_dependency_review_action: 'Dependency Review GitHub Action'
 
 # Visual Studio
 prodname_vs: 'Visual Studio'

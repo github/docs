@@ -447,7 +447,7 @@ on:
 {% ifversion fpt or ghec %}
 {% note %}
 
-**Note**: This event does not occur for projects (beta). For more information, see "[About projects (beta)](/issues/trying-out-the-new-projects-experience/about-projects)."
+**Note**: This event does not occur for projects (beta). 詳しい情報については「[プロジェクト（ベータ）](/issues/trying-out-the-new-projects-experience/about-projects)について」を参照してください。
 
 {% endnote %}
 {% endif %}
@@ -485,7 +485,7 @@ on:
 {% ifversion fpt or ghec %}
 {% note %}
 
-**Note**: This event does not occur for projects (beta). For more information, see "[About projects (beta)](/issues/trying-out-the-new-projects-experience/about-projects)."
+**Note**: This event does not occur for projects (beta). 詳しい情報については「[プロジェクト（ベータ）](/issues/trying-out-the-new-projects-experience/about-projects)について」を参照してください。
 
 {% endnote %}
 {% endif %}
@@ -523,7 +523,7 @@ on:
 {% ifversion fpt or ghec %}
 {% note %}
 
-**Note**: This event does not occur for projects (beta). For more information, see "[About projects (beta)](/issues/trying-out-the-new-projects-experience/about-projects)."
+**Note**: This event does not occur for projects (beta). 詳しい情報については「[プロジェクト（ベータ）](/issues/trying-out-the-new-projects-experience/about-projects)について」を参照してください。
 
 {% endnote %}
 {% endif %}
@@ -563,13 +563,7 @@ on:
 
 {% note %}
 
-**Note**: {% data reusables.developer-site.multiple_activity_types %} For information about each activity type, see "[Webhook events and payloads](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#pull_request)." By default, a workflow only runs when a `pull_request` event's activity type is `opened`, `synchronize`, or `reopened`. You can specify different activity types using the `types` keyword. 詳しい情報については、「[{% data variables.product.prodname_actions %}のワークフロー構文](/articles/workflow-syntax-for-github-actions#onevent_nametypes)」を参照してください。
-
-{% endnote %}
-
-{% note %}
-
-**Note:** By default, only the `opened`, `synchronize`, and `reopened` activity types trigger workflows that run on the `pull_request` event. To trigger workflows by different activity types, use the `types` keyword.
+**Note**: {% data reusables.developer-site.multiple_activity_types %} For information about each activity type, see "[Webhook events and payloads](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#pull_request)." By default, a workflow only runs when a `pull_request` event's activity type is `opened`, `synchronize`, or `reopened`. To trigger workflows by different activity types, use the `types` keyword. 詳しい情報については、「[{% data variables.product.prodname_actions %}のワークフロー構文](/articles/workflow-syntax-for-github-actions#onevent_nametypes)」を参照してください。
 
 {% endnote %}
 
@@ -609,7 +603,7 @@ jobs:
 
 #### Running your workflow based on the head or base branch of a pull request
 
-You can use the `branches` or `branches-ignore` filter to configure your workflow to only run on pull requests that target specific branches. 詳しい情報については、「[GitHub Actionsのワークフロー構文](/actions/learn-github-actions/workflow-syntax-for-github-actions#onpull_requestpull_request_targetbranchesbranches-ignore)」を参照してください。
+You can use the `branches` or `branches-ignore` filter to configure your workflow to only run on pull requests that target specific branches. For more information, see "[Workflow syntax for GitHub Actions](/actions/learn-github-actions/workflow-syntax-for-github-actions#onpull_requestpull_request_targetbranchesbranches-ignore)."
 
 For example, this workflow will run when someone opens a pull request that targets a branch whose name starts with `releases/`:
 
@@ -656,7 +650,7 @@ jobs:
 
 #### Running your workflow based on files changed in a pull request
 
-You can also configure your workflow to run when a pull request changes specific files. 詳しい情報については、「[GitHub Actionsのワークフロー構文](/actions/learn-github-actions/workflow-syntax-for-github-actions#onpushpull_requestpull_request_targetpathspaths-ignore)」を参照してください。
+You can also configure your workflow to run when a pull request changes specific files. For more information, see "[Workflow syntax for GitHub Actions](/actions/learn-github-actions/workflow-syntax-for-github-actions#onpushpull_requestpull_request_targetpathspaths-ignore)."
 
 For example, this workflow will run when a pull request includes a change to a JavaScript file (`.js`):
 
@@ -782,13 +776,7 @@ on:
 
 {% note %}
 
-**Note**: {% data reusables.developer-site.multiple_activity_types %} For information about each activity type, see "[Webhook events and payloads](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#pull_request_target)." デフォルトでは、ワークフローは、`pull_request_target` のアクティビティタイプが `opened`、`synchronize`、または `reopened` のときにのみ実行されます。 他のアクティビティタイプについてもワークフローをトリガーするには、`types` キーワードを使用してください。 You can specify different activity types using the `types` keyword. 詳しい情報については、「[{% data variables.product.prodname_actions %}のワークフロー構文](/articles/workflow-syntax-for-github-actions#onevent_nametypes)」を参照してください。
-
-{% endnote %}
-
-{% note %}
-
-**Note:** By default, only the `opened`, `synchronize`, and `reopened` activity types trigger workflows that run on the `pull_request` event. To trigger workflows by different activity types, use the `types` keyword.
+**Note**: {% data reusables.developer-site.multiple_activity_types %} For information about each activity type, see "[Webhook events and payloads](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#pull_request_target)." By default, a workflow only runs when a `pull_request_target` event's activity type is `opened`, `synchronize`, or `reopened`. To trigger workflows by different activity types, use the `types` keyword. 詳しい情報については、「[{% data variables.product.prodname_actions %}のワークフロー構文](/articles/workflow-syntax-for-github-actions#onevent_nametypes)」を参照してください。
 
 {% endnote %}
 
@@ -812,7 +800,7 @@ on:
 
 #### Running your workflow based on the head or base branch of a pull request
 
-You can use the `branches` or `branches-ignore` filter to configure your workflow to only run on pull requests that target specific branches. 詳しい情報については、「[GitHub Actionsのワークフロー構文](/actions/learn-github-actions/workflow-syntax-for-github-actions#onpull_requestpull_request_targetbranchesbranches-ignore)」を参照してください。
+You can use the `branches` or `branches-ignore` filter to configure your workflow to only run on pull requests that target specific branches. For more information, see "[Workflow syntax for GitHub Actions](/actions/learn-github-actions/workflow-syntax-for-github-actions#onpull_requestpull_request_targetbranchesbranches-ignore)."
 
 For example, this workflow will run when someone opens a pull request that targets a branch whose name starts with `releases/`:
 
@@ -859,7 +847,7 @@ jobs:
 
 #### Running your workflow based on files changed in a pull request
 
-You can use the `paths` or `paths-ignore` filter to configure your workflow to run when a pull request changes specific files. 詳しい情報については、「[GitHub Actionsのワークフロー構文](/actions/learn-github-actions/workflow-syntax-for-github-actions#onpushpull_requestpull_request_targetpathspaths-ignore)」を参照してください。
+You can use the `paths` or `paths-ignore` filter to configure your workflow to run when a pull request changes specific files. For more information, see "[Workflow syntax for GitHub Actions](/actions/learn-github-actions/workflow-syntax-for-github-actions#onpushpull_requestpull_request_targetpathspaths-ignore)."
 
 For example, this workflow will run when a pull request includes a change to a JavaScript file (`.js`):
 
@@ -933,9 +921,15 @@ on:
   push
 ```
 
+{% note %}
+
+**Note**: When a `push` webhook event triggers a workflow run, the Actions UI's "pushed by" field shows the account of the pusher and not the author or committer. However, if the changes are pushed to a repository using SSH authentication with a deploy key, then the "pushed by" field will be the repository admin who verified the deploy key when it was added it to a repository.
+
+{% endnote %}
+
 #### Running your workflow only when a push to specific branches occurs
 
-You can use the `branches` or `branches-ignore` filter to configure your workflow to only run when specific branches are pushed. 詳しい情報については、「[GitHub Actionsのワークフロー構文](/actions/learn-github-actions/workflow-syntax-for-github-actions#onpushbranchestagsbranches-ignoretags-ignore)」を参照してください。
+You can use the `branches` or `branches-ignore` filter to configure your workflow to only run when specific branches are pushed. For more information, see "[Workflow syntax for GitHub Actions](/actions/learn-github-actions/workflow-syntax-for-github-actions#onpushbranchestagsbranches-ignoretags-ignore)."
 
 For example, this workflow will run when someone pushes to `main` or to a branch that starts with `releases/`.
 
@@ -964,7 +958,7 @@ on:
 
 #### Running your workflow only when a push of specific tags occurs
 
-You can use the `tags` or `tags-ignore` filter to configure your workflow to only run when specific tags or are pushed. 詳しい情報については、「[GitHub Actionsのワークフロー構文](/actions/learn-github-actions/workflow-syntax-for-github-actions#onpushbranchestagsbranches-ignoretags-ignore)」を参照してください。
+You can use the `tags` or `tags-ignore` filter to configure your workflow to only run when specific tags are pushed. For more information, see "[Workflow syntax for GitHub Actions](/actions/learn-github-actions/workflow-syntax-for-github-actions#onpushbranchestagsbranches-ignoretags-ignore)."
 
 For example, this workflow will run when someone pushes a tag that starts with `v1.`.
 
@@ -977,7 +971,7 @@ on:
 
 #### Running your workflow only when a push affects specific files
 
-You can use the `paths` or `paths-ignore` filter to configure your workflow to run when a push to specific files occurs. 詳しい情報については、「[GitHub Actionsのワークフロー構文](/actions/learn-github-actions/workflow-syntax-for-github-actions#onpushpull_requestpull_request_targetpathspaths-ignore)」を参照してください。
+You can use the `paths` or `paths-ignore` filter to configure your workflow to run when a push to specific files occurs. For more information, see "[Workflow syntax for GitHub Actions](/actions/learn-github-actions/workflow-syntax-for-github-actions#onpushpull_requestpull_request_targetpathspaths-ignore)."
 
 For example, this workflow will run when someone pushes a change to a JavaScript file (`.js`):
 
@@ -1017,9 +1011,9 @@ on:
 
 {% data reusables.actions.branch-requirement %}
 
-Runs your workflow when activity related to {% data variables.product.prodname_registry %} occurs in your repository. 詳しい情報については、「[{% data variables.product.prodname_registry %} のドキュメント](/packages)」を参照してください。
+Runs your workflow when activity related to {% data variables.product.prodname_registry %} occurs in your repository. For more information, see "[{% data variables.product.prodname_registry %} Documentation](/packages)."
 
-たとえば、パッケージが`published`されたときにワークフローを実行できます。
+For example, you can run a workflow when a new package version has been `published`.
 
 ```yaml
 on:
@@ -1069,7 +1063,7 @@ on:
 
 {% data reusables.actions.branch-requirement %}
 
-{% data variables.product.product_name %} の外部で生じるアクティビティのためにワークフローをトリガーしたい場合、{% data variables.product.product_name %} API を使って、[`repository_dispatch`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#repository_dispatch) と呼ばれる webhook イベントをトリガーできます。 詳細については、「[リポジトリディスパッチ イベントの作成](/rest/reference/repos#create-a-repository-dispatch-event)」を参照してください。
+You can use the {% data variables.product.product_name %} API to trigger a webhook event called [`repository_dispatch`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#repository_dispatch) when you want to trigger a workflow for activity that happens outside of {% data variables.product.product_name %}. 詳細については、「[リポジトリディスパッチ イベントの作成](/rest/reference/repos#create-a-repository-dispatch-event)」を参照してください。
 
 When you make a request to create a `repository_dispatch` event, you must specify an `event_type` to describe the activity type. By default, all `repository_dispatch`  activity types trigger a workflow to run. You can use the `types` keyword to limit your workflow to run when a specific `event_type` value is sent in the `repository_dispatch` webhook payload.
 
@@ -1250,12 +1244,13 @@ on: workflow_dispatch
 
 #### Providing inputs
 
-カスタム定義の入力プロパティ、デフォルトの入力値、イベントに必要な入力をワークフローで直接設定できます。 When you trigger the event, you can provide the `ref` and any `inputs`. ワークフローが実行されると、 `github.event.inputs` コンテキスト内の入力値にアクセスできます。 詳細については、「[コンテキスト](/actions/learn-github-actions/contexts)」を参照してください。
+カスタム定義の入力プロパティ、デフォルトの入力値、イベントに必要な入力をワークフローで直接設定できます。 When you trigger the event, you can provide the `ref` and any `inputs`. When the workflow runs, you can access the input values in the {% ifversion actions-unified-inputs %}`inputs`{% else %}`github.event.inputs`{% endif %} context. 詳細については、「[コンテキスト](/actions/learn-github-actions/contexts)」を参照してください。
+
+{% data reusables.actions.inputs-vs-github-event-inputs %}
 
 {% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5511 %}
-This example defines inputs called `logLevel`, `tags`, and `environment`. You pass values for these inputs to the workflow when you run it. This workflow then prints the values to the log, using the `github.event.inputs.logLevel`, `github.event.inputs.tags`, and  `github.event.inputs.environment` context properties.
+This example defines inputs called `logLevel`, `tags`, and `environment`. You pass values for these inputs to the workflow when you run it. This workflow then prints the values to the log, using the {% ifversion actions-unified-inputs %}`inputs.logLevel`, `inputs.tags`, and  `inputs.environment`{% else %}`github.event.inputs.logLevel`, `github.event.inputs.tags`, and  `github.event.inputs.environment`{% endif %} context properties.
 
-{% raw %}
 ```yaml
 on: 
   workflow_dispatch:
@@ -1287,11 +1282,10 @@ jobs:
           echo "Tags: $TAGS"
           echo "Environment: $ENVIRONMENT"
         env:
-          LEVEL: ${{ github.event.inputs.logLevel }}
-          TAGS: ${{ github.event.inputs.tags }}
-          ENVIRONMENT: ${{ github.event.inputs.environment }}
+          LEVEL: {% ifversion actions-unified-inputs %}{% raw %}${{ inputs.logLevel }}{% endraw %}{% else %}{% raw %}${{ github.event.inputs.logLevel }}{% endraw %}{% endif %}
+          TAGS: {% ifversion actions-unified-inputs %}{% raw %}${{ inputs.tags }}{% endraw %}{% else %}{% raw %}${{ github.event.inputs.tags }}{% endraw %}{% endif %}
+          ENVIRONMENT: {% ifversion actions-unified-inputs %}{% raw %}${{ inputs.environment }}{% endraw %}{% else %}{% raw %}${{ github.event.inputs.environment }}{% endraw %}{% endif %}
 ```
-{% endraw %}
 
 If you run this workflow from a browser you must enter values for the required inputs manually before the workflow will run.
 
@@ -1306,7 +1300,7 @@ gh workflow run run-tests.yml -f logLevel=warning -f tags=false -f environment=s
 For more information, see the {% data variables.product.prodname_cli %} information in "[Manually running a workflow](/actions/managing-workflow-runs/manually-running-a-workflow)."
 
 {% else %}
-この例では、 `name`と`home`の入力を定義し、`github.event.inputs.name`および`github.event.inputs.home`コンテキストを使用してそれらを出力します。 `home`が提供されなければ、デフォルト値の'The Octoverse'が出力されます。
+This example defines the `name` and `home` inputs and prints them using the {% ifversion actions-unified-inputs %}`inputs.name` and `inputs.home`{% else %}`github.event.inputs.name` and `github.event.inputs.home`{% endif %} contexts. `home`が提供されなければ、デフォルト値の'The Octoverse'が出力されます。
 
 ```yaml
 name: Manually triggered workflow
@@ -1330,8 +1324,8 @@ jobs:
           echo Hello $NAME!
           echo -in $HOME
         env:
-          NAME: {% raw %}${{ github.event.inputs.name }}{% endraw %}
-          HOME: {% raw %}${{ github.event.inputs.home }}{% endraw %}
+          NAME: {% ifversion actions-unified-inputs %}{% raw %}${{ inputs.name }}{% endraw %}{% else %}{% raw %}${{ github.event.inputs.name }}{% endraw %}{% endif %}
+          HOME: {% ifversion actions-unified-inputs %}{% raw %}${{ github.event.inputs.home }}{% endraw %}{% else %}{% raw %}${{ github.event.inputs.home }}{% endraw %}{% endif %}
 ```
 {% endif %}
 
@@ -1402,7 +1396,7 @@ jobs:
 
 #### Limiting your workflow to run based on branches
 
-You can use the `branches` or `branches-ignore` filter to specify what branches the triggering workflow must run on in order to trigger your workflow. 詳しい情報については、「[GitHub Actionsのワークフロー構文](/actions/learn-github-actions/workflow-syntax-for-github-actions#onworkflow_runbranchesbranches-ignore)」を参照してください。 For example, a workflow with the following trigger will only run when the workflow named `Build` runs on a branch named `canary`.
+You can use the `branches` or `branches-ignore` filter to specify what branches the triggering workflow must run on in order to trigger your workflow. 詳しい情報については「[GitHub Actionsのワークフロー構文](/actions/learn-github-actions/workflow-syntax-for-github-actions#onworkflow_runbranchesbranches-ignore)」を参照してください。 For example, a workflow with the following trigger will only run when the workflow named `Build` runs on a branch named `canary`.
 
 ```yaml
 on:

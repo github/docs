@@ -10,7 +10,7 @@
 import fs from 'fs'
 import path from 'path'
 import cheerio from 'cheerio'
-import program, { Option, InvalidArgumentError } from 'commander'
+import { program, Option, InvalidArgumentError } from 'commander'
 import chalk from 'chalk'
 
 import shortVersions from '../middleware/contextualizers/short-versions.js'

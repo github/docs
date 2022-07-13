@@ -4,7 +4,7 @@ intro: You can create a branch to work on an issue directly from the issue page 
 versions:
   fpt: '*'
   ghes: '>=3.5'
-  ghae: 'issue-6234'
+  ghae: issue-6234
   ghec: '*'
 allowTitleToDifferFromFilename: true
 topics:

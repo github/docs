@@ -9,7 +9,7 @@ redirect_from:
   - /packages/guides/deleting-a-container-image
 versions:
   fpt: '*'
-  ghes: '>=3.2'
+  ghes: '*'
   ghec: '*'
   ghae: '*'
 shortTitle: パッケージの削除と復元
@@ -102,9 +102,9 @@ curl -X POST \
 HOSTNAME/graphql
 ```
 
-{% data variables.product.prodname_registry %}に公開したすべてのプライベートパッケージをバージョンIDと合わせて見つけるには、`repository`オブジェクトを通じて`packages`コネクションを使うことができます。 `read:packages`及び`repo`のスコープを持つトークンが必要です。 詳しい情報については[`packages`]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql/reference/objects#repository)コネクションあるいは[`PackageOwner`]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql/reference/interfaces#packageowner)インターフェースを参照してください。
+{% data variables.product.prodname_registry %}に公開したすべてのプライベートパッケージをバージョンIDと合わせて見つけるには、`repository`オブジェクトを通じて`packages`コネクションを使うことができます。 `read:packages`及び`repo`のスコープを持つトークンが必要です。 For more information, see the [`packages`](/graphql/reference/objects#repository) connection or the [`PackageOwner`](/graphql/reference/interfaces#packageowner) interface.
 
-`deletePackageVersion`ミューテーションに関する詳しい情報については「[`deletePackageVersion`]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql/reference/mutations#deletepackageversion)」を参照してください。
+`deletePackageVersion`ミューテーションの詳しい情報については、「[`deletePackageVersion`](/graphql/reference/mutations#deletepackageversion)」を参照してください。
 
 GraphQLを使用してパッケージ全体を直接削除することはできませんが、パッケージのすべてのバージョンを削除すれば、パッケージは{% data variables.product.product_name %}上に表示されなくなります。
 

@@ -1,7 +1,7 @@
 ---
 title: Organization interactions
 shortTitle: Organization
-intro: "The Organization interactions API allows organization owners to temporarily restrict which type of user can comment, open issues, or create pull requests in the organization's public repositories."
+intro: 'The Organization interactions API allows organization owners to temporarily restrict which type of user can comment, open issues, or create pull requests in the organization''s public repositories.'
 versions:
   fpt: '*'
   ghec: '*'

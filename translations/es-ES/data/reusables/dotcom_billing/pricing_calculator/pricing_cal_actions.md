@@ -1,1 +1,1 @@
-To estimate the costs for consumptive services, you can use the {% data variables.product.prodname_dotcom %} [pricing calculator](https://github.com/pricing/calculator?feature=actions).
+Para estimar los costos de los servicios que se consumen, puedes utilizar la [calculadora de precios](https://github.com/pricing/calculator?feature=actions) de {% data variables.product.prodname_dotcom %}.

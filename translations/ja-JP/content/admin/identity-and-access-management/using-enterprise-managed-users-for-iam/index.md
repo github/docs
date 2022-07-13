@@ -1,6 +1,6 @@
 ---
 title: Using Enterprise Managed Users for IAM
-shortTitle: Entepriseで管理されているユーザ
+shortTitle: Enterprise Managed Users
 product: '{% data reusables.gated-features.emus %}'
 intro: You can manage identity and access with your identity provider and provision accounts that can only contribute to your enterprise.
 redirect_from:

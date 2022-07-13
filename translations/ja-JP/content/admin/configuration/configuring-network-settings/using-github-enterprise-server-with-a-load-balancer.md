@@ -67,7 +67,7 @@ We strongly recommend enabling PROXY protocol support for both your instance and
 
 ## 健全性チェックの設定
 
-ロードバランサは健全性チェックによって、事前に設定されたチェックが失敗するようになったノードがあれば、反応しなくなったノードへのトラフィックの送信を止めます。 If the instance is offline due to maintenance or unexpected failure, the load balancer can display a status page. High Availability（HA）設定では、ロードバランサはフェイルオーバーの戦略の一部として利用できます。 ただし、HAペアの自動フェイルオーバーはサポートされていません。 You must manually promote the replica instance before it will begin serving requests. 詳細は「[High Availability 用に {% data variables.product.prodname_ghe_server %} を設定する](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-github-enterprise-server-for-high-availability/)」を参照してください。
+ロードバランサは健全性チェックによって、事前に設定されたチェックが失敗するようになったノードがあれば、反応しなくなったノードへのトラフィックの送信を止めます。 If the instance is offline due to maintenance or unexpected failure, the load balancer can display a status page. High Availability（HA）設定では、ロードバランサはフェイルオーバーの戦略の一部として利用できます。 ただし、HAペアの自動フェイルオーバーはサポートされていません。 You must manually promote the replica instance before it will begin serving requests. 詳細は「[High Availability 用に {% data variables.product.prodname_ghe_server %} を設定する](/enterprise/admin/guides/installation/configuring-github-enterprise-server-for-high-availability/)」を参照してください。
 
 {% data reusables.enterprise_clustering.health_checks %}
 {% data reusables.enterprise_site_admin_settings.maintenance-mode-status %}

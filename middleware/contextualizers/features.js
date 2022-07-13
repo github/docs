@@ -6,7 +6,7 @@ export default function features(req, res, next) {
   // Determine whether the currentVersion belongs to the list of versions the feature is available in.
   Object.keys(req.context.site.data.features).forEach((featureName) => {
     const { versions } = req.context.site.data.features[featureName]
-    const applicableVersions = getApplicableVersions(versions, req.path)
+    const applicableVersions = getApplicableVersions(versions, `data/features/${featureName}.yml`)
 
     // Adding the resulting boolean to the context object gives us the ability to use
     // `{% if featureName ... %}` conditionals in content files.

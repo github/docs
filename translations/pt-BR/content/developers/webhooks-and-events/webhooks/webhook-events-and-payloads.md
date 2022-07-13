@@ -1339,6 +1339,34 @@ O conjunto de dados consultivos de segurança também alimentam o GitHub {% data
 
 {% endif %}
 
+{% ifversion ghas-enablement-webhook %}
+
+## security_and_analysis
+
+Atividade relacionada à habilitação ou desabilitação de recursos de segurança e análise de código para um repositório ou organização.
+
+### Disponibilidade
+
+- Webhooks do repositório
+- Webhooks da organização
+- {% data variables.product.prodname_github_apps %} com pelo menos acesso `somente leitura` na administração de repositórios
+
+### Objeto da carga do webhook
+
+| Tecla        | Tipo     | Descrição                                                                            |
+| ------------ | -------- | ------------------------------------------------------------------------------------ |
+| `alterações` | `objeto` | As alterações que foram feitas nas funcionalidades de segurança e análise do código. |
+{% data reusables.webhooks.repo_desc %}
+{% data reusables.webhooks.org_desc %}
+{% data reusables.webhooks.app_desc %}
+{% data reusables.webhooks.sender_desc %}
+
+### Exemplo de carga de webhook
+
+{{ webhookPayloadsForCurrentVersion.security_and_analysis }}
+
+{% endif %}
+
 {% ifversion fpt or ghec %}
 ## patrocínio
 

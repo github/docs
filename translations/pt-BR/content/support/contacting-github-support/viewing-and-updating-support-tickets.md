@@ -14,16 +14,32 @@ topics:
 
 {% data reusables.support.zendesk-old-tickets %}
 
-Você pode usar o [Portal de Suporte do GitHub](https://support.github.com/) para visualizar os tíquetes atuais e anteriores e responder a {% data variables.contact.github_support %}.
+Você pode usar o [Portal de Suporte do GitHub](https://support.github.com/) para visualizar os tíquetes atuais e anteriores e responder a {% data variables.contact.github_support %}. After 120 days, resolved tickets are archived{% ifversion ghec or ghes or ghae %}, and archived tickets can only be viewed for enterprise accounts{% endif %}.
 
 {% ifversion ghes or ghec %}
 {% data reusables.enterprise-accounts.support-entitlements %}
 {% endif %}
 
-## Visualizando seus tíquetes de suporte
+## Viewing your recent support tickets
 
 {% data reusables.support.view-open-tickets %}
 1. Na caixa de texto, você pode ler o histórico de comentários. A resposta mais recente está na parte superior. ![Captura de tela do histórico de comentários do tíquete com a resposta mais recente na parte superior.](/assets/images/help/support/support-recent-response.png)
+
+{% ifversion ghec or ghes or ghae %}
+
+## Viewing your archived support tickets
+
+You can only view archived tickets for an enterprise account.
+
+{% data reusables.support.navigate-to-my-tickets %}
+1. Select the **My Tickets** drop-down menu and click the name of the enterprise account.
+
+{% indented_data_reference reusables.support.entitlements-note spaces=3 %}
+
+   ![Screenshot of the "My Tickets" dropdown menu.](/assets/images/help/support/ticket-context.png)
+1. Under the "My tickets" table, click **View archived tickets**.
+
+{% endif %}
 
 ## Atualizando suporte a tíquetes
 

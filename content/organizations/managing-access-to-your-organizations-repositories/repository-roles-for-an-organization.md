@@ -152,13 +152,13 @@ Some of the features listed below are limited to organizations using {% data var
 In this section, you can find the access required for security features, such as {% data variables.product.prodname_advanced_security %} features.
 
 | Repository action | Read | Triage | Write | Maintain | Admin |
-|:---|:---:|:---:|:---:|:---:|:---:| {% ifversion fpt or ghes or ghae or ghec %}
-| Receive [{% data variables.product.prodname_dependabot_alerts %} for vulnerable dependencies](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies) in a repository | | | | | **X** |
-| [Dismiss {% data variables.product.prodname_dependabot_alerts %}](/code-security/supply-chain-security/viewing-and-updating-vulnerable-dependencies-in-your-repository) | | | | | **X** |{% endif %}{% ifversion ghes or ghae or ghec %}<!--Not available for FPT-->
+|:---|:---:|:---:|:---:|:---:|:---:| 
+| Receive [{% data variables.product.prodname_dependabot_alerts %} for insecure dependencies](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies) in a repository | | | | | **X** |
+| [Dismiss {% data variables.product.prodname_dependabot_alerts %}](/code-security/supply-chain-security/viewing-and-updating-vulnerable-dependencies-in-your-repository) | | | | | **X** |{% ifversion ghes or ghae or ghec %}<!--Not available for FPT-->
 | [Designate additional people or teams to receive security alerts](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository#granting-access-to-security-alerts) | | | | | **X** |{% endif %}{% ifversion fpt or ghec %}
 | Create [security advisories](/code-security/security-advisories/about-github-security-advisories) | | | | | **X** |{% endif %}{% ifversion ghes or ghae or ghec %} <!--Not available for FPT-->
 | Manage access to {% data variables.product.prodname_GH_advanced_security %} features (see "[Managing security and analysis settings for your organization](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)") | | | | | **X** |{% endif %}{% ifversion fpt or ghec %}<!--Set at site-level for GHES and GHAE-->
-| [Enable the dependency graph](/code-security/supply-chain-security/exploring-the-dependencies-of-a-repository) for a private repository | | | | | **X** |{% endif %}{% ifversion ghes > 3.1 or ghae or ghec %}
+| [Enable the dependency graph](/code-security/supply-chain-security/exploring-the-dependencies-of-a-repository) for a private repository | | | | | **X** |{% endif %}{% ifversion ghes or ghae or ghec %}
 | [View dependency reviews](/code-security/supply-chain-security/about-dependency-review) | **X** | **X** | **X** | **X** | **X** |{% endif %}
 | [View {% data variables.product.prodname_code_scanning %} alerts on pull requests](/github/finding-security-vulnerabilities-and-errors-in-your-code/triaging-code-scanning-alerts-in-pull-requests) | **X** | **X** | **X** | **X** | **X** |
 | [List, dismiss, and delete {% data variables.product.prodname_code_scanning %} alerts](/github/finding-security-vulnerabilities-and-errors-in-your-code/managing-code-scanning-alerts-for-your-repository) | | | **X** | **X** | **X** |

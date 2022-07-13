@@ -88,13 +88,13 @@ Enquanto o trabalho é executado, os logs e saídas podem ser visualizados na in
 
 Especificação de hardware para máquinas virtuais do Windows e Linux:
 - CPU dual core
-- 7 GB de memória RAM
-- 14 GB de espaço de disco SSD
+- 7 GB de RAM
+- 14 GB de espaço SSD
 
 Especificação de hardware para máquinas virtuais do macOS:
 - CPU de 3 núcleos
-- 14 GB de memória RAM
-- 14 GB de espaço de disco SSD
+- 14 GB de RAM
+- 14 GB de espaço SSD
 
 {% data reusables.actions.supported-github-runners %}
 
@@ -189,6 +189,6 @@ O {% data variables.product.prodname_dotcom %} reserva o prefixo de caminho `/gi
 
 ## Leia mais
 - "[Gerenciando cobrança para {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions)"
-- You can use a matrix strategy to run your jobs on multiple images. Para obter mais informações, consulte "[Usando uma matriz para seus trabalhos](/actions/using-jobs/using-a-matrix-for-your-jobs)".
+- Você pode usar uma estratégia matrix para executar seus trabalhos em várias imagens. Para obter mais informações, consulte "[Usando uma matriz para seus trabalhos](/actions/using-jobs/using-a-matrix-for-your-jobs)".
 
 {% endif %}
