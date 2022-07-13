@@ -92,8 +92,8 @@ Para mais atalhos de teclado, consulte a [Documentação CodeMirror](https://cod
 | Atalho                                                                                                                                                      | Descrição                                                                                                                                                                                                                                                      |
 | ----------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | <kbd>Command</kbd>+<kbd>B</kbd> (Mac) ou </br> <kbd>Ctrl</kbd>+<kbd>B</kbd> (Windows/Linux)                                                                 | Insere formatação Markdown para texto em negrito                                                                                                                                                                                                               |
-| <kbd>Command</kbd>+<kbd>I</kbd> (Mac) ou </br> <kbd>Ctrl</kbd>+<kbd>I</kbd> (Windows/Linux)                                                                 | Insere a formatação Markdown para texto em itálico{% ifversion fpt or ghae or ghes > 3.1 or ghec %}
-| <kbd>Command</kbd>+<kbd>E</kbd> (Mac) ou </br> <kbd>Ctrl</kbd>+<kbd>E</kbd> (Windows/Linux)                                                                 | Insere a formatação de Markdown para o código ou um comando dentro da linha{% endif %}{% ifversion fpt or ghae-issue-5434 or ghes > 3.1 or ghec %}
+| <kbd>Command</kbd>+<kbd>I</kbd> (Mac) ou </br> <kbd>Ctrl</kbd>+<kbd>I</kbd> (Windows/Linux)                                                                 | Insere formatação Markdown para texto em itálico                                                                                                                                                                                                               |
+| <kbd>Command</kbd>+<kbd>E</kbd> (Mac) ou </br> <kbd>Ctrl</kbd>+<kbd>E</kbd> (Windows/Linux)                                                                 | Insere a formatação de Markdown para o código ou um comando dentro da linha{% ifversion fpt or ghae-issue-5434 or ghes or ghec %}
 | <kbd>Command</kbd>+<kbd>K</kbd> (Mac) ou </br> <kbd>Ctrl</kbd>+<kbd>K</kbd> (Windows/Linux)                                                                 | Insere a formatação de Markdown para criar um link{% endif %}{% ifversion fpt or ghae-issue-7103 or ghes > 3.5 or ghec %}
 | <kbd>Command</kbd>+<kbd>V</kbd> (Mac) ou </br> <kbd>Ctrl</kbd>+<kbd>V</kbd> (Windows/Linux)                                                                 | Cria um link de Markdown quando aplicado sobre o texto destacado{% endif %}
 | <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Mac) ou </br> <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Windows/Linux)                               | Alterna entre as abas de comentários **Escrever** e **Visualizar**{% ifversion fpt or ghae or ghes > 3.4 or ghec %}
@@ -207,7 +207,6 @@ Para mais atalhos de teclado, consulte a [Documentação CodeMirror](https://cod
 | <kbd>Shift</kbd>+<kbd>U</kbd> | Marcar como não lido |
 | <kbd>Shift</kbd>+<kbd>I</kbd> | Marca como lido      |
 | <kbd>Shift</kbd>+<kbd>M</kbd> | Cancelar assinatura  |
-
 
 ## gráfico de rede
 

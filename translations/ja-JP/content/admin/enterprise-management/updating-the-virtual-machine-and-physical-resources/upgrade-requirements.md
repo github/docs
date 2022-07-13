@@ -49,8 +49,6 @@ curl -s http://localhost:9201/audit_log/_stats/store | jq ._all.primaries.store.
 ```
 MySQLの監査ログで必要なディスク容量の概算には、この数字を使用します。 スクリプトは、インポートの進行中に空きディスク容量も監視します。 この数字を監視しておくと、空きディスク容量が、移行に必要なディスク容量に近い場合に特に便利です。
 
-{% data reusables.enterprise_installation.upgrade-hardware-requirements %}
-
 ## 次のステップ
 
 これらの推奨および要求事項をレビューした後で、{% data variables.product.prodname_ghe_server %} をアップグレードできます。 詳細は「[{% data variables.product.prodname_ghe_server %} をアップグレードする](/enterprise/admin/guides/installation/upgrading-github-enterprise-server/)」を参照してください。

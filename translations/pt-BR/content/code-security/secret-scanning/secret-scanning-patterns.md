@@ -44,7 +44,7 @@ Quando {% data variables.product.prodname_secret_scanning_GHAS %} está habilita
 
 Se você usar a API REST para a digitalização de segredo, você pode usar o tipo `tipo de segredo` para relatar segredos de emissores específicos. Para obter mais informações, consulte "[Verificação de segredo](/enterprise-cloud@latest/rest/secret-scanning)".
 
-{% ifversion ghes > 3.1 or ghae or ghec %}
+{% ifversion ghes or ghae or ghec %}
 {% note %}
 
 **Obersvação:** Você também pode definir padrões personalizados de {% data variables.product.prodname_secret_scanning %} para seu repositório, organização ou empresa. Para obter mais informações, consulte "[Definir padrões personalizados para {% data variables.product.prodname_secret_scanning %}](/code-security/secret-security/defining-custom-patterns-for-secret-scanning)".
