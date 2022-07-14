@@ -1,8 +1,8 @@
 ---
-title: Viewing your Codespaces usage
+title: Viewing your GitHub Codespaces usage
 shortTitle: Viewing your usage
-intro: 'You can view the compute minutes and storage used by {% data variables.product.prodname_codespaces %}.'
-permissions: 'To manage billing for Codespaces for an organization, you must be an organization owner or a billing manager.'
+intro: 'You can view the compute minutes and storage used by {% data variables.product.prodname_github_codespaces %}.'
+permissions: 'To manage billing for {% data variables.product.prodname_github_codespaces %} for an organization, you must be an organization owner or a billing manager.'
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
@@ -11,11 +11,13 @@ type: overview
 topics:
   - Codespaces
   - Billing
+redirect_from:
+  - /billing/managing-billing-for-github-codespaces/viewing-your-codespaces-usage
 ---
 
-## Viewing {% data variables.product.prodname_codespaces %} usage for your organization
+## Viewing {% data variables.product.prodname_github_codespaces %} usage for your organization
 
-Organization owners and billing managers can view {% data variables.product.prodname_codespaces %} usage for an organization. For organizations managed by an enterprise account, the organization owners can view {% data variables.product.prodname_codespaces %} usage in the organization billing page, and enterprise admins can view the usage for the entire enterprise.
+Organization owners and billing managers can view {% data variables.product.prodname_github_codespaces %} usage for an organization. For organizations managed by an enterprise account, the organization owners can view {% data variables.product.prodname_codespaces %} usage in the organization billing page, and enterprise admins can view the usage for the entire enterprise.
 
 {% data reusables.organizations.billing-settings %}
 {% data reusables.dotcom_billing.codespaces-minutes %}

@@ -1,5 +1,5 @@
 ---
-title: Disaster recovery for Codespaces
+title: Disaster recovery for GitHub Codespaces
 intro: 'This article describes guidance for a disaster recovery scenario, when a whole region experiences an outage due to major natural disaster or widespread service interruption.'
 versions:
   fpt: '*'
@@ -8,9 +8,11 @@ product: '{% data reusables.gated-features.codespaces %}'
 topics:
   - Codespaces
 shortTitle: Disaster recovery
+redirect_from:
+  - /codespaces/codespaces-reference/disaster-recovery-for-codespaces
 ---
 
-We work hard to make sure that {% data variables.product.prodname_codespaces %} is always available to you. However, forces beyond our control sometimes impact the service in ways that can cause unplanned service disruptions.
+We work hard to make sure that {% data variables.product.prodname_github_codespaces %} is always available to you. However, forces beyond our control sometimes impact the service in ways that can cause unplanned service disruptions.
 
 Although disaster recovery scenarios are rare occurrences, we recommend that you prepare for the possibility that there is an outage of an entire region. If an entire region experiences a service disruption, the locally redundant copies of your data would be temporarily unavailable.
 
@@ -24,7 +26,7 @@ The following guidance provides options on how to handle service disruption to t
 
 ## Option 1: Create a new codespace in another region
 
-In the case of a regional outage, we suggest you recreate your codespace in an unaffected region to continue working. This new codespace will have all of the changes as of your last push to {% data variables.product.prodname_dotcom %}. For information on manually setting another region, see "[Setting your default region for Codespaces](/codespaces/managing-your-codespaces/setting-your-default-region-for-codespaces)."
+In the case of a regional outage, we suggest you recreate your codespace in an unaffected region to continue working. This new codespace will have all of the changes as of your last push to {% data variables.product.prodname_dotcom %}. For information on manually setting another region, see "[Setting your default region for {% data variables.product.prodname_github_codespaces %}](/codespaces/customizing-your-codespace/setting-your-default-region-for-github-codespaces)."
 
 You can optimize recovery time by configuring a `devcontainer.json` in the project's repository, which allows you to define the tools, runtimes, frameworks, editor settings, extensions, and other configuration necessary to restore the development environment automatically. For more information, see "[Introduction to dev containers](/codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project)."
 

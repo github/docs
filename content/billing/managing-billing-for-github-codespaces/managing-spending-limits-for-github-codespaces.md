@@ -1,6 +1,6 @@
 ---
-title: Managing spending limits for Codespaces
-intro: 'You can set a spending limit for {% data variables.product.prodname_codespaces %} usage.'
+title: Managing spending limits for GitHub Codespaces
+intro: 'You can set a spending limit for {% data variables.product.prodname_github_codespaces %} usage.'
 versions:
   fpt: '*'
   ghec: '*'
@@ -14,14 +14,16 @@ topics:
   - User account
   - Billing
 shortTitle: Spending limits
+redirect_from:
+  - /billing/managing-billing-for-github-codespaces/managing-spending-limits-for-codespaces
 ---
-## About spending limits for {% data variables.product.prodname_codespaces %}
+## About spending limits for {% data variables.product.prodname_github_codespaces %}
 
 {% data reusables.codespaces.codespaces-spending-limit-requirement %}
 
 Once you've reached your spending limit, your organization or repository will no longer be able to create new codespaces, and won't be able to start existing codespaces. Any existing codespaces that are still running will not be shutdown; if you don't change the spending limit, you will not be charged for the amount that exceeds the limit.
 
-For more information about pricing for {% data variables.product.prodname_codespaces %} usage, see "[About billing for {% data variables.product.prodname_codespaces %}](/billing/managing-billing-for-github-codespaces/about-billing-for-codespaces)."
+For more information about pricing for {% data variables.product.prodname_codespaces %} usage, see "[About billing for {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces)."
 
 {% ifversion ghec %}
 ## Using your Azure Subscription
@@ -65,4 +67,4 @@ You can disable these notifications anytime by navigating to the bottom of the *
 ## Further reading
 
 - "[Restricting access to machine types](/codespaces/managing-codespaces-for-your-organization/restricting-access-to-machine-types)"
-- "[Managing billing for Codespaces in your organization](/codespaces/managing-codespaces-for-your-organization/managing-billing-for-codespaces-in-your-organization)"
+- "[Managing billing for {% data variables.product.prodname_github_codespaces %} in your organization](/codespaces/managing-codespaces-for-your-organization/managing-billing-for-github-codespaces-in-your-organization)"

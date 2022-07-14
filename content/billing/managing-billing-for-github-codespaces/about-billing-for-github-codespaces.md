@@ -1,8 +1,8 @@
 ---
-title: About billing for Codespaces
+title: About billing for GitHub Codespaces
 shortTitle: About billing
-intro: 'View pricing and see how to manage {% data variables.product.prodname_codespaces %} billing for your organization.'
-permissions: 'To manage billing for Codespaces for an organization, you must be an organization owner or a billing manager.'
+intro: 'View pricing and see how to manage {% data variables.product.prodname_github_codespaces %} billing for your organization.'
+permissions: 'To manage billing for {% data variables.product.prodname_github_codespaces %} for an organization, you must be an organization owner or a billing manager.'
 versions:
   fpt: '*'
   ghec: '*'
@@ -11,11 +11,13 @@ product: '{% data reusables.gated-features.codespaces %}'
 topics:
   - Codespaces
   - Billing
+redirect_from:
+  - /billing/managing-billing-for-github-codespaces/about-billing-for-codespaces
 ---
 
-## {% data variables.product.prodname_codespaces %} pricing
+## {% data variables.product.prodname_github_codespaces %} pricing
 
-{% data variables.product.prodname_codespaces %} usage is billed for all organization and enterprise accounts on {% data variables.product.prodname_team %} and {% data variables.product.prodname_enterprise %}, which do not include any free minutes or storage. Personal accounts are not currently billed for {% data variables.product.prodname_codespaces %} usage. 
+{% data variables.product.prodname_github_codespaces %} usage is billed for all organization and enterprise accounts on {% data variables.product.prodname_team %} and {% data variables.product.prodname_enterprise %}, which do not include any free minutes or storage. Personal accounts are not currently billed for {% data variables.product.prodname_codespaces %} usage. 
 
 {% data variables.product.prodname_codespaces %} usage is billed according to the units of measure in the following table:
 
@@ -32,7 +34,7 @@ topics:
 
 {% data reusables.codespaces.codespaces-billing %}
 
-Your {% data variables.product.prodname_codespaces %} usage shares your account's existing billing date, payment method, and receipt. {% data reusables.dotcom_billing.view-all-subscriptions %}
+Your {% data variables.product.prodname_github_codespaces %} usage shares your account's existing billing date, payment method, and receipt. {% data reusables.dotcom_billing.view-all-subscriptions %}
 
 {% ifversion ghec %}
 If you purchased {% data variables.product.prodname_enterprise %} through a Microsoft Enterprise Agreement, you can connect your Azure Subscription ID to your enterprise account to enable and pay for {% data variables.product.prodname_codespaces %} usage. For more information, see "[Connecting an Azure subscription to your enterprise](/billing/managing-billing-for-your-github-account/connecting-an-azure-subscription-to-your-enterprise)."

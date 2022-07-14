@@ -1,6 +1,6 @@
 ---
-title: Troubleshooting your connection to Codespaces
-intro: 'Troubleshooting help for connecting to {% data variables.product.prodname_codespaces %}.'
+title: Troubleshooting your connection to GitHub Codespaces
+intro: 'Troubleshooting help for connecting to {% data variables.product.prodname_github_codespaces %}.'
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
@@ -9,6 +9,8 @@ type: reference
 topics:
   - Codespaces
 shortTitle: Connection
+redirect_from:
+  - /codespaces/troubleshooting/troubleshooting-your-connection-to-codespaces
 ---
 
 ## 503 codespace service unavailable
@@ -35,7 +37,7 @@ If you cannot connect to a codespace from {% data variables.product.prodname_vsc
 
 1. Check that you have the latest version of the {% data variables.product.prodname_github_codespaces %} extension installed. The extension is a preview release and frequent updates are released.
    1. In {% data variables.product.prodname_vscode %}, display the "Extensions" tab.
-   2. Select the {% data variables.product.prodname_github_codespaces %} extension to display the extension's overview page.
+   2. Select the {% data variables.product.prodname_codespaces %} extension to display the extension's overview page.
    3. If an update is available, a button is shown, click **Update to X.X.X** to upgrade to the latest version.
 2. Check whether you are using the stable build of {% data variables.product.prodname_vscode %} or the [{% data variables.product.prodname_vscode %} Insiders](https://code.visualstudio.com/insiders/) release (nightly updates). If you are using the insiders release, try installing the [stable build](https://code.visualstudio.com/).
 3. Your company network may be blocking the connection. If possible, check any logging for rejected connections on your device.
@@ -44,4 +46,4 @@ If you still cannot connect, {% data reusables.codespaces.contact-support %}
 
 ### The codespace has latency issues
 
-If the codespace seems particularly slow or has latency issues, it is possible that it has been created in a region that is far from you. To resolve this, you can [manually set your {% data variables.product.prodname_github_codespaces %} region](/codespaces/managing-your-codespaces/setting-your-default-region-for-codespaces).
+If the codespace seems particularly slow or has latency issues, it is possible that it has been created in a region that is far from you. To resolve this, you can [manually set your {% data variables.product.prodname_codespaces %} region](/codespaces/managing-your-codespaces/setting-your-default-region-for-codespaces).
