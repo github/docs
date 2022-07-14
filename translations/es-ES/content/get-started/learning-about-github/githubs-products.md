@@ -84,7 +84,7 @@ Adicionalmente a las características disponibles con {% data variables.product.
   - Gráficos de información del repositorio: pulso, contribuyentes, tráfico, confirmaciones, frecuencia de código, red y bifurcaciones
 {%- ifversion fpt or ghec %}
 - La opción para habilitar {% data variables.product.prodname_github_codespaces %}
-  - Los propietarios de organizaciones pueden habilitar los {% data variables.product.prodname_github_codespaces %} para la organización si configuran un límite de gastos y otorgan permisos de usuario para los miembros de su organziación. Para obtener más información, consulta la sección "[Habilitar los Codespaces para tu organización](/codespaces/managing-codespaces-for-your-organization/enabling-codespaces-for-your-organization)".
+  - Los propietarios de organizaciones pueden habilitar los {% data variables.product.prodname_github_codespaces %} para la organización si configuran un límite de gastos y otorgan permisos de usuario para los miembros de su organziación. Para obtener más información, consulta la sección "[Habilitar los {% data variables.product.prodname_github_codespaces %} para tu organización](/codespaces/managing-codespaces-for-your-organization/enabling-github-codespaces-for-your-organization)".
 {%- endif %}
 
 {% data variables.product.company_short %} factura por {% data variables.product.prodname_team %} en una modalidad "por usuario". Para obtener más información, consulta la sección "[Acerca de los precios por usuario]({% ifversion not fpt %}/free-pro-team@latest{% endif %}/billing/managing-billing-for-your-github-account/about-per-user-pricing){% ifversion fpt %}".{% else %}" en la documentación de los tipos de cuenta gratuito, Pro & de equipo.{% endif %}

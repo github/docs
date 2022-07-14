@@ -1,6 +1,6 @@
 ---
-title: Administrar los límites de gastos para los Codespaces
-intro: 'Puedes configurar un límite de gastos para el uso de {% data variables.product.prodname_codespaces %}.'
+title: Managing spending limits for GitHub Codespaces
+intro: 'Puedes configurar un límite de gastos para el uso de {% data variables.product.prodname_github_codespaces %}.'
 versions:
   fpt: '*'
   ghec: '*'
@@ -14,15 +14,17 @@ topics:
   - User account
   - Billing
 shortTitle: Límites de gastos
+redirect_from:
+  - /billing/managing-billing-for-github-codespaces/managing-spending-limits-for-codespaces
 ---
 
-## Acerca de los límites de gastos para {% data variables.product.prodname_codespaces %}
+## Acerca de los límites de gastos para {% data variables.product.prodname_github_codespaces %}
 
 {% data reusables.codespaces.codespaces-spending-limit-requirement %}
 
 Una vez que hayas llegado a tu límite de gastos, tu organización o repositorio ya no podrán crear codespces nuevos y no podrán iniciar los existentes. Cualquier codespace existente que aún se esté ejecutando no se cerrará. Si no cambias el límite de gastos, no se tecobrará por la cantidad que exceda el límite.
 
-Para obtener más información sobre los costos de uso de {% data variables.product.prodname_codespaces %}, consulta la sección "[Acerca de la facturación para {% data variables.product.prodname_codespaces %}](/billing/managing-billing-for-github-codespaces/about-billing-for-codespaces)".
+Para obtener más información sobre los costos de uso de {% data variables.product.prodname_codespaces %}, consulta la sección "[Acerca de la facturación para {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces)".
 
 {% ifversion ghec %}
 ## Utilizar tu suscripción de Azure
@@ -65,4 +67,4 @@ Puedes inhabilitar estas notificaciones en cualquier momento si navegas al final
 ## Leer más
 
 - "[Restringir el acceso a los tipos de máquina](/codespaces/managing-codespaces-for-your-organization/restricting-access-to-machine-types)"
-- "[Administrar la facturación para los codespaces en tu organización](/codespaces/managing-codespaces-for-your-organization/managing-billing-for-codespaces-in-your-organization)"
+- "[Managing billing for {% data variables.product.prodname_github_codespaces %} in your organization](/codespaces/managing-codespaces-for-your-organization/managing-billing-for-github-codespaces-in-your-organization)"

@@ -45,7 +45,7 @@ Puedes abrir cualquier repositorio de {% data variables.product.prodname_dotcom 
 
 ## {% data variables.product.prodname_codespaces %} y el {% data variables.product.prodname_serverless %}
 
-Tanto el {% data variables.product.prodname_serverless %} como los {% data variables.product.prodname_codespaces %} te permiten editar el código directamente desde tu repositorio. Sin embargo, ambos tienen beneficios ligeramente diferentes, dependiendo de tu caso de uso.
+Tanto el {% data variables.product.prodname_serverless %} como los {% data variables.product.prodname_github_codespaces %} te permiten editar el código directamente desde tu repositorio. Sin embargo, ambos tienen beneficios ligeramente diferentes, dependiendo de tu caso de uso.
 
 |                          | {% data variables.product.prodname_serverless %}                                                                                                                                                                               | {% data variables.product.prodname_codespaces %}
 | ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
