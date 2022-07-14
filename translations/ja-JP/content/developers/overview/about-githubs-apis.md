@@ -14,7 +14,7 @@ topics:
   - API
 ---
 
-GitHub APIには、[REST API](/rest)と[GraphQL API]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql)という2つの安定バージョンがあります。
+GitHub APIには、[REST API](/rest)と[GraphQL API](/graphql)という2つの安定バージョンがあります。
 
 ## 非推奨のバージョン
 

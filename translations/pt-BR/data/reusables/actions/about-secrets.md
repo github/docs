@@ -1,1 +1,1 @@
-Os segredos criptografados permitem que você armazene informações confidenciais, como tokens de acesso, no repositório{% ifversion fpt or ghes > 3.1 or ghae or ghec %}, ambientes do repositório,{% endif %} ou organização.
+Encrypted secrets allow you to store sensitive information, such as access tokens, in your repository, repository environments, or organization.

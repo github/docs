@@ -108,8 +108,8 @@ Você também pode definir um banner de anúncio no shell administrativo usando 
 1. {% ifversion ghes or ghae %}À direita de{% else %}em{% endif %} "Anúncio", clique em **Adicionar anúncio**. ![Botão Add message (Adicionar mensagem)](/assets/images/enterprise/site-admin-settings/add-announcement-button.png)
 1. Em "Anúncio", no campo de texto, digite o anúncio que deseja exibir em um banner. ![Campo de texto para digitar o anúncio](/assets/images/enterprise/site-admin-settings/announcement-text-field.png)
 1. Opcionalmente, em "Expira em", selecione o menu suspenso do calendário e clique em uma data de validade. ![Calendar drop-down menu to choose expiration date](/assets/images/enterprise/site-admin-settings/expiration-drop-down.png){% ifversion ghe-announce-dismiss %}
-1. Optionally, to allow each user to dismiss the announcement, select **User dismissible**.
+1. Opcionalmente, para permitir que cada usuário ignore o aviso, selecione **Usuário dispensável**.
 
-   ![Screenshot of the "User dismissible" checkbox](/assets/images/enterprise/site-admin-settings/user-dismissible-checkbox.png){% endif %}
+   ![Captura de tela da caixa de seleção "Usuário descartado"](/assets/images/enterprise/site-admin-settings/user-dismissible-checkbox.png){% endif %}
 {% data reusables.enterprise_site_admin_settings.message-preview-save %}
 {% endif %}

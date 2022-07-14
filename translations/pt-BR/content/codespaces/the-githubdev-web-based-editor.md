@@ -34,11 +34,14 @@ O {% data variables.product.prodname_serverless %} é executado inteiramente no 
 
 Você pode abrir qualquer repositório de {% data variables.product.prodname_dotcom %} em {% data variables.product.prodname_serverless %} em qualquer uma das seguintes maneiras:
 
-- Pressione `.` enquanto navega em qualquer repositório ou pull request no {% data variables.product.prodname_dotcom %}.
-- Alterando a URL de "github.com" para "github.dev".
-- When viewing a file, use the dropdown menu next to {% octicon "pencil" aria-label="The edit icon" %} and select **Open in github.dev**.
+- To open the repository in the same browser tab, press `.` while browsing any repository or pull request on {% data variables.product.prodname_dotcom %}.
 
-  ![Edit file button dropdown menu](/assets/images/help/repository/edit-file-edit-dropdown.png)
+   To open the repository in a new browser tab, hold down the shift key and press `.`.
+
+- Alterando a URL de "github.com" para "github.dev".
+- Ao visualizar um arquivo, use o menu suspenso ao lado de {% octicon "pencil" aria-label="The edit icon" %} e selecione **Abrir no github.dev**.
+
+  ![Menu suspenso do botão editar arquivo](/assets/images/help/repository/edit-file-edit-dropdown.png)
 
 ## {% data variables.product.prodname_codespaces %} e {% data variables.product.prodname_serverless %}
 

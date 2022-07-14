@@ -1,1 +1,1 @@
-{% data variables.product.prodname_registry %}に公開するために`mvn --batch-mode deploy`コマンドを実行してください。 環境変数`GITHUB_TOKEN`には、`GITHUB_TOKEN`シークレットの内容が設定されます。 {% ifversion fpt or ghes > 3.1 or ghae or ghec %}`permissions`キーは、`GITHUB_TOKEN`に付与されたアクセス権を指定します。{% endif %}
+{% data variables.product.prodname_registry %}に公開するために`mvn --batch-mode deploy`コマンドを実行してください。 環境変数`GITHUB_TOKEN`には、`GITHUB_TOKEN`シークレットの内容が設定されます。 The `permissions` key specifies the access granted to the `GITHUB_TOKEN`.

@@ -70,9 +70,7 @@ For more information about each of the available branch protection settings, see
    - [**Require status checks to pass before merging**] を選択します。 ![必須ステータスチェックのオプション](/assets/images/help/repository/required-status-checks.png)
    - プルリクエストを保護されたブランチの最新コードで確実にテストしたい場合は、[**Require branches to be up to date before merging**] を選択します。 ![必須ステータスのチェックボックス、ゆるい、または厳格な](/assets/images/help/repository/protecting-branch-loose-status.png)
    - Search for status checks, selecting the checks you want to require. ![Search interface for available status checks, with list of required checks](/assets/images/help/repository/required-statuses-list.png)
-{%- ifversion fpt or ghec or ghes > 3.1 or ghae %}
 1. Optionally, select **Require conversation resolution before merging**. ![Require conversation resolution before merging option](/assets/images/help/repository/require-conversation-resolution.png)
-{%- endif %}
 1. 必要に応じて、[**Require signed commits**] を選択します。 ![[Require signed commits] オプション](/assets/images/help/repository/require-signed-commits.png)
 1. 必要に応じて、[**Require linear history**] を選択します。 ![必須の直線状の履歴オプション](/assets/images/help/repository/required-linear-history.png)
 {%- ifversion fpt or ghec %}
