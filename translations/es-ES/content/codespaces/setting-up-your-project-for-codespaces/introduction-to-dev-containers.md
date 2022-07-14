@@ -138,7 +138,7 @@ Puedes agregar una configuración de contenedor dev predefinida ya sea mientras 
 
    ![Botón de OK](/assets/images/help/codespaces/prebuilt-container-ok-button.png)
 
-1. Si estás trabajando en un codespace, aplica tus cambios haciendo clic en **Recompilar ahora** en el mensaje en la parte inferior derecha de la ventana. For more information about rebuilding your container, see "[Applying changes to your configuration](#applying-configuration-changes-to-a-codespace)."
+1. Si estás trabajando en un codespace, aplica tus cambios haciendo clic en **Recompilar ahora** en el mensaje en la parte inferior derecha de la ventana. Para obtener más información sobre cómo reconstruir tu contenedor, consulta la sección "[Aplicar los cambios a tu configuración](#applying-configuration-changes-to-a-codespace)".
 
    !["Codespaces: Reconstruir contenedor" en la {% data variables.product.prodname_vscode_command_palette %}](/assets/images/help/codespaces/rebuild-prompt.png)
 

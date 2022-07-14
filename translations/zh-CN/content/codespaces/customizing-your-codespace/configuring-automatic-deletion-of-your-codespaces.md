@@ -27,6 +27,7 @@ type: how_to
 
 每个代码空间都有自己的保留期。 因此，您可能具有不同租用期的代码空间。 例如，如果：
 * 您创建了一个代码空间，更改了默认保留期，然后创建了另一个代码空间。
+* You created a codespace using {% data variables.product.prodname_cli %} and specified a different retention period.
 * 您从组织拥有的存储库创建了代码空间，该存储库具有为组织配置的保留期。
 
 {% note %}
@@ -55,10 +56,9 @@ type: how_to
 
 1. 单击 **Save（保存）**。
 
-此默认设置可能会被较短的组织级保留期所取代。
+When you create a codespace using {% data variables.product.prodname_cli %} you can override this default. If you create a codespace in an organization that specifies a shorter retention period, the organization-level value overrides your personal setting.
 
 如果您将保留期设置为一天以上，则会在删除前一天收到电子邮件通知。
-
 
 ## 检查自动删除之前的剩余时间
 
@@ -68,16 +68,19 @@ type: how_to
 
 ![{% data variables.product.prodname_dotcom %} 上的代码空间列表中的删除前消息](/assets/images/help/codespaces/retention-deletion-message.png)
 
-
 {% endwebui %}
-
-
 
 {% cli %}
 
 ## 设置代码空间的保留期
 
-您可以在 Web 浏览器的 {% data variables.product.prodname_dotcom_the_website %} 上设置默认保留期。 有关更多信息，请单击此文章顶部的“Web browser（Web 浏览器）”选项卡。
+To set the codespace retention period when you create a codespace, use the `--retention-period` flag with the `codespace create` subcommand. Specify the period in days. The period must be between 0 and 30 days.
+
+```shell
+gh codespace create --retention-period DAYS
+```
+
+If you don't specify a retention period when you create a codespace, then either your default retention period, or an organization retention period, will be used, depending on which is lower. For information about setting your default retention period, click the "Web browser" tab on this page.
 
 {% data reusables.cli.cli-learn-more %}
 
@@ -87,7 +90,7 @@ type: how_to
 
 ## 设置保留期
 
-您可以在 Web 浏览器的 {% data variables.product.prodname_dotcom_the_website %} 上设置默认保留期。 有关更多信息，请单击此文章顶部的“Web browser（Web 浏览器）”选项卡。
+您可以在 Web 浏览器的 {% data variables.product.prodname_dotcom_the_website %} 上设置默认保留期。 Alternatively, if you use {% data variables.product.prodname_cli %} to create a codespace you can set a retention period for that particular codespace. 有关详细信息，请单击上面的相应选项卡。
 
 ## 检查代码空间是否很快将自动删除
 

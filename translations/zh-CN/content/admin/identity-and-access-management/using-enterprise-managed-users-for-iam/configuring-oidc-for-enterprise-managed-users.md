@@ -4,7 +4,7 @@ shortTitle: OIDC for managed users
 intro: 'You can automatically manage access to your enterprise account on {% data variables.product.prodname_dotcom %} by configuring OpenID Connect (OIDC) single sign-on (SSO) and enable support for your IdP''s Conditional Access Policy (CAP).'
 product: '{% data reusables.gated-features.emus %}'
 versions:
-  feature: 'oidc-for-emu'
+  feature: oidc-for-emu
 topics:
   - Accounts
   - Authentication

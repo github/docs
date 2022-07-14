@@ -314,7 +314,7 @@ Todavía se podrían representar los datos al convertir el archivo `.geojson` a 
 * [Documentación de Leaflet.js](https://leafletjs.com/)
 * [Documentación de estilización de marcador MapBox](http://www.mapbox.com/developers/simplestyle/)
 {%- else %}
-* [Azure Maps documentation](https://docs.microsoft.com/en-us/azure/azure-maps/)
+* [Documentación de Azure Maps](https://docs.microsoft.com/en-us/azure/azure-maps/)
 {%- endif %}
 * [TopoJSON Wiki](https://github.com/mbostock/topojson/wiki)
 

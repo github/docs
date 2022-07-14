@@ -16,21 +16,21 @@ topics:
 shortTitle: Configurar los enlaces automáticos
 ---
 
-## About autolinks
+## Acerca de los autoenlaces
 
 Cualquier usuario con permisos de administración en un repositorio puede configurar referencias de enlace automático para vincular propuestas, solicitudes de cambios, mensajes de confirmación y descripciones de lanzamientos con los servicios externos de terceros.
 
 {% ifversion autolink-reference-alphanumeric %}
-Autolink references can now accept alphanumeric characters. When originally introduced, custom autolinks were limited to external resources that used numeric identifiers. Custom autolinks now work with alphanumeric identifiers. Legacy autolink references that recognize only numeric identifiers are deprecated and displayed with a "legacy" label.
+Las referencias de los autoenlaces ahora pueden aceptar caracteres alfanuméricos. Cuando se introdujeron originalmente, los autoenlaces personalizados se limitaron a los recursos externos que utilizaban identificadores numéricos. Los autoenlaces personalizados ahora funcionan con identificadores aklfanuméricos. Las referencias de autoenlace tradicionales que reconocen únicamente identificadores numéricos son obsoletas ahora y se muestran con la etiqueta "legacy".
 
-You define custom autolinks by specifying a reference prefix and a target URL.
-- Reference prefixes cannot have overlapping names. For example, a repository cannot have two custom autolinks with prefixes such as `TICKET` and `TICK`, since both prefixes would match the string `TICKET123a`.
-- Target URLs include a `<num>` variable which supports the following characters: `a-z` (case-insensitive), `0-9`, and `-`.
+Puedes definir los autoenlaces personalizados si especificas un prefijo de referencia y una URL destino.
+- Los prefijos de referencia no pueden tener nombres superpuestos. Por ejemplo, un repositorio no puede tener dos autoenlaces personalizados con prefijos tales como `TICKET` y `TICK`, ya que ambos prefijos coincidirían con la secuencia `TICKET123a`.
+- Las URL destino incluyen una variable `<num>` que es compatible con los siguientes caracteres: `a-z` (con distinción de mayúsculas y minúsculas), `0-9` y `-`.
 {% endif %}
 
 ## Configurar enlaces automáticos para referenciar recursos externos
 
-This procedure demonstrates how to configure autolinks to reference external resources. For example, if you use Zendesk to track user-reported tickets, you can reference a ticket number in the pull request you opened to fix the issue.
+Este procedimiento demuestra cómo configurar los autoenlaces para referenciar recursos externos. Por ejemplo, si utilizas Zendesk para rastrear los tickets que reportan los usuarios, puedes referenciar un número de ticket en la solicitud de cambios que abriste para corregir la propuesta.
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}

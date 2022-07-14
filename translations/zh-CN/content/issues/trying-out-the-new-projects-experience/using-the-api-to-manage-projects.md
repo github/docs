@@ -52,13 +52,13 @@ gh api graphql -f query='
   }' -f organization=$my_org -F number=$my_num
 ```
 
-更多信息请参阅“[使用 GraphQL 创建调用]({% ifversion ghec%}/free-pro-team@latest{% endif %}/graphql/guides/forming-calls-with-graphql#working-with-variables)”。
+更多信息请参阅“[使用 GraphQL 创建调用](/graphql/guides/forming-calls-with-graphql#working-with-variables)”。
 
 {% endcli %}
 
 ## 查找项目信息
 
-使用查询获取项目数据。 更多信息请参阅“[关于查询]({% ifversion ghec%}/free-pro-team@latest{% endif %}/graphql/guides/forming-calls-with-graphql#about-queries)。”
+使用查询获取项目数据。 更多信息请参阅“[关于查询](/graphql/guides/forming-calls-with-graphql#about-queries)。”
 
 ### 查找组织项目的节点 ID
 
@@ -430,7 +430,7 @@ gh api graphql -f query='
 
 ## 更新项目
 
-使用突变来更新项目。 更多信息请参阅“[关于突变]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql/guides/forming-calls-with-graphql#about-mutations)。”
+使用突变来更新项目。 更多信息请参阅“[关于突变](/graphql/guides/forming-calls-with-graphql#about-mutations)。”
 
 {% note %}
 
@@ -594,7 +594,15 @@ gh api graphql -f query='
 
 {% note %}
 
-**注意：** 您不能使用 `updateProjectV2ItemFieldValue` 更改 `Assignees`、`Labels`、`Milestone` 或 `Repository`，因为这些字段是拉取请求和议题，而不是项目项的属性。 相反，您必须使用 [addAssigneesToAssignable]({% ifversion ghec%}/free-pro-team@latest{% endif %}/graphql/reference/mutations#addassigneestoassignable)、[removeAssigneesFromAssignable]({% ifversion ghec%}/free-pro-team@latest{% endif %}/graphql/reference/mutations#removeassigneesfromassignable)、[addLabelsToLabelable]({% ifversion ghec%}/free-pro-team@latest{% endif %}/graphql/reference/mutations#addlabelstolabelable)、[removeLabelsFromLabelable]({% ifversion ghec%}/free-pro-team@latest{% endif %}/graphql/reference/mutations#removelabelsfromlabelable)、[updateIssue]({% ifversion ghec%}/free-pro-team@latest{% endif %}/graphql/reference/mutations#updateissue)、[updatePullRequest]({% ifversion ghec%}/free-pro-team@latest{% endif %}/graphql/reference/mutations#updatepullrequest) 或 [transferIssue]({% ifversion ghec%}/free-pro-team@latest{% endif %}/graphql/reference/mutations#transferissue) 突变。
+**注意：** 您不能使用 `updateProjectV2ItemFieldValue` 更改 `Assignees`、`Labels`、`Milestone` 或 `Repository`，因为这些字段是拉取请求和议题，而不是项目项的属性。 相反，您可以使用以下突变：
+
+- [addAssigneesToAssignable](/graphql/reference/mutations#addassigneestoassignable)
+- [removeAssigneesFromAssignable](/graphql/reference/mutations#removeassigneesfromassignable)
+- [addLabelsToLabelable](/graphql/reference/mutations#addlabelstolabelable)
+- [removeLabelsFromLabelable](/graphql/reference/mutations#removelabelsfromlabelable)
+- [updateIssue](/graphql/reference/mutations#updateissue)
+- [updatePullRequest](/graphql/reference/mutations#updatepullrequest)
+- [transferIssue](/graphql/reference/mutations#transferissue)
 
 {% endnote %}
 
