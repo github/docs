@@ -1,35 +1,34 @@
-- [最小要件](#minimum-requirements){% if currentVersion == "enterprise-server@2.22" %}
-- [{% data variables.product.prodname_ghe_server %} 2.22のベータ機能](#beta-features-in-github-enterprise-server-222){% endif %}
-- [ストレージ](#storage)
-- [CPU及びメモリ](#cpu-and-memory)
+- [Minimum requirements](#minimum-requirements)
+- [Storage](#storage)
+- [CPU and memory](#cpu-and-memory)
 
-#### 最小要件
+### Minimum requirements
 
-{% data variables.product.product_location %}のユーザライセンス数に応じた様々なハードウェア構成をおすすめします。 最小要件以上のリソースを提供すれば、インスタンスのパフォーマンスとスケーラビリティは向上します。
+We recommend different hardware configurations depending on the number of user licenses for {% data variables.product.product_location %}. If you provision more resources than the minimum requirements, your instance will perform and scale better.
 
 {% data reusables.enterprise_installation.hardware-rec-table %}
 
-#### ストレージ
+### Storage
 
-{% data variables.product.prodname_ghe_server %}には、高い秒あたりの入出力操作（IOPS）と低いレイテンシを持つ高性能なSSDをおすすめします。 ワークロードはI/O集中的です。 ベアメタルのハイパーバイザを使用するなら、直接アタッチされたディスクか、ストレージエリアネットワーク（SAN）からのディスクを利用することをおすすめします。
+We recommend a high-performance SSD with high input/output operations per second (IOPS) and low latency for {% data variables.product.prodname_ghe_server %}. Workloads are I/O intensive. If you use a bare metal hypervisor, we recommend directly attaching the disk or using a disk from a storage area network (SAN).
 
-インスタンスには、ルートディスクとは別の永続化用のデータディスクが必要です。 詳しい情報については「[システムの概要](/enterprise/admin/guides/installation/system-overview)」を参照してください。
+Your instance requires a persistent data disk separate from the root disk. For more information, see "[System overview](/enterprise/admin/guides/installation/system-overview)."
 
-{% if currentVersion ver_gt "enterprise-server@2.21" %}
+{% ifversion ghes %}
 
-{% data variables.product.prodname_actions %}{% if currentVersion == "enterprise-server@2.22" %}のベータ{% endif %}を設定するには、外部のblobストレージを用意しなければなりません。 詳しい情報については、「[{% data variables.product.prodname_ghe_server %} の {% data variables.product.prodname_actions %} を使ってみる](/admin/github-actions/getting-started-with-github-actions-for-github-enterprise-server##external-storage-requirements)」を参照してください。
+To configure {% data variables.product.prodname_actions %}, you must provide external blob storage. For more information, see "[Getting started with {% data variables.product.prodname_actions %} for {% data variables.product.prodname_ghe_server %}](/admin/github-actions/getting-started-with-github-actions-for-github-enterprise-server##external-storage-requirements)."
 
 {% endif %}
 
-新しいインスタンスを構築するか、既存のインスタンスを利用して、インスタンスのルートディスクのサイズを変更できます。 詳しい情報については「[ストレージ容量の増加](/enterprise/{{ currentVersion }}/admin/guides/installation/increasing-storage-capacity)」を参照してください。
+The available space on the root filesystem will be 50% of the total disk size. You can resize your instance's root disk by building a new instance or using an existing instance. For more information, see "[System overview](/enterprise/admin/guides/installation/system-overview#storage-architecture)" and "[Increasing storage capacity](/enterprise/admin/guides/installation/increasing-storage-capacity)."
 
-#### CPU及びメモリ
+### CPU and memory
 
-{% data variables.product.prodname_ghe_server %}が必要とするCPU及びメモリリソースは、ユーザ、自動化、インテグレーションのアクティビティのレベルによります。
+The CPU and memory resources that {% data variables.product.prodname_ghe_server %} requires depend on the levels of activity for users, automations, and integrations.
 
-{% if currentVersion ver_gt "enterprise-server@2.21" %}
+{% ifversion ghes %}
 
-{% data variables.product.prodname_ghe_server %}インスタンスのユーザに対して{% data variables.product.prodname_actions %}{% if currentVersion == "enterprise-server@2.22" %}のベータを有効化する{% else %}を有効化する計画{% endif %}なら、インスタンスに追加のCPU及びメモリリソースをプロビジョニングしなければならないことがあります。 詳しい情報については「[{% data variables.product.prodname_ghe_server %}のための{% data variables.product.prodname_actions %}の利用開始](/admin/github-actions/getting-started-with-github-actions-for-github-enterprise-server#review-hardware-considerations)」を参照してください。
+If you plan to enable {% data variables.product.prodname_actions %} for the users of your {% data variables.product.prodname_ghe_server %} instance, you may need to provision additional CPU and memory resources for your instance. For more information, see "[Getting started with {% data variables.product.prodname_actions %} for {% data variables.product.prodname_ghe_server %}](/admin/github-actions/getting-started-with-github-actions-for-github-enterprise-server#review-hardware-considerations)."
 
 {% endif %}
 
@@ -37,10 +36,10 @@
 
 {% warning %}
 
-**警告:** {% data variables.product.prodname_ghe_server %}上の外部システムのアクティビティを通知するwebhookイベントを設定することを、ユーザにおすすめします。 変更の自動化されたチェック、あるいは_ポーリング_は、インスタンスのパフォーマンスとスケーラビリティに悪影響を与えます。 詳しい情報については「[webhookについて](/github/extending-github/about-webhooks)」を参照してください。
+**Warning:** We recommend that users configure webhook events to notify external systems of activity on {% data variables.product.prodname_ghe_server %}. Automated checks for changes, or _polling_, will negatively impact the performance and scalability of your instance. For more information, see "[About webhooks](/github/extending-github/about-webhooks)."
 
 {% endwarning %}
 
-{% data variables.product.prodname_ghe_server %}のキャパシティとパフォーマンスのモニタリングに関する詳しい情報については「[アプラインアンスのモニタリング](/admin/enterprise-management/monitoring-your-appliance)」を参照してください。
+For more information about monitoring the capacity and performance of {% data variables.product.prodname_ghe_server %}, see "[Monitoring your appliance](/admin/enterprise-management/monitoring-your-appliance)."
 
-インスタンスのCPUあるいはメモリリソースは増やすことができます。 詳しい情報については、「[CPU またはメモリリソースを増やす](/enterprise/admin/installation/increasing-cpu-or-memory-resources)」を参照してください。
+You can increase your instance's CPU or memory resources. For more information, see "[Increasing CPU or memory resources](/enterprise/admin/installation/increasing-cpu-or-memory-resources)."

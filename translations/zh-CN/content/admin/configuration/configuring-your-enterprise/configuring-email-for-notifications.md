@@ -2,33 +2,31 @@
 title: 配置电子邮件通知
 intro: '为了让用户轻松地快速响应 {% data variables.product.product_name %} 上的活动，您可以配置 {% data variables.product.product_location %} 对议题、拉取请求和提交注释发送电子邮件通知。'
 redirect_from:
-  - /enterprise/admin/guides/installation/email-configuration/
-  - /enterprise/admin/articles/configuring-email/
-  - /enterprise/admin/articles/troubleshooting-email/
-  - /enterprise/admin/articles/email-configuration-and-troubleshooting/
+  - /enterprise/admin/guides/installation/email-configuration
+  - /enterprise/admin/articles/configuring-email
+  - /enterprise/admin/articles/troubleshooting-email
+  - /enterprise/admin/articles/email-configuration-and-troubleshooting
   - /enterprise/admin/user-management/configuring-email-for-notifications
   - /admin/configuration/configuring-email-for-notifications
 versions:
-  enterprise-server: '*'
-  github-ae: '*'
+  ghes: '*'
+  ghae: '*'
 type: how_to
 topics:
   - Enterprise
   - Fundamentals
   - Infrastructure
   - Notifications
+shortTitle: 配置电子邮件通知
 ---
 
-{% if currentVersion == "github-ae@latest" %}
+{% ifversion ghae %}
 企业所有者可以配置以电子邮件发送通知。
 {% endif %}
-### 为企业配置 SMTP
+## 为企业配置 SMTP
 
-{% if enterpriseServerVersions contains currentVersion %}
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.management-console %}
-2. 在页面顶部，单击 **Settings**。 ![Settings 选项卡](/assets/images/enterprise/management-console/settings-tab.png)
-3. 在左侧边栏中，单击 **Email**。 ![Email 选项卡](/assets/images/enterprise/management-console/email-sidebar.png)
+{% ifversion ghes %}
+{% data reusables.enterprise_site_admin_settings.email-settings %}
 4. 选择 **Enable email**。 这将同时启用出站和入站电子邮件，不过，要想入站电子邮件正常运行，您还需要按照下文“[配置 DNS 和防火墙设置以允许传入的电子邮件](#configuring-dns-and-firewall-settings-to-allow-incoming-emails)”所述配置您的 DNS 设置。 ![启用出站电子邮件](/assets/images/enterprise/management-console/enable-outbound-email.png)
 5. 键入 SMTP 服务器的设置。
       - 在 **Server address** 字段中，输入您的 SMTP 服务器的地址。
@@ -38,10 +36,10 @@ topics:
       - 在 **No-reply email address** 字段中，输入要在所有通知电子邮件的 From 和 To 字段中使用的电子邮件地址。
 6. 如果您想丢弃发送到无回复电子邮件地址的所有传入电子邮件，请选中 **Discard email addressed to the no-reply email address**。 ![用于丢弃发送到无回复电子邮件地址的电子邮件的复选框](/assets/images/enterprise/management-console/discard-noreply-emails.png)
 7. 在 **Support（支持）**下，选择用于向您的用户提供附加支持的链接类型。
-    - **Email**：内部电子邮件地址。
+    - **Email（电子邮件）**：内部电子邮件地址。
     - **URL**：内部支持站点的链接。 您必须包括 `http://` 或 `https://`。 ![支持电子邮件或 URL](/assets/images/enterprise/management-console/support-email-url.png)
 8. [测试电子邮件递送](#testing-email-delivery)。
-{% elsif currentVersion == "github-ae@latest" %}
+{% elsif ghae %}
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.email-tab %}
@@ -58,8 +56,8 @@ topics:
 7. 单击 **Save（保存）**。 ![用于企业支持联系人配置的"Save（保存）"按钮](/assets/images/enterprise/configuration/ae-save.png)
 {% endif %}
 
-{% if enterpriseServerVersions contains currentVersion %}
-### 测试电子邮件递送
+{% ifversion ghes %}
+## 测试电子邮件递送
 
 1. 在 **Email** 部分的顶部，单击 **Test email settings**。 ![测试电子邮件设置](/assets/images/enterprise/management-console/test-email.png)
 2. 在 **Send test email to** 字段中，输入用于接收测试电子邮件的地址。 ![测试电子邮件地址](/assets/images/enterprise/management-console/test-email-address.png)
@@ -73,22 +71,22 @@ topics:
 
 4. 如果测试电子邮件失败，请[排查电子邮件设置问题](#troubleshooting-email-delivery)。
 5. 当测试电子邮件成功后，在页面的底部单击 **Save settings**。 ![Save settings 按钮](/assets/images/enterprise/management-console/save-settings.png)
-6. 等待配置运行完毕。![配置实例](/assets/images/enterprise/management-console/configuration-run.png)
+{% data reusables.enterprise_site_admin_settings.wait-for-configuration-run %}
 
-### 配置 DNS 和防火墙设置以允许传入的电子邮件
+## 配置 DNS 和防火墙设置以允许传入的电子邮件
 
 如果您希望允许通知的电子邮件回复，则必须配置 DNS 设置。
 
 1. 确保您的 SMTP 服务器可以访问实例上的端口 25。
 2. 创建一个指向 `reply.[hostname]` 的 A 记录。 根据您的 DNS 提供商和实例主机配置，您可以创建一个指向 `*.[hostname]` 的 A 记录。
 3. 创建一个指向 `reply.[hostname]` 的 MX 记录，以便发送到该域的电子邮件可以路由到实例。
-4. 创建一个将 `noreply.[hostname]` 指向 `[hostname]` 的 MX 记录，以便对通知电子邮件中 `cc` 地址的回复可以路由到实例。 更多信息请参阅{% if currentVersion ver_gt "enterprise-server@2.20" %}“[配置通知](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications){% else %}“[关于电子邮件通知](/github/receiving-notifications-about-activity-on-github/about-email-notifications){% endif %}。”
+4. 创建一个将 `noreply.[hostname]` 指向 `[hostname]` 的 MX 记录，以便对通知电子邮件中 `cc` 地址的回复可以路由到实例。 更多信息请参阅{% ifversion ghes %}"[配置通知](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications){% else %}“[关于电子邮件通知](/github/receiving-notifications-about-activity-on-github/about-email-notifications){% endif %}。”
 
-### 排查电子邮件递送问题
+## 排查电子邮件递送问题
 
-#### 创建支持包
+### 创建支持包
 
-如果您无法根据显示的错误消息确定什么地方出错，可以下载包含您的邮件服务器与 {% data variables.product.prodname_ghe_server %} 之间的整个 SMTP 对话的[支持包](/enterprise/{{ currentVersion }}/admin/guides/enterprise-support/providing-data-to-github-support)。 在下载并提取支持包后，请检查 *enterprise-manage-logs/unicorn.log* 中的条目，查看整个 SMTP 对话日志和任何相关错误。
+如果您无法根据显示的错误消息确定什么地方出错，可以下载包含您的邮件服务器与 {% data variables.product.prodname_ghe_server %} 之间的整个 SMTP 对话的[支持包](/enterprise/admin/guides/enterprise-support/providing-data-to-github-support)。 在下载并提取支持包后，请检查 *enterprise-manage-logs/unicorn.log* 中的条目，查看整个 SMTP 对话日志和任何相关错误。
 
 该独角兽日志应以类似于下面所示的方式显示事务：
 
@@ -129,7 +127,7 @@ TLS connection started
 * 执行了 `login` 身份验证类型 (`<- "AUTH LOGIN\r\n"`)。
 * SMTP 服务器以无效为原因拒绝了身份验证 (`-> "535-5.7.1 Username and Password not accepted.`)。
 
-#### 检查 {% data variables.product.product_location %} 日志
+### 检查 {% data variables.product.product_location %} 日志
 
 如果您需要验证入站电子邮件是否正常运行，可以在实例上检查两个日志文件：验证 */var/log/mail.log* 和 */var/log/mail-replies/metroplex.log*。
 
@@ -157,17 +155,17 @@ Oct 30 00:47:19 54-171-144-1 postfix/smtpd[13210]: disconnect from st11p06mm-asm
 
 您将注意到，`metroplex` 会缓存、处理入站消息，然后将文件移动到 `/data/user/incoming-mail/success` 中。{% endif %}
 
-#### 验证 DNS 设置
+### 验证 DNS 设置
 
 为了正确处理入站电子邮件，您必须配置有效的 A 记录（或 CNAME）和 MX 记录。 更多信息请参阅“[配置 DNS 和防火墙设置以允许传入的电子邮件](#configuring-dns-and-firewall-settings-to-allow-incoming-emails)”。
 
-#### 检查防火墙或 AWS 安全组设置
+### 检查防火墙或 AWS 安全组设置
 
 如果 {% data variables.product.product_location %} 位于防火墙后或者正在通过 AWS 安全组提供，请确保端口 25 对将电子邮件发送到 `reply@reply.[hostname]` 的所有邮件服务器开放。
 
-#### 联系支持
-{% if enterpriseServerVersions contains currentVersion %}
+### 联系支持
+{% ifversion ghes %}
 如果您仍然无法解决问题，请联系 {% data variables.contact.contact_ent_support %}。 请在您的电子邮件中附上 `http(s)://[hostname]/setup/diagnostics` 的输出文件，以便帮助我们排查您的问题。
-{% elsif currentVersion == "github-ae@latest" %}
+{% elsif ghae %}
 您可以联系 {% data variables.contact.github_support %} 寻求帮助配置通过 SMTP 服务器发送电子邮件通知。 更多信息请参阅“[从 {% data variables.contact.github_support %} 获取帮助](/admin/enterprise-support/receiving-help-from-github-support)”。
 {% endif %}

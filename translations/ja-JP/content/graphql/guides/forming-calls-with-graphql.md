@@ -5,20 +5,22 @@ redirect_from:
   - /v4/guides/forming-calls
   - /graphql/guides/forming-calls
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - API
+shortTitle: GraphQLでの呼び出しの作成
 ---
 
-### GraphQLでの認証
+## GraphQLでの認証
 
 GraphQLサーバーと通信するには、適切なスコープを持つOAuthトークンが必要です。
 
 トークンを作成するには、「[個人アクセストークンを作成する](/github/authenticating-to-github/creating-a-personal-access-token)」のステップに従ってください。 必要なスコープは、リクエストしようとしているデータの種類によります。 たとえば、ユーザデータをリクエストするには**User**スコープを選択してください。 リポジトリ情報にアクセスする必要があるなら、適切な**Repository**スコープを選択してください。
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt or ghec %}
 
 [GraphQL Explorer](/graphql/guides/using-the-explorer)の動作とマッチさせるためには、以下のスコープをリクエストしてください。
 
@@ -30,20 +32,20 @@ GraphQLサーバーと通信するには、適切なスコープを持つOAuth�
 
 
 ```
-user{% if currentVersion != "github-ae@latest" %}
-public_repo{% endif %}
 repo
-repo_deployment
 repo:status
-read:repo_hook
+repo_deployment{% ifversion not ghae %}
+public_repo{% endif %}
 read:org
 read:public_key
+read:repo_hook
+user
 read:gpg_key
 ```
 
 リソースが特定のスコープを必要とするなら、APIは通知してくれます。
 
-### GraphQLのエンドポイント
+## GraphQLのエンドポイント
 
 REST APIは多数のエンドポイントを持ちますが、GraphQL APIは単一のエンドポイントを持ちます。
 
@@ -51,7 +53,7 @@ REST APIは多数のエンドポイントを持ちますが、GraphQL APIは単�
 
 行う操作にかかわらず、エンドポイントは一定のままです。
 
-### GraphQLでの通信
+## GraphQLでの通信
 
 GraphQLの操作は複数行のJSONからなるので、GitHubはGraphQLの呼び出しを行うのに[Explorer](/graphql/guides/using-the-explorer)を使うことをおすすめします。 cURLや、その他の任意のHTTPを使うライブラリも利用できます。
 
@@ -73,7 +75,7 @@ curl -H "Authorization: bearer <em>token</em>" -X POST -d " \
 
 {% endtip %}
 
-#### クエリ及びミューテーション操作について
+### クエリ及びミューテーション操作について
 
 GitHubのGraphQL APIで許されている操作は、_クエリ_と_ミューテーション_の2種類です。 GraphQLをRESTと比較すると、クエリは`GET`リクエストのような操作で、ミューテーションは`POST`/`PATCH`/`DELETE`のような操作です。 [ミューテーション名](/graphql/reference/mutations)が、どの変更が実行されるのかを決定します。
 
@@ -81,9 +83,9 @@ GitHubのGraphQL APIで許されている操作は、_クエリ_と_ミューテ
 
 クエリとミューテーションは似た形式を持っていますが、重要な違いがあります。
 
-#### クエリについて
+### クエリについて
 
-GraphQLのクエリは、指定したデータのみを返します。 クエリを作成する2は、[フィールド内のフィールド](/graphql/guides/introduction-to-graphql#field)（_入れ子になったサブフィールド_とも呼ばれます）を、[スカラー](/graphql/reference/scalars)だけを返すまで指定します。
+GraphQLのクエリは、指定したデータのみを返します。 クエリを作成するには、[フィールド内のフィールド](/graphql/guides/introduction-to-graphql#field)（_入れ子になったサブフィールド_とも呼ばれます）を、[スカラー](/graphql/reference/scalars)だけを返すまで指定します。
 
 クエリは以下のような構造になります。
 
@@ -93,7 +95,7 @@ GraphQLのクエリは、指定したデータのみを返します。 クエリ
 
 実際の例については「[クエリの例](#example-query)」を参照してください。
 
-#### ミューテーションについて
+### ミューテーションについて
 
 ミューテーションを作成するには、3つのことを指定しなければなりません。
 
@@ -115,7 +117,7 @@ GraphQLのクエリは、指定したデータのみを返します。 クエリ
 
 実際の例については「[ミューテーションの例](#example-mutation)」を参照してください。
 
-### 変数の扱い
+## 変数の扱い
 
 [変数](https://graphql.github.io/learn/queries/#variables)はクエリをより動的かつ強力にするもので、ミューテーションの入力オブジェクトを渡す際の複雑さを引き下げてくれます。
 
@@ -175,7 +177,7 @@ variables {
 
 変数を引数として使うことで、クエリを変更することなく`variables` オブジェクト内の値を動的に更新できるようになります。
 
-### クエリの例
+## クエリの例
 
 もっと複雑なクエリを見ていき、これらの情報を流れの中で捉えていきましょう。
 
@@ -249,9 +251,9 @@ query {
 
   `labels`フィールドは[`LabelConnection`](/graphql/reference/objects#labelconnection)という型を持っています。 `issues`オブジェクトと同じように、`labels`はコネクションなので、そのエッジを経て接続されたノードである`label`オブジェクトに到達しなければなりません。 このノードでは、返してほしい`label`オブジェクトフィールドを指定できます。ここでは`name`です。
 
-Octocatの{% if currentVersion != "github-ae@latest" %}パブリックな{% endif %}`Hello-World`リポジトリに対してこのクエリを実行しても、多くのラベルは返されないことに気づくかもしれません。 ラベルを使っている自分自身のリポジトリに対してこれを実行してみれば、違いがわかるでしょう。
+Octocatの{% ifversion not ghae %}パブリックな{% endif %}`Hello-World`リポジトリに対してこのクエリを実行しても、多くのラベルは返されないことに気づくかもしれません。 ラベルを使っている自分自身のリポジトリに対してこれを実行してみれば、違いがわかるでしょう。
 
-### ミューテーションの例
+## ミューテーションの例
 
 ミューテーションでは、まずクエリを実行して見なければ分からない情報が必要になることがよくあります。 この例では2つの操作を示します。
 
@@ -405,11 +407,11 @@ variables {
 
 {% endnote %}
 
-### 参考リンク
+## 参考リンク
 
 GraphQLの呼び出しを作成する際にできることは、_もっと_たくさんあります。 以下は、次に見るべき場所です。
 
-* [ページネーション](https://graphql.github.io/learn/pagination/)
-* [フラグメント](https://graphql.github.io/learn/queries/#fragments)
-* [インラインフラグメント](https://graphql.github.io/learn/queries/#inline-fragments)
-* [ディレクティブ](https://graphql.github.io/learn/queries/#directives)
+* [ページネーション](https://graphql.org/learn/pagination/)
+* [フラグメント](https://graphql.org/learn/queries/#fragments)
+* [インラインフラグメント](https://graphql.org/learn/queries/#inline-fragments)
+* [ディレクティブ](https://graphql.org/learn/queries/#directives)

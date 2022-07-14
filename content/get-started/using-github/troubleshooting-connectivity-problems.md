@@ -7,6 +7,7 @@ redirect_from:
   - /github/getting-started-with-github/using-github/troubleshooting-connectivity-problems
 versions:
   fpt: '*'
+  ghec: '*'
 shortTitle: Connectivity problems
 ---
 Most often, connection problems occur because a firewall, proxy server, corporate network, or other network is configured in a way that blocks {% data variables.product.prodname_dotcom %}.

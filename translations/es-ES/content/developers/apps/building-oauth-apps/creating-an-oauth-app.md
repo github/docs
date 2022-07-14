@@ -2,18 +2,19 @@
 title: Crear una App de OAuth
 intro: '{% data reusables.shortdesc.creating_oauth_apps %}'
 redirect_from:
-  - /apps/building-integrations/setting-up-and-registering-oauth-apps/registering-oauth-apps/
+  - /apps/building-integrations/setting-up-and-registering-oauth-apps/registering-oauth-apps
   - /apps/building-oauth-apps/creating-an-oauth-app
   - /developers/apps/creating-an-oauth-app
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - OAuth Apps
 ---
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt or ghec %}
 {% note %}
 
   **Nota:** {% data reusables.apps.maximum-oauth-apps-allowed %}
@@ -42,11 +43,12 @@ topics:
 7. En "URL de la página principal", teclea la URL completa del sitio web de tu app. ![Campo para la URL de la página principal de tu app](/assets/images/oauth-apps/oauth_apps_homepage_url.png)
 8. Opcionalmente, en "Descripción de la aplicación", teclea una descripción de tu app para que los usuarios la vean. ![Campo para la descripción de tu app](/assets/images/oauth-apps/oauth_apps_application_description.png)
 9. Teclea la URL de rellamado de tu app en "URL de rellamado para autorización". ![Campo para la URL de rellamado de autorización de tu app](/assets/images/oauth-apps/oauth_apps_authorization_callback_url.png)
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
+{% ifversion fpt or ghes or ghec %}
    {% note %}
 
    **Nota:** Las apps de OAuth no puede tener URL de rellamado múltiples, a diferencia de las {% data variables.product.prodname_github_apps %}.
 
    {% endnote %}
-{% endif %}
-10. Haz clic en **Register application** (Registrar aplicación). ![Botón para registrar una aplicación](/assets/images/oauth-apps/oauth_apps_register_application.png)
+{% endif %}{% ifversion device-flow-is-opt-in %}
+1. Si tu App de OAuth va a utilizar el flujo de dispositivos para identificar y autorizar usuarios, haz clic en **Habilitar el flujo de dispositivos**. Para obtener más información sobre el flujo de dispositivos, consulta la sección "[Autorizar las Apps de OAuth](/developers/apps/building-oauth-apps/authorizing-oauth-apps#device-flow)". ![Screenshot showing field for enabling device flow](/assets/images/oauth-apps/enable-device-flow.png){% endif %}
+2.  Haz clic en **Register application** (Registrar aplicación). ![Botón para registrar una aplicación](/assets/images/oauth-apps/oauth_apps_register_application.png)

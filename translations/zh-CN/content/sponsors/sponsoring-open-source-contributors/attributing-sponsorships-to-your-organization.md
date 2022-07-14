@@ -4,13 +4,15 @@ intro: 您可以将您某个组织支付的赞助归因于另一个组织。
 redirect_from:
   - /github/supporting-the-open-source-community-with-github-sponsors/attributing-sponsorships-to-your-organization
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 permissions: People who are organization owners of both organizations can attribute one organization's sponsorships to another organization.
 type: how_to
 topics:
   - Open Source
   - Organizations
   - Sponsors profile
+shortTitle: 归属赞助
 ---
 
 1. 导航到要将其赞助归因于另一个组织的组织。

@@ -37,6 +37,7 @@
     "repository_url": "https://api.github.com/repos/octo-org/octo-repo",
     "category": {
       "id": 32784361,
+      "node_id": "DIC_kwAqGA",
       "repository_id": 17273051,
       "emoji": ":speech_balloon:",
       "name": "General",

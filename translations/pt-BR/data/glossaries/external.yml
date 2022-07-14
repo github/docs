@@ -7,10 +7,6 @@
   description: >-
     Token usado no lugar de uma senha ao executar operações do Git em HTTPS com Git na linha de comando ou na API. Também chamado de token de acesso pessoal.
 - 
-  term: token de recuperação de conta
-  description: >-
-    Credencial de autenticação armazenada como parte de uma configuração de recuperação de conta chamada Recuperação de contas em outro lugar que permite armazenar essa credencial de backup.
-- 
   term: Visualização da API
   description: >-
     Forma de testar novas APIs e alterações nos métodos existentes antes de integrá-las como parte da API oficial do GitHub.
@@ -88,7 +84,7 @@
 - 
   term: cherry-picking
   description: >-
-    To choose a subset of changes from a series of changes (typically commits) and record them as a new series of changes on top of a different codebase. In Git, this is performed by the `git cherry-pick` command to extract the change introduced by an existing commit on another branch and to record it based on the tip of the current branch as a new commit. For more information, see [git-cherry-pick](https://git-scm.com/docs/git-cherry-pick) in the Git documentation.
+    Para escolher um subconjunto de alterações de uma série de alterações (tipicamente commits) e registrá-los como uma nova série de alterações no topo de uma base de código diferente. No Git, isto é executado pelo comando `git cherry-pick` para extrair a alteração introduzida por um commit existente em outro branch e registrá-la com base na ponta do branch atual como um novo commit. Para obter mais informações, consulte [git-cherry-pick](https://git-scm.com/docs/git-cherry-pick) na documentação do Git.
 - 
   term: equipe secundária
   description: >-
@@ -181,7 +177,7 @@
 - 
   term: branch padrão
   description: >-
-    The base branch for new pull requests and code commits in a repository. Each repository has at least one branch, which Git creates when you initialize the repository. The first branch is usually called {% if currentVersion ver_lt "enterprise-server@3.2" %}`master`{% else %}`main`{% endif %}, and is often the default branch.
+    O branch base para os novos pull requests e commits de código em um repositório. Cada repositório tem pelo menos um branch, que o Git cria quando você inicializa o repositório. Geralmente, o primeiro branch é denominado {% ifversion ghes < 3.2 %}`master`{% else %}`main`{% endif %}, e, muitas vezes, é o branch padrão.
 - 
   term: gráfico de dependentes
   description: >-
@@ -214,7 +210,7 @@
   description: Notificações enviadas para o endereço de e-mail de um usuário.
 - 
   term: enterprise account
-  description: As contas corporativas permitem que você gerencie a política e a cobrança centralmente para várias organizações de {% data variables.product.prodname_dotcom_the_website %}. {% data reusables.gated-features.enterprise-accounts %}
+  description: As contas corporativas permitem que você gerencie a política e a cobrança centralmente para várias organizações. {% data reusables.gated-features.enterprise-accounts %}
 - 
   term: Explorador
   description: >-
@@ -252,7 +248,7 @@
 - 
   term: gist
   description: >-
-    Um gist é um arquivo compartilhável que você pode editar, clonar e bifurcar no GitHub. Você pode criar um gist {% if currentVersion == "github-ae@latest" %}interno{% else %}público{% endif %} ou secreto, embora os gists secretos estejam disponíveis para {% if currentVersion == "github-ae@latest" %}qualquer membro corporativo{% else %}qualquer pessoa{% endif %} com a URL.
+    Um gist é um arquivo compartilhável que você pode editar, clonar e bifurcar no GitHub. Você pode criar um gist {% ifversion ghae %}interno{% else %}público{% endif %} ou secreto, embora os gists secretos estejam disponíveis para {% ifversion ghae %}qualquer membro corporativo{% else %}qualquer pessoa{% endif %} com a URL.
 - 
   term: Git
   description: >-
@@ -390,11 +386,11 @@
 - 
   term: main
   description: >-
-    {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@latest" %} The default development branch. Whenever you create a Git repository, a branch named `main` is created, and becomes the active branch. In most cases, this contains the local development, though that is purely by convention and is not required.{% else %}Name often chosen as an alternative to `master` for the default branch of a repository.{% endif %}
+    {% ifversion fpt or ghes > 3.1 or ghae %} O branch de desenvolvimento padrão. Sempre que você criar um repositório Git, será criado um branch denominado `main` e irá tornar-se o branch ativo. Na maioria dos casos, isto contém o desenvolvimento local, embora isso seja puramente por convenção e não seja necessário.{% else %}Nome frequentemente escolhido como uma alternativa para 'master' para o branch padrão de um repositório.{% endif %}
 - 
   term: mestre
   description: >-
-    The default branch in many Git repositories. By default, when you create a new Git repository on the command line, a branch called `master` is created. Many tools now use an alternative name for the default branch.{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@latest" %} For example, when you create a new repository on GitHub, the default branch is called `main`.{% endif %}
+    O branch padrão em muitos repositórios Git. Por padrão, quando você cria um novo repositório Git na linha de comando, um branch denominado `master` será criado. Muitas ferramentas agora usam um nome alternativo para o branch padrão.{% ifversion fpt or ghes > 3.1 or ghae %} Por exemplo, quando você cria um novo repositório no GitHub, o branch padrão é denominado `main`.{% endif %}
 - 
   term: gráfico de integrantes
   description: Gráfico que exibe todas as bifurcações de um repositório.
@@ -426,7 +422,7 @@
   description: >-
     Gráfico que exibe o histórico de branches de toda a rede do repositório, incluindo branches do repositório raiz e branches de bifurcações que contêm commits exclusivos da rede.
 - 
-  term: news feed
+  term: feed de notícias
   description: >-
     Exibição de atividade dos repositórios ou pessoas que você inspeciona. O feed de notícias da organização mostra a atividade nos repositórios pertencentes a ela.
 - 
@@ -566,15 +562,11 @@
     Nível de permissão que permite ao usuário ler ou fazer pull das informações do repositório. Todos os repositórios públicos dão acesso de leitura a todos os usuários do GitHub. Sinônimo para acesso pull.
 - 
   term: README
-  description: Arquivo de texto com informações sobre os arquivos em um repositório, costuma ser o primeiro arquivo exibido aos visitantes do repositório. Com uma licença de repositório, diretrizes de contribuição e um código de conduta, o arquivo README ajuda a definir as expectativas e a gerenciar contribuições para o seu projeto.
+  description: Arquivo de texto com informações sobre os arquivos em um repositório, costuma ser o primeiro arquivo exibido aos visitantes do repositório. Com uma licença de repositório, diretrizes de contribuição e um código de conduta, o arquivo LEIAME ajuda a definir as expectativas e a gerenciar contribuições para o seu projeto.
 - 
   term: rebase
   description: >-
     Reaplicar uma série de alterações de um branch para uma base diferente e redefinir o HEAD daquele branch para o resultado.
-- 
-  term: recuperação de contas em outro lugar
-  description: >-
-    Permite aos usuários adicionar uma camada de segurança extra à conta do GitHub em caso de perda do acesso à autenticação de dois fatores ou aos códigos de recuperação. Os usuários podem associar suas contas do GitHub às contas do Facebook armazenando uma credencial de autenticação em forma de token de recuperação para a conta do GitHub no Facebook.
 - 
   term: código de recuperação
   description: Código que ajuda a recuperar o acesso à conta do GitHub.
@@ -602,12 +594,16 @@
   description: >-
     Repositórios são o elemento mais essencial do GitHub e podem ser imaginados como pastas de um projeto. O repositório contém todos os arquivos do projeto (inclusive a documentação) e armazena o histórico de revisão de cada arquivo. Repositórios podem ter vários colaboradores e podem ser públicos ou privados.
 - 
+  term: cache do repositório
+  description: >-
+    Um espelho somente leitura de repositórios para o seu exemplo de servidor do GitHub Enterprise, localizado perto de equipes distribuídas e clientes de CI.
+- 
   term: gráfico do repositório
   description: Representação visual dos dados do seu repositório.
 - 
   term: mantenedor de repositório
   description: >-
-    Pessoa que gerencia um repositório. Como tal, ela pode ajudar na triagem de problemas e usar etiquetas e outros recursos para gerenciar o trabalho do repositório. Também pode ser responsável por manter o README e os arquivos de contribuição atualizados.
+    Pessoa que gerencia um repositório. Como tal, ela pode ajudar na triagem de problemas e usar etiquetas e outros recursos para gerenciar o trabalho do repositório. Também pode ser responsável por manter o LEIAME e os arquivos de contribuição atualizados.
 - 
   term: revisão obrigatória de pull request
   description: >-
@@ -653,6 +649,10 @@
   term: log de segurança
   description: >-
     Log que relaciona as últimas 50 ações ou as ações executadas nos últimos 90 dias.
+- 
+  term: server-to-server request
+  description: >-
+    Uma solicitação de API usada por um aplicativo que atua como um bot, independentemente de qualquer usuário em particular. Por exemplo, um aplicativo que é executado de forma programada e fecha problemas onde não há atividade há muito tempo. Os aplicativos que usam este tipo de autenticação não usam uma conta do GitHub licenciada. Portanto, em uma empresa com um plano de cobrança que permite a utilização de um determinado número de licenças, um bot de servidor para servidor não está consumindo uma das suas licenças do GitHub. O token usado em uma solicitação de servidor para servidor é adquirido de forma programática por meio da [API do GitHub](/rest/reference/apps#create-an-installation-access-token-for-an-app). Consulte também, "[pedido do usuário usuário para servidor](#user-to-server-request)."
 - 
   term: hook de serviço
   description: >-
@@ -714,7 +714,7 @@
   description: >-
     Uma forma de explorar repositórios em uma área de assunto específica, encontrar projetos com os quais contribuir e descobrir novas soluções para um problema específico no GitHub.
 - 
-  term: gráfico de tráfego
+  term: traffic graph
   description: >-
     Gráfico que mostra o tráfego de um repositório, inclusive clones totais (sem fetch), visitantes dos últimos 14 dias, sites de referência e conteúdo popular.
 - 
@@ -736,6 +736,10 @@
 - 
   term: nome de usuário
   description: Identificador de um usuário no GitHub.
+- 
+  term: user-to-server request
+  description: >-
+    A solicitação de uma API usada por um aplicativo que executa uma tarefa em nome de um usuário em particular. Quando uma tarefa é realizada com autenticação de usuário para servidor é exibida no GitHub como sido feita por um usuário por meio de um aplicativo. Por exemplo, você pode optar por criar um problema dentro de um aplicativo de terceiros, e o aplicativo faria isso no seu nome no GitHub. O escopo de tarefas que um aplicativo pode executar usando uma solicitação de usuário para servidor é restrito tanto pelas permissões e acesso do aplicativo quanto pelo usuário. O token usado em um pedido do usuário para servidor é otido por meio do OAuth. Para obter mais informações, consulte "[Identificar e autorizar usuários para aplicativos GitHub](/developers/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps)". Consulte também, "[server-to-server request](#server-to-server-request)."
 - 
   term: equipe visível
   description: Equipe que pode ser vista e @mencionada por qualquer integrante da organização.

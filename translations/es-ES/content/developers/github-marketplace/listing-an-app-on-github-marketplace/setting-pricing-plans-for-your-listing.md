@@ -2,25 +2,27 @@
 title: Configurar planes de precios para tu listado
 intro: 'Cuando listas tu app en {% data variables.product.prodname_marketplace %}, puedes elegir proporcionarla como un servicio gratuito o venderla. Si planeas vender tu app, puedes crear planes de precio diferentes para los diferentes escalones de características.'
 redirect_from:
-  - /apps/adding-integrations/managing-pricing-and-payments-for-a-github-marketplace-listing/setting-a-github-marketplace-listing-s-pricing-plan/
-  - /apps/marketplace/managing-pricing-and-payments-for-a-github-marketplace-listing/setting-a-github-marketplace-listing-s-pricing-plan/
-  - /apps/marketplace/pricing-payments-and-free-trials/setting-a-github-marketplace-listing-s-pricing-plan/
-  - /apps/adding-integrations/managing-pricing-and-payments-for-a-github-marketplace-listing/about-github-marketplace-pricing-plans/
-  - /apps/marketplace/managing-pricing-and-payments-for-a-github-marketplace-listing/about-github-marketplace-pricing-plans/
-  - /apps/marketplace/pricing-payments-and-free-trials/about-github-marketplace-pricing-plans/
-  - /apps/adding-integrations/managing-pricing-and-payments-for-a-github-marketplace-listing/changing-a-github-marketplace-listing-s-pricing-plan/
-  - /apps/marketplace/managing-pricing-and-payments-for-a-github-marketplace-listing/changing-a-github-marketplace-listing-s-pricing-plan/
-  - /apps/marketplace/managing-github-marketplace-listings/changing-a-github-marketplace-listing-s-pricing-plan/
-  - /apps/marketplace/listing-on-github-marketplace/setting-a-github-marketplace-listing-s-pricing-plan/
+  - /apps/adding-integrations/managing-pricing-and-payments-for-a-github-marketplace-listing/setting-a-github-marketplace-listing-s-pricing-plan
+  - /apps/marketplace/managing-pricing-and-payments-for-a-github-marketplace-listing/setting-a-github-marketplace-listing-s-pricing-plan
+  - /apps/marketplace/pricing-payments-and-free-trials/setting-a-github-marketplace-listing-s-pricing-plan
+  - /apps/adding-integrations/managing-pricing-and-payments-for-a-github-marketplace-listing/about-github-marketplace-pricing-plans
+  - /apps/marketplace/managing-pricing-and-payments-for-a-github-marketplace-listing/about-github-marketplace-pricing-plans
+  - /apps/marketplace/pricing-payments-and-free-trials/about-github-marketplace-pricing-plans
+  - /apps/adding-integrations/managing-pricing-and-payments-for-a-github-marketplace-listing/changing-a-github-marketplace-listing-s-pricing-plan
+  - /apps/marketplace/managing-pricing-and-payments-for-a-github-marketplace-listing/changing-a-github-marketplace-listing-s-pricing-plan
+  - /apps/marketplace/managing-github-marketplace-listings/changing-a-github-marketplace-listing-s-pricing-plan
+  - /apps/marketplace/listing-on-github-marketplace/setting-a-github-marketplace-listing-s-pricing-plan
   - /marketplace/listing-on-github-marketplace/setting-a-github-marketplace-listing-s-pricing-plan
   - /developers/github-marketplace/setting-pricing-plans-for-your-listing
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 topics:
   - Marketplace
+shortTitle: Configurar los planes de precios del listado
 ---
 
-### Acerca de configurar planes de precios
+## Acerca de configurar planes de precios
 
 {% data variables.product.prodname_marketplace %} ofrece varios tipos diferentes de planes de pago. Para obener información detallada, consulta la sección "[Planes de precios para {% data variables.product.prodname_marketplace %}](/developers/github-marketplace/pricing-plans-for-github-marketplace-apps)".
 
@@ -32,13 +34,13 @@ Si tu app ya se publicó con un plan de pago y eres un publicador verificado, en
 
 Si tu app ya se publicó con un plan de pago, pero no puedes verificar al publicador, entonces no podrás publicar un plan de pago nuevo hasta que seas un publicador verificado. Para obtener más información acerca de cómo convertirse en un publicador verificado, consulta la sección "[Solicitar una verificación de publicador para tu organización](/developers/github-marketplace/applying-for-publisher-verification-for-your-organization)".
 
-### Acerca de guardar los planes de precios
+## Acerca de guardar los planes de precios
 
 Puedes guardar los planes de precios con los estados de "borrador" o de "publicado". Si aún no emites tu listado de {% data variables.product.prodname_marketplace %} para su aprobación, los planes publicados funcionarán de la misma forma que los planes en borrador hasta que se apruebe tu listado y se muestre en {% data variables.product.prodname_marketplace %}. Los planes en borrador te permiten crear y guardar nuevos planes de precios sin hacerlos disponibles en tu página de listado de {% data variables.product.prodname_marketplace %}. Una vez que publicas un plan de precios en un listado publicado, éste estará disponible para que los clientes lo compren de inmediato. Puedes publicar hasta 10 planes de precios.
 
 Para obtener lineamientos sobre la facturación a clientes, consulta la sección "[Facturar a clientes](/developers/github-marketplace/billing-customers)".
 
-### Crear planes de precios
+## Crear planes de precios
 
 Para crear un plan de precios para tu listado de {% data variables.product.prodname_marketplace %}, da clic en **Planes y precios** en la barra lateral izquierda de tu [página de listado de{% data variables.product.prodname_marketplace %}](https://github.com/marketplace/manage). Para obtener más información, consulta la sección "[Crear un borrador de listado de {% data variables.product.prodname_marketplace %}](/marketplace/listing-on-github-marketplace/creating-a-draft-github-marketplace-listing/)".
 
@@ -63,7 +65,7 @@ Cuando das clic en **Nuevo borrador de plan**, verás un formato que te permite 
 
 {% data reusables.marketplace.free-plan-note %}
 
-### Cambiar un plan de precios del listado de {% data variables.product.prodname_marketplace %}.
+## Cambiar un plan de precios del listado de {% data variables.product.prodname_marketplace %}.
 
 Si ya no se requiere algún plan de precios para tu listado de {% data variables.product.prodname_marketplace %}, o si necesitas ajustar los detalles de los precios, puedes eliminarlo.
 

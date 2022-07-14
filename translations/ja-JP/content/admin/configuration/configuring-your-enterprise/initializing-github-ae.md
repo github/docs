@@ -1,24 +1,23 @@
 ---
-title: GitHub AE を初期化する
-intro: '{% data variables.product.product_name %} の初期設定を完了して Enterprise で使用できるようにします。'
+title: Initializing GitHub AE
+intro: 'To get your enterprise ready to use, you can complete the initial configuration of {% data variables.product.product_name %}.'
 versions:
-  github-ae: '*'
+  ghae: '*'
 type: how_to
 topics:
   - Enterprise
 redirect_from:
   - /admin/configuration/initializing-github-ae
 ---
+## About initialization
 
-### 初期化について
+Before you can initialize your enterprise, you must purchase {% data variables.product.product_name %}. For more information, contact {% data variables.contact.contact_enterprise_sales %}.
 
-Enterprise を初期化する前に、{% data variables.product.product_name %} を購入する必要があります。 詳細については、{% data variables.contact.contact_enterprise_sales %} にお問い合わせください。
-
-{% data variables.product.product_name %} を購入後、Enterprise を初期化するユーザのメールアドレスとユーザ名を入力するように求められます。 {% data variables.contact.enterprise_support %} の専任のテクニカルアカウントマネージャーが Enterprise オーナーのアカウントを作成し、Enterprise オーナーにメールを送信して {% data variables.product.product_name %} にログイン後、初期化を完了します。 提供する情報が、IdP 内の目的の Enterprise オーナーの情報と一致することを確認してください。 Enterprise オーナーの詳細については、「[Enterprise 内のロール](/github/setting-up-and-managing-your-enterprise/roles-in-an-enterprise#enterprise-owner)」を参照してください。
+{% data reusables.github-ae.initialize-enterprise %} Make sure the information you provide matches the intended enterprise owner's information in the IdP. For more information about enterprise owners, see "[Roles in an enterprise](/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise#enterprise-owner)."
 
 {% note %}
 
-設定ファイルでクエリスイートを指定すると、{% data variables.product.prodname_codeql %} 分析エンジンは、デフォルトのクエリセットに加えて、スイートに含まれるクエリを実行します。
+**Notes**:
 
 - If the initial password for {% data variables.product.prodname_ghe_managed %} expires before you finish initialization, you can request a password reset at any time from your invitation email.
 
@@ -26,78 +25,106 @@ Enterprise を初期化する前に、{% data variables.product.product_name %} 
 
 {% endnote %}
 
-初期化中に、Enterprise オーナーは Enterprise に名前を付け、SAML SSO を設定し、Enterprise 内のすべての Organization のポリシーを作成して、ユーザのサポート連絡先を設定します。
+During initialization, the enterprise owner will name your enterprise, configure SAML SSO, create policies for all organizations in your enterprise, and configure a support contact for your users.
 
-### 必要な環境
+## Prerequisites
 
 To begin initialization, you will receive an invitation email from {% data variables.product.company_short %}. Before you configure {% data variables.product.prodname_ghe_managed %}, review the following prerequisites.
 
 
-1. {% data variables.product.product_location %} を初期化するには、SAML アイデンティティプロバイダ (IdP) が必要です。 {% data reusables.saml.ae-uses-saml-sso %} 初期化中に IdP を Enterprise に接続するには、IdP のエンティティ ID (SSO) URL、発行者 ID URL、公開署名証明書 (Base64 エンコード) が必要です。 詳しい情報については、「[Enterprise のアイデンティティとアクセス管理について](/admin/authentication/about-identity-and-access-management-for-your-enterprise)」を参照してください。
+1. To initialize {% data variables.product.product_location %}, you must have a SAML identity provider (IdP). {% data reusables.saml.ae-uses-saml-sso %} To connect your IdP to your enterprise during initialization, you should have your IdP's Entity ID (SSO) URL, Issuer ID URL, and public signing certificate (Base64-encoded). For more information, see "[About identity and access management for your enterprise](/admin/authentication/about-identity-and-access-management-for-your-enterprise)."
 
     {% note %}
 
-    **注釈**: {% data reusables.saml.create-a-machine-user %}
+    **Note**: {% data reusables.saml.create-a-machine-user %}
 
     {% endnote %}
 
 2. {% data reusables.saml.assert-the-administrator-attribute %}
 
-### サインインして Enterprise に名前を付ける
+## Signing in and naming your enterprise
 
-1. ようこそメールの指示に従って、Enterprise にアクセスします。
-2. [Change password] の下に認証情報を入力し、[**Change password**] をクリックします。
-3. [What would you like your enterprise account to be named?] の下に Enterprise の名前を入力し、[**Save and continue**] をクリックします。 ![Enterprise に名前を付けるための [Save and continue] ボタン](/assets/images/enterprise/configuration/ae-enterprise-configuration.png)
+1. Follow the instructions in your welcome email to reach your enterprise.
+2. Type your credentials under "Change password", then click **Change password**.
+3. Under "What would you like your enterprise account to be named?", type the enterprise's name, then click **Save and continue**.
+  !["Save and continue" button for naming an enterprise](/assets/images/enterprise/configuration/ae-enterprise-configuration.png)
 
-### IdP を Enterprise に接続する
+## Connecting your IdP to your enterprise
 
-{% data variables.product.product_name %} の認証を設定するには、{% data variables.product.product_name %} に SAML IdP の詳細を提供する必要があります。 {% data variables.product.company_short %} は、IdP として Azure AD を使用することを推奨しています。 詳しい情報については、「[アイデンティティプロバイダで認証とプロビジョニングを設定する](/admin/authentication/configuring-authentication-and-provisioning-with-your-identity-provider)」を参照してください。
+To configure authentication for {% data variables.product.product_name %}, you must provide {% data variables.product.product_name %} with the details for your SAML IdP. {% data variables.product.company_short %} recommends using Azure AD as your IdP. For more information, see "[Configuring authentication and provisioning with your identity provider](/admin/authentication/configuring-authentication-and-provisioning-with-your-identity-provider)."
 
-1. [Set up your identity provider] の右側にある [**Configure**] をクリックします。 ![IdP 設定の [Configure] ボタン](/assets/images/enterprise/configuration/ae-idp-configure.png)
-1. [Sign on URL] で、SAML IdP の URL をコピーして貼り付けます。 ![SAML IdP のサインオン URL のテキストフィールド](/assets/images/enterprise/configuration/ae-idp-sign-on-url.png)
-1. [Issuer] の下に、SAML IdP の発行者 URL をコピーして貼り付けます。 ![SAML IdP の発行者 URL のテキストフィールド](/assets/images/enterprise/configuration/ae-idp-issuer-url.png)
-1. [Public certificate] の下で、SAML IdP の公開証明書をコピーして貼り付けます。 ![SAML IdP の公開証明書のテキストフィールド](/assets/images/enterprise/configuration/ae-idp-public-certificate.png)
-1. [**Test SAML configuration**] をクリックして、入力した情報が正しいことを確認します。 ![[Test SAML configuration] ボタン](/assets/images/enterprise/configuration/ae-test-saml-configuration.png)
-1. [**Save**] をクリックします。 ![IdP 設定の [Save] ボタン](/assets/images/enterprise/configuration/ae-save.png)
+1. To the right of "Set up your identity provider", click **Configure**.
+  !["Configure" button for IdP configuration](/assets/images/enterprise/configuration/ae-idp-configure.png)
+1. Under "Sign on URL", copy and paste the URL for your SAML IdP.
+  ![Text field for SAML IdP's sign-on URL](/assets/images/enterprise/configuration/ae-idp-sign-on-url.png)
+1. Under "Issuer", copy and paste the issuer URL for your SAML IdP.
+  ![Text field for SAML IdP's issuer URL](/assets/images/enterprise/configuration/ae-idp-issuer-url.png)
+1. Under "Public certificate", copy and paste the public certificate for your SAML IdP.
+  ![Text field for SAML IdP's public certificate](/assets/images/enterprise/configuration/ae-idp-public-certificate.png)
+1. Click **Test SAML configuration** to ensure that the information you've entered is correct.
+  !["Test SAML configuration" button](/assets/images/enterprise/configuration/ae-test-saml-configuration.png)
+1. Click **Save**.
+  !["Save" button for IdP configuration](/assets/images/enterprise/configuration/ae-save.png)
 
-### Enterprise のポリシーを設定する
+## Setting your enterprise policies
 
-ポリシーを設定すると、Enterprise のリポジトリと Organization の管理に制限が設定されます。 これらは、初期化プロセスの後に再設定できます。
+Configuring policies will set limitations for repository and organization management for your enterprise. These can be reconfigured after the initialization process.
 
-1. [Set your enterprise policies] の右側にある [**Configure**] をクリックします。 ![ポリシー設定の [Configure] ボタン](/assets/images/enterprise/configuration/ae-policies-configure.png)
-2. [Default Repository Permissions] の下で、ドロップダウンメニューを使用して、Enterprise 内のリポジトリのデフォルトの権限レベルをクリックします。 個人、チーム、または Organization のメンバーとして、Organization への複数のアクセス手段がある場合、最上位の権限レベルが下位の権限レベルよりも優先されます。 必要に応じて、Enterprise 内の Organization がデフォルトのリポジトリ権限を設定できるようにするには、[**No policy**] をクリックします。 ![デフォルトのリポジトリ権限オプションのドロップダウンメニュー](/assets/images/enterprise/configuration/ae-repository-permissions-menu.png)
-3. [Repository creation] の下で、メンバーにリポジトリの作成を許可するかどうかを選択します。 必要に応じて、Enterprise 内の Organization が権限を設定できるようにするには、[**No policy**] をクリックします。 ![Enterprise ポリシー設定用の [Members can create repositories] ボタン](/assets/images/enterprise/configuration/ae-repository-creation-permissions.png)
-4. [Repository forking] の下で、プライベートリポジトリと内部リポジトリのフォークを許可するかどうかを選択します。 必要に応じて、Enterprise 内の Organization が権限を設定できるようにするには、[**No policy**] をクリックします。 ![リポジトリフォーク権限オプションのドロップダウンメニュー](/assets/images/enterprise/configuration/ae-repository-forking-menu.png)
-5. [Repository invitations] の下で、メンバーまたは Organization のオーナーがコラボレータをリポジトリに招待できるかどうかを選択します。 必要に応じて、Enterprise 内の Organization が権限を設定できるようにするには、[**No policy**] をクリックします。 ![リポジトリ招待権限オプションのドロップダウンメニュー](/assets/images/enterprise/configuration/ae-repository-invitations-menu.png)
-6. [Default repository visibility] で、ドロップダウンメニューを使用して、新しいリポジトリのデフォルトの可視性設定をクリックします。 ![デフォルトのリポジトリ可視性オプションのドロップダウンメニュー](/assets/images/enterprise/configuration/ae-repository-visibility-menu.png)
-7. [Users can create organizations] の下で、ドロップダウンメニューを使用して、Enterprise のメンバーの Organization 作成アクセスを有効または無効にします。 ![Organization 作成権限オプションのドロップダウンメニュー](/assets/images/enterprise/configuration/ae-organization-creation-permissions-menu.png)
-8. [Force pushes] の下で、ドロップダウンメニューを使用して、フォースプッシュを許可するかブロックするかを選択します。 ![フォースプッシュ設定オプションのドロップダウンメニュー](/assets/images/enterprise/configuration/ae-force-pushes-configuration-menu.png)
-9. [Git SSH access] の下で、ドロップダウンメニューを使用して、Enterprise 内のすべてのリポジトリに対して Git SSH アクセスを有効にするかどうかを選択します。 ![Git SSH アクセスオプションのドロップダウンメニュー](/assets/images/enterprise/configuration/ae-git-ssh-access-menu.png)
-10. [**Save**] をクリックします。 ![Enterprise ポリシー設定の [Save] ボタン](/assets/images/enterprise/configuration/ae-save.png)
-11. 必要に応じて、すべての選択をリセットするには、[Reset to default policies] をクリックします。 ![すべてのデフォルトポリシーをリセットするためのリンク](/assets/images/enterprise/configuration/ae-reset-default-options.png)
+1. To the right of "Set your enterprise policies", click **Configure**.
+  !["Configure" button for policies configuration](/assets/images/enterprise/configuration/ae-policies-configure.png)
+2. Under "Default Repository Permissions", use the drop-down menu and click a default permissions level for repositories in your enterprise. If a person has multiple avenues of access to an organization, either individually, through a team, or as an organization member, the highest permission level overrides any lower permission levels. Optionally, to allow organizations within your enterprise to set their default repository permissions, click **No policy**
+  ![Drop-down menu for default repository permissions options](/assets/images/enterprise/configuration/ae-repository-permissions-menu.png)
+3. Under "Repository creation", choose whether you want to allow members to create repositories. Optionally, to allow organizations within your enterprise to set permissions, click **No policy**.
+  !["Members can create repositories" button for enterprise policies configuration](/assets/images/enterprise/configuration/ae-repository-creation-permissions.png)
+4. Under "Repository forking", choose whether to allow forking of private and internal repositories. Optionally, to allow organizations within your enterprise to set permissions, click **No policy**
+  ![Drop-down menu for repository forking permissions options](/assets/images/enterprise/configuration/ae-repository-forking-menu.png)
+5. Under "Repository invitations", choose whether members or organization owners can invite collaborators to repositories. Optionally, to allow organizations within your enterprise to set permissions, click **No policy**
+  ![Drop-down menu for repository invitation permissions options](/assets/images/enterprise/configuration/ae-repository-invitations-menu.png)
+6. Under "Default repository visibility", use the drop-down menu and click the default visibility setting for new repositories.
+  ![Drop-down menu for default repository visibility options](/assets/images/enterprise/configuration/ae-repository-visibility-menu.png)
+7. Under "Users can create organizations", use the drop-down menu to enable or disable organization creation access for members of the enterprise.
+  ![Drop-down menu for organization creation permissions options](/assets/images/enterprise/configuration/ae-organization-creation-permissions-menu.png)
+8. Under "Force pushes", use the drop-down menu and choose whether to allow or block force pushes.
+  ![Drop-down menu for force pushes configuration options](/assets/images/enterprise/configuration/ae-force-pushes-configuration-menu.png)
+9. Under "Git SSH access", use the drop-down menu and choose whether to enable Git SSH access for all repositories in the enterprise.
+  ![Drop-down menu for Git SSH access options](/assets/images/enterprise/configuration/ae-git-ssh-access-menu.png)
+10. Click **Save**
+  !["Save" button for enterprise policies configuration](/assets/images/enterprise/configuration/ae-save.png)
+11. Optionally, to reset all selections, click "Reset to default policies".
+  ![Link to reset all default policies](/assets/images/enterprise/configuration/ae-reset-default-options.png)
 
-### 内部のサポート連絡先を設定する
+## Setting your internal support contact
 
-ユーザが内部のサポートチームに連絡する方法を設定できます。 これは、初期化プロセスの後に再設定できます。
+You can configure the method your users will use to contact your internal support team. This can be reconfigured after the initialization process.
 
-1. [Internal support contact] の右側にある [**Configure**] をクリックします。 ![内部サポート連絡先設定の [Configure] ボタン](/assets/images/enterprise/configuration/ae-support-configure.png)
-2. [Internal support contact] の下で、Enterprise のユーザが URL またはメールアドレスを使用してサポートに連絡する方法を選択します。 次に、サポートの連絡先情報を入力します。 ![内部サポート連絡先 URL のテキストフィールド](/assets/images/enterprise/configuration/ae-support-link-url.png)
-3. [**Save**] をクリックします。 ![Enterprise サポート連絡先設定の [Save] ボタン](/assets/images/enterprise/configuration/ae-save.png)
+1. To the right of "Internal support contact", click **Configure**.
+  !["Configure" button for internal support contact configuration](/assets/images/enterprise/configuration/ae-support-configure.png)
+2. Under "Internal support contact", select the method for users of your enterprise to contact support, through a URL or an e-mail address. Then, type the support contact information.
+  ![Text field for internal support contact URL](/assets/images/enterprise/configuration/ae-support-link-url.png)
+3. Click **Save**.
+  !["Save" button for enterprise support contact configuration](/assets/images/enterprise/configuration/ae-save.png)
 
-### メール設定
+## Setting your email settings
 
-これを初期化すると、初期化プロセス後に再設定できます。 詳しい情報については、「[通知のためのメールを設定する](/admin/configuration/configuring-email-for-notifications)」を参照してください。
+Once this is initialized, you can reconfigure any settings after the initialization process. For more information, see "[Configuring email for notifications](/admin/configuration/configuring-email-for-notifications)."
 
-1. [Configure email settings] の右側にある [**Configure**] をクリックします。 ![メール設定の [Configure] ボタン](/assets/images/enterprise/configuration/ae-email-configure.png)
-2. **Enable email（メールの有効化）**を選択してください。 これにより、アウトバウンドメールとインバウンドメールの両方が有効になりますが、インバウンドメールが動作するようにするには、DNS 設定を行う必要があります。 詳しい情報については、「[着信メールを許可するよう DNS およびファイアウォールを設定する](/admin/configuration/configuring-email-for-notifications#configuring-dns-and-firewall-settings-to-allow-incoming-emails)」を参照してください。 ![メール設定の [Enable] チェックボックス](/assets/images/enterprise/configuration/ae-enable-email-configure.png)
-3. メールサーバーの設定を完了します。
-    - [**Server address**] フィールドに SMTP サーバのアドレスを入力します。
-    - [**Port**] フィールドには、SMTP サーバがメールを送信するのに使用するポートを入力します。
-    - [**Domain**] フィールドには、SMTP サーバが HELO レスポンスを送信するドメイン名があれば入力してください。
-    - [** Authentication（認証）**] ドロップダウンでは、SMTP サーバが利用する暗号化の種類を選択してください。
-    - [**No-reply email address（No-replyメールアドレス）**] フィールドには、すべての通知メールの From および To フィールドに使うメールアドレスを入力してください。
+1. To the right of "Configure email settings", click **Configure**.
+  !["Configure" button for email settings configuration](/assets/images/enterprise/configuration/ae-email-configure.png)
+2. Select **Enable email**. This will enable both outbound and inbound email, however, for inbound email to work you will also need to configure your DNS settings. For more information, see "[Configuring DNS and firewall
+ settings to allow incoming emails](/admin/configuration/configuring-email-for-notifications#configuring-dns-and-firewall-settings-to-allow-incoming-emails)."
+  !["Enable" checkbox for email settings configuration](/assets/images/enterprise/configuration/ae-enable-email-configure.png)
+3. Complete your email server settings:
+    - In the **Server address** field, type the address of your SMTP server.
+    - In the **Port** field, type the port that your SMTP server uses to send email.
+    - In the **Domain** field, type the domain name that your SMTP server will send with a HELO response, if any.
+    - In the **Authentication** dropdown, choose the type of encryption used by your SMTP server.
+    - In the **No-reply email address** field, type the email address to use in the From and To fields for all notification emails.
 
-4. no-replyメールアドレスへの着信メールをすべて破棄したい場合には、**Discard email addressed to the no-reply email address（no-replyメールアドレスへのメールの破棄）**を選択してください。 ![メール設定の [Discard] チェックボックス](/assets/images/enterprise/configuration/ae-discard-email.png)
-5. [**Test email settings**] をクリックします。 ![メール設定の [Test email settings] ボタン](/assets/images/enterprise/configuration/ae-test-email.png)
-6. [Send test email to] で、テストメールを送信するメールアドレスを入力し、[**Send test email**] をクリックします。 ![メール設定の [Send test email] ボタン](/assets/images/enterprise/configuration/ae-send-test-email.png)
-7. [**Save**] をクリックします。 ![Enterprise サポート連絡先設定の [Save] ボタン](/assets/images/enterprise/configuration/ae-save.png)
+4. If you want to discard all incoming emails that are addressed to the no-reply email address, select **Discard email addressed to the no-reply email address**.
+  !["Discard" checkbox for email settings configuration](/assets/images/enterprise/configuration/ae-discard-email.png)
+5. Click **Test email settings**.
+  !["Test email settings" button for email settings configuration](/assets/images/enterprise/configuration/ae-test-email.png)
+6. Under "Send test email to," type the email address where you want to send a test email, then click **Send test email**.
+  !["Send test email" button for email settings configuration](/assets/images/enterprise/configuration/ae-send-test-email.png)
+7. Click **Save**.
+  !["Save" button for enterprise support contact configuration](/assets/images/enterprise/configuration/ae-save.png)

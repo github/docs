@@ -3,9 +3,10 @@ title: Orgaizar tu trabajo con los tableros de proyecto
 shortTitle: Tableros de proyecto
 intro: 'Utiliza los tableros de proyecto para administrar tu trabajo en {% data variables.product.prodname_dotcom %}'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Issues
   - Projects
@@ -20,3 +21,4 @@ redirect_from:
   - /archiving-cards-on-a-project-board
 ---
 
+{% data reusables.projects.project_boards_old %}

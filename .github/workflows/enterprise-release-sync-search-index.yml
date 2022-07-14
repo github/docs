@@ -26,25 +26,33 @@ on:
       - ready_for_review
       - unlocked
 
+permissions:
+  contents: write
+
+# This allows a subsequently queued workflow run to interrupt previous runs
+concurrency:
+  group: '${{ github.workflow }} @ ${{ github.event.pull_request.head.label || github.head_ref || github.ref }}'
+  cancel-in-progress: true
+
 # This workflow requires a label in the format `sync-english-index-for-<PLAN@RELEASE>`
 jobs:
   updateIndices:
     name: Update English index for new GHES release
     # Skip this check if the event originated from Docubot, to prevent
     # infinite runs when Docubot checks in the search indexes in this workflow
-    if: github.repository == 'github/docs-internal' && github.event.sender.login != 'Docubot'
+    if: github.repository == 'github/docs-internal' && github.event.sender.login != 'Docubot' && github.actor != 'dependabot[bot]'
     runs-on: ubuntu-latest
     steps:
       - name: checkout
-        uses: actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f
+        uses: actions/checkout@dcd71f646680f2efd8db4afa5ad64fdcba30e748
         with:
           ref: ${{ github.head_ref }}
           token: ${{ secrets.DOCUBOT_REPO_PAT }}
 
       - name: Setup Node
-        uses: actions/setup-node@38d90ce44d5275ad62cc48384b3d8a58c500bb5f
+        uses: actions/setup-node@17f8bd926464a1afa4c6a11669539e9c1ba77048
         with:
-          node-version: 16.8.x
+          node-version: '16.15.0'
           cache: npm
 
       - name: Install dependencies
@@ -54,12 +62,17 @@ jobs:
         id: getVersion
         run: $GITHUB_WORKSPACE/.github/actions-scripts/enterprise-search-label.js
 
+      - name: Cache nextjs build
+        uses: actions/cache@48af2dc4a9e8278b89d7fa154b955c30c6aaab09
+        with:
+          path: .next/cache
+          key: ${{ runner.os }}-nextjs-${{ hashFiles('package*.json') }}
+
       - name: Generate the search index files
         if: ${{ steps.getVersion.outputs.versionToSync }}
         env:
           VERSION: ${{ steps.getVersion.outputs.versionToSync }}
           LANGUAGE: 'en'
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           npm run build
           npm run sync-search

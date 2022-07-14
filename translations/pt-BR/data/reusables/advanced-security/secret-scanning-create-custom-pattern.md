@@ -1,0 +1,1 @@
+1. Quando estiver satisfeito com o seu novo padrão personalizado, clique em {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-5499 %}**Publicar padrão**{% elsif  ghes > 3.2 or ghae %}**Criar padrão**{% elsif ghes = 3.2 %}**Criar padrão personalizado**{% endif %}.

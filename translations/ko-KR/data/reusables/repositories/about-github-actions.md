@@ -1,1 +1,0 @@
-{% data variables.product.prodname_actions %} help you automate your software development workflows in the same place you store code and collaborate on pull requests and issues. You can write individual tasks, called actions, and combine them to create a custom workflow.

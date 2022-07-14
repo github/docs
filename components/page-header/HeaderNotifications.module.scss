@@ -1,4 +1,8 @@
-.container a {
-  color: var(--color-bg-info-inverse);
-  text-decoration: underline;
+.container {
+  position: relative;
+
+  a {
+    color: var(--color-accent-fg);
+    text-decoration: underline;
+  }
 }

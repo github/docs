@@ -1,6 +1,6 @@
 ---
 title: Working with non-code files
-intro: "{% data variables.product.product_name %} supports rendering and diffing in a number of non-code file formats."
+intro: '{% data variables.product.product_name %} supports rendering and diffing in a number of non-code file formats.'
 redirect_from:
   - /articles/rendering-and-diffing-images
   - /github/managing-files-in-a-repository/rendering-and-diffing-images
@@ -29,6 +29,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Repositories
 shortTitle: Working with non-code files
@@ -36,17 +37,19 @@ shortTitle: Working with non-code files
 
 ## Rendering and diffing images
 
-{% data variables.product.product_name %} can display several common image formats, including PNG, JPG, GIF, PSD, and SVG. In addition to simply displaying them, there are several ways to compare differences between versions of those image formats.'
+{% data variables.product.product_name %} can display several common image formats, including PNG, JPG, GIF, PSD, and SVG. In addition to simply displaying them, there are several ways to compare differences between versions of those image formats.
 
 {% note %}
 
-**Note:** If you are using the Firefox browser, SVGs on {% data variables.product.prodname_dotcom %} may not render.
+**Note:** 
+- {% data variables.product.prodname_dotcom %} does not support comparing the differences between PSD files. 
+- If you are using the Firefox browser, SVGs on {% data variables.product.prodname_dotcom %} may not render.
 
 {% endnote %}
 
 ### Viewing images
 
-You can directly browse and view images in your {% data variables.product.product_name %} repository:
+You can directly browse and view images in your repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}:
 
 ![inline image](/assets/images/help/images/view.png)
 
@@ -115,7 +118,7 @@ To display your 3D file elsewhere on the internet, modify this template and plac
 <script src="https://embed.github.com/view/3d/<username>/<repo>/<ref>/<path_to_file>"></script>
 ```
 
-For example, if your model's URL is [github.com/skalnik/secret-bear-clip/blob/master/stl/clip.stl](https://github.com/skalnik/secret-bear-clip/blob/master/stl/clip.stl), your embed code would be:
+For example, if your model's URL is [`github.com/skalnik/secret-bear-clip/blob/master/stl/clip.stl`](https://github.com/skalnik/secret-bear-clip/blob/master/stl/clip.stl), your embed code would be:
 
 ```html
 <script src="https://embed.github.com/view/3d/skalnik/secret-bear-clip/master/stl/clip.stl"></script>
@@ -129,13 +132,19 @@ By default, the embedded renderer is 420 pixels wide by 620 pixels high, but you
 
 {% endtip %}
 
+{% ifversion mermaid %}
+### Rendering in Markdown
+
+You can embed ASCII STL syntax directly in Markdown. For more information, see "[Creating diagrams](/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams#creating-stl-3d-models)."
+{% endif %}
+
 ## Rendering CSV and TSV data
 
 GitHub supports rendering tabular data in the form of *.csv* (comma-separated) and .*tsv* (tab-separated) files.
 
 ![Rendered CSV sample](/assets/images/help/repository/rendered_csv.png)
 
-When viewed, any _.csv_ or _.tsv_ file committed to a {% data variables.product.product_name %} repository automatically renders as an interactive table, complete with headers and row numbering. By default, we'll always assume the first row is your header row.
+When viewed, any _.csv_ or _.tsv_ file committed to a repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} automatically renders as an interactive table, complete with headers and row numbering. By default, we'll always assume the first row is your header row.
 
 You can link to a particular row by clicking the row number, or select multiple rows by holding down the shift key. Just copy the URL and send it to a friend.
 
@@ -190,6 +199,14 @@ You can click {% octicon "file" aria-label="The paper icon" %} to see the change
 
 ![Rendered Prose changes](/assets/images/help/repository/rendered_prose_changes.png)
 
+{% ifversion fpt or ghes > 3.2 or ghae-issue-5232 or ghec %}
+
+### Disabling Markdown rendering
+
+{% data reusables.repositories.disabling-markdown-rendering %}
+
+{% endif %}
+
 ### Visualizing attribute changes
 
 We provide a tooltip
@@ -231,10 +248,11 @@ When you click the paper icon on the right, you'll also see the changes made to 
 
 ![Source Render toggle screenshot](/assets/images/help/repository/source-render-toggle-geojson.png)
 
-### Geometry Types
+### Geometry types
 
 Maps on {% data variables.product.product_name %} use [Leaflet.js](http://leafletjs.com) and support all the geometry types outlined in [the geoJSON spec](http://www.geojson.org/geojson-spec.html) (Point, LineString, Polygon, MultiPoint, MultiLineString, MultiPolygon, and GeometryCollection). TopoJSON files should be type "Topology" and adhere to the [topoJSON spec](https://github.com/mbostock/topojson/wiki/Specification).
 
+{% ifversion geoJSON-with-MapBox %}
 ### Styling features
 
 You can customize the way features are displayed, such as specifying a particular color or adding a descriptive icon, by passing additional metadata within the geoJSON object's properties. The options are:
@@ -249,6 +267,7 @@ You can customize the way features are displayed, such as specifying a particula
 * `fill-opacity` - the opacity of the interior of a polygon (0.0-1.0)
 
 See [version 1.1.0 of the open simplestyle spec](https://github.com/mapbox/simplestyle-spec/tree/master/1.1.0) for more information.
+{% endif %}
 
 ### Embedding your map elsewhere
 
@@ -272,6 +291,12 @@ By default, the embedded map 420px x 620px, but you can customize the output by 
 
 {% endtip %}
 
+{% ifversion mermaid %}
+### Mapping in Markdown
+
+You can embed geoJSON and topoJSON directly in Markdown. For more information, see "[Creating diagrams](/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams#creating-geojson-and-topojson-maps)."
+{% endif %}
+
 ### Clustering
 
 If your map contains a large number of markers (roughly over 750), GitHub will automatically cluster nearby markers at higher zoom levels. Simply click the cluster or zoom in to see individual markers.
@@ -290,10 +315,14 @@ Additionally, if your `.geojson` file is especially large (over 10 MB), it is no
 
 It may still be possible to render the data by converting the `.geojson` file to [TopoJSON](https://github.com/mbostock/topojson), a compression format that, in some cases, can reduce filesize by up to 80%. Of course, you can always break the file into smaller chunks (such as by state or by year), and store the data as multiple files within the repository.
 
-### Additional Resources
+### Further reading
 
-* [Leaflet.js geojson documentation](http://leafletjs.com/examples/geojson.html)
+{% ifversion geoJSON-with-MapBox %}
+* [Leaflet.js documentation](https://leafletjs.com/)
 * [MapBox marker-styling documentation](http://www.mapbox.com/developers/simplestyle/)
+{%- else %}
+* [Azure Maps documentation](https://docs.microsoft.com/en-us/azure/azure-maps/)
+{%- endif %}
 * [TopoJSON Wiki](https://github.com/mbostock/topojson/wiki)
 
 ## Working with Jupyter Notebook files on {% data variables.product.prodname_dotcom %}
@@ -317,4 +346,46 @@ $ jupyter nbconvert --to html <em>NOTEBOOK-NAME.ipynb</em>
 ### Further reading
 
 - [Jupyter Notebook's GitHub repository](https://github.com/jupyter/jupyter_notebook)
-- [Gallery of Jupyter Notebooks](https://github.com/jupyter/jupyter/wiki/A-gallery-of-interesting-Jupyter-Notebooks)
+- [Gallery of Jupyter Notebooks](https://github.com/jupyter/jupyter/wiki)
+
+{% ifversion mermaid %}
+## Displaying Mermaid files on {% data variables.product.prodname_dotcom %}
+
+{% data variables.product.product_name %} supports rendering Mermaid files within repositories. Commit the file as you would normally using a `.mermaid` or `.mmd` extension. Then, navigate to the path of the Mermaid file on {% data variables.product.prodname_dotcom %}.
+
+For example, if you add a `.mmd` file with the following content to your repository:
+
+```
+graph TD
+    A[Friend's Birthday] -->|Get money| B(Go shopping)
+    B --> C{Let me think}
+    C -->|One| D["Cool <br> Laptop"]
+    C -->|Two| E[iPhone]
+    C -->|Three| F[fa:fa-car Car]
+```
+
+When you view the file in the repository, it is rendered as a flow chart.
+![Rendered mermaid file diagram](/assets/images/help/repository/mermaid-file-diagram.png)
+
+### Troubleshooting
+
+If your chart does not render at all, verify that it contains valid Mermaid Markdown syntax by checking your chart with the [Mermaid live editor](https://mermaid.live/edit).
+
+If the chart displays, but does not appear as you'd expect, you can create a new [feedback discussion](https://github.com/github/feedback/discussions/categories/general-feedback), and add the `mermaid` tag. 
+
+#### Known issues
+
+* Sequence diagram charts frequently render with additional padding below the chart, with more padding added as the chart size increases. This is a known issue with the Mermaid library.
+* Actor nodes with popover menus do not work as expected within sequence diagram charts. This is due to a discrepancy in how JavaScript events are added to a chart when the Mermaid library's API is used to render a chart.
+* Not all charts are a11y compliant. This may affect users who rely on a screen reader.
+
+### Mermaid in Markdown
+
+You can embed Mermaid syntax directly in Markdown. For more information, see "[Creating diagrams](/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams#creating-mermaid-diagrams)."
+
+### Further reading
+
+* [Mermaid.js documentation](https://mermaid-js.github.io/mermaid/#/)
+* [Mermaid.js live editor](https://mermaid.live/edit)
+{% endif %}
+

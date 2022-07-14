@@ -5,9 +5,11 @@ redirect_from:
   - /articles/adding-a-code-of-conduct-to-your-project
   - /github/building-a-strong-community/adding-a-code-of-conduct-to-your-project
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 topics:
   - Community
+shortTitle: 行動規範の追加
 ---
 
 *行動規範*は、コミュニティへの参加方法の標準を定義するものです。 それは、すべてのコントリビューションを尊重する開放的な環境であることを発信します。 また、プロジェクトのコミュニティのメンバー間の問題に対処するための手順の概要も示します。 行動規範がコミュニティへの参加方法についての標準と期待を定義する理由に関して、詳しい情報については[オープンソースガイド](https://opensource.guide/code-of-conduct/)を参照してください。
@@ -19,9 +21,9 @@ topics:
 
 テンプレートを使用するか、手動でカスタムの行動規範を作成して、プロジェクトに行動規範を追加できます。 行動規範はどちらの方法でも利用できますが、「行動規範」はテンプレートを使用する場合にのみ、リポジトリのコミュニティプロフィールで完了としてマークされます。 他者または Organization が作成した行動規範を使用する場合は、必ずソースからの帰属ガイドラインに従ってください。 コミュニティプロフィールの詳細については、「[パブリックリポジトリのコミュニティプロフィールについて](//communities/setting-up-your-project-for-healthy-contributions/about-community-profiles-for-public-repositories)」を参照してください。
 
-Organization またはユーザアカウント用にデフォルトの行動規範を作成できます。 詳しい情報については「[デフォルトのコミュニティ健全性ファイルを作成する](/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)」を参照してください。
+You can create a default code of conduct for your organization or personal account. 詳しい情報については「[デフォルトのコミュニティ健全性ファイルを作成する](/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)」を参照してください。
 
-### テンプレートを使用して行動規範を追加する
+## テンプレートを使用して行動規範を追加する
 
 プロジェクトに素早く行動規範を追加できるよう、{% data variables.product.product_name %}では一般的な行動規範のテンプレートが用意されています。
 
@@ -37,7 +39,7 @@ Organization またはユーザアカウント用にデフォルトの行動規�
 {% data reusables.files.choose_commit_branch %}
 {% data reusables.files.propose_new_file %}
 
-### 行動規範を手動で追加する
+## 行動規範を手動で追加する
 
 提供されているテンプレートで必要な行動規範が利用できない場合は、行動規範を手動で追加できます。
 

@@ -2,11 +2,12 @@
 title: GitHub Marketplace
 intro: '在 {% data variables.product.prodname_dotcom %} Marketplace 中上架您的工具，供开发者使用或购买。'
 redirect_from:
-  - /apps/adding-integrations/listing-apps-on-github-marketplace/about-github-marketplace/
-  - /apps/marketplace/
+  - /apps/adding-integrations/listing-apps-on-github-marketplace/about-github-marketplace
+  - /apps/marketplace
   - /marketplace
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 topics:
   - Marketplace
 children:

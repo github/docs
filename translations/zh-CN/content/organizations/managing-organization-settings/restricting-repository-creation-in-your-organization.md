@@ -5,19 +5,25 @@ redirect_from:
   - /articles/restricting-repository-creation-in-your-organization
   - /github/setting-up-and-managing-organizations-and-teams/restricting-repository-creation-in-your-organization
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
+shortTitle: 限制仓库创建
 ---
 
-您可以选择成员是否可以在组织中创建仓库。 如果允许成员创建仓库，您可以选择允许创建哪些类型的仓库。{% if currentVersion == "free-pro-team@latest" %}若只允许成员创建私有仓库，您的组织必须使用 {% data variables.product.prodname_ghe_cloud %}。{% endif %}更多信息请参阅“[关于仓库可见性](/github/creating-cloning-and-archiving-repositories/about-repository-visibility)”。
+您可以选择成员是否可以在组织中创建仓库。 {% ifversion ghec or ghes or ghae %}如果允许成员创建仓库，您可以选择成员可以创建的仓库类型。{% elsif fpt %}如果允许成员创建仓库，您可以选择成员是可以同时创建公共和私有仓库，还是只能创建公共仓库。{% endif %} 组织所有者始终可以创建任何类型的仓库。
 
-组织所有者始终可以创建任何类型的仓库。
+{% ifversion fpt %}
+使用 {% data variables.product.prodname_ghe_cloud %} 的组织还可以将成员限制于只能创建私有仓库。 更多信息请参阅 [{% data variables.product.prodname_ghe_cloud %} 文档](/enterprise-cloud@latest/organizations/managing-organization-settings/restricting-repository-creation-in-your-organization)。
+{% endif %}
 
-{% if currentVersion == "free-pro-team@latest" %}企业所有者{% else %}站点管理员{% endif %}可以限制用于组织仓库创建策略的选项。 更多信息请参阅{% if currentVersion == "free-pro-team@latest" %}“[在企业帐户中实施仓库管理策略](/github/setting-up-and-managing-your-enterprise/enforcing-repository-management-policies-in-your-enterprise-account)”。{% else %}“[限制企业中的仓库创建](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#setting-a-policy-for-repository-creation)”。{% endif %}
+{% ifversion ghec or ghae or ghes %}
+企业所有者可以限制您可用于组织的仓库创建策略的选项。 更多信息请参阅“[在企业中实施仓库管理策略](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-repository-creation)”。
+{% endif %}
 
 {% warning %}
 
@@ -25,10 +31,23 @@ topics:
 
 {% endwarning %}
 
-{% data reusables.organizations.internal-repos-enterprise %}
-
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.member-privileges %}
-5. 在“Repository creation（仓库创建）”下，选择一个或多个选项。 ![仓库创建选项](/assets/images/help/organizations/repo-creation-perms-radio-buttons.png)
+5. 在“Repository creation（仓库创建）”下，选择一个或多个选项。
+
+   {%- ifversion ghes or ghec or ghae %}
+   ![仓库创建选项](/assets/images/help/organizations/repo-creation-perms-radio-buttons.png)
+   {%- elsif fpt %}
+   ![仓库创建选项](/assets/images/help/organizations/repo-creation-perms-radio-buttons-fpt.png)
+   {%- endif %}
+
+   {% ifversion fpt or ghec %}
+   {% note %}
+
+   **注意：** 要将成员限制为只能创建私有仓库，您的组织必须使用 {% data variables.product.prodname_ghe_cloud %}。 {% data reusables.enterprise.link-to-ghec-trial %}
+
+   {% endnote %}
+   {%- endif %}
+
 6. 单击 **Save（保存）**。

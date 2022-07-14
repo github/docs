@@ -1,17 +1,16 @@
 ---
 title: Manually running a workflow
 intro: 'When a workflow is configured to run on the `workflow_dispatch` event, you can run the workflow using the Actions tab on {% data variables.product.prodname_dotcom %}, {% data variables.product.prodname_cli %}, or the REST API.'
-product: '{% data reusables.gated-features.actions %}'
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 shortTitle: Manually run a workflow
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## Configuring a workflow to run manually
 
@@ -20,8 +19,6 @@ To run a workflow manually, the workflow must be configured to run on the `workf
 {% data reusables.repositories.permissions-statement-write %}
 
 ## Running a workflow
-
-{% include tool-switcher %}
 
 {% webui %}
 
@@ -75,5 +72,11 @@ gh run watch
 ## Running a workflow using the REST API
 
 When using the REST API, you configure the `inputs` and `ref` as request body parameters. If the inputs are omitted, the default values defined in the workflow file are used.
+
+{% note %}
+
+**Note:** You can define up to 10 `inputs` for a `workflow_dispatch` event.
+
+{% endnote %}
 
 For more information about using the REST API, see the "[Create a workflow dispatch event](/rest/reference/actions/#create-a-workflow-dispatch-event)."

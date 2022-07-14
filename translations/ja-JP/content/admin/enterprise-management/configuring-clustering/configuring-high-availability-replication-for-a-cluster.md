@@ -1,21 +1,22 @@
 ---
 title: クラスタの High Availability レプリケーションを設定する
 intro: '{% data variables.product.prodname_ghe_server %} クラスタ全体のパッシブレプリカを別の場所に設定することで、クラスタを冗長ノードにフェイルオーバーできるようにします。'
-miniTocMaxHeadingLevel: 4
+miniTocMaxHeadingLevel: 3
 redirect_from:
   - /enterprise/admin/enterprise-management/configuring-high-availability-replication-for-a-cluster
   - /admin/enterprise-management/configuring-high-availability-replication-for-a-cluster
 versions:
-  enterprise-server: '>2.21'
+  ghes: '*'
 type: how_to
 topics:
   - Clustering
   - Enterprise
   - High availability
   - Infrastructure
+shortTitle: Configure HA replication
 ---
 
-### クラスタの High Availability レプリケーションについて
+## クラスタの High Availability レプリケーションについて
 
 High Availability を実現するために、{% data variables.product.prodname_ghe_server %} のクラスタデプロイメントを設定できます。この場合、パッシブノードの同一のセットがアクティブクラスタ内のノードと同期されます。 ハードウェアまたはソフトウェアの障害がアクティブなクラスタのデータセンターに影響を与える場合は、手動でレプリカノードにフェイルオーバーし、ユーザリクエストの処理を続行して、停止の影響を最小限に抑えることができます。
 
@@ -23,9 +24,9 @@ High Availability モードでは、各アクティブノードは対応する�
 
 {% data variables.product.prodname_ghe_server %} の包括的なシステム災害復旧計画の一部として High Availability を設定することをお勧めします。 また、定期的なバックアップを実行することをお勧めします。 詳しくは、"[ アプライアンスでのバックアップの設定](/enterprise/admin/configuration/configuring-backups-on-your-appliance)。"を参照してください。
 
-### 必要な環境
+## 必要な環境
 
-#### ハードウェアとソフトウェア
+### ハードウェアとソフトウェア
 
 アクティブなクラスタ内の既存のノードごとに、同一のハードウェアリソースを使用して2番目の仮想マシンをプロビジョニングする必要があります。 たとえば、クラスタに 11 個のノードがあり、各ノードに 12 個の vCPU、96GB の RAM、および 750GB の接続ストレージがある場合、それぞれが 12 個の vCPU、96GB の RAM、および 750GB の接続ストレージを備えた 11 個の新しい仮想マシンをプロビジョニングする必要があります。
 
@@ -37,19 +38,19 @@ High Availability モードでは、各アクティブノードは対応する�
 
 {% endnote %}
 
-#### ネットワーク
+### ネットワーク
 
 プロビジョニングする新しいノードごとに静的 IP アドレスを割り当てる必要があります。また、接続を受け入れてクラスタのフロントエンド層のノードに転送するようにロードバランサを設定する必要があります。
 
 アクティブクラスタを使用するネットワークとパッシブクラスタを使用するネットワークの間にファイアウォールを設定することはお勧めしません。 アクティブノードのあるネットワークとパッシブノードのあるネットワークの間の遅延は、70 ミリ秒未満である必要があります。 パッシブクラスタ内のノード間のネットワーク接続の詳細については、「[クラスタネットワーク設定](/enterprise/admin/enterprise-management/cluster-network-configuration)」を参照してください。
 
-### クラスタの High Availability レプリカを作成する
+## クラスタの High Availability レプリカを作成する
 
 - [アクティブノードをプライマリデータセンターに割り当てる](#assigning-active-nodes-to-the-primary-datacenter)
 - [パッシブノードをクラスタ設定ファイルに追加する](#adding-passive-nodes-to-the-cluster-configuration-file)
 - [設定例](#example-configuration)
 
-#### アクティブノードをプライマリデータセンターに割り当てる
+### アクティブノードをプライマリデータセンターに割り当てる
 
 パッシブノードのセカンダリデータセンターを定義する前に、アクティブノードをプライマリデータセンターに割り当てていることを確認してください。
 
@@ -101,7 +102,7 @@ High Availability モードでは、各アクティブノードは対応する�
 
 {% data variables.product.prodname_ghe_server %} がプロンプトに戻ったら、ノードをクラスタのプライマリデータセンターに割り当てます。
 
-#### パッシブノードをクラスタ設定ファイルに追加する
+### パッシブノードをクラスタ設定ファイルに追加する
 
 High Availability を設定するには、クラスタ内のすべてのアクティブノードに対応するパッシブノードを定義する必要があります。 次の手順では、アクティブノードとパッシブノードの両方を定義する新しいクラスタ設定を作成します。 次のことを行います。
 
@@ -154,7 +155,7 @@ High Availability を設定するには、クラスタ内のすべてのアク�
 
     {% endwarning %}
 
-8. ステップ 3 の一時クラスタ設定ファイルをテキストエディタで開きます。 たとえば、Vim を利用できます。
+8. ステップ 3 の一時クラスタ設定ファイルをテキストエディタで開きます。 たとえばVimを利用できます。
 
     ```shell
     sudo vim ~/cluster-passive.conf
@@ -187,12 +188,6 @@ High Availability を設定するには、クラスタ内のすべてのアク�
     ```shell
     git config -f /data/user/common/cluster.conf cluster.mysql-master-replica <em>REPLICA MYSQL PRIMARY HOSTNAME</em>
     git config -f /data/user/common/cluster.conf cluster.redis-master-replica <em>REPLICA REDIS PRIMARY HOSTNAME</em>
-    ```
-
-12. パッシブレプリカノードにフェイルオーバーするときに MySQL が自動的にフェイルオーバーできるようにします。
-
-    ```shell
-    git config -f /data/user/common/cluster.conf cluster.mysql-auto-failover true
     ```
 
     {% warning %}
@@ -235,7 +230,7 @@ High Availability を設定するには、クラスタ内のすべてのアク�
 
 クラスタ内のノードの High Availability レプリケーションの設定が完了しました。 各アクティブノードは、対応するパッシブノードへの設定とデータの複製を開始します。障害が発生した場合は、トラフィックをセカンダリデータセンターのロードバランサに転送できます。 フェイルオーバーに関する詳しい情報については、「[レプリカクラスタへのフェイルオーバーを開始する](/enterprise/admin/enterprise-management/initiating-a-failover-to-your-replica-cluster)」を参照してください。
 
-#### 設定例
+### 設定例
 
 最上位の `[cluster]` 設定は、次の例のようになります。
 
@@ -246,7 +241,7 @@ High Availability を設定するには、クラスタ内のすべてのアク�
   primary-datacenter = <em>PRIMARY DATACENTER NAME</em>
   mysql-master-replica = <em>HOSTNAME OF PASSIVE MYSQL MASTER</em>
   redis-master-replica = <em>HOSTNAME OF PASSIVE REDIS MASTER</em>
-  mysql-auto-failover = true
+  mysql-auto-failover = false
 ...
 ```
 
@@ -303,7 +298,7 @@ High Availability を設定するには、クラスタ内のすべてのアク�
 ...
 ```
 
-### アクティブクラスターノードとパッシブクラスターノード間のレプリケーションを監視する
+## アクティブクラスターノードとパッシブクラスターノード間のレプリケーションを監視する
 
 クラスタ内のアクティブノードとパッシブノード間の初期レプリケーションには時間がかかります。 時間は、複製するデータの量と {% data variables.product.prodname_ghe_server %} のアクティビティレベルによって異なります。
 
@@ -335,11 +330,11 @@ High Availability を設定するには、クラスタ内のすべてのアク�
 
 `ghe-cluster-status` を使用して、クラスタの全体的な健全性を確認できます。 詳しい情報については、「[コマンドラインユーティリティ](/enterprise/admin/configuration/command-line-utilities#ghe-cluster-status)」を参照してください。
 
-### フェイルオーバー後の High Availability レプリケーションを再設定する
+## フェイルオーバー後の High Availability レプリケーションを再設定する
 
 クラスタのアクティブノードからクラスタのパッシブノードにフェイルオーバーした後、2 つの方法で High Availability レプリケーションを再設定できます。
 
-#### 新しいパッシブノードのプロビジョニングと設定
+### 新しいパッシブノードのプロビジョニングと設定
 
 フェイルオーバー後、2 つの方法で High Availability を再設定できます。 選択する方法は、フェイルオーバーした理由と元のアクティブノードの状態によって異なります。
 
@@ -350,7 +345,7 @@ High Availability を設定するには、クラスタ内のすべてのアク�
 High Availability を再設定するプロセスは、High Availability の初期設定と同じです。 詳細については、「[クラスタの High Availability レプリカを作成する](#creating-a-high-availability-replica-for-a-cluster)」を参照してください。
 
 
-### クラスタの High Availability レプリケーションを無効化する
+## クラスタの High Availability レプリケーションを無効化する
 
 {% data variables.product.prodname_ghe_server %} のクラスタデプロイメントのパッシブノードへのレプリケーションを停止できます。
 
@@ -358,7 +353,7 @@ High Availability を再設定するプロセスは、High Availability の初�
 
 {% data reusables.enterprise_clustering.open-configuration-file %}
 
-3. 最上位の `[cluster]` セクションで、`mysql-auto-failover`、`redis-master-replica`、`mysql-master-replica` のキー/値ペアを削除します。
+3. In the top-level `[cluster]` section, delete the `redis-master-replica`, and `mysql-master-replica` key-value pairs.
 
 4. パッシブノードの各セクションを削除します。 パッシブノードの場合、`replica` は `enabled` として設定されます。
 

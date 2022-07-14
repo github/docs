@@ -1,1 +1,1 @@
-Se você desejar vender um aplicativo que pertence à sua conta de usuário, primeiro você deverá transferir o aplicativo para uma organização e, em seguida, solicitar a verificação para um anúncio criado pela organização.
+If you want to sell an app that's owned by your personal account, first you'll need to transfer the app to an organization, and then request verification for a listing created by the organization.

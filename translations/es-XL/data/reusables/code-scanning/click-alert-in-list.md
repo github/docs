@@ -1,1 +1,0 @@
-1. Debajo de "Escaneo de Código", da clic en la alerta que quieras ver. ![Lista de alertas de {% data variables.product.prodname_code_scanning %}](/assets/images/help/repository/code-scanning-click-alert.png)

@@ -4,13 +4,16 @@ intro: '您可以在 {% data variables.product.product_name %} 中设置策略�
 redirect_from:
   - /enterprise/admin/developer-workflow
   - /enterprise/admin/policies
+  - /github/setting-up-and-managing-your-enterprise/setting-policies-for-organizations-in-your-enterprise-account
 versions:
-  enterprise-server: '*'
-  github-ae: '*'
+  ghec: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Enterprise
 children:
   - /enforcing-policies-for-your-enterprise
   - /enforcing-policy-with-pre-receive-hooks
+shortTitle: 设置策略
 ---
 

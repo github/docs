@@ -1,0 +1,55 @@
+name: Lint code
+
+# **What it does**: Lints our code to ensure the code matches the specified code style.
+# **Why we have it**: We want some level of consistency to our code.
+# **Who does it impact**: Docs engineering, open-source engineering contributors.
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - '**.js'
+      - '**.mjs'
+      - '**.ts'
+      - '**.tsx'
+      - '**.yaml'
+      - '**.yml'
+      - '**.scss'
+      - .eslintrc.js
+      # In case something like eslint or tsc or prettier upgrades
+      - 'package-lock.json'
+      # Ultimately, for debugging this workflow itself
+      - .github/workflows/code-lint.yml
+
+permissions:
+  contents: read
+
+# This allows a subsequently queued workflow run to interrupt previous runs
+concurrency:
+  group: '${{ github.workflow }} @ ${{ github.event.pull_request.head.label || github.head_ref || github.ref }}'
+  cancel-in-progress: true
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@dcd71f646680f2efd8db4afa5ad64fdcba30e748
+
+      - name: Setup node
+        uses: actions/setup-node@17f8bd926464a1afa4c6a11669539e9c1ba77048
+        with:
+          node-version: '16.15.0'
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run linter
+        run: npm run lint
+
+      - name: Run Prettier
+        run: npm run prettier-check
+
+      - name: Run TypeScript
+        run: npm run tsc

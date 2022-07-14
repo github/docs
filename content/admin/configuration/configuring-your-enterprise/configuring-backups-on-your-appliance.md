@@ -2,15 +2,15 @@
 title: Configuring backups on your appliance
 shortTitle: Configuring backups
 redirect_from:
-  - /enterprise/admin/categories/backups-and-restores/
-  - /enterprise/admin/articles/backup-and-recovery/
-  - /enterprise/admin/articles/backing-up-github-enterprise/
-  - /enterprise/admin/articles/restoring-github-enterprise/
-  - /enterprise/admin/articles/backing-up-repository-data/
-  - /enterprise/admin/articles/restoring-enterprise-data/
-  - /enterprise/admin/articles/restoring-repository-data/
-  - /enterprise/admin/articles/backing-up-enterprise-data/
-  - /enterprise/admin/guides/installation/backups-and-disaster-recovery/
+  - /enterprise/admin/categories/backups-and-restores
+  - /enterprise/admin/articles/backup-and-recovery
+  - /enterprise/admin/articles/backing-up-github-enterprise
+  - /enterprise/admin/articles/restoring-github-enterprise
+  - /enterprise/admin/articles/backing-up-repository-data
+  - /enterprise/admin/articles/restoring-enterprise-data
+  - /enterprise/admin/articles/restoring-repository-data
+  - /enterprise/admin/articles/backing-up-enterprise-data
+  - /enterprise/admin/guides/installation/backups-and-disaster-recovery
   - /enterprise/admin/installation/configuring-backups-on-your-appliance
   - /enterprise/admin/configuration/configuring-backups-on-your-appliance
   - /admin/configuration/configuring-backups-on-your-appliance
@@ -72,7 +72,7 @@ More resources may be required depending on your usage, such as user activity an
   {% endnote %}
 
 4. Set the `GHE_DATA_DIR` value to the filesystem location where you want to store backup snapshots.
-5. Open your primary instance's settings page at `https://HOSTNAME/setup/settings` and add the backup host's SSH key to the list of authorized SSH keys. For more information, see [Accessing the administrative shell (SSH)](/enterprise/{{ currentVersion }}/admin/guides/installation/accessing-the-administrative-shell-ssh/).
+5. Open your primary instance's settings page at `https://HOSTNAME/setup/settings` and add the backup host's SSH key to the list of authorized SSH keys. For more information, see [Accessing the administrative shell (SSH)](/enterprise/admin/guides/installation/accessing-the-administrative-shell-ssh/).
 6. Verify SSH connectivity with {% data variables.product.product_location %} with the `ghe-host-check` command.
   ```shell
   $ bin/ghe-host-check		  
@@ -94,7 +94,7 @@ If backup attempts overlap, the `ghe-backup` command will abort with an error me
 
 In the event of prolonged outage or catastrophic event at the primary site, you can restore {% data variables.product.product_location %} by provisioning another {% data variables.product.prodname_enterprise %} appliance and performing a restore from the backup host. You must add the backup host's SSH key to the target {% data variables.product.prodname_enterprise %} appliance as an authorized SSH key before restoring an appliance.
 
-{% ifversion ghes > 2.22 %}
+{% ifversion ghes %}
 {% note %}
 
 **Note:** If {% data variables.product.product_location %} has {% data variables.product.prodname_actions %} enabled, you must first configure the {% data variables.product.prodname_actions %} external storage provider on the replacement appliance before running the `ghe-restore` command. For more information, see "[Backing up and restoring {% data variables.product.prodname_ghe_server %} with {% data variables.product.prodname_actions %} enabled](/admin/github-actions/backing-up-and-restoring-github-enterprise-server-with-github-actions-enabled)."
@@ -129,6 +129,10 @@ $ ghe-restore -c 169.154.1.1
 > Visit https://169.154.1.1/setup/settings to review appliance configuration.
 ```
 
+{% ifversion ip-exception-list %}
+Optionally, to validate the restore, configure an IP exception list to allow access to a specified list of IP addresses. For more information, see "[Validating changes in maintenance mode using the IP exception list](/admin/configuration/configuring-your-enterprise/enabling-and-scheduling-maintenance-mode#validating-changes-in-maintenance-mode-using-the-ip-exception-list)."
+{% endif %}
+
 {% note %}
 
 **Note:** The network settings are excluded from the backup snapshot. You must manually configure the network on the target {% data variables.product.prodname_ghe_server %} appliance as required for your environment.
@@ -136,5 +140,5 @@ $ ghe-restore -c 169.154.1.1
 {% endnote %}
 
 You can use these additional options with `ghe-restore` command:
-- The `-c` flag overwrites the settings, certificate, and license data on the target host even if it is already configured. Omit this flag if you are setting up a staging instance for testing purposes and you wish to retain the existing configuration on the target. For more information, see the "Using using backup and restore commands" section of the [{% data variables.product.prodname_enterprise_backup_utilities %} README](https://github.com/github/backup-utils#using-the-backup-and-restore-commands).
+- The `-c` flag overwrites the settings, certificate, and license data on the target host even if it is already configured. Omit this flag if you are setting up a staging instance for testing purposes and you wish to retain the existing configuration on the target. For more information, see the "Using backup and restore commands" section of the [{% data variables.product.prodname_enterprise_backup_utilities %} README](https://github.com/github/backup-utils#using-the-backup-and-restore-commands).
 - The `-s` flag allows you to select a different backup snapshot.

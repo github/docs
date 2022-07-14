@@ -5,9 +5,10 @@ redirect_from:
   - /webhooks/securing
   - /developers/webhooks-and-events/securing-your-webhooks
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Webhooks
 ---
@@ -16,7 +17,7 @@ Una vez que tu servidor se configure para recibir cargas útiles, éste escuchar
 
 {% data reusables.webhooks.webhooks-rest-api-links %}
 
-### Configurar tu token secreto
+## Configurar tu token secreto
 
 Necesitarás configurar tu token secreto en dos lugares: GitHub y tu servidor.
 
@@ -34,11 +35,11 @@ $ export SECRET_TOKEN=<em>your_token</em>
 
 ¡**Jamás** preprogrames el token en tu app!
 
-### Validar cargas útiles de GitHub
+## Validar cargas útiles de GitHub
 
-Cuando se configura tu token secreto, {% data variables.product.product_name %} lo utiliza para crear una firma de hash con cada carga útil. Esta firma de hash se incluye con los encabezados de cada solicitud como una {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}`X-Hub-Signature-256`{% elsif currentVersion ver_lt "enterprise-server@2.23" %}`X-Hub-Signature`{% endif %}.
+Cuando se configura tu token secreto, {% data variables.product.product_name %} lo utiliza para crear una firma de hash con cada carga útil. Esta firma de hash se incluye con los encabezados de cada solicitud como `X-Hub-Signature-256`.
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+{% ifversion fpt or ghes or ghec %}
 {% note %}
 
 **Nota:** Para tener compatibilidad en versiones anteriores, también incluimos el encabezado `X-Hub-Signature` que se genera utilizando la función de hash SHA-1. De ser posible, te recomendamos que utilices el encabezado de `X-Hub-Signature-256` para mejorar la seguridad. El ejemplo siguiente demuestra cómo utilizar el encabezado `X-Hub-Signature-256`.
@@ -70,15 +71,10 @@ post '/payload' do
   "I got some JSON: #{push.inspect}"
 end
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
 def verify_signature(payload_body)
   signature = 'sha256=' + OpenSSL::HMAC.hexdigest(OpenSSL::Digest.new('sha256'), ENV['SECRET_TOKEN'], payload_body)
   return halt 500, "Signatures didn't match!" unless Rack::Utils.secure_compare(signature, request.env['HTTP_X_HUB_SIGNATURE_256'])
-end{% elsif currentVersion ver_lt "enterprise-server@2.23" %}
-def verify_signature(payload_body)
-  signature = 'sha1=' + OpenSSL::HMAC.hexdigest(OpenSSL::Digest.new('sha1'), ENV['SECRET_TOKEN'], payload_body)
-  return halt 500, "Signatures didn't match!" unless Rack::Utils.secure_compare(signature, request.env['HTTP_X_HUB_SIGNATURE'])
-end{% endif %}
+end
 ```
 
 {% note %}
@@ -89,8 +85,8 @@ end{% endif %}
 
 Tus implementaciones de lenguaje y de servidor pueden diferir de esta muestra de código. Sin embargo, hay varias cosas muy importantes que destacar:
 
-* Sin importar qué implementación utilices, la firma de hash comienza con {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or "github-ae@latest" %}`sha256=`{% elsif currentVersion ver_lt "enterprise-server@2.23" %}`sha1=`{% endif %}, utilizando la llave de tu token secreto y el cuerpo de tu carga útil.
+* Sin importar qué implementación utilices, la firma de hash comenzará con `sha256=`, utilizando la llave de tu token secreto y el cuerpo de tu carga útil.
 
 * **No se recomienda** utilizar un simple operador de `==`. Un método como el de [`secure_compare`][secure_compare] lleva a cabo una secuencia de comparación de "tiempo constante" que ayuda a mitigar algunos ataques de temporalidad en contra de las operaciones de igualdad habituales.
 
-[secure_compare]: https://rubydoc.info/github/rack/rack/master/Rack/Utils:secure_compare
+[secure_compare]: https://rubydoc.info/github/rack/rack/main/Rack/Utils:secure_compare

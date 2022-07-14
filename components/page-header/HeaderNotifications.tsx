@@ -21,15 +21,9 @@ type Notif = {
 export const HeaderNotifications = () => {
   const router = useRouter()
   const { currentVersion } = useVersion()
-  const {
-    relativePath,
-    allVersions,
-    data,
-    currentLanguage,
-    userLanguage,
-    currentPathWithoutLanguage,
-  } = useMainContext()
-  const { languages } = useLanguages()
+  const { relativePath, allVersions, data, currentPathWithoutLanguage, page } = useMainContext()
+  const { languages, userLanguage } = useLanguages()
+
   const { t } = useTranslation('header')
 
   const translationNotices: Array<Notif> = []
@@ -39,12 +33,12 @@ export const HeaderNotifications = () => {
         type: NotificationType.TRANSLATION,
         content: data.reusables.policies.translation,
       })
-    } else if (languages[currentLanguage].wip !== true) {
+    } else if (router.locale && languages[router.locale].wip !== true) {
       translationNotices.push({
         type: NotificationType.TRANSLATION,
         content: t('notices.localization_complete'),
       })
-    } else if (languages[currentLanguage].wip) {
+    } else if (router.locale && languages[router.locale].wip) {
       translationNotices.push({
         type: NotificationType.TRANSLATION,
         content: t('notices.localization_in_progress'),
@@ -75,7 +69,7 @@ export const HeaderNotifications = () => {
     ...translationNotices,
     ...releaseNotices,
     // ONEOFF EARLY ACCESS NOTICE
-    (relativePath || '').includes('early-access/')
+    (relativePath || '').includes('early-access/') && !page.noEarlyAccessBanner
       ? {
           type: NotificationType.EARLY_ACCESS,
           content: t('notices.early_access'),
@@ -93,12 +87,13 @@ export const HeaderNotifications = () => {
             data-testid="header-notification"
             data-type={type}
             className={cx(
+              'flash flash-banner',
               styles.container,
-              'text-center f5 color-text-primary py-4 px-6',
-              type === NotificationType.TRANSLATION && 'color-bg-info',
-              type === NotificationType.RELEASE && 'color-bg-info',
+              'text-center f5 color-fg-default py-4 px-6',
+              type === NotificationType.TRANSLATION && 'color-bg-accent',
+              type === NotificationType.RELEASE && 'color-bg-accent',
               type === NotificationType.EARLY_ACCESS && 'color-bg-danger',
-              !isLast && 'border-bottom color-border-tertiary'
+              !isLast && 'border-bottom color-border-default'
             )}
             dangerouslySetInnerHTML={{ __html: content }}
           />

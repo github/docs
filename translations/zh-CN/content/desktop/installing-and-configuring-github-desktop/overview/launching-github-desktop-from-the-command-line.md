@@ -6,7 +6,7 @@ redirect_from:
   - /desktop/getting-started-with-github-desktop/launching-github-desktop-from-the-command-line
   - /desktop/installing-and-configuring-github-desktop/launching-github-desktop-from-the-command-line
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 ---
 
 {% mac %}

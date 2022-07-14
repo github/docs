@@ -1,67 +1,71 @@
 .resultsContainer mark {
+  font-weight: bolder;
   background: none;
   color: inherit;
 }
 
-.searchResultTitle mark {
-  color: var(--color-text-link);
-}
-
-.searchResultIntro mark {
-  border-bottom: 1px solid currentColor;
-}
-
 .searchResultContent mark {
-  text-decoration: none;
-  border-bottom: 1px dotted currentColor;
+  font-weight: bolder;
 }
 
-.searchResultTitle em {
-  font-style: normal;
-  text-decoration: underline;
+.searchResultContent {
+  max-height: 4rem;
 }
 
-.resultsContainerOverlay {
-  display: none;
-  position: absolute;
-  top: 0;
-  right: 0;
+.resultsContainerHeader {
   width: 0;
-  border-radius: 3px;
-  background: var(--color-bg-primary);
-  box-shadow: 0 1px 15px rgba(0, 0, 0, 0.15);
+  border-radius: 0 0 0 4px; // primer rounded-1
   transition: width 0.3s ease-in-out;
-  padding-top: 64px;
 }
 
-.resultsContainerOpen {
-  display: block;
-}
-.resultsContainerOpen.resultsContainerOverlay {
+.resultsContainerOpen.resultsContainerHeader {
   width: 60vw;
-  max-width: 760px;
+  max-width: 48rem;
 }
 
 .searchInput {
   transition: width 0.3s ease-in-out;
 }
-.searchInputOverlay {
-  max-width: 690px;
-  width: 256px;
-}
-.searchInputExpanded {
-  width: 55vw;
-  position: absolute;
-  right: 0;
-  top: 0;
+
+.searchInputHeader {
+  width: 16rem;
 }
 
-.searchOverlayOpen {
-  background: var(--color-bg-backdrop);
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  display: block;
+.headerSearchOpen {
+  background: var(--color-primer-canvas-backdrop);
+}
+
+.searchInputExpanded {
+  width: 54vw;
+  max-width: 43rem;
+}
+
+.headerSearchResults {
+  max-height: 80vh;
+}
+
+.searchWording {
+  margin: 0.6rem 0 0.5rem 0.5rem;
+}
+
+.selectWording {
+  margin: 0.64rem 0.5rem 0 0;
+}
+
+.versionSearchContainer {
+  overflow: hidden;
+}
+
+// The value in the /cb-XXXXX prefix on the URL isn't important. It just
+// needs to be unique so the asset can be cached in the CDN beyond
+// every prod deployment.
+// Just remember to change it if you change the image.
+.searchIconBackground24 {
+  background: var(--color-canvas-default)
+    url("/assets/cb-303/images/octicons/search-24.svg") no-repeat 12px;
+}
+
+.searchIconBackground16 {
+  background: var(--color-canvas-default)
+    url("/assets/cb-262/images/octicons/search-16.svg") no-repeat 6px;
 }

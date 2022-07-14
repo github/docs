@@ -24,9 +24,9 @@ YAMLデータは`middleware/contextualizers/release-notes.js`で処理されて�
 
 ### レイアウト
 
-`context`オブジェクトのデータは、`layouts/release-notes.html`及び`includes/github-ae-release-notes.html`によってレンダリングされます。
+`context`オブジェクトデータは`components/release-notes`によってレンダリングされます。
 
-リリースノートのページは、`stylesheets/release-notes.scss`内のCSSと`javascripts/release-notes.js`内のクライアントサイド JavaScriptでカスタムデザインされています。
+このリリースノートページは、`stylesheets/release-notes.scss`のCSSでカスタムデザインされています。
 
 ### スキーマ
 

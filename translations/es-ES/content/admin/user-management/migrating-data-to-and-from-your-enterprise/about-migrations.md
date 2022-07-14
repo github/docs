@@ -6,14 +6,14 @@ redirect_from:
   - /enterprise/admin/user-management/about-migrations
   - /admin/user-management/about-migrations
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: overview
 topics:
   - Enterprise
   - Migration
 ---
 
-### Tipos de migraciones
+## Tipos de migraciones
 
 Existen tres tipos de migraciones que se pueden realizar:
 
@@ -21,11 +21,11 @@ Existen tres tipos de migraciones que se pueden realizar:
 - Una migración de una organización {% data variables.product.prodname_dotcom_the_website %} a una instancia {% data variables.product.prodname_ghe_server %}. Puedes migrar la cantidad de repositorios de la organización que desees. Antes de efectuar una migración, debes tener [ acceso administrativo ](/enterprise/user/articles/permission-levels-for-an-organization/) a la organización {% data variables.product.prodname_dotcom_the_website %}, así como acceso de administrador del sitio a la instancia de destino.
 - *Las ejecuciones de prueba *son migraciones que importan datos a una [instancia de preparación](/enterprise/admin/guides/installation/setting-up-a-staging-instance/). Estas pueden ser útiles para ver qué *sucedería* si se aplicara una migración {% data variables.product.product_location %}. **Se recomienda encarecidamente que se lleve a cabo una ejecución de prueba en una instancia de preparación antes de importar datos a la instancia de producción.**
 
-### Datos migrados
+## Datos migrados
 
 En una migración, todo gira en torno a un repositorio. La mayoría de los datos asociados con un repositorio se pueden migrar. Por ejemplo, un repositorio dentro de una organización migrará el repositorio *y* la organización, así como los usuarios, equipos, propuestas y solicitudes de extracción asociados con el repositorio.
 
-Los elementos de la tabla a continuación se pueden migrar con un repositorio. Los elementos que no se muestren en la lista de datos migrados no se pueden migrar.
+Los elementos de la tabla a continuación se pueden migrar con un repositorio. No se pueden migrar los elementos que no se muestren en la lista de datos migrados, incluyendo los activos de {% data variables.large_files.product_name_short %}.
 
 {% data reusables.enterprise_migrations.fork-persistence %}
 

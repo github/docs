@@ -3,9 +3,10 @@ title: Managing scheduled reminders for your team
 intro: You can get reminders in Slack when your team has pull requests waiting for review.
 redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/managing-scheduled-reminders-for-pull-requests
-  - /github/setting-up-and-managing-organizations-and-teams/managing-scheduled-reminders-for-your team
+  - /github/setting-up-and-managing-organizations-and-teams/managing-scheduled-reminders-for-your-team
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
@@ -22,11 +23,10 @@ Team maintainers and organization owners can set scheduled reminders for any pul
 
 ## Creating a scheduled reminder for a team
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team_settings %}
 {% data reusables.reminders.scheduled-reminders %}
-![Scheduled reminders button](/assets/images/help/teams/scheduled-reminders-teams.png)
 {% data reusables.reminders.add-reminder %}
 {% data reusables.reminders.authorize-slack %}
 {% data reusables.reminders.slack-channel %}
@@ -46,22 +46,20 @@ Team maintainers and organization owners can set scheduled reminders for any pul
 
 ## Managing a scheduled reminder for a team
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team_settings %}
 {% data reusables.reminders.scheduled-reminders %}
-![Scheduled reminders button](/assets/images/help/teams/scheduled-reminders-teams.png)
 {% data reusables.reminders.edit-existing %}
 {% data reusables.reminders.edit-page %}
 {% data reusables.reminders.update-buttons %}
 
 ## Deleting a scheduled reminder for a team
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team_settings %}
 {% data reusables.reminders.scheduled-reminders %}
-![Scheduled reminders button](/assets/images/help/teams/scheduled-reminders-teams.png)
 {% data reusables.reminders.delete %}
 
 ## Further reading

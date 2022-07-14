@@ -1,0 +1,23 @@
+---
+date: '2021-12-07'
+sections:
+  security_fixes:
+    - 特定の条件群が満たされる場合に、Support Bundleにセンシティブなファイルが含まれることがあります。
+    - 承認の際にユーザに表示される以上の権限が、GitHub Appのユーザ認証Webフローの間に付与されてしまうUIの表示ミスの脆弱性がGitHub Enterprise Serverで特定されました。この脆弱性は3.3以前のすべてのバージョンのGitHub Enterprise Serverに影響し、バージョン3.2.5、3.1.13、3.0.21で修正されました。この脆弱性はGitHub Bug Bountyプログラムを通じて報告され、[CVE-2021-41598](https://www.cve.org/CVERecord?id=CVE-2021-41598)が割り当てられました。
+    - GitHub Pagesのサイトをビルドする際に悪用されることがあるリモートコード実行の脆弱性が、GitHub Enterprise Serverで特定されました。この脆弱性は3.3以前のすべてのバージョンのGitHub Enterprise Serverに影響し、3.0.21、3.1.13、3.2.5で修正されました。この脆弱性はGitHub Bug Bountyプログラムを通じて報告され、[CVE-2021-41599]（https://www.cve.org/CVERecord?id=CVE-2021-41599）が割り当てられました。2022年2月17日更新。
+  bugs:
+    - '`ghe-config-apply`を実行すると、`/data/user/tmp/pages`における権限の問題のために失敗することがあります。'
+    - Management Consoleの設定ミスにより、スケジューリングのエラーが生じました。
+    - Dockerが、ログのローテーション後にログファイルをオープンしたまま保持します。
+    - pre-receiveフック環境において、GraphQLのリクエストがGITHUB_USER_IP変数を設定しませんでした。
+  changes:
+    - ドキュメンテーションでActionsのパススタイルの説明を明確化します。
+    - サポートの連絡先URLが現在のサポートサイトであるsupport.github.comを使うよう更新。
+  known_issues:
+    - 新しくセットアップされたユーザを持たない{% data variables.product.prodname_ghe_server %}で、攻撃者が最初の管理ユーザを作成できました。
+    - アップグレードの過程で、カスタムのファイアウォールのルールが削除されます。
+    - Git LFSが追跡するファイル[Webインターフェースからアップロードされたもの](https://github.com/blog/2105-upload-files-to-your-repositories)が、不正にリポジトリに直接追加されてしまいます。
+    - 同じリポジトリ内のファイルパスが255文字を超えるblobへのパーマリンクを含むIssueをクローズできませんでした。
+    - GitHub Connectで"Users can search GitHub.com"が有効化されている場合、GitHub.comの検索結果にプライベート及びインターナルリポジトリのIssueが含まれません。
+    - High Availability構成でレプリカノードがオフラインの場合でも、{% data variables.product.product_name %}が{% data variables.product.prodname_pages %}リクエストをオフラインのノードにルーティングし続ける場合があり、それによってユーザにとっての{% data variables.product.prodname_pages %}の可用性が下がってしまいます。
+    - pre-receive フックの処理に固有のリソース制限によって、pre-receive フックに失敗するものが生じることがあります。

@@ -6,24 +6,26 @@ redirect_from:
   - /github/managing-security-vulnerabilities/adding-a-security-policy-to-your-repository
   - /github/code-security/security-advisories/adding-a-security-policy-to-your-repository
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=3.1'
-  github-ae: next
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Security policies
   - Vulnerabilities
   - Repositories
   - Health
+shortTitle: 添加安全策略
 ---
 
-### 关于安全政策
+## 关于安全政策
 
-要向人说明如何报告项目中的安全漏洞，{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %} 您可以将 _SECURITY.md_ 文件添加到仓库的根目录、`docs` 或 `.github` 文件夹。{% else %} 您可以将 _SECURITY.md_ 文件添加到仓库的根目录或 `docs` 文件夹。{% endif %} 当有人在您的仓库中创建议题时，他们将看到项目安全政策的链接。
+要向人说明如何报告项目中的安全漏洞，{% ifversion fpt or ghes or ghec %} 您可以将 _SECURITY.md_ 文件添加到仓库的根目录、`docs` 或 `.github` 文件夹。{% else %} 您可以将 _SECURITY.md_ 文件添加到仓库的根目录或 `docs` 文件夹。{% endif %} 当有人在您的仓库中创建议题时，他们将看到项目安全政策的链接。
 
-{% if currentVersion != 'github-ae@next' %}
+{% ifversion not ghae %}
 <!-- no public repos in GHAE -->
-您可以为组织或用户帐户创建默认的安全政策。 更多信息请参阅“[创建默认社区健康文件](/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)”。
+您可以为组织或个人帐户创建默认的安全政策。 更多信息请参阅“[创建默认社区健康文件](/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)”。
 {% endif %}
 
 {% tip %}
@@ -32,17 +34,17 @@ topics:
 
 {% endtip %}
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt or ghec %}
 当有人报告您的项目中的安全漏洞后，您可以使用 {% data variables.product.prodname_security_advisories %} 披露、修复和发布关于该漏洞的信息。 有关 {% data variables.product.prodname_dotcom %} 中报告和披露漏洞的过程的更多信息，请参阅“[关于协调披露安全漏洞](/code-security/security-advisories/about-coordinated-disclosure-of-security-vulnerabilities#about-reporting-and-disclosing-vulnerabilities-in-projects-on-github)”。 有关 {% data variables.product.prodname_security_advisories %} 的更多信息，请参阅“[关于 {% data variables.product.prodname_security_advisories %}](/github/managing-security-vulnerabilities/about-github-security-advisories)”。
 
 {% data reusables.repositories.github-security-lab %}
 {% endif %}
-{% if currentVersion ver_gt "enterprise-server@3.0" or currentVersion == 'github-ae@next' %}
+{% ifversion ghes or ghae %}
 <!-- alternative to the content about GitHub Security Advisories in the dotcom article -->
 通过创建明确的安全报告说明，用户可以轻松地使用您喜欢的通信通道报告仓库中发现的任何安全漏洞。
 {% endif %}
 
-### 添加安全政策到仓库
+## 添加安全政策到仓库
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-security %}
@@ -54,8 +56,8 @@ topics:
 {% data reusables.files.choose_commit_branch %}
 {% data reusables.files.propose_file_change %}
 
-### 延伸阅读
+## 延伸阅读
 
-- "[保护您的仓库](/code-security/getting-started/securing-your-repository)"{% if currentVersion != 'github-ae@next' %}
-- "[设置健康参与的项目](/communities/setting-up-your-project-for-healthy-contributions)"{% endif %}{% if currentVersion == "free-pro-team@latest" %}
+- "[保护您的仓库](/code-security/getting-started/securing-your-repository)"{% ifversion not ghae %}
+- "[设置健康参与的项目](/communities/setting-up-your-project-for-healthy-contributions)"{% endif %}{% ifversion fpt or ghec %}
 - [{% data variables.product.prodname_security %}]({% data variables.product.prodname_security_link %}){% endif %}

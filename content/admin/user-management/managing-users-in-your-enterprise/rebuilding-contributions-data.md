@@ -2,7 +2,7 @@
 title: Rebuilding contributions data
 intro: You may need to rebuild contributions data to link existing commits to a user account.
 redirect_from:
-  - /enterprise/admin/articles/rebuilding-contributions-data/
+  - /enterprise/admin/articles/rebuilding-contributions-data
   - /enterprise/admin/user-management/rebuilding-contributions-data
   - /admin/user-management/rebuilding-contributions-data
 versions:

@@ -2,33 +2,37 @@
 title: Instalar o GitHub Enterprise Server no OpenStack KVM
 intro: 'Para instalar o {% data variables.product.prodname_ghe_server %} no OpenStack KVM, você deve ter acesso ao OpenStack e baixar a imagem QCOW2 do {% data variables.product.prodname_ghe_server %}.'
 redirect_from:
-  - /enterprise/admin/guides/installation/installing-github-enterprise-on-openstack-kvm/
+  - /enterprise/admin/guides/installation/installing-github-enterprise-on-openstack-kvm
   - /enterprise/admin/installation/installing-github-enterprise-server-on-openstack-kvm
   - /admin/installation/installing-github-enterprise-server-on-openstack-kvm
 versions:
-  enterprise-server: '*'
+  ghes: '*'
+type: tutorial
 topics:
+  - Administrator
   - Enterprise
+  - Infrastructure
+  - Set up
+shortTitle: Instalar no OpenStack
 ---
 
-### Pré-requisitos
+## Pré-requisitos
 
 - {% data reusables.enterprise_installation.software-license %}
 - Você deve ter acesso a uma instalação do OpenStack Horizon, a interface de usuário baseada na web para os serviços do OpenStack. Para obter mais informações, consulte a [Documentação do Horizon](https://docs.openstack.org/horizon/latest/).
 
-### Considerações de hardware
+## Considerações de hardware
 
 {% data reusables.enterprise_installation.hardware-considerations-all-platforms %}
 
-### Baixar a imagem do {% data variables.product.prodname_ghe_server %}
+## Baixar a imagem do {% data variables.product.prodname_ghe_server %}
 
-{% data reusables.enterprise_installation.enterprise-download-procedural %}
 {% data reusables.enterprise_installation.download-license %}
 {% data reusables.enterprise_installation.download-appliance %}
-4. Selecione o {% data variables.product.prodname_dotcom %} On-premises e clique em **OpenStack KVM (QCOW2)**.
+4. Em "{% data variables.product.prodname_dotcom %} no local", selecione o menu suspenso "Selecione seu hipervisor" e clique em **OpenStack KVM (QCOW2)**.
 5. Clique em **Download for OpenStack KVM (QCOW2)** (Baixar para OpenStack KVM [QCOW2]).
 
-### Criar a instância do {% data variables.product.prodname_ghe_server %}
+## Criar a instância do {% data variables.product.prodname_ghe_server %}
 
 {% data reusables.enterprise_installation.create-ghe-instance %}
 
@@ -40,7 +44,7 @@ topics:
 4. Você também pode associar um IP flutuante à instância. Dependendo da sua configuração do OpenStack, talvez seja necessário alocar um IP flutuante para o projeto e associá-lo à instância. Entre em contato com o administrador do sistema para determinar se esse é o seu caso. Para obter mais informações, consulte "[Alocar endereço IP flutuante a uma instância](https://docs.openstack.org/horizon/latest/user/configure-access-and-security-for-instances.html#allocate-a-floating-ip-address-to-an-instance)" na documentação do OpenStack.
 5. Inicie a {% data variables.product.product_location %} usando a imagem, o volume de dados e o grupo de segurança criados nas etapas anteriores. Para ver as instruções, consulte "[Iniciar e gerenciar instâncias](https://docs.openstack.org/horizon/latest/user/launch-instances.html)" no guia do OpenStack.
 
-### Configurar a instância do {% data variables.product.prodname_ghe_server %}
+## Configurar a instância do {% data variables.product.prodname_ghe_server %}
 
 {% data reusables.enterprise_installation.copy-the-vm-public-dns-name %}
 {% data reusables.enterprise_installation.upload-a-license-file %}
@@ -48,7 +52,7 @@ topics:
 {% data reusables.enterprise_installation.instance-will-restart-automatically %}
 {% data reusables.enterprise_installation.visit-your-instance %}
 
-### Leia mais
+## Leia mais
 
-- "[Visão geral do sistema](/enterprise/admin/guides/installation/system-overview){% if currentVersion ver_gt "enterprise-server@2.22" %}
+- "[Visão geral do sistema](/enterprise/admin/guides/installation/system-overview){% ifversion ghes %}
 - "[Sobre atualizações para novas versões](/admin/overview/about-upgrades-to-new-releases)"{% endif %}

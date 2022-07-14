@@ -1,0 +1,28 @@
+---
+date: '2021-12-07'
+sections:
+  security_fixes:
+    - Os pacotes de apoio podem incluir ficheiros sensíveis, caso satisfaçam um conjunto específico de condições.
+    - Uma vulnerabilidade incorreta da UI foi identificada no GitHub Enterprise Server que permitiu que mais permissões fossem concedidas durante o fluxo da web de autorização de usuário do aplicativo GitHub do que foram exibidas para o usuário durante a aprovação. Esta vulnerabilidade afetou todas as versões do GitHub Enterprise Server antes da versão 3.3 e foi corrigida nas versões 3.2.5, 3.1.13, 3.0.21. Esta vulnerabilidade foi informada por meio do programa de Compensação de Erros do GitHub e recebeu [CVE-2021-41598](https://www.cve.org/CVERecord?id=CVE-2021-41598).
+    - Uma vulnerabilidade de execução de código remoto foi identificada no GitHub Enterprise Server que pode ser explorada ao criar um site do GitHub Pages. Esta vulnerabilidade afetou todas as versões do GitHub Enterprise Server antes de 3.3 e foi corrigida nas versões 3.0.21, 3.1.13 e 3.2.5. Esta vulnerabilidade foi informada no programa de Compensação de Erro do GitHub e recebeu um [CVE-2021-41599](https://www. ve.org/CVERecord?id=CVE-2021-41599). Atualizado em 17 de fevereiro 2022.
+  bugs:
+    - Em alguns casos quando o Ações não foi habilitado, o `ghe-support-bundle` informou uma mensagem inesperada `Unable to find MS SQL container.`
+    - Às vezes pode ocorrer uma falha ao executar `ghe-config-apply` devido a problemas de permissão em `/data/user/tmp/pages`.
+    - Uma configuração incorreta no Console de gerenciamento gerou erros de agendamento.
+    - Os arquivos de registro do Docker manteriam abertos após a rotação de um registro.
+    - As migrações podem ficar presas devido à manipulação incorreta de valores `blob_path` que não são compatíveis com UTF-8.
+    - As solicitações do GraphQL não definiram a variável GITHUB_USER_IP em ambientes de hook pre-receive.
+    - Os links de paginação nos logs de auditoria de org não continuariam com os parâmetros de consulta.
+    - Durante um hotpatch, foi possível duplicar hashes se uma transição correu mais de uma vez.
+  changes:
+    - Detalha a explicação do estilo caminho do Ação na documentação do caminho-estilo.
+    - Atualiza as URLs de contato para usar o site support.github.com de suporte atual.
+    - Solução de problemas adicional fornecida ao executar `ghe-mssql-diagnostic`.
+  known_issues:
+    - Em uma nova configuração de {% data variables.product.prodname_ghe_server %} sem qualquer usuário, um invasor pode criar o primeiro usuário administrador.
+    - As regras de firewall personalizadas são removidas durante o processo de atualização.
+    - Arquivos LFS do Git [enviados através da interface web](https://github.com/blog/2105-upload-files-to-your-repositories) são adicionados diretamente ao repositório e de forma incorreta.
+    - Os problemas não podem ser fechados se contiverem um permalink para um blob no mesmo repositório, onde o caminho do arquivo blob's é maior que 255 caracteres.
+    - Quando "Usuários podem pesquisar pelo GitHub.com" está habilitado com o GitHub Connect, os problemas em repositórios privados e internos não estão incluídos nos resultados de pesquisa do GitHub.com.
+    - O registro npm de {% data variables.product.prodname_registry %} não retorna mais o valor de tempo em respostas de metadados. Isso foi feito para permitir melhorias substanciais de desempenho. Continuamos a ter todos os dados necessários para devolver um valor de tempo como parte da resposta aos metadados e retomaremos o retorno desse valor no futuro, assim que tivermos resolvido os problemas de desempenho existentes.
+    - Os limites de recursos que são específicos para processamento de hooks pre-receive podem causar falha em alguns hooks pre-receive.

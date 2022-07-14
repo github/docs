@@ -2,25 +2,27 @@
 title: 为上架产品设置定价计划
 intro: '在 {% data variables.product.prodname_marketplace %} 中上架应用程序时，您可以选择免费提供或有偿出售您的应用程序。 如果打算出售应用程序，您可以为不同的功能等级创建不同的定价计划。'
 redirect_from:
-  - /apps/adding-integrations/managing-pricing-and-payments-for-a-github-marketplace-listing/setting-a-github-marketplace-listing-s-pricing-plan/
-  - /apps/marketplace/managing-pricing-and-payments-for-a-github-marketplace-listing/setting-a-github-marketplace-listing-s-pricing-plan/
-  - /apps/marketplace/pricing-payments-and-free-trials/setting-a-github-marketplace-listing-s-pricing-plan/
-  - /apps/adding-integrations/managing-pricing-and-payments-for-a-github-marketplace-listing/about-github-marketplace-pricing-plans/
-  - /apps/marketplace/managing-pricing-and-payments-for-a-github-marketplace-listing/about-github-marketplace-pricing-plans/
-  - /apps/marketplace/pricing-payments-and-free-trials/about-github-marketplace-pricing-plans/
-  - /apps/adding-integrations/managing-pricing-and-payments-for-a-github-marketplace-listing/changing-a-github-marketplace-listing-s-pricing-plan/
-  - /apps/marketplace/managing-pricing-and-payments-for-a-github-marketplace-listing/changing-a-github-marketplace-listing-s-pricing-plan/
-  - /apps/marketplace/managing-github-marketplace-listings/changing-a-github-marketplace-listing-s-pricing-plan/
-  - /apps/marketplace/listing-on-github-marketplace/setting-a-github-marketplace-listing-s-pricing-plan/
+  - /apps/adding-integrations/managing-pricing-and-payments-for-a-github-marketplace-listing/setting-a-github-marketplace-listing-s-pricing-plan
+  - /apps/marketplace/managing-pricing-and-payments-for-a-github-marketplace-listing/setting-a-github-marketplace-listing-s-pricing-plan
+  - /apps/marketplace/pricing-payments-and-free-trials/setting-a-github-marketplace-listing-s-pricing-plan
+  - /apps/adding-integrations/managing-pricing-and-payments-for-a-github-marketplace-listing/about-github-marketplace-pricing-plans
+  - /apps/marketplace/managing-pricing-and-payments-for-a-github-marketplace-listing/about-github-marketplace-pricing-plans
+  - /apps/marketplace/pricing-payments-and-free-trials/about-github-marketplace-pricing-plans
+  - /apps/adding-integrations/managing-pricing-and-payments-for-a-github-marketplace-listing/changing-a-github-marketplace-listing-s-pricing-plan
+  - /apps/marketplace/managing-pricing-and-payments-for-a-github-marketplace-listing/changing-a-github-marketplace-listing-s-pricing-plan
+  - /apps/marketplace/managing-github-marketplace-listings/changing-a-github-marketplace-listing-s-pricing-plan
+  - /apps/marketplace/listing-on-github-marketplace/setting-a-github-marketplace-listing-s-pricing-plan
   - /marketplace/listing-on-github-marketplace/setting-a-github-marketplace-listing-s-pricing-plan
   - /developers/github-marketplace/setting-pricing-plans-for-your-listing
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 topics:
   - Marketplace
+shortTitle: 设置上市定价计划
 ---
 
-### 关于设置定价计划
+## 关于设置定价计划
 
 {% data variables.product.prodname_marketplace %} 提供几种不同类型的定价计划。 更多信息请参阅“[{% data variables.product.prodname_marketplace %} 的定价计划](/developers/github-marketplace/pricing-plans-for-github-marketplace-apps)”。
 
@@ -32,13 +34,13 @@ topics:
 
 如果您的应用已经在付费计划中发布，但您不是验证的发布者，则您可以发布新的付费计划，直到您成为验证的发布者。 有关成为验证的发布者的更多信息，请参阅“[为组织申请发布者验证](/developers/github-marketplace/applying-for-publisher-verification-for-your-organization)”。
 
-### 关于保存定价计划
+## 关于保存定价计划
 
 您可以将定价计划保存为草稿或已发布状态。 如果尚未提交 {% data variables.product.prodname_marketplace %} 上架信息以供审批，则已发布的计划与计划草案的运作方式相同，直到您的上架信息得到批准并显示在 {% data variables.product.prodname_marketplace %} 上。 计划草案允许您创建和保存新的定价计划，而无需在您的 {% data variables.product.prodname_marketplace %} 上架页面上提供它们。 一旦您在已发布的上架信息中发布定价计划，它就可以立即供客户购买。 您最多可以发布 10 个定价计划。
 
 有关向客户计费的指南，请参阅“[向客户计费](/developers/github-marketplace/billing-customers)”。
 
-### 创建定价计划
+## 创建定价计划
 
 要为 {% data variables.product.prodname_marketplace %} 上架信息创建定价计划，请在 [{% data variables.product.prodname_marketplace %} 上架页面](https://github.com/marketplace/manage)的左边栏中单击 **Plans and pricing（计划和定价）**。 更多信息请参阅“[创建 {% data variables.product.prodname_marketplace %} 上架信息草稿](/marketplace/listing-on-github-marketplace/creating-a-draft-github-marketplace-listing/)”。
 
@@ -63,7 +65,7 @@ topics:
 
 {% data reusables.marketplace.free-plan-note %}
 
-### 创建 {% data variables.product.prodname_marketplace %} 上架产品的定价计划
+## 创建 {% data variables.product.prodname_marketplace %} 上架产品的定价计划
 
 如果不再需要 {% data variables.product.prodname_marketplace %} 上架产品的定价计划，或者需要调整定价细节，您可以删除它。
 

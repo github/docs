@@ -6,14 +6,16 @@ redirect_from:
   - /articles/securing-your-github-pages-site-with-https
   - /github/working-with-github-pages/securing-your-github-pages-site-with-https
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 topics:
   - Pages
+shortTitle: HTTPSでのサイトの保護
 ---
 
 リポジトリの管理者権限があるユーザは、{% data variables.product.prodname_pages %} サイトに強制的に HTTPS を指定できます。
 
-### HTTPS と {% data variables.product.prodname_pages %} について
+## HTTPS と {% data variables.product.prodname_pages %} について
 
 カスタムドメインが正しく設定されたサイトを含めたすべての {% data variables.product.prodname_pages %} サイトは、HTTPS や HTTPS 強制をサポートします。 カスタムドメインの詳細は、「[カスタムドメインと {% data variables.product.prodname_pages %} について](/articles/about-custom-domains-and-github-pages)」と「[カスタムドメインと {% data variables.product.prodname_pages %} のトラブルシューティング](/articles/troubleshooting-custom-domains-and-github-pages#https-errors)」を参照してください。
 
@@ -21,14 +23,26 @@ topics:
 
 {% data reusables.pages.private_pages_are_public_warning %}
 
-### あなたの {% data variables.product.prodname_pages %} サイトに HTTPS を強制する
+{% note %}
+
+**ノート:** RFC3280は、コモンネームの最大長は64文字でなければならないとしています。 したがって、証明書が正常に作成されるようにするには、{% data variables.product.prodname_pages %}サイトのドメイン名全体の長さは64文字未満でなければなりません。
+
+{% endnote %}
+
+## あなたの {% data variables.product.prodname_pages %} サイトに HTTPS を強制する
 
 {% data reusables.pages.navigate-site-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.pages.sidebar-pages %}
 3. [{% data variables.product.prodname_pages %}] で、[**Enforce HTTPS**] を選択します。 ![[Enforce HTTPS] チェックボックス](/assets/images/help/pages/enforce-https-checkbox.png)
 
-### 混在したコンテンツの問題を解決する
+## 証明書プロビジョニングのトラブルシューティング（"Certificate not yet created" error"）
+
+Pagesの設定でカスタムドメインを設定もしくは変更した場合、自動DNSチェックが開始されます。 このチェックは、DNS設定が{% data variables.product.prodname_dotcom %}による自動的な証明書の取得を許可するように設定されているかを判断します。 このチェックに成功すると、{% data variables.product.prodname_dotcom %}は[Let's Encrypt](https://letsencrypt.org/)にTLS証明書をリクエストするジョブをキューイングします。 有効な証明書を受信すると、{% data variables.product.prodname_dotcom %}は自動的にそれをPagesのTLSターミネーションを処理するサーバーにアップロードします。 このプロセスが正常に終了すると、カスタムドメイン名の横にチェックマークが表示されます。
+
+このプロセスには多少の時間がかかることがあります。 **Save（保存）**をクリックしてから数分経ってもこのプロセスが終了しないなら、カスタムドメイン名の隣にある**Remove（削除）**をクリックしてみてください。 ドメイン名を再入力し、**Save（保存）**をもう一度クリックしてください。 これでプロビジョニングのプロセスがキャンセルされ、再起動されます。
+
+## 混在したコンテンツの問題を解決する
 
 {% data variables.product.prodname_pages %} サイトの HTTPS を有効化したが、サイトの HTML がまだ HTTP 経由で画像、CSS、JavaScript を参照している場合、サイトは*混在したコンテンツ*を提供する場合があります。 混在したコンテンツを提供することで、サイトのセキュリティが下がり、アセットの読み込みに問題が生じる場合があります。
 
@@ -46,10 +60,10 @@ topics:
 
 {% endtip %}
 
-#### HTML ファイルで参照されているアセットの例
+### HTML ファイルで参照されているアセットの例
 
 |  アセットのタイプ  |                                                       HTTP                                                       |                                                       HTTPS                                                        |
 |:----------:|:----------------------------------------------------------------------------------------------------------------:|:------------------------------------------------------------------------------------------------------------------:|
 |    CSS     |                      `<link rel="stylesheet" href="http://example.com/css/main.css">`                      |                      `<link rel="stylesheet" href="https://example.com/css/main.css">`                       |
 | JavaScript |            `<script type="text/javascript" src="http://example.com/js/main.js"></script>`            |            `<script type="text/javascript" src="https://example.com/js/main.js"></script>`             |
-|     画像     | `<A HREF="http://www.somesite.com"><IMG SRC="http://www.example.com/logo.jpg" alt="Logo"></a>` | `<A HREF="https://www.somesite.com"><IMG SRC="https://www.example.com/logo.jpg" alt="Logo"></a>` |  
+|     画像     | `<a href="http://www.somesite.com"><img src="http://www.example.com/logo.jpg" alt="Logo"></a>` | `<a href="https://www.somesite.com"><img src="https://www.example.com/logo.jpg" alt="Logo"></a>` |  

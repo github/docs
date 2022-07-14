@@ -1,30 +1,18 @@
 ---
 title: Pontos de extremidade disponíveis para aplicativos GitHub
 intro: O seu aplicativo pode fazer pedidos para os seguintes pontos de extremidade de REST.
+permissions: 'You must use an installation access token to access endpoints using your {% data variables.product.prodname_github_app %}. For more information, see "[Authenticating with {% data variables.product.prodname_github_apps %}](/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-an-installation)."'
 redirect_from:
   - /v3/apps/available-endpoints
   - /rest/reference/endpoints-available-for-github-apps
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - API
+shortTitle: Pontos de extremidade habilitados pelo aplicativo GitHub
 ---
 
-Você deve usar um token de acesso da instalação para acessar os pontos de extremidade usando seu {% data variables.product.prodname_github_app %}. Para obter mais informações, consulte "[Efetuando a autenticação com o {% data variables.product.prodname_github_apps %}](/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-an-installation)".
-
-{% for thing in rest.operationsEnabledForGitHubApps[currentVersion] %}
-{% assign category = thing[0] %}
-{% assign operations = thing[1] %}
-{% if operations.size > 0 %}
-  <h3 id="{{category}}">
-    <a href="#{{category}}">{{ category }}</a>
-  </h3>  
-  <ul>
-  {% for operation in operations %}
-  <li><a href="/{{currentLanguage}}/rest/reference/{{operation.category}}#{{operation.slug}}"><code><span style="text-transform: uppercase">{{operation.verb}}</span> {{operation.requestPath}}</code></a></li>
-  {% endfor %}
-  </ul>
-{% endif %}
-{% endfor %}
+**O conteúdo desta página é processado como um componente da página do NextJS.**

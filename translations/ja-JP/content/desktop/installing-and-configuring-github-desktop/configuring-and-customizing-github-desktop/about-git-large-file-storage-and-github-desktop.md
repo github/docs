@@ -1,20 +1,19 @@
 ---
-title: GitLarge File Storage および GitHub Desktop について
-shortTitle: Git LFS について
-intro: '{% data variables.product.prodname_desktop %} には、大きなファイルを管理するための {% data variables.large_files.product_name_long %} が含まれています。'
+title: About Git Large File Storage and GitHub Desktop
+shortTitle: About Git LFS
+intro: '{% data variables.product.prodname_desktop %} includes {% data variables.large_files.product_name_long %} for managing large files.'
 redirect_from:
   - /desktop/getting-started-with-github-desktop/about-git-large-file-storage-and-github-desktop
   - /desktop/installing-and-configuring-github-desktop/about-git-large-file-storage-and-github-desktop
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 ---
+When you install {% data variables.product.prodname_desktop %}, {% data variables.large_files.product_name_long %} ({% data variables.large_files.product_name_short %}) is installed, too. {% data variables.large_files.product_name_short %} lets you push files to {% data variables.product.prodname_dotcom %} that exceed the normal limit of {% data variables.large_files.max_github_size %}. For more information about {% data variables.large_files.product_name_short %}, see "[About {% data variables.large_files.product_name_long %}](/github/managing-large-files/about-git-large-file-storage)."
 
-{% data variables.product.prodname_desktop %} をインストールすると、{% data variables.large_files.product_name_long %}（{% data variables.large_files.product_name_short %}）もインストールされます。 {% data variables.large_files.product_name_short %} では、通常の制限の {% data variables.large_files.max_github_size %} を超えるファイルを {% data variables.product.prodname_dotcom %} にプッシュできます。 {% data variables.large_files.product_name_short %} の詳細については、「[{% data variables.large_files.product_name_long %} について](/github/managing-large-files/about-git-large-file-storage)」を参照してください。
+To use {% data variables.large_files.product_name_short %} with {% data variables.product.prodname_desktop %}, you must configure {% data variables.large_files.product_name_short %} using the command line. For more information, see "[Configuring {% data variables.large_files.product_name_long %}](/github/managing-large-files/configuring-git-large-file-storage)."
 
-{% data variables.large_files.product_name_short %} を {% data variables.product.prodname_desktop %}で使用するには、コマンドラインを使用して {% data variables.large_files.product_name_short %} を設定する必要があります。 詳しい情報については、「[{% data variables.large_files.product_name_long %} を設定する](/github/managing-large-files/configuring-git-large-file-storage)」を参照してください。
+After you configure {% data variables.large_files.product_name_short %} to track files in a repository, you can seamlessly access and manage large files with {% data variables.product.prodname_desktop %} like any other file in the repository.
 
-リポジトリ内のファイルを追跡するように {% data variables.large_files.product_name_short %} を設定すると、リポジトリ内の他のファイルと同様に、{% data variables.product.prodname_desktop %} を使用して大きなファイルにシームレスにアクセスして管理できます。
-
-### 参考リンク
-- 「[大きなファイルを扱う](/github/managing-large-files/working-with-large-files)」
-- 「[大きなファイルのバージョン付け](/github/managing-large-files/versioning-large-files)」
+## Further reading
+- "[Working with large files](/github/managing-large-files/working-with-large-files)"
+- "[Versioning large files](/github/managing-large-files/versioning-large-files)"

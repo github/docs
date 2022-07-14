@@ -1,0 +1,1 @@
+Puedes conectarte a tu codespace directamente desde {% data variables.product.prodname_vscode_shortname %}. Para obtener más información, consulta la sección "[Utilizar codespaces en {% data variables.product.prodname_vscode_shortname %}](/github/developing-online-with-codespaces/using-codespaces-in-visual-studio-code)".

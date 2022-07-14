@@ -1,35 +1,34 @@
-- [最低要求](#minimum-requirements){% if currentversion == "enterprise-server@2.22" %}
-- [{% data variables.product.prodname_ghe_server %} 2.22 中的测试功能](#beta-features-in-github-enterprise-server-222){% endif %}
-- [存储器](#storage)
-- [CPU 和内存](#cpu-and-memory)
+- [Minimum requirements](#minimum-requirements)
+- [Storage](#storage)
+- [CPU and memory](#cpu-and-memory)
 
-#### 最低要求
+### Minimum requirements
 
-建议根据 {% data variables.product.product_location %} 的用户许可数选择不同的硬件配置。 如果预配的资源超过最低要求，您的实例将表现出更好的性能和扩展。
+We recommend different hardware configurations depending on the number of user licenses for {% data variables.product.product_location %}. If you provision more resources than the minimum requirements, your instance will perform and scale better.
 
 {% data reusables.enterprise_installation.hardware-rec-table %}
 
-#### 存储器
+### Storage
 
-我们建议为 {% data variables.product.prodname_ghe_server %} 配置具有高每秒输入/输出操作数 (IOPS) 和低延迟的高性能 SSD。 工作负载是 I/O 密集型的。 如果使用裸机管理程序，建议直接连接磁盘或使用存储区域网络 (SAN) 中的磁盘。
+We recommend a high-performance SSD with high input/output operations per second (IOPS) and low latency for {% data variables.product.prodname_ghe_server %}. Workloads are I/O intensive. If you use a bare metal hypervisor, we recommend directly attaching the disk or using a disk from a storage area network (SAN).
 
-您的实例需要一个独立于根磁盘的持久数据磁盘。 更多信息请参阅“[系统概述](/enterprise/admin/guides/installation/system-overview)”。
+Your instance requires a persistent data disk separate from the root disk. For more information, see "[System overview](/enterprise/admin/guides/installation/system-overview)."
 
-{% if currentVersion ver_gt "enterprise-server@2.21" %}
+{% ifversion ghes %}
 
-要配置{% if currentVersion == "enterprise-server@2.22" %} {% endif %}{% data variables.product.prodname_actions %}测试版，您必须提供外部 Blob 存储。 更多信息请参阅“[{% data variables.product.prodname_ghe_server %} 的 {% data variables.product.prodname_actions %} 使用入门](/admin/github-actions/getting-started-with-github-actions-for-github-enterprise-server##external-storage-requirements)”。
+To configure {% data variables.product.prodname_actions %}, you must provide external blob storage. For more information, see "[Getting started with {% data variables.product.prodname_actions %} for {% data variables.product.prodname_ghe_server %}](/admin/github-actions/getting-started-with-github-actions-for-github-enterprise-server##external-storage-requirements)."
 
 {% endif %}
 
-您可以通过构建一个新实例或使用现有实例来调整实例的根磁盘大小。 更多信息请参阅“[增加存储容量](/enterprise/{{ currentVersion }}/admin/guides/installation/increasing-storage-capacity)”。
+The available space on the root filesystem will be 50% of the total disk size. You can resize your instance's root disk by building a new instance or using an existing instance. For more information, see "[System overview](/enterprise/admin/guides/installation/system-overview#storage-architecture)" and "[Increasing storage capacity](/enterprise/admin/guides/installation/increasing-storage-capacity)."
 
-#### CPU 和内存
+### CPU and memory
 
-{% data variables.product.prodname_ghe_server %} 需要的 CPU 和内存资源取决于用户的活动水平、自动化和集成。
+The CPU and memory resources that {% data variables.product.prodname_ghe_server %} requires depend on the levels of activity for users, automations, and integrations.
 
-{% if currentVersion ver_gt "enterprise-server@2.21" %}
+{% ifversion ghes %}
 
-如果您对 {% data variables.product.prodname_ghe_server %} 实例的{% if currentVersion == "enterprise-server@2.22" %}已启用{% else %}计划启用{% endif %} {% data variables.product.prodname_actions %} 测试版，可能需要为实例提供附加的 CPU 和内存资源。 更多信息请参阅“[{% data variables.product.prodname_ghe_server %} 的 {% data variables.product.prodname_actions %} 使用入门](/admin/github-actions/getting-started-with-github-actions-for-github-enterprise-server#review-hardware-considerations)”。
+If you plan to enable {% data variables.product.prodname_actions %} for the users of your {% data variables.product.prodname_ghe_server %} instance, you may need to provision additional CPU and memory resources for your instance. For more information, see "[Getting started with {% data variables.product.prodname_actions %} for {% data variables.product.prodname_ghe_server %}](/admin/github-actions/getting-started-with-github-actions-for-github-enterprise-server#review-hardware-considerations)."
 
 {% endif %}
 
@@ -37,10 +36,10 @@
 
 {% warning %}
 
-**警告：** 我们建议用户配置 web 挂钩事件来通知外部系统有关 {% data variables.product.prodname_ghe_server %} 上的活动。 自动检查更改或 _轮询_将对实例的性能和可扩展性产生不利影响。 更多信息请参阅“[关于 web 挂钩](/github/extending-github/about-webhooks)”。
+**Warning:** We recommend that users configure webhook events to notify external systems of activity on {% data variables.product.prodname_ghe_server %}. Automated checks for changes, or _polling_, will negatively impact the performance and scalability of your instance. For more information, see "[About webhooks](/github/extending-github/about-webhooks)."
 
 {% endwarning %}
 
-有关监控 {% data variables.product.prodname_ghe_server %} 容量和性能的更多信息，请参阅“[监控您的设备](/admin/enterprise-management/monitoring-your-appliance)”。
+For more information about monitoring the capacity and performance of {% data variables.product.prodname_ghe_server %}, see "[Monitoring your appliance](/admin/enterprise-management/monitoring-your-appliance)."
 
-您可以增加实例的 CPU 或内存资源。 更多信息请参阅“[增加 CPU 或内存资源](/enterprise/admin/installation/increasing-cpu-or-memory-resources)”。
+You can increase your instance's CPU or memory resources. For more information, see "[Increasing CPU or memory resources](/enterprise/admin/installation/increasing-cpu-or-memory-resources)."

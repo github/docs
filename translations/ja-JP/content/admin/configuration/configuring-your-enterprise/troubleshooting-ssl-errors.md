@@ -2,13 +2,13 @@
 title: SSLのエラーのトラブルシューティング
 intro: アプライアンスでSSLの問題が生じたなら、解決のためのアクションを取ってください。
 redirect_from:
-  - /enterprise/admin/articles/troubleshooting-ssl-errors/
-  - /enterprise/admin/categories/dns-ssl-and-subdomain-configuration/
+  - /enterprise/admin/articles/troubleshooting-ssl-errors
+  - /enterprise/admin/categories/dns-ssl-and-subdomain-configuration
   - /enterprise/admin/installation/troubleshooting-ssl-errors
   - /enterprise/admin/configuration/troubleshooting-ssl-errors
   - /admin/configuration/troubleshooting-ssl-errors
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
@@ -17,9 +17,10 @@ topics:
   - Networking
   - Security
   - Troubleshooting
+shortTitle: Troubleshoot SSL errors
 ---
 
-### 鍵ファイルからのパスフレーズの除去
+## 鍵ファイルからのパスフレーズの除去
 
 OpenSSLがインストールされたLinuxマシンを使うなら、パスフレーズを除去できます。
 
@@ -36,7 +37,7 @@ OpenSSLがインストールされたLinuxマシンを使うなら、パスフ�
 
 OpenSSL に関する詳しい情報については、[OpenSSL のドキュメンテーション](https://www.openssl.org/docs/)を参照してください。
 
-### SSL証明書あるいは鍵のPEMフォーマットへの変換
+## SSL証明書あるいは鍵のPEMフォーマットへの変換
 
 OpenSSL をインストールしている場合、`openssl` コマンドを使って鍵を PEM フォーマットに変換できます。 たとえば鍵を DER フォーマットから PEM フォーマットに変換できます。
 
@@ -46,11 +47,11 @@ $ openssl rsa -in yourdomain.der -inform DER -out yourdomain.key -outform PEM
 
 あるいは SSL Converter ツールを使って証明書を PEM フォーマットに変換することもできます。 詳しい情報については [SSL Converter ツールのドキュメンテーション](https://www.sslshopper.com/ssl-converter.html)を参照してください。
 
-### 鍵のアップロード後の反応のない環境
+## 鍵のアップロード後の反応のない環境
 
 SSL 鍵のアップロード後に {% data variables.product.product_location %} の反応がない場合、SSL 証明書のコピーを含む詳細事項と合わせて [{% data variables.product.prodname_enterprise %} Support に連絡](https://enterprise.github.com/support)してください。
 
-### 証明書の検証エラー
+## 証明書の検証エラー
 
 Web ブラウザやコマンドラインの Git などのクライアントは、SSL 証明書の正当性が検証できなければエラーメッセージを表示します。 これはしばしば自己署名証明書の場合や、クライアントが認識しない中間ルート証明書から発行された "チェーンドルート" 証明書の場合に生じます。
 
@@ -62,7 +63,7 @@ $ cat yourdomain.com.crt bundle-certificates.crt > yourdomain.combined.crt
 
 証明書バンドル (たとえば `bundle-certificates.crt`) は、証明書認証局もしくは SSL のベンダーからダウンロードできるはずです。
 
-### 自己署名もしくは信頼されない証明書認証者（CA）ルート証明書のインストール
+## 自己署名もしくは信頼されない証明書認証者（CA）ルート証明書のインストール
 
 {% data variables.product.prodname_ghe_server %} アプライアンスが、自己署名もしくは信頼されない証明書を使うネットワーク上の他のマシンとやりとりするのであれば、それらのシステムに HTTPS でアクセスできるようにするために、署名をした CA のルート証明書をシステム全体の証明書ストアにインポートしなければなりません。
 
@@ -79,3 +80,7 @@ $ cat yourdomain.com.crt bundle-certificates.crt > yourdomain.combined.crt
   ```shell
   $ ghe-ssl-ca-certificate-install -c rootCA.crt
   ```
+
+## Updating an SSL certificate
+
+You can generate a new self-signed certificate or update an existing SSL certificate for {% data variables.product.product_location %} with the `ghe-ssl-certificate-setup` command line utility. 詳しい情報については、「[コマンドラインユーティリティ](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-ssl-ca-certificate-setup)」を参照してください。

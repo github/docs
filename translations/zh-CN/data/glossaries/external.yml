@@ -7,10 +7,6 @@
   description: >-
     在命令行或 API 上执行 HTTPS 上的 Git 操作时，用来代替密码的令牌，也称为个人访问令牌。
 - 
-  term: 帐户恢复令牌
-  description: >-
-    作为帐户恢复设置一部分存储的身份验证凭据称为“异地恢复帐户”，用于存储此备份凭据。
-- 
   term: API 预览
   description: >-
     一种尝试新 API 以及在现有 API 方法成为正式 GitHub API 之前对其进行更改的方式。
@@ -158,7 +154,7 @@
   description: >-
     GitHub 上的特定活动，将会：- 添加方块到用户的贡献图："[计为贡献的活动](/articles/viewing-contributions-on-your-profile/#what-counts-as-a-contribution)" - 添加活动到用户个人资料上的时间表："[贡献活动](/articles/viewing-contributions-on-your-profile/#contribution-activity)"
 - 
-  term: 贡献者
+  term: 贡献者，参与者
   description: >-
     贡献者是指对仓库没有协作者权限但参与过项目，并且他们打开的拉取请求已合并到仓库的人员。
 - 
@@ -181,7 +177,7 @@
 - 
   term: 默认分支
   description: >-
-    仓库中新拉取请求和代码提交的基本分支。每个仓库至少有一个分支，Git 会在您初始化仓库时创建该分支。第一个分支通常称为 {% if currentVersion ver_lt "enterprise-server@3.2" %}`master`{% else %}`main`{% endif %}，并且通常是默认分支。
+    仓库中新拉取请求和代码提交的基本分支。每个仓库至少有一个分支，Git 会在您初始化仓库时创建该分支。第一个分支通常称为 {% ifversion ghes < 3.2 %}`master`{% else %}`main`{% endif %}，并且通常是默认分支。
 - 
   term: 从属者图
   description: >-
@@ -214,7 +210,7 @@
   description: 发送到用户电子邮件地址的通知。
 - 
   term: 企业帐户
-  description: 企业帐户允许您集中管理多个 {% data variables.product.prodname_dotcom_the_website %} 组织的策略和帐单。{% data reusables.gated-features.enterprise-accounts %}
+  description: 企业帐户允许您集中管理多个组织的策略和帐单。{% data reusables.gated-features.enterprise-accounts %}
 - 
   term: Explorer
   description: >-
@@ -252,7 +248,7 @@
 - 
   term: gist
   description: >-
-    Gist 是一个您可以在 GitHub 上编辑、克隆和复刻的可共享文件。您可以将 Gist 设为{% if currentVersion == "github-ae@latest" %}内部{% else %}公共{% endif %}或机密，但机密 gist 可用于具有 URL 的{% if currentVersion == "github-ae@latest" %}任何企业成员{% else %}任何人{% endif %}。
+    Gist 是一个您可以在 GitHub 上编辑、克隆和复刻的可共享文件。您可以将 Gist 设为{% ifversion ghae %}内部{% else %}公共{% endif %}或机密，但机密 gist 可用于具有 URL 的{% ifversion ghae %}任何企业成员{% else %}任何人{% endif %}。
 - 
   term: Git
   description: >-
@@ -390,11 +386,11 @@
 - 
   term: main
   description: >-
-    {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@latest" %} 默认开发分支。每当您创建 Git 仓库时，都会创建名为 `main` 的分支，它将成为活动分支。在大多数情况下，它包含本地开发内容，但这完全是就惯例而言，并不是必需的。{% else %}通常选择名称替代仓库默认分支的名称 `master`。{% endif %}
+    {% ifversion fpt or ghes > 3.1 or ghae %} 默认开发分支。每当您创建 Git 仓库时，都会创建名为 `main` 的分支，它将成为活动分支。在大多数情况下，它包含本地开发内容，但这完全是就惯例而言，并不是必需的。{% else %}通常选择名称替代仓库默认分支的名称 `master`。{% endif %}
 - 
   term: master
   description: >-
-    许多 Git 仓库中的默认分支。默认情况下，在命令行上创建新的 Git 仓库时，将创建一个名为 "master" 的分支。许多工具现在对默认分支使用替代名称。{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@latest" %} 例如，在 GitHub 上创建新仓库时，默认分支称为 "main"。{% endif %}
+    许多 Git 仓库中的默认分支。默认情况下，在命令行上创建新的 Git 仓库时，将创建一个名为 "master" 的分支。许多工具现在对默认分支使用替代名称。{% ifversion fpt or ghes > 3.1 or ghae %} 例如，在 GitHub 上创建新仓库时，默认分支称为 "main"。{% endif %}
 - 
   term: 成员图
   description: 显示仓库所有分叉的仓库图。
@@ -570,11 +566,7 @@
 - 
   term: 变基
   description: >-
-    要将一系列变更从一个分支重新应用到不同的基分支，并将分支的 HEAD 重置为结果。
-- 
-  term: 异地恢复帐户
-  description: >-
-    允许用户在无法使用双重身份验证方法或恢复代码时向其 GitHub 帐户添加额外一重安全保护。用户可以通过 Facebook 以帐户恢复令牌的形式存储其 GitHub 帐户的身份验证凭据，将其 GitHub 帐户与其 Facebook 帐户相关联。
+    要将一系列变更从一个分支重新应用到不同的基础分支，并将分支的 HEAD 重置为结果。
 - 
   term: 恢复代码
   description: 帮助您重新获取对 GitHub 帐户的访问权限的代码。
@@ -601,6 +593,10 @@
   term: 仓库
   description: >-
     仓库是 GitHub 最基本的元素，最容易被想象成项目的文件夹。一个仓库包含所有项目文件（包括文档），并且存储每个文件的修订历史记录。仓库可有多个协作者，也可以是公共仓库或私有仓库。
+- 
+  term: 存储库缓存
+  description: >-
+    GitHub Enterprise 服务器实例的存储库只读镜像，位于分布式团队和 CI 客户端附近。
 - 
   term: 仓库图
   description: 仓库数据的可视表现形式。
@@ -653,6 +649,10 @@
   term: 安全日志
   description: >-
     列出最近 50 次操作或过去 90 天内执行的操作的日志。
+- 
+  term: server-to-server request
+  description: >-
+    作为机器人的应用程序使用的 API 请求，而不受任何特定用户的影响。 例如，一个按计划运行的应用程序关闭长期不活动的议题。使用这种身份验证的应用程序不使用许可的 GitHub 帐户，如果企业的结算方案允许使用一定数量的许可证，服务器到服务器的机器人不消耗您的GitHub 许可证。 服务器到服务器请求中使用的令牌通过 [GitHub API](/rest/reference/apps#create-an-installation-access-token-for-an-app) 程序化获取。另请参阅“[user-to-server request](#user-to-server-request)”。
 - 
   term: 服务挂钩
   description: >-
@@ -714,7 +714,7 @@
   description: >-
     探索特定主题领域的仓库、查找要参与的项目以及发现特定问题的新解决方案的一种方式。
 - 
-  term: 通信图，流量图
+  term: 流量图
   description: >-
     显示仓库流量的仓库图，包括完整克隆（不是提取）、过去 14 天的访问者、推荐站点及热门内容。
 - 
@@ -736,6 +736,10 @@
 - 
   term: 用户名
   description: 用户在 GitHub 上的句柄。
+- 
+  term: 用户到服务器请求
+  description: >-
+    代表特定用户执行任务的应用程序使用的 API 请求。如果任务通过用户到服务器进行身份验证，则在 GitHub 上显示为用户通过应用程序完成的。例如，您可以选择从第三方应用程序中创建议题，应用程序将代表 GitHub 执行此操作。应用程序可以使用用户到服务器请求执行的任务范围受到应用及用户权限和访问的限制。用户到服务器请求中使用的令牌是通过 OAuth 获得的。更多信息请参阅“[识别和授权 GitHub App 的用户](/developers/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps)”。另请参阅“[服务器到服务器请求](#server-to-server-request)”。
 - 
   term: 可见团队
   description: 可被每个组织成员查看和 @提及的团队。

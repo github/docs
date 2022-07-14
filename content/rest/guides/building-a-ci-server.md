@@ -2,12 +2,13 @@
 title: Building a CI server
 intro: Build your own CI system using the Status API.
 redirect_from:
-  - /guides/building-a-ci-server/
+  - /guides/building-a-ci-server
   - /v3/guides/building-a-ci-server
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - API
 ---
@@ -110,7 +111,7 @@ setting (and updating) CI statuses. Note that at any time you update your server
 you can click **Redeliver** to send the same payload. There's no need to make a
 new pull request every time you make a change!
 
-Since we're interacting with the {% data variables.product.product_name %} API, we'll use [Octokit.rb][octokit.rb]
+Since we're interacting with the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API, we'll use [Octokit.rb][octokit.rb]
 to manage our interactions. We'll configure that client with
 [a personal access token][access token]:
 
@@ -169,7 +170,7 @@ build your own CI setup to use this example.
 You can always rely on [GitHub integrations][integrations].
 
 [deploy API]: /rest/reference/repos#deployments
-[status API]: /rest/reference/repos#statuses
+[status API]: /rest/reference/commits#commit-statuses
 [ngrok]: https://ngrok.com/
 [using ngrok]: /webhooks/configuring/#using-ngrok
 [platform samples]: https://github.com/github/platform-samples/tree/master/api/ruby/building-a-ci-server

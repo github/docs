@@ -7,6 +7,7 @@ redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-packages/about-billing-for-github-packages
 versions:
   fpt: '*'
+  ghec: '*'
 type: overview
 topics:
   - Packages
@@ -25,7 +26,9 @@ shortTitle: About billing
 
 {% endnote %}
 
-If you purchased {% data variables.product.prodname_enterprise %} through a Microsoft Enterprise Agreement, you can connect your Azure Subscription ID to your enterprise account to enable and pay for {% data variables.product.prodname_registry %} usage beyond the amounts including with your account. For more information, see "[Connecting an Azure subscription to your enterprise](/github/setting-up-and-managing-your-enterprise/connecting-an-azure-subscription-to-your-enterprise)."
+{% ifversion ghec %}
+If you purchased {% data variables.product.prodname_enterprise %} through a Microsoft Enterprise Agreement, you can connect your Azure Subscription ID to your enterprise account to enable and pay for {% data variables.product.prodname_registry %} usage beyond the amounts including with your account. For more information, see "[Connecting an Azure subscription to your enterprise](/billing/managing-billing-for-your-github-account/connecting-an-azure-subscription-to-your-enterprise)."
+{% endif %}
 
 Data transfer resets every month, while storage usage does not.
 
@@ -46,9 +49,11 @@ All data transferred out, when triggered by {% data variables.product.prodname_a
 
 Storage usage is shared with build artifacts produced by {% data variables.product.prodname_actions %} for repositories owned by your account. For more information, see "[About billing for {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions/about-billing-for-github-actions)."
 
-{% data variables.product.prodname_dotcom %} charges usage to the account that owns the repository where the package is published. If your account's usage surpasses these limits and you have set a spending limit above $0 USD, you will pay $0.25 USD per GB of storage and $0.50 USD per GB of data transfer.
+{% data variables.product.prodname_dotcom %} charges usage to the account that owns the repository where the package is published. If your account's usage surpasses these limits and you have set a spending limit above $0 USD, you will pay $0.008 USD per GB of storage per day and $0.50 USD per GB of data transfer.
 
-For example, if your organization uses {% data variables.product.prodname_team %}, allows unlimited spending, uses 150GB of storage, and has 50GB of data transfer out during a month, the organization would have overages of 148GB for storage and 40GB for data transfer for that month. The storage overage would cost $0.25 USD per GB or $37 USD. The overage for data transfer would cost $0.50 USD per GB or $20 USD.
+For example, if your organization uses {% data variables.product.prodname_team %}, allows unlimited spending, uses 150GB of storage, and has 50GB of data transfer out during a month, the organization would have overages of 148GB for storage and 40GB for data transfer for that month. The storage overage would cost $0.008 USD per GB per day or $37 USD. The overage for data transfer would cost $0.50 USD per GB or $20 USD. 
+
+{% data reusables.dotcom_billing.pricing_calculator.pricing_cal_packages %}
 
 At the end of the month, {% data variables.product.prodname_dotcom %} rounds your data transfer to the nearest GB.
 
@@ -63,7 +68,7 @@ At the end of the month, {% data variables.product.prodname_dotcom %} rounds you
 
 Your {% data variables.product.prodname_registry %} usage shares your account's existing billing date, payment method, and receipt. {% data reusables.dotcom_billing.view-all-subscriptions %}
 
-{% data reusables.user_settings.context_switcher %}
+{% data reusables.user-settings.context_switcher %}
 
 ## About spending limits
 

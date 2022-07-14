@@ -12,6 +12,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 children:
   - /about-large-files-on-github
   - /about-git-large-file-storage

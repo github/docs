@@ -5,13 +5,15 @@ redirect_from:
   - /enterprise/admin/user-management/removing-users-from-teams-and-organizations
   - /admin/user-management/removing-users-from-teams-and-organizations
 versions:
-  enterprise-server: '*'
+  ghes: '*'
+  ghae: '*'
 type: how_to
 topics:
   - Access management
   - Accounts
   - Enterprise
   - Teams
+shortTitle: 删除用户成员资格
 ---
 
 只有所有者或团队管理员可以移除组织成员。 从团队或组织中移除用户时，他们在组织仓库中的问题、拉取请求和评论都会保持原样且仍归属于用户。
@@ -22,7 +24,9 @@ topics:
 
 {% endwarning %}
 
-### 移除团队成员
+## 移除团队成员
+
+{% ifversion ghes %}
 
 {% warning %}
 
@@ -32,16 +36,18 @@ topics:
 
 {% endwarning %}
 
+{% endif %}
+
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.specific_team %}
 4. 选择您想要删除的一个或多个人员。 ![组织成员旁的复选框](/assets/images/help/teams/team-member-check-box.png)
 5. 在团队成员列表上方，使用下拉菜单，然后单击 **Remove from team（从团队中删除）**。 ![包含更改角色选项的下拉菜单](/assets/images/help/teams/bulk-edit-drop-down.png)
 
-### 从组织中移除用户
+## 从组织中移除用户
 
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.people %}
 4. 在您想要从组织中移除的用户的名称旁，单击复选框。![Remove user 复选框](/assets/images/help/organizations/Organization-remove-user.png)
 5. 在页面顶部的组织名称下，单击 **Remove from organization**。 ![从组织删除按钮](/assets/images/help/organizations/Organization-remove-from-organization-button.png)

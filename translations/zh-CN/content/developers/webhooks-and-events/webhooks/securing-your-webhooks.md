@@ -5,9 +5,10 @@ redirect_from:
   - /webhooks/securing
   - /developers/webhooks-and-events/securing-your-webhooks
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Webhooks
 ---
@@ -16,7 +17,7 @@ topics:
 
 {% data reusables.webhooks.webhooks-rest-api-links %}
 
-### 设置密钥令牌
+## 设置密钥令牌
 
 您需要在两个地方设置您的密钥令牌：GitHub 和您的服务器。
 
@@ -34,11 +35,11 @@ $ export SECRET_TOKEN=<em>your_token</em>
 
 **切勿**将令牌硬编码到您的应用程序中！
 
-### 验证来自 GitHub 的有效负载
+## 验证来自 GitHub 的有效负载
 
-设置密钥令牌后，{% data variables.product.product_name %} 使用它为每个有效负载创建一个哈希签名。 此哈希签名包含在每个请求的标头中，例如 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}`X-Hub-Signature-256`{% elsif currentVersion ver_lt "enterprise-server@2.23" %}`X-Hub-Signature`{% endif %}。
+设置密钥令牌后，{% data variables.product.product_name %} 使用它为每个有效负载创建一个哈希签名。 此哈希签名包含在每个请求的标头中，作为 `X-Hub-Signature-256`。
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+{% ifversion fpt or ghes or ghec %}
 {% note %}
 
 **注：** 为了向后兼容，我们还包括使用 SHA-1 哈希函数生成的 `X-Hub-Signature` 标头。 如果可能，我们建议您使用 `X-Hub-Signature-256` 标头以提高安全性。 下面的示例演示使用 `X-Hub-Signature-256` 标头。
@@ -70,15 +71,10 @@ post '/payload' do
   "I got some JSON: #{push.inspect}"
 end
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
 def verify_signature(payload_body)
   signature = 'sha256=' + OpenSSL::HMAC.hexdigest(OpenSSL::Digest.new('sha256'), ENV['SECRET_TOKEN'], payload_body)
   return halt 500, "Signatures didn't match!" unless Rack::Utils.secure_compare(signature, request.env['HTTP_X_HUB_SIGNATURE_256'])
-end{% elsif currentVersion ver_lt "enterprise-server@2.23" %}
-def verify_signature(payload_body)
-  signature = 'sha1=' + OpenSSL::HMAC.hexdigest(OpenSSL::Digest.new('sha1'), ENV['SECRET_TOKEN'], payload_body)
-  return halt 500, "Signatures didn't match!" unless Rack::Utils.secure_compare(signature, request.env['HTTP_X_HUB_SIGNATURE'])
-end{% endif %}
+end
 ```
 
 {% note %}
@@ -89,8 +85,8 @@ end{% endif %}
 
 您的语言和服务器实现可能与此示例代码不同。 但是，需要指出一些非常重要的事情：
 
-* 无论您使用哪种实现，哈希签名都以 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or "github-ae@latest" %}`sha256=`{% elsif currentVersion ver_lt "enterprise-server@2.23" %}`sha1=`{% endif %} 开头，使用密钥令牌和有效负载正文的键。
+* 无论您使用哪种实现方式，哈希签名都以 `sha256=`开头，使用您的秘密令牌和有效负载主体的密钥。
 
 * **不建议**使用普通的 `==` 运算符。 像 [`secure_compare`][secure_compare] 这样的方法执行“恒定时间”字符串比较，这有助于减轻针对常规相等运算符的某些定时攻击。
 
-[secure_compare]: https://rubydoc.info/github/rack/rack/master/Rack/Utils:secure_compare
+[secure_compare]: https://rubydoc.info/github/rack/rack/main/Rack/Utils:secure_compare

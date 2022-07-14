@@ -1,5 +1,5 @@
 
-1. Use the `gpg --list-secret-keys --keyid-format=long` command to list the long form of the GPG keys for which you have both a public and private key. Uma chave privada é necessária para assinar commits ou tags.
+1. Use o comando `gpg --list-secret-keys --keyid-format=long` para listar a forma longa das chaves GPG para as quais você tem uma chave pública e privada. Uma chave privada é necessária para assinar commits ou tags.
   ```shell
   $ gpg --list-secret-keys --keyid-format=long
 ```

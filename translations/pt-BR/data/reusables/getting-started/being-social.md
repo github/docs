@@ -1,0 +1,1 @@
+Cada repositório em {% data variables.product.prodname_dotcom %} pertence a uma pessoa ou organização. Você pode interagir com as pessoas, repositórios e organizações, conectando-se e seguindo-as em {% data variables.product.product_name %}. For more information, see "[Be social](/articles/be-social)."

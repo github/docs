@@ -1,4 +1,4 @@
-| Clave                  | Type        | Descripción                                                                                                   |
+| Clave                  | Tipo        | Descripción                                                                                                   |
 | ---------------------- | ----------- | ------------------------------------------------------------------------------------------------------------- |
 | `Acción`               | `secuencia` | La acción que se realizó. Puede ser tanto `added` como `removed`.                                             |
 | `repository_selection` | `secuencia` | La elección de repositorios en los cuales se encuentra la instalación. Puede ser tanto `selected` como `all`. |

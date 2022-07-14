@@ -3,16 +3,20 @@ title: プロジェクトボードへのノートの追加
 intro: タスクリマインダーとして働くノートや、プロジェクトボードに関連する情報を追加するためのノートをプロジェクトボードに追加できます。
 redirect_from:
   - /github/managing-your-work-on-github/tracking-the-progress-of-your-work-with-project-boards/adding-notes-to-a-project-board
-  - /articles/adding-notes-to-a-project/
+  - /articles/adding-notes-to-a-project
   - /articles/adding-notes-to-a-project-board
   - /github/managing-your-work-on-github/adding-notes-to-a-project-board
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
+shortTitle: ボードへのノートの追加
 ---
+
+{% data reusables.projects.project_boards_old %}
 
 {% tip %}
 
@@ -27,7 +31,7 @@ Issue、プルリクエスト、あるいは他のプロジェクトボードの
 
 ![Issue および他のプロジェクトボードのプレビューを表示しているプロジェクトボードカード](/assets/images/help/projects/note-with-summary-card.png)
 
-### プロジェクトボードへのノートの追加
+## プロジェクトボードへのノートの追加
 
 1. ノートを追加したいプロジェクトボードに移動します。
 2. ノートを追加したい列で {% octicon "plus" aria-label="The plus icon" %} をクリックします。 ![列ヘッダ内のプラスアイコン](/assets/images/help/projects/add-note-button.png)
@@ -39,7 +43,7 @@ Issue、プルリクエスト、あるいは他のプロジェクトボードの
 
   {% endtip %}
 
-### ノートの Issue への変換
+## ノートの Issue への変換
 
 ノートを作成した後に、それでは必要を十分満たせないことが分かった場合、Issue に変換できます。
 
@@ -59,14 +63,14 @@ Issue、プルリクエスト、あるいは他のプロジェクトボードの
 6. [**Convert to issue**] をクリックします。
 7. ノートは自動的に Issue に変換されます。 プロジェクトボードでは、新しい Issue のカードが以前のノートと同じ場所に置かれます。
 
-### ノートの編集と削除
+## ノートの編集と削除
 
 1. 編集あるいは削除したいノートにアクセスします。
 {% data reusables.project-management.project-note-more-options %}
 3. ノートの内容を編集したい場合には、**[Edit note]** をクリックしてください。 ![ノートの編集ボタン](/assets/images/help/projects/edit-note.png)
 4. ノートの内容を削除するには、[**Delete note**] をクリックします。 ![ノートの削除ボタン](/assets/images/help/projects/delete-note.png)
 
-### 参考リンク
+## 参考リンク
 
 - [プロジェクトボードについて](/articles/about-project-boards)
 - [プロジェクトボードの作成](/articles/creating-a-project-board)

@@ -1,0 +1,26 @@
+---
+date: '2021-10-12'
+sections:
+  security_fixes:
+    - 'Os pacotes foram atualizados para as últimas versões de segurança. {% comment %} https://github.com/github/enterprise2/pull/27034, https://github.com/github/enterprise2/pull/27010 {% endcomment %}'
+  bugs:
+    - 'É possível que os hooks pre-receive personalizados tenham falhado devido a limites de tempo de memória virtual ou CPU muito restritivos. {% comment %} https://github.com/github/enterprise2/pull/26971, https://github.com/github/enterprise2/pull/26955 {% endcomment %}'
+    - 'A tentativa de limpar todas as configurações existentes com `ghe-cleanup-settings` falhou ao reiniciar o serviço do Console de Gerenciamento. {% comment %} https://github.com/github/enterprise2/pull/26986, https://github.com/github/enterprise2/pull/26901 {% endcomment %}'
+    - 'Durante a desmontagem de replicação via `ghe-repl-teardown`, o Memcached falhou ao ser reiniciado. {% comment %} https://github.com/github/enterprise2/pull/26992, https://github.com/github/enterprise2/pull/26983 {% endcomment %},'
+    - 'Durante períodos de carga alta, os usuários receberiam códigos de status HTTP 503 quando os serviços de upstream falharam em verificações de saúde internas. {% comment %} https://github.com/github/enterprise2/pull/27081, https://github.com/github/enterprise2/pull/26999 {% endcomment %}'
+    - 'Os ambientes de hook pre-receive foram proibidos de chamar o comando cat via BusyBox no Alpine. {% comment %} https://github.com/github/enterprise2/pull/27114, https://github.com/github/enterprise2/pull/27094 {% endcomment %}'
+    - 'A senha do banco de dados externo foi conectada em texto simples. {% comment %} https://github.com/github/enterprise2/pull/27172, https://github.com/github/enterprise2/pull/26413 {% endcomment %}'
+    - 'Uma mensagem de erro `jq` incorreta pode ter sido exibida ao executar `ghe-config-apply`. {% comment %} https://github.com/github/enterprise2/pull/27203, https://github.com/github/enterprise2/pull/26784 {% endcomment %}'
+    - 'A recuperação de falhas a partir de um centro de dados de cluster primário para um centro de dados do cluster secundário foi bem-sucedida, mas, posteriormente, a recuperação de falhas do centro de dados do cluster primário não conseguiu promover os índices do Elasticsearch. {% comment %} https://github.com/github/github/pull/193180, https://github.com/github/github/pull/192447 {% endcomment %}'
+    - 'A página de administração do site para executores auto-hospedados do repositório retornou um HTTP 500. {% comment %} https://github.com/github/github/pull/194205 {% endcomment %}'
+    - 'Em alguns casos, os administradores do GitHub Enterprise que tentavam ver a página `Dormant users` recebeu a resposta `502 Bad Gateway` ou `504 Gateway Timeout`. {% comment %} https://github.com/github/github/pull/194259, https://github.com/github/github/pull/193609 {% endcomment %}'
+  changes:
+    - 'Para ter melhor efeito, exclua os registros do Webhook que caem da janela de retenção de registro do Webhook. {% comment %} https://github.com/github/enterprise2/pull/27157 {% endcomment %}'
+  known_issues:
+    - Em uma nova configuração de {% data variables.product.prodname_ghe_server %} sem qualquer usuário, um invasor pode criar o primeiro usuário administrador.
+    - As regras de firewall personalizadas são removidas durante o processo de atualização.
+    - Arquivos LFS do Git [enviados através da interface web](https://github.com/blog/2105-upload-files-to-your-repositories) são adicionados diretamente ao repositório e de forma incorreta.
+    - Os problemas não podem ser fechados se contiverem um permalink para um blob no mesmo repositório, onde o caminho do arquivo blob's é maior que 255 caracteres.
+    - Quando "Usuários podem pesquisar pelo GitHub.com" está habilitado com o GitHub Connect, os problemas em repositórios privados e internos não estão incluídos nos resultados de pesquisa do GitHub.com.
+    - Quando um nó de réplica está off-line em uma configuração de alta disponibilidade, {% data variables.product.product_name %} ainda pode encaminhar solicitações de {% data variables.product.prodname_pages %} para o nó off-line, reduzindo a disponibilidade de {% data variables.product.prodname_pages %} para os usuários.
+    - Os limites de recursos que são específicos para processamento de hooks pre-receive podem causar falha em alguns hooks pre-receive.

@@ -2,14 +2,15 @@
 title: About custom domains and GitHub Pages
 intro: '{% data variables.product.prodname_pages %} supports using custom domains, or changing the root of your site''s URL from the default, like `octocat.github.io`, to any domain you own.'
 redirect_from:
-  - /articles/about-custom-domains-for-github-pages-sites/
-  - /articles/about-supported-custom-domains/
-  - /articles/custom-domain-redirects-for-your-github-pages-site/
+  - /articles/about-custom-domains-for-github-pages-sites
+  - /articles/about-supported-custom-domains
+  - /articles/custom-domain-redirects-for-your-github-pages-site
   - /articles/about-custom-domains-and-github-pages
   - /github/working-with-github-pages/about-custom-domains-and-github-pages
 product: '{% data reusables.gated-features.pages %}'
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Pages
 shortTitle: Custom domains in GitHub Pages
@@ -27,7 +28,7 @@ shortTitle: Custom domains in GitHub Pages
 
 You can set up either or both of apex and `www` subdomain configurations for your site. For more information on apex domains, see "[Using an apex domain for your {% data variables.product.prodname_pages %} site](#using-an-apex-domain-for-your-github-pages-site)."
 
-We recommend always using a `www` subdomain, even if you also use an apex domain. When you create a new site with an apex domain, we automatically attempt to secure the `www` subdomain for use when serving your site's content. If you configure a `www` subdomain, we automatically attempt to secure the associated apex domain. For more information, see "[Managing a custom domain for your {% data variables.product.prodname_pages %} site](/articles/managing-a-custom-domain-for-your-github-pages-site)."
+We recommend always using a `www` subdomain, even if you also use an apex domain. When you create a new site with an apex domain, we automatically attempt to secure the `www` subdomain for use when serving your site's content, but you need to make the DNS changes to use the `www` subdomain. If you configure a `www` subdomain, we automatically attempt to secure the associated apex domain. For more information, see "[Managing a custom domain for your {% data variables.product.prodname_pages %} site](/articles/managing-a-custom-domain-for-your-github-pages-site)."
 
 After you configure a custom domain for a user or organization site, the custom domain will replace the `<user>.github.io` or `<organization>.github.io` portion of the URL for any project sites owned by the account that do not have a custom domain configured. For example, if the custom domain for your user site is `www.octocat.com`, and you have a project site with no custom domain configured that is published from a repository called `octo-project`, the {% data variables.product.prodname_pages %} site for that repository will be available at `www.octocat.com/octo-project`.
 
@@ -55,9 +56,9 @@ An apex domain is configured with an `A`, `ALIAS`, or `ANAME` record through you
 
 {% data reusables.pages.www-and-apex-domain-recommendation %} For more information, see "[Managing a custom domain for your {% data variables.product.prodname_pages %} site](/github/working-with-github-pages/managing-a-custom-domain-for-your-github-pages-site/#configuring-a-subdomain)."
 
-## Updating custom domains when your {% data variables.product.prodname_pages %} site is disabled
+## Securing the custom domain for your {% data variables.product.prodname_pages %} site
 
-If your {% data variables.product.prodname_pages %} site is disabled but has a custom domain set up, you should immediately update or remove your DNS records with your DNS provider to avoid the risk of a domain takeover. Having a custom domain configured with your DNS provider while your site is disabled could result in someone else hosting a site on one of your subdomains. For more information, see "[Managing a custom domain for your {% data variables.product.prodname_pages %} site](/articles/managing-a-custom-domain-for-your-github-pages-site)."  
+{% data reusables.pages.secure-your-domain %} For more information, see "[Verifying your custom domain for {% data variables.product.prodname_pages %}](/pages/configuring-a-custom-domain-for-your-github-pages-site/verifying-your-custom-domain-for-github-pages)" and "[Managing a custom domain for your {% data variables.product.prodname_pages %} site](/articles/managing-a-custom-domain-for-your-github-pages-site)."
 
 There are a couple of reasons your site might be automatically disabled.
 

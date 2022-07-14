@@ -7,17 +7,18 @@ redirect_from:
   - /articles/applying-for-a-student-developer-pack
   - /education/explore-the-benefits-of-teaching-and-learning-with-github-education/apply-for-a-student-developer-pack
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+shortTitle: Apply for a student pack
 ---
 
 {% data reusables.education.about-github-education-link %}
 
-### 要件
+## 要件
 
 {% data variables.product.prodname_student_pack %} に適格であるには、以下を満たしていなければなりません:
 - 高等学校、中等学校、大学、ホームスクールまたはそれに類似した教育機関で、学位を取得できるコースに現在在籍している
 - 学校が発行した検証可能なメールアドレスを持っているか、現在の在学状況を証明するドキュメントをアップロードしている
-- [{% data variables.product.prodname_dotcom %} のユーザアカウント](/articles/signing-up-for-a-new-github-account)を持っている
+- Have a [{% data variables.product.prodname_dotcom %} personal account](/articles/signing-up-for-a-new-github-account)
 - 最低でも 13 歳以上であること
 
 在学状況を証明する書類には、入学日が記載された学生証、授業計画、成績証明書、所属または登録を証明する書類などのコピーがあげられます。
@@ -26,13 +27,13 @@ versions:
 
 {% note %}
 
-**メモ:** アカデミック割引をアカウント間で移譲することはできません。 割引を適用したいアカウントを複数持っているなら、ユーザアカウントを[マージ](/articles/merging-multiple-user-accounts)し、もしそうしたいなら残すアカウントの[名前を変更する](/articles/changing-your-github-username)ことを検討してください。
+**メモ:** アカデミック割引をアカウント間で移譲することはできません。 If you have more than one account you want to apply the discount to, consider [merging](/articles/merging-multiple-user-accounts) your personal accounts and [renaming](/articles/changing-your-github-username) the retained account if desired.
 
 {% endnote %}
 
 {% data variables.product.prodname_student_pack %}の更新に関する詳しい情報については[期限切れと更新](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/apply-for-a-student-developer-pack/#expiration-and-renewals)を参照してください。
 
-### {% data variables.product.prodname_student_pack %} への応募
+## {% data variables.product.prodname_student_pack %} への応募
 
 {% data reusables.education.benefits-page %}
 3. [Which best describes your academic status?（学業の状況を最もよく述べているのは？）] の下で、[** Student（学生）**] を選択してください。 ![学業の状況を選択](/assets/images/help/education/academic-status-student.png)
@@ -42,13 +43,17 @@ versions:
 {% data reusables.education.plan-to-use-github %}
 {% data reusables.education.submit-application %}
 
-### 期限切れと更新
+## 期限切れと更新
 
-{% data variables.product.prodname_student_pack %}アクセスが期限切れになった場合、まだあなたが適格であれば再応募できる場合があります。ただし、弊社のパートナーからの提供されているものの中には更新できないものがあります。 弊社のパートナーから期限付きで提供されているもののほとんどは、セットアップ後に開始されます。 詳しい情報については[{% data variables.product.prodname_student_pack %}](https://education.github.com/pack)ページを参照してください。
+{% data variables.product.prodname_student_pack %}アクセスが期限切れになった場合、まだあなたが適格であれば再応募できる場合があります。ただし、弊社のパートナーからの提供されているものの中には更新できないものがあります。 弊社のパートナーから期限付きで提供されているもののほとんどは、セットアップ後に開始されます。 To reapply, simply return to https://education.github.com, click your profile picture, then click **Reverify your academic affiliation**.
+
+![Menu option to reverify your academic affiliation](/assets/images/help/education/reverify-academic-affiliation.png)
+
+詳しい情報については[{% data variables.product.prodname_student_pack %}](https://education.github.com/pack)ページを参照してください。
 
 無料の {% data variables.product.prodname_student_pack %} プランへのアクセス期限が切れる時期を知るには、アカウントの[支払い設定](https://github.com/settings/billing)にアクセスしてください。
 
-### 参考リンク
+## 参考リンク
 
 - 「[{% data variables.product.prodname_student_pack %} への応募が承認されなかった理由は？](/articles/why-wasn-t-my-application-for-a-student-developer-pack-approved)」
 - [新しい {% data variables.product.prodname_dotcom %}アカウントへのサインアップ](/articles/signing-up-for-a-new-github-account)

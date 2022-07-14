@@ -7,10 +7,6 @@
   description: >-
     Git 操作を HTTPS 経由で実行する際、Git がコマンドラインと API のいずれでも、パスワードの代わりに使用されるトークン。個人アクセストークンともいいます。
 - 
-  term: アカウントリカバリトークン
-  description: >-
-    Recover Accounts Elsewhere というアカウントリカバリセットアップの一部として格納される認証資格情報。このバックアップ資格情報を格納できるようにします。
-- 
   term: APIプレビュー
   description: >-
     新規の API や既存の API メソッドへの変更が公式 GitHub API の一部になる前に試すための方法。
@@ -177,11 +173,11 @@
 - 
   term: ダッシュボード
   description: >-
-    パーソナルダッシュボードは、GitHub上のアクティビティのメインハブです。パーソナルダッシュボードから、フォローまたは作業をしているIssueやプルリクエストを追跡したり、トップリポジトリやTeamページにアクセスしたり、Watchまたは参加しているリポジトリ内の最近のアクティビティについて学ぶことができます。また、フォローしているユーザーやStarしたリポジトリに基づいて推薦された、新しいリポジトリを発見することもできます。特定のOrganizationのアクティビティだけを見るには、Organizationのダッシュボードにアクセスしてください。詳しい情報については「[パーソナルダッシュボードについて](/articles/about-your-personal-dashboard)」もしくは「[Organizationダッシュボードについて](/articles/about-your-organization-dashboard)」を参照してください。
+    パーソナルダッシュボードは、GitHub上のアクティビティのメインハブです。パーソナルダッシュボードから、フォローまたは作業をしているIssueやプルリクエストを追跡したり、トップリポジトリやTeamページにアクセスしたり、Watchまたは参加しているリポジトリ内の最近のアクティビティについて学ぶことができます。また、フォローしているユーザーやStarしたリポジトリに基づいて推薦された、新しいリポジトリを発見することもできます。特定のOrganizationのアクティビティだけを見るには、Organizationのダッシュボードにアクセスしてください。詳しい情報については「[パーソナルダッシュボードについて(/articles/about-your-personal-dashboard)」もしくは「Organizationダッシュボードについて(/articles/about-your-organization-dashboard)」を参照してください。
 - 
   term: デフォルトブランチ
   description: >-
-    リポジトリ内の新しいPull Requestやコードのコミットのためのベースブランチ。それぞれのリポジトリは少なくとも1つのブランチを持ち、これはリポジトリを初期化したときにGitが作成します。最初のブランチは通常{% if currentVersion ver_lt "enterprise-server@3.2" %}`master`{% else %}`main`{% endif %}と呼ばれ、多くの場合デフォルトブランチです。
+    リポジトリ内の新しいPull Requestやコードのコミットのためのベースブランチ。それぞれのリポジトリは少なくとも1つのブランチを持ち、これはリポジトリを初期化したときにGitが作成します。最初のブランチは通常{% ifversion ghes < 3.2 %}`master`{% else %}`main`{% endif %}と呼ばれ、多くの場合デフォルトブランチです。
 - 
   term: 依存グラフ
   description: >-
@@ -213,8 +209,8 @@
   term: メール通知
   description: ユーザのメールアドレスに送信される通知。
 - 
-  term: enterprise account
-  description: Enterprise アカウントは、複数の {% data variables.product.prodname_dotcom_the_website %} Organization のポリシーと支払いを集中管理するために利用できます。 {% data reusables.gated-features.enterprise-accounts %}
+  term: Enterpriseアカウント
+  description: Enterpriseアカウントを利用すると、複数のOrganizationのポリシーと支払いを集中管理できます。{% data reusables.gated-features.enterprise-accounts %}
 - 
   term: Explorer
   description: >-
@@ -252,7 +248,7 @@
 - 
   term: gist
   description: >-
-    Gistは、GitHub上で編集、クローン、フォークできる共有可能なファイルです。Gistは{% if currentVersion == "github-ae@latest" %}インターナル{% else %}パブリック{% endif %}もしくはシークレットにすることができますが、シークレットのGistはURLから{% if currentVersion == "github-ae@latest" %}Enterpriseのメンバーなら誰でも{% else %}誰でも{% endif %}アクセスできます。
+    Gistは、GitHub上で編集、クローン、フォークできる共有可能なファイルです。Gistは{% ifversion ghae %}インターナル{% else %}パブリック{% endif %}もしくはシークレットにすることができますが、シークレットのGistはURLから{% ifversion ghae %}Enterpriseのメンバーなら誰でも{% else %}誰でも{% endif %}アクセスできます。
 - 
   term: Git
   description: >-
@@ -263,7 +259,7 @@
     GitHub App は、Organization 全体に対してサービスを提供し、その機能を実行する際は独自の ID を使用します。Organization や ユーザアカウントに直接インストールでき、特定のリポジトリへのアクセス権を付与できます。精細なアクセス権限が付いており、webhook が組み込まれています。
 - 
   term: GitHub Flavored Markdown
-  description: GitHub 特有の Markdown であり、GitHub 全体で文章やコードをフォーマットするのに使用されます。[GitHub Flavored Markdown の仕様](https://github.github.com/gfm/)または [GitHub で書き、フォーマットしてみる](/articles/getting-started-with-writing-and-formatting-on-github)を参照。
+  description: GitHub 特有の Markdown であり、GitHub 全体で文章やコードをフォーマットするのに使用されます。[GitHub Flavored Markdown の仕様]（https://github.github.com/gfm/）または [GitHub で書き、フォーマットしてみる]（/articles/getting-started-with-writing-and-formatting-on-github）を参照。
 - 
   term: GitHub Importer
   description: >-
@@ -390,11 +386,11 @@
 - 
   term: main
   description: >-
-    {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@latest" %}デフォルトの開発ブランチ。Gitリポジトリを作成すると、`main`という名前のブランチが作成され、アクティブなブランチになります。ほとんどの場合、これにはローカルの開発が含まれますが、これは純粋に慣例によるものであり、必須ではありません。{% else %}リポジトリのデフォルトブランチに対して、`master`の代わりとしてしばしば選択される名前。{% endif %}
+    {% ifversion fpt or ghes > 3.1 or ghae %}デフォルトの開発ブランチ。Gitリポジトリを作成すると、`main`という名前のブランチが作成され、アクティブなブランチになります。ほとんどの場合、これにはローカルの開発が含まれますが、これは純粋に慣例によるものであり、必須ではありません。{% else %}リポジトリのデフォルトブランチに対して、`master`の代わりとしてしばしば選択される名前。{% endif %}
 - 
   term: master
   description: >-
-    多くのGitリポジトリのデフォルトブランチ。デフォルトでは、新しいGitリポジトリをコマンドライン上で作成すると、`master`というブランチが作成されます。現在では、多くのツールがデフォルトブランチに代わりの名前を使うようになりました。{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@latest" %}たとえばGitHub上で新しいリポジトリを作成すると、デフォルトブランチは`main`になります。{% endif %}
+    多くのGitリポジトリのデフォルトブランチ。デフォルトでは、新しいGitリポジトリをコマンドライン上で作成すると、`master`というブランチが作成されます。現在では、多くのツールがデフォルトブランチに代わりの名前を使うようになりました。{% ifversion fpt or ghes > 3.1 or ghae %}たとえばGitHub上で新しいリポジトリを作成すると、デフォルトブランチは`main`になります。{% endif %}
 - 
   term: メンバーグラフ
   description: リポジトリのすべてのフォークを表示するリポジトリグラフ。
@@ -572,10 +568,6 @@
   description: >-
     ブランチからの一連の変更を異なるベースに再適用し、そのブランチのHEADをその結果にリセットすること。
 - 
-  term: Recovery Accounts Elsewhere
-  description: >-
-    ユーザに対し、2 要素認証方法やリカバリコードへのアクセスを失った場合に備えて、自分の GitHub アカウントにセキュリティ要素をさらに追加することを許可するもの。ユーザは自分の GitHub アカウントの認証の資格情報をアカウントリカバリトークンの形で Facebook に格納すれば、GitHub アカウントを Facebook アカウントに関連付けることができます。
-- 
   term: リカバリコード
   description: GitHub アカウントへのアクセスを再取得できるようにするコード。
 - 
@@ -601,6 +593,10 @@
   term: リポジトリ
   description: >-
     リポジトリは GitHub の最も基本的な要素です。プロジェクトのフォルダとして最も想像しやすいものです。リポジトリ 1 つに（ドキュメントを含む）すべてのプロジェクトファイルが含まれ、各ファイルのリビジョン履歴が格納されます。リポジトリはコラボレータを複数持つことができ、またパブリックとプライベートのいずれの場合もあります。
+- 
+  term: リポジトリキャッシュ
+  description: >-
+    GitHub Enterprise Serverインスタンスのリポジトリの読み取り専用ミラーで、分散しているチームやCIクライアントの近くにあります。
 - 
   term: リポジトリグラフ
   description: リポジトリのデータの視覚的表現。
@@ -653,6 +649,10 @@
   term: セキュリティログ
   description: >-
     直近の 50 個のアクションまたは過去 90 日間に実行されたアクションを一覧表示するログ。
+- 
+  term: server-to-serverリクエスト
+  description: >-
+    特定のユーザとは関係なく、botとして振る舞うアプリケーションが使用するAPIリクエスト。たとえば、スケジュールに基づいて動作し、長期間にわたってアクティビティがないIssueをクローズするアプリケーション。この種の認証を利用するアプリケーションは、ライセンスされたGitHubのアカウントを使用しないので、特定数のライセンスの利用を許可する支払いプランを使っている企業では、サーバー対サーバーのボットはGitHubライセンスを消費しません。サーバーからサーバーへのリクエストで使われるトークンは、[GitHub API](/rest/reference/apps#create-an-installation-access-token-for-an-app)を使ってプログラムから取得できます。「[ユーザーからサーバーへのリクエスト](#user-to-server-request)」も参照してください。
 - 
   term: サービスフック
   description: >-
@@ -736,6 +736,10 @@
 - 
   term: ユーザ名
   description: GitHub 上でのユーザのハンドル。
+- 
+  term: user-to-serverリクエスト
+  description: >-
+    特定のユーザの代わりにタスクを実行するアプリケーションが使用するAPIリクエスト。user-to-server認証で実行されたタスクは、GitHub上ではアプリケーションを使用してユーザが実行したとして表示されます。たとえば、サードパーティのアプリケーション内からIssueを作成することができ、そのアプリケーションはあなたの代わりにGitHub上でその処理を行ってくれるでしょう。user-to-serverリクエストを使ってアプリケーションが実行できるタスクのスコープは、アプリケーション及びユーザの権限及びアクセスの両方によって制限されます。user-to-serverリクエストによって使われるトークンは、OAuthによって取得されます。詳しい情報については「[GitHub Appsのユーザの特定と認可](/developers/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps)」を参照してください。「[server-to-serverリクエスト](#server-to-server-request)」も参照してください。
 - 
   term: 参照可能なチーム
   description: Organization の各メンバーが表示および @メンションできる Team。

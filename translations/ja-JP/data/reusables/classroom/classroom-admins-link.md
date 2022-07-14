@@ -1,0 +1,1 @@
+For more information on classroom admins, see "[About management of classrooms](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/manage-classrooms#about-management-of-classrooms)."

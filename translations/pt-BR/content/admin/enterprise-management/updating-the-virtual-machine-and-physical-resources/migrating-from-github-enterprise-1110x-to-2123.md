@@ -2,29 +2,30 @@
 title: Migrar do GitHub Enterprise 11.10.x para o 2.1.23
 redirect_from:
   - /enterprise/admin/installation/migrating-from-github-enterprise-1110x-to-2123
-  - /enterprise/admin-guide/migrating/
-  - /enterprise/admin/articles/migrating-github-enterprise/
-  - /enterprise/admin/guides/installation/migrating-from-github-enterprise-v11-10-34x/
-  - /enterprise/admin/articles/upgrading-to-a-newer-release/
-  - /enterprise/admin/guides/installation/migrating-to-a-different-platform-or-from-github-enterprise-11-10-34x/
+  - /enterprise/admin-guide/migrating
+  - /enterprise/admin/articles/migrating-github-enterprise
+  - /enterprise/admin/guides/installation/migrating-from-github-enterprise-v11-10-34x
+  - /enterprise/admin/articles/upgrading-to-a-newer-release
+  - /enterprise/admin/guides/installation/migrating-to-a-different-platform-or-from-github-enterprise-11-10-34x
   - /enterprise/admin/guides/installation/migrating-from-github-enterprise-11-10-x-to-2-1-23
   - /enterprise/admin/enterprise-management/migrating-from-github-enterprise-1110x-to-2123
   - /admin/enterprise-management/migrating-from-github-enterprise-1110x-to-2123
 intro: 'Para migrar do {% data variables.product.prodname_enterprise %} 11.10.x para o 2.1.23, você precisará configurar uma nova instância do appliance e migrar os dados da instância anterior.'
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
   - Migration
   - Upgrades
+shortTitle: Migrar de 11.10.x para 2.1.23
 ---
 
 Há suporte para migrações do {% data variables.product.prodname_enterprise %} 11.10.348 e mais recentes. Não há suporte para migrações do {% data variables.product.prodname_enterprise %} 11.10.348 e versões anteriores. Você deve atualizar o 11.10.348 em várias etapas de atualização. Para obter mais informações, consulte o procedimento de atualização do 11.10.348, "[Atualizar para a versão mais recente](/enterprise/11.10.340/admin/articles/upgrading-to-the-latest-release/)".
 
 Para atualizar para a versão mais recente do {% data variables.product.prodname_enterprise %}, você deve migrar para a versão {% data variables.product.prodname_ghe_server %} 2.1 e só então poderá seguir o processo regular. Para obter mais informações, consulte "[Atualizar o {% data variables.product.prodname_enterprise %}](/enterprise/admin/guides/installation/upgrading-github-enterprise-server/)".
 
-### Preparar para a migração
+## Preparar para a migração
 
 1. Revise o guia de provisionamento e instalação e verifique se foram atendidos todos os pré-requisitos necessários para provisionar e configurar o {% data variables.product.prodname_enterprise %} 2.1.23 no seu ambiente. Para obter mais informações, consulte "[Provisionar e instalar](/enterprise/2.1/admin/guides/installation/provisioning-and-installation/)".
 2. Verifique se a instância atual está sendo executada em uma versão de atualização compatível.
@@ -44,7 +45,7 @@ Para atualizar para a versão mais recente do {% data variables.product.prodname
     - **Atribuição de endereço IP** - Este método só está disponível na migração de VMware para VMware e é recomendado apenas se o método DNS não estiver disponível. Antes de iniciar a migração, você terá que desligar a instância antiga e atribuir seu endereço IP à nova instância.
 6. Programe um período de manutenção. O período de manutenção deve abranger tempo suficiente para transferir os dados do host de backup para a nova instância. Esse período varia com base no tamanho do instantâneo de backup e na largura de banda de rede disponível. Durante esse período, sua instância atual ficará indisponível e em modo de manutenção enquanto você migra para a nova instância.
 
-### Fazer a migração
+## Fazer a migração
 
 1. Provisione uma nova instância do {% data variables.product.prodname_enterprise %} 2.1. Para obter mais informações, consulte o guia "[Provisionar e instalar](/enterprise/2.1/admin/guides/installation/provisioning-and-installation/)" da plataforma de destino.
 2. Em um navegador, vá até o novo endereço IP do appliance réplica e faça o upload da sua licença do {% data variables.product.prodname_enterprise %}.
@@ -53,7 +54,7 @@ Para atualizar para a versão mais recente do {% data variables.product.prodname
 6. Cole a chave SSH de acesso ao host de backup em "Add new SSH key" (Adicionar nova chave SSH). ![Autorizar o backup](/assets/images/enterprise/migration/migration-authorize-backup-host.png)
 7. Clique em **Adicionar chave** e, em seguida, clique em **Continuar**.
 8. Copie o comando `ghe-restore` a ser executado no host do backup para migrar os dados para a nova instância. ![Iniciar a migração](/assets/images/enterprise/migration/migration-restore-start.png)
-9. Habilite o modo de manutenção na instância antiga e aguarde a conclusão de todos os processos ativos. Para obter mais informações, consulte "[Habilitar e programar o modo de manutenção](/enterprise/{{ currentVersion }}/admin/guides/installation/enabling-and-scheduling-maintenance-mode)".
+9. Habilite o modo de manutenção na instância antiga e aguarde a conclusão de todos os processos ativos. Para obter mais informações, consulte "[Habilitar e programar o modo de manutenção](/enterprise/admin/guides/installation/enabling-and-scheduling-maintenance-mode)".
 
   {% note %}
 
@@ -94,4 +95,4 @@ Para atualizar para a versão mais recente do {% data variables.product.prodname
   {% endnote %}
 
 15. Alterne o tráfego de rede do usuário da instância antiga para a nova instância usando a atribuição de endereço DNS ou IP.
-16. Atualize para a versão de patch mais recente da versão {{ currentVersion }}. Para obter mais informações, consulte "[Atualizar o {% data variables.product.prodname_ghe_server %}](/enterprise/admin/guides/installation/upgrading-github-enterprise-server/)".
+16. Atualize para a versão mais recente do patch de {% data variables.product.prodname_ghe_server %}. Para obter mais informações, consulte "[Atualizar o {% data variables.product.prodname_ghe_server %}](/enterprise/admin/guides/installation/upgrading-github-enterprise-server/)".

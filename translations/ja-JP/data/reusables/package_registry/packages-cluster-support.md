@@ -1,7 +1,7 @@
-{% if currentVersion ver_gt "enterprise-server@2.21" %}
+{% ifversion ghes %}
 {% note %}
 
-**ノート:** {% data variables.product.product_name %}上の{% data variables.product.prodname_registry %}は、現在クラスタリングをサポートしていません。
+**Note:** {% data variables.product.prodname_registry %} on {% data variables.product.product_name %} does not currently support clustering.
 
 {% endnote %}
 {% endif %}

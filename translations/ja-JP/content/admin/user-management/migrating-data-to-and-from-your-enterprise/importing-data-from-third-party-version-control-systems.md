@@ -6,14 +6,15 @@ redirect_from:
   - /enterprise/admin/user-management/importing-data-from-third-party-version-control-systems
   - /admin/user-management/importing-data-from-third-party-version-control-systems
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
   - Migration
+shortTitle: Import from another VCS
 ---
 
-### Mercurialからのプロジェクトのインポート
+## Mercurialからのプロジェクトのインポート
 
 {% data reusables.enterprise_installation.ssh-into-instance %}
 2. ソースプロジェクトのURLと一時リポジトリへのパスを指定して、以下のコマンドを使ってプロジェクトの生のクローンを作成してください。
@@ -26,14 +27,14 @@ topics:
   ```shell
   $ git-import-rewrite --flavor hg --authors /<em>PATH</em>/<em>AUTHORS-MAP-FILE</em>.csv /<em>PATH</em>/<em>REPO-NAME</em>.git
   ```
-5. まだ [{% data variables.product.prodname_ghe_server %} 上に新しい空のリポジトリを作成](/enterprise/{{ currentVersion }}/user/articles/creating-a-new-repository)していない場合は作成してください。
+5. まだ [{% data variables.product.prodname_ghe_server %} 上に新しい空のリポジトリを作成](/enterprise/user/articles/creating-a-new-repository)していない場合は作成してください。
 {% data reusables.command_line.switching_directories_procedural %}
 7. インポートされたリポジトリを {% data variables.product.prodname_ghe_server %} にプッシュします。
   ```shell
   $ git push --mirror <em>PUSH-URL-ON-GITHUB-ENTERPRISE</em>
   ```
 
-### Subversionからのプロジェクトのインポート
+## Subversionからのプロジェクトのインポート
 
 {% data reusables.enterprise_installation.ssh-into-instance %}
 2. ソースプロジェクトのURLと一時リポジトリへのパスを指定して、以下のコマンドを使ってプロジェクトの生のクローンを作成してください。
@@ -46,14 +47,14 @@ topics:
   ```shell
   $ git-import-rewrite --flavor svn --authors /<em>PATH</em>/<em>AUTHORS-MAP-FILE</em>.csv /<em>PATH</em>/<em>REPO-NAME</em>.git
   ```
-5. まだ [{% data variables.product.prodname_ghe_server %} 上に新しい空のリポジトリを作成](/enterprise/{{ currentVersion }}/user/articles/creating-a-new-repository)していない場合は作成してください。
+5. まだ [{% data variables.product.prodname_ghe_server %} 上に新しい空のリポジトリを作成](/enterprise/user/articles/creating-a-new-repository)していない場合は作成してください。
 {% data reusables.command_line.switching_directories_procedural %}
 7. インポートされたリポジトリを {% data variables.product.prodname_ghe_server %} にプッシュします。
   ```shell
   $ git push --mirror <em>PUSH-URL-ON-GITHUB-ENTERPRISE</em>
   ```
 
-### Team Foundation Version Controlからのプロジェクトのインポート
+## Team Foundation Version Controlからのプロジェクトのインポート
 
 {% data reusables.enterprise_installation.ssh-into-instance %}
 2. ソースプロジェクトのURLと一時リポジトリへのパスを指定して、以下のコマンドを使ってプロジェクトの生のクローンを作成してください。
@@ -66,13 +67,13 @@ topics:
   ```shell
   $ git-import-rewrite --flavor tfs --authors /<em>PATH</em>/<em>AUTHORS-MAP-FILE</em>.csv /<em>PATH</em>/<em>REPO-NAME</em>.git
   ```
-5. まだ [{% data variables.product.prodname_ghe_server %} 上に新しい空のリポジトリを作成](/enterprise/{{ currentVersion }}/user/articles/creating-a-new-repository)していない場合は作成してください。
+5. まだ [{% data variables.product.prodname_ghe_server %} 上に新しい空のリポジトリを作成](/enterprise/user/articles/creating-a-new-repository)していない場合は作成してください。
 {% data reusables.command_line.switching_directories_procedural %}
 7. インポートされたリポジトリを {% data variables.product.prodname_ghe_server %} にプッシュします。
   ```shell
   $ git push --mirror <em>PUSH-URL-ON-GITHUB-ENTERPRISE</em>
   ```
 
-### 参考リンク
+## 参考リンク
 
-- "[コマンドラインユーティリティ](/enterprise/{{ currentVersion }}/admin/guides/installation/command-line-utilities/#import-and-export)"
+- 「[コマンドラインユーティリティ](/enterprise/admin/guides/installation/command-line-utilities/#import-and-export)」

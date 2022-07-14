@@ -1,3 +1,5 @@
-{% if currentVersion == "free-pro-team@latest" %}詳しい情報については「[{% data variables.product.prodname_advisory_database %}でのセキュリティ脆弱性を参照する](/code-security/supply-chain-security/browsing-security-vulnerabilities-in-the-github-advisory-database)」及び「[{% data variables.product.prodname_security_advisories %}について](/code-security/security-advisories/about-github-security-advisories)」を参照してください。
-{% else %}アドバイザリデータに関する詳しい情報については、「<a href="/github/managing-security-vulnerabilities/browsing-security-vulnerabilities-in-the-github-advisory-database" class="dotcom-only">{% data variables.product.prodname_advisory_database %} のセキュリティ脆弱性を参照する</a>」を参照してください。
+{% ifversion fpt or ghec %}
+For more information, see "[Browsing security advisories in the {% data variables.product.prodname_advisory_database %}](/code-security/supply-chain-security/browsing-security-vulnerabilities-in-the-github-advisory-database)."
+{% else %}
+For more information about advisory data, see "[Browsing security advisories in the {% data variables.product.prodname_advisory_database %}](/free-pro-team@latest/code-security/supply-chain-security/browsing-security-vulnerabilities-in-the-github-advisory-database)" in the {% data variables.product.prodname_dotcom_the_website %} documentation.
 {% endif %}

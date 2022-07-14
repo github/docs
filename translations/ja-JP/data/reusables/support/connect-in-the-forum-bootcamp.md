@@ -1,1 +1,1 @@
-[{% data variables.product.prodname_gcf %}](https://github.community)で世界中の人々とつながってください。
+{% data variables.product.prodname_dotcom %}には素晴らしいサポートコミュニティがあり、助けを求め、世界中の人々と話すことができます。 Join the conversation on [{% data variables.product.prodname_dotcom %} Support Community](https://github.community/).

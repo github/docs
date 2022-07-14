@@ -8,6 +8,7 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
+  ghec: '*'
 topics:
   - Community
 shortTitle: Community health file
@@ -22,20 +23,20 @@ You can add default community health files to a public repository called `.githu
 - the `.github` folder
 - the `docs` folder
 
-For example, anyone who creates an issue or pull request in a repository that does not have its own CONTRIBUTING file will see a link to the default CONTRIBUTING file. If a repository has any files in its own `.github/ISSUE_TEMPLATE` folder{% ifversion fpt or ghae or ghes %}, including issue templates or a *config.yml* file,{% endif %} none of the contents of the default `.github/ISSUE_TEMPLATE` folder will be used.
+For example, anyone who creates an issue or pull request in a repository that does not have its own CONTRIBUTING file will see a link to the default CONTRIBUTING file. If a repository has any files in its own `.github/ISSUE_TEMPLATE` folder{% ifversion fpt or ghes or ghec %}, including issue templates or a *config.yml* file,{% endif %} none of the contents of the default `.github/ISSUE_TEMPLATE` folder will be used.
 
 Default files are not included in clones, packages, or downloads of individual repositories because they are stored only in the `.github` repository.
 
 ## Supported file types
 
-You can create defaults in your organization{% ifversion fpt or ghae or ghes %} or user account{% endif %} for the following community health files:
+You can create defaults in your organization{% ifversion fpt or ghes or ghec %} or personal account{% endif %} for the following community health files:
 
 Community health file | Description
---- | ---{% ifversion fpt %}
+--- | ---{% ifversion fpt or ghec %}
 *CODE_OF_CONDUCT.md* | A CODE_OF_CONDUCT file defines standards for how to engage in a community. For more information, see "[Adding a code of conduct to your project](/articles/adding-a-code-of-conduct-to-your-project/)."{% endif %}
-*CONTRIBUTING.md* | A CONTRIBUTING file communicates how people should contribute to your project. For more information, see "[Setting guidelines for repository contributors](/articles/setting-guidelines-for-repository-contributors/)."{% ifversion fpt %}
+*CONTRIBUTING.md* | A CONTRIBUTING file communicates how people should contribute to your project. For more information, see "[Setting guidelines for repository contributors](/articles/setting-guidelines-for-repository-contributors/)."{% ifversion fpt or ghec %}
 *FUNDING.yml* | A FUNDING file displays a sponsor button in your repository to increase the visibility of funding options for your open source project. For more information, see "[Displaying a sponsor button in your repository](/articles/displaying-a-sponsor-button-in-your-repository)."{% endif %}
-Issue and pull request templates{% ifversion fpt or ghae or ghes %} and *config.yml*{% endif %} | Issue and pull request templates customize and standardize the information you'd like contributors to include when they open issues and pull requests in your repository. For more information, see "[About issue and pull request templates](/articles/about-issue-and-pull-request-templates/)."{% ifversion fpt or ghes > 3.0 %}
+Issue and pull request templates{% ifversion fpt or ghes or ghec %} and *config.yml*{% endif %} | Issue and pull request templates customize and standardize the information you'd like contributors to include when they open issues and pull requests in your repository. For more information, see "[About issue and pull request templates](/articles/about-issue-and-pull-request-templates/)."{% ifversion fpt or ghes or ghec %}
 *SECURITY.md* | A SECURITY file gives instructions for how to report a security vulnerability in your project. For more information, see "[Adding a security policy to your repository](/code-security/getting-started/adding-a-security-policy-to-your-repository)."{% endif %}
 *SUPPORT.md* | A SUPPORT file lets people know about ways to get help with your project. For more information, see "[Adding support resources to your project](/articles/adding-support-resources-to-your-project/)."
 
@@ -44,7 +45,7 @@ You cannot create a default license file. License files must be added to individ
 ## Creating a repository for default files
 
 {% data reusables.repositories.create_new %}
-2. Use the **Owner** drop-down menu, and select the organization{% ifversion fpt or ghae or ghes %} or user account{% endif %} you want to create default files for.
+2. Use the **Owner** drop-down menu, and select the organization{% ifversion fpt or ghes or ghec %} or personal account{% endif %} you want to create default files for.
   ![Owner drop-down menu](/assets/images/help/repository/create-repository-owner.png)
 3. Type **.github** as the name for your repository, and an optional description.
   ![Create repository field](/assets/images/help/repository/default-file-repository-name.png)
@@ -52,4 +53,4 @@ You cannot create a default license file. License files must be added to individ
   ![Radio buttons to select private or public status](/assets/images/help/repository/create-repository-public-private.png)
 {% data reusables.repositories.initialize-with-readme %}
 {% data reusables.repositories.create-repo %}
-7. In the repository, create one of the supported community health files. Issue templates{% ifversion fpt or ghae or ghes %} and their configuration file{% endif %} must be in a folder called `.github/ISSUE_TEMPLATE`. All other supported files may be in the root of the repository, the `.github` folder, or the `docs` folder. For more information, see "[Creating new files](/articles/creating-new-files/)."
+7. In the repository, create one of the supported community health files. Issue templates{% ifversion fpt or ghes or ghec %} and their configuration file{% endif %} must be in a folder called `.github/ISSUE_TEMPLATE`. All other supported files may be in the root of the repository, the `.github` folder, or the `docs` folder. For more information, see "[Creating new files](/articles/creating-new-files/)."

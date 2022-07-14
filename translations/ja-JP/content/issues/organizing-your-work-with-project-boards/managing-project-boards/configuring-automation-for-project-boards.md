@@ -6,12 +6,20 @@ redirect_from:
   - /articles/configuring-automation-for-project-boards
   - /github/managing-your-work-on-github/configuring-automation-for-project-boards
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
+  - Projects
+  - Issues
+  - Project management
+shortTitle: 自動化の設定
+type: how_to
 ---
+
+{% data reusables.projects.project_boards_old %}
 
 {% data reusables.project-management.automate-project-board-permissions %}詳しい情報については、「[プロジェクトボードの自動化について](/articles/about-automation-for-project-boards)」を参照してください。
 
@@ -32,5 +40,5 @@ topics:
 5. 列に設定したいワークフロー自動化を選択します。 ![列の自動化オプションのリスト](/assets/images/help/projects/select-automation-options-existing-column.png)
 6. [**Update automation**] をクリックします。
 
-### 参考リンク
+## 参考リンク
 - [プロジェクトボードの自動化について](/articles/about-automation-for-project-boards)

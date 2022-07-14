@@ -1,5 +1,8 @@
 {% note %}
 
-**ノート:** SARIFのアップロードは、アップロードごとに最大で{% if currentVersion == "github-ae@next" or currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}5000{% else %}1000{% endif %}件の結果をサポートしています。 この制限を超えた結果は無視されます。 ツールがあまりに多くの結果を生成する場合、最も重要なルールやクエリに対する結果に焦点を当てるよう、設定を更新すべきです。
+**ノート:**
+- SARIF upload supports a maximum of 5000 results per upload. この制限を超えた結果は無視されます。 ツールがあまりに多くの結果を生成する場合、最も重要なルールやクエリに対する結果に焦点を当てるよう、設定を更新すべきです。
+
+ - For each upload, SARIF upload supports a maximum size of 10 MB for the `gzip`-compressed SARIF file. Any uploads over this limit will be rejected. If your SARIF file is too large because it contains too many results, you should update the configuration to focus on results for the most important rules or queries.
 
 {% endnote %}

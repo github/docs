@@ -1,5 +1,8 @@
 {% note %}
 
-**注：**SARIF 上传支持每次上传最多 {% if currentVersion == "github-ae@next" or currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}5000{% else %}1000{% endif %} 个结果。 超过此限制的任何结果均被忽略。 如果工具产生太多结果，则应更新配置，以专注于最重要的规则或查询的结果。
+**注意：**
+- SAIF 上传支持每次上传最多 5000 个结果。 超过此限制的任何结果均被忽略。 如果工具产生太多结果，则应更新配置，以专注于最重要的规则或查询的结果。
+
+ - 对于每次上传，SARIF 上传支持最大 10 MB 的 `gzip`压缩 SARIF 文件。 任何超过此限制的上传都将被拒绝。 如果 SARIF 文件由于包含太多结果而太大，则应更新配置以专注于最重要的规则或查询的结果。
 
 {% endnote %}

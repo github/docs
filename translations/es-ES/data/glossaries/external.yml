@@ -7,10 +7,6 @@
   description: >-
     Un token que se usa en lugar de una contraseña cuando se realizan operaciones Git a través de HTTPS con Git en la línea de comandos o la API. También denominado un token de acceso personal.
 - 
-  term: token de recuperación de cuenta
-  description: >-
-    La credencial de autenticación almacenada como parte de la configuración de recuperación de una cuenta denominada Recuperar cuentas en otro lugar que te permite almacenar esta credencial de respaldo.
-- 
   term: Vista previa de API
   description: >-
     Una manera de probar nuevas API y cambiar a métodos API existentes antes de que se vuelvan parte de la API de GitHub oficial.
@@ -181,7 +177,7 @@
 - 
   term: rama predeterminada
   description: >-
-    La rama base para todas las solicitudes de cam bio y confirmaciones de código en un repositorio. Cada repositorio tiene por lo menos una rama, la cual crea Git cuando lo inicializas. La rama principal a menudo se llama {% if currentVersion ver_lt "enterprise-server@3.2" %} 'master'{% else %}'main'{% endif %}, y habitualmente es la rama predeterminada.
+    La rama base para todas las solicitudes de cambio y confirmaciones de código en un repositorio. Cada repositorio tiene por lo menos una rama, la cual crea Git cuando lo inicializas. La rama principal a menudo se llama {% ifversion ghes < 3.2 %} 'master'{% else %}'main'{% endif %}, y habitualmente es la rama predeterminada.
 - 
   term: gráfica de dependientes
   description: >-
@@ -214,7 +210,7 @@
   description: Las notificaciones enviadas a la dirección de correo electrónico de un usuario.
 - 
   term: cuenta empresarial
-  description: Las cuentas empresariales te permiten administrar centralmente las políticas y facturación de varias organizaciones de {% data variables.product.prodname_dotcom_the_website %}. {% data reusables.gated-features.enterprise-accounts %}
+  description: Las cuentas empresariales te permiten administrar centralmente las políticas y la facturación de varias organizaciones. {% data reusables.gated-features.enterprise-accounts %}
 - 
   term: Explorer
   description: >-
@@ -252,7 +248,7 @@
 - 
   term: gist
   description: >-
-    Un gist es un archivo que se puede compartir y que editas, clonas y bifurcas en GitHub. Puedes hacer que un gist sea {% if currentVersion == "github-ae@latest" %}interno{% else %}público{% endif %} o secreto, aunque los gists secretos estarán disponibles para {% if currentVersion == "github-ae@latest" %}cualquier miembro de la empresa{% else %}cualquiera{% endif %} que tenga la URL.
+    Un gist es un archivo que se puede compartir y que editas, clonas y bifurcas en GitHub. Puedes hacer que un gist sea {% ifversion ghae %}interno{% else %}público{% endif %} o secreto, aunque los gists secretos estarán disponibles para {% ifversion ghae %}cualquier miembro de la empresa{% else %}cualquiera{% endif %} que tenga la URL.
 - 
   term: Git
   description: >-
@@ -390,13 +386,13 @@
 - 
   term: main
   description: >-
-    {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@latest" %} La rama predeterminada para desarrollo. Cada que creas un repositorio en Git, se creará una rama llamada 'main' y se convertirá en la rama activa. En la mayoría de los casos, esta contendrá el desarrollo local, aunque esto es solo por convención y no es algo que se requiera.{% else %}El nombre que se elige habitualmente es una alternativa a 'master' para la rama predeterminada de un repositorio.{% endif %}
+    {% ifversion fpt or ghes > 3.1 or ghae %} La rama predeterminada para desarrollo. Cada que creas un repositorio en Git, se creará una rama llamada 'main' y se convertirá en la rama activa. En la mayoría de los casos, esta contendrá el desarrollo local, aunque esto es solo por convención y no es algo que se requiera.{% else %}El nombre que se elige habitualmente es una alternativa a 'master' para la rama predeterminada de un repositorio.{% endif %}
 - 
   term: principal
   description: >-
-    La rama predeterminada en muchos de los repositorios de Git. Predeterminadamente, cuando creas un repositorio de Git nuevo en la línea de comandos, se creará una rama denominada 'master'. Hoy en día, muchas herramientas utilizan un nombre alterno para la rama predeterminada.{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@latest" %} Por ejemplo, cuando creas un repositorio nuevo en GitHub, la rama predeterminada se llama 'main'.{% endif %}
+    La rama predeterminada en muchos de los repositorios de Git. Predeterminadamente, cuando creas un repositorio de Git nuevo en la línea de comandos, se creará una rama denominada 'master'. Hoy en día, muchas herramientas utilizan un nombre alterno para la rama predeterminada.{% ifversion fpt or ghes > 3.1 or ghae %} Por ejemplo, cuando creas un repositorio nuevo en GitHub, la rama predeterminada se llama 'main'.{% endif %}
 - 
-  term: gráfico de miembros
+  term: gráfica de miembros
   description: Un gráfico del repositorio que muestra todas las bifurcaciones de un repositorio.
 - 
   term: mención
@@ -422,7 +418,7 @@
   description: >-
     Un equipo hijo de un equipo padre. Puedes tener varios equipos hijo (o anidados).
 - 
-  term: gráfica de Red
+  term: gráfica de red
   description: >-
     Un gráfico del repositorio que muestra el historial de la rama de toda la red del repositorio, incluidas las ramas del repositorio raíz y las ramas de las bifurcaciones que contienen confirmaciones de cambios únicas para la red.
 - 
@@ -543,10 +539,10 @@
   description: >-
     Los comentarios de los colaboradores en una solicitud de extracción que aprueban los cambios o solicitan otros cambios antes de fusionar la solicitud de extracción.
 - 
-  term: gráfico de pulso
+  term: gráfica de pulso
   description: Un gráfico del repositorio que te brinda una descripción de la actividad de un repositorio.
 - 
-  term: gráfico de perforado
+  term: gráfica de perforado
   description: >-
     Un gráfico del repositorio que muestra la frecuencia de las actualizaciones para un repositorio en función del día de la semana y la hora del día.
 - 
@@ -571,10 +567,6 @@
   term: rebase
   description: >-
     Volver a aplicar una serie de cambios de una rama a una base diferente y restablecer el HEAD de esa rama al resultado.
-- 
-  term: Recuperar cuentas en otro lugar
-  description: >-
-    Le permite a los usuarios agregar un factor de seguridad extra a su cuenta de GitHub en caso de que pierdan acceso a su método de autenticación de dos factores o a sus códigos de recuperación. Los usuarios pueden asociar su cuenta de GitHub con su cuenta de Facebook almacenando una credencial de autenticación en forma de token de recuperación de cuenta para su cuenta de GitHub con Facebook.
 - 
   term: código de recuperación
   description: Un código que te ayuda a volver a tener acceso a tu cuenta de GitHub.
@@ -601,6 +593,10 @@
   term: repositorio
   description: >-
     Un repositorio es el elemento más básico de GitHub. Son más fáciles de imaginar como la carpeta de un proyecto. Un repositorio contiene todos los archivos del proyecto (incluida la documentación) y almacena el historial de revisión de cada archivo. Los repositorios pueden tener varios colaboradores y pueden ser públicos o privados.
+- 
+  term: caché del repositorio
+  description: >-
+    Una réplica de solo lectura de los repositorios para tu instancia de GitHub Enterprise Server que se ubica cerca de los equipos y clientes de IC distribuidos.
 - 
   term: gráfico del repositorio
   description: Una representación visual de los datos de tu repositorio.
@@ -653,6 +649,10 @@
   term: bitácora de seguridad
   description: >-
     Un registro que enumera las últimas 50 acciones o las realizadas dentro de los últimos 90 días.
+- 
+  term: solicitud de servidor a servidor
+  description: >-
+    Una solicitud de API que utilice una aplicación que actúe como un bot, independientemente de cualquier usuario particular. Por ejemplo, una aplicación que se ejecuta de forma programada y cierra propuestas donde no ha habido actividad por mucho tiempo. Las aplicaciones que utilizan este tipo de autenticación no utilizan una cuenta de GitHub con licencia, así que, en una empresa con un plan de facturación que permite que se utilicen solo cierto número de licencias, un bot de servidor a servidor no consumirá una de tus licencias de GitHub. El token que se utiliza en una solicitud de servidor a servidor se adquiere programáticamente a través de la [API de GitHub](/rest/reference/apps#create-an-installation-access-token-for-an-app). Consulta también la sección de "[solicitud de usuario a servidor](#user-to-server-request)".
 - 
   term: gancho de servicio
   description: >-
@@ -714,7 +714,7 @@
   description: >-
     Un modo de explorar repositorios en una área temática en particular, encontrar proyectos a los cuales contribuir y descubrir nuevas soluciones para un problema específico en GitHub.
 - 
-  term: gráfico de tráfico
+  term: gráfica de tráfico
   description: >-
     Un gráfico del repositorio que muestra el tráfico de un repositorio, incluso clones completos (no recuperaciones), los visitantes de los últimos 14 días, sitios de referencia y contenido popular.
 - 
@@ -736,6 +736,10 @@
 - 
   term: nombre de usuario
   description: El identificador de un usuario en GitHub.
+- 
+  term: solicitud de usuario a servidor
+  description: >-
+    Una solicitud de API que utiliza una aplicación que realice la tarea en nombre de un usuario particular. Cuando la tarea se lleva a cabo con una autenticación de usuario a servidor, esta se muestra en GitHub como si la hubiera hecho un usuario a través de una aplicación. Por ejemplo, puedes elegir crear una propuesta desde dentro de una aplicación de terceros y la aplicación lo haría en tu nombre en GitHub. El alcance de las tareas que puede realizar una aplicación utilizando una solicitud de usuario a servidor se restringe tanto por los permisos como por el acceso de la app y del usuario. El token que se utiliza en una solicitud de usuario a servidor se adquiere a través de OAuth. para obtener más información, consulta la sección "[Identificar y autorizar a los usuarios para las GitHub Apps]](/developers/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps)". Consulta también la sección de "[Solicitud de servidor a servidor](#server-to-server-request)".
 - 
   term: equipo visible
   description: Un equipo que puede ser visto y @mencionado por cada miembro de la organización.

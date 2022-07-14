@@ -1,0 +1,36 @@
+---
+date: '2022-06-09'
+sections:
+  security_fixes:
+    - Os pacotes foram atualizados para as últimas versões de segurança.
+  bugs:
+    - Um script interno para validar nomes de host no arquivo de configuração {% data variables.product.prodname_ghe_server %} retornaria um erro se a string do nome de host iniciasse com um "." (caractere de ponto final).
+    - Em configurações HA,, em que o nome de host do nó primário era maior que 60 caracteres, o MySQL falharia na configuração.
+    - Quando {% data variables.product.prodname_actions %} foi habilitado, mas TLS foi desabilitado em {% data variables.product.prodname_ghe_server %} 3.4.1 e posterior, a aplicação de uma atualização de configuração falharia.
+    - O argumento "--gateway" foi adicionado ao comando "ghe-setup-network", para permitir passar o endereço de gateway ao definir as configurações da rede usando a linha de comando.
+    - 'Os pontos de extrmidade da [API de cobrança de {% data variables.product.prodname_GH_advanced_security %} API](/rest/enterprise-admin/billing#get-github-advanced-security-active-committers-for-an-enterprise) não estavam habilitados e não eram acessíveis.'
+    - Os anexos de imagem que foram excluídos retornariam um `500 Internal Server Error` em vez de `404 Not Found`.
+    - Em ambientes configurados com um servidor de cache de repositório, o comando `ghe-repl-status` mostrou incorretamente o gist como sendo sub-replicado.
+    - Os pontos de confirmação "Obter um commit" e "Comparar dois commits" na [API de commit](/rest/commits/commits) retornariam um erro `500` se um caminho de arquivo no diff contivesse um caractere unicode codificado e escapado.
+    - O cálculo de "máximo de committers em toda a instância" relatado no painel de administração do site estava incorreto.
+    - Uma entrada de banco de dados incorreta para réplicas do repositório causou erros de banco de dados ao executar uma restauração usando {% data variables.product.prodname_enterprise_backup_utilities %}.
+    - A linha do tempo de atividade para alertas de digitalização de segredo não foi exibida.
+  changes:
+    - Otimizou a inclusão de métricas ao gerar um pacote de suporte para cluster.
+    - Nas configurações AH em que Elasticsearch relatou um status amarelo válido, as alterações introduzidas em uma correção anterior bloqueariam o comando `ghe-repl-stop` e não permitiriam que a replicação fosse interrompida. Usando `ghe-repo-stop --force` agora forçará o Elasticsearch a parar quando o serviço estiver em um status amarelo normal ou válido.
+  known_issues:
+    - Em uma instância de {% data variables.product.prodname_ghe_server %} recém-configurada sem usuários, um invasor pode criar o primeiro usuário administrador.
+    - As regras de firewall personalizadas são removidas durante o processo de atualização.
+    - Arquivos LFS do Git [enviados através da interface web](https://github.com/blog/2105-upload-files-to-your-repositories) são adicionados diretamente ao repositório e de forma incorreta.
+    - Os problemas não podem ser fechados se contiverem um permalink para um blob no mesmo repositório, onde o caminho do arquivo blob's é maior que 255 caracteres.
+    - Quando "Usuários podem pesquisar pelo GitHub.com" está habilitado com {% data variables.product.prodname_github_connect %}, os problemas nos repositórios privados e internos não são incluídos nos resultados de pesquisa de {% data variables.product.prodname_dotcom_the_website %}.
+    - O registro npm de {% data variables.product.prodname_registry %} não retorna mais o valor de tempo em respostas de metadados. Isso foi feito para permitir melhorias substanciais de desempenho. Continuamos a ter todos os dados necessários para devolver um valor de tempo como parte da resposta aos metadados e retomaremos o retorno desse valor no futuro, assim que tivermos resolvido os problemas de desempenho existentes.
+    - Os limites de recursos que são específicos para processamento de hooks pre-receive podem causar falha em alguns hooks pre-receive.
+    - |
+      After registering a self-hosted runner with the `--ephemeral` parameter on more than one level (for example, both enterprise and organization), the runner may get stuck in an idle state and require re-registration. [Updated: 2022-06-17]
+    - |
+      Ao usar declarações criptografadas do SAML com {% data variables.product.prodname_ghe_server %} 3.4.0 e 3.4.1, um novo atributo do XML `WantAssertionsEncrypted` no `SPSSODescriptor` contém um atributo inválido para metadados do SAML. Os IdPs que consomem este ponto de extremidade de metadados do SAML podem encontrar erros ao validar o esquema XML de metadados SAML. Uma correção estará disponível na próxima atualização de atualização. [Atualizado: 2022-04-11]
+
+      Para contornar esse problema, você pode tomar uma das duas ações a seguir.
+      - Reconfigurar o IdP, fazendo o upload de uma cópia estática dos metadados do SAML sem o atributo `WantAssertionsEncrypted`.
+      - Copiar os metadados do SAML, remover o atributo `WantAssertionsEncrypted`, hospedá-lo em um servidor web e reconfigurar o IdP para apontar para esse URL.

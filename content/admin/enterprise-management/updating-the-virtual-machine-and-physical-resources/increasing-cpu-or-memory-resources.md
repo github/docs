@@ -16,6 +16,12 @@ shortTitle: Increase CPU or memory
 ---
 {% data reusables.enterprise_installation.warning-on-upgrading-physical-resources %}
 
+{% note %}
+
+**Note:** Before increasing CPU or memory resources, put your instance in maintenance mode.{% ifversion ip-exception-list %} You can validate changes by configuring an IP exception list to allow access from specified IP addresses. {% endif %} For more information, see "[Enabling and scheduling maintenance mode](/enterprise/admin/guides/installation/enabling-and-scheduling-maintenance-mode)."
+
+{% endnote %}
+
 ## Adding CPU or memory resources for AWS
 
 {% note %}
@@ -52,6 +58,36 @@ It's not possible to add CPU or memory resources to an existing AWS/EC2 instance
 1. Stop the instance.
 2. Change the instance type.
 3. Start the instance.
+{% data reusables.enterprise_installation.configuration-recognized %}
+
+## Adding CPU or memory resources on Microsoft Azure
+
+{% note %}
+
+**Note:** To add CPU or memory resources in Microsoft Azure, you must be familiar with using either the Azure Portal, Azure CLI or Azure PowerShell to manage VM instances. For background and details on using the Azure tools of your choice to perform the resize, please refer to the Azure documentation on [changing the size of a virtual machine](https://docs.microsoft.com/en-us/azure/virtual-machines/resize-vm).
+
+{% endnote %}
+
+### Resizing considerations
+
+Before increasing CPU or memory resources for {% data variables.product.product_location %}, review the following recommendations.
+
+- **Scale your memory with CPUs**. {% data reusables.enterprise_installation.increasing-cpus-req %}
+- **Assign a static IP address to the instance**. If you haven't assigned a static IP to your instance, you might have to adjust the DNS A records for your {% data variables.product.prodname_ghe_server %} host after the restart to account for the change in IP address.
+
+### Supported Microsoft Azure instance sizes
+
+You need to determine the instance size you would like to upgrade to based on CPU/memory specifications.
+
+{% data reusables.enterprise_installation.warning-on-scaling %}
+
+{% data reusables.enterprise_installation.azure-instance-recommendation %}
+
+### Resizing for Microsoft Azure
+
+You can scale the VM up by changing the VM size. Changing its size will cause it to be restarted. In some cases, you must deallocate the VM first. This can happen if the new size is not available on the hardware cluster that is currently hosting the VM. 
+
+1. Refer to the Azure documentation on [changing the size of a virtual machine](https://docs.microsoft.com/en-us/azure/virtual-machines/resize-vm) for the required steps.
 {% data reusables.enterprise_installation.configuration-recognized %}
 
 ## Adding CPU or memory resources for OpenStack KVM

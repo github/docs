@@ -1,35 +1,36 @@
 ---
-title: Acerca de la Replicación geográfica
-intro: 'La Replicación geográfica en {% data variables.product.prodname_ghe_server %} utiliza múltiples réplicas activas para responder las solicitudes de los centros de datos distribuidos geográficamente.'
+title: About geo-replication
+intro: 'Geo-replication on {% data variables.product.prodname_ghe_server %} uses multiple active replicas to fulfill requests from geographically distributed data centers.'
 redirect_from:
   - /enterprise/admin/installation/about-geo-replication
   - /enterprise/admin/enterprise-management/about-geo-replication
   - /admin/enterprise-management/about-geo-replication
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: overview
 topics:
   - Enterprise
   - High availability
 ---
+Multiple active replicas can provide a shorter distance to the nearest replica. For example, an organization with offices in San Francisco, New York, and London could run the primary appliance in a datacenter near New York and two replicas in datacenters near San Francisco and London. Using geolocation-aware DNS, users can be directed to the closest server available and access repository data faster. Designating the appliance near New York as the primary helps reduce the latency between the hosts, compared to the appliance near San Francisco being the primary which has a higher latency to London.
 
-Contar con múltiples réplicas puede permitir una menor distancia a la réplica más cercana. Por ejemplo, una organización con oficinas en San Francisco, Nueva York y Londres podrían ejecutar el aparato principal en un centro de datos cercano a Nueva York y dos réplicas en centros de datos cercanos a San Francisco y Londres. Al usar DNS con información de geolocalización, se puede dirigir a los usuarios al servidor disponible más cercano para que accedan a los datos más rápido. Designar como principal el aparato cercano a Nueva York ayuda a reducir la latencia entre los hosts, a diferencia de si se designa como principal el aparato cercano a San Francisco, que tiene mayor latencia con Londres.
+The active replica proxies requests that it can't process itself to the primary instance. The replicas function as a point of presence terminating all SSL connections. Traffic between hosts is sent through an encrypted VPN connection, similar to a two-node high availability configuration without geo-replication.
 
-Los proxies de la réplica activa solicitan que no se pueda procesar esta misma para la instancia principal. Las réplicas funcionan como un punto de presencia al terminar todas las conexiones SSL. El tráfico entre los servidores se envía a través de una conexión VPN encriptada, similar a una configuración de dos nodos de alta disponibilidad sin replicación geográfica.
+Git requests and specific file server requests, such as LFS and file uploads, can be served directly from the replica without loading any data from the primary. Web requests are always routed to the primary, but if the replica is closer to the user the requests are faster due to the closer SSL termination.
 
-Las solicitudes de Git y las solicitudes de archivos específicos a los servidores, tales como LFS y cargas de archivos, pueden servirse directamente de la réplica sin cargar ningún dato desde el primario. Las solicitudes web siempre se enrutan hacia el principal, pero si la réplica está más cerca del usuario, las solicitudes son más rápidas porque la terminación SSL está más cerca.
+Geo DNS, such as [Amazon's Route 53 service](http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html#routing-policy-geo), is required for geo-replication to work seamlessly. The hostname for the instance should resolve to the replica that is closest to the user's location.
 
-Se solicita un DNS geográfico, como [Amazon's Route 53 service](http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html#routing-policy-geo), para que la replicación geográfica funcione sin problemas. El nombre del host para la instancia se debe resolver con la réplica más cercana a la ubicación del usuario.
+## Limitations
 
-### Limitaciones
+Writing requests to the replica requires sending the data to the primary and all replicas. This means that the performance of all writes is limited by the slowest replica, although new geo-replicas can seed the majority of their data from existing co-located geo-replicas, rather than from the primary. {% ifversion ghes > 3.2 %}To reduce the latency and bandwidth caused by distributed teams and large CI farms without impacting write throughput, you can configure repository caching instead. For more information, see "[About repository caching](/admin/enterprise-management/caching-repositories/about-repository-caching)."{% endif %}
 
-Escribir solicitudes para la réplica exige que se envíen los datos al principal y a todas las réplicas. Esto significa que el rendimiento de todos los escritos se limita de acuerdo con la replica más lenta, aunque las geo-replicas nuevas pueden poblar la mayoría de sus datos desde geo-replicas existentes co-ubicadas, en vez de desde el primario. La replicación geográfica no le agregará capacidad a una instancia de {% data variables.product.prodname_ghe_server %} ni resolverá problemas de rendimiento relacionados con recursos de CPU o de memoria insuficientes. Si el aparato principal está fuera de línea, las réplicas activas no podrán atender ninguna solicitud de lectura o escritura.
+Geo-replication will not add capacity to a {% data variables.product.prodname_ghe_server %} instance or solve performance issues related to insufficient CPU or memory resources. If the primary appliance is offline, active replicas will be unable to serve any read or write requests. 
 
 {% data reusables.enterprise_installation.replica-limit %}
 
-### Monitorear la configuración de una replicación geográfica
+## Monitoring a geo-replication configuration
 
 {% data reusables.enterprise_installation.monitoring-replicas %}
 
-### Leer más
-- "[Crear réplicas de replicación geográfica](/enterprise/{{ currentVersion }}/admin/guides/installation/creating-a-high-availability-replica/#creating-geo-replication-replicas)"
+## Further reading
+- "[Creating geo-replication replicas](/enterprise/admin/guides/installation/creating-a-high-availability-replica/#creating-geo-replication-replicas)"

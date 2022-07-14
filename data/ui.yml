@@ -1,3 +1,5 @@
+meta:
+  default_description: Get started, troubleshoot, and make the most of GitHub. Documentation for new users, developers, administrators, and all of GitHub's products.
 header:
   github_docs: GitHub Docs
   contact: Contact
@@ -23,26 +25,41 @@ header:
     ghes_release_notes_upgrade_patch_only: 📣 This is not the <a href="#{{ latestPatch }}">latest patch release</a> of Enterprise Server.
     ghes_release_notes_upgrade_release_only: 📣 This is not the <a href="/enterprise-server@{{ latestRelease }}/admin/release-notes">latest release</a> of Enterprise Server.
     ghes_release_notes_upgrade_patch_and_release: 📣 This is not the <a href="#{{ latestPatch }}">latest patch release</a> of this release series, and this is not the <a href="/enterprise-server@{{ latestRelease }}/admin/release-notes">latest release</a> of Enterprise Server.
+  sign_up_cta: Sign up
+picker:
+  language_picker_default_text: Choose a language
+  product_picker_default_text: All products
+  version_picker_default_text: Choose a version
 release_notes:
-  banner_text_current: These changes will roll out over the next one week.
-  banner_text_past: These changes rolled out to enterprises during the week of
+  banner_text: GitHub began rolling these changes out to enterprises on
 search:
   need_help: Need help?
-  placeholder: Search topics, products...
+  placeholder: Search GitHub Docs
   loading: Loading
   no_results: No results found
+  search_results_for: Search results for
+  no_content: No content
+  matches_displayed: Matches displayed
+  search_error: An error occurred trying to perform the search.
+  description: Enter a search term to find it in the GitHub Documentation.
+  label: Search GitHub Docs
 homepage:
   explore_by_product: Explore by product
   version_picker: Version
+  description: Help for wherever you are on your GitHub journey.
 toc:
   getting_started: Getting started
   popular: Popular
   guides: Guides
   whats_new: What's new
+  videos: Videos
+  all_changelogs: All changelog posts
 pages:
-  article_version: 'Article version:'
+  article_version: 'Article version'
   miniToc: In this article
   contributor_callout: This article is contributed and maintained by
+  all_enterprise_releases: All Enterprise Server releases
+  about_versions: About versions
 errors:
   oops: Ooops!
   something_went_wrong: It looks like something went wrong.
@@ -61,7 +78,8 @@ survey:
   optional: Optional
   required: Required
   email_placeholder: email@example.com
-  email_label: Can we contact you if we have more questions?
+  email_label: If we can contact you with more questions, please enter your email address
+  email_validation: Please enter a valid email address
   send: Send
   feedback: Thank you! We received your feedback.
   not_support: If you need a reply, please contact support instead.
@@ -75,6 +93,7 @@ contribution_cta:
 products:
   graphql:
     reference:
+      implements: Implements
       fields: Fields
       arguments: Arguments
       name: Name
@@ -89,8 +108,17 @@ products:
       deprecation_notice: Deprecation notice
   rest:
     reference:
+      default: Default
+      name: Name
+      in: In
+      type: Type
+      description: Description
+      notes: Notes
       parameters: Parameters
       response: Response
+      example_response: Example response
+      status_code: Status code
+      http_status_code: HTTP response status codes
       code_sample: Code sample
       code_samples: Code samples
       preview_notice: Preview notice
@@ -98,6 +126,15 @@ products:
       see_preview_notice: See preview notice
       see_preview_notices: See preview notices
       preview_header_is_required: This header is <strong>required</strong>
+      preview_notice_to_change: This API is under preview and subject to change
+      works_with: Works with
+      api_reference: REST API reference
+      enum_description_title: Can be one of
+      required: Required
+      headers: Headers
+      query: Query parameters
+      path: Path parameters
+      body: Body parameters
 footer:
   all_rights_reserved: All rights reserved
   terms: Terms
@@ -143,6 +180,8 @@ product_landing:
   guides: Guides
   code_examples: Code examples
   search_code_examples: Search code examples
+  search_results_for: Search results for
+  matches_displayed: Matches displayed
   show_more: Show more
   explore_people_and_projects: Explore people and projects
   sorry: Sorry, there is no result for
@@ -157,21 +196,27 @@ product_landing:
   release_notes_for: Release notes for
   upgrade_from: Upgrade from
   browse_all_docs: Browse all docs
+  browse_all: Browse all
+  docs: docs
   explore_release_notes: Explore release notes
-product_sublanding:
-  start: Start
-  start_path: Start path
+  view: View all
+product_guides:
+  start_path: Start learning path
   learning_paths: '{{ productMap[currentProduct].name }} learning paths'
   learning_paths_desc: Learning paths are a collection of guides that help you master a particular subject.
   guides: '{{ productMap[currentProduct].name }} guides'
   more_guides: more guides
-  no_result: Sorry, there are no guides that match your filter.
   load_more: Load more guides
   all_guides: 'All {{ productMap[currentProduct].name }} guides'
+  filter_instructions: Filter the guide list using these controls
   filters:
     type: Type
     topic: Topic
     all: All
+  guides_found:
+    multiple: '{n} guides found'
+    one: 1 guide found
+    none: No guides found
   guide_types:
     overview: Overview
     quick_start: Quickstart

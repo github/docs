@@ -1,0 +1,1 @@
+1. Execute o comando `ghe-actions-precheck` para testar a sua configuração de armazenamento do blob. Para obter mais informações, consulte "[Utilitários de linha de comando](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-actions-precheck)".

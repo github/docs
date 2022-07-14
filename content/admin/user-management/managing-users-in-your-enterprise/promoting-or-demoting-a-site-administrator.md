@@ -1,8 +1,8 @@
 ---
 title: Promoting or demoting a site administrator
 redirect_from:
-  - /enterprise/admin/articles/promoting-a-site-administrator/
-  - /enterprise/admin/articles/demoting-a-site-administrator/
+  - /enterprise/admin/articles/promoting-a-site-administrator
+  - /enterprise/admin/articles/demoting-a-site-administrator
   - /enterprise/admin/user-management/promoting-or-demoting-a-site-administrator
   - /admin/user-management/promoting-or-demoting-a-site-administrator
 intro: 'Site administrators can promote any normal user account to a site administrator, as well as demote other site administrators to regular users.'
@@ -22,7 +22,7 @@ shortTitle: Manage administrators
 
 {% endtip %}
 
-For information about promoting a user to an organization owner, see the `ghe-org-admin-promote` section of "[Command-line utilities](/enterprise/{{ currentVersion }}/admin/guides/installation/command-line-utilities#ghe-org-admin-promote)."
+For information about promoting a user to an organization owner, see the `ghe-org-admin-promote` section of "[Command-line utilities](/enterprise/admin/guides/installation/command-line-utilities#ghe-org-admin-promote)."
 
 ## Promoting a user from the enterprise settings
 
@@ -47,16 +47,16 @@ For information about promoting a user to an organization owner, see the `ghe-or
 
 ## Promoting a user from the command line
 
-1. [SSH](/enterprise/{{ currentVersion }}/admin/guides/installation/accessing-the-administrative-shell-ssh/) into your appliance.
-2. Run [ghe-user-promote](/enterprise/{{ currentVersion }}/admin/guides/installation/command-line-utilities#ghe-user-promote) with the username to promote.
+1. [SSH](/enterprise/admin/guides/installation/accessing-the-administrative-shell-ssh/) into your appliance.
+2. Run [ghe-user-promote](/enterprise/admin/guides/installation/command-line-utilities#ghe-user-promote) with the username to promote.
   ```shell
   $ ghe-user-promote <em>username</em>
   ```
 
 ## Demoting a site administrator from the command line
 
-1. [SSH](/enterprise/{{ currentVersion }}/admin/guides/installation/accessing-the-administrative-shell-ssh/) into your appliance.
-2. Run [ghe-user-demote](/enterprise/{{ currentVersion }}/admin/guides/installation/command-line-utilities#ghe-user-demote) with the username to demote.
+1. [SSH](/enterprise/admin/guides/installation/accessing-the-administrative-shell-ssh/) into your appliance.
+2. Run [ghe-user-demote](/enterprise/admin/guides/installation/command-line-utilities#ghe-user-demote) with the username to demote.
   ```shell
   $ ghe-user-demote <em>username</em>
   ```

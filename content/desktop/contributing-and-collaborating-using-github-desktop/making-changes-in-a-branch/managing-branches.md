@@ -16,7 +16,7 @@ You always create a branch from an existing branch. Typically, you might create 
 
 You can also create a branch starting from a previous commit in a branch's history. This can be helpful if you need to return to an earlier view of the repository to investigate a bug, or to create a hot fix on top of your latest release.
 
-Once you're satisfied with your work, you can create a pull request to merge your changes in the current branch into another branch. For more information, see "[Creating an issue or pull request](/desktop/contributing-to-projects/creating-an-issue-or-pull-request)" and "[About pull requests](/articles/about-pull-requests)."
+Once you're satisfied with your work, you can create a pull request to merge your changes in the current branch into another branch. For more information, see "[Creating an issue or pull request](/desktop/contributing-to-projects/creating-an-issue-or-pull-request)" and "[About pull requests](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)."
 
 You can always create a branch in {% data variables.product.prodname_desktop %} if you have read access to a repository, but you can only push the branch to {% data variables.product.prodname_dotcom %} if you have write access to the repository.
 
@@ -118,6 +118,6 @@ You can't delete a branch if it's currently associated with an open pull request
 
 - "[Cloning a repository from {% data variables.product.prodname_desktop %}](/desktop/guides/contributing-to-projects/cloning-a-repository-from-github-to-github-desktop)"
 - "[Branch](/articles/github-glossary/#branch)" in the {% data variables.product.prodname_dotcom %} glossary
-- "[About branches](/articles/about-branches)"
+- "[About branches](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches)"
 - "[Branches in a Nutshell](https://git-scm.com/book/en/v2/Git-Branching-Branches-in-a-Nutshell)" in the Git documentation
 - "[Stashing changes](/desktop/contributing-and-collaborating-using-github-desktop/stashing-changes)"

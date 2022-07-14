@@ -1,1 +1,0 @@
-Puedes utilizar la API de {% data variables.product.prodname_dotcom %} para importar un tablero de proyecto. Para obtener más información, consulta la mutación "[importProject](/v4/mutation/importproject/)".

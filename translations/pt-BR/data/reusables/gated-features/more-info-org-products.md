@@ -1,1 +1,1 @@
-{% if currentVersion == "free-pro-team@latest" %}Para obter mais informações, consulte "[produtos de {% data variables.product.prodname_dotcom %}](/articles/github-s-products){% endif %}
+{% ifversion fpt or ghec %}Para obter mais informações, consulte os "[produtos do {% data variables.product.prodname_dotcom %}](/get-started/learning-about-github/githubs-products)".{% endif %}

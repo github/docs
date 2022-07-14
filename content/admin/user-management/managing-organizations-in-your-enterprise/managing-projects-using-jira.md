@@ -1,15 +1,16 @@
 ---
 title: Managing projects using Jira
-intro: 'You can integrate Jira with {% data variables.product.prodname_enterprise %} for project management.'
+intro: 'You can integrate Jira with {% data variables.product.product_name %} for project management.'
 redirect_from:
-  - /enterprise/admin/guides/installation/project-management-using-jira/
-  - /enterprise/admin/articles/project-management-using-jira/
+  - /enterprise/admin/guides/installation/project-management-using-jira
+  - /enterprise/admin/articles/project-management-using-jira
   - /enterprise/admin/developer-workflow/managing-projects-using-jira
   - /enterprise/admin/developer-workflow/customizing-your-instance-with-integrations
   - /enterprise/admin/user-management/managing-projects-using-jira
   - /admin/user-management/managing-projects-using-jira
 versions:
   ghes: '*'
+  ghae: '*'
 type: how_to
 topics:
   - Enterprise
@@ -59,10 +60,10 @@ shortTitle: Project management with Jira
 
 5. In the **Add New Account** modal, fill in your {% data variables.product.prodname_enterprise %} settings:
     - From the **Host** dropdown menu, choose **{% data variables.product.prodname_enterprise %}**.
-    - In the **Team or User Account** field, type the name of your {% data variables.product.prodname_enterprise %} organization or personal account.
+    - In the **Team or User Account** field, type the name of your {% data variables.product.prodname_enterprise %} organization or user account.
     - In the **OAuth Key** field, type the Client ID of your {% data variables.product.prodname_enterprise %} developer application.
     - In the **OAuth Secret** field, type the Client Secret for your {% data variables.product.prodname_enterprise %} developer application.
-    - If you don't want to link new repositories owned by your {% data variables.product.prodname_enterprise %} organization or personal account, deselect **Auto Link New Repositories**.
+    - If you don't want to link new repositories owned by your {% data variables.product.prodname_enterprise %} organization or user account, deselect **Auto Link New Repositories**.
     - If you don't want to enable smart commits, deselect **Enable Smart Commits**.
     - Click **Add**.
 6. Review the permissions you are granting to your {% data variables.product.prodname_enterprise %} account and click **Authorize application**.

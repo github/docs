@@ -1,0 +1,1 @@
+1. Em "{% data variables.product.prodname_secret_scanning_caps %}", em "Padrões personalizados", clique em {% ifversion fpt or ghes > 3.2 or ghae or ghec %}**Novo padrão**{% elsif ghes = 3.2 %}**Novo padrão personalizado**{% endif %}.

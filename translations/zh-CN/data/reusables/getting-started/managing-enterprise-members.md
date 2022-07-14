@@ -1,0 +1,1 @@
+您可以管理 {% data variables.product.product_location %} 的成员的设置和审核活动。 您可以{% ifversion ghes %}将企业成员提升为站点管理员、{% endif %}管理休眠用户、查看用户活动的审核日志以及自定义企业成员将看到的消息。 更多信息请参阅“[管理企业中的用户](/admin/user-management/managing-users-in-your-enterprise)”。

@@ -6,16 +6,18 @@ redirect_from:
   - /articles/viewing-users-youve-blocked-from-your-personal-account
   - /github/building-a-strong-community/viewing-users-youve-blocked-from-your-personal-account
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 topics:
   - Community
+shortTitle: アカウントでブロックされたユーザーの表示
 ---
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.blocked_users %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.blocked_users %}
 3. [Blocked users] の下で、アカウントからブロックしたユーザの一覧を確認します。 ![ブロックされたユーザの一覧](/assets/images/help/settings/list-of-blocked-users.png)
 
-### 参考リンク
+## 参考リンク
 
 - [個人アカウントからのユーザのブロック](/communities/maintaining-your-safety-on-github/blocking-a-user-from-your-personal-account)
 - [個人アカウントからのユーザのブロック解除](/communities/maintaining-your-safety-on-github/unblocking-a-user-from-your-personal-account)

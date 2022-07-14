@@ -2,34 +2,38 @@
 title: Instalar o GitHub Enterprise Server no Hyper-V
 intro: 'Para instalar o {% data variables.product.prodname_ghe_server %} no Hyper-V, você deve fazer a implantação em uma máquina que execute o Windows Server 2008 através do Windows Server 2019.'
 redirect_from:
-  - /enterprise/admin/guides/installation/installing-github-enterprise-on-hyper-v/
+  - /enterprise/admin/guides/installation/installing-github-enterprise-on-hyper-v
   - /enterprise/admin/installation/installing-github-enterprise-server-on-hyper-v
   - /admin/installation/installing-github-enterprise-server-on-hyper-v
 versions:
-  enterprise-server: '*'
+  ghes: '*'
+type: tutorial
 topics:
+  - Administrator
   - Enterprise
+  - Infrastructure
+  - Set up
+shortTitle: Instalar no Hyper-V
 ---
 
-### Pré-requisitos
+## Pré-requisitos
 
 - {% data reusables.enterprise_installation.software-license %}
 - Seu sistema operacional deve estar entre o Windows Server 2008 e o Windows Server 2019, que são compatíveis com o Hyper-V.
 - A maioria das ações necessárias para criar sua máquina virtual (VM) também pode ser executada usando o [Gerenciador do Hyper-V](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/remotely-manage-hyper-v-hosts). No entanto, a configuração inicial é recomendável com o shell de linha de comando do Windows PowerShell. Veja abaixo alguns exemplos com o PowerShell. Para obter mais informações, consulte "[Introdução ao Windows PowerShell](https://docs.microsoft.com/powershell/scripting/getting-started/getting-started-with-windows-powershell?view=powershell-5.1)" no guia da Microsoft.
 
-### Considerações de hardware
+## Considerações de hardware
 
 {% data reusables.enterprise_installation.hardware-considerations-all-platforms %}
 
-### Baixar a imagem do {% data variables.product.prodname_ghe_server %}
+## Baixar a imagem do {% data variables.product.prodname_ghe_server %}
 
-{% data reusables.enterprise_installation.enterprise-download-procedural %}
 {% data reusables.enterprise_installation.download-license %}
 {% data reusables.enterprise_installation.download-appliance %}
-4. Selecione {% data variables.product.prodname_dotcom %} On-premises e clique em **Hyper-V**.
+4. Em "{% data variables.product.prodname_dotcom %} no local", selecione o menu suspenso "Selecione seu hipervisor" e clique em **Hyper-V (VHD)**.
 5. Clique em **Download for Hyper-V** (Baixar para Hyper-V).
 
-### Criar a instância do {% data variables.product.prodname_ghe_server %}
+## Criar a instância do {% data variables.product.prodname_ghe_server %}
 
 {% data reusables.enterprise_installation.create-ghe-instance %}
 
@@ -55,7 +59,7 @@ topics:
   ```
 6. Copie o endereço IP da VM e cole em um navegador da web.
 
-### Configurar a instância do {% data variables.product.prodname_ghe_server %}
+## Configurar a instância do {% data variables.product.prodname_ghe_server %}
 
 {% data reusables.enterprise_installation.copy-the-vm-public-dns-name %}
 {% data reusables.enterprise_installation.upload-a-license-file %}
@@ -63,7 +67,7 @@ topics:
 {% data reusables.enterprise_installation.instance-will-restart-automatically %}
 {% data reusables.enterprise_installation.visit-your-instance %}
 
-### Leia mais
+## Leia mais
 
-- "[Visão geral do sistema](/enterprise/admin/guides/installation/system-overview){% if currentVersion ver_gt "enterprise-server@2.22" %}
+- "[Visão geral do sistema](/enterprise/admin/guides/installation/system-overview){% ifversion ghes %}
 - "[Sobre atualizações para novas versões](/admin/overview/about-upgrades-to-new-releases)"{% endif %}

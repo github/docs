@@ -1,170 +1,277 @@
 ---
-title: セルフホストランナーについて
-intro: '独自のランナーをホストして、{% data variables.product.prodname_actions %}ワークフロー中でジョブの実行に使われる環境をカスタマイズできます。'
+title: About self-hosted runners
+intro: 'You can host your own runners and customize the environment used to run jobs in your {% data variables.product.prodname_actions %} workflows.'
 redirect_from:
   - /github/automating-your-workflow-with-github-actions/about-self-hosted-runners
   - /actions/automating-your-workflow-with-github-actions/about-self-hosted-runners
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 type: overview
 ---
 
-{% data reusables.actions.ae-self-hosted-runners-notice %}
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
-### セルフホストランナーについて
+## About self-hosted runners
 
-{% data reusables.github-actions.self-hosted-runner-description %} セルフホストランナーは、物理、仮想、コンテナ内、オンプレミス、クラウド内のいずれでも可能です。
+A self-hosted runner is a system that you deploy and manage to execute jobs from {% data variables.product.prodname_actions %} on {% ifversion ghae or ghec %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}. For more information about {% data variables.product.prodname_actions %}, see "[Understanding {% data variables.product.prodname_actions %}](/actions/learn-github-actions/understanding-github-actions){% ifversion fpt %}."{% elsif ghec or ghes or ghae %}" and "[About {% data variables.product.prodname_actions %} for enterprises](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/about-github-actions-for-enterprises)."{% endif %}
 
-管理階層のさまざまなレベルでセルフホストランナーを追加できます。
-- リポジトリレベルのランナーは、単一のリポジトリ専用です。
-- Organization レベルのランナーは、Organization 内の複数のリポジトリのジョブを処理できます。
-- Enterprise レベルのランナーは、Enterprise アカウントの複数の Organization に割り当てることができます。
+{% data reusables.actions.self-hosted-runner-description %} {% data reusables.actions.self-hosted-runner-locations %}
 
-ランナーマシンは、{% data variables.product.prodname_actions %}のセルフホストランナーアプリケーションを使って{% data variables.product.product_name %}に接続します。 {% data reusables.github-actions.runner-app-open-source %} 新しいバージョンがリリースされると、ランナーアプリケーションはランナーにジョブが割り当てられた時、あるいはジョブが割り当てられなかったなら、リリースから一週間以内に、自動的に自分をアップデートします。
+You can add self-hosted runners at various levels in the management hierarchy:
+- Repository-level runners are dedicated to a single repository.
+- Organization-level runners can process jobs for multiple repositories in an organization.
+- Enterprise-level runners can be assigned to multiple organizations in an enterprise account.
 
-{% data reusables.github-actions.self-hosted-runner-auto-removal %}
+{% data reusables.actions.self-hosted-runner-architecture %} {% data reusables.actions.runner-app-open-source %} When a new version is released, the runner application automatically updates itself when a job is assigned to the runner, or within a week of release if the runner hasn't been assigned any jobs.
 
-セルフホストランナーのインストールと利用に関する詳しい情報については「[セルフホストランナーの追加](/github/automating-your-workflow-with-github-actions/adding-self-hosted-runners)」及び「[ワークフロー内でのセルフホストランナーの利用](/github/automating-your-workflow-with-github-actions/using-self-hosted-runners-in-a-workflow)」を参照してください。
+{% ifversion ghes %} 
+{% note %}
 
-### {% data variables.product.prodname_dotcom %}ホストランナーとセルフホストランナーの違い
+**Note:** {% data reusables.actions.upgrade-runners-before-upgrade-ghes %}
 
-{% data variables.product.prodname_dotcom %}ホストランナーは、ワークフローを素早くシンプルに実行する方法を提供しますが、セルフホストランナーはユーザのカスタム環境内でワークフローを実行する、設定の幅が広い方法です。
+{% endnote %}
+{% endif %}
 
-**{% data variables.product.prodname_dotcom %}ホストランナーは：**
-- オペレーティングシステム、プリインストールされたパッケージとツール、セルフホストランナーアプリケーションの自動アップデートを受信します。
-- {% data variables.product.prodname_dotcom %}によって管理及びメンテナンスされます。
-- ジョブの実行のたびにクリーンなインスタンスを提供します。
-- {% data variables.product.prodname_dotcom %}プランの無料の分を使います。無料の分を超えると、分単位のレートが適用されます。
+{% data reusables.actions.self-hosted-runner-auto-removal %}
 
-**セルフホストランナーは：**
-- セルフホストランナーアプリケーションのみ、自動アップデートを受信します。 オペレーティングシステムとその他のソフトウェアのアップデートはあなたがしなければなりません。
-- すでに支払いをしているクラウドサービスあるいはローカルマシンを利用できます。
-- 利用するハードウェア、オペレーティングシステム、ソフトウェア、セキュリティ上の要求に合わせてカスタマイズできます。
-- ジョブの実行のたびにクリーンなインスタンスを保持する必要がありません。
-- {% data variables.product.prodname_actions %}と合わせて無料で利用できますが、ランナーマシンのメンテナンスコストはあなたが受け持ちます。
+For more information about installing and using self-hosted runners, see "[Adding self-hosted runners](/github/automating-your-workflow-with-github-actions/adding-self-hosted-runners)" and "[Using self-hosted runners in a workflow](/github/automating-your-workflow-with-github-actions/using-self-hosted-runners-in-a-workflow)."
 
-### セルフホストランナーマシンに対する要求
+## {% ifversion fpt or ghec or ghes %}Differences between {% data variables.product.prodname_dotcom %}-hosted and {% elsif ghae %}Characteristics of {% endif %}self-hosted runners
 
-以下の要求を満たしていれば、いかなるマシンもセルフホストランナーとして利用できます。
+{% ifversion fpt or ghec or ghes %}
+{% data variables.product.prodname_dotcom %}-hosted runners offer a quicker, simpler way to run your workflows, while self-hosted{% elsif ghae %}Self-hosted{% endif %} runners are a highly configurable way to run workflows in your own custom environment. {% ifversion ghae %}Self-hosted runners:{% endif %}
 
-* マシン上にセルフホストランナーアプリケーションをあなたがインストールして実行できること。 詳しい情報については、「[セルフホストランナーでサポートされるアーキテクチャとオペレーティングシステム](#supported-architectures-and-operating-systems-for-self-hosted-runners)」を参照してください。
-* そのマシンが{% data variables.product.prodname_actions %}と通信できる。 詳しい情報については「[セルフホストランナーと{% data variables.product.prodname_dotcom %}の通信](#communication-between-self-hosted-runners-and-github)」を参照してください。
-* そのマシンが、実行しようとしている種類のワークフローに対して十分なハードウェアリソースを持っていること。 セルフホストランナーアプリケーションそのものは、最小限のリソースしか必要としません。
-* Dockerコンテナアクションあるいはサービスコンテナを使うワークフローを実行したいなら、Linuxのマシンを使い、Dockerがインストールされていなければなりません。
+{% ifversion fpt or ghec or ghes %}
+**{% data variables.product.prodname_dotcom %}-hosted runners:**
+- Receive automatic updates for the operating system, preinstalled packages and tools, and the self-hosted runner application.
+- Are managed and maintained by {% data variables.product.prodname_dotcom %}.
+- Provide a clean instance for every job execution.
+- Use free minutes on your {% data variables.product.prodname_dotcom %} plan, with per-minute rates applied after surpassing the free minutes.
 
-### 使用制限
+**Self-hosted runners:**{% endif %}
+- Receive automatic updates for the self-hosted runner application only{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6143 %}, though you may disable automatic updates of the runner. For more information about controlling runner software updates on self-hosted runners, see "[Autoscaling with self-hosted runners](/actions/hosting-your-own-runners/autoscaling-with-self-hosted-runners#controlling-runner-software-updates-on-self-hosted-runners)."{% else %}.{% endif %} You are responsible for updating the operating system and all other software.
+- Can use cloud services or local machines that you already pay for.
+- Are customizable to your hardware, operating system, software, and security requirements.
+- Don't need to have a clean instance for every job execution.
+- Are free to use with {% data variables.product.prodname_actions %}, but you are responsible for the cost of maintaining your runner machines.{% ifversion ghec or ghes or ghae %}
+- Can be organized into groups to restrict access to specific {% ifversion restrict-groups-to-workflows %}workflows, {% endif %}organizations and repositories. For more information, see "[Managing access to self-hosted runners using groups](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups)."{% endif %}
 
-セルフホストランナーを使用する場合、{% data variables.product.prodname_actions %} の使用にはいくつかの制限があります。 これらの制限は変更されることがあります。
+## Requirements for self-hosted runner machines
 
-{% data reusables.github-actions.usage-workflow-run-time %}
-- **ジョブキュー時間** - セルフホストランナーの各ジョブは、最大24時間キューイングできます。 この制限内にセルフホストランナーがジョブの実行を開始しなければ、ジョブは終了させられ、完了に失敗します。
-{% data reusables.github-actions.usage-api-requests %}
-- **ジョブマトリックス** - {% data reusables.github-actions.usage-matrix-limits %}
-{% data reusables.github-actions.usage-workflow-queue-limits %}
+You can use any machine as a self-hosted runner as long at it meets these requirements:
 
-### セルフホストランナーのワークフローの継続性
+* You can install and run the self-hosted runner application on the machine. For more information, see "[Supported architectures and operating systems for self-hosted runners](#supported-architectures-and-operating-systems-for-self-hosted-runners)."
+* The machine can communicate with {% data variables.product.prodname_actions %}. For more information, see "[Communication between self-hosted runners and {% data variables.product.product_name %}](#communication-requirements)."
+* The machine has enough hardware resources for the type of workflows you plan to run. The self-hosted runner application itself only requires minimal resources.
+* If you want to run workflows that use Docker container actions or service containers, you must use a Linux machine and Docker must be installed.
 
-{% data reusables.github-actions.runner-workflow-continuity %}
+{% ifversion fpt or ghes > 3.2 or ghec or ghae %}
+## Autoscaling your self-hosted runners
 
-### セルフホストランナーをサポートするアーキテクチャとオペレーティングシステム
+You can automatically increase or decrease the number of self-hosted runners in your environment in response to the webhook events you receive. For more information, see "[Autoscaling with self-hosted runners](/actions/hosting-your-own-runners/autoscaling-with-self-hosted-runners)."
 
-セルフホストランナーアプリケーション用には、以下のオペレーティングシステムがサポートされています。
+{% endif %}
 
-#### Linux
+## Usage limits
+
+There are some limits on {% data variables.product.prodname_actions %} usage when using self-hosted runners. These limits are subject to change.
+
+{% data reusables.actions.usage-workflow-run-time %}
+- **Job queue time** - Each job for self-hosted runners can be queued for a maximum of 24 hours. If a self-hosted runner does not start executing the job within this limit, the job is terminated and fails to complete.
+{% data reusables.actions.usage-api-requests %}
+- **Job matrix** - {% data reusables.actions.usage-matrix-limits %}
+{% data reusables.actions.usage-workflow-queue-limits %}
+
+## Workflow continuity for self-hosted runners
+
+{% data reusables.actions.runner-workflow-continuity %}
+
+## Supported architectures and operating systems for self-hosted runners
+
+The following operating systems are supported for the self-hosted runner application.
+
+### Linux
 
 - Red Hat Enterprise Linux 7 or later
 - CentOS 7 or later
 - Oracle Linux 7
-- Fedora 29以降
-- Debian 9以降
-- Ubuntu 16.04以降
-- Linux Mint 18以降
-- openSUSE 15以降
-- SUSE Enterprise Linux (SLES) 12 SP2以降
+- Fedora 29 or later
+- Debian 9 or later
+- Ubuntu 16.04 or later
+- Linux Mint 18 or later
+- openSUSE 15 or later
+- SUSE Enterprise Linux (SLES) 12 SP2 or later
 
-#### Windows
+### Windows
 
 - Windows 7 64-bit
 - Windows 8.1 64-bit
 - Windows 10 64-bit
-- Windows 10 64-bit
-- Windows Server 2016 64-bit
+- Windows Server 2012 R2 64-bit
 - Windows Server 2019 64-bit
 
-#### macOS
+### macOS
 
-- macOS 10.13 (High Sierra)以降
+- macOS 10.13 (High Sierra) or later
 
-#### アーキテクチャ
+### Architectures
 
-セルフホストランナーアプリケーションでは、次のプロセッサアーキテクチャがサポートされています。
+The following processor architectures are supported for the self-hosted runner application.
 
-- `x64` - Linux、macOS、Windows。
-- `ARM64` - Linux のみ。
-- `ARM32` - Linux のみ。
+- `x64` - Linux, macOS, Windows.
+- `ARM64` - Linux only.
+- `ARM32` - Linux only.
 
-{% if enterpriseServerVersions contains currentVersion %}
+{% ifversion ghes %}
 
-### セルフホストランナーと{% data variables.product.prodname_dotcom %}との通信
+## Supported actions on self-hosted runners
 
-そのマシンが{% data variables.product.prodname_actions %}と通信できる。 詳しい情報については「[{% data variables.product.prodname_dotcom_the_website %}からのアクションへのアクセスの管理](/enterprise/admin/github-actions/managing-access-to-actions-from-githubcom)」を参照し、{% data variables.product.prodname_enterprise %}のサイト管理者に連絡してください。
+Some extra configuration might be required to use actions from {% data variables.product.prodname_dotcom_the_website %} with {% data variables.product.prodname_ghe_server %}, or to use the `actions/setup-LANGUAGE` actions with self-hosted runners that do not have internet access. For more information, see "[Managing access to actions from {% data variables.product.prodname_dotcom_the_website %}](/enterprise/admin/github-actions/managing-access-to-actions-from-githubcom)" and contact your {% data variables.product.prodname_enterprise %} site administrator.
 
 {% endif %}
 
-### セルフホストランナーと{% data variables.product.product_name %}との通信
+<a name="communication-requirements"></a>
 
-The self-hosted runner polls {% data variables.product.prodname_dotcom %} to retrieve application updates and to check if any jobs are queued for processing. The self-hosted runner uses a HTTPS _long poll_ that opens a connection to {% data variables.product.prodname_dotcom %} for 50 seconds, and if no response is received, it then times out and creates a new long poll. アプリケーションは、{% data variables.product.prodname_actions %}ジョブを受け付けて実行するためにマシン上で動作していなければなりません。
+## Communication between self-hosted runners and {% data variables.product.product_name %}
 
-{% if currentVersion == "github-ae@latest" %}
-セルフホストランナーが
-{% data variables.product.prodname_ghe_managed %} URL と通信するための適切なネットワークアクセスがあることを確認する必要があります。
-たとえば、インスタンス名が `octoghae` の場合、セルフホストランナーが `octoghae.github.com` にアクセスできるようにする必要があります。
-IP アドレス許可リストを
+The self-hosted runner connects to {% data variables.product.product_name %} to receive job assignments and to download new versions of the runner application. The self-hosted runner uses an {% ifversion ghes %}HTTP(S){% else %}HTTPS{% endif %} _long poll_ that opens a connection to {% data variables.product.product_name %} for 50 seconds, and if no response is received, it then times out and creates a new long poll. The application must be running on the machine to accept and run {% data variables.product.prodname_actions %} jobs.
 
-{% data variables.product.prodname_dotcom %} Organization または Enterprise アカウントで使用する場合は、セルフホストランナーの IP アドレスを許可リストに追加する必要があります。 詳細は「[ Organization に対する許可 IP アドレスを管理する](/organizations/keeping-your-organization-secure/managing-allowed-ip-addresses-for-your-organization#using-github-actions-with-an-ip-allow-list)」を参照してください。
+{% data reusables.actions.self-hosted-runner-ports-protocols %}
+
+{% ifversion fpt or ghec %}
+Since the self-hosted runner opens a connection to {% data variables.product.product_location %}, you do not need to allow {% data variables.product.prodname_dotcom %} to make inbound connections to your self-hosted runner.
+{% elsif ghes or ghae %}
+Only an outbound connection from the runner to {% data variables.product.product_location %} is required. There is no need for an inbound connection from {% data variables.product.product_location %} to the runner.
+{%- endif %}
+
+{% ifversion ghes %}
+
+{% data variables.product.product_name %} must accept inbound connections from your runners over {% ifversion ghes %}HTTP(S){% else %}HTTPS{% endif %} at {% data variables.product.product_location %}'s hostname and API subdomain, and your runners must allow outbound connections over {% ifversion ghes %}HTTP(S){% else %}HTTPS{% endif %} to {% data variables.product.product_location %}'s hostname and API subdomain.
+
+{% elsif ghae %}
+
+You must ensure that the self-hosted runner has appropriate network access to communicate with your {% data variables.product.product_name %} URL and its subdomains. For example, if your subdomain for {% data variables.product.product_name %} is `octoghae`, then you will need to allow the self-hosted runner to access `octoghae.githubenterprise.com`, `api.octoghae.githubenterprise.com`, and `codeload.octoghae.githubenterprise.com`.
+
+If you use an IP address allow list, you must add your self-hosted runner's IP address to the allow list. For more information, see "[Managing allowed IP addresses for your organization](/organizations/keeping-your-organization-secure/managing-allowed-ip-addresses-for-your-organization#using-github-actions-with-an-ip-allow-list)."
+
 {% endif %}
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt or ghec %}
 
-下記の {% data variables.product.prodname_dotcom %} の URL と通信するための適切なネットワークアクセスがマシンにあることを確認する必要があります。
+You must ensure that the machine has the appropriate network access to communicate with the {% data variables.product.prodname_dotcom %} hosts listed below. Some hosts are required for essential runner operations, while other hosts are only required for certain functionality.
+
+{% note %}
+
+**Note:** Some of the domains listed below are configured using `CNAME` records. Some firewalls might require you to add rules recursively for all `CNAME` records. Note that the `CNAME` records might change in the future, and that only the domains listed below will remain constant.
+
+{% endnote %}
+
+**Needed for essential operations:**
 
 ```
 github.com
 api.github.com
-*.actions.githubusercontent.com
-github-releases.githubusercontent.com
-github-registry-files.githubusercontent.com
-codeload.github.com
-*.pkg.github.com
-pkg-cache.githubusercontent.com
-pkg-containers.githubusercontent.com
-pkg-containers-az.githubusercontent.com
 ```
 
-{% data variables.product.prodname_dotcom %} OrganizationあるいはEnterpriseアカウントでIPアドレス許可リストを使うなら、セルフホストランナーのIPアドレスを許可リストに追加しなければなりません。 詳しい情報については「[Organizationの許可IPアドレスの管理](/organizations/keeping-your-organization-secure/managing-allowed-ip-addresses-for-your-organization#using-github-actions-with-an-ip-allow-list)」あるいは「[Enterpriseアカウントでのセキュリティ設定の適用](/github/setting-up-and-managing-your-enterprise/enforcing-security-settings-in-your-enterprise-account#using-github-actions-with-an-ip-allow-list)」を参照してください。
+**Needed for downloading actions:**
+
+```
+codeload.github.com
+```
+
+**Needed for runner version updates:**
+
+```
+objects.githubusercontent.com
+objects-origin.githubusercontent.com
+github-releases.githubusercontent.com
+github-registry-files.githubusercontent.com
+```
+
+**Needed for uploading/downloading caches and workflow artifacts:**    
+
+```
+*.blob.core.windows.net
+```
+
+**Needed for retrieving OIDC tokens:**
+
+```
+*.actions.githubusercontent.com
+```
+
+In addition, your workflow may require access to other network resources. For example, if your workflow installs packages or publishes containers to {% data variables.product.prodname_dotcom %} Packages, then the runner will also require access to those network endpoints.
+
+If you use an IP address allow list for your {% data variables.product.prodname_dotcom %} organization or enterprise account, you must add your self-hosted runner's IP address to the allow list. For more information, see "[Managing allowed IP addresses for your organization](/{% ifversion fpt %}enterprise-cloud@latest/{% endif %}/organizations/keeping-your-organization-secure/managing-allowed-ip-addresses-for-your-organization#using-github-actions-with-an-ip-allow-list)" or "[Enforcing policies for security settings in your enterprise](/{% ifversion fpt %}enterprise-cloud@latest/{% endif %}admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise){% ifversion fpt %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}."{% endif %}
 
 {% else %}
 
-マシンには、{% data variables.product.product_location %}と通信するための適切なネットワークアクセスを持たせなければなりません。
+{% ifversion ghes %}Self-hosted runners do not require any external internet access in order to function. As a result, you can use network routing to direct communication between the self-hosted runner and {% data variables.product.product_location %}. For example, you can assign a private IP address to your self-hosted runner and configure routing to send traffic to {% data variables.product.product_location %}, with no need for traffic to traverse a public network.{% endif %}
 
 {% endif %}
 
-セルフホストランナーは、プロキシサーバーと合わせて使うこともできます。 詳しい情報については「[セルフホストランナーと合わせてプロキシサーバーを使う](/actions/automating-your-workflow-with-github-actions/using-a-proxy-server-with-self-hosted-runners)」を参照してください。
+{% ifversion ghae %}
+If you use an IP address allow list for your {% data variables.product.prodname_dotcom %} organization or enterprise account, you must add your self-hosted runner's IP address to the allow list. For more information, see "[Managing allowed IP addresses for your organization](/organizations/keeping-your-organization-secure/managing-allowed-ip-addresses-for-your-organization#using-github-actions-with-an-ip-allow-list)."
+{% endif %}
 
-### パブリックリポジトリでのセルフホストランナーのセキュリティ
+You can also use self-hosted runners with a proxy server. For more information, see "[Using a proxy server with self-hosted runners](/actions/automating-your-workflow-with-github-actions/using-a-proxy-server-with-self-hosted-runners)."
 
-{% data reusables.github-actions.self-hosted-runner-security %}
+For more information about troubleshooting common network connectivity issues, see "[Monitoring and troubleshooting self-hosted runners](/actions/hosting-your-own-runners/monitoring-and-troubleshooting-self-hosted-runners#troubleshooting-network-connectivity)."
 
-それぞれの{% data variables.product.prodname_dotcom %}ホストランナーは常にクリーンな隔離された仮想マシンになり、ジョブの実行が終わると破棄されるので、{% data variables.product.prodname_dotcom %}ホストランナーではこれは問題にはなりません。
+{% ifversion ghes or ghae %}
 
-あなたのセルフホストランナー上で実行される信頼できないワークフローは、あなたのマシンやネットワーク環境に大きなセキュリティリスクをもたらします。これは特に、マシンがジョブにまたがって環境を保持する場合に当てはまります。 リスクには以下のようなものがあります。
+## Communication between self-hosted runners and {% data variables.product.prodname_dotcom_the_website %}
 
-* マシン上での悪意あるプログラムの実行
-* マシンのランナーのサンドボックスからの脱却
-* マシンのネットワーク環境へのアクセスの露出
-* 望まないもしくは危険なデータのマシン上への保存
+Self-hosted runners do not need to connect to {% data variables.product.prodname_dotcom_the_website %} unless you have enabled automatic access to {% data variables.product.prodname_dotcom_the_website %} actions for {% data variables.product.product_location %}. For more information, see "[About using actions in your enterprise](/admin/github-actions/managing-access-to-actions-from-githubcom/about-using-actions-in-your-enterprise)."
+
+If you have enabled automatic access to {% data variables.product.prodname_dotcom_the_website %} actions, then the self-hosted runner will connect directly to {% data variables.product.prodname_dotcom_the_website %} to download actions. You must ensure that the machine has the appropriate network access to communicate with the {% data variables.product.prodname_dotcom %} URLs listed below. 
+
+```
+github.com
+api.github.com
+codeload.github.com
+```
+
+{% note %}
+
+**Note:** Some of the domains listed above are configured using `CNAME` records. Some firewalls might require you to add rules recursively for all `CNAME` records. Note that the `CNAME` records might change in the future, and that only the domains listed above will remain constant.
+
+{% endnote %}
+
+
+{% endif %}
+
+## Self-hosted runner security
+
+{% ifversion fpt or ghec %}
+
+{% data reusables.actions.self-hosted-runner-security %}
+
+{% endif %}
+
+{% ifversion fpt or ghec %}
+
+This is not an issue with {% data variables.product.prodname_dotcom %}-hosted runners because each {% data variables.product.prodname_dotcom %}-hosted runner is always a clean isolated virtual machine, and it is destroyed at the end of the job execution.
+
+{% endif %}
+
+Untrusted workflows running on your self-hosted runner pose significant security risks for your machine and network environment, especially if your machine persists its environment between jobs. Some of the risks include:
+
+* Malicious programs running on the machine.
+* Escaping the machine's runner sandbox.
+* Exposing access to the machine's network environment.
+* Persisting unwanted or dangerous data on the machine.
+
+For more information about security hardening for self-hosted runners, see "[Security hardening for {% data variables.product.prodname_actions %}](/actions/security-guides/security-hardening-for-github-actions#hardening-for-self-hosted-runners)."
+
+{% ifversion ghec or ghes or ghae %}
+
+## Further reading
+
+- "[Getting started with self-hosted runners for your enterprise](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-self-hosted-runners-for-your-enterprise)"
+
+{% endif %}

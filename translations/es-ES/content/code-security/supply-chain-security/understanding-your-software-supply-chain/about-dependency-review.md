@@ -1,8 +1,13 @@
 ---
-title: Acerca de la revisión de dependencias
-intro: 'La revisión de dependencias te permite detectar las dependencias vulnerables antes de que las introduzcas a tu ambiente y te proporciona información sobre la licencia, dependientes y edad de las dependencias.'
+title: About dependency review
+intro: 'Dependency review lets you catch insecure dependencies before you introduce them to your environment, and provides information on license, dependents, and age of dependencies.'
+product: '{% data reusables.gated-features.dependency-review %}'
+shortTitle: Dependency review
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghes: '>= 3.2'
+  ghae: '*'
+  ghec: '*'
 type: overview
 topics:
   - Advanced Security
@@ -14,27 +19,50 @@ redirect_from:
   - /code-security/supply-chain-security/about-dependency-review
 ---
 
-{% note %}
+{% data reusables.dependency-review.beta %}
 
-**Nota:** Las revisiones de dependencias se encuentran actualmente en beta y están sujetas a cambios.
+## About dependency review
 
-{% endnote %}
+{% data reusables.dependency-review.feature-overview %}  
 
-### Acerca de la revisión de dependencias
+If a pull request targets your repository's default branch and contains changes to package manifests or lock files, you can display a dependency review to see what has changed. The dependency review includes details of changes to indirect dependencies in lock files, and it tells you if any of the added or updated dependencies contain known vulnerabilities.
 
-{% data reusables.dependency-review.feature-overview %}
+Sometimes you might just want to update the version of one dependency in a manifest and generate a pull request. However, if the updated version of this direct dependency also has updated dependencies, your pull request may have more changes than you expected. The dependency review for each manifest and lock file provides an easy way to see what has changed, and whether any of the new dependency versions contain known vulnerabilities.
 
-Si una solicitud de cambios apunta a la rama predeterminada de tu repositorio y contiene cambios a los archivos de bloqueo o de manifiesto empaquetados, puedes mostrar una revisión de dependencias para ver qué ha cambiado. La revisión de dependencias incluye detalles de los cambios a las dependencias indirectas en los archivos de bloqueo, y te dice si cualquiera de las dependencias que se agregaron o actualizaron contienen vulnerabilidades conocidas.
+By checking the dependency reviews in a pull request, and changing any dependencies that are flagged as vulnerable, you can avoid vulnerabilities being added to your project. For more information about how dependency review works, see "[Reviewing dependency changes in a pull request](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-dependency-changes-in-a-pull-request)."
 
-La revisión de dependencias se encuentra disponible en:
+For more information about configuring dependency review, see "[Configuring dependency review](/code-security/supply-chain-security/understanding-your-software-supply-chain/configuring-dependency-review)."
 
-* Todos los repositorios públicos.
-* Los repositorios privados que pertenecen a las organizaciones con una licencia de {% data variables.product.prodname_advanced_security %} que tengan la gráfica dependencias habilitada. Para obtener más información, consulta la sección "[Explorar las dependencias de un repositorio](/github/visualizing-repository-data-with-graphs/exploring-the-dependencies-of-a-repository#enabling-and-disabling-the-dependency-graph-for-a-private-repository)".
+{% data variables.product.prodname_dependabot_alerts %} will find vulnerabilities that are already in your dependencies, but it's much better to avoid introducing potential problems than to fix problems at a later date. For more information about {% data variables.product.prodname_dependabot_alerts %}, see "[About {% data variables.product.prodname_dependabot_alerts %}](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies#dependabot-alerts-for-vulnerable-dependencies)."
 
-Algunas veces puede que solo quieras actualizar la versión de una dependencia en un manifiesto y generar una solicitud de cambios. Sin embargo, si la versión actualizada de esta dependencia directa también tiene dependencias actualizadas, tu solicitud de cambios podría tener más cambios de lo que esperas. La revisión de dependencias para cada archivo de bloqueo y de manifiesto proporciona un aforma sencilla para ver lo que ha cambiado y te deja saber si cualquiera de las versiones nuevas de las dependencias contienen vulnerabilidades conocidas.
+Dependency review supports the same languages and package management ecosystems as the dependency graph. For more information, see "[About the dependency graph](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph#supported-package-ecosystems)."
 
-Cuando verificas las revisiones de dependencias en una solicitud de cambios y cambias cualquier dependencia que se marque como vulnerable, puedes evitar que las vulnerabilidades se agreguen a tu proyecto. Para obtener más información acerca de cómo funciona la revisión de dependencias, consulta la sección "[Revisar los cambios a las dependencias en las solicitudes de cambios](/github/collaborating-with-issues-and-pull-requests/reviewing-dependency-changes-in-a-pull-request)".
+For more information on supply chain features available on {% data variables.product.product_name %}, see "[About supply chain security](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-supply-chain-security)."
 
-Las {% data variables.product.prodname_dependabot_alerts %} encontrarán vulnerabilidades que ya se encuentran en tus dependencias, pero es mucho mejor evitar introducir problemas potenciales que arreglarlos posteriormente. Para obtener más informació acera de las {% data variables.product.prodname_dependabot_alerts %}, consulta la sección "[Acerca de las alertas para las dependencias vulnerables](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies#dependabot-alerts-for-vulnerable-dependencies)".
+{% ifversion ghec or ghes %}
+## Enabling dependency review
 
-La revisión de dependencias es compatible con los mismos lenguajes de programación y ecosistemas de administración de paquetes que la gráfica de dependencias. Para obtener más información, consulta la sección "[Acerca de la gráfica de dependencias](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph#supported-package-ecosystems)".
+The dependency review feature becomes available when you enable the dependency graph. For more information, see "{% ifversion ghec %}[Enabling the dependency graph](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph#enabling-the-dependency-graph){% elsif ghes %}[Enabling the dependency graph for your enterprise](/admin/code-security/managing-supply-chain-security-for-your-enterprise/enabling-the-dependency-graph-for-your-enterprise){% endif %}."
+{% endif %}
+
+{% ifversion fpt or ghec or ghes > 3.5 or ghae-issue-6396 %}
+## Dependency review enforcement
+
+{% data reusables.dependency-review.dependency-review-action-beta-note %}
+
+The action is available for all {% ifversion fpt or ghec %}public repositories, as well as private {% endif %}repositories that have {% data variables.product.prodname_GH_advanced_security %} enabled.
+
+You can use the {% data variables.product.prodname_dependency_review_action %} in your repository to enforce dependency reviews on your pull requests. The action scans for vulnerable versions of dependencies introduced by package version changes in pull requests, and warns you about the associated security vulnerabilities. This gives you better visibility of what's changing in a pull request, and helps prevent vulnerabilities being added to your repository. For more information, see [`dependency-review-action`](https://github.com/actions/dependency-review-action).
+
+![Dependency review action example](/assets/images/help/graphs/dependency-review-action.png)
+
+By default, the {% data variables.product.prodname_dependency_review_action %} check will fail if it discovers any vulnerable packages. A failed check blocks a pull request from being merged when the repository owner requires the dependency review check to pass. For more information, see "[About protected branches](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches#require-status-checks-before-merging)."
+
+The action uses the Dependency Review REST API to get the diff of dependency changes between the base commit and head commit. You can use the Dependency Review API to get the diff of dependency changes, including vulnerability data, between any two commits on a repository. For more information, see "[Dependency review](/rest/reference/dependency-graph#dependency-review)."
+
+{% ifversion dependency-review-action-configuration %}
+You can configure the {% data variables.product.prodname_dependency_review_action %} to better suit your needs. For example, you can specify the severity level that will make the action fail, or set an allow or deny list for licenses to scan. For more information, see "[Configuring dependency review](/code-security/supply-chain-security/understanding-your-software-supply-chain/configuring-dependency-review#configuring-the-dependency-review-github-action)." 
+{% endif %}
+
+{% endif %}
+

@@ -2,11 +2,13 @@
 title: 取消发布您的 GitHub Sponsors 个人资料
 intro: '如果您没有任何赞助者，您可以取消发布您的 {% data variables.product.prodname_sponsors %} 个人资料。'
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Open Source
   - Sponsors payments
+shortTitle: 取消发布您的个人资料
 ---
 
 如果您有赞助者，您需要联系 GitHub Support 帮助您取消发布 {% data variables.product.prodname_sponsors %} 帐户。

@@ -1,62 +1,83 @@
 ---
-title: 关于 GitHub Pages 站点的 Jekyll 构建错误
-intro: '如果在本地或 {% data variables.product.product_name %} 上构建 {% data variables.product.prodname_pages %} 站点发生 Jekyll 错误，您将收到一条错误消息，其中包含相关详细信息。'
+title: About Jekyll build errors for GitHub Pages sites
+intro: 'If Jekyll encounters an error building your {% data variables.product.prodname_pages %} site locally or on {% data variables.product.product_name %}, you''ll receive an error message with more information.'
 redirect_from:
-  - /articles/viewing-jekyll-build-error-messages/
-  - /articles/generic-jekyll-build-failures/
+  - /articles/viewing-jekyll-build-error-messages
+  - /articles/generic-jekyll-build-failures
   - /articles/about-jekyll-build-errors-for-github-pages-sites
   - /github/working-with-github-pages/about-jekyll-build-errors-for-github-pages-sites
 product: '{% data reusables.gated-features.pages %}'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Pages
+shortTitle: Jekyll build errors for Pages
 ---
 
-### 关于 Jekyll 构建错误
+## About Jekyll build errors
 
-有时，在您推送更改到站点的发布源之后，{% data variables.product.prodname_pages %} 不会尝试构建您的站点。{% if currentVersion == "free-pro-team@latest" %}
-- 推送更改的人尚未验证他们的电子邮件地址。 更多信息请参阅“[验证电子邮件地址](/articles/verifying-your-email-address)”。{% endif %}
-- 您使用部署密钥推送。 如果要自动推送到站点的仓库，您可以改为设置计算机用户。 更多信息请参阅“[管理部署密钥](/developers/overview/managing-deploy-keys#machine-users)”。
-- 您使用的是未配置为构建发布源的 CI 服务。 例如，Travis CI 不会构建 `gh-pages` 分支，除非您将该分支添加到安全列表。 更多信息请参阅 Travis CI 上的“[定制构建](https://docs.travis-ci.com/user/customizing-the-build/#safelisting-or-blocklisting-branches)”或者 CI 服务的文档。
+Sometimes, {% data variables.product.prodname_pages %} will not attempt to build your site after you push changes to your site's publishing source.{% ifversion fpt or ghec %}
+- The person who pushed the changes hasn't verified their email address. For more information, see "[Verifying your email address](/articles/verifying-your-email-address)."{% endif %}
+- You're pushing with a deploy key. If you want to automate pushes to your site's repository, you can set up a machine user instead. For more information, see "[Managing deploy keys](/developers/overview/managing-deploy-keys#machine-users)."
+- You're using a CI service that isn't configured to build your publishing source. For example, Travis CI won't build the `gh-pages` branch unless you add the branch to a safe list. For more information, see "[Customizing the build](https://docs.travis-ci.com/user/customizing-the-build/#safelisting-or-blocklisting-branches)" on Travis CI, or your CI service's documentation.
 
 {% note %}
 
-**注：**对站点的更改在推送到 {% data variables.product.product_name %} 后，最长可能需要 20 分钟才会发布。
+**Note:** It can take up to 20 minutes for changes to your site to publish after you push the changes to {% data variables.product.product_name %}.
 
 {% endnote %}
 
-如果 Jekyll 尝试构建站点但遇到错误，您将收到一条构建错误消息。 Jekyll 构建错误消息有两种主要类型。
-- “Page build warning（页面构建警告）”消息表示构建已成功完成，但您可能需要进行更改以防止将来出现问题。
-- “Page build failed（页面构建失败）”消息表示构建未能完成。 如果 Jekyll 能够检测到失败的原因，您将看到描述性错误消息。
+If Jekyll does attempt to build your site and encounters an error, you will receive a build error message. There are two main types of Jekyll build error messages.
+- A "Page build warning" message means your build completed successfully, but you may need to make changes to prevent future problems.
+- A "Page build failed" message means your build failed to complete. If Jekyll is able to detect a reason for the failure, you'll see a descriptive error message.
 
-有关排查构建错误的更多信息，请参阅“[关于 {% data variables.product.prodname_pages %} 站点的 Jekyll 构建错误疑难排解](/articles/troubleshooting-jekyll-build-errors-for-github-pages-sites)”。
+For more information about troubleshooting build errors, see "[Troubleshooting Jekyll build errors for {% data variables.product.prodname_pages %} sites](/articles/troubleshooting-jekyll-build-errors-for-github-pages-sites)."
 
-### 查看 Jekyll 构建错误消息
+{% ifversion fpt %} 
+## Viewing Jekyll build error messages with {% data variables.product.prodname_actions %}
 
-我们建议在本地测试您的站点，这样您可以在命令行上看到构建错误消息，并在更改推送到 {% data variables.product.product_name %} 之前解决任何构建失败。 更多信息请参阅“[使用 Jekyll 在本地测试 {% data variables.product.prodname_pages %} 站点](/articles/testing-your-github-pages-site-locally-with-jekyll)”。
+By default, your {% data variables.product.prodname_pages %} site is built and deployed with a {% data variables.product.prodname_actions %} workflow run unless you've configured your {% data variables.product.prodname_pages %} site to use a different CI tool. To find potential build errors, you can check the workflow run for your {% data variables.product.prodname_pages %} site by reviewing your repository's workflow runs. For more information, see "[Viewing workflow run history](/actions/monitoring-and-troubleshooting-workflows/viewing-workflow-run-history)."  For more information about how to re-run the workflow in case of an error, see "[Re-running workflows and jobs](/actions/managing-workflow-runs/re-running-workflows-and-jobs)."
+{% note %}
 
-创建拉取请求以更新您在 {% data variables.product.product_name %} 上的发布源时，您可以在拉取请求的 **Checks（检查）**选项卡上看到构建错误消息。 更多信息请参阅“[关于状态检查](/articles/about-status-checks)”。
+{% data reusables.pages.pages-builds-with-github-actions-public-beta %}
 
-将更改推送到您在 {% data variables.product.product_name %} 上的发布源时，{% data variables.product.prodname_pages %} 将尝试构建您的站点。 如果构建失败，您将在您的主要电子邮件地址收到一封电子邮件。 您还将收到关于构建警告的电子邮件。 {% data reusables.pages.build-failure-email-server %}
+{% endnote %}
+{% endif %}
 
-您可以在 {% data variables.product.product_name %} 上站点仓库的 **Settings（设置）**选项卡中查看构建失败（而不是构建警告）。
+## Viewing your repository's build failures on {% data variables.product.product_name %}
 
-您可以配置第三方服务（例如 [Travis CI](https://travis-ci.org/)）以在每次提交后显示错误消息。
+You can see build failures (but not build warnings) for your site on {% data variables.product.product_name %} in the **Settings** tab of your site's repository.
 
-1. 如果尚未在发布源的根目录中添加名为 _Gemfile_、包含以下内容的文件，请添加：
+## Viewing Jekyll build error messages locally
+
+We recommend testing your site locally, which allows you to see build error messages on the command line, and addressing any build failures before pushing changes to {% data variables.product.product_name %}. For more information, see "[Testing your {% data variables.product.prodname_pages %} site locally with Jekyll](/articles/testing-your-github-pages-site-locally-with-jekyll)."
+
+## Viewing Jekyll build error messages in your pull request
+
+When you create a pull request to update your publishing source on {% data variables.product.product_name %}, you can see build error messages on the **Checks** tab of the pull request. For more information, see "[About status checks](/pull-requests/collaborating-with-pull-requests/collaborating-on-repositories-with-code-quality-features/about-status-checks)."
+
+## Viewing Jekyll build errors by email
+
+When you push changes to your publishing source on {% data variables.product.product_name %}, {% data variables.product.prodname_pages %} will attempt to build your site. If the build fails, you'll receive an email at your primary email address. You'll also receive emails for build warnings. {% data reusables.pages.build-failure-email-server %}
+
+## Viewing Jekyll build error messages in your pull request with a third-party CI service
+
+You can configure a third-party service, such as [Travis CI](https://travis-ci.org/), to display error messages after each commit.
+
+1. If you haven't already, add a file called _Gemfile_ in the root of your publishing source, with the following content:
   ```ruby
   source `https://rubygems.org`
   gem `github-pages`
   ```
 
-2. 为您选择的测试服务配置站点仓库。 例如，要使用 [Travis CI](https://travis-ci.org/)，请在发布源的根目录下添加一个名为 _.travis.yml_、包含以下内容的文件：
+2. Configure your site's repository for the testing service of your choice. For example, to use [Travis CI](https://travis-ci.org/), add a file named _.travis.yml_ in the root of your publishing source, with the following content:
   ```yaml
   language: ruby
   rvm:
     - 2.3
   script: "bundle exec jekyll build"
   ```
-3. 您可能需要使用第三方测试服务激活仓库。 更多信息请参阅测试服务的文档。
+3. You may need to activate your repository with the third-party testing service. For more information, see your testing service's documentation.

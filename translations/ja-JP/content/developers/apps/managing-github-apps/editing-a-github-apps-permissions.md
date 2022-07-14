@@ -2,15 +2,17 @@
 title: GitHub App の権限を編集する
 intro: '{% data reusables.shortdesc.editing_permissions_for_github_apps %}'
 redirect_from:
-  - /apps/building-integrations/managing-github-apps/editing-a-github-app-s-permissions/
+  - /apps/building-integrations/managing-github-apps/editing-a-github-app-s-permissions
   - /apps/managing-github-apps/editing-a-github-app-s-permissions
   - /developers/apps/editing-a-github-apps-permissions
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - GitHub Apps
+shortTitle: 権限を編集する
 ---
 
 {% note %}

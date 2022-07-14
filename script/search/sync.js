@@ -11,6 +11,7 @@ import LunrIndex from './lunr-search-index.js'
 // Build a search data file for every combination of product version and language
 // e.g. `github-docs-dotcom-en.json` and `github-docs-2.14-ja.json`
 export default async function syncSearchIndexes(opts = {}) {
+  const t0 = new Date()
   if (opts.language) {
     if (!Object.keys(languages).includes(opts.language)) {
       console.log(
@@ -22,10 +23,10 @@ export default async function syncSearchIndexes(opts = {}) {
 
   if (opts.version) {
     if (!Object.keys(allVersions).includes(opts.version)) {
-      console.log(
+      console.log(`${opts.version} not one of ${Object.keys(allVersions)}`)
+      throw new Error(
         `Error! ${opts.version} not found. You must provide a currently supported version in <PLAN@RELEASE> format.`
       )
-      process.exit(1)
     }
   }
 
@@ -47,6 +48,17 @@ export default async function syncSearchIndexes(opts = {}) {
 
   // Exclude WIP pages, hidden pages, index pages, etc
   const indexablePages = await findIndexablePages()
+  const redirects = {}
+  indexablePages.forEach((page) => {
+    const href = page.relativePath.replace('index.md', '').replace('.md', '')
+    for (let redirectFrom of page.redirect_from || []) {
+      // Remember that each redirect_from as a prefix / and often it ends
+      // with a trailing /
+      if (redirectFrom.startsWith('/')) redirectFrom = redirectFrom.slice(1)
+      if (redirectFrom.endsWith('/')) redirectFrom = redirectFrom.slice(0, -1)
+      redirects[redirectFrom] = href
+    }
+  })
 
   // Build and validate all indices
   for (const languageCode of languagesToBuild) {
@@ -63,13 +75,24 @@ export default async function syncSearchIndexes(opts = {}) {
       const indexName = `${namePrefix}-${indexVersion}-${languageCode}`
 
       // The page version will be the new version, e.g., free-pro-team@latest, enterprise-server@2.22
-      const records = await buildRecords(indexName, indexablePages, pageVersion, languageCode)
+      const records = await buildRecords(
+        indexName,
+        indexablePages,
+        pageVersion,
+        languageCode,
+        redirects
+      )
       const index = new LunrIndex(indexName, records)
 
-      await index.write()
-      console.log('wrote index to file: ', indexName)
+      if (!opts.dryRun) {
+        await index.write()
+        console.log('wrote index to file: ', indexName)
+      }
     }
   }
+  const t1 = new Date()
+  const tookSec = (t1.getTime() - t0.getTime()) / 1000
 
   console.log('\nDone!')
+  console.log(`Took ${tookSec.toFixed(1)} seconds`)
 }

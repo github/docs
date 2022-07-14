@@ -1,0 +1,16 @@
+---
+date: '2022-03-01'
+sections:
+  security_fixes:
+    - "ALTO: Uma vulnerabilidade de sobrefluxo de inteiros foi identificada no analisador do markdown do GitHub que poderia potencialmente levar a vazamentos de informações e a RCE. Essa vulnerabilidade foi relatada através do programa de compensação de erros do GitHub por Felix Wilhelm do Projeto Zero do Google, e foi atribuída ao CVE-2022-24724."
+  bugs:
+    - As atualizações às vezes poderiam falhar se o relógio da réplica de alta disponibilidade estivesse fora de sincronia com o primário.
+    - 'Os aplicativos OAuth criados após 1 de setembro, 2020 não conseguiram de usar o ponto de extremidade da API [Verificar uma autorização](https://docs.github.com/en/enterprise-server@3.2/rest/reference/apps#check-an-authorization).'
+  known_issues:
+    - Em uma instância de {% data variables.product.prodname_ghe_server %} recém-configurada sem usuários, um invasor pode criar o primeiro usuário administrador.
+    - As regras de firewall personalizadas são removidas durante o processo de atualização.
+    - Arquivos LFS do Git [enviados através da interface web](https://github.com/blog/2105-upload-files-to-your-repositories) são adicionados diretamente ao repositório e de forma incorreta.
+    - Os problemas não podem ser fechados se contiverem um permalink para um blob no mesmo repositório, onde o caminho do arquivo blob's é maior que 255 caracteres.
+    - Quando "Usuários podem pesquisar pelo GitHub.com" está habilitado com o GitHub Connect, os problemas em repositórios privados e internos não estão incluídos nos resultados de pesquisa do GitHub.com.
+    - O registro npm de {% data variables.product.prodname_registry %} não retorna mais o valor de tempo em respostas de metadados. Isso foi feito para permitir melhorias substanciais de desempenho. Continuamos a ter todos os dados necessários para devolver um valor de tempo como parte da resposta aos metadados e retomaremos o retorno desse valor no futuro, assim que tivermos resolvido os problemas de desempenho existentes.
+    - Os limites de recursos que são específicos para processamento de hooks pre-receive podem causar falha em alguns hooks pre-receive.

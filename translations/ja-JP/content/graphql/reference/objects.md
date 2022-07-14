@@ -4,14 +4,15 @@ redirect_from:
   - /v4/object
   - /v4/reference/object
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - API
 ---
 
-### オブジェクトについて
+## オブジェクトについて
 
 GraphQLにおける[オブジェクト](https://graphql.github.io/graphql-spec/June2018/#sec-Objects)は、アクセスできるリソースを表します。 オブジェクトは、型が決められたフィールドのリストを持つことができます。
 

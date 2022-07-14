@@ -4,33 +4,36 @@ intro: '{% data variables.large_files.product_name_long %}用に追加のスト�
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-git-large-file-storage
   - /articles/about-billing-for-git-large-file-storage
-  - /github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-git-large-file-storage
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-git-large-file-storage/about-billing-for-git-large-file-storage
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 type: overview
 topics:
   - LFS
   - Upgrades
+shortTitle: Git LFSの支払いについて
 ---
 
-### {% data variables.large_files.product_name_long %}の支払いについて
+## {% data variables.large_files.product_name_long %}の支払いについて
 
 {% data reusables.large_files.free-storage-bandwidth-amount %} {% data reusables.large_files.does_not_carry %}
 
 {% data reusables.large_files.owner_quota_only %}
 
-### 追加のストレージおよび帯域の購入
+{% data reusables.user-settings.context_switcher %}
+
+## 追加のストレージおよび帯域の購入
 
 追加のストレージと帯域は、単一のデータパックで提供されています。 1 つのデータパックのコストは {% data variables.large_files.pack_monthly_price %}で、一ヶ月の容量として {% data variables.large_files.pack_monthly_bandwidth %}の帯域と {% data variables.large_files.pack_monthly_storage %}のストレージを提供します。 データパックは必要なだけ購入できます。 たとえば 150 GB のストレージが必要なら、3 つのデータパックを購入できます。
 
 {% data variables.large_files.product_name_short %}用のデータパックの購入は、{% data variables.product.product_name %}の他のどの有料の機能や製品からも独立しています。
 
-### ストレージと帯域のダウングレード
+## ストレージと帯域のダウングレード
 
 追加のデータパック数をダウングレードすると、その変更は次の支払日に有効になります。
 
-### 参考リンク
+## 参考リンク
 
 - [{% data variables.large_files.product_name_long %}について](/articles/about-git-large-file-storage)
 - 「[{% data variables.large_files.product_name_long %}をインストールする](/articles/installing-git-large-file-storage)」

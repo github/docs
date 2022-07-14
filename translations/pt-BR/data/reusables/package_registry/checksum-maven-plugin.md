@@ -1,5 +1,5 @@
-{%- if currentVersion == "github-ae@latest" %}
-1. In the `plugins` element of the *pom.xml* file, add the [checksum-maven-plugin](http://checksum-maven-plugin.nicoulaj.net/index.html) plugin, and configure the plugin to send at least SHA-256 checksums.
+{%- ifversion ghae %}
+1. In the `plugins` element of the *pom.xml* file, add the [checksum-maven-plugin](https://search.maven.org/artifact/net.nicoulaj.maven.plugins/checksum-maven-plugin) plugin, and configure the plugin to send at least SHA-256 checksums.
     ```xml
     <plugins>
         <plugin>

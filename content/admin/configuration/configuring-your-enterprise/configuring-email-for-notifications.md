@@ -2,10 +2,10 @@
 title: Configuring email for notifications
 intro: 'To make it easy for users to respond quickly to activity on {% data variables.product.product_name %}, you can configure {% data variables.product.product_location %} to send email notifications for issue, pull request, and commit comments.'
 redirect_from:
-  - /enterprise/admin/guides/installation/email-configuration/
-  - /enterprise/admin/articles/configuring-email/
-  - /enterprise/admin/articles/troubleshooting-email/
-  - /enterprise/admin/articles/email-configuration-and-troubleshooting/
+  - /enterprise/admin/guides/installation/email-configuration
+  - /enterprise/admin/articles/configuring-email
+  - /enterprise/admin/articles/troubleshooting-email
+  - /enterprise/admin/articles/email-configuration-and-troubleshooting
   - /enterprise/admin/user-management/configuring-email-for-notifications
   - /admin/configuration/configuring-email-for-notifications
 versions:
@@ -25,12 +25,7 @@ Enterprise owners can configure email for notifications.
 ## Configuring SMTP for your enterprise
 
 {% ifversion ghes %}
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.management-console %}
-2. At the top of the page, click **Settings**.
-![Settings tab](/assets/images/enterprise/management-console/settings-tab.png)
-3. In the left sidebar, click **Email**.
-![Email tab](/assets/images/enterprise/management-console/email-sidebar.png)
+{% data reusables.enterprise_site_admin_settings.email-settings %}
 4. Select **Enable email**. This will enable both outbound and inbound email, however for inbound email to work you will also need to configure your DNS settings as described below in "[Configuring DNS and firewall
 settings to allow incoming emails](#configuring-dns-and-firewall-settings-to-allow-incoming-emails)."
 ![Enable outbound email](/assets/images/enterprise/management-console/enable-outbound-email.png)
@@ -88,8 +83,7 @@ settings to allow incoming emails](#configuring-dns-and-firewall-settings-to-all
 4. If the test email fails, [troubleshoot your email settings](#troubleshooting-email-delivery).
 5. When the test email succeeds, at the bottom of the page, click **Save settings**.
 ![Save settings button](/assets/images/enterprise/management-console/save-settings.png)
-6. Wait for the configuration run to complete.
-![Configuring your instance](/assets/images/enterprise/management-console/configuration-run.png)
+{% data reusables.enterprise_site_admin_settings.wait-for-configuration-run %}
 
 ## Configuring DNS and firewall settings to allow incoming emails
 
@@ -104,7 +98,7 @@ If you want to allow email replies to notifications, you must configure your DNS
 
 ### Create a Support Bundle
 
-If you cannot determine what is wrong from the displayed error message, you can download a [support bundle](/enterprise/{{ currentVersion }}/admin/guides/enterprise-support/providing-data-to-github-support) containing the entire SMTP conversation between your mail server and {% data variables.product.prodname_ghe_server %}. Once you've downloaded and extracted the bundle, check the entries in *enterprise-manage-logs/unicorn.log* for the entire SMTP conversation log and any related errors.
+If you cannot determine what is wrong from the displayed error message, you can download a [support bundle](/enterprise/admin/guides/enterprise-support/providing-data-to-github-support) containing the entire SMTP conversation between your mail server and {% data variables.product.prodname_ghe_server %}. Once you've downloaded and extracted the bundle, check the entries in *enterprise-manage-logs/unicorn.log* for the entire SMTP conversation log and any related errors.
 
 The unicorn log should show a transaction similar to the following:
 

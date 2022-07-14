@@ -2,22 +2,24 @@
 title: Jekyll を使用して GitHub Pages サイトをローカルでテストする
 intro: '{% data variables.product.prodname_pages %} サイトをローカルでビルドすると、サイトに対する変更のプレビューとテストを行うことができます。'
 redirect_from:
-  - /articles/setting-up-your-pages-site-locally-with-jekyll/
-  - /articles/setting-up-your-github-pages-site-locally-with-jekyll/
+  - /articles/setting-up-your-pages-site-locally-with-jekyll
+  - /articles/setting-up-your-github-pages-site-locally-with-jekyll
   - /articles/testing-your-github-pages-site-locally-with-jekyll
   - /github/working-with-github-pages/testing-your-github-pages-site-locally-with-jekyll
 product: '{% data reusables.gated-features.pages %}'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Pages
+shortTitle: Jekyllでのサイトのローカルテスト
 ---
 
 リポジトリへの書き込み権限があるユーザは、{% data variables.product.prodname_pages %} サイトをローカルでテストできます。
 
-### 必要な環境
+## 必要な環境
 
 Jekyll を使用してサイトをテストする前に、以下の操作が必要です。
   - [Jekyll](https://jekyllrb.com/docs/installation/) をインストールする。
@@ -27,7 +29,7 @@ Jekyll を使用してサイトをテストする前に、以下の操作が必�
 
 {% data reusables.pages.jekyll-install-troubleshooting %}
 
-### サイトをローカルでビルドする
+## サイトをローカルでビルドする
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
 {% data reusables.pages.navigate-publishing-source %}
@@ -48,7 +50,13 @@ Jekyll を使用してサイトをテストする前に、以下の操作が必�
   ```
 3. サイトをプレビューするには、ウェブブラウザで `http://localhost:4000` を開きます。
 
-### {% data variables.product.prodname_pages %} gem の更新
+{% note %}
+
+**ノート:** Ruby 3.0及びJekyll 4.2.xあるいはそれより古いものを使っているなら、`bundle install`を実行する前にプロジェクトのGemfileに`webrick` gemを追加する必要があります。
+
+{% endnote %}
+
+## {% data variables.product.prodname_pages %} gem の更新
 
 Jekyll は、頻繁に更新されているアクティブなオープンソースプロジェクトです。 お使いのコンピュータ上の `github-pages` gem が {% data variables.product.prodname_pages %} サーバー上の `github-pages` gem と比較して古くなっている場合は、ローカルでビルドしたときと {% data variables.product.product_name %} に公開したときで、サイトの見え方が異なることがあります。 こうならないように、お使いのコンピュータ上の `github-pages` gem は常にアップデートしておきましょう。
 
@@ -57,6 +65,6 @@ Jekyll は、頻繁に更新されているアクティブなオープンソー�
     - Bundler をインストールしている場合は、`bundle update github-pages` を実行します。
     - Bundler をインストールしていない場合は、`gem update github-pages` を実行します。
 
-### 参考リンク
+## 参考リンク
 
 - Jekyll ドキュメンテーションの [{% data variables.product.prodname_pages %}](http://jekyllrb.com/docs/github-pages/)

@@ -7,6 +7,7 @@ redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/setting-up-paid-organizations-for-procurement-companies/creating-and-paying-for-an-organization-on-behalf-of-a-client
 versions:
   fpt: '*'
+  ghec: '*'
 type: quick_start
 topics:
   - User account
@@ -27,7 +28,7 @@ Before you start, make sure you know:
 
 You will use your personal account to set up the organization. You'll also need to sign in to this account to renew or make changes to your client's subscription in the future.
 
-If you already have a personal {% data variables.product.prodname_dotcom %} user account, skip to [step 2](#step-2-create-the-organization).
+If you already have a personal account on {% data variables.product.prodname_dotcom %}, skip to [step 2](#step-2-create-the-organization).
 
 1. Go to the [Join GitHub](https://github.com/join) page.
 2. Under "Create your personal account," type your username, email address, and password, then click **Create an account**.
@@ -37,8 +38,8 @@ If you already have a personal {% data variables.product.prodname_dotcom %} user
 
 ## Step 2: Create the organization
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.organizations %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.organizations %}
 {% data reusables.organizations.new-organization %}
 3. Under "Choose a plan", click **Choose {% data variables.product.prodname_free_team %}**. You will upgrade the organization in the next step.
 {% data reusables.organizations.organization-name %}
@@ -72,7 +73,7 @@ If you already have a personal {% data variables.product.prodname_dotcom %} user
 ## Step 5: Invite your client to join the organization
 
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.people %}
 {% data reusables.organizations.invite_member_from_people_tab %}
 5. Type your client's {% data variables.product.prodname_dotcom %} username and press **Enter**.
@@ -84,7 +85,7 @@ If you already have a personal {% data variables.product.prodname_dotcom %} user
 ## Step 6: Transfer organization ownership to your client
 
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.people %}
 4. Confirm that your client is listed among the members of the organization and is assigned the *owner* role.
 5. To the right of your username, use the {% octicon "gear" aria-label="The Settings gear" %} drop-down menu, and click **Manage**.

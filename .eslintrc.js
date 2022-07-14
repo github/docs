@@ -13,6 +13,7 @@ module.exports = {
     babelOptions: { configFile: './.babelrc' },
     sourceType: 'module',
   },
+  ignorePatterns: ['tmp/*', '!/.*', '/.next/', 'script/bookmarklets/*'],
   rules: {
     'import/no-extraneous-dependencies': ['error', { packageDir: '.' }],
   },

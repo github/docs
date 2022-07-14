@@ -1,1 +1,0 @@
-内部仓库可用于 {% data variables.product.prodname_ghe_cloud %}{% if currentVersion == "github-ae@latest" %}、{% data variables.product.prodname_ghe_managed %}、{% endif %} 和 {% data variables.product.prodname_ghe_server %} 2.20+。 更多信息请参阅“<a href="/articles/githubs-products" class="dotcom-only">GitHub's products</a>”。

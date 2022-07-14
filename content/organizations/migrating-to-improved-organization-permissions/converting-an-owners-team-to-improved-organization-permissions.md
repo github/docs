@@ -2,13 +2,14 @@
 title: Converting an Owners team to improved organization permissions
 intro: 'If your organization was created after September 2015, your organization has improved organization permissions by default. Organizations created before September 2015 may need to migrate older Owners and Admin teams to the improved permissions model. The "Owner" is now an administrative role given to individual members of your organization. Members of your legacy Owners team are automatically given owner privileges.'
 redirect_from:
-  - /articles/converting-your-previous-owners-team-to-the-improved-organization-permissions-early-access-program/
-  - /articles/converting-your-previous-owners-team-to-the-improved-organization-permissions/
+  - /articles/converting-your-previous-owners-team-to-the-improved-organization-permissions-early-access-program
+  - /articles/converting-your-previous-owners-team-to-the-improved-organization-permissions
   - /articles/converting-an-owners-team-to-improved-organization-permissions
   - /github/setting-up-and-managing-organizations-and-teams/converting-an-owners-team-to-improved-organization-permissions
 versions:
   fpt: '*'
   ghes: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
@@ -29,7 +30,7 @@ You have a few options to convert your legacy Owners team:
 {% endtip %}
 
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.owners-team %}
 {% data reusables.organizations.convert-owners-team-confirm %}
 5. In the team name field, choose a new name for the Owners team. For example:
@@ -49,7 +50,7 @@ You have a few options to convert your legacy Owners team:
 {% endwarning %}
 
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.owners-team %}
 {% data reusables.organizations.convert-owners-team-confirm %}
 5. At the bottom of the page, review the warning and click **Delete the Owners team**.

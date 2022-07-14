@@ -6,12 +6,16 @@ redirect_from:
   - /articles/about-automation-for-project-boards
   - /github/managing-your-work-on-github/about-automation-for-project-boards
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
+shortTitle: Automatización para tableros de proyecto
 ---
+
+{% data reusables.projects.project_boards_old %}
 
 {% data reusables.project-management.automate-project-board-permissions %}  Para obtener más información, consulta "[Permisos del tablero de proyecto para una organización](/articles/project-board-permissions-for-an-organization)".
 
@@ -25,7 +29,7 @@ La automatización del tablero de proyecto también puede ayudar a los equipos a
 
 {% data reusables.project-management.resync-automation %}
 
-### Opciones de automatización
+## Opciones de automatización
 
 | Columna preestablecida | Opciones de configuración |
 | ---------------------- | ------------------------- |
@@ -33,12 +37,12 @@ La automatización del tablero de proyecto también puede ayudar a los equipos a
 | En curso               | <ul><li>Mover todas las solicitudes de extracción que se volvieron a abrir recientemente aquí.</li><li>Mover todas las propuestas que se volvieron a abrir aquí.</li><li>Mover todas las solicitudes de extracción que se volvieron a abrir aquí.</li><li>Mover todas las solicitudes de extracción que cumplen con la cantidad mínima de revisiones requeridas de la rama base aquí.</li><li>Mover todas las solicitudes de extracción que ya no cumplen con la cantidad mínima de revisiones requeridas de la rama base aquí.</li></ul> |
 | Done                   | <ul><li>Mover todas las propuestas cerradas aquí.</li><li>Mover todas las solicitudes de extracción fusionadas aquí.</li><li>Mover todas las solicitudes de extracción cerradas, sin fusionar aquí.</li></ul> |
 
-### Seguimiento de progreso del proyecto
+## Seguimiento de progreso del proyecto
 
 Puedes rastrear el progreso en tu tablero de proyecto. Las tarjetas en las columnas "por hacer", "en curso", o "hecho" cuentan sobre el progreso general del proyecto. {% data reusables.project-management.project-progress-locations %}
 
 Para obtener más información, consulta la sección "[Rastrear el progreso en tu tablero de proyecto](/github/managing-your-work-on-github/tracking-progress-on-your-project-board)".
 
-### Leer más
-- "[Configurar la automatización para los tableros de proyecto](/articles/configuring-automation-for-project-boards)"{% if currentVersion == "free-pro-team@latest" %}
+## Leer más
+- "[Configurar automatización para tableros de proyecto](/articles/configuring-automation-for-project-boards)"{% ifversion fpt or ghec %}
 - "[Copying a project board](/articles/copying-a-project-board)"{% endif %}

@@ -1,1 +1,1 @@
-There is a limit of ten tokens that are issued per user/application/scope combination. If the application requests enough tokens to go over one of the limits, older tokens _with the same scope being requested_ will stop working.
+Hay un límite de diez tokens que se emite por combinación de usuario/aplicación/alcance. Si una aplicación crea más de 10 tokens para el mismo usuario y los mismos alcances, se revocarán los tokens más antiguos con la misma combinación de usuario/aplicación/alcance.

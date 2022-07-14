@@ -6,9 +6,10 @@ redirect_from:
   - /v3/guides/basics-of-authentication
   - /rest/basics-of-authentication
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - API
 ---
@@ -22,15 +23,15 @@ Puedes descargar todo el código fuente de este proyecto [del repo platform-samp
 
 {% endtip %}
 
-### Registrar tu app
+## Registrar tu app
 
 Primero, necesitas [registrar tu aplicación][new oauth app]. A cada aplicación de OAuth que se registra se le asigna una ID de Cliente única y un Secreto de Cliente. ¡El Secreto de Cliente no puede compartirse! Eso incluye el verificar la secuencia en tu repositorio.
 
 Puedes llenar toda la información como más te guste, con excepción de la **URL de rellamado para la autorización**. Esta es fácilmente la parte más importante para configurar tu aplicación. Es la URL de rellamado a la cual {% data variables.product.product_name %} devuelve al usuario después de una autenticación exitosa.
 
-Ya que estamos ejecutando un servidor común de Sinatra, la ubicación de la instancia local se configura como `http://localhost:4567`. Vamos a llenar la URL de rellamado como `http://localhost:4567/callback`.
+Ya que estamos ejecutando un servidor habitual de Sinatra, la ubicación de la instancia local se configuró como `http://127.0.0.1:4567`. Llenemos la URL de rellamado como `http://127.0.0.1:4567/callback`.
 
-### Aceptar la autorización del usuario
+## Aceptar la autorización del usuario
 
 {% data reusables.apps.deprecating_auth_with_query_parameters %}
 
@@ -50,7 +51,7 @@ end
 ```
 
 Tu ID de cliente y tus llaves secretas de cliente vienen de [la página de configuración de tu aplicación][app settings].
-{% if currentVersion == "free-pro-team@latest" %} **Nunca, _jamás_** almacenes estos valores en
+{% ifversion fpt or ghec %} **Nunca,_ jamás_** deberías almacenar estos valores en
 {% data variables.product.product_name %} ni en algún otro lugar público, para el caso.{% endif %} Te recomendamos almacenarlos como
 [variables de ambiente][about env vars]--que es exactamente lo que hemos hecho aquí.
 
@@ -66,10 +67,10 @@ Posteriormente, pega este contenido en _views/index.erb_:
     </p>
     <p>
       We're going to now talk to the GitHub API. Ready?
-      <a href="https://github.com/login/oauth/authorize?scope=user:email&client_id=<%= client_id %>">Click here</a> to begin!</a>
+      <a href="https://github.com/login/oauth/authorize?scope=user:email&client_id=<%= client_id %>">¡Haz clic aquí</a> para comenzar!
     </p>
     <p>
-      If that link doesn't work, remember to provide your own <a href="/apps/building-oauth-apps/authorizing-oauth-apps/">Client ID</a>!
+      Si ese enlace no funciona, recuerda proporcionar tu propia <a href="/apps/building-oauth-apps/authorizing-oauth-apps/">ID de cliente</a>!
     </p>
   </body>
 </html>
@@ -79,13 +80,13 @@ Posteriormente, pega este contenido en _views/index.erb_:
 
 También, ten en cuenta que la URL utiliza el parámetro de consulta `scope` para definir los [alcances][oauth scopes] que solicita la aplicación. Para nuestra aplicación, estamos solicitando el alcance `user:email` para leer las direcciones de correo electrónico privadas.
 
-Navega en tu buscador hacia `http://localhost:4567`. Después de dar clic en el enlace, se te llevará a {% data variables.product.product_name %} y se te mostrará un diálogo que se ve más o menos así: ![Diálogo de OAuth de GitHub](/assets/images/oauth_prompt.png)
+Navega a `http://127.0.0.1:4567` en tu buscador. Después de dar clic en el enlace, se te llevará a {% data variables.product.product_name %} y se te mostrará un diálogo que se ve más o menos así: ![Diálogo de OAuth de GitHub](/assets/images/oauth_prompt.png)
 
 Si confías en ti mismo, da clic en **Autorizar App**. ¡Oh-oh! Sinatra te arroja un error `404`. ¡¿Qué pasa?!
 
 Bueno, ¡¿recuerdas cuando especificamos la URL de rellamado como `callback`? No proporcionamos una ruta para ésta, así que {% data variables.product.product_name %} no sabe dónde dejar al usuario después de autorizar la app. ¡Arreglémoslo ahora!
 
-#### Proporcionar un rellamado
+### Proporcionar un rellamado
 
 En _server.rb_, agrega una ruta para especificar lo que debe hacer la rellamada:
 
@@ -108,7 +109,7 @@ end
 
 Después de que la app se autentica exitosamente, {% data variables.product.product_name %} proporciona un valor temporal de `code`. Necesitas hacer `POST` para este código en {% data variables.product.product_name %} para intercambiarlo por un `access_token`. Para simplificar nuestras solicitudes HTTP de GET y de POST, utilizamos el [rest-client][REST Client]. Nota que probablemente jamás accedas a la API a través de REST. Para aplicarlo con más seriedad, probablemente debas usar [una biblioteca escrita en tu lenguaje preferido][libraries].
 
-#### Verificar los alcances otorgados
+### Verificar los alcances otorgados
 
 Los usuarios pueden editar los alcances que solicitaste cambiando directamente la URL. Esto puee otorgar a tu aplicación menos accesos de los que solicitaste originalmente. Antes de hacer cualquier solicitud con el token, verifica los alcances que el usuario le otorgó a éste. Para obtener más información acerca de los alcances solicitados y otorgados, consulta la sección "[Alcances para las Apps de OAuth](/developers/apps/scopes-for-oauth-apps#requested-scopes-and-granted-scopes)".
 
@@ -132,9 +133,9 @@ También, ya que hay una relación jerárquica entre alcances, debes verificar q
 
 No es suficiente verificar los alcances solo antes de hacer las solicitudes, ya que es posible que los usuarios cambien los alcances entre tus solicitudes de verificación y las solicitudes reales. En caso de que esto suceda, las llamadas a la API que esperas tengan éxito podrían fallar con un estado `404` o `401`, o bien, podrían devolver un subconjunto de información diferente.
 
-Para ayudarte a manejar estas situaciones fácilmente, todas las respuestas de la API a las solicitudes que se hagan con tokens válidos también contienen un [encabezado de `X-OAuth-Scopes`][oauth scopes]. Este encabezado contiene la lista de alcances del token que se utilizó para realizar la solicitud. Adicionalmente a esto, la API de Aplicaciones de OAuth proporciona una terminal para {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %} [verificar la validez de un token](/rest/reference/apps#check-a-token){% else %}[verificar la validez de un token](/rest/reference/apps#check-an-authorization){% endif %}. Utiliza esta información para detectar los cambios en los alcances de los tokens, y para informar a tus usuarios sobre los cambios disponibles en la funcionalidad de la aplicación.
+Para ayudarte a manejar estas situaciones fácilmente, todas las respuestas de la API a las solicitudes que se hagan con tokens válidos también contienen un [encabezado de `X-OAuth-Scopes`][oauth scopes]. Este encabezado contiene la lista de alcances del token que se utilizó para realizar la solicitud. Adicionalmente a esto, la API de Aplicaciones de OAuth proporciona una terminal para {% ifversion fpt or ghes or ghec %} [verificar la validez de un token](/rest/reference/apps#check-a-token){% else %}[verificar la validez de un token](/rest/reference/apps#check-an-authorization){% endif %}. Utiliza esta información para detectar los cambios en los alcances de los tokens, y para informar a tus usuarios sobre los cambios disponibles en la funcionalidad de la aplicación.
 
-#### Realizar solicitudes autenticadas
+### Realizar solicitudes autenticadas
 
 Por fin, con este token de acceso, podrás hacer solicitudes autenticadas como el usuario que inició sesión:
 
@@ -172,9 +173,9 @@ Podemos hacer lo que queramos con nuestros resultados. En este caso, solo las va
 </p>
 ```
 
-### Implementar la autenticación "persistente"
+## Implementar la autenticación "persistente"
 
-Estaríamos hablando de un pésimo modelo si requerimos que los usuarios inicien sesión en la app cada vez que necesiten acceder a la página web. Por ejemplo, intenta navegar directamente a `http://localhost:4567/basic`. Obtendrás un error.
+Estaríamos hablando de un pésimo modelo si requerimos que los usuarios inicien sesión en la app cada vez que necesiten acceder a la página web. Por ejemplo, intenta navegar directamente a `http://127.0.0.1:4567/basic`. Obtendrás un error.
 
 ¿Qué pasaría si pudiéramos evitar todo el proceso de "da clic aquí", y solo lo _recordáramos_, mientras que los usuarios sigan en sesión dentro de
 {% data variables.product.product_name %}, y pudieran acceder a esta aplicación? Agárrate,
@@ -264,7 +265,7 @@ get '/callback' do
 end
 ```
 
-La mayoría de este código debería serte familiar. Por ejemplo, aún estamos utilizando `RestClient.get` para llamar a la API de {% data variables.product.product_name %}, y aún estamos pasando nuestros resultados par que se interpreten en una plantilla de ERB (en esta ocasión, se llama `advanced.erb`).
+La mayoría de este código debería serte familiar. Por ejemplo, seguimos utilizando `RestClient.get` para llamar a la API de {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} y aún estamos pasando nuestros resultados para que se interpreten en una plantilla ERB (esta vez, se llama `advanced.erb`).
 
 También, ahora tenemos el método `authenticated?`, el cual verifica si el usuario ya se autenticó. Si no, se llamará al método `authenticate!`, el cual lleva a cabo el flujo de OAuth y actualiza la sesión con el token que se otorgó y con los alcances.
 
@@ -293,7 +294,7 @@ Después, crea un archivo en _views_, el cual se llame _advanced.erb_ y pega est
 </html>
 ```
 
-Desde la líne de comandos, llama a `ruby advanced_server.rb`, lo cual inicia tu servidor en el puerto `4567` -- el mismo puerto que utilizamos cuando tuvimos una app de Sinatra sencilla. Cuando navegas a `http://localhost:4567`, la app llama a `authenticate!`, lo cual te redirige a `/callback`. Entonces, `/callback` nos regresa a `/` y, ya que estuvimos autenticados, interpreta a _advanced.erb_.
+Desde la líne de comandos, llama a `ruby advanced_server.rb`, lo cual inicia tu servidor en el puerto `4567` -- el mismo puerto que utilizamos cuando tuvimos una app de Sinatra sencilla. Cuando navegues a `http://127.0.0.1:4567`, la aplicación llama a `authenticate!` lo cual te redirige a `/callback`. Entonces, `/callback` nos regresa a `/` y, ya que estuvimos autenticados, interpreta a _advanced.erb_.
 
 Podríamos simplificar completamente esta ruta redonda si solo cambiamos nuestra URL de rellamado en {% data variables.product.product_name %} a `/`. Pero, ya que tanto _server.rb_ como _advanced.rb_ dependen de la misma URL de rellamado, necesitamos hacer un poco más de ajustes para que funcione.
 

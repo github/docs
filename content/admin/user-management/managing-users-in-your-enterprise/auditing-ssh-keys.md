@@ -2,7 +2,7 @@
 title: Auditing SSH keys
 intro: Site administrators can initiate an instance-wide audit of SSH keys.
 redirect_from:
-  - /enterprise/admin/articles/auditing-ssh-keys/
+  - /enterprise/admin/articles/auditing-ssh-keys
   - /enterprise/admin/user-management/auditing-ssh-keys
   - /admin/user-management/auditing-ssh-keys
 versions:

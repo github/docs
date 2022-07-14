@@ -4,14 +4,15 @@ intro: 您可以通过 REST API 获取对象的全局节点 ID 并将它们用�
 redirect_from:
   - /v4/guides/using-global-node-ids
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - API
 ---
 
-您可以使用 REST API 或 GraphQL API 访问 GitHub 中的大多数对象（用户、议题、拉取请求等）。 使用[最近更新](https://developer.github.com/changes/2017-12-19-graphql-node-id/)，可以在 REST API 中找到许多对象的 **global node ID（全局节点 ID）**，并将这些 ID 用于 GraphQL 操作。
+您可以使用 REST API 或 GraphQL API 访问 GitHub 中的大多数对象（用户、议题、拉取请求等）。 您可以从 REST API 中找到许多对象的**全局节点 ID** ，并在 GraphQL 操作中使用这些 ID。 更多信息请参阅“[预览 REST API 资源中的 GraphQL API 节点 ID](https://developer.github.com/changes/2017-12-19-graphql-node-id/)”。
 
 {% note %}
 
@@ -19,7 +20,7 @@ topics:
 
 {% endnote %}
 
-### 使用全局节点 ID
+## 使用全局节点 ID
 
 您可以按照下面这三个步骤有效使用全局节点 ID：
 
@@ -29,7 +30,7 @@ topics:
 
 让我们演练一遍示例。
 
-### 1. 调用可返回对象节点 ID 的 REST 端点
+## 1. 调用可返回对象节点 ID 的 REST 端点
 
 如果您[请求经过身份验证的用户](/rest/reference/users#get-the-authenticated-user)：
 
@@ -87,7 +88,7 @@ $ curl -i -u <em>username:token</em> {% data variables.product.api_url_pre %}/us
 }
 ```
 
-### 2. 在 GraphQL 中查找对象类型
+## 2. 在 GraphQL 中查找对象类型
 
 在本示例中，`node_id` 值为 `MDQ6VXNlcjU4MzIzMQ==`。 您可以使用此值在 GraphQL 中查询同一个对象。
 
@@ -105,7 +106,7 @@ query {
 
 当您运行此查询时，将发现 `__typename` 为 [`User`](/graphql/reference/objects#user)。
 
-### 3. 在 GraphQL 中执行直接节点查找
+## 3. 在 GraphQL 中执行直接节点查找
 
 一旦确认类型，即可使用[行内分段](https://graphql.github.io/learn/queries/#inline-fragments)按 ID 访问对象并返回附加数据。 在本示例中，我们可以定义想要查询的 `User` 上的字段：
 
@@ -122,6 +123,6 @@ query {
 
 此查询类型是按全局节点 ID 查找对象的标准方法。
 
-### 在迁移中使用全局节点 ID
+## 在迁移中使用全局节点 ID
 
 构建使用 REST API 或 GraphQL API 的集成时，最佳做法是保留全局节点 ID，以便轻松引用不同 API 版本的对象。 有关处理 REST 与 GraphQL 之间的转换的更多信息，请参阅“[从 REST 迁移到 GraphQL](/graphql/guides/migrating-from-rest-to-graphql)。”

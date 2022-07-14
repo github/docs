@@ -25,9 +25,10 @@ sections:
     - 对 GitHub Connect 启用“用户可以搜索 GitHub.com”后，私有和内部仓库中的议题不包括在 GitHub.com 搜索结果中。
     - |
       日志旋转可能无法指示服务过渡到新日志文件，导致继续使用旧日志文件，最终根磁盘空间耗尽。
-      为了补救和/或防止这个问题，请在 [管理 shell](https://docs.github.com/en/enterprise-server/admin/configuration/accessing-the-administrative-shell-sh) (SSH) 中运行以下命令或联系 [GitHub Enterprise 支持](https://enterprise.githubsupport.com/hc/en-us) or [GitHub Premium Support](https://premium.githubsupport.com/) 寻求协助：
+      为了补救和/或防止这个问题，请在 [管理 shell](https://docs.github.com/en/enterprise-server/admin/configuration/accessing-the-administrative-shell-ssh) (SSH) 中运行以下命令或联系 [GitHub Enterprise 支持](https://support.github.com/contact) 寻求协助：
 
       ```
       printf "PATH=/usr/local/sbin:/usr/local/bin:/usr/local/share/enterprise:/usr/sbin:/usr/bin:/sbin:/bin\n29,59 * * * * root /usr/sbin/logrotate /etc/logrotate.conf\n" | sudo sponge /etc/cron.d/logrotate
       sudo /usr/sbin/logrotate -f /etc/logrotate.conf
       ```
+    - '当副本节点在高可用性配置下离线时，{% data variables.product.product_name %} 仍可能将 {% data variables.product.prodname_pages %} 请求路由到离线节点，从而减少用户的 {% data variables.product.prodname_pages %} 可用性。'

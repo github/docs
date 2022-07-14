@@ -2,33 +2,31 @@
 title: Configurar notificações de e-mail
 intro: 'Para facilitar a resposta rápida dos usuários à atividade em {% data variables.product.product_name %}, você pode configurar {% data variables.product.product_location %} para enviar notificações por e-mail para problema, pull request e comentários do commit.'
 redirect_from:
-  - /enterprise/admin/guides/installation/email-configuration/
-  - /enterprise/admin/articles/configuring-email/
-  - /enterprise/admin/articles/troubleshooting-email/
-  - /enterprise/admin/articles/email-configuration-and-troubleshooting/
+  - /enterprise/admin/guides/installation/email-configuration
+  - /enterprise/admin/articles/configuring-email
+  - /enterprise/admin/articles/troubleshooting-email
+  - /enterprise/admin/articles/email-configuration-and-troubleshooting
   - /enterprise/admin/user-management/configuring-email-for-notifications
   - /admin/configuration/configuring-email-for-notifications
 versions:
-  enterprise-server: '*'
-  github-ae: '*'
+  ghes: '*'
+  ghae: '*'
 type: how_to
 topics:
   - Enterprise
   - Fundamentals
   - Infrastructure
   - Notifications
+shortTitle: Configurar notificações de e-mail
 ---
 
-{% if currentVersion == "github-ae@latest" %}
+{% ifversion ghae %}
 Os proprietários das empresas podem configurar e-mails para notificações.
 {% endif %}
-### Configurar SMTP para sua empresa
+## Configurar SMTP para sua empresa
 
-{% if enterpriseServerVersions contains currentVersion %}
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.management-console %}
-2. Na parte superior da página, clique em **Settings** (Configurações). ![Guia Settings (Configurações)](/assets/images/enterprise/management-console/settings-tab.png)
-3. Na barra lateral esquerda, clique em **Email**. ![Guia E-mail](/assets/images/enterprise/management-console/email-sidebar.png)
+{% ifversion ghes %}
+{% data reusables.enterprise_site_admin_settings.email-settings %}
 4. Selecione **Enable email** (Habilitar e-mail). Fazer isso vai habilitar os e-mails enviados (saída) e recebidos (entrada). No entanto, para que o recebimento de e-mails funcione, você terá que definir suas configurações de DNS conforme descrito em "[Configurar o DNS e o firewall para o recebimento de e-mails](#configuring-dns-and-firewall-settings-to-allow-incoming-emails)". ![Habilitar e-mail de saída](/assets/images/enterprise/management-console/enable-outbound-email.png)
 5. Digite as configurações para o seu servidor SMTP.
       - No campo **Server address** (Endereço do servidor), digite o endereço do seu servidor SMTP.
@@ -37,11 +35,11 @@ Os proprietários das empresas podem configurar e-mails para notificações.
       - Selecione o menu suspenso **Autenticação** e escolha o tipo de criptografia usado pelo seu servidor SMTP.
       - No campo **No-reply email address** (Endereço de e-mail no-reply), digite o endereço de e-mail para usar nos campos De e Para em todos os e-mails de notificação.
 6. Se você quiser descartar todos os e-mails recebidos destinados ao endereço no-reply, selecione **Discard email addressed to the no-reply email address** (Descartar e-mails recebidos no endereço no-reply). ![Caixa de seleção para descartar e-mails destinados ao endereço no-reply](/assets/images/enterprise/management-console/discard-noreply-emails.png)
-7. Em **Support** (Suporte), escolha um tipo de link para dar suporte adicional aos usuários.
-    - **Email:** endereço de e-mail interno.
-    - **URL:** link para um site interno de suporte. Você deve incluir `http://` ou `https://`. ![E-mail ou URL de suporte](/assets/images/enterprise/management-console/support-email-url.png)
+7. Em **Suporte**, escolha um tipo de link para dar suporte adicional aos seus usuários.
+    - **Email:** Endereço de e-mail interno.
+    - **URL:** Link para um site interno de suporte. Você deve incluir `http://` ou `https://`. ![E-mail ou URL de suporte](/assets/images/enterprise/management-console/support-email-url.png)
 8. [Teste a entrega de e-mails](#testing-email-delivery).
-{% elsif currentVersion == "github-ae@latest" %}
+{% elsif ghae %}
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.email-tab %}
@@ -58,8 +56,8 @@ Os proprietários das empresas podem configurar e-mails para notificações.
 7. Clique em **Salvar**. ![Botão "Salvar" para configuração de contato de suporte do Enterprise](/assets/images/enterprise/configuration/ae-save.png)
 {% endif %}
 
-{% if enterpriseServerVersions contains currentVersion %}
-### Testar a entrega de e-mails
+{% ifversion ghes %}
+## Testar a entrega de e-mails
 
 1. Na parte superior da seção **Email**, clique em **Test email settings** (Testar configurações de e-mail). ![Configurações de e-mail de teste](/assets/images/enterprise/management-console/test-email.png)
 2. No campo **Send test email to** (Enviar e-mail de teste para), digite um endereço que receberá o e-mail de teste. ![Endereço de e-mail de teste](/assets/images/enterprise/management-console/test-email-address.png)
@@ -73,22 +71,22 @@ Os proprietários das empresas podem configurar e-mails para notificações.
 
 4. Se houver falha no teste, consulte a [solução de problemas das suas configurações de e-mail](#troubleshooting-email-delivery).
 5. Quando o teste for concluído com êxito, clique em **Save settings** (Salvar configurações) na parte inferior da página. ![Botão Save settings (Salvar configurações)](/assets/images/enterprise/management-console/save-settings.png)
-6. Aguarde a conclusão da execução de suas configurações. ![Configurar a instância](/assets/images/enterprise/management-console/configuration-run.png)
+{% data reusables.enterprise_site_admin_settings.wait-for-configuration-run %}
 
-### Configurar DNS e firewall para o recebimento de e-mails
+## Configurar DNS e firewall para o recebimento de e-mails
 
 Se quiser permitir o recebimento de respostas para os e-mails de notificação, você deverá definir suas configurações DNS.
 
 1. A porta 25 da instância deve estar acessível para o seu servidor SMTP.
 2. Crie um registro A que aponte para `reply.[hostname]`. Dependendo do provedor DNS e da configuração do host da instância, você poderá criar um único registro A que aponte para `*.[hostname]`.
 3. Crie um registro MX que aponte para `reply.[hostname]`, de forma que os e-mails desse domínio sejam roteados para a instância.
-4. Crie um registro MX que aponte `noreply.[hostname]` para `[hostname]`, de forma que as respostas ao endereço `cc` nos e-mails de notificação sejam roteadas para a instância. Para obter mais informações, consulte {% if currentVersion ver_gt "enterprise-server@2.20" %}"[Configurar notificações](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications){% else %}"[Sobre notificações de e-mail](/github/receiving-notifications-about-activity-on-github/about-email-notifications){% endif %}".
+4. Crie um registro MX que aponte `noreply.[hostname]` para `[hostname]`, de forma que as respostas ao endereço `cc` nos e-mails de notificação sejam roteadas para a instância. Para obter mais informações, consulte {% ifversion ghes %}"[Configurando notificações](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications){% else %}"[Sobre notificações de e-mail](/github/receiving-notifications-about-activity-on-github/about-email-notifications)"{% endif %}."
 
-### Resolver problemas na entrega de e-mails
+## Resolver problemas na entrega de e-mails
 
-#### Criar um pacote de suporte
+### Criar um pacote de suporte
 
-Se não conseguir determinar o que houve de errado na mensagem de erro exibida, você pode baixar um [pacote de suporte](/enterprise/{{ currentVersion }}/admin/guides/enterprise-support/providing-data-to-github-support) com toda a conversa SMTP entre o seu servidor de e-mail e o {% data variables.product.prodname_ghe_server %}. Depois de fazer o download e extrair o pacote, verifique as entradas em *enterprise-manage-logs/unicorn.log* e veja o log completo de conversas SMTP com os erros relacionados.
+Se você não conseguir determinar o que houve de errado na mensagem de erro exibida, você poderá fazer o download de um [pacote de suporte](/enterprise/admin/guides/enterprise-support/providing-data-to-github-support) com toda a conversa SMTP entre o seu servidor de e-mail e o {% data variables.product.prodname_ghe_server %}. Depois de fazer o download e extrair o pacote, verifique as entradas em *enterprise-manage-logs/unicorn.log* e veja o log completo de conversas do SMTP com os erros relacionados.
 
 O log unicorn mostrará uma transação semelhante a esta:
 
@@ -129,7 +127,7 @@ Esse log mostra que o appliance:
 * A autenticação de `login` foi feita (`<- "AUTH LOGIN\r\n"`);
 * O servidor SMTP rejeitou a autenticação como inválida (`-> "535-5.7.1 Nome de usuário e senha não aceitos.`).
 
-#### Consultar logs da {% data variables.product.product_location %}
+### Consultar logs da {% data variables.product.product_location %}
 
 Se você tiver de verificar o funcionamento do dos e-mails de entrada, examine dois arquivos de log na sua instância: */var/log/mail.log* e */var/log/mail-replies/metroplex.log*.
 
@@ -157,17 +155,17 @@ Observe que o cliente se conecta e depois a fila fica ativa. Em seguida, a mensa
 
 Você notará que `metroplex` captura a mensagem de entrada, processa essa mensagem e, em seguida, transfere o arquivo para `/data/user/incoming-mail/success`.{% endif %}
 
-#### Verificar as configurações DNS
+### Verificar as configurações DNS
 
 Para processar corretamente os e-mails de entrada, você deve configurar um registro A válido (ou CNAME) e um registro MX. Para obter mais informações, consulte "[Definir as configurações de DNS e firewall para permitir recebimento de e-mails](#configuring-dns-and-firewall-settings-to-allow-incoming-emails)".
 
-#### Verificar as configurações de firewall ou grupo de segurança do AWS
+### Verificar as configurações de firewall ou grupo de segurança do AWS
 
 Se a {% data variables.product.product_location %} estiver atrás de um firewall ou estiver funcionando com um grupo de segurança do AWS, verifique se a porta 25 está aberta para todos os servidores de e-mail que enviam mensagens para `reply@reply.[hostname]`.
 
-#### Entrar em contato com o suporte
-{% if enterpriseServerVersions contains currentVersion %}
+### Entrar em contato com o suporte
+{% ifversion ghes %}
 Se você não conseguir resolver o problema, entre em contato com o {% data variables.contact.contact_ent_support %}. Para nos ajudar a resolver a questão, anexe o arquivo de saída de `http(s)://[hostname]/setup/diagnostics` ao seu e-mail.
-{% elsif currentVersion == "github-ae@latest" %}
+{% elsif ghae %}
 Você pode entrar em contato com {% data variables.contact.github_support %} para ajudar a configurar o e-mail de notificações a serem enviadas através do seu servidor SMTP. Para obter mais informações, consulte "[Receber ajuda de {% data variables.contact.github_support %}](/admin/enterprise-support/receiving-help-from-github-support)".
 {% endif %}

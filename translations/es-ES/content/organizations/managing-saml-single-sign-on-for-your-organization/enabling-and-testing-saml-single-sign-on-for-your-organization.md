@@ -1,24 +1,34 @@
 ---
 title: Habilitar y probar el inicio de sesión único SAML para tu organización
 intro: Los administradores y los propietarios de la organización pueden habilitar el inicio de sesión único SAML para agregar una capa más de seguridad a su organización.
-product: '{% data reusables.gated-features.saml-sso %}'
 redirect_from:
   - /articles/enabling-and-testing-saml-single-sign-on-for-your-organization
   - /github/setting-up-and-managing-organizations-and-teams/enabling-and-testing-saml-single-sign-on-for-your-organization
 versions:
-  free-pro-team: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
+shortTitle: Habilitar & probar el SSO de SAML
 ---
 
+## Acerca del inicio de sesión único de SAML
+
 Puedes habilitar SAML SSO (inicio de sesión único) en tu organización sin requerir que todos los miembros lo usen. Habilitar pero no exigir SAML SSO en tu organización puede facilitar la adopción de SAML SSO por parte de la organización. Una vez que la mayoría de los miembros usen SAML SSO, podrás exigirlo en toda la organización.
+
+{% data reusables.saml.ghec-only %}
 
 Si habilitas pero no exiges SAML SSO, los miembros de la organización que elijan no usar SAML SSO pueden seguir siendo miembros de esta. Para obtener más información acerca de la exigencia de SAML SSO, consulta "[Exigir inicio de sesión único SAML para tu organización](/articles/enforcing-saml-single-sign-on-for-your-organization)".
 
 {% data reusables.saml.outside-collaborators-exemption %}
 
-Antes de exigir SAML SSO en tu organización, verifica que ya tengas configurado tu proveedor de identidad (IP). Para obtener más información, consulta "[Preparación para exigir inicio de sesión único SAML en tu organización](/articles/preparing-to-enforce-saml-single-sign-on-in-your-organization)".
+{% data reusables.saml.saml-disabled-linked-identities-removed %}
+
+## Habilitar y probar el inicio de sesión único SAML para tu organización
+
+Antes de requerir el SSO de SAML en tu organización, asegúrate de que la hayas preparado. Para obtener más información, consulta "[Preparación para exigir inicio de sesión único SAML en tu organización](/articles/preparing-to-enforce-saml-single-sign-on-in-your-organization)".
+
+Para obtener más información sobre los proveedores de identidad (IdP) que son compatibles con {% data variables.product.company_short %} para el SSO de SAML, consulta la sección "[Conectar tu proveedor de identidad a tu organización](/organizations/managing-saml-single-sign-on-for-your-organization/connecting-your-identity-provider-to-your-organization)".
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
@@ -46,6 +56,7 @@ Antes de exigir SAML SSO en tu organización, verifica que ya tengas configurado
 12
 Haz clic en **Save ** (guardar). ![Botón para guardar la configuración de SAML SSO](/assets/images/help/saml/saml_save.png)</ol>
 
-### Leer más
+## Leer más
 
 - "[Acerca de la administración de identidad y el acceso con el inicio de sesión único de SAML](/articles/about-identity-and-access-management-with-saml-single-sign-on)"
+- "[Referencia de configuración de SAML](/admin/identity-and-access-management/using-saml-for-enterprise-iam/saml-configuration-reference)"

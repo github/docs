@@ -5,23 +5,24 @@ redirect_from:
   - /desktop/contributing-to-projects/committing-and-reviewing-changes-to-your-project
   - /desktop/contributing-and-collaborating-using-github-desktop/committing-and-reviewing-changes-to-your-project
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+shortTitle: Commit & review changes
 ---
 
-### コミットについて
+## コミットについて
 
 {% data reusables.commits.about-commits %} コラボレーションしているコミットに共作者を追加することもできます。
 
 {% data reusables.desktop.update-email-address %} 詳しい情報については、「[GitHub Desktop 用の Git を設定する](/desktop/getting-started-with-github-desktop/configuring-git-for-github-desktop)」を参照してください。
 
-### ブランチの選択と変更の実行
+## ブランチの選択と変更の実行
 
 1. [新規ブランチを作成する](/desktop/guides/contributing-to-projects/managing-branches)か、ツールバーにある{% octicon "git-branch" aria-label="The branch icon" %}**Current Branch**をクリックし、既存ブランチをリストから選択します。
 
   ![現在のブランチを切り替えるドロップダウンメニュー](/assets/images/help/desktop/select-branch-from-dropdown.png)
 {% data reusables.desktop.make-changes %}
 
-### Choosing how to display diffs
+## Choosing how to display diffs
 
 You can change the way diffs are displayed in {% data variables.product.prodname_desktop %} to suit your reviewing needs.
 
@@ -37,7 +38,7 @@ If you need to see more of the file than {% data variables.product.prodname_desk
 
 ![Expand diff view](/assets/images/help/desktop/expand-diff-view.png)
 
-### コミットに含める変更の選択方法
+## コミットに含める変更の選択方法
 
 テキストエディタでファイルに変更を加えて保存していくと、変更は、{% data variables.product.prodname_desktop %}にも反映されます。
 
@@ -54,7 +55,7 @@ If you need to see more of the file than {% data variables.product.prodname_desk
 
   ![コミットするファイルの横のチェックボックスを選択します](/assets/images/help/desktop/commit-some.png)
 
-#### 部分的なコミットの作成方法
+### 部分的なコミットの作成方法
 
 1 つのファイルに複数の変更があり、それらの変更の一部のみをコミットに含める場合は、部分的なコミットを作成できます。 追加変更やコミットできるように、他の変更はそのまま残ります。 これにより、改行の変更をコードや構文の変更から区別するなど、個別で有意義なコミットの作成が可能になります。
 
@@ -62,12 +63,12 @@ If you need to see more of the file than {% data variables.product.prodname_desk
 
   ![ファイルで選択解除された行](/assets/images/help/desktop/partial-commit.png)
 
-### 変更の廃棄
+## 変更の廃棄
 保持する必要がない未コミットの変更がある場合は、変更を破棄できます。 これにより、コンピュータ上のファイルから変更が削除されます。 複数のファイル内の未コミットの変更をすべて破棄することも、追加した特定の行を破棄することもできます。
 
 破棄した変更は、ゴミ箱内の日付つきのファイルに保存されます。 ゴミ箱を空にするまでは、破棄した変更を復元できます。
 
-#### 複数のファイルの変更を破棄する
+### 複数のファイルの変更を破棄する
 
 {% data reusables.desktop.select-discard-files %}
 {% data reusables.desktop.click-discard-files %}
@@ -77,7 +78,7 @@ If you need to see more of the file than {% data variables.product.prodname_desk
 
   ![確定ダイアログ内の [Discard Changes] ボタン](/assets/images/help/desktop/discard-changes-confirm-mac.png)
 
-#### 複数の行の変更を破棄する
+### 複数の行の変更を破棄する
 未コミットの変更した複数の行を破棄できます。
 
 {% note %}
@@ -95,20 +96,20 @@ If you need to see more of the file than {% data variables.product.prodname_desk
   ![確認ダイアログ内の [Discard a group of added lines]](/assets/images/help/desktop/discard-multiple-lines.png)
 
 
-### コミットメッセージの入力と変更のプッシュ
+## コミットメッセージの入力と変更のプッシュ
 
 コミットに含めたい変更を決めたら、コミットメッセージを入力して変更をプッシュします。 コミットで共同作業した場合、コミットに 1 人以上の作者を追加できます。
 
 {% note %}
 
-**注釈**: {% data reusables.desktop.tags-push-with-commits %} 詳しい情報については、「[タグを管理する](/desktop/contributing-to-projects/managing-tags)」を参照してください。
+**注釈**: {% data reusables.desktop.tags-push-with-commits %} 詳しい情報については、「[タグを管理する](/desktop/contributing-and-collaborating-using-github-desktop/managing-commits/managing-tags)」を参照してください。
 
 {% endnote %}
 
 {% data reusables.desktop.commit-message %}
 
   ![Commit messageフィールド](/assets/images/help/desktop/commit-message.png)
-2. オプションとして、コミットに別の作者を追加するには、共同作業者を追加するアイコンをクリックし、追加するユーザ名を入力します。
+1. オプションとして、コミットに別の作者を追加するには、共同作業者を追加するアイコンをクリックし、追加するユーザ名を入力します。
 
   ![コミットメッセージに共作者を追加](/assets/images/help/desktop/add-co-author-commit.png)
 {% data reusables.desktop.commit-button %}
@@ -122,3 +123,11 @@ If you need to see more of the file than {% data variables.product.prodname_desk
 
   ![保護されたブランチの警告](/assets/images/help/desktop/protected-branch-warning.png)
 {% data reusables.desktop.push-origin %}
+
+6. If you have a pull request based off the branch you are working on, {% data variables.product.prodname_desktop %} will display the status of the checks that have run for the pull request. For more information about checks, see "[Viewing and re-running checks in GitHub Desktop](/desktop/contributing-and-collaborating-using-github-desktop/working-with-your-remote-repository-on-github-or-github-enterprise/viewing-and-re-running-checks-in-github-desktop)."
+
+ ![Checks display next to branch name](/assets/images/help/desktop/checks-dialog.png)
+
+ If a pull request has not been created for the current branch, {% data variables.product.prodname_desktop %} will give you the option to create one. For more information, see "[Creating an issue or pull request](/desktop/contributing-and-collaborating-using-github-desktop/working-with-your-remote-repository-on-github-or-github-enterprise/creating-an-issue-or-pull-request)."
+
+ ![プルリクエストの作成方法](/assets/images/help/desktop/mac-create-pull-request.png)

@@ -8,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
@@ -25,7 +26,7 @@ By default, organization members have write access to their organization's proje
 {% endtip %}
 
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.organization-wide-project %}
 {% data reusables.project-management.select-project %}
 {% data reusables.project-management.click-menu %}

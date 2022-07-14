@@ -5,10 +5,11 @@ redirect_from:
   - /developers/github-marketplace/about-verified-creator-badges
   - /developers/github-marketplace/about-marketplace-badges
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 ---
 
-### Para las GitHub Apps
+## Para las GitHub Apps
 
 Algunas apps en {% data variables.product.prodname_marketplace %} tienen la insignia de {% octicon "verified" aria-label="The verified badge" %} y una descripción que dice "Publisher domain and email verified". Esto significa que la app pertenece a una organización que tiene:
 
@@ -30,9 +31,9 @@ Algunas apps en {% data variables.product.prodname_marketplace %} tienen la insi
 
 Para obtener más información sobre los requisitos para listar una app en {% data variables.product.prodname_marketplace %}, consulta los "[Requisitos para listar una app en {% data variables.product.prodname_marketplace %}](/marketplace/getting-started/requirements-for-listing-an-app-on-github-marketplace/)".
 
-Para obtener información sobre cómo encontrar apps que puedas utilizar, consulta la sección "[Buscar en {% data variables.product.prodname_marketplace %}](/github/searching-for-information-on-github/searching-github-marketplace)".
+Para obtener información sobre cómo encontrar apps que puedas utilizar, consulta la sección "[Buscar en {% data variables.product.prodname_marketplace %}](/search-github/searching-on-github/searching-github-marketplace)".
 
-### Para las GitHub Actions
+## Para las GitHub Actions
 
 Las acciones con la {% octicon "verified" aria-label="The verified badge" %} o la insignia de creador verificado indican que {% data variables.product.prodname_dotcom %} ha verificado al creador de esta acción como socio de la organización.
 

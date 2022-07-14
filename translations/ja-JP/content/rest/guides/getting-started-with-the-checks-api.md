@@ -2,20 +2,22 @@
 title: Checks APIを使ってみる
 intro: Check Runs APIを使うと、リポジトリのコード変更に対して強力なチェックを実行するGitHub Appを構築できます。 継続的インテグレーション、コードの構文チェック、コードのスキャンサービスを実行し、コミットについて詳細なフィードバックを行うアプリを作成できます。
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - API
+shortTitle: 始めましょう - Checks API
 ---
 
-### 概要
+## 概要
 
 GitHub Appは、単に合格/不合格の二択ではない、情報量の多いビルドステータスを報告し、コードの行について詳細な情報が付いたアノテーションをつけ、テストを再実行することができます。 Checks APIの機能は、GitHub Appのみで利用できます。
 
 {% data variables.product.prodname_github_app %}でChecks APIを利用する方法については、「[Checks APIでCIテストを作成する](/apps/quickstart-guides/creating-ci-tests-with-the-checks-api/)を参照してください。
 
-### チェックスイートについて
+## チェックスイートについて
 
 誰かがリポジトリにコードをプッシュすると、その直近のコミットについてGitHubはチェックスイートを作成します。 チェックスイートとは、特定のコミットに対して一つのGitHub Appにより作成された[チェック実行](/rest/reference/checks#check-runs)の集合のことです。 チェックスイートは、スイートに含まれるチェックを実行し、ステータスとチェック結果をまとめます。
 
@@ -33,16 +35,13 @@ GitHub Appは、単に合格/不合格の二択ではない、情報量の多い
 
 {% data reusables.shortdesc.authenticating_github_app %}
 
-### チェックの実行について
+## チェックの実行について
 
 チェックの実行は、個別のテストであり、チェックスイートの一機能です。 各実行にステータスと結果が含まれます。
 
 ![チェック実行のワークフロー](/assets/images/check_runs.png)
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" or currentVersion == "github-ae@latest" %}
-チェック実行が15日以上にわたり不完全な状態である場合は、チェック実行の`conclusion`が`stale`になり、に状態が
-{% data variables.product.prodname_dotcom %}に{% octicon "issue-reopened" aria-label="The issue-reopened icon" %}でstaleと表示されます。 {% data variables.product.prodname_dotcom %}のみが、チェック実行を`stale`としてマークできます。 チェック実行で出る可能性がある結果についての詳細は、 [`conclusion`パラメータ](/rest/reference/checks#create-a-check-run--parameters)を参照してください。
-{% endif %}
+チェック実行が15日以上にわたり不完全な状態である場合は、チェック実行の`conclusion`が`stale`になり、{% data variables.product.prodname_dotcom %}に状態が{% octicon "issue-reopened" aria-label="The issue-reopened icon" %}と表示されます。 {% data variables.product.prodname_dotcom %}のみが、チェック実行を`stale`としてマークできます。 チェック実行で出る可能性がある結果についての詳細は、 [`conclusion`パラメータ](/rest/reference/checks#create-a-check-run--parameters)を参照してください。
 
 [`check_suite`](/webhooks/event-payloads/#check_suite) webhookを受け取ったら、チェックが完了していなくてもすぐにチェック実行を作成できます。 チェック実行の`status`は、`queued`、`in_progress`、または`completed`の値で更新でき、より詳細を明らかにして`output`を更新できます。 チェック実行にはタイムスタンプ、詳細情報が記載された外部サイトへのリンク、コードの特定の行に対するアノテーション、および実行した分析についての情報を含めることができます。
 
@@ -54,7 +53,7 @@ GitHub Appは、単に合格/不合格の二択ではない、情報量の多い
 
 Check Runs APIを使用するには、GitHub Appは`checks:write`権限が必要であり、また[check_run](/webhooks/event-payloads#check_run) webhookにサブスクライブすることもできます。
 
-### チェック実行とリクエストされたアクション
+## チェック実行とリクエストされたアクション
 
 チェック実行をリクエストされたアクション ({% data variables.product.prodname_actions %}と混同しないこと) で設定すると、 {% data variables.product.prodname_dotcom %}のプルリクエストビューでボタンを表示でき、そのボタンで{% data variables.product.prodname_github_app %}に追加のタスクを実行するようリクエストできるます。
 
@@ -75,3 +74,9 @@ Check Runs APIを使用するには、GitHub Appは`checks:write`権限が必要
 ユーザがボタンをクリックすると、{% data variables.product.prodname_dotcom %}は[`check_run.requested_action` webhook](/webhooks/event-payloads/#check_run)をアプリケーションに送信します。 アプリケーションが`check_run.requested_action` webhookイベントを受信すると、webhookペイロードから`requested_action.identifier`キーを探し、どのボタンがクリックされたかを判断してリクエストされたタスクを実行することができます。
 
 Checks APIで必要なアクションを設定する方法の詳しい例については、「[Checks APIでCIテストを作成する](/apps/quickstart-guides/creating-ci-tests-with-the-checks-api/#part-2-creating-the-octo-rubocop-ci-test)」を参照してください。
+
+{% ifversion fpt or ghec %}
+## チェックデータの保持
+
+{% data reusables.pull_requests.retention-checks-data %}
+{% endif %}

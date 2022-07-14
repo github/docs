@@ -1,0 +1,1 @@
+要使用身份提供程序管理企业中的用户，必须为企业启用 {% data variables.product.prodname_emus %}，这可用于 {% data variables.product.prodname_ghe_cloud %}。 更多信息请参阅“[关于 {% data variables.product.prodname_emus %}](/enterprise-cloud@latest/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users)”。

@@ -1,0 +1,57 @@
+name: Sync search - PR
+
+# **What it does**: Tries running the sync-search when relevant files change.
+# **Why we have it**: To test that the script works and the popular pages json is valid.
+# **Who does it impact**: Docs engineering.
+
+on:
+  pull_request:
+    paths:
+      - script/search/parse-page-sections-into-records.js
+      - script/search/popular-pages.js
+      - lib/search/popular-pages.json
+      # Ultimately, for debugging this workflow itself
+      - .github/workflows/sync-search-pr.yml
+
+permissions:
+  contents: read
+
+# This allows a subsequently queued workflow run to interrupt previous runs
+concurrency:
+  group: '${{ github.workflow }} @ ${{ github.event.pull_request.head.label || github.head_ref || github.ref }}'
+  cancel-in-progress: true
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@dcd71f646680f2efd8db4afa5ad64fdcba30e748
+
+      - name: Setup node
+        uses: actions/setup-node@17f8bd926464a1afa4c6a11669539e9c1ba77048
+        with:
+          node-version: '16.15.0'
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Cache nextjs build
+        uses: actions/cache@48af2dc4a9e8278b89d7fa154b955c30c6aaab09
+        with:
+          path: .next/cache
+          key: ${{ runner.os }}-nextjs-${{ hashFiles('package*.json') }}
+
+      - name: Build
+        run: npm run build
+
+      - name: Run sync-search
+        env:
+          # Set filtered to only these so it doesn't run for too long.
+          LANGUAGE: en
+          VERSION: free-pro-team@latest
+          # Because the overload protection runs in NODE_ENV==production
+          # and it can break the sync-search.
+          DISABLE_OVERLOAD_PROTECTION: true
+        run: npm run sync-search

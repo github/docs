@@ -1,1 +1,0 @@
-1. Para editar un webhook existente, da clic en **Editar**. Para eliminar un webhook existente, da clic en **Borrar**. ![Botones para administrar un webhook](/assets/images/help/sponsors/webhook-edit-delete-button.png)

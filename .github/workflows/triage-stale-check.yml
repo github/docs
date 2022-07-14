@@ -8,25 +8,33 @@ on:
   schedule:
     - cron: '45 16 * * *' # Run each day at 16:45 UTC / 8:45 PST
 
+permissions:
+  issues: write
+  pull-requests: write
+
 jobs:
   stale_contributor:
     if: github.repository == 'github/docs'
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/stale@9d6f46564a515a9ea11e7762ab3957ee58ca50da
+      - uses: actions/stale@3cc123766321e9f15a6676375c154ccffb12a358
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
+          stale-issue-message: 'A stale label has been added to this issue becuase it has been open for 60 days with no activity. To keep this issue open, add a comment within 3 days.'
+          days-before-issue-stale: 60
+          days-before-issue-close: 3
+          exempt-issue-labels: 'help wanted,never-stale,waiting for review'
           stale-pr-message: 'A stale label has been added to this pull request because it has been open 7 days with no activity. To keep this PR open, add a comment or push a commit within 3 days.'
           days-before-pr-stale: 7
           days-before-pr-close: 3
           stale-pr-label: 'stale'
-          exempt-pr-labels: 'waiting for review,never-stale'
+          exempt-pr-labels: 'waiting for review,never-stale,ready to merge'
   stale_staff:
     if: github.repository == 'github/docs'
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/stale@9d6f46564a515a9ea11e7762ab3957ee58ca50da
+      - uses: actions/stale@3cc123766321e9f15a6676375c154ccffb12a358
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           stale-pr-message: 'This is a gentle bump for the docs team that this PR is waiting for review.'

@@ -1,0 +1,1 @@
+{% data variables.product.prodname_actions %}のさらに複雑な機能を紹介する例については「[例](/actions/examples)」を参照してください。 ランナー上でのコードのテストの方法、{% data variables.product.prodname_dotcom %} CLIへのアクセス、並行姓やテストマトリックスなどの高度な機能の使い方を説明する、詳細な例があります。

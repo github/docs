@@ -1,8 +1,8 @@
 ---
 title: About notifications
-intro: 'Notifications provide updates about the activity on {% data variables.product.product_name %} that you''ve subscribed to. You can use the notifications inbox to customize, triage, and manage your updates.'
+intro: 'Notifications provide updates about the activity on {% data variables.product.product_location %} that you''ve subscribed to. You can use the notifications inbox to customize, triage, and manage your updates.'
 redirect_from:
-  - /articles/notifications/
+  - /articles/notifications
   - /articles/about-notifications
   - /github/managing-subscriptions-and-notifications-on-github/about-notifications-beta
   - /github/managing-subscriptions-and-notifications-on-github/about-notifications
@@ -11,25 +11,22 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Notifications
 ---
-{% ifversion ghes %}
-{% data reusables.mobile.ghes-release-phase %}
-{% endif %}
 
 ## Notifications and subscriptions
 
-You can choose to receive ongoing updates about specific activity on {% data variables.product.product_name %} through a subscription. Notifications are updates that you receive for specific activity that you are subscribed to.
+You can choose to receive ongoing updates about specific activity on {% data variables.product.product_location %} through a subscription. Notifications are updates that you receive for specific activity that you are subscribed to.
 
 ### Subscription options
 
 You can choose to subscribe to notifications for:
 - A conversation in a specific issue, pull request, or gist.
 - All activity in a repository or team discussion.
-- CI activity, such as the status of workflows in repositories set up with {% data variables.product.prodname_actions %}. {% ifversion fpt or ghes > 3.0 or ghae-next %}
-- Repository {% data reusables.notifications-v2.custom-notification-types %} (if enabled). {% elsif ghae or ghes %}
-- Releases in a repository.{% endif %}
+- CI activity, such as the status of workflows in repositories set up with {% data variables.product.prodname_actions %}. 
+- Repository {% data reusables.notifications-v2.custom-notification-types %} (if enabled).
 
 You can also choose to automatically watch all repositories that you have push access to, except forks. You can watch any other repository you have access to manually by clicking **Watch**.
 
@@ -47,22 +44,22 @@ In general, you are automatically subscribed to conversations by default when yo
 - Changed the state of a thread, such as by closing an issue or merging a pull request.
 - Had a team you're a member of @mentioned.
 
-By default, you also automatically watch all repositories that you create and are owned by your user account.
+By default, you also automatically watch all repositories that you create and are owned by your personal account.
 
-To unsubscribe from conversations you're automatically subscribed to, you can change your notification settings or directly unsubscribe or unwatch activity on {% data variables.product.product_name %}. For more information, see "[Managing your subscriptions](/github/managing-subscriptions-and-notifications-on-github/managing-your-subscriptions)."
+To unsubscribe from conversations you're automatically subscribed to, you can change your notification settings or directly unsubscribe or unwatch activity on {% data variables.product.product_location %}. For more information, see "[Managing your subscriptions](/github/managing-subscriptions-and-notifications-on-github/managing-your-subscriptions)."
 
 ## Customizing notifications and subscriptions
 
-You can choose to view your notifications through the notifications inbox at [https://github.com/notifications](https://github.com/notifications){% ifversion fpt or ghes > 2.22 %} and in the {% data variables.product.prodname_mobile %} app{% endif %}, through your email, or some combination of these options.
+You can choose to view your notifications through the notifications inbox at [https://github.com/notifications](https://github.com/notifications){% ifversion fpt or ghes or ghec %} and in the {% data variables.product.prodname_mobile %} app{% endif %}, through your email, or some combination of these options.
 
-To customize the types of updates you'd like to receive and where to send those updates, configure your notification settings. For more information, see “[Configuring notifications](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications).”
+To customize the types of updates you'd like to receive and where to send those updates, configure your notification settings. For more information, see "[Configuring notifications](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications)."
 
 To keep your subscriptions manageable, review your subscriptions and watched repositories and unsubscribe as needed. For more information, see "[Managing subscriptions for activity on GitHub](/github/managing-subscriptions-and-notifications-on-github/managing-subscriptions-for-activity-on-github)."
 
-To customize how you'd like to receive updates for specific pull requests or issues, you can configure your preferences within the issue or pull request. For more information, see “[Triaging a single notification](/github/managing-subscriptions-and-notifications-on-github/triaging-a-single-notification#customizing-when-to-receive-future-updates-for-an-issue-or-pull-request).”
+To customize how you'd like to receive updates for specific pull requests or issues, you can configure your preferences within the issue or pull request. For more information, see "[Triaging a single notification](/github/managing-subscriptions-and-notifications-on-github/triaging-a-single-notification#customizing-when-to-receive-future-updates-for-an-issue-or-pull-request)."
 
-{% ifversion fpt or ghes > 2.22 %}
-You can customize and schedule push notifications in the {% data variables.product.prodname_mobile %} app. For more information, see "[Configuring notifications](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#managing-your-notification-settings-with-github-for-mobile)."
+{% ifversion fpt or ghes or ghec %}
+You can customize and schedule push notifications in the {% data variables.product.prodname_mobile %} app. For more information, see "[Configuring notifications](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#managing-your-notification-settings-with-github-mobile)."
 {% endif %}
 
 ## Reasons for receiving notifications
@@ -91,7 +88,7 @@ From your inbox you can also triage multiple notifications at once. For more inf
 
 ## Customizing your notifications inbox
 
-To focus on a group of notifications in your inbox on {% data variables.product.product_name %}{% ifversion fpt or ghes > 2.22 %} or {% data variables.product.prodname_mobile %}{% endif %}, you can create custom filters. For example, you can create a custom filter for an open source project you contribute to and only see notifications for that repository in which you are mentioned. For more information, see "[Managing notifications from your inbox](/github/managing-subscriptions-and-notifications-on-github/managing-notifications-from-your-inbox)." For more examples of how to customize your triaging workflow, see "[Customizing a workflow for triaging your notifications](/github/managing-subscriptions-and-notifications-on-github/customizing-a-workflow-for-triaging-your-notifications)."
+To focus on a group of notifications in your inbox on {% data variables.product.product_location %}{% ifversion fpt or ghes or ghec %} or {% data variables.product.prodname_mobile %}{% endif %}, you can create custom filters. For example, you can create a custom filter for an open source project you contribute to and only see notifications for that repository in which you are mentioned. For more information, see "[Managing notifications from your inbox](/github/managing-subscriptions-and-notifications-on-github/managing-notifications-from-your-inbox)." For more examples of how to customize your triaging workflow, see "[Customizing a workflow for triaging your notifications](/github/managing-subscriptions-and-notifications-on-github/customizing-a-workflow-for-triaging-your-notifications)."
 
 ## Notification retention policy
 
@@ -99,4 +96,4 @@ Notifications that are not marked as **Saved** are kept for 5 months. Notificati
 
 ## Feedback and support
 
-If you have feedback or feature requests for notifications, use the [feedback form for notifications](https://support.github.com/contact/feedback?contact%5Bcategory%5D=notifications&contact%5Bsubject%5D=Product+feedback).
+If you have feedback or feature requests for notifications, use a [{% data variables.product.product_name %} feedback discussion](https://github.com/github/feedback/discussions/categories/general-feedback).

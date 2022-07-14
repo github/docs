@@ -6,10 +6,11 @@ redirect_from:
 permissions: Organization owners can manage discussion creation for repositories owned by the organization.
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
-shortTitle: Manage discussion creation
+shortTitle: Manage repository discussions
 ---
 
 
@@ -29,3 +30,4 @@ By default, organization members with read access can create discussions if a re
 
 - "[About discussions](/discussions/collaborating-with-your-community-using-discussions/about-discussions)"
 - "[Managing discussions for your community](/discussions/managing-discussions-for-your-community)"
+- "[Enabling or disabling GitHub Discussions for an organization](/organizations/managing-organization-settings/enabling-or-disabling-github-discussions-for-an-organization)"

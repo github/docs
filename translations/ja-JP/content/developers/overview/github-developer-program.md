@@ -4,16 +4,13 @@ intro: '{% data variables.product.prodname_dotcom %}と統合されるツール�
 redirect_from:
   - /program
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 topics:
   - API
 ---
 
 GitHubと統合されるアプリケーションを構築しますか？ 弊社の開発者プログラムに登録してください！ 可能性は無限であり、栄誉を楽しんでください。 [今すぐ登録を](https://github.com/developer/register)
-
-## 把握し続けてください
-
-[開発者ブログ](https://developer.github.com/changes/)でAPIの変更について最初に知り、公開されるより先に新機能を試してください。
 
 ## かゆいところに手を届ける
 
@@ -21,13 +18,12 @@ GitHubと統合されるアプリケーションを構築しますか？ 弊社�
 
 ## エンタープライズへの挑戦
 
-[Obtain developer licenses](http://github.com/contact?form%5Bsubject%5D=Development+licenses) to build and test your application against {% data variables.product.prodname_ghe_server %}.
-
+Email <a href="mailto:partnerships@github.com">partnerships@github.com</a> to request developer licenses to build and test your application against {% data variables.product.prodname_ghe_server %}.
 
 ## GitHubと連携するインテグレーションがありますか？
 
 素晴らしいです！ プログラムに参加していただければ嬉しく思います。 以下のようにすれば、情報を展開できます。</p>
-* [あなたのインテグレーションについてお知らせください。](https://github.com/contact?form[subject]=New+GitHub+Integration)
+* [あなたのインテグレーションについてお知らせください。](https://support.github.com/contact?tags=rr-general-technical&form[subject]=New+GitHub+Integration)
 * [OctocatもしくはGitHubロゴ](https://github.com/logos)を使って、あなたの製品がGitHubと動作することを示してください。
 * Webサイトにインテグレーションに関するビデオあるいはブログをポストしてください。
 

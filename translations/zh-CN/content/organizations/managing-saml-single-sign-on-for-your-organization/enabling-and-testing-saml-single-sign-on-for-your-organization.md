@@ -1,24 +1,34 @@
 ---
 title: 启用和测试组织的 SAML 单点登录
 intro: 组织所有者和管理员可以启用 SAML 单点登录，以将额外的安全层添加到其组织。
-product: '{% data reusables.gated-features.saml-sso %}'
 redirect_from:
   - /articles/enabling-and-testing-saml-single-sign-on-for-your-organization
   - /github/setting-up-and-managing-organizations-and-teams/enabling-and-testing-saml-single-sign-on-for-your-organization
 versions:
-  free-pro-team: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
+shortTitle: 启用和测试 SAML SSO
 ---
 
+## 关于 SAML 单点登录
+
 无需所有成员使用 SAML SSO，即可在组织中将其启用。 在组织中启用但不实施 SAML SSO 可帮助组织顺利采用 SAML SSO。 一旦组织内的大多数成员使用 SAML SSO，即可在组织内将其实施。
+
+{% data reusables.saml.ghec-only %}
 
 如果启用但不实施 SAML SSO，则选择不使用 SAML SSO 的组织成员仍可以是组织的成员。 有关实施 SAML SSO 的更多信息，请参阅“[对组织实施 SAML 单点登录](/articles/enforcing-saml-single-sign-on-for-your-organization)”。
 
 {% data reusables.saml.outside-collaborators-exemption %}
 
-在组织中实施 SAML SSO 之前，请确保已设置身份提供程序 (IdP)。 更多信息请参阅“[准备在组织中实施 SAML 单点登录](/articles/preparing-to-enforce-saml-single-sign-on-in-your-organization)”。
+{% data reusables.saml.saml-disabled-linked-identities-removed %}
+
+## 启用和测试组织的 SAML 单点登录
+
+在组织中实施 SAML SSO 之前，请确保您已准备好组织。 更多信息请参阅“[准备在组织中实施 SAML 单点登录](/articles/preparing-to-enforce-saml-single-sign-on-in-your-organization)”。
+
+有关 {% data variables.product.company_short %} 支持 SAML SSO 的身份提供商 (IDP) 的更多信息，请参阅“[将身份提供商连接到组织](/organizations/managing-saml-single-sign-on-for-your-organization/connecting-your-identity-provider-to-your-organization)”。
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
@@ -45,6 +55,7 @@ topics:
 11. 要实施 SAML SSO 并删除未通过 IdP 进行身份验证的所有组织成员，请选择 **Require SAML SSO authentication for all members of the _organization name_ organization（要求组织的所有成员进行 SAML SSO 身份验证）**。 有关实施 SAML SSO 的更多信息，请参阅“[对组织实施 SAML 单点登录](/articles/enforcing-saml-single-sign-on-for-your-organization)”。 ![对组织要求 SAML SSO 的复选框 ](/assets/images/help/saml/saml_require_saml_sso.png)
 12. 单击 **Save（保存）**。 ![保存 SAML SSO 设置的按钮](/assets/images/help/saml/saml_save.png)
 
-### 延伸阅读
+## 延伸阅读
 
 - "[关于使用 SAML 单点登录管理身份和访问](/articles/about-identity-and-access-management-with-saml-single-sign-on)"
+- “[SAML 配置参考](/admin/identity-and-access-management/using-saml-for-enterprise-iam/saml-configuration-reference)”

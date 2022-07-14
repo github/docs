@@ -6,14 +6,15 @@ redirect_from:
   - /enterprise/admin/user-management/importing-data-from-third-party-version-control-systems
   - /admin/user-management/importing-data-from-third-party-version-control-systems
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
   - Migration
+shortTitle: Importar desde otro VCS
 ---
 
-### Importar proyectos de Mercurial
+## Importar proyectos de Mercurial
 
 {% data reusables.enterprise_installation.ssh-into-instance %}
 2. Haz un clon sin procesar del proyecto mediante el comando a continuación, especificando la URL del proyecto de origen y una ruta a un repositorio temporal:
@@ -26,14 +27,14 @@ topics:
   ```shell
   $ git-import-rewrite --flavor hg --authors /<em>PATH</em>/<em>AUTHORS-MAP-FILE</em>.csv /<em>PATH</em>/<em>REPO-NAME</em>.git
   ```
-5. Si aún no lo has hecho, [ crea un nuevo repositorio vacío en {% data variables.product.prodname_ghe_server %}](/enterprise/{{ currentVersion }}/user/articles/creating-a-new-repository).
+5. Si aún no lo has hecho, [ crea un nuevo repositorio vacío en {% data variables.product.prodname_ghe_server %}](/enterprise/user/articles/creating-a-new-repository).
 {% data reusables.command_line.switching_directories_procedural %}
 7. Sube el repositorio importado a {% data variables.product.prodname_ghe_server %}:
   ```shell
   $ git push --mirror <em>PUSH-URL-ON-GITHUB-ENTERPRISE</em>
   ```
 
-### Importar proyectos de Subversion
+## Importar proyectos de Subversion
 
 {% data reusables.enterprise_installation.ssh-into-instance %}
 2. Haz un clon sin procesar del proyecto mediante el comando a continuación, especificando la URL del proyecto de origen y una ruta a un repositorio temporal:
@@ -46,14 +47,14 @@ topics:
   ```shell
   $ git-import-rewrite --flavor svn --authors /<em>PATH</em>/<em>AUTHORS-MAP-FILE</em>.csv /<em>PATH</em>/<em>REPO-NAME</em>.git
   ```
-5. Si aún no lo has hecho, [ crea un nuevo repositorio vacío en {% data variables.product.prodname_ghe_server %}](/enterprise/{{ currentVersion }}/user/articles/creating-a-new-repository).
+5. Si aún no lo has hecho, [ crea un nuevo repositorio vacío en {% data variables.product.prodname_ghe_server %}](/enterprise/user/articles/creating-a-new-repository).
 {% data reusables.command_line.switching_directories_procedural %}
 7. Sube el repositorio importado a {% data variables.product.prodname_ghe_server %}:
   ```shell
   $ git push --mirror <em>PUSH-URL-ON-GITHUB-ENTERPRISE</em>
   ```
 
-### Importar proyectos de Team Foundation Version Control
+## Importar proyectos de Team Foundation Version Control
 
 {% data reusables.enterprise_installation.ssh-into-instance %}
 2. Haz un clon sin procesar del proyecto mediante el comando a continuación, especificando la URL del proyecto de origen y una ruta a un repositorio temporal:
@@ -66,13 +67,13 @@ topics:
   ```shell
   $ git-import-rewrite --flavor tfs --authors /<em>PATH</em>/<em>AUTHORS-MAP-FILE</em>.csv /<em>PATH</em>/<em>REPO-NAME</em>.git
   ```
-5. Si aún no lo has hecho, [ crea un nuevo repositorio vacío en {% data variables.product.prodname_ghe_server %}](/enterprise/{{ currentVersion }}/user/articles/creating-a-new-repository).
+5. Si aún no lo has hecho, [ crea un nuevo repositorio vacío en {% data variables.product.prodname_ghe_server %}](/enterprise/user/articles/creating-a-new-repository).
 {% data reusables.command_line.switching_directories_procedural %}
 7. Sube el repositorio importado a {% data variables.product.prodname_ghe_server %}:
   ```shell
   $ git push --mirror <em>PUSH-URL-ON-GITHUB-ENTERPRISE</em>
   ```
 
-### Leer más
+## Leer más
 
-- "[Command-line-utilities](/enterprise/{{ currentVersion }}/admin/guides/installation/command-line-utilities/#import-and-export)"
+- "[Command-line-utilities](/enterprise/admin/guides/installation/command-line-utilities/#import-and-export)"

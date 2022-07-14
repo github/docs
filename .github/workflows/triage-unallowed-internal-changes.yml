@@ -1,7 +1,7 @@
 name: Check for unallowed internal changes
 
-# **What it does**: If someone changes app.json or search indexes, we fail the check.
-# **Why we have it**: app.json should rarely be edited, so we'll require an admin merge if the file really needs to be changed. The search indexes are synced every 4 hours, so changes should not need to be made.
+# **What it does**: If someone changes search indexes, we fail the check.
+# **Why we have it**: The search indexes are synced every 4 hours, so changes should not need to be made.
 # **Who does it impact**: Docs engineering and content writers.
 
 on:
@@ -12,22 +12,32 @@ on:
       - opened
       - reopened
       - synchronize
+  push:
+    branches:
+      - gh-readonly-queue/main/**
+
+permissions:
+  # This is needed by dorny/paths-filter
+  pull-requests: read
+
+# This allows a subsequently queued workflow run to interrupt previous runs
+concurrency:
+  group: '${{ github.workflow }} @ ${{ github.event.pull_request.head.label || github.head_ref || github.ref }}'
+  cancel-in-progress: true
 
 jobs:
   check-internal-changes:
     if: github.repository == 'github/docs-internal' && github.event.pull_request.user.login != 'Octomerger'
     runs-on: ubuntu-latest
     outputs:
-      notAllowed: ${{ steps.filter.outputs.notAllowed }}
       notAllowedSearchSyncLabel: ${{ steps.filter.outputs.notAllowedSearchSyncLabel }}
-      count: 0
     steps:
       - name: Get files changed
         uses: dorny/paths-filter@eb75a1edc117d3756a18ef89958ee59f9500ba58
         id: filter
         with:
           # Base branch used to get changed files
-          base: ${{ github.event.pull_request.base.ref }}
+          base: ${{ github.event.pull_request.base.ref || github.base_ref || github.ref }}
 
           # Enables setting an output in the format in `${FILTER_NAME}_files
           # with the names of the matching files formatted as JSON array
@@ -35,34 +45,23 @@ jobs:
 
           # Returns list of changed files matching each filter
           filters: |
-            notAllowed:
-              - 'app.json'
             notAllowedSearchSyncLabel:
               - 'lib/search/indexes/**'
-  notAllowed:
-    needs: check-internal-changes
-    if: ${{ needs.check-internal-changes.outputs.notAllowed == 'true' }}
-    runs-on: ubuntu-latest
-    steps:
-      - name: Fail if unallowed changes were made
-        run: |
-          echo "Please admin merge if you really need to update app.json!"
-          exit 1
   notAllowedSearchSyncLabel:
     needs: check-internal-changes
     if: ${{ needs.check-internal-changes.outputs.notAllowedSearchSyncLabel == 'true' }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f
+        uses: actions/checkout@dcd71f646680f2efd8db4afa5ad64fdcba30e748
         with:
           ref: ${{ github.head_ref }}
           token: ${{ secrets.DOCUBOT_REPO_PAT }}
 
       - name: Setup Node
-        uses: actions/setup-node@38d90ce44d5275ad62cc48384b3d8a58c500bb5f
+        uses: actions/setup-node@17f8bd926464a1afa4c6a11669539e9c1ba77048
         with:
-          node-version: 16.8.x
+          node-version: '16.15.0'
           cache: npm
 
       - name: Install dependencies
@@ -73,7 +72,7 @@ jobs:
         run: $GITHUB_WORKSPACE/.github/actions-scripts/enterprise-search-label.js
 
       - name: Fail if unallowed changes were made outside of the Search Sync label added
-        if: false == steps.labelExists.outputs.versionToSync && false == contains(github.event.pull_request.labels.*.name, 'deprecate-lunr-index')
+        if: false == steps.labelExists.outputs.versionToSync && false == contains(github.event.pull_request.labels.*.name, 'deprecate-lunr-index') && !contains(github.event.pull_request.labels.*.name, 'skip-index-check')
         run: |
           echo "Search indices are updated automatically every 4 hours. Please revert any changes you have made to the search indexes before you merge this PR. If you need to update the search indices directly after you merge your PR, you can manually run the search sync workflow: Sync search indexes. See the docs/contributing/search.md for more details. If you have any other questions, please ping us in #docs-engineering."
           exit 1

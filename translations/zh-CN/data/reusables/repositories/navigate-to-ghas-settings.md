@@ -1,1 +1,1 @@
-1. 在“Configure security and analysis features（配置安全和分析功能）”下，查找“{% data variables.product.prodname_GH_advanced_security %}”。
+1. 在“Code security and analysis（代码安全性和分析）”下，找到“{% data variables.product.prodname_GH_advanced_security %}”。

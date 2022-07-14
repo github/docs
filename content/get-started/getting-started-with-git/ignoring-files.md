@@ -1,8 +1,8 @@
 ---
 title: Ignoring files
 redirect_from:
-  - /git-ignore/
-  - /ignore-files/
+  - /git-ignore
+  - /ignore-files
   - /articles/ignoring-files
   - /github/using-git/ignoring-files
   - /github/getting-started-with-github/ignoring-files
@@ -12,6 +12,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 ---
 ## Configuring ignored files for a single repository
 
@@ -27,6 +28,8 @@ GitHub maintains an official list of recommended *.gitignore* files for many pop
    $ touch .gitignore
   ```
 
+   If the command succeeds, there will be no output.
+   
 For an example *.gitignore* file, see "[Some common .gitignore configurations](https://gist.github.com/octocat/9257657)" in the Octocat repository.
 
 If you want to ignore a file that is already checked in, you must untrack the file before you add a rule to ignore it. From your terminal, untrack the file.

@@ -2,14 +2,17 @@
 title: Utilizar el reenvío del agente SSH
 intro: 'Para simplificar los despliegues en un servidor, puedes configurar el reenvío del agente SSH para utilizar las llaves SSH locales de forma segura.'
 redirect_from:
-  - /guides/using-ssh-agent-forwarding/
+  - /guides/using-ssh-agent-forwarding
   - /v3/guides/using-ssh-agent-forwarding
+  - /articles/using-ssh-agent-forwarding
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - API
+shortTitle: Reenvío del agente SSH
 ---
 
 
@@ -20,14 +23,14 @@ Si ya configuraste una llave SSH para que interactúe con {% data variables.prod
 
 Revisa la sección [Guía de Tips Técnicos de Steve Friedl][tech-tips] para obtener una explicación más exacta del reenvío del agente SSH.
 
-### Configurar el reenvío del agente SSH
+## Configurar el reenvío del agente SSH
 
 Asegúrate de que tu propia llave SSH está configurada y funciona. Puedes utilizar [nuestra guía para generar llaves SSH][generating-keys] si aún no lo has hecho.
 
-Puedes probar si tu llave local funciona ingresando `ssh -T git@{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}hostname{% else %}github.com{% endif %}` en la terminal:
+Puedes probar si tu llave local funciona ingresando `ssh -T git@{% ifversion ghes or ghae %}hostname{% else %}github.com{% endif %}` en la terminal:
 
 ```shell
-$ ssh -T git@{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}hostname{% else %}github.com{% endif %}
+$ ssh -T git@{% ifversion ghes or ghae %}hostname{% else %}github.com{% endif %}
 # Attempt to SSH in to github
 > Hi <em>username</em>! You've successfully authenticated, but GitHub does not provide
 > shell access.
@@ -48,9 +51,9 @@ Estamos empezando muy bien. Vamso a configurar SSH para permitir el reenvío del
 
 {% endwarning %}
 
-### Probar el reenvío del agente SSH
+## Probar el reenvío del agente SSH
 
-Para probar que el reenvío de agentes funcione con tu servidor, puedes ingresar por SSH en éste y ejecutar `ssh -T git@{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}hostname{% else %}github.com{% endif %}` nuevamente.  Si todo sale bien, te regresará el mismo mensaje que salió cuando lo hiciste localmente.
+Para probar que el reenvío de agentes funcione con tu servidor, puedes ingresar por SSH en éste y ejecutar `ssh -T git@{% ifversion ghes or ghae %}hostname{% else %}github.com{% endif %}` nuevamente.  Si todo sale bien, te regresará el mismo mensaje que salió cuando lo hiciste localmente.
 
 Si no estás seguro de que se esté utilizando tu llave local, también puedes inspeccionar la variable `SSH_AUTH_SOCK` en tu servidor:
 
@@ -66,30 +69,30 @@ Si no se ha configurado la variable, esto significa que el reenvío del agente n
 $ echo "$SSH_AUTH_SOCK"
 # Print out the SSH_AUTH_SOCK variable
 > <em>[No output]</em>
-$ ssh -T git@{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}hostname{% else %}github.com{% endif %}
+$ ssh -T git@{% ifversion ghes or ghae %}hostname{% else %}github.com{% endif %}
 # Try to SSH to github
 > Permission denied (publickey).
 ```
 
-### Solucionar problemas del reenvío del agente SSH
+## Solucionar problemas del reenvío del agente SSH
 
 Aquí te mostramos algunos puntos en los cuales tener cuidado cuando intentes solucionar problemas relacionados con el reenvío del agente SSH.
 
-#### Debes utilizar una URL con SSH para revisar el código
+### Debes utilizar una URL con SSH para revisar el código
 
-El reenvío SSH funciona únicamente con URL con SSH, no con aquellas de HTTP(s). Revisa el archivo *.git/config* en tu servidor y asegúrate de que la URL es de estilo SSH como se muestra a continuación:
+El reenvío SSH funciona únicamente con URL con SSH, no con aquellas de HTTP(s). Revisa el archivo `.git/config` en tu servidor y asegúrate de que la URL es de estilo SSH como se muestra a continuación:
 
 ```shell
 [remote "origin"]
-  url = git@{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}hostname{% else %}github.com{% endif %}:<em>yourAccount</em>/<em>yourProject</em>.git
+  url = git@{% ifversion ghes or ghae %}hostname{% else %}github.com{% endif %}:<em>yourAccount</em>/<em>yourProject</em>.git
   fetch = +refs/heads/*:refs/remotes/origin/*
 ```
 
-#### Tus llaves SSH deben funcionar localmente
+### Tus llaves SSH deben funcionar localmente
 
 Antes de que hagas que tus llaves funcionen a través del reenvío del agente, primero deben funcionar localmente. [Nuestra guía para generar llaves SSH][generating-keys] puede ayudarte a configurar tus llaves SSH localmente.
 
-#### Tu sistema debe permitir el reenvío del agente SSH
+### Tu sistema debe permitir el reenvío del agente SSH
 
 Algunas veces, la configuración del sistema deja de permitir el reenvío del agente SSH. Puedes verificar si se está utilizando un archivo de configuración del sistema ingresando el siguiente comando en la terminal:
 
@@ -105,7 +108,7 @@ $ exit
 # Returns to your local command prompt
 ```
 
-En este ejemplo, el archivo *~/.ssh/config* se carga primero, luego se lee el */etc/ssh_config*.  Podemos inspeccionar ese archivo para ver si está anulando nuestras opciones si ejecutamos los siguientes comandos:
+En este ejemplo, el archivo `~/.ssh/config` se carga primero, luego se lee el `/etc/ssh_config`.  Podemos inspeccionar ese archivo para ver si está anulando nuestras opciones si ejecutamos los siguientes comandos:
 
 ```shell
 $ cat /etc/ssh_config
@@ -115,13 +118,13 @@ $ cat /etc/ssh_config
 >   ForwardAgent no
 ```
 
-En este ejemplo, nuestro archivo */etc/ssh_config* dice específicamente `ForwardAgent no`, lo cual es una manera de bloquear el reenvío del agente. Si borramos esta línea del archivo deberíamos poder hacer funcionar el reenvío del agente nuevamente.
+En este ejemplo, nuestro archivo `/etc/ssh_config` dice específicamente `ForwardAgent no`, lo cual es una manera de bloquear el reenvío del agente. Si borramos esta línea del archivo deberíamos poder hacer funcionar el reenvío del agente nuevamente.
 
-#### Tu servidor debe permitir el reenvío del agente SSH en las conexiones entrantes
+### Tu servidor debe permitir el reenvío del agente SSH en las conexiones entrantes
 
 El reenvío del agente también puede bloquearse en tu servidor. Puedes verificar que se permita este reenvío si entras al servidor mediante SSH y ejecutas `sshd_config`. La salida de este comando deberá indicar que se configuró `AllowAgentForwarding`.
 
-#### Tu `ssh-agent` local debe estar ejecutándose
+### Tu `ssh-agent` local debe estar ejecutándose
 
 En la mayoría de las computadoras, el sistema operativo lanza el `ssh-agent` automáticamente.  Sin embargo, en Windows, tienes que hacerlo manualmente. Tenemos [una guía de cómo empezar con el `ssh-agent` cuando abres Git Bash][autolaunch-ssh-agent].
 
@@ -133,7 +136,7 @@ $ echo "$SSH_AUTH_SOCK"
 > /tmp/launch-kNSlgU/Listeners
 ```
 
-#### Tu llave debe estar disponible para el `ssh-agent`
+### Tu llave debe estar disponible para el `ssh-agent`
 
 Puedes verificar que tu llave esté visible para el `ssh-agent` si ejecutas el siguiente comando:
 

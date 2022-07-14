@@ -7,14 +7,16 @@ redirect_from:
   - /articles/viewing-a-wikis-history-of-changes
   - /github/building-a-strong-community/viewing-a-wikis-history-of-changes
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Community
+shortTitle: Visualizar o histórico de alterações
 ---
 
-### Exibir histórico da wiki
+## Exibir histórico da wiki
 
 O histórico da wiki inclui:
 - O usuário que fez a alteração
@@ -26,19 +28,19 @@ O histórico da wiki inclui:
 3. Usando a barra lateral da wiki, navegue até a página cujo histórico você deseja exibir.
 4. Na parte superior da wiki, clique no link de revisão. ![Link de revisão da wiki](/assets/images/help/wiki/wiki_revision_link.png)
 
-### Exibir conteúdo anterior
+## Exibir conteúdo anterior
 
 Na tabela de histórico da wiki, clique em um [hash SHA-1](http://en.wikipedia.org/wiki/SHA-1) (a sequência de letras e números na extrema direita) para ver uma página wiki exatamente como era em um determinado momento.
 
 ![Número SHA da wiki](/assets/images/help/wiki/wiki_sha_number.png)
 
-### Comparar duas revisões
+## Comparar duas revisões
 
 1. Selecione duas linhas que deseja comparar.
 2. Na parte superior da tabela do histórico, clique em **Compare Revisions** (Comparar revisões). ![Botão Compare revisions (Comparar revisões) da wiki](/assets/images/help/wiki/wiki_compare_revisions.png)
 3. Você verá um diff das alterações mostrando quais linhas foram adicionadas, removidas e modificadas.
 
-### Reverter alterações anteriores
+## Reverter alterações anteriores
 
 Você só poderá reverter alterações se tiver permissão para editar a wiki.
 

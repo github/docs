@@ -1,13 +1,14 @@
 ---
 title: コミュニティのディスカッションを管理する
 shortTitle: ディスカッションを管理する
-intro: 'リポジトリのディスカッションを有効にして設定できます。また、{% data variables.product.product_name %} のツールを使用して、コミュニティメンバー間の会話をモデレートできます。'
+intro: 'You can enable and configure {% data variables.product.prodname_discussions %} for your repository, and you can use tools on {% data variables.product.product_name %} to moderate conversations among community members.'
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 children:
-  - /managing-discussions-in-your-repository
-  - /managing-categories-for-discussions-in-your-repository
+  - /managing-discussions
+  - /managing-categories-for-discussions
   - /moderating-discussions
+  - /viewing-insights-for-your-discussions
 ---
 
-{% data reusables.discussions.beta %}

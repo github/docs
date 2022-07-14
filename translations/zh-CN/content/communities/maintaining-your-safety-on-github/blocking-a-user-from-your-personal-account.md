@@ -5,12 +5,14 @@ redirect_from:
   - /articles/blocking-a-user-from-your-personal-account
   - /github/building-a-strong-community/blocking-a-user-from-your-personal-account
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 topics:
   - Community
+shortTitle: 阻止您的帐户
 ---
 
-### 关于阻止用户
+## 关于阻止用户
 
 您可以在您的帐户设置中或从用户的个人资料中阻止用户。 {% data variables.product.prodname_dotcom %} 在您阻止用户时不会通知用户。 如果要避免与您阻止的人参与同一个项目，您可以选择针对被阻止用户先前参与的任何仓库显示警告。 更多信息请参阅“[在帐户设置中阻止用户](#blocking-a-user-in-your-account-settings)”。 您仍然可以在共享空间中看到被阻止用户的活动，被阻止的用户也可以删除他们现有的内容。
 
@@ -32,6 +34,8 @@ topics:
 - 您在他们仓库协作者的身份被删除
 - 他们与您的赞助关系被取消
 - 任何对被阻止用户的待处理仓库或帐户继承者邀请或来自该用户的邀请都被取消
+- 用户作为协作者将从您拥有的所有项目板和项目（测试版）中删除
+- 您作为协作者将从该用户拥有的所有项目板和项目（测试版）中删除
 
 您阻止用户后，他们无法：
 - 向您发送任何通知，包括 [@提及](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams)您的用户名
@@ -44,6 +48,8 @@ topics:
 - 在评论中交叉引用您的仓库
 - 复刻、关注、固定您的仓库或对其标星
 - 赞助您
+- 将您添加为其项目板和项目（测试版）的协作者
+- 对公共项目板和项目进行更改（测试版）
 
 在您拥有的仓库中，被阻止的用户也不能：
 - 打开议题
@@ -51,14 +57,14 @@ topics:
 - 对议题、拉取请求或提交发表评论
 - 添加或编辑 wiki 页面
 
-### 在您的帐户设置中阻止用户
+## 在您的帐户设置中阻止用户
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.blocked_users %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.blocked_users %}
 3. 在“Block a user（阻止用户）”下，键入您要阻止的用户的用户名，然后单击 **Block user（阻止用户）**。 ![用户名字段和阻止按钮](/assets/images/help/settings/user-settings-block-user.png)
 4. （可选）要在您访问被阻止用户参与的仓库时显示警告，请选择 **Warn me when a blocked user is a prior contributor to a repository（在访问被阻止用户先前参与的仓库时警告我）**。 ![关于被阻止用户的警告选项](/assets/images/help/settings/warn-block-user.png)
 
-### 从用户的个人资料页面阻止用户
+## 从用户的个人资料页面阻止用户
 
 {% data reusables.profile.user_profile_page_navigation %}
 {% data reusables.profile.user_profile_page_block_or_report %}
@@ -70,7 +76,7 @@ topics:
 
 {% endnote %}
 
-### 延伸阅读
+## 延伸阅读
 
 - “[查看您阻止访问您个人帐户的用户](/communities/maintaining-your-safety-on-github/viewing-users-youve-blocked-from-your-personal-account)”
 - “[解除阻止用户访问您的个人帐户](/communities/maintaining-your-safety-on-github/unblocking-a-user-from-your-personal-account)”

@@ -3,14 +3,15 @@ title: Editing a project board
 intro: You can edit the title and description of an existing project board.
 redirect_from:
   - /github/managing-your-work-on-github/managing-project-boards/editing-a-project-board
-  - /articles/editing-a-project/
-  - /articles/editing-and-deleting-a-project/
+  - /articles/editing-a-project
+  - /articles/editing-and-deleting-a-project
   - /articles/editing-a-project-board
   - /github/managing-your-work-on-github/editing-a-project-board
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
 ---

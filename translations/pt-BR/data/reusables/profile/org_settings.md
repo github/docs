@@ -1,2 +1,1 @@
-{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.21" %}2. Next to the organization, click **Settings**.
-  ![The settings button](/assets/images/help/organizations/settings-button.png){% else %}2. No nome da sua organização, clique em {% octicon "gear" aria-label="The Settings gear icon" %} **Settings**. ![The settings button](/assets/images/help/organizations/organization-settings-tab.png){% endif %}
+2. Ao lado da organização, clique em **Configurações**. ![Botão de configurações](/assets/images/help/organizations/settings-button.png)

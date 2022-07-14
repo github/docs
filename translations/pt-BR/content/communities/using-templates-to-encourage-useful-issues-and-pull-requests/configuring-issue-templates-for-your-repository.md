@@ -6,24 +6,22 @@ redirect_from:
   - /articles/configuring-issue-templates-for-your-repository
   - /github/building-a-strong-community/configuring-issue-templates-for-your-repository
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Community
+shortTitle: Configurar
 ---
 
-{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
+{% ifversion fpt or ghes or ghec %}
 
 {% data reusables.repositories.default-issue-templates %}
 
 {% endif %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
-
-### Criando modelos de problemas
-
-{% endif %}
+## Criando modelos de problemas
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
@@ -34,11 +32,33 @@ topics:
 7. Para definir automaticamente um título de problema padrão, atribua o problema a pessoas com acesso de leitura ao repositório ou aplique etiquetas ao modelo de problema. Informe esses detalhes em "Optional additional information" (Informações adicionais opcionais). Você também pode adicionar esses detalhes no modelo de problema com `title`, `labels` ou `assignees` em um formato de página inicial do YAML. ![Informações adicionais para modelo de problema](/assets/images/help/repository/additional-issue-template-info.png)
 8. Quando tiver terminado de editar e visualizar o modelo, clique em **Propose changes** (Propor alterações) no canto superior direito da página. ![Botão Propose changes (Propor alterações)](/assets/images/help/repository/propose-changes-button.png)
 9. Insira uma mensagem do commit descrevendo as alterações. ![Campo de mensagem do commit do modelo de problema](/assets/images/help/repository/issue-template-commit-message-field.png)
-10. Abaixo dos campos de mensagem do commit, decida se vai fazer commit do seu modelo diretamente no branch padrão ou se vai criar um branch e abrir uma pull request. Para obter mais informações sobre pull requests, consulte "[Sobre pull requests](/articles/about-pull-requests)". ![Commit do modelo de problema com opção para principal ou abrir pull request](/assets/images/help/repository/issue-template-commit-to-master-or-open-pull-request.png)
+10. Abaixo dos campos de mensagem do commit, decida se vai fazer commit do seu modelo diretamente no branch padrão ou se vai criar um branch e abrir uma pull request. Para obter mais informações sobre pull requests, consulte "[Sobre pull requests](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)". ![Commit do modelo de problema com opção para principal ou abrir pull request](/assets/images/help/repository/issue-template-commit-to-master-or-open-pull-request.png)
 11. Clique em **Commit changes** (Fazer commit das alterações). Assim que essas alterações passarem por merge no branch padrão, o modelo será disponibilizado para os contribuidores usarem quando abrirem novos problemas no repositório.
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
-### Configurando o seletor de modelos
+{% ifversion fpt or ghec %}
+
+## Criando formulários de problema
+
+{% data reusables.community.issue-forms-beta %}
+
+Com formulários de problemas, é possível criar modelos de problemas com campos personalizáveis de formulário web. É possível incentivar os contribuidores a incluir informações específicas e estruturadas usando formulários de problemas no seu repositório. Os formulários de problemas são escritos em YAML usando o esquema de formulário de {% data variables.product.prodname_dotcom %}. Para obter mais informações, consulte "[Sintaxe para o esquema de formulário de {% data variables.product.prodname_dotcom %}](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-githubs-form-schema)". {% data reusables.actions.learn-more-about-yaml %}
+
+Para usar um formulário de problema no seu repositório, é necessário criar um novo arquivo e adicioná-lo à pasta `.github/ISSUE_TEMPLATE` no seu repositório.
+
+Aqui está um exemplo de um arquivo de configuração do formulário de problema.
+
+{% data reusables.community.issue-forms-sample %}
+
+Aqui está a versão renderizada do formulário de problema. ![Um formulário de problema renderizado](/assets/images/help/repository/sample-issue-form.png)
+
+1. Escolha um repositório em que você deseja criar um formulário de problema. Você pode usar um repositório existente ao qual você tem acesso de gravação ou criar um novo repositório. Para obter mais informações sobre como criar um repositório, consulte "[Criar um repositório](/articles/creating-a-new-repository)".
+2. No repositório, crie um arquivo denominado `.github/ISSUE_TEMPLATE/FORM-NAME.yml`, substituindo `FORM-NAME` pelo nome do formulário do problema. Para obter mais informações sobre como criar novos arquivos no GitHub, consulte "[Criar novos arquivos](/github/managing-files-in-a-repository/creating-new-files)".
+3. No texto do novo arquivo, digite o conteúdo do formulário de seu problema. Para obter mais informações, consulte "[Sintaxe para os formulários de problema](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-issue-forms)".
+4. Faça o commit do seu arquivo para o branch padrão do seu repositório. Para obter mais informações, consulte "[Criar arquivos](/github/managing-files-in-a-repository/creating-new-files)".
+
+{% endif %}
+
+## Configurando o seletor de modelos
 
 {% data reusables.repositories.issue-template-config %}
 
@@ -46,7 +66,7 @@ Você pode incentivar os contribuidores a usar modelos de problemas definindo `b
 
 {% note %}
 
-**Observação:**Se você usou o fluxo de trabalho herdado para criar manualmente um arquivo `issue_template.md` e permite problemas em branco em seu arquivo *config.yml*, o modelo em `issue_template.md` será usado quando as pessoas escolherem abrir um problema em branco. Se você desativar problemas em branco, o modelo nunca será usado.
+**Observação:** Se você usou o fluxo de trabalho de legado para criar manualmente um arquivo `issue_template.md` na pasta `.github` e habilitar problemas em branco no seu arquivo *config.yml*, o modelo em `issue_template.md` será usado quando as pessoas escolherem abrir um problema em branco. Se você desativar problemas em branco, o modelo nunca será usado.
 
 {% endnote %}
 
@@ -54,7 +74,7 @@ Se você preferir receber determinados relatórios fora de {% data variables.pro
 
 Aqui está um exemplo de arquivo *config.yml*.
 
-```shell
+```yaml{:copy}
 blank_issues_enabled: false
 contact_links:
   - name: {% data variables.product.prodname_gcf %}
@@ -74,9 +94,8 @@ Seu arquivo de configuração customizará o seletor de modelos quando o arquivo
 {% data reusables.files.write_commit_message %}
 {% data reusables.files.choose_commit_branch %}
 {% data reusables.files.propose_new_file %}
-{% endif %}
 
-### Leia mais
+## Leia mais
 
 - "[Sobre modelos de problema e pull request](/articles/about-issue-and-pull-request-templates)"
 - "[Criar manualmente um único modelo de problema para o repositório](/articles/manually-creating-a-single-issue-template-for-your-repository)"

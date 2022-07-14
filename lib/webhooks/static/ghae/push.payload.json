@@ -19,7 +19,7 @@
     "private": false,
     "owner": {
       "name": "Codertocat",
-      "email": "Codertocat@Octocoders.io",
+      "email": "Codertocat@octocoders.github.io",
       "login": "Codertocat",
       "id": 4,
       "node_id": "MDQ6VXNlcjQ=",
@@ -111,7 +111,7 @@
   },
   "pusher": {
     "name": "Codertocat",
-    "email": "Codertocat@Octocoders.io"
+    "email": "Codertocat@octocoders.github.io"
   },
   "enterprise": {
     "id": 1,

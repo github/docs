@@ -2,7 +2,7 @@ date: '2021-02-16'
 intro: 'Os requisitos mínimos de infraestrutura aumentaram para {% data variables.product.prodname_ghe_server %} 3.0+. Para obter mais informações, consulte "[Sobre requisitos mínimos para o GitHub Enterprise Server 3.0 e posterior](/admin/enterprise-management/upgrading-github-enterprise-server#about-minimum-requirements-for-github-enterprise-server-30-and-later)."'
 sections:
   security_fixes:
-    - '**HIGH:** A remote code execution vulnerability was identified in {% data variables.product.prodname_ghe_server %} that could be exploited when building a {% data variables.product.prodname_pages %} site. User-controlled configuration of the underlying parsers used by {% data variables.product.prodname_pages %} were not sufficiently restricted and made it possible to execute commands on the {% data variables.product.prodname_ghe_server %} instance. To exploit this vulnerability, an attacker would need permission to create and build a {% data variables.product.prodname_pages %} site on the {% data variables.product.prodname_ghe_server %} instance. This vulnerability has been assigned CVE-2020-10519 and was reported via the [GitHub Bug Bounty Program](https://bounty.github.com).'
+    - '**ALTO:** Uma vulnerabilidade de execução de código remoto foi identificada em {% data variables.product.prodname_ghe_server %} que poderia ser explorada ao criar um site de {% data variables.product.prodname_pages %}. A configuração controlada pelo usuário dos analisadores usados por {% data variables.product.prodname_pages %} não era suficientemente restrita e possibilitou a execução de comandos na instância de {% data variables.product.prodname_ghe_server %}. Para explorar essa vulnerabilidade, um invasor precisaria de permissão para criar e construir um site {% data variables.product.prodname_pages %} na instância de {% data variables.product.prodname_ghe_server %}. Um CVE-2020-10519 foi atribuída a essa vulnerabilidade e foi relatada por meio do [Programa de Recompensas do Erro do GitHub](https://bounty.github.com).'
   features:
     - heading: 'GitHub Actions'
       notes:
@@ -45,9 +45,9 @@ sections:
       notes:
         - "Os administradores da empresa e da organização agora podem definir o nome do branch padrão para novos repositórios. Os administradores das empresas também podem aplicar a sua escolha do nome do branch padrão em todas as organizações ou permitir que as organizações individuais escolham suas próprias.\n\nOs repositórios existentes não são afetados por essas configurações, e seu nome de branch padrão não será alterado.\n\n{% note %}\n\nO branch padrão para repositórios recém-criados será definido como `main` no GHES 3., a menos que você opte por não definir a configuração do branch padrão no nível empresarial.\n\n{% endnote %}\n\nEsta alteração é uma das muitas mudanças que o GitHub está realizando para ser compatível com projetos e mantenedores que desejam renomear seu branch padrão. Para saber mais sobre as mudanças que estamos criando, consulte [github/renaming](https://github.com/github/renaming).\n"
   bugs:
-    - heading: 'Fixes for known issues from Release Candidates'
+    - heading: 'Correções para problemas conhecidos de candidatos a versões'
       notes:
-        - 'All known issues from Release Candidate 1 and Release Candidate 2 have been fixed, except those listed in the Known Issues section below.'
+        - 'Todos os problemas conhecidos do Candidato 1 e Candidato a Versão 2 foram corrigidos, exceto os listados na seção de Problemas conhecidos abaixo.'
     - heading: 'Correções para outros problemas'
       notes:
         - 'Foram corrigidos os problemas com migrações e melhorias para a versão 3.0.0.'
@@ -55,12 +55,12 @@ sections:
         - 'Gerar um pacote de suporte resultou em um erro nos registros de orquestradores.'
         - 'Uma grande restauração pode resultar no esgotamento da memória do Redis.'
         - 'A caixa de seleção para habilitar o GitHub Actions no Console de Gerenciamento agora é visível com qualquer método de autenticação.'
-        - 'GitHub Actions could be enabled if the required storage was also configured.'
-        - '`ghe-repl-status` could silently fail if MSSQL replication was not configured.'
+        - 'GitHub Actions pode ser habilitado se o armazenamento necessário também foi configurado.'
+        - 'O ''ghe-repl-status'' pode falhar silenciosamente se a replicação do MSSQL não foi configurada.'
         - 'O formato de vários arquivos de registro foram alterados, incluindo a adição de um PID para diferentes tipos de registro. Isso não afeta como o Suporte GitHub Enterprise usa pacotes de suporte para solucionar problemas.'
         - 'Uma solicitação de PATCH para a API de configuração de webhook não apaga mais o segredo do webhook.'
-        - 'Certain types of pre-receive hooks were failing.'
-        - 'The Packages NuGet service now normalizes semantic versions on publish. An invalid semantic version (for example: v1.0.0.0.0.0) is not downloadable by NuGet clients and therefore a NuGet service is expected to normalize those versions (for example: v1.0.0.0.0.0 --> v1.0.0). Any original, non-normalized, version will be available in the `verbatimVersion` field. No changes to client configurations are required.'
+        - 'Certos tipos de ganchos de hooks pre-receive estavam falhando.'
+        - 'Os Packages do NuGet serviço agora normaliza versões semânticas na publicação. Os clientes do NuGet não conseguem fazer o download da versão semântica inválida (por exemplo: v1.0.0.0.0.). Portanto, espera-se que o serviço do NuGet normalize essas versões (por exemplo: v1.0.0.0.0.0 --> v1.0.0). Qualquer versão original, não normalizada, estará disponível no campo `Version`. Não são necessárias alterações nas configurações do cliente.'
   known_issues:
     - 'Em uma nova configuração de {% data variables.product.prodname_ghe_server %} sem qualquer usuário, um invasor pode criar o primeiro usuário administrador.'
     - 'As regras personalizadas de firewall não são mantidas durante uma atualização.'
@@ -68,17 +68,19 @@ sections:
     - 'Quando "Usuários podem pesquisar pelo GitHub.com" está habilitado com o GitHub Connect, os problemas em repositórios privados e internos não estão incluídos nos resultados de pesquisa do GitHub.com.'
     - 'Quando o modo de manutenção está habilitado, alguns serviços continuam listados como "processos ativos". Espera-se que os serviços identificados sejam executados durante o modo de manutenção. Se você tiver este problema e não estiver seguro, entre em contato com {% data variables.contact.contact_ent_support %}.'
     - 'Quando o GitHub Actions estiver habilitado, use ''`ghe-maintenance -u`'' para cancelar a definição do modo de manutenção.'
-    - 'Duplicated logging to `/var/log/messages`, `/var/log/syslog`, and `/var/log/user.log` results in increased root volume utilization.'
+    - 'O registro duplicado para `/var/log/messages`, `/var/log/syslog`, e `/var/log/user.log` geraram um aumento na utilização do volume raiz.'
     - 'Os usuários podem ignorar uma mensagem obrigatória sem marcar todas as caixas de seleção.'
-    - '[Pre-receive hook scripts](/admin/policies/enforcing-policy-with-pre-receive-hooks) cannot write temporary files, which may cause script execution to fail. Users who use pre-receive hooks should test in a staging environment to see if scripts require write access.'
-    - 'Repository [deploy keys](/developers/overview/managing-deploy-keys) are unable to be used with repositories containing LFS objects.'
-    - 'Jupyter Notebook rendering in the web UI may fail if the notebook includes non-ASCII UTF-8 characters.'
-    - 'reStructuredText (RST) rendering in the web UI may fail and instead display raw RST markup text.'
-    - 'Dependency graph fails to parse `setup.py` Python manifest files, resulting in HTTP 500 errors in logs. This, combined with the duplicated logging issue, results in increased root volume utilization.'
-    - 'A race condition can cause dependency graph database migrations to appear to fail.'
-    - 'Instances with a custom timezone that were upgraded from an earlier release of GitHub Enterprise Server may have incorrect timestamps in the web UI.'
-    - 'Old builds of Pages are not cleaned up, which could fill up the user disk (`/data/user/`).'
-    - 'When deleting a branch after merging a pull request, an error message appears although the branch deletion succeeds.'
+    - '[Script de hook de pre-receive](/admin/policies/execuing-policy-with-pre-receive-hooks) não pode escrever arquivos temporários, o que pode gerar falha na execução de script. Os usuários que usam hooks pre-receive devem testar em um ambiente de treinamento para ver se os scripts exigem acesso de gravação.'
+    - 'Não foi possível usar as [chaves para implantação](/developers/overview/managing-deploy-keys) do repositório nos repositórios que contêm objetos LFS.'
+    - 'A interpretação do caderno Jupyter na interface do usuário pode falhar se o caderno de anotações incluir caracteres que não são ASCII UTF-8.'
+    - 'O reStructuredText (RST) interpretado na interface do usuário da web pode falhar e, em vez disso, exibir texto de markup RST.'
+    - 'O gráfico de dependências não consegue analisar os arquivos de manifesto `setup.py`, resultando em erros HTTP 500 nos registros. Isso, aliado à questão da duplicação do registro, gera aumento da utilização do volume da raiz.'
+    - 'Uma condição de corrida pode fazer com que migrações gráficas de dependências apareçam falhadas.'
+    - 'As instâncias com um fuso horário personalizado que foram atualizadas de uma versão anterior do GitHub Enterprise Server podem ter carimbos de tempo incorretos na interface da web.'
+    - 'As criações antigas das páginas não foram limpas, o que pode preencher o disco do usuário (`/data/user/`).'
+    - 'Ao excluir um branch após o merge de um pull request, será exibida uma mensagem de erro, embora a exclusão do branch tenha êxito.'
+    - 'Quando um nó de réplica está off-line em uma configuração de alta disponibilidade, {% data variables.product.product_name %} ainda pode encaminhar solicitações de {% data variables.product.prodname_pages %} para o nó off-line, reduzindo a disponibilidade de {% data variables.product.prodname_pages %} para os usuários.'
+    - 'Os limites de recursos que são específicos para processamento de hooks pre-receive podem causar falha em alguns hooks pre-receive.'
   deprecations:
     - heading: 'Depreciação do GitHub Enterprise Server 2.19'
       notes:

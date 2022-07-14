@@ -5,20 +5,22 @@ redirect_from:
   - /v4/guides/forming-calls
   - /graphql/guides/forming-calls
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - API
+shortTitle: Formar llamados con GraphQL
 ---
 
-### Autenticarse con GraphQL
+## Autenticarse con GraphQL
 
 Para comunicarte con el servidor de GraphQL, deberás tener un token OAuth con el alcance correcto.
 
 Sigue los pasos en "[Crear un token de acceso personal](/github/authenticating-to-github/creating-a-personal-access-token)" para crear un token. Los alcances que requieres dependen del tipo de datos que quieras solicitar. Por ejemplo, selecciona los alcances del **Usuario** para solicitar datos de usuario. Si necesitas acceder a la información de un repositorio, selecciona los alcances de **Repositorio** adecuados.
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt or ghec %}
 
 Para empatar el comportamiento del [Explorador de GraphQL](/graphql/guides/using-the-explorer), solicita los siguientes alcances:
 
@@ -30,20 +32,20 @@ Se recomiendan los siguientes alcances:
 
 
 ```
-user{% if currentVersion != "github-ae@latest" %}
-public_repo{% endif %}
 repo
-repo_deployment
 repo:status
-read:repo_hook
+repo_deployment{% ifversion not ghae %}
+public_repo{% endif %}
 read:org
 read:public_key
+read:repo_hook
+user
 read:gpg_key
 ```
 
 La API te notifica si algún recurso requiere de un alcance específico.
 
-### Terminal de GraphQL
+## Terminal de GraphQL
 
 La API de REST tiene varias terminales; la API de GraphQL solo tiene una terminal:
 
@@ -51,7 +53,7 @@ La API de REST tiene varias terminales; la API de GraphQL solo tiene una termina
 
 La terminal permanece constante sin importar la operación que realices.
 
-### Comunicarse con GraphQL
+## Comunicarse con GraphQL
 
 Ya que las operaciones de GraphQL consisten en JSON de línea múltiple, GitHub te recomienda utilizar el [Explorador](/graphql/guides/using-the-explorer) para hacer llamados de GraphQL. También puedes utilizar cURL o cualquier otra biblioteca que entienda HTTP.
 
@@ -73,7 +75,7 @@ curl -H "Authorization: bearer <em>token</em>" -X POST -d " \
 
 {% endtip %}
 
-#### Acerca de las operaciones de consulta y mutación
+### Acerca de las operaciones de consulta y mutación
 
 Los dos tipos de operación permitidos en la API de GraphQL de GitHub son _consultas_ y _mutaciones_. Comparando GraphQL con REST, las consultas operan como solicitudes de tipo `GET`, mientras que las mutaciónes operan como `POST`/`PATCH`/`DELETE`. El [nombre de la mutación](/graphql/reference/mutations) determina qué modificación se llevará a cabo.
 
@@ -81,7 +83,7 @@ Para obtener información acerca de la limitación de tasas, consulta la secció
 
 Las consultas y mutaciones comparten formatos similares con algunas diferencias importantes.
 
-#### Acerca de las consultas
+### Acerca de las consultas
 
 Las consultas de GraphQL devuelven únicamente datos que especificas. Para formar una consulta, debes especificar [campos dentro de campos](/graphql/guides/introduction-to-graphql#field) (tambien conocidos como _subcampos anidados_) hasta que te devuelva únicamente [escalares](/graphql/reference/scalars).
 
@@ -93,7 +95,7 @@ Las consultas se estructuran de la siguiente forma:
 
 Para ver un ejemplo de uso real, consulta "[Ejemplo de consulta](#example-query)".
 
-#### Acerca de las mutaciones
+### Acerca de las mutaciones
 
 Para formar una mutación, debes especificar tres cosas:
 
@@ -115,7 +117,7 @@ En la referencia de [mutaciones](/graphql/reference/mutations), los _campos de e
 
 Para ver un ejemplo de uso real, consulta "[Ejemplo de mutación](#example-mutation)".
 
-### Trabajar con variables
+## Trabajar con variables
 
 Las [variables](https://graphql.github.io/learn/queries/#variables) pueden conformar consultas más dinámicas y poderosas, y pueden reducir la complejidad cuando pasas objetos de entrada de las mutaciones.
 
@@ -175,7 +177,7 @@ Este proceso hace dinámico al argumento de la consulta. Ahora podemos simplemen
 
 Utilizar variables como argumentos te permite actualizar los valores en el objeto `variables` dinámicamente sin cambiar la consulta.
 
-### Consulta de ejemplo
+## Consulta de ejemplo
 
 Analicemos una consulta más compleja y pongamos esta información en contexto.
 
@@ -249,9 +251,9 @@ Analizando la composición línea por línea:
 
   El campo `labels` tiene el tipo [`LabelConnection`](/graphql/reference/objects#labelconnection). Así como el con el objeto `issues`, ya que `labels` es una conexión, debemos navegar por sus bordes hacia un nodo conectado: el objeto `label`. En el nodo, podemos especificar los campos del objeto `label` que intentamos recuperar, en este caso, `name`.
 
-Tal vez notes que el ejecutar esta consulta en el repositorio {% if currentVersion != "github-ae@latest" %}público de Octocat{% endif %} repositorio de `Hello-World`no devolverá muchas etiquetas. Intenta ejecutarlo en uno de tus propios repositorios que utilice etiquetas, y seguramente verás la diferencia.
+Tal vez notes que el ejecutar esta consulta en el repositorio {% ifversion not ghae %}público de Octocat{% endif %} repositorio de `Hello-World`no devolverá muchas etiquetas. Intenta ejecutarlo en uno de tus propios repositorios que utilice etiquetas, y seguramente verás la diferencia.
 
-### Mutación de ejemplo
+## Mutación de ejemplo
 
 Las mutaciones a menudo requieren información que solo puedes encontrar si realizas una consulta primero. Este ejemplo muestra dos operaciones:
 
@@ -405,11 +407,11 @@ Para obtener más información acerca de la diferencia entre enumeradores y cade
 
 {% endnote %}
 
-### Leer más
+## Leer más
 
 Puedes hacer mucho _más_ cuando conformes llamados de GraphQL. Aquí hay algunos lugares que te pueden interesar posteriormente:
 
-* [Paginación](https://graphql.github.io/learn/pagination/)
-* [Fragmentos](https://graphql.github.io/learn/queries/#fragments)
-* [Fragmentos dentro de líneas](https://graphql.github.io/learn/queries/#inline-fragments)
-* [Directivas](https://graphql.github.io/learn/queries/#directives)
+* [Paginación](https://graphql.org/learn/pagination/)
+* [Fragmentos](https://graphql.org/learn/queries/#fragments)
+* [Fragmentos dentro de líneas](https://graphql.org/learn/queries/#inline-fragments)
+* [Directivas](https://graphql.org/learn/queries/#directives)

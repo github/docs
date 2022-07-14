@@ -1,1 +1,1 @@
-1. 左のサイドバーで**{% data variables.product.prodname_advanced_security %}**をクリックしてください。 ![[Advanced Security] サイドバー](/assets/images/enterprise/management-console/sidebar-advanced-security.png)
+1. 左のサイドバーで**Security（セキュリティ）**をクリックしてください。 ![Security sidebar](/assets/images/enterprise/3.2/management-console/sidebar-security.png)

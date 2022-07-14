@@ -5,6 +5,7 @@ allowTitleToDifferFromFilename: true
 miniTocMaxHeadingLevel: 3
 versions:
   fpt: '*'
+  ghec: '*'
 type: quick_start
 topics:
   - Projects
@@ -18,15 +19,25 @@ This guide demonstrates how to use projects (beta) to plan and track work. In th
 
 ## Prerequisites
 
-To create a project, you need a {% data variables.product.prodname_dotcom %} organization that is a part of the projects beta. For more information about creating an organization, see "[Creating a new organization from scratch](/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch)." For more information about the beta, see "[About projects (beta)](/issues/trying-out-the-new-projects-experience/about-projects)."
+You can either create an organization project or a user project. To create an organization project, you need a {% data variables.product.prodname_dotcom %} organization. For more information about creating an organization, see "[Creating a new organization from scratch](/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch)."
 
-In this guide, you will add existing issues from repositories in your organization to your new project. For more information about creating issues, see "[Creating an issue](/issues/tracking-your-work-with-issues/creating-an-issue)."
+In this guide, you will add existing issues from repositories owned by your organization (for organization projects) or by you (for user projects) to your new project. For more information about creating issues, see "[Creating an issue](/issues/tracking-your-work-with-issues/creating-an-issue)."
 
 ## Creating a project
 
-First, create a project from your organization’s project page.
+First, create an organization project or a user project.
+
+### Creating an organization project
 
 {% data reusables.projects.create-project %}
+
+### Creating a user project
+
+{% data reusables.projects.create-user-project %}
+
+## Setting your project description and README
+
+{% data reusables.projects.project-description %}
 
 ## Adding issues to your project
 
@@ -41,6 +52,14 @@ When your new project initializes, it prompts you to add items to your project. 
 Repeat the above steps a few times to add multiple issues to your project.
 
 For more information about other ways to add issues to your project, or about other items you can add to your project, see "[Creating a project](/issues/trying-out-the-new-projects-experience/creating-a-project#adding-items-to-your-project)."
+
+## Adding draft issues to your project
+
+Next, add a draft issue to your project.
+
+1. Place your cursor in the bottom row of the project, next to the {% octicon "plus" aria-label="plus icon" %}.
+1. Type your idea, then press **Enter**.
+1. Click on the title of the draft issue. In the markdown input box that appears, enter the some more information about your idea, then click **Save**.
 
 ## Creating a field to track priority
 
@@ -90,11 +109,11 @@ You can share the URL with your team to keep everyone aligned on the project pri
 
 When a view is saved, anyone who opens the project will see the saved view. Here, you grouped by priority, but you can also add other modifiers such as sort, filter, or layout. Next, you will create a new view with the layout modified.
 
-## Adding a board view
+## Adding a board layout
 
 To view the progress of your project's issues, you can switch to board layout.
 
-The board view is based on the status field, so specify a status for each issue in your project.
+The board layout is based on the status field, so specify a status for each issue in your project.
 
 ![Example status](/assets/images/help/projects/status_example.png)
 
@@ -120,6 +139,16 @@ To indicate the purpose of the view, give it a descriptive name.
 2. Replace the existing text with the new name, `Progress`.
 
 ![Example priorities](/assets/images/help/projects/project-view-switch.gif)
+
+## Configure built-in automation
+
+Finally, add a built in workflow to set the status to **Todo** when an item is added to your project.
+
+1. In your project, click {% octicon "workflow" aria-label="the workflow icon" %}.
+2. Under **Default workflows**, click **Item added to project**.
+3. Next to **When**, ensure that both `issues` and `pull requests` are selected.
+4. Next to **Set**, select **Status:Todo**.
+5. Click the **Disabled** toggle to enable the workflow.
 
 ## Next steps
 

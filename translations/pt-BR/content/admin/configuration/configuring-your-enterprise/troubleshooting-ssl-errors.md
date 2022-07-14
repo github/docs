@@ -2,13 +2,13 @@
 title: Solução de problemas de SSL
 intro: 'Em caso de problemas de SSL com seu appliance, veja o que você pode fazer para resolvê-los.'
 redirect_from:
-  - /enterprise/admin/articles/troubleshooting-ssl-errors/
-  - /enterprise/admin/categories/dns-ssl-and-subdomain-configuration/
+  - /enterprise/admin/articles/troubleshooting-ssl-errors
+  - /enterprise/admin/categories/dns-ssl-and-subdomain-configuration
   - /enterprise/admin/installation/troubleshooting-ssl-errors
   - /enterprise/admin/configuration/troubleshooting-ssl-errors
   - /admin/configuration/troubleshooting-ssl-errors
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
@@ -17,9 +17,10 @@ topics:
   - Networking
   - Security
   - Troubleshooting
+shortTitle: Solucionar problemas de erros SSL
 ---
 
-### Remover a frase secreta do arquivo de chave
+## Remover a frase secreta do arquivo de chave
 
 Se você tiver uma máquina Linux com OpenSSL instalado, será possível remover a frase secreta.
 
@@ -36,7 +37,7 @@ A senha da chave será solicitada quando você executar esse comando.
 
 Para obter mais informações sobre o OpenSSL, consulte a [Documentação do OpenSSL](https://www.openssl.org/docs/).
 
-### Converter o certificado ou chave SSL em formato PEM
+## Converter o certificado ou chave SSL em formato PEM
 
 Se você tiver o OpenSSL instalado, é possível converter sua chave em formato PEM com o comando `openssl`. Por exemplo, você pode converter uma chave do formato DER para o formato PEM.
 
@@ -46,11 +47,11 @@ $ openssl rsa -in yourdomain.der -inform DER -out yourdomain.key -outform PEM
 
 Se não tiver, você pode usar a ferramenta SSL Converter para converter seu certificado em formato PEM. Para obter mais informações, consulte a [documentação da ferramenta SSL Converter](https://www.sslshopper.com/ssl-converter.html).
 
-### Instalação parada após upload de chave
+## Instalação parada após upload de chave
 
 Se a {% data variables.product.product_location %} parar de funcionar após o upload de uma chave SSL, [entre em contato com o suporte do {% data variables.product.prodname_enterprise %}](https://enterprise.github.com/support) informando detalhes específicos, inclusive uma cópia do seu certificado SSL.
 
-### Erros de validade de certificado
+## Erros de validade de certificado
 
 Se não conseguirem verificar a validade de um certificado SSL, clientes como navegadores da web e Gits de linha de comando exibirão uma mensagem de erro. Isso costuma acontecer com certificados autoassinados e certificados de "raiz encadeada" emitidos a partir de um certificado raiz intermediário não reconhecido pelo cliente.
 
@@ -62,7 +63,7 @@ $ cat yourdomain.com.crt bundle-certificates.crt > yourdomain.combined.crt
 
 Você deve poder baixar um pacote de certificados (por exemplo, `bundle-certificates.crt`) da sua autoridade certificada ou do fornecedor de SSL.
 
-### Instalar certificados raiz de autoridade de certificação (CA) autoassinada ou não confiável
+## Instalar certificados raiz de autoridade de certificação (CA) autoassinada ou não confiável
 
 Se o seu appliance do {% data variables.product.prodname_ghe_server %} interage na rede com outras máquinas que usam certificados autoassinados ou não confiáveis, será necessário importar o certificado raiz da CA de assinatura para o armazenamento geral do sistema a fim de acessar esses sistemas por HTTPS.
 
@@ -79,3 +80,7 @@ Se o seu appliance do {% data variables.product.prodname_ghe_server %} interage 
   ```shell
   $ ghe-ssl-ca-certificate-install -c rootCA.crt
   ```
+
+## Atualizando um certificado SSL
+
+É possível gerar um novo certificado autoassinado ou atualizar um certificado SSL existente para {% data variables.product.product_location %} com o utilitário da linha de comando `ghe-ssl-certificate-setup`. Para obter mais informações, consulte "[Utilitários de linha de comando](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-ssl-ca-certificate-setup)".

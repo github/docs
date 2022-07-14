@@ -6,14 +6,14 @@ redirect_from:
   - /enterprise/admin/user-management/about-migrations
   - /admin/user-management/about-migrations
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: overview
 topics:
   - Enterprise
   - Migration
 ---
 
-### Tipos de migração
+## Tipos de migração
 
 Você pode fazer três tipos de migração:
 
@@ -21,11 +21,11 @@ Você pode fazer três tipos de migração:
 - Migração de uma organização do {% data variables.product.prodname_dotcom_the_website %} para uma instância do {% data variables.product.prodname_ghe_server %}: você pode migrar qualquer número de repositórios pertencentes à organização. Para fazer a migração, você deve ter [acesso administrativo](/enterprise/user/articles/permission-levels-for-an-organization/) à organização do {% data variables.product.prodname_dotcom_the_website %} e acesso de administrador do site na instância de destino.
 - *Execuções de experiência* são migrações que importam dados para uma [instância de preparo](/enterprise/admin/guides/installation/setting-up-a-staging-instance/). Elas podem ser úteis para ver o que *aconteceria* se uma migração fosse aplicada à {% data variables.product.product_location %}. **É altamente recomendável fazer uma execução de experiência em uma instância de preparo antes de importar dados para a sua instância de produção.**
 
-### Dados migrados
+## Dados migrados
 
 Durante uma migração, tudo gira em torno do repositório. A maioria dos dados associados ao repositório pode ser migrada. Por exemplo, um repositório dentro de uma organização migrará o repositório *e* a organização, além dos usuários, equipes, problemas e pull requests associados ao repositório.
 
-Os itens na tabela abaixo podem ser migrados com um repositório. Não é possível migrar os itens que não constam na lista.
+Os itens na tabela abaixo podem ser migrados com um repositório. Todos os itens não exibidos na lista de dados migrados não podem ser migrados, incluindo ativos de {% data variables.large_files.product_name_short %}.
 
 {% data reusables.enterprise_migrations.fork-persistence %}
 

@@ -5,9 +5,8 @@ redirect_from:
   - /articles/downloading-your-organization-s-saml-single-sign-on-recovery-codes
   - /articles/downloading-your-organizations-saml-single-sign-on-recovery-codes
   - /github/setting-up-and-managing-organizations-and-teams/downloading-your-organizations-saml-single-sign-on-recovery-codes
-product: '{% data reusables.gated-features.saml-sso %}'
 versions:
-  fpt: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams

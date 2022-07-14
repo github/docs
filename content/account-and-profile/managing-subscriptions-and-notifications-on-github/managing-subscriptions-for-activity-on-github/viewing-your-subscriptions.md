@@ -2,16 +2,16 @@
 title: Viewing your subscriptions
 intro: 'To understand where your notifications are coming from and your notifications volume, we recommend reviewing your subscriptions and watched repositories regularly.'
 redirect_from:
-  - /articles/subscribing-to-conversations/
-  - /articles/unsubscribing-from-conversations/
+  - /articles/subscribing-to-conversations
+  - /articles/unsubscribing-from-conversations
   - /articles/subscribing-to-and-unsubscribing-from-notifications
   - /articles/listing-the-issues-and-pull-requests-youre-subscribed-to
-  - /articles/watching-repositories/
-  - /articles/unwatching-repositories/
+  - /articles/watching-repositories
+  - /articles/unwatching-repositories
   - /articles/watching-and-unwatching-repositories
   - /articles/watching-and-unwatching-releases-for-a-repository
   - /articles/watching-and-unwatching-team-discussions
-  - /articles/listing-watched-repositories/
+  - /articles/listing-watched-repositories
   - /articles/listing-the-repositories-you-re-watching
   - /articles/listing-the-repositories-youre-watching
   - /github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions
@@ -20,6 +20,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Notifications
 shortTitle: View subscriptions
@@ -37,13 +38,11 @@ When your inbox has too many notifications to manage, consider whether you have 
 For more information, see "[Configuring notifications](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#automatic-watching)."
 
 To see an overview of your repository subscriptions, see "[Reviewing repositories that you're watching](#reviewing-repositories-that-youre-watching)." 
-{% ifversion fpt or ghes > 3.0 or ghae-next %}
 {% tip %}
 
 **Tip:** You can select the types of event to be notified of by using the **Custom** option of the **Watch/Unwatch** dropdown list in your [watching page](https://github.com/watching) or on any repository page on {% data variables.product.product_name %}. For more information, see "[Configuring notifications](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#configuring-your-watch-settings-for-an-individual-repository)."
 
 {% endtip %}
-{% endif %}
 
 Many people forget about repositories that they've chosen to watch in the past. From the "Watched repositories" page you can quickly unwatch repositories. For more information on ways to unsubscribe, see "[Unwatch recommendations](https://github.blog/changelog/2020-11-10-unwatch-recommendations/)" on {% data variables.product.prodname_blog %} and "[Managing your subscriptions](/github/managing-subscriptions-and-notifications-on-github/managing-your-subscriptions)." You can also create a triage workflow to help with the notifications you receive. For guidance on triage workflows, see "[Customizing a workflow for triaging your notifications](/github/managing-subscriptions-and-notifications-on-github/customizing-a-workflow-for-triaging-your-notifications)."
 
@@ -71,15 +70,11 @@ Many people forget about repositories that they've chosen to watch in the past. 
 1. In the left sidebar, under the list of repositories, use the "Manage notifications" drop-down menu and click **Watched repositories**.
   ![Manage notifications drop down menu options](/assets/images/help/notifications-v2/manage-notifications-options.png)
 2. Evaluate the repositories that you are watching and decide if their updates are still relevant and helpful. When you watch a repository, you will be notified of all conversations for that repository.
-{% ifversion ghae or ghes < 3.1 %}
-  ![Watched notifications page](/assets/images/help/notifications-v2/watched-notifications.png)
-{% elsif fpt or ghes > 3.0 or ghae-next %}
-  ![Watched notifications page](/assets/images/help/notifications-v2/watched-notifications-custom.png)
-{% endif %}
+![Watched notifications page](/assets/images/help/notifications-v2/watched-notifications-custom.png)
 
   {% tip %}
 
-  **Tip:** Instead of watching a repository, consider only receiving notifications {% ifversion fpt or ghes > 3.0 or ghae-next %}when there are updates to {% data reusables.notifications-v2.custom-notification-types %} (if enabled for the repository), or any combination of these options,{% else %}for releases in a repository,{% endif %} or completely unwatching a repository.
+  **Tip:** Instead of watching a repository, consider only receiving notifications when there are updates to {% data reusables.notifications-v2.custom-notification-types %} (if enabled for the repository), or any combination of these options, or completely unwatching a repository.
   
   When you unwatch a repository, you can still be notified when you're @mentioned or participating in a thread. When you configure to receive notifications for certain event types, you're only notified when there are updates to these event types in the repository, you're participating in a thread, or you or a team you're on is @mentioned.
 

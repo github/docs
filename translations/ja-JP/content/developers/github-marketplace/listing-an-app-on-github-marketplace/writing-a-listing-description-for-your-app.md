@@ -2,40 +2,42 @@
 title: アプリケーションのリストの説明を書く
 intro: '{% data variables.product.prodname_marketplace %}で[アプリケーションをリスト](/marketplace/listing-on-github-marketplace/) するには、GitHubのガイドラインに従ってアプリケーションの説明を書き、画像を指定する必要があります。'
 redirect_from:
-  - /apps/marketplace/getting-started-with-github-marketplace-listings/guidelines-for-writing-github-app-descriptions/
-  - /apps/marketplace/creating-and-submitting-your-app-for-approval/writing-github-app-descriptions/
-  - /apps/adding-integrations/listing-apps-on-github-marketplace/guidelines-for-creating-a-github-marketplace-listing/
-  - /apps/marketplace/listing-apps-on-github/guidelines-for-creating-a-github-marketplace-listing/
-  - /apps/marketplace/getting-started-with-github-marketplace-listings/guidelines-for-creating-github-marketplace-listing-images/
-  - /apps/marketplace/creating-and-submitting-your-app-for-approval/creating-github-marketplace-listing-images/
-  - /apps/marketplace/listing-on-github-marketplace/writing-github-marketplace-listing-descriptions/
+  - /apps/marketplace/getting-started-with-github-marketplace-listings/guidelines-for-writing-github-app-descriptions
+  - /apps/marketplace/creating-and-submitting-your-app-for-approval/writing-github-app-descriptions
+  - /apps/adding-integrations/listing-apps-on-github-marketplace/guidelines-for-creating-a-github-marketplace-listing
+  - /apps/marketplace/listing-apps-on-github/guidelines-for-creating-a-github-marketplace-listing
+  - /apps/marketplace/getting-started-with-github-marketplace-listings/guidelines-for-creating-github-marketplace-listing-images
+  - /apps/marketplace/creating-and-submitting-your-app-for-approval/creating-github-marketplace-listing-images
+  - /apps/marketplace/listing-on-github-marketplace/writing-github-marketplace-listing-descriptions
   - /marketplace/listing-on-github-marketplace/writing-github-marketplace-listing-descriptions
   - /developers/github-marketplace/writing-a-listing-description-for-your-app
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 topics:
   - Marketplace
+shortTitle: リストの説明を書く
 ---
 
 ドラフトリストの [**リストの説明**] セクションに入力する必要があるフィールドについてのガイドラインは以下のとおりです。
 
-### 名前のリンク
+## 名前のリンク
 
-#### リスト名
+### リスト名
 
-Your listing's name will appear on the [{% data variables.product.prodname_marketplace %} homepage](https://github.com/marketplace). The name is limited to 255 characters and can be different from your app's name. Your listing cannot have the same name as an existing {% data variables.product.product_name %} account, unless the name is your own user or organization name.
+リストの名前は、 [{% data variables.product.prodname_marketplace %}ホームページ](https://github.com/marketplace)に表示されます。 名前は255文字を上限とし、アプリケーションの名前と異なっていても構いません。 リストの名前は、{% data variables.product.product_location %}上の既存アカウントと同じ名前にできません。ただし、その名前があなた自身のユーザ名やOrganization名である場合は例外です。
 
-#### ごく簡単な説明
+### ごく簡単な説明
 
 コミュニティには、[{% data variables.product.prodname_marketplace %}ホームページ](https://github.com/marketplace)のアプリケーション名の下に「ごく短い」説明が表示されます。
 
 ![{% data variables.product.prodname_marketplace %}アプリケーションの短い説明](/assets/images/marketplace/marketplace_short_description.png)
 
-##### 長さ
+#### 長さ
 
 簡単な説明は、40～80文字にとどめることをお勧めします。 それ以上の文字数を使うこともできますが、説明は簡潔なほうが顧客に読みやすく、わかりやすくなります。
 
-##### 内容
+#### 内容
 
 - アプリケーションの機能を説明します。 このスペースを操作の指示には使用しないでください。 例:
 
@@ -51,7 +53,7 @@ Your listing's name will appear on the [{% data variables.product.prodname_marke
 
   **悪い例:** Skycapは、コンテナ対応の継続的インテグレーションツールです
 
-##### フォーマット
+#### フォーマット
 
 - 英文字表記は固有名詞に使用し、大文字小文字は常に正しく使ってください。 大文字で始めて英文字表記するのは固有名詞だけです。
 
@@ -77,15 +79,15 @@ Your listing's name will appear on the [{% data variables.product.prodname_marke
 
   **悪い例'T:** GitHub UIから移動しないアジャイルタスクボード、推定、およびレポート
 
-#### カテゴリ
+### カテゴリ
 
 {% data variables.product.prodname_marketplace %}のアプリケーションはカテゴリ別に表示できます。 アプリケーションの主な機能を端的に表すカテゴリを [**Primary category**] ドロップダウンで選択し、オプションでstrong x-id="1">アプリケーションに適した [**Secondary category**] を選択します。
 
-#### サポートされている言語
+### サポートされている言語
 
 アプリケーションが特定の言語でのみ動作する場合は、アプリケーションがサポートしている言語を最大10まで選択します。 選択した言語はアプリケーションの{% data variables.product.prodname_marketplace %}リストページに表示されます。 このフィールドはオプションです。
 
-#### URLのリスト
+### URLのリスト
 
 **必須のURL**
 * **カスタマーサポートのURL:** 顧客がテクニカルサポート、製品、またはアカウントについて問い合わせるためにアクセスするWebページのURL。
@@ -97,7 +99,7 @@ Your listing's name will appear on the [{% data variables.product.prodname_marke
 * **ステータスURL:** アプリケーションのステータスを表示するWebページへのリンク。 ステータスページには、現在および履歴のインシデントレポート、Webアプリケーションの稼働時間ステータス、およびメンテナンスのスケジュールが記載されます。
 * **ドキュメントのURL:** 顧客にアプリケーションの使用方法を説明するドキュメントへのリンク。
 
-### ロゴと機能カード
+## ロゴと機能カード
 
 {% data variables.product.prodname_marketplace %}には、アプリケーションを視覚的に区別するために、円形のバッジの中に四角いロゴ画像の付いたリストが表示されます。
 
@@ -109,7 +111,7 @@ Your listing's name will appear on the [{% data variables.product.prodname_marke
 
 画像をアップロードして色を選択すると、{% data variables.product.prodname_marketplace %}のドラフトリストに、ロゴと機能カードのプレビューが表示されます。
 
-##### ロゴのガイドライン
+#### ロゴのガイドライン
 
 ロゴ用として、カスタム画像をアップロードする必要があります。 バッジには、背景色を選択します。
 
@@ -119,7 +121,7 @@ Your listing's name will appear on the [{% data variables.product.prodname_marke
 - 継ぎ目がないようにバッジを表示するには、ロゴ画像の背景色 (または透明) と一致する色をバッジの背景として選択します。
 - 単語や文章が含まれるロゴ画像の使用は避けてください。 文字が含まれる画像は、小さい画面で適切に縮小されません。
 
-##### 機能カードのガイドライン
+#### 機能カードのガイドライン
 
 機能カード用として、カスタム背景画像をアップロードする必要があります。 アプリケーションの名前には、文字色を選択します。
 
@@ -127,7 +129,7 @@ Your listing's name will appear on the [{% data variables.product.prodname_marke
 - 背景画像の大きさは、幅965ピクセル x 高さ482ピクセルです。
 - アプリケーション名の文字色には、背景画像に対してはっきり見える色を選択してください。
 
-### リストの詳細
+## リストの詳細
 
 アプリケーションのランディングページにアクセスするには、{% data variables.product.prodname_marketplace %}ホームページまたはカテゴリページからアプリケーションの名前をクリックします。 ランディングページページには、アプリケーションの長い説明が表示されます。説明は「概要説明」と「詳細説明」の2部で構成されています。
 
@@ -141,19 +143,19 @@ Your listing's name will appear on the [{% data variables.product.prodname_marke
 
 説明の記述は、以下のガイドラインに従ってください。
 
-#### 長さ
+### 長さ
 
 [アプリケーションをリストする](/marketplace/listing-on-github-marketplace/)ときの必須の「概要説明」フィールドに、150～250文字の長さで1、2文くらいの概要を記述してください。 それ以上の文字数を使うこともできますが、概要は簡潔なほうが顧客に読みやすく、わかりやすくなります。
 
 オプションの「詳細説明」フィールドに情報を追加することもできます。 アプリケーションのランディングページで概要説明の下にある [**Read more...**] をクリックすると、この説明が表示されます。 詳細説明は3～5個の[バリュープロポジション](https://en.wikipedia.org/wiki/Value_proposition)で構成され、それぞれが1、2文の説明です。 この説明には、最大1,000文字まで使用できます。
 
-#### 内容
+### 内容
 
 - 概要説明は、必ずアプリケーション名から始めます。
 
 - 説明とバリュープロポジションは、必ず能動態で書きます。
 
-#### フォーマット
+### フォーマット
 
 - バリュープロポジションでは、英文字表記は固有名詞に使用し、大文字小文字は常に正しく使ってください。 大文字で始めて英文字表記するのは固有名詞だけです。
 
@@ -166,7 +168,7 @@ Your listing's name will appear on the [{% data variables.product.prodname_marke
 
   ### 必要なスキルを学ぶ
 
-  GitHub Learning Labでは、GitHubの使い方を学習、Markdownによる効果的な連絡、マージコンフリクトの処理などが可能です。
+  GitHub Skills can help you learn how to use GitHub, communicate more effectively with Markdown, handle merge conflicts, and more.
 
 - 大文字で始めて英文字表記するのは固有名詞だけです。
 
@@ -180,11 +182,11 @@ Your listing's name will appear on the [{% data variables.product.prodname_marke
 
 - 略語は一般的な場合 (APIなど) を除いて使用しないでください。
 
-### 製品のスクリーンショット
+## 製品のスクリーンショット
 
 アプリケーションのランディングページで表示されるように、アプリケーションのスクリーンショット画像を5つまでアップロードできます。 スクリーンショットごとに状況がわかるキャプションをオプションとして追加します。 スクリーンショットをアップロードすると、ランディングページに表示したい順序でドラッグできます。
 
-#### スクリーンショットのガイドライン
+### スクリーンショットのガイドライン
 
 - 画像は高解像度 (幅1200px以上) でなければなりません。
 - 画像を次から次へのクリックしたときにページが移動するのを避けるために、すべての画像は高さと幅 (アスペクト比) を等しくする必要があります。

@@ -4,24 +4,19 @@ intro: 'Você pode executar consultas em dados reais do {% data variables.produc
 redirect_from:
   - /v4/guides/using-the-explorer
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - API
 ---
 
-### Sobre o explorador do GraphQL
+## Sobre o explorador do GraphQL
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt or ghec %}
 
 O [Explorador do GraphQL](/graphql/overview/explorer) é uma instância do [GraphiQL](https://github.com/graphql/graphiql), que é um "IDE do GraphiQL gráfica e interativa no mesmo navegador".
-
-{% note %}
-
-**Nota**: {% data variables.product.prodname_dotcom %} desabilitou as [mutações](/graphql/reference/mutations) no Explorador, mas você pode usá-las em sua própria instância do GraphiQL.
-
-{% endnote %}
 
 {% else %}
 
@@ -29,11 +24,11 @@ O [Explorador do GraphQL](/graphql/overview/explorer) é uma instância do [Grap
 
 {% endif %}
 
-### Usar GraphiQL
+## Usar GraphiQL
 
 Para usar o aplicativo GraphiQL, faça o download e instale-o em https://github.com/skevy/graphiql-app.
 
-#### Configurar GraphiQL
+### Configurar GraphiQL
 
 1. Obtenha um [token do OAuth](/graphql/guides/forming-calls-with-graphql#authenticating-with-graphql).
 1. Iniciar GraphiQL.
@@ -62,7 +57,7 @@ query {
 
 Se tudo funcionou corretamente, isto irá mostrar seu login. Você está pronto para começar a fazer consultas.
 
-### Acessar a documentação da barra lateral
+## Acessar a documentação da barra lateral
 
 Todos os tipos em esquema do GraphQL incluem um campo `descrição` compilado na documentação. O painel retrátil **Docs** no lado direito da página do Explorador permite que você consulte a documentação sobre o sistema de tipos. A documentação é atualizada automaticamente e eliminará os campos obsoletos.
 
@@ -72,7 +67,7 @@ A barra lateral **Documentação** contém o mesmo conteúdo gerado automaticame
 
 {% endnote %}
 
-### Usar o painel de variáveis
+## Usar o painel de variáveis
 
 Algumas chamadas de exemplo incluem [variáveis](/graphql/guides/forming-calls-with-graphql#working-with-variables) escritas como esta:
 
@@ -102,11 +97,11 @@ Se você desejar executar a chamada no Explorador, insira o segmento `da consult
 }
 ```
 
-### Solicitar suporte
+## Solicitar suporte
 
 {% data reusables.support.help_resources %}
 
-### Solução de erros
+## Solução de erros
 
 Já que o GraphQL é [introspectivo](/graphql/guides/introduction-to-graphql#discovering-the-graphql-api), o Explorador suporta:
 

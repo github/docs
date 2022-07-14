@@ -1,17 +1,12 @@
-{% if  currentVersion == "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}
-{% note %}
+{% ifversion ghae %}
 
-**Note:** {% data variables.product.prodname_secret_scanning_caps %} for organization-owned repositories is currently in beta and subject to change.
+<!-- Remove this reusable and all references for GA release -->
 
-{% endnote %}
-
-{% endif %}
-{% if currentVersion ver_gt "enterprise-server@3.0" %}
+{% elsif ghae %}
 
 {% note %}
 
-**Note:** {% data variables.product.prodname_secret_scanning_caps %} was in beta in {% data variables.product.prodname_ghe_server %} 3.0. For the generally available release of {% data variables.product.prodname_secret_scanning %}, upgrade to the latest release of {% data variables.product.prodname_ghe_server %}.
-
+**Observação:** {% data variables.product.prodname_secret_scanning_caps %} para repositórios pertencentes à organização, está atualmente na versão beta e sujeita a alterações.
 
 {% endnote %}
 

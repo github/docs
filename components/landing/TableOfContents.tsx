@@ -1,8 +1,7 @@
-import { useRouter } from 'next/router'
 import cx from 'classnames'
 
+import { ActionList } from '@primer/react'
 import { Link } from 'components/Link'
-import { BumpLink } from 'components/ui/BumpLink'
 import type { TocItem } from 'components/context/ProductLandingContext'
 
 type Props = {
@@ -11,55 +10,75 @@ type Props = {
 }
 export const TableOfContents = (props: Props) => {
   const { items, variant = 'expanded' } = props
-  const router = useRouter()
+
+  const actionItems = (items || []).filter((item) => typeof item !== 'undefined')
 
   return (
     <ul
       data-testid="table-of-contents"
-      className={cx(variant === 'compact' ? 'list-style-inside pl-2' : 'list-style-none')}
+      className={cx(variant === 'compact' ? 'list-style-outside pl-2' : '')}
     >
-      {(items || []).map((item) => {
-        if (!item) {
-          return null
-        }
+      {variant === 'expanded' &&
+        actionItems.map((item) => {
+          const { fullPath: href, title, intro } = item
 
-        const { fullPath: href, title, intro, childTocItems } = item
-        const isActive = router.pathname === href
-        return variant === 'compact' ? (
-          <li key={href} className="f4 my-1">
-            <Link href={href}>{title}</Link>
-            {(childTocItems || []).length > 0 && (
-              <ul
-                className={cx(
-                  variant === 'compact' ? 'list-style-circle pl-5 my-3' : 'list-style-none'
-                )}
-              >
-                {(childTocItems || []).map((childItem) => {
-                  if (!childItem) {
-                    return null
-                  }
-                  return (
-                    <li key={childItem.fullPath} className="f4 mt-1">
-                      <Link href={childItem.fullPath}>{childItem.title}</Link>
-                    </li>
-                  )
-                })}
-              </ul>
-            )}
-          </li>
-        ) : (
-          <li key={href} className={cx('mb-3 border-bottom pb-2', isActive && 'color-auto-gray-4')}>
-            <BumpLink as={Link} href={href} title={<h2 className="h4">{title}</h2>}>
+          return (
+            <li
+              key={href}
+              data-testid="expanded-item"
+              className="pt-4 pb-3 f4 d-list-item width-full list-style-none border-bottom"
+            >
+              <h2 className="py-1 h4">
+                <Link href={href} className="color-fg-accent">
+                  {title}
+                </Link>
+              </h2>
               {intro && (
-                <p
-                  className="f4 color-text-secondary"
-                  dangerouslySetInnerHTML={{ __html: intro }}
-                />
+                <p className="f4 color-fg-muted" dangerouslySetInnerHTML={{ __html: intro }} />
               )}
-            </BumpLink>
-          </li>
-        )
-      })}
+            </li>
+          )
+        })}
+
+      {variant === 'compact' && (
+        <ActionList>
+          {actionItems.map((item) => {
+            const { fullPath: href, title, childTocItems } = item
+            return (
+              <ActionList.Item key={href}>
+                <li className="f4 d-list-item width-full list-style-none">
+                  <Link className="d-block width-full text-underline" href={href}>
+                    {title}
+                  </Link>
+                  {(childTocItems || []).length > 0 && (
+                    <ul
+                      className={cx(
+                        variant === 'compact' ? 'list-style-circle pl-5 my-3' : 'list-style-none'
+                      )}
+                    >
+                      {(childTocItems || []).map((childItem) => {
+                        if (!childItem) {
+                          return null
+                        }
+                        return (
+                          <li key={childItem.fullPath} className="f4 d-block width-full m-2">
+                            <Link
+                              className="d-block width-full text-underline"
+                              href={childItem.fullPath}
+                            >
+                              {childItem.title}
+                            </Link>
+                          </li>
+                        )
+                      })}
+                    </ul>
+                  )}
+                </li>
+              </ActionList.Item>
+            )
+          })}
+        </ActionList>
+      )}
     </ul>
   )
 }

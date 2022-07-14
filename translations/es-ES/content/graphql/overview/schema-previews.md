@@ -4,14 +4,15 @@ intro: 'Puedes obtener una vista previa de las características y cambios por ve
 redirect_from:
   - /v4/previews
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - API
 ---
 
-### Acerca de las vistas previas del modelo
+## Acerca de las vistas previas del modelo
 
 Durante el periodo de vista previa, podríamos cambiar algunas características con base en la retroalimentación de los desarrolladores. Si realizamos cambios, lo anunciaremos en el [blog de desarrolladores](https://developer.github.com/changes/) sin aviso previo.
 
@@ -24,7 +25,7 @@ Para aceder a una vista previa de modelo, necesitamos que nos proporciones un [t
 {% endnote %}
 
 {% for preview in graphql.previewsForCurrentVersion %}
-### {{ preview.title }}
+## {{ preview.title }}
 
 {{ preview.description }}
 

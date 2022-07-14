@@ -6,7 +6,7 @@ redirect_from:
   - /enterprise/admin/enterprise-management/initializing-the-cluster
   - /admin/enterprise-management/initializing-the-cluster
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Clustering
@@ -15,31 +15,31 @@ topics:
 
 {% data reusables.enterprise_clustering.clustering-requires-https %}
 
-### {% data variables.product.prodname_ghe_server %}のインストール
+## {% data variables.product.prodname_ghe_server %}のインストール
 
-1. 各クラスタノードで {% data variables.product.prodname_ghe_server %} をプロビジョニングしてインストールします。 詳細は「[{% data variables.product.prodname_ghe_server %} インスタンスをセットアップする](/enterprise/{{ currentVersion }}/admin/guides/installation/setting-up-a-github-enterprise-server-instance)」を参照してください。
+1. 各クラスタノードで {% data variables.product.prodname_ghe_server %} をプロビジョニングしてインストールします。 詳細は「[{% data variables.product.prodname_ghe_server %}インスタンスをセットアップする](/enterprise/admin/guides/installation/setting-up-a-github-enterprise-server-instance)」を参照してください。
 2. 管理シェルもしくは DHCP を使い、各ノードの IP アドレス**のみ**を設定してください。 その他の設定は行わないでください。
 
-### 最初のノードの設定
+## 最初のノードの設定
 
-1. `cluster.conf` で MySQL プライマリとして指定されるノードに接続します。 詳しい情報については、「[クラスタ設定ファイルについて](/enterprise/{{ currentVersion }}/admin/guides/clustering/initializing-the-cluster/#about-the-cluster-configuration-file)」を参照してください。
+1. `cluster.conf` で MySQL プライマリとして指定されるノードに接続します。 For more information, see "[About the cluster configuration file](/enterprise/admin/guides/clustering/initializing-the-cluster/#about-the-cluster-configuration-file)."
 2. Webブラウザで`https://<ip address>:8443/setup/`にアクセスしてください。
 {% data reusables.enterprise_installation.upload-a-license-file %}
 {% data reusables.enterprise_installation.save-settings-in-web-based-mgmt-console %}
 {% data reusables.enterprise_installation.instance-will-restart-automatically %}
 
-### クラスタの初期化
+## クラスタの初期化
 
-クラスタを初期化するためには、クラスタ設定ファイル（`cluster.conf`）が必要です。 詳しい情報については[クラスタの設定について](/enterprise/{{ currentVersion }}/admin/guides/clustering/initializing-the-cluster/#about-the-cluster-configuration-file)を参照してください。
+クラスタを初期化するためには、クラスタ設定ファイル（`cluster.conf`）が必要です。 For more information, see "[About the cluster configuration file](/enterprise/admin/guides/clustering/initializing-the-cluster/#about-the-cluster-configuration-file)".
 
 1. 設定された最初のノードで、`ghe-cluster-config-init` を実行します。  実行すると、クラスタ設定ファイルに設定されていないノードがある場合にクラスタを初期化します。
 2. `ghe-cluster-config-apply` を実行します。 これにより、 `cluster.conf` ファイルを検証して各ノードファイルに設定を適用し、各ノードで設定されたサービスを起動します。
 
 動作中のクラスタのステータスをチェックするには`ghe-cluster-status`コマンドを使ってください。
 
-### クラスタ設定ファイルについて
+## クラスタ設定ファイルについて
 
-クラスタ設定ファイル（`cluster.conf`）は、クラスタ中のノードと、その上で動作するサービスを定義します。 詳しい情報については「[クラスタノードについて](/enterprise/{{ currentVersion }}/admin/guides/clustering/about-cluster-nodes)」を参照してください。
+クラスタ設定ファイル（`cluster.conf`）は、クラスタ中のノードと、その上で動作するサービスを定義します。 For more information, see "[About cluster nodes](/enterprise/admin/guides/clustering/about-cluster-nodes)."
 
 この例の`cluster.conf`では、5ノードを持つクラスタを定義しています。
 

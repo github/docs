@@ -1,0 +1,1 @@
+Las {% data variables.product.prodname_actions %} permiten que {% ifversion ghec or ghae %}los miembros de tu empresa{% elsif ghes %} las personas que utilizan {% data variables.product.product_location %}{% endif %} mejoren su productividad al automatizar cada fase del flujo de trabajo de desarrollo de software.

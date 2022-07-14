@@ -2,14 +2,17 @@ import React, { createContext, useContext, useState } from 'react'
 import { CodeLanguage, PlaygroundArticleT } from 'components/playground/types'
 import { useRouter } from 'next/router'
 
-import jsArticle from 'components/playground/content/building-and-testing/nodejs'
-import pyArticle from 'components/playground/content/building-and-testing/python'
+import codespacesJsArticle from 'components/playground/content/codespaces/setting-up-your-project-for-codespaces/setting-up-your-project-for-codespaces/nodejs'
+import codespacesPyArticle from 'components/playground/content/codespaces/setting-up-your-project-for-codespaces/setting-up-your-project-for-codespaces/python'
+import codespacesNetArticle from 'components/playground/content/codespaces/setting-up-your-project-for-codespaces/setting-up-your-project-for-codespaces/dotnet'
+import codespacesJavaArticle from 'components/playground/content/codespaces/setting-up-your-project-for-codespaces/setting-up-your-project-for-codespaces/java'
 
-const articles = [jsArticle, pyArticle]
-const articlesByLangId = articles.reduce((obj, item) => {
-  obj[item.codeLanguageId] = item
-  return obj
-}, {} as Record<string, PlaygroundArticleT | undefined>)
+const articles = [
+  codespacesJsArticle,
+  codespacesPyArticle,
+  codespacesJavaArticle,
+  codespacesNetArticle,
+]
 
 const codeLanguages: Array<CodeLanguage> = [
   {
@@ -19,6 +22,14 @@ const codeLanguages: Array<CodeLanguage> = [
   {
     id: 'py',
     label: 'Python',
+  },
+  {
+    id: 'dotnet',
+    label: 'C#',
+  },
+  {
+    id: 'java',
+    label: 'Java',
   },
 ]
 
@@ -48,11 +59,18 @@ export const PlaygroundContextProvider = (props: { children: React.ReactNode }) 
   const router = useRouter()
   const [activeSectionIndex, setActiveSectionIndex] = useState(0)
   const [scrollToSection, setScrollToSection] = useState<number>()
-  const { langId } = router.query
-  const currentLanguage = codeLanguages.find(({ id }) => id === langId) || codeLanguages[0]
-  const availableLanguages = codeLanguages.filter(({ id }) => !!articlesByLangId[id])
+  const path = router.asPath.split('?')[0]
+  const relevantArticles = articles.filter(({ slug }) => slug === path)
 
-  const article = articlesByLangId[currentLanguage.id]
+  const { langId } = router.query
+  const availableLanguageIds = relevantArticles.map(({ codeLanguageId }) => codeLanguageId)
+  const currentLanguage =
+    codeLanguages.find(({ id }) => id === langId) ||
+    (codeLanguages.find(({ id }) => id === availableLanguageIds[0]) as CodeLanguage)
+
+  const article = relevantArticles.find(
+    ({ codeLanguageId }) => codeLanguageId === currentLanguage?.id
+  )
 
   const context = {
     activeSectionIndex,
@@ -60,7 +78,7 @@ export const PlaygroundContextProvider = (props: { children: React.ReactNode }) 
     scrollToSection,
     setScrollToSection,
     currentLanguage,
-    codeLanguages: availableLanguages,
+    codeLanguages: codeLanguages.filter(({ id }) => availableLanguageIds.includes(id)),
     article,
   }
 

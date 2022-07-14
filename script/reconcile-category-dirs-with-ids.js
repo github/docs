@@ -18,12 +18,11 @@ import frontmatter from '../lib/read-frontmatter.js'
 import walk from 'walk-sync'
 import slash from 'slash'
 import GithubSlugger from 'github-slugger'
-import { XmlEntities } from 'html-entities'
+import { decode } from 'html-entities'
 import loadSiteData from '../lib/site-data.js'
 import renderContent from '../lib/render-content/index.js'
 
 const slugger = new GithubSlugger()
-const entities = new XmlEntities()
 
 const contentDir = path.join(process.cwd(), 'content')
 
@@ -50,7 +49,7 @@ async function main() {
 
     const title = await renderContent(data.title, { site: siteData }, { textOnly: true })
     slugger.reset()
-    const expectedSlug = slugger.slug(entities.decode(title))
+    const expectedSlug = slugger.slug(decode(title))
 
     // If the directory name already matches the expected slug, bail out now
     if (categoryDirName === expectedSlug) continue

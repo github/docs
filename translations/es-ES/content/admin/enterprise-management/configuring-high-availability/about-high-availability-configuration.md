@@ -1,126 +1,128 @@
 ---
-title: Acerca de la configuración de alta disponibilidad
-intro: 'En una configuración de alta disponibilidad, un aparato secundario {% data variables.product.prodname_ghe_server %} totalmente redundante se mantiene en sincronización con el aparato principal mediante la replicación de todos los almacenes de datos importantes.'
+title: About high availability configuration
+intro: 'In a high availability configuration, a fully redundant secondary {% data variables.product.prodname_ghe_server %} appliance is kept in sync with the primary appliance through replication of all major datastores.'
 redirect_from:
   - /enterprise/admin/installation/about-high-availability-configuration
   - /enterprise/admin/enterprise-management/about-high-availability-configuration
   - /admin/enterprise-management/about-high-availability-configuration
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: overview
 topics:
   - Enterprise
   - High availability
   - Infrastructure
+shortTitle: About HA configuration
 ---
+When you configure high availability, there is an automated setup of one-way, asynchronous replication of all datastores (Git repositories, MySQL, Redis, and Elasticsearch) from the primary to the replica appliance. Most {% data variables.product.prodname_ghe_server %} configuration settings are also replicated, including the {% data variables.enterprise.management_console %} password. For more information, see "[Accessing the management console](/admin/configuration/configuring-your-enterprise/accessing-the-management-console)."
 
-Cuando configuras la alta disponibilidad, hay una configuración automática unidireccional, una replicación asincrónica de todos los almacenes de datos (repositorios de Git, MySQL, Redis y Elasticsearch) desde el aparato principal hacia la réplica.
+{% data variables.product.prodname_ghe_server %} supports an active/passive configuration, where the replica appliance runs as a standby with database services running in replication mode but application services stopped.
 
-{% data variables.product.prodname_ghe_server %} admite una configuración activa/pasiva, en la que el aparato réplica se ejecuta como en un modo de espera con los servicios de base de datos ejecutándose en modo de replicación, pero con los servicios de aplicación detenidos.
-
+After replication has been established, the {% data variables.enterprise.management_console %} is no longer accessible on replica appliances. If you navigate to the replica's IP address or hostname on port 8443, you'll see a "Server in replication mode" message, which indicates that the appliance is currently configured as a replica.
 {% data reusables.enterprise_installation.replica-limit %}
 
-### Escenarios de fallas específicas
+## Targeted failure scenarios
 
-Utiliza la configuración de alta disponibilidad para la protección contra lo siguiente:
+Use a high availability configuration for protection against:
 
 {% data reusables.enterprise_installation.ha-and-clustering-failure-scenarios %}
 
-Una configuración de alta disponibilidad no es una buena solución para lo siguiente:
+A high availability configuration is not a good solution for:
 
-  - **Escalar**. Mientras que puede distribuir el tráfico geográficamente utilizando la replicación geográfica, el rendimiento de las escrituras queda limitado a la velocidad y la disponibilidad del aparato principal. Para obtener más informació, consulta "[Acerca de la replicación geográfica](/enterprise/{{ currentVersion }}/admin/guides/installation/about-geo-replication/)."
-  - **Generar copias de seguridad de tu aparato principal**. Una réplica de alta disponibilidad no reemplaza las copias de seguridad externas en tu plan de recuperación ante desastres. Algunas formas de corrupción o pérdida de datos se pueden replicar de inmediato desde el aparato principal hacia la réplica. Para asegurar una reversión segura a un estado antiguo estable, debes realizar copias de seguridad de rutina con instantáneas históricas.
-  - **Actualizaciones del tiempo de inactividad en cero**. Para evitar la pérdida de datos y las situaciones de cerebro dividido en escenarios de promoción controlados, coloca el aparato principal en el modo de mantenimiento y espera a que se completen todas las escrituras entes de promover la réplica.
+  - **Scaling-out**. While you can distribute traffic geographically using geo-replication, the performance of writes is limited to the speed and availability of the primary appliance. For more information, see "[About geo-replication](/enterprise/admin/guides/installation/about-geo-replication/)."{% ifversion ghes > 3.2 %}
+  - **CI/CD load**. If you have a large number of CI clients that are geographically distant from your primary instance, you may benefit from configuring a repository cache. For more information, see "[About repository caching](/admin/enterprise-management/caching-repositories/about-repository-caching)."{% endif %}
+  - **Backing up your primary appliance**. A high availability replica does not replace off-site backups in your disaster recovery plan. Some forms of data corruption or loss may be replicated immediately from the primary to the replica. To ensure safe rollback to a stable past state, you must perform regular backups with historical snapshots.
+  - **Zero downtime upgrades**. To prevent data loss and split-brain situations in controlled promotion scenarios, place the primary appliance in maintenance mode and wait for all writes to complete before promoting the replica.
 
-### Estrategias de conmutación por error del tráfico de red
+## Network traffic failover strategies
 
-Durante la conmutación por error, debes configurar por separado y administrar el tráfico de red de redireccionamiento desde el aparato principal hacia la réplica.
+During failover, you must separately configure and manage redirecting network traffic from the primary to the replica.
 
-#### Conmutación por error de DNS
+### DNS failover
 
-Con la conmutación por error de DNS, utiliza valores TTL cortos en los registros DNS que se dirijan al aparato principal {% data variables.product.prodname_ghe_server %}. Recomendamos un TTL de entre 60 segundos y cinco minutos.
+With DNS failover, use short TTL values in the DNS records that point to the primary {% data variables.product.prodname_ghe_server %} appliance. We recommend a TTL between 60 seconds and five minutes.
 
-Durante la conmutación por error, debes colocar el aparato principal en modo de mantenimiento y redirigir sus registros DNS hacia la dirección IP del aparato réplica. El tiempo necesario para redirigir el tráfico desde el aparato principal hacia la réplica dependerá de la configuración TTL y del tiempo necesario para actualizar los registros DNS.
+During failover, you must place the primary into maintenance mode and redirect its DNS records to the replica appliance's IP address. The time needed to redirect traffic from primary to replica will depend on the TTL configuration and time required to update the DNS records.
 
-Si estás utilizando la replicación geográfica, debes configurar Geo DNS en tráfico directo hacia la réplica más cercana. Para obtener más informació, consulta "[Acerca de la replicación geográfica](/enterprise/{{ currentVersion }}/admin/guides/installation/about-geo-replication/)."
+If you are using geo-replication, you must configure Geo DNS to direct traffic to the nearest replica. For more information, see "[About geo-replication](/enterprise/admin/guides/installation/about-geo-replication/)."
 
-#### Balanceador de carga
+### Load balancer
 
 {% data reusables.enterprise_clustering.load_balancer_intro %} {% data reusables.enterprise_clustering.load_balancer_dns %}
 
-Durante la conmutación por error, debes colocar el aparato principal en el modo de mantenimiento. Puedes configurar el balanceador de carga para que detecte automáticamente cuando la réplica se haya promovido a principal, o puede que se requiera un cambio de configuración manual. Debes promover manualmente la réplica a principal antes de que responda al tráfico de usuarios. Para obtener más información, consulta "[Utilizar {% data variables.product.prodname_ghe_server %} con un balanceador de carga](/enterprise/{{ currentVersion }}/admin/guides/installation/using-github-enterprise-server-with-a-load-balancer/)."
+During failover, you must place the primary appliance into maintenance mode. You can configure the load balancer to automatically detect when the replica has been promoted to primary, or it may require a manual configuration change. You must manually promote the replica to primary before it will respond to user traffic. For more information, see "[Using {% data variables.product.prodname_ghe_server %} with a load balancer](/enterprise/admin/guides/installation/using-github-enterprise-server-with-a-load-balancer/)."
 
 {% data reusables.enterprise_installation.monitoring-replicas %}
 
-### Utilidades para la administración de la replicación
+## Utilities for replication management
 
-Para administrar la replicación en {% data variables.product.prodname_ghe_server %}, haz uso de estas utilidades de la línea de comando conectándote al aparato réplica con SSH.
+To manage replication on {% data variables.product.prodname_ghe_server %}, use these command line utilities by connecting to the replica appliance using SSH.
 
-#### ghe-repl-setup
+### ghe-repl-setup
 
-El comando `ghe-repl-setup` coloca un aparato {% data variables.product.prodname_ghe_server %} en modo de espera de réplica.
+The `ghe-repl-setup` command puts a {% data variables.product.prodname_ghe_server %} appliance in replica standby mode.
 
- - Un tunel de VPN de WireGuard cifrado se configura para establecer la comunicación entre los dos aplicativos.
- - Se configuran los servicios de bases de datos para la replicación y se inician.
- - Se inhabilitan los servicios de aplicaciones. Los intentos de acceder al aparato réplica por HTTP, Git u otros protocolos compatibles generarán una página de mantenimiento o un mensaje de error de "aparato en modo réplica".
+ - An encrypted WireGuard VPN tunnel is configured for communication between the two appliances.
+ - Database services are configured for replication and started.
+ - Application services are disabled. Attempts to access the replica appliance over HTTP, Git, or other supported protocols will result in an "appliance in replica mode" maintenance page or error message.
 
 ```shell
 admin@169-254-1-2:~$ ghe-repl-setup 169.254.1.1
-Verificar la conectividad ssh con 169.254.1.1 ...
-Comprobación de conexión exitosa.
-Configurando la replicación de base de datos en oposición al principal...
+Verifying ssh connectivity with 169.254.1.1 ...
+Connection check succeeded.
+Configuring database replication against primary ...
 Success: Replica mode is configured against 169.254.1.1.
 To disable replica mode and undo these changes, run `ghe-repl-teardown'.
-Ejecuta `ghe-repl-start' para comenzar la replicación en oposición al principal recientemente configurado.
+Run `ghe-repl-start' to start replicating against the newly configured primary.
 ```
 
-#### ghe-repl-start
+### ghe-repl-start
 
-El comando `ghe-repl-start` inicia la replicación activa de todos los almacenes de datos.
+The `ghe-repl-start` command turns on active replication of all datastores.
 
 ```shell
 admin@169-254-1-2:~$ ghe-repl-start
 Starting MySQL replication ...
-Iniciando la replicación de Redis...
-Iniciando la replicación de ElasticSearch...
-Iniciando la replicación de Páginas...
-Iniciando la replicación de Git...
-Exitoso: La replicación se está ejecutando para todos los servicios.
-Utiliza `ghe-repl-status' para monitorear el estado y el progreso de la replicación.
+Starting Redis replication ...
+Starting Elasticsearch replication ...
+Starting Pages replication ...
+Starting Git replication ...
+Success: replication is running for all services.
+Use `ghe-repl-status' to monitor replication health and progress.
 ```
 
-#### ghe-repl-status
+### ghe-repl-status
 
-El comando `ghe-repl-status` muestra un estado de `OK`, `ADVERTENCIA` o `CRÍTICO` para cada corriente de replicación de almacén de datos. Cuando cualquiera de los canales de replicación está en estado `ADVERTENCIA`, el comando se cerrará con el código `1`. Del mismo modo, cuando cualquiera de los canales esté en un estado `CRÍTICO`, el comando se cerrará con el código `2`.
+The `ghe-repl-status` command returns an `OK`, `WARNING` or `CRITICAL` status for each datastore replication stream. When any of the replication channels are in a `WARNING` state, the command will exit with the code `1`. Similarly, when any of the channels are in a `CRITICAL` state, the command will exit with the code `2`.
 
 ```shell
 admin@169-254-1-2:~$ ghe-repl-status
-OK: replicación de mysql en sinc
-OK: la replicación de redis está en sinc
-OK: la agrupación de elasticsearch está en sinc
-OK: los datos de git están en sinc (10 repos, 2 wikis, 5 gists)
-OK: los datos de páginas están en sinc
+OK: mysql replication in sync
+OK: redis replication is in sync
+OK: elasticsearch cluster is in sync
+OK: git data is in sync (10 repos, 2 wikis, 5 gists)
+OK: pages data is in sync
 ```
 
-Las opciones `-v` y `-vv` dan detalles sobre cada uno de los estados de replicación de almacén de datos:
+The `-v` and `-vv` options give details about each datastore's replication state:
 
 ```shell
 $ ghe-repl-status -v
-OK: replicación de mysql en sinc
-  | IO en ejecución: Sí, SQL en ejecución: Sí, Demora: 0
+OK: mysql replication in sync
+  | IO running: Yes, SQL running: Yes, Delay: 0
 
-OK: la replicación de redis está en sinc
+OK: redis replication is in sync
   | master_host:169.254.1.1
   | master_port:6379
   | master_link_status:up
   | master_last_io_seconds_ago:3
   | master_sync_in_progress:0
 
-OK: la agrupación de elasticsearch está en sinc
+OK: elasticsearch cluster is in sync
   | {
   |   "cluster_name" : "github-enterprise",
   |   "status" : "green",
-  |   "timed_out" : falso,
+  |   "timed_out" : false,
   |   "number_of_nodes" : 2,
   |   "number_of_data_nodes" : 2,
   |   "active_primary_shards" : 12,
@@ -130,58 +132,59 @@ OK: la agrupación de elasticsearch está en sinc
   |   "unassigned_shards" : 0
   | }
 
-OK: los datos de git están en sinc (366 repos, 31 wikis, 851 gists)
-  |                   TOTAL         OK      FALLA    PENDIENTE      CON DEMORA
-  | repositorios        366        366          0          0        0.0
+OK: git data is in sync (366 repos, 31 wikis, 851 gists)
+  |                   TOTAL         OK      FAULT    PENDING      DELAY
+  | repositories        366        366          0          0        0.0
   |        wikis         31         31          0          0        0.0
   |        gists        851        851          0          0        0.0
   |        total       1248       1248          0          0        0.0
 
-OK: los datos de páginas están en sinc
-  | Las páginas están en sinc
+OK: pages data is in sync
+  | Pages are in sync
 ```
 
-#### ghe-repl-stop
+### ghe-repl-stop
 
-El comando `ghe-repl-stop` inhabilita temporalmente la replicación de todos los almacenes de datos y detiene los servicios de replicación. Para reanudar la replicación, utiliza el comando [ghe-repl-start](#ghe-repl-start).
+The `ghe-repl-stop` command temporarily disables replication for all datastores and stops the replication services. To resume replication, use the [ghe-repl-start](#ghe-repl-start) command.
 
 ```shell
 admin@168-254-1-2:~$ ghe-repl-stop
-Deteniendo la replicación de Páginas...
-Deteniendo la replicación de Git...
-Deteniendo la replicación de MySQL...
-Deteniendo la replicación de Redis...
-Deteniendo la replicación de ElasticSearch...
-Exitoso: la replicación se detuvo para todos los servicios.
+Stopping Pages replication ...
+Stopping Git replication ...
+Stopping MySQL replication ...
+Stopping Redis replication ...
+Stopping Elasticsearch replication ...
+Success: replication was stopped for all services.
 ```
 
-#### ghe-repl-promote
+### ghe-repl-promote
 
-El comando `ghe-repl-promote` inhabilita la replicación y convierte el aparato réplica en principal. El aparato se configura con los mismos ajustes que el principal original y se habilitan todos los servicios.
+The `ghe-repl-promote` command disables replication and converts the replica appliance to a primary. The appliance is configured with the same settings as the original primary and all services are enabled.
 
 {% data reusables.enterprise_installation.promoting-a-replica %}
 
 ```shell
 admin@168-254-1-2:~$ ghe-repl-promote
-Habilitando el modo de mantenimiento en el aparato principal para evitar escrituras...
-Deteniendo la replicación...
-  | Deteniendo la replicación de Páginas...
-  | Deteniendo la replicación de Git...
-  | Deteniendo la replicación de MySQL...
-  | Deteniendo la replicación de Redis...
-  | Deteniendo la replicación de ElasticSearch...
-  | Exitoso: la replicación se detuvo para todos los servicios.
-Cambiando del modo réplica...
-  | Exitoso: se eliminó la configuración de la replicación.
-  | Ejecuta `ghe-repl-setup' para volver a habilitar el modo réplica.
-Aplicando la configuración e iniciando los servicios...
-Exitoso: la réplica se promovió a principal y ahora está aceptando solicitudes.
+Enabling maintenance mode on the primary to prevent writes ...
+Stopping replication ...
+  | Stopping Pages replication ...
+  | Stopping Git replication ...
+  | Stopping MySQL replication ...
+  | Stopping Redis replication ...
+  | Stopping Elasticsearch replication ...
+  | Success: replication was stopped for all services.
+Switching out of replica mode ...
+  | Success: Replication configuration has been removed.
+  | Run `ghe-repl-setup' to re-enable replica mode.
+Applying configuration and starting services ...
+Success: Replica has been promoted to primary and is now accepting requests.
 ```
 
-#### ghe-repl-teardown
+### ghe-repl-teardown
 
-El comando `ghe-repl-teardown` inhabilita el modo de replicación por completo, eliminando la configuración de la réplica.
+The `ghe-repl-teardown` command disables replication mode completely, removing the replica configuration.
 
-### Leer más
+## Further reading
 
-- "[Crear una réplica de alta disponibilidad](/enterprise/{{ currentVersion }}/admin/guides/installation/creating-a-high-availability-replica)"
+- "[Creating a high availability replica](/enterprise/admin/guides/installation/creating-a-high-availability-replica)"
+- "[Network ports](/admin/configuration/configuring-network-settings/network-ports)"

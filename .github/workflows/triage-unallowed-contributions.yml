@@ -7,10 +7,10 @@ name: Check unallowed file changes
 on:
   pull_request_target:
     paths:
+      - '.devcontainer/**'
       - '.github/actions-scripts/**'
       - '.github/workflows/**'
       - '.github/CODEOWNERS'
-      - 'app.json'
       - 'assets/fonts/**'
       - 'data/graphql/**'
       - 'Dockerfile*'
@@ -20,13 +20,21 @@ on:
       - 'lib/webhooks/**'
       - 'lib/search/indexes/**'
       - 'package*.json'
-      - 'Procfile'
-      - 'scripts/**'
+      - 'script/**'
       - 'translations/**'
+      - 'content/actions/deployment/security-hardening-your-deployments/**'
+
+permissions:
+  pull-requests: write
 
 jobs:
   triage:
-    if: github.repository == 'github/docs' && github.event.pull_request.user.login != 'Octomerger'
+    if: >-
+      ${{
+        github.repository == 'github/docs' &&
+        github.event.pull_request.user.login != 'Octomerger' &&
+        github.event.pull_request.user.login != 'dependabot[bot]'
+      }}
     runs-on: ubuntu-latest
     steps:
       - name: Get files changed
@@ -47,10 +55,10 @@ jobs:
             openapi:
               - 'lib/rest/static/**'
             notAllowed:
+              - '.devcontainer/**'
               - '.github/actions-scripts/**'
               - '.github/workflows/**'
               - '.github/CODEOWNERS'
-              - 'app.json'
               - 'assets/fonts/**'
               - 'data/graphql/**'
               - 'Dockerfile*'
@@ -60,9 +68,9 @@ jobs:
               - 'lib/webhooks/**'
               - 'lib/search/indexes/**'
               - 'package*.json'
-              - 'Procfile'
               - 'scripts/**'
               - 'translations/**'
+              - 'content/actions/deployment/security-hardening-your-deployments/**'
 
       # When there are changes to files we can't accept, leave a comment
       # explaining this to the PR author
@@ -70,13 +78,12 @@ jobs:
         if: ${{ steps.filter.outputs.notAllowed }}
         uses: actions/github-script@2b34a689ec86a68d8ab9478298f91d5401337b7d
         with:
-          github-token: ${{secrets.GITHUB_TOKEN}}
           script: |
             const badFilesArr = [
+              '.devcontainer/**',
               '.github/actions-scripts/**',
               '.github/workflows/**',
               '.github/CODEOWNERS',
-              'app.json',
               'assets/fonts/**',
               'data/graphql/**',
               'Dockerfile*',
@@ -86,9 +93,9 @@ jobs:
               'lib/webhooks/**',
               'lib/search/indexes/**',
               'package*.json',
-              'Procfile',
               'scripts/**',
               'translations/**',
+              'content/actions/deployment/security-hardening-your-deployments/**',
             ]
 
             const badFiles = badFilesArr.join('\n')
@@ -97,14 +104,14 @@ jobs:
             let workflowFailMessage = "It looks like you've modified some files that we can't accept as contributions."
 
             try {
-               createdComment = await github.issues.createComment ({
+               createdComment = await github.issues.createComment({
                 owner: context.repo.owner,
                 repo: context.repo.repo,
                 issue_number: context.payload.number,
                 body: reviewMessage,
               })
 
-              workflowFailMessage = `${workflowFailMessage} Please see ${createdComment.data.html_url} for details.` 
+              workflowFailMessage = `${workflowFailMessage} Please see ${createdComment.data.html_url} for details.`
             } catch(err) {
               console.log("Error creating comment.", err)
             }

@@ -1,4 +1,4 @@
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt or ghec %}
 {% note %}
 
 **Nota**: No puedes inhabilitar algunas características de seguridad y análisis que están habilitadas predeterminadamente para los repositorios públicos.

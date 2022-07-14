@@ -2,12 +2,12 @@
 title: SSHキーの監査
 intro: サイト管理者は SSH キーのインスタンス全体に対する監査を始めることができます。
 redirect_from:
-  - /enterprise/admin/articles/auditing-ssh-keys/
+  - /enterprise/admin/articles/auditing-ssh-keys
   - /enterprise/admin/user-management/auditing-ssh-keys
   - /admin/user-management/auditing-ssh-keys
 versions:
-  enterprise-server: '*'
-  github-ae: '*'
+  ghes: '*'
+  ghae: '*'
 type: how_to
 topics:
   - Auditing
@@ -18,7 +18,7 @@ topics:
 
 監査が開始されると、現在の SSHキーがすべて無効となります。リポジトリのクローン、プル、プッシュといった操作をするためには、ユーザは SSH キーの承認または拒否をしなければなりません。 監査は、従業員の退職時や請負業者の撤収時など、すべてのキーを検証する必要があるときに役立ちます。
 
-### 監査を開始する
+## 監査を開始する
 
 SSH キーの監査は、サイト管理ダッシュボードの [All users] タブから開始できます。
 
@@ -30,7 +30,7 @@ SSH キーの監査は、サイト管理ダッシュボードの [All users] タ
 
 \[Begin audit\] (監査を開始) ボタンをクリックすると、すべての SSH キーは無効となり、承認が必要になります。 監査が始まったことを示す通知が表示されます。
 
-### ユーザに対する表示
+## ユーザに対する表示
 
 ユーザがSSH経由で Git のオペレーションを実行した場合は、オペレーションが失敗し、次のメッセージが表示されます。
 
@@ -48,7 +48,7 @@ fatal: The remote end hung up unexpectedly
 
 キーを承認または拒否したら、今まで通りリポジトリを使えるようになります。
 
-### SSH キーを追加する
+## SSH キーを追加する
 
 新規ユーザは、SSHキーを追加する際にパスワードを要求されます。
 

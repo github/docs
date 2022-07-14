@@ -1,0 +1,63 @@
+name: 'Orphaned assets check'
+
+# **What it does**: Checks that there are no files in ./assets/ that aren't mentioned in any source file.
+# **Why we have it**: To avoid orphans into the repo.
+# **Who does it impact**: Docs content.
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '13 10 * * *' # Once a day at 10:13 UTC
+
+permissions:
+  contents: read
+
+jobs:
+  orphaned-assets-check:
+    if: ${{ github.repository == 'github/docs-internal' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@dcd71f646680f2efd8db4afa5ad64fdcba30e748
+        with:
+          # Using a PAT is necessary so that the new commit will trigger the
+          # CI in the PR. (Events from GITHUB_TOKEN don't trigger new workflows.)
+          token: ${{ secrets.DOCUBOT_REPO_PAT }}
+
+      - name: Setup node
+        uses: actions/setup-node@17f8bd926464a1afa4c6a11669539e9c1ba77048
+        with:
+          node-version: '16.15.0'
+          cache: npm
+
+      - name: Install
+        run: npm ci
+
+      - name: Check for orphaned assets
+        env:
+          # Needed for gh
+          GITHUB_TOKEN: ${{ secrets.DOCUBOT_REPO_PAT }}
+        run: |
+          set -e
+
+          ./script/find-orphaned-assets.mjs | xargs git rm
+
+          # If nothing to commit, exit now. It's fine. No orphans.
+          git status | grep 'nothing to commit' && exit 0
+
+          # Replicated from the translation pipeline PR-maker Action
+          git config --global user.name "docubot"
+          git config --global user.email "67483024+docubot@users.noreply.github.com"
+
+          date=$(date '+%Y-%m-%d-%H-%M')
+          branchname=orphaned-assets-$date-$GITHUB_RUN_ID
+
+          git checkout -b $branchname
+          git commit -m "Delete orphaned assets $date"
+          git push origin $branchname
+
+          gh pr create \
+            --title "Delete orphaned assets ($date)" \
+            --body "Found with the find-orphaned-assets.mjs script" \
+            --repo github/docs-internal \
+            --label docs-content-fr

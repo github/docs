@@ -4,24 +4,19 @@ intro: 'Puedes ejecutar consultas en datos reales de {% data variables.product.p
 redirect_from:
   - /v4/guides/using-the-explorer
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - API
 ---
 
-### Acerca del explorador de GraphQL
+## Acerca del explorador de GraphQL
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt or ghec %}
 
 El [Explorador de GraphQL](/graphql/overview/explorer) es una instancia de [GraphQL](https://github.com/graphql/graphiql), la cual es una "IDE de GraphQL gráfica e interactiva en el mismo buscador".
-
-{% note %}
-
-**Nota**: {% data variables.product.prodname_dotcom %} ha inhabilitado las [mutaciones](/graphql/reference/mutations) en el explorador, pero puedes utilizarlas en tu propia instancia de GraphiQL.
-
-{% endnote %}
 
 {% else %}
 
@@ -29,11 +24,11 @@ El [Explorador de GraphQL](/graphql/overview/explorer) es una instancia de [Grap
 
 {% endif %}
 
-### Utilizar GrpahiQL
+## Utilizar GrpahiQL
 
 Para utilizar la app de GraphiQL, descárgala e instálala desde https://github.com/skevy/graphiql-app.
 
-#### Configurar GraphiQL
+### Configurar GraphiQL
 
 1. Obtén un [token de OAuth](/graphql/guides/forming-calls-with-graphql#authenticating-with-graphql).
 1. Lanzar GraphiQL.
@@ -62,7 +57,7 @@ query {
 
 Si todo funcionó correctamente, esto mostrará tu ingreso. Estás listo para comenzar a hacer consultas.
 
-### Acceder a los documentos de la barra lateral
+## Acceder a los documentos de la barra lateral
 
 Todos los tipos en el modelo de GraphQL incluyen un campo de `description` compilado en la documentación. El pánel retráctil **Docs** en el costado derecho de la página del explorador te permite buscar documentación acerca de tu tipo de sistema. Los documentos se actualizan automáticamente y eliminarán los campos obsoletos.
 
@@ -72,7 +67,7 @@ La barra lateral de **Docs** tiene el mismo contenido que se genera automáticam
 
 {% endnote %}
 
-### Utilizar el pánel de variable
+## Utilizar el pánel de variable
 
 Algunos llamados de ejemplo incluyen [variables](/graphql/guides/forming-calls-with-graphql#working-with-variables) escritas como éstas:
 
@@ -102,11 +97,11 @@ Si quieres ejecutar la llamada en el explorador, ingresa el segmento `query` en 
 }
 ```
 
-### Solicitar soporte
+## Solicitar soporte
 
 {% data reusables.support.help_resources %}
 
-### Solución de errores
+## Solución de errores
 
 Ya que GraphQL es [introspectivo](/graphql/guides/introduction-to-graphql#discovering-the-graphql-api), el explorador soporta:
 

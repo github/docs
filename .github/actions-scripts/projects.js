@@ -59,7 +59,7 @@ export async function addItemsToProject(items, project) {
   `
 
   const newItems = await graphql(mutation, {
-    project: project,
+    project,
     headers: {
       authorization: `token ${process.env.TOKEN}`,
       'GraphQL-Features': 'projects_next_graphql',
@@ -114,6 +114,29 @@ export async function isDocsTeamMember(login) {
   return teamMembers.includes(login)
 }
 
+// Given a GitHub login, returns a bool indicating
+// whether the login is part of the GitHub org
+export async function isGitHubOrgMember(login) {
+  const data = await graphql(
+    `
+      query {
+        user(login: "${login}") {
+          organization(login: "github"){
+            name
+          }
+        }
+      }
+    `,
+    {
+      headers: {
+        authorization: `token ${process.env.TOKEN}`,
+      },
+    }
+  )
+
+  return Boolean(data.user.organization)
+}
+
 // Formats a date object into the required format for projects
 export function formatDateForProject(date) {
   return date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate()
@@ -125,11 +148,14 @@ export function formatDateForProject(date) {
 export function calculateDueDate(datePosted, turnaround = 2) {
   let daysUntilDue
   switch (datePosted.getDay()) {
-    case 0: // Sunday
-      daysUntilDue = turnaround + 1
+    case 4: // Thursday
+      daysUntilDue = turnaround + 2
+      break
+    case 5: // Friday
+      daysUntilDue = turnaround + 2
       break
     case 6: // Saturday
-      daysUntilDue = turnaround + 2
+      daysUntilDue = turnaround + 1
       break
     default:
       daysUntilDue = turnaround
@@ -161,10 +187,13 @@ export function generateUpdateProjectNextItemFieldMutation({
   function generateMutationToUpdateField({ item, fieldID, value, literal = false }) {
     const parsedValue = literal ? `value: "${value}"` : `value: ${value}`
 
-    // Strip "=" out of the item ID when creating the mutation ID to avoid a GraphQL parsing error
+    // Strip all non-alphanumeric out of the item ID when creating the mutation ID to avoid a GraphQL parsing error
     // (statistically, this should still give us a unique mutation ID)
     return `
-      set_${fieldID.substr(1)}_item_${item.replaceAll('=', '')}: updateProjectNextItemField(input: {
+      set_${fieldID.slice(1)}_item_${item.replaceAll(
+      /[^a-z0-9]/g,
+      ''
+    )}: updateProjectNextItemField(input: {
         projectId: $project
         itemId: "${item}"
         fieldId: ${fieldID}
@@ -186,39 +215,46 @@ export function generateUpdateProjectNextItemFieldMutation({
       $reviewDueDateID: ID!
       $contributorTypeID: ID!
       $contributorType: String!
+      $sizeTypeID: ID!
+      $sizeType: String!
       $featureID: ID!
       $authorID: ID!
     ) {
       ${generateMutationToUpdateField({
-        item: item,
+        item,
         fieldID: '$statusID',
         value: '$statusValueID',
       })}
       ${generateMutationToUpdateField({
-        item: item,
+        item,
         fieldID: '$datePostedID',
         value: formatDateForProject(datePosted),
         literal: true,
       })}
       ${generateMutationToUpdateField({
-        item: item,
+        item,
         fieldID: '$reviewDueDateID',
         value: formatDateForProject(dueDate),
         literal: true,
       })}
       ${generateMutationToUpdateField({
-        item: item,
+        item,
         fieldID: '$contributorTypeID',
         value: '$contributorType',
       })}
       ${generateMutationToUpdateField({
-        item: item,
+        item,
+        fieldID: '$sizeTypeID',
+        value: '$sizeType',
+      })}
+      ${generateMutationToUpdateField({
+        item,
         fieldID: '$featureID',
         value: feature,
         literal: true,
       })}
       ${generateMutationToUpdateField({
-        item: item,
+        item,
         fieldID: '$authorID',
         value: author,
         literal: true,
@@ -233,6 +269,7 @@ export default {
   addItemsToProject,
   addItemToProject,
   isDocsTeamMember,
+  isGitHubOrgMember,
   findFieldID,
   findSingleSelectID,
   formatDateForProject,

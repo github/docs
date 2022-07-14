@@ -5,9 +5,10 @@ redirect_from:
   - /webhooks/creating
   - /developers/webhooks-and-events/creating-webhooks
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Webhooks
 ---
@@ -19,11 +20,11 @@ Criar um webhook é um processo de duas etapas. Primeiro, você deverá configur
 
 {% data reusables.webhooks.webhooks-rest-api-links %}
 
-### Expor o host local na internet
+## Expor o host local na internet
 
-Para fins deste tutorial, vamos usar um servidor local para receber mensagens de {% data variables.product.prodname_dotcom %}. Portanto, em primeiro lugar, temos de expor o nosso ambiente de desenvolvimento local à internet. Nós usaremos ngrok para fazer isso. Ngrok está disponível, gratuitamente, para todos os principais sistemas operacionais. Para obter mais informações, consulte [a página de download do ngrok](https://ngrok.com/download).
+Para fins deste tutorial, vamos usar um servidor local para receber mensagens de {% data variables.product.prodname_dotcom %}. Portanto, em primeiro lugar, temos de expor o nosso ambiente de desenvolvimento local à internet. Nós usaremos ngrok para fazer isso. Ngrok está disponível, gratuitamente, para todos os principais sistemas operacionais. Para obter mais informações, consulte [a página de download do `ngrok`](https://ngrok.com/download).
 
-Depois de instalar o ngrok, você poderá expor seu host local executando `./ngrok http 4567` na linha de comando. 4567 é o número da porta em que o nosso servidor ouvirá mensagens. Você deve ver uma linha parecida mais ou menos com isso:
+Após instalar o `ngrok`, você poderá expor seu host local executando `./ngrok http 4567` na linha de comando. 4567 é o número da porta em que o nosso servidor ouvirá mensagens. Você deve ver uma linha parecida mais ou menos com isso:
 
 ```shell
 $ Forwarding    http://7e9ea9dc.ngrok.io -> 127.0.0.1:4567
@@ -31,7 +32,7 @@ $ Forwarding    http://7e9ea9dc.ngrok.io -> 127.0.0.1:4567
 
 Faça uma anotação da URL `*.ngrok.io.`. Vamos usá-lo para configurar nosso webhook.
 
-### Configurar um webhook
+## Configurar um webhook
 
 É possível instalar webhooks em uma organização ou em um repositório específico.
 
@@ -41,29 +42,29 @@ Como alternativa, você pode optar por criar e gerenciar um webhook [através da
 
 Os webhooks exigem algumas opções de configuração antes de você poder usá-los. Iremos analisar cada uma destas configurações abaixo.
 
-### URL de carga
+## URL de carga
 
 {% data reusables.webhooks.payload_url %}
 
 Já que estamos estamos fazendo um desenvolvimento local para o nosso tutorial, vamos configurá-lo para a URL `*.ngrok.io`, seguida de `/payload`. Por exemplo, `http://7e9ea9dc.ngrok.io/payload`.
 
-### Tipo de conteúdo
+## Tipo de conteúdo
 
 {% data reusables.webhooks.content_type %} Para este tutorial, o tipo de conteúdo-padrão para `application/json` está certo.
 
-### Segredo
+## Segredo
 
 {% data reusables.webhooks.secret %}
 
-### Verificação SSL
+## Verificação SSL
 
 {% data reusables.webhooks.webhooks_ssl %}
 
-### Ativo
+## Ativo
 
 Por padrão, as entregas de webhook estão "Ativas". Você pode optar por desativar a entrega das cargas de webhook, desmarcando "Ativo".
 
-### Eventos
+## Eventos
 
 Os eventos encontram-se no núcleo dos webhooks. Esses webhooks são acionados sempre que uma determinada ação é tomada no repositório, a qual a URL da carga do seu servidor intercepta e e sobre a qual atua.
 
@@ -75,7 +76,7 @@ Ao terminar, clique em **Adicionar webhook**.
 
 Agora que você criou o webhook, é hora de configurar nosso servidor local para testar o webhook. Vá até [Configurar seu servidor](/webhooks/configuring/) para aprender como fazê-lo.
 
-#### Evento curinga
+### Evento curinga
 
 Para configurar um webhook para todos os eventos, use o caractere curinga (`*`) para especificar os eventos de webhook. Ao adicionar o evento curinga, substituiremos todos os eventos existentes que você tenha configurado pelo evento curinga e enviaremos todas as cargas para os eventos compatíveis. Você também obterá automaticamente todos os novos eventos que possamos adicionar no futuro.
 

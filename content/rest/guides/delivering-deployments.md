@@ -2,13 +2,14 @@
 title: Delivering deployments
 intro: 'Using the Deployments REST API, you can build custom tooling that interacts with your server and a third-party app.'
 redirect_from:
-  - /guides/delivering-deployments/
-  - /guides/automating-deployments-to-integrators/
+  - /guides/delivering-deployments
+  - /guides/automating-deployments-to-integrators
   - /v3/guides/delivering-deployments
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - API
 ---
@@ -23,7 +24,7 @@ the moment your code lands on the default branch.
 This guide will use that API to demonstrate a setup that you can use.
 In our scenario, we will:
 
-* Merge a pull request
+* Merge a pull request.
 * When the CI is finished, we'll set the pull request's status accordingly.
 * When the pull request is merged, we'll run our deployment to our server.
 

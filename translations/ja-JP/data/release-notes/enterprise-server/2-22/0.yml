@@ -141,3 +141,4 @@ sections:
     - SAML認証を使っていて、GitHubのユーザ名が管理コンソールの`username`フィールドにマップされた属性の値と一致しない場合に、GitHubのユーザ名が意図せずに変更されてしまうことがあります。{% comment %} https://github.com/github/external-identities/issues/335 {% endcomment %}
     - 新たにセットアップされた2.22.0のインスタンス、もしくは2.22.0へのアップグレード後、Organizationのダッシュボード上のアクティビティフィードが更新されなくなります。（2020-10-27更新）{% comment %}https://github.com/github/enterprise2/issues/23050{% endcomment %}
     - 監査ログが実際のソースIDアドレスではなく、127.0.0.1に起因するものとされることがあります。（2020-11-02更新）{% comment %} https://github.com/github/enterprise2/issues/21514 {% endcomment %}
+    - High Availability構成でレプリカノードがオフラインの場合でも、{% data variables.product.product_name %}が{% data variables.product.prodname_pages %}リクエストをオフラインのノードにルーティングし続ける場合があり、それによってユーザにとっての{% data variables.product.prodname_pages %}の可用性が下がってしまいます。
