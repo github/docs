@@ -1,6 +1,6 @@
 ---
-title: Codespaces logs
-intro: 'Overview of the logging locations used by {% data variables.product.prodname_codespaces %}.'
+title: GitHub Codespaces logs
+intro: 'Overview of the logging locations used by {% data variables.product.prodname_github_codespaces %}.'
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
@@ -10,10 +10,12 @@ topics:
   - Codespaces
   - Logging
 shortTitle: Codespaces logs
+redirect_from:
+  - /codespaces/troubleshooting/codespaces-logs
 ---
 
 
-Information on {% data variables.product.prodname_codespaces %} is output to three different logs:
+Information on {% data variables.product.prodname_github_codespaces %} is output to three different logs:
 
 - Codespace logs
 - Creation logs

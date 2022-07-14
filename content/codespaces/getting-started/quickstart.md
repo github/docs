@@ -1,6 +1,6 @@
 ---
-title: Quickstart for Codespaces
-intro: 'Try out {% data variables.product.prodname_codespaces %} in 5 minutes.'
+title: Quickstart for GitHub Codespaces
+intro: 'Try out {% data variables.product.prodname_github_codespaces %} in 5 minutes.'
 allowTitleToDifferFromFilename: true
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
@@ -19,7 +19,7 @@ In this guide, you'll create a codespace from a [template repository](https://gi
 
 From this quickstart, you will learn how to create a codespace, connect to a forwarded port to view your running application, use version control in a codespace, and personalize your setup with extensions.
 
-For more information on exactly how {% data variables.product.prodname_codespaces %} works, see the companion guide "[Deep dive into {% data variables.product.prodname_codespaces %}](/codespaces/getting-started/deep-dive)."
+For more information on exactly how {% data variables.product.prodname_github_codespaces %} works, see the companion guide "[Deep dive into {% data variables.product.prodname_github_codespaces %}](/codespaces/getting-started/deep-dive)."
 
 ## Creating your codespace
 

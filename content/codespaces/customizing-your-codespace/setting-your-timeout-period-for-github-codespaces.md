@@ -1,5 +1,5 @@
 ---
-title: Setting your timeout period for Codespaces
+title: Setting your timeout period for GitHub Codespaces
 shortTitle: Set the timeout
 intro: 'You can set your default timeout for {% data variables.product.prodname_codespaces %} in your personal settings page.'
 product: '{% data reusables.gated-features.codespaces %}'
@@ -9,6 +9,8 @@ versions:
 topics:
   - Codespaces
 type: how_to
+redirect_from:
+  - /codespaces/customizing-your-codespace/setting-your-timeout-period-for-codespaces
 ---
 
 A codespace will stop running after a period of inactivity. You can specify the length of this timeout period. The updated setting will apply to any newly created codespace.
@@ -17,7 +19,7 @@ Some organizations may have a maximum idle timeout policy. If an organization po
 
 {% warning %}
 
-**Warning**: Codespaces are billed per minute. If you are not actively using a codespace but the codespace has not yet timed out, you are still billed for the time that the codespace is running. For more information, see "[About billing for Codespaces](/billing/managing-billing-for-github-codespaces/about-billing-for-codespaces#codespaces-pricing)."
+**Warning**: Codespaces are billed per minute. If you are not actively using a codespace but the codespace has not yet timed out, you are still billed for the time that the codespace is running. For more information, see "[About billing for {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#codespaces-pricing)."
 
 {% endwarning %}
 
