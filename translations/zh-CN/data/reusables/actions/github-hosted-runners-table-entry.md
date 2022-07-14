@@ -1,1 +1,1 @@
-1. In the "Runners" table, click the entry for **GitHub-hosted runners**. This entry will only be present if you're using {% data variables.product.prodname_dotcom %}-hosted runners.
+1. 在“运行器”表格中，单击 **GitHub 托管的运行器**对应条目。 仅当您使用 {% data variables.product.prodname_dotcom %} 托管的运行器时，此条目才会显示。

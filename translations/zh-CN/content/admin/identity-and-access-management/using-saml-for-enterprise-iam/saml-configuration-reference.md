@@ -132,6 +132,10 @@ topics:
 
 要自定义会话持续时间，您可以在 IdP 上定义 `SessionNotOnOrAfter` 属性的值。 如果定义的值小于 24 小时，则每次 {% data variables.product.product_name %} 启动重定向时，{% data variables.product.product_name %} 都会提示用户进行身份验证。
 
+{% ifversion ghec %}
+To prevent authentication errors, we recommend a minimum session duration of 4 hours. For more information, see "[Troubleshooting SAML authentication](/admin/identity-and-access-management/using-saml-for-enterprise-iam/troubleshooting-saml-authentication#users-are-repeatedly-redirected-to-authenticate)."
+{% endif %}
+
 {% note %}
 
 **注意**：

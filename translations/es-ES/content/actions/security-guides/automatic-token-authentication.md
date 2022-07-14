@@ -31,13 +31,11 @@ The token is also available in the `github.token` context. For more information,
 
 You can use the `GITHUB_TOKEN` by using the standard syntax for referencing secrets: {%raw%}`${{ secrets.GITHUB_TOKEN }}`{% endraw %}. Examples of using the `GITHUB_TOKEN` include passing the token as an input to an action, or using it to make an authenticated {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API request.
 
-{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
 {% note %}
 
 **Important:** An action can access the `GITHUB_TOKEN` through the `github.token` context even if the workflow does not explicitly pass the `GITHUB_TOKEN` to the action. As a good security practice, you should always make sure that actions only have the minimum access they require by limiting the permissions granted to the `GITHUB_TOKEN`. For more information, see "[Permissions for the `GITHUB_TOKEN`](#permissions-for-the-github_token)."
 
 {% endnote %}
-{% endif %}
 
 {% data reusables.actions.actions-do-not-trigger-workflows %}
 
@@ -56,9 +54,9 @@ on: [ push ]
 
 jobs:
   create_commit:
-    runs-on: ubuntu-latest {% ifversion fpt or ghes > 3.1 or ghae or ghec %}
+    runs-on: ubuntu-latest 
     permissions:
-      issues: write {% endif %}
+      issues: write 
     steps:
       - name: Create issue using REST API
         run: |
@@ -77,7 +75,6 @@ jobs:
 
 For information about the API endpoints {% data variables.product.prodname_github_apps %} can access with each permission, see "[{% data variables.product.prodname_github_app %} Permissions](/rest/reference/permissions-required-for-github-apps)."
 
-{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
 The following table shows the permissions granted to the `GITHUB_TOKEN` by default. People with admin permissions to an {% ifversion not ghes %}enterprise, organization, or repository,{% else %}organization or repository{% endif %} can set the default permissions to be either permissive or restricted. For information on how to set the default permissions for the `GITHUB_TOKEN` for your enterprise, organization, or repository, see "[Enforcing policies for {% data variables.product.prodname_actions %} in your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-github-actions-policies-for-your-enterprise#enforcing-a-policy-for-workflow-permissions-in-your-enterprise)," "[Disabling or limiting {% data variables.product.prodname_actions %} for your organization](/github/setting-up-and-managing-organizations-and-teams/disabling-or-limiting-github-actions-for-your-organization#setting-the-permissions-of-the-github_token-for-your-organization)," or "[Managing {% data variables.product.prodname_actions %} settings for a repository](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#setting-the-permissions-of-the-github_token-for-your-repository)."
 
 | Scope         | Default access<br>(permissive) | Default access<br>(restricted) | Maximum access<br>by forked repos |
@@ -97,24 +94,9 @@ The following table shows the permissions granted to the `GITHUB_TOKEN` by defau
 | repository-projects | read/write | none | read |
 | security-events     | read/write | none | read |
 | statuses      | read/write  | none | read |
-{% else %}
-| Scope    | Access type | Access by forked repos |
-|----------|-------------|--------------------------|
-| actions  | read/write  | read |
-| checks   | read/write  | read |
-| contents | read/write  | read |
-| deployments | read/write | read |
-| issues   | read/write  | read |
-| metadata | read        | read |
-| packages | read/write  | read |
-| pull-requests | read/write | read |
-| repository-projects | read/write | read |
-| statuses | read/write  | read |
-{% endif %}
 
 {% data reusables.actions.workflow-runs-dependabot-note %}
 
-{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
 ### Modifying the permissions for the `GITHUB_TOKEN`
 
 You can modify the permissions for the `GITHUB_TOKEN` in individual workflow files. If the default permissions for the `GITHUB_TOKEN` are restrictive, you may have to elevate the permissions to allow some actions and commands to run successfully. If the default permissions are permissive, you can edit the workflow file to remove some permissions from the `GITHUB_TOKEN`. As a good security practice, you should grant the `GITHUB_TOKEN` the least required access.
@@ -134,7 +116,6 @@ For full details of the `permissions` key, see "[Workflow syntax for {% data var
 The permissions for the `GITHUB_TOKEN` are initially set to the default setting for the enterprise, organization, or repository. If the default is set to the restricted permissions at any of these levels then this will apply to the relevant repositories. For example, if you choose the restricted default at the organization level then all repositories in that organization will use the restricted permissions as the default. The permissions are then adjusted based on any configuration within the workflow file, first at the workflow level and then at the job level. Finally, if the workflow was triggered by a pull request from a forked repository, and the **Send write tokens to workflows from pull requests** setting is not selected, the permissions are adjusted to change any write permissions to read only.
 
 ### Granting additional permissions
-{% endif %}
 
 If you need a token that requires permissions that aren't available in the `GITHUB_TOKEN`, you can create a personal access token and set it as a secret in your repository:
 

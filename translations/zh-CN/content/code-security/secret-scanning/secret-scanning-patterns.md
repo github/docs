@@ -44,7 +44,7 @@ When {% data variables.product.prodname_secret_scanning_GHAS %} is enabled, {% d
 
 If you use the REST API for secret scanning, you can use the `Secret type` to report on secrets from specific issuers. For more information, see "[Secret scanning](/enterprise-cloud@latest/rest/secret-scanning)."
  
-{% ifversion ghes > 3.1 or ghae or ghec %}
+{% ifversion ghes or ghae or ghec %}
 {% note %}
 
 **Note:** You can also define custom {% data variables.product.prodname_secret_scanning %} patterns for your repository, organization, or enterprise. For more information, see "[Defining custom patterns for {% data variables.product.prodname_secret_scanning %}](/code-security/secret-security/defining-custom-patterns-for-secret-scanning)."

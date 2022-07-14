@@ -20,6 +20,6 @@ By default, {% data variables.product.product_name %} will maximize the number o
 - `{version: 14, os: ubuntu-latest}`
 - `{version: 14, os: windows-latest}`
 
-A matrix will generate a maximum of 256 jobs per workflow run. This limit applies to both {% data variables.product.product_name %}-hosted and self-hosted runners.
+A matrix will generate a maximum of 256 jobs per workflow run. 此限制适用于 {% data variables.product.product_name %} 托管和自托管运行器。
 
 The variables that you define become properties in the `matrix` context, and you can reference the property in other areas of your workflow file. In this example, you can use `matrix.version` and `matrix.os` to access the current value of `version` and `os` that the job is using. 更多信息请参阅“[上下文](/actions/learn-github-actions/contexts)”。

@@ -4,7 +4,7 @@ intro: You can use API previews to try out new features and provide feedback bef
 redirect_from:
   - /v3/previews
 versions:
-  ghes: '<3.4'
+  ghes: <3.4
 topics:
   - API
 ---

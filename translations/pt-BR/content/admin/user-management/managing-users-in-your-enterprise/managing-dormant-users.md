@@ -22,7 +22,7 @@ topics:
 {% data reusables.enterprise-accounts.dormant-user-release-phase %}
 {% endif %}
 
-## About dormant users
+## Sobre usuários inativos
 
 {% data reusables.enterprise-accounts.dormant-user-activity %}
 

@@ -5,7 +5,7 @@ product: '{% data reusables.gated-features.copilot %}'
 topics:
   - Copilot
 versions:
- feature: 'copilot'
+  feature: copilot
 shortTitle: JetBrains
 ---
 

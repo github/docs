@@ -31,7 +31,7 @@ Você pode configurar a autenticação de dois fatores usando um app móvel{% if
 
 {% ifversion fpt or ghec %}
 
-If you're a member of an {% data variables.product.prodname_emu_enterprise %}, you cannot configure 2FA for your {% data variables.product.prodname_managed_user %} account unless you're signed in as the setup user. For users other than the setup user, an administrator must configure 2FA on your identity provider (IdP).
+Se você for um integrante de um {% data variables.product.prodname_emu_enterprise %}, você não poderá configurar a 2FA para sua conta de {% data variables.product.prodname_managed_user %}, a menos que você esteja conectado como usuário configurado. Para usuários diferentes do usuário configurado, um administrador deve configurar a 2FA no provedor de identidade (IdP).
 
 {% endif %}
 
@@ -53,7 +53,7 @@ Um aplicativo de senhas avulsas por tempo limitado (TOTP, Time-based One-Time Pa
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.security %}
 {% data reusables.two_fa.enable-two-factor-authentication %}
-{%- ifversion fpt or ghec or ghes > 3.1 %}
+{%- ifversion fpt or ghec or ghes %}
 5. Em "Autenticação de dois fatores", selecione **Configurar usando um aplicativo** e clique em **Continuar**.
 6. Em "Verificação de autenticação", siga um dos passos abaixo:
     - Faça a leitura do código QR com o app do dispositivo móvel. Após a leitura, o app exibirá um código de seis dígitos que pode ser inserido no {% data variables.product.product_name %}.

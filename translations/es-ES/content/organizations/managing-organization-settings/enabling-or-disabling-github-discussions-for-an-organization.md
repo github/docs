@@ -7,7 +7,7 @@ versions:
   ghec: '*'
 topics:
   - Organizations
-shortTitle: Organization discussions
+shortTitle: Debates de organización
 ---
 
 ## About organization discussions

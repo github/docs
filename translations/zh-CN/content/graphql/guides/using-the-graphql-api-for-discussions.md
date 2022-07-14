@@ -3,6 +3,7 @@ title: 使用 GraphQL API for Discussions
 intro: '了解如何使用 {% data variables.product.prodname_discussions %} GraphQL API。'
 versions:
   fpt: '*'
+  ghec: '*'
 shortTitle: 使用 GraphQL 进行讨论
 ---
 

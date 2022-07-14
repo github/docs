@@ -6,6 +6,6 @@ In addition to all of the benefits of {% data variables.contact.enterprise_suppo
     - The ability to escalate ticket progression in the {% data variables.contact.enterprise_portal %}
     - A dedicated team of Incident Coordinators who orchestrate all necessary {% data variables.product.company_short %} parties to resolve urgent tickets
   - Acesso a conteúdo premium
-  - Health Checks
+  - Verificações de integridade
   - Application upgrade assistance: Before you upgrade {% data variables.product.prodname_ghe_server %}, we review your upgrade plans, playbooks, and other documentation and answer questions specific to your environment ({% data variables.product.premium_plus_support_plan %} only)
   - Technical advisory hours ({% data variables.product.premium_plus_support_plan %} only)

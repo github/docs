@@ -63,7 +63,7 @@ Para obter mais informações sobre a revisão de pull requests em {% data varia
 {% endcodespaces %}
 {% endif %}
 
-{% ifversion fpt or ghes > 3.1 or ghec %}
+{% ifversion fpt or ghes or ghec %}
 ## Revisar alterações de dependência
 
 {% data reusables.dependency-review.beta %}

@@ -20,6 +20,6 @@ This page lists endpoints that you can access while authenticated as a GitHub Ap
 
 When authenticated as a GitHub App, the GitHub Apps API enables you to get high-level information about a GitHub App as well as specific information about installations of an app.
 
-You can access REST API v3 endpoints while authenticated as a GitHub App. These endpoints have text that says "Works with GitHub Apps." You can also access these endpoints while authenticated as a user.
+You can access REST API endpoints while authenticated as a GitHub App. These endpoints have text that says "Works with GitHub Apps." You can also access these endpoints while authenticated as a user.
 
-A subset of REST API v3 endpoints requires authenticating as a GitHub App installation. See [Installations](/rest/reference/apps#installations) for a list of these endpoints.
+A subset of REST API endpoints requires authenticating as a GitHub App installation. See [Installations](/rest/reference/apps#installations) for a list of these endpoints.

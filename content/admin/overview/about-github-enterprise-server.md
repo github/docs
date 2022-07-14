@@ -1,6 +1,6 @@
 ---
 title: About GitHub Enterprise Server
-intro: "{% data variables.product.product_name %} is a software development platform that you can host in a private environment."
+intro: '{% data variables.product.product_name %} is a software development platform that you can host in a private environment.'
 versions:
   ghes: '*'
 type: overview

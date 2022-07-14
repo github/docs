@@ -1,7 +1,7 @@
 ---
 title: Acerca de las precompilaciones de los codespaces
 shortTitle: Acerca de las precompilaciones
-intro: Codespaces prebuilds help to speed up the creation of new codespaces for large or complex repositories.
+intro: Las precompilaciones de codespaces te ayudan a acelerar la creación de codespaces nuevos para repositorios grandes o complejos.
 versions:
   fpt: '*'
   ghec: '*'
@@ -12,11 +12,11 @@ product: '{% data reusables.gated-features.codespaces %}'
 
 ## Resumen
 
-Prebuilding your codespaces allows you to be more productive and access your codespace faster, particularly if your repository is large or complex and new codespaces currently take more than 2 minutes to start. Esto es porque cualquier código fuente, extensiones del editor, dependencias de proyecto, comandos y configuraciones ya se han descargado, instalado y aplicado antes de que crees un codespace para tu proyecto. Piensa en la precompilación como una plantilla "lista para utilizarse" para un codespace.
+El precompilar tus codespaces te permite ser más productivo y acceder a ellos más rápido, particularmente si tu repositorio es grande o complejo y los codespaces nuevos actualmente toman más de 2 minutos en iniciar. Esto es porque cualquier código fuente, extensiones del editor, dependencias de proyecto, comandos y configuraciones ya se han descargado, instalado y aplicado antes de que crees un codespace para tu proyecto. Piensa en la precompilación como una plantilla "lista para utilizarse" para un codespace.
 
 Predeterminadamente, cada que subas cambios a tu repositorio, {% data variables.product.prodname_codespaces %} utiliza {% data variables.product.prodname_actions %} para actualizar tus precompilaciones automáticamente.
 
-Cuando las precompilaciones están disponibles para una rama en particular de un repositorio y para tu región, verás la etiqueta "{% octicon "zap" aria-label="The zap icon" %} Prebuild ready" en la lista de opciones de tipo de máquina al crear un codespace. If a prebuild is still being created, you will see the "{% octicon "history" aria-label="The history icon" %} Prebuild in progress" label. Para obtener más información, consulta la sección "[Crear un codespace](/codespaces/developing-in-codespaces/creating-a-codespace#creating-a-codespace)".
+Cuando las precompilaciones están disponibles para una rama en particular de un repositorio y para tu región, verás la etiqueta "{% octicon "zap" aria-label="The zap icon" %} Prebuild ready" en la lista de opciones de tipo de máquina al crear un codespace. Si se está creando una precompilación, verás la etiqueta "{% octicon "history" aria-label="The history icon" %} Prebuild in progress". Para obtener más información, consulta la sección "[Crear un codespace](/codespaces/developing-in-codespaces/creating-a-codespace#creating-a-codespace)".
 
 ![La caja de diálogo para elegir un tipo de máquina](/assets/images/help/codespaces/choose-custom-machine-type.png)
 

@@ -1,6 +1,6 @@
 ---
 title: Acerca de la seguridad de la cadena de suministro
-intro: '{% data variables.product.product_name %} helps you secure your supply chain, from understanding the dependencies in your environment, to knowing about vulnerabilities in those dependencies{% ifversion fpt or ghec or ghes > 3.2 %}, and patching them{% endif %}.'
+intro: '{% data variables.product.product_name %} te ayuda a asegurar tu cadena de suministro, desde entender las dependencias en tu ambiente hasta conocer las vulnerabilidades en dichas dependencias{% ifversion fpt or ghec or ghes > 3.2 %} y parcharlas{% endif %}.'
 miniTocMaxHeadingLevel: 3
 shortTitle: Seguridad de la cadena de suministro
 redirect_from:
@@ -21,48 +21,42 @@ topics:
   - Repositories
 ---
 
-## About supply chain security at GitHub
+## Acerca de la seguridad de la cadena de suministro en GitHub
 
-With the accelerated use of open source, most projects depend on hundreds of open-source dependencies. This poses a security problem: what if the dependencies you're using are vulnerable? You could be putting your users at risk of a supply chain attack. One of the most important things you can do to protect your supply chain is to patch your vulnerable dependencies{% ifversion GH-advisory-db-supports-malware %} and replace any malware{% endif %}.
+Con el uso acelerado del código abierto, la mayoría de los proyectos dependen de cientos de dependencias de código abierto. Esto representa un problema de seguridad: ¿Qué pasa si las dependencias que estás utilizando son vulnerables? Podrías estár poniendo a tus usuarios en riego de un ataque a la cadena de suministro. Una de las cosas más importantes que puedes hacer para proteger a tu cadena de suministro es parchar tus dependencias vulnerables{% ifversion GH-advisory-db-supports-malware %} y reemplazar cualqueir malware{% endif %}.
 
-You add dependencies directly to your supply chain when you specify them in a manifest file or a lockfile. Dependencies can also be included transitively, that is, even if you don’t specify a particular dependency, but a dependency of yours uses it, then you’re also dependent on that dependency.
+Puedes agregar dependencias directamente a tu cadena de suministro cuando las especificas en un archivo de bloqueo o de manifiesto. Las dependencias también se pueden incluir transitoriamiente, es decir, incluso si no especificas una dependencia en particual, pero una de tus dependencias la utiliza y por lo tanto también dependes de ella.
 
 {% data variables.product.product_name %} ofrece un rango de características que te ayudan a entender las dependencias en tu ambiente{% ifversion ghes < 3.3 or ghae %} y conocer las vulnerabilidades en dichas dependencias{% endif %}{% ifversion fpt or ghec or ghes > 3.2 %}, conocer las vulnerabilidades en dichas dependencias y parcharlas{% endif %}.
 
-The supply chain features on {% data variables.product.product_name %} are:
+Las características de la cadena de suministro en {% data variables.product.product_name %} son:
 - **Gráfica de dependencias**
-{% ifversion fpt or ghec or ghes > 3.1 or ghae %}- **Dependency review**{% endif %}
+- **Revisión de dependencias**
 - **{% data variables.product.prodname_dependabot_alerts %} **
 {% ifversion fpt or ghec or ghes > 3.2 %}- **{% data variables.product.prodname_dependabot_updates %}**
   - **{% data variables.product.prodname_dependabot_security_updates %}**
   - **{% data variables.product.prodname_dependabot_version_updates %}**{% endif %}
 
-The dependency graph is central to supply chain security. The dependency graph identifies all upstream dependencies and public downstream dependents of a repository or package. You can see your repository’s dependencies and some of their properties, like vulnerability information, on the dependency graph for the repository.
+La gráfica de dependencias es central para la seguridad de la cadena de suministro. La gráfica de dependencias identifica todas las dependencias en nivel ascendente y lso dependientes en niveles descendientes públicos de un repositorio o paquete. Puedes ver las dependencias de tu repositorio y algunas de sus propiedades, como la información sobre las vulnerabilidades, en la gráfica de dependencias del repositorio.
 
-{% ifversion fpt or ghec or ghes > 3.1 or ghae %}
-Other supply chain features on {% data variables.product.prodname_dotcom %} rely on the information provided by the dependency graph.
+Otras características de la cadena de suministro en {% data variables.product.prodname_dotcom %} dependen de la información que proporciona la gráfica de dependencias.
 
-- Dependency review uses the dependency graph to identify dependency changes and help you understand the security impact of these changes when you review pull requests.
-- {% data variables.product.prodname_dependabot %} cross-references dependency data provided by the dependency graph with the list of advisories published in the {% data variables.product.prodname_advisory_database %}, scans your dependencies and generates {% data variables.product.prodname_dependabot_alerts %} when a potential vulnerability {% ifversion GH-advisory-db-supports-malware %}or malware{% endif %} is detected.
-{% ifversion fpt or ghec or ghes > 3.2 %}- {% data variables.product.prodname_dependabot_security_updates %} use the dependency graph and  {% data variables.product.prodname_dependabot_alerts %} to help you update dependencies with known vulnerabilities in your repository.
+- La revisión de dependencias utiliza la gráfica de dependencias para identificar los cambios en las dependencias y ayudarte a entender el impacto de seguridad de estos cambios cuando revisas las soliciutudes de cambios.
+- El {% data variables.product.prodname_dependabot %} hace referencias cruzadas de los datos de las dependencias que proporciona la gráfica de dependencias con la lista de asesorías publicada en la {% data variables.product.prodname_advisory_database %}, escanea tus dependencias y genera {% data variables.product.prodname_dependabot_alerts %} cuando se detecta una vulnerabilidad {% ifversion GH-advisory-db-supports-malware %}o malware{% endif %}potencial.
+{% ifversion fpt or ghec or ghes > 3.2 %}- Las {% data variables.product.prodname_dependabot_security_updates %} utilizan la gráfica de dependencias y las {% data variables.product.prodname_dependabot_alerts %} para ayudarte a actualizar las dependencias con vulnerabilidades conocidas en tu repositorio.
 
-{% data variables.product.prodname_dependabot_version_updates %} don't use the dependency graph and rely on the semantic versioning of dependencies instead. {% data variables.product.prodname_dependabot_version_updates %} help you keep your dependencies updated, even when they don’t have any vulnerabilities.
+Las {% data variables.product.prodname_dependabot_version_updates %} no utilizan la gráfica de dependencias y dependen del versionamiento semántio de las dependencias en su lugar. Las {% data variables.product.prodname_dependabot_version_updates %} te ayudan a mantener tus dependencias actualizadas, incluso cuando no tienen ninguna vulnerabilidad.
 {% endif %}
-{% endif %}
-
-{% ifversion ghes < 3.2 %}
-{% data variables.product.prodname_dependabot %} cross-references dependency data provided by the dependency graph with the list of known advisories published in the {% data variables.product.prodname_advisory_database %}, scans your dependencies and generates {% data variables.product.prodname_dependabot_alerts %} when a potential vulnerability is detected.
- {% endif %}
 
 {% ifversion fpt or ghec or ghes %}
-For best practice guides on end-to-end supply chain security including the protection of personal accounts, code, and build processes, see "[Securing your end-to-end supply chain](/code-security/supply-chain-security/end-to-end-supply-chain/end-to-end-supply-chain-overview)."
+Para encontrar una guía de mejores prácticas en la seguridad de la cadena de suministro de extremo a extremo, incluyendo la protección de cuetnas personales, código y procesos de compilación, cosulta la sección "[Asegurar tu cadena de suminsitro de extremo a extremo](/code-security/supply-chain-security/end-to-end-supply-chain/end-to-end-supply-chain-overview)".
 {% endif %}
 
-## Feature overview
+## Resumen de características
 
-### What is the dependency graph
+### ¿Qué es la gráfica de dependencias?
 
-To generate the dependency graph, {% data variables.product.company_short %} looks at a repository’s explicit dependencies declared in the manifest and lockfiles. When enabled, the dependency graph automatically parses all known package manifest files in the repository, and uses this to construct a graph with known dependency names and versions.
+Para generar la gráfica de dependencias, {% data variables.product.company_short %} toma las dependencias explícitas de un repositorio, las cuale se declaran en los archivos de bloqueo y de manifiesto. Cuando se habilita, la gráfica de dependencias analiza automáticamente todos los archivos de manifiesto de paquetes conocidos en el repositorio y los utiliza para construir una gráfica con nombres y versiones de las dependencias conocidas.
 
 - The dependency graph includes information on your _direct_ dependencies and _transitive_ dependencies.
 - The dependency graph is automatically updated when you push a commit to {% data variables.product.company_short %} that changes or adds a supported manifest or lock file to the default branch, and when anyone pushes a change to the repository of one of your dependencies.
@@ -74,7 +68,6 @@ To generate the dependency graph, {% data variables.product.company_short %} loo
 
 For more information about the dependency graph, see "[About the dependency graph](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph)."
 
-{% ifversion fpt or ghec or ghes > 3.1 or ghae %}
 ### What is dependency review
 
 Dependency review helps reviewers and contributors understand dependency changes and their security impact in every pull request.
@@ -83,8 +76,6 @@ Dependency review helps reviewers and contributors understand dependency changes
 - You can see the dependency review for a pull request by showing the rich diff on the **Files Changed** tab.
 
 Para obtener más información sobre la revisión de dependencias, consulta la sección "[Acerca de la revisión de dependencias](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review)".
-
-{% endif %}
 
 ### What is Dependabot
 
@@ -107,7 +98,7 @@ The term "{% data variables.product.prodname_dependabot %}" encompasses the foll
    - A new advisory is added to the {% data variables.product.prodname_advisory_database %}.{% else %}
    - Se sincronizan los datos de las asesorías nuevas en {% data variables.product.product_location %} cada hora desde {% data variables.product.prodname_dotcom_the_website %}. {% data reusables.security-advisory.link-browsing-advisory-db %}{% endif %}
    - The dependency graph for the repository changes.
-- {% data variables.product.prodname_dependabot_alerts %} are displayed {% ifversion fpt or ghec or ghes > 3.0 %} on the **Security** tab for the repository and{% endif %} in the repository's dependency graph. La alerta incluye {% ifversion fpt or ghec or ghes > 3.0 %}un enlace al archivo afectado en el proyecto e{% endif %}información sobre una versión corregida.
+- {% data variables.product.prodname_dependabot_alerts %} are displayed {% ifversion fpt or ghec or ghes %} on the **Security** tab for the repository and{% endif %} in the repository's dependency graph. La alerta incluye {% ifversion fpt or ghec or ghes %}un enlace al archivo afectado en el proyecto e{% endif %}información sobre una versión corregida.
 
 Para obtener más información, consulta la sección "[Acerca de{% data variables.product.prodname_dependabot_alerts %}](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-alerts-for-vulnerable-dependencies)".
 

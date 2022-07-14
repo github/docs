@@ -95,7 +95,7 @@ puts jwt
 JWT を作成後は、それを API リクエストの `Header` に設定します。
 
 ```shell
-$ curl -i -H "Authorization: Bearer YOUR_JWT" -H "Accept: application/vnd.github.v3+json" {% data variables.product.api_url_pre %}/app
+$ curl -i -H "Authorization: Bearer YOUR_JWT" -H "Accept: application/vnd.github+json" {% data variables.product.api_url_pre %}/app
 ```
 
 `YOUR_JWT` の値は置き換えてください。
@@ -126,7 +126,7 @@ $ curl -i -H "Authorization: Bearer YOUR_JWT" -H "Accept: application/vnd.github
 ```shell
 $ curl -i -X GET \
 -H "Authorization: Bearer YOUR_JWT" \
--H "Accept: application/vnd.github.v3+json" \
+-H "Accept: application/vnd.github+json" \
 {% data variables.product.api_url_pre %}/app/installations
 ```
 
@@ -137,7 +137,7 @@ $ curl -i -X GET \
 ```shell
 $ curl -i -X POST \
 -H "Authorization: Bearer YOUR_JWT" \
--H "Accept: application/vnd.github.v3+json" \
+-H "Accept: application/vnd.github+json" \
 {% data variables.product.api_url_pre %}/app/installations/:installation_id/access_tokens
 ```
 
@@ -148,7 +148,7 @@ $ curl -i -X POST \
 ```shell
 $ curl -i \
 -H "Authorization: token YOUR_INSTALLATION_ACCESS_TOKEN" \
--H "Accept: application/vnd.github.v3+json" \
+-H "Accept: application/vnd.github+json" \
 {% data variables.product.api_url_pre %}/installation/repositories
 ```
 

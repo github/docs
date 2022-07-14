@@ -31,7 +31,7 @@ You add dependencies directly to your supply chain when you specify them in a ma
 
 The supply chain features on {% data variables.product.product_name %} are:
 - **Dependency graph**
-{% ifversion fpt or ghec or ghes > 3.1 or ghae %}- **Dependency review**{% endif %}
+- **Dependency review**
 - **{% data variables.product.prodname_dependabot_alerts %} **
 {% ifversion fpt or ghec or ghes > 3.2 %}- **{% data variables.product.prodname_dependabot_updates %}**
   - **{% data variables.product.prodname_dependabot_security_updates %}**
@@ -39,7 +39,6 @@ The supply chain features on {% data variables.product.product_name %} are:
 
 The dependency graph is central to supply chain security. The dependency graph identifies all upstream dependencies and public downstream dependents of a repository or package. You can see your repository’s dependencies and some of their properties, like vulnerability information, on the dependency graph for the repository. 
 
-{% ifversion fpt or ghec or ghes > 3.1 or ghae %}
 Other supply chain features on {% data variables.product.prodname_dotcom %} rely on the information provided by the dependency graph.
 
 - Dependency review uses the dependency graph to identify dependency changes and help you understand the security impact of these changes when you review pull requests.
@@ -48,11 +47,6 @@ Other supply chain features on {% data variables.product.prodname_dotcom %} rely
 
 {% data variables.product.prodname_dependabot_version_updates %} don't use the dependency graph and rely on the semantic versioning of dependencies instead. {% data variables.product.prodname_dependabot_version_updates %} help you keep your dependencies updated, even when they don’t have any vulnerabilities.
 {% endif %}
-{% endif %}
-
-{% ifversion ghes < 3.2 %}
-{% data variables.product.prodname_dependabot %} cross-references dependency data provided by the dependency graph with the list of known advisories published in the {% data variables.product.prodname_advisory_database %}, scans your dependencies and generates {% data variables.product.prodname_dependabot_alerts %} when a potential vulnerability is detected.
- {% endif %}
 
 {% ifversion fpt or ghec or ghes %}
 For best practice guides on end-to-end supply chain security including the protection of personal accounts, code, and build processes, see "[Securing your end-to-end supply chain](/code-security/supply-chain-security/end-to-end-supply-chain/end-to-end-supply-chain-overview)."
@@ -74,7 +68,6 @@ To generate the dependency graph, {% data variables.product.company_short %} loo
 
 For more information about the dependency graph, see "[About the dependency graph](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph)."
 
-{% ifversion fpt or ghec or ghes > 3.1 or ghae %}
 ### What is dependency review
 
 Dependency review helps reviewers and contributors understand dependency changes and their security impact in every pull request. 
@@ -83,8 +76,6 @@ Dependency review helps reviewers and contributors understand dependency changes
 - You can see the dependency review for a pull request by showing the rich diff on the **Files Changed** tab.
 
 For more information about dependency review, see "[About dependency review](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review)."
-
-{% endif %}
 
 ### What is Dependabot
 
@@ -107,7 +98,7 @@ The term "{% data variables.product.prodname_dependabot %}" encompasses the foll
    - A new advisory is added to the {% data variables.product.prodname_advisory_database %}.{% else %}
    - New advisory data is synchronized to {% data variables.product.product_location %} each hour from {% data variables.product.prodname_dotcom_the_website %}. {% data reusables.security-advisory.link-browsing-advisory-db %}{% endif %}
    - The dependency graph for the repository changes. 
-- {% data variables.product.prodname_dependabot_alerts %} are displayed {% ifversion fpt or ghec or ghes > 3.0 %} on the **Security** tab for the repository and{% endif %} in the repository's dependency graph. The alert includes {% ifversion fpt or ghec or ghes > 3.0 %}a link to the affected file in the project, and {% endif %}information about a fixed version.
+- {% data variables.product.prodname_dependabot_alerts %} are displayed {% ifversion fpt or ghec or ghes %} on the **Security** tab for the repository and{% endif %} in the repository's dependency graph. The alert includes {% ifversion fpt or ghec or ghes %}a link to the affected file in the project, and {% endif %}information about a fixed version.
 
 For more information, see "[About {% data variables.product.prodname_dependabot_alerts %}](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-alerts-for-vulnerable-dependencies)."
 

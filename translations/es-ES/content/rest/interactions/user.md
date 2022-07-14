@@ -2,7 +2,7 @@
 title: User interactions
 shortTitle: Usuario
 allowTitleToDifferFromFilename: true
-intro: 'The User interactions API allows you to temporarily restrict which type of user can comment, open issues, or create pull requests on your public repositories.'
+intro: 'La API de interacciones de usuario te permite restringir temporalmente qué tipo de usuario puede comentar, abrir propuestas o crear solicitudes de cambio en tus repositorios públicos.'
 versions:
   fpt: '*'
   ghec: '*'

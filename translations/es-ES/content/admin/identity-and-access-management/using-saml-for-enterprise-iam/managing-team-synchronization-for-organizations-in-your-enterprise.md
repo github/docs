@@ -1,6 +1,6 @@
 ---
 title: Managing team synchronization for organizations in your enterprise
-intro: 'Puedes habilitar la sincronización de equipos entre un proveedor de identidad (IdP) y {% data variables.product.product_name %} para permitir que las organizaciones que pertenezcan a tu cuenta empresarial administren la membrecía de equipo a través de grupos de IdP.'
+intro: 'You can enable team synchronization between Azure AD and {% data variables.product.product_name %} to allow organizations owned by your enterprise account to manage team membership through IdP groups.'
 permissions: Enterprise owners can manage team synchronization for an enterprise account.
 versions:
   ghec: '*'
@@ -22,7 +22,7 @@ shortTitle: Administrar la sincronización de equipos
 
 ## Acerca de la sincronización de equipos para las cuentas empresariales
 
-Si utilizas Azure AD como tu IdP, puedes habilitar la sincronización de equipos para tu cuenta empresarial para permitir que los propietarios de la organización y mantenedores de equipo sincronicen equipos en las organizaciones que pertenezcan a tus cuentas empresariales con grupos de IdP.
+If you use SAML at the enterprise level with Azure AD as your IdP, you can enable team synchronization for your enterprise account to allow organization owners and team maintainers to synchronize teams in the organizations owned by your enterprise accounts with IdP groups.
 
 {% data reusables.identity-and-permissions.about-team-sync %}
 

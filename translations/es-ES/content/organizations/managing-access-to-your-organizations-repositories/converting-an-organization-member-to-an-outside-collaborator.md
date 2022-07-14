@@ -1,6 +1,7 @@
 ---
 title: Converting an organization member to an outside collaborator
-intro: 'If a current member of your organization only needs access to certain repositories, such as consultants or temporary employees, you can convert them to an *outside collaborator*.'
+intro: 'If a current member of your organization only needs access to certain repositories, such as consultants or temporary employees, you can convert them to an outside collaborator.'
+permissions: 'Organization owners can convert an organization member to an outside collaborator.'
 redirect_from:
   - /articles/converting-an-organization-member-to-an-outside-collaborator
   - /github/setting-up-and-managing-organizations-and-teams/converting-an-organization-member-to-an-outside-collaborator
@@ -17,7 +18,9 @@ shortTitle: Convert member to collaborator
 
 ## About conversion of organization members to outside collaborators
 
-{% data reusables.organizations.owners-and-admins-can %} convert organization members into outside collaborators.
+You can convert a member of an organization to an outside collaborator. For more information about outside collaborators, see "[Adding outside collaborators to repositories in your organization](/organizations/managing-access-to-your-organizations-repositories/adding-outside-collaborators-to-repositories-in-your-organization)."
+
+{% ifversion fpt or ghec %}If the organization is owned by an enterprise, converting{% elsif ghes or ghae %}Converting{% endif %} an organization member to an outside collaborator may be restricted. For more information, see "[Enforcing repository management policies in your enterprise]({% ifversion fpt %}/enterprise-cloud@latest{% endif %}/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-inviting-{% ifversion fpt or ghec %}outside-{% endif %}collaborators-to-repositories){% ifversion ghec or ghes or ghae %}."{% elsif fpt %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% endif %}
 
 {% data reusables.organizations.outside-collaborators-use-seats %} {% data reusables.organizations.outside_collaborator_forks %}
 

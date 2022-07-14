@@ -63,7 +63,7 @@ shortTitle: 审核建议的更改
 {% endcodespaces %}
 {% endif %}
 
-{% ifversion fpt or ghes > 3.1 or ghec %}
+{% ifversion fpt or ghes or ghec %}
 ## 查看依赖项更改
 
 {% data reusables.dependency-review.beta %}

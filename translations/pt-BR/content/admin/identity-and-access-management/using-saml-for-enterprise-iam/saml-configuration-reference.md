@@ -132,6 +132,10 @@ Para impedir que uma pessoa efetue a autenticação com o seu IdP e permaneça i
 
 Para personalizar a duração da sessão, talvez você possa definir o valor do atributo `SessionNotOnOrAfter` no seu IdP. Se você definir um valor em menos de 24 horas, {% data variables.product.product_name %} poderá solicitar a autenticação das pessoas toda vez que {% data variables.product.product_name %} iniciar um redirecionamento.
 
+{% ifversion ghec %}
+To prevent authentication errors, we recommend a minimum session duration of 4 hours. For more information, see "[Troubleshooting SAML authentication](/admin/identity-and-access-management/using-saml-for-enterprise-iam/troubleshooting-saml-authentication#users-are-repeatedly-redirected-to-authenticate)."
+{% endif %}
+
 {% note %}
 
 **Atenção**:
