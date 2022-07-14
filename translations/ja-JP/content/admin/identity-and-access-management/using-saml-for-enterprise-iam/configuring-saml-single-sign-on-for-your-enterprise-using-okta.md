@@ -51,9 +51,3 @@ Alternatively, you can also configure SAML SSO using Okta for an organization th
 1. [**Save**] をクリックします。
 {% data reusables.saml.okta-view-setup-instructions %}
 1. 設定手順の情報を使用して、Enterprise アカウントの SAML を有効にします。 詳しい情報については、「[Enterprise 向けのSAML シングルサインオンを設定する](/admin/authentication/managing-identity-and-access-for-your-enterprise/configuring-saml-single-sign-on-for-your-enterprise)」を参照してください。
-
-## Okta でグループを作成する
-
-1. Okta で、Enterprise アカウントが所有する各 Organization に合わせてグループを作成します。 各グループの名前は、Organization のアカウント名 (Organization の表示名ではく) に一致する必要があります。 たとえば、Organization の URL が `https://github.com/octo-org` の場合は、グループに `octo-org` という名前をつけます。
-1. Enterprise アカウントに作成したアプリケーションを各グループに割り当てます。 {% data variables.product.prodname_dotcom %} が、ユーザごとに `groups` データをすべて受け取ります。
-1. ユーザを所属させたい Organization に基づいて、ユーザをグループに追加します。

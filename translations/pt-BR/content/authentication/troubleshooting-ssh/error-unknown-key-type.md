@@ -3,7 +3,7 @@ title: 'Erro: Tipo de chave desconhecido'
 intro: Este erro significa que o tipo de chave SSH que você usou não foi reconhecido ou não é compatível com o seu cliente SSH.
 versions:
   fpt: '*'
-  ghes: '>=3.2'
+  ghes: '*'
   ghae: '*'
   ghec: '*'
 topics:

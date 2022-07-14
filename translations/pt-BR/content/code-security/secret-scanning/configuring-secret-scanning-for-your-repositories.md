@@ -71,4 +71,4 @@ Você também pode ignorar alertas individuais de {% data variables.product.prod
 ## Leia mais
 
 - "[Gerenciando configurações de segurança e análise para sua organização](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)"
-{% ifversion fpt or ghes > 3.1 or ghae or ghec %}- "[Definir padrões personalizados para {% data variables.product.prodname_secret_scanning %}](/code-security/secret-security/defining-custom-patterns-for-secret-scanning)"{% endif %}
+- "[Defining custom patterns for {% data variables.product.prodname_secret_scanning %}](/code-security/secret-security/defining-custom-patterns-for-secret-scanning)"

@@ -2,7 +2,7 @@
 
 {% note %}
 
-**Note**: The workflow will also receive the inputs in the `github.event.inputs` context. The information in the `inputs` context and `github.event.inputs` context is identical except that the `inputs` context preserves Boolean values as Booleans instead of converting them to strings.
+**Observação**: O fluxo de trabalho também receberá as entradas no contexto `github.event.inputs`. A informação no contexto `entradas` e `github.event.inputs` é idêntica, exceto que o contexto `entrada` preserva valores booleanos como booleanos em vez de convertê-los em strings.
 
 {% endnote %}
 {% endif %}

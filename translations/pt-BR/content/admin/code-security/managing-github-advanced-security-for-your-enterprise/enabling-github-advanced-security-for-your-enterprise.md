@@ -57,8 +57,8 @@ Para obter orientação sobre uma implantação em fases da segurança avançada
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% data reusables.enterprise_management_console.advanced-security-tab %}{% ifversion ghes %}
-1. Em "{% ifversion ghes < 3.2 %}{% data variables.product.prodname_advanced_security %}{% else %}Security{% endif %}", selecione as funcionalidades que você deseja habilitar e desmarque todos os recursos que deseja desabilitar.
-{% ifversion ghes > 3.1 %}![Checkbox to enable or disable {% data variables.product.prodname_advanced_security %} features](/assets/images/enterprise/3.2/management-console/enable-security-checkboxes.png){% else %}![Checkbox to enable or disable {% data variables.product.prodname_advanced_security %} features](/assets/images/enterprise/management-console/enable-advanced-security-checkboxes.png){% endif %}{% else %}
+1. Em "Segurança", selecione as funcionalidades que você deseja habilitar e desmarque todas as funcionalidades que deseja desabilitar.
+{% ifversion ghes %}![Checkbox to enable or disable {% data variables.product.prodname_advanced_security %} features](/assets/images/enterprise/3.2/management-console/enable-security-checkboxes.png){% else %}![Checkbox to enable or disable {% data variables.product.prodname_advanced_security %} features](/assets/images/enterprise/management-console/enable-advanced-security-checkboxes.png){% endif %}{% else %}
 1. Em "{% data variables.product.prodname_advanced_security %}," clique em **{% data variables.product.prodname_code_scanning_capc %}**. ![Checkbox to enable or disable {% data variables.product.prodname_code_scanning %}](/assets/images/enterprise/management-console/enable-code-scanning-checkbox.png){% endif %}
 {% data reusables.enterprise_management_console.save-settings %}
 
@@ -82,8 +82,8 @@ Por exemplo, você pode habilitar qualquer recurso de {% data variables.product.
     ```shell
     ghe-config app.secret-scanning.enabled true
     ```
-    - Para habilitar o gráfico de dependência, digite o comando a seguir{% ifversion ghes > 3.1 %}{% else %}comandos{% endif %}.
-    {% ifversion ghes > 3.1 %}```shell
+    - Para habilitar o gráfico de dependência, digite o comando a seguir{% ifversion ghes %}{% else %}comandos{% endif %}.
+    {% ifversion ghes %}```shell
     ghe-config app.dependency-graph.enabled true
     ```
     {% else %}```shell
@@ -101,8 +101,8 @@ Por exemplo, você pode habilitar qualquer recurso de {% data variables.product.
     ```shell
     ghe-config app.secret-scanning.enabled false
     ```
-    - Para desabilitar o gráfico de dependência, insira o seguinte {% ifversion ghes > 3.1 %}comando{% else %}comando{% endif %}.
-    {% ifversion ghes > 3.1 %}```shell
+    - Para desabilitar o gráfico de dependência, insira o seguinte {% ifversion ghes %}comando{% else %}comando{% endif %}.
+    {% ifversion ghes %}```shell
     ghe-config app.dependency-graph.enabled false
     ```
     {% else %}```shell

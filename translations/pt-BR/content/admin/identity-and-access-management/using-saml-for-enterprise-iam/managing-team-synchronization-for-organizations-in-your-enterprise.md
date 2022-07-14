@@ -1,6 +1,6 @@
 ---
 title: Gerenciando a sincronização de equipes para organizações da sua empresa
-intro: 'É possível habilitar a sincronização de equipes entre um provedor de identidade (IdP) e {% data variables.product.product_name %} para permitir que organizações pertencentes à sua conta corporativa gerenciem a associação de equipes por meio de grupos IdP.'
+intro: 'Você pode habilitar a sincronização de equipe entre o Azure AD e {% data variables.product.product_name %} para permitir que as organizações pertencentes à sua conta corporativa gerenciem a associação da equipe por meio de grupos de IdP.'
 permissions: Enterprise owners can manage team synchronization for an enterprise account.
 versions:
   ghec: '*'
@@ -22,7 +22,7 @@ shortTitle: Gerenciar sincronização de equipe
 
 ## Sobre a sincronização de equipes para contas corporativas
 
-Se você usar o Azure AD como seu IdP, você pode habilitar a sincronização de equipes para sua conta corporativa para permitir que os proprietários da organização e mantenedores de equipe sincronizem as equipes nas organizações pertencentes às contas corporativas com os grupos de IdP.
+Se você usar o SAML no nível corporativo com o Azure AD como seu IdP, você poderá habilitar a sincronização de equipes para sua conta corporativa para permitir que os proprietários da organização e mantenedores de equipe sincronizem as equipes nas organizações pertencentes às contas corporativas com os grupos de IdP.
 
 {% data reusables.identity-and-permissions.about-team-sync %}
 

@@ -126,7 +126,6 @@ includeGuides:
   - /admin/monitoring-activity-in-your-enterprise/exploring-user-activity/log-forwarding
   - /admin/monitoring-activity-in-your-enterprise/exploring-user-activity/managing-global-webhooks
   - /admin/user-management/managing-organizations-in-your-enterprise/adding-organizations-to-your-enterprise
-  - /admin/user-management/managing-organizations-in-your-enterprise/managing-unowned-organizations-in-your-enterprise
   - /admin/user-management/managing-projects-using-jira
   - /admin/user-management/managing-users-in-your-enterprise/inviting-people-to-manage-your-enterprise
   - /admin/user-management/managing-users-in-your-enterprise/managing-support-entitlements-for-your-enterprise

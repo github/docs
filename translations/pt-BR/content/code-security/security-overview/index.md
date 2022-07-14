@@ -6,7 +6,7 @@ product: '{% data reusables.gated-features.security-center %}'
 versions:
   fpt: '*'
   ghae: '*'
-  ghes: '>3.1'
+  ghes: '*'
   ghec: '*'
 topics:
   - Security overview
