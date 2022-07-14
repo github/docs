@@ -42140,6 +42140,16 @@
                 "kind": "scalars",
                 "href": "/graphql/reference/scalars#int"
               }
+            },
+            {
+              "name": "orderBy",
+              "description": "<p>Ordering options for project v2 item field values returned from the connection.</p>",
+              "type": {
+                "name": "ProjectV2ItemFieldValueOrder",
+                "id": "projectv2itemfieldvalueorder",
+                "kind": "input-objects",
+                "href": "/graphql/reference/input-objects#projectv2itemfieldvalueorder"
+              }
             }
           ]
         },
@@ -42659,6 +42669,16 @@
                 "id": "int",
                 "kind": "scalars",
                 "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "orderBy",
+              "description": "<p>Ordering options for pull requests.</p>",
+              "type": {
+                "name": "PullRequestOrder",
+                "id": "pullrequestorder",
+                "kind": "input-objects",
+                "href": "/graphql/reference/input-objects#pullrequestorder"
               }
             }
           ]
@@ -75782,6 +75802,19 @@
       ]
     },
     {
+      "name": "ProjectV2ItemFieldValueOrderField",
+      "kind": "enums",
+      "id": "projectv2itemfieldvalueorderfield",
+      "href": "/graphql/reference/enums#projectv2itemfieldvalueorderfield",
+      "description": "<p>Properties by which project v2 item field value connections can be ordered.</p>",
+      "values": [
+        {
+          "name": "POSITION",
+          "description": "<p>Order project v2 item field values by the their position in the project.</p>"
+        }
+      ]
+    },
+    {
       "name": "ProjectV2ItemOrderField",
       "kind": "enums",
       "id": "projectv2itemorderfield",
@@ -85283,6 +85316,31 @@
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
+        }
+      ]
+    },
+    {
+      "name": "ProjectV2ItemFieldValueOrder",
+      "kind": "inputObjects",
+      "id": "projectv2itemfieldvalueorder",
+      "href": "/graphql/reference/input-objects#projectv2itemfieldvalueorder",
+      "description": "<p>Ordering options for project v2 item field value connections.</p>",
+      "inputFields": [
+        {
+          "name": "direction",
+          "description": "<p>The ordering direction.</p>",
+          "type": "OrderDirection!",
+          "id": "orderdirection",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#orderdirection"
+        },
+        {
+          "name": "field",
+          "description": "<p>The field to order the project v2 item field values by.</p>",
+          "type": "ProjectV2ItemFieldValueOrderField!",
+          "id": "projectv2itemfieldvalueorderfield",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#projectv2itemfieldvalueorderfield"
         }
       ]
     },
