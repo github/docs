@@ -1,26 +1,28 @@
 import { createContext, useContext } from 'react'
 import type { MiniTocItem } from 'components/context/ArticleContext'
 
-export type RestContextT = {
+export type AutomatedPageContextT = {
   title: string
   intro: string
   renderedPage: string | JSX.Element[]
   miniTocItems: Array<MiniTocItem>
 }
 
-export const RestContext = createContext<RestContextT | null>(null)
+export const AutomatedPageContext = createContext<AutomatedPageContextT | null>(null)
 
-export const useRestContext = (): RestContextT => {
-  const context = useContext(RestContext)
+export const useAutomatedPageContext = (): AutomatedPageContextT => {
+  const context = useContext(AutomatedPageContext)
 
   if (!context) {
-    throw new Error('"useRestContext" may only be used inside "RestContext.Provider"')
+    throw new Error(
+      '"useAutomatedPageContext" may only be used inside "AutomatedPageContext.Provider"'
+    )
   }
 
   return context
 }
 
-export const getRestContextFromRequest = (req: any): RestContextT => {
+export const getAutomatedPageContextFromRequest = (req: any): AutomatedPageContextT => {
   const page = req.context.page
 
   return {

@@ -5,10 +5,10 @@ import { Operation } from 'components/rest/types'
 import { RestReferencePage } from 'components/rest/RestReferencePage'
 import { getMainContext, MainContext, MainContextT } from 'components/context/MainContext'
 import {
-  RestContext,
-  RestContextT,
-  getRestContextFromRequest,
-} from 'components/context/RestContext'
+  AutomatedPageContext,
+  AutomatedPageContextT,
+  getAutomatedPageContextFromRequest,
+} from 'components/context/AutomatedPageContext'
 import type { MiniTocItem } from 'components/context/ArticleContext'
 import {
   getTocLandingContextFromRequest,
@@ -25,13 +25,13 @@ type MinitocItemsT = {
 type Props = {
   mainContext: MainContextT
   tocLandingContext: TocLandingContextT
-  restContext: RestContextT
+  automatedPageContext: AutomatedPageContextT
   restOperations: Operation[]
 }
 
 export default function Category({
   mainContext,
-  restContext,
+  automatedPageContext,
   tocLandingContext,
   restOperations,
 }: Props) {
@@ -39,7 +39,7 @@ export default function Category({
 
   return (
     <MainContext.Provider value={mainContext}>
-      <RestContext.Provider value={restContext}>
+      <AutomatedPageContext.Provider value={automatedPageContext}>
         {/* When the page is the rest product landing page, we don't want to
         render the rest-specific sidebar because toggling open the categories
         won't have the minitoc items at that level. These are pages that have
@@ -51,7 +51,7 @@ export default function Category({
         ) : (
           <RestReferencePage restOperations={restOperations} />
         )}
-      </RestContext.Provider>
+      </AutomatedPageContext.Provider>
     </MainContext.Provider>
   )
 }
@@ -165,7 +165,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
   // Gets the miniTocItems in the article context. At this point it will only
   // include miniTocItems generated from the Markdown pages in
   // content/rest/*
-  const { miniTocItems } = getRestContextFromRequest(req)
+  const { miniTocItems } = getAutomatedPageContextFromRequest(req)
 
   // When operations exist, update the miniTocItems in the article context
   // with the list of operations in the OpenAPI.
@@ -194,7 +194,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
     props: {
       restOperations,
       mainContext: getMainContext(req, res),
-      restContext: getRestContextFromRequest(req),
+      automatedPageContext: getAutomatedPageContextFromRequest(req),
       tocLandingContext,
     },
   }
