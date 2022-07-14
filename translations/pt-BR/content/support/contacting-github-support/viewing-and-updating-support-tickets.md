@@ -14,30 +14,30 @@ topics:
 
 {% data reusables.support.zendesk-old-tickets %}
 
-Você pode usar o [Portal de Suporte do GitHub](https://support.github.com/) para visualizar os tíquetes atuais e anteriores e responder a {% data variables.contact.github_support %}. After 120 days, resolved tickets are archived{% ifversion ghec or ghes or ghae %}, and archived tickets can only be viewed for enterprise accounts{% endif %}.
+Você pode usar o [Portal de Suporte do GitHub](https://support.github.com/) para visualizar os tíquetes atuais e anteriores e responder a {% data variables.contact.github_support %}. Após 120 dias, os tíquetes resolvidos são arquivados{% ifversion ghec or ghes or ghae %}, e os tíquetes arquivados só podem ser visualizados para contas corporativas{% endif %}.
 
 {% ifversion ghes or ghec %}
 {% data reusables.enterprise-accounts.support-entitlements %}
 {% endif %}
 
-## Viewing your recent support tickets
+## Visualizando seus tíquetes de suporte recentes
 
 {% data reusables.support.view-open-tickets %}
 1. Na caixa de texto, você pode ler o histórico de comentários. A resposta mais recente está na parte superior. ![Captura de tela do histórico de comentários do tíquete com a resposta mais recente na parte superior.](/assets/images/help/support/support-recent-response.png)
 
 {% ifversion ghec or ghes or ghae %}
 
-## Viewing your archived support tickets
+## Visualizando seus tíquetes de suporte arquivados
 
-You can only view archived tickets for an enterprise account.
+Você só pode ver tíquetes arquivados para uma conta corporativa.
 
 {% data reusables.support.navigate-to-my-tickets %}
-1. Select the **My Tickets** drop-down menu and click the name of the enterprise account.
+1. Selecione o menu suspenso **Meus Tíquetes** e clique no nome da conta corporativa.
 
 {% indented_data_reference reusables.support.entitlements-note spaces=3 %}
 
-   ![Screenshot of the "My Tickets" dropdown menu.](/assets/images/help/support/ticket-context.png)
-1. Under the "My tickets" table, click **View archived tickets**.
+   ![Captura de tela do menu suspenso "Meus Tickets".](/assets/images/help/support/ticket-context.png)
+1. Na tabela "Meus tíquetes", clique em **Ver tíquetes arquivados**.
 
 {% endif %}
 

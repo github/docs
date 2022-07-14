@@ -76,7 +76,7 @@ jobs:
       matrix:
         language: [java]
 
-    # Specify the container in which actions will run
+    # アクションが実行されるコンテナを指定
     container:
       image: codeql-container:f0f91db
 

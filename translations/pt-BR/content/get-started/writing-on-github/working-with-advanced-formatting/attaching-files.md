@@ -18,7 +18,7 @@ topics:
 
 {% warning %}
 
-**Aviso:** Se você adicionar uma imagem{% ifversion fpt or ghes > 3.1 or ghae or ghec %} ou vídeo{% endif %} a um comentário de pull request ou problema, qualquer um poderá ver a URL anônima sem autenticação, mesmo se o pull request estiver em um repositório privado{% ifversion ghes %} ou se o modo privado estiver habilitado{% endif %}. Para manter arquivos de mídia confidenciais privados, forneça-os a partir de uma rede privada ou servidor que exige autenticação. {% ifversion fpt or ghec %}Para mais informações sobre URLs anônimas, consulte "[Sobre URLs anônimas](/github/authenticating-to-github/about-anonymized-urls)".{% endif %}
+**Warning:** If you add an image or video to a pull request or issue comment, anyone can view the anonymized URL without authentication, even if the pull request is in a private repository{% ifversion ghes %}, or if private mode is enabled{% endif %}. Para manter arquivos de mídia confidenciais privados, forneça-os a partir de uma rede privada ou servidor que exige autenticação. {% ifversion fpt or ghec %}Para mais informações sobre URLs anônimas, consulte "[Sobre URLs anônimas](/github/authenticating-to-github/about-anonymized-urls)".{% endif %}
 
 {% endwarning %}
 
@@ -35,7 +35,7 @@ Para anexar um arquivo a uma conversa sobre um problema ou pull request, arraste
 O tamanho máximo do arquivo é:
 - 10MB para imagens e gifs{% ifversion fpt or ghec %}
 - 10MB para vídeos enviados para um repositório pertencentes a um usuário ou organização em um plano grátis do GitHub
-- 100MB para vídeos enviados para um repositório pertencente a um usuário ou organização em um plano pago do GitHub{% elsif fpt or ghes > 3.1 or ghae %}
+- 100MB para vídeos enviados para um repositório pertencente a um usuário ou organização em um plano pago do GitHub{% elsif ghes or ghae %}
 - 100MB para vídeos{% endif %}
 - 25MB para todos os outros arquivos
 
@@ -51,7 +51,7 @@ Arquivos compatíveis:
 * Documentos do Microsoft Word (*.docx*), Powerpoint (*.pptx*), e Excel (*.xlsx*)
 * Arquivos de texto (*.txt*)
 * PDFs (*.pdf*)
-* ZIP (*.zip*, *.gz*){% ifversion fpt or ghes > 3.1 or ghae or ghec %}
+* ZIP (*.zip*, *.gz*)
 * Vídeo (*.mp4*, *.mov*)
 
 {% note %}
@@ -59,6 +59,5 @@ Arquivos compatíveis:
 **Observação:** A compatibilidade do codec de vídeo é específica do navegador, e é possível que um vídeo que você suba para um navegador não possa ser visualizado em outro navegador. No momento, recomendamos o uso do h.264 para maior compatibilidade.
 
 {% endnote %}
-{% endif %}
 
 ![Anexos GIF animados](/assets/images/help/pull_requests/dragging_images.gif)
