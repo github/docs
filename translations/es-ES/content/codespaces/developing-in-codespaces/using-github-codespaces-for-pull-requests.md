@@ -1,7 +1,7 @@
 ---
-title: Utilizar los Codespaces para solicitudes de cambios
+title: Using GitHub Codespaces for pull requests
 shortTitle: Solicitudes de cambios
-intro: 'Puedes utilizar los {% data variables.product.prodname_codespaces %} en tu flujo de trabajo de desarrollo para crear las solicitudes de cambios, revisar solicitudes de cambios y dirigir comentarios de revisión.'
+intro: 'Puedes utilizar los {% data variables.product.prodname_github_codespaces %} en tu flujo de trabajo de desarrollo para crear las solicitudes de cambios, revisar solicitudes de cambios y dirigir comentarios de revisión.'
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
@@ -11,11 +11,13 @@ topics:
   - Codespaces
   - Visual Studio Code
   - Developer
+redirect_from:
+  - /codespaces/developing-in-codespaces/using-codespaces-for-pull-requests
 ---
 
-## Acerca de las solicitudes de extracción en {% data variables.product.prodname_codespaces %}
+## Acerca de las solicitudes de extracción en {% data variables.product.prodname_github_codespaces %}
 
-{% data variables.product.prodname_codespaces %} te proporciona muchas de las capacidades que podrías necesitar para trabajar con las solicitudes de cambios:
+{% data variables.product.prodname_github_codespaces %} te proporciona muchas de las capacidades que podrías necesitar para trabajar con las solicitudes de cambios:
 
 - [Crear una solicitud de cambios](/codespaces/developing-in-codespaces/using-source-control-in-your-codespace#raising-a-pull-request) - Si utilizas ya sea la Terminal y los comandos de Git o la vista de Control de Código Fuente, puedes crear solicitudes de cambios tal como lo harías en {% data variables.product.prodname_dotcom_the_website %}. Si el repositorio utiliza una plantilla de solicitud de cambios, podrás utilizarla dentro de la vista de Control de Código Fuente.
 - [Abre una solicitud de cambios](#opening-a-pull-request-in-codespaces) – Puedes abrir una solicitud de cambios existente en un codespace, tomando en cuenta que tengas acceso al codespace de la rama que se está fusionando.

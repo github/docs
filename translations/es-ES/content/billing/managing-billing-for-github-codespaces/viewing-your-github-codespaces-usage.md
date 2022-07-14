@@ -1,8 +1,8 @@
 ---
-title: Ver el uso de tus Codespaces
+title: Viewing your GitHub Codespaces usage
 shortTitle: Ver tu uso
-intro: 'Puedes ver los minutos de cálculo y almacenamiento que utilizan los {% data variables.product.prodname_codespaces %}.'
-permissions: 'To manage billing for Codespaces for an organization, you must be an organization owner or a billing manager.'
+intro: 'Puedes ver los minutos de cálculo y almacenamiento que utilizan los {% data variables.product.prodname_github_codespaces %}.'
+permissions: 'To manage billing for {% data variables.product.prodname_github_codespaces %} for an organization, you must be an organization owner or a billing manager.'
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
@@ -11,11 +11,13 @@ type: overview
 topics:
   - Codespaces
   - Billing
+redirect_from:
+  - /billing/managing-billing-for-github-codespaces/viewing-your-codespaces-usage
 ---
 
-## Visualizar el uso de {% data variables.product.prodname_codespaces %} para tu organización
+## Visualizar el uso de {% data variables.product.prodname_github_codespaces %} para tu organización
 
-Los propietarios de la organización y gerentes de facturación pueden ver el uso de {% data variables.product.prodname_codespaces %} para una organización. Para las organizaciones que administra una cuenta empresarial, los propietarios de estas pueden ver el uso de los {% data variables.product.prodname_codespaces %} en la página de facturación de la misma y los administradores empresariales pueden ver el uso de toda la empresa.
+Los propietarios de la organización y gerentes de facturación pueden ver el uso de {% data variables.product.prodname_github_codespaces %} para una organización. Para las organizaciones que administra una cuenta empresarial, los propietarios de estas pueden ver el uso de los {% data variables.product.prodname_codespaces %} en la página de facturación de la misma y los administradores empresariales pueden ver el uso de toda la empresa.
 
 {% data reusables.organizations.billing-settings %}
 {% data reusables.dotcom_billing.codespaces-minutes %}

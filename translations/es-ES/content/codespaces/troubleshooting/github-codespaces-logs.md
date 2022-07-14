@@ -1,6 +1,6 @@
 ---
-title: Bitácoras de los codespaces
-intro: 'Resumen de las ubicaciones de inicio de sesión que utiliza {% data variables.product.prodname_codespaces %}.'
+title: GitHub Codespaces logs
+intro: 'Resumen de las ubicaciones de inicio de sesión que utiliza {% data variables.product.prodname_github_codespaces %}.'
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
@@ -10,10 +10,12 @@ topics:
   - Codespaces
   - Logging
 shortTitle: Bitácoras de los codespaces
+redirect_from:
+  - /codespaces/troubleshooting/codespaces-logs
 ---
 
 
-La información de {% data variables.product.prodname_codespaces %} se emite en tres bitácoras diferentes:
+La información de {% data variables.product.prodname_github_codespaces %} se emite en tres bitácoras diferentes:
 
 - Bitácoras de Codespace
 - Bitácoras de creación

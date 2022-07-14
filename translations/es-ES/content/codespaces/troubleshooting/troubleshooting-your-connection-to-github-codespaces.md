@@ -1,6 +1,6 @@
 ---
-title: Resolver problemas de tu conexión a Codespaces
-intro: 'Ayuda para resolver problemas para conectarse a {% data variables.product.prodname_codespaces %}.'
+title: Troubleshooting your connection to GitHub Codespaces
+intro: 'Ayuda para resolver problemas para conectarse a {% data variables.product.prodname_github_codespaces %}.'
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
@@ -9,6 +9,8 @@ type: reference
 topics:
   - Codespaces
 shortTitle: Conexión
+redirect_from:
+  - /codespaces/troubleshooting/troubleshooting-your-connection-to-codespaces
 ---
 
 ## 503 codespace service unavailable
@@ -35,7 +37,7 @@ Si no puedes conectarte a un codespace desde la versión de escritorio de {% dat
 
 1. Verifica que tengas instalada la última versión de {% data variables.product.prodname_github_codespaces %}. La extensión es un lanzamiento de vista previa y se lanzan actualizaciones frecuentemente.
    1. En {% data variables.product.prodname_vscode %}, muestra la pestaña de "Extensiones".
-   2. Selecciona la extensión de {% data variables.product.prodname_github_codespaces %} para mostrar la página de resumen de extensiones.
+   2. Selecciona la extensión de {% data variables.product.prodname_codespaces %} para mostrar la página de resumen de extensiones.
    3. Si hay alguna actualización disponible, se mostrará un botón. Haz clic en **Actualizar a X.X.X** para actualizar a la versión más reciente.
 2. Verifica si estás utilizando la compilación estable de {% data variables.product.prodname_vscode %} o el lanzamiento de [{% data variables.product.prodname_vscode %} Insiders](https://code.visualstudio.com/insiders/) (con actualizaciones nocturnas). Si estás utilizando el lanzamiento de insiders, intenta instalar la [compilación estable](https://code.visualstudio.com/).
 3. Tu red empresarial puede estar bloqueando la conección. De ser posible, revisa cualquier registro en bitácora para ver si hay conexiones rechazadas en tu dispositivo.
@@ -44,4 +46,4 @@ Si aún no puedes conectarte, {% data reusables.codespaces.contact-support %}
 
 ### El codespace tiene problemas de latencia
 
-Si el codespace se ve particularmente lento o tiene problemas de latencia, es posible que se haya creado en una región lejos de ti. Para resolverlo, puedes [configurar manualmente tu región de {% data variables.product.prodname_github_codespaces %}](/codespaces/managing-your-codespaces/setting-your-default-region-for-codespaces).
+Si el codespace se ve particularmente lento o tiene problemas de latencia, es posible que se haya creado en una región lejos de ti. Para resolverlo, puedes [configurar manualmente tu región de {% data variables.product.prodname_codespaces %}](/codespaces/managing-your-codespaces/setting-your-default-region-for-codespaces).

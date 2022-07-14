@@ -1,5 +1,5 @@
 ---
-title: Solución de problemas del reenvío de puertos para Codespaces
+title: Troubleshooting port forwarding for GitHub Codespaces
 intro: Pasos de solución de problemas para los problemas comunes del reenvío de puertos.
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
@@ -9,9 +9,11 @@ type: reference
 topics:
   - Codespaces
 shortTitle: Reenvío de puertos
+redirect_from:
+  - /codespaces/troubleshooting/troubleshooting-port-forwarding-for-codespaces
 ---
 
-Cuando una aplicación que se ejecuta en un codespace da salida a la consola a un puerto, el {% data variables.product.prodname_codespaces %} detecta el patrón de URL del host local y reenvía el puerto automáticamente. Para obtener más información, consulta la sección "[Reenviar puertos en tu codespace](/codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace)".
+Cuando una aplicación que se ejecuta en un codespace da salida a la consola a un puerto, el {% data variables.product.prodname_github_codespaces %} detecta el patrón de URL del host local y reenvía el puerto automáticamente. Para obtener más información, consulta la sección "[Reenviar puertos en tu codespace](/codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace)".
 
 Si un puerto no se reenvía automáticamente, puedes reenviarlo manualmente. Para obtener más información, consulta la sección "[Reenviar un puerto](/codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace#forwarding-a-port)".
 

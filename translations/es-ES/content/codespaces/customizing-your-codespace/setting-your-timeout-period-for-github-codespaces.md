@@ -1,5 +1,5 @@
 ---
-title: Configurar tu periodo de inactividad para los Codespaces
+title: Setting your timeout period for GitHub Codespaces
 shortTitle: Configurar el tiempo de inactividad
 intro: 'Puedes configurar tu periodo de inactividad predeterminado para los {% data variables.product.prodname_codespaces %} en tu página de ajustes personales.'
 product: '{% data reusables.gated-features.codespaces %}'
@@ -9,6 +9,8 @@ versions:
 topics:
   - Codespaces
 type: how_to
+redirect_from:
+  - /codespaces/customizing-your-codespace/setting-your-timeout-period-for-codespaces
 ---
 
 Un codespace dejará de ejecutarse después de un periodo de inactividad. Puedes especificar la longitud de este periodo. El ajuste actualizado se aplicará a cualquier codespace recién creado.
@@ -17,7 +19,7 @@ Algunas organizaciones podrían tener una política de tiempo de inactividad má
 
 {% warning %}
 
-**Advertencia**: Los Coespaces se facturan por minuto. Si no estás utilizando un codespace activamente, pero este no ha llegado a su tiempo de inactividad, se te cobrará por el tiempo durante el cual este se ejecute de todos modos. Para obtener más información, consulta la sección "[Acerca de la facturación para los Codespaces](/billing/managing-billing-for-github-codespaces/about-billing-for-codespaces#codespaces-pricing)".
+**Advertencia**: Los Coespaces se facturan por minuto. Si no estás utilizando un codespace activamente, pero este no ha llegado a su tiempo de inactividad, se te cobrará por el tiempo durante el cual este se ejecute de todos modos. Para obtener más información, consulta la sección "[Acerca de la facturación para el {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#codespaces-pricing)".
 
 {% endwarning %}
 
