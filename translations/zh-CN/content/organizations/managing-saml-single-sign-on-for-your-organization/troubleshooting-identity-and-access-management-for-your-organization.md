@@ -1,5 +1,5 @@
 ---
-title: Troubleshooting identity and access management for your organization
+title: 组织的身份和访问管理疑难解答
 intro: 查看并解决用于管理组织的 SAML SSO、团队同步或身份提供商 (IdP) 连接的常见故障排除错误。
 versions:
   ghec: '*'
@@ -96,4 +96,4 @@ curl -X POST -H "Authorization: Bearer <personal access token>" -H "Content-Type
 
 ## 延伸阅读
 
-- "[Troubleshooting identity and access management for your enterprise](/admin/identity-and-access-management/managing-iam-for-your-enterprise/troubleshooting-identity-and-access-management-for-your-enterprise)"
+- "[企业的身份和访问权限管理疑难解答](/admin/identity-and-access-management/managing-iam-for-your-enterprise/troubleshooting-identity-and-access-management-for-your-enterprise)"

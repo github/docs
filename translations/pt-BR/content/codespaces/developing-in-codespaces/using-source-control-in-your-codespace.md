@@ -15,7 +15,7 @@ shortTitle: controle de origem
 
  
 
-## Sobre o controle de origem em {% data variables.product.prodname_codespaces %}
+## Sobre o controle de origem em {% data variables.product.prodname_github_codespaces %}
 
 Você pode executar todas as ações do Git necessárias diretamente no seu codespace. Por exemplo, é possível obter alterações do repositório remoto, alternar os branches, criar um novo branch, fazer commit, fazer push e criar um pull request. Você pode usar o terminal integrado dentro do seu codespace para inserir nos comandos do Git, ou você pode clicar em ícones e opções de menu para realizar todas as tarefas mais comuns do Git. Este guia explica como usar a interface gráfica de usuário para controle de origem.
 

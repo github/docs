@@ -1,6 +1,6 @@
-### Custom media types
+### 自定义媒体类型
 
-These are the supported media types for this API:
+以下是此 API 支持的媒体类型：
 
     application/vnd.github.VERSION.raw+json
     application/vnd.github.VERSION.text+json

@@ -1,8 +1,8 @@
 ## 创建示例工作流程
 
-{% data variables.product.prodname_actions %} 使用 YAML 语法来定义工作流程。  Each workflow is stored as a separate YAML file in your code repository, in a directory named `.github/workflows`.
+{% data variables.product.prodname_actions %} 使用 YAML 语法来定义工作流程。  每个工作流程都作为单独的 YAML 文件存储在代码存储库中的目录 `.github/workflows` 下。
 
-您可以在仓库中创建示例工作流程，只要推送代码，该工作流程就会自动触发一系列命令。 In this workflow, {% data variables.product.prodname_actions %} checks out the pushed code, installs the [bats](https://www.npmjs.com/package/bats) testing framework, and runs a basic command to output the bats version: `bats -v`.
+您可以在仓库中创建示例工作流程，只要推送代码，该工作流程就会自动触发一系列命令。 在此工作流程中，{% data variables.product.prodname_actions %} 检出推送的代码，安装 [bats](https://www.npmjs.com/package/bats) 测试框架，并运行基本命令以输出 bats 版本：`bats -v`。
 
 1. 在您的仓库中，创建 `.github/workflows/` 目录来存储工作流程文件。
 1. 在 `.github/workflows/` 目录中，创建一个名为 `learn-github-actions.yml` 的新文件并添加以下代码。
@@ -23,7 +23,7 @@
    ```
 1. 提交这些更改并将其推送到您的 {% data variables.product.prodname_dotcom %} 仓库。
 
-您的新 {% data variables.product.prodname_actions %} 工作流程文件现在安装在您的仓库中，每次有人推送更改到仓库时都会自动运行。 To see the details about a workflow's execution history, see "[Viewing the activity for a workflow run](#viewing-the-activity-for-a-workflow-run)."
+您的新 {% data variables.product.prodname_actions %} 工作流程文件现在安装在您的仓库中，每次有人推送更改到仓库时都会自动运行。 要查看有关工作流程执行历史记录的详细信息，请参阅[查看工作流程运行的活动](#viewing-the-activity-for-a-workflow-run)”。
 
 ## 了解工作流程文件
 
@@ -49,7 +49,7 @@
   ```
 </td>
 <td>
-指定此工作流程的触发器。 此示例使用<code>推送</code>事件，因此每次有人将更改推送到存储库或合并拉取请求时，都会触发工作流程运行。  This is triggered by a push to every branch; for examples of syntax that runs only on pushes to specific branches, paths, or tags, see "<a href="/actions/reference/workflow-syntax-for-github-actions#onpushpull_requestpull_request_targetpathspaths-ignore">Workflow syntax for {% data variables.product.prodname_actions %}</a>."
+指定此工作流程的触发器。 此示例使用<code>推送</code>事件，因此每次有人将更改推送到存储库或合并拉取请求时，都会触发工作流程运行。  这是由推送到每个分支触发的；有关仅在推送到特定分支、路径或标记时运行的语法示例，请参阅“<a href="/actions/reference/workflow-syntax-for-github-actions#onpushpull_requestpull_request_targetpathspaths-ignore">{% data variables.product.prodname_actions %} 的工作流程语法”</a>。
 </td>
 </tr>
 <tr>
@@ -82,7 +82,7 @@
   ```
 </td>
 <td>
-  将作业配置为在最新版本的 Ubuntu Linux 运行器上运行。 这意味着该作业将在 GitHub 托管的新虚拟机上执行。 For syntax examples using other runners, see "<a href="/actions/reference/workflow-syntax-for-github-actions#jobsjob_idruns-on">Workflow syntax for {% data variables.product.prodname_actions %}</a>."
+  将作业配置为在最新版本的 Ubuntu Linux 运行器上运行。 这意味着该作业将在 GitHub 托管的新虚拟机上执行。 有关使用其他运行器的语法示例，请参阅<a href="/actions/reference/workflow-syntax-for-github-actions#jobsjob_idruns-on">“{% data variables.product.prodname_actions %} 的工作流程语法</a>”。
 </td>
 </tr>
 <tr>

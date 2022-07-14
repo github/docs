@@ -10,14 +10,14 @@ sections:
     - 扩展名为“.backup”的旋转日志文件将累积在包含系统日志的目录中。
     - 在某些群集拓扑中，命令行实用程序“ghe-spokesctl”和“ghe-btop”无法运行。
     - Elasticsearch 索引可能会在包升级期间复制，因为“elasticsearch-upgrade”服务并行运行多次。
-    - In the pull request and commit views, rich diffs would fail to load for some files tracked by Git LFS.
+    - 在拉取请求和提交视图中，对于 Git LFS 跟踪的某些文件，将无法加载多差异。
     - 将用户帐户转换为组织时，如果用户帐户是 {% data variables.product.prodname_ghe_server %} 企业帐户的所有者，则转换后的组织将错误地显示在企业所有者列表中。
     - 当已存在与 OAuth 应用程序 ID 匹配的集成时，使用企业管理 REST API 创建模拟 OAuth 令牌会导致错误。
-    - The Secret Scanning REST API would return a `500` response code when there were UTF8 characters present in a detected secret.
+    - 当检测到的密钥中存在 UTF8 字符时，机密扫描 REST API 将返回“500”响应代码。
     - 存储库缓存服务器可以从非缓存位置提供数据，即使数据在本地缓存位置中可用也是如此。
   changes:
     - 现在，除了配置日志之外，停止配置应用运行的配置错误也会输出到终端。
-    - When attempting to cache a value larger than the maximum allowed in Memcached, an error was raised however the key was not reported.
+    - 尝试缓存大于 Memcached 中允许的最大值的值时，会引发错误，但未报告密钥。
     - 如果您的实例上启用了 {% data variables.product.prodname_GH_advanced_security %} 功能，则在处理存储库贡献的批处理时，后台作业的性能已得到提高。
   known_issues:
     - 升级到 {% data variables.product.prodname_ghe_server %} 3.3 后，{% data variables.product.prodname_actions %} 可能无法自动启动。要解决此问题，请通过 SSH 连接到设备并运行“ghe-actions-start”命令。

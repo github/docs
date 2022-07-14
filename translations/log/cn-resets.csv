@@ -176,17 +176,16 @@ translations/zh-CN/content/code-security/supply-chain-security/understanding-you
 translations/zh-CN/content/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph.md,Listed in localization-support#489
 translations/zh-CN/content/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph.md,broken liquid tags
 translations/zh-CN/content/code-security/supply-chain-security/understanding-your-software-supply-chain/troubleshooting-the-dependency-graph.md,broken liquid tags
-translations/zh-CN/content/codespaces/codespaces-reference/using-github-copilot-in-codespaces.md,broken liquid tags
 translations/zh-CN/content/codespaces/customizing-your-codespace/changing-the-machine-type-for-your-codespace.md,broken liquid tags
-translations/zh-CN/content/codespaces/customizing-your-codespace/personalizing-codespaces-for-your-account.md,broken liquid tags
-translations/zh-CN/content/codespaces/customizing-your-codespace/setting-your-default-editor-for-codespaces.md,broken liquid tags
+translations/zh-CN/content/codespaces/customizing-your-codespace/personalizing-github-codespaces-for-your-account.md,broken liquid tags
+translations/zh-CN/content/codespaces/customizing-your-codespace/setting-your-default-editor-for-github-codespaces.md,broken liquid tags
 translations/zh-CN/content/codespaces/developing-in-codespaces/developing-in-a-codespace.md,broken liquid tags
 translations/zh-CN/content/codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace.md,broken liquid tags
-translations/zh-CN/content/codespaces/developing-in-codespaces/using-codespaces-in-visual-studio-code.md,broken liquid tags
-translations/zh-CN/content/codespaces/developing-in-codespaces/using-codespaces-with-github-cli.md,broken liquid tags
-translations/zh-CN/content/codespaces/managing-codespaces-for-your-organization/enabling-codespaces-for-your-organization.md,broken liquid tags
+translations/zh-CN/content/codespaces/developing-in-codespaces/using-github-codespaces-in-visual-studio-code.md,broken liquid tags
+translations/zh-CN/content/codespaces/developing-in-codespaces/using-github-codespaces-with-github-cli.md,broken liquid tags
+translations/zh-CN/content/codespaces/managing-codespaces-for-your-organization/enabling-github-codespaces-for-your-organization.md,broken liquid tags
 translations/zh-CN/content/codespaces/the-githubdev-web-based-editor.md,broken liquid tags
-translations/zh-CN/content/codespaces/troubleshooting/troubleshooting-your-connection-to-codespaces.md,broken liquid tags
+translations/zh-CN/content/codespaces/troubleshooting/troubleshooting-your-connection-to-github-codespaces.md,broken liquid tags
 translations/zh-CN/content/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam.md,broken liquid tags
 translations/zh-CN/content/copilot/configuring-github-copilot/configuring-github-copilot-in-visual-studio-code.md,broken liquid tags
 translations/zh-CN/content/copilot/configuring-github-copilot/configuring-github-copilot-in-visual-studio.md,broken liquid tags
@@ -336,6 +335,7 @@ translations/zh-CN/data/release-notes/enterprise-server/3-1/8.yml,broken liquid 
 translations/zh-CN/data/release-notes/enterprise-server/3-1/9.yml,broken liquid tags
 translations/zh-CN/data/release-notes/enterprise-server/3-2/0-rc1.yml,broken liquid tags
 translations/zh-CN/data/release-notes/enterprise-server/3-2/0.yml,broken liquid tags
+translations/zh-CN/data/release-notes/enterprise-server/3-2/12.yml,broken liquid tags
 translations/zh-CN/data/release-notes/enterprise-server/3-2/3.yml,broken liquid tags
 translations/zh-CN/data/release-notes/enterprise-server/3-3/0-rc1.yml,broken liquid tags
 translations/zh-CN/data/release-notes/enterprise-server/3-3/0.yml,broken liquid tags
@@ -380,8 +380,9 @@ translations/zh-CN/data/reusables/enterprise-licensing/you-can-sync-for-a-combin
 translations/zh-CN/data/reusables/enterprise_installation/hardware-considerations-all-platforms.md,broken liquid tags
 translations/zh-CN/data/reusables/enterprise_installation/hardware-rec-table.md,broken liquid tags
 translations/zh-CN/data/reusables/enterprise_management_console/badge_indicator.md,broken liquid tags
-translations/zh-CN/data/reusables/enterprise_user_management/consider-usernames-for-external-authentication.md,broken liquid tags
-translations/zh-CN/data/reusables/gated-features/enterprise-accounts.md,broken liquid tags
+translations/zh-CN/data/reusables/enterprise_user_management/consider-usernames-for-external-authentication.md,rendering error
+translations/zh-CN/data/reusables/gated-features/codespaces-classroom-articles.md,broken liquid tags
+translations/zh-CN/data/reusables/gated-features/enterprise-accounts.md,rendering error
 translations/zh-CN/data/reusables/gated-features/packages.md,broken liquid tags
 translations/zh-CN/data/reusables/gated-features/secret-scanning-partner.md,broken liquid tags
 translations/zh-CN/data/reusables/gated-features/secret-scanning.md,broken liquid tags
@@ -404,9 +405,9 @@ translations/zh-CN/data/reusables/pages/pages-builds-with-github-actions-public-
 translations/zh-CN/data/reusables/repositories/deleted_forks_from_private_repositories_warning.md,broken liquid tags
 translations/zh-CN/data/reusables/repositories/enable-security-alerts.md,broken liquid tags
 translations/zh-CN/data/reusables/repositories/select-marketplace-apps.md,broken liquid tags
-translations/zh-CN/data/reusables/saml/saml-session-oauth.md,broken liquid tags
+translations/zh-CN/data/reusables/saml/saml-session-oauth.md,rendering error
 translations/zh-CN/data/reusables/saml/you-must-periodically-authenticate.md,Listed in localization-support#489
-translations/zh-CN/data/reusables/saml/you-must-periodically-authenticate.md,broken liquid tags
+translations/zh-CN/data/reusables/saml/you-must-periodically-authenticate.md,rendering error
 translations/zh-CN/data/reusables/scim/after-you-configure-saml.md,broken liquid tags
 translations/zh-CN/data/reusables/secret-scanning/enterprise-enable-secret-scanning.md,broken liquid tags
 translations/zh-CN/data/reusables/secret-scanning/partner-program-link.md,broken liquid tags

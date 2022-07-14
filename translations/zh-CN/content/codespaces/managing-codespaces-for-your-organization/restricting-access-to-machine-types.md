@@ -14,7 +14,7 @@ topics:
 
 ## 概览
 
-通常，在创建代码空间时，系统会为将运行代码空间的计算机提供一系列规范。 您可以选择最适合您需求的计算机类型。 更多信息请参阅“[创建代码空间](/codespaces/developing-in-codespaces/creating-a-codespace#creating-a-codespace)”。 如果您为使用 {% data variables.product.prodname_github_codespaces %} 付费，那么您选择的计算机类型将影响您的账单金额。 有关计价的更多信息，请参阅“[关于代码空间的计费](/billing/managing-billing-for-github-codespaces/about-billing-for-codespaces)”。
+通常，在创建代码空间时，系统会为将运行代码空间的计算机提供一系列规范。 您可以选择最适合您需求的计算机类型。 更多信息请参阅“[创建代码空间](/codespaces/developing-in-codespaces/creating-a-codespace#creating-a-codespace)”。 如果您为使用 {% data variables.product.prodname_github_codespaces %} 付费，那么您选择的计算机类型将影响您的账单金额。 For more information about pricing, see "[About billing for {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces)."
 
 作为组织所有者，您可能希望对可用的计算机类型配置约束。 例如，如果组织中的工作不需要大量的计算能力或存储空间，则可以从用户可以选择的选项列表中删除资源丰富的计算机。 为此，您可以在组织的 {% data variables.product.prodname_codespaces %} 设置中定义一个或多个策略。
 
@@ -76,4 +76,4 @@ topics:
 
 ## 延伸阅读
 
-- "[管理代码空间的支出限制](/billing/managing-billing-for-github-codespaces/managing-spending-limits-for-codespaces)"
+- "[Managing spending limits for {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/managing-spending-limits-for-github-codespaces)"

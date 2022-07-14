@@ -14,7 +14,7 @@ shortTitle: 创建和删除
 ## 创建代码空间
 
 ### 没有创建代码空间的权限
-{% data variables.product.prodname_codespaces %} 并非对所有存储库都可用。 如果缺少“Open with Codespaces（使用 Codespaces 打开）”按钮，则 {% data variables.product.prodname_codespaces %} 可能不适用于该存储库。 更多信息请参阅“[创建代码空间](/codespaces/developing-in-codespaces/creating-a-codespace#access-to-codespaces)”。
+{% data variables.product.prodname_codespaces %} 并非对所有存储库都可用。 如果缺少“Open with Codespaces（使用 Codespaces 打开）”按钮，则 {% data variables.product.prodname_github_codespaces %} 可能不适用于该存储库。 更多信息请参阅“[创建代码空间](/codespaces/developing-in-codespaces/creating-a-codespace#access-to-codespaces)”。
 
 如果您认为您的组织已启用 [ {% data variables.product.prodname_codespaces %}](/codespaces/managing-codespaces-for-your-organization/enabling-codespaces-for-your-organization#about-enabling-codespaces-for-your-organization)，请确保组织所有者或帐单管理员已设置 {% data variables.product.prodname_codespaces %} 的支出限制。 更多信息请参阅“[管理 {% data variables.product.prodname_codespaces %} 的支出限制](/billing/managing-billing-for-github-codespaces/managing-spending-limits-for-codespaces)”。
 
@@ -23,7 +23,7 @@ shortTitle: 创建和删除
 如果创建了代码空间，但未打开：
 
 1. 如果出现缓存或报告问题，请尝试重新加载页面。
-2. 转到 {% data variables.product.prodname_codespaces %} 页面：https://github.com/codespaces，检查新代码空间是否在此处列出。 该过程可能已成功创建代码空间，但未向浏览器报告。 如果列出了新的代码空间，则可以直接从该页打开它。
+2. 转到 {% data variables.product.prodname_github_codespaces %} 页面：https://github.com/codespaces，检查新代码空间是否在此处列出。 该过程可能已成功创建代码空间，但未向浏览器报告。 如果列出了新的代码空间，则可以直接从该页打开它。
 3. 重试为存储库创建代码空间，以排除暂时性通信故障。
 
 如果仍然无法为其中 {% data variables.product.prodname_codespaces %} 可用的存储库创建代码空间，请 {% data reusables.codespaces.contact-support %}

@@ -34,9 +34,9 @@ O {% data variables.product.prodname_serverless %} é executado inteiramente no 
 
 Você pode abrir qualquer repositório de {% data variables.product.prodname_dotcom %} em {% data variables.product.prodname_serverless %} em qualquer uma das seguintes maneiras:
 
-- To open the repository in the same browser tab, press `.` while browsing any repository or pull request on {% data variables.product.prodname_dotcom %}.
+- Para abrir o repositório na mesma guia do navegador, pressione `.` enquanto navega em qualquer repositório ou pull request no {% data variables.product.prodname_dotcom %}.
 
-   To open the repository in a new browser tab, hold down the shift key and press `.`.
+   Para abrir o repositório em uma nova aba do navegador, mantenha pressionada a tecla shift e pressione `.`.
 
 - Alterando a URL de "github.com" para "github.dev".
 - Ao visualizar um arquivo, use o menu suspenso ao lado de {% octicon "pencil" aria-label="The edit icon" %} e selecione **Abrir no github.dev**.
@@ -45,7 +45,7 @@ Você pode abrir qualquer repositório de {% data variables.product.prodname_dot
 
 ## {% data variables.product.prodname_codespaces %} e {% data variables.product.prodname_serverless %}
 
-Tanto o {% data variables.product.prodname_serverless %} quanto o {% data variables.product.prodname_codespaces %} permitem que você edite seu código diretamente do seu repositório. No entanto, ambos têm benefícios ligeiramente diferentes, dependendo da sua utilização.
+Tanto o {% data variables.product.prodname_serverless %} quanto o {% data variables.product.prodname_github_codespaces %} permitem que você edite seu código diretamente do seu repositório. No entanto, ambos têm benefícios ligeiramente diferentes, dependendo da sua utilização.
 
 |                        | {% data variables.product.prodname_serverless %}                                                                                                                                                                     | {% data variables.product.prodname_codespaces %}
 | ---------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

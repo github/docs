@@ -1,6 +1,6 @@
 ---
 title: Permitir que seu codespace acesse um registro de imagens privadas
-intro: 'Você pode usar segredos para permitir que {% data variables.product.prodname_codespaces %} acesse um registro de imagens privada'
+intro: 'Você pode usar segredos para permitir que {% data variables.product.prodname_github_codespaces %} acesse um registro de imagens privada'
 versions:
   fpt: '*'
   ghec: '*'
@@ -10,15 +10,15 @@ product: '{% data reusables.gated-features.codespaces %}'
 shortTitle: Registro de imagem privada
 ---
 
-## Sobre registros de imagens privadas e {% data variables.product.prodname_codespaces %}
+## Sobre registros de imagens privadas e {% data variables.product.prodname_github_codespaces %}
 
 Um registro é um espaço seguro para armazenar, gerenciar e buscar imagens privadas de contêineres. Você pode usar uma para armazenar uma ou mais imagens. Existem muitos exemplos de registros, como {% data variables.product.prodname_dotcom %} registro do contêiner, registro de contêiner do Azure ou DockerHub.
 
-O registro do contêiner de {% data variables.product.prodname_dotcom %} pode ser configurado para puxar imagens container sem precisar fornecer qualquer credencial para {% data variables.product.prodname_codespaces %}. Para outros registros de imagem, você deve criar segredos em {% data variables.product.prodname_dotcom %} para armazenar os detalhes de acesso, o que permitirá que {% data variables.product.prodname_codespaces %} acesse imagens armazenadas nesse registro.
+O registro do contêiner de {% data variables.product.prodname_dotcom %} pode ser configurado para puxar imagens container sem precisar fornecer qualquer credencial para {% data variables.product.prodname_github_codespaces %}. Para outros registros de imagem, você deve criar segredos em {% data variables.product.prodname_dotcom %} para armazenar os detalhes de acesso, o que permitirá que {% data variables.product.prodname_codespaces %} acesse imagens armazenadas nesse registro.
 
 ## Acessando imagens armazenadas no registro do contêiner de {% data variables.product.prodname_dotcom %}
 
-O registro de contêiner de {% data variables.product.prodname_dotcom %} é a maneira mais fácil de {% data variables.product.prodname_github_codespaces %} de consumir imagens de contêiner de desenvolvimento.
+O registro de contêiner de {% data variables.product.prodname_dotcom %} é a maneira mais fácil de {% data variables.product.prodname_codespaces %} de consumir imagens de contêiner de desenvolvimento.
 
 Para obter mais informações, consulte "[Trabalhando com o registro do contêiner](/packages/working-with-a-github-packages-registry/working-with-the-container-registry)".
 
@@ -52,13 +52,13 @@ Recomendamos publicar imagens via {% data variables.product.prodname_actions %}.
 
 ## Acessando as imagens armazenadas em outros registros de contêiner
 
-Se você estiver acessando um contêiner a partir de um registro que não é registro de contêiner de {% data variables.product.prodname_dotcom %}, {% data variables.product.prodname_codespaces %} irá verificar a presença de três segredos, que define o nome de servidor, nome de usuário, e token de acesso pessoal (PAT) para um registro de contêiner. Se estes segredos forem encontrados, {% data variables.product.prodname_codespaces %} disponibilizará o registro dentro do seu codespace.
+Se você estiver acessando um contêiner a partir de um registro que não é registro de contêiner de {% data variables.product.prodname_dotcom %}, {% data variables.product.prodname_codespaces %} irá verificar a presença de três segredos, que define o nome de servidor, nome de usuário, e token de acesso pessoal (PAT) para um registro de contêiner. Se estes segredos forem encontrados, {% data variables.product.prodname_github_codespaces %} disponibilizará o registro dentro do seu codespace.
 
 - `<*>_CONTAINER_REGISTRY_SERVER`
 - `<*>_CONTAINER_REGISTRY_USER`
 - `<*>_CONTAINER_REGISTRY_PASSWORD`
 
-É possível armazenar segredos a nível do usuário, repositório ou organização, permitindo que você os compartilhe de forma segura entre diferentes codespaces. Ao criar um conjunto de segredos para um registro de imagem privado, você deverá substituir o "<*>" no nome por um identificador consistente. Para mais informações, consulte "[Gerenciar segredos criptografados para seus códigos](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)" e "[Gerenciar segredos criptografados para seu repositório e organização para os codespaces](/codespaces/managing-codespaces-for-your-organization/managing-encrypted-secrets-for-your-repository-and-organization-for-codespaces)".
+É possível armazenar segredos a nível do usuário, repositório ou organização, permitindo que você os compartilhe de forma segura entre diferentes codespaces. Ao criar um conjunto de segredos para um registro de imagem privado, você deverá substituir o "<*>" no nome por um identificador consistente. For more information, see "[Managing encrypted secrets for your codespaces](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)" and "[Managing encrypted secrets for your repository and organization for {% data variables.product.prodname_github_codespaces %}](/codespaces/managing-codespaces-for-your-organization/managing-encrypted-secrets-for-your-repository-and-organization-for-github-codespaces)."
 
 Se você estiver definindo os segredos no nível do usuário ou da organização. certifique-se de atribuir esses segredos para o repositório no qual você irá criar o codespace, escolhendo uma política de acesso na lista suspensa.
 

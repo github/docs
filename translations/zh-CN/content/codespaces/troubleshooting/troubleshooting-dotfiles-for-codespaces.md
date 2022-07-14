@@ -14,9 +14,9 @@ shortTitle: Dotfiles
 如果代码空间无法从 dotfiles 中选取配置设置，则应执行以下调试步骤。
 
 1. 确保您的 dotfiles 仓库是公开的。 如果您的代码空间中有密钥或敏感数据，请使用[代码空间密钥](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)，而不是私人 dotfiles。
-2. Enable dotfiles by selecting **Automatically install dotfiles** in [your personal Codespaces settings](https://github.com/settings/codespaces).
+2. 通过在[个人 Codespaces 设置](https://github.com/settings/codespaces)中选择 **Automatically install dotfiles（自动安装点文件）**来启用点文件。
 
-   ![The 'Automatically install dotfiles' option](/assets/images/help/codespaces/automatically-install-dotfiles.png)
+   ![“自动安装点文件”选项](/assets/images/help/codespaces/automatically-install-dotfiles.png)
 
 3. 检查 `/workspaces/.codespaces/.persistedshare/dotfiles`，查看您的 dotfiles 是否被克隆。
    - 如果您的 dotfiles 被克隆，请尝试手动重新运行安装脚本以验证其可执行性。

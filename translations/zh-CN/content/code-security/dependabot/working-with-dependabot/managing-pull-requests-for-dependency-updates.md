@@ -44,6 +44,10 @@ shortTitle: 管理 Dependabot PR
 
 默认情况下，{% data variables.product.prodname_dependabot %} 会自动为拉取请求变基，以解决各种冲突。 如果您喜欢手动处理合并冲突，可以使用 `rebase-strategy` 选项禁用此功能。 有关详细信息，请参阅“[dependabot.yml 文件的配置选项](/github/administering-a-repository/configuration-options-for-dependency-updates#rebase-strategy)”。
 
+## Allowing {% data variables.product.prodname_dependabot %} to rebase and force push over extra commits
+
+By default, {% data variables.product.prodname_dependabot %} will stop rebasing a pull request once extra commits have been pushed to it. To allow {% data variables.product.prodname_dependabot %} to force push over commits added to its branches, include any of the following strings: `[dependabot skip]` , `[skip dependabot]`, `[dependabot-skip]`, or `[skip-dependabot]`, in either lower or uppercase, to the commit message.
+
 ## 管理带注释命令的 {% data variables.product.prodname_dependabot %} 拉取请求
 
 {% data variables.product.prodname_dependabot %} 会响应注释中的简单命令。 每个拉取请求都在“{% data variables.product.prodname_dependabot %} 命令和选项”部分下包含您可以用来处理拉取请求的命令（例如：合并、压缩、重新打开、关闭或变基拉取请求）的详细信息。 其目的是让您尽可能轻松地将这些自动生成的拉取请求分类。

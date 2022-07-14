@@ -54,11 +54,11 @@ Antes de enviar a revisão, os comentários em linha ficam com status _pendente_
 
 {% codespaces %}
 
-Você pode usar [{% data variables.product.prodname_codespaces %}](/codespaces/overview) para testar, executar e revisar pull requests.
+Você pode usar [{% data variables.product.prodname_github_codespaces %}](/codespaces/overview) para testar, executar e revisar pull requests.
 
 {% data reusables.codespaces.review-pr %}
 
-Para obter mais informações sobre a revisão de pull requests em {% data variables.product.prodname_codespaces %}, consulte "[Usando codespaces para pull requests](/codespaces/developing-in-codespaces/using-codespaces-for-pull-requests)"
+For more information on reviewing pull requests in {% data variables.product.prodname_codespaces %}, see "[Using {% data variables.product.prodname_github_codespaces %} for pull requests](/codespaces/developing-in-codespaces/using-github-codespaces-for-pull-requests)."
 
 {% endcodespaces %}
 {% endif %}

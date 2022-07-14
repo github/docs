@@ -20,7 +20,7 @@ shortTitle: 加密机密
  
 
 
-## 关于 {% data variables.product.prodname_codespaces %} 的加密密码
+## About encrypted secrets for {% data variables.product.prodname_github_codespaces %}
 
 您可以将要在代码空间中使用的加密密码添加到您的个人帐户。 例如，您可能想要存储和访问以下敏感信息作为加密密码。
 
@@ -41,7 +41,7 @@ shortTitle: 加密机密
 
 ### 密码的限制
 
-您最多可以为 {% data variables.product.prodname_codespaces %} 存储 100 个密钥。
+You can store up to 100 secrets for {% data variables.product.prodname_github_codespaces %}.
 
 密码大小限于 64 KB。
 
@@ -77,4 +77,4 @@ shortTitle: 加密机密
 
 ## 延伸阅读
 
-- "[管理用于 {% data variables.product.prodname_codespaces %} 的仓库和组织的加密密钥](/codespaces/managing-codespaces-for-your-organization/managing-encrypted-secrets-for-your-repository-and-organization-for-codespaces)"
+- "[管理用于 {% data variables.product.prodname_github_codespaces %} 的仓库和组织的加密密钥](/codespaces/managing-codespaces-for-your-organization/managing-encrypted-secrets-for-your-repository-and-organization-for-github-codespaces)"
