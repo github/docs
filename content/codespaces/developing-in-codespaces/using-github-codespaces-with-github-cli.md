@@ -28,7 +28,6 @@ You can work with {% data variables.product.prodname_codespaces %} in the  {% da
   - [Open a codespace in {% data variables.product.prodname_vscode %}](#open-a-codespace-in--data-variablesproductprodname_vscode-)
   - [Open a codespace in JupyterLab](#open-a-codespace-in-jupyterlab)
   - [Copy a file to/from a codespace](#copy-a-file-tofrom-a-codespace)
-    - [Examples](#examples)
   - [Modify ports in a codespace](#modify-ports-in-a-codespace)
   - [Access codespace logs](#access-codespace-logs)
 
