@@ -49,8 +49,6 @@ curl -s http://localhost:9201/audit_log/_stats/store | jq ._all.primaries.store.
 ```
 使用此数字估算 MySQL 审核日志将需要的磁盘空间大小。 该脚本还会在导入过程中监视可用磁盘空间大小。 在可用磁盘空间大小接近于迁移必需的磁盘空间大小时，监视此数字尤为重要。
 
-{% data reusables.enterprise_installation.upgrade-hardware-requirements %}
-
 ## 后续步骤
 
 查看这些建议和要求后，您可以对 {% data variables.product.prodname_ghe_server %} 进行升级。 更多信息请参阅“[升级 {% data variables.product.prodname_ghe_server %}](/enterprise/admin/guides/installation/upgrading-github-enterprise-server/)。”

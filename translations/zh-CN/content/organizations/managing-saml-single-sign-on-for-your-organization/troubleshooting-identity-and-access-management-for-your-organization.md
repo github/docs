@@ -1,5 +1,5 @@
 ---
-title: 身份和访问管理疑难解答
+title: Troubleshooting identity and access management for your organization
 intro: 查看并解决用于管理组织的 SAML SSO、团队同步或身份提供商 (IdP) 连接的常见故障排除错误。
 versions:
   ghec: '*'
@@ -7,7 +7,13 @@ topics:
   - Organizations
   - Teams
 shortTitle: 访问疑难解答
+redirect_from:
+  - /organizations/managing-saml-single-sign-on-for-your-organization/troubleshooting-identity-and-access-management
 ---
+
+{% data reusables.saml.current-time-earlier-than-notbefore-condition %}
+
+{% data reusables.saml.authentication-loop %}
 
 ## 某些用户未由 SCIM 预配或取消预配
 
@@ -87,3 +93,7 @@ curl -X POST -H "Authorization: Bearer <personal access token>" -H "Content-Type
 要确认是否已创建用户的 SCIM 标识，我们建议您使用已确认没有 SCIM 外部标识的单个组织成员来测试此过程。 手动更新 IdP 中的用户后，您可以检查用户的 SCIM 身份是使用 SCIM API 创建的，还是在 {% data variables.product.prodname_dotcom %} 上创建的。 更多信息请参阅“[审核用户是否缺少 SCIM 元数据](#auditing-users-for-missing-scim-metadata)”或 REST API 端点“[获取用户的 SCIM 预配信息](/rest/reference/scim#get-scim-provisioning-information-for-a-user)”。
 
 如果为用户重新预配 SCIM 不起作用，请联系 {% data variables.product.prodname_dotcom %} 支持。
+
+## 延伸阅读
+
+- "[Troubleshooting identity and access management for your enterprise](/admin/identity-and-access-management/managing-iam-for-your-enterprise/troubleshooting-identity-and-access-management-for-your-enterprise)"

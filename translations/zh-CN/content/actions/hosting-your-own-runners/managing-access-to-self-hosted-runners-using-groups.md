@@ -67,7 +67,7 @@ shortTitle: 管理对运行器的访问
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.org_settings %}
 {% data reusables.organizations.settings-sidebar-actions-runner-groups %}
-1. 在 {% ifversion ghes > 3.1 or ghae %}“Runners（运行器）”{% elsif ghes < 3.2 %}“Self-hosted runners（自托管运行器）”{% endif %} 下，单击 **Add new（新增）**，然后单击 **New group（新建组）**。
+1. 在 {% ifversion ghes or ghae %}“Runners（运行器）”{% endif %} 下，单击 **Add new（新增）**，然后单击 **New group（新建组）**。
 
     ![添加运行器组](/assets/images/help/settings/actions-org-add-runner-group.png)
 1. 输入运行程序组的名称，并分配仓库访问策略。
@@ -204,7 +204,7 @@ shortTitle: 管理对运行器的访问
 2. 选择 **Runner group（运行器组）**下拉列表。
 3. 在“Move runner to group（将运行器移动到组）”中，选择运行器的目的地组。
 {% elsif ghae or ghes < 3.4 %}
-1. 在设置页面的{% ifversion ghes > 3.1 or ghae %}“Runners groups（运行器组）”{% elsif ghes < 3.2 %}“Self-hosted runners（自托管运行器）”{% endif %} 部分，找到要移动的运行器的当前组，并展开组成员列表。 ![查看运行器组成员](/assets/images/help/settings/actions-org-runner-group-members.png)
+1. 在设置页面的 {% ifversion ghes or ghae %} Runner groups（运行器组）{% endif %} 部分，找到要移动的运行器的当前组，并展开组成员列表。 ![查看运行器组成员](/assets/images/help/settings/actions-org-runner-group-members.png)
 2. 选中自托管运行器旁边的复选框，然后单击 **Move to group（移动到组）**以查看可用的目的地。 ![运行器组成员移动](/assets/images/help/settings/actions-org-runner-group-member-move.png)
 3. 要移动运行器，请单击目标组。 ![运行器组成员移动](/assets/images/help/settings/actions-org-runner-group-member-move-destination.png)
 {% endif %}
@@ -213,16 +213,11 @@ shortTitle: 管理对运行器的访问
 
 自托管运行器在其组被删除时将自动返回到默认组。
 
-{% ifversion ghes > 3.1 or ghae or ghec %}
+{% ifversion ghes or ghae or ghec %}
 {% data reusables.actions.self-hosted-runner-groups-navigate-to-repo-org-enterprise %}
 1. 在组列表中，在要删除的组右侧，单击 {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}。
 2. 要删除组，请单击 **Remove group（删除组）**。
 3. 查看确认提示，然后单击 **Remove this runner group（删除此运行器组）**。
-{% elsif ghes < 3.2 %}
-1. 在设置页面的“Self-hosted runners（自托管运行器）”部分，找到要删除的组，然后单击 {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} 按钮。 ![查看运行器组设置](/assets/images/help/settings/actions-org-runner-group-kebab.png)
 
-1. 要删除组，请单击 **Remove group（删除组）**。 ![查看运行器组设置](/assets/images/help/settings/actions-org-runner-group-remove.png)
-
-1. 查看确认提示，然后单击 **Remove this runner group（删除此运行器组）**。
 {% endif %}
 {% endif %}

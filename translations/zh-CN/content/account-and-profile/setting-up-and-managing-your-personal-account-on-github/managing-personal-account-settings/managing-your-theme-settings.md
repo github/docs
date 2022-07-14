@@ -4,7 +4,7 @@ intro: '通过设置主题首选项以遵循系统设置或始终使用浅色模
 versions:
   fpt: '*'
   ghae: '*'
-  ghes: '>=3.2'
+  ghes: '*'
   ghec: '*'
 topics:
   - Accounts

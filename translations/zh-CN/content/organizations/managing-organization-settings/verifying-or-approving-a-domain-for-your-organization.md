@@ -8,7 +8,7 @@ redirect_from:
   - /organizations/managing-organization-settings/verifying-your-organizations-domain
 permissions: Organization owners can verify or approve a domain for an organization.
 versions:
-  ghes: '>=3.2'
+  ghes: '*'
   ghec: '*'
 type: how_to
 topics:
@@ -35,7 +35,7 @@ shortTitle: 验证或批准域
 
 {% data reusables.organizations.verified-domains-details %}
 
-{% ifversion ghec or ghes > 3.1 %}
+{% ifversion ghec or ghes %}
 验证组织域的所有权后，您可以将组织的电子邮件通知限制为该域。 更多信息请参阅“[限制组织的电子邮件通知](/organizations/keeping-your-organization-secure/restricting-email-notifications-for-your-organization)”。
 {% endif %}
 
@@ -51,7 +51,7 @@ shortTitle: 验证或批准域
 
 企业所有者无法看到哪个组织成员或电子邮件地址在已批准的域内接收通知。
 
-企业所有者也可以批准企业拥有的其他组织的域名。 {% ifversion ghec %}更多信息请参阅“[验证或批准企业的域](/enterprise-cloud@latest/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise)”。{% endif %}{% ifversion ghes > 3.1 %}更多信息请参阅“[验证或批准企业的域](/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise)”。{% endif %}
+企业所有者也可以批准企业拥有的其他组织的域名。 {% ifversion ghec %}更多信息请参阅“[验证或批准企业的域](/enterprise-cloud@latest/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise)”。{% endif %}{% ifversion ghes %}更多信息请参阅“[验证或批准企业的域](/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise)”。{% endif %}
 
 ## 验证组织的域
 
