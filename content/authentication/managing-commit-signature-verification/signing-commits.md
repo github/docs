@@ -34,9 +34,9 @@ You can also manually configure [gpg-agent](http://linux.die.net/man/1/gpg-agent
 
 If you have multiple keys or are attempting to sign commits or tags with a key that doesn't match your committer identity, you should [tell Git about your signing key](/articles/telling-git-about-your-signing-key).
 
-1. When committing changes in your local branch, add the -S flag to the git commit command:
+1. When committing changes in your local branch, add the -s flag to the git commit command:
   ```shell
-  $ git commit -S -m <em>"your commit message"</em>
+  $ git commit -s -m <em>"your commit message"</em>
   # Creates a signed commit
   ```
 2. If you're using GPG, after you create your commit, provide the passphrase you set up when you [generated your GPG key](/articles/generating-a-new-gpg-key).
