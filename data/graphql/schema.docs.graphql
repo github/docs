@@ -29905,6 +29905,11 @@ type ProjectV2Item implements Node {
     Returns the last _n_ elements from the list.
     """
     last: Int
+
+    """
+    Ordering options for project v2 item field values returned from the connection
+    """
+    orderBy: ProjectV2ItemFieldValueOrder = {field: POSITION, direction: ASC}
   ): ProjectV2ItemFieldValueConnection!
   id: ID!
 
@@ -30199,6 +30204,11 @@ type ProjectV2ItemFieldPullRequestValue {
     Returns the last _n_ elements from the list.
     """
     last: Int
+
+    """
+    Ordering options for pull requests.
+    """
+    orderBy: PullRequestOrder = {field: CREATED_AT, direction: ASC}
   ): PullRequestConnection
 }
 
@@ -30469,6 +30479,31 @@ type ProjectV2ItemFieldValueEdge {
   The item at the end of the edge.
   """
   node: ProjectV2ItemFieldValue
+}
+
+"""
+Ordering options for project v2 item field value connections
+"""
+input ProjectV2ItemFieldValueOrder {
+  """
+  The ordering direction.
+  """
+  direction: OrderDirection!
+
+  """
+  The field to order the project v2 item field values by.
+  """
+  field: ProjectV2ItemFieldValueOrderField!
+}
+
+"""
+Properties by which project v2 item field value connections can be ordered.
+"""
+enum ProjectV2ItemFieldValueOrderField {
+  """
+  Order project v2 item field values by the their position in the project
+  """
+  POSITION
 }
 
 """
