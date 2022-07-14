@@ -1,3 +1,4 @@
+[git-add--git-fetch-origin.zip](https://github.com/github/docs/files/9110865/git-add--git-fetch-origin.zip)
 ---
 title: Working with the Docker registry
 intro: '{% ifversion fpt or ghec %}The Docker registry has now been replaced by the {% data variables.product.prodname_container_registry %}.{% else %}You can push and pull your Docker images using the {% data variables.product.prodname_registry %} Docker registry.{% endif %}'
