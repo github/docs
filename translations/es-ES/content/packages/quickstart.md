@@ -70,10 +70,10 @@ En esta guía, crearás un flujo de trabajo de {% data variables.product.prodnam
 
       publish-gpr:
         needs: build
-        runs-on: ubuntu-latest{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
+        runs-on: ubuntu-latest
         permissions:
           packages: write
-          contents: read{% endif %}
+          contents: read
         steps:
           - uses: {% data reusables.actions.action-checkout %}
           - uses: {% data reusables.actions.action-setup-node %}

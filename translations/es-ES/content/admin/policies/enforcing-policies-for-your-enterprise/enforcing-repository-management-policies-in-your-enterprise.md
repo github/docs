@@ -71,16 +71,16 @@ Si un propietario de empresa deja de permitir que los miembros de ésta creen ci
 
 {% endif %}
 
-## Requerir una política para los permisos {% ifversion ghec or ghes > 3.1 or ghae %}base{% else %}predeterminados{% endif %} del repositorio
+## Requerir una política para los permisos {% ifversion ghec or ghes or ghae %}base{% else %}predeterminados{% endif %} del repositorio
 
-En todas las organizaciones que pertenezcan a tu empresa, puedes configurar un nivel de permisos {% ifversion ghec or ghes > 3.1 or ghae %}base{% else %}predeterminado{% endif %} de los repositorios (ninguno, lectura, escritura o administración) para los miembros organizacionales o permitir que los propietarios administren el ajuste a nivel de organización.
+En todas las organizaciones que pertenezcan a tu empresa, puedes configurar un nivel de permisos {% ifversion ghec or ghes or ghae %}base{% else %}predeterminado{% endif %} de los repositorios (ninguno, lectura, escritura o administración) para los miembros organizacionales o permitir que los propietarios administren el ajuste a nivel de organización.
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.repositories-tab %}
-4. Debajo de "permisos {% ifversion ghec or ghes > 3.1 or ghae %}base{% else %}predeterminados{% endif %}", revisa la información sobre cómo cambiar el ajuste. {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
-5. Debajo de "Permisos{% ifversion ghec or ghes > 3.1 or ghae %}base{% else %}predeterminados{% endif %}", utiliza el menú desplegable y elige una política.
-  {% ifversion ghec or ghes > 3.1 or ghae %}
+4. Debajo de "permisos {% ifversion ghec or ghes or ghae %}base{% else %}predeterminados{% endif %}", revisa la información sobre cómo cambiar el ajuste. {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
+5. Debajo de "Permisos{% ifversion ghec or ghes or ghae %}base{% else %}predeterminados{% endif %}", utiliza el menú desplegable y elige una política.
+  {% ifversion ghec or ghes or ghae %}
   ![Menú desplegable con opciones de políticas de permisos de repositorios](/assets/images/help/business-accounts/repository-permissions-policy-drop-down.png)
   {% else %}
   ![Menú desplegable con opciones de políticas de permisos de repositorios](/assets/images/enterprise/business-accounts/repository-permissions-policy-drop-down.png)

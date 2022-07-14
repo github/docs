@@ -128,10 +128,10 @@ on:
     types: [created]
 jobs:
   build:
-    runs-on: ubuntu-latest {% ifversion fpt or ghes > 3.1 or ghae or ghec %}
+    runs-on: ubuntu-latest 
     permissions: 
       contents: read
-      packages: write {% endif %}
+      packages: write 
     steps:
       - uses: {% data reusables.actions.action-checkout %}
       # Setup .npmrc file to publish to GitHub Packages

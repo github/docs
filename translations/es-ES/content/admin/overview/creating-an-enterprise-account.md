@@ -1,6 +1,6 @@
 ---
 title: Creating an enterprise account
-intro: "If you're currently using {% data variables.product.prodname_ghe_cloud %} with a single organization, you can create an enterprise account to centrally manage multiple organizations."
+intro: 'If you''re currently using {% data variables.product.prodname_ghe_cloud %} with a single organization, you can create an enterprise account to centrally manage multiple organizations.'
 versions:
   ghec: '*'
 type: how_to
