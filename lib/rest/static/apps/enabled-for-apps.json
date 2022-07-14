@@ -1212,6 +1212,12 @@
         "requestPath": "/repos/{owner}/{repo}/codespaces/machines"
       },
       {
+        "slug": "get-default-attributes-for-a-codespace",
+        "subcategory": "codespaces",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/codespaces/new"
+      },
+      {
         "slug": "list-repository-secrets",
         "subcategory": "repository-secrets",
         "verb": "get",
