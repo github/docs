@@ -4,6 +4,6 @@
 
 {% note %}
 
-**Note:** Workflows triggered by `pull_request_target` events are run in the context of the base branch. Since the base branch is considered trusted, workflows triggered by these events will always run, regardless of approval settings.
+**ノート:** `pull_request_target`イベントでトリガーされたワークフローは、ベースブランチのコンテキスト内で実行されます。 ベースブランチは信頼できるものと見なされるので、これらのイベントでトリガーされたワークフローは、承認設定に関係なく常に実行されます。
 
 {% endnote %}

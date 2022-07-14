@@ -21,8 +21,6 @@ topics:
 permissions: People with write access for a forked repository can sync the fork to the upstream repository.
 ---
 
-{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
-
 ## Sincronizando o branch de uma bifurcação a partir da interface de usuário web
 
 1. Em {% data variables.product.product_name %}, acesse a página principal do repositório bifurcado que você deseja sincronizar com o repositório upstream.
@@ -45,7 +43,6 @@ Se as alterações do repositório upstream causarem conflitos, o {% data variab
 
 ## Sincronizando o branch de uma bifurcação a partir da linha de comando
 
-{% endif %}
 Antes de poder sincronizar a sua bifurcação com um repositório upstream, é necessário [configurar um controle remoto que aponte para o repositório upstream](/pull-requests/collaborating-with-pull-requests/working-with-forks/configuring-a-remote-for-a-fork) no Git.
 
 {% data reusables.command_line.open_the_multi_os_terminal %}

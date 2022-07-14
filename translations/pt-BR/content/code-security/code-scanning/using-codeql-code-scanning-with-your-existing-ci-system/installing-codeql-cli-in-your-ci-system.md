@@ -48,7 +48,7 @@ Você deve fazer o download do pacote {% data variables.product.prodname_codeql 
 {% ifversion ghes or ghae %}
 
 {% note %}
-For {% data variables.product.product_name %}{% ifversion ghes %} {{ allVersions[currentVersion].currentRelease }},{% endif %}, we recommend {% data variables.product.prodname_codeql_cli %} version {% data variables.product.codeql_cli_ghes_recommended_version %}.
+Para {% data variables.product.product_name %}{% ifversion ghes %} {{ allVersions[currentVersion].currentRelease }},{% endif %}, recomendamos {% data variables.product.prodname_codeql_cli %} a versão {% data variables.product.codeql_cli_ghes_recommended_version %}.
 {% endnote %}
 
 {% endif %}

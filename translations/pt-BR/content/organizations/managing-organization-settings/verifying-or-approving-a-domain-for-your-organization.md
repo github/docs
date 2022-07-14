@@ -8,7 +8,7 @@ redirect_from:
   - /organizations/managing-organization-settings/verifying-your-organizations-domain
 permissions: Organization owners can verify or approve a domain for an organization.
 versions:
-  ghes: '>=3.2'
+  ghes: '*'
   ghec: '*'
 type: how_to
 topics:
@@ -35,7 +35,7 @@ Após a verificação da propriedade dos domínios da sua organização, é exib
 
 {% data reusables.organizations.verified-domains-details %}
 
-{% ifversion ghec or ghes > 3.1 %}
+{% ifversion ghec or ghes %}
 Depois de verificar a propriedade do domínio da sua organização, você pode restringir as notificações de e-mail da organização para esse domínio. Para obter mais informações, consulte "[Restringir notificações de e-mail para sua organização](/organizations/keeping-your-organization-secure/restricting-email-notifications-for-your-organization)".
 {% endif %}
 
@@ -51,7 +51,7 @@ Após aprovar domínios para a sua organização, você pode restringir notifica
 
 Os proprietários de empresas não podem ver quais integrantes da organização ou endereços de e-mail recebem notificações dentro dos domínios aprovados.
 
-Os proprietários de empresas também podem aprovar domínios adicionais para organizações pertencentes à empresa. {% ifversion ghec %}Para obter mais informações, consulte "[Verificar ou aprovar um domínio para a sua empresa](/enterprise-cloud@latest/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise).{% endif %}{% ifversion ghes > 3.1 %}Para obter mais informações, consulte[Verificando ou aprovando um domínio para sua empresa](/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise)".{% endif %}
+Os proprietários de empresas também podem aprovar domínios adicionais para organizações pertencentes à empresa. {% ifversion ghec %}Para obter mais informações, consulte "[Verificar ou aprovar um domínio para a sua empresa](/enterprise-cloud@latest/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise).{% endif %}{% ifversion ghes %}Para obter mais informações, consulte[Verificando ou aprovando um domínio para sua empresa](/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise)".{% endif %}
 
 ## Verificando um domínio para a sua organização
 
