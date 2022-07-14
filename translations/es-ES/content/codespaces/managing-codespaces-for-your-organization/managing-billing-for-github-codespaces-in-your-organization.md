@@ -1,9 +1,9 @@
 ---
-title: Administrar la facturación para los Codespaces en tu organización
+title: Managing billing for GitHub Codespaces in your organization
 shortTitle: Administrar la facturación
-intro: 'Puedes verificar tu uso de {% data variables.product.prodname_codespaces %} y configurar los límites de uso.'
+intro: 'Puedes verificar tu uso de {% data variables.product.prodname_github_codespaces %} y configurar los límites de uso.'
 product: '{% data reusables.gated-features.codespaces %}'
-permissions: 'To manage billing for Codespaces for an organization, you must be an organization owner or a billing manager.'
+permissions: 'To manage billing for {% data variables.product.prodname_github_codespaces %} for an organization, you must be an organization owner or a billing manager.'
 versions:
   fpt: '*'
   ghec: '*'
@@ -11,11 +11,13 @@ type: reference
 topics:
   - Codespaces
   - Billing
+redirect_from:
+  - /codespaces/managing-codespaces-for-your-organization/managing-billing-for-codespaces-in-your-organization
 ---
 
 ## Resumen
 
-Para aprender más sobre los precios de los {% data variables.product.prodname_codespaces %}, consulta la sección "[precios de los {% data variables.product.prodname_codespaces %}](/billing/managing-billing-for-github-codespaces/about-billing-for-codespaces#codespaces-pricing)".
+Para aprender más sobre los precios de los {% data variables.product.prodname_github_codespaces %}, consulta la sección "[precios de los {% data variables.product.prodname_codespaces %}](/billing/managing-billing-for-github-codespaces/about-billing-for-codespaces#codespaces-pricing)".
 
 {% data reusables.codespaces.codespaces-billing %}
 
@@ -25,11 +27,11 @@ Para aprender más sobre los precios de los {% data variables.product.prodname_c
 
 ## Límites de uso
 
-Puedes configurar el límite de uso de los codespaces en tu organización o repositorio. Este límite se aplica al uso de cálculo y almacenamiento de {% data variables.product.prodname_codespaces %}:
+Puedes configurar el límite de uso de los codespaces en tu organización o repositorio. Este límite se aplica al uso de cálculo y almacenamiento de {% data variables.product.prodname_github_codespaces %}:
 
-- **Minutos de cálculo:** El uso de cálculo se obtiene con la cantidad actual de minutos que utilizan todas las instancias de {% data variables.product.prodname_codespaces %} mientras están activas. Estos totales se reportan al servicio de facturación diariamente y se cobran mensualmente. Puedes configurar un límite de gastos para el uso de {% data variables.product.prodname_codespaces %} en tu organización. Para obtener más información, consulta la sección "[Administrar los límites de gastos para los Codespaces](/billing/managing-billing-for-github-codespaces/managing-spending-limits-for-codespaces)".
+- **Minutos de cálculo:** El uso de cálculo se obtiene con la cantidad actual de minutos que utilizan todas las instancias de {% data variables.product.prodname_codespaces %} mientras están activas. Estos totales se reportan al servicio de facturación diariamente y se cobran mensualmente. Puedes configurar un límite de gastos para el uso de {% data variables.product.prodname_codespaces %} en tu organización. Para obtener más información, consulta la sección "[Administrar los límites de gastos para los {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/managing-spending-limits-for-github-codespaces)".
 
-- **Uso de almacenamiento:**  Para propósitos de facturación de {% data variables.product.prodname_codespaces %}, esto incluye todo el almacenamiento que se utiliza en todos los codespaces de tu cuenta. Esto incluye todos los que utilizan los codespaces, tales como los repositorios clonados, archivos de configuración y extensiones, entre otros. Estos totales se reportan al servicio de facturación diariamente y se cobran mensualmente. Al final del mes, {% data variables.product.prodname_dotcom %} redondea tu almacenamiento al número de MB más cercano. Para verificar cuántos minutos de cálculo y GB de almacenamiento ha utilizado cualquier {% data variables.product.prodname_codespaces %}, consulta la sección "[Ver tu uso de Codespaces](/billing/managing-billing-for-github-codespaces/viewing-your-codespaces-usage)".
+- **Uso de almacenamiento:**  Para propósitos de facturación de {% data variables.product.prodname_codespaces %}, esto incluye todo el almacenamiento que se utiliza en todos los codespaces de tu cuenta. Esto incluye todos los que utilizan los codespaces, tales como los repositorios clonados, archivos de configuración y extensiones, entre otros. Estos totales se reportan al servicio de facturación diariamente y se cobran mensualmente. Al final del mes, {% data variables.product.prodname_dotcom %} redondea tu almacenamiento al número de MB más cercano. To check how many compute minutes and storage GB have been used by {% data variables.product.prodname_codespaces %}, see "[Viewing your {% data variables.product.prodname_github_codespaces %} usage"](/billing/managing-billing-for-github-codespaces/viewing-your-github-codespaces-usage)."
 
 ## Inhabilitar o limitar los {% data variables.product.prodname_codespaces %}
 

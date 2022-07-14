@@ -1,9 +1,9 @@
 ---
-title: Administrar los secretos cifrados de tu repositorio y organización para los Codespaces
+title: Managing encrypted secrets for your repository and organization for GitHub Codespaces
 shortTitle: Secretos cifrados
-intro: 'Los secretos cifrados te permiten almacenar información sensible en tu organización, repositorio o {% data variables.product.prodname_codespaces %}.'
+intro: 'Los secretos cifrados te permiten almacenar información sensible en tu organización, repositorio o {% data variables.product.prodname_github_codespaces %}.'
 product: '{% data reusables.gated-features.codespaces %}'
-permissions: 'To manage secrets for {% data variables.product.prodname_codespaces %} for an organization, you must be an organization owner.'
+permissions: 'To manage secrets for {% data variables.product.prodname_github_codespaces %} for an organization, you must be an organization owner.'
 versions:
   fpt: '*'
   ghec: '*'
@@ -11,13 +11,15 @@ topics:
   - Codespaces
   - Secret store
   - Security
+redirect_from:
+  - /codespaces/managing-codespaces-for-your-organization/managing-encrypted-secrets-for-your-repository-and-organization-for-codespaces
 ---
 
  
 
 ## Acerca de los secretos
 
-Los secretos son variables de ambiente cifradas que creas en una organización o repositorio. Los secretos que creas están disponibles para utilizarse en {% data variables.product.prodname_codespaces %}. GitHub utiliza una [caja sellada de libsodium](https://libsodium.gitbook.io/doc/public-key_cryptography/sealed_boxes) para cifrar los secretos antes de que lleguen a GitHub y solo los decifra cuando los utilizas en un codespace.
+Los secretos son variables de ambiente cifradas que creas en una organización o repositorio. Los secretos que creas están disponibles para utilizarse en {% data variables.product.prodname_github_codespaces %}. GitHub utiliza una [caja sellada de libsodium](https://libsodium.gitbook.io/doc/public-key_cryptography/sealed_boxes) para cifrar los secretos antes de que lleguen a GitHub y solo los decifra cuando los utilizas en un codespace.
 
 Los secretos a nivel organizacional te permiten compartir secretos entre repositorios múltiples, lo cual reduce la necesidad de crear secretos duplicados. Puedes utilizar las políticas de acceso para controlar qué repositorios pueden utilizar los secretos de la organización.
 
