@@ -718,13 +718,13 @@ describe('server', () => {
       expect($('[data-testid=table-of-contents] ul li a').length).toBeGreaterThan(5)
     })
 
-    test('map topic renders with h2 links to articles', async () => {
+    test('map topic renders with links to articles', async () => {
       const $ = await getDOM(
         '/en/get-started/importing-your-projects-to-github/importing-source-code-to-github'
       )
       expect(
         $(
-          'a[href="/en/get-started/importing-your-projects-to-github/importing-source-code-to-github/about-github-importer"] h2'
+          'li h2 a[href="/en/get-started/importing-your-projects-to-github/importing-source-code-to-github/about-github-importer"]'
         ).length
       ).toBe(1)
     })
@@ -733,15 +733,18 @@ describe('server', () => {
       const $ = await getDOM(
         '/en/get-started/importing-your-projects-to-github/importing-source-code-to-github'
       )
-      const $bumpLinks = $('[data-testid=bump-link]')
-      expect($bumpLinks.length).toBeGreaterThan(3)
+      const $links = $('[data-testid=expanded-item]')
+      expect($links.length).toBeGreaterThan(3)
     })
 
     test('map topic intros are parsed', async () => {
       const $ = await getDOM(
         '/en/get-started/importing-your-projects-to-github/importing-source-code-to-github'
       )
-      const $intro = $('[data-testid=bump-link][href*="source-code-migration-tools"] > p')
+      const $parent = $('[data-testid=expanded-item] a[href*="source-code-migration-tools"]')
+        .parent()
+        .parent()
+      const $intro = $('p', $parent)
       expect($intro.length).toBe(1)
       expect($intro.html()).toContain('You can use external tools to move your projects to GitHub')
     })
