@@ -1,5 +1,5 @@
-{% comment %}This reusable is only to be used in other repo/org/enterprise setting reusables.{%- endcomment -%}
-1. In the left sidebar, click {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-5658 %}{% octicon "play" aria-label="The {% data variables.product.prodname_actions %} icon" %} **Actions**, then click **Runner groups**.{% else %}**Actions**.{% ifversion ghes > 3.3 or ghae-issue-5091 %}
-1. In the left sidebar, under "Actions", click **Runner groups**.
-{%- elsif ghes > 3.1 or ghae %}
-1. In the left sidebar, under "Actions", click **Runners**.{% endif %}{% endif %}
+{% comment %}このreusableは他のrepo/org/enterprise設定のreusableでのみ使われています。{%- endcomment -%}
+1. 左のサイドバーで、{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-5658 %}{% octicon "play" aria-label="The {% data variables.product.prodname_actions %} icon" %} **Actions**をクリックし、続いて**Runner groups（ランナーグループ）**をクリックしてください。{% else %}**Actions**をクリックしてください。{% ifversion ghes > 3.3 or ghae-issue-5091 %}
+1. 左のサイドバーで、"Actions"の下の**Runner groups（ランナーグループ）**をクリックしてください。
+{%- elsif ghes or ghae %}
+1. 左のサイドバーで、"Actions"の下の**Runners（ランナー）**をクリックしてください。{% endif %}{% endif %}

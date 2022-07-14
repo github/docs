@@ -134,4 +134,4 @@ Before your developers can use {% data variables.product.prodname_ghe_cloud %} w
 
 A conflict may occur when provisioning users if the unique parts of the identifier provided by your IdP are removed during normalization. If you're unable to provision a user due to a username conflict, you should modify the username provided by your IdP. For more information, see "[Resolving username conflicts](/admin/identity-and-access-management/managing-iam-for-your-enterprise/username-considerations-for-external-authentication#resolving-username-conflicts)."
 
-The profile name and email address of a {% data variables.product.prodname_managed_user %} is also provided by the IdP. {% data variables.product.prodname_managed_users_caps %} cannot change their profile name or email address on {% data variables.product.prodname_dotcom %}.
+The profile name and email address of a {% data variables.product.prodname_managed_user %} is also provided by the IdP. {% data variables.product.prodname_managed_users_caps %} cannot change their profile name or email address on {% data variables.product.prodname_dotcom %}, and the IdP can only provide a single email address.

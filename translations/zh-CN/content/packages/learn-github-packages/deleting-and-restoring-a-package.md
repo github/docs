@@ -9,7 +9,7 @@ redirect_from:
   - /packages/guides/deleting-a-container-image
 versions:
   fpt: '*'
-  ghes: '>=3.2'
+  ghes: '*'
   ghec: '*'
   ghae: '*'
 shortTitle: 删除和恢复包
@@ -102,9 +102,9 @@ curl -X POST \
 HOSTNAME/graphql
 ```
 
-要查找已发布到 {% data variables.product.prodname_registry %} 的所有私有包以及包的版本 ID，您可以使用 `registryPackagesForQuery` 通过 `repository` 对象连接。 您需要具有 `read:packages` 和 `repo` 作用域的令牌。 更多信息请参阅 [`packages`]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql/reference/objects#repository) 连接或 [`PackageOwner`]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql/reference/interfaces#packageowner) 接口。
+要查找已发布到 {% data variables.product.prodname_registry %} 的所有私有包以及包的版本 ID，您可以使用 `registryPackagesForQuery` 通过 `repository` 对象连接。 您需要具有 `read:packages` 和 `repo` 作用域的令牌。 更多信息请参阅 [`packages`](/graphql/reference/objects#repository) 连接或 [`PackageOwner`](/graphql/reference/interfaces#packageowner) 界面。
 
-有关 `deletePackageVersion` 突变的更多信息，请参阅“[`deletePackageVersion`]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql/reference/mutations#deletepackageversion)”。
+有关 `deletePackageVersion` 突变的更多信息，请参阅“[`deletePackageVersion`](/graphql/reference/mutations#deletepackageversion)”。
 
 您不能直接使用 GraphQL 删除整个包，但如果您删除包的每个版本，该包将不再显示在 {% data variables.product.product_name %} 上。
 

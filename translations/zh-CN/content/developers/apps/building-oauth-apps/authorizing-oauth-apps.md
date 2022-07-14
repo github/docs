@@ -80,7 +80,7 @@ topics:
 默认情况下，响应采用以下形式：
 
 ```
-access_token={% ifversion fpt or ghes > 3.1 or ghae or ghec %}gho_16C7e42F292c6912E7710c838347Ae178B4a{% else %}e72e16c7e42f292c6912e7710c838347ae178b4a{% endif %}&scope=repo%2Cgist&token_type=bearer
+access_token=gho_16C7e42F292c6912E7710c838347Ae178B4a&scope=repo%2Cgist&token_type=bearer
 ```
 
 {% data reusables.apps.oauth-auth-vary-response %}
@@ -88,7 +88,7 @@ access_token={% ifversion fpt or ghes > 3.1 or ghae or ghec %}gho_16C7e42F292c69
 ```json
 Accept: application/json
 {
-  "access_token":"{% ifversion fpt or ghes > 3.1 or ghae or ghec %}gho_16C7e42F292c6912E7710c838347Ae178B4a{% else %}e72e16c7e42f292c6912e7710c838347ae178b4a{% endif %}",
+  "access_token":"gho_16C7e42F292c6912E7710c838347Ae178B4a",
   "scope":"repo,gist",
   "token_type":"bearer"
 }
@@ -99,7 +99,7 @@ Accept: application/xml
 <OAuth>
   <token_type>bearer</token_type>
   <scope>repo,gist</scope>
-  <access_token>{% ifversion fpt or ghes > 3.1 or ghae or ghec %}gho_16C7e42F292c6912E7710c838347Ae178B4a{% else %}e72e16c7e42f292c6912e7710c838347ae178b4a{% endif %}</access_token>
+  <access_token>gho_16C7e42F292c6912E7710c838347Ae178B4a</access_token>
 </OAuth>
 ```
 
@@ -222,7 +222,7 @@ Accept: application/xml
 默认情况下，响应采用以下形式：
 
 ```
-access_token={% ifversion fpt or ghes > 3.1 or ghae or ghec %}gho_16C7e42F292c6912E7710c838347Ae178B4a{% else %}e72e16c7e42f292c6912e7710c838347ae178b4a{% endif %}&token_type=bearer&scope=repo%2Cgist
+access_token=gho_16C7e42F292c6912E7710c838347Ae178B4a&token_type=bearer&scope=repo%2Cgist
 ```
 
 {% data reusables.apps.oauth-auth-vary-response %}
@@ -230,7 +230,7 @@ access_token={% ifversion fpt or ghes > 3.1 or ghae or ghec %}gho_16C7e42F292c69
 ```json
 Accept: application/json
 {
- "access_token": "{% ifversion fpt or ghes > 3.1 or ghae or ghec %}gho_16C7e42F292c6912E7710c838347Ae178B4a{% else %}e72e16c7e42f292c6912e7710c838347ae178b4a{% endif %}",
+ "access_token": "gho_16C7e42F292c6912E7710c838347Ae178B4a",
   "token_type": "bearer",
   "scope": "repo,gist"
 }
@@ -239,7 +239,7 @@ Accept: application/json
 ```xml
 Accept: application/xml
 <OAuth>
-  <access_token>{% ifversion fpt or ghes > 3.1 or ghae or ghec %}gho_16C7e42F292c6912E7710c838347Ae178B4a{% else %}e72e16c7e42f292c6912e7710c838347ae178b4a{% endif %}</access_token>
+  <access_token>gho_16C7e42F292c6912E7710c838347Ae178B4a</access_token>
   <token_type>bearer</token_type>
   <scope>gist,repo</scope>
 </OAuth>
@@ -265,7 +265,6 @@ Accept: application/xml
 | `device_flow_disabled`         | 尚未在应用的设置中启用设备流。 更多信息请参阅“[设备流](#device-flow)”。{% endif %}
 
 更多信息请参阅“[OAuth 2.0 设备授权授予](https://tools.ietf.org/html/rfc8628#section-3.5)”。
-
 
 ## 非 Web 应用程序流程
 

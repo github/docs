@@ -2,7 +2,7 @@
 title: GitHub Actions Secrets
 allowTitleToDifferFromFilename: true
 shortTitle: Secretos
-intro: 'The {% data variables.product.prodname_actions %} Secrets API lets you create, update, delete, and retrieve information about encrypted secrets that can be used in {% data variables.product.prodname_actions %} workflows.'
+intro: 'La API de secretos de {% data variables.product.prodname_actions %} te permite crear, actualizar, borrar y recuperar la información sobre los secretos cifrados que puede utilizarse en los flujos de trabajo de {% data variables.product.prodname_actions %}.'
 topics:
   - API
 versions:

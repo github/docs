@@ -16,18 +16,6 @@ topics:
 
 Isso descreve os recursos que formam a API REST oficial de {% data variables.product.product_name %}. Em caso de problema ou solicitação, entre em contato com {% data variables.contact.contact_support %}.
 
-## Versão atual
-
-Por padrão, todas as solicitações para `{% data variables.product.api_url_code %}` recebem a versão **v3** [](/developers/overview/about-githubs-apis) da API REST. Nós incentivamos que você a [solicite explicitamente esta versão por meio do cabeçalho `Aceitar`](/rest/overview/media-types#request-specific-version).
-
-    Accept: application/vnd.github.v3+json
-
-{% ifversion fpt or ghec %}
-
-For information about GitHub's GraphQL API, see the [documentation]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql). Para obter informações sobre migração para o GraphQL, consulte "[Fazendo a migração do REST]({% ifversion ghec%}/free-pro-team@latest{% endif %}/graphql/guides/migrating-from-rest-to-graphql)".
-
-{% endif %}
-
 ## Esquema
 
 {% ifversion fpt or ghec %}Todo acesso à API é feito por meio de HTTPS, e{% else %}a API é{% endif %} acessada a partir de `{% data variables.product.api_url_code %}`.  Todos os dados são
@@ -177,7 +165,7 @@ $ curl {% ifversion fpt or ghae or ghec %}
 
 ## IDs de nós globais do GraphQL
 
-Consulte o guia em "[Usar IDs do nó globais ]({% ifversion ghec%}/free-pro-team@latest{% endif %}/graphql/guides/using-global-node-ids)" para obter informações detalhadas sobre como encontrar `node_id`s através da API REST e usá-los em operações do GraphQL.
+See the guide on "[Using Global Node IDs](/graphql/guides/using-global-node-ids)" for detailed information about how to find `node_id`s via the REST API and use them in GraphQL operations.
 
 ## Erros do cliente
 
@@ -234,7 +222,7 @@ Os recursos também podem enviar erros de validação personalizados (em que o `
 
 ## Redirecionamentos HTTP
 
-API v3 usa redirecionamento HTTP quando apropriado. Os clientes devem assumir que qualquer solicitação pode resultar em redirecionamento. Receber um redirecionamento de HTTP *não* é um erro e os clientes devem seguir esse redirecionamento. As respostas de redirecionamento terão um campo do cabeçalho do tipo `Localização` que contém o URI do recurso ao qual o cliente deve repetir as solicitações.
+A API REST de {% data variables.product.product_name %} usa o redirecionamento de HTTP, quando apropriado. Os clientes devem assumir que qualquer solicitação pode resultar em redirecionamento. Receber um redirecionamento de HTTP *não* é um erro e os clientes devem seguir esse redirecionamento. As respostas de redirecionamento terão um campo do cabeçalho do tipo `Localização` que contém o URI do recurso ao qual o cliente deve repetir as solicitações.
 
 | Código de status | Descrição                                                                                                                                                                                                                                   |
 | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -245,7 +233,7 @@ Outros códigos de status de redirecionamento podem ser usados de acordo com a e
 
 ## Verbos HTTP
 
-Quando possível, a API v3 se esforça para usar verbos HTTP apropriados para cada ação.
+Sempre que possível, a API REST do {% data variables.product.product_name %} busca usar verbos HTTP apropriados para cada ação.
 
 | Verbo    | Descrição                                                                                                                                                                                                                        |
 | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

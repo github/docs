@@ -43,15 +43,11 @@ Si un repositorio contiene más de un archivo README, entonces el archivo que se
 
 ![El archivo de README en tu nombre de usuario/repositorio de nombre de usuario](/assets/images/help/repository/username-repo-with-readme.png)
 
-{% ifversion fpt or ghae or ghes > 3.1 or ghec %}
-
 ## Índice auto-generado de los archivos README
 
 Para la versión interpretada de cualquier archivo de lenguaje de marcado en un repositorio, incluyendo los archivos README, {% data variables.product.product_name %} generará un índice automáticamente con base en los encabezados de sección. Puedes ver el índice de un archivo README si haces clic en el icono de menú {% octicon "list-unordered" aria-label="The unordered list icon" %} en la parte superior izquierda de la página interpretada.
 
 ![README con TOC generado automáticamente](/assets/images/help/repository/readme-automatic-toc.png)
-
-{% endif %}
 
 ## Enlaces de sección en los archivos README y las páginas blob
 

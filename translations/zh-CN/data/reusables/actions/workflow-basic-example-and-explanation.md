@@ -150,9 +150,9 @@
 
 ![工作流程概述](/assets/images/help/images/overview-actions-event.png)
 
-## Viewing the activity for a workflow run
+## 查看工作流程运行的活动
 
-When your workflow is triggered, a _workflow run_ is created that executes the workflow. After a workflow run has started, you can see a visualization graph of the run's progress and view each step's activity on {% data variables.product.prodname_dotcom %}.
+触发工作流程时，将创建执行工作流程的_工作流程运行_。 工作流程运行启动后，您可以在 {% data variables.product.prodname_dotcom %} 上查看运行进度的可视化图形并查看每个步骤的活动。
 
 {% data reusables.repositories.navigate-to-repo %}
 1. 在仓库名称下，单击 **Actions（操作）**。
@@ -167,6 +167,6 @@ When your workflow is triggered, a _workflow run_ is created that executes the w
 1. 在 **Jobs（作业）**下或可视化图中，单击您要查看的作业。
 
    ![选择作业](/assets/images/help/images/overview-actions-result-navigate.png)
-1. View the results of each step.
+1. 查看每个步骤的结果。
 
    ![工作流程运行详细信息的屏幕截图](/assets/images/help/images/overview-actions-result-updated-2.png)

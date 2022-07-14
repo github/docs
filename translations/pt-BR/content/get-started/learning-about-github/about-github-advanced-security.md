@@ -31,11 +31,9 @@ Uma licença de {% data variables.product.prodname_GH_advanced_security %} forne
 
 - **{% data variables.product.prodname_secret_scanning_caps %}** - Detectar segredos, por exemplo, chaves e tokens, que foram verificados no repositório.{% ifversion secret-scanning-push-protection %} Se a proteção de push estiver habilitada, também irá detectar segredos quando eles são enviados por push para o seu repositório. Para obter mais informações, consulte "[Sobre {% data variables.product.prodname_secret_scanning %}](/code-security/secret-scanning/about-secret-scanning)" e "[Protegendo pushes com {% data variables.product.prodname_secret_scanning %}](/code-security/secret-scanning/protecting-pushes-with-secret-scanning).{% else %} Para obter mais informações, consulte "[Sobre {% data variables.product.prodname_secret_scanning %}](/code-security/secret-scanning/about-secret-scanning)."{% endif %}
 
-{% ifversion fpt or ghes > 3.1 or ghec or ghae %}
 - **Revisão de dependências** - Mostra o impacto total das alterações nas dependências e vê detalhes de qualquer versão vulnerável antes de realizar o merge de um pull request. Para obter mais informações, consulte "[Sobre a revisão de dependências](/code-security/supply-chain-security/about-dependency-review)".
-{% endif %}
 
-{% ifversion ghec or ghes > 3.1 %}
+{% ifversion ghec or ghes %}
 - **Visão geral de segurança** - Revise a configuração de segurança e os alertas para uma organização e identifique os repositórios com maior risco. Para obter mais informações, consulte "[Sobre a visão geral de segurança](/code-security/security-overview/about-the-security-overview)".
 {% endif %}
 

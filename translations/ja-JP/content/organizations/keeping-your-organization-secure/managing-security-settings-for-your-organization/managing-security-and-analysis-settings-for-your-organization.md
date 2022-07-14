@@ -56,7 +56,7 @@ You can enable or disable features for all repositories.
 {% data reusables.advanced-security.note-org-enable-uses-seats %}
 
 1. Go to the security and analysis settings for your organization. For more information, see "[Displaying the security and analysis settings](#displaying-the-security-and-analysis-settings)."
-2. Under "Code security and analysis", to the right of the feature, click **Disable all** or **Enable all**. {% ifversion ghes > 3.0 or ghec %}The control for "{% data variables.product.prodname_GH_advanced_security %}" is disabled if you have no available seats in your {% data variables.product.prodname_GH_advanced_security %} license.{% endif %}
+2. Under "Code security and analysis", to the right of the feature, click **Disable all** or **Enable all**. {% ifversion ghes or ghec %}The control for "{% data variables.product.prodname_GH_advanced_security %}" is disabled if you have no available seats in your {% data variables.product.prodname_GH_advanced_security %} license.{% endif %}
    {% ifversion fpt %}
    !["Enable all" or "Disable all" button for "Configure security and analysis" features](/assets/images/help/organizations/security-and-analysis-disable-or-enable-all-fpt.png)
    {% endif %}
@@ -66,7 +66,7 @@ You can enable or disable features for all repositories.
    {% ifversion ghes > 3.2 %}
    !["Enable all" or "Disable all" button for "Configure security and analysis" features](/assets/images/enterprise/3.3/organizations/security-and-analysis-disable-or-enable-all-ghas.png)
    {% endif %}
-   {% ifversion ghes = 3.1 or ghes = 3.2 %}
+   {% ifversion ghes = 3.2 %}
    !["Enable all" or "Disable all" button for "Configure security and analysis" features](/assets/images/enterprise/3.1/help/organizations/security-and-analysis-disable-or-enable-all-ghas.png)
    {% endif %}
    
@@ -104,11 +104,8 @@ You can enable or disable features for all repositories.
   {% ifversion ghes > 3.2 %}
    ![Screenshot of a checkbox for enabling a feature for new repositories](/assets/images/enterprise/3.3/organizations/security-and-analysis-enable-or-disable-feature-checkbox.png)
    {% endif %}
-   {% ifversion ghes = 3.1 or ghes = 3.2 %}
+   {% ifversion ghes = 3.2 %}
    ![Screenshot of a checkbox for enabling a feature for new repositories](/assets/images/enterprise/3.1/help/organizations/security-and-analysis-enable-or-disable-feature-checkbox.png)
-   {% endif %}
-   {% ifversion ghes = 3.0 %}
-   ![Screenshot of a checkbox for enabling a feature for new repositories](/assets/images/enterprise/3.0/organizations/security-and-analysis-enable-or-disable-secret-scanning-checkbox.png)
    {% endif %}
    {% ifversion ghae %}
    ![Screenshot of a checkbox for enabling a feature for new repositories](/assets/images/enterprise/github-ae/organizations/security-and-analysis-enable-or-disable-secret-scanning-checkbox-ghae.png)
@@ -162,5 +159,5 @@ You can manage access to {% data variables.product.prodname_GH_advanced_security
 
 - "[Securing your repository](/code-security/getting-started/securing-your-repository)"{% ifversion not fpt %}
 - "[About secret scanning](/github/administering-a-repository/about-secret-scanning)"{% endif %}{% ifversion not ghae %}
-- "[About the dependency graph](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)"{% endif %}{% ifversion fpt or ghec or ghes or ghae %}
-- "[About supply chain security](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-supply-chain-security)"{% endif %}
+- "[About the dependency graph](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)"{% endif %}
+- "[About supply chain security](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-supply-chain-security)"

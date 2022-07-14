@@ -37,7 +37,7 @@ Enterpriseオーナーは、通知なしで{% data variables.product.prodname_de
 
 ## {% data variables.product.prodname_dependabot_alerts %}の通知設定
 
-{% ifversion fpt or ghes > 3.1 or ghec %}
+{% ifversion fpt or ghes or ghec %}
 新しい{% data variables.product.prodname_dependabot %}アラートが検出されると、{% data variables.product.product_name %}はそのリポジトリの{% data variables.product.prodname_dependabot_alerts %}にアクセスできるすべてのユーザーに対し、通知設定に従って通知します。 あなたがリポジトリをWatchしていて、セキュリティアラートもしくはそのリポジトリ上のすべてのアクティビティに対する通知を有効化しているおり、そのリポジトリを無視していなければ、あなたは通知を受け取ることになります。 詳しい情報については、「[通知を設定する](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#configuring-your-watch-settings-for-an-individual-repository)」を参照してください。
 {% endif %}
 

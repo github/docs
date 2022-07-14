@@ -155,10 +155,10 @@ on:
 jobs:
   push_to_registry:
     name: Push Docker image to GitHub Packages
-    runs-on: ubuntu-latest{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
+    runs-on: ubuntu-latest
     permissions:
       packages: write
-      contents: read{% endif %}
+      contents: read
     steps:
       - name: Check out the repo
         uses: {% data reusables.actions.action-checkout %}
@@ -205,10 +205,10 @@ on:
 jobs:
   push_to_registries:
     name: Push Docker image to multiple registries
-    runs-on: {% ifversion ghes %}[self-hosted]{% else %}ubuntu-latest{% endif %}{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
+    runs-on: {% ifversion ghes %}[self-hosted]{% else %}ubuntu-latest{% endif %}
     permissions:
       packages: write
-      contents: read{% endif %}
+      contents: read
     steps:
       - name: Check out the repo
         uses: {% data reusables.actions.action-checkout %}

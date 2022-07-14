@@ -958,7 +958,7 @@ on:
 
 #### 仅在发生特定标记的推送时运行工作流程
 
-您可以使用 `tags` 或 `tags-ignore` 筛选器，将工作流程配置为仅在特定标记或推送时运行。 更多信息请参阅“[GitHub Actions 的工作流程语法](/actions/learn-github-actions/workflow-syntax-for-github-actions#onpushbranchestagsbranches-ignoretags-ignore)”。
+您可以使用 `tags` 或 `tags-ignore` 筛选器，将工作流程配置为仅在特定标记推送时运行。 更多信息请参阅“[GitHub Actions 的工作流程语法](/actions/learn-github-actions/workflow-syntax-for-github-actions#onpushbranchestagsbranches-ignoretags-ignore)”。
 
 例如，当有人推送以 `v1.` 开头的标记时，此工作流程将运行。
 
@@ -1013,7 +1013,7 @@ on:
 
 当存储库中发生与 {% data variables.product.prodname_registry %} 相关的活动时运行工作流程。 更多信息请参阅“[{% data variables.product.prodname_registry %} 文档](/packages)”。
 
-例如，您可以在软件包为 `published` 时运行工作流程。
+例如，您可以在新软件包版本`发布`时运行工作流程。
 
 ```yaml
 on:

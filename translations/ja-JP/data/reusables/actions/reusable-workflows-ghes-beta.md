@@ -2,7 +2,7 @@
 
 {% note %}
 
-**Note**: Reusable workflows are currently in beta and subject to change.
+**ノート**: 再利用可能なワークフローは現在ベータで、変更されることがあります。
 
 {% endnote %}
 

@@ -43,9 +43,9 @@ shortTitle: ユーザからサーバーへのアクセスの更新
 
 ```json
 {
-  "access_token": "{% ifversion fpt or ghes > 3.1 or ghae or ghec %}ghu_16C7e42F292c6912E7710c838347Ae178B4a{% else %}e72e16c7e42f292c6912e7710c838347ae178b4a{% endif %}",
+  "access_token": "ghu_16C7e42F292c6912E7710c838347Ae178B4a",
   "expires_in": "28800",
-  "refresh_token": "{% ifversion fpt or ghes > 3.1 or ghae or ghec %}ghr_1B4a2e77838347a7E420ce178F2E7c6912E169246c34E1ccbF66C46812d16D5B1A9Dc86A1498{% else %}r1.c1b4a2e77838347a7e420ce178f2e7c6912e169246c34e1ccbf66c46812d16d5b1a9dc86a149873c{% endif %}",
+  "refresh_token": "ghr_1B4a2e77838347a7E420ce178F2E7c6912E169246c34E1ccbF66C46812d16D5B1A9Dc86A1498",
   "refresh_token_expires_in": "15811200",
   "scope": "",
   "token_type": "bearer"
@@ -74,10 +74,7 @@ shortTitle: ユーザからサーバーへのアクセスの更新
 
 既存の{% data variables.product.prodname_github_apps %}に対して期限設定付きのユーザトークンを有効化するためには、8時間で期限切れになる新しいユーザトークンを再発行するためにOAuthフローを通じてユーザを送信し、リフレッシュトークンを使って新しいアクセストークンとリフレッシュトークンを取得するためのリクエストを発行する必要があります。 詳しい情報については「[GitHub App のユーザの特定と認可](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/)」を参照してください。
 
-{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
-
 ## 参考リンク
 
 - "[{% data variables.product.prodname_dotcom %} への認証について](/github/authenticating-to-github/about-authentication-to-github#githubs-token-formats)"
 
-{% endif %}

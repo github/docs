@@ -1,6 +1,6 @@
 ---
 title: Watching
-intro: "The Watching API lets users subscribe to notifications for activity in a repository."
+intro: The Watching API lets users subscribe to notifications for activity in a repository.
 versions:
   fpt: '*'
   ghes: '*'

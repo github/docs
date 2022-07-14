@@ -1,7 +1,7 @@
 ---
 title: Analyzing how your team works with Server Statistics
-shortTitle: Server Statistics
-intro: 'To analyze how your team works, understand the value you get from {% data variables.product.prodname_ghe_server %}, and help us improve our products, you can use {% data variables.product.prodname_server_statistics %} to review your usage data for {% data variables.product.prodname_ghe_server %} and share this aggregate data with {% data variables.product.company_short %}.'
+shortTitle: Estadísticas del servidor
+intro: 'Para analizar la forma en la que trabaja tu equipo, entender el valor que obtienes de {% data variables.product.prodname_ghe_server %} y ayudarnos a mejorar nuestros productos, puedes utilizar las {% data variables.product.prodname_server_statistics %} para revisar tus datos de uso para {% data variables.product.prodname_ghe_server %} y compartir estos datos agregados con {% data variables.product.company_short %}.'
 versions:
   feature: server-statistics
 children:

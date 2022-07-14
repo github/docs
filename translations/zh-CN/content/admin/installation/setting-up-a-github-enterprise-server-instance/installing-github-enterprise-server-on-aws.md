@@ -21,6 +21,12 @@ shortTitle: Install on AWS
 - You must have an AWS account capable of launching EC2 instances and creating EBS volumes. For more information, see the [Amazon Web Services website](https://aws.amazon.com/).
 - Most actions needed to launch {% data variables.product.product_location %} may also be performed using the AWS management console. However, we recommend installing the AWS command line interface (CLI) for initial setup. Examples using the AWS CLI are included below. For more information, see Amazon's guides "[Working with the AWS Management Console](http://docs.aws.amazon.com/awsconsolehelpdocs/latest/gsg/getting-started.html)" and "[What is the AWS Command Line Interface](http://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html)."
 
+{% note %}
+
+**Note:** At this time {% data variables.product.prodname_ghe_server %} does not support the use of the Amazon IDMSv2 Metadata API.
+
+{% endnote %}
+
 This guide assumes you are familiar with the following AWS concepts:
 
  - [Launching EC2 Instances](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/LaunchingAndUsingInstances.html)

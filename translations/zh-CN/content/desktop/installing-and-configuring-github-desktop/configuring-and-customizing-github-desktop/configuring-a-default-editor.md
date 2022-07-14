@@ -38,6 +38,7 @@ shortTitle: 配置默认编辑器
 - [RStudio](https://rstudio.com/)
 - [Nova](https://nova.app/)
 - [Android Studio](https://developer.android.com/studio)
+- [Aptana Studio](http://www.aptana.com/)
 
 {% endmac %}
 
@@ -62,6 +63,7 @@ shortTitle: 配置默认编辑器
 - [Brackets](http://brackets.io/)
 - [Notepad++](https://notepad-plus-plus.org/)
 - [RStudio](https://rstudio.com/)
+- [Aptana Studio](http://www.aptana.com/)
 
 {% endwindows %}
 

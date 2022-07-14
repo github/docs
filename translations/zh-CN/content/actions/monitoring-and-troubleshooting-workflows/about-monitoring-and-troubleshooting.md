@@ -22,8 +22,6 @@ miniTocMaxHeadingLevel: 3
 
 {% endif %}
 
-{% ifversion fpt or ghae or ghes > 3.0 or ghec %}
-
 ### 使用可视化图表
 
 每个工作流程运行都会生成一个实时图表，说明运行进度。 您可以使用此图表来监控和调试工作流程。 例如：
@@ -31,8 +29,6 @@ miniTocMaxHeadingLevel: 3
    ![工作流程图表](/assets/images/help/images/workflow-graph.png)
 
 更多信息请参阅“[使用可视化图](/actions/monitoring-and-troubleshooting-workflows/using-the-visualization-graph)”。
-
-{% endif %}
 
 ### 添加工作流程状态徽章
 

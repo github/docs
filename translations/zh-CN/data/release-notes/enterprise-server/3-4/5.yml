@@ -1,0 +1,34 @@
+date: '2022-06-28'
+sections:
+  security_fixes:
+    - "**MEDIUM**: Prevents an attack where an `org` query string parameter can be specified for a GitHub Enterprise Server URL that then gives access to another organization's active committers."
+    - "**MEDIUM**: Ensures that `github.company.com` and `github-company.com` are not evaluated by internal services as identical hostnames, preventing a potential server-side security forgery (SSRF) attack."
+    - "**LOW**: An attacker could access the Management Console with a path traversal attack via HTTP even if external firewall rules blocked HTTP access."
+    - 包已更新到最新的安全版本。
+  bugs:
+    - Files inside an artifact archive were unable to be opened after decompression due to restrictive permissions.
+    - Redis timeouts no longer halt database migrations while running `ghe-config-apply`.
+    - Background job processors would get stuck in a partially shut-down state, resulting in certain kinds of background jobs (like code scanning) appearing stuck.
+    - In some cases, site administrators were not automatically added as enterprise owners.
+    - A rendering issue could affect the dropdown list for filtering secret scanning alerts in a repository.
+  changes:
+    - Improved the performance of Dependabot version updates after first enabled.
+    - The GitHub Pages build and synchronization timeouts are now configurable in the Management Console.
+    - Creating or updating check runs or check suites could return `500 Internal Server Error` if the value for certain fields, like the name, was too long.
+    - 'When [deploying cache-server nodes](/admin/enterprise-management/caching-repositories/configuring-a-repository-cache#configuring-a-repository-cache), it is now mandatory to describe the datacenter topology (using the `--datacenter` argument) for every node in the system. This requirement prevents situations where leaving datacenter membership set to "default" leads to workloads being inappropriately balanced across multiple datacenters.'
+  known_issues:
+    - 在新建的没有任何用户的 {% data variables.product.prodname_ghe_server %} 实例上，攻击者可以创建第一个管理员用户。
+    - 自定义防火墙规则在升级过程中被删除。
+    - Git LFS 跟踪的文件[通过 Web 界面上传](https://github.com/blog/2105-upload-files-to-your-repositories) 被错误地直接添加到仓库。
+    - 如果议题包含文件路径长于 255 个字符的同一仓库中 blob 的永久链接，则议题无法关闭。
+    - 当“用户可以搜索 GitHub.com”与 {% data variables.product.prodname_github_connect %} 一起启用时，私有和内部存储库中的议题不会包含在 {% data variables.product.prodname_dotcom_the_website %} 搜索结果中。
+    - '{% data variables.product.prodname_registry %} npm 注册表不再返回元数据响应的时间值。这样做是为了大幅改善性能。作为元数据响应的一部分，我们继续拥有返回时间值所需的所有数据，并将在我们解决现有性能问题后恢复返回这个值。'
+    - 特定于处理预接收挂钩的资源限制可能会导致某些预接收挂钩失败。
+    - |
+      在多个级别（例如，企业和组织）上使用“--ephemeral”参数注册自托管运行器后，运行器可能会陷入空闲状态并需要重新注册。[更新时间：2022 年 6 月 17 日]
+    - |
+      将 SAML 加密断言与 {% data variables.product.prodname_ghe_server %} 3.4.0 和 3.4.1 一起使用时，“SPSSODescriptor”中的新 XML 属性“WantAssertionsEncrypted”包含 SAML 元数据的无效属性。使用此 SAML 元数据终端节点的 IdP 在验证 SAML 元数据 XML 架构时可能会遇到错误。修复程序将在下一个修补程序版本中提供。[更新时间：2022-04-11]
+
+      要解决此问题，您可以执行以下两个操作之一。
+      - 通过上传 SAML 元数据的静态副本（不带“WantAssertionsEncrypted”属性）来重新配置 IdP。
+      - 复制 SAML 元数据，删除“WantAssertionsEncrypted”属性，将其托管在 Web 服务器上，然后将 IdP 重新配置为指向该 URL。

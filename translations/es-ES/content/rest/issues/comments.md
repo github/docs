@@ -2,7 +2,7 @@
 title: Comentarios de propuestas
 allowTitleToDifferFromFilename: true
 shortTitle: Comentarios
-intro: The Issue comments API supports managing comments on issues and pull requests.
+intro: La API de comentarios en las propuestas es compatible con la administración de comentarios en las propuestas y solicitudes de cambios.
 versions:
   fpt: '*'
   ghes: '*'
