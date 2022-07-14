@@ -20,10 +20,6 @@ redirect_from:
 {% data reusables.cli.about-cli %} For more information, see "[About {% data variables.product.prodname_cli %}](/github-cli/github-cli/about-github-cli)."
 
 You can work with {% data variables.product.prodname_codespaces %} in the  {% data variables.product.prodname_cli %} to:
-- [About {% data variables.product.prodname_cli %}](#about--data-variablesproductprodname_cli-)
-- [Installing {% data variables.product.prodname_cli %}](#installing--data-variablesproductprodname_cli-)
-- [Using {% data variables.product.prodname_cli %}](#using--data-variablesproductprodname_cli-)
-- [`gh` commands for {% data variables.product.prodname_github_codespaces %}](#gh-commands-for--data-variablesproductprodname_github_codespaces-)
   - [List all of your codespaces](#list-all-of-your-codespaces)
   - [Create a new codespace](#create-a-new-codespace)
   - [Stop a codespace](#stop-a-codespace)
