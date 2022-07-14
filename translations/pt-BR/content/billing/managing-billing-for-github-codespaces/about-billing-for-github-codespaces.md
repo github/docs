@@ -1,8 +1,8 @@
 ---
-title: Sobre a cobrança para codespaces
+title: Sobre a cobrança do GitHub Codespaces
 shortTitle: Sobre a cobrança
-intro: 'Veja os preços e como gerenciar a cobrança de {% data variables.product.prodname_codespaces %} para a sua organização.'
-permissions: 'To manage billing for Codespaces for an organization, you must be an organization owner or a billing manager.'
+intro: 'Veja os preços e como gerenciar a cobrança de {% data variables.product.prodname_github_codespaces %} para a sua organização.'
+permissions: 'To manage billing for {% data variables.product.prodname_github_codespaces %} for an organization, you must be an organization owner or a billing manager.'
 versions:
   fpt: '*'
   ghec: '*'
@@ -11,11 +11,13 @@ product: '{% data reusables.gated-features.codespaces %}'
 topics:
   - Codespaces
   - Billing
+redirect_from:
+  - /billing/managing-billing-for-github-codespaces/about-billing-for-codespaces
 ---
 
-## Preços de {% data variables.product.prodname_codespaces %}
+## Preços de {% data variables.product.prodname_github_codespaces %}
 
-O uso de {% data variables.product.prodname_codespaces %} é cobrado para todas as contas corporativas e da organização em {% data variables.product.prodname_team %} e {% data variables.product.prodname_enterprise %}, que não incluem minutos ou armazenamento grátis. Atualmente, as contas pessoais não são cobradas para o uso de {% data variables.product.prodname_codespaces %}.
+O uso de {% data variables.product.prodname_github_codespaces %} é cobrado para todas as contas corporativas e da organização em {% data variables.product.prodname_team %} e {% data variables.product.prodname_enterprise %}, que não incluem minutos ou armazenamento grátis. Atualmente, as contas pessoais não são cobradas para o uso de {% data variables.product.prodname_codespaces %}.
 
 O uso de {% data variables.product.prodname_codespaces %} é cobrado de acordo com as unidades de medida na tabela a seguir:
 
@@ -32,7 +34,7 @@ O uso de {% data variables.product.prodname_codespaces %} é cobrado de acordo c
 
 {% data reusables.codespaces.codespaces-billing %}
 
-Se uso de {% data variables.product.prodname_codespaces %} compartilha a data de cobrança, o método de pagamento e o recibo que já existem para sua conta. {% data reusables.dotcom_billing.view-all-subscriptions %}
+Se uso de {% data variables.product.prodname_github_codespaces %} compartilha a data de cobrança, o método de pagamento e o recibo que já existem para sua conta. {% data reusables.dotcom_billing.view-all-subscriptions %}
 
 {% ifversion ghec %}
 Se você comprou {% data variables.product.prodname_enterprise %} por meio de um Contrato da Microsoft Enterprise, você pode conectar o seu ID de assinatura do Azure à sua conta corporativa para habilitar e pagar o uso de {% data variables.product.prodname_codespaces %}. Para obter mais informações, consulte "[Conectar uma assinatura do Azure à sua empresa](/billing/managing-billing-for-your-github-account/connecting-an-azure-subscription-to-your-enterprise)".

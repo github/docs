@@ -1,5 +1,5 @@
 ---
-title: Troubleshooting identity and access management for your organization
+title: Solução de problemas de identidade e gerenciamento de acesso para sua organização
 intro: 'Revise e solucuone erros comuns para gerenciar a o SAML SSO da sua organização, sincronização de equipes ou provedor de identidade (IdP).'
 versions:
   ghec: '*'
@@ -96,4 +96,4 @@ Se o novo provisionamento do SCIM para os usuários não ajudar, entre em contat
 
 ## Leia mais
 
-- "[Troubleshooting identity and access management for your enterprise](/admin/identity-and-access-management/managing-iam-for-your-enterprise/troubleshooting-identity-and-access-management-for-your-enterprise)"
+- "[Solucionando problemas de identidade e gerenciamento de acesso para a sua empresa](/admin/identity-and-access-management/managing-iam-for-your-enterprise/troubleshooting-identity-and-access-management-for-your-enterprise)"

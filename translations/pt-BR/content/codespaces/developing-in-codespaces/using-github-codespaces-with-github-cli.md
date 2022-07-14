@@ -1,5 +1,5 @@
 ---
-title: Usando codespaces com a CLI do GitHub
+title: Using GitHub Codespaces with GitHub CLI
 shortTitle: GitHub CLI
 intro: 'Você pode trabalhar com {% data variables.product.prodname_github_codespaces %} diretamente da sua linha de comando usando `gh`, a interface de linha de comando de {% data variables.product.product_name %}.'
 product: '{% data reusables.gated-features.codespaces %}'
@@ -11,23 +11,25 @@ topics:
   - Codespaces
   - CLI
   - Developer
+redirect_from:
+  - /codespaces/developing-in-codespaces/using-codespaces-with-github-cli
 ---
 
 ## Sobre o {% data variables.product.prodname_cli %}
 
-{% data reusables.cli.about-cli %} Para obter mais informações, consulte "[Sobre {% data variables.product.prodname_cli %}](/github-cli/github-cli/about-github-cli).
+{% data reusables.cli.about-cli %} Para obter mais informações, consulte "[Sobre {% data variables.product.prodname_cli %}de](/github-cli/github-cli/about-github-cli)."
 
 Você pode trabalhar com {% data variables.product.prodname_codespaces %} em {% data variables.product.prodname_cli %} para:
-- [Listar os seus codespaces](#list-all-of-your-codespaces)
-- [Criar um codespace](#create-a-new-codespace)
-- [Parar um codespace](#stop-a-codespace)
-- [Excluir um codespace](#delete-a-codespace)
-- [SSH em um codespace](#ssh-into-a-codespace)
-- [Abrir um codespace em {% data variables.product.prodname_vscode %}](#open-a-codespace-in-visual-studio-code)
-- [Abra um codespace no JupyterLab](#open-a-codespace-in-jupyterlab)
-- [Copiar um arquivo de/para um codespace](#copy-a-file-tofrom-a-codespace)
-- [Modificar portas em um codespace](#modify-ports-in-a-codespace)
-- [Acessar registros de codespaces](#access-codespace-logs)
+  - [Listar todos os seus codespaces](#list-all-of-your-codespaces)
+  - [Criar um novo codespace](#create-a-new-codespace)
+  - [Parar um codespace](#stop-a-codespace)
+  - [Excluir um codespace](#delete-a-codespace)
+  - [SSH em um codespace](#ssh-into-a-codespace)
+  - [Abrir um codespace em {% data variables.product.prodname_vscode %}](#open-a-codespace-in--data-variablesproductprodname_vscode-)
+  - [Abra um codespace no JupyterLab](#open-a-codespace-in-jupyterlab)
+  - [Copiar um arquivo de/para um codespace](#copy-a-file-tofrom-a-codespace)
+  - [Modificar portas em um codespace](#modify-ports-in-a-codespace)
+  - [Acessar registros de codespaces](#access-codespace-logs)
 
 ## Instalar o {% data variables.product.prodname_cli %}
 
@@ -80,7 +82,7 @@ Para obter mais informações, consulte "[Criar um codespace](/codespaces/develo
 gh codespace stop -c <em>codespace-name</em>
 ```
 
-Para obter mais informações, consulte "[Aprofundamento em codespaces](/codespaces/getting-started/deep-dive#closing-or-stopping-your-codespace)".
+For more information, see "[Deep dive into {% data variables.product.prodname_github_codespaces %}](/codespaces/getting-started/deep-dive#closing-or-stopping-your-codespace)."
 
 ### Excluir um codespace
 
@@ -190,4 +192,4 @@ Você pode ver o registro de criação de um codespace. Depois de entrar neste c
 gh codespace logs -c <em>codespace-name</em>
 ```
 
-Para obter mais informações sobre o registro de criação, consulte "[Registros de codespaces](/codespaces/troubleshooting/codespaces-logs#creation-logs)".
+For more information about the creation log, see "[{% data variables.product.prodname_github_codespaces %} logs](/codespaces/troubleshooting/github-codespaces-logs#creation-logs)."

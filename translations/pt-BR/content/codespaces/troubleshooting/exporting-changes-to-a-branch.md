@@ -13,7 +13,7 @@ shortTitle: Exportando alterações
 
 ## Exportando alterações para um branch
 
-Ao usar o {% data variables.product.prodname_codespaces %}, você deverá exportar suas alterações para um branch sem carregar o seu codespace.
+Ao usar o {% data variables.product.prodname_github_codespaces %}, você deverá exportar suas alterações para um branch sem carregar o seu codespace.
 
 Isso pode ser útil quando você atingir um limite de gastos [](/billing/managing-billing-for-github-codespaces/managing-spending-limits-for-codespaces) ou tiver um problema geral ao acessar seu código.
 

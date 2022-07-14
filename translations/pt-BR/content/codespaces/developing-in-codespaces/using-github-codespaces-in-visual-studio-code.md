@@ -1,11 +1,12 @@
 ---
-title: Usar espaços de código no Visual Studio Code
+title: Using GitHub Codespaces in Visual Studio Code
 intro: 'Você pode desenvolver seu codespace diretamente em {% data variables.product.prodname_vscode %}, conectando a extensão de {% data variables.product.prodname_github_codespaces %} à sua conta no {% data variables.product.product_name %}.'
 product: '{% data reusables.gated-features.codespaces %}'
 redirect_from:
   - /github/developing-online-with-codespaces/using-codespaces-in-visual-studio-code
   - /github/developing-online-with-codespaces/connecting-to-your-codespace-from-visual-studio-code
   - /github/developing-online-with-codespaces/using-codespaces-in-visual-studio
+  - /codespaces/developing-in-codespaces/using-codespaces-in-visual-studio-code
 versions:
   fpt: '*'
   ghec: '*'
@@ -18,19 +19,19 @@ shortTitle: Visual Studio Code
 ---
 
  
-## Sobre {% data variables.product.prodname_codespaces %} em {% data variables.product.prodname_vscode %}
+## Sobre {% data variables.product.prodname_github_codespaces %} em {% data variables.product.prodname_vscode %}
 
-Você pode usar sua instalação local de {% data variables.product.prodname_vscode %} para criar, gerenciar, trabalhar e excluir codespaces. Para usar {% data variables.product.prodname_codespaces %} em {% data variables.product.prodname_vscode_shortname %}, você deverá instalar a extensão de {% data variables.product.prodname_github_codespaces %}. Para obter mais informações sobre a configuração de codespaces em {% data variables.product.prodname_vscode_shortname %}, consulte "[pré-requisitos](#prerequisites)".
+Você pode usar sua instalação local de {% data variables.product.prodname_vscode %} para criar, gerenciar, trabalhar e excluir codespaces. Para usar {% data variables.product.prodname_github_codespaces %} em {% data variables.product.prodname_vscode_shortname %}, você deverá instalar a extensão de {% data variables.product.prodname_codespaces %}. Para obter mais informações sobre a configuração de codespaces em {% data variables.product.prodname_vscode_shortname %}, consulte "[pré-requisitos](#prerequisites)".
 
-Por padrão, se você criar um novo codespace em {% data variables.product.prodname_dotcom_the_website %}, ele será aberto no navegador. Se você preferir abrir qualquer codespace novo em {% data variables.product.prodname_vscode_shortname %} automaticamente, você pode definir seu editor padrão como {% data variables.product.prodname_vscode_shortname %}. Para obter mais informações, consulte "[Definindo seu editor padrão para {% data variables.product.prodname_codespaces %}](/codespaces/managing-your-codespaces/setting-your-default-editor-for-codespaces)".
+Por padrão, se você criar um novo codespace em {% data variables.product.prodname_dotcom_the_website %}, ele será aberto no navegador. Se você preferir abrir qualquer codespace novo em {% data variables.product.prodname_vscode_shortname %} automaticamente, você pode definir seu editor padrão como {% data variables.product.prodname_vscode_shortname %}. Para obter mais informações, consulte "[Definindo seu editor padrão para {% data variables.product.prodname_github_codespaces %}](/codespaces/customizing-your-codespace/setting-your-default-editor-for-github-codespaces)".
 
-Se você preferir trabalhar no navegador, mas deseja continuar usando suas extensões de {% data variables.product.prodname_vscode_shortname %} temas e atalhos existentes, você poderá ativar as Configurações Sincronizadas. Para obter mais informações, consulte "[Personalizar {% data variables.product.prodname_codespaces %} para sua conta](/codespaces/customizing-your-codespace/personalizing-codespaces-for-your-account#settings-sync)".
+Se você preferir trabalhar no navegador, mas deseja continuar usando suas extensões de {% data variables.product.prodname_vscode_shortname %} temas e atalhos existentes, você poderá ativar as Configurações Sincronizadas. For more information, see "[Personalizing {% data variables.product.prodname_github_codespaces %} for your account](/codespaces/customizing-your-codespace/personalizing-github-codespaces-for-your-account#settings-sync)."
 
 ## Pré-requisitos
 
-Para desenvolver-se em uma plataforma de codespace diretamente em {% data variables.product.prodname_vscode_shortname %}, você deverá instalar e efetuar o login na extensão {% data variables.product.prodname_github_codespaces %} com as suas credenciais de {% data variables.product.product_name %}. A extensão de {% data variables.product.prodname_github_codespaces %} exige a versão de outubro de 2020 1.51 ou posterior de {% data variables.product.prodname_vscode_shortname %}.
+Para desenvolver-se em uma plataforma de codespace diretamente em {% data variables.product.prodname_vscode_shortname %}, você deverá instalar e efetuar o login na extensão {% data variables.product.prodname_codespaces %} com as suas credenciais de {% data variables.product.product_name %}. A extensão de {% data variables.product.prodname_codespaces %} exige a versão de outubro de 2020 1.51 ou posterior de {% data variables.product.prodname_vscode_shortname %}.
 
-Use o {% data variables.product.prodname_vscode_marketplace %} para instalar a extensão [{% data variables.product.prodname_github_codespaces %}](https://marketplace.visualstudio.com/items?itemName=GitHub.codespaces). Para obter mais informações, consulte [Extensão do Marketplace](https://code.visualstudio.com/docs/editor/extension-gallery) na documentação do {% data variables.product.prodname_vscode_shortname %}.
+Use o {% data variables.product.prodname_vscode_marketplace %} para instalar a extensão [{% data variables.product.prodname_codespaces %}](https://marketplace.visualstudio.com/items?itemName=GitHub.codespaces). Para obter mais informações, consulte [Extensão do Marketplace](https://code.visualstudio.com/docs/editor/extension-gallery) na documentação do {% data variables.product.prodname_vscode_shortname %}.
 
 
 {% mac %}

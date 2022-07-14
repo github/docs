@@ -1,5 +1,5 @@
 ---
-title: Definindo seu período de tempo limite para os codespaces.
+title: Setting your timeout period for GitHub Codespaces
 shortTitle: Definir o tempo limite
 intro: 'Você pode definir seu tempo limite padrão para {% data variables.product.prodname_codespaces %} na sua página de configurações pessoais.'
 product: '{% data reusables.gated-features.codespaces %}'
@@ -9,6 +9,8 @@ versions:
 topics:
   - Codespaces
 type: how_to
+redirect_from:
+  - /codespaces/customizing-your-codespace/setting-your-timeout-period-for-codespaces
 ---
 
 Um codespace irá parar de funcionar após um período de inatividade. Você pode especificar a duração deste período de tempo limite. A configuração atualizada será aplicada a qualquer código recém-criado.
@@ -17,7 +19,7 @@ Algumas organizações podem ter uma política máxima de tempo ocioso. Se a pol
 
 {% warning %}
 
-**Aviso**: Os codespaces são cobrados por minuto. Se você não está usando ativamente um codepsace, mas o este ainda não expirou, você ainda será cobrado pelo tempo em que o codespace estiver em execução. Para obter mais informações, consulte[Sobre a cobrança dos codespaces](/billing/managing-billing-for-github-codespaces/about-billing-for-codespaces#codespaces-pricing)".
+**Aviso**: Os codespaces são cobrados por minuto. Se você não está usando ativamente um codepsace, mas o este ainda não expirou, você ainda será cobrado pelo tempo em que o codespace estiver em execução. Para obter mais informações, consulte "[Sobre a cobrança do {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#codespaces-pricing)".
 
 {% endwarning %}
 

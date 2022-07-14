@@ -1,9 +1,9 @@
 ---
-title: Gerenciar segredos criptografados para o seu repositório e organização para codespaces
+title: Managing encrypted secrets for your repository and organization for GitHub Codespaces
 shortTitle: Segredos criptografados
-intro: 'Os segredos criptografados permitem que você armazene informações confidenciais na sua organização, repositório ou {% data variables.product.prodname_codespaces %}.'
+intro: 'Os segredos criptografados permitem que você armazene informações confidenciais na sua organização, repositório ou {% data variables.product.prodname_github_codespaces %}.'
 product: '{% data reusables.gated-features.codespaces %}'
-permissions: 'To manage secrets for {% data variables.product.prodname_codespaces %} for an organization, you must be an organization owner.'
+permissions: 'To manage secrets for {% data variables.product.prodname_github_codespaces %} for an organization, you must be an organization owner.'
 versions:
   fpt: '*'
   ghec: '*'
@@ -11,13 +11,15 @@ topics:
   - Codespaces
   - Secret store
   - Security
+redirect_from:
+  - /codespaces/managing-codespaces-for-your-organization/managing-encrypted-secrets-for-your-repository-and-organization-for-codespaces
 ---
 
  
 
 ## Sobre segredos
 
-Segredos são variáveis de ambiente criptografadas que você cria em uma organização ou repositório. Os segredos que você criou estão disponíveis para uso em {% data variables.product.prodname_codespaces %}. O GitHub usa uma [caixa protegida pela libsodium](https://libsodium.gitbook.io/doc/public-key_cryptography/sealed_boxes) para criptografar segredos antes que eles cheguem ao GitHub e só descriptografa quando você os usa em um codespace.
+Segredos são variáveis de ambiente criptografadas que você cria em uma organização ou repositório. Os segredos que você criou estão disponíveis para uso em {% data variables.product.prodname_github_codespaces %}. O GitHub usa uma [caixa protegida pela libsodium](https://libsodium.gitbook.io/doc/public-key_cryptography/sealed_boxes) para criptografar segredos antes que eles cheguem ao GitHub e só descriptografa quando você os usa em um codespace.
 
 Os segredos no nível da organização permitem que você compartilhe segredos entre vários repositórios, o que reduz a necessidade de criar segredos duplicados. Você pode usar políticas de acesso para controlar quais repositórios podem usar segredos da organização.
 

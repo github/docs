@@ -1,5 +1,5 @@
 ---
-title: Sobre as pré-compilações de codespaces
+title: About GitHub Codespaces prebuilds
 shortTitle: Sobre as pré-criações
 intro: As pré-compilações dos codespaces ajudam a acelerar a criação de novos codespaces para repositórios grandes ou complexos.
 versions:
@@ -8,13 +8,15 @@ versions:
 topics:
   - Codespaces
 product: '{% data reusables.gated-features.codespaces %}'
+redirect_from:
+  - /codespaces/prebuilding-your-codespaces/about-codespaces-prebuilds
 ---
 
 ## Visão Geral
 
 Pré-compilar os seus codespaces permite que você seja mais produtivo e acesse o seu codepsace mais rápido, particularmente se o repositório for grande ou complexo e novos codespaces atualmente levarem mais de 2 minutos para começar. Isso ocorre porque qualquer código-fonte, extensões de editor, dependências de projetos, comandos e configurações já foram baixadas, instaladas e aplicadas antes de criar um codespace para o seu projeto. Pense em uma pré-compilação como um modelo pronto para um codespace.
 
-Por padrão, sempre que você fizer alterações no repositório, {% data variables.product.prodname_codespaces %} irá usar {% data variables.product.prodname_actions %} para atualizar automaticamente suas pré-criações.
+Por padrão, sempre que você fizer alterações no repositório, {% data variables.product.prodname_github_codespaces %} irá usar {% data variables.product.prodname_actions %} para atualizar automaticamente suas pré-criações.
 
 Quando as pré-criações estiverem disponíveis para um branch específico de um repositório e para sua região, você verá a etiqueta "Pré-criação de {% octicon "zap" aria-label="The zap icon" %} pronto" na lista de opções de tipo de máquina ao criar um codespace. Se uma pré-compilação ainda estiver sendo criada, você verá a etiqueta "{% octicon "history" aria-label="The history icon" %} Pré-compliação em andamento". Para obter mais informações, consulte "[Criar um codespace](/codespaces/developing-in-codespaces/creating-a-codespace#creating-a-codespace)".
 
@@ -28,7 +30,7 @@ Quando as pré-criações estiverem disponíveis para um branch específico de u
 
 ## Sobre a cobrança para pré-criações de {% data variables.product.prodname_codespaces %}
 
-{% data reusables.codespaces.billing-for-prebuilds %} Para obter detalhes de preços de armazenamento de {% data variables.product.prodname_codespaces %}, consulte[Sobre cobrança para {% data variables.product.prodname_codespaces %}](/billing/managing-billing-for-github-codespaces/about-billing-for-codespaces)."
+{% data reusables.codespaces.billing-for-prebuilds %} Para obter detalhes de preços de armazenamento de {% data variables.product.prodname_codespaces %}, consulte[Sobre cobrança para {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces)."
 
 O uso de codespaces criados usando pré-criações é cobrado na mesma frequência que os codespaces regulares.
 

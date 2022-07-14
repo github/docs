@@ -117,7 +117,7 @@ Assegure-se de ter acesso ao repositório como:
 
 Em raras circunstâncias, você pode não ter o devido acesso SSH a um repositório.
 
-You should ensure that the SSH key you are using is attached to your personal account on {% data variables.product.product_name %}. Para confirmar, digite na linha de comando:
+Você deve garantir que a chave SSH que você está usando esteja anexada à sua conta pessoal em {% data variables.product.product_name %}. Para confirmar, digite na linha de comando:
 
 ```shell
 $ ssh -T git@{% data variables.command_line.codeblock %}

@@ -102,7 +102,7 @@ curl -X POST \
 HOSTNAME/graphql
 ```
 
-Para encontrar todos os pacotes privados que você publicou em {% data variables.product.prodname_registry %}, junto com os IDs de versão dos pacotes, você pode usar a conexão dos `pacotes` através do objeto `repositório`. Você vai precisar de um token com os escopos `read:packages` e `repo`. For more information, see the [`packages`](/graphql/reference/objects#repository) connection or the [`PackageOwner`](/graphql/reference/interfaces#packageowner) interface.
+Para encontrar todos os pacotes privados que você publicou em {% data variables.product.prodname_registry %}, junto com os IDs de versão dos pacotes, você pode usar a conexão dos `pacotes` através do objeto `repositório`. Você vai precisar de um token com os escopos `read:packages` e `repo`. Para obter mais informações, consulte a conexão dos [`pacotes`](/graphql/reference/objects#repository) ou a interface do [`PackageOwner`](/graphql/reference/interfaces#packageowner).
 
 Para obter mais informações sobre a mutação `deletePackageVersion`, consulte "[`deletePackageVersion`](/graphql/reference/mutations#deletepackageversion)".
 

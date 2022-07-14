@@ -1,5 +1,5 @@
 ---
-title: Solução de problemas de encaminhamento de porta para codespaces
+title: Troubleshooting port forwarding for GitHub Codespaces
 intro: Etapas de solução de problemas para problemas comuns de encaminhamento de portas.
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
@@ -9,9 +9,11 @@ type: reference
 topics:
   - Codespaces
 shortTitle: Encaminhamento de porta
+redirect_from:
+  - /codespaces/troubleshooting/troubleshooting-port-forwarding-for-codespaces
 ---
 
-Quando um aplicativo em execução em uma saída de codespace gera uma porta para o console, {% data variables.product.prodname_codespaces %}, irá detectar o padrão da URL do host local e encaminhará a porta automaticamente. Para obter mais informações, consulte "[Encaminhando portas no seu codespace](/codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace)".
+Quando um aplicativo em execução em uma saída de codespace gera uma porta para o console, {% data variables.product.prodname_github_codespaces %}, irá detectar o padrão da URL do host local e encaminhará a porta automaticamente. Para obter mais informações, consulte "[Encaminhando portas no seu codespace](/codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace)".
 
 Se uma porta não for redirecionada automaticamente, você poderá redirecioná-la manualmente. Para obter mais informações, consulte "[Encaminhando uma porta](/codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace#forwarding-a-port). "
 

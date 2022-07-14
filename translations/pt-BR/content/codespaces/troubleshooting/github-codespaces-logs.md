@@ -1,6 +1,6 @@
 ---
-title: Registros de codespaces
-intro: 'Visão geral dos locais de registros usados por {% data variables.product.prodname_codespaces %}.'
+title: GitHub Codespaces logs
+intro: 'Visão geral dos locais de registros usados por {% data variables.product.prodname_github_codespaces %}.'
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
@@ -10,10 +10,12 @@ topics:
   - Codespaces
   - Logging
 shortTitle: Registros de codespaces
+redirect_from:
+  - /codespaces/troubleshooting/codespaces-logs
 ---
 
 
-As informações sobre {% data variables.product.prodname_codespaces %} são saídas para três registros diferentes:
+As informações sobre {% data variables.product.prodname_github_codespaces %} são saídas para três registros diferentes:
 
 - Registros do codespace
 - Registros de criação

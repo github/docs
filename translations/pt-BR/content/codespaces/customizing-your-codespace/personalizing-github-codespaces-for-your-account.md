@@ -1,11 +1,12 @@
 ---
-title: Personalizar os codespaces para a sua conta
+title: Personalizar o GitHub Codespaces para sua conta
 shortTitle: Personalize seus codespaces
-intro: 'Você pode personalizar {% data variables.product.prodname_codespaces %} usando um repositório `dotfiles` em {% data variables.product.product_name %} ou usando Configurações de Sincronização.'
+intro: 'Você pode personalizar {% data variables.product.prodname_github_codespaces %} usando um repositório `dotfiles` em {% data variables.product.product_name %} ou usando Configurações de Sincronização.'
 redirect_from:
   - /github/developing-online-with-github-codespaces/personalizing-github-codespaces-for-your-account
   - /github/developing-online-with-codespaces/personalizing-codespaces-for-your-account
   - /codespaces/setting-up-your-codespace/personalizing-codespaces-for-your-account
+  - /codespaces/customizing-your-codespace/personalizing-codespaces-for-your-account
 versions:
   fpt: '*'
   ghec: '*'
@@ -91,11 +92,11 @@ Se o seu código não consegue pegar as configurações nos dotfiles, consulte "
 
 Você também pode personalizar {% data variables.product.prodname_codespaces %} usando [as configurações adicionais de {% data variables.product.prodname_codespaces %}de](https://github.com/settings/codespaces):
 
-- Para definir sua região padrão, consulte "[Definindo sua região padrão para {% data variables.product.prodname_codespaces %}](/codespaces/managing-your-codespaces/setting-your-default-region-for-codespaces)."
-- Para definir seu editor, consulte "[Definindo seu editor padrão para {% data variables.product.prodname_codespaces %}](/codespaces/managing-your-codespaces/setting-your-default-editor-for-codespaces)"
-- Para adicionar segredos criptografados, consulte "[Gerenciar segredos criptografados para {% data variables.product.prodname_codespaces %}](/github/developing-online-with-codespaces/managing-encrypted-secrets-for-codespaces)".
-- Para habilitar a verificação do GPG, consulte "[Gerenciar a verificação de GPG para {% data variables.product.prodname_codespaces %}](/github/developing-online-with-codespaces/managing-gpg-verification-for-codespaces)."
-- Para permitir que seus codespaces acessem outros repositórios, consulte "[Gerenciar acesso e segurança para {% data variables.product.prodname_codespaces %}](/github/developing-online-with-codespaces/managing-access-and-security-for-codespaces)".
+- Para definir sua região padrão, consulte "[Definindo sua região padrão para {% data variables.product.prodname_github_codespaces %}](/codespaces/customizing-your-codespace/setting-your-default-region-for-github-codespaces)."
+- Para definir seu editor, consulte "[Definindo seu editor padrão para {% data variables.product.prodname_github_codespaces %}](/codespaces/customizing-your-codespace/setting-your-default-editor-for-github-codespaces)"
+- Para adicionar segredos criptografados, consulte "[Gerenciar segredos criptografados para {% data variables.product.prodname_github_codespaces %}](/codespaces/managing-codespaces-for-your-organization/managing-encrypted-secrets-for-your-repository-and-organization-for-github-codespaces)".
+- Para habilitar a verificação do GPG, consulte "[Gerenciar a verificação de GPG para {% data variables.product.prodname_github_codespaces %}](/codespaces/managing-your-codespaces/managing-gpg-verification-for-github-codespaces)."
+- To allow your codespaces to access other repositories, see "[Managing repository access for your organization's codespaces](/codespaces/managing-codespaces-for-your-organization/managing-repository-access-for-your-organizations-codespaces)."
 
 ## Leia mais
 

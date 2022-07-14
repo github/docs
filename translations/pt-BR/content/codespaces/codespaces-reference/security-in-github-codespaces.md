@@ -1,6 +1,6 @@
 ---
-title: Segurança nos codespaces
-intro: 'Visão geral da arquitetura de segurança de {% data variables.product.prodname_codespaces %}, com orientações para ajudar a manter a segurança e minimizar o risco de ataque.'
+title: Security in GitHub Codespaces
+intro: 'Visão geral da arquitetura de segurança de {% data variables.product.prodname_github_codespaces %}, com orientações para ajudar a manter a segurança e minimizar o risco de ataque.'
 miniTocMaxHeadingLevel: 3
 versions:
   fpt: '*'
@@ -10,17 +10,19 @@ topics:
   - Security
 type: reference
 shortTitle: Segurança nos codespaces
+redirect_from:
+  - /codespaces/codespaces-reference/security-in-codespaces
 ---
 
 ## Visão geral da segurança do codespace
 
-{% data variables.product.prodname_codespaces %} foi projetado para ser uma segurança enrijecida por padrão. Consequentemente, você deverá garantir que as suas práticas de desenvolvimento de software não corram o risco de reduzir a posição de segurança do seu codespace.
+{% data variables.product.prodname_github_codespaces %} foi projetado para ser uma segurança enrijecida por padrão. Consequentemente, você deverá garantir que as suas práticas de desenvolvimento de software não corram o risco de reduzir a posição de segurança do seu codespace.
 
 Este guia descreve a forma como os Programas mantêm seu ambiente de desenvolvimento seguro e fornece algumas das práticas recomendadas que ajudarão a manter sua segurança enquanto você trabalha. Como em qualquer ferramenta de desenvolvimento, lembre-se de que você só deve abrir e trabalhar em repositórios que você conhece e confia.
 
 ### Isolamento de ambiente
 
-{% data variables.product.prodname_codespaces %} foi projetado para manter seus codespace separados um do outro, cada um usando sua própria máquina virtual e rede.
+{% data variables.product.prodname_github_codespaces %} foi projetado para manter seus codespace separados um do outro, cada um usando sua própria máquina virtual e rede.
 
 #### Máquinas virtuais isoladas
 
@@ -48,7 +50,7 @@ Os administradores da organização especificam quais repositórios devem ser co
 
 ### Conexões de codespace
 
-Você pode conectar-se ao seu codespace usando o túnel criptografado TLS fornecido pelo serviço de {% data variables.product.prodname_codespaces %}. Somente o criador de um codespace pode conectar-se a um codespace. As conexões são autenticadas com {% data variables.product.product_name %}.
+Você pode conectar-se ao seu codespace usando o túnel criptografado TLS fornecido pelo serviço de {% data variables.product.prodname_github_codespaces %}. Somente o criador de um codespace pode conectar-se a um codespace. As conexões são autenticadas com {% data variables.product.product_name %}.
 
 Se você precisar permitir acesso externo a serviços em execução em um codespace, você poderá habilitar o encaminhamento de portas para acesso público ou privado.
 
@@ -87,7 +89,7 @@ Os segredos não são copiados para o ambiente se você não tiver acesso de gra
 
 Para mais informações sobre segredos, consulte:
 - "[Gerenciar segredos criptografados nos seus codespaces](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)"
-- "[Gerenciando segredos criptografados do seu repositório e organização para os codespaces](/codespaces/managing-codespaces-for-your-organization/managing-encrypted-secrets-for-your-repository-and-organization-for-codespaces)"
+- "[Gerenciando segredos criptografados para o seu repositório e organização para {% data variables.product.prodname_github_codespaces %}](/codespaces/managing-codespaces-for-your-organization/managing-encrypted-secrets-for-your-repository-and-organization-for-github-codespaces)"
 
 ### Trabalhando com contribuições e repositórios de outras pessoas
 

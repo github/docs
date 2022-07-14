@@ -1,5 +1,5 @@
 ---
-title: Recuperação de desastres para codespaces
+title: Disaster recovery for GitHub Codespaces
 intro: 'Este artigo descreve a orientação para um cenário de recuperação de desastre, quando uma região inteira sofre uma interrupção devido a um desastre natural de grandes proporções ou interrupção de serviço generalizada.'
 versions:
   fpt: '*'
@@ -8,9 +8,11 @@ product: '{% data reusables.gated-features.codespaces %}'
 topics:
   - Codespaces
 shortTitle: Recuperação de desastre
+redirect_from:
+  - /codespaces/codespaces-reference/disaster-recovery-for-codespaces
 ---
 
-Trabalhamos muito para ter a certeza de que {% data variables.product.prodname_codespaces %} esteja sempre disponível para você. No entanto, forças além do nosso controle às vezes impactam o serviço de formas que podem causar interrupções de serviços não planejadas.
+Trabalhamos muito para ter a certeza de que {% data variables.product.prodname_github_codespaces %} esteja sempre disponível para você. No entanto, forças além do nosso controle às vezes impactam o serviço de formas que podem causar interrupções de serviços não planejadas.
 
 Embora os cenários de recuperação de desastres sejam raros, recomendamos que vocês se preparem para a possibilidade de haver uma interrupção de toda uma região. Se uma região inteira tiver uma interrupção do serviço, as cópias redundantes dos seus dados ficarão temporariamente indisponíveis.
 
@@ -24,7 +26,7 @@ A orientação a seguir fornece opções sobre como lidar com interrupções de 
 
 ## Opção 1: Crie um novo ritmo de código em outra região
 
-No caso de uma interrupção regional, sugerimos que recrie o seu codespace em uma região não afetada para continuar trabalhando. Este novo código terá todas as alterações a partir do seu último push para {% data variables.product.prodname_dotcom %}. Para obter informações sobre a configuração manual de outra região, consulte "[" Definir sua região padrão para os codespaces](/codespaces/managing-your-codespaces/setting-your-default-region-for-codespaces)".
+No caso de uma interrupção regional, sugerimos que recrie o seu codespace em uma região não afetada para continuar trabalhando. Este novo código terá todas as alterações a partir do seu último push para {% data variables.product.prodname_dotcom %}. For information on manually setting another region, see "[Setting your default region for {% data variables.product.prodname_github_codespaces %}](/codespaces/customizing-your-codespace/setting-your-default-region-for-github-codespaces)."
 
 Você pode otimizar o tempo de recuperação configurando um `devcontainer.json` no repositório do projeto, que permite que você defina as ferramentas, tempo de execução, estruturas, configurações do editor, extensões e outras configurações necessárias para restaurar o ambiente de desenvolvimento automaticamente. Para obter mais informações, consulte "[Introdução a contêineres de desenvolvimento](/codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project)".
 

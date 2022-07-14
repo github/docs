@@ -88,30 +88,30 @@ Para obter mais informações, consulte "[Criar e destacar blocos de código](/a
 
 {% data reusables.user-settings.enabling-fixed-width-fonts %}
 
-## Supported color models
+## Modelos de cor compatíveis
 
-In issues, pull requests, and discussions, you can call out colors within a sentence by using backticks. A supported color model within backticks will display a visualization of the color.
+Em problemas, pull requests e discussões, você pode invocar as cores dentro de uma frase usando barra inversa. Um modelo de cores compatível entre barras inversas exibirá uma visualização da cor.
 
 ```markdown
-The background color should be `#ffffff` for light mode and `#0d1117` for dark mode.
+A cor de fundo deve ser `#ffffff` para o modo claro e `#0d1117` para o modo escuro.
 ```
 
-![Rendered supported color model.](/assets/images/help/writing/supported-color-models-rendered.png)
+![Modelo de cor compatível por renderização.](/assets/images/help/writing/supported-color-models-rendered.png)
 
-Here are the currently supported color models.
+Aqui estão os modelos de cores atualmente compatíveis.
 
-| Color | Sintaxe                   | Exemplo                   | Resultado                                                                                                             |
-| ----- | ------------------------- | ------------------------- | --------------------------------------------------------------------------------------------------------------------- |
-| HEX   | <code>\`#RRGGBB\`</code> | <code>\`#0969DA\`</code> | ![Rendered supported color model in HEX format.](/assets/images/help/writing/supported-color-models-hex-rendered.png) |
-| RGB   | <code>\`rgb(R,G,B)\`</code> | <code>\`rgb(9, 105, 218)\`</code> | ![Rendered supported color model in RGB format.](/assets/images/help/writing/supported-color-models-rgb-rendered.png) |
-| HSL   | <code>\`hsl(H,S,L)\`</code> | <code>\`hsl(212, 92%, 45%)\`</code> | ![Rendered supported color model in HSL format.](/assets/images/help/writing/supported-color-models-hsl-rendered.png) |
+| Cor | Sintaxe                   | Exemplo                   | Resultado                                                                                                                             |
+| --- | ------------------------- | ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
+| HEX | <code>\`#RRGGBB\`</code> | <code>\`#0969DA\`</code> | ![Rendered supported color model in HEX format.](/assets/images/help/writing/supported-color-models-hex-rendered.png)                 |
+| RGB | <code>\`rgb(R,G,B)\`</code> | <code>\`rgb(9, 105, 218)\`</code> | ![Modelo de cor RGB compatível fornecido no formato RGB.](/assets/images/help/writing/supported-color-models-rgb-rendered.png)        |
+| HSL | <code>\`hsl(H,S,L)\`</code> | <code>\`hsl(212, 92%, 45%)\`</code> | ![Modelo de cor com compativilidade renderizado no formato HSL.](/assets/images/help/writing/supported-color-models-hsl-rendered.png) |
 
 {% note %}
 
 **Notas:**
 
-- A supported color model cannot have any leading or trailing spaces within the backticks.
-- The visualization of the color is only supported in issues, pull requests, and discussions.
+- Um modelo de cor compatível não pode ter espaços à esquerda ou à direita entre as barras inversas.
+- A visualização da cor só é compatível em issues, pull requests e discussões.
 
 {% endnote %}
 
@@ -193,7 +193,7 @@ O método antigo de especificar as imagens baseado no tema, ao usar um fragmento
 
 ## Listas
 
-You can make an unordered list by preceding one or more lines of text with <kbd>-</kbd> or <kbd>*</kbd>.
+Você pode criar uma lista não ordenada precedendo uma ou mais linhas de texto com <kbd>-</kbd> ou <kbd>*</kbd>.
 
 ```markdown
 - George Washington
@@ -217,7 +217,7 @@ Para ordenar a lista, coloque um número na frente de cada linha.
 
 Você pode criar uma lista aninhada recuando um ou mais itens da lista abaixo de outro item.
 
-Para criar uma lista aninhada usando o editor web do {% data variables.product.product_name %} ou um editor de texto que usa uma fonte monoespaçada, como o [Atom](https://atom.io/), você pode alinhar sua lista visualmente. Type space characters in front of your nested list item, until the list marker character (<kbd>-</kbd> or <kbd>*</kbd>) lies directly below the first character of the text in the item above it.
+Para criar uma lista aninhada usando o editor web do {% data variables.product.product_name %} ou um editor de texto que usa uma fonte monoespaçada, como o [Atom](https://atom.io/), você pode alinhar sua lista visualmente. Digite caracteres de espaço na fonte do item da lista aninhada, até que o caractere de marcador da lista (<kbd>-</kbd> ou <kbd>*</kbd>) fique diretamente abaixo do primeiro caractere do texto no item acima dele.
 
 ```markdown
 1. Primeiro item da lista
@@ -270,7 +270,7 @@ Para obter mais informações, consulte "[Sobre listas de tarefas](/articles/abo
 
 ## Mencionar pessoas e equipes
 
-You can mention a person or [team](/articles/setting-up-teams/) on {% data variables.product.product_name %} by typing <kbd>@</kbd> plus their username or team name. Isto desencadeará uma notificação e chamará a sua atenção para a conversa. As pessoas também receberão uma notificação se você editar um comentário para mencionar o respectivo nome de usuário ou da equipe. Para obter mais informações sobre as notificações, consulte "[Sobre as notificações](/github/managing-subscriptions-and-notifications-on-github/about-notifications)".
+Você pode mencionar uma pessoa ou [equipe](/articles/setting-up-teams/) no {% data variables.product.product_name %} digitando <kbd>@</kbd> mais o nome de usuário ou nome da equipe. Isto desencadeará uma notificação e chamará a sua atenção para a conversa. As pessoas também receberão uma notificação se você editar um comentário para mencionar o respectivo nome de usuário ou da equipe. Para obter mais informações sobre as notificações, consulte "[Sobre as notificações](/github/managing-subscriptions-and-notifications-on-github/about-notifications)".
 
 {% note %}
 
@@ -284,13 +284,13 @@ You can mention a person or [team](/articles/setting-up-teams/) on {% data varia
 
 Quando você menciona uma equipe principal, os integrantes de suas equipes secundárias também recebem notificações, simplificando a comunicação com vários grupos de pessoas. Para obter mais informações, consulte "[Sobre equipes](/articles/about-teams)".
 
-Typing an <kbd>@</kbd> symbol will bring up a list of people or teams on a project. A lista é filtrada à medida que você digita. Portanto, assim que você achar o nome da pessoa ou da equipe que está procurando, use as teclas de seta para selecioná-lo e pressione tab ou enter para completar o nome. Para equipes, digite nome da @organização/equipe e todos os integrantes dessa equipe serão inscritos na conversa.
+Digitar um símbolo <kbd>@</kbd> chamará uma lista de pessoas ou equipes em um projeto. A lista é filtrada à medida que você digita. Portanto, assim que você achar o nome da pessoa ou da equipe que está procurando, use as teclas de seta para selecioná-lo e pressione tab ou enter para completar o nome. Para equipes, digite nome da @organização/equipe e todos os integrantes dessa equipe serão inscritos na conversa.
 
 Os resultados do preenchimento automático são restritos aos colaboradores do repositório e qualquer outro participante no thread.
 
 ## Fazer referências a problemas e pull requests
 
-You can bring up a list of suggested issues and pull requests within the repository by typing <kbd>#</kbd>. Digite o número ou o título do problema ou da pull request para filtrar a lista e, em seguida, pressione tab ou enter para completar o resultado destacado.
+Você pode trazer à tona uma lista de problemas e pull requests sugeridos no repositório digitando <kbd>#</kbd>. Digite o número ou o título do problema ou da pull request para filtrar a lista e, em seguida, pressione tab ou enter para completar o resultado destacado.
 
 Para obter mais informações, consulte "[Referências e URLs vinculados automaticamente](/articles/autolinked-references-and-urls)".
 
@@ -305,7 +305,7 @@ Alguns {% data variables.product.prodname_github_apps %} fornecem informações 
 
 ![Anexo de conteúdo](/assets/images/github-apps/content_reference_attachment.png)
 
-To see content attachments, you must have a {% data variables.product.prodname_github_app %} that uses the Content Attachments API installed on the repository.{% ifversion fpt or ghec %} For more information, see "[Installing an app in your personal account](/articles/installing-an-app-in-your-personal-account)" and "[Installing an app in your organization](/articles/installing-an-app-in-your-organization)."{% endif %}
+Para visualizar anexos de conteúdo, você deverá ter um {% data variables.product.prodname_github_app %} que use a API de Anexos de Conteúdo instalada no repositório.{% ifversion fpt or ghec %} Para obter mais informações, consulte "[Instalar um aplicativo na sua conta pessoal](/articles/installing-an-app-in-your-personal-account)" e "[Instalar um aplicativo na sua organização](/articles/installing-an-app-in-your-organization)".{% endif %}
 
 Os anexos de conteúdo não serão exibidos para URLs que fazem parte de um link markdown.
 

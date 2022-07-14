@@ -1,11 +1,12 @@
 ---
-title: Habilitando codespaces para a sua organização
+title: Enabling GitHub Codespaces for your organization
 shortTitle: Habilitar codespaces
-intro: 'Você pode controlar quais usuários da sua organização podem usar {% data variables.product.prodname_codespaces %}.'
+intro: 'Você pode controlar quais usuários da sua organização podem usar {% data variables.product.prodname_github_codespaces %}.'
 product: '{% data reusables.gated-features.codespaces %}'
-permissions: 'To manage user permissions for {% data variables.product.prodname_codespaces %} for an organization, you must be an organization owner.'
+permissions: 'To manage user permissions for {% data variables.product.prodname_github_codespaces %} for an organization, you must be an organization owner.'
 redirect_from:
   - /codespaces/managing-codespaces-for-your-organization/managing-user-permissions-for-your-organization
+  - /codespaces/managing-codespaces-for-your-organization/enabling-codespaces-for-your-organization
 versions:
   fpt: '*'
   ghec: '*'
@@ -17,14 +18,14 @@ topics:
 ---
 
 
-## Sobre habilitar {% data variables.product.prodname_codespaces %} para a sua organização
+## Sobre habilitar {% data variables.product.prodname_github_codespaces %} para a sua organização
 
 Os proprietários da organização podem controlar quais usuários da sua organização podem criar e usar cdespaces.
 
 Para usar codespaces na sua organização, você deve fazer o seguinte:
 
 - Certifique-se de que os usuários tenham [pelo menos acesso de gravação](/organizations/managing-access-to-your-organizations-repositories/repository-permission-levels-for-an-organization) nos repositórios onde desejam usar um codespace.
-- [Habilitar {% data variables.product.prodname_codespaces %} para os usuários da sua organização](#enable-codespaces-for-users-in-your-organization). Você pode escolher permitir {% data variables.product.prodname_codespaces %} para usuários selecionados ou apenas para usuários específicos.
+- [Habilitar {% data variables.product.prodname_github_codespaces %} para os usuários da sua organização](#enable-codespaces-for-users-in-your-organization). Você pode escolher permitir {% data variables.product.prodname_codespaces %} para usuários selecionados ou apenas para usuários específicos.
 - [Definir um limite de gastos](/billing/managing-billing-for-github-codespaces/managing-spending-limits-for-codespaces)
 - Certifique-se de que a sua organização não tem um endereço IP permitir a lista habilitada. Para obter mais informações, consulte "[Gerenciar endereços IP permitidos para sua organização](/{% ifversion fpt %}enterprise-cloud@latest/{% endif %}organizations/keeping-your-organization-secure/managing-allowed-ip-addresses-for-your-organization#using-github-actions-with-an-ip-allow-list){% ifversion fpt %}" na documentação de {% data variables.product.prodname_ghe_cloud %}.{% else %}"{% endif %}
 

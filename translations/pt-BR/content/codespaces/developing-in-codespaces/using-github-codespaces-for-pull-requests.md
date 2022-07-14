@@ -1,7 +1,7 @@
 ---
-title: Usando codespaces para pull requests
+title: Using GitHub Codespaces for pull requests
 shortTitle: Pull requests
-intro: 'Você pode usar {% data variables.product.prodname_codespaces %} no seu fluxo de trabalho de desenvolvimento para criar pull requests, revisar pull requests e resolver comentários de revisão.'
+intro: 'Você pode usar {% data variables.product.prodname_github_codespaces %} no seu fluxo de trabalho de desenvolvimento para criar pull requests, revisar pull requests e resolver comentários de revisão.'
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
@@ -11,11 +11,13 @@ topics:
   - Codespaces
   - Visual Studio Code
   - Developer
+redirect_from:
+  - /codespaces/developing-in-codespaces/using-codespaces-for-pull-requests
 ---
 
-## Sobre pull requests no {% data variables.product.prodname_codespaces %}
+## Sobre pull requests no {% data variables.product.prodname_github_codespaces %}
 
-{% data variables.product.prodname_codespaces %} fornece a você muitas das funcionalidades que você pode precisar para trabalhar com pull requests:
+{% data variables.product.prodname_github_codespaces %} fornece a você muitas das funcionalidades que você pode precisar para trabalhar com pull requests:
 
 - [Cria um pull request](/codespaces/developing-in-codespaces/using-source-control-in-your-codespace#raising-a-pull-request) - Ao usar os comandos Terminal e Git ou a visão de controle de origem, você pode criar pull requests da mesma forma que faria em {% data variables.product.prodname_dotcom_the_website %}. Se o repositório usar um modelo de pull request, você poderá usá-lo na visualização de controle de origem.
 - [Abra um pull request](#opening-a-pull-request-in-codespaces) - Você pode abrir um pull request existente em um codespace, desde que você tenha acesso a um acesso de codespace ao branch no qual que está sendo mesclado.
