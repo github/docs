@@ -7,7 +7,7 @@ import { ActionList } from '@primer/react'
 import { Link } from 'components/Link'
 import { ProductTreeNode } from 'components/context/MainContext'
 import { EventType, sendEvent } from 'components/lib/events'
-import { useRestContext } from 'components/context/RestContext'
+import { useAutomatedPageContext } from 'components/context/AutomatedPageContext'
 import type { MiniTocItem } from 'components/context/ArticleContext'
 import styles from './SidebarProduct.module.scss'
 
@@ -47,7 +47,7 @@ export const RestCollapsibleSection = (props: SectionProps) => {
     router.asPath.includes('/rest/guides') ||
     router.asPath.includes('/rest/overview')
       ? []
-      : useRestContext().miniTocItems
+      : useAutomatedPageContext().miniTocItems
 
   useEffect(() => {
     if (!currentAnchor) {
