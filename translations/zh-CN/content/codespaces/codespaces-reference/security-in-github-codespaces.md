@@ -1,6 +1,6 @@
 ---
-title: 代码空间中的安全性
-intro: '{% data variables.product.prodname_codespaces %} 安全体系结构概述，包括可帮助您维护安全性并最大限度地降低攻击风险的指导原则。'
+title: Security in GitHub Codespaces
+intro: '{% data variables.product.prodname_github_codespaces %} 安全体系结构概述，包括可帮助您维护安全性并最大限度地降低攻击风险的指导原则。'
 miniTocMaxHeadingLevel: 3
 versions:
   fpt: '*'
@@ -10,17 +10,19 @@ topics:
   - Security
 type: reference
 shortTitle: 代码空间中的安全性
+redirect_from:
+  - /codespaces/codespaces-reference/security-in-codespaces
 ---
 
 ## 代码空间安全性概述
 
-默认情况下，{% data variables.product.prodname_codespaces %} 设计为加强安全性。 因此，您需要确保您的软件开发实践不会降低代码空间的安全状况。
+默认情况下，{% data variables.product.prodname_github_codespaces %} 设计为加强安全性。 因此，您需要确保您的软件开发实践不会降低代码空间的安全状况。
 
 本指南介绍了 Codespaces 保持开发环境安全的方式，并提供了一些有助于在工作时维护安全性的良好做法。 与任何开发工具一样，请记住，您只应在您了解和信任的存储库中打开和工作。
 
 ### 环境隔离
 
-{% data variables.product.prodname_codespaces %} 旨在使代码空间彼此独立，每个代码空间都使用自己的虚拟机和网络。
+{% data variables.product.prodname_github_codespaces %} 旨在使代码空间彼此独立，每个代码空间都使用自己的虚拟机和网络。
 
 #### 隔离的虚拟机
 
@@ -48,7 +50,7 @@ shortTitle: 代码空间中的安全性
 
 ### 代码空间连接
 
-您可以使用 {% data variables.product.prodname_codespaces %} 服务提供的 TLS 加密隧道连接到代码空间。 只有代码空间的创建者才能连接到代码空间。 使用 {% data variables.product.product_name %} 对连接进行验证。
+您可以使用 {% data variables.product.prodname_github_codespaces %} 服务提供的 TLS 加密隧道连接到代码空间。 只有代码空间的创建者才能连接到代码空间。 使用 {% data variables.product.product_name %} 对连接进行验证。
 
 如果需要允许对代码空间上运行的服务进行外部访问，可以为专用或公共访问启用端口转发。
 
@@ -87,7 +89,7 @@ shortTitle: 代码空间中的安全性
 
 有关机密的详细信息，请参阅：
 - "[管理代码空间的加密机密](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)"
-- "[为代码空间管理存储库和组织的加密机密](/codespaces/managing-codespaces-for-your-organization/managing-encrypted-secrets-for-your-repository-and-organization-for-codespaces)"
+- "[管理用于 {% data variables.product.prodname_github_codespaces %} 的仓库和组织的加密密钥](/codespaces/managing-codespaces-for-your-organization/managing-encrypted-secrets-for-your-repository-and-organization-for-github-codespaces)"
 
 ### 使用其他人的贡献和存储库
 

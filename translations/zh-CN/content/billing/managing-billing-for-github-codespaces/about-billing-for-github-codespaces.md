@@ -1,8 +1,8 @@
 ---
-title: 关于代码空间的计费
+title: 关于 GitHub Codespaces 的计费
 shortTitle: 关于计费
-intro: '查看定价并了解如何管理组织的 {% data variables.product.prodname_codespaces %} 计费。'
-permissions: 'To manage billing for Codespaces for an organization, you must be an organization owner or a billing manager.'
+intro: '查看定价并了解如何管理组织的 {% data variables.product.prodname_github_codespaces %} 计费。'
+permissions: 'To manage billing for {% data variables.product.prodname_github_codespaces %} for an organization, you must be an organization owner or a billing manager.'
 versions:
   fpt: '*'
   ghec: '*'
@@ -11,11 +11,13 @@ product: '{% data reusables.gated-features.codespaces %}'
 topics:
   - Codespaces
   - Billing
+redirect_from:
+  - /billing/managing-billing-for-github-codespaces/about-billing-for-codespaces
 ---
 
-## {% data variables.product.prodname_codespaces %} 定价
+## {% data variables.product.prodname_github_codespaces %} 定价
 
-对于 {% data variables.product.prodname_codespaces %} 使用的计费将针对 {% data variables.product.prodname_team %} 和 {% data variables.product.prodname_enterprise %} 上的所有组织和企业帐户，不包括任何免费的分钟数或存储空间。 个人帐户目前不对 {% data variables.product.prodname_codespaces %} 使用付费。
+对于 {% data variables.product.prodname_github_codespaces %} 使用的计费将针对 {% data variables.product.prodname_team %} 和 {% data variables.product.prodname_enterprise %} 上的所有组织和企业帐户，不包括任何免费的分钟数或存储空间。 个人帐户目前不对 {% data variables.product.prodname_codespaces %} 使用付费。
 
 {% data variables.product.prodname_codespaces %} 使用按下表中的计量单位计费：
 
@@ -32,7 +34,7 @@ topics:
 
 {% data reusables.codespaces.codespaces-billing %}
 
-您的 {% data variables.product.prodname_codespaces %} 使用将共用帐户的现有计费日期、付款方式和收据。 {% data reusables.dotcom_billing.view-all-subscriptions %}
+您的 {% data variables.product.prodname_github_codespaces %} 使用将共用帐户的现有计费日期、付款方式和收据。 {% data reusables.dotcom_billing.view-all-subscriptions %}
 
 {% ifversion ghec %}
 如果您通过微软企业协议购买 {% data variables.product.prodname_enterprise %} ， 您可以将您的 Azure 订阅ID 连接到您的企业账户，以启用并支付您的 {% data variables.product.prodname_codespaces %} 使用费用。 更多信息请参阅“[将 Azure 订阅连接到您的企业](/billing/managing-billing-for-your-github-account/connecting-an-azure-subscription-to-your-enterprise)”。

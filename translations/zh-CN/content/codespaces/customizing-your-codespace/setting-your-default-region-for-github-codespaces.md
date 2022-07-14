@@ -1,5 +1,5 @@
 ---
-title: 设置 Codespaces 的默认区域
+title: Setting your default region for GitHub Codespaces
 shortTitle: 设置默认区域
 intro: '您可以在 {% data variables.product.prodname_github_codespaces %} 配置文件设置页面中设置默认地区，以个性化您的数据保存位置。'
 product: '{% data reusables.gated-features.codespaces %}'
@@ -8,6 +8,7 @@ versions:
   ghec: '*'
 redirect_from:
   - /codespaces/managing-your-codespaces/setting-your-default-region-for-codespaces
+  - /codespaces/customizing-your-codespace/setting-your-default-region-for-codespaces
 topics:
   - Codespaces
 type: how_to

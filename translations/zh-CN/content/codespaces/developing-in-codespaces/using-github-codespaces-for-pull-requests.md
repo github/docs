@@ -1,7 +1,7 @@
 ---
-title: 将 Codespaces 用于拉取请求
+title: Using GitHub Codespaces for pull requests
 shortTitle: 拉取请求
-intro: '您可以在开发工作流程中使用 {% data variables.product.prodname_codespaces %} 来创建拉取请求、审阅拉取请求和处理审阅注释。'
+intro: '您可以在开发工作流程中使用 {% data variables.product.prodname_github_codespaces %} 来创建拉取请求、审阅拉取请求和处理审阅注释。'
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
@@ -11,11 +11,13 @@ topics:
   - Codespaces
   - Visual Studio Code
   - Developer
+redirect_from:
+  - /codespaces/developing-in-codespaces/using-codespaces-for-pull-requests
 ---
 
-## 关于 {% data variables.product.prodname_codespaces %} 中的拉取请求
+## 关于 {% data variables.product.prodname_github_codespaces %} 中的拉取请求
 
-{% data variables.product.prodname_codespaces %} 为您提供了处理拉取请求可能需要的许多功能：
+{% data variables.product.prodname_github_codespaces %} 为您提供了处理拉取请求可能需要的许多功能：
 
 - [创建拉取请求](/codespaces/developing-in-codespaces/using-source-control-in-your-codespace#raising-a-pull-request) - 使用终端和 Git 命令或源代码管理视图，您可以像创建 {% data variables.product.prodname_dotcom_the_website %} 一样创建拉取请求。 如果存储库使用拉取请求模板，则可以在源代码管理视图中使用它。
 - [打开拉取请求](#opening-a-pull-request-in-codespaces) – 您可以在代码空间中打开现有的拉取请求，前提是您对要合并的分支具有代码空间访问权限。

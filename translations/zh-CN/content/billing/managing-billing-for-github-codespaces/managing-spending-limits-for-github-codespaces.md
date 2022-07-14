@@ -1,6 +1,6 @@
 ---
-title: 管理 Codespace 的支出限制
-intro: '您可以为 {% data variables.product.prodname_codespaces %} 的使用设置支出限额。'
+title: Managing spending limits for GitHub Codespaces
+intro: '您可以为 {% data variables.product.prodname_github_codespaces %} 的使用设置支出限额。'
 versions:
   fpt: '*'
   ghec: '*'
@@ -14,15 +14,17 @@ topics:
   - User account
   - Billing
 shortTitle: 支出限额
+redirect_from:
+  - /billing/managing-billing-for-github-codespaces/managing-spending-limits-for-codespaces
 ---
 
-## 关于 {% data variables.product.prodname_codespaces %} 的支出限额
+## 关于 {% data variables.product.prodname_github_codespaces %} 的支出限额
 
 {% data reusables.codespaces.codespaces-spending-limit-requirement %}
 
 达到支出限制后，您的组织或存储库将不再能够创建新的代码空间，也无法启动现有代码空间。 任何仍在运行的现有代码空间都不会关闭。如果不更改支出限制，则不会为超出限制的金额向您收费。
 
-有关 {% data variables.product.prodname_codespaces %} 使用价格的更多信息，请参阅“[关于 {% data variables.product.prodname_codespaces %} 的计费](/billing/managing-billing-for-github-codespaces/about-billing-for-codespaces)”。
+有关 {% data variables.product.prodname_codespaces %} 使用价格的更多信息，请参阅“[关于 {% data variables.product.prodname_github_codespaces %} 的计费](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces)”。
 
 {% ifversion ghec %}
 ## 使用 Azure 订阅
@@ -65,4 +67,4 @@ shortTitle: 支出限额
 ## 延伸阅读
 
 - "[限制对机器类型的访问](/codespaces/managing-codespaces-for-your-organization/restricting-access-to-machine-types)"
-- "[管理组织中代码空间的计费](/codespaces/managing-codespaces-for-your-organization/managing-billing-for-codespaces-in-your-organization)"
+- "[Managing billing for {% data variables.product.prodname_github_codespaces %} in your organization](/codespaces/managing-codespaces-for-your-organization/managing-billing-for-github-codespaces-in-your-organization)"

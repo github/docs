@@ -1,5 +1,5 @@
 ---
-title: 设置 Codespaces 超时时间
+title: Setting your timeout period for GitHub Codespaces
 shortTitle: 设置超时
 intro: '您可以在个人设置页面中设置 {% data variables.product.prodname_codespaces %} 的默认超时。'
 product: '{% data reusables.gated-features.codespaces %}'
@@ -9,6 +9,8 @@ versions:
 topics:
   - Codespaces
 type: how_to
+redirect_from:
+  - /codespaces/customizing-your-codespace/setting-your-timeout-period-for-codespaces
 ---
 
 代码空间将在一段时间不活动后停止运行。 您可以指定此超时期限的长度。 更新后的设置将应用于任何新创建的代码空间。
@@ -17,7 +19,7 @@ type: how_to
 
 {% warning %}
 
-**警告**：代码空间按分钟计费。 如果您未主动使用代码空间，但代码空间尚未超时，则仍需为代码空间运行的时间付费。 更多信息请参阅“[关于代码空间的计费](/billing/managing-billing-for-github-codespaces/about-billing-for-codespaces#codespaces-pricing)”。
+**警告**：代码空间按分钟计费。 如果您未主动使用代码空间，但代码空间尚未超时，则仍需为代码空间运行的时间付费。 更多信息请参阅“[关于 {% data variables.product.prodname_github_codespaces %} 的计费](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#codespaces-pricing)”。
 
 {% endwarning %}
 

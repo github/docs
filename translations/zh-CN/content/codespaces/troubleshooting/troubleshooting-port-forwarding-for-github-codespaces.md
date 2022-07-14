@@ -1,5 +1,5 @@
 ---
-title: Codespaces 的端口转发疑难解答
+title: Troubleshooting port forwarding for GitHub Codespaces
 intro: 常见端口转发问题的疑难解答步骤。
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
@@ -9,9 +9,11 @@ type: reference
 topics:
   - Codespaces
 shortTitle: 端口转发
+redirect_from:
+  - /codespaces/troubleshooting/troubleshooting-port-forwarding-for-codespaces
 ---
 
-在代码空间内运行的应用程序向控制台输出端口时，{% data variables.product.prodname_codespaces %} 将检测到 localhost URL 模式并自动转发端口。 更多信息请参阅“[在代码空间中转发端口](/codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace)”。
+在代码空间内运行的应用程序向控制台输出端口时，{% data variables.product.prodname_github_codespaces %} 将检测到 localhost URL 模式并自动转发端口。 更多信息请参阅“[在代码空间中转发端口](/codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace)”。
 
 如果端口未自动转发，则可以手动转发该端口。 更多信息请参阅“[转发端口](/codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace#forwarding-a-port)”。
 

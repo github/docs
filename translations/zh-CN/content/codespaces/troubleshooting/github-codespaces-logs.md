@@ -1,6 +1,6 @@
 ---
-title: Codespaces 日志
-intro: '{% data variables.product.prodname_codespaces %} 使用的日志记录位置概述。'
+title: GitHub Codespaces logs
+intro: '{% data variables.product.prodname_github_codespaces %} 使用的日志记录位置概述。'
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
@@ -10,10 +10,12 @@ topics:
   - Codespaces
   - Logging
 shortTitle: Codespaces 日志
+redirect_from:
+  - /codespaces/troubleshooting/codespaces-logs
 ---
 
 
-有关 {% data variables.product.prodname_codespaces %} 的信息将输出到三个不同的日志：
+有关 {% data variables.product.prodname_github_codespaces %} 的信息将输出到三个不同的日志：
 
 - 代码空间日志
 - 创建日志

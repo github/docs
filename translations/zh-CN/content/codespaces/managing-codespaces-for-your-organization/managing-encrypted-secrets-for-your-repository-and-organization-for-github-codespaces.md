@@ -1,9 +1,9 @@
 ---
-title: 为您的仓库和代码空间组织管理加密的密钥
+title: Managing encrypted secrets for your repository and organization for GitHub Codespaces
 shortTitle: 加密机密
-intro: '加密密钥允许您将敏感信息存储在您的组织、仓库或 {% data variables.product.prodname_codespaces %} 中。'
+intro: '加密密钥允许您将敏感信息存储在您的组织、仓库或 {% data variables.product.prodname_github_codespaces %} 中。'
 product: '{% data reusables.gated-features.codespaces %}'
-permissions: 'To manage secrets for {% data variables.product.prodname_codespaces %} for an organization, you must be an organization owner.'
+permissions: 'To manage secrets for {% data variables.product.prodname_github_codespaces %} for an organization, you must be an organization owner.'
 versions:
   fpt: '*'
   ghec: '*'
@@ -11,13 +11,15 @@ topics:
   - Codespaces
   - Secret store
   - Security
+redirect_from:
+  - /codespaces/managing-codespaces-for-your-organization/managing-encrypted-secrets-for-your-repository-and-organization-for-codespaces
 ---
 
  
 
 ## 关于密钥
 
-密钥是您在组织或仓库中创建的加密环境变量。 您创建的密钥可用于 {% data variables.product.prodname_codespaces %}。 GitHub 在密钥到达 GitHub 之前使用 [libsodium sealed box](https://libsodium.gitbook.io/doc/public-key_cryptography/sealed_boxes) 对其加密，并且仅当您在代码空间中使用它们时才予以解密。
+密钥是您在组织或仓库中创建的加密环境变量。 您创建的密钥可用于 {% data variables.product.prodname_github_codespaces %}。 GitHub 在密钥到达 GitHub 之前使用 [libsodium sealed box](https://libsodium.gitbook.io/doc/public-key_cryptography/sealed_boxes) 对其加密，并且仅当您在代码空间中使用它们时才予以解密。
 
 组织级密钥允许在多个仓库之间共享密钥，从而减少创建重复密钥的需要。 您可以使用访问策略来控制哪些仓库可以使用组织密钥。
 

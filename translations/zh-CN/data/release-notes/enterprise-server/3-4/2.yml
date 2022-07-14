@@ -70,9 +70,9 @@ sections:
 
           要手动启动存储库维护任务，请浏览到每个受影响的存储库的 `https://<hostname>/stafftools/repositories/<owner>/<repository>/network`，然后单击 Schedule（计划）按钮。
     - 
-      heading: Theme picker for GitHub Pages has been removed
+      heading: GitHub Pages 的主题选取器已被删除
       notes:
         - |
-          The theme picker for GitHub Pages has been removed from the Pages settings. For more information about configuration of themes for GitHub Pages, see "[Adding a theme to your GitHub Pages site using Jekyll](/pages/setting-up-a-github-pages-site-with-jekyll/adding-a-theme-to-your-github-pages-site-using-jekyll)."
+          GitHub Pages 的主题选取器已从页面设置中删除。有关 GitHub Pages 主题配置的更多信息，请参阅“[使用 Jekyll 向 GitHub Pages 站点添加主题](/pages/setting-up-a-github-pages-site-with-jekyll/adding-a-theme-to-your-github-pages-site-using-jekyll)”。
   backups:
     - '{% data variables.product.prodname_ghe_server %} 3.4 至少需要 [GitHub Enterprise Backup Utilities 3.4.0](https://github.com/github/backup-utils) 才可进行[备份和灾难恢复](/admin/configuration/configuring-your-enterprise/configuring-backups-on-your-appliance)。'

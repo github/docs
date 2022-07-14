@@ -1,5 +1,5 @@
 ---
-title: Setting your default editor for Codespaces
+title: Setting your default editor for GitHub Codespaces
 shortTitle: Set the default editor
 intro: 'You can set your default editor for {% data variables.product.prodname_codespaces %} in your personal settings page.'
 product: '{% data reusables.gated-features.codespaces %}'
@@ -8,6 +8,7 @@ versions:
   ghec: '*'
 redirect_from:
   - /codespaces/managing-your-codespaces/setting-your-default-editor-for-codespaces
+  - /codespaces/customizing-your-codespace/setting-your-default-editor-for-codespaces
 topics:
   - Codespaces
 type: how_to

@@ -1,5 +1,5 @@
 ---
-title: 关于代码空间预构建
+title: About GitHub Codespaces prebuilds
 shortTitle: 关于预构建
 intro: 代码空间预构建有助于加快为大型或复杂存储库创建新代码空间的速度。
 versions:
@@ -8,13 +8,15 @@ versions:
 topics:
   - Codespaces
 product: '{% data reusables.gated-features.codespaces %}'
+redirect_from:
+  - /codespaces/prebuilding-your-codespaces/about-codespaces-prebuilds
 ---
 
 ## 概览
 
 预构建代码空间可以提高工作效率并更快地访问代码空间，尤其是在存储库很大或很复杂并且新代码空间目前需要 2 分钟以上的时间才能启动的情况下。 这是因为在为项目创建代码空间之前，任何源代码、编辑器扩展、项目依赖项、命令和配置都已下载、安装和应用。 将预构建视为代码空间的“准备就绪”模板。
 
-默认情况下，每当您将更改推送到存储库时，{% data variables.product.prodname_codespaces %} 都会使用 {% data variables.product.prodname_actions %} 自动更新您的预构建。
+默认情况下，每当您将更改推送到存储库时，{% data variables.product.prodname_github_codespaces %} 都会使用 {% data variables.product.prodname_actions %} 自动更新您的预构建。
 
 当预构建可用于存储库的特定分支以及您所在的地区时，则创建代码空间时在计算机类型选项列表中会看到“{% octicon "zap" aria-label="The zap icon" %} 预构建就绪”标签。 如果仍在创建预构建，您将看到“{% octicon "history" aria-label="The history icon" %} 预构建正在进行中”标签。 更多信息请参阅“[创建代码空间](/codespaces/developing-in-codespaces/creating-a-codespace#creating-a-codespace)”。
 
@@ -28,7 +30,7 @@ product: '{% data reusables.gated-features.codespaces %}'
 
 ## 关于 {% data variables.product.prodname_codespaces %} 预构建的计费
 
-{% data reusables.codespaces.billing-for-prebuilds %} 有关 {% data variables.product.prodname_codespaces %} 存储定价的详细信息，请参阅“[关于 {% data variables.product.prodname_codespaces %} 的计费](/billing/managing-billing-for-github-codespaces/about-billing-for-codespaces)”。
+{% data reusables.codespaces.billing-for-prebuilds %} 有关 {% data variables.product.prodname_codespaces %} 存储定价的详细信息，请参阅“[关于 {% data variables.product.prodname_github_codespaces %} 的计费](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces)”。
 
 使用预构建创建的代码空间的费用与常规代码空间相同。
 

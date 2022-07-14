@@ -1,5 +1,5 @@
 ---
-title: Using Codespaces with GitHub CLI
+title: Using GitHub Codespaces with GitHub CLI
 shortTitle: GitHub CLI
 intro: 'You can work with {% data variables.product.prodname_github_codespaces %} directly from your command line by using `gh`, the {% data variables.product.product_name %} command line interface.'
 product: '{% data reusables.gated-features.codespaces %}'
@@ -11,6 +11,8 @@ topics:
   - Codespaces
   - CLI
   - Developer
+redirect_from:
+  - /codespaces/developing-in-codespaces/using-codespaces-with-github-cli
 ---
 
 ## About {% data variables.product.prodname_cli %} 
@@ -18,16 +20,16 @@ topics:
 {% data reusables.cli.about-cli %} For more information, see "[About {% data variables.product.prodname_cli %}](/github-cli/github-cli/about-github-cli)."
 
 You can work with {% data variables.product.prodname_codespaces %} in the  {% data variables.product.prodname_cli %} to:
-- [List your codespaces](#list-all-of-your-codespaces)
-- [Create a codespace](#create-a-new-codespace)
-- [Stop a codespace](#stop-a-codespace)
-- [Delete a codespace](#delete-a-codespace)
-- [SSH into a codespace](#ssh-into-a-codespace)
-- [Open a codespace in {% data variables.product.prodname_vscode %}](#open-a-codespace-in-visual-studio-code)
-- [Open a codespace in JupyterLab](#open-a-codespace-in-jupyterlab)
-- [Copying a file to/from a codespace](#copy-a-file-tofrom-a-codespace)
-- [Modify ports in a codespace](#modify-ports-in-a-codespace)
-- [Access codespace logs](#access-codespace-logs)
+  - [List all of your codespaces](#list-all-of-your-codespaces)
+  - [Create a new codespace](#create-a-new-codespace)
+  - [Stop a codespace](#stop-a-codespace)
+  - [Delete a codespace](#delete-a-codespace)
+  - [SSH into a codespace](#ssh-into-a-codespace)
+  - [Open a codespace in {% data variables.product.prodname_vscode %}](#open-a-codespace-in--data-variablesproductprodname_vscode-)
+  - [Open a codespace in JupyterLab](#open-a-codespace-in-jupyterlab)
+  - [Copy a file to/from a codespace](#copy-a-file-tofrom-a-codespace)
+  - [Modify ports in a codespace](#modify-ports-in-a-codespace)
+  - [Access codespace logs](#access-codespace-logs)
 
 ## Installing {% data variables.product.prodname_cli %}
 
@@ -84,7 +86,7 @@ For more information, see "[Creating a codespace](/codespaces/developing-in-code
 gh codespace stop -c <em>codespace-name</em>
 ```
 
-For more information, see "[Deep dive into Codespaces](/codespaces/getting-started/deep-dive#closing-or-stopping-your-codespace)."
+For more information, see "[Deep dive into {% data variables.product.prodname_github_codespaces %}](/codespaces/getting-started/deep-dive#closing-or-stopping-your-codespace)."
 
 ### Delete a codespace
 
@@ -194,4 +196,4 @@ You can see the creation log for a codespace. After entering this command you wi
 gh codespace logs -c <em>codespace-name</em>
 ```
 
-For more information about the creation log, see "[Codespaces logs](/codespaces/troubleshooting/codespaces-logs#creation-logs)."
+For more information about the creation log, see "[{% data variables.product.prodname_github_codespaces %} logs](/codespaces/troubleshooting/github-codespaces-logs#creation-logs)."

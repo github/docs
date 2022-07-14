@@ -1,6 +1,6 @@
 ---
-title: 使用对代码空间的支持
-intro: '有关从 {% data variables.product.prodname_codespaces %} 的支持中获得最佳帮助的提示。'
+title: Working with support for GitHub Codespaces
+intro: '有关从 {% data variables.product.prodname_github_codespaces %} 的支持中获得最佳帮助的提示。'
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
@@ -9,9 +9,11 @@ type: reference
 topics:
   - Codespaces
 shortTitle: 使用支持
+redirect_from:
+  - /codespaces/troubleshooting/working-with-support-for-codespaces
 ---
 
-在支持人员帮助您解决代码空间问题之前，您需要知道代码空间的名称及其代码空间 ID（标识符）。 此外，支持人员可能会要求您与他们共享一些日志。 更多信息请参阅“[代码空间日志](/codespaces/troubleshooting/codespaces-logs)”和“[关于 GitHub 支持](/github/working-with-github-support/about-github-support)”。
+在支持人员帮助您解决代码空间问题之前，您需要知道代码空间的名称及其代码空间 ID（标识符）。 此外，支持人员可能会要求您与他们共享一些日志。 For more information, see "[{% data variables.product.prodname_github_codespaces %} logs](/codespaces/troubleshooting/github-codespaces-logs)" and "[About GitHub Support](/github/working-with-github-support/about-github-support)."
 
 ### 代码空间名称
 
@@ -22,7 +24,7 @@ shortTitle: 使用支持
 - 在浏览器中打开代码空间。 URL 的子域是代码空间的名称。 例如： `https://octocat-myrepo-gmc7.github.dev` 是 `octocat-myrepo-gmc7` 代码空间的 URL。
 - 如果无法打开代码空间，则可以在 https://github.com/codespaces 上访问 {% data variables.product.product_name %} 中的名称。 当您将鼠标悬停在 https://github.com/codespaces 上的 **Open in browser（在浏览器中打开）**选项上时，该名称将显示在弹出窗口中。 ![将鼠标悬停在上方时显示的代码空间名称](/assets/images/help/codespaces/find-codespace-name-github.png)
 
-代码空间的名称也包含在许多日志文件中。 例如，在代码空间日志中作为 `friendlyName` 的值，在 `发出 GET 请求`后的 {% data variables.product.prodname_github_codespaces %} 扩展日志中，以及在 `clientUrl` 之后的浏览器控制台日志中。 更多信息请参阅“[代码空间日志](/codespaces/troubleshooting/codespaces-logs)”。
+代码空间的名称也包含在许多日志文件中。 例如，在代码空间日志中作为 `friendlyName` 的值，在 `发出 GET 请求`后的 {% data variables.product.prodname_github_codespaces %} 扩展日志中，以及在 `clientUrl` 之后的浏览器控制台日志中。 For more information, see "[{% data variables.product.prodname_github_codespaces %} logs](/codespaces/troubleshooting/github-codespaces-logs)."
 
 ### 代码空间 ID
 
