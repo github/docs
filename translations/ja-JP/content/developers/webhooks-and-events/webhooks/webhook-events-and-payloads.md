@@ -400,7 +400,7 @@ webhook イベントは、登録したドメインの特異性に基づいてト
 
 {% data reusables.webhooks.discussions-webhooks-beta %}
 
-ディスカッションに関連するアクティビティ。 詳しい情報については、「[ディスカッションでのGraphQL APIの利用]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql/guides/using-the-graphql-api-for-discussions)」を参照してください。
+ディスカッションに関連するアクティビティ。 詳しい情報については、「[ディスカッションでのGraphQL APIの利用](/graphql/guides/using-the-graphql-api-for-discussions)」を参照してください。
 ### 利用の可否
 
 - リポジトリ webhook
@@ -425,7 +425,7 @@ webhook イベントは、登録したドメインの特異性に基づいてト
 
 {% data reusables.webhooks.discussions-webhooks-beta %}
 
-ディスカッションのコメントに関連するアクティビティ。 詳しい情報については、「[ディスカッションでのGraphQL APIの利用]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql/guides/using-the-graphql-api-for-discussions)」を参照してください。
+ディスカッションのコメントに関連するアクティビティ。 詳しい情報については、「[ディスカッションでのGraphQL APIの利用](/graphql/guides/using-the-graphql-api-for-discussions)」を参照してください。
 
 ### 利用の可否
 
@@ -435,10 +435,10 @@ webhook イベントは、登録したドメインの特異性に基づいてト
 
 ### webhook ペイロードオブジェクト
 
-| キー       | 種類       | 説明                                                                                                                                                         |
-| -------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `action` | `string` | 実行されたアクション。 `created`、`edited`、`deleted` のいずれかを指定可。                                                                                                        |
-| `コメント`   | `オブジェクト` | [`discussion comment`]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql/guides/using-the-graphql-api-for-discussions#discussioncomment) のリソース。 |
+| キー       | 種類       | 説明                                                                                                     |
+| -------- | -------- | ------------------------------------------------------------------------------------------------------ |
+| `action` | `string` | 実行されたアクション。 `created`、`edited`、`deleted` のいずれかを指定可。                                                    |
+| `コメント`   | `オブジェクト` | [`discussion comment`](/graphql/guides/using-the-graphql-api-for-discussions#discussioncomment) のリソース。 |
 {% data reusables.webhooks.discussion_desc %}
 {% data reusables.webhooks.repo_desc_graphql %}
 {% data reusables.webhooks.org_desc_graphql %}

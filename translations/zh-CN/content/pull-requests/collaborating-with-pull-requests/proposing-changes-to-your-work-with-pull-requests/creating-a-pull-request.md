@@ -154,7 +154,7 @@ gh pr create --web
 1. 检查作为合并来源的本地分支和仓库以及作为合并目标的远程分支和仓库是否正确。 然后为拉取请求提供标题和描述。 ![GitHub 拉取请求侧栏](/assets/images/help/codespaces/codespaces-commit-pr.png)
 1. 单击 **Create（创建）**。
 
-有关在 {% data variables.product.prodname_codespaces %} 中创建拉取请求的更多信息，请参阅“[对拉取请求使用代码空间](/codespaces/developing-in-codespaces/using-codespaces-for-pull-requests)”。
+For more information on creating pull requests in {% data variables.product.prodname_github_codespaces %}, see "[Using {% data variables.product.prodname_github_codespaces %} for pull requests](/codespaces/developing-in-codespaces/using-github-codespaces-for-pull-requests)."
 
 {% endcodespaces %}
 

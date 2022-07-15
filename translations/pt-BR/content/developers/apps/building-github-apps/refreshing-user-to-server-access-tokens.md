@@ -43,9 +43,9 @@ Esta solicitação de retorno de chamada enviará um novo token de acesso e um n
 
 ```json
 {
-  "access_token": "{% ifversion fpt or ghes > 3.1 or ghae or ghec %}ghu_16C7e42F292c6912E7710c838347Ae178B4a{% else %}e72e16c7e42f292c6912e7710c838347ae178b4a{% endif %}",
+  "access_token": "ghu_16C7e42F292c6912E7710c838347Ae178B4a",
   "expires_in": "28800",
-  "refresh_token": "{% ifversion fpt or ghes > 3.1 or ghae or ghec %}ghr_1B4a2e77838347a7E420ce178F2E7c6912E169246c34E1ccbF66C46812d16D5B1A9Dc86A1498{% else %}r1.c1b4a2e77838347a7e420ce178f2e7c6912e169246c34e1ccbf66c46812d16d5b1a9dc86a149873c{% endif %}",
+  "refresh_token": "ghr_1B4a2e77838347a7E420ce178F2E7c6912E169246c34E1ccbF66C46812d16D5B1A9Dc86A1498",
   "refresh_token_expires_in": "15811200",
   "scope": "",
   "token_type": "bearer"
@@ -74,10 +74,7 @@ Os {% data variables.product.prodname_github_apps %} existentes que usa tokens d
 
 Habilitar o vencimento de tokens de usuário para {% data variables.product.prodname_github_apps %} existentes exige o envio de usuários por meio do do fluxo do OAuth para reemitir tokens de usuário que vencerão em 8 horas e fazer uma solicitação com o token de atualização para obter um novo token de acesso e token de atualização. Para obter mais informações, consulte "[Identificar e autorizar usuários para aplicativos GitHub](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/)".
 
-{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
-
 ## Leia mais
 
 - "[Sobre a autenticação em {% data variables.product.prodname_dotcom %}](/github/authenticating-to-github/about-authentication-to-github#githubs-token-formats)"
 
-{% endif %}

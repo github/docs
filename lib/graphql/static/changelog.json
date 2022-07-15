@@ -4,6 +4,22 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "Type 'ProjectV2ItemFieldValueOrder' was added",
+          "Type 'ProjectV2ItemFieldValueOrderField' was added",
+          "Argument 'orderBy: ProjectV2ItemFieldValueOrder` added to field `ProjectV2Item.fieldValues'",
+          "Argument `orderBy: PullRequestOrder` added to field 'ProjectV2ItemFieldPullRequestValue.pullRequests'"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2022-07-14"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "Type 'ProjectV2FieldOrder' was added",
           "Type 'ProjectV2FieldOrderField' was added",
           "Type 'ProjectV2ItemOrder' was added",

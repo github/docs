@@ -77,7 +77,7 @@ Esto puede ser útil cuando algunas cuantas confirmaciones hacen cambios extenso
 git blame --ignore-revs-file .git-blame-ignore-revs
 ```
 
-You can also configure your local git so it always ignores the revs in that file:
+También puedes configurar tu git local para que siempre ignore las revs en ese archivo:
 
 ```shell
 git config blame.ignoreRevsFile .git-blame-ignore-revs

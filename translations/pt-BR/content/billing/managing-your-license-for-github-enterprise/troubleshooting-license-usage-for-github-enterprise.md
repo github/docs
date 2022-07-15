@@ -71,7 +71,7 @@ Ao tentar combinar usuários em todas as empresas, {% data variables.product.com
 
 O uso da sua licença é recalculado logo após a realização de cada sincronização. Você pode ver o registro de hora do último trabalho de sincronização da licença e, se um trabalho não foi executado desde que um endereço de e-mail foi atualizado ou verificado, para resolver um problema com o seu relatório de licença consumida, você pode acionar um manualmente Para obter mais informações, consulte "[Uso da licença de sincronização entre o GitHub Enterprise Server e o GitHub Enterprise Cloud](/billing/managing-your-license-for-github-enterprise/syncing-license-usage-between-github-enterprise-server-and-github-enterprise-cloud)".
 
-{% ifversion ghec or ghes > 3.1 %}
+{% ifversion ghec or ghes %}
 Se a empresa usa domínios verificados, revise a lista de integrantes da empresa que não possuem um endereço de e-mail de um domínio verificado associado à sua conta de {% data variables.product.prodname_dotcom_the_website %}. Frequentemente, estes são os usuários que consomem erroneamente mais de uma estação licenciada. Para obter mais informações, consulte "[Visualizando integrantes sem um endereço de e-mail de um domínio verificado](/admin/user-management/managing-users-in-your-enterprise/viewing-people-in-your-enterprise#viewing-members-without-an-email-address-from-a-verified-domain)".
 {% endif %}
 

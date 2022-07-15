@@ -20,9 +20,9 @@ shortTitle: Merge PR automatically
 
 プルリクエストの自動マージを有効にすると、必要なすべてのレビューを満たし、ステータスチェックに合格すると、プルリクエストが自動的にマージされます。 自動マージにより、要件が満たされるのを待つ必要がなくなるため、他のタスクに進むことができます。
 
-プルリクエストで自動マージを使用する前に、リポジトリで自動マージを有効にする必要があります。 詳しい情報については、「[リポジトリ内のプルリクエストの自動マージを管理する](/github/administering-a-repository/managing-auto-merge-for-pull-requests-in-your-repository)」を参照してください。{% ifversion fpt or ghae or ghes > 3.1 or ghec %}
+プルリクエストで自動マージを使用する前に、リポジトリで自動マージを有効にする必要があります。 詳しい情報については、「[リポジトリ内のプルリクエストの自動マージを管理する](/github/administering-a-repository/managing-auto-merge-for-pull-requests-in-your-repository)」を参照してください。
 
-プルリクエストの自動マージを有効にした後、リポジトリへの書き込み権限を持たないユーザがプルリクエストの head ブランチに新しい変更をプッシュするか、プルリクエストのベースブランチを切り替えると、自動マージは無効になります。 たとえば、メンテナがフォークからのプルリクエストの自動マージを有効にした場合、コントリビューターがプルリクエストに新しい変更をプッシュすると、自動マージは無効になります。{% endif %}
+プルリクエストの自動マージを有効にした後、リポジトリへの書き込み権限を持たないユーザがプルリクエストの head ブランチに新しい変更をプッシュするか、プルリクエストのベースブランチを切り替えると、自動マージは無効になります。 For example, if a maintainer enables auto-merge for a pull request from a fork, auto-merge will be disabled after a contributor pushes new changes to the pull request.
 
 You can provide feedback about auto-merge through a [{% data variables.product.product_name %} feedback discussion](https://github.com/github/feedback/discussions/categories/pull-requests-feedback).
 

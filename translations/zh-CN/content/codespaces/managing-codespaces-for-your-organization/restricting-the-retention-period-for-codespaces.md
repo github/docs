@@ -16,13 +16,13 @@ topics:
 
 {% data variables.product.prodname_codespaces %} 在停止后会自动删除，并在定义的天数内保持非活动状态。 每个代码空间的保留期是在创建代码空间时设置的，不会更改。
 
-有权访问 {% data variables.product.prodname_github_codespaces %} 的每个人都可以为他们创建的代码空间配置保留期。 此保留期的初始设置为 30 天。 单个用户可以将此时间段设置在 0-30 天的范围内。 更多信息请参阅“[配置代码空间的自动删除](/codespaces/customizing-your-codespace/configuring-automatic-deletion-of-your-codespaces)”。
+有权访问 {% data variables.product.prodname_github_codespaces %} 的每个人都可以为他们创建的代码空间配置保留期。 此默认保留期的初始设置为 30 天。 单个用户可以将此时间段设置在 0-30 天的范围内。 更多信息请参阅“[配置代码空间的自动删除](/codespaces/customizing-your-codespace/configuring-automatic-deletion-of-your-codespaces)”。
 
-作为组织所有者，您可能希望为为组织拥有的存储库创建的代码空间的最长保留期配置限制。 这可以帮助您限制与代码空间相关的存储成本，这些代码空间已停止，然后一直处于未使用状态，直到它们被自动删除。 有关存储费用的详细信息，请参阅[关于代码空间的计费](/billing/managing-billing-for-github-codespaces/about-billing-for-codespaces#codespaces-pricing)”。 您可以为组织拥有的所有仓库或特定仓库设置最长保留期。
+作为组织所有者，您可能希望为为组织拥有的存储库创建的代码空间的最长保留期配置限制。 这可以帮助您限制与代码空间相关的存储成本，这些代码空间已停止，然后一直处于未使用状态，直到它们被自动删除。 For more information about storage charges, see "[About billing for {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#codespaces-pricing)." 您可以为组织拥有的所有仓库或特定仓库设置最长保留期。
 
 ### 设置组织范围和存储库特定的策略
 
-创建策略时，您可以选择是将其应用于组织中的所有存储库，还是仅应用于指定的存储库。 如果创建具有代码空间保留约束的组织范围的策略，则针对特定存储库的任何策略中的保留约束应短于为整个组织配置的限制，否则它们将不起作用。 应用组织范围策略、针对指定存储库的策略或某人的个人设置中最短的保留期。
+创建策略时，您可以选择是将其应用于组织中的所有存储库，还是仅应用于指定的存储库。 如果创建具有代码空间保留约束的组织范围的策略，则针对特定存储库的任何策略中的保留约束应短于为整个组织配置的限制，否则它们将不起作用。 应用组织范围策略、针对指定存储库的策略或某人个人设置的默认保留期中最短的保留期。
 
 如果添加具有保留约束的组织范围策略，则应将保留期设置为可接受的最长期限。 然后，您可以添加单独的策略，将组织中特定存储库的最大保留期设置为较短的时间段。
 

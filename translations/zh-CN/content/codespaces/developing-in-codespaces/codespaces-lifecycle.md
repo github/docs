@@ -35,7 +35,7 @@ product: '{% data reusables.gated-features.codespaces %}'
 
 ## 代码空间超时
 
-如果使代码空间在没有交互的情况下保持运行状态，或者退出代码空间而不显式停止它，则代码空间将在一段时间不活动后超时并停止运行。 默认情况下，代码空间将在处于非活动状态 30 分钟后超时，但您可以自定义所创建的新代码空间的超时期限的持续时间。 有关为代码空间设置默认超时期限的详细信息，请参阅“[为代码空间设置超时期限](/codespaces/customizing-your-codespace/setting-your-timeout-period-for-codespaces)”。 有关停止代码空间的详细信息，请参阅“[停止代码空间](#stopping-a-codespace)”。
+如果使代码空间在没有交互的情况下保持运行状态，或者退出代码空间而不显式停止它，则代码空间将在一段时间不活动后超时并停止运行。 默认情况下，代码空间将在处于非活动状态 30 分钟后超时，但您可以自定义所创建的新代码空间的超时期限的持续时间。 For more information about setting the default timeout period for your codespaces, see "[Setting your timeout period for {% data variables.product.prodname_github_codespaces %}](/codespaces/customizing-your-codespace/setting-your-timeout-period-for-github-codespaces)." 有关停止代码空间的详细信息，请参阅“[停止代码空间](#stopping-a-codespace)”。
 
 当代码空间超时时，将保留上次保存更改时的数据。 更多信息请参阅“[在代码空间中保存更改](#saving-changes-in-a-codespace)”。
 

@@ -6,7 +6,7 @@ product: '{% data reusables.gated-features.secret-scanning %}'
 redirect_from:
   - /code-security/secret-security/defining-custom-patterns-for-secret-scanning
 versions:
-  ghes: '>=3.2'
+  ghes: '*'
   ghae: '*'
   ghec: '*'
 type: how_to

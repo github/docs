@@ -115,7 +115,7 @@ Se uma política for habilitada para uma empresa, ela poderá ser desabilitada s
 {% data reusables.enterprise-accounts.actions-tab %}
 {% data reusables.actions.private-repository-forks-configure %}
 
-{% ifversion ghec or ghes > 3.1 or ghae %}
+{% ifversion ghec or ghes or ghae %}
 
 ## Aplicando uma política de permissões de fluxo de trabalho na sua empresa
 

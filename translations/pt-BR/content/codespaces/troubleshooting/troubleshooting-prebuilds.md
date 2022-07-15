@@ -24,7 +24,7 @@ Se você tiver a sua preferência de editor de {% data variables.product.prodnam
 
 ![A mensagem "codespaces da pre-criação encontrados"](/assets/images/help/codespaces/prebuilt-codespace-found.png)
 
-Da mesma forma, se sua preferência de editor for "{% data variables.product.prodname_vscode_shortname %}", o terminal integrado conterá a mensagem "Você está em um codespace pré-criado e definido pela configuração de pré-compilação para seu repositório" ao criar um novo codespace. Para obter mais informações, consulte "[Definindo seu editor padrão para codespaces](/codespaces/customizing-your-codespace/setting-your-default-editor-for-codespaces)".
+Da mesma forma, se sua preferência de editor for "{% data variables.product.prodname_vscode_shortname %}", o terminal integrado conterá a mensagem "Você está em um codespace pré-criado e definido pela configuração de pré-compilação para seu repositório" ao criar um novo codespace. Para obter mais informações, consulte "[Definindo seu editor padrão para {% data variables.product.prodname_github_codespaces %}](/codespaces/customizing-your-codespace/setting-your-default-editor-for-github-codespaces)".
 
 Depois de criar um codespace, você pode verificar se ele foi criado a partir de uma pré-compilação executando o seguinte comando {% data variables.product.prodname_cli %} no terminal:
 

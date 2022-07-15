@@ -27,6 +27,7 @@ If a repository belongs to an organization, the organization admin may have set 
 
 Each codespace has its own retention period. You may, therefore, have codespaces with different rentention periods. For example, if:
 * You created a codespace, changed your default retention period, then created another codespace.
+* You created a codespace using {% data variables.product.prodname_cli %} and specified a different retention period.
 * You created a codespace from an organization-owned repository that has a retention period configured for the organization.
 
 {% note %}
@@ -55,10 +56,9 @@ Each codespace has its own retention period. You may, therefore, have codespaces
 
 1. [**Save**] をクリックします。
 
-This default setting may be superseded by a shorter organization-level retention period.
+When you create a codespace using {% data variables.product.prodname_cli %} you can override this default. If you create a codespace in an organization that specifies a shorter retention period, the organization-level value overrides your personal setting.
 
 If you set a retention period of more than a day, you'll be sent an email notification one day prior to its deletion.
-
 
 ## Checking the remaining time until autodeletion
 
@@ -68,16 +68,19 @@ When an inactive codespace is approaching the end of its retention period, this 
 
 ![The pre-deletion message in the codespaces list on {% data variables.product.prodname_dotcom %}](/assets/images/help/codespaces/retention-deletion-message.png)
 
-
 {% endwebui %}
-
-
 
 {% cli %}
 
 ## Setting a retention period for a codespace
 
-You can set your default retention period in your web browser, on {% data variables.product.prodname_dotcom_the_website %}. For more information, click the "Web browser" tab at the top of this article.
+To set the codespace retention period when you create a codespace, use the `--retention-period` flag with the `codespace create` subcommand. Specify the period in days. The period must be between 0 and 30 days.
+
+```shell
+gh codespace create --retention-period DAYS
+```
+
+If you don't specify a retention period when you create a codespace, then either your default retention period, or an organization retention period, will be used, depending on which is lower. For information about setting your default retention period, click the "Web browser" tab on this page.
 
 {% data reusables.cli.cli-learn-more %}
 
@@ -87,7 +90,7 @@ You can set your default retention period in your web browser, on {% data variab
 
 ## Setting the retention period
 
-You can set your default retention period in your web browser, on {% data variables.product.prodname_dotcom_the_website %}. For more information, click the "Web browser" tab at the top of this article.
+You can set your default retention period in your web browser, on {% data variables.product.prodname_dotcom_the_website %}. Alternatively, if you use {% data variables.product.prodname_cli %} to create a codespace you can set a retention period for that particular codespace. For more information, click the appropriate tab above.
 
 ## Checking whether codespaces will be autodeleted soon
 

@@ -400,7 +400,7 @@ Os eventos de webhook são acionados com base na especificidade do domínio que 
 
 {% data reusables.webhooks.discussions-webhooks-beta %}
 
-Atividade relacionada a uma discussão. Para obter mais informações, consulte "[Usar a API do GraphQL para discussões]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql/guides/using-the-graphql-api-for-discussions)".
+Atividade relacionada a uma discussão. Para obter mais informações, consulte "[Usar a API do GraphQL para discussões](/graphql/guides/using-the-graphql-api-for-discussions)".
 ### Disponibilidade
 
 - Webhooks do repositório
@@ -425,7 +425,7 @@ Atividade relacionada a uma discussão. Para obter mais informações, consulte 
 
 {% data reusables.webhooks.discussions-webhooks-beta %}
 
-Atividade relacionada a um comentário em uma discussão. Para obter mais informações, consulte "[Usar a API do GraphQL para discussões]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql/guides/using-the-graphql-api-for-discussions)".
+Atividade relacionada a um comentário em uma discussão. Para obter mais informações, consulte "[Usar a API do GraphQL para discussões](/graphql/guides/using-the-graphql-api-for-discussions)".
 
 ### Disponibilidade
 
@@ -435,10 +435,10 @@ Atividade relacionada a um comentário em uma discussão. Para obter mais inform
 
 ### Objeto da carga do webhook
 
-| Tecla        | Tipo     | Descrição                                                                                                                                                           |
-| ------------ | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `Ação`       | `string` | A ação realizada. Pode ser `criado`, `editado` ou `excluído`.                                                                                                       |
-| `comentário` | `objeto` | O recurso [`comentário de discussão`]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql/guides/using-the-graphql-api-for-discussions#discussioncomment). |
+| Tecla        | Tipo     | Descrição                                                                                                       |
+| ------------ | -------- | --------------------------------------------------------------------------------------------------------------- |
+| `Ação`       | `string` | A ação realizada. Pode ser `criado`, `editado` ou `excluído`.                                                   |
+| `comentário` | `objeto` | O recurso [`comentário de discussão`](/graphql/guides/using-the-graphql-api-for-discussions#discussioncomment). |
 {% data reusables.webhooks.discussion_desc %}
 {% data reusables.webhooks.repo_desc_graphql %}
 {% data reusables.webhooks.org_desc_graphql %}
