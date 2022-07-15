@@ -117,8 +117,6 @@ sections:
         - |
           Agora você pode alternar entre a exibição de origem e a exibição interpretada do Markdown através da interface do usuário da web clicando no botão {% octicon "code" aria-label="The Code icon" %} para "Exibir o diff de origem" na parte superior de qualquer arquivo do Markdown. Anteriormente, você precisava usar a vista do último responsável para vincular a números de linha específicos na fonte de um arquivo Markdown.
         - |
-          Agora você pode adicionar imagens e vídeos aos arquivos Markdown nos gists, colando-os no corpo do Markdown ou selecionando-os da caixa de diálogo na parte inferior do arquivo Markdown. Para obter informações sobre tipos de arquivos compatíveis, consulte "[Anexando arquivos](/github/writing-on-github/working-with-advanced-formatting/attaching-files)."
-        - |
           O GitHub AE agora gera automaticamente uma tabela de conteúdos para Wikis, baseada em cabeçalhos.
   changes:
     - 
