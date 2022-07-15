@@ -116,7 +116,7 @@ export function Search({
 
   useEffect(() => {
     if ((router.query.query || '') !== debouncedQuery) {
-      const [asPathRoot, asPathQuery = ''] = router.asPath.split('?')
+      const [asPathRoot, asPathQuery = ''] = router.asPath.split('#')[0].split('?')
       const params = new URLSearchParams(asPathQuery)
       if (debouncedQuery) {
         params.set('query', debouncedQuery)
