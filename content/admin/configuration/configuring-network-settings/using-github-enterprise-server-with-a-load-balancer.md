@@ -94,3 +94,9 @@ If {% data variables.product.product_location %} indicates that your session has
 - Configure your load balancer to operate on Layer 4, and use the PROXY protocol instead of `X-Forwarded-For` for passthrough of client IP addresses. For more information, see "[Enabling PROXY protocol support on {% data variables.product.product_location %} ](#enabling-proxy-protocol-support-on-your-github-enterprise-server-instance)."
 
 For more information, refer to the documentation for your load balancer.
+
+### Live updates to issues and check runs not working
+
+When {% data variables.product.product_location %} is accessed via a load balancer or reverse proxy, expected live updates, such as new comments on issues and changes in notification badges or check run output, may not display until the page is refreshed. This is most common when the reverse proxy or load balancer is running in a layer 7 mode or does not support the required [websocket](https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API) protocol. 
+
+To enable live updates, you may need to reconfigure the load balancer or proxy. For more information, refer to the documentation for your load balancer.

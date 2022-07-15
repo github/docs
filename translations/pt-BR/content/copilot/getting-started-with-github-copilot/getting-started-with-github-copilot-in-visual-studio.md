@@ -45,9 +45,9 @@ Para usar {% data variables.product.prodname_copilot %}, é preciso primeiro ins
 {% data reusables.copilot.supported-languages %} As seguintes amostras estão em C#, mas outras linguagens funcionarão da mesma forma.
 
 {% data reusables.copilot.create-c-file %}
-1. No arquivo C#, digite o cabeçalho da função a seguir. {% data variables.product.prodname_copilot %} sugerirá automaticamente o texto inteiro da função em texto cinza, como mostrado abaixo. A sugestão exata pode variar.
+1. In the C# file, type the following function signature. {% data variables.product.prodname_copilot %} sugerirá automaticamente o texto inteiro da função em texto cinza, como mostrado abaixo. A sugestão exata pode variar.
   ```csharp{:copy}
-  function calculateDaysBetweenDates(begin, end) {
+  int CalculateDaysBetweenDates(
   ```
   ![Captura de tela de uma primeira sugestão do Visual Studio Code](/assets/images/help/copilot/first-suggestion-visual-studio.png)
 {% data reusables.copilot.accept-suggestion %}
@@ -55,10 +55,10 @@ Para usar {% data variables.product.prodname_copilot %}, é preciso primeiro ins
 ## Vendo sugestões alternativas
 {% data reusables.copilot.alternative-suggestions %}
 {% data reusables.copilot.create-c-file %}
-1. No arquivo C#, digite o cabeçalho da função a seguir. {% data variables.product.prodname_copilot %} irá mostrar-lhe uma sugestão.
+1. In the C# file, type the following function signature. {% data variables.product.prodname_copilot %} irá mostrar-lhe uma sugestão.
 
    ```csharp{:copy}
-   function calculateDaysBetweenDates(begin, end) {
+   int CalculateDaysBetweenDates(
    ```
 1. Se sugestões alternativas estiverem disponíveis, você poderá vê-las pressionando <kbd>Alt</kbd>+<kbd>]</kbd> (ou <kbd>Alt</kbd>+<kbd>[</kbd>).
 1. Opcionalmente, você pode passar o mouse sobre a sugestão para ver a paleta de comando de {% data variables.product.prodname_copilot %} para escolher sugestões.

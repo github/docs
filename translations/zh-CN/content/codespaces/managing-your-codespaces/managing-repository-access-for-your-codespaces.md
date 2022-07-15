@@ -2,7 +2,7 @@
 title: 管理对代码空间中其他存储库的访问
 allowTitleToDifferFromFilename: true
 shortTitle: 存储库访问
-intro: '您可以管理 {% data variables.product.prodname_codespaces %} 可以访问的仓库。'
+intro: '您可以管理 {% data variables.product.prodname_github_codespaces %} 可以访问的仓库。'
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
@@ -16,7 +16,7 @@ redirect_from:
 
 ## 概览
 
-默认情况下，会为代码空间分配一个令牌，范围限定为从中创建代码空间的存储库。 更多信息请参阅“[{% data variables.product.prodname_codespaces %} 中的安全性](/codespaces/codespaces-reference/security-in-codespaces#authentication)”。 如果您的项目需要其他存储库的其他权限，则可以在 `devcontainer.json` 文件中配置此权限，并确保其他协作者具有正确的权限集。
+默认情况下，会为代码空间分配一个令牌，范围限定为从中创建代码空间的存储库。 更多信息请参阅“[{% data variables.product.prodname_github_codespaces %} 中的安全性](/codespaces/codespaces-reference/security-in-github-codespaces#authentication)”。 如果您的项目需要其他存储库的其他权限，则可以在 `devcontainer.json` 文件中配置此权限，并确保其他协作者具有正确的权限集。
 
 当 `devcontainer.json` 文件中列出权限时，作为创建该存储库的代码空间的一部分，系统将提示您查看并授权其他权限。 授权列出的权限后，{% data variables.product.prodname_github_codespaces %} 将记住您的选择，并且不会提示您进行授权，除非 `devcontainer.json` 文件中的权限发生更改。
 
@@ -29,7 +29,7 @@ redirect_from:
 
 ## 设置其他存储库权限
 
-1. 您可以为 `devcontainer.json` 文件中的 {% data variables.product.prodname_github_codespaces %} 配置存储库权限。 如果您的存储库尚未包含 `devcontainer.json` 文件，请立即添加一个。 有关详细信息，请参阅“[将开发容器添加到项目](/codespaces/setting-up-your-project-for-codespaces/setting-up-your-project-for-codespaces)”。
+1. 您可以为 `devcontainer.json` 文件中的 {% data variables.product.prodname_codespaces %} 配置存储库权限。 如果您的存储库尚未包含 `devcontainer.json` 文件，请立即添加一个。 有关详细信息，请参阅“[将开发容器添加到项目](/codespaces/setting-up-your-project-for-codespaces/setting-up-your-project-for-codespaces)”。
 
 1. 编辑 `devcontainer.json` 文件，将存储库名称和所需的权限添加到 `repositories` 对象：
 
@@ -105,7 +105,7 @@ redirect_from:
 
 ## 授权请求的权限
 
-如果在 `devcontainer.json` 文件中定义了其他存储库权限，则在为此存储库创建代码空间时，系统将提示您查看并选择性地授权这些权限。 当您为存储库授权权限时，除非存储库的请求权限集已更改，否则 {% data variables.product.prodname_github_codespaces %} 不会重新提示您。
+如果在 `devcontainer.json` 文件中定义了其他存储库权限，则在为此存储库创建代码空间时，系统将提示您查看并选择性地授权这些权限。 当您为存储库授权权限时，除非存储库的请求权限集已更改，否则 {% data variables.product.prodname_codespaces %} 不会重新提示您。
 
 ![请求的权限页面](/assets/images/help/codespaces/codespaces-accept-permissions.png)
 

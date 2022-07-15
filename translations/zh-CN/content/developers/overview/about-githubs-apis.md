@@ -14,7 +14,7 @@ topics:
   - API
 ---
 
-GitHub API 有两个稳定版本：[REST API](/rest) 和 [GraphQL API]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql)。
+GitHub API 有两个稳定版本：[REST API](/rest) 和 [GraphQL API](/graphql)。
 
 ## 已弃用版本
 

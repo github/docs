@@ -53,7 +53,7 @@ product: '{% data reusables.gated-features.codespaces %}'
 
 将 `devcontainer.json` 文件视为提供“自定义”而不是“个性化”是很有用的。 您应该只将每个在代码库上工作的人都需要的东西作为开发环境的标准元素，而不是个人偏好的东西。 像语法检查这样的东西非常适合标准化，并且要求每个人都已安装，因此最好将它们包含在您的 `devcontainer.json` 文件中。 像用户界面装饰器或主题这样的东西是个人选择，不应该放在 `devcontainer.json` 文件中。
 
-您可以使用 dotfiles 和 Settings Sync 对代码空间进行个性化设置。 更多信息请参阅“[为您的帐户个性化代码空间](/codespaces/customizing-your-codespace/personalizing-codespaces-for-your-account)”。
+您可以使用 dotfiles 和 Settings Sync 对代码空间进行个性化设置。 For more information, see "[Personalizing {% data variables.product.prodname_github_codespaces %} for your account](/codespaces/customizing-your-codespace/personalizing-github-codespaces-for-your-account)."
 
 ### Dockerfile
 

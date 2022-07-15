@@ -53,7 +53,7 @@ Para obtener más información sobre cómo elegir tu configuración preferida de
 
 Es útil pensar que el archivo `devcontainer.json` sirve para proporcionar "adaptación" en vez de "personalización". Solo debes incluir las cosas que necesiten todos los que trabajan en tus codespaces como elementos estándar del ambiente de desarrollo, no las que son preferencias personales. Las cosas como los limpiadores son buenas para estandarizar y para requerir que todos las tengan instaladas, así que es bueno incluirlas en tu archivo `devcontainer.json`. Las cosas como los decoradores de interfaz de usuario o los temas son elecciones personales que no deberían ponerse en el archivo `devcontainer.json`.
 
-Puedes personalizar tus codespaces utilizando dotfiles y la sincronización de ajustes. Para obtener más información, consulta la sección "[Personalizar los codespaces para tu cuenta](/codespaces/customizing-your-codespace/personalizing-codespaces-for-your-account)".
+Puedes personalizar tus codespaces utilizando dotfiles y la sincronización de ajustes. For more information, see "[Personalizing {% data variables.product.prodname_github_codespaces %} for your account](/codespaces/customizing-your-codespace/personalizing-github-codespaces-for-your-account)."
 
 ### Dockerfile
 
@@ -138,7 +138,7 @@ Puedes agregar una configuración de contenedor dev predefinida ya sea mientras 
 
    ![Botón de OK](/assets/images/help/codespaces/prebuilt-container-ok-button.png)
 
-1. Si estás trabajando en un codespace, aplica tus cambios haciendo clic en **Recompilar ahora** en el mensaje en la parte inferior derecha de la ventana. For more information about rebuilding your container, see "[Applying changes to your configuration](#applying-configuration-changes-to-a-codespace)."
+1. Si estás trabajando en un codespace, aplica tus cambios haciendo clic en **Recompilar ahora** en el mensaje en la parte inferior derecha de la ventana. Para obtener más información sobre cómo reconstruir tu contenedor, consulta la sección "[Aplicar los cambios a tu configuración](#applying-configuration-changes-to-a-codespace)".
 
    !["Codespaces: Reconstruir contenedor" en la {% data variables.product.prodname_vscode_command_palette %}](/assets/images/help/codespaces/rebuild-prompt.png)
 

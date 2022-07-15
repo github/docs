@@ -55,7 +55,7 @@ Un token sin alcances asignados solo puede acceder a información pública. Para
 8. Haz clic en **Generar token**. ![Generar un botón para el token](/assets/images/help/settings/generate_token.png)
    {% ifversion fpt or ghec %}
    ![Token recién creado](/assets/images/help/settings/personal_access_tokens.png)
-   {% elsif ghes > 3.1 or ghae %}
+   {% elsif ghes or ghae %}
    ![Token recién creado](/assets/images/help/settings/personal_access_tokens_ghe.png)
    {% else %}
    ![Token recién creado](/assets/images/help/settings/personal_access_tokens_ghe_legacy.png)

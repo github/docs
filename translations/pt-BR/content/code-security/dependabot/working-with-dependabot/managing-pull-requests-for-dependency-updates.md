@@ -44,6 +44,10 @@ Se você tem muitas dependências para gerenciar, você pode querer personalizar
 
 Por padrão, o {% data variables.product.prodname_dependabot %} faz o rebasamento automaticamente das pull requests para resolver quaisquer conflitos. Se você preferir lidar com conflitos de merge manualmente, pode desativar isso usando a opção `rebase-strategy`. Para obter detalhes, consulte "[Opções de configuração para o arquivo dependabot.yml](/github/administering-a-repository/configuration-options-for-dependency-updates#rebase-strategy). ".
 
+## Allowing {% data variables.product.prodname_dependabot %} to rebase and force push over extra commits
+
+By default, {% data variables.product.prodname_dependabot %} will stop rebasing a pull request once extra commits have been pushed to it. To allow {% data variables.product.prodname_dependabot %} to force push over commits added to its branches, include any of the following strings: `[dependabot skip]` , `[skip dependabot]`, `[dependabot-skip]`, or `[skip-dependabot]`, in either lower or uppercase, to the commit message.
+
 ## Gerenciando pull requests {% data variables.product.prodname_dependabot %} com comandos de comentário
 
 O {% data variables.product.prodname_dependabot %} responde a comandos simples nos comentários. Cada pull request contém detalhes dos comandos que você pode usar para processar o pull request (por exemplo: fazer merge, combinação por squash, abrir, fechar ou rebasear o pull request) na seção "comandos e opções de {% data variables.product.prodname_dependabot %}". O objetivo é facilitar ao máximo a triagem dessas pull requests geradas automaticamente.

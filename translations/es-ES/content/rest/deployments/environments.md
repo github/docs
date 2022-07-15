@@ -5,7 +5,7 @@ shortTitle: Ambientes
 intro: 'The Deployment environments API allows you to create, configure, and delete deployment environments.'
 versions:
   fpt: '*'
-  ghes: '>=3.2'
+  ghes: '*'
   ghae: '*'
   ghec: '*'
 topics:

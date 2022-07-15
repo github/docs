@@ -23,8 +23,9 @@ topics:
 
 要在 JetBrains IDE 中使用 {% data variables.product.prodname_copilot %}，必须安装 {% data variables.product.prodname_copilot %} 扩展。 以下过程将指导您在 IntelliJ IDEA 中安装 {% data variables.product.prodname_copilot %} 插件。 在其他受支持的 IDE 中安装插件的步骤可能有所不同。
 
-1. 在 JetBrains IDE 中，在 **File（文件）**菜单下，单击 **Settings（设置）**。
-1. 在“Settings（设置）”对话框的顶部，单击 **Marketplace**。 在搜索栏中，搜索 **{% data variables.product.prodname_copilot %}**，然后单击 **Install（安装）**。 ![Marketplace 搜索的屏幕截图](/assets/images/help/copilot/jetbrains-marketplace.png)
+1. In your JetBrains IDE, under the **File** menu for Windows or under the name of your IDE for Mac (for example, **PyCharm** or **IntelliJ**), click **Settings** for Windows or **Preferences** for Mac.
+2. In the left-side menu of the **Settings/Preferences** dialog box, click **Plugins**.
+3. At the top of the **Settings/Preferences** dialog box, click **Marketplace**. In the search bar, search for **{% data variables.product.prodname_copilot %}**, then click **Install**. ![Marketplace 搜索的屏幕截图](/assets/images/help/copilot/jetbrains-marketplace.png)
 1. 安装 {% data variables.product.prodname_copilot %} 后，单击 **Restart IDE（重新启动 IDE）**。
 1. 重新启动 JetBrains IDE 后，单击 **Tools（工具）**菜单。 单击 **{% data variables.product.prodname_copilot %}**，然后单击**登录 {% data variables.product.prodname_dotcom %}**。 ![JetBrains 工具菜单的屏幕截图](/assets/images/help/copilot/jetbrains-tools-menu.png)
 1. 在“登录 {% data variables.product.prodname_dotcom %}”对话框中，若要复制设备代码并打开设备激活窗口，请单击 **Copy and Open（复制并打开）**。 ![设备代码复制和打开的屏幕截图](/assets/images/help/copilot/device-code-copy-and-open.png)
