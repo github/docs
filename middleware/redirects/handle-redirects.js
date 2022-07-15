@@ -11,6 +11,11 @@ export default function handleRedirects(req, res, next) {
   // never redirect assets
   if (patterns.assetPaths.test(req.path)) return next()
 
+  // Any double-slashes in the URL should be removed first
+  if (req.path.includes('//')) {
+    return res.redirect(301, req.path.replace(/\/\//g, '/'))
+  }
+
   // blanket redirects for languageless homepage
   if (req.path === '/') {
     const language = getLanguage(req)

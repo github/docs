@@ -612,4 +612,24 @@ describe('redirects', () => {
       }
     })
   })
+
+  describe('redirects with double-slashes', () => {
+    test('prefix double-slash', async () => {
+      const res = await get(`//en`)
+      expect(res.statusCode).toBe(301)
+      expect(res.headers.location).toBe(`/en`)
+    })
+
+    test('double-slash elsewhere in the URL', async () => {
+      const res = await get(`/en//rest`)
+      expect(res.statusCode).toBe(301)
+      expect(res.headers.location).toBe(`/en/rest`)
+    })
+
+    test('double-slash trailing in the URL', async () => {
+      const res = await get(`/en//`)
+      expect(res.statusCode).toBe(301)
+      expect(res.headers.location).toBe(`/en`)
+    })
+  })
 })
