@@ -1,6 +1,6 @@
 ---
 title: Conectando-se a uma rede privada
-intro: 'Você pode conectar {% data variables.product.prodname_codespaces %} a recursos de uma rede privada, incluindo registros de pacotes, servidores de licenças e bancos de dados no local.'
+intro: 'Você pode conectar {% data variables.product.prodname_github_codespaces %} a recursos de uma rede privada, incluindo registros de pacotes, servidores de licenças e bancos de dados no local.'
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
@@ -42,4 +42,4 @@ Para obter mais informações sobre a Meta API, consulte "[Meta](/rest/reference
 
 Atualmente, não há forma de restringir os codespaces de acessar a Internet pública ou de restringir o acesso de usuários devidamente autenticados a uma porta encaminhada.
 
-Para obter mais informações sobre como proteger seus códigos, consulte "[Segurança em codespaces](/codespaces/codespaces-reference/security-in-codespaces)".
+For more information on how to secure your codespaces, see "[Security in {% data variables.product.prodname_github_codespaces %}](/codespaces/codespaces-reference/security-in-github-codespaces)."

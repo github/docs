@@ -4,6 +4,7 @@ import useSWR from 'swr'
 import cx from 'classnames'
 import { Flash, Label, ActionList, ActionMenu } from '@primer/react'
 import { ItemInput } from '@primer/react/lib/deprecated/ActionList/List'
+import { InfoIcon } from '@primer/octicons-react'
 
 import { useTranslation } from 'components/hooks/useTranslation'
 import { sendEvent, EventType } from 'components/lib/events'
@@ -323,12 +324,13 @@ function ShowSearchResults({
   debug: boolean
   query: string
 }) {
-  const { t } = useTranslation('search')
+  const { t } = useTranslation(['pages', 'search'])
   const router = useRouter()
   const { currentVersion } = useVersion()
   const { allVersions } = useMainContext()
   const searchVersion = allVersions[currentVersion].versionTitle
   const [selectedVersion, setSelectedVersion] = useState<ItemInput | undefined>()
+  const currentVersionPathSegment = currentVersion === DEFAULT_VERSION ? '' : `/${currentVersion}`
 
   const latestVersions = new Set(
     Object.keys(allVersions)
@@ -413,6 +415,13 @@ function ShowSearchResults({
                       </ActionList.Item>
                     )
                   })}
+
+                  <ActionList.LinkItem
+                    className="f6"
+                    href={`/${router.locale}${currentVersionPathSegment}/get-started/learning-about-github/about-versions-of-github-docs`}
+                  >
+                    {t('about_versions')} <InfoIcon />
+                  </ActionList.LinkItem>
                 </ActionList>
               </ActionMenu.Overlay>
             </ActionMenu>
@@ -432,12 +441,12 @@ function ShowSearchResults({
           {t('matches_displayed')}: {results.length === 0 ? t('no_results') : results.length}
         </p>
 
-        <ActionList as="div" variant="full">
+        <ActionList variant="full">
           {results.map(({ url, breadcrumbs, title, content, score, popularity }) => {
             return (
-              <ActionList.Item className="width-full" key={url} as="div">
+              <ActionList.Item className="width-full" key={url}>
                 <Link href={url} className="no-underline color-fg-default">
-                  <li
+                  <div
                     data-testid="search-result"
                     className={cx('list-style-none', styles.resultsContainer)}
                   >
@@ -483,7 +492,7 @@ function ShowSearchResults({
                         }
                       />
                     </div>
-                  </li>
+                  </div>
                 </Link>
               </ActionList.Item>
             )

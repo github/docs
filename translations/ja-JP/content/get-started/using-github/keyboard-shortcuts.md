@@ -92,8 +92,8 @@ The {% data variables.product.prodname_command_palette %} also gives you quick a
 | キーボードショートカット                                                                                                                                                | 説明                                                                                                                                                                                              |
 | ----------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | <kbd>Command</kbd>+<kbd>B</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>B</kbd> (Windows/Linux)                                                                 | 太字テキストの Markdown 書式を挿入します                                                                                                                                                                       |
-| <kbd>Command</kbd>+<kbd>I</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>I</kbd> (Windows/Linux)                                                                 | Inserts Markdown formatting for italicizing text{% ifversion fpt or ghae or ghes > 3.1 or ghec %}
-| <kbd>Command</kbd>+<kbd>E</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>E</kbd> (Windows/Linux)                                                                 | Inserts Markdown formatting for code or a command within a line{% endif %}{% ifversion fpt or ghae-issue-5434 or ghes > 3.1 or ghec %}
+| <kbd>Command</kbd>+<kbd>I</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>I</kbd> (Windows/Linux)                                                                 | イタリック体のテキストの Markdown 書式を挿入します                                                                                                                                                                  |
+| <kbd>Command</kbd>+<kbd>E</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>E</kbd> (Windows/Linux)                                                                 | Inserts Markdown formatting for code or a command within a line{% ifversion fpt or ghae-issue-5434 or ghes or ghec %}
 | <kbd>Command</kbd>+<kbd>K</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>K</kbd> (Windows/Linux)                                                                 | Inserts Markdown formatting for creating a link{% endif %}{% ifversion fpt or ghae-issue-7103 or ghes > 3.5 or ghec %}
 | <kbd>Command</kbd>+<kbd>V</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>V</kbd> (Windows/Linux)                                                                 | Creates a Markdown link when applied over highlighted text{% endif %}
 | <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Windows/Linux)                               | Toggles between the **Write** and **Preview** comment tabs{% ifversion fpt or ghae or ghes > 3.4 or ghec %}
@@ -207,7 +207,6 @@ The {% data variables.product.prodname_command_palette %} also gives you quick a
 | <kbd>Shift</kbd>+<kbd>U</kbd> | 未読としてマークします  |
 | <kbd>Shift</kbd>+<kbd>I</kbd> | 既読としてマーク     |
 | <kbd>Shift</kbd>+<kbd>M</kbd> | サブスクライブ解除します |
-
 
 ## ネットワークグラフ
 

@@ -109,6 +109,7 @@ Os registros de fluxo de trabalho incluem um link para as ferramentas pré-insta
 
 Para a lista geral das ferramentas incluídas para cada sistema operacional do executor, consulte os links abaixo:
 
+* [Ubuntu 22.04 LTS](https://github.com/actions/virtual-environments/blob/main/images/linux/Ubuntu2204-Readme.md)
 * [Ubuntu 20.04 LTS](https://github.com/actions/virtual-environments/blob/main/images/linux/Ubuntu2004-Readme.md)
 * [Ubuntu 18.04 LTS](https://github.com/actions/virtual-environments/blob/main/images/linux/Ubuntu1804-Readme.md)
 * [Windows Server 2022](https://github.com/actions/virtual-environments/blob/main/images/win/Windows2022-Readme.md)

@@ -1,3 +1,3 @@
-{% ifversion fpt or ghes > 3.1 or ghec %}
+{% ifversion fpt or ghes or ghec %}
 Para recibir notificaciones sobre las {% data variables.product.prodname_dependabot_alerts %} en los repositorios, necesitas observar dichos repositorios y suscribirte para recibir notificaciones de "Toda la Actividad" o configurar los ajustes personalizados para que incluyan las "Alertas de seguridad". Para obtener más información, consulta la sección "[Configurar tus ajustes de observación para repositorios individuales](/github/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications#configuring-your-watch-settings-for-an-individual-repository)".
 {% endif %}

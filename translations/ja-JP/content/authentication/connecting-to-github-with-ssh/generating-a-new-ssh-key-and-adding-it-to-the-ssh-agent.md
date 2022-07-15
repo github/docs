@@ -21,11 +21,8 @@ shortTitle: Generate new SSH key
 
 If you don't already have an SSH key, you must generate a new SSH key to use for authentication. If you're unsure whether you already have an SSH key, you can check for existing keys. For more information, see "[Checking for existing SSH keys](/github/authenticating-to-github/checking-for-existing-ssh-keys)."
 
-{% ifversion fpt or ghae or ghes > 3.1 or ghec %}
-
 If you want to use a hardware security key to authenticate to {% data variables.product.product_name %}, you must generate a new SSH key for your hardware security key. You must connect your hardware security key to your computer when you authenticate with the key pair. For more information, see the [OpenSSH 8.2 release notes](https://www.openssh.com/txt/release-8.2).
 
-{% endif %}
 If you don't want to reenter your passphrase every time you use your SSH key, you can add your key to the SSH agent, which manages your SSH keys and remembers your passphrase.
 
 ## 新しい SSH キーを生成する
@@ -89,7 +86,7 @@ If you don't want to reenter your passphrase every time you use your SSH key, yo
 
 ## SSH キーを ssh-agent に追加する
 
-Before adding a new SSH key to the ssh-agent to manage your keys, you should have checked for existing SSH keys and generated a new SSH key. <span class="platform-mac">エージェントに SSH キーを追加する際、デフォルトの macOS の `ssh-add` コマンドを使用してください。[macports](https://www.macports.org/)、[homebrew](http://brew.sh/)、またはその他の外部ソースによってインストールされたアプリケーションは使用しないでください。</span>
+Before adding a new SSH key to the ssh-agent to manage your keys, you should have checked for existing SSH keys and generated a new SSH key. <span class="platform-mac">エージェントに SSH キーを追加する際、デフォルトの macOS の `ssh-add` コマンドを使用してください。[macports] macports (https://www.macports.org/)、[homebrew] (http://brew.sh/)、またはその他の外部ソースによってインストールされたアプリケーションは使用しないでください。</span>
 
 {% mac %}
 
@@ -191,7 +188,6 @@ Before adding a new SSH key to the ssh-agent to manage your keys, you should hav
 
 {% endlinux %}
 
-{% ifversion fpt or ghae or ghes > 3.1 or ghec %}
 ## Generating a new SSH key for a hardware security key
 
 If you are using macOS or Linux, you may need to update your SSH client or install a new SSH client prior to generating a new SSH key. For more information, see "[Error: Unknown key type](/github/authenticating-to-github/error-unknown-key-type)."
@@ -247,7 +243,6 @@ If you are using macOS or Linux, you may need to update your SSH client or insta
   ```
 7. Add the SSH key to your account on {% data variables.product.prodname_dotcom %}. For more information, see "[Adding a new SSH key to your {% data variables.product.prodname_dotcom %} account](/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account)."
 
-{% endif %}
 
 ## 参考リンク
 

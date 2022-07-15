@@ -52,13 +52,13 @@ gh api graphql -f query='
   }' -f organization=$my_org -F number=$my_num
 ```
 
-Para obtener más información, consulta la sección "[Formar llamados con GraphQL]({% ifversion ghec%}/free-pro-team@latest{% endif %}/graphql/guides/forming-calls-with-graphql#working-with-variables)".
+Para obtener más información, consulta la sección "[Formatear llamados con GraphQL](/graphql/guides/forming-calls-with-graphql#working-with-variables)".
 
 {% endcli %}
 
 ## Encontrar información sobre los proyectos
 
-Utiliza consultas para obtener datos sobre los proyectos. Paraobtener más información, consulta la sección "[Acerca de las consultas]({% ifversion ghec%}/free-pro-team@latest{% endif %}/graphql/guides/forming-calls-with-graphql#about-queries)".
+Utiliza consultas para obtener datos sobre los proyectos. Paraobtener más información, consulta la sección "[Acerca de las consultas](/graphql/guides/forming-calls-with-graphql#about-queries)".
 
 ### Encontrar la ID de nodo de un proyecto organizacional
 
@@ -430,7 +430,7 @@ Un proyecto podría contener elementos que los usuarios no tengan permiso para v
 
 ## Actualizar los proyectos
 
-Utiliza las mutaciones para actualizar los proyectos. Para obtener más información, consulta la sección "[Acerca de las mutaciones]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql/guides/forming-calls-with-graphql#about-mutations)".
+Utiliza las mutaciones para actualizar los proyectos. Para obtener más información, consulta la sección "[Acerca de las mutaciones](/graphql/guides/forming-calls-with-graphql#about-mutations)".
 
 {% note %}
 
@@ -594,7 +594,15 @@ gh api graphql -f query='
 
 {% note %}
 
-**Nota:** No puedes utilizar `updateProjectV2ItemFieldValue` para cambiar los `Assignees`, `Labels`, `Milestone` o `Repository`, porque estos cambios son propiedades de las propuestas y solicitudes de cambio y no son elementos de proyecto. En vez de esto, debes utilizar las mutaciones [addAssigneesToAssignable]({% ifversion ghec%}/free-pro-team@latest{% endif %}/graphql/reference/mutations#addassigneestoassignable), [removeAssigneesFromAssignable]({% ifversion ghec%}/free-pro-team@latest{% endif %}/graphql/reference/mutations#removeassigneesfromassignable), [addLabelsToLabelable]({% ifversion ghec%}/free-pro-team@latest{% endif %}/graphql/reference/mutations#addlabelstolabelable), [removeLabelsFromLabelable]({% ifversion ghec%}/free-pro-team@latest{% endif %}/graphql/reference/mutations#removelabelsfromlabelable), [updateIssue]({% ifversion ghec%}/free-pro-team@latest{% endif %}/graphql/reference/mutations#updateissue), [updatePullRequest]({% ifversion ghec%}/free-pro-team@latest{% endif %}/graphql/reference/mutations#updatepullrequest) o [transferIssue]({% ifversion ghec%}/free-pro-team@latest{% endif %}/graphql/reference/mutations#transferissue).
+**Nota:** No puedes utilizar `updateProjectV2ItemFieldValue` para cambiar los `Assignees`, `Labels`, `Milestone` o `Repository`, porque estos cambios son propiedades de las propuestas y solicitudes de cambio y no son elementos de proyecto. Instead, you may use the following mutations:
+
+- [addAssigneesToAssignable](/graphql/reference/mutations#addassigneestoassignable)
+- [removeAssigneesFromAssignable](/graphql/reference/mutations#removeassigneesfromassignable)
+- [addLabelsToLabelable](/graphql/reference/mutations#addlabelstolabelable)
+- [removeLabelsFromLabelable](/graphql/reference/mutations#removelabelsfromlabelable)
+- [updateIssue](/graphql/reference/mutations#updateissue)
+- [updatePullRequest](/graphql/reference/mutations#updatepullrequest)
+- [transferIssue](/graphql/reference/mutations#transferissue)
 
 {% endnote %}
 

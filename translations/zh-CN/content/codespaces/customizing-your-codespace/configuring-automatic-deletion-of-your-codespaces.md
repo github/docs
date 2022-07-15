@@ -13,7 +13,7 @@ type: how_to
 
 默认情况下，{% data variables.product.prodname_codespaces %} 在停止后会自动删除，并保持非活动状态 30 天。
 
-但是，由于 {% data variables.product.prodname_codespaces %} 会产生存储费用，因此您可能希望通过在个人设置中更改 {% data variables.product.prodname_github_codespaces %} 的默认保留期来缩短保留期。 有关存储费用的详细信息，请参阅[关于代码空间的计费](/billing/managing-billing-for-github-codespaces/about-billing-for-codespaces#codespaces-pricing)”。
+但是，由于 {% data variables.product.prodname_codespaces %} 会产生存储费用，因此您可能希望通过在个人设置中更改 {% data variables.product.prodname_github_codespaces %} 的默认保留期来缩短保留期。 For more information about storage charges, see "[About billing for {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#codespaces-pricing)."
 
 {% note %}
 
@@ -27,6 +27,7 @@ type: how_to
 
 每个代码空间都有自己的保留期。 因此，您可能具有不同租用期的代码空间。 例如，如果：
 * 您创建了一个代码空间，更改了默认保留期，然后创建了另一个代码空间。
+* 您使用 {% data variables.product.prodname_cli %} 创建了代码空间，并指定了不同的保留期。
 * 您从组织拥有的存储库创建了代码空间，该存储库具有为组织配置的保留期。
 
 {% note %}
@@ -49,16 +50,15 @@ type: how_to
 
    {% warning %}
 
-   **警告**：将期限设置为 `0` 将导致在停止代码空间时立即删除代码空间，或者由于不活动超时而删除。 更多信息请参阅“[设置代码空间的超时期限](/codespaces/customizing-your-codespace/setting-your-timeout-period-for-codespaces)”。
+   **警告**：将期限设置为 `0` 将导致在停止代码空间时立即删除代码空间，或者由于不活动超时而删除。 For more information, see "[Setting your timeout period for {% data variables.product.prodname_github_codespaces %}](/codespaces/customizing-your-codespace/setting-your-timeout-period-for-github-codespaces)."
 
    {% endwarning %}
 
 1. 单击 **Save（保存）**。
 
-此默认设置可能会被较短的组织级保留期所取代。
+使用 {% data variables.product.prodname_cli %} 创建代码空间时，可以覆盖此默认值。 如果在组织中创建了指定较短保留期的代码空间，则组织级值将覆盖您的个人设置。
 
 如果您将保留期设置为一天以上，则会在删除前一天收到电子邮件通知。
-
 
 ## 检查自动删除之前的剩余时间
 
@@ -68,16 +68,19 @@ type: how_to
 
 ![{% data variables.product.prodname_dotcom %} 上的代码空间列表中的删除前消息](/assets/images/help/codespaces/retention-deletion-message.png)
 
-
 {% endwebui %}
-
-
 
 {% cli %}
 
 ## 设置代码空间的保留期
 
-您可以在 Web 浏览器的 {% data variables.product.prodname_dotcom_the_website %} 上设置默认保留期。 有关更多信息，请单击此文章顶部的“Web browser（Web 浏览器）”选项卡。
+若要在创建代码空间时设置代码空间保留期，请将 `--retention-period` 标志与 `codespace create` 子命令一起使用。 以天为单位指定期限。 期限必须介于 0 到 30 天之间。
+
+```shell
+gh codespace create --retention-period DAYS
+```
+
+如果在创建代码空间时未指定保留期，则将使用默认保留期或组织保留期，具体取决于哪个保留期更短。 有关设置默认保留期的信息，请单击此页面上的“Web browser（Web 浏览器）”选项卡。
 
 {% data reusables.cli.cli-learn-more %}
 
@@ -87,7 +90,7 @@ type: how_to
 
 ## 设置保留期
 
-您可以在 Web 浏览器的 {% data variables.product.prodname_dotcom_the_website %} 上设置默认保留期。 有关更多信息，请单击此文章顶部的“Web browser（Web 浏览器）”选项卡。
+您可以在 Web 浏览器的 {% data variables.product.prodname_dotcom_the_website %} 上设置默认保留期。 或者，如果使用 {% data variables.product.prodname_cli %} 创建代码空间，则可以为该特定代码空间设置保留期。 有关详细信息，请单击上面的相应选项卡。
 
 ## 检查代码空间是否很快将自动删除
 

@@ -3,7 +3,7 @@ title: Repository Webhook Deliveries
 intro: ''
 versions:
   fpt: '*'
-  ghes: '>=3.2'
+  ghes: '*'
   ghae: '*'
   ghec: '*'
 topics:

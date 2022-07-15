@@ -1,6 +1,6 @@
 ---
 title: 允许代码空间访问私有映像注册表
-intro: '您可以使用密钥允许 {% data variables.product.prodname_codespaces %} 访问私有映像注册表'
+intro: '您可以使用密钥允许 {% data variables.product.prodname_github_codespaces %} 访问私有映像注册表'
 versions:
   fpt: '*'
   ghec: '*'
@@ -10,15 +10,15 @@ product: '{% data reusables.gated-features.codespaces %}'
 shortTitle: 私有映像注册表
 ---
 
-## 关于私人映像注册表和 {% data variables.product.prodname_codespaces %}
+## 关于私人映像注册表和 {% data variables.product.prodname_github_codespaces %}
 
 注册表是用于存储、管理和提取专用容器映像的安全空间。 您可以使用一个来存储一个或多个映像。 注册表的示例很多，例如 {% data variables.product.prodname_dotcom %} 容器注册表、Azure 容器注册表或 DockerHub。
 
-{% data variables.product.prodname_dotcom %} 容器注册表可以配置为无缝拉取容器映像，而无需向 {% data variables.product.prodname_codespaces %} 提供任何身份验证凭据。 对于其他映像注册表，必须在 {% data variables.product.prodname_dotcom %} 中创建机密以存储访问详细信息，这将允许 {% data variables.product.prodname_codespaces %} 访问存储在该注册表中的映像。
+{% data variables.product.prodname_dotcom %} 容器注册表可以配置为无缝拉取容器映像，而无需向 {% data variables.product.prodname_github_codespaces %} 提供任何身份验证凭据。 对于其他映像注册表，必须在 {% data variables.product.prodname_dotcom %} 中创建机密以存储访问详细信息，这将允许 {% data variables.product.prodname_codespaces %} 访问存储在该注册表中的映像。
 
 ## 访问存储在 {% data variables.product.prodname_dotcom %} 容器注册表中的映像
 
-{% data variables.product.prodname_dotcom %} 容器注册表是 {% data variables.product.prodname_github_codespaces %} 使用 devcontainer 容器映像的最简单方法。
+{% data variables.product.prodname_dotcom %} 容器注册表是 {% data variables.product.prodname_codespaces %} 使用 devcontainer 容器映像的最简单方法。
 
 更多信息请参阅“[使用容器注册表](/packages/working-with-a-github-packages-registry/working-with-the-container-registry)”。
 
@@ -52,13 +52,13 @@ shortTitle: 私有映像注册表
 
 ## 访问存储在其他容器注册表中的映像
 
-如果要从不是 {% data variables.product.prodname_dotcom %} 容器注册表的注册表访问容器映像，{% data variables.product.prodname_codespaces %} 将检查是否存在三个机密，这些机密定义了容器注册表的服务器名称、用户名和个人访问令牌 (PAT)。 如果找到这些密钥，{% data variables.product.prodname_codespaces %} 将在代码空间中提供注册表。
+如果要从不是 {% data variables.product.prodname_dotcom %} 容器注册表的注册表访问容器映像，{% data variables.product.prodname_codespaces %} 将检查是否存在三个机密，这些机密定义了容器注册表的服务器名称、用户名和个人访问令牌 (PAT)。 如果找到这些密钥，{% data variables.product.prodname_github_codespaces %} 将在代码空间中提供注册表。
 
 - `<*>_CONTAINER_REGISTRY_SERVER`
 - `<*>_CONTAINER_REGISTRY_USER`
 - `<*>_CONTAINER_REGISTRY_PASSWORD`
 
-您可以在用户、仓库或组织级别存储密钥，从而在不同的代码空间之间安全地共享它们。 当您为私有映像注册表创建一组密钥时，您需要用一致的标识符替换名称中的 “<*>”。 更多信息请参阅“[管理代码空间的加密密码](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)”和“[管理代码空间的仓库和组织加密密码](/codespaces/managing-codespaces-for-your-organization/managing-encrypted-secrets-for-your-repository-and-organization-for-codespaces)“。
+您可以在用户、仓库或组织级别存储密钥，从而在不同的代码空间之间安全地共享它们。 当您为私有映像注册表创建一组密钥时，您需要用一致的标识符替换名称中的 “<*>”。 For more information, see "[Managing encrypted secrets for your codespaces](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)" and "[Managing encrypted secrets for your repository and organization for {% data variables.product.prodname_github_codespaces %}](/codespaces/managing-codespaces-for-your-organization/managing-encrypted-secrets-for-your-repository-and-organization-for-github-codespaces)."
 
 如果您在用户或组织级别设置机密，请确保将这些机密分配到仓库，您将从下拉列表中选择访问策略来创建代码空间。
 

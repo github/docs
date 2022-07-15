@@ -34,15 +34,18 @@ O {% data variables.product.prodname_serverless %} é executado inteiramente no 
 
 Você pode abrir qualquer repositório de {% data variables.product.prodname_dotcom %} em {% data variables.product.prodname_serverless %} em qualquer uma das seguintes maneiras:
 
-- Pressione `.` enquanto navega em qualquer repositório ou pull request no {% data variables.product.prodname_dotcom %}.
-- Alterando a URL de "github.com" para "github.dev".
-- When viewing a file, use the dropdown menu next to {% octicon "pencil" aria-label="The edit icon" %} and select **Open in github.dev**.
+- Para abrir o repositório na mesma guia do navegador, pressione `.` enquanto navega em qualquer repositório ou pull request no {% data variables.product.prodname_dotcom %}.
 
-  ![Edit file button dropdown menu](/assets/images/help/repository/edit-file-edit-dropdown.png)
+   Para abrir o repositório em uma nova aba do navegador, mantenha pressionada a tecla shift e pressione `.`.
+
+- Alterando a URL de "github.com" para "github.dev".
+- Ao visualizar um arquivo, use o menu suspenso ao lado de {% octicon "pencil" aria-label="The edit icon" %} e selecione **Abrir no github.dev**.
+
+  ![Menu suspenso do botão editar arquivo](/assets/images/help/repository/edit-file-edit-dropdown.png)
 
 ## {% data variables.product.prodname_codespaces %} e {% data variables.product.prodname_serverless %}
 
-Tanto o {% data variables.product.prodname_serverless %} quanto o {% data variables.product.prodname_codespaces %} permitem que você edite seu código diretamente do seu repositório. No entanto, ambos têm benefícios ligeiramente diferentes, dependendo da sua utilização.
+Tanto o {% data variables.product.prodname_serverless %} quanto o {% data variables.product.prodname_github_codespaces %} permitem que você edite seu código diretamente do seu repositório. No entanto, ambos têm benefícios ligeiramente diferentes, dependendo da sua utilização.
 
 |                        | {% data variables.product.prodname_serverless %}                                                                                                                                                                     | {% data variables.product.prodname_codespaces %}
 | ---------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

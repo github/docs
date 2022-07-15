@@ -71,4 +71,4 @@ shortTitle: 配置密钥扫描
 ## 延伸阅读
 
 - “[管理组织的安全性和分析设置](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)”
-{% ifversion fpt or ghes > 3.1 or ghae or ghec %}- "[定义 {% data variables.product.prodname_secret_scanning %} 的自定义模式](/code-security/secret-security/defining-custom-patterns-for-secret-scanning)"{% endif %}
+- “[定义 {% data variables.product.prodname_secret_scanning %} 的自定义模式](/code-security/secret-security/defining-custom-patterns-for-secret-scanning)”。

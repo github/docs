@@ -1,5 +1,5 @@
 {% note %}
 
-**Note:** To avoid exceeding the rate limit on {% data variables.product.product_name %}, do not assign more than 1,000 users per hour to the IdP application. If you use groups to assign users to the IdP application, do not add more than 100 users to each group per hour. If you exceed these thresholds, attempts to provision users may fail with a "rate limit" error.
+**注意：** 为避免超出 {% data variables.product.product_name %} 速率限制，请勿每小时为 IdP 应用程序分配超过 1,000 个用户。 如果您使用组将用户分配到 IdP 应用程序，则每小时向每个组添加的用户不要超过 100 个。 如果超过这些阈值，则尝试预配用户可能会失败，并显示“速率限制”错误。
 
 {% endnote %}

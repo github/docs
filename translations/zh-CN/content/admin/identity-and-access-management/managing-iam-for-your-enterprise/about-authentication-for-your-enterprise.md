@@ -1,7 +1,7 @@
 ---
 title: About authentication for your enterprise
 shortTitle: About authentication
-intro: You {% ifversion ghae %}must configure SAML single sign-on (SSO) so people can{% else %}can choose how people{% endif %} authenticate to access {% ifversion ghec %}your enterprise's resources on {% data variables.product.product_name %}{% elsif ghes %}{% data variables.product.product_location %}{% elsif ghae %}your enterprise on {% data variables.product.product_name %}{% endif %}.
+intro: 'You {% ifversion ghae %}must configure SAML single sign-on (SSO) so people can{% else %}can choose how people{% endif %} authenticate to access {% ifversion ghec %}your enterprise''s resources on {% data variables.product.product_name %}{% elsif ghes %}{% data variables.product.product_location %}{% elsif ghae %}your enterprise on {% data variables.product.product_name %}{% endif %}.'
 versions:
   ghec: '*'
   ghes: '*'

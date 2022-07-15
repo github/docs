@@ -1,6 +1,6 @@
 ---
-title: 深入了解代码空间
-intro: '了解 {% data variables.product.prodname_codespaces %} 的工作原理.'
+title: Deep dive into GitHub Codespaces
+intro: '了解 {% data variables.product.prodname_github_codespaces %} 的工作原理.'
 allowTitleToDifferFromFilename: true
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
@@ -11,7 +11,7 @@ topics:
   - Codespaces
 ---
 
-{% data variables.product.prodname_codespaces %} 是一个基于云的即时开发环境，它使用容器为您提供用于开发的通用语言、工具和实用程序。 {% data variables.product.prodname_codespaces %} 也是可配置的，允许您为项目创建自定义的开发环境。 通过为项目配置自定义开发环境，可以为项目的所有用户提供可重复的代码空间配置。
+{% data variables.product.prodname_github_codespaces %} 是一个基于云的即时开发环境，它使用容器为您提供用于开发的通用语言、工具和实用程序。 {% data variables.product.prodname_codespaces %} 也是可配置的，允许您为项目创建自定义的开发环境。 通过为项目配置自定义开发环境，可以为项目的所有用户提供可重复的代码空间配置。
 
 ## 创建代码空间
 
@@ -54,7 +54,7 @@ topics:
 
 如果要在代码空间中使用 Git 挂钩，请使用 [`devcontainer.json` 生命周期脚本](https://code.visualstudio.com/docs/remote/devcontainerjson-reference#_lifecycle-scripts)设置挂钩，例如 `postCreateCommand`。 更多信息请参阅 {% data variables.product.prodname_vscode_shortname %} 文档中的 [`devcontainer.json` 参考](https://code.visualstudio.com/docs/remote/devcontainerjson-reference#_devcontainerjson-properties)。
 
-如果您有一个用于 {% data variables.product.prodname_codespaces %} 的公共 dotfile 存储库，则可以启用它以用于新的代码空间。 启用后，您的 dotfile 将被克隆到容器中，并且将调用安装脚本。 更多信息请参阅“[为帐户个性化 {% data variables.product.prodname_codespaces %}](/github/developing-online-with-codespaces/personalizing-codespaces-for-your-account#dotfiles)”。
+如果您有一个用于 {% data variables.product.prodname_github_codespaces %} 的公共 dotfile 存储库，则可以启用它以用于新的代码空间。 启用后，您的 dotfile 将被克隆到容器中，并且将调用安装脚本。 更多信息请参阅“[为帐户个性化 {% data variables.product.prodname_github_codespaces %}](/codespaces/customizing-your-codespace/personalizing-github-codespaces-for-your-account#dotfiles)”。
 
 最后，使用完整克隆复制存储库的整个历史记录。
 
@@ -97,7 +97,7 @@ topics:
 
 ![在代码空间终端中运行 git 状态](/assets/images/help/codespaces/git-status.png)
 
-您可以从项目中的任何分支、提交或拉取请求创建代码空间，也可以从活动代码空间中切换到新的或现有的分支。 由于 {% data variables.product.prodname_codespaces %} 设计为临时的，因此您可以将其用作隔离环境来试验、检查团队成员的拉取请求或修复合并冲突。 每个仓库甚至每个分支可创建多个代码空间。 但是，每个个人帐户都有 10 个代码空间的限制。 如果您已达到上限，想要创建一个新的代码空间，必须先删除一个旧代码空间。
+您可以从项目中的任何分支、提交或拉取请求创建代码空间，也可以从活动代码空间中切换到新的或现有的分支。 由于 {% data variables.product.prodname_github_codespaces %} 设计为临时的，因此您可以将其用作隔离环境来试验、检查团队成员的拉取请求或修复合并冲突。 每个仓库甚至每个分支可创建多个代码空间。 但是，每个个人帐户都有 10 个代码空间的限制。 如果您已达到上限，想要创建一个新的代码空间，必须先删除一个旧代码空间。
 
 {% note %}
 

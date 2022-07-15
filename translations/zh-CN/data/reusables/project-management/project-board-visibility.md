@@ -1,1 +1,1 @@
-默认情况下，用户拥有和全组织的项目板为私有，只有对项目板具有读取、写入或管理权限的人才能看到。 {% ifversion ghae %}内部{% else %}公共{% endif %}项目板对具有项目板 URL 的{% ifversion ghae %}任何企业成员{% else %}任何人{% endif %}可见。 仓库级项目板共享其仓库的可见性。 即，私有仓库将有一个私人板，这种可见性无法更改。
+默认情况下，用户拥有和全组织的项目板为私有，只有对项目板具有读取、写入或管理权限的人才能看到。 {% ifversion ghae %}内部{% else %}公共{% endif %} 项目板对 {% ifversion ghae %}有权访问您的企业的任何人 {% data variables.product.prodname_ghe_managed %}{% elsif ghes %}有权访问您的 {% data variables.product.prodname_ghe_server %} 实例的任何人{% else %}具有项目板 URL 的任何人{% endif %}可见。 仓库级项目板共享其仓库的可见性。 即，私有仓库将有一个私人板，这种可见性无法更改。

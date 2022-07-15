@@ -5,9 +5,9 @@
    {% ifversion githubdev-editor -%}
    {% note %}
 
-   **Note:** Instead of editing and committing the file using the default file editor, you can optionally choose to use the [github.dev code editor](/codespaces/the-githubdev-web-based-editor) by clicking the dropdown menu next to {% octicon "pencil" aria-label="The edit icon" %} and selecting **Open in github.dev**.
+   **Nota:** En vez de editar y confirmar el archivo utilizando el editor de archivos predeterminado, opcionalmente, puedes elegir utilizar el [editor de código de github.dev](/codespaces/the-githubdev-web-based-editor) haciendo clic en el menú desplegable junto al {% octicon "pencil" aria-label="The edit icon" %} y seleccionando **Abrir en github.dev**.
 
-   ![Edit file button dropdown](/assets/images/help/repository/edit-file-edit-dropdown.png)
+   ![Menú desplegable del botón de editar archivo](/assets/images/help/repository/edit-file-edit-dropdown.png)
 
    {% endnote %}
    {%- endif %}

@@ -9,6 +9,7 @@ versions:
  feature: 'copilot'
 redirect_from:
   - /github/copilot/about-github-copilot-telemetry
+  - /github/copilot/github-copilot-telemetry-terms
 shortTitle: GitHub.com
 ---
 

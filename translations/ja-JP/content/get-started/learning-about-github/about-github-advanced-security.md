@@ -30,11 +30,9 @@ A {% data variables.product.prodname_GH_advanced_security %} license provides th
 
 - **{% data variables.product.prodname_secret_scanning_caps %}** - Detect secrets, for example keys and tokens, that have been checked into the repository.{% ifversion secret-scanning-push-protection %} If push protection is enabled, also detects secrets when they are pushed to your repository. For more information, see "[About {% data variables.product.prodname_secret_scanning %}](/code-security/secret-scanning/about-secret-scanning)" and "[Protecting pushes with {% data variables.product.prodname_secret_scanning %}](/code-security/secret-scanning/protecting-pushes-with-secret-scanning)."{% else %} For more information, see "[About {% data variables.product.prodname_secret_scanning %}](/code-security/secret-scanning/about-secret-scanning)."{% endif %}
 
-{% ifversion fpt or ghes > 3.1 or ghec or ghae %}
 - **Dependency review** - Show the full impact of changes to dependencies and see details of any vulnerable versions before you merge a pull request. For more information, see "[About dependency review](/code-security/supply-chain-security/about-dependency-review)."
-{% endif %}
 
-{% ifversion ghec or ghes > 3.1 %}
+{% ifversion ghec or ghes %}
 - **Security overview** - Review the security configuration and alerts for an organization and identify the repositories at greatest risk. For more information, see "[About the security overview](/code-security/security-overview/about-the-security-overview)."
 {% endif %}
 

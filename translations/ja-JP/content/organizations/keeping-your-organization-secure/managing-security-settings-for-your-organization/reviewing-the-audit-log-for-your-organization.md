@@ -75,16 +75,16 @@ To search for specific events, use the `action` qualifier in your query. Actions
 | [`repository_dependency_graph`](#repository_dependency_graph-category-actions) | Contains repository-level activities related to enabling or disabling the dependency graph for a {% ifversion fpt or ghec %}private {% endif %}repository. For more information, see "[About the dependency graph](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)."{% endif %}{% ifversion ghes or ghae or ghec %}
 | [`repository_secret_scanning`](#repository_secret_scanning-category-actions) | Contains repository-level activities related to secret scanning. For more information, see "[About secret scanning](/github/administering-a-repository/about-secret-scanning)." {% endif %}{% ifversion secret-scanning-audit-log-custom-patterns %}
 | [`repository_secret_scanning_custom_pattern`](#respository_secret_scanning_custom_pattern-category-actions) | Contains repository-level activities related to secret scanning custom patterns. For more information, see "[Defining custom patterns for secret scanning](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)." {% endif %}{% ifversion secret-scanning-audit-log-custom-patterns %}
-| [`repository_secret_scanning_push_protection`](#respository_secret_scanning_push_protection) | Contains repository-level activities related to secret scanning custom patterns. For more information, see "[Protecting pushes with secert scanning](/code-security/secret-scanning/protecting-pushes-with-secret-scanning)." {% endif %}{% ifversion fpt or ghes or ghae or ghec %}
-| [`repository_vulnerability_alert`](#repository_vulnerability_alert-category-actions) | Contains all activities related to [{% data variables.product.prodname_dependabot_alerts %}](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts).{% endif %}{% ifversion fpt or ghec %}
+| [`repository_secret_scanning_push_protection`](#respository_secret_scanning_push_protection) | Contains repository-level activities related to secret scanning custom patterns. For more information, see "[Protecting pushes with secert scanning](/code-security/secret-scanning/protecting-pushes-with-secret-scanning)." {% endif %}
+| [`repository_vulnerability_alert`](#repository_vulnerability_alert-category-actions) | Contains all activities related to [{% data variables.product.prodname_dependabot_alerts %}](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts).{% ifversion fpt or ghec %}
 | [`repository_vulnerability_alerts`](#repository_vulnerability_alerts-category-actions) | Contains repository-level configuration activities for {% data variables.product.prodname_dependabot_alerts %}.{% endif %}{% ifversion custom-repository-roles %}
 | [`role`](#role-category-actions) | Contains all activities related to [custom repository roles](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization).{% endif %}{% ifversion ghes or ghae or ghec %}
 | [`secret_scanning`](#secret_scanning-category-actions) | Contains organization-level configuration activities for secret scanning in existing repositories. For more information, see "[About secret scanning](/github/administering-a-repository/about-secret-scanning)."
 | [`secret_scanning_new_repos`](#secret_scanning_new_repos-category-actions) | Contains organization-level configuration activities for secret scanning for new repositories created in the organization. {% endif %}{% ifversion fpt or ghec %}
 | [`sponsors`](#sponsors-category-actions) | Contains all events related to sponsor buttons (see "[Displaying a sponsor button in your repository](/articles/displaying-a-sponsor-button-in-your-repository)"){% endif %}
 | [`team`](#team-category-actions) | Contains all activities related to teams in your organization.
-| [`team_discussions`](#team_discussions-category-actions) | Contains activities related to managing team discussions for an organization.{% ifversion fpt or ghec or ghes > 3.1 or ghae %}
-| [`workflows`](#workflows-category-actions) | Contains activities related to {% data variables.product.prodname_actions %} workflows.{% endif %}
+| [`team_discussions`](#team_discussions-category-actions) | Contains activities related to managing team discussions for an organization.
+| [`workflows`](#workflows-category-actions) | Contains activities related to {% data variables.product.prodname_actions %} workflows.
 
 You can search for specific sets of actions using these terms. For example:
 
@@ -164,7 +164,7 @@ Note that you can't retrieve Git events using the GraphQL API. To retrieve Git e
 
 The GraphQL response can include data for up to 90 to 120 days.
 
-For example, you can make a GraphQL request to see all the new organization members added to your organization. For more information, see the "[GraphQL API Audit Log]({% ifversion ghec%}/free-pro-team@latest{% endif %}/graphql/reference/interfaces#auditentry/)."
+For example, you can make a GraphQL request to see all the new organization members added to your organization. For more information, see the "[GraphQL API Audit Log](/graphql/reference/interfaces#auditentry/)."
 
 {% ifversion ghec %}
 
@@ -464,9 +464,9 @@ For more information, see "[Managing the publication of {% data variables.produc
 | `runner_group_runner_removed` |  Triggered when the REST API is used to remove a self-hosted runner from a group. For more information, see "[Remove a self-hosted runner from a group for an organization](/rest/reference/actions#remove-a-self-hosted-runner-from-a-group-for-an-organization)."
 | `runner_group_runners_updated`|  Triggered when a runner group's list of members is updated. For more information, see "[Set self-hosted runners in a group for an organization](/rest/reference/actions#set-self-hosted-runners-in-a-group-for-an-organization)."{% ifversion secret-scanning-audit-log-custom-patterns %}
 | `secret_scanning_push_protection_disable ` | Triggered when an organization owner or person with admin access to the organization disables push protection for secret scanning. For more information, see "[Protecting pushes with secret scanning](/enterprise-cloud@latest/code-security/secret-scanning/protecting-pushes-with-secret-scanning)."
-| `secret_scanning_push_protection_enable ` | Triggered when an organization owner or person with admin access to the organization enables push protection for secret scanning.{% endif %}{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
+| `secret_scanning_push_protection_enable ` | Triggered when an organization owner or person with admin access to the organization enables push protection for secret scanning.{% endif %}
 | `self_hosted_runner_online` | Triggered when the runner application is started. Can only be viewed using the REST API; not visible in the UI or JSON/CSV export. For more information, see "[Checking the status of a self-hosted runner](/actions/hosting-your-own-runners/monitoring-and-troubleshooting-self-hosted-runners#checking-the-status-of-a-self-hosted-runner)."
-| `self_hosted_runner_offline` | Triggered when the runner application is stopped. Can only be viewed using the REST API; not visible in the UI or JSON/CSV export. For more information, see "[Checking the status of a self-hosted runner](/actions/hosting-your-own-runners/monitoring-and-troubleshooting-self-hosted-runners#checking-the-status-of-a-self-hosted-runner)."{% endif %}{% ifversion fpt or ghes or ghec %}
+| `self_hosted_runner_offline` | Triggered when the runner application is stopped. Can only be viewed using the REST API; not visible in the UI or JSON/CSV export. For more information, see "[Checking the status of a self-hosted runner](/actions/hosting-your-own-runners/monitoring-and-troubleshooting-self-hosted-runners#checking-the-status-of-a-self-hosted-runner)."{% ifversion fpt or ghes or ghec %}
 | `self_hosted_runner_updated` | Triggered when the runner application is updated. Can be viewed using the REST API and the UI; not visible in the JSON/CSV export. For more information, see "[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners#about-self-hosted-runners)."{% endif %}{% ifversion fpt or ghec %}
 | `set_actions_fork_pr_approvals_policy` | Triggered when the setting for requiring approvals for workflows from public forks is changed for an organization. For more information, see "[Requiring approval for workflows from public forks](/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization#requiring-approval-for-workflows-from-public-forks)."{% endif %}
 | `set_actions_retention_limit` | Triggered when the retention period for {% data variables.product.prodname_actions %} artifacts and logs is changed. For more information, see "[Enforcing policies for {% data variables.product.prodname_actions %} in your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise#enforcing-a-policy-for-artifact-and-log-retention-in-your-enterprise)."{% ifversion fpt or ghes or ghec %}
@@ -523,10 +523,10 @@ For more information, see "[Managing the publication of {% data variables.produc
 | Action | Description |
 |--------|-------------|
 | `package_version_published` | Triggered when a package version is published. |
-| `package_version_deleted` | Triggered when a specific package version is deleted.{% ifversion fpt or ghec or ghes > 3.1 or ghae %} For more information, see "[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package)."{% endif %}
-| `package_deleted` | Triggered when an entire package is deleted.{% ifversion fpt or ghec or ghes > 3.1 or ghae %} For more information, see "[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package)."{% endif %}
-| `package_version_restored` | Triggered when a specific package version is deleted.{% ifversion fpt or ghec or ghes > 3.1 or ghae %} For more information, see "[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package)."{% endif %}
-| `package_restored` | Triggered when an entire package is restored.{% ifversion fpt or ghec or ghes > 3.1 or ghae %} For more information, see "[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package)."{% endif %}
+| `package_version_deleted` | Triggered when a specific package version is deleted. For more information, see "[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package)."
+| `package_deleted` | Triggered when an entire package is deleted. For more information, see "[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package)."
+| `package_version_restored` | Triggered when a specific package version is deleted. For more information, see "[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package)."
+| `package_restored` | Triggered when an entire package is restored. For more information, see "[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package)."
 
 {% ifversion fpt or ghec %}
 
@@ -577,8 +577,6 @@ For more information, see "[Managing the publication of {% data variables.produc
 | `update_allow_deletions_enforcement_level ` | Triggered when branch deletion is enabled or disabled for a protected branch.
 | `update_linear_history_requirement_enforcement_level ` | Triggered when required linear commit history is enabled or disabled for a protected branch.
 
-{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
-
 ### `pull_request` category actions
 
 | Action | Description
@@ -609,8 +607,6 @@ For more information, see "[Managing the publication of {% data variables.produc
 | `update` | Triggered when a review comment is changed.
 | `delete` | Triggered when a review comment is deleted.
 
-{% endif %}
-
 ### `repo` category actions
 
 | Action | Description
@@ -636,9 +632,9 @@ For more information, see "[Managing the publication of {% data variables.produc
 | `register_self_hosted_runner` | Triggered when a new self-hosted runner is registered. For more information, see "[Adding a self-hosted runner to a repository](/actions/hosting-your-own-runners/adding-self-hosted-runners#adding-a-self-hosted-runner-to-a-repository)."
 | `remove_self_hosted_runner` | Triggered when a self-hosted runner is removed. For more information, see "[Removing a runner from a repository](/actions/hosting-your-own-runners/removing-self-hosted-runners#removing-a-runner-from-a-repository)."
 | `remove_topic` | Triggered when a repository admin removes a topic from a repository.
-| `rename` | Triggered when [a repository is renamed](/articles/renaming-a-repository).{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
+| `rename` | Triggered when [a repository is renamed](/articles/renaming-a-repository).
 | `self_hosted_runner_online` | Triggered when the runner application is started. Can only be viewed using the REST API; not visible in the UI or JSON/CSV export. For more information, see "[Checking the status of a self-hosted runner](/actions/hosting-your-own-runners/monitoring-and-troubleshooting-self-hosted-runners#checking-the-status-of-a-self-hosted-runner)."
-| `self_hosted_runner_offline` | Triggered when the runner application is stopped. Can only be viewed using the REST API; not visible in the UI or JSON/CSV export. For more information, see "[Checking the status of a self-hosted runner](/actions/hosting-your-own-runners/monitoring-and-troubleshooting-self-hosted-runners#checking-the-status-of-a-self-hosted-runner)."{% endif %}{% ifversion fpt or ghes or ghec %}
+| `self_hosted_runner_offline` | Triggered when the runner application is stopped. Can only be viewed using the REST API; not visible in the UI or JSON/CSV export. For more information, see "[Checking the status of a self-hosted runner](/actions/hosting-your-own-runners/monitoring-and-troubleshooting-self-hosted-runners#checking-the-status-of-a-self-hosted-runner)."{% ifversion fpt or ghes or ghec %}
 | `self_hosted_runner_updated` | Triggered when the runner application is updated. Can be viewed using the REST API and the UI; not visible in the JSON/CSV export. For more information, see "[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners#about-self-hosted-runners)."{% endif %}{% ifversion fpt or ghec %}
 | `set_actions_fork_pr_approvals_policy` | Triggered when the setting for requiring approvals for workflows from public forks is changed. For more information, see "[Managing {% data variables.product.prodname_actions %} settings for a repository](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#configuring-required-approval-for-workflows-from-public-forks)."{% endif %}
 | `set_actions_retention_limit` | Triggered when the retention period for {% data variables.product.prodname_actions %} artifacts and logs is changed. For more information, see "[Managing {% data variables.product.prodname_actions %} settings for a repository](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-repository)."{% ifversion fpt or ghes or ghec %}
@@ -706,7 +702,7 @@ For more information, see "[Managing the publication of {% data variables.produc
 | `disable` | Triggered when a repository owner or person with admin access to the repository disables secret scanning for a repository. For more information, see "[Protecting pushes with secret scanning](/code-security/secret-scanning/protecting-pushes-with-secret-scanning)."
 | `enable` | Triggered when a repository owner or person with admin access to the repository enables secret scanning for a repository.
 
-{% endif %}{% ifversion fpt or ghes or ghae or ghec %}
+{% endif %}
 ### `repository_vulnerability_alert` category actions
 
 | Action | Description
@@ -714,8 +710,7 @@ For more information, see "[Managing the publication of {% data variables.produc
 | `create` | Triggered when {% data variables.product.product_name %} creates a {% data variables.product.prodname_dependabot %} alert for a repository that uses a vulnerable dependency. For more information, see "[About {% data variables.product.prodname_dependabot_alerts %}](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)."
 | `dismiss` | Triggered when an organization owner or person with admin access to the repository dismisses a {% data variables.product.prodname_dependabot %} alert about a vulnerable dependency.
 | `resolve` | Triggered when someone with write access to a repository pushes changes to update and resolve a vulnerability in a project dependency.
-
-{% endif %}{% ifversion fpt or ghec %}
+{% ifversion fpt or ghec %}
 ### `repository_vulnerability_alerts` category actions
 
 | Action | Description
@@ -815,11 +810,9 @@ For more information, see "[Managing the publication of {% data variables.produc
 | `disable` | Triggered when an organization owner disables team discussions for an organization. For more information, see "[Disabling team discussions for your organization](/articles/disabling-team-discussions-for-your-organization)."
 | `enable` | Triggered when an organization owner enables team discussions for an organization.
 
-{% ifversion fpt or ghec or ghes > 3.1 or ghae %}
 ### `workflows` category actions
 
 {% data reusables.actions.actions-audit-events-workflow %}
-{% endif %}
 ## Further reading
 
 - "[Keeping your organization secure](/articles/keeping-your-organization-secure)"{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5146 %}

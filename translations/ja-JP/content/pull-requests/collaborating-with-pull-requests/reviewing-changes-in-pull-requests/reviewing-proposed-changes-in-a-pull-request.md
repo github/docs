@@ -63,7 +63,7 @@ For more information on reviewing pull requests in {% data variables.product.pro
 {% endcodespaces %}
 {% endif %}
 
-{% ifversion fpt or ghes > 3.1 or ghec %}
+{% ifversion fpt or ghes or ghec %}
 ## 依存関係の変更をレビューする
 
 {% data reusables.dependency-review.beta %}

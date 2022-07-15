@@ -1,11 +1,11 @@
-You can specify multiple variables to create a multi-dimensional matrix. A job will run for each possible combination of the variables.
+您可以指定多个变量来创建多维矩阵。 将为每个可能的变量组合运行一个作业。
 
-For example, the following workflow specifies two variables:
+例如，以下工作流程指定了两个变量：
 
-- Two operating systems specified in the `os` variable
-- Three Node.js versions specified in the `version` variable
+- `os` 变量中指定的两个操作系统
+- 在 `version` 变量中指定的三个 Node.js 版本
 
-The workflow will run six jobs, one for each combination of the `os` and `version` variables. Each job will set the `runs-on` value to the current `os` value and will pass the current `version` value to the `actions/setup-node` action.
+工作流程将运行六个作业，每个作业对应于 `os` 和 `version` 变量的组合。 每个作业都会将 `runs-on` 值设置为当前 `os` 值，并将当前 `version` 值传递给 `actions/setup-node` 操作。
 
 ```yaml
 jobs:
