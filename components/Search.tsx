@@ -115,11 +115,20 @@ export function Search({
   const isLoading = isLoadingRaw && isLoadingDebounced
 
   useEffect(() => {
-    if ((router.query.query || '') !== debouncedQuery) {
+    // Because we don't want to have to type .trim() everywhere we
+    // use this variable and we also don't want to change the origin.
+    // This variable is used to decide if and what we should change
+    // the URL to.
+    // Trim whitespace to make sure there's anything left and when
+    // do put this debounced query into the query string, we use it
+    // with the whitespace trimmed.
+    const query = debouncedQuery.trim()
+
+    if ((router.query.query || '') !== query) {
       const [asPathRoot, asPathQuery = ''] = router.asPath.split('#')[0].split('?')
       const params = new URLSearchParams(asPathQuery)
-      if (debouncedQuery) {
-        params.set('query', debouncedQuery)
+      if (query) {
+        params.set('query', query)
       } else {
         params.delete('query')
       }
