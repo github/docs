@@ -34,7 +34,7 @@ topics:
 
 ### 将其他人的项目用作自己创意的起点。
 
-开源软件的理念是通过共享代码，可以开发出更好、更可靠的软件。 更多信息请参阅 Open Source Initiative（开源倡议）上的“[关于开源倡议](http://opensource.org/about)”。
+开源软件的理念是通过共享代码，可以开发出更好、更可靠的软件。 更多信息请参阅 Open Source Initiative（开源倡议）上的“[关于开源倡议](https://opensource.org/about)”。
 
 有关将开源原则应用于组织在 {% data variables.product.product_location %} 上的开发工作的详细信息，请参阅 {% data variables.product.prodname_dotcom %} 的白皮书“[内部来源简介](https://resources.github.com/whitepapers/introduction-to-innersource/)”。
 

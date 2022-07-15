@@ -1,6 +1,6 @@
 ---
-title: 在 Codespaces 中使用 Visual Studio 代码命令面板
-intro: '您可以使用 {% data variables.product.prodname_vscode %} 的命令调色板功能访问代码空间中的许多命令。'
+title: Using the Visual Studio Code Command Palette in GitHub Codespaces
+intro: 'You can use the Command Palette feature of {% data variables.product.prodname_vscode %} to access many commands in {% data variables.product.prodname_github_codespaces %}.'
 versions:
   fpt: '*'
   ghec: '*'
@@ -17,7 +17,7 @@ redirect_from:
 
 ## 关于 {% data variables.product.prodname_vscode_command_palette %}
 
-命令调色板是 {% data variables.product.prodname_vscode %} 的重点功能之一，可用于代码空间。 {% data variables.product.prodname_vscode_command_palette %} 允许您访问 {% data variables.product.prodname_codespaces %} 和 {% data variables.product.prodname_vscode_shortname %} 的许多命令。 有关使用 {% data variables.product.prodname_vscode_command_palette_shortname %} 的更多信息，请参阅 {% data variables.product.prodname_vscode_shortname %} 文档中的[用户界面](https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette)。
+The Command Palette is one of the focal features of {% data variables.product.prodname_vscode %} and is available for you to use in {% data variables.product.prodname_github_codespaces %}. {% data variables.product.prodname_vscode_command_palette %} 允许您访问 {% data variables.product.prodname_codespaces %} 和 {% data variables.product.prodname_vscode_shortname %} 的许多命令。 有关使用 {% data variables.product.prodname_vscode_command_palette_shortname %} 的更多信息，请参阅 {% data variables.product.prodname_vscode_shortname %} 文档中的[用户界面](https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette)。
 
 ## 访问 {% data variables.product.prodname_vscode_command_palette_shortname %}
 
@@ -31,9 +31,9 @@ redirect_from:
 
   ![应用程序菜单](/assets/images/help/codespaces/codespaces-view-menu.png)
 
-## {% data variables.product.prodname_github_codespaces %} 命令
+## {% data variables.product.prodname_codespaces %} 命令
 
-要查看与 {% data variables.product.prodname_github_codespaces %} 相关的所有命令， [访问 {% data variables.product.prodname_vscode_command_palette_shortname %}](#accessing-the-command-palette)，然后开始键入 "Codespaces"。
+要查看与 {% data variables.product.prodname_codespaces %} 相关的所有命令， [访问 {% data variables.product.prodname_vscode_command_palette_shortname %}](#accessing-the-command-palette)，然后开始键入 "Codespaces"。
 
 ![与代码空间相关的所有命令列表](/assets/images/help/codespaces/codespaces-command-palette.png)
 
@@ -63,6 +63,6 @@ redirect_from:
 
 可以使用 {% data variables.product.prodname_vscode_command_palette_shortname %} 访问代码空间创建日志，也可以使用它导出所有日志。
 
-要检索 Codespaces 的日志，[访问 {% data variables.product.prodname_vscode_command_palette_shortname %}](#accessing-the-command-palette)，然后开始键入 "log"。 选择 **Codespaces: Export Logs（Codespaces：导出日志）**以导出所有与 Codespaces 相关的日志，或选择 **Codespaces: View Creation Logs（Codespaces：查看创建日志）**以查看与设置相关的日志。
+To retrieve the logs for {% data variables.product.prodname_codespaces %}, [access the {% data variables.product.prodname_vscode_command_palette_shortname %}](#accessing-the-command-palette), then start typing "log". Select **Codespaces: Export Logs** to export all logs related to {% data variables.product.prodname_codespaces %} or select **Codespaces: View Creation Logs** to view logs related to the setup.
 
 ![访问日志的命令](/assets/images/help/codespaces/codespaces-logs.png)

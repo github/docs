@@ -14,7 +14,7 @@ miniTocMaxHeadingLevel: 3
 
 ## 检查、更改和删除预构建配置
 
-您为存储库配置的预构建是使用 {% data variables.product.prodname_actions %} 工作流程创建和更新的，由 {% data variables.product.prodname_codespaces %} 服务管理。
+The prebuilds that you configure for a repository are created and updated using a {% data variables.product.prodname_actions %} workflow, managed by the {% data variables.product.prodname_github_codespaces %} service.
 
 根据预构建配置中的设置，更新预构建模板的工作流程可能由以下事件触发：
 
@@ -115,7 +115,7 @@ miniTocMaxHeadingLevel: 3
 {% endif %}
 1. 复制令牌字符串。 您将此密钥分配给 {% data variables.product.prodname_codespaces %} 存储库机密。
 1. 重新登录到对存储库具有管理员访问权限的帐户。
-1. 在要为其创建 {% data variables.product.prodname_codespaces %} 预构建的存储库中，创建一个名为 `CODESPACES_PREBUILD_TOKEN` 的新 {% data variables.product.prodname_codespaces %} 存储库机密，为其提供您创建和复制的令牌值。 更多信息请参阅“[管理用于 {% data variables.product.prodname_codespaces %} 的仓库和组织的加密密钥](/codespaces/managing-codespaces-for-your-organization/managing-encrypted-secrets-for-your-repository-and-organization-for-codespaces#adding-secrets-for-a-repository)”。
+1. 在要为其创建 {% data variables.product.prodname_codespaces %} 预构建的存储库中，创建一个名为 `CODESPACES_PREBUILD_TOKEN` 的新 {% data variables.product.prodname_codespaces %} 存储库机密，为其提供您创建和复制的令牌值。 For more information, see "[Managing encrypted secrets for your repository and organization for {% data variables.product.prodname_github_codespaces %}](/codespaces/managing-codespaces-for-your-organization/managing-encrypted-secrets-for-your-repository-and-organization-for-github-codespaces#adding-secrets-for-a-repository)."
 
 PAT 将用于为存储库创建的所有后续预构建模板。 与其他 {% data variables.product.prodname_codespaces %} 存储库机密不同， `CODESPACES_PREBUILD_TOKEN` 机密仅用于预构建，不可用于从存储库创建的代码空间。
 

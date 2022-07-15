@@ -92,8 +92,8 @@ versions:
 | 键盘快捷键                                                                                                                                                      | 描述                                                                                                                                                                           |
 | ---------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | <kbd>Command</kbd>+<kbd>B</kbd> (Mac) 或 </br> <kbd>Ctrl</kbd>+<kbd>B</kbd> (Windows/Linux)                                                                 | 插入 Markdown 格式用于粗体文本                                                                                                                                                         |
-| <kbd>Command</kbd>+<kbd>I</kbd> (Mac) 或 </br> <kbd>Ctrl</kbd>+<kbd>I</kbd> (Windows/Linux)                                                                 | 插入斜体文本的 Markdown 格式{% ifversion fpt or ghae or ghes > 3.1 or ghec %}
-| <kbd>Command</kbd>+<kbd>E</kbd> (Mac) 或 </br> <kbd>Ctrl</kbd>+<kbd>E</kbd> (Windows/Linux)                                                                 | 在行中插入代码或命令的 Markdown 格式{% endif %}{% ifversion fpt or ghae-issue-5434 or ghes > 3.1 or ghec %}
+| <kbd>Command</kbd>+<kbd>I</kbd> (Mac) 或 </br> <kbd>Ctrl</kbd>+<kbd>I</kbd> (Windows/Linux)                                                                 | 插入 Markdown 格式用于斜体文本                                                                                                                                                         |
+| <kbd>Command</kbd>+<kbd>E</kbd> (Mac) 或 </br> <kbd>Ctrl</kbd>+<kbd>E</kbd> (Windows/Linux)                                                                 | 在行中插入代码或命令的 Markdown 格式{% ifversion fpt or ghae-issue-5434 or ghes or ghec %}
 | <kbd>Command</kbd>+<kbd>K</kbd> (Mac) 或 </br> <kbd>Ctrl</kbd>+<kbd>K</kbd> (Windows/Linux)                                                                 | 插入用于创建链接的 Markdown 格式{% endif %}{% ifversion fpt or ghae-issue-7103 or ghes > 3.5 or ghec %}
 | <kbd>Command</kbd>+<kbd>V</kbd> (Mac) 或 </br> <kbd>Ctrl</kbd>+<kbd>V</kbd> (Windows/Linux)                                                                 | 在应用于突出显示的文本时创建 Markdown 链接{% endif %}
 | <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Mac) 或 </br> <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Windows/Linux)                               | 在 **Write（撰写）**和 **Preview（预览）**评论选项卡之间切换{% ifversion fpt or ghae or ghes > 3.4 or ghec %}
@@ -207,7 +207,6 @@ versions:
 | <kbd>Shift</kbd>+<kbd>U</kbd> | 标记为未读 |
 | <kbd>Shift</kbd>+<kbd>I</kbd> | 标记为已读 |
 | <kbd>Shift</kbd>+<kbd>M</kbd> | 取消订阅  |
-
 
 ## 网络图
 

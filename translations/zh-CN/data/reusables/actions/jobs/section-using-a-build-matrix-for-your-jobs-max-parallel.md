@@ -1,6 +1,6 @@
-By default, {% data variables.product.product_name %} will maximize the number of jobs run in parallel depending on runner availability. To set the maximum number of jobs that can run simultaneously when using a `matrix` job strategy, use `jobs.<job_id>.strategy.max-parallel`.
+默认情况下，{% data variables.product.product_name %} 将根据运行器的可用性最大化并行运行的作业数。 要设置在使用 `matrix` 作业策略时可以同时运行的最大作业数，请使用 `jobs.<job_id>.strategy.max-parallel`。
 
-For example, the following workflow will run a maximum of two jobs at a time, even if there are runners available to run all six jobs at once.
+例如，以下工作流程一次最多运行两个作业，即使有运行器可以同时运行所有六个作业也是如此。
 
 ```yaml
 jobs:

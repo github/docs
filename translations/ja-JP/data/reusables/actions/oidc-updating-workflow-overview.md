@@ -1,6 +1,6 @@
-To add OIDC integration to your cloud deployment workflows, you will need to add the following code changes:
+OIDCインテグレーションをクラウドデプロイメントのワークフローに追加するには、以下のコードの変更を加える必要があります。
 
-- Grant permission to fetch the token from the {% data variables.product.prodname_dotcom %} OIDC provider:
-  - The workflow needs a `permissions` setting with a defined `id-token` value. This lets you fetch the OIDC token from every job in the workflow. If you only need to fetch an OIDC token for a single job, then this permission can be set within that job.
-- Request the JSON Web Token (JWT) from the {% data variables.product.prodname_dotcom %} OIDC provider, and present it to your cloud provider to receive an access token:
-  - You could use the Actions toolkit to fetch the tokens in your job, or you can use the official action created by your cloud provider to fetch the JWT and receive the access token from the cloud.
+- {% data variables.product.prodname_dotcom %} OIDCプロバイダーからトークンをフェッチする権限の付与:
+  - ワークフローには定義された`id-token`の値を持つ`permissions`の設定が必要です。 これによって、ワークフロー中のすべてのジョブからODICトークンをフェッチできるようになります。 OIDCトークンを単一のジョブからフェッチできればいいだけなら、この権限はそのジョブ内で設定できます。
+- {% data variables.product.prodname_dotcom %} ODICプロバイダーからJSON Web Token (JWT)をリクエストし、それをクラウドプロバイダーに提示してアクセストークンを受け取ります。
+  - Actionsツールキットを使ってジョブでトークンをフェッチできます。あるいはJWTをフェッチし、アクセストークンをクラウドから受け取るためにクラウドプロバイダが作成した公式のアクションを使うこともできます。

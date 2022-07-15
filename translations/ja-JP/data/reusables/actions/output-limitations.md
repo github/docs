@@ -1,1 +1,1 @@
-Outputs are Unicode strings, and can be a maximum of 1 MB. The total of all outputs in a workflow run can be a maximum of 50 MB.
+出力はUnicode文字列であり、最大1MBです。 ワークフローの実行中のすべての出力の合計は、最大で50MBです。

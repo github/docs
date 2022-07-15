@@ -21,8 +21,6 @@ topics:
 permissions: People with write access for a forked repository can sync the fork to the upstream repository.
 ---
 
-{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
-
 ## 从 web UI 同步复刻分支
 
 1. 在 {% data variables.product.product_name %} 上，导航到您想要与上游版本库同步的复刻仓库主页。
@@ -45,7 +43,6 @@ $ gh repo sync owner/cli-fork -b BRANCHNAME
 
 ## 从命令行同步复刻分支
 
-{% endif %}
 必须在 Git 中[配置指向上游仓库的远程仓库](/pull-requests/collaborating-with-pull-requests/working-with-forks/configuring-a-remote-for-a-fork)，然后才能将您的复刻与上游仓库同步。
 
 {% data reusables.command_line.open_the_multi_os_terminal %}

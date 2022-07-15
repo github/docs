@@ -1,1 +1,1 @@
-If a person has been given conflicting access, you'll see a warning on the repository access page. The warning appears with "{% octicon "alert" aria-label="The alert icon" %} Mixed roles" next to the person with the conflicting access. To see the source of the conflicting access, hover over the warning icon or click **Mixed roles**.
+如果某人被授予了冲突的访问权限，您将在存储库访问页面上看到一条警告。 警告将会出现，具有冲突访问权限的人员旁边显示“{% octicon "alert" aria-label="The alert icon" %} 混合角色”。 要查看冲突访问的来源，请将鼠标悬停在警告图标上，或单击 **Mixed roles（混合角色）**。

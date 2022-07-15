@@ -1,6 +1,6 @@
 ---
-title: Editing security advisories in the GitHub Advisory Database
-intro: 'You can submit improvements to any advisory published in the {% data variables.product.prodname_advisory_database %}.'
+title: Editar las asesorías de seguridad en la Base de Datos de Asesorías de GitHub
+intro: 'Puedes enviar mejoras a cualqueir asesoría publicada en la {% data variables.product.prodname_advisory_database %}.'
 redirect_from:
   - /code-security/security-advisories/editing-security-advisories-in-the-github-advisory-database
   - /code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/editing-security-advisories-in-the-github-advisory-database
@@ -14,20 +14,20 @@ topics:
   - Dependabot
   - Vulnerabilities
   - CVEs
-shortTitle: Edit Advisory Database
+shortTitle: Editar la base de datos de asesorías
 ---
 
-## About editing advisories in the {% data variables.product.prodname_advisory_database %}
-Security advisories in the {% data variables.product.prodname_advisory_database %} at [github.com/advisories](https://github.com/advisories) are considered global advisories. Anyone can suggest improvements on any global security advisory in the {% data variables.product.prodname_advisory_database %}. You can edit or add any detail, including additionally affected ecosystems, severity level or description of who is impacted. The {% data variables.product.prodname_security %} curation team will review the submitted improvements and publish them onto the {% data variables.product.prodname_advisory_database %} if accepted.
+## Acerca de editar las asesorías en la {% data variables.product.prodname_advisory_database %}
+Las asesorías de seguridad en la {% data variables.product.prodname_advisory_database %} en [github.com/advisories](https://github.com/advisories) se consideran asesorías globales. Cualquiera puede sugerir mejoras en cualquier asesoría de seguridad en la {% data variables.product.prodname_advisory_database %}. Puedes editar o agregar cualquier detalle, incluyendo los ecosistemas adicionales afectados, el nivel de severidad o la descripción de quién se vio impactado. El equipo de selección de {% data variables.product.prodname_security %} revisará las mejoras enviadas y las publicará en la {% data variables.product.prodname_advisory_database %} en caso de que se acepten.
 
-Only repository owners and administrators can edit repository-level security advisories. Para obtener más información, consulta la sección "[Editar una asesoría de seguridad de repositorio](/code-security/security-advisories/editing-a-security-advisory)".
-## Editing advisories in the GitHub Advisory Database
+Solo los propietarios y adminsitradores de repositorios pueden editar las asesorías de seguridad a nivel de repositorio. Para obtener más información, consulta la sección "[Editar una asesoría de seguridad de repositorio](/code-security/security-advisories/editing-a-security-advisory)".
+## Editar las asesorías en la base de datos de asesorías de GitHub
 
 1. Navega hasta https://github.com/advisories.
-2. Select the security advisory you would like to contribute to.
-3. On the right-hand side of the page, click the **Suggest improvements for this vulnerability** link. ![Suggest improvements link](/assets/images/help/security/suggest-improvements-to-advisory.png)
-4. In the contribution form, make the desired improvements. You can edit or add any detail.
-5. When you finish editing the advisory, click **Submit improvements**.
-6. Once you submit your improvements, a pull request containing your changes will be created for review in [github/advisory-database](https://github.com/github/advisory-database) by the {% data variables.product.prodname_security %} curation team. If the advisory originated from a {% data variables.product.prodname_dotcom %} repository, we will also tag the original publisher for optional commentary. You can view the pull request and get notifications when it is updated or closed.
+2. Selecciona la asesoría de seguridad a la cual te gustaría contribuir.
+3. En la parte derecha de la página, haz clic en el enlace de **Sugerir mejoras para esta vulnerabilidad**. ![Enlace para sugerir mejoras](/assets/images/help/security/suggest-improvements-to-advisory.png)
+4. E el formato de contribución, realiza las mejoras deseadas. Puedes editar o agregar cualquier detalle.
+5. Cuand terminas de editar la asesoría, haz clic en **Enviar mejoras**.
+6. Una vez que emites tus mejoras, el equipo de selección de {% data variables.product.prodname_security %} creará una solicitud de cambios en [github/advisory-database](https://github.com/github/advisory-database), la cuál contendrá tus cambios para revisarlos. Si la asesoría se originó desde un repositorio de {% data variables.product.prodname_dotcom %}, también etiquetaremos al publicador original para que pueda agregar un comentario opcional. Puedes ver la solicitud de cambios y obtener notificaciones cuando se actualice o cierre.
 
-You can also open a pull request directly on an advisory file in the [github/advisory-database](https://github.com/github/advisory-database) repository. For more information, see the [contribution guidelines](https://github.com/github/advisory-database/blob/main/CONTRIBUTING.md). 
+También puedes abrir una solicitud de cambios directamente en un archivo de asesoría en el repositorio [github/advisory-database](https://github.com/github/advisory-database). Para obtener más información, consulta los [lineamientos de contribución](https://github.com/github/advisory-database/blob/main/CONTRIBUTING.md). 

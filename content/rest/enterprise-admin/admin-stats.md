@@ -1,6 +1,6 @@
 ---
 title: Admin stats
-intro: 'The Admin Stats API provides a variety of metrics about your installation.'
+intro: The Admin Stats API provides a variety of metrics about your installation.
 versions:
   ghes: '*'
   ghae: '*'

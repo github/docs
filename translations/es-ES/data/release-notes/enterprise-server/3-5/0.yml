@@ -30,11 +30,7 @@ sections:
       heading: Dependabot updates are generally available
       notes:
         - |
-          La versión del Dependabot y las actualizaciones de seguridad ahora están disponibles en general en GitHub Enterprise Sever 3.5. Todas las características y ecosistemas populares que funcionan en los repositorios de GitHub.com ahora pueden configurarse con tu instancia de GitHub Enterprise Server. El Dependabot en GitHub Enterprise Server requiere GitHub Actions y un conjunto de ejecutores auto-hospedados del Dependabot, contar con GitHub Connect habilitado y que un administrador habilite al Dependabot.
-
-          Siguiendo con la versión beta pública del lanzamiento, tendremos compatibilidad para utilizar los ejecutores de GitHub Actions hospedados en una configuración de Kubernetes.
-
-          Para obtener más información, consulta la sección "[Configurar las alertas del Dependabot](https://docs.github.com/en/enterprise-server@3.5/admin/github-actions/enabling-github-actions-for-github-enterprise-server/setting-up-dependabot-updates)".
+          Dependabot version and security updates are now generally available in GitHub Enterprise Server 3.5. All the popular ecosystems and features that work on GitHub.com repositories now can be set up on your GitHub Enterprise Server instance. Dependabot on GitHub Enterprise Server requires GitHub Actions and a pool of self-hosted Dependabot runners, GitHub Connect enabled, and Dependabot enabled by an admin. For more information, see "[Setting up Dependabot updates](https://docs.github.com/en/enterprise-server@3.5/admin/github-actions/enabling-github-actions-for-github-enterprise-server/setting-up-dependabot-updates)."
     - 
       heading: Server Statistics in public beta
       notes:

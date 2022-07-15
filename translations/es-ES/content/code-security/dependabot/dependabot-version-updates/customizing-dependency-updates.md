@@ -35,7 +35,7 @@ Después de que hayas habilitado la actualización de versiones, puedes personal
 - Cambia la cantidad máxima de solicitudes de extracción abiertas para actualizaciones de versión del valor predeterminado que es 5: `open-pull-requests-limit`
 - Abre solicitudes de extracción para actualizaciones de versión para seleccionar una rama específica en vez de la rama predeterminada: `target-branch`
 
-For more information about the configuration options, see "[Configuration options for the dependabot.yml file](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/configuration-options-for-dependency-updates)."
+Para obtener más información sobre las opciones de configuración, consulta la sección "[Opciones de configuración para el archivo dependabot.yml](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/configuration-options-for-dependency-updates)".
 
 Cuando actualizas el archivo *dependabot.yml* en tu repositorio, el {% data variables.product.prodname_dependabot %} ejecuta una revisión inmediata con la nueva configuración. Verás una lista de dependencias actualizada en cuestión de minutos en la pestaña de **{% data variables.product.prodname_dependabot %}**, esto podría tomar más tiempo si el reposiorio tiene muchas dependencias. También puedes ver las solicitudes de extracción nuevas para las actualizaciones de versión. Para obtener más información, consulta la sección "[Listar dependencias configuradas para actualizaciones de versión](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/listing-dependencies-configured-for-version-updates)".
 
@@ -141,4 +141,4 @@ updates:
 
 ## Más ejemplos
 
-For more examples, see "[Configuration options for the dependabot.yml file](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/configuration-options-for-dependency-updates)."
+Para obtener más ejemplos, consulta la sección "[Opciones de configuración para el archivo dependabot.yml](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/configuration-options-for-dependency-updates)".

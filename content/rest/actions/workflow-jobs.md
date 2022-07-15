@@ -1,6 +1,6 @@
 ---
 title: Workflow jobs
-intro: 'The Workflow Jobs API allows you to view logs and workflow jobs.'
+intro: The Workflow Jobs API allows you to view logs and workflow jobs.
 topics:
   - API
 versions:

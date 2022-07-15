@@ -21,11 +21,11 @@ Para configurar {% data variables.product.prodname_copilot %} em {% data variabl
 
 Você pode usar os atalhos de teclado padrão em {% data variables.product.prodname_vs %} quando usar {% data variables.product.prodname_copilot %}. Como alternativa, você pode vincular novamente os atalhos nas configurações das Ferramentas para {% data variables.product.prodname_vs %} usando seus atalhos de teclado preferidos para cada comando específico. Você pode procurar cada atalho de teclado pelo nome de seu comando no editor de atalhos do teclado.
 
-| Ação                            | Atalho                                       | Nome do comando                      |
-|:------------------------------- |:-------------------------------------------- |:------------------------------------ |
-| Show next inline suggestion     | <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>]</kbd>  | Tools.Nextsuggestion                 |
-| Show previous inline suggestion | <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>[</kbd>  | Tools.Previoussuggestion             |
-| Trigger inline suggestion       | <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>\</kbd> | Edit.Copilot.TriggerInlineSuggestion |
+| Ação                             | Atalho                                       | Nome do comando                      |
+|:-------------------------------- |:-------------------------------------------- |:------------------------------------ |
+| Mostrar próxima sugestão inline  | <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>]</kbd>  | Tools.Nextsuggestion                 |
+| Mostrar sugestão inline anterior | <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>[</kbd>  | Tools.Previoussuggestion             |
+| Acionar sugestão inline          | <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>\</kbd> | Edit.Copilot.TriggerInlineSuggestion |
 
 ## Vinculando novamente os atalhos de teclado
 

@@ -70,9 +70,7 @@ shortTitle: 分支保护规则
    - 选中 **Require status checks to pass before merging（合并前必需状态检查通过）**。 ![必需状态检查选项](/assets/images/help/repository/required-status-checks.png)
    - （可选）要确保使用受保护分支上的最新代码测试拉取请求，请选择 **Require branches to be up to date before merging（要求分支在合并前保持最新）**。 ![宽松或严格的必需状态复选框](/assets/images/help/repository/protecting-branch-loose-status.png)
    - 搜索状态检查，选择您想要求的检查。 ![可用状态检查的搜索界面，以及所需检查的列表](/assets/images/help/repository/required-statuses-list.png)
-{%- ifversion fpt or ghec or ghes > 3.1 or ghae %}
 1. （可选）选中 **Require conversation resolution before merging（在合并前需要对话解决）**。 ![合并选项前需要对话解决](/assets/images/help/repository/require-conversation-resolution.png)
-{%- endif %}
 1. （可选）选择 **Require signed commits（必需签名提交）**。 ![必需签名提交选项](/assets/images/help/repository/require-signed-commits.png)
 1. （可选）选择 **Require linear history（必需线性历史记录）**。 ![必需的线性历史记录选项](/assets/images/help/repository/required-linear-history.png)
 {%- ifversion fpt or ghec %}

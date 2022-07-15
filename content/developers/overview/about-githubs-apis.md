@@ -14,7 +14,7 @@ topics:
   - API
 ---
 
-There are two stable versions of the GitHub API: the [REST API](/rest) and the [GraphQL API]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql).
+There are two stable versions of the GitHub API: the [REST API](/rest) and the [GraphQL API](/graphql).
 
 ## Deprecated versions
 

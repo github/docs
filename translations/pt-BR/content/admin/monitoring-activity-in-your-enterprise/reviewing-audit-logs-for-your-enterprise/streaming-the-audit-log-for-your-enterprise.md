@@ -43,12 +43,12 @@ Você configurou o fluxo do log de auditoria em {% data variables.product.produc
 ### Configurando a transmissão para o Amazon S3
 
 {% ifversion streaming-oidc-s3 %}
-You can set up streaming to S3 with access keys or, to avoid storing long-lived secrets in {% data variables.product.product_name %}, with OpenID Connect (OIDC).
+Você pode configurar a transmissão para S3 com chaves de acesso ou, para evitar armazenar segredos de longa duração em {% data variables.product.product_name %}, com o OpenID Connect (OIDC).
 
-- [Setting up streaming to S3 with access keys](#setting-up-streaming-to-s3-with-access-keys)
-- [Setting up streaming to S3 with OpenID Connect](#setting-up-streaming-to-s3-with-openid-connect)
+- [Configurando a transmissão para S3 com chaves de acesso](#setting-up-streaming-to-s3-with-access-keys)
+- [Configurando a transmissão para S3 com OpenID Connect](#setting-up-streaming-to-s3-with-openid-connect)
 
-#### Setting up streaming to S3 with access keys
+#### Configurando a transmissão para S3 com chaves de acesso
 {% endif %}
 
 Para transmitir os logs de auditoria para o ponto de extremidade do Amazon S3, você deve ter um bucket e chaves de acesso. Para obter mais informações, consulte [Criando, configurando e trabahlando com buckets do Amazon S3 ](https://docs.aws.amazon.com/AmazonS3/latest/userguide/creating-buckets-s3.html) na documentação do AWS. Certifique-se de bloquear o acesso público ao bucket para proteger as suas informações de log de auditoria.
@@ -62,26 +62,26 @@ Para obter informações sobre como criar ou acessar sua chave de acesso e chave
 
 {% data reusables.enterprise.navigate-to-log-streaming-tab %}
 {% data reusables.audit_log.streaming-choose-s3 %}{% ifversion streaming-oidc-s3 %}
-1. Under "Authentication", click **Access keys**.
+1. Em "Authentication", clique em **Chaves de acesso**.
 
-   ![Screenshot of the authentication options for streaming to Amazon S3](/assets/images/help/enterprises/audit-log-streaming-s3-access-keys.png){% endif %}
-1. Configure the stream settings.
+   ![Captura de tela das opções de autenticação para transmissão para Amazon S3](/assets/images/help/enterprises/audit-log-streaming-s3-access-keys.png){% endif %}
+1. Defina as configurações da transmissão.
 
-   - Under "Bucket", type the name of the bucket you want to stream to. Por exemplo, `auditlog-streaming-test`.
-   - Under "Access Key ID", type your access key ID. Por exemplo, `ABCAIOSFODNN7EXAMPLE1`.
-   - Under "Secret Key", type your secret key. Por exemplo, `aBJalrXUtnWXYZ/A1MDENG/zPxRfiCYEXAMPLEKEY`.
+   - Em "Bucket", digite o nome do bucket para o qual você quer transmitir. Por exemplo, `auditlog-streaming-test`.
+   - Em "ID da chave de acesso", digite o seu ID da chave de acesso. Por exemplo, `ABCAIOSFODNN7EXAMPLE1`.
+   - Em "Chave do segredo", digite a chave do seu segredo. Por exemplo, `aBJalrXUtnWXYZ/A1MDENG/zPxRfiCYEXAMPLEKEY`.
 {% data reusables.audit_log.streaming-check-s3-endpoint %}
 {% data reusables.enterprise.verify-audit-log-streaming-endpoint %}
 
 {% ifversion streaming-oidc-s3 %}
-#### Setting up streaming to S3 with OpenID Connect
+#### Configurando a transmissão para S3 com OpenID Connect
 
-1. In AWS, add the {% data variables.product.prodname_dotcom %} OIDC provider to IAM. For more information, see [Creating OpenID Connect (OIDC) identity providers](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_create_oidc.html) in the AWS documentation.
+1. No AWS, adicione o provedor do OIDC {% data variables.product.prodname_dotcom %} ao IAM. Para obter mais informações, consulte [Criando os provedores de identidade do OpenID Connect (OIDC)](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_create_oidc.html) na documentação do AWS.
 
-   - For the provider URL, use `https://oidc-configuration.audit-log.githubusercontent.com`.
-   - For "Audience", use `sts.amazonaws.com`.
-1. Create a bucket, and block public access to the bucket. For more information, see [Creating, configuring, and working with Amazon S3 buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/creating-buckets-s3.html) in the AWS documentation.
-1. Create a policy that allows {% data variables.product.company_short %} to write to the bucket. {% data variables.product.prodname_dotcom %} requires only the following permissions.
+   - Para a URL do provedor, use `https://oidc-configuration.audit-log.githubusercontent.com`.
+   - Para "Público", use `sts.amazonaws.com`.
+1. Crie um bucket e bloqueie o acesso público ao bucket. Para obter mais informações, consulte [Criando, configurando e trabahlando com buckets do Amazon S3 ](https://docs.aws.amazon.com/AmazonS3/latest/userguide/creating-buckets-s3.html) na documentação do AWS.
+1. Crie uma política que permita que {% data variables.product.company_short %} grave no bucket. {% data variables.product.prodname_dotcom %} exige apenas as seguintes permissões.
 
    ```
    {
@@ -98,11 +98,11 @@ Para obter informações sobre como criar ou acessar sua chave de acesso e chave
       ]
    }
    ```
-   For more information, see [Creating IAM policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_create.html) in the AWS documentation.
-1. Configure the role and trust policy for the {% data variables.product.prodname_dotcom %} IdP. For more information, see [Creating a role for web identity or OpenID Connect Federation (console)](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-idp_oidc.html) in the AWS documentation.
+   Para obter mais informações, consulte [Criando políticas de IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_create.html) na documentação do AWS.
+1. Configure a função e a política de confiança para o IdP de {% data variables.product.prodname_dotcom %}. Para obter mais informações, consulte [Criando uma função para a identidade da web ou OpenID Connect Federation (console)](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-idp_oidc.html) na documentação do AWS.
 
-   - Add the permissions policy you created above to allow writes to the bucket.
-   - Edit the trust relationship to add the `sub` field to the validation conditions, replacing `ENTERPRISE` with the name of your enterprise.
+   - Adicione a política de permissões que você criou acima para permitir gravação no bucket.
+   - Edite a relação de confiança para adicionar o campo `sub` às condições de validação, substituindo `ENTERPRISE` pelo nome da sua empresa.
      ```
      "Condition": {
         "StringEquals": {
@@ -111,16 +111,16 @@ Para obter informações sobre como criar ou acessar sua chave de acesso e chave
          }
       }
       ```
-   - Make note of the Amazon Resource Name (ARN) of the created role.
+   - Anote o Nome de Recurso da Amazon (ARN) a partir da função criada.
 {% data reusables.enterprise.navigate-to-log-streaming-tab %}
 {% data reusables.audit_log.streaming-choose-s3 %}
-1. Under "Authentication", click **OpenID Connect**.
+1. Em "Autenticação", clique em **OpenID Connect**.
 
-   ![Screenshot of the authentication options for streaming to Amazon S3](/assets/images/help/enterprises/audit-log-streaming-s3-oidc.png)
-1. Configure the stream settings.
+   ![Captura de tela das opções de autenticação para transmissão para Amazon S3](/assets/images/help/enterprises/audit-log-streaming-s3-oidc.png)
+1. Defina as configurações da transmissão.
 
-   - Under "Bucket", type the name of the bucket you want to stream to. Por exemplo, `auditlog-streaming-test`.
-   - Under "ARN Role" type the ARN role you noted earlier. For example, `arn:aws::iam::1234567890:role/github-audit-log-streaming-role`.
+   - Em "Bucket", digite o nome do bucket para o qual você quer transmitir. Por exemplo, `auditlog-streaming-test`.
+   - Em "Função ARN" digite a função ARN que você anotou anteriormente. Por exemplo, `arn:aws::iam::1234567890:role/github-audit-log-log-streaming-role`.
 {% data reusables.audit_log.streaming-check-s3-endpoint %}
 {% data reusables.enterprise.verify-audit-log-streaming-endpoint %}
 {% endif %}

@@ -18,7 +18,7 @@ topics:
 
 After you enable the dependency graph for your enterprise, you can enable {% data variables.product.prodname_dependabot %} to detect insecure dependencies in your repository{% ifversion ghes > 3.2 %} and automatically fix the vulnerabilities{% endif %}. For more information, see "[Enabling {% data variables.product.prodname_dependabot %} for your enterprise](/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise)."
 
-{% ifversion ghes > 3.1 %}
+{% ifversion ghes %}
 You can enable the dependency graph via the {% data variables.enterprise.management_console %} or the administrative shell. We recommend using the {% data variables.enterprise.management_console %} unless {% data variables.product.product_location %} uses clustering.
 
 ## Enabling the dependency graph via the {% data variables.enterprise.management_console %}
@@ -36,12 +36,10 @@ If your {% data variables.product.product_location %} uses clustering, you canno
 
 ## Enabling the dependency graph via the administrative shell
 
-{% endif %}{% ifversion ghes < 3.2 %}
-## Enabling the dependency graph
 {% endif %}
 {% data reusables.enterprise_site_admin_settings.sign-in %}
 1. In the administrative shell, enable the dependency graph on {% data variables.product.product_location %}:
-    {% ifversion ghes > 3.1 %}```shell
+    {% ifversion ghes %}```shell
     ghe-config app.dependency-graph.enabled true
     ```
     {% else %}```shell

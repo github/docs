@@ -2,12 +2,12 @@
 date: '2022-03-01'
 sections:
   security_fixes:
-    - "HIGH: An integer overflow vulnerability was identified in GitHub's markdown parser that could potentially lead to information leaks and RCE. This vulnerability was reported through the GitHub Bug Bounty program by Felix Wilhelm of Google's Project Zero and has been assigned CVE-2022-24724."
+    - "高：在 GitHub 的 markdown 解析器中发现了一个整数溢出漏洞，该漏洞可能导致信息泄漏和 RCE。此漏洞由 Google Project Zero 的 Felix Wilhelm 通过GitHub Bug Bounty 计划报告，并已分配 CVE-2022-24724。"
   bugs:
-    - Upgrades could sometimes fail if a high-availability replica's clock was out of sync with the primary.
-    - 'OAuth Applications created after September 1st, 2020 were not able to use the [Check an Authorization](https://docs.github.com/en/enterprise-server@3.3/rest/reference/apps#check-an-authorization) API endpoint.'
+    - 如果高可用性副本的时钟与主副本不同步，则升级有时可能会失败。
+    - '2020 年 9 月 1 日之后创建的 OAuth 应用程序无法使用 [检查授权](https://docs.github.com/en/enterprise-server@3.3/rest/reference/apps#check-an-authorization) API 端点。'
   known_issues:
-    - After upgrading to {% data variables.product.prodname_ghe_server %} 3.3, {% data variables.product.prodname_actions %} may fail to start automatically. To resolve this issue, connect to the appliance via SSH and run the `ghe-actions-start` command.
+    - 升级到 {% data variables.product.prodname_ghe_server %} 3.3 后，{% data variables.product.prodname_actions %} 可能无法自动启动。要解决此问题，请通过 SSH 连接到设备并运行“ghe-actions-start”命令。
     - 在新建的没有任何用户的 {% data variables.product.prodname_ghe_server %} 实例上，攻击者可以创建第一个管理员用户。
     - 自定义防火墙规则在升级过程中被删除。
     - Git LFS 跟踪的文件[通过 Web 界面上传](https://github.com/blog/2105-upload-files-to-your-repositories) 被错误地直接添加到仓库。
@@ -15,5 +15,5 @@ sections:
     - 对 GitHub Connect 启用“用户可以搜索 GitHub.com”后，私有和内部仓库中的议题不包括在 GitHub.com 搜索结果中。
     - '{% data variables.product.prodname_registry %} npm 注册表不再返回元数据响应的时间值。这样做是为了大幅改善性能。作为元数据响应的一部分，我们继续拥有返回时间值所需的所有数据，并将在我们解决现有性能问题后恢复返回这个值。'
     - 特定于处理预接收挂钩的资源限制可能会导致某些预接收挂钩失败。
-    - '{% data variables.product.prodname_actions %} storage settings cannot be validated and saved in the {% data variables.enterprise.management_console %} when "Force Path Style" is selected, and must instead be configured with the `ghe-actions-precheck` command line utility.'
-    - '{% data variables.product.prodname_ghe_server %} 3.3 instances installed on Azure and provisioned with 32+ CPU cores would fail to launch, due to a bug present in the current Linux kernel. [Updated: 2022-04-08]'
+    - '{% data variables.product.prodname_actions %} 存储设置在选择“Force Path Style（强制路径样式）”时无法验证和保存在 {% data variables.enterprise.management_console %} 中，而必须使用“ghe-actions-precheck”命令行实用程序进行配置。'
+    - '由于当前 Linux 内核中存在错误，{% data variables.product.prodname_ghe_server %} 在 Azure 上安装并预配了 32 个以上 CPU 内核的 3.3 实例将无法启动。[更新时间：2022 年 4 月 8 日]'

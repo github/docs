@@ -72,10 +72,10 @@ Cuando un secreto se haya confirmado en un repositorio, deberás considerarlo en
 {% endnote %}
 {% endif %}
 
-{% ifversion fpt or ghes > 3.1 or ghae-issue-4910 or ghec %}
+{% ifversion fpt or ghes or ghae-issue-4910 or ghec %}
 ## Configurar las notificaciones para las alertas del {% data variables.product.prodname_secret_scanning %}
 
-Cuando se detecta un secreto nuevo, {% data variables.product.product_name %} notifica a todos los usuarios con acceso a las alertas de seguridad del repositorio de acuerdo con sus preferencias de notificación. Recibirás alertas si estás observando el repositorio, si habilitaste las notificaciones para las alertas de seguridad o para toda la actividad del repositorio, si eres el autor de la confirmación que contiene el secreto y si no estás ignorando el repositorio.
+Cuando se detecta un secreto nuevo, {% data variables.product.product_name %} notifica a todos los usuarios con acceso a las alertas de seguridad del repositorio de acuerdo con sus preferencias de notificación. You will receive an email notification if you are watching the repository, have enabled notifications for security alerts or for all the activity on the repository, or are the author of the commit that contains the secret and are not ignoring the repository.
 
 Para obtener más información, consulta las secciones "[Administrar la seguridad y configuración de análisis para tu repositorio](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository#granting-access-to-security-alerts)" y "[Configurar las notificaciones](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#configuring-your-watch-settings-for-an-individual-repository)".
 {% endif %}

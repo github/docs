@@ -11932,7 +11932,7 @@
         },
         {
           "name": "pullRequestReviewContributions",
-          "description": "<p>Pull request review contributions made by the user.</p>",
+          "description": "<p>Pull request review contributions made by the user. Returns the most recently\nsubmitted review for each PR reviewed by the user.</p>",
           "type": "CreatedPullRequestReviewContributionConnection!",
           "id": "createdpullrequestreviewcontributionconnection",
           "kind": "objects",

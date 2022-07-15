@@ -59,13 +59,16 @@ export default function parsePageSectionsIntoRecords(page) {
   // pages that yields some decent content to be searched on, because
   // when you view these pages in a browser, there's clearly text there.
   if ($root.length > 0) {
-    body = getAllText($, $root)
+    body = getAllText($root)
   }
 
   if (!body && !intro) {
     console.warn(`${objectID} has no body and no intro.`)
   }
 
+  // These below lines can be deleted (along with the `maxContentLength`
+  // config) once we've stopped generating Lunr indexes on disk that
+  // we store as Git LFS.
   if (languageCode !== 'en' && body.length > maxContentLength) {
     body = body.slice(0, maxContentLength)
   }
@@ -82,55 +85,42 @@ export default function parsePageSectionsIntoRecords(page) {
   }
 }
 
-function getAllText($, $root) {
-  let text = ''
+function getAllText($root) {
+  const inlineElements = new Set(
+    `a,abbr,acronym,audio,b,bdi,bdo,big,br,button,canvas,cite,code,data,
+    datalist,del,dfn,em,embed,i,iframe,img,input,ins,kbd,label,map,mark,
+    meter,noscript,object,output,picture,progress,q,ruby,s,samp,script,
+    select,slot,small,span,strong,sub,sup,svg,template,textarea,time,
+    tt,u,var,video,wbr`
+      .split(',')
+      .map((s) => s.trim())
+  )
 
-  // We need this so we can know if we processed, for example,
-  // a <td> followed by a <p> because if that's the case, don't use
-  // a ' ' to concatenate the texts together but a '\n' instead.
-  // That means, given this input:
-  //
-  //    <p>Bla</p><table><tr><td>Foo</td><td>Bar</td></table><p>Hi again</p>
-  //
-  // we can produce this outcome:
-  //
-  //    'Bla\nFoo Bar\nHi again'
-  //
-  let previousTagName = ''
+  const walkTree = (node, callback, index = 0, level = 0) => {
+    callback(node, index, level)
+    for (let i = 0; i < (node.children || []).length; i++) {
+      walkTree(node.children[i], callback, i, ++level)
+      level--
+    }
+  }
 
-  $('p, h2, h3, td, pre, li', $root).each((i, element) => {
-    const $element = $(element)
-    if (previousTagName === 'td' && element.tagName !== 'td') {
-      text += '\n'
+  const fragments = []
+
+  walkTree($root[0], (element) => {
+    if (element.name === 'body') return
+
+    if (element.type === 'text') {
+      const parentElement = element.parent || {}
+      const previousElement = element.prev || {}
+      let { data } = element
+      if (data.trim()) {
+        if (!inlineElements.has(parentElement.name) && !inlineElements.has(previousElement.name)) {
+          data = `\n${data}`
+        }
+        fragments.push(data)
+      }
     }
-    // Because our cheerio selector is all the block level tags,
-    // what you might end up with is, from:
-    //
-    //   <li><p>Text</p></li>
-    //   <li><pre>Code</pre></li>
-    //
-    //   ['Text', 'Text', 'Code', 'Code']
-    //
-    // because it will spot both the <li> and the <p>.
-    // If all HTML was exactly like that, you could omit the <li> selector,
-    // but a lot of HTML is like this:
-    //
-    //    <li>Bare text<li>
-    //
-    // So we need to bail if we're inside a block level element whose parent
-    // already was a <li>.
-    if ((element.tagName === 'p' || element.tagName === 'pre') && element.parent.tagName === 'li') {
-      return
-    }
-    text += $element.text()
-    if (element.tagName === 'td') {
-      text += ' '
-    } else {
-      text += '\n'
-    }
-    previousTagName = element.tagName
   })
-  text = text.trim().replace(/\s*[\r\n]+/g, '\n')
 
-  return text
+  return fragments.join('').trim()
 }

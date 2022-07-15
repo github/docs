@@ -1,1 +1,1 @@
-You can only use recovery codes once and you must use your codes in consecutive order. 恢复代码授予 24 小时访问权限。
+您只能使用一次恢复代码，并且必须按连续顺序使用您的代码。 恢复代码授予 24 小时访问权限。
