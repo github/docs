@@ -95,7 +95,7 @@ jobs:
 ```
 {% endraw %}
 
-For more information, see "[Reusing workflows](/actions/learn-github-actions/reusing-workflows)."
+詳しい情報については「[ワークフローの再利用](/actions/learn-github-actions/reusing-workflows)」を参照してください。
 
 #### `on.workflow_call.inputs.<input_id>.type`
 
@@ -124,7 +124,7 @@ on:
 ```
 {% endraw %}
 
-For information on how to reference a job output, see [`jobs.<job_id>.outputs`](#jobsjob_idoutputs). For more information, see "[Reusing workflows](/actions/learn-github-actions/reusing-workflows)."
+For information on how to reference a job output, see [`jobs.<job_id>.outputs`](#jobsjob_idoutputs). 詳しい情報については「[ワークフローの再利用](/actions/learn-github-actions/reusing-workflows)」を参照してください。
 
 ### `on.workflow_call.secrets`
 
@@ -174,12 +174,9 @@ A boolean specifying whether the secret must be supplied.
 
 {% data reusables.actions.workflow-dispatch-inputs %}
 
-{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
 ## `permissions`
 
 {% data reusables.actions.jobs.section-assigning-permissions-to-jobs %}
-
-{% endif %}
 
 ## `env`
 
@@ -204,12 +201,10 @@ env:
 
 {% data reusables.actions.jobs.setting-default-values-for-jobs-defaults-run %}
 
-{% ifversion fpt or ghae or ghes > 3.1 or ghec %}
 ## `concurrency`
 
 {% data reusables.actions.jobs.section-using-concurrency %}
 
-{% endif %}
 ## `jobs`
 
 {% data reusables.actions.jobs.section-using-jobs-in-a-workflow %}
@@ -222,12 +217,9 @@ env:
 
 {% data reusables.actions.jobs.section-using-jobs-in-a-workflow-name %}
 
-{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
 ### `jobs.<job_id>.permissions`
 
 {% data reusables.actions.jobs.section-assigning-permissions-to-jobs-specific %}
-
-{% endif %}
 
 ## `jobs.<job_id>.needs`
 
@@ -245,12 +237,10 @@ env:
 
 {% data reusables.actions.jobs.section-using-environments-for-jobs %}
 
-{% ifversion fpt or ghae or ghes > 3.1 or ghec %}
 ## `jobs.<job_id>.concurrency`
 
 {% data reusables.actions.jobs.section-using-concurrency-jobs %}
 
-{% endif %}
 ## `jobs.<job_id>.outputs`
 
 {% data reusables.actions.jobs.section-defining-outputs-for-jobs %}
@@ -382,7 +372,7 @@ Git ref、SHA、またはDockerタグ番号を指定して、使用している�
 
 入力が必要なアクションもあり、入力を[`with`](#jobsjob_idstepswith)キーワードを使って設定する必要があります。 必要な入力を判断するには、アクションのREADMEファイルをお読みください。
 
-アクションは、JavaScriptのファイルもしくはDockerコンテナです。 使用するアクションがDockerコンテナの場合は、Linux環境で実行する必要があります。 詳細については[`runs-on`](#jobsjob_idruns-on)を参照してください。
+アクションは、JavaScriptのファイルもしくはDockerコンテナです。 使用するアクションがDockerコンテナの場合、ジョブはLinux環境で実行する必要があります。 詳細については[`runs-on`](#jobsjob_idruns-on)を参照してください。
 
 #### Example: Using versioned actions
 
@@ -544,7 +534,7 @@ jobs:
 
 ### `jobs.<job_id>.steps[*].shell`
 
-`shell`キーワードを使用して、ランナーのオペレーティングシステムのデフォルトシェルを上書きできます。 組み込みの`shell`キーワードを使用するか、カスタムセットのシェルオプションを定義することができます。 The shell command that is run internally executes a temporary file that contains the commands specified in the `run` keyword.
+`shell`キーワードを使用して、ランナーのオペレーティングシステムのデフォルトシェルの設定を上書きできます。 組み込みの`shell`キーワードを使用するか、カスタムセットのシェルオプションを定義することができます。 The shell command that is run internally executes a temporary file that contains the commands specified in the `run` keyword.
 
 | サポートされているプラットフォーム | `shell` パラメータ | 説明                                                                                                                                                                                                        | 内部で実行されるコマンド                                    |
 | ----------------- | ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------- |
@@ -630,8 +620,8 @@ GitHubホストランナーに含まれるソフトウェアに関する情報�
 組み込みのshellキーワードについては、{% data variables.product.prodname_dotcom %}がホストする実行環境で以下のデフォルトが提供されます。 シェルスクリプトを実行する際には、以下のガイドラインを使ってください。
 
 - `bash`/`sh`:
-  - `set -eo pipefail`を使用したフェイルファースト動作 : `bash`及び組み込みの`shell`のデフォルト。 Windows以外のプラットフォームでオプションを指定しない場合のデフォルトでもあります。
-  - フェイルファーストをオプトアウトし、シェルのオプションにテンプレート文字列を指定して完全に制御することもできます。 たとえば、`bash {0}`とします。
+  - Fail-fast behavior using `set -eo pipefail`: This option is set when `shell: bash` is explicitly specified. It is not applied by default.
+  - You can take full control over shell parameters by providing a template string to the shell options. たとえば、`bash {0}`とします。
   - shライクのシェルは、スクリプトで実行された最後のコマンドの終了コードで終了します。これが、アクションのデフォルトの動作でもあります。 runnerは、この終了コードに基づいてステップのステータスを失敗/成功としてレポートします。
 
 - `powershell`/`pwsh`
@@ -708,7 +698,7 @@ steps:
 
 {% data reusables.repositories.actions-env-var-note %}
 
-パブリックなアクションは、READMEファイル中で期待する環境変数を指定できます。 環境変数に秘密情報を設定しようとしている場合、秘密情報は`secrets`コンテキストを使って設定しなければなりません。 For more information, see "[Using environment variables](/actions/automating-your-workflow-with-github-actions/using-environment-variables)" and "[Contexts](/actions/learn-github-actions/contexts)."
+パブリックなアクションは、READMEファイル中で期待する環境変数を指定できます。 環境変数にシークレットを設定しようとしている場合、シークレットは`secrets`コンテキストを使って設定しなければなりません。 For more information, see "[Using environment variables](/actions/automating-your-workflow-with-github-actions/using-environment-variables)" and "[Contexts](/actions/learn-github-actions/contexts)."
 
 #### サンプル
 
@@ -948,7 +938,7 @@ The location and version of a reusable workflow file to run as a job. {% ifversi
 
 {% data reusables.actions.uses-keyword-example %}
 
-For more information, see "[Reusing workflows](/actions/learn-github-actions/reusing-workflows)."
+詳しい情報については「[ワークフローの再利用](/actions/learn-github-actions/reusing-workflows)」を参照してください。
 
 ### `jobs.<job_id>.with`
 

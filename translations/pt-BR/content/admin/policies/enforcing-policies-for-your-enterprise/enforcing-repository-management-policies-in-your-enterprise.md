@@ -71,16 +71,16 @@ Se um proprietário corporativo impedir que os integrantes criem certos tipos de
 
 {% endif %}
 
-## Aplicar uma política de {% ifversion ghec or ghes > 3.1 or ghae %}base{% else %}permissões padrão{% endif %} do repositório
+## Aplicar uma política de {% ifversion ghec or ghes or ghae %}base{% else %}permissões padrão{% endif %} do repositório
 
-Em todas as organizações pertencentes à sua empresa, você pode definir um {% ifversion ghec or ghes > 3.1 or ghae %}base{% else %}padrão{% endif %} nível de permissão de repositório (nenhum leitura, gravação ou administrador) para integrantes da organização, ou permitir que os proprietários administrem a configuração no nível da organização.
+Em todas as organizações pertencentes à sua empresa, você pode definir um {% ifversion ghec or ghes or ghae %}base{% else %}padrão{% endif %} nível de permissão de repositório (nenhum leitura, gravação ou administrador) para integrantes da organização, ou permitir que os proprietários administrem a configuração no nível da organização.
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.repositories-tab %}
-4. Em "{% ifversion ghec or ghes > 3.1 or ghae %}Base{% else %}Default{% endif %} permissões", revise as informações sobre como alterar a configuração. {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
-5. Em "{% ifversion ghec or ghes > 3.1 or ghae %}Base{% else %}Padrão{% endif %} permissões", use o menu suspenso e escolha uma política.
-  {% ifversion ghec or ghes > 3.1 or ghae %}
+4. Em "{% ifversion ghec or ghes or ghae %}Base{% else %}Default{% endif %} permissões", revise as informações sobre como alterar a configuração. {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
+5. Em "{% ifversion ghec or ghes or ghae %}Base{% else %}Padrão{% endif %} permissões", use o menu suspenso e escolha uma política.
+  {% ifversion ghec or ghes or ghae %}
   ![Menu suspenso com opções de políticas de permissões de repositório](/assets/images/help/business-accounts/repository-permissions-policy-drop-down.png)
   {% else %}
   ![Menu suspenso com opções de políticas de permissões de repositório](/assets/images/enterprise/business-accounts/repository-permissions-policy-drop-down.png)
@@ -118,9 +118,9 @@ Em todas as organizações pertencentes à sua empresa, é possível permitir qu
   ![Menu suspenso com opções de políticas de bifurcação de repositórios](/assets/images/help/business-accounts/repository-forking-policy-drop-down.png)
 
 {% ifversion innersource-fork-policies %}
-5. If forking is enabled, you can specify where users are allowed to fork repositories. Review the information about changing the setting and choose a policy.
+5. Se a bifurcação estiver habilitada, você poderá especificar onde os usuários podem fazer a bifurcação de repositórios. Revise as informações sobre como alterar a configuração e escolha uma política.
 
-    ![Screenshot showing the list of repository forking policy options](/assets/images/help/business-accounts/repository-forking-policy-settings.png)
+    ![Captura de tela que mostra a lista de opções de política de bifurcação de repositório](/assets/images/help/business-accounts/repository-forking-policy-settings.png)
 {% endif %}
 
 

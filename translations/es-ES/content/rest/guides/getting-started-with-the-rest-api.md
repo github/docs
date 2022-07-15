@@ -101,7 +101,7 @@ $ curl -i https://api.github.com/users/defunkt
 
 Hay algunas partes interesantes en los encabezados de la respuesta. Como lo esperábamos, el `Content-Type` es `application/json`.
 
-Cualquier encabezado que comience como `X` se refiere a un encabezado personalizado, y no se incluirá en la especificación de HTTPS. For example, take note of the `X-RateLimit-Limit` and `X-RateLimit-Remaining` headers. Este par de encabezados indican [cuántas solicitudes puede hacer un cliente][rate-limiting] en un periodo continuo (habitualmente, una hora) y cuántas de ellas ya ha gastado el cliente.
+Cualquier encabezado que comience como `X` se refiere a un encabezado personalizado, y no se incluirá en la especificación de HTTPS. Por ejemplo, toma en cuenta los encabezados `X-RateLimit-Limit` y `X-RateLimit-Remaining`. Este par de encabezados indican [cuántas solicitudes puede hacer un cliente][rate-limiting] en un periodo continuo (habitualmente, una hora) y cuántas de ellas ya ha gastado el cliente.
 
 ## Autenticación
 
@@ -131,13 +131,11 @@ Cuando te autentiques, debes ver como tu límite de tasa sube hasta 5,000 solici
 
 Puedes [crear un**token de acceso personal**][personal token] fácilmente utilizando tu [página de configuración para tokens de acceso personal][tokens settings]:
 
-{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
 {% warning %}
 
 Para mantener tu información segura, te recomendamos ampliamente que configures un vencimiento para tus tokens de acceso personal.
 
 {% endwarning %}
-{% endif %}
 
 {% ifversion fpt or ghes or ghec %}
 ![Selección de token personal](/assets/images/personal_token.png)
@@ -147,9 +145,7 @@ Para mantener tu información segura, te recomendamos ampliamente que configures
 ![Selección de token personal](/assets/images/help/personal_token_ghae.png)
 {% endif %}
 
-{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
 Las solicitudes de la API que utilicen un token de acceso personal con vencimiento devolverán la fecha de vencimiento de dicho token a través del encabezado de `GitHub-Authentication-Token-Expiration`. Puedes utilizar el encabezado en tus scripts para proporcionar un mensaje de advertencia cuando el token esté próximo a vencer.
-{% endif %}
 
 ### Obtén tu propio perfil de usuario
 
@@ -200,7 +196,7 @@ $ curl -i {% data variables.product.api_url_pre %}/repos/twbs/bootstrap
 De la misma forma, podemos [ver los repositorios del usuario autenticado][user repos api]:
 
 ```shell
-$ curl -i -H "Authorization: token {% ifversion fpt or ghes > 3.1 or ghae or ghec %}ghp_16C7e42F292c6912E7710c838347Ae178B4a{% else %}5199831f4dd3b79e7c5b7e0ebe75d67aa66e79d4{% endif %}" \
+$ curl -i -H "Authorization: token ghp_16C7e42F292c6912E7710c838347Ae178B4a" \
     {% data variables.product.api_url_pre %}/user/repos
 ```
 
@@ -238,7 +234,7 @@ La API de {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %
 necesitamos hacer `POST` en algunos JSON que contengan los detalles y las opciones de configuración.
 
 ```shell
-$ curl -i -H "Authorization: token {% ifversion fpt or ghes > 3.1 or ghae or ghec %}ghp_16C7e42F292c6912E7710c838347Ae178B4a{% else %}5199831f4dd3b79e7c5b7e0ebe75d67aa66e79d4{% endif %}" \
+$ curl -i -H "Authorization: token ghp_16C7e42F292c6912E7710c838347Ae178B4a" \
     -d '{
         "name": "blog",
         "auto_init": true,
@@ -273,7 +269,7 @@ La IU de informe de problemas en {% data variables.product.product_name %} prete
 Tal como en github.com, la API proporciona algunos cuantos métodos para ver los informes de problemas para el usuario autenticado. Para [ver todas tus propuestas][get issues api], llama a `GET /issues`:
 
 ```shell
-$ curl -i -H "Authorization: token {% ifversion fpt or ghes > 3.1 or ghae or ghec %}ghp_16C7e42F292c6912E7710c838347Ae178B4a{% else %}5199831f4dd3b79e7c5b7e0ebe75d67aa66e79d4{% endif %}" \
+$ curl -i -H "Authorization: token ghp_16C7e42F292c6912E7710c838347Ae178B4a" \
     {% data variables.product.api_url_pre %}/issues
 ```
 
@@ -281,7 +277,7 @@ Para obtener únicamente las [propuestas bajo alguna de tus organizaciones de {%
 /orgs/<org>/issues`:
 
 ```shell
-$ curl -i -H "Authorization: token {% ifversion fpt or ghes > 3.1 or ghae or ghec %}ghp_16C7e42F292c6912E7710c838347Ae178B4a{% else %}5199831f4dd3b79e7c5b7e0ebe75d67aa66e79d4{% endif %}" \
+$ curl -i -H "Authorization: token ghp_16C7e42F292c6912E7710c838347Ae178B4a" \
     {% data variables.product.api_url_pre %}/orgs/rails/issues
 ```
 
@@ -314,7 +310,7 @@ Ahora que hemos visto cómo paginar las listas de propuestas, vamos a [crear una
 Para crear un informe de problemas, necesitamos estar autenticados, así que pasaremos un token de OAuth en el encabezado. También, pasaremos el título, cuerpo, y etiquetas en el cuerpo de JSON a la ruta `/issues` debajo del repositorio en el cual queremos crear el informe de problemas:
 
 ```shell
-$ curl -i -H 'Authorization: token {% ifversion fpt or ghes > 3.1 or ghae or ghec %}ghp_16C7e42F292c6912E7710c838347Ae178B4a{% else %}5199831f4dd3b79e7c5b7e0ebe75d67aa66e79d4{% endif %}' \
+$ curl -i -H 'Authorization: token ghp_16C7e42F292c6912E7710c838347Ae178B4a' \
 $    -d '{ \
 $         "title": "New logo", \
 $         "body": "We should have one", \

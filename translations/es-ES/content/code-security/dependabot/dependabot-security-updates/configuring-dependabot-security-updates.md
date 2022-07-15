@@ -79,7 +79,7 @@ Las {% data variables.product.prodname_dependabot_security_updates %} requieren 
 
 You can override the default behavior of {% data variables.product.prodname_dependabot_security_updates %} by adding a dependabot.yml file to your repository. Para obtener más información, consulta la sección "[Opciones de configuración para el archivo dependabot.yml](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file)".
 
-If you only require security updates and want to exclude version updates, you can set `open-pull-request-limit` to `0` in order to prevent version updates for a given `package-ecosystem`. For more information, see "[`open-pull-request-limit`](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#open-pull-requests-limit)."
+Si solo requieres actualizaciones de seguridad y quieres excluir las actualizaciones de versión, puedes configurar a `open-pull-request-limit` para que sea `0` para prevenir a las actualizaciones de versión de algún `package-ecosystem`. Para obtener más información, consulta "[`open-pull-request-limit`](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#open-pull-requests-limit)".
 
 ```
 # Example configuration file that:
@@ -99,7 +99,7 @@ updates:
     open-pull-requests-limit: 0
 ```
 
-For more information about the configuration options available for security updates, see the table in "[Configuration options for the dependabot.yml file](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#configuration-options-for-the-dependabotyml-file)."
+Para obtener más información sobre las opciones de configuración disponibles para las actualizaciones de seguridad, consulta la tabla en la sección "[Opciones de configuración para el archivo dependabot.yml](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#configuration-options-for-the-dependabotyml-file)".
 
 ## Leer más
 

@@ -923,7 +923,7 @@ on:
 
 {% note %}
 
-**Note**: When a `push` webhook event triggers a workflow run, the Actions UI's "pushed by" field shows the account of the pusher and not the author or committer. However, if the changes are pushed to a repository using SSH authentication with a deploy key, then the "pushed by" field will be the repository admin who verified the deploy key when it was added it to a repository.
+**Nota**: Cuando un evento de webhook de `push` activa una ejecución de flujo de trabajo, el campo "pushed by" de la IU de la acción muestra la cuenta de la persona que sube información y no del autor o confirmante. Sin embargo, si los cambios se suben a un repositorio utilizando autenticación SSH con una llave de despliegue, entonces el campo "subido por" será el adminsitrador del repositorio quien verificó la llave de despliegue cuando s e agregó al repositorio.
 
 {% endnote %}
 
@@ -958,7 +958,7 @@ on:
 
 #### Ejecutar tu flujo de trabajo únicamente cuando ocurra una subida de etiquetas específicas
 
-Puedes utilizar el filtro `tags` o `tags-ignore` para configurar que tu flujo de trabajo solo se ejecute cuando se suban etiquetas específicas. Para obtener más información, consulta la sección "[Sintaxis de flujo de trabajo para las GitHub Actions](/actions/learn-github-actions/workflow-syntax-for-github-actions#onpushbranchestagsbranches-ignoretags-ignore)".
+Puedes utilizar el filtro `tags` o `tags-ignore` para configurar tu flujo de trabajo para que solo se ejecute cuando se suban etiquetas específicas. Para obtener más información, consulta la sección "[Sintaxis de flujo de trabajo para las GitHub Actions](/actions/learn-github-actions/workflow-syntax-for-github-actions#onpushbranchestagsbranches-ignoretags-ignore)".
 
 Por ejemplo, este flujo de trabajo se ejecutará cuando alguien suba una etiqueta que inicie con `v1.`.
 
@@ -1013,7 +1013,7 @@ on:
 
 Ejecuta tu flujo de trabajo cuando ocurre actividad relacionada con el {% data variables.product.prodname_registry %} en tu repositorio. Para obtener más información, consulta la "[Documentación del {% data variables.product.prodname_registry %}](/packages)".
 
-Por ejemplo, puedes ejecutar un flujo de trabajo cuando un paquete ha sido `publicado`.
+Por ejemplo, puedes ejecutar un flujo de trabajo cuando una versión de paquete nueva está como `published`.
 
 ```yaml
 on:

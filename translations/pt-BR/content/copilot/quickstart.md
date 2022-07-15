@@ -4,7 +4,7 @@ intro: '{% data variables.product.prodname_copilot %} can help you work, by offe
 product: '{% data reusables.gated-features.copilot %}'
 allowTitleToDifferFromFilename: true
 versions:
-  feature: 'copilot'
+  feature: copilot
 shortTitle: Quickstart
 topics:
   - Copilot

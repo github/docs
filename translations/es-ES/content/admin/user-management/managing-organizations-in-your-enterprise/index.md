@@ -8,6 +8,7 @@ redirect_from:
   - /articles/managing-organizations-in-your-enterprise-account
   - /github/setting-up-and-managing-your-enterprise-account/managing-organizations-in-your-enterprise-account
   - /github/setting-up-and-managing-your-enterprise/managing-organizations-in-your-enterprise-account
+  - /admin/user-management/managing-organizations-in-your-enterprise/managing-unowned-organizations-in-your-enterprise
 intro: 'Las organizaciones son ideales para crear grupos diferentes de usuarios dentro de tu empresa, como divisiones o grupos trabajando en proyectos similares.  Los repositorios {% ifversion ghae %}internos{% else %}Los repositorios públicos e internos{% endif %} que pertenecen a una organización son accesibles para los miembros de otras organizaciones en la empresa, mientras que los repositorios privados no son accesibles para nadie mas que los miembros de la organización que cuenta con este acceso.'
 versions:
   ghec: '*'
@@ -17,7 +18,6 @@ topics:
   - Enterprise
 children:
   - /adding-organizations-to-your-enterprise
-  - /managing-unowned-organizations-in-your-enterprise
   - /configuring-visibility-for-organization-membership
   - /preventing-users-from-creating-organizations
   - /requiring-two-factor-authentication-for-an-organization

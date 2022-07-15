@@ -46,5 +46,5 @@ shortTitle: 依存関係グラフの設定
 ## 参考リンク
 
 {% ifversion ghec %}- 「[Organizationのインサイトの表示](/organizations/collaborating-with-groups-in-organizations/viewing-insights-for-your-organization)」{% endif %}
-- "[Viewing and updating {% data variables.product.prodname_dependabot_alerts %}](/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts)"
+- 「[{% data variables.product.prodname_dependabot_alerts %}の表示と更新](/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts)」
 - 「[脆弱性のある依存関係の検出のトラブルシューティング](/github/managing-security-vulnerabilities/troubleshooting-the-detection-of-vulnerable-dependencies)」

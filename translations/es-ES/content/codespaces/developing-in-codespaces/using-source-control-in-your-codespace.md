@@ -15,7 +15,7 @@ shortTitle: Control origen
 
  
 
-## Acerca del control de código fuente en {% data variables.product.prodname_codespaces %}
+## Acerca del control de código fuente en {% data variables.product.prodname_github_codespaces %}
 
 Puedes llevar a cabo todas las acciones de Git que necesites directamente dentro de tu codespace. Por ejemplo, puedes recuperar cambios del repositorio remoto, cambiar de rama, crear una rama nueva, confirmar y subir cambios y crear solicitudes de cambios. Puedes utilizar la terminal integrada dentro de tu codespace para ingresar comandos de Git o puedes hacer clic en los iconos u opciones de menú para completar las tareas más comunes de Git. Esta guía te explica cómo utilizar la interface de usuario gráfica para el control de código fuente.
 

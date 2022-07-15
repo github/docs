@@ -2,22 +2,22 @@
 date: '2021-12-07'
 sections:
   security_fixes:
-    - Support bundles could include sensitive files if they met a specific set of conditions.
-    - A UI misrepresentation vulnerability was identified in GitHub Enterprise Server that allowed more permissions to be granted during a GitHub App's user-authorization web flow than was displayed to the user during approval. This vulnerability affected all versions of GitHub Enterprise Server prior to 3.3 and was fixed in versions 3.2.5, 3.1.13, 3.0.21. This vulnerability was reported via the GitHub Bug Bounty program and has been assigned [CVE-2021-41598](https://www.cve.org/CVERecord?id=CVE-2021-41598).
-    - A remote code execution vulnerability was identified in GitHub Enterprise Server that could be exploited when building a GitHub Pages site. This vulnerability affected all versions of GitHub Enterprise Server prior to 3.3 and was fixed in versions 3.0.21, 3.1.13, 3.2.5. This vulnerability was reported via the GitHub Bug Bounty program and has been assigned [CVE-2021-41599](https://www.cve.org/CVERecord?id=CVE-2021-41599). Updated February 17, 2022.
+    - 如果支持包满足一组特定条件，则它们可能包含敏感文件。
+    - 在 GitHub Enterprise Server 中发现了一个 UI 虚假陈述漏洞，该漏洞允许在 GitHub 应用的用户授权 Web 流期间授予的权限多于在批准期间向用户显示的权限。此漏洞影响了 3.3 之前的所有版本的 GitHub Enterprise Server，已在版本 3.2.5、3.1.13、3.0.21 中修复。此漏洞是通过 GitHub Bug Bounty 程序报告的，并已分配 [CVE-2021-41598](https://www.cve.org/CVERecord?id=CVE-2021-41598)。
+    - 在 GitHub Enterprise Server 中发现了一个远程执行代码漏洞，在构建 GitHub Pages 站点时可以利用该漏洞。此漏洞影响了 3.3 之前的所有 GitHub Enterprise Server 版本，已在版本 3.0.21、3.1.13、3.2.5 中修复。此漏洞是通过 GitHub Bug Bounty 程序报告的，并已分配 [CVE-2021-41599](https://www.cve.org/CVERecord?id=CVE-2021-41599)。更新于 2022 年 2 月 17 日。
   bugs:
-    - In some cases when Actions was not enabled, `ghe-support-bundle` reported an unexpected message `Unable to find MS SQL container.`
-    - Running `ghe-config-apply` could sometimes fail because of permission issues in `/data/user/tmp/pages`.
-    - A misconfiguration in the Management Console caused scheduling errors.
-    - Docker would hold log files open after a log rotation.
-    - Migrations could get stuck due to incorrect handling of `blob_path` values that are not UTF-8 compatible.
-    - GraphQL requests did not set the GITHUB_USER_IP variable in pre-receive hook environments.
-    - Pagination links on org audit logs would not persist query parameters.
-    - During a hotpatch, it was possible for duplicate hashes if a transition ran more than once.
+    - 在某些情况下，如果未启用操作，“ghe-support-bundle”会报告意外消息“找不到 MS SQL 容器”。
+    - 运行“ghe-config-apply”有时可能会因为“/data/user/tmp/pages”中的权限问题而失败。
+    - 管理控制台中的错误配置导致计划错误。
+    - Docker 会在日志轮换后保持日志文件处于打开状态。
+    - 由于不正确地处理了与 UTF-8 不兼容的“blob_path”值，迁移可能会卡住。
+    - GraphQL 请求没有在预接收挂钩环境中设置 GITHUB_USER_IP 变量。
+    - 组织审核日志上的分页链接不会保留查询参数。
+    - 在热补丁期间，如果转换运行了多次，可能会出现重复的哈希。
   changes:
-    - Clarifies explanation of Actions path-style in documentation.
-    - Updates support contact URLs to use the current support site, support.github.com.
-    - Additional troubleshooting provided when running `ghe-mssql-diagnostic`.
+    - 阐明文档中操作路径样式的说明。
+    - 更新支持联系人 URL 以使用当前支持站点 support.github.com。
+    - 运行“ghe-mssql-diagnostic”时提供的其他故障排除。
   known_issues:
     - 在新建的没有任何用户的 {% data variables.product.prodname_ghe_server %} 上，攻击者可以创建第一个管理员用户。
     - 自定义防火墙规则在升级过程中被删除。

@@ -37,11 +37,11 @@ Você pode cancelar a sua assinatura de {% data variables.product.prodname_copil
 
 2. Na modalidade "Cancelar {% data variables.product.prodname_copilot %}", clique em **Eu entendi, cancele {% data variables.product.prodname_copilot %}**
 
-   ![Screenshot of GitHub Copilot cancel modal with I understand, cancel GitHub Copilot button emphasized](/assets/images/help/copilot/copilot-cancel-modal.png)
+   ![Captura de tela do modo de cancelamento do GitHub Copilot com o botão "Eu entendi, cancelar o GitHub Copilot" destacado](/assets/images/help/copilot/copilot-cancel-modal.png)
 
    - Se você estiver no período de avaliação de 60 dias, clique em **Eu entendi, cancele o teste de {% data variables.product.prodname_copilot %} **.
 
-   ![Screenshot of GitHub Copilot cancel trial modal with I understand, cancel trial button emphasized](/assets/images/help/copilot/copilot-trial-cancel-modal.png)
+   ![Captura de tela do modo de teste do GitHub Copilot com o botão "Eu entendi, cancelar teste" destacado](/assets/images/help/copilot/copilot-trial-cancel-modal.png)
 
 ## Leia mais
 

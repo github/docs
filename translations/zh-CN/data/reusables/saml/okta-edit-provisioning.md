@@ -1,4 +1,5 @@
-1. 为避免同步错误并确认用户已启用 SAML 和 SCIM 链接标识，我们建议您审核组织的用户。 更多信息请参阅“[审核用户是否缺少 SCIM 元数据](/organizations/managing-saml-single-sign-on-for-your-organization/troubleshooting-identity-and-access-management#auditing-users-for-missing-scim-metadata)”。
+1. 为避免同步错误并确认用户已启用 SAML 和 SCIM 链接标识，我们建议您审核组织的用户。 更多信息请参阅“[组织的身份和访问权限管理疑难解答](/organizations/managing-saml-single-sign-on-for-your-organization/troubleshooting-identity-and-access-management-for-your-organization)”。
+
 1. 在“Provisioning to App（配置到 App）”的右侧，单击 **Edit（编辑）**。
 
     ![用于 Okta 应用程序配置选项的"Edit（编辑）"按钮屏幕截图](/assets/images/help/saml/okta-provisioning-to-app-edit-button.png)

@@ -33,7 +33,7 @@ Você deve armazenar este arquivo no diretório `.github` do seu repositório. A
 
 Quaisquer opções que também afetem as atualizações de segurança são usadas na próxima vez que um alerta de segurança acionar um pull request para uma atualização de segurança.  Para obter mais informações, consulte "[Configurando {% data variables.product.prodname_dependabot_security_updates %}](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/configuring-dependabot-security-updates)."
 
-O arquivo *dependabot.yml* tem duas chaves obrigatórias de nível superior: `versão`e `atualizações`. You can, optionally, include a top-level `registries` key{% ifversion ghes = 3.5 %} and/or a `enable-beta-ecosystems` key{% endif %}. O arquivo deve começar com a `versão: 2`.
+O arquivo *dependabot.yml* tem duas chaves obrigatórias de nível superior: `versão`e `atualizações`. Você pode, opcionalmente, incluir uma chave `registros` de nível superior {% ifversion ghes = 3.5 %} e/ou uma chave `enable-beta-ecosystem` key{% endif %}. O arquivo deve começar com a `versão: 2`.
 
 ## Opções de configuração para o arquivo *dependabot.yml*
 
@@ -280,9 +280,9 @@ updates:
       prefix-development: "pip dev"
       include: "scope"
 ```
-If you use the same configuration as in the example above, bumping the `requests` library in the `pip` development dependency group will generate a commit message of:
+Se você usar a mesma configuração que no exemplo acima, o bumping na biblioteca `requests` no grupo de dependência de desenvolvimento `pip` gerará uma mensagem de commit de:
 
-   `pip dev: bump requests from 1.0.0 to 1.0.1`
+   `pip dev: solicitações de bump de 1.0.0 a 1.0.1`
 
 ### `ignore`
 

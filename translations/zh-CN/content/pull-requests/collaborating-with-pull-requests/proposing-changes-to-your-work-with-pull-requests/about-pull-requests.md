@@ -26,7 +26,7 @@ topics:
 
 {% endnote %}
 
-您可以在 {% data variables.product.prodname_dotcom_the_website %}、{% data variables.product.prodname_desktop %}、{% data variables.product.prodname_codespaces %}、{% data variables.product.prodname_mobile %} 上以及使用 GitHub CLI 时创建拉取请求。
+您可以在 {% data variables.product.prodname_dotcom_the_website %}、{% data variables.product.prodname_desktop %}、{% data variables.product.prodname_github_codespaces %}、{% data variables.product.prodname_mobile %} 上以及使用 GitHub CLI 时创建拉取请求。
 
 在初始化拉取请求后，您会看到一个审查页面，其中简要概述您的分支（整个分支）与仓库基本分支之间的更改。 您可以添加提议的更改摘要，审查提交所做的更改，添加标签、里程碑和受理人，以及 @提及个人贡献者或团队。 更多信息请参阅“[创建拉取请求](/articles/creating-a-pull-request)”。
 

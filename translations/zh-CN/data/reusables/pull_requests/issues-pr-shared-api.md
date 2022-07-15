@@ -1,1 +1,1 @@
-每个拉取请求都是一个议题，但并非每个议题都是拉取请求。 For this reason, "shared" actions for both features, like managing assignees, labels, and milestones, are provided within Issues API.
+每个拉取请求都是一个议题，但并非每个议题都是拉取请求。 因此，在议题 API 中为这两项功能提供了“共享”操作，如管理受理人、标签和里程碑。

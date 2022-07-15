@@ -74,10 +74,10 @@ If an automatic build of code for a compiled language within your project fails,
 
   ```yaml
   jobs:
-    analyze:{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
+    analyze:
       permissions:
         security-events: write
-        actions: read{% endif %}
+        actions: read
       ...
       strategy:
         fail-fast: false
@@ -167,7 +167,6 @@ The artifact will contain an archived copy of the source files scanned by {% dat
 
 {% data reusables.code-scanning.alerts-found-in-generated-code %}
 
-
 ## Extraction errors in the database
 
 The {% data variables.product.prodname_codeql %} team constantly works on critical extraction errors to make sure that all source files can be scanned. However, the {% data variables.product.prodname_codeql %} extractors do occasionally generate errors during database creation. {% data variables.product.prodname_codeql %} provides information about extraction errors and warnings generated during database creation in a log file. 
@@ -180,7 +179,6 @@ However, if you see extractor errors in the overwhelming majority of files that 
 
 The {% data variables.product.prodname_codeql %} `autobuild` feature uses heuristics to build the code in a repository, however, sometimes this approach results in incomplete analysis of a repository. For example, when multiple `build.sh` commands exist in a single repository, the analysis may not complete since the `autobuild` step will only execute one of the commands. The solution is to replace the `autobuild` step with build steps which build all of the source code which you wish to analyze. For more information, see "[Configuring the {% data variables.product.prodname_codeql %} workflow for compiled languages](/code-security/secure-coding/configuring-the-codeql-workflow-for-compiled-languages#adding-build-steps-for-a-compiled-language)."
 {% endif %}
-
 
 ## The build takes too long
 

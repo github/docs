@@ -15,7 +15,7 @@ topics:
 
 **Notas:**
 
-- Projects (beta) is currently in public beta and subject to change.
+- Projetos (beta) está atualmente na versão beta pública e sujeitos a alterações.
 - Se o projeto que você está migrando contiver mais de 1200 itens, os problemas abertos serão priorizados seguidos por pull requests abertos e, por último, observações. O espaço restante será usado para problemas fechados, pull requests mesclados e pull requests fechados. Os tens que não podem ser transferidos devido a esse limite serão transferidos para o arquivo. Se o limite de arquivamento de 10.000 itens for atingido, não será realizada a migração dos itens adicionais.
 - Os cartões das observações são convertidos em problemas de rascunho e os conteúdos são salvos no texto do problema do rascunho. Se parecer que a informação está faltando, torne visível qualquer campo oculto. Para obter mais informações, consulte "[Mostrando e ocultando campos](/issues/trying-out-the-new-projects-experience/customizing-your-project-views#showing-and-hiding-fields)."
 - Não será realizada a migração da automação.

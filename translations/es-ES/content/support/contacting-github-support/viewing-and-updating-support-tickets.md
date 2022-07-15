@@ -14,16 +14,32 @@ topics:
 
 {% data reusables.support.zendesk-old-tickets %}
 
-Puedes usar el [Portal de soporte de GitHub](https://support.github.com/) para ver los tickets de soporte actuales y anteriores y responder a {% data variables.contact.github_support %}.
+Puedes usar el [Portal de soporte de GitHub](https://support.github.com/) para ver los tickets de soporte actuales y anteriores y responder a {% data variables.contact.github_support %}. Desués de 120 días, los tickets resueltos se archivan{% ifversion ghec or ghes or ghae %} y solo las cuentas empresariales pueden ver los tickets archivados{% endif %}.
 
 {% ifversion ghes or ghec %}
 {% data reusables.enterprise-accounts.support-entitlements %}
 {% endif %}
 
-## Ver tus tickets de soporte
+## Ver tus tickets de soporte recientes
 
 {% data reusables.support.view-open-tickets %}
 1. Debajo de la caja de texto, puedes leer el historial de los comentarios. La respuesta más reciente está hasta arriba. ![Captura de pantalla del historial de comentarios del ticket de soporte con la respuesta más reciente hasta arriba.](/assets/images/help/support/support-recent-response.png)
+
+{% ifversion ghec or ghes or ghae %}
+
+## Ver tus tickets de soporte archivados
+
+Solo puedes ver los tickets archivados en cuentas empresariales.
+
+{% data reusables.support.navigate-to-my-tickets %}
+1. Selecciona el menú desplegable de **Mis Tickets** y haz clic en el nombre de la cuenta empresarial.
+
+{% indented_data_reference reusables.support.entitlements-note spaces=3 %}
+
+   ![Captura de pantalla del menú desplegable de "Mis tickets".](/assets/images/help/support/ticket-context.png)
+1. Debajo de la tabla de "Mis tickets", haz clic en **Ver tickets archivados**.
+
+{% endif %}
 
 ## Actualizar los tickets de soporte
 

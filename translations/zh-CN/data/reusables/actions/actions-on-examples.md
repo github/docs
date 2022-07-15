@@ -6,7 +6,7 @@
 
 {% data reusables.actions.on-multiple-example %}
 
-### Using activity types
+### 使用活动类型
 
 {% data reusables.actions.actions-activity-types %}
 
