@@ -556,6 +556,7 @@
   "/rest/codespaces#list-devcontainers-in-a-repository-for-the-authenticated-user": "/rest/codespaces/codespaces#list-devcontainers-in-a-repository-for-the-authenticated-user",
   "/rest/codespaces#list-available-machine-types-for-a-repository": "/rest/codespaces/machines#list-available-machine-types-for-a-repository",
   "/rest/codespaces#machines": "/rest/codespaces/machines",
+  "/rest/codespaces#preview-attributes-for-a-new-codespace": "/rest/codespaces/codespaces#preview-attributes-for-a-new-codespace",
   "/rest/codespaces#list-repository-secrets": "/rest/codespaces/repository-secrets#list-repository-secrets",
   "/rest/codespaces#repository-secrets": "/rest/codespaces/repository-secrets",
   "/rest/codespaces#get-a-repository-public-key": "/rest/codespaces/repository-secrets#get-a-repository-public-key",
