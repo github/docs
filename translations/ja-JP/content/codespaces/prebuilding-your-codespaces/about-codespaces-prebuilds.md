@@ -1,7 +1,7 @@
 ---
 title: About Codespaces prebuilds
 shortTitle: About prebuilds
-intro: Codespaces prebuilds help to speed up the creation of new codespaces.
+intro: Codespaces prebuilds help to speed up the creation of new codespaces for large or complex repositories.
 versions:
   fpt: '*'
   ghec: '*'
@@ -10,15 +10,13 @@ topics:
 product: '{% data reusables.gated-features.codespaces %}'
 ---
 
-{% data reusables.codespaces.prebuilds-beta-note %}
-
 ## 概要
 
-Prebuilding your codespaces allows you to be more productive and access your codespace faster, regardless of the size and complexity of your project. This is because any source code, editor extensions, project dependencies, commands, and configurations have already been downloaded, installed, and applied before you create a codespace for your project. Think of a prebuild as a "ready-to-go" template for a codespace.
+Prebuilding your codespaces allows you to be more productive and access your codespace faster, particularly if your repository is large or complex and new codespaces currently take more than 2 minutes to start. This is because any source code, editor extensions, project dependencies, commands, and configurations have already been downloaded, installed, and applied before you create a codespace for your project. Think of a prebuild as a "ready-to-go" template for a codespace.
 
 By default, whenever you push changes to your repository, {% data variables.product.prodname_codespaces %} uses {% data variables.product.prodname_actions %} to automatically update your prebuilds.
 
-When prebuilds are available for a particular branch of a repository, and for your region, you'll see the "{% octicon "zap" aria-label="The zap icon" %} Prebuild ready" label in the list of machine type options when you create a codespace. 詳しい情報については、「[codespace を作成する](/codespaces/developing-in-codespaces/creating-a-codespace#creating-a-codespace)」を参照してください。
+When prebuilds are available for a particular branch of a repository, and for your region, you'll see the "{% octicon "zap" aria-label="The zap icon" %} Prebuild ready" label in the list of machine type options when you create a codespace. If a prebuild is still being created, you will see the "{% octicon "history" aria-label="The history icon" %} Prebuild in progress" label. 詳しい情報については、「[codespace を作成する](/codespaces/developing-in-codespaces/creating-a-codespace#creating-a-codespace)」を参照してください。
 
 ![The dialog box for choosing a machine type](/assets/images/help/codespaces/choose-custom-machine-type.png)
 

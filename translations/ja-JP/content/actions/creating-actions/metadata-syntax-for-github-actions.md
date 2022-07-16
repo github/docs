@@ -88,6 +88,8 @@ To access the environment variable in a Docker container action, you must pass t
 
 **オプション** アクションが設定するデータを宣言できる出力パラメータ。 ワークフローで後に実行されるアクションは、先行して実行されたアクションが設定した出力データを利用できます。  たとえば、2つの入力を加算(x + y = z)するアクションがあれば、そのアクションは他のアクションが入力として利用できる合計値(z)を出力できます。
 
+{% data reusables.actions.output-limitations %}
+
 メタデータファイル中でアクション内の出力を宣言しなくても、出力を設定してワークフロー中で利用することはできます。 アクション中での出力の設定に関する詳しい情報については「[{% data variables.product.prodname_actions %}のワークフローコマンド](/actions/reference/workflow-commands-for-github-actions/#setting-an-output-parameter)」を参照してください。
 
 ### Example: Declaring outputs for Docker container and JavaScript actions
@@ -100,15 +102,17 @@ outputs:
 
 ### `outputs.<output_id>`
 
-**必須** `文字列型`の識別子で、出力と結びつけられます。 `<output_id>`の値は、出力のメタデータのマップです。 `<output_id>`は、`outputs`オブジェクト内でユニークな識別子でなければなりません。 `<output_id>`は、文字あるいは`_`で始める必要があり、英数字、`-`、`_`しか使用できません。
+**Required** A `string` identifier to associate with the output. `<output_id>`の値は、出力のメタデータのマップです。 `<output_id>`は、`outputs`オブジェクト内でユニークな識別子でなければなりません。 `<output_id>`は、文字あるいは`_`で始める必要があり、英数字、`-`、`_`しか使用できません。
 
 ### `outputs.<output_id>.description`
 
-**必須** 出力パラメーターの`文字列`での説明。
+**Required** A `string` description of the output parameter.
 
 ## `outputs` for composite actions
 
 **Optional** `outputs` use the same parameters as `outputs.<output_id>` and `outputs.<output_id>.description` (see "[`outputs` for Docker container and JavaScript actions](#outputs-for-docker-container-and-javascript-actions)"), but also includes the `value` token.
+
+{% data reusables.actions.output-limitations %}
 
 ### Example: Declaring outputs for composite actions
 
@@ -223,7 +227,7 @@ runs:
 
 ### `runs.steps`
 
-{% ifversion fpt or ghes > 3.2 or ghae-issue-4853 or ghec %}
+{% ifversion fpt or ghes > 3.2 or ghae or ghec %}
 **Required** The steps that you plan to run in this action. These can be either `run` steps or `uses` steps.
 {% else %}
 **Required** The steps that you plan to run in this action.
@@ -231,7 +235,7 @@ runs:
 
 #### `runs.steps[*].run`
 
-{% ifversion fpt or ghes > 3.2 or ghae-issue-4853 or ghec %}
+{% ifversion fpt or ghes > 3.2 or ghae or ghec %}
 **Optional** The command you want to run. これは、インラインでも、アクションリポジトリ内のスクリプトでもかまいません。
 {% else %}
 **必須** 実行するコマンド。 これは、インラインでも、アクションリポジトリ内のスクリプトでもかまいません。
@@ -261,7 +265,7 @@ runs:
 
 #### `runs.steps[*].shell`
 
-{% ifversion fpt or ghes > 3.2 or ghae-issue-4853 or ghec %}
+{% ifversion fpt or ghes > 3.2 or ghae or ghec %}
 **Optional** The shell where you want to run the command. [こちら](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepsshell)にリストされている任意のシェルを使用できます。 Required if `run` is set.
 {% else %}
 **必須** コマンドを実行するシェル。 [こちら](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepsshell)にリストされている任意のシェルを使用できます。 Required if `run` is set.
@@ -272,7 +276,7 @@ runs:
 
 **Optional** You can use the `if` conditional to prevent a step from running unless a condition is met. 条件文を作成するには、サポートされている任意のコンテキストや式が使えます。
 
-{% data reusables.actions.expression-syntax-if %} For more information, see "[Expressions](/actions/learn-github-actions/expressions)."
+{% data reusables.actions.expression-syntax-if %} 詳しい情報については「[式](/actions/learn-github-actions/expressions)」を参照してください。
 
 **Example: Using contexts**
 
@@ -286,7 +290,7 @@ steps:
 
 **Example: Using status check functions**
 
-The `my backup step` only runs when the previous step of a composite action fails. For more information, see "[Expressions](/actions/learn-github-actions/expressions#job-status-check-functions)."
+The `my backup step` only runs when the previous step of a composite action fails. 詳しい情報については「[式](/actions/learn-github-actions/expressions#status-check-functions)」を参照してください。
 
 ```yaml
 steps:
@@ -314,7 +318,7 @@ steps:
 
 **オプション**  コマンドを実行する作業ディレクトリを指定します。
 
-{% ifversion fpt or ghes > 3.2 or ghae-issue-4853 or ghec %}
+{% ifversion fpt or ghes > 3.2 or ghae or ghec %}
 #### `runs.steps[*].uses`
 
 **Optional**  Selects an action to run as part of a step in your job. アクションとは、再利用可能なコードの単位です。 ワークフロー、パブリックリポジトリ、または[公開されているDockerコンテナイメージ](https://hub.docker.com/)と同じリポジトリで定義されているアクションを使用できます。
@@ -364,6 +368,10 @@ runs:
         last_name: Octocat  
 ```
 {% endif %}
+
+#### `runs.steps[*].continue-on-error`
+
+**Optional**  Prevents the action from failing when a step fails. Set to `true` to allow the action to pass when this step fails.
 
 ## `runs` for Docker container actions
 
@@ -657,254 +665,249 @@ Here is an exhaustive list of all currently supported icons:
 <td>eye</td>
 </tr>
 <tr>
-<td>facebook</td>
 <td>fast-forward</td>
 <td>feather</td>
 <td>file-minus</td>
+<td>file-plus</td>
 </tr>
 <tr>
-<td>file-plus</td>
 <td>file-text</td>
 <td>ファイル</td>
 <td>film</td>
+<td>filter</td>
 </tr>
 <tr>
-<td>filter</td>
 <td>フラグ</td>
 <td>folder-minus</td>
 <td>folder-plus</td>
+<td>folder</td>
 </tr>
 <tr>
-<td>folder</td>
 <td>gift</td>
 <td>git-branch</td>
 <td>git-commit</td>
+<td>git-merge</td>
 </tr>
 <tr>
-<td>git-merge</td>
 <td>git-pull-request</td>
 <td>globe</td>
 <td>grid</td>
+<td>hard-drive</td>
 </tr>
 <tr>
-<td>hard-drive</td>
 <td>ハッシュ</td>
 <td>headphones</td>
 <td>heart</td>
+<td>help-circle</td>
 </tr>
 <tr>
-<td>help-circle</td>
 <td>home</td>
 <td>image</td>
 <td>inbox</td>
+<td>info</td>
 </tr>
 <tr>
-<td>info</td>
 <td>italic</td>
 <td>layers</td>
 <td>layout</td>
+<td>life-buoy</td>
 </tr>
 <tr>
-<td>life-buoy</td>
 <td>link-2</td>
 <td>link</td>
 <td>list</td>
+<td>loader</td>
 </tr>
 <tr>
-<td>loader</td>
 <td>lock</td>
 <td>log-in</td>
 <td>log-out</td>
+<td>mail</td>
 </tr>
 <tr>
-<td>mail</td>
 <td>map-pin</td>
 <td>map</td>
 <td>maximize-2</td>
+<td>maximize</td>
 </tr>
 <tr>
-<td>maximize</td>
 <td>menu</td>
 <td>message-circle</td>
 <td>message-square</td>
+<td>mic-off</td>
 </tr>
 <tr>
-<td>mic-off</td>
 <td>mic</td>
 <td>minimize-2</td>
 <td>minimize</td>
+<td>minus-circle</td>
 </tr>
 <tr>
-<td>minus-circle</td>
 <td>minus-square</td>
 <td>minus</td>
 <td>monitor</td>
+<td>moon</td>
 </tr>
 <tr>
-<td>moon</td>
 <td>more-horizontal</td>
 <td>more-vertical</td>
 <td>move</td>
+<td>music</td>
 </tr>
 <tr>
-<td>music</td>
 <td>navigation-2</td>
 <td>navigation</td>
 <td>octagon</td>
+<td>package</td>
 </tr>
 <tr>
-<td>package</td>
 <td>paperclip</td>
 <td>pause-circle</td>
 <td>pause</td>
+<td>percent</td>
 </tr>
 <tr>
-<td>percent</td>
 <td>phone-call</td>
 <td>phone-forwarded</td>
 <td>phone-incoming</td>
+<td>phone-missed</td>
 </tr>
 <tr>
-<td>phone-missed</td>
 <td>phone-off</td>
 <td>phone-outgoing</td>
 <td>phone</td>
+<td>pie-chart</td>
 </tr>
 <tr>
-<td>pie-chart</td>
 <td>play-circle</td>
 <td>play</td>
 <td>plus-circle</td>
+<td>plus-square</td>
 </tr>
 <tr>
-<td>plus-square</td>
 <td>plus</td>
 <td>pocket</td>
 <td>power</td>
+<td>printer</td>
 </tr>
 <tr>
-<td>printer</td>
 <td>radio</td>
 <td>refresh-ccw</td>
 <td>refresh-cw</td>
+<td>repeat</td>
 </tr>
 <tr>
-<td>repeat</td>
 <td>巻き戻し</td>
 <td>rotate-ccw</td>
 <td>rotate-cw</td>
+<td>rss</td>
 </tr>
 <tr>
-<td>rss</td>
-<td>保存</td>
+<td>save</td>
 <td>scissors</td>
 <td>search</td>
+<td>send</td>
 </tr>
 <tr>
-<td>send</td>
 <td>server</td>
 <td>settings</td>
 <td>share-2</td>
+<td>share</td>
 </tr>
 <tr>
-<td>share</td>
 <td>shield-off</td>
 <td>shield</td>
 <td>shopping-bag</td>
+<td>shopping-cart</td>
 </tr>
 <tr>
-<td>shopping-cart</td>
 <td>shuffle</td>
 <td>サイドバー</td>
 <td>skip-back</td>
+<td>skip-forward</td>
 </tr>
 <tr>
-<td>skip-forward</td>
 <td>slash</td>
 <td>sliders</td>
 <td>smartphone</td>
+<td>speaker</td>
 </tr>
 <tr>
-<td>speaker</td>
 <td>square</td>
 <td>Star</td>
 <td>stop-circle</td>
+<td>sun</td>
 </tr>
 <tr>
-<td>sun</td>
 <td>sunrise</td>
 <td>sunset</td>
 <td>tablet</td>
+<td>タグ</td>
 </tr>
 <tr>
-<td>タグ</td>
 <td>target</td>
 <td>terminal</td>
 <td>thermometer</td>
+<td>thumbs-down</td>
 </tr>
 <tr>
-<td>thumbs-down</td>
 <td>thumbs-up</td>
 <td>toggle-left</td>
 <td>toggle-right</td>
+<td>trash-2</td>
 </tr>
 <tr>
-<td>trash-2</td>
 <td>trash</td>
 <td>trending-down</td>
 <td>trending-up</td>
+<td>triangle</td>
 </tr>
 <tr>
-<td>triangle</td>
 <td>truck</td>
 <td>tv</td>
 <td>type</td>
+<td>umbrella</td>
 </tr>
 <tr>
-<td>umbrella</td>
 <td>underline</td>
 <td>unlock</td>
 <td>upload-cloud</td>
+<td>アップロード</td>
 </tr>
 <tr>
-<td>アップロード</td>
 <td>user-check</td>
 <td>user-minus</td>
 <td>user-plus</td>
+<td>user-x</td>
 </tr>
 <tr>
-<td>user-x</td>
 <td>ユーザ</td>
 <td>users</td>
 <td>video-off</td>
+<td>video</td>
 </tr>
 <tr>
-<td>video</td>
 <td>voicemail</td>
 <td>volume-1</td>
 <td>volume-2</td>
+<td>volume-x</td>
 </tr>
 <tr>
-<td>volume-x</td>
 <td>volume</td>
 <td>Watch</td>
 <td>wifi-off</td>
+<td>wifi</td>
 </tr>
 <tr>
-<td>wifi</td>
 <td>wind</td>
 <td>x-circle</td>
 <td>x-square</td>
+<td>x</td>
 </tr>
 <tr>
-<td>x</td>
 <td>zap-off</td>
 <td>zap</td>
 <td>zoom-in</td>
-</tr>
-<tr>
 <td>zoom-out</td>
-<td></td>
-<td></td>
-<td></td>
+</tr>
 </table>

@@ -68,7 +68,7 @@ env:
   myIntegerNumber: ${{ 711 }}
   myFloatNumber: ${{ -9.2 }}
   myHexNumber: ${{ 0xff }}
-  myExponentialNumber: ${{ -2.99-e2 }}
+  myExponentialNumber: ${{ -2.99e-2 }}
   myString: Mona the Octocat
   myStringInBraces: ${{ 'It''s open source!' }}
 ```
@@ -324,33 +324,21 @@ etapas:
     if: {% raw %}${{ failure() }}{% endraw %}
 ```
 
-{% ifversion fpt or ghes > 3.3 or ghae-issue-5504 or ghec %}
-### Avaliar status explicitamente
+#### falha com as condições
 
-Em vez de usar um dos métodos acima, você pode avaliar o status do trabalho ou ação composta que está executando a etapa diretamente:
+Você pode incluir condições extras para uma etapa a ser executada após uma falha, mas você ainda deve incluir `failure()` para substituir a verificação de status padrão de `sucess()` que é automaticamente aplicada a condições `se` que não contenham uma função de verificação de status.
 
-#### Exemplo para etapa de fluxo de trabalho
-
-```yaml
-etapas:
-  ...
-  - name: The job has failed
-    if: {% raw %}${{ job.status == 'failure' }}{% endraw %}
-```
-
-Isso é o mesmo que usar `if: failure()` em uma etapa do trabalho.
-
-#### Exemplo da etapa de ação composta
+##### Exemplo
 
 ```yaml
 etapas:
   ...
-  - name: The composite action has failed
-    if: {% raw %}${{ github.action_status == 'failure' }}{% endraw %}
+  - name: Failing step
+    id: demo
+    run: exit 1
+  - name: The demo step has failed
+    if: {% raw %}${{ failure() && steps.demo.conclusion == 'failure' }}{% endraw %}
 ```
-
-Isso é o mesmo que usar `if: failure()` em um passo de ação composta.
-{% endif %}
 
 ## Filtros de objeto
 

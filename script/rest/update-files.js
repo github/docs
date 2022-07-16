@@ -8,12 +8,15 @@
 
 import { stat, readFile, writeFile, readdir } from 'fs/promises'
 import path from 'path'
-import program from 'commander'
+import { program } from 'commander'
 import { execSync } from 'child_process'
 import mkdirp from 'mkdirp'
 import rimraf from 'rimraf'
-import getOperations from './utils/get-operations.js'
 import yaml from 'js-yaml'
+import slugger from 'github-slugger'
+
+import { categoriesWithoutSubcategories } from '../../lib/rest/index.js'
+import getOperations from './utils/get-operations.js'
 
 const tempDocsDir = path.join(process.cwd(), 'openapiTmp')
 const githubRepoDir = path.join(process.cwd(), '../github')
@@ -168,25 +171,6 @@ async function decorate() {
   const operationsEnabledForGitHubApps = {}
   const clientSideRedirects = await getCategoryOverrideRedirects()
 
-  const skipCategory = [
-    'billing',
-    'code-scanning',
-    'codes-of-conduct',
-    'deploy-keys',
-    'emojis',
-    'gitignore',
-    'licenses',
-    'markdown',
-    'meta',
-    'oauth-authorizations',
-    'packages',
-    'pages',
-    'rate-limit',
-    'reactions',
-    'scim',
-    'search',
-    'secret-scanning',
-  ]
   for (const [schemaName, schema] of Object.entries(dereferencedSchemas)) {
     try {
       // get all of the operations for a particular version of the openapi
@@ -211,7 +195,7 @@ async function decorate() {
           // There are some operations that aren't nested in the sidebar
           // For these, don't need to add a client-side redirect, the
           // frontmatter redirect will handle it for us.
-          if (skipCategory.includes(operation.category)) {
+          if (categoriesWithoutSubcategories.includes(operation.category)) {
             return
           }
           const anchor = oldUrl.split('#')[1]
@@ -305,7 +289,8 @@ async function decorate() {
         operationsEnabledForGitHubApps[schemaName][category] = categoryOperations
           .filter((operation) => operation.enabledForGitHubApps)
           .map((operation) => ({
-            slug: operation.slug,
+            slug: slugger.slug(operation.title),
+            subcategory: operation.subcategory,
             verb: operation.verb,
             requestPath: operation.requestPath,
           }))

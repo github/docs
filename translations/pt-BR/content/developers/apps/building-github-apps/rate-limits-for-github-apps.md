@@ -82,4 +82,4 @@ Os limites de taxa para as solicitações de servidor para servidor feitas por {
 ## Leia mais
 
 - "[Limite de taxa](/rest/overview/resources-in-the-rest-api#rate-limiting)" na documentação da API REST
-- "[Limitações de recursos]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql/overview/resource-limitations)" na documentação da API do GraphQL
+- "[Limitações de recursos](/graphql/overview/resource-limitations)" na documentação da API do GraphQL

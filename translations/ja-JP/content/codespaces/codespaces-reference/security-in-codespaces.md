@@ -34,7 +34,7 @@ Each codespace has its own isolated virtual network. We use firewalls to block i
 
 ### 認証
 
-You can connect to a codespace using a web browser or from Visual Studio Code. If you connect from Visual Studio Code, you are prompted to authenticate with {% data variables.product.product_name %}.
+You can connect to a codespace using a web browser or from {% data variables.product.prodname_vscode %}. If you connect from {% data variables.product.prodname_vscode_shortname %}, you are prompted to authenticate with {% data variables.product.product_name %}.
 
 Every time a codespace is created or restarted, it's assigned a new {% data variables.product.company_short %} token with an automatic expiry period. This period allows you to work in the codespace without needing to reauthenticate during a typical working day, but reduces the chance that you will leave a connection open when you stop using the codespace.
 
@@ -81,10 +81,12 @@ Codespaces are designed to be security hardened by default. To help maintain thi
 
 Always use encrypted secrets when you want to use sensitive information (such as access tokens) in a codespace. You can access your secrets as environment variables in the codespace, including from the terminal. For example, you can launch a terminal within your codespace and use `echo $SECRET_NAME` to see the value of a secret.
 
-The secret values are copied to environment variables whenever the codespace is resumed or created, so if you update a secret value while the codespace is running, you’ll need to suspend and resume to pick up the updated value.
+The secret values are copied to environment variables whenever the codespace is resumed or created and are also synced when they are changed.
+
+Secrets are not copied into the environment if you don't have write access to the codespace's repository.
 
 For more information on secrets, see:
-- "[Managing encrypted secrets for your codespaces](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)"
+- 「[codespacesのための暗号化されたシークレットの管理](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)」
 - "[Managing encrypted secrets for your repository and organization for Codespaces](/codespaces/managing-codespaces-for-your-organization/managing-encrypted-secrets-for-your-repository-and-organization-for-codespaces)"
 
 ### Working with other people's contributions and repositories
@@ -92,6 +94,8 @@ For more information on secrets, see:
 When you create a codespace from a PR branch from a fork, the token in the codespace will vary depending on whether the repository is public or private:
 - For a private repository, the codespace is granted access to both the fork and parent.
 - For a public repository, the codespace will only have access to the fork and opening PRs on the parent.
+
+We also further protect you in these scenarios by not injecting any of your [codespace secrets](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces) into the environment.
 
 ### Additional good practices
 
@@ -109,4 +113,4 @@ Certain development features can potentially add risk to your environment. For e
 
 #### Using extensions
 
-Any additional {% data variables.product.prodname_vscode %} extensions that you've installed can potentially introduce more risk. To help mitigate this risk, ensure that the you only install trusted extensions, and that they are always kept up to date.
+Any additional {% data variables.product.prodname_vscode_shortname %} extensions that you've installed can potentially introduce more risk. To help mitigate this risk, ensure that the you only install trusted extensions, and that they are always kept up to date.

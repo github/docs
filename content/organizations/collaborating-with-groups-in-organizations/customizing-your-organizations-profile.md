@@ -11,7 +11,7 @@ topics:
 shortTitle: Customize organization profile
 ---
 
-{% if org-profile-pin-private %}
+{% ifversion org-profile-pin-private %}
 
 ## About your organization's profile page
 
@@ -45,11 +45,11 @@ You can format text and include emoji, images, and GIFs in your organization pro
 
    ![Image of an organization's public README](/assets/images/help/organizations/org_public_readme.png)
 
-{% if org-profile-pin-private %}
+{% ifversion org-profile-pin-private %}
 
 ## Adding a member-only organization profile README
 
-1. If your organization does not already have a `.github-private` repository, create a public `.github-private` repository. This action can be performed by any user that has write access to that repository.
+1. If your organization does not already have a `.github-private` repository, create a private repository called `.github-private`. 
 2. In your organization's `.github-private` repository, create a `README.md` file in the `profile` folder.
 3. Commit the changes to the `README.md` file. The content of the `README.md` will be displayed in the member view of your organization's profile.
 

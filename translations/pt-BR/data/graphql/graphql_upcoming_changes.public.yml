@@ -79,15 +79,15 @@ upcoming_changes:
     owner: colinshum
   - 
     location: AddPullRequestToMergeQueueInput.branch
-    description: '`branch` will be removed.'
-    reason: PRs are added to the merge queue for the base branch, the `branch` argument is now a no-op
+    description: '`branch` será removido.'
+    reason: Os PRs são adicionados à fila de merge para o branch base, o argumento `branch` agora é um no-op
     date: '2022-07-01T00:00:00+00:00'
     criticality: breaking
     owner: jhunschejones
   - 
     location: Enterprise.userAccounts
-    description: '`userAccounts` will be removed. Use the `Enterprise.members` field instead.'
-    reason: The `Enterprise.userAccounts` field is being removed.
+    description: '`userAccounts` será removido. Use o campo `Enterprise.members`.'
+    reason: O campo `Enterprise.userAccounts` está sendo removido.
     date: '2022-07-01T00:00:00+00:00'
     criticality: breaking
     owner: jdennes
@@ -99,9 +99,1143 @@ upcoming_changes:
     criticality: breaking
     owner: cheshire137
   - 
+    location: AddProjectDraftIssueInput.assigneeIds
+    description: 'O `assigneeneeIds` será removido. Siga o guia ProjectV2 em https://github.blog/changelog/2022-06-23-the-new-issues-june-23rd-update/ para encontrar um substituto adequado.'
+    reason: A API `ProjectNext` está obsoleta para favorecer a API `ProjectV2` que tem mais capacidade.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - 
+    location: AddProjectDraftIssueInput.body
+    description: 'O `body` será removido. Siga o guia ProjectV2 em https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar um substituto adequado.'
+    reason: A API `ProjectNext` está obsoleta para favorecer a API `ProjectV2` que tem mais capacidade.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - 
+    location: AddProjectDraftIssueInput.projectId
+    description: 'O `projectId` será removido. Siga o guia ProjectV2 em https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar um substituto adequado.'
+    reason: A API `ProjectNext` está obsoleta para favorecer a API `ProjectV2` que tem mais capacidade.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - 
+    location: AddProjectDraftIssueInput.title
+    description: 'O `title` será removido. Siga o guia ProjectV2 em https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar um substituto adequado.'
+    reason: A API `ProjectNext` está obsoleta para favorecer a API `ProjectV2` que tem mais capacidade.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - 
+    location: AddProjectDraftIssuePayload.projectNextItem
+    description: 'O `projectNextItem` será removido. Siga o guia ProjectV2 em https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar um substituto adequado.'
+    reason: A API `ProjectNext` está obsoleta para favorecer a API `ProjectV2` que tem mais capacidade.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - 
+    location: AddProjectNextItemInput.contentId
+    description: 'O `contentId` será removido. Siga o guia ProjectV2 em https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar um substituto adequado.'
+    reason: A API `ProjectNext` está obsoleta para favorecer a API `ProjectV2` que tem mais capacidade.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - 
+    location: AddProjectNextItemInput.projectId
+    description: 'O `projectId` será removido. Siga o guia ProjectV2 em https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar um substituto adequado.'
+    reason: A API `ProjectNext` está obsoleta para favorecer a API `ProjectV2` que tem mais capacidade.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - 
+    location: AddProjectNextItemPayload.projectNextItem
+    description: 'O `projectNextItem` será removido. Siga o guia ProjectV2 em https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar um substituto adequado.'
+    reason: A API `ProjectNext` está obsoleta para favorecer a API `ProjectV2` que tem mais capacidade.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - 
+    location: DeleteProjectNextItemInput.itemId
+    description: 'O `itemId` será removido. Siga o guia ProjectV2 em https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar um substituto adequado.'
+    reason: A API `ProjectNext` está obsoleta para favorecer a API `ProjectV2` que tem mais capacidade.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - 
+    location: DeleteProjectNextItemInput.projectId
+    description: 'O `projectId` será removido. Siga o guia ProjectV2 em https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar um substituto adequado.'
+    reason: A API `ProjectNext` está obsoleta para favorecer a API `ProjectV2` que tem mais capacidade.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - 
+    location: DeleteProjectNextItemPayload.deletedItemId
+    description: 'O `deletedItemId` será removido. Siga o guia ProjectV2 em https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar um substituto adequado.'
+    reason: A API `ProjectNext` está obsoleta para favorecer a API `ProjectV2` que tem mais capacidade.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - 
+    location: DependencyGraphDependency.packageLabel
+    description: 'O campo `packageLabel` será removido. Use o campo `packageName` normalizado.'
+    reason: '`packageLabel` será removido.'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: github/dependency_graph
+  - 
+    location: Issue.projectNext
+    description: 'O `projectNext` será removido. Siga o guia ProjectV2 em https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar um substituto adequado.'
+    reason: A API `ProjectNext` está obsoleta para favorecer a API `ProjectV2` que tem mais capacidade.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - 
+    location: Issue.projectsNext
+    description: 'O `projectsNext` será removido. Siga o guia ProjectV2 em https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar um substituto adequado.'
+    reason: A API `ProjectNext` está obsoleta para favorecer a API `ProjectV2` que tem mais capacidade.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - 
+    location: LockMergeQueueInput.branch
+    description: '`branch` será removido.'
+    reason: A fila de merge está bloqueada para o branch padrão do repositório, o argumento `branch` agora é um no-op
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: jhunschejones
+  - 
+    location: MergeLockedMergeGroupInput.branch
+    description: '`branch` será removido.'
+    reason: As alterações são mescladas no branch padrão do repositório, o argumento `branch` agora é um no-op
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: jhunschejones
+  - 
+    location: Mutation.addProjectDraftIssue
+    description: 'O `addProjectDraftIssue` será removido. Siga o guia ProjectV2 em https://github.blog/changelog/2022-06-23-the-new-issues-june-23rd-update/ para encontrar um substituto adequado.'
+    reason: A API `ProjectNext` está obsoleta para favorecer a API `ProjectV2` que tem mais capacidade.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - 
+    location: Mutation.addProjectNextItem
+    description: 'O `addProjectNextItem` será removido. Siga o guia ProjectV2 em https://github.blog/changelog/2022-06-23-the-new-issues-june-23rd-update/ para encontrar um substituto adequado.'
+    reason: A API `ProjectNext` está obsoleta para favorecer a API `ProjectV2` que tem mais capacidade.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - 
+    location: Mutation.deleteProjectNextItem
+    description: 'O `deleteProjectNextItem` será removido. Siga o guia ProjectV2 em https://github.blog/changelog/2022-06-23-the-new-issues-june-23rd-update/ para encontrar um substituto adequado.'
+    reason: A API `ProjectNext` está obsoleta para favorecer a API `ProjectV2` que tem mais capacidade.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - 
+    location: Mutation.updateProjectDraftIssue
+    description: 'O `updateProjectDraftIssue` será removido. Siga o guia ProjectV2 em https://github.blog/changelog/2022-06-23-the-new-issues-june-23rd-update/ para encontrar um substituto adequado.'
+    reason: A API `ProjectNext` está obsoleta para favorecer a API `ProjectV2` que tem mais capacidade.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - 
+    location: Mutation.updateProjectNext
+    description: '''updateProjectNext'' será removido. Siga o guia ProjectV2 em https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar um substituto adequado.'
+    reason: A API `ProjectNext` está obsoleta para favorecer a API `ProjectV2` que tem mais capacidade.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - 
+    location: Mutation.updateProjectNextItemField
+    description: '''updateProjectNextItemField'' será removido. Siga o guia ProjectV2 em https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar uma substituto adequado.'
+    reason: A API `ProjectNext` está obsoleta para favorecer a API `ProjectV2` que tem mais capacidade.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - 
+    location: Organization.projectNext
+    description: 'O `projectNext` será removido. Siga o guia ProjectV2 em https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar um substituto adequado.'
+    reason: A API `ProjectNext` está obsoleta para favorecer a API `ProjectV2` que tem mais capacidade.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - 
+    location: Organization.projectsNext
+    description: 'O `projectsNext` será removido. Siga o guia ProjectV2 em https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar um substituto adequado.'
+    reason: A API `ProjectNext` está obsoleta para favorecer a API `ProjectV2` que tem mais capacidade.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - 
+    location: Organization.recentProjectsNext
+    description: 'O `recentProjectsNext` será removido. Siga o guia ProjectV2 em https://github.blog/changelog/2022-06-23-the-new-issues-june-23rd-update/ para encontrar um substituto adequado.'
+    reason: A API `ProjectNext` está obsoleta para favorecer a API `ProjectV2` que tem mais capacidade.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - 
+    location: ProjectNext.closed
+    description: 'O `closed` será removido. Siga o guia ProjectV2 em https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar um substituto adequado.'
+    reason: A API `ProjectNext` está obsoleta para favorecer a API `ProjectV2` que tem mais capacidade.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - 
+    location: ProjectNext.createdAt
+    description: 'O `createdAt` será removido. Siga o guia ProjectV2 em https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar um substituto adequado.'
+    reason: A API `ProjectNext` está obsoleta para favorecer a API `ProjectV2` que tem mais capacidade.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - 
+    location: ProjectNext.creator
+    description: 'O `creator` será removido. Siga o guia ProjectV2 em https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar um substituto adequado.'
+    reason: A API `ProjectNext` está obsoleta para favorecer a API `ProjectV2` que tem mais capacidade.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - 
+    location: ProjectNext.databaseId
+    description: 'O `databaseId` será removido. Siga o guia ProjectV2 em https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar um substituto adequado.'
+    reason: A API `ProjectNext` está obsoleta para favorecer a API `ProjectV2` que tem mais capacidade.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - 
+    location: ProjectNext.defaultView
+    description: 'O `defaultView` será removido. Siga o guia ProjectV2 em https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar um substituto adequado.'
+    reason: A API `ProjectNext` está obsoleta para favorecer a API `ProjectV2` que tem mais capacidade.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - 
+    location: ProjectNext.description
+    description: 'O `description` será removido. Siga o guia ProjectV2 em https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar um substituto adequado.'
+    reason: A API `ProjectNext` está obsoleta para favorecer a API `ProjectV2` que tem mais capacidade.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - 
+    location: ProjectNext.fieldConstraints
+    description: 'O `description` será removido. Siga o guia ProjectV2 em https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar um substituto adequado.'
+    reason: A API `ProjectNext` está obsoleta para favorecer a API `ProjectV2` que tem mais capacidade.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - 
+    location: ProjectNext.fields
+    description: 'O `description` será removido. Siga o guia ProjectV2 em https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar um substituto adequado.'
+    reason: A API `ProjectNext` está obsoleta para favorecer a API `ProjectV2` que tem mais capacidade.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - 
+    location: ProjectNext.items
+    description: 'O `items` será removido. Siga o guia ProjectV2 em https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar um substituto adequado.'
+    reason: A API `ProjectNext` está obsoleta para favorecer a API `ProjectV2` que tem mais capacidade.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - 
+    location: ProjectNext.number
+    description: 'O `number` será removido. Siga o guia ProjectV2 em https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar um substituto adequado.'
+    reason: A API `ProjectNext` está obsoleta para favorecer a API `ProjectV2` que tem mais capacidade.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - 
+    location: ProjectNext.owner
+    description: 'O `owner` será removido. Siga o guia ProjectV2 em https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar um substituto adequado.'
+    reason: A API `ProjectNext` está obsoleta para favorecer a API `ProjectV2` que tem mais capacidade.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - 
+    location: ProjectNext.public
+    description: 'O `public` será removido. Siga o guia ProjectV2 em https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar um substituto adequado.'
+    reason: A API `ProjectNext` está obsoleta para favorecer a API `ProjectV2` que tem mais capacidade.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - 
+    location: ProjectNext.repositories
+    description: 'O `repositories` será removido. Siga o guia ProjectV2 em https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar um substituto adequado.'
+    reason: A API `ProjectNext` está obsoleta para favorecer a API `ProjectV2` que tem mais capacidade.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - 
+    location: ProjectNext.resourcePath
+    description: 'O `resourcePath` será removido. Siga o guia ProjectV2 em https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar um substituto adequado.'
+    reason: A API `ProjectNext` está obsoleta para favorecer a API `ProjectV2` que tem mais capacidade.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - 
+    location: ProjectNext.shortDescription
+    description: 'O `resourcePath` será removido. Siga o guia ProjectV2 em https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar um substituto adequado.'
+    reason: A API `ProjectNext` está obsoleta para favorecer a API `ProjectV2` que tem mais capacidade.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - 
+    location: ProjectNext.title
+    description: 'O `title` será removido. Siga o guia ProjectV2 em https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar um substituto adequado.'
+    reason: A API `ProjectNext` está obsoleta para favorecer a API `ProjectV2` que tem mais capacidade.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - 
+    location: ProjectNext.updatedAt
+    description: 'O `updatedAt` será removido. Siga o guia ProjectV2 em https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar um substituto adequado.'
+    reason: A API `ProjectNext` está obsoleta para favorecer a API `ProjectV2` que tem mais capacidade.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - 
+    location: ProjectNext.url
+    description: 'O `url` será removido. Siga o guia ProjectV2 em https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar um substituto adequado.'
+    reason: A API `ProjectNext` está obsoleta para favorecer a API `ProjectV2` que tem mais capacidade.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - 
+    location: ProjectNext.views
+    description: 'O `views` será removido. Siga o guia ProjectV2 em https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar um substituto adequado.'
+    reason: A API `ProjectNext` está obsoleta para favorecer a API `ProjectV2` que tem mais capacidade.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - 
+    location: ProjectNextField.createdAt
+    description: 'O `createdAt` será removido. Siga o guia ProjectV2 em https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar um substituto adequado.'
+    reason: A API `ProjectNext` está obsoleta para favorecer a API `ProjectV2` que tem mais capacidade.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - 
+    location: ProjectNextField.dataType
+    description: 'O `dataType` será removido. Siga o guia ProjectV2 em https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar um substituto adequado.'
+    reason: A API `ProjectNext` está obsoleta para favorecer a API `ProjectV2` que tem mais capacidade.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - 
+    location: ProjectNextField.databaseId
+    description: 'O `databaseId` será removido. Siga o guia ProjectV2 em https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar um substituto adequado.'
+    reason: A API `ProjectNext` está obsoleta para favorecer a API `ProjectV2` que tem mais capacidade.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - 
+    location: ProjectNextField.name
+    description: 'O `name` será removido. Siga o guia ProjectV2 em https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar um substituto adequado.'
+    reason: A API `ProjectNext` está obsoleta para favorecer a API `ProjectV2` que tem mais capacidade.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - 
+    location: ProjectNextField.project
+    description: 'O `project` será removido. Siga o guia ProjectV2 em https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar um substituto adequado.'
+    reason: A API `ProjectNext` está obsoleta para favorecer a API `ProjectV2` que tem mais capacidade.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - 
+    location: ProjectNextField.settings
+    description: 'O `settings` será removido. Siga o guia ProjectV2 em https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar um substituto adequado.'
+    reason: A API `ProjectNext` está obsoleta para favorecer a API `ProjectV2` que tem mais capacidade.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - 
+    location: ProjectNextField.updatedAt
+    description: 'O `updatedAt` será removido. Siga o guia ProjectV2 em https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar um substituto adequado.'
+    reason: A API `ProjectNext` está obsoleta para favorecer a API `ProjectV2` que tem mais capacidade.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - 
+    location: ProjectNextFieldCommon.createdAt
+    description: 'O `createdAt` será removido. Siga o guia ProjectV2 em https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar um substituto adequado.'
+    reason: A API `ProjectNext` está obsoleta para favorecer a API `ProjectV2` que tem mais capacidade.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - 
+    location: ProjectNextFieldCommon.dataType
+    description: 'O `dataType` será removido. Siga o guia ProjectV2 em https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar um substituto adequado.'
+    reason: A API `ProjectNext` está obsoleta para favorecer a API `ProjectV2` que tem mais capacidade.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - 
+    location: ProjectNextFieldCommon.databaseId
+    description: 'O `databaseId` será removido. Siga o guia ProjectV2 em https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar um substituto adequado.'
+    reason: A API `ProjectNext` está obsoleta para favorecer a API `ProjectV2` que tem mais capacidade.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - 
+    location: ProjectNextFieldCommon.id
+    description: 'O `id` será removido. Siga o guia ProjectV2 em https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar um substituto adequado.'
+    reason: A API `ProjectNext` está obsoleta para favorecer a API `ProjectV2` que tem mais capacidade.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - 
+    location: ProjectNextFieldCommon.name
+    description: 'O `name` será removido. Siga o guia ProjectV2 em https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar um substituto adequado.'
+    reason: A API `ProjectNext` está obsoleta para favorecer a API `ProjectV2` que tem mais capacidade.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - 
+    location: ProjectNextFieldCommon.project
+    description: 'O `project` será removido. Siga o guia ProjectV2 em https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar um substituto adequado.'
+    reason: A API `ProjectNext` está obsoleta para favorecer a API `ProjectV2` que tem mais capacidade.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - 
+    location: ProjectNextFieldCommon.settings
+    description: 'O `settings` será removido. Siga o guia ProjectV2 em https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar um substituto adequado.'
+    reason: A API `ProjectNext` está obsoleta para favorecer a API `ProjectV2` que tem mais capacidade.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - 
+    location: ProjectNextFieldCommon.updatedAt
+    description: 'O `updatedAt` será removido. Siga o guia ProjectV2 em https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar um substituto adequado.'
+    reason: A API `ProjectNext` está obsoleta para favorecer a API `ProjectV2` que tem mais capacidade.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - 
+    location: ProjectNextFieldType.ASSIGNEES
+    description: 'O `ASSIGNEES` será removido. Siga o guia ProjectV2 em https://github.blog/changelog/2022-06-23-the-new-issues-june-23rd-update/ para encontrar um substituto adequado.'
+    reason: A API `ProjectNext` está obsoleta para favorecer a API `ProjectV2` que tem mais capacidade.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - 
+    location: ProjectNextFieldType.DATE
+    description: 'O `DATE` será removido. Siga o guia ProjectV2 em https://github.blog/changelog/2022-06-23-the-new-issues-june-23rd-update/ para encontrar um substituto adequado.'
+    reason: A API `ProjectNext` está obsoleta para favorecer a API `ProjectV2` que tem mais capacidade.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - 
+    location: ProjectNextFieldType.ITERATION
+    description: 'O `ITERATION` será removido. Siga o guia ProjectV2 em https://github.blog/changelog/2022-06-23-the-new-issues-june-23rd-update/ para encontrar um substituto adequado.'
+    reason: A API `ProjectNext` está obsoleta para favorecer a API `ProjectV2` que tem mais capacidade.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - 
+    location: ProjectNextFieldType.LABELS
+    description: 'O `LABELS` será removido. Siga o guia ProjectV2 em https://github.blog/changelog/2022-06-23-the-new-issues-june-23rd-update/ para encontrar um substituto adequado.'
+    reason: A API `ProjectNext` está obsoleta para favorecer a API `ProjectV2` que tem mais capacidade.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - 
+    location: ProjectNextFieldType.LINKED_PULL_REQUESTS
+    description: 'O `LINKED_PULL_REQUESTS` será removido. Siga o guia ProjectV2 em https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar um substituto adequado.'
+    reason: A API `ProjectNext` está obsoleta para favorecer a API `ProjectV2` que tem mais capacidade.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - 
+    location: ProjectNextFieldType.MILESTONE
+    description: 'O `MILESTONE` será removido. Siga o guia ProjectV2 em https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar um substituto adequado.'
+    reason: A API `ProjectNext` está obsoleta para favorecer a API `ProjectV2` que tem mais capacidade.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - 
+    location: ProjectNextFieldType.NUMBER
+    description: 'O `NUMBER` será removido. Siga o guia ProjectV2 em https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar um substituto adequado.'
+    reason: A API `ProjectNext` está obsoleta para favorecer a API `ProjectV2` que tem mais capacidade.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - 
+    location: ProjectNextFieldType.REPOSITORY
+    description: 'O `REPOSITORY` será removido. Siga o guia ProjectV2 em https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar um substituto adequado.'
+    reason: A API `ProjectNext` está obsoleta para favorecer a API `ProjectV2` que tem mais capacidade.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - 
+    location: ProjectNextFieldType.REVIEWERS
+    description: 'O `REVIEWERS` será removido. Siga o guia ProjectV2 em https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar um substituto adequado.'
+    reason: A API `ProjectNext` está obsoleta para favorecer a API `ProjectV2` que tem mais capacidade.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - 
+    location: ProjectNextFieldType.SINGLE_SELECT
+    description: 'O `SINGLE_SELECT` será removido. Siga o guia ProjectV2 em https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar um substituto adequado.'
+    reason: A API `ProjectNext` está obsoleta para favorecer a API `ProjectV2` que tem mais capacidade.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - 
+    location: ProjectNextFieldType.TEXT
+    description: 'O `TEXT` será removido. Siga o guia ProjectV2 em https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar um substituto adequado.'
+    reason: A API `ProjectNext` está obsoleta para favorecer a API `ProjectV2` que tem mais capacidade.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - 
+    location: ProjectNextFieldType.TITLE
+    description: 'O `TITLE` será removido. Siga o guia ProjectV2 em https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar um substituto adequado.'
+    reason: A API `ProjectNext` está obsoleta para favorecer a API `ProjectV2` que tem mais capacidade.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - 
+    location: ProjectNextFieldType.TRACKS
+    description: 'O `TRACKS` será removido. Siga o guia ProjectV2 em https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar um substituto adequado.'
+    reason: A API `ProjectNext` está obsoleta para favorecer a API `ProjectV2` que tem mais capacidade.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - 
+    location: ProjectNextItem.content
+    description: 'O `content` será removido. Siga o guia ProjectV2 em https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar um substituto adequado.'
+    reason: A API `ProjectNext` está obsoleta para favorecer a API `ProjectV2` que tem mais capacidade.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - 
+    location: ProjectNextItem.createdAt
+    description: 'O `createdAt` será removido. Siga o guia ProjectV2 em https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar um substituto adequado.'
+    reason: A API `ProjectNext` está obsoleta para favorecer a API `ProjectV2` que tem mais capacidade.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - 
+    location: ProjectNextItem.creator
+    description: 'O `creator` será removido. Siga o guia ProjectV2 em https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar um substituto adequado.'
+    reason: A API `ProjectNext` está obsoleta para favorecer a API `ProjectV2` que tem mais capacidade.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - 
+    location: ProjectNextItem.databaseId
+    description: 'O `databaseId` será removido. Siga o guia ProjectV2 em https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar um substituto adequado.'
+    reason: A API `ProjectNext` está obsoleta para favorecer a API `ProjectV2` que tem mais capacidade.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - 
+    location: ProjectNextItem.fieldValues
+    description: 'O `fieldValues` será removido. Siga o guia ProjectV2 em https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar um substituto adequado.'
+    reason: A API `ProjectNext` está obsoleta para favorecer a API `ProjectV2` que tem mais capacidade.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - 
+    location: ProjectNextItem.isArchived
+    description: 'O `isArchived` será removido. Siga o guia ProjectV2 em https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar um substituto adequado.'
+    reason: A API `ProjectNext` está obsoleta para favorecer a API `ProjectV2` que tem mais capacidade.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - 
+    location: ProjectNextItem.project
+    description: 'O `project` será removido. Siga o guia ProjectV2 em https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar um substituto adequado.'
+    reason: A API `ProjectNext` está obsoleta para favorecer a API `ProjectV2` que tem mais capacidade.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - 
+    location: ProjectNextItem.title
+    description: 'O `title` será removido. Siga o guia ProjectV2 em https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar um substituto adequado.'
+    reason: A API `ProjectNext` está obsoleta para favorecer a API `ProjectV2` que tem mais capacidade.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - 
+    location: ProjectNextItem.type
+    description: 'O `type` será removido. Siga o guia ProjectV2 em https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar um substituto adequado.'
+    reason: A API `ProjectNext` está obsoleta para favorecer a API `ProjectV2` que tem mais capacidade.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - 
+    location: ProjectNextItem.updatedAt
+    description: 'O `updatedAt` será removido. Siga o guia ProjectV2 em https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar um substituto adequado.'
+    reason: A API `ProjectNext` está obsoleta para favorecer a API `ProjectV2` que tem mais capacidade.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - 
+    location: ProjectNextItemFieldValue.createdAt
+    description: 'O `createdAt` será removido. Siga o guia ProjectV2 em https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar um substituto adequado.'
+    reason: A API `ProjectNext` está obsoleta para favorecer a API `ProjectV2` que tem mais capacidade.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - 
+    location: ProjectNextItemFieldValue.creator
+    description: 'O `creator` será removido. Siga o guia ProjectV2 em https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar um substituto adequado.'
+    reason: A API `ProjectNext` está obsoleta para favorecer a API `ProjectV2` que tem mais capacidade.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - 
+    location: ProjectNextItemFieldValue.databaseId
+    description: 'O `databaseId` será removido. Siga o guia ProjectV2 em https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar um substituto adequado.'
+    reason: A API `ProjectNext` está obsoleta para favorecer a API `ProjectV2` que tem mais capacidade.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - 
+    location: ProjectNextItemFieldValue.projectField
+    description: 'O `projectField` será removido. Siga o guia ProjectV2 em https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar um substituto adequado.'
+    reason: A API `ProjectNext` está obsoleta para favorecer a API `ProjectV2` que tem mais capacidade.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - 
+    location: ProjectNextItemFieldValue.projectFieldConstraint
+    description: 'O `projectFieldConstraint` será removido. Siga o guia ProjectV2 em https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar um substituto adequado.'
+    reason: A API `ProjectNext` está obsoleta para favorecer a API `ProjectV2` que tem mais capacidade.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - 
+    location: ProjectNextItemFieldValue.projectItem
+    description: 'O `projectItem` será removido. Siga o guia ProjectV2 em https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar um substituto adequado.'
+    reason: A API `ProjectNext` está obsoleta para favorecer a API `ProjectV2` que tem mais capacidade.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - 
+    location: ProjectNextItemFieldValue.updatedAt
+    description: 'O `updatedAt` será removido. Siga o guia ProjectV2 em https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar um substituto adequado.'
+    reason: A API `ProjectNext` está obsoleta para favorecer a API `ProjectV2` que tem mais capacidade.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - 
+    location: ProjectNextItemFieldValue.value
+    description: 'O `value` será removido. Siga o guia ProjectV2 em https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar um substituto adequado.'
+    reason: A API `ProjectNext` está obsoleta para favorecer a API `ProjectV2` que tem mais capacidade.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - 
+    location: ProjectNextIterationField.configuration
+    description: 'O `configuration` será removido. Siga o guia ProjectV2 em https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar um substituto adequado.'
+    reason: A API `ProjectNext` está obsoleta para favorecer a API `ProjectV2` que tem mais capacidade.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - 
+    location: ProjectNextIterationField.createdAt
+    description: 'O `createdAt` será removido. Siga o guia ProjectV2 em https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar um substituto adequado.'
+    reason: A API `ProjectNext` está obsoleta para favorecer a API `ProjectV2` que tem mais capacidade.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - 
+    location: ProjectNextIterationField.dataType
+    description: 'O `dataType` será removido. Siga o guia ProjectV2 em https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar um substituto adequado.'
+    reason: A API `ProjectNext` está obsoleta para favorecer a API `ProjectV2` que tem mais capacidade.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - 
+    location: ProjectNextIterationField.databaseId
+    description: 'O `databaseId` será removido. Siga o guia ProjectV2 em https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar um substituto adequado.'
+    reason: A API `ProjectNext` está obsoleta para favorecer a API `ProjectV2` que tem mais capacidade.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - 
+    location: ProjectNextIterationField.name
+    description: 'O `name` será removido. Siga o guia ProjectV2 em https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar um substituto adequado.'
+    reason: A API `ProjectNext` está obsoleta para favorecer a API `ProjectV2` que tem mais capacidade.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - 
+    location: ProjectNextIterationField.project
+    description: 'O `project` será removido. Siga o guia ProjectV2 em https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar um substituto adequado.'
+    reason: A API `ProjectNext` está obsoleta para favorecer a API `ProjectV2` que tem mais capacidade.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - 
+    location: ProjectNextIterationField.settings
+    description: 'O `settings` será removido. Siga o guia ProjectV2 em https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar um substituto adequado.'
+    reason: A API `ProjectNext` está obsoleta para favorecer a API `ProjectV2` que tem mais capacidade.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - 
+    location: ProjectNextIterationField.updatedAt
+    description: 'O `updatedAt` será removido. Siga o guia ProjectV2 em https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar um substituto adequado.'
+    reason: A API `ProjectNext` está obsoleta para favorecer a API `ProjectV2` que tem mais capacidade.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - 
+    location: ProjectNextIterationFieldConfiguration.completedIterations
+    description: 'O `completedIterations` será removido. Siga o guia ProjectV2 em https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar um substituto adequado.'
+    reason: A API `ProjectNext` está obsoleta para favorecer a API `ProjectV2` que tem mais capacidade.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - 
+    location: ProjectNextIterationFieldConfiguration.duration
+    description: 'O `duration` será removido. Siga o guia ProjectV2 em https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar um substituto adequado.'
+    reason: A API `ProjectNext` está obsoleta para favorecer a API `ProjectV2` que tem mais capacidade.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - 
+    location: ProjectNextIterationFieldConfiguration.iterations
+    description: 'O `iterations` será removido. Siga o guia ProjectV2 em https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar um substituto adequado.'
+    reason: A API `ProjectNext` está obsoleta para favorecer a API `ProjectV2` que tem mais capacidade.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - 
+    location: ProjectNextIterationFieldConfiguration.startDay
+    description: 'O `startDay` será removido. Siga o guia ProjectV2 em https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar um substituto adequado.'
+    reason: A API `ProjectNext` está obsoleta para favorecer a API `ProjectV2` que tem mais capacidade.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - 
+    location: ProjectNextIterationFieldIteration.duration
+    description: 'O `duration` será removido. Siga o guia ProjectV2 em https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar um substituto adequado.'
+    reason: A API `ProjectNext` está obsoleta para favorecer a API `ProjectV2` que tem mais capacidade.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - 
+    location: ProjectNextIterationFieldIteration.id
+    description: 'O `id` será removido. Siga o guia ProjectV2 em https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar um substituto adequado.'
+    reason: A API `ProjectNext` está obsoleta para favorecer a API `ProjectV2` que tem mais capacidade.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - 
+    location: ProjectNextIterationFieldIteration.startDate
+    description: 'O `startDate` será removido. Siga o guia ProjectV2 em https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar um substituto adequado.'
+    reason: A API `ProjectNext` está obsoleta para favorecer a API `ProjectV2` que tem mais capacidade.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - 
+    location: ProjectNextIterationFieldIteration.title
+    description: 'O `title` será removido. Siga o guia ProjectV2 em https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar um substituto adequado.'
+    reason: A API `ProjectNext` está obsoleta para favorecer a API `ProjectV2` que tem mais capacidade.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - 
+    location: ProjectNextIterationFieldIteration.titleHTML
+    description: 'O `titleHtml` será removido. Siga o guia ProjectV2 em https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar um substituto adequado.'
+    reason: A API `ProjectNext` está obsoleta para favorecer a API `ProjectV2` que tem mais capacidade.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - 
+    location: ProjectNextOrderField.CREATED_AT
+    description: 'O `CREATED_AT` será removido. Siga o guia ProjectV2 em https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar um substituto adequado.'
+    reason: A API `ProjectNext` está obsoleta para favorecer a API `ProjectV2` que tem mais capacidade.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - 
+    location: ProjectNextOrderField.NUMBER
+    description: 'O `NUMBER` será removido. Siga o guia ProjectV2 em https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar um substituto adequado.'
+    reason: A API `ProjectNext` está obsoleta para favorecer a API `ProjectV2` que tem mais capacidade.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - 
+    location: ProjectNextOrderField.TITLE
+    description: 'O `TITLE` será removido. Siga o guia ProjectV2 em https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar um substituto adequado.'
+    reason: A API `ProjectNext` está obsoleta para favorecer a API `ProjectV2` que tem mais capacidade.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - 
+    location: ProjectNextOrderField.UPDATED_AT
+    description: 'O `UPDATED_AT` será removido. Siga o guia ProjectV2 em https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar um substituto adequado.'
+    reason: A API `ProjectNext` está obsoleta para favorecer a API `ProjectV2` que tem mais capacidade.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - 
+    location: ProjectNextOwner.projectNext
+    description: 'O `projectNext` será removido. Siga o guia ProjectV2 em https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar um substituto adequado.'
+    reason: A API `ProjectNext` está obsoleta para favorecer a API `ProjectV2` que tem mais capacidade.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - 
+    location: ProjectNextOwner.projectsNext
+    description: 'O `projectsNext` será removido. Siga o guia ProjectV2 em https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar um substituto adequado.'
+    reason: A API `ProjectNext` está obsoleta para favorecer a API `ProjectV2` que tem mais capacidade.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - 
+    location: ProjectNextRecent.recentProjectsNext
+    description: 'O `recentProjectsNext` será removido. Siga o guia ProjectV2 em https://github.blog/changelog/2022-06-23-the-new-issues-june-23rd-update/ para encontrar um substituto adequado.'
+    reason: A API `ProjectNext` está obsoleta para favorecer a API `ProjectV2` que tem mais capacidade.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - 
+    location: ProjectNextSingleSelectField.createdAt
+    description: 'O `createdAt` será removido. Siga o guia ProjectV2 em https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar um substituto adequado.'
+    reason: A API `ProjectNext` está obsoleta para favorecer a API `ProjectV2` que tem mais capacidade.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - 
+    location: ProjectNextSingleSelectField.dataType
+    description: 'O `dataType` será removido. Siga o guia ProjectV2 em https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar um substituto adequado.'
+    reason: A API `ProjectNext` está obsoleta para favorecer a API `ProjectV2` que tem mais capacidade.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - 
+    location: ProjectNextSingleSelectField.databaseId
+    description: 'O `databaseId` será removido. Siga o guia ProjectV2 em https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar um substituto adequado.'
+    reason: A API `ProjectNext` está obsoleta para favorecer a API `ProjectV2` que tem mais capacidade.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - 
+    location: ProjectNextSingleSelectField.name
+    description: 'O `name` será removido. Siga o guia ProjectV2 em https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar um substituto adequado.'
+    reason: A API `ProjectNext` está obsoleta para favorecer a API `ProjectV2` que tem mais capacidade.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - 
+    location: ProjectNextSingleSelectField.options
+    description: 'O `options` será removido. Siga o guia ProjectV2 em https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar um substituto adequado.'
+    reason: A API `ProjectNext` está obsoleta para favorecer a API `ProjectV2` que tem mais capacidade.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - 
+    location: ProjectNextSingleSelectField.project
+    description: 'O `project` será removido. Siga o guia ProjectV2 em https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar um substituto adequado.'
+    reason: A API `ProjectNext` está obsoleta para favorecer a API `ProjectV2` que tem mais capacidade.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - 
+    location: ProjectNextSingleSelectField.settings
+    description: 'O `settings` será removido. Siga o guia ProjectV2 em https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar um substituto adequado.'
+    reason: A API `ProjectNext` está obsoleta para favorecer a API `ProjectV2` que tem mais capacidade.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - 
+    location: ProjectNextSingleSelectField.updatedAt
+    description: 'O `updatedAt` será removido. Siga o guia ProjectV2 em https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar um substituto adequado.'
+    reason: A API `ProjectNext` está obsoleta para favorecer a API `ProjectV2` que tem mais capacidade.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - 
+    location: ProjectNextSingleSelectFieldOption.id
+    description: 'O `id` será removido. Siga o guia ProjectV2 em https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar um substituto adequado.'
+    reason: A API `ProjectNext` está obsoleta para favorecer a API `ProjectV2` que tem mais capacidade.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - 
+    location: ProjectNextSingleSelectFieldOption.name
+    description: 'O `name` será removido. Siga o guia ProjectV2 em https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar um substituto adequado.'
+    reason: A API `ProjectNext` está obsoleta para favorecer a API `ProjectV2` que tem mais capacidade.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - 
+    location: ProjectNextSingleSelectFieldOption.nameHTML
+    description: 'O `nameHtml` será removido. Siga o guia ProjectV2 em https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar um substituto adequado.'
+    reason: A API `ProjectNext` está obsoleta para favorecer a API `ProjectV2` que tem mais capacidade.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - 
+    location: ProjectView.createdAt
+    description: 'O `createdAt` será removido. Siga o guia ProjectV2 em https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar um substituto adequado.'
+    reason: A API `ProjectNext` está obsoleta para favorecer a API `ProjectV2` que tem mais capacidade.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - 
+    location: ProjectView.databaseId
+    description: 'O `databaseId` será removido. Siga o guia ProjectV2 em https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar um substituto adequado.'
+    reason: A API `ProjectNext` está obsoleta para favorecer a API `ProjectV2` que tem mais capacidade.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - 
+    location: ProjectView.filter
+    description: 'O `filter` será removido. Siga o guia ProjectV2 em https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar um substituto adequado.'
+    reason: A API `ProjectNext` está obsoleta para favorecer a API `ProjectV2` que tem mais capacidade.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - 
+    location: ProjectView.groupBy
+    description: 'O `groupBy` será removido. Siga o guia ProjectV2 em https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar um substituto adequado.'
+    reason: A API `ProjectNext` está obsoleta para favorecer a API `ProjectV2` que tem mais capacidade.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - 
+    location: ProjectView.items
+    description: 'O `items` será removido. Siga o guia ProjectV2 em https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar um substituto adequado.'
+    reason: A API `ProjectNext` está obsoleta para favorecer a API `ProjectV2` que tem mais capacidade.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - 
+    location: ProjectView.layout
+    description: 'O `layout` será removido. Siga o guia ProjectV2 em https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar um substituto adequado.'
+    reason: A API `ProjectNext` está obsoleta para favorecer a API `ProjectV2` que tem mais capacidade.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - 
+    location: ProjectView.name
+    description: 'O `name` será removido. Siga o guia ProjectV2 em https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar um substituto adequado.'
+    reason: A API `ProjectNext` está obsoleta para favorecer a API `ProjectV2` que tem mais capacidade.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - 
+    location: ProjectView.number
+    description: 'O `number` será removido. Siga o guia ProjectV2 em https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar um substituto adequado.'
+    reason: A API `ProjectNext` está obsoleta para favorecer a API `ProjectV2` que tem mais capacidade.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - 
+    location: ProjectView.project
+    description: 'O `project` será removido. Siga o guia ProjectV2 em https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar um substituto adequado.'
+    reason: A API `ProjectNext` está obsoleta para favorecer a API `ProjectV2` que tem mais capacidade.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - 
+    location: ProjectView.sortBy
+    description: 'O `sortBy` será removido. Siga o guia ProjectV2 em https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar um substituto adequado.'
+    reason: A API `ProjectNext` está obsoleta para favorecer a API `ProjectV2` que tem mais capacidade.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - 
+    location: ProjectView.updatedAt
+    description: 'O `updatedAt` será removido. Siga o guia ProjectV2 em https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar um substituto adequado.'
+    reason: A API `ProjectNext` está obsoleta para favorecer a API `ProjectV2` que tem mais capacidade.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - 
+    location: ProjectView.verticalGroupBy
+    description: 'O `verticalGroupBy` será removido. Siga o guia ProjectV2 em https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar um substituto adequado.'
+    reason: A API `ProjectNext` está obsoleta para favorecer a API `ProjectV2` que tem mais capacidade.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - 
+    location: ProjectView.visibleFields
+    description: 'O `visibleFields` será removido. Siga o guia ProjectV2 em https://github.blog/changelog/2022-06-23-the-new-issues-june-23rd-update/ para encontrar um substituto adequado.'
+    reason: A API `ProjectNext` está obsoleta para favorecer a API `ProjectV2` que tem mais capacidade.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - 
+    location: PullRequest.projectNext
+    description: 'O `projectNext` será removido. Siga o guia ProjectV2 em https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar um substituto adequado.'
+    reason: A API `ProjectNext` está obsoleta para favorecer a API `ProjectV2` que tem mais capacidade.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - 
+    location: PullRequest.projectNextItems
+    description: 'O `visibleFields` será removido. Siga o guia ProjectV2 em https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar um substituto adequado.'
+    reason: A API `ProjectNext` está obsoleta para favorecer a API `ProjectV2` que tem mais capacidade.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - 
+    location: PullRequest.projectsNext
+    description: 'O `projectsNext` será removido. Siga o guia ProjectV2 em https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar um substituto adequado.'
+    reason: A API `ProjectNext` está obsoleta para favorecer a API `ProjectV2` que tem mais capacidade.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - 
+    location: RemovePullRequestFromMergeQueueInput.branch
+    description: '`branch` será removido.'
+    reason: Os PRs são removidos da fila de merge para o branch base, o argumento `branch` agora é um no-op
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: jhunschejones
+  - 
+    location: Repository.projectNext
+    description: 'O `projectNext` será removido. Siga o guia ProjectV2 em https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar um substituto adequado.'
+    reason: A API `ProjectNext` está obsoleta para favorecer a API `ProjectV2` que tem mais capacidade.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - 
+    location: Repository.projectsNext
+    description: 'O `projectsNext` será removido. Siga o guia ProjectV2 em https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar um substituto adequado.'
+    reason: A API `ProjectNext` está obsoleta para favorecer a API `ProjectV2` que tem mais capacidade.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - 
+    location: Repository.recentProjectsNext
+    description: 'O `recentProjectsNext` será removido. Siga o guia ProjectV2 em https://github.blog/changelog/2022-06-23-the-new-issues-june-23rd-update/ para encontrar um substituto adequado.'
+    reason: A API `ProjectNext` está obsoleta para favorecer a API `ProjectV2` que tem mais capacidade.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - 
+    location: RepositoryVulnerabilityAlert.fixReason
+    description: '`fixReason` será removido.'
+    reason: O campo `fixReason` está sendo removido. Você ainda pode usar `fixedAt` e `dismissReason`.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: jamestran201
+  - 
+    location: UnlockAndResetMergeGroupInput.branch
+    description: '`branch` será removido.'
+    reason: O grupo de merge atual para o branch padrão do repositório, o argumento `branch` agora é um no-op
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: jhunschejones
+  - 
+    location: UpdateProjectNextInput.closed
+    description: 'O `closed` será removido. Siga o guia ProjectV2 em https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar um substituto adequado.'
+    reason: A API `ProjectNext` está obsoleta para favorecer a API `ProjectV2` que tem mais capacidade.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - 
+    location: UpdateProjectNextInput.description
+    description: 'O `description` será removido. Siga o guia ProjectV2 em https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar um substituto adequado.'
+    reason: A API `ProjectNext` está obsoleta para favorecer a API `ProjectV2` que tem mais capacidade.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - 
+    location: UpdateProjectNextInput.projectId
+    description: 'O `projectId` será removido. Siga o guia ProjectV2 em https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar um substituto adequado.'
+    reason: A API `ProjectNext` está obsoleta para favorecer a API `ProjectV2` que tem mais capacidade.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - 
+    location: UpdateProjectNextInput.public
+    description: 'O `public` será removido. Siga o guia ProjectV2 em https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar um substituto adequado.'
+    reason: A API `ProjectNext` está obsoleta para favorecer a API `ProjectV2` que tem mais capacidade.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - 
+    location: UpdateProjectNextInput.shortDescription
+    description: 'O `resourcePath` será removido. Siga o guia ProjectV2 em https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar um substituto adequado.'
+    reason: A API `ProjectNext` está obsoleta para favorecer a API `ProjectV2` que tem mais capacidade.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - 
+    location: UpdateProjectNextInput.title
+    description: 'O `title` será removido. Siga o guia ProjectV2 em https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar um substituto adequado.'
+    reason: A API `ProjectNext` está obsoleta para favorecer a API `ProjectV2` que tem mais capacidade.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - 
+    location: UpdateProjectNextItemFieldInput.fieldConstraintId
+    description: 'O `visibleFields` será removido. Siga o guia ProjectV2 em https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar um substituto adequado.'
+    reason: A API `ProjectNext` está obsoleta para favorecer a API `ProjectV2` que tem mais capacidade.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - 
+    location: UpdateProjectNextItemFieldInput.fieldId
+    description: 'O `fieldId` será removido. Siga o guia ProjectV2 em https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar um substituto adequado.'
+    reason: A API `ProjectNext` está obsoleta para favorecer a API `ProjectV2` que tem mais capacidade.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - 
     location: UpdateProjectNextItemFieldInput.fieldWithSettingId
-    description: '`fieldWithSettingId` will be removed. Use `fieldConstraintId` instead'
-    reason: Renamed to fieldConstraintId to improve naming consistency.
+    description: '`fieldWithSettingId` será removido. Use `fieldConstraintId`'
+    reason: Renomeado para fieldConstraintId para melhorar a consistência de nomes.
     date: '2022-10-01T00:00:00+00:00'
     criticality: breaking
     owner: memex
+  - 
+    location: UpdateProjectNextItemFieldInput.itemId
+    description: 'O `itemId` será removido. Siga o guia ProjectV2 em https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar um substituto adequado.'
+    reason: A API `ProjectNext` está obsoleta para favorecer a API `ProjectV2` que tem mais capacidade.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - 
+    location: UpdateProjectNextItemFieldInput.value
+    description: 'O `value` será removido. Siga o guia ProjectV2 em https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar um substituto adequado.'
+    reason: A API `ProjectNext` está obsoleta para favorecer a API `ProjectV2` que tem mais capacidade.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - 
+    location: UpdateProjectNextItemFieldPayload.projectNextItem
+    description: 'O `projectNextItem` será removido. Siga o guia ProjectV2 em https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar um substituto adequado.'
+    reason: A API `ProjectNext` está obsoleta para favorecer a API `ProjectV2` que tem mais capacidade.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - 
+    location: UpdateProjectNextPayload.projectNext
+    description: 'O `projectNext` será removido. Siga o guia ProjectV2 em https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar um substituto adequado.'
+    reason: A API `ProjectNext` está obsoleta para favorecer a API `ProjectV2` que tem mais capacidade.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - 
+    location: User.projectNext
+    description: 'O `projectNext` será removido. Siga o guia ProjectV2 em https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar um substituto adequado.'
+    reason: A API `ProjectNext` está obsoleta para favorecer a API `ProjectV2` que tem mais capacidade.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - 
+    location: User.projectsNext
+    description: 'O `projectsNext` será removido. Siga o guia ProjectV2 em https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar um substituto adequado.'
+    reason: A API `ProjectNext` está obsoleta para favorecer a API `ProjectV2` que tem mais capacidade.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - 
+    location: User.recentProjectsNext
+    description: 'O `recentProjectsNext` será removido. Siga o guia ProjectV2 em https://github.blog/changelog/2022-06-23-the-new-issues-june-23rd-update/ para encontrar um substituto adequado.'
+    reason: A API `ProjectNext` está obsoleta para favorecer a API `ProjectV2` que tem mais capacidade.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar

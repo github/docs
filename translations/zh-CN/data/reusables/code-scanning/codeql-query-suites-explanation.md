@@ -2,4 +2,4 @@
 
 {% data reusables.code-scanning.codeql-query-suites %}
 
-When you specify a query suite, the {% data variables.product.prodname_codeql %} analysis engine will run the default set of queries and any extra queries defined in the additional query suite. {% if codeql-ml-queries %}The `security-extended` and `security-and-quality` query suites for JavaScript contain experimental queries. For more information, see "[About {% data variables.product.prodname_code_scanning %} alerts](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-alerts#about-experimental-alerts)."{% endif %}
+指定查询套件时，{% data variables.product.prodname_codeql %} 分析引擎将运行默认查询集以及在其他查询套件中定义的任何额外查询。 {% ifversion codeql-ml-queries %}The `security-extended` and `security-and-quality` 查询套件包含实验性查询。 更多信息请参阅“[关于 {% data variables.product.prodname_code_scanning %} 警报](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-alerts#about-experimental-alerts)。”{% endif %}。

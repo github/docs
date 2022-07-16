@@ -22,8 +22,17 @@ topics:
   - Security
 ---
 
+{% ifversion ghec%}
+## About audit log events for your enterprise
+
+The scope of the events that appear in your enterprise's audit log depend on whether your enterprise uses {% data variables.product.prodname_emus %}. Para obtener más información sobre las {% data variables.product.prodname_emus %}, consulta la sección "[Acerca de las {% data variables.product.prodname_emus %}](/admin/identity-and-access-management/using-enterprise-managed-users-and-saml-for-iam/about-enterprise-managed-users)".
+
+- If your enterprise does not use {% data variables.product.prodname_emus %}, the audit log only includes events related to the enterprise account and the organizations within the enterprise account, which are listed in this article.
+- If your enterprise uses {% data variables.product.prodname_emus %}, the audit log also includes user events for {% data variables.product.prodname_managed_users %}, such as each time the user logs in to {% data variables.product.product_name %}. For a list of these events, see "[Reviewing your security log](/authentication/keeping-your-account-and-data-secure/reviewing-your-security-log#security-log-actions)."
+{% endif %}
+
 {%- ifversion fpt or ghec %}
-### Acciones de la categoría `account`
+## Acciones de la categoría `account`
 
 | Acción                                | Descripción                                                                                                                                                                                                                                                                                                                                |
 | ------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -34,7 +43,7 @@ topics:
 {%- endif %}
 
 {%- ifversion fpt or ghec %}
-### Acciones de la categoría `advisory_credit`
+## Acciones de la categoría `advisory_credit`
 
 | Acción                    | Descripción                                                                                                                                                                                                           |
 | ------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -44,14 +53,14 @@ topics:
 | `advisory_credit.destroy` | El administrador de una asesoría de seguridad eliminó a alguien de la sección de crédito.                                                                                                                             |
 {%- endif %}
 
-### Acciones de la categoría `artifact`
+## Acciones de la categoría `artifact`
 
 | Acción             | Descripción                                                         |
 | ------------------ | ------------------------------------------------------------------- |
 | `artifact.destroy` | Un artefacto de ejecución de flujo de trabajo se borró manualmente. |
 
 {%- ifversion ghec %}
-### Acciones de la categoría `audit_log_streaming`
+## Acciones de la categoría `audit_log_streaming`
 
 | Acción                        | Descripción                                                                                                                                 |
 | ----------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -62,7 +71,7 @@ topics:
 {%- endif %}
 
 {%- ifversion fpt or ghec %}
-### acciones de la categoría `billing`
+## acciones de la categoría `billing`
 
 | Acción                        | Descripción                                                                                                                                                                                                                                             |
 | ----------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -70,7 +79,7 @@ topics:
 | `billing.change_email`        | An organization's billing email address changed. Para obtener más información, consulta "[Establecer tu correo electrónico de facturación](/billing/managing-your-github-billing-settings/setting-your-billing-email)".                                 |
 {%- endif %}
 
-### Acciones de la categoría `business`
+## Acciones de la categoría `business`
 
 | Acción               | Descripción                                                                                          |
 | -------------------- | ---------------------------------------------------------------------------------------------------- |
@@ -82,16 +91,16 @@ topics:
 {%- ifversion ghec %}
 | `business.add_support_entitlee` | A support entitlement was added to a member of an enterprise. Para obtener más información, consulta la sección "[Administrar la titularidad de soporte para tu empresa](/admin/user-management/managing-users-in-your-enterprise/managing-support-entitlements-for-your-enterprise)".
 {%- endif %}
-{%- ifversion ghes > 3.0 or ghae %}
+{%- ifversion ghes or ghae %}
 | `business.advanced_security_policy_update` | An enterprise owner{% ifversion ghes %} or site administrator{% endif %} created, updated, or removed a policy for {% data variables.product.prodname_GH_advanced_security %}. Para obtener más información, consulta la sección "[Requerir políticas para la {% data variables.product.prodname_advanced_security %} en tu empresa](/admin/policies/enforcing-policies-for-advanced-security-in-your-enterprise)".
 {%- endif %}
 {%- ifversion ghec %}
 | `business.cancel_admin_invitation` | An invitation for someone to be an owner{% ifversion ghes %} or site administrator{% endif %} of an enterprise was canceled. | `business.cancel_billing_manager_invitation` | An invitation for someone to be an billing manager of an enterprise was canceled.
 {%- endif %}
 {%- ifversion ghes %}
-| `business.clear_actions_settings` | An enterprise owner or site administrator cleared {% data variables.product.prodname_actions %} policy settings for an enterprise. For more information, see "[Enforcing policies for GitHub Actions in your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise)."
+| `business.clear_actions_settings` | An enterprise owner or site administrator cleared {% data variables.product.prodname_actions %} policy settings for an enterprise. Para obtener más información, consulta la sección "[Requerir políticas para las GitHub Actions en tu empresa](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise)".
 {%- endif %}
-| `business.clear_default_repository_permission` | An enterprise owner{% ifversion ghes %} or site administrator{% endif %} cleared the base repository permission policy setting for an enterprise. For more information, see "[Enforcing a policy for base repository permissions](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-base-repository-permissions)." | `business.clear_members_can_create_repos`      | An enterprise owner{% ifversion ghes %} or site administrator{% endif %} cleared a restriction on repository creation in organizations in the enterprise. Para obtener más información, consulta la sección "[Requerir políticas de administración de repositorios en tu empresa](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#setting-a-policy-for-repository-creation)". | `business.create`                              | An enterprise was created.
+| `business.clear_default_repository_permission` | An enterprise owner{% ifversion ghes %} or site administrator{% endif %} cleared the base repository permission policy setting for an enterprise. Para obtener más información, consulta la sección "[Requerir una política para los permisos de los repositorios base](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-base-repository-permissions)". | `business.clear_members_can_create_repos`      | An enterprise owner{% ifversion ghes %} or site administrator{% endif %} cleared a restriction on repository creation in organizations in the enterprise. Para obtener más información, consulta la sección "[Requerir políticas de administración de repositorios en tu empresa](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#setting-a-policy-for-repository-creation)". | `business.create`                              | An enterprise was created.
 {%- ifversion ghec %}
 | `business.disable_saml` | SAML single sign-on was disabled for an enterprise.
 {%- endif %}
@@ -103,8 +112,8 @@ topics:
 {%- ifversion ghec %}
 | `business.enterprise_server_license_download` | A {% data variables.product.prodname_ghe_server %} license was downloaded. | `business.import_license_usage` | License usage information was imported from a {% data variables.product.prodname_ghe_server %} instance to an enterprise account on {% data variables.product.prodname_dotcom_the_website %}. | `business.invite_admin` | An invitation for someone to be an enterprise owner{% ifversion ghes %} or site administrator{% endif %} of an enterprise was sent. | `business.invite_billing_manager` | An invitation for someone to be an billing manager of an enterprise was sent.
 {%- endif %}
-| `business.members_can_update_protected_branches.clear` | An enterprise owner{% ifversion ghes %} or site administrator{% endif %} unset a policy for whether members of an enterprise can update protected branches on repositories for individual organizations. Organization administrators can choose whether to allow updating protected branches settings. | `business.members_can_update_protected_branches.disable` | The ability for enterprise members to update branch protection rules was disabled. Only enterprise owners can update protected branches. | `business.members_can_update_protected_branches.enable` | The ability for enterprise members to update branch protection rules was enabled. Enterprise owners and members can update protected branches. | `business.remove_admin` | An enterprise owner{% ifversion ghes %} or site administrator{% endif %} was removed from an enterprise.
-{%- ifversion ghes > 3.1 %}
+| `business.members_can_update_protected_branches.clear` | An enterprise owner{% ifversion ghes %} or site administrator{% endif %} unset a policy for whether members of an enterprise can update protected branches on repositories for individual organizations. Los administradores de las organizaciones pudieron elegir si se permitía la actualización de los ajustes de ramas protegidas o no. | `business.members_can_update_protected_branches.disable` | The ability for enterprise members to update branch protection rules was disabled. Solo los propietarios de las empresas pueden actualizar las ramas protegidas. | `business.members_can_update_protected_branches.enable` | The ability for enterprise members to update branch protection rules was enabled. Enterprise owners and members can update protected branches. | `business.remove_admin` | An enterprise owner{% ifversion ghes %} or site administrator{% endif %} was removed from an enterprise.
+{%- ifversion ghes %}
 | `business.referrer_override_enable` | An enterprise owner or site administrator enabled the referrer policy override. Para obtener más información, consulta la sección "[Configurar la política del referente para tu empresa](/admin/configuration/configuring-your-enterprise/configuring-the-referrer-policy-for-your-enterprise)". | `business.referrer_override_disable` | An enterprise owner or site administrator disabled the referrer policy override. Para obtener más información, consulta la sección "[Configurar la política del referente para tu empresa](/admin/configuration/configuring-your-enterprise/configuring-the-referrer-policy-for-your-enterprise)".
 {%- endif %}
 {%- ifversion ghec %}
@@ -121,7 +130,7 @@ topics:
 {%- ifversion ghec %}
 | `business.set_actions_fork_pr_approvals_policy` | The setting for requiring approvals for workflows from public forks was changed for an enterprise. Para obtener más información, consulta la sección "[Requerir políticas para las {% data variables.product.prodname_actions %} en tu empresa](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise#enforcing-a-policy-for-fork-pull-requests-in-your-enterprise)".
 {%- endif %}
-| `business.set_actions_retention_limit` | The retention period for {% data variables.product.prodname_actions %} artifacts and logs was changed for an enterprise. For more information, see "[Enforcing policies for {% data variables.product.prodname_actions %} in an enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise#enforcing-a-policy-for-artifact-and-log-retention-in-your-enterprise)."
+| `business.set_actions_retention_limit` | The retention period for {% data variables.product.prodname_actions %} artifacts and logs was changed for an enterprise. Para obtener más información, consulta la sección "[Requerir políticas para la {% data variables.product.prodname_actions %} en una empresa](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise#enforcing-a-policy-for-artifact-and-log-retention-in-your-enterprise)".
 {%- ifversion ghec or ghes %}
 | `business.set_fork_pr_workflows_policy` | The policy for workflows on private repository forks was changed. Para obtener más información, consulta la sección "{% ifversion ghec %}[Requerir políticas para las {% data variables.product.prodname_actions %} en una empresa](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise#enforcing-a-policy-for-fork-pull-requests-in-private-repositories){% else ifversion ghes > 2.22 %}[Habilitar los flujos de trabajo para las bifurcaciones de repositorios privados](/admin/github-actions/enabling-github-actions-for-github-enterprise-server/enforcing-github-actions-policies-for-your-enterprise#enabling-workflows-for-private-repository-forks){% endif %}".
 {%- endif %}
@@ -133,8 +142,8 @@ topics:
 | `business.update_saml_provider_settings` | The SAML single sign-on provider settings for an enterprise were updated.
 {%- endif %}
 
-{%- if secret-scanning-audit-log-custom-patterns %}
-### `business_secret_scanning_custom_pattern` category actions
+{%- ifversion secret-scanning-audit-log-custom-patterns %}
+## `business_secret_scanning_custom_pattern` category actions
 
 | Acción | Descripción                                                                                                                                                                                                                                                                                                                          |
 | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -143,34 +152,34 @@ topics:
 |        | `business_secret_scanning_custom_pattern.update` | Changes to an enterprise-level custom pattern are saved for secret scanning.                                                                                                                                                                                                      |
 {%- endif %}
 
-### `checks` category actions
+## `checks` category actions
 
-| Acción                         | Descripción                                                                                                                                                                                                                                                                                                |
-| ------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `checks.auto_trigger_disabled` | Automatic creation of check suites was disabled on a repository in the organization or enterprise. For more information, see "[Update repository preferences for check suites](/rest/reference/checks#update-repository-preferences-for-check-suites)."                                                    |
-| `checks.auto_trigger_enabled`  | Automatic creation of check suites was enabled on a repository in the organization or enterprise. Para obtener más información, consulta la sección "[Actualizar las preferencias de repositorio para las suites de verificación](/rest/reference/checks#update-repository-preferences-for-check-suites)". |
+| Acción                         | Descripción                                                                                                                                                                                                                                                                                                 |
+| ------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `checks.auto_trigger_disabled` | Automatic creation of check suites was disabled on a repository in the organization or enterprise. Para obtener más información, consulta la sección "[Actualizar las preferencias de repositorio para las suites de verificación](/rest/reference/checks#update-repository-preferences-for-check-suites)". |
+| `checks.auto_trigger_enabled`  | Automatic creation of check suites was enabled on a repository in the organization or enterprise. Para obtener más información, consulta la sección "[Actualizar las preferencias de repositorio para las suites de verificación](/rest/reference/checks#update-repository-preferences-for-check-suites)".  |
 {%- ifversion fpt or ghec %}
 | `checks.delete_logs` | Logs in a check suite were deleted.
 {%- endif %}
 
 {%- ifversion fpt or ghec %}
-### acciones de la categoría `codespaces`
+## acciones de la categoría `codespaces`
 
-| Acción                                         | Descripción                                                                                                                                                                                                                     |
-| ---------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `codespaces.connect`                           | A codespace was started.                                                                                                                                                                                                        |
-| `codespaces.create`                            | A user [created a codespace](/github/developing-online-with-codespaces/creating-a-codespace).                                                                                                                                   |
-| `codespaces.destroy`                           | A user [deleted a codespace](/github/developing-online-with-codespaces/deleting-a-codespace).                                                                                                                                   |
-| `codespaces.allow_permissions`                 | A codespace using custom permissions from its `devcontainer.json` file was launched.                                                                                                                                            |
-| `codespaces.attempted_to_create_from_prebuild` | An attempt to create a codespace from a prebuild was made.                                                                                                                                                                      |
-| `codespaces.create_an_org_secret`              | A user created an organization-level [secret for {% data variables.product.prodname_codespaces %}](/github/developing-online-with-codespaces/managing-encrypted-secrets-for-codespaces#about-encrypted-secrets-for-codespaces)  |
-| `codespaces.update_an_org_secret`              | A user updated an organization-level [secret for {% data variables.product.prodname_codespaces %}](/github/developing-online-with-codespaces/managing-encrypted-secrets-for-codespaces#about-encrypted-secrets-for-codespaces). |
-| `codespaces.remove_an_org_secret`              | A user removed an organization-level [secret for {% data variables.product.prodname_codespaces %}](/github/developing-online-with-codespaces/managing-encrypted-secrets-for-codespaces#about-encrypted-secrets-for-codespaces). |
-| `codespaces.manage_access_and_security`        | A user updated [which repositories a codespace can access](/github/developing-online-with-codespaces/managing-access-and-security-for-codespaces).                                                                              |
+| Acción                                         | Descripción                                                                                                                                                                                                                              |
+| ---------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `codespaces.connect`                           | A codespace was started.                                                                                                                                                                                                                 |
+| `codespaces.create`                            | A user [created a codespace](/github/developing-online-with-codespaces/creating-a-codespace).                                                                                                                                            |
+| `codespaces.destroy`                           | A user [deleted a codespace](/github/developing-online-with-codespaces/deleting-a-codespace).                                                                                                                                            |
+| `codespaces.allow_permissions`                 | A codespace using custom permissions from its `devcontainer.json` file was launched.                                                                                                                                                     |
+| `codespaces.attempted_to_create_from_prebuild` | An attempt to create a codespace from a prebuild was made.                                                                                                                                                                               |
+| `codespaces.create_an_org_secret`              | A user created an organization-level [secret for {% data variables.product.prodname_github_codespaces %}](/github/developing-online-with-codespaces/managing-encrypted-secrets-for-codespaces#about-encrypted-secrets-for-codespaces)  |
+| `codespaces.update_an_org_secret`              | A user updated an organization-level [secret for {% data variables.product.prodname_github_codespaces %}](/github/developing-online-with-codespaces/managing-encrypted-secrets-for-codespaces#about-encrypted-secrets-for-codespaces). |
+| `codespaces.remove_an_org_secret`              | A user removed an organization-level [secret for {% data variables.product.prodname_github_codespaces %}](/github/developing-online-with-codespaces/managing-encrypted-secrets-for-codespaces#about-encrypted-secrets-for-codespaces). |
+| `codespaces.manage_access_and_security`        | A user updated [which repositories a codespace can access](/github/developing-online-with-codespaces/managing-access-and-security-for-codespaces).                                                                                       |
 {%- endif %}
 
 {%- ifversion fpt or ghec %}
-### `commit_comment` category actions
+## `commit_comment` category actions
 
 | Acción                   | Descripción                   |
 | ------------------------ | ----------------------------- |
@@ -179,31 +188,31 @@ topics:
 {%- endif %}
 
 {%- ifversion ghes %}
-### `config_entry` category actions
+## `config_entry` category actions
 
 | Acción                 | Descripción                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 | ---------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `config_entry.create`  | A configuration setting was created. These events are only visible in the site admin audit log. The type of events recorded relate to:</br>- Enterprise settings and policies</br>- Organization and repository permissions and settings</br>- Git, Git LFS, {% data variables.product.prodname_github_connect %}, {% data variables.product.prodname_registry %}, project, and code security settings.                                            |
+| `config_entry.create`  | A configuration setting was created. Estos eventos solo se pueden ver en la bitácora de auditoría del administrador de sitio. El tipo de eventos registrado se relaciona con:</br>- Políticas y ajustes de empresa</br>- Permisos y ajustes de repositorio y organización</br>- Git, LFS de Git, {% data variables.product.prodname_github_connect %}, {% data variables.product.prodname_registry %}, proyecto, y ajustes de seguridad de código. |
 | `config_entry.destroy` | A configuration setting was deleted. Estos eventos solo se pueden ver en la bitácora de auditoría del administrador de sitio. El tipo de eventos registrado se relaciona con:</br>- Políticas y ajustes de empresa</br>- Permisos y ajustes de repositorio y organización</br>- Git, LFS de Git, {% data variables.product.prodname_github_connect %}, {% data variables.product.prodname_registry %}, proyecto, y ajustes de seguridad de código. |
 | `config_entry.update`  | A configuration setting was edited. Estos eventos solo se pueden ver en la bitácora de auditoría del administrador de sitio. El tipo de eventos registrado se relaciona con:</br>- Políticas y ajustes de empresa</br>- Permisos y ajustes de repositorio y organización</br>- Git, LFS de Git, {% data variables.product.prodname_github_connect %}, {% data variables.product.prodname_registry %}, proyecto, y ajustes de seguridad de código.  |
 {%- endif %}
 
-{%- ifversion fpt or ghec or ghes > 3.2 or ghae-issue-4864 %}
-### Acciones de la categoría `dependabot_alerts`
+{%- ifversion fpt or ghec or ghes > 3.2 or ghae %}
+## Acciones de la categoría `dependabot_alerts`
 
 | Acción                      | Descripción                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 | --------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `dependabot_alerts.disable` | An enterprise owner{% ifversion ghes %} or site administrator{% endif %} disabled {% data variables.product.prodname_dependabot_alerts %} for all existing {% ifversion fpt or ghec %}private {% endif %}repositories. Para obtener más información, consulta la sección "[Administrar la configuración de seguridad y análisis para tu organización](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)". |
 | `dependabot_alerts.enable`  | An enterprise owner{% ifversion ghes %} or site administrator{% endif %} enabled {% data variables.product.prodname_dependabot_alerts %} for all existing {% ifversion fpt or ghec %}private {% endif %}repositories.                                                                                                                                                                                                                                                  |
 
-### Acciones de la categoría `dependabot_alerts_new_repos`
+## Acciones de la categoría `dependabot_alerts_new_repos`
 
 | Acción                                | Descripción                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
 | ------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `dependabot_alerts_new_repos.disable` | An enterprise owner{% ifversion ghes %} or site administrator{% endif %} disabled {% data variables.product.prodname_dependabot_alerts %} for all new {% ifversion fpt or ghec %}private {% endif %}repositories. Para obtener más información, consulta la sección "[Administrar la configuración de seguridad y análisis para tu organización](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)". |
 | `dependabot_alerts_new_repos.enable`  | An enterprise owner{% ifversion ghes %} or site administrator{% endif %} enabled {% data variables.product.prodname_dependabot_alerts %} for all new {% ifversion fpt or ghec %}private {% endif %}repositories.                                                                                                                                                                                                                                                  |
 
-### `dependabot_repository_access`category actions
+## `dependabot_repository_access`category actions
 
 | Acción                                              | Descripción                                                                                     |
 | --------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
@@ -211,14 +220,14 @@ topics:
 {%- endif %}
 
 {%- ifversion fpt or ghec or ghes > 3.2 %}
-### Acciones de la categoría `dependabot_security_updates`
+## Acciones de la categoría `dependabot_security_updates`
 
 | Acción                                | Descripción                                                                                                                                                                                                                                                                                                                                                                                                                          |
 | ------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `dependabot_security_updates.disable` | An enterprise owner{% ifversion ghes %} or site administrator{% endif %} disabled {% data variables.product.prodname_dependabot_security_updates %} for all existing repositories. Para obtener más información, consulta la sección "[Administrar la configuración de seguridad y análisis para tu organización](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)". |
 | `dependabot_security_updates.enable`  | An enterprise owner{% ifversion ghes %} or site administrator{% endif %} enabled {% data variables.product.prodname_dependabot_security_updates %} for all existing repositories.                                                                                                                                                                                                                                                  |
 
-### Acciones de la categoría `dependabot_security_updates_new_repos`
+## Acciones de la categoría `dependabot_security_updates_new_repos`
 
 | Acción                                          | Descripción                                                                                                                                                                                                                                                                                                                                                                                                                     |
 | ----------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -226,44 +235,42 @@ topics:
 | `dependabot_security_updates_new_repos.enable`  | An enterprise owner{% ifversion ghes %} or site administrator{% endif %} enabled {% data variables.product.prodname_dependabot_security_updates %} for all new repositories.                                                                                                                                                                                                                                                  |
 {%- endif %}
 
-{%- ifversion fpt or ghec or ghes or ghae-issue-4864 %}
-### Acciones de la categoría `dependency_graph`
+## Acciones de la categoría `dependency_graph`
 
 | Acción                     | Descripción                                                                                                                                                                                                                                                                                                                                                                           |
 | -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `dependency_graph.disable` | An enterprise owner{% ifversion ghes %} or site administrator{% endif %} disabled the dependency graph for all existing repositories. Para obtener más información, consulta la sección "[Administrar la configuración de seguridad y análisis para tu organización](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)". |
 | `dependency_graph.enable`  | An enterprise owner{% ifversion ghes %} or site administrator{% endif %} enabled the dependency graph for all existing repositories.                                                                                                                                                                                                                                                  |
 
-### Acciones de la categoría `dependency_graph_new_repos`
+## Acciones de la categoría `dependency_graph_new_repos`
 
 | Acción                               | Descripción                                                                                                                                                                                                                                                                                                                                                                      |
 | ------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `dependency_graph_new_repos.disable` | An enterprise owner{% ifversion ghes %} or site administrator{% endif %} disabled the dependency graph for all new repositories. Para obtener más información, consulta la sección "[Administrar la configuración de seguridad y análisis para tu organización](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)". |
 | `dependency_graph_new_repos.enable`  | An enterprise owner{% ifversion ghes %} or site administrator{% endif %} enabled the dependency graph for all new repositories.                                                                                                                                                                                                                                                  |
-{%- endif %}
 
 {%- ifversion fpt or ghec %}
-### `discussion` category actions
+## `discussion` category actions
 
 | Acción               | Descripción                    |
 | -------------------- | ------------------------------ |
 | `discussion.destroy` | A team discussion was deleted. |
 
-### `discussion_comment` category actions
+## `discussion_comment` category actions
 
 | Acción                       | Descripción                                                                                                                                            |
 | ---------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `discussion_comment.destroy` | A [comment on a team discussion post was deleted](/communities/moderating-comments-and-conversations/managing-disruptive-comments#deleting-a-comment). |
 | `discussion_comment.update`  | A [comment on a team discussion post was edited](/communities/moderating-comments-and-conversations/managing-disruptive-comments#editing-a-comment).   |
 
-### acciones de la categoría `discussion_post`
+## acciones de la categoría `discussion_post`
 
 | Acción                    | Descripción                                                                                                              |
 | ------------------------- | ------------------------------------------------------------------------------------------------------------------------ |
 | `discussion_post.destroy` | A [team discussion post was deleted](/organizations/collaborating-with-your-team/editing-or-deleting-a-team-discussion). |
 | `discussion_post.update`  | A [team discussion post was edited](/organizations/collaborating-with-your-team/editing-or-deleting-a-team-discussion).  |
 
-### acciones de la categoría `discussion_post_reply`
+## acciones de la categoría `discussion_post_reply`
 
 | Acción                          | Descripción                                                                                                                                          |
 | ------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -272,7 +279,7 @@ topics:
 {%- endif %}
 
 {%- ifversion ghec or ghes %}
-### `dotcom_connection` category actions
+## `dotcom_connection` category actions
 
 | Acción                                   | Descripción                                                                                                                                             |
 | ---------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -283,7 +290,7 @@ topics:
 | `dotcom_connection.upload_usage_metrics` | {% data variables.product.prodname_ghe_server %} usage metrics were uploaded to {% data variables.product.prodname_dotcom_the_website %}.           |
 {%- endif %}
 
-### acciones de la categoría `enterprise`
+## acciones de la categoría `enterprise`
 
 | Acción                                           | Descripción                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 | ------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -301,9 +308,9 @@ topics:
 | `enterprise.runner_group_runners_added`          | A {% data variables.product.prodname_actions %} self-hosted runner was added to a group. Para obtener más información, consulta la sección [Mover un ejecutor auto-hospedado a un grupo](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#moving-a-self-hosted-runner-to-a-group).                                                                                                                                                          |
 | `enterprise.runner_group_runners_updated`        | A {% data variables.product.prodname_actions %} runner group's list of members was updated. Para obtener más información, consulta la sección "[Configurar ejecutores auto-hospedados en un grupo para una organización](/rest/reference/actions#set-self-hosted-runners-in-a-group-for-an-organization)".                                                                                                                                                                       |
 {%- ifversion ghec %}
-| `enterprise.runner_group_visiblity_updated` | The visibility of a {% data variables.product.prodname_actions %} self-hosted runner group was updated via the REST API. For more information, see "[Update a self-hosted runner group for an organization](/rest/reference/actions#update-a-self-hosted-runner-group-for-an-organization)."
+| `enterprise.runner_group_visiblity_updated` | The visibility of a {% data variables.product.prodname_actions %} self-hosted runner group was updated via the REST API. Para obtener más información, consulta la sección "[Actualizar un grupo de ejecutores auto-hospedados para una organización](/rest/reference/actions#update-a-self-hosted-runner-group-for-an-organization)".
 {%- endif %}
-{%- ifversion ghec or ghes > 3.1 or ghae %}
+{%- ifversion ghec or ghes or ghae %}
 | `enterprise.self_hosted_runner_online` | The {% data variables.product.prodname_actions %} runner application was started. Solo se puede ver utilizando la API de REST; no está visible en la IU o en la exportación de JSON/CSV. Para obtener más información, consulta "[Comprobar el estado de un ejecutor autoalojado](/actions/hosting-your-own-runners/monitoring-and-troubleshooting-self-hosted-runners#checking-the-status-of-a-self-hosted-runner)." | `enterprise.self_hosted_runner_offline` | The {% data variables.product.prodname_actions %} runner application was stopped. Solo se puede ver utilizando la API de REST; no está visible en la IU o en la exportación de JSON/CSV. Para obtener más información, consulta "[Comprobar el estado de un ejecutor autoalojado](/actions/hosting-your-own-runners/monitoring-and-troubleshooting-self-hosted-runners#checking-the-status-of-a-self-hosted-runner)."
 {%- endif %}
 {%- ifversion ghec or ghes %}
@@ -311,16 +318,16 @@ topics:
 {%- endif %}
 
 {%- ifversion ghec %}
-### `enterprise_domain` category actions
+## `enterprise_domain` category actions
 
 | Acción                      | Descripción                                                                                                                                                                                                                                                                                                      |
 | --------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `enterprise_domain.approve` | An enterprise domain was approved for an enterprise. For more information, see "[Approving a domain for your enterprise account](/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise#approving-a-domain-for-your-enterprise-account)."                          |
-| `enterprise_domain.create`  | An enterprise domain was added to an enterprise. For more information, see "[Verifying a domain for your enterprise account](/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise#verifying-a-domain-for-your-enterprise-account)."                              |
+| `enterprise_domain.create`  | An enterprise domain was added to an enterprise. Para obtener más información, consulta la sección "[Verificar un dominio para tu cuenta empresarial](/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise#verifying-a-domain-for-your-enterprise-account)".     |
 | `enterprise_domain.destroy` | An enterprise domain was removed from an enterprise. For more information, see "[Removing an approved or verified domain](/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise#removing-an-approved-or-verified-domain)."                                        |
 | `enterprise_domain.verify`  | An enterprise domain was verified for an enterprise. Para obtener más información, consulta la sección "[Verificar un dominio para tu cuenta empresarial](/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise#verifying-a-domain-for-your-enterprise-account)". |
 
-### `enterprise_installation` category actions
+## `enterprise_installation` category actions
 
 | Acción                                  | Descripción                                                                                                                                                                            |
 | --------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -330,12 +337,12 @@ topics:
 {%- endif %}
 
 {%- ifversion fpt or ghec %}
-### acciones de la categoría `environment`
+## acciones de la categoría `environment`
 
 | Acción                               | Descripción                                                                                                                                                                                                                                                                                                       |
 | ------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `environment.add_protection_rule`    | A {% data variables.product.prodname_actions %} environment protection rule was created via the API. For more information, see "[Environment protection rules](/actions/deployment/targeting-different-environments/using-environments-for-deployment#environment-protection-rules)."                             |
-| `environment.create_actions_secret`  | A secret was created for a {% data variables.product.prodname_actions %} environment via the API. For more information, see "[Environment secrets](/actions/deployment/targeting-different-environments/using-environments-for-deployment#environment-secrets)."                                                  |
+| `environment.add_protection_rule`    | A {% data variables.product.prodname_actions %} environment protection rule was created via the API. Para obtener más información, consulta la sección "[reglas de protección de ambiente](/actions/deployment/targeting-different-environments/using-environments-for-deployment#environment-protection-rules)". |
+| `environment.create_actions_secret`  | A secret was created for a {% data variables.product.prodname_actions %} environment via the API. Para obtener más información, consulta la sección ["Secretos de ambiente](/actions/deployment/targeting-different-environments/using-environments-for-deployment#environment-secrets)".                         |
 | `environment.delete`                 | An environment was deleted via the API. For more information, see "[Deleting an environment](/actions/deployment/targeting-different-environments/using-environments-for-deployment#deleting-an-environment)."                                                                                                    |
 | `environment.remove_actions_secret`  | A secret was deleted for a {% data variables.product.prodname_actions %} environment via the API. Para obtener más información, consulta la sección ["Secretos de ambiente](/actions/deployment/targeting-different-environments/using-environments-for-deployment#environment-secrets)".                         |
 | `environment.remove_protection_rule` | A {% data variables.product.prodname_actions %} environment protection rule was deleted via the API. Para obtener más información, consulta la sección "[reglas de protección de ambiente](/actions/deployment/targeting-different-environments/using-environments-for-deployment#environment-protection-rules)". |
@@ -344,7 +351,7 @@ topics:
 {%- endif %}
 
 {%- ifversion ghae %}
-### Acciones de la categoría `external_group`
+## Acciones de la categoría `external_group`
 
 | Acción                     | Descripción                                                                                                                                                                                                                                                                                                                         |
 | -------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -354,7 +361,7 @@ topics:
 | `external_group.unlink`    | An Okta group was unmapped from a {% data variables.product.prodname_ghe_managed %} team. Para obtener más información, consulta la sección "[Mapear grupos de Okta en los equipos](/admin/identity-and-access-management/configuring-authentication-and-provisioning-with-your-identity-provider/mapping-okta-groups-to-teams)". |
 | `external_group.update`    | An Okta group's settings were updated. Para obtener más información, consulta la sección "[Mapear grupos de Okta en los equipos](/admin/identity-and-access-management/configuring-authentication-and-provisioning-with-your-identity-provider/mapping-okta-groups-to-teams)".                                                      |
 
-### Acciones de la categoría `external_identity`
+## Acciones de la categoría `external_identity`
 | Acción                          | Descripción                                                                                                                                                                                                                                                                                                                                                                                 |
 | ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `external_identity.deprovision` | A user was removed from an Okta group and was subsequently deprovisioned from {% data variables.product.prodname_ghe_managed %}. Para obtener más información, consulta la sección "[Mapear grupos de Okta en los equipos](/admin/identity-and-access-management/configuring-authentication-and-provisioning-with-your-identity-provider/mapping-okta-groups-to-teams)".                  |
@@ -362,7 +369,7 @@ topics:
 | `external_identity.update`      | An Okta user's settings were updated. Para obtener más información, consulta la sección "[Mapear grupos de Okta en los equipos](/admin/identity-and-access-management/configuring-authentication-and-provisioning-with-your-identity-provider/mapping-okta-groups-to-teams)".                                                                                                               |
 {%- endif %}
 
-### `gist` category actions
+## `gist` category actions
 
 | Acción                   | Descripción                          |
 | ------------------------ | ------------------------------------ |
@@ -371,7 +378,7 @@ topics:
 | `gist.visibility_change` | The visibility of a gist is changed. |
 
 {% ifversion ghec or ghes > 3.4 or ghae-issue-6724 %}
-### acciones de la categoría `git`
+## acciones de la categoría `git`
 
 | Acción      | Descripción                             |
 | ----------- | --------------------------------------- |
@@ -380,7 +387,7 @@ topics:
 | `git.push`  | Changes were pushed to a repository.    |
 {% endif %}
 
-### acciones de la categoría `hook`
+## acciones de la categoría `hook`
 
 | Acción | Descripción |
 | ------ | ----------- |
@@ -390,7 +397,7 @@ topics:
 {%- endif %}
 | `hook.config_changed`             | A hook's configuration was changed. | `hook.create`                     | A new hook was added. | `hook.destroy`                    | A hook was deleted. | `hook.events_changed`             | A hook's configured events were changed.
 
-### `integration` category actions
+## `integration` category actions
 
 | Acción                             | Descripción                                                                              |
 | ---------------------------------- | ---------------------------------------------------------------------------------------- |
@@ -403,7 +410,7 @@ topics:
 | `integration.revoke_all_tokens`    | All user tokens for an integration were requested to be revoked.                         |
 | `integration.revoke_tokens`        | Token(s) for an integration were revoked.                                                |
 
-### `integration_installation`category actions
+## `integration_installation`category actions
 
 | Acción                                           | Descripción                                     |
 | ------------------------------------------------ | ----------------------------------------------- |
@@ -417,7 +424,7 @@ topics:
 {%- endif %}
 | `integration_installation.version_updated` | Permissions for an integration were updated.
 
-### Acciones de la categoría`integration_installation_request`
+## Acciones de la categoría`integration_installation_request`
 
 | Acción                                    | Descripción                                                                                                                                                               |
 | ----------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -425,7 +432,7 @@ topics:
 | `integration_installation_request.close`  | A request to install an integration for use in an enterprise or organization was either approved or denied by an owner, or canceled by the member who opened the request. |
 
 {%- ifversion ghec or ghae %}
-### `ip_allow_list` category actions
+## `ip_allow_list` category actions
 
 | Acción                                     | Descripción                                                                                                       |
 | ------------------------------------------ | ----------------------------------------------------------------------------------------------------------------- |
@@ -434,7 +441,7 @@ topics:
 | `ip_allow_list.disable`                    | Se inhabilitó una lista de IP permitidas.                                                                         |
 | `ip_allow_list.disable_for_installed_apps` | Se inhabilitó una lista de IP permitidas para las {% data variables.product.prodname_github_apps %} instaladas. |
 
-### Acciones de la categoría `ip_allow_list_entry`
+## Acciones de la categoría `ip_allow_list_entry`
 
 | Acción                        | Descripción                                              |
 | ----------------------------- | -------------------------------------------------------- |
@@ -443,7 +450,7 @@ topics:
 | `ip_allow_list_entry.destroy` | Se borró una dirección IP de una lista de IP permitidas. |
 {%- endif %}
 
-### acciones de la categoría `issue`
+## acciones de la categoría `issue`
 
 | Acción           | Descripción                                                                                                                                                                                                                 |
 | ---------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -452,7 +459,7 @@ topics:
 | `issue.transfer` | An issue was transferred to another repository. Para obtener más información, consulta "[Transferir una propuesta a otro repositorio](/issues/tracking-your-work-with-issues/transferring-an-issue-to-another-repository)." |
 | `issue.unpinned` | An issue was unpinned from a repository. Para obtener más información, consulta "[Anclar una propuesta a tu repositorio](/issues/tracking-your-work-with-issues/pinning-an-issue-to-your-repository)".                      |
 
-### `issue_comment` category actions
+## `issue_comment` category actions
 
 | Acción                   | Descripción                                                    |
 | ------------------------ | -------------------------------------------------------------- |
@@ -461,22 +468,22 @@ topics:
 | `issue_comment.unpinned` | A comment on an issue was unpinned from a repository.          |
 | `issue_comment.update`   | Cambió un comentario sobre un problema (diferente al inicial). |
 
-### `issues` category actions
+## `issues` category actions
 
 | Acción                          | Descripción                                                                                                                                                                                                                                                                                                                                                                                                                    |
 | ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `issues.deletes_disabled`       | The ability for enterprise members to delete issues was disabled. Members cannot delete issues in any organizations in an enterprise. For more information, see "[Enforcing a policy for deleting issues](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-deleting-issues)."                                                         |
+| `issues.deletes_disabled`       | The ability for enterprise members to delete issues was disabled. Members cannot delete issues in any organizations in an enterprise. Para obtener más información, consulta la sección "[Requerir una política para borrar las propuestas](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-deleting-issues)".                       |
 | `issues.deletes_enabled`        | The ability for enterprise members to delete issues was enabled. Members can delete issues in any organizations in an enterprise. Para obtener más información, consulta la sección "[Requerir una política para borrar las propuestas](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-deleting-issues)".                           |
 | `issues.deletes_policy_cleared` | An enterprise owner{% ifversion ghes %} or site administrator{% endif %} cleared the policy setting for allowing members to delete issues in an enterprise. Para obtener más información, consulta la sección "[Requerir una política para borrar las propuestas](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-deleting-issues)". |
 
 {%- ifversion fpt or ghec %}
-### acciones de la categoría `marketplace_agreement_signature`
+## acciones de la categoría `marketplace_agreement_signature`
 
 | Acción                                   | Descripción                                                                                                           |
 | ---------------------------------------- | --------------------------------------------------------------------------------------------------------------------- |
 | `marketplace_agreement_signature.create` | A user signed the {% data variables.product.prodname_marketplace %} Developer Agreement on behalf of an organization. |
 
-### acciones de la categoría `marketplace_listing`
+## acciones de la categoría `marketplace_listing`
 
 | Acción                                | Descripción                                                                                           |
 | ------------------------------------- | ----------------------------------------------------------------------------------------------------- |
@@ -488,21 +495,21 @@ topics:
 | `marketplace_listing.reject`          | A listing was not accepted for inclusion in {% data variables.product.prodname_marketplace %}.        |
 {%- endif %}
 
-### Acciones de la categoría `members_can_create_pages`
+## Acciones de la categoría `members_can_create_pages`
 
 | Acción                             | Descripción                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 | ---------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `members_can_create_pages.disable` | The ability for members to publish {% data variables.product.prodname_pages %} was disabled. Members cannot publish {% data variables.product.prodname_pages %} in an organization. Para obtener más información, consulta la sección "[Administrar la publicación de los sitios de GitHub Pages para tu organización](/organizations/managing-organization-settings/managing-the-publication-of-github-pages-sites-for-your-organization)". |
 | `members_can_create_pages.enable`  | The ability for members to publish {% data variables.product.prodname_pages %} was enabled. Members can publish {% data variables.product.prodname_pages %} in an organization. Para obtener más información, consulta la sección "[Administrar la publicación de los sitios de GitHub Pages para tu organización](/organizations/managing-organization-settings/managing-the-publication-of-github-pages-sites-for-your-organization)".     |
 
-### `members_can_create_private_pages` category actions
+## `members_can_create_private_pages` category actions
 
-| Acción                                     | Descripción                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| ------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `members_can_create_private_pages.disable` | The ability for members to publish private {% data variables.product.prodname_pages %} was disabled. Members cannot publish private {% data variables.product.prodname_pages %} in an organization. For more information, see "[Managing the publication of GitHub Pages sites for your organization](/organizations/managing-organization-settings/managing-the-publication-of-github-pages-sites-for-your-organization)."                              |
-| `members_can_create_private_pages.enable`  | The ability for members to publish private {% data variables.product.prodname_pages %} was enabled. Members can publish private {% data variables.product.prodname_pages %} in an organization. Para obtener más información, consulta la sección "[Administrar la publicación de los sitios de GitHub Pages para tu organización](/organizations/managing-organization-settings/managing-the-publication-of-github-pages-sites-for-your-organization)". |
+| Acción                                     | Descripción                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| ------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `members_can_create_private_pages.disable` | The ability for members to publish private {% data variables.product.prodname_pages %} was disabled. Members cannot publish private {% data variables.product.prodname_pages %} in an organization. Para obtener más información, consulta la sección "[Administrar la publicación de los sitios de GitHub Pages para tu organización](/organizations/managing-organization-settings/managing-the-publication-of-github-pages-sites-for-your-organization)". |
+| `members_can_create_private_pages.enable`  | The ability for members to publish private {% data variables.product.prodname_pages %} was enabled. Members can publish private {% data variables.product.prodname_pages %} in an organization. Para obtener más información, consulta la sección "[Administrar la publicación de los sitios de GitHub Pages para tu organización](/organizations/managing-organization-settings/managing-the-publication-of-github-pages-sites-for-your-organization)".     |
 
-### `members_can_create_public_pages` category actions
+## `members_can_create_public_pages` category actions
 
 | Acción                                    | Descripción                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | ----------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -510,15 +517,15 @@ topics:
 | `members_can_create_public_pages.enable`  | The ability for members to publish public {% data variables.product.prodname_pages %} was enabled. Members can publish public {% data variables.product.prodname_pages %} in an organization. Para obtener más información, consulta la sección "[Administrar la publicación de los sitios de GitHub Pages para tu organización](/organizations/managing-organization-settings/managing-the-publication-of-github-pages-sites-for-your-organization)".     |
 
 {%- ifversion ghec or ghes or ghae %}
-### `members_can_delete_repos` category actions
+## `members_can_delete_repos` category actions
 
-| Acción                             | Descripción                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| ---------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `members_can_delete_repos.clear`   | An enterprise owner{% ifversion ghes %} or site administrator{% endif %} cleared the policy setting for deleting or transfering repositories in any organizations in an enterprise. For more information, see "[Enforcing a policy for repository deletion and transfer](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-repository-deletion-and-transfer)."                 |
-| `members_can_delete_repos.disable` | The ability for enterprise members to delete repositories was disabled. Members cannot delete or transfer repositories in any organizations in an enterprise. Para obtener más información, consulta la sección "[Requerir una política para el borrado y transferencia de repositorios](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-repository-deletion-and-transfer)". |
-| `members_can_delete_repos.enable`  | The ability for enterprise members to delete repositories was enabled. Members can delete or transfer repositories in any organizations in an enterprise. Para obtener más información, consulta la sección "[Requerir una política para el borrado y transferencia de repositorios](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-repository-deletion-and-transfer)".     |
+| Acción                             | Descripción                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| ---------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `members_can_delete_repos.clear`   | An enterprise owner{% ifversion ghes %} or site administrator{% endif %} cleared the policy setting for deleting or transfering repositories in any organizations in an enterprise. Para obtener más información, consulta la sección "[Requerir una política para el borrado y transferencia de repositorios](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-repository-deletion-and-transfer)". |
+| `members_can_delete_repos.disable` | The ability for enterprise members to delete repositories was disabled. Members cannot delete or transfer repositories in any organizations in an enterprise. Para obtener más información, consulta la sección "[Requerir una política para el borrado y transferencia de repositorios](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-repository-deletion-and-transfer)".                       |
+| `members_can_delete_repos.enable`  | The ability for enterprise members to delete repositories was enabled. Members can delete or transfer repositories in any organizations in an enterprise. Para obtener más información, consulta la sección "[Requerir una política para el borrado y transferencia de repositorios](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-repository-deletion-and-transfer)".                           |
 
-### `members_can_view_dependency_insights` category actions
+## `members_can_view_dependency_insights` category actions
 
 | Acción                                         | Descripción                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 | ---------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -526,7 +533,7 @@ topics:
 | `members_can_view_dependency_insights.disable` | The ability for enterprise members to view dependency insights was disabled. Members cannot view dependency insights in any organizations in an enterprise.{% ifversion ghec %} For more information, see "[Enforcing a policy for visibility of dependency insights](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-dependency-insights-in-your-enterprise)."{% endif %}
 | `members_can_view_dependency_insights.enable`  | The ability for enterprise members to view dependency insights was enabled. Members can view dependency insights in any organizations in an enterprise.{% ifversion ghec %} For more information, see "[Enforcing a policy for visibility of dependency insights](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-dependency-insights-in-your-enterprise)."{% endif %}
 
-### `migration` category actions
+## `migration` category actions
 
 | Acción                   | Descripción                                                                                                                                                                                                                                                                                                    |
 | ------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -535,7 +542,7 @@ topics:
 | `migration.download`     | A migration file for transferring data from a *source* location (such as a {% data variables.product.prodname_dotcom_the_website %} organization or a {% data variables.product.prodname_ghe_server %} instance) to a *target* {% data variables.product.prodname_ghe_server %} instance was downloaded. |
 {%- endif %}
 
-### acciones de la categoría `oauth_access`
+## acciones de la categoría `oauth_access`
 
 | Acción | Descripción |
 | ------ | ----------- |
@@ -544,7 +551,7 @@ topics:
 
 `oauth_access.create`   | An [OAuth access token][] was generated for a user account. Para obtener más información, consulta la sección "[Crear un token de acceso personal](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)". `oauth_access.destroy`  | An [OAuth access token][] was deleted from a user account.
 
-### acciones de la categoría `oauth_application`
+## acciones de la categoría `oauth_application`
 
 | Acción                      | Descripción                                                                              |
 | --------------------------- | ---------------------------------------------------------------------------------------- |
@@ -563,7 +570,7 @@ topics:
 {%- endif %}
 
 {%- ifversion fpt or ghec %}
-### Acciones de la categoría `oauth_authorization`
+## Acciones de la categoría `oauth_authorization`
 
 | Acción                        | Descripción                                                                                                                                                                                                            |
 | ----------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -572,31 +579,35 @@ topics:
 | `oauth_authorization.update`  | An authorization for an OAuth application was updated. Para obtener más información, consulta la sección "[Autorizar las Apps de OAuth](/authentication/keeping-your-account-and-data-secure/authorizing-oauth-apps)". |
 {%- endif %}
 
-### acciones de la categoría `org`
+## acciones de la categoría `org`
 
-| Acción                                                                                                                                                                                                                                                                                    | Descripción                                                               |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------- |
-| `org.accept_business_invitation`                                                                                                                                                                                                                                                          | An invitation sent to an organization to join an enterprise was accepted. |
-| {% ifversion ghec %}For more information, see "[Inviting an organization to join your enterprise account](/admin/user-management/managing-organizations-in-your-enterprise/adding-organizations-to-your-enterprise#inviting-an-organization-to-join-your-enterprise-account)."{% endif %} |                                                                           |
-| `org.add_billing_manager`                                                                                                                                                                                                                                                                 | A billing manager was added to an organization.                           |
-| {% ifversion fpt or ghec %}For more information, see "[Adding a billing manager to your organization](/organizations/managing-peoples-access-to-your-organization-with-roles/adding-a-billing-manager-to-your-organization)."{% endif %}                                                  |                                                                           |
-| `org.add_member`                                                                                                                                                                                                                                                                          | A user joined an organization.                                            |
-{%- ifversion ghes > 3.0 or ghae or ghec %}
-| `org.advanced_security_disabled_for_new_repos` | {% data variables.product.prodname_GH_advanced_security %} was disabled for new repositories in an organization. | `org.advanced_security_disabled_on_all_repos` | {% data variables.product.prodname_GH_advanced_security %} was disabled for all repositories in an organization. | `org.advanced_security_enabled_for_new_repos` | {% data variables.product.prodname_GH_advanced_security %} was enabled for new repositories in an organization. | `org.advanced_security_enabled_on_all_repos` | {% data variables.product.prodname_GH_advanced_security %} was enabled for all repositories in an organization. | `org.advanced_security_policy_selected_member_disabled` | An enterprise owner prevented {% data variables.product.prodname_GH_advanced_security %} features from being enabled for repositories owned by the organization. {% data reusables.advanced-security.more-information-about-enforcement-policy %} | `org.advanced_security_policy_selected_member_enabled` | An enterprise owner allowed {% data variables.product.prodname_GH_advanced_security %} features to be enabled for repositories owned by the organization. {% data reusables.advanced-security.more-information-about-enforcement-policy %} | `org.advanced_security_policy_update` | An organization owner updated polices for {% data variables.product.prodname_GH_advanced_security %} in an enterprise. {% data reusables.advanced-security.more-information-about-enforcement-policy %}
-{%- endif %}
-| `org.async_delete` | A user initiated a background job to delete an organization.
+| Acción                                                                                                                                                                                                                                                                                    | Descripción                                                                                                                                                                                                                                         |
+| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `org.accept_business_invitation`                                                                                                                                                                                                                                                          | An invitation sent to an organization to join an enterprise was accepted.                                                                                                                                                                           |
+| {% ifversion ghec %}For more information, see "[Inviting an organization to join your enterprise account](/admin/user-management/managing-organizations-in-your-enterprise/adding-organizations-to-your-enterprise#inviting-an-organization-to-join-your-enterprise-account)."{% endif %} |                                                                                                                                                                                                                                                     |
+| `org.add_billing_manager`                                                                                                                                                                                                                                                                 | A billing manager was added to an organization.                                                                                                                                                                                                     |
+| {% ifversion fpt or ghec %}For more information, see "[Adding a billing manager to your organization](/organizations/managing-peoples-access-to-your-organization-with-roles/adding-a-billing-manager-to-your-organization)."{% endif %}                                                  |                                                                                                                                                                                                                                                     |
+| `org.add_member`                                                                                                                                                                                                                                                                          | A user joined an organization.                                                                                                                                                                                                                      |
+| `org.advanced_security_disabled_for_new_repos`                                                                                                                                                                                                                                            | {% data variables.product.prodname_GH_advanced_security %} was disabled for new repositories in an organization.                                                                                                                                  |
+| `org.advanced_security_disabled_on_all_repos`                                                                                                                                                                                                                                             | {% data variables.product.prodname_GH_advanced_security %} was disabled for all repositories in an organization.                                                                                                                                  |
+| `org.advanced_security_enabled_for_new_repos`                                                                                                                                                                                                                                             | {% data variables.product.prodname_GH_advanced_security %} was enabled for new repositories in an organization.                                                                                                                                   |
+| `org.advanced_security_enabled_on_all_repos`                                                                                                                                                                                                                                              | {% data variables.product.prodname_GH_advanced_security %} was enabled for all repositories in an organization.                                                                                                                                   |
+| `org.advanced_security_policy_selected_member_disabled`                                                                                                                                                                                                                                   | An enterprise owner prevented {% data variables.product.prodname_GH_advanced_security %} features from being enabled for repositories owned by the organization. {% data reusables.advanced-security.more-information-about-enforcement-policy %}
+| `org.advanced_security_policy_selected_member_enabled`                                                                                                                                                                                                                                    | An enterprise owner allowed {% data variables.product.prodname_GH_advanced_security %} features to be enabled for repositories owned by the organization. {% data reusables.advanced-security.more-information-about-enforcement-policy %}
+| `org.advanced_security_policy_update`                                                                                                                                                                                                                                                     | An organization owner updated polices for {% data variables.product.prodname_GH_advanced_security %} in an enterprise. {% data reusables.advanced-security.more-information-about-enforcement-policy %}
+| `org.async_delete`                                                                                                                                                                                                                                                                        | Un usuario inició una tarea en segundo plano para eliminar una organización.                                                                                                                                                                        |
 {%- ifversion ghec %}
 | `org.audit_log_export` | An organization owner created an export of the organization audit log. Si la exportación incluía una consulta, el registro detallará la consulta utilizada y la cantidad de entradas en el registro de auditoría que coinciden con esa consulta. For more information, see "[Exporting audit log activity for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/exporting-audit-log-activity-for-your-enterprise)."
 {%- endif %}
 | `org.block_user` | An organization owner blocked a user from accessing the organization's repositories. |{% ifversion fpt or ghec %}For more information, see "[Blocking a user from your organization](/communities/maintaining-your-safety-on-github/blocking-a-user-from-your-organization)."{% endif %}| | `org.cancel_business_invitation` | An invitation for an organization to join an enterprise was revoked. |{% ifversion ghec %}Para obtener más información, consulta la sección "[Invitar a una organización para que se una a tu cuenta empresarial](/admin/user-management/managing-organizations-in-your-enterprise/adding-organizations-to-your-enterprise#inviting-an-organization-to-join-your-enterprise-account)."{% endif %}| | `org.cancel_invitation` | Se revocó una invitación que se envió a un usuario para que se una a una organización. | `org.clear_actions_settings` |  An organization owner cleared {% data variables.product.prodname_actions %} policy settings for an organization. For more information, see "[Managing GitHub Actions permissions for your organization](/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization#managing-github-actions-permissions-for-your-organization)." | `org.clear_default_repository_permission` | An organization owner cleared the base repository permission policy setting for an organization. For more information, see "[Setting base permissions](/organizations/managing-access-to-your-organizations-repositories/setting-base-permissions-for-an-organization#setting-base-permissions)." | `org.clear_member_team_creation_permission` | An organization owner cleared the new teams creation setting for an organization. Para obtener más información, consulta "[Configurar los permisos de creación de equipo en tu organización](/organizations/managing-organization-settings/setting-team-creation-permissions-in-your-organization)." | `org.clear_reader_discussion_creation_permission` | An organization owner cleared the new discussion creation setting for an organization. |{% ifversion fpt or ghec %}Para obtener más información, consulta la sección "[Permitir o dejar de permitir que los usuarios con acceso de lectura creen debates](/organizations/managing-organization-settings/managing-discussion-creation-for-repositories-in-your-organization)."{% endif %}| | `org.clear_members_can_create_repos`                 | Un propietario de organización libró una restricción de creación de repositorios en una organización. Para obtener más información, consulta "[Restringir la creación de repositorios en tu organización](/organizations/managing-organization-settings/restricting-repository-creation-in-your-organization)". | `org.clear_members_can_invite_outside_collaborators` | An organization owner cleared the outside collaborators invitation policy for an organization. Para obtener más información, consulta la sección "[Establecer permisos para agregar colaboradores externos](/organizations/managing-organization-settings/setting-permissions-for-adding-outside-collaborators)". | `org.clear_new_repository_default_branch_setting`    | An organization owner cleared the default branch name for new repositories setting for an organization. For more information, see "[Setting the default branch name](/organizations/managing-organization-settings/managing-the-default-branch-name-for-repositories-in-your-organization#setting-the-default-branch-name)."
 {%- ifversion fpt or ghec %}
-| `org.codespaces_trusted_repo_access_granted`         | {% data variables.product.prodname_codespaces %} was granted trusted repository access to all other repositories in an organization. Para obtener más información, consulta la sección "[Administrar el acceso de un repositorio a los codespces de tu organización](/codespaces/managing-codespaces-for-your-organization/managing-repository-access-for-your-organizations-codespaces)". | `org.codespaces_trusted_repo_access_revoked`         | {% data variables.product.prodname_codespaces %} trusted repository access to all other repositories in an organization was revoked. Para obtener más información, consulta la sección "[Administrar el acceso de un repositorio a los codespces de tu organización](/codespaces/managing-codespaces-for-your-organization/managing-repository-access-for-your-organizations-codespaces)".
+| `org.codespaces_trusted_repo_access_granted`         | {% data variables.product.prodname_github_codespaces %} was granted trusted repository access to all other repositories in an organization. Para obtener más información, consulta la sección "[Administrar el acceso de un repositorio a los codespces de tu organización](/codespaces/managing-codespaces-for-your-organization/managing-repository-access-for-your-organizations-codespaces)". | `org.codespaces_trusted_repo_access_revoked`         | {% data variables.product.prodname_github_codespaces %} trusted repository access to all other repositories in an organization was revoked. Para obtener más información, consulta la sección "[Administrar el acceso de un repositorio a los codespces de tu organización](/codespaces/managing-codespaces-for-your-organization/managing-repository-access-for-your-organizations-codespaces)".
 {%- endif %}
 | `org.config.disable_collaborators_only` | The interaction limit for collaborators only for an organization was disabled. |{% ifversion fpt or ghec %}Para obtener más información, consulta la sección "[Limitar las interaciones en tu organización](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-organization#limiting-interactions-in-your-organization)."{% endif %}| | `org.config.disable_contributors_only` | Se inhabilitó el límite de interacción para los contribuyentes previos únicamente para una organización. |{% ifversion fpt or ghec %}Para obtener más información, consulta la sección "[Limitar las interacciones en tu organización](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-organization#limiting-interactions-in-your-organization)."{% endif %}| | `org.config.disable_sockpuppet_disallowed` | Se inhabilitó el límite de interacciones para los usuarios existentes únicamente para una organización. |{% ifversion fpt or ghec %}Para obtener más información, consulta la sección "[Limitar las interaciones en tu organización](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-organization#limiting-interactions-in-your-organization)."{% endif %}| | `org.config.enable_collaborators_only` | Se habilitó el límite de interacción para los colaboradores únicamente para una organización. |{% ifversion fpt or ghec %}Para obtener más información, consulta la sección "[Limitar las interaciones en tu organización](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-organization#limiting-interactions-in-your-organization)."{% endif %}| | `org.config.enable_contributors_only` | Se habilitó el límite de interacción para los contribuyentes previos únicamente para una organización. |{% ifversion fpt or ghec %}Para obtener más información, consulta la sección "[Limitar las interacciones en tu organización](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-organization#limiting-interactions-in-your-organization)."{% endif %}| | `org.config.enable_sockpuppet_disallowed` | Se habilitó el límite de interacción para los usuarios existentes únicamente para una organización. |{% ifversion fpt or ghec %}Para obtener más información, consulta la sección "[Limitar las interacciones en tu organización](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-organization#limiting-interactions-in-your-organization)."{% endif %}| | `org.confirm_business_invitation` | Se confirmó una invitación para que una organización se una a una empresa. |{% ifversion ghec %}Para obtener más información, consulta la sección "[Invitar a una organización para que se una a tu cuenta empresarial](/admin/user-management/managing-organizations-in-your-enterprise/adding-organizations-to-your-enterprise#inviting-an-organization-to-join-your-enterprise-account)."{% endif %}| | `org.create` | Se creó una organización. Para obtener más información, consulta la sección "[Crear una organización nueva desde cero](/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch)".
 {%- ifversion fpt or ghec or ghes %}
 | `org.create_actions_secret` | A {% data variables.product.prodname_actions %} secret was created for an organization. Para obtener más información, consulta la sección "[Crear secretos cifrados para una organización](/actions/reference/encrypted-secrets#creating-encrypted-secrets-for-an-organization)".
 {%- endif %}
-| `org.create_integration_secret` | A {% data variables.product.prodname_dependabot %}{% ifversion fpt or ghec %} or {% data variables.product.prodname_codespaces %}{% endif %} integration secret was created for an organization. | `org.delete`       | An organization was deleted by a user-initiated background job. | `org.disable_member_team_creation_permission` | An organization owner limited team creation to owners. Para obtener más información, consulta "[Configurar los permisos de creación de equipo en tu organización](/organizations/managing-organization-settings/setting-team-creation-permissions-in-your-organization)." | `org.disable_reader_discussion_creation_permission` | An organization owner limited discussion creation to users with at least triage permission in an organization. {% ifversion fpt or ghec %}For more information, see "[Allowing or disallowing users with read access to create discussions](/organizations/managing-organization-settings/managing-discussion-creation-for-repositories-in-your-organization)."{% endif %}
+| `org.create_integration_secret` | A {% data variables.product.prodname_dependabot %}{% ifversion fpt or ghec %} or {% data variables.product.prodname_codespaces %}{% endif %} integration secret was created for an organization. | `org.delete`       | An organization was deleted by a user-initiated background job. | `org.disable_member_team_creation_permission` | An organization owner limited team creation to owners. Para obtener más información, consulta "[Configurar los permisos de creación de equipo en tu organización](/organizations/managing-organization-settings/setting-team-creation-permissions-in-your-organization)." | `org.disable_reader_discussion_creation_permission` | An organization owner limited discussion creation to users with at least triage permission in an organization. {% ifversion fpt or ghec %}Para obtener más información, consulta la sección "[Permitir o dejar de permitir que los usuarios con acceso de lectura creen debates](/organizations/managing-organization-settings/managing-discussion-creation-for-repositories-in-your-organization)".{% endif %}
 {%- ifversion fpt or ghec %}
 | `org.disable_oauth_app_restrictions` | Third-party application access restrictions for an organization were disabled. For more information, see "[Disabling OAuth App access restrictions for your organization](/organizations/restricting-access-to-your-organizations-data/disabling-oauth-app-access-restrictions-for-your-organization)."
 {%- endif %}
@@ -620,7 +631,7 @@ topics:
 {%- ifversion fpt or ghec %}
 | `org.oauth_app_access_approved` | An owner [granted organization access to an {% data variables.product.prodname_oauth_app %}](/organizations/restricting-access-to-your-organizations-data/approving-oauth-apps-for-your-organization). | `org.oauth_app_access_denied` | An owner [disabled a previously approved {% data variables.product.prodname_oauth_app %}'s access](/organizations/restricting-access-to-your-organizations-data/denying-access-to-a-previously-approved-oauth-app-for-your-organization) to an organization. | `org.oauth_app_access_requested` | An organization member requested that an owner grant an {% data variables.product.prodname_oauth_app %} access to an organization.
 {%- endif %}
-| `org.recreate` | An organization was restored. | `org.register_self_hosted_runner` | A new self-hosted runner was registered. Para obtener más información, consulta la sección "[Agregar un ejecutor auto-hospedado a una organización](/actions/hosting-your-own-runners/adding-self-hosted-runners#adding-a-self-hosted-runner-to-an-organization)". | `org.remove_actions_secret` | A {% data variables.product.prodname_actions %} secret was removed. | `org.remove_integration_secret` | A {% data variables.product.prodname_dependabot %}{% ifversion fpt or ghec %} or {% data variables.product.prodname_codespaces %}{% endif %} integration secret was removed from an organization. | `org.remove_billing_manager` | An owner removed a billing manager from an organization. |{% ifversion fpt or ghec %}Para obtener más información, consulta la sección "[Eliminar a un gerente de factguración de tu organización](/organizations/managing-peoples-access-to-your-organization-with-roles/removing-a-billing-manager-from-your-organization)"{% endif %}{% ifversion not ghae %} o cuando se requiera [la autenticación bifactorial en una organización](/organizations/keeping-your-organization-secure/managing-two-factor-authentication-for-your-organization/requiring-two-factor-authentication-in-your-organization) y un gerente de facturación no haya usado la 2FA o la haya inhabilitado.{% endif %}| | `org.remove_member` | Un [propietario eliminó a un miembro de una organización](/organizations/managing-membership-in-your-organization/removing-a-member-from-your-organization){% ifversion not ghae %} o cuando [two-factor authentication was required in an organization](/organizations/keeping-your-organization-secure/managing-two-factor-authentication-for-your-organization/requiring-two-factor-authentication-in-your-organization) un miembro de la organización no utiliza 2FA o la inhabilita{% endif %}. Also an [organization member removed themselves](/account-and-profile/setting-up-and-managing-your-github-user-account/managing-your-membership-in-organizations/removing-yourself-from-an-organization) from an organization. | `org.remove_outside_collaborator` | Un propietario eliminó a un colaborador externo de una organización{% ifversion not ghae %} o cuando [se requirió la autenticación bifactorial en una organización](/organizations/keeping-your-organization-secure/managing-two-factor-authentication-for-your-organization/requiring-two-factor-authentication-in-your-organization) y un colaborador externo no la utilizó o la inhabilitó{% endif %}. | `org.remove_self_hosted_runner` | A self-hosted runner was removed. Para obtener más información, consulta la sección "[Eliminar a un ejecutor de una organización](/actions/hosting-your-own-runners/removing-self-hosted-runners#removing-a-runner-from-an-organization)". | `org.rename` | An organization was renamed. | `org.restore_member` | An organization member was restored. For more information, see "[Reinstating a former member of your organization](/organizations/managing-membership-in-your-organization/reinstating-a-former-member-of-your-organization)."
+| `org.recreate` | An organization was restored. | `org.register_self_hosted_runner` | A new self-hosted runner was registered. Para obtener más información, consulta la sección "[Agregar un ejecutor auto-hospedado a una organización](/actions/hosting-your-own-runners/adding-self-hosted-runners#adding-a-self-hosted-runner-to-an-organization)". | `org.remove_actions_secret` | A {% data variables.product.prodname_actions %} secret was removed. | `org.remove_integration_secret` | A {% data variables.product.prodname_dependabot %}{% ifversion fpt or ghec %} or {% data variables.product.prodname_codespaces %}{% endif %} integration secret was removed from an organization. | `org.remove_billing_manager` | An owner removed a billing manager from an organization. |{% ifversion fpt or ghec %}Para obtener más información, consulta la sección "[Eliminar a un gerente de factguración de tu organización](/organizations/managing-peoples-access-to-your-organization-with-roles/removing-a-billing-manager-from-your-organization)"{% endif %}{% ifversion not ghae %} o cuando se requiera [la autenticación bifactorial en una organización](/organizations/keeping-your-organization-secure/managing-two-factor-authentication-for-your-organization/requiring-two-factor-authentication-in-your-organization) y un gerente de facturación no haya usado la 2FA o la haya inhabilitado.{% endif %}| | `org.remove_member` | Un [propietario eliminó a un miembro de una organización](/organizations/managing-membership-in-your-organization/removing-a-member-from-your-organization){% ifversion not ghae %} o cuando [two-factor authentication was required in an organization](/organizations/keeping-your-organization-secure/managing-two-factor-authentication-for-your-organization/requiring-two-factor-authentication-in-your-organization) un miembro de la organización no utiliza 2FA o la inhabilita{% endif %}. Also an [organization member removed themselves](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-your-membership-in-organizations/removing-yourself-from-an-organization) from an organization. | `org.remove_outside_collaborator` | Un propietario eliminó a un colaborador externo de una organización{% ifversion not ghae %} o cuando [se requirió la autenticación bifactorial en una organización](/organizations/keeping-your-organization-secure/managing-two-factor-authentication-for-your-organization/requiring-two-factor-authentication-in-your-organization) y un colaborador externo no la utilizó o la inhabilitó{% endif %}. | `org.remove_self_hosted_runner` | A self-hosted runner was removed. Para obtener más información, consulta la sección "[Eliminar a un ejecutor de una organización](/actions/hosting-your-own-runners/removing-self-hosted-runners#removing-a-runner-from-an-organization)". | `org.rename` | An organization was renamed. | `org.restore_member` | An organization member was restored. For more information, see "[Reinstating a former member of your organization](/organizations/managing-membership-in-your-organization/reinstating-a-former-member-of-your-organization)."
 {%- ifversion ghec %}
 | `org.revoke_external_identity` | An organization owner revoked a member's linked identity. Para obtener más información, consulta la sección "[Visualizar y administrar el acceso de SAML de un miembro a tu organización](/organizations/granting-access-to-your-organization-with-saml-single-sign-on/viewing-and-managing-a-members-saml-access-to-your-organization#viewing-and-revoking-a-linked-identity)". | `org.revoke_sso_session` | An organization owner revoked a member's SAML session. Para obtener más información, consulta la sección "[Visualizar y administrar el acceso de SAML de un miembro a tu organización](/organizations/granting-access-to-your-organization-with-saml-single-sign-on/viewing-and-managing-a-members-saml-access-to-your-organization#viewing-and-revoking-a-linked-identity)".
 {%- endif %}
@@ -632,12 +643,10 @@ topics:
 {%- ifversion fpt or ghec %}
 | `org.runner_group_visiblity_updated` | The visibility of a self-hosted runner group was updated via the REST API. Para obtener más información, consulta la sección "[Actualizar un grupo de ejecutores auto-hospedados para una organización](/rest/reference/actions#update-a-self-hosted-runner-group-for-an-organization)".
 {%- endif %}
-{%- if secret-scanning-audit-log-custom-patterns %}
+{%- ifversion secret-scanning-audit-log-custom-patterns %}
 | `org.secret_scanning_push_protection_disable` | An organization owner or administrator disabled push protection for secret scanning. Para obtener más información, consulta la sección "[Proteger las subidas de información con el escaneo de secretos](/enterprise-cloud@latest/code-security/secret-scanning/protecting-pushes-with-secret-scanning)". | `org.secret_scanning_push_protection_enable` | An organization owner or administrator enabled push protection for secret scanning.
 {%- endif %}
-{%- ifversion fpt or ghec or ghes > 3.1 or ghae %}
 | `org.self_hosted_runner_online` | The runner application was started. Solo se puede ver utilizando la API de REST; no está visible en la IU o en la exportación de JSON/CSV. Para obtener más información, consulta "[Comprobar el estado de un ejecutor autoalojado](/actions/hosting-your-own-runners/monitoring-and-troubleshooting-self-hosted-runners#checking-the-status-of-a-self-hosted-runner)." | `org.self_hosted_runner_offline` | The runner application was stopped. Solo se puede ver utilizando la API de REST; no está visible en la IU o en la exportación de JSON/CSV. Para obtener más información, consulta "[Comprobar el estado de un ejecutor autoalojado](/actions/hosting-your-own-runners/monitoring-and-troubleshooting-self-hosted-runners#checking-the-status-of-a-self-hosted-runner)."
-{%- endif %}
 {%- ifversion fpt or ghec or ghes %}
 | `org.self_hosted_runner_updated` | The runner application was updated. Se puede ver utilizando la API de REST y la IU; no se puede ver en la exportación de JSON/CSV. Para obtener más información, consulta "[Acerca de los ejecutores autoalojados](/actions/hosting-your-own-runners/about-self-hosted-runners#about-self-hosted-runners)."
 {%- endif %}
@@ -664,19 +673,19 @@ topics:
 {%- endif %}
 
 {%- ifversion ghec or ghes or ghae %}
-### acciones de la categoría `org_credential_authorization`
+## acciones de la categoría `org_credential_authorization`
 
 | Acción                                                                                                                                                                                                    | Descripción                                                                                                                                                                                                                                                                                         |
 | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `org_credential_authorization.deauthorized`                                                                                                                                                               | A member deauthorized credentials for use with SAML single sign-on.                                                                                                                                                                                                                                 |
-| {% ifversion ghec or ghae %}For more information, see "[Authenticating with SAML single sign-on](/authentication/authenticating-with-saml-single-sign-on)."{% endif %}                                    |                                                                                                                                                                                                                                                                                                     |
+| {% ifversion ghec or ghae %}Para obtener más información, consulta la sección "[Autenticarse con el inicio de sesión único de SAML](/authentication/authenticating-with-saml-single-sign-on)".{% endif %} |                                                                                                                                                                                                                                                                                                     |
 | `org_credential_authorization.grant`                                                                                                                                                                      | A member authorized credentials for use with SAML single sign-on.                                                                                                                                                                                                                                   |
 | {% ifversion ghec or ghae %}Para obtener más información, consulta la sección "[Autenticarse con el inicio de sesión único de SAML](/authentication/authenticating-with-saml-single-sign-on)".{% endif %} |                                                                                                                                                                                                                                                                                                     |
 | `org_credential_authorization.revoke`                                                                                                                                                                     | An owner revoked authorized credentials. {% ifversion ghec %}For more information, see "[Viewing and managing your active SAML sessions](/organizations/granting-access-to-your-organization-with-saml-single-sign-on/viewing-and-managing-a-members-saml-access-to-your-organization)."{% endif %}
 {%- endif %}
 
-{%- if secret-scanning-audit-log-custom-patterns %}
-### Acciones de la categoría `org_secret_scanning_custom_pattern`
+{%- ifversion secret-scanning-audit-log-custom-patterns %}
+## Acciones de la categoría `org_secret_scanning_custom_pattern`
 
 | Acción                                      | Descripción                                                                                                                                                                                                                                                                                                             |
 | ------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -685,7 +694,7 @@ topics:
 | `org_secret_scanning_custom_pattern.update` | Changes to a custom pattern are saved for secret scanning in an organization. Para obtener más información, consulta la sección "[Definir los patrones personalizados para el escaneo de secretos](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning#editing-a-custom-pattern)".              |
 {%- endif %}
 
-### `organization_default_label` category actions
+## `organization_default_label` category actions
 
 | Acción                               | Descripción                                                                                                                                                                                                                                                    |
 | ------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -693,45 +702,43 @@ topics:
 | `organization_default_label.update`  | A default label for repositories in an organization was edited. For more information, see "[Editing a default label](/organizations/managing-organization-settings/managing-default-labels-for-repositories-in-your-organization#editing-a-default-label)."    |
 | `organization_default_label.destroy` | A default label for repositories in an organization was deleted. For more information, see "[Deleting a default label](/organizations/managing-organization-settings/managing-default-labels-for-repositories-in-your-organization#deleting-a-default-label)." |
 
-{%- ifversion fpt or ghec or ghes > 3.1 %}
-### `organization_domain` category actions
+{%- ifversion fpt or ghec or ghes %}
+## `organization_domain` category actions
 
 | Acción                        | Descripción                                                                                                                                                                                                                                                                                           |
 | ----------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `organization_domain.approve` | An enterprise domain was approved for an organization. For more information, see "[Approving a domain for your organization](/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization#approving-a-domain-for-your-organization)."                          |
-| `organization_domain.create`  | An enterprise domain was added to an organization. For more information, see "[Verifying a domain for your organization](/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization#verifying-a-domain-for-your-organization)."                              |
+| `organization_domain.create`  | An enterprise domain was added to an organization. Para obtener más información, consulta la sección "[Verificar un dominio para tu organización](/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization#verifying-a-domain-for-your-organization)".     |
 | `organization_domain.destroy` | An enterprise domain was removed from an organization. For more information, see "[Removing an approved or verified domain](/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization#removing-an-approved-or-verified-domain)."                            |
 | `organization_domain.verify`  | An enterprise domain was verified for an organization. Para obtener más información, consulta la sección "[Verificar un dominio para tu organización](/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization#verifying-a-domain-for-your-organization)". |
 
-### `organization_projects_change` category actions
+## `organization_projects_change` category actions
 
-| Acción                                 | Descripción                                                                                                                                                                                                                                                                                                                                                                                                           |
-| -------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `organization_projects_change.clear`   | An enterprise owner{% ifversion ghes %} or site administrator{% endif %} cleared the policy setting for organization-wide project boards in an enterprise. For more information, see "[Enforcing a policy for organization-wide project boards](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-project-board-policies-in-your-enterprise#enforcing-a-policy-for-organization-wide-project-boards)." |
-| `organization_projects_change.disable` | Organization projects were disabled for all organizations in an enterprise. Para obtener más información, consulta la sección "[Requerir una política para los tableros de proyecto en toda la organización](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-project-board-policies-in-your-enterprise#enforcing-a-policy-for-organization-wide-project-boards)".                                    |
-| `organization_projects_change.enable`  | Organization projects were enabled for all organizations in an enterprise. Para obtener más información, consulta la sección "[Requerir una política para los tableros de proyecto en toda la organización](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-project-board-policies-in-your-enterprise#enforcing-a-policy-for-organization-wide-project-boards)".                                     |
+| Acción                                 | Descripción                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| -------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `organization_projects_change.clear`   | An enterprise owner{% ifversion ghes %} or site administrator{% endif %} cleared the policy setting for organization-wide project boards in an enterprise. Para obtener más información, consulta la sección "[Requerir una política para los tableros de proyecto en toda la organización](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-project-board-policies-in-your-enterprise#enforcing-a-policy-for-organization-wide-project-boards)". |
+| `organization_projects_change.disable` | Organization projects were disabled for all organizations in an enterprise. Para obtener más información, consulta la sección "[Requerir una política para los tableros de proyecto en toda la organización](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-project-board-policies-in-your-enterprise#enforcing-a-policy-for-organization-wide-project-boards)".                                                                                |
+| `organization_projects_change.enable`  | Organization projects were enabled for all organizations in an enterprise. Para obtener más información, consulta la sección "[Requerir una política para los tableros de proyecto en toda la organización](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-project-board-policies-in-your-enterprise#enforcing-a-policy-for-organization-wide-project-boards)".                                                                                 |
 {%- endif %}
 
-{%- ifversion fpt or ghec or ghes > 3.0 or ghae %}
-### Acciones de la categoría `packages`
+## Acciones de la categoría `packages`
 
-| Acción                               | Descripción                                                                                                                                                                                                                                                 |
-| ------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `packages.insecure_hash`             | Maven published an insecure hash for a specific package version.                                                                                                                                                                                            |
-| `packages.package_deleted`           | A package was deleted from an organization.{% ifversion fpt or ghec or ghes > 3.1 %} For more information, see "[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package)."{% endif %}
-| `packages.package_published`         | A package was published or republished to an organization.                                                                                                                                                                                                  |
-| `packages.package_restored`          | An entire package was restored.{% ifversion fpt or ghec or ghes > 3.1 %} For more information, see "[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package)."{% endif %}
-| `packages.package_version_deleted`   | A specific package version was deleted.{% ifversion fpt or ghec or ghes > 3.1 %} For more information, see "[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package)."{% endif %}
-| `packages.package_version_published` | A specific package version was published or republished to a package.                                                                                                                                                                                       |
-| `packages.package_version_restored`  | Se borró una versión específica de un paquete.{% ifversion fpt or ghec or ghes > 3.1 %} Para obtener más información, consulta la sección "[Borrar y restablecer un paquete](/packages/learn-github-packages/deleting-and-restoring-a-package)".{% endif %}
-| `packages.part_upload`               | A specific package version was partially uploaded to an organization.                                                                                                                                                                                       |
-| `packages.upstream_package_fetched`  | A specific package version was fetched from the npm upstream proxy.                                                                                                                                                                                         |
-| `packages.version_download`          | A specific package version was downloaded.                                                                                                                                                                                                                  |
-| `packages.version_upload`            | A specific package version was uploaded.                                                                                                                                                                                                                    |
-{%- endif %}
+| Acción                               | Descripción                                                                                                                                                                                                                                           |
+| ------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `packages.insecure_hash`             | Maven published an insecure hash for a specific package version.                                                                                                                                                                                      |
+| `packages.package_deleted`           | A package was deleted from an organization.{% ifversion fpt or ghec or ghes %} For more information, see "[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package)."{% endif %}
+| `packages.package_published`         | A package was published or republished to an organization.                                                                                                                                                                                            |
+| `packages.package_restored`          | An entire package was restored.{% ifversion fpt or ghec or ghes %} For more information, see "[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package)."{% endif %}
+| `packages.package_version_deleted`   | Se borró una versión específica de un paquete.{% ifversion fpt or ghec or ghes %} Para obtener más información, consulta la sección "[Borrar y restablecer un paquete](/packages/learn-github-packages/deleting-and-restoring-a-package)".{% endif %}
+| `packages.package_version_published` | A specific package version was published or republished to a package.                                                                                                                                                                                 |
+| `packages.package_version_restored`  | Se borró una versión específica de un paquete.{% ifversion fpt or ghec or ghes %} Para obtener más información, consulta la sección "[Borrar y restablecer un paquete](/packages/learn-github-packages/deleting-and-restoring-a-package)".{% endif %}
+| `packages.part_upload`               | A specific package version was partially uploaded to an organization.                                                                                                                                                                                 |
+| `packages.upstream_package_fetched`  | A specific package version was fetched from the npm upstream proxy.                                                                                                                                                                                   |
+| `packages.version_download`          | A specific package version was downloaded.                                                                                                                                                                                                            |
+| `packages.version_upload`            | A specific package version was uploaded.                                                                                                                                                                                                              |
 
 {%- ifversion fpt or ghec %}
-### `pages_protected_domain` category actions
+## `pages_protected_domain` category actions
 
 | Acción                          | Descripción                                                                                                                                                                                                                                                                                                                                                           |
 | ------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -739,7 +746,7 @@ topics:
 | `pages_protected_domain.delete` | A {% data variables.product.prodname_pages %} verified domain was deleted from an organization or enterprise. Para obtener más información, consulta la sección "[Verificar tu dominio personalizado para {% data variables.product.prodname_pages %}](/pages/configuring-a-custom-domain-for-your-github-pages-site/verifying-your-custom-domain-for-github-pages)". |
 | `pages_protected_domain.verify` | A {% data variables.product.prodname_pages %} domain was verified for an organization or enterprise. Para obtener más información, consulta la sección "[Verificar tu dominio personalizado para {% data variables.product.prodname_pages %}](/pages/configuring-a-custom-domain-for-your-github-pages-site/verifying-your-custom-domain-for-github-pages)".          |
 
-### acciones de la categoría `payment_method`
+## acciones de la categoría `payment_method`
 
 | Acción                  | Descripción                                                                  |
 | ----------------------- | ---------------------------------------------------------------------------- |
@@ -747,31 +754,31 @@ topics:
 | `payment_method.remove` | A payment method was removed.                                                |
 | `payment_method.update` | An existing payment method was updated.                                      |
 
-### `prebuild_configuration` category actions
+## `prebuild_configuration` category actions
 
-| Acción                                 | Descripción                                                                                                                                                                                                                                                                                              |
-| -------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `prebuild_configuration.create`        | A {% data variables.product.prodname_codespaces %} prebuild configuration for a repository was created. Para obtener más información, consulta la sección "[Acerca de las precompilaciones de los Codespaces](/codespaces/prebuilding-your-codespaces/about-codespaces-prebuilds)".                      |
-| `prebuild_configuration.destroy`       | A {% data variables.product.prodname_codespaces %} prebuild configuration for a repository was deleted. Para obtener más información, consulta la sección "[Acerca de las precompilaciones de los Codespaces](/codespaces/prebuilding-your-codespaces/about-codespaces-prebuilds)".                      |
-| `prebuild_configuration.run_triggered` | A user initiated a run of a {% data variables.product.prodname_codespaces %} prebuild configuration for a repository branch. Para obtener más información, consulta la sección "[Acerca de las precompilaciones de los Codespaces](/codespaces/prebuilding-your-codespaces/about-codespaces-prebuilds)". |
-| `prebuild_configuration.update`        | A {% data variables.product.prodname_codespaces %} prebuild configuration for a repository was edited. Para obtener más información, consulta la sección "[Acerca de las precompilaciones de los Codespaces](/codespaces/prebuilding-your-codespaces/about-codespaces-prebuilds)".                       |
+| Acción                                 | Descripción                                                                                                                                                                                                                                                                                                                                                |
+| -------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `prebuild_configuration.create`        | A {% data variables.product.prodname_codespaces %} prebuild configuration for a repository was created. Para obtener más información, consulta la sección "[Acerca de las precompilaciones de {% data variables.product.prodname_github_codespaces %}](/codespaces/prebuilding-your-codespaces/about-github-codespaces-prebuilds)".                      |
+| `prebuild_configuration.destroy`       | A {% data variables.product.prodname_codespaces %} prebuild configuration for a repository was deleted. Para obtener más información, consulta la sección "[Acerca de las precompilaciones de {% data variables.product.prodname_github_codespaces %}](/codespaces/prebuilding-your-codespaces/about-github-codespaces-prebuilds)".                      |
+| `prebuild_configuration.run_triggered` | A user initiated a run of a {% data variables.product.prodname_codespaces %} prebuild configuration for a repository branch. Para obtener más información, consulta la sección "[Acerca de las precompilaciones de {% data variables.product.prodname_github_codespaces %}](/codespaces/prebuilding-your-codespaces/about-github-codespaces-prebuilds)". |
+| `prebuild_configuration.update`        | A {% data variables.product.prodname_codespaces %} prebuild configuration for a repository was edited. Para obtener más información, consulta la sección "[Acerca de las precompilaciones de {% data variables.product.prodname_github_codespaces %}](/codespaces/prebuilding-your-codespaces/about-github-codespaces-prebuilds)".                       |
 {%- endif %}
 
 {%- ifversion ghes %}
-### `pre_receive_environment` category actions
+## `pre_receive_environment` category actions
 
 | Acción                             | Descripción                                                                                                                                                                                                                                         |
 | ---------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `pre_receive_environment.create`   | A pre-receive hook environment was created. For more information, see "[Creating a pre-receive hook environment](/admin/policies/enforcing-policy-with-pre-receive-hooks/creating-a-pre-receive-hook-environment)."                                 |
+| `pre_receive_environment.create`   | A pre-receive hook environment was created. Para obtener más información, consulta la sección "[Crear un ambiente de gancho de pre-recepción](/admin/policies/enforcing-policy-with-pre-receive-hooks/creating-a-pre-receive-hook-environment)".    |
 | `pre_receive_environment.destroy`  | A pre-receive hook environment was deleted. Para obtener más información, consulta la sección "[Crear un ambiente de gancho de pre-recepción](/admin/policies/enforcing-policy-with-pre-receive-hooks/creating-a-pre-receive-hook-environment)".    |
 | `pre_receive_environment.download` | A pre-receive hook environment was downloaded. Para obtener más información, consulta la sección "[Crear un ambiente de gancho de pre-recepción](/admin/policies/enforcing-policy-with-pre-receive-hooks/creating-a-pre-receive-hook-environment)". |
 | `pre_receive_environment.update`   | A pre-receive hook environment was updated. Para obtener más información, consulta la sección "[Crear un ambiente de gancho de pre-recepción](/admin/policies/enforcing-policy-with-pre-receive-hooks/creating-a-pre-receive-hook-environment)".    |
 
-### `pre_receive_hook` category actions
+## `pre_receive_hook` category actions
 
 | Acción                           | Descripción                                                                                                                                                                                                                                                                                                                                                                              |
 | -------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `pre_receive_hook.create`        | A pre-receive hook was created. For more information, see "[Creating pre-receive hooks](/admin/policies/enforcing-policy-with-pre-receive-hooks/managing-pre-receive-hooks-on-the-github-enterprise-server-appliance#creating-pre-receive-hooks)."                                                                                                                                       |
+| `pre_receive_hook.create`        | Se creó un gancho de pre-recepción. For more information, see "[Creating pre-receive hooks](/admin/policies/enforcing-policy-with-pre-receive-hooks/managing-pre-receive-hooks-on-the-github-enterprise-server-appliance#creating-pre-receive-hooks)."                                                                                                                                   |
 | `pre_receive_hook.destroy`       | A pre-receive hook was deleted. For more information, see "[Deleting pre-receive hooks](/admin/policies/enforcing-policy-with-pre-receive-hooks/managing-pre-receive-hooks-on-the-github-enterprise-server-appliance#deleting-pre-receive-hooks)."                                                                                                                                       |
 | `pre_receive_hook.enforcement`   | A pre-receive hook enforcement setting allowing repository and organization administrators to override the hook configuration was enabled or disabled. For more information, see "[Managing pre-receive hooks on the GitHub Enterprise Server appliance](/admin/policies/enforcing-policy-with-pre-receive-hooks/managing-pre-receive-hooks-on-the-github-enterprise-server-appliance)." |
 | `pre_receive_hook.rejected_push` | A pre-receive hook rejected a push.                                                                                                                                                                                                                                                                                                                                                      |
@@ -779,7 +786,7 @@ topics:
 | `pre_receive_hook.warned_push`   | A pre-receive hook warned about a push.                                                                                                                                                                                                                                                                                                                                                  |
 {%- endif %}
 
-### `private_repository_forking` category actions
+## `private_repository_forking` category actions
 
 | Acción                               | Descripción                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 | ------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -788,14 +795,14 @@ topics:
 | `private_repository_forking.enable`  | An enterprise owner{% ifversion ghes %} or site administrator{% endif %} enabled the policy setting for allowing forks of private and internal repositories, for a repository, organization or enterprise. Private and internal repositories are always allowed to be forked. Para obtener más información, consulta las secciones "[Administrar la política de bifurcación para tu repositorio](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-the-forking-policy-for-your-repository), "[Administrar la política de bifurcación para tu organización](/organizations/managing-organization-settings/managing-the-forking-policy-for-your-organization) y, para empresas: "[Requerir una política para bifurcar los repositorios privados o internos](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-forking-private-or-internal-repositories)".  |
 
 {%- ifversion fpt or ghec %}
-### acciones de la categoría `profile_picture`
+## acciones de la categoría `profile_picture`
 
 | Acción                   | Descripción                    |
 | ------------------------ | ------------------------------ |
 | `profile_picture.update` | A profile picture was updated. |
 {%- endif %}
 
-### acciones de la categoría `project`
+## acciones de la categoría `project`
 
 | Acción                           | Descripción                                                                                                                                                                                                                                                                                                                                                             |
 | -------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -803,7 +810,7 @@ topics:
 | `project.close`                  | A project board was closed. For more information, see "[Closing a project board](/issues/organizing-your-work-with-project-boards/managing-project-boards/closing-a-project-board)."                                                                                                                                                                                    |
 | `project.create`                 | A project board was created. For more information, see "[Creating a project board](/issues/organizing-your-work-with-project-boards/managing-project-boards/creating-a-project-board)."                                                                                                                                                                                 |
 | `project.delete`                 | A project board was deleted. For more information, see "[Deleting a project board](/issues/organizing-your-work-with-project-boards/managing-project-boards/deleting-a-project-board)."                                                                                                                                                                                 |
-| `project.link`                   | A repository was linked to a project board. For more information, see "[Linking a repository to a project board](/issues/organizing-your-work-with-project-boards/managing-project-boards/linking-a-repository-to-a-project-board)."                                                                                                                                    |
+| `project.link`                   | A repository was linked to a project board. Para obtener más información, consulta "[Vincular un repositorio con un tablero de proyecto](/issues/organizing-your-work-with-project-boards/managing-project-boards/linking-a-repository-to-a-project-board)".                                                                                                            |
 | `project.open`                   | A project board was reopened. For more information, see "[Reopening a closed project board](/issues/organizing-your-work-with-project-boards/managing-project-boards/reopening-a-closed-project-board)."                                                                                                                                                                |
 | `project.rename`                 | A project board was renamed. For more information, see "[Editing a project board](/issues/organizing-your-work-with-project-boards/managing-project-boards/editing-a-project-board)."                                                                                                                                                                                   |
 | `project.unlink`                 | A repository was unlinked from a project board. Para obtener más información, consulta "[Vincular un repositorio con un tablero de proyecto](/issues/organizing-your-work-with-project-boards/managing-project-boards/linking-a-repository-to-a-project-board)".                                                                                                        |
@@ -812,14 +819,14 @@ topics:
 | `project.update_user_permission` | An organization member or outside collaborator was added to or removed from a project board or had their permission level changed. For more information, see "[Managing an individual’s access to an organization project board](/organizations/managing-access-to-your-organizations-project-boards/managing-an-individuals-access-to-an-organization-project-board)." |
 
 {%- ifversion fpt or ghec %}
-### `project_field` category actions
+## `project_field` category actions
 
 | Acción                 | Descripción                                                                                                                                                                                              |
 | ---------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `project_field.create` | A field was created in a project board. For more information, see "[Creating a project (beta)](/issues/trying-out-the-new-projects-experience/creating-a-project#adding-fields)."                        |
+| `project_field.create` | A field was created in a project board. Para obtener más información, consulta la sección "[Crear un proyecto (beta)](/issues/trying-out-the-new-projects-experience/creating-a-project#adding-fields)". |
 | `project_field.delete` | A field was deleted in a project board. Para obtener más información, consulta la sección "[Crear un proyecto (beta)](/issues/trying-out-the-new-projects-experience/creating-a-project#adding-fields)". |
 
-### `project_view` category actions
+## `project_view` category actions
 
 | Acción                | Descripción                                                                                                                                                                                                        |
 | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -827,7 +834,7 @@ topics:
 | `project_view.delete` | A view was deleted in a project board. For more information, see "[Customizing your project (beta) views](/issues/trying-out-the-new-projects-experience/customizing-your-project-views#deleting-a-saved-view)."   |
 {%- endif %}
 
-### acciones de la categoría `protected_branch`
+## acciones de la categoría `protected_branch`
 
 | Acción                                   | Descripción                                                            |
 | ---------------------------------------- | ---------------------------------------------------------------------- |
@@ -843,7 +850,7 @@ topics:
 {%- endif %}
 | `protected_branch.update_pull_request_reviews_enforcement_level` | Enforcement of required pull request reviews was updated on a branch. Puede ser una de entre `0`(desactivado), `1`(no adminsitradores), `2`(todos). | `protected_branch.update_require_code_owner_review` | Enforcement of required code owner review was updated on a branch. | `protected_branch.update_required_approving_review_count` | Enforcement of the required number of approvals before merging was updated on a branch. | `protected_branch.update_required_status_checks_enforcement_level` | Enforcement of required status checks was updated on a branch. | `protected_branch.update_signature_requirement_enforcement_level` | Enforcement of required commit signing was updated on a branch. | `protected_branch.update_strict_required_status_checks_policy` | Enforcement of required status checks was updated on a branch. | `protected_branch.update_name` | A branch name pattern was updated for a branch.
 
-### acciones de la categoría `public_key`
+## acciones de la categoría `public_key`
 
 | Acción                              | Descripción                                                                                      |
 | ----------------------------------- | ------------------------------------------------------------------------------------------------ |
@@ -855,14 +862,13 @@ topics:
 | `public_key.verification_failure`   | A user account's SSH key or a repository's [deploy key][] was unable to be verified.             |
 | `public_key.verify`                 | A user account's SSH key or a repository's [deploy key][] was verified.                          |
 
-{%- ifversion fpt or ghec or ghes > 3.1 or ghae %}
-### Acciones de la categoría `pull_request`
+## Acciones de la categoría `pull_request`
 
 | Acción                               | Descripción                                                                                                                                                                                                                                                                                                                        |
 | ------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `pull_request.close`                 | A pull request was closed without being merged. For more information, see "[Closing a pull request](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/closing-a-pull-request)."                                                                                                            |
-| `pull_request.converted_to_draft`    | A pull request was converted to a draft. For more information, see "[Changing the stage of a pull request](/github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/changing-the-stage-of-a-pull-request#converting-a-pull-request-to-a-draft)."                                                 |
-| `pull_request.create`                | A pull request was created. For more information, see "[Creating a pull request](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request)."                                                                                                                      |
+| `pull_request.close`                 | A pull request was closed without being merged. Para obtener más información, consulta la sección "[Cerrar una solicitud de cambios](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/closing-a-pull-request)".                                                                           |
+| `pull_request.converted_to_draft`    | A pull request was converted to a draft. Para obtener más información, consulta la sección "[Cambiar el estado de una solicitud de extracción](/github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/changing-the-stage-of-a-pull-request#converting-a-pull-request-to-a-draft)".             |
+| `pull_request.create`                | A pull request was created. Para obtener más información, consulta la sección"[Crear una solicitud de extracción](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request)."                                                                                     |
 | `pull_request.create_review_request` | A review was requested on a pull request. Para obtener más información, consulta la sección "[Acerca de las revisiones de las solicitudes de extracción](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews)".                                                          |
 | `pull_request.in_progress`           | A pull request was marked as in progress.                                                                                                                                                                                                                                                                                          |
 | `pull_request.indirect_merge`        | A pull request was considered merged because the pull request's commits were merged into the target branch.                                                                                                                                                                                                                        |
@@ -870,11 +876,11 @@ topics:
 | `pull_request.ready_for_review`      | A pull request was marked as ready for review. Para obtener más información, consulta la sección "[Cambiar el estado de una solicitud de extracción](/github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/changing-the-stage-of-a-pull-request#marking-a-pull-request-as-ready-for-review)". |
 | `pull_request.remove_review_request` | A review request was removed from a pull request. Para obtener más información, consulta la sección "[Acerca de las revisiones de las solicitudes de extracción](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews)".                                                  |
 | `pull_request.reopen`                | A pull request was reopened after previously being closed.                                                                                                                                                                                                                                                                         |
-| `pull_request_review.delete`         | A review on a pull request was deleted.                                                                                                                                                                                                                                                                                            |
-| `pull_request_review.dismiss`        | A review on a pull request was dismissed. Para obtener más información, consulta "[Descartar una revisión de solicitud de extracción](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/dismissing-a-pull-request-review)".                                                                       |
+| `pull_request_review.delete`         | Se borró una revisión en una solicitud de cambios.                                                                                                                                                                                                                                                                                 |
+| `pull_request_review.dismiss`        | Se descartó una revisión de una solicitud de cambios. Para obtener más información, consulta "[Descartar una revisión de solicitud de extracción](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/dismissing-a-pull-request-review)".                                                           |
 | `pull_request_review.submit`         | A review was submitted for a pull request. Para obtener más información, consulta la sección "[Acerca de las revisiones de las solicitudes de extracción](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews)".                                                         |
 
-### Acciones de la categoría `pull_request_review`
+## Acciones de la categoría `pull_request_review`
 
 | Acción                        | Descripción                                                                                                                                                                                                                                                              |
 | ----------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -882,32 +888,31 @@ topics:
 | `pull_request_review.dismiss` | Se descartó una revisión de una solicitud de cambios. Para obtener más información, consulta "[Descartar una revisión de solicitud de extracción](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/dismissing-a-pull-request-review)". |
 | `pull_request_review.submit`  | A review on a pull request was submitted. For more information, see "[Submitting your review](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-proposed-changes-in-a-pull-request#submitting-your-review)."                  |
 
-### Acciones de la categoría `pull_request_review_comment`
+## Acciones de la categoría `pull_request_review_comment`
 
 | Acción                               | Descripción                                                                                                                                                                                                                                                                   |
 | ------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `pull_request_review_comment.create` | A review comment was added to a pull request. Para obtener más información, consulta la sección "[Acerca de las revisiones de las solicitudes de extracción](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews)". |
 | `pull_request_review_comment.delete` | A review comment on a pull request was deleted.                                                                                                                                                                                                                               |
 | `pull_request_review_comment.update` | A review comment on a pull request was changed.                                                                                                                                                                                                                               |
-{%- endif %}
 
-### acciones de la categoría `repo`
+## acciones de la categoría `repo`
 
-| Acción                                                   | Descripción                                                                                                                                                                                                                                                               |
-| -------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `repo.access`                                            | La visbilidad de un repositorio cambió a privado{%- ifversion ghes %}, público,{% endif %} o interno.                                                                                                                                                                     |
-| `repo.actions_enabled`                                   | {% data variables.product.prodname_actions %} was enabled for a repository.                                                                                                                                                                                               |
-| `repo.add_member`                                        | Se agregó un colaborador a un repositorio.                                                                                                                                                                                                                                |
-| `repo.add_topic`                                         | A topic was added to a repository.                                                                                                                                                                                                                                        |
-| `repo.advanced_security_disabled`                        | {% data variables.product.prodname_GH_advanced_security %} was disabled for a repository.                                                                                                                                                                               |
-| `repo.advanced_security_enabled`                         | {% data variables.product.prodname_GH_advanced_security %} was enabled for a repository.                                                                                                                                                                                |
-| `repo.advanced_security_policy_selected_member_disabled` | A repository administrator prevented {% data variables.product.prodname_GH_advanced_security %} features from being enabled for a repository.                                                                                                                           |
-| `repo.advanced_security_policy_selected_member_enabled`  | A repository administrator allowed {% data variables.product.prodname_GH_advanced_security %} features to be enabled for a repository.                                                                                                                                  |
-| `repo.archived`                                          | Se archivó un repositorio. Para obtener más información, consulta la sección "[Archivar un repositorio de {% data variables.product.prodname_dotcom %}](/github/creating-cloning-and-archiving-repositories/archiving-a-github-repository)".                              |
-| `repo.code_scanning_analysis_deleted`                    | Code scanning analysis for a repository was deleted. For more information, see "[Delete a code scanning analysis from a repository](/rest/reference/code-scanning#delete-a-code-scanning-analysis-from-a-repository)."                                                    |
-| `repo.change_merge_setting`                              | Pull request merge options were changed for a repository.                                                                                                                                                                                                                 |
-| `repo.clear_actions_settings`                            | A repository administrator cleared {% data variables.product.prodname_actions %} policy settings for a repository.                                                                                                                                                        |
-| `repo.config`                                            | A repository administrator blocked force pushes. Para obtener más información, consulta [Bloquear los empujes forzados para un repositorio](/enterprise/{{ currentVersion }}/admin/guides/developer-workflow/blocking-force-pushes-to-a-repository/) para un repositorio. |
+| Acción                                                   | Descripción                                                                                                                                                                                                                                          |
+| -------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `repo.access`                                            | La visbilidad de un repositorio cambió a privado{%- ifversion ghes %}, público,{% endif %} o interno.                                                                                                                                                |
+| `repo.actions_enabled`                                   | {% data variables.product.prodname_actions %} was enabled for a repository.                                                                                                                                                                          |
+| `repo.add_member`                                        | Se agregó un colaborador a un repositorio.                                                                                                                                                                                                           |
+| `repo.add_topic`                                         | A topic was added to a repository.                                                                                                                                                                                                                   |
+| `repo.advanced_security_disabled`                        | {% data variables.product.prodname_GH_advanced_security %} was disabled for a repository.                                                                                                                                                          |
+| `repo.advanced_security_enabled`                         | {% data variables.product.prodname_GH_advanced_security %} was enabled for a repository.                                                                                                                                                           |
+| `repo.advanced_security_policy_selected_member_disabled` | A repository administrator prevented {% data variables.product.prodname_GH_advanced_security %} features from being enabled for a repository.                                                                                                      |
+| `repo.advanced_security_policy_selected_member_enabled`  | A repository administrator allowed {% data variables.product.prodname_GH_advanced_security %} features to be enabled for a repository.                                                                                                             |
+| `repo.archived`                                          | Se archivó un repositorio. Para obtener más información, consulta la sección "[Archivar un repositorio de {% data variables.product.prodname_dotcom %}](/github/creating-cloning-and-archiving-repositories/archiving-a-github-repository)".         |
+| `repo.code_scanning_analysis_deleted`                    | Code scanning analysis for a repository was deleted. For more information, see "[Delete a code scanning analysis from a repository](/rest/reference/code-scanning#delete-a-code-scanning-analysis-from-a-repository)."                               |
+| `repo.change_merge_setting`                              | Pull request merge options were changed for a repository.                                                                                                                                                                                            |
+| `repo.clear_actions_settings`                            | A repository administrator cleared {% data variables.product.prodname_actions %} policy settings for a repository.                                                                                                                                   |
+| `repo.config`                                            | A repository administrator blocked force pushes. Para obtener más información, consulta [Bloquear los empujes forzados para un repositorio](/enterprise/admin/guides/developer-workflow/blocking-force-pushes-to-a-repository/) para un repositorio. |
 {%- ifversion fpt or ghec %}
 | `repo.config.disable_collaborators_only` | The interaction limit for collaborators only was disabled. Para obtener más información, consulta "[Limitar las interacciones en tu repositorio](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-repository)". | `repo.config.disable_contributors_only` | The interaction limit for prior contributors only was disabled in a repository. Para obtener más información, consulta "[Limitar las interacciones en tu repositorio](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-repository)". | `repo.config.disable_sockpuppet_disallowed` | The interaction limit for existing users only was disabled in a repository. Para obtener más información, consulta "[Limitar las interacciones en tu repositorio](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-repository)". | `repo.config.enable_collaborators_only` | The interaction limit for collaborators only was enabled in a repository. Users that are not collaborators or organization members were unable to interact with a repository for a set duration. Para obtener más información, consulta "[Limitar las interacciones en tu repositorio](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-repository)". | `repo.config.enable_contributors_only` | The interaction limit for prior contributors only was enabled in a repository. Users that are not prior contributors, collaborators or organization members were unable to interact with a repository for a set duration. Para obtener más información, consulta "[Limitar las interacciones en tu repositorio](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-repository)". | `repo.config.enable_sockpuppet_disallowed` | The interaction limit for existing users was enabled in a repository. New users aren't able to interact with a repository for a set duration. Existing users of the repository, contributors, collaborators or organization members are able to interact with a repository. Para obtener más información, consulta "[Limitar las interacciones en tu repositorio](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-repository)".
 {%- endif %}
@@ -920,16 +925,12 @@ topics:
 {%- endif %}
 | `repo.download_zip` | A source code archive of a repository was downloaded as a ZIP file. | `repo.pages_cname` | A {% data variables.product.prodname_pages %} custom domain was modified in a repository. | `repo.pages_create` | A {% data variables.product.prodname_pages %} site was created. | `repo.pages_destroy` | A {% data variables.product.prodname_pages %} site was deleted. | `repo.pages_https_redirect_disabled` | HTTPS redirects were disabled for a {% data variables.product.prodname_pages %} site. | `repo.pages_https_redirect_enabled` | HTTPS redirects were enabled for a {% data variables.product.prodname_pages %} site. | `repo.pages_source` | A {% data variables.product.prodname_pages %} source was modified. | `repo.pages_private` | A {% data variables.product.prodname_pages %} site visibility was changed to private. | `repo.pages_public` | A {% data variables.product.prodname_pages %} site visibility was changed to public. | `repo.register_self_hosted_runner` | A new self-hosted runner was registered. Para obtener más información, consulta la sección "[Agregar un ejecutor auto-hospedado a un repositorio](/actions/hosting-your-own-runners/adding-self-hosted-runners#adding-a-self-hosted-runner-to-a-repository)". | `repo.remove_self_hosted_runner` | A self-hosted runner was removed. Para obtener más información, consulta la sección "[Eliminar a un ejecutor de un repositorio](/actions/hosting-your-own-runners/removing-self-hosted-runners#removing-a-runner-from-a-repository)". | `repo.remove_actions_secret` | A {% data variables.product.prodname_actions %} secret was deleted for a repository. | `repo.remove_integration_secret` | A {% data variables.product.prodname_dependabot %}{% ifversion fpt or ghec %} or {% data variables.product.prodname_codespaces %}{% endif %} integration secret was deleted for a repository. | `repo.remove_member` | A collaborator was removed from a repository. | `repo.remove_topic` | A topic was removed from a repository. | `repo.rename` | A repository was renamed.
 {%- ifversion fpt or ghec %}
-| `repo.set_actions_fork_pr_approvals_policy` | The setting for requiring approvals for workflows from public forks was changed for a repository. For more information, see "[Configuring required approval for workflows from public forks](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#configuring-required-approval-for-workflows-from-public-forks)."
+| `repo.set_actions_fork_pr_approvals_policy` | The setting for requiring approvals for workflows from public forks was changed for a repository. Para obtener más información, consulte la sección "[Configurar la aprobación requerida para los flujos de trabajo desde las bifurcaciones públicas](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#configuring-required-approval-for-workflows-from-public-forks)".
 {%- endif %}
-| `repo.set_actions_retention_limit` | The retention period for {% data variables.product.prodname_actions %} artifacts and logs in a repository was changed. Para obtener más información, consulta la sección "[Configurar el periodo de retención de los artefactos de las {% data variables.product.prodname_actions %} y las bitácoras en tu repositorio](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-repository)".
-{%- ifversion fpt or ghec or ghes > 3.1 or ghae %}
-| `repo.self_hosted_runner_online` | The runner application was started. Solo se puede ver utilizando la API de REST; no está visible en la IU o en la exportación de JSON/CSV. Para obtener más información, consulta "[Comprobar el estado de un ejecutor autoalojado](/actions/hosting-your-own-runners/monitoring-and-troubleshooting-self-hosted-runners#checking-the-status-of-a-self-hosted-runner)." | `repo.self_hosted_runner_offline` | The runner application was stopped. Solo se puede ver utilizando la API de REST; no está visible en la IU o en la exportación de JSON/CSV. Para obtener más información, consulta "[Comprobar el estado de un ejecutor autoalojado](/actions/hosting-your-own-runners/monitoring-and-troubleshooting-self-hosted-runners#checking-the-status-of-a-self-hosted-runner)." | `repo.self_hosted_runner_updated` | The runner application was updated. Se puede ver utilizando la API de REST y la IU; no se puede ver en la exportación de JSON/CSV. Para obtener más información, consulta "[Acerca de los ejecutores autoalojados](/actions/hosting-your-own-runners/about-self-hosted-runners#about-self-hosted-runners)."
-{%- endif %}
-| `repo.staff_unlock` | An enterprise administrator or GitHub staff (with permission from a repository administrator) temporarily unlocked the repository. | `repo.transfer` | A user accepted a request to receive a transferred repository. | `repo.transfer_outgoing` | A repository was transferred to another repository network. | `repo.transfer_start` | A user sent a request to transfer a repository to another user or organization. | `repo.unarchived` | A repository was unarchived. Para obtener más información, consulta la sección "[Archivar un repositorio de {% data variables.product.prodname_dotcom %}](/github/creating-cloning-and-archiving-repositories/archiving-a-github-repository)". | `repo.update_actions_settings` | A repository administrator changed {% data variables.product.prodname_actions %} policy settings for a repository. | `repo.update_actions_secret` | A {% data variables.product.prodname_actions %} secret was updated. | `repo.update_actions_access_settings` | The setting to control how a repository was used by {% data variables.product.prodname_actions %} workflows in other repositories was changed. | `repo.update_default_branch` | The default branch for a repository was changed. | `repo.update_integration_secret` | A {% data variables.product.prodname_dependabot %} or {% data variables.product.prodname_codespaces %} integration secret was updated for a repository. | `repo.update_member` | A user's permission to a repository was changed.
+| `repo.set_actions_retention_limit` | The retention period for {% data variables.product.prodname_actions %} artifacts and logs in a repository was changed. Para obtener más información, consulta la sección "[Configurar el periodo de retención de los artefactos de las {% data variables.product.prodname_actions %} y las bitácoras en tu repositorio](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-repository)". | `repo.self_hosted_runner_online` | The runner application was started. Solo se puede ver utilizando la API de REST; no está visible en la IU o en la exportación de JSON/CSV. Para obtener más información, consulta "[Comprobar el estado de un ejecutor autoalojado](/actions/hosting-your-own-runners/monitoring-and-troubleshooting-self-hosted-runners#checking-the-status-of-a-self-hosted-runner)." | `repo.self_hosted_runner_offline` | The runner application was stopped. Solo se puede ver utilizando la API de REST; no está visible en la IU o en la exportación de JSON/CSV. Para obtener más información, consulta "[Comprobar el estado de un ejecutor autoalojado](/actions/hosting-your-own-runners/monitoring-and-troubleshooting-self-hosted-runners#checking-the-status-of-a-self-hosted-runner)." | `repo.self_hosted_runner_updated` | The runner application was updated. Se puede ver utilizando la API de REST y la IU; no se puede ver en la exportación de JSON/CSV. Para obtener más información, consulta "[Acerca de los ejecutores autoalojados](/actions/hosting-your-own-runners/about-self-hosted-runners#about-self-hosted-runners)." | `repo.staff_unlock` | An enterprise administrator or GitHub staff (with permission from a repository administrator) temporarily unlocked the repository. | `repo.transfer` | A user accepted a request to receive a transferred repository. | `repo.transfer_outgoing` | A repository was transferred to another repository network. | `repo.transfer_start` | A user sent a request to transfer a repository to another user or organization. | `repo.unarchived` | A repository was unarchived. Para obtener más información, consulta la sección "[Archivar un repositorio de {% data variables.product.prodname_dotcom %}](/github/creating-cloning-and-archiving-repositories/archiving-a-github-repository)". | `repo.update_actions_settings` | A repository administrator changed {% data variables.product.prodname_actions %} policy settings for a repository. | `repo.update_actions_secret` | A {% data variables.product.prodname_actions %} secret was updated. | `repo.update_actions_access_settings` | The setting to control how a repository was used by {% data variables.product.prodname_actions %} workflows in other repositories was changed. | `repo.update_default_branch` | The default branch for a repository was changed. | `repo.update_integration_secret` | A {% data variables.product.prodname_dependabot %} or {% data variables.product.prodname_codespaces %} integration secret was updated for a repository. | `repo.update_member` | A user's permission to a repository was changed.
 
 {%- ifversion fpt or ghec %}
-### acciones de la categoría `repository_advisory`
+## acciones de la categoría `repository_advisory`
 
 | Acción                                 | Descripción                                                                                                                                                                                                                                                 |
 | -------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -942,14 +943,14 @@ topics:
 | `repository_advisory.reopen`           | Someone reopened as draft security advisory.                                                                                                                                                                                                                |
 | `repository_advisory.update`           | Someone edited a draft or published security advisory.                                                                                                                                                                                                      |
 
-### Acciones de la categoría `repository_content_analysis`
+## Acciones de la categoría `repository_content_analysis`
 
 | Acción                                | Descripción                                                                                                                                                                                     |
 | ------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `repository_content_analysis.enable`  | An organization owner or repository administrator [enabled data use settings for a private repository](/get-started/privacy-on-github/managing-data-use-settings-for-your-private-repository).  |
 | `repository_content_analysis.disable` | An organization owner or repository administrator [disabled data use settings for a private repository](/get-started/privacy-on-github/managing-data-use-settings-for-your-private-repository). |
 
-### Acciones de la categoría `repository_dependency_graph`
+## Acciones de la categoría `repository_dependency_graph`
 
 | Acción                                | Descripción                                                                                                                                                                                                                                                         |
 | ------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -957,14 +958,14 @@ topics:
 | `repository_dependency_graph.enable`  | A repository owner or administrator enabled the dependency graph for a private repository.                                                                                                                                                                          |
 {%- endif %}
 
-### `repository_image` category actions
+## `repository_image` category actions
 
 | Acción                     | Descripción                                      |
 | -------------------------- | ------------------------------------------------ |
 | `repository_image.create`  | An image to represent a repository was uploaded. |
 | `repository_image.destroy` | An image to represent a repository was deleted.  |
 
-### `repository_invitation` category actions
+## `repository_invitation` category actions
 
 | Acción                         | Descripción                                      |
 | ------------------------------ | ------------------------------------------------ |
@@ -972,7 +973,7 @@ topics:
 | `repository_invitation.create` | An invitation to join a repository was sent.     |
 | `repository_invitation.reject` | An invitation to join a repository was canceled. |
 
-### `repository_projects_change` category actions
+## `repository_projects_change` category actions
 
 | Acción                               | Descripción                                                                                                                                                                                                                                                                                                                                                                    |
 | ------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -981,7 +982,7 @@ topics:
 | `repository_projects_change.enable`  | Repository projects were enabled for a repository, all repositories in an organization, or all organizations in an enterprise.                                                                                                                                                                                                                                                 |
 
 {%- ifversion ghec or ghes or ghae %}
-### Acciones de la categoría `repository_secret_scanning`
+## Acciones de la categoría `repository_secret_scanning`
 
 | Acción                               | Descripción                                                                                                                                                                                                                                                                       |
 | ------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -989,9 +990,9 @@ topics:
 | `repository_secret_scanning.enable`  | A repository owner or administrator enabled secret scanning for a {% ifversion ghec %}private or internal {% endif %}repository.                                                                                                                                                  |
 {%- endif %}
 
-{%- if secret-scanning-audit-log-custom-patterns %}
+{%- ifversion secret-scanning-audit-log-custom-patterns %}
 
-### Acciones de la categoría `repository_secret_scanning_custom_pattern`
+## Acciones de la categoría `repository_secret_scanning_custom_pattern`
 
 | Acción                                             | Descripción                                                                                                                                                                                                                                                                                                       |
 | -------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -999,14 +1000,14 @@ topics:
 | `repository_secret_scanning_custom_pattern.delete` | A custom pattern is removed from secret scanning in a repository. Para obtener más información, consulta la sección "[Definir los patrones personalizados para el escaneo de secretos](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning#removing-a-custom-pattern)".                   |
 | `repository_secret_scanning_custom_pattern.update` | Changes to a custom pattern are saved for secret scanning in a repository. Para obtener más información, consulta la sección "[Definir los patrones personalizados para el escaneo de secretos](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning#editing-a-custom-pattern)".           |
 
-### Acciones de la categoría `repository_secret_scanning_push_protection`
+## Acciones de la categoría `repository_secret_scanning_push_protection`
 
 | Acción                                               | Descripción                                                                                                                                                                                                                                                                  |
 | ---------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `repository_secret_scanning_push_protection.disable` | A repository owner or administrator  disabled secret scanning for a repository. Para obtener más información, consulta la sección "[Proteger las subidas de información con el escaneo de secretos](/code-security/secret-scanning/protecting-pushes-with-secret-scanning)". |
 | `repository_secret_scanning_push_protection.enable`  | A repository owner or administrator  enabled secret scanning for a repository. Para obtener más información, consulta la sección "[Proteger las subidas de información con el escaneo de secretos](/code-security/secret-scanning/protecting-pushes-with-secret-scanning)".  |
 {%- endif %}
-### `repository_visibility_change` category actions
+## `repository_visibility_change` category actions
 
 | Acción                                 | Descripción                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
 | -------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -1014,35 +1015,33 @@ topics:
 | `repository_visibility_change.disable` | The ability for enterprise members to update a repository's visibility was disabled. Members are unable to change repository visibilities in an organization, or all organizations in an enterprise.                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | `repository_visibility_change.enable`  | The ability for enterprise members to update a repository's visibility was enabled. Members are able to change repository visibilities in an organization, or all organizations in an enterprise.                                                                                                                                                                                                                                                                                                                                                                                                                          |
 
-{%- ifversion fpt or ghec or ghes or ghae-issue-4864 %}
-### acciones de la categoría `repository_vulnerability_alert`
+## acciones de la categoría `repository_vulnerability_alert`
 
 | Acción                                   | Descripción                                                                                                                                                                                                                                                                                                                                                         |
 | ---------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `repository_vulnerability_alert.create`  | {% data variables.product.product_name %} created a {% data variables.product.prodname_dependabot %} alert for a repository that uses a vulnerable dependency. Para obtener más información, consulta la sección "[Acerca de las alertas para las dependencias vulnerables](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)". |
-| `repository_vulnerability_alert.dismiss` | An organization owner or repository administrator dismissed a {% data variables.product.prodname_dependabot %} alert about a vulnerable dependency.                                                                                                                                                                                                                 |
-| `repository_vulnerability_alert.resolve` | Someone with write access to a repository pushed changes to update and resolve a vulnerability in a project dependency.                                                                                                                                                                                                                                             |
-{%- endif %}
+| `repository_vulnerability_alert.create`  | {% data variables.product.product_name %} created a {% data variables.product.prodname_dependabot %} alert for a repository that uses an insecure dependency. Para obtener más información, consulta la sección "[Acerca de las {% data variables.product.prodname_dependabot_alerts %}](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)". |
+| `repository_vulnerability_alert.dismiss` | An organization owner or repository administrator dismissed a {% data variables.product.prodname_dependabot %} alert about a vulnerable dependency{% ifversion GH-advisory-db-supports-malware %} or malware{% endif %}.                                                                                                                                            |
+| `repository_vulnerability_alert.resolve` | Someone with write access to a repository pushed changes to update and resolve a {% data variables.product.prodname_dependabot %} alert in a project dependency.                                                                                                                                                                                                    |
 
 {%- ifversion fpt or ghec %}
-### acciones de la categoría `repository_vulnerability_alerts`
+## acciones de la categoría `repository_vulnerability_alerts`
 
-| Acción                                                   | Descripción                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| -------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `repository_vulnerability_alerts.authorized_users_teams` | An organization owner or repository administrator updated the list of people or teams authorized to receive {% data variables.product.prodname_dependabot_alerts %} for vulnerable dependencies in the repository. Para obtener más información, consulta la sección "[Administrar la configuración de seguridad y análisis para tu repositorio](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository#granting-access-to-security-alerts)". |
-| `repository_vulnerability_alerts.disable`                | A repository owner or repository administrator disabled {% data variables.product.prodname_dependabot_alerts %}.                                                                                                                                                                                                                                                                                                                                                                      |
-| `repository_vulnerability_alerts.enable`                 | A repository owner or repository administrator enabled {% data variables.product.prodname_dependabot_alerts %}.                                                                                                                                                                                                                                                                                                                                                                       |
+| Acción                                                   | Descripción                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| -------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `repository_vulnerability_alerts.authorized_users_teams` | An organization owner or repository administrator updated the list of people or teams authorized to receive {% data variables.product.prodname_dependabot_alerts %} for the repository. Para obtener más información, consulta la sección "[Administrar la configuración de seguridad y análisis para tu repositorio](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository#granting-access-to-security-alerts)". |
+| `repository_vulnerability_alerts.disable`                | A repository owner or repository administrator disabled {% data variables.product.prodname_dependabot_alerts %}.                                                                                                                                                                                                                                                                                                                                           |
+| `repository_vulnerability_alerts.enable`                 | A repository owner or repository administrator enabled {% data variables.product.prodname_dependabot_alerts %}.                                                                                                                                                                                                                                                                                                                                            |
 {%- endif %}
 
-### `required_status_check` category actions
+## `required_status_check` category actions
 
 | Acción                          | Descripción                                                                                                                                                                                                                                                                                                                                                    |
 | ------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `required_status_check.create`  | A status check was marked as required for a protected branch. For more information, see "[Require status checks before merging](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches#require-status-checks-before-merging)."                                                   |
+| `required_status_check.create`  | A status check was marked as required for a protected branch. Para obtener más información, consulta la sección "[Requerir verificaciones de estado antes de la fusión](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches#require-status-checks-before-merging)".           |
 | `required_status_check.destroy` | A status check was no longer marked as required for a protected branch. Para obtener más información, consulta la sección "[Requerir verificaciones de estado antes de la fusión](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches#require-status-checks-before-merging)". |
 
-{%- ifversion ghec or ghes > 3.1 %}
-### `restrict_notification_delivery` category actions
+{%- ifversion ghec or ghes %}
+## `restrict_notification_delivery` category actions
 
 | Acción                                   | Descripción                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 | ---------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -1050,8 +1049,8 @@ topics:
 | `restrict_notification_delivery.disable` | Email notification restrictions for an organization or enterprise were disabled. Para obtener más información, consulta las secciones "[Restringir las notificaciones de correo electrónico de tu organización](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/restricting-email-notifications-for-your-organization)" y "[Restringir las notificaciones de correo electrónico para tu empresa](/admin/policies/enforcing-policies-for-your-enterprise/restricting-email-notifications-for-your-enterprise)". |
 {%- endif %}
 
-{%- ifversion ghec or ghes > 3.4 or ghae-issue-6271 %}
-### Acciones de la categoría `role`
+{%- ifversion custom-repository-roles %}
+## Acciones de la categoría `role`
 
 | Acción               | Descripción                                                                                                                                                                                                                                                                                                                  |
 | -------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -1061,14 +1060,24 @@ topics:
 {%- endif %}
 
 {%- ifversion ghec or ghes or ghae %}
-### Acciones de la categoría `secret_scanning`
+## Acciones de la categoría `secret_scanning`
 
 | Acción                    | Descripción                                                                                                                                                                                                                                                                      |
 | ------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `secret_scanning.disable` | An organization owner disabled secret scanning for all existing{% ifversion ghec %} private or internal{% endif %} repositories. Para obtener más información, consulta la sección "[Acerca del escaneo de secretos"](/github/administering-a-repository/about-secret-scanning). |
 | `secret_scanning.enable`  | An organization owner enabled secret scanning for all existing{% ifversion ghec %} private or internal{% endif %} repositories.                                                                                                                                                  |
 
-### Acciones de la categoría `secret_scanning_new_repos`
+{% ifversion secret-scanning-alert-audit-log %}
+## Acciones de la categoría `secret_scanning_alert`
+
+| Acción                          | Descripción                                                                                                                                                                                                                                                                                                                                                |
+| ------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `secret_scanning_alert.create`  | {% data variables.product.prodname_dotcom %} detected a secret and created a {% data variables.product.prodname_secret_scanning %} alert. Para obtener más información, consulta la sección "[Administrar las alertas de {% data variables.product.prodname_secret_scanning %}](/code-security/secret-scanning/managing-alerts-from-secret-scanning)". |
+| `secret_scanning_alert.reopen`  | A user reopened a {% data variables.product.prodname_secret_scanning %} alert.                                                                                                                                                                                                                                                                           |
+| `secret_scanning_alert.resolve` | A user resolved a {% data variables.product.prodname_secret_scanning %} alert.                                                                                                                                                                                                                                                                           |
+{% endif %}
+
+## Acciones de la categoría `secret_scanning_new_repos`
 
 | Acción                              | Descripción                                                                                                                                                                                                                                                                 |
 | ----------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -1076,8 +1085,15 @@ topics:
 | `secret_scanning_new_repos.enable`  | An organization owner enabled secret scanning for all new{% ifversion ghec %} private or internal{% endif %} repositories.                                                                                                                                                  |
 {%- endif %}
 
+{% ifversion secret-scanning-push-protection-bypasses %}
+## Acciones de la categoría `secret_scanning_push_protection`
+
+| Acción   | Descripción                                                                                                                                                                                                                                                                                                |
+| -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `bypass` | Se activa cuando un usuario omite la protección de subida en un secreto que detectó el escaneo de secretos. For more information, see "[Bypassing push protection for a secret](/code-security/secret-scanning/protecting-pushes-with-secret-scanning#bypassing-push-protection-for-a-secret)."{% endif %}
+
 {%- ifversion ghec or ghes or ghae %}
-### `security_key` category actions
+## `security_key` category actions
 
 | Acción                  | Descripción                                   |
 | ----------------------- | --------------------------------------------- |
@@ -1086,21 +1102,21 @@ topics:
 {%- endif %}
 
 {%- ifversion fpt or ghec %}
-### acciones de la categoría `sponsors`
+## acciones de la categoría `sponsors`
 
 | Acción                                                 | Descripción                                                                                                                                                                                                                                                                                                                                    |
 | ------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `sponsors.agreement_sign`                              | A {% data variables.product.prodname_sponsors %} agreement was signed on behalf of an organization.                                                                                                                                                                                                                                            |
-| `sponsors.custom_amount_settings_change`               | Custom amounts for {% data variables.product.prodname_sponsors %} were enabled or disabled, or the suggested custom amount was changed. For more information, see "[Managing your sponsorship tiers](/sponsors/receiving-sponsorships-through-github-sponsors/managing-your-sponsorship-tiers)."                                               |
+| `sponsors.custom_amount_settings_change`               | Custom amounts for {% data variables.product.prodname_sponsors %} were enabled or disabled, or the suggested custom amount was changed. Para obtener más información, consulta la sección "[Administrar tus niveles de patrocinio](/sponsors/receiving-sponsorships-through-github-sponsors/managing-your-sponsorship-tiers)".                 |
 | `sponsors.fiscal_host_change`                          | The fiscal host for a {% data variables.product.prodname_sponsors %} listing was updated.                                                                                                                                                                                                                                                      |
 | `sponsors.withdraw_agreement_signature`                | A signature was withdrawn from a {% data variables.product.prodname_sponsors %} agreement that applies to an organization.                                                                                                                                                                                                                     |
 | `sponsors.repo_funding_links_file_action`              | The FUNDING file in a repository was changed. Para obtener más información, consulta "[Mostrar un botón de patrocinador en tu repositorio](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/displaying-a-sponsor-button-in-your-repository)".                                                         |
 | `sponsors.sponsor_sponsorship_cancel`                  | A sponsorship was canceled. For more information, see "[Downgrading a sponsorship](/billing/managing-billing-for-github-sponsors/downgrading-a-sponsorship)."                                                                                                                                                                                  |
-| `sponsors.sponsor_sponsorship_create`                  | A sponsorship was created, by sponsoring an account. For more information, see "[Sponsoring an open source contributor](/sponsors/sponsoring-open-source-contributors/sponsoring-an-open-source-contributor)."                                                                                                                                 |
+| `sponsors.sponsor_sponsorship_create`                  | A sponsorship was created, by sponsoring an account. Para obtener más información, consulta la sección "[Patrocinar a un contribuyente de código libre](/sponsors/sponsoring-open-source-contributors/sponsoring-an-open-source-contributor)".                                                                                                 |
 | `sponsors.sponsor_sponsorship_payment_complete`        | After you sponsor an account and a payment has been processed, the sponsorship payment was marked as complete. Para obtener más información, consulta la sección "[Patrocinar a un contribuyente de código libre](/sponsors/sponsoring-open-source-contributors/sponsoring-an-open-source-contributor)".                                       |
 | `sponsors.sponsor_sponsorship_preference_change`       | The option to receive email updates from a sponsored account was changed. Para obtener más información, consulta "[Administar tu patrocinio](/sponsors/sponsoring-open-source-contributors/managing-your-sponsorship)".                                                                                                                        |
 | `sponsors.sponsor_sponsorship_tier_change`             | A sponsorship was upgraded or downgraded. Para obtener más información, consulta "[Actualizar un patrocinio](/billing/managing-billing-for-github-sponsors/upgrading-a-sponsorship)" y "[Bajar de categoría un patrocinio](/billing/managing-billing-for-github-sponsors/downgrading-a-sponsorship)."                                          |
-| `sponsors.sponsored_developer_approve`                 | A {% data variables.product.prodname_sponsors %} account was approved. For more information, see "[Setting up {% data variables.product.prodname_sponsors %} for your organization](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-organization)."                                               |
+| `sponsors.sponsored_developer_approve`                 | A {% data variables.product.prodname_sponsors %} account was approved. Para obtener más información, consulta la sección "[Configurar {% data variables.product.prodname_sponsors %} para tu organización](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-organization)".                        |
 | `sponsors.sponsored_developer_create`                  | A {% data variables.product.prodname_sponsors %} account was created. Para obtener más información, consulta la sección "[Configurar {% data variables.product.prodname_sponsors %} para tu organización](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-organization)".                         |
 | `sponsors.sponsored_developer_disable`                 | A {% data variables.product.prodname_sponsors %} account was disabled.                                                                                                                                                                                                                                                                         |
 | `sponsors.sponsored_developer_profile_update`          | You edit a sponsored organization profile. For more information, see "[Editing your profile details for {% data variables.product.prodname_sponsors %}](/sponsors/receiving-sponsorships-through-github-sponsors/editing-your-profile-details-for-github-sponsors)."                                                                           |
@@ -1112,14 +1128,14 @@ topics:
 {%- endif %}
 
 {%- ifversion ghec or ghes or ghae %}
-### `ssh_certificate_authority` category actions
+## `ssh_certificate_authority` category actions
 
 | Acción                              | Descripción                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
 | ----------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `ssh_certificate_authority.create`  | An SSH certificate authority for an organization or enterprise was created. Para obtener más información, consulta las secciones "[Administrar las autoridades de certificados SSH de tu organización](/organizations/managing-git-access-to-your-organizations-repositories/managing-your-organizations-ssh-certificate-authorities)" y "[Administrar las autoridades de certificados SSH para tu empresa](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise#managing-ssh-certificate-authorities-for-your-enterprise)". |
 | `ssh_certificate_authority.destroy` | An SSH certificate authority for an organization or enterprise was deleted. Para obtener más información, consulta las secciones "[Administrar las autoridades de certificados SSH de tu organización](/organizations/managing-git-access-to-your-organizations-repositories/managing-your-organizations-ssh-certificate-authorities)" y "[Administrar las autoridades de certificados SSH para tu empresa](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise#managing-ssh-certificate-authorities-for-your-enterprise)". |
 
-### `ssh_certificate_requirement` category actions
+## `ssh_certificate_requirement` category actions
 
 | Acción                                | Descripción                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 | ------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -1127,7 +1143,7 @@ topics:
 | `ssh_certificate_requirement.disable` | The requirement for members to use SSH certificates to access an organization resources was disabled. Para obtener más información, consulta las secciones "[Administrar las autoridades de certificados SSH de tu organización](/organizations/managing-git-access-to-your-organizations-repositories/managing-your-organizations-ssh-certificate-authorities)" y "[Administrar las autoridades de certificados SSH para tu empresa](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise#managing-ssh-certificate-authorities-for-your-enterprise)". |
 {%- endif %}
 
-### `staff` category actions
+## `staff` category actions
 
 | Acción               | Descripción                                                                                                                                                      |
 | -------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -1140,16 +1156,16 @@ topics:
 {%- ifversion ghes %}
 | `staff.search_audit_log` | A site administrator performed a search of the site admin audit log.
 {%- endif %}
-| `staff.set_domain_token_expiration` | {% ifversion ghes %}A site administrator or {% endif %}GitHub staff set the verification code expiry time for an organization or enterprise domain. {% ifversion ghec or ghes > 3.1 %}Para obtener más información, consulta las secciones "[Verificar o aprobar un dominio para tu organización](/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization)" y "[Verificar o aprobar un dominio para tu empresa](/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise)".{% endif %}
+| `staff.set_domain_token_expiration` | {% ifversion ghes %}A site administrator or {% endif %}GitHub staff set the verification code expiry time for an organization or enterprise domain. {% ifversion ghec or ghes %}Para obtener más información, consulta las secciones "[Verificar o aprobar un dominio para tu organización](/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization)" y "[Verificar o aprobar un dominio para tu empresa](/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise)".{% endif %}
 {%- ifversion ghes %}
 | `staff.unlock`                | A site administrator unlocked (temporarily gained full access to) all of a user's private repositories.
 {%- endif %}
-| `staff.unverify_domain` | |{% ifversion ghes %}A site administrator or {% endif %}GitHub staff unverified an organization or enterprise domain. {% ifversion ghec or ghes > 3.1 %}Para obtener más información, consulta la sección "[Verificar o aprobar un dominio para tu organización](/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization)" y "[Verificar o aprobar un dominio para tu empresa](/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise)".{% endif %}| | `staff.verify_domain` | {% ifversion ghes %}Un administrador de sitio o {% endif %}el personal de GitHub verificó un dominio de empresa u organización. {% ifversion ghec or ghes > 3.1 %}Para obtener más información, consulta las secciones "[Verificar o aprobar un dominio para tu organización](/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization)" y "[Verificar o aprobar un dominio para tu empresa](/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise)".{% endif %}
+| `staff.unverify_domain` | |{% ifversion ghes %}A site administrator or {% endif %}GitHub staff unverified an organization or enterprise domain. {% ifversion ghec or ghes %}For more information, see "[Verifying or approving a domain for your organization](/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization)" and "[Verifying or approving a domain for your enterprise](/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise)."{% endif %}| | `staff.verify_domain` | {% ifversion ghes %}A site administrator or {% endif %}GitHub staff verified an organization or enterprise domain. {% ifversion ghec or ghes %}Para obtener más información, consulta las secciones "[Verificar o aprobar un dominio para tu organización](/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization)" y "[Verificar o aprobar un dominio para tu empresa](/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise)".{% endif %}
 {%- ifversion ghes %}
 | `staff.view_audit_log` | A site administrator viewed the site admin audit log.
 {%- endif %}
 
-### acciones de la categoría `team`
+## acciones de la categoría `team`
 
 | Acción                    | Descripción                                                                                                                                                                                                                               |
 | ------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -1165,7 +1181,7 @@ topics:
 {%- endif %}
 | `team.remove_member` | A member of an organization was removed from a team. For more information, see "[Removing organization members from a team](/organizations/organizing-members-into-teams/removing-organization-members-from-a-team)." | `team.remove_repository` | A repository was no longer under a team's control. | `team.rename` | A team's name was changed. | `team.update_permission` | A team's access was changed. | `team.update_repository_permission` | A team's permission to a repository was changed.
 
-### acciones de la categoría `team_discussions`
+## acciones de la categoría `team_discussions`
 
 | Acción                     | Descripción                                                                                                                                                                                                                                         |
 | -------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -1174,7 +1190,7 @@ topics:
 | `team_discussions.enable`  | An organization owner enabled team discussions for an organization.                                                                                                                                                                                 |
 
 {%- ifversion ghec %}
-### `team_sync_tenant` category actions
+## `team_sync_tenant` category actions
 
 | Acción                                     | Descripción                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 | ------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -1184,20 +1200,20 @@ topics:
 {%- endif %}
 
 {%- ifversion fpt or ghes %}
-### acciones de la categoría `two_factor_authentication`
+## acciones de la categoría `two_factor_authentication`
 
 | Acción                                                  | Descripción                                                                                                           |
 | ------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- |
 | `two_factor_authentication.disabled`                    | [Two-factor authentication][2fa] was disabled for a user account.                                                     |
 | `two_factor_authentication.enabled`                     | [Two-factor authentication][2fa] was enabled for a user account.                                                      |
-| `two_factor_authentication.password_reset_fallback_sms` | A one-time password code was sent to a user account fallback phone number.                                            |
+| `two_factor_authentication.password_reset_fallback_sms` | El código de contraseña de una sola vez se envió al número telefónico de opción alternativa de una cuenta de usuario. |
 | `two_factor_authentication.recovery_codes_regenerated`  | Two factor recovery codes were regenerated for a user account.                                                        |
 | `two_factor_authentication.sign_in_fallback_sms`        | El código de contraseña de una sola vez se envió al número telefónico de opción alternativa de una cuenta de usuario. |
 | `two_factor_authentication.update_fallback`             | The two-factor authentication fallback for a user account was changed.                                                |
 {%- endif %}
 
 {%- ifversion fpt or ghes or ghae %}
-### acciones de la categoría `user`
+## acciones de la categoría `user`
 
 | Acción                              | Descripción                                                                                                                                                                     |
 | ----------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -1212,7 +1228,7 @@ topics:
 {%- ifversion ghes %}
 | `user.demote`                     | A site administrator was demoted to an ordinary user account.
 {%- endif %}
-| `user.destroy`                    | A user deleted his or her account, triggering `user.async_delete`. | `user.failed_login`               | A user tries to sign in with an incorrect username, password, or two-factor authentication code. | `user.flag_as_large_scale_contributor` | A user account was flagged as a large scale contributor. Only contributions from public repositories the user owns will be shown in their contribution graph, in order to prevent timeouts. | `user.forgot_password`            | A user requested a password reset via the sign-in page. | `user.hide_private_contributions_count` | A user changed the visibility of their private contributions. The number of contributions to private repositories on the user's profile are now hidden. For more information, see "[Publicizing or hiding your private contributions on your profile](/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-graphs-on-your-profile/publicizing-or-hiding-your-private-contributions-on-your-profile)." | `user.lockout` | A user was locked out of their account. | `user.login`                      | A user signed in.
+| `user.destroy`                    | A user deleted his or her account, triggering `user.async_delete`. | `user.failed_login`               | A user tries to sign in with an incorrect username, password, or two-factor authentication code. | `user.flag_as_large_scale_contributor` | A user account was flagged as a large scale contributor. Only contributions from public repositories the user owns will be shown in their contribution graph, in order to prevent timeouts. | `user.forgot_password`            | A user requested a password reset via the sign-in page. | `user.hide_private_contributions_count` | A user changed the visibility of their private contributions. The number of contributions to private repositories on the user's profile are now hidden. Para obtener más información, consulta la sección "[Publicar u ocultar tus contribuciones privadas en tu perfil](/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-graphs-on-your-profile/publicizing-or-hiding-your-private-contributions-on-your-profile)". | `user.lockout` | A user was locked out of their account. | `user.login`                      | A user signed in.
 {%- ifversion ghes or ghae %}
 | `user.mandatory_message_viewed`   | A user viewed a mandatory message. For more information see "[Customizing user messages for your enterprise](/admin/user-management/managing-users-in-your-enterprise/customizing-user-messages-for-your-enterprise)" for details."
 {%- endif %}
@@ -1224,7 +1240,7 @@ topics:
 {%- endif %}
 
 {%- ifversion ghec or ghes %}
-### `user_license` category actions
+## `user_license` category actions
 
 | Acción                 | Descripción                                                  |
 | ---------------------- | ------------------------------------------------------------ |
@@ -1233,11 +1249,9 @@ topics:
 | `user_license.update`  | A seat license type for a user in an enterprise was changed. |
 {%- endif %}
 
-{% ifversion fpt or ghec or ghes > 3.1 or ghae %}
-### Acciones de la categoría `workflows`
+## Acciones de la categoría `workflows`
 
 {% data reusables.audit_log.audit-log-events-workflows %}
-{%- endif %}
 
   [OAuth access token]: /developers/apps/building-oauth-apps/authorizing-oauth-apps
 

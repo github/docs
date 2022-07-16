@@ -50,11 +50,13 @@ Anyone with write access to a repository can edit comments on issues, pull reque
 
 It's appropriate to edit a comment and remove content that doesn't contribute to the conversation and violates your community's code of conduct{% ifversion fpt or ghec %} or GitHub's [Community Guidelines](/free-pro-team@latest/github/site-policy/github-community-guidelines){% endif %}.
 
-When you edit a comment, note the location that the content was removed from and optionally, the reason for removing it.
+Sometimes it may make sense to clearly indicate edits and their justification.
 
-Anyone with read access to a repository can view a comment's edit history. The **edited** dropdown at the top of the comment contains a history of edits showing the user and timestamp for each edit.
+That said, anyone with read access to a repository can view a comment's edit history. The **edited** dropdown at the top of the comment contains a history of edits showing the user and timestamp for each edit.
 
 ![Comment with added note that content was redacted](/assets/images/help/repository/content-redacted-comment.png)
+
+## Redacting sensitive information
 
 Comment authors and anyone with write access to a repository can also delete sensitive information from a comment's edit history. For more information, see "[Tracking changes in a comment](/communities/moderating-comments-and-conversations/tracking-changes-in-a-comment)."
 
@@ -71,19 +73,21 @@ Comment authors and anyone with write access to a repository can also delete sen
 
 Anyone with write access to a repository can delete comments on issues, pull requests, and commits. Organization owners, team maintainers, and the comment author can also delete a comment on a team page.
 
+If a comment contains some constructive content that adds to the conversation in the issue or pull request, you can edit the comment instead.
+
 Deleting a comment is your last resort as a moderator. It's appropriate to delete a comment if the entire comment adds no constructive content to a conversation and violates your community's code of conduct{% ifversion fpt or ghec %} or GitHub's [Community Guidelines](/free-pro-team@latest/github/site-policy/github-community-guidelines){% endif %}.
 
 Deleting a comment creates a timeline event that is visible to anyone with read access to the repository. However, the username of the person who deleted the comment is only visible to people with write access to the repository. For anyone without write access, the timeline event is anonymized.
 
 ![Anonymized timeline event for a deleted comment](/assets/images/help/issues/anonymized-timeline-entry-for-deleted-comment.png)
 
-If a comment contains some constructive content that adds to the conversation in the issue or pull request, you can edit the comment instead.
-
 {% note %}
 
 **Note:** The initial comment (or body) of an issue or pull request can't be deleted. Instead, you can edit issue and pull request bodies to remove unwanted content.
 
 {% endnote %}
+
+### Steps to delete a comment
 
 1. Navigate to the comment you'd like to delete.
 2. In the upper-right corner of the comment, click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}, then click **Delete**.

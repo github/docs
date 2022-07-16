@@ -32,27 +32,6 @@ For more information about personal accounts on {% data variables.product.produc
 {% data reusables.education.plan-to-use-github %}
 {% data reusables.education.submit-application %}
 
-## Upgrading your organization
-
-After your request for an educator or researcher discount has been approved, you can upgrade the organizations you use with your learning community to {% data variables.product.prodname_team %}, which allows unlimited users and private repositories with full features, for free. You can upgrade an existing organization or create a new organization to upgrade.
-
-### Upgrading an existing organization
-
-{% data reusables.education.upgrade-page %}
-{% data reusables.education.upgrade-organization %}
-
-### Upgrading a new organization
-
-{% data reusables.education.upgrade-page %}
-1. Click {% octicon "plus" aria-label="The plus symbol" %} **Create an organization**.
-  ![Create an organization button](/assets/images/help/education/create-org-button.png)
-3. Read the information, then click **Create organization**.
-  ![Create organization button](/assets/images/help/education/create-organization-button.png)
-4. Under "Choose your plan", click **Choose {% data variables.product.prodname_free_team %}**.
-5. Follow the prompts to create your organization.
-{% data reusables.education.upgrade-page %}
-{% data reusables.education.upgrade-organization %}
-
 ## Further reading
 
 - "[Why wasn't my application for an educator or researcher discount approved?](/articles/why-wasn-t-my-application-for-an-educator-or-researcher-discount-approved)"

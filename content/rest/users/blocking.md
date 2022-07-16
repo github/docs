@@ -1,5 +1,5 @@
 ---
-title: Blocking Users
+title: Blocking users
 intro: ''
 versions:
   fpt: '*'
@@ -9,3 +9,6 @@ topics:
 miniTocMaxHeadingLevel: 3
 allowTitleToDifferFromFilename: true
 ---
+## About the Blocking users API
+
+{% data reusables.user-settings.user-api %}

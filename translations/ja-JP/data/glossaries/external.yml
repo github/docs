@@ -210,7 +210,7 @@
   description: ユーザのメールアドレスに送信される通知。
 - 
   term: Enterpriseアカウント
-  description: Enterprise accounts allow you to centrally manage policy and billing for multiple organizations. {% data reusables.gated-features.enterprise-accounts %}
+  description: Enterpriseアカウントを利用すると、複数のOrganizationのポリシーと支払いを集中管理できます。{% data reusables.gated-features.enterprise-accounts %}
 - 
   term: Explorer
   description: >-
@@ -594,9 +594,9 @@
   description: >-
     リポジトリは GitHub の最も基本的な要素です。プロジェクトのフォルダとして最も想像しやすいものです。リポジトリ 1 つに（ドキュメントを含む）すべてのプロジェクトファイルが含まれ、各ファイルのリビジョン履歴が格納されます。リポジトリはコラボレータを複数持つことができ、またパブリックとプライベートのいずれの場合もあります。
 - 
-  term: repository cache
+  term: リポジトリキャッシュ
   description: >-
-    A read-only mirror of repositories for your GitHub Enterprise server instance, located near distributed teams and CI clients.
+    GitHub Enterprise Serverインスタンスのリポジトリの読み取り専用ミラーで、分散しているチームやCIクライアントの近くにあります。
 - 
   term: リポジトリグラフ
   description: リポジトリのデータの視覚的表現。

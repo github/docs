@@ -1,5 +1,7 @@
 ---
-title: Members
+title: Organization members
+allowTitleToDifferFromFilename: true
+shortTitle: Members
 intro: ''
 versions:
   fpt: '*'
@@ -10,3 +12,4 @@ topics:
   - API
 miniTocMaxHeadingLevel: 3
 ---
+

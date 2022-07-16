@@ -1,6 +1,6 @@
-By default, {% data variables.product.product_name %} will maximize the number of jobs run in parallel depending on runner availability. To set the maximum number of jobs that can run simultaneously when using a `matrix` job strategy, use `jobs.<job_id>.strategy.max-parallel`.
+Por padrão, {% data variables.product.product_name %} maximizará o número de trabalhos executados em paralelo dependendo da disponibilidade do executor. Para definir o número máximo de trabalhos que podem ser executados simultaneamente ao usar uma estratégia de trabalho de `matriz`, use `jobs.<job_id>.strategy.max-parallel`.
 
-For example, the following workflow will run a maximum of two jobs at a time, even if there are runners available to run all six jobs at once.
+Por exemplo, o fluxo de trabalho seguinte será executado um máximo de duas tarefas por vez, mesmo que haja executores disponíveis para executar todos os seis trabalhos de uma só vez.
 
 ```yaml
 jobs:

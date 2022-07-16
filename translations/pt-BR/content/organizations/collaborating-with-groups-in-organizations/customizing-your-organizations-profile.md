@@ -11,7 +11,7 @@ topics:
 shortTitle: Personalizar perfil da organização
 ---
 
-{% if org-profile-pin-private %}
+{% ifversion org-profile-pin-private %}
 
 ## Sobre a página de perfil da sua organização
 
@@ -45,11 +45,11 @@ Você pode formatar o texto e incluir emoji, imagens e GIFs no README do perfil 
 
    ![Imagem do README público de uma organização](/assets/images/help/organizations/org_public_readme.png)
 
-{% if org-profile-pin-private %}
+{% ifversion org-profile-pin-private %}
 
 ## Adicionando um perfil README de organização somente apenas para membros
 
-1. Se sua organização ainda não tiver um repositório `.github-private`, crie um repositório público `.github-private`. Esta ação pode ser executada por qualquer usuário que tenha acesso de gravação a esse repositório.
+1. Se sua organização ainda não tiver um repositório `.github-private`, crie um repositório privado denominado `.github-private`.
 2. No repositório `.github-private` da sua organização, crie um arquivo `README.md` na pasta `perfil`.
 3. Faça o commit das alterações para o arquivo `README.md`. O conteúdo do `README.md` será exibido no modo de exibição do integrante do perfil da sua organização.
 

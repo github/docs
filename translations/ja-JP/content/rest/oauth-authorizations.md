@@ -1,6 +1,6 @@
 ---
-title: OAuth authorizations
-intro: The OAuth authorizations lets you manage the access OAuth applications have to your account.
+title: OAuth認証
+intro: OAuth認証を使用すると、OAuthアプリケーションが持つあなたのアカウントへのアクセスを管理できます。
 versions:
   fpt: '*'
   ghec: '*'
@@ -12,7 +12,7 @@ redirect_from:
   - /rest/reference/oauth-authorizations
 ---
 
-## About the OAuth authorizations API
+## OAuth authorizations APIについて
 
 この API を使用すると、OAuth アプリケーションから自分のアカウントへのアクセスを管理することができます。 この API にアクセスするには、ユーザ名とパスワードを使用する [Basic 認証](/rest/overview/other-authentication-methods#basic-authentication) が必要であり、トークンは使用できません。
 

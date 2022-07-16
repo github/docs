@@ -53,7 +53,7 @@ Para obtener una idea de lo que hará tu servidor de IC para la API de Verificac
 
 ## Prerrequisitos
 
-Antes de comenzar, deberás familiarizarte con las [GitHub Apps](/apps/), los [Webhooks](/webhooks), y la [API de Verificaciones](/rest/reference/checks), en caso de que aún no lo estés. Encontrarás más API en los [documentos de la API de REST](/rest). La API de Verificaciones también se encuentra disponible para su uso en [GraphQL]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql), pero este inicio rápido se enfoca en REST. Consulta los objetos de [Conjuntos de Verificaciones]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql/reference/objects#checksuite) y [Ejecución de Verificación]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql/reference/objects#checkrun) de GraphQL para obtener más detalles.
+Antes de comenzar, deberás familiarizarte con las [GitHub Apps](/apps/), los [Webhooks](/webhooks), y la [API de Verificaciones](/rest/reference/checks), en caso de que aún no lo estés. Encontrarás más API en los [documentos de la API de REST](/rest). La API de Verificaciones también se encuentra disponible para su uso en [GraphQL](/graphql), pero este inicio rápido se enfoca en REST. Consulta los objetos de [Conjuntos de Verificaciones](/graphql/reference/objects#checksuite) y [Ejecución de Verificación](/graphql/reference/objects#checkrun) de GraphQL para obtener más detalles.
 
 Utilizarás el [Lenguaje de Programación Ruby](https://www.ruby-lang.org/en/), el servicio de entrega de carga útil para el webhook de [Smee](https://smee.io/), la [biblioteca de Ruby Ocktokit.rb](http://octokit.github.io/octokit.rb/) para la API de REST de GitHub, y el [marco de trabajo web Sinatra](http://sinatrarb.com/) para crear tu aplicación de servidor de IC para la API de Verificaciones.
 
@@ -150,7 +150,7 @@ def create_check_run
     # The payload structure differs depending on whether a check run or a check suite event occurred.
     @payload['check_run'].nil? ? @payload['check_suite']['head_sha'] : @payload['check_run']['head_sha'],
     # [Hash] 'Accept' header option, to avoid a warning about the API not being ready for production use.
-    accept: 'application/vnd.github.v3+json'
+    accept: 'application/vnd.github+json'
   )
 end
 ```
@@ -221,7 +221,7 @@ def initiate_check_run
     @payload['repository']['full_name'],
     @payload['check_run']['id'],
     status: 'in_progress',
-    accept: 'application/vnd.github.v3+json'
+    accept: 'application/vnd.github+json'
   )
 
   # ***** RUN A CI TEST *****
@@ -232,7 +232,7 @@ def initiate_check_run
     @payload['check_run']['id'],
     status: 'completed',
     conclusion: 'success',
-    accept: 'application/vnd.github.v3+json'
+    accept: 'application/vnd.github+json'
   )
 end
 ```
@@ -547,7 +547,7 @@ Ahora tienes toda la información que necesitas para actualizar tu ejecución de
   @payload['check_run']['id'],
   status: 'completed',
   conclusion: 'success',
-  accept: 'application/vnd.github.v3+json'
+  accept: 'application/vnd.github+json'
 )
 ```
 
@@ -571,7 +571,7 @@ Necesitarás actualizar este código para utilizar la variable `conclusion` que 
     description: 'Automatically fix all linter notices.',
     identifier: 'fix_rubocop_notices'
   }],
-  accept: 'application/vnd.github.v3+json'
+  accept: 'application/vnd.github+json'
 )
 ```
 

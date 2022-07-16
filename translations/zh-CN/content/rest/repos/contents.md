@@ -1,5 +1,7 @@
 ---
-title: 内容
+title: 仓库内容
+allowTitleToDifferFromFilename: true
+shortTitle: 内容
 intro: 此 API 端点允许您在仓库中创建、修改和删除 Base64 编码的内容。
 versions:
   fpt: '*'
@@ -10,6 +12,8 @@ topics:
   - API
 miniTocMaxHeadingLevel: 3
 ---
+
+## 关于存储库内容 API
 
 要请求原始格式或渲染的 HTML（如果支持），请对仓库内容使用自定义媒体类型。
 

@@ -3,7 +3,7 @@ title: Managing custom repository roles for an organization
 intro: You can more granularly control access to your organization's repositories by creating custom repository roles.
 permissions: Organization owners can manage custom repository roles.
 versions:
-  ghec: '*'
+  feature: custom-repository-roles
 topics:
   - Organizations
   - Teams
@@ -11,8 +11,6 @@ shortTitle: Custom repository roles
 redirect_from:
   - /early-access/github/articles/managing-custom-repository-roles-for-an-organization
 ---
-
-{% data reusables.pre-release-program.custom-roles-public-beta %}
 
 ## About custom repository roles
 
@@ -51,6 +49,17 @@ After choosing an inherited role, you can select additional permissions for your
 
 You can only choose an additional permission if it's not already included in the inherited role. For example, if the inherited role offers **Write** access to a repository, then the "Close a pull request" permission will already be included in the inherited role.
 
+{% ifversion ghec %}
+### Discussions
+
+- **Create a discussion category**: Ability to create a new discussion category. For more information, see "[Creating a new discussion category](/discussions/managing-discussions-for-your-community/managing-categories-for-discussions#creating-a-category)".
+- **Edit a discussion category**: Ability to edit a discussion category. For more information, see "[Editing a discussion category](/discussions/managing-discussions-for-your-community/managing-categories-for-discussions#editing-a-category)."
+- **Delete a discussion category**: Ability to delete a discussion category. For more information, see "[Deleting a discussion category](/discussions/managing-discussions-for-your-community/managing-categories-for-discussions#deleting-a-category)."
+- **Mark or unmark discussion answers**: Ability to mark answers to a discussion, if the category for the discussion accepts answers. For more information, see "[Mark or unmark comments in a discussion as the answer](/discussions/managing-discussions-for-your-community/moderating-discussions#marking-a-comment-as-an-answer)". 
+- **Hide or unhide discussion comments**: Ability to hide and unhide comments in a discussion.  For more information, see "[Moderating discussions](/communities/moderating-comments-and-conversations/managing-disruptive-comments#hiding-a-comment)."
+- **Convert issues to discussions**: Ability to convert an issue into a discussion.  For more information, see "[Converting issues to discussions](/discussions/managing-discussions-for-your-community/moderating-discussions#converting-an-issue-to-a-discussion)."
+{% endif %}
+
 ### Issue and Pull Requests
 
 - **Assign or remove a user**: Assign a user to an issue or pull request, or remove a user from an issue or pull request.
@@ -79,7 +88,9 @@ You can only choose an additional permission if it's not already included in the
 - **Manage webhooks**: Add webhooks to the repository.
 - **Manage deploy keys**: Add deploy keys to the repository.
 - **Edit repository metadata**: Update the repository description as well as the repository topics.
+{%- ifversion ghec %}
 - **Set interaction limits**: Temporarily restrict certain users from commenting, opening issues, or creating pull requests in your public repository to enforce a period of limited activity. For more information, see "[Limiting interactions in your repository](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-repository)."
+{%- endif %}
 - **Set the social preview**: Add an identifying image to your repository that appears on social media platforms when your repository is linked. For more information, see "[Customizing your repository's social media preview](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/customizing-your-repositorys-social-media-preview)."
 - **Push commits to protected branches**: Push to a branch that is marked as a protected branch.
 - **Create protected tags**: Create tags that match a tag protection rule. For more information, see "[Configuring tag protection rules](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/configuring-tag-protection-rules)."

@@ -1,6 +1,6 @@
 ---
 title: 自定义代码空间
-intro: '{% data variables.product.prodname_codespaces %} 是您专用的环境。 可以使用开发容器配置存储库以定义其默认 Codespaces 环境，并使用 dotfile 和“设置同步”在所有代码空间中个性化开发体验。'
+intro: '{% data variables.product.prodname_github_codespaces %} 是您专用的环境。 You can configure your repositories with a dev container to define their default {% data variables.product.prodname_github_codespaces %} environment, and personalize your development experience across all of your codespaces with dotfiles and Settings Sync.'
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
@@ -10,10 +10,11 @@ redirect_from:
 topics:
   - Codespaces
 children:
-  - /personalizing-codespaces-for-your-account
+  - /personalizing-github-codespaces-for-your-account
   - /changing-the-machine-type-for-your-codespace
-  - /setting-your-default-editor-for-codespaces
-  - /setting-your-default-region-for-codespaces
-  - /setting-your-timeout-period-for-codespaces
+  - /setting-your-default-editor-for-github-codespaces
+  - /setting-your-default-region-for-github-codespaces
+  - /setting-your-timeout-period-for-github-codespaces
+  - /configuring-automatic-deletion-of-your-codespaces
 ---
 

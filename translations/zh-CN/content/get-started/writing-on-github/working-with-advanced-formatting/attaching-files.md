@@ -18,7 +18,7 @@ topics:
 
 {% warning %}
 
-**警告：**如果您将图像{% ifversion fpt or ghes > 3.1 or ghae or ghec %} 或视频{% endif %} 添加到拉取请求或议题评论中，则任何人都可以在未经身份验证的情况下查看匿名 URL，即使该拉取请求在私有仓库中{% ifversion ghes %} 或启用了私有模式{% endif %}。 要对敏感媒体文件保密，请从需要身份验证的私有网络或服务器提供它们。 {% ifversion fpt or ghec %}有关匿名 URL 的更多信息，请参阅“[关于匿名 URL](/github/authenticating-to-github/about-anonymized-urls)”。{% endif %}
+**警告：**如果您在拉取请求或议题评论中添加了图像或视频，则任何人都可以查看匿名化 URL，无需身份验证，即使该拉取请求位于私有仓库中{% ifversion ghes %} 或者启用了私有模式{% endif %}。 要对敏感媒体文件保密，请从需要身份验证的私有网络或服务器提供它们。 {% ifversion fpt or ghec %}有关匿名 URL 的更多信息，请参阅“[关于匿名 URL](/github/authenticating-to-github/about-anonymized-urls)”。{% endif %}
 
 {% endwarning %}
 
@@ -35,7 +35,7 @@ topics:
 最大文件大小为：
 - 10MB，对于图像和 gif{% ifversion fpt or ghec %}
 - 10MB，对于上传到使用免费 GitHub 计划的用户或组织所拥有仓库的视频
-- 100MB，对于上传到使用付费 GitHub 计划的用户或组织所拥有仓库的视频{% elsif fpt or ghes > 3.1 or ghae %}
+- 100MB，对于上传到使用付费 GitHub 计划的用户或组织所拥有仓库的视频{% elsif ghes or ghae %}
 - 100MB，对于视频{% endif %}
 - 25MB，对于所有其他文件
 
@@ -44,14 +44,14 @@ topics:
 * PNG (*.png*)
 * GIF (*.gif*)
 * JPEG (*.jpg*)
-{%- if svg-support %}
+{%- ifversion svg-support %}
 * SVG (*.svg*)
 {%- endif %}
 * 日志文件 (*.log*)
 * Microsoft Word (*.docx*)、Powerpoint (*.pptx*) 和 Excel (*.xlsx*) 文档
 * 文本文件 (*.txt*)
 * PDF (*.pdf*)
-* ZIP（*.zip*、*.gz*）{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
+* ZIP（*.zip*、*.gz*）
 * 视频（*.mp4*、*.mov*）
 
 {% note %}
@@ -59,6 +59,5 @@ topics:
 **注意：** 视频编解码器兼容性是浏览器特定的，上传到一个浏览器的视频可能无法在另一个浏览器上查看。 目前，我们建议使用 h.264 实现最大兼容性。
 
 {% endnote %}
-{% endif %}
 
 ![附件动画 GIF](/assets/images/help/pull_requests/dragging_images.gif)

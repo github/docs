@@ -1,8 +1,8 @@
-After you connect your account on {% data variables.product.product_location %} to the {% data variables.product.prodname_github_codespaces %} extension, you can create a new codespace. For more information about the {% data variables.product.prodname_github_codespaces %} extension, see the [{% data variables.product.prodname_vscode %} marketplace](https://marketplace.visualstudio.com/items?itemName=GitHub.codespaces).
+After you connect your account on {% data variables.product.product_location %} to the {% data variables.product.prodname_github_codespaces %} extension, you can create a new codespace. For more information about the {% data variables.product.prodname_github_codespaces %} extension, see the [{% data variables.product.prodname_vs_marketplace_shortname %} marketplace](https://marketplace.visualstudio.com/items?itemName=GitHub.codespaces).
 
 {% note %}
 
-**Note**: Currently, {% data variables.product.prodname_vscode %} doesn't allow you to choose a dev container configuration when you create a codespace. Se você quiser escolher uma configuração de contêiner de desenvolvimento específica, use a interface web do {% data variables.product.prodname_dotcom %} para criar o seu codespace. For more information, click the **Web browser** tab at the top of this page.
+**Observação**: Atualmente, {% data variables.product.prodname_vscode_shortname %} não permite que você escolha uma configuração de contêiner de desenvolvimento ao cria um codespace. Se você quiser escolher uma configuração de contêiner de desenvolvimento específica, use a interface web do {% data variables.product.prodname_dotcom %} para criar o seu codespace. For more information, click the **Web browser** tab at the top of this page.
 
 {% endnote %}
 

@@ -105,7 +105,7 @@ jobs:
 
 Para obtener más información, consulta la sección "[Definir los jobs de prerrequisito](/actions/using-jobs/using-jobs-in-a-workflow#defining-prerequisite-jobs)".
 
-### Using a matrix
+### Utilizar una matriz
 
 {% data reusables.actions.jobs.about-matrix-strategy %} The matrix is created using the `strategy` keyword, which receives the build options as an array. For example, this matrix will run the job multiple times, using different versions of Node.js:
 
@@ -122,12 +122,12 @@ jobs:
           node-version: {% raw %}${{ matrix.node }}{% endraw %}
 ```
 
-For more information, see "[Using a matrix for your jobs](/actions/using-jobs/using-a-matrix-for-your-jobs)."
+Para obtener más información, consulta la sección "[Utilizar una matriz para tus jobs](/actions/using-jobs/using-a-matrix-for-your-jobs)".
 
-{% ifversion fpt or ghec %}
+{% ifversion actions-caching %}
 ### Almacenar dependencias en caché
 
-Los ejecutores hospedados en {% data variables.product.prodname_dotcom %} se inician como ambientes nuevos para cada job, así que, si tus jobs utilizan dependencias a menudo, puedes considerar almacenar estos archivos en caché para ayudarles a mejorar el rendimiento. Una vez que se crea el caché, estará disponible para todos los flujos de trabajo en el mismo repositorio.
+If your jobs regularly reuse dependencies, you can consider caching these files to help improve performance. Una vez que se crea el caché, estará disponible para todos los flujos de trabajo en el mismo repositorio.
 
 Este ejemplo ilustra cómo almacenar el directorio `~/.npm` en el caché:
 

@@ -55,7 +55,7 @@ This script runs once per day via a scheduled GitHub Action to check all links i
 
 ### [`check-for-node`](check-for-node)
 
-This script is run automatically when you run the server locally. It checks whether Node.js is installed.
+This script is run automatically when you run the server locally. It checks whether or not Node.js is installed.
 
 ---
 
@@ -313,7 +313,7 @@ This script is intended to be used as a git "prepush" hook. If the current branc
 
 ### [`prevent-translation-commits.js`](prevent-translation-commits.js)
 
-This script is run as a git precommit hook (installed by husky after npm install). It detects changes to files the in the translations folder and prevents the commit if any changes exist.
+This script is run as a git precommit hook (installed by husky after npm install). It detects changes to the files in the translations folder and prevents the commit if any changes exist.
 
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: 协作者
-intro: The Collaborators API allows you manage collaborators for a repository.
+intro: 协作者 API 允许您管理存储库的协作者。
 versions:
   fpt: '*'
   ghes: '*'

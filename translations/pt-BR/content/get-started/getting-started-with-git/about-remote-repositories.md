@@ -81,13 +81,9 @@ Quando você aplicar `git clone`, `git fetch`, `git pull` ou `git push` a um rep
 
 {% endtip %}
 
-{% ifversion fpt or ghes or ghae or ghec %}
-
 ## Clonar com {% data variables.product.prodname_cli %}
 
 Você também pode instalar o {% data variables.product.prodname_cli %} para usar os fluxos de trabalho do {% data variables.product.product_name %} no seu terminal. Para obter mais informações, consulte "[Sobre {% data variables.product.prodname_cli %}](/github-cli/github-cli/about-github-cli)".
-
-{% endif %}
 
 {% ifversion not ghae %}
 ## Clonar com o Subversion

@@ -22,7 +22,7 @@
     - GitHub Actions
 - 
   #Security policies
-  title: Microsoft security policy template
+  title: Microsoftセキュリティポリシーテンプレート
   description: セキュリティポリシーの例
   href: /microsoft/repo-templates/blob/main/shared/SECURITY.md
   tags:

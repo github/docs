@@ -1,6 +1,6 @@
 ---
 title: Azure サブスクリプションを Enterprise に接続する
-intro: 'Microsoft Enterprise Agreement を使用して、Enterprise に含まれている金額を超える {% data variables.product.prodname_actions %} および {% data variables.product.prodname_registry %} の使用を有効化して支払うことができます。'
+intro: 'Microsoft Enterprise Agreement を使用して、{% data variables.product.prodname_actions %}、{% data variables.product.prodname_registry %}、{% data variables.product.prodname_codespaces %}の使用を有効化して支払うことができます。'
 redirect_from:
   - /github/setting-up-and-managing-your-enterprise/managing-your-enterprise-account/connecting-an-azure-subscription-to-your-enterprise
   - /github/setting-up-and-managing-billing-and-payments-on-github/connecting-an-azure-subscription-to-your-enterprise
@@ -14,7 +14,17 @@ shortTitle: Azureサブスクリプションの接続
 
 {% data reusables.enterprise-accounts.billing-microsoft-ea-overview %} 詳しい情報については、「[{% data variables.product.prodname_actions %} の支払いについて](/billing/managing-billing-for-github-actions/about-billing-for-github-actions)」および「[{% data variables.product.prodname_registry %} の支払いについて](/billing/managing-billing-for-github-packages/about-billing-for-github-packages)」を参照してください。
 
-Azure サブスクリプションに接続した後、利用上限を管理することもできます。 アカウントの利用上限の管理と変更については、「[{% data variables.product.prodname_registry %} の利用上限の管理](/billing/managing-billing-for-github-packages/managing-your-spending-limit-for-github-packages)」および「[{% data variables.product.prodname_actions %} の利用上限の管理](/billing/managing-billing-for-github-actions/managing-your-spending-limit-for-github-actions)」を参照してください。
+{% note %}
+
+**ノート:** EnterpriseアカウントがMicrosoft Enterprise Agreement上にあるなら、含まれている量を超えて{% data variables.product.prodname_actions %}及び{% data variables.product.prodname_registry %}を使う、あるいは{% data variables.product.prodname_codespaces %}を使う唯一の方法は、Azureサブスクリプションに接続することです。
+
+{% endnote %}
+
+Azure サブスクリプションに接続した後、利用上限を管理することもできます。
+
+- 「[{% data variables.product.prodname_registry %}の利用上限の管理](/billing/managing-billing-for-github-packages/managing-your-spending-limit-for-github-packages)」
+- 「[{% data variables.product.prodname_actions %}の利用上限の管理](/billing/managing-billing-for-github-actions/managing-your-spending-limit-for-github-actions)」
+- 「[{% data variables.product.prodname_codespaces %}の利用上限の管理](/billing/managing-billing-for-github-codespaces/managing-spending-limits-for-codespaces)」
 
 ## Azure サブスクリプションを Enterprise アカウントに接続する
 

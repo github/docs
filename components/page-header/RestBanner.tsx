@@ -20,7 +20,7 @@ const restRepoCategoryExceptionsTitles = {
   branches: 'Branches',
   collaborators: 'Collaborators',
   commits: 'Commits',
-  deploy_keys: 'Deploy Keys',
+  'deploy-keys': 'Deploy Keys',
   deployments: 'Deployments',
   pages: 'GitHub Pages',
   releases: 'Releases',

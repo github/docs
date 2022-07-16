@@ -1,6 +1,8 @@
 ---
-title: Colaboradores
-intro: Esta API permite que você interaja com os projetos de uma organização.
+title: Colaboradores do quadro de projeto
+shortTitle: Colaboradores
+allowTitleToDifferFromFilename: true
+intro: A API de colaboradores do quadro de projeto permite que você gerencie colaboradores em um quadro de projetos.
 versions:
   fpt: '*'
   ghes: '*'
@@ -11,3 +13,4 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
+{% data reusables.projects.projects-api %}

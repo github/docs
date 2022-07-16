@@ -26,17 +26,15 @@ topics:
 
 {% endtip %}
 
-{% ifversion fpt or ghae or ghes or ghec %}
 {% tip %}
 
 **ヒント**: {% data variables.product.prodname_cli %} を使用してリポジトリを作成することもできます。 詳しい情報については、{% data variables.product.prodname_cli %} ドキュメントの「[`gh repo create`](https://cli.github.com/manual/gh_repo_create)」を参照してください。
 
 {% endtip %}
-{% endif %}
 
 {% data reusables.repositories.create_new %}
-2. また、既存のリポジトリのディレクトリ構造とファイルを持つリポジトリを作成するには、[**Choose a template**] ドロップダウンでテンプレートリポジトリを選択します。 あなたが所有するテンプレートリポジトリ、あなたがメンバーとして属する Organization が所有するテンプレートリポジトリ、使ったことがあるテンプレートリポジトリが表示されます。 詳細は「[テンプレートからリポジトリを作成する](/articles/creating-a-repository-from-a-template)」を参照してください。 ![Template drop-down menu](/assets/images/help/repository/template-drop-down.png){% ifversion fpt or ghae or ghes or ghec %}
-3. 必要に応じて、テンプレートを使用する場合、デフォルトのブランチだけでなく、テンプレートのすべてのブランチからのディレクトリ構造とファイルを含めるには、[**Include all branches**] を選択します。 ![Include all branches checkbox](/assets/images/help/repository/include-all-branches.png){% endif %}
+2. また、既存のリポジトリのディレクトリ構造とファイルを持つリポジトリを作成するには、[**Choose a template**] ドロップダウンでテンプレートリポジトリを選択します。 あなたが所有するテンプレートリポジトリ、あなたがメンバーとして属する Organization が所有するテンプレートリポジトリ、使ったことがあるテンプレートリポジトリが表示されます。 詳細は「[テンプレートからリポジトリを作成する](/articles/creating-a-repository-from-a-template)」を参照してください。 ![Template drop-down menu](/assets/images/help/repository/template-drop-down.png)
+3. 必要に応じて、テンプレートを使用する場合、デフォルトのブランチだけでなく、テンプレートのすべてのブランチからのディレクトリ構造とファイルを含めるには、[**Include all branches**] を選択します。 ![Include all branches checkbox](/assets/images/help/repository/include-all-branches.png)
 3. [Owner] ドロップダウンで、リポジトリを作成するアカウントを選択します。 ![[Owner] ドロップダウンメニュー](/assets/images/help/repository/create-repository-owner.png)
 {% data reusables.repositories.repo-name %}
 {% data reusables.repositories.choose-repo-visibility %}

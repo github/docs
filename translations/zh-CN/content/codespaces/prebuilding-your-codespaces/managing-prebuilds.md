@@ -12,11 +12,9 @@ product: '{% data reusables.gated-features.codespaces %}'
 miniTocMaxHeadingLevel: 3
 ---
 
-{% data reusables.codespaces.prebuilds-beta-note %}
-
 ## 检查、更改和删除预构建配置
 
-您为存储库配置的预构建是使用 {% data variables.product.prodname_actions %} 工作流程创建和更新的，由 {% data variables.product.prodname_codespaces %} 服务管理。
+The prebuilds that you configure for a repository are created and updated using a {% data variables.product.prodname_actions %} workflow, managed by the {% data variables.product.prodname_github_codespaces %} service.
 
 根据预构建配置中的设置，更新预构建模板的工作流程可能由以下事件触发：
 
@@ -57,6 +55,19 @@ miniTocMaxHeadingLevel: 3
    ![下拉菜单中的“编辑”选项](/assets/images/help/codespaces/prebuilds-edit.png)
 
 1. 对预构建配置进行所需的更改，然后单击 **Update（更新）**。
+
+### 禁用预构建配置
+
+要暂停更新配置的预构建模板，可以禁用配置的工作流程运行。 为预构建配置禁用工作流程不会删除以前为该配置创建的任何预构建模板，因此，代码空间将继续从现有预构建模板生成。
+
+如果需要调查模板创建失败，则禁用工作流程运行预构建配置非常有用。
+
+1. 在存储库设置的 {% data variables.product.prodname_codespaces %} 页面上，单击要禁用的预构建配置右侧的省略号。
+1. 在下拉菜单中，单击 **Disable runs（禁用运行）**。
+
+   ![下拉菜单中的“Disable runs（禁用运行）”选项](/assets/images/help/codespaces/prebuilds-disable.png)
+
+1. 要确认是否要禁用此配置，请单击“ **OK（确定）**”。
 
 ### 删除预构建配置
 
@@ -104,7 +115,7 @@ miniTocMaxHeadingLevel: 3
 {% endif %}
 1. 复制令牌字符串。 您将此密钥分配给 {% data variables.product.prodname_codespaces %} 存储库机密。
 1. 重新登录到对存储库具有管理员访问权限的帐户。
-1. 在要为其创建 {% data variables.product.prodname_codespaces %} 预构建的存储库中，创建一个名为 `CODESPACES_PREBUILD_TOKEN` 的新 {% data variables.product.prodname_codespaces %} 存储库机密，为其提供您创建和复制的令牌值。 更多信息请参阅“[管理用于 {% data variables.product.prodname_codespaces %} 的仓库和组织的加密密钥](/codespaces/managing-codespaces-for-your-organization/managing-encrypted-secrets-for-your-repository-and-organization-for-codespaces#adding-secrets-for-a-repository)”。
+1. 在要为其创建 {% data variables.product.prodname_codespaces %} 预构建的存储库中，创建一个名为 `CODESPACES_PREBUILD_TOKEN` 的新 {% data variables.product.prodname_codespaces %} 存储库机密，为其提供您创建和复制的令牌值。 For more information, see "[Managing encrypted secrets for your repository and organization for {% data variables.product.prodname_github_codespaces %}](/codespaces/managing-codespaces-for-your-organization/managing-encrypted-secrets-for-your-repository-and-organization-for-github-codespaces#adding-secrets-for-a-repository)."
 
 PAT 将用于为存储库创建的所有后续预构建模板。 与其他 {% data variables.product.prodname_codespaces %} 存储库机密不同， `CODESPACES_PREBUILD_TOKEN` 机密仅用于预构建，不可用于从存储库创建的代码空间。
 

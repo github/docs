@@ -37,7 +37,7 @@ En una ventana amplia del buscador, no hay texto que siga al logo de {% data var
 
 En {% data variables.product.prodname_dotcom_the_website %}, cada cuenta tiene su propio plan. Cada cuenta personal tiene un plan asociado que proporciona acceso a ciertas características y cada organización tiene un plan asociado diferente. Si tu cuenta personal es miembro de una organización de {% data variables.product.prodname_dotcom_the_website %}, puedes tener acceso a características diferentes cuando utilizas recursos que le pertenezcan a esa organización y cuando utilizas los que le pertenecen a tu cuenta personal. Para obtener más información, consulta la sección "[Tipos de cuentas de {% data variables.product.prodname_dotcom %}](/get-started/learning-about-github/types-of-github-accounts)".
 
-Si no sabes si una organización utiliza {% data variables.product.prodname_ghe_cloud %}, pregúntale a un propietario de organización. Para obtener más información, consulta la sección "[Ver los roles de las personas en una organización](/account-and-profile/setting-up-and-managing-your-github-user-account/managing-your-membership-in-organizations/viewing-peoples-roles-in-an-organization)".
+Si no sabes si una organización utiliza {% data variables.product.prodname_ghe_cloud %}, pregúntale a un propietario de organización. Para obtener más información, consulta la sección "[Ver los roles de las personas en una organización](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-your-membership-in-organizations/viewing-peoples-roles-in-an-organization)".
 
 ### {% data variables.product.prodname_ghe_server %}
 
@@ -46,6 +46,10 @@ Si accedes a {% data variables.product.prodname_dotcom %} mediante una URL difer
 En una ventana amplia de buscador, la palabra "Enterprise" seguiría inmediatamente al logo de {% data variables.product.company_short %} en la parte izquierda del encabezado.
 
 ![Captura de pantalla de la barra de dirección y el encabezado de {% data variables.product.prodname_ghe_server %} en un buscador](/assets/images/help/docs/header-ghes.png)
+
+Puedes ver la versión de {% data variables.product.prodname_ghe_server %} que estás utilizando al pie de cualquier página.
+
+![Captura de pantalla del pie de página de {% data variables.product.prodname_ghe_server %}, con la versión resaltada](/assets/images/help/docs/ghes-version-in-footer.png)
 
 ### {% data variables.product.prodname_ghe_managed %}
 

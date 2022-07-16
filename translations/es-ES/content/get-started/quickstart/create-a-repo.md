@@ -5,7 +5,7 @@ redirect_from:
   - /articles/create-a-repo
   - /github/getting-started-with-github/create-a-repo
   - /github/getting-started-with-github/quickstart/create-a-repo
-intro: 'To put your project up on {% data variables.product.prodname_dotcom %}, you will need to create a repository for it to live in.'
+intro: 'Para poner tu proyecto en {% data variables.product.prodname_dotcom %}, necesitarás crear un repositorio en donde pueda vivir.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -22,7 +22,7 @@ topics:
 
 {% ifversion fpt or ghec %}
 
-Puedes almacenar distintos proyectos en los repositorios de {% data variables.product.prodname_dotcom %}, incluso proyectos de código abierto. With open source projects, you can share code to make better, more reliable software. Puedes utilizar los repositorios para colaborar con otros y rastrear tu trabajo. Para obtener más información, consulta la sección "[Acerca de los repositorios](/github/creating-cloning-and-archiving-repositories/creating-a-repository-on-github/about-repositories)". To learn more about open source projects, visit [OpenSource.org](http://opensource.org/about).
+Puedes almacenar distintos proyectos en los repositorios de {% data variables.product.prodname_dotcom %}, incluso proyectos de código abierto. Con los proyectos de código abierto, puedes compartir código para hacer software mejor y más confiable. Puedes utilizar los repositorios para colaborar con otros y rastrear tu trabajo. Para obtener más información, consulta la sección "[Acerca de los repositorios](/github/creating-cloning-and-archiving-repositories/creating-a-repository-on-github/about-repositories)". Para aprender más sobre los proyectos de código abierto, visita [OpenSource.org](https://opensource.org/about).
 
 {% elsif ghes or ghae %}
 
@@ -34,7 +34,10 @@ Puedes almacenar varios proyectos en los repositorios de {% data variables.produ
 
 {% note %}
 
-**Nota:** Puedes crear repositorios públicos para un proyecto de código abierto. Cuando crees un repositorio público, asegúrate de incluir un [archivo de licencia](https://choosealicense.com/) que determine cómo deseas que se comparta tu proyecto con otros usuarios. {% data reusables.open-source.open-source-guide-repositories %}{% data reusables.open-source.open-source-learning-lab %}
+**Notas:**
+- Puedes crear repositorios públicos para un proyecto de código abierto. Cuando crees un repositorio público, asegúrate de incluir un [archivo de licencia](https://choosealicense.com/) que determine cómo deseas que se comparta tu proyecto con otros usuarios. {% data reusables.open-source.open-source-guide-repositories %}
+- {% data reusables.open-source.open-source-learning %}
+- También puedes agregar archivos de salud comunitaria a tus repositorios para configurar lineamientos para saber cómo hacer contribuciones, mantener la seguridad de tus repositorios y mucho más. Para obtener más información, consulta "[Crear un archivo de salud predeterminado para la comunidad](/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)."
 
 {% endnote %}
 
@@ -78,7 +81,7 @@ Confirmemos un cambio en el archivo *README*.
 2. En el contenido del archivo, haz clic en {% octicon "pencil" aria-label="The edit icon" %}.
 3. En la pestaña **Editar archivo**, escribe alguna información sobre ti. ![Nuevo contenido en el archivo](/assets/images/help/repository/edit-readme-light.png)
 {% data reusables.files.preview_change %}
-5. Revisa los cambios que realizaste en el archivo. You will see the new content in green. ![Vista previa del archivo](/assets/images/help/repository/create-commit-review.png)
+5. Revisa los cambios que realizaste en el archivo. Verás el contenido nuevo de color verde. ![Vista previa del archivo](/assets/images/help/repository/create-commit-review.png)
 {% data reusables.files.write_commit_message %}
 {% data reusables.files.choose_commit_branch %}
 {% data reusables.files.propose_file_change %}

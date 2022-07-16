@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
 import dynamic from 'next/dynamic'
+import cx from 'classnames'
 
 import { DefaultLayout } from 'components/DefaultLayout'
 import { MarkdownContent } from 'components/ui/MarkdownContent'
 import { Lead } from 'components/ui/Lead'
-import { useRestContext } from 'components/context/RestContext'
-import { Operation } from './types'
 import { RestOperation } from './RestOperation'
+import styles from './RestOperation.module.scss'
+import { useAutomatedPageContext } from 'components/context/AutomatedPageContext'
+import { Operation } from './types'
 
 const ClientSideHighlightJS = dynamic(() => import('components/article/ClientSideHighlightJS'), {
   ssr: false,
@@ -26,7 +28,7 @@ export type StructuredContentT = {
 
 export const RestReferencePage = ({ restOperations }: StructuredContentT) => {
   const { asPath } = useRouter()
-  const { title, intro, renderedPage } = useRestContext()
+  const { title, intro, renderedPage } = useAutomatedPageContext()
   // We have some one-off redirects for rest api docs
   // currently those are limited to the repos page, but
   // that will grow soon as we restructure the rest api docs.
@@ -95,7 +97,10 @@ export const RestReferencePage = ({ restOperations }: StructuredContentT) => {
       never render anything. It always just return null. */}
       {loadClientsideRedirectExceptions && <ClientSideRedirectExceptions />}
       {lazyLoadHighlightJS && <ClientSideHighlightJS />}
-      <div className={'px-3 px-md-6 my-4 mx-xl-12 mx-lg-12'}>
+      <div
+        className={cx(styles.restOperation, 'px-3 px-md-6 my-4 container-xl')}
+        data-search="article-body"
+      >
         <h1 className="mb-3">{title}</h1>
         {intro && (
           <Lead data-testid="lead" data-search="lead" className="markdown-body">
@@ -103,14 +108,18 @@ export const RestReferencePage = ({ restOperations }: StructuredContentT) => {
           </Lead>
         )}
         <MarkdownContent>
-          <MarkdownContent>{renderedPage}</MarkdownContent>
+          {renderedPage && <MarkdownContent className="pt-3 pb-4">{renderedPage}</MarkdownContent>}
           {restOperations &&
             restOperations.length > 0 &&
             restOperations.map((operation, index) => (
-              <RestOperation
-                key={`restOperation-${operation.title}-${index}`}
-                operation={operation}
-              />
+              <React.Fragment
+                key={`${operation.title}-${operation.category}-${operation.subcategory}`}
+              >
+                <RestOperation
+                  key={`restOperation-${operation.title}-${index}`}
+                  operation={operation}
+                />
+              </React.Fragment>
             ))}
         </MarkdownContent>
       </div>

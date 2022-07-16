@@ -153,7 +153,7 @@ These commands are available from all scopes.
 | `New organization`                   | Create a new organization. 詳しい情報については、「[新しい Organization をゼロから作成する](/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch)」を参照してください。                                                                                                         |
 | `新規プロジェクト`                           | Create a new project board. For more information, see "[Creating a project](/issues/trying-out-the-new-projects-experience/creating-a-project)."                                                                                                                                           |
 | `New repository`                     | Create a new repository from scratch. 詳しい情報については「[新しいリポジトリの作成](/repositories/creating-and-managing-repositories/creating-a-new-repository)」を参照してください。                                                                                                                                      |
-| `Switch theme to <theme name>` | Change directly to a different theme for the UI. For more information, see "[Managing your theme settings](/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/managing-your-theme-settings)."                                            |
+| `Switch theme to <theme name>` | Change directly to a different theme for the UI. For more information, see "[Managing your theme settings](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/managing-your-theme-settings)."                                 |
 
 
 ### Organization commands

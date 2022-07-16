@@ -1,39 +1,39 @@
 ---
 title: 关于将 Visual Studio Code 与 GitHub Classroom 配合使用
 shortTitle: 关于使用 Visual Studio Code
-intro: '您可以将 Visual Studio Code 配置为 {% data variables.product.prodname_classroom %} 中任务的首选编辑器。'
+intro: '您可以将 {% data variables.product.prodname_vscode %} 配置为 {% data variables.product.prodname_classroom %} 中任务的首选编辑器。'
 versions:
   fpt: '*'
 redirect_from:
   - /education/manage-coursework-with-github-classroom/about-using-vs-code-with-github-classroom
 ---
 
-## 关于 Visual Studio Code
+## 关于 {% data variables.product.prodname_vscode %}
 
-Visual Studio Code 是一个轻量级但功能强大的源代码编辑器，可在桌面上运行，适用于 Windows、macOS 和 Linux。 借助 [Visual Studio Code 的 GitHub Classroom 扩展](https://aka.ms/classroom-vscode-ext)，学生可以轻松浏览、编辑、提交、协作和测试他们的课堂作业。 有关 IDE 和 {% data variables.product.prodname_classroom %} 的更多信息，请参阅“[集成 {% data variables.product.prodname_classroom %} 与 IDE](/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide/integrate-github-classroom-with-an-ide)”。
+{% data variables.product.prodname_vscode %} 是一个轻量级但功能强大的源代码编辑器，可在桌面上运行，适用于 Windows、macOS 和 Linux。 借助 [{% data variables.product.prodname_vscode_shortname %} 的 GitHub Classroom 扩展](https://aka.ms/classroom-vscode-ext)，学生可以轻松浏览、编辑、提交、协作和测试他们的课堂作业。 有关 IDE 和 {% data variables.product.prodname_classroom %} 的更多信息，请参阅“[集成 {% data variables.product.prodname_classroom %} 与 IDE](/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide/integrate-github-classroom-with-an-ide)”。
 
 ### 您学生的首选编辑器
-GitHub Classroom 与 Visual Studio Code 的集成为学生提供了一个扩展包，其中包含：
+GitHub Classroom 与 {% data variables.product.prodname_vscode_shortname %} 的集成为学生提供了一个扩展包，其中包含：
 
 1. [GitHub 课程扩展](https://aka.ms/classroom-vscode-ext)，其中包含自定义摘要，便于学生轻松入门。
 2. [Visual Studio 实时分享扩展](https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare-pack)，集成到学生视图中，以便轻松获取助教和同学的帮助与协作。
 3. [GitHub 拉取请求扩展](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github)，允许学生在编辑器中查看教师的反馈。
 
-### 如何在 Visual Studio Code 中启动作业
-创建作业时，可以将 Visual Studio Code 添加为作业的首选编辑器。 有关详细信息，请参阅“[集成 {% data variables.product.prodname_classroom %} 与 IDE](/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide/integrate-github-classroom-with-an-ide)”。
+### 如何在 {% data variables.product.prodname_vscode_shortname %} 中启动作业
+创建任务时，可以将 {% data variables.product.prodname_vscode_shortname %} 添加为任务的首选编辑器。 有关详细信息，请参阅“[集成 {% data variables.product.prodname_classroom %} 与 IDE](/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide/integrate-github-classroom-with-an-ide)”。
 
-这将包括所有学生仓库中的“在 Visual Studio 代码中打开”徽章。 此徽章处理安装 Visual Studio Code（课堂扩展包）以及一键打开活动的作业。
+这将包括所有学生存储库中的“在 {% data variables.product.prodname_vscode_shortname %} 中打开”徽章。 此徽章处理安装 {% data variables.product.prodname_vscode_shortname %}（课堂扩展包）以及一键打开活动的作业。
 
 {% note %}
 
-**注意：**学生必须在其计算机上安装 Git 才能将代码从 Visual Studio Code 推送到其存储库。 单击**在 Visual Studio 代码中打开**按钮时不自动安装。 学生可以从[这里](https://git-scm.com/downloads)下载 Git。
+**注意：**学生必须在其计算机上安装 Git 才能将代码从 {% data variables.product.prodname_vscode_shortname %} 推送到其存储库。 单击**在 {% data variables.product.prodname_vscode_shortname %} 代码中打开**按钮时不自动安装。 学生可以从[这里](https://git-scm.com/downloads)下载 Git。
 
 {% endnote %}
 
 ### 如何使用 GitHub 课堂扩展包
 GitHub 课堂扩展有两个主要组件：“课堂”视图和“活动的作业”视图。
 
-当学生首次启动扩展时，他们将自动导航到 Visual Studio Code 中的 Explorer 选项卡，在其中可以看到“活动的作业”视图以及存储库中文件的树视图。
+当学生首次启动扩展时，他们将自动导航到 {% data variables.product.prodname_vscode_shortname %} 中的 Explorer 选项卡，在其中可以看到“活动的作业”视图以及存储库中文件的树视图。
 
 ![GitHub 课堂活动作业视图](/assets/images/help/classroom/vs-code-active-assignment.png)
 

@@ -26,13 +26,13 @@ topics:
 
 {% endnote %}
 
-Você pode criar pull requests no {% data variables.product.prodname_dotcom_the_website %}, com {% data variables.product.prodname_desktop %}, em {% data variables.product.prodname_codespaces %}, em {% data variables.product.prodname_mobile %} e ao usar a CLI do GitHub.
+Você pode criar pull requests no {% data variables.product.prodname_dotcom_the_website %}, com {% data variables.product.prodname_desktop %}, em {% data variables.product.prodname_github_codespaces %}, em {% data variables.product.prodname_mobile %} e ao usar a CLI do GitHub.
 
 Após inicialização de uma pull request, você verá uma página de revisão que mostra uma visão geral de alto nível das alterações entre seu branch (o branch de comparação) e o branch base do repositório. É possível adicionar um resumo das alterações propostas, revisar as alterações feitas pelos commits, adicionar etiquetas, marcos e responsáveis, bem como fazer @menção a contribuidores individuais ou equipes. Para obter mais informações, consulte "[Criar uma pull request](/articles/creating-a-pull-request)".
 
 Depois que tiver criado uma pull request, você poderá fazer push dos commits do branch de tópico para adicioná-los à sua pull request existente. Esses commits aparecerão em ordem cronológica na pull request e as alterações estarão visíveis na guia "Files chenged" (Arquivos alterados).
 
-Outros contribuidores podem revisar as alterações propostas, adicionar comentários de revisão, contribuir com a discussão da pull request e, até mesmo, adicionar commits à pull request. {% if pull-request-approval-limit %}{% data reusables.pull_requests.code-review-limits %}{% endif %}
+Outros contribuidores podem revisar as alterações propostas, adicionar comentários de revisão, contribuir com a discussão da pull request e, até mesmo, adicionar commits à pull request. {% ifversion pull-request-approval-limit %}{% data reusables.pull_requests.code-review-limits %}{% endif %}
 
 {% ifversion fpt or ghec %}
 Você pode ver as informações sobre o status da implantação atual do branch e atividades passadas de implantação na guia "Conversa". Para obter mais informações, consulte "[Exibir atividade de implantação para um repositório](/repositories/viewing-activity-and-data-for-your-repository/viewing-deployment-activity-for-your-repository)".

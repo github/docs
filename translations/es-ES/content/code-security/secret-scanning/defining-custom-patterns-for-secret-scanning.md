@@ -6,7 +6,7 @@ product: '{% data reusables.gated-features.secret-scanning %}'
 redirect_from:
   - /code-security/secret-security/defining-custom-patterns-for-secret-scanning
 versions:
-  ghes: '>=3.2'
+  ghes: '*'
   ghae: '*'
   ghec: '*'
 type: how_to
@@ -15,7 +15,7 @@ topics:
   - Secret scanning
 ---
 
-{% ifversion ghes < 3.3 or ghae %}
+{% ifversion ghes < 3.3 %}
 {% note %}
 
 **Note:** Custom patterns for {% data variables.product.prodname_secret_scanning %} is currently in beta and is subject to change.
@@ -28,12 +28,12 @@ topics:
 You can define custom patterns to identify secrets that are not detected by the default patterns supported by {% data variables.product.prodname_secret_scanning %}. For example, you might have a secret pattern that is internal to your organization. For details of the supported secrets and service providers, see "[{% data variables.product.prodname_secret_scanning_caps %} patterns](/code-security/secret-scanning/secret-scanning-patterns)."
 
 You can define custom patterns for your enterprise, organization, or repository. {% data variables.product.prodname_secret_scanning_caps %} supports up to 
-{%- ifversion fpt or ghec or ghes > 3.3 %} 500 custom patterns for each organization or enterprise account, and up to 100 custom patterns per repository.
-{%- elsif ghes = 3.3 %} 100 custom patterns for each organization or enterprise account, and 20 per repository.
-{%- else %} 20 custom patterns for each organization or enterprise account, and per repository.
+{%- ifversion fpt or ghec or ghes > 3.3 or ghae-issue-7297 %} 500 custom patterns for each organization or enterprise account, and up to 100 custom patterns per repository.
+{%- elsif ghes = 3.2 %} 20 custom patterns for each organization or enterprise account, and per repository.
+{%- else %} 100 custom patterns for each organization or enterprise account, and 20 per repository.
 {%- endif %}
 
-{% ifversion ghes < 3.3 or ghae %}
+{% ifversion ghes < 3.3 %}
 {% note %}
 
 **Note:** During the beta, there are some limitations when using custom patterns for {% data variables.product.prodname_secret_scanning %}:
@@ -67,7 +67,7 @@ Before defining a custom pattern, you must ensure that {% data variables.product
 {% data reusables.repositories.navigate-to-code-security-and-analysis %}
 {% data reusables.repositories.navigate-to-ghas-settings %}
 {% data reusables.advanced-security.secret-scanning-new-custom-pattern %}
-{% data reusables.advanced-security.secret-scanning-add-custom-pattern-details %}{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-5499 %}
+{% data reusables.advanced-security.secret-scanning-add-custom-pattern-details %}{% ifversion secret-scanning-custom-enterprise-35 %}
 1. When you're ready to test your new custom pattern, to identify matches in the repository without creating alerts, click **Save and dry run**.
 {% data reusables.advanced-security.secret-scanning-dry-run-results %}
 {% endif %}
@@ -122,11 +122,9 @@ Before defining a custom pattern, you must ensure that you enable {% data variab
 {% data reusables.repositories.navigate-to-ghas-settings %}
 {% data reusables.advanced-security.secret-scanning-new-custom-pattern %}
 {% data reusables.advanced-security.secret-scanning-add-custom-pattern-details %}
-{%- if secret-scanning-org-dry-runs %}
+{%- ifversion secret-scanning-custom-enterprise-35 %}
 1. When you're ready to test your new custom pattern, to identify matches in select repositories without creating alerts, click **Save and dry run**.
-1. Search for and select the repositories where you want to perform the dry run. You can select up to 10 repositories.
-   ![Screenshot showing repositories selected for the dry run](/assets/images/help/repository/secret-scanning-dry-run-custom-pattern-select-repo.png)
-1. When you're ready to test your new custom pattern, click **Dry run**.
+{% data reusables.advanced-security.secret-scanning-dry-run-select-repos %}
 {% data reusables.advanced-security.secret-scanning-dry-run-results %}
 {%- endif %}
 {% data reusables.advanced-security.secret-scanning-create-custom-pattern %}
@@ -143,7 +141,14 @@ Before defining a custom pattern, you must ensure that you enable secret scannin
 
 {% note %}
 
+{% ifversion secret-scanning-custom-enterprise-36 %}
+**Notes:**
+- At the enterprise level, only the creator of a custom pattern can edit the pattern, and use it in a dry run. 
+- Enterprise owners can only make use of dry runs on repositories that they have access to, and enterprise owners do not necessarily have access to all the organizations or repositories within the enterprise.
+{% else %}
 **Note:** As there is no dry-run functionality, we recommend that you test your custom patterns in a repository before defining them for your entire enterprise. That way, you can avoid creating excess false-positive {% data variables.product.prodname_secret_scanning %} alerts.
+
+{% endif %}
 
 {% endnote %}
 
@@ -153,6 +158,11 @@ Before defining a custom pattern, you must ensure that you enable secret scannin
 {% data reusables.enterprise-accounts.advanced-security-security-features %}
 1. Under "Secret scanning custom patterns", click {% ifversion ghes = 3.2 %}**New custom pattern**{% else %}**New pattern**{% endif %}.
 {% data reusables.advanced-security.secret-scanning-add-custom-pattern-details %}
+{%- ifversion secret-scanning-custom-enterprise-36 %}
+1. When you're ready to test your new custom pattern, to identify matches in the enterprise without creating alerts, click **Save and dry run**.
+{% data reusables.advanced-security.secret-scanning-dry-run-select-repos %}
+{% data reusables.advanced-security.secret-scanning-dry-run-results %}
+{%- endif %}
 {% data reusables.advanced-security.secret-scanning-create-custom-pattern %}
 
 After your pattern is created, {% data variables.product.prodname_secret_scanning %} scans for any secrets in repositories within your enterprise's organizations with {% data variables.product.prodname_GH_advanced_security %} enabled, including their entire Git history on all branches. Organization owners and repository administrators will be alerted to any secrets found, and can review the alert in the repository where the secret is found. For more information on viewing {% data variables.product.prodname_secret_scanning %} alerts, see "[Managing alerts from {% data variables.product.prodname_secret_scanning %}](/code-security/secret-security/managing-alerts-from-secret-scanning)."
@@ -165,7 +175,10 @@ When you save a change to a custom pattern, this closes all the {% data variable
    * For a repository or organization, display the "Security & analysis" settings for the repository or organization where the custom pattern was created. For more information, see "[Defining a custom pattern for a repository](#defining-a-custom-pattern-for-a-repository)" or "[Defining a custom pattern for an organization](#defining-a-custom-pattern-for-an-organization)" above.
    * For an enterprise, under "Policies" display the "Advanced Security" area, and then click **Security features**. For more information, see "[Defining a custom pattern for an enterprise account](#defining-a-custom-pattern-for-an-enterprise-account)" above.
 2. Under "{% data variables.product.prodname_secret_scanning_caps %}", to the right of the custom pattern you want to edit, click {% octicon "pencil" aria-label="The edit icon" %}.
-3. When you have reviewed and tested your changes, click **Save changes**.
+{%- ifversion secret-scanning-custom-enterprise-36 %}
+3. When you're ready to test your edited custom pattern, to identify matches without creating alerts, click **Save and dry run**.
+{%- endif %}
+4. When you have reviewed and tested your changes, click **Save changes**.
 {% endif %}
 
 ## Removing a custom pattern

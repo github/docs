@@ -1,5 +1,5 @@
 {% tip %}
 
-**Note**: If your site has not published automatically, make sure someone with admin permissions and a verified email address has pushed to the publishing source.
+**注意**：如果您的网站尚未自动发布，请确保具有管理员权限和经过验证的电子邮件地址的人员已推送到发布源。
 
 {% endtip %}

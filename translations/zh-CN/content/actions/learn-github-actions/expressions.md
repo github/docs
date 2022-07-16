@@ -68,7 +68,7 @@ env:
   myIntegerNumber: ${{ 711 }}
   myFloatNumber: ${{ -9.2 }}
   myHexNumber: ${{ 0xff }}
-  myExponentialNumber: ${{ -2.99-e2 }}
+  myExponentialNumber: ${{ -2.99e-2 }}
   myString: Mona the Octocat
   myStringInBraces: ${{ 'It''s open source!' }}
 ```
@@ -324,33 +324,21 @@ steps:
     if: {% raw %}${{ failure() }}{% endraw %}
 ```
 
-{% ifversion fpt or ghes > 3.3 or ghae-issue-5504 or ghec %}
-### 显式评估状态
+#### 有条件的失败
 
-您可以直接评估执行步骤的作业或复合操作的状态，而不是使用上述方法之一：
+您可以为失败后运行的步骤添加额外的条件，但仍必须包含 `failure()` 以覆盖自动应用到不含状态检查功能的 `if` 条件的 `success()` 默认状态检查。
 
-#### 工作流程步骤示例
-
-```yaml
-steps:
-  ...
-  - name: The job has failed
-    if: {% raw %}${{ job.status == 'failure' }}{% endraw %}
-```
-
-这与在作业步骤中使用 `if: failure()` 相同。
-
-#### 复合操作步骤的示例
+##### 示例
 
 ```yaml
 steps:
   ...
-  - name: The composite action has failed
-    if: {% raw %}${{ github.action_status == 'failure' }}{% endraw %}
+  - name: Failing step
+    id: demo
+    run: exit 1
+  - name: The demo step has failed
+    if: {% raw %}${{ failure() && steps.demo.conclusion == 'failure' }}{% endraw %}
 ```
-
-这与在复合操作步骤中使用 `if: failure()` 相同。
-{% endif %}
 
 ## 对象过滤器
 

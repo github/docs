@@ -58,4 +58,4 @@ Para obter mais informações sobre os provedores de identidade (IdPs) que {% da
 ## Leia mais
 
 - "[Sobre gerenciamento de identidade e acesso com o SAML de logon único](/articles/about-identity-and-access-management-with-saml-single-sign-on)"
-- "[SAML configuration reference](/admin/identity-and-access-management/using-saml-for-enterprise-iam/saml-configuration-reference)"
+- "[Referência da configuração do SAML](/admin/identity-and-access-management/using-saml-for-enterprise-iam/saml-configuration-reference)"

@@ -5,7 +5,7 @@ import { get, getDOM } from '../helpers/e2etest.js'
 import { SURROGATE_ENUMS } from '../../middleware/set-fastly-surrogate-key.js'
 import { PREFERRED_LOCALE_COOKIE_NAME } from '../../middleware/detect-language.js'
 
-jest.useFakeTimers('legacy')
+jest.useFakeTimers({ legacyFakeTimers: true })
 
 describe('enterprise deprecation', () => {
   jest.setTimeout(60 * 1000)
@@ -104,6 +104,7 @@ describe('recently deprecated redirects', () => {
       headers: {
         Cookie: `${PREFERRED_LOCALE_COOKIE_NAME}=ja`,
       },
+      followRedirects: false,
     })
     expect(res.statusCode).toBe(302)
     expect(res.headers.location).toBe('/ja/enterprise-server@3.0')

@@ -34,7 +34,7 @@ Antes de que puedas habilitar y configurar el {% data variables.product.prodname
 
   {% note %}
 
-  **Note:** You can find your Azure Connection String by navigating to the Access Key menu in your Azure storage account. Usage of a SAS Token or SAS URL as connection string is not currently supported.
+  **Nota:** Puedes encontrar tu Secuencia de Conexión de Azure si navegas al menú de la clave de acceso en tu cuenta de almacenamiento de Azure. Actualmente, el uso de un token o URL de SAS como secuencia de conexión no es una característica compatible.
 
   {% endnote %}
 

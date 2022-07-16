@@ -1,6 +1,6 @@
 ---
 title: Marcar com uma estrela
-intro: The Starring API lets you bookmark a repository.
+intro: A API favoritada permite que você marque um repositório.
 versions:
   fpt: '*'
   ghes: '*'
@@ -11,9 +11,9 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-## About the Starring API
+## Sobre a API favoritada
 
-The Starring API lets you bookmark a repository. As estrelas são exibidas ao lado dos repositórios para mostrar um nível de interesse aproximado. As estrelas não têm efeito nas notificações ou no feed da atividade. Para obter mais informações, consulte "[Salvar repositórios com estrelas](/get-started/exploring-projects-on-github/saving-repositories-with-stars)."
+A API favoritada permite que você marque um repositório. As estrelas são exibidas ao lado dos repositórios para mostrar um nível de interesse aproximado. As estrelas não têm efeito nas notificações ou no feed da atividade. Para obter mais informações, consulte "[Salvar repositórios com estrelas](/get-started/exploring-projects-on-github/saving-repositories-with-stars)."
 
 ### Marcar como estrela vs. Inspecionar
 
@@ -23,6 +23,6 @@ Em agosto de 2012, [mudamos a forma como a inspeção funciona](https://github.c
 
 Existe um tipo de mídia personalizado com suporte para a API REST estrelada. Ao usar este tipo de mídia personalizada, você receberá uma resposta com a propriedade do registro de tempo `starred_at`, que indica o tempo que a estrela foi criada. A resposta também tem uma segunda propriedade que inclui o recurso retornado quando o tipo de mídia personalizado não está incluído. A propriedade que contém o recurso será `usuário` ou `repositório`.
 
-    application/vnd.github.v3.star+json
+    application/vnd.github.star+json
 
 Para obter mais informações sobre os tipos de mídia, consulte "[Tipos de mídia personalizados](/rest/overview/media-types)".

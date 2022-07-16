@@ -1,6 +1,7 @@
-import { describe } from '@jest/globals'
-import { mergeExamples } from '../../script/rest/utils/create-rest-examples.js'
+import { describe, expect } from '@jest/globals'
+import getCodeSamples, { mergeExamples } from '../../script/rest/utils/create-rest-examples.js'
 import {
+  operation,
   noContent,
   multipleContent,
   noResponse,
@@ -46,5 +47,14 @@ describe('rest example requests and responses', () => {
     const mergedExamples = JSON.stringify(matchingTags.merged)
     expect(examples.length).toBe(2)
     expect(mergedExamples).toBe(JSON.stringify(examples))
+  })
+
+  test('check example number and status code appear', async () => {
+    const mergedExamples = getCodeSamples(operation)
+    mergedExamples.forEach((example, index) => {
+      expect(example.request.description).toBe(
+        'Example ' + (index + 1) + ': Status Code ' + example.response.statusCode
+      )
+    })
   })
 })

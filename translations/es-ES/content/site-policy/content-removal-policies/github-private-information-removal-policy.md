@@ -23,7 +23,7 @@ Para los propósitos de este documento, "información privada" se refiere al con
 - Credenciales de acceso, como nombres de usuario combinados con contraseñas, tokens de acceso, u otros secretos sensibles que pueden conceder acceso al servidor, red o dominio de tu organización.
 - Los token AWS y otras credenciales de acceso similares que conceden acceso a un tercero en tu nombre. Debes tener la capacidad de mostrar que el token te pertenece.
 - Documnetación (tal como diagramas de red o de arquitectura) que posea un riesgo de seguridad específico para una organización.
-- [Información](/github/site-policy/github-community-guidelines#doxxing-and-invasion-of-privacy) relacionada con y que represente un riesgo de seguridad para ti, como individuo (tal como números de seguridad social u otros números de identificación gubernamental).
+- [Información](/site-policy/acceptable-use-policies/github-doxxing-and-invasion-of-privacy) relacionada con y que represente un riesgo de seguridad para ti, como individuo (tal como números de seguridad social u otros números de identificación gubernamental).
 
 ### Las solicitudes de eliminación de información privada _no_ son adecuados para:
 - Nombres de servidores internos, direcciones IP y URL, por sí solos. Debes poder demostrar que su uso en un archivo en particular o una pieza de código representan un riesgo de seguridad.

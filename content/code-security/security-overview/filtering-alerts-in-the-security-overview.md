@@ -1,11 +1,11 @@
 ---
 title: Filtering alerts in the security overview
 intro: Use filters to view specific categories of alerts
-permissions: Organization owners and security managers can access the security overview for organizations. Members of a team can see the security overview for repositories that the team has admin privileges for.
+permissions: '{% data reusables.security-center.permissions %}'
 product: '{% data reusables.gated-features.security-center %}'
 versions:
-  ghae: issue-4554
-  ghes: '>3.1'
+  ghae: '*'
+  ghes: '*'
   ghec: '*'
 type: how_to
 topics:
@@ -17,13 +17,13 @@ topics:
 shortTitle: Filtering alerts
 ---
 
-{% ifversion ghes < 3.5 or ghae-issue-4554 %}
+{% ifversion ghes < 3.5 or ghae %}
 {% data reusables.security-center.beta %}
 {% endif %}
 
 ## About filtering the security overview
 
-You can use filters in the security overview to narrow your focus based on a range of factors, like alert risk level, alert type and feature enablement. Different filters are available depending on the specific view and whether you analysing at the organization, team or repository level.
+You can use filters in the security overview to narrow your focus based on a range of factors, like alert risk level, alert type and feature enablement. Different filters are available depending on the specific view and whether your analysis is at the organization, team or repository level.
 
 ## Filter by repository
 
@@ -102,7 +102,7 @@ Available in the organization-level overview.
 | -------- | -------- |
 | <code>topic:<em>TOPIC-NAME</em></code> | Displays repositories that are classified with *TOPIC-NAME*. |
 
-{% if security-overview-views %}
+{% ifversion security-overview-views %}
 
 ## Filter by severity
 
@@ -118,7 +118,7 @@ Available in the code scanning alert views. All code scanning alerts have one of
 |`severity:warning`|Displays {% data variables.product.prodname_code_scanning %} alerts categorized as warnings.|
 |`severity:note`|Displays {% data variables.product.prodname_code_scanning %} alerts categorized as notes.|
 
-{% if dependabot-alerts-vulnerable-calls %}
+{% ifversion dependabot-alerts-vulnerable-calls %}
 ## Filter by {% data variables.product.prodname_dependabot %} alert type
 
 Available in the {% data variables.product.prodname_dependabot %} alert views. You can filter the view to show {% data variables.product.prodname_dependabot_alerts %} that are ready to fix or where additional information about exposure is available. You can click any result to see full details of the alert.

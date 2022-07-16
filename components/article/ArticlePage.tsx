@@ -22,12 +22,6 @@ const ClientSideHighlightJS = dynamic(() => import('./ClientSideHighlightJS'), {
 
 // Mapping of a "normal" article to it's interactive counterpart
 const interactiveAlternatives: Record<string, { href: string }> = {
-  '/actions/automating-builds-and-tests/building-and-testing-nodejs': {
-    href: '/actions/automating-builds-and-tests/building-and-testing-nodejs-or-python?langId=nodejs',
-  },
-  '/actions/automating-builds-and-tests/building-and-testing-python': {
-    href: '/actions/automating-builds-and-tests/building-and-testing-nodejs-or-python?langId=python',
-  },
   '/codespaces/setting-up-your-project-for-codespaces/setting-up-your-nodejs-project-for-codespaces':
     {
       href: '/codespaces/setting-up-your-project-for-codespaces/setting-up-your-project-for-codespaces?langId=nodejs',

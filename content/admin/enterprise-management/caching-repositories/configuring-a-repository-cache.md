@@ -33,12 +33,13 @@ Then, when told to fetch `https://github.example.com/myorg/myrepo`, Git will ins
 
 ## Configuring a repository cache
 
-1. During the beta, you must enable the feature flag for repository caching on your primary {% data variables.product.prodname_ghe_server %} appliance.
+{% ifversion ghes = 3.3 %}
+1. On your primary {% data variables.product.prodname_ghe_server %} appliance, enable the feature flag for repository caching.
    
    ```
    $ ghe-config cluster.cache-enabled true
    ```
-
+{%- endif %}
 1. Set up a new {% data variables.product.prodname_ghe_server %} appliance on your desired platform. This appliance will be your repository cache. For more information, see "[Setting up a {% data variables.product.prodname_ghe_server %} instance](/admin/guides/installation/setting-up-a-github-enterprise-server-instance)."
 {% data reusables.enterprise_installation.replica-steps %}
 1. Connect to the repository cache's IP address using SSH.
@@ -46,7 +47,13 @@ Then, when told to fetch `https://github.example.com/myorg/myrepo`, Git will ins
    ```shell
    $ ssh -p 122 admin@<em>REPLICA IP</em>
    ```
-
+{%- ifversion ghes = 3.3 %}
+1. On your cache replica, enable the feature flag for repository caching.
+   
+   ```
+   $ ghe-config cluster.cache-enabled true
+   ```
+{%- endif %}
 {% data reusables.enterprise_installation.generate-replication-key-pair %}
 {% data reusables.enterprise_installation.add-ssh-key-to-primary %}
 1. To verify the connection to the primary and enable replica mode for the repository cache, run `ghe-repl-setup` again.
@@ -55,10 +62,10 @@ Then, when told to fetch `https://github.example.com/myorg/myrepo`, Git will ins
    $ ghe-repl-setup <em>PRIMARY IP</em>
    ```
 
-1. Set a `cache_location` for the repository cache, replacing *CACHE-LOCATION* with an alphanumeric identifier, such as the region where the cache is deployed.
+1. Set a `cache_location` for the repository cache, replacing *CACHE-LOCATION* with an alphanumeric identifier, such as the region where the cache is deployed. Also set a datacenter name for this cache; new caches will attempt to seed from another cache in the same datacenter.
 
    ```shell
-   $ ghe-repl-node --cache <em>CACHE-LOCATION</em>
+   $ ghe-repl-node --cache <em>CACHE-LOCATION</em> --datacenter <em>REPLICA-DC-NAME</em>
    ```
 
 {% data reusables.enterprise_installation.replication-command %}

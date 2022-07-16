@@ -1,6 +1,7 @@
 ---
-title: Início rápido para codespaces
-intro: 'Experimente {% data variables.product.prodname_codespaces %} em 5 minutos.'
+title: 'Quickstart for {% data variables.product.prodname_github_codespaces %}'
+shortTitle: 'Quickstart for {% data variables.product.prodname_codespaces %}'
+intro: 'Experimente {% data variables.product.prodname_github_codespaces %} em 5 minutos.'
 allowTitleToDifferFromFilename: true
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
@@ -15,15 +16,15 @@ redirect_from:
 
 ## Introdução
 
-Neste guia, você irá criar um codespace a partir de um [repositório modelo](https://github.com/2percentsilk/haikus-for-codespaces) e explorar algumas das funcionalidades essenciais disponíveis para você dentro do codespace.
+Neste guia, você irá criar um codespace a partir de um [repositório modelo](https://github.com/github/haikus-for-codespaces) e explorar algumas das funcionalidades essenciais disponíveis para você dentro do codespace.
 
 Neste início rápido, você aprenderá a criar um codespace, conectar-se a uma porta encaminhada para ver seu aplicativo em execução, usar o controle de versões em um codespace e personalizar a sua configuração com extensões.
 
-Para obter mais informações sobre exatamente como {% data variables.product.prodname_codespaces %} funciona, consulte o guia "[Aprofundamento em {% data variables.product.prodname_codespaces %}](/codespaces/getting-started/deep-dive)."
+Para obter mais informações sobre exatamente como {% data variables.product.prodname_github_codespaces %} funciona, consulte o guia "[Aprofundamento em {% data variables.product.prodname_github_codespaces %}](/codespaces/getting-started/deep-dive)."
 
 ## Criando seu codespace
 
-1. Acesse o r[repositório do modelo](https://github.com/2percentsilk/haikus-for-codespaces) e selecione **Usar este modelo**.
+1. Acesse o r[repositório do modelo](https://github.com/github/haikus-for-codespaces) e selecione **Usar este modelo**.
 
 2. Nomeie seu repositório, selecione sua configuração de privacidade preferida e clique em **Criar repositório a partir do modelo**.
 
@@ -72,7 +73,7 @@ Agora que você fez algumas alterações, você poderá usar o terminal integrad
 
 ## Personalizando com uma extensão
 
-Dentro de um codespace, você tem acesso ao Marketplace do Visual Studio Code. Para este exemplo, você instalará uma extensão que altera o tema, mas você pode instalar qualquer extensão que seja útil para o seu fluxo de trabalho.
+Dentro de um codespace, você tem acesso ao {% data variables.product.prodname_vscode_marketplace %}. Para este exemplo, você instalará uma extensão que altera o tema, mas você pode instalar qualquer extensão que seja útil para o seu fluxo de trabalho.
 
 1. Na barra lateral esquerda, clique no ícone Extensões.
 
@@ -84,7 +85,7 @@ Dentro de um codespace, você tem acesso ao Marketplace do Visual Studio Code. P
 
   ![Selecionar tema fairyfloss](/assets/images/help/codespaces/fairyfloss.png)
 
-4. As alterações feitas na configuração do seu ditor editor no codespace atual, como ligações de tema e teclado, são sincronizadas automaticamente por meio da [Sincronização das Configurações](https://code.visualstudio.com/docs/editor/settings-sync) para qualquer outro codespace que você abrir e quaisquer instâncias do Visual Studio Code que estiverem conectadas à sua conta do GitHub.
+4. As alterações feitas na configuração do seu ditor editor no codespace atual, como ligações de tema e teclado, são sincronizadas automaticamente por meio da [Sincronização das Configurações](https://code.visualstudio.com/docs/editor/settings-sync) para qualquer outro codespace que você abrir e quaisquer instâncias do {% data variables.product.prodname_vscode %} que estiverem conectadas à sua conta do GitHub.
 
 ## Próximos passos
 

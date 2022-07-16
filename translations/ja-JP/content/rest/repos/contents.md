@@ -1,5 +1,7 @@
 ---
-title: コンテンツ
+title: リポジトリコンテンツ
+allowTitleToDifferFromFilename: true
+shortTitle: コンテンツ
 intro: これらの API エンドポイントを使用すると、リポジトリ内の Base64 でエンコードされたコンテンツを作成、変更、削除できます。
 versions:
   fpt: '*'
@@ -10,6 +12,8 @@ topics:
   - API
 miniTocMaxHeadingLevel: 3
 ---
+
+## Repository contents APIについて
 
 Raw 形式またはレンダリングされた HTML (サポートされている場合) をリクエストするには、リポジトリのコンテンツにカスタムメディアタイプを使用します。
 

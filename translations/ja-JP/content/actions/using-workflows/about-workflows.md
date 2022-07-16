@@ -124,10 +124,10 @@ jobs:
 
 For more information, see "[Using a matrix for your jobs](/actions/using-jobs/using-a-matrix-for-your-jobs)."
 
-{% ifversion fpt or ghec %}
+{% ifversion actions-caching %}
 ### 依存関係のキャッシング
 
-{% data variables.product.prodname_dotcom %} ホストランナーは各ジョブの新しい環境として開始されるため、ジョブが依存関係を定期的に再利用する場合は、これらのファイルをキャッシュしてパフォーマンスを向上させることを検討できます。 キャッシュが作成されると、同じリポジトリ内のすべてのワークフローで使用できるようになります。
+If your jobs regularly reuse dependencies, you can consider caching these files to help improve performance. キャッシュが作成されると、同じリポジトリ内のすべてのワークフローで使用できるようになります。
 
 この例は、`~/.npm` ディレクトリをキャッシュする方法を示しています。
 
@@ -202,4 +202,4 @@ To learn more about {% data variables.product.prodname_dotcom %}-hosted runner l
 
 ### 環境の使用
 
-You can configure environments with protection rules and secrets to control the execution of jobs in a workflow. ワークフロー内の各ジョブは、1つの環境を参照できます。 この環境を参照するとジョブがランナーに送信される前に、環境に設定された保護ルールをパスしなければなりません。 For more information, see "[Using environments for deployment](/actions/deployment/using-environments-for-deployment)."
+You can configure environments with protection rules and secrets to control the execution of jobs in a workflow. ワークフロー内の各ジョブは、1つの環境を参照できます。 この環境を参照するとジョブがランナーに送信される前に、環境に設定された保護ルールをパスしなければなりません。 詳しい情報については「[デプロイメントの環境の利用](/actions/deployment/using-environments-for-deployment)」を参照してください。

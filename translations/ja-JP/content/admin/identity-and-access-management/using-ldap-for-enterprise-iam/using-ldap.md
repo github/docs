@@ -79,7 +79,7 @@ LDAPを設定した後、ユーザは自分のLDAPクレデンシャルでイン
 | `Restricted user groups`                         | 任意 | 指定された場合、このグループ内のユーザだけがログインできます。 指定が必要なのはグループのcommon name（CN）だけで、グループはいくつでも追加できます。 グループが指定されていなければ、指定されたドメインベースのスコープ内の*すべての*ユーザが {% data variables.product.prodname_ghe_server %} インスタンスにサインインできるようになります。                                                |
 | `User ID`                                        | 必須 | 認証を受けようとした LDAP ユーザを特定する LDAP 属性。 マッピングが確立されたら、ユーザは自分の {% data variables.product.prodname_ghe_server %} ユーザ名を変更できます。 このフィールドはほとんどのActive Directoryの環境では`sAMAccountName`にすべきですが、OpenLDAPなどの他のLDAPソリューションでは`uid`になることがあります。 デフォルト値は`uid`です。               |
 | `Profile name`                                   | 任意 | ユーザの {% data variables.product.prodname_ghe_server %} プロフィールページに表示される名前。 LDAP Syncが有効化されていなければ、ユーザは自分のプロフィール名を変更できます。                                                                                                                                   |
-| `Emails`                                         | 任意 | ユーザの {% data variables.product.prodname_ghe_server %} アカウントのメールアドレス。                                                                                                                                                                                    |
+| `メール`                                            | 任意 | ユーザの {% data variables.product.prodname_ghe_server %} アカウントのメールアドレス。                                                                                                                                                                                    |
 | `SSH keys`                                       | 任意 | ユーザの {% data variables.product.prodname_ghe_server %} アカウントにアタッチされた公開 SSH キー。 キーはOpenSSH形式でなければなりません。                                                                                                                                                   |
 | `GPG keys`                                       | 任意 | ユーザの {% data variables.product.prodname_ghe_server %} アカウントにアタッチされたGPGキー。                                                                                                                                                                               |
 | `Disable LDAP authentication for Git operations` | 任意 | 選択した場合、ユーザが LDAP パスワードで Git の操作の認証を受けるのが[オフ](#disabling-password-authentication-for-git-operations)になります。                                                                                                                                                 |
@@ -113,7 +113,7 @@ TLSと共に使うLDAPサーバの証明書を検証するには、LDAPの設定
 
 {% endnote %}
 
-LDAP Sync を使うと、{% data variables.product.prodname_ghe_server %} のユーザおよび Team のメンバーシップを、確立された LDAP グループに対して同期できます。 そうすることで、{% data variables.product.prodname_ghe_server %} 内で手作業で行う代わりに、LDAP サーバからユーザのロールベースのアクセス制御を確立できます。 詳細は「[チームを作成する](/enterprise/{{ currentVersion }}/admin/guides/user-management/creating-teams#creating-teams-with-ldap-sync-enabled)」を参照してください。
+LDAP Sync を使うと、{% data variables.product.prodname_ghe_server %} のユーザおよび Team のメンバーシップを、確立された LDAP グループに対して同期できます。 そうすることで、{% data variables.product.prodname_ghe_server %} 内で手作業で行う代わりに、LDAP サーバからユーザのロールベースのアクセス制御を確立できます。 詳細は「[チームを作成する](/enterprise/admin/guides/user-management/creating-teams#creating-teams-with-ldap-sync-enabled)」を参照してください。
 
 LDAP Sync を有効化するには、[**Synchronize Emails**]、[**Synchronize SSH Keys**]、または [**Synchronize GPG Keys**] を選択します。
 
@@ -187,8 +187,8 @@ LDAP Sync が有効化されると、サイト管理者と Organization のオ�
 [LDAP Sync が有効化](#enabling-ldap-sync)されていない限り、LDAP アカウントへの変更は自動的には {% data variables.product.prodname_ghe_server %} に同期されません。
 
 * 新しい LDAP 管理者グループを使うには、LDAP 内での変更を反映させるためにユーザを {% data variables.product.prodname_ghe_server %} 上で手動で昇格および降格させなければなりません。
-* LDAP 管理者グループに LDAP アカウントを追加あるいは削除するには、[{% data variables.product.prodname_ghe_server %} 上でそのアカウントを昇格もしくは降格](/enterprise/{{ currentVersion }}/admin/guides/user-management/promoting-or-demoting-a-site-administrator)させてください。
-* LDAP アカウントを削除するには、[{% data variables.product.prodname_ghe_server %} アカウントをサスペンド](/enterprise/{{ currentVersion }}/admin/guides/user-management/suspending-and-unsuspending-users)してください。
+* LDAP 管理者グループに LDAP アカウントを追加あるいは削除するには、[{% data variables.product.prodname_ghe_server %} 上でそのアカウントを昇格もしくは降格](/enterprise/admin/guides/user-management/promoting-or-demoting-a-site-administrator)させてください。
+* LDAP アカウントを削除するには、[{% data variables.product.prodname_ghe_server %} アカウントをサスペンド](/enterprise/admin/guides/user-management/suspending-and-unsuspending-users)してください。
 
 ### 手動でのLDAPアカウントの同期
 
@@ -200,10 +200,10 @@ LDAP Sync が有効化されると、サイト管理者と Organization のオ�
 {% data reusables.enterprise_site_admin_settings.admin-tab %}
 5. "LDAP"の下で**Sync now（即時同期）**をクリックして、LDAPサーバからのデータでアカウントを手動更新してください。 ![LDAPの即時同期ボタン](/assets/images/enterprise/site-admin-settings/ldap-sync-now-button.png)
 
-[API を使用して手動同期をトリガー](/enterprise/{{ currentVersion }}/user/rest/reference/enterprise-admin#ldap)することもできます。
+[API を使用して手動同期をトリガー](/enterprise/user/rest/reference/enterprise-admin#ldap)することもできます。
 
 ## {% data variables.product.product_location %}へのアクセスの削除
 
 [LDAP Sync が有効化](#enabling-ldap-sync)されているなら、ユーザの LDAP のクレデンシャルを削除すれば、次の同期が行われた後にそのユーザのアカウントはサスペンドされます。
 
-LDAP Sync が有効化**されていない**なら、LDAP のクレデンシャルの削除後に {% data variables.product.prodname_ghe_server %} アカウントを手動でサスペンドしなければなりません。 詳しい情報については[ユーザのサスペンドとサスペンドの解除](/enterprise/{{ currentVersion }}/admin/guides/user-management/suspending-and-unsuspending-users)を参照してください。
+LDAP Sync が有効化**されていない**なら、LDAP のクレデンシャルの削除後に {% data variables.product.prodname_ghe_server %} アカウントを手動でサスペンドしなければなりません。 詳しい情報については[ユーザのサスペンドとサスペンドの解除](/enterprise/admin/guides/user-management/suspending-and-unsuspending-users)を参照してください。

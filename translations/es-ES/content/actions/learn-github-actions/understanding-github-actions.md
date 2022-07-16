@@ -86,14 +86,14 @@ Para obtener más información, consulta la sección "[Crear acciones](/actions/
 
 {% data reusables.actions.workflow-basic-example-and-explanation %}
 
+## Ejemplos más complejos
+{% data reusables.actions.link-to-example-library %}
+
 ## Pasos siguientes
 
-Para seguir aprendiendo sobre las {% data variables.product.prodname_actions %}, consulta la sección "[Encontrar y personalizar las acciones](/actions/learn-github-actions/finding-and-customizing-actions)".
-
+- Para seguir aprendiendo sobre las {% data variables.product.prodname_actions %}, consulta la sección "[Encontrar y personalizar las acciones](/actions/learn-github-actions/finding-and-customizing-actions)".
 {% ifversion fpt or ghec or ghes %}
-
-Para entender cómo funciona la facturación de las {% data variables.product.prodname_actions %}, consulta la sección "[Acerca de la facturación para las {% data variables.product.prodname_actions %}](/actions/reference/usage-limits-billing-and-administration#about-billing-for-github-actions)".
-
+- Para entender cómo funciona la facturación de las {% data variables.product.prodname_actions %}, consulta la sección "[Acerca de la facturación para las {% data variables.product.prodname_actions %}](/actions/reference/usage-limits-billing-and-administration#about-billing-for-github-actions)".
 {% endif %}
 
 ## Contactar con soporte técnico

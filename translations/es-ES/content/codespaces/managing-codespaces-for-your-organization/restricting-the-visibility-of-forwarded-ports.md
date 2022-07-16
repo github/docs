@@ -45,7 +45,7 @@ If you add an organization-wide policy, you should set it to the most lenient vi
 
    ![Add a constraint for port visibility](/assets/images/help/codespaces/add-constraint-dropdown-ports.png)
 
-1. Click {% octicon "pencil" aria-label="The edit icon" %} to edit the constraint.
+1. Haz clic en {% octicon "pencil" aria-label="The edit icon" %} para editar la restricción.
 
    ![Edit the port visibility constraint](/assets/images/help/codespaces/edit-port-visibility-constraint.png)
 
@@ -54,11 +54,11 @@ If you add an organization-wide policy, you should set it to the most lenient vi
    ![Choose the port visibility options](/assets/images/help/codespaces/choose-port-visibility-options.png)
 
 {% data reusables.codespaces.codespaces-policy-targets %}
-1. If you want to add another constraint to the policy, click **Add constraint** and choose another constraint. For information about other constraints, see "[Restricting access to machine types](/codespaces/managing-codespaces-for-your-organization/restricting-access-to-machine-types)" and "[Restricting the idle timeout period](/codespaces/managing-codespaces-for-your-organization/restricting-the-idle-timeout-period)."
-1. After you have finished adding constraints to your policy, click **Save**.
+1. Si quieres agregar otra restricción a la política, haz clic en **Agregar restricción** y elige otra de ellas. Para obtener más información sobre otras restricciones, consulta las secciones "[Restringir el acceso a los tipos de máquina](/codespaces/managing-codespaces-for-your-organization/restricting-access-to-machine-types)", "[Restringir el periodo de tiempo de inactividad](/codespaces/managing-codespaces-for-your-organization/restricting-the-idle-timeout-period)" y "[Restringir el periodo de detección para los codespaces](/codespaces/managing-codespaces-for-your-organization/restricting-the-retention-period-for-codespaces)".
+1. After you've finished adding constraints to your policy, click **Save**.
 ## Editar una política
 
-You can edit an existing policy. For example, you may want to add or remove constraints to or from a policy.
+You can edit an existing policy. Por ejemplo, puede que quieras agregar o eliminar restricciones hacia o desde una política.
 
 1. Muestra la página de "Políticas del Codespace". Para obtener más información, consulta la sección "[Agregar una política para limitar las opciones de visibilidad de puerto](#adding-a-policy-to-limit-the-port-visibility-options)".
 1. Haz clic en el nombre de la política que quieres editar.

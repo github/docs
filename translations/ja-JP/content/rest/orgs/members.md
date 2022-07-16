@@ -1,5 +1,7 @@
 ---
-title: メンバー
+title: Organizationメンバー
+allowTitleToDifferFromFilename: true
+shortTitle: メンバー
 intro: ''
 versions:
   fpt: '*'

@@ -1,14 +1,14 @@
 ---
 title: Sobre a visão geral de segurança
 intro: 'Você pode visualizar, filtrar e classificar alertas de segurança para repositórios pertencentes à sua organização ou equipe em um só lugar: a página de Visão Geral de Segurança.'
-permissions: Organization owners and security managers can access the security overview for organizations. Members of a team can see the security overview for repositories that the team has admin privileges for.
+permissions: '{% data reusables.security-center.permissions %}'
 product: '{% data reusables.gated-features.security-center %}'
 redirect_from:
   - /code-security/security-overview/exploring-security-alerts
 versions:
   fpt: '*'
-  ghae: issue-4554
-  ghes: '>3.1'
+  ghae: '*'
+  ghes: '*'
   ghec: '*'
 type: how_to
 topics:
@@ -22,7 +22,7 @@ topics:
 shortTitle: Sobre a visão geral de segurança
 ---
 
-{% ifversion ghes < 3.5 or ghae-issue-4554 %}
+{% ifversion ghes < 3.5 or ghae %}
 {% data reusables.security-center.beta %}
 {% endif %}
 
@@ -31,7 +31,7 @@ shortTitle: Sobre a visão geral de segurança
 {% ifversion ghes or ghec or ghae %}Você{% elsif fpt %}As organizações que usam {% data variables.product.prodname_ghe_cloud %}{% endif %} podem usar a visão geral de segurança para uma visão geral de alto nível do status de segurança da {% ifversion ghes or ghec or ghae %}sua  {% elsif fpt %}sua organização{% endif %} ou para identificar repositórios problemáticos que exigem intervenção. {% ifversion ghes or ghec or ghae %}Você {% elsif fpt %}Essas organizações{% endif %} podem ver informações de segurança específicas para o repositório ou agregadas na visão geral de segurança. {% ifversion ghes or ghec or ghae %}Você {% elsif fpt %} As organizações que usam {% data variables.product.prodname_ghe_cloud %}{% endif %} também podem usar a visão geral de segurança para ver quais funcionalidades de segurança estão habilitadas para {% ifversion ghes or ghec or ghae %}seus {% elsif fpt %}repositórios {% endif %} e para configurar quaisquer funcionalidades de segurança disponíveis que atualmente não estejam em uso. {% ifversion fpt %}Para obter mais informações, consulte [a documentação de {% data variables.product.prodname_ghe_cloud %}](/enterprise-cloud@latest/code-security/security-overview/about-the-security-overview).{% endif %}
 
 {% ifversion ghec or ghes or ghae %}
-A visão geral de segurança indica se {% ifversion fpt or ghes > 3.1 or ghec %}os recursos de segurança{% endif %}{% ifversion ghae %}{% data variables.product.prodname_GH_advanced_security %}{% endif %} estão habilitados para os repositórios pertencentes à sua organização e consolida os alertas para cada recurso.{% ifversion fpt or ghes > 3.1 or ghec %} As funcionalidades de segurança incluem funcionalidaes de {% data variables.product.prodname_GH_advanced_security %} como, por exemplo, {% data variables.product.prodname_code_scanning %} e {% data variables.product.prodname_secret_scanning %}, bem como {% data variables.product.prodname_dependabot_alerts %}.{% endif %} Para obter mais informações sobre as funcionalidades de {% data variables.product.prodname_GH_advanced_security %} conuslte "[Sobre {% data variables.product.prodname_GH_advanced_security %}](/get-started/learning-about-github/about-github-advanced-security)."{% ifversion fpt or ghes > 3.1 or ghec %} Para obter mais informações sobre {% data variables.product.prodname_dependabot_alerts %}, consulte "[Sobre {% data variables.product.prodname_dependabot_alerts %}](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-alerts-for-vulnerable-dependencies#dependabot-alerts-for-vulnerable-dependencies)."{% endif %}
+A visão geral de segurança indica se a {% ifversion fpt or ghes or ghec %}segurança{% endif %}{% ifversion ghae %}{% data variables.product.prodname_GH_advanced_security %}{% endif %} funcionalidades estão habilitadas para os repositórios pertencentes à sua organização e consolida os altertas para cada funcionalidade.{% ifversion fpt or ghes or ghec %} As funcionalidades de segurança incluem funcionalidades de {% data variables.product.prodname_GH_advanced_security %} como, por exemplo, {% data variables.product.prodname_code_scanning %} e {% data variables.product.prodname_secret_scanning %}, bem como {% data variables.product.prodname_dependabot_alerts %}.{% endif %} Para obter mais informações sobre as funcionalidades de {% data variables.product.prodname_GH_advanced_security %} consulte "[Sobre {% data variables.product.prodname_GH_advanced_security %}](/get-started/learning-about-github/about-github-advanced-security)."{% ifversion fpt or ghes or ghec %} Para obter mais informações sobre {% data variables.product.prodname_dependabot_alerts %}, consulte "[Sobre {% data variables.product.prodname_dependabot_alerts %}](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-alerts-for-vulnerable-dependencies#dependabot-alerts-for-vulnerable-dependencies)."{% endif %}
 
 Para obter mais informações sobre como proteger seu código nos níveis do repositório e da organização, consulte "[Protegendo seu repositório](/code-security/getting-started/securing-your-repository)" e "[Protegendo sua organização](/code-security/getting-started/securing-your-organization)".
 
@@ -41,7 +41,7 @@ A equipe de segurança de aplicativos da sua empresa pode usar a visão geral de
 
 No resumo da segurança, é possível visualizar, ordenar e filtrar alertas para entender os riscos de segurança na sua organização e nos repositórios específicos. O resumo de segurança é altamente interativo e permite que você investigue categorias específicas de informações, baseado em qualificações, como nível de risco de alerta, tipo de alerta e habilitação de funcionamento. Você também pode aplicar vários filtros para focar em áreas de interesse mais estreitas. Por exemplo, você pode identificar repositórios privados que têm um número elevado de {% data variables.product.prodname_dependabot_alerts %} ou repositórios que não têm alertas {% data variables.product.prodname_code_scanning %}. Para obter mais informações, consulte "[Filtrando alertas na visão geral de segurança](/code-security/security-overview/filtering-alerts-in-the-security-overview)".
 
-{% if security-overview-views %}
+{% ifversion security-overview-views %}
 
 Na visão geral de segurança, tanto ao nível da organização como ao nível do repositório. existem visualizações dedicadas a recursos de segurança específicos, como alertas de digitalização de segredos e alertas de digitalização de código. Você pode usar essas visualizações para limitar sua análise para um conjunto específico de alertas e estreitar os resultados com uma variedade de filtros específicos para cada visualização. Por exemplo, na vista de alerta de digitalização de segredo, você pode usar o filtro do tipo `secredo` para visualizar somente alertas de digitalização de segredo para um segredo específico, como um Token de Acesso Pessoal do GitHub. No nível do repositório, é possível usar a visão geral de segurança para avaliar o status de segurança atual do repositório específico e configurar todos as funcionalidades adicionais de segurança que ainda não estão sendo usadas no repositório.
 
@@ -69,7 +69,7 @@ A nível da organização, a visão geral de segurança exibe informações de s
 
 {% ifversion ghec or ghes > 3.4 or ghae-issue-6199 %}
 ### Sobre a visão geral de segurança do nível da empresa
-A nível da empresa, a visão geral de segurança exibe informações de segurança agregadas e específicas ao repositório para sua empresa. Você pode visualizar repositórios pertencentes à sua empresa que tenham alertas de segurança ou ver todos os alertas de {% data variables.product.prodname_secret_scanning %} de toda a sua empresa.
+A nível da empresa, a visão geral de segurança exibe informações de segurança agregadas e específicas ao repositório para sua empresa. É possível visualizar repositórios pertencentes à sua empresa que tenham alertas de segurança, visualizar todos os alertas de segurança ou alertas específicos de segurança de toda a empresa.
 
 Os proprietários da organização e os gerentes de segurança das organizações da sua empresa também têm acesso limitado à visão geral de segurança no nível da empresa. Eles só podem ver repositórios e alertas das organizações aos quais têm acesso total.
 

@@ -48,19 +48,14 @@ Em um arquivo ou uma pull request, também é possível usar o menu {% octicon "
 3. No canto superior direito da exibição do arquivo, clique em **Blame** para abrir a exibição blame. ![Botão Blame (Blame)](/assets/images/help/repository/blame-button.png)
 4. Para ver revisões anteriores de uma linha específica ou tornar a usar o recurso blame, clique em {% octicon "versions" aria-label="The prior blame icon" %} até encontrar as alterações que você deseja exibir. ![Botão Prior blame (Blame anterior)](/assets/images/help/repository/prior-blame-button.png)
 
-{% if blame-ignore-revs %}
+{% ifversion blame-ignore-revs %}
 
-## Ignore commits in the blame view
-{% note %}
+## Ignorar commits na exibição do último responsável
 
-**Note:** Ignoring commits in the blame view is currently in public beta and subject to change.
+Todas as revisões especificadas no arquivo `.git-blame-ignore-revs`, que deve estar no diretório raiz do repositório, estão ocultas da exibição de último responsável, que usa a configuração `git blame --ignore-revs-file`. Para obter mais informações, consulte [`git blame --ignore-revs-file`](https://git-scm.com/docs/git-blame#Documentation/git-blame.txt---ignore-revs-fileltfilegt) na documentação do Git.
 
-{% endnote %}
-
-All revisions specified in the `.git-blame-ignore-revs` file, which must be in the root directory of your repository, are hidden from the blame view using Git's `git blame --ignore-revs-file` configuration setting. For more information, see [`git blame --ignore-revs-file`](https://git-scm.com/docs/git-blame#Documentation/git-blame.txt---ignore-revs-fileltfilegt) in the Git documentation.
-
-1. In the root directory of your repository, create a file named `.git-blame-ignore-revs`.
-2. Add the commit hashes you want to exclude from the blame view to that file. We recommend the file to be structured as follows, including comments:
+1. No diretório raiz do seu repositório, crie um arquivo denominado `.git-blame-ignore-revs`.
+2. Adicione as hashes de commit que você deseja excluir da visualização de último responsável para esse arquivo. Recomendamos que o arquivo seja estruturado da seguinte forma, incluindo comentários:
 
     ```ini
     # .git-blame-ignore-revs
@@ -70,16 +65,22 @@ All revisions specified in the `.git-blame-ignore-revs` file, which must be in t
     69d029cec8337c616552756310748c4a507bd75a
     ```
 
-3. Commit and push the changes.
+3. Faça o commit e faça push das alterações.
 
-Now when you visit the blame view, the listed revisions will not be included in the blame. You'll see an **Ignoring revisions in .git-blame-ignore-revs** banner indicating that some commits may be hidden:
+Agora, quando você visitar a visualização do último responsável, as revisões listadas não serão incluídas na visualização do último responsável. Você verá um banner **Ignoring revisions in .git-blame-ignore-revs** indicando que alguns commits podem ser ocultados:
 
-![Screenshot of a banner on the blame view linking to the .git-blame-ignore-revs file](/assets/images/help/repository/blame-ignore-revs-file.png)
+![Captura de tela de um banner na visualização dos últimos responsáveis vinculada ao arquivo .git-blame-ignore-revs](/assets/images/help/repository/blame-ignore-revs-file.png)
 
-This can be useful when a few commits make extensive changes to your code. You can use the file when running `git blame` locally as well:
+Isso pode ser útil quando alguns commits fizerem amplas alterações no seu código. Você pode usar o arquivo ao executar `git blame` localmente:
 
 ```shell
 git blame --ignore-revs-file .git-blame-ignore-revs
+```
+
+You can also configure your local git so it always ignores the revs in that file:
+
+```shell
+git config blame.ignoreRevsFile .git-blame-ignore-revs
 ```
 
 {% endif %}

@@ -14,7 +14,7 @@ Esta guía te mostrará cómo configurar, ajustar y administrar {% data variable
 
 {% data variables.product.company_short %} hospeda a {% data variables.product.prodname_ghe_cloud %}. Puedes desplegar y hospedar a {% data variables.product.prodname_ghe_server %} en tu propio centro de datos o en un proveedor de servicios en la nube que sea compatible.
 
-Para ver un resumen de cómo funciona {% data variables.product.product_name %}, consulta la sección "[Resumen del sistema](/admin/overview/system-overview)".
+Para obtener más información acerca de las {% data variables.product.product_name %}, consulta la sección "[Acerca del {% data variables.product.prodname_ghe_server %}](/admin/overview/about-github-enterprise-server)".
 
 ## Parte 1: Instalar {% data variables.product.product_name %}
 Para iniciar con {% data variables.product.product_name %}, necesitarás crear tu cuenta empresarial, instalar la instancia, utilizar la Consola de Administración para la configuración inicial, configurar tu instancia y administrar la facturación.
@@ -67,12 +67,12 @@ Como propietario empresarial o administrador, puedes administrar los ajustes a n
 ## Parte 3: Compilar de forma segura
 Para aumentar la seguridad de {% data variables.product.product_location %}, puedes configurar la autenticación para los miembros empresariales, utilizar herramientas y registro en bitácoras de auditoría para permanecer en cumplimiento, configurar las características de seguridad y análisis para tus organizaciones y, opcionalmente, habilitar la {% data variables.product.prodname_GH_advanced_security %}.
 ### 1. Autenticar a los miembros empresariales
-You can use {% data variables.product.product_name %}'s built-in authentication method, or you can choose between an external authentication provider, such as CAS, LDAP, or SAML, to integrate your existing accounts and centrally manage user access to {% data variables.product.product_location %}. For more information, see "[About authentication for your enterprise](/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-authentication-for-your-enterprise)."
+Puedes utilizar el método de autenticación integrado de {% data variables.product.product_name %} o puedes elegir entre un proveedor de autenticación externo, tal como CAS, LDAP o SAML, para integrar tus cuentas existentes y administrar centralmente el acceso de los usuarios a {% data variables.product.product_location %}. Para obtener más información, consulta la sección "[Acerca de la autenticación para tu empresa](/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-authentication-for-your-enterprise)".
 
 También puedes requerir la autenticación bifactorial para cada una de tus organizaciones. Para obtener más información, consulta la sección "[Requerir la autenticación bifactorial en una organización](/admin/user-management/managing-organizations-in-your-enterprise/requiring-two-factor-authentication-for-an-organization)".
 
 ### 2. Mantenerse en cumplimiento
-Puedes implementar las verificaciones de estado requeridas y confirmar las verificaciones para hacer cumplir los estándares de cumplimiento de tu organización y automatizar los flujos de trabajo de cumplimiento. También puedes utilizar la bitácora de auditoría de tu organización para revisar las acciones que realiza tu equipo. For more information, see "[Enforcing policy with pre-receive hooks](/admin/policies/enforcing-policy-with-pre-receive-hooks)" and "[About the audit log for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/about-the-audit-log-for-your-enterprise)."
+Puedes implementar las verificaciones de estado requeridas y confirmar las verificaciones para hacer cumplir los estándares de cumplimiento de tu organización y automatizar los flujos de trabajo de cumplimiento. También puedes utilizar la bitácora de auditoría de tu organización para revisar las acciones que realiza tu equipo. Para obtener más información, consulta las secciones "[requerir una política con ganchos de pre-recepción](/admin/policies/enforcing-policy-with-pre-receive-hooks)" y "[Acerca de la bitácora de auditoría para tu empresa](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/about-the-audit-log-for-your-enterprise)".
 
 {% ifversion ghes %}
 ### 3. Configurar las características de seguridad para tus organizaciones
@@ -120,7 +120,7 @@ Los miembros de tu empresa pueden aprender más sobre Git y sobre {% data variab
 Puedes leer la documentación que refleje las características disponibles en {% data variables.product.prodname_ghe_server %}. Para obtener más información, consulta la sección "[Acerca de las versiones de {% data variables.product.prodname_docs %}](/get-started/learning-about-github/about-versions-of-github-docs)".
 
 ### 2. Aprender con {% data variables.product.prodname_learning %}
-{% data reusables.getting-started.learning-lab-enterprise %}
+{% data reusables.getting-started.learning-enterprise %}
 
 ### 3. Trabajar con {% data variables.product.prodname_dotcom %} Enterprise Support
 {% data reusables.getting-started.contact-support-enterprise %}

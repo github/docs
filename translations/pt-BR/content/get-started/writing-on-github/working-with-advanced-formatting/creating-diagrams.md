@@ -49,15 +49,27 @@ Por exemplo, você pode criar um mapa simples:
 <pre>
 ```geojson
 {
-  "type": "Polygon",
-  "coordinates": [
-      [
-          [-90,30],
-          [-90,35],
-          [-90,35],
-          [-85,35],
-          [-85,30]
-      ]
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "id": 1,
+      "properties": {
+        "ID": 0
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+              [-90,35],
+              [-90,30],
+              [-85,30],
+              [-85,35],
+              [-90,35]
+          ]
+        ]
+      }
+    }
   ]
 }
 ```

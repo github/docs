@@ -32,9 +32,11 @@ Para permitir o uso do FIDO U2F para autenticação de dois fatores, você deve 
 
 Para usar o TLS em produção, você deve ter um certificado em formato PEM não criptografado assinado por uma autoridade de certificação confiável.
 
-Seu certificado também precisará de nomes alternativos da entidade (SAN, Subject Alternative Names) configurados para os subdomínios listados em "[Habilitar isolamento de subdomínio](/enterprise/{{ currentVersion }}/admin/guides/installation/enabling-subdomain-isolation#about-subdomain-isolation)" e deverá incluir a cadeia completa de certificados, caso tenha sido assinado por uma autoridade de certificação intermediária. Para obter mais informações, consulte "[Subject Alternative Name](http://en.wikipedia.org/wiki/SubjectAltName)" na Wikipedia.
+Seu certificado também precisará de nomes alternativos da entidade (SAN, Subject Alternative Names) configurados para os subdomínios listados em "[Habilitar isolamento de subdomínio](/enterprise/admin/guides/installation/enabling-subdomain-isolation#about-subdomain-isolation)" e deverá incluir a cadeia completa de certificados, caso tenha sido assinado por uma autoridade de certificação intermediária. Para obter mais informações, consulte "[Subject Alternative Name](http://en.wikipedia.org/wiki/SubjectAltName)" na Wikipedia.
 
-Você pode gerar uma solicitação de assinatura de certificado (CSR, Certificate Signing Request) para sua instância usando o comando `ghe-ssl-generate-csr`. Para obter mais informações, consulte "[Utilitários de linha de comando](/enterprise/{{ currentVersion }}/admin/guides/installation/command-line-utilities/#ghe-ssl-generate-csr)".
+Você pode gerar uma solicitação de assinatura de certificado (CSR, Certificate Signing Request) para sua instância usando o comando `ghe-ssl-generate-csr`. Para obter mais informações, consulte "[Utilitários de linha de comando](/enterprise/admin/guides/installation/command-line-utilities/#ghe-ssl-generate-csr)".
+
+Sua chave deve ser uma chave RSA e não deve ter uma senha. Para obter mais informações, consulte "[Remover a frase secreta de um arquivo de chave](/admin/guides/installation/troubleshooting-ssl-errors#removing-the-passphrase-from-your-key-file)".
 
 ## Fazer upload de um certificado TLS personalizado
 
@@ -48,11 +50,6 @@ Você pode gerar uma solicitação de assinatura de certificado (CSR, Certificat
 5. Em "Certificate" (Certificado), clique em **Choose File** (Escolher arquivo) para escolher um certificado TLS ou uma cadeia de certificados (no formato PEM) para instalação. Em geral, esse arquivo tem extensão *.pem*, *.crt* ou *.cer*. ![Botão para localizar arquivo de certificado TLS](/assets/images/enterprise/management-console/install-tls-certificate.png)
 6. Em "Chave não criptografada", clique em **Escolher Arquivo** para escolher uma chave RSA (no formato PEM) para ser instalada. Em geral, esse arquivo tem extensão *.key*. ![Botão para localizar arquivo de chave TLS](/assets/images/enterprise/management-console/install-tls-key.png)
 
-  {% warning %}
-
-  **Aviso**: Sua chave deve ser uma chave RSA e não deve ter uma frase secreta. Para obter mais informações, consulte "[Remover a frase secreta de um arquivo de chave](/admin/guides/installation/troubleshooting-ssl-errors#removing-the-passphrase-from-your-key-file)".
-
-  {% endwarning %}
 {% data reusables.enterprise_management_console.save-settings %}
 
 ## Sobre o suporte Let's Encrypt
@@ -63,7 +60,7 @@ Let's Encrypt é uma autoridade de certificação pública que emite certificado
 
 Ao habilitar a automação do gerenciamento de certificados TLS usando o Let's Encrypt, sua {% data variables.product.product_location %} entrará em contato com os servidores do Let's Encrypt para obter um certificado. Para renovar um certificado, os servidores do Let's Encrypt devem validar o controle do nome de domínio configurado com solicitações HTTP de entrada.
 
-Você também pode usar o utilitário de linha de comando `ghe-ssl-acme` na {% data variables.product.product_location %} para gerar automaticamente um certificado Let's Encrypt. Para obter mais informações, consulte "[Utilitários de linha de comando](/enterprise/{{ currentVersion }}/admin/guides/installation/command-line-utilities#ghe-ssl-acme)".
+Você também pode usar o utilitário de linha de comando `ghe-ssl-acme` na {% data variables.product.product_location %} para gerar automaticamente um certificado Let's Encrypt. Para obter mais informações, consulte "[Utilitários de linha de comando](/enterprise/admin/guides/installation/command-line-utilities#ghe-ssl-acme)".
 
 ## Configurar o TLS usando Let's Encrypt
 

@@ -1,5 +1,7 @@
 ---
-title: Conteúdo
+title: Conteúdo do repositório
+allowTitleToDifferFromFilename: true
+shortTitle: Conteúdo
 intro: 'Estes pontos de extremidade da API permitem criar, modificar e excluir conteúdo codificado em Base64 em um repositório.'
 versions:
   fpt: '*'
@@ -10,6 +12,8 @@ topics:
   - API
 miniTocMaxHeadingLevel: 3
 ---
+
+## Sobre a API de conteúdos do repositório
 
 Para solicitar o formato sem processar ou HTML interpretado (quando compatível), use os tipos de mídia personalizados para o conteúdo do repositório.
 

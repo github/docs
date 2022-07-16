@@ -42,8 +42,8 @@ O {% data variables.product.product_name %} pode exibir diversos formatos comuns
 {% note %}
 
 **Observação:**
-- {% data variables.product.prodname_dotcom %} does not support comparing the differences between PSD files.
-- If you are using the Firefox browser, SVGs on {% data variables.product.prodname_dotcom %} may not render.
+- {% data variables.product.prodname_dotcom %} não é compatível com a comparação de diferenças entre arquivos PSD.
+- Se você estiver utilizando o navegador Firefox, os SVGs em {% data variables.product.prodname_dotcom %} não poderão ser interpretados.
 
 {% endnote %}
 
@@ -132,7 +132,7 @@ Por padrão, o renderizador incorporado tem 420 pixels de largura por 620 pixels
 
 {% endtip %}
 
-{% if mermaid %}
+{% ifversion mermaid %}
 ### Interpretação em Markdown
 
 Você pode incorporar a sintaxe do ASCII STL diretamente ao Markdown. Para obter mais informações, consulte "[Criando diagramas](/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams#creating-stl-3d-models)".
@@ -245,6 +245,7 @@ Quando você clicar no ícone de folha de papel à direita, também verá as alt
 
 Os mapas no {% data variables.product.product_name %} usam [Leaflet.js](http://leafletjs.com) e são compatíveis com todos os tipos geométricos descritos nas [especificações geoJSON](http://www.geojson.org/geojson-spec.html) (Ponto, LineString, Polígono, Múltiplos Pontos, MultiLineString, MultiPolygon e GeometryCollection). Os arquivos TopoJSON devem ser do tipo "Topology" (Topologia) e estar de acordo com as [especificações topoJSON](https://github.com/mbostock/topojson/wiki/Specification).
 
+{% ifversion geoJSON-with-MapBox %}
 ### Estilos de elementos gráficos
 
 Você pode personalizar a maneira como os elementos gráficos são exibidos, como especificar uma cor ou adicionar um ícone descritivo, transmitindo metadados adicionais nas propriedades do objeto geoJSON. As opções são:
@@ -259,6 +260,7 @@ Você pode personalizar a maneira como os elementos gráficos são exibidos, com
 * `fill-opacity` (opacidade do preenchimento) - opacidade do interior de um polígono (0,0 - 1,0)
 
 Consulte a [ versão 1.1.0 do simplestyle especificações de código aberto](https://github.com/mapbox/simplestyle-spec/tree/master/1.1.0) para obter mais informações.
+{% endif %}
 
 ### Incorporar o mapa em outro lugar
 
@@ -282,7 +284,7 @@ Por padrão, o mapa incorporado tem 420px x 620px, mas é possível personalizar
 
 {% endtip %}
 
-{% if mermaid %}
+{% ifversion mermaid %}
 ### Mapeamento em Markdown
 
 Você pode incorporar geoJSON e topoJSON diretamente ao Markdown. Para obter mais informações, consulte "[Criando diagramas](/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams#creating-geojson-and-topojson-maps)".
@@ -308,8 +310,12 @@ Ainda pode ser possível renderizar os dados convertendo o arquivo `.geojson` em
 
 ### Leia mais
 
-* [Leaflet.js documentation](https://leafletjs.com/)
+{% ifversion geoJSON-with-MapBox %}
+* [Documentação do Leaflet.js](https://leafletjs.com/)
 * [Documentação MapBox marcadores de estilo](http://www.mapbox.com/developers/simplestyle/)
+{%- else %}
+* [Azure Maps documentation](https://docs.microsoft.com/en-us/azure/azure-maps/)
+{%- endif %}
 * [Wiki TopoJSON](https://github.com/mbostock/topojson/wiki)
 
 ## Trabalhando com arquivos do Jupyter Notebook no {% data variables.product.prodname_dotcom %}
@@ -333,9 +339,9 @@ $ jupyter nbconvert --to html <em>NOTEBOOK-NAME.ipynb</em>
 ### Leia mais
 
 - [Repositório do GitHub do Jupyter Notebook](https://github.com/jupyter/jupyter_notebook)
-- [Galeria de Jupyter Notebooks](https://github.com/jupyter/jupyter/wiki/A-gallery-of-interesting-Jupyter-Notebooks)
+- [Galeria de Jupyter Notebooks](https://github.com/jupyter/jupyter/wiki)
 
-{% if mermaid %}
+{% ifversion mermaid %}
 ## Exibindo arquivos do Mermaid em {% data variables.product.prodname_dotcom %}
 
 {% data variables.product.product_name %} é compatível com os arquivos de interpretação do Mermaid dentro dos repositórios. Faça o commit do arquivo como você faria normalmente, usando a extensão `.mermaid` ou `.mmd`. Em seguida, acesse o caminho do arquivo do Mermaid em {% data variables.product.prodname_dotcom %}.

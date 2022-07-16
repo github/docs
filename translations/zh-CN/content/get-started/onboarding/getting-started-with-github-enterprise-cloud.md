@@ -56,21 +56,23 @@ Your organization's billing settings page allows you to manage settings like you
 Only organization members with the *owner* or *billing manager* role can access or change billing settings for your organization. A billing manager is a user who manages the billing settings for your organization and does not use a paid license in your organization's subscription. For more information on adding a billing manager to your organization, see "[Adding a billing manager to your organization](/organizations/managing-peoples-access-to-your-organization-with-roles/adding-a-billing-manager-to-your-organization)."
 
 ### Setting up an enterprise account with {% data variables.product.prodname_ghe_cloud %}
- {% note %}
-
-To get an enterprise account created for you, contact [{% data variables.product.prodname_dotcom %}'s Sales team](https://enterprise.github.com/contact).
-
- {% endnote %}
 
 #### 1. About enterprise accounts
 
 An enterprise account allows you to centrally manage policy and settings for multiple {% data variables.product.prodname_dotcom %} organizations, including member access, billing and usage and security. For more information, see "[About enterprise accounts](/enterprise-cloud@latest/admin/overview/about-enterprise-accounts)."
-#### 2. Adding organizations to your enterprise account
+
+#### 2. Creating an enterpise account
+
+ {% data variables.product.prodname_ghe_cloud %} customers paying by invoice can create an enterprise account directly through {% data variables.product.prodname_dotcom %}. For more information, see "[Creating an enterprise account](/enterprise-cloud@latest/admin/overview/creating-an-enterprise-account)." 
+ 
+ {% data variables.product.prodname_ghe_cloud %} customers not currently paying by invoice can contact [{% data variables.product.prodname_dotcom %}'s Sales team](https://enterprise.github.com/contact) to create an enterprise account for you.
+
+#### 3. Adding organizations to your enterprise account
 
 You can create new organizations to manage within your enterprise account. For more information, see "[Adding organizations to your enterprise](/enterprise-cloud@latest/admin/user-management/managing-organizations-in-your-enterprise/adding-organizations-to-your-enterprise)."
 
 Contact your {% data variables.product.prodname_dotcom %} sales account representative if you want to transfer an existing organization to your enterprise account.
-#### 3. Viewing the subscription and usage for your enterprise account
+#### 4. Viewing the subscription and usage for your enterprise account
 You can view your current subscription, license usage, invoices, payment history, and other billing information for your enterprise account at any time. Both enterprise owners and billing managers can access and manage billing settings for enterprise accounts. For more information, see  "[Viewing the subscription and usage for your enterprise account](/enterprise-cloud@latest/billing/managing-billing-for-your-github-account/viewing-the-subscription-and-usage-for-your-enterprise-account)."
 
 ## Part 3: Managing your organization or enterprise members and teams with {% data variables.product.prodname_ghe_cloud %}
@@ -204,7 +206,7 @@ Members of your organization or enterprise can use GitHub's learning and support
 You can read documentation that reflects the features available with {% data variables.product.prodname_ghe_cloud %}. For more information, see "[About versions of {% data variables.product.prodname_docs %}](/get-started/learning-about-github/about-versions-of-github-docs)."
 
 ### 2. Learning with {% data variables.product.prodname_learning %}
-Members of your organization or enterprise can learn new skills by completing fun, realistic projects in your very own GitHub repository with [{% data variables.product.prodname_learning %}](https://lab.github.com/). Each course is a hands-on lesson created by the GitHub community and taught by the friendly Learning Lab bot.
+Members of your organization or enterprise can learn new skills by completing fun, realistic projects in your very own GitHub repository with [{% data variables.product.prodname_learning %}](https://skills.github.com/). Each course is a hands-on lesson created by the GitHub community and taught by a friendly bot.
 
 For more information, see "[Git and {% data variables.product.prodname_dotcom %} learning resources](/github/getting-started-with-github/quickstart/git-and-github-learning-resources)."
 ### 3. Supporting the open source community

@@ -19,7 +19,7 @@ shortTitle: ソースコントロール
 
 必要なすべての Git アクションを codespace 内で直接実行できます。 たとえば、リモートリポジトリから変更をフェッチしたり、ブランチを切り替えたり、新しいブランチを作成したり、変更をコミットしてプッシュしたり、プルリクエストを作成したりすることができます。 Codespace 内の統合ターミナルを使用して Git コマンドを入力するか、アイコンとメニューオプションをクリックして最も一般的な Git タスクをすべて完了することができます。 このガイドでは、ソースコントロールにグラフィカルユーザインターフェースを使用する方法について説明します。
 
-{% data variables.product.prodname_github_codespaces %} 内のソースコントロールは、{% data variables.product.prodname_vscode %} と同じワークフローを使用します。 詳しい情報については、{% data variables.product.prodname_vscode %} のドキュメント「[VS Code でバージョン管理を使用する](https://code.visualstudio.com/docs/editor/versioncontrol#_git-support)」を参照してください。
+{% data variables.product.prodname_github_codespaces %} 内のソースコントロールは、{% data variables.product.prodname_vscode %} と同じワークフローを使用します。 For more information, see the {% data variables.product.prodname_vscode_shortname %} documentation "[Using Version Control in {% data variables.product.prodname_vscode_shortname %}](https://code.visualstudio.com/docs/editor/versioncontrol#_git-support)."
 
 {% data variables.product.prodname_github_codespaces %} を使用してファイルを更新するための一般的なワークフローは次のとおりです。
 
@@ -47,7 +47,7 @@ shortTitle: ソースコントロール
 1. サイドバーの上部にある省略記号(**...**) をクリックします。 ![[View] および [More Actions] の省略記号ボタン](/assets/images/help/codespaces/source-control-ellipsis-button.png)
 1. ドロップダウンメニューで、[**Pull**] をクリックします。
 
-If the dev container configuration has been changed since you created the codespace, you can apply the changes by rebuilding the container for the codespace. For more information, see "[Introduction to dev containers](/codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project#applying-changes-to-your-configuration)."
+If the dev container configuration has been changed since you created the codespace, you can apply the changes by rebuilding the container for the codespace. For more information, see "[Introduction to dev containers](/codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project#applying-configuration-changes-to-a-codespace)."
 
 ## 新しい変更を自動的にフェッチするように codespace を設定する
 

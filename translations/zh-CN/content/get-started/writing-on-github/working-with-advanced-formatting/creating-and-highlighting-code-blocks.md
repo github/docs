@@ -67,7 +67,7 @@ Look! You can see my backticks.
 
 我们使用 [Linguist](https://github.com/github/linguist) 来执行语言检测并选择[第三方语法](https://github.com/github/linguist/blob/master/vendor/README.md)进行语法突显。 您可以在[语言 YAML 文件](https://github.com/github/linguist/blob/master/lib/linguist/languages.yml)中找出哪些关键词有效。
 
-{% if mermaid %}
+{% ifversion mermaid %}
 ## 创建图表
 
 您还可以使用代码块在 Markdown 中创建关系图。 GitHub 支持 Mermaid、geoJSON、topoJSON 和 ASCII STL 语法。 更多信息请参阅“[创建示意图](/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams)”。

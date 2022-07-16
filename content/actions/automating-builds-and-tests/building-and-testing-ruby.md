@@ -144,9 +144,11 @@ steps:
 - run: bundle install
 ```
 
+{% ifversion actions-caching %}
+
 ### Caching dependencies
 
-If you are using {% data variables.product.prodname_dotcom %}-hosted runners, the `setup-ruby` actions provides a method to automatically handle the caching of your gems between runs.
+The `setup-ruby` actions provides a method to automatically handle the caching of your gems between runs.
 
 To enable caching, set the following.
 
@@ -159,11 +161,11 @@ steps:
 ```
 {% endraw %}
 
-This will configure bundler to install your gems to `vendor/cache`. For each successful run of your workflow, this folder will be cached by Actions and re-downloaded for subsequent workflow runs. A hash of your gemfile.lock and the Ruby version are used as the cache key. If you install any new gems, or change a version, the cache will be invalidated and bundler will do a fresh install.
+This will configure bundler to install your gems to `vendor/cache`. For each successful run of your workflow, this folder will be cached by {% data variables.product.prodname_actions %} and re-downloaded for subsequent workflow runs. A hash of your gemfile.lock and the Ruby version are used as the cache key. If you install any new gems, or change a version, the cache will be invalidated and bundler will do a fresh install.
 
 **Caching without setup-ruby**
 
-For greater control over caching, if you are using {% data variables.product.prodname_dotcom %}-hosted runners, you can use the `actions/cache` Action directly. For more information, see "<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">Caching dependencies to speed up workflows</a>."
+For greater control over caching, you can use the `actions/cache` action directly. For more information, see "[Caching dependencies to speed up workflows](/actions/using-workflows/caching-dependencies-to-speed-up-workflows)."
 
 ```yaml
 steps:
@@ -194,6 +196,8 @@ steps:
     bundle config path vendor/bundle
     bundle install --jobs 4 --retry 3
 ```
+
+{% endif %}
 
 ## Matrix testing your code
 
@@ -275,10 +279,10 @@ on:
 jobs:
   build:
     name: Build + Publish
-    runs-on: ubuntu-latest{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
+    runs-on: ubuntu-latest
     permissions:
       packages: write
-      contents: read{% endif %}
+      contents: read
 
     steps:
       - uses: {% data reusables.actions.action-checkout %}

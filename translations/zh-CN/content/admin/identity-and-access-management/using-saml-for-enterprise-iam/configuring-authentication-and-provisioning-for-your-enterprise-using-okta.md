@@ -1,6 +1,6 @@
 ---
 title: 使用 Okta 为企业配置身份验证和预配
-shortTitle: Configure with Okta
+shortTitle: 使用 Okta 进行配置
 intro: '您可以使用 Okta 作为身份提供程序 (IdP) 来集中管理 {% data variables.product.prodname_ghe_managed %} 的身份验证和用户预配。'
 permissions: 'Enterprise owners can configure authentication and provisioning for {% data variables.product.prodname_ghe_managed %}.'
 versions:

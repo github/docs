@@ -26,4 +26,4 @@ Your issues and pull request dashboards are available at the top of any page. On
 
 ## Further reading
 
-- {% ifversion fpt or ghes or ghae or ghec %}"[Viewing your subscriptions](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions#reviewing-repositories-that-youre-watching){% else %}"[Listing the repositories you're watching](/github/receiving-notifications-about-activity-on-github/listing-the-repositories-youre-watching){% endif %}"
+- "[Viewing your subscriptions](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions#reviewing-repositories-that-youre-watching)"

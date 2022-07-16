@@ -1,8 +1,8 @@
 ---
 title: Enabling encrypted assertions
 shortTitle: Enable encrypted assertions
-intro: You can improve {% data variables.product.product_location %}'s security with SAML single sign-on (SSO) by encrypting the messages that your SAML identity provider (IdP) sends.
-permissions: Site administrators can configure encrypted assertions for a {% data variables.product.product_name %} instance.
+intro: 'You can improve {% data variables.product.product_location %}''s security with SAML single sign-on (SSO) by encrypting the messages that your SAML identity provider (IdP) sends.'
+permissions: 'Site administrators can configure encrypted assertions for a {% data variables.product.product_name %} instance.'
 versions:
   ghes: '> 3.3'
 type: how_to

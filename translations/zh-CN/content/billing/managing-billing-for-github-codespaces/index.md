@@ -7,8 +7,8 @@ versions:
   ghec: '*'
 product: '{% data reusables.gated-features.codespaces %}'
 children:
-  - /about-billing-for-codespaces
-  - /viewing-your-codespaces-usage
-  - /managing-spending-limits-for-codespaces
+  - /about-billing-for-github-codespaces
+  - /viewing-your-github-codespaces-usage
+  - /managing-spending-limits-for-github-codespaces
 ---
 

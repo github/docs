@@ -1,6 +1,6 @@
 ---
 title: Comentários de commit
-intro: The Commit comments API lets you create and edit comments that relate to specific commits.
+intro: A API de comentários do Commit permite que você crie e edite comentários relacionados a commits específicos.
 versions:
   fpt: '*'
   ghes: '*'
@@ -12,9 +12,9 @@ miniTocMaxHeadingLevel: 3
 allowTitleToDifferFromFilename: true
 ---
 
-## About the commit comments API
+## Sobre a API de comentários de commit
 
-The Commit comments API lets you create and edit comments that relate to specific commits.
+A API de comentários do Commit permite que você crie e edite comentários relacionados a commits específicos.
 
 ### Tipos de mídia personalizados para comentários de commit
 

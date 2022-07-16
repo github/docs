@@ -1,3 +1,3 @@
-1. Assign a policy for repository access.
+1. リポジトリのアクセスにポリシーを割り当てます。
 
-    You can configure a runner group to be accessible to a specific list of repositories, or to all repositories in the organization.{% ifversion ghec or ghes %} By default, only private repositories can access runners in a runner group, but you can override this. This setting can't be overridden if configuring an organization's runner group that was shared by an enterprise.{% endif %}
+    ランナーグループを、特定のリポジトリのリスト、もしくはEnterprise内のすべてのリポジトリからアクセスできるように設定できます。{% ifversion ghec or ghes %}デフォルトでは、プライベートリポジトリのみがランナーグループ内のランナーにアクセスできますが、これは上書きできます。 この設定は、Enterpriseによって共有されているOrganizationのランナーグループを設定している場合には上書きできません。{% endif %}

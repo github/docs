@@ -23,7 +23,7 @@ topics:
 - 可访问您组织的服务器、网络或域的访问凭据，例如用户名与密码组合、访问令牌或其他敏感密钥。
 - 可代表您访问第三方的 AWS 令牌和其他类似访问凭据。 您必须能够证明该令牌确实属于您。
 - 对组织构成特定安全风险的文档（例如网络图或架构）。
-- 与您个人相关并对您构成安全风险的[信息](/github/site-policy/github-community-guidelines#doxxing-and-invasion-of-privacy)（如社会保障号码或其他政府身份号码）。
+- 与您个人相关并对您构成安全风险的[信息](/site-policy/acceptable-use-policies/github-doxxing-and-invasion-of-privacy)（如社会保障号码或其他政府身份号码）。
 
 ### 私人信息删除请求_不_适用于：
 - 他们自己的内部服务器名称、IP 地址和 URL。 您必须能够证明它们在特定文件或代码中的使用会构成安全威胁。

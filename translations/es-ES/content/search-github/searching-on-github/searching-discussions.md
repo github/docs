@@ -78,24 +78,6 @@ Puedes utilizar el calificador `comments` junto con los calificadores de mayor q
 | <code>comments:<em>n</em></code> | [**comments:&gt;100**](https://github.com/search?q=comments%3A%3E100&type=Discussions) coincide con debates de más de 100 comentarios.               |
 |                           | [**comments:500..1000**](https://github.com/search?q=comments%3A500..1000&type=Discussions) coincide con debates que tengan entre 500 y 1,000 comentarios. |
 
-## Buscar por cantidad de interacciones
-
-Puedes filtrar debates por el número de interacciones con el calificador `interactions` junto con los calificadores de mayor qué, menor qué y de rango. El conteo de interacciones es la cantidad de reacciones y comentarios en un debate. Para obtener más información, consulta la sección "[Entender la sintaxis de búsqueda](/github/searching-for-information-on-github/understanding-the-search-syntax)".
-
-| Qualifier                 | Ejemplo                                                                                                                                                 |
-|:------------------------- |:------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <code>interactions:<em>n</em></code> | [** interactions:&gt;2000**](https://github.com/search?q=interactions%3A%3E2000) coincide con los debates de más de 2,000 interacciones.      |
-|                           | [**interactions:500..1000**](https://github.com/search?q=interactions%3A500..1000) coincide con los debates que tengan entre 500 y 1,000 interacciones. |
-
-## Buscar por cantidad de reacciones
-
-Puedes filtrar los debates de acuerdo con la cantidad de reacciones si utilizas el calificador `reactions` junto con los calificadores de mayor qué, menor qué y rango. Para obtener más información, consulta la sección "[Entender la sintaxis de búsqueda](/github/searching-for-information-on-github/understanding-the-search-syntax)".
-
-| Qualifier                 | Ejemplo                                                                                                                                       |
-|:------------------------- |:--------------------------------------------------------------------------------------------------------------------------------------------- |
-| <code>reactions:<em>n</em></code> | [** reactions:&gt;1000**](https://github.com/search?q=reactions%3A%3E500) coincide con debates con más de 500 reacciones.           |
-|                           | [**reactions:500..1000**](https://github.com/search?q=reactions%3A500..1000) coincide con los debtes que tengan entre 500 y 1,000 reacciones. |
-
 ## Buscar por cuándo se creó o actualizó por última vez un debate
 
 Puedes filtrar los debates con base en las fechas de creación o por cuándo se actualizaron por última vez. Para la creación de debates, puedes utilizar el calificador `created`; para saber cuándo se actualizó por última vez el debate, utiliza el calificador `updated`.
@@ -104,9 +86,9 @@ Ambos calificadores toman la fecha como parámetro. {% data reusables.time_date.
 
 {% data reusables.search.date_gt_lt %}
 
-| Qualifier                  | Ejemplo                                                                                                                                                                                                                                                    |
-|:-------------------------- |:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <code>created:<em>YYYY-MM-DD</em></code>  | [**created:>2020-11-15**](https://github.com/search?q=created%3A%3E%3D2020-11-15&type=discussions) coincide con debates que se crearon después del 15 de noviembre de 2020.                                                                                |
+| Qualifier                 | Ejemplo                                                                                                                                                                                                                                                    |
+|:------------------------- |:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <code>created:<em>YYYY-MM-DD</em></code> | [**created:>2020-11-15**](https://github.com/search?q=created%3A%3E%3D2020-11-15&type=discussions) coincide con debates que se crearon después del 15 de noviembre de 2020.                                                                                |
 | <code>updated:<em>YYYY-MM-DD</em></code> | [**weird in:body updated:>=2020-02-01**](https://github.com/search?q=weird+in%3Abody+updated%3A%3E%3D2020-12-01&type=Discussions) coincide con debates que tengan la palabra "weird" en el cuerpo y que se hayan actualizado después de diciembre de 2020. |
 
 ## Leer más

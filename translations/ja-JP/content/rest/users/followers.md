@@ -11,3 +11,6 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
+## Followers APIについて
+
+{% data reusables.user-settings.user-api %}

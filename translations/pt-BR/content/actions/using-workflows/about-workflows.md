@@ -28,7 +28,7 @@ Um fluxo de trabalho deve conter os seguintes componentes básicos:
 1. Um ou mais _trabalhos_, cada uma das quais será executado em uma máquina de _executor_ e executará uma série de uma ou mais _etapas_.
 1. Cada etapa pode executar um script que você define ou executa uma ação, que é uma extensão reutilizável que pode simplificar seu fluxo de trabalho.
 
-For more information on these basic components, see "[Understanding GitHub Actions](/actions/learn-github-actions/understanding-github-actions#the-components-of-github-actions)."
+Para obter mais informações sobre esses componentes básicos, consulte "[Entendendo GitHub Actions](/actions/learn-github-actions/understanding-github-actions#the-components-of-github-actions)".
 
 ![Visão geral do fluxo de trabalho](/assets/images/help/images/overview-actions-simple.png)
 
@@ -105,9 +105,9 @@ jobs:
 
 Para obter mais informações, consulte[Definindo trabalhos de pré-requisito](/actions/using-jobs/using-jobs-in-a-workflow#defining-prerequisite-jobs)".
 
-### Using a matrix
+### Usando uma matriz
 
-{% data reusables.actions.jobs.about-matrix-strategy %} The matrix is created using the `strategy` keyword, which receives the build options as an array. For example, this matrix will run the job multiple times, using different versions of Node.js:
+{% data reusables.actions.jobs.about-matrix-strategy %} A matriz é criada usando a palavra-chave `estratégia`, que recebe as opções de construção como uma matriz. Por exemplo, essa matriz irá executar o trabalho várias vezes, usando diferentes versões do Node.js:
 
 ```yaml
 jobs:
@@ -122,12 +122,12 @@ jobs:
           node-version: {% raw %}${{ matrix.node }}{% endraw %}
 ```
 
-For more information, see "[Using a matrix for your jobs](/actions/using-jobs/using-a-matrix-for-your-jobs)."
+Para obter mais informações, consulte "[Usando uma matriz para seus trabalhos](/actions/using-jobs/using-a-matrix-for-your-jobs)".
 
-{% ifversion fpt or ghec %}
+{% ifversion actions-caching %}
 ### Memorizar dependências
 
-Executores hospedados em {% data variables.product.prodname_dotcom %} são iniciados como ambientes novos para cada trabalho. Portanto, se os seus trabalhos reutilizam dependências regularmente, você pode considerar fazer armazenamento em cache desses arquivos para ajudar a melhorar o desempenho. Após a criação do armazenamento em cache, ele fica disponível para todos os fluxos de trabalho no mesmo repositório.
+Se seus trabalhos reutilizam dependências regularmente, você pode considerar armazenar em cache esses arquivos para ajudar a melhorar o desempenho. Após a criação do armazenamento em cache, ele fica disponível para todos os fluxos de trabalho no mesmo repositório.
 
 Este exemplo demonstra como armazenar em cache o diretório `~/.npm`:
 

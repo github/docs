@@ -17,13 +17,13 @@ shortTitle: Vista previa en redes sociales
 
 Hasta que agregues una imagen, los enlaces al repositorio se expanden para mostrar información básica acerca del repositorio y del avatar del propietario.  Agregar una imagen a tu repositorio puede ayudar a identificar tu proyecto entre distintas plataformas de redes sociales.
 
-## Adding an image to customize the social media preview of your repository
+## Agregar una imagen para personalizar la vista previa en redes sociales de tu repositorio
 
 {% ifversion not ghae %}Puedes cargar una imagen a un repositorio privado, pero tu imagen solo se puede compartir desde un repositorio público.{% endif %}
 
 {% tip %}
 
-**Tip:** Your image should be a PNG, JPG, or GIF file under 1 MB in size. Para presentar la mejor calidad, recomendamos mantener la imagen alrededor de 640 por 320 píxeles.
+**Tip:** Tu imagen debe ser un archivo en formato PNG, JPG o GIF de menos de 1 MB. Para presentar la mejor calidad, recomendamos mantener la imagen alrededor de 640 por 320 píxeles.
 
 {% endtip %}
 
@@ -35,15 +35,15 @@ Hasta que agregues una imagen, los enlaces al repositorio se expanden para mostr
 
     ![Menú desplegable de vista previa de redes sociales](/assets/images/help/repository/social-preview.png)
 
-## About transparency
+## Acerca de la transparencia
 
-We support PNG images with transparency. Many communication platforms support a dark mode, so using a transparent social preview may be beneficial. The transparent image below is acceptable on a dark background; however, this may not always be the case.
+Tenemos compatibilidad de las imágenes PNG con transparencia. La mayoría de las plataformas de comunicaciones son compatibles con un modo oscuro, así que el usar una vista previa transparente para redes sociales podría ser beneficioso. La siguiente imagen transparente se acepta en un fondo oscuro, sin embargo, esto podría no siempre ser el caso.
 
-When using an image with transparency, keep in mind how it may look on different color backgrounds or platforms that don't support transparency.
+Cuando utilices una imagen con transparencia, toma en cuenta cómo se vería con diferentes fondos o en plataformas que no sean compatibles con la transparencia.
 
 {% tip %}
 
-**Tip:** If you aren't sure, we recommend using an image with a solid background.
+**Tip:** Si no estás seguro, te recomendamos utilizar una imagen con un fondo sólido.
 {% endtip %}
 
-![Social preview transparency](/assets/images/help/repository/social-preview-transparency.png)
+![Transparencia de vista previa social](/assets/images/help/repository/social-preview-transparency.png)

@@ -4,7 +4,7 @@ intro: 'You can use {% data variables.product.prodname_secret_scanning %} to pre
 product: '{% data reusables.gated-features.secret-scanning %}'
 miniTocMaxHeadingLevel: 3
 versions:
-  feature: 'secret-scanning-push-protection'
+  feature: secret-scanning-push-protection
 redirect_from:
   - /early-access/code-security/secret-scanning/protecting-pushes-with-secret-scanning
 type: how_to
@@ -84,7 +84,7 @@ If you confirm a secret is real and that you intend to fix it later, you should 
 1. Click **Allow me to push this secret**.
 2. Reattempt the push on the command line within three hours. If you have not pushed within three hours, you will need to repeat this process.
 
-{% if secret-scanning-push-protection-web-ui %}
+{% ifversion secret-scanning-push-protection-web-ui %}
 ## Using secret scanning as a push protection from the web UI
 
 When you use the web UI to attempt to commit a supported secret to a repository or organization with secret scanning as a push protection enabled, {% data variables.product.prodname_dotcom %} will block the commit. You will see a banner at the top of the page with information about the secret's location, and the secret will also be underlined in the file so you can easily find it.  

@@ -1,6 +1,6 @@
 ---
 title: Execução de fluxo de trabalho
-intro: 'The Workflow runs API allows you to view, re-run, cancel, and view logs for workflow runs.'
+intro: 'A API de execução do Fluxo de trabalho permite que você visualize, execute novamente, cancele e visualize logs para execuções de fluxo de trabalho.'
 topics:
   - API
 versions:
@@ -10,8 +10,8 @@ versions:
   ghec: '*'
 ---
 
-## About the Workflow runs API
+## Sobre a API de execuções de fluxo de trabalho
 
-The Workflow runs API allows you to view, re-run, cancel, and view logs for workflow runs. {% data reusables.actions.about-workflow-runs %} Para obter mais informações, consulte "[Gerenciando uma execução de fluxo de trabalho](/actions/automating-your-workflow-with-github-actions/managing-a-workflow-run)".
+A API de execução do Fluxo de trabalho permite que você visualize, execute novamente, cancele e visualize logs para execuções de fluxo de trabalho. {% data reusables.actions.about-workflow-runs %} Para obter mais informações, consulte "[Gerenciando uma execução de fluxo de trabalho](/actions/automating-your-workflow-with-github-actions/managing-a-workflow-run)".
 
 {% data reusables.actions.actions-authentication %} {% data reusables.actions.actions-app-actions-permissions-api %}

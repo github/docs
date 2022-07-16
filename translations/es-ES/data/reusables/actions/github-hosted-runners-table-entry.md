@@ -1,1 +1,1 @@
-1. In the "Runners" table, click the entry for **GitHub-hosted runners**. This entry will only be present if you're using {% data variables.product.prodname_dotcom %}-hosted runners.
+1. En la tabla de "Ejecutores", haz clic en la entrada de **Ejecutores hospedados en GitHub**. Esta entrada solo estará presente si estás utilizando ejecutores hospedados en {% data variables.product.prodname_dotcom %}.

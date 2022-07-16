@@ -22,7 +22,7 @@ shortTitle: 限制仓库中的交互
 
 {% data reusables.community.types-of-interaction-limits %}
 
-您也可以为个人帐户或组织拥有的所有仓库启用或活动限制。 如果启用了用户范围或组织范围的限制，则不能限制帐户拥有的单个仓库的活动。 更多信息请参阅“[限制个人帐户的交互](/communities/moderating-comments-and-conversations/limiting-interactions-for-your-user-account)”和“[限制组织中的交互](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-organization)”。
+您也可以为个人帐户或组织拥有的所有仓库启用或活动限制。 如果启用了用户范围或组织范围的限制，则不能限制帐户拥有的单个仓库的活动。 更多信息请参阅“[限制个人帐户的交互](/communities/moderating-comments-and-conversations/limiting-interactions-for-your-personal-account)”和“[限制组织中的交互](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-organization)”。
 
 ## 限制仓库中的交互
 

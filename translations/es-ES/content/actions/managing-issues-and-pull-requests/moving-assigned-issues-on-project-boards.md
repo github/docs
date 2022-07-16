@@ -63,7 +63,7 @@ En el tutorial, primero crearás un archivo de flujo de trabajo que utilice la [
 
 Cada vez que se asigne una propuesta en tu repositorio, dicha propuesta se moverá al tablero de proyecto especificado. Si la propuesta no estaba ya en el tablero de proyecto, se agregará a este.
 
-If your repository is user-owned, the `alex-page/github-project-automation-plus` action will act on all projects in your repository or personal account that have the specified project name and column. De la misma forma, si tu repositorio pertenece a una organización, la acción actuará en todos los poryectos de tu repositorio u organización que tengan el nombre y columna especificadas.
+Si tu repositorio le pertenece a un usuario, la acción `alex-page/github-project-automation-plus` actuará en todos los proyectos de tu repositorio o cuenta personal que tengan el nombre de proyecto y columna específicos. De la misma forma, si tu repositorio pertenece a una organización, la acción actuará en todos los poryectos de tu repositorio u organización que tengan el nombre y columna especificadas.
 
 Prueba tu flujo de trabajo asignando una propuesta en tu repositorio.
 

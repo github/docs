@@ -25,7 +25,7 @@ Para usar {% data variables.product.prodname_dependabot_updates %} em {% data va
 
 ## Pré-requisitos
 
-{% if dependabot-updates-github-connect %}
+{% ifversion dependabot-updates-github-connect %}
 A configuração executores auto-hospedados é apenas um passo no meio do processo para habilitar {% data variables.product.prodname_dependabot_updates %}. Há várias etapas que você deve seguir antes dessas etapas, incluindo a configuração de {% data variables.product.product_location %} para usar {% data variables.product.prodname_actions %} com corredores auto-hospedados. Para obter mais informações, consulte "[Habilitar {% data variables.product.prodname_dependabot %} para a sua empresa](/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise)."
 {% else %}
 Antes de configurar executores auto-hospedados para {% data variables.product.prodname_dependabot_updates %}, você deve:
@@ -42,8 +42,8 @@ Depois de configurar {% data variables.product.product_location %} para usar {% 
 
 Qualquer VM que você usar para executores de {% data variables.product.prodname_dependabot %} deve atender aos requisitos para executores auto-hospedados. Além disso, eles têm de cumprir os seguintes requisitos.
 
-- Sistema operacional Linux
-- Git instalado
+- Sistema operacional Linux{% ifversion ghes < 3.5 %}
+- Git instalado{% endif %}
 - Docker instalado com acesso para os usuários do executor:
   - Recomendamos instalar o Docker no modo sem rootless e configurar os executores para acessar o Docker sem privilégios do `root`.
   - Como alternativa, instale o Docker e dê aos usuários do executor privilégios elevados para executar o Docker.
@@ -68,9 +68,9 @@ Os executores de {% data variables.product.prodname_dependabot %} exigem acesso 
 
 1. Provisionamento de executores auto-hospedados no nível da conta do repositório, organização ou empresa. Para obter mais informações, consulte "[Sobre executores auto-hospedados](/actions/hosting-your-own-runners/about-self-hosted-runners)" e "[Adicionar executores auto-hospedados](/actions/hosting-your-own-runners/adding-self-hosted-runners)".
 
-2. Configure os executores auto-hospedados com os requisitos descritos acima. Por exemplo, em uma VM que executa o Ubuntu 20.04 você:
+2. Configure os executores auto-hospedados com os requisitos descritos acima. Por exemplo, em uma VM que executa o Ubuntu 20.04 você:{% ifversion ghes < 3.5 %}
 
-   - Verificaria se o Git está instalado: `command -v git`
+   - Verifique se o Git está instalado: `command -v git`{% endif %}
    - Instale o Docker e certifique-se de que os usuários do executor tenham acesso ao Docker. Para obter mais informações, consulte a documentação do Docker.
      - [Instalar o mecanismo do Docker no Ubuntu](https://docs.docker.com/engine/install/ubuntu/)
      - Abordagem recomendada: [Executar o daemon do Docker como um usuário que não é root (modo Rootless)](https://docs.docker.com/engine/security/rootless/)

@@ -1,6 +1,6 @@
 ---
-title: 深入了解代码空间
-intro: '了解 {% data variables.product.prodname_codespaces %} 的工作原理.'
+title: Deep dive into GitHub Codespaces
+intro: '了解 {% data variables.product.prodname_github_codespaces %} 的工作原理.'
 allowTitleToDifferFromFilename: true
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
@@ -11,7 +11,7 @@ topics:
   - Codespaces
 ---
 
-{% data variables.product.prodname_codespaces %} 是一个基于云的即时开发环境，它使用容器为您提供用于开发的通用语言、工具和实用程序。 {% data variables.product.prodname_codespaces %} 也是可配置的，允许您为项目创建自定义的开发环境。 通过为项目配置自定义开发环境，可以为项目的所有用户提供可重复的代码空间配置。
+{% data variables.product.prodname_github_codespaces %} 是一个基于云的即时开发环境，它使用容器为您提供用于开发的通用语言、工具和实用程序。 {% data variables.product.prodname_codespaces %} 也是可配置的，允许您为项目创建自定义的开发环境。 通过为项目配置自定义开发环境，可以为项目的所有用户提供可重复的代码空间配置。
 
 ## 创建代码空间
 
@@ -46,15 +46,15 @@ topics:
 
 ### 步骤 3：连接到代码空间
 
-创建容器并运行任何其他初始化后，您将连接到代码空间。 如果需要，您可以通过 Web 和/或 [Visual Studio Code](/codespaces/developing-in-codespaces/using-codespaces-in-visual-studio-code) 连接。
+创建容器并运行任何其他初始化后，您将连接到代码空间。 如果需要，您可以通过 Web 和/或 [{% data variables.product.prodname_vscode_shortname %}](/codespaces/developing-in-codespaces/using-codespaces-in-visual-studio-code) 连接。
 
 ### 步骤 4：创建后设置
 
 连接到代码空间后，您的自动设置可能会根据您在 `devcontainer.json` 文件中指定的配置继续构建。 您可能会看到 `postCreateCommand` 和 `postAttachCommand` 运行。
 
-如果要在代码空间中使用 Git 挂钩，请使用 [`devcontainer.json` 生命周期脚本](https://code.visualstudio.com/docs/remote/devcontainerjson-reference#_lifecycle-scripts)设置挂钩，例如 `postCreateCommand`。 更多信息请参阅 Visual Studio Code 文档中的 [`devcontainer.json` 参考](https://code.visualstudio.com/docs/remote/devcontainerjson-reference#_devcontainerjson-properties) 。
+如果要在代码空间中使用 Git 挂钩，请使用 [`devcontainer.json` 生命周期脚本](https://code.visualstudio.com/docs/remote/devcontainerjson-reference#_lifecycle-scripts)设置挂钩，例如 `postCreateCommand`。 更多信息请参阅 {% data variables.product.prodname_vscode_shortname %} 文档中的 [`devcontainer.json` 参考](https://code.visualstudio.com/docs/remote/devcontainerjson-reference#_devcontainerjson-properties)。
 
-如果您有一个用于 {% data variables.product.prodname_codespaces %} 的公共 dotfile 存储库，则可以启用它以用于新的代码空间。 启用后，您的 dotfile 将被克隆到容器中，并且将调用安装脚本。 更多信息请参阅“[为帐户个性化 {% data variables.product.prodname_codespaces %}](/github/developing-online-with-codespaces/personalizing-codespaces-for-your-account#dotfiles)”。
+如果您有一个用于 {% data variables.product.prodname_github_codespaces %} 的公共 dotfile 存储库，则可以启用它以用于新的代码空间。 启用后，您的 dotfile 将被克隆到容器中，并且将调用安装脚本。 更多信息请参阅“[为帐户个性化 {% data variables.product.prodname_github_codespaces %}](/codespaces/customizing-your-codespace/personalizing-github-codespaces-for-your-account#dotfiles)”。
 
 最后，使用完整克隆复制存储库的整个历史记录。
 
@@ -67,7 +67,7 @@ topics:
 
 {% note %}
 
-**注意：**除非已启用 [Auto Save（自动保存）](https://code.visualstudio.com/docs/editor/codebasics#_save-auto-save)，否则不会自动保存 {% data variables.product.prodname_vscode %} 代码空间中的更改。
+**注意：**除非已启用 [Auto Save（自动保存）](https://code.visualstudio.com/docs/editor/codebasics#_save-auto-save)，否则不会自动保存 {% data variables.product.prodname_vscode_shortname %} 代码空间中的更改。
 {% endnote %}
 
 ### 关闭或停止代码空间
@@ -93,11 +93,11 @@ topics:
 
 ## 提交和推送更改
 
-默认情况下，Git 在代码空间中可用，因此您可以依赖现有的 Git 工作流程。 您可以通过终端或使用 [Visual Studio Code](https://code.visualstudio.com/docs/editor/versioncontrol) 的源代码管理 UI 在代码空间中使用 Git。 更多信息请参阅“[在代码空间中使用源控制](/codespaces/developing-in-codespaces/using-source-control-in-your-codespace)”。
+默认情况下，Git 在代码空间中可用，因此您可以依赖现有的 Git 工作流程。 您可以通过终端或使用 [{% data variables.product.prodname_vscode_shortname %}](https://code.visualstudio.com/docs/editor/versioncontrol) 的源代码管理 UI 在代码空间中使用 Git。 更多信息请参阅“[在代码空间中使用源控制](/codespaces/developing-in-codespaces/using-source-control-in-your-codespace)”。
 
 ![在代码空间终端中运行 git 状态](/assets/images/help/codespaces/git-status.png)
 
-您可以从项目中的任何分支、提交或拉取请求创建代码空间，也可以从活动代码空间中切换到新的或现有的分支。 由于 {% data variables.product.prodname_codespaces %} 设计为临时的，因此您可以将其用作隔离环境来试验、检查团队成员的拉取请求或修复合并冲突。 每个仓库甚至每个分支可创建多个代码空间。 但是，每个个人帐户都有 10 个代码空间的限制。 如果您已达到上限，想要创建一个新的代码空间，必须先删除一个旧代码空间。
+您可以从项目中的任何分支、提交或拉取请求创建代码空间，也可以从活动代码空间中切换到新的或现有的分支。 由于 {% data variables.product.prodname_github_codespaces %} 设计为临时的，因此您可以将其用作隔离环境来试验、检查团队成员的拉取请求或修复合并冲突。 每个仓库甚至每个分支可创建多个代码空间。 但是，每个个人帐户都有 10 个代码空间的限制。 如果您已达到上限，想要创建一个新的代码空间，必须先删除一个旧代码空间。
 
 {% note %}
 
@@ -107,9 +107,9 @@ topics:
 
 ## 使用扩展个性化您的代码空间
 
-在代码空间中使用 {% data variables.product.prodname_vscode %} 可以访问 {% data variables.product.prodname_vscode %} 市场，以便您可以添加所需的任何扩展。 有关扩展如何在 {% data variables.product.prodname_codespaces %} 中运行的信息，请参阅 {% data variables.product.prodname_vscode %} 文档中的[支持远程开发和 GitHub 代码空间](https://code.visualstudio.com/api/advanced-topics/remote-extensions) 。
+在代码空间中使用 {% data variables.product.prodname_vscode_shortname %} 可以访问 {% data variables.product.prodname_vscode_marketplace %}，以便您可以添加所需的任何扩展。 有关扩展如何在 {% data variables.product.prodname_codespaces %} 中运行的信息，请参阅 {% data variables.product.prodname_vscode_shortname %} 文档中的[支持远程开发和 GitHub 代码空间](https://code.visualstudio.com/api/advanced-topics/remote-extensions) 。
 
-如果您已使用 {% data variables.product.prodname_vscode %}，则可以使用[设置同步](https://code.visualstudio.com/docs/editor/settings-sync)在本地实例和您创建的任何 {% data variables.product.prodname_codespaces %} 之间自动同步扩展程序、设置、主题和键盘快捷键。
+如果您已使用 {% data variables.product.prodname_vscode_shortname %}，则可以使用[设置同步](https://code.visualstudio.com/docs/editor/settings-sync)在本地实例和您创建的任何 {% data variables.product.prodname_codespaces %} 之间自动同步扩展程序、设置、主题和键盘快捷键。
 
 ## 延伸阅读
 

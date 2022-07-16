@@ -208,7 +208,8 @@ Travis CI 和 {% data variables.product.prodname_actions %} 可以将自定义�
 ### 在 {% data variables.product.prodname_actions %} 中使用不同的语言
 
 在 {% data variables.product.prodname_actions %} 中使用不同语言时，您可以在作业中创建步骤来设置语言依赖项。 有关使用特定语言的信息，请参阅特定指南：
-  - [构建并测试 Node.js 或 Python](/actions/guides/building-and-testing-nodejs-or-python)
+  - [构建和测试 Node.js](/actions/guides/building-and-testing-nodejs)
+  - [构建和测试 Python](/actions/guides/building-and-testing-python)
   - [构建和测试 PowerShell](/actions/guides/building-and-testing-powershell)
   - [使用 Maven 构建和测试 Java](/actions/guides/building-and-testing-java-with-maven)
   - [使用 Gradle 构建和测试 Java](/actions/guides/building-and-testing-java-with-gradle)
@@ -302,7 +303,11 @@ jobs:
 
 ## 缓存依赖项
 
-Travis CI 和 {% data variables.product.prodname_actions %} 可让您手动缓存依赖供以后使用。 此示例说明每个系统的缓存语法。
+Travis CI 和 {% data variables.product.prodname_actions %} 可让您手动缓存依赖供以后使用。
+
+{% ifversion actions-caching %}
+
+此示例说明每个系统的缓存语法。
 
 <table>
 <tr>
@@ -337,7 +342,11 @@ cache: npm
 </tr>
 </table>
 
-{% data variables.product.prodname_actions %} 缓存仅适用于 {% data variables.product.prodname_dotcom_the_website %} 托管的仓库。 更多信息请参阅“<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">缓存依赖项以加快工作流程</a>”。
+{% else %}
+
+{% data reusables.actions.caching-availability %}
+
+{% endif %}
 
 ## 常见任务示例
 

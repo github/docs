@@ -67,7 +67,7 @@ Por exemplo, para código Ruby do realce de sintaxe:
 
 Usamos [Linguist](https://github.com/github/linguist) para executar a detecção de linguagem e selecionar [gramáticas de terceiros](https://github.com/github/linguist/blob/master/vendor/README.md) para realce de sintaxe. Você pode descobrir quais palavras-chave são válidas no [arquivo YAML de linguagem](https://github.com/github/linguist/blob/master/lib/linguist/languages.yml).
 
-{% if mermaid %}
+{% ifversion mermaid %}
 ## Criando diagramas
 
 Você também pode usar blocos de código para criar diagramas em Markdown. O GitHub é compatível com a sintaxe do Mermaid, geoJSON, topoJSON e ASCII STL. Para obter mais informações, consulte "[Criando diagramas](/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams)".

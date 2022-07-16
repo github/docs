@@ -13,8 +13,8 @@ learningTracks:
   - '{% ifversion ghae %}get_started_with_github_ae{% endif %}'
   - '{% ifversion ghes %}deploy_an_instance{% endif %}'
   - '{% ifversion ghes %}upgrade_your_instance{% endif %}'
-  -  adopting_github_actions_for_your_enterprise_ghec
-  -  adopting_github_actions_for_your_enterprise_ghes_and_ghae
+  - adopting_github_actions_for_your_enterprise_ghec
+  - adopting_github_actions_for_your_enterprise_ghes_and_ghae
   - '{% ifversion ghes %}increase_fault_tolerance{% endif %}'
   - '{% ifversion ghes %}improve_security_of_your_instance{% endif %}'
   - '{% ifversion ghes > 2.22 %}configure_github_actions{% endif %}'
@@ -126,7 +126,6 @@ includeGuides:
   - /admin/monitoring-activity-in-your-enterprise/exploring-user-activity/log-forwarding
   - /admin/monitoring-activity-in-your-enterprise/exploring-user-activity/managing-global-webhooks
   - /admin/user-management/managing-organizations-in-your-enterprise/adding-organizations-to-your-enterprise
-  - /admin/user-management/managing-organizations-in-your-enterprise/managing-unowned-organizations-in-your-enterprise
   - /admin/user-management/managing-projects-using-jira
   - /admin/user-management/managing-users-in-your-enterprise/inviting-people-to-manage-your-enterprise
   - /admin/user-management/managing-users-in-your-enterprise/managing-support-entitlements-for-your-enterprise

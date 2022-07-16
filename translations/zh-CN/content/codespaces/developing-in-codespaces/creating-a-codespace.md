@@ -35,7 +35,7 @@ shortTitle: 创建代码空间
 
 有关代码空间生命周期的更多信息，请参阅“[代码空间生命周期](/codespaces/developing-in-codespaces/codespaces-lifecycle)”。
 
-如果要将 Git 挂钩用于代码空间，则应在步骤 4 中使用 [`devcontainer.json` 生命周期脚本](https://code.visualstudio.com/docs/remote/devcontainerjson-reference#_lifecycle-scripts)设置挂钩，例如 `postCreateCommand`。 由于代码空间容器是在克隆仓库后创建的，因此在容器映像中配置的任何 [git template directory](https://git-scm.com/docs/git-init#_template_directory) 将不适用于代码空间。 在创建代码空间后，必须改为安装挂钩。 有关使用 `postCreateCommand` 的更多信息，请参阅 visual Studio Code 文档中的 [`devcontainer.json` 参考](https://code.visualstudio.com/docs/remote/devcontainerjson-reference#_devcontainerjson-properties) 。
+如果要将 Git 挂钩用于代码空间，则应在步骤 4 中使用 [`devcontainer.json` 生命周期脚本](https://code.visualstudio.com/docs/remote/devcontainerjson-reference#_lifecycle-scripts)设置挂钩，例如 `postCreateCommand`。 由于代码空间容器是在克隆仓库后创建的，因此在容器映像中配置的任何 [git template directory](https://git-scm.com/docs/git-init#_template_directory) 将不适用于代码空间。 在创建代码空间后，必须改为安装挂钩。 有关使用 `postCreateCommand` 的更多信息，请参阅 {% data variables.product.prodname_vscode_shortname %} 文档中的 [`devcontainer.json` 参考](https://code.visualstudio.com/docs/remote/devcontainerjson-reference#_devcontainerjson-properties) 。
 
 {% data reusables.codespaces.use-visual-studio-features %}
 
@@ -43,11 +43,11 @@ shortTitle: 创建代码空间
 
 {% data reusables.codespaces.prebuilds-crossreference %}
 
-## 访问 {% data variables.product.prodname_codespaces %}
+## 访问 {% data variables.product.prodname_github_codespaces %}
 
 {% data reusables.codespaces.availability %}
 
-当您访问 {% data variables.product.prodname_codespaces %} 时，在查看仓库时会看到 **{% octicon "code" aria-label="The code icon" %} Code（代码）**下拉菜单中的“Codespaces（代码空间）”选项卡。
+当您访问 {% data variables.product.prodname_github_codespaces %} 时，在查看仓库时会看到 **{% octicon "code" aria-label="The code icon" %} Code（代码）**下拉菜单中的“Codespaces（代码空间）”选项卡。
 
 在以下条件下，您可以访问代码空间：
 
@@ -65,7 +65,7 @@ shortTitle: 创建代码空间
 
 在组织中使用 {% data variables.product.prodname_codespaces %} 之前，所有者或帐单管理员必须设定支出限额。 更多信息请参阅“[关于代码空间的支出限额](/billing/managing-billing-for-github-codespaces/managing-spending-limits-for-codespaces#about-spending-limits-for-codespaces)”。
 
-如果想为您的个人帐户或其他用户拥有的仓库创建代码空间， 并且您有权在已启用 {% data variables.product.prodname_codespaces %} 的组织中创建仓库， 您可以将用户拥有的仓库复刻到该组织，然后为该复刻创建一个代码空间。
+如果想为您的个人帐户或其他用户拥有的仓库创建代码空间， 并且您有权在已启用 {% data variables.product.prodname_github_codespaces %} 的组织中创建仓库， 您可以将用户拥有的仓库复刻到该组织，然后为该复刻创建一个代码空间。
 
 ## 创建代码空间
 

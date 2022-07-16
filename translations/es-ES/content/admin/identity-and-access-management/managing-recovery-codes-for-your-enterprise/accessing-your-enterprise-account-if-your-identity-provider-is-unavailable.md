@@ -1,7 +1,7 @@
 ---
-title: Accessing your enterprise account if your identity provider is unavailable
-shortTitle: Access your enterprise account
-intro: 'You can sign into {% data variables.product.product_name %} even if your identity provider is unavailable by bypassing SAML single sign-on (SSO) with a recovery code.'
+title: Acceder a tu cuenta empresarial si no está disponible tu proveedor de identidad
+shortTitle: Acceder a tu cuenta empresarial
+intro: 'Puedes iniciar sesión en {% data variables.product.product_name %}, incluyso si tu proveedor de identidad no está disponible, si omites el inicio de sesión único (SSO) con un código de recuperación.'
 versions:
   ghec: '*'
 type: how_to
@@ -13,15 +13,15 @@ topics:
 permissions: Enterprise owners can use a recovery code to access an enterprise account.
 ---
 
-You can use a recovery code to access your enterprise account when a SAML configuration error or an issue with your identity provider (IdP) prevents you from using SAML SSO.
+Puedes utilizar un código de recuperación para acceder a tu cuenta empresarial cuando un error de configuración en la autenticación o un problema con tu proveedor de identidad (IdP) impide que utilices el SSO.
 
-In order to access your enterprise account this way, you must have previously downloaded and stored the recovery codes for your enterprise. Para obtener más información, consulta la sección "[Descargar los códigos de recuperación del inicio de sesión único de SAML de tu cuenta empresarial](/admin/identity-and-access-management/managing-recovery-codes-for-your-enterprise/downloading-your-enterprise-accounts-saml-single-sign-on-recovery-codes)".
+Para poder acceder a tu cuenta empresarial de esta forma, debes haber descargado previamente y almacenado los códigos de recuperación de tu empresa. For more information, see "[Downloading your enterprise account's single sign-on recovery codes](/admin/identity-and-access-management/managing-recovery-codes-for-your-enterprise/downloading-your-enterprise-accounts-single-sign-on-recovery-codes)."
 
 {% data reusables.saml.recovery-code-caveats %}
 
 {% note %}
 
-**Note:** If your enterprises uses {% data variables.product.prodname_emus %}, you must sign in as the setup user to use a recovery code.
+**Nota:** Si tus empresas utilizan {% data variables.product.prodname_emus %}, debes iniciar sesión como el usuario configurado para utilizar un código de recuperación.
 
 {% endnote %}
 

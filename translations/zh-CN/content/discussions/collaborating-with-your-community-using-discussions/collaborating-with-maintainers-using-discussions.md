@@ -27,7 +27,7 @@ versions:
 
 要在仓库讨论中与维护者合作，仓库管理员或项目维护者必须为仓库启用 {% data variables.product.prodname_discussions %}。 更多信息请参阅“[为仓库启用或禁用 {% data variables.product.prodname_discussions %}](/github/administering-a-repository/enabling-or-disabling-github-discussions-for-a-repository)”。
 
-要在组织讨论中与维护者协作，必须为组织启用 {% data variables.product.prodname_discussions %}。 For more information, see "[Enabling or disabling {% data variables.product.prodname_discussions %} for an organization](/organizations/managing-organization-settings/enabling-or-disabling-github-discussions-for-an-organization)."
+要在组织讨论中与维护者协作，必须为组织启用 {% data variables.product.prodname_discussions %}。 更多信息请参阅“[为组织启用或禁用 {% data variables.product.prodname_discussions %}](/organizations/managing-organization-settings/enabling-or-disabling-github-discussions-for-an-organization)”。
 
 ## 开始讨论
 

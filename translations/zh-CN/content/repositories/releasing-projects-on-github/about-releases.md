@@ -32,12 +32,16 @@ topics:
 
 发行版基于 [Git 标记](https://git-scm.com/book/en/Git-Basics-Tagging)，这些标记会标记仓库历史记录中的特定点。 标记日期可能与发行日期不同，因为它们可在不同的时间创建。 有关查看现有标记的更多信息，请参阅“[查看仓库的发行版和标记](/github/administering-a-repository/viewing-your-repositorys-releases-and-tags)”。
 
-当仓库中发布新发行版时您可以接收通知，但不会接受有关仓库其他更新的通知。 更多信息请参阅{% ifversion fpt or ghae or ghes or ghec %}“[查看您的订阅](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions){% else %}”[关注和取消关注仓库的发行版](/github/receiving-notifications-about-activity-on-github/watching-and-unwatching-releases-for-a-repository){% endif %}”。
+当仓库中发布新发行版时您可以接收通知，但不会接受有关仓库其他更新的通知。 更多信息请参阅“[查看订阅](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions)”。
 
 对仓库具有读取访问权限的任何人都可以查看和比较发行版，但只有对仓库具有写入权限的人员才能管理发行版。 更多信息请参阅“[管理仓库中的发行版](/github/administering-a-repository/managing-releases-in-a-repository)”。
 
 {% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-4974 %}
 您可以在管理版本时手动创建发行说明。 或者，您可以从默认模板自动生成发行说明，或自定义您自己的发行说明模板。 更多信息请参阅“[自动生成的发行说明](/repositories/releasing-projects-on-github/automatically-generated-release-notes)”。
+{% endif %}
+
+{% ifversion fpt or ghec or ghes > 3.6 or ghae-issue-7054 %}
+查看发行版的详细信息时，每个发行版资产的创建日期显示在发行版资产旁边。
 {% endif %}
 
 {% ifversion fpt or ghec %}
@@ -48,7 +52,7 @@ topics:
 您可以查看依赖项图的 **Dependents（依赖项）**选项卡，了解哪些仓库和包依赖于您仓库中的代码，并因此可能受到新发行版的影响。 更多信息请参阅“[关于依赖关系图](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)”。
 {% endif %}
 
-您也可以使用发行版 API 来收集信息，例如人们下载发行版资产的次数。 更多信息请参阅“[发行版](/rest/reference/repos#releases)”。
+您也可以使用发行版 API 来收集信息，例如人们下载发行版资产的次数。 更多信息请参阅“[发行版](/rest/reference/releases)”。
 
 {% ifversion fpt or ghec %}
 ## 存储和带宽配额

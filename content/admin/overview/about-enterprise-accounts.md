@@ -32,17 +32,17 @@ The enterprise account on {% ifversion ghes %}{% data variables.product.product_
 
 {% endif %}
 
-Organizations are shared accounts where enterprise members can collaborate across many projects at once. Organization owners can manage access to the organization's data and projects with sophisticated security and administrative features. For more information, see {% ifversion ghec %}"[About organizations](/organizations/collaborating-with-groups-in-organizations/about-organizations)."{% elsif ghes or ghae %}"[About organizations](/organizations/collaborating-with-groups-in-organizations/about-organizations)" and "[Managing users, organizations, and repositories](/admin/user-management)."{% endif %}
+Organizations are shared accounts where enterprise members can collaborate across many projects at once. Organization owners can manage access to the organization's data and projects with sophisticated security and administrative features. For more information, see "[About organizations](/organizations/collaborating-with-groups-in-organizations/about-organizations)."
+
+{% ifversion ghec %} 
+Enterprise owners can invite existing organizations to join your enterprise account, or create new organizations in the enterprise settings.
+{% endif %}
+
+Your enterprise account allows you to manage and enforce policies for all the organizations owned by the enterprise. {% data reusables.enterprise.about-policies %} For more information, see "[About enterprise policies](/admin/policies/enforcing-policies-for-your-enterprise/about-enterprise-policies)."
 
 {% ifversion ghec %}
 
-Enterprise owners can create organizations and link the organizations to the enterprise. Alternatively, you can invite an existing organization to join your enterprise account. After you add organizations to your enterprise account, you can manage and enforce policies for the organizations. Specific enforcement options vary by setting; generally, you can choose to enforce a single policy for every organization in your enterprise account or allow owners to set policy on the organization level. For more information, see "[Setting policies for your enterprise](/admin/policies)."
-
 {% data reusables.enterprise.create-an-enterprise-account %} For more information, see "[Creating an enterprise account](/admin/overview/creating-an-enterprise-account)."
-
-{% elsif ghes or ghae %}
-
-For more information about the management of policies for your enterprise account, see "[Setting policies for your enterprise](/admin/policies)."
 
 {% endif %}
 
@@ -50,7 +50,7 @@ For more information about the management of policies for your enterprise accoun
 
 {% ifversion ghes or ghae %}
 
-From your enterprise account on {% ifversion ghae %}{% data variables.product.product_name %}{% elsif ghes %}a {% data variables.product.prodname_ghe_server %} instance{% endif %}, administrators can view{% if remove-enterprise-members %} and manage{% endif %} enterprise membership{% if enterprise-owner-join-org %}, manage their own membership in organizations owned by the enterprise,{% endif %} and manage the following for the {% ifversion ghes %}{% data variables.product.prodname_ghe_server %} instance{% elsif ghae %}enterprise on {% data variables.product.prodname_ghe_managed %}{% endif %}.
+From your enterprise account on {% ifversion ghae %}{% data variables.product.product_name %}{% elsif ghes %}a {% data variables.product.prodname_ghe_server %} instance{% endif %}, administrators can view{% ifversion remove-enterprise-members %} and manage{% endif %} enterprise membership{% ifversion enterprise-owner-join-org %}, manage their own membership in organizations owned by the enterprise,{% endif %} and manage the following for the {% ifversion ghes %}{% data variables.product.prodname_ghe_server %} instance{% elsif ghae %}enterprise on {% data variables.product.prodname_ghe_managed %}{% endif %}.
 
 {% ifversion ghes %}
 - License usage{% endif %}
@@ -65,7 +65,7 @@ From your enterprise account on {% ifversion ghae %}{% data variables.product.pr
 
 {% endif %}
 
-{% ifversion ghec or ghes %}When you try or purchase {% data variables.product.prodname_enterprise %}, you can{% ifversion ghes %} also{% endif %} create an enterprise account for {% data variables.product.prodname_ghe_cloud %} on {% data variables.product.prodname_dotcom_the_website %}. Administrators for the enterprise account on {% data variables.product.prodname_dotcom_the_website %} can view {% if remove-enterprise-members %} and manage{% endif %} enterprise membership{% if enterprise-owner-join-org %}, manage their own membership in organizations owned by the enterprise,{% endif %} and manage the following for the enterprise account{% ifversion ghes %} on {% data variables.product.prodname_dotcom_the_website %}{% endif %}.
+{% ifversion ghec or ghes %}When you try or purchase {% data variables.product.prodname_enterprise %}, you can{% ifversion ghes %} also{% endif %} create an enterprise account for {% data variables.product.prodname_ghe_cloud %} on {% data variables.product.prodname_dotcom_the_website %}. Administrators for the enterprise account on {% data variables.product.prodname_dotcom_the_website %} can view {% ifversion remove-enterprise-members %} and manage{% endif %} enterprise membership{% ifversion enterprise-owner-join-org %}, manage their own membership in organizations owned by the enterprise,{% endif %} and manage the following for the enterprise account{% ifversion ghes %} on {% data variables.product.prodname_dotcom_the_website %}{% endif %}.
 
 - Billing and usage (services on {% data variables.product.prodname_dotcom_the_website %}, {% data variables.product.prodname_GH_advanced_security %}, user licenses)
 - Security (single sign-on, IP allow lists, SSH certificate authorities, two-factor authentication)

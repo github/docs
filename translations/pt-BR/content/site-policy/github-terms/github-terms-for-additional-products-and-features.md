@@ -18,7 +18,7 @@ Data de vigência da versão: 10 de agosto de 2021
 
 Ao usar o GitHub, você pode ter acesso a muitos produtos e funcionalidades adicionais ("Produtos e Funcionalidades Adicionais"). Porque muitos dos produtos e funcionalidades adicionais oferecem diferentes funcionalidades, termos específicos para esse produto ou recurso, podem-se aplicar, além do seu acordo principal — os Termos de Serviço do GitHub, Termos de Serviço Corporativo, Termos Gerais do GitHub ou contrato de licenciamento de volume da Microsoft (denominados o "Contrato"). Abaixo, listamos os produtos e funcionalidades, junto com os termos adicionais correspondentes que se aplicam ao seu uso.
 
-Ao usar as Funcionalidades e Produtos Adicionais, você também concorda com os Termos do GitHub aplicáveis para Produtos Adicionais e Funcionalidades listados abaixo. A violação destes termos do GitHub para Produtos e Funcionalidades Adicionais constitui uma violação do Contrato. Os termos em maiúsculas não definidos aqui têm o significado consignado no Contrato.
+Ao usar as Funcionalidades e Produtos Adicionais, você também concorda com os Termos do GitHub aplicáveis para Produtos Adicionais e Funcionalidades listados abaixo. Uma violação destes Termos do GitHub para Produtos e Funcionalidades é uma violação do Contrato. Os termos em maiúsculas não definidos aqui têm o significado consignado no Contrato.
 
 **Para usuários corporativos**
 - Os usuários do **GitHub Enterprise Cloud** podem ter acesso aos seguintes Produtos e Funcionalidades: Ações, Segurança avançada, base de dados de consultores, códigos, pré-visualizações do Dependabot, importaor do GitHub Enterprise, laboratório de aprendizado, pacotes e páginas.
@@ -37,23 +37,23 @@ As ações e todos elementos do serviço ou produto de Ações não podem ser us
 - qualquer atividade que coloque um peso em nossos servidores, em que esse peso é desproporcional aos benefícios oferecidos aos usuários (por exemplo, não usar Ações como uma rede de entrega de conteúdo ou como parte de um aplicativo sem servidor, mas uma Ação de baixo benefício pode ser realizada se também tiver um peso baixo); ou
 - ao usar usando exeucotres hospedados no GitHub, qualquer outra atividade não relacionada com a produção, teste, implantação, ou publicação do projeto de software associado ao repositório onde o GitHub Actions é utilizado.
 
-Para evitar violações dessas limitações e abuso de Ações do GitHub, o GitHub pode monitorar seu uso das Ações do GitHub. Misuse of GitHub Actions may result in termination of jobs, restrictions in your ability to use GitHub Actions, disabling of repositories created to run Actions in a way that violates these Terms, or in some cases, suspension or termination of your GitHub account.
+Para evitar violações dessas limitações e abuso de Ações do GitHub, o GitHub pode monitorar seu uso das Ações do GitHub. O uso indevido do GitHub Actions pode resultar na conclusão de trabalhos, restrições na sua capacidade de usar o GitHub Actions, desativar repositórios criados para executar ações de forma que viole estes Termos ou, em alguns casos, suspender ou encerrar sua conta no GitHub.
 
-*Use for Development and Testing*
+*Use para desenvolvimento e teste*
 
-You may only access and use GitHub Actions to develop and test your application(s). Only one licensed user may access a virtual machine provided by Actions at any time.
+Você só pode acessar e usar o GitHub Actions para desenvolver e testar seus aplicativos. Apenas um usuário licenciado pode acessar uma máquina virtual fornecida pelo Actions a qualquer momento.
 
-*Authorized Developer*
+*Desenvolvedor autorizado*
 
-You appoint GitHub as your authorized developer with respect to Apple software included in Actions. GitHub is responsible for complying with the terms for any such software included in Actions and will keep confidential any confidential information of Apple accessed as part of Actions.
+Você nomeia o GitHub como seu desenvolvedor autorizado em relação ao software da Apple incluído no Actions. O GitHub é responsável por cumprir os termos de qualquer software incluído no Actions e manterá informações confidenciais da Apple acessadas como parte do Actions.
 
-*Third Party Repository Service Access*
+*Acesso ao serviço de repositório de terceiros*
 
-If you grant GitHub access to your third-party repository service account(s), you authorize GitHub to scan the account(s), including the contents of your Public and Private Repositories, for purposes of providing GitHub Actions.
+Se você conceder ao GitHub acesso às suas contas de serviço de terceiros no repositório, você irá autorizar o GitHub a digitalizar a(s) conta(s), incluindo o conteúdo de seus Repositórios Públicos e Privados, para fins de provisão do GitHub Actions.
 
-*Self-Hosted Runners on GitHub Actions*
+*Executores auto-hospedados no GitHub Actions*
 
-If you use self-hosted runners, you have the ability to turn off automatic updates but GitHub reserves the right to override your choice for critical security updates.
+Se você usar executores auto-hospedados, você poderá desativar as atualizações automáticas, mas o GitHub reserva-se o direito de substituir a sua escolha para atualizações de segurança críticas.
 
 ## Segurança Avançada
 O GitHub disponibiliza funcionalidades adicionais de segurança aos clientes sob uma licença avançada de segurança. Essas funcionalidades incluem a verificação de código, varredura de segredo e revisão de dependências. A [documentação avançada de segurança](/github/getting-started-with-github/about-github-advanced-security) fornece mais informações.
@@ -89,6 +89,19 @@ A versão geralmente disponível do Codespaces não está disponível atualmente
 
 ## Connect
 Com GitHub Connect, você pode compartilhar certas funcionalidades e dados entre seu GitHub Enterprise Server ou sua instância do GitHub AE e sua organização do GitHub Enterprise Cloud ou conta corporativa no GitHub.com. Para habilitar o GitHub Connect, você precisa ter ao menos uma (1) conta no GitHub Enterprise Cloud ou GitHub.com e uma (1) instância licenciada do GitHub Enterprise Server ou GitHub AE. O seu uso do GitHub Enterprise Cloud ou GitHub.com por meio do Connect é regido pelos termos sob os quais você licencia o GitHub Enterprise Cloud ou GitHub.com. O uso de dados pessoais é regido pela [Declaração de Privacidade do GitHub](/github/site-policy/github-privacy-statement).
+
+## GitHub Copilot
+Para usar o GitHub Copilot, você deverá instalar uma extensão em um ambiente de desenvolvimento integrado (IDE) ou editor. O código que você escreve usando a extensão do GitHub Copilot em um IDE ou editor (“**Seu código**”) não é "Conteúdo" nos termos do Contrato até que você faça o upload para o GitHub.com.
+
+O código, as funções e outras saídas retornadas pelo GitHub Copilot são chamadas de**Sugestões**." O GitHub não tem nenhum direito de acesso em Sugestões, e você mantém a propriedade e a responsabilidade pelo seu Código, incluindo sugestões que você inclui no seu Código.
+
+_Uso aceitável_
+
+Seu código está sujeito às [Políticas de Uso Aceitáveis](/site-policy/acceptable-use-policies/github-acceptable-use-policies) do GitHub. Por exemplo, você não pode instruir GitHub Copilot com conteúdo ilegal ou proibido pelas Políticas de Uso Aceitável do GitHub no GitHub.com.
+
+_Dados_
+
+O GitHub Copilot (i) poderá, dependendo das suas configurações de telemetria preferidas, coletar trechos do seu código, e (ii) coletar informações adicionais de uso por meio do IDE ou editor vinculado à sua Conta. Isso pode incluir dados pessoais, conforme referenciado na [Declaração de Privacidade do GitHub](/site-policy/privacy-policies/github-privacy-statement). Você pode aprender mais sobre a coleta e o uso de dados do GitHub Copilot no [FAQ do GitHub Copilot](https://github.com/features/copilot#faq-privacy).
 
 ## Importador do GitHub Enterprise
 O Importador é uma estrutura para exportar dados de outras fontes a serem importados para a plataforma GitHub. O Importador é fornecido como se apresenta.
@@ -128,9 +141,9 @@ O GitHub Pages não pode ser usado de forma a violar o Contrato, as [Políticas 
 
 Se você tiver dúvidas sobre se o seu uso ou uso pretendido se enquadram nessas categorias, entre em contato com o [Suporte do GitHube](https://support.github.com/contact?tags=docs-policy). O GitHub se reserva o direito de recuperar qualquer subdomínio GitHub sem responsabilidade.
 
-## Previews
+## Visualização
 
-Previews means software, online services and additional products and features provided for preview, evaluation, demonstration or trial purposes, or pre-release versions of those, such as alpha, beta, or early access. If your Agreement does not include terms and conditions that address Previews, then the following terms apply. GitHub grants a limited right to use a non-production instance of the Preview. Previews are provided “AS-IS”, “WITH ALL FAULTS” and “AS AVAILABLE”. GitHub may change or discontinue Previews at any time without notice. Any information we give you about a private Preview will be considered GitHub’s confidential information. If you choose to provide comments or suggestions about a Preview, we may use that feedback for any purpose without obligation of any kind. GitHub’s maximum liability is limited to direct damages up to US $5,000. GitHub has no obligation to defend, indemnify, or hold you harmless for claims brought by third parties arising from your use of Previews.
+Visualizações significam software, serviços on-line e produtos e recursos adicionais fornecidos para fins de visualização, avaliação, demonstração, testes ou versões de pré-lançamento, como alfa, beta ou acesso antecipado. Se o seu Contrato não inclui termos e condições que atendem às visualizações aplicar-se-ão os seguintes termos. O GitHub concede um direito limitado de usar uma instância não produtiva da visualização. As visualizações são fornecidas "COMO SE APRESENTAM", "COM TODAS AS FALHAS" e "CONFORME DISPONÍVEL". O GitHub pode alterar ou interromper visualizações a qualquer momento sem aviso prévio. Todas as informações que fornecermos sobre uma visualização privada serão consideradas informações confidenciais do GitHub. Se você optar por fornecer comentários ou sugestões sobre uma visualização, poderemos usar esse feedback para qualquer propósito sem qualquer tipo de obrigação. A maior responsabilidade do GitHub é limitada a danos diretos até US$ 5.000. O GitHub não tem nenhuma obrigação de defender ou indenizar por reclamações de terceiros decorrentes do seu uso das visualizações.
 
 ## Programa Sponsors
 

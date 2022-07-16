@@ -353,10 +353,10 @@ Os eventos de webhook são acionados com base na especificidade do domínio que 
 
 ### Objeto da carga do webhook
 
-| Tecla         | Tipo                                        | Descrição                                                      |
-| ------------- | ------------------------------------------- | -------------------------------------------------------------- |{% ifversion fpt or ghes or ghae or ghec %}
-| `Ação`        | `string`                                    | A ação realizada. Pode ser `criado`.{% endif %}
-| `implantação` | `objeto`                                    | A [implantação](/rest/reference/deployments#list-deployments). |
+| Tecla         | Tipo     | Descrição                                                      |
+| ------------- | -------- | -------------------------------------------------------------- |
+| `Ação`        | `string` | A ação realizada. Pode ser `criado`.                           |
+| `implantação` | `objeto` | A [implantação](/rest/reference/deployments#list-deployments). |
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.app_desc %}
@@ -378,14 +378,14 @@ Os eventos de webhook são acionados com base na especificidade do domínio que 
 
 ### Objeto da carga do webhook
 
-| Tecla                              | Tipo                                        | Descrição                                                                                        |
-| ---------------------------------- | ------------------------------------------- | ------------------------------------------------------------------------------------------------ |{% ifversion fpt or ghes or ghae or ghec %}
-| `Ação`                             | `string`                                    | A ação realizada. Pode ser `criado`.{% endif %}
-| `implantação_status`               | `objeto`                                    | O [status da implantação](/rest/reference/deployments#list-deployment-statuses).                 |
-| `deployment_status["state"]`       | `string`                                    | O novo estado. Pode ser `pendente`, `sucesso`, `falha` ou `erro`.                                |
-| `deployment_status["target_url"]`  | `string`                                    | O link opcional adicionado ao status.                                                            |
-| `deployment_status["description"]` | `string`                                    | A descrição opcional legível para pessoas adicionada ao status.                                  |
-| `implantação`                      | `objeto`                                    | A [implantação](/rest/reference/deployments#list-deployments) à qual este status está associado. |
+| Tecla                              | Tipo     | Descrição                                                                                        |
+| ---------------------------------- | -------- | ------------------------------------------------------------------------------------------------ |
+| `Ação`                             | `string` | A ação realizada. Pode ser `criado`.                                                             |
+| `implantação_status`               | `objeto` | O [status da implantação](/rest/reference/deployments#list-deployment-statuses).                 |
+| `deployment_status["state"]`       | `string` | O novo estado. Pode ser `pendente`, `sucesso`, `falha` ou `erro`.                                |
+| `deployment_status["target_url"]`  | `string` | O link opcional adicionado ao status.                                                            |
+| `deployment_status["description"]` | `string` | A descrição opcional legível para pessoas adicionada ao status.                                  |
+| `implantação`                      | `objeto` | A [implantação](/rest/reference/deployments#list-deployments) à qual este status está associado. |
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.app_desc %}
@@ -400,7 +400,7 @@ Os eventos de webhook são acionados com base na especificidade do domínio que 
 
 {% data reusables.webhooks.discussions-webhooks-beta %}
 
-Atividade relacionada a uma discussão. Para obter mais informações, consulte "[Usar a API do GraphQL para discussões]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql/guides/using-the-graphql-api-for-discussions)".
+Atividade relacionada a uma discussão. Para obter mais informações, consulte "[Usar a API do GraphQL para discussões](/graphql/guides/using-the-graphql-api-for-discussions)".
 ### Disponibilidade
 
 - Webhooks do repositório
@@ -425,7 +425,7 @@ Atividade relacionada a uma discussão. Para obter mais informações, consulte 
 
 {% data reusables.webhooks.discussions-webhooks-beta %}
 
-Atividade relacionada a um comentário em uma discussão. Para obter mais informações, consulte "[Usar a API do GraphQL para discussões]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql/guides/using-the-graphql-api-for-discussions)".
+Atividade relacionada a um comentário em uma discussão. Para obter mais informações, consulte "[Usar a API do GraphQL para discussões](/graphql/guides/using-the-graphql-api-for-discussions)".
 
 ### Disponibilidade
 
@@ -435,10 +435,10 @@ Atividade relacionada a um comentário em uma discussão. Para obter mais inform
 
 ### Objeto da carga do webhook
 
-| Tecla        | Tipo     | Descrição                                                                                                                                                           |
-| ------------ | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `Ação`       | `string` | A ação realizada. Pode ser `criado`, `editado` ou `excluído`.                                                                                                       |
-| `comentário` | `objeto` | O recurso [`comentário de discussão`]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql/guides/using-the-graphql-api-for-discussions#discussioncomment). |
+| Tecla        | Tipo     | Descrição                                                                                                       |
+| ------------ | -------- | --------------------------------------------------------------------------------------------------------------- |
+| `Ação`       | `string` | A ação realizada. Pode ser `criado`, `editado` ou `excluído`.                                                   |
+| `comentário` | `objeto` | O recurso [`comentário de discussão`](/graphql/guides/using-the-graphql-api-for-discussions#discussioncomment). |
 {% data reusables.webhooks.discussion_desc %}
 {% data reusables.webhooks.repo_desc_graphql %}
 {% data reusables.webhooks.org_desc_graphql %}
@@ -966,6 +966,40 @@ Atividade relacionada a {% data variables.product.prodname_registry %}. {% data 
 
 {{ webhookPayloadsForCurrentVersion.project_column.created }}
 
+{% ifversion project-beta-webhooks %}
+
+## projects_v2_item
+
+{% note %}
+
+**Observação:** Os eventos de Webhook para Projetos (beta) estão atualmente no beta e sujeitos a alterações. Para compartilhar feedback sobre webhooks de projetos (beta) com {% data variables.product.product_name %}, veja os [Webhooks de projetos (beta) de feedback](https://github.com/github/feedback/discussions/17405).
+
+{% endnote %}
+
+Atividade relacionada aos itens em um projeto (beta) {% data reusables.webhooks.action_type_desc %} Para obter mais informações, consulte "[Sobre projetos (beta)](/issues/trying-out-the-new-projects-experience/about-projects).
+
+### Disponibilidade
+
+- Webhooks da organização
+- {% data variables.product.prodname_github_apps %} com a permissão de `organization_projects`
+
+### Objeto da carga do webhook
+
+| Tecla              | Tipo     | Descrição                                                                                                                                                                                                                                                                                                                                                                                    |
+| ------------------ | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `Ação`             | `string` | A ação que foi executada no item do projeto. Pode ser: `archived`, `converted`, `created`, `edited`, `restored`, `deleted` ou `reordered`.                                                                                                                                                                                                                                                   |
+| `projects_v2_item` | `objeto` | O item do projeto em si. Para encontrar mais informações sobre o item do projeto, você pode usar `node_id` (o ID do nó do item do projeto) e `project_node_id` (o ID do nó do projeto) para consultar informações na API do GraphQL. For more information, see "[Using the API to manage projects (beta)](/issues/trying-out-the-new-projects-experience/using-the-api-to-manage-projects)." |
+| `alterações`       | `objeto` | As alterações no item do projeto.                                                                                                                                                                                                                                                                                                                                                            |
+{% data reusables.webhooks.org_desc %}
+{% data reusables.webhooks.app_desc %}
+{% data reusables.webhooks.sender_desc %}
+
+### Exemplo de carga de webhook
+
+{{ webhookPayloadsForCurrentVersion.projects_v2_item.created }}
+
+{% endif %}
+
 ## público
 
 {% data reusables.webhooks.public_short_desc %}
@@ -1154,7 +1188,6 @@ As entregas para eventos `review_requested` e `review_request_removed` terão um
 
 {{ webhookPayloadsForCurrentVersion.release.published }}
 
-{% ifversion fpt or ghes or ghae or ghec %}
 ## repository_dispatch
 
 Este evento ocorre quando um {% data variables.product.prodname_github_app %} envia uma solicitação de `POST` para o "[Crie um evento de envio de repositório](/rest/reference/repos#create-a-repository-dispatch-event)" endpoint.
@@ -1166,7 +1199,6 @@ Este evento ocorre quando um {% data variables.product.prodname_github_app %} en
 ### Exemplo de carga de webhook
 
 {{ webhookPayloadsForCurrentVersion.repository_dispatch }}
-{% endif %}
 
 ## repositório
 
@@ -1304,6 +1336,34 @@ O conjunto de dados consultivos de segurança também alimentam o GitHub {% data
 ### Exemplo de carga de webhook
 
 {{ webhookPayloadsForCurrentVersion.security_advisory.published }}
+
+{% endif %}
+
+{% ifversion ghas-enablement-webhook %}
+
+## security_and_analysis
+
+Atividade relacionada à habilitação ou desabilitação de recursos de segurança e análise de código para um repositório ou organização.
+
+### Disponibilidade
+
+- Webhooks do repositório
+- Webhooks da organização
+- {% data variables.product.prodname_github_apps %} com pelo menos acesso `somente leitura` na administração de repositórios
+
+### Objeto da carga do webhook
+
+| Tecla        | Tipo     | Descrição                                                                            |
+| ------------ | -------- | ------------------------------------------------------------------------------------ |
+| `alterações` | `objeto` | As alterações que foram feitas nas funcionalidades de segurança e análise do código. |
+{% data reusables.webhooks.repo_desc %}
+{% data reusables.webhooks.org_desc %}
+{% data reusables.webhooks.app_desc %}
+{% data reusables.webhooks.sender_desc %}
+
+### Exemplo de carga de webhook
+
+{{ webhookPayloadsForCurrentVersion.security_and_analysis }}
 
 {% endif %}
 
@@ -1485,12 +1545,23 @@ Esse evento ocorre quando alguém aciona a execução de um fluxo de trabalho no
 
 - {% data variables.product.prodname_github_apps %} deve ter a permissão do conteúdo `` para receber este webhook.
 
+### Objeto da carga do webhook
+
+| Tecla    | Tipo     | Descrição                                                                                                                           |
+| -------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------- |
+| `inputs` | `objeto` | Entradas para o fluxo de trabalho. Cada chave representa o nome do valor de entrada e o seu valor representa o valor dessa entrada. |
+{% data reusables.webhooks.org_desc %}
+| `ref` | `string` | O ref do branch a partir do qual o fluxo de trabalho foi executado. |
+{% data reusables.webhooks.repo_desc %}
+{% data reusables.webhooks.sender_desc %}
+| `workflow` | `string` | Caminho relativo para o arquivo do fluxo de trabalho, que contém o fluxo de trabalho. |
+
 ### Exemplo de carga de webhook
 
 {{ webhookPayloadsForCurrentVersion.workflow_dispatch }}
 {% endif %}
 
-{% ifversion fpt or ghes > 3.2 or ghec or ghae-issue-4462 %}
+{% ifversion fpt or ghes > 3.2 or ghec or ghae %}
 
 ## workflow_job
 

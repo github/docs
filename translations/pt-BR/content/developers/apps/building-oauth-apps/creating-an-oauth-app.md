@@ -49,6 +49,6 @@ topics:
    **Observação:** Os aplicativos OAuth não podem ter várias URLs de retorno de chamada, diferente de {% data variables.product.prodname_github_apps %}.
 
    {% endnote %}
-{% endif %}{% if device-flow-is-opt-in %}
+{% endif %}{% ifversion device-flow-is-opt-in %}
 1. Se o seu aplicativo OAuth usar o fluxo do dispositivo para identificar e autorizar usuários, clique em **Habilitar fluxo do dispositivo**. Para obter mais informações sobre o fluxo do dispositivo, consulte "[Autorizando aplicativos OAuth](/developers/apps/building-oauth-apps/authorizing-oauth-apps#device-flow)". ![Screenshot showing field for enabling device flow](/assets/images/oauth-apps/enable-device-flow.png){% endif %}
 2.  Clique em **Register application** (Registrar aplicativo). ![Botão para registrar um aplicativo](/assets/images/oauth-apps/oauth_apps_register_application.png)

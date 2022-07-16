@@ -50,4 +50,4 @@ In all the search phrases below, replace ORGANIZATION with the name of the organ
 1. Manually re-add the team members. For more information, see "[Adding organization members to a team](/organizations/organizing-members-into-teams/adding-organization-members-to-a-team)."
 1. To find the repositories that the team was granted access to, search for `action:team.add_repository team:"ORGANIZATION/TEAM"`.
 1. To find the access level that the team was granted for each repository, search for `action:team.update_repository_permission team:"ORGANIZATION/TEAM"`.
-1. Manually give the team access again. For more information, see "[Managing team access to an organization repository](/organizations/managing-access-to-your-organizations-repositories/managing-team-access-to-an-organization-repository)."
+1. Manually give the team access again. 詳しい情報については「[OrganizationリポジトリへのTeamのアクセス管理](/organizations/managing-access-to-your-organizations-repositories/managing-team-access-to-an-organization-repository)」を参照してください。

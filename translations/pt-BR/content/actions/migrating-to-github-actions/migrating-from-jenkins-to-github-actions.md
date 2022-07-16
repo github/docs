@@ -85,7 +85,7 @@ O Jenkins pode executar os `stages` e as `etapas` em paralelo, enquanto o {% dat
 
 ### Matrix
 
-Both {% data variables.product.prodname_actions %} and Jenkins let you use a matrix to define various system combinations.
+Tanto o {% data variables.product.prodname_actions %} quanto o Jenkins permitem que você use uma matriz para definir várias combinações de sistema.
 
 | Jenkins                                                                | {% data variables.product.prodname_actions %}
 | ---------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

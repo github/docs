@@ -22,7 +22,7 @@ shortTitle: Build & test Java with Maven
 
 ## はじめに
 
-このガイドは、ソフトウェアプロジェクト管理ツールのMavenを使ってJavaのプロジェクトのための継続的インテグレーション（CI）を実行するワークフローを作成する方法を紹介します。 作成するワークフローによって、Pull Requestに対するコミットがデフォルトブランチに対してビルドあるいはテストの失敗を引き起こしたことを見ることができるようになります。このアプローチは、コードが常に健全であることを保証するための役に立ちます。 CIワークフローを拡張して、ファイルをキャッシュし、ワークフローの実行による成果物をアップロードするようにもできます。
+このガイドは、ソフトウェアプロジェクト管理ツールのMavenを使ってJavaのプロジェクトのための継続的インテグレーション（CI）を実行するワークフローを作成する方法を紹介します。 作成するワークフローによって、Pull Requestに対するコミットがデフォルトブランチに対してビルドあるいはテストの失敗を引き起こしたことを見ることができるようになります。このアプローチは、コードが常に健全であることを保証するための役に立ちます。 You can extend your CI workflow to {% ifversion actions-caching %}cache files and{% endif %} upload artifacts from a workflow run.
 
 {% ifversion ghae %}
 {% data reusables.actions.self-hosted-runners-software %}
@@ -99,9 +99,11 @@ steps:
     run: mvn --batch-mode --update-snapshots verify
 ```
 
+{% ifversion actions-caching %}
+
 ## 依存関係のキャッシング
 
-{% data variables.product.prodname_dotcom %}ホストランナーを使用する場合、依存関係をキャッシュしてワークフローの実行を高速化できます。 実行に成功した後、ローカルのMavenリポジトリがGitHub Actionsのインフラストラクチャ上に保存されます。 その後のワークフローの実行では、キャッシュがリストアされ、依存関係をリモートのMavenリポジトリからダウンロードする必要がなくなります。 You can cache dependencies simply using the [`setup-java` action](https://github.com/marketplace/actions/setup-java-jdk) or can use [`cache` action](https://github.com/actions/cache) for custom and more advanced configuration.
+ワークフローの実行速度を上げるために、依存関係をキャッシュすることもできます。 After a successful run, your local Maven repository will be stored in a cache. その後のワークフローの実行では、キャッシュがリストアされ、依存関係をリモートのMavenリポジトリからダウンロードする必要がなくなります。 You can cache dependencies simply using the [`setup-java` action](https://github.com/marketplace/actions/setup-java-jdk) or can use [`cache` action](https://github.com/actions/cache) for custom and more advanced configuration.
 
 ```yaml{:copy}
 steps:
@@ -117,6 +119,8 @@ steps:
 ```
 
 このワークフローは、ランナーのホームディレクトリ内の`.m2`ディレクトリにあるローカルのMavenリポジトリの内容を保存します。 キャッシュのキーは_pom.xml_の内容をハッシュしたものになるので、_pom.xml_が変更されればキャッシュは無効になります。
+
+{% endif %}
 
 ## 成果物としてのワークフローのデータのパッケージ化
 

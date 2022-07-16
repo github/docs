@@ -17,7 +17,7 @@ shortTitle: 配置默认编辑器
 
 - [Atom](https://atom.io/)
 - [MacVim](https://macvim-dev.github.io/macvim/)
-- [Visual Studio Code](https://code.visualstudio.com/)
+- [{% data variables.product.prodname_vscode %}](https://code.visualstudio.com/)
 - [Visual Studio Codium](https://vscodium.com/)
 - [Sublime Text](https://www.sublimetext.com/)
 - [BBEdit](http://www.barebones.com/products/bbedit/)
@@ -38,13 +38,14 @@ shortTitle: 配置默认编辑器
 - [RStudio](https://rstudio.com/)
 - [Nova](https://nova.app/)
 - [Android Studio](https://developer.android.com/studio)
+- [Aptana Studio](http://www.aptana.com/)
 
 {% endmac %}
 
 {% windows %}
 
 - [Atom](https://atom.io/)
-- [Visual Studio Code](https://code.visualstudio.com/)
+- [{% data variables.product.prodname_vscode %}](https://code.visualstudio.com/)
 - [Visual Studio Codium](https://vscodium.com/)
 - [Sublime Text](https://www.sublimetext.com/)
 - [ColdFusion Builder](https://www.adobe.com/products/coldfusion-builder.html)
@@ -62,6 +63,7 @@ shortTitle: 配置默认编辑器
 - [Brackets](http://brackets.io/)
 - [Notepad++](https://notepad-plus-plus.org/)
 - [RStudio](https://rstudio.com/)
+- [Aptana Studio](http://www.aptana.com/)
 
 {% endwindows %}
 

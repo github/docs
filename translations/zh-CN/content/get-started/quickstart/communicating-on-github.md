@@ -116,7 +116,6 @@ This example shows the {% data variables.product.prodname_discussions %} welcome
 This community maintainer started a discussion to welcome the community, and to ask members to introduce themselves. This post fosters an inviting atmosphere for visitors and contributors. The post also clarifies that the team's happy to help with contributions to the repository.
 
 {% endif %}
-{% ifversion fpt or ghes or ghae or ghec %}
 ### Scenarios for team discussions
 
 - I have a question that's not necessarily related to specific files in the repository.
@@ -138,8 +137,6 @@ The `octocat` team member posted a team discussion, informing the team of variou
 - A team member called Mona started remote game events.
 - There is a blog post describing how the teams use {% data variables.product.prodname_actions %} to produce their docs.
 - Material about the April All Hands is now available for all team members to view.
-
-{% endif %}
 
 ## Next steps
 

@@ -26,7 +26,7 @@ shortTitle: Gerenciar versões
 Você pode criar novas versões com observações de versões, @menções de contribuidores e links para arquivos binários, bem como editar ou excluir versões existentes.
 
 {% ifversion fpt or ghec %}
-Você também pode publicar uma ação a partir de uma versão específica em {% data variables.product.prodname_marketplace %}. Para obter mais informações, consulte "<a href="/actions/creating-actions/publishing-actions-in-github-marketplace" class="dotcom-only">Publicar uma ação no {% data variables.product.prodname_marketplace %}</a>"
+Você também pode publicar uma ação de uma versão específica em {% data variables.product.prodname_marketplace %}. Para obter mais informações, consulte "[Publicar uma ação no {% data variables.product.prodname_marketplace %}](/actions/creating-actions/publishing-actions-in-github-marketplace)"
 
 Você pode escolher se objetos {% data variables.large_files.product_name_long %} ({% data variables.large_files.product_name_short %}) estão incluídos nos arquivos ZIP e tarballs que {% data variables.product.product_name %} cria para cada versão. Para obter mais informações, consulte "
 
@@ -69,6 +69,10 @@ Você pode escolher se objetos {% data variables.large_files.product_name_long %
    {% ifversion fpt or ghec or ghes > 3.2 or ghae-issue-4865 %}![Escolha um branch](/assets/images/help/releases/releases-choose-branch.png) 
    
    {% else %}![Releases tagged branch](/assets/images/enterprise/releases/releases-tag-branch.png){% endif %}
+   
+   
+   
+   {%- data reusables.releases.previous-release-tag %}
 
 6. Digite um título e uma descrição para a sua versão. 
    
@@ -81,15 +85,14 @@ Você pode escolher se objetos {% data variables.large_files.product_name_long %
    
    
    
-   {% ifversion fpt or ghec %} Como alternativa, você pode gerar automaticamente as suas observações de versão, clicando em **Gerar observações de versão automaticamente**. 
+   {% ifversion fpt or ghec or ghes > 3.3 %} Como alternativa, você pode gerar as suas observações de versão automaticamente, clicando em {% ifversion previous-release-tag %}**Gerar observações de versão**{% else %}**Gerar observações de versão automaticamente**{% endif %}.{% endif %}{% ifversion previous-release-tag %} 
    
-   {% endif %}
-   
-   ![Descrição das versões](/assets/images/help/releases/releases_description_auto.png)
+   ![Descrição das versões](/assets/images/help/releases/releases_description_auto.png){% else %}
+![Releases description](/assets/images/enterprise/3.5/releases/releases_description_auto.png){% endif %}
 
-7. Opcionalmente, para incluir arquivos binários, como programas compilados em sua versão, arraste e solte ou selecione arquivos manualmente na caixa de binários. ![Fornecer um DMG com a versão](/assets/images/help/releases/releases_adding_binary.gif)
+1. Opcionalmente, para incluir arquivos binários, como programas compilados em sua versão, arraste e solte ou selecione arquivos manualmente na caixa de binários. ![Fornecer um DMG com a versão](/assets/images/help/releases/releases_adding_binary.gif)
 
-8. Para notificar os usuários que a versão não está pronta para produção e pode ser instável, selecione **This is a pre-release** (Esta é uma versão prévia). ![Caixa de seleção para marcar uma versão como pré-versão](/assets/images/help/releases/prerelease_checkbox.png) 
+2. Para notificar os usuários que a versão não está pronta para produção e pode ser instável, selecione **This is a pre-release** (Esta é uma versão prévia). ![Caixa de seleção para marcar uma versão como pré-versão](/assets/images/help/releases/prerelease_checkbox.png) 
    
    {%- ifversion fpt or ghec %}
 

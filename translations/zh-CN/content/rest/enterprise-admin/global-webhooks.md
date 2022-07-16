@@ -1,6 +1,6 @@
 ---
-title: Global Webhooks
-intro: Global Webhooks are installed on your enterprise. 您可以使用全局 web 挂钩来自动监视、响应或实施针对企业上的用户、组织、团队和仓库的规则。
+title: 全局 web 挂钩
+intro: 全局 web 挂钩安装在企业上。 您可以使用全局 web 挂钩来自动监视、响应或实施针对企业上的用户、组织、团队和仓库的规则。
 versions:
   ghes: '*'
   ghae: '*'

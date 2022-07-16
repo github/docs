@@ -7,34 +7,27 @@ import yaml from 'js-yaml'
 import revalidator from 'revalidator'
 import { fromMarkdown } from 'mdast-util-from-markdown'
 import { visit } from 'unist-util-visit'
-import readFileAsync from '../../lib/readfile-async.js'
+import fs from 'fs/promises'
 import frontmatter from '../../lib/frontmatter.js'
 import languages from '../../lib/languages.js'
 import { tags } from '../../lib/liquid-tags/extended-markdown.js'
 import ghesReleaseNotesSchema from '../helpers/schemas/ghes-release-notes-schema.js'
 import ghaeReleaseNotesSchema from '../helpers/schemas/ghae-release-notes-schema.js'
 import learningTracksSchema from '../helpers/schemas/learning-tracks-schema.js'
-import featureVersionsSchema from '../helpers/schemas/feature-versions-schema.js'
 import renderContent from '../../lib/render-content/index.js'
 import getApplicableVersions from '../../lib/get-applicable-versions.js'
 import { execSync } from 'child_process'
 import { allVersions } from '../../lib/all-versions.js'
-import { supported, next, nextNext, deprecated } from '../../lib/enterprise-server-releases.js'
-import { getLiquidConditionals } from '../../script/helpers/get-liquid-conditionals.js'
-import allowedVersionOperators from '../../lib/liquid-tags/ifversion-supported-operators.js'
-import semver from 'semver'
 import { jest } from '@jest/globals'
 import { getDiffFiles } from '../helpers/diff-files.js'
 import loadSiteData from '../../lib/site-data.js'
 
-jest.useFakeTimers('legacy')
+jest.useFakeTimers({ legacyFakeTimers: true })
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const enterpriseServerVersions = Object.keys(allVersions).filter((v) =>
   v.startsWith('enterprise-server@')
 )
-const versionShortNames = Object.values(allVersions).map((v) => v.shortName)
-const versionKeywords = versionShortNames.concat(['currentVersion', 'enterpriseServerReleases'])
 
 const rootDir = path.join(__dirname, '../..')
 const contentDir = path.join(rootDir, 'content')
@@ -44,11 +37,8 @@ const glossariesDir = path.join(rootDir, 'data/glossaries')
 const ghesReleaseNotesDir = path.join(rootDir, 'data/release-notes/enterprise-server')
 const ghaeReleaseNotesDir = path.join(rootDir, 'data/release-notes/github-ae')
 const learningTracks = path.join(rootDir, 'data/learning-tracks')
-const featureVersionsDir = path.join(rootDir, 'data/features')
 
 const languageCodes = Object.keys(languages)
-
-const versionShortNameExceptions = ['ghae-next', 'ghae-issue-']
 
 // WARNING: Complicated RegExp below!
 //
@@ -200,11 +190,6 @@ const oldExtendedMarkdownRegex = /{{\s*?[#/][a-z-]+\s*?}}/g
 const literalActionInsteadOfReusableRegex =
   /(actions\/(checkout|delete-package-versions|download-artifact|upload-artifact|github-script|setup-dotnet|setup-go|setup-java|setup-node|setup-python|stale|cache)|github\/codeql-action[/a-zA-Z-]*)@v\d+/g
 
-// Strings in Liquid will always evaluate true _because_ they are strings; instead use unquoted variables, like {% if foo %}.
-// - {% if "foo" %}
-// - {% unless "bar" %}
-const stringInLiquidRegex = /{% (?:if|ifversion|elseif|unless) (?:"|').+?%}/g
-
 const relativeArticleLinkErrorText = 'Found unexpected relative article links:'
 const languageLinkErrorText = 'Found article links with hard-coded language codes:'
 const versionLinkErrorText = 'Found article links with hard-coded version numbers:'
@@ -219,10 +204,10 @@ const oldOcticonErrorText =
   'Found octicon variables with the old {{ octicon-name }} syntax. Use {% octicon "name" %} instead!'
 const oldExtendedMarkdownErrorText =
   'Found extended markdown tags with the old {{#note}} syntax. Use {% note %}/{% endnote %} instead!'
-const stringInLiquidErrorText =
-  'Found Liquid conditionals that evaluate a string instead of a variable. Remove the quotes around the variable!'
 const literalActionInsteadOfReusableErrorText =
   'Found a literal mention of a GitHub-owned action. Instead, use the reusables for the action. e.g {% data reusables.actions.action-checkout %}'
+
+const siteData = loadSiteData()
 
 const mdWalkOptions = {
   globs: ['**/*.md'],
@@ -240,12 +225,7 @@ const yamlWalkOptions = {
 }
 
 // different lint rules apply to different content types
-let mdToLint,
-  ymlToLint,
-  ghesReleaseNotesToLint,
-  ghaeReleaseNotesToLint,
-  learningTracksToLint,
-  featureVersionsToLint
+let mdToLint, ymlToLint, ghesReleaseNotesToLint, ghaeReleaseNotesToLint, learningTracksToLint
 
 if (!process.env.TEST_TRANSLATION) {
   // compile lists of all the files we want to lint
@@ -296,13 +276,6 @@ if (!process.env.TEST_TRANSLATION) {
     slash(path.relative(rootDir, p))
   )
   learningTracksToLint = zip(learningTracksYamlRelPaths, learningTracksYamlAbsPaths)
-
-  // Feature versions
-  const featureVersionsYamlAbsPaths = walk(featureVersionsDir, yamlWalkOptions).sort()
-  const featureVersionsYamlRelPaths = featureVersionsYamlAbsPaths.map((p) =>
-    slash(path.relative(rootDir, p))
-  )
-  featureVersionsToLint = zip(featureVersionsYamlRelPaths, featureVersionsYamlAbsPaths)
 } else {
   // get all translated markdown or yaml files by comparing files changed to main branch
   const changedFilesRelPaths = execSync(
@@ -324,7 +297,6 @@ if (!process.env.TEST_TRANSLATION) {
     ghesReleaseNotesRelPaths = [],
     ghaeReleaseNotesRelPaths = [],
     learningTracksRelPaths = [],
-    featureVersionsRelPaths = [],
   } = groupBy(changedFilesRelPaths, (path) => {
     // separate the changed files to different groups
     if (path.endsWith('README.md')) {
@@ -339,8 +311,6 @@ if (!process.env.TEST_TRANSLATION) {
       return 'ghaeReleaseNotesRelPaths'
     } else if (path.match(/\data\/learning-tracks/)) {
       return 'learningTracksRelPaths'
-    } else if (path.match(/\data\/features/)) {
-      return 'featureVersionsRelPaths'
     } else {
       // we aren't linting the rest
       return 'throwAway'
@@ -353,14 +323,12 @@ if (!process.env.TEST_TRANSLATION) {
     ghesReleaseNotesTuples,
     ghaeReleaseNotesTuples,
     learningTracksTuples,
-    featureVersionsTuples,
   ] = [
     mdRelPaths,
     ymlRelPaths,
     ghesReleaseNotesRelPaths,
     ghaeReleaseNotesRelPaths,
     learningTracksRelPaths,
-    featureVersionsRelPaths,
   ].map((relPaths) => {
     const absPaths = relPaths.map((p) => path.join(rootDir, p))
     return zip(relPaths, absPaths)
@@ -371,7 +339,6 @@ if (!process.env.TEST_TRANSLATION) {
   ghesReleaseNotesToLint = ghesReleaseNotesTuples
   ghaeReleaseNotesToLint = ghaeReleaseNotesTuples
   learningTracksToLint = learningTracksTuples
-  featureVersionsToLint = featureVersionsTuples
 }
 
 function formatLinkError(message, links) {
@@ -413,7 +380,6 @@ if (diffFiles.length > 0) {
   ghesReleaseNotesToLint = filterFiles(ghesReleaseNotesToLint)
   ghaeReleaseNotesToLint = filterFiles(ghaeReleaseNotesToLint)
   learningTracksToLint = filterFiles(learningTracksToLint)
-  featureVersionsToLint = filterFiles(featureVersionsToLint)
 }
 
 if (
@@ -421,8 +387,7 @@ if (
     ymlToLint.length +
     ghesReleaseNotesToLint.length +
     ghaeReleaseNotesToLint.length +
-    learningTracksToLint.length +
-    featureVersionsToLint.length <
+    learningTracksToLint.length <
   1
 ) {
   // With this in place, at least one `test()` is called and you don't
@@ -436,8 +401,6 @@ if (
 describe('lint markdown content', () => {
   if (mdToLint.length < 1) return
 
-  const siteData = loadSiteData()
-
   describe.each(mdToLint)('%s', (markdownRelPath, markdownAbsPath) => {
     let content,
       ast,
@@ -447,17 +410,13 @@ describe('lint markdown content', () => {
       isEarlyAccess,
       isSitePolicy,
       hasExperimentalAlternative,
-      frontmatterErrors,
-      frontmatterData,
-      ifversionConditionals,
-      ifConditionals
+      frontmatterData
 
     beforeAll(async () => {
-      const fileContents = await readFileAsync(markdownAbsPath, 'utf8')
-      const { data, content: bodyContent, errors } = frontmatter(fileContents)
+      const fileContents = await fs.readFile(markdownAbsPath, 'utf8')
+      const { data, content: bodyContent } = frontmatter(fileContents)
 
       content = bodyContent
-      frontmatterErrors = errors
       frontmatterData = data
       ast = fromMarkdown(content)
       isHidden = data.hidden === true
@@ -496,14 +455,6 @@ describe('lint markdown content', () => {
       )
         .flat()
         .map((schedule) => schedule.cron)
-
-      ifversionConditionals = getLiquidConditionals(data, ['ifversion', 'elsif']).concat(
-        getLiquidConditionals(bodyContent, ['ifversion', 'elsif'])
-      )
-
-      ifConditionals = getLiquidConditionals(data, 'if').concat(
-        getLiquidConditionals(bodyContent, 'if')
-      )
     })
 
     // We need to support some non-Early Access hidden docs in Site Policy
@@ -511,22 +462,6 @@ describe('lint markdown content', () => {
       if (isHidden) {
         expect(isEarlyAccess || isSitePolicy || hasExperimentalAlternative).toBe(true)
       }
-    })
-
-    test('ifversion conditionals are valid in markdown', async () => {
-      const errors = validateIfversionConditionals(ifversionConditionals)
-      expect(errors.length, errors.join('\n')).toBe(0)
-    })
-
-    test('ifversion, not if, is used for versioning in markdown', async () => {
-      const ifsForVersioning = ifConditionals.filter((cond) =>
-        versionKeywords.some((keyword) => cond.includes(keyword))
-      )
-      const errorMessage = `Found ${
-        ifsForVersioning.length
-      } "if" conditionals used for versioning! Use "ifversion" instead.
-${ifsForVersioning.join('\n')}`
-      expect(ifsForVersioning.length, errorMessage).toBe(0)
     })
 
     test('relative URLs must start with "/"', async () => {
@@ -623,12 +558,6 @@ ${ifsForVersioning.join('\n')}`
         })
       })
 
-      test('does not contain Liquid that evaluates strings (because they are always true)', async () => {
-        const matches = content.match(stringInLiquidRegex) || []
-        const errorMessage = formatLinkError(stringInLiquidErrorText, matches)
-        expect(matches.length, errorMessage).toBe(0)
-      })
-
       test('URLs must not contain a hard-coded language code', async () => {
         const matches = links.filter((link) => {
           return /\/(?:${languageCodes.join('|')})\//.test(link)
@@ -680,13 +609,6 @@ ${ifsForVersioning.join('\n')}`
     })
 
     if (!markdownRelPath.includes('data/reusables')) {
-      test('contains valid frontmatter', () => {
-        const errorMessage = frontmatterErrors
-          .map((error) => `- [${error.property}]: ${error.actual}, ${error.message}`)
-          .join('\n')
-        expect(frontmatterErrors.length, errorMessage).toBe(0)
-      })
-
       test('frontmatter contains valid liquid', async () => {
         const fmKeysWithLiquid = ['title', 'shortTitle', 'intro', 'product', 'permission'].filter(
           (key) => Boolean(frontmatterData[key])
@@ -711,14 +633,14 @@ ${ifsForVersioning.join('\n')}`
 describe('lint yaml content', () => {
   if (ymlToLint.length < 1) return
   describe.each(ymlToLint)('%s', (yamlRelPath, yamlAbsPath) => {
-    let dictionary, isEarlyAccess, ifversionConditionals, ifConditionals
+    let dictionary, isEarlyAccess
     // This variable is used to determine if the file was parsed successfully.
     // When `yaml.load()` fails to parse the file, it is overwritten with the error message.
     // `false` is intentionally chosen since `null` and `undefined` are valid return values.
     let dictionaryError = false
 
     beforeAll(async () => {
-      const fileContents = await readFileAsync(yamlAbsPath, 'utf8')
+      const fileContents = await fs.readFile(yamlAbsPath, 'utf8')
       try {
         dictionary = yaml.load(fileContents, { filename: yamlRelPath })
       } catch (error) {
@@ -726,30 +648,10 @@ describe('lint yaml content', () => {
       }
 
       isEarlyAccess = yamlRelPath.split('/').includes('early-access')
-
-      ifversionConditionals = getLiquidConditionals(fileContents, ['ifversion', 'elsif'])
-
-      ifConditionals = getLiquidConditionals(fileContents, 'if')
     })
 
     test('it can be parsed as a single yaml document', () => {
       expect(dictionaryError).toBe(false)
-    })
-
-    test('ifversion conditionals are valid in yaml', async () => {
-      const errors = validateIfversionConditionals(ifversionConditionals)
-      expect(errors.length, errors.join('\n')).toBe(0)
-    })
-
-    test('ifversion, not if, is used for versioning in markdown', async () => {
-      const ifsForVersioning = ifConditionals.filter((cond) =>
-        versionKeywords.some((keyword) => cond.includes(keyword))
-      )
-      const errorMessage = `Found ${
-        ifsForVersioning.length
-      } "if" conditionals used for versioning! Use "ifversion" instead.
-${ifsForVersioning.join('\n')}`
-      expect(ifsForVersioning.length, errorMessage).toBe(0)
     })
 
     test('relative URLs must start with "/"', async () => {
@@ -928,22 +830,6 @@ ${ifsForVersioning.join('\n')}`
         const errorMessage = formatLinkError(oldExtendedMarkdownErrorText, matches)
         expect(matches.length, errorMessage).toBe(0)
       })
-
-      test('does not contain Liquid that evaluates strings (because they are always true)', async () => {
-        const matches = []
-
-        for (const [key, content] of Object.entries(dictionary)) {
-          const contentStr = getContent(content)
-          if (!contentStr) continue
-          const valMatches = contentStr.match(stringInLiquidRegex) || []
-          if (valMatches.length > 0) {
-            matches.push(...valMatches.map((match) => `Key "${key}": ${match}`))
-          }
-        }
-
-        const errorMessage = formatLinkError(stringInLiquidErrorText, matches)
-        expect(matches.length, errorMessage).toBe(0)
-      })
     }
   })
 })
@@ -955,7 +841,7 @@ describe('lint GHES release notes', () => {
     let dictionaryError = false
 
     beforeAll(async () => {
-      const fileContents = await readFileAsync(yamlAbsPath, 'utf8')
+      const fileContents = await fs.readFile(yamlAbsPath, 'utf8')
       try {
         dictionary = yaml.load(fileContents, { filename: yamlRelPath })
       } catch (error) {
@@ -1011,7 +897,7 @@ describe('lint GHAE release notes', () => {
     let dictionaryError = false
 
     beforeAll(async () => {
-      const fileContents = await readFileAsync(yamlAbsPath, 'utf8')
+      const fileContents = await fs.readFile(yamlAbsPath, 'utf8')
       try {
         dictionary = yaml.load(fileContents, { filename: yamlRelPath })
       } catch (error) {
@@ -1070,14 +956,12 @@ describe('lint GHAE release notes', () => {
 describe('lint learning tracks', () => {
   if (learningTracksToLint.length < 1) return
 
-  const siteData = loadSiteData()
-
   describe.each(learningTracksToLint)('%s', (yamlRelPath, yamlAbsPath) => {
     let dictionary
     let dictionaryError = false
 
     beforeAll(async () => {
-      const fileContents = await readFileAsync(yamlAbsPath, 'utf8')
+      const fileContents = await fs.readFile(yamlAbsPath, 'utf8')
       try {
         dictionary = yaml.load(fileContents, { filename: yamlRelPath })
       } catch (error) {
@@ -1102,7 +986,7 @@ describe('lint learning tracks', () => {
       // inside the product TOC frontmatter to see which versions the product is available in.
       const product = path.posix.basename(yamlRelPath, '.yml')
       const productTocPath = path.posix.join('content', product, 'index.md')
-      const productContents = await readFileAsync(productTocPath, 'utf8')
+      const productContents = await fs.readFile(productTocPath, 'utf8')
       const { data } = frontmatter(productContents)
       const productVersions = getApplicableVersions(data.versions, productTocPath)
 
@@ -1153,146 +1037,3 @@ describe('lint learning tracks', () => {
     })
   })
 })
-
-describe('lint feature versions', () => {
-  if (featureVersionsToLint.length < 1) return
-  describe.each(featureVersionsToLint)('%s', (yamlRelPath, yamlAbsPath) => {
-    let dictionary
-    let dictionaryError = false
-
-    beforeAll(async () => {
-      const fileContents = await readFileAsync(yamlAbsPath, 'utf8')
-      try {
-        dictionary = yaml.load(fileContents, { filename: yamlRelPath })
-      } catch (error) {
-        dictionaryError = error
-      }
-    })
-
-    it('can be parsed as a single yaml document', () => {
-      expect(dictionaryError).toBe(false)
-    })
-
-    it('matches the schema', () => {
-      const { errors } = revalidator.validate(dictionary, featureVersionsSchema)
-
-      const errorMessage = errors
-        .map((error) => {
-          // Make this one message a little more readable than the error we get from revalidator
-          // when additionalProperties is set to false and an additional prop is found.
-          const errorToReport =
-            error.message === 'must not exist' && error.actual.feature
-              ? `feature: '${error.actual.feature}'`
-              : JSON.stringify(error.actual, null, 2)
-
-          return `- [${error.property}]: ${errorToReport}, ${error.message}`
-        })
-        .join('\n')
-
-      expect(errors.length, errorMessage).toBe(0)
-    })
-  })
-})
-
-function validateVersion(version) {
-  return (
-    versionShortNames.includes(version) ||
-    versionShortNameExceptions.some((exception) => version.startsWith(exception))
-  )
-}
-
-function validateIfversionConditionals(conds) {
-  const errors = []
-
-  conds.forEach((cond) => {
-    // This will get us an array of strings, where each string may have these space-separated parts:
-    // * Length 1: `<version>` (example: `fpt`)
-    // * Length 2: `not <version>` (example: `not ghae`)
-    // * Length 3: `<version> <operator> <release>` (example: `ghes > 3.0`)
-    const condParts = cond.split(/ (or|and) /).filter((part) => !(part === 'or' || part === 'and'))
-
-    condParts.forEach((str) => {
-      const strParts = str.split(' ')
-      // if length = 1, this should be a valid short version name.
-      if (strParts.length === 1) {
-        const version = strParts[0]
-        const isValidVersion = validateVersion(version)
-        if (!isValidVersion) {
-          errors.push(`"${version}" is not a valid short version name`)
-        }
-      }
-
-      // if length = 2, this should be 'not' followed by a valid short version name.
-      if (strParts.length === 2) {
-        const [notKeyword, version] = strParts
-        const isValidVersion = validateVersion(version)
-        const isValid = notKeyword === 'not' && isValidVersion
-        if (!isValid) {
-          errors.push(`"${cond}" is not a valid conditional`)
-        }
-      }
-
-      // if length = 3, this should be a range in the format: ghes > 3.0
-      // where the first item is `ghes` (currently the only version with numbered releases),
-      // the second item is a supported operator, and the third is a supported GHES release.
-      if (strParts.length === 3) {
-        const [version, operator, release] = strParts
-        if (version !== 'ghes') {
-          errors.push(
-            `Found "${version}" inside "${cond}" with a "${operator}" operator; expected "ghes"`
-          )
-        }
-        if (!allowedVersionOperators.includes(operator)) {
-          errors.push(
-            `Found a "${operator}" operator inside "${cond}", but "${operator}" is not supported`
-          )
-        }
-        // Check nextNext is one version ahead of next
-        if (!isNextVersion(next, nextNext)) {
-          errors.push(
-            `The nextNext version: "${nextNext} is not one version ahead of the next supported version: "${next}" - check lib/enterprise-server-releases.js`
-          )
-        }
-        // Check that the versions in conditionals are supported
-        // versions of GHES or the first deprecated version. Allowing
-        // the first deprecated version to exist in code ensures
-        // allows us to deprecate the version before removing
-        // the old liquid content.
-        if (
-          !(
-            supported.includes(release) ||
-            release === next ||
-            release === nextNext ||
-            deprecated[0] === release
-          )
-        ) {
-          errors.push(
-            `Found ${release} inside "${cond}", but ${release} is not a supported GHES release`
-          )
-        }
-      }
-    })
-  })
-
-  return errors
-}
-
-function isNextVersion(v1, v2) {
-  const semverNext = semver.coerce(v1)
-  const semverNextNext = semver.coerce(v2)
-  const semverSupported = []
-
-  supported.forEach((el, i) => {
-    semverSupported[i] = semver.coerce(el)
-  })
-  // Check that the next version is the next version from the supported list first
-  const maxVersion = semver.maxSatisfying(semverSupported, '*').raw
-  const nextVersionCheck =
-    semverNext.raw === semver.inc(maxVersion, 'minor') ||
-    semverNext.raw === semver.inc(maxVersion, 'major')
-  return (
-    nextVersionCheck &&
-    (semver.inc(semverNext, 'minor') === semverNextNext.raw ||
-      semver.inc(semverNext, 'major') === semverNextNext.raw)
-  )
-}

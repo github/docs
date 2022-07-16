@@ -5,7 +5,7 @@ intro: 您可以使用将机密和漏洞排除在代码库之外并维护软件�
 versions:
   ghes: '*'
   ghec: '*'
-  ghae: issue-4864
+  ghae: '*'
 topics:
   - Enterprise
 children:

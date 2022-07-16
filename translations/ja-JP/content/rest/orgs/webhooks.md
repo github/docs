@@ -1,5 +1,7 @@
 ---
-title: webhook
+title: Organization webhook
+allowTitleToDifferFromFilename: true
+shortTitle: webhook
 intro: ''
 versions:
   fpt: '*'
@@ -11,11 +13,13 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
+## Organization webhooks APIについて
+
 Organizationのwebhookを使用すると、Organizationで特定のイベントが発生するとき必ずHTTP `POST` ペイロードを受け取ることができます。 {% data reusables.webhooks.webhooks-rest-api-links %}
 
 サブスクライブできるアクションの詳細は、「[{% data variables.product.prodname_dotcom %} のイベントタイプ](/developers/webhooks-and-events/github-event-types)」を参照してください。
 
-### スコープと制限事項
+### スコープと制限
 
 Organization の webhook に対するすべてのアクションでは、認証ユーザが管理対象の Organization の管理者である必要があります。 また、OAuth トークンには `admin:org_hook` スコープが必要です。 詳しい情報については、「[OAuth App のスコープ](/developers/apps/scopes-for-oauth-apps)」を参照してください。
 

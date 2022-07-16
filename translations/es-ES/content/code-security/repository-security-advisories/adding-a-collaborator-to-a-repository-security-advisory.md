@@ -1,5 +1,5 @@
 ---
-title: Adding a collaborator to a repository security advisory
+title: Agregar un colaborador a una asesoría de seguridad de repositorio
 intro: Puedes agregar otros usuarios o equipos para que colaboren contigo en un aviso de seguridad.
 redirect_from:
   - /articles/adding-a-collaborator-to-a-maintainer-security-advisory
@@ -14,7 +14,7 @@ topics:
   - Security advisories
   - Vulnerabilities
   - Collaboration
-shortTitle: Add collaborators
+shortTitle: Agregar colaboradores
 ---
 
 Las personas con permisos de administrador en una asesoría de seguridad pueden añadir colaboradores a la misma.
@@ -23,7 +23,7 @@ Las personas con permisos de administrador en una asesoría de seguridad pueden 
 
 ## Añadir un colaborador a una asesoría de seguridad
 
-Los colaboradores tienen permisos de escritura para el aviso de seguridad. For more information, see "[Permission levels for repository security advisories](/code-security/repository-security-advisories/permission-levels-for-repository-security-advisories)."
+Los colaboradores tienen permisos de escritura para el aviso de seguridad. Para obtener más información, consulta la sección "[Niveles de permiso de las asesorías de seguridad de repositorio](/code-security/repository-security-advisories/permission-levels-for-repository-security-advisories)".
 
 {% note %}
 
@@ -42,4 +42,4 @@ Los colaboradores tienen permisos de escritura para el aviso de seguridad. For m
 
 - "[Niveles de servicio para las asesorías de seguridad de repositorio](/code-security/repository-security-advisories/permission-levels-for-repository-security-advisories)"
 - "[Colaborar en una bifurcación privada temporal para resolver una vulnerabilidad de seguridad de repositorio](/code-security/repository-security-advisories/collaborating-in-a-temporary-private-fork-to-resolve-a-repository-security-vulnerability)"
-- "[Removing a collaborator from a repository security advisory](/code-security/repository-security-advisories/removing-a-collaborator-from-a-repository-security-advisory)."
+- "[Eliminar a un colaborador de una asesoría de seguridad de repositorio](/code-security/repository-security-advisories/removing-a-collaborator-from-a-repository-security-advisory)".

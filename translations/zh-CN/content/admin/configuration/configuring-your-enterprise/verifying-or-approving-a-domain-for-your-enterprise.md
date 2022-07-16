@@ -5,7 +5,7 @@ intro: '您可以通过 {% data variables.product.company_short %} 验证您对�
 product: '{% data reusables.gated-features.verify-and-approve-domain %}'
 versions:
   ghec: '*'
-  ghes: '>=3.2'
+  ghes: '*'
 permissions: Enterprise owners can verify or approve a domain for an enterprise account.
 type: how_to
 topics:
@@ -30,7 +30,7 @@ redirect_from:
 
 验证企业帐户域的所有权后，每个在其资料中列出域的组织资料中将显示"已验证"徽章。 {% data reusables.organizations.verified-domains-details %}
 
-组织所有者将能够通过查看已验证域中的每个成员的电子邮件地址来验证组织成员的身份。
+对于在企业级别配置的域，企业所有者可以通过查看已验证域中每个成员的电子邮件地址来验证组织成员的身份。 企业所有者也可以查看与其在 {% data variables.product.prodname_dotcom %} 上的用户帐户关联的已验证域中没有电子邮件地址的企业成员列表。 更多信息请参阅“[查看来自已验证域的电子邮件地址的成员](/admin/user-management/managing-users-in-your-enterprise/viewing-people-in-your-enterprise#viewing-members-without-an-email-address-from-a-verified-domain)”。
 
 验证企业帐户的域后，您可以将企业帐户拥有的所有组织的电子邮件通知限制为已验证域。 更多信息请参阅“[限制企业的电子邮件通知](/admin/policies/enforcing-policies-for-your-enterprise/restricting-email-notifications-for-your-enterprise)”。
 

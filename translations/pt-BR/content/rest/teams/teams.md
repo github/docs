@@ -1,6 +1,6 @@
 ---
 title: Equipes
-intro: 'With the Teams API, you can create and manage teams in your GitHub organization.'
+intro: 'Com a API de equipes, você pode criar e gerenciar equipes na sua organização do GitHub.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -11,4 +11,6 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-Esta API só está disponível para os integrantes autenticados da [organização](/rest/reference/orgs) da equipe. Os tokens de acesso do OAuth exigem o escopo `read:org` [](/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/). {% data variables.product.prodname_dotcom %}  gera o `slug` da equipe a partir do `nome` da equipe.
+## Sobre a API de equipes
+
+{% data reusables.organizations.team-api %}

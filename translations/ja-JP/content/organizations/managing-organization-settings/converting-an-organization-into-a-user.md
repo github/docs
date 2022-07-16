@@ -26,8 +26,8 @@ shortTitle: Organizationのユーザへの変換
 2. [ユーザのロールをオーナーに変更](/articles/changing-a-person-s-role-to-owner)します。
 3. 新しい個人アカウントに{% data variables.product.signin_link %}します。
 4. 新しい個人アカウントに[各 Organization リポジトリを移譲](/articles/how-to-transfer-a-repository)します。
-5. [Organizationの名前を変更](/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/changing-your-github-username)して、現在のユーザ名を利用可能にしてください。
-6. Organization の名前に[ユーザ名を変更](/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/changing-your-github-username)します。
+5. [Organizationの名前を変更](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/changing-your-github-username)して、現在のユーザ名を利用可能にしてください。
+6. Organization の名前に[ユーザ名を変更](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/changing-your-github-username)します。
 7. [Organization を削除](/organizations/managing-organization-settings/deleting-an-organization-account)します。
 
 

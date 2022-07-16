@@ -31,10 +31,9 @@ As pessoas com o papel de mantenedor da equipe podem gerenciar as configuraçõe
 - [Excluir discussões de equipe](/articles/managing-disruptive-comments/#deleting-a-comment)
 - [Adicionar integrantes da organização à equipe](/articles/adding-organization-members-to-a-team)
 - [Remover membros da organização da equipe](/articles/removing-organization-members-from-a-team)
-- Remover acesso da equipe aos repositórios{% ifversion fpt or ghes or ghae or ghec %}
-- [Gerenciar atribuição de código para a equipe](/organizations/organizing-members-into-teams/managing-code-review-assignment-for-your-team){% endif %}{% ifversion fpt or ghec %}
+- Removea o acesso da equipe aos repositórios
+- [Gerenciar atribuição de código para a equipe](/organizations/organizing-members-into-teams/managing-code-review-assignment-for-your-team){% ifversion fpt or ghec %}
 - [Gerenciar lembretes agendados para pull requests](/organizations/organizing-members-into-teams/managing-scheduled-reminders-for-your-team){% endif %}
-
 
 ## Promover um integrante de organização a mantenedor de equipe
 

@@ -87,7 +87,7 @@ export const SidebarProduct = () => {
     )
     return (
       <>
-        <li className="my-3" data-testid="rest-sidebar-items">
+        <li className="my-3">
           <ul className="list-style-none">
             {conceptualPages.map((childPage, i) => {
               const isStandaloneCategory = childPage.page.documentType === 'article'
@@ -135,7 +135,6 @@ export const SidebarProduct = () => {
               const defaultOpen = hasExactCategory ? isActive : false
               return (
                 <li
-                  data-testid="rest-sidebar-items"
                   key={childPage.href + i}
                   data-is-active-category={isActive}
                   data-is-current-page={isActive && isStandaloneCategory}

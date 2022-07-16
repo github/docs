@@ -1,5 +1,7 @@
 ---
-title: 自動リンク
+title: リポジトリの自動リンク
+allowTitleToDifferFromFilename: true
+shortTitle: 自動リンク
 intro: ワークフローを合理化するために、このAPIを使ってJIRAのIssueやZendeskのチケットのような外部リソースへの自動リンクを追加できます。
 versions:
   fpt: '*'
@@ -10,6 +12,8 @@ topics:
   - API
 miniTocMaxHeadingLevel: 3
 ---
+
+## Repository autolinks APIについて
 
 詳しい情報については「[外部リソースを参照する自動リンクの設定](/github/administering-a-repository/configuring-autolinks-to-reference-external-resources)」を参照してください。
 
