@@ -1,5 +1,6 @@
 ---
 title: Managing Codespaces for your organization
+shortTitle: Admnistrar tu organización
 intro: 'Puedes administrar y revisar la forma en que los usuarios de tu organización pueden utilizar {% data variables.product.prodname_github_codespaces %}.'
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
@@ -17,6 +18,5 @@ children:
   - /restricting-the-visibility-of-forwarded-ports
   - /restricting-the-idle-timeout-period
   - /restricting-the-retention-period-for-codespaces
-shortTitle: Admnistrar tu organización
 ---
 
