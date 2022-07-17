@@ -13,7 +13,7 @@ featuredLinks:
     - /get-started/getting-started-with-git/managing-remote-repositories
     - /pages
 redirect_from:
-  - /github
+  - /githubg
   - /articles
   - /common-issues-and-questions
   - /troubleshooting-common-issues
@@ -53,7 +53,7 @@ childGroups:
     children:
       - get-started
       - account-and-profile
-      - authentication
+      - authentication and login
       - billing
       - site-policy
   - name: Collaborative coding
