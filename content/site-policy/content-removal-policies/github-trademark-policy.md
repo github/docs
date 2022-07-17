@@ -51,3 +51,5 @@ In order to investigate trademark policy violations, please provide all of the f
     * Address
     * Phone
     * Email (must be from company domain)
+
+![This is an image](https://myoctocat.com/assets/images/base-octocat.svg)
