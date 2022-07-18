@@ -1,5 +1,5 @@
 ---
-title: Setting your timeout period for GitHub Codespaces
+title: 设置 GitHub Codespaces 超时期
 shortTitle: 设置超时
 intro: '您可以在个人设置页面中设置 {% data variables.product.prodname_codespaces %} 的默认超时。'
 product: '{% data reusables.gated-features.codespaces %}'

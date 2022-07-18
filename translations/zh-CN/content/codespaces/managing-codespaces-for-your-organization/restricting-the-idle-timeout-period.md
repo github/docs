@@ -16,7 +16,7 @@ topics:
 
 默认情况下，代码空间在处于非活动状态 30 分钟后超时。 若代码空间超时，它将停止，并且将不再产生计算使用费用。
 
-{% data variables.product.prodname_dotcom %} 用户的个人设置允许他们为其创建的代码空间定义自己的超时期限。 这可能比默认的 30 分钟长。 For more information, see "[Setting your timeout period for {% data variables.product.prodname_github_codespaces %}](/codespaces/customizing-your-codespace/setting-your-timeout-period-for-github-codespaces)."
+{% data variables.product.prodname_dotcom %} 用户的个人设置允许他们为其创建的代码空间定义自己的超时期限。 这可能比默认的 30 分钟长。 有关详细信息，请参阅“[设置 {% data variables.product.prodname_github_codespaces %} 的超时期](/codespaces/customizing-your-codespace/setting-your-timeout-period-for-github-codespaces)”。
 
 作为组织所有者，您可能希望为为组织拥有的存储库创建的代码空间的最大空闲超时期限配置限制。 这可以帮助您限制与代码空间相关的成本，这些代码空间在长时间处于非活动状态后会超时。 您可以为组织拥有的所有存储库的代码空间或特定存储库的代码空间设置最大超时。
 
@@ -26,7 +26,7 @@ topics:
 
 {% endnote %}
 
-For more information about pricing for {% data variables.product.prodname_github_codespaces %} compute usage, see "[About billing for {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#codespaces-pricing)."
+有关 {% data variables.product.prodname_github_codespaces %} 计算使用价格的更多信息，请参阅“[关于 {% data variables.product.prodname_github_codespaces %} 的计费](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#codespaces-pricing)”。
 
 ### 设置最大空闲超时约束时的行为
 

@@ -180,10 +180,10 @@ sections:
 
           更多信息请参阅“[管理组织的自定义存储库角色](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization)”。
     - 
-      heading: Secret scanning now supports archived repositories
+      heading: 机密扫描现在支持存档的存储库
       notes:
         - |
-          GitHub Advanced Security customers can now enable secret scanning for archived repositories via the UI and API. For more information, see "[About secret scanning](/code-security/secret-scanning/about-secret-scanning#about-secret-scanning-for-private-repositories)," "[About archived repositories](/repositories/archiving-a-github-repository/archiving-repositories)," and "[Repositories](/rest/repos/repos#update-a-repository)" in the REST API documentation.
+          GitHub Advanced Security 客户现在可以通过 UI 和 API 为存档的存储库启用机密扫描。更多信息请参阅 REST API 文档中的“[关于机密扫描](/code-security/secret-scanning/about-secret-scanning#about-secret-scanning-for-private-repositories)”、“[关于存档的存储库](/repositories/archiving-a-github-repository/archiving-repositories)”和“[Repositories](/rest/repos/repos#update-a-repository)”。
     - 
       heading: Secret scanning webhooks for alert locations
       notes:

@@ -1,5 +1,5 @@
 ---
-title: Security in GitHub Codespaces
+title: GitHub Codespaces 中的安全性
 intro: '{% data variables.product.prodname_github_codespaces %} 安全体系结构概述，包括可帮助您维护安全性并最大限度地降低攻击风险的指导原则。'
 miniTocMaxHeadingLevel: 3
 versions:

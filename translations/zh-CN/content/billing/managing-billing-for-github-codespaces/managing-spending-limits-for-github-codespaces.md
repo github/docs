@@ -1,5 +1,5 @@
 ---
-title: Managing spending limits for GitHub Codespaces
+title: 管理 GitHub Codespaces 的支出限制
 intro: '您可以为 {% data variables.product.prodname_github_codespaces %} 的使用设置支出限额。'
 versions:
   fpt: '*'
@@ -67,4 +67,4 @@ redirect_from:
 ## 延伸阅读
 
 - "[限制对机器类型的访问](/codespaces/managing-codespaces-for-your-organization/restricting-access-to-machine-types)"
-- "[Managing billing for {% data variables.product.prodname_github_codespaces %} in your organization](/codespaces/managing-codespaces-for-your-organization/managing-billing-for-github-codespaces-in-your-organization)"
+- “[管理组织中 {% data variables.product.prodname_github_codespaces %} 的计费](/codespaces/managing-codespaces-for-your-organization/managing-billing-for-github-codespaces-in-your-organization)”
