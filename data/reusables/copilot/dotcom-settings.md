@@ -4,7 +4,7 @@ Once you have an active {% data variables.product.prodname_copilot %} trial or s
 
 ## Enabling or disabling duplication detection
 
-{% data variables.product.prodname_copilot %} features a filter which detects suggestions containing code that matches public code on {% data variables.product.prodname_dotcom %}. You can choose to enable or disable the filter. When the filter is enabled, {% data variables.product.prodname_copilot %} checks code suggestions with their surrounding code of about 150 characters against public code on {% data variables.product.prodname_dotcom %}. If there is a match or near match, the suggestion will not be shown to you.
+{% data variables.product.prodname_copilot %} includes a filter which detects code suggestions matching public code on {% data variables.product.prodname_dotcom %}. You can choose to enable or disable the filter. When the filter is enabled, {% data variables.product.prodname_copilot %} checks code suggestions with their surrounding code of about 150 characters against public code on {% data variables.product.prodname_dotcom %}. If there is a match or near match, the suggestion will not be shown to you.
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.copilot-settings %}
