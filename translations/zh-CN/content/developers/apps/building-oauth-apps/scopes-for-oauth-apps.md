@@ -76,7 +76,7 @@ X-Accepted-OAuth-Scopes: user
 | **`admin:gpg_key`**      | 全面管理 GPG 密钥。                                                                                                                                                                                                                                                                                                                                          |
 | &emsp;`write:gpg_key`    | 创建、列出和查看 GPG 密钥的详细信息。                                                                                                                                                                                                                                                                                                                                 |
 | &emsp;`read:gpg_key`     | 列出和查看 GPG 密钥的详细信息。{% ifversion fpt or ghec %}
-| **`代码空间`**               | 授予创建和管理代码空间的能力。 Codespaces 可以暴露可能有不同范围集的 GITHUB_TOKEN。 For more information, see "[Security in {% data variables.product.prodname_github_codespaces %}](/codespaces/codespaces-reference/security-in-github-codespaces#authentication)."{% endif %}
+| **`代码空间`**               | 授予创建和管理代码空间的能力。 Codespaces 可以暴露可能有不同范围集的 GITHUB_TOKEN。 更多信息请参阅“[{% data variables.product.prodname_github_codespaces %} 中的安全性](/codespaces/codespaces-reference/security-in-github-codespaces#authentication)”。{% endif %}
 | **`工作流程`**               | 授予添加和更新 {% data variables.product.prodname_actions %} 工作流程文件的权限。 如果在同一仓库中的另一个分支上存在相同的文件(具有相同的路径和内容)，则工作流程文件可以在没有此作用域的情况下提交。 工作流程文件可以暴露可能有不同范围集的 `GITHUB_TOKEN`。 更多信息请参阅“[工作流程中的身份验证](/actions/reference/authentication-in-a-workflow#permissions-for-the-github_token)。                                                                               |
 
 {% note %}

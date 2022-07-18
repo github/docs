@@ -1,5 +1,5 @@
 ---
-title: Using GitHub Codespaces for pull requests
+title: 将 GitHub Codespaces 用于拉取请求
 shortTitle: 拉取请求
 intro: '您可以在开发工作流程中使用 {% data variables.product.prodname_github_codespaces %} 来创建拉取请求、审阅拉取请求和处理审阅注释。'
 product: '{% data reusables.gated-features.codespaces %}'

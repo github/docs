@@ -58,7 +58,7 @@ shortTitle: 审核建议的更改
 
 {% data reusables.codespaces.review-pr %}
 
-For more information on reviewing pull requests in {% data variables.product.prodname_codespaces %}, see "[Using {% data variables.product.prodname_github_codespaces %} for pull requests](/codespaces/developing-in-codespaces/using-github-codespaces-for-pull-requests)."
+有关在 {% data variables.product.prodname_codespaces %} 中审查拉取请求的更多信息，请参阅“[对拉取请求使用 {% data variables.product.prodname_github_codespaces %}”](/codespaces/developing-in-codespaces/using-github-codespaces-for-pull-requests)。
 
 {% endcodespaces %}
 {% endif %}
