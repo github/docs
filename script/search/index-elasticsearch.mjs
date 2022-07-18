@@ -41,7 +41,6 @@ const shortNames = Object.fromEntries(
     return [shortName, info]
   })
 )
-console.log({ shortNames })
 
 const allVersionKeys = Object.keys(shortNames)
 
