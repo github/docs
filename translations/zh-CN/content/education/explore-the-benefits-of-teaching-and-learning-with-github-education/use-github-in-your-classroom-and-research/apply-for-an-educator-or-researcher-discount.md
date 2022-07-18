@@ -1,6 +1,6 @@
 ---
-title: Apply for an educator or researcher discount
-intro: 'If you''re an educator or a researcher, you can apply to receive {% data variables.product.prodname_team %} for your organization account for free.'
+title: 申请教育者或研究人员折扣
+intro: '如果您是教育者或研究人员，可以为组织申请免费获取 {% data variables.product.prodname_team %}。'
 redirect_from:
   - /education/teach-and-learn-with-github-education/apply-for-an-educator-or-researcher-discount
   - /github/teaching-and-learning-with-github-education/applying-for-an-educator-or-researcher-discount
@@ -12,17 +12,18 @@ redirect_from:
   - /education/explore-the-benefits-of-teaching-and-learning-with-github-education/apply-for-an-educator-or-researcher-discount
 versions:
   fpt: '*'
-shortTitle: Apply for a discount
+shortTitle: 申请折扣
 ---
-## About educator and researcher discounts
+
+## 关于教育者和研究人员折扣
 
 {% data reusables.education.about-github-education-link %}
 
 {% data reusables.education.educator-requirements %}
 
-For more information about user accounts on {% data variables.product.product_name %}, see "[Signing up for a new {% data variables.product.prodname_dotcom %} account](/github/getting-started-with-github/signing-up-for-a-new-github-account)."
+有关在 {% data variables.product.product_name %} 上创建个人帐户的更多信息，请参阅“[注册新 {% data variables.product.prodname_dotcom %} 帐户](/github/getting-started-with-github/signing-up-for-a-new-github-account)”。
 
-## Applying for an educator or researcher discount
+## 申请教育者或研究人员折扣
 
 {% data reusables.education.benefits-page %}
 {% data reusables.education.click-get-teacher-benefits %}
@@ -32,30 +33,9 @@ For more information about user accounts on {% data variables.product.product_na
 {% data reusables.education.plan-to-use-github %}
 {% data reusables.education.submit-application %}
 
-## Upgrading your organization
+## 延伸阅读
 
-After your request for an educator or researcher discount has been approved, you can upgrade the organizations you use with your learning community to {% data variables.product.prodname_team %}, which allows unlimited users and private repositories with full features, for free. You can upgrade an existing organization or create a new organization to upgrade.
-
-### Upgrading an existing organization
-
-{% data reusables.education.upgrade-page %}
-{% data reusables.education.upgrade-organization %}
-
-### Upgrading a new organization
-
-{% data reusables.education.upgrade-page %}
-1. Click {% octicon "plus" aria-label="The plus symbol" %} **Create an organization**.
-  ![Create an organization button](/assets/images/help/education/create-org-button.png)
-3. Read the information, then click **Create organization**.
-  ![Create organization button](/assets/images/help/education/create-organization-button.png)
-4. Under "Choose your plan", click **Choose {% data variables.product.prodname_free_team %}**.
-5. Follow the prompts to create your organization.
-{% data reusables.education.upgrade-page %}
-{% data reusables.education.upgrade-organization %}
-
-## Further reading
-
-- "[Why wasn't my application for an educator or researcher discount approved?](/articles/why-wasn-t-my-application-for-an-educator-or-researcher-discount-approved)"
+- "[为什么我的教育者或研究人员折扣申请未获得批准？](/articles/why-wasn-t-my-application-for-an-educator-or-researcher-discount-approved)"
 - [{% data variables.product.prodname_education %}](https://education.github.com)
-- [{% data variables.product.prodname_classroom %} Videos](https://classroom.github.com/videos)
-- [{% data variables.product.prodname_education_community %}](https://education.github.community/)
+- [{% data variables.product.prodname_classroom %} 视频](https://classroom.github.com/videos)
+- [{% data variables.product.prodname_education_community %}]({% data variables.product.prodname_education_forum_link %})

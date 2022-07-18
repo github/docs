@@ -1,14 +1,15 @@
 ---
 title: Using OpenID Connect with reusable workflows
 shortTitle: Using OpenID Connect with reusable workflows
-intro: 'You can use reusable workflows with OIDC to standardize and security harden your deployment steps.'
+intro: You can use reusable workflows with OIDC to standardize and security harden your deployment steps.
 miniTocMaxHeadingLevel: 3
 redirect_from:
   - /actions/deployment/security-hardening-your-deployments/using-oidc-with-your-reusable-workflows
 versions:
   fpt: '*'
-  ghae: 'issue-4757-and-5856'
+  ghae: issue-4757
   ghec: '*'
+  ghes: '>=3.5'
 type: how_to
 topics:
   - Workflows
@@ -44,11 +45,14 @@ For example, the following OIDC token is for a job that was part of a called wor
 {
   "jti": "example-id",
   "sub": "repo:octo-org/octo-repo:environment:prod",
-  "aud": "https://github.com/octo-org",
+  "aud": "{% ifversion ghes %}https://HOSTNAME{% else %}https://github.com{% endif %}/octo-org",
   "ref": "refs/heads/main",
   "sha": "example-sha",
   "repository": "octo-org/octo-repo",
   "repository_owner": "octo-org",
+  "actor_id": "12",
+  "repository_id": "74",
+  "repository_owner_id": "65",
   "run_id": "example-run-id",
   "run_number": "10",
   "run_attempt": "2",
@@ -59,7 +63,7 @@ For example, the following OIDC token is for a job that was part of a called wor
   "event_name": "workflow_dispatch",
   "ref_type": "branch",
   "job_workflow_ref": "octo-org/octo-automation/.github/workflows/oidc.yml@refs/heads/main",
-  "iss": "https://token.actions.githubusercontent.com",
+  "iss": "{% ifversion ghes %}https://HOSTNAME/_services/token{% else %}https://token.actions.githubusercontent.com{% endif %}",
   "nbf": 1632492967,
   "exp": 1632493867,
   "iat": 1632493567

@@ -131,7 +131,7 @@ end
 
 In this example the `closed` action is checked first before calling the `process_closed` method. Any unidentified actions are logged for future reference.
 
-{% ifversion fpt or ghec %}
+{% ifversion fpt or ghec or ghae %}
 
 ## Dealing with rate limits
 

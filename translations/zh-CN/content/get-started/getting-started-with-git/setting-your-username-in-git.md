@@ -14,7 +14,7 @@ versions:
 shortTitle: 设置用户名
 ---
 
-## About Git usernames
+## 关于 Git 用户名
 您可以使用 `git config` 命令更改与您的 Git 提交关联的名称。 您设置的新名称将在从命令行推送到 {% data variables.product.product_name %} 的任何未来提交中显示。 如果您想要将真实姓名保密，则可以使用任意文本作为您的 Git 用户名。
 
 使用 `git config` 更改与 Git 提交关联的名称仅影响未来的提交，不会更改用于过去提交的名称。
@@ -23,12 +23,12 @@ shortTitle: 设置用户名
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
 
-2. {% data reusables.user_settings.set_your_git_username %}
+2. {% data reusables.user-settings.set_your_git_username %}
    ```shell
    $ git config --global user.name "<em>Mona Lisa</em>"
    ```
 
-3. {% data reusables.user_settings.confirm_git_username_correct %}
+3. {% data reusables.user-settings.confirm_git_username_correct %}
    ```shell
    $ git config --global user.name
    > Mona Lisa
@@ -40,12 +40,12 @@ shortTitle: 设置用户名
 
 2. 将当前工作目录更改为您想要在其中配置与 Git 提交关联的名称的本地仓库。
 
-3. {% data reusables.user_settings.set_your_git_username %}
+3. {% data reusables.user-settings.set_your_git_username %}
    ```shell
    $ git config user.name "<em>Mona Lisa</em>"
    ```
 
-3. {% data reusables.user_settings.confirm_git_username_correct %}
+3. {% data reusables.user-settings.confirm_git_username_correct %}
    ```shell
    $ git config user.name
    > Mona Lisa

@@ -16,6 +16,12 @@ shortTitle: Increase CPU or memory
 ---
 {% data reusables.enterprise_installation.warning-on-upgrading-physical-resources %}
 
+{% note %}
+
+**Note:** Before increasing CPU or memory resources, put your instance in maintenance mode.{% ifversion ip-exception-list %} You can validate changes by configuring an IP exception list to allow access from specified IP addresses. {% endif %} For more information, see "[Enabling and scheduling maintenance mode](/enterprise/admin/guides/installation/enabling-and-scheduling-maintenance-mode)."
+
+{% endnote %}
+
 ## Adding CPU or memory resources for AWS
 
 {% note %}
@@ -58,7 +64,7 @@ It's not possible to add CPU or memory resources to an existing AWS/EC2 instance
 
 {% note %}
 
-**Note:** To add CPU or memory resources in Microsoft Azure, you must be familiar with using either the Azure Portal, Azure CLI or Azure Powershell to manage VM instances. For background and details on using the Azure tools of your choice to perform the resize, please refer to the Azure documentation on [changing the size of a virtual machine](https://docs.microsoft.com/en-us/azure/virtual-machines/resize-vm).
+**Note:** To add CPU or memory resources in Microsoft Azure, you must be familiar with using either the Azure Portal, Azure CLI or Azure PowerShell to manage VM instances. For background and details on using the Azure tools of your choice to perform the resize, please refer to the Azure documentation on [changing the size of a virtual machine](https://docs.microsoft.com/en-us/azure/virtual-machines/resize-vm).
 
 {% endnote %}
 

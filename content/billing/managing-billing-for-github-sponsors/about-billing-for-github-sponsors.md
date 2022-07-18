@@ -19,7 +19,7 @@ shortTitle: About billing
 
 {% data reusables.dotcom_billing.view-all-subscriptions %}
 
-{% data reusables.user_settings.context_switcher %}
+{% data reusables.user-settings.context_switcher %}
 
 ## Further reading
 

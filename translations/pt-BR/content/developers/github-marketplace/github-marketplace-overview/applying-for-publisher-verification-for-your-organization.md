@@ -15,7 +15,7 @@ A verificação do editor garante que {% data variables.product.prodname_dotcom 
 
 Assim que sua organização for verificada, você poderá publicar planos pagos para o seu aplicativo. Para obter informações, consulte "[Configurar planos de preços para o seu anúncio](/developers/github-marketplace/setting-pricing-plans-for-your-listing)".
 
-Para oferecer planos pagos para o seu aplicativo, este deverá pertencer a uma organização e você deverá ter permissões de proprietário na organização. Se seu aplicativo pertence atualmente a uma conta de usuário, você precisará transferir a propriedade do aplicativo para uma organização. Para obter mais informações, consulte "[Transferir a propriedade de um aplicativo GitHub](/developers/apps/transferring-ownership-of-a-github-app)" ou "[Transferir a propriedade de um aplicativo OAuth](/developers/apps/transferring-ownership-of-an-oauth-app)".
+Para oferecer planos pagos para o seu aplicativo, este deverá pertencer a uma organização e você deverá ter permissões de proprietário na organização. Se seu aplicativo pertence atualmente a uma conta pessoal, você precisará transferir a propriedade do aplicativo para uma organização. Para obter mais informações, consulte "[Transferir a propriedade de um aplicativo GitHub](/developers/apps/transferring-ownership-of-a-github-app)" ou "[Transferir a propriedade de um aplicativo OAuth](/developers/apps/transferring-ownership-of-an-oauth-app)".
 
 ## Solicitar verificação de publicador
 

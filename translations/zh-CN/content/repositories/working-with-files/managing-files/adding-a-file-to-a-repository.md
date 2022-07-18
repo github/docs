@@ -1,6 +1,6 @@
 ---
 title: 添加文件到仓库
-intro: 'You can upload and commit an existing file to a repository on {% data variables.product.product_name %} or by using the command line.'
+intro: '您可以在 {% data variables.product.product_name %} 上或使用命令行将现有文件上传并提交到存储库。'
 redirect_from:
   - /articles/adding-a-file-to-a-repository
   - /github/managing-files-in-a-repository/adding-a-file-to-a-repository
@@ -19,7 +19,7 @@ topics:
 shortTitle: 添加文件
 ---
 
-## Adding a file to a repository on {% data variables.product.product_name %}
+## 将文件添加到 {% data variables.product.product_name %} 上的存储库
 
 通过浏览器添加到仓库的文件大小限于每个文件 {% data variables.large_files.max_github_browser_size %}。 较大的文件可通过命令行添加，最大每个 {% data variables.large_files.max_github_size %}。 更多信息请参阅“[使用命令行添加文件到仓库](#adding-a-file-to-a-repository-using-the-command-line)”。
 
@@ -40,7 +40,7 @@ shortTitle: 添加文件
 
 ## 使用命令行提交文件到仓库
 
-You can upload an existing file to a repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} using the command line.
+您可以使用命令行将现有文件上传到 {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} 上的存储库。
 
 {% tip %}
 
@@ -69,4 +69,4 @@ You can upload an existing file to a repository on {% ifversion ghae %}{% data v
 
 ## 延伸阅读
 
-- "[使用命令行添加现有项目到 GitHub](/articles/adding-an-existing-project-to-github-using-the-command-line)"
+- "[将本地托管的代码添加到 {% data variables.product.product_name %}](/get-started/importing-your-projects-to-github/importing-source-code-to-github//adding-locally-hosted-code-to-github)"

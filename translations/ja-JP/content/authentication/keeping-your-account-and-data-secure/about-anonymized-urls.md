@@ -14,15 +14,16 @@ topics:
   - Identity
   - Access management
 ---
-To host your images, {% data variables.product.product_name %} uses the [open-source project Camo](https://github.com/atmos/camo). Camo generates an anonymous URL proxy for each file which hides your browser details and related information from other users. The URL starts `https://<subdomain>.githubusercontent.com/`, with different subdomains depending on how you uploaded the image. 
+
+画像をホストするために、{% data variables.product.product_name %}は[オープンソースプロジェクトの Camo](https://github.com/atmos/camo) を使用します。 Camo generates an anonymous URL proxy for each file which hides your browser details and related information from other users. URL は `https://<subdomain>.githubusercontent.com/` で始まり、画像のアップロード方法に応じて異なるサブドメインがあります。
 
 Videos also get anonymized URLs with the same format as image URLs, but are not processed through Camo. This is because {% data variables.product.prodname_dotcom %} does not support externally hosted videos, so the anonymized URL is a link to the uploaded video hosted by {% data variables.product.prodname_dotcom %}.
 
 Anyone who receives your anonymized URL, directly or indirectly, may view your image or video. To keep sensitive media files private, restrict them to a private network or a server that requires authentication instead of using Camo.
 
-## Troubleshooting issues with Camo
+## Camoでの問題のトラブルシューティング
 
-In rare circumstances, images that are processed through Camo might not appear on {% data variables.product.prodname_dotcom %}. Here are some steps you can take to determine where the problem lies.
+まれな状況下において、Camoによって処理された画像が{% data variables.product.prodname_dotcom %}に表示されないことがあります。 問題のありかを判断するために利用できる手順を以下に示します。
 
 {% windows %}
 
@@ -34,12 +35,12 @@ Windows users will either need to use the Git PowerShell (which is installed alo
 
 {% endwindows %}
 
-### An image is not showing up
+### 画像が表示されない
 
 If an image is showing up in your browser but not on {% data variables.product.prodname_dotcom %}, you can try requesting it locally.
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
-1. Request the image headers using `curl`.
+1. `curl` を使って画像ヘッダをリクエストしてください。
   ```shell
   $ curl -I https://www.my-server.com/images/some-image.png
   > HTTP/2 200
@@ -49,20 +50,20 @@ If an image is showing up in your browser but not on {% data variables.product.p
   > Server: Google Frontend
   > Content-Length: 6507
   ```
-3. Check the value of `Content-Type`. In this case, it's `image/x-png`.
-4. Check that content type against [the list of types supported by Camo](https://github.com/atmos/camo/blob/master/mime-types.json).
+3. `Content-Type` の値を確認してください。 ここでは `image/x-png` です。
+4. コンテントタイプは[Camo がサポートするタイプのリスト](https://github.com/atmos/camo/blob/master/mime-types.json)で確認してください。
 
-If your content type is not supported by Camo, you can try several actions:
-  * If you own the server that's hosting the image, modify it so that it returns a correct content type for images.
-  * If you're using an external service for hosting images, contact support for that service.
-  * Make a pull request to Camo to add your content type to the list.
+コンテントタイプが Camo でサポートされていない場合、試せることがいくつかあります:
+  * 画像をホストしているサーバーを自分で所有しているなら、画像の適切なコンテントタイプを返すように修正してください。
+  * 画像を外部のサービスでホストしているなら、そのサービスのサポートに連絡してください。
+  * Camo にプルリクエストを送り、コンテントタイプをリストに追加してもらってください。
 
-### An image that changed recently is not updating
+### 最近変更した画像が更新されない
 
-If you changed an image recently and it's showing up in your browser but not {% data variables.product.prodname_dotcom %}, you can try resetting the cache of the image.
+最近変更した画像がブラウザでは表示され、{% data variables.product.prodname_dotcom %}では表示されない場合、その画像のキャッシュをリセットしてみることができます。
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
-1. Request the image headers using `curl`.
+1. `curl` を使って画像ヘッダをリクエストしてください。
   ```shell
   $ curl -I https://www.my-server.com/images/some-image.png
   > HTTP/2 200
@@ -72,29 +73,29 @@ If you changed an image recently and it's showing up in your browser but not {% 
   > Server: Jetty(8.y.z-SNAPSHOT)
   ```
 
-Check the value of `Cache-Control`. In this example, there's no `Cache-Control`. In that case:
-  * If you own the server that's hosting the image, modify it so that it returns a `Cache-Control` of `no-cache` for images.
-  * If you're using an external service for hosting images, contact support for that service.
+`Cache-Control`の値を確認してください。 この例では`Cache-Control`はありません。 その場合:
+  * 画像をホストしているサーバを自分で保有しているなら、画像に対する `Cache-Control` に `no-cache` を返すように修正してください。
+  * 画像を外部のサービスでホストしているなら、そのサービスのサポートに連絡してください。
 
- If `Cache-Control` *is* set to `no-cache`, contact {% data variables.contact.contact_support %} or search the {% data variables.contact.community_support_forum %}.
+ `Cache-Control` *が* `no-cache` に設定されている場合は、{% data variables.contact.contact_support %} にお問い合わせいただくか、{% data variables.contact.community_support_forum %} を検索してください。
 
-### Removing an image from Camo's cache
+### Camoのキャッシュから画像を削除する
 
-Purging the cache forces every {% data variables.product.prodname_dotcom %} user to re-request the image, so you should use it very sparingly and only in the event that the above steps did not work.
+キャッシュをパージすれば、すべての{% data variables.product.prodname_dotcom %}ユーザは画像をリクエストし直すようになるので、この方法はごく控えめに使うべきであり、これまでに述べたステップがうまく働かなかった場合にかぎるべきです。
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
-1. Purge the image using `curl -X PURGE` on the Camo URL.
+1. Camo の URL に対して `curl -X PURGE` を使い、画像をパージしてください。
   ```shell
   $ curl -X PURGE https://camo.githubusercontent.com/4d04abe0044d94fefcf9af2133223....
   > {"status": "ok", "id": "216-8675309-1008701"}
   ```
 
-### Viewing images on private networks
+### プライベートネットワークでの画像の表示
 
-If an image is being served from a private network or from a server that requires authentication, it can't be viewed by {% data variables.product.prodname_dotcom %}. In fact, it can't be viewed by any user without asking them to log into the server.
+画像がプライベートネットワークや、認証を要求するサーバから提供されている場合、{% data variables.product.prodname_dotcom %}では表示できません。 実際のところ、その画像はユーザにサーバへのログインを求めなければ表示されません。
 
-To fix this, please move the image to a service that is publicly available.
+この問題を修正するには、その画像をパブリックにアクセスできるサービスに移してください。
 
-## Further reading
+## 参考リンク
 
-- "[Proxying user images](https://github.com/blog/1766-proxying-user-images)" on {% data variables.product.prodname_blog %}
+- {% data variables.product.prodname_blog %}の[ユーザの画像のプロキシ処理](https://github.com/blog/1766-proxying-user-images)

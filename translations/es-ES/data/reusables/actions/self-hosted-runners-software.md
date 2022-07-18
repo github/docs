@@ -1,1 +1,1 @@
-You must install the required software on your self-hosted runners. For more information about self-hosted runners, see "[Hosting your own runners](/actions/hosting-your-own-runners)."
+Debes instalar el software requerido en tus ejecutores auto-hospedados. Para obtener información sobre los ejecutores auto-hospedados, consulta la sección "[Hospedar tus propios ejecutores](/actions/hosting-your-own-runners)".

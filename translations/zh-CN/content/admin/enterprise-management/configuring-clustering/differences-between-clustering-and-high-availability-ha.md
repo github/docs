@@ -39,8 +39,8 @@ HA 或集群都不应被视为常规备份的替代品。 更多信息请参阅�
 
 ## 监视
 
-可用性功能，尤其是具有自动故障切换的功能（如集群）可以屏蔽故障，因为在发生故障时通常不会中断服务。 无论您使用的是 HA 还是集群，监视每个实例的状态都十分重要，这样您就可以了解何时发生了故障。 有关监视的更多信息，请参阅“[建议的警报阈值](/enterprise/{{ currentVersion }}/admin/guides/installation/recommended-alert-thresholds/)”和“[监视集群节点](/enterprise/{{ currentVersion}}/admin/guides/clustering/monitoring-cluster-nodes/)”。
+可用性功能，尤其是具有自动故障切换的功能（如集群）可以屏蔽故障，因为在发生故障时通常不会中断服务。 无论您使用的是 HA 还是集群，监视每个实例的状态都十分重要，这样您就可以了解何时发生了故障。 有关监控的详细信息，请参阅“[建议的警报阈值](/enterprise/admin/guides/installation/recommended-alert-thresholds/)”和“[监控群集节点](/enterprise/{{ currentVersion}}/admin/guides/clustering/monitoring-cluster-nodes/)”。
 
 ## 延伸阅读
 - 有关 {% data variables.product.prodname_ghe_server %} 集群的更多信息，请参阅“[关于集群](/enterprise/{{ currentVersion}}/admin/guides/clustering/about-clustering/)”。
-- 有关 HA 的更多信息，请参阅“[配置 {% data variables.product.prodname_ghe_server %} 以实现高可用性](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-github-enterprise-server-for-high-availability/)”。
+- 有关 HA 的更多信息，请参阅“[配置 {% data variables.product.prodname_ghe_server %} 以实现高可用性](/enterprise/admin/guides/installation/configuring-github-enterprise-server-for-high-availability/)”。

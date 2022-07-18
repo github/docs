@@ -25,7 +25,7 @@ If you're having trouble with your GitHub account, contact [Support](https://sup
 
 ### :earth_asia: Translations
 
-This website is internationalized and available in multiple languages. The source content in this repository is written in English. We integrate with an external localization platform called [Crowdin](https://crowdin.com) and work with professional translators to localize the English content.
+This website is internationalized and available in multiple languages. The source content in this repository is written in English. We integrate with an external localization platform to work with professional translators in localizing the English content.
 
 **We do not currently accept contributions for translated content**, but we hope to in the future.
 

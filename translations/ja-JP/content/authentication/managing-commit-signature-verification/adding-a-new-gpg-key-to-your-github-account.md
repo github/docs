@@ -20,14 +20,16 @@ Before adding a new GPG key to your account on {% ifversion ghae %}{% data varia
 - [既存の GPG キーの確認](/articles/checking-for-existing-gpg-keys)
 - [新しい GPG キーの生成とコピー](/articles/generating-a-new-gpg-key)
 
+You can add multiple public keys to your GitHub account. Commits signed by any of the corresponding private keys will show as verified. If you remove a public key, any commits signed by the corresponding private key will no longer show as verified.
+
 {% data reusables.gpg.supported-gpg-key-algorithms %}
 
 署名の検証の際には、署名が抽出され、そのキー id のパースが試行されます。 そのキー id が、{% data variables.product.product_name %}にアップロードされたキーと照合されます。 GPG キーが {% data variables.product.product_name %}にアップロードされるまで、署名は検証できません。
 
 ## GPG キーの追加
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.ssh %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.ssh %}
 3. [**New GPG key**] をクリックします。 ![GPG キーボタン](/assets/images/help/settings/gpg-add-gpg-key.png)
 4. [Key] フィールドに、[GPG キーを生成](/articles/generating-a-new-gpg-key)したときにコピーした GPG キーを貼り付けます。 ![キーフィールド](/assets/images/help/settings/gpg-key-paste.png)
 5. [**Add GPG key**] をクリックします。 ![キーの追加ボタン](/assets/images/help/settings/gpg-add-key.png)

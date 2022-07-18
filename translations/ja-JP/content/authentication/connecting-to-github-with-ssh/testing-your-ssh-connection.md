@@ -37,7 +37,7 @@ SSH 接続をテストする前に、次のことを済ませておく必要が�
   > Are you sure you want to continue connecting (yes/no)?
   ```
 
-3. 表示されるメッセージのフィンガープリントが {% ifversion fpt or ghec %}[{% data variables.product.prodname_dotcom %} の RSA パブリックキーのフィンガープリント](/github/authenticating-to-github/githubs-ssh-key-fingerprints){% else %} Enterprise のパブリックキーのフィンガープリント{% endif %} に一致するかどうかを確認します。 一致する場合は、`yes` と入力します。
+3. Verify that the fingerprint in the message you see matches {% ifversion fpt or ghec %}[{% data variables.product.prodname_dotcom %}'s public key fingerprint](/github/authenticating-to-github/githubs-ssh-key-fingerprints){% else %} your enterprise's public key fingerprint{% endif %}. 一致する場合は、`yes` と入力します。
   ```shell
   > Hi <em>username</em>! You've successfully authenticated, but GitHub does not
   > provide shell access.
@@ -56,5 +56,11 @@ SSH 接続をテストする前に、次のことを済ませておく必要が�
   これは、特定の Linux ディストリビューションで生じる既知の問題です。 詳細は「[Error: Agent admitted failure to sign](/articles/error-agent-admitted-failure-to-sign)」を参照してください。
 
   {% endlinux %}
+
+   {% note %}
+
+   **Note:** The remote command should exit with code 1.
+
+   {% endnote %}
 
 4. 出力されたメッセージに、あなたのユーザ名が含まれていることを確認します。 「permission denied」メッセージを受け取った場合、「[Error: Permission denied (publickey)](/articles/error-permission-denied-publickey)」を参照してください。

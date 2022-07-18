@@ -85,7 +85,7 @@ topics:
 
 更多信息请参阅“[创建标签](/issues/using-labels-and-milestones-to-track-work/managing-labels#creating-a-label)”。
 
-在仓库中创建标签后，您可以将其应用于仓库中的任何议题、拉取请求或讨论。 然后您可以通过标签过滤问题和拉取请求来查找所有相关的工作。 例如，过滤具有 `front-end` 和 `bug` 标签的议题，在项目中找到所有前端错误。 For more information, see "[Filtering and searching issues and pull requests](/issues/tracking-your-work-with-issues/filtering-and-searching-issues-and-pull-requests)."
+在仓库中创建标签后，您可以将其应用于仓库中的任何议题、拉取请求或讨论。 然后您可以通过标签过滤问题和拉取请求来查找所有相关的工作。 例如，过滤具有 `front-end` 和 `bug` 标签的议题，在项目中找到所有前端错误。 更多信息请参阅“[筛选和搜索问题以及拉取请求](/issues/tracking-your-work-with-issues/filtering-and-searching-issues-and-pull-requests)”。
 ### 标签示例
 下面是我们创建并添加到议题的 `front-end` 标签示例。
 
@@ -93,13 +93,13 @@ topics:
 ## 添加议题到项目板
 {% ifversion fpt or ghec %}您可以在 {% data variables.product.prodname_dotcom %}（目前在有限公测中）上使用项目，为您的团队规划和跟踪工作。 项目是一个可自定义的电子表格，集成您在 {% data variables.product.prodname_dotcom %} 上的议题和拉取请求，自动保持最新的 {% data variables.product.prodname_dotcom %} 信息。 您可以通过筛选、排序及分组议题和 PR 来自定义布局。 要开始项目，请参阅“[项目（测试版）快速入门](/issues/trying-out-the-new-projects-experience/quickstart)”。
 ### 项目（测试版）示例
-Here is the table layout of an example project, populated with the Project Octocat issues we have created.
+以下是一个示例项目的表布局，其中填充了我们创建的 Octocat 项目议题。
 
-![Projects (beta) table layout example](/assets/images/help/issues/quickstart-projects-table-view.png)
+![项目（测试版）表布局示例](/assets/images/help/issues/quickstart-projects-table-view.png)
 
 我们也可以将同一个项目视为一个板。
 
-![Projects (beta) board layout example](/assets/images/help/issues/quickstart-projects-board-view.png)
+![项目（测试版）板布局示例](/assets/images/help/issues/quickstart-projects-board-view.png)
 
 {% endif %}
 

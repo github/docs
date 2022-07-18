@@ -2,11 +2,11 @@
 title: Migrar desde GitHub Enterprise 11.10.x a 2.1.23
 redirect_from:
   - /enterprise/admin/installation/migrating-from-github-enterprise-1110x-to-2123
-  - /enterprise/admin-guide/migrating/
-  - /enterprise/admin/articles/migrating-github-enterprise/
-  - /enterprise/admin/guides/installation/migrating-from-github-enterprise-v11-10-34x/
-  - /enterprise/admin/articles/upgrading-to-a-newer-release/
-  - /enterprise/admin/guides/installation/migrating-to-a-different-platform-or-from-github-enterprise-11-10-34x/
+  - /enterprise/admin-guide/migrating
+  - /enterprise/admin/articles/migrating-github-enterprise
+  - /enterprise/admin/guides/installation/migrating-from-github-enterprise-v11-10-34x
+  - /enterprise/admin/articles/upgrading-to-a-newer-release
+  - /enterprise/admin/guides/installation/migrating-to-a-different-platform-or-from-github-enterprise-11-10-34x
   - /enterprise/admin/guides/installation/migrating-from-github-enterprise-11-10-x-to-2-1-23
   - /enterprise/admin/enterprise-management/migrating-from-github-enterprise-1110x-to-2123
   - /admin/enterprise-management/migrating-from-github-enterprise-1110x-to-2123
@@ -54,7 +54,7 @@ Para actualizar a la versión más reciente {% data variables.product.prodname_e
 6. Pega tu clave SSH de acceso al servidor de respaldo en "Add new SSH key (Agregar nueva clave SSH)". ![Autorizar la copia de seguridad](/assets/images/enterprise/migration/migration-authorize-backup-host.png)
 7. Da clic en **Agregar llave** y luego en **Continuar**.
 8. Copia el comando `ghe-restore` que ejecutarás en el servidor de respaldo para migrar datos a la nueva instancia. ![Iniciar la migración](/assets/images/enterprise/migration/migration-restore-start.png)
-9. Habilita el modo mantenimiento en la instancia anterior y espera a que se completen todos los procesos activos. Para obtener más información, consulta "[Habilitar y programar el modo mantenimiento](/enterprise/{{ currentVersion }}/admin/guides/installation/enabling-and-scheduling-maintenance-mode)."
+9. Habilita el modo mantenimiento en la instancia anterior y espera a que se completen todos los procesos activos. Para obtener más información, consulta "[Habilitar y programar el modo mantenimiento](/enterprise/admin/guides/installation/enabling-and-scheduling-maintenance-mode)."
 
   {% note %}
 
@@ -95,4 +95,4 @@ Para actualizar a la versión más reciente {% data variables.product.prodname_e
   {% endnote %}
 
 15. Cambia el tráfico de red de usuario desde la instancia anterior a la nueva instancia utilizando la asignación de DNS o la dirección IP.
-16. Actualiza a la versión más reciente del lanzamiento del patch de {{ currentVersion }}. Para obtener más información, consulta "[Actualizar {% data variables.product.prodname_ghe_server %}](/enterprise/admin/guides/installation/upgrading-github-enterprise-server/)."
+16. Mejora al lanzamiento de parche más reciente de {% data variables.product.prodname_ghe_server %}. Para obtener más información, consulta "[Actualizar {% data variables.product.prodname_ghe_server %}](/enterprise/admin/guides/installation/upgrading-github-enterprise-server/)."

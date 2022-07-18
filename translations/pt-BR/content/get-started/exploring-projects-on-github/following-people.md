@@ -17,7 +17,7 @@ topics:
 
 ## Sobre seguidores em {% data variables.product.product_name %}
 
-Ao seguir pessoas, você verá a atividade pública deles na vista de atividades do seu feed de notícias.{% ifversion fpt or ghec %} Se alguém que você segue favoritar um repositório público, {% data variables.product.product_name %} poderá recomendar o repositório para você na vista de descoberta do seu feed de notícias.{% endif %}
+Ao seguir pessoas, você verá as atividades públicas delas no seu painel pessoal.{% ifversion fpt or ghec %} Se alguém que você segue favoritar um repositório público, {% data variables.product.product_name %} poderá recomendar o repositório a você.{% endif %} Para obter mais informações, consulte "[Sobre o seu painel pessoal](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/about-your-personal-dashboard#staying-updated-with-activity-from-the-community)."
 
 Você pode deixar de seguir alguém, se você não quiser ver suas atividades públicas em {% data variables.product.product_name %}.
 

@@ -49,7 +49,7 @@ To encourage people to upgrade you can display an upgrade URL in your app's UI. 
 
 You can redirect users from your app's UI to upgrade on GitHub using an upgrade URL:
 
-```
+```text
 https://www.github.com/marketplace/<LISTING_NAME>/upgrade/<LISTING_PLAN_NUMBER>/<CUSTOMER_ACCOUNT_ID>
 ```
 

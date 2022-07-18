@@ -1,5 +1,5 @@
-There are three visibility settings:
+Existen tres ajustes de visibilidad:
 
-* `private` - Visible only to you. This is the default setting when you forward a port.
-* `org` - Visible to members of the organization that owns the repository.
-* `public` - Visible to anyone who knows the URL and port number.
+* `private` - Visible solo para ti. Este es el ajuste predeterminado cuando reenvías un puerto.
+* `org` - Visible para los miembros de la organización que son propietarios del repositorio.
+* `public` - Visible para cualquiera que conozca la URL y número de puerto.

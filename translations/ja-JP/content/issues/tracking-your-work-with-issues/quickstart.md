@@ -20,7 +20,7 @@ topics:
 
 ## 必要な環境
 
-Issueを作成するにはリポジトリが必要です。 書き込みアクセス権を持つ既存のリポジトリを利用することも、新しいリポジトリを作成することもできます。 {% data reusables.enterprise-accounts.emu-permission-repo %} The repository must have issues enabled. リポジトリの作成に関する詳細は「[新しいリポジトリの作成](/articles/creating-a-new-repository)」を参照してください。 リポジトリでIssueが無効化されている場合、Issueを有効化する方法に関する情報については「[Issueの無効化](/github/administering-a-repository/managing-repository-settings/disabling-issues)」を参照してください。
+Issueを作成するにはリポジトリが必要です。 書き込みアクセス権を持つ既存のリポジトリを利用することも、新しいリポジトリを作成することもできます。 {% data reusables.enterprise-accounts.emu-permission-repo %} リポジトリはIssueを有効化していなければなりません。 リポジトリの作成に関する詳細は「[新しいリポジトリの作成](/articles/creating-a-new-repository)」を参照してください。 リポジトリでIssueが無効化されている場合、Issueを有効化する方法に関する情報については「[Issueの無効化](/github/administering-a-repository/managing-repository-settings/disabling-issues)」を参照してください。
 
 ## 空のIssueのオープン
 
@@ -81,7 +81,7 @@ Issueを既存のプロジェクトに追加できます。 {% ifversion fpt or 
 
 ## コミュニケーション
 
-Issueを作成した後は、そのIssueにコメントを追加して会話を続けてください。 コラボレータあるいはTeamを@メンションして、コメントに注意を惹きつけることができます。 同じリポジトリ内の関連するIssueをリンクするために、`#`につづいてIssueのタイトルの一部を続け、リンクしたいIssueをクリックできます。 くわしいじょうほうについては「[GitHubでの執筆](/github/writing-on-github)」を参照してください。
+Issueを作成した後は、そのIssueにコメントを追加して会話を続けてください。 コラボレータあるいはTeamを@メンションして、コメントに注意を惹きつけることができます。 同じリポジトリ内の関連するIssueをリンクするために、`#`につづいてIssueのタイトルの一部を続け、リンクしたいIssueをクリックできます。 くわしい情報については「[GitHubでの執筆](/github/writing-on-github)」を参照してください。
 
 ![Issueのコメント](/assets/images/help/issues/issue-comment.png)
 

@@ -16,7 +16,7 @@ topics:
 
 当贡献者填写议题表单时，他们对每个输入的响应都会转换为 Markdown 并添加到议题正文中。 贡献者可以编辑使用议题表单创建的议题，其他人可以与议题（如通过其他方法创建的议题）进行交互。
 
-Issue forms are not supported for pull requests. You can create pull request templates in your repositories for collaborators to use. 更多信息请参阅"[为仓库创建拉取请求模板](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/creating-a-pull-request-template-for-your-repository)"。
+拉取请求不支持议题表单。 您可以在存储库中创建拉取请求模板，供协作者使用。 更多信息请参阅"[为仓库创建拉取请求模板](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/creating-a-pull-request-template-for-your-repository)"。
 
 此示例 YAML 配置文件使用多个输入报告漏洞来定义议题表单。
 
@@ -40,7 +40,7 @@ body:
 | `说明`        | 议题表单模板的描述，出现在模板选择器界面中。                 | 必选 | 字符串         |
 | `正文`        | 表单中输入类型的定义。                            | 必选 | 数组          |
 | `assignees` | 将自动分配给使用此模板创建的议题的人员。                   | 可选 | 阵列或逗号分界的字符串 |
-| `labels`    | 将自动添加到此模板创建的议题的标签。                     | 可选 | 字符串         |
+| `labels`    | 将自动添加到此模板创建的议题的标签。                     | 可选 | 阵列或逗号分界的字符串 |
 | `title`     | 在议题提交表单中预填的默认标题。                       | 可选 | 字符串         |
 
 有关可用的 `body` 输入类型及其语法，请参阅“[{% data variables.product.prodname_dotcom %} 表单架构的语法](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-githubs-form-schema)”。
@@ -165,3 +165,4 @@ body:
 ## 延伸阅读
 
 - [YAML](https://yaml.org/)
+- [创建议题表单时的常见验证错误](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/common-validation-errors-when-creating-issue-forms)

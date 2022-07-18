@@ -22,7 +22,7 @@ We recommend you either [configure SSH](/articles/generating-an-ssh-key) or upgr
 
 {% endtip %}
 
-{% data reusables.user_settings.password-authentication-deprecation %}
+{% data reusables.user-settings.password-authentication-deprecation %}
 
 ## Updating your credentials via Keychain Access
 

@@ -1,84 +1,76 @@
 ---
-title: Use autograding
-intro: You can automatically provide feedback on code submissions from your students by configuring tests to run in the assignment repository.
+title: 自動採点
+intro: 課題リポジトリで実行するテストを構成することで、学生から提出されたコードに対するフィードバックを自動的に提供できます。
 miniTocMaxHeadingLevel: 3
 versions:
   fpt: '*'
-permissions: Organization owners who are admins for a classroom can set up and use autograding on assignments in a classroom. {% data reusables.classroom.classroom-admins-link %}
+permissions: 'Organization owners who are admins for a classroom can set up and use autograding on assignments in a classroom. {% data reusables.classroom.classroom-admins-link %}'
 redirect_from:
   - /education/manage-coursework-with-github-classroom/adding-tests-for-auto-grading
   - /education/manage-coursework-with-github-classroom/reviewing-auto-graded-work-teachers
   - /education/manage-coursework-with-github-classroom/use-autograding
 ---
-## About autograding
+
+## 自動採点について
 
 {% data reusables.classroom.about-autograding %}
 
-After a student accepts an assignment, on every push to the assignment repository, {% data variables.product.prodname_actions %} runs the commands for your autograding test in a Linux environment containing the student's newest code. {% data variables.product.prodname_classroom %} creates the necessary workflows for {% data variables.product.prodname_actions %}. You don't need experience with {% data variables.product.prodname_actions %} to use autograding.
+学生が課題を受け入れた後、{% data variables.product.prodname_actions %}は、自動採点テストを行うコマンドを、課題リポジトリへの各プッシュに対して学生の最新コードを含むLinux環境で実行します。 {% data variables.product.prodname_classroom %}は、 {% data variables.product.prodname_actions %}に必要なワークフローを作成します。 自動採点の使用にあたり、{% data variables.product.prodname_actions %}の経験は不要です。
 
-You can use a testing framework, run a custom command, write input/output tests, or combine different testing methods. The Linux environment for autograding contains many popular software tools. For more information, see the details for the latest version of Ubuntu in "[Specifications for  {% data variables.product.company_short %}-hosted runners](/actions/reference/specifications-for-github-hosted-runners#supported-software)."
+テストフレームワークを使用したり、カスタムコマンドを実行したり、入出力テストを記述したり、さまざまなテスト方法を組み合わせたりすることができます。 自動採点用のLinux環境には、一般的なソフトウェアツールが数多く含まれています。 詳しい情報については、「[{% data variables.product.company_short %}ホストランナーの仕様](/actions/reference/specifications-for-github-hosted-runners#supported-software)」に記載された、Ubuntu最新バージョンの詳細を参照してください。
 
-You can see an overview of which students are passing autograding tests by navigating to the assignment in {% data variables.product.prodname_classroom %}. A green checkmark means that all tests are passing for the student, and a red X means that some or all tests are failing for the student. If you award points for one or more tests, then a bubble shows the score for the tests out of the maximum possible score for the assignment.
+{% data variables.product.prodname_classroom %}の課題に移動して、自動採点テストでどの学生が合格したかの概要を表示できます。 緑色のチェックマークは、その学生がすべてのテストに合格したことを意味します。赤色のXは、その学生が一部またはすべてのテストで不合格だったことを意味します。 1つ以上のテストに得点を与えている場合、課題で獲得できる最高得点が吹き出しに表示されます。
 
-![Overview for an assignment with autograding results](/assets/images/help/classroom/autograding-hero.png)
+![自動採点結果を含む課題の概要](/assets/images/help/classroom/assignment-individual-hero.png)
 
-## Grading methods
+## 採点方法
 
-There are two grading methods: input/output tests and run command tests.
+採点方法には、入出力テストと実行コマンドテストの2つがあります。
 
-### Input/output test
+### 入出力テスト
 
-An input/output test optionally runs a setup command, then provides standard input to a test command. {% data variables.product.prodname_classroom %} evaluates the test command's output against an expected result.
+入出力テストは必要に応じてセットアップコマンドを実行してから、テストコマンドに標準出力を渡します。 {% data variables.product.prodname_classroom %}は、テストコマンドの出力を期待する結果と照らし合わせて評価します。
 
-| Setting | Description |
-| :- | :- |
-| **Test name** | The name of the test, to identify the test in logs |
-| **Setup command** | _Optional_. A command to run before tests, such as compilation or installation |
-| **Run command** | The command to run the test and generate standard output for evaluation |
-| **Inputs** | Standard input for run command |
-| **Expected output** | The output that you want to see as standard output from the run command |
-| **Comparison** | The type of comparison between the run command's output and the expected output<br/><br/><ul><li>**Included**: Passes when the expected output appears<br/>anywhere in the standard output from the run command</li><li>**Exact**: Passes when the expected output is completely identical<br/>to the standard output from the run command</li><li>**Regex**: Passes if the regular expression in expected<br/>output matches against the standard output from the run command</li></ul> |
-| **Timeout** | In minutes, how long a test should run before resulting in failure |
-| **Points** | _Optional_. The number of points the test is worth toward a total score |
+| 設定                  | 説明                                                                     |
+|:------------------- |:---------------------------------------------------------------------- |
+| **Test name**       | テストの名前。ログでテストを識別するためのものです。                                             |
+| **Setup command**   | *（オプション）* コンパイルやインストールなど、テストを実行する前のコマンド。                               |
+| **Run command**     | テストを実行し、評価用の標準出力を生成するコマンド。                                             |
+| **Inputs**          | 実行コマンドの標準入力。                                                           |
+| **Expected output** | 実行コマンドによる標準出力として期待する出力結果。                                              |
+| **Comparison**      | 実行コマンドの出力と期待する出力との比較方法。<br/><br/><ul><li>**Included**: 期待する出力が、実行コマンドによる標準出力の<br/>任意の場所に現れたら合格。</li><li>**Exact**: 期待する出力と、実行コマンドによる標準出力が<br/>完全に一致したら合格。</li><li>**Regex**: 期待する出力の正規表現が、実行コマンドによる<br/>標準出力に一致したら合格。</li></ul> |
+| **Timeout**         | 失敗の結果が出るまでにテストを実行する時間（分単位）。                                            |
+| **Points**          | *（オプション）* テストの合計点に占める点数。                                               |
 
-### Run command test
+### 実行コマンドテスト
 
-A run command test runs a setup command, then runs a test command. {% data variables.product.prodname_classroom %} checks the exit status of the test command. An exit code of `0` results in success, and any other exit code results in failure.
+実行コマンドテストはセットアップコマンドを実行してから、テストコマンドを実行します。 {% data variables.product.prodname_classroom %}は、テストコマンドの終了ステータスをチェックします。 終了コードが`0`の場合は成功、その他の場合は失敗です。
 
-{% data variables.product.prodname_classroom %} provides presets for language-specific run command tests for a variety of programming languages. For example, the **Run node** test prefills the setup command with `npm install` and the test command with `npm test`.
+{% data variables.product.prodname_classroom %}は、さまざまなプログラミング言語に対し、言語特有の実行コマンド用プリセットを提供しています。 たとえば、**Run node**テストではセットアップコマンドに`npm install`が、テストコマンドに`npm test`が事前に設定されています。
 
-| Setting | Description |
-| :- | :- |
-| **Test name** | The name of the test, to identify the test in logs |
-| **Setup command** | _Optional_. A command to run before tests, such as compilation or installation |
-| **Run command** | The command to run the test and generate an exit code for evaluation |
-| **Timeout** | In minutes, how long a test should run before resulting in failure |
-| **Points** | _Optional_. The number of points the test is worth toward a total score |
+| 設定                | 説明                                       |
+|:----------------- |:---------------------------------------- |
+| **Test name**     | テストの名前。ログでテストを識別するためのものです。               |
+| **Setup command** | *（オプション）* コンパイルやインストールなど、テストを実行する前のコマンド。 |
+| **Run command**   | テストを実行し、評価用の終了コードを生成するためのコマンド。           |
+| **Timeout**       | 失敗の結果が出るまでにテストを実行する時間（分単位）。              |
+| **Points**        | *（オプション）* テストの合計点に占める点数。                 |
 
-## Configuring autograding tests for an assignment
+## アシスタントのために自動採点テストを設定する
 
-You can add autograding tests during the creation of a new assignment. {% data reusables.classroom.for-more-information-about-assignment-creation %}
+新課題の作成時に、自動採点テストを追加できます。 {% data reusables.classroom.for-more-information-about-assignment-creation %}
 
-You can add, edit, or delete autograding tests for an existing assignment. If you change the autograding tests for an existing assignment, existing assignment repositories will not be affected. A student or team must accept the assignment and create a new assignment repository to use the new tests.
+既存の課題用の自動採点テストを追加、編集、削除できます。 All changes made via the Classroom UI will be pushed to the existing student repositories, so use caution when editing your tests.
 
 {% data reusables.classroom.sign-into-github-classroom %}
 {% data reusables.classroom.click-classroom-in-list %}
 {% data reusables.classroom.assignments-click-pencil %}
-1. In the left sidebar, click **Grading and feedback**.
-  !["Grading and feedback" to the left of assignment's basics](/assets/images/help/classroom/assignments-click-grading-and-feedback.png)
-1. Add, edit, or delete an autograding test.
-    - To add a test, under "Add autograding tests", select the **Add test** drop-down menu, then click the grading method you want to use.
-       ![Using the "Add test" drop-down menu to click a grading method](/assets/images/help/classroom/autograding-click-grading-method.png)
-       Configure the test, then click **Save test case**.
-       !["Save test case" button for an autograding test](/assets/images/help/classroom/assignments-click-save-test-case-button.png)
-    - To edit a test, to the right of the test name, click {% octicon "pencil" aria-label="The pencil icon" %}.
-        ![Pencil icon for editing an autograding test](/assets/images/help/classroom/autograding-click-pencil.png)
-       Configure the test, then click **Save test case**.
-       !["Save test case" button for an autograding test](/assets/images/help/classroom/assignments-click-save-test-case-button.png)
-    - To delete a test, to the right of the test name, click {% octicon "trash" aria-label="The trash icon" %}.
-        ![Trash icon for deleting an autograding test](/assets/images/help/classroom/autograding-click-trash.png)
-1. At the bottom of the page, click **Update assignment**.
-  !["Update assignment" button at the bottom of the page](/assets/images/help/classroom/assignments-click-update-assignment.png)
+1. 左サイトバーで、[**Grading and feedback**] をクリックします。 ![課題の基本情報の右側にある [Grading and feedback]](/assets/images/help/classroom/assignments-click-grading-and-feedback.png)
+1. 自動採点テストを追加、編集、または削除します。
+    - テストを追加するには、[Add autograding tests] の下にある [**Add test**] ドロップダウンメニューを選択し、使用する採点方法をクリックします。 ![Using the "Add test" drop-down menu to click a grading method](/assets/images/help/classroom/autograding-click-grading-method.png) テストを設定し、[**Save test case**] をクリックします。 ![自動採点テストの [Save test case] ボタン](/assets/images/help/classroom/assignments-click-save-test-case-button.png)
+    - テストを編集するには、テスト名の右側にある {% octicon "pencil" aria-label="The pencil icon" %} をクリックします。 ![Pencil icon for editing an autograding test](/assets/images/help/classroom/autograding-click-pencil.png) テストを設定し、[**Save test case**] をクリックします。 ![自動採点テストの [Save test case] ボタン](/assets/images/help/classroom/assignments-click-save-test-case-button.png)
+    - テストを削除するには、テスト名の右側にある {% octicon "trash" aria-label="The trash icon" %} をクリックします。  ![自動採点テストを削除するためのゴミ箱アイコン](/assets/images/help/classroom/autograding-click-trash.png)
+1. ページの下部で、[**Update assignment**] をクリックします。 ![ページカブの [Update assignment] ボタン](/assets/images/help/classroom/assignments-click-update-assignment.png)
 
 ## Viewing and downloading results from autograding tests
 
@@ -92,10 +84,9 @@ You can also download a CSV of your students' autograding scores via the "Downlo
 {% data reusables.classroom.sign-into-github-classroom %}
 {% data reusables.classroom.click-classroom-in-list %}
 {% data reusables.classroom.click-assignment-in-list %}
-1. To the right of a submission, click **View test**.
-  !["View test" button for an assignment submission](/assets/images/help/classroom/assignments-click-view-test.png)
-1. Review the test output. For more information, see "[Using workflow run logs](/actions/managing-workflow-runs/using-workflow-run-logs)."
+1. 提出物の右側にある、[**View text**] をクリックします。 ![課題提出物の [View test] ボタン](/assets/images/help/classroom/assignments-click-view-test.png)
+1. テストの出力結果をレビューします。 詳しい情報については、「[ワークフロー実行ログを使用する](/actions/managing-workflow-runs/using-workflow-run-logs)」を参照してください。
 
-## Further reading
+## 参考リンク
 
-- [{% data variables.product.prodname_actions %} documentation](/actions)
+- [{% data variables.product.prodname_actions %}ドキュメント](/actions)

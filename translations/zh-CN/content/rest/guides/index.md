@@ -1,6 +1,6 @@
 ---
-title: Guides
-intro: 'Learn about getting started with the REST API, authentication, and how to use the REST API for a variety of tasks.'
+title: 指南
+intro: 了解如何开始使用 REST API、身份验证以及如何使用 REST API 完成各种任务。
 redirect_from:
   - /guides
   - /v3/guides
@@ -24,10 +24,5 @@ children:
   - /getting-started-with-the-git-database-api
   - /getting-started-with-the-checks-api
 ---
-This section of the documentation is intended to get you up-and-running with
-real-world {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API applications. We'll cover everything you need to know, from
-authentication, to manipulating results, to combining results with other apps.
-Every tutorial here will have a project, and every project will be
-stored and documented in our public
-[platform-samples](https://github.com/github/platform-samples) repository.
-![The Electrocat](/assets/images/electrocat.png)
+
+文档的这一部分旨在让您使用实际 {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API 应用程序开始运行。 我们将介绍您需要了解的所有内容，从身份验证到结果操作，再到将结果与其他应用程序集成。 每个教程都将包含一个项目，每个项目都将保存并记录在我们的公共 [platform-samples](https://github.com/github/platform-samples) 存储库中。 ![The Octocat](/assets/images/electrocat.png)

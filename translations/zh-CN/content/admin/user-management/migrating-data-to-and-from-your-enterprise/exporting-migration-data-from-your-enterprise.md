@@ -98,7 +98,7 @@ shortTitle: Export from your enterprise
   > logout
   > Connection to <em>hostname</em> closed.
   ```
-9. Copy the migration archive to your computer using the [`scp`](https://linuxacademy.com/blog/linux/ssh-and-scp-howto-tips-tricks#scp) command. The archive file will be named with the Migration GUID:
+9. Copy the migration archive to your computer using the [`scp`](https://acloudguru.com/blog/engineering/ssh-and-scp-howto-tips-tricks#scp) command. The archive file will be named with the Migration GUID:
   ```shell
   $ scp -P 122 admin@<em>hostname</em>:/data/github/current/tmp/<em>MIGRATION_GUID</em>.tar.gz ~/Desktop
   ```

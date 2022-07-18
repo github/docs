@@ -1,11 +1,9 @@
 import { PeopleIcon, CommentDiscussionIcon } from '@primer/octicons-react'
 
 import { useTranslation } from 'components/hooks/useTranslation'
-import { useVersion } from 'components/hooks/useVersion'
 import { useMainContext } from 'components/context/MainContext'
 
 export const Support = () => {
-  const { isEnterprise } = useVersion()
   const { t } = useTranslation('support')
   const { communityRedirect } = useMainContext()
 
@@ -25,11 +23,7 @@ export const Support = () => {
       <div>
         <a
           id="contact-us"
-          href={
-            isEnterprise
-              ? 'https://enterprise.github.com/support'
-              : 'https://support.github.com/contact'
-          }
+          href="https://support.github.com/contact"
           className="Link—secondary text-bold"
         >
           <CommentDiscussionIcon size="small" className="octicon mr-1" />

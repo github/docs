@@ -1,6 +1,6 @@
 ---
-title: Viewing activity and data for your repository
-intro: Gain insight into your repository by viewing activity and data.
+title: 查看存储库的活动和数据
+intro: 通过查看活动和数据深入了解您的存储库。
 redirect_from:
   - /categories/44/articles
   - /categories/graphs-and-contributions
@@ -22,6 +22,6 @@ children:
   - /viewing-a-projects-contributors
   - /analyzing-changes-to-a-repositorys-content
   - /understanding-connections-between-repositories
-shortTitle: View activity and data
+shortTitle: 查看活动和数据
 ---
 

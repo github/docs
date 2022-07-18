@@ -60,7 +60,7 @@
       },
       "name": "octocoders-linter",
       "description": "",
-      "external_url": "https://octocoders.io",
+      "external_url": "https://octocoders.github.io",
       "html_url": "https://octocoders.github.io/github-apps/octocoders-linter",
       "created_at": "2019-05-15T15:41:35Z",
       "updated_at": "2019-05-15T15:41:35Z",
@@ -130,11 +130,11 @@
       "timestamp": "2019-05-15T19:38:01Z",
       "author": {
         "name": "Codertocat",
-        "email": "Codertocat@Octocoders.io"
+        "email": "Codertocat@octocoders.github.io"
       },
       "committer": {
         "name": "Codertocat",
-        "email": "Codertocat@Octocoders.io"
+        "email": "Codertocat@octocoders.github.io"
       }
     }
   },

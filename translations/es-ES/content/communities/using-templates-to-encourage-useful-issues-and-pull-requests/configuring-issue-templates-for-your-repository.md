@@ -21,11 +21,7 @@ shortTitle: Configure
 
 {% endif %}
 
-{% ifversion fpt or ghae or ghes or ghec %}
-
 ## Creating issue templates
-
-{% endif %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
@@ -71,7 +67,6 @@ Here is the rendered version of the issue form.
 
 {% endif %}
 
-{% ifversion fpt or ghae or ghes or ghec %}
 ## Configuring the template chooser
 
 {% data reusables.repositories.issue-template-config %}
@@ -88,7 +83,7 @@ If you prefer to receive certain reports outside of {% data variables.product.pr
 
 Here is an example *config.yml* file.
 
-```shell
+```yaml{:copy}
 blank_issues_enabled: false
 contact_links:
   - name: {% data variables.product.prodname_gcf %}
@@ -110,7 +105,6 @@ Your configuration file will customize the template chooser when the file is mer
 {% data reusables.files.write_commit_message %}
 {% data reusables.files.choose_commit_branch %}
 {% data reusables.files.propose_new_file %}
-{% endif %}
 
 ## Further reading
 

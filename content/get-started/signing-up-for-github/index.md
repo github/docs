@@ -16,6 +16,5 @@ children:
   - /verifying-your-email-address
   - /setting-up-a-trial-of-github-enterprise-cloud
   - /setting-up-a-trial-of-github-enterprise-server
-  - /setting-up-a-trial-of-github-ae
 ---
 

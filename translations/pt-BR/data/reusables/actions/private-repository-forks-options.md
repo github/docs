@@ -1,0 +1,3 @@
+- **Executar fluxos de trabalho de pull requests** - Permite que os usuários executem fluxos de trabalho de pull requests, usando um `GITHUB_TOKEN` com permissão somente leitura e sem acesso a segredos.
+- **Enviar tokens para fluxos de trabalho a partir de pull requests** - Permite que os pull requests das bifurcações usem um `GITHUB_TOKEN` com permissão de gravação.
+- **Envia segredos para fluxos de trabalho de pull requests** - Disponibiliza todos os segredos para o pull request.

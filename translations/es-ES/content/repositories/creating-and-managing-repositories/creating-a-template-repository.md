@@ -1,6 +1,6 @@
 ---
 title: Crear un repositorio desde una plantilla
-intro: 'Puedes crear una plantilla a partir de un repositorio existente para que tanto tú como otras personas puedan generar nuevos repositorios con la misma estructura de {% ifversion fpt or ghae or ghes or ghec %}ramas y{% endif %}archivos en el directorio.'
+intro: 'Puedes convertir un repositorio existente en una plantilla para que tanto tú como otras personas puedan generar repositorios nuevos con la misma estructura de directorios, ramas y archivos.'
 permissions: Anyone with admin permissions to a repository can make the repository a template.
 redirect_from:
   - /articles/creating-a-template-repository
@@ -24,7 +24,7 @@ shortTitle: Crear un repositorio de plantilla
 
 Para crear un repositorio de plantilla, debes crear un repositorio y luego convertirlo en una plantilla. Para obtener más información sobre la creación de repositorios, consulta "[Crear un repositorio nuevo](/articles/creating-a-new-repository)."
 
-Después de que conviertes tu repositorio en una plantilla, cualquiera que tenga acceso a este podrá generar un repositorio nuevo con la misma estructura de directorios y archivos que tu rama predeterminada.{% ifversion fpt or ghae or ghes or ghec %} También pueden elegir incluir el resto de las ramas de tu repositorio. Las ramas que se crean a partir de una plantilla tienen historiales sin relación, así que no puedes crear solicitudes de cambios ni hacer fusiones entre ramas.{% endif %} Para obtener más información, consulta la sección "[Crear un repositorio a partir de una plantilla](/articles/creating-a-repository-from-a-template)".
+Después de convertir a tu repositorio en plantilla, cualquiera con acceso a dicho repositorio podrá generar uno nuevo con la misma estructura de directorios y archivos que tu rama predeterminada. También pueden elegir incluir el resto de las ramas en tu repositorio. Las ramas que se crean desde una plantilla tienen historias sin relación entre ellas, así que no puedes crear solicitudes de cambio ni hacer fusiones entre las ramas. Para obtener más información, consulta "[Crear un repositorio a partir de una plantilla](/articles/creating-a-repository-from-a-template)".
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}

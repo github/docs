@@ -29,14 +29,20 @@ The nameservers you specify must resolve {% data variables.product.product_locat
 ## Configuring nameservers using the administrative shell
 
 {% data reusables.enterprise_installation.ssh-into-instance %}
+
 2. To edit your nameservers, enter:
+
   ```shell
-  $ sudo vim /etc/resolvconf/resolv.conf.d/head
+  sudo vim /etc/resolvconf/resolv.conf.d/head
   ```
+
+{% data reusables.enterprise_installation.preventing-nameservers-change %}
+
 3. Append any `nameserver` entries, then save the file.
 4. After verifying your changes, save the file.
 5. To add your new nameserver entries to {% data variables.product.product_location %}, run the following:
+
   ```shell
-  $ sudo service resolvconf restart
-  $ sudo service dnsmasq restart
+  sudo service resolvconf restart
+  sudo service dnsmasq restart
   ```

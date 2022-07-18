@@ -2,8 +2,8 @@
 title: Gestionar cambios de plan
 intro: 'El mejorar y degradar una app de {% data variables.product.prodname_marketplace %} activa el webhook del [evento `marketplace_purchase`](/marketplace/integrating-with-the-github-marketplace-api/github-marketplace-webhook-events/) con la acción `cambiada`, lo cual inicia el flujo de mejora o degradación.'
 redirect_from:
-  - /apps/marketplace/administering-listing-plans-and-user-accounts/upgrading-or-downgrading-plans/
-  - /apps/marketplace/integrating-with-the-github-marketplace-api/upgrading-and-downgrading-plans/
+  - /apps/marketplace/administering-listing-plans-and-user-accounts/upgrading-or-downgrading-plans
+  - /apps/marketplace/integrating-with-the-github-marketplace-api/upgrading-and-downgrading-plans
   - /marketplace/integrating-with-the-github-marketplace-api/upgrading-and-downgrading-plans
   - /developers/github-marketplace/handling-plan-changes
 versions:
@@ -50,7 +50,7 @@ Para motivar a las personas a mejorar el plan, puedes mostrar una URL de mejora 
 
 Puedes redirigir a los usuarios desde la IU de tu app para que mejoren su plan en GitHub a través de una URL de mejora:
 
-```
+```text
 https://www.github.com/marketplace/<LISTING_NAME>/upgrade/<LISTING_PLAN_NUMBER>/<CUSTOMER_ACCOUNT_ID>
 ```
 

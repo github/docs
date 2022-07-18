@@ -1,2 +1,2 @@
 {% data reusables.audit_log.audit-log-api-info %}
-* クローン、フェッチ、プッシュなどの Git イベント
+{% ifversion fpt or ghec %}* Git events, such as cloning, fetching, and pushing{% endif %}

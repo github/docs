@@ -18,9 +18,9 @@ featuredLinks:
   popular:
     - /discussions/guides/granting-higher-permissions-to-top-contributors
     - /discussions/guides/best-practices-for-community-conversations-on-github
-    - /discussions/guides/finding-discussions-across-multiple-repositories
+    - /discussions/guides/finding-your-discussions
     - /discussions/collaborating-with-your-community-using-discussions/collaborating-with-maintainers-using-discussions
-    - /discussions/managing-discussions-for-your-community/managing-categories-for-discussions-in-your-repository
+    - /discussions/managing-discussions-for-your-community/managing-categories-for-discussions
 changelog:
   label: discussions
 examples_source: data/product-examples/discussions/community-examples.yml

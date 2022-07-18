@@ -1,6 +1,6 @@
 ---
-title: Guides
-intro: 'Learn about getting started with the REST API, authentication, and how to use the REST API for a variety of tasks.'
+title: Guias
+intro: 'Saiba mais sobre como começar com a API REST, sobre a autenticação e como usar a API REST para várias tarefas.'
 redirect_from:
   - /guides
   - /v3/guides
@@ -24,10 +24,5 @@ children:
   - /getting-started-with-the-git-database-api
   - /getting-started-with-the-checks-api
 ---
-This section of the documentation is intended to get you up-and-running with
-real-world {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API applications. We'll cover everything you need to know, from
-authentication, to manipulating results, to combining results with other apps.
-Every tutorial here will have a project, and every project will be
-stored and documented in our public
-[platform-samples](https://github.com/github/platform-samples) repository.
-![The Electrocat](/assets/images/electrocat.png)
+
+Esta seção da documentação tem o objetivo de ajudar você a executar os aplicativos reais {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} da API. Nós vamos analisar tudo o que você precisa saber, desde a autenticação e manipulação de resultados até a integração de resultados com outros aplicativos. Cada tutorial incluirá um projeto, e cada projeto será salvo e documentado em nosso repositório público de [exemplos de plataforma](https://github.com/github/platform-samples). ![O Octocat](/assets/images/electrocat.png)

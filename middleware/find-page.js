@@ -1,6 +1,7 @@
+import getRedirect from '../lib/get-redirect.js'
 // This middleware uses the request path to find a page in the preloaded context.pages object
 
-export default async function findPage(req, res, next) {
+export default function findPage(req, res, next) {
   let page = req.context.pages[req.pagePath]
 
   // When a user navigates to a translated page that doesn't yet exists
@@ -16,7 +17,7 @@ export default async function findPage(req, res, next) {
     const englishPath = req.pagePath.replace(new RegExp(`^/${req.language}`), '/en')
     // NOTE the fallback page will have page.languageCode = 'en'
     page = req.context.pages[englishPath]
-    const redirectToPath = req.context.redirects[englishPath]
+    const redirectToPath = getRedirect(englishPath, req.context)
 
     // If the requested translated page has a 1-1 mapping in English,
     // redirect to that English page

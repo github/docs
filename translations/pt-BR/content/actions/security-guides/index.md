@@ -1,7 +1,7 @@
 ---
-title: Security guides
-shortTitle: Security guides
-intro: 'Security hardening and good practices for {% data variables.product.prodname_actions %}.'
+title: Guias de segurança
+shortTitle: Guias de segurança
+intro: 'Enrijecimento de segurança e práticas recomendadas para {% data variables.product.prodname_actions %}.'
 versions:
   fpt: '*'
   ghes: '*'

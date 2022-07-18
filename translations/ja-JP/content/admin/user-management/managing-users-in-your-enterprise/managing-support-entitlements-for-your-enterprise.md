@@ -1,7 +1,6 @@
 ---
 title: Managing support entitlements for your enterprise
 intro: You can grant enterprise members the ability to manage support tickets for your enterprise account.
-product: '{% data reusables.gated-features.enterprise-accounts %}'
 redirect_from:
   - /github/setting-up-and-managing-your-enterprise/managing-users-in-your-enterprise/managing-support-entitlements-for-your-enterprise
 versions:
@@ -16,7 +15,7 @@ shortTitle: Manage support entitlements
 
 People with support entitlements for your enterprise account can use the support portal to open, view, and comment on support tickets associated with the enterprise account.
 
-Enterprise owners and billing managers automatically have a support entitlement. Enterprise owners can add support entitlements to members of organizations owned by their enterprise account.
+Enterprise owners and billing managers automatically have a support entitlement. Enterprise owners can add support entitlements to up to 20 additional members of organizations owned by their enterprise account.
 
 ## Adding a support entitlement to an enterprise member
 

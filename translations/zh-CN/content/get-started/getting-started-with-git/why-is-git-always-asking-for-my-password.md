@@ -16,7 +16,7 @@ shortTitle: Git 密码
 
 与使用 SSH 相比，使用 HTTPS 远程 URL 具有一些优势。 它比 SSH 更容易设置，通常通过严格的防火墙和代理进行工作。 但是，每次拉取或推送仓库时，它也会提示您输入 {% data variables.product.product_name %} 凭据。
 
-{% data reusables.user_settings.password-authentication-deprecation %}
+{% data reusables.user-settings.password-authentication-deprecation %}
 
 通过配置 Git 为您[缓存凭据](/github/getting-started-with-github/caching-your-github-credentials-in-git)，您可以避免提示输入密码。 在配置凭据缓存后，当您使用 HTTPS 拉取或推送仓库时，Git 会自动使用缓存的个人访问令牌。
 

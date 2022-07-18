@@ -3,7 +3,7 @@ title: About pull request merges
 intro: 'You can [merge pull requests](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request) by retaining all the commits in a feature branch, squashing all commits into a single commit, or by rebasing individual commits from the `head` branch onto the `base` branch.'
 redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/incorporating-changes-from-a-pull-request/about-pull-request-merges
-  - /articles/about-pull-request-merge-squashing/
+  - /articles/about-pull-request-merge-squashing
   - /articles/about-pull-request-merges
   - /github/collaborating-with-issues-and-pull-requests/about-pull-request-merges
   - /github/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/about-pull-request-merges
@@ -23,12 +23,16 @@ topics:
 
 ### Merge message for a squash merge
 
-When you squash and merge, {% data variables.product.prodname_dotcom %} generates a commit message which you can change if you want to. The message default depends on whether the pull request contains multiple commits or just one. We do not include merge commits when we count the total number of commits.
+When you squash and merge, {% data variables.product.prodname_dotcom %} generates a default commit message, which you can edit. The default message depends on the number of commits in the pull request, not including merge commits.
 
 Number of commits | Summary | Description |
 ----------------- | ------- | ----------- |
 One commit | The title of the commit message for the single commit, followed by the pull request number | The body text of the commit message for the single commit
 More than one commit | The pull request title, followed by the pull request number | A list of the commit messages for all of the squashed commits, in date order
+
+{% ifversion fpt or ghec or ghes > 3.5 or ghae-issue-7042 %}
+People with admin access to a repository can configure the repository to use the title of the pull request as the default merge message for all squashed commits. For more information, see "[Configure commit squashing](/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/configuring-commit-squashing-for-pull-requests)".
+{% endif %}
 
 ### Squashing and merging a long-running branch
 

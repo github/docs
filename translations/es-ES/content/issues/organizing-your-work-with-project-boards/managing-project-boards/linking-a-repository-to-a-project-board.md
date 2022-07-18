@@ -1,6 +1,6 @@
 ---
 title: Vincular un repositorio a un tablero de proyecto
-intro: Puedes vincular un repositorio a tu tablero de proyecto de la organización o de la cuenta de usuario.
+intro: Puedes enlazar un repositorio al tablero de proyecto de tu cuenta personal o de organización.
 redirect_from:
   - /github/managing-your-work-on-github/managing-project-boards/linking-a-repository-to-a-project-board
   - /articles/linking-a-repository-to-a-project-board
@@ -17,7 +17,7 @@ shortTitle: Enlazar un repositorio al tablero
 
 {% data reusables.projects.project_boards_old %}
 
-Cualquiera con permisos de escritura en un tablero de proyecto puede enlazar repositorios que sean propiedad de la cuenta de usuario u organización al mismo. Para obtener más información, consulta la sección "[Permisos para una organización sobre el tablero de proyecto](/articles/project-board-permissions-for-an-organization/)" o "[Niveles de permiso para tableros de proyecto propiedad de un usuario](/articles/permission-levels-for-user-owned-project-boards/)".
+Cualquiera con permisos de escritura en un tablero de proyecto puede enlazar repositorios que sean propiedad de la cuenta personal o de organización al mismo. Para obtener más información, consulta la sección "[Permisos para una organización sobre el tablero de proyecto](/articles/project-board-permissions-for-an-organization/)" o "[Niveles de permiso para tableros de proyecto propiedad de un usuario](/articles/permission-levels-for-user-owned-project-boards/)".
 
 {% data reusables.project-management.link-repos-to-project-board %} Puedes agregar propuestas y solicitudes de extracción desde cualquier repositorio no vinculado escribiendo la URL de la propuesta o de la solicitud de extracción en una tarjeta. Para obtener más información, consulta "[Agregar propuestas y solicitudes de extracción a un tablero de proyecto](/articles/adding-issues-and-pull-requests-to-a-project-board)".
 

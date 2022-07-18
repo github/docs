@@ -14,13 +14,13 @@ shortTitle: Grant higher permissions
 
 ## Step 1: Audit your {% data variables.product.prodname_discussions %} top contributors
 
-{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.discussions.navigate-to-repo-or-org %}
 {% data reusables.discussions.discussions-tab %}
-1. コントリビューターのリストとアクセス権限を比較して、ディスカッションをモデレートする資格があるユーザを確認します。
+1. Compare the list of contributors with their access permissions to the repository or, for organization discussions, to the source repository to see who qualifies to moderate the discussion.
 
 ## Step 2: Review permission levels for {% data variables.product.prodname_discussions %}
 
-リポジトリのトリアージ権限を持つユーザは、コメントを回答としてマークし、役に立たなくなった、またはコミュニティに損害を与えているディスカッションをロックし、アイデアがまだ開発の初期段階にあるときに Issue をディスカッションに変換することで、プロジェクトのディスカッションをモデレートするのに役立ちます。 詳しい情報については、「[ ディスカッションをモデレートする](/discussions/managing-discussions-for-your-community/moderating-discussions)」を参照してください。
+People with triage permissions for a repository can help moderate a repository's discussions by marking comments as answers, locking discussions that are not longer useful or are damaging to the community, and converting issues to discussions when an idea is still in the early stages of development. Similarly, people with triage permissions for the source repository for organization discussions can moderate the organization's discussions. 詳しい情報については、「[ ディスカッションをモデレートする](/discussions/managing-discussions-for-your-community/moderating-discussions)」を参照してください。
 
 リポジトリの権限レベルおよび {% data variables.product.prodname_discussions %} に関する詳しい情報については、「[Organization のリポジトリの権限レベル](/organizations/managing-access-to-your-organizations-repositories/repository-permission-levels-for-an-organization)」を参照してください。
 

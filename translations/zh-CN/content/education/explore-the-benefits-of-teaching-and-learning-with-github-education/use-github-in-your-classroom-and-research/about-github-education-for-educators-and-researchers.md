@@ -18,8 +18,7 @@ shortTitle: 教育工作者和研究人员
 利用 {% data variables.product.prodname_education %} 适用于各级教育者的工具和服务，您可以：
   - 使用 [{% data variables.product.prodname_classroom %}](https://classroom.github.com) 分发代码、向学生提供反馈以及收集 {% data variables.product.prodname_dotcom %} 中的作业。
   - 加入我们的 [{% data variables.product.prodname_education_community %}](https://education.github.com/forum)，以与全球各地的同行讨论技术教育的当前趋势。
-  - 访问和调整我们用于教授 Git 和 {% data variables.product.prodname_dotcom %} 的[开源课程计划](https://education.github.community/t/open-source-lesson-plans/1591)。
-  - [申请 {% data variables.product.prodname_dotcom %} swag 包](https://education.github.community/t/get-a-github-swag-bag-for-your-classroom/33)，其中包括学生用教育资料和重要工具。
+  - [申请 {% data variables.product.prodname_dotcom %} swag 包](https://github.com/orgs/github-community/discussions/13)，其中包括学生用教育资料和重要工具。
   {% data reusables.education.apply-for-team %}
 
 ## 适用于研究人员的 {% data variables.product.prodname_education %}

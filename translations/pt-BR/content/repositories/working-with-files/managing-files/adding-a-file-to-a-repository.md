@@ -40,7 +40,7 @@ Os arquivos que você adiciona a um repositório por meio do navegador são limi
 
 ## Adicionar um arquivo a um repositório usando a linha de comando
 
-You can upload an existing file to a repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} using the command line.
+Você pode enviar um arquivo existente para um repositório em {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} usando a linha de comando.
 
 {% tip %}
 
@@ -69,4 +69,4 @@ You can upload an existing file to a repository on {% ifversion ghae %}{% data v
 
 ## Leia mais
 
-- "[Adicionar um projeto existente ao GitHub usando a linha de comando](/articles/adding-an-existing-project-to-github-using-the-command-line)"
+- "[Adicionando um código localmente hospedado em {% data variables.product.product_name %}](/get-started/importing-your-projects-to-github/importing-source-code-to-github//adding-locally-hosted-code-to-github)"

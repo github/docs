@@ -46,7 +46,7 @@ Para dar seguimiento a las notificaciones, podrías considerar la pregunta "¿En
 
 Por ejemplo, puedes decidir dar seguimiento en este orden:
   - Los informes de problemas y solicitudes de extracción a los que estás asignado. Inmediatamente cierra cualquier informe de problemas o solicitudes de extracción que puedas y añade actualizaciones. Guarda las notificaciones que desees revisar después conforme lo necesites.
-  - Revisa las notificaciones en la bandeja de guardados, especialmente las que no leídas. Si el hilo ya no es relevante, desmarca {% octicon "bookmark" aria-label="The bookmark icon" %} para eliminar la notificación de la bandeja de guardados, y márcala como no guardada.
+  - Revisa las notificaciones en la bandeja de guardados, especialmente las que no leídas. Si el hilo ya no es relevante, deselecciona {% octicon "bookmark" aria-label="The bookmark icon" %} para eliminar la notificación de la bandeja de elementos guardados y deja de guardarlos.
 
 ## Administrar notificaciones de prioridad más baja
 

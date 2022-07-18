@@ -20,12 +20,12 @@ jobs:
 
     steps:
       - name: Check out repo content
-        uses: actions/checkout@ec3a7ce113134d7a93b817d10a8272cb61118579
+        uses: actions/checkout@dcd71f646680f2efd8db4afa5ad64fdcba30e748
 
       - name: Setup Node
-        uses: actions/setup-node@04c56d2f954f1e4c69436aa54cfef261a018f458
+        uses: actions/setup-node@17f8bd926464a1afa4c6a11669539e9c1ba77048
         with:
-          node-version: 16.13.x
+          node-version: '16.15.0'
           cache: npm
 
       - name: Install dependencies
@@ -40,6 +40,3 @@ jobs:
           ORGANIZATION: 'github'
           REPO: 'github'
           REVIEWER: 'docs-reviewers'
-          # This is an educated guess of how many PRs are opened in a day on the github/github repo
-          # If we are missing PRs, either increase this number or increase the frequency at which this script is run
-          NUM_PRS: 100

@@ -24,7 +24,7 @@ the moment your code lands on the default branch.
 This guide will use that API to demonstrate a setup that you can use.
 In our scenario, we will:
 
-* Merge a pull request
+* Merge a pull request.
 * When the CI is finished, we'll set the pull request's status accordingly.
 * When the pull request is merged, we'll run our deployment to our server.
 

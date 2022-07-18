@@ -1,11 +1,11 @@
 ---
-title: Be social
+title: Interações sociais
 redirect_from:
   - /be-social
   - /articles/be-social
   - /github/getting-started-with-github/be-social
   - /github/getting-started-with-github/quickstart/be-social
-intro: 'You can interact with people, repositories, and organizations on {% data variables.product.prodname_dotcom %}. See what others are working on and who they''re connecting with from your personal dashboard.'
+intro: 'Você pode interagir com pessoas, repositórios e organizações no {% data variables.product.prodname_dotcom %}. Veja em que outras pessoas estão trabalhando e com quem estão se conectando a partir do seu painel pessoal.'
 permissions: '{% data reusables.enterprise-accounts.emu-permission-interact %}'
 versions:
   fpt: '*'
@@ -19,63 +19,62 @@ topics:
   - Notifications
   - Accounts
 ---
-To learn about accessing your personal dashboard, see "[About your personal dashboard](/articles/about-your-personal-dashboard)."
 
-## Following people
+Para saber mais sobre como acessar o painel pessoal, consulte "[Sobre seu painel pessoal](/articles/about-your-personal-dashboard)".
 
-When you follow someone on {% data variables.product.prodname_dotcom %}, you'll get notifications on your personal dashboard about their activity. For more information, see "[About your personal dashboard](/articles/about-your-personal-dashboard)."
+## Seguir pessoas
 
-Click **Follow** on a person's profile page to follow them.
+Ao seguir alguém em {% data variables.product.prodname_dotcom %}, você receberá notificações no seu painel pessoal sobre a atividade pública deles. Se alguém que você segue criar um novo repositório, favoritar um repositório ou seguir outro usuário, a atividade será exibida no seu painel.
 
-![Follow user button](/assets/images/help/profile/follow-user-button.png)
+Clique em **Follow** (Seguir) na página do perfil de uma pessoa para segui-la.
 
-## Watching a repository
+![Botão Follow user (Seguir usuário)](/assets/images/help/profile/follow-user-button.png)
 
-You can watch a repository to receive notifications for new pull requests and issues. When the owner updates the repository, you'll see the changes in your personal dashboard. For more information see {% ifversion fpt or ghae or ghes or ghec %}"[Viewing your subscriptions](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions){% else %}"[Watching and unwatching repositories](/github/receiving-notifications-about-activity-on-github/watching-and-unwatching-repositories){% endif %}."
+Para obter mais informações, consulte "[Seguindo pessoas](/get-started/exploring-projects-on-github/following-people)".
 
-Click **Watch** at the top of a repository to watch it.
+## Inspecionar um repositório
 
-![Watch repository button](/assets/images/help/repository/repo-actions-watch.png)
+Você pode assinar um repositório para inspecionar e receber notificações de atividade nele. Quando o proprietário atualiza o repositório, você vê as alterações no seu painel pessoal. Para obter mais informações, consulte "[Visualizando suas assinaturas](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions)".
 
-## Joining the conversation
+Clique em **Watch** (Inspecionar) no topo de um repositório para inspecioná-lo.
+
+![Botão Watch repository (Inspecionar repositório)](/assets/images/help/repository/repo-actions-watch.png)
+
+## Ingressar na conversa
 
 {% data reusables.support.ask-and-answer-forum %}
 
-## Communicating on {% data variables.product.product_name %}
+## Comunicando em {% data variables.product.product_name %}
 
-{% data variables.product.product_name %} provides built-in collaborative communication tools, such as issues and pull requests, allowing you to interact closely with your community when building great software. For an overview of these tools, and information about the specificity of each, see "[Quickstart for communicating on {% data variables.product.prodname_dotcom %}](/github/collaborating-with-issues-and-pull-requests/quickstart-for-communicating-on-github)."
+O {% data variables.product.product_name %} fornece ferramentas de comunicação colaborativas integradas, permitindo que você interaja de perto com sua comunidade ao criar um ótimo software. Por exemplo, você pode contribuir para o projeto de outro usuário criando um pull request ou usar problemas para rastrear erros ou sugerir ideias em um repositório. Também é possível levantar hipótses com sua equipe com discussões.
 
-## Doing even more
+Para uma visão geral destas ferramentas, consulte "[Início rápido para se comunicar em {% data variables.product.prodname_dotcom %}](/github/collaborating-with-issues-and-pull-requests/quickstart-for-communicating-on-github)".
 
-### Creating pull requests
+## Participar em organizações
 
- You may want to contribute to another person's project, whether to add features or to fix bugs. After making changes, let the original author know by sending a pull request. For more information, see "[About pull requests](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)."
+As organizações são contas compartilhadas onde empresas e projetos de código aberto podem colaborar em muitos projetos de uma vez. Os proprietários e administradores podem definir equipes com permissões especiais, ter um perfil público da organização e acompanhar a atividade dentro da organização. Para obter mais informações, consulte "[Sobre organizações](/articles/about-organizations/)".
 
- ![Pull request button](/assets/images/help/repository/repo-actions-pullrequest.png)
+No painel de controle, clique no menu suspenso do seu nome de usuário no lado esquerdo do painel. Aqui, você pode ver as organizações das quais você faz parte e facilmente alternar entre elas.
 
-### Using issues
+![Menu suspenso de alternância de contexto da conta](/assets/images/help/overview/dashboard-contextswitcher.png)
 
-When collaborating on a repository, use issues to track ideas, enhancements, tasks, or bugs. For more information, see '[About issues](/articles/about-issues/)."
+### Explorar outros projetos no {% data variables.product.prodname_dotcom %}
 
-![Issues button](/assets/images/help/repository/repo-tabs-issues.png)
+Você pode encontrar projetos novos e interessantes na página de explorar de {% data variables.product.prodname_dotcom %}. Você pode favoritar projetos interessantes para torná-los fáceis de encontrar mais tarde. Visite sua página de favoritos para ver todos os seus projetos favoritos. Para obter mais informações sobre estrelas, consulte "[Repositórios salvos com estrelas](/get-started/exploring-projects-on-github/saving-repositories-with-stars)".
 
-### Participating in organizations
+Seu painel exibe projetos com base em seus interesses, incluindo repositórios que você favorita, pessoas que você segue e suas contribuições para repositórios públicos. No seu painel, você pode ver projetos em destaque, visualizar tópicos e conferir coleções.
 
-Organizations are shared accounts where businesses and open-source projects can collaborate across many projects at once. Owners and administrators can establish teams with special permissions, have a public organization profile, and keep track of activity within the organization. For more information, see "[About organizations](/articles/about-organizations/)."
+Para explorar mais projetos, consulte "{% data variables.explore.explore_github %}".
 
-![Switch account context dropdown](/assets/images/help/overview/dashboard-contextswitcher.png)
+## Próximas etapas
+Agora você está conectado à comunidade de {% data variables.product.product_name %}. Existem outras maneiras de interagir e criar dentro de {% data variables.product.product_name %}.
 
-### Exploring other projects on {% data variables.product.prodname_dotcom %}
+* {% data reusables.getting-started.set-up-git %}
 
-Discover interesting projects using {% data variables.explore.explore_github %}, [Explore repositories](https://github.com/explore), and the {% data variables.explore.trending_page %}. Star interesting projects and come back to them later. Visit your {% data variables.explore.your_stars_page %} to see all your starred projects.  For more information, see "[About your personal dashboard](/articles/about-your-personal-dashboard/)." 
+* {% data reusables.getting-started.create-a-repository %}
 
-## Celebrate
+* {% data reusables.getting-started.fork-a-repository %}
 
-You're now connected to the {% data variables.product.product_name %} community. What do you want to do next?
-![Star a project](/assets/images/help/stars/star-a-project.png)
+* {% data reusables.getting-started.contributing-to-projects  %}
 
-
-- To synchronize your {% data variables.product.product_name %} projects with your computer, you can set up Git. For more information see "[Set up Git](/articles/set-up-git)."
-- You can also create a repository, where you can put all your projects and maintain your workflows. For more information see, "[Create a repository](/articles/create-a-repo)."
-- You can fork a repository to make changes you want to see without affecting the original repository. For more information, see "[Fork a repository](/articles/fork-a-repo)."
-- {% data reusables.support.connect-in-the-forum-bootcamp %}
+* {% data reusables.support.connect-in-the-forum-bootcamp %}

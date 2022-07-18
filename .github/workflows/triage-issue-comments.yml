@@ -11,7 +11,6 @@ on:
 
 permissions:
   issues: write
-  repository-projects: write
 
 jobs:
   triage-issue-comments:
@@ -47,9 +46,3 @@ jobs:
         with:
           add-labels: 'triage'
           ignore-if-labeled: true
-      - name: Triage to project board
-        uses: rachmari/actions-add-new-issue-to-column@1a459ef92308ba7c9c9dc2fcdd72f232495574a9
-        with:
-          action-token: ${{ secrets.GITHUB_TOKEN }}
-          project-url: 'https://github.com/github/docs/projects/1'
-          column-name: 'Triage'

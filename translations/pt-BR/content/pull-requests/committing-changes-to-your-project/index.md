@@ -1,6 +1,6 @@
 ---
-title: Committing changes to your project
-intro: You can manage code changes in a repository by grouping work into commits.
+title: Commit de alterações no projeto
+intro: 'Você pode gerenciar as alterações de código em um repositório, agrupando os trabalhos em commits.'
 redirect_from:
   - /categories/21/articles
   - /categories/commits
@@ -15,5 +15,6 @@ children:
   - /creating-and-editing-commits
   - /viewing-and-comparing-commits
   - /troubleshooting-commits
-shortTitle: Commit changes to your project
+shortTitle: Fazer commit das alterações no seu projeto
 ---
+

@@ -1,6 +1,6 @@
 ---
-title: Using GitHub
-intro: 'Explore {% data variables.product.company_short %}''s products from different platforms and devices.'
+title: 使用 GitHub
+intro: '探索来自不同平台和设备的 {% data variables.product.company_short %} 产品。'
 redirect_from:
   - /articles/using-github
   - /github/getting-started-with-github/using-github
@@ -19,3 +19,4 @@ children:
   - /github-command-palette
   - /troubleshooting-connectivity-problems
 ---
+

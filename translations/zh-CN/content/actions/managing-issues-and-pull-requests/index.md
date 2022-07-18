@@ -1,7 +1,7 @@
 ---
-title: Managing issues and pull requests
-shortTitle: Managing issues and pull requests
-intro: 'You can automatically manage your issues and pull requests using {% data variables.product.prodname_actions %} workflows.'
+title: 管理议题和拉取请求
+shortTitle: 管理议题和拉取请求
+intro: '您可以使用 {% data variables.product.prodname_actions %} 工作流程自动管理议题和拉取请求。'
 versions:
   fpt: '*'
   ghes: '*'

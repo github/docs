@@ -35,7 +35,7 @@ When an {% data variables.product.prodname_oauth_app %} wants to identify you by
 
 {% tip %}
 
-**Tip:** {% data reusables.user_settings.review_oauth_tokens_tip %}
+**Tip:** {% data reusables.user-settings.review_oauth_tokens_tip %}
 
 {% endtip %}
 
@@ -67,7 +67,8 @@ When you want to use an {% data variables.product.prodname_oauth_app %} that int
 | Organizations and teams | Organization and teams access allows apps to access and manage organization and team membership. |
 | Personal user data | User data includes information found in your user profile, like your name, e-mail address, and location. |
 | Repositories | Repository information includes the names of contributors, the branches you've created, and the actual files within your repository. Apps can request access for either public or private repositories on a user-wide level. |
-| Repository delete | Apps can request to delete repositories that you administer, but they won't have access to your code. |
+| Repository delete | Apps can request to delete repositories that you administer, but they won't have access to your code. |{% ifversion projects-oauth-scope %}
+| Projects | Access to user and organization projects (beta). Apps can request either read/write or read only access. |{% endif %}
 
 ## Requesting updated permissions
 
@@ -77,7 +78,7 @@ When {% data variables.product.prodname_oauth_apps %} request new access permiss
 
 ## {% data variables.product.prodname_oauth_apps %} and organizations
 
-When you authorize an {% data variables.product.prodname_oauth_app %} for your personal user account, you'll also see how the authorization will affect each organization you're a member of.
+When you authorize an {% data variables.product.prodname_oauth_app %} for your personal account, you'll also see how the authorization will affect each organization you're a member of.
 
 - **For organizations *with* {% data variables.product.prodname_oauth_app %} access restrictions, you can request that organization admins approve the application for use in that organization.** If the organization does not approve the application, then the application will only be able to access the organization's public resources. If you're an organization admin, you can [approve the application](/articles/approving-oauth-apps-for-your-organization) yourself.
 

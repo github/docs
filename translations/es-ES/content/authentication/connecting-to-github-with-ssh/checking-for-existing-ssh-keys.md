@@ -25,7 +25,7 @@ shortTitle: Verificar la llave SSH existente
   # Lists the files in your .ssh directory, if they exist
   ```
 
-3. Comprueba la lista de directorio para ver si ya tiene una clave SSH pública. Predeterminadamente, {% ifversion ghae %}el nombre de archivo de una llave pública para {% data variables.product.product_name %} es *id_rsa.pub*.{% elsif fpt or ghes %}los nombres de archivo de las llaves públicas compatibles para {% data variables.product.product_name %} son una de las siguientes.
+3. Comprueba la lista de directorio para ver si ya tiene una clave SSH pública. Predeterminadamente, {% ifversion ghae %}el nombre de archivo de una llave pública para {% data variables.product.product_name %} es *id_rsa.pub*.{% else %}los nombres de archivo de las llaves públicas compatibles para {% data variables.product.product_name %} son una de las siguientes.
     - *id_rsa.pub*
     - *id_ecdsa.pub*
     - *id_ed25519.pub*{% endif %}

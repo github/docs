@@ -17,7 +17,7 @@ contact_privacy: >-
 
 contact_enterprise_sales: "[GitHub's Sales team](https://github.com/enterprise/contact)"
 
-contact_feedback_actions: '[Feedback form for GitHub Actions](https://support.github.com/contact/feedback?contact[category]=actions)'
+contact_feedback_actions: '[Feedback discussion for GitHub Actions](https://github.com/github/feedback/discussions/categories/actions-and-packages-feedback)'
 
 # The team that provides Standard Support
 enterprise_support: 'GitHub Enterprise Support'
@@ -48,4 +48,4 @@ contact_landing_page_portal: '[GitHub Support portal](https://support.github.com
 community_support: 'GitHub Community Support'
 
 # The GitHub Community forum
-community_support_forum: '[GitHub Community forum](https://github.community/)'
+community_support_forum: '[GitHub Support Community](https://github.community/)'

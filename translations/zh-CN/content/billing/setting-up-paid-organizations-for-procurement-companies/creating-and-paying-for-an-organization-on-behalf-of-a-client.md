@@ -29,7 +29,7 @@ shortTitle: 代表客户
 
 您将使用您的个人帐户来设置组织。 以后续订或更改客户的订阅时也需要登录此帐户。
 
-如果您已有 {% data variables.product.prodname_dotcom %} 用户帐户，请跳至 [第 2 步](#step-2-create-the-organization)。
+如果您已有 {% data variables.product.prodname_dotcom %} 个人帐户，请跳至[第 2 步](#step-2-create-the-organization)。
 
 1. 转到[Join GitHub（加入 GitHub）](https://github.com/join) 页面。
 2. 在“Create your personal account（创建个人帐户）”下，输入您的用户名、电子邮件地址和密码，然后单击 **Create an account（创建帐户）**。 ![创建个人帐户登记表](/assets/images/help/billing/billing_create_your_personal_account_form.png)
@@ -38,8 +38,8 @@ shortTitle: 代表客户
 
 ## 第 2 步：创建组织。
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.organizations %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.organizations %}
 {% data reusables.organizations.new-organization %}
 3. 在“Choose a plan（选择计划）”下，单击 **选择 {% data variables.product.prodname_free_team %}**。 您将在下一步升级组织。
 {% data reusables.organizations.organization-name %}
@@ -71,7 +71,7 @@ shortTitle: 代表客户
 ## 第 5 步：邀请客户加入组织
 
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.people %}
 {% data reusables.organizations.invite_member_from_people_tab %}
 5. 键入客户的 {% data variables.product.prodname_dotcom %} 用户名，然后按 **Enter** 键。 ![键入客户用户名的字段](/assets/images/help/organizations/org-invite-modal.png)
@@ -81,7 +81,7 @@ shortTitle: 代表客户
 ## 第 6 步：将组织所有权转让给客户
 
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.people %}
 4. 确认您的客户在组织成员名单中，并被授予 *owner（所有者）*角色。
 5. 在您的用户名右侧，使用 {% octicon "gear" aria-label="The Settings gear" %} 下拉菜单，单击 **Manage（管理）**。 ![管理访问链接](/assets/images/help/organizations/member-manage-access.png)

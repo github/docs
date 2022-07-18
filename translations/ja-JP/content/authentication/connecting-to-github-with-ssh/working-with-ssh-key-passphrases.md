@@ -1,6 +1,6 @@
 ---
-title: Working with SSH key passphrases
-intro: You can secure your SSH keys and configure an authentication agent so that you won't have to reenter your passphrase every time you use your SSH keys.
+title: SSH キーのパスフレーズを使う
+intro: SSH キーを使用するたびにパスフレーズを再入力する必要がないように、SSH キーを保護し、認証エージェントを設定できます。
 redirect_from:
   - /ssh-key-passphrases
   - /working-with-key-passphrases
@@ -16,11 +16,12 @@ topics:
   - SSH
 shortTitle: SSH key passphrases
 ---
-With SSH keys, if someone gains access to your computer, they also gain access to every system that uses that key. To add an extra layer of security, you can add a passphrase to your SSH key. You can use `ssh-agent` to securely save your passphrase so you don't have to reenter it.
 
-## Adding or changing a passphrase
+SSH キーにより、誰かがあなたのコンピュータにアクセスすると、そのキーを使用するすべてのシステムにもアクセスすることになります。 セキュリティをさらに強化するには、SSH キーにパスフレーズを追加します。 パスフレーズを安全に保存するために `ssh-agent` を使用すると、パスフレーズを再入力する必要がありません。
 
-You can change the passphrase for an existing private key without regenerating the keypair by typing the following command:
+## パスフレーズを追加または変更する
+
+次のコマンドを入力して、鍵ペアを再生成せずに既存の秘密鍵のパスフレーズを変更できます:
 
 ```shell
 $ ssh-keygen -p -f ~/.ssh/id_{% ifversion ghae %}rsa{% else %}ed25519{% endif %}
@@ -31,13 +32,13 @@ $ ssh-keygen -p -f ~/.ssh/id_{% ifversion ghae %}rsa{% else %}ed25519{% endif %}
 > Your identification has been saved with the new passphrase.
 ```
 
-If your key already has a passphrase, you will be prompted to enter it before you can change to a new passphrase.
+鍵にすでにパスフレーズがある場合は、新しいパスフレーズに変更する前にそれを入力するように求められます。
 
 {% windows %}
 
-## Auto-launching `ssh-agent` on Git for Windows
+## Git for Windows で `ssh-agent` を自動的に起動する
 
-You can run `ssh-agent` automatically when you open bash or Git shell. Copy the following lines and paste them into your `~/.profile` or `~/.bashrc` file in Git shell:
+bash または Git シェルを開いたときに、`ssh-agent` を自動的に実行できます。 以下の行をコピーして Git シェルの `~/.profile` または `~/.bashrc` ファイルに貼り付けます:
 
 ``` bash
 env=~/.ssh/agent.env
@@ -53,25 +54,27 @@ agent_load_env
 # agent_run_state: 0=agent running w/ key; 1=agent w/o key; 2=agent not running
 agent_run_state=$(ssh-add -l >| /dev/null 2>&1; echo $?)
 
-if [ ! "$SSH_AUTH_SOCK" ] || [ $agent_run_state = 2 ]; then
+"$env" >| /dev/null ; }
+
+agent_start () {
+    (umask 077; ssh-agent >| "$env")
+    . "$SSH_AUTH_SOCK" ] || [ $agent_run_state = 2 ]; then
     agent_start
     ssh-add
 elif [ "$SSH_AUTH_SOCK" ] && [ $agent_run_state = 1 ]; then
     ssh-add
 fi
-
-unset env
 ```
 
-If your private key is not stored in one of the default locations (like `~/.ssh/id_rsa`), you'll need to tell your SSH authentication agent where to find it. To add your key to ssh-agent, type `ssh-add ~/path/to/my_key`. For more information, see "[Generating a new SSH key and adding it to the ssh-agent](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/)"
+秘密鍵がデフォルトの場所 (`~/.ssh/id_rsa` など) に保存されていない場合は、SSH 認証エージェントにその場所を指定する必要があります。 キーを ssh-agent に追加するには、`ssh-add ~/path/to/my_key` と入力します。 詳細は「[新しい SSH キーを生成して ssh-agent に追加する](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/)」を参照してください。
 
 {% tip %}
 
-**Tip:** If you want `ssh-agent` to forget your key after some time, you can configure it to do so by running `ssh-add -t <seconds>`.
+**ヒント:** しばらくしてから、`ssh-agent` からキーを消去する場合、`ssh-add -t<seconds>` を実行して、キーを設定することができます。
 
 {% endtip %}
 
-Now, when you first run Git Bash, you are prompted for your passphrase:
+最初に Git Bash を実行するとき、パスフレーズを求められます:
 
 ```shell
 > Initializing new SSH agent...
@@ -81,28 +84,28 @@ Now, when you first run Git Bash, you are prompted for your passphrase:
 > Welcome to Git (version <em>1.6.0.2-preview20080923</em>)
 >
 > Run 'git help git' to display the help index.
-> Run 'git help <command>' to display help for specific commands.
+> 「git help <command>」を実行して、特定のコマンドのヘルプを表示します。
 ```
 
-The `ssh-agent` process will continue to run until you log out, shut down your computer, or kill the process.
+`ssh-agent` プロセスは、ログアウトするか、コンピュータをシャットダウンするか、プロセスを強制終了するまで実行され続けます。
 
 {% endwindows %}
 
 {% mac %}
 
-## Saving your passphrase in the keychain
+## パスフレーズをキーチェーンに保存する
 
-On Mac OS X Leopard through OS X El Capitan, these default private key files are handled automatically:
+OS X El Capitan を介する Mac OS X Leopard では、これらのデフォルトの秘密鍵ファイルは自動的に処理されます。
 
 - *.ssh/id_rsa*
 - *.ssh/identity*
 
-The first time you use your key, you will be prompted to enter your passphrase. If you choose to save the passphrase with your keychain, you won't have to enter it again.
+初めてキーを使用するときは、パスフレーズを入力するよう求められます。 キーチェーンと一緒にパスフレーズを保存することを選択した場合は、もう一度入力する必要はありません。
 
-Otherwise, you can store your passphrase in the keychain when you add your key to the ssh-agent. For more information, see "[Adding your SSH key to the ssh-agent](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#adding-your-ssh-key-to-the-ssh-agent)."
+それ以外の場合は、鍵を ssh-agent に追加するときに、パスフレーズをキーチェーンに格納できます。 詳細は「[SSH キーを ssh-agent に追加する](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#adding-your-ssh-key-to-the-ssh-agent)」を参照してください。
 
 {% endmac %}
 
-## Further reading
+## 参考リンク
 
-- "[About SSH](/articles/about-ssh)"
+- 「[SSHについて](/articles/about-ssh)」

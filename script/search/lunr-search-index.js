@@ -8,7 +8,6 @@ import lunrJa from 'lunr-languages/lunr.ja.js'
 import lunrEs from 'lunr-languages/lunr.es.js'
 import lunrPt from 'lunr-languages/lunr.pt.js'
 import fs from 'fs/promises'
-import rank from './rank.js'
 import validateRecords from './validate-records.js'
 import { compress } from '../../lib/search/compress.js'
 
@@ -25,7 +24,6 @@ export default class LunrIndex {
 
     // Add custom rankings
     this.records = records.map((record) => {
-      record.customRanking = rank(record)
       return record
     })
 
@@ -62,7 +60,6 @@ export default class LunrIndex {
       this.field('title', { boost: 5 })
       this.field('content')
       this.field('topics')
-      this.field('customRanking')
 
       this.metadataWhitelist = ['position']
 

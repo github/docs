@@ -29,7 +29,7 @@ shortTitle: クライアントの代理
 
 自分の個人アカウントを使用して Organization をセットアップします。 また、将来クライアントのプランを更新または変更するにも、このアカウントにサインインする必要があります。
 
-すでに個人 {% data variables.product.prodname_dotcom %}ユーザアカウントをお持ちの場合は、[ステップ 2](#step-2-create-the-organization) にお進みください。
+すでに{% data variables.product.prodname_dotcom %}上に個人アカウントをお持ちの場合は、[ステップ 2](#step-2-create-the-organization) にお進みください。
 
 1. [Join GitHub](https://github.com/join) ページに移動します。
 2. [Create your personal account] の下で、ユーザ名、メールアドレス、パスワードを入力し、[**Create an account**] をクリックします。 ![個人アカウントエントリフォームの作成](/assets/images/help/billing/billing_create_your_personal_account_form.png)
@@ -38,8 +38,8 @@ shortTitle: クライアントの代理
 
 ## ステップ 2: Organization を作成する
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.organizations %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.organizations %}
 {% data reusables.organizations.new-organization %}
 3. [Choose a plan] の下で、[**Choose {% data variables.product.prodname_free_team %}**] をクリックします。 次のステップで Organization をアップグレードします。
 {% data reusables.organizations.organization-name %}
@@ -71,7 +71,7 @@ shortTitle: クライアントの代理
 ## ステップ 5: クライアントを Organization に招待する
 
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.people %}
 {% data reusables.organizations.invite_member_from_people_tab %}
 5. クライアントの {% data variables.product.prodname_dotcom %}ユーザ名を入力して、[**Enter**] を押します。 ![クライアントのユーザ名を入力するフィールド](/assets/images/help/organizations/org-invite-modal.png)
@@ -81,7 +81,7 @@ shortTitle: クライアントの代理
 ## ステップ 6: Organization 所有権をクライアントに移譲する
 
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.people %}
 4. クライアントが Organization のメンバーの中に表示され、*Owner* ロールが割り当てられていることを確認します。
 5. ユーザ名の右側にある {% octicon "gear" aria-label="The Settings gear" %} ドロップダウンメニューで、[**Manage**] をクリックします。 ![[Manage] アクセスリンク](/assets/images/help/organizations/member-manage-access.png)

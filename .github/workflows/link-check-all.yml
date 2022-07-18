@@ -9,6 +9,7 @@ on:
   push:
     branches:
       - main
+      - gh-readonly-queue/main/**
   pull_request:
 
 permissions:
@@ -22,33 +23,35 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  build:
-    runs-on: ${{ fromJSON('["ubuntu-latest", "self-hosted"]')[github.repository == 'github/docs-internal'] }}
+  check-links:
+    runs-on: ${{ fromJSON('["ubuntu-latest", "ubuntu-20.04-xl"]')[github.repository == 'github/docs-internal'] }}
     steps:
       - name: Checkout
-        uses: actions/checkout@ec3a7ce113134d7a93b817d10a8272cb61118579
+        uses: actions/checkout@dcd71f646680f2efd8db4afa5ad64fdcba30e748
 
       - name: Setup node
-        uses: actions/setup-node@04c56d2f954f1e4c69436aa54cfef261a018f458
+        uses: actions/setup-node@17f8bd926464a1afa4c6a11669539e9c1ba77048
         with:
-          node-version: 16.13.x
+          node-version: '16.15.0'
           cache: npm
 
       - name: Install
         run: npm ci
 
+      # Creates file "${{ env.HOME }}/files.json", among others
       - name: Gather files changed
         uses: trilom/file-changes-action@a6ca26c14274c33b15e6499323aac178af06ad4b
-        id: get_diff_files
         with:
-          # So that `steps.get_diff_files.outputs.files` becomes
-          # a string like `foo.js path/bar.md`
-          output: ' '
-      - name: Insight into changed files
-        run: |
-          echo ${{ steps.get_diff_files.outputs.files }}
+          fileOutput: 'json'
+
+      # For verification
+      - name: Show files changed
+        run: cat $HOME/files.json
 
       - name: Link check (warnings, changed files)
+        env:
+          # Don't care about CDN caching image URLs
+          DISABLE_REWRITE_ASSET_URLS: true
         run: |
           ./script/rendered-content-link-checker.mjs \
             --language en \
@@ -56,9 +59,12 @@ jobs:
             --check-anchors \
             --check-images \
             --verbose \
-            ${{ steps.get_diff_files.outputs.files }}
+            --list $HOME/files.json
 
       - name: Link check (critical, all files)
+        env:
+          # Don't care about CDN caching image URLs
+          DISABLE_REWRITE_ASSET_URLS: true
         run: |
           ./script/rendered-content-link-checker.mjs \
             --language en \

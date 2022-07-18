@@ -31,10 +31,10 @@ Solo puedes buscar paquetes en {% data variables.product.product_name %}, no en 
 
 Para encontrar paquetes que sean propiedad de cierto usuario u organización, utiliza el calificador `user` u `org`.
 
-| Qualifier                 | Ejemplo                                                                                                                                                                                     |
-| ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <code>user:<em>USERNAME</em></code> | [**user:codertocat**](https://github.com/search?q=user%3Acodertocat&type=RegistryPackages) coincidirá con paquetes que sean propiedad de @codertocat                                        |
-| <code>org:<em>ORGNAME</em></code> | [**org:github**](https://github.com/search?q=org%3Agithub&type=RegistryPackages) coincidirá con paquetes que sean propiedad de la organización {% data variables.product.prodname_dotcom %}
+| Qualifier                 | Ejemplo                                                                                                                                                                                  |
+| ------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <code>user:<em>USERNAME</em></code> | [**`user:codertocat`**](https://github.com/search?q=user%3Acodertocat&type=RegistryPackages) empata con los paquetes que pertenezcan a @codertocat                                       |
+| <code>org:<em>ORGNAME</em></code> | [**`org:github`**](https://github.com/search?q=org%3Agithub&type=RegistryPackages) empata con los paquetes que pertenecen a la organización {% data variables.product.prodname_dotcom %}
 
 ## Filtrar por visibilidad del paquete
 

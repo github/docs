@@ -10,11 +10,11 @@ versions:
 
 ## {% data variables.product.prodname_discussions %} 中的社区对话
 
-由于 {% data variables.product.prodname_discussions %} 是一个开放的论坛，因此有机会将非代码协作引入项目的仓库，并更快地收集各种反馈和想法。 您可以通过以下方式帮助推动富有成果的对话：
+由于 {% data variables.product.prodname_discussions %} 是一个开放的论坛，因此有机会将非代码协作引入项目的仓库或组织，并更快地收集各种反馈和想法。 您可以通过多种方式帮助推动富有成效的对话。
 
 - 提出针对性的问题和后续问题，以收集具体反馈
-- 获取不同的体验并提炼到要点
-- 打开议题，根据对话采取行动（如果适用）
+- 获取不同的体验并将其提炼为要点
+- 打开议题以根据对话采取行动（如果适用）
 
 有关打开议题和交叉引用讨论的更多信息，请参阅“[从评论打开议题](/github/managing-your-work-on-github/opening-an-issue-from-a-comment)”。
 
@@ -26,14 +26,15 @@ versions:
 - 您处于项目的发现阶段，仍在了解您的团队希望由哪个主管领导
 - 您希望从更广泛的社区收集有关项目的反馈
 - 您希望将漏洞修复、功能请求和常规对话分开
+- 您希望衡量对新想法的兴趣，并使用民意调查来衡量社区意见
+
+您可以使用存储库讨论来讨论特定于存储库的主题。 如果您的项目跨越多个存储库，则可以使用组织讨论来讨论不特定于组织中单个存储库的主题。
 
 议题适用于讨论项目的具体细节，如漏洞修复和计划的改进。 更多信息请参阅“[关于议题](/articles/about-issues)”。 拉取请求允许您直接评论提议的更改。 更多信息请参阅“[关于拉取请求](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)”和“[评论拉取请求](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/commenting-on-a-pull-request)”。
 
-{% data reusables.organizations.team-discussions-purpose %} 更多信息请参阅“[关于团队讨论](/organizations/collaborating-with-your-team/about-team-discussions)”。
-
 ## 遵守参与指南
 
-在打开讨论之前，检查仓库是否有参与指南。 CONTRIBUTING 文件包含仓库维护员希望您如何向项目贡献想法的信息。
+在开源存储库中打开讨论之前，请检查该存储库是否有参与指南。 CONTRIBUTING 文件包含仓库维护员希望您如何向项目贡献想法的信息。
 
 更多信息请参阅“[设置健康参与的项目](/communities/setting-up-your-project-for-healthy-contributions)”。
 

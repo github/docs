@@ -6,8 +6,9 @@ versions:
   fpt: '*'
   ghec: '*'
 children:
-  - /managing-discussions-in-your-repository
-  - /managing-categories-for-discussions-in-your-repository
+  - /managing-discussions
+  - /managing-categories-for-discussions
   - /moderating-discussions
+  - /viewing-insights-for-your-discussions
 ---
 

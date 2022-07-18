@@ -54,7 +54,7 @@ There are several types of data that applications can request.
 
 {% tip %}
 
-**Tip:** {% data reusables.user_settings.review_oauth_tokens_tip %}
+**Tip:** {% data reusables.user-settings.review_oauth_tokens_tip %}
 
 {% endtip %}
 

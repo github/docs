@@ -1,6 +1,8 @@
 ---
-title: Creating a commit with multiple authors
-intro: 'You can attribute a commit to more than one author by adding one or more `Co-authored-by` trailers to the commit''s message. Co-authored commits are visible on {% data variables.product.product_name %}{% ifversion ghes or ghae %} and can be included in the profile contributions graph and the repository''s statistics{% endif %}.'
+title: Criar um commit com vários autores
+intro: |-
+  Você pode atribuir um commit a mais de um autor adicionando um ou mais trailers "Co-authored-by" à mensagem do commit. Os commits coautorados podem ser vistos no {% data variables.product.product_name %}{% ifversion ghes or ghae %} e podem ser incluídos no gráfico de contribuições de perfil e nas estatísticas
+   do repositório{% endif %}.
 redirect_from:
   - /articles/creating-a-commit-with-multiple-authors
   - /github/committing-changes-to-your-project/creating-a-commit-with-multiple-authors
@@ -10,39 +12,40 @@ versions:
   ghes: '*'
   ghae: '*'
   ghec: '*'
-shortTitle: With multiple authors
+shortTitle: Com vários autores
 ---
-## Required co-author information
 
-Before you can add a co-author to a commit, you must know the appropriate email to use for each co-author. For the co-author's commit to count as a contribution, you must use the email associated with their account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}.
+## Informações obrigatórias do coautor
+
+Para poder adicionar um coautor a um commit, você deve saber o e-mail adequado a ser usado para cada coautor. Para o commit do coautor contar como uma contribuição, você deve usar o e-mail associado à sua conta em {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}.
 
 {% ifversion fpt or ghec %}
 
-If a person chooses to keep their email address private, you should use their {% data variables.product.product_name %}-provided `no-reply` email to protect their privacy. Otherwise, the co-author's email will be available to the public in the commit message. If you want to keep your email private, you can choose to use a {% data variables.product.product_name %}-provided `no-reply` email for Git operations and ask other co-authors to list your `no-reply` email in commit trailers.
+Se uma pessoa optar por manter o respectivo endereço de e-mail privado, você deverá usar o e-mail `no-reply` dela fornecido pelo {% data variables.product.product_name %} para proteger a privacidade. Caso contrário, o e-mail do coautor estará disponível para o público na mensagem do commit. Se desejar manter seu e-mail privado, você poderá usar um e-mail `no-reply` fornecido pelo {% data variables.product.product_name %} para operações de Git e pedir que outros coautores listem seu e-mail `no-reply` nos trailers de commit.
 
-For more information, see "[Setting your commit email address](/articles/setting-your-commit-email-address)."
+Para obter mais informações, consulte "[Setting your commit email address](/articles/setting-your-commit-email-address)."
 
   {% tip %}
 
-  **Tip:** You can help a co-author find their preferred email address by sharing this information:
-  - To find your {% data variables.product.product_name %}-provided `no-reply` email, navigate to your email settings page under "Keep my email address private."
-  - To find the email you used to configure Git on your computer, run `git config user.email` on the command line.
+  **Dica:** você pode ajudar um coautor a encontrar o endereço de e-mail de preferência dele compartilhando essas informações:
+  - Para encontrar o e-mail `no-reply` fornecido pelo {% data variables.product.product_name %}, navegue até a página de configurações do e-mail em "Keep my email address private" (Manter meu endereço de e-mail privado).
+  - Para encontrar o e-mail usado para configurar o Git no seu computador, execute `git config user.email` na linha de comando.
 
   {% endtip %}
 
 {% endif %}
 
-## Creating co-authored commits using {% data variables.product.prodname_desktop %}
+## Criar commits coautorados usando o {% data variables.product.prodname_desktop %}
 
-You can use {% data variables.product.prodname_desktop %} to create a commit with a co-author. For more information, see "[Write a commit message and push your changes](/desktop/contributing-to-projects/committing-and-reviewing-changes-to-your-project#4-write-a-commit-message-and-push-your-changes)" and [{% data variables.product.prodname_desktop %}](https://desktop.github.com).
+Você pode usar o {% data variables.product.prodname_desktop %} para criar um commit com um coautor. Para obter mais informações, consulte "[Escrever uma mensagem do commit e fazer push das alterações](/desktop/contributing-to-projects/committing-and-reviewing-changes-to-your-project#4-write-a-commit-message-and-push-your-changes)" e [{% data variables.product.prodname_desktop %}](https://desktop.github.com).
 
-![Add a co-author to the commit message](/assets/images/help/desktop/co-authors-demo-hq.gif)
+![Adicionar um coautor à mensagem do commit](/assets/images/help/desktop/co-authors-demo-hq.gif)
 
-## Creating co-authored commits on the command line
+## Criar commits coautorados na linha de comando
 
 {% data reusables.pull_requests.collect-co-author-commit-git-config-info %}
 
-1. Type your commit message and a short, meaningful description of your changes. After your commit description, instead of a closing quotation, add two empty lines.
+1. Digite sua mensagem de commit e uma descrição curta e significativa de suas alterações. Depois da descrição do commit, em vez de inserir aspas para encerrar, adicione duas linhas vazias.
   ```shell
   $ git commit -m "Refactor usability tests.
   >
@@ -50,13 +53,13 @@ You can use {% data variables.product.prodname_desktop %} to create a commit wit
   ```
   {% tip %}
 
-  **Tip:** If you're using a text editor on the command line to type your commit message, ensure there are two newlines between the end of your commit description and the `Co-authored-by:` commit trailer.
+  **Dica:** Se estiver usando um editor de texto na linha de comando para digitar sua mensagem de commit, certifique-se de que existam duas novas linhas entre o final da sua descrição de commit e o indicador `Co-authored-by:`.
 
   {% endtip %}
 
-3. On the next line of the commit message, type `Co-authored-by: name <name@example.com>` with specific information for each co-author. After the co-author information, add a closing quotation mark.
+3. Na próxima linha da mensagem do commit, digite `Co-authored-by: name <name@example.com>` com informações específicas para cada coautor. Depois das informações do coautor, adicione aspas de fechamento.
 
-  If you're adding multiple co-authors, give each co-author their own line and `Co-authored-by:` commit trailer.
+  Se estiver adicionando vários coautores, dê a cada um a própria linha e o trailer de commit `Co-authored-by:`.
   ```shell
   $ git commit -m "Refactor usability tests.
   >
@@ -65,26 +68,25 @@ You can use {% data variables.product.prodname_desktop %} to create a commit wit
   Co-authored-by: <em>another-name</em> &lt;<em>another-name@example.com</em>&gt;"
   ```
 
-The new commit and message will appear on {% data variables.product.product_location %} the next time you push. For more information, see "[Pushing changes to a remote repository](/github/getting-started-with-github/pushing-commits-to-a-remote-repository/)."
+O novo commit e a mensagem aparecerão no {% data variables.product.product_location %} na próxima vez que você fizer push. Para obter mais informações, consulte "[Fazer push das alterações em um repositório remoto](/github/getting-started-with-github/pushing-commits-to-a-remote-repository/)".
 
-## Creating co-authored commits on {% data variables.product.product_name %}
+## Criar commits coautorados no {% data variables.product.product_name %}
 
-After you've made changes in a file using the web editor on {% data variables.product.product_name %}, you can create a co-authored commit by adding a `Co-authored-by:` trailer to the commit's message.
+Depois que fizer alterações em um arquivo usando o editor web no {% data variables.product.product_name %}, você poderá criar um commit coautorado adicionando um trailer `Co-authored-by:` à mensagem do commit.
 
 {% data reusables.pull_requests.collect-co-author-commit-git-config-info %}
-2. After making your changes together, at the bottom of the page, type a short, meaningful commit message that describes the changes you made.
-  ![Commit message for your change](/assets/images/help/repository/write-commit-message-quick-pull.png)
-3. In the text box below your commit message, add `Co-authored-by: name <name@example.com>` with specific information for each co-author. If you're adding multiple co-authors, give each co-author their own line and `Co-authored-by:` commit trailer.
+2. Depois de fazer as alterações juntos, na parte inferior da página, digite uma mensagem de commit curta e significativa que descreve as alterações feitas. ![Mensagem do commit para sua alteração](/assets/images/help/repository/write-commit-message-quick-pull.png)
+3. Na caixa de texto abaixo da mensagem do commit, adicione `Co-authored-by: name <name@example.com>` com informações específicas para cada coautor. Se estiver adicionando vários coautores, dê a cada um a própria linha e o trailer de commit `Co-authored-by:`.
 
-  ![Commit message co-author trailer example in second commit message text box](/assets/images/help/repository/write-commit-message-co-author-trailer.png)
-4. Click **Commit changes** or **Propose changes**.
+  ![Exemplo de trailer de coautor da mensagem do commit na segunda caixa de texto da mensagem do commit](/assets/images/help/repository/write-commit-message-co-author-trailer.png)
+4. Clique em **Commit changes** (Fazer commit de alterações) ou **Propose changes** (Propor alterações).
 
-The new commit and message will appear on {% data variables.product.product_location %}.
+O novo commit e a mensagem aparecerão no {% data variables.product.product_location %}.
 
-## Further reading
+## Leia mais
 {% ifversion ghes or ghae %}
-- "[Viewing contributions on your profile](/articles/viewing-contributions-on-your-profile)"
-- "[Why are my contributions not showing up on my profile?](/articles/why-are-my-contributions-not-showing-up-on-my-profile)"{% endif %}
-- "[Viewing a project's contributors](/articles/viewing-a-projects-contributors)"
-- "[Changing a commit message](/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/changing-a-commit-message)"
-- "[Committing and reviewing changes to your project](/desktop/contributing-to-projects/committing-and-reviewing-changes-to-your-project#4-write-a-commit-message-and-push-your-changes)" in the {% data variables.product.prodname_desktop %} documentation
+- "[Exibir contribuições no perfil](/articles/viewing-contributions-on-your-profile)"
+- "[Por que minhas contribuições não aparecem no meu perfil?](/articles/why-are-my-contributions-not-showing-up-on-my-profile)"{% endif %}
+- "[Exibir contribuidores de um projeto](/articles/viewing-a-projects-contributors)"
+- "[Alterar uma mensagem do commit](/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/changing-a-commit-message)"
+- "[Fazer commit e revisar alterações no seu projeto](/desktop/contributing-to-projects/committing-and-reviewing-changes-to-your-project#4-write-a-commit-message-and-push-your-changes)" na documentação do {% data variables.product.prodname_desktop %}

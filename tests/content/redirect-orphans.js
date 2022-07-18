@@ -21,7 +21,7 @@ describe('redirect orphans', () => {
     for (const page of pageList) {
       for (const redirectFrom of page.redirect_from || []) {
         if (redirectFrom.endsWith('/') && redirectFrom.startsWith('/')) {
-          console.warn(
+          throw new Error(
             `In ${path.join(
               'content',
               page.relativePath

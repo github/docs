@@ -3,12 +3,9 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 
 import { MarkGithubIcon, CommentDiscussionIcon } from '@primer/octicons-react'
-import { useVersion } from 'components/hooks/useVersion'
 import { Lead } from 'components/ui/Lead'
 
 export function GenericError() {
-  const { isEnterprise } = useVersion()
-
   return (
     <div className="min-h-screen d-flex flex-column">
       <Head>
@@ -28,11 +25,7 @@ export function GenericError() {
           </p>
           <a
             id="contact-us"
-            href={
-              isEnterprise
-                ? 'https://enterprise.github.com/support'
-                : 'https://support.github.com/contact'
-            }
+            href="https://support.github.com/contact"
             className="btn btn-outline mt-2"
           >
             <CommentDiscussionIcon size="small" className="octicon mr-1" />
@@ -51,12 +44,7 @@ export const SimpleHeader = () => {
   return (
     <div className="border-bottom color-border-muted no-print">
       <header className="container-xl p-responsive py-3 position-relative d-flex width-full">
-        <div
-          className="d-flex flex-items-center"
-          style={{ zIndex: 3 }}
-          id="github-logo-mobile"
-          role="banner"
-        >
+        <div className="d-flex flex-items-center" style={{ zIndex: 3 }} id="github-logo-mobile">
           <Link href={`/${router.locale}`}>
             {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
             <a aria-hidden="true" tabIndex={-1}>

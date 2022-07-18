@@ -2,8 +2,8 @@ import dedent from 'ts-dedent'
 import { PlaygroundArticleT } from 'components/playground/types'
 
 const article: PlaygroundArticleT = {
-  title: 'Add a dev container to your project',
-  shortTitle: 'Node.js Codespaces',
+  title: 'Add a dev container configuration to your repository',
+  shortTitle: 'Node.js codespaces',
   topics: ['Codespaces', 'Developer', 'Organization', 'Node', 'JavaScript'],
   type: 'tutorial',
   slug: '/codespaces/setting-up-your-project-for-codespaces/setting-up-your-project-for-codespaces',
@@ -11,11 +11,13 @@ const article: PlaygroundArticleT = {
     '/codespaces/setting-up-your-project-for-codespaces/setting-up-your-nodejs-project-for-codespaces',
   codeLanguageId: 'nodejs',
   intro: dedent`
-  This guide shows you how to add a [dev container](/codespaces/setting-up-your-project-for-codespaces/configuring-codespaces-for-your-project) to define the Codespaces configuration for your **JavaScript**, **Node.js**, or **TypeScript** project. For other project languages, click the language button to the right.
+  This guide shows you how to add a dev container configuration to your repository to define the GitHub Codespaces development environment for your **Node.js** codebase. For more information, see "[Introduction to dev containers](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers)." 
+  
+  If you want to add a dev container configuration for another programming language, click the language button to the right.
   `,
   prerequisites: dedent`
     - You should have an existing JavaScript, Node.js, or TypeScript project in a repository on GitHub.com. If you don't have a project, you can try this tutorial with the following example: https://github.com/microsoft/vscode-remote-try-node
-    - Codespaces must be enabled for your organization. For more information, see "[Enabling Codespaces for your organization](/codespaces/managing-codespaces-for-your-organization/enabling-codespaces-for-your-organization)."
+    - GitHub Codespaces must be enabled for your organization. For more information, see "[Enabling GitHub Codespaces for your organization](/codespaces/managing-codespaces-for-your-organization/enabling-codespaces-for-your-organization)."
   `,
   contentBlocks: [
     {
@@ -25,17 +27,17 @@ const article: PlaygroundArticleT = {
       type: 'default',
       title: 'Step 1: Open your project in a codespace',
       content: dedent`
-        1. Under the repository name, use the **Code** drop-down menu, and in the **Codespaces** tab, click **New codespace**.
+        1. Under the repository name, use the **Code** drop-down menu, and in the **Codespaces** tab, click **Create codespace on BRANCH**.
 
             ![New codespace button](/assets/images/help/codespaces/new-codespace-button.png)
 
-           If you don’t see this option, Codespaces isn't available for your project. See [Access to Codespaces](/codespaces/developing-in-codespaces/creating-a-codespace#access-to-codespaces) for more information.
+           If you don’t see this option, GitHub Codespaces isn't available for your project. See [Access to GitHub Codespaces](/codespaces/developing-in-codespaces/creating-a-codespace#access-to-codespaces) for more information.
 
         When you create a codespace, your project is created on a remote VM that is dedicated to you. By default, the container for your codespace has many languages and runtimes including Node.js, JavaScript, Typescript, nvm, npm, and yarn. It also includes a common set of tools like git, wget, rsync, openssh, and nano.
 
         You can customize your codespace by adjusting the amount of vCPUs and RAM, [adding dotfiles to personalize your environment](/codespaces/setting-up-your-codespace/personalizing-codespaces-for-your-account), or by modifying the tools and scripts installed.
 
-        Codespaces uses a file called \`devcontainer.json\` to store configurations. On launch, Codespaces uses the file to install any tools, dependencies, or other set up that might be needed for the project. For more information, see "[Introduction to dev containers](/codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project)."
+        GitHub Codespaces uses a file called \`devcontainer.json\` to configure the development container that you use when you work in a codespace. Each repository can contain one or more  \`devcontainer.json\` files, to give you exactly the development environment you need to work on your code in a codespace. On launch, GitHub Codespaces uses a \`devcontainer.json\` file, and any dependent files that make up the dev container configuration, to install tools and runtimes, and perform other setup tasks that the project requires. For more information, see "[Introduction to dev containers](/codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project)."
       `,
     },
     {
@@ -43,11 +45,11 @@ const article: PlaygroundArticleT = {
         id: '0',
       },
       type: 'default',
-      title: 'Step 2: Add a dev container to your codespace from a template',
+      title: 'Step 2: Add a dev container configuration to your repository from a template',
       content: dedent`
-        The default codespaces container will support running Node.js projects like [vscode-remote-try-node](https://github.com/microsoft/vscode-remote-try-node) out of the box. By setting up a custom container you can customize the tools and scripts that run as part of codespace creation and ensure a fully reproducible environment for all Codespaces users in your repository.
+        The default development container, or "dev container," for GitHub Codespaces supports running Node.js projects like [vscode-remote-try-node](https://github.com/microsoft/vscode-remote-try-node) out of the box. However, we recommend that you configure your own dev container to include all of the tools and scripts your project needs. This will ensure a fully reproducible environment for all GitHub Codespaces users in your repository.
 
-        To set up your project with a custom container, you will need to use a \`devcontainer.json\` file to define the environment. In Codespaces you can add this either from a template or you can create your own. For more information on dev containers, see "[Introduction to dev containers](/codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project)".
+        To set up your repository to use a custom dev container, you will need to create one or more \`devcontainer.json\` files. You can add these either from a template, in Visual Studio Code, or you can write your own. For more information on dev container configurations, see "[Introduction to dev containers](/codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project)".
 
         1. Access the Command Palette (\`Shift + Command + P\` / \`Ctrl + Shift + P\`), then start typing "dev container". Select **Codespaces: Add Development Container Configuration Files...**.
           !["Codespaces: Add Development Container Configuration Files..." in the command palette](/assets/images/help/codespaces/add-prebuilt-container-command.png)
@@ -67,7 +69,7 @@ const article: PlaygroundArticleT = {
       type: 'sub-section',
       title: 'Anatomy of your dev container',
       content: dedent`
-        Adding the Node.js dev container template adds a \`.devcontainer\` folder to the root of your project's repository with the following files:
+        Adding the Node.js dev container template adds a \`.devcontainer\` directory to the root of your project's repository with the following files:
 
         - \`devcontainer.json\`
         - Dockerfile
@@ -93,7 +95,7 @@ const article: PlaygroundArticleT = {
       },
       content: dedent`
         **\`build\`** - The build properties.
-          - **\`dockerfile\`** - In the build object, dockerfile is a reference to the Dockerfile that was also added from the template.
+          - **\`dockerfile\`** - In the \`build\` object, \`dockerfile\` contains the path to the Dockerfile that was also added from the template.
           - **\`args\`**
             - **\`VARIANT\`**: This file only contains one build argument, which is the node variant we want to use that is passed into the Dockerfile.
       `,
@@ -137,7 +139,7 @@ const article: PlaygroundArticleT = {
         highlight: 25,
       },
       content: dedent`
-        **\`postCreateCommand\`** - If you want to run anything after you land in your codespace that’s not defined in the Dockerfile, you can do that here.
+        **\`postCreateCommand\`** - Use this to run commands that aren't defined in the Dockerfile, after your codespace is created.
       `,
     },
     {
@@ -157,7 +159,7 @@ const article: PlaygroundArticleT = {
       type: 'sub-section',
       title: 'Dockerfile',
       content: dedent`
-        You can use the Dockerfile to add additional container layers to specify OS packages, node versions, or global packages we want included in our Dockerfile.
+        You can use the Dockerfile to add additional container layers to specify OS packages, node versions, or global packages we want included in our container.
       `,
     },
     {
@@ -168,7 +170,7 @@ const article: PlaygroundArticleT = {
       type: 'default',
       title: 'Step 3: Modify your devcontainer.json file',
       content: dedent`
-        With your dev container added and a basic understanding of what everything does, you can now make changes to configure it for your environment. In this example, you'll add properties to install npm when your codespace launches and make a list of ports inside the container available locally.
+        With your dev container configuration added and a basic understanding of what everything does, you can now make changes to customize your environment further. In this example, you'll add properties to install npm when your codespace launches and make a list of ports inside the container available locally.
 
         1. In the Explorer, select the \`devcontainer.json\` file from the tree to open it. You might have to expand the \`.devcontainer\` folder to see it.
           ![devcontainer.json file in the Explorer](/assets/images/help/codespaces/devcontainers-options.png)
@@ -178,7 +180,7 @@ const article: PlaygroundArticleT = {
             "postCreateCommand": "npm install",
             "forwardPorts": [4000],
             \`\`\`
-            For more information on \`devcontainer.json\` properties, see the [devcontainer.json reference](https://code.visualstudio.com/docs/remote/devcontainerjson-reference) in the Visual Studio Code docs.
+            For more information about \`devcontainer.json\` properties, see the Visual Studio Code documentation: "[devcontainer.json reference](https://code.visualstudio.com/docs/remote/devcontainerjson-reference)."
 
         1. Access the command palette (\`Shift + Command + P\`/ \`Ctrl + Shift + P\`), then start typing "rebuild". Select **Codespaces: Rebuild Container**. 
             ![Rebuild container option](/assets/images/help/codespaces/codespaces-rebuild.png)

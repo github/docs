@@ -41,8 +41,6 @@ If you decide you don't want the changes in a topic branch to be merged to the u
 
 ## Merging a pull request
 
-{% include tool-switcher %}
-
 {% webui %}
 
 {% data reusables.repositories.sidebar-pr %}

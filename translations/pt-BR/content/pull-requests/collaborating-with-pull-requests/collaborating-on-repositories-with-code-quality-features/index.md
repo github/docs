@@ -1,6 +1,6 @@
 ---
-title: Collaborating on repositories with code quality features
-intro: 'Workflow quality features like statuses, {% ifversion ghes %}pre-receive hooks, {% endif %}protected branches, and required status checks help collaborators make contributions that meet conditions set by organization and repository administrators.'
+title: Colaborar nos repositórios com recursos de qualidade de código
+intro: 'Os recursos de qualidade do fluxo de trabalho, como status, {% ifversion ghes %}hooks pre-receive, {% endif %}branches protegidos e verificações de status obrigatórias ajudam os colaboradores a fazer contribuições que atendem às condições definidas pela organização e por administradores de repositório.'
 redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/collaborating-on-repositories-with-code-quality-features
   - /articles/collaborating-on-repositories-with-code-quality-features-enabled
@@ -16,5 +16,6 @@ topics:
 children:
   - /about-status-checks
   - /working-with-pre-receive-hooks
-shortTitle: Code quality features
+shortTitle: Funcionalidades de qualidade do código
 ---
+

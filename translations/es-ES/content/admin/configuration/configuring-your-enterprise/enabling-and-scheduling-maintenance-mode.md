@@ -1,6 +1,6 @@
 ---
-title: Enabling and scheduling maintenance mode
-intro: 'Some standard maintenance procedures, such as upgrading {% data variables.product.product_location %} or restoring backups, require the instance to be taken offline for normal use.'
+title: Habilitar y programar el modo de mantenimiento
+intro: 'Algunos procedimientos de mantenimiento estándar, como la actualización {% data variables.product.product_location %} o la restauración de copias de seguridad, exigen que la instancia esté sin conexión para el uso normal.'
 redirect_from:
   - /enterprise/admin/maintenance-mode
   - /enterprise/admin/categories/maintenance-mode
@@ -19,55 +19,79 @@ topics:
   - Fundamentals
   - Maintenance
   - Upgrades
-shortTitle: Configure maintenance mode
+shortTitle: Configurar el modo de mantenimiento
 ---
-## About maintenance mode
 
-Some types of operations require that you take {% data variables.product.product_location %} offline and put it into maintenance mode:
-- Upgrading to a new version of {% data variables.product.prodname_ghe_server %}
-- Increasing CPU, memory, or storage resources allocated to the virtual machine
-- Migrating data from one virtual machine to another
-- Restoring data from a {% data variables.product.prodname_enterprise_backup_utilities %} snapshot
-- Troubleshooting certain types of critical application issues
+## Acerca del modo de mantenimiento
 
-We recommend that you schedule a maintenance window for at least 30 minutes in the future to give users time to prepare. When a maintenance window is scheduled, all users will see a banner when accessing the site.
+Algunos tipos de operaciones exigen que desconectes tu {% data variables.product.product_location %} y la pongas en modo de mantenimiento:
+- Actualizar a una versión nueva de tu {% data variables.product.prodname_ghe_server %}
+- Aumentar los recursos de CPU, memoria o almacenamiento asignados a la máquina virtual
+- Migrar datos desde una máquina virtual a otra
+- Restaurar datos desde una instantánea de {% data variables.product.prodname_enterprise_backup_utilities %}
+- Solucionar ciertos tipos de problemas críticos de solicitud
 
-![End user banner about scheduled maintenance](/assets/images/enterprise/maintenance/maintenance-scheduled.png)
+Recomendamos que programe una ventana de mantenimiento para, al menos, los siguientes 30 minutos para darle a los usuarios tiempo para prepararse. Cuando está programada una ventana de mantenimiento, todos los usuarios verán un mensaje emergente al acceder al sitio.
 
-When the instance is in maintenance mode, all normal HTTP and Git access is refused. Git fetch, clone, and push operations are also rejected with an error message indicating that the site is temporarily unavailable. GitHub Actions jobs will not be executed. Visiting the site in a browser results in a maintenance page.
 
-![The maintenance mode splash screen](/assets/images/enterprise/maintenance/maintenance-mode-maintenance-page.png)
 
-## Enabling maintenance mode immediately or scheduling a maintenance window for a later time
+![Mensaje emergente para el usuario final acerca del mantenimiento programado](/assets/images/enterprise/maintenance/maintenance-scheduled.png)
+
+Cuando la instancia está en modo de mantenimiento, se rechazan todos los accesos HTTP y Git. Las operaciones de extracción, clonación y subida de Git también se rechazan con un mensaje de error que indica que temporalmente el sitio no se encuentra disponible. Se pausará la replicación de git en las configuraciones de disponibilidad alta. No se ejecutarán los jobs de las Github Actions. Al visitar el sitio desde un navegador aparece una página de mantenimiento.
+
+![La pantalla de presentación del modo de mantenimiento](/assets/images/enterprise/maintenance/maintenance-mode-maintenance-page.png)
+
+{% ifversion ip-exception-list %}
+
+Puedes llevar a cabo una validación inicial de tu operación de mantenimiento si configuras una lista de IP de excepción para permitir el acceso a {% data variables.product.product_location %} solo desde las direcciones IP y rangos de ellas que proporcionaste. Los intentos para acceder a {% data variables.product.product_location %} desde las direcciones IP que no se especifican en la lista de excepciones IP recibirán una respuesta consistente con aquellas enviadas cuando la instancia esté en modo de mantenimiento.
+
+{% endif %}
+
+## Habilitar el modo de mantenimiento de inmediato o programar una ventana de mantenimiento para más tarde
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
-2. At the top of the {% data variables.enterprise.management_console %}, click **Maintenance**.
-  ![Maintenance tab](/assets/images/enterprise/management-console/maintenance-tab.png)
-3. Under "Enable and schedule", decide whether to enable maintenance mode immediately or to schedule a maintenance window for a future time.
-    - To enable maintenance mode immediately, use the drop-down menu and click **now**.
-    ![Drop-down menu with the option to enable maintenance mode now selected](/assets/images/enterprise/maintenance/enable-maintenance-mode-now.png)
-    - To schedule a maintenance window for a future time, use the drop-down menu and click a start time.
-    ![Drop-down menu with the option to schedule a maintenance window in two hours selected](/assets/images/enterprise/maintenance/schedule-maintenance-mode-two-hours.png)
-4. Select **Enable maintenance mode**.
-  ![Checkbox for enabling or scheduling maintenance mode](/assets/images/enterprise/maintenance/enable-maintenance-mode-checkbox.png)
+2. En la parte superior de la {% data variables.enterprise.management_console %}, haz clic en **Mantenimiento**. ![Pestaña de mantenimiento](/assets/images/enterprise/management-console/maintenance-tab.png)
+3. En "Habilitar y Programar", decide si habilitas el modo de mantenimiento de inmediato o programas una ventana de mantenimiento para otro momento.
+    - Para habilitar el modo de mantenimiento de inmediato, usa el menú desplegable y haz clic en **now** (ahora). ![Menú desplegable con la opción para habilitar el modo de mantenimiento ahora seleccionado](/assets/images/enterprise/maintenance/enable-maintenance-mode-now.png)
+    - Para programar una ventana de mantenimiento para otro momento, usa el menú desplegable y haz clic en un horario de inicio. ![Menú desplegable con la opción para programar una ventana de mantenimiento](/assets/images/enterprise/maintenance/schedule-maintenance-mode-two-hours.png)
+4. Selecciona **Habilitar el modo de mantenimiento**. ![Casilla de verificación para habilitar o programar el modo de mantenimiento](/assets/images/enterprise/maintenance/enable-maintenance-mode-checkbox.png)
 {% data reusables.enterprise_management_console.save-settings %}
 
-## Scheduling maintenance mode with {% data variables.product.prodname_enterprise_api %}
+{% ifversion ip-exception-list %}
 
-You can schedule maintenance for different times or dates with {% data variables.product.prodname_enterprise_api %}. For more information, see "[Management Console](/enterprise/{{ currentVersion }}/user/rest/reference/enterprise-admin#enable-or-disable-maintenance-mode)."
+## Validar los cambios en el modo de mantenimiento utilizando la lista de excepciones de IP
 
-## Enabling or disabling maintenance mode for all nodes in a cluster
+La lista de excepciones de IP proporciona un acceso restringido y controlado a {% data variables.product.product_location %}, el cual es ideal para una validación inicial de la salud del servidor después de una operación de mantenimiento. Una vez que se habilita, {% data variables.product.product_location %} saldrá del modo de mantenimiento y estará disponible únicamente para las direcciones IP configuradas. La casilla de modo de mantenimiento se actualizará para reflejar el cambio en el estado.
 
-With the `ghe-cluster-maintenance` utility, you can set or unset maintenance mode for every node in a cluster.
+Si vuelves a habilitar el modo de mantenimiento, se inhabilitará la lista de excepción de IP se y {% data variables.product.product_location %} regresará al modo de mantenimiento. Si simplemente inhabilitas la lista de excepción de IP, {% data variables.product.product_location %} regresará a su operación normal.
+
+También puedes utilizar una utilidad de línea de comandos para configurar la lista de excepción de IP. Para obtener más información, consulta las secciones "[Utilidades de línea de comandos](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-maintenance)" y "[Acceder al shell administrativo (SSH)](/admin/configuration/configuring-your-enterprise/accessing-the-administrative-shell-ssh)".
+
+{% data reusables.enterprise_site_admin_settings.access-settings %}
+{% data reusables.enterprise_site_admin_settings.management-console %}
+1. En la parte superior de la {% data variables.enterprise.management_console %}, haz clic en **Mantenimiento** y confirma que el modo de mantenimiento ya esté habilitado. ![Pestaña de mantenimiento](/assets/images/enterprise/management-console/maintenance-tab.png)
+1. Selecciona **Habilitar la lista de excepción de IP**. ![Casilla de verificación para habilitar la lista de excepción de IP](/assets/images/enterprise/maintenance/enable-ip-exception-list.png)
+1. En la caja de texto, teclea una lista válida de direcciones IP separadas por espacios o bloques de CDIR a los que se les debería permitir el acceso a {% data variables.product.product_location %}. ![campo completado para las direcciones IP](/assets/images/enterprise/maintenance/ip-exception-list-ip-addresses.png)
+1. Haz clic en **Save ** (guardar). ![después de que se guarda la lista de excepción de IP](/assets/images/enterprise/maintenance/ip-exception-save.png)
+
+{% endif %}
+
+## Programar el modo de mantenimiento con {% data variables.product.prodname_enterprise_api %}
+
+Puedes programar el mantenimiento para horarios o días diferentes con {% data variables.product.prodname_enterprise_api %}. Para obtener más información, consulta la sección "[Consola de Administración](/enterprise/user/rest/reference/enterprise-admin#enable-or-disable-maintenance-mode)".
+
+## Habilitar o inhabilitar el modo de mantenimientos para todos los nodos de una agrupación
+
+Con la herramienta `ghe-cluster-maintenance`, puedes configurar o anular la configuración del modo de mantenimiento para cada nodo de una agrupación.
 
 ```shell
 $ ghe-cluster-maintenance -h
-# Shows options
+# Muestra opciones
 $ ghe-cluster-maintenance -q
-# Queries the current mode
+# Consulta el modo actual
 $ ghe-cluster-maintenance -s
-# Sets maintenance mode
+# Configura el modo de mantenimiento
 $ ghe-cluster-maintenance -u
-# Unsets maintenance mode
+# Anula la configuración del modo de mantenimiento
 ```

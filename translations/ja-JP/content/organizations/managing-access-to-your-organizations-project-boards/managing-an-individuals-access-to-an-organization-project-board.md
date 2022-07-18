@@ -25,7 +25,7 @@ shortTitle: 個人のアクセスの管理
 ## Organization メンバーにプロジェクトボードへのアクセスを付与する
 
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.organization-wide-project %}
 {% data reusables.project-management.select-project %}
 {% data reusables.project-management.click-menu %}
@@ -38,7 +38,7 @@ shortTitle: 個人のアクセスの管理
 ## Organization のメンバーのプロジェクトボードへのアクセスを変更する
 
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.organization-wide-project %}
 {% data reusables.project-management.select-project %}
 {% data reusables.project-management.click-menu %}
@@ -51,7 +51,7 @@ shortTitle: 個人のアクセスの管理
 プロジェクトボードからコラボレーターを削除しても、コラボレーターは引き続き他のロールの権限でボードにアクセスできる場合があります。 プロジェクトボードへのアクセスを完全に削除するには、個人の各ロールごとにアクセスを削除する必要があります。 たとえば、ユーザは Organization のメンバーとして、またはチーム メンバーとしてプロジェクトボードにアクセスできます。 詳しい情報については、「[Organization のプロジェクトボードの権限](/articles/project-board-permissions-for-an-organization)」を参照してください。
 
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.organization-wide-project %}
 {% data reusables.project-management.select-project %}
 {% data reusables.project-management.click-menu %}

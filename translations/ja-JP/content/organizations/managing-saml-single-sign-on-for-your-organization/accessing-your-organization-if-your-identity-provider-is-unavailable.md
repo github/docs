@@ -1,6 +1,6 @@
 ---
-title: Accessing your organization if your identity provider is unavailable
-intro: 'Organization administrators can sign into {% data variables.product.product_name %} even if their identity provider is unavailable by bypassing single sign-on and using their recovery codes.'
+title: アイデンティティプロバイダが利用できない場合の Organization へのアクセス
+intro: 'アイデンティティプロバイダが利用できない場合でも、Organization の管理者はシングルサインオンをバイパスし、リカバリコードを利用して {% data variables.product.product_name %}にサインインできます。'
 redirect_from:
   - /articles/accessing-your-organization-if-your-identity-provider-is-unavailable
   - /github/setting-up-and-managing-organizations-and-teams/accessing-your-organization-if-your-identity-provider-is-unavailable
@@ -9,26 +9,15 @@ versions:
 topics:
   - Organizations
   - Teams
-shortTitle: Unavailable identity provider
+shortTitle: 利用不可能なアイデンティティプロバイダ
 ---
 
-Organization administrators can use [one of their downloaded or saved recovery codes](/articles/downloading-your-organization-s-saml-single-sign-on-recovery-codes) to bypass single sign-on. You may have saved these to a password manager, such as [LastPass](https://lastpass.com/) or [1Password](https://1password.com/).
+Organization の管理者は、シングルサインオンをバイパスするために、[ダウンロード済み、あるいは保存済みのリカバリコードのいずれか](/articles/downloading-your-organization-s-saml-single-sign-on-recovery-codes)を利用できます。 これらは、[LastPass](https://lastpass.com/)あるいは[1Password](https://1password.com/)などのパスワードマネージャーに保存しているかもしれません。
 
-{% note %}
+{% data reusables.saml.recovery-code-caveats %}
 
-**Note:** You can only use recovery codes once and you must use them in consecutive order. Recovery codes grant access for 24 hours.
+{% data reusables.saml.recovery-code-access %}
 
-{% endnote %}
+## 参考リンク
 
-1. At the bottom of the single sign-on dialog, click **Use a recovery code** to bypass single sign-on.
-![Link to enter your recovery code](/assets/images/help/saml/saml_use_recovery_code.png)
-2. In the "Recovery Code" field, type your recovery code.
-![Field to enter your recovery code](/assets/images/help/saml/saml_recovery_code_entry.png)
-3. Click **Verify**.
-![Button to verify your recovery code](/assets/images/help/saml/saml_verify_recovery_codes.png)
-
-After you've used a recovery code, make sure to note that it's no longer valid. You will not be able to reuse the recovery code.
-
-## Further reading
-
-- "[About identity and access management with SAML SSO](/articles/about-identity-and-access-management-with-saml-single-sign-on)"
+- [SAML シングルサインオンを使うアイデンティティおよびアクセス管理について](/articles/about-identity-and-access-management-with-saml-single-sign-on)

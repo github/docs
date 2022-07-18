@@ -15,7 +15,7 @@ topics:
 ---
 
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team-discussions-tab %}
 5. 单击要固定的团队讨论旁边的 {% octicon "pin" aria-label="The pin icon" %}。 单击该图标也可以取消固定讨论。 ![固定讨论](/assets/images/help/projects/pin-discussion-button.png)

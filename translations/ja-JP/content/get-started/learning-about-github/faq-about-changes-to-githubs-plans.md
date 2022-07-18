@@ -28,11 +28,11 @@ GitHub は、以下のプランと価格の変更を発表しました。
 
 ## プランのアップグレード方法
 
-ユーザアカウントのプランをアップグレードするには、「[個人アカウントのサブスクリプションのアップグレード](/billing/managing-billing-for-your-github-account/upgrading-your-github-subscription#upgrading-your-personal-accounts-subscription)」を参照してください。 Organizationのプランをアップグレードするには、「[Organizationのサブスクリプションのアップグレード](/billing/managing-billing-for-your-github-account/upgrading-your-github-subscription#upgrading-your-organizations-subscription)」を参照してください。
+To upgrade your personal account's plan, see "[Upgrading your personal account's subscription](/billing/managing-billing-for-your-github-account/upgrading-your-github-subscription#upgrading-your-personal-accounts-subscription)." Organizationのプランをアップグレードするには、「[Organizationのサブスクリプションのアップグレード](/billing/managing-billing-for-your-github-account/upgrading-your-github-subscription#upgrading-your-organizations-subscription)」を参照してください。
 
 ## プランのダウングレード方法
 
-アカウントのプランをダウングレードするには、「[ユーザアカウントのサブスクリプションのダウングレード](/billing/managing-billing-for-your-github-account/downgrading-your-github-subscription#downgrading-your-user-accounts-subscription)」を参照してください。 Organizationのプランをダウングレードするには、「[Organizationのサブスクリプションのダウングレード](/billing/managing-billing-for-your-github-account/downgrading-your-github-subscription#downgrading-your-organizations-subscription)」を参照してください。
+To downgrade your personal account's plan, see "[Downgrading your personal account's subscription](/billing/managing-billing-for-your-github-account/downgrading-your-github-subscription#downgrading-your-personal-accounts-subscription)." Organizationのプランをダウングレードするには、「[Organizationのサブスクリプションのダウングレード](/billing/managing-billing-for-your-github-account/downgrading-your-github-subscription#downgrading-your-organizations-subscription)」を参照してください。
 
 ## GitHub Teamあるいは旧来のプランからGitHub Freeにダウングレードした場合、なくなるのはどの機能ですか？
 - プライベートリポジトリでの必須レビュー担当者

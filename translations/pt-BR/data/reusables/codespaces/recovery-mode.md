@@ -1,1 +1,1 @@
-Se as alterações na configuração do seu código causarem um erro no contêiner, seu código será executado no modo de recuperação, e você verá uma mensagem de erro.
+If changes to your dev container configuration cause a container error, your codespace will run in recovery mode, and you will see an error message.

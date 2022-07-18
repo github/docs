@@ -10,8 +10,7 @@ redirect_from:
   - /github/setting-up-and-managing-your-enterprise/managing-use-of-advanced-security-for-organizations-in-your-enterprise-account
   - /github/setting-up-and-managing-billing-and-payments-on-github/viewing-your-github-advanced-security-usage
 versions:
-  ghes: '>=3.1'
-  fpt: '*'
+  ghes: '*'
   ghec: '*'
   ghae: issue-5378
 miniTocMaxHeadingLevel: 3
@@ -25,6 +24,10 @@ shortTitle: Visualizar o uso avançado de segurança
 ## Sobre as licenças para {% data variables.product.prodname_GH_advanced_security %}
 
 {% data reusables.advanced-security.about-ghas-license-seats %} Para obter mais informações, consulte "[Sobre a cobrança do {% data variables.product.prodname_GH_advanced_security %}](/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security)".
+
+{% ifversion ghas-committers-calculator %}
+Você pode calcular quantas estações adicionais serão usadas se você habilitar o {% data variables.product.prodname_GH_advanced_security %} para mais organizações e repositórios com o painel de administração do site. Para obter mais informações, consulte "[Painel de administração do site](/admin/configuration/configuring-your-enterprise/site-admin-dashboard#advanced-security-active-committers)".
+{% endif %}
 
 ## Visualizando a licença de uso de {% data variables.product.prodname_GH_advanced_security %} para a sua conta corporativa
 

@@ -2,10 +2,10 @@
 title: Configurar el correo electrónico para notificaciones
 intro: 'Para que sea más fácil para los usuarios el responder rápidamente a la actividad de {% data variables.product.product_name %}, puedes configurar a {% data variables.product.product_location %} para que envíe notificaciones por correo electrónico para las propuestas, solicitudes de cambio y comentarios de las confirmaciones.'
 redirect_from:
-  - /enterprise/admin/guides/installation/email-configuration/
-  - /enterprise/admin/articles/configuring-email/
-  - /enterprise/admin/articles/troubleshooting-email/
-  - /enterprise/admin/articles/email-configuration-and-troubleshooting/
+  - /enterprise/admin/guides/installation/email-configuration
+  - /enterprise/admin/articles/configuring-email
+  - /enterprise/admin/articles/troubleshooting-email
+  - /enterprise/admin/articles/email-configuration-and-troubleshooting
   - /enterprise/admin/user-management/configuring-email-for-notifications
   - /admin/configuration/configuring-email-for-notifications
 versions:
@@ -26,10 +26,7 @@ Los propietarios de las empresas pueden configurar los correos electrónicos par
 ## Configurar el SMTP para tu empresa
 
 {% ifversion ghes %}
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.management-console %}
-2. En la parte superior de la página, haz clic en **Parámetros**. ![Pestaña Parámetros](/assets/images/enterprise/management-console/settings-tab.png)
-3. En la barra lateral de la izquierda, haz clic en **Correo electrónico**. ![Pestaña Correo electrónico](/assets/images/enterprise/management-console/email-sidebar.png)
+{% data reusables.enterprise_site_admin_settings.email-settings %}
 4. Selecciona **Activar correo electrónico**. Esto activará tanto el correo electrónico de salida como el de entrada, sin embargo para trabajar con el correo electrónico entrante también necesitarás configurar los parámetros de tu DNS como se describe a continuación en ["Configurar DNS y parámetros de firewall para permitir correos electrónicos entrantes](#configuring-dns-and-firewall-settings-to-allow-incoming-emails)". ![Activar correo electrónico de salida](/assets/images/enterprise/management-console/enable-outbound-email.png)
 5. Teclea la configuración para tu servidor de SMTP.
       - En el campo **Dirección del servidor**, escribe la dirección de tu servidor SMTP.
@@ -38,8 +35,8 @@ Los propietarios de las empresas pueden configurar los correos electrónicos par
       - Selecciona el menú desplegable de **Autenticación** y elige el tipo de cifrado que utiliza tu servidor SMTP.
       - En el campo **Dirección de correo electrónico sin respuesta**, escribe la dirección de correo electrónico para usar en los campos De y Para para todos los correos electrónicos para notificaciones.
 6. Si quieres descartar todos los correos electrónicos entrantes que estén dirigidos al correo electrónico sin respuesta, selecciona **Descartar correo electrónico dirigido a la dirección de correo electrónico sin respuesta**. ![Casilla de verificación para descartar los correos electrónicos dirigidos a la dirección de correo electrónico sin respuesta](/assets/images/enterprise/management-console/discard-noreply-emails.png)
-7. En **Soporte**, elige un tipo de enlace para ofrecer un soporte adicional a tus usuarios.
-    - **Correo electrónico:** Una dirección de correo electrónico interna.
+7. Debajo de **Soporte**, elige un tipo de enlace para ofrecer soporte adicional a tus usuarios.
+    - **Correo electrónico:** una dirección de correo electrónico interna.
     - **URL:** Un enlace a un sitio de soporte interno. Debes incluir tanto `http://` como `https://`. ![Correo de soporte técnico o URL](/assets/images/enterprise/management-console/support-email-url.png)
 8. [Prueba de entrega del correo electrónico](#testing-email-delivery).
 {% elsif ghae %}
@@ -74,7 +71,7 @@ Los propietarios de las empresas pueden configurar los correos electrónicos par
 
 4. Si el correo electrónico de prueba falla, [soluciona los problemas de los parámetros de tu correo electrónico](#troubleshooting-email-delivery).
 5. Cuando el correo electrónico de prueba es exitoso, en la parte inferior de la página, haz clic en **Guardar parámetros**. ![Botón Guardar parámetros](/assets/images/enterprise/management-console/save-settings.png)
-6. Espera que se complete la fase de configuración. ![Configurar tu instancia](/assets/images/enterprise/management-console/configuration-run.png)
+{% data reusables.enterprise_site_admin_settings.wait-for-configuration-run %}
 
 ## Configurar DNS y parámetros de firewall para permitir correos electrónicos entrantes
 
@@ -89,7 +86,7 @@ Si quieres permitir respuestas de correo electrónico para las notificaciones, d
 
 ### Crea un Paquete de soporte
 
-Si no puedes determinar qué está mal desde el mensaje de error mostrado, puedes descargar un [paquete de soporte](/enterprise/{{ currentVersion }}/admin/guides/enterprise-support/providing-data-to-github-support) que contiene toda la conversación SMTP entre tu servidor de correo y {% data variables.product.prodname_ghe_server %}. Una vez que hayas descargado el paquete, verifica las entradas en *enterprise-manage-logs/unicorn.log* de todo el registro de conversación SMTP y cualquier error relacionado.
+Si no puedes determinar lo que está mal desde el mensaje de error mostrado, puedes descargar un [paquete de soporte](/enterprise/admin/guides/enterprise-support/providing-data-to-github-support) que contiene toda la conversación SMTP entre tu servidor de correo y {% data variables.product.prodname_ghe_server %}. Una vez que hayas descargado y extraído el paquete, verifica las entradas en *enterprise-manage-logs/unicorn.log* para toda la bitácora de conversaciones de SMTP y cualquier error relacionado.
 
 El registro unicornio debería mostrar una transacción similar a la siguiente:
 
@@ -164,7 +161,7 @@ Para procesar los correos electrónicos entrantes de manera adecuada, debes conf
 
 ### Controlar los parámetros de AWS Security Group o firewall
 
-Si {% data variables.product.product_location %} está detrás de un firewall o está siendo servido a través de un AWS Security Group, asegúrate de que el puerto 25 esté abierto a todos los servidores de correo que envíen correos electrónicos a `reply@reply.[hostname]`.
+Si {% data variables.product.product_location %} está detrás de un cortafuegos o se le está sirviendo a través de un AWS Security Group, asegúrate de que el puerto 25 esté abierto a todos los servidores de correo que envíen correos electrónicos a `reply@reply.[hostname]`.
 
 ### Contactar con soporte técnico
 {% ifversion ghes %}

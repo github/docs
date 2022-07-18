@@ -1,6 +1,6 @@
 ---
-title: GitHub CLI reference
-intro: 'You can view all of the {% data variables.product.prodname_cli %} commands in your terminal or in the {% data variables.product.prodname_cli %} manual.'
+title: GitHub CLI 引用
+intro: '您可以在终端或 {% data variables.product.prodname_cli %} 手册中查看所有 {% data variables.product.prodname_cli %} 命令。'
 versions:
   fpt: '*'
   ghes: '*'
@@ -11,25 +11,25 @@ topics:
 type: reference
 ---
 
-To view all top-level {% data variables.product.prodname_cli %} commands, see the [{% data variables.product.prodname_cli %} manual](https://cli.github.com/manual/gh) or call `gh` without arguments.
+要查看所有顶层 {% data variables.product.prodname_cli %} 命令，请参阅 [{% data variables.product.prodname_cli %} 手册](https://cli.github.com/manual/gh)或调用不带参数的 `gh`。
 
 ```shell
 gh
 ```
 
-To list all commands under a specific group, use the top-level command without arguments. For example, to list [commands for managing repositories](https://cli.github.com/manual/gh_repo):
+要列出特定组下的所有命令，请使用不带参数的顶层命令。 例如，要列出[用于管理存储库的命令](https://cli.github.com/manual/gh_repo)：
 
 ```shell
 gh repo
 ```
 
-To view the environment variables that can be used with {% data variables.product.prodname_cli %}, see the [{% data variables.product.prodname_cli %} manual](https://cli.github.com/manual/gh_help_environment) or use the `environment` command.
+要查看可与 {% data variables.product.prodname_cli %} 一起使用的环境变量，请参阅 [{% data variables.product.prodname_cli %} 手册](https://cli.github.com/manual/gh_help_environment) 或使用 `environment` 命令。
 
 ```shell
 gh environment
 ```
 
-To view the configuration settings that can be used with {% data variables.product.prodname_cli %}, see the [{% data variables.product.prodname_cli %} manual](https://cli.github.com/manual/gh_config) or use the `config` command.
+要查看可与 {% data variables.product.prodname_cli %}一起使用的配置设置，请参阅 [{% data variables.product.prodname_cli %} 手册](https://cli.github.com/manual/gh_config) 或使用 `config` 命令。
 
 ```shell
 gh config

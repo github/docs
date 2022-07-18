@@ -25,6 +25,5 @@ children:
   - /redeeming-a-coupon
   - /troubleshooting-a-declined-credit-card-charge
   - /unlocking-a-locked-account
-  - /removing-a-payment-method
 ---
 

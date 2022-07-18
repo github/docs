@@ -1,5 +1,8 @@
-{% data variables.contact.enterprise_support %} may consider a ticket solved after providing an explanation, recommendation, usage instructions, {% ifversion ghae %}or {% endif %} workaround instructions{% ifversion ghes %}, or by advising you of an available release that addresses the issue{% endif %}.
+{% data variables.contact.enterprise_support %} podría considerar a un ticket como resuelto después de proporcionar una explicación, recomendación, instrucciones de uso, {% ifversion ghae %}o {% endif %} instrucciones de solución alternativa{% ifversion ghes %}, o recomendándote un lanzamiento disponible que trate el problema{% endif %}.
 
-If you use a custom or unsupported plug-in, module, or custom code, {% data variables.contact.enterprise_support %} may ask you to remove the unsupported plug-in, module, or code while attempting to resolve the issue. If the problem is fixed when the unsupported plug-in, module, or custom code is removed, {% data variables.contact.enterprise_support %} may consider the ticket solved.
+{% ifversion ghes or ghae %}
+So instalaste software adicional de terceros en o realizaste modificaciones a
+{% data variables.product.product_name %} fuera de las recomendaciones de {% data variables.contact.enterprise_support %}, {% data variables.contact.enterprise_support %} podría pedierte que elimines el software o las modificaciones mientras intenta resolver el problema. El problema se arregla cuando el software o modificaciones no compatibles se eliminan, {% data variables.contact.enterprise_support %} podría considerar que el ticket se resolvió.
+{% endif %}
 
-{% data variables.contact.enterprise_support %} may close a ticket if the ticket is outside the scope of support or if multiple attempts to contact you have gone unanswered. If {% data variables.contact.enterprise_support %} closes a ticket due to lack of response, you can request that {% data variables.contact.enterprise_support %} reopen the ticket.
+{% data variables.contact.enterprise_support %} podría cerrar un ticket si éste está fuera de su alcance o si han habido varios intentos para contactarte sin éxito. Si {% data variables.contact.enterprise_support %} cierra un ticket por falta de respuesta, puedes solicitar que {% data variables.contact.enterprise_support %} lo vuelva a abrir.

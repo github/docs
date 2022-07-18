@@ -18,15 +18,22 @@ shortTitle: Workflow billing & limits
 
 ## About billing for {% data variables.product.prodname_actions %}
 
+{% data reusables.repositories.about-github-actions %} For more information, see "[Understanding {% data variables.product.prodname_actions %}](/actions/learn-github-actions/understanding-github-actions){% ifversion fpt %}."{% elsif ghes or ghec %}" and "[About {% data variables.product.prodname_actions %} for enterprises](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/about-github-actions-for-enterprises)."{% endif %}
+
 {% ifversion fpt or ghec %}
-{% data reusables.github-actions.actions-billing %} For more information, see "[About billing for {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions/about-billing-for-github-actions)."
+{% data reusables.actions.actions-billing %} For more information, see "[About billing for {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions/about-billing-for-github-actions)."
 {% else %}
-GitHub Actions usage is free for {% data variables.product.prodname_ghe_server %}s that use self-hosted runners.
+GitHub Actions usage is free for {% data variables.product.prodname_ghe_server %} instances that use self-hosted runners. For more information, see "[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners)."
 {% endif %}
+
+
+{% ifversion fpt or ghec %}
 
 ## Availability
 
 {% data variables.product.prodname_actions %} is available on all {% data variables.product.prodname_dotcom %} products, but {% data variables.product.prodname_actions %} is not available for private repositories owned by accounts using legacy per-repository plans. {% data reusables.gated-features.more-info %}
+
+{% endif %}
 
 ## Usage limits
 
@@ -40,8 +47,8 @@ There are some limits on {% data variables.product.prodname_actions %} usage whe
 {% endnote %}
 
 - **Job execution time** - Each job in a workflow can run for up to 6 hours of execution time. If a job reaches this limit, the job is terminated and fails to complete.
-{% data reusables.github-actions.usage-workflow-run-time %}
-{% data reusables.github-actions.usage-api-requests %}
+{% data reusables.actions.usage-workflow-run-time %}
+{% data reusables.actions.usage-api-requests %}
 - **Concurrent jobs** - The number of concurrent jobs you can run in your account depends on your GitHub plan, as indicated in the following table. If exceeded, any additional jobs are queued.
 
   | GitHub plan | Total concurrent jobs | Maximum concurrent macOS jobs |
@@ -50,8 +57,14 @@ There are some limits on {% data variables.product.prodname_actions %} usage whe
   | Pro | 40 | 5 |
   | Team | 60 | 5 |
   | Enterprise | 180 | 50 |
-- **Job matrix** - {% data reusables.github-actions.usage-matrix-limits %}
-{% data reusables.github-actions.usage-workflow-queue-limits %}
+
+  {% note %}
+
+  **Note:** If required, customers on enterprise plans can request a higher limit for concurrent jobs. For more information, contact {% data variables.contact.contact_ent_support %} or your sales representative.
+
+  {% endnote %}
+- **Job matrix** - {% data reusables.actions.usage-matrix-limits %}
+{% data reusables.actions.usage-workflow-queue-limits %}
 
 {% else %}
 Usage limits apply to self-hosted runners. For more information, see "[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners/#usage-limits)."
@@ -65,6 +78,8 @@ In addition to the usage limits, you must ensure that you use {% data variables.
 
 {% ifversion fpt or ghes > 3.3 or ghec %}
 ## Billing for reusable workflows
+
+{% data reusables.actions.reusable-workflows-ghes-beta %}
 
 If you reuse a workflow, billing is always associated with the caller workflow. Assignment of {% data variables.product.prodname_dotcom %}-hosted runners is always evaluated using only the caller's context. The caller cannot use {% data variables.product.prodname_dotcom %}-hosted runners from the called repository. 
 
@@ -85,7 +100,7 @@ For more information, see:
 
 ## Disabling or limiting {% data variables.product.prodname_actions %} for your repository or organization
 
-{% data reusables.github-actions.disabling-github-actions %}
+{% data reusables.actions.disabling-github-actions %}
 
 For more information, see:
 - "[Managing {% data variables.product.prodname_actions %} settings for a repository](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository)"

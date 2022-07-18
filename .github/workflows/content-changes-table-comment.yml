@@ -45,28 +45,36 @@ jobs:
     needs: PR-Preview-Links
     if: ${{ needs.PR-Preview-Links.outputs.filterContentDir == 'true' }}
     runs-on: ubuntu-latest
+    env:
+      PR_NUMBER: ${{ github.event.pull_request.number }}
     steps:
       - name: check out repo content
-        uses: actions/checkout@ec3a7ce113134d7a93b817d10a8272cb61118579
+        uses: actions/checkout@dcd71f646680f2efd8db4afa5ad64fdcba30e748
+
+      - name: Get preview app info
+        env:
+          APP_NAME_SEED: ${{ secrets.PREVIEW_ENV_NAME_SEED }}
+        run: .github/actions-scripts/get-preview-app-info.sh
 
       - name: Setup Node
-        uses: actions/setup-node@04c56d2f954f1e4c69436aa54cfef261a018f458
+        uses: actions/setup-node@17f8bd926464a1afa4c6a11669539e9c1ba77048
         with:
-          node-version: 16.13.x
+          node-version: '16.15.0'
           cache: npm
 
       - name: Install temporary dependencies
         run: |
-          npm install --no-save github-slugger
+          npm install --no-save github-slugger --registry https://registry.npmjs.org/
 
       - name: Get changes table
         id: changes
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          APP_URL: ${{ env.APP_URL }}
         run: .github/actions-scripts/content-changes-table-comment.js
 
       - name: Find content directory changes comment
-        uses: peter-evans/find-comment@d2dae40ed151c634e4189471272b57e76ec19ba8
+        uses: peter-evans/find-comment@1769778a0c5bd330272d749d12c036d65e70d39d
         id: findComment
         with:
           issue-number: ${{ github.event.pull_request.number }}

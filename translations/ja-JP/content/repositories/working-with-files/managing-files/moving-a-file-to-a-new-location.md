@@ -29,7 +29,7 @@ shortTitle: Move a file
 
 **ヒント**:
 
-- アクセス権のないリポジトリのファイルを移動しようとした場合は、プロジェクトがあなたのユーザー アカウントにフォークされ、変更のコミット後には元のリポジトリに[プル リクエスト](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)を送信できます。
+- If you try to move a file in a repository that you don’t have access to, we'll fork the project to your personal account and help you send [a pull request](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests) to the original repository after you commit your change.
 - 画像など、ファイルによってはコマンドラインから移動しなければならない場合があります。 詳細は「[コマンドラインを使用してファイルを新しい場所へ移動する](/articles/moving-a-file-to-a-new-location-using-the-command-line)」を参照してください。
 - {% data reusables.repositories.protected-branches-block-web-edits-uploads %}
 

@@ -24,12 +24,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out repo
-        uses: actions/checkout@ec3a7ce113134d7a93b817d10a8272cb61118579
+        uses: actions/checkout@dcd71f646680f2efd8db4afa5ad64fdcba30e748
 
       - name: Setup Node
-        uses: actions/setup-node@04c56d2f954f1e4c69436aa54cfef261a018f458
+        uses: actions/setup-node@17f8bd926464a1afa4c6a11669539e9c1ba77048
         with:
-          node-version: 16.x
+          node-version: '16.15.0'
 
       - name: Run check
         run: |
@@ -41,7 +41,7 @@ jobs:
           #   package-lock.json, instead of checking node_modules and
           #   downloading dependencies.
           #
-          npm install --package-lock-only --ignore-scripts
+          npm install --package-lock-only --ignore-scripts --include=optional
 
           # If the package.json (dependencies and devDependencies) is
           # in correct sync with package-lock.json running the above command

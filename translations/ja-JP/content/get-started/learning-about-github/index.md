@@ -1,5 +1,5 @@
 ---
-title: Learning about GitHub
+title: GitHub について学ぶ
 intro: 'Learn how you can use {% data variables.product.company_short %} products to improve your software management process and collaborate with other people.'
 redirect_from:
   - /articles/learning-about-github

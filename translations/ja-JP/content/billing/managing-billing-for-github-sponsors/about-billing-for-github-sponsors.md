@@ -20,7 +20,7 @@ shortTitle: 支払いについて
 
 {% data reusables.dotcom_billing.view-all-subscriptions %}
 
-{% data reusables.user_settings.context_switcher %}
+{% data reusables.user-settings.context_switcher %}
 
 ## 参考リンク
 

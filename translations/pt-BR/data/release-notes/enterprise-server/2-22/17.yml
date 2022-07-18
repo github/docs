@@ -7,11 +7,11 @@ sections:
   bugs:
     - '`ghe-cluster-config-node-init` falharia durante a configuração do cluster se o proxy HTTP estiver habilitado.'
     - O Collectd não resolveria o nome de host de destino após a inicialização.
-    - The job that purged stale deleted repositories could fail to make progress if some of those repositories were protected from deletion by legal holds.
-    - Git pushes could result in a 500 Internal Server Error during the user reconciliation process on instances using LDAP authentication mode.
+    - O trabalho que os repositórios obsoletos excluídos pode não conseguir progredir se alguns desses repositórios estiverem protegidos da exclusão por retenção legal.
+    - Os pushes do Git podem gerar um erro de 500 servidor interno durante o processo de reconciliação do usuário em instâncias usando o modo de autenticação do LDAP.
     - Um número significativo de erros 503 foram registrados toda vez que um usuário visitou a página `/settings` de um repositório se o gráfico de dependência não estava habilitado.
   changes:
-    - Improved the efficiency of config apply by skipping IP allow firewall rules that had not changed, which saved significant time on large clusters.
+    - Aprimorou-se a eficiência da aplicação da configuração ao ignorar as regras de firewall para permitir IP, que não haviam sido alteradas, o que economizou tempo significativo em grandes clusters.
   known_issues:
     - Em uma nova configuração do GitHub Enterprise Server sem nenhum usuário, um invasor pode criar o primeiro usuário administrador.
     - As regras de firewall personalizadas são removidas durante o processo de atualização.

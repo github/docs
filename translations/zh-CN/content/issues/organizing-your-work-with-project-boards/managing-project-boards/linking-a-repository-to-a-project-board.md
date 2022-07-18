@@ -1,6 +1,6 @@
 ---
 title: 将仓库链接到项目板
-intro: 您可以将仓库链接到组织或用户的项目板。
+intro: 您可以将仓库链接到组织或个人帐户的项目板。
 redirect_from:
   - /github/managing-your-work-on-github/managing-project-boards/linking-a-repository-to-a-project-board
   - /articles/linking-a-repository-to-a-project-board
@@ -17,7 +17,7 @@ shortTitle: 将仓库链接到板
 
 {% data reusables.projects.project_boards_old %}
 
-对项目板具有写入权限的任何人都可以将该组织或用户帐户拥有的仓库链接到项目板。 更多信息请参阅“[组织的项目板权限](/articles/project-board-permissions-for-an-organization/)”或“[用户拥有的项目板的权限级别](/articles/permission-levels-for-user-owned-project-boards/)”。
+对项目板具有写入权限的任何人都可以将该组织或个人帐户拥有的仓库链接到项目板。 更多信息请参阅“[组织的项目板权限](/articles/project-board-permissions-for-an-organization/)”或“[用户拥有的项目板的权限级别](/articles/permission-levels-for-user-owned-project-boards/)”。
 
 {% data reusables.project-management.link-repos-to-project-board %} 您可以在卡中输入议题或拉取请求 URL，从任何未链接的仓库添加议题和拉取请求。 更多信息请参阅“[添加议题和拉取请求到项目板](/articles/adding-issues-and-pull-requests-to-a-project-board)”。
 

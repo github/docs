@@ -1,4 +1,4 @@
-{% data reusables.repositories.navigate-to-repo %}
+1. On {% data variables.product.product_location %}, navigate to the main page of the repository or organization where you want to start a discussion.
 {% data reusables.discussions.discussions-tab %}
 1. Click **New discussion**.
   !["New discussion" button within the "Discussions" tab for a repository](/assets/images/help/discussions/new-discussion-button.png)

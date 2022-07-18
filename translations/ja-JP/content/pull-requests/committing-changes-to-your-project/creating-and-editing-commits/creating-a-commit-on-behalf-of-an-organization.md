@@ -1,6 +1,6 @@
 ---
-title: Creating a commit on behalf of an organization
-intro: 'You can create commits on behalf of an organization by adding a  trailer to the commit''s message. Commits attributed to an organization include an `on-behalf-of` badge on {% data variables.product.product_name %}.'
+title: Organization の代理でコミットを作成する
+intro: 'コミットのメッセージにトレーラーを追加することで、Organization の代理でコミットを作成できます。 Organization に属するコミットには、{% data variables.product.product_name %} で `on-behalf-of` というバッジが付きます。'
 redirect_from:
   - /articles/creating-a-commit-on-behalf-of-an-organization
   - /github/committing-changes-to-your-project/creating-a-commit-on-behalf-of-an-organization
@@ -10,26 +10,27 @@ versions:
   ghec: '*'
 shortTitle: On behalf of an organization
 ---
+
 {% note %}
 
-**Note:** The ability to create a commit on behalf of an organization is currently in public beta and is subject to change.
+**メモ:** Organization の代理でコミットを作成する機能は、現在パブリックベータであり、変更されることがあります。
 
 {% endnote %}
 
-To create commits on behalf of an organization:
+Organization の代理でコミットを作成するには、以下の条件を満たす必要があります:
 
-- you must be a member of the organization indicated in the trailer
-- you must sign the commit
-- your commit email and the organization email must be in a domain verified by the organization
-- your commit message must end with the commit trailer `on-behalf-of: @org <name@organization.com>`
-  - `org` is the organization's login
-  - `name@organization.com` is in the organization's domain
+- トレーラーで示される Organization のメンバーであること
+- あなたがコミットに署名すること
+- コミットメールおよび Organization メールが、Organization で検証済みのドメインであること
+- コミットメッセージが、`on-behalf-of: @org <name@organization.com>` というコミットトレーラーで終わること
+  - `org` は Organization のログイン名
+  - `name@organization.com` は Organization のドメイン内
 
 Organizations can use the `name@organization.com` email as a public point of contact for open source efforts.
 
-## Creating commits with an `on-behalf-of` badge on the command line
+## コマンドラインで `on-behalf-of` バッジを付けてコミットを作成する
 
-1. Type your commit message and a short, meaningful description of your changes. After your commit description, instead of a closing quotation, add two empty lines.
+1. コミットメッセージと、変更の短く分かりやすい説明を入力してください。 コミットの説明の後に、閉じる引用符の代わりに 2 つの空の行を追加してください。
   ```shell
   $ git commit -m "Refactor usability tests.
   >
@@ -37,11 +38,11 @@ Organizations can use the `name@organization.com` email as a public point of con
   ```
   {% tip %}
 
-  **Tip:** If you're using a text editor on the command line to type your commit message, ensure there are two newlines between the end of your commit description and the `on-behalf-of:` commit trailer.
+  **参考:** コミットメッセージの入力にコマンドライン上のテキストエディタを使っている場合、コミットの説明とコミットトレーラーの`on-behalf-of:`との間に新しい改行が 2 つあることを確認してください。
 
   {% endtip %}
 
-2. On the next line of the commit message, type `on-behalf-of: @org <name@organization.com>`, then a closing quotation mark.
+2. コミットメッセージの次の行に、`on-behalf-of: @org <name@organization.com>` と入力して、引用符で閉じます。
 
   ```shell
   $ git commit -m "Refactor usability tests.
@@ -50,25 +51,24 @@ Organizations can use the `name@organization.com` email as a public point of con
   on-behalf-of: <em>@org</em> &lt;<em>name@organization.com</em>&gt;"
   ```
 
-The new commit, message, and badge will appear on {% data variables.product.product_location %} the next time you push. For more information, see "[Pushing changes to a remote repository](/github/getting-started-with-github/pushing-commits-to-a-remote-repository/)."
+次回のプッシュ時に、{% data variables.product.product_location %} に新たなコミット、メッセージ、およびバッジが表示されます。 詳細は「[リモートリポジトリに変更をプッシュする](/github/getting-started-with-github/pushing-commits-to-a-remote-repository/)」を参照してください。
 
-## Creating commits with an `on-behalf-of` badge on {% data variables.product.product_name %}
+## {% data variables.product.product_name %} で `on-behalf-of` バッジを付けてコミットを作成する
 
-After you've made changes in a file using the web editor on {% data variables.product.product_name %}, you can create a commit on behalf of your organization by adding an `on-behalf-of:` trailer to the commit's message.
+{% data variables.product.product_name %} のウェブエディタでファイルを変更してから、コミットのメッセージに `on-behalf-of:` トレーラーを追加することで、Organization の代理でコミットを作成できます。
 
-1. After making your changes, at the bottom of the page, type a short, meaningful commit message that describes the changes you made.
-  ![Commit message for your change](/assets/images/help/repository/write-commit-message-quick-pull.png)
+1. 変更を行った後は、ページの下部に、変更について説明する、短くて意味のあるコミットメッセージを入力します。 ![変更のコミットメッセージ](/assets/images/help/repository/write-commit-message-quick-pull.png)
 
-2. In the text box below your commit message, add `on-behalf-of: @org <name@organization.com>`.
+2. コミットメッセージの下にあるテキストボックスに、`on-behalf-of: @org <name@organization.com>` を追加します。
 
-  ![Commit message on-behalf-of trailer example in second commit message text box](/assets/images/help/repository/write-commit-message-on-behalf-of-trailer.png)
-4. Click **Commit changes** or **Propose changes**.
+  ![2 つ目のコミットメッセージテキストボックスにある、代理コミットメッセージのトレーラー例](/assets/images/help/repository/write-commit-message-on-behalf-of-trailer.png)
+4. [**Commit changes**] または [**Propose changes**] をクリックします。
 
-The new commit, message, and badge will appear on {% data variables.product.product_location %}.
+{% data variables.product.product_location %} に新たなコミット、メッセージ、およびバッジが表示されます。
 
-## Further reading
+## 参考リンク
 
-- "[Viewing contributions on your profile](/articles/viewing-contributions-on-your-profile)"
-- "[Why are my contributions not showing up on my profile?](/articles/why-are-my-contributions-not-showing-up-on-my-profile)"
-- "[Viewing a project’s contributors](/articles/viewing-a-projects-contributors)"
-- "[Changing a commit message](/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/changing-a-commit-message)"
+- [プロフィール上でのコントリビューションの表示](/articles/viewing-contributions-on-your-profile)
+- [プロフィール上でコントリビューションが表示されない理由](/articles/why-are-my-contributions-not-showing-up-on-my-profile)
+- [プロジェクトのコントリビューターを表示する](/articles/viewing-a-projects-contributors)
+- [コミットメッセージの変更](/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/changing-a-commit-message)

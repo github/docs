@@ -8,6 +8,7 @@ versions:
   ghes: '*'
   ghae: '*'
 children:
+  - /about-github-enterprise-server
   - /about-github-ae
   - /about-upgrades-to-new-releases
   - /about-data-residency
@@ -15,6 +16,7 @@ children:
   - /system-overview
   - /about-the-github-enterprise-api
   - /creating-an-enterprise-account
+  - /accessing-compliance-reports-for-your-enterprise
 ---
 
 如需了解更多信息或购买 {% data variables.product.prodname_enterprise %}，请参阅 [{% data variables.product.prodname_enterprise %}](https://github.com/enterprise)。

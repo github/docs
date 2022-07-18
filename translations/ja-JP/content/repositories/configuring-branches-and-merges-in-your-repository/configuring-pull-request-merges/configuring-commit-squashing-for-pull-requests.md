@@ -21,8 +21,11 @@ shortTitle: Configure commit squashing
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-3. 必要であれば、[Merge button] の下の [**Allow merge commits**] を選択します。 これにより、コントリビューターがコミットの全ての履歴と共にプルリクエストをマージできるようになります。 ![allow_standard_merge_commits](/assets/images/help/repository/pr-merge-full-commits.png)
-4. [Merge button] の下にある [**Allow squash merging**] を選択します。 これにより、コントリビューターが全てのコミットを 1 つのコミットに squash してプルリクエストをマージできるようになります。 [**Allow squash merging**] 以外のマージ方法も選択した場合、コラボレーターはプルリクエストをマージする時にコミットのマージ方法を選択できます。 {% data reusables.repositories.squash-and-rebase-linear-commit-hisitory %} ![プルリクエストの squash したコミット](/assets/images/help/repository/pr-merge-squash.png)
+3. Under {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6069 %}"Pull Requests"{% else %}"Merge button"{% endif %}, optionally select **Allow merge commits**. これにより、コントリビューターがコミットの全ての履歴と共にプルリクエストをマージできるようになります。 ![allow_standard_merge_commits](/assets/images/help/repository/pr-merge-full-commits.png)
+4. Under {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6069 %}"Pull Requests"{% else %}"Merge button"{% endif %}, select **Allow squash merging**. これにより、コントリビューターが全てのコミットを 1 つのコミットに squash してプルリクエストをマージできるようになります。 The squash message automatically defaults to the title of the pull request if it contains more than one commit. {% ifversion fpt or ghec or ghes > 3.5 or ghae-issue-7042 %}If you want to use the title of the pull request as the default merge message for all squashed commits, regardless of the number of commits in the pull request, select **Default to PR title for squash merge commits**. ![Pull request squashed commits](/assets/images/help/repository/pr-merge-squash.png){% else %}
+![Pull request squashed commits](/assets/images/enterprise/3.5/repository/pr-merge-squash.png){% endif %}
+
+If you select more than one merge method, collaborators can choose which type of merge commit to use when they merge a pull request. {% data reusables.repositories.squash-and-rebase-linear-commit-hisitory %}
 
 ## 参考リンク
 

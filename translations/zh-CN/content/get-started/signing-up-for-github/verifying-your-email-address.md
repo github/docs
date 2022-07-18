@@ -35,15 +35,15 @@ If you do not verify your email address, you will not be able to:
 
 **Warnings**:
 
-- {% data reusables.user_settings.no-verification-disposable-emails %}
-- {% data reusables.user_settings.verify-org-approved-email-domain %}
+- {% data reusables.user-settings.no-verification-disposable-emails %}
+- {% data reusables.user-settings.verify-org-approved-email-domain %}
 
 {% endwarning %}
 
 ## Verifying your email address
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.emails %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.emails %}
 1. Under your email address, click **Resend verification email**.
   ![Resend verification email link](/assets/images/help/settings/email-verify-button.png)
 4. {% data variables.product.prodname_dotcom %} will send you an email with a link in it. After you click that link, you'll be taken to your {% data variables.product.prodname_dotcom %} dashboard and see a confirmation banner.
@@ -53,7 +53,7 @@ If you do not verify your email address, you will not be able to:
 
 ### Unable to send verification email
 
-{% data reusables.user_settings.no-verification-disposable-emails %}
+{% data reusables.user-settings.no-verification-disposable-emails %}
 
 ### Error page after clicking verification link
 

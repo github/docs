@@ -3,3 +3,4 @@
 #Documentation for the CodeQL package manager and CodeQL packs.
 versions:
   fpt: '*'
+  ghec: '*'

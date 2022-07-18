@@ -1,1 +1,1 @@
-Para impedir a aceitação ou submissão de uma atividade por alunos, desmarque **Habilitar a URL do convite da atividade**. Para editar a atividade, clique em {% octicon "pencil" aria-label="The pencil icon" %} **Editar atividade**.
+To prevent acceptance or submission of an assignment by students, you can change the "Assignment Status" within the "Edit assignment" view. When an assignment is Active, students will be able to accept it using the invitation link. When it is Inactive, this link will no longer be valid.

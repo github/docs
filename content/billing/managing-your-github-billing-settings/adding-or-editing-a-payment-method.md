@@ -32,7 +32,7 @@ We don't provide invoicing or support purchase orders for personal accounts. We 
 
 ## Updating your personal account's payment method
 
-{% data reusables.user_settings.billing_plans %}
+{% data reusables.user-settings.billing_plans %}
 {% data reusables.dotcom_billing.update_payment_method %}
 1. If your account has existing billing information that you want to update, click **Edit**.
 ![Billing New Card button](/assets/images/help/billing/billing-information-edit-button.png)

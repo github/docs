@@ -29,6 +29,6 @@ To run {% data variables.product.prodname_actions %} workflows, you need to use 
 
 For more information, see "[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners)."
 
-If you choose self-hosted runners, you can add runners at the enterprise, organization, or repository levels. For more information, see "[Adding self-hosted runners](/actions/hosting-your-own-runners/adding-self-hosted-runners)"
+If you choose self-hosted runners, you can add runners at the enterprise, organization, or repository levels. For more information, see "[Adding self-hosted runners](/actions/hosting-your-own-runners/adding-self-hosted-runners)."
 
 {% data reusables.actions.general-security-hardening %}

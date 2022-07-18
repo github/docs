@@ -1,0 +1,1 @@
+ワークフロー内のジョブが開始されるたびに、`GITHUB_TOKEN`はそのリポジトリのアクセストークンに設定されます。 You should set the permissions for this access token in the workflow file to grant read access for the `contents` scope and write access for the `packages` scope. 詳しい情報については「[GITHUB_TOKENでの認証](/actions/configuring-and-managing-workflows/authenticating-with-the-github_token)」を参照してください。

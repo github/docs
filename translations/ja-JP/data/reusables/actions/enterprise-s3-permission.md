@@ -7,5 +7,5 @@
 * `s3:AbortMultipartUpload`
 * `s3:DeleteObject`
 * `s3:ListBucket`
-* `kms:GenerateDataKey` (if Key Management Service (KMS) encryption has been enabled)
+* `kms:GenerateDataKey` (Key Management Service (KMS) の暗号化が有効になっている場合)
 

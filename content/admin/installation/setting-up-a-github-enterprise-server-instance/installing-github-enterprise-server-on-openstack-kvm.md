@@ -26,10 +26,9 @@ shortTitle: Install on OpenStack
 
 ## Downloading the {% data variables.product.prodname_ghe_server %} image
 
-{% data reusables.enterprise_installation.enterprise-download-procedural %}
 {% data reusables.enterprise_installation.download-license %}
 {% data reusables.enterprise_installation.download-appliance %}
-4. Select {% data variables.product.prodname_dotcom %} On-premises, then click **OpenStack KVM (QCOW2)**.
+4. Under "{% data variables.product.prodname_dotcom %} On-premises", select the "Select your hypervisor" dropdown menu and click **OpenStack KVM (QCOW2)**.
 5. Click **Download for OpenStack KVM (QCOW2)**.
 
 ## Creating the {% data variables.product.prodname_ghe_server %} instance

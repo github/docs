@@ -1,6 +1,6 @@
 ---
-title: Editing files
-intro: 'You can edit files directly on {% data variables.product.product_name %} in any of your repositories using the file editor.'
+title: Editar archivos
+intro: 'Puedes editar archivos directamente en {% data variables.product.product_name %} en cualquiera de tus repositorios usando el editor de archivos.'
 redirect_from:
   - /articles/editing-files
   - /articles/editing-files-in-your-repository
@@ -16,47 +16,42 @@ versions:
   ghec: '*'
 topics:
   - Repositories
-shortTitle: Edit files
+shortTitle: Editar archivos
 ---
 
-## Editing files in your repository
+## Editar archivos en tu repositorio
 
 {% tip %}
 
-**Tip**: {% data reusables.repositories.protected-branches-block-web-edits-uploads %}
+**Sugerencia**:{% data reusables.repositories.protected-branches-block-web-edits-uploads %}
 
 {% endtip %}
 
 {% note %}
 
-**Note:** {% data variables.product.product_name %}'s file editor uses [CodeMirror](https://codemirror.net/).
+**Nota:** El editor de archivos de {% data variables.product.product_name %} usa [CodeMirror](https://codemirror.net/).
 
 {% endnote %}
 
-1. In your repository, browse to the file you want to edit.
+1. En tu repositorio, dirígete al archivo que deseas editar.
 {% data reusables.repositories.edit-file %}
-3. On the **Edit file** tab, make any changes you need to the file.
-![New content in file](/assets/images/help/repository/edit-readme-light.png)
+3. En la pestaña **Editar archivo**, realiza todos los cambios que sean necesarios. ![Nuevo contenido en el archivo](/assets/images/help/repository/edit-readme-light.png)
 {% data reusables.files.preview_change %}
 {% data reusables.files.write_commit_message %}
 {% data reusables.files.choose-commit-email %}
 {% data reusables.files.choose_commit_branch %}
 {% data reusables.files.propose_file_change %}
 
-## Editing files in another user's repository
+## Editar archivos en el repositorio de otro usuario
 
-When you edit a file in another user's repository, we'll automatically [fork the repository](/articles/fork-a-repo) and [open a pull request](/articles/creating-a-pull-request) for you.
+Cuando editas un archivo en el repositorio de otro usuario, automáticamente [bifurcaremos el repositorio](/articles/fork-a-repo) y [abriremos una solicitud de cambios](/articles/creating-a-pull-request) para ti.
 
-1. In another user's repository, browse to the folder that contains the file you want to edit. Click the name of the file you want to edit.
-2. Above the file content, click {% octicon "pencil" aria-label="The edit icon" %}. At this point, GitHub forks the repository for you.
-3. Make any changes you need to the file.
-![New content in file](/assets/images/help/repository/edit-readme-light.png)
+1. En el repositorio de otro usuario, dirígete a la carpeta que contiene el archivo que deseas editar. Haz clic en el nombre del archivo que deseas editar.
+2. Sobre el contenido del archivo, haz clic en {% octicon "pencil" aria-label="The edit icon" %}. En este punto del proceso, GitHub bifurca el repositorio por ti.
+3. Realiza todos los cambios que necesites en el archivo. ![Nuevo contenido en el archivo](/assets/images/help/repository/edit-readme-light.png)
 {% data reusables.files.preview_change %}
 {% data reusables.files.write_commit_message %}
 {% data reusables.files.choose-commit-email %}
-6. Click **Propose file change**.
-![Commit Changes button](/assets/images/help/repository/propose_file_change_button.png)
-7. Type a title and description for your pull request.
-![Pull Request description page](/assets/images/help/pull_requests/pullrequest-description.png)
-8. Click **Create pull request**.
-![Pull Request button](/assets/images/help/pull_requests/pullrequest-send.png)
+6. Haz clic en **Proponer cambio en el archivo**. ![Botón Confirmar cambios](/assets/images/help/repository/propose_file_change_button.png)
+7. Escribe un título y una descripción para tu solicitud de extracción. ![Página de descripción de la solicitud de extracción](/assets/images/help/pull_requests/pullrequest-description.png)
+8. Haz clic en **Create Pull Request** (Crear solicitud de extracción). ![Botón Solicitud de extracción](/assets/images/help/pull_requests/pullrequest-send.png)

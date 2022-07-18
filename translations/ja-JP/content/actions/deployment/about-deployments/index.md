@@ -4,7 +4,8 @@ shortTitle: About deployments
 intro: 'Learn how deployments can run with {% data variables.product.prodname_actions %} workflows.'
 versions:
   fpt: '*'
-  ghae: issue-4856
+  ghes: '*'
+  ghae: '*'
   ghec: '*'
 children:
   - /about-continuous-deployment

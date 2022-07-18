@@ -6,6 +6,7 @@ versions:
   fpt: '*'
 children:
   - /integrate-github-classroom-with-an-ide
+  - /using-github-codespaces-with-github-classroom
   - /about-using-visual-studio-code-with-github-classroom
   - /about-using-makecode-arcade-with-github-classroom
   - /replit-with-github-classroom

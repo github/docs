@@ -21,5 +21,6 @@ children:
   - /syntax-for-githubs-form-schema
   - /creating-a-pull-request-template-for-your-repository
   - /manually-creating-a-single-issue-template-for-your-repository
+  - /common-validation-errors-when-creating-issue-forms
 ---
 

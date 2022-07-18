@@ -25,7 +25,7 @@ topics:
 
 1. [GitHub Appsの設定ページ](https://github.com/settings/apps)から、アプリケーションを選択してください。
 2. 左のサイドバーで、**Install App（アプリケーションのインストール）**をクリックしてください。
-3. 適切なリポジトリを含むOrganizationもしくはユーザアカウントの隣の** Install（インストール）**をクリックしてください。
+3. Click **Install** next to the organization or personal account containing the correct repository.
 4. すべてのリポジトリ、もしくは選択したリポジトリにアプリケーションをインストールしてください。 ![アプリケーションのインストール権限](/assets/images/install_permissions.png)
 5. インストールが終わると、選択したアカウントでアプリケーションの設定オプションが表示されます。 ここで変更をすることも、あるいは先のステップを繰り返して他のアカウントへアプリケーションをインストールすることもできます。
 

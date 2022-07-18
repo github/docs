@@ -1,4 +1,4 @@
-{% ifversion ghes or ghae-issue-4864 %}
+{% ifversion ghes or ghae %}
 Enterprise owners must enable
-{% data variables.product.prodname_dependabot_alerts %} for vulnerable dependencies for {% data variables.product.product_location %} before you can use this feature. For more information, see "[Enabling the dependency graph and {% data variables.product.prodname_dependabot_alerts %} on your enterprise account](/admin/configuration/managing-connections-between-your-enterprise-accounts/enabling-the-dependency-graph-and-dependabot-alerts-on-your-enterprise-account)."
+{% data variables.product.prodname_dependabot_alerts %} for {% data variables.product.product_location %} before you can use this feature. 詳しい情報については「[Enterpriseでの{% data variables.product.prodname_dependabot %}の有効化](/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise)」を参照してください。
 {% endif %}

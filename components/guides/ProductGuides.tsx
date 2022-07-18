@@ -1,6 +1,6 @@
+import React from 'react'
 import { DefaultLayout } from 'components/DefaultLayout'
 import { useProductGuidesContext } from 'components/context/ProductGuidesContext'
-import React from 'react'
 import { LandingSection } from 'components/landing/LandingSection'
 import { GuidesHero } from 'components/guides/GuidesHero'
 import { LearningTracks } from 'components/guides/LearningTracks'
@@ -9,7 +9,8 @@ import { useTranslation } from 'components/hooks/useTranslation'
 
 export const ProductGuides = () => {
   const { title, learningTracks, includeGuides } = useProductGuidesContext()
-  const { t } = useTranslation('sub_landing')
+  const { t } = useTranslation('product_guides')
+
   return (
     <DefaultLayout>
       <LandingSection className="pt-3">

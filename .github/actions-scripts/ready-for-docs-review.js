@@ -3,6 +3,7 @@ import { graphql } from '@octokit/graphql'
 import {
   addItemToProject,
   isDocsTeamMember,
+  isGitHubOrgMember,
   findFieldID,
   findSingleSelectID,
   generateUpdateProjectNextItemFieldMutation,
@@ -170,17 +171,20 @@ async function run() {
   const updateProjectNextItemMutation = generateUpdateProjectNextItemFieldMutation({
     item: newItemID,
     author: firstTimeContributor ? 'first time contributor' : process.env.AUTHOR_LOGIN,
-    turnaround: turnaround,
-    feature: feature,
+    turnaround,
+    feature,
   })
 
   // Determine which variable to use for the contributor type
   let contributorType
   if (await isDocsTeamMember(process.env.AUTHOR_LOGIN)) {
     contributorType = docsMemberTypeID
+  } else if (await isGitHubOrgMember(process.env.AUTHOR_LOGIN)) {
+    contributorType = hubberTypeID
   } else if (process.env.REPO === 'github/docs') {
     contributorType = osContributorTypeID
   } else {
+    // use hubber as the fallback so that the PR doesn't get lost on the board
     contributorType = hubberTypeID
   }
 
@@ -188,16 +192,16 @@ async function run() {
 
   await graphql(updateProjectNextItemMutation, {
     project: projectID,
-    statusID: statusID,
+    statusID,
     statusValueID: readyForReviewID,
-    datePostedID: datePostedID,
-    reviewDueDateID: reviewDueDateID,
-    contributorTypeID: contributorTypeID,
-    contributorType: contributorType,
-    sizeTypeID: sizeTypeID,
-    sizeType: sizeType,
-    featureID: featureID,
-    authorID: authorID,
+    datePostedID,
+    reviewDueDateID,
+    contributorTypeID,
+    contributorType,
+    sizeTypeID,
+    sizeType,
+    featureID,
+    authorID,
     headers: {
       authorization: `token ${process.env.TOKEN}`,
       'GraphQL-Features': 'projects_next_graphql',

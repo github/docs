@@ -18,7 +18,7 @@ shortTitle: Adicionar um colaborador
 Um colaborador externo é uma pessoa que não é explicitamente um integrante da sua organização, mas tem permissões para um quadro de projeto em sua organização.
 
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.organization-wide-project %}
 {% data reusables.project-management.select-project %}
 {% data reusables.project-management.click-menu %}

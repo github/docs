@@ -1,6 +1,6 @@
 ---
 title: Organization からのユーザのブロック
-intro: Organization のオーナーは、ユーザをブロックして Organization のリポジトリ上で協力できないようにすることができます。
+intro: Organization owners and moderators can block anyone who is not a member of the organization from collaborating on the organization's repositories.
 redirect_from:
   - /articles/blocking-a-user-from-your-organization
   - /github/building-a-strong-community/blocking-a-user-from-your-organization
@@ -12,7 +12,7 @@ topics:
 shortTitle: Organization からのブロック
 ---
 
-Organization の設定内、もしくはユーザが作成した特定のコメントから、ユーザをブロックできます。 コメント内でユーザをブロックした場合、そのユーザに、ブロックされたこととその理由を説明する通知を送信できます。 そうしない場合、ブロックされたことはユーザには直接通知されません。 ユーザは、ブロックされても既存のコンテンツを削除できます。
+You can block non-members from within your organization's settings or from a specific comment made by a user. コメント内でユーザをブロックした場合、そのユーザに、ブロックされたこととその理由を説明する通知を送信できます。 そうしない場合、ブロックされたことはユーザには直接通知されません。 ユーザは、ブロックされても既存のコンテンツを削除できます。
 
 ユーザをブロックする際には、無期限にブロックするか、一定の期間だけブロックするかを選択できます。 誰かを一定の期間だけブロックした場合、その期間が過ぎると自動的にブロックは解除されます。 無期限にブロックした場合、ブロックはいつでも手動で解除できます。 詳細は「[Organizationからのユーザのブロックを解除する](/communities/maintaining-your-safety-on-github/unblocking-a-user-from-your-organization)」を参照してください。
 

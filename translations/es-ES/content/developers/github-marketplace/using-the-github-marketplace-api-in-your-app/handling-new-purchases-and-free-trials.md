@@ -2,9 +2,9 @@
 title: Gestionar las compras nuevas y las pruebas gratuitas
 intro: 'Cuando un cliente compra un plan de pago, una prueba gratuita, o la versión gratuita de tu app de {% data variables.product.prodname_marketplace %}, recibirás el webhook de [evento de `marketplace_purchase`] (/marketplace/integrating-with-the-github-marketplace-api/github-marketplace-webhook-events) con la acción `comprado`, lo cual inicia el flujo de compra.'
 redirect_from:
-  - /apps/marketplace/administering-listing-plans-and-user-accounts/supporting-purchase-plans-for-github-apps/
-  - /apps/marketplace/administering-listing-plans-and-user-accounts/supporting-purchase-plans-for-oauth-apps/
-  - /apps/marketplace/integrating-with-the-github-marketplace-api/handling-new-purchases-and-free-trials/
+  - /apps/marketplace/administering-listing-plans-and-user-accounts/supporting-purchase-plans-for-github-apps
+  - /apps/marketplace/administering-listing-plans-and-user-accounts/supporting-purchase-plans-for-oauth-apps
+  - /apps/marketplace/integrating-with-the-github-marketplace-api/handling-new-purchases-and-free-trials
   - /marketplace/integrating-with-the-github-marketplace-api/handling-new-purchases-and-free-trials
   - /developers/github-marketplace/handling-new-purchases-and-free-trials
 versions:
@@ -59,7 +59,7 @@ Cuando un cliente compra tu app, debes enviar a dicho cliente a través del fluj
 
 * Si tu app es una {% data variables.product.prodname_oauth_app %}, inicia el flujo de autorización tan pronto como {% data variables.product.product_name %} redirija al cliente a la **URL de instalación**. Sigue los pasos de la sección "[Autorizar las {% data variables.product.prodname_oauth_apps %}](/apps/building-oauth-apps/authorizing-oauth-apps/)".
 
-Para cualquier tipo de app, el primer paso es redirigir al cliente a https://github.com/login/oauth/authorize.
+Para cualquier tipo de app, el primer paso es redirigir al cliente a [https://github.com/login/oauth/authorize](https://github.com/login/oauth/authorize).
 
 Después de que el ciente complete la autorización, tu app recibirá un token de acceso de OAuth para el cliente. Necesitas este token para el siguiente paso.
 

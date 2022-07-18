@@ -34,6 +34,8 @@ shortTitle: 阻止您的帐户
 - 您在他们仓库协作者的身份被删除
 - 他们与您的赞助关系被取消
 - 任何对被阻止用户的待处理仓库或帐户继承者邀请或来自该用户的邀请都被取消
+- 用户作为协作者将从您拥有的所有项目板和项目（测试版）中删除
+- 您作为协作者将从该用户拥有的所有项目板和项目（测试版）中删除
 
 您阻止用户后，他们无法：
 - 向您发送任何通知，包括 [@提及](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams)您的用户名
@@ -46,6 +48,8 @@ shortTitle: 阻止您的帐户
 - 在评论中交叉引用您的仓库
 - 复刻、关注、固定您的仓库或对其标星
 - 赞助您
+- 将您添加为其项目板和项目（测试版）的协作者
+- 对公共项目板和项目进行更改（测试版）
 
 在您拥有的仓库中，被阻止的用户也不能：
 - 打开议题
@@ -55,8 +59,8 @@ shortTitle: 阻止您的帐户
 
 ## 在您的帐户设置中阻止用户
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.blocked_users %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.blocked_users %}
 3. 在“Block a user（阻止用户）”下，键入您要阻止的用户的用户名，然后单击 **Block user（阻止用户）**。 ![用户名字段和阻止按钮](/assets/images/help/settings/user-settings-block-user.png)
 4. （可选）要在您访问被阻止用户参与的仓库时显示警告，请选择 **Warn me when a blocked user is a prior contributor to a repository（在访问被阻止用户先前参与的仓库时警告我）**。 ![关于被阻止用户的警告选项](/assets/images/help/settings/warn-block-user.png)
 

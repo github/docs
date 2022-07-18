@@ -24,10 +24,13 @@ Cuando inhabilitas los tableros de proyecto, ya no ves la información de los ta
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-4. Decide si deseas inhabilitar los tableros de proyecto que se usan en toda la organización, los tableros de proyecto de los repositorios de la organización, o ambos. Luego, en "Proyectos":
+{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-5658 %}
+1. En la sección de "Planeación de código y automatización" de la barra lateral, haz clic en **{% octicon "table" aria-label="The table icon" %} Proyectos**.
+{% endif %}
+1. Decide si deseas inhabilitar los tableros de proyecto que se usan en toda la organización, los tableros de proyecto de los repositorios de la organización, o ambos. Luego, en "Proyectos":
     - Para inhabilitar los tableros de proyecto que se usan en toda la organización, quita la marca de selección de **Habilitar proyectos para la organización**.
     - Para inhabilitar los tableros de proyecto de los repositorios en la organización, quita la marca de selección de **Habilitar proyectos para todos los repositorios**. ![Casillas de verificación para inhabilitar proyectos para una organización o para todos los repositorios de una organización](/assets/images/help/projects/disable-org-projects-checkbox.png)
-5. Haz clic en **Save ** (guardar).
+1. Haz clic en **Save ** (guardar).
 
 {% data reusables.organizations.disable_project_board_results %}
 

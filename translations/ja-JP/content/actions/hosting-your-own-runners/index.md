@@ -1,6 +1,6 @@
 ---
-title: Hosting your own runners
-intro: You can create self-hosted runners to run workflows in a highly customizable environment.
+title: 自分のランナーをホストする
+intro: セルフホストランナーを作成し、非常にカスタマイズ性の高い環境でワークフローを実行できます。
 redirect_from:
   - /github/automating-your-workflow-with-github-actions/hosting-your-own-runners
   - /actions/automating-your-workflow-with-github-actions/hosting-your-own-runners
@@ -19,6 +19,8 @@ children:
   - /about-self-hosted-runners
   - /adding-self-hosted-runners
   - /autoscaling-with-self-hosted-runners
+  - /running-scripts-before-or-after-a-job
+  - /customizing-the-containers-used-by-jobs
   - /configuring-the-self-hosted-runner-application-as-a-service
   - /using-a-proxy-server-with-self-hosted-runners
   - /using-labels-with-self-hosted-runners
@@ -27,6 +29,6 @@ children:
   - /monitoring-and-troubleshooting-self-hosted-runners
   - /removing-self-hosted-runners
 ---
-{% data reusables.actions.ae-self-hosted-runners-notice %}
+
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}

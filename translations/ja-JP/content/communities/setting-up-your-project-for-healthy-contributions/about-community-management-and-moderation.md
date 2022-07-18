@@ -17,6 +17,8 @@ shortTitle: 管理 & モデレーション
 
 {% data variables.product.prodname_dotcom %}は、リポジトリメンテナが{% data variables.product.prodname_dotcom_the_website %}のコミュニティでより厳格な行動規範を定義および実施するためのツールも提供しています。
 
+Organization owners can specify organization members as moderators. This gives these members access to moderation features otherwise reserved for organization owners. For more information, see "[Managing moderators in your organization](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-moderators-in-your-organization)."
+
 コミュニティでの行動規範を確立すると、混乱をもたらす行動に迅速かつ公正に対応することによって快適で生産的な環境を推進できます。 効果的なモデレーションによって、コミュニティ内で信頼関係を構築し、コントリビューターに健全で友好的な雰囲気を感じてもらうことができます。
 
 ## コミュニティをモデレートするためのツール

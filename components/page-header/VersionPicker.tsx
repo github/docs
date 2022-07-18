@@ -1,9 +1,7 @@
 import { useRouter } from 'next/router'
-import { ArrowRightIcon } from '@primer/octicons-react'
 
-import { Link } from 'components/Link'
 import { useMainContext } from 'components/context/MainContext'
-import { useVersion } from 'components/hooks/useVersion'
+import { DEFAULT_VERSION, useVersion } from 'components/hooks/useVersion'
 import { useTranslation } from 'components/hooks/useTranslation'
 import { Picker } from 'components/ui/Picker'
 
@@ -15,43 +13,49 @@ export const VersionPicker = ({ variant }: Props) => {
   const router = useRouter()
   const { currentVersion } = useVersion()
   const { allVersions, page, enterpriseServerVersions } = useMainContext()
-  const { t } = useTranslation('pages')
+  const { t } = useTranslation(['pages', 'picker'])
 
-  if (page.permalinks && page.permalinks.length <= 1) {
+  if (page.permalinks && page.permalinks.length < 1) {
     return null
   }
 
   const allLinks = (page.permalinks || []).map((permalink) => ({
     text: permalink.pageVersionTitle,
     selected: allVersions[currentVersion].versionTitle === permalink.pageVersionTitle,
-    item: <Link href={permalink.href}>{permalink.pageVersionTitle}</Link>,
+    href: permalink.href,
+    arrow: false,
+    info: false,
   }))
-  const hasEnterpriseVersions = (page.permalinks || []).find((permalink) =>
-    permalink.pageVersion.startsWith('enterprise-version')
+
+  const hasEnterpriseVersions = (page.permalinks || []).some((permalink) =>
+    permalink.pageVersion.startsWith('enterprise-server')
   )
 
   if (hasEnterpriseVersions) {
     allLinks.push({
       text: t('all_enterprise_releases'),
       selected: false,
-      item: (
-        <Link
-          href={`/${router.locale}/${enterpriseServerVersions[0]}/admin/all-releases`}
-          className="f6 no-underline color-fg-muted"
-        >
-          {t('all_enterprise_releases')}{' '}
-          <ArrowRightIcon verticalAlign="middle" size={15} className="mr-2" />
-        </Link>
-      ),
+      arrow: true,
+      href: `/${router.locale}/${enterpriseServerVersions[0]}/admin/all-releases`,
+      info: false,
+    })
+  }
+
+  if (allLinks) {
+    const currentVersionPathSegment = currentVersion === DEFAULT_VERSION ? '' : `/${currentVersion}`
+
+    allLinks.push({
+      text: t('about_versions'),
+      selected: false,
+      arrow: false,
+      info: true,
+      href: `/${router.locale}${currentVersionPathSegment}/get-started/learning-about-github/about-versions-of-github-docs`,
     })
   }
 
   return (
-    <Picker
-      variant={variant}
-      data-testid="version-picker"
-      defaultText="Choose version"
-      options={allLinks}
-    />
+    <div data-testid="version-picker">
+      <Picker variant={variant} defaultText={t('version_picker_default_text')} options={allLinks} />
+    </div>
   )
 }

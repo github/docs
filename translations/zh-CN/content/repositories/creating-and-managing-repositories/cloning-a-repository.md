@@ -25,8 +25,6 @@ topics:
 
 ## 克隆仓库
 
-{% include tool-switcher %}
-
 {% webui %}
 
 {% data reusables.repositories.navigate-to-repo %}
@@ -88,7 +86,7 @@ gh repo clone <em>https://github.com/cli/cli</em>
 
 - 您可以使用 HTTPS 连接。 更多信息请参阅“[HTTPS 克隆错误](/github/creating-cloning-and-archiving-repositories/https-cloning-errors)”。
 - 您有权访问要克隆的仓库。 更多信息请参阅“[错误：找不到仓库](/github/creating-cloning-and-archiving-repositories/error-repository-not-found)”。
-- 要克隆的默认分支仍然存在。 您有权访问要克隆的仓库。 更多信息请参阅“[错误：远程 HEAD 引用不存在的 ref，无法检出](/github/creating-cloning-and-archiving-repositories/error-remote-head-refers-to-nonexistent-ref-unable-to-checkout)”。
+- 要克隆的默认分支仍然存在。 更多信息请参阅“[错误：远程 HEAD 引用不存在的 ref，无法检出](/repositories/creating-and-managing-repositories/troubleshooting-cloning-errors#error-remote-head-refers-to-nonexistent-ref-unable-to-checkout)”。
 
 {% ifversion fpt or ghec %}
 

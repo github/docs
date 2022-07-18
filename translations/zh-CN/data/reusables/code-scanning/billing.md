@@ -1,0 +1,1 @@
+{% ifversion fpt or ghec %}使用操作运行 {% data variables.product.prodname_code_scanning %} 将消耗分钟数。 更多信息请参阅“[关于 {% data variables.product.prodname_actions %} 的计费](/billing/managing-billing-for-github-actions/about-billing-for-github-actions).”{% endif %}

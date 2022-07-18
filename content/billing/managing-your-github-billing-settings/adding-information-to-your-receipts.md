@@ -33,9 +33,9 @@ Your receipts include your {% data variables.product.prodname_dotcom %} subscrip
 
 ## Adding information to your personal account's receipts
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.billing_plans %}
-{% data reusables.user_settings.payment-info-link %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.billing_plans %}
+{% data reusables.user-settings.payment-info-link %}
 {% data reusables.dotcom_billing.extra_info_receipt %}
 
 ## Adding information to your organization's receipts
@@ -48,5 +48,5 @@ Your receipts include your {% data variables.product.prodname_dotcom %} subscrip
 
 
 {% data reusables.organizations.billing-settings %}
-{% data reusables.user_settings.payment-info-link %}
+{% data reusables.user-settings.payment-info-link %}
 {% data reusables.dotcom_billing.extra_info_receipt %}

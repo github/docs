@@ -1,5 +1,5 @@
 {% note %}
 
-**Note:** The Dormant Users report is currently in private beta so admins only have access to this feature with a special invite. To join the private beta, receive support, or address your questions, contact the {% data variables.product.company_short %} representative who helps manage your account.
+**Nota:** El reporte de usuarios inactivos se encuentra actualmente en beta y está sujeto a cambios. Durante el beta, las mejoras constantes a la característica de descarga de reportes podrían limitar su disponibilidad.
 
 {% endnote %}

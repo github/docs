@@ -4,17 +4,19 @@ intro: 'You can give users easy access to enterprise-specific links by adding cu
 versions:
   ghec: '*'
   ghes: '>=3.4'
+  ghae: issue-5487
 type: how_to
 topics:
   - Enterprise
   - Fundamentals
 shortTitle: Configure custom footers
 ---
+
 Enterprise owners can configure {% data variables.product.product_name %} to show custom footers with up to five additional links.
 
 ![Custom footer](/assets/images/enterprise/custom-footer/octodemo-footer.png)
 
-The custom footer is displayed above the {% data variables.product.prodname_dotcom %} footer {% ifversion ghes or ghae %}to all users, on all pages of {% data variables.product.product_name %}{% else %}to all enterprise members and collaborators, on all repository and organization pages for repositories and organizations that belong to the enterprise{% endif %}.
+The custom footer is displayed above the {% data variables.product.prodname_dotcom %} footer {% ifversion ghes or ghae %}to all users, on all pages of {% data variables.product.product_name %}{% elsif ghec %}to all enterprise members and collaborators, on all repository and organization pages for repositories and organizations that belong to the enterprise{% endif %}.
 
 ## Configuring custom footers for your enterprise
 
@@ -28,11 +30,8 @@ The custom footer is displayed above the {% data variables.product.prodname_dotc
 ![Enterprise profile settings](/assets/images/enterprise/custom-footer/enterprise-profile-ghes.png)
 {%- endif %}
 
-1. At the top of the Profile section, click **Custom footer**.
-![Custom footer section](/assets/images/enterprise/custom-footer/custom-footer-section.png)
+1. At the top of the Profile section, click **Custom footer**. ![Custom footer section](/assets/images/enterprise/custom-footer/custom-footer-section.png)
 
-1. Add up to five links in the fields shown.
-![Add footer links](/assets/images/enterprise/custom-footer/add-footer-links.png)
+1. Add up to five links in the fields shown. ![Add footer links](/assets/images/enterprise/custom-footer/add-footer-links.png)
 
-1. Click **Update custom footer** to save the content and display the custom footer.
-![Update custom footer](/assets/images/enterprise/custom-footer/update-custom-footer.png)
+1. Click **Update custom footer** to save the content and display the custom footer. ![Update custom footer](/assets/images/enterprise/custom-footer/update-custom-footer.png)

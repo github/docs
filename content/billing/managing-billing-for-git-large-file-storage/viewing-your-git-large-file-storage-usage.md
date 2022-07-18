@@ -21,8 +21,8 @@ shortTitle: View Git LFS usage
 
 ## Viewing storage and bandwidth usage for a personal account
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.billing_plans %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.billing_plans %}
 {% data reusables.dotcom_billing.lfs-data %}
 
 ## Viewing storage and bandwidth usage for an organization

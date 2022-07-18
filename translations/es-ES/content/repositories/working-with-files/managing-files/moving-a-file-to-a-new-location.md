@@ -25,7 +25,7 @@ In addition to changing the file location, you can also [update the contents of 
 
 **Tips**:
 
-- If you try to move a file in a repository that you don’t have access to, we'll fork the project to your user account and help you send [a pull request](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests) to the original repository after you commit your change.
+- If you try to move a file in a repository that you don’t have access to, we'll fork the project to your personal account and help you send [a pull request](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests) to the original repository after you commit your change.
 - Some files, such as images, require that you move them from the command line. For more information, see "[Moving a file to a new location using the command line](/articles/moving-a-file-to-a-new-location-using-the-command-line)".
 - {% data reusables.repositories.protected-branches-block-web-edits-uploads %}
 

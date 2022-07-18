@@ -8,19 +8,19 @@ on:
     branches: ['release']
 
 env:
-  REGISTRY: ghcr.io
+  REGISTRY: {% data reusables.package_registry.container-registry-hostname %}
   IMAGE_NAME: {% raw %}${{ github.repository }}{% endraw %}
 
 jobs:
   build-and-push-image:
-    runs-on: ubuntu-latest
+    runs-on: {% ifversion ghes %}[self-hosted]{% else %}ubuntu-latest{% endif %}
     permissions:
       contents: read
       packages: write
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: {% data reusables.actions.action-checkout %}
 
       - name: Log in to the Container registry
         uses: docker/login-action@f054a8b539a109f9f41c372932f1ae047eff08c9

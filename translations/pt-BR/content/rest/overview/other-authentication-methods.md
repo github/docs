@@ -29,7 +29,7 @@ Para efetuar a autenticação, recomendamos usar tokens do [OAuth](/apps/buildin
 
 ## Autenticação básica
 
-A API é compatível com a Autenticação Básica conforme definido em [RFC2617](http://www.ietf.org/rfc/rfc2617.txt) com algumas ligeiras diferenças. A diferença principal é que o RFC exige que as solicitações não autenticadas sejam respondidas com respostas `401 Unauthorized`. Em muitos lugares, isso divulgaria a existência de dados de usuário. Instead, the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API responds with `404 Not Found`. Isso pode causar problemas para bibliotecas de HTTP que assumem uma resposta `401 Unauthorized`. A solução é criar manualmente o cabeçalho de `Autorização `.
+A API é compatível com a Autenticação Básica conforme definido em [RFC2617](http://www.ietf.org/rfc/rfc2617.txt) com algumas ligeiras diferenças. A diferença principal é que o RFC exige que as solicitações não autenticadas sejam respondidas com respostas `401 Unauthorized`. Em muitos lugares, isso divulgaria a existência de dados de usuário. Em vez disso, A {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API responde com `404 Not Found`. Isso pode causar problemas para bibliotecas de HTTP que assumem uma resposta `401 Unauthorized`. A solução é criar manualmente o cabeçalho de `Autorização `.
 
 ### Por meio do OAuth e de tokens de acesso pessoal
 
@@ -47,7 +47,7 @@ Esta abordagem é útil se suas ferramentas são compatíveis apenas com a Auten
 
 {% note %}
 
-**Observação:** {% data variables.product.prodname_dotcom %} suspendeu a autenticação da senha para a API a partir de 13 de novembro 2020 para todas as contas de {% data variables.product.prodname_dotcom_the_website %}, incluindo as que estão em um plano de {% data variables.product.prodname_free_user %}, {% data variables.product.prodname_pro %}, {% data variables.product.prodname_team %} ou {% data variables.product.prodname_ghe_cloud %}. You must now authenticate to the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API with an API token, such as an OAuth access token, GitHub App installation access token, or personal access token, depending on what you need to do with the token. Para obter mais informações, consulte "[Solução de problemas](/rest/overview/troubleshooting#basic-authentication-errors)".
+**Observação:** {% data variables.product.prodname_dotcom %} suspendeu a autenticação da senha para a API a partir de 13 de novembro 2020 para todas as contas de {% data variables.product.prodname_dotcom_the_website %}, incluindo as que estão em um plano de {% data variables.product.prodname_free_user %}, {% data variables.product.prodname_pro %}, {% data variables.product.prodname_team %} ou {% data variables.product.prodname_ghe_cloud %}. Agora você deve efetuar a autenticação na {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API com um token da API, como um token de acesso do OAuth, token de acesso à instalação do aplicativo GitHub ou token de acesso pessoal, dependendo do que você precisa fazer com o token. Para obter mais informações, consulte "[Solução de problemas](/rest/overview/troubleshooting#basic-authentication-errors)".
 
 {% endnote %}
 
@@ -55,7 +55,7 @@ Esta abordagem é útil se suas ferramentas são compatíveis apenas com a Auten
 
 {% ifversion ghes %}
 Para usar Autenticação Básica com a
-{% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API, simply send the username and
+A API de {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} simplesmente envia o nome de usuário e
 a senha associada à conta.
 
 Por exemplo, se você estiver acessando a API via [cURL][curl], o comando a seguir faria a sua autenticação se substituísse `<username>` pelo seu nome de usuário de {% data variables.product.product_name %}. (cURL solicitará que você insira a senha.)
@@ -104,7 +104,7 @@ O valor das `organizações` é uma lista de ID de organizações separada por v
 
 Quando você tem a autenticação de dois fatores habilitada, a [Autenticação básica](#basic-authentication) para _a maioria dos_ pontos de extremidade na API REST exige que você use um token de acesso pessoal{% ifversion ghes %} ou token do OAuth em vez do seu nome de usuário e senha{% endif %}.
 
-Você pode gerar um novo token de acesso pessoal {% ifversion fpt or ghec %}usando [ as configurações de desenvolvedor de {% data variables.product.product_name %}](https://github.com/settings/tokens/new){% endif %}{% ifversion ghes %} ou com o ponto de extremidade "\[Criar uma nova autorização\]\[/rest/reference/oauth-authorizations#create-a-new-authorization\]" na API de Autorizações OAuth para gerar um novo token OAuth{% endif %}. Para obter mais informações, consulte "[Criar um token de acesso pessoal para a linha de comando](/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line)". Then you would use these tokens to [authenticate using OAuth token][oauth-auth] with the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API.{% ifversion ghes %} The only time you need to authenticate with your username and password is when you create your OAuth token or use the OAuth Authorizations API.{% endif %}
+Você pode gerar um novo token de acesso pessoal {% ifversion fpt or ghec %}usando [ as configurações de desenvolvedor de {% data variables.product.product_name %}](https://github.com/settings/tokens/new){% endif %}{% ifversion ghes %} ou com o ponto de extremidade "\[Criar uma nova autorização\]\[/rest/reference/oauth-authorizations#create-a-new-authorization\]" na API de Autorizações OAuth para gerar um novo token OAuth{% endif %}. Para obter mais informações, consulte "[Criar um token de acesso pessoal para a linha de comando](/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line)". Em seguida, você usaria esses tokens para [efetuar a autenticação usando o token OAuth token][oauth-auth] com a API de {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %}.{% ifversion ghes %} TA única vez que você deve efetuar a autenticação com o seu nome de usuário e senha é no momento de criar o seu token OAuth ou usar a API de autorizações do OAuth.{% endif %}
 
 {% endif %}
 
