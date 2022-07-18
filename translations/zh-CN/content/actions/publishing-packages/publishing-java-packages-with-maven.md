@@ -73,7 +73,6 @@ _pom.xml_ 文件还包含 Maven 将在其中部署包的分配管理仓库的配
 
 在部署步骤中，您需要将环境变量设置为向仓库验证的用户名，以及用密码或令牌配置为进行身份验证的密钥。  更多信息请参阅“[创建和使用加密密码](/github/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)”。
 
-
 ```yaml{:copy}
 name: Publish package to the Maven Central Repository
 on:
@@ -143,10 +142,10 @@ on:
     types: [created]
 jobs:
   publish:
-    runs-on: ubuntu-latest {% ifversion fpt or ghes > 3.1 or ghae or ghec %}
+    runs-on: ubuntu-latest 
     permissions: 
       contents: read
-      packages: write {% endif %}
+      packages: write 
     steps:
       - uses: {% data reusables.actions.action-checkout %}
       - uses: {% data reusables.actions.action-setup-java %}
@@ -180,10 +179,10 @@ on:
     types: [created]
 jobs:
   publish:
-    runs-on: ubuntu-latest {% ifversion fpt or ghes > 3.1 or ghae or ghec %}
+    runs-on: ubuntu-latest 
     permissions: 
       contents: read
-      packages: write {% endif %}
+      packages: write 
     steps:
       - uses: {% data reusables.actions.action-checkout %}
       - name: Set up Java for publishing to Maven Central Repository

@@ -14,7 +14,7 @@ topics:
   - API
 ---
 
-Existem duas versões estáveis da API do GitHub: a [API REST](/rest) e a [API do GraphQL]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql).
+Existem duas versões estáveis da API do GitHub: a [API REST](/rest) e a [API do GraphQL](/graphql).
 
 ## Versões obsoletas
 

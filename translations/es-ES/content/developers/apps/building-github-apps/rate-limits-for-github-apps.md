@@ -82,4 +82,4 @@ Los límites de tasa para las solicitudes de usuario a servidor que hace {% data
 ## Leer más
 
 - "[Límites de tasa](/rest/overview/resources-in-the-rest-api#rate-limiting)" en la documentación de la API de REST
-- "[Resource limitations]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql/overview/resource-limitations)" en la documentación de la API de GraphQL
+- "[Resource limitations](/graphql/overview/resource-limitations)" en la documentación de la API de GraphQL

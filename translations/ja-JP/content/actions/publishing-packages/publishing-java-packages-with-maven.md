@@ -73,7 +73,6 @@ _pom.xml_ファイルには、Mavenがパッケージをデプロイする配布
 
 デプロイのステップでは、リポジトリに認証してもらうユーザ名と、認証のためのパスワードあるいはトークンで設定したシークレットを環境変数に設定する必要があります。  詳しい情報については、「[暗号化されたシークレットの作成と利用](/github/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)」を参照してください。
 
-
 ```yaml{:copy}
 name: Publish package to the Maven Central Repository
 on:
@@ -143,10 +142,10 @@ on:
     types: [created]
 jobs:
   publish:
-    runs-on: ubuntu-latest {% ifversion fpt or ghes > 3.1 or ghae or ghec %}
+    runs-on: ubuntu-latest 
     permissions: 
       contents: read
-      packages: write {% endif %}
+      packages: write 
     steps:
       - uses: {% data reusables.actions.action-checkout %}
       - uses: {% data reusables.actions.action-setup-java %}
@@ -180,10 +179,10 @@ on:
     types: [created]
 jobs:
   publish:
-    runs-on: ubuntu-latest {% ifversion fpt or ghes > 3.1 or ghae or ghec %}
+    runs-on: ubuntu-latest 
     permissions: 
       contents: read
-      packages: write {% endif %}
+      packages: write 
     steps:
       - uses: {% data reusables.actions.action-checkout %}
       - name: Set up Java for publishing to Maven Central Repository

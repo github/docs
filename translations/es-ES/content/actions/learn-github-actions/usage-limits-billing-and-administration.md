@@ -60,7 +60,7 @@ Hay algunos límites de uso de {% data variables.product.prodname_actions %} cua
 
   {% note %}
 
-  **Note:** If required, customers on enterprise plans can request a higher limit for concurrent jobs. For more information, contact {% data variables.contact.contact_ent_support %} or your sales representative.
+  **Nota:** De ser necesario, los clientes con planes empresariales pueden solicitar un límite superior para los jobs simultáneos. Para obtener más información, contacta a {% data variables.contact.contact_ent_support %} o a tu representante de ventas.
 
   {% endnote %}
 - **Matiz de jobs** - {% data reusables.actions.usage-matrix-limits %}

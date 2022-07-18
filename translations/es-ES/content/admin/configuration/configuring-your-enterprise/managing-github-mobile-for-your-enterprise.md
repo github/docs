@@ -20,7 +20,7 @@ shortTitle: Administrar GitHub Móvil
 
 Puedes permitir o dejar de permitir que las personas utilicen {% data variables.product.prodname_mobile %} para autenticarse en {% data variables.product.product_location %} y que accedan a los datos de tu instancia. Predeterminadamente, {% data variables.product.prodname_mobile %} está {% ifversion ghes > 3.3 %} habilitado para las personas que utilizan {% data variables.product.product_location %}.{% else %} inhabilitado para las personas que utilizan {% data variables.product.product_location %}. Para permitir la conexión a tu instancia con {% data variables.product.prodname_mobile %}, debes habilitar la característica para esta.{% endif %}
 
-{% ifversion ghes < 3.6 and ghes > 3.1 %}
+{% ifversion ghes < 3.6 %}
 {% note %}
 
 **Nota:** Si mejoras a {% data variables.product.prodname_ghe_server %} 3.4.0 o posterior y no has inhabilitado o habilitado {% data variables.product.prodname_mobile %} previamente, {% data variables.product.prodname_mobile %} se habilitará predeterminadamente. Si previamente inhabilitaste o habilitaste {% data variables.product.prodname_mobile %} para tu instancia, tu preferencia se preservará cuando lo mejores. Para obtener más información sobre cómo mejorar tu instancia, consulta la sección "[Mejorar {% data variables.product.product_name %}](/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server)".

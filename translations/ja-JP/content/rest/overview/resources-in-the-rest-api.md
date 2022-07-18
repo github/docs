@@ -165,7 +165,7 @@ $ curl {% ifversion fpt or ghae or ghec %}
 
 ## GraphQL グローバルノード ID
 
-REST API を介して `node_id` を検索し、それらを GraphQL 操作で使用する方法について詳しくは、「[グローバルノード ID を使用する]({% ifversion ghec%}/free-pro-team@latest{% endif %}/graphql/guides/using-global-node-ids)」のガイドを参照してください。
+REST API を介して `node_id` を検索し、それらを GraphQL 操作で使用する方法について詳しくは、「[グローバルノード ID を使用する](/graphql/guides/using-global-node-ids)」のガイドを参照してください。
 
 ## クライアントエラー
 

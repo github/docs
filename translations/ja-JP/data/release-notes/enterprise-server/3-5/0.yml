@@ -30,11 +30,7 @@ sections:
       heading: Depandabotアップデートの一般提供
       notes:
         - |
-          Dependabotバージョン及びセキュリティアップデートは、GitHub Enterprise Server 3.5で一般提供になりました。GitHub.comリポジトリで動作する一般的なすべてのエコシステムと機能は、GitHub Enterprise Serverインスタンスでセットアップできます。GitHub Enterprise Server上のDependabotにはGitHub ActionsとセルフホストのDependabotランナーのプール、GitHub Connectの有効化、管理者によるDependabotの有効化が必要です。
-
-          パブリックベータでのリリース以降、Kubernetes環境でホストされたGitHub Actionsランナーの利用がサポートされます。
-
-          詳しい情報については「[Dependabotアップデートのセットアップ](https://docs.github.com/en/enterprise-server@3.5/admin/github-actions/enabling-github-actions-for-github-enterprise-server/setting-up-dependabot-updates)」を参照してください。
+          Dependabotバージョン及びセキュリティアップデートは、GitHub Enterprise Server 3.5で一般提供になりました。GitHub.comリポジトリで動作する一般的なすべてのエコシステムと機能は、GitHub Enterprise Serverインスタンスでセットアップできます。GitHub Enterprise Server上のDependabotにはGitHub ActionsとセルフホストのDependabotランナーのプール、GitHub Connectの有効化、管理者によるDependabotの有効化が必要です。詳しい情報については「[Dependabotアップデートのセットアップ](https://docs.github.com/en/enterprise-server@3.5/admin/github-actions/enabling-github-actions-for-github-enterprise-server/setting-up-dependabot-updates)」を参照してください。
     - 
       heading: Server Statisticsのパブリックベータ
       notes:

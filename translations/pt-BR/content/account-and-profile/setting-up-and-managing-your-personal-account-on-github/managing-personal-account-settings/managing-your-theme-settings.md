@@ -4,7 +4,7 @@ intro: 'Você pode gerenciar como {% data variables.product.product_name %} se p
 versions:
   fpt: '*'
   ghae: '*'
-  ghes: '>=3.2'
+  ghes: '*'
   ghec: '*'
 topics:
   - Accounts

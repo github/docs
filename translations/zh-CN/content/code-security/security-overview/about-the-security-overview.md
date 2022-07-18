@@ -8,7 +8,7 @@ redirect_from:
 versions:
   fpt: '*'
   ghae: '*'
-  ghes: '>3.1'
+  ghes: '*'
   ghec: '*'
 type: how_to
 topics:
@@ -31,7 +31,7 @@ shortTitle: 关于安全概述
 {% ifversion ghes or ghec or ghae %}您{% elsif fpt %}使用 {% data variables.product.prodname_ghe_cloud %}{% endif %} 的组织可以使用安全性概述来获取{% ifversion ghes or ghec or ghae %} 您的 {% elsif fpt %}其{% endif %} 组织安全状态的高级视图，或者识别需要干预的问题存储库。 {% ifversion ghes or ghec or ghae %}您 {% elsif fpt %}这些组织{% endif %} 可以在安全性概述中查看汇总或存储库特定的安全信息。 {% ifversion ghes or ghec or ghae %}您 {% elsif fpt %} 使用 {% data variables.product.prodname_ghe_cloud %} 的组织{% endif %}还可以使用安全性概述来查看 {% ifversion ghes or ghec or ghae %}您的 {% elsif fpt %}其 {% endif %} 存储库启用了哪些安全功能，并配置当前未使用的任何可用安全功能。 {% ifversion fpt %}更多信息请参阅 [{% data variables.product.prodname_ghe_cloud %} 文档](/enterprise-cloud@latest/code-security/security-overview/about-the-security-overview)。{% endif %}
 
 {% ifversion ghec or ghes or ghae %}
-安全概述指示是否为组织拥有的存储库启用了 {% ifversion fpt or ghes > 3.1 or ghec %}安全{% endif %}{% ifversion ghae %}{% data variables.product.prodname_GH_advanced_security %}{% endif %} 功能，并合并每个功能的警报。{% ifversion fpt or ghes > 3.1 or ghec %} 安全功能包括 {% data variables.product.prodname_GH_advanced_security %} 功能，例如 {% data variables.product.prodname_code_scanning %} 和 {% data variables.product.prodname_secret_scanning %}以及 {% data variables.product.prodname_dependabot_alerts %}。{% endif %} 有关 {% data variables.product.prodname_GH_advanced_security %} 功能的详细信息，请参阅“[关于 {% data variables.product.prodname_GH_advanced_security %}](/get-started/learning-about-github/about-github-advanced-security)”。{% ifversion fpt or ghes > 3.1 or ghec %} 有关 {% data variables.product.prodname_dependabot_alerts %} 的详细信息，请参阅“[关于 {% data variables.product.prodname_dependabot_alerts %}](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-alerts-for-vulnerable-dependencies#dependabot-alerts-for-vulnerable-dependencies)”。{% endif %}
+安全概述指示是否为组织拥有的存储库启用了 {% ifversion fpt or ghes or ghec %}安全{% endif %}{% ifversion ghae %}{% data variables.product.prodname_GH_advanced_security %}{% endif %} 功能，并合并每个功能的警报。{% ifversion fpt or ghes or ghec %} 安全功能包括 {% data variables.product.prodname_GH_advanced_security %} 功能，例如 {% data variables.product.prodname_code_scanning %} 和 {% data variables.product.prodname_secret_scanning %}以及 {% data variables.product.prodname_dependabot_alerts %}。{% endif %} 有关 {% data variables.product.prodname_GH_advanced_security %} 功能的详细信息，请参阅“[关于 {% data variables.product.prodname_GH_advanced_security %}](/get-started/learning-about-github/about-github-advanced-security)”。{% ifversion fpt or ghes or ghec %} 有关 {% data variables.product.prodname_dependabot_alerts %} 的详细信息，请参阅“[关于 {% data variables.product.prodname_dependabot_alerts %}](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-alerts-for-vulnerable-dependencies#dependabot-alerts-for-vulnerable-dependencies)”。{% endif %}
 
 有关在存储库和组织级别保护代码的详细信息，请参阅“[保护存储库](/code-security/getting-started/securing-your-repository)”和“[保护组织](/code-security/getting-started/securing-your-organization)”。
 

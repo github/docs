@@ -24,11 +24,6 @@
 
 Si planeas habilitar las {% data variables.product.prodname_actions %} para los usuarios de tu instancia, se necesitarán más recursos.
 
-{%- ifversion ghes < 3.2 %}
-
-{% data reusables.actions.hardware-requirements-before %}
-
-{%- endif %}
 
 {%- ifversion ghes = 3.2 %}
 

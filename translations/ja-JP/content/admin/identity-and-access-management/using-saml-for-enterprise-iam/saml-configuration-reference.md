@@ -1,5 +1,5 @@
 ---
-title: 'SAML configuration reference'
+title: SAML configuration reference
 shortTitle: SAML reference
 intro: 'You can see SAML metadata for {% ifversion ghec %}your organization or enterprise on {% data variables.product.product_name %}{% elsif ghes %}{% data variables.product.product_location %}{% elsif ghae %}your enterprise on {% data variables.product.product_name %}{% endif %}, and you can learn more about available SAML attributes and response requirements.'
 versions:
@@ -135,6 +135,10 @@ To specify more than one value for an attribute, use multiple `<saml2:AttributeV
 To prevent a person from authenticating with your IdP and staying authorized indefinitely, {% data variables.product.product_name %} periodically invalidates the session for each user account with access to {% ifversion ghec or ghae %}your enterprise's resources{% elsif ghes %}{% data variables.product.product_location %}{% endif %}. After invalidation, the person must authenticate with your IdP once again. By default, if your IdP does not assert a value for the `SessionNotOnOrAfter` attribute, {% data variables.product.product_name %} invalidates a session {% ifversion ghec %}24 hours{% elsif ghes or ghae %}one week{% endif %} after successful authentication with your IdP.
 
 To customize the session duration, you may be able to define the value of the `SessionNotOnOrAfter` attribute on your IdP. If you define a value less than 24 hours, {% data variables.product.product_name %} may prompt people to authenticate every time {% data variables.product.product_name %} initiates a redirect.
+
+{% ifversion ghec %}
+To prevent authentication errors, we recommend a minimum session duration of 4 hours. For more information, see "[Troubleshooting SAML authentication](/admin/identity-and-access-management/using-saml-for-enterprise-iam/troubleshooting-saml-authentication#users-are-repeatedly-redirected-to-authenticate)."
+{% endif %}
 
 {% note %}
 

@@ -63,7 +63,7 @@ Text that is not a quote
 
 ## 引用代码
 
-使用单反引号可标注句子中的代码或命令。 反引号中的文本不会设置格式。{% ifversion fpt or ghae or ghes > 3.1 or ghec %} 您还可以按 <kbd>Command</kbd>+<kbd>E</kbd> (Mac) 或 <kbd>Ctrl</kbd>+<kbd>E</kbd> (Windows/Linux) 键盘快捷键，在 Markdown 的行内插入代码块的反引号。{% endif %}
+使用单反引号可标注句子中的代码或命令。 反引号中的文本不会被格式化。 还可以按 <kbd>Command</kbd>+<kbd>E</kbd> (Mac) 或 <kbd>Ctrl</kbd>+<kbd>E</kbd> (Windows/Linux) 键盘快捷键，在 Markdown 的一行内为代码块插入反引号。
 
 ```markdown
 使用 `git status` 列出尚未提交的所有新文件或已修改文件。
@@ -88,9 +88,36 @@ git commit
 
 {% data reusables.user-settings.enabling-fixed-width-fonts %}
 
+## 支持的颜色模型
+
+在议题、拉取请求和讨论中，可以使用反引号在句子中调出颜色。 反引号中支持的颜色模型将显示颜色的可视化效果。
+
+```markdown
+浅色模式的背景颜色应为“#ffffff”，深色模式的背景颜色应为“#0d1117”。
+```
+
+![渲染支持的颜色模型。](/assets/images/help/writing/supported-color-models-rendered.png)
+
+以下是当前支持的颜色模型。
+
+| 颜色   | 语法                        | 示例                        | 输出                                                                                         |
+| ---- | ------------------------- | ------------------------- | ------------------------------------------------------------------------------------------ |
+| 十六进制 | <code>\`#RRGGBB\`</code> | <code>\`#0969DA\`</code> | ![以 HEX 格式渲染支持的颜色模型。](/assets/images/help/writing/supported-color-models-hex-rendered.png) |
+| RGB  | <code>\`rgb(R,G,B)\`</code> | <code>\`rgb(9, 105, 218)\`</code> | ![以 RGB 格式渲染支持的颜色模型。](/assets/images/help/writing/supported-color-models-rgb-rendered.png) |
+| HSL  | <code>\`hsl(H,S,L)\`</code> | <code>\`hsl(212, 92%, 45%)\`</code> | ![以 HSL 格式渲染支持的颜色模型。](/assets/images/help/writing/supported-color-models-hsl-rendered.png) |
+
+{% note %}
+
+**注意：**
+
+- 支持的颜色模型在反引号内不能有任何前导空格或尾随空格。
+- 仅在议题、拉取请求和讨论中支持颜色的可视化。
+
+{% endnote %}
+
 ## 链接
 
-通过将链接文本包含在方括号 `[ ]` 内，然后将 URL 包含在括号 `( )` 内，可创建内联链接。 {% ifversion fpt or ghae or ghes > 3.1 or ghec %}您还可以使用键盘快捷键 <kbd>Command</kbd>+<kbd>K</kbd> 创建链接。{% endif %}{% ifversion fpt or ghae-issue-5434 or ghes > 3.3 or ghec %} 选择文本后，可以从剪贴板粘贴 URL，以自动从所选内容创建链接。{% endif %}
+通过将链接文本包含在方括号 `[ ]` 内，然后将 URL 包含在括号 `( )` 内，可创建内联链接。 您还可以使用键盘快捷键 <kbd>Command</kbd>+<kbd>K</kbd> 创建链接。 {% ifversion fpt or ghae-issue-5434 or ghes > 3.3 or ghec %} 选择文本后，可以从剪贴板粘贴 URL，以自动从所选内容创建链接。{% endif %}
 
 {% ifversion fpt or ghae-issue-7103 or ghes > 3.5 or ghec %} 您还可以通过突出显示文本并使用键盘快捷键 <kbd>Command</kbd>+<kbd>V</kbd> 来创建 Markdown 超链接。 如果要将文本替换为链接，请使用键盘快捷键 <kbd>命令</kbd>+<kbd>Shift</kbd>+<kbd>V</kbd>。{% endif %}
 

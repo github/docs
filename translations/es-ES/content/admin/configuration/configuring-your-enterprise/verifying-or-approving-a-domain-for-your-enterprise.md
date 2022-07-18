@@ -5,7 +5,7 @@ intro: 'Puedes verificar tu propiedad de dominios con {% data variables.product.
 product: '{% data reusables.gated-features.verify-and-approve-domain %}'
 versions:
   ghec: '*'
-  ghes: '>=3.2'
+  ghes: '*'
 permissions: Enterprise owners can verify or approve a domain for an enterprise account.
 type: how_to
 topics:

@@ -1,5 +1,5 @@
-When you enable organization discussions, you will choose a repository in the organization to be the source repository for your organization discussions. You can use an existing repository or create a repository specifically to hold your organization discussions. Discussions will appear both on the discussions page for the organization and on the discussion page for the source repository.
+启用组织讨论时，您将选择组织中的存储库作为组织讨论的源存储库。 您可以使用现有存储库，也可以专门创建存储库来保存组织讨论。 讨论将显示在组织的讨论页面上和源存储库的讨论页面上。
 
-Permission to participate in or manage discussion in your organization is based on permission in the source repository. For example, a user needs write permission to the source repository in order to delete an organization discussion. This is identical to how a user needs write permission in a repository in order to delete a repository discussion.
+参与或管理组织中讨论的权限基于源存储库中的权限。 例如，用户需要对源存储库的写入权限才能删除组织讨论。 这与用户在存储库中需要写入权限才能删除存储库讨论的方式相同。
 
-You can change the source repository at any time. If you change the source repository, discussions are not transferred to the new source repository.
+您可以随时更改源存储库。 如果更改源存储库，讨论不会传输到新的源存储库。

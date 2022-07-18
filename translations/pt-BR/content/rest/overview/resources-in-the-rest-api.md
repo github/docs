@@ -88,7 +88,7 @@ Observação: O GitHub recomenda enviar tokens do OAuth usando o cabeçalho de a
 
 {% endnote %}
 
-Leia [mais sobre o OAuth2](/apps/building-oauth-apps/).  Note that OAuth2 tokens can be acquired using the [web application flow](/developers/apps/authorizing-oauth-apps#web-application-flow) for production applications.
+Leia [mais sobre o OAuth2](/apps/building-oauth-apps/).  Observe que os tokens do OAuth2 podem ser adquiridos usando o [fluxo de aplicação web](/developers/apps/authorizing-oauth-apps#web-application-flow) para aplicativos de produção.
 
 {% ifversion fpt or ghes or ghec %}
 ### OAuth2 key/secret
@@ -165,7 +165,7 @@ $ curl {% ifversion fpt or ghae or ghec %}
 
 ## IDs de nós globais do GraphQL
 
-Consulte o guia em "[Usar IDs do nó globais ]({% ifversion ghec%}/free-pro-team@latest{% endif %}/graphql/guides/using-global-node-ids)" para obter informações detalhadas sobre como encontrar `node_id`s através da API REST e usá-los em operações do GraphQL.
+See the guide on "[Using Global Node IDs](/graphql/guides/using-global-node-ids)" for detailed information about how to find `node_id`s via the REST API and use them in GraphQL operations.
 
 ## Erros do cliente
 
@@ -222,7 +222,7 @@ Os recursos também podem enviar erros de validação personalizados (em que o `
 
 ## Redirecionamentos HTTP
 
-The {% data variables.product.product_name %} REST API uses HTTP redirection where appropriate. Os clientes devem assumir que qualquer solicitação pode resultar em redirecionamento. Receber um redirecionamento de HTTP *não* é um erro e os clientes devem seguir esse redirecionamento. As respostas de redirecionamento terão um campo do cabeçalho do tipo `Localização` que contém o URI do recurso ao qual o cliente deve repetir as solicitações.
+A API REST de {% data variables.product.product_name %} usa o redirecionamento de HTTP, quando apropriado. Os clientes devem assumir que qualquer solicitação pode resultar em redirecionamento. Receber um redirecionamento de HTTP *não* é um erro e os clientes devem seguir esse redirecionamento. As respostas de redirecionamento terão um campo do cabeçalho do tipo `Localização` que contém o URI do recurso ao qual o cliente deve repetir as solicitações.
 
 | Código de status | Descrição                                                                                                                                                                                                                                   |
 | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -233,7 +233,7 @@ Outros códigos de status de redirecionamento podem ser usados de acordo com a e
 
 ## Verbos HTTP
 
-Where possible, the {% data variables.product.product_name %} REST API strives to use appropriate HTTP verbs for each action.
+Sempre que possível, a API REST do {% data variables.product.product_name %} busca usar verbos HTTP apropriados para cada ação.
 
 | Verbo    | Descrição                                                                                                                                                                                                                        |
 | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -620,9 +620,9 @@ Observe que essas regras se aplicam somente a dados passados para a API, não a 
 
 ### Fornecer explicitamente uma marca de tempo ISO 8601 com informações de fuso horário
 
-Para chamadas de API que permitem que uma marca de tempo seja especificada, usamos essa marca de tempo exata. An example of this is the [Commits API](/rest/reference/git#commits).
+Para chamadas de API que permitem que uma marca de tempo seja especificada, usamos essa marca de tempo exata. Um exemplo disso é a [API de Commits](/rest/reference/git#commits).
 
-Essas marcas de tempo se parecem com `2014-02-27T15:05:06+01:00`. Also see [this example](/rest/reference/git#example-input) for how these timestamps can be specified.
+Essas marcas de tempo se parecem com `2014-02-27T15:05:06+01:00`. Veja também [este exemplo](/rest/reference/git#example-input) para saber como essas marcas de tempo podem ser especificadas.
 
 ### Usar o cabeçalho `Time-Zone`
 
@@ -632,7 +632,7 @@ Essas marcas de tempo se parecem com `2014-02-27T15:05:06+01:00`. Also see [this
 $ curl -H "Time-Zone: Europe/Amsterdam" -X POST {% data variables.product.api_url_pre %}/repos/github/linguist/contents/new_file.md
 ```
 
-Isso significa que geramos uma marca de tempo no momento em que sua chamada de API é feita no fuso horário que este cabeçalho define. For example, the [Contents API](/rest/reference/repos#contents) generates a git commit for each addition or change and uses the current time as the timestamp. Este cabeçalho determinará o fuso horário usado para gerar essa marca de tempo atual.
+Isso significa que geramos uma marca de tempo no momento em que sua chamada de API é feita no fuso horário que este cabeçalho define. Por exemplo, o [API de Conteúdo](/rest/reference/repos#contents) gera um commit do git para cada adição ou alteração e usa a hora atual como marca de tempo. Este cabeçalho determinará o fuso horário usado para gerar essa marca de tempo atual.
 
 ### Usar o último fuso horário conhecido para o usuário
 

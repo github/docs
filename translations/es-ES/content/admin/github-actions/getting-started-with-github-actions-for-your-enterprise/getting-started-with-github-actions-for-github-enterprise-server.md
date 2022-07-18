@@ -34,16 +34,7 @@ Este artículo explica cómo los administradores de sitio pueden habilitar {% da
 
 ## Revisar los requisitos de hardware
 
-
-{%- ifversion ghes < 3.2 %}
-
-Los recursos de CPU y de memoria que están disponibles para {% data variables.product.product_location %} determinan el rendimiento máximo de jobs para {% data variables.product.prodname_actions %}. {% data reusables.actions.minimum-hardware %}
-
-Las pruebas internas de {% data variables.product.company_short %} demostraron el siguiente rendimiento máximo para las instancias de {% data variables.product.prodname_ghe_server %} con un rango de CPU y configuraciones de memoria. Puede que vas rendimientos diferentes dependiendo de los niveles generales de actividad en tu instancia.
-
-{%- endif %}
-
-{%- ifversion ghes > 3.1 %}
+{%- ifversion ghes %}
 
 Los recursos de memoria y CPU que {% data variables.product.product_location %} tiene disponibles determinan la cantidad de jobs que se pueden ejecutar simultáneamente sin pérdida de rendimiento. {% data reusables.actions.minimum-hardware %}
 
@@ -51,11 +42,6 @@ La cantidad máxima de ejecución simultánea de jobs sin pérdida de rendimient
 
 {% endif %}
 
-{%- ifversion ghes < 3.2 %}
-
-{% data reusables.actions.hardware-requirements-before %}
-
-{%- endif %}
 
 {%- ifversion ghes = 3.2 %}
 

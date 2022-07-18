@@ -165,7 +165,7 @@ $ curl {% ifversion fpt or ghae or ghec %}
 
 ## IDs de nodo globales de GraphQL
 
-Consulta la guía sobre cómo "[Utilizar las ID de Nodo Global]({% ifversion ghec%}/free-pro-team@latest{% endif %}/graphql/guides/using-global-node-ids)" para obtener información detallada sobre cómo encontrar las `node_id` a través de la API de REST y utilizarlas en las operaciones de GraphQL.
+Consulta la guía sobre cómo "[Utilizar las ID de Nodo Global](/graphql/guides/using-global-node-ids)" para obtener información detallada sobre cómo encontrar las `node_id` a través de la API de REST y utilizarlas en las operaciones de GraphQL.
 
 ## Errores de cliente
 
@@ -216,7 +216,7 @@ Los recursos también podría enviar errores de validación personalizados (en d
 
 ## Redireccionamientos HTTP
 
-The {% data variables.product.product_name %} REST API uses HTTP redirection where appropriate. Los clientes deberán asumir que cualquier solicitud podría resultar en un redireccionamiento. Recibir un redireccionamiento HTTP *no* es un error y los clientes deberán seguirlo. Las respuestas de redireccionamiento tendrán un campo de encabezado de tipo `Location` que contendrá el URI del recurso al cual el cliente deberá repetir la solicitud.
+La API de REST de {% data variables.product.product_name %} utiliza un redireccionamiento de HTTP cuando es apropiado. Los clientes deberán asumir que cualquier solicitud podría resultar en un redireccionamiento. Recibir un redireccionamiento HTTP *no* es un error y los clientes deberán seguirlo. Las respuestas de redireccionamiento tendrán un campo de encabezado de tipo `Location` que contendrá el URI del recurso al cual el cliente deberá repetir la solicitud.
 
 | Código de estado | Descripción                                                                                                                                                                                                                          |
 | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -227,7 +227,7 @@ Podrían utilizarse otros códigos de estado de redirección de acuerdo con la e
 
 ## Verbos HTTP
 
-Where possible, the {% data variables.product.product_name %} REST API strives to use appropriate HTTP verbs for each action.
+En medida de lo posible, la API de REST de {% data variables.product.product_name %} se esfuerza para utilizar los verbos apropiados de HTTP para cada acción.
 
 | Verbo    | Descripción                                                                                                                                                                                                                                  |
 | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

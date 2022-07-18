@@ -71,16 +71,16 @@ shortTitle: 仓库管理策略
 
 {% endif %}
 
-## 执行 {% ifversion ghec or ghes > 3.1 or ghae %}基础{% else %}默认{% endif %} 仓库权限的策略
+## 执行 {% ifversion ghec or ghes or ghae %}基础{% else %}默认{% endif %} 仓库权限的策略
 
-在企业帐户拥有的所有组织中，您可以为组织成员设置{% ifversion ghec or ghes > 3.1 or ghae %}基础{% else %}默认{% endif %}仓库权限级别（无、读取、写入或管理），或允许所有者在组织级别管理设置。
+在企业帐户拥有的所有组织中，您可以为组织成员设置{% ifversion ghec or ghes or ghae %}基础{% else %}默认{% endif %}仓库权限级别（无、读取、写入或管理），或允许所有者在组织级别管理设置。
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.repositories-tab %}
-4. 在“{% ifversion ghec or ghes > 3.1 or ghae %}基础{% else %}默认{% endif %} 权限”下，查看有关更改设置的信息。 {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
-5. 在“{% ifversion ghec or ghes > 3.1 or ghae %}基础{% else %}默认{% endif %} 权限”下，使用下拉菜单并选择策略。
-  {% ifversion ghec or ghes > 3.1 or ghae %}
+4. 在“{% ifversion ghec or ghes or ghae %}基础{% else %}默认{% endif %} 权限”下，查看有关更改设置的信息。 {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
+5. 在“{% ifversion ghec or ghes or ghae %}基础{% else %}默认{% endif %} 权限”下，使用下拉菜单并选择策略。
+  {% ifversion ghec or ghes or ghae %}
   ![带有仓库权限策略选项的下拉菜单](/assets/images/help/business-accounts/repository-permissions-policy-drop-down.png)
   {% else %}
   ![带有仓库权限策略选项的下拉菜单](/assets/images/enterprise/business-accounts/repository-permissions-policy-drop-down.png)

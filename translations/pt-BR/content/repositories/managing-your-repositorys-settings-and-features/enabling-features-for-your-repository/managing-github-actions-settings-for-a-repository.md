@@ -101,7 +101,6 @@ Se uma política estiver desabilitada para uma organização {% ifversion ghec o
 {% data reusables.repositories.settings-sidebar-actions-general %}
 {% data reusables.actions.private-repository-forks-configure %}
 
-{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
 ## Definir as permissões do `GITHUB_TOKEN` para o seu repositório
 
 {% data reusables.actions.workflow-permissions-intro %}
@@ -139,7 +138,6 @@ Por padrão, ao cria um novo repositório na sua conta pessoal, os fluxos de tra
 
    ![Definir permissões do GITHUB_TOKEN para este repositório](/assets/images/help/settings/actions-workflow-permissions-repository-with-pr-approval.png)
 1. Clique em **Salvar** para aplicar as configurações.
-{% endif %}
 {% endif %}
 
 {% ifversion ghes > 3.3 or ghae-issue-4757 or ghec %}
