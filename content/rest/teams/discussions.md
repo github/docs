@@ -2,7 +2,7 @@
 title: Team discussions
 allowTitleToDifferFromFilename: true
 shortTitle: Discussions
-intro: "The Team discussions API allows you to get, create, edit, and delete discussion posts on a team's page."
+intro: 'The Team discussions API allows you to get, create, edit, and delete discussion posts on a team''s page.'
 versions:
   fpt: '*'
   ghes: '*'

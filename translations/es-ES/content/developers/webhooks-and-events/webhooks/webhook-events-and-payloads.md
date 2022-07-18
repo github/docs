@@ -400,7 +400,7 @@ Los eventos de webhook se desencadenan basándose en la especificidad del domini
 
 {% data reusables.webhooks.discussions-webhooks-beta %}
 
-Actividad relacionada con un debate. Para obtener más información, consulta la sección "[Utilizar la API de GraphQL para los debates]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql/guides/using-the-graphql-api-for-discussions)".
+Actividad relacionada con un debate. Para obtener más información, consulta la sección "[Utilizar la API de GraphQL para los debates](/graphql/guides/using-the-graphql-api-for-discussions)".
 ### Disponibilidad
 
 - Webhooks de repositorio
@@ -425,7 +425,7 @@ Actividad relacionada con un debate. Para obtener más información, consulta la
 
 {% data reusables.webhooks.discussions-webhooks-beta %}
 
-La actividad relacionada con un comentario en un debate. Para obtener más información, consulta la sección "[Utilizar la API de GraphQL para los debates]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql/guides/using-the-graphql-api-for-discussions)".
+La actividad relacionada con un comentario en un debate. Para obtener más información, consulta la sección "[Utilizar la API de GraphQL para los debates](/graphql/guides/using-the-graphql-api-for-discussions)".
 
 ### Disponibilidad
 
@@ -435,10 +435,10 @@ La actividad relacionada con un comentario en un debate. Para obtener más infor
 
 ### Objeto de carga útil del webhook
 
-| Clave        | Tipo        | Descripción                                                                                                                                                        |
-| ------------ | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `Acción`     | `secuencia` | La acción realizada. Puede ser `created`, `edited`, o `deleted`.                                                                                                   |
-| `comentario` | `objeto`    | El recurso de [`discussion comment`]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql/guides/using-the-graphql-api-for-discussions#discussioncomment). |
+| Clave        | Tipo        | Descripción                                                                                                    |
+| ------------ | ----------- | -------------------------------------------------------------------------------------------------------------- |
+| `Acción`     | `secuencia` | La acción realizada. Puede ser `created`, `edited`, o `deleted`.                                               |
+| `comentario` | `objeto`    | El recurso de [`discussion comment`](/graphql/guides/using-the-graphql-api-for-discussions#discussioncomment). |
 {% data reusables.webhooks.discussion_desc %}
 {% data reusables.webhooks.repo_desc_graphql %}
 {% data reusables.webhooks.org_desc_graphql %}

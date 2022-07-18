@@ -56,7 +56,7 @@ shortTitle: Your profile README
 
   生成された README ファイルには、プロフィール README のアイディアを得るためのテンプレートが事前入力されています。 ![テンプレートが事前入力された README ファイル](/assets/images/help/repository/personal-repository-readme-template.png)
 
-利用可能なすべての絵文字とそのコードの概要については、「[絵文字のチートシート](http://www.emoji-cheat-sheet.com/)」を参照してください。
+利用可能なすべての絵文字とそのコードの概要については、「[絵文字のチートシート](https://www.webfx.com/tools/emoji-cheat-sheet/)」を参照してください。
 
 ## プロフィール README を削除する
 

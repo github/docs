@@ -4,6 +4,7 @@ shortTitle: Solucionar problemas do SAML SSO
 intro: 'Se você usar o logon único SAML (SSO) e as pessoas não conseguirem efetuar a autenticação para acessar {% data variables.product.product_location %}, você poderá solucionar o problema.'
 versions:
   ghes: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Accounts
@@ -15,6 +16,7 @@ topics:
   - Troubleshooting
 ---
 
+{% ifversion ghes %}
 ## Sobre problemas com autenticação do SAML
 
 Mensagens de erro de registro de {% data variables.product.product_name %} para autenticação do SAML falhada no registro de autenticação em _/var/log/github/auth.log_. Você pode revisar as respostas neste arquivo de log, e você também pode configurar mais logs detalhados.
@@ -100,3 +102,10 @@ Audience inválido. O atributo Audience não corresponde a url_sua_instância
 ```
 
 Certifique-se de que você definiu o valor para `Audiência` no seu IdP para `EntityId` para {% data variables.product.product_location %}, que é o URL completo da sua instância. Por exemplo, `https://ghe.corp.example.com`.
+{% endif %}
+
+{% data reusables.saml.current-time-earlier-than-notbefore-condition %}
+
+{% ifversion ghec %}
+{% data reusables.saml.authentication-loop %}
+{% endif %}

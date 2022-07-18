@@ -1,8 +1,8 @@
-Use `jobs.<job_id>.container` to create a container to run any steps in a job that don't already specify a container. 如有步骤同时使用脚本和容器操作，则容器操作将运行为同一网络上使用相同卷挂载的同级容器。
+使用 `jobs.<job_id>.container` 创建一个容器，以在尚未指定容器的作业中运行任何步骤。 如有步骤同时使用脚本和容器操作，则容器操作将运行为同一网络上使用相同卷挂载的同级容器。
 
 若不设置 `container`，所有步骤将直接在 `runs-on` 指定的主机上运行，除非步骤引用已配置为在容器中运行的操作。
 
-### Example: Running a job within a container
+### 示例：在容器中运行作业
 
 ```yaml{:copy}
 name: CI

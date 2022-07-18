@@ -33,7 +33,7 @@ To enable encrypted assertions, you must provide {% data variables.product.produ
 
 {% endnote %}
 
-1. Opcionalmente, habilita la depuración de SAML. La depuración de SAML registra las entradas verbosas en la bitácora de autenticación de {% data variables.product.product_name %} y podría ayudarte a solucionar problemas de los intentos de autenticación fallidos. For more information, see "[Troubleshooting SAML authentication](/admin/identity-and-access-management/using-saml-for-enterprise-iam/troubleshooting-saml-authentication#configuring-saml-debugging)."
+1. Opcionalmente, habilita la depuración de SAML. La depuración de SAML registra las entradas verbosas en la bitácora de autenticación de {% data variables.product.product_name %} y podría ayudarte a solucionar problemas de los intentos de autenticación fallidos. Para obtener más información, consulta la sección "[Solucionar problemas de la autenticación de SAML](/admin/identity-and-access-management/using-saml-for-enterprise-iam/troubleshooting-saml-authentication#configuring-saml-debugging)".
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% data reusables.enterprise_management_console.authentication %}

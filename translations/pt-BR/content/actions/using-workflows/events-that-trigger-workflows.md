@@ -921,6 +921,12 @@ on:
   push
 ```
 
+{% note %}
+
+**Observação**: Quando um evento de webhook `push` aciona a execução de um fluxo de trabalho, o campo "enviado por" da Interface do Actions mostra a conta do pusher e não o autor ou autor oiu committer. No entanto, se as alterações forem enviadas para um repositório que usa a autenticação SSH com uma chave de implantação, o campo "enviado por" será o administrador do repositório que verificou a chave de implantação quando foi adicionado a um repositório.
+
+{% endnote %}
+
 #### Executando o fluxo de trabalho apenas quando um push para branches específicos ocorre
 
 É possível usar o filtro `branches` ou `branches-ignore` para configurar seu fluxo de trabalho para ser executado somente quando branches específicos são enviados por push. Para obter mais informações, consulte " Sintaxe de fluxo de trabalho[para o GitHub Actions](/actions/learn-github-actions/workflow-syntax-for-github-actions#onpushbranchestagsbranches-ignoretags-ignore)".
@@ -1007,7 +1013,7 @@ on:
 
 Executa o fluxo de trabalho quando uma atividade relacionada ao {% data variables.product.prodname_registry %} ocorre no seu repositório. Para obter mais informações, consulte "[Documentação do {% data variables.product.prodname_registry %}](/packages)".
 
-Por exemplo, você pode executar um fluxo de trabalho quando um pacote tiver sido `publicado`.
+Por exemplo, você pode executar um fluxo de trabalho quando a nova versão de um pacote tiver sido `publicada`.
 
 ```yaml
 em:
@@ -1367,7 +1373,7 @@ on:
 
 #### Executando um fluxo de trabalho com base na conclusão de outro fluxo de trabalho
 
-A execução de um fluxo de trabalho é acionada independentemente da conclusão do fluxo de trabalho anterior. Se você deseja executar um trabalho ou etapa com base no resultado do fluxo de trabalho acionado, você poderá usar uma condição com a propriedade `github.event.workflow_run.conclusion`. Por exemplo, este fluxo de trabalho será executado sempre que um fluxo de trabalho chamado "Criação" for concluído, mas o trabalho `on-sucess` só será executado se a "Criação" for bem-sucedida e o trabalho `on-failed` só será executado se o fluxo de trabalho "Criação" falhar:
+A execução de um fluxo de trabalho é acionada independentemente da conclusão do fluxo de trabalho anterior. Se você deseja executar um trabalho ou etapa com base no resultado do fluxo de trabalho acionado, você poderpa usar uma condição com a propriedade `github.event.workflow_run.conclusion`. Por exemplo, este fluxo de trabalho será executado sempre que um fluxo de trabalho chamado "Criação" for concluído, mas o trabalho `on-sucess` só será executado se a "Criação" for bem-sucedida e o trabalho `on-failed` só será executado se o fluxo de trabalho "Criação" falhar:
 
 ```yaml
 on:

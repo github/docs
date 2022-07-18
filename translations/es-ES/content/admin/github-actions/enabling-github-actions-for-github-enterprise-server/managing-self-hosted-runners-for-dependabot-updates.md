@@ -42,8 +42,8 @@ Después de que configuras {% data variables.product.product_location %} para qu
 
 Cualquier máquina virtual que utilices para los ejecutores del {% data variables.product.prodname_dependabot %} debe cumplir con los requisitos de los ejecutores auto-hospedados. Adicionalmente, deben cumplir con los siguientes requisitos.
 
-- Sistema operativo Linux
-- Git instalado
+- Sistema operativo Linux{% ifversion ghes < 3.5 %}
+- Git instalado{% endif %}
 - Docker instalado con acceso para los usuarios del ejecutor:
   - Recomendamos instalar Docker en modo sin raíz y configurar los ejecutores para acceder a Docker sin privilegios de `root`.
   - Como alternativa, instala Docker y otorga a los usuarios del ejecutor privilegios superiores para ejecutarlo.
@@ -68,9 +68,9 @@ Los ejecutores del {% data variables.product.prodname_dependabot %} necesitan ac
 
 1. Aprovisionar los ejecutores auto-hospedados a nivel de cuenta empresarial, organizacional o de repositorio. Para obtener más información, consulta las secciones "[Acerca de los ejecutores auto-hospedados](/actions/hosting-your-own-runners/about-self-hosted-runners)" y "[Agregar ejecutores auto-hospedados](/actions/hosting-your-own-runners/adding-self-hosted-runners)".
 
-2. Configurar los ejecutores auto hospedados con los requisitos que se describen anteriormente. Por ejemplo, en una MV que ejecuta Ubuntu 20.04, lo que harías sería:
+2. Configurar los ejecutores auto hospedados con los requisitos que se describen anteriormente. Por ejemplo, en una MV que ejecuta Ubuntu 20.04, podrías:{% ifversion ghes < 3.5 %}
 
-   - Verificar que Git esté instalado: `command -v git`
+   - Verificar que Git está instalado: `command -v git`{% endif %}
    - Instalar Docker y asegurarte de que los usuarios del ejecutor tengan acceso a él. Para obtener más información, consulta la documentación de Docker.
      - [Instalar Docker Engine en Ubuntu](https://docs.docker.com/engine/install/ubuntu/)
      - Enfoque recomendado: [Ejecuta el Docker daemon como un usuario no raíz (Modo sin raíz)](https://docs.docker.com/engine/security/rootless/)

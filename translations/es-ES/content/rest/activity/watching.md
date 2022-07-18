@@ -1,6 +1,6 @@
 ---
 title: Observar
-intro: The Watching API lets users subscribe to notifications for activity in a repository.
+intro: La API de observados permite que los usuarios se suscriban a las notificaciones de la actividad de un repositorio.
 versions:
   fpt: '*'
   ghes: '*'

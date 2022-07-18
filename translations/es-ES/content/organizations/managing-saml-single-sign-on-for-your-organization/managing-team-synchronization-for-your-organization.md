@@ -74,7 +74,7 @@ Para evitar los errores potenciales de sincronización de equipos, de recomendam
 
 Si un miembro de la organización no tiene una identidad de SCIM enlazada, entonces la sincronización de equipos no funcionará como lo esperas y el usuario podría no agregarse o eliminarse de los equipos de acuerdo con lo esperado. Si cualquiera de estos usuarios no se encuentran en la identidad enlazada de SCIM, necesitarás volver a aprovisionarlos.
 
-Para obtener ayuda para aprovisionar usuarios que no tengan una identidad de SCIM enlazada, consulta la sección "[Solución de problemas para la administración de identidad y acceso](/organizations/managing-saml-single-sign-on-for-your-organization/troubleshooting-identity-and-access-management)".
+For help on provisioning users that have missing a missing SCIM linked identity, see "[Troubleshooting identity and access management for your organization](/organizations/managing-saml-single-sign-on-for-your-organization/troubleshooting-identity-and-access-management-for-your-organization)."
 
 {% data reusables.identity-and-permissions.team-sync-okta-requirements %}
 

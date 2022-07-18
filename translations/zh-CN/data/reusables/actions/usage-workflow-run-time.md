@@ -1,1 +1,1 @@
-- **Workflow run time** - {% ifversion fpt or ghec or ghes > 3.2 or ghae-issue-6469 %}Each workflow run is limited to 35 days. 如果工作流程运行时间达到此限制，其运行将被取消。 This period includes execution duration, and time spent on waiting and approval.{% else %}Each workflow run is limited to 72 hours. If a workflow run reaches this limit, the workflow run is cancelled.{% endif %}
+- **工作流程运行时间** - {% ifversion fpt or ghec or ghes > 3.2 or ghae-issue-6469 %} 每次工作流程运行限制为 35 天。 如果工作流程运行时间达到此限制，其运行将被取消。 此时间段包括执行持续时间以及等待和批准所花费的时间。{% else %}每次工作流程运行限制为 72 小时。 如果工作流程运行达到此限制，则工作流程运行将被取消。{% endif %}

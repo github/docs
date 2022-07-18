@@ -5,7 +5,7 @@ shortTitle: Ambientes
 intro: 'A API de ambiente de implantação permite que você crie, configure e exclua ambientes de implantação.'
 versions:
   fpt: '*'
-  ghes: '>=3.2'
+  ghes: '*'
   ghae: '*'
   ghec: '*'
 topics:

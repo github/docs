@@ -126,20 +126,20 @@ GitHub 尝试自动更改拉取请求的基本分支已成功。
 
 {% data reusables.issue-events.timeline_events_object_properties %}
 
-| 名称                   | 类型    | 描述                                                                                                       |
-| -------------------- | ----- | -------------------------------------------------------------------------------------------------------- |
-| `url`                | `字符串` | 用于检索议题评论的 REST API URL。                                                                                  |
-| `html_url`           | `字符串` | 议题评论的 HTML URL。                                                                                          |
-| `issue_url`          | `字符串` | 议题的 HTML URL。                                                                                            |
-| `id`                 | `整数`  | 事件的唯一标识符。                                                                                                |
-| `node_id`            | `字符串` | 事件的[全局节点 ID]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql/guides/using-global-node-ids)。 |
-| `用户`                 | `对象`  | 对议题发表评论的人。                                                                                               |
-| `created_at`         | `字符串` | 指示评论添加时间的时间戳。                                                                                            |
-| `updated_at`         | `字符串` | 指示评论更新或创建（如果从未更新）时间的时间戳。                                                                                 |
-| `author_association` | `字符串` | 用户在议题仓库中拥有的权限。 如果仓库的所有者创建了评论，则该值将为 `"OWNER"`。                                                            |
-| `正文`                 | `字符串` | 评论正文文本。                                                                                                  |
-| `event`              | `字符串` | 事件值为 `"commented"`。                                                                                      |
-| `actor`              | `对象`  | 生成事件的人。                                                                                                  |
+| 名称                   | 类型    | 描述                                                   |
+| -------------------- | ----- | ---------------------------------------------------- |
+| `url`                | `字符串` | 用于检索议题评论的 REST API URL。                              |
+| `html_url`           | `字符串` | 议题评论的 HTML URL。                                      |
+| `issue_url`          | `字符串` | 议题的 HTML URL。                                        |
+| `id`                 | `整数`  | 事件的唯一标识符。                                            |
+| `node_id`            | `字符串` | 事件的[全局节点 ID](/graphql/guides/using-global-node-ids)。 |
+| `用户`                 | `对象`  | 对议题发表评论的人。                                           |
+| `created_at`         | `字符串` | 指示评论添加时间的时间戳。                                        |
+| `updated_at`         | `字符串` | 指示评论更新或创建（如果从未更新）时间的时间戳。                             |
+| `author_association` | `字符串` | 用户在议题仓库中拥有的权限。 如果仓库的所有者创建了评论，则该值将为 `"OWNER"`。        |
+| `正文`                 | `字符串` | 评论正文文本。                                              |
+| `event`              | `字符串` | 事件值为 `"commented"`。                                  |
+| `actor`              | `对象`  | 生成事件的人。                                              |
 
 ## committed
 
@@ -155,19 +155,19 @@ GitHub 尝试自动更改拉取请求的基本分支已成功。
 
 {% data reusables.issue-events.timeline_events_object_properties %}
 
-| 名称         | 类型     | 描述                                                                                                       |
-| ---------- | ------ | -------------------------------------------------------------------------------------------------------- |
-| `sha`      | `字符串`  | 拉取请求中提交的 SHA。                                                                                            |
-| `node_id`  | `字符串`  | 事件的[全局节点 ID]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql/guides/using-global-node-ids)。 |
-| `url`      | `字符串`  | 用于检索提交的 REST API URL。                                                                                    |
-| `html_url` | `字符串`  | 提交的 HTML URL。                                                                                            |
-| `作者`       | `对象`   | 编写提交的人。                                                                                                  |
-| `提交者`      | `对象`   | 代表作者进行提交的人。                                                                                              |
-| `树`        | `对象`   | 提交的 Git 树。                                                                                               |
-| `message`  | `字符串`  | 提交消息.                                                                                                    |
-| `父项`       | `对象数组` | 父提交的列表。                                                                                                  |
-| `验证`       | `对象`   | 验证提交签名的结果。 更多信息请参阅“[签名验证对象](/rest/reference/git#get-a-commit)”。                                          |
-| `event`    | `字符串`  | 事件值为 `"committed"`。                                                                                      |
+| 名称         | 类型     | 描述                                                              |
+| ---------- | ------ | --------------------------------------------------------------- |
+| `sha`      | `字符串`  | 拉取请求中提交的 SHA。                                                   |
+| `node_id`  | `字符串`  | 事件的[全局节点 ID](/graphql/guides/using-global-node-ids)。            |
+| `url`      | `字符串`  | 用于检索提交的 REST API URL。                                           |
+| `html_url` | `字符串`  | 提交的 HTML URL。                                                   |
+| `作者`       | `对象`   | 编写提交的人。                                                         |
+| `提交者`      | `对象`   | 代表作者进行提交的人。                                                     |
+| `树`        | `对象`   | 提交的 Git 树。                                                      |
+| `message`  | `字符串`  | 提交消息.                                                           |
+| `父项`       | `对象数组` | 父提交的列表。                                                         |
+| `验证`       | `对象`   | 验证提交签名的结果。 更多信息请参阅“[签名验证对象](/rest/reference/git#get-a-commit)”。 |
+| `event`    | `字符串`  | 事件值为 `"committed"`。                                             |
 
 ## connected
 
@@ -588,20 +588,20 @@ GitHub 尝试自动更改拉取请求的基本分支已成功。
 
 {% data reusables.issue-events.timeline_events_object_properties %}
 
-| 名称                   | 类型    | 描述                                                                                                       |
-| -------------------- | ----- | -------------------------------------------------------------------------------------------------------- |
-| `id`                 | `整数`  | 事件的唯一标识符。                                                                                                |
-| `node_id`            | `字符串` | 事件的[全局节点 ID]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql/guides/using-global-node-ids)。 |
-| `用户`                 | `对象`  | 对议题发表评论的人。                                                                                               |
-| `正文`                 | `字符串` | 审查摘要文本。                                                                                                  |
-| `commit_id`          | `字符串` | 审查时拉取请求中最新提交的 SHA。                                                                                       |
-| `submitted_at`       | `字符串` | 指示审查提交时间的时间戳。                                                                                            |
-| `state`              | `字符串` | 已提交审查的状态。 可以是以下项之一：`commented`、`changes_requested` 或 `approved`。                                         |
-| `html_url`           | `字符串` | 审查的 HTML URL。                                                                                            |
-| `pull_request_url`   | `字符串` | 用于检索拉取请求的 REST API URL。                                                                                  |
-| `author_association` | `字符串` | 用户在议题仓库中拥有的权限。 如果仓库的所有者创建了评论，则该值将为 `"OWNER"`。                                                            |
-| `_links`             | `对象`  | `html_url` 和 `pull_request_url`。                                                                         |
-| `event`              | `字符串` | 事件值为 `"reviewed"`。                                                                                       |
+| 名称                   | 类型    | 描述                                                               |
+| -------------------- | ----- | ---------------------------------------------------------------- |
+| `id`                 | `整数`  | 事件的唯一标识符。                                                        |
+| `node_id`            | `字符串` | 事件的[全局节点 ID](/graphql/guides/using-global-node-ids)。             |
+| `用户`                 | `对象`  | 对议题发表评论的人。                                                       |
+| `正文`                 | `字符串` | 审查摘要文本。                                                          |
+| `commit_id`          | `字符串` | 审查时拉取请求中最新提交的 SHA。                                               |
+| `submitted_at`       | `字符串` | 指示审查提交时间的时间戳。                                                    |
+| `state`              | `字符串` | 已提交审查的状态。 可以是以下项之一：`commented`、`changes_requested` 或 `approved`。 |
+| `html_url`           | `字符串` | 审查的 HTML URL。                                                    |
+| `pull_request_url`   | `字符串` | 用于检索拉取请求的 REST API URL。                                          |
+| `author_association` | `字符串` | 用户在议题仓库中拥有的权限。 如果仓库的所有者创建了评论，则该值将为 `"OWNER"`。                    |
+| `_links`             | `对象`  | `html_url` 和 `pull_request_url`。                                 |
+| `event`              | `字符串` | 事件值为 `"reviewed"`。                                               |
 
 ## subscribed
 

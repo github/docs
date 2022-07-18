@@ -9,7 +9,7 @@ redirect_from:
   - /packages/guides/deleting-a-container-image
 versions:
   fpt: '*'
-  ghes: '>=3.2'
+  ghes: '*'
   ghec: '*'
   ghae: '*'
 shortTitle: Excluir & restaurar um pacote
@@ -102,9 +102,9 @@ curl -X POST \
 HOSTNAME/graphql
 ```
 
-Para encontrar todos os pacotes privados que você publicou em {% data variables.product.prodname_registry %}, junto com os IDs de versão dos pacotes, você pode usar a conexão dos `pacotes` através do objeto `repositório`. Você vai precisar de um token com os escopos `read:packages` e `repo`. Para obter mais informações, consulte a conexão dos [`pacotes`]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql/reference/objects#repository) ou a interface do [`proprietário do pacote`]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql/reference/interfaces#packageowner).
+Para encontrar todos os pacotes privados que você publicou em {% data variables.product.prodname_registry %}, junto com os IDs de versão dos pacotes, você pode usar a conexão dos `pacotes` através do objeto `repositório`. Você vai precisar de um token com os escopos `read:packages` e `repo`. Para obter mais informações, consulte a conexão dos [`pacotes`](/graphql/reference/objects#repository) ou a interface do [`PackageOwner`](/graphql/reference/interfaces#packageowner).
 
-Para obter mais informações sobre a mutação `deletePackageVersion`, consulte "[`deletePackageVersion`]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql/reference/mutations#deletepackageversion)".
+Para obter mais informações sobre a mutação `deletePackageVersion`, consulte "[`deletePackageVersion`](/graphql/reference/mutations#deletepackageversion)".
 
 Você não pode excluir diretamente um pacote inteiro usando o GraphQL, mas se você excluir todas as versões de um pacote, o pacote não será mostrado em {% data variables.product.product_name %}.
 

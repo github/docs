@@ -3,7 +3,7 @@ title: Exporting Server Statistics
 shortTitle: Export Server Statistics
 intro: 'You can use your own tools to analyze your {% data variables.product.prodname_ghe_server %} usage over time by downloading your {% data variables.product.prodname_server_statistics %} metrics in a CSV or JSON file.'
 versions:
-  feature: 'server-statistics'
+  feature: server-statistics
 redirect_from:
   - /early-access/github/analyze-how-your-team-works-with-server-statistics/exploring-server-statistics
 ---

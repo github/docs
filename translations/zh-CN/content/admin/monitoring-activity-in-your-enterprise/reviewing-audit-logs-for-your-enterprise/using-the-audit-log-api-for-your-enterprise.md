@@ -6,7 +6,7 @@ permissions: 'Enterprise owners {% ifversion ghes %}and site administrators {% e
 miniTocMaxHeadingLevel: 3
 versions:
   ghec: '*'
-  ghes: '>=3.0'
+  ghes: '*'
   ghae: '*'
 type: tutorial
 topics:
@@ -22,7 +22,6 @@ topics:
 
 API 响应中的时间戳和日期字段以 [UTC 纪元毫秒](http://en.wikipedia.org/wiki/Unix_time)为单位进行度量。
 
-{% ifversion ghec or ghes > 3.0 or ghae %}
 ## 查询审核日志 GraphQL API
 
 为确保知识产权得到保护并保持企业的合规，您可以使用审核日志 GraphQL API 保留审核日志数据的副本并监控：
@@ -107,7 +106,6 @@ GraphQL API 对每个查询最多返回 100 个节点。 要检索其他结果�
 
 有关更多查询示例，请参阅 [platform-samples存储库](https://github.com/github/platform-samples/blob/master/graphql/queries)。
 
-{% endif %}
 {% ifversion ghec or ghes > 3.2 or ghae-issue-6648 %}
 ## 查询审核日志 REST API
 

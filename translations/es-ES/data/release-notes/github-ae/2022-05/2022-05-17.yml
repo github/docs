@@ -114,9 +114,6 @@ sections:
 
         - |
           You can now toggle between the source view and rendered Markdown view through the web UI by clicking the {% octicon "code" aria-label="The Code icon" %} button to "Display the source diff" at the top of any Markdown file. Previously, you needed to use the blame view to link to specific line numbers in the source of a Markdown file.
-          
-        - |
-          You can now add images and videos to Markdown files in gists by pasting them into the Markdown body or selecting them from the dialog at the bottom of the Markdown file. For information about supported file types, see "[Attaching files](/github/writing-on-github/working-with-advanced-formatting/attaching-files)."
 
         - |
           GitHub AE now automatically generates a table of contents for Wikis, based on headings.

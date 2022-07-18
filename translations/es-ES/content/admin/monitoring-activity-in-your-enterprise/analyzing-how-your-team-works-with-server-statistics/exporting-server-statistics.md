@@ -28,7 +28,7 @@ Para aprender más sobre el {% data variables.product.prodname_github_connect %}
 
 2. Next to your desired enterprise account, click **Settings**. ![Settings button next to Enterprise admin account](/assets/images/help/enterprises/enterprise-admin-account-settings-button.png)
 
-3. On the left, click **GitHub Connect**. ![GitHub Connect option under enterprise admin account](/assets/images//help/enterprises/enterprise-admin-github-connect.png)
+3. A la izquierda, haz clic en **GitHub Connect**. ![GitHub Connect option under enterprise admin account](/assets/images//help/enterprises/enterprise-admin-github-connect.png)
 
 {% data reusables.server-statistics.csv-download %}
 

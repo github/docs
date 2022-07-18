@@ -2,7 +2,7 @@
 title: About GitHub Copilot
 intro: '{% data variables.product.prodname_copilot %} can help you code by offering autocomplete-style suggestions. You can learn what to consider while using {% data variables.product.prodname_copilot %}, and how {% data variables.product.prodname_copilot %} works.'
 versions:
-  feature: 'copilot'
+  feature: copilot
 topics:
   - Copilot
 shortTitle: About GitHub Copilot
@@ -28,11 +28,11 @@ You are responsible for ensuring the security and quality of your code. We recom
 
 ## About billing for {% data variables.product.prodname_copilot %}
 
-{% data variables.product.prodname_copilot %} is a paid feature, requiring a monthly or yearly subscription. Verified students and maintainers of popular open source projects on {% data variables.product.prodname_dotcom %} are eligible to use {% data variables.product.prodname_copilot %} for free. For all other {% data variables.product.prodname_dotcom %} customers, a one-time 60 day free trial is available, after which a paid subscription is required for continued use. For more information, see "[About billing for {% data variables.product.prodname_copilot %}](/billing/managing-billing-for-github-copilot/about-billing-for-github-copilot)."
+{% data variables.product.prodname_copilot %} is a paid feature, requiring a monthly or yearly subscription. Verified students and maintainers of popular open source projects on {% data variables.product.prodname_dotcom %} are eligible to use {% data variables.product.prodname_copilot %} for free. If you meet the criteria for a free {% data variables.product.prodname_copilot %} subscription, you will be automatically notified when you visit the {% data variables.product.prodname_copilot %} subscription page. If you do not meet the criteria for a free {% data variables.product.prodname_copilot %} subscription, you will be offered a 60 day free trial, after which a paid subscription is required for continued use. For more information, see "[About billing for {% data variables.product.prodname_copilot %}](/billing/managing-billing-for-github-copilot/about-billing-for-github-copilot)."
 
-## {% data variables.product.prodname_copilot %} Licensing Information for JetBrains Plugin
+## About the license for the {% data variables.product.prodname_copilot %} plugin in JetBrains IDEs
 
-{% data variables.product.prodname_dotcom %}, Inc. is the licensor of the JetBrains plugin. The end user license agreement for this plugin is the [{% data variables.product.prodname_dotcom %} Terms of Service](/free-pro-team@latest/site-policy/github-terms-of-service) and use of this plugin is subject to those terms. JetBrains has no responsibility or liability in connection with the plugin or such agreement. By using the plugin, you agree to the foregoing terms.
+{% data variables.product.prodname_dotcom %}, Inc. is the licensor of the JetBrains plugin. The end user license agreement for this plugin is the [{% data variables.product.prodname_dotcom %} Terms for Additional Products and Features](/free-pro-team@latest/site-policy/github-terms/github-terms-for-additional-products-and-features#github-copilot) and use of this plugin is subject to those terms. JetBrains has no responsibility or liability in connection with the plugin or such agreement. By using the plugin, you agree to the foregoing terms.
 
 ## Further reading
 

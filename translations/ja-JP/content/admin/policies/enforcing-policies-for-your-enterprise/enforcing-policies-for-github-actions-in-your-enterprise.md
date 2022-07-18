@@ -115,7 +115,7 @@ If a policy is enabled for an enterprise, the policy can be selectively disabled
 {% data reusables.enterprise-accounts.actions-tab %}
 {% data reusables.actions.private-repository-forks-configure %}
 
-{% ifversion ghec or ghes > 3.1 or ghae %}
+{% ifversion ghec or ghes or ghae %}
 
 ## Enforcing a policy for workflow permissions in your enterprise
 

@@ -20,9 +20,7 @@ topics:
 
 O {% data variables.product.prodname_advisory_database %} contém uma lista de vulnerabilidades de segurança que você pode visualizar, pesquisar e filtrar. {% data reusables.security-advisory.link-browsing-advisory-db %}
 
-{% ifversion fpt or ghes or ghae or ghec %}
 ## Disponível para todos os repositórios
-{% endif %}
 ### Política de segurança
 
 Facilite o acesso dos seus usuários para relatar confidencialmente vulnerabilidades de segurança que encontraram no seu repositório. Para obter mais informações, consulte "[Adicionar uma política de segurança ao seu repositório](/code-security/getting-started/adding-a-security-policy-to-your-repository)".
@@ -54,12 +52,10 @@ Exibir alertas sobre dependências conhecidas por conter vulnerabilidades de seg
 Use {% data variables.product.prodname_dependabot %} para levantar automaticamente os pull requests a fim de manter suas dependências atualizadas. Isso ajuda a reduzir a exposição a versões mais antigas de dependências. Usar versões mais recentes facilita a aplicação de patches, caso as vulnerabilidades de segurança sejam descobertas e também torna mais fácil para {% data variables.product.prodname_dependabot_security_updates %} levantar, com sucesso, os pull requests para atualizar as dependências vulneráveis. Para obter mais informações, consulte "[Sobre o {% data variables.product.prodname_dependabot_version_updates %}](/github/administering-a-repository/about-dependabot-version-updates)".
 {% endif %}
 
-{% ifversion fpt or ghes or ghae or ghec %}
 ### Gráfico de dependências
 O gráfico de dependências permite explorar os ecossistemas e pacotes dos quais o repositório depende e os repositórios e pacotes que dependem do seu repositório.
 
 Você pode encontrar o gráfico de dependências na aba **Ideias** para o seu repositório. Para obter mais informações, consulte "[Sobre o gráfico de dependência](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)".
-{% endif %}
 
 ### Visão geral de segurança para repositórios
 Para todos os repositórios públicos, a visão geral de segurança mostra quais funcionalidades de segurança estão habilitadas no repositório e oferece a opção de configurar quaisquer recursos de segurança disponíveis que não estão habilitadas no momento.
@@ -99,13 +95,11 @@ Disponível apenas com uma licença para {% data variables.product.prodname_GH_a
 Detectar automaticamente tokens ou credenciais que foram verificados em um repositório. Você pode visualizar alertas para quaisquer segredos que {% data variables.product.company_short %} encontrar no seu código, para que você saiba quais tokens ou credenciais tratar como comprometidas. Para obter mais informações, consulte "[Sobre a varredura de segredos](/code-security/secret-scanning/about-secret-scanning#about-secret-scanning-for-advanced-security)."
 {% endif %}
 
-{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
 ### Revisão de dependência
 
 Mostre o impacto completo das alterações nas dependências e veja detalhes de qualquer versão vulnerável antes de fazer merge de um pull request. Para obter mais informações, consulte "[Sobre a revisão de dependências](/code-security/supply-chain-security/about-dependency-review)".
-{% endif %}
 
-{% ifversion ghec or ghes > 3.1 or ghae %}
+{% ifversion ghec or ghes or ghae %}
 ### Visão geral de segurança das organizações{% ifversion ghec or ghes > 3.4 or ghae-issue-6199 %}, empresas,{% endif %} e equipes
 
 {% ifversion ghec %}

@@ -551,3 +551,8 @@
 - /enterprise-server@3.3/organizations/managing-membership-in-your-organization/exporting-member-information-for-your-organization
 - /enterprise-server@3.4/organizations/managing-membership-in-your-organization/exporting-member-information-for-your-organization
 - /enterprise-server@3.5/organizations/managing-membership-in-your-organization/exporting-member-information-for-your-organization
+
+# We moved GHEC content from these categories
+/enterprise-cloud@latest/code-security/adopting-github-advanced-security-at-scale
+- /enterprise-cloud@latest/admin/code-security/managing-github-advanced-security-for-your-enterprise
+- /enterprise-cloud@latest/admin/code-security
