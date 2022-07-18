@@ -99,7 +99,7 @@ For more information, see "[Reusing workflows](/actions/learn-github-actions/reu
 
 #### `on.workflow_call.inputs.<input_id>.type`
 
-Required if input is defined for the `on.workflow_call` keyword. The value of this parameter is a string specifying the data type of the input. This must be one of: `boolean`, `number`, or `string`.
+Required if input is defined for the `on.workflow_call` keyword. The value of this parameter is a string specifying the data type of the input. This must be one of: `boolean`, `number`, `choice` or `string`.
 
 ### `on.workflow_call.outputs`
 
