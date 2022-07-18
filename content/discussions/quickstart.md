@@ -28,7 +28,7 @@ When you first enable {% data variables.product.prodname_discussions %}, you wil
 1. Under "Features", click **Set up discussions**.
   ![Set up a discussion button under "Features" for enabling or disabling GitHub Discussions for a repository](/assets/images/help/discussions/setup-discussions-button.png)
 1. Under "Start a new discussion," edit the template to align with the resources and tone you want to set for your community.
-1. Click **Start discussion**.
+1. Click ** Let's Start discussion**.
   !["Start discussion" button](/assets/images/help/discussions/new-discussion-start-discussion-button.png)
 
 ## Enabling {% data variables.product.prodname_discussions %} on your organization
