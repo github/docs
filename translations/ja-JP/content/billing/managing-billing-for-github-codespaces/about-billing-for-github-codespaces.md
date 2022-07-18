@@ -1,8 +1,8 @@
 ---
-title: Codespaces の支払いについて
+title: GitHub Codespaces の支払いについて
 shortTitle: 支払いについて
-intro: '価格を見て、Organizationでの{% data variables.product.prodname_codespaces %}の支払いの管理方法を確認してください。'
-permissions: 'To manage billing for Codespaces for an organization, you must be an organization owner or a billing manager.'
+intro: '価格を見て、Organizationでの{% data variables.product.prodname_github_codespaces %}の支払いの管理方法を確認してください。'
+permissions: 'To manage billing for {% data variables.product.prodname_github_codespaces %} for an organization, you must be an organization owner or a billing manager.'
 versions:
   fpt: '*'
   ghec: '*'
@@ -11,11 +11,13 @@ product: '{% data reusables.gated-features.codespaces %}'
 topics:
   - Codespaces
   - Billing
+redirect_from:
+  - /billing/managing-billing-for-github-codespaces/about-billing-for-codespaces
 ---
 
-## {% data variables.product.prodname_codespaces %}の価格
+## {% data variables.product.prodname_github_codespaces %}の価格
 
-{% data variables.product.prodname_codespaces %}の利用状況に対しては、{% data variables.product.prodname_team %}及び{% data variables.product.prodname_enterprise %}上のすべてのOrganization及びEnterpriseアカウントについて課金され、これには無料の分あるいはストレージは含まれません。 現在のところ、個人のアカウントは{% data variables.product.prodname_codespaces %}の利用に対して課金されません。
+{% data variables.product.prodname_github_codespaces %}の利用状況に対しては、{% data variables.product.prodname_team %}及び{% data variables.product.prodname_enterprise %}上のすべてのOrganization及びEnterpriseアカウントについて課金され、これには無料の分あるいはストレージは含まれません。 現在のところ、個人のアカウントは{% data variables.product.prodname_codespaces %}の利用に対して課金されません。
 
 {% data variables.product.prodname_codespaces %}の利用については、以下の表に示す計測単位に従って課金されます。
 
@@ -32,7 +34,7 @@ topics:
 
 {% data reusables.codespaces.codespaces-billing %}
 
-{% data variables.product.prodname_codespaces %} の利用については、アカウントの既存の請求日、支払い方法、領収書が共有されます。 {% data reusables.dotcom_billing.view-all-subscriptions %}
+{% data variables.product.prodname_github_codespaces %} の利用については、アカウントの既存の請求日、支払い方法、領収書が共有されます。 {% data reusables.dotcom_billing.view-all-subscriptions %}
 
 {% ifversion ghec %}
 Microsoft Enterprise Agreement を通じて {% data variables.product.prodname_enterprise %} を購入した場合、Azure サブスクリプションID をEnterpriseアカウントに接続して、 {% data variables.product.prodname_codespaces %} の使用を有効にして支払うことができます。 詳しい情報については、「[Azure サブスクリプションを Enterprise に接続する](/billing/managing-billing-for-your-github-account/connecting-an-azure-subscription-to-your-enterprise)」を参照してください。

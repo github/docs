@@ -1,5 +1,5 @@
 ---
-title: Troubleshooting port forwarding for Codespaces
+title: Troubleshooting port forwarding for GitHub Codespaces
 intro: Troubleshooting steps for common port forwarding issues.
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
@@ -9,9 +9,11 @@ type: reference
 topics:
   - Codespaces
 shortTitle: Port forwarding
+redirect_from:
+  - /codespaces/troubleshooting/troubleshooting-port-forwarding-for-codespaces
 ---
 
-When an application running inside a codespace outputs a port to the console, {% data variables.product.prodname_codespaces %}  detects the localhost URL pattern and automatically forwards the port. For more information, see "[Forwarding ports in your codespace](/codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace)."
+When an application running inside a codespace outputs a port to the console, {% data variables.product.prodname_github_codespaces %}  detects the localhost URL pattern and automatically forwards the port. For more information, see "[Forwarding ports in your codespace](/codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace)."
 
 If a port is not automatically forwarded, you can forward it manually. For more information, see "[Forwarding a port](/codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace#forwarding-a-port)."
 

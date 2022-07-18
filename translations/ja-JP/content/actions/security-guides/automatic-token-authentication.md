@@ -53,8 +53,8 @@ name: Create issue on commit
 on: [ push ]
 
 jobs:
-  create_commit:
-    runs-on: ubuntu-latest 
+  create_issue:
+    runs-on: ubuntu-latest
     permissions:
       issues: write 
     steps:

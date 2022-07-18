@@ -1,1 +1,1 @@
-1. Locate the list of runners under "Runners".
+1. "Runners（ランナー）"の下で、ランナーのリストを見つけてください。

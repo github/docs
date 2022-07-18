@@ -1,5 +1,5 @@
 ---
-title: About Codespaces prebuilds
+title: About GitHub Codespaces prebuilds
 shortTitle: About prebuilds
 intro: Codespaces prebuilds help to speed up the creation of new codespaces for large or complex repositories.
 versions:
@@ -8,13 +8,15 @@ versions:
 topics:
   - Codespaces
 product: '{% data reusables.gated-features.codespaces %}'
+redirect_from:
+  - /codespaces/prebuilding-your-codespaces/about-codespaces-prebuilds
 ---
 
 ## 概要
 
 Prebuilding your codespaces allows you to be more productive and access your codespace faster, particularly if your repository is large or complex and new codespaces currently take more than 2 minutes to start. This is because any source code, editor extensions, project dependencies, commands, and configurations have already been downloaded, installed, and applied before you create a codespace for your project. Think of a prebuild as a "ready-to-go" template for a codespace.
 
-By default, whenever you push changes to your repository, {% data variables.product.prodname_codespaces %} uses {% data variables.product.prodname_actions %} to automatically update your prebuilds.
+By default, whenever you push changes to your repository, {% data variables.product.prodname_github_codespaces %} uses {% data variables.product.prodname_actions %} to automatically update your prebuilds.
 
 When prebuilds are available for a particular branch of a repository, and for your region, you'll see the "{% octicon "zap" aria-label="The zap icon" %} Prebuild ready" label in the list of machine type options when you create a codespace. If a prebuild is still being created, you will see the "{% octicon "history" aria-label="The history icon" %} Prebuild in progress" label. 詳しい情報については、「[codespace を作成する](/codespaces/developing-in-codespaces/creating-a-codespace#creating-a-codespace)」を参照してください。
 
@@ -28,7 +30,7 @@ When prebuilds are available for a particular branch of a repository, and for yo
 
 ## About billing for {% data variables.product.prodname_codespaces %} prebuilds
 
-{% data reusables.codespaces.billing-for-prebuilds %} For details of {% data variables.product.prodname_codespaces %} storage pricing, see "[About billing for {% data variables.product.prodname_codespaces %}](/billing/managing-billing-for-github-codespaces/about-billing-for-codespaces)."
+{% data reusables.codespaces.billing-for-prebuilds %} For details of {% data variables.product.prodname_codespaces %} storage pricing, see "[About billing for {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces)."
 
 Use of codespaces created using prebuilds is charged at the same rate as regular codespaces.
 

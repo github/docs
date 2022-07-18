@@ -1,8 +1,8 @@
 ---
-title: Codespacesの使用状況の表示
+title: GitHub Codespacesの使用状況の表示
 shortTitle: 使用状況の表示
-intro: '{% data variables.product.prodname_codespaces %}によるコンピュートの分とストレージを見ることができます。'
-permissions: 'To manage billing for Codespaces for an organization, you must be an organization owner or a billing manager.'
+intro: '{% data variables.product.prodname_github_codespaces %}によるコンピュートの分とストレージを見ることができます。'
+permissions: 'To manage billing for {% data variables.product.prodname_github_codespaces %} for an organization, you must be an organization owner or a billing manager.'
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
@@ -11,11 +11,13 @@ type: overview
 topics:
   - Codespaces
   - Billing
+redirect_from:
+  - /billing/managing-billing-for-github-codespaces/viewing-your-codespaces-usage
 ---
 
-## Organizationの {% data variables.product.prodname_codespaces %} の使用状況を表示する
+## Organizationの {% data variables.product.prodname_github_codespaces %} の使用状況を表示する
 
-Organization については、Organization のオーナーと支払いマネージャーが {% data variables.product.prodname_codespaces %} の使用状況を管理できます。 Enterpriseアカウントが管理しているOrganizationでは、OrganizationのオーナーはOrganizationの支払いページで{% data variables.product.prodname_codespaces %}の使用状況を見ることができ、Enterpriseの管理者はEnterprise全体の使用状況を見ることができます。
+Organization については、Organization のオーナーと支払いマネージャーが {% data variables.product.prodname_github_codespaces %} の使用状況を管理できます。 Enterpriseアカウントが管理しているOrganizationでは、OrganizationのオーナーはOrganizationの支払いページで{% data variables.product.prodname_codespaces %}の使用状況を見ることができ、Enterpriseの管理者はEnterprise全体の使用状況を見ることができます。
 
 {% data reusables.organizations.billing-settings %}
 {% data reusables.dotcom_billing.codespaces-minutes %}

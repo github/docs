@@ -1,7 +1,8 @@
 ---
-title: 'Setting up your repository for {% data variables.product.prodname_codespaces %}'
+title: 'Setting up your repository for {% data variables.product.prodname_github_codespaces %}'
+shortTitle: Setting up your repository
 allowTitleToDifferFromFilename: true
-intro: '特定の言語のセットアップや構成など、{% data variables.product.prodname_codespaces %} の使用方法を学びます。'
+intro: '特定の言語のセットアップや構成など、{% data variables.product.prodname_github_codespaces %} の使用方法を学びます。'
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
