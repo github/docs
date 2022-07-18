@@ -77,7 +77,7 @@ By default, {% data variables.product.product_name %} runs as a standalone insta
 
 To safeguard against data loss or service disruptions for your developers, {% data variables.product.company_short %} strongly recommends that you establish a plan for disaster recovery. You can back up your instance's configuration and user data by deploying and configuring a Linux or Unix host system with {% data variables.product.prodname_enterprise_backup_utilities %}. For more information, see "[Configuring backups on your appliance](/admin/configuration/configuring-your-enterprise/configuring-backups-on-your-appliance)."
 
-Additionally, you can configure a passive replica instance to fail over to in the event of a system or network failure. For more information, see "[About deployment](#about-deployment-topologies)."
+Additionally, you can configure a passive replica instance to fail over to in the event of a system or network failure. For more information, see "[About deployment topologies](#about-deployment-topologies)."
 
 ## About documentation
 
