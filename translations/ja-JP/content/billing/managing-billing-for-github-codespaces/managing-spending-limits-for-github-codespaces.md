@@ -1,6 +1,6 @@
 ---
-title: Codespacesの利用制限の管理
-intro: '{% data variables.product.prodname_codespaces %} の使用に対して利用上限を設定できます。'
+title: GitHub Codespacesの利用制限の管理
+intro: '{% data variables.product.prodname_github_codespaces %} の使用に対して利用上限を設定できます。'
 versions:
   fpt: '*'
   ghec: '*'
@@ -14,15 +14,17 @@ topics:
   - User account
   - Billing
 shortTitle: 利用上限
+redirect_from:
+  - /billing/managing-billing-for-github-codespaces/managing-spending-limits-for-codespaces
 ---
 
-## {% data variables.product.prodname_codespaces %} の利用上限について
+## {% data variables.product.prodname_github_codespaces %} の利用上限について
 
 {% data reusables.codespaces.codespaces-spending-limit-requirement %}
 
 使用上限に達すると、Organizationあるいはリポジトリではそれ以上新しいcodespaceを作成できなくなり、既存のcodespaceも起動できなくなります。 まだ実行中の既存のcodespaceはシャットダウンされません。使用上限を変更しなければ、上限を超えた分に対する支払いは生じません。
 
-{% data variables.product.prodname_codespaces %}の価格に関する詳細な情報については、「[{% data variables.product.prodname_codespaces %}の支払いについて](/billing/managing-billing-for-github-codespaces/about-billing-for-codespaces)」を参照してください。
+{% data variables.product.prodname_codespaces %}の価格に関する詳細な情報については、「[{% data variables.product.prodname_github_codespaces %}の支払いについて](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces)」を参照してください。
 
 {% ifversion ghec %}
 ## Azureサブスクリプションの利用
@@ -58,11 +60,11 @@ Enterprise アカウントの {% data variables.product.prodname_codespaces %} �
 
 メール通知は、利用量がアカウントの利用上限の50%、75%、90%、100%に達したときに、アカウントのオーナーと支払いマネージャーに送信されます。
 
-You can disable these notifications anytime by navigating to the bottom of the **Spending Limit** page.
+これらの通知は、**Spending Limit（利用上限）** ページの下部にアクセスしていつでも無効化できます。
 
 ![支払いのメール通知設定のスクリーンショット](/assets/images/help/billing/codespaces-spending-limit-notifications.png)
 
 ## 参考リンク
 
 - 「[マシンタイプへのアクセスの制限](/codespaces/managing-codespaces-for-your-organization/restricting-access-to-machine-types)」
-- 「[Organization内のCodespacesの支払いの管理](/codespaces/managing-codespaces-for-your-organization/managing-billing-for-codespaces-in-your-organization)」
+- 「[Organization の {% data variables.product.prodname_github_codespaces %} の支払い管理](/codespaces/managing-codespaces-for-your-organization/managing-billing-for-github-codespaces-in-your-organization)」

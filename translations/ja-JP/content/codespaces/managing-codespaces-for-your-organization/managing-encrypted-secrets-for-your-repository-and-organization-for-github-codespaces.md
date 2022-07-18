@@ -1,9 +1,9 @@
 ---
-title: リポジトリの暗号化されたシークレットと Codespaces の Organization を管理する
+title: Managing encrypted secrets for your repository and organization for GitHub Codespaces
 shortTitle: 暗号化されたシークレット
-intro: '暗号化されたシークレットを使用すると、機密情報を Organization、リポジトリ、または {% data variables.product.prodname_codespaces %} に保存できます。'
+intro: '暗号化されたシークレットを使用すると、機密情報を Organization、リポジトリ、または {% data variables.product.prodname_github_codespaces %} に保存できます。'
 product: '{% data reusables.gated-features.codespaces %}'
-permissions: 'To manage secrets for {% data variables.product.prodname_codespaces %} for an organization, you must be an organization owner.'
+permissions: 'To manage secrets for {% data variables.product.prodname_github_codespaces %} for an organization, you must be an organization owner.'
 versions:
   fpt: '*'
   ghec: '*'
@@ -11,13 +11,15 @@ topics:
   - Codespaces
   - Secret store
   - Security
+redirect_from:
+  - /codespaces/managing-codespaces-for-your-organization/managing-encrypted-secrets-for-your-repository-and-organization-for-codespaces
 ---
 
  
 
 ## シークレットについて
 
-シークレットは、Organization またはリポジトリで作成する暗号化された環境変数です。 作成したシークレットは、{% data variables.product.prodname_codespaces %} で使用できます。 GitHub は [libsodium sealed box](https://libsodium.gitbook.io/doc/public-key_cryptography/sealed_boxes) を使用して、シークレットが GitHub に到達する前に暗号化し、codespace で使用する場合にのみ復号化します。
+シークレットは、Organization またはリポジトリで作成する暗号化された環境変数です。 作成したシークレットは、{% data variables.product.prodname_github_codespaces %} で使用できます。 GitHub は [libsodium sealed box](https://libsodium.gitbook.io/doc/public-key_cryptography/sealed_boxes) を使用して、シークレットが GitHub に到達する前に暗号化し、codespace で使用する場合にのみ復号化します。
 
 Organization レベルのシークレットを使用すると、複数のリポジトリ間でシークレットを共有できるため、重複するシークレットを作成する必要が軽減されます。 アクセスポリシーを使用して、Organization のシークレットを使用できるリポジトリを制御できます。
 

@@ -1,5 +1,5 @@
 ---
-title: Codespaces の GPG 検証を管理する
+title: Managing GPG verification for GitHub Codespaces
 intro: '変更が信頼できるソースからのものであることを他の人々が確信できるよう、コードスペースで作成したコミットに GPG を自動的に使用して署名するよう {% data variables.product.company_short %} に許可できます。'
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
@@ -13,12 +13,13 @@ topics:
 redirect_from:
   - /github/developing-online-with-codespaces/managing-gpg-verification-for-codespaces
   - /codespaces/working-with-your-codespace/managing-gpg-verification-for-codespaces
+  - /codespaces/managing-your-codespaces/managing-gpg-verification-for-codespaces
 shortTitle: GPG 検証
 ---
 
  
 
-GPG 検証を有効にすると、{% data variables.product.company_short %} は {% data variables.product.prodname_codespaces %} であなたが作成したコミットに自動的に署名し、そのコミットは {% data variables.product.product_name %} で検証済みのステータスとなります。 デフォルトでは、GPG 検証は作成されたコードスペースに対して無効になっています。 GPG 検証を、すべてのリポジトリに対して許可するか特定のリポジトリに対して許可するか選択できます。 GPG 検証は、信頼するリポジトリに対してのみ有効にしてください。 {% data variables.product.product_name %} が署名したコミットに関する詳しい情報については、「[コミット署名の検証について](/github/authenticating-to-github/about-commit-signature-verification)」を参照してください。
+GPG 検証を有効にすると、{% data variables.product.company_short %} は {% data variables.product.prodname_github_codespaces %} であなたが作成したコミットに自動的に署名し、そのコミットは {% data variables.product.product_name %} で検証済みのステータスとなります。 デフォルトでは、GPG 検証は作成されたコードスペースに対して無効になっています。 GPG 検証を、すべてのリポジトリに対して許可するか特定のリポジトリに対して許可するか選択できます。 GPG 検証は、信頼するリポジトリに対してのみ有効にしてください。 {% data variables.product.product_name %} が署名したコミットに関する詳しい情報については、「[コミット署名の検証について](/github/authenticating-to-github/about-commit-signature-verification)」を参照してください。
 
 Once you enable GPG verification, it will immediately take effect for all your codespaces.
 

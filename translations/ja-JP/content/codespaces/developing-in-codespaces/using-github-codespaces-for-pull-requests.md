@@ -1,7 +1,7 @@
 ---
-title: Using Codespaces for pull requests
+title: Using GitHub Codespaces for pull requests
 shortTitle: プルリクエスト
-intro: 'You can use {% data variables.product.prodname_codespaces %} in your development workflow to create pull requests, review pull requests, and address review comments.'
+intro: 'You can use {% data variables.product.prodname_github_codespaces %} in your development workflow to create pull requests, review pull requests, and address review comments.'
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
@@ -11,11 +11,13 @@ topics:
   - Codespaces
   - Visual Studio Code
   - Developer
+redirect_from:
+  - /codespaces/developing-in-codespaces/using-codespaces-for-pull-requests
 ---
 
-## {% data variables.product.prodname_codespaces %} のプルリクエストについて
+## {% data variables.product.prodname_github_codespaces %} のプルリクエストについて
 
-{% data variables.product.prodname_codespaces %} provides you with many of the capabilities you might need to work with pull requests:
+{% data variables.product.prodname_github_codespaces %} provides you with many of the capabilities you might need to work with pull requests:
 
 - [Create a pull request](/codespaces/developing-in-codespaces/using-source-control-in-your-codespace#raising-a-pull-request) - Using either the Terminal and Git commands or the Source Control view, you can create pull requests just as you would on {% data variables.product.prodname_dotcom_the_website %}. If the repository uses a pull request template, you'll be able to use this within the Source Control view.
 - [Open a pull request](#opening-a-pull-request-in-codespaces) – You can open an existing pull request in a codespace, provided you have codespace access to the branch that is being merged in.
