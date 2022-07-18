@@ -56,6 +56,60 @@ For more information, see "[Forming calls with GraphQL](/graphql/guides/forming-
 
 {% endcli %}
 
+## Creating projects
+
+Use mutations to create new projects. For more information, see "[About mutations](/graphql/guides/forming-calls-with-graphql#about-mutations)."
+
+To create a new project using the API, you'll need to provide the node ID of a GitHub user who will become the project's owner, as well as a name for the project.
+
+{% curl %}
+To find the node ID of a GitHub user, use the following curl request. Replace <code>GITHUB_USERNAME</code> with the GitHub username of the project owner. For example, <code>octouser</code>.
+
+```shell
+curl --request GET \
+  --url https://api.github.com/users/<em>GITHUB_USERNAME</em> \
+  --header 'Authorization: token <em>TOKEN</em>' \
+  --header 'Accept: application/vnd.github+json'
+```
+{% endcurl %}
+
+{% cli %}
+To find the node ID of a GitHub user, use the following <a href="https://cli.github.com/manual/gh_api"><code>gh api</code></a> command.
+
+```shell
+gh api -H "Accept: application/vnd.github+json" /user
+```
+{% endcli %}
+
+Replace `OWNER_ID` with the node ID of the project owner's GitHub username. Replace `PROJECT_NAME` with a name for the project. For example, `my-octo-project`.
+
+{% curl %}
+```shell
+curl --request POST \
+  --url https://api.github.com/graphql \
+  --header 'Authorization: token <em>TOKEN</em>' \
+  --data '{"query":"mutation {createProjectV2(input: {ownerId: \"<em>OWNER_ID</em>\" title: \"<em>PROJECT_NAME</em>\"}) {projectV2 {id}}}"}'
+```
+{% endcurl %}
+
+{% cli %}
+```shell
+gh api graphql -f query='
+  mutation{
+    createProjectV2(
+      input: {
+        ownerId: "<em>OWNER_ID</em>",
+        title: "<em>PROJECT_NAME</em>"
+      }
+    ){
+      projectV2 {
+        id
+      }
+     }
+  }'
+```
+{% endcli %}
+
 ## Finding information about projects
 
 Use queries to get data about projects. For more information, see "[About queries](/graphql/guides/forming-calls-with-graphql#about-queries)."
