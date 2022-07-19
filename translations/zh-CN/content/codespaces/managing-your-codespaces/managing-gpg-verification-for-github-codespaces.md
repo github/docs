@@ -1,5 +1,5 @@
 ---
-title: Managing GPG verification for GitHub Codespaces
+title: 管理 GitHub Codespaces 的 GPG 验证
 intro: '您可以允许 {% data variables.product.company_short %} 自动使用 GPG 对在代码空间中所做的提交进行签名，以便其他人可以确信更改来自受信任的源。'
 product: '{% data reusables.gated-features.codespaces %}'
 versions:

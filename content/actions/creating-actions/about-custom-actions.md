@@ -88,7 +88,7 @@ This section explains how you can use release management to distribute updates t
 
 ### Good practices for release management
 
-If you're developing an action for other people to use, we recommend using release management to control how you distribute updates. Users can expect an action's major version to include necessary critical fixes and security patches, while still remaining compatible with their existing workflows. You should consider releasing a new major version whenever your changes affect compatibility.
+If you're developing an action for other people to use, we recommend using release management to control how you distribute updates. Users can expect an action's patch version to include necessary critical fixes and security patches, while still remaining compatible with their existing workflows. You should consider releasing a new major version whenever your changes affect compatibility.
 
 Under this release management approach, users should not be referencing an action's default branch, as it's likely to contain the latest code and consequently might be unstable. Instead, you can recommend that your users specify a major version when using your action, and only direct them to a more specific version if they encounter issues.
 

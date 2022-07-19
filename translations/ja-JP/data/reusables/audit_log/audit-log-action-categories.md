@@ -2,20 +2,20 @@
 | ----- | -- |
 |       |    |
 {%- ifversion fpt or ghec %}
-| `account` | Contains activities related to an organization account. | `advisory_credit`   | Contains activities related to crediting a contributor for a security advisory in the {% data variables.product.prodname_advisory_database %}. 詳しい情報については、「[{% data variables.product.prodname_dotcom %} のセキュリティアドバイザリについて](/github/managing-security-vulnerabilities/about-github-security-advisories)」を参照してください。
+| `account` | Organizationアカウントに関連するアクティビティを含みます。 | `advisory_credit`   | {% data variables.product.prodname_advisory_database %}内のセキュリティアドバイザリに対するコントリビューターへのクレジットに関連するアクティビティを含みます。 詳しい情報については、「[{% data variables.product.prodname_dotcom %} のセキュリティアドバイザリについて](/github/managing-security-vulnerabilities/about-github-security-advisories)」を参照してください。
 {%- endif %}
-| `artifact` | Contains activities related to {% data variables.product.prodname_actions %} workflow run artifacts.
+| `artifact` | {% data variables.product.prodname_actions %}ワークフローの実行の成果物に関連するアクティビティを含みます。
 {%- ifversion ghec %}
-| `audit_log_streaming`  | Contains activities related to streaming audit logs for organizations in an enterprise account.
+| `audit_log_streaming`  | Enterpriseアカウント内のOrganizationに対するAudit logのストリーミングに関連するアクティビティを含みます。
 {%- endif %}
 {%- ifversion fpt or ghec %}
-| `billing` | Contains activities related to an organization's billing.
+| `billing` | Organizationの支払いに関連するアクティビティを含みます。
 {%- endif %}
 {%- ifversion ghec or ghes or ghae %}
-| `business`  | Contains activities related to business settings for an enterprise.
+| `business`  | Enterpriseのビジネス設定に関連するアクティビティを含みます。
 {%- endif %}
 {%- ifversion ghec or ghes or ghae %}
-| `business`  | Contains activities related to business settings for an enterprise.
+| `business`  | Enterpriseのビジネス設定に関連するアクティビティを含みます。
 {%- endif %}
 {%- ifversion secret-scanning-audit-log-custom-patterns %}
 | `business_secret_scanning_custom_pattern` | Contains activities related to custom patterns for secret scanning in an enterprise.

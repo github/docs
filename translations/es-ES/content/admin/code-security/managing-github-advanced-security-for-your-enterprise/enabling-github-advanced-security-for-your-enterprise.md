@@ -27,7 +27,7 @@ Cuando habilitas la {% data variables.product.prodname_GH_advanced_security %} p
 {% endif %}
 
 {% ifversion ghes %}
-Para obtener orientación sobre cómo hacer un despliegue en fases de GitHub Advanced Security, consulta la sección "[Desplegar GitHub Advanced Security en tu empresa](/admin/advanced-security/deploying-github-advanced-security-in-your-enterprise)".
+For guidance on a phased deployment of GitHub Advanced Security, see "[Introduction to adopting GitHub Advanced Security at scale](/code-security/adopting-github-advanced-security-at-scale/introduction-to-adopting-github-advanced-security-at-scale)."
 {% endif %}
 
 ## Verificar si tu licencia incluye a la {% data variables.product.prodname_GH_advanced_security %}

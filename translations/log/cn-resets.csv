@@ -25,7 +25,6 @@ translations/zh-CN/content/actions/using-workflows/storing-workflow-data-as-arti
 translations/zh-CN/content/actions/using-workflows/using-github-cli-in-workflows.md,broken liquid tags
 translations/zh-CN/content/admin/code-security/managing-github-advanced-security-for-your-enterprise/configuring-code-scanning-for-your-appliance.md,broken liquid tags
 translations/zh-CN/content/admin/code-security/managing-github-advanced-security-for-your-enterprise/configuring-secret-scanning-for-your-appliance.md,broken liquid tags
-translations/zh-CN/content/admin/code-security/managing-github-advanced-security-for-your-enterprise/deploying-github-advanced-security-in-your-enterprise.md,broken liquid tags
 translations/zh-CN/content/admin/code-security/managing-supply-chain-security-for-your-enterprise/about-supply-chain-security-for-your-enterprise.md,broken liquid tags
 translations/zh-CN/content/admin/code-security/managing-supply-chain-security-for-your-enterprise/viewing-the-vulnerability-data-for-your-enterprise.md,broken liquid tags
 translations/zh-CN/content/admin/configuration/configuring-github-connect/about-github-connect.md,rendering error
@@ -138,6 +137,8 @@ translations/zh-CN/content/billing/managing-your-license-for-github-enterprise/s
 translations/zh-CN/content/billing/managing-your-license-for-github-enterprise/troubleshooting-license-usage-for-github-enterprise.md,broken liquid tags
 translations/zh-CN/content/billing/managing-your-license-for-github-enterprise/uploading-a-new-license-to-github-enterprise-server.md,broken liquid tags
 translations/zh-CN/content/billing/managing-your-license-for-github-enterprise/viewing-license-usage-for-github-enterprise.md,broken liquid tags
+translations/zh-CN/content/code-security/adopting-github-advanced-security-at-scale/phase-2-preparing-to-enable-at-scale.md,broken liquid tags
+translations/zh-CN/content/code-security/adopting-github-advanced-security-at-scale/phase-3-pilot-programs.md,broken liquid tags
 translations/zh-CN/content/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-alerts.md,broken liquid tags
 translations/zh-CN/content/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-with-codeql.md,broken liquid tags
 translations/zh-CN/content/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning.md,broken liquid tags
@@ -176,6 +177,7 @@ translations/zh-CN/content/code-security/supply-chain-security/understanding-you
 translations/zh-CN/content/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph.md,Listed in localization-support#489
 translations/zh-CN/content/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph.md,broken liquid tags
 translations/zh-CN/content/code-security/supply-chain-security/understanding-your-software-supply-chain/troubleshooting-the-dependency-graph.md,broken liquid tags
+translations/zh-CN/content/codespaces/codespaces-reference/using-github-copilot-in-github-codespaces.md,broken liquid tags
 translations/zh-CN/content/codespaces/customizing-your-codespace/changing-the-machine-type-for-your-codespace.md,broken liquid tags
 translations/zh-CN/content/codespaces/customizing-your-codespace/personalizing-github-codespaces-for-your-account.md,broken liquid tags
 translations/zh-CN/content/codespaces/customizing-your-codespace/setting-your-default-editor-for-github-codespaces.md,broken liquid tags

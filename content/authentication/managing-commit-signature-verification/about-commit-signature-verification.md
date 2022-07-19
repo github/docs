@@ -70,7 +70,7 @@ To sign commits using GPG and have those commits verified on {% data variables.p
 
 1. [Check for existing GPG keys](/articles/checking-for-existing-gpg-keys)
 2. [Generate a new GPG key](/articles/generating-a-new-gpg-key)
-3. [Add a new GPG key to your GitHub account](/articles/adding-a-new-gpg-key-to-your-github-account)
+3. [Add a GPG key to your GitHub account](/articles/adding-a-gpg-key-to-your-github-account)
 4. [Tell Git about your signing key](/articles/telling-git-about-your-signing-key)
 5. [Sign commits](/articles/signing-commits)
 6. [Sign tags](/articles/signing-tags)

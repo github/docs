@@ -1,5 +1,5 @@
 ---
-title: Understanding billing for GitHub Codespaces
+title: 了解 GitHub Codespaces 的计费
 intro: '了解如何对 {% data variables.product.prodname_github_codespaces %} 的使用进行计费。'
 versions:
   fpt: '*'
@@ -60,4 +60,4 @@ shortTitle: 了解计费
 
 ## 延伸阅读
 
-- "[Managing billing for {% data variables.product.prodname_github_codespaces %} in your organization](/codespaces/managing-codespaces-for-your-organization/managing-billing-for-github-codespaces-in-your-organization)"
+- “[管理组织中 {% data variables.product.prodname_github_codespaces %} 的计费](/codespaces/managing-codespaces-for-your-organization/managing-billing-for-github-codespaces-in-your-organization)”

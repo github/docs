@@ -1,8 +1,8 @@
 ---
 title: Acerca del resumen de seguridad
 intro: 'Puedes ver, filtrar y clasificar las alertas de seguridad para los repositorios que pertenezcan a tu organización o equipo en un solo lugar: la página de Resumen de Seguridad.'
-permissions: '{% data reusables.security-center.permissions %}'
-product: '{% data reusables.gated-features.security-center %}'
+permissions: '{% data reusables.security-overview.permissions %}'
+product: '{% data reusables.gated-features.security-overview %}'
 redirect_from:
   - /code-security/security-overview/exploring-security-alerts
 versions:
@@ -23,7 +23,7 @@ shortTitle: Acerca del resumen de seguridad
 ---
 
 {% ifversion ghes < 3.5 or ghae %}
-{% data reusables.security-center.beta %}
+{% data reusables.security-overview.beta %}
 {% endif %}
 
 ## Acerca del resumen de seguridad

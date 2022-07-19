@@ -1,5 +1,5 @@
 ---
-title: Managing billing for GitHub Codespaces in your organization
+title: 管理组织中 GitHub Codespaces 的计费
 shortTitle: 管理计费
 intro: '您可以检查 {% data variables.product.prodname_github_codespaces %} 使用情况并设置使用限制。'
 product: '{% data reusables.gated-features.codespaces %}'
@@ -31,7 +31,7 @@ redirect_from:
 
 - **计算分钟数：**计算使用率是按所有 {% data variables.product.prodname_codespaces %} 实例在活动期间使用的实际分钟数计算的。 这些总计每天报告给计费服务，并按月计费。 您可以为组织中 {% data variables.product.prodname_codespaces %} 使用设置支出限制。 更多信息请参阅“[管理 {% data variables.product.prodname_github_codespaces %} 的支出限制](/billing/managing-billing-for-github-codespaces/managing-spending-limits-for-github-codespaces)”。
 
-- **存储使用情况：**  出于 {% data variables.product.prodname_codespaces %} 计费目的，这包括您帐户中所有代码空间使用的所有存储空间。 这包括代码空间使用的所有内容，例如克隆的存储库、配置文件和扩展等。 这些总计每天报告给计费服务，并按月计费。 到月底，{% data variables.product.prodname_dotcom %} 会将您的存储量舍入到最接近的 MB。 To check how many compute minutes and storage GB have been used by {% data variables.product.prodname_codespaces %}, see "[Viewing your {% data variables.product.prodname_github_codespaces %} usage"](/billing/managing-billing-for-github-codespaces/viewing-your-github-codespaces-usage)."
+- **存储使用情况：**  出于 {% data variables.product.prodname_codespaces %} 计费目的，这包括您帐户中所有代码空间使用的所有存储空间。 这包括代码空间使用的所有内容，例如克隆的存储库、配置文件和扩展等。 这些总计每天报告给计费服务，并按月计费。 到月底，{% data variables.product.prodname_dotcom %} 会将您的存储量舍入到最接近的 MB。 要检查 {% data variables.product.prodname_codespaces %} 已使用多少计算分钟数和存储 GB，请参阅“[查看 {% data variables.product.prodname_github_codespaces %} 使用情况](/billing/managing-billing-for-github-codespaces/viewing-your-github-codespaces-usage)”。
 
 ## 禁用或限制 {% data variables.product.prodname_codespaces %}
 

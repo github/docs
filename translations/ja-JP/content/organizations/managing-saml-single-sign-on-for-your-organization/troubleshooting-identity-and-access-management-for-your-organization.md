@@ -1,5 +1,5 @@
 ---
-title: Troubleshooting identity and access management for your organization
+title: Organizationのアイデンティティ及びアクセス管理のトラブルシューティング
 intro: OrganizationのSAML SSO、Team同期、アイデンティティプロバイダ（IdP）との接続に関するエラーに対する一般的なトラブルシューティングをレビューして解決してください。
 versions:
   ghec: '*'
@@ -96,4 +96,4 @@ IdPを介して、ユーザのSCIMを手動で再プロビジョニングでき�
 
 ## 参考リンク
 
-- "[Troubleshooting identity and access management for your enterprise](/admin/identity-and-access-management/managing-iam-for-your-enterprise/troubleshooting-identity-and-access-management-for-your-enterprise)"
+- 「[Enterpriseのアイデンティティ及びアクセス管理のトラブルシューティング](/admin/identity-and-access-management/managing-iam-for-your-enterprise/troubleshooting-identity-and-access-management-for-your-enterprise)」

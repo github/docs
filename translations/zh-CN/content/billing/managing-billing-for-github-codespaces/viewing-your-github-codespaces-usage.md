@@ -1,5 +1,5 @@
 ---
-title: Viewing your GitHub Codespaces usage
+title: 查看 GitHub Codespaces 使用情况
 shortTitle: 查看使用情况
 intro: '您可以查看 {% data variables.product.prodname_github_codespaces %} 使用的计算分钟数和存储空间。'
 permissions: 'To manage billing for {% data variables.product.prodname_github_codespaces %} for an organization, you must be an organization owner or a billing manager.'

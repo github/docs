@@ -1,5 +1,5 @@
 ---
-title: GitHub Codespaces logs
+title: GitHub Codespaces 日志
 intro: '{% data variables.product.prodname_github_codespaces %} 使用的日志记录位置概述。'
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
