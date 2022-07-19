@@ -1316,14 +1316,6 @@
         "owner": "cheshire137"
       },
       {
-        "location": "Enterprise.userAccounts",
-        "description": "<p><code>userAccounts</code> will be removed. Use the <code>Enterprise.members</code> field instead.</p>",
-        "reason": "<p>The <code>Enterprise.userAccounts</code> field is being removed.</p>",
-        "date": "2022-07-01",
-        "criticality": "breaking",
-        "owner": "jdennes"
-      },
-      {
         "location": "AddPullRequestToMergeQueueInput.branch",
         "description": "<p><code>branch</code> will be removed.</p>",
         "reason": "<p>PRs are added to the merge queue for the base branch, the <code>branch</code> argument is now a no-op</p>",
@@ -2754,14 +2746,6 @@
         "owner": "cheshire137"
       },
       {
-        "location": "Enterprise.userAccounts",
-        "description": "<p><code>userAccounts</code> will be removed. Use the <code>Enterprise.members</code> field instead.</p>",
-        "reason": "<p>The <code>Enterprise.userAccounts</code> field is being removed.</p>",
-        "date": "2022-07-01",
-        "criticality": "breaking",
-        "owner": "jdennes"
-      },
-      {
         "location": "AddPullRequestToMergeQueueInput.branch",
         "description": "<p><code>branch</code> will be removed.</p>",
         "reason": "<p>PRs are added to the merge queue for the base branch, the <code>branch</code> argument is now a no-op</p>",
@@ -3621,14 +3605,6 @@
       }
     ],
     "2022-07-01": [
-      {
-        "location": "Enterprise.userAccounts",
-        "description": "<p><code>userAccounts</code> will be removed. Use the <code>Enterprise.members</code> field instead.</p>",
-        "reason": "<p>The <code>Enterprise.userAccounts</code> field is being removed.</p>",
-        "date": "2022-07-01",
-        "criticality": "breaking",
-        "owner": "jdennes"
-      },
       {
         "location": "AddPullRequestToMergeQueueInput.branch",
         "description": "<p><code>branch</code> will be removed.</p>",
