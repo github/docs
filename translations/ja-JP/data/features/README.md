@@ -34,14 +34,7 @@ versions:
   feature: 'meow'
 ```
 
-コンテンツファイルを複数の機能に適用したい場合は、以下のようにすることができます。
-
-```yaml
-versions:
-  fpt: '*'
-  ghes: '>3.1'
-  feature: ['meow', 'blorp']
-```
+You cannot use `feature:` to specify multiple concurrent versions, as this is not supported. Alternatively, you could create a new feature-based versioning file with the required versioning.
 
 ## スキーマの適用
 

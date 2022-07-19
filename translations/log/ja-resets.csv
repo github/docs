@@ -87,6 +87,9 @@ translations/ja-JP/content/billing/managing-your-license-for-github-enterprise/t
 translations/ja-JP/content/billing/managing-your-license-for-github-enterprise/uploading-a-new-license-to-github-enterprise-server.md,broken liquid tags
 translations/ja-JP/content/billing/managing-your-license-for-github-enterprise/viewing-license-usage-for-github-enterprise.md,broken liquid tags
 translations/ja-JP/content/code-security/adopting-github-advanced-security-at-scale/introduction-to-adopting-github-advanced-security-at-scale.md,broken liquid tags
+translations/ja-JP/content/code-security/adopting-github-advanced-security-at-scale/phase-2-preparing-to-enable-at-scale.md,broken liquid tags
+translations/ja-JP/content/code-security/adopting-github-advanced-security-at-scale/phase-3-pilot-programs.md,broken liquid tags
+translations/ja-JP/content/code-security/adopting-github-advanced-security-at-scale/phase-6-rollout-and-scale-secret-scanning.md,broken liquid tags
 translations/ja-JP/content/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-alerts.md,broken liquid tags
 translations/ja-JP/content/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-with-codeql.md,broken liquid tags
 translations/ja-JP/content/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning.md,broken liquid tags
