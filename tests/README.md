@@ -100,5 +100,5 @@ START_JEST_SERVER=false jest tests/rendering/foo/bar.js
 
 Or whatever the testing command you use is. 
 
-**Note:** the `START_JEST_SERVER=false` environment variable needs to be set, or else `jest` will try to start
+**Note:** The `START_JEST_SERVER=false` environment variable needs to be set, or else `jest` will try to start
 a server on `:4000` too.
