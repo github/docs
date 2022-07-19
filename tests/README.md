@@ -86,18 +86,19 @@ server before running all/any tests and stops the server when done.
 You can disable this, which might make it easier when debugging tests
 since the server won't need to start and stop every time you run tests.
 
-In one terminal type:
+In one terminal, type:
 
 ```sh
 NODE_ENV=test PORT=4000 node server.mjs
 ```
 
-In another terminal type:
+In another terminal, type:
 
 ```sh
 START_JEST_SERVER=false jest tests/rendering/foo/bar.js
 ```
 
 Or whatever the testing command you use is. 
+
 **Note:** the `START_JEST_SERVER=false` environment variable needs to be set, or else `jest` will try to start
 a server on `:4000` too.
