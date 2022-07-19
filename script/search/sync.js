@@ -6,44 +6,29 @@ import { allVersions } from '../../lib/all-versions.js'
 import { namePrefix } from '../../lib/search/config.js'
 import LunrIndex from './lunr-search-index.js'
 
-// Lunr
-
 // Build a search data file for every combination of product version and language
 // e.g. `github-docs-dotcom-en.json` and `github-docs-2.14-ja.json`
-export default async function syncSearchIndexes(opts = {}) {
+export default async function syncSearchIndexes({
+  language,
+  version,
+  dryRun,
+  notLanguage,
+  outDirectory,
+}) {
   const t0 = new Date()
-  if (opts.language) {
-    if (!Object.keys(languages).includes(opts.language)) {
-      console.log(
-        `Error! ${opts.language} not found. You must provide a currently supported two-letter language code.`
-      )
-      process.exit(1)
-    }
-  }
-
-  if (opts.version) {
-    if (!Object.keys(allVersions).includes(opts.version)) {
-      console.log(`${opts.version} not one of ${Object.keys(allVersions)}`)
-      throw new Error(
-        `Error! ${opts.version} not found. You must provide a currently supported version in <PLAN@RELEASE> format.`
-      )
-    }
-  }
 
   // build indices for a specific language if provided; otherwise build indices for all languages
-  const languagesToBuild = opts.language
-    ? Object.keys(languages).filter((language) => language === opts.language)
-    : Object.keys(languages)
+  const languagesToBuild = Object.keys(languages).filter((lang) =>
+    notLanguage ? notLanguage !== lang : language ? language === lang : true
+  )
 
-  // build indices for a specific version if provided; otherwise build indices for all veersions
-  const versionsToBuild = opts.version
-    ? Object.keys(allVersions).filter((version) => version === opts.version)
-    : Object.keys(allVersions)
+  // build indices for a specific version if provided; otherwise build indices for all versions
+  const versionsToBuild = Object.keys(allVersions).filter((ver) =>
+    version ? version === ver : true
+  )
 
   console.log(
-    `Building indices for ${opts.language || 'all languages'} and ${
-      opts.version || 'all versions'
-    }.\n`
+    `Building indices for ${language || 'all languages'} and ${version || 'all versions'}.\n`
   )
 
   // Exclude WIP pages, hidden pages, index pages, etc
@@ -84,8 +69,8 @@ export default async function syncSearchIndexes(opts = {}) {
       )
       const index = new LunrIndex(indexName, records)
 
-      if (!opts.dryRun) {
-        await index.write()
+      if (!dryRun) {
+        await index.write(outDirectory)
         console.log('wrote index to file: ', indexName)
       }
     }

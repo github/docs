@@ -34,14 +34,7 @@ versions:
   feature: 'meow'
 ```
 
-Si quieres que un archivo de contenido aplique a más de una característica, puedes hacer esto:
-
-```yaml
-versions:
-  fpt: '*'
-  ghes: '>3.1'
-  feature: ['meow', 'blorp']
-```
+You cannot use `feature:` to specify multiple concurrent versions, as this is not supported. Alternatively, you could create a new feature-based versioning file with the required versioning.
 
 ## Imposición del modelado
 
