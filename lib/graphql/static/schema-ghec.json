@@ -13605,7 +13605,7 @@
         },
         {
           "name": "pullRequestReviewContributions",
-          "description": "<p>Pull request review contributions made by the user.</p>",
+          "description": "<p>Pull request review contributions made by the user. Returns the most recently\nsubmitted review for each PR reviewed by the user.</p>",
           "type": "CreatedPullRequestReviewContributionConnection!",
           "id": "createdpullrequestreviewcontributionconnection",
           "kind": "objects",
@@ -41505,6 +41505,16 @@
                 "kind": "scalars",
                 "href": "/graphql/reference/scalars#int"
               }
+            },
+            {
+              "name": "orderBy",
+              "description": "<p>Ordering options for project v2 fields returned from the connection.</p>",
+              "type": {
+                "name": "ProjectV2FieldOrder",
+                "id": "projectv2fieldorder",
+                "kind": "input-objects",
+                "href": "/graphql/reference/input-objects#projectv2fieldorder"
+              }
             }
           ]
         },
@@ -41554,6 +41564,16 @@
                 "id": "int",
                 "kind": "scalars",
                 "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "orderBy",
+              "description": "<p>Ordering options for project v2 items returned from the connection.</p>",
+              "type": {
+                "name": "ProjectV2ItemOrder",
+                "id": "projectv2itemorder",
+                "kind": "input-objects",
+                "href": "/graphql/reference/input-objects#projectv2itemorder"
               }
             }
           ]
@@ -41636,6 +41656,16 @@
                 "id": "int",
                 "kind": "scalars",
                 "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "orderBy",
+              "description": "<p>Ordering options for repositories returned from the connection.</p>",
+              "type": {
+                "name": "RepositoryOrder",
+                "id": "repositoryorder",
+                "kind": "input-objects",
+                "href": "/graphql/reference/input-objects#repositoryorder"
               }
             }
           ]
@@ -41734,6 +41764,16 @@
                 "id": "int",
                 "kind": "scalars",
                 "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "orderBy",
+              "description": "<p>Ordering options for project v2 views returned from the connection.</p>",
+              "type": {
+                "name": "ProjectV2ViewOrder",
+                "id": "projectv2vieworder",
+                "kind": "input-objects",
+                "href": "/graphql/reference/input-objects#projectv2vieworder"
               }
             }
           ]
@@ -42099,6 +42139,16 @@
                 "id": "int",
                 "kind": "scalars",
                 "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "orderBy",
+              "description": "<p>Ordering options for project v2 item field values returned from the connection.</p>",
+              "type": {
+                "name": "ProjectV2ItemFieldValueOrder",
+                "id": "projectv2itemfieldvalueorder",
+                "kind": "input-objects",
+                "href": "/graphql/reference/input-objects#projectv2itemfieldvalueorder"
               }
             }
           ]
@@ -42619,6 +42669,16 @@
                 "id": "int",
                 "kind": "scalars",
                 "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "orderBy",
+              "description": "<p>Ordering options for pull requests.</p>",
+              "type": {
+                "name": "PullRequestOrder",
+                "id": "pullrequestorder",
+                "kind": "input-objects",
+                "href": "/graphql/reference/input-objects#pullrequestorder"
               }
             }
           ]
@@ -75660,6 +75720,27 @@
       ]
     },
     {
+      "name": "ProjectV2FieldOrderField",
+      "kind": "enums",
+      "id": "projectv2fieldorderfield",
+      "href": "/graphql/reference/enums#projectv2fieldorderfield",
+      "description": "<p>Properties by which project v2 field connections can be ordered.</p>",
+      "values": [
+        {
+          "name": "CREATED_AT",
+          "description": "<p>Order project v2 fields by creation time.</p>"
+        },
+        {
+          "name": "NAME",
+          "description": "<p>Order project v2 fields by name.</p>"
+        },
+        {
+          "name": "POSITION",
+          "description": "<p>Order project v2 fields by position.</p>"
+        }
+      ]
+    },
+    {
       "name": "ProjectV2FieldType",
       "kind": "enums",
       "id": "projectv2fieldtype",
@@ -75717,6 +75798,32 @@
         {
           "name": "TRACKS",
           "description": "<p>Tracks.</p>"
+        }
+      ]
+    },
+    {
+      "name": "ProjectV2ItemFieldValueOrderField",
+      "kind": "enums",
+      "id": "projectv2itemfieldvalueorderfield",
+      "href": "/graphql/reference/enums#projectv2itemfieldvalueorderfield",
+      "description": "<p>Properties by which project v2 item field value connections can be ordered.</p>",
+      "values": [
+        {
+          "name": "POSITION",
+          "description": "<p>Order project v2 item field values by the their position in the project.</p>"
+        }
+      ]
+    },
+    {
+      "name": "ProjectV2ItemOrderField",
+      "kind": "enums",
+      "id": "projectv2itemorderfield",
+      "href": "/graphql/reference/enums#projectv2itemorderfield",
+      "description": "<p>Properties by which project v2 item connections can be ordered.</p>",
+      "values": [
+        {
+          "name": "POSITION",
+          "description": "<p>Order project v2 items by the their position in the project.</p>"
         }
       ]
     },
@@ -75784,6 +75891,27 @@
         {
           "name": "TABLE_LAYOUT",
           "description": "<p>Table layout.</p>"
+        }
+      ]
+    },
+    {
+      "name": "ProjectV2ViewOrderField",
+      "kind": "enums",
+      "id": "projectv2vieworderfield",
+      "href": "/graphql/reference/enums#projectv2vieworderfield",
+      "description": "<p>Properties by which project v2 view connections can be ordered.</p>",
+      "values": [
+        {
+          "name": "CREATED_AT",
+          "description": "<p>Order project v2 views by creation time.</p>"
+        },
+        {
+          "name": "NAME",
+          "description": "<p>Order project v2 views by name.</p>"
+        },
+        {
+          "name": "POSITION",
+          "description": "<p>Order project v2 views by position.</p>"
         }
       ]
     },
@@ -85118,6 +85246,31 @@
       ]
     },
     {
+      "name": "ProjectV2FieldOrder",
+      "kind": "inputObjects",
+      "id": "projectv2fieldorder",
+      "href": "/graphql/reference/input-objects#projectv2fieldorder",
+      "description": "<p>Ordering options for project v2 field connections.</p>",
+      "inputFields": [
+        {
+          "name": "direction",
+          "description": "<p>The ordering direction.</p>",
+          "type": "OrderDirection!",
+          "id": "orderdirection",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#orderdirection"
+        },
+        {
+          "name": "field",
+          "description": "<p>The field to order the project v2 fields by.</p>",
+          "type": "ProjectV2FieldOrderField!",
+          "id": "projectv2fieldorderfield",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#projectv2fieldorderfield"
+        }
+      ]
+    },
+    {
       "name": "ProjectV2FieldValue",
       "kind": "inputObjects",
       "id": "projectv2fieldvalue",
@@ -85167,6 +85320,56 @@
       ]
     },
     {
+      "name": "ProjectV2ItemFieldValueOrder",
+      "kind": "inputObjects",
+      "id": "projectv2itemfieldvalueorder",
+      "href": "/graphql/reference/input-objects#projectv2itemfieldvalueorder",
+      "description": "<p>Ordering options for project v2 item field value connections.</p>",
+      "inputFields": [
+        {
+          "name": "direction",
+          "description": "<p>The ordering direction.</p>",
+          "type": "OrderDirection!",
+          "id": "orderdirection",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#orderdirection"
+        },
+        {
+          "name": "field",
+          "description": "<p>The field to order the project v2 item field values by.</p>",
+          "type": "ProjectV2ItemFieldValueOrderField!",
+          "id": "projectv2itemfieldvalueorderfield",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#projectv2itemfieldvalueorderfield"
+        }
+      ]
+    },
+    {
+      "name": "ProjectV2ItemOrder",
+      "kind": "inputObjects",
+      "id": "projectv2itemorder",
+      "href": "/graphql/reference/input-objects#projectv2itemorder",
+      "description": "<p>Ordering options for project v2 item connections.</p>",
+      "inputFields": [
+        {
+          "name": "direction",
+          "description": "<p>The ordering direction.</p>",
+          "type": "OrderDirection!",
+          "id": "orderdirection",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#orderdirection"
+        },
+        {
+          "name": "field",
+          "description": "<p>The field to order the project v2 items by.</p>",
+          "type": "ProjectV2ItemOrderField!",
+          "id": "projectv2itemorderfield",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#projectv2itemorderfield"
+        }
+      ]
+    },
+    {
       "name": "ProjectV2Order",
       "kind": "inputObjects",
       "id": "projectv2order",
@@ -85188,6 +85391,31 @@
           "id": "projectv2orderfield",
           "kind": "enums",
           "href": "/graphql/reference/enums#projectv2orderfield"
+        }
+      ]
+    },
+    {
+      "name": "ProjectV2ViewOrder",
+      "kind": "inputObjects",
+      "id": "projectv2vieworder",
+      "href": "/graphql/reference/input-objects#projectv2vieworder",
+      "description": "<p>Ordering options for project v2 view connections.</p>",
+      "inputFields": [
+        {
+          "name": "direction",
+          "description": "<p>The ordering direction.</p>",
+          "type": "OrderDirection!",
+          "id": "orderdirection",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#orderdirection"
+        },
+        {
+          "name": "field",
+          "description": "<p>The field to order the project v2 views by.</p>",
+          "type": "ProjectV2ViewOrderField!",
+          "id": "projectv2vieworderfield",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#projectv2vieworderfield"
         }
       ]
     },

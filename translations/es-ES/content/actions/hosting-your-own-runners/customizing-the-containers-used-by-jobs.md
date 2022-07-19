@@ -54,37 +54,37 @@ The `prepare_job` command is called when a job is started. {% data variables.pro
 #### Argumentos
 
 - `jobContainer`: **Optional**. An object containing information about the specified job container.
-  - `image`: **Required**. A string containing the Docker image.
+  - `image`: **Opcional**. A string containing the Docker image.
   - `workingDirectory`: **Required**. A string containing the absolute path of the working directory.
-  - `createOptions`: **Optional**. The optional _create_ options specified in the YAML. For more information, see "[Example: Running a job within a container](/actions/using-jobs/running-jobs-in-a-container#example-running-a-job-within-a-container)."
-  - `environmentVariables`: **Optional**. Sets a map of key environment variables.
+  - `createOptions`: **Opcional**. The optional _create_ options specified in the YAML. For more information, see "[Example: Running a job within a container](/actions/using-jobs/running-jobs-in-a-container#example-running-a-job-within-a-container)."
+  - `environmentVariables`: **Opcional**. Sets a map of key environment variables.
   - `userMountVolumes`: **Optional**. An array of user mount volumes set in the YAML. For more information, see "[Example: Running a job within a container](/actions/using-jobs/running-jobs-in-a-container#example-running-a-job-within-a-container)."
-    - `sourceVolumePath`: **Required**. The source path to the volume that will be mounted into the Docker container.
-    - `targetVolumePath`: **Required**. The target path to the volume that will be mounted into the Docker container.
-    - `readOnly`: **Required**. Determines whether or not the mount should be read-only.
-  - `systemMountVolumes`: **Required**. An array of mounts to mount into the container, same fields as above.
-    - `sourceVolumePath`: **Required**. The source path to the volume that will be mounted into the Docker container.
-    - `targetVolumePath`: **Required**. The target path to the volume that will be mounted into the Docker container.
-    - `readOnly`: **Required**. Determines whether or not the mount should be read-only.
+    - `sourceVolumePath`: **Requerido**. The source path to the volume that will be mounted into the Docker container.
+    - `targetVolumePath`: **Requerido**. The target path to the volume that will be mounted into the Docker container.
+    - `readOnly`: **Opcional**. Determines whether or not the mount should be read-only.
+  - `systemMountVolumes`: **Requerido**. An array of mounts to mount into the container, same fields as above.
+    - `sourceVolumePath`: **Requerido**. The source path to the volume that will be mounted into the Docker container.
+    - `targetVolumePath`: **Requerido**. The target path to the volume that will be mounted into the Docker container.
+    - `readOnly`: **Opcional**. Determines whether or not the mount should be read-only.
   - `registro` **Optional**. The Docker registry credentials for a private container registry.
     - `username`: **Optional**. The username of the registry account.
-    - `password`: **Optional**. The password to the registry account.
-    - `serverUrl`: **Optional**. The registry URL.
-  - `portMappings`: **Optional**. A key value hash of _source:target_ ports to map into the container.
+    - `password`: **Opcional**. The password to the registry account.
+    - `serverUrl`: **Opcional**. The registry URL.
+  - `portMappings`: **Opcional**. A key value hash of _source:target_ ports to map into the container.
 - `services`: **Optional**. An array of service containers to spin up.
   - `contextName`: **Required**. The name of the service in the Job context.
-  - `image`: **Required**. A string containing the Docker image.
-  - `createOptions`: **Optional**. The optional _create_ options specified in the  YAML. For more information, see "[Example: Running a job within a container](/actions/using-jobs/running-jobs-in-a-container#example-running-a-job-within-a-container)."
-  - `environmentVariables`: **Optional**. Sets a map of key environment variables.
+  - `image`: **Opcional**. A string containing the Docker image.
+  - `createOptions`: **Opcional**. The optional _create_ options specified in the  YAML. For more information, see "[Example: Running a job within a container](/actions/using-jobs/running-jobs-in-a-container#example-running-a-job-within-a-container)."
+  - `environmentVariables`: **Opcional**. Sets a map of key environment variables.
   - `userMountVolumes`: **Optional**. An array of mounts to mount into the container, same fields as above.
-    - `sourceVolumePath`: **Required**. The source path to the volume that will be mounted into the Docker container.
-    - `targetVolumePath`: **Required**. The target path to the volume that will be mounted into the Docker container.
-    - `readOnly`: **Required**. Determines whether or not the mount should be read-only.
+    - `sourceVolumePath`: **Requerido**. The source path to the volume that will be mounted into the Docker container.
+    - `targetVolumePath`: **Requerido**. The target path to the volume that will be mounted into the Docker container.
+    - `readOnly`: **Opcional**. Determines whether or not the mount should be read-only.
   - `registro` **Optional**. The Docker registry credentials for the private container registry.
     - `username`: **Optional**. The username of the registry account.
-    - `password`: **Optional**. The password to the registry account.
-    - `serverUrl`: **Optional**. The registry URL.
-  - `portMappings`: **Optional**. A key value hash of _source:target_ ports to map into the container.
+    - `password`: **Opcional**. The password to the registry account.
+    - `serverUrl`: **Opcional**. The registry URL.
+  - `portMappings`: **Opcional**. A key value hash of _source:target_ ports to map into the container.
 
 #### Example input
 
@@ -251,25 +251,25 @@ The `run_container_step` command is called once for each container action in you
 
 - `image`: **Optional**. A string containing the docker image. Otherwise a dockerfile must be provided.
 - `dockerfile`: **Optional**. A string containing the path to the dockerfile, otherwise an image must be provided.
-- `entryPointArgs`: **Optional**. A list containing the entry point args.
-- `entryPoint`: **Optional**. The container entry point to use if the default image entrypoint should be overwritten.
+- `entryPointArgs`: **Opcional**. A list containing the entry point args.
+- `entryPoint`: **Opcional**. The container entry point to use if the default image entrypoint should be overwritten.
 - `workingDirectory`: **Required**. A string containing the absolute path of the working directory.
-- `createOptions`: **Optional**. The optional _create_ options specified in the YAML. For more information, see "[Example: Running a job within a container](/actions/using-jobs/running-jobs-in-a-container#example-running-a-job-within-a-container)."
-- `environmentVariables`: **Optional**. Sets a map of key environment variables.
-- `prependPath`: **Optional**. An array of additional paths to prepend to the `$PATH` variable.
+- `createOptions`: **Opcional**. The optional _create_ options specified in the YAML. For more information, see "[Example: Running a job within a container](/actions/using-jobs/running-jobs-in-a-container#example-running-a-job-within-a-container)."
+- `environmentVariables`: **Opcional**. Sets a map of key environment variables.
+- `prependPath`: **Opcional**. An array of additional paths to prepend to the `$PATH` variable.
 - `userMountVolumes`: **Optional**. an array of user mount volumes set in the YAML. For more information, see "[Example: Running a job within a container](/actions/using-jobs/running-jobs-in-a-container#example-running-a-job-within-a-container)."
-  - `sourceVolumePath`: **Required**. The source path to the volume that will be mounted into the Docker container.
-  - `targetVolumePath`: **Required**. The target path to the volume that will be mounted into the Docker container.
-  - `readOnly`: **Required**. Determines whether or not the mount should be read-only.
-- `systemMountVolumes`: **Required**. An array of mounts to mount into the container, using the same fields as above.
-  - `sourceVolumePath`: **Required**. The source path to the volume that will be mounted into the Docker container.
-  - `targetVolumePath`: **Required**. The target path to the volume that will be mounted into the Docker container.
-  - `readOnly`: **Required**. Determines whether or not the mount should be read-only.
+  - `sourceVolumePath`: **Requerido**. The source path to the volume that will be mounted into the Docker container.
+  - `targetVolumePath`: **Requerido**. The target path to the volume that will be mounted into the Docker container.
+  - `readOnly`: **Requerido**. Determines whether or not the mount should be read-only.
+- `systemMountVolumes`: **Requerido**. An array of mounts to mount into the container, using the same fields as above.
+  - `sourceVolumePath`: **Requerido**. The source path to the volume that will be mounted into the Docker container.
+  - `targetVolumePath`: **Requerido**. The target path to the volume that will be mounted into the Docker container.
+  - `readOnly`: **Requerido**. Determines whether or not the mount should be read-only.
 - `registro` **Optional**. The Docker registry credentials for a private container registry.
   - `username`: **Optional**. The username of the registry account.
-  - `password`: **Optional**. The password to the registry account.
-  - `serverUrl`: **Optional**. The registry URL.
-- `portMappings`: **Optional**. A key value hash of the _source:target_ ports to map into the container.
+  - `password`: **Opcional**. The password to the registry account.
+  - `serverUrl`: **Opcional**. The registry URL.
+- `portMappings`: **Opcional**. A key value hash of the _source:target_ ports to map into the container.
 
 #### Example input for image
 
@@ -436,11 +436,11 @@ No output is expected for `run_container_step`.
 
 #### Argumentos
 
-- `entryPointArgs`: **Optional**. A list containing the entry point arguments.
-- `entryPoint`: **Optional**. The container entry point to use if the default image entrypoint should be overwritten.
-- `prependPath`: **Optional**. An array of additional paths to prepend to the `$PATH` variable.
+- `entryPointArgs`: **Opcional**. A list containing the entry point arguments.
+- `entryPoint`: **Opcional**. The container entry point to use if the default image entrypoint should be overwritten.
+- `prependPath`: **Opcional**. An array of additional paths to prepend to the `$PATH` variable.
 - `workingDirectory`: **Required**. A string containing the absolute path of the working directory.
-- `environmentVariables`: **Optional**. Sets a map of key environment variables.
+- `environmentVariables`: **Opcional**. Sets a map of key environment variables.
 
 #### Example input
 
@@ -527,4 +527,4 @@ There is currently no timeout setting available for the script executed by `ACTI
 
 ### Reviewing the workflow run log
 
-To confirm whether your scripts are executing, you can review the logs for that job. For more information on checking the logs, see "[Viewing logs to diagnose failures](/actions/monitoring-and-troubleshooting-workflows/using-workflow-run-logs#viewing-logs-to-diagnose-failures)."
+To confirm whether your scripts are executing, you can review the logs for that job. Para obtener más información sobre cómo verificar las bitácoras, consulta la sección "[Visualizar las bitácoras para diagnosticar las fallas](/actions/monitoring-and-troubleshooting-workflows/using-workflow-run-logs#viewing-logs-to-diagnose-failures)".

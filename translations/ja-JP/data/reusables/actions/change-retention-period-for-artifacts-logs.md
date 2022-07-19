@@ -1,2 +1,2 @@
-1. Under **Artifact and log retention**, enter a new value.
+1. **Artifact and log retention duration（成果物とログの保持）**の下で、新しい値を入力してください。
 1. **Save（保存）**をクリックして、変更を適用してください。

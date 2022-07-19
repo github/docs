@@ -37,7 +37,7 @@ topics:
 
 ## 配置 {% data variables.product.prodname_dependabot_alerts %} 的通知
 
-{% ifversion fpt or ghes > 3.1 or ghec %}
+{% ifversion fpt or ghes or ghec %}
 当检测到新的 {% data variables.product.prodname_dependabot %} 警报时，{% data variables.product.product_name %} 根据通知偏好通知所有能够访问仓库的 {% data variables.product.prodname_dependabot_alerts %} 的用户。 如果您正在关注该仓库、已对仓库上的安全警报或所有活动启用通知，并且没有忽略该仓库，您将收到警报。 更多信息请参阅“[配置通知](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#configuring-your-watch-settings-for-an-individual-repository)”。
 {% endif %}
 

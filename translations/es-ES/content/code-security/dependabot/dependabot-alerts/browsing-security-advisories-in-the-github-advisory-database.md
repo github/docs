@@ -45,6 +45,7 @@ In contrast, malicious software, or malware, is code that is intentionally desig
 Generally, we name our supported ecosystems after the software programming language's associated package registry. We review advisories if they are for a vulnerability in a package that comes from a supported registry.
 
 - Composer (registry: https://packagist.org/)
+- Erlang (registry: https://hex.pm/)
 - Go (registry: https://pkg.go.dev/)
 - Maven (registry: https://repo1.maven.org/maven2/org/)
 - npm (registry: https://www.npmjs.com/)
@@ -65,7 +66,7 @@ El {% data variables.product.prodname_dependabot %} no crea {% data variables.pr
 
 ## About information in security advisories
 
-Each security advisory contains information about the vulnerability or malware, which may include the description, severity, affected package, package ecosystem, affected versions and patched versions, impact, and optional information such as references, workarounds, and credits. Adicionalmente, las asesorías de la National Vulnerability Database contiene un enlace al registro de CVE, en donde puedes leer más sobre los detalles de la vulnerabilidad, su puntuación de CVSS y su nivel de severidad cualitativo. Para obtener más información, consulta la "[National Vulnerability Database](https://nvd.nist.gov/)" del Instituto Nacional de Estándares y Tecnología.
+Cada asesoría de seguridad contiene información sobre la vulnerabilidad o el malware, la cual puede incluir la descripción, gravedad, paquete afectado, ecosistema del paquete, versiones afectadas y versiones parchadas, impacto e información opcional, tal como referencias, soluciones alternas y créditos. Adicionalmente, las asesorías de la National Vulnerability Database contiene un enlace al registro de CVE, en donde puedes leer más sobre los detalles de la vulnerabilidad, su puntuación de CVSS y su nivel de severidad cualitativo. Para obtener más información, consulta la "[National Vulnerability Database](https://nvd.nist.gov/)" del Instituto Nacional de Estándares y Tecnología.
 
 El nivel de gravedad es uno de cuatro niveles posibles que se definen en el [Sistema de clasificación de vulnerabilidades comunes (CVSS), Sección 5](https://www.first.org/cvss/specification-document)".
 - Bajo

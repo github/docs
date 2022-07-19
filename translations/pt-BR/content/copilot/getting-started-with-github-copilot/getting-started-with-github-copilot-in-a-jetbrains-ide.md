@@ -23,8 +23,9 @@ Se você usar um JetBrains IDE, você pode ver e incorporar sugestões de {% dat
 
 Para usar {% data variables.product.prodname_copilot %} em um JetBrains IDE, você deve instalar a extensão de {% data variables.product.prodname_copilot %}. O procedimento a seguir irá guiá-lo na instalação do plugin de {% data variables.product.prodname_copilot %} no IntelliJ IDEA. As etapas para instalar o plugin em outro IDE compatível podem ser diferentes.
 
-1. No seu JetBrains IDE, no menu **Arquivo** clique em **Configurações**.
-1. Na parte superior da caixa de diálogo "Configurações", clique em **Marketplace**. Na barra de pesquisa, pesquise **{% data variables.product.prodname_copilot %}** e clique em **Instalar**. ![Captura de tela da pesquisa do Marketplace](/assets/images/help/copilot/jetbrains-marketplace.png)
+1. In your JetBrains IDE, under the **File** menu for Windows or under the name of your IDE for Mac (for example, **PyCharm** or **IntelliJ**), click **Settings** for Windows or **Preferences** for Mac.
+2. In the left-side menu of the **Settings/Preferences** dialog box, click **Plugins**.
+3. At the top of the **Settings/Preferences** dialog box, click **Marketplace**. In the search bar, search for **{% data variables.product.prodname_copilot %}**, then click **Install**. ![Captura de tela da pesquisa do Marketplace](/assets/images/help/copilot/jetbrains-marketplace.png)
 1. Depois que {% data variables.product.prodname_copilot %} for instalado, clique em **Reiniciar o IDE**.
 1. Depois que seu JetBrains IDE tiver sido reiniciado, clique no menu **Ferramentas**. Clique em **{% data variables.product.prodname_copilot %}** e, em seguida, clique em **Efetuar login para {% data variables.product.prodname_dotcom %}**. ![Captura de tela do menu de ferramentas do JetBrains](/assets/images/help/copilot/jetbrains-tools-menu.png)
 1. Na caixa de diálogo "Efetuar o login em {% data variables.product.prodname_dotcom %}", para copiar o código do dispositivo e abrir a janela de ativação do dispositivo, clique em **Copiar e abrir**. ![Captura de tela da cópia do código do dispositivo e aberta](/assets/images/help/copilot/device-code-copy-and-open.png)
@@ -45,7 +46,7 @@ Para usar {% data variables.product.prodname_copilot %} em um JetBrains IDE, voc
    {% data variables.product.prodname_copilot %} sugerirá automaticamente o texto de uma classe em texto cinza, conforme exibido abaixo. A sugestão exata pode variar.
    ![Captura de tela da sugestão do texto da classe do Java](/assets/images/help/copilot/java-class-body-suggestion-jetbrains.png)
 {% data reusables.copilot.accept-suggestion %}
-1. To prompt {% data variables.product.prodname_copilot %} to suggest a function body, type the following line below the bracket of the `main` function. A sugestão exata pode variar.
+1. Para solicitar que {% data variables.product.prodname_copilot %} para sugira o texto de uma função, digite a seguinte linha abaixo da linha da função `principal`. A sugestão exata pode variar.
 {% indented_data_reference reusables.copilot.java-int-snippet spaces=3 %}
 
    ![Captura de tela da sugestão do texto da função do Java](/assets/images/help/copilot/java-function-body-suggestion-jetbrains.png)
@@ -69,24 +70,24 @@ Para usar {% data variables.product.prodname_copilot %} em um JetBrains IDE, voc
    | Linux   | <kbd>Alt</kbd>+<kbd>]</kbd>    | <kbd>Alt</kbd>+<kbd>[</kbd>    |
 {% data reusables.copilot.accept-or-reject-suggestion %}
 
-## Seeing multiple suggestions in a new tab
+## Visualizando várias sugestões em uma nova aba
 
 {% data reusables.copilot.suggestions-new-tab %}
 
 {% data reusables.copilot.create-java-file %}
 1. Para solicitar que {% data variables.product.prodname_copilot %} moestre uma sugestão, digite a seguinte linha no arquivo Java.
 {% indented_data_reference reusables.copilot.java-int-snippet spaces=3 %}
-1. Open a new tab with multiple additional suggestions.
-    - On macOS, press <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>A</kbd>, then click **Open GitHub Copilot**, or press <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>\</kbd> to open the new tab immediately.
+1. Abra uma nova aba com várias sugestões adicionais.
+    - No macOS, pressione <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>A</kbd> e, em seguida, clique em **Abrir o GitHub Copilot**, ou pressione <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>\</kbd> para abrir a nova aba imediatamente.
     - No Windows ou Linux, pressione <kbd>Ctrl</kbd>+<kbd>Enter</kbd>, em seguida, clique em **Abrir o GitHub Copilot**. ![Captura de tela do diálogo para abrir o Copilot](/assets/images/help/copilot/open-copilot-tab-jetbrains.png)
-1. To accept a suggestion, above the suggestion, click **Accept Solution**. To reject all suggestions, close the tab.
+1. Para aceitar uma sugestão, acima da sugestão, clique em **Aceitar a solução**. Para rejeitar todas as sugestões, feche a aba.
 
-## Generating code suggestions from comments
+## Gerando sugestões de código a partir dos comentários
 
 {% data reusables.copilot.generating-suggestions-from-comments %}
 
 {% data reusables.copilot.create-java-file %}
-1. To prompt {% data variables.product.prodname_copilot %} to suggest an implementation of a function in the Java file, type the following lines.
+1. Para solicitar que {% data variables.product.prodname_copilot %} sugira uma implementação de uma função no arquivo Java, digite as seguintes linhas.
     ```java{:copy}
     // find all images without alternate text
     // and give them a red border
@@ -94,18 +95,18 @@ Para usar {% data variables.product.prodname_copilot %} em um JetBrains IDE, voc
     ```
   ![Captura de tela da sugestão do texto da função do Java](/assets/images/help/copilot/comment-suggestion-jetbrains.png)
 
-## Enabling and disabling {% data variables.product.prodname_copilot %}
+## Habilitando e desabilitando {% data variables.product.prodname_copilot %}
 
-You can enable or disable {% data variables.product.prodname_copilot %} for all languages, or for individual languages. The {% data variables.product.prodname_copilot %} status icon in the bottom panel of your JetBrains IDE window indicates whether {% data variables.product.prodname_copilot %} is enabled or disabled. When enabled, the icon is highlighted. When disabled, the icon is grayed out.
+Você pode habilitar ou desabilitar {% data variables.product.prodname_copilot %} para todss as linguagens ou para linguagens individuais. O ícone de status {% data variables.product.prodname_copilot %} na parte inferior do painel da sua janela do JetBrains IDE indica se o {% data variables.product.prodname_copilot %} está habilitado ou desabilitado. Quando habilitado, o ícone é destacado. Quando desabilitado, o ícone fica inativo.
 
-1. To enable or disable {% data variables.product.prodname_copilot %}, click the status icon in the bottom panel of the JetBrains window. ![Screenshot of the status icon in IntelliJ IDEA](/assets/images/help/copilot/status-icon-jetbrains.png)
-2. If you are disabling {% data variables.product.prodname_copilot %}, you will be asked whether you want to disable it globally, or for the language of the file you are currently editing.
+1. Para habilitar ou desabilitar {% data variables.product.prodname_copilot %}, clique no ícone de status no painel inferior da janela do JetBrains. ![Captura de tela do ícone de status no IntelliJ IDEA](/assets/images/help/copilot/status-icon-jetbrains.png)
+2. Se você estiver desabilitando {% data variables.product.prodname_copilot %}, será perguntado se deseja desativá-lo globalmente ou para a linguagem do arquivo que você está editando atualmente.
 
-   - To disable suggestions from {% data variables.product.prodname_copilot %} globally, click **Disable Completions**.
-   - To disable suggestions from {% data variables.product.prodname_copilot %} for the specified language, click **Disable Completions for _LANGUAGE_**. ![Screenshot of option to disable {% data variables.product.prodname_copilot %} globally or for the current language](/assets/images/help/copilot/disable-copilot-global-or-langugage-jetbrains.png)
+   - Para desabilitar as sugestões de {% data variables.product.prodname_copilot %} globalmente, clique em **Desabilitar preenchimentos**.
+   - Para desabilitar as sugestões de {% data variables.product.prodname_copilot %} para a linguagem especificada, clique em **Desabilitar os preenchimentos para _LINGUAGEM_**. ![Captura de tela da opção de desabilitar {% data variables.product.prodname_copilot %} globalmente ou para a linguagem atual](/assets/images/help/copilot/disable-copilot-global-or-langugage-jetbrains.png)
 
 
 ## Leia mais
 
 - [Site do {% data variables.product.prodname_copilot %}](https://copilot.github.com/)
-- [{% data variables.product.prodname_copilot %} Licensing Information for JetBrains Plugin](/copilot/overview-of-github-copilot/about-github-copilot#github-copilot-licensing-information-for-jetbrains-plugin)
+- [Sobre {% data variables.product.prodname_copilot %}](/copilot/overview-of-github-copilot/about-github-copilot#about-the-license-for-the-github-copilot-plugin-in-jetbrains-ides)

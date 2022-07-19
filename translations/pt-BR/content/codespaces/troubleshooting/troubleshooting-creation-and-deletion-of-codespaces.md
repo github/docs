@@ -14,7 +14,7 @@ shortTitle: Criação e exclusão
 ## Criando codespaces
 
 ### Sem acesso para criar um codespace
-{% data variables.product.prodname_codespaces %} não estão disponíveis para todos os repositórios. Se o botão "Abrir com codespaces" estiver faltando, o {% data variables.product.prodname_codespaces %} pode não estar disponível para o repositório. Para obter mais informações, consulte "[Criar um codespace](/codespaces/developing-in-codespaces/creating-a-codespace#access-to-codespaces)".
+{% data variables.product.prodname_codespaces %} não estão disponíveis para todos os repositórios. Se o botão "Abrir com codespaces" estiver faltando, o {% data variables.product.prodname_github_codespaces %} pode não estar disponível para o repositório. Para obter mais informações, consulte "[Criar um codespace](/codespaces/developing-in-codespaces/creating-a-codespace#access-to-codespaces)".
 
 Se você acredita que sua organização [habilitou {% data variables.product.prodname_codespaces %}](/codespaces/managing-codespaces-for-your-organization/enabling-codespaces-for-your-organization#about-enabling-codespaces-for-your-organization), certifique-se de que um proprietário ou gerente de cobrança da organização definiu o limite de gastos para {% data variables.product.prodname_codespaces %}. Para obter mais informações, consulte "[Gerenciar seu limite de gastos para {% data variables.product.prodname_codespaces %}](/billing/managing-billing-for-github-codespaces/managing-spending-limits-for-codespaces)".
 
@@ -23,7 +23,7 @@ Se você acredita que sua organização [habilitou {% data variables.product.pro
 Se você criar um codespace e ele não abrir:
 
 1. Tente atualizar a página no caso de haver um problema de cache ou comunicação.
-2. Acesse a sua página de {% data variables.product.prodname_codespaces %}: https://github.com/codespaces e verifique se o novo codespace está listado lá. O processo pode ter criado com sucesso o codespace, mas não foi possível reportar ao seu navegador. Se o novo codespace estiver listado, você poderá abri-lo diretamente a partir daquela página.
+2. Acesse a sua página de {% data variables.product.prodname_github_codespaces %}: https://github.com/codespaces e verifique se o novo codespace está listado lá. O processo pode ter criado com sucesso o codespace, mas não foi possível reportar ao seu navegador. Se o novo codespace estiver listado, você poderá abri-lo diretamente a partir daquela página.
 3. Tente criar o código novamente para que o repositório exclua uma falha de comunicação temporária.
 
 Se você ainda não puder criar um codespace para um repositório em que {% data variables.product.prodname_codespaces %} estão disponíveis, {% data reusables.codespaces.contact-support %}

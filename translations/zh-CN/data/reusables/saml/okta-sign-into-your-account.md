@@ -1,1 +1,1 @@
-1. Sign into your [Okta account](https://login.okta.com/).
+1. 登录您的 [Octa 帐户](https://login.okta.com/)。

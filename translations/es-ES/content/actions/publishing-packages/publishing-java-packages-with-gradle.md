@@ -96,7 +96,7 @@ jobs:
       - name: Validate Gradle wrapper
         uses: gradle/wrapper-validation-action@e6e38bacfdf1a337459f332974bb2327a31aaf4b
       - name: Publish package
-        uses: gradle/gradle-build-action@0d13054264b0bb894ded474f08ebb30921341cee
+        uses: gradle/gradle-build-action@67421db6bd0bf253fb4bd25b31ebb98943c375e1
         with:
           arguments: publish
         env:
@@ -154,10 +154,10 @@ on:
     types: [created]
 jobs:
   publish:
-    runs-on: ubuntu-latest {% ifversion fpt or ghes > 3.1 or ghae or ghec %}
+    runs-on: ubuntu-latest 
     permissions: 
       contents: read
-      packages: write {% endif %}
+      packages: write 
     steps:
       - uses: {% data reusables.actions.action-checkout %}
       - uses: {% data reusables.actions.action-setup-java %}
@@ -167,7 +167,7 @@ jobs:
       - name: Validate Gradle wrapper
         uses: gradle/wrapper-validation-action@e6e38bacfdf1a337459f332974bb2327a31aaf4b
       - name: Publish package
-        uses: gradle/gradle-build-action@0d13054264b0bb894ded474f08ebb30921341cee
+        uses: gradle/gradle-build-action@67421db6bd0bf253fb4bd25b31ebb98943c375e1
         with:
           arguments: publish
         env:
@@ -175,7 +175,7 @@ jobs:
 ```
 
 {% data reusables.actions.gradle-workflow-steps %}
-1. Ejecuta la acción [`gradle/gradle-build-action`](https://github.com/gradle/gradle-build-action) con el argumento `publish` para publicar al {% data variables.product.prodname_registry %}. La variable de entorno `GITHUB_TOKEN` se establecerá con el contenido del `GITHUB_TOKEN` secreto. {% ifversion fpt or ghes > 3.1 or ghae or ghec %}La clave de `permissions` especifica el acceso que permitirá el secreto del `GITHUB_TOKEN`.{% endif %}
+1. Ejecuta la acción [`gradle/gradle-build-action`](https://github.com/gradle/gradle-build-action) con el argumento `publish` para publicar al {% data variables.product.prodname_registry %}. La variable de entorno `GITHUB_TOKEN` se establecerá con el contenido del `GITHUB_TOKEN` secreto. The `permissions` key specifies the access that the `GITHUB_TOKEN` secret will allow.
 
    Para obtener más información acerca del uso de secretos en tu flujo de trabajo, consulta "[Crear y usar secretos cifrados](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)".
 
@@ -232,10 +232,10 @@ on:
     types: [created]
 jobs:
   publish:
-    runs-on: ubuntu-latest {% ifversion fpt or ghes > 3.1 or ghae or ghec %}
+    runs-on: ubuntu-latest 
     permissions: 
       contents: read
-      packages: write {% endif %}
+      packages: write 
     steps:
       - uses: {% data reusables.actions.action-checkout %}
       - name: Set up Java
@@ -246,7 +246,7 @@ jobs:
       - name: Validate Gradle wrapper
         uses: gradle/wrapper-validation-action@e6e38bacfdf1a337459f332974bb2327a31aaf4b
       - name: Publish package
-        uses: gradle/gradle-build-action@0d13054264b0bb894ded474f08ebb30921341cee
+        uses: gradle/gradle-build-action@67421db6bd0bf253fb4bd25b31ebb98943c375e1
         with:
           arguments: publish
         env: {% raw %}
@@ -256,6 +256,6 @@ jobs:
 ```
 
 {% data reusables.actions.gradle-workflow-steps %}
-1. Ejecuta la acción [`gradle/gradle-build-action`](https://github.com/gradle/gradle-build-action) con el argumento `publish` para publicar en el repositorio `OSSRH` de Maven y en el {% data variables.product.prodname_registry %}. La variable de entorno `MAVEN_USERNAME` se establecerá con los contenidos de tu `OSSRH_USERNAME` secreto, y la variable de entorno `MAVEN_PASSWORD` se establecerá con los contenidos de tu `OSSRH_TOKEN` secreto. La variable de entorno `GITHUB_TOKEN` se establecerá con el contenido del `GITHUB_TOKEN` secreto. {% ifversion fpt or ghes > 3.1 or ghae or ghec %}La clave de `permissions` especifica el acceso que permitirá el secreto del `GITHUB_TOKEN`.{% endif %}
+1. Ejecuta la acción [`gradle/gradle-build-action`](https://github.com/gradle/gradle-build-action) con el argumento `publish` para publicar en el repositorio `OSSRH` de Maven y en el {% data variables.product.prodname_registry %}. La variable de entorno `MAVEN_USERNAME` se establecerá con los contenidos de tu `OSSRH_USERNAME` secreto, y la variable de entorno `MAVEN_PASSWORD` se establecerá con los contenidos de tu `OSSRH_TOKEN` secreto. La variable de entorno `GITHUB_TOKEN` se establecerá con el contenido del `GITHUB_TOKEN` secreto. The `permissions` key specifies the access that the `GITHUB_TOKEN` secret will allow.
 
    Para obtener más información acerca del uso de secretos en tu flujo de trabajo, consulta "[Crear y usar secretos cifrados](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)".

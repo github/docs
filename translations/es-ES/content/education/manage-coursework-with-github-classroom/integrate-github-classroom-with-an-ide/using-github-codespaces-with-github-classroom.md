@@ -8,7 +8,7 @@ versions:
 permissions: 'Organization owners who are admins for a classroom can enable {% data variables.product.prodname_github_codespaces %} for their organization and integrate {% data variables.product.prodname_github_codespaces %} as the supported editor for an assignment. {% data reusables.classroom.classroom-admins-link %}'
 ---
 
-## Acerca de {% data variables.product.prodname_codespaces %}
+## Acerca de las {% data variables.product.prodname_github_codespaces %}
 
 {% data variables.product.prodname_github_codespaces %} es un ambiente de desarrollo basado en la nube e instantáneo que utiliza un contenedor para proporcionarte lenguajes comunes, herramientas y utilidades para el desarrollo. {% data variables.product.prodname_codespaces %} is also configurable, allowing you to create a customized development environment that is the same for all users of your project. For more information, see "[{% data variables.product.prodname_github_codespaces %} overview](/codespaces/overview)."
 
@@ -17,6 +17,12 @@ Once {% data variables.product.prodname_codespaces %} is enabled in an organizat
 Setting {% data variables.product.prodname_codespaces %} as the preferred editor for an assignment in GitHub Classroom assignments, is beneficial for both students and teachers. {% data variables.product.prodname_codespaces %} is a good option for students using loaned devices or without access to a local IDE setup, since each codespace is cloud-based and requires no local setup. Students can launch a codespace for an assignment repository in Visual Studio Code directly in their browser, and begin developing right away without needing any further configuration.
 
 For assignments with complex setup environments, teachers can customize the dev container configuration for a repository's codespaces. This ensures that when a student creates a codespace, it automatically opens with the development environment configured by the teacher. Para obtener más información sobre los contenedores dev, consulta la sección "[introducción a los contenedores dev](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers)".
+
+{% note %}
+
+**Note**: Individual codespaces are automatically deleted if they are stopped and left unused for a prolonged period. For more information, see "[Configuring automatic deletion of your codespaces](/codespaces/customizing-your-codespace/configuring-automatic-deletion-of-your-codespaces)."
+
+{% endnote %}
 
 ## About the {% data variables.product.prodname_codespaces %} Education benefit for verified teachers
 
@@ -30,7 +36,7 @@ After you have confirmation that you are a verified teacher, visit [{% data vari
 
 If you are eligible for the {% data variables.product.prodname_codespaces %} Education benefit, when you enable {% data variables.product.prodname_codespaces %} in {% data variables.product.prodname_classroom %} for your organization, GitHub automatically adds a Codespace policy to restrict machine types for all codespaces in the organization to 2 core machines. This helps you make the most of the free {% data variables.product.prodname_codespaces %} usage. However, you can change or remove these policies in your organization settings. Para obtener más información, consulta la sección "[Restringir el acceso a los tipos de máquina](/codespaces/managing-codespaces-for-your-organization/restricting-access-to-machine-types)".
 
-When the {% data variables.product.prodname_codespaces %} Education benefit moves out of beta, if your organization exceeds their free allowance for {% data variables.product.prodname_codespaces %} usage, your organization will be billed for additional usage. Para obtener más información, consulta la sección "[Acerca de la facturación para el {% data variables.product.prodname_codespaces %}](/billing/managing-billing-for-github-codespaces/about-billing-for-codespaces#about-billing-for-codespaces)".
+When the {% data variables.product.prodname_codespaces %} Education benefit moves out of beta, if your organization exceeds their free allowance for {% data variables.product.prodname_codespaces %} usage, your organization will be billed for additional usage. Para obtener más información, consulta la sección "[Acerca de la facturación para el {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#about-billing-for-codespaces)".
 
 ## Habilitar los {% data variables.product.prodname_codespaces %} para tu organización
 

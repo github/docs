@@ -19,7 +19,7 @@ shortTitle: Encaminhar portas
 
 O redirecionamento de porta dá acesso a portas TCP que estão em execução no seu codespace. Por exemplo, se você estiver executando um aplicativo web em uma determinada porta no seu codespace, você pode encaminhar essa porta. Isso permite que você acesse o aplicativo do navegador na sua máquina local para testes e depuração.
 
-Quando uma aplicação em execução dentro de um codespace imprime a saída para o terminal que contém uma URL do host local como `http://localhost:PORT` ou `http://127.0.0.1:PORT`, a porta é encaminhada automaticamente. Se você estiver usando {% data variables.product.prodname_codespaces %} no navegador ou em {% data variables.product.prodname_vscode %}, a string do URL no terminal é convertida em um link que você pode clicar para ver a página na sua máquina local. Por padrão, {% data variables.product.prodname_codespaces %} encaminha portas usando HTTP.
+Quando uma aplicação em execução dentro de um codespace imprime a saída para o terminal que contém uma URL do host local como `http://localhost:PORT` ou `http://127.0.0.1:PORT`, a porta é encaminhada automaticamente. Se você estiver usando {% data variables.product.prodname_github_codespaces %} no navegador ou em {% data variables.product.prodname_vscode %}, a string do URL no terminal é convertida em um link que você pode clicar para ver a página na sua máquina local. Por padrão, {% data variables.product.prodname_codespaces %} encaminha portas usando HTTP.
 
 ![Encaminhamento de porta automático](/assets/images/help/codespaces/automatic-port-forwarding.png)
 
@@ -150,7 +150,7 @@ Você pode etiquetar uma porta para tornar a porta mais facilmente identificáve
 
 ## Adicionar uma porta à configuração do código
 
-É possível adicionar uma porta encaminhada para a configuração {% data variables.product.prodname_codespaces %} do repositório para que a porta seja automaticamente encaminhada para todos os códigos criados a partir do repositório. Depois de atualizar a configuração, todos os codespaces criados anteriormente deverão ser reconstruídos para que a alteração seja aplicada. Para obter mais informações, consulte "[Configurar o {% data variables.product.prodname_codespaces %} para seu projeto](/codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project#applying-configuration-changes-to-a-codespace)".
+É possível adicionar uma porta encaminhada para a configuração {% data variables.product.prodname_github_codespaces %} do repositório para que a porta seja automaticamente encaminhada para todos os códigos criados a partir do repositório. Depois de atualizar a configuração, todos os codespaces criados anteriormente deverão ser reconstruídos para que a alteração seja aplicada. Para obter mais informações, consulte "[Configurar o {% data variables.product.prodname_codespaces %} para seu projeto](/codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project#applying-configuration-changes-to-a-codespace)".
 
 Você pode configurar manualmente as portas encaminhadas em um arquivo `.devcontainer.json` usando a propriedade `forwardPorts` ou você pode usar o painel "Portas" no seu codespace.
 

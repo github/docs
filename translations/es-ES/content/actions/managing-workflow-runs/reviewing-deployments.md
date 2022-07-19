@@ -14,7 +14,7 @@ versions:
 
 Los jobs que referencian un ambiente configurado con revisores requeridos esperarán por una aprobación antes de comenzar. Mientras que un job espera su revisión, tendrá un estado de "Waiting". Si un job no se aprueba dentro de 30 días, la ejecución del flujo de trabajo se cancelará automáticamente.
 
-Para obtener más información sobre los ambientes y aprobaciones requeridos, consulta la sección"[Utilizar ambientes para despliegue](/actions/deployment/using-environments-for-deployment)".{% ifversion fpt or ghae or ghes > 3.1 or ghec %} Para obtener información sobre cómo revisar los despliegues con la API de REST, consulta la sección "[Ejecuciones de flujo de trabajo](/rest/reference/actions#workflow-runs)".{% endif %}
+For more information about environments and required approvals, see "[Using environments for deployment](/actions/deployment/using-environments-for-deployment)." Para obtener más información sobre cómo revisar los despliegues con la API de REST, consulta la sección "[Ejecutores de Flujo de Trabajo](/rest/reference/actions#workflow-runs)".
 
 ## Aprobar o rechazar un job
 

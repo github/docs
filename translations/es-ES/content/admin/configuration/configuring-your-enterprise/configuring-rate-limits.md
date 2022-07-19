@@ -40,7 +40,7 @@ Setting secondary rate limits protects the overall level of service on {% data v
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
-{% ifversion ghes > 3.1 %}
+{% ifversion ghes %}
 2. Under "Rate Limiting", select **Enable Secondary Rate Limiting**.
    ![Checkbox for enabling secondary rate limiting](/assets/images/enterprise/management-console/secondary-rate-limits-checkbox.png)
 {% else %}

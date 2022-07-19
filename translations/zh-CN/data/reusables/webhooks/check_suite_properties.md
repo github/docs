@@ -4,7 +4,7 @@
 | `check_suite`                | `对象`  | [check_suite](/rest/reference/checks#suites)。                                                                                               |
 | `check_suite[head_branch]`   | `字符串` | 更改所在的头部分支的名称。                                                                                                                               |
 | `check_suite[head_sha]`      | `字符串` | 此检查套件的最新提交的 SHA。                                                                                                                            |
-| `check_suite[status]`        | `字符串` | 检查套件中所有检查运行的摘要状态。 可以是 `requested`、`in_progress` 或 `completed`。                                                                              |
+| `check_suite[status]`        | `字符串` | 检查套件中所有检查运行的摘要状态。 Can be `queued`, `requested`, `in_progress`, or `completed`.                                                              |
 | `check_suite[conclusion]`    | `字符串` | 检查套件中所有检查运行的摘要结论。 可以是 `success`、`failure`、`neutral`、`cancelled`、`timed_out`、`action_required` 或 `stale` 之一。 此值将为 `null`，直到检查运行 `completed`。 |
 | `check_suite[url]`           | `字符串` | 指向检查套件 API 资源的 URL。                                                                                                                         |
 | `check_suite[pull_requests]` | `数组`  | 匹配此检查套件的拉取请求数组。 如果拉取请求具有相同的 `head_branch`，则它们与检查套件匹配。<br/><br/>**注意：**<ul><li>如果随后推送到 PR 中，则检查套件的“head_sha”可能与拉取请求的“sha”不同。</li><li>当检查套件的“head_branch”位于复刻的存储库中时，它将为“null”，而“pull_requests”数组将为空。</li></ul>                                 |

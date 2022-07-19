@@ -3,7 +3,9 @@ import path from 'path'
 import { isPlainObject } from 'lodash-es'
 import { describe, expect, jest, test } from '@jest/globals'
 
-import enterpriseServerReleases from '../../lib/enterprise-server-releases.js'
+import enterpriseServerReleases, {
+  deprecatedWithFunctionalRedirects,
+} from '../../lib/enterprise-server-releases.js'
 import Page from '../../lib/page.js'
 import { get, head } from '../helpers/e2etest.js'
 import versionSatisfiesRange from '../../lib/version-satisfies-range.js'
@@ -564,6 +566,27 @@ describe('redirects', () => {
     })
   })
 
+  describe('admin/release-notes redirects that lack language', () => {
+    test('test redirect to an active enterprise-server version', async () => {
+      const url = `/enterprise-server@${enterpriseServerReleases.latest}/admin/release-notes`
+      const res = await get(url)
+      expect(res.statusCode).toBe(302)
+      expect(res.headers.location).toBe(`/en${url}`)
+    })
+    test('test redirect to a deprecated old enterprise-server version', async () => {
+      const url = `/enterprise-server@2.22/admin/release-notes`
+      const res = await get(url)
+      expect(res.statusCode).toBe(302)
+      expect(res.headers.location).toBe(`/en${url}`)
+    })
+    test('test redirect to a recently deprecated enterprise-server version', async () => {
+      const url = `/enterprise-server@${deprecatedWithFunctionalRedirects[0]}/admin/release-notes`
+      const res = await get(url)
+      expect(res.statusCode).toBe(302)
+      expect(res.headers.location).toBe(`/en${url}`)
+    })
+  })
+
   // These tests exists because of issue #1960
   describe('rest reference redirects with default product', () => {
     test('rest subcategory with fpt in URL', async () => {
@@ -610,6 +633,26 @@ describe('redirects', () => {
           expect(res.headers.location).toBe(`/en/rest/${category}`)
         }
       }
+    })
+  })
+
+  describe('redirects with double-slashes', () => {
+    test('prefix double-slash', async () => {
+      const res = await get(`//en`)
+      expect(res.statusCode).toBe(301)
+      expect(res.headers.location).toBe(`/en`)
+    })
+
+    test('double-slash elsewhere in the URL', async () => {
+      const res = await get(`/en//rest`)
+      expect(res.statusCode).toBe(301)
+      expect(res.headers.location).toBe(`/en/rest`)
+    })
+
+    test('double-slash trailing in the URL', async () => {
+      const res = await get(`/en//`)
+      expect(res.statusCode).toBe(301)
+      expect(res.headers.location).toBe(`/en`)
     })
   })
 })

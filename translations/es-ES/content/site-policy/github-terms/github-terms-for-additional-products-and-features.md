@@ -18,7 +18,7 @@ Fecha de entrada en vigor de la versión: 10 de agosto de 2021
 
 Cuando utilices GitHub, podría que se te otorgue acceso a muchos productos y características adicionales ("Características y Productos Adicionales"). Ya que muchas de las Características y Productos Adicionales ofrecen funcionalidades diferentes, las condiciones específicas para dicho producto o característica podrán aplicarse adicionalmente a tu contrato principal con nosotros—las Condiciones de Servicio de GitHub, las Condiciones de Servicio Corporativo de GitHub, las Condiciones Generales de GitHub o el acuerdo de licenciamiento por volumen de Microsoft (cada uno de ellos conocidos como el "Acuerdo"). A continuación, listamos aquellos productos y características jutno con las condiciones adicionales correspondientes que aplican al uso que les des.
 
-Al utilizar las características y productos adicionales, también estás de acuerdo con las Condiciones aplicables de GitHub para las características y productos adicionales que se listan a continuación. El violar estas condiciones de GitHub para obtener características y productos adicionales constituye una violación del Acuerdo. Las condiciones en mayúsculas que no se definen aquí tienen el significado que se les otorga en el Acuerdo.
+Al utilizar las características y productos adicionales, también estás de acuerdo con las Condiciones aplicables de GitHub para las características y productos adicionales que se listan a continuación. El violar estos Términos de Github para obtener productos y características adicionales constituye una violación del Acuerdo. Las condiciones en mayúsculas que no se definen aquí tienen el significado que se les otorga en el Acuerdo.
 
 **Para usuarios empresariales**
 - Los usuarios de **GitHub Enterprise Cloud** pueden tener acceso a los siguientes productos y características adicionales: Acciones, Seguridad Avanzada, Base de Datos de Asesorías, Codespaces, Vistas Previas del Dependabot, Importador de GitHub Enterprise, Laboratorio de Aprendizaje, Paquetes y Páginas.
@@ -37,23 +37,23 @@ No podrán utilizarse las acciones ni cualquier elemento del servicio de este pr
 - cualquier actividad que coloque un peso en nuestros servidores, ya sea que dicho peso sea excesivo para los beneficios que se proporcionan a los usuarios (por ejemplo, no utilizamos acciones como una red de entrega de contenido o como parte de una aplicación sin servidores, pero una acción de beneficio mínimo podría estar bien si también implica un peso mínimo); o
 - si estás utilizando los ejecutores hospedados en GitHub, cualquier otra actividad sin relación a la producción, pruebas, despliegue o publicación del proyecto de software asociado con el repositorio en donde se utilizan las GitHub Actions.
 
-Para evitar violaciones de estas limitaciones y abuso de las Acciones de GitHub, GitHub puede controlar tu uso de Acciones de GitHub. Misuse of GitHub Actions may result in termination of jobs, restrictions in your ability to use GitHub Actions, disabling of repositories created to run Actions in a way that violates these Terms, or in some cases, suspension or termination of your GitHub account.
+Para evitar violaciones de estas limitaciones y abuso de las Acciones de GitHub, GitHub puede controlar tu uso de Acciones de GitHub. El hacer un mal uso de las GitHub Actions podría ocasionar que se finalicen los jobs, se restrinja tu capacidad de utilizar las GitHub Actions, se inhabiliten los repositorios creados para ejecutar acciones de forma que violen dichos términos o, en algunos casos, la suspención o terminación de tu cuenta de GitHub.
 
-*Use for Development and Testing*
+*Uso para desarrollo y pruebas*
 
-You may only access and use GitHub Actions to develop and test your application(s). Only one licensed user may access a virtual machine provided by Actions at any time.
+Solo podrás acceder y utilizar las GitHub Actions para desarrollar y probar tus aplicaciones. Solo un usuario con licencia podrá acceder a una máquina virtual que proporcione Actions en cualquier momento.
 
-*Authorized Developer*
+*Desarrollador autorizado*
 
-You appoint GitHub as your authorized developer with respect to Apple software included in Actions. GitHub is responsible for complying with the terms for any such software included in Actions and will keep confidential any confidential information of Apple accessed as part of Actions.
+Nombrarás a GitHub como tu desarrollador autorizado con respecto al software de Apple incluido en las acciones. GitHub es responsable de cumplir con los términos de cualquier software del tipo que se incluya en las acciones y mantendrá cualquier información confidencial de apple a la que se acceda como parte de las acciones de dicho modo.
 
-*Third Party Repository Service Access*
+*Acceso al servicio de repositorios de terceros*
 
-If you grant GitHub access to your third-party repository service account(s), you authorize GitHub to scan the account(s), including the contents of your Public and Private Repositories, for purposes of providing GitHub Actions.
+Si otorgas a GitHub el acceso a tus cuentas de servicio de repositorio de terceros, también le autorizas escanear las cuentas, incluyendo los contenidos de tus repositorios privados y públicos, para que pueda proporcionar las GitHub Actions.
 
-*Self-Hosted Runners on GitHub Actions*
+*Ejecutores auto-hospedados en GitHub Actions*
 
-If you use self-hosted runners, you have the ability to turn off automatic updates but GitHub reserves the right to override your choice for critical security updates.
+Si utilizas ejecutores auto-hospedados, tienes la capacidad de apagar las actualizaciones automáticas, pero GitHub se reserva el derecho de anular tu elección de actualizaciones de seguridad críticas.
 
 ## Advanced Security
 GitHub hace características de seguridad adicionales para los clientes bajo una licencia de Seguridad Avanzada. Estas características incluyen el escaneo de código, escaneo de secretos y revisión de dependencias. La [Documentación de la seguridad avanzada](/github/getting-started-with-github/about-github-advanced-security) proporciona más detalles.
@@ -89,6 +89,19 @@ La versión generalmente disponible de los Codespaces no está disponible actual
 
 ## Conexión
 Con GitHub Connect, puedes compartir algunas características y datos entre tu instancia de GitHub Enterprise Server o de GitHub AE y tu cuenta empresarial u organizacional de GitHub Enterprise Cloud en GitHub.com. Para habilitar GitHub Connect, debes tener por lo menos una (1) cuenta en GitHub Enterprise Cloud o en GitHub.com y una (1) instancia con licencia de GitHub Enterprise Server o de GitHub AE. Ti isp de GitHub Enterprise Cloud o de GitHub.com a través de Connect se rige por los términos bajo los cuales obtengas la licencia de GitHub Enterprise Cloud o GitHub.com. El uso de los datos personales se rige de acuerdo con la [Declaración de privacidad de GitHub](/github/site-policy/github-privacy-statement).
+
+## Copiloto de GitHub
+Para utilizar el Copiloto de GitHub, necesitas instalar una extensión a un ambiente de desarrollo integrado (IDE) o editor. El código que escribes utilizando la extensión del Copiloto de GitHub en un IDE o editor ("**Tu código**") no representa "Contenido" bajo el Acuerdo sino hasta que lo cargues en GitHub.com.
+
+El código, funciones y otras saldas que te devuelva el Copiloto de GitHub se denominan "**Sugerencias**". GitHub no reclama ningún derecho en sugerencias y retendrás la propiedad y responsabilidad de tu código, incluyendo las sugerencias que incluyas en este.
+
+_Uso aceptable_
+
+Tu código está sujeto a las [Políticas de uso aceptable](/site-policy/acceptable-use-policies/github-acceptable-use-policies) de GitHub. Por ejemplo, no puedes suministrar al Copiloto de GitHub con contenido ilegal o prohibido de otra manera en las Políticas de Uso Aceptable de GitHub en GitHub.com.
+
+_Datos_
+
+El Copiloto de GitHub (i) podría, dependiendo de tus ajustes de telemetría preferidos, recopilar fragmentos de tu código y (ii) recopilar información de uso adicional mediante el IDE o editor que se liga a tu cuenta. Esto podría incluir datos personales, tal como se referencia en la [Declaración de Privacidad de GitHub](/site-policy/privacy-policies/github-privacy-statement). Puedes aprender más sobre la recopilación y uso de datos del Copiloto de GitHub en las [Preguntas frecuentes del Copiloto de GitHub](https://github.com/features/copilot#faq-privacy).
 
 ## Importador de GitHub Enterprise
 El importador es un marco de trabajo para exportar datos desde otras fuentes para que se importen a la plataforma de GitHub. El importador se proporciona "TAL COMO ES".
@@ -128,9 +141,9 @@ Las GitHub Pages no pueden utilizarse si violan el acuerdo, las [Políticas de U
 
 Su tuebes dudas sobre si tu uso o intención de uso cae en las siguientes categorías, por favor, contacta al [Soporte de GitHub](https://support.github.com/contact?tags=docs-policy). GitHub se reserva el derecho en todo momento de reclamar cualquier subdominio de GitHub sin responsabilidad.
 
-## Previews
+## Vistas previas
 
-Previews means software, online services and additional products and features provided for preview, evaluation, demonstration or trial purposes, or pre-release versions of those, such as alpha, beta, or early access. If your Agreement does not include terms and conditions that address Previews, then the following terms apply. GitHub grants a limited right to use a non-production instance of the Preview. Previews are provided “AS-IS”, “WITH ALL FAULTS” and “AS AVAILABLE”. GitHub may change or discontinue Previews at any time without notice. Any information we give you about a private Preview will be considered GitHub’s confidential information. If you choose to provide comments or suggestions about a Preview, we may use that feedback for any purpose without obligation of any kind. GitHub’s maximum liability is limited to direct damages up to US $5,000. GitHub has no obligation to defend, indemnify, or hold you harmless for claims brought by third parties arising from your use of Previews.
+Las vistas previas se refieren al software, servicios en línea y productos y características adicionales que se proporcionan para las vistas previas, evaluación, demostración o propósitos de periodos de prueba o versiones de lanzamientos previos de estas, tales como alfa, beta o acceso temprano. Si tu acuerdo no incluye términos y condiciones que traten las vistas previas, entonces los siguientes términos aplicarán. GitHub otorga un derecho limitado de utilizar una instancia no productiva de la vista previa. Las vistas previas se proporcionan "TAL CUAL", "CON TODAS SUS FALLAS" y "DE ACUERDO A SU DISPONIBILIDAD". GitHub podría cambiar o descontinuar las vistas previas en cualquier momento y sin aviso previo. Cualquier información que te proporcionemos sobre una vista previa privada se considerará como información confidencial de GitHub. Si eliges proporcionar comentarios o sugerencias sobre una vista previa, podríamos utilizarlos para cualquier propósito y sin obligación de ningún tipo. La responsabilidad máxima de GitHub se limita a daños directos de hasta $5000 USD. GitHub no tiene obligación de defender, indemnizar o librarte de los daños de los reclamos que realicen los terceros y que se deriven de tu uso de las vistas previas.
 
 ## Programa de patrocinadores
 

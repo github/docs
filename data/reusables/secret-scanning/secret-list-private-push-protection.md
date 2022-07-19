@@ -78,3 +78,5 @@ Stripe | Stripe Live API Secret Key | stripe_api_key
 Tencent Cloud | Tencent Cloud Secret ID | tencent_cloud_secret_id
 Typeform | Typeform Personal Access Token | typeform_personal_access_token
 WorkOS | WorkOS Production API Key | workos_production_api_key
+{%- ifversion fpt or ghec or ghes > 3.6 or ghae-issue-7456 %}
+Zuplo | Zuplo Consumer API Key | zuplo_consumer_api_key{% endif %}

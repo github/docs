@@ -17,7 +17,7 @@ topics:
 
 Si configuras un nombre del host en lugar de una dirección IP codificada de forma rígida, podrás cambiar el hardware físico que ejecuta {% data variables.product.product_location %} sin afectar a los usuarios o al software del cliente.
 
-La configuración del nombre de host en la {% data variables.enterprise.management_console %} debe ajustarse a un nombre de dominio adecuado y que cumpla con todos los requisitos (FQDN) el cual se pueda resolver en la internet o dentro de tu red interna. Por ejemplo, tu ajuste de nombre de host podría ser `github.companyname.com.` Las solicitudes web y de la API se redireccionarán automáticamente al nombre de host que se configuró en la {% data variables.enterprise.management_console %}.
+La configuración del nombre de host en la {% data variables.enterprise.management_console %} debe ajustarse a un nombre de dominio adecuado y que cumpla con todos los requisitos (FQDN) el cual se pueda resolver en la internet o dentro de tu red interna. Por ejemplo, tu ajuste de nombre de host podría ser `github.companyname.com.` Las solicitudes web y de la API se redireccionarán automáticamente al nombre de host que se configuró en la {% data variables.enterprise.management_console %}. Toma en cuenta que `localhost` no es un ajuste válido de nombre de host.
 
 Después de que configuras un nombre de host, puedes habilitar el aislamiento de subdominios para incrementar la seguridad de {% data variables.product.product_location %} aún más. Para obtener más información, consulta "[Habilitar el aislamiento de subdominio](/enterprise/admin/guides/installation/enabling-subdomain-isolation/)."
 

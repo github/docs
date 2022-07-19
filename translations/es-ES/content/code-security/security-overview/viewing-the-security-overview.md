@@ -5,7 +5,7 @@ permissions: '{% data reusables.security-center.permissions %}'
 product: '{% data reusables.gated-features.security-center %}'
 versions:
   ghae: issue-5503
-  ghes: '>3.1'
+  ghes: '*'
   ghec: '*'
 type: how_to
 topics:

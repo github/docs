@@ -32,7 +32,7 @@ Puedes ampliar las capacidades de CI y CD de tu repositorio publicando o instala
 
 ### Autenticarse en los registros de paquetes en {% data variables.product.prodname_dotcom %}
 
-{% ifversion fpt or ghec %}Si quieres que tu flujo de trabajo se autentique en el {% data variables.product.prodname_registry %} para acceder a un registro de paquete diferente al de {% data variables.product.prodname_container_registry %} en {% data variables.product.product_location %}, entonces{% else %} Para autenticarte en los registros de paquetes en {% data variables.product.product_name %},{% endif %} te recomendamos utilizar el `GITHUB_TOKEN` que crea {% data variables.product.product_name %} automáticamente para tu repositorio cuando habilitas las {% data variables.product.prodname_actions %} en vez de un token de acceso personal para autenticación. {% ifversion fpt or ghes > 3.1 or ghae or ghec %}Debes configurar los permisos para este token de acceso en el archivo del flujo de trabajo para otorgar acceso de lectura para el alcance `contents` y acceso de escritura para el de `packages`. {% else %}Tiene permisos de lectura y escritura para los paquetes del repositorio en donde se ejecuta el flujo de trabajo. {% endif %}Para las bifurcaciones, se otorga acceso de lectura al `GITHUB_TOKEN` en el repositorio padre. Para obtener más información, consulta "[Autenticar con el GITHUB_TOKEN](/actions/configuring-and-managing-workflows/authenticating-with-the-github_token)".
+{% ifversion fpt or ghec %}Si quieres que tu flujo de trabajo se autentique en el {% data variables.product.prodname_registry %} para acceder a un registro de paquete diferente al de {% data variables.product.prodname_container_registry %} en {% data variables.product.product_location %}, entonces{% else %} Para autenticarte en los registros de paquetes en {% data variables.product.product_name %},{% endif %} te recomendamos utilizar el `GITHUB_TOKEN` que crea {% data variables.product.product_name %} automáticamente para tu repositorio cuando habilitas las {% data variables.product.prodname_actions %} en vez de un token de acceso personal para autenticación. You should set the permissions for this access token in the workflow file to grant read access for the `contents` scope and write access for the `packages` scope. For forks, the `GITHUB_TOKEN` is granted read access for the parent repository. Para obtener más información, consulta "[Autenticar con el GITHUB_TOKEN](/actions/configuring-and-managing-workflows/authenticating-with-the-github_token)".
 
 Puedes hacer referencia al `GITHUB_TOKEN` en tu archivo de flujo de trabajo mediante el contexto {% raw %}`{{secrets.GITHUB_TOKEN}}`{% endraw %}. Para más información, consulta "[Autenticando con el GITHUB_TOKEN](/actions/automating-your-workflow-with-github-actions/authenticating-with-the-github_token)."
 
@@ -138,7 +138,7 @@ jobs:
 
   build-and-push-image:
     runs-on: ubuntu-latest
-    needs: run-npm-test {% ifversion ghes > 3.1 or ghae %}
+    needs: run-npm-test {% ifversion ghes or ghae %}
     permissions: 
       contents: read
       packages: write {% endif %}
@@ -288,7 +288,6 @@ build-and-push-image:
 
 {% endif %}
 
-{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
 <tr>
 <td>
 {% raw %}
@@ -303,7 +302,6 @@ permissions:
   Configura los permisos que se otorgan al <code>GITHUB_TOKEN</code> para las acciones en este job.
 </td>
 </tr> 
-{% endif %}
 
 {% ifversion fpt or ghec %}
 <tr>
@@ -474,7 +472,6 @@ Este flujo de trabajo nuevo se ejecutará automáticamente cada que subas un cam
 
 Unos minutos después de que se complete el flujo de trabajo, el paquete nuevo podrá visualizarse en tu repositorio. Para encontrar tus paquetes disponibles, consulta la sección "[Visualizar los paquetes de un repositorio](/packages/publishing-and-managing-packages/viewing-packages#viewing-a-repositorys-packages)".
 
-
 ## Instalar un paquete mediante una acción
 
 Puedes instalar paquetes como parte de tu flujo de CI mediante {% data variables.product.prodname_actions %}. Por ejemplo, podrías configurar un flujo de trabajo para que cada vez que un programador suba código a una solicitud de extracción, el flujo de trabajo resuelva las dependencias al descargar e instalar paquetes alojados por el {% data variables.product.prodname_registry %}. Luego, el flujo de trabajo puede ejecutar pruebas de CI que requieran las dependencias.
@@ -529,10 +526,10 @@ jobs:
   # Push image to GitHub Packages.
   # See also https://docs.docker.com/docker-hub/builds/
   push:
-    runs-on: ubuntu-latest{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
+    runs-on: ubuntu-latest
     permissions:
       packages: write
-      contents: read{% endif %}
+      contents: read
 
     steps:
       - uses: {% data reusables.actions.action-checkout %}

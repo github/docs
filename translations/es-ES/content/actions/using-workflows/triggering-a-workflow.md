@@ -184,7 +184,7 @@ Para obtener más información sobre los contextos, consulta la sección "[Conte
 
 ## Controlar aún más la forma en la que se ejecutará tu flujo de trabajo
 
-Si quieres un control más granular que el que proporcionan los eventos, tipos de actividad de eventos o filtros de evento, puedes utilizar condicionales{% ifversion fpt or ghae or ghes > 3.1 or ghec %} y ambientes{% endif %} para controlar si se ejecutarán los jobs o pasos individuales en tu flujo de trabajo.
+If you want more granular control than events, event activity types, or event filters provide, you can use conditionals and environments to control whether individual jobs or steps in your workflow will run.
 
 ### Utilziar condicionales
 
@@ -237,8 +237,6 @@ jobs:
 
 Para obtener más información sobre qué tipo de información está disponible ene l contexto del evento, consulta la sección "[Utilizar la información de los eventos](#using-event-information)". Para obtener más información sobre cómo utilizar las condicionales, consulta la sección "[Expresiones](/actions/learn-github-actions/expressions)".
 
-{% ifversion fpt or ghae or ghes > 3.1 or ghec %}
-
 ### Utilizar ambientes para activar jobs de flujos de trabajo manualmente
 
 Si quieres activar manualmente un job específico en un flujo de trabajo, puedes utilizar un ambiente que requiera aprobación de un equipo o usuario específico. Primero, configura un ambiente con revisores requeridos. Para obtener más información, consulta la sección "[Utilizar ambientes para despliegue](/actions/deployment/targeting-different-environments/using-environments-for-deployment)". Luego, referencia el nombre del ambiente en un job de tu flujo de trabajo utilizando la clave `environment:`. No se ejecutará ningún job que referencie el ambiente hasta que por lo menos un revisor lo apruebe.
@@ -272,7 +270,6 @@ jobs:
 {% data reusables.gated-features.environments %}
 
 {% endnote %}
-{% endif %}
 
 ## Eventos disponibles
 

@@ -115,7 +115,7 @@ Si se habilita una política para una empresa, esta puede inhabilitarse selectiv
 {% data reusables.enterprise-accounts.actions-tab %}
 {% data reusables.actions.private-repository-forks-configure %}
 
-{% ifversion ghec or ghes > 3.1 or ghae %}
+{% ifversion ghec or ghes or ghae %}
 
 ## Requerir una política para los permisos de flujo de trabajo en tu empresa
 

@@ -1,6 +1,6 @@
 ---
 title: Ejecutores autoalojados
-intro: 'The Self-hosted runners API allows you to register, view, and delete self-hosted runners.'
+intro: 'La API de ejecutores auto-hospedados te permite registrar, ver y borrar a los ejecutores auto-hospedados.'
 topics:
   - API
 versions:

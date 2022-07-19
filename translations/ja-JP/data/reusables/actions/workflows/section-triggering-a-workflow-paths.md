@@ -1,15 +1,15 @@
 
-When using the `push` and `pull_request` events, you can configure a workflow to run based on what file paths are changed. Path filters are not evaluated for pushes of tags.
+`push`および`pull_request`イベントを使用する場合、変更されたファイルパスに基づいてワークフローを実行するよう設定できます。 パスフィルタは、タグのプッシュに対しては評価されません。
 
-Use the `paths` filter when you want to include file path patterns or when you want to both include and exclude file path patterns. Use the `paths-ignore` filter when you only want to exclude file path patterns. You cannot use both the `paths` and `paths-ignore` filters for the same event in a workflow.
+`paths`フィルタは、ファイルパスのパターンを含めたい場合や、ファイルパスのパターンを含めるとともに除外もしたい場合に使ってください。 ファイルパスパターンの除外のみをしたい場合には、`paths-ignore`を使ってください。 `paths`及び`paths-ignore`フィルタを1つのワークフロー中の同じイベントでどちらも使用することはできません。
 
-If you define both `branches`/`branches-ignore` and `paths`, the workflow will only run when both filters are satisfied.
+`branches`/`branches-ignore`と`paths`の両方を定義した場合、ワークフローはどちらのフィルタも満たされた場合にのみ実行されます。
 
-The `paths` and `paths-ignore` keywords accept glob patterns that use the `*` and `**` wildcard characters to match more than one path name. 詳しい情報については、「[フィルタパターンのチートシート](/actions/using-workflows/workflow-syntax-for-github-actions#filter-pattern-cheat-sheet)」を参照してください。
+`paths` および `paths-ignore` キーワードは、`*` と `**` のワイルドカード文字を使って複数のパス名と一致させる glob パターンを受け付けます。 詳しい情報については、「[フィルタパターンのチートシート](/actions/using-workflows/workflow-syntax-for-github-actions#filter-pattern-cheat-sheet)」を参照してください。
 
-#### Example: Including paths
+#### 例: パスを含める
 
-`paths`フィルタのパターンにマッチするパスが1つでもあれば、ワークフローは実行されます。 For example, the following workflow would run anytime you push a JavaScript file (`.js`).
+`paths`フィルタのパターンにマッチするパスが1つでもあれば、ワークフローは実行されます。 たとえば、以下のワークフローはJavaScriptファイル(`.js`)をプッシュするたびに実行されます。
 
 ```yaml
 on:
@@ -20,13 +20,13 @@ on:
 
 {% note %}
 
-**Note:** If a workflow is skipped due to [path filtering](/actions/using-workflows/workflow-syntax-for-github-actions#onpushpull_requestpull_request_targetpathspaths-ignore), [branch filtering](/actions/using-workflows/workflow-syntax-for-github-actions#onpull_requestpull_request_targetbranchesbranches-ignore) or a [commit message](/actions/managing-workflow-runs/skipping-workflow-runs), then checks associated with that workflow will remain in a "Pending" state. A pull request that requires those checks to be successful will be blocked from merging. For more information, see "[Handling skipped but required checks](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/troubleshooting-required-status-checks#handling-skipped-but-required-checks)."
+**ノート:** [path filtering](/actions/using-workflows/workflow-syntax-for-github-actions#onpushpull_requestpull_request_targetpathspaths-ignore)、[branch filtering](/actions/using-workflows/workflow-syntax-for-github-actions#onpull_requestpull_request_targetbranchesbranches-ignore)、[commit message](/actions/managing-workflow-runs/skipping-workflow-runs)によってワークフローがスキップされた場合、そのワークフローに関連づけられたチェックは、"Pending"状態のままになります。 それらのチェックの成功を必要とするPull Requestのマージはブロックされます。 詳しい情報については「[スキップされた必須のチェックの処理](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/troubleshooting-required-status-checks#handling-skipped-but-required-checks)」を参照してください。
 
 {% endnote %}
 
-#### Example: Excluding paths
+#### 例: パスの除外
 
-すべてのパス名が `paths-ignore` のパターンと一致する場合、ワークフローは実行されません。 If any path names do not match patterns in `paths-ignore`, even if some path names match the patterns, the workflow will run.
+すべてのパス名が `paths-ignore` のパターンと一致する場合、ワークフローは実行されません。 `paths-ignore`内のパターンにマッチしないパス名があった場合、場合、パターンにマッチするパスがあったとしても、ワークフローは実行されます。
 
 以下のパスフィルタを持つワークフローは、リポジトリのルートにある `docs`ディレクトリ外のファイルを少なくとも1つ含む`push`イベントでのみ実行されます。
 
@@ -37,11 +37,11 @@ on:
       - 'docs/**'
 ```
 
-#### Example: Including and excluding paths
+#### 例: パスを含めるとともに除外
 
-You can not use `paths` and `paths-ignore` to filter the same event in a single workflow. If you want to both include and exclude path patterns for a single event, use the `paths` filter along with the `!` character to indicate which paths should be excluded.
+`paths`及び`paths-ignore`を1つのワークフロー中の同じイベントをフィルタリングするために使うことはできません。 1つのイベントに対して含めるパスパターンと除外するパスパターンをどちらも使いたい場合には、`paths`フィルタを`!`文字と合わせて使い、除外するパスを示してください。
 
-If you define a path with the `!` character, you must also define at least one path without the `!` character. If you only want to exclude paths, use `paths-ignore` instead.
+`!`文字を使ってパスを定義する場合、`!`文字なしで少なくとも1つのパスを定義する必要もあります。 パスの除外だけをしたい場合には、代わりに`paths-ignore`を使ってください。
 
 パターンを定義する順序により、結果に違いが生じます:
 
@@ -62,17 +62,17 @@ on:
 
 {% note %}
 
-**Note:** If you push more than 1,000 commits, or if {% data variables.product.prodname_dotcom %} does not generate the diff due to a timeout, the workflow will always run.
+**ノート：** 1,000以上のコミットをプッシュする場合、あるいは{% data variables.product.prodname_dotcom %}がタイムアウトのためにdiffを生成できない場合、そのワークフローは常に実行されます。
 
 {% endnote %}
 
 フィルタは、変更されたファイルを`paths-ignore`あるいは`paths`リストに対して評価することによって、ワークフローを実行すべきか判断します。 ファイルが変更されていない場合、ワークフローは実行されません。
 
-{% data variables.product.prodname_dotcom %}はプッシュに対してはツードットdiff、プルリクエストに対してはスリードットdiffを使って変更されたファイルのリストを生成します。
-- **プルリクエスト：** スリードットdiffは、トピックブランチの最新バージョンとトピックブランチがベースブランチと最後に同期されたコミットとの比較です。
+{% data variables.product.prodname_dotcom %}はプッシュに対してはツードットdiff、Pull Requestに対してはスリードットdiffを使って変更されたファイルのリストを生成します。
+- **Pull Request：** スリードットdiffは、トピックブランチの最新バージョンとトピックブランチがベースブランチと最後に同期されたコミットとの比較です。
 - **既存のブランチへのプッシュ：** ツードットdiffは、headとベースのSHAを互いに直接比較します。
 - **新しいブランチへのプッシュ：** 最も深いプッシュの先祖の親に対するツードットdiffです。
 
-Diffs are limited to 300 files. If there are files changed that aren't matched in the first 300 files returned by the filter, the workflow will not run. You may need to create more specific filters so that the workflow will run automatically.
+Diffは300ファイルに制限されています。 フィルタが返す先頭の300ファイル内にマッチしない変更されたファイルがある場合、ワークフローは実行されません。 ワークフローが自動的に実行されるよう、さらに具体的なフィルタを作成する必要があるかもしれません。
 
 詳しい情報については「[Pull Request中のブランチの比較について](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-comparing-branches-in-pull-requests)」を参照してください。

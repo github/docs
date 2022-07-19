@@ -52,13 +52,13 @@ gh api graphql -f query='
   }' -f organization=$my_org -F number=$my_num
 ```
 
-詳しい情報については「[GraphQLでの読み出しの形成]({% ifversion ghec%}/free-pro-team@latest{% endif %}/graphql/guides/forming-calls-with-graphql#working-with-variables)」を参照してください。
+詳しい情報については「[GraphQLでの呼び出しの形成](/graphql/guides/forming-calls-with-graphql#working-with-variables)」を参照してください。
 
 {% endcli %}
 
 ## プロジェクトに関する情報を見つける
 
-プロジェクトに関するデータを取得するには、クエリを使ってください。 詳しい情報については「[クエリについて]({% ifversion ghec%}/free-pro-team@latest{% endif %}/graphql/guides/forming-calls-with-graphql#about-queries)」を参照してください。
+プロジェクトに関するデータを取得するには、クエリを使ってください。 詳しい情報については「[クエリについて](/graphql/guides/forming-calls-with-graphql#about-queries)」を参照してください。
 
 ### OrganizationプロジェクトのノードIDを調べる
 
@@ -430,7 +430,7 @@ gh api graphql -f query='
 
 ## プロジェクトの更新
 
-プロジェクトを更新するには、ミューテーションを使ってください。 詳しい情報については「[ミューテーションについて]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql/guides/forming-calls-with-graphql#about-mutations)」を参照してください。
+プロジェクトを更新するには、ミューテーションを使ってください。 詳しい情報については「[ミューテーションについて](/graphql/guides/forming-calls-with-graphql#about-mutations)」を参照してください。
 
 {% note %}
 
@@ -594,7 +594,15 @@ gh api graphql -f query='
 
 {% note %}
 
-**ノート:** ` updateProjectV2ItemFieldValue `を使って`Assignees`、`Labels`、`Milestone`、`Repository`を変更することはできません。これは、これらのフィールドがプロジェクトのアイテムのプロパティではなく、Pull RequestやIssueのプロパティだからです。 代わりに、[addAssigneesToAssignable]({% ifversion ghec%}/free-pro-team@latest{% endif %}/graphql/reference/mutations#addassigneestoassignable)、[removeAssigneesFromAssignable]({% ifversion ghec%}/free-pro-team@latest{% endif %}/graphql/reference/mutations#removeassigneesfromassignable)、[addLabelsToLabelable]({% ifversion ghec%}/free-pro-team@latest{% endif %}/graphql/reference/mutations#addlabelstolabelable)、[removeLabelsFromLabelable]({% ifversion ghec%}/free-pro-team@latest{% endif %}/graphql/reference/mutations#removelabelsfromlabelable)、[updateIssue]({% ifversion ghec%}/free-pro-team@latest{% endif %}/graphql/reference/mutations#updateissue)、[updatePullRequest]({% ifversion ghec%}/free-pro-team@latest{% endif %}/graphql/reference/mutations#updatepullrequest)、[transferIssue]({% ifversion ghec%}/free-pro-team@latest{% endif %}/graphql/reference/mutations#transferissue)といったミューテーションを使ってください。
+**ノート:** ` updateProjectV2ItemFieldValue `を使って`Assignees`、`Labels`、`Milestone`、`Repository`を変更することはできません。これは、これらのフィールドがプロジェクトのアイテムのプロパティではなく、Pull RequestやIssueのプロパティだからです。 その代わりに、以下のミューテーションを利用できます。
+
+- [addAssigneesToAssignable](/graphql/reference/mutations#addassigneestoassignable)
+- [removeAssigneesFromAssignable](/graphql/reference/mutations#removeassigneesfromassignable)
+- [addLabelsToLabelable](/graphql/reference/mutations#addlabelstolabelable)
+- [removeLabelsFromLabelable](/graphql/reference/mutations#removelabelsfromlabelable)
+- [updateIssue](/graphql/reference/mutations#updateissue)
+- [updatePullRequest](/graphql/reference/mutations#updatepullrequest)
+- [transferIssue](/graphql/reference/mutations#transferissue)
 
 {% endnote %}
 

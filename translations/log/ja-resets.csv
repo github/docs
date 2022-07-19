@@ -23,7 +23,6 @@ translations/ja-JP/content/admin/code-security/managing-github-advanced-security
 translations/ja-JP/content/admin/configuration/configuring-github-connect/about-github-connect.md,broken liquid tags
 translations/ja-JP/content/admin/configuration/configuring-network-settings/network-ports.md,broken liquid tags
 translations/ja-JP/content/admin/configuration/configuring-your-enterprise/accessing-the-management-console.md,broken liquid tags
-translations/ja-JP/content/admin/configuration/configuring-your-enterprise/command-line-utilities.md,broken liquid tags
 translations/ja-JP/content/admin/configuration/configuring-your-enterprise/configuring-backups-on-your-appliance.md,broken liquid tags
 translations/ja-JP/content/admin/configuration/configuring-your-enterprise/configuring-rate-limits.md,broken liquid tags
 translations/ja-JP/content/admin/configuration/configuring-your-enterprise/initializing-github-ae.md,broken liquid tags
@@ -49,6 +48,7 @@ translations/ja-JP/content/admin/identity-and-access-management/using-saml-for-e
 translations/ja-JP/content/admin/identity-and-access-management/using-saml-for-enterprise-iam/saml-configuration-reference.md,broken liquid tags
 translations/ja-JP/content/admin/installation/setting-up-a-github-enterprise-server-instance/installing-github-enterprise-server-on-aws.md,broken liquid tags
 translations/ja-JP/content/admin/monitoring-activity-in-your-enterprise/exploring-user-activity/managing-global-webhooks.md,rendering error
+translations/ja-JP/content/admin/overview/system-overview.md,broken liquid tags
 translations/ja-JP/content/admin/packages/enabling-github-packages-with-aws.md,broken liquid tags
 translations/ja-JP/content/admin/packages/enabling-github-packages-with-azure-blob-storage.md,broken liquid tags
 translations/ja-JP/content/admin/packages/enabling-github-packages-with-minio.md,broken liquid tags
@@ -86,6 +86,7 @@ translations/ja-JP/content/billing/managing-your-license-for-github-enterprise/s
 translations/ja-JP/content/billing/managing-your-license-for-github-enterprise/troubleshooting-license-usage-for-github-enterprise.md,broken liquid tags
 translations/ja-JP/content/billing/managing-your-license-for-github-enterprise/uploading-a-new-license-to-github-enterprise-server.md,broken liquid tags
 translations/ja-JP/content/billing/managing-your-license-for-github-enterprise/viewing-license-usage-for-github-enterprise.md,broken liquid tags
+translations/ja-JP/content/code-security/adopting-github-advanced-security-at-scale/introduction-to-adopting-github-advanced-security-at-scale.md,broken liquid tags
 translations/ja-JP/content/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-alerts.md,broken liquid tags
 translations/ja-JP/content/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-with-codeql.md,broken liquid tags
 translations/ja-JP/content/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning.md,broken liquid tags
@@ -128,8 +129,8 @@ translations/ja-JP/content/code-security/supply-chain-security/understanding-you
 translations/ja-JP/content/code-security/supply-chain-security/understanding-your-software-supply-chain/about-supply-chain-security.md,broken liquid tags
 translations/ja-JP/content/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph.md,Listed in localization-support#489
 translations/ja-JP/content/code-security/supply-chain-security/understanding-your-software-supply-chain/troubleshooting-the-dependency-graph.md,broken liquid tags
-translations/ja-JP/content/codespaces/customizing-your-codespace/personalizing-codespaces-for-your-account.md,broken liquid tags
-translations/ja-JP/content/codespaces/developing-in-codespaces/using-codespaces-in-visual-studio-code.md,broken liquid tags
+translations/ja-JP/content/codespaces/customizing-your-codespace/personalizing-github-codespaces-for-your-account.md,broken liquid tags
+translations/ja-JP/content/codespaces/developing-in-codespaces/using-github-codespaces-in-visual-studio-code.md,broken liquid tags
 translations/ja-JP/content/codespaces/managing-codespaces-for-your-organization/restricting-the-retention-period-for-codespaces.md,broken liquid tags
 translations/ja-JP/content/codespaces/prebuilding-your-codespaces/configuring-prebuilds.md,broken liquid tags
 translations/ja-JP/content/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam.md,broken liquid tags
@@ -174,6 +175,7 @@ translations/ja-JP/content/organizations/collaborating-with-groups-in-organizati
 translations/ja-JP/content/organizations/collaborating-with-your-team/about-team-discussions.md,Listed in localization-support#489
 translations/ja-JP/content/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization.md,broken liquid tags
 translations/ja-JP/content/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/reviewing-the-audit-log-for-your-organization.md,broken liquid tags
+translations/ja-JP/content/organizations/managing-access-to-your-organizations-repositories/converting-an-organization-member-to-an-outside-collaborator.md,broken liquid tags
 translations/ja-JP/content/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization.md,broken liquid tags
 translations/ja-JP/content/organizations/managing-organization-settings/managing-the-default-branch-name-for-repositories-in-your-organization.md,broken liquid tags
 translations/ja-JP/content/organizations/managing-peoples-access-to-your-organization-with-roles/managing-security-managers-in-your-organization.md,broken liquid tags
@@ -256,16 +258,22 @@ translations/ja-JP/data/release-notes/enterprise-server/3-5/1.yml,broken liquid 
 translations/ja-JP/data/release-notes/github-ae/2021-03/2021-03-03.yml,broken liquid tags
 translations/ja-JP/data/release-notes/github-ae/2021-06/2021-12-06.yml,broken liquid tags
 translations/ja-JP/data/release-notes/github-ae/2022-05/2022-05-17.yml,broken liquid tags
+translations/ja-JP/data/reusables/actions/actions-use-policy-settings.md,broken liquid tags
 translations/ja-JP/data/reusables/actions/allow-specific-actions-intro.md,broken liquid tags
 translations/ja-JP/data/reusables/actions/disabling-github-actions.md,broken liquid tags
+translations/ja-JP/data/reusables/actions/enabled-actions-description.md,broken liquid tags
 translations/ja-JP/data/reusables/actions/enterprise-common-prereqs.md,broken liquid tags
 translations/ja-JP/data/reusables/actions/enterprise-marketplace-actions.md,broken liquid tags
 translations/ja-JP/data/reusables/actions/enterprise-no-internet-actions.md,broken liquid tags
 translations/ja-JP/data/reusables/actions/enterprise-postinstall-nextsteps.md,broken liquid tags
+translations/ja-JP/data/reusables/actions/ghes-actions-not-enabled-by-default.md,broken liquid tags
 translations/ja-JP/data/reusables/actions/self-hosted-runner-architecture.md,broken liquid tags
 translations/ja-JP/data/reusables/actions/self-hosted-runner-auto-removal.md,broken liquid tags
+translations/ja-JP/data/reusables/actions/self-hosted-runner-reusing.md,broken liquid tags
 translations/ja-JP/data/reusables/actions/self-hosted-runners-prerequisites.md,broken liquid tags
 translations/ja-JP/data/reusables/advanced-security/about-committer-numbers-ghec-ghes.md,broken liquid tags
+translations/ja-JP/data/reusables/advanced-security/license-overview.md,broken liquid tags
+translations/ja-JP/data/reusables/apps/user-to-server-rate-limits-ghec.md,broken liquid tags
 translations/ja-JP/data/reusables/classroom/classroom-codespaces-link.md,broken liquid tags
 translations/ja-JP/data/reusables/code-scanning/enterprise-enable-code-scanning-actions.md,broken liquid tags
 translations/ja-JP/data/reusables/code-scanning/enterprise-enable-code-scanning.md,broken liquid tags
@@ -282,7 +290,6 @@ translations/ja-JP/data/reusables/enterprise-accounts/messages-tab.md,Listed in 
 translations/ja-JP/data/reusables/enterprise-accounts/messages-tab.md,rendering error
 translations/ja-JP/data/reusables/enterprise-accounts/pages-tab.md,broken liquid tags
 translations/ja-JP/data/reusables/enterprise_installation/hardware-considerations-all-platforms.md,broken liquid tags
-translations/ja-JP/data/reusables/enterprise_installation/upgrade-hardware-requirements.md,broken liquid tags
 translations/ja-JP/data/reusables/enterprise_management_console/advanced-security-license.md,broken liquid tags
 translations/ja-JP/data/reusables/enterprise_management_console/badge_indicator.md,broken liquid tags
 translations/ja-JP/data/reusables/gated-features/code-scanning.md,Listed in localization-support#489

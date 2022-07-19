@@ -4,7 +4,7 @@ intro: 'Você pode impedir que as informações da sua empresa se convertam em c
 product: '{% data reusables.gated-features.restrict-email-domain %}'
 versions:
   ghec: '*'
-  ghes: '>=3.2'
+  ghes: '*'
 permissions: Enterprise owners can restrict email notifications for an enterprise.
 type: how_to
 topics:

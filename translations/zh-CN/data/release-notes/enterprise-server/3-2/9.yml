@@ -2,14 +2,14 @@
 date: '2022-02-17'
 sections:
   security_fixes:
-    - It was possible for a user to register a user or organization named "saml".
+    - 用户可以注册名为“saml”的用户或组织。
     - 包已更新到最新的安全版本。
   bugs:
-    - GitHub Packages storage settings could not be validated and saved in the Management Console when Azure Blob Storage was used.
-    - The mssql.backup.cadence configuration option failed ghe-config-check with an invalid characterset warning.
-    - Fixes SystemStackError (stack too deep) when getting more than 2<sup>^16</sup> keys from memcached.
+    - 使用 Azure Blob 存储时，无法验证 GitHub 包存储设置并将其保存在管理控制台中。
+    - Mssql.backup.cadence 配置选项未通过 ghe-config-check，并显示无效的字符集警告。
+    - 修复了从 memcached 获取超过 2 个<sup>^16</sup> 密钥时的 SystemStackError（堆栈太深）。
   changes:
-    - Secret scanning will skip scanning ZIP and other archive files for secrets.
+    - 机密扫描将跳过扫描 ZIP 和其他存档文件的机密。
   known_issues:
     - 在新建的没有任何用户的 {% data variables.product.prodname_ghe_server %} 实例上，攻击者可以创建第一个管理员用户。
     - 自定义防火墙规则在升级过程中被删除。

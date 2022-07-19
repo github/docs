@@ -212,6 +212,6 @@ sections:
       heading: Change to the format of authentication tokens affects GitHub Connect
       notes:
         - |
-          GitHub Connect will no longer work after June 3rd for instances running GitHub Enterprise Server 3.1 or older, due to the format of GitHub authentication tokens changing. To continue using GitHub Connect, upgrade to GitHub Enterprise Server 3.2 or later. For more information, see the [GitHub Blog](https://github.blog/2022-05-20-action-needed-by-github-connect-customers-using-ghes-3-1-and-older-to-adopt-new-authentication-token-format-updates/). [Updated: 2022-06-14]
+          O GitHub Connect não funcionará mais após 3 de junho para instâncias executadas no GitHub Enterprise Server 3.1 ou anterior, devido à alteração no formato dos tokens de autenticação do GitHub. Para continuar usando o GitHub Connect, atualize para o GitHub Enterprise Server 3.2 ou superior. Para obter mais informações, consulte o [Blogue do GitHub](https://github.blog/2022-05-20-action-needed-by-github-customers-using-ghes-3-1-and-older-to-adopt-new-authentication-token-format-updates/). [Atualizado: 2022-06-14]
   backups:
     - '{% data variables.product.prodname_ghe_server %} 3.3 exige pelo menos [GitHub Enterprise Backup Utilities 3.0](https://github.com/github/backup-utils) para [Backups e recuperação de desastre](/admin/configuration/configuring-your-enterprise/configuring-backups-on-your-appliance).'
