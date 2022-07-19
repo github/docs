@@ -16,7 +16,7 @@ redirect_from:
   - /codespaces/codespaces-reference/using-github-copilot-in-codespaces
 ---
 
-## 使用 {% data variables.product.prodname_copilot %}
+## Using {% data variables.product.prodname_copilot %}
 
 [{% data variables.product.prodname_copilot %}](https://copilot.github.com/), an AI pair programmer, can be used in any codespace. To start using {% data variables.product.prodname_copilot_short %} in {% data variables.product.prodname_github_codespaces %}, install the [{% data variables.product.prodname_copilot_short %} extension from the {% data variables.product.prodname_vscode_marketplace %}](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot).
 

@@ -1,6 +1,6 @@
 ---
 title: Codespaces
-intro: '{% data variables.product.prodname_codespaces %} APIを使うと、REST APIを利用してCodespacesを管理できます。'
+intro: '{% data variables.product.prodname_github_codespaces %} APIを使うと、REST APIを利用してCodespacesを管理できます。'
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'

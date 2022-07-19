@@ -246,7 +246,13 @@ api_url_pre: >-
 oauth_host_code: >-
   {% ifversion fpt or ghec %}https://github.com{% else %}http(s)://[hostname]{% endif %}
 device_authorization_url: >-
+  {%- ifversion fpt or ghec %}
   [`https://github.com/login/device`](https://github.com/login/device)
+  {%- elsif ghes %}
+  `http(s)://[hostname]/login/device`
+  {%- elsif ghae %}
+  `https://[hostname]/login/device`
+  {%- endif %}
 # Use this all other code blocks
 api_url_code: >-
   {% ifversion fpt or ghec %}https://api.github.com{% elsif ghes %}http(s)://[hostname]/api/v3{% elsif ghae %}https://[hostname]/api/v3{% endif %}

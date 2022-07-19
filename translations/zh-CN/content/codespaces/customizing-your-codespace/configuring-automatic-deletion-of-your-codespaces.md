@@ -13,7 +13,7 @@ type: how_to
 
 默认情况下，{% data variables.product.prodname_codespaces %} 在停止后会自动删除，并保持非活动状态 30 天。
 
-但是，由于 {% data variables.product.prodname_codespaces %} 会产生存储费用，因此您可能希望通过在个人设置中更改 {% data variables.product.prodname_github_codespaces %} 的默认保留期来缩短保留期。 For more information about storage charges, see "[About billing for {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#codespaces-pricing)."
+但是，由于 {% data variables.product.prodname_codespaces %} 会产生存储费用，因此您可能希望通过在个人设置中更改 {% data variables.product.prodname_github_codespaces %} 的默认保留期来缩短保留期。 有关存储费用的详细信息，请参阅[关于 {% data variables.product.prodname_github_codespaces %} 的计费](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#codespaces-pricing)”。
 
 {% note %}
 
@@ -50,7 +50,7 @@ type: how_to
 
    {% warning %}
 
-   **警告**：将期限设置为 `0` 将导致在停止代码空间时立即删除代码空间，或者由于不活动超时而删除。 For more information, see "[Setting your timeout period for {% data variables.product.prodname_github_codespaces %}](/codespaces/customizing-your-codespace/setting-your-timeout-period-for-github-codespaces)."
+   **警告**：将期限设置为 `0` 将导致在停止代码空间时立即删除代码空间，或者由于不活动超时而删除。 有关详细信息，请参阅“[设置 {% data variables.product.prodname_github_codespaces %} 的超时期](/codespaces/customizing-your-codespace/setting-your-timeout-period-for-github-codespaces)”。
 
    {% endwarning %}
 

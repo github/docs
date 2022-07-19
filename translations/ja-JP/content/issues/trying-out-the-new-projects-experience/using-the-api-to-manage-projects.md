@@ -594,7 +594,7 @@ gh api graphql -f query='
 
 {% note %}
 
-**ノート:** ` updateProjectV2ItemFieldValue `を使って`Assignees`、`Labels`、`Milestone`、`Repository`を変更することはできません。これは、これらのフィールドがプロジェクトのアイテムのプロパティではなく、Pull RequestやIssueのプロパティだからです。 Instead, you may use the following mutations:
+**ノート:** ` updateProjectV2ItemFieldValue `を使って`Assignees`、`Labels`、`Milestone`、`Repository`を変更することはできません。これは、これらのフィールドがプロジェクトのアイテムのプロパティではなく、Pull RequestやIssueのプロパティだからです。 その代わりに、以下のミューテーションを利用できます。
 
 - [addAssigneesToAssignable](/graphql/reference/mutations#addassigneestoassignable)
 - [removeAssigneesFromAssignable](/graphql/reference/mutations#removeassigneesfromassignable)

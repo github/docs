@@ -1,3 +1,3 @@
-1. When the dry run finishes, you'll see a sample of results (up to 1000). Review the results and identify any false positive results. ![Screenshot showing results from dry run](/assets/images/help/repository/secret-scanning-publish-pattern.png)
-1. Edit the new custom pattern to fix any problems with the results, then, to test your changes, click **Save and dry run**.
+1. dry runが終了すると、結果のサンプル（最大1000）が表示されます。 結果をレビューし、誤検知の結果を確認してください。 ![dry runの結果を表示しているスクリーンショット](/assets/images/help/repository/secret-scanning-publish-pattern.png)
+1. 結果に問題があれば修正するために新しいカスタムパターンを編集し、その変更をテストするために**Save and dry run（保存してdry run）**をクリックしてください。
 {% indented_data_reference reusables.secret-scanning.beta-dry-runs spaces=3 %}
