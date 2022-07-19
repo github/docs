@@ -139,6 +139,7 @@ translations/zh-CN/content/billing/managing-your-license-for-github-enterprise/u
 translations/zh-CN/content/billing/managing-your-license-for-github-enterprise/viewing-license-usage-for-github-enterprise.md,broken liquid tags
 translations/zh-CN/content/code-security/adopting-github-advanced-security-at-scale/phase-2-preparing-to-enable-at-scale.md,broken liquid tags
 translations/zh-CN/content/code-security/adopting-github-advanced-security-at-scale/phase-3-pilot-programs.md,broken liquid tags
+translations/zh-CN/content/code-security/adopting-github-advanced-security-at-scale/phase-6-rollout-and-scale-secret-scanning.md,broken liquid tags
 translations/zh-CN/content/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-alerts.md,broken liquid tags
 translations/zh-CN/content/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-with-codeql.md,broken liquid tags
 translations/zh-CN/content/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning.md,broken liquid tags
@@ -351,6 +352,7 @@ translations/zh-CN/data/reusables/actions/enterprise-common-prereqs.md,broken li
 translations/zh-CN/data/reusables/actions/enterprise-marketplace-actions.md,broken liquid tags
 translations/zh-CN/data/reusables/actions/enterprise-no-internet-actions.md,broken liquid tags
 translations/zh-CN/data/reusables/actions/enterprise-postinstall-nextsteps.md,broken liquid tags
+translations/zh-CN/data/reusables/actions/more-resources-for-ghes.md,broken liquid tags
 translations/zh-CN/data/reusables/actions/self-hosted-runner-architecture.md,broken liquid tags
 translations/zh-CN/data/reusables/actions/self-hosted-runner-auto-removal.md,broken liquid tags
 translations/zh-CN/data/reusables/actions/self-hosted-runner-description.md,rendering error
@@ -380,7 +382,6 @@ translations/zh-CN/data/reusables/enterprise-licensing/about-license-sync.md,bro
 translations/zh-CN/data/reusables/enterprise-licensing/verified-domains-license-sync.md,broken liquid tags
 translations/zh-CN/data/reusables/enterprise-licensing/you-can-sync-for-a-combined-view.md,broken liquid tags
 translations/zh-CN/data/reusables/enterprise_installation/hardware-considerations-all-platforms.md,broken liquid tags
-translations/zh-CN/data/reusables/enterprise_installation/hardware-rec-table.md,broken liquid tags
 translations/zh-CN/data/reusables/enterprise_management_console/badge_indicator.md,broken liquid tags
 translations/zh-CN/data/reusables/enterprise_user_management/consider-usernames-for-external-authentication.md,rendering error
 translations/zh-CN/data/reusables/gated-features/codespaces-classroom-articles.md,broken liquid tags
