@@ -1,5 +1,6 @@
 ---
 title: 管理组织的代码空间
+shortTitle: 管理组织
 intro: '您可以管理和审查您组织中的用户如何使用  {% data variables.product.prodname_github_codespaces %}。'
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
@@ -17,6 +18,5 @@ children:
   - /restricting-the-visibility-of-forwarded-ports
   - /restricting-the-idle-timeout-period
   - /restricting-the-retention-period-for-codespaces
-shortTitle: 管理组织
 ---
 

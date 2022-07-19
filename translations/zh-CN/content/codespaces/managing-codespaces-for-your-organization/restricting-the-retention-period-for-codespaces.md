@@ -18,7 +18,7 @@ topics:
 
 有权访问 {% data variables.product.prodname_github_codespaces %} 的每个人都可以为他们创建的代码空间配置保留期。 此默认保留期的初始设置为 30 天。 单个用户可以将此时间段设置在 0-30 天的范围内。 更多信息请参阅“[配置代码空间的自动删除](/codespaces/customizing-your-codespace/configuring-automatic-deletion-of-your-codespaces)”。
 
-作为组织所有者，您可能希望为为组织拥有的存储库创建的代码空间的最长保留期配置限制。 这可以帮助您限制与代码空间相关的存储成本，这些代码空间已停止，然后一直处于未使用状态，直到它们被自动删除。 For more information about storage charges, see "[About billing for {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#codespaces-pricing)." 您可以为组织拥有的所有仓库或特定仓库设置最长保留期。
+作为组织所有者，您可能希望为为组织拥有的存储库创建的代码空间的最长保留期配置限制。 这可以帮助您限制与代码空间相关的存储成本，这些代码空间已停止，然后一直处于未使用状态，直到它们被自动删除。 有关存储费用的详细信息，请参阅[关于 {% data variables.product.prodname_github_codespaces %} 的计费](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#codespaces-pricing)”。 您可以为组织拥有的所有仓库或特定仓库设置最长保留期。
 
 ### 设置组织范围和存储库特定的策略
 

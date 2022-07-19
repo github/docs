@@ -1,5 +1,5 @@
 ---
-title: Disaster recovery for GitHub Codespaces
+title: GitHub Codespaces 的灾难恢复
 intro: 本文描述了当整个地区因重大自然灾害或大范围服务中断而中断时，灾难恢复情景的指导。
 versions:
   fpt: '*'
@@ -26,7 +26,7 @@ redirect_from:
 
 ## 选项 1：在另一个区域中创建新的代码空间
 
-如果发生区域性断电，我们建议您在未受影响的区域中重新创建代码空间以继续工作。 此新代码将包含您上次推送到 {% data variables.product.prodname_dotcom %} 后的所有更改。 For information on manually setting another region, see "[Setting your default region for {% data variables.product.prodname_github_codespaces %}](/codespaces/customizing-your-codespace/setting-your-default-region-for-github-codespaces)."
+如果发生区域性断电，我们建议您在未受影响的区域中重新创建代码空间以继续工作。 此新代码将包含您上次推送到 {% data variables.product.prodname_dotcom %} 后的所有更改。 有关手动设置其他区域的信息，请参阅“[为 {% data variables.product.prodname_github_codespaces %} 设置默认区域](/codespaces/customizing-your-codespace/setting-your-default-region-for-github-codespaces)”。
 
 您可以通过在项目仓库中配置 `devcontainer.json` 来优化恢复时间，允许您定义工具、运行时间、框架、编辑器设置、扩展以及其他自动恢复开发环境所需的配置。 更多信息请参阅“[开发容器简介](/codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project)”。
 

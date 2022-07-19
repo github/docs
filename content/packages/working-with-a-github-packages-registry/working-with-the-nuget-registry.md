@@ -199,7 +199,7 @@ Using packages from {% data variables.product.prodname_dotcom %} in your project
 
 {% data reusables.package_registry.authenticate-step %}
 
-2. To use a package, add `ItemGroup` and configure the `PackageReference` field in the *.csproj* project file, replacing the `OctokittenApp` package with your package dependency and `1.0.0` with the version you want to use:
+2. To use a package, add `ItemGroup` and configure the `PackageReference` field in the *.csproj* project file. Replace the `OctokittenApp` value in `Include="OctokittenApp"` with your package dependency, and replace the `12.0.2` value in `Version="12.0.2"` with the version you want to use:
   ``` xml
   <Project Sdk="Microsoft.NET.Sdk">
 

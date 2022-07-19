@@ -1,5 +1,5 @@
 ---
-title: Reviewing your organization's audit logs for GitHub Codespaces
+title: 查看组织的 GitHub Codespaces 审核日志
 shortTitle: 审核日志
 intro: '您可以使用审核日志查看与 {% data variables.product.prodname_github_codespaces %} 相关的所有操作。'
 product: '{% data reusables.gated-features.codespaces %}'
