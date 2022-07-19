@@ -318,4 +318,5 @@ translations/es-ES/data/reusables/github-connect/send-contribution-counts-to-git
 translations/es-ES/data/reusables/organizations/data_saved_for_reinstating_a_former_org_member.md,broken liquid tags
 translations/es-ES/data/reusables/package_registry/authenticate-packages.md,Listed in localization-support#489
 translations/es-ES/data/reusables/package_registry/authenticate-packages.md,broken liquid tags
+translations/es-ES/data/reusables/project-management/project-board-visibility.md,broken liquid tags
 translations/es-ES/data/reusables/repositories/deleted_forks_from_private_repositories_warning.md,broken liquid tags
