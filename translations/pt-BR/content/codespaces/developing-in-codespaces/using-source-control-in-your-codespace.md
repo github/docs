@@ -15,11 +15,11 @@ shortTitle: controle de origem
 
  
 
-## Sobre o controle de origem em {% data variables.product.prodname_codespaces %}
+## Sobre o controle de origem em {% data variables.product.prodname_github_codespaces %}
 
 Você pode executar todas as ações do Git necessárias diretamente no seu codespace. Por exemplo, é possível obter alterações do repositório remoto, alternar os branches, criar um novo branch, fazer commit, fazer push e criar um pull request. Você pode usar o terminal integrado dentro do seu codespace para inserir nos comandos do Git, ou você pode clicar em ícones e opções de menu para realizar todas as tarefas mais comuns do Git. Este guia explica como usar a interface gráfica de usuário para controle de origem.
 
-O controle de origem em {% data variables.product.prodname_github_codespaces %} usa o mesmo fluxo de trabalho que {% data variables.product.prodname_vscode %}. For more information, see the {% data variables.product.prodname_vscode_shortname %} documentation "[Using Version Control in {% data variables.product.prodname_vscode_shortname %}](https://code.visualstudio.com/docs/editor/versioncontrol#_git-support)."
+O controle de origem em {% data variables.product.prodname_github_codespaces %} usa o mesmo fluxo de trabalho que {% data variables.product.prodname_vscode %}. Para obter mais informações, consulte a documentação de {% data variables.product.prodname_vscode_shortname %} "[Usando Controle de Versão em {% data variables.product.prodname_vscode_shortname %}](https://code.visualstudio.com/docs/editor/versioncontrol#_git-support)".
 
 Um fluxo de trabalho típico para atualizar um arquivo que usa {% data variables.product.prodname_github_codespaces %} seria:
 

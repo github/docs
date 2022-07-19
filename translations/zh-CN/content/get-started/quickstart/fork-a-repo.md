@@ -34,7 +34,7 @@ topics:
 
 ### 将其他人的项目用作自己创意的起点。
 
-开源软件的理念是通过共享代码，可以开发出更好、更可靠的软件。 更多信息请参阅 Open Source Initiative（开源倡议）上的“[关于开源倡议](http://opensource.org/about)”。
+开源软件的理念是通过共享代码，可以开发出更好、更可靠的软件。 更多信息请参阅 Open Source Initiative（开源倡议）上的“[关于开源倡议](https://opensource.org/about)”。
 
 有关将开源原则应用于组织在 {% data variables.product.product_location %} 上的开发工作的详细信息，请参阅 {% data variables.product.prodname_dotcom %} 的白皮书“[内部来源简介](https://resources.github.com/whitepapers/introduction-to-innersource/)”。
 
@@ -42,7 +42,7 @@ topics:
 
 从其他人的项目复刻创建公共仓库时，请确保包含许可文件以确定您希望与其他人共享项目。 更多信息请参阅 choosealicense.com 上的“[选择开源许可](https://choosealicense.com/)”。
 
-{% data reusables.open-source.open-source-guide-repositories %} {% data reusables.open-source.open-source-learning-lab %}
+{% data reusables.open-source.open-source-guide-repositories %} {% data reusables.open-source.open-source-learning %}
 
 {% endif %}
 
@@ -57,7 +57,7 @@ topics:
 您可能为了对上游或原始仓库提议更改而复刻项目。 在这种情况下，最好定期将您的复刻与上游仓库同步。 为此，您需要在命令行上使用 Git。 您可以使用刚才复刻的 [octocat/Spoon-Knife](https://github.com/octocat/Spoon-Knife) 仓库练习设置上游仓库。
 
 1. 在 {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom_the_website %}{% else %}{% data variables.product.product_location %}{% endif %} 上，导航到 [octocat/Spoon-Knife](https://github.com/octocat/Spoon-Knife) 存储库。
-2. 在页面的右上角，单击 **Fork（复刻）**。 ![复刻按钮](/assets/images/help/repository/fork_button.jpg)
+2. 在页面的右上角，单击 **Fork（复刻）**。 ![复刻按钮](/assets/images/help/repository/fork_button.png)
 
 {% endwebui %}
 

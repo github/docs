@@ -17,12 +17,12 @@ topics:
 
 ## 安装 {% data variables.product.prodname_ghe_server %}
 
-1. 在每个集群节点上，提供并安装 {% data variables.product.prodname_ghe_server %}。 更多信息请参阅“[设置 {% data variables.product.prodname_ghe_server %} 实例](/enterprise/{{ currentVersion }}/admin/guides/installation/setting-up-a-github-enterprise-server-instance)”。
+1. 在每个集群节点上，提供并安装 {% data variables.product.prodname_ghe_server %}。 更多信息请参阅“[设置 {% data variables.product.prodname_ghe_server %} 实例](/enterprise/admin/guides/installation/setting-up-a-github-enterprise-server-instance)”。
 2. 使用管理 shell 或 DHCP，**仅**配置每个节点的 IP 地址。 不要配置任何其他设置。
 
 ## 配置第一个节点
 
-1. 连接到将在 `cluster.conf` 中指定为 MySQL 主要节点的节点。 更多信息请参阅“[关于集群配置文件](/enterprise/{{ currentVersion }}/admin/guides/clustering/initializing-the-cluster/#about-the-cluster-configuration-file)”。
+1. 连接到将在 `cluster.conf` 中指定为 MySQL 主要节点的节点。 更多信息请参阅“[关于集群配置文件](/enterprise/admin/guides/clustering/initializing-the-cluster/#about-the-cluster-configuration-file)”。
 2. 在 Web 浏览器中，访问 `https://<ip address>:8443/setup/`。
 {% data reusables.enterprise_installation.upload-a-license-file %}
 {% data reusables.enterprise_installation.save-settings-in-web-based-mgmt-console %}
@@ -30,7 +30,7 @@ topics:
 
 ## 初始化集群
 
-要初始化集群，您需要一个集群配置文件 (`cluster.conf`)。 更多信息请参阅“[关于集群配置文件](/enterprise/{{ currentVersion }}/admin/guides/clustering/initializing-the-cluster/#about-the-cluster-configuration-file)”。
+要初始化集群，您需要一个集群配置文件 (`cluster.conf`)。 更多信息请参阅“[关于集群配置文件](/enterprise/admin/guides/clustering/initializing-the-cluster/#about-the-cluster-configuration-file)”。
 
 1. 从配置的第一个节点开始，运行 `ghe-cluster-config-init`。  如果集群配置文件中存在未配置的节点，此操作会初始化集群。
 2. 运行 `ghe-cluster-config-apply`。 这将验证 `cluster.conf` 文件，将配置应用于每个节点文件，并在每个节点上显示已配置的服务。
@@ -39,7 +39,7 @@ topics:
 
 ## 关于集群配置文件
 
-集群配置文件 (`cluster.conf`) 会定义集群中的节点以及它们运行的​​服务。 更多信息请参阅“[关于集群节点](/enterprise/{{ currentVersion }}/admin/guides/clustering/about-cluster-nodes)”。
+集群配置文件 (`cluster.conf`) 会定义集群中的节点以及它们运行的​​服务。 更多信息请参阅“[关于集群节点](/enterprise/admin/guides/clustering/about-cluster-nodes)”。
 
 此示例 `cluster.conf` 定义了一个包含五个节点的集群。
 

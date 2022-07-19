@@ -4,7 +4,7 @@ intro: 'Puedes administrar la forma en que {% data variables.product.product_nam
 versions:
   fpt: '*'
   ghae: '*'
-  ghes: '>=3.2'
+  ghes: '*'
   ghec: '*'
 topics:
   - Accounts
@@ -39,7 +39,7 @@ Puede que quieras utilizar un tema oscuro para reducir el consumo de energía en
     {% ifversion fpt or ghec %}
     - Si te gustaría elegir un tema que se encuentre actualmente en beta público, primero necesitas habilitarlo con la vista previa de características. Para obtener más información, consulta la sección [Explorar los lanzamientos de acceso adelantado con vista previa de características](/get-started/using-github/exploring-early-access-releases-with-feature-preview)".{% endif %}
 
-{% if command-palette %}
+{% ifversion command-palette %}
 
 {% note %}
 

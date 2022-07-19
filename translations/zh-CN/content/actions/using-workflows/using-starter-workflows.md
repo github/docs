@@ -26,7 +26,7 @@ topics:
 
 ## 关于入门工作流程
 
-{% data variables.product.product_name %} 为各种语言和工具提供入门工作流程。 在存储库中设置工作流程时，{% data variables.product.product_name %} 会分析存储库中的代码，并根据存储库中的语言和框架推荐工作流程。 例如，如果您使用 [Node.js](https://nodejs.org/en/)，{% data variables.product.product_name %} 将提议使用入门工作流程来安装 Node.js 包和运行测试。{% if actions-starter-template-ui %}您可以搜索并筛选来查找相关的入门工作流程。{% endif %}
+{% data variables.product.product_name %} 为各种语言和工具提供入门工作流程。 在存储库中设置工作流程时，{% data variables.product.product_name %} 会分析存储库中的代码，并根据存储库中的语言和框架推荐工作流程。 例如，如果您使用 [Node.js](https://nodejs.org/en/)，{% data variables.product.product_name %} 将提议使用入门工作流程来安装 Node.js 包和运行测试。{% ifversion actions-starter-template-ui %}您可以搜索并筛选来查找相关的入门工作流程。{% endif %}
 
 {% data reusables.actions.starter-workflow-categories %}
 
@@ -39,9 +39,9 @@ topics:
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.actions-tab %}
 1. 如果存储库中已有工作流程，请单击 **New workflow（新建工作流程）**。
-1. “{% if actions-starter-template-ui %}选择工作流程{% else %}选择工作流程模板{% endif %}”页面显示推荐的入门工作流程。 找到要使用的入门工作流程，然后单击 {% if actions-starter-template-ui %}**Configure（配置）**{% else %}**Set up this workflow（设置此工作流程）**{% endif %}。{% if actions-starter-template-ui %} 为帮助您找到所需的入门工作流程，您可以搜索关键字或按类别进行筛选。{% endif %}
+1. “{% ifversion actions-starter-template-ui %}选择工作流程{% else %}选择工作流程模板{% endif %}”页面显示推荐的入门工作流程。 找到要使用的入门工作流程，然后单击 {% ifversion actions-starter-template-ui %}**Configure（配置）**{% else %}**Set up this workflow（设置此工作流程）**{% endif %}。{% ifversion actions-starter-template-ui %} 为帮助您找到所需的入门工作流程，您可以搜索关键字或按类别进行筛选。{% endif %}
 
-   {% if actions-starter-template-ui %}![Configure this workflow](/assets/images/help/settings/actions-create-starter-workflow-updated-ui.png){% else %}![Set up this workflow](/assets/images/help/settings/actions-create-starter-workflow.png){% endif %}
+   {% ifversion actions-starter-template-ui %}![Configure this workflow](/assets/images/help/settings/actions-create-starter-workflow-updated-ui.png){% else %}![Set up this workflow](/assets/images/help/settings/actions-create-starter-workflow.png){% endif %}
 1. 如果入门工作流程包含详细说明其他设置步骤的注释，请按照下列步骤操作。 许多入门工作流程都有相应的指南。 更多信息请参阅 [{% data variables.product.prodname_actions %} 指南](/actions/guides)。
 1. 某些入门工作流程使用机密。 例如 {% raw %}`${{ secrets.npm_token }}`{% endraw %}。 如果入门工作流使用机密，请将机密名称中描述的值作为机密存储在存储库中。 更多信息请参阅“[加密密码](/actions/reference/encrypted-secrets)”。
 1. （可选）进行其他更改。 例如，您可能希望更改 `on` 的值，以便在工作流程运行时进行更改。

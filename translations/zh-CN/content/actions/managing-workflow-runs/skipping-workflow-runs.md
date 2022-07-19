@@ -26,7 +26,9 @@ shortTitle: 跳过工作流程运行
 * `[skip actions]`
 * `[actions skip]`
 
-或者，您也可以使用两个空行后接 `skip-checks: true` 或 `skip-checks:true` 来结束提交消息。
+或者，您可以用两个空行后跟以下任一行结束提交消息：
+- `skip-checks:true`
+- `skip-checks: true`
 
 如果您的仓库配置为需要先通过特定检查，则无法合并拉取请求。 要允许合并拉取请求，您可以将新提交推送到拉取请求，而无需提交消息中的跳过指令。
 

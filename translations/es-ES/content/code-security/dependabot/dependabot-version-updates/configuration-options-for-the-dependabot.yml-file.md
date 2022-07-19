@@ -1,5 +1,5 @@
 ---
-title: Configuration options for the dependabot.yml file
+title: Opciones de configuración para el archivo dependabot.yml
 intro: 'La información detallada para todas las opciones que puedes utilizar para personalizar como el {% data variables.product.prodname_dependabot %} mantiene tus repositorios.'
 permissions: 'People with write permissions to a repository can configure {% data variables.product.prodname_dependabot %} for the repository.'
 allowTitleToDifferFromFilename: true
@@ -19,7 +19,7 @@ topics:
   - Repositories
   - Dependencies
   - Pull requests
-shortTitle: Configure dependabot.yml
+shortTitle: Configurar el dependabot.yml
 ---
 
 {% data reusables.dependabot.beta-security-and-version-updates %}
@@ -29,41 +29,17 @@ shortTitle: Configure dependabot.yml
 
 El archivo de configuración del {% data variables.product.prodname_dependabot %}, *dependabot.yml*, utiliza la sintaxis YAML. Si eres nuevo en YAML y deseas conocer más, consulta "[Aprender YAML en cinco minutos](https://www.codeproject.com/Articles/1214409/Learn-YAML-in-five-minutes)".
 
-Debes almacenar este archivo en el directorio `.github` de tu repositorio. Cuando agregas o actualizas el archivo *dependabot.yml*, esto activa una revisión inmediata de las actualizaciones de la versión. For more information and an example, see "[Configuring {% data variables.product.prodname_dependabot %} version updates](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/enabling-and-disabling-dependabot-version-updates#enabling-dependabot-version-updates)."
+Debes almacenar este archivo en el directorio `.github` de tu repositorio. Cuando agregas o actualizas el archivo *dependabot.yml*, esto activa una revisión inmediata de las actualizaciones de la versión. Para obtener más información y un ejemplo, consulta la sección "[Configurar las actualizaciones de versión del {% data variables.product.prodname_dependabot %}](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/enabling-and-disabling-dependabot-version-updates#enabling-dependabot-version-updates)".
 
 Cualquier opción que también afecte las actualizaciones de seguridad se utiliza en la siguiente ocasión en que una alerta de seguridad active una solicitud de cambios para una actualización de seguridad.  Para obtener más información, consulta la sección "[Configurar las {% data variables.product.prodname_dependabot_security_updates %}](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/configuring-dependabot-security-updates)".
 
-El archivo *dependabot.yml* tiene dos claves mandatorias de nivel superior: `version`, y `updates`. You can, optionally, include a top-level `registries` key{% ifversion fpt or ghec or ghes > 3.4 %} and/or a `enable-beta-ecosystems` key{% endif %}. El archivo debe comenzar con `version: 2`.
+El archivo *dependabot.yml* tiene dos claves mandatorias de nivel superior: `version`, y `updates`. Opcionalmente, puedes incluir una llave de `registries` de nivel superior{% ifversion ghes = 3.5 %} o una llave de `enable-beta-ecosystems`{% endif %}. El archivo debe comenzar con `version: 2`.
 
-## Opciones de configuración para las actualizaciones
+## Opciones de configuración para el archivo *dependabot.yml*
 
 La clave `updates` de nivel superior es obligatoria. La utilizas para configurar la forma en que el {% data variables.product.prodname_dependabot %} actualiza las versiones o las dependencias de tu proyecto. Cada entrada configura los ajustes de actualización para un administrador de paquetes en particular. Puedes utilizar las siguientes opciones.
 
-| Opción                                                                     | Requerido | Descripción                                                                                        |
-|:-------------------------------------------------------------------------- |:---------:|:-------------------------------------------------------------------------------------------------- |
-| [`package-ecosystem`](#package-ecosystem)                                  |   **X**   | Administrador de paquetes a utilizar                                                               |
-| [`directorio`](#directory)                                                 |   **X**   | Ubicación de los manifiestos del paquete                                                           |
-| [`schedule.interval`](#scheduleinterval)                                   |   **X**   | Qué tan a menudo se revisará si hay actualizaciones                                                |
-| [`allow`](#allow)                                                          |           | Personalizar qué actualizaciones se permitirán                                                     |
-| [`asignatarios`](#assignees)                                               |           | Los asignados a configurar en las solicitudes de extracción                                        |
-| [`commit-message`](#commit-message)                                        |           | Commit message preferences                  |{% ifversion fpt or ghec or ghes > 3.4 %}
-| [`enable-beta-ecosystems`](#enable-beta-ecosystems)                        |           | Enable ecosystems that have beta-level support 
-{% endif %}
-| [`ignore`](#ignore)                                                        |           | Ignorar ciertas dependencias o versiones                                                           |
-| [`insecure-external-code-execution`](#insecure-external-code-execution)    |           | Permite o rechaza la ejecución de código en los archivos de manifiesto                             |
-| [`etiquetas`](#labels)                                                     |           | Las etiquetas a configurar en las solicitudes de extracción                                        |
-| [`hito`](#milestone)                                                       |           | Hito a configurar en las solicitudes de extracción                                                 |
-| [`open-pull-requests-limit`](#open-pull-requests-limit)                    |           | Limitar la cantidad de solicitudes de extracción abiertas para las actualizaciones de versión      |
-| [`pull-request-branch-name.separator`](#pull-request-branch-nameseparator) |           | Cambiar el separador para los nombres de rama de la solicitud de extracción                        |
-| [`rebase-strategy`](#rebase-strategy)                                      |           | Inhabilitar el rebase automático                                                                   |
-| [`registries`](#registries)                                                |           | Los registros privados a los que puede acceder el {% data variables.product.prodname_dependabot %}
-| [`revisores`](#reviewers)                                                  |           | Los revisores a configurar en las solicitudes de extracción                                        |
-| [`schedule.day`](#scheduleday)                                             |           | Día de la semana para revisar si hay actualizaciones                                               |
-| [`schedule.time`](#scheduletime)                                           |           | Hora del día para revisar si hay actualizaciones (hh:mm)                                           |
-| [`schedule.timezone`](#scheduletimezone)                                   |           | Huso horario para la hora del día (identificador de zona)                                          |
-| [`target-branch`](#target-branch)                                          |           | Rama contra la cual se creará la solicitud de extracción                                           |
-| [`vendor`](#vendor)                                                        |           | Actualiza las dependencias delegadas a proveedores o almacenadas en caché                          |
-| [`versioning-strategy`](#versioning-strategy)                              |           | Cómo actualizar los requisitos de la versión del manifiesto                                        |
+{% data reusables.dependabot.configuration-options %}
 
 Estas opciones caen a groso modo en las siguientes categorías.
 
@@ -260,7 +236,7 @@ Opciones compatibles
 
 {% note %}
 
-**Note:** The `prefix` and the `prefix-development` options have a 15 character limit.
+**Nota:** Las opciones `prefix` y `prefix-development` tienen un límite de 15 caracteres.
 
 {% endnote %}
 
@@ -304,6 +280,10 @@ updates:
       prefix-development: "pip dev"
       include: "scope"
 ```
+Si utilizas la misma configuración que en el ejemplo anterior, el utilizar bumping en la librería `requests` en el grupo de dependencias de desarrollo de `pip` generará un mensaje de confirmación de:
+
+   `pip dev: solicitudes de bump de 1.0.0 a 1.0.1`
+
 ### `ignore`
 
 {% data reusables.dependabot.default-dependencies-allow-ignore %}
@@ -322,7 +302,7 @@ Para obtener más información acerca de los comandos de `@dependabot ignore`, c
 
 Puedes utilizar la opción `ignore` para personalizar qué dependencias se actualizarán. La opción `ignore` es compatible con las siguientes opciones.
 
-- `dependency-name`—se utiliza para ignorar actualizaciones para las dependencias con nombres coincidentes, opcionalmente, utiliza `*` para empatar cero o más caracteres. Para las dependencias de Java, el formato del atributo `dependency-name` es: `groupId:artifactId` (por ejemplo: `org.kohsuke:github-api`). {% if dependabot-grouped-dependencies %} To prevent {% data variables.product.prodname_dependabot %} from automatically updating TypeScript type definitions from DefinitelyTyped, use `@types/*`.{% endif %}
+- `dependency-name`—se utiliza para ignorar actualizaciones para las dependencias con nombres coincidentes, opcionalmente, utiliza `*` para empatar cero o más caracteres. Para las dependencias de Java, el formato del atributo `dependency-name` es: `groupId:artifactId` (por ejemplo: `org.kohsuke:github-api`). {% ifversion dependabot-grouped-dependencies %} Para prevenir que el {% data variables.product.prodname_dependabot %} actualice las definiciones de tipo de TypeScript automáticamente desde DefinetelyTuped, utiliza `@types/*`.{% endif %}
 - `versions`—se utiliza para ignorar versiones o rangos específicos de las versiones. Si quieres definir un rango, utiliza el patrón estándar del administrador de paquetes (por ejemplo: `^1.0.0` para npm, o `~> 2.0` para Bundler).
 - `update-types`—Se utiliza para ignorar tipos de actualizaciones tales como las de tipo `major`, `minor`, o `patch` en actualizaciones de versión (por ejemplo: `version-update:semver-patch` ignorará las actualizaciones de parche). Puedes combinar esto con `dependency-name: "*"` para ignorar algún `update-types` en particular en todas las dependencias. Actualmente, `version-update:semver-major`, `version-update:semver-minor`, y `version-update:semver-patch` son las únicas opciones compatibles. Este ajuste no afectará a las actualizaciones de seguridad.
 
@@ -360,7 +340,7 @@ updates:
 {% ifversion fpt or ghec or ghes > 3.4 %}
 {% note %}
 
-**Note**: For the `pub` ecosystem, {% data variables.product.prodname_dependabot %} won't perform an update when the version that it tries to update to is ignored, even if an earlier version is available.
+**Nota**: Para el ecosistema `pub`, el {% data variables.product.prodname_dependabot %} no realizará una actualización cuando la versión a la cuál se intenta actualizad se ignora, incluso si hay una versión anterior disponible.
 
 {% endnote %}
 
@@ -984,19 +964,20 @@ registries:
 {% endraw %}
 
 {% ifversion fpt or ghec or ghes > 3.4 %}
-## Enabling support for beta-level ecosystems
+## Habilitar el soporte para los ecosistemas de nivel beta
 
 ### `enable-beta-ecosystems`
 
-By default, {% data variables.product.prodname_dependabot %} updates the dependency manifests and lock files only for fully supported ecosystems. Use the `enable-beta-ecosystems` flag to opt in to updates for ecosystems that are not yet generally available.
+Predeterminadamente, el {% data variables.product.prodname_dependabot %} actualiza los archivos de bloqueo y de manifiesto de la dependencia únicamente para los ecosistemas completamente compatibles. Utiliza el marcador `enable-beta-ecosystems` para decidir unirte a las actualizaciones para los ecosistemas que aún no están disponibles en general.
 
 ```yaml
 # Configure beta ecosystem
 
 version: 2
 enable-beta-ecosystems: true
-updates:
-  - package-ecosystem: "pub"
+updates:{% ifversion fpt or ghec or ghes > 3.5 %}
+  - package-ecosystem: "beta-ecosystem"{% else %}
+  - package-ecosystem: "pub"{% endif %}
     directory: "/"
     schedule:
       interval: "daily"

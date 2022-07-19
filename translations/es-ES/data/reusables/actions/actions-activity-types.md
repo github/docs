@@ -1,4 +1,4 @@
-Algunos eventos tienen tipos de actividad que te proporcionan más control sobre cuándo debería ejecutarse tu flujo de trabajo. Use `on.<event_name>.types` to define the type of event activity that will trigger a workflow run.
+Algunos eventos tienen tipos de actividad que te proporcionan más control sobre cuándo debería ejecutarse tu flujo de trabajo. Utiliza `on.<event_name>.types` para definir el tipo de actividad de evento qeu activará una ejecución de flujo de trabajo.
 
 Por ejemplo, el evento `issue_comment` tiene los tipos de actividad `created`, `edited` y `deleted`. Si tu flujo de trabajo activa el evento `label`, este se ejecutará cada que se cree, edite o borre una etiqueta. Si especificas el tipo de actividad `created` para el evento `label`, tu flujo de trabajo se ejecutará cuando se cree una etiqueta pero no cuando esta se borre o edite.
 
@@ -13,7 +13,7 @@ Si especificas tipos de actividad múltiples, solo uno de ellos necesitará ocur
 
 ```yaml
 on:
-  issue:
+  issues:
     types:
       - opened
       - labeled

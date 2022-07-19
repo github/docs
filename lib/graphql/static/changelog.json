@@ -4,6 +4,477 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "Type 'ProjectV2ItemFieldValueOrder' was added",
+          "Type 'ProjectV2ItemFieldValueOrderField' was added",
+          "Argument 'orderBy: ProjectV2ItemFieldValueOrder` added to field `ProjectV2Item.fieldValues'",
+          "Argument `orderBy: PullRequestOrder` added to field 'ProjectV2ItemFieldPullRequestValue.pullRequests'"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2022-07-14"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "Type 'ProjectV2FieldOrder' was added",
+          "Type 'ProjectV2FieldOrderField' was added",
+          "Type 'ProjectV2ItemOrder' was added",
+          "Type 'ProjectV2ItemOrderField' was added",
+          "Type 'ProjectV2ViewOrder' was added",
+          "Type 'ProjectV2ViewOrderField' was added",
+          "Argument 'orderBy: ProjectV2FieldOrder` added to field `ProjectV2.fields'",
+          "Argument 'orderBy: ProjectV2ItemOrder` added to field `ProjectV2.items'",
+          "Argument `orderBy: RepositoryOrder` added to field 'ProjectV2.repositories'",
+          "Argument 'orderBy: ProjectV2ViewOrder` added to field `ProjectV2.views'"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2022-07-11"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "Type `RepositoryVulnerabilityAlertDependencyScope` was added",
+          "Argument 'dependencyScopes: [RepositoryVulnerabilityAlertDependencyScope!]` added to field `Repository.vulnerabilityAlerts'",
+          "Field `dependencyScope` was added to object type `RepositoryVulnerabilityAlert`",
+          "Enum value `ERLANG` was added to enum `SecurityAdvisoryEcosystem`"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2022-06-29"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "Input field `AddProjectDraftIssueInput.projectId` changed type from `ID!` to `ID`",
+          "Input field `AddProjectDraftIssueInput.title` changed type from `String!` to `String`",
+          "Input field `AddProjectNextItemInput.contentId` changed type from `ID!` to `ID`",
+          "Input field `AddProjectNextItemInput.projectId` changed type from `ID!` to `ID`",
+          "Input field `DeleteProjectNextItemInput.itemId` changed type from `ID!` to `ID`",
+          "Input field `DeleteProjectNextItemInput.projectId` changed type from `ID!` to `ID`",
+          "Input field `UpdateProjectNextInput.projectId` changed type from `ID!` to `ID`",
+          "Input field `UpdateProjectNextItemFieldInput.itemId` changed type from `ID!` to `ID`",
+          "Input field `UpdateProjectNextItemFieldInput.projectId` changed type from `ID!` to `ID`",
+          "Input field `UpdateProjectNextItemFieldInput.value` changed type from `String!` to `String`"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [
+      {
+        "title": "The following changes will be made to the schema:",
+        "changes": [
+          "On member `AddProjectDraftIssueInput.assigneeIds`:`assigneeIds` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. **Effective 2022-10-01**.",
+          "On member `AddProjectDraftIssueInput.body`:`body` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. **Effective 2022-10-01**.",
+          "On member `AddProjectDraftIssueInput.projectId`:`projectId` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. **Effective 2022-10-01**.",
+          "On member `AddProjectDraftIssueInput.title`:`title` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. **Effective 2022-10-01**.",
+          "On member `AddProjectDraftIssuePayload.projectNextItem`:`projectNextItem` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. **Effective 2022-10-01**.",
+          "On member `AddProjectNextItemInput.contentId`:`contentId` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. **Effective 2022-10-01**.",
+          "On member `AddProjectNextItemInput.projectId`:`projectId` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. **Effective 2022-10-01**.",
+          "On member `AddProjectNextItemPayload.projectNextItem`:`projectNextItem` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. **Effective 2022-10-01**.",
+          "On member `DeleteProjectNextItemInput.itemId`:`itemId` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. **Effective 2022-10-01**.",
+          "On member `DeleteProjectNextItemInput.projectId`:`projectId` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. **Effective 2022-10-01**.",
+          "On member `DeleteProjectNextItemPayload.deletedItemId`:`deletedItemId` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. **Effective 2022-10-01**.",
+          "On member `Issue.projectNext`:`projectNext` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. **Effective 2022-10-01**.",
+          "On member `Issue.projectsNext`:`projectsNext` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. **Effective 2022-10-01**.",
+          "On member `LockMergeQueueInput.branch`:`branch` will be removed. **Effective 2022-10-01**.",
+          "On member `MergeLockedMergeGroupInput.branch`:`branch` will be removed. **Effective 2022-10-01**.",
+          "On member `Mutation.addProjectDraftIssue`:`addProjectDraftIssue` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. **Effective 2022-10-01**.",
+          "On member `Mutation.addProjectNextItem`:`addProjectNextItem` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. **Effective 2022-10-01**.",
+          "On member `Mutation.deleteProjectNextItem`:`deleteProjectNextItem` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. **Effective 2022-10-01**.",
+          "On member `Mutation.updateProjectDraftIssue`:`updateProjectDraftIssue` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. **Effective 2022-10-01**.",
+          "On member `Mutation.updateProjectNext`:`updateProjectNext` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. **Effective 2022-10-01**.",
+          "On member `Mutation.updateProjectNextItemField`:`updateProjectNextItemField` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. **Effective 2022-10-01**.",
+          "On member `Organization.projectNext`:`projectNext` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. **Effective 2022-10-01**.",
+          "On member `Organization.projectsNext`:`projectsNext` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. **Effective 2022-10-01**.",
+          "On member `Organization.recentProjectsNext`:`recentProjectsNext` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. **Effective 2022-10-01**.",
+          "On member `ProjectNext.closed`:`closed` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. **Effective 2022-10-01**.",
+          "On member `ProjectNext.createdAt`:`createdAt` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. **Effective 2022-10-01**.",
+          "On member `ProjectNext.creator`:`creator` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. **Effective 2022-10-01**.",
+          "On member `ProjectNext.databaseId`:`databaseId` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. **Effective 2022-10-01**.",
+          "On member `ProjectNext.defaultView`:`defaultView` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. **Effective 2022-10-01**.",
+          "On member `ProjectNext.description`:`description` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. **Effective 2022-10-01**.",
+          "On member `ProjectNext.fieldConstraints`:`fieldConstraints` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. **Effective 2022-10-01**.",
+          "On member `ProjectNext.fields`:`fields` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. **Effective 2022-10-01**.",
+          "On member `ProjectNext.items`:`items` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. **Effective 2022-10-01**.",
+          "On member `ProjectNext.number`:`number` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. **Effective 2022-10-01**.",
+          "On member `ProjectNext.owner`:`owner` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. **Effective 2022-10-01**.",
+          "On member `ProjectNext.public`:`public` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. **Effective 2022-10-01**.",
+          "On member `ProjectNext.repositories`:`repositories` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. **Effective 2022-10-01**.",
+          "On member `ProjectNext.resourcePath`:`resourcePath` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. **Effective 2022-10-01**.",
+          "On member `ProjectNext.shortDescription`:`shortDescription` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. **Effective 2022-10-01**.",
+          "On member `ProjectNext.title`:`title` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. **Effective 2022-10-01**.",
+          "On member `ProjectNext.updatedAt`:`updatedAt` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. **Effective 2022-10-01**.",
+          "On member `ProjectNext.url`:`url` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. **Effective 2022-10-01**.",
+          "On member `ProjectNext.views`:`views` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. **Effective 2022-10-01**.",
+          "On member `ProjectNextField.createdAt`:`createdAt` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. **Effective 2022-10-01**.",
+          "On member `ProjectNextField.dataType`:`dataType` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. **Effective 2022-10-01**.",
+          "On member `ProjectNextField.databaseId`:`databaseId` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. **Effective 2022-10-01**.",
+          "On member `ProjectNextField.name`:`name` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. **Effective 2022-10-01**.",
+          "On member `ProjectNextField.project`:`project` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. **Effective 2022-10-01**.",
+          "On member `ProjectNextField.settings`:`settings` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. **Effective 2022-10-01**.",
+          "On member `ProjectNextField.updatedAt`:`updatedAt` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. **Effective 2022-10-01**.",
+          "On member `ProjectNextFieldCommon.createdAt`:`createdAt` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. **Effective 2022-10-01**.",
+          "On member `ProjectNextFieldCommon.dataType`:`dataType` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. **Effective 2022-10-01**.",
+          "On member `ProjectNextFieldCommon.databaseId`:`databaseId` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. **Effective 2022-10-01**.",
+          "On member `ProjectNextFieldCommon.id`:`id` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. **Effective 2022-10-01**.",
+          "On member `ProjectNextFieldCommon.name`:`name` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. **Effective 2022-10-01**.",
+          "On member `ProjectNextFieldCommon.project`:`project` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. **Effective 2022-10-01**.",
+          "On member `ProjectNextFieldCommon.settings`:`settings` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. **Effective 2022-10-01**.",
+          "On member `ProjectNextFieldCommon.updatedAt`:`updatedAt` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. **Effective 2022-10-01**.",
+          "On member `ProjectNextFieldType.ASSIGNEES`:`ASSIGNEES` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. **Effective 2022-10-01**.",
+          "On member `ProjectNextFieldType.DATE`:`DATE` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. **Effective 2022-10-01**.",
+          "On member `ProjectNextFieldType.ITERATION`:`ITERATION` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. **Effective 2022-10-01**.",
+          "On member `ProjectNextFieldType.LABELS`:`LABELS` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. **Effective 2022-10-01**.",
+          "On member `ProjectNextFieldType.LINKED_PULL_REQUESTS`:`LINKED_PULL_REQUESTS` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. **Effective 2022-10-01**.",
+          "On member `ProjectNextFieldType.MILESTONE`:`MILESTONE` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. **Effective 2022-10-01**.",
+          "On member `ProjectNextFieldType.NUMBER`:`NUMBER` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. **Effective 2022-10-01**.",
+          "On member `ProjectNextFieldType.REPOSITORY`:`REPOSITORY` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. **Effective 2022-10-01**.",
+          "On member `ProjectNextFieldType.REVIEWERS`:`REVIEWERS` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. **Effective 2022-10-01**.",
+          "On member `ProjectNextFieldType.SINGLE_SELECT`:`SINGLE_SELECT` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. **Effective 2022-10-01**.",
+          "On member `ProjectNextFieldType.TEXT`:`TEXT` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. **Effective 2022-10-01**.",
+          "On member `ProjectNextFieldType.TITLE`:`TITLE` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. **Effective 2022-10-01**.",
+          "On member `ProjectNextFieldType.TRACKS`:`TRACKS` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. **Effective 2022-10-01**.",
+          "On member `ProjectNextItem.content`:`content` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. **Effective 2022-10-01**.",
+          "On member `ProjectNextItem.createdAt`:`createdAt` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. **Effective 2022-10-01**.",
+          "On member `ProjectNextItem.creator`:`creator` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. **Effective 2022-10-01**.",
+          "On member `ProjectNextItem.databaseId`:`databaseId` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. **Effective 2022-10-01**.",
+          "On member `ProjectNextItem.fieldValues`:`fieldValues` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. **Effective 2022-10-01**.",
+          "On member `ProjectNextItem.isArchived`:`isArchived` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. **Effective 2022-10-01**.",
+          "On member `ProjectNextItem.project`:`project` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. **Effective 2022-10-01**.",
+          "On member `ProjectNextItem.title`:`title` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. **Effective 2022-10-01**.",
+          "On member `ProjectNextItem.type`:`type` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. **Effective 2022-10-01**.",
+          "On member `ProjectNextItem.updatedAt`:`updatedAt` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. **Effective 2022-10-01**.",
+          "On member `ProjectNextItemFieldValue.createdAt`:`createdAt` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. **Effective 2022-10-01**.",
+          "On member `ProjectNextItemFieldValue.creator`:`creator` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. **Effective 2022-10-01**.",
+          "On member `ProjectNextItemFieldValue.databaseId`:`databaseId` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. **Effective 2022-10-01**.",
+          "On member `ProjectNextItemFieldValue.projectField`:`projectField` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. **Effective 2022-10-01**.",
+          "On member `ProjectNextItemFieldValue.projectFieldConstraint`:`projectFieldConstraint` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. **Effective 2022-10-01**.",
+          "On member `ProjectNextItemFieldValue.projectItem`:`projectItem` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. **Effective 2022-10-01**.",
+          "On member `ProjectNextItemFieldValue.updatedAt`:`updatedAt` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. **Effective 2022-10-01**.",
+          "On member `ProjectNextItemFieldValue.value`:`value` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. **Effective 2022-10-01**.",
+          "On member `ProjectNextIterationField.configuration`:`configuration` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. **Effective 2022-10-01**.",
+          "On member `ProjectNextIterationField.createdAt`:`createdAt` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. **Effective 2022-10-01**.",
+          "On member `ProjectNextIterationField.dataType`:`dataType` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. **Effective 2022-10-01**.",
+          "On member `ProjectNextIterationField.databaseId`:`databaseId` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. **Effective 2022-10-01**.",
+          "On member `ProjectNextIterationField.name`:`name` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. **Effective 2022-10-01**.",
+          "On member `ProjectNextIterationField.project`:`project` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. **Effective 2022-10-01**.",
+          "On member `ProjectNextIterationField.settings`:`settings` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. **Effective 2022-10-01**.",
+          "On member `ProjectNextIterationField.updatedAt`:`updatedAt` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. **Effective 2022-10-01**.",
+          "On member `ProjectNextIterationFieldConfiguration.completedIterations`:`completedIterations` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. **Effective 2022-10-01**.",
+          "On member `ProjectNextIterationFieldConfiguration.duration`:`duration` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. **Effective 2022-10-01**.",
+          "On member `ProjectNextIterationFieldConfiguration.iterations`:`iterations` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. **Effective 2022-10-01**.",
+          "On member `ProjectNextIterationFieldConfiguration.startDay`:`startDay` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. **Effective 2022-10-01**.",
+          "On member `ProjectNextIterationFieldIteration.duration`:`duration` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. **Effective 2022-10-01**.",
+          "On member `ProjectNextIterationFieldIteration.id`:`id` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. **Effective 2022-10-01**.",
+          "On member `ProjectNextIterationFieldIteration.startDate`:`startDate` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. **Effective 2022-10-01**.",
+          "On member `ProjectNextIterationFieldIteration.title`:`title` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. **Effective 2022-10-01**.",
+          "On member `ProjectNextIterationFieldIteration.titleHTML`:`titleHtml` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. **Effective 2022-10-01**.",
+          "On member `ProjectNextOrderField.CREATED_AT`:`CREATED_AT` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. **Effective 2022-10-01**.",
+          "On member `ProjectNextOrderField.NUMBER`:`NUMBER` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. **Effective 2022-10-01**.",
+          "On member `ProjectNextOrderField.TITLE`:`TITLE` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. **Effective 2022-10-01**.",
+          "On member `ProjectNextOrderField.UPDATED_AT`:`UPDATED_AT` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. **Effective 2022-10-01**.",
+          "On member `ProjectNextOwner.projectNext`:`projectNext` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. **Effective 2022-10-01**.",
+          "On member `ProjectNextOwner.projectsNext`:`projectsNext` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. **Effective 2022-10-01**.",
+          "On member `ProjectNextRecent.recentProjectsNext`:`recentProjectsNext` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. **Effective 2022-10-01**.",
+          "On member `ProjectNextSingleSelectField.createdAt`:`createdAt` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. **Effective 2022-10-01**.",
+          "On member `ProjectNextSingleSelectField.dataType`:`dataType` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. **Effective 2022-10-01**.",
+          "On member `ProjectNextSingleSelectField.databaseId`:`databaseId` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. **Effective 2022-10-01**.",
+          "On member `ProjectNextSingleSelectField.name`:`name` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. **Effective 2022-10-01**.",
+          "On member `ProjectNextSingleSelectField.options`:`options` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. **Effective 2022-10-01**.",
+          "On member `ProjectNextSingleSelectField.project`:`project` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. **Effective 2022-10-01**.",
+          "On member `ProjectNextSingleSelectField.settings`:`settings` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. **Effective 2022-10-01**.",
+          "On member `ProjectNextSingleSelectField.updatedAt`:`updatedAt` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. **Effective 2022-10-01**.",
+          "On member `ProjectNextSingleSelectFieldOption.id`:`id` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. **Effective 2022-10-01**.",
+          "On member `ProjectNextSingleSelectFieldOption.name`:`name` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. **Effective 2022-10-01**.",
+          "On member `ProjectNextSingleSelectFieldOption.nameHTML`:`nameHtml` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. **Effective 2022-10-01**.",
+          "On member `ProjectView.createdAt`:`createdAt` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. **Effective 2022-10-01**.",
+          "On member `ProjectView.databaseId`:`databaseId` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. **Effective 2022-10-01**.",
+          "On member `ProjectView.filter`:`filter` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. **Effective 2022-10-01**.",
+          "On member `ProjectView.groupBy`:`groupBy` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. **Effective 2022-10-01**.",
+          "On member `ProjectView.items`:`items` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. **Effective 2022-10-01**.",
+          "On member `ProjectView.layout`:`layout` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. **Effective 2022-10-01**.",
+          "On member `ProjectView.name`:`name` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. **Effective 2022-10-01**.",
+          "On member `ProjectView.number`:`number` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. **Effective 2022-10-01**.",
+          "On member `ProjectView.project`:`project` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. **Effective 2022-10-01**.",
+          "On member `ProjectView.sortBy`:`sortBy` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. **Effective 2022-10-01**.",
+          "On member `ProjectView.updatedAt`:`updatedAt` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. **Effective 2022-10-01**.",
+          "On member `ProjectView.verticalGroupBy`:`verticalGroupBy` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. **Effective 2022-10-01**.",
+          "On member `ProjectView.visibleFields`:`visibleFields` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. **Effective 2022-10-01**.",
+          "On member `PullRequest.projectNext`:`projectNext` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. **Effective 2022-10-01**.",
+          "On member `PullRequest.projectNextItems`:`projectNextItems` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. **Effective 2022-10-01**.",
+          "On member `PullRequest.projectsNext`:`projectsNext` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. **Effective 2022-10-01**.",
+          "On member `Repository.projectNext`:`projectNext` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. **Effective 2022-10-01**.",
+          "On member `Repository.projectsNext`:`projectsNext` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. **Effective 2022-10-01**.",
+          "On member `Repository.recentProjectsNext`:`recentProjectsNext` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. **Effective 2022-10-01**.",
+          "On member `UnlockAndResetMergeGroupInput.branch`:`branch` will be removed. **Effective 2022-10-01**.",
+          "On member `UpdateProjectNextInput.closed`:`closed` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. **Effective 2022-10-01**.",
+          "On member `UpdateProjectNextInput.description`:`description` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. **Effective 2022-10-01**.",
+          "On member `UpdateProjectNextInput.projectId`:`projectId` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. **Effective 2022-10-01**.",
+          "On member `UpdateProjectNextInput.public`:`public` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. **Effective 2022-10-01**.",
+          "On member `UpdateProjectNextInput.shortDescription`:`shortDescription` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. **Effective 2022-10-01**.",
+          "On member `UpdateProjectNextInput.title`:`title` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. **Effective 2022-10-01**.",
+          "On member `UpdateProjectNextItemFieldInput.fieldConstraintId`:`fieldConstraintId` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. **Effective 2022-10-01**.",
+          "On member `UpdateProjectNextItemFieldInput.fieldId`:`fieldId` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. **Effective 2022-10-01**.",
+          "On member `UpdateProjectNextItemFieldInput.itemId`:`itemId` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. **Effective 2022-10-01**.",
+          "On member `UpdateProjectNextItemFieldInput.value`:`value` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. **Effective 2022-10-01**.",
+          "On member `UpdateProjectNextItemFieldPayload.projectNextItem`:`projectNextItem` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. **Effective 2022-10-01**.",
+          "On member `UpdateProjectNextPayload.projectNext`:`projectNext` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. **Effective 2022-10-01**.",
+          "On member `User.projectNext`:`projectNext` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. **Effective 2022-10-01**.",
+          "On member `User.projectsNext`:`projectsNext` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. **Effective 2022-10-01**.",
+          "On member `User.recentProjectsNext`:`recentProjectsNext` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. **Effective 2022-10-01**."
+        ]
+      }
+    ],
+    "date": "2022-06-24"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "Type `AddDiscussionPollVoteInput` was added",
+          "Type `AddDiscussionPollVotePayload` was added",
+          "Type 'AddProjectV2DraftIssueInput' was added",
+          "Type 'AddProjectV2DraftIssuePayload' was added",
+          "Type 'AddProjectV2ItemByIdInput' was added",
+          "Type 'AddProjectV2ItemByIdPayload' was added",
+          "Type 'CreateProjectV2Input' was added",
+          "Type 'CreateProjectV2Payload' was added",
+          "Type 'DeleteProjectV2ItemInput' was added",
+          "Type 'DeleteProjectV2ItemPayload' was added",
+          "Type `DiscussionPoll` was added",
+          "Type `DiscussionPollOption` was added",
+          "Type `DiscussionPollOptionConnection` was added",
+          "Type `DiscussionPollOptionEdge` was added",
+          "Type `DiscussionPollOptionOrder` was added",
+          "Type `DiscussionPollOptionOrderField` was added",
+          "Type `OrganizationOrUser` was added",
+          "Type 'ProjectV2' was added",
+          "Type 'ProjectV2Connection' was added",
+          "Type 'ProjectV2Edge' was added",
+          "Type 'ProjectV2Field' was added",
+          "Type 'ProjectV2FieldCommon' was added",
+          "Type 'ProjectV2FieldConfiguration' was added",
+          "Type 'ProjectV2FieldConfigurationConnection' was added",
+          "Type 'ProjectV2FieldConfigurationEdge' was added",
+          "Type 'ProjectV2FieldConnection' was added",
+          "Type 'ProjectV2FieldEdge' was added",
+          "Type 'ProjectV2FieldType' was added",
+          "Type 'ProjectV2FieldValue' was added",
+          "Type 'ProjectV2Item' was added",
+          "Type 'ProjectV2ItemConnection' was added",
+          "Type 'ProjectV2ItemContent' was added",
+          "Type 'ProjectV2ItemEdge' was added",
+          "Type 'ProjectV2ItemFieldDateValue' was added",
+          "Type 'ProjectV2ItemFieldIterationValue' was added",
+          "Type 'ProjectV2ItemFieldLabelValue' was added",
+          "Type 'ProjectV2ItemFieldMilestoneValue' was added",
+          "Type 'ProjectV2ItemFieldNumberValue' was added",
+          "Type 'ProjectV2ItemFieldPullRequestValue' was added",
+          "Type 'ProjectV2ItemFieldRepositoryValue' was added",
+          "Type 'ProjectV2ItemFieldReviewerValue' was added",
+          "Type 'ProjectV2ItemFieldSingleSelectValue' was added",
+          "Type 'ProjectV2ItemFieldTextValue' was added",
+          "Type 'ProjectV2ItemFieldUserValue' was added",
+          "Type 'ProjectV2ItemFieldValue' was added",
+          "Type 'ProjectV2ItemFieldValueCommon' was added",
+          "Type 'ProjectV2ItemFieldValueConnection' was added",
+          "Type 'ProjectV2ItemFieldValueEdge' was added",
+          "Type 'ProjectV2ItemType' was added",
+          "Type 'ProjectV2IterationField' was added",
+          "Type 'ProjectV2IterationFieldConfiguration' was added",
+          "Type 'ProjectV2IterationFieldIteration' was added",
+          "Type 'ProjectV2Order' was added",
+          "Type 'ProjectV2OrderField' was added",
+          "Type 'ProjectV2Owner' was added",
+          "Type 'ProjectV2Recent' was added",
+          "Type 'ProjectV2SingleSelectField' was added",
+          "Type 'ProjectV2SingleSelectFieldOption' was added",
+          "Type 'ProjectV2SortBy' was added",
+          "Type 'ProjectV2SortByConnection' was added",
+          "Type 'ProjectV2SortByEdge' was added",
+          "Type 'ProjectV2View' was added",
+          "Type 'ProjectV2ViewConnection' was added",
+          "Type 'ProjectV2ViewEdge' was added",
+          "Type 'ProjectV2ViewLayout' was added",
+          "Type `RequestedReviewerConnection` was added",
+          "Type `RequestedReviewerEdge` was added",
+          "Type 'UpdateProjectV2DraftIssueInput' was added",
+          "Type 'UpdateProjectV2DraftIssuePayload' was added",
+          "Type 'UpdateProjectV2Input' was added",
+          "Type 'UpdateProjectV2ItemFieldValueInput' was added",
+          "Type 'UpdateProjectV2ItemFieldValuePayload' was added",
+          "Type 'UpdateProjectV2ItemPositionInput' was added",
+          "Type 'UpdateProjectV2ItemPositionPayload' was added",
+          "Type 'UpdateProjectV2Payload' was added",
+          "Field `poll` was added to object type `Discussion`",
+          "Field 'projectV2Items` was added to object type `DraftIssue'",
+          "Field 'projectsV2` was added to object type `DraftIssue'",
+          "`Issue` object implements 'ProjectV2Owner' interface",
+          "Field `projectItems` was added to object type `Issue`",
+          "Field 'projectV2` was added to object type `Issue'",
+          "Field 'projectsV2` was added to object type `Issue'",
+          "Field `addDiscussionPollVote` was added to object type `Mutation`",
+          "Field 'addProjectV2DraftIssue` was added to object type `Mutation'",
+          "Field 'addProjectV2ItemById` was added to object type `Mutation'",
+          "Field 'createProjectV2` was added to object type `Mutation'",
+          "Field 'deleteProjectV2Item` was added to object type `Mutation'",
+          "Field 'updateProjectV2` was added to object type `Mutation'",
+          "Field 'updateProjectV2DraftIssue` was added to object type `Mutation'",
+          "Field 'updateProjectV2ItemFieldValue` was added to object type `Mutation'",
+          "Field 'updateProjectV2ItemPosition` was added to object type `Mutation'",
+          "Enum value `SUSPENDED` was added to enum `OrgRemoveMemberAuditEntryMembershipType`",
+          "`Organization` object implements 'ProjectV2Owner' interface",
+          "`Organization` object implements 'ProjectV2Recent' interface",
+          "Field 'projectV2` was added to object type `Organization'",
+          "Field 'projectsV2` was added to object type `Organization'",
+          "Field `recentProjects` was added to object type `Organization`",
+          "`PullRequest` object implements 'ProjectV2Owner' interface",
+          "Field `projectItems` was added to object type `PullRequest`",
+          "Field 'projectV2` was added to object type `PullRequest'",
+          "Field 'projectsV2` was added to object type `PullRequest'",
+          "Field `viewerCanEditFiles` was added to object type `PullRequest`",
+          "`Repository` object implements 'ProjectV2Recent' interface",
+          "Field `allowUpdateBranch` was added to object type `Repository`",
+          "Field 'projectV2` was added to object type `Repository'",
+          "Field 'projectsV2` was added to object type `Repository'",
+          "Field `recentProjects` was added to object type `Repository`",
+          "`User` object implements 'ProjectV2Owner' interface",
+          "`User` object implements 'ProjectV2Recent' interface",
+          "Field 'projectV2` was added to object type `User'",
+          "Field 'projectsV2` was added to object type `User'",
+          "Field `recentProjects` was added to object type `User`"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [
+      {
+        "title": "The following changes will be made to the schema:",
+        "changes": [
+          "On member `RepositoryVulnerabilityAlert.fixReason`:`fixReason` will be removed. **Effective 2022-10-01**."
+        ]
+      }
+    ],
+    "date": "2022-06-23"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": []
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [
+      {
+        "title": "The following changes will be made to the schema:",
+        "changes": [
+          "On member `DependencyGraphDependency.packageLabel`:`packageLabel` will be removed. Use normalized `packageName` field instead. **Effective 2022-10-01**."
+        ]
+      }
+    ],
+    "date": "2022-06-13"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "Enum value `RUST` was added to enum `DependencyGraphEcosystem`",
+          "Field `squashPrTitleUsedAsDefault` was added to object type `Repository`"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2022-06-10"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "Type `SecurityAdvisoryClassification` was added",
+          "Type 'ProjectV2Owner' was removed",
+          "`Issue` object type no longer implements 'ProjectV2Owner' interface",
+          "`Organization` object type no longer implements 'ProjectV2Owner' interface",
+          "`PullRequest` object type no longer implements 'ProjectV2Owner' interface",
+          "Argument 'classifications: [SecurityAdvisoryClassification!]` added to field `Query.securityAdvisories'",
+          "Argument 'classifications: [SecurityAdvisoryClassification!]` added to field `Query.securityVulnerabilities'",
+          "Field `classification` was added to object type `SecurityAdvisory`",
+          "Argument 'classifications: [SecurityAdvisoryClassification!]` added to field `SecurityAdvisory.vulnerabilities'",
+          "`User` object type no longer implements 'ProjectV2Owner' interface"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2022-06-06"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "Field `viewerIsFollowing` was added to object type `Organization`"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2022-05-31"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "Type `ExternalIdentityAttribute` was added",
+          "Type `IssueClosedStateReason` was added",
+          "Type `IssueStateReason` was added",
+          "Member `App` was added to Union type `BranchActorAllowanceActor`",
+          "Input field `stateReason` was added to input object type `CloseIssueInput`",
+          "Field `stateReason` was added to object type `ClosedEvent`",
+          "Field `attributes` was added to object type `ExternalIdentitySamlAttributes`",
+          "Field `stateReason` was added to object type `Issue`",
+          "Enum value 'FAILED_VALIDATION` was added to enum `MigrationState'",
+          "Enum value 'PENDING_VALIDATION` was added to enum `MigrationState'",
+          "Field `stateReason` was added to object type `ReopenedEvent`",
+          "Member `App` was added to Union type `ReviewDismissalAllowanceActor`",
+          "Input field `StartRepositoryMigrationInput.accessToken` changed type from `String` to `String!`"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [
+      {
+        "title": "The following changes will be made to the schema:",
+        "changes": [
+          "On member `RemovePullRequestFromMergeQueueInput.branch`:`branch` will be removed. **Effective 2022-10-01**."
+        ]
+      }
+    ],
+    "date": "2022-05-29"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "Type `FollowOrganizationInput` was added",
           "Type `FollowOrganizationPayload` was added",
           "Type `UnfollowOrganizationInput` was added",

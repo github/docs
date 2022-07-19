@@ -81,7 +81,7 @@ For more information about how to authenticate to {% data variables.product.prod
 ### 4. Writing on {% data variables.product.product_name %}
 To make your communication clear and organized in issues and pull requests, you can use {% data variables.product.prodname_dotcom %} Flavored Markdown for formatting, which combines an easy-to-read, easy-to-write syntax with some custom functionality. 詳しい情報については、「[{% data variables.product.prodname_dotcom %}での執筆とフォーマットについて](/github/writing-on-github/about-writing-and-formatting-on-github)」を参照してください。
 
-You can learn {% data variables.product.prodname_dotcom %} Flavored Markdown with the "[Communicating using Markdown](https://lab.github.com/githubtraining/communicating-using-markdown)" course on {% data variables.product.prodname_learning %}.
+You can learn {% data variables.product.prodname_dotcom %} Flavored Markdown with the "[Communicate using Markdown](https://github.com/skills/communicate-using-markdown)" course on {% data variables.product.prodname_learning %}.
 
 ### 5. Searching on {% data variables.product.product_name %}
 Our integrated search allows you to find what you are looking for among the many repositories, users and lines of code on {% data variables.product.product_name %}. You can search globally across all of {% data variables.product.product_name %} or limit your search to a particular repository or organization. For more information about the types of searches you can do on {% data variables.product.product_name %}, see "[About searching on {% data variables.product.prodname_dotcom %}](/github/searching-for-information-on-github/getting-started-with-searching-on-github/about-searching-on-github)."
@@ -187,7 +187,7 @@ For more information, see "[Securing your software supply chain](/code-security/
 {% data reusables.docs.you-can-read-docs-for-your-product %}
 
 ### 4. Learning with {% data variables.product.prodname_learning %}
-{% data reusables.getting-started.learning-lab %}
+{% data reusables.getting-started.learning %}
 
 {% ifversion fpt or ghec %}
 ### 5. Supporting the open source community

@@ -1,18 +1,18 @@
-When using the `pull_request` and `pull_request_target` events, you can configure a workflow to run only for pull requests that target specific branches.
+`pull_request`及び`pull_request_target`イベントを使う場合、特定のブランチをターゲットとするPull Requestに対してだけ実行されるようにワークフローを設定できます。
 
-Use the `branches` filter when you want to include branch name patterns or when you want to both include and exclude branch names patterns. Use the `branches-ignore` filter when you only want to exclude branch name patterns. You cannot use both the `branches` and `branches-ignore` filters for the same event in a workflow.
+ブランチ名のパターンを含めたい場合、あるいはぶらん名のパターンを含めるとともに除外もしたい場合に、`branches`フィルタを使ってください。 ブランチ名のパターンを除外のみしたい場合に`branches-ignore`フィルタを使ってください。 `branches`と`branches-ignore`を1つのワークフロー内の同じイベントに使うことはできません。
 
-If you define both `branches`/`branches-ignore` and [`paths`](#onpushpull_requestpull_request_targetpathspaths-ignore), the workflow will only run when both filters are satisfied.
+`branches`/`branches-ignore`と[`paths`](#onpushpull_requestpull_request_targetpathspaths-ignore)の両方を定義した場合、ワークフローはどちらのフィルタも満たされた場合にのみ実行されます。
 
-The `branches` and `branches-ignore` keywords accept glob patterns that use characters like `*`, `**`, `+`, `?`, `!` and others to match more than one branch name. If a name contains any of these characters and you want a literal match, you need to escape each of these special characters with `\`. For more information about glob patterns, see the "[Filter pattern cheat sheet](/actions/using-workflows/workflow-syntax-for-github-actions#filter-pattern-cheat-sheet)."
+`branches`及び`branches-ignore`キーワードは、複数のブランチ名にマッチさせるために`*`、`**`、`+`、`?`、`!`などの文字を使うglobパターンを受け付けます。 これらの文字のいずれかを含む名前に対してリテラルの一致をさせたい場合には、これらの特殊文字を`\`でエスケープしなければなりません。 globパターンに関する詳しい情報については「[フィルタパターンのチートシート](/actions/using-workflows/workflow-syntax-for-github-actions#filter-pattern-cheat-sheet)」を参照してください。
 
-#### Example: Including branches
+#### 例: ブランチを含める
 
-The patterns defined in `branches` are evaluated against the Git ref's name. For example, the following workflow would run whenever there is a `pull_request` event for a pull request targeting:
+`branches`で定義されているパターンは、Git refの名前と照らし合わせて評価されます。 たとえば、次のワークフローは以下をターゲットとするPull Requestに対する`pull_request`イベントがあった場合に実行されます。
 
-- A branch named `main` (`refs/heads/main`)
-- A branch named `mona/octocat` (`refs/heads/mona/octocat`)
-- A branch whose name starts with `releases/`, like `releases/10` (`refs/heads/releases/10`)
+- `main`という名前のブランチ(`refs/heads/main`)
+- `mona/octocat`という名前のブランチ(`refs/heads/mona/octocat`)
+- `releases/10`のように`releases/`で始まる名前のブランチ(`refs/heads/releases/10`)
 
 ```yaml
 on:
@@ -24,12 +24,12 @@ on:
       - 'releases/**'
 ```
 
-#### Example: Excluding branches
+#### 例: ブランチの除外
 
-When a pattern matches the `branches-ignore` pattern, the workflow will not run. The patterns defined in `branches` are evaluated against the Git ref's name. For example, the following workflow would run whenever there is a `pull_request` event unless the pull request is targeting:
+パターンが`tags-ignore`とマッチする場合、ワークフローは実行されません。 `branches`で定義されているパターンは、Git refの名前と照らし合わせて評価されます。 たとえば、次のワークフローは以下をターゲットとしないPull Requestに対する`pull_request`イベントがあった場合に実行されます。
 
-- A branch named `mona/octocat` (`refs/heads/mona/octocat`)
-- A branch whose name matches `releases/**-alpha`, like `beta/3-alpha` (`refs/releases/beta/3-alpha`)
+- `mona/octocat`という名前のブランチ(`refs/heads/mona/octocat`)
+- `releases/beta/3-alpha`のように、`releases/**-alpha`にマッチする名前のブランチ(`refs/releases/beta/3-alpha`)
 
 ```yaml
 on:
@@ -40,18 +40,18 @@ on:
       - 'releases/**-alpha'
 ```
 
-#### Example: Including and excluding branches
+#### 例: ブランチを含めるとともに除外
 
-You cannot use `branches` and `branches-ignore` to filter the same event in a single workflow. If you want to both include and exclude branch patterns for a single event, use the `branches` filter along with the `!` character to indicate which branches should be excluded.
+`branches`及び`branches-ignore`フィルタを1つのワークフロー中の同じイベントをフィルタリングするために使うことはできません。 1つのイベントに対して含めるブランチパターンと除外するブランチパターンをどちらも使いたい場合には、`branches`フィルタを`!`文字と合わせて使い、除外するブランチを示してください。
 
-If you define a branch with the `!` character, you must also define at least one branch without the `!` character. If you only want to exclude branches, use `branches-ignore` instead.
+`!`文字を使ってブランチを定義する場合、`!`文字なしで少なくとも1つのブランチを定義する必要もあります。 ブランチの除外だけをしたい場合には、代わりに`branches-ignore`を使ってください。
 
 パターンを定義する順序により、結果に違いが生じます。
 
 - 肯定のマッチングパターンの後に否定のマッチングパターン ("`!`" のプレフィクス) を定義すると、Git ref を除外します。
 - 否定のマッチングパターンの後に肯定のマッチングパターンを定義すると、Git ref を再び含めます。
 
-The following workflow will run on `pull_request` events for pull requests that target `releases/10` or `releases/beta/mona`, but not for pull requests that target `releases/10-alpha` or `releases/beta/3-alpha` because the negative pattern `!releases/**-alpha` follows the positive pattern.
+以下のワークフローは、`releases/10` や `releases/beta/mona` への`pull_request`イベントで実行されますが、`releases/10-alpha` や `releases/beta/3-alpha`に対するPull Requstでは実行されません。肯定のマッチングパターンの後に、否定のマッチングパターン `!releases/**-alpha` が続いているからです。
 
 ```yaml
 on:

@@ -30,7 +30,7 @@ topics:
 
 コンパイル言語用に {% data variables.product.prodname_code_scanning %} をセットアップし、コンテナ化された環境でコードをビルドしようとすると、解析が失敗し、"No source code was seen during the build." というエラーメッセージが出る場合があります。 これは、コードがコンパイルされているので {% data variables.product.prodname_codeql %} がコードをモニターできなかったことを示しています。
 
-{% data variables.product.prodname_codeql %}は、コードをビルドするコンテナ内で実行しなければなりません。 これは、{% data variables.product.prodname_codeql_cli %}{% if codeql-runner-supported %}、{% data variables.product.prodname_codeql_runner %}{% endif %}、{% data variables.product.prodname_actions %}のいずれを使っていても当てはまります。 {% data variables.product.prodname_codeql_cli %}{% if codeql-runner-supported %}あるいは{% data variables.product.prodname_codeql_runner %}{% endif %}については、詳しい情報は「[CIシステムへの{% data variables.product.prodname_codeql_cli %}のインストール](/code-security/secure-coding/using-codeql-code-scanning-with-your-existing-ci-system/installing-codeql-cli-in-your-ci-system)」{% if codeql-runner-supported %}あるいは「[CIシステムでの{% data variables.product.prodname_codeql_runner %}の実行](/code-security/secure-coding/running-codeql-runner-in-your-ci-system)」{% endif %}を参照してください。 {% data variables.product.prodname_actions %} を使用している場合は、同じコンテナですべてのアクションを実行するようワークフローを設定します。 詳しい情報については「[ワークフローの例](#example-workflow)」を参照してください。
+{% data variables.product.prodname_codeql %}は、コードをビルドするコンテナ内で実行しなければなりません。 これは、{% data variables.product.prodname_codeql_cli %}{% ifversion codeql-runner-supported %}、{% data variables.product.prodname_codeql_runner %}{% endif %}、{% data variables.product.prodname_actions %}のいずれを使っていても当てはまります。 {% data variables.product.prodname_codeql_cli %}{% ifversion codeql-runner-supported %}あるいは{% data variables.product.prodname_codeql_runner %}{% endif %}については、詳しい情報は「[CIシステムへの{% data variables.product.prodname_codeql_cli %}のインストール](/code-security/secure-coding/using-codeql-code-scanning-with-your-existing-ci-system/installing-codeql-cli-in-your-ci-system)」{% ifversion codeql-runner-supported %}あるいは「[CIシステムでの{% data variables.product.prodname_codeql_runner %}の実行](/code-security/secure-coding/running-codeql-runner-in-your-ci-system)」{% endif %}を参照してください。 {% data variables.product.prodname_actions %} を使用している場合は、同じコンテナですべてのアクションを実行するようワークフローを設定します。 詳しい情報については「[ワークフローの例](#example-workflow)」を参照してください。
 
 ## 依存関係
 
@@ -66,10 +66,10 @@ on:
 jobs:
   analyze:
     name: Analyze
-    runs-on: ubuntu-latest{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
+    runs-on: ubuntu-latest
     permissions:
       security-events: write
-      actions: read{% endif %}
+      actions: read
 
     strategy:
       fail-fast: false

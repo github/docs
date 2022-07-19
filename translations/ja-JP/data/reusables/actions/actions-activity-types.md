@@ -1,6 +1,6 @@
-Some events have activity types that give you more control over when your workflow should run. Use `on.<event_name>.types` to define the type of event activity that will trigger a workflow run.
+一部のイベントは、ワークフローを実行すべきときを詳細に制御できるようにしてくれるアクティビティタイプを持ちます。 `on.<event_name>.types`を使って、ワークフローの実行をトリガーするイベントアクティビティのタイプを定義してください。
 
-For example, the `issue_comment` event has the `created`, `edited`, and `deleted` activity types. If your workflow triggers on the `label` event, it will run whenever a label is created, edited, or deleted. If you specify the `created` activity type for the `label` event, your workflow will run when a label is created but not when a label is edited or deleted.
+たとえば、`issue_comment`イベントは`created`、`edited`、`deleted`というアクティビティタイプを持ちます。 ワークフローが`label`イベントでトリガーされるなら、それはラベルが作成、編集、削除されたときに実行されます。 `label`イベントに`created`アクティビティタイプを指定したなら、ワークフローはラベルが作成されたときに実行され、ラベルが編集あるいは削除されたときには実行されません。
 
 ```yaml
 on:
@@ -9,11 +9,11 @@ on:
       - created
 ```
 
-If you specify multiple activity types, only one of those event activity types needs to occur to trigger your workflow. If multiple triggering event activity types for your workflow occur at the same time, multiple workflow runs will be triggered. For example, the following workflow triggers when an issue is opened or labeled. If an issue with two labels is opened, three workflow runs will start: one for the issue opened event and two for the two issue labeled events.
+複数のアクティビティタイプを指定した場合、ワークフローのトリガーを引き起こすのに必要なのはそれらのイベントアクティビティタイプの1つだけです。 ワークフローに対するトリガーになるイベントアクティビティタイプが複数同時に発生した場合、複数のワークフローの実行がトリガーされます。 たとえば、以下のワークフローはIssueがオープンされるかラベル付けされたときにトリガーされます。 2つのラベルを付けたIssueがオープンされた場合、Issueのオープンイベントに対して1つ、そして2つのIssueのラベル付けのイベントに対して2つ、合計3つのワークフローの実行が開始されます。
 
 ```yaml
 on:
-  issue:
+  issues:
     types:
       - opened
       - labeled

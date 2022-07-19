@@ -36,7 +36,7 @@ You can review changes in a pull request one file at a time. While reviewing the
 
    You can also choose to hide whitespace differences. The choice you make only applies to this pull request and will be remembered the next time you visit this page.
 {% endif %}
-1. Optionally, filter the files to show only the files you want to review{% if pr-tree-view %} or use the file tree to navigate to a specific file{% endif %}. For more information, see "[Filtering files in a pull request](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/filtering-files-in-a-pull-request)."
+1. Optionally, filter the files to show only the files you want to review{% ifversion pr-tree-view %} or use the file tree to navigate to a specific file{% endif %}. For more information, see "[Filtering files in a pull request](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/filtering-files-in-a-pull-request)."
 {% data reusables.repositories.start-line-comment %}
 {% data reusables.repositories.type-line-comment %}
 {% data reusables.repositories.suggest-changes %}
@@ -53,16 +53,16 @@ Before you submit your review, your line comments are _pending_ and only visible
 
 {% codespaces %}
 
-You can use [{% data variables.product.prodname_codespaces %}](/codespaces/overview) to test, run, and review pull requests.
+You can use [{% data variables.product.prodname_github_codespaces %}](/codespaces/overview) to test, run, and review pull requests.
 
 {% data reusables.codespaces.review-pr %}
 
-For more information on reviewing pull requests in {% data variables.product.prodname_codespaces %}, see "[Using Codespaces for pull requests](/codespaces/developing-in-codespaces/using-codespaces-for-pull-requests)."
+For more information on reviewing pull requests in {% data variables.product.prodname_codespaces %}, see "[Using {% data variables.product.prodname_github_codespaces %} for pull requests](/codespaces/developing-in-codespaces/using-github-codespaces-for-pull-requests)."
 
 {% endcodespaces %}
 {% endif %}
 
-{% ifversion fpt or ghes > 3.1 or ghec %}
+{% ifversion fpt or ghes or ghec %}
 ## Reviewing dependency changes
 
 {% data reusables.dependency-review.beta %}

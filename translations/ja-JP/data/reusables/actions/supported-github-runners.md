@@ -15,7 +15,7 @@ Windows Server 2022
 <code>windows-latest</code>もしくは<code>windows-2022</code>
 </td>
 <td>
-The <code>windows-latest</code> label currently uses the Windows Server 2022 runner image.
+現在<code>windows-latest</code>ラベルはWindows Server 2022のランナーイメージを使用しています。
 </td>
 </tr>
 <tr>
@@ -36,7 +36,7 @@ Ubuntu 22.04
 <code>ubuntu-22.04</code>
 </td>
 <td>
-Ubuntu 22.04 is currently in public beta.
+Ubuntu 22.04は現在パブリックベータです。
 </td>
 </tr>
 <tr>
@@ -63,10 +63,7 @@ macOS Monterey 12
 </td>
 <td>
 <code>macos-12</code>
-</td>
-<td>
-macOS 12 is currently in public beta.
-</td>
+  </td>
 </tr>
 <tr>
 <td>
@@ -76,7 +73,7 @@ macOS Big Sur 11
 <code>macos-latest</code>もしくは<code>macos-11</code>
 </td>
 <td>
-The <code>macos-latest</code> label currently uses the macOS 11 runner image.
+現在<code>macos-latest</code>ラベルはmacOS 11のランナーイメージを使用しています。
 </td>
 </tr>
 <tr>
@@ -94,12 +91,12 @@ macOS Catalina 10.15
 
 {% note %}
 
-**Note:** The `-latest` virtual environments are the latest stable images that {% data variables.product.prodname_dotcom %} provides, and might not be the most recent version of the operating system available from the operating system vendor.
+**ノート:** `-latest`の仮想環境は、{% data variables.product.prodname_dotcom %}が提供している最新の安定版イメージであり、オペレーティングシステムのベンダーから提供されているオペレーティングシステムの最新バージョンではないことがあります。
 
 {% endnote %}
 
 {% warning %}
 
-<b>Note:</b> Beta and Deprecated Images are provided "as-is", "with all faults" and "as available" and are excluded from the service level agreement and warranty. Beta Images may not be covered by customer support.
+<b>ノート:</b> ベータ及び非推奨のイメージは"as-is"、"with all faults"、"as available"で提供されており、サービスレベルアグリーメント及び保証の対象外です。 ベータのイメージは、カスタマーサポートの対象外になっていることがあります。
 
 {% endwarning %}

@@ -5,7 +5,7 @@ permissions: '{% data reusables.security-center.permissions %}'
 product: '{% data reusables.gated-features.security-center %}'
 versions:
   ghae: '*'
-  ghes: '>3.1'
+  ghes: '*'
   ghec: '*'
 type: how_to
 topics:
@@ -23,7 +23,7 @@ shortTitle: Filtrar alertas
 
 ## Acerca de filtrar el resumen de seguridad
 
-Puedes utilizar filtros en el resumen de seguridad para reducir tu enfoque con base en una serie de factores, como el nivel de riesgo de la alerta, el tipo de esta y la habilitación de características. Los diversos filtros se encuentran disponibles dependiendo de la vista específica y de si estás analizando a nivel de organización, de equipo o de repositorio.
+Puedes utilizar filtros en el resumen de seguridad para reducir tu enfoque con base en una serie de factores, como el nivel de riesgo de la alerta, el tipo de esta y la habilitación de características. Hay diferentes filtros disponibles, dependiendo de la vista específica y de si tu análisis está a nivel de organización, equipo o repositorio.
 
 ## Filtrar por repositorio
 
@@ -101,7 +101,7 @@ Disponible en el resumen a nivel organizacional.
 | ------------------------- | ------------------------------------------------------------ |
 | <code>topic:<em>TOPIC-NAME</em></code> | Muestra los repositorios que se clasifican con *TOPIC-NAME*. |
 
-{% if security-overview-views %}
+{% ifversion security-overview-views %}
 
 ## Filtrar por gravedad
 
@@ -117,7 +117,7 @@ Disponible en las vistas de alertas del escaneo de código. Todas las alertas de
 | `severity:warning`  | Muestra alertas del {% data variables.product.prodname_code_scanning %} categorizadas como advertencias. |
 | `severity:note`     | Muestra alertas del {% data variables.product.prodname_code_scanning %} categorizadas como notas.        |
 
-{% if dependabot-alerts-vulnerable-calls %}
+{% ifversion dependabot-alerts-vulnerable-calls %}
 ## Filtrar por tipo de alerta del {% data variables.product.prodname_dependabot %}
 
 Disponible en las vistas de alerta del {% data variables.product.prodname_dependabot %}. Puedes filtrar la vista para mostrar las {% data variables.product.prodname_dependabot_alerts %} que están listas para arreglarse o donde la información adicional sobre la exposición se encuentre disponible. Puedes hacer clic en cualquier resultado para ver todos los detalles de esa alerta.

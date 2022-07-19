@@ -1,11 +1,11 @@
 ---
-title: Verifying or approving a domain for your enterprise
+title: Enterprise のドメインを検証または承認する
 shortTitle: ドメインの検証もしくは承認
 intro: 'You can verify your ownership of domains with {% data variables.product.company_short %} to confirm the identity of organizations owned by your enterprise account. You can also approve domains where organization members can receive email notifications.'
 product: '{% data reusables.gated-features.verify-and-approve-domain %}'
 versions:
   ghec: '*'
-  ghes: '>=3.2'
+  ghes: '*'
 permissions: Enterprise owners can verify or approve a domain for an enterprise account.
 type: how_to
 topics:
@@ -30,7 +30,7 @@ redirect_from:
 
 Enterprise アカウントのドメインの所有権を検証すると、プロファイルにドメインがリストされている各 Organization のプロファイルに「検証済み」のバッジが表示されます。 {% data reusables.organizations.verified-domains-details %}
 
-Organization のオーナーは、検証済みのドメインにある各メンバーのメールアドレスを表示して Organization のメンバーのアイデンティティを確認できます。
+For domains configured at the enterprise level, enterprise owners can verify the identity of organization members by viewing each member's email address within the verified domain. Enterprise owners can also view a list of enterprise members who don't have an email address from a verified domain associated with their user account on {% data variables.product.prodname_dotcom %}. 詳しい情報については「[検証済みドメインのメールアドレスを持っていないメンバーの表示](/admin/user-management/managing-users-in-your-enterprise/viewing-people-in-your-enterprise#viewing-members-without-an-email-address-from-a-verified-domain)」を参照してください。
 
 Enterprise アカウントのドメインを検証した後、Enterprise アカウントが所有するすべての Organization の検証済みドメインにメール通知を制限できます。 For more information, see "[Restricting email notifications for your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/restricting-email-notifications-for-your-enterprise)."
 

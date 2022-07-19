@@ -29,13 +29,11 @@ Uma licença de {% data variables.product.prodname_GH_advanced_security %} forne
 
 - **{% data variables.product.prodname_code_scanning_capc %}** - Pesquisa de possíveis vulnerabilidades de segurança e erros de codificação no seu código. Para obter mais informações, consulte "[Sobre {% data variables.product.prodname_code_scanning %}](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning)
 
-- **{% data variables.product.prodname_secret_scanning_caps %}** - Detectar segredos, por exemplo, chaves e tokens, que foram verificados no repositório.{% if secret-scanning-push-protection %} Se a proteção de push estiver habilitada, também irá detectar segredos quando eles são enviados por push para o seu repositório. Para obter mais informações, consulte "[Sobre {% data variables.product.prodname_secret_scanning %}](/code-security/secret-scanning/about-secret-scanning)" e "[Protegendo pushes com {% data variables.product.prodname_secret_scanning %}](/code-security/secret-scanning/protecting-pushes-with-secret-scanning).{% else %} Para obter mais informações, consulte "[Sobre {% data variables.product.prodname_secret_scanning %}](/code-security/secret-scanning/about-secret-scanning)."{% endif %}
+- **{% data variables.product.prodname_secret_scanning_caps %}** - Detectar segredos, por exemplo, chaves e tokens, que foram verificados no repositório.{% ifversion secret-scanning-push-protection %} Se a proteção de push estiver habilitada, também irá detectar segredos quando eles são enviados por push para o seu repositório. Para obter mais informações, consulte "[Sobre {% data variables.product.prodname_secret_scanning %}](/code-security/secret-scanning/about-secret-scanning)" e "[Protegendo pushes com {% data variables.product.prodname_secret_scanning %}](/code-security/secret-scanning/protecting-pushes-with-secret-scanning).{% else %} Para obter mais informações, consulte "[Sobre {% data variables.product.prodname_secret_scanning %}](/code-security/secret-scanning/about-secret-scanning)."{% endif %}
 
-{% ifversion fpt or ghes > 3.1 or ghec or ghae %}
 - **Revisão de dependências** - Mostra o impacto total das alterações nas dependências e vê detalhes de qualquer versão vulnerável antes de realizar o merge de um pull request. Para obter mais informações, consulte "[Sobre a revisão de dependências](/code-security/supply-chain-security/about-dependency-review)".
-{% endif %}
 
-{% ifversion ghec or ghes > 3.1 %}
+{% ifversion ghec or ghes %}
 - **Visão geral de segurança** - Revise a configuração de segurança e os alertas para uma organização e identifique os repositórios com maior risco. Para obter mais informações, consulte "[Sobre a visão geral de segurança](/code-security/security-overview/about-the-security-overview)".
 {% endif %}
 
@@ -64,12 +62,11 @@ Para obter informações sobre funcionalidades de {% data variables.product.prod
 As funcionalidades de{% data variables.product.prodname_GH_advanced_security %} estão habilitadas para todos os repositórios públicos em {% data variables.product.prodname_dotcom_the_website %}{% ifversion ghec %}, exceto para a visão geral de segurança{% endif %}. As organizações que usam {% data variables.product.prodname_ghe_cloud %} com {% data variables.product.prodname_advanced_security %} também podem habilitar essas funcionalidades para repositórios internos e privados. Elas também têm acesso a uma visão geral de segurança no nível da organização. {% ifversion fpt %}Para obter mais informações, consulte a [documentação de {% data variables.product.prodname_ghe_cloud %}](/enterprise-cloud@latest/get-started/learning-about-github/about-github-advanced-security#enabling-advanced-security-features).{% endif %}
 {% endif %}
 
-{% ifversion ghes or ghec %}
+{% ifversion ghes > 3.1 or ghec %}
 ## Implantando o GitHub Advanced Security na sua empresa
 
-Para saber mais sobre o que você precisa saber para planejar a sua implantação de {% data variables.product.prodname_GH_advanced_security %} em nível alto, consulte "[Visão geral da implantação de {% data variables.product.prodname_GH_advanced_security %}](/admin/advanced-security/overview-of-github-advanced-security-deployment)".
+To learn about what you need to know to plan your {% data variables.product.prodname_GH_advanced_security %} deployment at a high level and to review the rollout phases we recommended, see "[Adopting {% data variables.product.prodname_GH_advanced_security %} at scale](/code-security/adopting-github-advanced-security-at-scale)."
 
-Para revisar as fases de implementação que recomendamos de forma mais detalhada, consulte "[Implantando {% data variables.product.prodname_GH_advanced_security %} na sua empresa](/admin/advanced-security/deploying-github-advanced-security-in-your-enterprise). "
 {% endif %}
 
 {% ifversion not fpt %}

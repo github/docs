@@ -38,7 +38,6 @@ translations/es-ES/content/admin/configuration/configuring-your-enterprise/site-
 translations/es-ES/content/admin/enterprise-management/caching-repositories/about-repository-caching.md,Listed in localization-support#489
 translations/es-ES/content/admin/enterprise-management/caching-repositories/configuring-a-repository-cache.md,Listed in localization-support#489
 translations/es-ES/content/admin/enterprise-management/caching-repositories/index.md,Listed in localization-support#489
-translations/es-ES/content/admin/enterprise-management/configuring-clustering/differences-between-clustering-and-high-availability-ha.md,broken liquid tags
 translations/es-ES/content/admin/enterprise-management/configuring-high-availability/about-geo-replication.md,Listed in localization-support#489
 translations/es-ES/content/admin/enterprise-management/configuring-high-availability/about-high-availability-configuration.md,Listed in localization-support#489
 translations/es-ES/content/admin/enterprise-management/configuring-high-availability/creating-a-high-availability-replica.md,Listed in localization-support#489
@@ -115,19 +114,17 @@ translations/es-ES/content/code-security/supply-chain-security/understanding-you
 translations/es-ES/content/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph.md,Listed in localization-support#489
 translations/es-ES/content/code-security/supply-chain-security/understanding-your-software-supply-chain/exploring-the-dependencies-of-a-repository.md,Listed in localization-support#489
 translations/es-ES/content/code-security/supply-chain-security/understanding-your-software-supply-chain/index.md,Listed in localization-support#489
-translations/es-ES/content/codespaces/customizing-your-codespace/personalizing-codespaces-for-your-account.md,Listed in localization-support#489
 translations/es-ES/content/codespaces/developing-in-codespaces/codespaces-lifecycle.md,Listed in localization-support#489
 translations/es-ES/content/codespaces/developing-in-codespaces/creating-a-codespace.md,Listed in localization-support#489
 translations/es-ES/content/codespaces/developing-in-codespaces/deleting-a-codespace.md,Listed in localization-support#489
 translations/es-ES/content/codespaces/developing-in-codespaces/developing-in-a-codespace.md,Listed in localization-support#489
 translations/es-ES/content/codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace.md,Listed in localization-support#489
 translations/es-ES/content/codespaces/developing-in-codespaces/index.md,Listed in localization-support#489
-translations/es-ES/content/codespaces/developing-in-codespaces/using-codespaces-in-visual-studio-code.md,Listed in localization-support#489
-translations/es-ES/content/codespaces/developing-in-codespaces/using-codespaces-with-github-cli.md,Listed in localization-support#489
 translations/es-ES/content/codespaces/getting-started/deep-dive.md,Listed in localization-support#489
 translations/es-ES/content/codespaces/index.md,Listed in localization-support#489
 translations/es-ES/content/codespaces/managing-your-codespaces/managing-repository-access-for-your-codespaces.md,broken liquid tags
 translations/es-ES/content/codespaces/overview.md,Listed in localization-support#489
+translations/es-ES/content/codespaces/prebuilding-your-codespaces/managing-prebuilds.md,broken liquid tags
 translations/es-ES/content/codespaces/setting-up-your-project-for-codespaces/setting-up-your-dotnet-project-for-codespaces.md,Listed in localization-support#489
 translations/es-ES/content/codespaces/setting-up-your-project-for-codespaces/setting-up-your-java-project-for-codespaces.md,Listed in localization-support#489
 translations/es-ES/content/codespaces/setting-up-your-project-for-codespaces/setting-up-your-nodejs-project-for-codespaces.md,Listed in localization-support#489
@@ -167,8 +164,6 @@ translations/es-ES/content/get-started/using-git/resolving-merge-conflicts-after
 translations/es-ES/content/get-started/using-github/github-command-palette.md,Listed in localization-support#489
 translations/es-ES/content/get-started/using-github/keyboard-shortcuts.md,Listed in localization-support#489
 translations/es-ES/content/github-cli/github-cli/github-cli-reference.md,Listed in localization-support#489
-translations/es-ES/content/github/copilot/index.md,Listed in localization-support#489
-translations/es-ES/content/github/index.md,Listed in localization-support#489
 translations/es-ES/content/graphql/overview/breaking-changes.md,Listed in localization-support#489
 translations/es-ES/content/index.md,Listed in localization-support#489
 translations/es-ES/content/issues/tracking-your-work-with-issues/about-task-lists.md,Listed in localization-support#489
@@ -184,6 +179,7 @@ translations/es-ES/content/organizations/managing-membership-in-your-organizatio
 translations/es-ES/content/organizations/managing-membership-in-your-organization/index.md,Listed in localization-support#489
 translations/es-ES/content/organizations/managing-membership-in-your-organization/inviting-users-to-join-your-organization.md,Listed in localization-support#489
 translations/es-ES/content/organizations/managing-organization-settings/converting-an-organization-into-a-user.md,Listed in localization-support#489
+translations/es-ES/content/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization.md,rendering error
 translations/es-ES/content/organizations/managing-organization-settings/managing-the-forking-policy-for-your-organization.md,Listed in localization-support#489
 translations/es-ES/content/organizations/managing-organization-settings/renaming-an-organization.md,Listed in localization-support#489
 translations/es-ES/content/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization.md,Listed in localization-support#489
@@ -253,7 +249,6 @@ translations/es-ES/content/pull-requests/collaborating-with-pull-requests/workin
 translations/es-ES/content/pull-requests/collaborating-with-pull-requests/working-with-forks/allowing-changes-to-a-pull-request-branch-created-from-a-fork.md,Listed in localization-support#489
 translations/es-ES/content/pull-requests/collaborating-with-pull-requests/working-with-forks/configuring-a-remote-for-a-fork.md,Listed in localization-support#489
 translations/es-ES/content/pull-requests/collaborating-with-pull-requests/working-with-forks/index.md,Listed in localization-support#489
-translations/es-ES/content/pull-requests/collaborating-with-pull-requests/working-with-forks/merging-an-upstream-repository-into-your-fork.md,Listed in localization-support#489
 translations/es-ES/content/pull-requests/collaborating-with-pull-requests/working-with-forks/syncing-a-fork.md,Listed in localization-support#489
 translations/es-ES/content/pull-requests/collaborating-with-pull-requests/working-with-forks/what-happens-to-forks-when-a-repository-is-deleted-or-changes-visibility.md,Listed in localization-support#489
 translations/es-ES/content/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/about-commits.md,Listed in localization-support#489
@@ -280,6 +275,7 @@ translations/es-ES/content/repositories/creating-and-managing-repositories/dupli
 translations/es-ES/content/repositories/creating-and-managing-repositories/restoring-a-deleted-repository.md,Listed in localization-support#489
 translations/es-ES/content/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-citation-files.md,Listed in localization-support#489
 translations/es-ES/content/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners.md,Listed in localization-support#489
+translations/es-ES/content/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository.md,rendering error
 translations/es-ES/content/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository.md,Listed in localization-support#489
 translations/es-ES/content/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-the-forking-policy-for-your-repository.md,Listed in localization-support#489
 translations/es-ES/content/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/setting-repository-visibility.md,Listed in localization-support#489
@@ -307,6 +303,7 @@ translations/es-ES/data/release-notes/github-ae/2022-05/2022-05-17.yml,broken li
 translations/es-ES/data/reusables/actions/contacting-support.md,broken liquid tags
 translations/es-ES/data/reusables/actions/enterprise-marketplace-actions.md,broken liquid tags
 translations/es-ES/data/reusables/actions/enterprise-storage-ha-backups.md,broken liquid tags
+translations/es-ES/data/reusables/actions/settings-ui/settings-actions-general.md,rendering error
 translations/es-ES/data/reusables/actions/settings-ui/settings-actions-runner-groups.md,rendering error
 translations/es-ES/data/reusables/actions/settings-ui/settings-actions-runners.md,rendering error
 translations/es-ES/data/reusables/code-scanning/codeql-context-for-actions-and-third-party-tools.md,broken liquid tags

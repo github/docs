@@ -17,7 +17,7 @@
 {%- ifversion ghec or ghes or ghae %}
 | `business`  | Contains activities related to business settings for an enterprise.
 {%- endif %}
-{%- if secret-scanning-audit-log-custom-patterns %}
+{%- ifversion secret-scanning-audit-log-custom-patterns %}
 | `business_secret_scanning_custom_pattern` | Contains activities related to custom patterns for secret scanning in an enterprise.
 {%- endif %}
 | `checks`   | Contains activities related to check suites and runs.
@@ -29,7 +29,7 @@
 | `config_entry` |  Contains activities related to configuration settings. These events are only visible in the site admin audit log.
 {%- endif %}
 {%- ifversion fpt or ghec or ghes > 3.2 or ghae %} |
-| `dependabot_alerts`  | Contains organization-level configuration activities for {% data variables.product.prodname_dependabot_alerts %} in existing repositories. For more information, see "[About alerts for vulnerable dependencies](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)."
+| `dependabot_alerts`  | Contains organization-level configuration activities for {% data variables.product.prodname_dependabot_alerts %} in existing repositories. For more information, see "[About {% data variables.product.prodname_dependabot_alerts %}](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)."
 | `dependabot_alerts_new_repos`   | Contains organization-level configuration activities for  {% data variables.product.prodname_dependabot_alerts %} in new repositories created in the organization.
 | `dependabot_repository_access` | Contains activities related to which private repositories in an organization {% data variables.product.prodname_dependabot %} is allowed to access.
 {%- endif %}
@@ -37,10 +37,8 @@
 | `dependabot_security_updates`   | Contains organization-level configuration activities for {% data variables.product.prodname_dependabot_security_updates %} in existing repositories. For more information, see "[Configuring {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/configuring-dependabot-security-updates)."
 | `dependabot_security_updates_new_repos` | Contains organization-level configuration activities for {% data variables.product.prodname_dependabot_security_updates %} for new repositories created in the organization.
 {%- endif %}
-{%- ifversion fpt or ghec or ghes or ghae %}
 | `dependency_graph` | Contains organization-level configuration activities for dependency graphs for repositories. For more information, see "[About the dependency graph](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)."
 | `dependency_graph_new_repos`  | Contains organization-level configuration activities for new repositories created in the organization.
-{%- endif %}
 {%- ifversion fpt or ghec %}
 | `discussion` | Contains activities related to team discussions.
 | `discussion_comment` | Contains activities related to comments posted in discussions on a team page.
@@ -98,17 +96,14 @@
 {%- ifversion ghec or ghes or ghae %}
 | `org_credential_authorization` | Contains activities related to authorizing credentials for use with SAML single sign-on.
 {%- endif %}
-{%- if secret-scanning-audit-log-custom-patterns %}
+{%- ifversion secret-scanning-audit-log-custom-patterns %}
 | `org_secret_scanning_custom_pattern` | Contains activities related to custom patterns for secret scanning in an organization. For more information, see "[Defining custom patterns for secret scanning](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)."
 | `org.secret_scanning_push_protection` | Contains activities related to secret scanning custom patterns in an organization. For more information, see "[Protecting pushes with secret scanning](/code-security/secret-scanning/protecting-pushes-with-secret-scanning)."
 {%- endif %}
 | `organization_default_label` | Contains activities related to default labels for repositories in an organization.
-{%- ifversion fpt or ghec or ghes > 3.1 %}
+{%- ifversion fpt or ghec or ghes %}
 | `organization_domain` | Contains activities related to verified organization domains.
 | `organization_projects_change` | Contains activities related to organization-wide project boards in an enterprise.
-{%- endif %}
-{%- ifversion fpt or ghec or ghes > 3.0 or ghae %}
-| `packages`  | Contains activities related to {% data variables.product.prodname_registry %}.
 {%- endif %}
 {%- ifversion fpt or ghec %}
 | `pages_protected_domain` | Contains activities related to verified custom domains for {% data variables.product.prodname_pages %}.
@@ -131,11 +126,9 @@
 | `project_view` | Contains activities related to view creation and deletion in a project board.
 | `protected_branch` | Contains activities related to protected branches.
 | `public_key` | Contains activities related to SSH keys and deploy keys.
-{%- ifversion fpt or ghec or ghes > 3.1 or ghae %}
 | `pull_request` | Contains activities related to pull requests.
 | `pull_request_review` | Contains activities related to pull request reviews.
 | `pull_request_review_comment` | Contains activities related to pull request review comments.
-{%- endif %}
 | `repo` | Contains activities related to the repositories owned by an organization.
 {%- ifversion fpt or ghec %}
 | `repository_advisory` | Contains repository-level activities related to security advisories in the {% data variables.product.prodname_advisory_database %}.  For more information, see "[About {% data variables.product.prodname_dotcom %} Security Advisories](/github/managing-security-vulnerabilities/about-github-security-advisories)."
@@ -148,24 +141,22 @@
 {%- ifversion ghec or ghes or ghae %}
 | `repository_secret_scanning`  | Contains repository-level activities related to secret scanning. For more information, see "[About secret scanning](/github/administering-a-repository/about-secret-scanning)."
 {%- endif %}
-{%- if secret-scanning-audit-log-custom-patterns %}
-| `repository_secret_scanning_custom_pattern` | Contains activities related to secret scanning custom patterns in a repository. For more information, see "[Defining custom patterns for secret scanning](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)." {% endif %}{% if secret-scanning-audit-log-custom-patterns %}
+{%- ifversion secret-scanning-audit-log-custom-patterns %}
+| `repository_secret_scanning_custom_pattern` | Contains activities related to secret scanning custom patterns in a repository. For more information, see "[Defining custom patterns for secret scanning](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)." {% endif %}{% ifversion secret-scanning-audit-log-custom-patterns %}
 | `repository_secret_scanning_push_protection` | Contains activities related to secret scanning custom patterns in a repository. For more information, see "[Protecting pushes with secret scanning](/code-security/secret-scanning/protecting-pushes-with-secret-scanning)."
 {%- endif %}
 {%- ifversion fpt or ghec %}
 | `repository_visibility_change` | Contains activities related to allowing organization members to change repository visibilities for the organization.
 {%- endif %}
-{%- ifversion fpt or ghec or ghes or ghae %}
-| `repository_vulnerability_alert`   | Contains activities related to [{% data variables.product.prodname_dependabot_alerts %} for vulnerable dependencies](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies).
-{%- endif %}
+| `repository_vulnerability_alert`   | Contains activities related to [{% data variables.product.prodname_dependabot_alerts %}](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts).
 {%- ifversion fpt or ghec %}
 | `repository_vulnerability_alerts` | Contains repository-level configuration activities for {% data variables.product.prodname_dependabot_alerts %}.
 | `required_status_check` | Contains activities related to required status checks for protected branches.
 {%- endif %}
-{%- ifversion ghec or ghes > 3.1 %}
+{%- ifversion ghec or ghes %}
 | `restrict_notification_delivery` | Contains activities related to the restriction of email notifications to approved or verified domains for an enterprise.
 {%- endif %}
-{%- if custom-repository-roles %}
+{%- ifversion custom-repository-roles %}
 | `role` | Contains activities related to [custom repository roles](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization).
 {%- endif %}
 {%- ifversion ghec or ghes or ghae %}
@@ -191,12 +182,8 @@
 {%- ifversion fpt or ghes %}
 | `two_factor_authentication` | Contains activities related to two-factor authentication.
 {%- endif %}
-{%- ifversion fpt or ghec or ghes or ghae %}
 | `user` | Contains activities related to users in an enterprise or organization.
-{%- endif %}
 {%- ifversion ghec or ghes %}
 | `user_license` | Contains activities related to a user occupying a licensed seat in, and being a member of, an enterprise.
 {%- endif %}
-{%- ifversion fpt or ghec or ghes > 3.1 or ghae %}
 | `workflows`   | Contains activities related to {% data variables.product.prodname_actions %} workflows.
-{%- endif %}

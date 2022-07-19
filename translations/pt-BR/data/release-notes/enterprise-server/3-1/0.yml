@@ -78,7 +78,7 @@ sections:
         - A versão mais recente do CLI do CodeQL é compatível com o upload dos resultados da análise para o GitHub. Isso facilita a execução da análise de código para clientes que desejem usar sistemas de CI/CD diferentes de {% data variables.product.prodname_actions %}. Anteriormente, esses usuários tinham de usar o executor do CodeQL separado, que continuará disponível. Para obter mais informações, consulte "[Sobre o escaneamento de código CodeQL no seu sistema de CI](/enterprise-server@3.1/code-security/secure-coding/about-codeql-code-scanning-in-your-ci-system)."
         - '{% data variables.product.prodname_actions %} agora é compatível com a ação de ignorar os fluxos de trabalho `push` e `pull_request`, ao procurar algumas palavras-chave comuns na sua mensagem de commit.'
         - Serão arquivadas as anotações com mais de quatro meses de anotações de verificação.
-        - Scaling of worker allocation for background tasks has been revised. We recommend validating that the new defaults are appropriate for your workload. Custom background worker overrides should be unset in most cases. [Updated 2022-03-18]
+        - A escala de alocação do trabalhador para tarefas de fundo foi revisada. Recomendamos validar se os novos padrões são apropriados para sua carga de trabalho. As substituições de trabalho em segundo plano devem ter sua definição cancelada na maioria dos casos. [Atualizado em 2022-03-18]
     - 
       heading: Alterações de segurança
       notes:
@@ -170,5 +170,10 @@ sections:
       heading: Obsolescência do suporte para Hypervisor XenServer
       notes:
         - A partir de {% data variables.product.prodname_ghe_server %} 3.1, começaremos a cancelar o suporte para o Hypervisor Xen. A obsolescência completa está agendada para {% data variables.product.prodname_ghe_server %} 3.3, seguindo o padrão de janela de obsolescência de um ano.
+    - 
+      heading: Change to the format of authentication tokens affects GitHub Connect
+      notes:
+        - |
+          O GitHub Connect não funcionará mais após 3 de junho para instâncias executadas no GitHub Enterprise Server 3.1 ou anterior, devido à alteração no formato dos tokens de autenticação do GitHub. Para continuar usando o GitHub Connect, atualize para o GitHub Enterprise Server 3.2 ou superior. Para obter mais informações, consulte o [Blogue do GitHub](https://github.blog/2022-05-20-action-needed-by-github-customers-using-ghes-3-1-and-older-to-adopt-new-authentication-token-format-updates/). [Atualizado: 2022-06-14]
   backups:
     - '{% data variables.product.prodname_ghe_server %} 3.1 exige pelo menos uma versão dos [Utilitários de Backup 3.1.0 do GitHub Enterprise](https://github.com/github/backup-utils) para [Backups Recuperação de Desastre](/enterprise-server@3.1/admin/configuration/configuring-backups-on-your-appliance).'

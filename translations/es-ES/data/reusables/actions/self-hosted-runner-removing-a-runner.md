@@ -1,4 +1,4 @@
-1. Debajo de {% ifversion fpt or ghes > 3.1 or ghae or ghec %}"Ejecutores"{% else %}"Ejecutores auto-hospedados"{% endif %}, ubica el ejecutor en la lista. Si tu ejecutor está en un grupo, da clic en {% octicon "chevron-down" aria-label="The downwards chevron" %} para expandir la lista.
+1. Under "Runners", locate the runner in the list. Si tu ejecutor está en un grupo, da clic en {% octicon "chevron-down" aria-label="The downwards chevron" %} para expandir la lista.
 1. Da clic en {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} junto al ejecutor que quieres eliminar, y luego da clic en **Eliminar**.
 
     ![Eliminar una configuración de ejecutor autoalojado](/assets/images/help/settings/actions-runner-remove.png)

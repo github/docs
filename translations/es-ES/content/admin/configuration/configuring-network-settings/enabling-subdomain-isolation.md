@@ -36,7 +36,7 @@ Cuando el aislamiento de subdominio está habilitado, {% data variables.product.
 | `http(s)://HOSTNAME/render/`           | `http(s)://render.HOSTNAME/`                                   |
 | `http(s)://HOSTNAME/reply/`            | `http(s)://reply.HOSTNAME/`                                    |
 | `http(s)://HOSTNAME/uploads/`          | `http(s)://uploads.HOSTNAME/`                                  |{% ifversion ghes %}
-| `https://HOSTNAME/_registry/docker/`   | `http(s)://docker.HOSTNAME/`{% endif %}{% ifversion ghes %}
+| `https://HOSTNAME/`                    | `http(s)://docker.HOSTNAME/`{% endif %}{% ifversion ghes %}
 | `https://HOSTNAME/_registry/npm/`      | `https://npm.HOSTNAME/`                                        |
 | `https://HOSTNAME/_registry/rubygems/` | `https://rubygems.HOSTNAME/`                                   |
 | `https://HOSTNAME/_registry/maven/`    | `https://maven.HOSTNAME/`                                      |
@@ -50,13 +50,13 @@ Cuando el aislamiento de subdominio está habilitado, {% data variables.product.
 
 Antes de que habilites el aislamiento de subdominio, debes configurar tus ajustes de red para el nuevo dominio.
 
-- Especifica un nombre de dominio válido como tu nombre del host, en lugar de una dirección IP. Para obtener más información, consulta "[Configurar un nombre del host](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-a-hostname)."
+- Especifica un nombre de dominio válido como tu nombre del host, en lugar de una dirección IP. Para obtener más información, consulta "[Configurar un nombre del host](/enterprise/admin/guides/installation/configuring-a-hostname)."
 
 {% data reusables.enterprise_installation.changing-hostname-not-supported %}
 
 - Configura un registro de Sistema de nombres de dominio (DNS) de carácter comodín o registros DNS individuales para los subdominios detallados más arriba. Recomendamos crear un registro A para `*.HOSTNAME` que apunte a la dirección IP de tu servidor así no tienes que crear múltiples registros para cada subdominio.
 - Obtén un certificado de Seguridad de la capa de transporte (TLS) de carácter comodín para `*.HOSTNAME` con un Nombre alternativo del firmante (SAN) para el `HOSTNAME` y para el `*.HOSTNAME` de dominio de carácter comodín. Por ejemplo, si tu nombre del host es `*.github.octoinc.com` obtén un certificado con el valor del nombre común configurado en `*.github.octoinc.com` y un valor SAN configurado en `github.octoinc.com` y `*.github.octoinc.com`.
-- Habilita TLS en tu aparato. Para obtener más información, consulta "[Configurar TLS](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-tls/)."
+- Habilita TLS en tu aparato. Para obtener más información, consulta "[Configurar TLS](/enterprise/admin/guides/installation/configuring-tls/)."
 
 ## Habilitar el aislamiento de subdominio
 

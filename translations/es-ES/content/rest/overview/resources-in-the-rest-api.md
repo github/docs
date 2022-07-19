@@ -16,18 +16,6 @@ topics:
 
 Esto describe los recursos que conforman la API de REST oficial de {% data variables.product.product_name %}. Si tienes cualquier tipo de problema o solicitud, por favor contacta a {% data variables.contact.contact_support %}.
 
-## Versión actual
-
-Predeterminadamente, todas las solicitudes a `{% data variables.product.api_url_code %}` reciben la [versión](/developers/overview/about-githubs-apis)**v3** de la API de REST. Te alentamos a [solicitar explícitamente esta versión a través del encabezado `Aceptar`](/rest/overview/media-types#request-specific-version).
-
-    Accept: application/vnd.github.v3+json
-
-{% ifversion fpt or ghec %}
-
-Para obtener más información acerca de la API de GraphQL de GitHub, consulta la [documentación de la V4]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql). Para obtener más información acerca de cómo migrarse a GraphQL, consulta la sección "[Migrarse desde REST]({% ifversion ghec%}/free-pro-team@latest{% endif %}/graphql/guides/migrating-from-rest-to-graphql)".
-
-{% endif %}
-
 ## Modelo
 
 {% ifversion fpt or ghec %}Todos los accesos de las API son através de HTTPS y se accede a{% else %}La API{% endif %} desde `{% data variables.product.api_url_code %}`.  Todos los datos se
@@ -177,7 +165,7 @@ $ curl {% ifversion fpt or ghae or ghec %}
 
 ## IDs de nodo globales de GraphQL
 
-Consulta la guía sobre cómo "[Utilizar las ID de Nodo Global]({% ifversion ghec%}/free-pro-team@latest{% endif %}/graphql/guides/using-global-node-ids)" para obtener información detallada sobre cómo encontrar las `node_id` a través de la API de REST y utilizarlas en las operaciones de GraphQL.
+Consulta la guía sobre cómo "[Utilizar las ID de Nodo Global](/graphql/guides/using-global-node-ids)" para obtener información detallada sobre cómo encontrar las `node_id` a través de la API de REST y utilizarlas en las operaciones de GraphQL.
 
 ## Errores de cliente
 
@@ -228,7 +216,7 @@ Los recursos también podría enviar errores de validación personalizados (en d
 
 ## Redireccionamientos HTTP
 
-La API v3 utiliza redireccionamientos HTTP cuando sea adecuado. Los clientes deberán asumir que cualquier solicitud podría resultar en un redireccionamiento. Recibir un redireccionamiento HTTP *no* es un error y los clientes deberán seguirlo. Las respuestas de redireccionamiento tendrán un campo de encabezado de tipo `Location` que contendrá el URI del recurso al cual el cliente deberá repetir la solicitud.
+La API de REST de {% data variables.product.product_name %} utiliza un redireccionamiento de HTTP cuando es apropiado. Los clientes deberán asumir que cualquier solicitud podría resultar en un redireccionamiento. Recibir un redireccionamiento HTTP *no* es un error y los clientes deberán seguirlo. Las respuestas de redireccionamiento tendrán un campo de encabezado de tipo `Location` que contendrá el URI del recurso al cual el cliente deberá repetir la solicitud.
 
 | Código de estado | Descripción                                                                                                                                                                                                                          |
 | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -239,7 +227,7 @@ Podrían utilizarse otros códigos de estado de redirección de acuerdo con la e
 
 ## Verbos HTTP
 
-Cuando sea posible, la API v3 intentará utilizar los verbos HTTP adecuados para cada acción.
+En medida de lo posible, la API de REST de {% data variables.product.product_name %} se esfuerza para utilizar los verbos apropiados de HTTP para cada acción.
 
 | Verbo    | Descripción                                                                                                                                                                                                                                  |
 | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

@@ -41,7 +41,7 @@ shortTitle: 配置维护模式
 
 ![维护模式启动屏幕](/assets/images/enterprise/maintenance/maintenance-mode-maintenance-page.png)
 
-{% if ip-exception-list %}
+{% ifversion ip-exception-list %}
 
 您可以通过配置 IP 例外列表来执行维护操作的初始验证，以仅允许从提供的 IP 地址和范围访问 {% data variables.product.product_location %}。 尝试从 IP 例外列表中未指定的 IP 地址访问 {% data variables.product.product_location %} 将收到与实例处于维护模式时发送的响应一致的响应。
 
@@ -58,13 +58,15 @@ shortTitle: 配置维护模式
 4. 选择 **Enable maintenance mode**。 ![启用或排定维护模式的复选框](/assets/images/enterprise/maintenance/enable-maintenance-mode-checkbox.png)
 {% data reusables.enterprise_management_console.save-settings %}
 
-{% if ip-exception-list %}
+{% ifversion ip-exception-list %}
 
 ## 在维护模式下使用 IP 例外列表验证更改
 
 IP 例外列表提供对 {% data variables.product.product_location %} 的受控和受限访问，这非常适合在维护操作后对服务器运行状况进行初始验证。 启用后，{% data variables.product.product_location %} 将退出维护模式，并且仅对配置的 IP 地址可用。 将更新维护模式复选框以反映状态更改。
 
 如果重新启用维护模式，IP 例外列表将被禁用，{% data variables.product.product_location %} 将恢复到维护模式。 如果只是禁用 IP 例外列表，{% data variables.product.product_location %} 将恢复正常操作。
+
+您还可以使用命令行实用程序来配置 IP 例外列表。 更多信息请参阅“[命令行实用程序](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-maintenance)”和“[访问管理 shell (SSH)](/admin/configuration/configuring-your-enterprise/accessing-the-administrative-shell-ssh)”。
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
@@ -77,7 +79,7 @@ IP 例外列表提供对 {% data variables.product.product_location %} 的受控
 
 ## 通过 {% data variables.product.prodname_enterprise_api %} 排定维护模式
 
-您可以通过 {% data variables.product.prodname_enterprise_api %} 排定在其他时间或日期进行维护。 更多信息请参阅“[管理控制台](/enterprise/{{ currentVersion }}/user/rest/reference/enterprise-admin#enable-or-disable-maintenance-mode)”。
+您可以通过 {% data variables.product.prodname_enterprise_api %} 排定在其他时间或日期进行维护。 更多信息请参阅“[管理控制台](/enterprise/user/rest/reference/enterprise-admin#enable-or-disable-maintenance-mode)”。
 
 ## 为集群中的所有节点启用或禁用维护模式
 

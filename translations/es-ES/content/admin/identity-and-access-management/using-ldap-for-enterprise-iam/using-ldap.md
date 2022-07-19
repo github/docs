@@ -113,7 +113,7 @@ Cuando se selecciona esta opción, el certificado se valida para garantizar que:
 
 {% endnote %}
 
-La sincronización LDAP te permite sincronizar usuarios y miembros del equipo del {% data variables.product.prodname_ghe_server %} con tus grupos LDAP establecidos. Esto te permite establecer un control de acceso basado en roles para los usuarios desde tu servidor LDAP, en lugar de hacerlo de forma manual dentro del {% data variables.product.prodname_ghe_server %}. Para obtener más información, consulta "[Crear equipos](/enterprise/{{ currentVersion }}/admin/guides/user-management/creating-teams#creating-teams-with-ldap-sync-enabled)".
+La sincronización LDAP te permite sincronizar usuarios y miembros del equipo del {% data variables.product.prodname_ghe_server %} con tus grupos LDAP establecidos. Esto te permite establecer un control de acceso basado en roles para los usuarios desde tu servidor LDAP, en lugar de hacerlo de forma manual dentro del {% data variables.product.prodname_ghe_server %}. Para obtener más información, consulta la sección "[Crear equipos](/enterprise/admin/guides/user-management/creating-teams#creating-teams-with-ldap-sync-enabled)."
 
 Para activar la sincronización LDAP, en tus parámetros LDAP, selecciona **Synchronize Emails** (Sincronizar correos electrónicos), **Synchronize SSH Keys** (Sincronizar claves SSH) o **Synchronize GPG Keys** (Sincronizar claves GPG).
 
@@ -187,8 +187,8 @@ Puedes ver la lista completa de usuarios LDAP que tienen acceso a tu instancia y
 A menos que [la sincronización LDAP esté activada](#enabling-ldap-sync), las modificaciones de las cuentas LDAP no se sincronizan automáticamente con el {% data variables.product.prodname_ghe_server %}.
 
 * Para usar un nuevo grupo de administración LDAP, los usuarios deben ser promovidos y degradados de forma manual en el {% data variables.product.prodname_ghe_server %} para reflejar las modificaciones en LDAP.
-* Para agregar o eliminar cuentas LDAP de los grupos de administración LDAP, [promueve o degrada las cuentas en el {% data variables.product.prodname_ghe_server %}](/enterprise/{{ currentVersion }}/admin/guides/user-management/promoting-or-demoting-a-site-administrator).
-* Para eliminar las cuentas LDAP, [suspende las cuentas del {% data variables.product.prodname_ghe_server %}](/enterprise/{{ currentVersion }}/admin/guides/user-management/suspending-and-unsuspending-users).
+* Para agregar o eliminar cuentas LDAP de los grupos de administración LDAP, [promueve o degrada las cuentas en el {% data variables.product.prodname_ghe_server %}](/enterprise/admin/guides/user-management/promoting-or-demoting-a-site-administrator).
+* Para eliminar las cuentas LDAP, [suspende las cuentas del {% data variables.product.prodname_ghe_server %}](/enterprise/admin/guides/user-management/suspending-and-unsuspending-users).
 
 ### Sincronizar cuentas LDAP de forma manual
 
@@ -200,10 +200,10 @@ A menos que [la sincronización LDAP esté activada](#enabling-ldap-sync), las m
 {% data reusables.enterprise_site_admin_settings.admin-tab %}
 5. En "LDAP", haz clic en **Sync now** (Sincronizar ahora) para actualizar de forma manual la cuenta con los datos de tu servidor LDAP. ![Botón LDAP sync now (Sincronizar LDAP ahora)](/assets/images/enterprise/site-admin-settings/ldap-sync-now-button.png)
 
-También puedes [utilizar la API para activar una sincronización manual](/enterprise/{{ currentVersion }}/user/rest/reference/enterprise-admin#ldap).
+También puedes [utilizar la API para activar una sincronización manual](/enterprise/user/rest/reference/enterprise-admin#ldap).
 
 ## Revocar acceso a {% data variables.product.product_location %}
 
 Si [la sincronización LDAP está activada](#enabling-ldap-sync), al eliminar las credenciales LDAP de un usuario, se suspenderá su cuenta hasta la siguiente ejecución de sincronización.
 
-Si la sincronización LDAP **no** está activada, debes suspender de forma manual la cuenta del {% data variables.product.prodname_ghe_server %} después de eliminar las credenciales LDAP. Para obtener más información, consulta "[Suspender y anular suspensión de usuarios](/enterprise/{{ currentVersion }}/admin/guides/user-management/suspending-and-unsuspending-users)".
+Si la sincronización LDAP **no** está activada, debes suspender de forma manual la cuenta del {% data variables.product.prodname_ghe_server %} después de eliminar las credenciales LDAP. Para obtener más información, consulta "[Suspender y anular suspensión de usuarios](/enterprise/admin/guides/user-management/suspending-and-unsuspending-users)".

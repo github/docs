@@ -1,1 +1,1 @@
-You must install the required software on your self-hosted runners. For more information about self-hosted runners, see "[Hosting your own runners](/actions/hosting-your-own-runners)."
+必要なソフトウェアをセルフホストランナーにインストールしなければなりません。 セルフホストランナーに関する詳しい情報については「[独自のランナーのホスト](/actions/hosting-your-own-runners)」を参照してください。

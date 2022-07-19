@@ -4,7 +4,7 @@ intro: 'You can manage how {% data variables.product.product_name %} looks to yo
 versions:
   fpt: '*'
   ghae: '*'
-  ghes: '>=3.2'
+  ghes: '*'
   ghec: '*'
 topics:
   - Accounts
@@ -39,7 +39,7 @@ You may want to use a dark theme to reduce power consumption on certain devices,
     {% ifversion fpt or ghec %}
     - If you would like to choose a theme which is currently in public beta, you will first need to enable it with feature preview. For more information, see "[Exploring early access releases with feature preview](/get-started/using-github/exploring-early-access-releases-with-feature-preview)."{% endif %}
 
-{% if command-palette %}
+{% ifversion command-palette %}
 
 {% note %}
 

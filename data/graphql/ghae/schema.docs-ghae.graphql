@@ -1159,12 +1159,14 @@ type AutoMergeRequest {
   authorEmail: String
 
   """
-  The commit message of the auto-merge request.
+  The commit message of the auto-merge request. If a merge queue is required by
+  the base branch, this value will be set by the merge queue when merging.
   """
   commitBody: String
 
   """
-  The commit title of the auto-merge request.
+  The commit title of the auto-merge request. If a merge queue is required by
+  the base branch, this value will be set by the merge queue when merging
   """
   commitHeadline: String
 
@@ -1179,7 +1181,8 @@ type AutoMergeRequest {
   enabledBy: Actor
 
   """
-  The merge method of the auto-merge request.
+  The merge method of the auto-merge request. If a merge queue is required by
+  the base branch, this value will be set by the merge queue when merging.
   """
   mergeMethod: PullRequestMergeMethod!
 
@@ -1544,7 +1547,7 @@ type Bot implements Actor & Node & UniformResourceLocatable {
 """
 Types which can be actors for `BranchActorAllowance` objects.
 """
-union BranchActorAllowanceActor = Team | User
+union BranchActorAllowanceActor = App | Team | User
 
 """
 A branch protection rule.
@@ -1913,16 +1916,16 @@ type BranchProtectionRuleEdge {
 }
 
 """
-A team or user who has the ability to bypass a force push requirement on a protected branch.
+A user, team, or app who has the ability to bypass a force push requirement on a protected branch.
 """
 type BypassForcePushAllowance implements Node {
   """
-  The actor that can dismiss.
+  The actor that can force push.
   """
   actor: BranchActorAllowanceActor
 
   """
-  Identifies the branch protection rule associated with the allowed user or team.
+  Identifies the branch protection rule associated with the allowed user, team, or app.
   """
   branchProtectionRule: BranchProtectionRule
   id: ID!
@@ -1969,16 +1972,16 @@ type BypassForcePushAllowanceEdge {
 }
 
 """
-A team or user who has the ability to bypass a pull request requirement on a protected branch.
+A user, team, or app who has the ability to bypass a pull request requirement on a protected branch.
 """
 type BypassPullRequestAllowance implements Node {
   """
-  The actor that can dismiss.
+  The actor that can bypass.
   """
   actor: BranchActorAllowanceActor
 
   """
-  Identifies the branch protection rule associated with the allowed user or team.
+  Identifies the branch protection rule associated with the allowed user, team, or app.
   """
   branchProtectionRule: BranchProtectionRule
   id: ID!
@@ -3232,6 +3235,11 @@ input CloseIssueInput {
   ID of the issue to be closed.
   """
   issueId: ID! @possibleTypes(concreteTypes: ["Issue"])
+
+  """
+  The reason the issue is to be closed.
+  """
+  stateReason: IssueClosedStateReason
 }
 
 """
@@ -3308,6 +3316,11 @@ type ClosedEvent implements Node & UniformResourceLocatable {
   The HTTP path for this closed event.
   """
   resourcePath: URI!
+
+  """
+  The reason the issue state was changed to closed.
+  """
+  stateReason: IssueStateReason
 
   """
   The HTTP URL for this closed event.
@@ -4974,7 +4987,8 @@ type ContributionsCollection {
   ): [PullRequestContributionsByRepository!]!
 
   """
-  Pull request review contributions made by the user.
+  Pull request review contributions made by the user. Returns the most recently
+  submitted review for each PR reviewed by the user.
   """
   pullRequestReviewContributions(
     """
@@ -5338,12 +5352,12 @@ input CreateBranchProtectionRuleInput {
   blocksCreations: Boolean
 
   """
-  A list of User or Team IDs allowed to bypass force push targeting matching branches.
+  A list of User, Team, or App IDs allowed to bypass force push targeting matching branches.
   """
   bypassForcePushActorIds: [ID!]
 
   """
-  A list of User or Team IDs allowed to bypass pull requests targeting matching branches.
+  A list of User, Team, or App IDs allowed to bypass pull requests targeting matching branches.
   """
   bypassPullRequestActorIds: [ID!]
 
@@ -5438,7 +5452,7 @@ input CreateBranchProtectionRuleInput {
   restrictsReviewDismissals: Boolean
 
   """
-  A list of User or Team IDs allowed to dismiss reviews on pull requests targeting matching branches.
+  A list of User, Team, or App IDs allowed to dismiss reviews on pull requests targeting matching branches.
   """
   reviewDismissalActorIds: [ID!]
 }
@@ -11737,12 +11751,12 @@ The possible roles for enterprise membership.
 """
 enum EnterpriseUserAccountMembershipRole {
   """
-  The user is a member of the enterprise membership.
+  The user is a member of an organization in the enterprise.
   """
   MEMBER
 
   """
-  The user is an owner of the enterprise membership.
+  The user is an owner of an organization in the enterprise.
   """
   OWNER
 }
@@ -11875,6 +11889,26 @@ type ExternalIdentity implements Node {
 }
 
 """
+An attribute for the External Identity attributes collection
+"""
+type ExternalIdentityAttribute {
+  """
+  The attribute metadata as JSON
+  """
+  metadata: String
+
+  """
+  The attribute name
+  """
+  name: String!
+
+  """
+  The attribute value
+  """
+  value: String!
+}
+
+"""
 The connection type for ExternalIdentity.
 """
 type ExternalIdentityConnection {
@@ -11918,6 +11952,11 @@ type ExternalIdentityEdge {
 SAML attributes for the External Identity
 """
 type ExternalIdentitySamlAttributes {
+  """
+  SAML Identity attributes
+  """
+  attributes: [ExternalIdentityAttribute!]!
+
   """
   The emails associated with the SAML identity
   """
@@ -13832,6 +13871,11 @@ type Issue implements Assignable & Closable & Comment & Labelable & Lockable & N
   state: IssueState!
 
   """
+  Identifies the reason for the issue state.
+  """
+  stateReason: IssueStateReason
+
+  """
   A list of events, comments, commits, etc. associated with the issue.
   """
   timeline(
@@ -13976,6 +14020,21 @@ type Issue implements Assignable & Closable & Comment & Labelable & Lockable & N
   Identifies if the viewer is watching, not watching, or ignoring the subscribable entity.
   """
   viewerSubscription: SubscriptionState
+}
+
+"""
+The possible state reasons of a closed issue.
+"""
+enum IssueClosedStateReason {
+  """
+  An issue that has been closed as completed
+  """
+  COMPLETED
+
+  """
+  An issue that has been closed as not planned
+  """
+  NOT_PLANNED
 }
 
 """
@@ -14433,6 +14492,26 @@ enum IssueState {
   An issue that is still open
   """
   OPEN
+}
+
+"""
+The possible state reasons of an issue.
+"""
+enum IssueStateReason {
+  """
+  An issue that has been closed as completed
+  """
+  COMPLETED
+
+  """
+  An issue that has been closed as not planned
+  """
+  NOT_PLANNED
+
+  """
+  An issue that has been reopened
+  """
+  REOPENED
 }
 
 """
@@ -16293,6 +16372,11 @@ enum MigrationState {
   FAILED
 
   """
+  The Octoshift migration has invalid credentials.
+  """
+  FAILED_VALIDATION
+
+  """
   The Octoshift migration is in progress.
   """
   IN_PROGRESS
@@ -16301,6 +16385,11 @@ enum MigrationState {
   The Octoshift migration has not started.
   """
   NOT_STARTED
+
+  """
+  The Octoshift migration needs to have its credentials validated.
+  """
+  PENDING_VALIDATION
 
   """
   The Octoshift migration has been queued.
@@ -18251,7 +18340,7 @@ type Mutation {
   ): UpdatePullRequestPayload
 
   """
-  Merge HEAD from upstream branch into pull request branch
+  Merge or Rebase HEAD from upstream branch into pull request branch
   """
   updatePullRequestBranch(
     """
@@ -20628,6 +20717,11 @@ enum OrgRemoveMemberAuditEntryMembershipType {
   OUTSIDE_COLLABORATOR
 
   """
+  A suspended member.
+  """
+  SUSPENDED
+
+  """
   An unaffiliated collaborator is a person who is not a member of the
   Organization and does not have access to any repositories in the Organization.
   """
@@ -22348,6 +22442,11 @@ type Organization implements Actor & MemberStatusable & Node & ProfileOwner & Pr
   Viewer is an active member of this organization.
   """
   viewerIsAMember: Boolean!
+
+  """
+  Whether or not this Organization is followed by the viewer.
+  """
+  viewerIsFollowing: Boolean!
 
   """
   The organization's public profile URL.
@@ -25432,6 +25531,11 @@ type PullRequest implements Assignable & Closable & Comment & Labelable & Lockab
   viewerCanDisableAutoMerge: Boolean!
 
   """
+  Can the viewer edit files within this pull request.
+  """
+  viewerCanEditFiles: Boolean!
+
+  """
   Whether or not the viewer can enable auto-merge
   """
   viewerCanEnableAutoMerge: Boolean!
@@ -27289,7 +27393,7 @@ type Push implements Node {
 }
 
 """
-A team, user or app who has the ability to push to a protected branch.
+A team, user, or app who has the ability to push to a protected branch.
 """
 type PushAllowance implements Node {
   """
@@ -27298,7 +27402,7 @@ type PushAllowance implements Node {
   actor: PushAllowanceActor
 
   """
-  Identifies the branch protection rule associated with the allowed user or team.
+  Identifies the branch protection rule associated with the allowed user, team, or app.
   """
   branchProtectionRule: BranchProtectionRule
   id: ID!
@@ -27563,6 +27667,11 @@ type Query {
     before: String
 
     """
+    A list of classifications to filter advisories by.
+    """
+    classifications: [SecurityAdvisoryClassification!]
+
+    """
     Returns the first _n_ elements from the list.
     """
     first: Int
@@ -27606,6 +27715,11 @@ type Query {
     Returns the elements in the list that come before the specified cursor.
     """
     before: String
+
+    """
+    A list of advisory classifications to filter vulnerabilities by.
+    """
+    classifications: [SecurityAdvisoryClassification!]
 
     """
     An ecosystem to filter vulnerabilities by.
@@ -29237,6 +29351,11 @@ type ReopenedEvent implements Node {
   """
   createdAt: DateTime!
   id: ID!
+
+  """
+  The reason the issue state was changed to open.
+  """
+  stateReason: IssueStateReason
 }
 
 """
@@ -31588,6 +31707,12 @@ A repository contains the content for a project.
 """
 type Repository implements Node & ProjectOwner & RepositoryInfo & Starrable & Subscribable & UniformResourceLocatable {
   """
+  Whether or not a pull request head branch that is behind its base branch can
+  always be updated even if it is not required to be up to date before merging.
+  """
+  allowUpdateBranch: Boolean!
+
+  """
   A list of users that can be assigned to issues in this repository.
   """
   assignableUsers(
@@ -32709,6 +32834,11 @@ type Repository implements Node & ProjectOwner & RepositoryInfo & Starrable & Su
   squashMergeAllowed: Boolean!
 
   """
+  Whether a squash merge commit can use the pull request title as default.
+  """
+  squashPrTitleUsedAsDefault: Boolean!
+
+  """
   The SSH URL to clone this repository
   """
   sshUrl: GitSSHRemote!
@@ -32867,6 +32997,11 @@ type Repository implements Node & ProjectOwner & RepositoryInfo & Starrable & Su
     Returns the elements in the list that come before the specified cursor.
     """
     before: String
+
+    """
+    Filter by the scope of the alert's dependency
+    """
+    dependencyScopes: [RepositoryVulnerabilityAlertDependencyScope!]
 
     """
     Returns the first _n_ elements from the list.
@@ -34160,6 +34295,11 @@ type RepositoryVulnerabilityAlert implements Node & RepositoryNode {
   dependabotUpdate: DependabotUpdate
 
   """
+  The scope of an alert's dependency
+  """
+  dependencyScope: RepositoryVulnerabilityAlertDependencyScope
+
+  """
   The reason the alert was dismissed
   """
   dismissReason: String
@@ -34178,6 +34318,9 @@ type RepositoryVulnerabilityAlert implements Node & RepositoryNode {
   The reason the alert was marked as fixed.
   """
   fixReason: String
+    @deprecated(
+      reason: "The `fixReason` field is being removed. You can still use `fixedAt` and `dismissReason`. Removal on 2022-10-01 UTC."
+    )
 
   """
   When was the alert fixed?
@@ -34249,6 +34392,21 @@ type RepositoryVulnerabilityAlertConnection {
   Identifies the total count of items in the connection.
   """
   totalCount: Int!
+}
+
+"""
+The possible scopes of an alert's dependency.
+"""
+enum RepositoryVulnerabilityAlertDependencyScope {
+  """
+  A dependency that is only used in development
+  """
+  DEVELOPMENT
+
+  """
+  A dependency that is leveraged during application runtime
+  """
+  RUNTIME
 }
 
 """
@@ -34526,7 +34684,7 @@ type RestrictedContribution implements Contribution {
 }
 
 """
-A team or user who has the ability to dismiss a review on a protected branch.
+A user, team, or app who has the ability to dismiss a review on a protected branch.
 """
 type ReviewDismissalAllowance implements Node {
   """
@@ -34535,7 +34693,7 @@ type ReviewDismissalAllowance implements Node {
   actor: ReviewDismissalAllowanceActor
 
   """
-  Identifies the branch protection rule associated with the allowed user or team.
+  Identifies the branch protection rule associated with the allowed user, team, or app.
   """
   branchProtectionRule: BranchProtectionRule
   id: ID!
@@ -34544,7 +34702,7 @@ type ReviewDismissalAllowance implements Node {
 """
 Types that can be an actor.
 """
-union ReviewDismissalAllowanceActor = Team | User
+union ReviewDismissalAllowanceActor = App | Team | User
 
 """
 The connection type for ReviewDismissalAllowance.
@@ -35152,6 +35310,11 @@ A GitHub Security Advisory
 """
 type SecurityAdvisory implements Node {
   """
+  The classification of the advisory
+  """
+  classification: SecurityAdvisoryClassification!
+
+  """
   The CVSS associated with this advisory
   """
   cvss: CVSS!
@@ -35257,6 +35420,11 @@ type SecurityAdvisory implements Node {
     before: String
 
     """
+    A list of advisory classifications to filter vulnerabilities by.
+    """
+    classifications: [SecurityAdvisoryClassification!]
+
+    """
     An ecosystem to filter vulnerabilities by.
     """
     ecosystem: SecurityAdvisoryEcosystem
@@ -35286,6 +35454,21 @@ type SecurityAdvisory implements Node {
   When the advisory was withdrawn, if it has been withdrawn
   """
   withdrawnAt: DateTime
+}
+
+"""
+Classification of the advisory.
+"""
+enum SecurityAdvisoryClassification {
+  """
+  Classification of general advisories.
+  """
+  GENERAL
+
+  """
+  Classification of malware advisories.
+  """
+  MALWARE
 }
 
 """
@@ -35321,6 +35504,11 @@ enum SecurityAdvisoryEcosystem {
   PHP packages hosted at packagist.org
   """
   COMPOSER
+
+  """
+  Erlang/Elixir packages hosted at hex.pm
+  """
+  ERLANG
 
   """
   Go modules
@@ -35736,7 +35924,7 @@ input StartRepositoryMigrationInput {
   """
   The Octoshift migration source access token.
   """
-  accessToken: String
+  accessToken: String!
 
   """
   A unique identifier for the client performing the mutation.
@@ -39227,12 +39415,12 @@ input UpdateBranchProtectionRuleInput {
   branchProtectionRuleId: ID! @possibleTypes(concreteTypes: ["BranchProtectionRule"])
 
   """
-  A list of User or Team IDs allowed to bypass force push targeting matching branches.
+  A list of User, Team, or App IDs allowed to bypass force push targeting matching branches.
   """
   bypassForcePushActorIds: [ID!]
 
   """
-  A list of User or Team IDs allowed to bypass pull requests targeting matching branches.
+  A list of User, Team, or App IDs allowed to bypass pull requests targeting matching branches.
   """
   bypassPullRequestActorIds: [ID!]
 
@@ -39322,7 +39510,7 @@ input UpdateBranchProtectionRuleInput {
   restrictsReviewDismissals: Boolean
 
   """
-  A list of User or Team IDs allowed to dismiss reviews on pull requests targeting matching branches.
+  A list of User, Team, or App IDs allowed to dismiss reviews on pull requests targeting matching branches.
   """
   reviewDismissalActorIds: [ID!]
 }

@@ -5,7 +5,7 @@ permissions: '{% data reusables.security-center.permissions %}'
 product: '{% data reusables.gated-features.security-center %}'
 versions:
   ghae: '*'
-  ghes: '>3.1'
+  ghes: '*'
   ghec: '*'
 type: how_to
 topics:
@@ -23,7 +23,7 @@ shortTitle: アラートのフィルタリング
 
 ## セキュリティの概要のフィルタリングについて
 
-アラートのリスクレベル、アラートの種類、機能の有効化の状況といった様々な要素に基づいて焦点を絞り込むために、セキュリティの概要でフィルタを利用できます。 特定のビューや、分析しているのがOrganization、Team、リポジトリのレベルなのかといったことに応じて、様々なフィルタが利用できます。
+アラートのリスクレベル、アラートの種類、機能の有効化の状況といった様々な要素に基づいて焦点を絞り込むために、セキュリティの概要でフィルタを利用できます。 特定のビューや、分析がOrganization、Team、リポジトリのレベルなのかといったことに応じて、様々なフィルタが利用できます。
 
 ## リポジトリでフィルタリング
 
@@ -101,7 +101,7 @@ Organizationレベルの概要で利用できます。
 | ------------------------- | ------------------------------ |
 | <code>topic:<em>TOPIC-NAME</em></code> | *TOPIC-NAME*で分類されるリポジトリを表示します。 |
 
-{% if security-overview-views %}
+{% ifversion security-overview-views %}
 
 ## 重要度でのフィルタリング
 
@@ -117,7 +117,7 @@ Code scanningアラートビューで利用できます。 すべてのCode scan
 | `severity:warning`  | warningsとして分類される{% data variables.product.prodname_code_scanning %}アラートを表示します。 |
 | `severity:note`     | notesとして分類される{% data variables.product.prodname_code_scanning %}アラートを表示します。    |
 
-{% if dependabot-alerts-vulnerable-calls %}
+{% ifversion dependabot-alerts-vulnerable-calls %}
 ## {% data variables.product.prodname_dependabot %}アラートタイプによるフィルタリング
 
 {% data variables.product.prodname_dependabot %}アラートビューで利用できます。 修正の準備ができているか、露出に関する追加情報がある{% data variables.product.prodname_dependabot_alerts %}を表示するために、ビューをフィルタリングできます。 いずれの結果も、クリックすると完全なアラートの詳細を見ることができます。

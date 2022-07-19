@@ -34,7 +34,7 @@ Puedes habilitar el {% data variables.product.prodname_secret_scanning_GHAS %} p
    {% elsif ghes or ghae %}![Enable {% data variables.product.prodname_GH_advanced_security %} for your repository](/assets/images/enterprise/3.1/help/repository/enable-ghas.png){% endif %}
 5. Revisa el impacto de habilitar la {% data variables.product.prodname_advanced_security %} y luego haz clic en **Habilitar la {% data variables.product.prodname_GH_advanced_security %} para este repositorio**.
 6. Cuando habilitas la {% data variables.product.prodname_advanced_security %}, puede que el {% data variables.product.prodname_secret_scanning %} se habilite en el repositorio debido a la configuración de la organización. Si se muestra "{% data variables.product.prodname_secret_scanning_caps %}" con un botón de **Habilitar**, aún necesitarás habilitar el {% data variables.product.prodname_secret_scanning %} si das clic en **Habilitar**. Si ves un botón de **Inhabilitar**, entonces el {% data variables.product.prodname_secret_scanning %} ya se encuentra habilitado. ![Habilitar el {% data variables.product.prodname_secret_scanning %} para tu repositorio](/assets/images/help/repository/enable-secret-scanning-dotcom.png)
-{% if secret-scanning-push-protection %}
+{% ifversion secret-scanning-push-protection %}
 7. Opcionalmente, si quieres habilitar la protección de subida, haz clic en **Habilitar** a la derecha de "Protección de subida". {% data reusables.secret-scanning.push-protection-overview %} Para obtener más información, consulta la sección "[Proteger las subidas con el {% data variables.product.prodname_secret_scanning %}](/code-security/secret-scanning/protecting-pushes-with-secret-scanning)". ![Habilitar la protección de subida para tu repositorio](/assets/images/help/repository/secret-scanning-enable-push-protection.png)
 {% endif %}
 {% ifversion ghae %}
@@ -71,4 +71,4 @@ También puedes ignorar alertas individuales de {% data variables.product.prodna
 ## Leer más
 
 - "[Administrar la seguridad y la configuración de análisis para tu organización](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)"
-{% ifversion fpt or ghes > 3.1 or ghae or ghec %}- "[Definir patrones personalizados para el {% data variables.product.prodname_secret_scanning %}](/code-security/secret-security/defining-custom-patterns-for-secret-scanning)"{% endif %}
+- "[Defining custom patterns for {% data variables.product.prodname_secret_scanning %}](/code-security/secret-security/defining-custom-patterns-for-secret-scanning)"

@@ -1,9 +1,11 @@
 import { fileURLToPath } from 'url'
 import path from 'path'
 import { isPlainObject } from 'lodash-es'
-import { jest } from '@jest/globals'
+import { describe, expect, jest, test } from '@jest/globals'
 
-import enterpriseServerReleases from '../../lib/enterprise-server-releases.js'
+import enterpriseServerReleases, {
+  deprecatedWithFunctionalRedirects,
+} from '../../lib/enterprise-server-releases.js'
 import Page from '../../lib/page.js'
 import { get, head } from '../helpers/e2etest.js'
 import versionSatisfiesRange from '../../lib/version-satisfies-range.js'
@@ -33,21 +35,19 @@ describe('redirects', () => {
 
   test('dotcom homepage page.buildRedirects()', async () => {
     const page = await Page.init({
-      relativePath: 'github/index.md',
+      relativePath: 'issues/index.md',
       basePath: path.join(__dirname, '../../content'),
       languageCode: 'en',
     })
     const pageRedirects = page.buildRedirects()
-    expect(pageRedirects['/articles']).toBe('/github')
-    expect(pageRedirects['/common-issues-and-questions']).toBe('/github')
-    expect(pageRedirects[`/enterprise-server@${enterpriseServerReleases.latest}/articles`]).toBe(
-      `/enterprise-server@${enterpriseServerReleases.latest}/github`
-    )
+    expect(pageRedirects['/about-issues']).toBe('/issues')
+    expect(pageRedirects['/creating-an-issue']).toBe('/issues')
     expect(
-      pageRedirects[
-        `/enterprise-server@${enterpriseServerReleases.latest}/common-issues-and-questions`
-      ]
-    ).toBe(`/enterprise-server@${enterpriseServerReleases.latest}/github`)
+      pageRedirects[`/enterprise-server@${enterpriseServerReleases.latest}/about-issues`]
+    ).toBe(`/enterprise-server@${enterpriseServerReleases.latest}/issues`)
+    expect(
+      pageRedirects[`/enterprise-server@${enterpriseServerReleases.latest}/creating-an-issue`]
+    ).toBe(`/enterprise-server@${enterpriseServerReleases.latest}/issues`)
   })
 
   test('converts single `redirect_from` strings values into arrays', async () => {
@@ -106,7 +106,9 @@ describe('redirects', () => {
     })
 
     test('are absent from all destination URLs', async () => {
-      const values = Object.values(redirects)
+      const values = Object.entries(redirects)
+        .filter(([from_, to]) => !to.includes('://'))
+        .map(([from_]) => from_)
       expect(values.length).toBeGreaterThan(100)
       expect(values.every((value) => !value.endsWith('/'))).toBe(true)
     })
@@ -127,33 +129,38 @@ describe('redirects', () => {
     })
 
     test('homepage redirects to preferred language', async () => {
-      const res = await get('/', { headers: { 'Accept-Language': 'ja' } })
+      const res = await get('/', { headers: { 'Accept-Language': 'ja' }, followRedirects: false })
       expect(res.statusCode).toBe(302)
       expect(res.headers.location).toBe('/ja')
       expect(res.headers['cache-control']).toBe('private, no-store')
     })
+
     test('homepage redirects to preferred language by cookie', async () => {
       const res = await get('/', {
         headers: {
           Cookie: `${PREFERRED_LOCALE_COOKIE_NAME}=ja`,
           'Accept-Language': 'es', // note how this is going to be ignored
         },
+        followRedirects: false,
       })
       expect(res.statusCode).toBe(302)
       expect(res.headers.location).toBe('/ja')
       expect(res.headers['cache-control']).toBe('private, no-store')
     })
+
     test('homepage redirects to preferred language by cookie if valid', async () => {
       const res = await get('/', {
         headers: {
           Cookie: `${PREFERRED_LOCALE_COOKIE_NAME}=xy`,
           'Accept-Language': 'ja', // note how this is going to be ignored
         },
+        followRedirects: false,
       })
       expect(res.statusCode).toBe(302)
       expect(res.headers.location).toBe('/ja')
       expect(res.headers['cache-control']).toBe('private, no-store')
     })
+
     test('trailing slash on languaged homepage should permantently redirect', async () => {
       const res = await get('/en/')
       expect(res.statusCode).toBe(301)
@@ -162,6 +169,7 @@ describe('redirects', () => {
       expect(res.headers['cache-control']).toContain('public')
       expect(res.headers['cache-control']).toMatch(/max-age=\d+/)
     })
+
     test('trailing slash with query string on languaged homepage should permantently redirect', async () => {
       const res = await get('/ja/?foo=bar&bar=foo')
       expect(res.statusCode).toBe(301)
@@ -173,16 +181,40 @@ describe('redirects', () => {
   })
 
   describe('external redirects', () => {
+    test('no external redirect starts with a language prefix', () => {
+      const values = Object.entries(redirects)
+        .filter(([from_, to]) => to.includes('://'))
+        .map(([from_]) => from_)
+        .filter((from_) => from_.startsWith('/en/'))
+      expect(values.length).toBe(0)
+    })
+
+    test('no external redirect should go to developer.github.com', () => {
+      const values = Object.values(redirects)
+        .filter((to) => to.includes('://'))
+        .filter((to) => new URL(to).hostname === 'developer.github.com')
+      expect(values.length).toBe(0)
+    })
+
     test('work for top-level request paths', async () => {
       const res = await get('/git-ready')
       expect(res.statusCode).toBe(301)
-      expect(res.headers.location).toBe('http://gitready.com/')
+      expect(res.headers.location).toBe('https://gitready.com/')
+      expect(res.headers['set-cookie']).toBeUndefined()
+      expect(res.headers['cache-control']).toContain('public')
+      expect(res.headers['cache-control']).toMatch(/max-age=\d+/)
     })
 
-    test('work for article-level request paths', async () => {
-      const res = await get('/articles/testing-webhooks')
+    test('work for top-level request paths with /en/ prefix', async () => {
+      const res = await get('/en/git-ready')
       expect(res.statusCode).toBe(301)
-      expect(res.headers.location).toBe('http://developer.github.com/webhooks/testing/')
+      expect(res.headers.location).toBe('https://gitready.com/')
+    })
+
+    test('work for top-level request paths with /ja/ prefix', async () => {
+      const res = await get('/ja/git-ready')
+      expect(res.statusCode).toBe(301)
+      expect(res.headers.location).toBe('https://gitready.com/')
     })
   })
 
@@ -204,6 +236,7 @@ describe('redirects', () => {
         headers: {
           'Accept-Language': 'ja',
         },
+        followRedirects: false,
       })
       expect(res.statusCode).toBe(302)
       const expected = `/ja${redirectTo}`
@@ -217,6 +250,7 @@ describe('redirects', () => {
           // None of these are recognized
           'Accept-Language': 'sv,fr,gr',
         },
+        followRedirects: false,
       })
       expect(res.statusCode).toBe(302)
       const expected = `/en${redirectTo}`
@@ -230,6 +264,7 @@ describe('redirects', () => {
           // Only the last one is recognized
           'Accept-Language': 'sv,ja',
         },
+        followRedirects: false,
       })
       expect(res.statusCode).toBe(302)
       const expected = `/ja${redirectTo}`
@@ -243,6 +278,7 @@ describe('redirects', () => {
           Cookie: `${PREFERRED_LOCALE_COOKIE_NAME}=ja`,
           'Accept-Language': 'es', // note how this is going to be ignored
         },
+        followRedirects: false,
       })
       // 302 because the redirect depended on cookie
       expect(res.statusCode).toBe(302)
@@ -399,7 +435,7 @@ describe('redirects', () => {
   })
 
   describe('enterprise user homepage', () => {
-    const enterpriseUser = `/en/enterprise-server@${enterpriseServerReleases.latest}/github`
+    const enterpriseUser = `/en/enterprise-server@${enterpriseServerReleases.latest}`
     const japaneseEnterpriseUser = enterpriseUser.replace('/en/', '/ja/')
 
     test('no product redirects to GitHub.com product', async () => {
@@ -409,7 +445,7 @@ describe('redirects', () => {
     })
 
     test('no language code redirects to english', async () => {
-      const res = await get(`/enterprise/${enterpriseServerReleases.latest}/user/github`)
+      const res = await get(`/enterprise/${enterpriseServerReleases.latest}/user`)
       expect(res.statusCode).toBe(302)
       expect(res.headers.location).toBe(enterpriseUser)
     })
@@ -527,6 +563,96 @@ describe('redirects', () => {
       )
       expect(res.statusCode).toBe(301)
       expect(res.headers.location).toBe(japaneseDesktopGuides)
+    })
+  })
+
+  describe('admin/release-notes redirects that lack language', () => {
+    test('test redirect to an active enterprise-server version', async () => {
+      const url = `/enterprise-server@${enterpriseServerReleases.latest}/admin/release-notes`
+      const res = await get(url)
+      expect(res.statusCode).toBe(302)
+      expect(res.headers.location).toBe(`/en${url}`)
+    })
+    test('test redirect to a deprecated old enterprise-server version', async () => {
+      const url = `/enterprise-server@2.22/admin/release-notes`
+      const res = await get(url)
+      expect(res.statusCode).toBe(302)
+      expect(res.headers.location).toBe(`/en${url}`)
+    })
+    test('test redirect to a recently deprecated enterprise-server version', async () => {
+      const url = `/enterprise-server@${deprecatedWithFunctionalRedirects[0]}/admin/release-notes`
+      const res = await get(url)
+      expect(res.statusCode).toBe(302)
+      expect(res.headers.location).toBe(`/en${url}`)
+    })
+  })
+
+  // These tests exists because of issue #1960
+  describe('rest reference redirects with default product', () => {
+    test('rest subcategory with fpt in URL', async () => {
+      for (const category of [
+        'migrations',
+        'actions',
+        'activity',
+        'apps',
+        'billing',
+        'checks',
+        'codes-of-conduct',
+        'code-scanning',
+        'codespaces',
+        'emojis',
+        'gists',
+        'git',
+        'gitignore',
+        'interactions',
+        'issues',
+        'licenses',
+        'markdown',
+        'meta',
+        'orgs',
+        'projects',
+        'pulls',
+        'rate-limit',
+        'reactions',
+        'repos',
+        'scim',
+        'search',
+        'teams',
+        'users',
+      ]) {
+        // Without language prefix
+        {
+          const res = await get(`/free-pro-team@latest/rest/reference/${category}`)
+          expect(res.statusCode).toBe(302)
+          expect(res.headers.location).toBe(`/en/rest/${category}`)
+        }
+        // With language prefix
+        {
+          const res = await get(`/en/free-pro-team@latest/rest/reference/${category}`)
+          expect(res.statusCode).toBe(301)
+          expect(res.headers.location).toBe(`/en/rest/${category}`)
+        }
+      }
+    })
+  })
+
+  describe('redirects with double-slashes', () => {
+    test('prefix double-slash', async () => {
+      const res = await get(`//en`)
+      expect(res.statusCode).toBe(301)
+      expect(res.headers.location).toBe(`/en`)
+    })
+
+    test('double-slash elsewhere in the URL', async () => {
+      const res = await get(`/en//rest`)
+      expect(res.statusCode).toBe(301)
+      expect(res.headers.location).toBe(`/en/rest`)
+    })
+
+    test('double-slash trailing in the URL', async () => {
+      const res = await get(`/en//`)
+      expect(res.statusCode).toBe(301)
+      expect(res.headers.location).toBe(`/en`)
     })
   })
 })

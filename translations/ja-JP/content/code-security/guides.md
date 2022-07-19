@@ -84,6 +84,7 @@ includeGuides:
   - /code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/viewing-and-updating-vulnerable-dependencies-in-your-repository
   - /code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review
   - /code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph
+  - /code-security/supply-chain-security/understanding-your-software-supply-chain/using-the-dependency-submission-api
   - /code-security/supply-chain-security/understanding-your-software-supply-chain/exploring-the-dependencies-of-a-repository
 ---
 

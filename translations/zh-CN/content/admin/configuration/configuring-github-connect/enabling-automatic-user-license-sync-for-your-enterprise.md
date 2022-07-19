@@ -17,7 +17,9 @@ topics:
   - Licensing
 shortTitle: Automatic user license sync
 ---
-## About license synchronization
+## About automatic license synchronization
+
+{% data reusables.enterprise-licensing.unique-user-licensing-model %}
 
 {% data reusables.enterprise-licensing.about-license-sync %} For more information, see "[About {% data variables.product.prodname_github_connect %}](/admin/configuration/configuring-github-connect/about-github-connect#data-transmission-for-github-connect)."
 

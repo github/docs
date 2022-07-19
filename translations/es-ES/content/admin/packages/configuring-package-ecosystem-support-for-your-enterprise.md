@@ -26,7 +26,7 @@ Para prevenir que los paquetes nuevos se carguen, puedes configurar un ecosistem
    {%- ifversion ghes > 3.4 %}{% note -%}
 **Nota**: El aislamiento de subdominios debe estar habilitado para alternar las
    opciones del {% data variables.product.prodname_container_registry %}.
-   {%- endnote %}{%- endif %}{%- ifversion ghes > 3.1 %}
+   {%- endnote %}{%- endif %}{%- ifversion ghes %}
   ![Alternación de ecosistemas](/assets/images/enterprise/site-admin-settings/ecosystem-toggles.png){% else %}
 ![Ecosystem toggles](/assets/images/enterprise/3.1/site-admin-settings/ecosystem-toggles.png){% endif %}
 {% data reusables.enterprise_management_console.save-settings %}

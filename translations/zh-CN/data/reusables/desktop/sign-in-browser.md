@@ -1,1 +1,1 @@
-1. In the "Sign in Using Your Browser" pane, click **Continue With Browser**. {% data variables.product.prodname_desktop %} 将打开您的默认浏览器。 ![使用浏览器链接登录](/assets/images/help/desktop/sign-in-browser.png)
+1. 在“Sign in Using Your Browser（使用浏览器登录）”窗格中，单击 **Continue With Browser（继续使用浏览器）**。 {% data variables.product.prodname_desktop %} 将打开您的默认浏览器。 ![使用浏览器链接登录](/assets/images/help/desktop/sign-in-browser.png)

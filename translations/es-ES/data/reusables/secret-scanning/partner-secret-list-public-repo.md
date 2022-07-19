@@ -22,10 +22,10 @@
 | Sistemas Contribuidos     | Credenciales de los sistemas contribuidos                   |
 | Databricks                | Token de Acceso de Databricks                               |
 | Datadog                   | Clave de API de Datadog                                     |
-| DigitalOcean              | DigitalOcean Personal Access Token                          |
-| DigitalOcean              | DigitalOcean OAuth Token                                    |
-| DigitalOcean              | DigitalOcean Refresh Token                                  |
-| DigitalOcean              | DigitalOcean System Token                                   |
+| DigitalOcean              | Token de Acceso Personal de DigitalOcean                    |
+| DigitalOcean              | Token OAuth de DigitalOcean                                 |
+| DigitalOcean              | Token de Actualización de DigitalOcean                      |
+| DigitalOcean              | Token de Sistema de DigitalOcean                            |
 | Discord                   | Token de Bot de Discord                                     |
 | Doppler                   | Token Personal de Doppler                                   |
 | Doppler                   | Token de Servicio de Doppler                                |
@@ -77,6 +77,7 @@
 | Proctorio                 | Clave de Secreto de Proctorio                               |
 | Pulumi                    | Token de Acceso de Pulumi                                   |
 | PyPI                      | Token de la API de PyPI                                     |
+| redirect.pizza            | Token de la API de redirect.pizza                           |
 | RubyGems                  | Clave de la API de RubyGems                                 |
 | Samsara                   | Token de API de Samsara                                     |
 | Samsara                   | Token de Acceso de OAuth de Samsara                         |
@@ -102,3 +103,4 @@
 | Twilio                    | Clave de API de Twilio                                      |
 | Typeform                  | Token de acceso personal a Typeform                         |
 | Valour                    | Token de acceso a Valour                                    |
+| Zuplo                     | Zuplo Consumer API                                          |

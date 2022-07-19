@@ -126,6 +126,14 @@
             "description": "<p>Returns the elements in the list that come before the specified cursor.</p>"
           },
           {
+            "name": "classifications",
+            "type": "[SecurityAdvisoryClassification!]",
+            "id": "securityadvisoryclassification",
+            "kind": "enums",
+            "href": "/graphql/reference/enums#securityadvisoryclassification",
+            "description": "<p>A list of classifications to filter advisories by.</p>"
+          },
+          {
             "name": "first",
             "type": "Int",
             "id": "int",
@@ -182,6 +190,14 @@
             "kind": "scalars",
             "href": "/graphql/reference/scalars#string",
             "description": "<p>Returns the elements in the list that come before the specified cursor.</p>"
+          },
+          {
+            "name": "classifications",
+            "type": "[SecurityAdvisoryClassification!]",
+            "id": "securityadvisoryclassification",
+            "kind": "enums",
+            "href": "/graphql/reference/enums#securityadvisoryclassification",
+            "description": "<p>A list of advisory classifications to filter vulnerabilities by.</p>"
           },
           {
             "name": "ecosystem",
@@ -5808,7 +5824,7 @@
       "kind": "mutations",
       "id": "updatepullrequestbranch",
       "href": "/graphql/reference/mutations#updatepullrequestbranch",
-      "description": "<p>Merge HEAD from upstream branch into pull request branch.</p>",
+      "description": "<p>Merge or Rebase HEAD from upstream branch into pull request branch.</p>",
       "inputFields": [
         {
           "name": "input",
@@ -6791,7 +6807,7 @@
         },
         {
           "name": "commitBody",
-          "description": "<p>The commit message of the auto-merge request.</p>",
+          "description": "<p>The commit message of the auto-merge request. If a merge queue is required by\nthe base branch, this value will be set by the merge queue when merging.</p>",
           "type": "String",
           "id": "string",
           "kind": "scalars",
@@ -6799,7 +6815,7 @@
         },
         {
           "name": "commitHeadline",
-          "description": "<p>The commit title of the auto-merge request.</p>",
+          "description": "<p>The commit title of the auto-merge request. If a merge queue is required by\nthe base branch, this value will be set by the merge queue when merging.</p>",
           "type": "String",
           "id": "string",
           "kind": "scalars",
@@ -6823,7 +6839,7 @@
         },
         {
           "name": "mergeMethod",
-          "description": "<p>The merge method of the auto-merge request.</p>",
+          "description": "<p>The merge method of the auto-merge request. If a merge queue is required by\nthe base branch, this value will be set by the merge queue when merging.</p>",
           "type": "PullRequestMergeMethod!",
           "id": "pullrequestmergemethod",
           "kind": "enums",
@@ -8132,7 +8148,7 @@
       "kind": "objects",
       "id": "bypassforcepushallowance",
       "href": "/graphql/reference/objects#bypassforcepushallowance",
-      "description": "<p>A team or user who has the ability to bypass a force push requirement on a protected branch.</p>",
+      "description": "<p>A user, team, or app who has the ability to bypass a force push requirement on a protected branch.</p>",
       "implements": [
         {
           "name": "Node",
@@ -8143,7 +8159,7 @@
       "fields": [
         {
           "name": "actor",
-          "description": "<p>The actor that can dismiss.</p>",
+          "description": "<p>The actor that can force push.</p>",
           "type": "BranchActorAllowanceActor",
           "id": "branchactorallowanceactor",
           "kind": "unions",
@@ -8151,7 +8167,7 @@
         },
         {
           "name": "branchProtectionRule",
-          "description": "<p>Identifies the branch protection rule associated with the allowed user or team.</p>",
+          "description": "<p>Identifies the branch protection rule associated with the allowed user, team, or app.</p>",
           "type": "BranchProtectionRule",
           "id": "branchprotectionrule",
           "kind": "objects",
@@ -8230,7 +8246,7 @@
       "kind": "objects",
       "id": "bypasspullrequestallowance",
       "href": "/graphql/reference/objects#bypasspullrequestallowance",
-      "description": "<p>A team or user who has the ability to bypass a pull request requirement on a protected branch.</p>",
+      "description": "<p>A user, team, or app who has the ability to bypass a pull request requirement on a protected branch.</p>",
       "implements": [
         {
           "name": "Node",
@@ -8241,7 +8257,7 @@
       "fields": [
         {
           "name": "actor",
-          "description": "<p>The actor that can dismiss.</p>",
+          "description": "<p>The actor that can bypass.</p>",
           "type": "BranchActorAllowanceActor",
           "id": "branchactorallowanceactor",
           "kind": "unions",
@@ -8249,7 +8265,7 @@
         },
         {
           "name": "branchProtectionRule",
-          "description": "<p>Identifies the branch protection rule associated with the allowed user or team.</p>",
+          "description": "<p>Identifies the branch protection rule associated with the allowed user, team, or app.</p>",
           "type": "BranchProtectionRule",
           "id": "branchprotectionrule",
           "kind": "objects",
@@ -9570,6 +9586,14 @@
           "id": "uri",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#uri"
+        },
+        {
+          "name": "stateReason",
+          "description": "<p>The reason the issue state was changed to closed.</p>",
+          "type": "IssueStateReason",
+          "id": "issuestatereason",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#issuestatereason"
         },
         {
           "name": "url",
@@ -11908,7 +11932,7 @@
         },
         {
           "name": "pullRequestReviewContributions",
-          "description": "<p>Pull request review contributions made by the user.</p>",
+          "description": "<p>Pull request review contributions made by the user. Returns the most recently\nsubmitted review for each PR reviewed by the user.</p>",
           "type": "CreatedPullRequestReviewContributionConnection!",
           "id": "createdpullrequestreviewcontributionconnection",
           "kind": "objects",
@@ -20036,6 +20060,39 @@
       ]
     },
     {
+      "name": "ExternalIdentityAttribute",
+      "kind": "objects",
+      "id": "externalidentityattribute",
+      "href": "/graphql/reference/objects#externalidentityattribute",
+      "description": "<p>An attribute for the External Identity attributes collection.</p>",
+      "fields": [
+        {
+          "name": "metadata",
+          "description": "<p>The attribute metadata as JSON.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "name",
+          "description": "<p>The attribute name.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "value",
+          "description": "<p>The attribute value.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        }
+      ]
+    },
+    {
       "name": "ExternalIdentityConnection",
       "kind": "objects",
       "id": "externalidentityconnection",
@@ -20108,6 +20165,14 @@
       "href": "/graphql/reference/objects#externalidentitysamlattributes",
       "description": "<p>SAML attributes for the External Identity.</p>",
       "fields": [
+        {
+          "name": "attributes",
+          "description": "<p>SAML Identity attributes.</p>",
+          "type": "[ExternalIdentityAttribute!]!",
+          "id": "externalidentityattribute",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#externalidentityattribute"
+        },
         {
           "name": "emails",
           "description": "<p>The emails associated with the SAML identity.</p>",
@@ -22314,6 +22379,14 @@
           "id": "issuestate",
           "kind": "enums",
           "href": "/graphql/reference/enums#issuestate"
+        },
+        {
+          "name": "stateReason",
+          "description": "<p>Identifies the reason for the issue state.</p>",
+          "type": "IssueStateReason",
+          "id": "issuestatereason",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#issuestatereason"
         },
         {
           "name": "timeline",
@@ -32124,6 +32197,14 @@
           "href": "/graphql/reference/scalars#boolean"
         },
         {
+          "name": "viewerIsFollowing",
+          "description": "<p>Whether or not this Organization is followed by the viewer.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
           "name": "websiteUrl",
           "description": "<p>The organization's public profile URL.</p>",
           "type": "URI",
@@ -36387,6 +36468,14 @@
           "href": "/graphql/reference/scalars#boolean"
         },
         {
+          "name": "viewerCanEditFiles",
+          "description": "<p>Can the viewer edit files within this pull request.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
           "name": "viewerCanEnableAutoMerge",
           "description": "<p>Whether or not the viewer can enable auto-merge.</p>",
           "type": "Boolean!",
@@ -38707,7 +38796,7 @@
       "kind": "objects",
       "id": "pushallowance",
       "href": "/graphql/reference/objects#pushallowance",
-      "description": "<p>A team, user or app who has the ability to push to a protected branch.</p>",
+      "description": "<p>A team, user, or app who has the ability to push to a protected branch.</p>",
       "implements": [
         {
           "name": "Node",
@@ -38726,7 +38815,7 @@
         },
         {
           "name": "branchProtectionRule",
-          "description": "<p>Identifies the branch protection rule associated with the allowed user or team.</p>",
+          "description": "<p>Identifies the branch protection rule associated with the allowed user, team, or app.</p>",
           "type": "BranchProtectionRule",
           "id": "branchprotectionrule",
           "kind": "objects",
@@ -40544,6 +40633,14 @@
           "id": "datetime",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#datetime"
+        },
+        {
+          "name": "stateReason",
+          "description": "<p>The reason the issue state was changed to open.</p>",
+          "type": "IssueStateReason",
+          "id": "issuestatereason",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#issuestatereason"
         }
       ]
     },
@@ -44490,6 +44587,14 @@
       ],
       "fields": [
         {
+          "name": "allowUpdateBranch",
+          "description": "<p>Whether or not a pull request head branch that is behind its base branch can\nalways be updated even if it is not required to be up to date before merging.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
           "name": "assignableUsers",
           "description": "<p>A list of users that can be assigned to issues in this repository.</p>",
           "type": "UserConnection!",
@@ -46624,6 +46729,14 @@
           "href": "/graphql/reference/scalars#boolean"
         },
         {
+          "name": "squashPrTitleUsedAsDefault",
+          "description": "<p>Whether a squash merge commit can use the pull request title as default.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
           "name": "sshUrl",
           "description": "<p>The SSH URL to clone this repository.</p>",
           "type": "GitSSHRemote!",
@@ -46903,6 +47016,16 @@
                 "id": "string",
                 "kind": "scalars",
                 "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "dependencyScopes",
+              "description": "<p>Filter by the scope of the alert's dependency.</p>",
+              "type": {
+                "name": "[RepositoryVulnerabilityAlertDependencyScope!]",
+                "id": "repositoryvulnerabilityalertdependencyscope",
+                "kind": "enums",
+                "href": "/graphql/reference/enums#repositoryvulnerabilityalertdependencyscope"
               }
             },
             {
@@ -48062,6 +48185,14 @@
           "href": "/graphql/reference/objects#dependabotupdate"
         },
         {
+          "name": "dependencyScope",
+          "description": "<p>The scope of an alert's dependency.</p>",
+          "type": "RepositoryVulnerabilityAlertDependencyScope",
+          "id": "repositoryvulnerabilityalertdependencyscope",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#repositoryvulnerabilityalertdependencyscope"
+        },
+        {
           "name": "dismissReason",
           "description": "<p>The reason the alert was dismissed.</p>",
           "type": "String",
@@ -48091,7 +48222,9 @@
           "type": "String",
           "id": "string",
           "kind": "scalars",
-          "href": "/graphql/reference/scalars#string"
+          "href": "/graphql/reference/scalars#string",
+          "isDeprecated": true,
+          "deprecationReason": "<p>The <code>fixReason</code> field is being removed. You can still use <code>fixedAt</code> and <code>dismissReason</code>. Removal on 2022-10-01 UTC.</p>"
         },
         {
           "name": "fixedAt",
@@ -48319,7 +48452,7 @@
       "kind": "objects",
       "id": "reviewdismissalallowance",
       "href": "/graphql/reference/objects#reviewdismissalallowance",
-      "description": "<p>A team or user who has the ability to dismiss a review on a protected branch.</p>",
+      "description": "<p>A user, team, or app who has the ability to dismiss a review on a protected branch.</p>",
       "implements": [
         {
           "name": "Node",
@@ -48338,7 +48471,7 @@
         },
         {
           "name": "branchProtectionRule",
-          "description": "<p>Identifies the branch protection rule associated with the allowed user or team.</p>",
+          "description": "<p>Identifies the branch protection rule associated with the allowed user, team, or app.</p>",
           "type": "BranchProtectionRule",
           "id": "branchprotectionrule",
           "kind": "objects",
@@ -49022,6 +49155,14 @@
       ],
       "fields": [
         {
+          "name": "classification",
+          "description": "<p>The classification of the advisory.</p>",
+          "type": "SecurityAdvisoryClassification!",
+          "id": "securityadvisoryclassification",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#securityadvisoryclassification"
+        },
+        {
           "name": "cvss",
           "description": "<p>The CVSS associated with this advisory.</p>",
           "type": "CVSS!",
@@ -49201,6 +49342,16 @@
                 "id": "string",
                 "kind": "scalars",
                 "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "classifications",
+              "description": "<p>A list of advisory classifications to filter vulnerabilities by.</p>",
+              "type": {
+                "name": "[SecurityAdvisoryClassification!]",
+                "id": "securityadvisoryclassification",
+                "kind": "enums",
+                "href": "/graphql/reference/enums#securityadvisoryclassification"
               }
             },
             {
@@ -60459,11 +60610,11 @@
       "values": [
         {
           "name": "MEMBER",
-          "description": "<p>The user is a member of the enterprise membership.</p>"
+          "description": "<p>The user is a member of an organization in the enterprise.</p>"
         },
         {
           "name": "OWNER",
-          "description": "<p>The user is an owner of the enterprise membership.</p>"
+          "description": "<p>The user is an owner of an organization in the enterprise.</p>"
         }
       ]
     },
@@ -60697,6 +60848,23 @@
       ]
     },
     {
+      "name": "IssueClosedStateReason",
+      "kind": "enums",
+      "id": "issueclosedstatereason",
+      "href": "/graphql/reference/enums#issueclosedstatereason",
+      "description": "<p>The possible state reasons of a closed issue.</p>",
+      "values": [
+        {
+          "name": "COMPLETED",
+          "description": "<p>An issue that has been closed as completed.</p>"
+        },
+        {
+          "name": "NOT_PLANNED",
+          "description": "<p>An issue that has been closed as not planned.</p>"
+        }
+      ]
+    },
+    {
       "name": "IssueCommentOrderField",
       "kind": "enums",
       "id": "issuecommentorderfield",
@@ -60744,6 +60912,27 @@
         {
           "name": "OPEN",
           "description": "<p>An issue that is still open.</p>"
+        }
+      ]
+    },
+    {
+      "name": "IssueStateReason",
+      "kind": "enums",
+      "id": "issuestatereason",
+      "href": "/graphql/reference/enums#issuestatereason",
+      "description": "<p>The possible state reasons of an issue.</p>",
+      "values": [
+        {
+          "name": "COMPLETED",
+          "description": "<p>An issue that has been closed as completed.</p>"
+        },
+        {
+          "name": "NOT_PLANNED",
+          "description": "<p>An issue that has been closed as not planned.</p>"
+        },
+        {
+          "name": "REOPENED",
+          "description": "<p>An issue that has been reopened.</p>"
         }
       ]
     },
@@ -61038,12 +61227,20 @@
           "description": "<p>The Octoshift migration has failed.</p>"
         },
         {
+          "name": "FAILED_VALIDATION",
+          "description": "<p>The Octoshift migration has invalid credentials.</p>"
+        },
+        {
           "name": "IN_PROGRESS",
           "description": "<p>The Octoshift migration is in progress.</p>"
         },
         {
           "name": "NOT_STARTED",
           "description": "<p>The Octoshift migration has not started.</p>"
+        },
+        {
+          "name": "PENDING_VALIDATION",
+          "description": "<p>The Octoshift migration needs to have its credentials validated.</p>"
         },
         {
           "name": "QUEUED",
@@ -61274,6 +61471,10 @@
         {
           "name": "OUTSIDE_COLLABORATOR",
           "description": "<p>An outside collaborator is a person who isn't explicitly a member of the\nOrganization, but who has Read, Write, or Admin permissions to one or more\nrepositories in the organization.</p>"
+        },
+        {
+          "name": "SUSPENDED",
+          "description": "<p>A suspended member.</p>"
         },
         {
           "name": "UNAFFILIATED",
@@ -62674,6 +62875,23 @@
       ]
     },
     {
+      "name": "RepositoryVulnerabilityAlertDependencyScope",
+      "kind": "enums",
+      "id": "repositoryvulnerabilityalertdependencyscope",
+      "href": "/graphql/reference/enums#repositoryvulnerabilityalertdependencyscope",
+      "description": "<p>The possible scopes of an alert's dependency.</p>",
+      "values": [
+        {
+          "name": "DEVELOPMENT",
+          "description": "<p>A dependency that is only used in development.</p>"
+        },
+        {
+          "name": "RUNTIME",
+          "description": "<p>A dependency that is leveraged during application runtime.</p>"
+        }
+      ]
+    },
+    {
       "name": "RepositoryVulnerabilityAlertState",
       "kind": "enums",
       "id": "repositoryvulnerabilityalertstate",
@@ -62833,6 +63051,23 @@
       ]
     },
     {
+      "name": "SecurityAdvisoryClassification",
+      "kind": "enums",
+      "id": "securityadvisoryclassification",
+      "href": "/graphql/reference/enums#securityadvisoryclassification",
+      "description": "<p>Classification of the advisory.</p>",
+      "values": [
+        {
+          "name": "GENERAL",
+          "description": "<p>Classification of general advisories.</p>"
+        },
+        {
+          "name": "MALWARE",
+          "description": "<p>Classification of malware advisories.</p>"
+        }
+      ]
+    },
+    {
       "name": "SecurityAdvisoryEcosystem",
       "kind": "enums",
       "id": "securityadvisoryecosystem",
@@ -62842,6 +63077,10 @@
         {
           "name": "COMPOSER",
           "description": "<p>PHP packages hosted at packagist.org.</p>"
+        },
+        {
+          "name": "ERLANG",
+          "description": "<p>Erlang/Elixir packages hosted at hex.pm.</p>"
         },
         {
           "name": "GO",
@@ -63262,6 +63501,11 @@
       "href": "/graphql/reference/unions#branchactorallowanceactor",
       "description": "<p>Types which can be actors for <code>BranchActorAllowance</code> objects.</p>",
       "possibleTypes": [
+        {
+          "name": "App",
+          "id": "app",
+          "href": "/graphql/reference/objects#app"
+        },
         {
           "name": "Team",
           "id": "team",
@@ -64689,6 +64933,11 @@
       "description": "<p>Types that can be an actor.</p>",
       "possibleTypes": [
         {
+          "name": "App",
+          "id": "app",
+          "href": "/graphql/reference/objects#app"
+        },
+        {
           "name": "Team",
           "id": "team",
           "href": "/graphql/reference/objects#team"
@@ -65998,6 +66247,14 @@
           "kind": "scalars",
           "href": "/graphql/reference/scalars#id",
           "isDeprecated": false
+        },
+        {
+          "name": "stateReason",
+          "description": "<p>The reason the issue is to be closed.</p>",
+          "type": "IssueClosedStateReason",
+          "id": "issueclosedstatereason",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#issueclosedstatereason"
         }
       ]
     },
@@ -66262,7 +66519,7 @@
         },
         {
           "name": "bypassForcePushActorIds",
-          "description": "<p>A list of User or Team IDs allowed to bypass force push targeting matching branches.</p>",
+          "description": "<p>A list of User, Team, or App IDs allowed to bypass force push targeting matching branches.</p>",
           "type": "[ID!]",
           "id": "id",
           "kind": "scalars",
@@ -66270,7 +66527,7 @@
         },
         {
           "name": "bypassPullRequestActorIds",
-          "description": "<p>A list of User or Team IDs allowed to bypass pull requests targeting matching branches.</p>",
+          "description": "<p>A list of User, Team, or App IDs allowed to bypass pull requests targeting matching branches.</p>",
           "type": "[ID!]",
           "id": "id",
           "kind": "scalars",
@@ -66423,7 +66680,7 @@
         },
         {
           "name": "reviewDismissalActorIds",
-          "description": "<p>A list of User or Team IDs allowed to dismiss reviews on pull requests targeting matching branches.</p>",
+          "description": "<p>A list of User, Team, or App IDs allowed to dismiss reviews on pull requests targeting matching branches.</p>",
           "type": "[ID!]",
           "id": "id",
           "kind": "scalars",
@@ -70321,7 +70578,7 @@
         {
           "name": "accessToken",
           "description": "<p>The Octoshift migration source access token.</p>",
-          "type": "String",
+          "type": "String!",
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
@@ -70975,7 +71232,7 @@
         },
         {
           "name": "bypassForcePushActorIds",
-          "description": "<p>A list of User or Team IDs allowed to bypass force push targeting matching branches.</p>",
+          "description": "<p>A list of User, Team, or App IDs allowed to bypass force push targeting matching branches.</p>",
           "type": "[ID!]",
           "id": "id",
           "kind": "scalars",
@@ -70983,7 +71240,7 @@
         },
         {
           "name": "bypassPullRequestActorIds",
-          "description": "<p>A list of User or Team IDs allowed to bypass pull requests targeting matching branches.</p>",
+          "description": "<p>A list of User, Team, or App IDs allowed to bypass pull requests targeting matching branches.</p>",
           "type": "[ID!]",
           "id": "id",
           "kind": "scalars",
@@ -71127,7 +71384,7 @@
         },
         {
           "name": "reviewDismissalActorIds",
-          "description": "<p>A list of User or Team IDs allowed to dismiss reviews on pull requests targeting matching branches.</p>",
+          "description": "<p>A list of User, Team, or App IDs allowed to dismiss reviews on pull requests targeting matching branches.</p>",
           "type": "[ID!]",
           "id": "id",
           "kind": "scalars",

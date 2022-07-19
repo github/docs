@@ -1,5 +1,5 @@
 要为工作指定自托管的运行器，请在工作流程文件中使用自托管运行器标签配置 `runs-on`。
 
-所有自托管运行器都有 `self-hosted` 标签。 仅使用此标签将选择任何自托管运行器。 To select runners that meet certain criteria, such as operating system or architecture, we recommend providing an array of labels that begins with `self-hosted` (this must be listed first) and then includes additional labels as needed. When you specify an array of labels, jobs will be queued on runners that have all the labels that you specify.
+所有自托管运行器都有 `self-hosted` 标签。 仅使用此标签将选择任何自托管运行器。 要选择满足特定条件（如操作系统或体系结构）的运行器，我们建议提供一组标签，这些标签以 `self-hosted` 开头（必须首先列出），然后根据需要包含其他标签。 指定一系列标签时，作业将在具有指定的所有标签的运行器上排队。
 
-Although the `self-hosted` label is not required, we strongly recommend specifying it when using self-hosted runners to ensure that your job does not unintentionally specify any current or future {% data variables.product.prodname_dotcom %}-hosted runners.
+虽然 `self-hosted` 标签不是必需的，但我们强烈建议在使用自托管运行器时指定它，以确保您的作业不会无意中指定任何当前或将来 {% data variables.product.prodname_dotcom %} 托管的运行器。

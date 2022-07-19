@@ -30,7 +30,7 @@ topics:
 
 Si estás configurando el {% data variables.product.prodname_code_scanning %} para un lenguaje compilado, y estás compilando el código en un ambiente contenido, el análisis podría fallar con el mensaje de error "No source code was seen during the build". Esto indica que {% data variables.product.prodname_codeql %} no fue capaz de monitorear tu código mientras se compilaba.
 
-Debes ejecutar a {% data variables.product.prodname_codeql %} dentro del mismo contenedor en el que compilaste tu código. Esto aplica ya sea si utilizas el {% data variables.product.prodname_codeql_cli %}{% if codeql-runner-supported %}, el {% data variables.product.prodname_codeql_runner %},{% endif %} o las {% data variables.product.prodname_actions %}. Para el {% data variables.product.prodname_codeql_cli %} {% if codeql-runner-supported %}o el {% data variables.product.prodname_codeql_runner %}{% endif %}, consulta la sección "[Instalar el {% data variables.product.prodname_codeql_cli %} en tu sistema de IC](/code-security/secure-coding/using-codeql-code-scanning-with-your-existing-ci-system/installing-codeql-cli-in-your-ci-system)"{% if codeql-runner-supported %} o "[Ejecutar el {% data variables.product.prodname_codeql_runner %} en tu sistema de IC](/code-security/secure-coding/running-codeql-runner-in-your-ci-system)"{% endif %} para obtener más información. Si estás utilizando {% data variables.product.prodname_actions %}, configura tu flujo de trabajo para ejecutar todas las acciones en el mismo contenedor. Para obtener más información, consulta la sección "[Ejemplo de flujo de trabajo](#example-workflow)".
+Debes ejecutar a {% data variables.product.prodname_codeql %} dentro del mismo contenedor en el que compilaste tu código. Esto aplica a cuando utilizas el {% data variables.product.prodname_codeql_cli %}{% ifversion codeql-runner-supported %}, el {% data variables.product.prodname_codeql_runner %},{% endif %} o {% data variables.product.prodname_actions %}. Para el {% data variables.product.prodname_codeql_cli %} {% ifversion codeql-runner-supported %}o el {% data variables.product.prodname_codeql_runner %}{% endif %}, consulta la sección "[Instalar el {% data variables.product.prodname_codeql_cli %} en tu sistema de IC](/code-security/secure-coding/using-codeql-code-scanning-with-your-existing-ci-system/installing-codeql-cli-in-your-ci-system)"{% ifversion codeql-runner-supported %} o "[Ejecutar el {% data variables.product.prodname_codeql_runner %} en tu sistema de IC](/code-security/secure-coding/running-codeql-runner-in-your-ci-system)"{% endif %} para obtener más información. Si estás utilizando {% data variables.product.prodname_actions %}, configura tu flujo de trabajo para ejecutar todas las acciones en el mismo contenedor. Para obtener más información, consulta la sección "[Ejemplo de flujo de trabajo](#example-workflow)".
 
 ## Dependencias
 
@@ -66,10 +66,10 @@ on:
 jobs:
   analyze:
     name: Analyze
-    runs-on: ubuntu-latest{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
+    runs-on: ubuntu-latest
     permissions:
       security-events: write
-      actions: read{% endif %}
+      actions: read
 
     strategy:
       fail-fast: false

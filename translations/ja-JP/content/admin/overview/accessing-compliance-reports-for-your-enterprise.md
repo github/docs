@@ -28,4 +28,4 @@ You can access {% data variables.product.company_short %}'s compliance reports i
 
 ## 参考リンク
 
-- "[Accessing compliance reports for your organization](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/accessing-compliance-reports-for-your-organization)"
+- 「[Organizationのコンプライアンレポートへのアクセス](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/accessing-compliance-reports-for-your-organization)」

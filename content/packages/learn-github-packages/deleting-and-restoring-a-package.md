@@ -9,7 +9,7 @@ redirect_from:
   - /packages/guides/deleting-a-container-image
 versions:
   fpt: '*'
-  ghes: '>=3.2'
+  ghes: '*'
   ghec: '*'
   ghae: '*'
 shortTitle: Delete & restore a package
@@ -105,9 +105,9 @@ curl -X POST \
 HOSTNAME/graphql
 ```
 
-To find all of the private packages you have published to {% data variables.product.prodname_registry %}, along with the version IDs for the packages, you can use the `packages` connection through the `repository` object. You will need a token with the `read:packages` and `repo` scopes. For more information, see the [`packages`]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql/reference/objects#repository) connection or the [`PackageOwner`]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql/reference/interfaces#packageowner) interface.
+To find all of the private packages you have published to {% data variables.product.prodname_registry %}, along with the version IDs for the packages, you can use the `packages` connection through the `repository` object. You will need a token with the `read:packages` and `repo` scopes. For more information, see the [`packages`](/graphql/reference/objects#repository) connection or the [`PackageOwner`](/graphql/reference/interfaces#packageowner) interface.
 
-For more information about the `deletePackageVersion` mutation, see "[`deletePackageVersion`]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql/reference/mutations#deletepackageversion)."
+For more information about the `deletePackageVersion` mutation, see "[`deletePackageVersion`](/graphql/reference/mutations#deletepackageversion)."
 
 You cannot directly delete an entire package using GraphQL, but if you delete every version of a package, the package will no longer show on {% data variables.product.product_name %}.
 

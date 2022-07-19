@@ -1,1 +1,1 @@
-If you are a monthly-billed customer, your account will have a default spending limit of 0 US dollars (USD), which prevents additional usage of minutes or storage for private repositories beyond the amounts included with your account. 請求書でアカウントの支払いを行う場合、アカウントのデフォルトの支払い制限は無制限になります。
+月ごとの支払いのお客様の場合、アカウントはデフォルトの支払い上限は0米ドル（USD）になり、これによってアカウントに含まれる額を超えてのプライベートリポジトリの分やストレージの利用は防止されます。 請求書でアカウントの支払いを行う場合、アカウントのデフォルトの支払い制限は無制限になります。

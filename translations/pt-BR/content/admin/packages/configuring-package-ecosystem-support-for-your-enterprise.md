@@ -26,7 +26,7 @@ Para evitar que novos pacotes sejam carregados, você pode definir um ecossistem
    {%- ifversion ghes > 3.4 %}{% note -%}
 **Observação**: O isolamento de subdomínio deve estar habilitado para alternar as
    opções de {% data variables.product.prodname_container_registry %}.
-   {%- endnote %}{%- endif %}{%- ifversion ghes > 3.1 %}
+   {%- endnote %}{%- endif %}{%- ifversion ghes %}
   ![Alternância de ecossistemas](/assets/images/enterprise/site-admin-settings/ecosystem-toggles.png){% else %}
 ![Ecosystem toggles](/assets/images/enterprise/3.1/site-admin-settings/ecosystem-toggles.png){% endif %}
 {% data reusables.enterprise_management_console.save-settings %}

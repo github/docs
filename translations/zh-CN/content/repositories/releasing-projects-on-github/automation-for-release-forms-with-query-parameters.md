@@ -32,5 +32,5 @@ shortTitle: 自动发布表单
 
 ## 延伸阅读
 
-- "[Creating an issue from a URL query](/issues/tracking-your-work-with-issues/creating-an-issue#creating-an-issue-from-a-url-query)"
-- "[Using query parameters to create a pull request](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/using-query-parameters-to-create-a-pull-request/)"
+- “[从 URL 查询创建议题](/issues/tracking-your-work-with-issues/creating-an-issue#creating-an-issue-from-a-url-query)”
+- “[使用查询参数创建拉取请求](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/using-query-parameters-to-create-a-pull-request/)”

@@ -1,18 +1,18 @@
-When using the `pull_request` and `pull_request_target` events, you can configure a workflow to run only for pull requests that target specific branches.
+使用 `pull_request` 和 `pull_request_target` 事件时，可以将工作流程配置为仅针对面向特定分支的拉取请求运行。
 
-Use the `branches` filter when you want to include branch name patterns or when you want to both include and exclude branch names patterns. Use the `branches-ignore` filter when you only want to exclude branch name patterns. You cannot use both the `branches` and `branches-ignore` filters for the same event in a workflow.
+如果要包括分支名称模式，或者要同时包含和排除分支名称模式，请使用 `branches` 筛选器。 只需要排除分支名称模式时，请使用 `branches-ignore` 过滤器。 不能同时对工作流程中的同一事件使用 `branches` 和 `branches-ignore` 筛选器。
 
-If you define both `branches`/`branches-ignore` and [`paths`](#onpushpull_requestpull_request_targetpathspaths-ignore), the workflow will only run when both filters are satisfied.
+如果同时定义 `branches`/`branches-ignore` 和 [`paths`](#onpushpull_requestpull_request_targetpathspaths-ignore)，则工作流程仅在同时满足两个筛选器时才会运行。
 
-The `branches` and `branches-ignore` keywords accept glob patterns that use characters like `*`, `**`, `+`, `?`, `!` and others to match more than one branch name. If a name contains any of these characters and you want a literal match, you need to escape each of these special characters with `\`. 有关 glob 模式的更多信息，请参阅“[过滤器模式备忘清单](/actions/using-workflows/workflow-syntax-for-github-actions#filter-pattern-cheat-sheet)”。
+`branches` 和 `branches-ignore` 关键词接受使用 `*`、`**`、`+`、`?`、`!` 等字符的 glob 模式来匹配多个分支名称。 如果名称包含其中任一字符，而您想要逐字匹配，则需要使用 `\` 转义每个特殊字符。 有关 glob 模式的更多信息，请参阅“[过滤器模式备忘清单](/actions/using-workflows/workflow-syntax-for-github-actions#filter-pattern-cheat-sheet)”。
 
-#### Example: Including branches
+#### 示例：包括分支
 
-The patterns defined in `branches` are evaluated against the Git ref's name. For example, the following workflow would run whenever there is a `pull_request` event for a pull request targeting:
+在 `branches` 中定义的模式根据 Git ref 的名称进行评估。 例如，每当存在针对拉取请求目标的 `pull_request` 事件时，就会运行以下工作流程：
 
-- A branch named `main` (`refs/heads/main`)
-- A branch named `mona/octocat` (`refs/heads/mona/octocat`)
-- A branch whose name starts with `releases/`, like `releases/10` (`refs/heads/releases/10`)
+- 名为 `main` 的分支 (`refs/heads/main`)
+- 名为 `mona/octocat` 的分支 (`refs/heads/mona/octocat`)
+- 名称以 `releases/` 开头的分支，如 `releases/10` (`refs/heads/releases/10`)
 
 ```yaml
 on:
@@ -24,12 +24,12 @@ on:
       - 'releases/**'
 ```
 
-#### Example: Excluding branches
+#### 示例：排除分支
 
-When a pattern matches the `branches-ignore` pattern, the workflow will not run. The patterns defined in `branches` are evaluated against the Git ref's name. For example, the following workflow would run whenever there is a `pull_request` event unless the pull request is targeting:
+当模式与 `branches-ignore` 模式匹配时，工作流程不会运行。 在 `branches` 中定义的模式根据 Git ref 的名称进行评估。 例如，每当存在 `pull_request` 事件时，除非针对拉取请求，否则会运行以下工作流程：
 
-- A branch named `mona/octocat` (`refs/heads/mona/octocat`)
-- A branch whose name matches `releases/**-alpha`, like `beta/3-alpha` (`refs/releases/beta/3-alpha`)
+- 名为 `mona/octocat` 的分支 (`refs/heads/mona/octocat`)
+- 名称与 `releases/**-alpha` 匹配的分支，如 `releases/beta/3-alpha` (`refs/heads/releases/beta/3-alpha`)
 
 ```yaml
 on:
@@ -40,18 +40,18 @@ on:
       - 'releases/**-alpha'
 ```
 
-#### Example: Including and excluding branches
+#### 示例：包括和排除分支
 
-You cannot use `branches` and `branches-ignore` to filter the same event in a single workflow. If you want to both include and exclude branch patterns for a single event, use the `branches` filter along with the `!` character to indicate which branches should be excluded.
+不能使用 `branches` 和 `branches-ignore` 来筛选单个工作流程中的同一事件。 如果要同时包含和排除单个事件的分支模式，请使用 `branches` 筛选器与 `!` 字符指示应排除哪些分支。
 
-If you define a branch with the `!` character, you must also define at least one branch without the `!` character. If you only want to exclude branches, use `branches-ignore` instead.
+如果使用 `!` 字符定义分支，还必须定义至少一个不带 `!` 字符的分支。 如果只想排除分支，请改用 `paths-ignore`。
 
 您定义模式事项的顺序。
 
 - 肯定匹配后的匹配否定模式（前缀为 `!`）将排除 Git 引用。
 - 否定匹配后的匹配肯定模式将再次包含 Git 引用。
 
-The following workflow will run on `pull_request` events for pull requests that target `releases/10` or `releases/beta/mona`, but not for pull requests that target `releases/10-alpha` or `releases/beta/3-alpha` because the negative pattern `!releases/**-alpha` follows the positive pattern.
+对于针对 `releases/10` 或 `releases/beta/mona` 的拉取请求，以下工作流程将在发生 `pull_request` 事件时运行，但对于针对 `releases/10-alpha` 或 `releases/beta/3-alpha` 的拉取请求不会运行，因为否定模式 `!releases/**-alpha` 后跟肯定模式。
 
 ```yaml
 on:

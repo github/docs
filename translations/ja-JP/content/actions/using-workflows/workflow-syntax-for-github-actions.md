@@ -95,7 +95,7 @@ jobs:
 ```
 {% endraw %}
 
-For more information, see "[Reusing workflows](/actions/learn-github-actions/reusing-workflows)."
+詳しい情報については「[ワークフローの再利用](/actions/learn-github-actions/reusing-workflows)」を参照してください。
 
 #### `on.workflow_call.inputs.<input_id>.type`
 
@@ -124,7 +124,7 @@ on:
 ```
 {% endraw %}
 
-For information on how to reference a job output, see [`jobs.<job_id>.outputs`](#jobsjob_idoutputs). For more information, see "[Reusing workflows](/actions/learn-github-actions/reusing-workflows)."
+For information on how to reference a job output, see [`jobs.<job_id>.outputs`](#jobsjob_idoutputs). 詳しい情報については「[ワークフローの再利用](/actions/learn-github-actions/reusing-workflows)」を参照してください。
 
 ### `on.workflow_call.secrets`
 
@@ -157,42 +157,6 @@ jobs:
 ```
 {% endraw %}
 
-{% if actions-inherit-secrets-reusable-workflows %}
-
-#### `on.workflow_call.secrets.inherit`
-
-Use the `inherit` keyword to pass all the calling workflow's secrets to the called workflow. This includes all secrets the calling workflow has access to, namely organization, repository, and environment secrets. The `inherit` keyword can be used to pass secrets across repositories within the same organization, or across organizations within the same enterprise.
-
-#### サンプル
-
-{% raw %}
-
-```yaml
-on:
-  workflow_dispatch:
-
-jobs:
-  pass-secrets-to-workflow:
-      uses: ./.github/workflows/called-workflow.yml
-      secrets: inherit
-```
-
-```yaml
-on:
-  workflow_call:
-
-jobs:
-  pass-secret-to-action:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Use a repo or org secret from the calling workflow.
-        uses: echo ${{ secrets.CALLING_WORKFLOW_SECRET }}
-```
-
-{% endraw %}
-
-{%endif%}
-
 #### `on.workflow_call.secrets.<secret_id>`
 
 A string identifier to associate with the secret.
@@ -210,12 +174,9 @@ A boolean specifying whether the secret must be supplied.
 
 {% data reusables.actions.workflow-dispatch-inputs %}
 
-{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
 ## `permissions`
 
 {% data reusables.actions.jobs.section-assigning-permissions-to-jobs %}
-
-{% endif %}
 
 ## `env`
 
@@ -240,12 +201,10 @@ env:
 
 {% data reusables.actions.jobs.setting-default-values-for-jobs-defaults-run %}
 
-{% ifversion fpt or ghae or ghes > 3.1 or ghec %}
 ## `concurrency`
 
 {% data reusables.actions.jobs.section-using-concurrency %}
 
-{% endif %}
 ## `jobs`
 
 {% data reusables.actions.jobs.section-using-jobs-in-a-workflow %}
@@ -258,12 +217,9 @@ env:
 
 {% data reusables.actions.jobs.section-using-jobs-in-a-workflow-name %}
 
-{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
 ### `jobs.<job_id>.permissions`
 
 {% data reusables.actions.jobs.section-assigning-permissions-to-jobs-specific %}
-
-{% endif %}
 
 ## `jobs.<job_id>.needs`
 
@@ -281,12 +237,10 @@ env:
 
 {% data reusables.actions.jobs.section-using-environments-for-jobs %}
 
-{% ifversion fpt or ghae or ghes > 3.1 or ghec %}
 ## `jobs.<job_id>.concurrency`
 
 {% data reusables.actions.jobs.section-using-concurrency-jobs %}
 
-{% endif %}
 ## `jobs.<job_id>.outputs`
 
 {% data reusables.actions.jobs.section-defining-outputs-for-jobs %}
@@ -318,7 +272,7 @@ jobs:
 
 1つのジョブには、`steps` (ステップ) と呼ばれる一連のタスクがあります。 ステップでは、コマンドを実行する、設定タスクを実行する、あるいはリポジトリやパブリックリポジトリ、Dockerレジストリで公開されたアクションを実行することができます。 すべてのステップでアクションを実行するとは限りませんが、すべてのアクションはステップとして実行されます。 各ステップは、ランナー環境のそれ自体のプロセスで実行され、ワークスペースとファイルシステムにアクセスします。 ステップはそれ自体のプロセスで実行されるため、環境変数を変更しても、ステップ間では反映されません。 {% data variables.product.prodname_dotcom %}には、ジョブを設定して完了するステップが組み込まれています。
 
-ワークフローの利用限度内であれば、実行するステップ数に限度はありません。 For more information, see {% ifversion fpt or ghec or ghes %}"[Usage limits and billing](/actions/reference/usage-limits-billing-and-administration)" for {% data variables.product.prodname_dotcom %}-hosted runners and {% endif %}"[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners/#usage-limits){% ifversion fpt or ghec or ghes %}" for self-hosted runner usage limits.{% elsif ghae %}."{% endif %}
+ワークフローの利用限度内であれば、実行するステップ数に限度はありません。 詳しい情報については{% ifversion fpt or ghec or ghes %}{% data variables.product.prodname_dotcom %}ホストランナーの「[使用制限と支払い](/actions/reference/usage-limits-billing-and-administration)」及び{% endif %}{% ifversion fpt or ghec or ghes %}セルフホストランナーの使用制限に関する{% elsif ghae %}{% endif %}「[セルフホストランナーについて](/actions/hosting-your-own-runners/about-self-hosted-runners/#usage-limits)」を参照してください。
 
 ### サンプル
 
@@ -352,7 +306,7 @@ jobs:
 
 条件文の`if`を使って、条件が満たされなければステップを実行しないようにできます。 条件文を作成するには、サポートされている任意のコンテキストや式が使えます。
 
-{% data reusables.actions.expression-syntax-if %} For more information, see "[Expressions](/actions/learn-github-actions/expressions)."
+{% data reusables.actions.expression-syntax-if %} 詳しい情報については「[式](/actions/learn-github-actions/expressions)」を参照してください。
 
 #### Example: Using contexts
 
@@ -367,7 +321,7 @@ steps:
 
 #### Example: Using status check functions
 
-`my backup step`は、ジョブの前のステップが失敗した場合にのみ実行されます。 For more information, see "[Expressions](/actions/learn-github-actions/expressions#status-check-functions)."
+`my backup step`は、ジョブの前のステップが失敗した場合にのみ実行されます。 詳しい情報については「[式](/actions/learn-github-actions/expressions#status-check-functions)」を参照してください。
 
 ```yaml
 steps:
@@ -418,7 +372,7 @@ Git ref、SHA、またはDockerタグ番号を指定して、使用している�
 
 入力が必要なアクションもあり、入力を[`with`](#jobsjob_idstepswith)キーワードを使って設定する必要があります。 必要な入力を判断するには、アクションのREADMEファイルをお読みください。
 
-アクションは、JavaScriptのファイルもしくはDockerコンテナです。 使用するアクションがDockerコンテナの場合は、Linux環境で実行する必要があります。 詳細については[`runs-on`](#jobsjob_idruns-on)を参照してください。
+アクションは、JavaScriptのファイルもしくはDockerコンテナです。 使用するアクションがDockerコンテナの場合、ジョブはLinux環境で実行する必要があります。 詳細については[`runs-on`](#jobsjob_idruns-on)を参照してください。
 
 #### Example: Using versioned actions
 
@@ -580,7 +534,7 @@ jobs:
 
 ### `jobs.<job_id>.steps[*].shell`
 
-`shell`キーワードを使用して、ランナーのオペレーティングシステムのデフォルトシェルを上書きできます。 組み込みの`shell`キーワードを使用するか、カスタムセットのシェルオプションを定義することができます。 The shell command that is run internally executes a temporary file that contains the commands specified in the `run` keyword.
+`shell`キーワードを使用して、ランナーのオペレーティングシステムのデフォルトシェルの設定を上書きできます。 組み込みの`shell`キーワードを使用するか、カスタムセットのシェルオプションを定義することができます。 The shell command that is run internally executes a temporary file that contains the commands specified in the `run` keyword.
 
 | サポートされているプラットフォーム | `shell` パラメータ | 説明                                                                                                                                                                                                        | 内部で実行されるコマンド                                    |
 | ----------------- | ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------- |
@@ -666,8 +620,8 @@ GitHubホストランナーに含まれるソフトウェアに関する情報�
 組み込みのshellキーワードについては、{% data variables.product.prodname_dotcom %}がホストする実行環境で以下のデフォルトが提供されます。 シェルスクリプトを実行する際には、以下のガイドラインを使ってください。
 
 - `bash`/`sh`:
-  - `set -eo pipefail`を使用したフェイルファースト動作 : `bash`及び組み込みの`shell`のデフォルト。 Windows以外のプラットフォームでオプションを指定しない場合のデフォルトでもあります。
-  - フェイルファーストをオプトアウトし、シェルのオプションにテンプレート文字列を指定して完全に制御することもできます。 たとえば、`bash {0}`とします。
+  - Fail-fast behavior using `set -eo pipefail`: This option is set when `shell: bash` is explicitly specified. It is not applied by default.
+  - You can take full control over shell parameters by providing a template string to the shell options. たとえば、`bash {0}`とします。
   - shライクのシェルは、スクリプトで実行された最後のコマンドの終了コードで終了します。これが、アクションのデフォルトの動作でもあります。 runnerは、この終了コードに基づいてステップのステータスを失敗/成功としてレポートします。
 
 - `powershell`/`pwsh`
@@ -744,7 +698,7 @@ steps:
 
 {% data reusables.repositories.actions-env-var-note %}
 
-パブリックなアクションは、READMEファイル中で期待する環境変数を指定できます。 環境変数に秘密情報を設定しようとしている場合、秘密情報は`secrets`コンテキストを使って設定しなければなりません。 For more information, see "[Using environment variables](/actions/automating-your-workflow-with-github-actions/using-environment-variables)" and "[Contexts](/actions/learn-github-actions/contexts)."
+パブリックなアクションは、READMEファイル中で期待する環境変数を指定できます。 環境変数にシークレットを設定しようとしている場合、シークレットは`secrets`コンテキストを使って設定しなければなりません。 For more information, see "[Using environment variables](/actions/automating-your-workflow-with-github-actions/using-environment-variables)" and "[Contexts](/actions/learn-github-actions/contexts)."
 
 #### サンプル
 
@@ -967,7 +921,7 @@ volumes:
 
 {% warning %}
 
-**Warning:** The `--network` option is not supported.
+**警告:** `--network` オプションはサポートされていません。
 
 {% endwarning %}
 
@@ -984,7 +938,7 @@ The location and version of a reusable workflow file to run as a job. {% ifversi
 
 {% data reusables.actions.uses-keyword-example %}
 
-For more information, see "[Reusing workflows](/actions/learn-github-actions/reusing-workflows)."
+詳しい情報については「[ワークフローの再利用](/actions/learn-github-actions/reusing-workflows)」を参照してください。
 
 ### `jobs.<job_id>.with`
 
@@ -1027,6 +981,42 @@ jobs:
       access-token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
 ```
 {% endraw %}
+
+{% ifversion actions-inherit-secrets-reusable-workflows %}
+
+### `jobs.<job_id>.secrets.inherit`
+
+Use the `inherit` keyword to pass all the calling workflow's secrets to the called workflow. This includes all secrets the calling workflow has access to, namely organization, repository, and environment secrets. The `inherit` keyword can be used to pass secrets across repositories within the same organization, or across organizations within the same enterprise.
+
+#### サンプル
+
+{% raw %}
+
+```yaml
+on:
+  workflow_dispatch:
+
+jobs:
+  pass-secrets-to-workflow:
+    uses: ./.github/workflows/called-workflow.yml
+    secrets: inherit
+```
+
+```yaml
+on:
+  workflow_call:
+
+jobs:
+  pass-secret-to-action:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Use a repo or org secret from the calling workflow.
+        run: echo ${{ secrets.CALLING_WORKFLOW_SECRET }}
+```
+
+{% endraw %}
+
+{%endif%}
 
 ### `jobs.<job_id>.secrets.<secret_id>`
 

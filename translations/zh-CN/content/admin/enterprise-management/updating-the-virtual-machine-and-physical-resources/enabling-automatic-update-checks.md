@@ -14,9 +14,9 @@ topics:
 shortTitle: 启用自动更新检查
 ---
 
-在 {% data variables.product.product_location %} 的升级包自动下载后，您将收到一条消息，通知您可以升级 {% data variables.product.prodname_ghe_server %}。 升级包会下载到 {% data variables.product.product_location %} 上的 `/var/lib/ghe-updates` 目录中。 更多信息请参阅“[升级 {% data variables.product.prodname_ghe_server %}](/enterprise/{{ currentVersion }}/admin/guides/installation/upgrading-github-enterprise-server)”。
+在 {% data variables.product.product_location %} 的升级包自动下载后，您将收到一条消息，通知您可以升级 {% data variables.product.prodname_ghe_server %}。 升级包会下载到 {% data variables.product.product_location %} 上的 `/var/lib/ghe-updates` 目录中。 更多信息请参阅“[升级 {% data variables.product.prodname_ghe_server %}](/enterprise/admin/guides/installation/upgrading-github-enterprise-server)。”
 
-如果升级存在可用的热补丁，将自动下载 `.hpkg`。 在 Management Console 中，您可以选择立即安装热补丁或排定稍后安装。 更多信息请参阅“[通过热补丁升级](/enterprise/{{ currentVersion }}/admin/guides/installation/upgrading-github-enterprise-server#upgrading-with-a-hotpatch)”。
+如果升级存在可用的热补丁，将自动下载 `.hpkg`。 在 Management Console 中，您可以选择立即安装热补丁或排定稍后安装。 更多信息请参阅“[通过热补丁升级](/enterprise/admin/guides/installation/upgrading-github-enterprise-server#upgrading-with-a-hotpatch)”。
 
 {% tip %}
 

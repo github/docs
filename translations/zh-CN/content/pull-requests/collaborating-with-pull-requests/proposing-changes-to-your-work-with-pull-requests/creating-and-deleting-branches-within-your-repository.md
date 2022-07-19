@@ -17,13 +17,31 @@ shortTitle: 创建和删除分支
 ---
 
 ## 创建分支
+您可以在 {% data variables.product.product_name %} 上以不同的方式创建分支。
 
+{% note %}
+
+**注意：** 您只能在您具有推送访问权限的存储库中创建分支。
+
+{% endnote %}
+
+### 通过分支概述创建分支
 {% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.navigate-to-branches %}
+1. 单击 **New Branch（新分支）**。 ![突出显示了新分支按钮的分支概述页面的屏幕截图](/assets/images/help/branches/new-branch-button.png)
+2. 在对话框中，输入分支名称，并根据需要更改分支源。  
+   如果存储库是复刻，您还可以选择上游存储库作为分支源。 ![强调分支源的复刻的分支创建模式屏幕截图](/assets/images/help/branches/branch-creation-popup-branch-source.png)
+3. 单击 **Create Branch（创建分支）**。 ![突出显示了创建分支按钮的分支创建模式的屏幕截图](/assets/images/help/branches/branch-creation-popup-button.png)
 
-1. （可选）如果要从仓库的默认分支以外的分支创建新分支，请单击 {% octicon "git-branch" aria-label="The branch icon" %} **<em>NUMBER</em> 分支**，然后选择另一个分支： ![概述页面上的分支链接](/assets/images/help/branches/branches-link.png)
+### 使用分支下拉列表创建分支
+{% data reusables.repositories.navigate-to-repo %}
+1. （可选）如果要从仓库的默认分支以外的分支创建新分支，请单击 {% octicon "git-branch" aria-label="The branch icon" %}**Branches（分支）**，然后选择另一个分支。 ![概述页面上的分支链接](/assets/images/help/branches/branches-overview-link.png)
 1. 单击分支选择器菜单。 ![分支选择器菜单](/assets/images/help/branch/branch-selection-dropdown.png)
 1. 为新分支键入唯一名称，然后选择 **Create branch（创建分支）**。 ![分支创建文本框](/assets/images/help/branch/branch-creation-text-box.png)
-
+{% ifversion fpt or ghec or ghes > 3.4 %}
+### 为议题创建分支
+您可以创建一个分支，直接从议题页面处理议题，然后立即开始。 更多信息请参阅“[创建分支以处理议题](/issues/tracking-your-work-with-issues/creating-a-branch-for-an-issue)”。
+{% endif %}
 ## 删除分支
 
 {% data reusables.pull_requests.automatically-delete-branches %}
@@ -44,7 +62,7 @@ shortTitle: 创建和删除分支
    ![确认删除分支](/assets/images/help/branches/confirm-deleting-branch.png){% endif %}
 
 {% data reusables.pull_requests.retargeted-on-branch-deletion %}
-更多信息请参阅“[关于分支](/github/collaborating-with-issues-and-pull-requests/about-branches#working-with-branches)”。
+更多信息请参阅“[关于分支](/github/collaborating-with-issues-and-pull-requests/about-branches#working-with-branches)。”
 
 ## 延伸阅读
 

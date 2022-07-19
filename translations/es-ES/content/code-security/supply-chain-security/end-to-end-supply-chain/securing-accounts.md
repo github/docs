@@ -1,12 +1,13 @@
 ---
-title: Best practices for securing accounts
-shortTitle: Securing accounts
+title: Mejores prácticas para asegurar las cuentas
+shortTitle: Asegurar las cuentas
 allowTitleToDifferFromFilename: true
-intro: Guidance on how to protect accounts with access to your software supply chain.
+intro: Orientación sobre cómo proteger las cuentas con acceso a tu cadena de suministro de software.
 versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
+  ghae: '*'
 type: overview
 topics:
   - Organizations
@@ -18,65 +19,65 @@ topics:
 
 ## Acerca de esta guía
 
-This guide describes the highest impact changes you can make to increase account security. Each section outlines a change you can make to your processes to improve the security. Los cambios de más alto impacto se listan primero.
+Esta guía describe los cambios de más alto impacto que puedes hacer para incrementar la seguridad de la cuenta. Cada sección describe un cambio que puedes hacer a tus procesos para mejorar la seguridad. Los cambios de más alto impacto se listan primero.
 
 ## ¿Cuál es el riesgo?
 
-Account security is fundamental to the security of your supply chain. If an attacker can take over your account on {% data variables.product.product_name %}, they can then make malicious changes to your code or build process. Así que tu primera meta debería ser que fuera difícil que alguien se apoderara de tu cuenta y de las cuentas de otros {% ifversion ghes %}usuarios{% else %}miembros{% endif %} de {% ifversion fpt %}tu organización{% elsif ghec or ghae %}tu organización o empresa{% elsif ghes %}{% data variables.product.product_location %}{% endif %}.
+La seguridad de las cuentas es fundamental para la seguridad de tu cadena de suministro. Si un atacante puede apoderarse de tu ceunta en {% data variables.product.product_name %}, este puede hacer cambios malintencionados a tu código o a tu proceso de compilación. Así que tu primera meta debería ser que fuera difícil que alguien se apoderara de tu cuenta y de las cuentas de otros {% ifversion ghes %}usuarios{% else %}miembros{% endif %} de {% ifversion fpt %}tu organización{% elsif ghec or ghae %}tu organización o empresa{% elsif ghes %}{% data variables.product.product_location %}{% endif %}.
 
 {% ifversion ghec or ghes %}
-## Centralize authentication
+## Centralizar la autenticación
 {% endif %}
 
 {% ifversion ghec %}
-If you're an enterprise or organization owner, you can configure centralized authentication with SAML. While you can add or remove members manually, it's simpler and more secure to set up single sign-on (SSO) and SCIM between {% data variables.product.product_name %} and your SAML identity provider (IdP). This also simplifies the authentication process for all members of your enterprise.
+Si eres un propietario de organización o de empresa, puedes configurar la autenticación centralizada con SAML. Si bien puedes agregar o eliminar a los miembros manualmente, es más simple y seguro configurar el inicio de sesión único (SSO) y el SCIM entre {% data variables.product.product_name %} y tu proveedor de identidad (IdP) de SAML. Esto también simplifica el proceso de autenticación para todos los miembros de tu empresa.
 
-You can configure SAML authentication for an enterprise or organization account. With SAML, you can grant access to the personal accounts of members of your enterprise or organization on {% data variables.product.product_location %} through your IdP, or you can create and control the accounts that belong to your enterprise by using {% data variables.product.prodname_emus %}. Para obtener más información, consulta la sección "[Acerca de la autenticación para tu empresa](/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-authentication-for-your-enterprise)".
+Puedes configurar la autenticación de SAML para una cuenta de empresa u organización. Con SAML, puedes otorgar el acceso a las cuentas personales de los miembros de tu empresa u organización en {% data variables.product.product_location %} mediante tu IdP o puedes crear y controlar las cuentas que le pertenecen a tu empresa al utilizar las {% data variables.product.prodname_emus %}. Para obtener más información, consulta la sección "[Acerca de la autenticación para tu empresa](/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-authentication-for-your-enterprise)".
 
-After you configure SAML authentication, when members request access to your resources, they'll be directed to your SSO flow to ensure they are still recognized by your IdP. If they are unrecognized, their request is declined.
+Después de que configuras la autenticación de SAML, cuando los miembros soliciten acceso a tus recursos, se les podría dirigir a tu flujo de SSO para garantizar que aún los reconozca tu IdP. Si no se les reconoce, su solicitud se rechazará.
 
-Some IdPs support a protocol called SCIM, which can automatically provision or deprovision access on {% data variables.product.product_name %} when you make changes on your IdP. With SCIM, you can simplify administration as your team grows, and you can quickly revoke access to accounts. SCIM is available for individual organizations on {% data variables.product.product_name %}, or for enterprises that use {% data variables.product.prodname_emus %}. Para obtener más información, consulta la sección "[SCIM para las organizaciones](/organizations/managing-saml-single-sign-on-for-your-organization/about-scim-for-organizations)".
+Algunos IdP son copatible con un protocolo llamado SCIM, el cual aprovisiona o desaprovisiona automáticamente el acceso en {% data variables.product.product_name %} cuando haces cambios a tu IdP. Con SCIM, puedes simplificar la administración conforme crece tu equipo y puedes revocar el acceso a las cuentas rápidamente. El SCIM está disponible para las organizaciones individuales en {% data variables.product.product_name %} o para las empresas que utilizan {% data variables.product.prodname_emus %}. Para obtener más información, consulta la sección "[SCIM para las organizaciones](/organizations/managing-saml-single-sign-on-for-your-organization/about-scim-for-organizations)".
 {% endif %}
 
 {% ifversion ghes %}
-If you're the site administrator for {% data variables.product.product_location %}, you can simplify the login experience for users by choosing an authentication method that connects with your existing identity provider (IdP), like CAS, SAML, or LDAP. This means that they no longer need to remember an extra password for {% data variables.product.prodname_dotcom %}.
+Si eres el administrador de sitio para {% data variables.product.product_location %}, puedes simplificar la experiencia de inicio de sesión para los usuarios si eliges un método de autenticación que se conecte con tu proveedor de identidad (IdP), como CAS; SAML o LDAP. Esto significa que ya no necesitarán recordar una contraseña adicional para {% data variables.product.prodname_dotcom %}.
 
-Some authentication methods also support communicating additional information to {% data variables.product.product_name %}, for example, what groups the user is a member of, or synchronizing cryptographic keys for the user. This is a great way to simplify your administration as your organization grows.
+Algunos métodos de autenticación también son compatibles con la comunicación de información adicional a {% data variables.product.product_name %}, por ejemplo, de qué grupos es miembro el usuario, o con la sincronización de llaves criptográficas para dicho usuario. Esto es una forma genial de simplificar tu administración conforme crece tu organización.
 
-For more information about the authentication methods available for {% data variables.product.product_name %}, see "[About authentication for your enterprise](/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-authentication-for-your-enterprise)."
+Para obtener más información sobre los métodos de autenticación disponibles para {% data variables.product.product_name %}, consulta la sección "[Acerca de la autenticación para tu empresa](/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-authentication-for-your-enterprise)".
 {% endif %}
 
-## Configure two-factor authentication
+## Configurar la autenticación bifactorial
 
-La mejor forma de mejorar la seguridad de {% ifversion fpt %}tu cuenta personal{% elsif ghes %}tu cuenta personal o {% data variables.product.product_location %}{% elsif ghec %}tus cuentas{% elsif ghae %}tu empresa en {% data variables.product.product_name %}{% endif %} es configurar la autenticación bifactorial (2FA){% ifversion ghae %} en tu proveedor de identidad (IdP) de SAML{% endif %}. Passwords by themselves can be compromised by being guessable, by being reused on another site that's been compromised, or by social engineering, like phishing. 2FA makes it much more difficult for your accounts to be compromised, even if an attacker has your password.
+La mejor forma de mejorar la seguridad de {% ifversion fpt %}tu cuenta personal{% elsif ghes %}tu cuenta personal o {% data variables.product.product_location %}{% elsif ghec %}tus cuentas{% elsif ghae %}tu empresa en {% data variables.product.product_name %}{% endif %} es configurar la autenticación bifactorial (2FA){% ifversion ghae %} en tu proveedor de identidad (IdP) de SAML{% endif %}. Las contraseñas por sí mismas pueden ponerse en riesgo si se pueden adivinar fácilmente, si se reutilizan en otro sitio que se haya puesto en riesgo o mediante ingeniería social, como con el phishing. La 2FA hace que sea mucho más difícil que tus cuentas se pongan en riesgo, incluso si un atacante tiene tu contraseña.
 
 {% ifversion not ghae %}
 
 {% ifversion ghec %}
-If you're an enterprise owner, you may be able to configure a policy to require 2FA for all organizations owned by your enterprise.
+Si eres un propietario de empresa, podrías configurar una política para requerir la 2FA para todas las organizaciones que le pertenecen a tu empresa.
 {% endif %}
 
 {% ifversion ghes %}
-If you're the site administrator for {% data variables.product.product_location %}, you may be able to configure 2FA for all users of your instance. The availability of 2FA on {% data variables.product.product_name %} depends on the authentication method that you use. For more information, see "[Centralize user authentication](#centralize-user-authentication)."
+Si eres el administrador de sitio para {% data variables.product.product_location %}, es posible que puedas configurar la 2FA para todos los usuarios de tu instancia. La disponibilidad de la 2FA en {% data variables.product.product_name %} depende del método de autenticación que utilices. Para obtener más información, consulta la sección "[Centralizar la autenticación de usuarios](#centralize-user-authentication)".
 {% endif %}
 
-If you're an organization owner, then you {% ifversion fpt %}can{% else %}may be able to{% endif %} require that all members of the organization enable 2FA.
+Si eres un propietario de organización, entonces {% ifversion fpt %}puedes{% else %}podrìas{% endif %} requerir que todos los miembros de la organización habiliten la 2FA.
 
 {% ifversion ghec or ghes %}
 
-### Configure your enterprise account
+### Configura tu cuenta empresarial
 
-Enterprise owners may be able to require 2FA for all {% ifversion ghes %}users on{% elsif ghec %}members of{% endif %} the {% ifversion ghes %}instance{% elsif ghec %}enterprise{% endif %}. The availability of 2FA policies on {% data variables.product.product_name %} depends on how {% ifversion ghes %}users{% else %}members{% endif %} authenticate to access your {% ifversion ghes %}instance{% elsif ghec %}enterprise's resources{% endif %}.
+Los propietarios de las empresas podrían requerir la 2FA para todos los {% ifversion ghes %}usuarios de{% elsif ghec %}miembros de{% endif %} la {% ifversion ghes %}instancia{% elsif ghec %}empresa{% endif %}. La disponibilidad de las políticas de 2FA en {% data variables.product.product_name %} depende de cómo los {% ifversion ghes %}usuarios{% else %}miembros{% endif %} se autentican para acceder a {% ifversion ghes %}tu instancia{% elsif ghec %}los recursos de la empresa{% endif %}.
 
 {% ifversion ghes %}
-- If you sign into {% data variables.product.product_location %} through an external IdP using CAS or SAML SSO, you
+- Si inicias sesión en {% data variables.product.product_location %} mediante un IdP externo utilizando CAS o el SSO de SAML,
 {% elsif ghec %}
-If your enterprise uses {% data variables.product.prodname_emus %} or SAML authentication is enforced for your enterprise, you
-{%- endif %} cannot configure 2FA on {% data variables.product.product_name %}. Someone with administrative access to your IdP must configure 2FA for the IdP.
+Si tu empresa utiliza {% data variables.product.prodname_emus %} o la autenticación de SAML se requiere para esta,
+{%- endif %} no puedes configurar la 2FA en {% data variables.product.product_name %}. Alguien con acceso administrativo a tu IdP debe configurar la 2FA para el IdP.
 
 {% ifversion ghes %}
 
-- If you sign into {% data variables.product.product_location %} through an external LDAP directory, you can require 2FA for your enterprise on {% data variables.product.product_name %}. If you allow built-in authentication for users outside of your directory, individual users can enable 2FA, but you cannot require 2FA for your enterprise.
+- Si inicias sesión en {% data variables.product.product_location %} mediante un directorio LDAP externo, puedes requerir la 2FA para tu empresa de {% data variables.product.product_name %}. Si permites la autenticación integrada para los usuarios fuera de tu directorio, los usuarios individuales pueden habilitar la 2FA, pero no puedes requerirla para tu empresa.
 
 {% endif %}
 
@@ -84,7 +85,7 @@ Para obtener más información, consulta las secciones {% ifversion ghec %}"[Ace
 
 {% endif %}
 
-### Configure your personal account
+### Configurar tu cuenta personal
 
 {% ifversion ghec or ghes %}
 {% note %}
@@ -94,11 +95,11 @@ Para obtener más información, consulta las secciones {% ifversion ghec %}"[Ace
 {% endnote %}
 {% endif %}
 
-{% data variables.product.product_name %} supports several options for 2FA, and while any of them is better than nothing, the most secure option is WebAuthn. WebAuthn requires either a hardware security key or a device that supports it through things like Windows Hello or Mac TouchID. It's possible, although difficult, to phish other forms of 2FA (for example, someone asking you to read them your 6 digit one-time password). However WebAuthn isn't phishable, because domain scoping is built into the protocol, which prevents credentials from a website impersonating a login page from being used on {% data variables.product.product_name %}.
+{% data variables.product.product_name %} es compatible con varias opciones para la 2FA y, si bien cualquiera de ellas es mejor que nada, la opción más segura es la WebAuthn. La WebAuthn requiere ya sea de una llave de seguridad de hardware o de un dispositivo que sea compatible con ella mediante instrumentos como Windows Hello o Mac TouchID. Es posible, aunque difícil, hacer phishing en otras formas de 2FA (por ejemplo, que alguien te pida que le leas tu contraseña de una sola ocasión de 6 dígitos). Sin embargo, no se puede hacer phishing con la WebAuthn, ya que el alcance del dominio está integrado en el protocolo, lo que previene que las credenciales de un sitio web se hagan pasar por una página de inicio de sesión para que se utilice en {% data variables.product.product_name %}.
 
-When you set up 2FA, you should always download the recovery codes and set up more than one factor. This ensures that access to your account doesn't depend on a single device. Para obtener más información, consulta las secciones "[Configurar la autenticación bifactorial](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication)", "[Configurar los métodos de recuperación de la autenticación bifactorial](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication-recovery-methods)" y [Llaves de seguridad de hardware con marca de GitHub](https://thegithubshop.com/products/github-branded-yubikey) en la tienda de GitHub.
+Cuando configuras la 2FA, siempre deberás descargar los códigos de recuperación y configurar más de un factor. Esto garantiza que el acceso a tu cuenta no dependa de un solo dispositivo. Para obtener más información, consulta las secciones "[Configurar la autenticación bifactorial](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication)", "[Configurar los métodos de recuperación de la autenticación bifactorial](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication-recovery-methods)" y [Llaves de seguridad de hardware con marca de GitHub](https://thegithubshop.com/products/github-branded-yubikey) en la tienda de GitHub.
 
-### Configure your organization account
+### Configurar tu cuenta de organización
 
 {% ifversion ghec or ghes %}
 {% note %}
@@ -108,24 +109,24 @@ When you set up 2FA, you should always download the recovery codes and set up mo
 {% endnote %}
 {% endif %}
 
-If you're an organization owner, you can see which users don't have 2FA enabled, help them get set up, and then require 2FA for your organization. To guide you through that process, see:
+Si eres un propietario de organización, puedes ver a los usuarios que no tienen habilitada la 2FA, ayudarles a configurarla y luego requerirla para tu organización. Para guiarte en este proceso, consulta las siguientes secciones:
 
-1. "[Viewing whether users in your organization have 2FA enabled](/organizations/keeping-your-organization-secure/managing-two-factor-authentication-for-your-organization/viewing-whether-users-in-your-organization-have-2fa-enabled)"
-2. "[Preparing to require two-factor authentication in your organization](/organizations/keeping-your-organization-secure/managing-two-factor-authentication-for-your-organization/preparing-to-require-two-factor-authentication-in-your-organization)"
-3. "[Requiring two-factor authentication in your organization](/organizations/keeping-your-organization-secure/managing-two-factor-authentication-for-your-organization/requiring-two-factor-authentication-in-your-organization)"
+1. "[Ver si un usuario en tu organización tiene habilitada la 2FA](/organizations/keeping-your-organization-secure/managing-two-factor-authentication-for-your-organization/viewing-whether-users-in-your-organization-have-2fa-enabled)"
+2. "[Prepararse para requerir la autenticación bifactorial en tu organización](/organizations/keeping-your-organization-secure/managing-two-factor-authentication-for-your-organization/preparing-to-require-two-factor-authentication-in-your-organization)"
+3. "[Requerir la autenticación bifactorial en tu organización](/organizations/keeping-your-organization-secure/managing-two-factor-authentication-for-your-organization/requiring-two-factor-authentication-in-your-organization)"
 
 {% endif %}
 
-## Connect to {% data variables.product.product_name %} using SSH keys
+## Conectarte a {% data variables.product.product_name %} utilizando llaves SSH
 
-There are other ways to interact with {% data variables.product.product_name %} beyond signing into the website. Many people authorize the code they push to {% data variables.product.prodname_dotcom %} with an SSH private key. For more information, see "[About SSH](/authentication/connecting-to-github-with-ssh/about-ssh)."
+Hay otras formas de interactuar con {% data variables.product.product_name %} màs allà de iniciar sesiòn en el sitio web{% ifversion ghae %} a travès de tu IdP{% endif %}. Muchas personas autorizan el còdigo que suben a {% data variables.product.prodname_dotcom %} con una llave SSH privada. Para obtener más información, consulta la sección "[Acerca de SSH](/authentication/connecting-to-github-with-ssh/about-ssh)".
 
-Just like your account password, if an attacker were able to get your SSH private key, they could impersonate you and push malicious code to any repository you have write access for. If you store your SSH private key on a disk drive, it's a good idea to protect it with a passphrase. For more information, see "[Working with SSH key passphrases](/authentication/connecting-to-github-with-ssh/working-with-ssh-key-passphrases)."
+Tal como {% ifversion ghae %}la contraseña para tu cuenta de IdP{% else %}la contraseña de tu cuenta{% endif %}, si un atacante pudiera obtener tu llave SSH privada, podrían hacerse pasar por ti y subir código malintencionado a cualquier repositorio al cuál tengas acceso de escritura. Si almacenas tu llave privada SSH en un volumen de disco, es buena idea protegerlo con una frase de ingreso. Para obtener más información, consulta la sección "[Trabajar con frases de acceso para llaves SSH](/authentication/connecting-to-github-with-ssh/working-with-ssh-key-passphrases)".
 
-Another option is to generate SSH keys on a hardware security key. You could use the same key you're using for 2FA. Hardware security keys are very difficult to compromise remotely, because the private SSH key remains on the hardware, and is not directly accessible from software. For more information, see "[Generating a new SSH key for a hardware security key](/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#generating-a-new-ssh-key-for-a-hardware-security-key)."
+Otra opción es generar llaves SSH en una llave de seguridad de hardware. Podrías utilizar la misma llave que utilizas para la 2FA. Las llaves de seguridad de hardware son difíciles de poner en riesgo remotamente, ya que la llave SSH privada permanece en el hardware y no se puede acceder directamente a ella desde el software. Para obtener más información, consulta la sección "[Generar una llave SSH nueva para una llave de seguridad de hardware](/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#generating-a-new-ssh-key-for-a-hardware-security-key)".
 
 {% ifversion ghec or ghes or ghae %}
-Hardware-backed SSH keys are quite secure, but the hardware requirement might not work for some organizations. An alternative approach is to use SSH keys that are only valid for a short period of time, so even if the private key is compromised it can't be exploited for very long. This is the concept behind running your own SSH certificate authority. While this approach gives you a lot of control over how users authenticate, it also comes with the responsibility of maintaining an SSH certificate authority yourself. For more information, see "[About SSH certificate authorities](/organizations/managing-git-access-to-your-organizations-repositories/about-ssh-certificate-authorities)."
+Las llaves SSH respaldadas por hardware son bastante seguras, pero el requisito de hardware podría no funcionar para algunas organizaciones. Un enfoque alterno es utilizar llaves SSH que solo sean válidas durante un periodo de tiempo corto, para que incluso si esta se pone en riesgo, no pueda aprovecharse por mucho tiempo. Este es el concepto detrás de ejecutar tu propia autoridad de certificados SSH. Si bien este acercamiento te proporciona mucho control de cómo se autentican los usuarios, también trae consigo la responsabilidad de mantener una autoridad de certificados SSH por ti mismo. Para obtener más información, consulta la sección [Acerca de las autoridades de certificados SSH](/organizations/managing-git-access-to-your-organizations-repositories/about-ssh-certificate-authorities)".
 {% endif %}
 
 ## Pasos siguientes

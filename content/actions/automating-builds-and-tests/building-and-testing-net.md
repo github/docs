@@ -120,7 +120,7 @@ steps:
   run: dotnet add package Newtonsoft.Json --version 12.0.1
 ```
 
-{% if actions-caching %}
+{% ifversion actions-caching %}
 
 ### Caching dependencies
 
@@ -179,7 +179,6 @@ After a workflow completes, you can upload the resulting artifacts for analysis.
 
 For more information, see "[Persisting workflow data using artifacts](/github/automating-your-workflow-with-github-actions/persisting-workflow-data-using-artifacts)."
 
-
 ```yaml
 name: dotnet package
 
@@ -225,10 +224,10 @@ on:
 
 jobs:
   deploy:
-    runs-on: ubuntu-latest{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
+    runs-on: ubuntu-latest
     permissions:
       packages: write
-      contents: read{% endif %}
+      contents: read
     steps:
       - uses: {% data reusables.actions.action-checkout %}
       - uses: {% data reusables.actions.action-setup-dotnet %}

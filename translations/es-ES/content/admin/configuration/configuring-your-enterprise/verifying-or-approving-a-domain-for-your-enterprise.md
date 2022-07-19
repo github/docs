@@ -5,7 +5,7 @@ intro: 'Puedes verificar tu propiedad de dominios con {% data variables.product.
 product: '{% data reusables.gated-features.verify-and-approve-domain %}'
 versions:
   ghec: '*'
-  ghes: '>=3.2'
+  ghes: '*'
 permissions: Enterprise owners can verify or approve a domain for an enterprise account.
 type: how_to
 topics:
@@ -30,7 +30,7 @@ Puedes confirmar que tu empresa controle los sitios web y direcciones de correo 
 
 Después de que verificas la propiedad de los dominios de tus cuentas empresariales, se mostrará una insignia de "Verificado" en el perfil de cada organización que liste el dominio en su perfil. {% data reusables.organizations.verified-domains-details %}
 
-Los propietarios de las organizaciones podrán verificar la identidad de los miembros de éstas si visualizan la dirección de correo electrónico de cada miembro dentro del dominio verificado.
+Para los dominios configurados a nivel empresarial, los propietarios empresariales pueden verificar la identidad de los miembros organizaconales viendo la dirección de correo electrónico de cada miembro dentro del dominio verificado. Los propietarios de las empresas también pueden ver una lista de miembros empresariales que no tienen una dirección de correo electrónico de un dominio verificado asociada con su cuenta de usuario en {% data variables.product.prodname_dotcom %}. Para obtener más información, consulta la sección "[Ver a los miembros sin un a dirección de correo electrónico desde un dominio verificado](/admin/user-management/managing-users-in-your-enterprise/viewing-people-in-your-enterprise#viewing-members-without-an-email-address-from-a-verified-domain)".
 
 Después de que verificas los dominios para tu cuenta empresarial, puedes restringir las notificaciones de correo electrónico a los dominios verificados para todas las organizaciones que le pertenezcan a tu cuenta empresarial. Para obtener más información, consulta la sección "[Restringir las notificaciones por correo electrónico para tu empresa](/admin/policies/enforcing-policies-for-your-enterprise/restricting-email-notifications-for-your-enterprise)".
 

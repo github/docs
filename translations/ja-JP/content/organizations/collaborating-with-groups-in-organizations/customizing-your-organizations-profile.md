@@ -11,7 +11,7 @@ topics:
 shortTitle: Organizationのプロフィールのカスタマイズ
 ---
 
-{% if org-profile-pin-private %}
+{% ifversion org-profile-pin-private %}
 
 ## Organization のプロフィールページについて
 
@@ -45,7 +45,7 @@ OrganizationのプロフィールのREADMEにどういった情報を含める�
 
    ![Organizationの公開READMEの画像](/assets/images/help/organizations/org_public_readme.png)
 
-{% if org-profile-pin-private %}
+{% ifversion org-profile-pin-private %}
 
 ## メンバーのみのOrganizationプロフィールのREADMEの追加
 

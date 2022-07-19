@@ -99,9 +99,1143 @@ upcoming_changes:
     criticality: 破壊的
     owner: cheshire137
   - 
+    location: AddProjectDraftIssueInput.assigneeIds
+    description: '`assigneeIds`は削除されます。適切な置き換えを見つけるには、https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ にあるProjectV2ガイドに従ってください。'
+    reason: '`ProjectNext`は、より多機能な`ProjectV2`に置き換えられて非推奨になりました。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: lukewar
+  - 
+    location: AddProjectDraftIssueInput.body
+    description: '`body`は削除されます。適切な置き換えを見つけるには、https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ にあるProjectV2ガイドに従ってください。'
+    reason: '`ProjectNext`は、より多機能な`ProjectV2`に置き換えられて非推奨になりました。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: lukewar
+  - 
+    location: AddProjectDraftIssueInput.projectId
+    description: '`projectId`は削除されます。適切な置き換えを見つけるには、https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ にあるProjectV2ガイドに従ってください。'
+    reason: '`ProjectNext`は、より多機能な`ProjectV2`に置き換えられて非推奨になりました。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: lukewar
+  - 
+    location: AddProjectDraftIssueInput.title
+    description: '`title`は削除されます。適切な置き換えを見つけるには、https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ にあるProjectV2ガイドに従ってください。'
+    reason: '`ProjectNext`は、より多機能な`ProjectV2`に置き換えられて非推奨になりました。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: lukewar
+  - 
+    location: AddProjectDraftIssuePayload.projectNextItem
+    description: '`projectNextItem`は削除されます。適切な置き換えを見つけるには、https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ にあるProjectV2ガイドに従ってください。'
+    reason: '`ProjectNext`は、より多機能な`ProjectV2`に置き換えられて非推奨になりました。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: lukewar
+  - 
+    location: AddProjectNextItemInput.contentId
+    description: '`contentId`は削除されます。適切な置き換えを見つけるには、https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ にあるProjectV2ガイドに従ってください。'
+    reason: '`ProjectNext`は、より多機能な`ProjectV2`に置き換えられて非推奨になりました。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: lukewar
+  - 
+    location: AddProjectNextItemInput.projectId
+    description: '`projectId`は削除されます。適切な置き換えを見つけるには、https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ にあるProjectV2ガイドに従ってください。'
+    reason: '`ProjectNext`は、より多機能な`ProjectV2`に置き換えられて非推奨になりました。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: lukewar
+  - 
+    location: AddProjectNextItemPayload.projectNextItem
+    description: '`projectNextItem`は削除されます。適切な置き換えを見つけるには、https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ にあるProjectV2ガイドに従ってください。'
+    reason: '`ProjectNext`は、より多機能な`ProjectV2`に置き換えられて非推奨になりました。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: lukewar
+  - 
+    location: DeleteProjectNextItemInput.itemId
+    description: '`itemId`は削除されます。適切な置き換えを見つけるには、https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ にあるProjectV2ガイドに従ってください。'
+    reason: '`ProjectNext`は、より多機能な`ProjectV2`に置き換えられて非推奨になりました。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: lukewar
+  - 
+    location: DeleteProjectNextItemInput.projectId
+    description: '`projectId`は削除されます。適切な置き換えを見つけるには、https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ にあるProjectV2ガイドに従ってください。'
+    reason: '`ProjectNext`は、より多機能な`ProjectV2`に置き換えられて非推奨になりました。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: lukewar
+  - 
+    location: DeleteProjectNextItemPayload.deletedItemId
+    description: '`deletedItemId`は削除されます。適切な置き換えを見つけるには、https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ にあるProjectV2ガイドに従ってください。'
+    reason: '`ProjectNext`は、より多機能な`ProjectV2`に置き換えられて非推奨になりました。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: lukewar
+  - 
+    location: DependencyGraphDependency.packageLabel
+    description: '`packageLabel`は削除されます。代わりに正規化された`packageName`フィールドを使用してください。'
+    reason: '`packageLabel`は削除されます。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: github/dependency_graph
+  - 
+    location: Issue.projectNext
+    description: '`projectNext`は削除されます。適切な置き換えを見つけるには、https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ にあるProjectV2ガイドに従ってください。'
+    reason: '`ProjectNext`は、より多機能な`ProjectV2`に置き換えられて非推奨になりました。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: lukewar
+  - 
+    location: Issue.projectsNext
+    description: '`projectsNext`は削除されます。適切な置き換えを見つけるには、https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ にあるProjectV2ガイドに従ってください。'
+    reason: '`ProjectNext`は、より多機能な`ProjectV2`に置き換えられて非推奨になりました。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: lukewar
+  - 
+    location: LockMergeQueueInput.branch
+    description: '`branch`は削除されます。'
+    reason: マージキューはリポジトリのデフォルトブランチにロックされており、`branch`引数はno-opになりました。
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: jhunschejones
+  - 
+    location: MergeLockedMergeGroupInput.branch
+    description: '`branch`は削除されます。'
+    reason: 変更はリポジトリのデフォルトブランチにマージされ、`branch`引数はno-opになりました。
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: jhunschejones
+  - 
+    location: Mutation.addProjectDraftIssue
+    description: '`addProjectDraftIssue`は削除されます。適切な置き換えを見つけるには、https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ にあるProjectV2ガイドに従ってください。'
+    reason: '`ProjectNext`は、より多機能な`ProjectV2`に置き換えられて非推奨になりました。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: lukewar
+  - 
+    location: Mutation.addProjectNextItem
+    description: '`addProjectNextItem`は削除されます。適切な置き換えを見つけるには、https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ にあるProjectV2ガイドに従ってください。'
+    reason: '`ProjectNext`は、より多機能な`ProjectV2`に置き換えられて非推奨になりました。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: lukewar
+  - 
+    location: Mutation.deleteProjectNextItem
+    description: '`deleteProjectNextItem`は削除されます。適切な置き換えを見つけるには、https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ にあるProjectV2ガイドに従ってください。'
+    reason: '`ProjectNext`は、より多機能な`ProjectV2`に置き換えられて非推奨になりました。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: lukewar
+  - 
+    location: Mutation.updateProjectDraftIssue
+    description: '`updateProjectDraftIssue`は削除されます。適切な置き換えを見つけるには、https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ にあるProjectV2ガイドに従ってください。'
+    reason: '`ProjectNext`は、より多機能な`ProjectV2`に置き換えられて非推奨になりました。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: lukewar
+  - 
+    location: Mutation.updateProjectNext
+    description: '`updateProjectNext`は削除されます。適切な置き換えを見つけるには、https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ にあるProjectV2ガイドに従ってください。'
+    reason: '`ProjectNext`は、より多機能な`ProjectV2`に置き換えられて非推奨になりました。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: lukewar
+  - 
+    location: Mutation.updateProjectNextItemField
+    description: '`updateProjectNextItemField`は削除されます。適切な置き換えを見つけるには、https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ にあるProjectV2ガイドに従ってください。'
+    reason: '`ProjectNext`は、より多機能な`ProjectV2`に置き換えられて非推奨になりました。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: lukewar
+  - 
+    location: Organization.projectNext
+    description: '`projectNext`は削除されます。適切な置き換えを見つけるには、https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ にあるProjectV2ガイドに従ってください。'
+    reason: '`ProjectNext`は、より多機能な`ProjectV2`に置き換えられて非推奨になりました。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: lukewar
+  - 
+    location: Organization.projectsNext
+    description: '`projectsNext`は削除されます。適切な置き換えを見つけるには、https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ にあるProjectV2ガイドに従ってください。'
+    reason: '`ProjectNext`は、より多機能な`ProjectV2`に置き換えられて非推奨になりました。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: lukewar
+  - 
+    location: Organization.recentProjectsNext
+    description: '`recentProjectsNext`は削除されます。適切な置き換えを見つけるには、https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ にあるProjectV2ガイドに従ってください。'
+    reason: '`ProjectNext`は、より多機能な`ProjectV2`に置き換えられて非推奨になりました。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: lukewar
+  - 
+    location: ProjectNext.closed
+    description: '`closed`は削除されます。適切な置き換えを見つけるには、https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ にあるProjectV2ガイドに従ってください。'
+    reason: '`ProjectNext`は、より多機能な`ProjectV2`に置き換えられて非推奨になりました。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: lukewar
+  - 
+    location: ProjectNext.createdAt
+    description: '`createdAt`は削除されます。適切な置き換えを見つけるには、https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ にあるProjectV2ガイドに従ってください。'
+    reason: '`ProjectNext`は、より多機能な`ProjectV2`に置き換えられて非推奨になりました。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: lukewar
+  - 
+    location: ProjectNext.creator
+    description: '`creator`は削除されます。適切な置き換えを見つけるには、https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ にあるProjectV2ガイドに従ってください。'
+    reason: '`ProjectNext`は、より多機能な`ProjectV2`に置き換えられて非推奨になりました。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: lukewar
+  - 
+    location: ProjectNext.databaseId
+    description: '`databaseId`は削除されます。適切な置き換えを見つけるには、https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ にあるProjectV2ガイドに従ってください。'
+    reason: '`ProjectNext`は、より多機能な`ProjectV2`に置き換えられて非推奨になりました。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: lukewar
+  - 
+    location: ProjectNext.defaultView
+    description: '`defaultView`は削除されます。適切な置き換えを見つけるには、https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ にあるProjectV2ガイドに従ってください。'
+    reason: '`ProjectNext`は、より多機能な`ProjectV2`に置き換えられて非推奨になりました。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: lukewar
+  - 
+    location: ProjectNext.description
+    description: '`description`は削除されます。適切な置き換えを見つけるには、https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ にあるProjectV2ガイドに従ってください。'
+    reason: '`ProjectNext`は、より多機能な`ProjectV2`に置き換えられて非推奨になりました。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: lukewar
+  - 
+    location: ProjectNext.fieldConstraints
+    description: '`fieldConstraints`は削除されます。適切な置き換えを見つけるには、https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ にあるProjectV2ガイドに従ってください。'
+    reason: '`ProjectNext`は、より多機能な`ProjectV2`に置き換えられて非推奨になりました。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: lukewar
+  - 
+    location: ProjectNext.fields
+    description: '`fields`は削除されます。適切な置き換えを見つけるには、https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ にあるProjectV2ガイドに従ってください。'
+    reason: '`ProjectNext`は、より多機能な`ProjectV2`に置き換えられて非推奨になりました。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: lukewar
+  - 
+    location: ProjectNext.items
+    description: '`items`は削除されます。適切な置き換えを見つけるには、https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ にあるProjectV2ガイドに従ってください。'
+    reason: '`ProjectNext`は、より多機能な`ProjectV2`に置き換えられて非推奨になりました。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: lukewar
+  - 
+    location: ProjectNext.number
+    description: '`number`は削除されます。適切な置き換えを見つけるには、https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ にあるProjectV2ガイドに従ってください。'
+    reason: '`ProjectNext`は、より多機能な`ProjectV2`に置き換えられて非推奨になりました。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: lukewar
+  - 
+    location: ProjectNext.owner
+    description: '`owner`は削除されます。適切な置き換えを見つけるには、https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ にあるProjectV2ガイドに従ってください。'
+    reason: '`ProjectNext`は、より多機能な`ProjectV2`に置き換えられて非推奨になりました。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: lukewar
+  - 
+    location: ProjectNext.public
+    description: '`public`は削除されます。適切な置き換えを見つけるには、https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ にあるProjectV2ガイドに従ってください。'
+    reason: '`ProjectNext`は、より多機能な`ProjectV2`に置き換えられて非推奨になりました。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: lukewar
+  - 
+    location: ProjectNext.repositories
+    description: '`repositories`は削除されます。適切な置き換えを見つけるには、https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ にあるProjectV2ガイドに従ってください。'
+    reason: '`ProjectNext`は、より多機能な`ProjectV2`に置き換えられて非推奨になりました。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: lukewar
+  - 
+    location: ProjectNext.resourcePath
+    description: '`resourcePath`は削除されます。適切な置き換えを見つけるには、https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ にあるProjectV2ガイドに従ってください。'
+    reason: '`ProjectNext`は、より多機能な`ProjectV2`に置き換えられて非推奨になりました。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: lukewar
+  - 
+    location: ProjectNext.shortDescription
+    description: '`shortDescription`は削除されます。適切な置き換えを見つけるには、https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ にあるProjectV2ガイドに従ってください。'
+    reason: '`ProjectNext`は、より多機能な`ProjectV2`に置き換えられて非推奨になりました。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: lukewar
+  - 
+    location: ProjectNext.title
+    description: '`title`は削除されます。適切な置き換えを見つけるには、https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ にあるProjectV2ガイドに従ってください。'
+    reason: '`ProjectNext`は、より多機能な`ProjectV2`に置き換えられて非推奨になりました。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: lukewar
+  - 
+    location: ProjectNext.updatedAt
+    description: '`updatedAt`は削除されます。適切な置き換えを見つけるには、https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ にあるProjectV2ガイドに従ってください。'
+    reason: '`ProjectNext`は、より多機能な`ProjectV2`に置き換えられて非推奨になりました。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: lukewar
+  - 
+    location: ProjectNext.url
+    description: '`url`は削除されます。適切な置き換えを見つけるには、https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ にあるProjectV2ガイドに従ってください。'
+    reason: '`ProjectNext`は、より多機能な`ProjectV2`に置き換えられて非推奨になりました。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: lukewar
+  - 
+    location: ProjectNext.views
+    description: '`views`は削除されます。適切な置き換えを見つけるには、https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ にあるProjectV2ガイドに従ってください。'
+    reason: '`ProjectNext`は、より多機能な`ProjectV2`に置き換えられて非推奨になりました。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: lukewar
+  - 
+    location: ProjectNextField.createdAt
+    description: '`createdAt`は削除されます。適切な置き換えを見つけるには、https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ にあるProjectV2ガイドに従ってください。'
+    reason: '`ProjectNext`は、より多機能な`ProjectV2`に置き換えられて非推奨になりました。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: lukewar
+  - 
+    location: ProjectNextField.dataType
+    description: '`dataType`は削除されます。適切な置き換えを見つけるには、https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ にあるProjectV2ガイドに従ってください。'
+    reason: '`ProjectNext`は、より多機能な`ProjectV2`に置き換えられて非推奨になりました。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: lukewar
+  - 
+    location: ProjectNextField.databaseId
+    description: '`databaseId`は削除されます。適切な置き換えを見つけるには、https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ にあるProjectV2ガイドに従ってください。'
+    reason: '`ProjectNext`は、より多機能な`ProjectV2`に置き換えられて非推奨になりました。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: lukewar
+  - 
+    location: ProjectNextField.name
+    description: '`name`は削除されます。適切な置き換えを見つけるには、https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ にあるProjectV2ガイドに従ってください。'
+    reason: '`ProjectNext`は、より多機能な`ProjectV2`に置き換えられて非推奨になりました。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: lukewar
+  - 
+    location: ProjectNextField.project
+    description: '`project`は削除されます。適切な置き換えを見つけるには、https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ にあるProjectV2ガイドに従ってください。'
+    reason: '`ProjectNext`は、より多機能な`ProjectV2`に置き換えられて非推奨になりました。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: lukewar
+  - 
+    location: ProjectNextField.settings
+    description: '`settings`は削除されます。適切な置き換えを見つけるには、https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ にあるProjectV2ガイドに従ってください。'
+    reason: '`ProjectNext`は、より多機能な`ProjectV2`に置き換えられて非推奨になりました。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: lukewar
+  - 
+    location: ProjectNextField.updatedAt
+    description: '`updatedAt`は削除されます。適切な置き換えを見つけるには、https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ にあるProjectV2ガイドに従ってください。'
+    reason: '`ProjectNext`は、より多機能な`ProjectV2`に置き換えられて非推奨になりました。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: lukewar
+  - 
+    location: ProjectNextFieldCommon.createdAt
+    description: '`createdAt`は削除されます。適切な置き換えを見つけるには、https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ にあるProjectV2ガイドに従ってください。'
+    reason: '`ProjectNext`は、より多機能な`ProjectV2`に置き換えられて非推奨になりました。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: lukewar
+  - 
+    location: ProjectNextFieldCommon.dataType
+    description: '`dataType`は削除されます。適切な置き換えを見つけるには、https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ にあるProjectV2ガイドに従ってください。'
+    reason: '`ProjectNext`は、より多機能な`ProjectV2`に置き換えられて非推奨になりました。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: lukewar
+  - 
+    location: ProjectNextFieldCommon.databaseId
+    description: '`databaseId`は削除されます。適切な置き換えを見つけるには、https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ にあるProjectV2ガイドに従ってください。'
+    reason: '`ProjectNext`は、より多機能な`ProjectV2`に置き換えられて非推奨になりました。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: lukewar
+  - 
+    location: ProjectNextFieldCommon.id
+    description: '`id`は削除されます。適切な置き換えを見つけるには、https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ にあるProjectV2ガイドに従ってください。'
+    reason: '`ProjectNext`は、より多機能な`ProjectV2`に置き換えられて非推奨になりました。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: lukewar
+  - 
+    location: ProjectNextFieldCommon.name
+    description: '`name`は削除されます。適切な置き換えを見つけるには、https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ にあるProjectV2ガイドに従ってください。'
+    reason: '`ProjectNext`は、より多機能な`ProjectV2`に置き換えられて非推奨になりました。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: lukewar
+  - 
+    location: ProjectNextFieldCommon.project
+    description: '`project`は削除されます。適切な置き換えを見つけるには、https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ にあるProjectV2ガイドに従ってください。'
+    reason: '`ProjectNext`は、より多機能な`ProjectV2`に置き換えられて非推奨になりました。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: lukewar
+  - 
+    location: ProjectNextFieldCommon.settings
+    description: '`settings`は削除されます。適切な置き換えを見つけるには、https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ にあるProjectV2ガイドに従ってください。'
+    reason: '`ProjectNext`は、より多機能な`ProjectV2`に置き換えられて非推奨になりました。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: lukewar
+  - 
+    location: ProjectNextFieldCommon.updatedAt
+    description: '`updatedAt`は削除されます。適切な置き換えを見つけるには、https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ にあるProjectV2ガイドに従ってください。'
+    reason: '`ProjectNext`は、より多機能な`ProjectV2`に置き換えられて非推奨になりました。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: lukewar
+  - 
+    location: ProjectNextFieldType.ASSIGNEES
+    description: '`ASSIGNEES`は削除されます。適切な置き換えを見つけるには、https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ にあるProjectV2ガイドに従ってください。'
+    reason: '`ProjectNext`は、より多機能な`ProjectV2`に置き換えられて非推奨になりました。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: lukewar
+  - 
+    location: ProjectNextFieldType.DATE
+    description: '`DATE`は削除されます。適切な置き換えを見つけるには、https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ にあるProjectV2ガイドに従ってください。'
+    reason: '`ProjectNext`は、より多機能な`ProjectV2`に置き換えられて非推奨になりました。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: lukewar
+  - 
+    location: ProjectNextFieldType.ITERATION
+    description: '`ITERATION`は削除されます。適切な置き換えを見つけるには、https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ にあるProjectV2ガイドに従ってください。'
+    reason: '`ProjectNext`は、より多機能な`ProjectV2`に置き換えられて非推奨になりました。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: lukewar
+  - 
+    location: ProjectNextFieldType.LABELS
+    description: '`LABELS`は削除されます。適切な置き換えを見つけるには、https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ にあるProjectV2ガイドに従ってください。'
+    reason: '`ProjectNext`は、より多機能な`ProjectV2`に置き換えられて非推奨になりました。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: lukewar
+  - 
+    location: ProjectNextFieldType.LINKED_PULL_REQUESTS
+    description: '`LINKED_PULL_REQUESTS`は削除されます。適切な置き換えを見つけるには、https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ にあるProjectV2ガイドに従ってください。'
+    reason: '`ProjectNext`は、より多機能な`ProjectV2`に置き換えられて非推奨になりました。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: lukewar
+  - 
+    location: ProjectNextFieldType.MILESTONE
+    description: '`MILESTONE`は削除されます。適切な置き換えを見つけるには、https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ にあるProjectV2ガイドに従ってください。'
+    reason: '`ProjectNext`は、より多機能な`ProjectV2`に置き換えられて非推奨になりました。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: lukewar
+  - 
+    location: ProjectNextFieldType.NUMBER
+    description: '`NUMBER`は削除されます。適切な置き換えを見つけるには、https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ にあるProjectV2ガイドに従ってください。'
+    reason: '`ProjectNext`は、より多機能な`ProjectV2`に置き換えられて非推奨になりました。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: lukewar
+  - 
+    location: ProjectNextFieldType.REPOSITORY
+    description: '`REPOSITORY`は削除されます。適切な置き換えを見つけるには、https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ にあるProjectV2ガイドに従ってください。'
+    reason: '`ProjectNext`は、より多機能な`ProjectV2`に置き換えられて非推奨になりました。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: lukewar
+  - 
+    location: ProjectNextFieldType.REVIEWERS
+    description: '`REVIEWERS`は削除されます。適切な置き換えを見つけるには、https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ にあるProjectV2ガイドに従ってください。'
+    reason: '`ProjectNext`は、より多機能な`ProjectV2`に置き換えられて非推奨になりました。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: lukewar
+  - 
+    location: ProjectNextFieldType.SINGLE_SELECT
+    description: '`SINGLE_SELECT`は削除されます。適切な置き換えを見つけるには、https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ にあるProjectV2ガイドに従ってください。'
+    reason: '`ProjectNext`は、より多機能な`ProjectV2`に置き換えられて非推奨になりました。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: lukewar
+  - 
+    location: ProjectNextFieldType.TEXT
+    description: '`TEXT`は削除されます。適切な置き換えを見つけるには、https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ にあるProjectV2ガイドに従ってください。'
+    reason: '`ProjectNext`は、より多機能な`ProjectV2`に置き換えられて非推奨になりました。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: lukewar
+  - 
+    location: ProjectNextFieldType.TITLE
+    description: '`TITLE`は削除されます。適切な置き換えを見つけるには、https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ にあるProjectV2ガイドに従ってください。'
+    reason: '`ProjectNext`は、より多機能な`ProjectV2`に置き換えられて非推奨になりました。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: lukewar
+  - 
+    location: ProjectNextFieldType.TRACKS
+    description: '`TRACKS`は削除されます。適切な置き換えを見つけるには、https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ にあるProjectV2ガイドに従ってください。'
+    reason: '`ProjectNext`は、より多機能な`ProjectV2`に置き換えられて非推奨になりました。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: lukewar
+  - 
+    location: ProjectNextItem.content
+    description: '`content`は削除されます。適切な置き換えを見つけるには、https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ にあるProjectV2ガイドに従ってください。'
+    reason: '`ProjectNext`は、より多機能な`ProjectV2`に置き換えられて非推奨になりました。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: lukewar
+  - 
+    location: ProjectNextItem.createdAt
+    description: '`createdAt`は削除されます。適切な置き換えを見つけるには、https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ にあるProjectV2ガイドに従ってください。'
+    reason: '`ProjectNext`は、より多機能な`ProjectV2`に置き換えられて非推奨になりました。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: lukewar
+  - 
+    location: ProjectNextItem.creator
+    description: '`creator`は削除されます。適切な置き換えを見つけるには、https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ にあるProjectV2ガイドに従ってください。'
+    reason: '`ProjectNext`は、より多機能な`ProjectV2`に置き換えられて非推奨になりました。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: lukewar
+  - 
+    location: ProjectNextItem.databaseId
+    description: '`databaseId`は削除されます。適切な置き換えを見つけるには、https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ にあるProjectV2ガイドに従ってください。'
+    reason: '`ProjectNext`は、より多機能な`ProjectV2`に置き換えられて非推奨になりました。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: lukewar
+  - 
+    location: ProjectNextItem.fieldValues
+    description: '`fieldValues`は削除されます。適切な置き換えを見つけるには、https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ にあるProjectV2ガイドに従ってください。'
+    reason: '`ProjectNext`は、より多機能な`ProjectV2`に置き換えられて非推奨になりました。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: lukewar
+  - 
+    location: ProjectNextItem.isArchived
+    description: '`isArchived`は削除されます。適切な置き換えを見つけるには、https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ にあるProjectV2ガイドに従ってください。'
+    reason: '`ProjectNext`は、より多機能な`ProjectV2`に置き換えられて非推奨になりました。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: lukewar
+  - 
+    location: ProjectNextItem.project
+    description: '`project`は削除されます。適切な置き換えを見つけるには、https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ にあるProjectV2ガイドに従ってください。'
+    reason: '`ProjectNext`は、より多機能な`ProjectV2`に置き換えられて非推奨になりました。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: lukewar
+  - 
+    location: ProjectNextItem.title
+    description: '`title`は削除されます。適切な置き換えを見つけるには、https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ にあるProjectV2ガイドに従ってください。'
+    reason: '`ProjectNext`は、より多機能な`ProjectV2`に置き換えられて非推奨になりました。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: lukewar
+  - 
+    location: ProjectNextItem.type
+    description: '`type`は削除されます。適切な置き換えを見つけるには、https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ にあるProjectV2ガイドに従ってください。'
+    reason: '`ProjectNext`は、より多機能な`ProjectV2`に置き換えられて非推奨になりました。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: lukewar
+  - 
+    location: ProjectNextItem.updatedAt
+    description: '`updatedAt`は削除されます。適切な置き換えを見つけるには、https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ にあるProjectV2ガイドに従ってください。'
+    reason: '`ProjectNext`は、より多機能な`ProjectV2`に置き換えられて非推奨になりました。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: lukewar
+  - 
+    location: ProjectNextItemFieldValue.createdAt
+    description: '`createdAt`は削除されます。適切な置き換えを見つけるには、https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ にあるProjectV2ガイドに従ってください。'
+    reason: '`ProjectNext`は、より多機能な`ProjectV2`に置き換えられて非推奨になりました。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: lukewar
+  - 
+    location: ProjectNextItemFieldValue.creator
+    description: '`creator`は削除されます。適切な置き換えを見つけるには、https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ にあるProjectV2ガイドに従ってください。'
+    reason: '`ProjectNext`は、より多機能な`ProjectV2`に置き換えられて非推奨になりました。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: lukewar
+  - 
+    location: ProjectNextItemFieldValue.databaseId
+    description: '`databaseId`は削除されます。適切な置き換えを見つけるには、https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ にあるProjectV2ガイドに従ってください。'
+    reason: '`ProjectNext`は、より多機能な`ProjectV2`に置き換えられて非推奨になりました。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: lukewar
+  - 
+    location: ProjectNextItemFieldValue.projectField
+    description: '`projectField`は削除されます。適切な置き換えを見つけるには、https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ にあるProjectV2ガイドに従ってください。'
+    reason: '`ProjectNext`は、より多機能な`ProjectV2`に置き換えられて非推奨になりました。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: lukewar
+  - 
+    location: ProjectNextItemFieldValue.projectFieldConstraint
+    description: '`projectFieldConstraint`は削除されます。適切な置き換えを見つけるには、https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ にあるProjectV2ガイドに従ってください。'
+    reason: '`ProjectNext`は、より多機能な`ProjectV2`に置き換えられて非推奨になりました。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: lukewar
+  - 
+    location: ProjectNextItemFieldValue.projectItem
+    description: '`projectItem`は削除されます。適切な置き換えを見つけるには、https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ にあるProjectV2ガイドに従ってください。'
+    reason: '`ProjectNext`は、より多機能な`ProjectV2`に置き換えられて非推奨になりました。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: lukewar
+  - 
+    location: ProjectNextItemFieldValue.updatedAt
+    description: '`updatedAt`は削除されます。適切な置き換えを見つけるには、https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ にあるProjectV2ガイドに従ってください。'
+    reason: '`ProjectNext`は、より多機能な`ProjectV2`に置き換えられて非推奨になりました。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: lukewar
+  - 
+    location: ProjectNextItemFieldValue.value
+    description: '`value`は削除されます。適切な置き換えを見つけるには、https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ にあるProjectV2ガイドに従ってください。'
+    reason: '`ProjectNext`は、より多機能な`ProjectV2`に置き換えられて非推奨になりました。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: lukewar
+  - 
+    location: ProjectNextIterationField.configuration
+    description: '`configuration`は削除されます。適切な置き換えを見つけるには、https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ にあるProjectV2ガイドに従ってください。'
+    reason: '`ProjectNext`は、より多機能な`ProjectV2`に置き換えられて非推奨になりました。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: lukewar
+  - 
+    location: ProjectNextIterationField.createdAt
+    description: '`createdAt`は削除されます。適切な置き換えを見つけるには、https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ にあるProjectV2ガイドに従ってください。'
+    reason: '`ProjectNext`は、より多機能な`ProjectV2`に置き換えられて非推奨になりました。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: lukewar
+  - 
+    location: ProjectNextIterationField.dataType
+    description: '`dataType`は削除されます。適切な置き換えを見つけるには、https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ にあるProjectV2ガイドに従ってください。'
+    reason: '`ProjectNext`は、より多機能な`ProjectV2`に置き換えられて非推奨になりました。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: lukewar
+  - 
+    location: ProjectNextIterationField.databaseId
+    description: '`databaseId`は削除されます。適切な置き換えを見つけるには、https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ にあるProjectV2ガイドに従ってください。'
+    reason: '`ProjectNext`は、より多機能な`ProjectV2`に置き換えられて非推奨になりました。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: lukewar
+  - 
+    location: ProjectNextIterationField.name
+    description: '`name`は削除されます。適切な置き換えを見つけるには、https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ にあるProjectV2ガイドに従ってください。'
+    reason: '`ProjectNext`は、より多機能な`ProjectV2`に置き換えられて非推奨になりました。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: lukewar
+  - 
+    location: ProjectNextIterationField.project
+    description: '`project`は削除されます。適切な置き換えを見つけるには、https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ にあるProjectV2ガイドに従ってください。'
+    reason: '`ProjectNext`は、より多機能な`ProjectV2`に置き換えられて非推奨になりました。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: lukewar
+  - 
+    location: ProjectNextIterationField.settings
+    description: '`settings`は削除されます。適切な置き換えを見つけるには、https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ にあるProjectV2ガイドに従ってください。'
+    reason: '`ProjectNext`は、より多機能な`ProjectV2`に置き換えられて非推奨になりました。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: lukewar
+  - 
+    location: ProjectNextIterationField.updatedAt
+    description: '`updatedAt`は削除されます。適切な置き換えを見つけるには、https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ にあるProjectV2ガイドに従ってください。'
+    reason: '`ProjectNext`は、より多機能な`ProjectV2`に置き換えられて非推奨になりました。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: lukewar
+  - 
+    location: ProjectNextIterationFieldConfiguration.completedIterations
+    description: '`completedIterations`は削除されます。適切な置き換えを見つけるには、https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ にあるProjectV2ガイドに従ってください。'
+    reason: '`ProjectNext`は、より多機能な`ProjectV2`に置き換えられて非推奨になりました。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: lukewar
+  - 
+    location: ProjectNextIterationFieldConfiguration.duration
+    description: '`duration`は削除されます。適切な置き換えを見つけるには、https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ にあるProjectV2ガイドに従ってください。'
+    reason: '`ProjectNext`は、より多機能な`ProjectV2`に置き換えられて非推奨になりました。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: lukewar
+  - 
+    location: ProjectNextIterationFieldConfiguration.iterations
+    description: '`iterations`は削除されます。適切な置き換えを見つけるには、https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ にあるProjectV2ガイドに従ってください。'
+    reason: '`ProjectNext`は、より多機能な`ProjectV2`に置き換えられて非推奨になりました。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: lukewar
+  - 
+    location: ProjectNextIterationFieldConfiguration.startDay
+    description: '`startDay`は削除されます。適切な置き換えを見つけるには、https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ にあるProjectV2ガイドに従ってください。'
+    reason: '`ProjectNext`は、より多機能な`ProjectV2`に置き換えられて非推奨になりました。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: lukewar
+  - 
+    location: ProjectNextIterationFieldIteration.duration
+    description: '`duration`は削除されます。適切な置き換えを見つけるには、https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ にあるProjectV2ガイドに従ってください。'
+    reason: '`ProjectNext`は、より多機能な`ProjectV2`に置き換えられて非推奨になりました。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: lukewar
+  - 
+    location: ProjectNextIterationFieldIteration.id
+    description: '`id`は削除されます。適切な置き換えを見つけるには、https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ にあるProjectV2ガイドに従ってください。'
+    reason: '`ProjectNext`は、より多機能な`ProjectV2`に置き換えられて非推奨になりました。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: lukewar
+  - 
+    location: ProjectNextIterationFieldIteration.startDate
+    description: '`startDate`は削除されます。適切な置き換えを見つけるには、https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ にあるProjectV2ガイドに従ってください。'
+    reason: '`ProjectNext`は、より多機能な`ProjectV2`に置き換えられて非推奨になりました。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: lukewar
+  - 
+    location: ProjectNextIterationFieldIteration.title
+    description: '`title`は削除されます。適切な置き換えを見つけるには、https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ にあるProjectV2ガイドに従ってください。'
+    reason: '`ProjectNext`は、より多機能な`ProjectV2`に置き換えられて非推奨になりました。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: lukewar
+  - 
+    location: ProjectNextIterationFieldIteration.titleHTML
+    description: '`titleHtml`は削除されます。適切な置き換えを見つけるには、https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ にあるProjectV2ガイドに従ってください。'
+    reason: '`ProjectNext`は、より多機能な`ProjectV2`に置き換えられて非推奨になりました。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: lukewar
+  - 
+    location: ProjectNextOrderField.CREATED_AT
+    description: '`CREATED_AT`は削除されます。適切な置き換えを見つけるには、https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ にあるProjectV2ガイドに従ってください。'
+    reason: '`ProjectNext`は、より多機能な`ProjectV2`に置き換えられて非推奨になりました。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: lukewar
+  - 
+    location: ProjectNextOrderField.NUMBER
+    description: '`NUMBER`は削除されます。適切な置き換えを見つけるには、https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ にあるProjectV2ガイドに従ってください。'
+    reason: '`ProjectNext`は、より多機能な`ProjectV2`に置き換えられて非推奨になりました。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: lukewar
+  - 
+    location: ProjectNextOrderField.TITLE
+    description: '`TITLE`は削除されます。適切な置き換えを見つけるには、https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ にあるProjectV2ガイドに従ってください。'
+    reason: '`ProjectNext`は、より多機能な`ProjectV2`に置き換えられて非推奨になりました。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: lukewar
+  - 
+    location: ProjectNextOrderField.UPDATED_AT
+    description: '`UPDATED_AT`は削除されます。適切な置き換えを見つけるには、https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ にあるProjectV2ガイドに従ってください。'
+    reason: '`ProjectNext`は、より多機能な`ProjectV2`に置き換えられて非推奨になりました。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: lukewar
+  - 
+    location: ProjectNextOwner.projectNext
+    description: '`projectNext`は削除されます。適切な置き換えを見つけるには、https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ にあるProjectV2ガイドに従ってください。'
+    reason: '`ProjectNext`は、より多機能な`ProjectV2`に置き換えられて非推奨になりました。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: lukewar
+  - 
+    location: ProjectNextOwner.projectsNext
+    description: '`projectsNext`は削除されます。適切な置き換えを見つけるには、https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ にあるProjectV2ガイドに従ってください。'
+    reason: '`ProjectNext`は、より多機能な`ProjectV2`に置き換えられて非推奨になりました。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: lukewar
+  - 
+    location: ProjectNextRecent.recentProjectsNext
+    description: '`recentProjectsNext`は削除されます。適切な置き換えを見つけるには、https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ にあるProjectV2ガイドに従ってください。'
+    reason: '`ProjectNext`は、より多機能な`ProjectV2`に置き換えられて非推奨になりました。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: lukewar
+  - 
+    location: ProjectNextSingleSelectField.createdAt
+    description: '`createdAt`は削除されます。適切な置き換えを見つけるには、https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ にあるProjectV2ガイドに従ってください。'
+    reason: '`ProjectNext`は、より多機能な`ProjectV2`に置き換えられて非推奨になりました。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: lukewar
+  - 
+    location: ProjectNextSingleSelectField.dataType
+    description: '`dataType`は削除されます。適切な置き換えを見つけるには、https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ にあるProjectV2ガイドに従ってください。'
+    reason: '`ProjectNext`は、より多機能な`ProjectV2`に置き換えられて非推奨になりました。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: lukewar
+  - 
+    location: ProjectNextSingleSelectField.databaseId
+    description: '`databaseId`は削除されます。適切な置き換えを見つけるには、https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ にあるProjectV2ガイドに従ってください。'
+    reason: '`ProjectNext`は、より多機能な`ProjectV2`に置き換えられて非推奨になりました。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: lukewar
+  - 
+    location: ProjectNextSingleSelectField.name
+    description: '`name`は削除されます。適切な置き換えを見つけるには、https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ にあるProjectV2ガイドに従ってください。'
+    reason: '`ProjectNext`は、より多機能な`ProjectV2`に置き換えられて非推奨になりました。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: lukewar
+  - 
+    location: ProjectNextSingleSelectField.options
+    description: '`options`は削除されます。適切な置き換えを見つけるには、https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ にあるProjectV2ガイドに従ってください。'
+    reason: '`ProjectNext`は、より多機能な`ProjectV2`に置き換えられて非推奨になりました。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: lukewar
+  - 
+    location: ProjectNextSingleSelectField.project
+    description: '`project`は削除されます。適切な置き換えを見つけるには、https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ にあるProjectV2ガイドに従ってください。'
+    reason: '`ProjectNext`は、より多機能な`ProjectV2`に置き換えられて非推奨になりました。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: lukewar
+  - 
+    location: ProjectNextSingleSelectField.settings
+    description: '`settings`は削除されます。適切な置き換えを見つけるには、https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ にあるProjectV2ガイドに従ってください。'
+    reason: '`ProjectNext`は、より多機能な`ProjectV2`に置き換えられて非推奨になりました。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: lukewar
+  - 
+    location: ProjectNextSingleSelectField.updatedAt
+    description: '`updatedAt`は削除されます。適切な置き換えを見つけるには、https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ にあるProjectV2ガイドに従ってください。'
+    reason: '`ProjectNext`は、より多機能な`ProjectV2`に置き換えられて非推奨になりました。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: lukewar
+  - 
+    location: ProjectNextSingleSelectFieldOption.id
+    description: '`id`は削除されます。適切な置き換えを見つけるには、https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ にあるProjectV2ガイドに従ってください。'
+    reason: '`ProjectNext`は、より多機能な`ProjectV2`に置き換えられて非推奨になりました。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: lukewar
+  - 
+    location: ProjectNextSingleSelectFieldOption.name
+    description: '`name`は削除されます。適切な置き換えを見つけるには、https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ にあるProjectV2ガイドに従ってください。'
+    reason: '`ProjectNext`は、より多機能な`ProjectV2`に置き換えられて非推奨になりました。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: lukewar
+  - 
+    location: ProjectNextSingleSelectFieldOption.nameHTML
+    description: '`nameHtml`は削除されます。適切な置き換えを見つけるには、https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ にあるProjectV2ガイドに従ってください。'
+    reason: '`ProjectNext`は、より多機能な`ProjectV2`に置き換えられて非推奨になりました。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: lukewar
+  - 
+    location: ProjectView.createdAt
+    description: '`createdAt`は削除されます。適切な置き換えを見つけるには、https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ にあるProjectV2ガイドに従ってください。'
+    reason: '`ProjectNext`は、より多機能な`ProjectV2`に置き換えられて非推奨になりました。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: lukewar
+  - 
+    location: ProjectView.databaseId
+    description: '`databaseId`は削除されます。適切な置き換えを見つけるには、https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ にあるProjectV2ガイドに従ってください。'
+    reason: '`ProjectNext`は、より多機能な`ProjectV2`に置き換えられて非推奨になりました。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: lukewar
+  - 
+    location: ProjectView.filter
+    description: '`filter`は削除されます。適切な置き換えを見つけるには、https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ にあるProjectV2ガイドに従ってください。'
+    reason: '`ProjectNext`は、より多機能な`ProjectV2`に置き換えられて非推奨になりました。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: lukewar
+  - 
+    location: ProjectView.groupBy
+    description: '`groupBy`は削除されます。適切な置き換えを見つけるには、https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ にあるProjectV2ガイドに従ってください。'
+    reason: '`ProjectNext`は、より多機能な`ProjectV2`に置き換えられて非推奨になりました。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: lukewar
+  - 
+    location: ProjectView.items
+    description: '`items`は削除されます。適切な置き換えを見つけるには、https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ にあるProjectV2ガイドに従ってください。'
+    reason: '`ProjectNext`は、より多機能な`ProjectV2`に置き換えられて非推奨になりました。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: lukewar
+  - 
+    location: ProjectView.layout
+    description: '`layout`は削除されます。適切な置き換えを見つけるには、https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ にあるProjectV2ガイドに従ってください。'
+    reason: '`ProjectNext`は、より多機能な`ProjectV2`に置き換えられて非推奨になりました。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: lukewar
+  - 
+    location: ProjectView.name
+    description: '`name`は削除されます。適切な置き換えを見つけるには、https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ にあるProjectV2ガイドに従ってください。'
+    reason: '`ProjectNext`は、より多機能な`ProjectV2`に置き換えられて非推奨になりました。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: lukewar
+  - 
+    location: ProjectView.number
+    description: '`number`は削除されます。適切な置き換えを見つけるには、https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ にあるProjectV2ガイドに従ってください。'
+    reason: '`ProjectNext`は、より多機能な`ProjectV2`に置き換えられて非推奨になりました。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: lukewar
+  - 
+    location: ProjectView.project
+    description: '`project`は削除されます。適切な置き換えを見つけるには、https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ にあるProjectV2ガイドに従ってください。'
+    reason: '`ProjectNext`は、より多機能な`ProjectV2`に置き換えられて非推奨になりました。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: lukewar
+  - 
+    location: ProjectView.sortBy
+    description: '`sortBy`は削除されます。適切な置き換えを見つけるには、https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ にあるProjectV2ガイドに従ってください。'
+    reason: '`ProjectNext`は、より多機能な`ProjectV2`に置き換えられて非推奨になりました。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: lukewar
+  - 
+    location: ProjectView.updatedAt
+    description: '`updatedAt`は削除されます。適切な置き換えを見つけるには、https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ にあるProjectV2ガイドに従ってください。'
+    reason: '`ProjectNext`は、より多機能な`ProjectV2`に置き換えられて非推奨になりました。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: lukewar
+  - 
+    location: ProjectView.verticalGroupBy
+    description: '`verticalGroupBy`は削除されます。適切な置き換えを見つけるには、https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ にあるProjectV2ガイドに従ってください。'
+    reason: '`ProjectNext`は、より多機能な`ProjectV2`に置き換えられて非推奨になりました。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: lukewar
+  - 
+    location: ProjectView.visibleFields
+    description: '`visibleFields`は削除されます。適切な置き換えを見つけるには、https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ にあるProjectV2ガイドに従ってください。'
+    reason: '`ProjectNext`は、より多機能な`ProjectV2`に置き換えられて非推奨になりました。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: lukewar
+  - 
+    location: PullRequest.projectNext
+    description: '`projectNext`は削除されます。適切な置き換えを見つけるには、https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ にあるProjectV2ガイドに従ってください。'
+    reason: '`ProjectNext`は、より多機能な`ProjectV2`に置き換えられて非推奨になりました。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: lukewar
+  - 
+    location: PullRequest.projectNextItems
+    description: '`projectNextItems`は削除されます。適切な置き換えを見つけるには、https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ にあるProjectV2ガイドに従ってください。'
+    reason: '`ProjectNext`は、より多機能な`ProjectV2`に置き換えられて非推奨になりました。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: lukewar
+  - 
+    location: PullRequest.projectsNext
+    description: '`projectsNext`は削除されます。適切な置き換えを見つけるには、https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ にあるProjectV2ガイドに従ってください。'
+    reason: '`ProjectNext`は、より多機能な`ProjectV2`に置き換えられて非推奨になりました。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: lukewar
+  - 
+    location: RemovePullRequestFromMergeQueueInput.branch
+    description: '`branch`は削除されます。'
+    reason: PRはベースブランチのマージキューから削除され、引数`branch`はno-opになりました。
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: jhunschejones
+  - 
+    location: Repository.projectNext
+    description: '`projectNext`は削除されます。適切な置き換えを見つけるには、https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ にあるProjectV2ガイドに従ってください。'
+    reason: '`ProjectNext`は、より多機能な`ProjectV2`に置き換えられて非推奨になりました。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: lukewar
+  - 
+    location: Repository.projectsNext
+    description: '`projectsNext`は削除されます。適切な置き換えを見つけるには、https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ にあるProjectV2ガイドに従ってください。'
+    reason: '`ProjectNext`は、より多機能な`ProjectV2`に置き換えられて非推奨になりました。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: lukewar
+  - 
+    location: Repository.recentProjectsNext
+    description: '`recentProjectsNext`は削除されます。適切な置き換えを見つけるには、https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ にあるProjectV2ガイドに従ってください。'
+    reason: '`ProjectNext`は、より多機能な`ProjectV2`に置き換えられて非推奨になりました。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: lukewar
+  - 
+    location: RepositoryVulnerabilityAlert.fixReason
+    description: '`fixReason`は削除されます。'
+    reason: '`fixReason`は削除されています。`fixedAt`及び`dismissReason`は引き続き利用できます。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: jamestran201
+  - 
+    location: UnlockAndResetMergeGroupInput.branch
+    description: '`branch`は削除されます。'
+    reason: リポジトリのデフォルトブランチの現在のマージグループ、`branch`引数はno-opになりました。
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: jhunschejones
+  - 
+    location: UpdateProjectNextInput.closed
+    description: '`closed`は削除されます。適切な置き換えを見つけるには、https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ にあるProjectV2ガイドに従ってください。'
+    reason: '`ProjectNext`は、より多機能な`ProjectV2`に置き換えられて非推奨になりました。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: lukewar
+  - 
+    location: UpdateProjectNextInput.description
+    description: '`description`は削除されます。適切な置き換えを見つけるには、https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ にあるProjectV2ガイドに従ってください。'
+    reason: '`ProjectNext`は、より多機能な`ProjectV2`に置き換えられて非推奨になりました。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: lukewar
+  - 
+    location: UpdateProjectNextInput.projectId
+    description: '`projectId`は削除されます。適切な置き換えを見つけるには、https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ にあるProjectV2ガイドに従ってください。'
+    reason: '`ProjectNext`は、より多機能な`ProjectV2`に置き換えられて非推奨になりました。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: lukewar
+  - 
+    location: UpdateProjectNextInput.public
+    description: '`public`は削除されます。適切な置き換えを見つけるには、https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ にあるProjectV2ガイドに従ってください。'
+    reason: '`ProjectNext`は、より多機能な`ProjectV2`に置き換えられて非推奨になりました。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: lukewar
+  - 
+    location: UpdateProjectNextInput.shortDescription
+    description: '`shortDescription`は削除されます。適切な置き換えを見つけるには、https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ にあるProjectV2ガイドに従ってください。'
+    reason: '`ProjectNext`は、より多機能な`ProjectV2`に置き換えられて非推奨になりました。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: lukewar
+  - 
+    location: UpdateProjectNextInput.title
+    description: '`title`は削除されます。適切な置き換えを見つけるには、https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ にあるProjectV2ガイドに従ってください。'
+    reason: '`ProjectNext`は、より多機能な`ProjectV2`に置き換えられて非推奨になりました。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: lukewar
+  - 
+    location: UpdateProjectNextItemFieldInput.fieldConstraintId
+    description: '`fieldConstraintId`は削除されます。適切な置き換えを見つけるには、https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ にあるProjectV2ガイドに従ってください。'
+    reason: '`ProjectNext`は、より多機能な`ProjectV2`に置き換えられて非推奨になりました。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: lukewar
+  - 
+    location: UpdateProjectNextItemFieldInput.fieldId
+    description: '`fieldId`は削除されます。適切な置き換えを見つけるには、https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ にあるProjectV2ガイドに従ってください。'
+    reason: '`ProjectNext`は、より多機能な`ProjectV2`に置き換えられて非推奨になりました。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: lukewar
+  - 
     location: UpdateProjectNextItemFieldInput.fieldWithSettingId
     description: '`fieldWithSettingId`は削除されます。代わりに`fieldConstraintId`を使用してください'
     reason: 名前の一貫性を向上させるためにfieldConstraintIdに名前を変更しました。
     date: '2022-10-01T00:00:00+00:00'
     criticality: 破壊的
     owner: memex
+  - 
+    location: UpdateProjectNextItemFieldInput.itemId
+    description: '`itemId`は削除されます。適切な置き換えを見つけるには、https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ にあるProjectV2ガイドに従ってください。'
+    reason: '`ProjectNext`は、より多機能な`ProjectV2`に置き換えられて非推奨になりました。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: lukewar
+  - 
+    location: UpdateProjectNextItemFieldInput.value
+    description: '`value`は削除されます。適切な置き換えを見つけるには、https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ にあるProjectV2ガイドに従ってください。'
+    reason: '`ProjectNext`は、より多機能な`ProjectV2`に置き換えられて非推奨になりました。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: lukewar
+  - 
+    location: UpdateProjectNextItemFieldPayload.projectNextItem
+    description: '`projectNextItem`は削除されます。適切な置き換えを見つけるには、https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ にあるProjectV2ガイドに従ってください。'
+    reason: '`ProjectNext`は、より多機能な`ProjectV2`に置き換えられて非推奨になりました。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: lukewar
+  - 
+    location: UpdateProjectNextPayload.projectNext
+    description: '`projectNext`は削除されます。適切な置き換えを見つけるには、https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ にあるProjectV2ガイドに従ってください。'
+    reason: '`ProjectNext`は、より多機能な`ProjectV2`に置き換えられて非推奨になりました。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: lukewar
+  - 
+    location: User.projectNext
+    description: '`projectNext`は削除されます。適切な置き換えを見つけるには、https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ にあるProjectV2ガイドに従ってください。'
+    reason: '`ProjectNext`は、より多機能な`ProjectV2`に置き換えられて非推奨になりました。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: lukewar
+  - 
+    location: User.projectsNext
+    description: '`projectsNext`は削除されます。適切な置き換えを見つけるには、https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ にあるProjectV2ガイドに従ってください。'
+    reason: '`ProjectNext`は、より多機能な`ProjectV2`に置き換えられて非推奨になりました。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: lukewar
+  - 
+    location: User.recentProjectsNext
+    description: '`recentProjectsNext`は削除されます。適切な置き換えを見つけるには、https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ にあるProjectV2ガイドに従ってください。'
+    reason: '`ProjectNext`は、より多機能な`ProjectV2`に置き換えられて非推奨になりました。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: lukewar

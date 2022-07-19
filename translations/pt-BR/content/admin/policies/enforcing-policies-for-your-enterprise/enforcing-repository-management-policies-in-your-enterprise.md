@@ -71,16 +71,16 @@ Se um proprietário corporativo impedir que os integrantes criem certos tipos de
 
 {% endif %}
 
-## Aplicar uma política de {% ifversion ghec or ghes > 3.1 or ghae %}base{% else %}permissões padrão{% endif %} do repositório
+## Aplicar uma política de {% ifversion ghec or ghes or ghae %}base{% else %}permissões padrão{% endif %} do repositório
 
-Em todas as organizações pertencentes à sua empresa, você pode definir um {% ifversion ghec or ghes > 3.1 or ghae %}base{% else %}padrão{% endif %} nível de permissão de repositório (nenhum leitura, gravação ou administrador) para integrantes da organização, ou permitir que os proprietários administrem a configuração no nível da organização.
+Em todas as organizações pertencentes à sua empresa, você pode definir um {% ifversion ghec or ghes or ghae %}base{% else %}padrão{% endif %} nível de permissão de repositório (nenhum leitura, gravação ou administrador) para integrantes da organização, ou permitir que os proprietários administrem a configuração no nível da organização.
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.repositories-tab %}
-4. Em "{% ifversion ghec or ghes > 3.1 or ghae %}Base{% else %}Default{% endif %} permissões", revise as informações sobre como alterar a configuração. {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
-5. Em "{% ifversion ghec or ghes > 3.1 or ghae %}Base{% else %}Padrão{% endif %} permissões", use o menu suspenso e escolha uma política.
-  {% ifversion ghec or ghes > 3.1 or ghae %}
+4. Em "{% ifversion ghec or ghes or ghae %}Base{% else %}Default{% endif %} permissões", revise as informações sobre como alterar a configuração. {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
+5. Em "{% ifversion ghec or ghes or ghae %}Base{% else %}Padrão{% endif %} permissões", use o menu suspenso e escolha uma política.
+  {% ifversion ghec or ghes or ghae %}
   ![Menu suspenso com opções de políticas de permissões de repositório](/assets/images/help/business-accounts/repository-permissions-policy-drop-down.png)
   {% else %}
   ![Menu suspenso com opções de políticas de permissões de repositório](/assets/images/enterprise/business-accounts/repository-permissions-policy-drop-down.png)
@@ -100,7 +100,9 @@ Em todas as organizações pertencentes à sua empresa, é possível permitir qu
 {% data reusables.enterprise-accounts.repo-creation-policy %}
 {% data reusables.enterprise-accounts.repo-creation-types %}
 {% else %}
-6. Em "Repository creation" (Criação de repositórios), use o menu suspenso e escolha uma política. ![Menu suspenso com opções de políticas de criação de repositórios](/assets/images/enterprise/site-admin-settings/repository-creation-drop-down.png)
+6. Em "Repository creation" (Criação de repositórios), use o menu suspenso e escolha uma política.
+
+  ![Menu suspenso com opções de políticas de criação de repositórios](/assets/images/enterprise/site-admin-settings/repository-creation-drop-down.png)
 {% endif %}
 
 ## Aplicar uma política para a bifurcação de repositórios internos ou privados
@@ -111,17 +113,27 @@ Em todas as organizações pertencentes à sua empresa, é possível permitir qu
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.repositories-tab %}
 3. Em "Bifurcação de repositório", revise as informações sobre como alterar a configuração. {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
-4. Em "Repository forking" (Bifurcação de repositórios), use o menu suspenso e escolha uma política. ![Menu suspenso com opções de políticas de bifurcação de repositórios](/assets/images/help/business-accounts/repository-forking-policy-drop-down.png)
+4. Em "Repository forking" (Bifurcação de repositórios), use o menu suspenso e escolha uma política.
+
+  ![Menu suspenso com opções de políticas de bifurcação de repositórios](/assets/images/help/business-accounts/repository-forking-policy-drop-down.png)
+
+{% ifversion innersource-fork-policies %}
+5. Se a bifurcação estiver habilitada, você poderá especificar onde os usuários podem fazer a bifurcação de repositórios. Revise as informações sobre como alterar a configuração e escolha uma política.
+
+    ![Captura de tela que mostra a lista de opções de política de bifurcação de repositório](/assets/images/help/business-accounts/repository-forking-policy-settings.png)
+{% endif %}
+
 
 ## Aplicando uma política para convidar{% ifversion ghec %} colaboradores{% endif %} externos para repositórios
 
-Em todas as organizações pertencentes à sua empresa, você pode permitir que os integrantes convidem{% ifversion ghec %} colaboradores externos{% endif %} para os repositórios, restringir {% ifversion ghec %}colaboradores externos {% endif %}convites para proprietários da organização, {% if prevent-org-admin-add-outside-collaborator %}restringir {% ifversion ghec %}colaboradores externos {% endif %}convites para proprietários corporativos, {% endif %}ou permitir que os proprietários da organização administrem a configuração no nível da organização.
+Em todas as organizações pertencentes à sua empresa, você pode permitir que os integrantes convidem{% ifversion ghec %} colaboradores externos{% endif %} para os repositórios, restringir {% ifversion ghec %}colaboradores externos {% endif %}convites para proprietários da organização, {% ifversion prevent-org-admin-add-outside-collaborator %}restringir {% ifversion ghec %}colaboradores externos {% endif %}convites para proprietários corporativos, {% endif %}ou permitir que os proprietários da organização administrem a configuração no nível da organização.
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.repositories-tab %}
 3. Em "Repositório {% ifversion ghec %}colaboradores externos{% elsif ghes or ghae %}convites{% endif %}", revise as informações sobre a alteração da configuração. {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
 4. Em "Repositório{% ifversion ghec %}colaboradores externos{% elsif ghes or ghae %}convites{% endif %}", use o menu suspenso e escolha uma política.
+
   {% ifversion ghec %}
   ![Menu suspenso com opções de políticas de convite de colaboradores externos](/assets/images/help/business-accounts/repository-invitation-policy-drop-down.png)
   {% elsif ghes or ghae %}
@@ -173,7 +185,9 @@ Em todas as organizações pertencentes à sua empresa, é possível permitir qu
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 3. Na guia **Repository policies** (Políticas de repositório), em "Repository issue deletion" (Exclusão de problemas em repositórios), revise as informações sobre como alterar a configuração. {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
-4. Em "Repository issue deletion" (Exclusão de problemas em repositórios), use o menu suspenso e escolha uma política. ![Menu suspenso com opções de políticas de exclusão de problemas](/assets/images/help/business-accounts/repository-issue-deletion-policy-drop-down.png)
+4. Em "Repository issue deletion" (Exclusão de problemas em repositórios), use o menu suspenso e escolha uma política.
+
+  ![Menu suspenso com opções de políticas de exclusão de problemas](/assets/images/help/business-accounts/repository-issue-deletion-policy-drop-down.png)
 
 {% ifversion ghes or ghae %}
 

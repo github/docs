@@ -21,7 +21,7 @@ versions:
 
 ### Liquidの条件演算子
 
-コンテンツファイルで`{% if meow %} ... {% endif %}`が使えるようになりました！ これは`if`タグであり、新しい`ifversion`タグではないことに注意してください。
+コンテンツファイルで`{% ifversion meow %} ... {% endif %}`が使えるようになりました！
 
 ### Frontmatter
 
@@ -45,7 +45,7 @@ versions:
 
 ## スキーマの適用
 
-機能のバージョン管理の検証のためのスキーマは[`tests/helpers/schemas/feature-versions-schema.js`](/tests/helpers/schemas/feature-versions-schema.js)にあり、[`tests/linting/lint-files.js`](/tests/linting/lint-files.js)によって実行されます。
+機能のバージョン管理の検証のためのスキーマは[`tests/helpers/schemas/feature-versions-schema.js`](/tests/helpers/schemas/feature-versions-schema.js)にあり、[`tests/linting/lint-versioning.js`](/tests/linting/lint-versioning.js)によって実行されます。
 
 ## 機能タグを削除するためのスクリプト
 

@@ -4,7 +4,7 @@ intro: '通过设置主题首选项以遵循系统设置或始终使用浅色模
 versions:
   fpt: '*'
   ghae: '*'
-  ghes: '>=3.2'
+  ghes: '*'
   ghec: '*'
 topics:
   - Accounts
@@ -39,7 +39,7 @@ shortTitle: 管理主题设置
     {% ifversion fpt or ghec %}
     - 如果您想选择当前处于公开测试阶段的主题，则首先需要通过功能预览启用它。 更多信息请参阅“[通过功能预览了解早期访问版本](/get-started/using-github/exploring-early-access-releases-with-feature-preview)”。{% endif %}
 
-{% if command-palette %}
+{% ifversion command-palette %}
 
 {% note %}
 

@@ -20,7 +20,7 @@ prodname_ghe_one: 'GitHub One'
 prodname_docs: 'GitHub Docs'
 ## Use these variables when referring specifically to a location within a product
 product_location: >-
-  {% ifversion ghes %}your GitHub Enterprise Server instance{% elsif ghae %}your enterprise{% else %}GitHub.com{% endif %}
+  {% ifversion ghes %}GitHub Enterprise Serverインスタンス{% elsif ghae %}Enterprise{% else %}GitHub.com{% endif %}
 #Used ONLY when you need to refer to a GHES instance in an article that is versioned for non-GHES versions.
 #Do not use in other situations!
 product_location_enterprise: 'GitHub Enterprise Server インスタンス'
@@ -34,6 +34,8 @@ prodname_enterprise_backup_utilities: 'GitHub Enterprise Serverバックアッ�
 prodname_github_connect: 'GitHub Connect'
 prodname_unified_contributions: '統合コントリビューション'
 prodname_unified_search: 'Unified Search'
+#GitHub Enterprise migration tool
+prodname_importer_proper_name: 'GitHub Enterprise Importer'
 #GitHub Education
 prodname_education: 'GitHub Education'
 prodname_education_community: 'Education Community'
@@ -43,6 +45,8 @@ prodname_classroom: 'GitHub Classroom'
 prodname_classroom_with_url: '[GitHub Classroom](https://classroom.github.com/login)'
 prodname_campus_program: 'GitHub Campus Program'
 prodname_student_pack: 'GitHub 学生開発者パック'
+prodname_global_campus: 'GitHub Global Campus'
+prodname_community_exchange: 'GitHub Community Exchange'
 #GitHub CLI
 prodname_cli: 'GitHub CLI'
 #GitHub Desktop
@@ -58,6 +62,11 @@ prodname_pages: 'GitHub Pages'
 prodname_codeql: 'CodeQL'
 prodname_ql: 'QL'
 prodname_codeql_cli: 'CodeQL CLI'
+#The CodeQL CLI version recommended for each GHES version.
+#CodeQL usually bumps its minor version for each minor version of GHES.
+#Update this whenever a new enterprise version of CodeQL is being prepared.
+codeql_cli_ghes_recommended_version: >-
+  {% ifversion ghes < 3.3 %}2.6.3{% elsif ghes < 3.5 %}2.7.6{% elsif ghes = 3.5 %}2.8.5{% elsif ghes = 3.6 %}2.9.4{% elsif ghae-issue-7470 %}2.8.5{% elsif ghae %}2.7.6{% endif %}
 #Apps, GitHub Marketplace, and integrations
 prodname_marketplace: 'GitHub Marketplace'
 prodname_github_app: 'GitHub App'
@@ -79,12 +88,13 @@ prodname_debug: 'GitHub デバッグ'
 prodname_discussions: 'GitHub Discussions'
 #GitHub Enterprise Managed Users
 prodname_emu_idp_application: 'GitHub Enterprise Managed User'
+prodname_emu_idp_oidc_application: 'GitHub Enterprise Managed User(OIDC)'
 prodname_emus: 'Enterprise Managed Users'
-prodname_managed_user: 'managed user'
-prodname_managed_users: 'managed users'
-prodname_managed_users_caps: 'Managed users'
-prodname_emu_enterprise: 'enterprise with managed users'
-prodname_emu_org: 'organization with managed users'
+prodname_managed_user: '管理されているユーザアカウント'
+prodname_managed_users: 'managed userアカウント'
+prodname_managed_users_caps: 'Managed userアカウント'
+prodname_emu_enterprise: 'managed usersを持つEnterprise'
+prodname_emu_org: 'managed usersを持つOrganization'
 #GitHub Issues
 prodname_github_issues: 'GitHubのIssue'
 #GitHub Packages
@@ -101,13 +111,13 @@ prodname_advanced_security: 'Advanced Security'
 #Codespaces
 prodname_codespaces: 'Codespaces'
 prodname_github_codespaces: 'GitHub Codespaces'
-prodname_serverless: 'web-based editor'
-#GitHub resources: blog, jobs, Learning Lab
+prodname_serverless: 'Webベースエディタ'
+#GitHub resources: blog, jobs, skills
 prodname_gcf: 'GitHub Community Support'
 prodname_blog: 'GitHub ブログ'
 prodname_jobs: 'GitHub Jobs'
-prodname_learning: 'GitHub Learning Lab'
-prodname_learning_link: 'https://lab.github.com/'
+prodname_learning: 'GitHubスキル'
+prodname_learning_link: 'https://skills.github.com/'
 prodname_roadmap: 'GitHubパブリックロードマップ'
 prodname_roadmap_link: 'https://github.com/github/roadmap#github-public-roadmap'
 #GitHub support
@@ -128,24 +138,26 @@ prodname_security_advisories: 'GitHub Security Advisories'
 #Security features and code scanning platform
 prodname_secret_scanning: 'secret scanning' #Overall feature name and name for GHES and GHAE
 prodname_secret_scanning_caps: 'Secret scanning'
-prodname_secret_scanning_partner: 'secret scanning for partner patterns' #GitHub.com feature for public repos only
-prodname_secret_scanning_partner_caps: 'Secret scanning for partner patterns'
-prodname_secret_scanning_GHAS: '>- {% ifversion fpt or ghec %}secret scanning for advanced security{% else %}secret scanning{% endif %}' #Includes GitHub.com name for GHAS licenced feature
+prodname_secret_scanning_partner: 'パートナーパターンのSecret scanning' #GitHub.com feature for public repos only
+prodname_secret_scanning_partner_caps: 'パートナーパターンのSecret scanning'
+prodname_secret_scanning_GHAS: '>- {% ifversion fpt or ghec %}高度なセキュリティのためのSecret scanning{% else %}Secret scanning{% endif %}' #Includes GitHub.com name for GHAS licenced feature
 prodname_secret_scanning_GHAS_caps: >-
-  {% ifversion fpt or ghec %}Secret scanning for advanced security{% else %}Secret scanning{% endif %}
+  {% ifversion fpt or ghec %}高度なセキュリティのためのSecret scanning{% else %}Secret scanning{% endif %}
 prodname_code_scanning: 'code scanning'
 prodname_code_scanning_capc: 'Code scanning'
 prodname_codeql_runner: 'CodeQLランナー'
 prodname_advisory_database: 'GitHub Advisory Database'
 prodname_codeql_workflow: 'CodeQL分析ワークフロー'
+prodname_dependency_review_action: 'Dependency Review GitHub Action'
 #Visual Studio
 prodname_vs: 'Visual Studio'
 prodname_vscode_shortname: 'VS Code'
 prodname_vscode: 'Visual Studio Code'
+prodname_vs_subscriber: '{% data variables.product.prodname_vs %} サブスクライバー'
 prodname_vss_ghe: 'Visual Studio subscriptions with GitHub Enterprise'
 prodname_vss_admin_portal_with_url: '[Visual Studio subscriptions管理ポータル](https://visualstudio.microsoft.com/subscriptions-administration/)'
 prodname_vscode_command_palette_shortname: 'VS Code Command Palette'
-prodname_vscode_command_palette: 'Visual Studio Code Command Palette'
+prodname_vscode_command_palette: 'Visual Studio Codeコマンドパレット'
 prodname_vscode_marketplace: 'Visual Studio Code Marketplace'
 prodname_vs_marketplace_shortname: 'VS Code Marketplace'
 #GitHub Dependabot

@@ -43,11 +43,11 @@ shortTitle: 创建代码空间
 
 {% data reusables.codespaces.prebuilds-crossreference %}
 
-## 访问 {% data variables.product.prodname_codespaces %}
+## 访问 {% data variables.product.prodname_github_codespaces %}
 
 {% data reusables.codespaces.availability %}
 
-当您访问 {% data variables.product.prodname_codespaces %} 时，在查看仓库时会看到 **{% octicon "code" aria-label="The code icon" %} Code（代码）**下拉菜单中的“Codespaces（代码空间）”选项卡。
+当您访问 {% data variables.product.prodname_github_codespaces %} 时，在查看仓库时会看到 **{% octicon "code" aria-label="The code icon" %} Code（代码）**下拉菜单中的“Codespaces（代码空间）”选项卡。
 
 在以下条件下，您可以访问代码空间：
 
@@ -65,7 +65,7 @@ shortTitle: 创建代码空间
 
 在组织中使用 {% data variables.product.prodname_codespaces %} 之前，所有者或帐单管理员必须设定支出限额。 更多信息请参阅“[关于代码空间的支出限额](/billing/managing-billing-for-github-codespaces/managing-spending-limits-for-codespaces#about-spending-limits-for-codespaces)”。
 
-如果想为您的个人帐户或其他用户拥有的仓库创建代码空间， 并且您有权在已启用 {% data variables.product.prodname_codespaces %} 的组织中创建仓库， 您可以将用户拥有的仓库复刻到该组织，然后为该复刻创建一个代码空间。
+如果想为您的个人帐户或其他用户拥有的仓库创建代码空间， 并且您有权在已启用 {% data variables.product.prodname_github_codespaces %} 的组织中创建仓库， 您可以将用户拥有的仓库复刻到该组织，然后为该复刻创建一个代码空间。
 
 ## 创建代码空间
 

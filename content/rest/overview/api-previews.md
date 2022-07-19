@@ -4,8 +4,7 @@ intro: You can use API previews to try out new features and provide feedback bef
 redirect_from:
   - /v3/previews
 versions:
-  ghes: '<3.4'
-  ghae: '*'
+  ghes: <3.4
 topics:
   - API
 ---
@@ -161,7 +160,7 @@ You can now provide more information in GitHub for URLs that link to registered 
 **Announced:** [2018-12-10](https://developer.github.com/changes/2018-12-10-content-attachments-api/)
 
 {% endif %}
-{% ifversion ghae or ghes < 3.3 %}
+{% ifversion ghes < 3.3 %}
 
 ## Enable and disable Pages
 

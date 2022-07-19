@@ -1,14 +1,14 @@
 ---
 title: About the security overview
 intro: 'You can view, filter, and sort security alerts for repositories owned by your organization or team in one place: the Security Overview page.'
-permissions: '{% data reusables.security-center.permissions %}'
-product: '{% data reusables.gated-features.security-center %}'
+permissions: '{% data reusables.security-overview.permissions %}'
+product: '{% data reusables.gated-features.security-overview %}'
 redirect_from:
   - /code-security/security-overview/exploring-security-alerts
 versions:
   fpt: '*'
   ghae: '*'
-  ghes: '>3.1'
+  ghes: '*'
   ghec: '*'
 type: how_to
 topics:
@@ -23,7 +23,7 @@ shortTitle: About security overview
 ---
 
 {% ifversion ghes < 3.5 or ghae %}
-{% data reusables.security-center.beta %}
+{% data reusables.security-overview.beta %}
 {% endif %}
 
 ## About the security overview
@@ -31,7 +31,7 @@ shortTitle: About security overview
 {% ifversion ghes or ghec or ghae %}You{% elsif fpt %}Organizations that use {% data variables.product.prodname_ghe_cloud %}{% endif %} can use the security overview for a high-level view of the security status of {% ifversion ghes or ghec or ghae %}your  {% elsif fpt %}their{% endif %} organization or to identify problematic repositories that require intervention. {% ifversion ghes or ghec or ghae %}You {% elsif fpt %}These organizations{% endif %} can view aggregate or repository-specific security information in the security overview. {% ifversion ghes or ghec or ghae %}You {% elsif fpt %} Organizations that use {% data variables.product.prodname_ghe_cloud %}{% endif %} can also use the security overview to see which security features are enabled for {% ifversion ghes or ghec or ghae %}your {% elsif fpt %}their {% endif %} repositories and to configure any available security features that are not currently in use. {% ifversion fpt %}For more information, see [the {% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/code-security/security-overview/about-the-security-overview).{% endif %}
 
 {% ifversion ghec or ghes or ghae %}
-The security overview indicates whether {% ifversion fpt or ghes > 3.1 or ghec %}security{% endif %}{% ifversion ghae %}{% data variables.product.prodname_GH_advanced_security %}{% endif %} features are enabled for repositories owned by your organization and consolidates alerts for each feature.{% ifversion fpt or ghes > 3.1 or ghec %} Security features include {% data variables.product.prodname_GH_advanced_security %} features, such as {% data variables.product.prodname_code_scanning %} and {% data variables.product.prodname_secret_scanning %}, as well as {% data variables.product.prodname_dependabot_alerts %}.{% endif %} For more information about {% data variables.product.prodname_GH_advanced_security %} features, see "[About {% data variables.product.prodname_GH_advanced_security %}](/get-started/learning-about-github/about-github-advanced-security)."{% ifversion fpt or ghes > 3.1 or ghec %} For more information about {% data variables.product.prodname_dependabot_alerts %}, see "[About {% data variables.product.prodname_dependabot_alerts %}](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-alerts-for-vulnerable-dependencies#dependabot-alerts-for-vulnerable-dependencies)."{% endif %}
+The security overview indicates whether {% ifversion fpt or ghes or ghec %}security{% endif %}{% ifversion ghae %}{% data variables.product.prodname_GH_advanced_security %}{% endif %} features are enabled for repositories owned by your organization and consolidates alerts for each feature.{% ifversion fpt or ghes or ghec %} Security features include {% data variables.product.prodname_GH_advanced_security %} features, such as {% data variables.product.prodname_code_scanning %} and {% data variables.product.prodname_secret_scanning %}, as well as {% data variables.product.prodname_dependabot_alerts %}.{% endif %} For more information about {% data variables.product.prodname_GH_advanced_security %} features, see "[About {% data variables.product.prodname_GH_advanced_security %}](/get-started/learning-about-github/about-github-advanced-security)."{% ifversion fpt or ghes or ghec %} For more information about {% data variables.product.prodname_dependabot_alerts %}, see "[About {% data variables.product.prodname_dependabot_alerts %}](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-alerts-for-vulnerable-dependencies#dependabot-alerts-for-vulnerable-dependencies)."{% endif %}
 
 For more information about securing your code at the repository and organization levels, see "[Securing your repository](/code-security/getting-started/securing-your-repository)" and "[Securing your organization](/code-security/getting-started/securing-your-organization)."
 
@@ -41,7 +41,7 @@ The application security team at your company can use the security overview for 
 
 In the security overview, you can view, sort, and filter alerts to understand the security risks in your organization and in specific repositories. The security summary is highly interactive, allowing you to investigate specific categories of information, based on qualifiers like alert risk level, alert type, and feature enablement. You can also apply multiple filters to focus on narrower areas of interest. For example, you can identify private repositories that have a high number of {% data variables.product.prodname_dependabot_alerts %} or repositories that have no {% data variables.product.prodname_code_scanning %} alerts. For more information, see "[Filtering alerts in the security overview](/code-security/security-overview/filtering-alerts-in-the-security-overview)."
 
-{% if security-overview-views %}
+{% ifversion security-overview-views %}
 
 In the security overview, at both the organization and repository level, there are dedicated views for specific security features, such as secret scanning alerts and code scanning alerts. You can use these views to limit your analysis to a specific set of alerts, and narrow the results further with a range of filters specific to each view. For example, in the secret scanning alert view, you can use the `Secret type` filter to view only secret scanning alerts for a specific secret, like a GitHub Personal Access Token. At the repository level, you can use the security overview to assess the specific repository's current security status, and configure any additional security features not yet in use on the repository.
 

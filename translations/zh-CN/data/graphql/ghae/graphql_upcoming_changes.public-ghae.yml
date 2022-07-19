@@ -77,3 +77,129 @@ upcoming_changes:
     date: '2022-07-01T00:00:00+00:00'
     criticality: 重大
     owner: jdennes
+  - 
+    location: LockMergeQueueInput.branch
+    description: '`branch` 将被删除。'
+    reason: 存储库的默认分支的合并队列已锁定，“branch”参数现在是 no-op
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 重大
+    owner: jhunschejones
+  - 
+    location: MergeLockedMergeGroupInput.branch
+    description: '`branch` 将被删除。'
+    reason: 更改将合并到存储库的默认分支中，“branch”参数现在是 no-op
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 重大
+    owner: jhunschejones
+  - 
+    location: ProjectNextFieldType.ASSIGNEES
+    description: '“ASSIGNEES”将被删除。请按照 https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ 的 ProjectV2 指南，找到合适的替代项。'
+    reason: '''ProjectNext'' API 已被弃用，取而代之的是功能更强大的 ''ProjectV2'' API。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 重大
+    owner: lukewar
+  - 
+    location: ProjectNextFieldType.DATE
+    description: '“DATE”将被删除。请按照 https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ 的 ProjectV2 指南，找到合适的替代项。'
+    reason: '''ProjectNext'' API 已被弃用，取而代之的是功能更强大的 ''ProjectV2'' API。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 重大
+    owner: lukewar
+  - 
+    location: ProjectNextFieldType.ITERATION
+    description: '“ITERATION”将被删除。请按照 https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ 的 ProjectV2 指南，找到合适的替代项。'
+    reason: '''ProjectNext'' API 已被弃用，取而代之的是功能更强大的 ''ProjectV2'' API。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 重大
+    owner: lukewar
+  - 
+    location: ProjectNextFieldType.LABELS
+    description: '“LABELS”将被删除。请按照 https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ 的 ProjectV2 指南，找到合适的替代项。'
+    reason: '''ProjectNext'' API 已被弃用，取而代之的是功能更强大的 ''ProjectV2'' API。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 重大
+    owner: lukewar
+  - 
+    location: ProjectNextFieldType.LINKED_PULL_REQUESTS
+    description: '“LINKED_PULL_REQUESTS”将被删除。请按照 https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ 的 ProjectV2 指南，找到合适的替代项。'
+    reason: '''ProjectNext'' API 已被弃用，取而代之的是功能更强大的 ''ProjectV2'' API。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 重大
+    owner: lukewar
+  - 
+    location: ProjectNextFieldType.MILESTONE
+    description: '“MILESTONE”将被删除。请按照 https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ 的 ProjectV2 指南，找到合适的替代项。'
+    reason: '''ProjectNext'' API 已被弃用，取而代之的是功能更强大的 ''ProjectV2'' API。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 重大
+    owner: lukewar
+  - 
+    location: ProjectNextFieldType.NUMBER
+    description: '“NUMBER”将被删除。请按照 https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ 的 ProjectV2 指南，找到合适的替代项。'
+    reason: '''ProjectNext'' API 已被弃用，取而代之的是功能更强大的 ''ProjectV2'' API。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 重大
+    owner: lukewar
+  - 
+    location: ProjectNextFieldType.REPOSITORY
+    description: '“REPOSITORY”将被删除。请按照 https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ 的 ProjectV2 指南，找到合适的替代项。'
+    reason: '''ProjectNext'' API 已被弃用，取而代之的是功能更强大的 ''ProjectV2'' API。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 重大
+    owner: lukewar
+  - 
+    location: ProjectNextFieldType.REVIEWERS
+    description: '“REVIEWERS”将被删除。请按照 https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ 的 ProjectV2 指南，找到合适的替代项。'
+    reason: '''ProjectNext'' API 已被弃用，取而代之的是功能更强大的 ''ProjectV2'' API。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 重大
+    owner: lukewar
+  - 
+    location: ProjectNextFieldType.SINGLE_SELECT
+    description: '“SINGLE_SELECT”将被删除。请按照 https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ 的 ProjectV2 指南，找到合适的替代项。'
+    reason: '''ProjectNext'' API 已被弃用，取而代之的是功能更强大的 ''ProjectV2'' API。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 重大
+    owner: lukewar
+  - 
+    location: ProjectNextFieldType.TEXT
+    description: '“TEXT”将被删除。请按照 https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ 的 ProjectV2 指南，找到合适的替代项。'
+    reason: '''ProjectNext'' API 已被弃用，取而代之的是功能更强大的 ''ProjectV2'' API。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 重大
+    owner: lukewar
+  - 
+    location: ProjectNextFieldType.TITLE
+    description: '“TITLE”将被删除。请按照 https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ 的 ProjectV2 指南，找到合适的替代项。'
+    reason: '''ProjectNext'' API 已被弃用，取而代之的是功能更强大的 ''ProjectV2'' API。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 重大
+    owner: lukewar
+  - 
+    location: ProjectNextFieldType.TRACKS
+    description: '“TRACKS”将被删除。请按照 https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ 的 ProjectV2 指南，找到合适的替代项。'
+    reason: '''ProjectNext'' API 已被弃用，取而代之的是功能更强大的 ''ProjectV2'' API。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 重大
+    owner: lukewar
+  - 
+    location: RemovePullRequestFromMergeQueueInput.branch
+    description: '`branch` 将被删除。'
+    reason: PR 将从基本分支的合并队列中删除，`branch` 参数现在是 no-op
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 重大
+    owner: jhunschejones
+  - 
+    location: RepositoryVulnerabilityAlert.fixReason
+    description: '`fixReason` 将被删除。'
+    reason: '“fixReason”字段将被删除。您仍可使用“fixedAt”和“dismissReson”。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 重大
+    owner: jamestran201
+  - 
+    location: UnlockAndResetMergeGroupInput.branch
+    description: '`branch` 将被删除。'
+    reason: 存储库默认分支的当前合并组，“branch”参数现在是 no-op
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 重大
+    owner: jhunschejones

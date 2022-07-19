@@ -111,7 +111,7 @@ La siguiente tabla muestra qué funciones del toolkit se encuentran disponibles 
 | `core.getInput`       | Accesible utilizando la variable de ambiente `INPUT_{NAME}` |
 | `core.getState`       | Accesible utilizando la variable de ambiente`STATE_{NAME}`  |
 | `core.isDebug`        | Accesible utilizando la variable de ambiente `RUNNER_DEBUG` |
-{%- if actions-job-summaries %}
+{%- ifversion actions-job-summaries %}
 | `core.summary` | Se puede acceder a este utilizando la variable de ambiente `GITHUB_STEP_SUMMARY` |
 {%- endif %}
 | `core.saveState`  | `save-state` | | `core.setCommandEcho` | `echo` | | `core.setFailed`  | Se utiliza como un atajo para `::error` y `exit 1` | | `core.setOutput`  | `set-output` | | `core.setSecret`  | `add-mask` | | `core.startGroup` | `group` | | `core.warning`    | `warning` |
@@ -656,7 +656,7 @@ steps:
 
 {% endpowershell %}
 
-{% if actions-job-summaries %}
+{% ifversion actions-job-summaries %}
 
 ## Agregar un resumen del job
 

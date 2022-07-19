@@ -60,6 +60,9 @@ const PUBLIC_REPOS = new Set([
   'advisory-database',
   'browser-support',
   'haikus-for-codespaces',
+  'actions-oidc-gateway-example',
+  'copilot.vim',
+  'dependency-submission-toolkit',
 ])
 
 const ALLOW_DOCS_PATHS = [

@@ -42,6 +42,15 @@ Você configurou o fluxo do log de auditoria em {% data variables.product.produc
 
 ### Configurando a transmissão para o Amazon S3
 
+{% ifversion streaming-oidc-s3 %}
+Você pode configurar a transmissão para S3 com chaves de acesso ou, para evitar armazenar segredos de longa duração em {% data variables.product.product_name %}, com o OpenID Connect (OIDC).
+
+- [Configurando a transmissão para S3 com chaves de acesso](#setting-up-streaming-to-s3-with-access-keys)
+- [Configurando a transmissão para S3 com OpenID Connect](#setting-up-streaming-to-s3-with-openid-connect)
+
+#### Configurando a transmissão para S3 com chaves de acesso
+{% endif %}
+
 Para transmitir os logs de auditoria para o ponto de extremidade do Amazon S3, você deve ter um bucket e chaves de acesso. Para obter mais informações, consulte [Criando, configurando e trabahlando com buckets do Amazon S3 ](https://docs.aws.amazon.com/AmazonS3/latest/userguide/creating-buckets-s3.html) na documentação do AWS. Certifique-se de bloquear o acesso público ao bucket para proteger as suas informações de log de auditoria.
 
 Para configurar a tarnsmissão do de log de auditoria de {% data variables.product.prodname_dotcom %} você vai precisar:
@@ -52,22 +61,69 @@ Para configurar a tarnsmissão do de log de auditoria de {% data variables.produ
 Para obter informações sobre como criar ou acessar sua chave de acesso e chave secreta, consulte [Entendendo e obtendo suas credenciais AWS](https://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html) na documentação do AWS.
 
 {% data reusables.enterprise.navigate-to-log-streaming-tab %}
-1. Clique **Configurar transmissão** e selecione **Amazon S3**.
+{% data reusables.audit_log.streaming-choose-s3 %}{% ifversion streaming-oidc-s3 %}
+1. Em "Authentication", clique em **Chaves de acesso**.
 
-   ![Escolha o Amazon S3 no menu suspenso](/assets/images/help/enterprises/audit-stream-choice-s3.png)
+   ![Captura de tela das opções de autenticação para transmissão para Amazon S3](/assets/images/help/enterprises/audit-log-streaming-s3-access-keys.png){% endif %}
+1. Defina as configurações da transmissão.
 
-1. Na página de configuração, insira:
-   * O nome do bucket para o qual você deseja transmitir. Por exemplo, `auditlog-streaming-test`.
-   * Seu ID da chave de acesso. Por exemplo, `ABCAIOSFODNN7EXAMPLE1`.
-   * Sua chave do segredo. Por exemplo, `aBJalrXUtnWXYZ/A1MDENG/zPxRfiCYEXAMPLEKEY`.
-
-   ![Insira as configurações de transmissão](/assets/images/help/enterprises/audit-stream-add-s3.png)
-
-1. Clique **Verificar ponto de extremidade** para verificar se {% data variables.product.prodname_dotcom %} pode conectar-se e gravar no ponto de extremidade do Amazon S3.
-
-   ![Verificar o ponto de extremidade](/assets/images/help/enterprises/audit-stream-check.png)
-
+   - Em "Bucket", digite o nome do bucket para o qual você quer transmitir. Por exemplo, `auditlog-streaming-test`.
+   - Em "ID da chave de acesso", digite o seu ID da chave de acesso. Por exemplo, `ABCAIOSFODNN7EXAMPLE1`.
+   - Em "Chave do segredo", digite a chave do seu segredo. Por exemplo, `aBJalrXUtnWXYZ/A1MDENG/zPxRfiCYEXAMPLEKEY`.
+{% data reusables.audit_log.streaming-check-s3-endpoint %}
 {% data reusables.enterprise.verify-audit-log-streaming-endpoint %}
+
+{% ifversion streaming-oidc-s3 %}
+#### Configurando a transmissão para S3 com OpenID Connect
+
+1. No AWS, adicione o provedor do OIDC {% data variables.product.prodname_dotcom %} ao IAM. Para obter mais informações, consulte [Criando os provedores de identidade do OpenID Connect (OIDC)](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_create_oidc.html) na documentação do AWS.
+
+   - Para a URL do provedor, use `https://oidc-configuration.audit-log.githubusercontent.com`.
+   - Para "Público", use `sts.amazonaws.com`.
+1. Crie um bucket e bloqueie o acesso público ao bucket. Para obter mais informações, consulte [Criando, configurando e trabahlando com buckets do Amazon S3 ](https://docs.aws.amazon.com/AmazonS3/latest/userguide/creating-buckets-s3.html) na documentação do AWS.
+1. Crie uma política que permita que {% data variables.product.company_short %} grave no bucket. {% data variables.product.prodname_dotcom %} exige apenas as seguintes permissões.
+
+   ```
+   {
+      "Version": "2012-10-17",
+      "Statement": [
+         {
+            "Sid": "VisualEditor0",
+            "Effect": "Allow",
+            "Action": [
+               "s3:PutObject"
+            ],
+            "Resource": "arn:aws:s3:::example-bucket/*"
+        }
+      ]
+   }
+   ```
+   Para obter mais informações, consulte [Criando políticas de IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_create.html) na documentação do AWS.
+1. Configure a função e a política de confiança para o IdP de {% data variables.product.prodname_dotcom %}. Para obter mais informações, consulte [Criando uma função para a identidade da web ou OpenID Connect Federation (console)](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-idp_oidc.html) na documentação do AWS.
+
+   - Adicione a política de permissões que você criou acima para permitir gravação no bucket.
+   - Edite a relação de confiança para adicionar o campo `sub` às condições de validação, substituindo `ENTERPRISE` pelo nome da sua empresa.
+     ```
+     "Condition": {
+        "StringEquals": {
+           "oidc-configuration.audit-log.githubusercontent.com:aud": "sts.amazonaws.com",
+           "oidc-configuration.audit-log.githubusercontent.com:sub": "https://github.com/ENTERPRISE"
+         }
+      }
+      ```
+   - Anote o Nome de Recurso da Amazon (ARN) a partir da função criada.
+{% data reusables.enterprise.navigate-to-log-streaming-tab %}
+{% data reusables.audit_log.streaming-choose-s3 %}
+1. Em "Autenticação", clique em **OpenID Connect**.
+
+   ![Captura de tela das opções de autenticação para transmissão para Amazon S3](/assets/images/help/enterprises/audit-log-streaming-s3-oidc.png)
+1. Defina as configurações da transmissão.
+
+   - Em "Bucket", digite o nome do bucket para o qual você quer transmitir. Por exemplo, `auditlog-streaming-test`.
+   - Em "Função ARN" digite a função ARN que você anotou anteriormente. Por exemplo, `arn:aws::iam::1234567890:role/github-audit-log-log-streaming-role`.
+{% data reusables.audit_log.streaming-check-s3-endpoint %}
+{% data reusables.enterprise.verify-audit-log-streaming-endpoint %}
+{% endif %}
 
 ### Configurando a transmissão para o Azure Blob Storage
 

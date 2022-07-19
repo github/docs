@@ -72,16 +72,16 @@ If an enterprise owner disallows members from creating certain types of reposito
 
 {% endif %}
 
-## Enforcing a policy for {% ifversion ghec or ghes > 3.1 or ghae %}base{% else %}default{% endif %} repository permissions
+## Enforcing a policy for {% ifversion ghec or ghes or ghae %}base{% else %}default{% endif %} repository permissions
 
-Across all organizations owned by your enterprise, you can set a {% ifversion ghec or ghes > 3.1 or ghae %}base{% else %}default{% endif %} repository permission level (none, read, write, or admin) for organization members, or allow owners to administer the setting on the organization level.
+Across all organizations owned by your enterprise, you can set a {% ifversion ghec or ghes or ghae %}base{% else %}default{% endif %} repository permission level (none, read, write, or admin) for organization members, or allow owners to administer the setting on the organization level.
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.repositories-tab %}
-4. Under "{% ifversion ghec or ghes > 3.1 or ghae %}Base{% else %}Default{% endif %} permissions", review the information about changing the setting. {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
-5. Under "{% ifversion ghec or ghes > 3.1 or ghae %}Base{% else %}Default{% endif %} permissions", use the drop-down menu and choose a policy.
-  {% ifversion ghec or ghes > 3.1 or ghae %}
+4. Under "{% ifversion ghec or ghes or ghae %}Base{% else %}Default{% endif %} permissions", review the information about changing the setting. {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
+5. Under "{% ifversion ghec or ghes or ghae %}Base{% else %}Default{% endif %} permissions", use the drop-down menu and choose a policy.
+  {% ifversion ghec or ghes or ghae %}
   ![Drop-down menu with repository permissions policy options](/assets/images/help/business-accounts/repository-permissions-policy-drop-down.png)
   {% else %}
   ![Drop-down menu with repository permissions policy options](/assets/images/enterprise/business-accounts/repository-permissions-policy-drop-down.png)  
@@ -102,6 +102,7 @@ Across all organizations owned by your enterprise, you can allow members to crea
 {% data reusables.enterprise-accounts.repo-creation-types %}
 {% else %}
 6. Under "Repository creation", use the drop-down menu and choose a policy.
+
   ![Drop-down menu with repository creation policies](/assets/images/enterprise/site-admin-settings/repository-creation-drop-down.png)
 {% endif %}
 
@@ -114,17 +115,26 @@ Across all organizations owned by your enterprise, you can allow people with acc
 {% data reusables.enterprise-accounts.repositories-tab %}
 3. Under "Repository forking", review the information about changing the setting. {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
 4. Under "Repository forking", use the drop-down menu and choose a policy.
+
   ![Drop-down menu with repository forking policy options](/assets/images/help/business-accounts/repository-forking-policy-drop-down.png)
+
+{% ifversion innersource-fork-policies %}
+5. If forking is enabled, you can specify where users are allowed to fork repositories. Review the information about changing the setting and choose a policy.
+
+    ![Screenshot showing the list of repository forking policy options](/assets/images/help/business-accounts/repository-forking-policy-settings.png)
+{% endif %}
+
   
 ## Enforcing a policy for inviting{% ifversion ghec %} outside{% endif %} collaborators to repositories
 
-Across all organizations owned by your enterprise, you can allow members to invite{% ifversion ghec %} outside{% endif %} collaborators to repositories, restrict {% ifversion ghec %}outside collaborator {% endif %}invitations to organization owners, {% if prevent-org-admin-add-outside-collaborator %}restrict {% ifversion ghec %}outside collaborator {% endif %}invitations to enterprise owners, {% endif %}or allow organization owners to administer the setting on the organization level.
+Across all organizations owned by your enterprise, you can allow members to invite{% ifversion ghec %} outside{% endif %} collaborators to repositories, restrict {% ifversion ghec %}outside collaborator {% endif %}invitations to organization owners, {% ifversion prevent-org-admin-add-outside-collaborator %}restrict {% ifversion ghec %}outside collaborator {% endif %}invitations to enterprise owners, {% endif %}or allow organization owners to administer the setting on the organization level.
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.repositories-tab %}
 3. Under "Repository {% ifversion ghec %}outside collaborators{% elsif ghes or ghae %}invitations{% endif %}", review the information about changing the setting. {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
 4. Under "Repository {% ifversion ghec %}outside collaborators{% elsif ghes or ghae %}invitations{% endif %}", use the drop-down menu and choose a policy.
+
   {% ifversion ghec %}
   ![Drop-down menu with outside collaborator invitation policy options](/assets/images/help/business-accounts/repository-invitation-policy-drop-down.png)
   {% elsif ghes or ghae %}
@@ -180,6 +190,7 @@ Across all organizations owned by your enterprise, you can allow members with ad
 {% data reusables.enterprise-accounts.policies-tab %}
 3. On the **Repository policies** tab, under "Repository issue deletion", review the information about changing the setting. {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
 4. Under "Repository issue deletion", use the drop-down menu and choose a policy.
+
   ![Drop-down menu with issue deletion policy options](/assets/images/help/business-accounts/repository-issue-deletion-policy-drop-down.png)
 
 {% ifversion ghes or ghae %}

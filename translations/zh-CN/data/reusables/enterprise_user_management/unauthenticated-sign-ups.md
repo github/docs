@@ -1,1 +1,1 @@
-By default, people who can access your instance while unauthenticated can create a new personal account on your instance.
+默认情况下，在未经身份验证的情况下能访问您的实例的人员，可以在您的实例上创建新的个人帐户。

@@ -63,7 +63,7 @@ Texto que no es una cita
 
 ## Código de cita
 
-Puedes indicar un código o un comando dentro de un enunciado con comillas simples. El texto dentro de las comillas simples no se formateará.{% ifversion fpt or ghae or ghes > 3.1 or ghec %} También puedes presionar el atajo de teclado <kbd>Command</kbd>+<kbd>E</kbd> (Mac) o <kbd>Ctrl</kbd>+<kbd>E</kbd> (Windows/Linux) para insertar las comillas simples para un bloque de código dentro de una línea de lenguaje de marcado.{% endif %}
+Puedes indicar un código o un comando dentro de un enunciado con comillas simples. El texto dentro de las comillas simples no será formateado. You can also press the <kbd>Command</kbd>+<kbd>E</kbd> (Mac) or <kbd>Ctrl</kbd>+<kbd>E</kbd> (Windows/Linux) keyboard shortcut to insert the backticks for a code block within a line of Markdown.
 
 ```markdown
 Usa `git status` para enumerar todos los archivos nuevos o modificados que aún no han sido confirmados.
@@ -88,9 +88,36 @@ Para obtener más información, consulta "[Crear y resaltar bloques de código](
 
 {% data reusables.user-settings.enabling-fixed-width-fonts %}
 
+## Supported color models
+
+In issues, pull requests, and discussions, you can call out colors within a sentence by using backticks. A supported color model within backticks will display a visualization of the color.
+
+```markdown
+The background color should be `#ffffff` for light mode and `#0d1117` for dark mode.
+```
+
+![Rendered supported color model.](/assets/images/help/writing/supported-color-models-rendered.png)
+
+Here are the currently supported color models.
+
+| Color | Sintaxis                  | Ejemplo                   | Resultado                                                                                                             |
+| ----- | ------------------------- | ------------------------- | --------------------------------------------------------------------------------------------------------------------- |
+| HEX   | <code>\`#RRGGBB\`</code> | <code>\`#0969DA\`</code> | ![Rendered supported color model in HEX format.](/assets/images/help/writing/supported-color-models-hex-rendered.png) |
+| RGB   | <code>\`rgb(R,G,B)\`</code> | <code>\`rgb(9, 105, 218)\`</code> | ![Rendered supported color model in RGB format.](/assets/images/help/writing/supported-color-models-rgb-rendered.png) |
+| HSL   | <code>\`hsl(H,S,L)\`</code> | <code>\`hsl(212, 92%, 45%)\`</code> | ![Rendered supported color model in HSL format.](/assets/images/help/writing/supported-color-models-hsl-rendered.png) |
+
+{% note %}
+
+**Notas:**
+
+- A supported color model cannot have any leading or trailing spaces within the backticks.
+- The visualization of the color is only supported in issues, pull requests, and discussions.
+
+{% endnote %}
+
 ## Enlaces
 
-Puedes crear un enlace en línea al encerrar el texto del enlace entre corchetes `[ ]`, y luego encerrar la URL entre paréntesis `( )`. {% ifversion fpt or ghae or ghes > 3.1 or ghec %}También puedes utilizar el atajo de teclado <kbd>Command</kbd>+<kbd>K</kbd> para crear un enlace.{% endif %}{% ifversion fpt or ghae-issue-5434 or ghes > 3.3 or ghec %} Cuando tengas texto seleccionado, puedes pegar una URL desde tu portapapeles para crear un enlace automáticamente desde la selección.{% endif %}
+Puedes crear un enlace en línea al encerrar el texto del enlace entre corchetes `[ ]`, y luego encerrar la URL entre paréntesis `( )`. You can also use the keyboard shortcut <kbd>Command</kbd>+<kbd>K</kbd> to create a link.{% ifversion fpt or ghae-issue-5434 or ghes > 3.3 or ghec %} When you have text selected, you can paste a URL from your clipboard to automatically create a link from the selection.{% endif %}
 
 {% ifversion fpt or ghae-issue-7103 or ghes > 3.5 or ghec %} También puedes crear un hipervínculo de lenguaje de marcado si resaltas el texto y utilizas el atajo de teclado <kbd>Command</kbd>+<kbd>V</kbd>. Si quieres reemplazar el texto con el enlace, utiliza el atajo de teclado <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>V</kbd>.{% endif %}
 
@@ -134,7 +161,7 @@ Aquí tienes algunos ejemplos para utilizar enlaces relativos para mostrar una i
 | ----------------------------------------------------------------------- | ---------------------------------------------------------------------- |
 | En un archivo `.md` en la misma rama                                    | `/assets/images/electrocat.png`                                        |
 | En un archivo `.md` en otra rama                                        | `/../main/assets/images/electrocat.png`                                |
-| En propuestas, solicitudes de cambio y comentarios del repositorio      | `../blob/main/assets/images/electrocat.png`                            |
+| En propuestas, solicitudes de cambio y comentarios del repositorio      | `../blob/main/assets/images/electrocat.png?raw=true`                   |
 | En un archivo `.md` en otro repositorio                                 | `/../../../../github/docs/blob/main/assets/images/electrocat.png`      |
 | En propuestas, solicitudes de cambios y comentarios de otro repositorio | `../../../github/docs/blob/main/assets/images/electrocat.png?raw=true` |
 
@@ -149,9 +176,9 @@ Para obtener más información, consulta la sección "[Enlaces relativos](#relat
 {% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5559 %}
 ### Especificar un tema en el que se muestra una imagen
 
-You can specify the theme an image is displayed for in Markdown by using the HTML `<picture>` element in combination with the `prefers-color-scheme` media feature. Distinguimos entre modos de color oscuro y claro, así que existen dos opciones disponibles. Puedes utilizar estas opciones para mostrar imágenes optimizadas para los fondos claros u oscuros. Esto es especialmente útil para las imágenes PNG transparentes.
+Puedes especificar el tema para el cual se muestra una imagen en el lenguaje de marcado si utilizas el elemento HTML `<picture>` combinado con la característica de medios `prefers-color-scheme`. Distinguimos entre modos de color oscuro y claro, así que existen dos opciones disponibles. Puedes utilizar estas opciones para mostrar imágenes optimizadas para los fondos claros u oscuros. Esto es especialmente útil para las imágenes PNG transparentes.
 
-For example, the following code displays a sun image for light themes and a moon for dark themes:
+Por ejemplo, el siguiente código muestra una imagen de un sol para los temas claros y una luna para los oscuros:
 
 ```HTML
 <picture>
@@ -161,12 +188,12 @@ For example, the following code displays a sun image for light themes and a moon
 </picture>
 ```
 
-The old method of specifying images based on the theme, by using a fragment appended to the URL (`#gh-dark-mode-only` or `#gh-light-mode-only`), is deprecated and will be removed in favor of the new method described above.
+El método antiguo para especificar las imágenes con base en el tema, que es utilizando un fragmento anexo a la URL (`#gh-dark-mode-only` o `#gh-light-mode-only`), será obsoleto y se eliminará para favorecer al método nuevo que se menciona anteriormente.
 {% endif %}
 
 ## Listas
 
-Puedes realizar una lista desordenada al anteceder una o más líneas de texto con <kbd>-</kbd> o <kbd>*</kbd>.
+You can make an unordered list by preceding one or more lines of text with <kbd>-</kbd> or <kbd>*</kbd>.
 
 ```markdown
 - George Washington
@@ -190,7 +217,7 @@ Para ordenar tu lista, antecede cada línea con un número.
 
 Puedes crear una lista anidada al dejar sangría en uno o más elementos de la lista debajo de otro elemento.
 
-Para crear una lista anidada mediante el editor web en {% data variables.product.product_name %} o un editor de texto que usa una fuente monoespaciada, como [Atom](https://atom.io/), puedes alinear tu lista visualmente. Escribe los caracteres con espacio frente a tu elemento de la lista anidada hasta que el carácter del marcador de lista (<kbd>-</kbd> or <kbd>*</kbd>) se encuentre directamente debajo del primer carácter del texto en el elemento que se encuentra por debajo.
+Para crear una lista anidada mediante el editor web en {% data variables.product.product_name %} o un editor de texto que usa una fuente monoespaciada, como [Atom](https://atom.io/), puedes alinear tu lista visualmente. Type space characters in front of your nested list item, until the list marker character (<kbd>-</kbd> or <kbd>*</kbd>) lies directly below the first character of the text in the item above it.
 
 ```markdown
 1. Primer elemento de la lista
@@ -243,7 +270,7 @@ Para obtener más información, consulta "[Acerca de las listas de tareas](/arti
 
 ## Mencionar personas y equipos
 
-Puedes mencionar a una persona o [equipo](/articles/setting-up-teams/) en {% data variables.product.product_name %} al escribir <kbd>@</kbd> más el nombre de usuario o el nombre del equipo. Esto activará una notificación y llamará su atención hacia la conversación. Las personas también recibirán una notificación si editas un comentario para mencionar su nombre de usuario o el nombre del equipo. Para obtener más información sobre las notificaciones, consulta la sección "[Acerca de las notificaciones](/github/managing-subscriptions-and-notifications-on-github/about-notifications)".
+You can mention a person or [team](/articles/setting-up-teams/) on {% data variables.product.product_name %} by typing <kbd>@</kbd> plus their username or team name. Esto activará una notificación y llamará su atención hacia la conversación. Las personas también recibirán una notificación si editas un comentario para mencionar su nombre de usuario o el nombre del equipo. Para obtener más información sobre las notificaciones, consulta la sección "[Acerca de las notificaciones](/github/managing-subscriptions-and-notifications-on-github/about-notifications)".
 
 {% note %}
 
@@ -257,13 +284,13 @@ Puedes mencionar a una persona o [equipo](/articles/setting-up-teams/) en {% dat
 
 Cuando mencionas a un equipo padre, los miembros de los equipos hijo también reciben notificaciones, simplificando la comunicación con múltiples grupos de personas. Para obtener más información, consulta "[Acerca de los equipos](/articles/about-teams)".
 
-Si escribes un símbolo <kbd>@</kbd> aparecerá una lista de personas o equipos en el proyecto. La lista filtra a medida que escribes, por lo que una vez que escribes el nombre de la persona o del equipo que estás buscando, puedes usar las teclas de flecha para seleccionarlos y presionar cada pestaña para ingresar para completar el nombre. En el caso de los equipos, escribe el nombre de la @organización/equipo y todos los miembros del equipo que se suscribirán a la conversación.
+Typing an <kbd>@</kbd> symbol will bring up a list of people or teams on a project. La lista filtra a medida que escribes, por lo que una vez que escribes el nombre de la persona o del equipo que estás buscando, puedes usar las teclas de flecha para seleccionarlos y presionar cada pestaña para ingresar para completar el nombre. En el caso de los equipos, escribe el nombre de la @organización/equipo y todos los miembros del equipo que se suscribirán a la conversación.
 
 Los resultados autocompletados se restringen a los colaboradores del repositorio y a otros participantes en el hilo.
 
 ## Hacer referencia a propuestas y solicitudes de extracción
 
-Puedes mencionar una lista de las propuestas y las solicitudes de extracción sugeridas dentro del repositorio al escribir <kbd>#</kbd>. Escribe el número o el título de la propuesta o la solicitud de extracción para filtrar la lista, y luego presiona cada pestaña o ingresa para completar el resultado resaltado.
+You can bring up a list of suggested issues and pull requests within the repository by typing <kbd>#</kbd>. Escribe el número o el título de la propuesta o la solicitud de extracción para filtrar la lista, y luego presiona cada pestaña o ingresa para completar el resultado resaltado.
 
 Para obtener más información, consulta "[Referencias y direcciones URL autovinculadas](/articles/autolinked-references-and-urls)".
 
@@ -278,7 +305,7 @@ Algunas {% data variables.product.prodname_github_apps %} proporcionan informaci
 
 ![Adjunto de contenido](/assets/images/github-apps/content_reference_attachment.png)
 
-Para ver los adjuntos de contenido, debes tener una {% data variables.product.prodname_github_app %} que use la API de los adjuntos de contenido instalada en el repositorio.{% ifversion fpt or ghec %} Para obtener más información, consulta las secciones "[Instalar una app en tu cuenta personal](/articles/installing-an-app-in-your-personal-account)" y "[Instalar una app en tu organización](/articles/installing-an-app-in-your-organization)".{% endif %}
+To see content attachments, you must have a {% data variables.product.prodname_github_app %} that uses the Content Attachments API installed on the repository.{% ifversion fpt or ghec %} For more information, see "[Installing an app in your personal account](/articles/installing-an-app-in-your-personal-account)" and "[Installing an app in your organization](/articles/installing-an-app-in-your-organization)."{% endif %}
 
 Los adjuntos de contenido no se mostrarán para las URL que son parte de un enlace de Markdown.
 
@@ -296,7 +323,7 @@ Puedes agregar emojis a tu escritura al escribir `:EMOJICODE:`.
 
 ![Emoji representado](/assets/images/help/writing/emoji-rendered.png)
 
-Si escribes <kbd>:</kbd> aparecerá una lista con los emojis sugeridos. La lista filtrará a medida que escribes; por lo tanto, una vez que encuentres el emoji que estás buscando, presiona **Tab** (Tabulador) o **Enter** (Intro) para completar el resultado resaltado.
+Typing <kbd>:</kbd> will bring up a list of suggested emoji. La lista filtrará a medida que escribes; por lo tanto, una vez que encuentres el emoji que estás buscando, presiona **Tab** (Tabulador) o **Enter** (Intro) para completar el resultado resaltado.
 
 Para encontrar una lista completa de emojis y códigos disponibles, consulta el [listado de emojis](https://github.com/ikatyang/emoji-cheat-sheet/blob/master/README.md).
 

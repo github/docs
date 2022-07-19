@@ -6,6 +6,6 @@ Um link relativo é um link que é relativo ao arquivo atual. Por exemplo, se vo
 [Diretrizes de contribuição para este projeto](docs/CONTRIBUTING.md)
 ```
 
-{% data variables.product.product_name %} transformará automaticamente o seu link relativo ou caminho da imagem baseado em qualquer branch em que você estiver no momento para que o link ou caminho sempre funcione. Você pode usar todas as operações de links relativos, como `./` e `../`.
+{% data variables.product.product_name %} transformará automaticamente o seu link relativo ou caminho da imagem baseado em qualquer branch em que você estiver no momento para que o link ou caminho sempre funcione. The path of the link will be relative to the current file. Links starting with `/` will be relative to the repository root. Você pode usar todas as operações de links relativos, como `./` e `../`.
 
 Os links relativos são mais fáceis para usuários que clonam o seu repositório. Os links absolutos podem não funcionar em clones do seu repositório - recomendamos usar links relativos para referir-se a outros arquivos no seu repositório.

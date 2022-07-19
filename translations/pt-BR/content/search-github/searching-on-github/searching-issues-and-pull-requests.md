@@ -72,6 +72,18 @@ Você pode filtrar somente problemas e pull requests abertos ou fechados usando 
 | `is:open`      | [**performance is:open is:issue**](https://github.com/search?q=performance+is%3Aopen+is%3Aissue&type=Issues) identifica os problemas abertos com a palavra "performance".                                           |
 | `is:closed`    | [**android is:closed**](https://github.com/search?utf8=%E2%9C%93&q=android+is%3Aclosed&type=) identifica os problemas e as pull requests fechados com a palavra "android".                                          |
 
+{% ifversion issue-close-reasons %}
+## Pesquisr o motivo pelo qual um problema foi fechado
+
+Você pode filtrar problemas com base no motivo indicado quando o problema foi fechado, usando o qualificador do `motivo`.
+
+| Qualifier              | Exemplo                                                                                                                                                                                                                               |
+| ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `reason:complete`      | [**libraries is:closed reason:complete**](https://github.com/search?q=libraries+is%3Aclosed+reason%3Acompleted&type=Issues) corresponde a problemas com a palavra "bibliotecas" que foram fechada como "concluídas".                  |
+| `reason:"not planned"` | [**libraries is:closed reason:"not planned"**](https://github.com/search?q=libraries+is%3Aclosed+reason%3A%22not+planned%22&type=Issues) corresponde a problemas com a palavra "bibliotecas" que foram fechada como "não planejadas". |
+
+{% endif %}
+
 ## Filtrar por visibilidade do repositório
 
 É possível filtrar pela visibilidade do repositório que contém os problemas e pull requests usando o qualificador `is`. Para obter mais informações, consulte "[Sobre repositórios](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)".
@@ -177,7 +189,7 @@ Você pode filtrar pull requests com base no status dos commits. Isso é especia
 | ---------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `status:pending` | [**language:go status:pending**](https://github.com/search?utf8=%E2%9C%93&q=language%3Ago+status%3Apending) identifica as pull requests abertas nos repositórios de Go com status pendente.                                                   |
 | `status:success` | [**is:open status:success finally in:body**](https://github.com/search?utf8=%E2%9C%93&q=is%3Aopen+status%3Asuccess+finally+in%3Abody&type=Issues) identifica as pull requests abertas com a palavra "finally" no texto com status de sucesso. |
-| `status:failure` | [**created:2015-05-01..2015-05-30 status:failure**](https://github.com/search?utf8=%E2%9C%93&q=created%3A2015-05-01..2015-05-30+status%3Afailure&type=Issues) identifica as pull requests abertas em maio de 2015 com status de falha.        |
+| `status:failure` | [**created:2015-05-01..2015-05-30 status:failure**](https://github.com/search?utf8=%E2%9C%93&q=created%3A2015-05-01..2015-05-30+status%3Afailure&type=Issues) identifica os pull requests abertos em maio de 2015 com status de falha.        |
 
 ## Pesquisar por SHA do commit
 
@@ -185,17 +197,17 @@ Se você souber o hash SHA de um commit, poderá usá-lo para pesquisar pull req
 
 | Qualifier                  | Exemplo                                                                                                                                                                                    |
 | -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| <code><em>SHA</em></code> | [**e1109ab**](https://github.com/search?q=e1109ab&type=Issues) identifica as pull requests com um SHA de commit que começa com `e1109ab`.                                                  |
+| <code><em>SHA</em></code> | [**e1109ab**](https://github.com/search?q=e1109ab&type=Issues) identifica os pull requests com um SHA de commit que começa com `e1109ab`.                                                  |
 |                            | [**0eff326d6213c is:merged**](https://github.com/search?q=0eff326d+is%3Amerged&type=Issues) identifica as pull requests com merge que têm um SHA de commit que começa com `0eff326d6213c`. |
 
 ## Pesquisar por nome do branch
 
 Você pode filtrar pull requests com base no branch de origem (branch "head") ou no branch do merge (branch "base").
 
-| Qualifier                  | Exemplo                                                                                                                                                                                                                              |
-| -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| <code>head:<em>HEAD_BRANCH</em></code> | [**head:change is:closed is:unmerged**](https://github.com/search?utf8=%E2%9C%93&q=head%3Achange+is%3Aclosed+is%3Aunmerged) identifica as pull requests abertas de branchs cujo nome começa com a palavra "change" e estão fechados. |
-| <code>base:<em>BASE_BRANCH</em></code> | [**base:gh-pages**](https://github.com/search?utf8=%E2%9C%93&q=base%3Agh-pages) identifica as pull requests que estão sendo incorporadas no branch `gh-pages`.                                                                       |
+| Qualifier                  | Exemplo                                                                                                                                                                                                                               |
+| -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <code>head:<em>HEAD_BRANCH</em></code> | [**head:change is:closed is:unmerged**](https://github.com/search?utf8=%E2%9C%93&q=head%3Achange+is%3Aclosed+is%3Aunmerged) identifica os pull requests abertos em branches cujo nome começa com a palavra "change" e estão fechados. |
+| <code>base:<em>BASE_BRANCH</em></code> | [**base:gh-pages**](https://github.com/search?utf8=%E2%9C%93&q=base%3Agh-pages) identifica os pull requests que estão sendo incorporados ao branch `gh-pages`.                                                                        |
 
 ## Pesquisar por linguagem
 

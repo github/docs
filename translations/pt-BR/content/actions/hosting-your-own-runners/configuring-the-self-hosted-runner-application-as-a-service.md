@@ -65,7 +65,14 @@ Você pode gerenciar o serviço do executor no aplicativo **Serviços** do Windo
    sudo ./svc.sh install
    ```
 
+1. Ccomo alternativa, o comando usa um argumento `usuário` opcional para instalar o serviço como um usuário diferente.
+
+  ```shell
+  ./svc.sh install <em>USERNAME</em>
+  ```
+
 {% endlinux %}
+
 {% mac %}
 
 ## Instalando o serviço
@@ -77,12 +84,6 @@ Você pode gerenciar o serviço do executor no aplicativo **Serviços** do Windo
    ./svc.sh install
    ```
 {% endmac %}
-
-O comando usa um argumento `usuário` opcional para instalar o serviço como um usuário diferente.
-
-```shell
-./svc.sh install <em>USERNAME</em>
-```
 
 ## Iniciar o serviço
 

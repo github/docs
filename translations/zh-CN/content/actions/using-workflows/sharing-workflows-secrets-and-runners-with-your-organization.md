@@ -20,15 +20,15 @@ type: how_to
 
 如果需要与您的团队共享工作流程和其他 {% data variables.product.prodname_actions %} 功能，则考虑在 {% data variables.product.prodname_dotcom %} 组织内协作。 组织允许您集中存储和管理机密、构件和自托管运行器。 您还可以在 `.github` 存储库中创建入门工作流程，并与组织中的其他用户共享这些工作流程。
 
-## 共享 {% if internal-actions %}操作和 {% endif %}工作流程
+## 共享 {% ifversion internal-actions %}操作和 {% endif %}工作流程
 
-{% if internal-actions %}
+{% ifversion internal-actions %}
 您可以与组织共享单个操作和整个工作流程，无论是否公开发布操作或工作流程。 您可以通过在工作流程文件中引用操作和工作流程来精确地重复使用它们，并且可以创建为新工作流程提供模板的起始工作流程。
 {% else %}
 组织可以通过完全重用工作流程或创建为新工作流程提供模板的入门工作流程来共享工作流程。
 {% endif %}
 
-{% if internal-actions %}
+{% ifversion internal-actions %}
 ### 与企业共享操作
 
 {% data reusables.actions.internal-actions-summary %}

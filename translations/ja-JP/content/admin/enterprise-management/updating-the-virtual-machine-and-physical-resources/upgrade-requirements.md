@@ -1,11 +1,12 @@
 ---
-title: Upgrade requirements
-intro: 'Before upgrading {% data variables.product.prodname_ghe_server %}, review these recommendations and requirements to plan your upgrade strategy.'
+title: アップグレードの要求事項
+intro: '{% data variables.product.prodname_ghe_server %} をアップグレードする前に、アップグレードの方針を計画するために以下の推奨事項と要求事項をレビューしてください。'
 redirect_from:
   - /enterprise/admin/installation/upgrade-requirements
   - /enterprise/admin/guides/installation/finding-the-current-github-enterprise-release
   - /enterprise/admin/enterprise-management/upgrade-requirements
   - /admin/enterprise-management/upgrade-requirements
+  - /enterprise/admin/guides/installation/about-upgrade-requirements
 versions:
   ghes: '*'
 type: reference
@@ -13,42 +14,41 @@ topics:
   - Enterprise
   - Upgrades
 ---
+
 {% note %}
 
-**Notes:**
+**ノート:**
 {% ifversion ghes < 3.3 %}- Features such as {% data variables.product.prodname_actions %}, {% data variables.product.prodname_registry %}, {% data variables.product.prodname_mobile %} and {% data variables.product.prodname_GH_advanced_security %} are available on {% data variables.product.prodname_ghe_server %} 3.0 or higher. We highly recommend upgrading to 3.0 or later releases to take advantage of critical security updates, bug fixes and feature enhancements.{% endif %}
-- Upgrade packages are available at [enterprise.github.com](https://enterprise.github.com/releases) for supported versions. Verify the availability of the upgrade packages you will need to complete the upgrade. If a package is not available, contact {% data variables.contact.contact_ent_support %} for assistance.
-- If you're using {% data variables.product.prodname_ghe_server %} Clustering, see "[Upgrading a cluster](/enterprise/{{ currentVersion }}/admin/guides/clustering/upgrading-a-cluster/)" in the {% data variables.product.prodname_ghe_server %} Clustering Guide for specific instructions unique to clustering.
-- The release notes for {% data variables.product.prodname_ghe_server %} provide a comprehensive list of new features for every version of {% data variables.product.prodname_ghe_server %}. For more information, see the [releases page](https://enterprise.github.com/releases).
+- サポートされているバージョンについては、アップグレードパッケージが [enterprise.github.com](https://enterprise.github.com/releases) から利用できます。 アップグレードを完了するには、必要なアップグレードパッケージが利用できることを確認してください。 パッケージが利用できない場合は{% data variables.contact.contact_ent_support %}に連絡して支援を求めてください。
+- {% data variables.product.prodname_ghe_server %} クラスタリングを利用している場合は、クラスタリングに固有の手順については {% data variables.product.prodname_ghe_server %} クラスタリングガイド中の「[クラスタをアップグレードする](/enterprise/admin/guides/clustering/upgrading-a-cluster/)」を参照してください。
+- {% data variables.product.prodname_ghe_server %} のリリースノートには、{% data variables.product.prodname_ghe_server %} のすべてのバージョンの新機能の包括的なリストがあります。 詳しい情報については[リリースページ](https://enterprise.github.com/releases)を参照してください。
 
 {% endnote %}
 
-## Recommendations
+## 推奨される対応
 
-- Include as few upgrades as possible in your upgrade process. For example, instead of upgrading from {% data variables.product.prodname_enterprise %} {{ enterpriseServerReleases.supported[2] }} to {{ enterpriseServerReleases.supported[1] }} to {{ enterpriseServerReleases.latest }}, you could upgrade from {% data variables.product.prodname_enterprise %} {{ enterpriseServerReleases.supported[2] }} to {{ enterpriseServerReleases.latest }}. Use the [{% data variables.enterprise.upgrade_assistant %}](https://support.github.com/enterprise/server-upgrade) to find the upgrade path from your current release version.
-- If you’re several versions behind, upgrade {% data variables.product.product_location %} as far forward as possible with each step of your upgrade process. Using the latest version possible on each upgrade allows you to take advantage of performance improvements and bug fixes. For example, you could upgrade from {% data variables.product.prodname_enterprise %} 2.7 to 2.8 to 2.10, but upgrading from {% data variables.product.prodname_enterprise %} 2.7 to 2.9 to 2.10 uses a later version in the second step.
-- Use the latest patch release when upgrading. {% data reusables.enterprise_installation.enterprise-download-upgrade-pkg %}
-- Use a staging instance to test the upgrade steps. For more information, see "[Setting up a staging instance](/enterprise/{{ currentVersion }}/admin/guides/installation/setting-up-a-staging-instance/)."
-- When running multiple upgrades, wait at least 24 hours between feature upgrades to allow data migrations and upgrade tasks running in the background to fully complete.
-- Take a snapshot before upgrading your virtual machine. For more information, see "[Taking a snapshot](/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server#taking-a-snapshot)." 
-- Ensure you have a recent, successful backup of your instance. For more information, see the [{% data variables.product.prodname_enterprise_backup_utilities %} README.md file](https://github.com/github/backup-utils#readme).
+- アップグレードのプロセスに含めるアップグレードは、できるだけ少なくしてください。 たとえば {% data variables.product.prodname_enterprise %} {{ enterpriseServerReleases.supported[2] }} から {{ enterpriseServerReleases.supported[1] }} を経て {{ enterpriseServerReleases.latest }} にアップグレードする代わりに、{% data variables.product.prodname_enterprise %} {{ enterpriseServerReleases.supported[2] }} から {{ enterpriseServerReleases.latest }} にアップグレードできます。 Use the [{% data variables.enterprise.upgrade_assistant %}](https://support.github.com/enterprise/server-upgrade) to find the upgrade path from your current release version.
+- バージョンが数バージョン古いのであれば、{% data variables.product.product_location %}をアップグレードのプロセスの各ステップでできる限り先までアップグレードしてください。 各アップグレードで可能な限りの最新バージョンを使うことで、パフォーマンスの改善やバグフィックスのメリットが得られます。 たとえば{% data variables.product.prodname_enterprise %}2.7から2.8を経て2.10へアップグレードすることができますが、{% data variables.product.prodname_enterprise %}2.7から2.9を経て2.10へのアップグレードすれば、2番目のステップでより新しいバージョンを利用できます。
+- アップグレードの際には、最新のパッチリリースを使ってください。 {% data reusables.enterprise_installation.enterprise-download-upgrade-pkg %}
+- アップグレードのステップのテストには、ステージングインスタンスを使ってください。 詳しい情報については "[ステージングインスタンスのセットアップ](/enterprise/admin/guides/installation/setting-up-a-staging-instance/)"を参照してください。
+- 複数のアップグレードを実行する場合は、機能のアップグレードの間に少なくとも 24 時間待って、データ移行とバックグラウンドで実行されているアップグレードタスクが完全に完了するようにします。
+- Take a snapshot before upgrading your virtual machine. 詳細は「[スナップショットを取得する](/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server#taking-a-snapshot)」を参照してください。
+- Ensure you have a recent, successful backup of your instance. 詳しい情報については、[{% data variables.product.prodname_enterprise_backup_utilities %}README.md ファイル](https://github.com/github/backup-utils#readme)を参照してください。
 
-## Requirements
+## 要件
 
-- You must upgrade from a feature release that's **at most** two releases behind. For example, to upgrade to {% data variables.product.prodname_enterprise %} {{ enterpriseServerReleases.latest }}, you must be on {% data variables.product.prodname_enterprise %} {{ enterpriseServerReleases.supported[1] }} or {{ enterpriseServerReleases.supported[2] }}.
+- アップグレードは、**最大でも**2リリース前のフィーチャリリースから行わなければなりません。 たとえば {% data variables.product.prodname_enterprise %} {{ enterpriseServerReleases.latest }} にアップグレードするためには、{% data variables.product.prodname_enterprise %} {{ enterpriseServerReleases.supported[1] }} あるいは {{ enterpriseServerReleases.supported[2] }} となっていなければなりません。
 - When upgrading using an upgrade package, schedule a maintenance window for {% data variables.product.prodname_ghe_server %} end users.
 - {% data reusables.enterprise_installation.hotpatching-explanation %}
-- A hotpatch may require downtime if the affected services (like kernel, MySQL, or Elasticsearch) require a VM reboot or a service restart. You'll be notified when a reboot or restart is required. You can complete the reboot or restart at a later time.
-- Additional root storage must be available when upgrading through hotpatching, as it installs multiple versions of certain services until the upgrade is complete. Pre-flight checks will notify you if you don't have enough root disk storage.
-- When upgrading through hotpatching, your instance cannot be too heavily loaded, as it may impact the hotpatching process.
-- Upgrading to {% data variables.product.prodname_ghe_server %} 2.17 migrates your audit logs from Elasticsearch to MySQL. This migration also increases the amount of time and disk space it takes to restore a snapshot. Before migrating, check the number of bytes in your Elasticsearch audit log indices with this command:
+- ホットパッチは、影響するサービス（カーネル、MySQL、Elasticsearchなど）がVMの再起動やサービスの再起動を必要とするなら、ダウンタイムが必要になります。 リブートや再起動が必要になったときには通知されます。 リブートや再起動は後で完了させることができます。
+- ホットパッチでアップグレードをする場合、アップグレードの完了までに特定のサービスの複数バージョンがインストールされることから、追加のルートストレージが利用できなければなりません。 十分なルートディスクストレージがなければ、事前チェックで通知されます。
+- ホットパッチでアップグレードする場合、インスタンスの負荷は高すぎてはなりません。もし負荷が高すぎると、ホットパッチのプロセスに影響するかもしれません。
+- {% data variables.product.prodname_ghe_server %} 2.17にアップグレードすると、監査ログがElasticsearchからMySQLに移行されます。 この移行により、スナップショットの復元に必要な時間とディスク容量も増加します。 移行の前に、次のコマンドでElasticsearch監査ログのインデックスでバイト数を確認してください。
 ``` shell
 curl -s http://localhost:9201/audit_log/_stats/store | jq ._all.primaries.store.size_in_bytes
 ```
-Use the number to estimate the amount of disk space the MySQL audit logs will need. The script also monitors your free disk space while the import is in progress. Monitoring this number is especially useful if your free disk space is close to the amount of disk space necessary for migration.
+MySQLの監査ログで必要なディスク容量の概算には、この数字を使用します。 スクリプトは、インポートの進行中に空きディスク容量も監視します。 この数字を監視しておくと、空きディスク容量が、移行に必要なディスク容量に近い場合に特に便利です。
 
-{% data reusables.enterprise_installation.upgrade-hardware-requirements %}
+## 次のステップ
 
-## Next steps
-
-After reviewing these recommendations and requirements, you can upgrade {% data variables.product.prodname_ghe_server %}. For more information, see "[Upgrading {% data variables.product.prodname_ghe_server %}](/enterprise/{{ currentVersion }}/admin/guides/installation/upgrading-github-enterprise-server/)."
+これらの推奨および要求事項をレビューした後で、{% data variables.product.prodname_ghe_server %} をアップグレードできます。 詳細は「[{% data variables.product.prodname_ghe_server %} をアップグレードする](/enterprise/admin/guides/installation/upgrading-github-enterprise-server/)」を参照してください。

@@ -47,13 +47,13 @@ Essas diretrizes assumem que você tem um aplicativo OAuth registrado{% ifversio
 
 ### Revise os pontos finais da API disponíveis para os aplicativos do GitHub
 
-Embora a maioria dos pontos finais da [API REST](/rest) e as consultas do [GraphQL]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql) estejam disponíveis para os aplicativos GitHub atualmente, ainda estamos em vias de habilitar alguns pontos finais. Revise os [pontos finais da REST disponíveis](/rest/overview/endpoints-available-for-github-apps) para garantir que os pontos finais de que você precisa sejam compatíveis com o aplicativo GitHub. Observe que alguns dos pontos finais da API ativados para os aplicativos GitHub permitem que o aplicativo aja em nome do usuário. Consulte "[Solicitações de usuário para servidor](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/#user-to-server-requests)" para obter uma lista de pontos finais que permitem que um aplicativo GitHub seja autenticado como usuário.
+Embora a maioria dos pontos finais da [API REST](/rest) e as consultas do [GraphQL](/graphql) estejam disponíveis para os aplicativos GitHub atualmente, ainda estamos em vias de habilitar alguns pontos finais. Revise os [pontos finais da REST disponíveis](/rest/overview/endpoints-available-for-github-apps) para garantir que os pontos finais de que você precisa sejam compatíveis com o aplicativo GitHub. Observe que alguns dos pontos finais da API ativados para os aplicativos GitHub permitem que o aplicativo aja em nome do usuário. Consulte "[Solicitações de usuário para servidor](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/#user-to-server-requests)" para obter uma lista de pontos finais que permitem que um aplicativo GitHub seja autenticado como usuário.
 
 Recomendamos que você reveja a lista de pontos finais de API de que você precisa assim que possível. Informe ao suporte se há um ponto de extremidade necessário que ainda não esteja habilitado para {% data variables.product.prodname_github_apps %}.
 
 ### Projete para permanecer dentro dos limites de taxa da API
 
-Os aplicativos GitHub usam [regras móveis para limites de taxa](/apps/building-github-apps/understanding-rate-limits-for-github-apps/), que podem aumentar com base no número de repositórios e usuários da organização. Um aplicativo do GitHub também pode usar [solicitações condicionais](/rest/overview/resources-in-the-rest-api#conditional-requests) ou consolidar solicitações usando [GraphQL API V4]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql).
+Os aplicativos GitHub usam [regras móveis para limites de taxa](/apps/building-github-apps/understanding-rate-limits-for-github-apps/), que podem aumentar com base no número de repositórios e usuários da organização. Um aplicativo do GitHub também pode usar [solicitações condicionais](/rest/overview/resources-in-the-rest-api#conditional-requests) ou consolidar solicitações usando a [API do GraphQL](/graphql).
 
 ### Cadastre um novo aplicativo GitHub
 

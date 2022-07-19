@@ -45,7 +45,7 @@ Si tu empresa utiliza {% data variables.product.prodname_emus %}, solo se pueden
 
 {% ifversion ghec %}Después de que invites a alguien para que se una a la cuenta empresarial, esta persona debe aceptar la invitación que le llegó por correo electrónico antes de que pueda acceder a la cuenta empresarial. Las invitaciones pendientes vencerán después de 7 días.{% endif %}
 
-{% if enterprise-membership-view-improvements %}
+{% ifversion enterprise-membership-view-improvements %}
 Puedes ver las invitaciones pendientes para convertirte en administrador de tu cuenta empresarial. Para obtener más información, consulta la sección "[Visualizar a las personas en tu empresa](/admin/user-management/managing-users-in-your-enterprise/viewing-people-in-your-enterprise#viewing-pending-invitations)".
 {% endif %}
 

@@ -17,6 +17,8 @@ sections:
     - Videos uploaded to issue comments would not be rendered properly.
     - When using GitHub Enterprise Importer to import a repository, some issues would fail to import due to incorrectly configured project timeline events.
     - When using `ghe-migrator`, a migration would fail to import video file attachments in issues and pull requests.
+    - 'The Releases page would return a 500 error when the repository has tags that contain non-ASCII characters. [Updated: 2022-06-10]'
+    - 'Upgrades would sometimes fail while migrating dependency graph data. [Updated: 2022-06-30]'
   changes:
     - In high availability configurations, clarify that the replication overview page in the Management Console only displays the current replication configuration, not the current replication status.
     - The Nomad allocation timeout for Dependency Graph has been increased to ensure post-upgrade migrations can complete.
@@ -33,8 +35,4 @@ sections:
     - The {% data variables.product.prodname_registry %} npm registry no longer returns a time value in metadata responses. This was done to allow for substantial performance improvements. We continue to have all the data necessary to return a time value as part of the metadata response and will resume returning this value in the future once we have solved the existing performance issues.
     - Resource limits that are specific to processing pre-receive hooks may cause some pre-receive hooks to fail.
     - |
-      When using SAML encrypted assertions with {% data variables.product.prodname_ghe_server %} 3.4.0 and 3.4.1, a new XML attribute `WantAssertionsEncrypted` in the `SPSSODescriptor` contains an invalid attribute for SAML metadata. IdPs that consume this SAML metadata endpoint may encounter errors when validating the SAML metadata XML schema. A fix will be available in the next patch release. [Updated: 2022-04-11]
-      
-      To work around this problem, you can take one of the two following actions.
-      - Reconfigure the IdP by uploading a static copy of the SAML metadata without the `WantAssertionsEncrypted` attribute.
-      - Copy the SAML metadata, remove `WantAssertionsEncrypted` attribute, host it on a web server, and reconfigure the IdP to point to that URL.
+      After registering a self-hosted runner with the `--ephemeral` parameter on more than one level (for example, both enterprise and organization), the runner may get stuck in an idle state and require re-registration. [Updated: 2022-06-17]

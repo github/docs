@@ -1,7 +1,6 @@
 ---
 title: Releases
-intro: 'The Releases API allows you to create, modify, and delete releases and release assets.
-'
+intro: 'The Releases API allows you to create, modify, and delete releases and release assets. '
 versions:
   fpt: '*'
   ghes: '*'

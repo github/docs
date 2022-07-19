@@ -33,9 +33,9 @@ sections:
     - heading: 'Dependabot alerts'
       notes:
         - |
-          Dependabot alerts can now notify you of vulnerabilities in your dependencies on GitHub AE. You can enable Dependabot alerts by enabling the dependency graph, enabling GitHub Connect, and syncing vulnerabilities from the GitHub Advisory Database. This feature is in beta and subject to change. For more information, see "[About alerts for vulnerable dependencies](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-alerts-for-vulnerable-dependencies)."
+          Dependabot alerts can now notify you of vulnerabilities in your dependencies on GitHub AE. You can enable Dependabot alerts by enabling the dependency graph, enabling GitHub Connect, and syncing vulnerabilities from the GitHub Advisory Database. This feature is in beta and subject to change. For more information, see "[About Dependabot alerts](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)."
 
-          After you enable Dependabot alerts, members of your organization will receive notifications any time a new vulnerability that affects their dependencies is added to the GitHub Advisory Database or a vulnerable dependency is added to their manifest. Members can customize notification settings. For more information, see "[Configuring notifications for vulnerable dependencies](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/configuring-notifications-for-vulnerable-dependencies)." <!-- ⚠️ Articles will be available when we toggle content feature flags -->
+          After you enable Dependabot alerts, members of your organization will receive notifications any time a new vulnerability that affects their dependencies is added to the GitHub Advisory Database or a vulnerable dependency is added to their manifest. Members can customize notification settings. For more information, see "[Configuring notifications for % data variables.product.prodname_dependabot_alerts %}](/code-security/dependabot/dependabot-alerts/configuring-notifications-for-dependabot-alerts)." <!-- ⚠️ Articles will be available when we toggle content feature flags -->
 
     - heading: 'Security manager role for organizations'
       notes:
@@ -114,9 +114,6 @@ sections:
 
         - |
           You can now toggle between the source view and rendered Markdown view through the web UI by clicking the {% octicon "code" aria-label="The Code icon" %} button to "Display the source diff" at the top of any Markdown file. Previously, you needed to use the blame view to link to specific line numbers in the source of a Markdown file.
-          
-        - |
-          You can now add images and videos to Markdown files in gists by pasting them into the Markdown body or selecting them from the dialog at the bottom of the Markdown file. For information about supported file types, see "[Attaching files](/github/writing-on-github/working-with-advanced-formatting/attaching-files)."
 
         - |
           GitHub AE now automatically generates a table of contents for Wikis, based on headings.

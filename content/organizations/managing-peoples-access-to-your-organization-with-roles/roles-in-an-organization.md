@@ -29,7 +29,7 @@ Organization-level roles are sets of permissions that can be assigned to individ
 
 You can assign individuals or teams to a variety of organization-level roles to control your members' access to your organization and its resources. For more details about the individual permissions included in each role, see "[Permissions for organization roles](#permissions-for-organization-roles)."
 
-{% if enterprise-owner-join-org %}
+{% ifversion enterprise-owner-join-org %}
 If your organization is owned by an enterprise account, enterprise owners can choose to join your organization with any role. For more information, see "[Managing your role in an organization owned by your enterprise](/admin/user-management/managing-organizations-in-your-enterprise/managing-your-role-in-an-organization-owned-by-your-enterprise)."
 {% endif %}
 
@@ -48,7 +48,7 @@ Billing managers are users who can manage the billing settings for your organiza
 
 {% endif %}
 
-{% if security-managers %}
+{% ifversion security-managers %}
 ### Security managers
 
 {% data reusables.organizations.security-manager-beta-note %}
@@ -125,7 +125,7 @@ Some of the features listed below are limited to organizations using {% data var
 | Transfer repositories | **X** |  |  |   |  |
 | Purchase, install, manage billing for, and cancel {% data variables.product.prodname_marketplace %} apps | **X** |  |  |  |  |
 | List apps in {% data variables.product.prodname_marketplace %} | **X** |  |  |  |  |
-| Receive [{% data variables.product.prodname_dependabot_alerts %} about vulnerable dependencies](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies) for all of an organization's repositories | **X** |  |  |  | **X** |
+| Receive [{% data variables.product.prodname_dependabot_alerts %} about insecure dependencies](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts) for all of an organization's repositories | **X** |  |  |  | **X** |
 | Manage {% data variables.product.prodname_dependabot_security_updates %} (see "[About {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/about-dependabot-security-updates)") | **X** |  |  |  | **X** |
 | [Manage the forking policy](/organizations/managing-organization-settings/managing-the-forking-policy-for-your-organization) | **X** |  |  |  |  |
 | [Limit activity in public repositories in an organization](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-organization) | **X** |  |  |  |  |
@@ -153,7 +153,7 @@ Some of the features listed below are limited to organizations using {% data var
 | Configure code review assignments (see "[Managing code review assignment for your team](/organizations/organizing-members-into-teams/managing-code-review-assignment-for-your-team)") | **X** |  |  |
 | Add collaborators to **all repositories** | **X** |  |  |
 | Access the organization audit log | **X** |  |  |
-| Edit the organization's profile page (see "[About your organization's profile](/github/setting-up-and-managing-your-github-profile/customizing-your-profile/about-your-organizations-profile)") | **X** |  |  |{% ifversion ghes > 3.1 %}
+| Edit the organization's profile page (see "[About your organization's profile](/github/setting-up-and-managing-your-github-profile/customizing-your-profile/about-your-organizations-profile)") | **X** |  |  |{% ifversion ghes %}
 | Verify the organization's domains (see "[Verifying your organization's domain](/articles/verifying-your-organization-s-domain)") | **X** |  |  |
 | Restrict email notifications to verified or approved domains (see "[Restricting email notifications for your organization](/organizations/keeping-your-organization-secure/restricting-email-notifications-for-your-organization)") | **X** |  |  |{% endif %}
 | Delete **all teams** | **X** |  |  |
@@ -163,7 +163,7 @@ Some of the features listed below are limited to organizations using {% data var
 | @mention any visible team | **X** | **X** | **X**  |
 | Can be made a *team maintainer* | **X** | **X** | **X**  |
 | Transfer repositories | **X** | |  |
-| Manage security and analysis settings (see "[Managing security and analysis settings for your organization](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)") | **X** | | **X** |{% ifversion ghes > 3.1 %}
+| Manage security and analysis settings (see "[Managing security and analysis settings for your organization](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)") | **X** | | **X** |{% ifversion ghes %}
 | View the security overview for the organization (see "[About the security overview](/code-security/security-overview/about-the-security-overview)") | **X** | | **X** |{% endif %}{% ifversion ghes > 3.2 %}
 | Manage {% data variables.product.prodname_dependabot_security_updates %} (see "[About {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/about-dependabot-security-updates)") | **X** | | **X** |{% endif %}
 | Manage an organization's SSH certificate authorities (see "[Managing your organization's SSH certificate authorities](/articles/managing-your-organizations-ssh-certificate-authorities)") | **X** |  |  |
@@ -173,7 +173,7 @@ Some of the features listed below are limited to organizations using {% data var
 | Edit and delete team discussions in **all teams** (for more information, see "[Managing disruptive comments](/communities/moderating-comments-and-conversations/managing-disruptive-comments)) | **X** |  |  |  |
 | Hide comments on commits, pull requests, and issues (see "[Managing disruptive comments](/communities/moderating-comments-and-conversations/managing-disruptive-comments/#hiding-a-comment)") | **X** | **X** | **X**  |
 | Disable team discussions for an organization (see "[Disabling team discussions for your organization](/articles/disabling-team-discussions-for-your-organization)") | **X** |  |  |
-| Set a team profile picture in **all teams** (see "[Setting your team's profile picture](/articles/setting-your-team-s-profile-picture)") | **X** |  |  |{% ifversion ghes > 3.0 %}
+| Set a team profile picture in **all teams** (see "[Setting your team's profile picture](/articles/setting-your-team-s-profile-picture)") | **X** |  |  |{% ifversion ghes %}
 | Manage the publication of {% data variables.product.prodname_pages %} sites from repositories in the organization (see "[Managing the publication of {% data variables.product.prodname_pages %} sites for your organization](/organizations/managing-organization-settings/managing-the-publication-of-github-pages-sites-for-your-organization)") | **X** | |  |{% endif %}
 | [Move teams in an organization's hierarchy](/articles/moving-a-team-in-your-organization-s-hierarchy) | **X** | | |
 | Pull (read) *all repositories* in the organization | **X** | | **X** |
@@ -181,10 +181,9 @@ Some of the features listed below are limited to organizations using {% data var
 | Convert organization members to [outside collaborators](#outside-collaborators) | **X** | |  |
 | [View people with access to an organization repository](/articles/viewing-people-with-access-to-your-repository) | **X** | |  |
 | [Export a list of people with access to an organization repository](/articles/viewing-people-with-access-to-your-repository/#exporting-a-list-of-people-with-access-to-your-repository) | **X** | |  |
-| Manage default labels (see "[Managing default labels for repositories in your organization](/articles/managing-default-labels-for-repositories-in-your-organization)") | **X** | |  |{% if pull-request-approval-limit %}
+| Manage default labels (see "[Managing default labels for repositories in your organization](/articles/managing-default-labels-for-repositories-in-your-organization)") | **X** | |  |{% ifversion pull-request-approval-limit %}
 | Manage pull request reviews in the organization (see "[Managing pull request reviews in your organization](/organizations/managing-organization-settings/managing-pull-request-reviews-in-your-organization)") | **X** |  | |  |{% endif %}
 {% ifversion ghae %}| Manage IP allow lists (see "[Restricting network traffic to your enterprise](/admin/configuration/restricting-network-traffic-to-your-enterprise)") | **X** | |  |{% endif %}
-
 
 {% else %}
 <!-- GHES and GHAE older versions don't have columns for Moderators, Billing managers or Security managers. -->
@@ -200,7 +199,7 @@ Some of the features listed below are limited to organizations using {% data var
 | Configure code review assignments (see "[Managing code review settings for your team](/organizations/organizing-members-into-teams/managing-code-review-settings-for-your-team)")) | **X** |  |
 | Add collaborators to **all repositories** | **X** |  |
 | Access the organization audit log | **X** |  |
-| Edit the organization's profile page (see "[About your organization's profile](/github/setting-up-and-managing-your-github-profile/customizing-your-profile/about-your-organizations-profile)") | **X** |  |  |{% ifversion ghes > 3.1 %}
+| Edit the organization's profile page (see "[About your organization's profile](/github/setting-up-and-managing-your-github-profile/customizing-your-profile/about-your-organizations-profile)") | **X** |  |  |{% ifversion ghes %}
 | Verify the organization's domains (see "[Verifying your organization's domain](/articles/verifying-your-organization-s-domain)") | **X** |  |
 | Restrict email notifications to verified or approved domains (see "[Restricting email notifications for your organization](/organizations/keeping-your-organization-secure/restricting-email-notifications-for-your-organization)") | **X** |  |{% endif %}
 | Delete **all teams** | **X** |  |
@@ -217,7 +216,7 @@ Some of the features listed below are limited to organizations using {% data var
 | Edit and delete team discussions in **all teams** (for more information, see "[Managing disruptive comments](/communities/moderating-comments-and-conversations/managing-disruptive-comments)) | **X** |  |  |
 | Hide comments on commits, pull requests, and issues (see "[Managing disruptive comments](/communities/moderating-comments-and-conversations/managing-disruptive-comments/#hiding-a-comment)") | **X** | **X** | **X** |
 | Disable team discussions for an organization (see "[Disabling team discussions for your organization](/articles/disabling-team-discussions-for-your-organization)") | **X** |  |  |
-| Set a team profile picture in **all teams** (see "[Setting your team's profile picture](/articles/setting-your-team-s-profile-picture)") | **X** |  |  |{% ifversion ghes > 3.0 %}
+| Set a team profile picture in **all teams** (see "[Setting your team's profile picture](/articles/setting-your-team-s-profile-picture)") | **X** |  |  |{% ifversion ghes %}
 | Manage the publication of {% data variables.product.prodname_pages %} sites from repositories in the organization (see "[Managing the publication of {% data variables.product.prodname_pages %} sites for your organization](/organizations/managing-organization-settings/managing-the-publication-of-github-pages-sites-for-your-organization)") | **X** | |{% endif %}
 | [Move teams in an organization's hierarchy](/articles/moving-a-team-in-your-organization-s-hierarchy) | **X** | | |
 | Pull (read), push (write), and clone (copy) *all repositories* in the organization | **X** | |

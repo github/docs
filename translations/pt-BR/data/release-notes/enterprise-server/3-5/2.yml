@@ -1,0 +1,35 @@
+date: '2022-06-28'
+sections:
+  security_fixes:
+    - "**MÉDIO**: Impede um ataque em que um parâmetro da string de consulta `org` pode ser especificado para uma URL do GitHub Enterprise Server que dê acesso aos committers ativos de outra organização."
+    - "**MÉDIO**: Garante que o `github.company.com` e `github-company.com` não sejam avaliados por serviços internos como nomes de host idênticos, impedindo um potencial ataque de segurança do lado do servidor (SSRF)."
+    - "**LOW**: An attacker could access the Management Console with a path traversal attack via HTTP even if external firewall rules blocked HTTP access."
+    - Os pacotes foram atualizados para as últimas versões de segurança.
+  bugs:
+    - Os arquivos dentro de um arquivo artefato não puderam ser abertos após a descompactação devido a permissões restritivas.
+    - Em alguns casos, os pacotes enviados para o registro do contêiner não ficaram visíveis na interface de usuário web do GitHub Enterprise Server.
+    - O Console de Gerenciamento aparecerá preso na tela de _Starting_ depois de atualizar uma instância subprovisionada para o GitHub Enterprise Server 3.5.
+    - Tempo limite do Redis não para mais as migrações do banco de dados enquanto executa `ghe-config-apply`.
+    - Processadores de trabalho em segundo plano ficariam presos em um estado parcialmente desligado, resultando em certos tipos de trabalhos em segundo plano (como digitalização de código) que aparecem presos.
+    - Em alguns casos, os administradores do site não foram automaticamente adicionados como proprietários da empresa.
+    - Falha ao executar fluxos de trabalho que chamam outros fluxos de trabalho reutilizáveis para serem executados em um cronograma.
+    - A resolução de ações usando o GitHub Connect falhou brevemente após alterar a visibilidade do repositório de público para interno.
+  changes:
+    - Melhorou o desempenho das atualizações do Dependabot quando habilitado primeiro.
+    - 'Aumenta as conexões simultâneas para executores de ações para apoiar [o objetivo de desempenho do GHES](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server#review-hardware-requirements).'
+    - Os tempos de compilação e sincronização do GitHub Pages agora podem ser configurados no Console de Gerenciamento.
+    - Adicionou a variável de ambiente para configurar período de tempo limite do Redis.
+    - A criação ou atualização das execuções de verificação ou conjuntos de verificações pode retornar `500 Internal Server Error` se o valor para certos campos, assim como o nome, fosse muito longo.
+    - Melhora o desempenho na guia "Arquivos alterados" das pull requests quando o diff inclui muitas alterações.
+    - 'A política de uso do cache do repositório de ações não aceita mais um valor máximo inferior a 1 para [`max_repo_cache_size_limit_in_gb`](/rest/actions/cache#set-github-actions-cache-usage-policy-for-an-enterprise).'
+    - 'Quando [implementar nós de cache-server](/admin/enterprise-management/caching-repositories/configuring-a-repository-cache#configuring-a-repository-cache), agora é obrigatório descrever a topologia do centro de dados (usando o argumento `--datacenter`) para cada nó no sistema. Este requisito impede situações em que deixar a associação do centro de dados definida como "padrão" faz com que as cargas de trabalho sejam inapropriadamente equilibradas entre vários centros de dados.'
+  known_issues:
+    - Em uma instância de {% data variables.product.prodname_ghe_server %} recém-configurada sem usuários, um invasor pode criar o primeiro usuário administrador.
+    - As regras de firewall personalizadas são removidas durante o processo de atualização.
+    - Arquivos LFS do Git [enviados através da interface web](https://github.com/blog/2105-upload-files-to-your-repositories) são adicionados diretamente ao repositório e de forma incorreta.
+    - Os problemas não podem ser fechados se contiverem um permalink para um blob no mesmo repositório, onde o caminho do arquivo blob's é maior que 255 caracteres.
+    - Quando "Usuários podem pesquisar pelo GitHub.com" está habilitado com o GitHub Connect, os problemas em repositórios privados e internos não estão incluídos nos resultados de pesquisa do GitHub.com.
+    - O registro npm de {% data variables.product.prodname_registry %} não retorna mais o valor de tempo em respostas de metadados. Isso foi feito para permitir melhorias substanciais de desempenho. Continuamos a ter todos os dados necessários para devolver um valor de tempo como parte da resposta aos metadados e retomaremos o retorno desse valor no futuro, assim que tivermos resolvido os problemas de desempenho existentes.
+    - Os limites de recursos que são específicos para processamento de hooks pre-receive podem causar falha em alguns hooks pre-receive.
+    - Os serviços de ações precisam ser reiniciados após a restauração de um dispositivo de um backup em um host diferente.
+    - 'Os repositórios excluídos não serão removidos do disco automaticamente após o período de retenção de 90 dias. Esse problema é resolvido na versão 3.5.1. [Atualizado: 2022-06-10]'

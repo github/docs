@@ -305,7 +305,7 @@ jobs:
 
 Travis CI 和 {% data variables.product.prodname_actions %} 可让您手动缓存依赖供以后使用。
 
-{% if actions-caching %}
+{% ifversion actions-caching %}
 
 此示例说明每个系统的缓存语法。
 

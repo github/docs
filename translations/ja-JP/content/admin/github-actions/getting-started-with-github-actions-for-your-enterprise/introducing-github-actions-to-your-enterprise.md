@@ -26,11 +26,11 @@ Before you introduce {% data variables.product.prodname_actions %} to a large en
 
 You should create a plan to govern your enterprise's use of {% data variables.product.prodname_actions %} and meet your compliance obligations.
 
-Determine which actions {% if actions-workflow-policy %}and reusable workflows{% endif %} your developers will be allowed to use. {% ifversion ghes %}First, decide whether you'll enable access to actions {% if actions-workflow-policy %}and reusable workflows{% endif %} from outside your instance. {% data reusables.actions.access-actions-on-dotcom %} For more information, see "[About using actions in your enterprise](/admin/github-actions/managing-access-to-actions-from-githubcom/about-using-actions-in-your-enterprise)."
+Determine which actions {% ifversion actions-workflow-policy %}and reusable workflows{% endif %} your developers will be allowed to use. {% ifversion ghes %}First, decide whether you'll enable access to actions {% ifversion actions-workflow-policy %}and reusable workflows{% endif %} from outside your instance. {% data reusables.actions.access-actions-on-dotcom %} For more information, see "[About using actions in your enterprise](/admin/github-actions/managing-access-to-actions-from-githubcom/about-using-actions-in-your-enterprise)."
 
-Then,{% else %}First,{% endif %} decide whether you'll allow third-party actions {% if actions-workflow-policy %}and reusable workflows{% endif %} that were not created by {% data variables.product.company_short %}. You can configure the actions {% if actions-workflow-policy %}and reusable workflows{% endif %} that are allowed to run at the repository, organization, and enterprise levels and can choose to only allow actions that are created by {% data variables.product.company_short %}. If you do allow third-party actions{% if actions-workflow-policy %} and reusable workflows{% endif %}, you can limit allowed actions to those created by verified creators or a list of specific actions{% if actions-workflow-policy %} and reusable workflows{% endif %}. For more information, see "[Managing {% data variables.product.prodname_actions %} settings for a repository](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#managing-github-actions-permissions-for-your-repository)", "[Disabling or limiting {% data variables.product.prodname_actions %} for your organization](/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization#managing-github-actions-permissions-for-your-organization)", and "[Enforcing policies for {% data variables.product.prodname_actions %} in your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise#enforcing-a-policy-to-restrict-the-use-of-github-actions-in-your-enterprise)."
+Then,{% else %}First,{% endif %} decide whether you'll allow third-party actions {% ifversion actions-workflow-policy %}and reusable workflows{% endif %} that were not created by {% data variables.product.company_short %}. You can configure the actions {% ifversion actions-workflow-policy %}and reusable workflows{% endif %} that are allowed to run at the repository, organization, and enterprise levels and can choose to only allow actions that are created by {% data variables.product.company_short %}. If you do allow third-party actions{% ifversion actions-workflow-policy %} and reusable workflows{% endif %}, you can limit allowed actions to those created by verified creators or a list of specific actions{% ifversion actions-workflow-policy %} and reusable workflows{% endif %}. For more information, see "[Managing {% data variables.product.prodname_actions %} settings for a repository](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#managing-github-actions-permissions-for-your-repository)", "[Disabling or limiting {% data variables.product.prodname_actions %} for your organization](/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization#managing-github-actions-permissions-for-your-organization)", and "[Enforcing policies for {% data variables.product.prodname_actions %} in your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise#enforcing-a-policy-to-restrict-the-use-of-github-actions-in-your-enterprise)."
 
-{% if actions-workflow-policy %}
+{% ifversion actions-workflow-policy %}
 ![Screenshot of {% data variables.product.prodname_actions %} policies](/assets/images/help/organizations/enterprise-actions-policy-with-workflows.png)
 {%- else %}
 ![Screenshot of {% data variables.product.prodname_actions %} policies](/assets/images/help/organizations/enterprise-actions-policy.png)
@@ -74,12 +74,12 @@ Think about how your enterprise can use features of {% data variables.product.pr
 
 {% ifversion ghec or ghes > 3.3 or ghae-issue-4757 %}
 {% data reusables.actions.reusable-workflows-ghes-beta %}
-With reusable workflows, your team can call one workflow from another workflow, avoiding exact duplication. Reusable workflows promote best practice by helping your team use workflows that are well designed and have already been tested. For more information, see "[Reusing workflows](/actions/learn-github-actions/reusing-workflows)."
+With reusable workflows, your team can call one workflow from another workflow, avoiding exact duplication. Reusable workflows promote best practice by helping your team use workflows that are well designed and have already been tested. 詳しい情報については「[ワークフローの再利用](/actions/learn-github-actions/reusing-workflows)」を参照してください。
 {% endif %}
 
 To provide a starting place for developers building new workflows, you can use starter workflows. This not only saves time for your developers, but promotes consistency and best practice across your enterprise. For more information, see "[Creating starter workflows for your organization](/actions/learn-github-actions/creating-starter-workflows-for-your-organization)."
 
-{% if not internal-actions %}
+{% ifversion not internal-actions %}
 Whenever your workflow developers want to use an action that's stored in a private repository, they must configure the workflow to clone the repository first. To reduce the number of repositories that must be cloned, consider grouping commonly used actions in a single repository. For more information, see "[About custom actions](/actions/creating-actions/about-custom-actions#choosing-a-location-for-your-action)."
 {% endif %}
 
@@ -111,15 +111,15 @@ Finally, you should consider security hardening for self-hosted runners. For mor
 
 {% data reusables.actions.about-artifacts %} For more information, see "[Storing workflow data as artifacts](/actions/advanced-guides/storing-workflow-data-as-artifacts)."
 
-{% if actions-caching %}{% data variables.product.prodname_actions %} also has a caching system that you can use to cache dependencies to speed up workflow runs. For more information, see "[Caching dependencies to speed up workflows](/actions/using-workflows/caching-dependencies-to-speed-up-workflows)."{% endif %}
+{% ifversion actions-caching %}{% data variables.product.prodname_actions %} also has a caching system that you can use to cache dependencies to speed up workflow runs. For more information, see "[Caching dependencies to speed up workflows](/actions/using-workflows/caching-dependencies-to-speed-up-workflows)."{% endif %}
 
 {% ifversion ghes %}
-You must configure external blob storage for workflow artifacts{% if actions-caching %}, caches,{% endif %} and other workflow logs. Decide which supported storage provider your enterprise will use. For more information, see "[Getting started with {% data variables.product.prodname_actions %} for {% data variables.product.product_name %}](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server#external-storage-requirements)."
+You must configure external blob storage for workflow artifacts{% ifversion actions-caching %}, caches,{% endif %} and other workflow logs. Decide which supported storage provider your enterprise will use. For more information, see "[Getting started with {% data variables.product.prodname_actions %} for {% data variables.product.product_name %}](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server#external-storage-requirements)."
 {% endif %}
 
 {% ifversion ghec or ghes %}
 
-You can use policy settings for {% data variables.product.prodname_actions %} to customize the storage of workflow artifacts{% if actions-caching %}, caches,{% endif %} and log retention. 詳しい情報については「[Enterpriseでの{% data variables.product.prodname_actions %}のポリシーの施行](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise)」を参照してください。
+You can use policy settings for {% data variables.product.prodname_actions %} to customize the storage of workflow artifacts{% ifversion actions-caching %}, caches,{% endif %} and log retention. 詳しい情報については「[Enterpriseでの{% data variables.product.prodname_actions %}のポリシーの施行](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise)」を参照してください。
 
 {% endif %}
 
