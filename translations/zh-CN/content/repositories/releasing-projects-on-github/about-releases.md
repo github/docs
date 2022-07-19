@@ -40,7 +40,7 @@ topics:
 您可以在管理版本时手动创建发行说明。 或者，您可以从默认模板自动生成发行说明，或自定义您自己的发行说明模板。 更多信息请参阅“[自动生成的发行说明](/repositories/releasing-projects-on-github/automatically-generated-release-notes)”。
 {% endif %}
 
-{% ifversion fpt or ghec or ghes > 3.6 or ghae-issue-7054 %}
+{% ifversion fpt or ghec or ghes > 3.5 or ghae-issue-7054 %}
 查看发行版的详细信息时，每个发行版资产的创建日期显示在发行版资产旁边。
 {% endif %}
 

@@ -1,25 +1,25 @@
 ---
 title: 'Phase 6: Rollout and scale secret scanning'
-intro: 'For the final phase, you will focus on the rollout of {% data variables.product.prodname_secret_scanning %}. {% data variables.product.prodname_secret_scanning_caps %} is a more straightforward tool to rollout than {% data variables.product.prodname_code_scanning %}, as it involves less configuration, but it''s critical to have a strategy for handling new and old results.'
+intro: "For the final phase, you will focus on the rollout of {% data variables.product.prodname_secret_scanning %}. {% data variables.product.prodname_secret_scanning_caps %} is a more straightforward tool to rollout than {% data variables.product.prodname_code_scanning %}, as it involves less configuration, but it's critical to have a strategy for handling new and old results."
 versions:
   ghes: '*'
   ghae: '*'
   ghec: '*'
 topics:
   - Advanced Security
-shortTitle: 6. Rollout secret scanning
+shortTitle: '6. Rollout secret scanning'
 miniTocMaxHeadingLevel: 3
 ---
 
 {% note %}
 
-本文是关于大规模采用 {% data variables.product.prodname_GH_advanced_security %} 系列文章的一部分。 For the previous article in this series, see "[Phase 5: Rollout and scale code scanning](/code-security/adopting-github-advanced-security-at-scale/phase-5-rollout-and-scale-code-scanning)."
+This article is part of a series on adopting {% data variables.product.prodname_GH_advanced_security %} at scale. For the previous article in this series, see "[Phase 5: Rollout and scale code scanning](/code-security/adopting-github-advanced-security-at-scale/phase-5-rollout-and-scale-code-scanning)."
 
 {% endnote %}
 
-You can enable secret scanning for individual repositories or for all repositories in an organization. 更多信息请参阅“[管理仓库的安全性和分析设置](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository)”或“[管理组织的安全性和分析设置](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)”。
+You can enable secret scanning for individual repositories or for all repositories in an organization. For more information, see "[Managing security and analysis settings for your repository](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository)" or "[Managing security and analysis settings for your organization](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)."
 
-This article explains a high-level process focusing on enabling {% data variables.product.prodname_secret_scanning %} for all repositories in an organization. The principles described in this article can still be applied even if you take a more staggered approach of enabling {% data variables.product.prodname_secret_scanning %} for individual repositories.
+This article explains a high-level process focusing on enabling {% data variables.product.prodname_secret_scanning %} for all repositories in an organization. The principles described in this article can still be applied even if you take a more staggered approach of enabling {% data variables.product.prodname_secret_scanning %} for individual repositories. 
 
 ### 1. Focus on newly committed secrets
 
@@ -31,10 +31,10 @@ There are a few approaches for tackling newly committed credentials, but one exa
 2. **Follow Up**: Create a high-level remediation process that works for all secret types. For example, you could contact the developer who committed the secret and their technical lead on that project, highlighting the dangers of committing secrets to GitHub, and asking the them to revoke, and update the detected secret.
 
   {% note %}
-
+  
   **Note:** You can automate this step. For large enterprises and organizations with hundreds of repositories, manually following up is unsustainable. You could incorporate automation into the webhook process defined in the first step. The webhook payload contains repository and organization information about the leaked secret. Using this information, you can contact the current maintainers on the repository and create a email/message to the responsible people or open an issue.
-
-  {% endnote %}
+  
+  {% endnote %} 
 3. **Educate**: Create an internal training document assigned to the developer who committed the secret. Within this training document, you can explain the risks created by committing secrets and direct them to your best practice information about using secrets securely in development. If the a developer doesn't learn from the experience and continues to commit secrets, you could create an escalation process, but education usually works well.
 
 Repeat the last two steps for any new secrets leaked. This process encourages developers to take responsibility for managing the secrets used in their code securely, and allows you to measure the reduction in newly committed secrets.
@@ -54,33 +54,33 @@ How you define your most critical secrets will depend on your organization's pro
 Once you have decided on the secret types, you can do the following:
 
 1. Define a process for remediating each type of secret. The actual procedure for each secret type is often drastically different. Write down the process for each type of secret in a document or internal knowledge base.
-
+  
   {% note %}
-
+  
   **Note:** When you create the process for revoking secrets, try and give the responsibility for revoking secrets to the team maintaining the repository instead of a central team. One of the principles of GHAS is developers taking ownership of security and having the responsibility of fixing security issues, especially if they have created them.
 
   {% endnote %}
 
 2. When you have created the process that teams will follow for revoking credentials, you can collate information about the types of secrets and other metadata associated with the leaked secrets so you can discern who to communicate the new process to.
-
+  
   {% ifversion not ghae %}
-
+  
   You can use the security overview to collect this information. For more information about using the security overview, see "[Filtering alerts in the security overview](/code-security/security-overview/filtering-alerts-in-the-security-overview)."
-
+  
   {% endif %}
-
+  
   Some information you may want to collect includes:
-
-    - 组织
-    - 仓库
-    - 密钥类型
+  
+    - Organization
+    - Repository
+    - Secret type
     - Secret value
     - Maintainers on repository to contact
-
+  
   {% note %}
-
+  
   **Note:** Use the UI if you have few secrets leaked of that type. If you have hundreds of leaked secrets, use the API to collect information. For more information, see "[Secret scanning REST API](/rest/reference/secret-scanning)."
-
+    
   {% endnote %}
 
 3. After you collect information about leaked secrets, create a targeted communication plan for the users who maintain the repositories affected by each secret type. You could use email, messaging, or even create GitHub issues in the affected repositories. If you can use APIs provided by these tools to send out the communications in an automated manner, this will make it easier for you to scale across multiple secret types.
@@ -89,11 +89,11 @@ Once you have decided on the secret types, you can do the following:
 
 You can now expand beyond the five most critical secret types into a more comprehensive list, with an additional focus on education. You can repeat the previous step, remediating previously committed secrets, for the different secret types you have targeted.
 
-You can also include more of the custom patterns collated in the earlier phases and invite security teams and developer teams to submit more patterns, establishing a process for submitting new patterns as new secret types are created. 更多信息请参阅“[定义机密扫描的自定义模式](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)”。
+You can also include more of the custom patterns collated in the earlier phases and invite security teams and developer teams to submit more patterns, establishing a process for submitting new patterns as new secret types are created. For more information, see "[Defining custom patterns for secret scanning](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)."
 
 {% ifversion secret-scanning-push-protection %}
 
-You can also enable push protection with secret scanning. Once enabled, secret scanning checks pushes for high-confidence secrets and blocks the push. 更多信息请参阅“[使用机密扫描保护推送](/code-security/secret-scanning/protecting-pushes-with-secret-scanning#using-secret-scanning-as-a-push-protection-from-the-command-line)”。
+You can also enable push protection with secret scanning. Once enabled, secret scanning checks pushes for high-confidence secrets and blocks the push. For more information, see "[Protecting pushes with secret scanning](/code-security/secret-scanning/protecting-pushes-with-secret-scanning#using-secret-scanning-as-a-push-protection-from-the-command-line)."
 
 {% endif %}
 
