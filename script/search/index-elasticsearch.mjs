@@ -149,18 +149,25 @@ function safeUrlDisplay(url) {
   return parsed.toString()
 }
 
+// Return '20220719012012' if the current date is
+// 2022-07-19T01:20:12.172Z. Note how the 6th month (July) becomes
+// '07'. All numbers become 2 character zero-padding strings individually.
 function utcTimestamp() {
   const d = new Date()
-  return [
-    d.getUTCFullYear(),
-    d.getUTCMonth(),
-    d.getUTCDate(),
-    d.getUTCHours(),
-    d.getUTCMinutes(),
-    d.getUTCSeconds(),
-  ]
-    .map((x) => x.toString())
-    .join('')
+
+  return (
+    [
+      `${d.getUTCFullYear()}`,
+      d.getUTCMonth() + 1,
+      d.getUTCDate(),
+      d.getUTCHours(),
+      d.getUTCMinutes(),
+      d.getUTCSeconds(),
+    ]
+      // If it's a number make it a zero-padding 2 character string
+      .map((x) => (typeof x === 'number' ? ('0' + x).slice(-2) : x))
+      .join('')
+  )
 }
 
 // Consider moving this to lib
