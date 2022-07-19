@@ -74,7 +74,7 @@ OktaでのTeam同期のエラーの可能性を回避するために、{% data v
 
 OrganizationのメンバーがリンクされたSCIMアイデンティティを持たない場合、Teamの同期は期待された動作をせず、そのユーザはTeamに追加も削除もされないかもしれません。 もしもユーザの中にSCIMのリンクされたアイデンティティを持たない者がいた場合、それらのユーザはプロビジョニングし直さなければなりません。
 
-For help on provisioning users that have missing a missing SCIM linked identity, see "[Troubleshooting identity and access management for your organization](/organizations/managing-saml-single-sign-on-for-your-organization/troubleshooting-identity-and-access-management-for-your-organization)."
+SCIMのリンクされたアイデンティティを欠いているユーザのプロビジョニングに関するヘルプについては「[Organizationのアイデンティティ及びアクセス管理のトラブルシューティング](/organizations/managing-saml-single-sign-on-for-your-organization/troubleshooting-identity-and-access-management-for-your-organization)」を参照してください。
 
 {% data reusables.identity-and-permissions.team-sync-okta-requirements %}
 

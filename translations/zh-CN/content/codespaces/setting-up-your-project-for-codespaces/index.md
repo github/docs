@@ -1,5 +1,6 @@
 ---
 title: '为 {% data variables.product.prodname_github_codespaces %} 设置存储库'
+shortTitle: 设置存储库
 allowTitleToDifferFromFilename: true
 intro: '了解如何开始使用 {% data variables.product.prodname_github_codespaces %}，包括特定语言的设置和配置。'
 product: '{% data reusables.gated-features.codespaces %}'

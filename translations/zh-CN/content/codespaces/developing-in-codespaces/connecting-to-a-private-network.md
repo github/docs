@@ -42,4 +42,4 @@ topics:
 
 目前，没有办法限制代码空间访问公共互联网，或者限制经过适当身份验证的用户访问转发端口。
 
-For more information on how to secure your codespaces, see "[Security in {% data variables.product.prodname_github_codespaces %}](/codespaces/codespaces-reference/security-in-github-codespaces)."
+有关如何保护代码空间的详细信息，请参阅“[{% data variables.product.prodname_github_codespaces %} 中的安全性](/codespaces/codespaces-reference/security-in-github-codespaces)”。
