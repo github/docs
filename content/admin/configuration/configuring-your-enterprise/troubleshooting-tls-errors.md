@@ -1,12 +1,13 @@
 ---
-title: Troubleshooting SSL errors
-intro: 'If you run into SSL issues with your appliance, you can take actions to resolve them.'
+title: Troubleshooting TLS errors
+intro: 'If you run into TLS issues with your appliance, you can take actions to resolve them.'
 redirect_from:
   - /enterprise/admin/articles/troubleshooting-ssl-errors
   - /enterprise/admin/categories/dns-ssl-and-subdomain-configuration
   - /enterprise/admin/installation/troubleshooting-ssl-errors
   - /enterprise/admin/configuration/troubleshooting-ssl-errors
   - /admin/configuration/troubleshooting-ssl-errors
+  - /admin/configuration/configuring-your-enterprise/troubleshooting-ssl-errors
 versions:
   ghes: '*'
 type: how_to
@@ -17,7 +18,7 @@ topics:
   - Networking
   - Security
   - Troubleshooting
-shortTitle: Troubleshoot SSL errors
+shortTitle: Troubleshoot TLS errors
 ---
 ## Removing the passphrase from your key file
 
@@ -36,7 +37,7 @@ You'll be prompted for the key's passphrase when you run this command.
 
 For more information about OpenSSL, see [OpenSSL's documentation](https://www.openssl.org/docs/).
 
-## Converting your SSL certificate or key into PEM format
+## Converting your TLS certificate or key into PEM format
 
 If you have OpenSSL installed, you can convert your key into PEM format by using the `openssl` command. For example, you can convert a key from DER format into PEM format.
 
@@ -48,11 +49,11 @@ Otherwise, you can use the SSL Converter tool to convert your certificate into t
 
 ## Unresponsive installation after uploading a key
 
-If {% data variables.product.product_location %} is unresponsive after uploading an SSL key, please [contact {% data variables.product.prodname_enterprise %} Support](https://enterprise.github.com/support) with specific details, including a copy of your SSL certificate.
+If {% data variables.product.product_location %} is unresponsive after uploading an TLS key, please [contact {% data variables.product.prodname_enterprise %} Support](https://enterprise.github.com/support) with specific details, including a copy of your TLS certificate. 
 
 ## Certificate validity errors
 
-Clients such as web browsers and command-line Git will display an error message if they cannot verify the validity of an SSL certificate. This often occurs with self-signed certificates as well as "chained root" certificates issued from an intermediate root certificate that is not recognized by the client.
+Clients such as web browsers and command-line Git will display an error message if they cannot verify the validity of an TLS certificate. This often occurs with self-signed certificates as well as "chained root" certificates issued from an intermediate root certificate that is not recognized by the client.
 
 If you are using a certificate signed by a certificate authority (CA), the certificate file that you upload to {% data variables.product.prodname_ghe_server %} must include a certificate chain with that CA's root certificate. To create such a file, concatenate your entire certificate chain (or "certificate bundle") onto the end of your certificate, ensuring that the principal certificate with your hostname comes first. On most systems you can do this with a command similar to:
 
@@ -60,7 +61,7 @@ If you are using a certificate signed by a certificate authority (CA), the certi
 $ cat yourdomain.com.crt bundle-certificates.crt > yourdomain.combined.crt
 ```
 
-You should be able to download a certificate bundle (for example, `bundle-certificates.crt`) from your certificate authority or SSL vendor.
+You should be able to download a certificate bundle (for example, `bundle-certificates.crt`) from your certificate authority or TLS vendor.
 
 ## Installing self-signed or untrusted certificate authority (CA) root certificates
 
@@ -80,6 +81,6 @@ If your {% data variables.product.prodname_ghe_server %} appliance interacts wit
   $ ghe-ssl-ca-certificate-install -c rootCA.crt
   ```
 
-## Updating an SSL certificate
+## Updating a TLS certificate
 
-You can generate a new self-signed certificate or update an existing SSL certificate for {% data variables.product.product_location %} with the `ghe-ssl-certificate-setup` command line utility. For more information, see "[Command-line utilities](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-ssl-ca-certificate-setup)."
+You can generate a new self-signed certificate or update an existing TLS certificate for {% data variables.product.product_location %} with the `ghe-ssl-certificate-setup` command line utility. For more information, see "[Command-line utilities](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-ssl-ca-certificate-setup)."
