@@ -566,7 +566,7 @@ describe('redirects', () => {
     })
   })
 
-  describe('admin/release-notes redirects that lack language', () => {
+  describe('recently deprecated ghes version redirects that lack language', () => {
     test('test redirect to an active enterprise-server version', async () => {
       const url = `/enterprise-server@${enterpriseServerReleases.latest}/admin/release-notes`
       const res = await get(url)
@@ -581,6 +581,12 @@ describe('redirects', () => {
     })
     test('test redirect to a recently deprecated enterprise-server version', async () => {
       const url = `/enterprise-server@${deprecatedWithFunctionalRedirects[0]}/admin/release-notes`
+      const res = await get(url)
+      expect(res.statusCode).toBe(302)
+      expect(res.headers.location).toBe(`/en${url}`)
+    })
+    test('any enterprise-server deprecated with functional redirects', async () => {
+      const url = `/enterprise-server@${deprecatedWithFunctionalRedirects[0]}`
       const res = await get(url)
       expect(res.statusCode).toBe(302)
       expect(res.headers.location).toBe(`/en${url}`)
