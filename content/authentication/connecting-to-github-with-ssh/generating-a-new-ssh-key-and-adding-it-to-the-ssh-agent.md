@@ -51,12 +51,12 @@ If you don't want to reenter your passphrase every time you use your SSH key, yo
   ```shell
   > Generating public/private <em>algorithm</em> key pair.
   ```
-3. When you're prompted to "Enter a file in which to save the key," press Enter. This accepts the default file location.
+3. When you're prompted to "Enter a file in which to save the key", you can press "Enter" to accept the default file location, but if you already created SSH Keys previously, ssh-keygen may ask you to rewrite another key, so it's advisable to create a custom-named SSH key. For this, you type the default file location, except that "id_ssh_keyname" will be the name you choose.
 
   {% mac %}
 
   ```shell
-  > Enter a file in which to save the key (/Users/<em>you</em>/.ssh/id_<em>algorithm</em>): <em>[Press enter]</em>
+  > Enter a file in which to save the key (/Users/<em>you</em>/.ssh/id_<em>algorithm</em>): <em>/Users/<em>you</em>/.ssh/id_<em>ssh_keyname</em></em>
   ```
 
   {% endmac %}
@@ -64,7 +64,7 @@ If you don't want to reenter your passphrase every time you use your SSH key, yo
   {% windows %}
 
   ```shell
-  > Enter a file in which to save the key (/c/Users/<em>you</em>/.ssh/id_<em>algorithm</em>):<em>[Press enter]</em>
+  > Enter a file in which to save the key (/c/Users/<em>you</em>/.ssh/id_<em>algorithm</em>):<em>/c/Users/<em>you</em>/.ssh/id_<em>ssh_keyname</em>)</em>
   ```
 
   {% endwindows %}
@@ -72,7 +72,7 @@ If you don't want to reenter your passphrase every time you use your SSH key, yo
   {% linux %}
 
   ```shell
-  > Enter a file in which to save the key (/home/<em>you</em>/.ssh/<em>algorithm</em>): <em>[Press enter]</em>
+  > Enter a file in which to save the key (/home/<em>you</em>/.ssh/<em>algorithm</em>): <em>/home/<em>you</em>/.ssh/<em>ssh_keyname</em></em>
   ```
 
   {% endlinux %}
