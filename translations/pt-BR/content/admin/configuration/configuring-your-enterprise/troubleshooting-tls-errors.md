@@ -1,12 +1,13 @@
 ---
-title: Solução de problemas de SSL
-intro: 'Em caso de problemas de SSL com seu appliance, veja o que você pode fazer para resolvê-los.'
+title: Troubleshooting TLS errors
+intro: 'If you run into TLS issues with your appliance, you can take actions to resolve them.'
 redirect_from:
   - /enterprise/admin/articles/troubleshooting-ssl-errors
   - /enterprise/admin/categories/dns-ssl-and-subdomain-configuration
   - /enterprise/admin/installation/troubleshooting-ssl-errors
   - /enterprise/admin/configuration/troubleshooting-ssl-errors
   - /admin/configuration/troubleshooting-ssl-errors
+  - /admin/configuration/configuring-your-enterprise/troubleshooting-ssl-errors
 versions:
   ghes: '*'
 type: how_to
@@ -17,7 +18,7 @@ topics:
   - Networking
   - Security
   - Troubleshooting
-shortTitle: Solucionar problemas de erros SSL
+shortTitle: Troubleshoot TLS errors
 ---
 
 ## Remover a frase secreta do arquivo de chave
@@ -37,7 +38,7 @@ A senha da chave será solicitada quando você executar esse comando.
 
 Para obter mais informações sobre o OpenSSL, consulte a [Documentação do OpenSSL](https://www.openssl.org/docs/).
 
-## Converter o certificado ou chave SSL em formato PEM
+## Converting your TLS certificate or key into PEM format
 
 Se você tiver o OpenSSL instalado, é possível converter sua chave em formato PEM com o comando `openssl`. Por exemplo, você pode converter uma chave do formato DER para o formato PEM.
 
@@ -49,11 +50,11 @@ Se não tiver, você pode usar a ferramenta SSL Converter para converter seu cer
 
 ## Instalação parada após upload de chave
 
-Se a {% data variables.product.product_location %} parar de funcionar após o upload de uma chave SSL, [entre em contato com o suporte do {% data variables.product.prodname_enterprise %}](https://enterprise.github.com/support) informando detalhes específicos, inclusive uma cópia do seu certificado SSL.
+If {% data variables.product.product_location %} is unresponsive after uploading an TLS key, please [contact {% data variables.product.prodname_enterprise %} Support](https://enterprise.github.com/support) with specific details, including a copy of your TLS certificate.
 
 ## Erros de validade de certificado
 
-Se não conseguirem verificar a validade de um certificado SSL, clientes como navegadores da web e Gits de linha de comando exibirão uma mensagem de erro. Isso costuma acontecer com certificados autoassinados e certificados de "raiz encadeada" emitidos a partir de um certificado raiz intermediário não reconhecido pelo cliente.
+Clients such as web browsers and command-line Git will display an error message if they cannot verify the validity of an TLS certificate. Isso costuma acontecer com certificados autoassinados e certificados de "raiz encadeada" emitidos a partir de um certificado raiz intermediário não reconhecido pelo cliente.
 
 Se você estiver usando um certificado assinado por uma autoridade de certificação (CA), o arquivo de certificado que você carregar no {% data variables.product.prodname_ghe_server %} deverá incluir uma cadeia de certificados com o certificado raiz da autoridade certificada em questão. Para criar esse arquivo, concatene toda a sua cadeia de certificados (ou "pacote de certificados") até o fim, garantindo que o certificado principal com o nome de host seja o primeiro. Na maioria dos sistemas, fazer isso é possível com um comando semelhante ao seguinte:
 
@@ -61,7 +62,7 @@ Se você estiver usando um certificado assinado por uma autoridade de certifica�
 $ cat yourdomain.com.crt bundle-certificates.crt > yourdomain.combined.crt
 ```
 
-Você deve poder baixar um pacote de certificados (por exemplo, `bundle-certificates.crt`) da sua autoridade certificada ou do fornecedor de SSL.
+You should be able to download a certificate bundle (for example, `bundle-certificates.crt`) from your certificate authority or TLS vendor.
 
 ## Instalar certificados raiz de autoridade de certificação (CA) autoassinada ou não confiável
 
@@ -81,6 +82,6 @@ Se o seu appliance do {% data variables.product.prodname_ghe_server %} interage 
   $ ghe-ssl-ca-certificate-install -c rootCA.crt
   ```
 
-## Atualizando um certificado SSL
+## Updating a TLS certificate
 
-É possível gerar um novo certificado autoassinado ou atualizar um certificado SSL existente para {% data variables.product.product_location %} com o utilitário da linha de comando `ghe-ssl-certificate-setup`. Para obter mais informações, consulte "[Utilitários de linha de comando](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-ssl-ca-certificate-setup)".
+You can generate a new self-signed certificate or update an existing TLS certificate for {% data variables.product.product_location %} with the `ghe-ssl-certificate-setup` command line utility. Para obter mais informações, consulte "[Utilitários de linha de comando](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-ssl-ca-certificate-setup)".
