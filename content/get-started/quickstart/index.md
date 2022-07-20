@@ -16,7 +16,8 @@ children:
   - /set-up-git
   - /create-a-repo
   - /fork-a-repo
-  - /github-flow
+  - /github-flow 
+  - /github-follow 
   - /contributing-to-projects
   - /be-social
   - /communicating-on-github
