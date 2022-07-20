@@ -270,6 +270,7 @@ translations/ja-JP/data/reusables/actions/enterprise-marketplace-actions.md,brok
 translations/ja-JP/data/reusables/actions/enterprise-no-internet-actions.md,broken liquid tags
 translations/ja-JP/data/reusables/actions/enterprise-postinstall-nextsteps.md,broken liquid tags
 translations/ja-JP/data/reusables/actions/ghes-actions-not-enabled-by-default.md,broken liquid tags
+translations/ja-JP/data/reusables/actions/more-resources-for-ghes.md,broken liquid tags
 translations/ja-JP/data/reusables/actions/self-hosted-runner-architecture.md,broken liquid tags
 translations/ja-JP/data/reusables/actions/self-hosted-runner-auto-removal.md,broken liquid tags
 translations/ja-JP/data/reusables/actions/self-hosted-runner-reusing.md,broken liquid tags
@@ -277,6 +278,7 @@ translations/ja-JP/data/reusables/actions/self-hosted-runners-prerequisites.md,b
 translations/ja-JP/data/reusables/advanced-security/about-committer-numbers-ghec-ghes.md,broken liquid tags
 translations/ja-JP/data/reusables/advanced-security/license-overview.md,broken liquid tags
 translations/ja-JP/data/reusables/apps/user-to-server-rate-limits-ghec.md,broken liquid tags
+translations/ja-JP/data/reusables/audit_log/audit-log-action-categories.md,broken liquid tags
 translations/ja-JP/data/reusables/classroom/classroom-codespaces-link.md,broken liquid tags
 translations/ja-JP/data/reusables/code-scanning/enterprise-enable-code-scanning-actions.md,broken liquid tags
 translations/ja-JP/data/reusables/code-scanning/enterprise-enable-code-scanning.md,broken liquid tags
