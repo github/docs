@@ -1,10 +1,13 @@
 #!/usr/bin/env node
+import chalk from 'chalk'
+
 import languages from '../../lib/languages.js'
 import buildRecords from './build-records.js'
 import findIndexablePages from './find-indexable-pages.js'
 import { allVersions } from '../../lib/all-versions.js'
 import { namePrefix } from '../../lib/search/config.js'
 import LunrIndex from './lunr-search-index.js'
+import { writeIndexRecords } from './search-index-records.js'
 
 // Build a search data file for every combination of product version and language
 // e.g. `github-docs-dotcom-en.json` and `github-docs-2.14-ja.json`
@@ -14,6 +17,8 @@ export default async function syncSearchIndexes({
   dryRun,
   notLanguage,
   outDirectory,
+  compressFiles,
+  generateLunrIndex,
 }) {
   const t0 = new Date()
 
@@ -28,7 +33,9 @@ export default async function syncSearchIndexes({
   )
 
   console.log(
-    `Building indices for ${language || 'all languages'} and ${version || 'all versions'}.\n`
+    `Building indices for ${chalk.yellow(language || 'all languages')} and ${chalk.yellow(
+      version || 'all versions'
+    )}.\n`
   )
 
   // Exclude WIP pages, hidden pages, index pages, etc
@@ -67,11 +74,19 @@ export default async function syncSearchIndexes({
         languageCode,
         redirects
       )
-      const index = new LunrIndex(indexName, records)
+      if (generateLunrIndex) {
+        const index = new LunrIndex(indexName, records)
 
-      if (!dryRun) {
-        await index.write(outDirectory)
-        console.log('wrote index to file: ', indexName)
+        if (!dryRun) {
+          await index.write({ outDirectory, compressFiles })
+          console.log('wrote index to file: ', indexName)
+        }
+      } else {
+        const fileWritten = await writeIndexRecords(indexName, records, {
+          outDirectory,
+          compressFiles,
+        })
+        console.log(`wrote records to ${fileWritten}`)
       }
     }
   }
