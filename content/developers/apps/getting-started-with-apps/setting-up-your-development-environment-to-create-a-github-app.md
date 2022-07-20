@@ -23,27 +23,13 @@ After completing this project you will understand how to authenticate as a GitHu
 
 Here are the steps you'll take to configure the template GitHub App:
 
-- [Introduction](#introduction)
-- [Prerequisites](#prerequisites)
-- [Step 1. Start a new Smee channel](#step-1-start-a-new-smee-channel)
-- [Step 2. Register a new GitHub App](#step-2-register-a-new-github-app)
-- [Step 3. Save your private key and App ID](#step-3-save-your-private-key-and-app-id)
-- [Step 4. Prepare the runtime environment](#step-4-prepare-the-runtime-environment)
-- [Step 5. Review the GitHub App template code](#step-5-review-the-github-app-template-code)
-  - [Read the environment variables](#read-the-environment-variables)
-  - [Turn on logging](#turn-on-logging)
-  - [Define a before filter](#define-a-before-filter)
-  - [Define a route handler](#define-a-route-handler)
-  - [Define the helper methods](#define-the-helper-methods)
-    - [Handling the webhook payload](#handling-the-webhook-payload)
-    - [Verifying the webhook signature](#verifying-the-webhook-signature)
-    - [Authenticating as a GitHub App](#authenticating-as-a-github-app)
-    - [Authenticating as an installation](#authenticating-as-an-installation)
-- [Step 6. Start the server](#step-6-start-the-server)
-- [Step 7. Install the app on your account](#step-7-install-the-app-on-your-account)
-- [Troubleshooting](#troubleshooting)
-- [Conclusion](#conclusion)
-- [Next steps](#next-steps)
+1. [Start a new Smee channel](#step-1-start-a-new-smee-channel)
+1. [Register a new GitHub App](#step-2-register-a-new-github-app)
+1. [Save your private key and App ID](#step-3-save-your-private-key-and-app-id)
+1. [Prepare the runtime environment](#step-4-prepare-the-runtime-environment)
+1. [Review the GitHub App template code](#step-5-review-the-github-app-template-code)
+1. [Start the server](#step-6-start-the-server)
+1. [Install the app on your account](#step-7-install-the-app-on-your-account)
 
 {% data reusables.apps.app-ruby-guides %}
 
