@@ -71,7 +71,7 @@ Para assinar commits usando GPG e para que esses commits sejam verificados no {%
 
 1. [Verificar se há chaves GPG existentes](/articles/checking-for-existing-gpg-keys)
 2. [Gerar uma nova chave GPG](/articles/generating-a-new-gpg-key)
-3. [Adicionar uma nova chave GPG à sua conta do GitHub](/articles/adding-a-new-gpg-key-to-your-github-account)
+3. [Add a GPG key to your GitHub account](/articles/adding-a-gpg-key-to-your-github-account)
 4. [Informar o Git sobre a chave de assinatura](/articles/telling-git-about-your-signing-key)
 5. [Assinar commits](/articles/signing-commits)
 6. [Assinar tags](/articles/signing-tags)

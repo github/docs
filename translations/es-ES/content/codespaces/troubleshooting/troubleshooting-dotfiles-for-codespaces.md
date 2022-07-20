@@ -14,9 +14,9 @@ shortTitle: Dotfiles
 Si tu codespace falla en tomar ajustes de configuración de dotfiles, debes trabajar con los siguientes pasos de depuración.
 
 1. Asegúrate que tu repositorio de dotfiles sea público. Si tienes secretos o datos sensibles que quieras utilizar en tu codespace, utiliza los [Secretos de codespace](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces) en vez de los dotfiles privados.
-2. Enable dotfiles by selecting **Automatically install dotfiles** in [your personal Codespaces settings](https://github.com/settings/codespaces).
+2. Habilita los dotfiles seleccionando **Instalar los dotfiles automáticamente** en [los ajustes de tus Codespaces personales](https://github.com/settings/codespaces).
 
-   ![The 'Automatically install dotfiles' option](/assets/images/help/codespaces/automatically-install-dotfiles.png)
+   ![La opción de 'Automatically install dotfiles'](/assets/images/help/codespaces/automatically-install-dotfiles.png)
 
 3. Verifica `/workspaces/.codespaces/.persistedshare/dotfiles` para ver si se clonaron tus dotfiles.
    - Si se clonaron tus dotfiles, intenta volver a ejecutar tu script de instalación manualmente para verificar que sea ejecutable.
