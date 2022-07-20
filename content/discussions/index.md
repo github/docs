@@ -31,7 +31,7 @@ versions:
   ghec: '*'
 communityRedirect:
   name: Provide GitHub Feedback
-  href: 'https://github.com/github-community/community/discussions/categories/discussions'
+  href: 'https://github.com/orgs/community/discussions/categories/discussions'
 children:
   - /quickstart
   - /guides
