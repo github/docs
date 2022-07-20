@@ -10,7 +10,7 @@ shortTitle: Customize containers used by jobs
 
 {% note %}
 
-**Note**: This feature is currently in beta and is subject to change.
+**Nota**: Esta característica se encuentra actualmente en beta y está sujeta a cambios.
 
 {% endnote %}
 

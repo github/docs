@@ -594,7 +594,7 @@ gh api graphql -f query='
 
 {% note %}
 
-**Nota:** No puedes utilizar `updateProjectV2ItemFieldValue` para cambiar los `Assignees`, `Labels`, `Milestone` o `Repository`, porque estos cambios son propiedades de las propuestas y solicitudes de cambio y no son elementos de proyecto. Instead, you may use the following mutations:
+**Nota:** No puedes utilizar `updateProjectV2ItemFieldValue` para cambiar los `Assignees`, `Labels`, `Milestone` o `Repository`, porque estos cambios son propiedades de las propuestas y solicitudes de cambio y no son elementos de proyecto. En vez de esto, podrías utilizar las siguientes mutaciones:
 
 - [addAssigneesToAssignable](/graphql/reference/mutations#addassigneestoassignable)
 - [removeAssigneesFromAssignable](/graphql/reference/mutations#removeassigneesfromassignable)

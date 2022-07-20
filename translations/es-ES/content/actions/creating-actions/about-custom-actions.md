@@ -88,7 +88,7 @@ Esta sección explica cómo puedes utilizar la administración de lanzamientos p
 
 ### Buenas prácticas para la administración de lanzamientos
 
-Si estás desarrollando una acción para que la utilicen otras personas, te recomendamos utilizar la administración de lanzamientos para controlar cómo distribuyes las actualizaciones. Users can expect an action's patch version to include necessary critical fixes and security patches, while still remaining compatible with their existing workflows. Deberías considerar lanzar una versión mayor cada que tus cambios afecten la compatibilidad.
+Si estás desarrollando una acción para que la utilicen otras personas, te recomendamos utilizar la administración de lanzamientos para controlar cómo distribuyes las actualizaciones. Los usuarios pueden esperar que una versión de parche de una acción incluya las correcciones y parches de seguridad críticos y necesarios mientras aún sigue siendo compatible con sus flujo de trabajo existentes. Deberías considerar lanzar una versión mayor cada que tus cambios afecten la compatibilidad.
 
 Bajo este acercamiento de administración de lanzamientos, los usuarios no deberían referenciar una rama predeterminada de una acción, ya que es probable que contenga el código más reciente y, en consecuencia, podría ser inestable. En vez de esto, puedes recomendar a tus usuarios que especifiquen una versión mayor cuando utilicen tu acción, y únicamente dirigirlos a una versión más específica si encuentran algún problema.
 
