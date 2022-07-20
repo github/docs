@@ -33,12 +33,12 @@ shortTitle: Existing GPG keys
       $ gpg --armor --export <em>3AA5C34371567BD2</em>
       # Prints the GPG key ID, in ASCII armor format
       ```
-      You can then [add your GPG key to your GitHub account](/articles/adding-a-new-gpg-key-to-your-github-account).
+      You can then [add your GPG key to your GitHub account](/articles/adding-a-gpg-key-to-your-github-account).
 
 ## 参考リンク
 
 * [新しい GPG キーの生成](/articles/generating-a-new-gpg-key)
-* [GitHub アカウントへの新しい GPG キーの追加](/articles/adding-a-new-gpg-key-to-your-github-account)
+* "[Adding a GPG key to your GitHub account](/articles/adding-a-gpg-key-to-your-github-account)"
 * 「[Git へ署名キーを伝える](/articles/telling-git-about-your-signing-key)」
 * [GPG キーとメールの関連付け](/articles/associating-an-email-with-your-gpg-key)
 * 「[コミットに署名する](/articles/signing-commits)」
