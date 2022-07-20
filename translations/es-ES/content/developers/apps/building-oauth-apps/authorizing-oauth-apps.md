@@ -134,7 +134,7 @@ Antes de que puedas utilizar el flujo de dispositivos para autorizar e identific
 
 ### Resumen del flujo de dispositivos
 
-1. Tu app solicita el dispositivo y los códigos de verificación de usuario y obtiene una URL de autoización en donde el usuario ignresará su código de verificación de usuario.
+1. Tu app solicita el dispositivo y los códigos de verificación de usuario y obtiene una URL de autoización en donde el usuario ingresará su código de verificación de usuario.
 2. La app pide al usuario ingresar un código de verificación de usuario en {% data variables.product.device_authorization_url %}.
 3.  La app sondea el estado de autenticación del usuario. Una vez que el usuario haya autorizado el dispositivo, la app podrá hacer llamadas a la API con un token de acceso nuevo.
 
