@@ -6,7 +6,7 @@ links:
     description: Docs Engineering observability docs
     kind: docs
     service: docs-internal
-    url: https://github.com/github/docs-engineering/blob/main/docs/observability/docs.github.com.md
+    url: https://github.com/microsoft/code-with-engineering-playbook/blob/main/docs/observability/README.md
   - name: Datadog dashboard
     description: Production Datadog dashboard
     kind: dashboard
