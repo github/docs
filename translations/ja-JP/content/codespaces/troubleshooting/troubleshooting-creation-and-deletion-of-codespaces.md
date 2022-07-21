@@ -14,7 +14,7 @@ shortTitle: Creation and deletion
 ## Creating codespaces
 
 ### No access to create a codespace
-{% data variables.product.prodname_codespaces %} are not available for all repositories. If the "Open with Codespaces" button is missing, {% data variables.product.prodname_codespaces %} may not be available for that repository. 詳しい情報については、「[codespace を作成する](/codespaces/developing-in-codespaces/creating-a-codespace#access-to-codespaces)」を参照してください。
+{% data variables.product.prodname_codespaces %} are not available for all repositories. If the "Open with Codespaces" button is missing, {% data variables.product.prodname_github_codespaces %} may not be available for that repository. 詳しい情報については、「[codespace を作成する](/codespaces/developing-in-codespaces/creating-a-codespace#access-to-codespaces)」を参照してください。
 
 If you believe your organization has [enabled {% data variables.product.prodname_codespaces %}](/codespaces/managing-codespaces-for-your-organization/enabling-codespaces-for-your-organization#about-enabling-codespaces-for-your-organization), make sure that an organization owner or billing manager has set the spending limit for {% data variables.product.prodname_codespaces %}. 詳しい情報については「[{% data variables.product.prodname_codespaces %}の利用上限の管理](/billing/managing-billing-for-github-codespaces/managing-spending-limits-for-codespaces)」を参照してください。
 
@@ -23,7 +23,7 @@ If you believe your organization has [enabled {% data variables.product.prodname
 If you create a codespace and it does not open:
 
 1. Try reloading the page in case there was a caching or reporting problem.
-2. Go to your {% data variables.product.prodname_codespaces %} page: https://github.com/codespaces and check whether the new codespace is listed there. The process may have successfully created the codespace but failed to report back to your browser. If the new codespace is listed, you can open it directly from that page.
+2. Go to your {% data variables.product.prodname_github_codespaces %} page: https://github.com/codespaces and check whether the new codespace is listed there. The process may have successfully created the codespace but failed to report back to your browser. If the new codespace is listed, you can open it directly from that page.
 3. Retry creating the codespace for the repository to rule out a transient communication failure.
 
 If you still cannot create a codespace for a repository where {% data variables.product.prodname_codespaces %} are available, {% data reusables.codespaces.contact-support %}

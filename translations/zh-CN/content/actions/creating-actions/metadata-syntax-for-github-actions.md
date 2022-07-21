@@ -369,9 +369,13 @@ runs:
 ```
 {% endif %}
 
+{% ifversion ghes > 3.5 or ghae-issue-6573 %}
+
 #### `runs.steps[*].continue-on-error`
 
 **可选**  防止在步骤失败时操作失败。 设置为 `true` 以允许在此步骤失败时通过操作。
+
+{% endif %}
 
 ## 用于 Docker 容器操作的 `runs`
 

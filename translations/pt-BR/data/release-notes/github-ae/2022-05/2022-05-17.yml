@@ -117,8 +117,6 @@ sections:
         - |
           Agora você pode alternar entre a exibição de origem e a exibição interpretada do Markdown através da interface do usuário da web clicando no botão {% octicon "code" aria-label="The Code icon" %} para "Exibir o diff de origem" na parte superior de qualquer arquivo do Markdown. Anteriormente, você precisava usar a vista do último responsável para vincular a números de linha específicos na fonte de um arquivo Markdown.
         - |
-          Agora você pode adicionar imagens e vídeos aos arquivos Markdown nos gists, colando-os no corpo do Markdown ou selecionando-os da caixa de diálogo na parte inferior do arquivo Markdown. Para obter informações sobre tipos de arquivos compatíveis, consulte "[Anexando arquivos](/github/writing-on-github/working-with-advanced-formatting/attaching-files)."
-        - |
           O GitHub AE agora gera automaticamente uma tabela de conteúdos para Wikis, baseada em cabeçalhos.
   changes:
     - 
@@ -189,3 +187,8 @@ sections:
       notes:
         - |
           Ao arrastar e soltar arquivos como imagens e vídeos para um editor de Markdown, o GitHub AE agora usa a localização do ponteiro do mouse em vez do cursor ao colocar o arquivo.
+    - 
+      heading: 'API REST'
+      notes:
+        - |
+          REST API previews have now graduated and are an official part of the API. Preview headers are no longer required for REST API endpoints, but will still function as expected if you continue to specify a graduated preview in the `Accept` header of a request.

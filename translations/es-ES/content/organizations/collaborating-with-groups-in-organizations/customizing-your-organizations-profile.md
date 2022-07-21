@@ -11,14 +11,13 @@ topics:
 shortTitle: Personalizar el perfil de una organización
 ---
 
-{% ifversion org-profile-pin-private %}
 
 ## Acerca de la página de perfil de la organización
 
+{% ifversion org-profile-pin-private %}
 Puedes personalizar la página de resumen de tu organización para mostrar el contenido dedicado a los usuarios públicos o miembros de la organización. Los miembros de tu organización quienes hayan iniciado sesión en {% data variables.product.prodname_dotcom %} tendrán una vista de miembro cuando visiten la página de perfil de tu organización. Los usuarios que no sean miembros de tu organización tendrán una vista pública.
 
 ![Imagen de una página de perfil de organización](/assets/images/help/organizations/new_organization_page.png)
-{% endif %}
 
 ### Repositorios anclados
 
@@ -27,6 +26,7 @@ Puedes darle a los usuarios un acceso fácil a los repositorios importantes o qu
 Solo los propietarios de la organización pueden fijar repositorios. Para obtener más información, consulta la sección "[Fijar repositorios a tu perfil de organización](#pinning-repositories-to-your-organizations-profile)".
 
 ### README de perfil de organización
+{% endif %}
 
 Puedes compartir información sobre cómo participar con tu organización creando un README de perfil para ella, tanto para sus miembros como para los usuarios públicos. {% data variables.product.prodname_dotcom %} te muestra el README del perfil de tu organización en la pestaña de "Resumen" de tu organización.
 
@@ -57,7 +57,7 @@ Puedes formatear el texto e incluir emojis, imágenes y GIFs en el README del pe
 
 ## Fijar repositorios a tu perfil de organización
 
-Puedes fijar repositorios que quieras destacar, tales como aquellos que se utilizan frecuentemente, a la página de perfil de tu organización. Para elegir qué repositorios fijar al perfil de tu organización, debes ser un propietario o administrador de esta.
+Puedes fijar repositorios que quieras destacar, tales como aquellos que se utilizan frecuentemente, a la página de perfil de tu organización. To choose which repositories to pin to your organization's profile, you must be an organization owner.
 
 1. Navega a la página de perfil de tu organización.
 2. En la barra lateral derecha de la página, en el enlace de {% octicon "eye" aria-label="The eye octicon" %} "Ver como", elige la vista de perfil **Pública** o de **Miembro** del menú desplegable.

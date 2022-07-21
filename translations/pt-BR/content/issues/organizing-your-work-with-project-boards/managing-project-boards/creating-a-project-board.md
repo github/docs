@@ -35,6 +35,8 @@ Também é possível configurar automações de fluxo de trabalho para manter se
 
 ## Criar um quadro de projeto de propriedade do usuário
 
+{% data reusables.projects.classic-project-creation %}
+
 {% data reusables.profile.access_profile %}
 2. No topa da página do seu perfil, na navegação principal, clique em {% octicon "project" aria-label="The project board icon" %} **Projects** (Projetos). ![Aba Project (Projeto)](/assets/images/help/projects/user-projects-tab.png)
 {% data reusables.project-management.click-new-project %}
@@ -53,6 +55,8 @@ Também é possível configurar automações de fluxo de trabalho para manter se
 {% data reusables.project-management.edit-project-columns %}
 
 ## Criar um quadro de projeto em toda a organização
+
+{% data reusables.projects.classic-project-creation %}
 
 {% data reusables.profile.access_org %}
 {% data reusables.user-settings.access_org %}
@@ -73,6 +77,8 @@ Também é possível configurar automações de fluxo de trabalho para manter se
 {% data reusables.project-management.edit-project-columns %}
 
 ## Criar um quadro de projeto de repositório
+
+{% data reusables.projects.classic-project-creation %}
 
 {% data reusables.repositories.navigate-to-repo %}
 2. Abaixo do nome do repositório, clique em {% octicon "project" aria-label="The project board icon" %} **Projects** (Projetos). ![Aba Project (Projeto)](/assets/images/help/projects/repo-tabs-projects.png)
