@@ -217,7 +217,7 @@
 - /github/setting-up-and-managing-your-enterprise/adding-organizations-to-your-enterprise-account
 - /admin/user-management/managing-organizations-in-your-enterprise/adding-organizations-to-your-enterprise
 
-/enterprise-cloud@latest/admin/user-management/managing-organizations-in-your-enterprise/managing-unowned-organizations-in-your-enterprise
+/enterprise-cloud@latest/admin/user-management/managing-organizations-in-your-enterprise
 - /github/setting-up-and-managing-your-enterprise/managing-organizations-in-your-enterprise-account/managing-unowned-organizations-in-your-enterprise-account
 - /github/setting-up-and-managing-your-enterprise-account/managing-unowned-organizations-in-your-enterprise-account
 - /github/setting-up-and-managing-your-enterprise/managing-unowned-organizations-in-your-enterprise-account
@@ -340,7 +340,7 @@
 - /github/setting-up-and-managing-organizations-and-teams/accessing-your-organization-if-your-identity-provider-is-unavailable
 - /organizations/managing-saml-single-sign-on-for-your-organization/accessing-your-organization-if-your-identity-provider-is-unavailable
 
-/enterprise-cloud@latest/organizations/managing-saml-single-sign-on-for-your-organization/troubleshooting-identity-and-access-management
+/enterprise-cloud@latest/organizations/managing-saml-single-sign-on-for-your-organization/troubleshooting-identity-and-access-management-for-your-organization
 - /organizations/managing-saml-single-sign-on-for-your-organization/troubleshooting-identity-and-access-management
 
 /enterprise-cloud@latest/organizations/granting-access-to-your-organization-with-saml-single-sign-on
