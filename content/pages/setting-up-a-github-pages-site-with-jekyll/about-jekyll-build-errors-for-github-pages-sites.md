@@ -30,7 +30,13 @@ shortTitle: Jekyll build errors for Pages
 
 {% endnote %}
 
+{% ifversion build-pages-with-actions %}
 If Jekyll does attempt to build your site and encounters an error, you will receive a build error message.
+{% else %}
+If Jekyll does attempt to build your site and encounters an error, you will receive a build error message. There are two main types of Jekyll build error messages.
+- A "Page build warning" message means your build completed successfully, but you may need to make changes to prevent future problems.
+- A "Page build failed" message means your build failed to complete. If Jekyll is able to detect a reason for the failure, you'll see a descriptive error message.
+{% endif %}
 
 For more information about troubleshooting build errors, see "[Troubleshooting Jekyll build errors for {% data variables.product.prodname_pages %} sites](/articles/troubleshooting-jekyll-build-errors-for-github-pages-sites)."
 
