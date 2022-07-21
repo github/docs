@@ -1,5 +1,5 @@
 ---
-title: Reviewing your security logs for GitHub Codespaces
+title: 查看 GitHub Codespaces 的安全日志
 shortTitle: 安全日志
 intro: '您可以使用安全日志查看与 {% data variables.product.prodname_github_codespaces %} 相关的所有操作。'
 product: '{% data reusables.gated-features.codespaces %}'

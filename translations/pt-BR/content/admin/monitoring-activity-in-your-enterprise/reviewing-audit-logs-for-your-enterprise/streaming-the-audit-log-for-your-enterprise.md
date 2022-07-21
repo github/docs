@@ -47,6 +47,7 @@ Você pode configurar a transmissão para S3 com chaves de acesso ou, para evita
 
 - [Configurando a transmissão para S3 com chaves de acesso](#setting-up-streaming-to-s3-with-access-keys)
 - [Configurando a transmissão para S3 com OpenID Connect](#setting-up-streaming-to-s3-with-openid-connect)
+- [Disabling streaming to S3 with OpenID Connect](#disabling-streaming-to-s3-with-openid-connect)
 
 #### Configurando a transmissão para S3 com chaves de acesso
 {% endif %}
@@ -123,6 +124,13 @@ Para obter informações sobre como criar ou acessar sua chave de acesso e chave
    - Em "Função ARN" digite a função ARN que você anotou anteriormente. Por exemplo, `arn:aws::iam::1234567890:role/github-audit-log-log-streaming-role`.
 {% data reusables.audit_log.streaming-check-s3-endpoint %}
 {% data reusables.enterprise.verify-audit-log-streaming-endpoint %}
+
+#### Disabling streaming to S3 with OpenID Connect
+
+If you want to disable streaming to S3 with OIDC for any reason, such as the discovery of a security vulnerability in OIDC, delete the {% data variables.product.prodname_dotcom %} OIDC provider you created in AWS when you set up streaming. Para obter mais informações, consulte [Criando os provedores de identidade do OpenID Connect (OIDC)](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_create_oidc.html) na documentação do AWS.
+
+Then, set up streaming with access keys until the vulnerability is resolved. For more information, see "[Setting up streaming to S3 with access keys](#setting-up-streaming-to-s3-with-access-keys)."
+
 {% endif %}
 
 ### Configurando a transmissão para o Azure Blob Storage

@@ -13,7 +13,7 @@ type: how_to
 
 By default, {% data variables.product.prodname_codespaces %} are automatically deleted after they have been stopped and have remained inactive for 30 days.
 
-However, because {% data variables.product.prodname_codespaces %} incur storage charges, you may prefer to reduce the retention period by changing your default period in your personal settings for {% data variables.product.prodname_github_codespaces %}. For more information about storage charges, see "[About billing for Codespaces](/billing/managing-billing-for-github-codespaces/about-billing-for-codespaces#codespaces-pricing)."
+However, because {% data variables.product.prodname_codespaces %} incur storage charges, you may prefer to reduce the retention period by changing your default period in your personal settings for {% data variables.product.prodname_github_codespaces %}. For more information about storage charges, see "[About billing for {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#codespaces-pricing)."
 
 {% note %}
 
@@ -50,7 +50,7 @@ Each codespace has its own retention period. You may, therefore, have codespaces
 
    {% warning %}
 
-   **Warning**: Setting the period to `0` will result in your codespaces being immediately deleted when you stop them, or when they timeout due to inactivity. For more information, see "[Setting your timeout period for Codespaces](/codespaces/customizing-your-codespace/setting-your-timeout-period-for-codespaces)."
+   **Warning**: Setting the period to `0` will result in your codespaces being immediately deleted when you stop them, or when they timeout due to inactivity. For more information, see "[Setting your timeout period for {% data variables.product.prodname_github_codespaces %}](/codespaces/customizing-your-codespace/setting-your-timeout-period-for-github-codespaces)."
 
    {% endwarning %}
 

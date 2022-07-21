@@ -1,5 +1,5 @@
 ---
-title: About GitHub Codespaces prebuilds
+title: 关于 GitHub Codespaces 预构建
 shortTitle: 关于预构建
 intro: 代码空间预构建有助于加快为大型或复杂存储库创建新代码空间的速度。
 versions:

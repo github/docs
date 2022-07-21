@@ -1,4 +1,4 @@
-1. Para evitar sincronizar los errores y confirmar que tus usuarios tienen habilitado SAML y las identidades enlazadas de SCIM, te recomendamos que audites a los usuarios de tu organizción. For more information, see "[Troubleshooting identity and access management for your organization](/organizations/managing-saml-single-sign-on-for-your-organization/troubleshooting-identity-and-access-management-for-your-organization)."
+1. Para evitar sincronizar los errores y confirmar que tus usuarios tienen habilitado SAML y las identidades enlazadas de SCIM, te recomendamos que audites a los usuarios de tu organizción. Para obtener más información, consulta la sección "[Solucionar problemas de administración de identidad y acceso para tu organización](/organizations/managing-saml-single-sign-on-for-your-organization/troubleshooting-identity-and-access-management-for-your-organization)".
 
 1. A la derecha de "Aprovisionar a la App", da clic en **Editar**.
 

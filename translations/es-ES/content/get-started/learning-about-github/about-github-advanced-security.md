@@ -62,12 +62,11 @@ Para obtener más información sobre las características de {% data variables.p
 Las características de la {% data variables.product.prodname_GH_advanced_security %} se habilitan para todos los repositorios en {% data variables.product.prodname_dotcom_the_website %}{% ifversion ghec %}, con excepción del resumen de seguridad{% endif %}. Las organizaciones que utilizan {% data variables.product.prodname_ghe_cloud %} con la {% data variables.product.prodname_advanced_security %} pueden habilitar estas características adicionalmente para repositorios privados e internos. También tienen acceso a un resumen de seguridad a nivel organziacional. {% ifversion fpt %}Para obtener más información, consulta la [documentación de {% data variables.product.prodname_ghe_cloud %}](/enterprise-cloud@latest/get-started/learning-about-github/about-github-advanced-security#enabling-advanced-security-features).{% endif %}
 {% endif %}
 
-{% ifversion ghes or ghec %}
+{% ifversion ghes > 3.1 or ghec %}
 ## Desplegar GitHub Advanced Security en tu empresa
 
-Para aprender más sobre lo que necesitas saber para planear tu despliegue de la {% data variables.product.prodname_GH_advanced_security %} en un nivel superior, consulta el "[Resumen del despliegue de {% data variables.product.prodname_GH_advanced_security %}](/admin/advanced-security/overview-of-github-advanced-security-deployment)".
+Para aprender más sobre lo que necesitas saber para planear tu despliegue de {% data variables.product.prodname_GH_advanced_security %} en un nivel alto para revisar las fases de implementación que recomendamos, consulta la sección "[Adoptar la {% data variables.product.prodname_GH_advanced_security %} a escala](/code-security/adopting-github-advanced-security-at-scale)".
 
-Para revisar las fases de implementación, te recomendamos ver con más detalle la sección "[Desplegar la {% data variables.product.prodname_GH_advanced_security %} en tu empresa](/admin/advanced-security/deploying-github-advanced-security-in-your-enterprise)".
 {% endif %}
 
 {% ifversion not fpt %}

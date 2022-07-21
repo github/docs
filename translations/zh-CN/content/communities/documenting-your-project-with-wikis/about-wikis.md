@@ -21,7 +21,7 @@ topics:
 
 {% ifversion fpt or ghes or ghec %}如果您在公共仓库中创建 wiki，则该 wiki 可供{% ifversion ghes %}具有 {% data variables.product.product_location %} 访问权限的任何人{% else %}公共{% endif %}访问。 {% endif %}如果您在私有{% ifversion ghec or ghes %} 或内部{% endif %} 存储库中创建 Wiki，则仅有权访问该仓库的{% ifversion fpt or ghes or ghec %}人员{% elsif ghae %}企业成员{% endif %} 才能访问该 Wiki。 更多信息请参阅“[设置仓库可见性](/articles/setting-repository-visibility)”。
 
-您可以直接在 {% data variables.product.product_name %} 上编辑 wikis，也可在本地编辑 wiki 文件。 默认情况下，只有能够写入仓库的人才可更改 wikis，但您可以允许 {% data variables.product.product_location %} 上的每个人参与{% ifversion ghae %}内部{% else %}公共{% endif %}仓库中的 wiki。 更多信息请参阅“[更改 wikis 的访问权限](/communities/documenting-your-project-with-wikis/changing-access-permissions-for-wikis)”。
+您可以直接在 {% data variables.product.product_name %} 上编辑 wikis，也可在本地编辑 wiki 文件。 默认情况下，只有能够写入仓库的人才可更改 wikis，但您可以允许 {% data variables.product.product_location %} 上的每个人参与{% ifversion ghae %}内部{% else %}公共{% endif %}仓库中的 wiki。 For more information, see "[Changing access permissions for wikis](/communities/documenting-your-project-with-wikis/changing-access-permissions-for-wikis)."
 
 {% note %}
 

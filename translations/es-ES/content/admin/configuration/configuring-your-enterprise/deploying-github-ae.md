@@ -20,15 +20,15 @@ Después de que compras o inicias un periodo de prueba de {% data variables.prod
 
 ## Prerrequisitos
 
-- Antes de que puedas desplegar {% data variables.product.product_name %}, debes solicitar acceso desde tu equipo de cuenta de {% data variables.product.company_short %}. {% data variables.product.company_short %} habilitará el despliegue de {% data variables.product.product_name %} para tu suscripción de Azure. If you haven't already purchased {% data variables.product.product_name %}, you can contact {% data variables.contact.contact_enterprise_sales %} to check your eligibility for a trial.
+- Antes de que puedas desplegar {% data variables.product.product_name %}, debes solicitar acceso desde tu equipo de cuenta de {% data variables.product.company_short %}. {% data variables.product.company_short %} habilitará el despliegue de {% data variables.product.product_name %} para tu suscripción de Azure. Si aún no has comprado {% data variables.product.product_name %}, puedes contactar a {% data variables.contact.contact_enterprise_sales %} para verificar tu elegibilidad de un periodo de prueba.
 
-- You must have permission to perform the `/register/action` operation for the resource provider in Azure. The permission is included in the `Contributor` and `Owner` roles. For more information, see [Azure resource providers and types](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-providers-and-types#register-resource-provider) in the Microsoft documentation.
+- Debes tener permiso para realizar la operación de `/register/action` para el proveedor de recursos en Azure. El permiso se incluye en los roles de `Contributor` y `Owner`. Para obtener más información, consulta la sección [Proveedores de recursos de Azure y sus tipos](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-providers-and-types#register-resource-provider) en la documentación de Microsoft.
 
-## Deploying {% data variables.product.product_name %} with the {% data variables.actions.azure_portal %}
+## Desplegar {% data variables.product.product_name %} con el {% data variables.actions.azure_portal %}
 
-The {% data variables.actions.azure_portal %} allows you to deploy the {% data variables.product.product_name %} account in your Azure resource group.
+El {% data variables.actions.azure_portal %} te permite desplegar la cuenta de {% data variables.product.product_name %} en tu grupo de recursos de Azure.
 
-1. Click one of the following two links to begin deployment of {% data variables.product.product_name %}. The link you should click depends on the Azure cloud where you plan to deploy {% data variables.product.product_name %}. For more information about Azure Government, see [What is Azure Government?](https://docs.microsoft.com/en-us/azure/azure-government/documentation-government-welcome) in the Microsoft documentation.
+1. Haz clic en uno de los siguientes dos enlaces para comenzar el despliegue de {% data variables.product.product_name %}. El enlace en el que debes hacer clic depende de la Azure cloud en donde planeas desplegar {% data variables.product.product_name %}. For more information about Azure Government, see [What is Azure Government?](https://docs.microsoft.com/en-us/azure/azure-government/documentation-government-welcome) in the Microsoft documentation.
 
    - [Deploy {% data variables.product.product_name %} to Azure Commercial](https://aka.ms/create-github-ae-instance)
    - [Deploy {% data variables.product.product_name %} to Azure Government](https://aka.ms/create-github-ae-instance-gov)

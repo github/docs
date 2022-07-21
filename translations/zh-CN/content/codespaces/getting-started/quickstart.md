@@ -1,5 +1,6 @@
 ---
-title: Codespaces 快速入门
+title: '{% data variables.product.prodname_github_codespaces %} 快速入门'
+shortTitle: '{% data variables.product.prodname_codespaces %} 快速入门'
 intro: '在 5 分钟内尝试 {% data variables.product.prodname_github_codespaces %}。'
 allowTitleToDifferFromFilename: true
 product: '{% data reusables.gated-features.codespaces %}'

@@ -10,9 +10,7 @@ topics:
   - Legal
 ---
 
-_这些条款适用于 1) 已接受《公司服务条款》的 GitHub.com（非企业）客户，以及 2) 在 2021 年 1 月 4 日之前已获得服务许可的企业客户。 在此日期之后购买产品或服务的企业客户将被定向至 https://github.com/enterprise-legal 了解当前条款。_
-
-感谢您选择 GitHub 满足贵公司的业务需求。 请仔细阅读本协议，因为它管辖对产品（定义如下）的使用，除非 GITHUB 在这方面与客户签订了单独的书面协议。 单击“I AGREE（我同意）”或类似按钮或者使用产品，即表示客户接受本协议的所有条款和条件。 如果客户代表公司或其他法律实体签订本协议，则表示其拥有让该公司或其他法律实体受本协议约束的法律权限。
+_These terms apply to GitHub.com customers who have executed agreements in place referencing the Corporate Terms of Service. All other business or institution customers are directed to [github.com/customer-terms](https://github.com/customer-terms) for current terms._
 
 ## GitHub 公司服务条款
 版本生效日期：2020 年 11 月 16 日
@@ -29,13 +27,13 @@ _这些条款适用于 1) 已接受《公司服务条款》的 GitHub.com（非�
 
 **“协议”**统指本文档中包含或引用的所有条款、条件、通知，以及 GitHub 可能不时在服务中发布的所有其他操作规则、政策和程序。 GitHub 的站点政策可在 [https://docs.github.com/categories/site-policy](/categories/site-policy) 上查阅。
 
-**“所有用户”**统指客户的用户以及使用服务的外部用户。
+**“All Users”** means, collectively, Customer’s Users and External Users who use the Service.
 
-**“美洲”**是指美国、加拿大、墨西哥或者中美洲、南美洲或加勒比海地区的国家。
+**“Americas”** means the United States, Canada, Mexico, or a country in Central or South America or the Caribbean.
 
-**“测试版预览”**是指识别为 alpha、beta、预览、提早访问或评估或者具有类似含义的字词或短语的软件、服务或功能。
+**"Beta Previews"** mean software, services, or features identified as alpha, beta, preview, early access, or evaluation, or words or phrases with similar meanings.
 
-**“机密信息”**是指所有任一方以书面、口头或其他方式向另一方披露、指定为机密或接收方知道或理应知道为机密、在披露的情况下为机密以及信息性质对披露方为机密的所有非公共信息。 为避免疑问，除了单独存储在客户私人仓库中的客户内容之外，发布在服务上的任何内容都不会被视为机密信息。 机密信息不包含以下任何信息 (i) 并非接收方的过错而成为公众已知的信息；(ii) 接收方理由知道，而不受有权披露的披露方以外来源的机密或专有限制；(iii) 经披露方批准可以披露，而没有该披露方正式授权人员签名的书面文档限制；(iv) 接收方独立开发，没有访问或使用另一方的机密信息；或 (v) 存储或发布在服务上的客户私人仓库以外。
+**"Confidential Information"** means all non-public information disclosed by either Party to the others, whether in writing, orally or by other means, designated as confidential or that the receiving Party knows or reasonably should know, under the circumstances surrounding the disclosure and the nature of the information, is confidential to the disclosing Party. 为避免疑问，除了单独存储在客户私人仓库中的客户内容之外，发布在服务上的任何内容都不会被视为机密信息。 机密信息不包含以下任何信息 (i) 并非接收方的过错而成为公众已知的信息；(ii) 接收方理由知道，而不受有权披露的披露方以外来源的机密或专有限制；(iii) 经披露方批准可以披露，而没有该披露方正式授权人员签名的书面文档限制；(iv) 接收方独立开发，没有访问或使用另一方的机密信息；或 (v) 存储或发布在服务上的客户私人仓库以外。
 
 **“内容”**包括但不限于通过服务刊登、显示或提供的任何代码、文本、数据、文章、软件包、照片、图片、软件、应用程序、设计、功能及其他材料。
 

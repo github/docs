@@ -109,7 +109,7 @@ Se você tiver várias chaves GPG, precisará informar ao Git qual deve ser usad
 - "[Verificar se há chaves GPG existentes](/articles/checking-for-existing-gpg-keys)"
 - "[Gerar uma nova chave GPG](/articles/generating-a-new-gpg-key)"
 - "[Usar um endereço de e-mail verificado na chave GPG](/articles/using-a-verified-email-address-in-your-gpg-key)"
-- "[Adicionar uma nova chave GPG à sua conta do GitHub](/articles/adding-a-new-gpg-key-to-your-github-account)"
+- "[Adding a GPG key to your GitHub account](/articles/adding-a-gpg-key-to-your-github-account)"
 - "[Associar um e-mail à sua chave GPG](/articles/associating-an-email-with-your-gpg-key)"
 - "[Assinar commits](/articles/signing-commits)"
 - "[Assinar tags](/articles/signing-tags)"

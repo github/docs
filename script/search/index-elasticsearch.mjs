@@ -41,9 +41,10 @@ const shortNames = Object.fromEntries(
     return [shortName, info]
   })
 )
-console.log({ shortNames })
 
 const allVersionKeys = Object.keys(shortNames)
+
+const DEFAULT_SOURCE_DIRECTORY = path.join('lib', 'search', 'indexes')
 
 program
   .description('Creates Elasticsearch index from records')
@@ -56,6 +57,10 @@ program
     new Option('--not-language <LANGUAGE...>', 'Specific language to omit').choices(languageKeys)
   )
   .option('-u, --elasticsearch-url <url>', 'If different from $ELASTICSEARCH_URL')
+  .option(
+    '-s, --source-directory <DIRECTORY>',
+    `Directory where records files are (default ${DEFAULT_SOURCE_DIRECTORY})`
+  )
   .parse(process.argv)
 
 main(program.opts())
@@ -92,6 +97,15 @@ async function main(opts) {
   if (verbose) {
     console.log(`Connecting to ${chalk.bold(safeUrlDisplay(node))}`)
   }
+  const sourceDirectory = opts.sourceDirectory || DEFAULT_SOURCE_DIRECTORY
+  try {
+    await fs.stat(sourceDirectory)
+  } catch (error) {
+    if (error.code === 'ENOENT') {
+      throw new Error(`The specified directory '${sourceDirectory}' does not exist.`)
+    }
+    throw error
+  }
 
   const client = new Client({
     node,
@@ -114,7 +128,7 @@ async function main(opts) {
       const indexName = `github-docs-${versionKey}-${language}`
 
       console.time(`Indexing ${indexName}`)
-      await indexVersion(client, indexName, versionKey, language, verbose)
+      await indexVersion(client, indexName, versionKey, language, sourceDirectory, verbose)
       console.timeEnd(`Indexing ${indexName}`)
       if (verbose) {
         console.log(`To view index: ${safeUrlDisplay(node + `/${indexName}`)}`)
@@ -135,22 +149,36 @@ function safeUrlDisplay(url) {
   return parsed.toString()
 }
 
+// Return '20220719012012' if the current date is
+// 2022-07-19T01:20:12.172Z. Note how the 6th month (July) becomes
+// '07'. All numbers become 2 character zero-padding strings individually.
 function utcTimestamp() {
   const d = new Date()
-  return [
-    d.getUTCFullYear(),
-    d.getUTCMonth(),
-    d.getUTCDate(),
-    d.getUTCHours(),
-    d.getUTCMinutes(),
-    d.getUTCSeconds(),
-  ]
-    .map((x) => x.toString())
-    .join('')
+
+  return (
+    [
+      `${d.getUTCFullYear()}`,
+      d.getUTCMonth() + 1,
+      d.getUTCDate(),
+      d.getUTCHours(),
+      d.getUTCMinutes(),
+      d.getUTCSeconds(),
+    ]
+      // If it's a number make it a zero-padding 2 character string
+      .map((x) => (typeof x === 'number' ? ('0' + x).slice(-2) : x))
+      .join('')
+  )
 }
 
 // Consider moving this to lib
-async function indexVersion(client, indexName, version, language, verbose = false) {
+async function indexVersion(
+  client,
+  indexName,
+  version,
+  language,
+  sourceDirectory,
+  verbose = false
+) {
   // Note, it's a bit "weird" that numbered releases versions are
   // called the number but that's how the lib/search/indexes
   // files are named at the moment.
@@ -159,7 +187,7 @@ async function indexVersion(client, indexName, version, language, verbose = fals
     : shortNames[version].miscBaseName
   const recordsName = `github-docs-${indexVersion}-${language}`
 
-  const records = await loadRecords(recordsName)
+  const records = await loadRecords(recordsName, sourceDirectory)
 
   const thisAlias = `${indexName}__${utcTimestamp()}`
 
@@ -265,10 +293,22 @@ async function indexVersion(client, indexName, version, language, verbose = fals
   }
 }
 
-async function loadRecords(indexName) {
-  const filePath = path.join('lib', 'search', 'indexes', `${indexName}-records.json.br`)
-  // Do not set to 'utf8' on file reads
-  return fs.readFile(filePath).then(decompress).then(JSON.parse)
+async function loadRecords(indexName, sourceDirectory) {
+  // First try looking for the `$indexName-records.json.br` file.
+  // If that doens't work, look for the `$indexName-records.json` one.
+  try {
+    const filePath = path.join(sourceDirectory, `${indexName}-records.json.br`)
+    // Do not set to 'utf8' on file reads
+    const payload = await fs.readFile(filePath).then(decompress)
+    return JSON.parse(payload)
+  } catch (error) {
+    if (error.code === 'ENOENT') {
+      const filePath = path.join(sourceDirectory, `${indexName}-records.json`)
+      const payload = await fs.readFile(filePath)
+      return JSON.parse(payload)
+    }
+    throw error
+  }
 }
 
 function getSnowballLanguage(language) {
