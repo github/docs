@@ -4,7 +4,7 @@ intro: 'Puedes administrar la forma en que {% data variables.product.product_nam
 versions:
   fpt: '*'
   ghae: '*'
-  ghes: '>=3.2'
+  ghes: '*'
   ghec: '*'
 topics:
   - Accounts

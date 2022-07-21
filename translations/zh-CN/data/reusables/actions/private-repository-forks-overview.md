@@ -1,1 +1,1 @@
-如果您依赖于使用私有仓库的复刻，您可以配置策略来控制用户如何在 `pull_request` 事件上运行工作流程。 Available to private {% ifversion ghec or ghes or ghae %}and internal{% endif %} repositories only, you can configure these policy settings for {% ifversion ghec %}enterprises, {% elsif ghes or ghae %}your enterprise, {% endif %}organizations, or repositories.
+如果您依赖于使用私有仓库的复刻，您可以配置策略来控制用户如何在 `pull_request` 事件上运行工作流程。 这些策略设置仅适用于私人 {% ifversion ghec or ghes or ghae %}和内部{% endif %} 存储库，您可以为 {% ifversion ghec %}企业、 {% elsif ghes or ghae %}企业、 {% endif %}组织或存储库配置这些策略设置。

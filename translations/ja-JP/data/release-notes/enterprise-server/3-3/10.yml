@@ -1,0 +1,21 @@
+date: '2022-06-28'
+sections:
+  security_fixes:
+    - "**中**: `github.company.com`及び`github-company.com`が内部のサービスによって同じホスト名と評価されないようにして、潜在的なサーバーサイドセキュリティフォージェリ（SSRF）攻撃を防ぎます。"
+    - "**低**: 外部のファイアウォールールがHTTPアクセスをブロックしている場合でも、HTTP経由のパストラバーサル攻撃で攻撃者がManagement Consoleにアクセスできました。"
+    - パッケージは最新のセキュリティバージョンにアップデートされました。
+  bugs:
+    - サイト管理者が自動的にEnterpriseオーナーとして追加されないことがありました。
+    - ブランチをデフォルトのブランチにマージしたあと、ファイルの"History"リンクがターゲットのブランチではなく以前のブランチへのリンクのままになります。
+  changes:
+    - 名前のような特定のフィールドの値が長すぎる場合に、チェックの実行もしくはチェックスイートの作成ないしアップデートが`500 Internal Server Error`を返すことがあります。
+  known_issues:
+    - '{% data variables.product.prodname_ghe_server %} 3.3にアップグレード後、{% data variables.product.prodname_actions %}が自動起動に失敗することがあります。この問題を解決するためには、アプライアンスにSSHで接続し、`ghe-actions-start`コマンドを実行してください。'
+    - 新しくセットアップされたユーザを持たない{% data variables.product.prodname_ghe_server %}インスタンスで、攻撃者が最初の管理ユーザを作成できました。
+    - アップグレードの過程で、カスタムのファイアウォールのルールが削除されます。
+    - Git LFSが追跡するファイル[Webインターフェースからアップロードされたもの](https://github.com/blog/2105-upload-files-to-your-repositories)が、不正にリポジトリに直接追加されてしまいます。
+    - 同じリポジトリ内のファイルパスが255文字を超えるblobへのパーマリンクを含むIssueをクローズできませんでした。
+    - '{% data variables.product.prodname_github_connect %}で"Users can search GitHub.com（ユーザはGitHub.comの検索が可能）" が有効化されたとき、プライベート及びインターナルリポジトリのIssueが{% data variables.product.prodname_dotcom_the_website %}の検索結果に含まれません。'
+    - '{% data variables.product.prodname_registry %}のnpmレジストリは、メタデータのレスポンス中で時間の値を返さなくなります。これは、大きなパフォーマンス改善のために行われました。メタデータレスポンスの一部として時間の値を返すために必要なすべてのデータは保持し続け、既存のパフォーマンスの問題を解決した将来に、この値を返すことを再開します。'
+    - pre-receive フックの処理に固有のリソース制限によって、pre-receive フックに失敗するものが生じることがあります。
+    - '{% data variables.product.prodname_actions %}のストレージ設定は、"Force Path Style（パススタイルの強制）"が選択されている場合、検証できず{% data variables.enterprise.management_console %}に保存できません。その代わりに、`ghe-actions-precheck`コマンドラインユーティリティで設定しなければなりません。'

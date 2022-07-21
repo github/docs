@@ -1,1 +1,1 @@
-Codespaces está disponible para las organizaciones que utilicen {% data variables.product.prodname_team %} o {% data variables.product.prodname_ghe_cloud %}. {% data reusables.gated-features.more-info-org-products %}
+{% data variables.product.prodname_github_codespaces %} está disponible para las organizaciones que utilizan {% data variables.product.prodname_team %} o {% data variables.product.prodname_ghe_cloud %}. {% data reusables.gated-features.more-info-org-products %}

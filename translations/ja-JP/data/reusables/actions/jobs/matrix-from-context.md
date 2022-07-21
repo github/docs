@@ -1,6 +1,6 @@
-You can use contexts to create matrices. For more information about contexts, see "[Contexts](/actions/learn-github-actions/contexts)."
+コンテキストを使ってマトリックスを作成できます。 コンテキストに関する詳しい情報については「[コンテキスト](/actions/learn-github-actions/contexts)」を参照してください。
 
-For example, the following workflow triggers on the `repository_dispatch` event and uses information from the event payload to build the matrix. When a repository dispatch event is created with a payload like the one below, the matrix `version` variable will have a value of `[12, 14, 16]`. For more information about the `repository_dispatch` trigger, see "[Events that trigger workflows](/actions/using-workflows/events-that-trigger-workflows#repository_dispatch)."
+たとえば、以下のワークフローは`repository_dispatch`イベントでトリガーされ、マトリックスの構築にイベントのペイロードからの情報を使います。 リポジトリのディスパッチイベントが以下のようなペイロードで作成されると、マトリックスの`version`変数は`[12, 14, 16]`という値を持ちます。 `repository_dispatch`に関する詳しい情報については「[ワークフローをトリガーするイベント](/actions/using-workflows/events-that-trigger-workflows#repository_dispatch)」を参照してください。
 
 ```json
 {

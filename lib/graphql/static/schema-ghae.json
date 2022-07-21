@@ -11932,7 +11932,7 @@
         },
         {
           "name": "pullRequestReviewContributions",
-          "description": "<p>Pull request review contributions made by the user.</p>",
+          "description": "<p>Pull request review contributions made by the user. Returns the most recently\nsubmitted review for each PR reviewed by the user.</p>",
           "type": "CreatedPullRequestReviewContributionConnection!",
           "id": "createdpullrequestreviewcontributionconnection",
           "kind": "objects",
@@ -16307,58 +16307,6 @@
           "href": "/graphql/reference/scalars#uri"
         },
         {
-          "name": "userAccounts",
-          "description": "<p>A list of user accounts on this enterprise.</p>",
-          "type": "EnterpriseUserAccountConnection!",
-          "id": "enterpriseuseraccountconnection",
-          "kind": "objects",
-          "href": "/graphql/reference/objects#enterpriseuseraccountconnection",
-          "arguments": [
-            {
-              "name": "after",
-              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
-              "type": {
-                "name": "String",
-                "id": "string",
-                "kind": "scalars",
-                "href": "/graphql/reference/scalars#string"
-              }
-            },
-            {
-              "name": "before",
-              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
-              "type": {
-                "name": "String",
-                "id": "string",
-                "kind": "scalars",
-                "href": "/graphql/reference/scalars#string"
-              }
-            },
-            {
-              "name": "first",
-              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
-              "type": {
-                "name": "Int",
-                "id": "int",
-                "kind": "scalars",
-                "href": "/graphql/reference/scalars#int"
-              }
-            },
-            {
-              "name": "last",
-              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
-              "type": {
-                "name": "Int",
-                "id": "int",
-                "kind": "scalars",
-                "href": "/graphql/reference/scalars#int"
-              }
-            }
-          ],
-          "isDeprecated": true,
-          "deprecationReason": "<p>The <code>Enterprise.userAccounts</code> field is being removed. Use the <code>Enterprise.members</code> field instead. Removal on 2022-07-01 UTC.</p>"
-        },
-        {
           "name": "viewerIsAdmin",
           "description": "<p>Is the current viewer an admin of this enterprise?.</p>",
           "type": "Boolean!",
@@ -19786,72 +19734,6 @@
           "id": "user",
           "kind": "objects",
           "href": "/graphql/reference/objects#user"
-        }
-      ]
-    },
-    {
-      "name": "EnterpriseUserAccountConnection",
-      "kind": "objects",
-      "id": "enterpriseuseraccountconnection",
-      "href": "/graphql/reference/objects#enterpriseuseraccountconnection",
-      "description": "<p>The connection type for EnterpriseUserAccount.</p>",
-      "fields": [
-        {
-          "name": "edges",
-          "description": "<p>A list of edges.</p>",
-          "type": "[EnterpriseUserAccountEdge]",
-          "id": "enterpriseuseraccountedge",
-          "kind": "objects",
-          "href": "/graphql/reference/objects#enterpriseuseraccountedge"
-        },
-        {
-          "name": "nodes",
-          "description": "<p>A list of nodes.</p>",
-          "type": "[EnterpriseUserAccount]",
-          "id": "enterpriseuseraccount",
-          "kind": "objects",
-          "href": "/graphql/reference/objects#enterpriseuseraccount"
-        },
-        {
-          "name": "pageInfo",
-          "description": "<p>Information to aid in pagination.</p>",
-          "type": "PageInfo!",
-          "id": "pageinfo",
-          "kind": "objects",
-          "href": "/graphql/reference/objects#pageinfo"
-        },
-        {
-          "name": "totalCount",
-          "description": "<p>Identifies the total count of items in the connection.</p>",
-          "type": "Int!",
-          "id": "int",
-          "kind": "scalars",
-          "href": "/graphql/reference/scalars#int"
-        }
-      ]
-    },
-    {
-      "name": "EnterpriseUserAccountEdge",
-      "kind": "objects",
-      "id": "enterpriseuseraccountedge",
-      "href": "/graphql/reference/objects#enterpriseuseraccountedge",
-      "description": "<p>An edge in a connection.</p>",
-      "fields": [
-        {
-          "name": "cursor",
-          "description": "<p>A cursor for use in pagination.</p>",
-          "type": "String!",
-          "id": "string",
-          "kind": "scalars",
-          "href": "/graphql/reference/scalars#string"
-        },
-        {
-          "name": "node",
-          "description": "<p>The item at the end of the edge.</p>",
-          "type": "EnterpriseUserAccount",
-          "id": "enterpriseuseraccount",
-          "kind": "objects",
-          "href": "/graphql/reference/objects#enterpriseuseraccount"
         }
       ]
     },
@@ -47019,6 +46901,16 @@
               }
             },
             {
+              "name": "dependencyScopes",
+              "description": "<p>Filter by the scope of the alert's dependency.</p>",
+              "type": {
+                "name": "[RepositoryVulnerabilityAlertDependencyScope!]",
+                "id": "repositoryvulnerabilityalertdependencyscope",
+                "kind": "enums",
+                "href": "/graphql/reference/enums#repositoryvulnerabilityalertdependencyscope"
+              }
+            },
+            {
               "name": "first",
               "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
               "type": {
@@ -48173,6 +48065,14 @@
           "id": "dependabotupdate",
           "kind": "objects",
           "href": "/graphql/reference/objects#dependabotupdate"
+        },
+        {
+          "name": "dependencyScope",
+          "description": "<p>The scope of an alert's dependency.</p>",
+          "type": "RepositoryVulnerabilityAlertDependencyScope",
+          "id": "repositoryvulnerabilityalertdependencyscope",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#repositoryvulnerabilityalertdependencyscope"
         },
         {
           "name": "dismissReason",
@@ -62857,6 +62757,23 @@
       ]
     },
     {
+      "name": "RepositoryVulnerabilityAlertDependencyScope",
+      "kind": "enums",
+      "id": "repositoryvulnerabilityalertdependencyscope",
+      "href": "/graphql/reference/enums#repositoryvulnerabilityalertdependencyscope",
+      "description": "<p>The possible scopes of an alert's dependency.</p>",
+      "values": [
+        {
+          "name": "DEVELOPMENT",
+          "description": "<p>A dependency that is only used in development.</p>"
+        },
+        {
+          "name": "RUNTIME",
+          "description": "<p>A dependency that is leveraged during application runtime.</p>"
+        }
+      ]
+    },
+    {
       "name": "RepositoryVulnerabilityAlertState",
       "kind": "enums",
       "id": "repositoryvulnerabilityalertstate",
@@ -63042,6 +62959,10 @@
         {
           "name": "COMPOSER",
           "description": "<p>PHP packages hosted at packagist.org.</p>"
+        },
+        {
+          "name": "ERLANG",
+          "description": "<p>Erlang/Elixir packages hosted at hex.pm.</p>"
         },
         {
           "name": "GO",

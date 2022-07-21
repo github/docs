@@ -1,8 +1,8 @@
-Use `jobs.<job_id>.container` to create a container to run any steps in a job that don't already specify a container. スクリプトアクションとコンテナアクションの両方を使うステップがある場合、コンテナアクションは同じボリュームマウントを使用して、同じネットワーク上にある兄弟コンテナとして実行されます。
+`jobs.<job_id>.container`を使って、コンテナをまだ指定していないジョブ内の任意のステップを実行するためのコンテナを作成してください。 スクリプトアクションとコンテナアクションの両方を使うステップがある場合、コンテナアクションは同じボリュームマウントを使用して、同じネットワーク上にある兄弟コンテナとして実行されます。
 
 `container`を設定しない場合は、コンテナで実行されるよう設定されているアクションを参照しているステップを除くすべてのステップが、`runs-on`で指定したホストで直接実行されます。
 
-### Example: Running a job within a container
+### 例: コンテナ内でのジョブの実行
 
 ```yaml{:copy}
 name: CI

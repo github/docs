@@ -1,9 +1,9 @@
 ---
 title: Inviting people to use your instance
-intro: When you use built-in authentication for {% data variables.product.product_name %}, you can invite people by email address to create a user account on your instance.
+intro: 'When you use built-in authentication for {% data variables.product.product_name %}, you can invite people by email address to create a user account on your instance.'
 versions:
   ghes: '*'
-permissions: Enterprise owners can invite people to create a user account on a {% data variables.product.product_name %} instance.
+permissions: 'Enterprise owners can invite people to create a user account on a {% data variables.product.product_name %} instance.'
 type: how_to
 topics:
   - Accounts

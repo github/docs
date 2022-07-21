@@ -3,7 +3,7 @@ title: 错误：未知密钥类型
 intro: 此错误表示您使用的 SSH 密钥类型无法识别或不受 SSH 客户端支持。
 versions:
   fpt: '*'
-  ghes: '>=3.2'
+  ghes: '*'
   ghae: '*'
   ghec: '*'
 topics:

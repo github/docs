@@ -89,6 +89,12 @@ Si habilitas la compatibilidad con el encabezado `X-Forwarded-For` en tu instanc
 Si {% data variables.product.product_location %} indica que tu sesión venció cuando te conectaste a la {% data variables.enterprise.management_console %} mediante un balanceador de carga, intenta una de las siguientes configuraciones en este balanceador.
 
 - Inhabilita los encabezados de `X-Forwarded-For` para tu instancia en los puertos 8080 y 8443.
-- Configura tu balanceador de carga para operar en capa 4 y utiliza el protocolo PROXY en vez de `X-Forwarded-For` para pasar las direcciones IP del cliente. Para obtener más información, consulta la sección "[Habilitar la compatibilidad con el protocolo PROXY en {% data variables.product.product_location %} ](#enabling-proxy-protocol-support-on-your-github-enterprise-server-instance)".
+- Configura tu balanceador de carga para operar en capa 4 y utiliza el protocolo PROXY en vez de `X-Forwarded-For` para pasar las direcciones IP del cliente. For more information, see "[Enabling PROXY protocol support on {% data variables.product.product_location %}](#enabling-proxy-protocol-support-on-your-github-enterprise-server-instance)."
 
 Para obtener más información, refiérete a la documentación para tu balanceador de carga.
+
+### Live updates to issues and check runs not working
+
+When {% data variables.product.product_location %} is accessed via a load balancer or reverse proxy, expected live updates, such as new comments on issues and changes in notification badges or check run output, may not display until the page is refreshed. This is most common when the reverse proxy or load balancer is running in a layer 7 mode or does not support the required [websocket](https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API) protocol.
+
+To enable live updates, you may need to reconfigure the load balancer or proxy. Para obtener más información, refiérete a la documentación para tu balanceador de carga.

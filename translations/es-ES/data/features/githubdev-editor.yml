@@ -1,0 +1,5 @@
+#Reference: #4918, #7438.
+#Documentation for the github.dev web-based editor
+versions:
+  fpt: '*'
+  ghec: '*'

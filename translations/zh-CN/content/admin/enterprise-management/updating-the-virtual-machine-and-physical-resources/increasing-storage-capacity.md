@@ -65,7 +65,8 @@ shortTitle: 增加存储容量
 {% endwarning %}
 
 1. 将新磁盘连接到 {% data variables.product.prodname_ghe_server %} 设备。
-1. 运行 `parted` 命令，将磁盘格式化：
+1. 运行 `lsblk` 命令以标识新磁盘的设备名称。
+1. 运行 `parted` 命令格式化磁盘，将设备名称替换为 `/dev/xvdg`：
   ```shell
   $ sudo parted /dev/xvdg mklabel msdos
   $ sudo parted /dev/xvdg mkpart primary ext4 0% 50%

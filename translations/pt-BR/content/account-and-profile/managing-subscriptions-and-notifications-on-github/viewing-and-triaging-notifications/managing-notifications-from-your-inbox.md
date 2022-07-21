@@ -112,15 +112,13 @@ Para filtrar notificações para uma atividade específica no {% data variables.
 - `is:gist`
 - `is:issue-or-pull-request`
 - `is:release`
-- `is:repository-invitation`{% ifversion fpt or ghes or ghae or ghec %}
-- `is:repository-vulnerability-alert`{% endif %}{% ifversion fpt or ghec %}
+- `is:repository-invitation`
+- `is:repository-vulnerability-alert`{% ifversion fpt or ghec %}
 - `is:repository-advisory`{% endif %}
 - `is:team-discussion`{% ifversion fpt or ghec %}
 - `is:discussion`{% endif %}
 
-{% ifversion fpt or ghes or ghae or ghec %}
 Para obter informações sobre a redução de ruído de notificações para {% data variables.product.prodname_dependabot_alerts %}, consulte "[Configurando notificações para {% data variables.product.prodname_dependabot_alerts %}](/code-security/dependabot/dependabot-alerts/configuring-notifications-for-dependabot-alerts)".
-{% endif %}
 
 Você também pode usar a consulta `is:` para descrever como a notificação passou pela triagem.
 
@@ -142,8 +140,8 @@ Para filtrar notificações por motivos pelos quais recebeu uma atualização, v
 | `reason:invitation`       | Quando você for convidado para uma equipe, organização ou repositório.                                                            |
 | `reason:manual`           | Quando você clicar em **Assinar** em um problema ou uma pull request que você ainda não estava inscrito.                          |
 | `reason:mention`          | Você foi @mencionado diretamente.                                                                                                 |
-| `reason:review-requested` | Foi solicitado que você ou uma equipe revise um um pull request.{% ifversion fpt or ghes or ghae or ghec %}
-| `reason:security-alert`   | Quando um alerta de segurança é emitido para um repositório.{% endif %}
+| `reason:review-requested` | Você ou uma equipe da qual é integrante é solicitado a revisar uma pull request.                                                  |
+| `reason:security-alert`   | Quando um alerta de segurança é emitido para um repositório.                                                                      |
 | `reason:state-change`     | Quando o estado de uma pull request ou um problema é alterado. Por exemplo, um problema é fechado ou uma pull request é mesclada. |
 | `reason:team-mention`     | Quando uma equipe da qual você é integrante é @mencionada.                                                                        |
 | `reason:ci-activity`      | Quando um repositório tem uma atualização de CI, como um novo status de execução de fluxo de trabalho.                            |
@@ -161,7 +159,6 @@ Por exemplo, para ver notificações da organização octo-org, use `org:octo-or
 
 {% endif %}
 
-{% ifversion fpt or ghes or ghae or ghec %}
 ## Filtros personalizados de {% data variables.product.prodname_dependabot %}
 
 {% ifversion fpt or ghec or ghes > 3.2 %}
@@ -182,4 +179,3 @@ Se você usar {% data variables.product.prodname_dependabot %} para falar sobre 
 Para obter mais informações sobre {% data variables.product.prodname_dependabot %}, consulte "[Sobre {% data variables.product.prodname_dependabot_alerts %}](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)."
 {% endif %}
 
-{% endif %}

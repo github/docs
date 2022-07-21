@@ -1,0 +1,4 @@
+#Reference #7030
+#Documentation for using OIDC as authentication for audit log streaming to S3
+versions:
+  ghec: '*'

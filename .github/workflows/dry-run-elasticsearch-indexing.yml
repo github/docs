@@ -1,0 +1,73 @@
+name: Dry run Elasticsearch indexing
+
+# **What it does**: Tests to index records into a local Elasticsearch
+# **Why we have it**: To make sure the indexing code works.
+# **Who does it impact**: Docs engineering.
+
+on:
+  push:
+    branches:
+      - gh-readonly-queue/main/**
+  pull_request:
+    paths:
+      - script/search/index-elasticsearch.mjs
+      - 'package*.json'
+      - .github/workflows/dry-run-elasticsearch-indexing.yml
+
+permissions:
+  contents: read
+
+jobs:
+  dry-run-elasticsearch-indexing:
+    # Avoid github/docs and forks of it
+    if: github.repository == 'github/docs-internal'
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: getong/elasticsearch-action@95b501ab0c83dee0aac7c39b7cea3723bef14954
+        with:
+          elasticsearch version: '8.2.0'
+          host port: 9200
+          container port: 9200
+          host node port: 9300
+          node port: 9300
+          discovery type: 'single-node'
+
+      - name: Checkout
+        uses: actions/checkout@dcd71f646680f2efd8db4afa5ad64fdcba30e748
+        with:
+          lfs: 'true'
+
+      - name: Check out LFS objects
+        run: git lfs checkout
+
+      - name: Setup node
+        uses: actions/setup-node@1f8c6b94b26d0feae1e387ca63ccbdc44d27b561
+        with:
+          node-version: 16.15.x
+          cache: npm
+
+      - name: Install
+        run: npm ci
+
+      # Serves two purposes;
+      # 1. Be confident that the Elasticsearch server start-up worked at all
+      # 2. Sometimes Elasticsearch will bind to the port but still not
+      # technically be ready. By using `curl --retry` we can know it's
+      # also genuinely ready to use.
+      - name: Ping Elasticsearch
+        run: curl --retry-connrefused --retry 5 -I http://localhost:9200/
+
+      - name: Index some
+        env:
+          ELASTICSEARCH_URL: 'http://localhost:9200'
+        run: |
+          ./script/search/index-elasticsearch.mjs --verbose \
+          -l en -l ja \
+          -V dotcom -V ghes-3.5
+
+      - name: Show created indexes and aliases
+        run: |
+          curl http://localhost:9200/_cat/indices?v
+          curl http://localhost:9200/_cat/aliases?v

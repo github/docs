@@ -101,7 +101,6 @@ If a policy is disabled for an {% ifversion ghec or ghae or ghes %}enterprise or
 {% data reusables.repositories.settings-sidebar-actions-general %}
 {% data reusables.actions.private-repository-forks-configure %}
 
-{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
 ## Setting the permissions of the `GITHUB_TOKEN` for your repository
 
 {% data reusables.actions.workflow-permissions-intro %}
@@ -139,7 +138,6 @@ By default, when you create a new repository in your personal account, workflows
 
    ![Set GITHUB_TOKEN permissions for this repository](/assets/images/help/settings/actions-workflow-permissions-repository-with-pr-approval.png)
 1. Click **Save** to apply the settings.
-{% endif %}
 {% endif %}
 
 {% ifversion ghes > 3.3 or ghae-issue-4757 or ghec %}

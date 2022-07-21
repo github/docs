@@ -57,7 +57,7 @@ El conjunto de instrucciones de las SSSE3 se requiere porque el {% data variable
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% data reusables.enterprise_management_console.advanced-security-tab %}
-1. Debajo de "{% ifversion ghes < 3.2 %}{% data variables.product.prodname_advanced_security %}{% else %} Seguridad{% endif %}", has clic en **{% data variables.product.prodname_secret_scanning_caps %}**. ![Casilla para habilitar o inhabilitar el {% data variables.product.prodname_secret_scanning %}](/assets/images/enterprise/management-console/enable-secret-scanning-checkbox.png)
+1. Under "Security," click **{% data variables.product.prodname_secret_scanning_caps %}**. ![Casilla para habilitar o inhabilitar el {% data variables.product.prodname_secret_scanning %}](/assets/images/enterprise/management-console/enable-secret-scanning-checkbox.png)
 {% data reusables.enterprise_management_console.save-settings %}
 
 ## Inhabilitar las {% data variables.product.prodname_secret_scanning %}
@@ -67,5 +67,5 @@ El conjunto de instrucciones de las SSSE3 se requiere porque el {% data variable
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% data reusables.enterprise_management_console.advanced-security-tab %}
-1. Debajo de "{% ifversion ghes < 3.2 %}{% data variables.product.prodname_advanced_security %}{% else %}Seguridad{% endif %}", deselecciona **{% data variables.product.prodname_secret_scanning_caps %}**. ![Casilla para habilitar o inhabilitar el {% data variables.product.prodname_secret_scanning %}](/assets/images/enterprise/management-console/secret-scanning-disable.png)
+1. Under "Security," unselect **{% data variables.product.prodname_secret_scanning_caps %}**. ![Casilla para habilitar o inhabilitar el {% data variables.product.prodname_secret_scanning %}](/assets/images/enterprise/management-console/secret-scanning-disable.png)
 {% data reusables.enterprise_management_console.save-settings %}

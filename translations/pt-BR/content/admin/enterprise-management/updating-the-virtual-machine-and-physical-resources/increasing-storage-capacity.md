@@ -65,7 +65,8 @@ shortTitle: Aumentar capacidade de armazenamento
 {% endwarning %}
 
 1. Vincule o novo disco ao appliance do {% data variables.product.prodname_ghe_server %}.
-1. Execute o comando `parted` para formatar o disco:
+1. Execute o comando `lsblk` para identificar o nome do dispositivo do novo disco.
+1. Execute o comando `parted` para formatar o disco, substituindo o nome do seu dispositivo por `/dev/xvdg`:
   ```shell
   $ sudo parted /dev/xvdg mklabel msdos
   $ sudo parted /dev/xvdg mkpart primary ext4 0% 50%

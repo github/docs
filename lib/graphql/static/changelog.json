@@ -4,6 +4,80 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "Type `EnterpriseUserAccountConnection` was removed",
+          "Type `EnterpriseUserAccountEdge` was removed",
+          "Field `userAccounts` (deprecated) was removed from object type `Enterprise`",
+          "Field `items` was removed from object type 'ProjectV2View'",
+          "Argument 'orderBy: ProjectV2FieldOrder` added to field `ProjectV2View.groupBy'",
+          "Argument 'orderBy: ProjectV2FieldOrder` added to field `ProjectV2View.verticalGroupBy'",
+          "Argument 'orderBy: ProjectV2FieldOrder` added to field `ProjectV2View.visibleFields'",
+          "Field `items` (deprecated) was removed from object type `ProjectView`"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2022-07-19"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "Type 'ProjectV2ItemFieldValueOrder' was added",
+          "Type 'ProjectV2ItemFieldValueOrderField' was added",
+          "Argument 'orderBy: ProjectV2ItemFieldValueOrder` added to field `ProjectV2Item.fieldValues'",
+          "Argument `orderBy: PullRequestOrder` added to field 'ProjectV2ItemFieldPullRequestValue.pullRequests'"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2022-07-14"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "Type 'ProjectV2FieldOrder' was added",
+          "Type 'ProjectV2FieldOrderField' was added",
+          "Type 'ProjectV2ItemOrder' was added",
+          "Type 'ProjectV2ItemOrderField' was added",
+          "Type 'ProjectV2ViewOrder' was added",
+          "Type 'ProjectV2ViewOrderField' was added",
+          "Argument 'orderBy: ProjectV2FieldOrder` added to field `ProjectV2.fields'",
+          "Argument 'orderBy: ProjectV2ItemOrder` added to field `ProjectV2.items'",
+          "Argument `orderBy: RepositoryOrder` added to field 'ProjectV2.repositories'",
+          "Argument 'orderBy: ProjectV2ViewOrder` added to field `ProjectV2.views'"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2022-07-11"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "Type `RepositoryVulnerabilityAlertDependencyScope` was added",
+          "Argument 'dependencyScopes: [RepositoryVulnerabilityAlertDependencyScope!]` added to field `Repository.vulnerabilityAlerts'",
+          "Field `dependencyScope` was added to object type `RepositoryVulnerabilityAlert`",
+          "Enum value `ERLANG` was added to enum `SecurityAdvisoryEcosystem`"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2022-06-29"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "Input field `AddProjectDraftIssueInput.projectId` changed type from `ID!` to `ID`",
           "Input field `AddProjectDraftIssueInput.title` changed type from `String!` to `String`",
           "Input field `AddProjectNextItemInput.contentId` changed type from `ID!` to `ID`",

@@ -37,9 +37,9 @@ Você pode escolher o IDE que desejar usar para uma atividade quando criar uma a
 
 A primeira vez que você configurar uma atividade usando um IDE diferente, você deve garantir que ela seja configurada corretamente.
 
-A menos que você use {% data variables.product.prodname_github_codespaces %}, você deve autorizar o aplicativo OAuth para o IDE para sua organização. Para todos os repositórios, conceda acesso de **leitura** do aplicativo aos metadados, administração, código e acesso de **gravação** à administração e código. Para obter mais informações, consulte "[Autorizar aplicativos OAuth](/github/authenticating-to-github/authorizing-oauth-apps)".
+A menos que você use {% data variables.product.prodname_codespaces %}, você deve autorizar o aplicativo OAuth para o IDE para sua organização. Para todos os repositórios, conceda acesso de **leitura** do aplicativo aos metadados, administração, código e acesso de **gravação** à administração e código. Para obter mais informações, consulte "[Autorizar aplicativos OAuth](/github/authenticating-to-github/authorizing-oauth-apps)".
 
-{% data variables.product.prodname_github_codespaces %} não exige um aplicativo OAuth, mas você precisa habilitar {% data variables.product.prodname_github_codespaces %} para sua organização para poder configurar uma atividade com {% data variables.product.prodname_codespaces %}. Para obter mais informações, consulte "[Usar o {% data variables.product.prodname_github_codespaces %} com o {% data variables.product.prodname_classroom %}](/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide/using-github-codespaces-with-github-classroom#enabling-codespaces-for-your-organization)".
+{% data variables.product.prodname_codespaces %} não exige um aplicativo OAuth, mas você precisa habilitar {% data variables.product.prodname_codespaces %} para sua organização para poder configurar uma atividade com {% data variables.product.prodname_codespaces %}. Para obter mais informações, consulte "[Usar o {% data variables.product.prodname_codespaces %} com o {% data variables.product.prodname_classroom %}](/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide/using-github-codespaces-with-github-classroom#enabling-codespaces-for-your-organization)".
 
 ## Leia mais
 

@@ -18,7 +18,7 @@ topics:
 
 为企业启用依赖关系图后，可以启用 {% data variables.product.prodname_dependabot %} 以检测存储库中非安全依赖项{% ifversion ghes > 3.2 %}，并自动修复漏洞{% endif %}。 更多信息请参阅“[为企业启用 {% data variables.product.prodname_dependabot %}](/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise)”。
 
-{% ifversion ghes > 3.1 %}
+{% ifversion ghes %}
 您可以通过 {% data variables.enterprise.management_console %} 或管理 shell 启用依赖关系图。 我们建议您使用 {% data variables.enterprise.management_console %}，除非 {% data variables.product.product_location %} 使用集群。
 
 ## 通过 {% data variables.enterprise.management_console %} 启用依赖关系图
@@ -35,12 +35,10 @@ topics:
 
 ## 通过管理 shell 启用依赖关系图
 
-{% endif %}{% ifversion ghes < 3.2 %}
-## 启用依赖关系图
 {% endif %}
 {% data reusables.enterprise_site_admin_settings.sign-in %}
 1. 在管理 shell 中，启用 {% data variables.product.product_location %} 上的依赖关系图：
-    {% ifversion ghes > 3.1 %}```shell
+    {% ifversion ghes %}```shell
     ghe-config app.dependency-graph.enabled true
     ```
     {% else %}```shell
