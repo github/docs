@@ -46,6 +46,12 @@ For more information about troubleshooting build errors, see "[Troubleshooting J
 By default, your {% data variables.product.prodname_pages %} site is built and deployed with a {% data variables.product.prodname_actions %} workflow run unless you've configured your {% data variables.product.prodname_pages %} site to use a different CI tool. To find potential build errors, you can check the workflow run for your {% data variables.product.prodname_pages %} site by reviewing your repository's workflow runs. For more information, see "[Viewing workflow run history](/actions/monitoring-and-troubleshooting-workflows/viewing-workflow-run-history)."  For more information about how to re-run the workflow in case of an error, see "[Re-running workflows and jobs](/actions/managing-workflow-runs/re-running-workflows-and-jobs)."
 {% endif %}
 
+{% ifversion build-pages-with-actions %}{% else %}
+## Viewing your repository's build failures on {% data variables.product.product_name %}
+
+You can see build failures (but not build warnings) for your site on {% data variables.product.product_name %} in the **Settings** tab of your site's repository.
+{% endif %}
+
 ## Viewing Jekyll build error messages locally
 
 We recommend testing your site locally, which allows you to see build error messages on the command line, and addressing any build failures before pushing changes to {% data variables.product.product_name %}. For more information, see "[Testing your {% data variables.product.prodname_pages %} site locally with Jekyll](/articles/testing-your-github-pages-site-locally-with-jekyll)."
