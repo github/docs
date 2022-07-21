@@ -47,6 +47,7 @@ You can set up streaming to S3 with access keys or, to avoid storing long-lived 
 
 - [Setting up streaming to S3 with access keys](#setting-up-streaming-to-s3-with-access-keys)
 - [Setting up streaming to S3 with OpenID Connect](#setting-up-streaming-to-s3-with-openid-connect)
+- [Disabling streaming to S3 with OpenID Connect](#disabling-streaming-to-s3-with-openid-connect)
 
 #### Setting up streaming to S3 with access keys
 {% endif %}
@@ -123,6 +124,13 @@ For information on creating or accessing your access key ID and secret key, see 
    - Under "ARN Role" type the ARN role you noted earlier. For example, `arn:aws::iam::1234567890:role/github-audit-log-streaming-role`.
 {% data reusables.audit_log.streaming-check-s3-endpoint %}
 {% data reusables.enterprise.verify-audit-log-streaming-endpoint %}
+
+#### Disabling streaming to S3 with OpenID Connect
+
+If you want to disable streaming to S3 with OIDC for any reason, such as the discovery of a security vulnerability in OIDC, delete the {% data variables.product.prodname_dotcom %} OIDC provider you created in AWS when you set up streaming. For more information, see [Creating OpenID Connect (OIDC) identity providers](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_create_oidc.html) in the AWS documentation.
+
+Then, set up streaming with access keys until the vulnerability is resolved. For more information, see "[Setting up streaming to S3 with access keys](#setting-up-streaming-to-s3-with-access-keys)."
+
 {% endif %}
 
 ### Setting up streaming to Azure Blob Storage

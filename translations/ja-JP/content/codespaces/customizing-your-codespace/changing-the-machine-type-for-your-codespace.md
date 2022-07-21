@@ -17,7 +17,7 @@ type: how_to
 
 {% note %}
 
-**Note:** You can only select or change the machine type if you are a member of an organization using {% data variables.product.prodname_codespaces %} and are creating a codespace on a repository owned by that organization.
+**Note:** You can only select or change the machine type if you are a member of an organization using {% data variables.product.prodname_github_codespaces %} and are creating a codespace on a repository owned by that organization.
 
 {% endnote %}
 

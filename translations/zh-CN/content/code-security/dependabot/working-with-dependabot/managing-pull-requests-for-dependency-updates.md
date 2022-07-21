@@ -44,9 +44,9 @@ shortTitle: 管理 Dependabot PR
 
 默认情况下，{% data variables.product.prodname_dependabot %} 会自动为拉取请求变基，以解决各种冲突。 如果您喜欢手动处理合并冲突，可以使用 `rebase-strategy` 选项禁用此功能。 有关详细信息，请参阅“[dependabot.yml 文件的配置选项](/github/administering-a-repository/configuration-options-for-dependency-updates#rebase-strategy)”。
 
-## Allowing {% data variables.product.prodname_dependabot %} to rebase and force push over extra commits
+## 允许 {% data variables.product.prodname_dependabot %} 变基并强制推送额外的提交
 
-By default, {% data variables.product.prodname_dependabot %} will stop rebasing a pull request once extra commits have been pushed to it. To allow {% data variables.product.prodname_dependabot %} to force push over commits added to its branches, include any of the following strings: `[dependabot skip]` , `[skip dependabot]`, `[dependabot-skip]`, or `[skip-dependabot]`, in either lower or uppercase, to the commit message.
+默认情况下，{% data variables.product.prodname_dependabot %} 将在推送额外的提交后停止变基拉取请求。 要允许 {% data variables.product.prodname_dependabot %} 强制推送添加到其分支的提交，请包含以下任何字符串： `[dependabot skip]`、`[skip dependabot]`、`[dependabot-skip]` 或 `[skip-dependabot]`（小写或大写）到提交消息。
 
 ## 管理带注释命令的 {% data variables.product.prodname_dependabot %} 拉取请求
 

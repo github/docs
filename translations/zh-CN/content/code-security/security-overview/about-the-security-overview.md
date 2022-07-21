@@ -1,8 +1,8 @@
 ---
 title: 关于安全概述
 intro: 您可以在一个位置查看、筛选和排序组织或团队拥有的存储库的安全警报：“安全概述”页。
-permissions: '{% data reusables.security-center.permissions %}'
-product: '{% data reusables.gated-features.security-center %}'
+permissions: '{% data reusables.security-overview.permissions %}'
+product: '{% data reusables.gated-features.security-overview %}'
 redirect_from:
   - /code-security/security-overview/exploring-security-alerts
 versions:
@@ -23,7 +23,7 @@ shortTitle: 关于安全概述
 ---
 
 {% ifversion ghes < 3.5 or ghae %}
-{% data reusables.security-center.beta %}
+{% data reusables.security-overview.beta %}
 {% endif %}
 
 ## 关于安全概述

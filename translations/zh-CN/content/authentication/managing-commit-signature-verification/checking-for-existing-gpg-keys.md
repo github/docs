@@ -33,12 +33,12 @@ shortTitle: 现有 GPG 密钥
       $ gpg --armor --export <em>3AA5C34371567BD2</em>
       # Prints the GPG key ID, in ASCII armor format
       ```
-      然后，您可以[将 GPG 密钥添加到您的 GitHub 帐户](/articles/adding-a-new-gpg-key-to-your-github-account)。
+      然后，您可以[将 GPG 密钥添加到您的 GitHub 帐户](/articles/adding-a-gpg-key-to-your-github-account)。
 
 ## 延伸阅读
 
 * "[生成新 GPG 密钥](/articles/generating-a-new-gpg-key)"
-* "[添加新 GPG 密钥到 GitHub 帐户](/articles/adding-a-new-gpg-key-to-your-github-account)"
+* "[Adding a GPG key to your GitHub account](/articles/adding-a-gpg-key-to-your-github-account)"
 * "[向 Git 告知您的签名密钥](/articles/telling-git-about-your-signing-key)"
 * "[将电子邮件与 GPG 密钥关联](/articles/associating-an-email-with-your-gpg-key)"
 * "[对提交签名](/articles/signing-commits)"

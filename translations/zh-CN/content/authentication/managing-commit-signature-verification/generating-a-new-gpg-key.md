@@ -38,7 +38,7 @@ topics:
       ```
 4. 在提示时，指定要生成的密钥类型，或按 `Enter` 键接受默认值。
 5. 在提示时，指定想要的密钥大小，或按 `Enter` 键接受默认值。 密钥必须至少是 `4096` 位。
-6. 输入密钥的有效时长。 按 `Enter` 键将指定默认选择，表示该密钥不会过期。
+6. 输入密钥的有效时长。 按 `Enter` 键将指定默认选择，表示该密钥不会过期。 Unless you require an expiration date, we recommend accepting this default.
 7. 验证您的选择是否正确。
 8. 输入您的用户 ID 信息。
 
@@ -57,12 +57,12 @@ topics:
   # Prints the GPG key ID, in ASCII armor format
   ```
 11. 复制 GPG 密钥，从 `-----BEGIN PGP PUBLIC KEY BLOCK-----` 开始，到 `-----END PGP PUBLIC KEY BLOCK-----` 结束。
-12. [将 GPG 密钥添加到 GitHub 帐户](/articles/adding-a-new-gpg-key-to-your-github-account)。
+12. [将 GPG 密钥添加到 GitHub 帐户](/articles/adding-a-gpg-key-to-your-github-account)。
 
 ## 延伸阅读
 
 * "[检查现有 GPG 密钥](/articles/checking-for-existing-gpg-keys)"
-* "[添加新 GPG 密钥到 GitHub 帐户](/articles/adding-a-new-gpg-key-to-your-github-account)"
+* "[Adding a GPG key to your GitHub account](/articles/adding-a-gpg-key-to-your-github-account)"
 * "[向 Git 告知您的签名密钥](/articles/telling-git-about-your-signing-key)"
 * "[将电子邮件与 GPG 密钥关联](/articles/associating-an-email-with-your-gpg-key)"
 * "[对提交签名](/articles/signing-commits)"
