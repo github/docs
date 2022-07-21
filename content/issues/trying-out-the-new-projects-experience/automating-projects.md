@@ -63,6 +63,7 @@ For more information about other changes you can make to your project through th
 
 ```yaml{:copy}
 {% data reusables.actions.actions-not-certified-by-github-comment %}
+
 {% data reusables.actions.actions-use-sha-pinning-comment %}
 
 name: Add PR to project

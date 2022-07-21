@@ -32,6 +32,7 @@ In the tutorial, you will first make a workflow file that uses the [`peter-evans
 
     ```yaml{:copy}
 {% indented_data_reference reusables.actions.actions-not-certified-by-github-comment spaces=4 %}
+
 {% indented_data_reference reusables.actions.actions-use-sha-pinning-comment spaces=4 %}
 
     name: Add comment

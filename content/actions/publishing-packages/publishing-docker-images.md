@@ -68,6 +68,7 @@ The `build-push-action` options required for Docker Hub are:
 
 ```yaml{:copy}
 {% data reusables.actions.actions-not-certified-by-github-comment %}
+
 {% data reusables.actions.actions-use-sha-pinning-comment %}
 
 name: Publish Docker image
@@ -146,6 +147,7 @@ The above workflow is triggered by a push to the "release" branch. It checks out
 
 ```yaml{:copy}
 {% data reusables.actions.actions-not-certified-by-github-comment %}
+
 {% data reusables.actions.actions-use-sha-pinning-comment %}
 
 name: Publish Docker image
@@ -196,6 +198,7 @@ The following example workflow uses the steps from the previous sections ("[Publ
 
 ```yaml{:copy}
 {% data reusables.actions.actions-not-certified-by-github-comment %}
+
 {% data reusables.actions.actions-use-sha-pinning-comment %}
 
 name: Publish Docker image

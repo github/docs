@@ -32,26 +32,27 @@ In the tutorial, you will first make a workflow file that uses the [`andymckay/l
 4. Copy the following YAML contents into your workflow file.
     ```yaml{:copy}
 {% indented_data_reference reusables.actions.actions-not-certified-by-github-comment spaces=4 %}
+
 {% indented_data_reference reusables.actions.actions-use-sha-pinning-comment spaces=4 %}
 
-      name: Remove labels
-      on:
-        project_card:
-          types:
-            - moved
-      jobs:
-        remove_labels:
-          if: github.event.project_card.column_id == '12345678'
-          runs-on: ubuntu-latest{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
-          permissions:
-            issues: write
-            pull-requests: write{% endif %}
-          steps:
-            - name: remove labels
-              uses: andymckay/labeler@5c59dabdfd4dd5bd9c6e6d255b01b9d764af4414
-              with:
-                remove-labels: "needs review"
-                repo-token: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
+    name: Remove labels
+    on:
+      project_card:
+        types:
+          - moved
+    jobs:
+      remove_labels:
+        if: github.event.project_card.column_id == '12345678'
+        runs-on: ubuntu-latest{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
+        permissions:
+          issues: write
+          pull-requests: write{% endif %}
+        steps:
+          - name: remove labels
+            uses: andymckay/labeler@5c59dabdfd4dd5bd9c6e6d255b01b9d764af4414
+            with:
+              remove-labels: "needs review"
+              repo-token: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
     ```
 
 5. Customize the parameters in your workflow file:
