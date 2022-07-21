@@ -26,8 +26,8 @@ shortTitle: Converter organização em usuário
 2. [Altere a função do usuário para um proprietário](/articles/changing-a-person-s-role-to-owner).
 3. {% data variables.product.signin_link %} para a nova conta pessoal.
 4. [Transfira cada repositório da organização](/articles/how-to-transfer-a-repository) para a nova conta pessoal.
-5. [Renomeie a organização](/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/changing-your-github-username) para tornar o nome de usuário atual disponível.
-6. [Renomeie o usuário](/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/changing-your-github-username) para o nome da organização.
+5. [Renomeie a organização](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/changing-your-github-username) para tornar o nome de usuário atual disponível.
+6. [Renomeie o usuário](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/changing-your-github-username) para o nome da organização.
 7. [Exclua a organização](/organizations/managing-organization-settings/deleting-an-organization-account).
 
 

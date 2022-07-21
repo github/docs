@@ -61,7 +61,6 @@ O gist permite mapeamento de arquivos geoJSON. Esses mapas são exibidos em gist
 
 Siga os passos abaixo para criar um gist.
 
-{% ifversion fpt or ghes or ghae or ghec %}
 {% note %}
 
 Você também pode criar um gist usando o {% data variables.product.prodname_cli %}. Para obter mais informações, consulte "[`gh gist cria`](https://cli.github.com/manual/gh_gist_create)" na documentação do {% data variables.product.prodname_cli %}.
@@ -69,7 +68,6 @@ Você também pode criar um gist usando o {% data variables.product.prodname_cli
 Como alternativa, você pode arrastar e soltar um arquivo de texto da sua área de trabalho diretamente no editor.
 
 {% endnote %}
-{% endif %}
 
 1. Entre no {% data variables.product.product_name %}.
 2. Navegue até sua {% data variables.gists.gist_homepage %}.

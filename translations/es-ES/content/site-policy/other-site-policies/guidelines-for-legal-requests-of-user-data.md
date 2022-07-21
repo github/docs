@@ -87,7 +87,7 @@ Aquí hay una lista no exhaustiva de los tipos de datos que mantenemos sobre usu
   - Colaboradores
 
 - <a name="public-repository-data"></a>
-**Public repository data** — GitHub is home to millions of public, open-source software projects. Puede navegar casi cualquier repositorio público (por ejemplo, el [Proyecto Atom](https://github.com/atom/atom)) para tener un sentido de la información que GitHub recopila y mantiene sobre repositorios. Puede incluir:
+**Datos de repositorio público** — GitHub hospeda millones de proyectos de software de código abierto y públicos. Puede navegar casi cualquier repositorio público (por ejemplo, el [Proyecto Atom](https://github.com/atom/atom)) para tener un sentido de la información que GitHub recopila y mantiene sobre repositorios. Puede incluir:
 
   - El código
   - Versiones anteriores del código
@@ -130,7 +130,7 @@ En el caso de cuentas de organización, podemos proporcionar el(los) nombre(s) y
 Tenga en cuenta que la información disponible variará de un caso a otro. Parte de la información es opcional para que los usuarios la proporcionen. En otros casos, es posible que no hayamos recopilado ni conservado la información.
 
 - <a name="with-a-court-order-or-a-search-warrant"></a>
-**Con una orden judicial *o* una orden de registro** — No divulgaremos registros de acceso a la cuenta a menos que se nos obligue a hacerlo por (i) una orden judicial emitida bajo 18 U. S.C. Sección 2703(d), sobre una muestra de hechos específicos y articulables que demuestran que existen motivos razonables para creer que la información solicitada es relevante y material para una investigación criminal en curso; o (ii) una orden de búsqueda emitida bajo los procedimientos descritos en las Normas Federales de Procedimiento Penal o procedimientos equivalentes de la orden estatal sobre una muestra de causa probable. In addition to the non-public account information listed above, we can provide account access logs in response to a court order or search warrant, which may include:
+**Con una orden judicial *o* una orden de registro** — No divulgaremos registros de acceso a la cuenta a menos que se nos obligue a hacerlo por (i) una orden judicial emitida bajo 18 U. S.C. Sección 2703(d), sobre una muestra de hechos específicos y articulables que demuestran que existen motivos razonables para creer que la información solicitada es relevante y material para una investigación criminal en curso; o (ii) una orden de búsqueda emitida bajo los procedimientos descritos en las Normas Federales de Procedimiento Penal o procedimientos equivalentes de la orden estatal sobre una muestra de causa probable. Adicionalmente a la información de cuenta diferente a la pública que se lista anteriormente, podemos proporcionar bitácoras de acceso de cuenta a una resolución judicial u órden de registro, lo cual podría incluir:
 
   - Cualquier registro que revele los movimientos de un usuario a lo largo de un período de tiempo
   - Configuración de la cuenta o repositorio privado (por ejemplo, qué usuarios tienen ciertos permisos, etc.)
@@ -138,7 +138,7 @@ Tenga en cuenta que la información disponible variará de un caso a otro. Parte
   - Registros de acceso de seguridad distintos a la creación de cuentas o para una fecha y hora específica
 
 - <a name="only-with-a-search-warrant"></a>
-**Only with a search warrant** — We will not disclose the private contents of any account unless compelled to do so under a search warrant issued under the procedures described in the Federal Rules of Criminal Procedure or equivalent state warrant procedures upon a showing of probable cause. In addition to the non-public account information and account access logs mentioned above, we will also provide private account contents in response to a search warrant, which may include:
+**Solo con una órden de registro ** — No divulgaremos el contenido privado de ninguna cuenta, a menos de que se nos exhorte a hacerlo con una orden de registro emitida bajo los procedimientos descritos en las Reglas Federales para Procedimientos Penales o en los procedimientos de dichas órdenes estatales después de que se pruebe la existencia de una causa probable. Adicionalmente a la información no pública de la cuenta y de las bitácoras de acceso a la misma que se mencionan anteriormente, también proporcionaremos contenido privado de cuenta como respuesta a una orden de registro, la cual podría incluir:
 
   - Contenidos de Gists secretos
   - Código fuente u otro contenido en los repositorios privados

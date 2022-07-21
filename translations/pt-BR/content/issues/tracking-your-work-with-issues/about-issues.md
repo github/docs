@@ -22,6 +22,8 @@ topics:
 
 Os problemas permitem que você acompanhe seu trabalho em {% data variables.product.company_short %}, onde o desenvolvimento acontece. Ao mencionar um problema em outro problema ou pull request, a linha do tempo do problema reflete a referência cruzada para que você possa acompanhar o trabalho relacionado. Para indicar que o trabalho está em andamento, você pode vincular um problema a um pull request. Quando o pull request faz merge, o problema vinculado é fechado automaticamente.
 
+Para obter mais informações sobre palavras-chave, consulte "[Vinculando um pull request a um problema](/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue#linking-a-pull-request-to-an-issue-using-a-keyword)".
+
 ## Crie problemas rapidamente
 
 Os problemas podem ser criados de várias maneiras. Portanto, você pode escolher o método mais conveniente para seu fluxo de trabalho. Por exemplo, você pode criar um problema a partir de um repositório,{% ifversion fpt or ghec %} um item em uma lista de tarefas,{% endif %} uma observação em um projeto, um comentário em um problema ou pull request, uma linha de código específica ou uma consulta de URL. Você também pode criar um problema a partir da sua plataforma de escolha: por meio da interface do usuário web {% data variables.product.prodname_desktop %}, {% data variables.product.prodname_cli %}, GraphQL e APIs REST ou {% data variables.product.prodname_mobile %}. Para obter mais informações, consulte "[Criar um problema](/issues/tracking-your-work-with-issues/creating-issues/creating-an-issue)".
@@ -34,7 +36,7 @@ Para obter mais informações sobre os projetos, consulte {% ifversion fpt or gh
 
 ## Mantenha-se atualizado
 
-Para manter-se atualizado sobre os comentários mais recentes em um problema, você pode assinar um problema para receber notificações sobre os comentários mais recentes. Para encontrar links para problemas atualizados recentemente nos quais você está inscrito, visite seu painel. Para mais informações, consulte {% ifversion fpt or ghes or ghae or ghec %}"[Sobre notificações](/github/managing-subscriptions-and-notifications-on-github/about-notifications){% else %}"[Sobre notificações](/github/receiving-notifications-about-activity-on-github/about-notifications){% endif %}" e "[Sobre o seu painel pessoal](/articles/about-your-personal-dashboard)".
+Para manter-se atualizado sobre os comentários mais recentes em um problema, você pode assinar um problema para receber notificações sobre os comentários mais recentes. Para encontrar links para problemas atualizados recentemente nos quais você está inscrito, visite seu painel. Para obter mais informações, consulte "[Sobre as notificações](/github/managing-subscriptions-and-notifications-on-github/about-notifications)" e "[Sobre o seu painel pessoal](/articles/about-your-personal-dashboard)".
 
 ## Gerenciamento da comunidade
 

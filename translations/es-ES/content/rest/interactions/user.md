@@ -2,7 +2,7 @@
 title: User interactions
 shortTitle: Usuario
 allowTitleToDifferFromFilename: true
-intro: 'The User interactions API allows you to temporarily restrict which type of user can comment, open issues, or create pull requests on your public repositories.'
+intro: 'La API de interacciones de usuario te permite restringir temporalmente qué tipo de usuario puede comentar, abrir propuestas o crear solicitudes de cambio en tus repositorios públicos.'
 versions:
   fpt: '*'
   ghec: '*'
@@ -13,7 +13,7 @@ miniTocMaxHeadingLevel: 3
 
 ## About the User interactions API
 
-The User interactions API allows you to temporarily restrict which type of user can comment, open issues, or create pull requests on your public repositories. {% data reusables.interactions.interactions-detail %} Aquí puedes aprender más sobre los tipos de usuario de {% data variables.product.product_name %}:
+La API de interacciones de usuario te permite restringir temporalmente qué tipo de usuario puede comentar, abrir propuestas o crear solicitudes de cambio en tus repositorios públicos. {% data reusables.interactions.interactions-detail %} Aquí puedes aprender más sobre los tipos de usuario de {% data variables.product.product_name %}:
 
 * {% data reusables.interactions.existing-user-limit-definition %} de interactuar con tus repositorios.
 * {% data reusables.interactions.contributor-user-limit-definition %} de interactuar con tus repositorios.

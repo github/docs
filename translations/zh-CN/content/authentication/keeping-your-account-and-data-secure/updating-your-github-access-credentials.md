@@ -24,7 +24,12 @@ shortTitle: 更新访问凭据
 1. 要请求新密码，请访问 {% ifversion fpt or ghec %}https://{% data variables.product.product_url %}/password_reset{% else %}`https://{% data variables.product.product_url %}/password_reset`{% endif %}。
 2. 输入与您在 {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}上的帐户关联的电子邮件地址，然后单击“**Send password reset email（发送密码重置电子邮件）**。如果您配置了备份电子邮件地址，则电子邮件将发送到备份电子邮件地址。 ![密码重置电子邮件请求对话框](/assets/images/help/settings/password-recovery-email-request.png)
 3. 我们将向您发送一封电子邮件，其中含有可让您重置密码的链接。 您必须在收到电子邮件后的 3 小时内单击此链接。 如果您没有收到来自我们的电子邮件，请确保检查垃圾邮件文件夹。
-4. 如果您启用了双重身份验证，将提示您获得 2FA 凭据。 键入您的身份验证代码或恢复代码之一，然后单击 **Verify（验证）**。 如果您已向帐户添加了安全密钥，则可以插入该密钥，然后单击 **Use security key（使用安全密钥）**，而无需键入身份验证码。 ![双重身份验证提示](/assets/images/help/2fa/2fa-password-reset.png)
+4. 如果您启用了双重身份验证，将提示您获得 2FA 凭据：
+   * 如果您有 {% data variables.product.prodname_mobile %}，您将收到一个推送通知以验证您的身份。 打开推送通知或 {% data variables.product.prodname_mobile %} 应用程序，然后输入浏览器密码重置页面上显示给您的两位数代码。 ![双重 {% data variables.product.prodname_mobile %} 身份验证提示](/assets/images/help/2fa/2fa-mobile-challenge-password-reset.png)
+      * 要跳过使用 GitHub Mobile 进行验证，请单击 **Enter two-factor authentication or recovery code（输入双重身份验证或恢复代码）**。 ![{% data variables.product.product_name %} 上的双重 GitHub Mobile 身份验证提示， 突出显示"输入双重身份验证或恢复代码"](/assets/images/help/2fa/2fa-github-mobile-password-reset.png)
+   * 键入您的身份验证代码或恢复代码之一，然后单击 **Verify（验证）**。 ![双重身份验证提示](/assets/images/help/2fa/2fa-password-reset.png)
+     * 如果您已向帐户添加了安全密钥，则单击 **Use security key（使用安全密钥）**，而无需键入身份验证码。
+     * 如果已设置 [{% data variables.product.prodname_mobile %}](https://github.com/mobile)，请单击 **Authenticate with GitHub Mobile（通过 GitHub Mobile 进行身份验证）**。
 5. 键入新密码，确认新密码，然后单击 **Change password（更改密码）**。 有关创建强密码的帮助，请参阅“[创建强密码](/articles/creating-a-strong-password)”
   {% ifversion fpt or ghec %}![Password recovery box](/assets/images/help/settings/password-recovery-page.png){% else %}
   ![密码恢复框](/assets/images/enterprise/settings/password-recovery-page.png){% endif %}
@@ -57,7 +62,7 @@ shortTitle: 更新访问凭据
 
 {% ifversion not ghae %}
 
-如果您已重置帐户密码，并且还希望触发从 GitHub Mobile 应用注销，则可以撤销对“GitHub iOS”或“GitHub Android”OAuth 应用的授权。 有关其他信息，请参阅“[>审查授权的集成](/authentication/keeping-your-account-and-data-secure/reviewing-your-authorized-integrations)”。
+如果您已重置帐户密码，并且还想触发从 {% data variables.product.prodname_mobile %} 应用程序注销，则可以撤销对“GitHub iOS”或“GitHub Android”OAuth 应用程序 的授权。 这将注销与您的帐户关联的 {% data variables.product.prodname_mobile %} 应用程序的所有实例。 有关其他信息，请参阅“[>审查授权的集成](/authentication/keeping-your-account-and-data-secure/reviewing-your-authorized-integrations)”。
 
 {% endif %}
 

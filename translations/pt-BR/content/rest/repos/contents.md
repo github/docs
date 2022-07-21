@@ -13,7 +13,7 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-## About the Repository contents API
+## Sobre a API de conteúdos do repositório
 
 Para solicitar o formato sem processar ou HTML interpretado (quando compatível), use os tipos de mídia personalizados para o conteúdo do repositório.
 

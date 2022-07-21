@@ -1,8 +1,8 @@
 ---
-title: Project board cards
+title: Cartões de quadro de projeto
 shortTitle: Cartões
 allowTitleToDifferFromFilename: true
-intro: The Project board cards API lets you create and manage cards on a project board.
+intro: A API de cartões de quadro projeto permite que você crie e gerencie cartões em um quadro de projeto.
 versions:
   fpt: '*'
   ghes: '*'

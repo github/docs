@@ -88,6 +88,8 @@ Por exemplo, se um fluxo de trabalho definiu as entradas `numOctocats` e `octoca
 
 **Opcional** Os parâmetros de saída permitem que você declare os dados definidos por uma ação. As ações executadas posteriormente em um fluxo de trabalho podem usar os dados de saída definidos em ações executadas anteriormente.  Por exemplo, se uma ação executou a adição de duas entradas (x + y = z), a ação poderia usar o resultado da soma (z) como entrada em outras ações.
 
+{% data reusables.actions.output-limitations %}
+
 Se você não declarar uma saída no seu arquivo de metadados de ação, você ainda poderá definir as saídas e usá-las no seu fluxo de trabalho. Para obter mais informações sobre a definição de saídas em uma ação, consulte "[Comandos do fluxo de trabalho para {% data variables.product.prodname_actions %}](/actions/reference/workflow-commands-for-github-actions/#setting-an-output-parameter)."
 
 ### Exemplo: Declarando saídas para o contêiner do Docker e ações do JavaScript
@@ -109,6 +111,8 @@ saídas:
 ## `outputs` para ações compostas
 
 As **saídas** `opcionais` usam os mesmos parâmetros que `outputs.<output_id>` e `outputs.<output_id>escription` (consulte "[`saída` para o contêiner do Docker e ações do JavaScript](#outputs-for-docker-container-and-javascript-actions)"), mas também inclui o token do `valor`.
+
+{% data reusables.actions.output-limitations %}
 
 ### Exemplo: Declarando saídas para ações compostas
 
@@ -223,7 +227,7 @@ Por exemplo, este `cleanup.js` só será executado em executores baseados no Lin
 
 ### `runs.steps`
 
-{% ifversion fpt or ghes > 3.2 or ghae-issue-4853 or ghec %}
+{% ifversion fpt or ghes > 3.2 or ghae or ghec %}
 **Obrigatório** As etapas de que você planeja executar nesta ação. Elas podem ser etapas de `run` ou etapas de `uses`.
 {% else %}
 **Obrigatório** As etapas de que você planeja executar nesta ação.
@@ -231,7 +235,7 @@ Por exemplo, este `cleanup.js` só será executado em executores baseados no Lin
 
 #### `runs.steps[*].run`
 
-{% ifversion fpt or ghes > 3.2 or ghae-issue-4853 or ghec %}
+{% ifversion fpt or ghes > 3.2 or ghae or ghec %}
 **Optional** O comando que você deseja executar. Isso pode ser inline ou um script no seu repositório de ação:
 {% else %}
 **Obrigatório** O comando que você deseja executar. Isso pode ser inline ou um script no seu repositório de ação:
@@ -261,7 +265,7 @@ Para obter mais informações, consulte "[`github context`](/actions/reference/c
 
 #### `runs.steps[*].shell`
 
-{% ifversion fpt or ghes > 3.2 or ghae-issue-4853 or ghec %}
+{% ifversion fpt or ghes > 3.2 or ghae or ghec %}
 **Opcional** O shell onde você deseja executar o comando. Você pode usar qualquer um dos shells listados [aqui](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepsshell). Obrigatório se `run` estiver configurado.
 {% else %}
 **Obrigatório** O shell onde você quer executar o comando. Você pode usar qualquer um dos shells listados [aqui](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepsshell). Obrigatório se `run` estiver configurado.
@@ -314,7 +318,7 @@ steps:
 
 **Opcional**  Especifica o diretório de trabalho onde o comando é executado.
 
-{% ifversion fpt or ghes > 3.2 or ghae-issue-4853 or ghec %}
+{% ifversion fpt or ghes > 3.2 or ghae or ghec %}
 #### `runs.steps[*].uses`
 
 **Opcional**  Seleciona uma ação a ser executada como parte de uma etapa do seu trabalho. A ação é uma unidade reutilizável de código. Você pode usar uma ação definida no mesmo repositório que o fluxo de trabalho, um repositório público ou em uma [imagem publicada de contêiner Docker](https://hub.docker.com/).
@@ -365,6 +369,14 @@ runs:
 ```
 {% endif %}
 
+{% ifversion ghes > 3.5 or ghae-issue-6573 %}
+
+#### `runs.steps[*].continue-on-error`
+
+**Opcional** impede que a ação falhe quando uma etapa falha. Definido como `verdadeiro` para permitir que a ação passe quando esta etapa falhar.
+
+{% endif %}
+
 ## `runs` par ações do contêiner do Docker
 
 **Obrigatório** Configura a imagem usada para a ação do contêiner do Docker.
@@ -391,7 +403,7 @@ runs:
 
 ### `runs.pre-entrypoint`
 
-**Opcional** Permite que você execute um script antes de a ação do `entrypoint` começar. Por exemplo, você pode usar o `pre-entrypoint:` para executar um pré-requisito do script da configuração. {% data variables.product.prodname_actions %} usa a `execução do docker` para lançar esta ação e executa o script dentro de um novo contêiner que usa a mesma imagem-base. Isso significa que o momento de execução é diferente do contêiner principal do `entrypoint` e qualquer status de que você precisar devem ser acessado na área de trabalho, em `HOME`, ou como uma variável `STATE_`. A ação `pre-entrypoint:` sempre é executada por padrão, mas você pode substitui-la usando [`runs.pre-if`](#runspre-if).
+**Opcional** Permite que você execute um script antes de a ação do `entrypoint` começar. Por exemplo, você pode usar o `pre-entrypoint:` para executar um pré-requisito do script da configuração. {% data variables.product.prodname_actions %} usa a `execução do docker` para lançar esta ação e executa o script dentro de um novo contêiner que usa a mesma imagem-base. Isso significa que o momento de execução é diferente do contêiner principal do `entrypoint` e todos os status que você precisar deverão ser acessados na área de trabalho, em `HOME` ou como uma variável `STATE_`. A ação `pre-entrypoint:` sempre é executada por padrão, mas você pode substitui-la usando [`runs.pre-if`](#runspre-if).
 
 O tempo de execução especificado com a sintaxe [`em uso`](#runsusing) irá executar este arquivo.
 
@@ -656,254 +668,249 @@ Aqui está uma lista taxativa de todos os ícones atualmente compatíveis:
 <td>olho</td>
 </tr>
 <tr>
-<td>facebook</td>
 <td>fast-forward</td>
 <td>pena</td>
 <td>arquivo-menos</td>
+<td>arquivo-mais</td>
 </tr>
 <tr>
-<td>arquivo-mais</td>
 <td>arquivo-texto</td>
 <td>arquivo</td>
 <td>filme</td>
+<td>filtro</td>
 </tr>
 <tr>
-<td>filtro</td>
 <td>sinalizador</td>
 <td>pasta-menos</td>
 <td>pasta-mais</td>
+<td>pasta</td>
 </tr>
 <tr>
-<td>pasta</td>
 <td>presente</td>
 <td>git-branch</td>
 <td>git-commit</td>
+<td>git-merge</td>
 </tr>
 <tr>
-<td>git-merge</td>
 <td>git-pull-request</td>
 <td>globo</td>
 <td>grade</td>
+<td>disco-rígido</td>
 </tr>
 <tr>
-<td>disco-rígido</td>
 <td>hash</td>
 <td>fones-de-ouvido</td>
 <td>coração</td>
+<td>ajuda-círculo</td>
 </tr>
 <tr>
-<td>ajuda-círculo</td>
 <td>casa</td>
 <td>image</td>
 <td>caixa de entrada</td>
+<td>info</td>
 </tr>
 <tr>
-<td>info</td>
 <td>itálico</td>
 <td>camadas</td>
 <td>layout</td>
+<td>boia salva-vidas</td>
 </tr>
 <tr>
-<td>boia salva-vidas</td>
 <td>link-2</td>
 <td>link</td>
 <td>lista</td>
+<td>carregador</td>
 </tr>
 <tr>
-<td>carregador</td>
 <td>bloquear</td>
 <td>log-in</td>
 <td>log-out</td>
+<td>correio</td>
 </tr>
 <tr>
-<td>correio</td>
 <td>fixar-mapa</td>
 <td>map</td>
 <td>maximizar-2</td>
+<td>maximizar</td>
 </tr>
 <tr>
-<td>maximizar</td>
 <td>menu</td>
 <td>mensagem-círculo</td>
 <td>mensagem-quadrado</td>
+<td>microfone-desligado</td>
 </tr>
 <tr>
-<td>microfone-desligado</td>
 <td>microfone</td>
 <td>minimizar-2</td>
 <td>minimizar</td>
+<td>menos-círculo</td>
 </tr>
 <tr>
-<td>menos-círculo</td>
 <td>menos-quadrado</td>
 <td>menos</td>
 <td>monitor</td>
+<td>lua</td>
 </tr>
 <tr>
-<td>lua</td>
 <td>mais-horizontal</td>
 <td>mais-vertical</td>
 <td>mover</td>
+<td>música</td>
 </tr>
 <tr>
-<td>música</td>
 <td>navegação-2</td>
 <td>navegação</td>
 <td>octágono</td>
+<td>pacote</td>
 </tr>
 <tr>
-<td>pacote</td>
 <td>clips de papel</td>
 <td>pausa-círculo</td>
 <td>pausa</td>
+<td>porcentagem</td>
 </tr>
 <tr>
-<td>porcentagem</td>
 <td>chamada-telefônica</td>
 <td>telefone-transferência</td>
 <td>telefone-entrada</td>
+<td>telefone-perdido</td>
 </tr>
 <tr>
-<td>telefone-perdido</td>
 <td>telefone-desligado</td>
 <td>telefone-fora</td>
 <td>telefone</td>
+<td>gráfico-pizza</td>
 </tr>
 <tr>
-<td>gráfico-pizza</td>
 <td>reproduzir-círculo</td>
 <td>reproduzir</td>
 <td>mais-círculo</td>
+<td>mais-quadrado</td>
 </tr>
 <tr>
-<td>mais-quadrado</td>
 <td>mais</td>
 <td>bolso</td>
 <td>energia</td>
+<td>impressora</td>
 </tr>
 <tr>
-<td>impressora</td>
 <td>rádio</td>
 <td>atualizar-ccw</td>
 <td>atualizar-cw</td>
+<td>repetir</td>
 </tr>
 <tr>
-<td>repetir</td>
 <td>retroceder</td>
 <td>girar-ccw</td>
 <td>girar-cw</td>
+<td>rss</td>
 </tr>
 <tr>
-<td>rss</td>
 <td>salvar</td>
 <td>tesoura</td>
 <td>pesquisar</td>
+<td>enviar</td>
 </tr>
 <tr>
-<td>enviar</td>
 <td>servidor</td>
 <td>settings</td>
 <td>compartilhar-2</td>
+<td>compartilhar</td>
 </tr>
 <tr>
-<td>compartilhar</td>
 <td>escudo-desabilitado</td>
 <td>escudo</td>
 <td>sacola-de-compras</td>
+<td>carrinho-de-compras</td>
 </tr>
 <tr>
-<td>carrinho-de-compras</td>
 <td>aleatório</td>
 <td>barra lateral</td>
 <td>pular-atrás</td>
+<td>pular-frente</td>
 </tr>
 <tr>
-<td>pular-frente</td>
 <td>barra</td>
 <td>cursor</td>
 <td>smartphone</td>
+<td>alto-falante</td>
 </tr>
 <tr>
-<td>alto-falante</td>
 <td>quadrado</td>
 <td>estrela</td>
 <td>parar-círculo</td>
+<td>sol</td>
 </tr>
 <tr>
-<td>sol</td>
 <td>nascer-do-sol</td>
 <td>pôr-do-sol</td>
 <td>tablet</td>
+<td>tag</td>
 </tr>
 <tr>
-<td>tag</td>
 <td>target</td>
 <td>terminal</td>
 <td>termômetro</td>
+<td>polegar-para-baixo</td>
 </tr>
 <tr>
-<td>polegar-para-baixo</td>
 <td>polegar-para-cima</td>
 <td>alternar-esquerda</td>
 <td>alternar-direita</td>
+<td>lixeira-2</td>
 </tr>
 <tr>
-<td>lixeira-2</td>
 <td>lixeira</td>
 <td>tendência-baixa</td>
 <td>tendência-alta</td>
+<td>triângulo</td>
 </tr>
 <tr>
-<td>triângulo</td>
 <td>caminhão</td>
 <td>tv</td>
 <td>tipo</td>
+<td>guarda-chuva</td>
 </tr>
 <tr>
-<td>guarda-chuva</td>
 <td>sublinhar</td>
 <td>desbloquear</td>
 <td>carregar-nuvem</td>
+<td>fazer upload</td>
 </tr>
 <tr>
-<td>fazer upload</td>
 <td>usuário-marcar</td>
 <td>usuário-menos</td>
 <td>usuário-mais</td>
-</tr>
-<tr>
 <td>usuário-x</td>
-<td>usuário</td>
-<td>users</td>
-<td>vídeo-desligado</td>
 </tr>
 <tr>
+<td>usuário</td>
+<td>usuários</td>
+<td>vídeo-desligado</td>
 <td>vídeo</td>
+</tr>
+<tr>
 <td>correio de voz</td>
 <td>volume-1</td>
 <td>volume-2</td>
+<td>volume-x</td>
 </tr>
 <tr>
-<td>volume-x</td>
 <td>volume</td>
 <td>inspecionar</td>
 <td>wifi-desligado</td>
+<td>wifi</td>
 </tr>
 <tr>
-<td>wifi</td>
 <td>vento</td>
 <td>x-círculo</td>
 <td>x-quadrado</td>
+<td>x</td>
 </tr>
 <tr>
-<td>x</td>
 <td>zapear-desligado</td>
 <td>zapear</td>
 <td>aproximar</td>
-</tr>
-<tr>
 <td>afastar</td>
-<td></td>
-<td></td>
-<td></td>
+</tr>
 </table>

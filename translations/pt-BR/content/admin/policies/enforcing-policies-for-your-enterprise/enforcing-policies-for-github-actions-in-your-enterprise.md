@@ -35,7 +35,7 @@ shortTitle: Políticas do GitHub Actions
 
 ## Forçando uma política para restringir o uso de {% data variables.product.prodname_actions %} na sua empresa
 
-Você pode optar por desativar {% data variables.product.prodname_actions %} para todas as organizações da sua empresa ou permitir apenas organizações específicas. Você também pode limitar o uso de ações públicas {% if actions-workflow-policy %}e fluxos de trabalho reutilizáveis{% endif %}, para que as pessoas só possam usar ações locais {% if actions-workflow-policy %}e fluxos de trabalho reutilizáveis{% endif %} que existem na sua empresa.
+Você pode optar por desativar {% data variables.product.prodname_actions %} para todas as organizações da sua empresa ou permitir apenas organizações específicas. Você também pode limitar o uso de ações públicas {% ifversion actions-workflow-policy %}e fluxos de trabalho reutilizáveis{% endif %}, para que as pessoas só possam usar ações locais {% ifversion actions-workflow-policy %}e fluxos de trabalho reutilizáveis{% endif %} que existem na sua empresa.
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
@@ -47,11 +47,11 @@ Você pode optar por desativar {% data variables.product.prodname_actions %} par
    {%- ifversion ghes or ghae %}
    {% note %}
 
-   **Obersvação:** Para permitir o acesso a ações públicas{% if actions-workflow-policy %} e fluxos de trabalho reutilizáveis{% endif %}, você deve primeiro configurar {% data variables.product.product_location %} para se conectar a {% data variables.product.prodname_dotcom_the_website %}. Para obter mais informações, consulte "[Habilitar o acesso automático às ações do GitHub.com usando o GitHub Connect](/admin/github-actions/enabling-automatic-access-to-githubcom-actions-using-github-connect)".
+   **Obersvação:** Para permitir o acesso a ações públicas{% ifversion actions-workflow-policy %} e fluxos de trabalho reutilizáveis{% endif %}, você deve primeiro configurar {% data variables.product.product_location %} para se conectar a {% data variables.product.prodname_dotcom_the_website %}. Para obter mais informações, consulte "[Habilitar o acesso automático às ações do GitHub.com usando o GitHub Connect](/admin/github-actions/enabling-automatic-access-to-githubcom-actions-using-github-connect)".
 
    {% endnote %}
    {%- endif %}
-   {% if actions-workflow-policy %}
+   {% ifversion actions-workflow-policy %}
    ![Habilita, desabilita ou limita ações para esta conta corporativa](/assets/images/help/organizations/enterprise-actions-policy-with-workflows.png)
    {%- else %}
    ![Habilita, desabilita ou limita ações para esta conta corporativa](/assets/images/help/organizations/enterprise-actions-policy.png)
@@ -63,10 +63,10 @@ Você pode optar por desativar {% data variables.product.prodname_actions %} par
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.actions-tab %}
-1. Em "Políticas", selecione {% data reusables.actions.policy-label-for-select-actions-workflows %} e adicione suas ações necessárias{% if actions-workflow-policy %} e fluxos de trabalho reutilizáveis{% endif %} à lista.
-   {% if actions-workflow-policy %}
+1. Em "Políticas", selecione {% data reusables.actions.policy-label-for-select-actions-workflows %} e adicione suas ações necessárias{% ifversion actions-workflow-policy %} e fluxos de trabalho reutilizáveis{% endif %} à lista.
+   {% ifversion actions-workflow-policy %}
    ![Adicionar ações e fluxos de trabalho reutilizáveis à lista de permissões](/assets/images/help/organizations/enterprise-actions-policy-allow-list-with-workflows.png)
-   {%- elsif ghes or ghae-issue-5094 %}
+   {%- elsif ghes or ghae %}
    ![Adicionar ações à lista de permissões](/assets/images/help/organizations/enterprise-actions-policy-allow-list.png)
    {%- elsif ghae %}
    ![Adicionar ações à lista de permissões](/assets/images/enterprise/github-ae/enterprise-actions-policy-allow-list.png)
@@ -115,43 +115,63 @@ Se uma política for habilitada para uma empresa, ela poderá ser desabilitada s
 {% data reusables.enterprise-accounts.actions-tab %}
 {% data reusables.actions.private-repository-forks-configure %}
 
-{% ifversion ghec or ghes > 3.1 or ghae %}
+{% ifversion ghec or ghes or ghae %}
 
 ## Aplicando uma política de permissões de fluxo de trabalho na sua empresa
 
 {% data reusables.actions.workflow-permissions-intro %}
 
-Você pode definir as permissões padrão para o `GITHUB_TOKEN` nas configurações para sua empresa, organizações ou repositórios. Se você escolher a opção restrita como padrão nas configurações da empresa, isto impedirá que a configuração mais permissiva seja escolhida nas configurações da organização ou repositório.
+Você pode definir as permissões padrão para o `GITHUB_TOKEN` nas configurações para sua empresa, organizações ou repositórios. Se você escolher uma opção restrita como padrão nas configurações da empresa, isto impedirá que a configuração mais permissiva seja escolhida nas configurações da organização ou repositório.
 
 {% data reusables.actions.workflow-permissions-modifying %}
+
+### Configurar as permissões padrão do `GITHUB_TOKEN`
+
+{% ifversion allow-actions-to-approve-pr-with-ent-repo %}
+Por padrão, ao criar uma nova empresa, `GITHUB_TOKEN` só tem acesso de leitura para o escopo `conteúdos`.
+{% endif %}
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.actions-tab %}
-1. Em **permissões do fluxo de trabalho**, escolha se você quer que o `GITHUB_TOKEN` tenha acesso de leitura e gravação para todos os escopos, ou apenas acesso de leitura para o escopo do </code>conteúdo.
-<img src="/assets/images/help/settings/actions-workflow-permissions-enterprise.png" alt="Definir permissões do GITHUB_TOKEN para esta empresa" /></p></li>
-<li><p spaces-before="0">Clique em <strong x-id="1">Salvar</strong> para aplicar as configurações.</p></li>
-</ol>
+1. Em "Permissões do fluxo de trabalho", escolha se você quer o `GITHUB_TOKEN` para ter acesso de leitura e escrita para todos os escopos, ou apenas ler acesso para o escopo `conteúdo`.
 
-<p spaces-before="0">{% endif %}</p>
+   ![Definir permissões do GITHUB_TOKEN para esta empresa](/assets/images/help/settings/actions-workflow-permissions-enterprise{% ifversion allow-actions-to-approve-pr-with-ent-repo %}-with-pr-approval{% endif %}.png)
+1. Clique em **Salvar** para aplicar as configurações.
 
-<p spaces-before="0">{% if actions-cache-policy-apis %}</p>
+{% ifversion allow-actions-to-approve-pr-with-ent-repo %}
+### Impedindo {% data variables.product.prodname_actions %} de criar ou aprovar pull requests
 
-<h2 spaces-before="0">Enforcing a policy for cache storage in your enterprise</h2>
+{% data reusables.actions.workflow-pr-approval-permissions-intro %}
 
-<p spaces-before="0">{% data reusables.actions.cache-default-size %} {% data reusables.actions.cache-eviction-process %}</p>
+Por padrão, ao criar uma nova empresa, não se permite que os fluxos de trabalho criem ou aprovem pull requests.
 
-<p spaces-before="0">However, you can set an enterprise policy to customize both the default total cache size for each repository, as well as the maximum total cache size allowed for a repository. For example, you might want the default total cache size for each repository to be 5 GB, but also allow repository administrators to configure a total cache size up to 15 GB if necessary.</p>
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.policies-tab %}
+{% data reusables.enterprise-accounts.actions-tab %}
+1. Em "Fluxos de trabalho", use a configuração **Permitir que o GitHub Actions crie e aprove pull requests** para configurar se `GITHUB_TOKEN` pode criar e aprovar pull requests.
 
-<p spaces-before="0">People with admin access to a repository can set a total cache size for their repository up to the maximum cache size allowed by the enterprise policy setting.</p>
+   ![Definir permissões do GITHUB_TOKEN para esta empresa](/assets/images/help/settings/actions-workflow-permissions-enterprise-with-pr-approval.png)
+1. Clique em **Salvar** para aplicar as configurações.
 
-<p spaces-before="0">The policy settings for {% data variables.product.prodname_actions %} cache storage can currently only be modified using the REST API:</p>
+{% endif %}
+{% endif %}
 
-<ul>
-<li>To view the current enterprise policy settings, see "<a href="/rest/actions/cache#get-github-actions-cache-usage-policy-for-an-enterprise">Get GitHub Actions cache usage policy for an enterprise</a>."</li>
-<li>To change the enterprise policy settings, see "<a href="/rest/actions/cache#get-github-actions-cache-usage-policy-for-an-enterprise">Set GitHub Actions cache usage policy for an enterprise</a>."</li>
-</ul>
+{% ifversion actions-cache-policy-apis %}
 
-<p spaces-before="0">{% data reusables.actions.cache-no-org-policy %}</p>
+## Aplicando uma política de armazenamento de cache na sua empresa
 
-<p spaces-before="0">{% endif %}</p>
+{% data reusables.actions.cache-default-size %} {% data reusables.actions.cache-eviction-process %}
+
+No entanto, é possível definir uma política corporativa para personalizar ambos os tamanhos de cache total padrão de cada repositório, assim como o tamanho máximo de cache permitido para um repositório. Por exemplo, você pode querer que o tamanho de cache total padrão para cada repositório seja de 5 GB, mas também permite que os administradores de repositórios configurem um tamanho total de cache de até 15 GB, se necessário.
+
+As pessoas com acesso de administrador a um repositório podem definir um tamanho total de cache para seu repositório até o tamanho máximo permitido pela configuração da política corporativa.
+
+As configurações de política para o armazenamento de cache {% data variables.product.prodname_actions %} podem atualmente apenas ser modificadas usando a API REST:
+
+* Para visualizar as configurações de política corporativa atual, consulte "[Obtenha a política de uso do cache do GitHub Actions para uma empresa](/rest/actions/cache#get-github-actions-cache-usage-policy-for-an-enterprise)".
+* Para alterar as configurações da política corporativa, consulte "[Defina a política de uso do cache do GitHub Actions para uma empresa](/rest/actions/cache#get-github-actions-cache-usage-policy-for-an-enterprise)".
+
+{% data reusables.actions.cache-no-org-policy %}
+
+{% endif %}

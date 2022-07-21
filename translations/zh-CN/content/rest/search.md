@@ -1,6 +1,6 @@
 ---
 title: 搜索
-intro: 'The Search API lets you to search for specific items on {% data variables.product.product_name %}.'
+intro: '搜索 API 允许您在 {% data variables.product.product_name %} 上搜索特定项。'
 versions:
   fpt: '*'
   ghes: '*'
@@ -13,7 +13,7 @@ redirect_from:
   - /rest/reference/search
 ---
 
-## About the Search API
+## 关于搜索 API
 
 搜索 API 可帮助您搜索要查找的特定条目。 例如，您可以在仓库中找到用户或特定文件。 就像您在 Google 上执行搜索一样。 它旨在帮助您找到要查找的一个或几个结果。 就像在 Google 上搜索一样，有时您希望查看几页搜索结果，以便找到最能满足您需求的条目。 为了满足这一需求， {% data variables.product.product_name %} 搜索 API **为每个搜索提供最多 1,000 个结果**。
 
@@ -88,7 +88,7 @@ const queryString = 'q=' + encodeURIComponent('GitHub Octocat in:readme user:def
 要在搜索结果中获取这种元数据，请在 `Accept` 标头中指定 `text-match` 媒体类型。
 
 ```shell
-application/vnd.github.v3.text-match+json
+application/vnd.github.text-match+json
 ```
 
 提供 `text-match` 媒体类型时，您将在 JSON 有效负载中收到一个额外的键，名为 `text_matches`，它提供有关搜索词在文本中的位置以及包含该搜索词的 `property` 的信息。 在 `text_matches` 数组中，每个对象包含以下属性：
@@ -106,8 +106,9 @@ application/vnd.github.v3.text-match+json
 使用 cURL 和上面的[示例议题搜索](#search-issues-and-pull-requests)时，我们的 API 请求如下所示：
 
 ``` shell
-curl -H 'Accept: application/vnd.github.v3.text-match+json' \
-'{% data variables.product.api_url_pre %}/search/issues?q=windows+label:bug+language:python+state:open&sort=created&order=asc'
+curl -H 'Accept: application/vnd.github.text-match+json' \
+'{% data variables.product.api_url_pre %}/search/issues?q=windows+label:bug \
++language:python+state:open&sort=created&order=asc'
 ```
 
 对于每个搜索结果，响应将包含一个 `text_matches` 数组。 在下面的 JSON 中，我们在 `text_matches` 数组中有两个对象。
@@ -123,7 +124,9 @@ curl -H 'Accept: application/vnd.github.v3.text-match+json' \
       "object_url": "https://api.github.com/repositories/215335/issues/132",
       "object_type": "Issue",
       "property": "body",
-      "fragment": "comprehensive windows font I know of).\n\nIf we can find a commonly distributed windows font that supports them then no problem (we can use html font tags) but otherwise the '(21)' style is probably better.\n",
+      "fragment": "comprehensive windows font I know of).\n\nIf we can find a commonly
+      distributed windows font that supports them then no problem (we can use html
+      font tags) but otherwise the '(21)' style is probably better.\n",
       "matches": [
         {
           "text": "windows",
@@ -145,7 +148,9 @@ curl -H 'Accept: application/vnd.github.v3.text-match+json' \
       "object_url": "https://api.github.com/repositories/215335/issues/comments/25688",
       "object_type": "IssueComment",
       "property": "body",
-      "fragment": " right after that are a bit broken IMHO :). I suppose we could have some hack that maxes out at whatever the font does...\n\nI'll check what the state of play is on Windows.\n",
+      "fragment": " right after that are a bit broken IMHO :). I suppose we could
+      have some hack that maxes out at whatever the font does...\n\nI'll check
+      what the state of play is on Windows.\n",
       "matches": [
         {
           "text": "Windows",

@@ -7,6 +7,7 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
+  ghae: '*'
 type: overview
 topics:
   - Organizations
@@ -18,6 +19,8 @@ topics:
 ## 什么是端到端供应链？
 
 端到端软件供应链安全的核心是确保您分发的代码未被篡改。 以前，攻击者专注于针对您使用的依赖项，例如库和框架。 攻击者现在已经扩大了他们的关注点，包括针对用户帐户和构建过程，因此这些系统也必须得到保护。
+
+有关 {% data variables.product.prodname_dotcom %} 中可帮助您保护依赖关系的功能的信息，请参阅“[关于供应链安全](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-supply-chain-security)”。
 
 ## 关于这些指南
 

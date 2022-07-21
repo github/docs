@@ -22,6 +22,12 @@ shortTitle: Instalar no AWS
 - Você deve ter uma conta do AWS que possa iniciar instâncias do EC2 e criar volumes EBS. Para obter mais informações, consulte o [site do Amazon Web Services](https://aws.amazon.com/).
 - A maioria das ações necessárias para iniciar a {% data variables.product.product_location %} também pode ser executada usando o console de gerenciamento do AWS. No entanto, é recomendável instalar a interface da linha de comando (CLI) do AWS para a configuração inicial. Veja abaixo alguns exemplos de uso da CLI do AWS. Para obter mais informações, consulte os guias "[Trabalhar com o console de gerenciamento do AWS](http://docs.aws.amazon.com/awsconsolehelpdocs/latest/gsg/getting-started.html)" e "[O que é a interface da linha de comando do AWS](http://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html)".
 
+{% note %}
+
+**Observação:** Neste momento, {% data variables.product.prodname_ghe_server %} não é compatível com o uso da API De Metadados IDMSv2 da Amazon.
+
+{% endnote %}
+
 Para usar este guia, você deve conhecer os seguintes conceitos do AWS:
 
  - [Iniciar instâncias do EC2](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/LaunchingAndUsingInstances.html)
@@ -124,7 +130,7 @@ aws ec2 run-instances \
 
 Se for uma instância de produção, é recomendável alocar uma IP Elástica (EIP) e associá-la à instância antes de seguir para a configuração do {% data variables.product.prodname_ghe_server %}. Caso contrário, o endereço IP público da instância não será retido após a reinicialização da instância. Para obter mais informações, consulte "[Alocar um endereço de IP elástica](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html#using-instance-addressing-eips-allocating)" e "[Associar um endereço de IP elástica a uma instância em execução](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html#using-instance-addressing-eips-associating)" na documentação da Amazon.
 
-As instâncias primária e de réplica devem receber EIPs separados nas configurações de alta disponibilidade de produção. Para obter mais informações, consulte "[Configurar o {% data variables.product.prodname_ghe_server %} para alta disponibilidade](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-github-enterprise-server-for-high-availability/)".
+As instâncias primária e de réplica devem receber EIPs separados nas configurações de alta disponibilidade de produção. Para obter mais informações, consulte "[Configurar o {% data variables.product.prodname_ghe_server %} para alta disponibilidade](/enterprise/admin/guides/installation/configuring-github-enterprise-server-for-high-availability/)".
 
 ## Configurar a instância do {% data variables.product.prodname_ghe_server %}
 

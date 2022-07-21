@@ -2,7 +2,7 @@
 title: Repository invitations
 allowTitleToDifferFromFilename: true
 shortTitle: Invitaciones
-intro: The Repository invitations API allows you to view and manage invitations to collaborate on a repository.
+intro: La API de invitaciones al repositorio te permite ver y administrar las invitaciones para colaborar en un repositorio.
 versions:
   fpt: '*'
   ghes: '*'
@@ -15,7 +15,7 @@ miniTocMaxHeadingLevel: 3
 
 ## About the Repository invitations API
 
-The Repository invitations API allows you to view and manage invitations to collaborate on a repository. Los usuarios invitados (o los servicios externos en nombre de estos) pueden elegir aceptar o rechazar la invitación.
+La API de invitaciones al repositorio te permite ver y administrar las invitaciones para colaborar en un repositorio. Los usuarios invitados (o los servicios externos en nombre de estos) pueden elegir aceptar o rechazar la invitación.
 
 To add a user as a collaborator, use the Collaborators API instead. Para obtener más información, consulta la sección "[Agregar un colaborador del repositorio](/rest/collaborators/collaborators#add-a-repository-collaborator)".
 

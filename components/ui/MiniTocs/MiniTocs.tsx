@@ -1,7 +1,7 @@
 import cx from 'classnames'
 import { ActionList, Heading } from '@primer/react'
 
-import { MiniTocItem } from 'components/context/ArticleContext'
+import type { MiniTocItem } from 'components/context/ArticleContext'
 import { Link } from 'components/Link'
 import { useTranslation } from 'components/hooks/useTranslation'
 
@@ -14,7 +14,7 @@ const renderTocItem = (item: MiniTocItem) => {
   return (
     <ActionList.Item
       as="li"
-      key={item.contents}
+      key={item.contents.href}
       className={item.platform}
       sx={{
         listStyle: 'none',
@@ -30,7 +30,9 @@ const renderTocItem = (item: MiniTocItem) => {
       }}
     >
       <div className={cx('lh-condensed d-block width-full')}>
-        <div dangerouslySetInnerHTML={{ __html: item.contents }} />
+        <a className="d-block width-auto" href={item.contents.href}>
+          {item.contents.title}
+        </a>
         {item.items && item.items.length > 0 ? (
           <ul className="ml-3">{item.items.map(renderTocItem)}</ul>
         ) : null}
@@ -48,16 +50,13 @@ export function MiniTocs({ pageTitle, miniTocItems }: MiniTocsPropsT) {
         <Link href="#in-this-article">{t('miniToc')}</Link>
       </Heading>
 
-      <ActionList
-        key={pageTitle}
-        items={miniTocItems.map((items, i) => {
-          return {
-            key: pageTitle + i,
-            text: pageTitle,
-            renderItem: () => <ul>{renderTocItem(items)}</ul>,
-          }
-        })}
-      />
+      <ActionList variant="full" className="my-2" key={pageTitle} as="div">
+        <div>
+          {miniTocItems.map((items, i) => {
+            return <ul key={pageTitle + i}>{renderTocItem(items)}</ul>
+          })}
+        </div>
+      </ActionList>
     </>
   )
 }

@@ -68,7 +68,7 @@ topics:
 
 您无需登录 {% data variables.enterprise.management_console %} 即可使用此方法。
 
-使用 [ghe-diagnostics](/enterprise/{{ currentVersion }}/admin/guides/installation/command-line-utilities#ghe-diagnostics) 命令行实用程序检索实例的诊断。
+使用 [ghe-diagnostics](/enterprise/admin/guides/installation/command-line-utilities#ghe-diagnostics) 命令行实用程序检索实例的诊断。
 
 ```shell
 $ ssh -p122 admin@<em>hostname</em> -- 'ghe-diagnostics' > diagnostics.txt

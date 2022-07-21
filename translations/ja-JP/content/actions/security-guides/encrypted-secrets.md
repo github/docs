@@ -7,6 +7,7 @@ redirect_from:
   - /actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets
   - /actions/configuring-and-managing-workflows/using-variables-and-secrets-in-a-workflow
   - /actions/reference/encrypted-secrets
+miniTocMaxHeadingLevel: 3
 versions:
   fpt: '*'
   ghes: '*'
@@ -283,49 +284,64 @@ A workflow created in a repository can access the following number of secrets:
 * If the repository is assigned access to more than 100 organization secrets, the workflow can only use the first 100 organization secrets (sorted alphabetically by secret name).
 * All 100 environment secrets.
 
-シークレットの容量は最大64 KBです。 64 KBより大きなシークレットを使うには、暗号化されたシークレットをリポジトリ内に保存して、復号化パスフレーズを{% data variables.product.prodname_dotcom %}に保存します。 たとえば、{% data variables.product.prodname_dotcom %}のリポジトリにファイルをチェックインする前に、`gpg`を使って認証情報をローカルで暗号化します。 詳しい情報については、「[gpg manpage](https://www.gnupg.org/gph/de/manual/r1023.html)」を参照してください。
+シークレットの容量は最大64 KBです。 To store larger secrets, see the "[Storing large secrets](#storing-large-secrets)" workaround below.
+
+### Storing large secrets
+
+To use secrets that are larger than 64 KB, you can use a workaround to store encrypted secrets in your repository and save the decryption passphrase as a secret on {% data variables.product.prodname_dotcom %}. For example, you can use `gpg` to encrypt a file containing your secret locally before checking the encrypted file in to your repository on {% data variables.product.prodname_dotcom %}. 詳しい情報については、「[gpg manpage](https://www.gnupg.org/gph/de/manual/r1023.html)」を参照してください。
 
 {% warning %}
 
-**警告**: アクションを実行する際、シークレットが出力されないよう注意してください。 この回避策を用いる場合、{% data variables.product.prodname_dotcom %}はログに出力されたシークレットを削除しません。
+**Warning**: Be careful that your secrets do not get printed when your workflow runs. この回避策を用いる場合、{% data variables.product.prodname_dotcom %}はログに出力されたシークレットを削除しません。
 
 {% endwarning %}
 
-1. ターミナルから以下のコマンドを実行して、`gpg`およびAES256暗号アルゴリズムを使用して`my_secret.json`ファイルを暗号化します。
+1. Run the following command from your terminal to encrypt the file containing your secret using `gpg` and the AES256 cipher algorithm. In this example, `my_secret.json` is the file containing the secret.
 
- ``` shell
- $ gpg --symmetric --cipher-algo AES256 my_secret.json
- ```
+   ```bash
+   gpg --symmetric --cipher-algo AES256 my_secret.json
+   ```
 
 1. パスフレーズを入力するよう求められます。 このパスフレーズを覚えておいてください。{% data variables.product.prodname_dotcom %}で、このパスフレーズを値として用いる新しいシークレットを作成するために必要になります。
 
-1. パスフレーズを含む新しいシークレットを作成します。 たとえば、`LARGE_SECRET_PASSPHRASE`という名前で新しいシークレットを作成し、シークレットの値を上記のステップで選択したパスフレーズに設定します。
+1. パスフレーズを含む新しいシークレットを作成します。 For example, create a new secret with the name `LARGE_SECRET_PASSPHRASE` and set the value of the secret to the passphrase you used in the step above.
 
-1. 暗号化したファイルをリポジトリ内にコピーしてコミットします。 この例では、暗号化したファイルは`my_secret.json.gpg`です。
+1. Copy your encrypted file to a path in your repository and commit it. この例では、暗号化したファイルは`my_secret.json.gpg`です。
 
-1. パスワードを復号化するシェルスクリプトを作成します。 このファイルを`decrypt_secret.sh`として保存します。
+   {% warning %}
 
-  ``` shell
-  #!/bin/sh
+   **Warning**: Make sure to copy the encrypted `my_secret.json.gpg` file ending with the `.gpg` file extension, and **not** the unencrypted `my_secret.json` file.
 
-  # ファイルを復号化
-  mkdir $HOME/secrets
-  # --batchでインタラクティブなコマンドを防ぎ、
-  # --yes で質問に対して "はい" が返るようにする
-  gpg --quiet --batch --yes --decrypt --passphrase="$LARGE_SECRET_PASSPHRASE" \
-  --output $HOME/secrets/my_secret.json my_secret.json.gpg
-  ```
+   {% endwarning %}
+
+   ```bash
+   git add my_secret.json.gpg
+   git commit -m "Add new encrypted secret JSON file"
+   ```
+
+1. Create a shell script in your repository to decrypt the secret file. In this example, the script is named `decrypt_secret.sh`.
+
+   ```bash
+   #!/bin/sh
+
+   # Decrypt the file
+   mkdir $HOME/secrets
+   # --batch to prevent interactive command
+   # --yes to assume "yes" for questions
+   gpg --quiet --batch --yes --decrypt --passphrase="$LARGE_SECRET_PASSPHRASE" \
+   --output $HOME/secrets/my_secret.json my_secret.json.gpg
+   ```
 
 1. リポジトリにチェックインする前に、シェルスクリプトが実行可能であることを確かめてください。
 
-  ``` shell
-  $ chmod +x decrypt_secret.sh
-  $ git add decrypt_secret.sh
-  $ git commit -m "Add new decryption script"
-  $ git push
-  ```
+   ```bash
+   chmod +x decrypt_secret.sh
+   git add decrypt_secret.sh
+   git commit -m "Add new decryption script"
+   git push
+   ```
 
-1. ワークフローから、`step`を使用してシェルスクリプトを呼び出し、シークレットを復号化します。 ワークフローを実行している環境にリポジトリのコピーを作成するには、[`actions/checkout`](https://github.com/actions/checkout)アクションを使用する必要があります。 リポジトリのルートを基準として`run`コマンドを使用し、シェルスクリプトを参照します。
+1. In your {% data variables.product.prodname_actions %} workflow, use a `step` to call the shell script and decrypt the secret. ワークフローを実行している環境にリポジトリのコピーを作成するには、[`actions/checkout`](https://github.com/actions/checkout)アクションを使用する必要があります。 リポジトリのルートを基準として、`run`コマンドを使用することで、シェルスクリプトを参照します。
 
    ```yaml
    name: Workflows with large secrets
@@ -339,9 +355,9 @@ A workflow created in a repository can access the following number of secrets:
        steps:
          - uses: {% data reusables.actions.action-checkout %}
          - name: Decrypt large secret
-           run: ./.github/scripts/decrypt_secret.sh
+           run: ./decrypt_secret.sh
            env:
-             LARGE_SECRET_PASSPHRASE: {% raw %}${{ secrets. LARGE_SECRET_PASSPHRASE }}{% endraw %}
+             LARGE_SECRET_PASSPHRASE: {% raw %}${{ secrets.LARGE_SECRET_PASSPHRASE }}{% endraw %}
          # This command is just an example to show your secret being printed
          # Ensure you remove any print statements of your secrets. GitHub does
          # not hide secrets that use this workaround.

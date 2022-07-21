@@ -26,7 +26,7 @@ Você pode pesquisar, classificar e filtrar seus repositórios e tópicos com es
 A estrela facilita a localização posterior de um repositório ou tópico. Você pode ver todos os repositórios e tópicos marcados com estrelas acessando sua {% data variables.explore.your_stars_page %}.
 
 {% ifversion fpt or ghec %}
-Você pode favoritar repositórios e tópicos para descobrir projetos semelhantes em {% data variables.product.product_name %}. Ao marcar repositórios ou tópicos, {% data variables.product.product_name %} pode recomendar conteúdo relacionado no seu painel pessoal. Para obter mais informações, consulte "[Encontrando formas de contribuir para código aberto em {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github)" e "[Sobre o seu painel pessoal](/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/about-your-personal-dashboard#staying-updated-with-activity-from-the-community)."
+Você pode favoritar repositórios e tópicos para descobrir projetos semelhantes em {% data variables.product.product_name %}. Ao marcar repositórios ou tópicos, {% data variables.product.product_name %} pode recomendar conteúdo relacionado no seu painel pessoal. Para obter mais informações, consulte "[Encontrando formas de contribuir para código aberto em {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github)" e "[Sobre o seu painel pessoal](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/about-your-personal-dashboard#staying-updated-with-activity-from-the-community)."
 {% endif %}
 
 Marcar um repositório com estrelas também demonstra apreciação ao trabalho do mantenedor de repositório. Muitas classificações de repositórios do {% data variables.product.prodname_dotcom %} dependem do número de estrelas do repositório. Além disso, o [Explore](https://github.com/explore) mostra os repositórios populares com base no número de estrelas do repositório.
@@ -40,6 +40,16 @@ Favoritar um repositório é um processo simples de duas etapas.
 1. Opcionalmente, para desmarcar um repositório como favorito, clique em **Desmarcar como favorito**. ![Removendo um repositório dos favoritos](/assets/images/help/stars/unstarring-a-repository.png)
 
 {% ifversion fpt or ghec %}
+
+## Visualizando quem favoritou um repositório
+
+
+Você pode ver todos que protagonizaram um repositório público ou um repositório privado ao qual você tem acesso.
+
+
+Para ver todos que estrelaram um repositório, adicione `/stargazers` o final da URL de um repositório. Por exemplo, para ver observadores para o repositório github/docs, acesse https://github.com/github/docs/stargazers.
+
+
 ## Organizar repositórios favoritos com listas
 
 {% note %}

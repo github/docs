@@ -16,7 +16,7 @@ shortTitle: Open source contributors
 
 ## Joining {% data variables.product.prodname_sponsors %}
 
-{% data reusables.sponsors.you-can-be-a-sponsored-developer %} For more information, see "[Setting up {% data variables.product.prodname_sponsors %} for your personal account](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-user-account)."
+{% data reusables.sponsors.you-can-be-a-sponsored-developer %} For more information, see "[Setting up {% data variables.product.prodname_sponsors %} for your personal account](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-personal-account)."
 
 {% data reusables.sponsors.you-can-be-a-sponsored-organization %} For more information, see "[Setting up {% data variables.product.prodname_sponsors %} for your organization](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-organization)."
 
@@ -28,7 +28,7 @@ You can set a goal for your sponsorships. For more information, see "[Managing y
 
 ## Sponsorship tiers
 
-{% data reusables.sponsors.tier-details %} For more information, see "[Setting up {% data variables.product.prodname_sponsors %} for your personal account](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-user-account)," "[Setting up {% data variables.product.prodname_sponsors %} for your organization](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-organization), and "[Managing your sponsorship tiers](/sponsors/receiving-sponsorships-through-github-sponsors/managing-your-sponsorship-tiers)."
+{% data reusables.sponsors.tier-details %} For more information, see "[Setting up {% data variables.product.prodname_sponsors %} for your personal account](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-personal-account)," "[Setting up {% data variables.product.prodname_sponsors %} for your organization](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-organization), and "[Managing your sponsorship tiers](/sponsors/receiving-sponsorships-through-github-sponsors/managing-your-sponsorship-tiers)."
 
 It's best to set up a range of different sponsorship options, including monthly and one-time tiers, to make it easy for anyone to support your work. In particular, one-time payments allow people to reward your efforts without worrying about whether their finances will support a regular payment schedule.
 

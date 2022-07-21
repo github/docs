@@ -2,11 +2,12 @@
 title: Securing your end-to-end supply chain
 shortTitle: Overview
 allowTitleToDifferFromFilename: true
-intro: Introducing best practice guides on complete end-to-end supply chain security including personal accounts, code, and build processes.
+intro: 'Introducing best practice guides on complete end-to-end supply chain security including personal accounts, code, and build processes.'
 versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
+  ghae: '*'
 type: overview
 topics:
   - Organizations
@@ -18,6 +19,8 @@ topics:
 ## What is the end-to-end supply chain?
 
 At its core, end-to-end software supply chain security is about making sure the code you distribute hasn't been tampered with. Previously, attackers focused on targeting dependencies you use, for example libraries and frameworks. Attackers have now expanded their focus to include targeting user accounts and build processes, and so those systems must be defended as well.
+
+For information about features in {% data variables.product.prodname_dotcom %} that can help you secure dependencies, see "[About supply chain security](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-supply-chain-security)."
 
 ## About these guides
 

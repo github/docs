@@ -44,20 +44,20 @@ There are two {% data variables.contact.premium_support %} plans: Premium and Pr
 |---|---|------|
 | Hours of operation | 24 x 7 | 24 x 7 |
 | Initial response time | <ul><li>30 minutes for {% data variables.product.support_ticket_priority_urgent %}</li><li>4 hours for {% data variables.product.support_ticket_priority_high %}</li></ul> | <ul><li>30 minutes for {% data variables.product.support_ticket_priority_urgent %}</li><li>4 hours for {% data variables.product.support_ticket_priority_high %}</li></ul> |
-| Support channels | <ul><li>Online ticket submission</li><li>Phone support in English via callback request</li></ul> | <ul><li>Online ticket submission</li><li>Phone support in English via callback request</li><li>Screen share for critical issues</li></ul>
+| Support channels | <ul><li>Online ticket submission</li><li>Phone support in English via callback request</li><li>Screen share request for critical issues</li></ul> | <ul><li>Online ticket submission</li><li>Phone support in English via callback request</li><li>Screen share request for critical issues</li></ul> |
 | Training | Access to premium content  | <ul><li>Access to premium content</li><li>1 virtual training class per year</li></ul> |
-| Members with support entitlements | 10 | 25 |
+| Members with support entitlements | 20 | 20 |
 | Resources | Priority ticket handling | <ul><li>Priority ticket handling</li><li>Named Customer Reliability Engineer</li></ul>   |
-| Scheduled checks| Bi-annual health check and reporting             | <ul><li>Quarterly health check and reporting</li><li>Quarterly account reviews</li></ul>    |
-| Administration assistance| None | 4 hours per month  |
+| Health Checks | Unlimited automated Health Check reports (see "[Generating a Health Check for your enterprise]({% ifversion not ghes%}/enterprise-server@latest{% endif %}/admin/enterprise-management/monitoring-your-appliance/generating-a-health-check-for-your-enterprise)") | <ul><li>Unlimited automated Health Check reports (see "[Generating a Health Check for your enterprise]({% ifversion not ghes%}/enterprise-server@latest{% endif %}/admin/enterprise-management/monitoring-your-appliance/generating-a-health-check-for-your-enterprise)")</li><li>Quarterly enhanced Health Checks, with findings, interpretations, and recommendations from a Customer Reliability Engineer (by request)</li></ul>    |
+| Technical advisory hours| None | 4 hours per month  |
+| Application upgrade assistance | None | By request |
+| Cloud planning | None | By request |
 
   {% note %}
 
   **Notes:**
-  - Scheduled checks are limited to one organization per term. You can add scheduled checks for additional organizations at any time for an additional fee by [contacting our account management team](https://enterprise.github.com/contact) or calling [+1 (877) 448-4820](tel:+1-877-448-4820).{% ifversion ghes %}
-  - You can generate a Health Check at any time by uploading a support bundle. For more information, see "[Generating a Health Check for your enterprise](/admin/enterprise-management/monitoring-your-appliance/generating-a-health-check-for-your-enterprise)."{% endif %}
-  - For the {% data variables.product.premium_plus_support_plan %}, 50% of unused Managed Services hours roll over to the next month and expire at the end of the quarter.
   - Enterprise owners and billing managers automatically have a support entitlement. Enterprise owners can add support entitlements to members of organizations owned by their enterprise account. For more information, see "[Managing support entitlements for your enterprise](/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise/managing-support-entitlements-for-your-enterprise)."
+  - For the {% data variables.product.premium_plus_support_plan %}, 50% of unused Managed Services hours roll over to the next month and expire at the end of the quarter.
 
   {% endnote %}
 

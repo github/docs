@@ -34,6 +34,8 @@ You can also configure workflow automations to keep your project board in sync w
 
 ## Creating a user-owned project board
 
+{% data reusables.projects.classic-project-creation %}
+
 {% data reusables.profile.access_profile %}
 2. On the top of your profile page, in the main navigation, click {% octicon "project" aria-label="The project board icon" %} **Projects**.
 ![Project tab](/assets/images/help/projects/user-projects-tab.png)
@@ -54,6 +56,8 @@ You can also configure workflow automations to keep your project board in sync w
 
 ## Creating an organization-wide project board
 
+{% data reusables.projects.classic-project-creation %}
+
 {% data reusables.profile.access_org %}
 {% data reusables.user-settings.access_org %}
 {% data reusables.organizations.organization-wide-project %}
@@ -73,6 +77,8 @@ You can also configure workflow automations to keep your project board in sync w
 {% data reusables.project-management.edit-project-columns %}
 
 ## Creating a repository project board
+
+{% data reusables.projects.classic-project-creation %}
 
 {% data reusables.repositories.navigate-to-repo %}
 2. Under your repository name, click {% octicon "project" aria-label="The project board icon" %} **Projects**.

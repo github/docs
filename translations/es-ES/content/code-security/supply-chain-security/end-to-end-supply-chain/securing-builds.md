@@ -1,12 +1,13 @@
 ---
-title: Best practices for securing your build system
-shortTitle: Securing builds
+title: Mejores prácticas para asegurar tu sistema de compilación
+shortTitle: Asegurar las compilaciones
 allowTitleToDifferFromFilename: true
-intro: Guidance on how to protect the end of your supply chain—the systems you use to build and distribute artifacts.
+intro: Lineamientos sobre cómo proteger el final de tu cadena de suministro; los sistemas que debes utilizar para compilar y distribuir artefactos.
 versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
+  ghae: '*'
 type: overview
 topics:
   - Fundamentals
@@ -15,48 +16,48 @@ topics:
   - CD
 ---
 
-## About this guide
+## Acerca de esta guía
 
-This guide describes the highest impact changes you can make to improve the security of your build systems. Each section outlines a change you can make to your processes to improve security. The highest impact changes are listed first.
+Esta guía describe los cambios de mayor impacto que puedes hacer para mejorar la seguridad de tus sistemas de compilación. Cada sección detalla un cambio que puedes hacer a tus procesos para mejorar la seguridad. Los cambios de más alto impacto se listan primero.
 
-## What's the risk?
+## ¿Cuál es el riesgo?
 
-Some attacks on software supply chains target the build system directly. If an attacker can modify the build process, they can exploit your system without the effort of compromising personal accounts or code. It's important to make sure that you don't forget to protect the build system as well as personal accounts and code.
+Algunos ataques a las cadenas de suministro de software apuntan directamente hacia el sistema de compilación. Si un atacante puede modificar el proceso de compilación, este puede aprovechar tu sistema sin el esfuerzo de poner en riesgo las cuentas personales o el código. Es importante asegurarse de que no te olvidaste de proteger el sistema de compilación, así como las cuentas personales y el código.
 
-## Secure your build system
+## Asegurar tu sistema de compilación
 
-There are several security capabilities a build system should have:
+Existen varias capacidades de seguridad que debe tener un sistema de compilación:
 
-1. The build steps should be clear and repeatable.
+1. Los pasos de compilación deben ser claros y repetibles.
 
-2. You should know exactly what was running during the build process.
+2. Deberías saber exactamente qué se estaba ejecutando durante el proceso de compilación.
 
-3. Each build should start in a fresh environment, so a compromised build doesn't persist to affect future builds.
+3. Cada compilación debería iniciar en un ambiente nuevo, para que las compilaciones puestas en riesgo no persistan para afectar compilaciones futuras.
 
-{% data variables.product.prodname_actions %} can help you meet these capabilities. Build instructions are stored in your repository, alongside your code. You choose what environment your build runs on, including Windows, Mac, Linux, or runners you host yourself. Each build starts with a fresh virtual environment, making it difficult for an attack to persist in your build environment.
+{% data variables.product.prodname_actions %} puede ayudarte a lograr estas capacidades. Las instrucciones de compilación se almacenan en tu repositorio, junto con tu código. Tú eliges en qué ambiente se ejecuta tu compilación, incluyendo los de Windows, Mac, Linux o los ejecutores que hospedas tú mismo. Cada compilación inicia con un ambiente virtual nuevo, lo que hace difícil que un ataque persista en tu ambiente de compilación.
 
-In addition to the security benefits, {% data variables.product.prodname_actions %} lets you trigger builds manually, periodically, or on git events in your repository for frequent and fast builds.
+Adicionalmente a los beneficios de seguridad, {% data variables.product.prodname_actions %} te permite activar compilaciones manualmente, regularmente o en eventos de git en tu repositorio para las compilaciones rápidas y frecuentes.
 
 Las {% data variables.product.prodname_actions %} son un tema amplio, pero un buen lugar para iniciar es la sección de "[Entender las GitHub Actions](/actions/learn-github-actions/understanding-github-actions)", así como "[Elegir los ejecutores hospedados por GitHub](/actions/using-workflows/workflow-syntax-for-github-actions#choosing-github-hosted-runners)" y "[Activar un flujo de trabajo](/actions/using-workflows/triggering-a-workflow)".
 
-## Sign your builds
+## Firmar tus compilaciones
 
-After your build process is secure, you want to prevent someone from tampering with the end result of your build process. A great way to do this is to sign your builds. When distributing software publicly, this is often done with a public/private cryptographic key pair. You use the private key to sign the build, and you publish your public key so users of your software can verify the signature on the build before they use it. If the bytes of the build are modified, the signature will not verify.
+Después de que tu proceso de compilación esté seguro, querrás prevenir que alguien manipule el resultado final de tu proceso de compilación. Una buena forma de hacerlo es firmando tus compilaciones. Cuando distribuyes software públicamente, esto se hace a menudo con un par de llaves criptográficas pública/privada. Utilizarás la llave privada para firmar la compilación y publicarás la llave pública para que los usuarios de tu software puedan verificar la firma de la compilación antes de que la utilicen. Si los bites de la compilación se modifican, la firma no se verificará.
 
-How exactly you sign your build will depend on what sort of code you're writing, and who your users are. Often it's difficult to know how to securely store the private key. One basic option here is to use {% data variables.product.prodname_actions %} encrypted secrets, although you'll need to be careful to limit who has access to those {% data variables.product.prodname_actions %} workflows. {% ifversion fpt or ghec %}si tu clave privada se almacena en otro sistema al cual se puede acceder a través de del internet público (como Microsoft Azure o HashiCorp Vault), una opción más avanzada es autenticarse con OpenID Connect, por lo que no tienes que compartir secretos entre sistemas.{% endif %} si solo se puede acceder a tu clave privada desde una red privada, otra opción es usar los corredores auto-hospedados para {% data variables.product.prodname_actions %}.
+El cómo firmas tu compilación exactamente dependerá de qué tipo de código estás escribiendo y de quiénes son tus usuarios. A menudo, es difícil saber cómo almacenar la llave privada de forma segura. Una opción básica en este caso es utilizar los secretos cifrados de las {% data variables.product.prodname_actions %}, aunque necesitarás tener cuidado de limitar quién tiene acceso a esos flujos de trabajo de {% data variables.product.prodname_actions %}. {% ifversion fpt or ghec %}si tu clave privada se almacena en otro sistema al cual se puede acceder a través de del internet público (como Microsoft Azure o HashiCorp Vault), una opción más avanzada es autenticarse con OpenID Connect, por lo que no tienes que compartir secretos entre sistemas.{% endif %} si solo se puede acceder a tu clave privada desde una red privada, otra opción es usar los corredores auto-hospedados para {% data variables.product.prodname_actions %}.
 
 Para obtener más información, consulta las secciones "[Secretos cifrados](/actions/security-guides/encrypted-secrets)"{% ifversion fpt or ghec %}, "[Acerca del fortalecimiento de seguridad con OpenID Connect](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect)",{% endif %} y "[Acerca de los ejecutores auto-hospedados](/actions/hosting-your-own-runners/about-self-hosted-runners)".
 
-## Harden security for {% data variables.product.prodname_actions %}
+## Reforzar las seguridad para las {% data variables.product.prodname_actions %}
 
-There are many further steps you can take to additionally secure {% data variables.product.prodname_actions %}. In particular, be careful when evaluating third-party workflows, and consider using `CODEOWNERS` to limit who can make changes to your workflows.
+Hay muchos más pasos que puedes llevar a cabo para asegurar las {% data variables.product.prodname_actions %} adicionalmente. Particularmente, ten cuidado al evaluar los flujos de trabajo de terceros y considera utilizar `CODEOWNERS` para limitar quiénes pueden hacer cambios a tus flujos de trabajo.
 
 Para obtener más información, consulta las secciones "[Fortalecimiento de seguridad para las GitHub Actions](/actions/security-guides/security-hardening-for-github-actions)"; particularmente "[Utilizar acciones de terceros](/actions/security-guides/security-hardening-for-github-actions#using-third-party-actions)" y "[Utilizar `CODEOWNERS` para monitorear cambios](/actions/security-guides/security-hardening-for-github-actions#using-codeowners-to-monitor-changes)".
 
 ## Pasos siguientes
 
-- "[Securing your end-to-end supply chain](/code-security/supply-chain-security/end-to-end-supply-chain/end-to-end-supply-chain-overview)"
+- "[Asegurar tu cadena de suministros de extremo a extremo](/code-security/supply-chain-security/end-to-end-supply-chain/end-to-end-supply-chain-overview)"
 
-- "[Best practices for securing accounts](/code-security/supply-chain-security/end-to-end-supply-chain/securing-accounts)"
+- "[Mejores prácticas para asegurar cuentas](/code-security/supply-chain-security/end-to-end-supply-chain/securing-accounts)"
 
-- "[Best practices for securing code in your supply chain](/code-security/supply-chain-security/end-to-end-supply-chain/securing-code)"
+- "[Mejores prácticas para asegurar el código en tu cadena de suministros](/code-security/supply-chain-security/end-to-end-supply-chain/securing-code)"

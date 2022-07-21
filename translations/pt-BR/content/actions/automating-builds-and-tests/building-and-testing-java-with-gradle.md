@@ -22,7 +22,7 @@ shortTitle: Criar & testar Java & Gradle
 
 ## Introdução
 
-Este guia mostra como criar um fluxo de trabalho que realiza a integração contínua (CI) para o seu projeto Java usando o sistema de criação do Gradle. O fluxo de trabalho que você criar permitirá que você veja quando commits em um pull request gerarão falhas de criação ou de teste em comparação com o seu branch-padrão. Essa abordagem pode ajudar a garantir que seu código seja sempre saudável. You can extend your CI workflow to {% if actions-caching %}cache files and{% endif %} upload artifacts from a workflow run.
+Este guia mostra como criar um fluxo de trabalho que realiza a integração contínua (CI) para o seu projeto Java usando o sistema de criação do Gradle. O fluxo de trabalho que você criar permitirá que você veja quando commits em um pull request gerarão falhas de criação ou de teste em comparação com o seu branch-padrão. Essa abordagem pode ajudar a garantir que seu código seja sempre saudável. Você pode estender seu fluxo de trabalho de CI para {% ifversion actions-caching %}arquivos de cache e{% endif %} fazer o upload de artefatos a partir da execução de um fluxo de trabalho.
 
 {% ifversion ghae %}
 {% data reusables.actions.self-hosted-runners-software %}
@@ -69,7 +69,7 @@ jobs:
       - name: Validate Gradle wrapper
         uses: gradle/wrapper-validation-action@e6e38bacfdf1a337459f332974bb2327a31aaf4b
       - name: Build with Gradle
-        uses: gradle/gradle-build-action@0d13054264b0bb894ded474f08ebb30921341cee
+        uses: gradle/gradle-build-action@67421db6bd0bf253fb4bd25b31ebb98943c375e1
         with:
           arguments: build
 ```
@@ -105,16 +105,16 @@ steps:
   - name: Validate Gradle wrapper
     uses: gradle/wrapper-validation-action@e6e38bacfdf1a337459f332974bb2327a31aaf4b
   - name: Run the Gradle package task
-    uses: gradle/gradle-build-action@0d13054264b0bb894ded474f08ebb30921341cee
+    uses: gradle/gradle-build-action@67421db6bd0bf253fb4bd25b31ebb98943c375e1
     with:
       arguments: -b ci.gradle package
 ```
 
-{% if actions-caching %}
+{% ifversion actions-caching %}
 
 ## Memorizar dependências
 
-Your build dependencies can be cached to speed up your workflow runs. Após uma execução bem-sucedida, a ação `gradle/gradle-build-action` armazena em cache partes importantes do diretório inicial do usuário do Gradle. Em trabalhos futuros, o cache será restaurado para que os scripts de compilação não precisem ser recalculados e as dependências não precisem ser baixadas a partir de repositórios remotos de pacotes.
+Suas dependências de compilação podem ser armazenadas em cache para acelerar as execuções do seu fluxo de trabalho. Após uma execução bem-sucedida, a ação `gradle/gradle-build-action` armazena em cache partes importantes do diretório inicial do usuário do Gradle. Em trabalhos futuros, o cache será restaurado para que os scripts de compilação não precisem ser recalculados e as dependências não precisem ser baixadas a partir de repositórios remotos de pacotes.
 
 O cache é habilitado por padrão ao usar a ação `grades/gradle-build-action`. Para obter mais informações, consulte [`gradle/gradle-build-action`](https://github.com/gradle/gradle-build-action#caching).
 
@@ -136,7 +136,7 @@ steps:
   - name: Validate Gradle wrapper
     uses: gradle/wrapper-validation-action@e6e38bacfdf1a337459f332974bb2327a31aaf4b
   - name: Build with Gradle
-    uses: gradle/gradle-build-action@0d13054264b0bb894ded474f08ebb30921341cee
+    uses: gradle/gradle-build-action@67421db6bd0bf253fb4bd25b31ebb98943c375e1
     with:
       arguments: build
   - uses: {% data reusables.actions.action-upload-artifact %}

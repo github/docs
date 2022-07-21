@@ -15,11 +15,11 @@ shortTitle: ソースコントロール
 
  
 
-## {% data variables.product.prodname_codespaces %} のソースコントロールについて
+## {% data variables.product.prodname_github_codespaces %} のソースコントロールについて
 
 必要なすべての Git アクションを codespace 内で直接実行できます。 たとえば、リモートリポジトリから変更をフェッチしたり、ブランチを切り替えたり、新しいブランチを作成したり、変更をコミットしてプッシュしたり、プルリクエストを作成したりすることができます。 Codespace 内の統合ターミナルを使用して Git コマンドを入力するか、アイコンとメニューオプションをクリックして最も一般的な Git タスクをすべて完了することができます。 このガイドでは、ソースコントロールにグラフィカルユーザインターフェースを使用する方法について説明します。
 
-{% data variables.product.prodname_github_codespaces %} 内のソースコントロールは、{% data variables.product.prodname_vscode %} と同じワークフローを使用します。 詳しい情報については、{% data variables.product.prodname_vscode %} のドキュメント「[VS Code でバージョン管理を使用する](https://code.visualstudio.com/docs/editor/versioncontrol#_git-support)」を参照してください。
+{% data variables.product.prodname_github_codespaces %} 内のソースコントロールは、{% data variables.product.prodname_vscode %} と同じワークフローを使用します。 For more information, see the {% data variables.product.prodname_vscode_shortname %} documentation "[Using Version Control in {% data variables.product.prodname_vscode_shortname %}](https://code.visualstudio.com/docs/editor/versioncontrol#_git-support)."
 
 {% data variables.product.prodname_github_codespaces %} を使用してファイルを更新するための一般的なワークフローは次のとおりです。
 

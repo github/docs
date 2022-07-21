@@ -26,13 +26,13 @@ topics:
 
 {% endnote %}
 
-您可以在 {% data variables.product.prodname_dotcom_the_website %}、{% data variables.product.prodname_desktop %}、{% data variables.product.prodname_codespaces %}、{% data variables.product.prodname_mobile %} 上以及使用 GitHub CLI 时创建拉取请求。
+您可以在 {% data variables.product.prodname_dotcom_the_website %}、{% data variables.product.prodname_desktop %}、{% data variables.product.prodname_github_codespaces %}、{% data variables.product.prodname_mobile %} 上以及使用 GitHub CLI 时创建拉取请求。
 
 在初始化拉取请求后，您会看到一个审查页面，其中简要概述您的分支（整个分支）与仓库基本分支之间的更改。 您可以添加提议的更改摘要，审查提交所做的更改，添加标签、里程碑和受理人，以及 @提及个人贡献者或团队。 更多信息请参阅“[创建拉取请求](/articles/creating-a-pull-request)”。
 
 在创建拉取请求后，您可以从主题分支推送提交，以将它们添加到现有的拉取请求。 这些提交将以时间顺序显示在您的拉取请求中，在 "Files changed"（更改的文件）选项卡中可以看到更改。
 
-其他贡献者可以审查您提议的更改，添加审查注释，参与拉取请求讨论，甚至对拉取请求添加评论。 {% if pull-request-approval-limit %}{% data reusables.pull_requests.code-review-limits %}{% endif %}
+其他贡献者可以审查您提议的更改，添加审查注释，参与拉取请求讨论，甚至对拉取请求添加评论。 {% ifversion pull-request-approval-limit %}{% data reusables.pull_requests.code-review-limits %}{% endif %}
 
 {% ifversion fpt or ghec %}
 您可以在“Conversation（对话）”选项卡上查看有关分支当前部署状态和以前部署活动的信息。 更多信息请参阅“[查看仓库的部署活动](/repositories/viewing-activity-and-data-for-your-repository/viewing-deployment-activity-for-your-repository)”。

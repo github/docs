@@ -1,1 +1,1 @@
-Use `jobs.<job_id>.container.env` to set a `map` of environment variables in the container.
+Utiliza `jobs.<job_id>.container.env` para configurar un `map` de variables ambientales en el contenedor.

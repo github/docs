@@ -42,9 +42,9 @@ O {% data variables.product.product_name %} atualmente verifica repositórios p�
 
 Quando {% data variables.product.prodname_secret_scanning_GHAS %} está habilitado, {% data variables.product.prodname_dotcom %} digitalia os segredos emitidos pelos seguintes prestadores de serviços. {% ifversion ghec %}Para obter mais informações sobre {% data variables.product.prodname_secret_scanning_GHAS %}, consulte "[Sobre {% data variables.product.prodname_secret_scanning_GHAS %}](/code-security/secret-scanning/about-secret-scanning#about-secret-scanning-for-advanced-security)."{% endif %}
 
-If you use the REST API for secret scanning, you can use the `Secret type` to report on secrets from specific issuers. Para obter mais informações, consulte "[Verificação de segredo](/enterprise-cloud@latest/rest/secret-scanning)".
+Se você usar a API REST para a digitalização de segredo, você pode usar o tipo `tipo de segredo` para relatar segredos de emissores específicos. Para obter mais informações, consulte "[Verificação de segredo](/enterprise-cloud@latest/rest/secret-scanning)".
 
-{% ifversion ghes > 3.1 or ghae or ghec %}
+{% ifversion ghes or ghae or ghec %}
 {% note %}
 
 **Obersvação:** Você também pode definir padrões personalizados de {% data variables.product.prodname_secret_scanning %} para seu repositório, organização ou empresa. Para obter mais informações, consulte "[Definir padrões personalizados para {% data variables.product.prodname_secret_scanning %}](/code-security/secret-security/defining-custom-patterns-for-secret-scanning)".

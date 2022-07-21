@@ -89,4 +89,4 @@ A sua linguagem e implementações do servidor podem ser diferentes deste códig
 
 * Não **se recomenda** usar um operador simples de`==`. Um método como [`secure_compare`][secure_compare] executa uma comparação de strings "tempo constante", o que ajuda a mitigar certos ataques de tempo contra operadores de igualdade regular.
 
-[secure_compare]: https://rubydoc.info/github/rack/rack/master/Rack/Utils:secure_compare
+[secure_compare]: https://rubydoc.info/github/rack/rack/main/Rack/Utils:secure_compare

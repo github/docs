@@ -8,6 +8,7 @@ introLinks:
 featuredLinks:
   guides:
     - /actions/learn-github-actions
+    - /actions/examples
     - /actions/guides/about-continuous-integration
     - /actions/deployment/deploying-with-github-actions
     - /actions/guides/about-packaging-with-github-actions
@@ -19,6 +20,7 @@ featuredLinks:
   popular:
     - /actions/learn-github-actions/workflow-syntax-for-github-actions
     - /actions/learn-github-actions
+    - /actions/examples
     - /actions/learn-github-actions/events-that-trigger-workflows
     - /actions/learn-github-actions/contexts
     - /actions/learn-github-actions/expressions
@@ -50,6 +52,7 @@ versions:
 children:
   - /quickstart
   - /learn-github-actions
+  - /examples
   - /using-workflows
   - /using-jobs
   - /managing-workflow-runs

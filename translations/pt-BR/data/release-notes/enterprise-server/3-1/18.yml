@@ -2,9 +2,9 @@
 date: '2022-03-01'
 sections:
   security_fixes:
-    - "HIGH: An integer overflow vulnerability was identified in GitHub's markdown parser that could potentially lead to information leaks and RCE. This vulnerability was reported through the GitHub Bug Bounty program by Felix Wilhelm of Google's Project Zero and has been assigned CVE-2022-24724."
+    - "ALTO: Uma vulnerabilidade de sobrefluxo de inteiros foi identificada no analisador do markdown do GitHub que poderia potencialmente levar a vazamentos de informações e a RCE. Essa vulnerabilidade foi relatada através do programa de compensação de erros do GitHub por Felix Wilhelm do Projeto Zero do Google, e foi atribuída ao CVE-2022-24724."
   bugs:
-    - Upgrades could sometimes fail if a high-availability replica's clock was out of sync with the primary.
+    - As atualizações às vezes poderiam falhar se o relógio da réplica de alta disponibilidade estivesse fora de sincronia com o primário.
     - 'Aplicativos OAuth criados após 1 de setembro, 2020 não puderam de usar o [Ponto de extremidade API do Check-Authorization](https://docs.github.com/en/enterprise-server@3.1/rest/reference/apps#check-an-authorization).'
   known_issues:
     - O registro npm de {% data variables.product.prodname_registry %} não retorna mais o valor de tempo em respostas de metadados. Isso foi feito para permitir melhorias substanciais de desempenho. Continuamos a ter todos os dados necessários para devolver um valor de tempo como parte da resposta aos metadados e retomaremos o retorno desse valor no futuro, assim que tivermos resolvido os problemas de desempenho existentes.

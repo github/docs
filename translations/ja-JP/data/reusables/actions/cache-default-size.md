@@ -1,1 +1,1 @@
-By default, the total cache storage that {% data variables.product.prodname_actions %} uses on the external storage for {% data variables.product.product_location %} is limited to a maximum of 10 GB per repository, and the maximum allowed size that can be set for a repository is 25 GB.
+デフォルトでは、 {% data variables.product.prodname_actions %}が外部ストレージで{% data variables.product.product_location %}に使用するキャッシュストレージの合計は、リポジトリあたり最大10GBに制限されており、リポジトリに設定できる最大許容サイズは25GBです。

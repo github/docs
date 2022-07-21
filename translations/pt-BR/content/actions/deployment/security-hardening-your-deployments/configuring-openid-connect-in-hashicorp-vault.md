@@ -33,8 +33,8 @@ Este guia fornece uma visão geral sobre como configurar o cofre HashiCorp para 
 Para usar OIDC com oHashiCorp Vault, você deverá adicionar uma configuração de confiança ao provedor do OIDC de {% data variables.product.prodname_dotcom %}. Para obter mais informações, consulte a [documentação](https://www.vaultproject.io/docs/auth/jwt) do HashiCorp Vault.
 
 Configure o cofre para aceitar tokens web do JSON (JWT) para a autenticação:
-- For the `oidc_discovery_url`, use {% ifversion ghes %}`https://HOSTNAME/_services/token`{% else %}`https://token.actions.githubusercontent.com`{% endif %}
-- For `bound_issuer`, use {% ifversion ghes %}`https://HOSTNAME/_services/token`{% else %}`https://token.actions.githubusercontent.com`{% endif %}
+- Para o `oidc_discovery_url`, use {% ifversion ghes %}`https://HOSTNAME/_services/token`{% else %}`https://token.actions.githubusercontent.com`{% endif %}
+- Para `bound_issuer`, use {% ifversion ghes %}`https://HOSTNAME/_services/token`{% else %}`https://token.actions.githubusercontent.com`{% endif %}
 - Certifique-se de que `bound_subject` esteja corretamente definido para seus requisitos de segurança. Para obter mais informações, consulte ["Configurar a confiança do OIDC com a nuvem"](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#configuring-the-oidc-trust-with-the-cloud) e [`hashicorp/vault-action`](https://github.com/hashicorp/vault-action).
 
 ## Atualizar o seu fluxo de trabalho de {% data variables.product.prodname_actions %}

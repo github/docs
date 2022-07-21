@@ -7,6 +7,7 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
+  ghae: '*'
 type: overview
 topics:
   - Dependabot
@@ -46,7 +47,7 @@ Como primeiro passo, você deverá fazer um inventário completo das suas depend
 
 ### Detecção automática de vulnerabilidades em dependências
 
-{% data variables.product.prodname_dependabot %} pode ajudar você a monitorar as suas dependências e notificar você quando contiverem uma vulnerabilidade conhecida. {% ifversion fpt or ghec or ghes > 3.2 %}Você pode até habilitar {% data variables.product.prodname_dependabot %} para elevar automaticamente os pull requests que atualizam a dependência para uma versão segura.{% endif %} Para obter mais informações, consulte "[Sobre alertas para dependências vulneráveis](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-alerts-for-vulnerable-dependencies)"{% ifversion fpt or ghec or ghes > 3.2 %} e "[Sobre atualizações de segurança do Dependabot](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-dependabot-security-updates)"{% endif %}.
+{% data variables.product.prodname_dependabot %} pode ajudar você a monitorar as suas dependências e notificar você quando contiverem uma vulnerabilidade conhecida. {% ifversion fpt or ghec or ghes > 3.2 %}Você pode até mesmo habilitar {% data variables.product.prodname_dependabot %} para aumentar automaticamente os pull requests que atualizam a dependência para uma versão segura.{% endif %} Para obter mais informações, consulte "[Sobre {% data variables.product.prodname_dependabot_alerts %}](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)"{% ifversion fpt or ghec or ghes > 3.2 %} e "[Sobre as atualizações de segurança do Dependabot](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-dependabot-security-updates)"{% endif %}.
 
 ### Avaliação da exposição ao risco de uma dependência vulnerável
 
@@ -80,7 +81,7 @@ Se a sua organização usar {% data variables.product.prodname_GH_advanced_secur
 Você pode configurar {% data variables.product.prodname_secret_scanning %} para verificar se há segredos emitidos por muitos provedores de serviço e para notificar você quando algum for detectado. Você também pode definir padrões personalizados para detectar segredos adicionais no repositório, organização ou empresa. Para obter mais informações, consulte "[Sobre a digitalização de segredos](/code-security/secret-scanning/about-secret-scanning)" e "[Padrões de digitalização de segredos](/code-security/secret-scanning/secret-scanning-patterns)".
 {% endif %}
 
-{% ifversion fpt or ghec or ghes > 3.2 %}
+{% ifversion fpt or ghec or ghes > 3.2 or ghae %}
 ### Armazenamento seguro de segredos que você usa em {% data variables.product.product_name %}
 {% endif %}
 
@@ -88,8 +89,8 @@ Você pode configurar {% data variables.product.prodname_secret_scanning %} para
 Além do seu código, você provavelmente precisa usar segredos em outros lugares. Por exemplo, para permitir fluxos de trabalho de {% data variables.product.prodname_actions %}, {% data variables.product.prodname_dependabot %} ou seu ambiente de desenvolvimento {% data variables.product.prodname_codespaces %} para se comunicar com outros sistemas. Para obter mais informações sobre como armazenar e usar segredos de forma segura, consulte "[Segredos criptografados em Ações](/actions/security-guides/encrypted-secrets), "[Gerenciando segredos criptografados para Dependabot](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/managing-encrypted-secrets-for-dependabot)," e "[Gerenciando segredos criptografados para seus codespaces](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)."
 {% endif %}
 
-{% ifversion ghes > 3.2 %}
-Além do seu código, você provavelmente precisa usar segredos em outros lugares. Por exemplo, para permitir que os fluxos de trabalhos de {% data variables.product.prodname_actions %} ou {% data variables.product.prodname_dependabot %} se comuniquem com outros sistemas. Para obter mais informações sobre como armazenar e usar segredos com segurança, consulte "[Segredos criptografados em Ações](/actions/security-guides/encrypted-secrets)", e "[Gerenciando segredos criptografados para Dependabot](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/managing-encrypted-secrets-for-dependabot)."
+{% ifversion ghes > 3.2 or ghae %}
+Além do seu código, você provavelmente precisa usar segredos em outros lugares. Por exemplo, para permitir que {% data variables.product.prodname_actions %} os fluxos de trabalho {% ifversion ghes %} ou {% data variables.product.prodname_dependabot %}{% endif %} se comuniquem com outros sistemas. Para obter mais informações sobre como armazenar e usar segredos de forma segura, consulte "[segredos criptografados em Ações](/actions/security-guides/encrypted-secrets){% ifversion ghes %}" e "[Gerenciando segredos criptografados para o Dependabot](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/managing-encrypted-secrets-for-dependabot).{% else %}."{% endif %}
 {% endif %}
 
 ## Mantenha padrões de codificação vulneráveis fora do seu repositório

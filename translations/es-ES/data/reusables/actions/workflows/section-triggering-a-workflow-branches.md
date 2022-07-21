@@ -29,7 +29,7 @@ on:
 Cuando un patrón empata con el de `branches-ignore`, el flujo de trabajo no se ejecutará. Los patrones que se definen en `branches` se evalúan contra el nombre de ref de Git. Por ejemplo, el siguiente flujo de trabajo se ejecutaría siempre que haya un evento de `pull_request` a menos de que la solicitud de cambios apunte a:
 
 - Una rama de nombre `mona/octocat` (`refs/heads/mona/octocat`)
-- Una rama cuyo nombre empate con `releases/**-alpha`, tal como `beta/3-alpha` (`refs/releases/beta/3-alpha`)
+- Una rama cuyo nombre empata con `releases/**-alpha`, como `releases/beta/3-alpha` (`refs/heads/releases/beta/3-alpha`)
 
 ```yaml
 on:
@@ -51,7 +51,7 @@ El orden en que defines los patrones importa.
 - Un patrón negativo de coincidencia (con prefijo `!`) luego de una coincidencia positiva excluirá la ref de Git.
 - Un patrón positivo de coincidencia luego de una coincidencia negativa volverá a incluir la ref de Git.
 
-El siguiente flujo de trabajo se ejecutará en eventos de `pull_request` para las solicitudes de cambio que apunten a `releases/10` o `releases/beta/mona`, pero para aquellas que empaten con `releases/10-alpha` o `releases/beta/3-alpha`, ya que el patrón negativo `!releases/**-alpha` sigue al patrón positivo.
+El siguiente flujo de trabajo se ejecutará en los eventos de `pull_request` para aquellas solicitudes de cambios que apunten a `releases/10` o a `releases/beta/mona`, pero no para aquellas que apunten a `releases/10-alpha` o `releases/beta/3-alpha`, ya que el patrón negativo `!releases/**-alpha` sigue el patrón positivo.
 
 ```yaml
 on:

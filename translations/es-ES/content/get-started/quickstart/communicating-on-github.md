@@ -117,7 +117,6 @@ Este ejemplo muestra la publicación de bienvenida de {% data variables.product.
 El mantenedor de la comunidad inició un debate para recibir a la comunidad y para pedir a los miembros que se presentaran a sí mismos. Esta publicación fomenta un ambiente acogedor para los visitantes y contribuyentes. Esta publicación también aclara que al equipo le complace ayudar a los contribuyentes del repositorio.
 
 {% endif %}
-{% ifversion fpt or ghes or ghae or ghec %}
 ### Casos de debates de equipo
 
 - Tengo una pregunta que no se relaciona necesariamente con los archivos específicos del repositorio.
@@ -139,8 +138,6 @@ Un miembro del equipo `octocat` publicó un debate de equipo que les informaba s
 - Un miembro del equipo llamado Mona inició eventos de juego remotos.
 - Hay una publicación del blog que describe cómo los equipos utilizan {% data variables.product.prodname_actions %} para producir sus documentos.
 - Los materiales sobre el "All Hands" de abril está ahora disponible para que lo vean todos los miembros del equipo.
-
-{% endif %}
 
 ## Pasos siguientes
 

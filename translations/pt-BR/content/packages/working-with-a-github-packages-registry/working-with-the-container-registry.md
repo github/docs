@@ -1,6 +1,6 @@
 ---
 title: Trabalhando com o registro do Contêiner
-intro: 'You can store and manage Docker and OCI images in the {% data variables.product.prodname_container_registry %}, which uses the package namespace `https://{% data reusables.package_registry.container-registry-hostname %}`.'
+intro: 'Você pode armazenar e gerenciar imagens do Docker e OCI no {% data variables.product.prodname_container_registry %}, que usa o namespace do pacote ''https://{% data reusables.package_registry.container-registry-hostname %}''.'
 product: '{% data reusables.gated-features.packages %}'
 redirect_from:
   - /packages/managing-container-images-with-github-container-registry/pushing-and-pulling-docker-images
@@ -22,7 +22,7 @@ shortTitle: Container registry
 {% ifversion ghes > 3.4 %}
 {% note %}
 
-**Note**: {% data variables.product.prodname_container_registry %} is currently in beta for {% data variables.product.product_name %} and subject to change.
+**Observação**: {% data variables.product.prodname_container_registry %} está atualmente em beta para {% data variables.product.product_name %} e sujeito a alterações.
 
 {% endnote %}
 {% endif %}
@@ -30,7 +30,7 @@ shortTitle: Container registry
 {% ifversion ghes > 3.4 %}
 ## Pré-requisitos
 
-To configure and use the {% data variables.product.prodname_container_registry %} on {% data variables.product.prodname_ghe_server %}, your site administrator must first enable {% data variables.product.prodname_registry %} **and** subdomain isolation. For more information, see "[Getting started with GitHub Packages for your enterprise](/admin/packages/getting-started-with-github-packages-for-your-enterprise)" and "[Enabling subdomain isolation](/admin/configuration/configuring-network-settings/enabling-subdomain-isolation)."
+Para configurar e usar o {% data variables.product.prodname_container_registry %} em {% data variables.product.prodname_ghe_server %}, primeiro seu administrador do site deve habilitar {% data variables.product.prodname_registry %} **e** o isolamento de subdomínio. Para obter mais informações, consulte "[Primeiros passos com o GitHub Packages para sua empresa](/admin/packages/getting-started-with-github-packages-for-your-enterprise)" e "[Habilitando o isolamento do subdomínio](/admin/configuration/configuring-network-settings/enabling-subdomain-isolation)".
 {% endif %}
 ## Sobre o suporte de {% data variables.product.prodname_container_registry %}
 
@@ -45,7 +45,7 @@ Ao instalar ou publicar uma imagem Docker, a {% data variables.product.prodname_
 
 {% data reusables.package_registry.authenticate_with_pat_for_container_registry %}
 
-{% ifversion ghes %}Ensure that you replace `HOSTNAME` with {% data variables.product.product_location_enterprise %} hostname or IP address in the examples below.{% endif %}
+{% ifversion ghes %}Certifique-se de substituir o `HOSTNAME` pelo nome do host {% data variables.product.product_location_enterprise %} ou endereço IP nos exemplos abaixo.{% endif %}
 
 {% data reusables.package_registry.authenticate-to-container-registry-steps %}
 
@@ -58,7 +58,7 @@ Este exemplo faz push da versão mais recente de `IMAGE-NAME`.
 
 Este exemplo faz push da versão `2.5` da imagem.
   ```shell
-  $ docker push {% data reusables.package_registry.container-registry-hostname %}/OWNER/IMAGE-NAME:2.5
+  $ docker push {% data reusables.package_registry.container-registry-hostname %}/OWNER/IMAGE_NAME:2.5
   ```
 
 Ao publicar um pacote pela primeira vez a visibilidade-padrão será privada. Para alterar a visibilidade ou definir as permissões de acesso, consulte "[Configurar controle de acesso e visibilidade de um pacote](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility)".

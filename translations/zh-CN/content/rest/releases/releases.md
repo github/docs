@@ -1,6 +1,6 @@
 ---
 title: 版本发布
-intro: 'The Releases API allows you to create, modify, and delete releases and release assets.'
+intro: 发行版 API 允许您创建、修改和删除版本以及发布资产。
 versions:
   fpt: '*'
   ghes: '*'

@@ -21,7 +21,7 @@ Repositories belong to a personal account (a single individual owner) or an orga
 
 To assign a reviewer to a pull request, you will need write access to the repository. For more information about repository access, see "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)." If you have write access, you can assign anyone who has read access to the repository as a reviewer.
 
-Organization members with write access can also assign a pull request review to any person or team with read access to a repository. リクエストされたレビュー担当者または Team は、Pull Request レビューをするようあなたが依頼したという通知を受け取ります。 {% ifversion fpt or ghae or ghes or ghec %}Team にレビューをリクエストし、コードレビューの割り当てが有効になっている場合、特定のメンバーがリクエストされ、Team はレビュー担当者として削除されます。 For more information, see "[Managing code review settings for your team](/organizations/organizing-members-into-teams/managing-code-review-settings-for-your-team)."{% endif %}
+Organization members with write access can also assign a pull request review to any person or team with read access to a repository. リクエストされたレビュー担当者または Team は、Pull Request レビューをするようあなたが依頼したという通知を受け取ります。 If you request a review from a team and code review assignment is enabled, specific members will be requested and the team will be removed as a reviewer. For more information, see "[Managing code review settings for your team](/organizations/organizing-members-into-teams/managing-code-review-settings-for-your-team)."
 
 {% note %}
 

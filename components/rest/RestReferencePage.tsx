@@ -8,7 +8,7 @@ import { MarkdownContent } from 'components/ui/MarkdownContent'
 import { Lead } from 'components/ui/Lead'
 import { RestOperation } from './RestOperation'
 import styles from './RestOperation.module.scss'
-import { useRestContext } from 'components/context/RestContext'
+import { useAutomatedPageContext } from 'components/context/AutomatedPageContext'
 import { Operation } from './types'
 
 const ClientSideHighlightJS = dynamic(() => import('components/article/ClientSideHighlightJS'), {
@@ -28,7 +28,7 @@ export type StructuredContentT = {
 
 export const RestReferencePage = ({ restOperations }: StructuredContentT) => {
   const { asPath } = useRouter()
-  const { title, intro, renderedPage } = useRestContext()
+  const { title, intro, renderedPage } = useAutomatedPageContext()
   // We have some one-off redirects for rest api docs
   // currently those are limited to the repos page, but
   // that will grow soon as we restructure the rest api docs.
@@ -97,7 +97,10 @@ export const RestReferencePage = ({ restOperations }: StructuredContentT) => {
       never render anything. It always just return null. */}
       {loadClientsideRedirectExceptions && <ClientSideRedirectExceptions />}
       {lazyLoadHighlightJS && <ClientSideHighlightJS />}
-      <div className={cx(styles.restOperation, 'px-3 px-md-6 my-4 container-xl')}>
+      <div
+        className={cx(styles.restOperation, 'px-3 px-md-6 my-4 container-xl')}
+        data-search="article-body"
+      >
         <h1 className="mb-3">{title}</h1>
         {intro && (
           <Lead data-testid="lead" data-search="lead" className="markdown-body">

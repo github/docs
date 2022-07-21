@@ -13,7 +13,7 @@ topics:
   - Organizations
   - Teams
 shortTitle: Remove a member
-permissions: 'Organization owners can remove members from an organization.'
+permissions: Organization owners can remove members from an organization.
 ---
 
 {% ifversion fpt or ghec %}
@@ -66,5 +66,5 @@ To help the person you're removing from your organization transition and help en
 
 ## Further reading
 
-- "[Removing organization members from a team](/articles/removing-organization-members-from-a-team)"{% if remove-enterprise-members %}
+- "[Removing organization members from a team](/articles/removing-organization-members-from-a-team)"{% ifversion remove-enterprise-members %}
 - "[Removing a member from your enterprise](/admin/user-management/managing-users-in-your-enterprise/removing-a-member-from-your-enterprise)"{% endif %}

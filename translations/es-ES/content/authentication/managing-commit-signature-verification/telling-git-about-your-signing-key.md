@@ -97,7 +97,7 @@ Si tienes múltiples llaves GPG, le debes decir a Git cuál utilizar.
 {% data reusables.gpg.list-keys-with-note %}
 {% data reusables.gpg.copy-gpg-key-id %}
 {% data reusables.gpg.paste-gpg-key-id %}
-1. To add your GPG key to your `.bashrc` startup file, run the following command:
+1. Para agregar tu clave GPG a tu archivo de inicio `.bashrc`, ejecuta el siguiente comando:
   ```bash
   $ [ -f ~/.bashrc ] && echo 'export GPG_TTY=$(tty)' >> ~/.bashrc
   ```
@@ -109,7 +109,7 @@ Si tienes múltiples llaves GPG, le debes decir a Git cuál utilizar.
 - "[Comprobar llaves GPG existentes](/articles/checking-for-existing-gpg-keys)"
 - "[Generar una llave GPG nueva](/articles/generating-a-new-gpg-key)"
 - "[Utilizar una dirección de correo electrónico verificada en tu llave GPG](/articles/using-a-verified-email-address-in-your-gpg-key)"
-- "[Agregar una nueva llave GPG a tu cuenta de GitHub](/articles/adding-a-new-gpg-key-to-your-github-account)"
+- "[Adding a GPG key to your GitHub account](/articles/adding-a-gpg-key-to-your-github-account)"
 - "[Asociar un correo electrónico con tu llave GPG](/articles/associating-an-email-with-your-gpg-key)"
 - "[Firmar confirmaciones](/articles/signing-commits)"
 - "[Firmar etiquetas](/articles/signing-tags)"

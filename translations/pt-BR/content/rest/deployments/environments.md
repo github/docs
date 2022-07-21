@@ -1,11 +1,11 @@
 ---
-title: Deployment environments
+title: Ambiente de implantação
 allowTitleToDifferFromFilename: true
 shortTitle: Ambientes
-intro: 'The Deployment environments API allows you to create, configure, and delete deployment environments.'
+intro: 'A API de ambiente de implantação permite que você crie, configure e exclua ambientes de implantação.'
 versions:
   fpt: '*'
-  ghes: '>=3.2'
+  ghes: '*'
   ghae: '*'
   ghec: '*'
 topics:
@@ -13,7 +13,7 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-## About the Deployment environments API
+## Sobre a API de ambientes de implantação
 
 Para obter mais informações sobre ambientes, consulte "[Usando ambientes para implantação](/actions/deployment/using-environments-for-deployment)". Para gerenciar segredos de ambiente, consulte "[Segredos](/rest/reference/actions#secrets)".
 

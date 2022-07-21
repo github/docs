@@ -72,7 +72,7 @@ Ao usar a API REST, você configura as `entradas` e `ref` como parâmetros do te
 
 {% note %}
 
-**Note:** You can define up to 10 `inputs` for a `workflow_dispatch` event.
+**Nota:** Você pode definir até 10 `entradas` para um evento de `workflow_dispatch`.
 
 {% endnote %}
 

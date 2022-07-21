@@ -1,14 +1,14 @@
 date: '2022-02-17'
 sections:
   security_fixes:
-    - 'It was possible for a user to register a user or organization named "saml".'
+    - 'Fue posible que un usuario registrara a otro o a una organización de nombre "saml".'
     - 'Los paquetes se actualizaron a las últimas versiones de seguridad.'
   bugs:
-    - 'GitHub Packages storage settings could not be validated and saved in the Management Console when Azure Blob Storage was used.'
-    - 'The mssql.backup.cadence configuration option failed ghe-config-check with an invalid characterset warning.'
+    - 'Los ajustes de almacenamiento de GitHub Packages no pudieron validarse y guardarse en la consola de administración cuando se utilizó Azure Blob Storage.'
+    - 'La opción de configuración mssql.backup.cadence falló el ghe-config-check con una advertencia de conjunto de caracteres inválidos.'
     - 'Corrige SystemStackError (se apilaron demasiado profundamente) al obtener más de 2<sup>^16</sup> llaves del memcached.'
   changes:
-    - 'Secret scanning will skip scanning ZIP and other archive files for secrets.'
+    - 'EL escaneo de secretos dejará de escanear los archivos ZIP y de otros tipos en búsqueda de secretos.'
   known_issues:
     - 'En una instancia recién configurada de {% data variables.product.prodname_ghe_server %} sin ningún usuario, un atacante podría crear el primer usuario adminsitrador.'
     - 'Las reglas de cortafuegos personalizadas se eliminan durante el proceso de actualización.'

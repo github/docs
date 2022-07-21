@@ -209,7 +209,8 @@ The concurrent jobs and workflow execution times in {% data variables.product.pr
 ### Using different languages in {% data variables.product.prodname_actions %}
 
 When working with different languages in {% data variables.product.prodname_actions %}, you can create a step in your job to set up your language dependencies. For more information about working with a particular language, see the specific guide:
-  - [Building and testing Node.js or Python](/actions/guides/building-and-testing-nodejs-or-python)
+  - [Building and testing Node.js](/actions/guides/building-and-testing-nodejs)
+  - [Building and testing Python](/actions/guides/building-and-testing-python)
   - [Building and testing PowerShell](/actions/guides/building-and-testing-powershell)
   - [Building and testing Java with Maven](/actions/guides/building-and-testing-java-with-maven)
   - [Building and testing Java with Gradle](/actions/guides/building-and-testing-java-with-gradle)
@@ -305,7 +306,7 @@ jobs:
 
 Travis CI and {% data variables.product.prodname_actions %} let you manually cache dependencies for later reuse.
 
-{% if actions-caching %}
+{% ifversion actions-caching %}
 
 This example demonstrates the cache syntax for each system.
 

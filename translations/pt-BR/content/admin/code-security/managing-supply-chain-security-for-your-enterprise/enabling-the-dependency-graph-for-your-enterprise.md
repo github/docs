@@ -16,9 +16,9 @@ topics:
 
 {% data reusables.dependabot.about-the-dependency-graph %} Para obter mais informações, consulte "[Sobre o gráfico de dependências](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)"
 
-Depois de habilitar o gráfico de dependências para a sua empresa, você poderá habilitar {% data variables.product.prodname_dependabot %} para detectar dependências vulneráveis no seu repositório{% ifversion ghes > 3.2 %} e corrigir automaticamente as vulnerabilidades{% endif %}. Para obter mais informações, consulte "[Habilitar {% data variables.product.prodname_dependabot %} para a sua empresa](/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise)."
+Depois de habilitar o gráfico de dependências para a sua empresa, você poderá habilitar {% data variables.product.prodname_dependabot %} para detectar dependências inseguras no seu repositório{% ifversion ghes > 3.2 %} e corrigir automaticamente as vulnerabilidades{% endif %}. Para obter mais informações, consulte "[Habilitar {% data variables.product.prodname_dependabot %} para a sua empresa](/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise)."
 
-{% ifversion ghes > 3.1 %}
+{% ifversion ghes %}
 Você pode habilitar o gráfico de dependências por meio do {% data variables.enterprise.management_console %} ou do shell administrativo. Recomendamos usar o {% data variables.enterprise.management_console %}, a menos que {% data variables.product.product_location %} use clustering.
 
 ## Habilitando o gráfico de dependências por meio do {% data variables.enterprise.management_console %}
@@ -35,12 +35,10 @@ Se o seu {% data variables.product.product_location %} usar clustering, você n�
 
 ## Habilitando o gráfico de dependências por meio do shell administrativo
 
-{% endif %}{% ifversion ghes < 3.2 %}
-## Habilitar o gráfico de dependências
 {% endif %}
 {% data reusables.enterprise_site_admin_settings.sign-in %}
 1. No shell administrativo, habilite o gráfico de dependências em {% data variables.product.product_location %}:
-    {% ifversion ghes > 3.1 %}```shell
+    {% ifversion ghes %}```shell
     ghe-config app.dependency-graph.enabled true
     ```
     {% else %}```shell
@@ -49,7 +47,7 @@ Se o seu {% data variables.product.product_location %} usar clustering, você n�
     ```{% endif %}
    {% note %}
 
-   **Note**: For more information about enabling access to the administrative shell via SSH, see "[Accessing the administrative shell (SSH)](/enterprise/{{ currentVersion }}/admin/configuration/accessing-the-administrative-shell-ssh)."
+   **Note**: For more information about enabling access to the administrative shell via SSH, see "[Accessing the administrative shell (SSH)](/enterprise/admin/configuration/accessing-the-administrative-shell-ssh)."
 
    {% endnote %}
 2. Aplique a configuração.

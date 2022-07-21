@@ -22,6 +22,10 @@
 | Contributed Systems       | Contributed Systems Credentials                           |
 | Databricks                | Token de acesso de Databricks                             |
 | Datadog                   | Chave de API de Datadog                                   |
+| DigitalOcean              | DigitalOcean Personal Access Token                        |
+| DigitalOcean              | DigitalOcean OAuth Token                                  |
+| DigitalOcean              | DigitalOcean Refresh Token                                |
+| DigitalOcean              | DigitalOcean System Token                                 |
 | Discord                   | Token de Bot de Discord                                   |
 | Doppler                   | Token pessoal de Doppler                                  |
 | Doppler                   | Token de serviço de Doppler                               |
@@ -73,6 +77,7 @@
 | Proctorio                 | Chave de segredo de Proctorio                             |
 | Pulumi                    | Token de acesso de Pulumi                                 |
 | PyPI                      | PyPI API Token                                            |
+| redirect.pizza            | redirect.pizza API Token                                  |
 | RubyGems                  | RubyGems API Key                                          |
 | Samsara                   | Token de API de Samsara                                   |
 | Samsara                   | Token de acesso de OAuth de Samsara                       |
@@ -98,3 +103,4 @@
 | Twilio                    | Chave da API de Twilio                                    |
 | Typeform                  | Typeform Personal Access Token                            |
 | Valour                    | Valour Access Token                                       |
+| Zuplo                     | Zuplo Consumer API                                        |

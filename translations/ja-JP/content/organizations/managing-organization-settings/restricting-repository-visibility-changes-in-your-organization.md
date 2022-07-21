@@ -16,13 +16,13 @@ shortTitle: 可視性の変更ポリシーの設定
 permissions: Organization owners can restrict repository visibility changes for an organization.
 ---
 
-You can restrict who has the ability to change the visibility of repositories in your organization, such as changing a repository from private to public. For more information about repository visibility, see "[About repositories](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)."
+リポジトリをプライベートからパブリックに変更するというような、Organization内でのリポジトリの可視性の変更を行える人を制限できます。 リポジトリの可視性に関する詳しい情報については「[リポジトリについて](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)」を参照してください。
 
-You can restrict the ability to change repository visibility to organization owners only, or you can allow anyone with admin access to a repository to change visibility.
+リポジトリの可視性を変更できるのを Organization のオーナーのみに制限すること、または可視性の変更をリポジトリの管理者権限を所有するメンバーに許可することができます。
 
 {% warning %}
 
-**Warning**: If enabled, this setting allows people with admin access to choose any visibility for an existing repository, even if you do not allow that type of repository to be created. 詳しい情報については「[Organization でのリポジトリ作成の制限](/articles/restricting-repository-creation-in-your-organization)」を参照してください。
+**警告**: この設定を有効にすると、管理者権限をもつユーザは、それが作成できるタイプのリポジトリではなくても、既存のリポジトリを任意の可視性に変更できるようになります。 詳しい情報については「[Organization でのリポジトリ作成の制限](/articles/restricting-repository-creation-in-your-organization)」を参照してください。
 
 {% endwarning %}
 

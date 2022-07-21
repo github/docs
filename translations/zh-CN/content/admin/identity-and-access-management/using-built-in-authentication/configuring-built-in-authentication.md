@@ -1,6 +1,6 @@
 ---
 title: 配置内置身份验证
-intro: 'When you use the default authentication method, all authentication details are stored on {% data variables.product.product_location %}.'
+intro: '当您使用默认身份验证方法时，所有身份验证详细信息都将存储在 {% data variables.product.product_location %} 中。'
 permissions: 'Site administrators can configure authentication for a {% data variables.product.product_name %} instance.'
 redirect_from:
   - /enterprise/admin/user-management/using-built-in-authentication
@@ -16,14 +16,14 @@ topics:
   - Authentication
   - Enterprise
   - Identity
-shortTitle: Configure built-in authentication
+shortTitle: 配置内置身份验证
 ---
 
-## About built-in authentication
+## 关于内置身份验证
 
-By default, {% data variables.product.product_name %} uses built-in authentication. Each person creates a user account on {% data variables.product.product_location %} from an invitation or by signing up, and then authenticates with the credentials for the account to access your instance. Your {% data variables.product.product_name %} instance stores the authentication information for the account.
+默认情况下， {% data variables.product.product_name %} 使用内置身份验证。 每个人在 {% data variables.product.product_location %} 上通过邀请或注册创建一个用户帐户，然后使用该帐户的凭据进行身份验证以访问您的实例。 您的 {% data variables.product.product_name %} 实例将存储帐户的身份验证信息。
 
-You can prevent unauthenticated people from creating new user accounts on your instance. For more information, see "[Disabling unauthenticated sign-ups](/admin/identity-and-access-management/using-built-in-authentication/disabling-unauthenticated-sign-ups)."
+您可以阻止未经身份验证的人员在您的实例上创建新的用户帐户。 更多信息请参阅“[禁用未经身份验证的注册](/admin/identity-and-access-management/using-built-in-authentication/disabling-unauthenticated-sign-ups)”。
 
 {% data reusables.enterprise_user_management.alternatively-enable-external-authentication %}
 
@@ -48,7 +48,7 @@ You can prevent unauthenticated people from creating new user accounts on your i
 
 <a name="inviting-users"></a>
 
-After you configure built-in authentication and create your administrative account, you can invite people to create accounts and use your instance. For more information, see "[Inviting people to use your instance](/admin/identity-and-access-management/using-built-in-authentication/inviting-people-to-use-your-instance)."
+配置内置身份验证并创建管理帐户后，您可以邀请他人创建帐户并使用您的实例。 更多信息请参阅“[邀请人们使用您的实例](/admin/identity-and-access-management/using-built-in-authentication/inviting-people-to-use-your-instance)”。
 
 ## 延伸阅读
 

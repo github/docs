@@ -1,6 +1,8 @@
 ---
-title: 审查
-intro: 'Pull Request Reviews are groups of Pull Request Review Comments on the Pull Request, grouped together with a state and optional body comment.'
+title: 拉取请求审查
+shortTitle: 审查
+allowTitleToDifferFromFilename: true
+intro: ''
 versions:
   fpt: '*'
   ghes: '*'
@@ -11,3 +13,6 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
+## 关于拉取请求审查 API
+
+拉取请求审查是拉取拉取请求审查评论组，与状态和可选正文评论组合在一起。

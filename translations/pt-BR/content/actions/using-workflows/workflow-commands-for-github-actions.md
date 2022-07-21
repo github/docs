@@ -99,22 +99,22 @@ Você pode usar o comando `set-output` no seu fluxo de trabalho para definir o m
 
 A tabela a seguir mostra quais funções do conjunto de ferramentas estão disponíveis dentro de um fluxo de trabalho:
 
-| Função do kit de ferramentas | Comando equivalente do fluxo de trabalho                              |
-| ---------------------------- | --------------------------------------------------------------------- |
-| `core.addPath`               | Acessível usando o arquivo de ambiente `GITHUB_PATH`                  |
-| `core.debug`                 | `debug` |{% ifversion fpt or ghes > 3.2 or ghae-issue-4929 or ghec %}
+| Função do kit de ferramentas | Comando equivalente do fluxo de trabalho                         |
+| ---------------------------- | ---------------------------------------------------------------- |
+| `core.addPath`               | Acessível usando o arquivo de ambiente `GITHUB_PATH`             |
+| `core.debug`                 | `debug` |{% ifversion fpt or ghes > 3.2 or ghae or ghec %}
 | `core.notice`                | `notice` 
 {% endif %}
-| `core.error`                 | `erro`                                                                |
-| `core.endGroup`              | `endgroup`                                                            |
-| `core.exportVariable`        | Acessível usando o arquivo de ambiente `GITHUB_ENV`                   |
-| `core.getInput`              | Acessível por meio do uso da variável de ambiente `INPUT_{NAME}`      |
-| `core.getState`              | Acessível por meio do uso da variável de ambiente `STATE_{NAME}`      |
-| `core.isDebug`               | Acessível por meio do uso da variável de ambiente `RUNNER_DEBUG`      |
-{%- if actions-job-summaries %}
-| `core.summary` | Accessible using environment variable `GITHUB_STEP_SUMMARY` |
+| `core.error`                 | `erro`                                                           |
+| `core.endGroup`              | `endgroup`                                                       |
+| `core.exportVariable`        | Acessível usando o arquivo de ambiente `GITHUB_ENV`              |
+| `core.getInput`              | Acessível por meio do uso da variável de ambiente `INPUT_{NAME}` |
+| `core.getState`              | Acessível por meio do uso da variável de ambiente `STATE_{NAME}` |
+| `core.isDebug`               | Acessível por meio do uso da variável de ambiente `RUNNER_DEBUG` |
+{%- ifversion actions-job-summaries %}
+| `core.summary` | Pode ser acessado usando a variável de ambiente `GITHUB_STEP_SUMMARY` |
 {%- endif %}
-| `core.saveState`  | `save-state` | | `core.setCommandEcho` | `echo` | | `core.setFailed`  | Used as a shortcut for `::error` and `exit 1` | | `core.setOutput`  | `set-output` | | `core.setSecret`  | `add-mask` | | `core.startGroup` | `group` | | `core.warning`    | `warning` |
+| `core.saveState`  | `save-state` | | `core.setCommandEcho` | `echo` | | `core.setFailed`  | Usado como atalho para `::error` e `exit 1` | | `core.setOutput`  | `set-output` | | `core.setSecret`  | `add-mask` | | `core.startGroup` | `group` | | `core.warning`    | `warning` |
 
 ## Definir um parâmetro de saída
 
@@ -170,7 +170,7 @@ Write-Output "::debug::Set the Octocat variable"
 
 {% endpowershell %}
 
-{% ifversion fpt or ghes > 3.2 or ghae-issue-4929 or ghec %}
+{% ifversion fpt or ghes > 3.2 or ghae or ghec %}
 
 ## Configurando uma mensagem de aviso
 
@@ -656,9 +656,9 @@ steps:
 
 {% endpowershell %}
 
-{% if actions-job-summaries %}
+{% ifversion actions-job-summaries %}
 
-## Adding a job summary
+## Adicionando um resumo do trabalho
 
 {% bash %}
 
@@ -676,11 +676,11 @@ echo "{markdown content}" >> $GITHUB_STEP_SUMMARY
 
 {% endpowershell %}
 
-You can set some custom Markdown for each job so that it will be displayed on the summary page of a workflow run. You can use job summaries to display and group unique content, such as test result summaries, so that someone viewing the result of a workflow run doesn't need to go into the logs to see important information related to the run, such as failures.
+Você pode definir algum Markdown personalizado para cada trabalho para que seja exibido na página de resumo da execução de um fluxo de trabalho. Você pode usar resumos de trabalho para exibir e agrupar conteúdo único, como resumos de resultados de teste, para que alguém que visualizar o resultado da uma execução de um fluxo de trabalho não precise entrar nos registros para ver informações importantes relacionadas à execução como, por exemplo, falhas.
 
-Job summaries support [{% data variables.product.prodname_dotcom %} flavored Markdown](https://github.github.com/gfm/), and you can add your Markdown content for a step to the `GITHUB_STEP_SUMMARY` environment file. `GITHUB_STEP_SUMMARY` is unique for each step in a job. For more information about the per-step file that `GITHUB_STEP_SUMMARY` references, see "[Environment files](#environment-files)."
+Os resumos de trabalho são compatíveis com o [markdown em estilo {% data variables.product.prodname_dotcom %} em Markdown](https://github.github.com/gfm/), e você pode adicionar seu conteúdo de Markdown a uma etapa no arquivo de ambiente `GITHUB_STEP_SUMMARY`. `GITHUB_STEP_SUMMARY` é único para cada etapa de um trabalho. Para obter mais informações sobre o arquivo por etapa, ao qual o `GITHUB_STEP_SUMMARY` faz referência, consulte "[Arquivos do ambiente](#environment-files)".
 
-When a job finishes, the summaries for all steps in a job are grouped together into a single job summary and are shown on the workflow run summary page. If multiple jobs generate summaries, the job summaries are ordered by job completion time.
+Quando um trabalho é concluído, os resumos de todas as etapas de um trabalho é agrupado em um único resumo do trabalho e exibido na página de resumo do fluxo de trabalho. Se vários trabalhos gerarem resumos, os resumos dos trabalhos serão ordenados por tempo de conclusão do trabalho.
 
 ### Exemplo
 
@@ -700,11 +700,11 @@ echo "### Hello world! :rocket:" >> $GITHUB_STEP_SUMMARY
 
 {% endpowershell %}
 
-![Markdown summary example](/assets/images/actions-job-summary-simple-example.png)
+![Exemplo de resumo de Markdown](/assets/images/actions-job-summary-simple-example.png)
 
-### Multiline Markdown content
+### Conteúdo de markdown de múltiplas linhas
 
-For multiline Markdown content, you can use `>>` to continuously append content for the current step. With every append operation, a newline character is automatically added.
+Para conteúdo Markdown de múltiplas linhas, você pode usar `>>` para anexar continuamente conteúdo à etapa atual. A cada operação adicionada, um caractere de nova linha é adicionado automaticamente.
 
 #### Exemplo
 
@@ -736,9 +736,9 @@ For multiline Markdown content, you can use `>>` to continuously append content 
 
 {% endpowershell %}
 
-### Overwriting job summaries
+### Sobrescrevendo resumos de trabalho
 
-To clear all content for the current step, you can use `>` to overwrite any previously added content.
+Para limpar todo o conteúdo da etapa atual, você pode usar `>` para sobrescrever qualquer conteúdo adicionado anteriormente.
 
 #### Exemplo
 
@@ -764,9 +764,9 @@ To clear all content for the current step, you can use `>` to overwrite any prev
 
 {% endpowershell %}
 
-### Removing job summaries
+### Removendo resumos de trabalho
 
-To completely remove a summary for the current step, the file that `GITHUB_STEP_SUMMARY` references can be deleted.
+Para remover completamente um resumo para a etapa atual, o arquivo ao qual `GITHUB_STEP_SUMMARY` faz referência pode ser excluído.
 
 #### Exemplo
 
@@ -792,11 +792,11 @@ To completely remove a summary for the current step, the file that `GITHUB_STEP_
 
 {% endpowershell %}
 
-After a step has completed, job summaries are uploaded and subsequent steps cannot modify previously uploaded Markdown content. Summaries automatically mask any secrets that might have been added accidentally. If a job summary contains sensitive information that must be deleted, you can delete the entire workflow run to remove all its job summaries. For more information see "[Deleting a workflow run](/actions/managing-workflow-runs/deleting-a-workflow-run)."
+Depois que uma etapa for concluída, faz-se o upload dos resumos dos trabalhos e as etapas subsequentes não podem modificar o conteúdo Markdown previamente carregado. Resumos mascaram automaticamente todos os segredos que possam ter sido adicionados acidentalmente. Se o resumo de um trabalho contiver informações sensíveis que devem ser excluídas, você poderá excluir todo o fluxo de trabalho executado para remover todos os resumos do trabalho. Para obter mais informações, consulte "[Excluir a execução de um fluxo de trabalho](/actions/managing-workflow-runs/deleting-a-workflow-run)".
 
-### Step isolation and limits
+### Etapa de isolamento e limites
 
-Job summaries are isolated between steps and each step is restricted to a maximum size of 1MiB. Isolation is enforced between steps so that potentially malformed Markdown from a single step cannot break Markdown rendering for subsequent steps. If more than 1MiB of content is added for a step, then the upload for the step will fail and an error annotation will be created. Upload failures for job summaries do not affect the overall status of a step or a job. A maximum of 20 job summaries from steps are displayed per job.
+Os resumos de trabalho são isolados entre as etapas e cada etapa é restrita ao tamanho máximo de 1 MiB. Isolamento é imposto entre os passos para que um Markdown potencialmente mal formado a partir de uma única etapa não possa quebrar a renderização Markdown para etapas subsequentes. Se mais de 1 MiB de conteúdo for adicionado para uma etapa, ocorrerá uma falha no upload para a etapa e será criado um erro de anotação. As falhas no upload de resumos de trabalhos não afetam o status geral de uma etapa ou trabalho. Um máximo de 20 resumos de trabalho das etapas são exibidos por trabalho.
 
 {% endif %}
 

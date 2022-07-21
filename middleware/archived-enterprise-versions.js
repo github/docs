@@ -32,8 +32,8 @@ function splitByLanguage(uri) {
 const archivedRedirects = readCompressedJsonFileFallbackLazily(
   './lib/redirects/static/archived-redirects-from-213-to-217.json'
 )
-const archivedFrontmatterFallbacks = readCompressedJsonFileFallbackLazily(
-  './lib/redirects/static/archived-frontmatter-fallbacks.json'
+const archivedFrontmatterValidURLS = readCompressedJsonFileFallbackLazily(
+  './lib/redirects/static/archived-frontmatter-valid-urls.json'
 )
 
 const cacheControl = cacheControlFactory(60 * 60 * 24 * 365)
@@ -72,13 +72,11 @@ const cacheAggressively = (res) => {
 // Our own timeout, in ./middleware/timeout.js defaults to 10 seconds.
 // So there's no point in trying more attempts than 3 because it would
 // just timeout on the 10s. (i.e. 1000 + 2000 + 4000 + 8000 > 10,000)
-const retryConfiguration = {
-  limit: 3,
-}
+const retryConfiguration = { limit: 3 }
 // According to our Datadog metrics, the *average* time for the
 // the 'archive_enterprise_proxy' metric is ~70ms (excluding spikes)
 // which much less than 500ms.
-const timeoutConfiguration = 500
+const timeoutConfiguration = { response: 500 }
 
 async function getRemoteJSON(url, config) {
   if (_getRemoteJSONCache.has(url)) {
@@ -121,7 +119,7 @@ export default async function archivedEnterpriseVersions(req, res, next) {
       // useful because it caches so well.
       // And, as of 2021 that `redirects.json` is 10MB so it's more likely
       // to time out.
-      timeout: 1000,
+      timeout: { response: 1000 },
     })
     const [language, withoutLanguage] = splitPathByLanguage(req.path, req.context.userLanguage)
     const newRedirectTo = redirectJson[withoutLanguage]
@@ -182,7 +180,7 @@ export default async function archivedEnterpriseVersions(req, res, next) {
       // useful because it caches so well.
       // And, as of 2021 that `redirects.json` is 10MB so it's more likely
       // to time out.
-      timeout: 1000,
+      timeout: { response: 1000 },
     })
 
     // make redirects found via redirects.json redirect with a 301
@@ -221,22 +219,21 @@ export default async function archivedEnterpriseVersions(req, res, next) {
     return res.send(r.body)
   }
 
-  for (const fallbackRedirect of getFallbackRedirects(req, requestedVersion) || []) {
-    const doGet = () =>
-      got(getProxyPath(fallbackRedirect, requestedVersion), {
-        throwHttpErrors: false,
-        retry: retryConfiguration,
-        timeout: timeoutConfiguration,
-      })
-
-    const r = await statsd.asyncTimer(doGet, 'archive_enterprise_proxy_fallback', [
-      ...statsdTags,
-      `fallback:${fallbackRedirect}`,
-    ])()
-    if (r.statusCode === 200) {
+  // from 2.13 to 2.17, we lost access to frontmatter redirects during the archival process
+  // this workaround finds potentially relevant frontmatter redirects in currently supported pages
+  if (
+    versionSatisfiesRange(requestedVersion, `>=${firstVersionDeprecatedOnNewSite}`) &&
+    versionSatisfiesRange(requestedVersion, `<=${lastVersionWithoutArchivedRedirectsFile}`)
+  ) {
+    const statsTags = [`path:${req.path}`]
+    const fallbackRedirect = getFallbackRedirect(req)
+    if (fallbackRedirect) {
+      statsTags.push(`fallback:${fallbackRedirect}`)
+      statsd.increment('middleware.trying_fallback_redirect_success', 1, statsTags)
       cacheAggressively(res)
       return res.redirect(redirectCode, fallbackRedirect)
     }
+    statsd.increment('middleware.trying_fallback_redirect_failure', 1, statsTags)
   }
 
   return next()
@@ -253,15 +250,56 @@ function getProxyPath(reqPath, requestedVersion) {
   return `https://github.github.com/help-docs-archived-enterprise-versions${proxyPath}`
 }
 
-// from 2.13 to 2.17, we lost access to frontmatter redirects during the archival process
-// this workaround finds potentially relevant frontmatter redirects in currently supported pages
-function getFallbackRedirects(req, requestedVersion) {
-  if (versionSatisfiesRange(requestedVersion, `<${firstVersionDeprecatedOnNewSite}`)) return
-  if (versionSatisfiesRange(requestedVersion, `>${lastVersionWithoutArchivedRedirectsFile}`)) return
+// Module-level global cache object.
+// Get's populated lazily inside getFallbackRedirect().
+const fallbackRedirectLookups = new Map()
 
-  // `archivedFrontmatterFallbacks` is a callable because it's a lazy function
-  // and memoized so calling it is cheap.
-  return archivedFrontmatterFallbacks().find((arrayOfFallbacks) =>
-    arrayOfFallbacks.includes(req.path)
-  )
+function getFallbackRedirect(req) {
+  // The file `lib/redirects/static/archived-frontmatter-valid-urls.json` which
+  // we depend on here, is structured like this:
+  //
+  //  {
+  //   "/enterprise/2.13/foo/bar": [
+  //     "/enterprise/2.13/other/old/thing",
+  //     "/enterprise/2.13/more/redirectable/url",
+  //     "/enterprise/2.13/etc/etc"
+  //   ],
+  //   ...
+  //
+  // The keys are valid URLs that it can redirect to. I.e. these are
+  // URLs that we definitely know are valid and will be found
+  // in https://github.com/github/help-docs-archived-enterprise-versions
+  // The array values are possible URLs we deem acceptable redirect
+  // sources.
+  // But to avoid an unnecessary, O(n), loop every time, we turn this
+  // structure around to become:
+  //
+  //   {
+  //     "/enterprise/2.13/other/old/thing": "/enterprise/2.13/foo/bar",
+  //     "/enterprise/2.13/more/redirectable/url": "/enterprise/2.13/foo/bar",
+  //     "/enterprise/2.13/etc/etc": "/enterprise/2.13/foo/bar",
+  //     ...
+  //
+  // Now potential lookups are fast.
+  if (!fallbackRedirectLookups.size) {
+    for (const [destination, sources] of Object.entries(archivedFrontmatterValidURLS())) {
+      for (const source of sources) {
+        fallbackRedirectLookups.set(source, destination)
+      }
+    }
+  }
+
+  // But before we proceed, remember that the
+  // file lib/redirects/static/archived-frontmatter-valid-urls.json never
+  // contains a language prefix.
+  // E.g. only `/enterprise/2.13/foo/bar` but the requested URL can be
+  // `/en/enterprise/2.13/foo/bar`, `/pt/enterprise/2.13/foo/bar`,
+  // or just `/enterprise/2.13/foo/bar`.
+  // Whatever it is, pop the language prefix, operate, and put it back
+  // again. In the end, it always has to have a language prefix.
+  const [language, withoutLanguage] = splitPathByLanguage(req.path)
+  const fallback = fallbackRedirectLookups.get(withoutLanguage)
+  if (fallback) {
+    return `/${language}${fallback}`
+  }
 }

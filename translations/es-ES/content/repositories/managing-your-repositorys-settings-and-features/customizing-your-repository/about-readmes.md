@@ -29,9 +29,9 @@ Un archivo README suele ser el primer elemento que verá un visitante cuando ent
 - Dónde pueden recibir ayuda los usuarios con tu proyecto
 - Quién mantiene y contribuye con el proyecto.
 
-If you put your README file in your repository's hidden `.github`, root, or `docs` directory, {% data variables.product.product_name %} will recognize and automatically surface your README to repository visitors.
+Si pones tu archivo de README en el `.github` oculto de tu repositorio, en la raíz o en el directorio `docs`, {% data variables.product.product_name %} lo reconocerá y lo hará emerger automáticamente para los visitantes del repositorio.
 
-If a repository contains more than one README file, then the file shown is chosen from locations in the following order: the `.github` directory, then the repository's root directory, and finally the `docs` directory.
+Si un repositorio contiene más de un archivo README, entonces el archivo que se muestra se elegirá de las ubicaciones en el siguiente orden: el directorio de `.github`, luego el directorio raíz del repositorio y, finalmente, el directorio `docs`.
 
 ![Página principal del repositorio github/scientist y su archivo README](/assets/images/help/repository/repo-with-readme.png)
 
@@ -43,15 +43,11 @@ If a repository contains more than one README file, then the file shown is chose
 
 ![El archivo de README en tu nombre de usuario/repositorio de nombre de usuario](/assets/images/help/repository/username-repo-with-readme.png)
 
-{% ifversion fpt or ghae or ghes > 3.1 or ghec %}
-
 ## Índice auto-generado de los archivos README
 
 Para la versión interpretada de cualquier archivo de lenguaje de marcado en un repositorio, incluyendo los archivos README, {% data variables.product.product_name %} generará un índice automáticamente con base en los encabezados de sección. Puedes ver el índice de un archivo README si haces clic en el icono de menú {% octicon "list-unordered" aria-label="The unordered list icon" %} en la parte superior izquierda de la página interpretada.
 
 ![README con TOC generado automáticamente](/assets/images/help/repository/readme-automatic-toc.png)
-
-{% endif %}
 
 ## Enlaces de sección en los archivos README y las páginas blob
 

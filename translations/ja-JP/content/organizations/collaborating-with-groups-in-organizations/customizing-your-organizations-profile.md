@@ -11,14 +11,13 @@ topics:
 shortTitle: Organizationのプロフィールのカスタマイズ
 ---
 
-{% if org-profile-pin-private %}
 
 ## Organization のプロフィールページについて
 
+{% ifversion org-profile-pin-private %}
 Organizationの概要ページをカスタマイズして、一般ユーザあるいはOrganizationのメンバー専用のコンテンツを表示できます。 {% data variables.product.prodname_dotcom %}にサインインしたOrganizationのメンバーには、Organizationのプロフィールページにアクセスした際にメンバービューが表示されます。 Organizationのメンバーではないユーザには、公開ビューが表示されます。
 
 ![Organizationプロフィールページの画像](/assets/images/help/organizations/new_organization_page.png)
-{% endif %}
 
 ### Pinned repositories
 
@@ -27,6 +26,7 @@ Organizationの概要ページをカスタマイズして、一般ユーザあ�
 リポジトリをピン留めできるのはOrganizationのオーナーだけです。 詳しい情報については「[Organizationのプロフィールへのリポジトリのピン止め](#pinning-repositories-to-your-organizations-profile)」を参照してください。
 
 ### OrganizationプロフィールのREADME
+{% endif %}
 
 一般ユーザとOrganizationのメンバーの双方に向けてOrganizationのプロフィールのREADMEを作成することで、Organizationとの関わり方に関する情報を共有できます。 {% data variables.product.prodname_dotcom %}は、OrganizationのプロフィールのREADMEをOrgaizationの”Overview（概要）"タブに表示します。
 
@@ -45,7 +45,7 @@ OrganizationのプロフィールのREADMEにどういった情報を含める�
 
    ![Organizationの公開READMEの画像](/assets/images/help/organizations/org_public_readme.png)
 
-{% if org-profile-pin-private %}
+{% ifversion org-profile-pin-private %}
 
 ## メンバーのみのOrganizationプロフィールのREADMEの追加
 
@@ -57,7 +57,7 @@ OrganizationのプロフィールのREADMEにどういった情報を含める�
 
 ## Organizationのプロフィールへのリポジトリのピン止め
 
-頻繁に使われるようなリポジトリなど、強調したいリポジトリをOrganizationのプロフィールページにピン止めできます。 Organizaitonのプロフィールにピン止めするリポジトリを選択するには、Organizationのオーナーか管理者でなければなりません。
+頻繁に使われるようなリポジトリなど、強調したいリポジトリをOrganizationのプロフィールページにピン止めできます。 Organizaitonのプロフィールにピン止めするリポジトリを選択するには、Organizationのオーナーでなければなりません。
 
 1. Organizationのプロフィールページにアクセスしてください。
 2. ページの右のサイドバー内の{% octicon "eye" aria-label="The eye octicon" %} "View as"リンク内で、ドロップダウンメニューから**Public（公開）**もしくは**Member（メンバー）**プロフィールビューを選択してください。

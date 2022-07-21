@@ -1,9 +1,9 @@
 
-When using the `workflow_run` event, you can specify what branches the triggering workflow must run on in order to trigger your workflow.
+`workflow_run`を使う場合、ワークフローがトリガーされるためには、どのブランチでトリガーされたワークフローが実行されなければならないかを指定できます。
 
-The `branches` and `branches-ignore` filters accept glob patterns that use characters like `*`, `**`, `+`, `?`, `!` and others to match more than one branch name. If a name contains any of these characters and you want a literal match, you need to *escape* each of these special characters with `\`. For more information about glob patterns, see the "[Filter pattern cheat sheet](/actions/using-workflows/workflow-syntax-for-github-actions#filter-pattern-cheat-sheet)."
+`branches`及び`branches-ignore`フィルタは、複数のブランチ名にマッチさせるために`*`、`**`、`+`、`?`、`!`などの文字を使うglobパターンを受け付けます。 これらの文字のいずれかを含む名前に対してリテラルの一致をさせたい場合には、これらの特殊文字を`\`で*エスケープ*しなければなりません。 globパターンに関する詳しい情報については「[フィルタパターンのチートシート](/actions/using-workflows/workflow-syntax-for-github-actions#filter-pattern-cheat-sheet)」を参照してください。
 
-For example, a workflow with the following trigger will only run when the workflow named `Build` runs on a branch whose name starts with `releases/`:
+たとえば、以下のトリガーを持つワークフローは、`Build`という名前のワークフローが`releases/`で始まる名前のブランチで実行される場合にのみ実行されます。
 
 ```yaml
 on:
@@ -14,7 +14,7 @@ on:
       - 'releases/**'
 ```
 
-A workflow with the following trigger will only run when the workflow named `Build` runs on a branch that is not named `canary`:
+以下のトリガーを持つワークフローは、`Build`という名前のワークフローが`canary`という名前ではないブランチ上で実行される場合にのみ実行されます。
 
 ```yaml
 on:
@@ -25,14 +25,14 @@ on:
       - "canary"
 ```
 
-You cannot use both the `branches` and `branches-ignore` filters for the same event in a workflow. If you want to both include and exclude branch patterns for a single event, use the `branches` filter along with the `!` character to indicate which branches should be excluded.
+`branches`と`branches-ignore`を1つのワークフロー内の同じイベントに使うことはできません。 1つのイベントに対して含めるブランチパターンと除外するブランチパターンをどちらも使いたい場合には、`branches`フィルタを`!`文字と合わせて使い、除外するブランチを示してください。
 
 パターンを定義する順序により、結果に違いが生じます。
 
-- A matching negative pattern (prefixed with `!`) after a positive match will exclude the branch.
-- A matching positive pattern after a negative match will include the branch again.
+- 肯定のマッチの後に否定のマッチングパターン（`!`がプレフィックスされている）を置くと、ブランチが除外されます。
+- 否定のマッチングパターンの後に肯定のマッチングパターンを定義すると、ブランチは再び含められます。
 
-For example, a workflow with the following trigger will run when the workflow named `Build` runs on a branch that is named `releases/10` or `releases/beta/mona` but will not `releases/10-alpha`, `releases/beta/3-alpha`, or `main`.
+たとえば、以下のトリガーを持つワークフローは、`Build`というナメのワークフローが`releases/10`もしくは`releases/beta/mona`という名前のブランチ上で実行されている場合に実行されますが、`releases/10-alpha`、`releases/beta/3-alpha`、`main`といった名前のブランチ上で実行されている場合には実行されません。
 
 ```yaml
 on:

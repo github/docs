@@ -6,7 +6,7 @@ product: '{% data reusables.gated-features.secret-scanning %}'
 redirect_from:
   - /code-security/secret-security/defining-custom-patterns-for-secret-scanning
 versions:
-  ghes: '>=3.2'
+  ghes: '*'
   ghae: '*'
   ghec: '*'
 type: how_to
@@ -15,7 +15,7 @@ topics:
   - Secret scanning
 ---
 
-{% ifversion ghes < 3.3 or ghae %}
+{% ifversion ghes < 3.3 %}
 {% note %}
 
 **注意：**{% data variables.product.prodname_secret_scanning %} 的自定义模式目前处于测试阶段，可能会更改。
@@ -28,12 +28,12 @@ topics:
 您可以定义自定义模式来标识 {% data variables.product.prodname_secret_scanning %} 支持的默认模式未检测到的机密。 例如，您可能有一个属于您组织内部的密钥模式。 有关支持的机密和服务提供商的详细信息，请参阅“[{% data variables.product.prodname_secret_scanning_caps %} 模式](/code-security/secret-scanning/secret-scanning-patterns)”。
 
 您可以为企业、组织或存储库定义自定义模式。 {% data variables.product.prodname_secret_scanning_caps %} 最多支持
-{%- ifversion fpt or ghec or ghes > 3.3 %} 每个组织或企业帐户 500 个自定义模式，每个存储库最多 100 个自定义模式。
-{%- elsif ghes = 3.3 %} 每个组织或企业帐户有 100 个自定义模式，每个存储库有 20 个自定义模式。
-{%- else %} 每个组织或企业帐户有 20 个自定义模式，每个存储库有 个自定义模式。
+{%- ifversion fpt or ghec or ghes > 3.3 or ghae-issue-7297 %} 每个组织或企业帐户 500 个自定义模式，每个存储库最多 100 个自定义模式。
+{%- elsif ghes = 3.2 %} 每个组织或企业帐户有 20 个自定义模式，每个存储库有 个自定义模式。
+{%- else %} 每个组织或企业帐户有 100 个自定义模式，每个存储库有 20 个自定义模式。
 {%- endif %}
 
-{% ifversion ghes < 3.3 or ghae %}
+{% ifversion ghes < 3.3 %}
 {% note %}
 
 **注意：** 在测试版中，对 {% data variables.product.prodname_secret_scanning %} 使用自定义模式时存在一些限制：
@@ -67,7 +67,7 @@ topics:
 {% data reusables.repositories.navigate-to-code-security-and-analysis %}
 {% data reusables.repositories.navigate-to-ghas-settings %}
 {% data reusables.advanced-security.secret-scanning-new-custom-pattern %}
-{% data reusables.advanced-security.secret-scanning-add-custom-pattern-details %}{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-5499 %}
+{% data reusables.advanced-security.secret-scanning-add-custom-pattern-details %}{% ifversion secret-scanning-custom-enterprise-35 %}
 1. 当您准备好测试新的自定义模式时，要识别存储库中的匹配项而不创建警报，请单击 **Save and dry run（保存并空运行）**。
 {% data reusables.advanced-security.secret-scanning-dry-run-results %}
 {% endif %}
@@ -122,10 +122,9 @@ aAAAe9
 {% data reusables.repositories.navigate-to-ghas-settings %}
 {% data reusables.advanced-security.secret-scanning-new-custom-pattern %}
 {% data reusables.advanced-security.secret-scanning-add-custom-pattern-details %}
-{%- if secret-scanning-org-dry-runs %}
+{%- ifversion secret-scanning-custom-enterprise-35 %}
 1. 当您准备好测试新的自定义模式时，要识别所选存储库中的匹配项而不创建警报，请单击 **Save and dry run（保存并试运行）**。
-1. 搜索并选择要在其中执行试运行的存储库。 您最多可以选择 10 个存储库。 ![显示为试运行选择的存储库的屏幕截图](/assets/images/help/repository/secret-scanning-dry-run-custom-pattern-select-repo.png)
-1. 当您准备好测试新的自定义模式时，请单击 **Dry run（试运行）**。
+{% data reusables.advanced-security.secret-scanning-dry-run-select-repos %}
 {% data reusables.advanced-security.secret-scanning-dry-run-results %}
 {%- endif %}
 {% data reusables.advanced-security.secret-scanning-create-custom-pattern %}
@@ -142,7 +141,14 @@ aAAAe9
 
 {% note %}
 
+{% ifversion secret-scanning-custom-enterprise-36 %}
+**注意：**
+- 在企业级别，只有自定义模式的创建者才能编辑该模式，并在试运行中使用它。
+- 企业所有者只能使用他们有权访问的存储库上的试运行，而企业所有者不一定有权访问企业内的所有组织或存储库。
+{% else %}
 **注意：** 由于没有试运行功能，我们建议您先在存储库中测试自定义模式，然后再为整个企业定义它们。 这样，可以避免创建过多的误报 {% data variables.product.prodname_secret_scanning %} 警报。
+
+{% endif %}
 
 {% endnote %}
 
@@ -152,6 +158,11 @@ aAAAe9
 {% data reusables.enterprise-accounts.advanced-security-security-features %}
 1. 在“Secret scanning custom patterns（机密扫描自定义模式）”下，单击 {% ifversion ghes = 3.2 %}**New custom pattern（新建自定义模式）**{% else %}**New pattern（新建模式）**{% endif %}。
 {% data reusables.advanced-security.secret-scanning-add-custom-pattern-details %}
+{%- ifversion secret-scanning-custom-enterprise-36 %}
+1. 当您准备好测试新的自定义模式时，要识别企业中的匹配项而不创建警报，请单击 **Save and dry run（保存并空运行）**。
+{% data reusables.advanced-security.secret-scanning-dry-run-select-repos %}
+{% data reusables.advanced-security.secret-scanning-dry-run-results %}
+{%- endif %}
 {% data reusables.advanced-security.secret-scanning-create-custom-pattern %}
 
 创建模式后，{% data variables.product.prodname_secret_scanning %} 扫描企业组织内存储库中的任何机密，并启用 {% data variables.product.prodname_GH_advanced_security %}，包括其所有分支上的整个 Git 历史记录。 组织所有者和仓库管理员将会收到发现的任何密钥警报通知，并且可以审查发现密钥的仓库中的警报。 有关查看 {% data variables.product.prodname_secret_scanning %} 警报的详细信息，请参阅“[管理来自 {% data variables.product.prodname_secret_scanning %} 的警报](/code-security/secret-security/managing-alerts-from-secret-scanning)”。
@@ -164,7 +175,10 @@ aAAAe9
    * 对于存储库或组织，显示创建自定义模式的存储库或组织的“安全和分析”设置。 更多信息请参阅“[定义仓库的自定义模式](#defining-a-custom-pattern-for-a-repository)”或“[定义组织的自定义模式](#defining-a-custom-pattern-for-an-organization)”。
    * 对于企业，在“Policies（策略）”下显示“Advanced Security（高级安全性）”区域，然后单击 **Security features（安全功能）**。 更多信息请参阅上面的“[为企业帐户定义自定义模式](#defining-a-custom-pattern-for-an-enterprise-account)”。
 2. 在“{% data variables.product.prodname_secret_scanning_caps %}”下要编辑的自定义模式的右侧，单击 {% octicon "pencil" aria-label="The edit icon" %}。
-3. 查看并测试更改后，单击 **Save changes（保存更改）**。
+{%- ifversion secret-scanning-custom-enterprise-36 %}
+3. 当您准备好测试编辑的自定义模式时，要识别匹配项而不创建警报，请单击 **Save and dry run（保存并空运行）**。
+{%- endif %}
+4. 查看并测试更改后，单击 **Save changes（保存更改）**。
 {% endif %}
 
 ## 删除自定义模式

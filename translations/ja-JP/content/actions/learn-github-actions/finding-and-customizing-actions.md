@@ -24,7 +24,7 @@ topics:
 
 The actions you use in your workflow can be defined in:
 
-- The same repository as your workflow file{% if internal-actions %}
+- The same repository as your workflow file{% ifversion internal-actions %}
 - An internal repository within the same enterprise account that is configured to allow access to workflows{% endif %}
 - Any public repository
 - A published Docker container image on Docker Hub
@@ -110,7 +110,7 @@ The `action.yml` file is used to provide metadata for the action. Learn about th
 
 If an action is defined in a different repository than your workflow file, you can reference the action with the `{owner}/{repo}@{ref}` syntax in your workflow file.
 
-The action must be stored in a public repository{% if internal-actions %} or an internal repository that is configured to allow access to workflows. For more information, see "[Sharing actions and workflows with your enterprise](/actions/creating-actions/sharing-actions-and-workflows-with-your-enterprise)."{% else %}.{% endif %}
+The action must be stored in a public repository{% ifversion internal-actions %} or an internal repository that is configured to allow access to workflows. For more information, see "[Sharing actions and workflows with your enterprise](/actions/creating-actions/sharing-actions-and-workflows-with-your-enterprise)."{% else %}.{% endif %}
 
 ```yaml
 jobs:
@@ -158,7 +158,7 @@ steps:
 
 ### Using SHAs
 
-If you need more reliable versioning, you should use the SHA value associated with the version of the action. SHAs are immutable and therefore more reliable than tags or branches. However this approach means you will not automatically receive updates for an action, including important bug fixes and security updates. {% ifversion fpt or ghes > 3.0 or ghae or ghec %}You must use a commit's full SHA value, and not an abbreviated value. {% endif %}This example targets an action's SHA:
+If you need more reliable versioning, you should use the SHA value associated with the version of the action. SHAs are immutable and therefore more reliable than tags or branches. However this approach means you will not automatically receive updates for an action, including important bug fixes and security updates. You must use a commit's full SHA value, and not an abbreviated value. This example targets an action's SHA:
 
 ```yaml
 steps:

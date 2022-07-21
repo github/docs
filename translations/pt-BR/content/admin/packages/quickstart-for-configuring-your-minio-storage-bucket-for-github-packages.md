@@ -31,9 +31,9 @@ Para obter mais informações sobre suas opções, consulte [Documentação ofic
 
 {% warning %}
 
-**Warning**: MinIO has announced removal of MinIO Gateways. Starting June 1st, 2022, support and bug fixes for the current MinIO NAS Gateway implementation will only be available for paid customers via their LTS support contract. If you want to continue using MinIO Gateways with {% data variables.product.prodname_registry %}, we recommend moving to MinIO LTS support. For more information, see [Scheduled removal of MinIO Gateway for GCS, Azure, HDFS](https://github.com/minio/minio/issues/14331) in the minio/minio repository.
+**Aviso**: O MinIO anunciou a remoção dos Gateways do MinIO. A partir de 1 de junho, 2022, o suporte e correções de erros para a implementação atual do MinIO NAS Gateway só estará disponível para clientes pagos por meio do contrato de suporte do LTS. Se você deseja continuar usando MinIO Gateways com {% data variables.product.prodname_registry %}, nós recomendamos a transferência para o suporte do MinIO LTS. Para obter mais informações, consulte [Remoção agendada do MinIO Gateway para o GCS, Azure, HDFS](https://github.com/minio/minio/issues/14331) no repositório minio/minio.
 
-Other modes of MinIO remain available with standard support.
+Os outros modos do MinIO permanecem disponíveis com suporte padrão.
 
 {% endwarning %}
 
@@ -105,9 +105,7 @@ Other modes of MinIO remain available with standard support.
              minio/minio gateway nas /data
      ```
 
-     Para obter mais informações, consulte "[Gateway do MinIO para NAS](https://docs.min.io/docs/minio-gateway-for-nas.html)".
-
-   * Executar o MinIO usando Docker como um cluster. Esta implantação do MinIO usa vários hosts e a codificação de eliminação do MinIO para uma proteção de dados mais forte. Para executar o MinIO em um modo de cluster, consulte o "[Guia de início rápido do MinIO distribuído](https://docs.min.io/docs/distributed-minio-quickstart-guide.html).
+   * Executar o MinIO usando Docker como um cluster. Esta implantação do MinIO usa vários hosts e a codificação de eliminação do MinIO para uma proteção de dados mais forte. Para executar o MinIO em um modo de cluster, consulte o "[Guia de início rápido do MinIO distribuído](https://docs.min.io/docs/distributed-minio-quickstart-guide.html)."
 
 ## 3. Crie o seu bucket do MinIO para {% data variables.product.prodname_registry %}
 

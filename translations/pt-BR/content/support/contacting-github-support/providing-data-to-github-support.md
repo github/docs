@@ -68,7 +68,7 @@ Você pode usar esse método se não tiver sua chave SSH disponível no momento.
 
 Você pode usar esse método sem entrar no {% data variables.enterprise.management_console %}.
 
-Use o utilitário da linha de comando [ghe-diagnostics](/enterprise/{{ currentVersion }}/admin/guides/installation/command-line-utilities#ghe-diagnostics) para recuperar o diagnóstico da sua instância.
+Use o utilitário da linha de comando [ghe-diagnostics](/enterprise/admin/guides/installation/command-line-utilities#ghe-diagnostics) para recuperar o diagnóstico da sua instância.
 
 ```shell
 $ ssh -p122 admin@<em>hostname</em> -- 'ghe-diagnostics' > diagnostics.txt
@@ -89,7 +89,7 @@ Depois do envio da sua solicitação de suporte, podemos pedir que você compart
 - `collectd/logs/collectd.log`: logs coletados;
 - `mail-logs/mail.log`: logs de entrega de e-mail por SMTP;
 
-For more information, see "[About the audit log for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/about-the-audit-log-for-your-enterprise)."
+Para obter mais informações, consulte[Sobre o log de auditoria para sua empresa](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/about-the-audit-log-for-your-enterprise)".
 
 Os pacotes de suporte incluem logs dos últimos dois dias. Para obter logs dos últimos sete dias, você pode baixar um pacote de suporte estendido. Para obter mais informações, consulte "[Criar e compartilhar pacotes de suporte estendidos](#creating-and-sharing-extended-support-bundles)".
 

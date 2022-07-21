@@ -1,6 +1,23 @@
-O termo "atividade" inclui, entre outros:
-- Fazer login no {% data variables.product.product_name %};
-- Fazer comentários em problemas ou pull requests;
-- Criar, excluir, ver e marcar repositórios como favoritos;
-- Fazer push de commits.
-- Accessing resources by using a personal access token or SSH key.
+A user is considered active if the user has performed any of the following activities on {% ifversion fpt or ghec or ghes %}{% data variables.product.product_location %}{% elsif ghae %}{% data variables.product.product_name %}{% endif %}.
+
+- Signing into {% data variables.product.product_location %}
+- Criar um repositório
+- Pushing to a repository
+- Being added to a repository
+- Changing the visibility of a repository
+- Criar um problema ou um pull request
+- Commenting on an issue or pull request
+- Closing or reopening an issue or pull request
+- Applying a label to an issue or pull request, or removing a label
+- Assigning or unassigning an issue or pull request
+- Requesting a review of a pull request, or removing a review request
+- Creating or editing a comment in a pull request review
+- Dismissing a comment in a pull request
+- Synchronizing a pull request
+- Commenting on a commit
+- Publishing a release
+- Pushing to a wiki
+- Inspecionar um repositório
+- Favoritando um repositório
+- Excluir um repositório
+- Accessing resources by using a personal access token or SSH key

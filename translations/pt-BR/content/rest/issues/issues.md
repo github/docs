@@ -11,6 +11,6 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-## About the Issues API
+## Sobre a API de problemas
 
 {% data reusables.pull_requests.issues-media-types %}

@@ -25,7 +25,7 @@ shortTitle: Manage releases
 You can create new releases with release notes, @mentions of contributors, and links to binary files, as well as edit or delete existing releases.
 
 {% ifversion fpt or ghec %}
-You can also publish an action from a specific release in {% data variables.product.prodname_marketplace %}. For more information, see "<a href="/actions/creating-actions/publishing-actions-in-github-marketplace" class="dotcom-only">Publishing an action in the {% data variables.product.prodname_marketplace %}</a>."
+You can also publish an action from a specific release in {% data variables.product.prodname_marketplace %}. For more information, see "[Publishing an action in the {% data variables.product.prodname_marketplace %}](/actions/creating-actions/publishing-actions-in-github-marketplace)."
 
 You can choose whether {% data variables.large_files.product_name_long %} ({% data variables.large_files.product_name_short %}) objects are included in the ZIP files and tarballs that {% data variables.product.product_name %} creates for each release. For more information, see "[Managing {% data variables.large_files.product_name_short %} objects in archives of your repository](/github/administering-a-repository/managing-git-lfs-objects-in-archives-of-your-repository)."
 {% endif %}
@@ -52,16 +52,17 @@ You can choose whether {% data variables.large_files.product_name_long %} ({% da
 
    {% ifversion fpt or ghec or ghes > 3.2 or ghae-issue-4865 %}![Choose a branch](/assets/images/help/releases/releases-choose-branch.png)
    {% else %}![Releases tagged branch](/assets/images/enterprise/releases/releases-tag-branch.png){% endif %}
+{%- data reusables.releases.previous-release-tag %}
 6. Type a title and description for your release.
    {%- ifversion fpt or ghec or ghes > 3.3 or ghae-issue-4972 %}
    If you @mention any {% data variables.product.product_name %} users in the description, the published release will include a **Contributors** section with an avatar list of all the mentioned users.
    {%- endif %}
-   {% ifversion fpt or ghec %} Alternatively, you can automatically generate your release notes by clicking **Auto-generate release notes**.
-   {% endif %}
-   ![Releases description](/assets/images/help/releases/releases_description_auto.png)
-7. Optionally, to include binary files such as compiled programs in your release, drag and drop or manually select files in the binaries box.
+   {% ifversion fpt or ghec or ghes > 3.3 %} Alternatively, you can automatically generate your release notes by clicking {% ifversion previous-release-tag %}**Generate release notes**{% else %}**Auto-generate release notes**{% endif %}.{% endif %}{% ifversion previous-release-tag %}
+   ![Releases description](/assets/images/help/releases/releases_description_auto.png){% else %}
+   ![Releases description](/assets/images/enterprise/3.5/releases/releases_description_auto.png){% endif %}
+1. Optionally, to include binary files such as compiled programs in your release, drag and drop or manually select files in the binaries box.
    ![Providing a DMG with the Release](/assets/images/help/releases/releases_adding_binary.gif)
-8. To notify users that the release is not ready for production and may be unstable, select **This is a pre-release**.
+2. To notify users that the release is not ready for production and may be unstable, select **This is a pre-release**.
    ![Checkbox to mark a release as prerelease](/assets/images/help/releases/prerelease_checkbox.png)
 {%- ifversion fpt or ghec %}
 1. Optionally, if {% data variables.product.prodname_discussions %} are enabled in the repository, select **Create a discussion for this release**, then select the **Category** drop-down menu and click a category for the release discussion.

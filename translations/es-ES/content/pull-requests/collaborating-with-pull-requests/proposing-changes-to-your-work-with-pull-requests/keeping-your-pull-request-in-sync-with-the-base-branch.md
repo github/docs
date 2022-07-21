@@ -1,6 +1,6 @@
 ---
-title: Keeping your pull request in sync with the base branch
-intro: 'After you open a pull request, you can update the head branch, which contains your changes, with any changes that have been made in the base branch.'
+title: Mantener sincronizada tu solicitud de cambios en la rama base
+intro: 'Después de que abres una solicitud de cambios, puedes actualizar la rama de encabezado, la cual contiene tus cambios con cualquier otro que se haya hecho en la rama base.'
 permissions: People with write permissions to the repository to which the head branch of the pull request belongs can update the head branch with changes that have been made in the base branch.
 versions:
   fpt: '*'
@@ -9,45 +9,45 @@ versions:
   ghec: '*'
 topics:
   - Pull requests
-shortTitle: Update the head branch
+shortTitle: Actualizar la rama de encabezado
 ---
 
-## About keeping your pull request in sync
+## Acerca de mantener tu solicitud de cambios sincronizada
 
-Before merging your pull requests, other changes may get merged into the base branch causing your pull request's head branch to be out of sync. Updating your pull request with the latest changes from the base branch can help catch problems prior to merging.
+Antes de que fusiones tus solicitudes de cambios, podrían fusionarse otros cambios en la rama base, lo cual ocasionaría que tu rama de encabezado de la solicitud de cambios se desincronice. El actualizar tu solicitud de cambios con los últimos cambios de la rama base puede ayudarte a notar problemas antes de la fusión.
 
-You can update a pull request's head branch from the command line or the pull request page. The **Update branch** button is displayed when all of these are true:
+Puedes actualizar una rama de encabezado de una solicitud de cambios con la línea de comandos o en la página de la solicitud de cambios. Se mostrará el botón **Actualizar rama** cuando se cumpla con todo esto:
 
-* There are no merge conflicts between the pull request branch and the base branch.
-* The pull request branch is not up to date with the base branch.
-* The base branch requires branches to be up to date before merging{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6069 %} or the setting to always suggest updating branches is enabled{% endif %}.
+* Que no haya conflictos de fusión entre la rama de la solicitud de cambios y la rama base.
+* Que la rama de la solicitud de cambios no esté actualizada con la rama base.
+* Que la rama base requiera que las ramas estén actualizadas antes de fusionarlas{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6069 %} o que esté habilitada la configuración para que siempre se sugiera actualizar las ramas{% endif %}.
 
 Para obtener más información, consulta las secciones "[Requerir verificaciones de estado antes de fusionar](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches){% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6069 %}" y "[Adminsitrar las sugerencias para actualizar las ramas de la solicitud de cambios](/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/managing-suggestions-to-update-pull-request-branches){% endif %}".
 
-If there are changes to the base branch that cause merge conflicts in your pull request branch, you will not be able to update the branch until all conflicts are resolved. For more information, see "[About merge conflicts](/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/about-merge-conflicts)."
+Si existen cambios en la rama base que ocasiones conflictos de fusión en la rama de tu solicitud de cambios, no podrás actualizar la rama hasta que se resuelvan todos los conflictos. Para obtener más información, consulta la sección "[Acerca de los conflictos de fusión](/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/about-merge-conflicts)".
 
 {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6069 %}
-From the pull request page you can update your pull request's branch using a traditional merge or by rebasing. A traditional merge results in a merge commit that merges the base branch into the head branch of the pull request. Rebasing applies the changes from _your_ branch onto the latest version of the base branch. The result is a branch with a linear history, since no merge commit is created.
+Desde la página de la solicitud de cambios, puedes actualizar la rama de tu solicitud de cambios utilizando una fusión tradicional o rebasando. Una fusión tradicional dará como resultado una confirmación de fusión que fusionará la rama base en la rama de encabezado de la solicitud de cambios. El rebase aplica los cambios desde _tu_ rama en la última versión de la rama base. El resultado es una rama con un historial linear, ya que no se crea ninguna confirmación de fusión.
 {% else %}
-Updating your branch from the pull request page performs a traditional merge. The resulting merge commit merges the base branch into the head branch of the pull request.
+El actualizar tu rama desde la página de solicitudes de cambio realizará una fusión tradicional. La confirmación de fusión resultante fusionará la rama base en la rama de encabezado de la solicitud de cambios.
 {% endif %}
 
-## Updating your pull request branch
+## Actualizar tu rama de solicitud de cambios
 
 {% data reusables.repositories.sidebar-pr %}
 
-1. In the "Pull requests" list, click the pull request you'd like to update.
+1. En la lista de "Solicitud de cambios", haz clic en la solicitud que te gustaría actualizar.
 
 {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6069 %}
-1. In the merge section near the bottom of the page, you can:
-   - Click **Update branch** to perform a traditional merge. ![Button to update branch](/assets/images/help/pull_requests/pull-request-update-branch-with-dropdown.png)
-   - Click the update branch drop down menu, click **Update with rebase**, and then click **Rebase branch** to update by rebasing on the base branch. ![Drop-down menu showing merge and rebase options](/assets/images/help/pull_requests/pull-request-update-branch-rebase-option.png)
+1. En la sección de fusión cerca de la parte inferior de la página, puedes:
+   - Hacer clic en **Actualizar rama** para realizar una fusión tradicional. ![Botón para actualizar la rama](/assets/images/help/pull_requests/pull-request-update-branch-with-dropdown.png)
+   - Haz clic en el menú desplegable de "actualizar rama", luego en **Actualizar con rebase** y luego en **Rebasar rama** para actualizar rebasando en la rama base. ![Menú desplegable que muestra las opciones de rebase y fusión](/assets/images/help/pull_requests/pull-request-update-branch-rebase-option.png)
 {% else %}
-1. In the merge section near the bottom of the page, click **Update branch** to perform a traditional merge. ![Botón para actualizar una rama](/assets/images/help/pull_requests/pull-request-update-branch.png)
+1. En la sección de fusión cerca de la parte inferior de la página, haz clic en **Actualizar rama** para realizar una fusión tradicional. ![Botón para actualizar una rama](/assets/images/help/pull_requests/pull-request-update-branch.png)
 {% endif %}
 
 ## Leer más
 
 - "[Acerca de las solicitudes de extracción](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)"
-- "[Changing the stage of a pull request](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/changing-the-stage-of-a-pull-request)"
+- "[Cambiar el estado de una solicitud de cambios](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/changing-the-stage-of-a-pull-request)"
 - "[Confirmar cambios en una rama de la solicitud de extracción creada desde una bifurcación](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/committing-changes-to-a-pull-request-branch-created-from-a-fork)"

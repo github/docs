@@ -1,7 +1,7 @@
 ---
-title: Using a matrix for your jobs
-shortTitle: Using a matrix
-intro: Create a matrix to define variations for each job.
+title: Usando uma matriz para seus trabalhos
+shortTitle: Usando uma matriz
+intro: Crie uma matriz para definir variações para cada trabalho.
 versions:
   fpt: '*'
   ghes: '*'
@@ -15,46 +15,46 @@ redirect_from:
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-## About matrix strategies
+## Sobre estratégias da matriz
 
 {% data reusables.actions.jobs.about-matrix-strategy %}
 
-## Using a matrix strategy
+## Usando uma estratégia da matriz
 
 {% data reusables.actions.jobs.using-matrix-strategy %}
 
-### Example: Using a single-dimension matrix
+### Exemplo: Usando uma matriz de dimensão única
 
 {% data reusables.actions.jobs.single-dimension-matrix %}
 
-### Example: Using a multi-dimension matrix
+### Exemplo: Usando uma matriz de múltiplas dimensões
 
 {% data reusables.actions.jobs.multi-dimension-matrix %}
 
-### Example: Using contexts to create matrices
+### Exemplo: Usando contextos para criar matrizes
 
 {% data reusables.actions.jobs.matrix-from-context %}
 
-## Expanding or adding matrix configurations
+## Expansão ou adição de configurações da matriz
 
 {% data reusables.actions.jobs.matrix-include %}
 
-### Example: Expanding configurations
+### Exemplo: Expandir configurações
 
 {% data reusables.actions.jobs.matrix-expand-with-include %}
 
-### Example: Adding configurations
+### Exemplo: Adicionar configurações
 
 {% data reusables.actions.jobs.matrix-add-with-include %}
 
-## Excluding matrix configurations
+## Excluindo configurações de matriz
 
 {% data reusables.actions.jobs.matrix-exclude %}
 
-## Handling failures
+## Gerenciando as falhas
 
 {% data reusables.actions.jobs.section-using-a-build-matrix-for-your-jobs-failfast %}
 
-## Defining the maximum number of concurrent jobs
+## Definindo o número máximo de trabalhos simultâneos
 
 {% data reusables.actions.jobs.section-using-a-build-matrix-for-your-jobs-max-parallel %}

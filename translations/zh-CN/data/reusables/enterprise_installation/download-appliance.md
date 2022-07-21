@@ -1,5 +1,5 @@
-1. Navigate to the image you want to use for your new instance.
+1. 导航到要用于新实例的映像。
 
-   - Navigate to [Release notes](/admin/release-notes).
-   - In the right sidebar, click the version you want to download.
-   - Click **Download {% data variables.product.prodname_ghe_server %} X.X.X**.
+   - 导航到 [Release notes（发行说明）](/admin/release-notes)。
+   - 在右侧边栏中，单击要下载的版本。
+   - 单击 **下载 {% data variables.product.prodname_ghe_server %} X.X.X**。

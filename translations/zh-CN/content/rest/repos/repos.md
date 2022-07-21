@@ -1,6 +1,6 @@
 ---
 title: 仓库
-intro: 'The Repos API allows to create, manage and control the workflow of public and private GitHub Enterprise Server repositories.'
+intro: ''
 versions:
   fpt: '*'
   ghes: '*'

@@ -81,14 +81,14 @@ We do not allow content or activity on GitHub that:
 
 スクレイピングとは、ボットやウェブクローラーなどの自動的な処理により、当社「サービス」から情報を抽出することを指します。 スクレイピングは、API を介した情報の収集を指すものではありません。 当社「API 利用規約」については、[「利用規約」](/articles/github-terms-of-service#h-api-terms)のセクション H を参照してください。
 
-(「[GitHub のプライバシーについての声明](/github/site-policy/github-privacy-statement)」の定義による) 「ユーザ個人情報」を、ユーザに対して未承諾メールを送信する、人事採用担当者、ヘッドハンター、求人掲示板などに販売するといった目的を含め、スパム目的で本「サービス」から取得 (スクレイピング、APIを介した情報収集、その他の手段による取得) した情報を利用することはできません。
+You may not use information from the Service (whether scraped, collected through our API, or obtained otherwise) for spamming purposes, including for the purposes of sending unsolicited emails to users or selling personal information, such as to recruiters, headhunters, and job boards.
 
 本「サービス」から収集したデータの利用はすべて、「 [GitHub のプライバシーについての声明](/github/site-policy/github-privacy-statement)」に従う必要があります。
 
 ## 8. プライバシー
-「ユーザ個人情報」の悪用は禁じられています
+Misuse of personal information is prohibited.
 
-本「サービス」からデータを収集するあらゆる個人、法人、またはサービスは、特に「ユーザ個人情報」の収集に関して、「[GitHub のプライバシーについての声明](/articles/github-privacy-statement)」に従う必要があります。 「サービス」から何らかの「ユーザ個人情報」を収集する場合、あなたは「ユーザ」が承認した目的においてのみ「ユーザ個人情報」を利用することに同意するものとします。 あなたは、「サービス」から収集した、あらゆる「ユーザ個人情報」を合理的に保護することに同意するものとし、当社やその他ユーザからの苦情、削除要請、および連絡拒否の要請に速やかに対応するものとします。
+Any person, entity, or service collecting data from the Service must comply with the [GitHub Privacy Statement](/articles/github-privacy-statement), particularly in regards to the collection of personal information. If you collect any personal information from the Service, you agree that you will only use that personal information for the purpose for which that User has authorized it. You agree that you will reasonably secure any personal information you have gathered from the Service, and you will respond promptly to complaints, removal requests, and "do not contact" requests from us or other users.
 
 ## 9. 過剰な帯域の使用
 「サービス」の帯域制限は、利用する機能によって異なります。 帯域の利用が、同類の機能の他のユーザと比較して過剰であると当社が判断した場合、帯域の消費を抑えられるまで、当社はお客様の「アカウント」を停止したり、ファイルのホスティングを抑制したりするなどしてアクティビティを制限する権利を留保します。 また当社は、当社インフラストラクチャに過度の負荷をかけていると判断するリポジトリを、事前通知を行った後に削除する権利を留保します。 リポジトリのオブジェクトストレージに関する利用規定については、「[私のディスク容量はいくつですか？](/github/managing-large-files/what-is-my-disk-quota)」を参照してください。 特定機能の帯域制限に関する詳しい情報については、「[GitHub 追加製品の利用規約](/github/site-policy/github-additional-product-terms)」を参照してください。

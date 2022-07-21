@@ -1,6 +1,7 @@
 ---
-title: Deep dive into Codespaces
-intro: 'Understand how {% data variables.product.prodname_codespaces %} works.'
+title: 'Deep dive into {% data variables.product.prodname_github_codespaces %}'
+shortTitle: 'Deep dive into {% data variables.product.prodname_codespaces %}'
+intro: 'Understand how {% data variables.product.prodname_github_codespaces %} works.'
 allowTitleToDifferFromFilename: true
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
@@ -11,7 +12,7 @@ topics:
   - Codespaces
 ---
 
-{% data variables.product.prodname_codespaces %} is an instant, cloud-based development environment that uses a container to provide you with common languages, tools, and utilities for development. {% data variables.product.prodname_codespaces %} is also configurable, allowing you to create a customized development environment for your project. By configuring a custom development environment for your project, you can have a repeatable codespace configuration for all users of your project.
+{% data variables.product.prodname_github_codespaces %} is an instant, cloud-based development environment that uses a container to provide you with common languages, tools, and utilities for development. {% data variables.product.prodname_codespaces %} is also configurable, allowing you to create a customized development environment for your project. By configuring a custom development environment for your project, you can have a repeatable codespace configuration for all users of your project.
 
 ## Creating your codespace
 
@@ -46,15 +47,15 @@ Since your repository is cloned onto the host VM before the container is created
 
 ### Step 3: Connecting to the codespace
 
-When your container has been created and any other initialization has run, you'll be connected to your codespace. You can connect to it through the web or via [Visual Studio Code](/codespaces/developing-in-codespaces/using-codespaces-in-visual-studio-code), or both, if needed.
+When your container has been created and any other initialization has run, you'll be connected to your codespace. You can connect to it through the web or via [{% data variables.product.prodname_vscode_shortname %}](/codespaces/developing-in-codespaces/using-codespaces-in-visual-studio-code), or both, if needed.
 
 ### Step 4: Post-creation setup
 
 Once you are connected to your codespace, your automated setup may continue to build based on the configuration you specified in your `devcontainer.json` file. You may see `postCreateCommand` and `postAttachCommand` run.
 
-If you want to use Git hooks in your codespace,  set up hooks using the [`devcontainer.json` lifecycle scripts](https://code.visualstudio.com/docs/remote/devcontainerjson-reference#_lifecycle-scripts), such as `postCreateCommand`. For more information, see the [`devcontainer.json` reference](https://code.visualstudio.com/docs/remote/devcontainerjson-reference#_devcontainerjson-properties) in the Visual Studio Code documentation.
+If you want to use Git hooks in your codespace,  set up hooks using the [`devcontainer.json` lifecycle scripts](https://code.visualstudio.com/docs/remote/devcontainerjson-reference#_lifecycle-scripts), such as `postCreateCommand`. For more information, see the [`devcontainer.json` reference](https://code.visualstudio.com/docs/remote/devcontainerjson-reference#_devcontainerjson-properties) in the {% data variables.product.prodname_vscode_shortname %} documentation.
 
-If you have a public dotfiles repository for {% data variables.product.prodname_codespaces %}, you can enable it for use with new codespaces. When enabled, your dotfiles will be cloned to the container and the install script will be invoked. For more information, see "[Personalizing {% data variables.product.prodname_codespaces %} for your account](/github/developing-online-with-codespaces/personalizing-codespaces-for-your-account#dotfiles)." 
+If you have a public dotfiles repository for {% data variables.product.prodname_github_codespaces %}, you can enable it for use with new codespaces. When enabled, your dotfiles will be cloned to the container and the install script will be invoked. For more information, see "[Personalizing {% data variables.product.prodname_github_codespaces %} for your account](/codespaces/customizing-your-codespace/personalizing-github-codespaces-for-your-account#dotfiles)." 
 
 Finally, the entire history of the repository is copied down with a full clone.
 
@@ -67,7 +68,7 @@ As you develop in your codespace, it will save any changes to your files every f
 
 {% note %}
 
-**Note:** Changes in a codespace in {% data variables.product.prodname_vscode %} are not saved automatically, unless you have enabled [Auto Save](https://code.visualstudio.com/docs/editor/codebasics#_save-auto-save).
+**Note:** Changes in a codespace in {% data variables.product.prodname_vscode_shortname %} are not saved automatically, unless you have enabled [Auto Save](https://code.visualstudio.com/docs/editor/codebasics#_save-auto-save).
 {% endnote %}
 
 ### Closing or stopping your codespace
@@ -93,11 +94,11 @@ Running your application when you first land in your codespace can make for a fa
 
 ## Committing and pushing your changes
 
-Git is available by default in your codespace and so you can rely on your existing Git workflow. You can work with Git in your codespace either via the Terminal or by using [Visual Studio Code](https://code.visualstudio.com/docs/editor/versioncontrol)'s source control UI. For more information, see "[Using source control in your codespace](/codespaces/developing-in-codespaces/using-source-control-in-your-codespace)"
+Git is available by default in your codespace and so you can rely on your existing Git workflow. You can work with Git in your codespace either via the Terminal or by using [{% data variables.product.prodname_vscode_shortname %}](https://code.visualstudio.com/docs/editor/versioncontrol)'s source control UI. For more information, see "[Using source control in your codespace](/codespaces/developing-in-codespaces/using-source-control-in-your-codespace)"
 
 ![Running git status in Codespaces Terminal](/assets/images/help/codespaces/git-status.png)
 
-You can create a codespace from any branch, commit, or pull request in your project, or you can switch to a new or existing branch from within your active codespace. Because {% data variables.product.prodname_codespaces %} is designed to be ephemeral, you can use it as an isolated environment to experiment, check a teammate's pull request, or fix merge conflicts. You can create more than one codespace per repository or even per branch. However, each personal account has a limit of 10 codespaces. If you've reached the limit and want to create a new codespace, you must delete a codespace first.
+You can create a codespace from any branch, commit, or pull request in your project, or you can switch to a new or existing branch from within your active codespace. Because {% data variables.product.prodname_github_codespaces %} is designed to be ephemeral, you can use it as an isolated environment to experiment, check a teammate's pull request, or fix merge conflicts. You can create more than one codespace per repository or even per branch. However, each personal account has a limit of 10 codespaces. If you've reached the limit and want to create a new codespace, you must delete a codespace first.
 
 {% note %}
 
@@ -107,9 +108,9 @@ You can create a codespace from any branch, commit, or pull request in your proj
 
 ## Personalizing your codespace with extensions
 
-Using {% data variables.product.prodname_vscode %} in your codespace gives you access to the {% data variables.product.prodname_vscode %} Marketplace so that you can add any extensions you need. For information on how extensions run in {% data variables.product.prodname_codespaces %}, see [Supporting Remote Development and GitHub Codespaces](https://code.visualstudio.com/api/advanced-topics/remote-extensions) in the {% data variables.product.prodname_vscode %} docs. 
+Using {% data variables.product.prodname_vscode_shortname %} in your codespace gives you access to the {% data variables.product.prodname_vscode_marketplace %} so that you can add any extensions you need. For information on how extensions run in {% data variables.product.prodname_codespaces %}, see [Supporting Remote Development and GitHub Codespaces](https://code.visualstudio.com/api/advanced-topics/remote-extensions) in the {% data variables.product.prodname_vscode_shortname %} docs. 
 
-If you already use {% data variables.product.prodname_vscode %}, you can use [Settings Sync](https://code.visualstudio.com/docs/editor/settings-sync) to automatically sync extensions, settings, themes, and keyboard shortcuts between your local instance and any {% data variables.product.prodname_codespaces %} you create.
+If you already use {% data variables.product.prodname_vscode_shortname %}, you can use [Settings Sync](https://code.visualstudio.com/docs/editor/settings-sync) to automatically sync extensions, settings, themes, and keyboard shortcuts between your local instance and any {% data variables.product.prodname_codespaces %} you create.
 
 ## Further reading
 

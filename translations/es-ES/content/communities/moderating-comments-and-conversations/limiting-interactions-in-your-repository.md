@@ -22,7 +22,7 @@ shortTitle: Limitar las interacciones en un repositorio
 
 {% data reusables.community.types-of-interaction-limits %}
 
-También puedes habilitar las limitaciones de las actividades en todos los repositorios que le pertenezcan a tu cuenta personal o a una organización. Si se habilita un límite a lo largo de la organización o del usuario, no podrás limitar la actividad para los repositorios individuales que pertenezcan a la cuenta. Para obtener más información, consulta las secciones "[Limitar las interacciones para tu cuenta personal](/communities/moderating-comments-and-conversations/limiting-interactions-for-your-user-account)" y "[Limitar las interacciones en tu organización](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-organization)".
+También puedes habilitar las limitaciones de las actividades en todos los repositorios que le pertenezcan a tu cuenta personal o a una organización. Si se habilita un límite a lo largo de la organización o del usuario, no podrás limitar la actividad para los repositorios individuales que pertenezcan a la cuenta. Para obtener más información, consulta las secciones "[Limitar las interacciones para tu cuenta personal](/communities/moderating-comments-and-conversations/limiting-interactions-for-your-personal-account)" y "[Limitar las interacciones en tu organización](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-organization)".
 
 ## Limitar las interacciones en tu repositorio
 

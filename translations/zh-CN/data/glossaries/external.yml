@@ -596,7 +596,7 @@
 - 
   term: 存储库缓存
   description: >-
-    A read-only mirror of repositories for your GitHub Enterprise server instance, located near distributed teams and CI clients.
+    GitHub Enterprise 服务器实例的存储库只读镜像，位于分布式团队和 CI 客户端附近。
 - 
   term: 仓库图
   description: 仓库数据的可视表现形式。

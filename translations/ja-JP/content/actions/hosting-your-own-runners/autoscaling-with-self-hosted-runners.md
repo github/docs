@@ -5,7 +5,7 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '>3.2'
-  ghae: issue-4462
+  ghae: '*'
 type: overview
 ---
 

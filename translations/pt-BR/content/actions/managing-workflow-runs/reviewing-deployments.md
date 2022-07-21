@@ -14,7 +14,7 @@ versions:
 
 Os trabalhos que fazem referência a um ambiente configurado com os revisores necessários irão aguardar a aprovação antes de serem iniciados. Enquanto um trabalho está aguardando aprovação, ele tem um status de "Aguardando". Se um trabalho não for aprovado em 30 dias, a execução do fluxo de trabalho será automaticamente cancelada.
 
-Para obter mais informações sobre ambientes e aprovações necessárias, consulte "[Usando ambientes para implantação](/actions/deployment/using-environments-for-deployment).{% ifversion fpt or ghae or ghes > 3.1 or ghec %} Para obter informações sobre como revisar implantações com a API REST, consulte "[Execuções de trabalho](/rest/reference/actions#workflow-runs)."{% endif %}
+Para obter mais informações sobre ambientes e aprovações necessárias, consulte "[Usando ambientes para implantação](/actions/deployment/using-environments-for-deployment)". Para obter informações sobre como revisar implantações com a API REST, consulte "[Execuções de fluxo de trabalho](/rest/reference/actions#workflow-runs)".
 
 ## Aprovar ou rejeitar um trabalho
 

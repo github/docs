@@ -4,6 +4,9 @@ intro: Aprenda maneiras diferentes de gerenciar chaves SSH em seus servidores ao
 redirect_from:
   - /guides/managing-deploy-keys
   - /v3/guides/managing-deploy-keys
+  - /deploy-keys
+  - /articles/managing-deploy-keys
+  - /multiple-keys
 versions:
   fpt: '*'
   ghes: '*'
@@ -78,7 +81,7 @@ Consulte [nosso guia sobre a criação de um token de acesso pessoal](/authentic
 
 #### Configuração
 
-1. [Execute o procedimento `ssh-keygen`][generating-ssh-keys] no seu servidor e lembre-se o local onde você salvou o par de chaves da chave da rsa pública e privada.
+1. [Execute o procedimento `ssh-keygen` no seu servidor ][generating-ssh-keys] e lembre-se do local onde você salva o par de chaves RSA públicas e privadas gerado.
 2. No canto superior direito de qualquer página do {% data variables.product.product_name %}, clique na sua foto do perfil e, em seguida, clique em **Seu perfil**. ![Navegação para o perfil](/assets/images/profile-page.png)
 3. Na sua página de perfil, clique em **Repositórios** e, em seguida, clique no nome do seu repositório. ![Link dos repositórios](/assets/images/repos.png)
 4. No seu repositório, clique em **Configurações**. ![Configurações do repositório](/assets/images/repo-settings.png)
@@ -181,6 +184,7 @@ Isto significa que você não pode automatizar a criação de contas. Mas se voc
 - [Configurar notificações](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications#organization-alerts-notification-options)
 
 [ssh-agent-forwarding]: /guides/using-ssh-agent-forwarding/
+[generating-ssh-keys]: /articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/#generating-a-new-ssh-key
 [generating-ssh-keys]: /articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/#generating-a-new-ssh-key
 [tos]: /free-pro-team@latest/github/site-policy/github-terms-of-service/
 [collaborator]: /articles/inviting-collaborators-to-a-personal-repository

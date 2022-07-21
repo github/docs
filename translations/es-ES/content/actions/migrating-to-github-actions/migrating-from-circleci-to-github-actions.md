@@ -82,6 +82,8 @@ Para obtener más información, consulta la sección "[Utilizar variables de amb
 
 CircleCI y {% data variables.product.prodname_actions %} proporcionan un método para almacenar archivos en cahcé manualmente en el archivo de configuración.
 
+{% ifversion actions-caching %}
+
 Puedes encontrar un ejemplo de la sintaxis para cada sistema.
 
 <table class="d-block">
@@ -119,7 +121,11 @@ GitHub Actions
 </tr>
 </table>
 
-El almacenamiento en caché de las {% data variables.product.prodname_actions %} solo se aplica a los repositorios que se hospedan en {% data variables.product.prodname_dotcom_the_website %}. Para obtener más información, consulta la sección "<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">Almacenar las dependencias en caché para agilizar los flujos de trabajo</a>".
+{% else %}
+
+{% data reusables.actions.caching-availability %}
+
+{% endif %}
 
 {% data variables.product.prodname_actions %} no tiene un equivalente al Almacenamiento en Caché por Capas de Docker (o DLC, por sus siglas en inglés) que tiene CircleCI.
 
@@ -175,7 +181,7 @@ GitHub Actions
 </tr>
 </table>
 
-Para obtener más información, consulta "[Conservar datos de flujo de trabajo mediante artefactos](/actions/configuring-and-managing-workflows/persisting-workflow-data-using-artifacts)."
+Para obtener más información, consulta la sección "[Datos de flujo de trabajo persistentes que utilizan artefactos](/actions/configuring-and-managing-workflows/persisting-workflow-data-using-artifacts)".
 
 ## Usar bases de datos y contenedores de servicio
 

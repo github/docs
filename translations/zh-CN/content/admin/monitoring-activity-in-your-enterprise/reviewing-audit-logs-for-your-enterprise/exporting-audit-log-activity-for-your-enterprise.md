@@ -19,6 +19,8 @@ topics:
 
 可以通过从企业审核日志下载 JSON 文件来导出 Git 事件数据。 与审核日志数据不同，您无法在审核日志用户界面中查询要筛选和导出的特定 Git 事件。
 
+{% data reusables.audit_log.git-events-export-limited %}
+
 {% data reusables.audit_log.exported-log-keys-and-values %}
 
 作为导出日志事件的替代方法，您可以使用 API 检索审核日志事件，或设置 {% data variables.product.product_name %} 以在记录事件时流式传输审核数据。 更多信息请参阅“[对企业使用审核日志 API](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/using-the-audit-log-api-for-your-enterprise)”和“[流式传输企业的审核日志](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/streaming-the-audit-log-for-your-enterprise)”。

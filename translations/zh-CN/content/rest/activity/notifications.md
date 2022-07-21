@@ -1,6 +1,6 @@
 ---
 title: 通知
-intro: 'The Notifications API lets you manage {% data variables.product.product_name %} notifications.'
+intro: '通知 API 允许您管理 {% data variables.product.product_name %} 通知。'
 versions:
   fpt: '*'
   ghes: '*'
@@ -11,9 +11,9 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-## About the Notifications API
+## 关于通知 API
 
-The Notifications API lets you manage {% data variables.product.product_name %} notifications. For more information about notifications, see "[About notifications](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/about-notifications)."
+通知 API 允许您管理 {% data variables.product.product_name %} 通知。 有关通知的详细信息，请参阅“[关于通知](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/about-notifications)”。
 
 所有通知 API 调用都需要 `notifications` 或 `repo` API 作用域。  这将赋予对某些议题和提交内容的只读权限。 您仍需要 `repo` 作用域才能从相应的端点访问议题和提交。
 
@@ -35,11 +35,11 @@ $    -H "If-Modified-Since: Thu, 25 Oct 2012 15:16:27 GMT"
 > X-Poll-Interval: 60
 ```
 
-### About notification reasons
+### 关于通知原因
 
 从通知 API 检索响应时，每个有效负载都有一个名为 `reason` 的键。 这些键对应于触发通知的事件。
 
-These are the potential `reason`s for receiving a notification:
+以下是收到通知的潜在`原因`：
 
 | 原因名称               | 描述                                                                                                                                                           |
 | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |

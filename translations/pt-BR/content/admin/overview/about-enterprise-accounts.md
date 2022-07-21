@@ -32,17 +32,17 @@ A conta corporativa em {% ifversion ghes %}{% data variables.product.product_loc
 
 {% endif %}
 
-As organizações são contas compartilhadas em que os integrantes da empresa podem colaborar em muitos projetos de uma só vez. Os proprietários da organização podem gerenciar o acesso aos dados e projetos da organização, com recursos sofisticados de segurança e administrativos. Para obter mais informações, consulte {% ifversion ghec %}"[Sobre as organizações](/organizations/collaborating-with-groups-in-organizations/about-organizations).{% elsif ghes or ghae %}"[Sobre as organizações](/organizations/collaborating-with-groups-in-organizations/about-organizations)" e "[Gerenciando usuários, organizações e repositórios](/admin/user-management)".{% endif %}
+As organizações são contas compartilhadas em que os integrantes da empresa podem colaborar em muitos projetos de uma só vez. Os proprietários da organização podem gerenciar o acesso aos dados e projetos da organização, com recursos sofisticados de segurança e administrativos. Para obter mais informações, consulte "[Sobre organizações](/organizations/collaborating-with-groups-in-organizations/about-organizations)".
+
+{% ifversion ghec %}
+Os proprietários da empresa podem convidar organizações existentes para participar da conta corporativa ou criar novas organizações nas configurações da empresa.
+{% endif %}
+
+Sua conta corporativa permite que você gerencie e aplique as políticas para todas as organizações pertencentes à empresa. {% data reusables.enterprise.about-policies %} Para obter mais informações, consulte "[Sobre as políticas corporativas](/admin/policies/enforcing-policies-for-your-enterprise/about-enterprise-policies)".
 
 {% ifversion ghec %}
 
-Os proprietários das empresas podem criar organizações e vincular as organizações à empresa. Como alternativa, você pode convidar uma organização existente para participar da conta corporativa. Depois de adicionar organizações à conta corporativa, você pode gerenciar e aplicar políticas para as organizações. Opções específicas de aplicação variam de acordo com a configuração; normalmente, é possível optar por aplicar uma única política para cada organização na sua conta corporativa ou permitir que proprietários definam a política no nível da organização. Para obter mais informações, consulte "[Definindo políticas para a sua empresa](/admin/policies)".
-
 {% data reusables.enterprise.create-an-enterprise-account %} Para obter mais informações, consulte "[Criando uma conta corporativa](/admin/overview/creating-an-enterprise-account)".
-
-{% elsif ghes or ghae %}
-
-Para obter mais informações sobre o gerenciamento de políticas para a conta corporativa, consulte "[Políticas de configuração para a sua empresa](/admin/policies)".
 
 {% endif %}
 
@@ -50,7 +50,7 @@ Para obter mais informações sobre o gerenciamento de políticas para a conta c
 
 {% ifversion ghes or ghae %}
 
-Na sua conta corporativa em {% ifversion ghae %}{% data variables.product.product_name %}{% elsif ghes %}uma instância de {% data variables.product.prodname_ghe_server %}{% endif %}, os administradores podem visualizar{% if remove-enterprise-members %} e gerenciar{% endif %} membros corporativos{% if enterprise-owner-join-org %}, gerenciar seus próprios integrantes em organizações pertencentes à empresa,{% endif %} e gerenciar o seguinte para a instância da {% ifversion ghes %}{% data variables.product.prodname_ghe_server %}{% elsif ghae %}empresa em {% data variables.product.prodname_ghe_managed %}{% endif %}.
+Na sua conta corporativa em {% ifversion ghae %}{% data variables.product.product_name %}{% elsif ghes %}uma instância de {% data variables.product.prodname_ghe_server %}{% endif %}, os administradores podem visualizar{% ifversion remove-enterprise-members %} e gerenciar{% endif %} membros corporativos{% ifversion enterprise-owner-join-org %}, gerenciar seus próprios integrantes em organizações pertencentes à empresa,{% endif %} e gerenciar o seguinte para a instância da {% ifversion ghes %}{% data variables.product.prodname_ghe_server %}{% elsif ghae %}empresa em {% data variables.product.prodname_ghe_managed %}{% endif %}.
 
 {% ifversion ghes %}
 - Uso da licença{% endif %}
@@ -65,7 +65,7 @@ Na sua conta corporativa em {% ifversion ghae %}{% data variables.product.produc
 
 {% endif %}
 
-{% ifversion ghec or ghes %}Ao experimentar ou comprar {% data variables.product.prodname_enterprise %}, você também pode{% ifversion ghes %}{% endif %} criar uma conta corporativa para {% data variables.product.prodname_ghe_cloud %} em {% data variables.product.prodname_dotcom_the_website %}. Os administradores da conta corporativa em {% data variables.product.prodname_dotcom_the_website %} podem ver {% if remove-enterprise-members %} e gerenciar{% endif %} a assoviação corporativa{% if enterprise-owner-join-org %}, gerenciar seus próprios integrantes em organizações pertencentes à empresa,{% endif %} e gerenciae o seguinte para a conta corporativa{% ifversion ghes %} em {% data variables.product.prodname_dotcom_the_website %}{% endif %}.
+{% ifversion ghec or ghes %}Ao experimentar ou comprar {% data variables.product.prodname_enterprise %}, você também pode{% ifversion ghes %}{% endif %} criar uma conta corporativa para {% data variables.product.prodname_ghe_cloud %} em {% data variables.product.prodname_dotcom_the_website %}. Os administradores da conta corporativa em {% data variables.product.prodname_dotcom_the_website %} podem ver {% ifversion remove-enterprise-members %} e gerenciar{% endif %} a assoviação corporativa{% ifversion enterprise-owner-join-org %}, gerenciar seus próprios integrantes em organizações pertencentes à empresa,{% endif %} e gerenciar o seguinte para a conta corporativa{% ifversion ghes %} em {% data variables.product.prodname_dotcom_the_website %}{% endif %}.
 
 - Cobrança e uso (serviços em {% data variables.product.prodname_dotcom_the_website %}, {% data variables.product.prodname_GH_advanced_security %}, licenças de usuários)
 - Segurança (logon único, listas de permissão de IP, autoridades de certificação SSH, autenticação de dois fatores)

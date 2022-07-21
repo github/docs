@@ -27,7 +27,7 @@ If you'd like to match the commits in your repository to the authors' GitHub per
 3. Choose your personal account or an organization to own the repository, then type a name for the repository on GitHub. ![リポジトリの [Owner] メニューと、リポジトリ名フィールド](/assets/images/help/importer/import-repo-owner-name.png)
 4. 新しいリポジトリを*パブリック*にするか*プライベート*にするかを指定します。 詳細は「[リポジトリの可視性を設定する](/articles/setting-repository-visibility)」を参照してください。 ![リポジトリの [Public] と [Private] を選択するラジオ ボタン](/assets/images/help/importer/import-public-or-private.png)
 5. 入力した情報を確認し、[**Begin import**] をクリックします。 ![[Begin import] ボタン](/assets/images/help/importer/begin-import-button.png)
-6. 既存のプロジェクトがパスワードで保護されている場合は、必要なログイン情報を入力して [**Submit**] をクリックします。 ![パスワード保護されているプロジェクトのパスワード入力フォームと [Submit] ボタン](/assets/images/help/importer/submit-old-credentials-importer.png)
+6. If your old project requires credentials, type your login information for that project, then click **Submit**. If SAML SSO or 2FA are enabled for your user account on the old project, enter a personal access token with repository read permissions in the "Password" field instead of your password. ![パスワード保護されているプロジェクトのパスワード入力フォームと [Submit] ボタン](/assets/images/help/importer/submit-old-credentials-importer.png)
 7. 既存のプロジェクトのクローン URL で複数のプロジェクトがホストされいる場合は、インポートしたいプロジェクトを選択して [**Submit**] をクリックします。 ![インポートするプロジェクトのリストと [Submit] ボタン](/assets/images/help/importer/choose-project-importer.png)
 8. プロジェクトに 100 MB を超えるファイルがある場合は、[Git Large File Storage](/articles/versioning-large-files) を使用して大きいファイルをインポートするかどうかを選択し、[**Continue**] をクリックします。 ![[Git Large File Storage] メニューと [Continue] ボタン](/assets/images/help/importer/select-gitlfs-importer.png)
 

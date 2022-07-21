@@ -45,17 +45,14 @@ miniTocMaxHeadingLevel: 3
 | `matrix`   | `对象` | 包含在工作流程中定义的应用于当前作业的矩阵属性。 更多信息请参阅 [`matrix` 上下文](#matrix-context)。 |
 | `needs`    | `对象` | 包含定义为当前作业依赖项的所有作业的输出。 更多信息请参阅 [`needs` 上下文](#needs-context)。      |
 {%- ifversion fpt or ghec or ghes > 3.3 or ghae-issue-4757 %}
-| `inputs` | `object` | 包含可重用工作流的输入。 更多信息请参阅 [`inputs` 上下文](#inputs-context)。 |{% endif %}
+| `inputs` | `object` | 包含可重用 {% ifversion actions-unified-inputs %}或手动触发 {% endif %}工作流程的输入。 更多信息请参阅 [`inputs` 上下文](#inputs-context)。 |{% endif %}
 
 作为表达式的一部分，您可以使用以下两种语法之一访问上下文信息。
 
 - 索引语法：`github['sha']`
 - 属性解除参考语法：`github.sha`
 
-要使用属性解除参考语法，属性名称必须：
-
-- 以 `a-Z` 或 `_` 开头。
-- 后跟 `a-Z` `0-9` `-` 或 `_`。
+要使用属性取消引用语法，属性名称必须以字母或 `_` 开头，并且仅包含字母数字字符、`-` 或 `_`。
 
 如果尝试取消引用不存在的属性，则该属性的计算结果将为空字符串。
 
@@ -87,22 +84,22 @@ miniTocMaxHeadingLevel: 3
 | <code>jobs.&lt;job_id&gt;.name</code> | <code>github, needs, strategy, matrix, inputs</code> |                            |
 | <code>jobs.&lt;job_id&gt;.outputs.&lt;output_id&gt;</code> | <code>github, needs, strategy, matrix, job, runner, env, secrets, steps, inputs</code> |                            |
 | <code>jobs.&lt;job_id&gt;.runs-on</code> | <code>github, needs, strategy, matrix, inputs</code> |                            |
-| <code>jobs.&lt;job_id&gt;.secrets.&lt;secrets_id&gt;</code> | <code>github, needs, secrets</code> |                            |
+| <code>jobs.&lt;job_id&gt;.secrets.&lt;secrets_id&gt;</code> | <code>github, needs, secrets{% ifversion actions-unified-inputs %}, inputs{% endif %}</code> |                            |
 | <code>jobs.&lt;job_id&gt;.services</code> | <code>github, needs, strategy, matrix, inputs</code> |                            |
 | <code>jobs.&lt;job_id&gt;.services.&lt;service_id&gt;.credentials</code> | <code>github, needs, strategy, matrix, env, secrets, inputs</code> |                            |
 | <code>jobs.&lt;job_id&gt;.services.&lt;service_id&gt;.env.&lt;env_id&gt;</code> | <code>github, needs, strategy, matrix, job, runner, env, secrets, inputs</code> |                            |
-| <code>jobs.&lt;job_id&gt;.steps.continue-on-error</code> | <code>github, needs, strategy, matrix, job, runner, env, secrets, steps</code> | <code>hashFiles</code> |
+| <code>jobs.&lt;job_id&gt;.steps.continue-on-error</code> | <code>github, needs, strategy, matrix, job, runner, env, secrets, steps, inputs</code> | <code>hashFiles</code> |
 | <code>jobs.&lt;job_id&gt;.steps.env</code> | <code>github, needs, strategy, matrix, job, runner, env, secrets, steps, inputs</code> | <code>hashFiles</code> |
 | <code>jobs.&lt;job_id&gt;.steps.if</code> | <code>github, needs, strategy, matrix, job, runner, env, steps, inputs</code> | <code>always, cancelled, success, failure, hashFiles</code> |
 | <code>jobs.&lt;job_id&gt;.steps.name</code> | <code>github, needs, strategy, matrix, job, runner, env, secrets, steps, inputs</code> | <code>hashFiles</code> |
 | <code>jobs.&lt;job_id&gt;.steps.run</code> | <code>github, needs, strategy, matrix, job, runner, env, secrets, steps, inputs</code> | <code>hashFiles</code> |
-| <code>jobs.&lt;job_id&gt;.steps.timeout-minutes</code> | <code>github, needs, strategy, matrix, job, runner, env, secrets, steps</code> | <code>hashFiles</code> |
+| <code>jobs.&lt;job_id&gt;.steps.timeout-minutes</code> | <code>github, needs, strategy, matrix, job, runner, env, secrets, steps, inputs</code> | <code>hashFiles</code> |
 | <code>jobs.&lt;job_id&gt;.steps.with</code> | <code>github, needs, strategy, matrix, job, runner, env, secrets, steps, inputs</code> | <code>hashFiles</code> |
 | <code>jobs.&lt;job_id&gt;.steps.working-directory</code> | <code>github, needs, strategy, matrix, job, runner, env, secrets, steps, inputs</code> | <code>hashFiles</code> |
 | <code>jobs.&lt;job_id&gt;.strategy</code> | <code>github, needs, inputs</code> |                            |
 | <code>jobs.&lt;job_id&gt;.timeout-minutes</code> | <code>github, needs, strategy, matrix, inputs</code> |                            |
-| <code>jobs.&lt;job_id&gt;.with.&lt;with_id&gt;</code> | <code>github, needs</code> |                            |
-| <code>on.workflow_call.inputs.&lt;inputs_id&gt;.default</code> | <code>github</code> |                            |
+| <code>jobs.&lt;job_id&gt;.with.&lt;with_id&gt;</code> | <code>github, needs{% ifversion actions-unified-inputs %}, inputs{% endif %}</code> |                            |
+| <code>on.workflow_call.inputs.&lt;inputs_id&gt;.default</code> | <code>github{% ifversion actions-unified-inputs %}, inputs{% endif %}</code> |                            |
 | <code>on.workflow_call.outputs.&lt;output_id&gt;.value</code> | <code>github, jobs, inputs</code> |                            |
 {% else %}
 | 路径                          | 上下文                         | 特殊函数                        |
@@ -192,8 +189,8 @@ jobs:
 | `github.event_path`        | `字符串` | 运行器上包含完整事件 web 挂钩负载的文件的路径。                                                                                                                                                                                                                                                                                                                                                                                    |
 | `github.graphql_url`       | `字符串` | {% data variables.product.prodname_dotcom %} GraphQL API 的 URL。                                                                                                                                                                                                                                                                                                                                               |
 | `github.head_ref`          | `字符串` | 工作流程运行中拉取请求的 `head_ref` 或来源分支。 此属性仅在触发工作流程运行的事件为 `pull_request` 或 `pull_request_target` 时才可用。                                                                                                                                                                                                                                                                                                                 |
-| `github.job`               | `字符串` | 当前作业的 [`job_id`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_id)。                                                                                                                                                                                                                                                                                                                           |
-| `github.ref`               | `字符串` | 触发工作流程的分支或标记参考。 对于分支，格式为 `refs/heads/<branch_name>`，对于标记是 `refs/tags/<tag_name>`。                                                                                                                                                                                                                                                                                                                 |
+| `github.job`               | `字符串` | 当前作业的 [`job_id`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_id)。 <br /> 注意：此上下文属性由 Actions 运行器设置，并且仅在作业的执行 `steps` 中可用。 否则，此属性的值将为 `null`。                                                                                                                                                                                                                                           |
+| `github.ref`               | `字符串` | {% data reusables.actions.ref-description %}
 {%- ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5338 %}
 | `github.ref_name` | `string` | {% data reusables.actions.ref_name-description %} | | `github.ref_protected` | `string` | {% data reusables.actions.ref_protected-description %} | | `github.ref_type` | `string` | {% data reusables.actions.ref_type-description %}
 {%- endif %}
@@ -201,7 +198,7 @@ jobs:
 {%- ifversion fpt or ghec or ghes > 3.5 or ghae-issue-4722 %}
 | `github.run_attempt` | `string` | 在存储库中运行的特定工作流程的每次尝试的唯一编号。 对于工作流程运行的第一次尝试，此数字从 1 开始，并随着每次重新运行而递增。 |
 {%- endif %}
-| `github.server_url` | `string` | GitHub 服务器的 URL。 例如：`https://github.com`。 | | `github.sha` | `string` | 触发工作流运行的提交 SHA。 | | `github.token` | `string` | 用于代表存储库上安装的 GitHub 应用进行身份验证的令牌。 这在功能上等同于 `GITHUB_TOKEN` 密码。 更多信息请参阅“[自动令牌身份验证](/actions/security-guides/automatic-token-authentication)”。 | | `github.workflow` | `string` | 工作流程的名称。 如果工作流程文件未指定 `name`，此属性的值将是仓库中工作流程文件的完整路径。 | | `github.workspace` | `string` | 运行器上步骤的默认工作目录，以及使用[`检出`](https://github.com/actions/checkout)操作时存储库的默认位置。 |
+| `github.server_url` | `string` | GitHub 服务器的 URL。 例如：`https://github.com`。 | | `github.sha` | `string` | 触发工作流运行的提交 SHA。 | | `github.token` | `string` | 用于代表存储库上安装的 GitHub 应用进行身份验证的令牌。 这在功能上等同于 `GITHUB_TOKEN` 密码。 更多信息请参阅“[自动令牌身份验证](/actions/security-guides/automatic-token-authentication)”。  <br /> 注意：此上下文属性由 Actions 运行器设置，并且仅在作业的执行 `steps` 中可用。 否则，此属性的值将为 `null`。 | | `github.workflow` | `string` | 工作流程的名称。 如果工作流程文件未指定 `name`，此属性的值将是仓库中工作流程文件的完整路径。 | | `github.workspace` | `string` | 运行器上步骤的默认工作目录，以及使用[`检出`](https://github.com/actions/checkout)操作时存储库的默认位置。 |
 
 ### `github` 上下文的示例内容
 
@@ -453,7 +450,7 @@ jobs:
 | ------------------- | ----- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `runner`            | `对象`  | 此上下文针对工作流程运行中的每项作业而改变。 此对象包含下面列出的所有属性。                                                                                                                          |
 | `runner.name`       | `字符串` | {% data reusables.actions.runner-name-description %}
-| `runner.os`         | `字符串` | {% data reusables.actions.runner-os-description %} |{% if actions-runner-arch-envvars %}
+| `runner.os`         | `字符串` | {% data reusables.actions.runner-os-description %} |{% ifversion actions-runner-arch-envvars %}
 | `runner.arch`       | `字符串` | {% data reusables.actions.runner-arch-description %} 
 {% endif %}
 | `runner.temp`       | `字符串` | {% data reusables.actions.runner-temp-directory-description %}
@@ -683,7 +680,7 @@ jobs:
         id: build_step
         run: |
           ./build
-          echo "::set-output name=build_id::$BUILD_ID" 
+          echo "::set-output name=build_id::$BUILD_ID"
   deploy:
     needs: build
     runs-on: ubuntu-latest
@@ -702,33 +699,32 @@ jobs:
 {% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-4757 %}
 ## `inputs` 上下文
 
-`inputs` 上下文包含传递给可重用工作流程的输入属性。 输入名称和类型在可重用工作流程的 [`workflow_call` 事件配置](/actions/learn-github-actions/events-that-trigger-workflows#workflow-reuse-events)中定义，输入值从调用可重用工作流程的外部工作流中的 [`jobs.<job_id>.with`](/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idwith) 传递。
+`inputs` 上下文包含传递给可重用工作流程{% ifversion actions-unified-inputs %} 或手动触发的工作流{% endif %} 的输入属性。 {% ifversion actions-unified-inputs %}对于可重用的工作流程，{% else %}{% endif %}输入名称和类型在可重用工作流程的 [`workflow_call` 事件配置](/actions/learn-github-actions/events-that-trigger-workflows#workflow-reuse-events)中定义，输入值从调用可重用工作流程的外部工作流中的 [`jobs.<job_id>.with`](/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idwith) 传递。 {% ifversion actions-unified-inputs %}对于手动触发的工作流，输入在工作流程的 [`workflow_dispatch` 事件配置](/actions/learn-github-actions/events-that-trigger-workflows#workflow_dispatch)中定义。{% endif %}
 
-`inputs` 上下文中没有标准属性，只有那些在可重用工作流程文件中定义的属性。
+`inputs` 上下文中没有标准属性，只有工作流程文件中定义的属性。
 
 {% data reusables.actions.reusable-workflows-ghes-beta %}
 
-更多信息请参阅“[重用工作流程](/actions/learn-github-actions/reusing-workflows)”。
-
-| 属性名称                  | 类型                              | 描述                                                                                                           |
-| --------------------- | ------------------------------- | ------------------------------------------------------------------------------------------------------------ |
-| `inputs`              | `对象`                            | 此上下文仅在[可重用的工作流程](/actions/learn-github-actions/reusing-workflows)中可用。 您可以从工作流程中的任何作业或步骤访问此上下文。 此对象包含下面列出的属性。 |
-| `inputs.<name>` | `string` 或 `number` 或 `boolean` | 从外部工作流传递的每个输入值。                                                                                              |
+| 属性名称                  | 类型                              | 描述                                                                                                                                                                                                                                                                                         |
+| --------------------- | ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `inputs`              | `对象`                            | 此上下文仅在 [reusable workflow](/actions/learn-github-actions/reusing-workflows){% ifversion actions-unified-inputs %} 或由 [`workflow_dispatch` 事件](/actions/learn-github-actions/events-that-trigger-workflows#workflow_dispatch){% endif %} 触发的工作流程中可用。 您可以从工作流程中的任何作业或步骤访问此上下文。 此对象包含下面列出的属性。 |
+| `inputs.<name>` | `string` 或 `number` 或 `boolean` | 从外部工作流传递的每个输入值。                                                                                                                                                                                                                                                                            |
 
 ### `inputs` 上下文的示例内容
 
-`inputs` 上下文的以下示例内容来自已定义 `build_id` 和 `deploy_target` 输入的可重用工作流程中的作业。
+以下 `inputs` 上下文的示例内容来自定义了 `build_id`、`deploy_target` 和 `perform_deploy` 输入的工作流程。
 
 ```yaml
 {
   "build_id": 123456768,
-  "deploy_target": "deployment_sys_1a"
+  "deploy_target": "deployment_sys_1a",
+  "perform_deploy": true
 }
 ```
 
-### `inputs` 上下文的示例用法
+### 可重用工作流程中 `inputs` 上下文的示例用法
 
-此可重用工作流程示例使用 `inputs` 上下文来获取从调用方工作流传递到可重用工作流的 `build_id` 的值和 `deploy_target` 输入。
+此示例可重用工作流程使用 `inputs` 上下文来获取从调用方工作流程传递到可重用工作流程的 `build_id`、`deploy_target` 和 `perform_deploy` 输入的值。
 
 {% raw %}
 ```yaml{:copy}
@@ -749,10 +745,42 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    if: ${{ inputs.perform_deploy == 'true' }}
+    if: ${{ inputs.perform_deploy }}
     steps:
       - name: Deploy build to target
         run: deploy --build ${{ inputs.build_id }} --target ${{ inputs.deploy_target }}
 ```
 {% endraw %}
+
+{% ifversion actions-unified-inputs %}
+### 手动触发的工作流程中 `inputs` 上下文的示例用法
+
+此示例工作流程由 `workflow_dispatch` 事件触发，它使用 `inputs` 上下文来获取传递给工作流程的 `build_id`、`deploy_target` 和 `perform_deploy` 输入的值。
+
+{% raw %}
+```yaml{:copy}
+on:
+  workflow_dispatch:
+    inputs:
+      build_id:
+        required: true
+        type: string
+      deploy_target:
+        required: true
+        type: string
+      perform_deploy:
+        required: true
+        type: boolean
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    if: ${{ inputs.perform_deploy }}
+    steps:
+      - name: Deploy build to target
+        run: deploy --build ${{ inputs.build_id }} --target ${{ inputs.deploy_target }}
+```
+{% endraw %}
+{% endif %}
+
 {% endif %}

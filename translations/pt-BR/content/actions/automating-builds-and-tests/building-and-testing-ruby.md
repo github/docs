@@ -144,7 +144,7 @@ steps:
 - run: bundle install
 ```
 
-{% if actions-caching %}
+{% ifversion actions-caching %}
 
 ### Memorizar dependências
 
@@ -161,11 +161,11 @@ steps:
 ```
 {% endraw %}
 
-Isso irá configurar o bundler para instalar seus gems em `vendor/cache`. For each successful run of your workflow, this folder will be cached by {% data variables.product.prodname_actions %} and re-downloaded for subsequent workflow runs. São usados um hash do seu gemfile.lock e versão do Ruby como a chave de cache. Se você instalar qualquer novo gem, ou mudar uma versão, o cache será invalidado e o bundler fará uma nova instalação.
+Isso irá configurar o bundler para instalar seus gems em `vendor/cache`. Para cada execução bem-sucedida do seu fluxo de trabalho, esta pasta será armazenada em cache por {% data variables.product.prodname_actions %} e baixada novamente para as execuções subsequentes do fluxo de trabalho. São usados um hash do seu gemfile.lock e versão do Ruby como a chave de cache. Se você instalar qualquer novo gem, ou mudar uma versão, o cache será invalidado e o bundler fará uma nova instalação.
 
 **Fazer armazenamento em cache sem o setup-ruby**
 
-For greater control over caching, you can use the `actions/cache` action directly. Para obter mais informações, consulte "[Memorizar dependências para acelerar fluxos de trabalho](/actions/using-workflows/caching-dependencies-to-speed-up-workflows)".
+Para maior controle sobre o cache, você pode usar a ação `actions/cache` diretamente. Para obter mais informações, consulte "[Memorizar dependências para acelerar fluxos de trabalho](/actions/using-workflows/caching-dependencies-to-speed-up-workflows)".
 
 ```yaml
 steps:
@@ -279,10 +279,10 @@ on:
 jobs:
   build:
     name: Build + Publish
-    runs-on: ubuntu-latest{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
+    runs-on: ubuntu-latest
     permissions:
       packages: write
-      contents: read{% endif %}
+      contents: read
 
     steps:
       - uses: {% data reusables.actions.action-checkout %}

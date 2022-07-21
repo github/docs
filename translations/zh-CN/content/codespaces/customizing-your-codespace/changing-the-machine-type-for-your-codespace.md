@@ -10,13 +10,14 @@ redirect_from:
   - /codespaces/developing-in-codespaces/changing-the-machine-type-for-your-codespace
 topics:
   - Codespaces
+type: how_to
 ---
 
 ## About machine types
 
 {% note %}
 
-**Note:** You can only select or change the machine type if you are a member of an organization using {% data variables.product.prodname_codespaces %} and are creating a codespace on a repository owned by that organization.
+**Note:** You can only select or change the machine type if you are a member of an organization using {% data variables.product.prodname_github_codespaces %} and are creating a codespace on a repository owned by that organization.
 
 {% endnote %}
 

@@ -26,7 +26,7 @@ Puedes buscar, clasificar y filtrar tus repositorios y temas marcados con estrel
 Marcar con estrellas tus repositorios y temas favoritos te facilitará encontrarlos posteriormente. Puedes ver todos los repositorios y temas que has marcado con estrellas visitando tu {% data variables.explore.your_stars_page %}.
 
 {% ifversion fpt or ghec %}
-Puedes seleccionar los repositorios y temas como favoritos para descubrir proyectos similares en {% data variables.product.product_name %}. Cuando marcas los repositorios o temas con una estrella, {% data variables.product.product_name %} podría recomendarte contenido relacionado en tu tablero personal. Para obtener más información, consulta las secciones "[Encontrar formas de contribuir con el código abierto en {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github)" y "[Acerca de tu tablero personal](/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/about-your-personal-dashboard#staying-updated-with-activity-from-the-community)".
+Puedes seleccionar los repositorios y temas como favoritos para descubrir proyectos similares en {% data variables.product.product_name %}. Cuando marcas los repositorios o temas con una estrella, {% data variables.product.product_name %} podría recomendarte contenido relacionado en tu tablero personal. Para obtener más información, consulta las secciones "[Encontrar formas de contribuir con el código abierto en {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github)" y "[Acerca de tu tablero personal](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/about-your-personal-dashboard#staying-updated-with-activity-from-the-community)".
 {% endif %}
 
 Marcar un repositorio con estrella también muestra reconocimiento al mantenedor del repositorio por su trabajo. Muchas de las clasificaciones de los repositorios de {% data variables.product.prodname_dotcom %} dependen de la cantidad de estrellas que tiene un repositorio. Además, [Explore](https://github.com/explore) muestra repositorios populares en base a la cantidad de estrellas que tienen.
@@ -40,6 +40,16 @@ Marcar un repositorio como favorito es un proceso simple de dos pasos.
 1. Opcionalmente, para dejar de marcar un repositorio como favorito, haz clic en **Desmarcar como favorito**. ![Dejar de marcar a un repositorio como favorito](/assets/images/help/stars/unstarring-a-repository.png)
 
 {% ifversion fpt or ghec %}
+
+## Visualizar quién marcó un repositorio como favorito
+
+
+Puedes ver a cualquiera que haya marcado como favorito a un repositorio público o a uno privado al cual tengas acceso.
+
+
+Para ver a todo aquél que haya marcado un repositorio como favorito, agrega `/stargazers` al final de la URL de un repositorio. Por ejemplo, para ver a los seguidores de github/docs repository, visita https://github.com/github/docs/stargazers.
+
+
 ## Organizar los repositorios marcados como favoritos con las listas
 
 {% note %}

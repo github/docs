@@ -1,6 +1,6 @@
 ---
 title: 分支
-intro: The Branches API allows you to modify branches and their protection settings.
+intro: 分支 API 允许你修改分支及其保护设置。
 versions:
   fpt: '*'
   ghes: '*'

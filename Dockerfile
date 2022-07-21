@@ -3,7 +3,7 @@
 # --------------------------------------------------------------------------------
 # BASE IMAGE
 # --------------------------------------------------------------------------------
-FROM node:16.13.2-alpine@sha256:f21f35732964a96306a84a8c4b5a829f6d3a0c5163237ff4b6b8b34f8d70064b as base
+FROM node:16.15.0-alpine@sha256:1a9a71ea86aad332aa7740316d4111ee1bd4e890df47d3b5eff3e5bded3b3d10 as base
 
 # This directory is owned by the node user
 ARG APP_HOME=/home/node/app
@@ -26,7 +26,7 @@ RUN npm ci --no-optional --registry https://registry.npmjs.org/
 # For Next.js v12+
 # This the appropriate necessary extra for node:16-alpine
 # Other options are https://www.npmjs.com/search?q=%40next%2Fswc
-# RUN npm i @next/swc-linux-x64-musl --no-save
+RUN npm i @next/swc-linux-x64-musl --no-save
 
 
 # ---------------
@@ -46,12 +46,13 @@ COPY stylesheets ./stylesheets
 COPY pages ./pages
 COPY components ./components
 COPY lib ./lib
-# One part of the build relies on this content file to pull all-products
+# Certain content is necessary for being able to build
 COPY content/index.md ./content/index.md
+COPY content/rest ./content/rest
+COPY data ./data
 
 COPY next.config.js ./next.config.js
 COPY tsconfig.json ./tsconfig.json
-COPY next-env.d.ts ./next-env.d.ts
 
 RUN npm run build
 

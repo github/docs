@@ -30,7 +30,7 @@ topics:
 
 如果为编译语言设置 {% data variables.product.prodname_code_scanning %}，并且在容器化环境中构建代码，则分析可能会失败，并返回错误消息“No source code was seen during the build（在构建过程中没有看到源代码）”。 这表明 {% data variables.product.prodname_codeql %} 在代码编译过程中无法监视代码。
 
-您必须在构建代码的容器中运行 {% data variables.product.prodname_codeql %}。 无论您使用的是 {% data variables.product.prodname_codeql_cli %}{% if codeql-runner-supported %}、 {% data variables.product.prodname_codeql_runner %}、{% endif %} 还是 {% data variables.product.prodname_actions %}，这都适用。 对于 {% data variables.product.prodname_codeql_cli %} {% if codeql-runner-supported %}或 {% data variables.product.prodname_codeql_runner %}{% endif %}，请参阅“[在 CI 系统中安装 {% data variables.product.prodname_codeql_cli %}](/code-security/secure-coding/using-codeql-code-scanning-with-your-existing-ci-system/installing-codeql-cli-in-your-ci-system)”{% if codeql-runner-supported %} 或“[在 CI 系统](/code-security/secure-coding/running-codeql-runner-in-your-ci-system)中运行 {% data variables.product.prodname_codeql_runner %}”{% endif %}以了解更多信息。 如果您使用 {% data variables.product.prodname_actions %}，请配置工作流程以在同一容器中运行所有操作。 更多信息请参阅“[示例工作流程](#example-workflow)”。
+您必须在构建代码的容器中运行 {% data variables.product.prodname_codeql %}。 无论您使用的是 {% data variables.product.prodname_codeql_cli %}{% ifversion codeql-runner-supported %}、 {% data variables.product.prodname_codeql_runner %}、{% endif %} 还是 {% data variables.product.prodname_actions %}，这都适用。 对于 {% data variables.product.prodname_codeql_cli %} {% ifversion codeql-runner-supported %}或 {% data variables.product.prodname_codeql_runner %}{% endif %}，请参阅“[在 CI 系统中安装 {% data variables.product.prodname_codeql_cli %}](/code-security/secure-coding/using-codeql-code-scanning-with-your-existing-ci-system/installing-codeql-cli-in-your-ci-system)”{% ifversion codeql-runner-supported %} 或“[在 CI 系统](/code-security/secure-coding/running-codeql-runner-in-your-ci-system)中运行 {% data variables.product.prodname_codeql_runner %}”{% endif %}以了解更多信息。 如果您使用 {% data variables.product.prodname_actions %}，请配置工作流程以在同一容器中运行所有操作。 更多信息请参阅“[示例工作流程](#example-workflow)”。
 
 ## 依赖项
 
@@ -66,10 +66,10 @@ on:
 jobs:
   analyze:
     name: Analyze
-    runs-on: ubuntu-latest{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
+    runs-on: ubuntu-latest
     permissions:
       security-events: write
-      actions: read{% endif %}
+      actions: read
 
     strategy:
       fail-fast: false

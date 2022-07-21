@@ -35,9 +35,9 @@ Os proprietários das empresas podem configurar e-mails para notificações.
       - Selecione o menu suspenso **Autenticação** e escolha o tipo de criptografia usado pelo seu servidor SMTP.
       - No campo **No-reply email address** (Endereço de e-mail no-reply), digite o endereço de e-mail para usar nos campos De e Para em todos os e-mails de notificação.
 6. Se você quiser descartar todos os e-mails recebidos destinados ao endereço no-reply, selecione **Discard email addressed to the no-reply email address** (Descartar e-mails recebidos no endereço no-reply). ![Caixa de seleção para descartar e-mails destinados ao endereço no-reply](/assets/images/enterprise/management-console/discard-noreply-emails.png)
-7. Under **Support**, choose a type of link to offer additional support to your users.
-    - **Email:** An internal email address.
-    - **URL:** A link to an internal support site. Você deve incluir `http://` ou `https://`. ![E-mail ou URL de suporte](/assets/images/enterprise/management-console/support-email-url.png)
+7. Em **Suporte**, escolha um tipo de link para dar suporte adicional aos seus usuários.
+    - **Email:** Endereço de e-mail interno.
+    - **URL:** Link para um site interno de suporte. Você deve incluir `http://` ou `https://`. ![E-mail ou URL de suporte](/assets/images/enterprise/management-console/support-email-url.png)
 8. [Teste a entrega de e-mails](#testing-email-delivery).
 {% elsif ghae %}
 {% data reusables.enterprise-accounts.access-enterprise %}
@@ -86,7 +86,7 @@ Se quiser permitir o recebimento de respostas para os e-mails de notificação, 
 
 ### Criar um pacote de suporte
 
-If you cannot determine what is wrong from the displayed error message, you can download a [support bundle](/enterprise/{{ currentVersion }}/admin/guides/enterprise-support/providing-data-to-github-support) containing the entire SMTP conversation between your mail server and {% data variables.product.prodname_ghe_server %}. Once you've downloaded and extracted the bundle, check the entries in *enterprise-manage-logs/unicorn.log* for the entire SMTP conversation log and any related errors.
+Se você não conseguir determinar o que houve de errado na mensagem de erro exibida, você poderá fazer o download de um [pacote de suporte](/enterprise/admin/guides/enterprise-support/providing-data-to-github-support) com toda a conversa SMTP entre o seu servidor de e-mail e o {% data variables.product.prodname_ghe_server %}. Depois de fazer o download e extrair o pacote, verifique as entradas em *enterprise-manage-logs/unicorn.log* e veja o log completo de conversas do SMTP com os erros relacionados.
 
 O log unicorn mostrará uma transação semelhante a esta:
 
@@ -131,7 +131,7 @@ Esse log mostra que o appliance:
 
 Se você tiver de verificar o funcionamento do dos e-mails de entrada, examine dois arquivos de log na sua instância: */var/log/mail.log* e */var/log/mail-replies/metroplex.log*.
 
-*/var/log/mail.log* verifies that messages are reaching your server. Veja um exemplo de resposta de e-mail com êxito:
+*/var/log/mail.log* verifica se as mensagens estão chegando ao seu servidor. Veja um exemplo de resposta de e-mail com êxito:
 
 ```
 Oct 30 00:47:18 54-171-144-1 postfix/smtpd[13210]: conectado de st11p06mm-asmtp002.mac.com[17.172.124.250]
@@ -145,7 +145,7 @@ Oct 30 00:47:19 54-171-144-1 postfix/smtpd[13210]: desconectado de st11p06mm-asm
 
 Observe que o cliente se conecta e depois a fila fica ativa. Em seguida, a mensagem é entregue, o cliente é removido da fila e a sessão é desconectada.
 
-*/var/log/mail-replies/metroplex.log* shows whether inbound emails are being processed to add to issues and pull requests as replies. Veja um exemplo de mensagem com êxito:
+*/var/log/mail-replies/metroplex.log* mostra se os e-mails de entrada estão sendo processados para adicionar problemas e pull requests como respostas. Veja um exemplo de mensagem com êxito:
 
 ```
 [2014-10-30T00:47:23.306 INFO (5284) #] metroplex: processing <b2b9c260-4aaa-4a93-acbb-0b2ddda68579@me.com>
@@ -161,7 +161,7 @@ Para processar corretamente os e-mails de entrada, você deve configurar um regi
 
 ### Verificar as configurações de firewall ou grupo de segurança do AWS
 
-If {% data variables.product.product_location %} is behind a firewall or is being served through an AWS Security Group, make sure port 25 is open to all mail servers that send emails to `reply@reply.[hostname]`.
+Se a {% data variables.product.product_location %} estiver atrás de um firewall ou estiver funcionando com um grupo de segurança do AWS, verifique se a porta 25 está aberta para todos os servidores de e-mail que enviam mensagens para `reply@reply.[hostname]`.
 
 ### Entrar em contato com o suporte
 {% ifversion ghes %}

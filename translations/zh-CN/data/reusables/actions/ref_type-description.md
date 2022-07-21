@@ -1,1 +1,1 @@
-The type of ref that triggered the workflow run. Valid values are `branch` or `tag`.
+触发工作流程运行的引用类型。 有效值为 `branch` 或 `tag`。

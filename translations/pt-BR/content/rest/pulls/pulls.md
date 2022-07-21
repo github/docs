@@ -11,7 +11,7 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-## About the Pulls API
+## Sobre a API do Pulls
 
 A API do Pull Request permite que você liste, visualize, edite, crie e até mesmo faça merge de pull requests. Comentários em pull requests podem ser gerenciados através da [API de Comentários do Problema](/rest/reference/issues#comments).
 

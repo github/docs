@@ -29,6 +29,14 @@ Esta guía de inicio rápido te muestra cómo configurar MinIO utilizando Docker
 
 Para obtener más información acerca las opciones que tienes, consulta los [documentos oficiales de MinIO](https://docs.min.io/).
 
+{% warning %}
+
+**Advertencia**: MinIO anunció la eliminación de MinIO Gateways. Desde el 1 de junio de 2022, tanto el soporte como las correcciones de errores para la implementación de la puerta de enlace de la NAS de MinIO estarán disponibles únicamente para los clientes con suscripciones de pago a través de su contrato de soporte LTS. Si quieres seguir utilizando MinIO Gateways con {% data variables.product.prodname_registry %}, te recomendamos migrarte al soporte LTS de MinIO. Para obtener más información, consulta el [programa para eliminar a MinIO Gateway para GCS, Azure, HDFS](https://github.com/minio/minio/issues/14331) en el repositorio minio/minio.
+
+Otros modos de MinIO siguen disponibles con el soporte estándar.
+
+{% endwarning %}
+
 ## 2. Instala, ejecuta e inicia sesión en MinIO
 
 1. Configura tus variables de ambiente preferidas para MinIO.
@@ -97,9 +105,7 @@ Para obtener más información acerca las opciones que tienes, consulta los [doc
              minio/minio gateway nas /data
      ```
 
-     Para obtener más información, consulta la sección "[Puerta de enlace de MinIO para NAS](https://docs.min.io/docs/minio-gateway-for-nas.html)".
-
-   * Ejecuta MinIO utilizando Docker como un agrupamiento. Este despliegue de MinIO utiliza diversos hosts y el código de borrado de MinIO para tener la mayor protección de los datos. Para ejecutar MinIO en modo de agrupamiento, consulta la "[Guía Rápida para MinIO Distribuído](https://docs.min.io/docs/distributed-minio-quickstart-guide.html).
+   * Ejecuta MinIO utilizando Docker como un agrupamiento. Este despliegue de MinIO utiliza diversos hosts y el código de borrado de MinIO para tener la mayor protección de los datos. Para ejecutar MinIO en modo de agrupamiento, consulta la "[Guía Rápida para MinIO Distribuído](https://docs.min.io/docs/distributed-minio-quickstart-guide.html)."
 
 ## 3. Crea tu bucket de MinIO para {% data variables.product.prodname_registry %}
 

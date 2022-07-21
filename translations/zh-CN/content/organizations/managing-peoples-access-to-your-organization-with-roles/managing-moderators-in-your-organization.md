@@ -24,17 +24,16 @@ shortTitle: 管理版主
 
 将某人设为组织版主不会向他们授予除上述能力以外的其他能力。 例如，仅对存储库具有读取访问权限的人不会通过成为版主而获得写入访问权限。
 
-您最多可以添加 10 个人或团队作为版主。 如果您已将 10 个人和/或团队分配为用户，并且想要添加更多用户，则可以将人员分组到版主团队中，然后使用它来替换一个或多个现有任务。 For more information, see "[Creating a team](/organizations/organizing-members-into-teams/creating-a-team)."
+您最多可以添加 10 个人或团队作为版主。 如果您已将 10 个人和/或团队分配为用户，并且想要添加更多用户，则可以将人员分组到版主团队中，然后使用它来替换一个或多个现有任务。 更多信息请参阅“[创建团队](/organizations/organizing-members-into-teams/creating-a-team)”。
 
 ## 添加组织版主
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-{% data reusables.organizations.security-and-analysis %}
 1. 在侧边栏的“Access（访问）”部分中，选择 **{% octicon "report" aria-label="The report icon" %} 主持**，然后点击 **Moderators（版主）**。
 1. 在 **Moderators（版主）**下，搜索并选择要分配版主角色的人员或团队。 您选择的每个人或团队都将显示在搜索栏下方的列表中。 ![版主搜索字段和列表](/assets/images/help/organizations/add-moderators.png)
 
 
 ## 删除组织版主
 
-按照上面的步骤 1-4 操作，然后点击您要以版主身份移除的人员或团队旁边的 **Remove moderator（移除版主）**。
+按照上面的步骤 1-3 操作，然后点击您要以版主身份移除的人员或团队旁边的 **Remove moderator（移除版主）**。

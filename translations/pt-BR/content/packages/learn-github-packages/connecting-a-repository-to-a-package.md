@@ -33,14 +33,14 @@ Ao conectar um repositório a um pacote, a página inicial do pacote mostrará i
 {% data reusables.package_registry.container-registry-ghes-beta %}
 {% endif %}
 
-1. In your Dockerfile, add this line, replacing {% ifversion ghes %}`HOSTNAME`, {% endif %}`OWNER` and `REPO` with your details:
+1. No arquivo Docker, adicione essa linha, substituindo {% ifversion ghes %}`HOSTNAME`, {% endif %}`OWNER` e `REPO` pelos seus detalhes:
 
  ```shell
- LABEL org.opencontainers.image.source=https://{% ifversion fpt or ghec %}github.com{% else %}<em>HOSTNAME</em>{% endif %}/<em>OWNER</em>/<em>REPO</em>
+ ETIQUETA org.opencontainers.image.source=https://{% ifversion fpt or ghec %}github.com{% else %}<em>HOSTNAME</em>{% endif %}/<em>OWNER</em>/<em>REPO</em>
  ```
- For example, if you're the user `monalisa` and own `my-repo`, and {% data variables.product.product_location %} hostname is `github.companyname.com`, you would add this line to your Dockerfile:
+ Por exemplo, se você é o usuário de `monalisa` e tem `my-repo` e o nome de host {% data variables.product.product_location %} é `github. ompanyname.com`, você adicionaria esta linha ao seu arquivo Docker:
  ```shell
- LABEL org.opencontainers.image.source=https://{% ifversion fpt or ghec %}github.com{% else %}{% data reusables.package_registry.container-registry-example-hostname %}{% endif %}/monalisa/my-repo
+ ETIQUETA org.opencontainers.image.source=https://{% ifversion fpt or ghec %}github.com{% else %}{% data reusables.package_registry.container-registry-example-hostname %}{% endif %}/monalisa/my-repo
  ```
  Para obter mais informações, consulte "[ETIQUETA](https://docs.docker.com/engine/reference/builder/#label)" na documentação oficial do Docker e "[Chaves de anotação pré-definidas](https://github.com/opencontainers/image-spec/blob/master/annotations.md#pre-defined-annotation-keys)" no repositório `opencontainers/image-spec`.
 

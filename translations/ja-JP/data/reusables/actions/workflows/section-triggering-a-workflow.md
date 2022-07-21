@@ -1,6 +1,6 @@
 
-To automatically trigger a workflow, use `on` to define which events can cause the workflow to run. 使用可能なイベントの一覧は、「[ワークフローをトリガーするイベント](/articles/events-that-trigger-workflows)」を参照してください。
+ワークフローを自動的にトリガーするには、`on`を使ってワークフローの実行を引き起こせるイベントを定義してください。 使用可能なイベントの一覧は、「[ワークフローをトリガーするイベント](/articles/events-that-trigger-workflows)」を参照してください。
 
-You can define single or multiple events that can a trigger workflow, or set a time schedule. You can also restrict the execution of a workflow to only occur for specific files, tags, or branch changes. These options are described in the following sections.
+ワークフローをトリガーする単一もしくは複数のイベントを定義したり、あるいはタイムスケジュールを設定したりできます。 ワークフローの実行を、特定のファイル、タグ、ブランチが変更されたときにだけ生じるように制限することもできます。 これらのオプションは、以下のセクションで説明されています。
 
 {% data reusables.actions.actions-on-examples %}

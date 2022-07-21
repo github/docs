@@ -1,22 +1,22 @@
 ---
-title: Enabling or disabling GitHub Discussions for an organization
-intro: 'You can use {% data variables.product.prodname_discussions %} in a organization as a place for your organization to have conversations that aren''t specific to a single repository within your organization.'
+title: 为组织启用或禁用 GitHub 讨论
+intro: '您可以使用组织中的 {% data variables.product.prodname_discussions %} 作为组织进行对话的位置，这些对话不特定于组织中的单个存储库。'
 permissions: 'Organization owners can enable {% data variables.product.prodname_discussions %} for their organization.'
 versions:
   fpt: '*'
   ghec: '*'
 topics:
   - Organizations
-shortTitle: Organization discussions
+shortTitle: 组织讨论
 ---
 
-## About organization discussions
+## 关于组织讨论
 
 {% data reusables.discussions.about-organization-discussions %}
 
-You can also manage repository discussions. For more information, see "[Enabling or disabling GitHub Discussions for a repository](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/enabling-or-disabling-github-discussions-for-a-repository)" and "[Managing discussion creation for repositories in your organization](/organizations/managing-organization-settings/managing-discussion-creation-for-repositories-in-your-organization)."
+您还可以管理存储库讨论。 更多信息请参阅“[为存储库启用或禁用 GitHub 讨论](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/enabling-or-disabling-github-discussions-for-a-repository)”和“[管理组织中存储库的讨论创建](/organizations/managing-organization-settings/managing-discussion-creation-for-repositories-in-your-organization)”。
 
-## Enabling or disabling {% data variables.product.prodname_discussions %} for your organization
+## 为组织启用或禁用 {% data variables.product.prodname_discussions %}
 
 {% data reusables.discussions.enabling-or-disabling-github-discussions-for-your-organization %}
 1. 要禁用讨论，请在“Discussions（讨论）”下，取消选择 **Enable discussions for this organization（为此组织启用讨论）**。

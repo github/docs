@@ -1,6 +1,6 @@
 ---
 title: 工作流程运行
-intro: 'The Workflow runs API allows you to view, re-run, cancel, and view logs for workflow runs.'
+intro: 工作流程运行 API 允许您查看、重新运行、取消和查看工作流程运行的日志。
 topics:
   - API
 versions:
@@ -10,8 +10,8 @@ versions:
   ghec: '*'
 ---
 
-## About the Workflow runs API
+## 关于工作流程运行 API
 
-The Workflow runs API allows you to view, re-run, cancel, and view logs for workflow runs. {% data reusables.actions.about-workflow-runs %} 更多信息请参阅“[管理工作流程运行](/actions/automating-your-workflow-with-github-actions/managing-a-workflow-run)”。
+工作流程运行 API 允许您查看、重新运行、取消和查看工作流程运行的日志。 {% data reusables.actions.about-workflow-runs %} 更多信息请参阅“[管理工作流程运行](/actions/automating-your-workflow-with-github-actions/managing-a-workflow-run)”。
 
 {% data reusables.actions.actions-authentication %} {% data reusables.actions.actions-app-actions-permissions-api %}

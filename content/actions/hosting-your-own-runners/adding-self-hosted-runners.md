@@ -56,7 +56,7 @@ You can add self-hosted runners to a single repository. To add a self-hosted run
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.settings-sidebar-actions-runners %}
-1. Under {% ifversion ghes > 3.1 or ghae or ghec %}"Runners"{% else %}"Self-hosted runners"{% endif %}, click **Add runner**.
+1. Under {% ifversion ghes or ghae or ghec %}"Runners"{% else %}"Self-hosted runners"{% endif %}, click **Add runner**.
 {% data reusables.actions.self-hosted-runner-configure %}
 {% endif %}
 {% data reusables.actions.self-hosted-runner-check-installation-success %}
@@ -77,7 +77,7 @@ You can add self-hosted runners at the organization level, where they can be use
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.org_settings %}
 {% data reusables.organizations.settings-sidebar-actions-runners %}
-1. Under {% ifversion ghes > 3.1 or ghae %}"Runners", click **Add new**, then click **New runner**.{% elsif ghes < 3.2 %}"Self-hosted runners", click **Add runner**."{% endif %}
+1. Under {% ifversion ghes or ghae %}"Runners", click **Add new**, then click **New runner**.{% endif %}
 {% data reusables.actions.self-hosted-runner-configure %}
 {% endif %}
 {% data reusables.actions.self-hosted-runner-check-installation-success %}

@@ -1,6 +1,6 @@
 ---
 title: Equipes
-intro: 'With the Teams API, you can create and manage teams in your GitHub organization.'
+intro: 'Com a API de equipes, você pode criar e gerenciar equipes na sua organização do GitHub.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -11,6 +11,6 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-## About the Teams API
+## Sobre a API de equipes
 
 {% data reusables.organizations.team-api %}

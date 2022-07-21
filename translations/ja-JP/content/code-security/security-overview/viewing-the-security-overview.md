@@ -1,11 +1,11 @@
 ---
 title: セキュリティの概要の表示
 intro: セキュリティの概要で利用できる様々なビューへのアクセス
-permissions: Organization owners and security managers can access the security overview for organizations. Members of a team can see the security overview for repositories that the team has admin privileges for.
-product: '{% data reusables.gated-features.security-center %}'
+permissions: '{% data reusables.security-overview.permissions %}'
+product: '{% data reusables.gated-features.security-overview %}'
 versions:
   ghae: issue-5503
-  ghes: '>3.1'
+  ghes: '*'
   ghec: '*'
 type: how_to
 topics:
@@ -17,8 +17,8 @@ topics:
 shortTitle: セキュリティの概要の表示
 ---
 
-{% ifversion ghes < 3.5 or ghae-issue-4554 %}
-{% data reusables.security-center.beta %}
+{% ifversion ghes < 3.5 or ghae %}
+{% data reusables.security-overview.beta %}
 {% endif %}
 
 ## Organizationのセキュリティの概要の表示
@@ -27,8 +27,9 @@ shortTitle: セキュリティの概要の表示
 {% data reusables.organizations.security-overview %}
 1. アラートの種類に対する集約された情報を見るには、**Show more（さらに表示）**をクリックしてください。 ![さらに表示ボタン](/assets/images/help/organizations/security-overview-show-more-button.png)
 {% data reusables.organizations.filter-security-overview %}
-{% if security-overview-views %}
-1. あるいは、左のサイドバーを使ってセキュリティ機能ごとに情報をフィルタリングすることもできます。 それぞれのページで、各機能に固有のフィルタを使って検索を微調整できます。 ![Code scanning固有のページのスクリーンショット](/assets/images/help/organizations/security-overview-code-scanning-alerts.png)
+{% ifversion security-overview-views %}
+{% data reusables.organizations.security-overview-feature-specific-page %}
+  ![Code scanning固有のページのスクリーンショット](/assets/images/help/organizations/security-overview-code-scanning-alerts.png)
 
 ## Organizationに渡るアラートの表示
 
@@ -42,6 +43,9 @@ shortTitle: セキュリティの概要の表示
 
 {% data reusables.enterprise-accounts.access-enterprise-on-dotcom %}
 1. ひだりのサイドバーで{% octicon "shield" aria-label="The shield icon" %}**Code Security（コードセキュリティ）**をクリックしてください。
+{% ifversion security-overview-feature-specific-alert-page %}
+{% data reusables.organizations.security-overview-feature-specific-page %}
+{% endif %}
 {% endif %}
 
 ## リポジトリのアラートの表示

@@ -252,7 +252,7 @@ body:
 
 ## Las casillas de verificación deben tener etiquetas únicas
 
-When a `checkboxes` element is present, each of its nested labels must be unique among its peers, as well as among other input types.
+Cuando está presente un elemento de `checkboxes`, cada una de sus etiquetas anidadas debe ser única entre sus pares, así como entre otros tipos de entrada.
 
 ### Ejemplo
 
@@ -268,7 +268,7 @@ body:
     - label: Name
 ```
 
-The error can be fixed by changing the `label` attribute for one of these inputs.
+El error se puede corregir cambiando el atributo `label` para una de estas entradas.
 
 ```yaml
 name: "Bug report"
@@ -282,7 +282,7 @@ body:
     - label: Your name
 ```
 
-Alternatively, you can supply an `id` to any clashing top-level elements. Nested checkbox elements do not support the `id` attribute.
+Como alternativa, puedes proporcionar una `id` para cualquier elemento en conflicto de nivel superior. Los elementos de casilla de verificación anidada no son compatibles con el atributo `id`.
 
 ```yaml
 name: "Bug report"
@@ -299,9 +299,9 @@ body:
 
 Los atributos de `id` no estuvieron visibles en el cuerpo de la propuesta. Si quieres distinguir los campos en la propuesta resultante, deberías utilizar atributos distintos de `label`.
 
-## Body[i]: required key type is missing
+## Body[i]: no se encuentra el tipo de llave requerido
 
-Each body block must contain the key `type`.
+Cada bloque del cuerpo debe contener el `type` de la llave.
 
 Los errores con `body` tendràn un prefijo de `body[i]` en donde `i` representa el índice cero del bloque de cuerpo que contiene el error. Por ejemplo, `body[0]` nos dice que el error lo ocasionó el primer bloque en la lista `body`.
 
@@ -311,7 +311,6 @@ Los errores con `body` tendràn un prefijo de `body[i]` en donde `i` representa 
 body:
 - attributes:
     value: "Thanks for taking the time to fill out this bug! Si necesitas ayuda en tiempo real, únetenos en Discord."
-    preview_only: false
 ```
 
 El error puede corregirse si agregas la clave `type` con un tipo de entrada válido como el valor. Para los tipos de entrada de `body` disponibles y sus sintaxis, consulta la sección "[Sintaxis para el modelo de formato de {% data variables.product.prodname_dotcom %}](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-githubs-form-schema#keys)".
@@ -321,7 +320,6 @@ body:
 - type: markdown
   attributes:
     value: "Thanks for taking the time to fill out this bug! Si necesitas ayuda en tiempo real, únetenos en Discord."
-    preview_only: false
 ```
 
 ## Body[i]: `x` no es un tipo de entrada válido
@@ -337,7 +335,6 @@ body:
 - type: x
   attributes:
     value: "Thanks for taking the time to fill out this bug! Si necesitas ayuda en tiempo real, únetenos en Discord."
-    preview_only: false
 ```
 
 El error puede corregirse cambiando `x` a uno de los tipos válidos.
@@ -347,7 +344,6 @@ body:
 - type: markdown
   attributes:
     value: "Thanks for taking the time to fill out this bug! Si necesitas ayuda en tiempo real, únetenos en Discord."
-    preview_only: false
 ```
 
 ## Body[i]: falta la clave de atributo requerida `value`
@@ -363,7 +359,6 @@ body:
 - type: markdown
   attributes:
     value: "Thanks for taking the time to fill out this bug! Si necesitas ayuda en tiempo real, únetenos en Discord."
-    preview_only: false
 - type: markdown
 ```
 
@@ -374,7 +369,6 @@ body:
 - type: markdown
   attributes:
     value: "Thanks for taking the time to fill out this bug! Si necesitas ayuda en tiempo real, únetenos en Discord."
-    preview_only: false
 - type: markdown
   attributes:
     value: "This is working now!"
@@ -431,7 +425,7 @@ body:
 
 ## Body[i]: La `id` solo puede contener números, letras, -, o _
 
-`id` attributes can only contain alphanumeric characters, `-`, and `_`. Your template may include non-permitted characters, such as whitespace, in an `id`.
+Los atributos de `id` solo pueden contener caracteres alfanuméricos, `-` y `_`. Tu plantilla podría incluir caracteres no permitidos, tales como el espacio en blanco, en una `id`.
 
 En los errores con `body` se utilizará el prefijo `body[i]`, en donde `i` representa el índice del bloque del cuerpo que contiene el error. Por ejemplo, `body[0]` nos dice que el primer bloque en la lista `body` ocasionó el error.
 
@@ -446,7 +440,7 @@ body:
     label: First name
 ```
 
-The error can be fixed by ensuring that whitespaces and other non-permitted characters are removed from `id` values.
+El error puede corregirse si te aseguras de que se eliminen los espacios en blanco y otros caracteres no permitidos de los valores de la `id`.
 
 ```yaml
 name: "Bug report"
@@ -457,9 +451,9 @@ body:
     label: First name
 ```
 
-## Body[i]: `x` is not a permitted key
+## Body[i]: `x` no es una clave permitida
 
-An unexpected key, `x`, was provided at the same indentation level as `type` and `attributes`.
+Se proporcionó una clave inesperada, `x`, en el mismo nivel de sangría que `type` y `attributes`.
 
 En los errores con `body` se utilizará el prefijo `body[i]`, en donde `i` representa el índice del bloque del cuerpo que contiene el error. Por ejemplo, `body[0]` nos dice que el primer bloque en la lista `body` ocasionó el error.
 
@@ -473,7 +467,7 @@ body:
     value: "Thanks for taking the time to fill out this bug! Si necesitas ayuda en tiempo real, únetenos en Discord."
 ```
 
-The error can be fixed by removing extra keys and only using `type`, `attributes`, and `id`.
+El error se puede corregir eliminando las claves adicionales y utilizando únicamente `type`, `attributes` e `id`.
 
 ```yaml
 body:
@@ -482,9 +476,9 @@ body:
     value: "Thanks for taking the time to fill out this bug! Si necesitas ayuda en tiempo real, únetenos en Discord."
 ```
 
-## Body[i]: `label` contains forbidden word
+## Body[i]: `label` contiene una palabra prohibida
 
-To minimize the risk of private information and credentials being posted publicly in GitHub Issues, some words commonly used by attackers are not permitted in the `label` of input or textarea elements.
+Para disminuir el riesgo de que la información privada y las credenciales se publiquen para todos en general en las propuestas de GitHub, algunas palabras que los atacantes utilizan habitualmente no se permiten en la `label`de entrada ni en los elementos del área de texto.
 
 En los errores con `body` se utilizará el prefijo `body[i]`, en donde `i` representa el índice del bloque del cuerpo que contiene el error. Por ejemplo, `body[0]` nos dice que el primer bloque en la lista `body` ocasionó el error.
 
@@ -500,7 +494,7 @@ body:
     label: Password
 ```
 
-The error can be fixed by removing terms like "password" from any `label` fields.
+El error se puede corregir si se eliminan los términos como "contraseña" de cualquier campo de `label`.
 
 ```yaml
 body:
@@ -512,9 +506,9 @@ body:
     label: Username
 ```
 
-## Body[i]: `x` is not a permitted attribute
+## Body[i]: `x` no es un atributo permitido
 
-An invalid key has been supplied in an `attributes` block.
+Se suministró una clave inválida en un bloque de `attributes`.
 
 En los errores con `body` se utilizará el prefijo `body[i]`, en donde `i` representa el índice del bloque del cuerpo que contiene el error. Por ejemplo, `body[0]` nos dice que el primer bloque en la lista `body` ocasionó el error.
 
@@ -528,7 +522,7 @@ body:
     value: "Thanks for taking the time to fill out this bug!"
 ```
 
-The error can be fixed by removing extra keys and only using permitted attributes.
+El error puede corregirse si eliminas las claves adicionales y solo utilizas los atributos permitidos.
 
 ```yaml
 body:
@@ -537,9 +531,9 @@ body:
     value: "Thanks for taking the time to fill out this bug!"
 ```
 
-## Body[i]: `options` must be unique
+## Body[i]: `options` debe ser único
 
-For checkboxes and dropdown input types, the choices defined in the `options` array must be unique.
+En el caso de los tipos de entrada de casillas de verificación y menús desplegables, las elecciones que se definen en el arreglo `options` deben ser únicas.
 
 En los errores con `body` se utilizará el prefijo `body[i]`, en donde `i` representa el índice del bloque del cuerpo que contiene el error. Por ejemplo, `body[0]` nos dice que el primer bloque en la lista `body` ocasionó el error.
 
@@ -556,7 +550,7 @@ body:
       - pie
 ```
 
-The error can be fixed by ensuring that no duplicate choices exist in the `options` array.
+El error puede corregirse si garantizas que no habrán elecciones duplicadas en el arreglo `options`.
 
 ```
 body:
@@ -568,9 +562,9 @@ body:
       - pie
 ```
 
-## Body[i]: `options` must not include the reserved word, none
+## Body[i]: `options` no debe incluir la palabra reservada "none"
 
-"None" is a reserved word in an `options` set because it is used to indicate non-choice when a `dropdown` is not required.
+"None" es una palabra reservada en un conjunto de `options` ya que se utiliza para indicar que no hay elecciones cuando no se requiere un `dropdown`.
 
 En los errores con `body` se utilizará el prefijo `body[i]`, en donde `i` representa el índice del bloque del cuerpo que contiene el error. Por ejemplo, `body[0]` nos dice que el primer bloque en la lista `body` ocasionó el error.
 
@@ -589,7 +583,7 @@ body:
     required: true
 ```
 
-The error can be fixed by removing "None" as an option. If you want a contributor to be able to indicate that they like none of those types of pies, you can additionally remove the `required` validation.
+El error puede corregirse si se elimina "None" de las opciones. Si quieres que un contribuyente pueda indicar que no le parece ninguno de esos tipos de tarta, puedes eliminar adicionalmente la validación `required`.
 
 ```
 body:
@@ -601,11 +595,11 @@ body:
       - Chicken & Leek
 ```
 
-In this example, "None" will be auto-populated as a selectable option.
+En este ejemplo, "None" se llenará automáticamente como una opción seleccionable.
 
-## Body[i]: `options` must not include booleans. Please wrap values such as 'yes', and 'true' in quotes
+## Body[i]: `options` no debe incluir booleanos. Por favor, pon los valores como 'yes' y 'true' entre comillas
 
-There are a number of English words that become processed into Boolean values by the YAML parser unless they are wrapped in quotes. For dropdown `options`, all items must be strings rather than Booleans.
+Hay varias palabras en inglés que el analizador de YAML procesa como valores Booleanos, a menos de que se pongan entre comillas. Para las `options` de menú desplegable, todos los elementos deben ser secuencias en vez de booleanos.
 
 En los errores con `body` se utilizará el prefijo `body[i]`, en donde `i` representa el índice del bloque del cuerpo que contiene el error. Por ejemplo, `body[0]` nos dice que el primer bloque en la lista `body` ocasionó el error.
 
@@ -622,7 +616,7 @@ body:
       - Maybe
 ```
 
-The error can be fixed by wrapping each offending option in quotes, to prevent them from being processed as Boolean values.
+El error puede corregirse si pones cada opción infractora entre comillas, para prevenir que se procesen como valores booleanos.
 
 ```
 body:

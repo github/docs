@@ -1,4 +1,4 @@
-You can delete codespaces from within {% data variables.product.prodname_vscode %} when you are not currently working in a codespace.
+You can delete codespaces from within {% data variables.product.prodname_vscode_shortname %} when you are not currently working in a codespace.
 
 {% data reusables.codespaces.click-remote-explorer-icon-vscode %}
 1. Under "GITHUB CODESPACES", right-click the codespace you want to delete.

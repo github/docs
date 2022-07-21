@@ -43,6 +43,9 @@ Google | Google Cloud Storage User Access Key ID | google_cloud_storage_user_acc
 Grafana | Grafana API Key | grafana_api_key
 Hubspot | Hubspot API Key | hubspot_api_key
 Intercom | Intercom Access Token | intercom_access_token
+{%- ifversion fpt or ghec or ghes > 3.6 or ghae-issue-7456 %}
+JFrog | JFrog Platform Access Token | jfrog_platform_access_token
+JFrog | JFrog Platform API Key | jfrog_platform_api_key{% endif %}
 Ionic | Ionic Personal Access Token | ionic_personal_access_token
 Ionic | Ionic Refresh Token | ionic_refresh_token
 Linear | Linear API Key | linear_api_key
@@ -60,6 +63,8 @@ PlanetScale | PlanetScale OAuth Token | planetscale_oauth_token
 PlanetScale | PlanetScale Service Token | planetscale_service_token
 Postman | Postman API Key | postman_api_key
 Proctorio | Proctorio Secret Key | proctorio_secret_key
+{%- ifversion fpt or ghec or ghes > 3.5 or ghae-issue-7375 %}
+redirect.pizza | redirect.pizza API Token | redirect_pizza_api_token{% endif %}
 Samsara | Samsara API Token | samsara_api_token
 Samsara | Samsara OAuth Access Token | samsara_oauth_access_token
 SendGrid | SendGrid API Key | sendgrid_api_key
@@ -73,3 +78,5 @@ Stripe | Stripe Live API Secret Key | stripe_api_key
 Tencent Cloud | Tencent Cloud Secret ID | tencent_cloud_secret_id
 Typeform | Typeform Personal Access Token | typeform_personal_access_token
 WorkOS | WorkOS Production API Key | workos_production_api_key
+{%- ifversion fpt or ghec or ghes > 3.6 or ghae-issue-7456 %}
+Zuplo | Zuplo Consumer API Key | zuplo_consumer_api_key{% endif %}

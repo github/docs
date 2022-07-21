@@ -1,8 +1,8 @@
 ---
-title: Project board columns
+title: Colunas do quadro de projeto
 shortTitle: Colunas
 allowTitleToDifferFromFilename: true
-intro: The Project board columns API lets you create and manage columns on a project board.
+intro: A API de colunas do quadro de projetos permite que você crie e gerencie colunas em um quadro de projeto.
 versions:
   fpt: '*'
   ghes: '*'

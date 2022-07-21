@@ -1,8 +1,8 @@
 ---
-title: Project board collaborators
+title: Colaboradores do quadro de projeto
 shortTitle: Colaboradores
 allowTitleToDifferFromFilename: true
-intro: The Project board collaborators API lets you manage collaborators on a project board.
+intro: A API de colaboradores do quadro de projeto permite que você gerencie colaboradores em um quadro de projetos.
 versions:
   fpt: '*'
   ghes: '*'

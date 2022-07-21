@@ -1,6 +1,6 @@
 ---
 title: Cobrança
-intro: The Billing API lets you get billing information for an enterprise.
+intro: A API de cobrança permite obter informações de cobrança para uma empresa.
 topics:
   - API
 miniTocMaxHeadingLevel: 3

@@ -1,6 +1,6 @@
 ---
 title: Dependabot
-intro: 'With the Dependabot Secrets API, you can manage and control Dependabot secrets for an organization or repository.'
+intro: 'Com a API de segredos do Dependabot, você pode gerenciar e controlar segredos do Dependabot para uma organização ou repositório.'
 allowTitleToDifferFromFilename: true
 versions:
   fpt: '*'

@@ -1,8 +1,8 @@
 ---
-title: Team discussion comments
+title: Comentários na discussão em equipe
 allowTitleToDifferFromFilename: true
 shortTitle: Comentários da discussão
-intro: 'The team discussion comments API allows you to get, create, edit, and delete discussion comments on a [team discussion](/rest/reference/teams#discussions) post.'
+intro: 'A API de comentários de discussão em equipe permite que você obtenha, crie, edite e exclua comentários de discussão em uma [discussão em equipe](/rest/reference/teams#discussions).'
 versions:
   fpt: '*'
   ghes: '*'
@@ -13,7 +13,7 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-## About the Team discussion comments API
+## Sobre a API de comentários de discussão em equipe
 
 Qualquer integrante da organização da [organização](/rest/reference/orgs) da equipe pode criar e ler comentários em uma discussão pública. Para obter mais informações, consulte "[Sobre discussões de equipe](/organizations/collaborating-with-your-team/about-team-discussions/)".
 

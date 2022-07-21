@@ -1,1 +1,1 @@
-If you exceed the limit, {% data variables.product.prodname_dotcom %} will save the new cache but will begin evicting caches until the total size is less than the repository limit.
+Se você exceder o limite, o {% data variables.product.prodname_dotcom %} salvará o novo cache, mas começará a despejar os caches até que o tamanho total seja menor que o limite do repositório.

@@ -2,11 +2,11 @@
 title: 查看组织中仓库的安全警报
 shortTitle: 安全概述
 intro: 在一个位置查看、排序和过滤整个组织的安全警报。
-product: '{% data reusables.gated-features.security-center %}'
+product: '{% data reusables.gated-features.security-overview %}'
 versions:
   fpt: '*'
-  ghae: issue-4554
-  ghes: '>3.1'
+  ghae: '*'
+  ghes: '*'
   ghec: '*'
 topics:
   - Security overview

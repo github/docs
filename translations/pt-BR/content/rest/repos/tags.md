@@ -1,5 +1,5 @@
 ---
-title: Repository tags
+title: Tags do repositório
 allowTitleToDifferFromFilename: true
 shortTitle: Tags
 intro: ''

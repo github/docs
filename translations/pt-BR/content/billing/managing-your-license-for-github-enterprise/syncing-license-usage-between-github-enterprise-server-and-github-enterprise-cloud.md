@@ -14,6 +14,8 @@ shortTitle: Sincronizar uso da licença
 
 ## Sobre a sincronização do uso da licença
 
+{% data reusables.enterprise-licensing.unique-user-licensing-model %}
+
 {% data reusables.enterprise-licensing.about-license-sync %}
 
 Para garantir que você irá ver os detalhes de licença atualizados sobre {% data variables.product.prodname_dotcom_the_website %}, você pode sincronizar o uso da licença entre os ambientes automaticamente, usando {% data variables.product.prodname_github_connect %}. Para obter mais informações sobre {% data variables.product.prodname_github_connect %}, consulte "[Sobre {% data variables.product.prodname_github_connect %}]({% ifversion ghec %}/enterprise-server@latest{% endif %}/admin/configuration/configuring-github-connect/about-github-connect){% ifversion ghec %}" na documentação de {% data variables.product.prodname_ghe_server %}.{% elsif ghes %}."{% endif %}
@@ -26,22 +28,22 @@ Se você não deseja habilitar {% data variables.product.prodname_github_connect
 
 ## Sincronizar automaticamente o uso da licença
 
-You can use {% data variables.product.prodname_github_connect %} to automatically synchronize user license count and usage between {% data variables.product.prodname_ghe_server %} and {% data variables.product.prodname_ghe_cloud %} weekly. Para obter mais informações, consulte "[Habilitando a sincronização da licença de usuário para a sua empresa ]({% ifversion ghec %}/enterprise-server@latest{% endif %}/admin/configuration/configuring-github-connect/enabling-automatic-user-license-sync-for-your-enterprise){% ifversion ghec %}" na documentação de {% data variables.product.prodname_ghe_server %}.{% elsif ghes %}."{% endif %}
+Você pode usar {% data variables.product.prodname_github_connect %} para sincronizar automaticamente a contagem de licença do usuário e o uso entre {% data variables.product.prodname_ghe_server %} e {% data variables.product.prodname_ghe_cloud %} semanalmente. Para obter mais informações, consulte "[Habilitando a sincronização da licença de usuário para a sua empresa ]({% ifversion ghec %}/enterprise-server@latest{% endif %}/admin/configuration/configuring-github-connect/enabling-automatic-user-license-sync-for-your-enterprise){% ifversion ghec %}" na documentação de {% data variables.product.prodname_ghe_server %}.{% elsif ghes %}."{% endif %}
 
 {% ifversion ghec or ghes > 3.4 %}
-After you enable {% data variables.product.prodname_github_connect %}, license data will be automatically synchronized weekly. You can also manually synchronize your license data at any time, by triggering a license sync job.
+Depois de habilitar o {% data variables.product.prodname_github_connect %}, os dados da licença serão automaticamente sincronizados semanalmente. Você também pode sincronizar manualmente os seus dados de licença a qualquer momento, acionando um trabalho de sincronização de licença.
 
-### Triggering a license sync job
+### Acionando um trabalho de sincronização de licença
 
-1. Sign in to your {% data variables.product.prodname_ghe_server %} instance.
+1. Efetue o login na sua instância de {% data variables.product.prodname_ghe_server %}.
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.license-tab %}
-1. Under "License sync", click {% octicon "sync" aria-label="The Sync icon" %} **Sync now**. ![Screenshot of "Sync now" button in license sync section](/assets/images/help/enterprises/license-sync-now-ghes.png)
+1. Em "Sincronização de licença", clique em {% octicon "sync" aria-label="The Sync icon" %} **Sincronizar agora**. ![Captura de tela do botão "Sincronizar agora" na seção de sincronização de licenças](/assets/images/help/enterprises/license-sync-now-ghes.png)
 
 {% endif %}
 
-## Manually uploading GitHub Enterprise Server license usage
+## Upload manual do uso da licença do servidor do GitHub Enterprise
 
 Para sincronizar manualmente o uso das licenças de usuário entre as duas implantações, você pode baixar um arquivo JSON do {% data variables.product.prodname_ghe_server %} e fazer upload desse arquivo no {% data variables.product.prodname_ghe_cloud %}.
 

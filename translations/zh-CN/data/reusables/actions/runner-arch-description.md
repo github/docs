@@ -1,1 +1,1 @@
-The architecture of the runner executing the job. Possible values are `X86`, `X64`, `ARM`, or `ARM64`.
+执行作业的运行器的架构。 可能的值包括 `X86`、`X64`、`ARM` 或 `ARM64`。

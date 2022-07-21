@@ -15,7 +15,7 @@
     </td>
     
     <td>
-      Using {% data variables.product.prodname_actions %} (see "<a href="/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/setting-up-code-scanning-for-a-repository#setting-up-code-scanning-using-actions">Setting up {% data variables.product.prodname_code_scanning %} using actions</a>") or running {% data variables.product.prodname_codeql %} analysis in a third-party continuous integration (CI) system (see "<a href="/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/about-codeql-code-scanning-in-your-ci-system">About {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} in your CI system</a>").
+      使用 {% data variables.product.prodname_actions %}（请参阅“<a href="/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/setting-up-code-scanning-for-a-repository#setting-up-code-scanning-using-actions">使用操作设置 {% data variables.product.prodname_code_scanning %} </a>”）或在第三方持续集成 (CI) 系统中运行 {% data variables.product.prodname_codeql %} 分析（请参阅“<a href="/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/about-codeql-code-scanning-in-your-ci-system">关于 CI 系统中的 {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %}</a>”）。
     </td>
   </tr>
   
@@ -25,7 +25,7 @@
     </td>
     
     <td>
-      Using {% data variables.product.prodname_actions %} (see "<a href="/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/setting-up-code-scanning-for-a-repository#setting-up-code-scanning-using-actions">Setting up {% data variables.product.prodname_code_scanning %} using actions</a>") or generated externally and uploaded to {% data variables.product.product_name %} (see "<a href="/code-security/code-scanning/integrating-with-code-scanning/uploading-a-sarif-file-to-github">Uploading a SARIF file to {% data variables.product.prodname_dotcom %}</a>").
+      使用 {% data variables.product.prodname_actions %} （请参阅“<a href="/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/setting-up-code-scanning-for-a-repository#setting-up-code-scanning-using-actions">使用操作设置 {% data variables.product.prodname_code_scanning %}</a>”）或在外部生成并上传到 {% data variables.product.product_name %} （请参阅“<a href="/code-security/code-scanning/integrating-with-code-scanning/uploading-a-sarif-file-to-github">将 SARIF 文件上传到 {% data variables.product.prodname_dotcom %}</a>”）。
     </td>
   </tr>
 </table>

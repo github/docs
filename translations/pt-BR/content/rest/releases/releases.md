@@ -1,6 +1,6 @@
 ---
 title: Versões
-intro: 'The Releases API allows you to create, modify, and delete releases and release assets.'
+intro: 'A API de versões permite que você crie, modifique e exclua versões e ativos de versões.'
 versions:
   fpt: '*'
   ghes: '*'

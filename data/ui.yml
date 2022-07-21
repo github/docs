@@ -46,6 +46,7 @@ search:
 homepage:
   explore_by_product: Explore by product
   version_picker: Version
+  description: Help for wherever you are on your GitHub journey.
 toc:
   getting_started: Getting started
   popular: Popular

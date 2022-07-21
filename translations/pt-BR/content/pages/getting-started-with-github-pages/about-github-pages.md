@@ -66,7 +66,7 @@ O URL onde o site estará disponível depende da habilitação do isolamento do 
 
 `http(s)://pages.<hostname>/<username>` | `http(s)://<hostname>/pages/<username>` | Organização | `http(s)://pages.<hostname>/<organization>` | `http(s)://<hostname>/pages/<organization>` | Site do projeto pertencente à conta pessoal | `http(s)://pages.<hostname>/<username>/<repository>/` | `http(s)://<hostname>/pages/<username>/<repository>/` Site do projeto pertencente à conta da organização | `http(s)://pages.<hostname>/<orgname>/<repository>/` | `http(s)://<hostname>/pages/<orgname>/<repository>/`
 
-Para obter mais informações, consulte "[Habilitar isolamento de subdomínio](/enterprise/{{ currentVersion }}/admin/installation/enabling-subdomain-isolation)" ou entre em contato com o administrador do site.
+Para obter mais informações, consulte "[Habilitar isolamento de subdomínio](/enterprise/admin/installation/enabling-subdomain-isolation)" ou entre em contato com o administrador do site.
 {% endif %}
 
 ## Publicar fontes para sites do {% data variables.product.prodname_pages %}
@@ -82,13 +82,13 @@ Se você desejar manter os arquivos de origem do seu site em outro local, você 
 Se você escolher a pasta `/docs` de qualquer branch como a fonte de publicação, o {% data variables.product.prodname_pages %} lerá tudo a ser publicado no seu site{% ifversion fpt or ghec %}, inclusive o arquivo _CNAME_,{% endif %} na pasta `/docs`.{% ifversion fpt or ghec %} Por exemplo, quando você edita o domínio personalizado usando as configurações do {% data variables.product.prodname_pages %}, o domínio personalizado grava em `/docs/CNAME`. Para obter mais informações sobre arquivos _CNAME_, consulte "[Gerenciar um domínio personalizado para seu site do {% data variables.product.prodname_pages %}](/articles/managing-a-custom-domain-for-your-github-pages-site)".{% endif %}
 
 {% ifversion ghec %}
-## Limitations for {% data variables.product.prodname_emus %}
-If you're a {% data variables.product.prodname_managed_user %}, your use of {% data variables.product.prodname_pages %} is limited.
+## Limitações para {% data variables.product.prodname_emus %}
+Se você é um {% data variables.product.prodname_managed_user %}, seu uso de {% data variables.product.prodname_pages %} é limitado.
 
-  - {% data variables.product.prodname_pages %} sites can only be published from repositories owned by organizations.
-  - {% data variables.product.prodname_pages %} sites are only visible to other members of the enterprise.
+  - Os sites de {% data variables.product.prodname_pages %} só podem ser publicados de repositórios pertencentes a organizações.
+  - Os sites de {% data variables.product.prodname_pages %} só são visíveis para os outros integrantes da empresa.
 
-For more information about {% data variables.product.prodname_emus %}, see "[About {% data variables.product.prodname_emus %}](/admin/identity-and-access-management/using-enterprise-managed-users-and-saml-for-iam/about-enterprise-managed-users)."
+Para obter mais informações sobre {% data variables.product.prodname_emus %}, consulte "[Sobre {% data variables.product.prodname_emus %}](/admin/identity-and-access-management/using-enterprise-managed-users-and-saml-for-iam/about-enterprise-managed-users)".
 {% endif %}
 
 ## Geradores de site estáticos
@@ -137,5 +137,5 @@ Quando um site de {% data variables.product.prodname_pages %} é acessado, o end
 
 ## Leia mais
 
-- [{% data variables.product.prodname_pages %}](https://lab.github.com/githubtraining/github-pages) em {% data variables.product.prodname_learning %}
+- [{% data variables.product.prodname_pages %}](https://github.com/skills/github-pages) em {% data variables.product.prodname_learning %}
 - "[{% data variables.product.prodname_pages %}](/rest/reference/repos#pages)"

@@ -40,4 +40,4 @@ shortTitle: 更改身份验证方法
 
 * **双重身份验证**：{% data reusables.enterprise_user_management.external_auth_disables_2fa %}
 
-* **Fallback authentication for users with no account on your external authentication provider:** You can invite users to authenticate to {% data variables.product.product_location %} without adding them to your identity provider. For more information, see "[Allowing built-in authentication for users outside your provider](/admin/identity-and-access-management/managing-iam-for-your-enterprise/allowing-built-in-authentication-for-users-outside-your-provider)."
+* **外部身份验证提供程序上没有帐户的用户的回退身份验证：** 您可以邀请用户向 {% data variables.product.product_location %} 进行身份验证，而无需将其添加到身份提供程序。 更多信息请参阅“[允许对提供程序覆盖范围以外的用户进行内置身份验证](/admin/identity-and-access-management/managing-iam-for-your-enterprise/allowing-built-in-authentication-for-users-outside-your-provider)”。

@@ -1,7 +1,7 @@
 ---
-title: Accessing the audit log for your enterprise
-intro: You can view aggregated actions from all of the organizations owned by an enterprise account in the enterprise's audit log.
-shortTitle: Access audit logs
+title: 访问企业的审核日志
+intro: 您可以在企业的审核日志中查看企业帐户拥有的所有组织的聚合操作。
+shortTitle: 访问审核日志
 permissions: 'Enterprise owners {% ifversion ghes %}and site administrators {% endif %}can access the audit log.'
 redirect_from:
   - /github/setting-up-and-managing-your-enterprise/managing-organizations-in-your-enterprise-account/viewing-the-audit-logs-for-organizations-in-your-enterprise-account

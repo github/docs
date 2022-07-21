@@ -1,5 +1,7 @@
 ---
-title: Web 挂钩
+title: 组织 web 挂钩
+allowTitleToDifferFromFilename: true
+shortTitle: Web 挂钩
 intro: ''
 versions:
   fpt: '*'
@@ -10,6 +12,8 @@ topics:
   - API
 miniTocMaxHeadingLevel: 3
 ---
+
+## 关于组织 web 挂钩 API
 
 组织 web 挂钩允许您在组织内发生特定事件时接收 HTTP `POST` 有效负载。 {% data reusables.webhooks.webhooks-rest-api-links %}
 

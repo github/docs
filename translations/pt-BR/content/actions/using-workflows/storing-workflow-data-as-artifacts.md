@@ -56,11 +56,11 @@ Para compartilhar dados entre trabalhos:
 
 As etapas de um trabalho compartilham o mesmo ambiente na máquina executora, mas são executados em seus próprios processos individuais. Para transmitir dados entre etapas de um trabalho, você pode usar entradas e saídas. Para obter mais informações sobre entradas e saídas, consulte "[Sintaxe de metadados para o {% data variables.product.prodname_actions %}](/articles/metadata-syntax-for-github-actions)".
 
-{% if actions-caching %}
+{% ifversion actions-caching %}
 
 {% data reusables.actions.comparing-artifacts-caching %}
 
-For more information on dependency caching, see "[Caching dependencies to speed up workflows](/actions/using-workflows/caching-dependencies-to-speed-up-workflows#comparing-artifacts-and-dependency-caching)."
+Para obter mais informações sobre armazenamento de dependência em cache, consulte "[Armazenando as dependências em cache para acelerar fluxos de trabalho](/actions/using-workflows/caching-dependencies-to-speed-up-workflows#comparing-artifacts-and-dependency-caching)".
 
 {% endif %}
 
@@ -70,7 +70,7 @@ Você pode criar um fluxo de trabalho de integração contínua (CI) para criar 
 
 A saída da compilação e teste de seu código muitas vezes produz arquivos que podem ser usados para depurar falhas em testes e códigos de produção que você pode implantar. É possível configurar um fluxo de trabalho para compilar e testar o código com push no repositório e relatar um status de sucesso ou falha. Você pode fazer upload da saída de compilação e teste para usar em implantações, para depurar falhas e testes com falhas e visualizar a cobertura do conjunto de teste.
 
-Você pode usar a ação `upload-artifact` para fazer o upload dos artefatos. Ao fazer o upload de um artefato, você pode especificar um arquivo ou diretório único, ou vários arquivos ou diretórios. Você também pode excluir certos arquivos ou diretórios e usar padrões coringa. Recomendamos que você forneça um nome para um artefato, mas se nenhum nome for fornecido, `artefato` será usado como nome-padrão. For more information on syntax, see the {% ifversion fpt or ghec %}[actions/upload-artifact](https://github.com/actions/upload-artifact) action{% else %} `actions/upload-artifact` action on {% data variables.product.product_location %}{% endif %}.
+Você pode usar a ação `upload-artifact` para fazer o upload dos artefatos. Ao fazer o upload de um artefato, você pode especificar um arquivo ou diretório único, ou vários arquivos ou diretórios. Você também pode excluir certos arquivos ou diretórios e usar padrões coringa. Recomendamos que você forneça um nome para um artefato, mas se nenhum nome for fornecido, `artefato` será usado como nome-padrão. Para mais informações sobre sintaxe, consulte a ação {% ifversion fpt or ghec %}[actions/upload-artifact](https://github.com/actions/upload-artifact) {% else %} `actions/upload-artifact` em {% data variables.product.product_location %}{% endif %}.
 
 ### Exemplo
 
@@ -88,7 +88,7 @@ Por exemplo, o seu repositório ou um aplicativo web pode conter arquivos SASS e
 |   
 ```
 
-This example shows you how to create a workflow for a Node.js project that builds the code in the `src` directory and runs the tests in the `tests` directory. Você pode partir do princípio que executar `npm test` produz um relatório de cobertura de código denominado `code-coverage.html`, armazenado no diretório `output/test/`.
+Este exemplo mostra como criar um fluxo de trabalho para um projeto do Node.js que compila o código no diretório `src` e executa os testes no diretório `testes`. Você pode partir do princípio que executar `npm test` produz um relatório de cobertura de código denominado `code-coverage.html`, armazenado no diretório `output/test/`.
 
 O fluxo de trabalho faz o upload dos artefatos de produção no diretório `dist`, mas exclui todos os arquivos de markdown. Ele também faz o upload do relatório de `code-coverage.html` como outro artefato.
 
