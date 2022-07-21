@@ -8,7 +8,7 @@ versions:
   ghec: '*'
 type: quick_start
 topics:
-  - Pull requests
+  - Pull request
   - Fundamentals
 miniTocMaxHeadingLevel: 3
 ---
