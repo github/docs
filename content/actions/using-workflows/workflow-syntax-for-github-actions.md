@@ -538,7 +538,7 @@ You can override the default shell settings in the runner's operating system usi
 
 | Supported platform | `shell` parameter | Description | Command run internally |
 |--------------------|-------------------|-------------|------------------------|
-| All | `bash` | The default shell on non-Windows platforms with a fallback to `sh`. When specifying a bash shell on Windows, the bash shell included with Git for Windows is used. | `bash --noprofile --norc -eo pipefail {0}` |
+| All | `bash` | The default shell on non-Windows platforms with a fallback to `sh`. Bash will be invoked with `bash -e {0}` if the shell parameter is not specified explicitly. When specifying a bash shell on Windows, the bash shell included with Git for Windows is used. | `bash --noprofile --norc -eo pipefail {0}` |
 | All | `pwsh` | The PowerShell Core. {% data variables.product.prodname_dotcom %} appends the extension `.ps1` to your script name. | `pwsh -command ". '{0}'"` |
 | All | `python` | Executes the python command. | `python {0}` |
 | Linux / macOS | `sh` | The fallback behavior for non-Windows platforms if no shell is provided and `bash` is not found in the path. | `sh -e {0}` |
