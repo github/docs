@@ -202,6 +202,10 @@
   description: >-
     Una diferencia es la diferencia en cambios entre dos confirmaciones de cambios o los cambios guardados. La diferencia describirá visualmente lo que se agregó o se eliminó de un archivo desde su última confirmación de cambios.
 - 
+  term: directorio
+  description: >-
+    A folder containing one or more files or folders. You can create directories to organize the contents of a repository.
+- 
   term: sucio
   description: >-
     Un árbol de trabajo se considera "sucio" si contiene modificaciones que no han sido confirmadas en la rama actual.

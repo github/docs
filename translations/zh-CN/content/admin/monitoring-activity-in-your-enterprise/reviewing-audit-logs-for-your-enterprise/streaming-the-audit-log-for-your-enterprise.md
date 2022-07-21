@@ -47,6 +47,7 @@ permissions: Enterprise owners can configure audit log streaming.
 
 - [使用访问密钥设置流式传输到 S3](#setting-up-streaming-to-s3-with-access-keys)
 - [使用 OpenID Connect 设置流式传输到 S3](#setting-up-streaming-to-s3-with-openid-connect)
+- [Disabling streaming to S3 with OpenID Connect](#disabling-streaming-to-s3-with-openid-connect)
 
 #### 使用访问密钥设置流式传输到 S3
 {% endif %}
@@ -123,6 +124,13 @@ permissions: Enterprise owners can configure audit log streaming.
    - 在“ARN Role（ARN 角色）”下，键入您之前记下的 ARN 角色。 例如 `arn:aws::iam::1234567890:role/github-audit-log-streaming-role`。
 {% data reusables.audit_log.streaming-check-s3-endpoint %}
 {% data reusables.enterprise.verify-audit-log-streaming-endpoint %}
+
+#### Disabling streaming to S3 with OpenID Connect
+
+If you want to disable streaming to S3 with OIDC for any reason, such as the discovery of a security vulnerability in OIDC, delete the {% data variables.product.prodname_dotcom %} OIDC provider you created in AWS when you set up streaming. 有关更多信息，请参阅 AWS 文档中的[创建 OpenID Connect (OIDC) 身份提供程序](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_create_oidc.html)。
+
+Then, set up streaming with access keys until the vulnerability is resolved. For more information, see "[Setting up streaming to S3 with access keys](#setting-up-streaming-to-s3-with-access-keys)."
+
 {% endif %}
 
 ### 设置流式传输到 Azure Blob Storage
