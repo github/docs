@@ -29,7 +29,7 @@ children:
   - /verifying-or-approving-a-domain-for-your-enterprise
   - /configuring-rate-limits
   - /configuring-applications
-  - /troubleshooting-ssl-errors
+  - /troubleshooting-tls-errors
   - /configuring-time-synchronization
   - /command-line-utilities
   - /restricting-network-traffic-to-your-enterprise
