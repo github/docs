@@ -78,7 +78,7 @@ describe('server', () => {
     ).toBe(0)
   })
 
-  test('renders the Enterprise homepages with links to exptected products in both the sidebar and page body', async () => {
+  test('renders the Enterprise homepages with links to expected products in both the sidebar and page body', async () => {
     const enterpriseProducts = [
       `/en/enterprise-server@${enterpriseServerReleases.latest}`,
       '/en/enterprise-cloud@latest',
@@ -478,17 +478,16 @@ describe('server', () => {
       expect($('a[href="/en/repositories/working-with-files/managing-files"]').length).toBe(1)
     })
 
-    test('dotcom articles on dotcom have Enterprise Admin links with latest GHE version', async () => {
+    // Any links expressed in Markdown as '.../enterprise-server@latest/...'
+    // should become '.../enterprise-server@<VERSION>/...' when rendered out.
+    test('enterprise-server@latest links get rewritten to include the latest GHE version', async () => {
       const $ = await getDOM(
-        '/en/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-self-hosted-runners-for-your-enterprise'
+        '/en//get-started/signing-up-for-github/setting-up-a-trial-of-github-enterprise-server'
       )
-      // Note any links that might expressed in Markdown as '.../enterprise-server@latest/...'
-      // becomes '.../enterprise-server@<VERSION>/...' when rendered out.
       expect(
-        $(
-          `a[href="/en/enterprise-server@${enterpriseServerReleases.latest}/admin/github-actions/managing-access-to-actions-from-githubcom/enabling-automatic-access-to-githubcom-actions-using-github-connect"]`
-        ).length
-      ).toBe(2)
+        $(`a[href="${latestEnterprisePath}/billing/managing-your-license-for-github-enterprise"]`)
+          .length
+      ).toBe(1)
     })
 
     test('dotcom articles on GHE have Enterprise user links', async () => {
