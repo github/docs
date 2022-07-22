@@ -57,7 +57,7 @@ shortTitle: 自定义组织配置文件
 
 ## 将存储库固定到组织的资料
 
-您可以将要展示的存储库（如经常使用的存储库）固定到组织的资料页面。 To choose which repositories to pin to your organization's profile, you must be an organization owner.
+您可以将要展示的存储库（如经常使用的存储库）固定到组织的资料页面。 要选择要固定到组织资料的存储库，您必须是组织所有者。
 
 1. 导航到组织的资料页面。
 2. 在页面右侧边栏的 {% octicon "eye" aria-label="The eye octicon" %}“查看身份”链接中，从下拉菜单中选择**公共**或**成员**个人资料视图。

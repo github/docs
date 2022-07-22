@@ -58,6 +58,6 @@ shortTitle: 将电子邮件与 GPG 密钥关联
 - "[检查现有 GPG 密钥](/articles/checking-for-existing-gpg-keys)"
 - "[生成新 GPG 密钥](/articles/generating-a-new-gpg-key)"
 - "[在 GPG 密钥中使用经验证的电子邮件地址](/articles/using-a-verified-email-address-in-your-gpg-key)"
-- "[Adding a GPG key to your GitHub account](/articles/adding-a-gpg-key-to-your-github-account)"
+- "[添加 GPG 密钥到 GitHub 帐户](/articles/adding-a-gpg-key-to-your-github-account)"
 - "[对提交签名](/articles/signing-commits)"
 - "[对标记签名](/articles/signing-tags)"

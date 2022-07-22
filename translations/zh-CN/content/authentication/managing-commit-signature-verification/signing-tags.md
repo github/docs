@@ -34,7 +34,7 @@ topics:
 - "[查看仓库的标记](/articles/viewing-your-repositorys-tags)"
 - "[检查现有 GPG 密钥](/articles/checking-for-existing-gpg-keys)"
 - "[生成新 GPG 密钥](/articles/generating-a-new-gpg-key)"
-- "[Adding a GPG key to your GitHub account](/articles/adding-a-gpg-key-to-your-github-account)"
+- "[添加 GPG 密钥到 GitHub 帐户](/articles/adding-a-gpg-key-to-your-github-account)"
 - "[向 Git 告知您的签名密钥](/articles/telling-git-about-your-signing-key)"
 - "[将电子邮件与 GPG 密钥关联](/articles/associating-an-email-with-your-gpg-key)"
 - "[对提交签名](/articles/signing-commits)"
