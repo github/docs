@@ -21,11 +21,11 @@ redirect_from:
 
 The merge queue creates temporary branches with a special prefix to validate pull request changes. The changes in the pull request are then grouped with the latest version of the `base_branch` as well as changes ahead of it in the queue. {% data variables.product.product_name %} will merge all these changes into `base_branch` once the checks required by the branch protections of `base_branch` pass.
 
-You may need to update your Continuous Integration (CI) configuration to trigger builds on this event to report the status of required checks when a pull request is queued to merge.
+You may need to update your Continuous Integration (CI) configuration to trigger builds which report the status of required checks once a pull request is queued to merge.
 
 ### Triggering merge queue checks with {% data variables.product.prodname_actions %}
 
-With {% data variables.product.prodname_actions %} there is a dedicated event called `merge_group` which will trigger a workflow. Note that this is a different event from the `pull_request` and `push` events.
+With {% data variables.product.prodname_actions %} there is a dedicated event called `merge_group` which will trigger a workflow when a pull request is added to a merge queue. Note that this is a different event from the `pull_request` and `push` events.
 
 A workflow that reports a check which is required by the target branch's protections would look like this:
 
