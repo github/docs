@@ -15,9 +15,15 @@ shortTitle: Customize organization profile
 ## About your organization's profile page
 
 {% ifversion org-profile-pin-private %}
-You can customize your organization's Overview page to show a README and pinned repositories dedicated to public users or members of the organization. Members of your organization who are signed into {% data variables.product.prodname_dotcom %}, can select a `member` or `public` view of the README and pinned repositories when they visit your organization's profile page. The view defaults to `member` if either a member README or private/internal pinned repositories are present, and `public` otherwise. Users who are not members of your organization will be shown a `public` view.
+You can customize your organization's Overview page to show a README and pinned repositories dedicated to public users or members of the organization.
 
-![Image of an organization profile page](/assets/images/help/organizations/new_organization_page.png)
+![Image of a public organization profile page](/assets/images/help/organizations/public_profile.png)
+
+Members of your organization who are signed into {% data variables.product.prodname_dotcom %}, can select a `member` or `public` view of the README and pinned repositories when they visit your organization's profile page. The view defaults to `member` if either a members-only README or members-only pinned repositories are present, and `public` otherwise.
+
+![Image of a members only organization profile page](/assets/images/help/organizations/member_only_profile.png)
+
+Users who are not members of your organization will be shown a `public` view.
 
 ### Pinned repositories
 
