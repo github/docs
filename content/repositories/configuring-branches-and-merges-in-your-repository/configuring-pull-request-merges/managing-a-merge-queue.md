@@ -19,20 +19,25 @@ redirect_from:
 
 {% data reusables.pull_requests.merge-queue-overview %}
 
-The merge queue creates temporary branches with a special prefix to validate pull request changes. The changes in the pull request are then grouped with the latest version of the `base_branch` as well as changes ahead of it in the queue. {% data variables.product.product_name %} will merge all these changes into `base_branch` once the checks required by the branch protections of `base_branch` pass. 
+The merge queue creates temporary branches with a special prefix to validate pull request changes. The changes in the pull request are then grouped with the latest version of the `base_branch` as well as changes ahead of it in the queue. {% data variables.product.product_name %} will merge all these changes into `base_branch` once the checks required by the branch protections of `base_branch` pass.
 
-You may need to update your Continuous Integration (CI) configuration to trigger builds on branch names that begin with the special prefix `gh-readonly-queue/{base_branch}` after the group is created.
+You may need to update your Continuous Integration (CI) configuration to trigger builds on this event to report the status of required checks when a pull request is queued to merge.
 
-For example, with {% data variables.product.prodname_actions %}, a workflow with the following trigger will run each time a pull request that targets the base branch `main` is queued to merge.
+### Triggering merge queue checks with {% data variables.product.prodname_actions %}
+
+With {% data variables.product.prodname_actions %} there is a dedicated event called `merge_group` which will trigger a workflow. Note that this is a different event from the `pull_request` and `push` events.
+
+A workflow that reports a check which is required by the target branch's protections would look like this:
 
 ```yaml
 on:
-  push:
-    branches:
-    - gh-readonly-queue/main/**
+  pull_request:
+  merge_group:
 ```
 
-{% data reusables.pull_requests.merge-queue-merging-method %}
+### Triggering merge queue checks with other CI providers
+
+With other CI providers, you may need to update your configuration when a branch that begin with the special prefix `gh-readonly-queue/{base_branch}` is created.
 
 For information about merge methods, see "[About pull request merges](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/about-pull-request-merges)."
 
