@@ -12,7 +12,7 @@ redirect_from:
 
 Você pode assistir a uma série de tutoriais de vídeos curtos sobre a configuração e o uso de {% data variables.product.prodname_classroom %}. Para assistir a todos os vídeos como parte de uma lista de reprodução contínua, consulte o [{% data variables.product.prodname_classroom %} Guia de Introdução](https://www.youtube.com/playlist?list=PLIRjfNq867bewk3ZGV6Z7a16YDNRCpK3u) no YouTube.
 
-Para obter mais informações sobre a terminologia para {% data variables.product.prodname_classroom %}, consulte "[Glossário](/education/manage-coursework-with-github-classroom/glossary)".
+Para obter mais informações sobre a terminologia para {% data variables.product.prodname_classroom %}, consulte "[Glossário](/education/manage-coursework-with-github-classroom/glossary)."
 
 1. <a href="https://youtu.be/xVVeqIDgCvM" target="_blank">Introdução</a> {% octicon "link-external" aria-label="The external link icon" %}
 2. <a href="https://youtu.be/DTzrKduaHj8" target="_blank">Adicionar a sua lista de alunos</a> {% octicon "link-external" aria-label="The external link icon" %}

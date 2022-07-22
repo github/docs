@@ -20,7 +20,7 @@ shortTitle: User security best practices
 
 2要素認証（2FA）は、Webサイトやサービスへのログインの方法で、認証のパスワードの先に2番目の要素を必要とします。 {% data variables.product.prodname_ghe_server %} の場合、この 2 番目の要素はユーザのスマートフォン上のアプリケーションが生成するワンタイムの認証コードです。 ユーザにアカウントで2要素認証を有効化するよう求めることを強くおすすめします。 2要素認証を使っていれば、アカウントそのものを侵犯するためには、ユーザのパスワードとスマートフォンの両方を侵犯しなければならなくなります。
 
-2要素認証の設定に関する詳しい情報については、[2要素認証について](/enterprise/{{ currentVersion }}/user/articles/about-two-factor-authentication)を参照してください。
+2要素認証の設定に関する詳しい情報については、[2要素認証について](/enterprise/user/articles/about-two-factor-authentication)を参照してください。
 {% endif %}
 
 ## パスワードマネージャの要求

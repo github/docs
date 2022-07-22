@@ -80,7 +80,7 @@ Intercambia este `code` por un token de acceso:
 Predeterminadamente, la respuesta toma la siguiente forma:
 
 ```
-access_token={% ifversion fpt or ghes > 3.1 or ghae or ghec %}gho_16C7e42F292c6912E7710c838347Ae178B4a{% else %}e72e16c7e42f292c6912e7710c838347ae178b4a{% endif %}&scope=repo%2Cgist&token_type=bearer
+access_token=gho_16C7e42F292c6912E7710c838347Ae178B4a&scope=repo%2Cgist&token_type=bearer
 ```
 
 {% data reusables.apps.oauth-auth-vary-response %}
@@ -88,7 +88,7 @@ access_token={% ifversion fpt or ghes > 3.1 or ghae or ghec %}gho_16C7e42F292c69
 ```json
 Accept: application/json
 {
-  "access_token":"{% ifversion fpt or ghes > 3.1 or ghae or ghec %}gho_16C7e42F292c6912E7710c838347Ae178B4a{% else %}e72e16c7e42f292c6912e7710c838347ae178b4a{% endif %}",
+  "access_token":"gho_16C7e42F292c6912E7710c838347Ae178B4a",
   "scope":"repo,gist",
   "token_type":"bearer"
 }
@@ -99,7 +99,7 @@ Accept: application/xml
 <OAuth>
   <token_type>bearer</token_type>
   <scope>repo,gist</scope>
-  <access_token>{% ifversion fpt or ghes > 3.1 or ghae or ghec %}gho_16C7e42F292c6912E7710c838347Ae178B4a{% else %}e72e16c7e42f292c6912e7710c838347ae178b4a{% endif %}</access_token>
+  <access_token>gho_16C7e42F292c6912E7710c838347Ae178B4a</access_token>
 </OAuth>
 ```
 
@@ -126,7 +126,7 @@ curl -H "Authorization: token OAUTH-TOKEN" {% data variables.product.api_url_pre
 
 Este flujo de dispositivos te permite autorizar usuarios para una app sin encabezado, tal como una herramienta de CLI o un administrador de credenciales de Git.
 
-{% if device-flow-is-opt-in %}
+{% ifversion device-flow-is-opt-in %}
 
 Antes de que puedas utilizar el flujo de dispositivos para autorizar e identificar usuarios, primero debes habilitarlo en los ajustes de tu app. Para obtener más información sobre cómo habilitar el flujo de dispositivos en tu app, consulta la sección "[Modificar una App de OAuth](/developers/apps/managing-oauth-apps/modifying-an-oauth-app)" para las apps de OAuth y "[Modificar una GitHub App](/developers/apps/managing-github-apps/modifying-a-github-app)" para las GitHub Apps.
 
@@ -222,7 +222,7 @@ Ya que el usuario lo haya autorizado, la app recibirá un token de acceso que se
 Predeterminadamente, la respuesta toma la siguiente forma:
 
 ```
-access_token={% ifversion fpt or ghes > 3.1 or ghae or ghec %}gho_16C7e42F292c6912E7710c838347Ae178B4a{% else %}e72e16c7e42f292c6912e7710c838347ae178b4a{% endif %}&token_type=bearer&scope=repo%2Cgist
+access_token=gho_16C7e42F292c6912E7710c838347Ae178B4a&token_type=bearer&scope=repo%2Cgist
 ```
 
 {% data reusables.apps.oauth-auth-vary-response %}
@@ -230,7 +230,7 @@ access_token={% ifversion fpt or ghes > 3.1 or ghae or ghec %}gho_16C7e42F292c69
 ```json
 Accept: application/json
 {
- "access_token": "{% ifversion fpt or ghes > 3.1 or ghae or ghec %}gho_16C7e42F292c6912E7710c838347Ae178B4a{% else %}e72e16c7e42f292c6912e7710c838347ae178b4a{% endif %}",
+ "access_token": "gho_16C7e42F292c6912E7710c838347Ae178B4a",
   "token_type": "bearer",
   "scope": "repo,gist"
 }
@@ -239,7 +239,7 @@ Accept: application/json
 ```xml
 Accept: application/xml
 <OAuth>
-  <access_token>{% ifversion fpt or ghes > 3.1 or ghae or ghec %}gho_16C7e42F292c6912E7710c838347Ae178B4a{% else %}e72e16c7e42f292c6912e7710c838347ae178b4a{% endif %}</access_token>
+  <access_token>gho_16C7e42F292c6912E7710c838347Ae178B4a</access_token>
   <token_type>bearer</token_type>
   <scope>gist,repo</scope>
 </OAuth>
@@ -261,11 +261,10 @@ Si realizas más de una solicitud de acceso con token (`POST {% data variables.p
 | `unsupported_grant_type`       | El tipo de otorgamiento debe ser `urn:ietf:params:oauth:grant-type:device_code` y se debe incluir como un parámetro de entrada cuando sondeas la solicitud de token de OAuth `POST {% data variables.product.oauth_host_code %}/login/oauth/access_token`.                                                                                                                                                                                                                                                                                                                           |
 | `incorrect_client_credentials` | Para el flujo de dispositivos, debes pasar la ID de cliente de tu app, la cual puedes encontrar en la página de configuración de la misma. No se necesita el `client_secret` para el flujo del dispositivo.                                                                                                                                                                                                                                                                                                                                                                          |
 | `incorrect_device_code`        | El device_code que se proporcionó es inválido.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| `access_denied`                | Cuando un usuario hace clic en 'cancelar' durante el proceso de autorización, recibirás un error de `access_denied` y el usuario no podrá utilizar el código de verificación nuevamente.{% if device-flow-is-opt-in %}
+| `access_denied`                | Cuando un usuario hace clic en 'cancelar' durante el proceso de autorización, recibirás un error de `access_denied` y el usuario no podrá utilizar el código de verificación nuevamente.{% ifversion device-flow-is-opt-in %}
 | `device_flow_disabled`         | El flujo de dispositivos no se habilitó en los ajustes de la app. Para obtener más información, consulta el "[Flujo de dispositivos](#device-flow)".{% endif %}
 
 Para obtener más información, consulta la sección "[Otorgamiento de Autorización de Dispositivo de OAuth 2.0](https://tools.ietf.org/html/rfc8628#section-3.5)".
-
 
 ## Flujo de aplicaciónes no web
 

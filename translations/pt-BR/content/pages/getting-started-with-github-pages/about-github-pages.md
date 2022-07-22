@@ -66,7 +66,7 @@ O URL onde o site estará disponível depende da habilitação do isolamento do 
 
 `http(s)://pages.<hostname>/<username>` | `http(s)://<hostname>/pages/<username>` | Organização | `http(s)://pages.<hostname>/<organization>` | `http(s)://<hostname>/pages/<organization>` | Site do projeto pertencente à conta pessoal | `http(s)://pages.<hostname>/<username>/<repository>/` | `http(s)://<hostname>/pages/<username>/<repository>/` Site do projeto pertencente à conta da organização | `http(s)://pages.<hostname>/<orgname>/<repository>/` | `http(s)://<hostname>/pages/<orgname>/<repository>/`
 
-Para obter mais informações, consulte "[Habilitar isolamento de subdomínio](/enterprise/{{ currentVersion }}/admin/installation/enabling-subdomain-isolation)" ou entre em contato com o administrador do site.
+Para obter mais informações, consulte "[Habilitar isolamento de subdomínio](/enterprise/admin/installation/enabling-subdomain-isolation)" ou entre em contato com o administrador do site.
 {% endif %}
 
 ## Publicar fontes para sites do {% data variables.product.prodname_pages %}
@@ -137,5 +137,5 @@ Quando um site de {% data variables.product.prodname_pages %} é acessado, o end
 
 ## Leia mais
 
-- [{% data variables.product.prodname_pages %}](https://lab.github.com/githubtraining/github-pages) em {% data variables.product.prodname_learning %}
+- [{% data variables.product.prodname_pages %}](https://github.com/skills/github-pages) em {% data variables.product.prodname_learning %}
 - "[{% data variables.product.prodname_pages %}](/rest/reference/repos#pages)"

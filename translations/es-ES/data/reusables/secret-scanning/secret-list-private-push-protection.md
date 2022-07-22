@@ -1,4 +1,4 @@
-| Proveedor                 | Secreto compatible                                 | Secret type                                              |
+| Proveedor                 | Secreto compatible                                 | Tipo de secreto                                          |
 | ------------------------- | -------------------------------------------------- | -------------------------------------------------------- |
 | Adafruit IO               | Clave de IO de Adafruit                            | adafruit_io_key                                        |
 | Alibaba Cloud             | ID de Clave de Acceso a la Nube de Alibaba         | alibaba_cloud_access_key_id                          |
@@ -17,10 +17,10 @@
 | Checkout.com              | Clave secreta de productión de Checkout.com        | checkout_production_secret_key                         |
 | Clojars                   | Token de Despliegue de Clojars                     | clojars_deploy_token                                   |
 | Databricks                | Token de Acceso de Databricks                      | databricks_access_token                                |
-| DigitalOcean              | DigitalOcean Personal Access Token                 | digitalocean_personal_access_token                     |
-| DigitalOcean              | DigitalOcean OAuth Token                           | digitalocean_oauth_token                               |
-| DigitalOcean              | DigitalOcean Refresh Token                         | digitalocean_refresh_token                             |
-| DigitalOcean              | DigitalOcean System Token                          | digitalocean_system_token                              |
+| DigitalOcean              | Token de Acceso Personal de DigitalOcean           | digitalocean_personal_access_token                     |
+| DigitalOcean              | Token OAuth de DigitalOcean                        | digitalocean_oauth_token                               |
+| DigitalOcean              | Token de Actualización de DigitalOcean             | digitalocean_refresh_token                             |
+| DigitalOcean              | Token de Sistema de DigitalOcean                   | digitalocean_system_token                              |
 | Discord                   | Token de Bot de Discord                            | discord_bot_token                                      |
 | Doppler                   | Token Personal de Doppler                          | doppler_personal_token                                 |
 | Doppler                   | Token de Servicio de Doppler                       | doppler_service_token                                  |
@@ -43,33 +43,9 @@
 | Grafana                   | Clave de la API de Grafana                         | grafana_api_key                                        |
 | Hubspot                   | Clave de API de Hubspot                            | hubspot_api_key                                        |
 | Intercom                  | Token de Acceso de Intercom                        | intercom_access_token                                  |
-| Ionic                     | Token de Acceso Personal de Ionic                  | ionic_personal_access_token                            |
-| Ionic                     | Token de Actualización de Ionic                    | ionic_refresh_token                                    |
-| Linear                    | Llave de la API de Linear                          | linear_api_key                                         |
-| Linear                    | Token de Acceso Oauth de Linear                    | linear_oauth_access_token                              |
-| Midtrans                  | Midtrans Production Server Key                     | midtrans_production_server_key                         |
-| Reliquia nueva            | New Relic Personal API Key                         | new_relic_personal_api_key                           |
-| Reliquia nueva            | New Relic REST API Key                             | new_relic_rest_api_key                               |
-| Reliquia nueva            | New Relic Insights Query Key                       | new_relic_insights_query_key                         |
-| npm                       | Token de Acceso de npm                             | npm_access_token                                       |
-| NuGet                     | Clave de API de NuGet                              | nuget_api_key                                          |
-| Onfido                    | Onfido Live API Token                              | onfido_live_api_token                                  |
-| OpenAI                    | Clave de la API de OpenAI                          | openai_api_key                                         |
-| PlanetScale               | Contraseña de base de datos de PlanetScale         | planetscale_database_password                          |
-| PlanetScale               | Token de OAuth de PlanetScale                      | planetscale_oauth_token                                |
-| PlanetScale               | Token de Servicio de PlanetScale                   | planetscale_service_token                              |
-| Postman                   | Clave de API de Postman                            | postman_api_key                                        |
-| Proctorio                 | Clave de Secreto de Proctorio                      | proctorio_secret_key                                   |
-| Samsara                   | Token de API de Samsara                            | samsara_api_token                                      |
-| Samsara                   | Token de Acceso de OAuth de Samsara                | samsara_oauth_access_token                             |
-| SendGrid                  | Clave de la API de SendGrid                        | sendgrid_api_key                                       |
-| Sendinblue                | Llave de la API de Sendinblue                      | sendinblue_api_key                                     |
-| Sendinblue                | Llave SMTP de Sendinblue                           | sendinblue_smtp_key                                    |
-| Shippo                    | Shippo Live API Token                              | shippo_live_api_token                                  |
-| Shopify                   | Secreto Compartid de la App de Shopify             | shopify_app_shared_secret                              |
-| Shopify                   | Token de Acceso de Shopify                         | shopify_access_token                                   |
-| Slack                     | Token de la API de Slack                           | slack_api_token                                        |
-| Stripe                    | Clave de Secreto Stripe Live                       | stripe_api_key                                         |
-| Tencent Cloud             | ID de Secreto de Tencent Cloud                     | tencent_cloud_secret_id                                |
-| Typeform                  | Token de acceso personal a Typeform                | typeform_personal_access_token                         |
-| WorkOS                    | WorkOS Production API Key                          | workos_production_api_key                              |
+{%- ifversion fpt or ghec or ghes > 3.6 or ghae-issue-7456 %}
+JFrog | Token de Acceso a la Plataforma de JFrog | jfrog_platform_access_token JFrog | Llave de la API de la Plataforma de JFrog | jfrog_platform_api_key{% endif %} Ionic | Token de Acceso personal a Ionic | ionic_personal_access_token Ionic | Token de Actualización de Ionic | ionic_refresh_token Linear | Llave de la API de Linear | linear_api_key Linear | Token de Acceso OAuth de Linear | linear_oauth_access_token Midtrans | Llave del Servidor de Producción de Midtrans | midtrans_production_server_key New Relic | Llave de la API Personal de New Relic | new_relic_personal_api_key New Relic | Llave de la API de REST de New Relic | new_relic_rest_api_key New Relic | Llave de Consulta de Perspectivas de New Relic | new_relic_insights_query_key npm | Token de Acceso a npm | npm_access_token NuGet | Llave de la API de NuGet | nuget_api_key Onfido | Token de la API en Vivo de Onfido | onfido_live_api_token OpenAI | Llave de la API de OpenAI | openai_api_key PlanetScale | Contraseña de la Base de Datos de PlanetScale | planetscale_database_password PlanetScale | Token OAuth de PlanetScale | planetscale_oauth_token PlanetScale | Token de Servicio de PlanetScale | planetscale_service_token Postman | Llave de la API de Postman | postman_api_key Proctorio | Llave del Secreto de Proctorio | proctorio_secret_key
+{%- ifversion fpt or ghec or ghes > 3.5 or ghae-issue-7375 %}
+redirect.pizza | Token de la API de redirect.pizza | redirect_pizza_api_token{% endif %} Samsara | Token de la API de Samsara | samsara_api_token Samsara | Token de Acceso OAuth a Samsara | samsara_oauth_access_token SendGrid | Llave de la API de SendGrid | sendgrid_api_key Sendinblue | Llave de la API de Sendinblue | sendinblue_api_key Sendinblue | Llave SMTP de Sendinblue | sendinblue_smtp_key Shippo | Token de la API en Vivo de Shippo | shippo_live_api_token Shopify | Secreto Compartido de la App de Shopify | shopify_app_shared_secret Shopify | Token de Acceso a Shopify | shopify_access_token Slack | Token de la API de Slack | slack_api_token Stripe | Llave de Secreto de la API en Vivo de Stripe | stripe_api_key Tencent Cloud | ID de Secreto en la Nube de Tencent | tencent_cloud_secret_id Typeform | Token de Acceso Personal de Typeform | typeform_personal_access_token WorkOS | Llave de la API de Producción de WorkOS | workos_production_api_key
+{%- ifversion fpt or ghec or ghes > 3.6 or ghae-issue-7456 %}
+Zuplo | Zuplo Consumer API Key | zuplo_consumer_api_key{% endif %}

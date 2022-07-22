@@ -56,7 +56,7 @@ GitHub mostrará el README de tu perfil en tu página de perfil si cuentas con t
 
   El archivo de README que se ha generado está pre-llenado con una plantilla para que te inspires en completarlo. ![Archivo README con la plantilla pre-llenada](/assets/images/help/repository/personal-repository-readme-template.png)
 
-Para encontrar un resumen de todos los emojis disponibles y de sus códigos, consulta el [Directorio de Emojis](http://www.emoji-cheat-sheet.com/)".
+Para encontrar un resumen de todos los emojis disponibles y de sus códigos, consulta el [Directorio de Emojis](https://www.webfx.com/tools/emoji-cheat-sheet/)".
 
 ## Eliminar un README de perfil
 

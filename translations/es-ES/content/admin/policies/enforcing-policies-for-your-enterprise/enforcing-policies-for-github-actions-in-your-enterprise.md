@@ -35,7 +35,7 @@ Las {% data variables.product.prodname_actions %} ayudan a los miembros de tu em
 
 ## Requerir una política para restringir el uso de las {% data variables.product.prodname_actions %} en tu empresa
 
-Puedes elegir inhabilitar {% data variables.product.prodname_actions %} para todas las organizaciones en tu empresa, o puedes permitir solo organizaciones específicas. También puedes limitar el uso de las acciones públicas {% if actions-workflow-policy %}y flujos de trabajo reutilizables{% endif %} para que las personas solo puedan utilizar acciones {% if actions-workflow-policy %}y flujos de trabajo reutilizables{% endif %} que existan en tu empresa.
+Puedes elegir inhabilitar {% data variables.product.prodname_actions %} para todas las organizaciones en tu empresa, o puedes permitir solo organizaciones específicas. También puedes limitar el uso de las acciones públicas {% ifversion actions-workflow-policy %}y flujos de trabajo reutilizables{% endif %} para que las personas solo puedan utilizar acciones {% ifversion actions-workflow-policy %}y flujos de trabajo reutilizables{% endif %} que existan en tu empresa.
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
@@ -47,11 +47,11 @@ Puedes elegir inhabilitar {% data variables.product.prodname_actions %} para tod
    {%- ifversion ghes or ghae %}
    {% note %}
 
-   **Nota:** Para habilitar el acceso a las acciones públicas{% if actions-workflow-policy %} y flujos de trabajo reutilizables{% endif %}, primero debes configurar {% data variables.product.product_location %} para que se conecte a {% data variables.product.prodname_dotcom_the_website %}. Para obtener más información, consulta la sección "[Habilitar el acceso automática para las acciones de GitHub.com utilizando GitHub Connect](/admin/github-actions/enabling-automatic-access-to-githubcom-actions-using-github-connect)".
+   **Nota:** Para habilitar el acceso a las acciones públicas{% ifversion actions-workflow-policy %} y flujos de trabajo reutilizables{% endif %}, primero debes configurar {% data variables.product.product_location %} para que se conecte a {% data variables.product.prodname_dotcom_the_website %}. Para obtener más información, consulta la sección "[Habilitar el acceso automática para las acciones de GitHub.com utilizando GitHub Connect](/admin/github-actions/enabling-automatic-access-to-githubcom-actions-using-github-connect)".
 
    {% endnote %}
    {%- endif %}
-   {% if actions-workflow-policy %}
+   {% ifversion actions-workflow-policy %}
    ![Habilita, inhabilita o limita las acciones para esta cuenta empresarial](/assets/images/help/organizations/enterprise-actions-policy-with-workflows.png)
    {%- else %}
    ![Habilita, inhabilita o limita las acciones para esta cuenta empresarial](/assets/images/help/organizations/enterprise-actions-policy.png)
@@ -63,8 +63,8 @@ Puedes elegir inhabilitar {% data variables.product.prodname_actions %} para tod
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.actions-tab %}
-1. Debajo de "Políticas", selecciona {% data reusables.actions.policy-label-for-select-actions-workflows %} y agrega tus acciones{% if actions-workflow-policy %} y flujos de trabajo reutilizables{% endif %} requeridos a la lista.
-   {% if actions-workflow-policy %}
+1. Debajo de "Políticas", selecciona {% data reusables.actions.policy-label-for-select-actions-workflows %} y agrega tus acciones{% ifversion actions-workflow-policy %} y flujos de trabajo reutilizables{% endif %} requeridos a la lista.
+   {% ifversion actions-workflow-policy %}
    ![Agrega acciones y flujos de trabajo reutilizables a la lista de elementos permitidos](/assets/images/help/organizations/enterprise-actions-policy-allow-list-with-workflows.png)
    {%- elsif ghes or ghae %}
    ![Agregar acciones a la lista de elementos permitidos](/assets/images/help/organizations/enterprise-actions-policy-allow-list.png)
@@ -115,7 +115,7 @@ Si se habilita una política para una empresa, esta puede inhabilitarse selectiv
 {% data reusables.enterprise-accounts.actions-tab %}
 {% data reusables.actions.private-repository-forks-configure %}
 
-{% ifversion ghec or ghes > 3.1 or ghae %}
+{% ifversion ghec or ghes or ghae %}
 
 ## Requerir una política para los permisos de flujo de trabajo en tu empresa
 
@@ -127,7 +127,7 @@ Puedes configurar los permisos predeterminados para del `GITHUB_TOKEN` en la con
 
 ### Configuring the default `GITHUB_TOKEN` permissions
 
-{% if allow-actions-to-approve-pr-with-ent-repo %}
+{% ifversion allow-actions-to-approve-pr-with-ent-repo %}
 Predeterminadamente, cuando creas una empresa nueva, el `GITHUB_TOKEN` solo tendrá acceso de lectura para el alcance `contents`.
 {% endif %}
 
@@ -136,10 +136,10 @@ Predeterminadamente, cuando creas una empresa nueva, el `GITHUB_TOKEN` solo tend
 {% data reusables.enterprise-accounts.actions-tab %}
 1. Debajo de "Permisos de flujo de trabajo", elige si quieres que el `GITHUB_TOKEN` tenga acceso de lectura y escritura para todos los alcances o solo acceso de lectura para el alcance `contents`.
 
-   ![Configurar los permisos del GITHUB_TOKEN para esta empresa](/assets/images/help/settings/actions-workflow-permissions-enterprise{% if allow-actions-to-approve-pr-with-ent-repo %}-with-pr-approval{% endif %}.png)
+   ![Configurar los permisos del GITHUB_TOKEN para esta empresa](/assets/images/help/settings/actions-workflow-permissions-enterprise{% ifversion allow-actions-to-approve-pr-with-ent-repo %}-with-pr-approval{% endif %}.png)
 1. Da clic en **Guardar** para aplicar la configuración.
 
-{% if allow-actions-to-approve-pr-with-ent-repo %}
+{% ifversion allow-actions-to-approve-pr-with-ent-repo %}
 ### Prevenir que las {% data variables.product.prodname_actions %} creen o aprueben solicitudes de cambio
 
 {% data reusables.actions.workflow-pr-approval-permissions-intro %}
@@ -157,7 +157,7 @@ Predeterminadamente, cuando creas una empresa nueva, no se permite que los flujo
 {% endif %}
 {% endif %}
 
-{% if actions-cache-policy-apis %}
+{% ifversion actions-cache-policy-apis %}
 
 ## Requerir una política para almacenamiento en caché dentro de tu empresa
 

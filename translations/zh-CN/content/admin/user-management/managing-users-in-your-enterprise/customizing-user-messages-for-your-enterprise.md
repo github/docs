@@ -107,6 +107,9 @@ topics:
 {% data reusables.enterprise-accounts.messages-tab %}
 1. {% ifversion ghes or ghae %}在“Announcement（公告）”的右侧{% else %}下面{% endif %}，单击 **Add announcement（添加公告）**。 ![Add message 按钮](/assets/images/enterprise/site-admin-settings/add-announcement-button.png)
 1. 在“Announcement（公告）”下的在文本字段中键入要显示在横幅中的公告。 ![用于输入公告的文本字段](/assets/images/enterprise/site-admin-settings/announcement-text-field.png)
-1. （可选）在“Expires on（到期日）”下，选择日历下拉菜单并单击一个到期日。 ![用于选择到期日期的日历下拉菜单](/assets/images/enterprise/site-admin-settings/expiration-drop-down.png)
+1. （可选）在“Expires on（到期日）”下，选择日历下拉菜单并单击一个到期日。 ![Calendar drop-down menu to choose expiration date](/assets/images/enterprise/site-admin-settings/expiration-drop-down.png){% ifversion ghe-announce-dismiss %}
+1. （可选）要允许每个用户关闭通知，请选择 **User dismissible（用户可消除）**。
+
+   ![“ "用户可消除" ”复选框的屏幕截图](/assets/images/enterprise/site-admin-settings/user-dismissible-checkbox.png){% endif %}
 {% data reusables.enterprise_site_admin_settings.message-preview-save %}
 {% endif %}

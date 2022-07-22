@@ -76,7 +76,7 @@ Quando um usuário clica no botão, {% data variables.product.prodname_dotcom %}
 Para obter um exemplo detalhado de como configurar as ações solicitadas com a API de verificações, consulte "[Criar testes de CI com a API de verificações](/apps/quickstart-guides/creating-ci-tests-with-the-checks-api/#part-2-creating-the-octo-rubocop-ci-test)."
 
 {% ifversion fpt or ghec %}
-## Retention of checks data
+## Retenção de dados de verificação
 
 {% data reusables.pull_requests.retention-checks-data %}
 {% endif %}

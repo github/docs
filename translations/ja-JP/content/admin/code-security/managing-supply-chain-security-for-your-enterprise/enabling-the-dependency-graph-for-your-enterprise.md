@@ -1,6 +1,6 @@
 ---
 title: Enabling the dependency graph for your enterprise
-intro: You can allow users to identify their projects' dependencies by enabling the dependency graph.
+intro: 依存関係グラフを有効にすることによって、ユーザが自分のプロジェクトの依存関係を特定できるようになります。
 shortTitle: Enable dependency graph
 permissions: Site administrators can enable the dependency graph.
 versions:
@@ -16,9 +16,9 @@ topics:
 
 {% data reusables.dependabot.about-the-dependency-graph %} For more information, see "[About the dependency graph](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)"
 
-After you enable the dependency graph for your enterprise, you can enable {% data variables.product.prodname_dependabot %} to detect vulnerable dependencies in your repository{% ifversion ghes > 3.2 %} and automatically fix the vulnerabilities{% endif %}. For more information, see "[Enabling {% data variables.product.prodname_dependabot %} for your enterprise](/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise)."
+After you enable the dependency graph for your enterprise, you can enable {% data variables.product.prodname_dependabot %} to detect insecure dependencies in your repository{% ifversion ghes > 3.2 %} and automatically fix the vulnerabilities{% endif %}. 詳しい情報については「[Enterpriseでの{% data variables.product.prodname_dependabot %}の有効化](/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise)」を参照してください。
 
-{% ifversion ghes > 3.1 %}
+{% ifversion ghes %}
 You can enable the dependency graph via the {% data variables.enterprise.management_console %} or the administrative shell. We recommend using the {% data variables.enterprise.management_console %} unless {% data variables.product.product_location %} uses clustering.
 
 ## Enabling the dependency graph via the {% data variables.enterprise.management_console %}
@@ -35,12 +35,10 @@ If your {% data variables.product.product_location %} uses clustering, you canno
 
 ## Enabling the dependency graph via the administrative shell
 
-{% endif %}{% ifversion ghes < 3.2 %}
-## 依存関係グラフの有効化
 {% endif %}
 {% data reusables.enterprise_site_admin_settings.sign-in %}
 1. In the administrative shell, enable the dependency graph on {% data variables.product.product_location %}:
-    {% ifversion ghes > 3.1 %}```shell
+    {% ifversion ghes %}```shell
     ghe-config app.dependency-graph.enabled true
     ```
     {% else %}```shell
@@ -49,7 +47,7 @@ If your {% data variables.product.product_location %} uses clustering, you canno
     ```{% endif %}
    {% note %}
 
-   **Note**: For more information about enabling access to the administrative shell via SSH, see "[Accessing the administrative shell (SSH)](/enterprise/{{ currentVersion }}/admin/configuration/accessing-the-administrative-shell-ssh)."
+   **Note**: For more information about enabling access to the administrative shell via SSH, see "[Accessing the administrative shell (SSH)](/enterprise/admin/configuration/accessing-the-administrative-shell-ssh)."
 
    {% endnote %}
 2. 設定を適用します。

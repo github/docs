@@ -23,7 +23,7 @@ shortTitle: インドの1回払い
 - {% data variables.product.prodname_marketplace %}の購入
 - {% data variables.product.prodname_sponsors %}の取引
 - Git Large File Storageの購入
-- {% data variables.product.prodname_actions %}、{% data variables.product.prodname_registry %}、{% data variables.product.prodname_codespaces %}の消費
+- {% data variables.product.prodname_actions %}、{% data variables.product.prodname_registry %}、{% data variables.product.prodname_github_codespaces %}の消費
 
 混乱を最小限に抑えるため、影響を受けたお客様の定期的な取引は、2021 年10月29日に一時停止されました。 RBIの規制によって影響を受けたお客様については、有料の機能やサービスは引き続きご利用いただけます。
 

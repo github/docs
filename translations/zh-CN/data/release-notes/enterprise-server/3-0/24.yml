@@ -4,13 +4,13 @@ sections:
   security_fixes:
     - 包已更新到最新的安全版本。
   bugs:
-    - Pages would become unavailable following a MySQL secret rotation until `nginx` was manually restarted.
-    - When setting the maintenance schedule with a ISO 8601 date, the actual scheduled time wouldn't match due to the timezone not being transformed to UTC.
-    - The version number would not be correctly updated after a installing a hotpatch using `ghe-cluster-each`.
-    - Spurious error messages concerning the `cloud-config.service` would be output to the console.
-    - When using CAS authentication and the "Reactivate suspended users" option was enabled, suspended users were not automatically reactivated.
+    - 在 MySQL 机密轮换后，页面将变得不可用，直到“nginx”被手动重新启动。
+    - 使用 ISO 8601 日期设置维护计划时，由于时区未转换为 UTC，因此实际计划时间将不匹配。
+    - 使用“ghe-cluster-each”安装热补丁后，版本号将无法正确更新。
+    - 有关“cloud-config.service”的虚假错误消息将输出到控制台。
+    - 使用 CAS 身份验证并启用“Reactivate suspended users（重新激活挂起的用户）”选项时，不会自动重新激活挂起的用户。
   changes:
-    - The GitHub Connect data connection record now includes a count of the number of active and dormant users and the configured dormancy period.
+    - GitHub Connect 数据连接记录现在包括活动用户数和休眠用户数以及配置的休眠期的计数。
   known_issues:
     - 在新建的没有任何用户的 {% data variables.product.prodname_ghe_server %} 上，攻击者可以创建第一个管理员用户。
     - 自定义防火墙规则在升级过程中被删除。

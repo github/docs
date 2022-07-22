@@ -38,7 +38,7 @@ topics:
       ```
 4. At the prompt, specify the kind of key you want, or press `Enter` to accept the default.
 5. At the prompt, specify the key size you want, or press `Enter` to accept the default. キーは少なくとも `4096` ビットである必要があります。
-6. キーの有効期間を入力します。 `Enter` キーを押して、無期限を示すデフォルトの選択を指定します。
+6. キーの有効期間を入力します。 `Enter` キーを押して、無期限を示すデフォルトの選択を指定します。 Unless you require an expiration date, we recommend accepting this default.
 7. 選択内容が正しいことを確認します。
 8. ユーザ ID 情報を入力します。
 
@@ -57,12 +57,12 @@ topics:
   # ASCII armor 形式で GPG キーを出力する
   ```
 11. `-----BEGIN PGP PUBLIC KEY BLOCK-----` で始まり、`-----END PGP PUBLIC KEY BLOCK-----` で終わる GPG キーをコピーします。
-12. [GPG キーを GitHub アカウントに追加](/articles/adding-a-new-gpg-key-to-your-github-account)します。
+12. [GPG キーを GitHub アカウントに追加](/articles/adding-a-gpg-key-to-your-github-account)します。
 
 ## 参考リンク
 
 * [既存の GPG キーのチェック](/articles/checking-for-existing-gpg-keys)
-* [GitHub アカウントへの新しい GPG キーの追加](/articles/adding-a-new-gpg-key-to-your-github-account)
+* "[Adding a GPG key to your GitHub account](/articles/adding-a-gpg-key-to-your-github-account)"
 * 「[Git へ署名キーを伝える](/articles/telling-git-about-your-signing-key)」
 * [GPG キーとメールの関連付け](/articles/associating-an-email-with-your-gpg-key)
 * 「[コミットに署名する](/articles/signing-commits)」

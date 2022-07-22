@@ -23,6 +23,6 @@ Starring APIを使うと、リポジトリをブックマークできます。 �
 
 Star 付きの REST APIでサポートされているカスタムメディアタイプが 1 つあります。 このカスタムメディアタイプを使用すると、Star が作成された時刻を示す `starred_at` タイムスタンププロパティを含むレスポンスを受け取ります。 レスポンスには、カスタムメディアタイプが含まれていない場合に返されるリソースを含む 2 番目のプロパティもあります。 リソースを含むプロパティは、`user` または `repo` のいずれかになります。
 
-    application/vnd.github.v3.star+json
+    application/vnd.github.star+json
 
 メディアタイプの詳しい情報については、「[カスタムメディアタイプ](/rest/overview/media-types)」を参照してください。

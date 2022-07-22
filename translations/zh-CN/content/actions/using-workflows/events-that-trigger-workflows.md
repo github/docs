@@ -563,13 +563,7 @@ on:
 
 {% note %}
 
-**注意**：{% data reusables.developer-site.multiple_activity_types %} 有关每种活动类型的信息，请参阅“[web 挂钩事件和有效负载](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#pull_request)”。 默认情况下，工作流程仅在 `pull_request` 事件的活动类型为 `opened`、`synchronize` 或 `reopened` 时运行。 您可以使用 `types` 关键字指定不同的活动类型。 更多信息请参阅“[{% data variables.product.prodname_actions %} 的工作流程语法](/articles/workflow-syntax-for-github-actions#onevent_nametypes)”。
-
-{% endnote %}
-
-{% note %}
-
-**注意：** 默认情况下，只有 `opened`、`synchronize` 和 `reopened` 活动类型才会触发在 `pull_request` 事件上运行的工作流程。 要按不同的活动类型触发工作流，请使用 `types` 关键字。
+**注意**：{% data reusables.developer-site.multiple_activity_types %} 有关每种活动类型的信息，请参阅“[web 挂钩事件和有效负载](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#pull_request)”。 默认情况下，工作流程仅在 `pull_request` 事件的活动类型为 `opened`、`synchronize` 或 `reopened` 时运行。 要按不同的活动类型触发工作流，请使用 `types` 关键字。 更多信息请参阅“[{% data variables.product.prodname_actions %} 的工作流程语法](/articles/workflow-syntax-for-github-actions#onevent_nametypes)”。
 
 {% endnote %}
 
@@ -782,13 +776,7 @@ on:
 
 {% note %}
 
-**注意**：{% data reusables.developer-site.multiple_activity_types %} 有关每种活动类型的信息，请参阅“[web 挂钩事件和有效负载](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#pull_request_target)”。 默认情况下，工作流程仅在 `pull_request_target` 的活动类型为 `opened`、`synchronize` 或 `reopened` 时运行。 要让更多活动类型触发工作流程，请使用 `types` 关键词。 您可以使用 `types` 关键字指定不同的活动类型。 更多信息请参阅“[{% data variables.product.prodname_actions %} 的工作流程语法](/articles/workflow-syntax-for-github-actions#onevent_nametypes)”。
-
-{% endnote %}
-
-{% note %}
-
-**注意：** 默认情况下，只有 `opened`、`synchronize` 和 `reopened` 活动类型才会触发在 `pull_request` 事件上运行的工作流程。 要按不同的活动类型触发工作流，请使用 `types` 关键字。
+**注意**：{% data reusables.developer-site.multiple_activity_types %} 有关每种活动类型的信息，请参阅“[web 挂钩事件和有效负载](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#pull_request_target)”。 默认情况下，工作流程仅在 `pull_request_target` 活动的类型为 `opened`、`synchronize` 或 `reopened` 时运行。 要按不同的活动类型触发工作流，请使用 `types` 关键字。 更多信息请参阅“[{% data variables.product.prodname_actions %} 的工作流程语法](/articles/workflow-syntax-for-github-actions#onevent_nametypes)”。
 
 {% endnote %}
 
@@ -933,6 +921,12 @@ on:
   push
 ```
 
+{% note %}
+
+**注意**：当 `push` web 挂钩事件触发工作流程运行时，操作 UI 的“推送者”字段显示推送者的帐户，而不是作者或提交者的帐户。 但是，如果使用带有部署密钥的 SSH 身份验证将更改推送到存储库，则“推送者”字段将是存储库管理员，他在将部署密钥添加到存储库时对其进行了验证。
+
+{% endnote %}
+
 #### 仅在推送到特定分支时运行工作流程
 
 您可以使用 `branches` 或 `branches-ignore` 筛选器，将工作流程配置为仅在推送特定分支时运行。 更多信息请参阅“[GitHub Actions 的工作流程语法](/actions/learn-github-actions/workflow-syntax-for-github-actions#onpushbranchestagsbranches-ignoretags-ignore)”。
@@ -964,7 +958,7 @@ on:
 
 #### 仅在发生特定标记的推送时运行工作流程
 
-您可以使用 `tags` 或 `tags-ignore` 筛选器，将工作流程配置为仅在特定标记或推送时运行。 更多信息请参阅“[GitHub Actions 的工作流程语法](/actions/learn-github-actions/workflow-syntax-for-github-actions#onpushbranchestagsbranches-ignoretags-ignore)”。
+您可以使用 `tags` 或 `tags-ignore` 筛选器，将工作流程配置为仅在特定标记推送时运行。 更多信息请参阅“[GitHub Actions 的工作流程语法](/actions/learn-github-actions/workflow-syntax-for-github-actions#onpushbranchestagsbranches-ignoretags-ignore)”。
 
 例如，当有人推送以 `v1.` 开头的标记时，此工作流程将运行。
 
@@ -1019,7 +1013,7 @@ on:
 
 当存储库中发生与 {% data variables.product.prodname_registry %} 相关的活动时运行工作流程。 更多信息请参阅“[{% data variables.product.prodname_registry %} 文档](/packages)”。
 
-例如，您可以在软件包为 `published` 时运行工作流程。
+例如，您可以在新软件包版本`发布`时运行工作流程。
 
 ```yaml
 on:
@@ -1250,12 +1244,13 @@ on: workflow_dispatch
 
 #### 提供输入
 
-您可以直接在工作流程中配置事件的自定义输入属性、默认输入值和必要输入。 触发事件时，可以提供 `ref` 和任何 `inputs`。 当工作流程运行时，您可以访问 `github.event.inputs` 上下文中的输入值。 更多信息请参阅“[上下文](/actions/learn-github-actions/contexts)”。
+您可以直接在工作流程中配置事件的自定义输入属性、默认输入值和必要输入。 触发事件时，可以提供 `ref` 和任何 `inputs`。 在工作流程运行时，您可以访问 {% ifversion actions-unified-inputs %}`inputs`{% else %}`github.event.inputs`{% endif %} 上下文中的输入值。 更多信息请参阅“[上下文](/actions/learn-github-actions/contexts)”。
+
+{% data reusables.actions.inputs-vs-github-event-inputs %}
 
 {% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5511 %}
-此示例定义了称为 `logLevel`、`tags` 和 `environment` 的输入。 在运行工作流程时，可以将这些输入的值传递给工作流程。 然后，此工作流程使用 `github.event.inputs.logLevel`、`github.event.inputs.tags` 和  `github.event.inputs.environment` 上下文属性，将值输出到日志中。
+此示例定义了称为 `logLevel`、`tags` 和 `environment` 的输入。 在运行工作流程时，可以将这些输入的值传递给工作流程。 然后，此工作流程使用 {% ifversion actions-unified-inputs %}`inputs.logLevel`、`inputs.tags` 和 `inputs.environment`{% else %}`github.event.inputs.logLevel`、`github.event.inputs.tags`）和 `github.event.inputs.environment`{% endif %} 上下文属性，将值打印到日志中。
 
-{% raw %}
 ```yaml
 on: 
   workflow_dispatch:
@@ -1287,11 +1282,10 @@ jobs:
           echo "Tags: $TAGS"
           echo "Environment: $ENVIRONMENT"
         env:
-          LEVEL: ${{ github.event.inputs.logLevel }}
-          TAGS: ${{ github.event.inputs.tags }}
-          ENVIRONMENT: ${{ github.event.inputs.environment }}
+          LEVEL: {% ifversion actions-unified-inputs %}{% raw %}${{ inputs.logLevel }}{% endraw %}{% else %}{% raw %}${{ github.event.inputs.logLevel }}{% endraw %}{% endif %}
+          TAGS: {% ifversion actions-unified-inputs %}{% raw %}${{ inputs.tags }}{% endraw %}{% else %}{% raw %}${{ github.event.inputs.tags }}{% endraw %}{% endif %}
+          ENVIRONMENT: {% ifversion actions-unified-inputs %}{% raw %}${{ inputs.environment }}{% endraw %}{% else %}{% raw %}${{ github.event.inputs.environment }}{% endraw %}{% endif %}
 ```
-{% endraw %}
 
 如果从浏览器运行此工作流程，则必须在工作流程运行之前手动输入所需输入的值。
 
@@ -1306,7 +1300,7 @@ gh workflow run run-tests.yml -f logLevel=warning -f tags=false -f environment=s
 更多信息请参阅“[手动运行工作流程](/actions/managing-workflow-runs/manually-running-a-workflow)”中的 {% data variables.product.prodname_cli %} 信息。
 
 {% else %}
-此示例定义了 `name` 和 `home` 输入，并使用 `github.event.inputs.name` 和 `github.event.inputs.home` 上下文打印。 如果未提供 `home` ，则打印默认值“The Octoverse”。
+此示例定义 `name` 和 `home` 输入，并使用 {% ifversion actions-unified-inputs %}`inputs.name` 和 `inputs.home`{% else %}`github.event.inputs.name` 和 `github.event.inputs.home`{% endif %} 上下文打印它们。 如果未提供 `home` ，则打印默认值“The Octoverse”。
 
 ```yaml
 name: Manually triggered workflow
@@ -1330,8 +1324,8 @@ jobs:
           echo Hello $NAME!
           echo -in $HOME
         env:
-          NAME: {% raw %}${{ github.event.inputs.name }}{% endraw %}
-          HOME: {% raw %}${{ github.event.inputs.home }}{% endraw %}
+          NAME: {% ifversion actions-unified-inputs %}{% raw %}${{ inputs.name }}{% endraw %}{% else %}{% raw %}${{ github.event.inputs.name }}{% endraw %}{% endif %}
+          HOME: {% ifversion actions-unified-inputs %}{% raw %}${{ github.event.inputs.home }}{% endraw %}{% else %}{% raw %}${{ github.event.inputs.home }}{% endraw %}{% endif %}
 ```
 {% endif %}
 

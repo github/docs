@@ -44,13 +44,13 @@ shortTitle: Initiate failover to appliance
       $ ghe-repl-status -vv
       ```
 
-4. On the replica appliance, to stop replication and promote the replica appliance to primary status, use the `ghe-repl-promote` command. 到達可能であれば、これによりプライマリノードも自動的にメンテナンスノードになります。
+4. On the replica appliance, to stop replication and promote the replica appliance to primary status, use the `ghe-repl-promote` command. This will also automatically put the primary node in maintenance mode if it’s reachable.
   ```shell
   $ ghe-repl-promote
   ```
 5. レプリカの IP アドレスを指すように DNS レコードを更新します。 TTL 期間が経過すると、トラフィックはレプリカに転送されます。 ロードバランサを使用している場合は、トラフィックがレプリカに送信されるように設定されていることを確認します。
 6. 通常の操作が再開できることをユーザーに通知します。
-7. 必要に応じて、新しいプライマリから既存のアプライアンスや以前のプライマリへのレプリケーションをセットアップします。 詳細は「[High Availability の設定について](/enterprise/{{ currentVersion }}/admin/guides/installation/about-high-availability-configuration/#utilities-for-replication-management)」を参照してください。
+7. 必要に応じて、新しいプライマリから既存のアプライアンスや以前のプライマリへのレプリケーションをセットアップします。 詳細は「[High Availability の設定について](/enterprise/admin/guides/installation/about-high-availability-configuration/#utilities-for-replication-management)」を参照してください。
 8. フェイルオーバー前に High Availability 設定の一部であり、レプリケーションをセットアップする予定のないアプライアンスは、UUID による High Availability 設定から削除する必要があります。
     - 以前のアプライアンスでは、`cat /data/user/common/uuid` を介して UUID を取得します。
       ```shell
@@ -63,4 +63,4 @@ shortTitle: Initiate failover to appliance
 
 ## 参考リンク
 
-- "[レプリケーション管理のユーティリティ](/enterprise/{{ currentVersion }}/admin/guides/installation/about-high-availability-configuration/#utilities-for-replication-management)"
+- "[レプリケーション管理のユーティリティ](/enterprise/admin/guides/installation/about-high-availability-configuration/#utilities-for-replication-management)"

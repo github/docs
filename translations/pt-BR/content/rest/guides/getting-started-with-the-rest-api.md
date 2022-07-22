@@ -101,10 +101,7 @@ $ curl -i https://api.github.com/users/defunkt
 
 Há algumas partes interessantes nos cabeçalhos da resposta. Como esperado, o `Content-Type` é `application/json`.
 
-Qualquer cabeçalho que começar com `X -` é um cabeçalho personalizado e não está incluído nas especificações de HTTP. Por exemplo:
-
-* `X-GitHub-Media-Type` tem um valor de `github.v3`. Isso nos permite saber o [tipo de mídia][media types] para a resposta. Tipos de mídia nos ajudaram a criar uma versão da nossa saída na API v3. Vamos falar mais sobre isso mais adiante.
-* Anote os cabeçalhos `X-RateLimit-Limit` e `X-RateLimit-Remaining`. Este par de cabeçalhos indica [quantas solicitações um cliente pode fazer][rate-limiting] em um período de tempo consecutivo (geralmente, uma hora) e quantas dessas solicitações o cliente já gastou.
+Qualquer cabeçalho que começar com `X -` é um cabeçalho personalizado e não está incluído nas especificações de HTTP. Por exemplo, anote os cabeçalhos `X-RateLimit-Limit` e `X-RateLimit-Remaining`. Este par de cabeçalhos indica [quantas solicitações um cliente pode fazer][rate-limiting] em um período de tempo consecutivo (geralmente, uma hora) e quantas dessas solicitações o cliente já gastou.
 
 ## Autenticação
 
@@ -134,13 +131,11 @@ Ao efetuar a autenticação, você deverá ver seu limite de taxa disparado para
 
 Você pode facilmente [criar um **token de acesso pessoal**][personal token] usando a sua [página de configurações de tokens de acesso pessoal][tokens settings]:
 
-{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
 {% warning %}
 
 Para ajudar a manter suas informações seguras, é altamente recomendável definir um vencimento para seus tokens de acesso pessoal.
 
 {% endwarning %}
-{% endif %}
 
 {% ifversion fpt or ghes or ghec %}
 ![Seleção de Token Pessoal](/assets/images/personal_token.png)
@@ -150,9 +145,7 @@ Para ajudar a manter suas informações seguras, é altamente recomendável defi
 ![Seleção de Token Pessoal](/assets/images/help/personal_token_ghae.png)
 {% endif %}
 
-{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
 As solicitações da API que usam um token de acesso pessoal vencido retornará a data de validade do token por meio do cabeçalho `GitHub-Authentication-Token-Expiration`. Você pode usar o cabeçalho nos seus scripts para fornecer uma mensagem de aviso quando o token estiver próximo da data de vencimento.
-{% endif %}
 
 ### Obtenha seu próprio perfil de usuário
 
@@ -203,7 +196,7 @@ $ curl -i {% data variables.product.api_url_pre %}/repos/twbs/bootstrap
 Da mesma forma, podemos [visualizar repositórios para o usuário autenticado][user repos api]:
 
 ```shell
-$ curl -i -H "Authorization: token {% ifversion fpt or ghes > 3.1 or ghae or ghec %}ghp_16C7e42F292c6912E7710c838347Ae178B4a{% else %}5199831f4dd3b79e7c5b7e0ebe75d67aa66e79d4{% endif %}" \
+$ curl -i -H "Authorization: token ghp_16C7e42F292c6912E7710c838347Ae178B4a" \
     {% data variables.product.api_url_pre %}/user/repos
 ```
 
@@ -241,12 +234,12 @@ Buscar informações para repositórios existentes é um caso de uso comum, mas 
 precisamos `POST` alguns JSON que contém informações e opções de configuração.
 
 ```shell
-$ curl -i -H "Authorization: token {% ifversion fpt or ghes > 3.1 or ghae or ghec %}ghp_16C7e42F292c6912E7710c838347Ae178B4a{% else %}5199831f4dd3b79e7c5b7e0ebe75d67aa66e79d4{% endif %}" \
-    -d '{ \
-        "name": "blog", \
-        "auto_init": true, \
-        "private": true, \
-        "gitignore_template": "nanoc" \
+$ curl -i -H "Authorization: token ghp_16C7e42F292c6912E7710c838347Ae178B4a" \
+    -d '{
+        "name": "blog",
+        "auto_init": true,
+        "private": true,
+        "gitignore_template": "nanoc"
       }' \
     {% data variables.product.api_url_pre %}/user/repos
 ```
@@ -276,7 +269,7 @@ A interface de usuário para problemas no {% data variables.product.product_name
 Assim como o github.com, a API fornece alguns métodos para exibir problemas para o usuário autenticado. Para [ver todos os seus problemas][get issues api], chame `GET /issues`:
 
 ```shell
-$ curl -i -H "Authorization: token {% ifversion fpt or ghes > 3.1 or ghae or ghec %}ghp_16C7e42F292c6912E7710c838347Ae178B4a{% else %}5199831f4dd3b79e7c5b7e0ebe75d67aa66e79d4{% endif %}" \
+$ curl -i -H "Authorization: token ghp_16C7e42F292c6912E7710c838347Ae178B4a" \
     {% data variables.product.api_url_pre %}/issues
 ```
 
@@ -284,7 +277,7 @@ Para obter apenas os [problemas sob uma das suas organizações de {% data varia
 /orgs/<org>/issues`:
 
 ```shell
-$ curl -i -H "Authorization: token {% ifversion fpt or ghes > 3.1 or ghae or ghec %}ghp_16C7e42F292c6912E7710c838347Ae178B4a{% else %}5199831f4dd3b79e7c5b7e0ebe75d67aa66e79d4{% endif %}" \
+$ curl -i -H "Authorization: token ghp_16C7e42F292c6912E7710c838347Ae178B4a" \
     {% data variables.product.api_url_pre %}/orgs/rails/issues
 ```
 
@@ -317,7 +310,7 @@ Agora que vimos como paginar listas de problemas, vamos [criar um problema][crea
 Para criar um problema, precisamos estar autenticados. Portanto, passaremos um token do OAuth no cabeçalho. Além disso, passaremos o título, texto, e as etiquetas no texto do JSON para o caminho `/issues` abaixo do repositório em que queremos criar o problema:
 
 ```shell
-$ curl -i -H 'Authorization: token {% ifversion fpt or ghes > 3.1 or ghae or ghec %}ghp_16C7e42F292c6912E7710c838347Ae178B4a{% else %}5199831f4dd3b79e7c5b7e0ebe75d67aa66e79d4{% endif %}' \
+$ curl -i -H 'Authorization: token ghp_16C7e42F292c6912E7710c838347Ae178B4a' \
 $    -d '{ \
 $         "title": "New logo", \
 $         "body": "We should have one", \
@@ -400,7 +393,6 @@ Continue aprendendo com o próximo guia da API [Princípios básicos da autentic
 
 [wrappers]: /libraries/
 [curl]: http://curl.haxx.se/
-[media types]: /rest/overview/media-types
 [oauth]: /apps/building-integrations/setting-up-and-registering-oauth-apps/
 [webflow]: /apps/building-oauth-apps/authorizing-oauth-apps/
 [scopes]: /apps/building-oauth-apps/understanding-scopes-for-oauth-apps/

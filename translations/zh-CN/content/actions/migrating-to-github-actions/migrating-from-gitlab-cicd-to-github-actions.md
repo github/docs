@@ -309,7 +309,7 @@ GitLab CI/CD 和 {% data variables.product.prodname_actions %} 支持在管道�
 
 GitLab CI/CD 和 {% data variables.product.prodname_actions %} 在配置文件中提供了手动缓存工作流程文件的方法。
 
-{% if actions-caching %}
+{% ifversion actions-caching %}
 
 下面是每个系统的语法示例：
 

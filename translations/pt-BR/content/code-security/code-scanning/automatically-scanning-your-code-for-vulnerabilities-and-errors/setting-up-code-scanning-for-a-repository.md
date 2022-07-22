@@ -131,11 +131,7 @@ Depois de configurar o {% data variables.product.prodname_code_scanning %} para 
 
 **Observação:** Se você criou um pull request para adicionar o fluxo de trabalho de {% data variables.product.prodname_code_scanning %} ao repositório, os alertas desse pull request não serão exibidos diretamente na página de {% data variables.product.prodname_code_scanning_capc %} até que o pull request seja mesclado. Se algum alerta for encontrado, você poderá visualizá-los, antes do merge do pull request, clicando no link dos **_n_ alertas encontrados** no banner na página de {% data variables.product.prodname_code_scanning_capc %}.
 
-{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
-  ![Clique no link "n alertas encontrados"](/assets/images/help/repository/code-scanning-alerts-found-link.png)
-{% else %}
-  ![Clique no link "n alertas encontrados"](/assets/images/enterprise/3.1/help/repository/code-scanning-alerts-found-link.png)
-{% endif %}
+![Clique no link "n alertas encontrados"](/assets/images/help/repository/code-scanning-alerts-found-link.png)
 
 {% endnote %}
 
@@ -173,11 +169,7 @@ Há outras situações em que não pode haver análise para o último commit do 
 
   Para verificar se um branch foi verificado, acesse a página {% data variables.product.prodname_code_scanning_capc %}, clique no menu suspenso **Branch** e selecione o branch relevante.
 
-{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
-  ![Escolha um branch no menu suspenso Branch](/assets/images/help/repository/code-scanning-branch-dropdown.png)
-{% else %}
-  ![Escolha um branch no menu suspenso Branch](/assets/images/enterprise/3.1/help/repository/code-scanning-branch-dropdown.png)
-{% endif %}
+![Escolha um branch no menu suspenso Branch](/assets/images/help/repository/code-scanning-branch-dropdown.png)
 
   A solução nesta situação é adicionar o nome do branch de base para a especificação `on:push` e `on:pull_request` no fluxo de trabalho de {% data variables.product.prodname_code_scanning %} nesse branch e, em seguida, fazer uma alteração que atualize o pull request aberto que você deseja escanear.
 

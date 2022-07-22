@@ -2,7 +2,7 @@
 title: Searching the audit log for your enterprise
 intro: You can search an extensive list of audited actions in your enterprise.
 shortTitle: Search audit logs
-permissions: Enterprise owners {% ifversion ghes %}and site administrators {% endif %}can search the audit log.
+permissions: 'Enterprise owners {% ifversion ghes %}and site administrators {% endif %}can search the audit log.'
 redirect_from:
   - /enterprise/admin/articles/searching-the-audit-log
   - /enterprise/admin/installation/searching-the-audit-log

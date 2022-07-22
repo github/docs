@@ -48,14 +48,9 @@ Em um arquivo ou uma pull request, também é possível usar o menu {% octicon "
 3. No canto superior direito da exibição do arquivo, clique em **Blame** para abrir a exibição blame. ![Botão Blame (Blame)](/assets/images/help/repository/blame-button.png)
 4. Para ver revisões anteriores de uma linha específica ou tornar a usar o recurso blame, clique em {% octicon "versions" aria-label="The prior blame icon" %} até encontrar as alterações que você deseja exibir. ![Botão Prior blame (Blame anterior)](/assets/images/help/repository/prior-blame-button.png)
 
-{% if blame-ignore-revs %}
+{% ifversion blame-ignore-revs %}
 
 ## Ignorar commits na exibição do último responsável
-{% note %}
-
-**Observação:** Ignorar commits na visualização de último responsável encontra-se atualmente na versão beta pública e sujeita a alterações.
-
-{% endnote %}
 
 Todas as revisões especificadas no arquivo `.git-blame-ignore-revs`, que deve estar no diretório raiz do repositório, estão ocultas da exibição de último responsável, que usa a configuração `git blame --ignore-revs-file`. Para obter mais informações, consulte [`git blame --ignore-revs-file`](https://git-scm.com/docs/git-blame#Documentation/git-blame.txt---ignore-revs-fileltfilegt) na documentação do Git.
 
@@ -80,6 +75,12 @@ Isso pode ser útil quando alguns commits fizerem amplas alterações no seu có
 
 ```shell
 git blame --ignore-revs-file .git-blame-ignore-revs
+```
+
+You can also configure your local git so it always ignores the revs in that file:
+
+```shell
+git config blame.ignoreRevsFile .git-blame-ignore-revs
 ```
 
 {% endif %}

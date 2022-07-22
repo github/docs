@@ -14,7 +14,7 @@ import { fileURLToPath } from 'url'
 import path from 'path'
 import fs from 'fs'
 import { LinkChecker } from 'linkinator'
-import program from 'commander'
+import { program } from 'commander'
 import { pull, uniq } from 'lodash-es'
 import rimraf from 'rimraf'
 import mkdirp from 'mkdirp'
@@ -28,8 +28,22 @@ const checker = new LinkChecker()
 const root = 'http://localhost:4000'
 const englishRoot = `${root}/en`
 
+// When using the peter-evans/create-issue-from-file Action to post an
+// issue comment you might get an error like this:
+//
+//   "body is too long (maximum is 65536 characters)"
+//
+// So we cap our to not exceed that length.
+// This number doesn't have to be strictly less that the maximum possible
+// but it just mustn't exceed the validation limit.
+// Note, a little bit of room must be left for adding
+// a note in the generated output about the excess.
+const DISPLAY_MAX_LENGTH = parseInt(process.env.DISPLAY_MAX_LENGTH || '30000', 10)
+
 // Links with these codes may or may not really be broken.
 const retryStatusCodes = [429, 503, 'Invalid']
+
+const LINKINATOR_CONCURRENCY = parseInt(process.env.LINKINATOR_CONCURRENCY || '300')
 
 program
   .description('Check all links in the English docs.')
@@ -61,7 +75,7 @@ const enterpriseReleasesToSkip = new RegExp(`${root}.+?[/@](${deprecated.join('|
 
 const config = {
   path: program.opts().path || englishRoot,
-  concurrency: 300,
+  concurrency: LINKINATOR_CONCURRENCY,
   // If this is a dry run, turn off recursion.
   recurse: !program.opts().dryRun,
   silent: true,
@@ -116,9 +130,15 @@ async function main() {
       return link
     })
 
+  // It's OK to console.warn because that goes to stderr.
+  console.warn(`${brokenLinks.length} broken links in total (before retry)`)
+
   if (!program.opts().doNotRetry) {
     // Links to retry individually.
     const linksToRetry = brokenLinks.filter((link) => retryStatusCodes.includes(link.status))
+
+    // It's OK to console.warn because that goes to stderr.
+    console.warn(`${linksToRetry.length} links to retry`)
 
     await Promise.all(
       linksToRetry.map(async (link) => {
@@ -142,36 +162,54 @@ async function main() {
   }
 
   // Format and display the results.
-  console.log(`${brokenLinks.length} broken links found on docs.github.com\n`)
-  displayBrokenLinks(brokenLinks)
+  console.log(`${brokenLinks.length} broken links found on ${root}\n`)
+  console.log(getDisplayBrokenLinks(brokenLinks, DISPLAY_MAX_LENGTH))
   console.log(
-    '\nIf links are "false positives" (e.g. can only be opened by a browser) consider making a pull request that edits `lib/excluded-links.js`.'
+    '\nIf links are "false positives" (e.g. can only be opened by a browser) ' +
+      'consider making a pull request that edits `lib/excluded-links.js`.'
   )
 
   // Exit unsuccessfully if broken links are found.
   process.exit(1)
 }
 
-function displayBrokenLinks(brokenLinks) {
+function getDisplayBrokenLinks(brokenLinks, maxLength) {
+  let output = ''
   // Sort results by status code.
   const allStatusCodes = uniq(
     brokenLinks
       // Coerce undefined status codes into `Invalid` strings so we can display them.
-      // Without this, undefined codes get JSON.stringified as `0`, which is not useful output.
+      // Without this, undefined codes get JSON.stringified as `0`,
+      // which is not useful output.
       .map((link) => link.status || 'Invalid')
   )
 
   allStatusCodes.forEach((statusCode) => {
     const brokenLinksForStatus = brokenLinks.filter((x) => x.status === statusCode)
 
-    console.log(`## Status ${statusCode}: Found ${brokenLinksForStatus.length} broken links`)
-    console.log('```')
+    output += `## Status ${statusCode}: Found ${brokenLinksForStatus.length} broken links\n\n`
+    output += '```\n'
+    let exceededDisplayLimit = 0
     brokenLinksForStatus.forEach((brokenLinkObj) => {
       // We don't need to dump all of the HTTP and HTML details
       delete brokenLinkObj.failureDetails
+      const line = JSON.stringify(brokenLinkObj, null, 2)
+      if (output.length + line.length > maxLength) {
+        exceededDisplayLimit++
+        return
+      }
 
-      console.log(JSON.stringify(brokenLinkObj, null, 2))
+      output += `${line}\n`
     })
-    console.log('```')
+    output += '```\n'
+    if (exceededDisplayLimit > 0) {
+      output += `\n(🎵! Because the comment is already big,
+        we skipped ${exceededDisplayLimit} additional broken links.
+        It is unlikely that these are real broken links. More likely
+        they are false positives due to a server-related issue that
+        needs investigating. \n`
+    }
   })
+
+  return output
 }

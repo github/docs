@@ -80,7 +80,7 @@ topics:
 默认情况下，响应采用以下形式：
 
 ```
-access_token={% ifversion fpt or ghes > 3.1 or ghae or ghec %}gho_16C7e42F292c6912E7710c838347Ae178B4a{% else %}e72e16c7e42f292c6912e7710c838347ae178b4a{% endif %}&scope=repo%2Cgist&token_type=bearer
+access_token=gho_16C7e42F292c6912E7710c838347Ae178B4a&scope=repo%2Cgist&token_type=bearer
 ```
 
 {% data reusables.apps.oauth-auth-vary-response %}
@@ -88,7 +88,7 @@ access_token={% ifversion fpt or ghes > 3.1 or ghae or ghec %}gho_16C7e42F292c69
 ```json
 Accept: application/json
 {
-  "access_token":"{% ifversion fpt or ghes > 3.1 or ghae or ghec %}gho_16C7e42F292c6912E7710c838347Ae178B4a{% else %}e72e16c7e42f292c6912e7710c838347ae178b4a{% endif %}",
+  "access_token":"gho_16C7e42F292c6912E7710c838347Ae178B4a",
   "scope":"repo,gist",
   "token_type":"bearer"
 }
@@ -99,7 +99,7 @@ Accept: application/xml
 <OAuth>
   <token_type>bearer</token_type>
   <scope>repo,gist</scope>
-  <access_token>{% ifversion fpt or ghes > 3.1 or ghae or ghec %}gho_16C7e42F292c6912E7710c838347Ae178B4a{% else %}e72e16c7e42f292c6912e7710c838347ae178b4a{% endif %}</access_token>
+  <access_token>gho_16C7e42F292c6912E7710c838347Ae178B4a</access_token>
 </OAuth>
 ```
 
@@ -126,7 +126,7 @@ curl -H "Authorization: token OAUTH-TOKEN" {% data variables.product.api_url_pre
 
 设备流程允许您授权用户使用无头应用程序，例如 CLI 工具或 Git 凭据管理器。
 
-{% if device-flow-is-opt-in %}
+{% ifversion device-flow-is-opt-in %}
 
 在使用设备流识别和授权用户之前，必须先在应用的设置中启用它。 有关在应用中启用设备流的详细信息，请参阅“[修改 OAuth 应用程序](/developers/apps/managing-oauth-apps/modifying-an-oauth-app)”（对于 OAuth 应用程序）和“[修改 GitHub 应用程序](/developers/apps/managing-github-apps/modifying-a-github-app)”（对于 GitHub 应用程序）。
 
@@ -222,7 +222,7 @@ Accept: application/xml
 默认情况下，响应采用以下形式：
 
 ```
-access_token={% ifversion fpt or ghes > 3.1 or ghae or ghec %}gho_16C7e42F292c6912E7710c838347Ae178B4a{% else %}e72e16c7e42f292c6912e7710c838347ae178b4a{% endif %}&token_type=bearer&scope=repo%2Cgist
+access_token=gho_16C7e42F292c6912E7710c838347Ae178B4a&token_type=bearer&scope=repo%2Cgist
 ```
 
 {% data reusables.apps.oauth-auth-vary-response %}
@@ -230,7 +230,7 @@ access_token={% ifversion fpt or ghes > 3.1 or ghae or ghec %}gho_16C7e42F292c69
 ```json
 Accept: application/json
 {
- "access_token": "{% ifversion fpt or ghes > 3.1 or ghae or ghec %}gho_16C7e42F292c6912E7710c838347Ae178B4a{% else %}e72e16c7e42f292c6912e7710c838347ae178b4a{% endif %}",
+ "access_token": "gho_16C7e42F292c6912E7710c838347Ae178B4a",
   "token_type": "bearer",
   "scope": "repo,gist"
 }
@@ -239,7 +239,7 @@ Accept: application/json
 ```xml
 Accept: application/xml
 <OAuth>
-  <access_token>{% ifversion fpt or ghes > 3.1 or ghae or ghec %}gho_16C7e42F292c6912E7710c838347Ae178B4a{% else %}e72e16c7e42f292c6912e7710c838347ae178b4a{% endif %}</access_token>
+  <access_token>gho_16C7e42F292c6912E7710c838347Ae178B4a</access_token>
   <token_type>bearer</token_type>
   <scope>gist,repo</scope>
 </OAuth>
@@ -261,11 +261,10 @@ Accept: application/xml
 | `unsupported_grant_type`       | 授予类型必须为 `urn:ietf:params:oauth:grant-type:device_code`，并在您轮询 OAuth 令牌请求 `POST {% data variables.product.oauth_host_code %}/login/oauth/access_token` 时作为输入参数包括在内。                                                                                      |
 | `incorrect_client_credentials` | 对于设备流程，您必须传递应用程序的客户端 ID，您可以在应用程序设置页面上找到该 ID。 设备流程不需要 `client_secret`。                                                                                                                                                                                  |
 | `incorrect_device_code`        | 提供的 device_code 无效。                                                                                                                                                                                                                                    |
-| `access_denied`                | 当用户在授权过程中单击取消时，您将收到 `access_denied` 错误，用户将无法再次使用验证码。{% if device-flow-is-opt-in %}
+| `access_denied`                | 当用户在授权过程中单击取消时，您将收到 `access_denied` 错误，用户将无法再次使用验证码。{% ifversion device-flow-is-opt-in %}
 | `device_flow_disabled`         | 尚未在应用的设置中启用设备流。 更多信息请参阅“[设备流](#device-flow)”。{% endif %}
 
 更多信息请参阅“[OAuth 2.0 设备授权授予](https://tools.ietf.org/html/rfc8628#section-3.5)”。
-
 
 ## 非 Web 应用程序流程
 

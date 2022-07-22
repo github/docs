@@ -6,8 +6,8 @@ versions:
   ghes: '*'
   ghae: '*'
   ghec: '*'
-  redirect_from:
-    - /github/writing-on-github/working-with-advanced-formatting/organizing-information-with-collapsed-sections
+redirect_from:
+  - /github/writing-on-github/working-with-advanced-formatting/organizing-information-with-collapsed-sections
 shortTitle: Secciones colapsadas
 ---
 
@@ -17,17 +17,23 @@ Puedes ocultar las secciones de tu lenguaje de marcado temporalmente si creas un
 
 Cualquier lenguaje de mrcado dentro del bloque `<details>` se colapsará hasta que el lector haga clic en {% octicon "triangle-right" aria-label="The right triange icon" %} para expandir los detalles. Dentro del bloque de `<details>`, utiliza la marca `<summary>` para crear una etiqueta a la derecha de {% octicon "triangle-right" aria-label="The right triange icon" %}.
 
-```markdown
+````markdown
 <details><summary>CLICK ME</summary>
+
+
 <p>
 
 #### We can hide anything, even code!
 
-    ```ruby
-      puts "Hello World"
-    ```
+```ruby
+   puts "Hello World"
+```
 
-</details> ```</p>
+</p>
+
+
+</details>
+````
 
 El lenguaje de marcado se colapsará predeterminadamente.
 

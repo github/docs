@@ -33,37 +33,13 @@ shortTitle: dependabot.ymlの設定
 
 セキュリティアップデートに影響するオプションは、次にセキュリティアラートがセキュリティアップデートのためのプルリクエストをトリガーするときにも使用されます。  詳しい情報については、「[{% data variables.product.prodname_dependabot_security_updates %} を設定する](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/configuring-dependabot-security-updates)」を参照してください。
 
-*dependabot.yml* ファイルには、必須の最上位キーに `version` と `updates` の 2 つがあります。 あるいは、トップレベルの`registries`キー{% ifversion fpt or ghec or ghes > 3.4 %}や`enable-beta-ecosystems`キー{% endif %}を含めることができます。 ファイルは、`version: 2` で始まる必要があります。
+*dependabot.yml* ファイルには、必須の最上位キーに `version` と `updates` の 2 つがあります。 あるいは、トップレベルの`registries`キー{% ifversion ghes = 3.5 %}や`enable-beta-ecosystems`キー{% endif %}を含めることができます。 ファイルは、`version: 2` で始まる必要があります。
 
-## 更新の設定オプション
+## *dependabot.yml*ファイルの設定オプション
 
 最上位の `updates` キーは必須です。 これを使用することで、{% data variables.product.prodname_dependabot %} がバージョンやプロジェクトの依存性を更新する方法を設定できます。 各エントリは、特定のパッケージマネージャーの更新設定を行います。 次のオプションを使用できます。
 
-| オプション                                                                      |  必須   | 説明                                                                      |
-|:-------------------------------------------------------------------------- |:-----:|:----------------------------------------------------------------------- |
-| [`package-ecosystem`](#package-ecosystem)                                  | **X** | 使用するパッケージマネージャー                                                         |
-| [`directory`](#directory)                                                  | **X** | パッケージマニフェストの場所                                                          |
-| [`schedule.interval`](#scheduleinterval)                                   | **X** | 更新を確認する頻度                                                               |
-| [`allow`](#allow)                                                          |       | 許可する更新をカスタマイズする                                                         |
-| [`assignees`](#assignees)                                                  |       | プルリクエストのアサイン担当者                                                         |
-| [`commit-message`](#commit-message)                                        |       | コミットメッセージの設定                 |{% ifversion fpt or ghec or ghes > 3.4 %}
-| [`enable-beta-ecosystems`](#enable-beta-ecosystems)                        |       | ベータレベルのサポートがあるエコシステムを有効にする 
-{% endif %}
-| [`ignore`](#ignore)                                                        |       | 特定の依存関係またはバージョンを無視する                                                    |
-| [`insecure-external-code-execution`](#insecure-external-code-execution)    |       | マニフェストファイル内でコードの実行を許可または拒否する                                            |
-| [`labels`](#labels)                                                        |       | プルリクエストに設定するラベル                                                         |
-| [`マイルストーン`](#milestone)                                                    |       | プルリクエストに設定するマイルストーン                                                     |
-| [`open-pull-requests-limit`](#open-pull-requests-limit)                    |       | バージョン更新時のオープンなプルリクエスト数を制限する                                             |
-| [`pull-request-branch-name.separator`](#pull-request-branch-nameseparator) |       | プルリクエストブランチ名の区切り文字を変更する                                                 |
-| [`rebase-strategy`](#rebase-strategy)                                      |       | 自動リベースを無効にする                                                            |
-| [`registries`](#registries)                                                |       | {% data variables.product.prodname_dependabot %} がアクセスできるプライベートリポジトリ    |
-| [`レビュー担当者`](#reviewers)                                                    |       | プルリクエストのレビュー担当者                                                         |
-| [`schedule.day`](#scheduleday)                                             |       | 更新を確認する曜日                                                               |
-| [`schedule.time`](#scheduletime)                                           |       | 更新を確認する時刻 (hh:mm)                                                       |
-| [`schedule.timezone`](#scheduletimezone)                                   |       | 時刻のタイムゾーン（ゾーン識別子）                                                       |
-| [`target-branch`](#target-branch)                                          |       | プルリクエストを作成するブランチ                                                        |
-| [`vendor`](#vendor)                                                        |       | ベンダーまたはキャッシュされた依存関係を更新する                                                |
-| [`versioning-strategy`](#versioning-strategy)                              |       | マニフェストのバージョン要件の更新方法                                                     |
+{% data reusables.dependabot.configuration-options %}
 
 これらのオプションは、次のようなカテゴリに幅広く適合しています。
 
@@ -304,6 +280,10 @@ updates:
       prefix-development: "pip dev"
       include: "scope"
 ```
+上の例と同じ設定を使った場合、`pip`の依存関係グループ内の`requests`のバージョンを上げると、以下のようなコミットメッセージが生成されます。
+
+   `pip dev: bump requests from 1.0.0 to 1.0.1`
+
 ### `ignore`
 
 {% data reusables.dependabot.default-dependencies-allow-ignore %}
@@ -316,13 +296,13 @@ updates:
 
 リポジトリが`ignore`の設定を保存したかは、リポジトリで`"@dependabot ignore" in:comments`を検索すれば調べられます。 この方法で無視された依存関係の無視を解除したいなら、Pull Requestを再度オープンしてください。
 
-`@dependabot ignore` コマンドに関する詳細については、「[依存関係の更新に関するプルリクエストを管理する](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/managing-pull-requests-for-dependency-updates#managing-dependabot-pull-requests-with-comment-commands)」をご覧ください。
+`@dependabot ignore` コマンドに関する詳細については、「[依存関係の更新に関するPull Requestの管理](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/managing-pull-requests-for-dependency-updates#managing-dependabot-pull-requests-with-comment-commands)」をご覧ください。
 
 #### 無視する依存関係とバージョンを指定する
 
 `ignore` オプションを使用して、更新する依存関係をカスタマイズできます。 `ignore` オプションは、次のオプションに対応しています。
 
-- `dependency-name`: 名前が一致する依存関係の更新を無視するために使用し、必要に応じて `*` を使用して 0 文字以上の文字と一致させます。 Javaの依存関係については、`dependency-name`属性のフォーマットは`groupId:artifactId`です（たとえば`org.kohsuke:github-api`）。 {% if dependabot-grouped-dependencies %} {% data variables.product.prodname_dependabot %} がDefinitelyTypedからTypeScriptの型定義を自動的に更新しないようにするには、`@types/*`を使ってください。{% endif %}
+- `dependency-name`: 名前が一致する依存関係の更新を無視するために使用し、必要に応じて `*` を使用して 0 文字以上の文字と一致させます。 Javaの依存関係については、`dependency-name`属性のフォーマットは`groupId:artifactId`です（たとえば`org.kohsuke:github-api`）。 {% ifversion dependabot-grouped-dependencies %} {% data variables.product.prodname_dependabot %} がDefinitelyTypedからTypeScriptの型定義を自動的に更新しないようにするには、`@types/*`を使ってください。{% endif %}
 - `versions`: 特定のバージョンまたはバージョンの範囲を無視するために使用します。 範囲を定義する場合は、パッケージマネージャーの標準パターンを使用します（例: npm の場合は `^1.0.0`、Bundler の場合は `~> 2.0`）。
 - `update-types` - バージョン更新におけるsemverの`major`、`minor`、`patch`更新といった更新の種類を無視するために使います。（たとえば`version-update:semver-patch`でパッチアップデートが無視されます）。 これを`code>dependency-name: "*"`と組み合わせて、特定の`update-types`をすべての依存関係で無視できます。 現時点では、サポートされているオプションは`version-update:semver-major`、`version-update:semver-minor`、`version-update:semver-patch`のみです。 セキュリティの更新はこの設定には影響されません。
 
@@ -994,8 +974,9 @@ registries:
 
 version: 2
 enable-beta-ecosystems: true
-updates:
-  - package-ecosystem: "pub"
+updates:{% ifversion fpt or ghec or ghes > 3.5 %}
+  - package-ecosystem: "beta-ecosystem"{% else %}
+  - package-ecosystem: "pub"{% endif %}
     directory: "/"
     schedule:
       interval: "daily"

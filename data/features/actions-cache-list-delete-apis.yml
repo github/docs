@@ -1,0 +1,8 @@
+# Reference: #7340
+# Extends actions-cache-management.yml (Issue #6154)
+# Documentation for Actions cache list and delete APIs
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '> 3.6'
+  ghae: 'issue-7340'

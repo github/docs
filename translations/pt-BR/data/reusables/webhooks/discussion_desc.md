@@ -1,1 +1,1 @@
-`discussion` | `object` | The [`discussion`]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql/guides/using-the-graphql-api-for-discussions#discussion) resource.
+`discussion` | `object` | The [`discussion`](/graphql/guides/using-the-graphql-api-for-discussions#discussion) resource.

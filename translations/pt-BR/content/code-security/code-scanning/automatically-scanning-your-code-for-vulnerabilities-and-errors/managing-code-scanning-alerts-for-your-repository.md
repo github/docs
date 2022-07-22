@@ -1,7 +1,7 @@
 ---
 title: Gerenciar alertas de verificação de código para o seu repositório
 shortTitle: Gerenciar alertas
-intro: 'Na visão de segurança, {% if delete-code-scanning-alerts %}você pode visualizar, corrigir, ignorar ou excluir alertas {% else %}que você pode visualizar, corrigir, ou dispensar alertas{% endif %} de possíveis vulnerabilidades ou erros no código do seu projeto.'
+intro: 'Na visão de segurança, {% ifversion delete-code-scanning-alerts %}você pode visualizar, corrigir, ignorar ou excluir alertas {% else %}que você pode visualizar, corrigir, ou dispensar alertas{% endif %} de possíveis vulnerabilidades ou erros no código do seu projeto.'
 product: '{% data reusables.gated-features.code-scanning %}'
 permissions: 'If you have write permission to a repository you can manage {% data variables.product.prodname_code_scanning %} alerts for that repository.'
 versions:
@@ -37,17 +37,13 @@ Por padrão, a página de verificação de código de alertas é filtrada para m
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-security %}
 {% data reusables.repositories.sidebar-code-scanning-alerts %}
-{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
-1. Opcionalmente, use a caixa de pesquisa de texto livre ou os menus suspensos para filtrar alertas. Por exemplo, você pode filtrar pela ferramenta usada para identificar alertas. ![Filter by tool](/assets/images/help/repository/code-scanning-filter-by-tool.png){% endif %}
+1. Opcionalmente, use a caixa de pesquisa de texto livre ou os menus suspensos para filtrar alertas. Por exemplo, você pode filtrar pela ferramenta usada para identificar alertas. ![Filtrar por ferramenta](/assets/images/help/repository/code-scanning-filter-by-tool.png)
 {% data reusables.code-scanning.explore-alert %}
-{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
-   ![Resumo dos alertas](/assets/images/help/repository/code-scanning-click-alert.png)
-{% else %}
-   ![Lista de alertas de {% data variables.product.prodname_code_scanning %}](/assets/images/enterprise/3.1/help/repository/code-scanning-click-alert.png)
-{% endif %}
+![Resumo dos alertas](/assets/images/help/repository/code-scanning-click-alert.png)
+
 {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6249 %}
      {% data reusables.code-scanning.alert-default-branch %}
-  ![The "Affected branches" section in an alert](/assets/images/help/repository/code-scanning-affected-branches.png){% endif %}
+     ![The "Affected branches" section in an alert](/assets/images/help/repository/code-scanning-affected-branches.png){% endif %}
 1. Opcionalmente, se o alerta destacar um problema com o fluxo de dados, clique em **Mostrar caminhos** para exibir o caminho da fonte de dados até o destino onde é usado.
   {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6249 %}
    ![O link "Exibir caminhos" em um alerta](/assets/images/help/repository/code-scanning-show-paths.png)
@@ -58,7 +54,6 @@ Por padrão, a página de verificação de código de alertas é filtrada para m
 
 Para obter mais informações, consulte "[Sobre alertas de {% data variables.product.prodname_code_scanning %}](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-alerts)".
 
-{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
 {% note %}
 
 **Observação:** Para análise de {% data variables.product.prodname_code_scanning %} com {% data variables.product.prodname_codeql %}, você pode ver informações sobre a última execução em um cabeçalho na parte superior da lista de alertas de {% data variables.product.prodname_code_scanning %} para o repositório.
@@ -66,7 +61,6 @@ Para obter mais informações, consulte "[Sobre alertas de {% data variables.pro
 Por exemplo, você pode ver quando o último scanner foi executada, o número de linhas de código analisadas em comparação com o número total de linhas de código no seu repositório, e o número total de alertas gerados. ![Banner de interface do usuário](/assets/images/help/repository/code-scanning-ui-banner.png)
 
 {% endnote %}
-{% endif %}
 
 ## Filtrando alertas de {% data variables.product.prodname_code_scanning %}
 
@@ -89,7 +83,7 @@ Se você inserir vários filtros, a visualização mostrará alertas que corresp
 
 {% ifversion fpt or ghes > 3.3 or ghec %}
 
-Você pode prefixar o filtro `tag` com `-` para excluir resultados com essa tag. Por exemplo, `-tag:style` mostra apenas alertas que não têm a tag `estilo`{% if codeql-ml-queries %} e `-tag:experimental` omitirá todos os alertas experimentais. Para obter mais informações, consulte "[Sobre alertas de{% data variables.product.prodname_code_scanning %}](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-alerts#about-experimental-alerts)."{% else %}.{% endif %}
+Você pode prefixar o filtro `tag` com `-` para excluir resultados com essa tag. Por exemplo, `-tag:style` mostra apenas alertas que não têm a tag `estilo`{% ifversion codeql-ml-queries %} e `-tag:experimental` omitirá todos os alertas experimentais. Para obter mais informações, consulte "[Sobre alertas de{% data variables.product.prodname_code_scanning %}](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-alerts#about-experimental-alerts)."{% else %}.{% endif %}
 
 {% endif %}
 
@@ -97,7 +91,7 @@ Você pode prefixar o filtro `tag` com `-` para excluir resultados com essa tag.
 
 Você pode usar o filtro "Apenas alertas no código do aplicativo" ou a palavra-chave `autofilter:true` e valor para restringir os resultados de alertas no código do aplicativo. Consulte "[Sobre etiquetas para alertas que não estão no código de aplicativos](#about-labels-for-alerts-that-are-not-found-in-application-code)" acima para mais informações sobre os tipos de código que não são código do aplicativo.
 
-{% ifversion fpt or ghes > 3.1 or ghec %}
+{% ifversion fpt or ghes or ghec %}
 
 ## Pesquisando alertas de {% data variables.product.prodname_code_scanning %}
 
@@ -133,7 +127,7 @@ Você pode pesquisar na lista de alertas. Isso é útil se houver um grande núm
 
 {% endif %}
 
-{% if code-scanning-task-lists %}
+{% ifversion code-scanning-task-lists %}
 ## Rastreando alertas de {% data variables.product.prodname_code_scanning %} em problemas
 
 {% data reusables.code-scanning.beta-alert-tracking-in-issues %}
@@ -148,15 +142,11 @@ Qualquer pessoa com permissão de gravação para um repositório pode corrigir 
 
 Se você tem permissão de escrita em um repositório, você pode visualizar alertas corrigidos, vendo o resumo de alertas e clicando em **Fechado**. Para obter mais informações, consulte "[Visualizar os alertas de um repositório](#viewing-the-alerts-for-a-repository). A lista "Fechado" mostra alertas e alertas corrigidos que os usuários ignoraram.
 
-Você pode usar{% ifversion fpt or ghes > 3.1 or ghae or ghec %} a pesquisa de texto livre ou{% endif %} os filtros para exibir um subconjunto de alertas e, em seguida, marcar, por sua vez, todos os alertas correspondentes como fechados.
+Você pode usar a pesquisa de texto livre ou os filtros para exibir um subconjunto de alertas e, em seguida, marcar todos os alertas correspondentes como fechados.
 
 Alertas podem ser corrigidos em um branch, mas não em outro. Você pode usar o filtro "Branch", no resumo dos alertas, para verificar se um alerta é corrigido em um branch específico.
 
-{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
 ![Filtrar alertas por branch](/assets/images/help/repository/code-scanning-branch-filter.png)
-{% else %}
-![Filtrar alertas por branch](/assets/images/enterprise/3.1/help/repository/code-scanning-branch-filter.png)
-{% endif %}
 
 {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6249 %}
 {% data reusables.code-scanning.filter-non-default-branches %}
@@ -169,9 +159,9 @@ Alertas podem ser corrigidos em um branch, mas não em outro. Você pode usar o 
 
 {% endnote %}
 {% endif %}
-## Ignorando ou {% if delete-code-scanning-alerts %}ou excluindo{% endif %} alertas
+## Ignorando ou {% ifversion delete-code-scanning-alerts %}ou excluindo{% endif %} alertas
 
-Há duas formas de fechar um alerta. Você pode corrigir o problema no código ou pode ignorar o alerta. {% if delete-code-scanning-alerts %}Como alternativa, se você tiver permissões de administrador para o repositório, será possível excluir alertas. Excluir alertas é útil em situações em que você configurou uma ferramenta {% data variables.product.prodname_code_scanning %} e, em seguida, decidiu removê-la ou em situações em que você configurou a análise de {% data variables.product.prodname_codeql %} com um conjunto de consultas maior do que você deseja continuar usando, e, em seguida, você removeu algumas consultas da ferramenta. Em ambos os casos, excluir alertas permite limpar os seus resultados de {% data variables.product.prodname_code_scanning %}. Você pode excluir alertas da lista de resumo dentro da aba de **Segurança** .{% endif %}
+Há duas formas de fechar um alerta. Você pode corrigir o problema no código ou pode ignorar o alerta. {% ifversion delete-code-scanning-alerts %}Como alternativa, se você tiver permissões de administrador para o repositório, será possível excluir alertas. Excluir alertas é útil em situações em que você configurou uma ferramenta {% data variables.product.prodname_code_scanning %} e, em seguida, decidiu removê-la ou em situações em que você configurou a análise de {% data variables.product.prodname_codeql %} com um conjunto de consultas maior do que você deseja continuar usando, e, em seguida, você removeu algumas consultas da ferramenta. Em ambos os casos, excluir alertas permite limpar os seus resultados de {% data variables.product.prodname_code_scanning %}. Você pode excluir alertas da lista de resumo dentro da aba de **Segurança** .{% endif %}
 
 Ignorar um alerta é uma maneira de fechar um alerta que você considera que não precisa ser corrigido. {% data reusables.code-scanning.close-alert-examples %} Você pode ignorar alertas de anotações de {% data variables.product.prodname_code_scanning %} no código ou da lista de resumo dentro na aba **Segurança**.
 
@@ -180,40 +170,41 @@ Ao descartar um alerta:
 - Ele é ignorado em todos os branches.
 - O alerta é removido do número de alertas atuais para o seu projeto.
 - O alerta é movido para a lista "Fechado" no resumo dos alertas, onde você pode reabri-lo, se necessário.
-- O motivo pelo qual você fechou o alerta foi gravado.
+- A razão pela qual você fechou o alerta foi registrada.{% ifversion comment-dismissed-code-scanning-alert %}
+- Opcionalmente, você pode comentar em uma rejeição para registrar o contexto de uma rejeição de alerta.{% endif %}
 - Da próxima vez que {% data variables.product.prodname_code_scanning %} for executado, o mesmo código não gerará um alerta.
 
-{% if delete-code-scanning-alerts %}Ao excluir um alerta:
+{% ifversion delete-code-scanning-alerts %}Ao excluir um alerta:
 
 - Ele é excluído em todos os branches.
 - O alerta é removido do número de alertas atuais para o seu projeto.
 - Ele _não é_ adicionado à lista "Fechado" no resumo dos alertas.
 - Se o código que gerou o alerta permanecer o mesmo e a mesma ferramenta {% data variables.product.prodname_code_scanning %} for executada novamente sem qualquer alteração de configuração, o alerta será exibido novamente nos seus resultados das análises.{% endif %}
 
-Para ignorar{% if delete-code-scanning-alerts %}ou excluir{% endif %} alertas:
+Para ignorar{% ifversion delete-code-scanning-alerts %}ou excluir{% endif %} alertas:
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-security %}
-{% data reusables.repositories.sidebar-code-scanning-alerts %}{% if delete-code-scanning-alerts %}
+{% data reusables.repositories.sidebar-code-scanning-alerts %}{% ifversion delete-code-scanning-alerts %}
 1. Se você tem permissões de administrador para o repositório e deseja excluir alertas para esta ferramenta de {% data variables.product.prodname_code_scanning %}, selecione algumas ou todas as caixas de seleção e clique em **Excluir**.
 
    ![Excluir alertas](/assets/images/help/repository/code-scanning-delete-alerts.png)
 
-   Opcionalmente, você pode usar{% ifversion fpt or ghes > 3.1 or ghae or ghec %}} a pesquisa de texto livre ou{% endif %} os filtros para exibir um subconjunto de alertas e, em seguida, excluir todos os alertas correspondentes de uma só vez. Por exemplo, se você removeu uma consulta da análise de {% data variables.product.prodname_codeql %}, você pode usar o filtro "Regra" para listar apenas os alertas dessa consulta e, em seguida, selecionar e apagar todos esses alertas.
+   Opcionalmente, você pode usar a pesquisa de texto livre ou os filtros para exibir um subconjunto de alertas e, em seguida, excluir todos os alertas correspondentes de uma só vez. Por exemplo, se você removeu uma consulta da análise de {% data variables.product.prodname_codeql %}, você pode usar o filtro "Regra" para listar apenas os alertas dessa consulta e, em seguida, selecionar e apagar todos esses alertas.
 
-{% ifversion ghes > 3.1 or ghae %}
+{% ifversion ghes or ghae %}
   ![Filtrar alertas por regra](/assets/images/help/repository/code-scanning-filter-by-rule.png)
 {% else %}
   ![Filtrar alertas por regra](/assets/images/enterprise/3.1/help/repository/code-scanning-filter-by-rule.png)
 {% endif %}{% endif %}
 1. Se você deseja ignorar um alerta, é importante explorar primeiro o alerta para que você possa escolher o motivo correto para ignorá-lo. Clique no alerta que você deseja explorar.
 
-{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
-   ![Abrir um alerta da lista de resumo](/assets/images/help/repository/code-scanning-click-alert.png)
-{% else %}
-  ![Lista de alertas de {% data variables.product.prodname_code_scanning %}](/assets/images/enterprise/3.1/help/repository/code-scanning-click-alert.png)
+![Abrir um alerta da lista de resumo](/assets/images/help/repository/code-scanning-click-alert.png)
+
+1. Revise o alerta e clique em {% ifversion comment-dismissed-code-scanning-alert %}**para ignorar o alerta** e escolher ou digitar um motivo para fechar o alerta. ![Captura de tela do alerta de verificação de código com menu suspenso para escolher o motivo da rejeição destacado](/assets/images/help/repository/code-scanning-alert-drop-down-reason.png)
+{% else %}**Ignorar** e escolher um motivo para fechar o alerta.
+  ![Escolher um motivo para ignorar um alerta](/assets/images/help/repository/code-scanning-alert-close-drop-down.png)
 {% endif %}
-1. Revise o alerta e clique em **Ignorar** e escolha um motivo para fechar o alerta. ![Escolher um motivo para ignorar um alerta](/assets/images/help/repository/code-scanning-alert-close-drop-down.png)
 
    {% data reusables.code-scanning.choose-alert-dismissal-reason %}
 

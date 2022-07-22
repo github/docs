@@ -175,7 +175,8 @@ Issue およびPull Requestの検索用語により、次のことができま�
 
 Issueについては、以下も検索に利用できます。
 
-- クローズしているリファレンス`linked:pr`によってプルリクエストにリンクされているIssueのフィルタリング
+- クローズしているリファレンス`linked:pr`によってPull RequestにリンクされているIssueのフィルタリング{% ifversion issue-close-reasons %}
+- `is:closed reason:complete`や`is:closed reason:"not planned"`といった、クローズされた理由によるIssueのフィルタリング{% endif %}
 
 プルリクエストについては、検索を利用して以下の操作もできます。
 - [ドラフト](/articles/about-pull-requests#draft-pull-requests)Pull Requestのフィルタリング: `is:draft`

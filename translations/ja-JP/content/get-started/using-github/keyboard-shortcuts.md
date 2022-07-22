@@ -19,11 +19,11 @@ versions:
 
 Typing <kbd>?</kbd> on {% data variables.product.prodname_dotcom %} brings up a dialog box that lists the keyboard shortcuts available for that page. マウスを使用して移動しなくても、これらのキーボードショートカットを使用して、サイト全体でアクションを実行できます。
 
-{% if keyboard-shortcut-accessibility-setting %}
+{% ifversion keyboard-shortcut-accessibility-setting %}
 You can disable character key shortcuts, while still allowing shortcuts that use modifier keys, in your accessibility settings. For more information, see "[Managing accessibility settings](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/managing-accessibility-settings)."{% endif %}
 
 以下は利用可能なキーボードショートカットのリストです:
-{% if command-palette %}
+{% ifversion command-palette %}
 The {% data variables.product.prodname_command_palette %} also gives you quick access to a wide range of actions, without the need to remember keyboard shortcuts. For more information, see "[{% data variables.product.prodname_command_palette %}](/get-started/using-github/github-command-palette)."{% endif %}
 
 ## サイト全体のショートカット
@@ -34,7 +34,7 @@ The {% data variables.product.prodname_command_palette %} also gives you quick a
 | <kbd>G</kbd> <kbd>N</kbd>     | 通知に移動します。 詳しい情報については、「[通知について](/github/managing-subscriptions-and-notifications-on-github/about-notifications)」を参照してください。                                              |
 | <kbd>Esc</kbd>                | ユーザ、Issue、またはプルリクエストのホバーカードにフォーカスすると、ホバーカードが閉じ、ホバーカードが含まれている要素に再フォーカスします                                                                                               |
 
-{% if command-palette %}
+{% ifversion command-palette %}
 
 <kbd>Command</kbd>+<kbd>K</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>K</kbd> (Windows/Linux) | Opens the {% data variables.product.prodname_command_palette %}. If you are editing Markdown text, open the command palette with <kbd>Command</kbd>+<kbd>Option</kbd>+<kbd>K</kbd> or <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>K</kbd>. For more information, see "[{% data variables.product.prodname_command_palette %}](/get-started/using-github/github-command-palette)."{% endif %}
 
@@ -92,8 +92,8 @@ The {% data variables.product.prodname_command_palette %} also gives you quick a
 | キーボードショートカット                                                                                                                                                | 説明                                                                                                                                                                                              |
 | ----------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | <kbd>Command</kbd>+<kbd>B</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>B</kbd> (Windows/Linux)                                                                 | 太字テキストの Markdown 書式を挿入します                                                                                                                                                                       |
-| <kbd>Command</kbd>+<kbd>I</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>I</kbd> (Windows/Linux)                                                                 | Inserts Markdown formatting for italicizing text{% ifversion fpt or ghae or ghes > 3.1 or ghec %}
-| <kbd>Command</kbd>+<kbd>E</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>E</kbd> (Windows/Linux)                                                                 | Inserts Markdown formatting for code or a command within a line{% endif %}{% ifversion fpt or ghae-issue-5434 or ghes > 3.1 or ghec %}
+| <kbd>Command</kbd>+<kbd>I</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>I</kbd> (Windows/Linux)                                                                 | イタリック体のテキストの Markdown 書式を挿入します                                                                                                                                                                  |
+| <kbd>Command</kbd>+<kbd>E</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>E</kbd> (Windows/Linux)                                                                 | Inserts Markdown formatting for code or a command within a line{% ifversion fpt or ghae-issue-5434 or ghes or ghec %}
 | <kbd>Command</kbd>+<kbd>K</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>K</kbd> (Windows/Linux)                                                                 | Inserts Markdown formatting for creating a link{% endif %}{% ifversion fpt or ghae-issue-7103 or ghes > 3.5 or ghec %}
 | <kbd>Command</kbd>+<kbd>V</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>V</kbd> (Windows/Linux)                                                                 | Creates a Markdown link when applied over highlighted text{% endif %}
 | <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Windows/Linux)                               | Toggles between the **Write** and **Preview** comment tabs{% ifversion fpt or ghae or ghes > 3.4 or ghec %}
@@ -207,7 +207,6 @@ The {% data variables.product.prodname_command_palette %} also gives you quick a
 | <kbd>Shift</kbd>+<kbd>U</kbd> | 未読としてマークします  |
 | <kbd>Shift</kbd>+<kbd>I</kbd> | 既読としてマーク     |
 | <kbd>Shift</kbd>+<kbd>M</kbd> | サブスクライブ解除します |
-
 
 ## ネットワークグラフ
 

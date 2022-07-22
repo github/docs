@@ -30,7 +30,7 @@ You can populate the runner tool cache by running a {% data variables.product.pr
 
 {% note %}
 
-**Note:** You can only use a {% data variables.product.prodname_dotcom %}-hosted runner's tool cache for a self-hosted runner that has an identical operating system and architecture. For example, if you are using a `ubuntu-18.04` {% data variables.product.prodname_dotcom %}-hosted runner to generate a tool cache, your self-hosted runner must be a 64-bit Ubuntu 18.04 machine. For more information on {% data variables.product.prodname_dotcom %}-hosted runners, see "<a href="/actions/reference/virtual-environments-for-github-hosted-runners#supported-runners-and-hardware-resources" class="dotcom-only">Virtual environments for GitHub-hosted runners</a>."
+**Note:** You can only use a {% data variables.product.prodname_dotcom %}-hosted runner's tool cache for a self-hosted runner that has an identical operating system and architecture. For example, if you are using a `ubuntu-18.04` {% data variables.product.prodname_dotcom %}-hosted runner to generate a tool cache, your self-hosted runner must be a 64-bit Ubuntu 18.04 machine. For more information on {% data variables.product.prodname_dotcom %}-hosted runners, see "[Virtual environments for GitHub-hosted runners](/free-pro-team@latest/actions/using-github-hosted-runners/about-github-hosted-runners#supported-runners-and-hardware-resources)."
 
 {% endnote %}
 

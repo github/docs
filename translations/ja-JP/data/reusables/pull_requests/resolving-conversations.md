@@ -12,7 +12,7 @@
 
 コメントの示唆がプルリクエストの範囲を超えているなら、そのコメントへのフィードバックやリンクを追跡する新しいIssueをオープンできます。 詳しい情報については「[コメントからIssueを開く](/github/managing-your-work-on-github/opening-an-issue-from-a-comment)」を参照してください。
 
-{% ifversion fpt or ghes > 3.1 or ghae-issue-4382 or ghec %}
+{% ifversion fpt or ghes or ghae-issue-4382 or ghec %}
 #### 会話の発見とアクセス
 
 **Files Changed（変更されたファイル）**タブの上部に表示される**Conversations（会話）**メニューを使い、Pull Request中のすべての会話を見つけてアクセスできます。

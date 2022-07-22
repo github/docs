@@ -1,1 +1,1 @@
-When you enable {% data variables.product.prodname_actions %}, workflows are able to run actions {% if actions-workflow-policy %}and reusable workflows{% endif %} located within your repository and any other{% ifversion fpt %} public{% elsif ghec or ghes %} public or internal{% elsif ghae %} internal{% endif %} repository.
+启用 {% data variables.product.prodname_actions %} 后，工作流程将能够运行操作{% ifversion actions-workflow-policy %}和可重用工作流程，这些工作流程{% endif %}位于您的存储库以及任何其他{% ifversion fpt %} 公共{% elsif ghec or ghes %} 公共或内部{% elsif ghae %} 内部{% endif %} 存储库中。

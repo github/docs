@@ -5,7 +5,7 @@ intro: 'Você pode verificar a propriedade de domínios com {% data variables.pr
 product: '{% data reusables.gated-features.verify-and-approve-domain %}'
 versions:
   ghec: '*'
-  ghes: '>=3.2'
+  ghes: '*'
 permissions: Enterprise owners can verify or approve a domain for an enterprise account.
 type: how_to
 topics:
@@ -30,7 +30,7 @@ Você pode confirmar que os sites e endereços de e-mail listados nos perfis de 
 
 Depois de verificar a propriedade dos domínios da sua conta, será exibido um selo "Verificado" no perfil de cada organização com o domínio listado no seu perfil. {% data reusables.organizations.verified-domains-details %}
 
-Os proprietários da organização conseguirão de verificar a identidade dos integrantes da organização, visualizando o endereço de e-mail de cada integrante dentro do domínio verificado.
+Para domínios configurados no nível corporativo, os proprietários corporativos podem verificar a identidade dos membros da organização visualizando o endereço de e-mail de cada integrante dentro do domínio verificado. Os proprietários das empresas também podem ver uma lista de integrantes corporativos que não têm um endereço de e-mail de um domínio verificado associado à sua conta de usuário em {% data variables.product.prodname_dotcom %}. Para obter mais informações, consulte "[Visualizando integrantes sem um endereço de e-mail de um domínio verificado](/admin/user-management/managing-users-in-your-enterprise/viewing-people-in-your-enterprise#viewing-members-without-an-email-address-from-a-verified-domain)".
 
 Após verificar domínios para a sua conta corporativa, você poderá restringir notificações de e-mail para domínios verificados para todas as organizações pertencentes à sua conta corporativa. Para obter mais informações, consulte "[Restringindo notificações de e-mail para a sua empresa](/admin/policies/enforcing-policies-for-your-enterprise/restricting-email-notifications-for-your-enterprise)".
 

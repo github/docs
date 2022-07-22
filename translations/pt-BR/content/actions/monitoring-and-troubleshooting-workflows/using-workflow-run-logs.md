@@ -62,7 +62,7 @@ Você pode fazer o download dos arquivos de registro da execução do seu fluxo 
   ![Menu suspenso Download logs (Baixar logs)](/assets/images/help/repository/download-logs-drop-down-updated-2.png)
 
 
-  {% if re-run-jobs %}
+  {% ifversion re-run-jobs %}
 
   {% note %}
 

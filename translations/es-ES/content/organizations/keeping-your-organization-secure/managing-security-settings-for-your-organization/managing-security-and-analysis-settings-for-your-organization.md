@@ -56,7 +56,7 @@ Puedes habilitar o inhabilitar las características para todos los repositorios.
 {% data reusables.advanced-security.note-org-enable-uses-seats %}
 
 1. Ve a la configuración de análisis y seguridad para tu organización. Para obtener más información, consulta la sección "[Mostrar la configuración de análisis y seguridad](#displaying-the-security-and-analysis-settings)".
-2. Debajo de "Análisis y seguridad de código", a la derecha de la característica, haz clic en **Inhabilitar todo** o en **Habilitar todo**. {% ifversion ghes > 3.0 or ghec %}El control para "{% data variables.product.prodname_GH_advanced_security %}" se encontrará inhabilitado si no tienes plazas disponibles en tu licencia de {% data variables.product.prodname_GH_advanced_security %}.{% endif %}
+2. Debajo de "Análisis y seguridad de código", a la derecha de la característica, haz clic en **Inhabilitar todo** o en **Habilitar todo**. {% ifversion ghes or ghec %}El control para "{% data variables.product.prodname_GH_advanced_security %}" se encontrará inhabilitado si no tienes plazas disponibles en tu licencia de {% data variables.product.prodname_GH_advanced_security %}.{% endif %}
    {% ifversion fpt %}
    ![Botón de "Habilitar todo" o "Inhabilitar todo" para las características de "Configurar la seguridad y el análisis"](/assets/images/help/organizations/security-and-analysis-disable-or-enable-all-fpt.png)
    {% endif %}
@@ -66,7 +66,7 @@ Puedes habilitar o inhabilitar las características para todos los repositorios.
    {% ifversion ghes > 3.2 %}
    ![Botón de "Habilitar todo" o "Inhabilitar todo" para las características de "Configurar la seguridad y el análisis"](/assets/images/enterprise/3.3/organizations/security-and-analysis-disable-or-enable-all-ghas.png)
    {% endif %}
-   {% ifversion ghes = 3.1 or ghes = 3.2 %}
+   {% ifversion ghes = 3.2 %}
    ![Botón de "Habilitar todo" o "Inhabilitar todo" para las características de "Configurar la seguridad y el análisis"](/assets/images/enterprise/3.1/help/organizations/security-and-analysis-disable-or-enable-all-ghas.png)
    {% endif %}
 
@@ -103,11 +103,8 @@ Puedes habilitar o inhabilitar las características para todos los repositorios.
   {% ifversion ghes > 3.2 %}
    ![Captura de pantalla de una casilla de verificación para habilitar una característica para los repositorios nuevos](/assets/images/enterprise/3.3/organizations/security-and-analysis-enable-or-disable-feature-checkbox.png)
    {% endif %}
-   {% ifversion ghes = 3.1 or ghes = 3.2 %}
+   {% ifversion ghes = 3.2 %}
    ![Captura de pantalla de una casilla de verificación para habilitar una característica para los repositorios nuevos](/assets/images/enterprise/3.1/help/organizations/security-and-analysis-enable-or-disable-feature-checkbox.png)
-   {% endif %}
-   {% ifversion ghes = 3.0 %}
-   ![Captura de pantalla de una casilla de verificación para habilitar una característica para los repositorios nuevos](/assets/images/enterprise/3.0/organizations/security-and-analysis-enable-or-disable-secret-scanning-checkbox.png)
    {% endif %}
    {% ifversion ghae %}
    ![Captura de pantalla de una casilla de verificación para habilitar una característica para los repositorios nuevos](/assets/images/enterprise/github-ae/organizations/security-and-analysis-enable-or-disable-secret-scanning-checkbox-ghae.png)
@@ -156,5 +153,5 @@ Puedes administrar el acceso a las características de la {% data variables.prod
 
 - "[Asegurar tu repositorio](/code-security/getting-started/securing-your-repository)"{% ifversion not fpt %}
 - "[Acerca del escaneo de secretos](/github/administering-a-repository/about-secret-scanning)"{% endif %}{% ifversion not ghae %}
-- "[Acerca de la gráfica de dependencias](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)"{% endif %}{% ifversion fpt or ghec or ghes or ghae %}
-- "[Acerca de la seguridad de la cadena de suministros](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-supply-chain-security)"{% endif %}
+- "[Acerca de la gráfica de dependencias](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)"{% endif %}
+- "[Acerca de la seguridad de la cadena de suministros](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-supply-chain-security)"

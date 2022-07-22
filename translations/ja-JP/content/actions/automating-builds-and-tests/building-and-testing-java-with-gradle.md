@@ -22,7 +22,7 @@ shortTitle: Build & test Java & Gradle
 
 ## はじめに
 
-このガイドは、Gradleビルドシステムを使ってJavaのプロジェクトのための継続的インテグレーション（CI）を実行するワークフローを作成する方法を紹介します。 作成するワークフローによって、Pull Requestに対するコミットがデフォルトブランチに対してビルドあるいはテストの失敗を引き起こしたことを見ることができるようになります。このアプローチは、コードが常に健全であることを保証するための役に立ちます。 You can extend your CI workflow to {% if actions-caching %}cache files and{% endif %} upload artifacts from a workflow run.
+このガイドは、Gradleビルドシステムを使ってJavaのプロジェクトのための継続的インテグレーション（CI）を実行するワークフローを作成する方法を紹介します。 作成するワークフローによって、Pull Requestに対するコミットがデフォルトブランチに対してビルドあるいはテストの失敗を引き起こしたことを見ることができるようになります。このアプローチは、コードが常に健全であることを保証するための役に立ちます。 You can extend your CI workflow to {% ifversion actions-caching %}cache files and{% endif %} upload artifacts from a workflow run.
 
 {% ifversion ghae %}
 {% data reusables.actions.self-hosted-runners-software %}
@@ -69,7 +69,7 @@ jobs:
       - name: Validate Gradle wrapper
         uses: gradle/wrapper-validation-action@e6e38bacfdf1a337459f332974bb2327a31aaf4b
       - name: Build with Gradle
-        uses: gradle/gradle-build-action@0d13054264b0bb894ded474f08ebb30921341cee
+        uses: gradle/gradle-build-action@67421db6bd0bf253fb4bd25b31ebb98943c375e1
         with:
           arguments: build
 ```
@@ -105,12 +105,12 @@ steps:
   - name: Validate Gradle wrapper
     uses: gradle/wrapper-validation-action@e6e38bacfdf1a337459f332974bb2327a31aaf4b
   - name: Run the Gradle package task
-    uses: gradle/gradle-build-action@0d13054264b0bb894ded474f08ebb30921341cee
+    uses: gradle/gradle-build-action@67421db6bd0bf253fb4bd25b31ebb98943c375e1
     with:
       arguments: -b ci.gradle package
 ```
 
-{% if actions-caching %}
+{% ifversion actions-caching %}
 
 ## 依存関係のキャッシング
 
@@ -136,7 +136,7 @@ steps:
   - name: Validate Gradle wrapper
     uses: gradle/wrapper-validation-action@e6e38bacfdf1a337459f332974bb2327a31aaf4b
   - name: Build with Gradle
-    uses: gradle/gradle-build-action@0d13054264b0bb894ded474f08ebb30921341cee
+    uses: gradle/gradle-build-action@67421db6bd0bf253fb4bd25b31ebb98943c375e1
     with:
       arguments: build
   - uses: {% data reusables.actions.action-upload-artifact %}

@@ -42,7 +42,7 @@ También puedes encontrar un listado de los repositorios, los equipos y los tabl
 
 ## Estar actualizado con la actividad desde tu organización
 
-{% if for-you-feed %}
+{% ifversion for-you-feed %}
 La sección principal de tu tablero tiene dos fuentes de actividad:
 
 - Siguiendo: Actividad de las personas que sigues y de los repositorios que observas.
@@ -69,7 +69,7 @@ Verás actualizaciones en tus noticias cuando un usuario que sigues:
 
 Para obtener más información sobre cómo seguir personas y observar repositorios, consulta las secciones "[Seguir personas](/get-started/exploring-projects-on-github/following-people)" y "[Sé social](/get-started/quickstart/be-social)".
 
-{% if for-you-feed %}
+{% ifversion for-you-feed %}
 ### Para tu fuente
 
 {% note %}

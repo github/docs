@@ -57,4 +57,10 @@ shortTitle: 测试 SSH 连接
 
   {% endlinux %}
 
+   {% note %}
+
+   **注意：** 远程命令应以代码 1 退出。
+
+   {% endnote %}
+
 4. 验证生成的消息包含您的用户名。 如果收到“权限被拒绝”消息，请参阅[“错误：权限被拒绝（公钥）”](/articles/error-permission-denied-publickey)。

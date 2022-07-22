@@ -25,7 +25,7 @@ Crear una "bifurcación" es producir una copia personal del proyecto de alguien 
 Este tutorial utiliza [el proyecto Spoon-Knife](https://github.com/octocat/Spoon-Knife), un repositorio de prueba que se hospeda en {% data variables.product.prodname_dotcom_the_website %} y te permite probar el flujo de trabajo de la bifurcación y solicitud de cambios.
 
 1. Navega al proyecto `Spoon-Knife` en https://github.com/octocat/Spoon-Knife.
-2. Haz clic en **Bifurcar**. ![Botón Bifurcar](/assets/images/help/repository/fork_button.jpg)
+2. Haz clic en **Bifurcar**. ![Botón Bifurcar](/assets/images/help/repository/fork_button.png)
 1. {% data variables.product.product_name %} te llevará a tu copia (tu bifurcación) del repositorio Spoon-Knife.
 
 ## Clonar una bifurcación
@@ -81,7 +81,7 @@ gh repo fork <em>repository</em> --clone=true
 
 ## Hacer y subir cambios
 
-Puedes proceder y hacer algunos cambios al proyecto utilizando tu editor de texto favorito, como [Atom](https://atom.io). Podrías, por ejemplo, cambiar el texto en `index.html` para agregar tu nombre de usuario de GitHub.
+Ve y haz algunos cambios al proyecto utilizando tu editor de texto favorito, como [Visual Studio Code](https://code.visualstudio.com). Podrías, por ejemplo, cambiar el texto en `index.html` para agregar tu nombre de usuario de GitHub.
 
 Cuando estés listo para enviar tus cambios, pruébalos y confírmalos. `git add .` le dice a Git que quieres incluir todos tus cambios en la siguiente confirmación. `git commit` toma una captura de estos cambios.
 

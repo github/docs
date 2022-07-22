@@ -15,14 +15,12 @@ miniTocMaxHeadingLevel: 3
 
 ## 监控工作流程
 
-{% if github-runner-dashboard %}
+{% ifversion github-runner-dashboard %}
 ### 监控组织或企业中的当前作业
 
 {% data reusables.actions.github-hosted-runners-check-concurrency %}
 
 {% endif %}
-
-{% ifversion fpt or ghae or ghes > 3.0 or ghec %}
 
 ### 使用可视化图表
 
@@ -31,8 +29,6 @@ miniTocMaxHeadingLevel: 3
    ![工作流程图表](/assets/images/help/images/workflow-graph.png)
 
 更多信息请参阅“[使用可视化图](/actions/monitoring-and-troubleshooting-workflows/using-the-visualization-graph)”。
-
-{% endif %}
 
 ### 添加工作流程状态徽章
 

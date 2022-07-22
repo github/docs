@@ -1,6 +1,6 @@
-You can specify a single variable to create a single-dimension matrix.
+可以指定单个变量来创建单维矩阵。
 
-For example, the following workflow defines the variable `version` with the values `[10, 12, 14]`. The workflow will run three jobs, one for each value in the variable. Each job will access the `version` value through the `matrix.version` context and pass the value as `node-version` to the `actions/setup-node` action.
+例如，以下工作流程使用值 `[10, 12, 14]` 定义变量 `version`。 工作流程将运行三个作业，变量中的每个值对应一个作业。 每个作业将通过 `matrix.version` 上下文访问 `version` 值，并将该值作为 `node-version` 传递给 `actions/setup-node` 操作。
 
 ```yaml
 jobs:

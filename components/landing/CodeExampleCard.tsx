@@ -22,7 +22,7 @@ export const CodeExampleCard = ({ example }: Props) => {
         <div className="d-flex flex-wrap">
           {example.tags.map((tag) => {
             return (
-              <Label key={tag} variant="small" sx={{ bg: 'accent.emphasis', mb: 1, mr: 2 }}>
+              <Label key={tag} variant="accent" sx={{ mb: 1, mr: 2 }}>
                 {tag}
               </Label>
             )

@@ -24,7 +24,7 @@ shortTitle: Aumentar capacidade de armazenamento
 
 {% note %}
 
-**Observação:** Antes de redimensionar qualquer volume de armazenamento, coloque sua instância no modo de manutenção.{% if ip-exception-list %} Você pode validar as alterações configurando uma lista de exceção IP para permitir o acesso a endereços IP especificados. {% endif %} Para obter mais informações, consulte "[Habilitando e agendando o modo de manutenção](/enterprise/{{ currentVersion }}/admin/guides/installation/enabling-and-scheduling-maintenance-mode)".
+**Observação:** Antes de redimensionar qualquer volume de armazenamento, coloque sua instância no modo de manutenção.{% ifversion ip-exception-list %} Você pode validar as alterações configurando uma lista de exceção IP para permitir o acesso a endereços IP especificados. {% endif %} Para obter mais informações, consulte "[Habilitando e agendando o modo de manutenção](/enterprise/admin/guides/installation/enabling-and-scheduling-maintenance-mode)".
 
 {% endnote %}
 
@@ -36,7 +36,7 @@ shortTitle: Aumentar capacidade de armazenamento
 
 1. Redimensione o disco de volume de usuário existente usando as ferramentas da plataforma de virtualização.
 {% data reusables.enterprise_installation.ssh-into-instance %}
-3. Deixe o appliance em modo de manutenção. Para obter mais informações, consulte "[Habilitar e programar o modo de manutenção](/enterprise/{{ currentVersion }}/admin/guides/installation/enabling-and-scheduling-maintenance-mode)".
+3. Deixe o appliance em modo de manutenção. Para obter mais informações, consulte "[Habilitar e programar o modo de manutenção](/enterprise/admin/guides/installation/enabling-and-scheduling-maintenance-mode)".
 4. Reinicie o appliance para detectar a alocação do novo armazenamento:
   ```shell
   $ sudo reboot
@@ -48,7 +48,7 @@ shortTitle: Aumentar capacidade de armazenamento
 
 ## Aumentar o tamanho da partição de dados raiz usando um novo appliance
 
-1. Configure uma nova instância do {% data variables.product.prodname_ghe_server %} com um disco raiz maior usando a mesma versão do appliance atual. Para obter mais informações, consulte "[Configurar uma instância do {% data variables.product.prodname_ghe_server %}](/enterprise/{{ currentVersion }}/admin/guides/installation/setting-up-a-github-enterprise-server-instance)".
+1. Configure uma nova instância do {% data variables.product.prodname_ghe_server %} com um disco raiz maior usando a mesma versão do appliance atual. Para obter mais informações, consulte "[Configurar instância do {% data variables.product.prodname_ghe_server %}](/enterprise/admin/guides/installation/setting-up-a-github-enterprise-server-instance)".
 2. Desligue o appliance atual:
   ```shell
   $ sudo poweroff
@@ -60,12 +60,13 @@ shortTitle: Aumentar capacidade de armazenamento
 
 {% warning %}
 
-**Aviso:** Antes de aumentar o tamanho da partição-raiz, você deve colocar sua instância no modo de manutenção. Para obter mais informações, consulte "[Habilitar e programar o modo de manutenção](/enterprise/{{ currentVersion }}/admin/guides/installation/enabling-and-scheduling-maintenance-mode)".
+**Aviso:** Antes de aumentar o tamanho da partição-raiz, você deve colocar sua instância no modo de manutenção. Para obter mais informações, consulte "[Habilitar e programar o modo de manutenção](/enterprise/admin/guides/installation/enabling-and-scheduling-maintenance-mode)".
 
 {% endwarning %}
 
 1. Vincule o novo disco ao appliance do {% data variables.product.prodname_ghe_server %}.
-1. Execute o comando `parted` para formatar o disco:
+1. Execute o comando `lsblk` para identificar o nome do dispositivo do novo disco.
+1. Execute o comando `parted` para formatar o disco, substituindo o nome do seu dispositivo por `/dev/xvdg`:
   ```shell
   $ sudo parted /dev/xvdg mklabel msdos
   $ sudo parted /dev/xvdg mkpart primary ext4 0% 50%

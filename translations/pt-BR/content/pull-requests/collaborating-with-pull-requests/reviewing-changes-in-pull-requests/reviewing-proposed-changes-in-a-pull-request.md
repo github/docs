@@ -37,7 +37,7 @@ Você pode revisar as alterações em um arquivo de pull request por vez. Ao rev
 
    Você também pode optar por ocultar as diferenças nos espaços em branco. A escolha que você fizer só se aplica a este pull request e será lembrada na próxima vez que você acessar esta página.
 {% endif %}
-1. Opcionalmente, filtre os arquivos para mostrar apenas os arquivos que deseja revisar{% if pr-tree-view %} ou usar a árvore de arquivos para acessar um arquivo específico{% endif %}. Para obter mais informações, consulte "[Filtrando arquivos em um pull request](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/filtering-files-in-a-pull-request)".
+1. Opcionalmente, filtre os arquivos para mostrar apenas os arquivos que deseja revisar{% ifversion pr-tree-view %} ou usar a árvore de arquivos para acessar um arquivo específico{% endif %}. Para obter mais informações, consulte "[Filtrando arquivos em um pull request](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/filtering-files-in-a-pull-request)".
 {% data reusables.repositories.start-line-comment %}
 {% data reusables.repositories.type-line-comment %}
 {% data reusables.repositories.suggest-changes %}
@@ -54,16 +54,16 @@ Antes de enviar a revisão, os comentários em linha ficam com status _pendente_
 
 {% codespaces %}
 
-Você pode usar [{% data variables.product.prodname_codespaces %}](/codespaces/overview) para testar, executar e revisar pull requests.
+Você pode usar [{% data variables.product.prodname_github_codespaces %}](/codespaces/overview) para testar, executar e revisar pull requests.
 
 {% data reusables.codespaces.review-pr %}
 
-Para obter mais informações sobre a revisão de pull requests em {% data variables.product.prodname_codespaces %}, consulte "[Usando codespaces para pull requests](/codespaces/developing-in-codespaces/using-codespaces-for-pull-requests)"
+For more information on reviewing pull requests in {% data variables.product.prodname_codespaces %}, see "[Using {% data variables.product.prodname_github_codespaces %} for pull requests](/codespaces/developing-in-codespaces/using-github-codespaces-for-pull-requests)."
 
 {% endcodespaces %}
 {% endif %}
 
-{% ifversion fpt or ghes > 3.1 or ghec %}
+{% ifversion fpt or ghes or ghec %}
 ## Revisar alterações de dependência
 
 {% data reusables.dependency-review.beta %}

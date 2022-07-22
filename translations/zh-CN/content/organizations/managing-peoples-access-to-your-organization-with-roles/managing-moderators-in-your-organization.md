@@ -30,11 +30,10 @@ shortTitle: 管理版主
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-{% data reusables.organizations.security-and-analysis %}
 1. 在侧边栏的“Access（访问）”部分中，选择 **{% octicon "report" aria-label="The report icon" %} 主持**，然后点击 **Moderators（版主）**。
 1. 在 **Moderators（版主）**下，搜索并选择要分配版主角色的人员或团队。 您选择的每个人或团队都将显示在搜索栏下方的列表中。 ![版主搜索字段和列表](/assets/images/help/organizations/add-moderators.png)
 
 
 ## 删除组织版主
 
-按照上面的步骤 1-4 操作，然后点击您要以版主身份移除的人员或团队旁边的 **Remove moderator（移除版主）**。
+按照上面的步骤 1-3 操作，然后点击您要以版主身份移除的人员或团队旁边的 **Remove moderator（移除版主）**。

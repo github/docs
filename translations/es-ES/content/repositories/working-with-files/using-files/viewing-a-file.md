@@ -48,14 +48,9 @@ En un archivo o solicitud de extracción, también puedes utilizar el menú {% o
 3. En la esquina superior derecha de la vista del archivo, haz clic en **Blame** (Último responsable) para abrir la vista del último responsable. ![Botón Blame (Último responsable)](/assets/images/help/repository/blame-button.png)
 4. Para ver versiones anteriores de una línea específica, o el siguiente último responsable, haz clic en {% octicon "versions" aria-label="The prior blame icon" %} hasta que hayas encontrado los cambios que quieres ver. ![Botón Prior blame (Último responsable anterior)](/assets/images/help/repository/prior-blame-button.png)
 
-{% if blame-ignore-revs %}
+{% ifversion blame-ignore-revs %}
 
 ## Ignorar las confirmaciones en la vista de último responsable
-{% note %}
-
-**Nota:** El ignorar las confirmaciones en la vista de último responsable está actualmente en beta público y está sujeto a cambios.
-
-{% endnote %}
 
 Todas las revisiones que se especifican en el archivo `.git-blame-ignore-revs`, el cual debe estar en el directorio raíz de tu repositorio, se ocultan de la vista de último responsable utilizando el ajuste de configuración `git blame --ignore-revs-file` de Git. Para obtener más información, consulta [`git blame --ignore-revs-file`](https://git-scm.com/docs/git-blame#Documentation/git-blame.txt---ignore-revs-fileltfilegt) en la documentación de Git.
 
@@ -80,6 +75,12 @@ Esto puede ser útil cuando algunas cuantas confirmaciones hacen cambios extenso
 
 ```shell
 git blame --ignore-revs-file .git-blame-ignore-revs
+```
+
+También puedes configurar tu git local para que siempre ignore las revs en ese archivo:
+
+```shell
+git config blame.ignoreRevsFile .git-blame-ignore-revs
 ```
 
 {% endif %}

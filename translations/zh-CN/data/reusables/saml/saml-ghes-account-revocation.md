@@ -1,5 +1,5 @@
 {% ifversion ghes %}
 
-If you remove a user from your IdP, you must also manually suspend them. Otherwise, the account's owner can continue to authenticate using access tokens or SSH keys. 更多信息请参阅“[挂起和取消挂起用户](/enterprise/admin/guides/user-management/suspending-and-unsuspending-users)”。
+如果您将某个用户从您的 IdP 中移除，还必须手动挂起他们。 否则，帐户所有者可以继续使用访问令牌或 SSH 密钥进行身份验证。 更多信息请参阅“[挂起和取消挂起用户](/enterprise/admin/guides/user-management/suspending-and-unsuspending-users)”。
 
 {% endif %}

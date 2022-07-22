@@ -26,7 +26,7 @@ topics:
 
 {% data reusables.enterprise_installation.image-urls-viewable-warning %}
 
-启用私有模式后，您可以允许未验证的 Git 操作（以及对 {% data variables.product.product_location %} 具有网络访问权限的任何人）读取已启用匿名 Git 读取权限的实例上的公共仓库代码。 更多信息请参阅“[允许管理员启用对公共仓库的匿名 Git 读取权限](/enterprise/{{ currentVersion }}/admin/guides/user-management/allowing-admins-to-enable-anonymous-git-read-access-to-public-repositories)”。
+启用私有模式后，您可以允许未验证的 Git 操作（以及对 {% data variables.product.product_location %} 具有网络访问权限的任何人）读取已启用匿名 Git 读取权限的实例上的公共仓库代码。 更多信息请参阅“[允许管理员启用对公共仓库的匿名 Git 读取权限](/enterprise/admin/guides/user-management/allowing-admins-to-enable-anonymous-git-read-access-to-public-repositories)”。
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}

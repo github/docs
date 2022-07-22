@@ -16,9 +16,9 @@ topics:
 
 Por padrão, os códigos vencem após 30 minutos de inatividade. Quando um tempo de um codespace se esgota, ele é interrompido e deixa de se cobrar pelo uso de computação.
 
-As configurações pessoais de um usuário {% data variables.product.prodname_dotcom %} permitem que ele defina seu próprio período de tempo limite para os codespaces que cria. Este período pode ser maior do que o período padrão de 30 minutos. Para obter mais informações, consulte "[Definindo seu período de tempo limite para os codespaces](/codespaces/customizing-your-codespace/setting-your-timeout-period-for-codespaces)".
+As configurações pessoais de um usuário {% data variables.product.prodname_dotcom %} permitem que ele defina seu próprio período de tempo limite para os codespaces que cria. Este período pode ser maior do que o período padrão de 30 minutos. For more information, see "[Setting your timeout period for {% data variables.product.prodname_github_codespaces %}](/codespaces/customizing-your-codespace/setting-your-timeout-period-for-github-codespaces)."
 
-Como proprietário da organização, você deve configurar restrições sobre o período máximo de tempo ocioso para codespaces pertencentes à sua organização. Isso pode ajudar você a limitar os custos associados aos codespaces que ficam em tempo limite após longos períodos de inatividade. É possível definir o tempo limite máximo para todos os codespaces pertencentes à sua organização ou para os codespaces de repositórios específicos.
+Como proprietário da organização, você deve configurar restrições sobre o período máximo de tempo ocioso para codespaces criados para repositórios pertencentes à sua organização. Isso pode ajudar você a limitar os custos associados aos codespaces que ficam em tempo limite após longos períodos de inatividade. É possível definir o tempo limite máximo para os codespaces de todos os repositórios pertencentes à sua organização ou para os codespaces de repositórios específicos.
 
 {% note %}
 
@@ -26,7 +26,7 @@ Como proprietário da organização, você deve configurar restrições sobre o 
 
 {% endnote %}
 
-Para obter mais informações sobre os preços para uso de computação de {% data variables.product.prodname_codespaces %}, consulte "[Sobre cobrança para os codespaces](/billing/managing-billing-for-github-codespaces/about-billing-for-codespaces#codespaces-pricing)".
+For more information about pricing for {% data variables.product.prodname_github_codespaces %} compute usage, see "[About billing for {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#codespaces-pricing)."
 
 ### Comportamento ao definir uma restrição de tempo limite máximo
 
@@ -55,10 +55,10 @@ Se você adicionar uma política para toda a organização com uma restrição d
 
 1. Insira o número máximo de minutos que os codespaces podem permanecer inativos antes do tempo limite e, em seguida, clique em **Salvar**.
 
-   ![Escolha as opções de visibilidade da porta](/assets/images/help/codespaces/maximum-minutes-timeout.png)
+   ![Defina o tempo limite máximo em minutos](/assets/images/help/codespaces/maximum-minutes-timeout.png)
 
 {% data reusables.codespaces.codespaces-policy-targets %}
-1. Se você quiser adicionar outra restrição à política, clique em **Adicionar restrição** e escolha outra restrição. Para informações sobre outras restrições, consulte "[Restringindo o acesso aos tipos de máquina](/codespaces/managing-codespaces-for-your-organization/restricting-access-to-machine-types)" e "[Restringindo a visibilidade das portas encaminhadas](/codespaces/managing-codespaces-for-your-organization/restricting-the-visibility-of-forwarded-ports)".
+1. Se você quiser adicionar outra restrição à política, clique em **Adicionar restrição** e escolha outra restrição. Para obter informações sobre outras restrições, consulte "[Restringindo o acesso aos tipos de máquina](/codespaces/managing-codespaces-for-your-organization/restricting-access-to-machine-types), "[Restringindo a visibilidade das portas encaminhadas](/codespaces/managing-codespaces-for-your-organization/restricting-the-visibility-of-forwarded-ports)" e "[Restringindo o período de retenção para os codespaces](/codespaces/managing-codespaces-for-your-organization/restricting-the-retention-period-for-codespaces)".
 1. Após terminar de adicionar restrições à sua política, clique em **Salvar**.
 
 A política será aplicada a todos os novos codespaces que forem criados e a codespaces existentes na próxima vez que forem iniciados.

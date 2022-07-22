@@ -25,7 +25,7 @@ topics:
 本教程使用 [Spoon-Knife 项目](https://github.com/octocat/Spoon-Knife)，这是一个托管在 {% data variables.product.prodname_dotcom_the_website %} 上的测试存储库，可让您测试复刻和拉取请求工作流程。
 
 1. 导航到 `Spoon-Knife` project at https://github.com/octocat/Spoon-Knife。
-2. 单击 **Fork（复刻）**。 ![复刻按钮](/assets/images/help/repository/fork_button.jpg)
+2. 单击 **Fork（复刻）**。 ![复刻按钮](/assets/images/help/repository/fork_button.png)
 1. {% data variables.product.product_name %} 将带您进入 Spoon-Knife 存储库的副本（您的复刻）。
 
 ## 克隆复刻
@@ -81,7 +81,7 @@ gh repo fork <em>repository</em> --clone=true
 
 ## 创建和推送更改
 
-继续使用您喜欢的文本编辑器对项目进行一些更改，例如 [Atom](https://atom.io)。 例如，您可以更改 `index.html` 中的文本以添加您的 GitHub 用户名。
+继续使用您喜欢的文本编辑器对项目进行一些更改，例如 [Visual Studio Code](https://code.visualstudio.com)。 例如，您可以更改 `index.html` 中的文本以添加您的 GitHub 用户名。
 
 当您准备好提交更改时，请暂存并提交更改。 `git add .` 告诉 Git 您希望在下一次提交中包含所有更改。 `git commit` 会拍摄这些更改的快照。
 

@@ -132,7 +132,7 @@ For example, if your model's URL is [`github.com/skalnik/secret-bear-clip/blob/m
 
 {% endtip %}
 
-{% if mermaid %}
+{% ifversion mermaid %}
 ### Rendering in Markdown
 
 You can embed ASCII STL syntax directly in Markdown. For more information, see "[Creating diagrams](/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams#creating-stl-3d-models)."
@@ -245,6 +245,7 @@ HTML ドキュメントへのコミットのレンダリング済みビューは
 
 {% data variables.product.product_name %} のマップは [Leaflet.js](http://leafletjs.com) を使用し、[geoJSON の仕様](http://www.geojson.org/geojson-spec.html) (Point、LineString、Polygon、MultiPoint、MultiLineString、MultiPolygon、GeometryCollection) に概要が示されているジオメトリのタイプをすべてサポートしています。 TopoJSON ファイルは "Topology" タイプで、[topoJSON の仕様](https://github.com/mbostock/topojson/wiki/Specification)に従っている必要があります。
 
+{% ifversion geoJSON-with-MapBox %}
 ### フィーチャーのスタイリング
 
 GeoJSON オブジェクトのプロパティで追加のメタデータを渡すと、特定の色を指定する、説明アイコンを追加するなど、フィーチャーの表示方法をカスタマイズすることができます。 オプションは次のとおりです:
@@ -259,6 +260,7 @@ GeoJSON オブジェクトのプロパティで追加のメタデータを渡す
 * `fill-opacity` - ポリゴンの内部の透明度 (0.0 ～ 1.0)
 
 詳細は [simplestyle 公開仕様のバージョン 1.1.0](https://github.com/mapbox/simplestyle-spec/tree/master/1.1.0) を参照してください。
+{% endif %}
 
 ### マップを他の場所に埋め込む
 
@@ -282,7 +284,7 @@ GeoJSON マップを {% data variables.product.product_name %} 以外の場所�
 
 {% endtip %}
 
-{% if mermaid %}
+{% ifversion mermaid %}
 ### Mapping in Markdown
 
 You can embed geoJSON and topoJSON directly in Markdown. For more information, see "[Creating diagrams](/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams#creating-geojson-and-topojson-maps)."
@@ -308,8 +310,12 @@ geoJSON ファイルのレンダリングに問題がある場合は、[geoJSON 
 
 ### 参考リンク
 
+{% ifversion geoJSON-with-MapBox %}
 * [Leaflet.js documentation](https://leafletjs.com/)
 * [MapBox マーカースタイリングのドキュメント](http://www.mapbox.com/developers/simplestyle/)
+{%- else %}
+* [Azure Maps documentation](https://docs.microsoft.com/en-us/azure/azure-maps/)
+{%- endif %}
 * [TopoJSON Wiki](https://github.com/mbostock/topojson/wiki)
 
 ## Working with Jupyter Notebook files on {% data variables.product.prodname_dotcom %}
@@ -333,9 +339,9 @@ $ jupyter nbconvert --to html <em>NOTEBOOK-NAME.ipynb</em>
 ### 参考リンク
 
 - [Jupyter notebook の GitHub リポジトリ](https://github.com/jupyter/jupyter_notebook)
-- [Jupyter notebooks のギャラリー](https://github.com/jupyter/jupyter/wiki/A-gallery-of-interesting-Jupyter-Notebooks)
+- [Jupyter notebooks のギャラリー](https://github.com/jupyter/jupyter/wiki)
 
-{% if mermaid %}
+{% ifversion mermaid %}
 ## Displaying Mermaid files on {% data variables.product.prodname_dotcom %}
 
 {% data variables.product.product_name %} supports rendering Mermaid files within repositories. Commit the file as you would normally using a `.mermaid` or `.mmd` extension. Then, navigate to the path of the Mermaid file on {% data variables.product.prodname_dotcom %}.

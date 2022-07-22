@@ -26,7 +26,7 @@ Este artículo explica cómo los administradores de sitio pueden habilitar {% da
 
 {% data reusables.enterprise.upgrade-ghes-for-actions %}
 
-{% data reusables.actions.ghes-actions-not-enabled-by-default %} Necesitarás determinar si tu instancia tiene recursos de CPU y memoria adecuados para manejar la carga de {% data variables.product.prodname_actions %} sin causar una pérdida de rendimiento e incrementar esos recursos posiblemente. También necesitarás decidir qué proveedor de almacenamiento utilizarás para el almacenamiento de blobs que se requiere para almacenar los artefactos{% if actions-caching %} y cachés{% endif %} que se generan con las ejecuciones de trabajo. Entonces, habilitarás las {% data variables.product.prodname_actions %} para tu empresa, administrarás los permisos de acceso y agregarás los ejecutores auto-hospedados para ejecutar los flujos de trabajo.
+{% data reusables.actions.ghes-actions-not-enabled-by-default %} Necesitarás determinar si tu instancia tiene recursos de CPU y memoria adecuados para manejar la carga de {% data variables.product.prodname_actions %} sin causar una pérdida de rendimiento e incrementar esos recursos posiblemente. También necesitarás decidir qué proveedor de almacenamiento utilizarás para el almacenamiento de blobs que se requiere para almacenar los artefactos{% ifversion actions-caching %} y cachés{% endif %} que se generan con las ejecuciones de trabajo. Entonces, habilitarás las {% data variables.product.prodname_actions %} para tu empresa, administrarás los permisos de acceso y agregarás los ejecutores auto-hospedados para ejecutar los flujos de trabajo.
 
 {% data reusables.actions.introducing-enterprise %}
 
@@ -34,16 +34,7 @@ Este artículo explica cómo los administradores de sitio pueden habilitar {% da
 
 ## Revisar los requisitos de hardware
 
-
-{%- ifversion ghes < 3.2 %}
-
-Los recursos de CPU y de memoria que están disponibles para {% data variables.product.product_location %} determinan el rendimiento máximo de jobs para {% data variables.product.prodname_actions %}. {% data reusables.actions.minimum-hardware %}
-
-Las pruebas internas de {% data variables.product.company_short %} demostraron el siguiente rendimiento máximo para las instancias de {% data variables.product.prodname_ghe_server %} con un rango de CPU y configuraciones de memoria. Puede que vas rendimientos diferentes dependiendo de los niveles generales de actividad en tu instancia.
-
-{%- endif %}
-
-{%- ifversion ghes > 3.1 %}
+{%- ifversion ghes %}
 
 Los recursos de memoria y CPU que {% data variables.product.product_location %} tiene disponibles determinan la cantidad de jobs que se pueden ejecutar simultáneamente sin pérdida de rendimiento. {% data reusables.actions.minimum-hardware %}
 
@@ -51,11 +42,6 @@ La cantidad máxima de ejecución simultánea de jobs sin pérdida de rendimient
 
 {% endif %}
 
-{%- ifversion ghes < 3.2 %}
-
-{% data reusables.actions.hardware-requirements-before %}
-
-{%- endif %}
 
 {%- ifversion ghes = 3.2 %}
 
@@ -119,7 +105,7 @@ Opcionalmente, puedes limitar el consumo de recursos en {% data variables.produc
 
 Para habilitar {% data variables.product.prodname_actions %} en {% data variables.product.prodname_ghe_server %}, debes tener acceso al almacenamiento externo de blobs.
 
-{% data variables.product.prodname_actions %} utiliza el almacenamiento de blobs para almacenar los datos que generan las ejecuciones de flujo de trabajo, tales como las bitácoras de flujos de trabajo{% if actions-caching %}, los cachés{% endif %} y los artefactos de compilación que suben los usuarios. La cantidad de almacenamiento requerida dependerá de tu uso de {% data variables.product.prodname_actions %}. Sólo se admite una sola configuración de almacenamiento externo y no puedes utilizar varios proveedores de almacenamiento al mismo tiempo.
+{% data variables.product.prodname_actions %} utiliza el almacenamiento de blobs para almacenar los datos que generan las ejecuciones de flujo de trabajo, tales como las bitácoras de flujos de trabajo{% ifversion actions-caching %}, los cachés{% endif %} y los artefactos de compilación que suben los usuarios. La cantidad de almacenamiento requerida dependerá de tu uso de {% data variables.product.prodname_actions %}. Sólo se admite una sola configuración de almacenamiento externo y no puedes utilizar varios proveedores de almacenamiento al mismo tiempo.
 
 {% data variables.product.prodname_actions %} es compatible con estos proveedores de almacenamiento:
 

@@ -1,24 +1,24 @@
 ---
-title: Running scripts before or after a job
-intro: 'Scripts can automatically execute on a self-hosted runner, directly before or after a job.'
+title: Ejecutar scripts antes o después de un job
+intro: 'Los scripts se pueden ejecutar automáticamente en un ejecutor auto-hospedado, directamente antes o después de un job.'
 versions:
   feature: job-hooks-for-runners
 type: tutorial
 miniTocMaxHeadingLevel: 3
-shortTitle: Run a script before or after a job
+shortTitle: Ejecuta un script antes o después de un job
 ---
 
 {% note %}
 
-**Note**: This feature is currently in beta and is subject to change.
+**Nota**: Esta característica se encuentra actualmente en beta y está sujeta a cambios.
 
 {% endnote %}
 
-## About pre- and post-job scripts
+## Acerca de los scripts pre- y post-job
 
-You can automatically execute scripts on a self-hosted runner, either before a job runs, or after a job finishes running. You could use these scripts to support the job's requirements, such as building or tearing down a runner environment, or cleaning out directories. You could also use these scripts to track telemetry of how your runners are used.
+Puedes ejecutar scripts automáticamente en un ejecutor auto-hospedado, ya sea antes de que se ejecute un job o después de que este haya terminado de ejecutarse. Podrías utilizar estos scripts apoyar los requisitos del job, tal como crear o tirar un ambiente ejecutor o limpiar los directorios. También podrías utilizar estos scripts para rastrear la telemetría de cómo se están utilizando tus ejecutores.
 
-The custom scripts are automatically triggered when a specific environment variable is set on the runner; the environment variable must contain the absolute path to the script. For more information, see "[Triggering the scripts](#triggering-the-scripts)" below.
+Los scripts personalizados se activan automáticamente cuando una variable de ambiente se configura en el ejecutor; la variable de ambiente debe contener la ruta absoluta al script. Para obtener más información, consulta la sección "[Activar los scripts](#triggering-the-scripts)" más adelante.
 
 The following scripting languages are supported:
 
@@ -40,7 +40,7 @@ Your custom scripts can use the following features:
 
 ### Handling exit codes
 
-For pre-job scripts, exit code `0` indicates that the script completed successfully, and the job will then proceed to run. If there is any other exit code, the job will not run and will be marked as failed. To see the results of your pre-job scripts, check the logs for `Set up runner` entries. For more information on checking the logs, see "[Viewing logs to diagnose failures](/actions/monitoring-and-troubleshooting-workflows/using-workflow-run-logs#viewing-logs-to-diagnose-failures)."
+For pre-job scripts, exit code `0` indicates that the script completed successfully, and the job will then proceed to run. If there is any other exit code, the job will not run and will be marked as failed. To see the results of your pre-job scripts, check the logs for `Set up runner` entries. Para obtener más información sobre cómo verificar las bitácoras, consulta la sección "[Visualizar las bitácoras para diagnosticar las fallas](/actions/monitoring-and-troubleshooting-workflows/using-workflow-run-logs#viewing-logs-to-diagnose-failures)".
 
 The [`continue-on-error`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idcontinue-on-error) setting is not supported for use by these scripts.
 

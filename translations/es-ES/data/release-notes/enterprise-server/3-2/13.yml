@@ -1,20 +1,21 @@
 date: '2022-05-17'
 sections:
   security_fixes:
-    - '**MEDIUM:** A security issue in nginx resolver was identified, where an attacker who could forge UDP packets from the DNS server could cause 1-byte memory overwrite, resulting in worker process crashes or other potentially damaging impacts. The vulnerability has been assigned [CVE-2021-23017](https://nvd.nist.gov/vuln/detail/CVE-2021-23017).'
-    - 'Updated the `actions/checkout@v2` and `actions/checkout@v3` actions to address new vulnerabilities announced in the [Git security enforcement blog post](https://github.blog/2022-04-12-git-security-vulnerability-announced/).'
+    - '**MEDIA:** Se identificó una propuesta de seguridad en el resolutor de ngnix, en donde un atacante pudo haber falsificado paquetes de UDP desde el servidor DNS y pudo ocasionar una sobre escritura de memoria en bytes, dando como resultado que fallara un proceso trabajador u otros impactos dañinos potenciales. Se asingó el [CVE-2021-23017](https://nvd.nist.gov/vuln/detail/CVE-2021-23017) a la vulnerabilidad.'
+    - 'Se actualizaron las acciones `actions/checkout@v2` y `actions/checkout@v3` para abordar las vulnerabilidades nuevas que se anunciaron en la [Publicación del blog de refuerzo de seguridad de Git](https://github.blog/2022-04-12-git-security-vulnerability-announced/).'
     - 'Los paquetes se actualizaron a las últimas versiones de seguridad.'
   bugs:
-    - 'In some cluster topologies, the `ghe-cluster-status` command left behind empty directories in `/tmp`.'
-    - 'SNMP incorrectly logged a high number of `Cannot statfs` error messages to syslog.'
-    - 'For instances configured with SAML authentication and built-in fallback enabled, built-in users would get stuck in a “login” loop when attempting to sign in from the page generated after logging out.'
-    - 'Videos uploaded to issue comments would not be rendered properly.'
-    - 'When using SAML encrypted assertions, some assertions were not correctly marking SSH keys as verified.'
-    - 'When using `ghe-migrator`, a migration would fail to import video file attachments in issues and pull requests.'
+    - 'En algunas topologías de clúster, el comando `ghe-cluster-status` dejó directorios vacíos en `/tmp`.'
+    - 'El SNMP registró una cantidad alta de mensajes de error de `Cannot statfs` incorrectamente en syslog.'
+    - 'Para el caso de las instancias configuradas con la autenticación de SAML y con la recuperación de fallos integrada habilitada, los usuarios integrados se atoraron en un bucle de "inicio de sesión" al intentar iniciar sesión desde la página generada después de salir de sesión.'
+    - 'Los videos que se suben a los comentarios de las propuestas no se representaron adecuadamente.'
+    - 'Al utilizar aserciones cifradas de SAML, algunas de ellas no estaban marcando correctamente a las llaves SSH como verificadas.'
+    - 'Al utilizar `ghe-migrator`, una migración falló en importar los archivos de video adjuntos en las propuestas y solicitudes de cambios.'
+    - 'The Releases page would return a 500 error when the repository has tags that contain non-ASCII characters. [Updated: 2022-06-10]'
   changes:
-    - 'In high availability configurations, clarify that the replication overview page in the Management Console only displays the current replication configuration, not the current replication status.'
-    - 'When enabling {% data variables.product.prodname_registry %}, clarify that using a Shared Access Signature (SAS) token as connection string is not currently supported.'
-    - 'Support bundles now include the row count of tables stored in MySQL.'
+    - 'En las configuraciones de disponibilidad alta, se aclara que la página de resumen de replicación en la consola de administración solo muestra la configuración de replicación actual y no el estado de replicación actual.'
+    - 'Cuando habilites el {% data variables.product.prodname_registry %}, aclara que, actualmente, no hay compatibilidad con utilizar el token de Firma de Acceso Compartida (SAS, por sus siglas en inglés) como secuencia de conexión.'
+    - 'Los paquetes de soporte ahora incluyen el conteo de filas de las tablas que se almacenan en MySQL.'
     - 'Dependency Graph can now be enabled without vulnerability data, allowing you to see what dependencies are in use and at what versions. Enabling Dependency Graph without enabling {% data variables.product.prodname_github_connect %} will **not** provide vulnerability information.'
   known_issues:
     - 'En una instancia recién configurada de {% data variables.product.prodname_ghe_server %} sin ningún usuario, un atacante podría crear el primer usuario adminsitrador.'
