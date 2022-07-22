@@ -32,3 +32,4 @@ sections:
       この問題を回避するためには、以下の2つの方法のいずれかを取ることができます。
       - `WantAssertionsEncrypted`属性なしのSAMLメタデータの静的なコピーをアップロードして、IdPを再設定する。
       - SAMLメタデータをコピーし、`WantAssertionsEncrypted`を削除し、それをWebサーバーでホストして、そのURLを指してIdPを再設定する。
+    - After upgrading to {% data variables.product.prodname_ghe_server %} 3.4, releases may appear to be missing from repositories. This can occur when the required Elasticsearch index migrations have not successfully completed.

@@ -279,6 +279,7 @@ translations/ja-JP/data/reusables/advanced-security/about-committer-numbers-ghec
 translations/ja-JP/data/reusables/advanced-security/license-overview.md,broken liquid tags
 translations/ja-JP/data/reusables/apps/user-to-server-rate-limits-ghec.md,broken liquid tags
 translations/ja-JP/data/reusables/audit_log/audit-log-action-categories.md,broken liquid tags
+translations/ja-JP/data/reusables/billing/ghes-with-no-enterprise-account.md,broken liquid tags
 translations/ja-JP/data/reusables/classroom/classroom-codespaces-link.md,broken liquid tags
 translations/ja-JP/data/reusables/code-scanning/enterprise-enable-code-scanning-actions.md,broken liquid tags
 translations/ja-JP/data/reusables/code-scanning/enterprise-enable-code-scanning.md,broken liquid tags
