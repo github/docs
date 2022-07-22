@@ -4,6 +4,22 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "Argument 'actions: [SponsorsActivityAction!]` added to field `Organization.sponsorsActivities'",
+          "Field `fieldValueByName` was added to object type 'ProjectV2Item'",
+          "Argument 'actions: [SponsorsActivityAction!]` added to field `Sponsorable.sponsorsActivities'",
+          "Argument 'actions: [SponsorsActivityAction!]` added to field `User.sponsorsActivities'"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2022-07-22"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "Type `EnterpriseUserAccountConnection` was removed",
           "Type `EnterpriseUserAccountEdge` was removed",
           "Field `userAccounts` (deprecated) was removed from object type `Enterprise`",
