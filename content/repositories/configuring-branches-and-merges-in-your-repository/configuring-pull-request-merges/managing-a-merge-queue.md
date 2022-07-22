@@ -37,7 +37,7 @@ on:
 
 ### Triggering merge queue checks with other CI providers
 
-With other CI providers, you may need to update your configuration when a branch that begin with the special prefix `gh-readonly-queue/{base_branch}` is created.
+With other CI providers, you may need to update your configuration when a branch that begins with the special prefix `gh-readonly-queue/{base_branch}` is created.
 
 For information about merge methods, see "[About pull request merges](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/about-pull-request-merges)."
 
