@@ -186,3 +186,8 @@ sections:
       notes:
         - |
           When dragging and dropping files such as images and videos into a Markdown editor, GitHub AE now uses the mouse pointer location instead of the cursor location when placing the file.
+    - 
+      heading: 'REST API'
+      notes:
+        - |
+          REST API previews have now graduated and are an official part of the API. Preview headers are no longer required for REST API endpoints, but will still function as expected if you continue to specify a graduated preview in the `Accept` header of a request.

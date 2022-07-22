@@ -11,14 +11,13 @@ topics:
 shortTitle: 自定义组织配置文件
 ---
 
-{% ifversion org-profile-pin-private %}
 
 ## 关于组织的资料页面
 
+{% ifversion org-profile-pin-private %}
 您可以自定义组织的概述页面，以显示专用于公共用户或组织成员的内容。 已登录到 {% data variables.product.prodname_dotcom %} 的组织成员在访问组织的个人资料页面时，将显示成员视图。 非组织成员的用户将显示公共视图。
 
 ![组织配置文件页面的图像](/assets/images/help/organizations/new_organization_page.png)
-{% endif %}
 
 ### 固定的仓库
 
@@ -27,6 +26,7 @@ shortTitle: 自定义组织配置文件
 只有组织所有者才能固定存储库。 更多信息请参阅“[将仓库固定到组织的资料](#pinning-repositories-to-your-organizations-profile)”。
 
 ### 组织资料 README
+{% endif %}
 
 您可以通过为公共用户和组织成员创建组织资料 README 来共享有关如何与组织互动的信息。 {% data variables.product.prodname_dotcom %} 在组织的“Overview（概述）”选项卡中显示组织资料 README。
 
@@ -57,7 +57,7 @@ shortTitle: 自定义组织配置文件
 
 ## 将存储库固定到组织的资料
 
-您可以将要展示的存储库（如经常使用的存储库）固定到组织的资料页面。 要选择要固定到组织资料的存储库，您必须是组织所有者或管理员。
+您可以将要展示的存储库（如经常使用的存储库）固定到组织的资料页面。 To choose which repositories to pin to your organization's profile, you must be an organization owner.
 
 1. 导航到组织的资料页面。
 2. 在页面右侧边栏的 {% octicon "eye" aria-label="The eye octicon" %}“查看身份”链接中，从下拉菜单中选择**公共**或**成员**个人资料视图。
