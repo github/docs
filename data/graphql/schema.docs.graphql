@@ -25331,6 +25331,11 @@ type Organization implements Actor & MemberStatusable & Node & PackageOwner & Pr
   """
   sponsorsActivities(
     """
+    Filter activities to only the specified actions.
+    """
+    actions: [SponsorsActivityAction!] = []
+
+    """
     Returns the elements in the list that come after the specified cursor.
     """
     after: String
@@ -25356,7 +25361,8 @@ type Organization implements Actor & MemberStatusable & Node & PackageOwner & Pr
     orderBy: SponsorsActivityOrder = {field: TIMESTAMP, direction: DESC}
 
     """
-    Filter activities returned to only those that occurred in a given time range.
+    Filter activities returned to only those that occurred in the most recent
+    specified time period. Set to ALL to avoid filtering by when the activity occurred.
     """
     period: SponsorsActivityPeriod = MONTH
   ): SponsorsActivityConnection!
@@ -29813,6 +29819,16 @@ type ProjectV2Item implements Node {
   Identifies the primary key from the database.
   """
   databaseId: Int
+
+  """
+  A specific field value given a field name
+  """
+  fieldValueByName(
+    """
+    The name of the field to return the field value of
+    """
+    name: String!
+  ): ProjectV2ItemFieldValue
 
   """
   List of field values
@@ -43672,6 +43688,11 @@ interface Sponsorable {
   """
   sponsorsActivities(
     """
+    Filter activities to only the specified actions.
+    """
+    actions: [SponsorsActivityAction!] = []
+
+    """
     Returns the elements in the list that come after the specified cursor.
     """
     after: String
@@ -43697,7 +43718,8 @@ interface Sponsorable {
     orderBy: SponsorsActivityOrder = {field: TIMESTAMP, direction: DESC}
 
     """
-    Filter activities returned to only those that occurred in a given time range.
+    Filter activities returned to only those that occurred in the most recent
+    specified time period. Set to ALL to avoid filtering by when the activity occurred.
     """
     period: SponsorsActivityPeriod = MONTH
   ): SponsorsActivityConnection!
@@ -52050,6 +52072,11 @@ type User implements Actor & Node & PackageOwner & ProfileOwner & ProjectNextOwn
   """
   sponsorsActivities(
     """
+    Filter activities to only the specified actions.
+    """
+    actions: [SponsorsActivityAction!] = []
+
+    """
     Returns the elements in the list that come after the specified cursor.
     """
     after: String
@@ -52075,7 +52102,8 @@ type User implements Actor & Node & PackageOwner & ProfileOwner & ProjectNextOwn
     orderBy: SponsorsActivityOrder = {field: TIMESTAMP, direction: DESC}
 
     """
-    Filter activities returned to only those that occurred in a given time range.
+    Filter activities returned to only those that occurred in the most recent
+    specified time period. Set to ALL to avoid filtering by when the activity occurred.
     """
     period: SponsorsActivityPeriod = MONTH
   ): SponsorsActivityConnection!

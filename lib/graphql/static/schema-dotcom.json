@@ -36596,6 +36596,16 @@
           "href": "/graphql/reference/objects#sponsorsactivityconnection",
           "arguments": [
             {
+              "name": "actions",
+              "description": "<p>Filter activities to only the specified actions.</p>",
+              "type": {
+                "name": "[SponsorsActivityAction!]",
+                "id": "sponsorsactivityaction",
+                "kind": "enums",
+                "href": "/graphql/reference/enums#sponsorsactivityaction"
+              }
+            },
+            {
               "name": "after",
               "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
               "type": {
@@ -36648,7 +36658,7 @@
             {
               "name": "period",
               "defaultValue": "MONTH",
-              "description": "<p>Filter activities returned to only those that occurred in a given time range.</p>",
+              "description": "<p>Filter activities returned to only those that occurred in the most recent\nspecified time period. Set to ALL to avoid filtering by when the activity occurred.</p>",
               "type": {
                 "name": "SponsorsActivityPeriod",
                 "id": "sponsorsactivityperiod",
@@ -41974,6 +41984,26 @@
           "id": "int",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#int"
+        },
+        {
+          "name": "fieldValueByName",
+          "description": "<p>A specific field value given a field name.</p>",
+          "type": "ProjectV2ItemFieldValue",
+          "id": "projectv2itemfieldvalue",
+          "kind": "unions",
+          "href": "/graphql/reference/unions#projectv2itemfieldvalue",
+          "arguments": [
+            {
+              "name": "name",
+              "description": "<p>The name of the field to return the field value of.</p>",
+              "type": {
+                "name": "String!",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            }
+          ]
         },
         {
           "name": "fieldValues",
@@ -68045,6 +68075,16 @@
           "href": "/graphql/reference/objects#sponsorsactivityconnection",
           "arguments": [
             {
+              "name": "actions",
+              "description": "<p>Filter activities to only the specified actions.</p>",
+              "type": {
+                "name": "[SponsorsActivityAction!]",
+                "id": "sponsorsactivityaction",
+                "kind": "enums",
+                "href": "/graphql/reference/enums#sponsorsactivityaction"
+              }
+            },
+            {
               "name": "after",
               "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
               "type": {
@@ -68097,7 +68137,7 @@
             {
               "name": "period",
               "defaultValue": "MONTH",
-              "description": "<p>Filter activities returned to only those that occurred in a given time range.</p>",
+              "description": "<p>Filter activities returned to only those that occurred in the most recent\nspecified time period. Set to ALL to avoid filtering by when the activity occurred.</p>",
               "type": {
                 "name": "SponsorsActivityPeriod",
                 "id": "sponsorsactivityperiod",
@@ -72481,6 +72521,16 @@
           "href": "/graphql/reference/objects#sponsorsactivityconnection",
           "arguments": [
             {
+              "name": "actions",
+              "description": "<p>Filter activities to only the specified actions.</p>",
+              "type": {
+                "name": "[SponsorsActivityAction!]",
+                "id": "sponsorsactivityaction",
+                "kind": "enums",
+                "href": "/graphql/reference/enums#sponsorsactivityaction"
+              }
+            },
+            {
               "name": "after",
               "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
               "type": {
@@ -72533,7 +72583,7 @@
             {
               "name": "period",
               "defaultValue": "MONTH",
-              "description": "<p>Filter activities returned to only those that occurred in a given time range.</p>",
+              "description": "<p>Filter activities returned to only those that occurred in the most recent\nspecified time period. Set to ALL to avoid filtering by when the activity occurred.</p>",
               "type": {
                 "name": "SponsorsActivityPeriod",
                 "id": "sponsorsactivityperiod",
