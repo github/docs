@@ -482,7 +482,7 @@ describe('server', () => {
     // should become '.../enterprise-server@<VERSION>/...' when rendered out.
     test('enterprise-server@latest links get rewritten to include the latest GHE version', async () => {
       const $ = await getDOM(
-        '/en//get-started/signing-up-for-github/setting-up-a-trial-of-github-enterprise-server'
+        '/en/get-started/signing-up-for-github/setting-up-a-trial-of-github-enterprise-server'
       )
       expect(
         $(`a[href="${latestEnterprisePath}/billing/managing-your-license-for-github-enterprise"]`)
