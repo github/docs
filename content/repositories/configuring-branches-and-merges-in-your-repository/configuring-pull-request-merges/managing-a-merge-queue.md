@@ -23,6 +23,18 @@ The merge queue creates temporary branches with a special prefix to validate pul
 
 You may need to update your Continuous Integration (CI) configuration to trigger builds which report the status of required checks once a pull request is queued to merge.
 
+For information about merge methods, see "[About pull request merges](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/about-pull-request-merges)."
+
+{% note %}
+
+**Note:**
+
+* A merge queue cannot be enabled with branch protection rules that use wildcard characters (`*`) in the branch name pattern.
+
+{% endnote %}
+
+{% data reusables.pull_requests.merge-queue-reject %}
+
 ### Triggering merge queue checks with {% data variables.product.prodname_actions %}
 
 With {% data variables.product.prodname_actions %} there is a dedicated event called `merge_group` which will trigger a workflow when a pull request is added to a merge queue. Note that this is a different event from the `pull_request` and `push` events.
@@ -38,18 +50,6 @@ on:
 ### Triggering merge queue checks with other CI providers
 
 With other CI providers, you may need to update your configuration when a branch that begins with the special prefix `gh-readonly-queue/{base_branch}` is created.
-
-For information about merge methods, see "[About pull request merges](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/about-pull-request-merges)."
-
-{% note %}
-
-**Note:**
-
-* A merge queue cannot be enabled with branch protection rules that use wildcard characters (`*`) in the branch name pattern.
-
-{% endnote %}
-
-{% data reusables.pull_requests.merge-queue-reject %}
 
 ## Managing a merge queue
 
