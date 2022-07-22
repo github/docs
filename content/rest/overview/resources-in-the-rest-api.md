@@ -699,4 +699,3 @@ If no `Time-Zone` header is specified and you make an authenticated call to the 
 If the steps above don't result in any information, we use UTC as the timezone to create the git commit.
 
 [pagination-guide]: /guides/traversing-with-pagination
-

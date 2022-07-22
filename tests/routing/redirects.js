@@ -50,16 +50,6 @@ describe('redirects', () => {
     ).toBe(`/enterprise-server@${enterpriseServerReleases.latest}/issues`)
   })
 
-  test('converts single `redirect_from` strings values into arrays', async () => {
-    const page = await Page.init({
-      relativePath: 'article-with-redirect-from-string.md',
-      basePath: path.join(__dirname, '../fixtures'),
-      languageCode: 'en',
-    })
-    const pageRedirects = page.buildRedirects()
-    expect(pageRedirects['/redirect-string']).toBe('/article-with-redirect-from-string')
-  })
-
   describe('query params', () => {
     test('are preserved in redirected URLs', async () => {
       const res = await get('/enterprise/admin?query=pulls')
