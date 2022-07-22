@@ -50,7 +50,7 @@ $ openssl rsa -in yourdomain.der -inform DER -out yourdomain.key -outform PEM
 
 ## 鍵のアップロード後の反応のない環境
 
-If {% data variables.product.product_location %} is unresponsive after uploading an TLS key, please [contact {% data variables.product.prodname_enterprise %} Support](https://enterprise.github.com/support) with specific details, including a copy of your TLS certificate.
+If {% data variables.product.product_location %} is unresponsive after uploading an TLS key, please [contact {% data variables.product.prodname_enterprise %} Support](https://enterprise.github.com/support) with specific details, including a copy of your TLS certificate. Ensure that your private key **is not** included.
 
 ## 証明書の検証エラー
 

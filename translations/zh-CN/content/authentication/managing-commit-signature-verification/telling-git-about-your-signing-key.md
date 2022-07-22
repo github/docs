@@ -109,7 +109,7 @@ shortTitle: 将您的签名密钥告诉 Git
 - "[检查现有 GPG 密钥](/articles/checking-for-existing-gpg-keys)"
 - "[生成新 GPG 密钥](/articles/generating-a-new-gpg-key)"
 - "[在 GPG 密钥中使用经验证的电子邮件地址](/articles/using-a-verified-email-address-in-your-gpg-key)"
-- "[Adding a GPG key to your GitHub account](/articles/adding-a-gpg-key-to-your-github-account)"
+- "[添加 GPG 密钥到 GitHub 帐户](/articles/adding-a-gpg-key-to-your-github-account)"
 - "[将电子邮件与 GPG 密钥关联](/articles/associating-an-email-with-your-gpg-key)"
 - "[对提交签名](/articles/signing-commits)"
 - "[对标记签名](/articles/signing-tags)"
