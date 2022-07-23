@@ -42,7 +42,7 @@ When installing or publishing a Docker image, the Docker registry does not curre
 
 {% data reusables.package_registry.authenticate-packages-github-token %}
 
-### Authenticating with a personal access token
+### Authenticating with a Personal Access Token(PAT)
 
 {% data reusables.package_registry.required-scopes %}
 
