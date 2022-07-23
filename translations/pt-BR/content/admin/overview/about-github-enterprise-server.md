@@ -11,7 +11,7 @@ topics:
 
 ## Sobre {% data variables.product.product_name %}
 
-{% data reusables.enterprise.ghes-is-a-self-hosted-platform %} Sua equipe pode usar o {% data variables.product.product_name %} para criar e enviar softwares usando o controle de versão do Git, poderosas APIs, ferramentas de produtividade e colaboração e integrações. Desenvolvedores familiarizados com {% data variables.product.prodname_dotcom_the_website %} podem a integrar-se e contribuir sem problemas usando funcionalidades e fluxos de trabalho conhecidos.
+{% data reusables.enterprise.ghes-is-a-self-hosted-platform %} Sua equipe pode usar o {% data variables.product.product_name %} para criar e enviar softwares usando o controle de versão do Git, poderosas APIs, ferramentas de produtividade e colaboração e integrações. Desenvolvedores familiarizados com {% data variables.product.prodname_dotcom_the_website %} podem a integrar-se e contribuir sem problemas usando funcionalidades e fluxos de trabalho conhecidos. {% data reusables.enterprise.about-github-for-enterprises %}
 
 {% data reusables.enterprise.ghes-runs-on-your-infrastructure %}
 
