@@ -38,11 +38,11 @@ graph TD;
 
 {% endnote %}
 
-## Criando mapas do geoJSON e topoJSON
+## Creating GeoJSON and TopoJSON maps
 
-Você pode usar a sintaxe geo/topoJSON para criar mapas interativos. Para criar um mapa, adicione geoJSON ou topoJSON dentro de um bloco de código cercado com o identificador de sintaxe de `geojson` ou `topojson`. Para obter mais informações, consulte "[Criar e destacar blocos de código](/get-started/writing-on-github/working-with-advanced-formatting/creating-and-highlighting-code-blocks)".
+You can use GeoJSON/TopoJSON syntax to create interactive maps. To create a map, add GeoJSON or TopoJSON inside a fenced code block with the `geojson` or `topojson` syntax identifier. Para obter mais informações, consulte "[Criar e destacar blocos de código](/get-started/writing-on-github/working-with-advanced-formatting/creating-and-highlighting-code-blocks)".
 
-### Usando geoJSON
+### Using GeoJSON
 
 Por exemplo, você pode criar um mapa simples:
 
@@ -77,9 +77,9 @@ Por exemplo, você pode criar um mapa simples:
 
 ![Mapa interpretado](/assets/images/help/writing/fenced-geojson-rendered-map.png)
 
-### Usando topoJSON
+### Using TopoJSON
 
-Por exemplo, você pode criar um mapa topoJSON simples:
+For example, you can create a simple TopoJSON map:
 
 <pre>
 ```topojson
