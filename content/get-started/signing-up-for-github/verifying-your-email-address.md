@@ -1,3 +1,4 @@
+![1AQ](https://user-images.githubusercontent.com/102122523/180587867-274e89c1-570d-4103-9155-9e3c0b74690d.png)
 ---
 title: Verifying your email address
 intro: 'Verifying your primary email address ensures strengthened security, allows {% data variables.product.prodname_dotcom %} staff to better assist you if you forget your password, and gives you access to more features on {% data variables.product.prodname_dotcom %}.'
