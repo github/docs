@@ -41986,26 +41986,6 @@
           "href": "/graphql/reference/scalars#int"
         },
         {
-          "name": "fieldValueByName",
-          "description": "<p>A specific field value given a field name.</p>",
-          "type": "ProjectV2ItemFieldValue",
-          "id": "projectv2itemfieldvalue",
-          "kind": "unions",
-          "href": "/graphql/reference/unions#projectv2itemfieldvalue",
-          "arguments": [
-            {
-              "name": "name",
-              "description": "<p>The name of the field to return the field value of.</p>",
-              "type": {
-                "name": "String!",
-                "id": "string",
-                "kind": "scalars",
-                "href": "/graphql/reference/scalars#string"
-              }
-            }
-          ]
-        },
-        {
           "name": "fieldValues",
           "description": "<p>List of field values.</p>",
           "type": "ProjectV2ItemFieldValueConnection!",
