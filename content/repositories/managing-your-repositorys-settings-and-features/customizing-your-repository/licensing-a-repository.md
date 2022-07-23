@@ -37,7 +37,7 @@ As a best practice, we encourage you to include the license file with your proje
 
 You can filter repositories based on their license or license family using the `license` qualifier and the exact license keyword:
 
-License | License keyword
+## License | License keyword
 ---  | ---
 | Academic Free License v3.0 | `afl-3.0` |
 | Apache license 2.0 | `apache-2.0` |
