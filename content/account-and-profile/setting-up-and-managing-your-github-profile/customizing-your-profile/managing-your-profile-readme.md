@@ -72,6 +72,11 @@ The profile README is removed from your {% data variables.product.prodname_dotco
 
 The method you choose depends upon your needs, but if you're unsure, we recommend making your repository private. For steps on how to make your repository private, see ["Changing a repository's visibility."](/github/administering-a-repository/setting-repository-visibility#changing-a-repositorys-visibility)
 
+
+## Add some animated gifs
+
+Animated gifs and emoji's gives an immense feel for your personal brand, skills which is appealing in a specific way and is more expressive than words. It adds the spark and a way to express the right excitment or feel of your sentence and word. Try to add more statistical data and graphs to make your README standout form crowd and grow your GITHUB Community like never before.
+
 ## Further reading
 
 - [About READMEs](/github/creating-cloning-and-archiving-repositories/about-readmes)
