@@ -20,7 +20,7 @@ shortTitle: 暗号化されたシークレット
  
 
 
-## {% data variables.product.prodname_codespaces %} の暗号化されたシークレットについて
+## About encrypted secrets for {% data variables.product.prodname_github_codespaces %}
 
 You can add encrypted secrets to your personal account that you want to use in your codespaces. たとえば、次のような機密情報を暗号化されたシークレットとして保存しアクセスするとよいでしょう。
 
@@ -41,7 +41,7 @@ You can add encrypted secrets to your personal account that you want to use in y
 
 ### シークレットの制限
 
-{% data variables.product.prodname_codespaces %} には最大 100 個のシークレットを保存できます。
+You can store up to 100 secrets for {% data variables.product.prodname_github_codespaces %}.
 
 シークレットの容量は最大64 KBです。
 
@@ -77,4 +77,4 @@ You can add encrypted secrets to your personal account that you want to use in y
 
 ## 参考リンク
 
-- "[Managing encrypted secrets for your repository and organization for {% data variables.product.prodname_codespaces %}](/codespaces/managing-codespaces-for-your-organization/managing-encrypted-secrets-for-your-repository-and-organization-for-codespaces)"
+- "[Managing encrypted secrets for your repository and organization for {% data variables.product.prodname_github_codespaces %}](/codespaces/managing-codespaces-for-your-organization/managing-encrypted-secrets-for-your-repository-and-organization-for-github-codespaces)"

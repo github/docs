@@ -20,7 +20,7 @@ topics:
 
 本指南说明如何使用 {% data variables.product.prodname_actions %} 构建 Web 应用并将其部署到 [Azure Static Web App](https://azure.microsoft.com/services/app-service/static/)。
 
-{% ifversion fpt or ghec or ghae-issue-4856 %}
+{% ifversion fpt or ghec or ghae-issue-4856 or ghes > 3.4 %}
 
 {% note %}
 
@@ -61,7 +61,7 @@ env:
   API_LOCATION: "api" # location of your api source code - optional
   APP_ARTIFACT_LOCATION: "build" # location of client code build output
 
-  on:
+on:
   push:
     branches:
       - main
@@ -72,6 +72,7 @@ env:
 
 permissions:
   issues: write
+  contents: read
 
 jobs:
   build_and_deploy:

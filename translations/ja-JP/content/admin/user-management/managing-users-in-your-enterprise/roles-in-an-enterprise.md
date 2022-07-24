@@ -34,13 +34,13 @@ For more information about adding people to your enterprise, see "[Authenticatio
 
 Enterprise オーナーは、Enterprise の完全な管理権限を持ち、以下を含むすべての操作を行うことができます。
 - 管理者を管理する
-- {% ifversion ghec %}Adding and removing {% elsif ghae or ghes %}Managing{% endif %} organizations {% ifversion ghec %}to and from {% elsif ghae or ghes %} in{% endif %} the enterprise{% if remove-enterprise-members %}
+- {% ifversion ghec %}Adding and removing {% elsif ghae or ghes %}Managing{% endif %} organizations {% ifversion ghec %}to and from {% elsif ghae or ghes %} in{% endif %} the enterprise{% ifversion remove-enterprise-members %}
 - Removing enterprise members from all organizations owned by the enterprise{% endif %}
 - Enterprise 設定を管理する
 - Organization にポリシーを強制する
 {% ifversion ghec %}- 支払い設定を管理する{% endif %}
 
-{% if enterprise-owner-join-org %}
+{% ifversion enterprise-owner-join-org %}
 Enterprise owners do not have access to organization settings or content by default. To gain access, enterprise owners can join any organization owned by their enterprise. 詳しい情報については「[自身のEnterpriseが所有しているOrganization内での自分のロールの管理](/admin/user-management/managing-organizations-in-your-enterprise/managing-your-role-in-an-organization-owned-by-your-enterprise)」を参照してください。
 
 Owners of organizations in your enterprise do not have access to the enterprise itself unless you make them enterprise owners.

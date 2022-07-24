@@ -28,7 +28,7 @@ shortTitle: Dependabot PRの管理
 {% data reusables.dependabot.pull-request-introduction %}
 
 {% data variables.product.prodname_dependabot %} がプルリクエストを発行すると、リポジトリに対して選択した方法で通知されます。 各プルリクエストには、パッケージマネージャーから取得した、提案された変更に関する詳細情報が含まれています。 これらのプルリクエストは、リポジトリで定義されている通常のチェックとテストに従います。
-{% ifversion fpt or ghec %}In addition, where enough information is available, you'll see a compatibility score. これは、変更をマージするかどうかを決める際にも役立ちます。 For information about this score, see "[About {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/about-dependabot-security-updates)."{% endif %}
+{% ifversion fpt or ghec %}加えて、十分な情報がある場合には互換性スコアが表示されます。 これは、変更をマージするかどうかを決める際にも役立ちます。 このスコアについての詳しい情報は、「[{% data variables.product.prodname_dependabot_security_updates %} について](/github/managing-security-vulnerabilities/about-dependabot-security-updates)」を参照してください。{% endif %}
 
 管理する依存関係が多数ある場合は、各パッケージマネージャーの設定をカスタマイズして、プルリクエストに特定のレビュー担当者、アサインされた人、ラベルを付けることができます。 詳しい情報については、「[依存関係の更新をカスタマイズする](/github/administering-a-repository/customizing-dependency-updates)」をご覧ください。
 
@@ -36,17 +36,21 @@ shortTitle: Dependabot PRの管理
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-pr %}
-1. Any pull requests for security or version updates are easy to identify.
-    - The author is {% ifversion fpt or ghec %}[dependabot](https://github.com/dependabot){% else %}dependabot{% endif %}, the bot account used by {% data variables.product.prodname_dependabot %}.
+1. セキュリティあるいはバージョン更新のPull Requestは、簡単に特定できます。
+    - 作者は{% ifversion fpt or ghec %}[dependabot](https://github.com/dependabot){% else %}dependabot{% endif %}で、{% data variables.product.prodname_dependabot %}で使用されるボットアカウントです。
     - デフォルトでは、`dependencies` ラベルが付いています。
 
 ## {% data variables.product.prodname_dependabot %} Pull Requestのリベース戦略を変更する
 
-デフォルトでは、{% data variables.product.prodname_dependabot %} は自動的にプルリクエストをリベースして競合を解決します。 マージの競合を手動で処理する場合は、`rebase-strategy` オプションを使用してこれを無効にできます。 For details, see "[Configuration options for the dependabot.yml file](/github/administering-a-repository/configuration-options-for-dependency-updates#rebase-strategy)."
+デフォルトでは、{% data variables.product.prodname_dependabot %} は自動的にプルリクエストをリベースして競合を解決します。 マージの競合を手動で処理する場合は、`rebase-strategy` オプションを使用してこれを無効にできます。 詳細については「[dependabot.ymlファイルの設定オプション](/github/administering-a-repository/configuration-options-for-dependency-updates#rebase-strategy)」を参照してください。
+
+## {% data variables.product.prodname_dependabot %}に対する追加のコミットへのリベースとフォースプッシュの許可
+
+デフォルトでは、{% data variables.product.prodname_dependabot %}はPull Requestに対して追加のコミットが行われると、そのPull Requestのリベースを止めます。 ブランチに追加されたコミットに対するフォースプッシュを{% data variables.product.prodname_dependabot %}に許可するには、`[dependabot skip]`、`[skip dependabot]`、`[dependabot-skip]`、`[skip-dependabot]`のいずれかの文字列をコミットメッセージに含めてください。大文字でも小文字でもかまいません。
 
 ## {% data variables.product.prodname_dependabot %} Pull Requestをコメントコマンドで管理する
 
-{% data variables.product.prodname_dependabot %} はコメント内の単純なコマンドに応答します。 それぞれのPull Requestには、"{% data variables.product.prodname_dependabot %} commands and options"セクションの下に、そのPull Requestを処理するのに使えるコマンド（たとえばPull Requestのマージ、squash、再オープン、クローズ、リベース）の詳細があります。 これらの自動生成されたプルリクエストをできるだけ簡単にトリアージできるようにすることが目的です。
+{% data variables.product.prodname_dependabot %} はコメント内の単純なコマンドに応答します。 それぞれのPull Requestには、"{% data variables.product.prodname_dependabot %} commands and options"セクションの下に、そのPull Requestを処理するのに使えるコマンド（たとえばPull Requestのマージ、squash、再オープン、クローズ、リベース）の詳細があります。 これらの自動生成されたPull Requestをできるだけ簡単にトリアージできるようにすることが目的です。
 
 {% data variables.product.prodname_dependabot %} Pull Requestでは、以下のいずれのコマンドを使うこともできます。
 
@@ -63,4 +67,4 @@ shortTitle: Dependabot PRの管理
 
 {% data variables.product.prodname_dependabot %}はコマンドを認識すると"thumbs up"の絵文字で反応し、Pull Requestのコメントで応答することがあります。 {% data variables.product.prodname_dependabot %}は通常すぐに反応しますが、コマンドによっては{% data variables.product.prodname_dependabot %}が他の更新やコマンドを処理するのに忙しい場合、完了に数分かかることがあります。
 
-依存関係やバージョンを無視するコマンドを実行すると、{% data variables.product.prodname_dependabot %} はリポジトリの設定を一元的に保存します。 これは簡単な解決策ですが、複数のコントリビューターがいるリポジトリの場合は、設定ファイルで無視する依存関係とバージョンを明示的に定義することをお勧めします。 これにより、特定の依存関係が自動的に更新されない理由をすべてのコントリビューターが簡単に確認できます。 For more information, see "[Configuration options for the dependabot.yml file](/github/administering-a-repository/configuration-options-for-dependency-updates#ignore)."
+依存関係やバージョンを無視するコマンドを実行すると、{% data variables.product.prodname_dependabot %} はリポジトリの設定を一元的に保存します。 これは簡単な解決策ですが、複数のコントリビューターがいるリポジトリの場合は、設定ファイルで無視する依存関係とバージョンを明示的に定義することをお勧めします。 これにより、特定の依存関係が自動的に更新されない理由をすべてのコントリビューターが簡単に確認できます。 詳しい情報については「[dependabot.ymlファイルの設定オプション](/github/administering-a-repository/configuration-options-for-dependency-updates#ignore)」を参照してください。

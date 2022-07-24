@@ -56,9 +56,9 @@ jobs:
           token: ${{ secrets.DOCS_BOT_FR }}
 
       - name: Setup Node
-        uses: actions/setup-node@1f8c6b94b26d0feae1e387ca63ccbdc44d27b561
+        uses: actions/setup-node@17f8bd926464a1afa4c6a11669539e9c1ba77048
         with:
-          node-version: 16.14.x
+          node-version: '16.15.0'
           cache: npm
 
       - name: Install dependencies
@@ -77,10 +77,6 @@ jobs:
         env:
           VERSION: ${{ github.event.inputs.version }}
           LANGUAGE: ${{ github.event.inputs.language }}
-          # We don't want or need the changelog entries in this context.
-          # Pages that display the content from these isn't included
-          # in search index bodies anyway.
-          CHANGELOG_DISABLED: true
           # If a reusable, or anything in the `data/*` directory is deleted
           # you might get a
           #
@@ -89,6 +85,7 @@ jobs:
           # But that'll get fixed in the next translation pipeline. For now,
           # let's just accept an empty string instead.
           THROW_ON_EMPTY: false
+
         run: npm run sync-search
 
       - name: Update private docs repository search indexes

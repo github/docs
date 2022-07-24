@@ -15,7 +15,7 @@ redirect_from:
 permissions: 'Enterprise owners can enable {% data variables.product.prodname_dependabot %}.'
 versions:
   ghes: '*'
-  ghae: issue-4864
+  ghae: '*'
 type: how_to
 topics:
   - Enterprise
@@ -33,7 +33,7 @@ topics:
 
 {% data reusables.dependabot.dependabot-alerts-beta %}
 
-Com {% data variables.product.prodname_dependabot_alerts %}, {% data variables.product.prodname_dotcom %} identifica dependências vulneráveis nos repositórios e cria alertas em {% data variables.product.product_location %}, usando dados do {% data variables.product.prodname_advisory_database %} e o serviço gráfico de dependências.
+Com {% data variables.product.prodname_dependabot_alerts %}, {% data variables.product.prodname_dotcom %} identifica dependências inseguras nos repositórios e cria alertas em {% data variables.product.product_location %}, usando dados do {% data variables.product.prodname_advisory_database %} e o serviço gráfico de dependências.
 
 {% data reusables.repositories.tracks-vulnerabilities %}
 
@@ -64,6 +64,8 @@ Após habilitar {% data variables.product.prodname_dependabot_alerts %}, você p
 
 {% endnote %}
 
+Por padrão, os executores de {% data variables.product.prodname_actions %} usados por {% data variables.product.prodname_dependabot %} precisam de acesso à internet para fazer o download dos pacotes atualizados de gerentes de pacotes upstream. Para {% data variables.product.prodname_dependabot_updates %} alimentado por {% data variables.product.prodname_github_connect %}, o acesso à internet fornece aos seus executores um token que permite acesso a dependências e consultorias hospedadas em {% data variables.product.prodname_dotcom_the_website %}.
+
 Com {% data variables.product.prodname_dependabot_updates %}, {% data variables.product.company_short %} cria automaticamente pull requests para atualizar dependências de duas maneiras.
 
 - **{% data variables.product.prodname_dependabot_version_updates %}**: Os usuários adicionam um arquivo de configuração de {% data variables.product.prodname_dependabot %} ao repositório para habilitar {% data variables.product.prodname_dependabot %} e criar pull requests quando uma nova versão de uma dependência monitorada for lançada. Para obter mais informações, consulte "[Sobre {% data variables.product.prodname_dependabot_version_updates %}](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/about-dependabot-version-updates)".
@@ -78,7 +80,7 @@ Antes de poder habilitar {% data variables.product.prodname_dependabot_alerts %}
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.github-connect-tab %}
-{%- if dependabot-updates-github-connect %}
+{%- ifversion dependabot-updates-github-connect %}
 1. Em "{% data variables.product.prodname_dependabot %}", à direita de "Os usuários podem receber alertas de vulnerabilidade de dependências de código aberto", selecione o menu suspenso e clique em **Habilitado sem notificações**. Opcionalmente, para habilitar alertas com notificações, clique em **Habilitado com as notificações**.
 
    ![Captura de tela do menu suspenso para habilitar a digitalização de repositórios com relação a vulnerabilidades](/assets/images/enterprise/site-admin-settings/dependabot-alerts-dropdown.png)
@@ -92,7 +94,7 @@ Antes de poder habilitar {% data variables.product.prodname_dependabot_alerts %}
 
    {% endtip %}
 
-{% if dependabot-updates-github-connect %}
+{% ifversion dependabot-updates-github-connect %}
 ## Habilitar o {% data variables.product.prodname_dependabot_updates %}
 
 Após habilitar {% data variables.product.prodname_dependabot_alerts %} para a sua empresa, você poderá habilitar {% data variables.product.prodname_dependabot_updates %}.
@@ -120,6 +122,11 @@ Antes de habilitar {% data variables.product.prodname_dependabot_updates %}, voc
 
    ![Captura de tela do menu suspenso para habilitar a atualização de dependências vulneráveis](/assets/images/enterprise/site-admin-settings/dependabot-updates-button.png)
 
-{% elsif ghes > 3.2 %}
+{% endif %}
+{% ifversion ghes > 3.2 %}
+
 Ao habilitar {% data variables.product.prodname_dependabot_alerts %}, você também deve considerar configurar {% data variables.product.prodname_actions %} para {% data variables.product.prodname_dependabot_security_updates %}. Este recurso permite aos desenvolvedores corrigir a vulnerabilidades nas suas dependências. Para obter mais informações, consulte "[Gerenciar executores auto-hospedados para {% data variables.product.prodname_dependabot_updates %} na sua empresa](/admin/github-actions/enabling-github-actions-for-github-enterprise-server/managing-self-hosted-runners-for-dependabot-updates). "
+
+Se você precisar de segurança reforçada, recomendamos configurar {% data variables.product.prodname_dependabot %} para usar registros privados. Para obter mais informações, consulte "[Gerenciando segredos criptografados para {% data variables.product.prodname_dependabot %}](/code-security/dependabot/working-with-dependabot/managing-encrypted-secrets-for-dependabot)".
+
 {% endif %}

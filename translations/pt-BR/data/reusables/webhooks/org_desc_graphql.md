@@ -1,1 +1,1 @@
-`organização` | `objeto` Cargas do webhook contêm o objeto da [`organização`]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql/reference/objects#organization) quando o webhook é configurado para uma organização ou o evento ocorre a partir da atividade em um repositório pertencente a uma organização.
+`organização` | `objeto` Cargas do webhook contêm o objeto da [`organização`](/graphql/reference/objects#organization) quando o webhook é configurado para uma organização ou o evento ocorre a partir da atividade em um repositório pertencente a uma organização.

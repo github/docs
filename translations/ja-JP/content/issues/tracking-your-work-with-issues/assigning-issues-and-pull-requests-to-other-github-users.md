@@ -19,7 +19,9 @@ shortTitle: Issue及びPRのアサイン
 
 ## Issue およびPull Requestをアサインされた人について
 
-自身、該当する Issue またはプルリクエストにコメントした任意の人、リポジトリへの書き込み権限がある任意の人、およびリポジトリの読み取り権限がある Organization メンバーを含めて、最大 10 人まで各 Issue またはプルリクエストにアサインできます。 詳細は「[{% data variables.product.prodname_dotcom %} 上のアクセス権限](/articles/access-permissions-on-github)」を参照してください。
+自身、該当する Issue またはPull Requestにコメントした任意の人、リポジトリへの書き込み権限がある任意の人、およびリポジトリの読み取り権限がある Organization メンバーを含めて、複数人を各 Issue またはPull Requestにアサインできます。 詳細は「[{% data variables.product.prodname_dotcom %} 上のアクセス権限](/articles/access-permissions-on-github)」を参照してください。
+
+パブリックリポジトリのIssue及びPull Request、そして有料アカウントのプライベートリポジトリでは、最大10人を割り当てできます。 無料プランのプライベートリポジトリでは、IssueあるいはPull Requestごとに1人に制限されます。
 
 ## 個別の Issue またはPull Requestを割り当てる
 

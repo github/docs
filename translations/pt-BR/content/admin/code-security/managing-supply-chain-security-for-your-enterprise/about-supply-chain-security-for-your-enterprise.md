@@ -5,7 +5,7 @@ shortTitle: Sobre a segurança da cadeia de suprimento
 permissions: ''
 versions:
   ghes: '*'
-  ghae: issue-4864
+  ghae: '*'
 type: how_to
 topics:
   - Enterprise

@@ -11,7 +11,7 @@ redirect_from:
   - /rest/reference/scim
 ---
 
-## About the SCIM API
+## SCIM APIについて
 
 ### Organization 向け SCIM プロビジョニング
 

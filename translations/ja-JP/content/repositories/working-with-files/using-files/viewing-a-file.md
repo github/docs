@@ -48,14 +48,9 @@ Blame ビューでは、{% octicon "versions" aria-label="The prior blame icon" 
 3. ファイルビューの右上隅で [**Blame**] をクリックして blame ビューを開きます。 ![[Blame] ボタン](/assets/images/help/repository/blame-button.png)
 4. 特定の行の過去のリビジョンを表示するには、見てみたい変更が見つかるまで {% octicon "versions" aria-label="The prior blame icon" %} をクリックします。 ![さらに前の状態に遡るボタン](/assets/images/help/repository/prior-blame-button.png)
 
-{% if blame-ignore-revs %}
+{% ifversion blame-ignore-revs %}
 
 ## Ignore commits in the blame view
-{% note %}
-
-**Note:** Ignoring commits in the blame view is currently in public beta and subject to change.
-
-{% endnote %}
 
 All revisions specified in the `.git-blame-ignore-revs` file, which must be in the root directory of your repository, are hidden from the blame view using Git's `git blame --ignore-revs-file` configuration setting. For more information, see [`git blame --ignore-revs-file`](https://git-scm.com/docs/git-blame#Documentation/git-blame.txt---ignore-revs-fileltfilegt) in the Git documentation.
 
@@ -80,6 +75,12 @@ This can be useful when a few commits make extensive changes to your code. You c
 
 ```shell
 git blame --ignore-revs-file .git-blame-ignore-revs
+```
+
+You can also configure your local git so it always ignores the revs in that file:
+
+```shell
+git config blame.ignoreRevsFile .git-blame-ignore-revs
 ```
 
 {% endif %}

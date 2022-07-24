@@ -11,9 +11,9 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-## About the Feeds API
+## 关于馈送 API
 
-To see what feeds are available to you, use the [Get feeds](#get-feeds) operation. You can then get a feed by sending a request to one of the feed URLs.
+要查看哪些源可供您使用，请使用[获取馈送](#get-feeds)操作。 然后，您可以通过向其中一个馈送 URL 发送请求来获取馈送。
 
 ### 获取 Atom 馈送的示例
 
@@ -29,9 +29,12 @@ HTTP/2 200
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" xml:lang="en-US">
+<feed xmlns="http://www.w3.org/2005/Atom" 
+xmlns:media="http://search.yahoo.com/mrss/" 
+xml:lang="en-US">
   <id>tag:github.com,2008:/security-advisories</id>
-  <link rel="self" type="application/atom+xml" href="https://github.com/security-advisories.atom"/>
+  <link rel="self" type="application/atom+xml" 
+  href="https://github.com/security-advisories.atom"/>
   <title>GitHub Security Advisory Feed</title>
   <author>
     <name>GitHub</name>
@@ -41,10 +44,18 @@ HTTP/2 200
       <id>tag:github.com,2008:GHSA-abcd-12ab-23cd</id>
       <published>2018-07-26T15:14:52Z</published>
       <updated>2019-01-14T19:34:52Z</updated>
-      <title type="html">[GHSA-abcd-12ab-23cd] Moderate severity vulnerability that affects Octoapp</title>
+      <title type="html">[GHSA-abcd-12ab-23cd] Moderate 
+      severity vulnerability that affects Octoapp</title>
         <category term="NPM"/>
       <content type="html">
-        &lt;p&gt;Octoapp node module before 4.17.5 suffers from a Modification of Assumed-Immutable Data (MAID) vulnerability via defaultsDeep, merge, and mergeWith functions, which allows a malicious user to modify the prototype of &quot;Object&quot; via &lt;strong&gt;proto&lt;/strong&gt;, causing the addition or modification of an existing property that will exist on all objects.&lt;/p&gt;
+        &lt;p&gt;Octoapp node module before 4.17.5 suffers 
+        from a Modification of Assumed-Immutable Data (MAID) 
+        vulnerability via defaultsDeep, merge, and mergeWith 
+        functions, which allows a malicious user to modify 
+        the prototype of &quot;Object&quot; via 
+        &lt;strong&gt;proto&lt;/strong&gt;, causing the 
+        addition or modification of an existing property 
+        that will exist on all objects.&lt;/p&gt;
           &lt;p&gt;&lt;strong&gt;Affected Packages&lt;/strong&gt;&lt;/p&gt;
 
   &lt;dl&gt;

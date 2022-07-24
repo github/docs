@@ -1,39 +1,39 @@
 ---
 title: Acerca de utilizar visual Studio Code con GitHub Classroom
 shortTitle: Aceca de utilizar Visual Studio Code
-intro: 'Puedes configurar a Visual Studio Code como el editor preferido para las tareas en {% data variables.product.prodname_classroom %}.'
+intro: 'Puedes configurar {% data variables.product.prodname_vscode %} como el editor preferido para las tareas de {% data variables.product.prodname_classroom %}.'
 versions:
   fpt: '*'
 redirect_from:
   - /education/manage-coursework-with-github-classroom/about-using-vs-code-with-github-classroom
 ---
 
-## Acerca de Visual Studio Code
+## Acerca de {% data variables.product.prodname_vscode %}
 
-Visual Studio Code es un editor de código fuente ligero pero podereos, el cual se ejecuta en tu máquina de escritorio y está disponible para Windows, macOS y Linux. Con la [Extensión de GitHub Classroom para Visual Studio Code](https://aka.ms/classroom-vscode-ext), los alumnos pueden buscar, editar, emitir, colaborar y probar sus Tareas de las Aulas fácilmente. Para obtener más información sobre los IDe y {% data variables.product.prodname_classroom %}, consulta la sección "[Integrar {% data variables.product.prodname_classroom %} con un IDE](/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide/integrate-github-classroom-with-an-ide)".
+{% data variables.product.prodname_vscode %} es un editor de código fuente ligero pero poderoso, el cual se ejecuta en tu escritorio y está disponible para Windows, macOS y Linux. Con la [extensión de GitHub Clasroom para {% data variables.product.prodname_vscode_shortname %}](https://aka.ms/classroom-vscode-ext), los alumnos pueden buscar, editar, enviar, colaborar y probar sus tareas de las aulas fácilmente. Para obtener más información sobre los IDe y {% data variables.product.prodname_classroom %}, consulta la sección "[Integrar {% data variables.product.prodname_classroom %} con un IDE](/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide/integrate-github-classroom-with-an-ide)".
 
 ### El editor predilecto de tus alumnos
-La integración de GitHub Classroom con Visual Studio Code proporciona a los alumnos un paquete de extensiones que contiene:
+La integración con Github Classroom con {% data variables.product.prodname_vscode_shortname %} proporciona a los estudiantes un paquete de extensiones, el cuál contiene:
 
 1. [La Extensión de GitHub Classroom](https://aka.ms/classroom-vscode-ext) con abstracciones personalizadas que hacen más fácil que los alumnos naveguen en el inicio.
 2. [La Extgensión de Visual Studio Live Share](https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare-pack) que se integra en una vista de alumnos para dar acceso fácil a los ayudantes para enseñar y a los compañeros de clase para ayudar y colaborar.
 3. [La Extensión de GitHub Pull Request](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github) que permite a los alumnos ver la retroalimentación de sus instructores dentro del editor.
 
-### Cómo lanzar una tarea en Visual Sudio Code
-Cuando creas una tarea, Visual Studio Code puede agregarse como el editor preferido para ella. Para obtener más detalles, consulta la sección "[Integrar a {% data variables.product.prodname_classroom %} con un IDE](/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide/integrate-github-classroom-with-an-ide)".
+### Cómo lanzar la tarea en {% data variables.product.prodname_vscode_shortname %}
+Cuando creas una tarea, puedes agregar a {% data variables.product.prodname_vscode_shortname %} como el editor predeterminado para ella. Para obtener más detalles, consulta la sección "[Integrar a {% data variables.product.prodname_classroom %} con un IDE](/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide/integrate-github-classroom-with-an-ide)".
 
-Esto incluirá una insignia de "Abrir en Visual Studio Code" en todos los repositorios de los alumnos. Esta insignia maneja la instalación de Visual Studio Code, el paquete de extensiones del Aula, y el abrir hacia la tarea activa con un clic.
+Esto incluirá una insignia de "Abierto en {% data variables.product.prodname_vscode_shortname %}" en todos los repositorios de los alumnos. Esta insignia maneja la instalación de {% data variables.product.prodname_vscode_shortname %}, el paquete de extensión del aula y la apertura para la tarea activa en un solo clic.
 
 {% note %}
 
-**Nota:** El alumno debe tener instalado Git en su computadora para subir código desde Visual Studio Code hacia su repositorio. Esto no se instala automáticamente cuando haces clic en el botón de **Abrir en Visual Studio Code**. El alumno puede descargar Git desde [aquí](https://git-scm.com/downloads).
+**Nota:** El alumno debe tener Git instalado en su computadora para subir código desde {% data variables.product.prodname_vscode_shortname %} hacia su repositorio. Esto no se instala automáticamente al hacer clic en el botón **Abrir en {% data variables.product.prodname_vscode_shortname %}**. El alumno puede descargar Git desde [aquí](https://git-scm.com/downloads).
 
 {% endnote %}
 
 ### Cómo utilizar el paquete de extensión de GitHub Classroom
 La extensión de GitHub Classroom tiene dos componentes principales: la vista de 'Aulas' y la vista de 'Tarea Activa'.
 
-Cuando un alumno lanza la extensión por primera vez, automáticamente navegan a la pestaña del Explorador en Visual Studio Code, en donde pueden entrar a la vista de "Tarea Activa" junto con la vista de diagrama de árbol de los archivos en el repositorio.
+Cuando el alumno lanza la extensión por primera vez, se le lleva automáticamente a la pestaña del explorador en {% data variables.product.prodname_vscode_shortname %}, en donde podrán ver la vista de "Tarea activa" junto con la vista triple de los archivos en el repositorio.
 
 ![Vista de Tarea Activa de GitHub Classroom](/assets/images/help/classroom/vs-code-active-assignment.png)
 

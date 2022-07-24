@@ -39,7 +39,7 @@ GitHub 社区的主要目的是协作处理软件项目。 我们致力于维持
 * **传达期望** - 维护者可以设置社区特定的准则，以帮助用户了解如何与项目进行交互，例如，在存储库的自述文件中、[参与文件](/articles/setting-guidelines-for-repository-contributors/)或[专用行为准则](/articles/adding-a-code-of-conduct-to-your-project/)中。 您可以在[此处](/communities)找到有关建设社区的更多信息。
 
 
-* **主持评论** - 对仓库拥有[写入权限](/articles/repository-permission-levels-for-an-organization/)的用户可以[编辑、删除或隐藏](/communities/moderating-comments-and-conversations/managing-disruptive-comments)任何人对提交、拉取请求和议题的评论。 对仓库具有读取权限的任何人都可查看评论的编辑历史记录。 评论作者和对存储库具有写入权限的人员还可以从[评论的编辑历史记录](/communities/moderating-comments-and-conversations/tracking-changes-in-a-comment)中删除敏感信息。 如果有很多活动，主持项目可能会感觉像是一项艰巨的任务，但您可以[添加协作者](/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/permission-levels-for-a-user-account-repository#collaborator-access-for-a-repository-owned-by-a-personal-account)，以帮助您管理社区。
+* **主持评论** - 对仓库拥有[写入权限](/articles/repository-permission-levels-for-an-organization/)的用户可以[编辑、删除或隐藏](/communities/moderating-comments-and-conversations/managing-disruptive-comments)任何人对提交、拉取请求和议题的评论。 对仓库具有读取权限的任何人都可查看评论的编辑历史记录。 评论作者和对存储库具有写入权限的人员还可以从[评论的编辑历史记录](/communities/moderating-comments-and-conversations/tracking-changes-in-a-comment)中删除敏感信息。 如果有很多活动，主持项目可能会感觉像是一项艰巨的任务，但您可以[添加协作者](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/permission-levels-for-a-personal-account-repository#collaborator-access-for-a-repository-owned-by-a-personal-account)，以帮助您管理社区。
 
 * **锁定对话** - 如果议题、拉取请求或提交的讨论失控、偏离主题或者违反项目的行为准则或 GitHub 政策，则所有者、协作者和其他具有写入权限的任何人都可以临时或永久[锁定](/articles/locking-conversations/)对话。
 

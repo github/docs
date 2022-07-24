@@ -21,6 +21,7 @@ children:
   - /managing-github-connect
   - /enabling-automatic-user-license-sync-for-your-enterprise
   - /enabling-dependabot-for-your-enterprise
+  - /enabling-server-statistics-for-your-enterprise
   - /enabling-unified-search-for-your-enterprise
   - /enabling-unified-contributions-for-your-enterprise
 shortTitle: GitHub Connect

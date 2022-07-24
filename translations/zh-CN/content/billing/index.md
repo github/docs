@@ -1,7 +1,7 @@
 ---
 title: GitHub 上的帐单和付款
 shortTitle: 计费和付款
-intro: '{% ifversion fpt %}{% data variables.product.product_name %} 为每个帐户提供免费和付费产品。 您可以随时升级或降级帐户的订阅和管理结算设置。{% elsif ghec or ghes or ghae %}{% data variables.product.company_short %} 对企业成员{% ifversion ghec or ghae %}使用 {% data variables.product.product_name %}{% elsif ghes %} {% data variables.product.product_name %}的许可席位{% ifversion ghes %} 以及您购买的任何其他服务{% endif %}{% endif %}计费。 {% endif %}{% ifversion ghec %} 您可以随时查看订阅和管理结算设置。 {% endif %}{% ifversion fpt or ghec %} 您还可以查看使用情况和管理 {% data variables.product.product_name %} 功能（如 {% data variables.product.prodname_actions %}、{% data variables.product.prodname_registry %} 和 {% data variables.product.prodname_codespaces %}）的支出限制。{% endif %}'
+intro: '{% ifversion fpt %}{% data variables.product.product_name %} 为每个帐户提供免费和付费产品。 您可以随时升级或降级帐户的订阅和管理结算设置。{% elsif ghec or ghes or ghae %}{% data variables.product.company_short %} 对企业成员{% ifversion ghec or ghae %}使用 {% data variables.product.product_name %}{% elsif ghes %} {% data variables.product.product_name %}的许可席位{% ifversion ghes %} 以及您购买的任何其他服务{% endif %}{% endif %}计费。 {% endif %}{% ifversion ghec %} 您可以随时查看订阅和管理结算设置。 {% endif %}{% ifversion fpt or ghec %} 您还可以查看使用情况和管理 {% data variables.product.product_name %} 功能（如 {% data variables.product.prodname_actions %}、{% data variables.product.prodname_registry %} 和 {% data variables.product.prodname_github_codespaces %}）的支出限制。{% endif %}'
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github
   - /categories/setting-up-and-managing-billing-and-payments-on-github
@@ -43,11 +43,12 @@ topics:
 children:
   - /managing-your-github-billing-settings
   - /managing-billing-for-your-github-account
+  - /managing-your-license-for-github-enterprise
+  - /managing-licenses-for-visual-studio-subscriptions-with-github-enterprise
   - /managing-billing-for-github-actions
   - /managing-billing-for-github-codespaces
   - /managing-billing-for-github-packages
-  - /managing-your-license-for-github-enterprise
-  - /managing-licenses-for-visual-studio-subscriptions-with-github-enterprise
+  - /managing-billing-for-github-copilot
   - /managing-billing-for-github-advanced-security
   - /managing-billing-for-github-sponsors
   - /managing-billing-for-github-marketplace-apps

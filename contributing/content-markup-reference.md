@@ -128,7 +128,7 @@ You can define a default platform in the frontmatter. For more information, see 
 
 ## Tool tags
 
-We occasionally need to write documentation for different tools (GitHub UI, GitHub CLI, GitHub Desktop, cURL, Codespaces, VS Code, GitHub Enterprise Importer CLI, GraphQL API). Each tool may require a different set of instructions. We use tool tags to demarcate information for each tool.
+We occasionally need to write documentation for different tools (GitHub UI, GitHub CLI, GitHub Desktop, cURL, Codespaces, VS Code, GitHub Enterprise Importer CLI, GraphQL API). Each tool may require a different set of instructions. We use tool tags to demarcate information for each tool. To modify the list of possible tools, edit [`lib/all-tools.js`](../lib/all-tools.js).
 
 ### Usage
 
@@ -219,3 +219,19 @@ You can define a default tool in the frontmatter. For more information, see the 
 Reusable strings (commonly called content references or conrefs) contain content that’s used in more than one place in our documentation and allow us to change the content in a single location rather than every place the string appears.
 
 For longer strings, we use reusables, and for shorter strings, we use variables. For more information about reusables, see the [reusables README](../data/reusables/README.md). For more information about variables, see the [variables README](../data/variables/README.md).
+
+## Tables with codeblocks
+
+Although using tables to contain block items, such as code blocks, is generally discouraged, occasionally it may be appropriate.
+
+Because [tables in GitHub Flavored Markdown](https://github.github.com/gfm/#tables-extension-) cannot contain any line breaks or block-level structures, you must use HTML tags to write the table structure.
+
+When HTML tables contain code blocks, the width of the table might exceed the regular width of page content, and then overflow into the area normally containing the mini table of contents.
+
+If this happens, add the following CSS style to the `<table>` HTML tag:
+
+```html
+<table style="table-layout: fixed;">
+```
+
+For a current example of this usage, see the [GitHub Actions examples workflow library](https://docs.github.com/en/actions/examples).

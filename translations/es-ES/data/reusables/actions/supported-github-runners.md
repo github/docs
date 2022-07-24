@@ -30,12 +30,21 @@ Windows Server 2019
 </tr>
 <tr>
 <td>
+Ubuntu 22.04
+</td>
+<td>
+<code>ubuntu-22.04</code>
+</td>
+<td>
+Ubuntu 22.04 se encuentra actualmente en beta público.
+</td>
+</tr>
+<tr>
+<td>
 Ubuntu 20.04
 </td>
 <td>
 <code>ubuntu-latest</code> o <code>ubuntu-20.04</code>
-</td>
-<td>
 </td>
 </tr>
 <tr>
@@ -54,10 +63,7 @@ macOS Monterey 12
 </td>
 <td>
 <code>macos-12</code>
-</td>
-<td>
-macOS 12 is currently in public beta.
-</td>
+  </td>
 </tr>
 <tr>
 <td>
@@ -72,12 +78,13 @@ La etiqueta de <code>macos-latest</code> actualmente utiliza la imagen de ejecut
 </tr>
 <tr>
 <td>
-macOS Catalina 10.15
+macOS Catalina 10.15 <sup>[deprecated]</sup>
 </td>
 <td>
 <code>macos-10.15</code>
 </td>
 <td>
+Migrate to <code>macOS-11</code> or <code>macOS-12</code>. For more information, see <A href="https://github.blog/changelog/2022-07-20-github-actions-the-macos-10-15-actions-runner-image-is-being-deprecated-and-will-be-removed-by-8-30-22/">this GitHub blog post</A>.
 </td>
 </tr>
 </tbody>

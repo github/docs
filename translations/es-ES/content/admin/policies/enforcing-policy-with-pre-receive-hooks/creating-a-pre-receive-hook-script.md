@@ -139,7 +139,7 @@ Recomendamos los ganchos de consolidación a un solo repositorio. Si el reposito
    $ git push
    ```
 
-3. [Crear la instancia de ganchos de pre-recepción](/enterprise/{{ currentVersion }}/admin/guides/developer-workflow/managing-pre-receive-hooks-on-the-github-enterprise-server-appliance/#creating-pre-receive-hooks) on the {% data variables.product.prodname_ghe_server %}.
+3. [Crear el gancho de pre-recepción](/enterprise/admin/guides/developer-workflow/managing-pre-receive-hooks-on-the-github-enterprise-server-appliance/#creating-pre-receive-hooks) en la instancia de {% data variables.product.prodname_ghe_server %}.
 
 ## Probar scripts de pre-recepción localmente
 Puedes probar un script de gancho de pre-recepción localmente antes de que lo crees o actualices en {% data variables.product.product_location %}. Un método es crear un entorno de Docker local para que actúe como un repositorio remoto que pueda ejecutar el gancho de pre-recepción.

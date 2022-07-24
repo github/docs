@@ -1,5 +1,5 @@
 ---
-title: Keeping secrets secure with secret scanning
+title: Secret scanningでシークレットをセキュアに保つ
 shortTitle: Secret scanning
 intro: 'トークン、秘密鍵やその他のコードのシークレットが、リポジトリで公開されないことを保証する重労働を、{% data variables.product.company_short %}にやらせてください。'
 product: '{% data reusables.gated-features.secret-scanning-partner %}'

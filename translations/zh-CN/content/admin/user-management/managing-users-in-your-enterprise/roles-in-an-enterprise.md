@@ -34,13 +34,13 @@ For more information about adding people to your enterprise, see "[Authenticatio
 
 Enterprise owners have complete control over the enterprise and can take every action, including:
 - Managing administrators
-- {% ifversion ghec %}Adding and removing {% elsif ghae or ghes %}Managing{% endif %} organizations {% ifversion ghec %}to and from {% elsif ghae or ghes %} in{% endif %} the enterprise{% if remove-enterprise-members %}
+- {% ifversion ghec %}Adding and removing {% elsif ghae or ghes %}Managing{% endif %} organizations {% ifversion ghec %}to and from {% elsif ghae or ghes %} in{% endif %} the enterprise{% ifversion remove-enterprise-members %}
 - Removing enterprise members from all organizations owned by the enterprise{% endif %}
 - Managing enterprise settings
 - Enforcing policy across organizations
 {% ifversion ghec %}- Managing billing settings{% endif %}
 
-{% if enterprise-owner-join-org %}
+{% ifversion enterprise-owner-join-org %}
 Enterprise owners do not have access to organization settings or content by default. To gain access, enterprise owners can join any organization owned by their enterprise. For more information, see "[Managing your role in an organization owned by your enterprise](/admin/user-management/managing-organizations-in-your-enterprise/managing-your-role-in-an-organization-owned-by-your-enterprise)."
 
 Owners of organizations in your enterprise do not have access to the enterprise itself unless you make them enterprise owners.

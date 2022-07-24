@@ -1,6 +1,6 @@
 ---
-title: Global Webhooks
-intro: 'Global Webhooks are installed on your enterprise. Você pode usar webhooks globais para monitorar, responder ou aplicar regras automaticamente para usuários, organizações, equipes e repositórios na sua empresa.'
+title: Webhooks globais
+intro: 'Os webhooks globais são instalados na sua empresa. Você pode usar webhooks globais para monitorar, responder ou aplicar regras automaticamente para usuários, organizações, equipes e repositórios na sua empresa.'
 versions:
   ghes: '*'
   ghae: '*'

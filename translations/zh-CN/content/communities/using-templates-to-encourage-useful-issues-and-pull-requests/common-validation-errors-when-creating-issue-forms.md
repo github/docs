@@ -311,7 +311,6 @@ body:
 body:
 - attributes:
     value: "Thanks for taking the time to fill out this bug! If you need real-time help, join us on Discord."
-    preview_only: false
 ```
 
 可以通过添加键 `type` ，并使用有效的输入类型作为值来修复该错误。 有关可用的 `body` 输入类型及其语法，请参阅“[{% data variables.product.prodname_dotcom %} 表单架构的语法](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-githubs-form-schema#keys)”。
@@ -321,7 +320,6 @@ body:
 - type: markdown
   attributes:
     value: "Thanks for taking the time to fill out this bug! If you need real-time help, join us on Discord."
-    preview_only: false
 ```
 
 ## Body[i]: `x` 不是有效的输入类型
@@ -337,7 +335,6 @@ body:
 - type: x
   attributes:
     value: "Thanks for taking the time to fill out this bug! If you need real-time help, join us on Discord."
-    preview_only: false
 ```
 
 可以通过将 `x` 更改为有效类型之一来修复该错误。
@@ -347,7 +344,6 @@ body:
 - type: markdown
   attributes:
     value: "Thanks for taking the time to fill out this bug! If you need real-time help, join us on Discord."
-    preview_only: false
 ```
 
 ## Body[i]：缺少必需的属性键 `value`
@@ -363,7 +359,6 @@ body:
 - type: markdown
   attributes:
     value: "Thanks for taking the time to fill out this bug! If you need real-time help, join us on Discord."
-    preview_only: false
 - type: markdown
 ```
 
@@ -374,7 +369,6 @@ body:
 - type: markdown
   attributes:
     value: "Thanks for taking the time to fill out this bug! If you need real-time help, join us on Discord."
-    preview_only: false
 - type: markdown
   attributes:
     value: "This is working now!"

@@ -1,6 +1,7 @@
 ---
-title: Organization
-intro: OrganizationのインタラクションAPIを使用すると、OrganizationのオーナーはOrganizationのパブリックリポジトリでコメント、Issueのオープン、プルリクエストの作成ができるユーザのタイプを一時的に制限することができます。
+title: Organizationのインタラクション
+shortTitle: Organization
+intro: Organization interactions APIを使用すると、OrganizationのオーナーはOrganizationのパブリックリポジトリでコメント、Issueのオープン、Pull Requestの作成ができるユーザのタイプを一時的に制限することができます。
 versions:
   fpt: '*'
   ghec: '*'
@@ -10,7 +11,9 @@ miniTocMaxHeadingLevel: 3
 allowTitleToDifferFromFilename: true
 ---
 
-{% data reusables.interactions.interactions-detail %} {% data variables.product.product_name %} ユーザのタイプについては以下を参照してください。
+## Organization interactions APIについて
+
+Organization interactions APIを使用すると、OrganizationのオーナーはOrganizationのパブリックリポジトリでコメント、Issueのオープン、Pull Requestの作成ができるユーザのタイプを一時的に制限することができます。 {% data reusables.interactions.interactions-detail %} {% data variables.product.product_name %} ユーザのタイプについては以下を参照してください。
 
 * Organizationの{% data reusables.interactions.existing-user-limit-definition %}
 * Organizationの{% data reusables.interactions.contributor-user-limit-definition %}

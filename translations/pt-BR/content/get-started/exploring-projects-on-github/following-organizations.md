@@ -15,9 +15,9 @@ topics:
 
 ## Sobre seguidores em {% data variables.product.product_name %}
 
-Ao seguir as organizações, você verá as atividades públicas delas no seu painel pessoal. Para obter mais informações, consulte "[Sobre seu painel pessoal](/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/about-your-personal-dashboard#staying-updated-with-activity-from-the-community)".
+Ao seguir as organizações, você verá as atividades públicas delas no seu painel pessoal. Para obter mais informações, consulte "[Sobre seu painel pessoal](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/about-your-personal-dashboard#staying-updated-with-activity-from-the-community)".
 
-Você pode deixar de seguir uma organização se não quiser ver suas atividades públicas em {% data variables.product.product_name %}.
+Você pode deixar de seguir uma organização se você não quiser ver sua atividade {% ifversion fpt or ghec %}pública {% endif %} em {% data variables.product.product_name %}.
 
 ## Seguindo uma organização em {% data variables.product.product_name %}
 

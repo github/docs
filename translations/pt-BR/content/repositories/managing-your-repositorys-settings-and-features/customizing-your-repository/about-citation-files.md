@@ -6,7 +6,7 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '>=3.3'
-  ghae: issue-4651
+  ghae: '*'
   ghec: '*'
 topics:
   - Repositories

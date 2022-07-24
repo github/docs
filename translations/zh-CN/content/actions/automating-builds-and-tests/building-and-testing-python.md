@@ -11,12 +11,10 @@ versions:
   ghae: '*'
   ghec: '*'
 type: tutorial
-hidden: true
 topics:
   - CI
   - Python
 shortTitle: 构建和测试 Python
-hasExperimentalAlternative: true
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -59,7 +57,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: ["3.6", "3.7", "3.8", "3.9"]
+        python-version: ["3.7", "3.8", "3.9", "3.10"]
 
     steps:
       - uses: {% data reusables.actions.action-checkout %}
@@ -114,9 +112,9 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       # You can use PyPy versions in python-version.
-      # For example, {% if actions-node16-action %}pypy-2.7 and pypy-3.8{% else %}pypy2 and pypy3{% endif %}
+      # For example, {% ifversion actions-node16-action %}pypy-2.7 and pypy-3.8{% else %}pypy2 and pypy3{% endif %}
       matrix:
-        python-version: ["2.7", "3.6", "3.7", "3.8", "3.9"]
+        python-version: ["2.7", "3.7", "3.8", "3.9", "3.10"]
 
     steps:
       - uses: {% data reusables.actions.action-checkout %}
@@ -131,7 +129,7 @@ jobs:
 
 ### 使用特定的 Python 版本
 
-您可以配置 python 的特定版本。 例如，3.8。 或者，您也可以使用语义版本语法来获得最新的次要版本。 此示例使用 Python 3 最新的次要版本。
+您可以配置 python 的特定版本。 例如，3.9。 或者，您也可以使用语义版本语法来获得最新的次要版本。 此示例使用 Python 3 最新的次要版本。
 
 ```yaml{:copy}
 name: Python package
@@ -175,12 +173,12 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest, macos-latest, windows-latest]
-        python-version: ["3.6", "3.7", "3.8", "3.9", {% if actions-node16-action %}pypy-2.7, pypy-3.8{% else %}pypy2, pypy3{% endif %}]
+        python-version: ["3.7", "3.8", "3.9", "3.10", {% ifversion actions-node16-action %}pypy-2.7, pypy-3.8{% else %}pypy2, pypy3{% endif %}]
         exclude:
           - os: macos-latest
-            python-version: "3.6"
+            python-version: "3.7"
           - os: windows-latest
-            python-version: "3.6"
+            python-version: "3.7"
 ```
 
 ### 使用默认 Python 版本
@@ -197,7 +195,7 @@ jobs:
 
 {% data variables.product.prodname_dotcom %} 托管的运行器安装了 pip 软件包管理器。 在构建和测试代码之前，您可以使用 pip 从 PyPI 软件包注册表安装依赖项。 例如，下面的 YAML 安装或升级 `pip` 软件包安装程序以及 `setuptools` 和 `wheel` 软件包。
 
-使用 {% data variables.product.prodname_dotcom %} 托管的运行器时，您还可以缓存依赖项以加速工作流程。 更多信息请参阅“<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">缓存依赖项以加快工作流程</a>”。
+{% ifversion actions-caching %}您也可以缓存依赖项来加快工作流程。 更多信息请参阅“[缓存依赖项以加快工作流程](/actions/using-workflows/caching-dependencies-to-speed-up-workflows)”。{% endif %}
 
 ```yaml{:copy}
 steps:
@@ -227,9 +225,11 @@ steps:
     pip install -r requirements.txt
 ```
 
+{% ifversion actions-caching %}
+
 ### 缓存依赖项
 
-使用 {% data variables.product.prodname_dotcom %} 托管的运行器时，您可以使用 [`setup-python` 操作](https://github.com/actions/setup-python)缓存和恢复依赖项。
+您可以使用 [`setup-python` 操作](https://github.com/actions/setup-python)来缓存和还原依赖项。
 
 以下示例缓存 pip 的依赖项。
 
@@ -238,15 +238,17 @@ steps:
 - uses: {% data reusables.actions.action-checkout %}
 - uses: {% data reusables.actions.action-setup-python %}
   with:
-    python-version: '3.9'
+    python-version: '3.10'
     cache: 'pip'
 - run: pip install -r requirements.txt
 - run: pip test
 ```
 
-默认情况下， `setup-python` 操作会在整个存储库中搜索依赖项文件（对于 pip 为`requirements.txt`，对于 pipenv 为 `Pipfile.lock`）。 更多信息请参阅 `setup-python` 操作自述文件中的“<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">缓存包依赖项</a>”。
+默认情况下， `setup-python` 操作会在整个存储库中搜索依赖项文件（对于 pip 为`requirements.txt`，对于 pipenv 为 `Pipfile.lock`，对于 poetry 为 `poetry.lock`）。 更多信息请参阅 `setup-python` 自述文件中的“[缓存包依赖项](https://github.com/actions/setup-python#caching-packages-dependencies)”。
 
 如果您有自定义要求或需要更精确的缓存控制，则可以使用 [`cache` 操作](https://github.com/marketplace/actions/cache)。 Pip 根据运行器的操作系统将依赖项缓存在不同的位置。 您需要缓存的路径可能不同于上面的 Ubuntu 示例，具体取决于您使用的操作系统。 更多信息请参阅 `cache` 操作存储库中的 [Python 缓存示例](https://github.com/actions/cache/blob/main/examples.md#python---pip)。
+
+{% endif %}
 
 ## 测试代码
 
@@ -313,7 +315,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python: ["3.7", "3.8", "3.9"]
+        python: ["3.8", "3.9", "3.10"]
 
     steps:
       - uses: {% data reusables.actions.action-checkout %}
@@ -345,7 +347,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: ["3.6", "3.7", "3.8", "3.9"]
+        python-version: ["3.7", "3.8", "3.9", "3.10"]
 
     steps:
       - uses: {% data reusables.actions.action-checkout %}

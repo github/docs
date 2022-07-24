@@ -111,7 +111,7 @@ topics:
 
 ## 恢复存档的项
 
-1. Navigate to your project.
+1. 导航到您的项目。
 1. 在右上角，单击 {% octicon "kebab-horizontal" aria-label="the kebab icon" %}。
 1. 在菜单中，单击 **Archived items（已存档的项）**。
 1. （可选）要筛选显示的已存档项，请在项列表上方的文本框中键入筛选器。 有关可用筛选器的详细信息，请参阅“[筛选项目 （测试版）](/issues/trying-out-the-new-projects-experience/filtering-projects)”。
@@ -163,7 +163,7 @@ topics:
 6. 如果您指定**单选**为类型，请输入选项。
 7. 如果指定**迭代**为类型，请输入第一个迭代的开始日期和迭代的持续时间。 将自动创建三个迭代，您可以在项目的设置页上添加其他迭代。
 
-您可以稍后编辑单选和迭代字段的下拉选项。
+您还可以编辑自定义字段。
 
 {% data reusables.projects.project-settings %}
 1. 在 **Fields（字段）**下，选择要编辑的字段。

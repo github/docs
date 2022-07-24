@@ -22,7 +22,7 @@ topics:
 
 {% ifversion fpt or ghec %}
 
-オープンソースプロジェクトを含む、さまざまなプロジェクトを {% data variables.product.prodname_dotcom %} リポジトリに保存できます。 With open source projects, you can share code to make better, more reliable software. You can use repositories to collaborate with others and track your work. For more information, see "[About repositories](/github/creating-cloning-and-archiving-repositories/creating-a-repository-on-github/about-repositories)." To learn more about open source projects, visit [OpenSource.org](http://opensource.org/about).
+オープンソースプロジェクトを含む、さまざまなプロジェクトを {% data variables.product.prodname_dotcom %} リポジトリに保存できます。 With open source projects, you can share code to make better, more reliable software. You can use repositories to collaborate with others and track your work. For more information, see "[About repositories](/github/creating-cloning-and-archiving-repositories/creating-a-repository-on-github/about-repositories)." To learn more about open source projects, visit [OpenSource.org](https://opensource.org/about).
 
 {% elsif ghes or ghae %}
 
@@ -34,7 +34,10 @@ topics:
 
 {% note %}
 
-**メモ:** オープンソースプロジェクトのパブリックリポジトリを作成できます。 パブリックリポジトリを作成する際は、他のユーザにどのようにプロジェクトを共有してほしいのかを定義する[ライセンスファイル](https://choosealicense.com/)を含めるようにしてください。 {% data reusables.open-source.open-source-guide-repositories %} {% data reusables.open-source.open-source-learning-lab %}
+**ノート:**
+- You can create public repositories for an open source project. パブリックリポジトリを作成する際は、他のユーザにどのようにプロジェクトを共有してほしいのかを定義する[ライセンスファイル](https://choosealicense.com/)を含めるようにしてください。 {% data reusables.open-source.open-source-guide-repositories %}
+- {% data reusables.open-source.open-source-learning %}
+- You can also add community health files to your repositories, to set guidelines on how to contribute, keep your repositories safe, and much more. 詳しい情報については「[デフォルトのコミュニティ健全性ファイルを作成する](/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)」を参照してください。
 
 {% endnote %}
 

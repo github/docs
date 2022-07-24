@@ -1,1 +1,1 @@
-If you currently use {% data variables.product.prodname_ghe_cloud %} with a single organization, we encourage you to create an enterprise account.
+如果您目前在单个组织中使用 {% data variables.product.prodname_ghe_cloud %} ，我们建议您创建一个企业帐户。

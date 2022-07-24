@@ -4,7 +4,7 @@
 | Martin Luther King, Jr. | 3ª segunda-feira de janeiro   |
 | Dia dos Presidentes     | 3ª segunda-feira de fevereiro |
 | Dia do Memorial         | Última segunda-feira de maio  |
-| Dia da Independência    | 5 de julho                    |
+| Dia da Independência    | 4 de julho                    |
 | Dia do Trabalho         | 1ª segunda-feira de setembro  |
 | Dia dos Veteranos       | 11 de novembro                |
 | Ação de Graças (Dia 1)  | 4ª quinta-feira de novembro   |

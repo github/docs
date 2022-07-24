@@ -1,5 +1,7 @@
 ---
-title: Contenido
+title: Contenidos del repositorio
+allowTitleToDifferFromFilename: true
+shortTitle: Contenido
 intro: 'Las terminales de esta API te permiten crear, modificar y borrar contenido cifrado en Base64 en un repositorio.'
 versions:
   fpt: '*'
@@ -10,6 +12,8 @@ topics:
   - API
 miniTocMaxHeadingLevel: 3
 ---
+
+## About the Repository contents API
 
 Para solicitar el formato sin procesar y interpretado en HTML (cuando sea posible), utiliza los tipos de medios personalizados para el contenido de un repositorio.
 

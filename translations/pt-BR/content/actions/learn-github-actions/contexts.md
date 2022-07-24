@@ -23,7 +23,7 @@ miniTocMaxHeadingLevel: 3
 
 Os contextos são uma forma de acessar informações sobre execuções de fluxo de trabalho, ambientes dos executores, trabalhos e etapas. Cada contexto é um objeto que contém propriedades, que podem ser strings ou outros objetos.
 
-{% data reusables.actions.context-contents %} For example, the `matrix` context is only populated for jobs in a [matrix](/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idstrategymatrix).
+{% data reusables.actions.context-contents %} Por exemplo, o contexto `matriz` só é povoado para trabalhos em uma matriz[matriz](/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idstrategymatrix).
 
 Você pode acessar contextos usando a sintaxe da expressão. Para obter mais informações, consulte "[Expressões](/actions/learn-github-actions/expressions)".
 
@@ -45,17 +45,14 @@ Você pode acessar contextos usando a sintaxe da expressão. Para obter mais inf
 | `matrix`         | `objeto` | Contém as propriedades da matriz definidas no fluxo de trabalho que se aplicam ao trabalho atual. Para obter mais informações, consulte o contexto [`matriz`](#matrix-context).    |
 | `needs`          | `objeto` | Contém os resultados de todos os trabalhos que são definidos como uma dependência do trabalho atual. Para obter mais informações, consulte o contexto [`needs`](#needs-context).   |
 {%- ifversion fpt or ghec or ghes > 3.3 or ghae-issue-4757 %}
-| `entradas` | `objeto` | Contém a entrada de um fluxo de trabalho reutilizável. Para obter mais informações, consulte o contexto [`entradas`](#inputs-context). |{% endif %}
+| `entradas` | `objeto` | Contém as entradas de {% ifversion actions-unified-inputs %} reutilizável ou um fluxo de travalho acionado {% endif %} manualmente. Para obter mais informações, consulte o contexto [`entradas`](#inputs-context). |{% endif %}
 
 Como parte de uma expressão, você pode acessar informações de contexto usando uma das duas sintaxes.
 
 - Sintaxe de índice: `github['sha']`;
 - Sintaxe de propriedade de desreferência: `github.sha`
 
-Para usar a sintaxe de propriedade de desreferência, o nome da propriedade deve:
-
-- começar com `a-Z` ou `_`;
-- ser seguido por `a-Z` `0-9` `-` ou `_`.
+Para usar a sintaxe de dereferência da propriedade, o nome da propriedade deve começar com uma letra ou `_` e conter apenas caracteres alfanuméricos, `-` ou `_`.
 
 Se você tentar desfazer uma propriedade inexistente, isso irá retornar uma string vazia.
 
@@ -87,22 +84,22 @@ A tabela a seguir indica onde cada contexto e função especial pode ser utiliza
 | <code>jobs.&lt;job_id&gt;.name</code> | <code>github, necessidades, estratégia, matriz, entradas</code> |                            |
 | <code>jobs.&lt;job_id&gt;.outputs.&lt;output_id&gt;</code> | <code>github, necessidades, estratégia, matriz, trabalho, executor, env, segredos, etapas, entradas</code> |                            |
 | <code>jobs.&lt;job_id&gt;.runs-on</code> | <code>github, necessidades, estratégia, matriz, entradas</code> |                            |
-| <code>jobs.&lt;job_id&gt;.secrets.&lt;secrets_id&gt;</code> | <code>github, necessidades, segredos</code> |                            |
+| <code>jobs.&lt;job_id&gt;.secrets.&lt;secrets_id&gt;</code> | <code>github, needs, secrets{% ifversion actions-unified-inputs %}, inputs{% endif %}</code> |                            |
 | <code>jobs.&lt;job_id&gt;.services</code> | <code>github, necessidades, estratégia, matriz, entradas</code> |                            |
 | <code>jobs.&lt;job_id&gt;.services.&lt;service_id&gt;.credentials</code> | <code>github, necessidades, estratégia, matrix, env, segredos, entradas</code> |                            |
 | <code>jobs.&lt;job_id&gt;.services.&lt;service_id&gt;.env.&lt;env_id&gt;</code> | <code>github, necessidades, estratégia, matrix, trabalho, executor, env, segredos, entradas</code> |                            |
-| <code>jobs.&lt;job_id&gt;.steps.continue-on-error</code> | <code>github, needs, strategy, matrix, job, runner, env, secrets, steps</code> | <code>hashFiles</code> |
+| <code>jobs.&lt;job_id&gt;.steps.continue-on-error</code> | <code>github, necessidades, estratégia, matriz, trabalho, executor, env, segredos, etapas, entradas</code> | <code>hashFiles</code> |
 | <code>jobs.&lt;job_id&gt;.steps.env</code> | <code>github, necessidades, estratégia, matriz, trabalho, executor, env, segredos, etapas, entradas</code> | <code>hashFiles</code> |
 | <code>jobs.&lt;job_id&gt;.steps.if</code> | <code>github, necessidades, estratégia, matriz, trabalho, executor, env, etapas, entradas</code> | <code>always, cancelled, success, failure, hashFiles</code> |
 | <code>jobs.&lt;job_id&gt;.steps.name</code> | <code>github, necessidades, estratégia, matriz, trabalho, executor, env, segredos, etapas, entradas</code> | <code>hashFiles</code> |
 | <code>jobs.&lt;job_id&gt;.steps.run</code> | <code>github, necessidades, estratégia, matriz, trabalho, executor, env, segredos, etapas, entradas</code> | <code>hashFiles</code> |
-| <code>jobs.&lt;job_id&gt;.steps.timeout-minutes</code> | <code>github, needs, strategy, matrix, job, runner, env, secrets, steps</code> | <code>hashFiles</code> |
+| <code>jobs.&lt;job_id&gt;.steps.timeout-minutes</code> | <code>github, necessidades, estratégia, matriz, trabalho, executor, env, segredos, etapas, entradas</code> | <code>hashFiles</code> |
 | <code>jobs.&lt;job_id&gt;.steps.with</code> | <code>github, necessidades, estratégia, matriz, trabalho, executor, env, segredos, etapas, entradas</code> | <code>hashFiles</code> |
 | <code>jobs.&lt;job_id&gt;.steps.working-directory</code> | <code>github, necessidades, estratégia, matriz, trabalho, executor, env, segredos, etapas, entradas</code> | <code>hashFiles</code> |
 | <code>jobs.&lt;job_id&gt;.strategy</code> | <code>github, necessidades, entradas</code> |                            |
 | <code>jobs.&lt;job_id&gt;.timeout-minutes</code> | <code>github, necessidades, estratégia, matriz, entradas</code> |                            |
-| <code>jobs.&lt;job_id&gt;.with.&lt;with_id&gt;</code> | <code>github, needs</code> |                            |
-| <code>on.workflow_call.inputs.&lt;inputs_id&gt;.default</code> | <code>github</code> |                            |
+| <code>jobs.&lt;job_id&gt;.with.&lt;with_id&gt;</code> | <code>github, needs{% ifversion actions-unified-inputs %}, inputs{% endif %}</code> |                            |
+| <code>on.workflow_call.inputs.&lt;inputs_id&gt;.default</code> | <code>github{% ifversion actions-unified-inputs %}, inputs{% endif %}</code> |                            |
 | <code>on.workflow_call.outputs.&lt;output_id&gt;.value</code> | <code>github, jobs, inputs</code> |                            |
 {% else %}
 | Caminho                     | Contexto                    | Funções especiais           |
@@ -192,8 +189,8 @@ O contexto `github` context contém informações sobre a execução do fluxo de
 | `github.event_path`        | `string` | O caminho para o arquivo no executor que contém a carga completa do webhook do evento.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 | `github.graphql_url`       | `string` | A URL da API do GraphQL de {% data variables.product.prodname_dotcom %}.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
 | `github.head_ref`          | `string` | `head_ref` ou branch de origem da pull request em uma execução de fluxo de trabalho. Esta propriedade só está disponível quando o evento que aciona a execução de um fluxo de trabalho for `pull_request` ou `pull_request_target`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| `github.job`               | `string` | O [`job_id`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_id) do trabalho atual.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| `github.ref`               | `string` | Branch ou ref tag que acionou a execução do fluxo de trabalho. Para branches, este é o formato `refs/heads/<branch_name>` e, para tags, é `refs/tags/<tag_name>`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| `github.job`               | `string` | O [`job_id`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_id) do trabalho atual. <br /> Observação: Esta propriedade de contexto é definida pelo executor do Actions e só está disponível dentro da execução `etapas` de um trabalho. Caso contrário, o valor desta propriedade será `nulo`.                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| `github.ref`               | `string` | {% data reusables.actions.ref-description %}
 {%- ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5338 %}
 | `github.ref_name` | `string` | {% data reusables.actions.ref_name-description %} | | `github.ref_protected` | `string` | {% data reusables.actions.ref_protected-description %} | | `github.ref_type` | `string` | {% data reusables.actions.ref_type-description %}
 {%- endif %}
@@ -201,7 +198,7 @@ O contexto `github` context contém informações sobre a execução do fluxo de
 {%- ifversion fpt or ghec or ghes > 3.5 or ghae-issue-4722 %}
 | `github.run_attempt` | `string` | Um número exclusivo para cada tentativa de execução de um fluxo de trabalho específico em um repositório. Este número começa em 1 para a primeira tentativa de execução do fluxo de trabalho e aumenta a cada nova execução. |
 {%- endif %}
-| `github.server_url` | `string` | A URL do servidor do GitHub. Por exemplo: `https://github.com`. | | `github.sha` | `string` | O SHA do commit que acionou a execução do fluxo de trabalho. | | `github.token` | `string` | Um token para efetuar a autenticação em nome do aplicativo instalado no seu repositório. Isso é funcionalmente equivalente ao segredo `GITHUB_TOKEN`. Para obter mais informações, consulte "[Autenticação automática de tokens](/actions/security-guides/automatic-token-authentication)". | | `github.workflow` | `string` | O nome do fluxo de trabalho. Se o fluxo de trabalho não determina um `name` (nome), o valor desta propriedade é o caminho completo do arquivo do fluxo de trabalho no repositório. | | `github.workspace` | `string` | O diretório de trabalho padrão no executor para as etapas e a localidade padrão do seu repositório ao usar a ação [`checkout`](https://github.com/actions/checkout). |
+| `github.server_url` | `string` | A URL do servidor do GitHub. Por exemplo: `https://github.com`. | | `github.sha` | `string` | O SHA do commit que acionou a execução do fluxo de trabalho. | | `github.token` | `string` | Um token para efetuar a autenticação em nome do aplicativo instalado no seu repositório. Isso é funcionalmente equivalente ao segredo `GITHUB_TOKEN`. Para obter mais informações, consulte "[Autenticação automática de tokens](/actions/security-guides/automatic-token-authentication)".  <br /> Observação: Esta propriedade de contexto é definida pelo executor do Actions e só está disponível dentro da execução `etapas` de um trabalho. Caso contrário, o valor desta propriedade será `nulo`. | | `github.workflow` | `string` | O nome do fluxo de trabalho. Se o fluxo de trabalho não determina um `name` (nome), o valor desta propriedade é o caminho completo do arquivo do fluxo de trabalho no repositório. | | `github.workspace` | `string` | O diretório de trabalho padrão no executor para as etapas e a localidade padrão do seu repositório ao usar a ação [`checkout`](https://github.com/actions/checkout). |
 
 ### Exemplo de conteúdo do contexto `github`
 
@@ -453,7 +450,7 @@ O contexto do `executor` contém informações sobre o executor que está execut
 | ------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `runner`            | `objeto` | Esse contexto altera cada trabalho em uma execução de fluxo de trabalho. Este objeto contém todas as propriedades listadas abaixo.                              |
 | `runner.name`       | `string` | {% data reusables.actions.runner-name-description %}
-| `runner.os`         | `string` | {% data reusables.actions.runner-os-description %} |{% if actions-runner-arch-envvars %}
+| `runner.os`         | `string` | {% data reusables.actions.runner-os-description %} |{% ifversion actions-runner-arch-envvars %}
 | `runner.arch`       | `string` | {% data reusables.actions.runner-arch-description %} 
 {% endif %}
 | `runner.temp`       | `string` | {% data reusables.actions.runner-temp-directory-description %}
@@ -537,19 +534,19 @@ O conteúdo de exemplo do contexto dos `segredos` mostra o `GITHUB_TOKEN` autom�
 
 ## Contexto `estratégia`
 
-For workflows with a matrix, the `strategy` context contains information about the matrix execution strategy for the current job.
+Para fluxos de trabalho com uma matriz, o contexto `estratégia` contém informações sobre a estratégia de execução da matriz para o trabalho atual.
 
 | Nome da propriedade     | Tipo     | Descrição                                                                                                                                                                                                                                                                                                                                         |
 | ----------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `strategy`              | `objeto` | Esse contexto altera cada trabalho em uma execução de fluxo de trabalho. Você pode acessar este contexto a partir de qualquer trabalho ou etapa em um fluxo de trabalho. Este objeto contém todas as propriedades listadas abaixo.                                                                                                                |
-| `strategy.fail-fast`    | `string` | When `true`, all in-progress jobs are canceled if any job in a matrix fails. Para obter mais informações, consulte "[Sintaxe de fluxo de trabalho para o {% data variables.product.prodname_actions %}](/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idstrategyfail-fast)".                                           |
-| `strategy.job-index`    | `string` | The index of the current job in the matrix. **Observação:** Este número é um número baseado em zero. The first job's index in the matrix is `0`.                                                                                                                                                                                                  |
-| `strategy.job-total`    | `string` | The total number of jobs in the matrix. **Observação:** Este número **não é** um número baseado em zero. For example, for a matrix with four jobs, the value of `job-total` is `4`.                                                                                                                                                               |
+| `strategy.fail-fast`    | `string` | Quando `verdadeiro`, todos os trabalhos em andamento são cancelados se qualquer trabalho em uma matriz falhar. Para obter mais informações, consulte "[Sintaxe de fluxo de trabalho para o {% data variables.product.prodname_actions %}](/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idstrategyfail-fast)".         |
+| `strategy.job-index`    | `string` | O índice do trabalho atual na matriz. **Observação:** Este número é um número baseado em zero. O primeiro índice do trabalho na matriz é `0`.                                                                                                                                                                                                     |
+| `strategy.job-total`    | `string` | O número total de trabalhos na matriz. **Observação:** Este número **não é** um número baseado em zero. Por exemplo, para uma matriz com quatro trabalhos, o valor de `job-total` é `4`.                                                                                                                                                          |
 | `strategy.max-parallel` | `string` | Número máximo de trabalhos que podem ser executados simultaneamente ao usar uma estratégia de trabalho de `matrix`. Para obter mais informações, consulte "[Sintaxe de fluxo de trabalho para o {% data variables.product.prodname_actions %}](/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idstrategymax-parallel)". |
 
 ### Exemplo de conteúdo do contexto `estratégia`
 
-The following example contents of the `strategy` context is from a matrix with four jobs, and is taken from the final job. Observe a diferença entre o número de `job-index` baseado em zero e o total de `job-job` que não é baseado em zero.
+O conteúdo de exemplo a seguir do contexto `estratégia` é de uma matriz com quatro trabalhos, e é tirada do trabalho final. Observe a diferença entre o número de `job-index` baseado em zero e o total de `job-job` que não é baseado em zero.
 
 ```yaml
 {
@@ -562,7 +559,7 @@ The following example contents of the `strategy` context is from a matrix with f
 
 ### Exemplo de uso do contexto `estratégia`
 
-This example workflow uses the `strategy.job-index` property to set a unique name for a log file for each job in a matrix.
+Esse exemplo de fluxo de trabalho usa a propriedade `strategy.job-index` para definir um nome exclusivo para um arquivo de registro para cada trabalho em uma matriz.
 
 ```yaml{:copy}
 name: Test matrix
@@ -587,18 +584,18 @@ jobs:
 
 ## Contexto `matriz`
 
-For workflows with a matrix, the `matrix` context contains the matrix properties defined in the workflow file that apply to the current job. For example, if you configure a matrix with the `os` and `node` keys, the `matrix` context object includes the `os` and `node` properties with the values that are being used for the current job.
+Para fluxos de trabalho com uma matriz, o contexto `matriz` contém as propriedades definidas no arquivo do fluxo de trabalho que se aplicam ao trabalho atual. Por exemplo, se você configurar uma matriz com as chaves `os` e `nó`, o objeto do contexto `matriz` irá incluir as propriedades `os` e `nó` com os valores usados para o trabalho atual.
 
 Não há propriedades padrão no contexto `matriz`, apenas as que são definidas no arquivo do fluxo de trabalho.
 
-| Nome da propriedade            | Tipo     | Descrição                                                                                                                                                                                                                                            |
-| ------------------------------ | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `matrix`                       | `objeto` | This context is only available for jobs in a matrix, and changes for each job in a workflow run. Você pode acessar este contexto a partir de qualquer trabalho ou etapa em um fluxo de trabalho. Este objeto contém as propriedades listadas abaixo. |
-| `matrix.<property_name>` | `string` | O valor da propriedade de uma matriz.                                                                                                                                                                                                                |
+| Nome da propriedade            | Tipo     | Descrição                                                                                                                                                                                                                                                                              |
+| ------------------------------ | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `matrix`                       | `objeto` | Esse contexto só está disponível para trabalhos em uma matriz e alterações para cada trabalho na execução de um fluxo de trabalho. Você pode acessar este contexto a partir de qualquer trabalho ou etapa em um fluxo de trabalho. Este objeto contém as propriedades listadas abaixo. |
+| `matrix.<property_name>` | `string` | O valor da propriedade de uma matriz.                                                                                                                                                                                                                                                  |
 
 ### Exemplo de conteúdo do contexto `matriz`
 
-The following example contents of the `matrix` context is from a job in a matrix that has the `os` and `node` matrix properties defined in the workflow. O trabalho está executando a combinação matriz de um `ubuntu-latest` OS e do Node.js versão `16`.
+O exemplo a seguir do contexto `matriz` é de um trabalho em uma matriz que tem as propriedades de matriz `os` e `nó` definidas no fluxo de trabalho. O trabalho está executando a combinação matriz de um `ubuntu-latest` OS e do Node.js versão `16`.
 
 ```yaml
 {
@@ -609,7 +606,7 @@ The following example contents of the `matrix` context is from a job in a matrix
 
 ### Exemplo de uso do contexto `matriz`
 
-This example workflow creates a matrix with `os` and `node` keys. Ele usa a propriedade `matriz.os` para definir o tipo de executor para cada trabalho e usa a propriedade `matrix.node` para definir a versão do Node.js para cada trabalho.
+Este exemplo de fluxo de trabalho cria uma matriz com as chaves `os` e `nós`. Ele usa a propriedade `matriz.os` para definir o tipo de executor para cada trabalho e usa a propriedade `matrix.node` para definir a versão do Node.js para cada trabalho.
 
 ```yaml{:copy}
 name: Test matrix
@@ -683,7 +680,7 @@ jobs:
         id: build_step
         run: |
           ./build
-          echo "::set-output name=build_id::$BUILD_ID" 
+          echo "::set-output name=build_id::$BUILD_ID"
   deploy:
     needs: build
     runs-on: ubuntu-latest
@@ -702,35 +699,42 @@ jobs:
 {% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-4757 %}
 ## Contexto `entradas`
 
-O contexto `entrada` contém propriedades de entrada passada para um fluxo de trabalho reutilizável. Os nomes e tipos de entrada são definidos na configuração do evento de [`workflow_call` ](/actions/learn-github-actions/events-that-trigger-workflows#workflow-reuse-events) de um fluxo de trabalhoreutilizável, e os valores de entrada são passados de [trabalhos de`.<job_id>.com`](/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idwith) para um fluxo de trabalho externo que chama o fluxo de trabalho reutilizável.
+O contexto `entradas` contém propriedades de entrada passadas para um fluxo de trabalho reutilizável{% ifversion actions-unified-inputs %} ou para um fluxo de trabalho acionado manualmente{% endif %}. {% ifversion actions-unified-inputs %}Para fluxos de trabalho reutilizáveis, os{% else %}Os nomes e tipos de entrada{% endif %} são definidos na configuração do evento [`workflow_call` ](/actions/learn-github-actions/events-that-trigger-workflows#workflow-reuse-events) de um fluxo de trabalho reutilizável, e os valores de entrada são passados de [`trabalhos.<job_id>.com`](/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idwith) em um fluxo de trabalho externo que chama o fluxo de trabalho reutilizável. {% ifversion actions-unified-inputs %}Para fluxos de trabalho acionados manualmente, as entradas são definidas na configuração do evento [`workflow_dispatch` ](/actions/learn-github-actions/events-that-trigger-workflows#workflow_dispatch) de um fluxo de trabalho.{% endif %}
 
-Não há propriedades padrão no contexto `entradas`, apenas aquelas definidas no arquivo de fluxo de trabalho reutilizável.
+Não há propriedades padrão no contexto `entradas`, apenas as que são definidas no arquivo do fluxo de trabalho.
 
 {% data reusables.actions.reusable-workflows-ghes-beta %}
 
-Para obter mais informações, consulte "[Reutilizando fluxos de trabalho](/actions/learn-github-actions/reusing-workflows)".
+Este contexto só está disponível em um fluxo de trabalho [reutilizável](/actions/learn-github-actions/reusing-workflows){% ifversion actions-unified-inputs %} ou em um fluxo de trabalho acionado pelo</a>{% endif %} evento `workflow_dispatch`. Você pode acessar este contexto a partir de qualquer trabalho ou etapa em um fluxo de trabalho. Este objeto contém as propriedades listadas abaixo.</td> </tr> 
 
-| Nome da propriedade   | Tipo                               | Descrição                                                                                                                                                                                                                                                                     |
-| --------------------- | ---------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `inputs`              | `objeto`                           | Este contexto só está disponível em um [fluxo de trabalho reutilizável](/actions/learn-github-actions/reusing-workflows). Você pode acessar este contexto a partir de qualquer trabalho ou etapa em um fluxo de trabalho. Este objeto contém as propriedades listadas abaixo. |
-| `inputs.<name>` | `string` ou `número` ou `booleano` | Cada valor de entrada é passado de um fluxo de trabalho externo.                                                                                                                                                                                                              |
+</tbody> </table> 
+
+
 
 ### Exemplo de conteúdo do contexto `entradas`
 
-O conteúdo de exemplo das `entradas` contexto é de um trabalho em um fluxo de trabalho reutilizável que definiu as entradas de `build_id` e `deploy_target`.
+O exemplo a seguir do contexto `entradas` é de um fluxo de trabalho que definiu as entradas `build_id`, `deploy_target` e `perform_deploy`.
+
+
 
 ```yaml
 {
   "build_id": 123456768,
-  "deploy_target": "deployment_sys_1a"
+  "deploy_target": "deployment_sys_1a",
+  "perform_deploy": true
 }
 ```
 
-### Exemplo de uso do contexto `entradas`
 
-Este exemplo de fluxo de trabalho reutilizável usa o contexto `entradas` para obter os valores das entradas `build_id` e `deploy_target` que foram passadas para o fluxo de trabalho reutilizável do fluxo de trabalho de chamadas.
+
+
+### Exemplo de uso do contexto `entradas` em um fluxo de trabalho reutilizável
+
+Este exemplo de fluxo de trabalho reutilizável usa o contexto `entradas` para obter os valores das entradas `build_id`, `deploy_target` e `perform_deploy` que foram passadas para o fluxo de trabalho reutilizável do fluxo de trabalho de chamada.
 
 {% raw %}
+
+
 ```yaml{:copy}
 name: Reusable deploy workflow
 on:
@@ -749,10 +753,53 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    if: ${{ inputs.perform_deploy == 'true' }}
+    if: ${{ inputs.perform_deploy }}
     steps:
       - name: Deploy build to target
         run: deploy --build ${{ inputs.build_id }} --target ${{ inputs.deploy_target }}
 ```
+
+
 {% endraw %}
+
+{% ifversion actions-unified-inputs %}
+
+
+### Exemplo de uso do contexto `entradas` em um fluxo de trabalho acionado manualmente
+
+Este exemplo de fluxo de trabalho acionado por um evento `workflow_dispatch` usa o contexto `entradas` para obter os valores das entradas `build_id`, `deploy_target` e `perform_deploy` que foram passadas para o fluxo de trabalho.
+
+{% raw %}
+
+
+```yaml{:copy}
+on:
+  workflow_dispatch:
+    inputs:
+      build_id:
+        required: true
+        type: string
+      deploy_target:
+        required: true
+        type: string
+      perform_deploy:
+        required: true
+        type: boolean
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    if: ${{ inputs.perform_deploy }}
+    steps:
+      - name: Deploy build to target
+        run: deploy --build ${{ inputs.build_id }} --target ${{ inputs.deploy_target }}
+```
+
+
+{% endraw %}
+
+
+
+{% endif %}
+
 {% endif %}

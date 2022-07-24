@@ -21,7 +21,7 @@ El formato y los valores permitidos son los mismos que en la [propiedad prelimin
 
 ### Condicionales líquidas
 
-¡Ahora puedes utilizar `{% if meow %} ... {% endif %}` en los archivos de contenido! Toma en cuenta que esta es la etiqueta `if` y no la `ifversion`.
+¡Ahora puedes utilizar `{% ifversion meow %} ... {% endif %}` en los archivos de contenido!
 
 ### Preliminar
 
@@ -34,18 +34,11 @@ versions:
   feature: 'meow'
 ```
 
-Si quieres que un archivo de contenido aplique a más de una característica, puedes hacer esto:
-
-```yaml
-versions:
-  fpt: '*'
-  ghes: '>3.1'
-  feature: ['meow', 'blorp']
-```
+No puedes utilizar `feature:` para especificar versiones concurrentes múltiples, ya que esto no es compatible. Como alternativa, puedes crear un archivo de versionamiento basado en características con el versionamiento requerido.
 
 ## Imposición del modelado
 
-El modelo para validar la característica de versionamiento vive en [`tests/helpers/schemas/feature-versions-schema.js`](/tests/helpers/schemas/feature-versions-schema.js) y la ejecuta [`tests/linting/lint-files.js`](/tests/linting/lint-files.js).
+El modelo para validar la característica de versionamiento vive en [`tests/helpers/schemas/feature-versions-schema.js`](/tests/helpers/schemas/feature-versions-schema.js) y la ejecuta [`tests/linting/lint-versioning.js`](/tests/linting/lint-versioning.js).
 
 ## Script para eliminar las etiquetas de característica
 

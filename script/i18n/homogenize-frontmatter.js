@@ -11,7 +11,6 @@ import path from 'path'
 import fs from 'fs/promises'
 import matter from 'gray-matter'
 import walk from 'walk-sync'
-import readFileAsync from '../../lib/readfile-async.js'
 import fm from '../../lib/frontmatter.js'
 
 // Run!
@@ -42,7 +41,7 @@ async function main() {
 }
 
 async function extractFrontmatter(path) {
-  const fileContents = await readFileAsync(path, 'utf8')
+  const fileContents = await fs.readFile(path, 'utf8')
   return fm(fileContents)
 }
 

@@ -1,6 +1,8 @@
 ---
-title: Revisões
-intro: 'Pull Request Reviews are groups of Pull Request Review Comments on the Pull Request, grouped together with a state and optional body comment.'
+title: Revisões de pull request
+shortTitle: Revisões
+allowTitleToDifferFromFilename: true
+intro: ''
 versions:
   fpt: '*'
   ghes: '*'
@@ -11,3 +13,6 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
+## Sobre a API de revisões do pull request
+
+As revisões de pull request são grupos de comentários de revisão de pull request em um pull request, agrupados junto com um comentário de status e comentário de texto.

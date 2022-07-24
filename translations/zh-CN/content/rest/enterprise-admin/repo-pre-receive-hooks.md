@@ -1,6 +1,6 @@
 ---
-title: Repository Pre-receive Hooks
-intro: The Repository Pre-receive Hooks API allows you to view and modify enforcement of the pre-receive hooks that are available to a repository.
+title: 存储库预接收挂钩
+intro: 存储库预接收挂钩 API 允许您查看和修改可用于存储库的预接收挂钩的实施。
 versions:
   ghes: '*'
 topics:

@@ -1,6 +1,6 @@
 ---
 title: リポジトリのシークレットスキャンを設定する
-intro: 'You can configure how {% data variables.product.prodname_dotcom %} scans your repositories for secrets that match advanced security patterns.'
+intro: '高度なセキュリティパターンにマッチするシークレットを探して{% data variables.product.prodname_dotcom %}がどのようにリポジトリをスキャンするかを設定できます。'
 product: '{% data reusables.gated-features.secret-scanning %}'
 permissions: 'People with admin permissions to a repository can enable {% data variables.product.prodname_secret_scanning_GHAS %} for the repository.'
 redirect_from:
@@ -24,7 +24,7 @@ shortTitle: シークレットスキャンの設定
 
 ## {% data variables.product.prodname_secret_scanning_GHAS %} の有効化
 
-{% data variables.product.prodname_secret_scanning_GHAS %}は、Organizationが所有する任意のリポジトリで有効化できます。 Once enabled, {% data reusables.secret-scanning.secret-scanning-process %}
+{% data variables.product.prodname_secret_scanning_GHAS %}は、Organizationが所有する任意のリポジトリで有効化できます。 有効化されると、{% data reusables.secret-scanning.secret-scanning-process %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
@@ -34,8 +34,8 @@ shortTitle: シークレットスキャンの設定
    {% elsif ghes or ghae %}![Enable {% data variables.product.prodname_GH_advanced_security %} for your repository](/assets/images/enterprise/3.1/help/repository/enable-ghas.png){% endif %}
 5. {% data variables.product.prodname_advanced_security %}の有効化の影響をレビューしてから、**Enable {% data variables.product.prodname_GH_advanced_security %} for this repository（このリポジトリで有効化）**をクリックしてください。
 6. {% data variables.product.prodname_advanced_security %}を有効化すると、Organizationの設定によってはリポジトリで{% data variables.product.prodname_secret_scanning %}が自動的に有効化されることがあります。 [{% data variables.product.prodname_secret_scanning_caps %}] と [**Enable**] ボタンが表示されている場合でも、[**Enable**] をクリックして {% data variables.product.prodname_secret_scanning %} を有効化する必要があります。 [**Disable**] ボタンが表示されている場合、{% data variables.product.prodname_secret_scanning %} はすでに有効化されています。 ![リポジトリに対して {% data variables.product.prodname_secret_scanning %} を有効化する](/assets/images/help/repository/enable-secret-scanning-dotcom.png)
-{% if secret-scanning-push-protection %}
-7. Optionally, if you want to enable push protection, click **Enable** to the right of "Push protection." {% data reusables.secret-scanning.push-protection-overview %} For more information, see "[Protecting pushes with {% data variables.product.prodname_secret_scanning %}](/code-security/secret-scanning/protecting-pushes-with-secret-scanning)." ![Enable push protection for your repository](/assets/images/help/repository/secret-scanning-enable-push-protection.png)
+{% ifversion secret-scanning-push-protection %}
+7. あるいは、プッシュ保護を有効化したい場合は、"Push protection（プッシュ保護）"の右にある**Enable（有効化）**をクリックしてください。 {% data reusables.secret-scanning.push-protection-overview %} 詳しい情報については「[{% data variables.product.prodname_secret_scanning %}でのプッシュの保護](/code-security/secret-scanning/protecting-pushes-with-secret-scanning)」を参照してください。 ![リポジトリでのプッシュ保護の有効化](/assets/images/help/repository/secret-scanning-enable-push-protection.png)
 {% endif %}
 {% ifversion ghae %}
 1. {% data variables.product.prodname_secret_scanning %} を有効化する前に、まず {% data variables.product.prodname_GH_advanced_security %} を有効化する必要があります。 その場合、[{% data variables.product.prodname_GH_advanced_security %}] の右にある [**Enable**] をクリックします。 ![リポジトリに対して {% data variables.product.prodname_GH_advanced_security %} を有効化する](/assets/images/enterprise/github-ae/repository/enable-ghas-ghae.png)
@@ -43,7 +43,7 @@ shortTitle: シークレットスキャンの設定
 3. その場合、[{% data variables.product.prodname_secret_scanning_caps %}] の右にある [**Enable**] をクリックします。 ![リポジトリに対して {% data variables.product.prodname_secret_scanning %} を有効化する](/assets/images/enterprise/github-ae/repository/enable-secret-scanning-ghae.png)
 {% endif %}
 
-## Excluding directories from {% data variables.product.prodname_secret_scanning_GHAS %}
+## {% data variables.product.prodname_secret_scanning_GHAS %}からのディレクトリの除外
 
 *secret_scanning.yml* ファイルを使用して、{% data variables.product.prodname_secret_scanning %} からディレクトリを除外できます。 たとえば、テストまたはランダムに生成されたコンテンツを含むディレクトリを除外できます。
 
@@ -71,4 +71,4 @@ shortTitle: シークレットスキャンの設定
 ## 参考リンク
 
 - 「[Organization のセキュリティと分析設定を管理する](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)」
-{% ifversion fpt or ghes > 3.1 or ghae or ghec %}-「[{% data variables.product.prodname_secret_scanning %}のカスタムパターンの定義](/code-security/secret-security/defining-custom-patterns-for-secret-scanning)」{% endif %}
+- 「[{% data variables.product.prodname_secret_scanning %}のカスタムパターンの定義](/code-security/secret-security/defining-custom-patterns-for-secret-scanning)」

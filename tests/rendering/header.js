@@ -1,7 +1,8 @@
-import { jest } from '@jest/globals'
+import { expect, jest } from '@jest/globals'
 
 import { getDOM } from '../helpers/e2etest.js'
 import { oldestSupported } from '../../lib/enterprise-server-releases.js'
+import { getUserLanguage } from '../helpers/script-data.js'
 
 describe('header', () => {
   jest.setTimeout(5 * 60 * 1000)
@@ -27,7 +28,7 @@ describe('header', () => {
       )
       expect(
         $(
-          '[data-testid=desktop-header] [data-testid=language-picker] a[href="/ja/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/managing-a-branch-protection-rule"]'
+          'li a[href="/ja/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/managing-a-branch-protection-rule"]'
         ).length
       ).toBe(1)
     })
@@ -35,20 +36,14 @@ describe('header', () => {
     test('display the native name and the English name for each translated language', async () => {
       const $ = await getDOM('/en')
 
-      expect(
-        $('[data-testid=desktop-header] [data-testid=language-picker] a[href="/en"]').text().trim()
-      ).toBe('English')
-      expect(
-        $('[data-testid=desktop-header] [data-testid=language-picker] a[href="/cn"]').text().trim()
-      ).toBe('简体中文 (Simplified Chinese)')
-      expect(
-        $('[data-testid=desktop-header] [data-testid=language-picker] a[href="/ja"]').text().trim()
-      ).toBe('日本語 (Japanese)')
+      expect($('[data-testid=language-picker] li a[href="/en"]').text().trim()).toBe('English')
+      expect($('[data-testid=language-picker] li a[href="/cn"]').text().trim()).toBe('简体中文')
+      expect($('[data-testid=language-picker] li a[href="/ja"]').text().trim()).toBe('日本語')
     })
 
     test('emphasize the current language', async () => {
       const $ = await getDOM('/en')
-      expect($('[data-testid=desktop-header] [data-testid=language-picker] summary').text()).toBe(
+      expect($('[data-testid=desktop-header] [data-testid=language-picker] button').text()).toBe(
         'English'
       )
     })
@@ -91,54 +86,31 @@ describe('header', () => {
     test("renders a link to the same page in user's preferred language, if available", async () => {
       const headers = { 'accept-language': 'ja' }
       const $ = await getDOM('/en', { headers })
-      expect($('[data-testid=header-notification][data-type=TRANSLATION]').length).toBe(1)
-      expect($('[data-testid=header-notification] a[href*="/ja"]').length).toBe(1)
+      expect(getUserLanguage($)).toBe('ja')
     })
 
     test("renders a link to the same page if user's preferred language is Chinese - PRC", async () => {
       const headers = { 'accept-language': 'zh-CN' }
       const $ = await getDOM('/en', { headers })
-      expect($('[data-testid=header-notification][data-type=TRANSLATION]').length).toBe(1)
-      expect($('[data-testid=header-notification] a[href*="/cn"]').length).toBe(1)
-    })
-
-    test("does not render a link when user's preferred language is Chinese - Taiwan", async () => {
-      const headers = { 'accept-language': 'zh-TW' }
-      const $ = await getDOM('/en', { headers })
-      expect($('[data-testid=header-notification]').length).toBe(0)
-    })
-
-    test("does not render a link when user's preferred language is English", async () => {
-      const headers = { 'accept-language': 'en' }
-      const $ = await getDOM('/en', { headers })
-      expect($('[data-testid=header-notification]').length).toBe(0)
+      expect(getUserLanguage($)).toBe('cn')
     })
 
     test("renders a link to the same page in user's preferred language from multiple, if available", async () => {
       const headers = { 'accept-language': 'ja, *;q=0.9' }
       const $ = await getDOM('/en', { headers })
-      expect($('[data-testid=header-notification][data-type=TRANSLATION]').length).toBe(1)
-      expect($('[data-testid=header-notification] a[href*="/ja"]').length).toBe(1)
+      expect(getUserLanguage($)).toBe('ja')
     })
 
     test("renders a link to the same page in user's preferred language with weights, if available", async () => {
       const headers = { 'accept-language': 'ja;q=1.0, *;q=0.9' }
       const $ = await getDOM('/en', { headers })
-      expect($('[data-testid=header-notification][data-type=TRANSLATION]').length).toBe(1)
-      expect($('[data-testid=header-notification] a[href*="/ja"]').length).toBe(1)
+      expect(getUserLanguage($)).toBe('ja')
     })
 
     test("renders a link to the user's 2nd preferred language if 1st is not available", async () => {
       const headers = { 'accept-language': 'zh-TW,zh;q=0.9,ja *;q=0.8' }
       const $ = await getDOM('/en', { headers })
-      expect($('[data-testid=header-notification][data-type=TRANSLATION]').length).toBe(1)
-      expect($('[data-testid=header-notification] a[href*="/ja"]').length).toBe(1)
-    })
-
-    test('renders no notices if no language preference is available', async () => {
-      const headers = { 'accept-language': 'zh-TW,zh;q=0.9,zh-SG *;q=0.8' }
-      const $ = await getDOM('/en', { headers })
-      expect($('[data-testid=header-notification]').length).toBe(0)
+      expect(getUserLanguage($)).toBe('ja')
     })
   })
 
@@ -147,9 +119,7 @@ describe('header', () => {
       const $ = await getDOM(
         '/en/get-started/importing-your-projects-to-github/importing-source-code-to-github/about-github-importer'
       )
-      const getStarted = $(
-        '[data-testid=product-picker][data-current-product-path="/get-started"] summary'
-      )
+      const getStarted = $('div ul ul li a[href="/en/get-started"]')
       expect(getStarted.length).toBe(1)
       expect(getStarted.text().trim()).toBe('Get started')
 

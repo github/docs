@@ -31,7 +31,7 @@ Recomendamos encarecidamente el uso de una contraseña única basada en el tiemp
 
 {% ifversion fpt or ghec %}
 
-Si eres miembro de una {% data variables.product.prodname_emu_enterprise %}, no podrás configurar la 2FA para tu cuenta de {% data variables.product.prodname_managed_user %}. La 2FA debe configurarse mediante tu proveedor de identidad.
+Si eres miembro de una {% data variables.product.prodname_emu_enterprise %}, no puedes configurar la 2FA para tu cuenta de {% data variables.product.prodname_managed_user %} a menos de que hayas iniciado sesión como el usuario configurado. Para los usuarios diferentes al usuario configurado, un administrador debe configurar la 2FA en tu proveedor de identidad (IdP).
 
 {% endif %}
 
@@ -53,7 +53,7 @@ Una aplicación de contraseña única basada en el tiempo (TOTP) genera automát
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.security %}
 {% data reusables.two_fa.enable-two-factor-authentication %}
-{%- ifversion fpt or ghes > 3.1 %}
+{%- ifversion fpt or ghec or ghes %}
 5. Debajo de "Autenticación bifactorial", selecciona **Configurar utilizando una app** y haz clic en **Continuar**.
 6. Debajo de "Verificación de autenticación", realiza alguan de las siguientes acciones:
     - Escanea el código QR con la app del dispositivo móvil. Luego de escanear, la app muestra un código de seis dígitos que puedes ingresar en {% data variables.product.product_name %}.

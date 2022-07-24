@@ -5,7 +5,7 @@ versions:
   ghae: '*'
 ---
 
-Este guia irá ajudar você a configurar e gerenciar as configurações para {% data variables.product.product_location %} em {% data variables.product.product_name %} como proprietário corporativo.
+Este guia irá ajudar você a configurar e gerenciar as configurações para {% data variables.product.product_location %} em {% data variables.product.product_name %} como proprietário corporativo. Para obter mais informações sobre {% data variables.product.product_name %}, consulte "[Sobre {% data variables.product.prodname_ghe_managed %}](/admin/overview/about-github-ae)."
 
 ## Parte 1: Configurando {% data variables.product.product_name %}
 Para dar os primeiros passos com {% data variables.product.product_name %}, você pode criar a conta corporativa, inicializar {% data variables.product.product_name %}, configurar uma lista de permissões de IP, configurar a autenticação e provisionamento de usuário e gerenciar a cobrança para {% data variables.product.product_location %}.
@@ -77,7 +77,7 @@ Os integrantes da sua empresa podem aprender mais sobre Git e {% data variables.
 Você pode ler a documentação que reflete as funcionalidades disponíveis com {% data variables.product.prodname_ghe_managed %}. Para obter mais informações, consulte "[Sobre as versões do {% data variables.product.prodname_docs %}](/get-started/learning-about-github/about-versions-of-github-docs)."
 
 ### 2. Aprendendo com {% data variables.product.prodname_learning %}
-{% data reusables.getting-started.learning-lab-enterprise %}
+{% data reusables.getting-started.learning-enterprise %}
 
 ### 3. Trabalhando com o Suporte do Enterprise de {% data variables.product.prodname_dotcom %}
 {% data reusables.getting-started.contact-support-enterprise %}

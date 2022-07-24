@@ -1,1 +1,1 @@
-You can give all sponsors in a tier access to a private repository by adding the repository to the tier.
+您可以通过将存储库添加到层来授予层中的所有发起人对私有存储库的访问权限。

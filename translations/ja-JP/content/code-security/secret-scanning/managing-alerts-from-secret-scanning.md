@@ -1,5 +1,5 @@
 ---
-title: シークレットスキャンからのアラートを管理する
+title: Secret scanningからのアラートを管理する
 intro: リポジトリにチェックインしたシークレットのアラートを表示したりクローズしたりすることができます。
 product: '{% data reusables.gated-features.secret-scanning %}'
 redirect_from:
@@ -25,7 +25,7 @@ shortTitle: シークレットのアラートの管理
 {% ifversion ghec %}
 {% note %}
 
-**Note:** Alerts are created only for repositories with {% data variables.product.prodname_secret_scanning_GHAS %} enabled. Secrets found in public repositories using the free {% data variables.product.prodname_secret_scanning_partner%} service are reported directly to the partner, without creating an alert.
+**ノート:** アラートは、{% data variables.product.prodname_secret_scanning_GHAS %}が有効化されたリポジトリでのみ生成されます。 無料の{% data variables.product.prodname_secret_scanning_partner%}サービスを使ってパブリックリポジトリで見つかったシークレットは、アラートを生成することなくパートナーに直接報告されます。
 
 {% endnote %}
 {% endif %}
@@ -49,7 +49,7 @@ shortTitle: シークレットのアラートの管理
    {% ifversion ghae %}
    ![シークレットスキャンからのアラートのリスト](/assets/images/enterprise/github-ae/repository/secret-scanning-click-alert-ghae.png)
    {% endif %}
-1. Optionally, select the {% ifversion fpt or ghec %}"Close as"{% elsif ghes or ghae %}"Mark as"{% endif %} drop-down menu and click a reason for resolving an alert.
+1. あるいは{% ifversion fpt or ghec %}"Close as"{% elsif ghes or ghae %}"Mark as"{% endif %}ドロップダウンメニューを選択し、アラートを解決する理由をクリックしてください。
    {% ifversion fpt or ghec %}
    ![シークレットスキャンからのアラートを解決するためのドロップダウンメニュー](/assets/images/help/repository/secret-scanning-resolve-alert.png)
    {% endif %}
@@ -67,15 +67,15 @@ shortTitle: シークレットのアラートの管理
 {% ifversion ghec %}
 {% note %}
 
-**Note:** If a secret is detected in a public repository on {% data variables.product.prodname_dotcom_the_website %} and the secret also matches a partner pattern, an alert is generated and the potential secret is reported to the service provider. For details of partner patterns, see "[Supported secrets for partner patterns](/code-security/secret-scanning/secret-scanning-patterns#supported-secrets-for-partner-patterns)."
+**ノート:** シークレットが{% data variables.product.prodname_dotcom_the_website %}上のパブリックリポジトリで検出され、そのシークレットがパートナーパターンにもマッチした場合、アラートが生成され、シークレットかもしれないものがサービスプロバイダに報告されます。 パートナーパターンに関する詳細については「[パートナーパターンでサポートされているシークレット](/code-security/secret-scanning/secret-scanning-patterns#supported-secrets-for-partner-patterns)」を参照してください。
 
 {% endnote %}
 {% endif %}
 
-{% ifversion fpt or ghes > 3.1 or ghae-issue-4910 or ghec %}
+{% ifversion fpt or ghes or ghae-issue-4910 or ghec %}
 ## {% data variables.product.prodname_secret_scanning %}アラートの通知の設定
 
-新しいシークレットが検出されると、{% data variables.product.product_name %}は通知設定に従ってリポジトリのセキュリティアラートにアクセスできるすべてのユーザに通知します。 You will receive alerts if you are watching the repository, have enabled notifications for security alerts or for all the activity on the repository, are the author of the commit that contains the secret and are not ignoring the repository.
+新しいシークレットが検出されると、{% data variables.product.product_name %}は通知設定に従ってリポジトリのセキュリティアラートにアクセスできるすべてのユーザに通知します。 あなたがリポジトリをWatchしていて、セキュリティアラートもしくはリポジトリのすべてのアクティビティに対する通知を有効化しているか、検出されたシークレットを含むコミットの作者でそのリポジトリを無視していなければ、あなたはメール通知を受け取ることになります。
 
 詳しい情報については、「[リポジトリのセキュリティ及び分析の設定の管理](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository#granting-access-to-security-alerts)」及び「[通知の設定](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#configuring-your-watch-settings-for-an-individual-repository)」を参照してください。
 {% endif %}

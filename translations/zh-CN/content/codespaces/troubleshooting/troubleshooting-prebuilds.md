@@ -12,8 +12,6 @@ product: '{% data reusables.gated-features.codespaces %}'
 miniTocMaxHeadingLevel: 3
 ---
 
-{% data reusables.codespaces.prebuilds-beta-note %}
-
 有关 {% data variables.product.prodname_codespaces %} 预构建的详细信息，请参阅“[预构建代码空间](/codespaces/prebuilding-your-codespaces)”。
 
 ## 检查代码空间是否是从预构建创建的？
@@ -22,11 +20,11 @@ miniTocMaxHeadingLevel: 3
 
 ![可用计算机类型的列表](/assets/images/help/codespaces/choose-custom-machine-type.png)
 
-如果将 {% data variables.product.prodname_codespaces %} 编辑器首选项设置为“Visual Studio Code for Web”，则“设置代码空间”页面将显示消息“找到预构建的代码空间”（如果正在使用预构建）。
+如果将 {% data variables.product.prodname_codespaces %} 编辑器首选项设置为“{% data variables.product.prodname_vscode %} for Web”，则“设置代码空间”页面将显示消息“找到预构建的代码空间”（如果正在使用预构建）。
 
 ![“找到预构建的代码空间”消息](/assets/images/help/codespaces/prebuilt-codespace-found.png)
 
-同样，如果您的编辑器首选项是“Visual Studio Code”，则当您创建新代码空间时，集成终端将包含消息“您正在使用由存储库的预构建配置定义的预构建代码空间”。 更多信息请参阅“[设置代码空间的默认编辑器](/codespaces/customizing-your-codespace/setting-your-default-editor-for-codespaces)”。
+同样，如果您的编辑器首选项是“{% data variables.product.prodname_vscode_shortname %}”，则当您创建新代码空间时，集成终端将包含消息“您正在使用由存储库的预构建配置定义的预构建代码空间”。 有关详细信息，请参阅“[设置 {% data variables.product.prodname_github_codespaces %} 的默认编辑器](/codespaces/customizing-your-codespace/setting-your-default-editor-for-github-codespaces)”。
 
 创建代码空间后，可以通过在终端中运行以下 {% data variables.product.prodname_cli %} 命令来检查它是否是从预构建创建的：
 
@@ -56,6 +54,10 @@ cat /workspaces/.codespaces/shared/environment-variables.json | jq '.ACTION_NAME
 * 确认预构建配置包括您的区域。
 * 检查最近是否将对开发容器配置的更改推送到启用了预构建的分支。 如果是这样，通常必须等到为此推送运行的预构建工作流程完成，然后预构建才会再次可用。
 * 如果最近未进行任何配置更改，请转到存储库的“ **操作** ”选项卡，单击工作流程列表中的 **{% octicon "codespaces" aria-label="The Codespaces icon" %} {% data variables.product.prodname_codespaces %} 预构建** ，然后检查分支的预构建工作流程运行是否成功。 如果工作流程的最新运行失败，并且其中一个或多个失败的运行包含对开发容器配置的更改，则关联分支将没有可用的预构建。
+
+## 预构建工作流程运行失败疑难解答
+
+如果为预构建配置运行的工作流程失败，则可以在调查时暂时禁用预构建配置。 更多信息请参阅“[管理预构建](/codespaces/prebuilding-your-codespaces/managing-prebuilds#disabling-a-prebuild-configuration)”。
 
 ## 延伸阅读
 

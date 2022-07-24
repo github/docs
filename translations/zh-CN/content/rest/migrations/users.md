@@ -1,6 +1,8 @@
 ---
-title: 用户
-intro: The Users migrations API is only available to authenticated account owners.
+title: 用户迁移
+allowTitleToDifferFromFilename: true
+shortTitle: 用户
+intro: ''
 versions:
   fpt: '*'
   ghec: '*'
@@ -11,7 +13,9 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-更多信息请参阅“[其他身份验证方法](/rest/overview/other-authentication-methods)”。
+## 关于用户迁移 API
+
+用户迁移 API 仅适用于经过身份验证的帐户所有者。 更多信息请参阅“[其他身份验证方法](/rest/overview/other-authentication-methods)”。
 
 {% data variables.migrations.user_migrations_intro %} 有关可下载的迁移数据列表，请参阅“[下载用户迁移存档](#download-a-user-migration-archive)”。
 

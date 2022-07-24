@@ -1,6 +1,6 @@
 ---
 title: ソースのインポート
-intro: '{% data variables.migrations.source_imports_intro %}'
+intro: ''
 versions:
   fpt: '*'
   ghec: '*'
@@ -9,7 +9,9 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-一般的なソースのインポートでは、まずインポートを開始し、次に (オプションで) 作者を更新したり、インポートに大きいファイルが存在する場合に Git LFS 使用の設定を更新したりします。 [`RepositoryImportEvent`](/developers/webhooks-and-events/webhook-events-and-payloads#repository_import) をリスニングする webhook を作成して、インポートのステータスを確認することもできます。
+## Source imports APIについて
+
+{% data variables.migrations.source_imports_intro %} 一般的なソースのインポートでは、まずインポートを開始し、次に (オプションで) 作者を更新したり、インポートに大きいファイルが存在する場合に Git LFS 使用の設定を更新したりします。 [`RepositoryImportEvent`](/developers/webhooks-and-events/webhook-events-and-payloads#repository_import) をリスニングする webhook を作成して、インポートのステータスを確認することもできます。
 
 詳細な例は、次の図を参照してください。
 

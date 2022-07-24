@@ -1,5 +1,6 @@
 ---
-title: OAuthアプリケーション
+title: OAuth Apps
+allowTitleToDifferFromFilename: true
 intro: ''
 topics:
   - API
@@ -11,4 +12,6 @@ versions:
   ghec: '*'
 ---
 
-このAPIを使って、{% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}上のユーザのアカウントにアクセスするためにOAuthアプリケーションが使うOAuthトークンを管理できます。
+## About the {% data variables.product.prodname_oauth_app %} API
+
+You can use this API to manage the OAuth tokens an {% data variables.product.prodname_oauth_app %} uses to access people's accounts on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}.

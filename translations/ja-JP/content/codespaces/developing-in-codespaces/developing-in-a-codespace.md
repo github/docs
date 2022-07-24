@@ -19,9 +19,9 @@ shortTitle: Develop in a codespace
 
  
 
-## About development with {% data variables.product.prodname_codespaces %}
+## About development with {% data variables.product.prodname_github_codespaces %}
 
-{% data variables.product.prodname_codespaces %} は、{% data variables.product.prodname_vscode %} の完全な開発体験を提供します。 {% data reusables.codespaces.use-visual-studio-features %}
+{% data variables.product.prodname_github_codespaces %} は、{% data variables.product.prodname_vscode %} の完全な開発体験を提供します。 {% data reusables.codespaces.use-visual-studio-features %}
 
 {% data reusables.codespaces.links-to-get-started %}
 
@@ -33,7 +33,7 @@ shortTitle: Develop in a codespace
 4. パネル: 出力とデバッグ情報、および統合ターミナルのデフォルトの場所を確認できます。
 5. ステータスバー: このエリアには、codespace とプロジェクトに関する有用な情報が表示されます。 たとえば、ブランチ名、設定されたポートなどです。
 
-{% data variables.product.prodname_vscode %} の使用の詳細については、{% data variables.product.prodname_vscode %} ドキュメントの[ユーザインターフェースガイド](https://code.visualstudio.com/docs/getstarted/userinterface)を参照してください。
+{% data variables.product.prodname_vscode_shortname %} の使用の詳細については、{% data variables.product.prodname_vscode_shortname %} ドキュメントの[ユーザインターフェースガイド](https://code.visualstudio.com/docs/getstarted/userinterface)を参照してください。
 
 {% data reusables.codespaces.connect-to-codespace-from-vscode %}
 
@@ -41,7 +41,7 @@ shortTitle: Develop in a codespace
 
 ### Codespace をパーソナライズする
 
-{% data reusables.codespaces.about-personalization %} 詳しい情報については、「[アカウントの {% data variables.product.prodname_codespaces %} をパーソナライズする](/codespaces/setting-up-your-codespace/personalizing-codespaces-for-your-account)」を参照してください。
+{% data reusables.codespaces.about-personalization %} 詳しい情報については、「[アカウントの {% data variables.product.prodname_github_codespaces %} をパーソナライズする](/codespaces/customizing-your-codespace/personalizing-github-codespaces-for-your-account)」を参照してください。
 
 {% data reusables.codespaces.apply-devcontainer-changes %}詳しい情報については、「[プロジェクトの {% data variables.product.prodname_codespaces %} を設定する](/github/developing-online-with-codespaces/configuring-codespaces-for-your-project#apply-changes-to-your-configuration)」を参照してください。
 
@@ -54,7 +54,7 @@ shortTitle: Develop in a codespace
 
 ### Using the {% data variables.product.prodname_vscode_command_palette %}
 
-The {% data variables.product.prodname_vscode_command_palette %} allows you to access and manage many features for {% data variables.product.prodname_codespaces %} and {% data variables.product.prodname_vscode %}. For more information, see "[Using the {% data variables.product.prodname_vscode_command_palette %} in {% data variables.product.prodname_codespaces %}](/codespaces/codespaces-reference/using-the-vs-code-command-palette-in-codespaces)."
+The {% data variables.product.prodname_vscode_command_palette %} allows you to access and manage many features for {% data variables.product.prodname_codespaces %} and {% data variables.product.prodname_vscode_shortname %}. For more information, see "[Using the {% data variables.product.prodname_vscode_command_palette_shortname %} in {% data variables.product.prodname_codespaces %}](/codespaces/codespaces-reference/using-the-vs-code-command-palette-in-codespaces)."
 
 ## 既存の codespace に移動する
 

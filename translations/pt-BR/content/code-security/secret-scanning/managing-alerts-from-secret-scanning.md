@@ -72,10 +72,10 @@ Uma vez que um segredo tenha sido committed a um repositório, você deve consid
 {% endnote %}
 {% endif %}
 
-{% ifversion fpt or ghes > 3.1 or ghae-issue-4910 or ghec %}
+{% ifversion fpt or ghes or ghae-issue-4910 or ghec %}
 ## Configurando notificações para alertas de {% data variables.product.prodname_secret_scanning %}
 
-Quando um novo segredo é detectado, {% data variables.product.product_name %} notifica todos os usuários com acesso a alertas de segurança para o repositório, de acordo com suas preferências de notificação. Você receberá alertas se estiver inspecionando o repositório, se tiver habilitado as notificações para alertas de segurança ou para todas as atividades no repositório, se for o autor do commit que contém o segredo e não estiver ignorando o repositório.
+Quando um novo segredo é detectado, {% data variables.product.product_name %} notifica todos os usuários com acesso a alertas de segurança para o repositório, de acordo com suas preferências de notificação. Você receberá uma notificação por e-mail se estiver inspecionando o repositório, tiver habilitado as notificações para alertas de segurança ou para todas as atividades no repositório, ou for o autor do commit que contém o segredo e não estiver ignorando o repositório.
 
 Para obter mais informações, consulte "[Gerenciar configurações de segurança e análise do repositório](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository#granting-access-to-security-alerts)" e "[Configurar notificações](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#configuring-your-watch-settings-for-an-individual-repository)".
 {% endif %}

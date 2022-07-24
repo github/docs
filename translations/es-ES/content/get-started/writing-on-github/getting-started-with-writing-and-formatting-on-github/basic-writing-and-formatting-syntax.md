@@ -15,7 +15,7 @@ shortTitle: Sintaxis de formato básica
 
 ## Encabezados
 
-Para crear un encabezado, agrega uno a seis símbolos <kbd>#</kbd> antes del encabezado del texto. The number of <kbd>#</kbd> you use will determine the size of the heading.
+Para crear un encabezado, agrega uno a seis símbolos <kbd>#</kbd> antes del encabezado del texto. La cantidad de <kbd>#</kbd> que utilices determinará el tamaño del encabezado.
 
 ```markdown
 # El encabezado más largo
@@ -25,26 +25,27 @@ Para crear un encabezado, agrega uno a seis símbolos <kbd>#</kbd> antes del enc
 
 ![Encabezados H1, H2 y H6 representados](/assets/images/help/writing/headings-rendered.png)
 
-When you use two or more headings, GitHub automatically generates a table of contents which you can access by clicking {% octicon "list-unordered" aria-label="The unordered list icon" %} within the file header. Each heading title is listed in the table of contents and you can click a title to navigate to the selected section.
+Cuando usas dos o más encabezados, GitHub generará una tabla de contenido automáticamente, a la cual podrás acceder si haces clic en {% octicon "list-unordered" aria-label="The unordered list icon" %} dentro del encabezado del archivo. Cada título de encabezado se lista en la tabla de contenido y puedes hacer clic en un título para navegar a la sección seleccionada.
 
-![Screenshot highlighting the table of contents icon](/assets/images/help/repository/headings_toc.png)
-
+![Captura de pantalla resaltando el icono de la tabla de contenido](/assets/images/help/repository/headings_toc.png)
 
 ## Estilo de texto
 
-Puedes indicar énfasis con texto en negritas, itálicas o tachadas en los campos de comentario y archivos `.md`.
+Puedes indicar un énfasis con texto en negritas, itálicas, tachado, subíndice o superíndice en los campos de comentario y archivos `.md`.
 
-| Estilo                       | Sintaxis           | Atajo del teclado                                                                     | Ejemplo                                         | Resultado                                     |
-| ---------------------------- | ------------------ | ------------------------------------------------------------------------------------- | ----------------------------------------------- | --------------------------------------------- |
-| Negrita                      | `** **` o `__ __`  | <kbd>Command</kbd>+<kbd>B</kbd> (Mac) or <kbd>Ctrl</kbd>+<kbd>B</kbd> (Windows/Linux) | `**Este texto está en negrita**`                | **Este texto está en negrita**                |
-| Cursiva                      | `* *` o `_ _`      | <kbd>Command</kbd>+<kbd>I</kbd> (Mac) or <kbd>Ctrl</kbd>+<kbd>I</kbd> (Windows/Linux) | `*Este texto está en cursiva*`                  | *Este texto está en cursiva*                  |
-| Tachado                      | `~~ ~~`            |                                                                                       | `~~Este texto está equivocado~~`                | ~~Este texto está equivocado~~                |
-| Cursiva en negrita y anidada | `** **` y `_ _`    |                                                                                       | `**Este texto es _extremadamente_ importante**` | **Este texto es _extremadamente_ importante** |
-| Todo en negrita y cursiva    | `*** ***`          |                                                                                       | `***Todo este texto es importante***`           | ***Todo este texto es importante***           |
+| Estilo                       | Sintaxis                   | Atajo del teclado                                                                    | Ejemplo                                                  | Resultado                                     |
+| ---------------------------- | -------------------------- | ------------------------------------------------------------------------------------ | -------------------------------------------------------- | --------------------------------------------- |
+| Negrita                      | `** **` o `__ __`          | <kbd>Command</kbd>+<kbd>B</kbd> (Mac) o <kbd>Ctrl</kbd>+<kbd>B</kbd> (Windows/Linux) | `**Este texto está en negrita**`                         | **Este texto está en negrita**                |
+| Cursiva                      | `* *` o `_ _`              | <kbd>Command</kbd>+<kbd>I</kbd> (Mac) o <kbd>Ctrl</kbd>+<kbd>I</kbd> (Windows/Linux) | `*Este texto está en cursiva*`                           | *Este texto está en cursiva*                  |
+| Tachado                      | `~~ ~~`                    |                                                                                      | `~~Este texto está equivocado~~`                         | ~~Este texto está equivocado~~                |
+| Cursiva en negrita y anidada | `** **` y `_ _`            |                                                                                      | `**Este texto es _extremadamente_ importante**`          | **Este texto es _extremadamente_ importante** |
+| Todo en negrita y cursiva    | `*** ***`                  |                                                                                      | `***Todo este texto es importante***`                    | ***Todo este texto es importante***           |
+| Subíndice                    | `<sub> </sub>` |                                                                                      | `<sub>Este es un texto en subíndice</sub>`   | <sub>Este es un texto en subíndice</sub>      |
+| Superíndice                  | `<sup> </sup>` |                                                                                      | `<sup>Este es un texto en superíndice</sup>` | <sup>Este es un texto en superíndice</sup>    |
 
 ## Cita de texto
 
-You can quote text with a <kbd>></kbd>.
+Puedes citar texto con un <kbd>></kbd>.
 
 ```markdown
 Texto que no es una cita
@@ -56,13 +57,13 @@ Texto que no es una cita
 
 {% tip %}
 
-**Tip:** When viewing a conversation, you can automatically quote text in a comment by highlighting the text, then typing <kbd>R</kbd>. Puedes citar un comentario completo al hacer clic en {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}, y luego en **Quote reply** (Citar respuesta). Para obtener más información sobre atajo del teclado, consulta "[Atajos del teclado](/articles/keyboard-shortcuts/)".
+**Tip:** Cuando ves una conversación, puedes citar texto automáticamente en un comentario si lo resaltas y luego tecleas <kbd>R</kbd>. Puedes citar un comentario completo al hacer clic en {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}, y luego en **Quote reply** (Citar respuesta). Para obtener más información sobre atajo del teclado, consulta "[Atajos del teclado](/articles/keyboard-shortcuts/)".
 
 {% endtip %}
 
 ## Código de cita
 
-Puedes indicar un código o un comando dentro de un enunciado con comillas simples. The text within the backticks will not be formatted.{% ifversion fpt or ghae or ghes > 3.1 or ghec %} You can also press the <kbd>Command</kbd>+<kbd>E</kbd> (Mac) or <kbd>Ctrl</kbd>+<kbd>E</kbd> (Windows/Linux) keyboard shortcut to insert the backticks for a code block within a line of Markdown.{% endif %}
+Puedes indicar un código o un comando dentro de un enunciado con comillas simples. El texto dentro de las comillas simples no será formateado. También puedes presionar el atajo de teclado <kbd>Command</kbd>+<kbd>E</kbd> (Mac) o <kbd>Ctrl</kbd>+<kbd>E</kbd> (Windows/Linux) para insertar los apóstrofos para un bloque de código dentro de una línea de lenguaje de marcado.
 
 ```markdown
 Usa `git status` para enumerar todos los archivos nuevos o modificados que aún no han sido confirmados.
@@ -87,9 +88,38 @@ Para obtener más información, consulta "[Crear y resaltar bloques de código](
 
 {% data reusables.user-settings.enabling-fixed-width-fonts %}
 
+## Modelos de color compatibles
+
+En las propuestas, solicitudes de cambio y debates, puedes hacer llamados a colores con una oración si utilizas comillas simples. Un modelo de color compatible dentro de comillas simples mostrará una visualización de dicho color.
+
+```markdown
+El color de fondo debe ser `#ffffff` para el modo claro y `#0d1117` para el modo oscuro.
+```
+
+![Modelo de color compatible representado.](/assets/images/help/writing/supported-color-models-rendered.png)
+
+Aquí están los modelos de color compatibles actualmente.
+
+| Color | Sintaxis                  | Ejemplo                   | Resultado                                                                                                                                  |
+| ----- | ------------------------- | ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
+| HEX   | <code>\`#RRGGBB\`</code> | <code>\`#0969DA\`</code> | ![Modelo de color representado compatible en formato HEX.](/assets/images/help/writing/supported-color-models-hex-rendered.png)            |
+| RGB   | <code>\`rgb(R,G,B)\`</code> | <code>\`rgb(9, 105, 218)\`</code> | ![Formato de modelo de color representado compatible en formato RGB.](/assets/images/help/writing/supported-color-models-rgb-rendered.png) |
+| HSL   | <code>\`hsl(H,S,L)\`</code> | <code>\`hsl(212, 92%, 45%)\`</code> | ![Formato de modelo de color representado compatible en formato HSL.](/assets/images/help/writing/supported-color-models-hsl-rendered.png) |
+
+{% note %}
+
+**Notas:**
+
+- Un modelo de color compatible no puede tener espacios iniciales o finales dentro de las comillas simples.
+- La visualización del color solo es compatible en propuestas, solicitudes de cambio y debates.
+
+{% endnote %}
+
 ## Enlaces
 
-Puedes crear un enlace en línea al encerrar el texto del enlace entre corchetes `[ ]`, y luego encerrar la URL entre paréntesis `( )`. {% ifversion fpt or ghae or ghes > 3.1 or ghec %}También puedes utilizar el atajo de teclado <kbd>Command</kbd>+<kbd>K</kbd> para crear un enlace.{% endif %}{% ifversion fpt or ghae-issue-5434 or ghes > 3.3 or ghec %} Cuando tengas texto seleccionado, puedes pegar una URL desde tu portapapeles para crear un enlace automáticamente desde la selección.{% endif %}
+Puedes crear un enlace en línea al encerrar el texto del enlace entre corchetes `[ ]`, y luego encerrar la URL entre paréntesis `( )`. También puedes utilizar el atajo de teclado <kbd>Command</kbd>+<kbd>K</kbd> para crear un enlace.{% ifversion fpt or ghae-issue-5434 or ghes > 3.3 or ghec %} Cuando tienes texto seleccionado, puedes pegar una URL desde tu portapapeles para crear automáticamente un enlace desde la selección.{% endif %}
+
+{% ifversion fpt or ghae-issue-7103 or ghes > 3.5 or ghec %} También puedes crear un hipervínculo de lenguaje de marcado si resaltas el texto y utilizas el atajo de teclado <kbd>Command</kbd>+<kbd>V</kbd>. Si quieres reemplazar el texto con el enlace, utiliza el atajo de teclado <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>V</kbd>.{% endif %}
 
 `Este sitio se construyó usando [GitHub Pages](https://pages.github.com/).`
 
@@ -111,7 +141,7 @@ Puedes crear un enlace en línea al encerrar el texto del enlace entre corchetes
 
 ## Imágenes
 
-You can display an image by adding <kbd>!</kbd> and wrapping the alt text in `[ ]`. Entonces encierra el enlace de la imagen entre paréntesis `()`.
+Puedes mostrar una imagen si agregas <kbd>!</kbd> y pones el texto alternativo entre `[ ]`. Entonces encierra el enlace de la imagen entre paréntesis `()`.
 
 `![Esta es una imagen](https://myoctocat.com/assets/images/base-octocat.svg)`
 
@@ -131,7 +161,7 @@ Aquí tienes algunos ejemplos para utilizar enlaces relativos para mostrar una i
 | ----------------------------------------------------------------------- | ---------------------------------------------------------------------- |
 | En un archivo `.md` en la misma rama                                    | `/assets/images/electrocat.png`                                        |
 | En un archivo `.md` en otra rama                                        | `/../main/assets/images/electrocat.png`                                |
-| En propuestas, solicitudes de cambio y comentarios del repositorio      | `../blob/main/assets/images/electrocat.png`                            |
+| En propuestas, solicitudes de cambio y comentarios del repositorio      | `../blob/main/assets/images/electrocat.png?raw=true`                   |
 | En un archivo `.md` en otro repositorio                                 | `/../../../../github/docs/blob/main/assets/images/electrocat.png`      |
 | En propuestas, solicitudes de cambios y comentarios de otro repositorio | `../../../github/docs/blob/main/assets/images/electrocat.png?raw=true` |
 
@@ -146,19 +176,24 @@ Para obtener más información, consulta la sección "[Enlaces relativos](#relat
 {% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5559 %}
 ### Especificar un tema en el que se muestra una imagen
 
-Puedes especificar el tema en el cual se muestra una imagen si agregas `#gh-dark-mode-only` o `#gh-light-mode-only` al final de la URL de una imagen en lenguaje de marcado.
+Puedes especificar el tema para el cual se muestra una imagen en el lenguaje de marcado si utilizas el elemento HTML `<picture>` combinado con la característica de medios `prefers-color-scheme`. Distinguimos entre modos de color oscuro y claro, así que existen dos opciones disponibles. Puedes utilizar estas opciones para mostrar imágenes optimizadas para los fondos claros u oscuros. Esto es especialmente útil para las imágenes PNG transparentes.
 
-Distinguimos entre modos de color oscuro y claro, así que existen dos opciones disponibles. Puedes utilizar estas opciones para mostrar imágenes optimizadas para los fondos claros u oscuros. Esto es especialmente útil para las imágenes PNG transparentes.
+Por ejemplo, el siguiente código muestra una imagen de un sol para los temas claros y una luna para los oscuros:
 
-| Contexto    | URL                                                                          |
-| ----------- | ---------------------------------------------------------------------------- |
-| Tema oscuro | `![GitHub Brillante](https://github.com/github-light.png#gh-dark-mode-only)` |
-| Tema claro  | `![GitHub Oscuro](https://github.com/github-dark.png#gh-light-mode-only)`    |
+```HTML
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://user-images.githubusercontent.com/25423296/163456776-7f95b81a-f1ed-45f7-b7ab-8fa810d529fa.png">
+  <source media="(prefers-color-scheme: light)" srcset="https://user-images.githubusercontent.com/25423296/163456779-a8556205-d0a5-45e2-ac17-42d089e3c3f8.png">
+  <img alt="Shows an illustrated sun in light color mode and a moon with stars in dark color mode." src="https://user-images.githubusercontent.com/25423296/163456779-a8556205-d0a5-45e2-ac17-42d089e3c3f8.png">
+</picture>
+```
+
+El método antiguo para especificar las imágenes con base en el tema, que es utilizando un fragmento anexo a la URL (`#gh-dark-mode-only` o `#gh-light-mode-only`), será obsoleto y se eliminará para favorecer al método nuevo que se menciona anteriormente.
 {% endif %}
 
 ## Listas
 
-Puedes realizar una lista desordenada al anteceder una o más líneas de texto con <kbd>-</kbd> o <kbd>*</kbd>.
+Puedes crear una lista con viñetas si precedes una o más líneas de texto con <kbd>-</kbd> o <kbd>*</kbd>.
 
 ```markdown
 - George Washington
@@ -192,7 +227,7 @@ Para crear una lista anidada mediante el editor web en {% data variables.product
 
 {% tip %}
 
-**Note**: In the web-based editor, you can indent or dedent one or more lines of text by first highlighting the desired lines and then using <kbd>Tab</kbd> or <kbd>Shift</kbd>+<kbd>Tab</kbd> respectively.
+**Nota**: En el editor basado en web, puedes poner o quitar la sangría de una o más líneas de texto si primero las resaltas y luego presionas <kbd>Tab</kbd> o <kbd>Shift</kbd>+<kbd>Tab</kbd> según corresponda.
 
 {% endtip %}
 
@@ -227,7 +262,7 @@ Para conocer más ejemplos, consulta las [Especificaciones de formato Markdown d
 
 {% data reusables.repositories.task-list-markdown %}
 
-If a task list item description begins with a parenthesis, you'll need to escape it with <kbd>\\</kbd>:
+Si una descripción de elementos de lista comienza con un paréntesis, necesitarás escaparla con <kbd>\\</kbd>:
 
 `- [ ] \(Optional) Abre una propuesta de seguimiento`
 
@@ -235,7 +270,13 @@ Para obtener más información, consulta "[Acerca de las listas de tareas](/arti
 
 ## Mencionar personas y equipos
 
-Puedes mencionar a una persona o [equipo](/articles/setting-up-teams/) en {% data variables.product.product_name %} al escribir <kbd>@</kbd> más el nombre de usuario o el nombre del equipo. Esto activará una notificación y llamará su atención hacia la conversación. Las personas también recibirán una notificación si editas un comentario para mencionar su nombre de usuario o el nombre del equipo. Para obtener más información acerca de las notificaciones, consulta la sección {% ifversion fpt or ghes or ghae or ghec %}"[Acerca de las notificaciones](/github/managing-subscriptions-and-notifications-on-github/about-notifications){% else %}"[Acerca de las notificaciones](/github/receiving-notifications-about-activity-on-github/about-notifications){% endif %}".
+Puedes mencionar a una persona o [equipo](/articles/setting-up-teams/) en {% data variables.product.product_name %} al escribir <kbd>@</kbd> más el nombre de usuario o el nombre del equipo. Esto activará una notificación y llamará su atención hacia la conversación. Las personas también recibirán una notificación si editas un comentario para mencionar su nombre de usuario o el nombre del equipo. Para obtener más información sobre las notificaciones, consulta la sección "[Acerca de las notificaciones](/github/managing-subscriptions-and-notifications-on-github/about-notifications)".
+
+{% note %}
+
+**Nota:** Solo se le puede notificar a una persona sobre una mención si esta tiene acceso de lectura en el repositorio y si dicho repositorio le pertenece a una organización de la cuál esta persona sea miembro.
+
+{% endnote %}
 
 `@github/support ¿Qué piensas sobre estas actualizaciones?`
 
@@ -249,7 +290,7 @@ Los resultados autocompletados se restringen a los colaboradores del repositorio
 
 ## Hacer referencia a propuestas y solicitudes de extracción
 
-Puedes mencionar una lista de las propuestas y las solicitudes de extracción sugeridas dentro del repositorio al escribir <kbd>#</kbd>. Escribe el número o el título de la propuesta o la solicitud de extracción para filtrar la lista, y luego presiona cada pestaña o ingresa para completar el resultado resaltado.
+Puedes mencionar una lista de las propuestas y las solicitudes de cambios sugeridas dentro del repositorio al escribir <kbd>#</kbd>. Escribe el número o el título de la propuesta o la solicitud de extracción para filtrar la lista, y luego presiona cada pestaña o ingresa para completar el resultado resaltado.
 
 Para obtener más información, consulta "[Referencias y direcciones URL autovinculadas](/articles/autolinked-references-and-urls)".
 
@@ -290,7 +331,7 @@ Para encontrar una lista completa de emojis y códigos disponibles, consulta el 
 
 Puedes crear un nuevo párrafo al dejar una línea en blanco entre las líneas de texto.
 
-{% ifversion fpt or ghae-issue-5180 or ghes > 3.2 or ghec %}
+{% ifversion fpt or ghae or ghes > 3.2 or ghec %}
 ## Notas al pie
 
 Puedes agregar notas al pie para tu contenido si utilizas esta sintaxis de corchetes:
@@ -318,7 +359,7 @@ La nota al pie se verá así:
 
 **Notae**: La posición de una nota al pie en tu archivo con lenguaje de marcado no influencia la nota al pie que se interpretará. Puedes escribir una nota al pie después de referenciarla y esta aún se interpretará en la parte inferior del archivo con lenguaje de marcado.
 
-Footnotes are not supported in wikis.
+No hay compatibilidad con notas al pie en los wikis.
 
 {% endtip %}
 {% endif %}
@@ -333,7 +374,7 @@ Puedes decirle a {% data variables.product.product_name %} que oculte el conteni
 
 ## Importar formato de Markdown
 
-You can tell {% data variables.product.product_name %} to ignore (or escape) Markdown formatting by using <kbd>\\</kbd> before the Markdown character.
+Puedes pedirle a {% data variables.product.product_name %} que ignore (o escape) el formato de lenguaje de marcado si utilizas <kbd>\\</kbd> antes del carácter de lenguaje de marcado.
 
 `Cambiemos el nombre de \*our-new-project\* a \*our-old-project\*.`
 

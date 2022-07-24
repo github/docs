@@ -75,7 +75,7 @@ Antes de começar, você criará um repositório em {% ifversion ghae %}{% data 
     outputs:
       random-number:
         description: "Random number"
-        value: ${{ steps.random-number-generator.outputs.random-id }}
+        value: ${{ steps.random-number-generator.outputs.random-number }}
     runs:
       using: "composite"
       steps:

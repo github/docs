@@ -44,13 +44,13 @@ O tempo do failover dependerá do tempo necessário para promover manualmente a 
       $ ghe-repl-status -vv
       ```
 
-4. No dispositivo da réplica, para parar a replicação e promover o dispositivo da réplica ao estado primário, use o comando `ghe-repl-promote`. A ação também colocará automaticamente o nó primário no nó de manutenção, se ele for acessível.
+4. No dispositivo da réplica, para parar a replicação e promover o dispositivo da réplica ao estado primário, use o comando `ghe-repl-promote`. Isto também colocará automaticamente o nó primário no modo de manutenção se ele for acessível.
   ```shell
   $ ghe-repl-promote
   ```
 5. Atualize o registro DNS para apontar para o endereço IP do appliance réplica. O tráfego é direcionado para o réplica após o término do período TTL. Se você estiver usando um balanceador de carga, verifique se ele está configurado para enviar tráfego para o réplica.
 6. Avise aos usuários que eles podem voltar a trabalhar normalmente.
-7. Se desejar, configure a replicação do novo primário para os appliances existentes e o primário anterior. Para obter mais informações, consulte "[Sobre a configuração de alta disponibilidade](/enterprise/{{ currentVersion }}/admin/guides/installation/about-high-availability-configuration/#utilities-for-replication-management)".
+7. Se desejar, configure a replicação do novo primário para os appliances existentes e o primário anterior. Para obter mais informações, consulte "[Sobre a configuração de alta disponibilidade](/enterprise/admin/guides/installation/about-high-availability-configuration/#utilities-for-replication-management)".
 8. Appliances para os quais você não pretende configurar replicação faziam parte da configuração de alta disponibilidade antes da falha precisam ser removidos da configuração de alta disponibilidade por UUID.
     - Nos appliances anteriores, obtenha seu UUID via `cat /data/user/common/uid`.
       ```shell
@@ -63,4 +63,4 @@ O tempo do failover dependerá do tempo necessário para promover manualmente a 
 
 ## Leia mais
 
-- [Utilitários para gerenciamento de replicações](/enterprise/{{ currentVersion }}/admin/guides/installation/about-high-availability-configuration/#utilities-for-replication-management)
+- [Utilitários para gerenciamento de replicações](/enterprise/admin/guides/installation/about-high-availability-configuration/#utilities-for-replication-management)

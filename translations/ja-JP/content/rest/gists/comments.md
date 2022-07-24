@@ -1,8 +1,8 @@
 ---
-title: Gist comments
+title: Gistコメント
 allowTitleToDifferFromFilename: true
 shortTitle: コメント
-intro: The Gist comments API lets you view and modify comments on a gist.
+intro: Gist comments APIを使うと、Gist上のコメントの表示と修正が行えます。
 versions:
   fpt: '*'
   ghes: '*'
@@ -13,9 +13,9 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-## About the Gist comments API
+## Gist comments APIについて
 
-The Gist comments API lets you view and modify comments on a gist. For more information about gists, see "[Editing and sharing content with gists](/get-started/writing-on-github/editing-and-sharing-content-with-gists)."
+Gist comments APIを使うと、Gist上のコメントの表示と修正が行えます。 Gistに関する詳しい情報については「[Gistとのコンテンツの編集と共有](/get-started/writing-on-github/editing-and-sharing-content-with-gists)」を参照してください。
 
 ### Gist コメントのカスタムメディアタイプ
 

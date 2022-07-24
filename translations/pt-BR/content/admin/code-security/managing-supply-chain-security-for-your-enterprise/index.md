@@ -4,7 +4,7 @@ shortTitle: Segurança da cadeia de suprimento
 intro: 'Você pode visualizar, manter e proteger as dependências na cadeia de suprimento de software de seus desenvolvedores.'
 versions:
   ghes: '*'
-  ghae: issue-4864
+  ghae: '*'
 topics:
   - Enterprise
 children:

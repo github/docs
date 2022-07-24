@@ -24,12 +24,6 @@ topics:
   </div>
 </div>
 
-{% warning %}
-
-Warning: As of late October 2021, the offical Octokit libraries are not currently maintained. For more information, see [this discussion in the octokit.js repository](https://github.com/octokit/octokit.js/discussions/620).
-
-{% endwarning %}
-
 # Bibliotecas de terceiros
 
 ### Clojure
@@ -42,7 +36,7 @@ Warning: As of late October 2021, the offical Octokit libraries are not currentl
 
 | Nome da Biblioteca | Repositório                                                             |
 | ------------------ | ----------------------------------------------------------------------- |
-| **github.dart**    | [DirectMyFile/github.dart](https://github.com/DirectMyFile/github.dart) |
+| **github.dart**    | [SpinlockLabs/github.dart](https://github.com/SpinlockLabs/github.dart) |
 
 ### Emacs Lisp
 
@@ -80,7 +74,7 @@ Warning: As of late October 2021, the offical Octokit libraries are not currentl
 | Nome da Biblioteca                                                        | Repositório                                                             |
 | ------------------------------------------------------------------------- | ----------------------------------------------------------------------- |
 | **NodeJS GitHub library**                                                 | [pksunkara/octonode](https://github.com/pksunkara/octonode)             |
-| **gh3 client-side API v3 wrapper**                                        | [k33g/gh3](https://github.com/k33g/gh3)                                 |
+| **gh3 client-side API wrapper**                                           | [k33g/gh3](https://github.com/k33g/gh3)                                 |
 | **O wrapper do Github.js sobre a API do GitHub**                          | [michael/github](https://github.com/michael/github)                     |
 | **Biblioteca CoffeeScript baseada no Promise para o navegador ou NodeJS** | [philschatz/github-client](https://github.com/philschatz/github-client) |
 
@@ -141,9 +135,10 @@ Warning: As of late October 2021, the offical Octokit libraries are not currentl
 
 ### Rust
 
-| Nome da Biblioteca | Repositório                                                   |
-| ------------------ | ------------------------------------------------------------- |
-| **Octocrab**       | [XAMPPRocky/octocrab](https://github.com/XAMPPRocky/octocrab) |
+| Nome da Biblioteca | Repositório                                                       |
+| ------------------ | ----------------------------------------------------------------- |
+| **Octocrab**       | [XAMPPRocky/octocrab](https://github.com/XAMPPRocky/octocrab)     |
+| **Octocat**        | [octocat-rs/octocat-rs](https://github.com/octocat-rs/octocat-rs) |
 
 ### Scala
 

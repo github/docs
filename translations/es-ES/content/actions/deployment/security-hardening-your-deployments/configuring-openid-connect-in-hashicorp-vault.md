@@ -7,6 +7,7 @@ versions:
   fpt: '*'
   ghae: issue-4856
   ghec: '*'
+  ghes: '>=3.5'
 type: tutorial
 topics:
   - Security
@@ -32,8 +33,8 @@ Esta guía te proporciona un resumen de cómo configurar HashiCorp Vault para qu
 Para utilizar OIDC con HashiCorp Vault, necesitarás agregar una configuración de confianza para el proveedor de OIDC de {% data variables.product.prodname_dotcom %}. Para obtener más información, consulta la [documentación](https://www.vaultproject.io/docs/auth/jwt) de HashiCorp Vault.
 
 Configura la bóveda para que acepte Tokens Web JSON (JWT) para la autenticación:
-- Para la `oidc_discovery_url`, utiliza `https://token.actions.githubusercontent.com`
-- Para el `bound_issuer`, utiliza `https://token.actions.githubusercontent.com`
+- Para el `oidc_discovery_url`, utiliza {% ifversion ghes %}`https://HOSTNAME/_services/token`{% else %}`https://token.actions.githubusercontent.com`{% endif %}
+- Para `bound_issuer`, utiliza {% ifversion ghes %}`https://HOSTNAME/_services/token`{% else %}`https://token.actions.githubusercontent.com`{% endif %}
 - Asegúrate de que `bound_subject` se defina correctamente para tus requisitos de seguridad. Para obtener más información, consulta la sección ["Configurar la confianza de OIDC con la nube"](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#configuring-the-oidc-trust-with-the-cloud) y [`hashicorp/vault-action`](https://github.com/hashicorp/vault-action).
 
 ## Actualizar tu flujo de trabajo de {% data variables.product.prodname_actions %}

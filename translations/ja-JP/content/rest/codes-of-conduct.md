@@ -1,6 +1,6 @@
 ---
 title: 行動規範
-intro: The Codes of conduct API lets you retrieve information about a repository's code of conduct.
+intro: Codes of Conduct APIを使うと、リポジトリの行動規範に関する情報を取得できます。
 versions:
   fpt: '*'
   ghes: '*'
@@ -13,6 +13,6 @@ redirect_from:
   - /rest/reference/codes-of-conduct
 ---
 
-## About the Codes of conduct API
+## Codes of conduct APIについて
 
-Codes of Conduct API を使用して、リポジトリの行動規範に関する情報を取得できます。 To get a code of conduct for a repository, use the "[Get a repository](/rest/reference/repos#get-a-repository)" endpoint.
+Codes of Conduct API を使用して、リポジトリの行動規範に関する情報を取得できます。 リポジトリの行動規範を取得するには「[Get a repository](/rest/reference/repos#get-a-repository)」エンドポイントを使用してください。

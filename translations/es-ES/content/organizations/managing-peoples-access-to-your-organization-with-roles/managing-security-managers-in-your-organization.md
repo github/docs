@@ -2,8 +2,6 @@
 title: Gestionar a los administradores de seguridad en tu organización
 intro: Puedes otorgar a tu equipo de seguridad el menor tipo de acceso que necesiten en tu organización si asignas un equipo al rol de administrador de seguridad.
 versions:
-  fpt: '*'
-  ghes: '>=3.3'
   feature: security-managers
 topics:
   - Organizations
@@ -30,7 +28,7 @@ Los miembros de un equipo que tengan el rol de administrador de seguridad solo t
 Puedes encontrar funcionalidades adicionales disponibles, incluyendo un resumen de seguridad de la organización, en las organizaciones que utilizan {% data variables.product.prodname_ghe_cloud %} con la {% data variables.product.prodname_advanced_security %}. Para obtener más información, consulta la [documentación de {% data variables.product.prodname_ghe_cloud %}](/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-security-managers-in-your-organization).
 {% endif %}
 
-Si un equipo tiene el rol de administrador de seguridad, las personas con acceso administrativo al equipo y a un repositorio específico pueden cambiar el nivel de acceso de dicho equipo al repositorio pero no pueden eliminar el acceso. Para obtener más información, consulta las secciones "[Administrar el acceso de los equipos aun repositorio organizacional](/organizations/managing-access-to-your-organizations-repositories/managing-team-access-to-an-organization-repository){% ifversion ghes %}".{% else %} y "[Administrar a los equipos y personas con acceso a tu repositorio](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-teams-and-people-with-access-to-your-repository)".{% endif %}
+Si un equipo tiene el rol de administrador de seguridad, las personas con acceso administrativo al equipo y a un repositorio específico pueden cambiar el nivel de acceso de dicho equipo al repositorio pero no pueden eliminar el acceso. Para obtener más información, consulta las secciones "[Administrar el acceso del equipo al repositorio de una organización](/organizations/managing-access-to-your-organizations-repositories/managing-team-access-to-an-organization-repository){% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5974 %}" y "[Administrar a los equipos y las personas con acceso a tu repositorio](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-teams-and-people-with-access-to-your-repository){% else %}".{% endif %}".
 
   ![Administrar la IU de acceso al repositorio con administradores de seguridad](/assets/images/help/organizations/repo-access-security-managers.png)
 

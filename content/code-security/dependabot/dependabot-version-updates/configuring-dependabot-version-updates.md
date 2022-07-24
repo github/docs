@@ -34,7 +34,16 @@ You enable {% data variables.product.prodname_dependabot_version_updates %} by c
 
 ## Enabling {% data variables.product.prodname_dependabot_version_updates %}
 
-{% data reusables.dependabot.create-dependabot-yml %} For information, see "[Configuration options for the dependabot.yml file](/github/administering-a-repository/configuration-options-for-dependency-updates)."
+You enable {% data variables.product.prodname_dependabot_version_updates %} by commiting a *dependabot.yml* configuration file to your repository. 
+{% ifversion dependabot-settings-update-37 %}If you enable the feature in your settings page, GitHub creates a basic file which you can edit, otherwise you can create the file using any file editor.
+
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
+{% data reusables.repositories.navigate-to-code-security-and-analysis %}
+1. Under "Code security and analysis", to the right of "{% data variables.product.prodname_dependabot_version_updates %}", click **Enable** to open a basic *dependabot.yml* configuration file in the `.github` directory of your repository.
+{% else %}
+1. Create a *dependabot.yml* configuration file in the `.github` directory of your repository. 
+{% endif %}
 1. Add a `version`. 
 1. Optionally, if you have dependencies in a private registry, add a `registries` section containing authentication details. 
 1. Add an `updates` section, with an entry for each package manager you want {% data variables.product.prodname_dependabot %} to monitor.
@@ -43,6 +52,8 @@ You enable {% data variables.product.prodname_dependabot_version_updates %} by c
     - `directory` to specify the location of the manifest or other definition files.
     - `schedule.interval` to specify how often to check for new versions.
 {% data reusables.dependabot.check-in-dependabot-yml %}
+
+For information about all the configuration options, see "[Configuration options for the dependabot.yml file](/github/administering-a-repository/configuration-options-for-dependency-updates)."
 
 ### Example *dependabot.yml* file
 

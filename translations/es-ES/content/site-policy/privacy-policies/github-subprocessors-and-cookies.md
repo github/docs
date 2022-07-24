@@ -20,7 +20,7 @@ GitHub ofrece una gran cantidad de transparencia en cuanto a cómo usamos tus da
 
 ## Subprocesadores de GitHub
 
-Cuando compartimos tu información con subprocesadores de terceros, como nuestros vendedores y proveedores de servicios, seguimos siendo responsables de ella. Trabajamos arduamente para mantener tu confianza cuando traemos nuevos proveedores y exigimos que todos los proveedores celebren acuerdos de protección de datos con nosotros que restrinjan su procesamiento de la información personal de los usuarios (tal como se define en la [Declaración de Privacidad](/articles/github-privacy-statement/)).
+Cuando compartimos tu información con subprocesadores de terceros, como nuestros vendedores y proveedores de servicios, seguimos siendo responsables de ella. Trabajamos arduamente para mantener tu confianza cuando traemos nuevos proveedores y exigimos que todos los proveedores celebren acuerdos de protección de datos con nosotros que restrinjan su procesamiento de la información personal de los usuarios (tal como se define en la [Declaración de Privacidad](/articles/github-privacy-statement/)). Puedes iniciar sesión para recibir actualizaciones de la lista de subprocesadores [aquí](https://www.github.com/privacy/subprocessors).
 
 | Nombre del subprocesador | Descripción del procesamiento                                                                   | Ubicación del procesamiento | Ubicación Corporativa |
 |:------------------------ |:----------------------------------------------------------------------------------------------- |:--------------------------- |:--------------------- |

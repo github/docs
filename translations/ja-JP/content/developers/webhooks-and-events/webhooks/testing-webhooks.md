@@ -4,6 +4,7 @@ intro: '{% data variables.product.prodname_dotcom %} で webhook のデリバリ
 redirect_from:
   - /webhooks/testing
   - /developers/webhooks-and-events/testing-webhooks
+  - /articles/testing-webhooks
 versions:
   fpt: '*'
   ghes: '*'

@@ -1,6 +1,6 @@
 ---
-title: Removing a collaborator from a repository security advisory
-intro: 'When you remove a collaborator from a repository security advisory, they lose read and write access to the security advisory''s discussion and metadata.'
+title: リポジトリセキュリティアドバイザリからのコラボレータの削除
+intro: リポジトリのセキュリティアドバイザリからコラボレータを削除すると、そのコラボレータはセキュリティアドバイザリのディスカッションとメタデータへの読み取りおよび書き込みアクセス権を失います。
 redirect_from:
   - /github/managing-security-vulnerabilities/removing-a-collaborator-from-a-security-advisory
   - /code-security/security-advisories/removing-a-collaborator-from-a-security-advisory
@@ -32,5 +32,5 @@ shortTitle: コラボレータの削除
 
 ## 参考リンク
 
-- "[Permission levels for repository security advisories](/code-security/repository-security-advisories/permission-levels-for-repository-security-advisories)"
-- "[Adding a collaborator to a repository security advisory](/code-security/repository-security-advisories/adding-a-collaborator-to-a-repository-security-advisory)"
+- 「[リポジトリセキュリティアドバイザリの権限レベル](/code-security/repository-security-advisories/permission-levels-for-repository-security-advisories)」
+- 「[リポジトリセキュリティアドバイザリにコラボレータを追加する](/code-security/repository-security-advisories/adding-a-collaborator-to-a-repository-security-advisory)」

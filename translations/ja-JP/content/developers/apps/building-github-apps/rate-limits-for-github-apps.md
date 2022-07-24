@@ -82,4 +82,4 @@ The rate limits for user-to-server requests made by {% data variables.product.pr
 ## 参考リンク
 
 - "[Rate limiting](/rest/overview/resources-in-the-rest-api#rate-limiting)" in the REST API documentation
-- "[Resource limitations]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql/overview/resource-limitations)" in the GraphQL API documentation
+- "[Resource limitations](/graphql/overview/resource-limitations)" in the GraphQL API documentation

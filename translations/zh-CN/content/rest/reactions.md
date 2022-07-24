@@ -13,8 +13,8 @@ redirect_from:
   - /rest/reference/reactions
 ---
 
-## About the Reactions API
+## 关于反应 API
 
-You can create and manage reactions on comments using the Reactions API. 创建反应时，`content` 参数的允许值如下（带有相应的表情符号供参考）：
+您可以使用反应 API 创建和管理对评论的反应。 创建反应时，`content` 参数的允许值如下（带有相应的表情符号供参考）：
 
 {% data reusables.repositories.reaction_list %}

@@ -27,11 +27,11 @@ children:
   - /workflow-syntax-for-github-actions
   - /workflow-commands-for-github-actions
   - /reusing-workflows
+  - /caching-dependencies-to-speed-up-workflows
+  - /storing-workflow-data-as-artifacts
   - /creating-starter-workflows-for-your-organization
   - /using-starter-workflows
   - /sharing-workflows-secrets-and-runners-with-your-organization
-  - /caching-dependencies-to-speed-up-workflows
-  - /storing-workflow-data-as-artifacts
   - /using-github-cli-in-workflows
 ---
 

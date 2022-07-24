@@ -6,6 +6,6 @@
 1. Clique em **Novo grupo de executores**.
 {%- elsif ghes < 3.4 or ghae %}
 {% data reusables.enterprise-accounts.actions-runners-tab %}
-1. Use the **Add new** drop-down, and select **New group**.
+1. Use o menu suspenso **Adicionar novo** e selecione **Novo grupo**.
 {%- endif %}
-1. Under "Group name", type a name for your runner group.
+1. Em "Nome do Grupo, digite um nome para o grupo do seu executor.

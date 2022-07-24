@@ -1,6 +1,6 @@
 ---
-title: Withdrawing a repository security advisory
-intro: You can withdraw a repository security advisory that you've published.
+title: リポジトリセキュリティアドバイザリの撤回
+intro: 公開したリポジトリのセキュリティアドバイザリを撤回できます。
 redirect_from:
   - /github/managing-security-vulnerabilities/withdrawing-a-security-advisory
   - /code-security/security-advisories/withdrawing-a-security-advisory
@@ -11,7 +11,7 @@ type: how_to
 topics:
   - Security advisories
   - Vulnerabilities
-shortTitle: Withdraw repository advisories
+shortTitle: リポジトリアドバイザリの撤回
 ---
 
 {% data reusables.security-advisory.repository-level-advisory-note %}
@@ -20,4 +20,4 @@ shortTitle: Withdraw repository advisories
 
 ## 参考リンク
 
-- "[Editing a repository security advisory](/code-security/repository-security-advisories/editing-a-repository-security-advisory)"
+- 「[リポジトリセキュリティアドバイザリの編集](/code-security/repository-security-advisories/editing-a-repository-security-advisory)」

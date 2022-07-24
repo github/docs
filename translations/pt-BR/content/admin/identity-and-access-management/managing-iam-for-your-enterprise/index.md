@@ -30,6 +30,7 @@ children:
   - /username-considerations-for-external-authentication
   - /changing-authentication-methods
   - /allowing-built-in-authentication-for-users-outside-your-provider
+  - /troubleshooting-identity-and-access-management-for-your-enterprise
 shortTitle: Gerenciando IAM para a sua empresa
 ---
 

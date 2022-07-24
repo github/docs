@@ -47,13 +47,13 @@ Estos lineamientos asumen que has registrado una App de OAuth{% ifversion fpt or
 
 ### Revisar las terminales de la API disponibles para las Github Apps
 
-Mientras que la mayoría de las terminales de la [API de REST](/rest) y de las consultas de [GraphQL]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql) están disponibles hoy en día para las GitHub Apps, aún estamos en el proceso de habilitar algunas de ellas. Revisa las [terminales disponibles de REST](/rest/overview/endpoints-available-for-github-apps) para garantizar que las terminales que necesitas sean compatibles con las GitHub Apps. Nota que algunas de las terminales de la API que están habilitadas para las GtiHub Apps permiten que éstas interactúen en nombre del usuario. Consulta la sección "[Solicitudes de usuario a servidor](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/#user-to-server-requests)" para encontrar una lista de terminales disponibles para que una GitHub App se autentique como un usuario.
+Mientras que la mayoría de las terminales de la [API de REST](/rest) y de las consultas de [GraphQL](/graphql) están disponibles hoy en día para las GitHub Apps, aún estamos en el proceso de habilitar algunas de ellas. Revisa las [terminales disponibles de REST](/rest/overview/endpoints-available-for-github-apps) para garantizar que las terminales que necesitas sean compatibles con las GitHub Apps. Nota que algunas de las terminales de la API que están habilitadas para las GtiHub Apps permiten que éstas interactúen en nombre del usuario. Consulta la sección "[Solicitudes de usuario a servidor](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/#user-to-server-requests)" para encontrar una lista de terminales disponibles para que una GitHub App se autentique como un usuario.
 
 Te recomendamos revisar la lista de terminales de la API que necesitas tan pronto como te sea posible. Por favor, comunícale a soporte si hay alguna terminal que requieras y que no esté habilitada aún para las {% data variables.product.prodname_github_apps %}.
 
 ### Diseñar con apego a los límites de tasa de la API
 
-Las GitHub Apps utilizan [reglas móviles para los límites de tasa](/apps/building-github-apps/understanding-rate-limits-for-github-apps/), las cuales pueden incrementar con base en la cantidad de repositorios y usuarios de la organización. Una GitHub App también puede hacer uso de [solicitudes condicionales](/rest/overview/resources-in-the-rest-api#conditional-requests) o de solicitudes consolidadas si utiliza la [API de GraphQL V4]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql).
+Las GitHub Apps utilizan [reglas móviles para los límites de tasa](/apps/building-github-apps/understanding-rate-limits-for-github-apps/), las cuales pueden incrementar con base en la cantidad de repositorios y usuarios de la organización. Una GitHub App también puede utilizar [solicitudes condicionales](/rest/overview/resources-in-the-rest-api#conditional-requests) o consolidar solicitudes utilizando la [API de GraphQL](/graphql).
 
 ### Registrar una GitHub App nueva
 

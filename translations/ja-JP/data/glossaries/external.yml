@@ -202,6 +202,10 @@
   description: >-
     diff とは、2 つのコミット（保存された変更）間での変更の差異です。diff では、最後のコミットから後にファイルで追加または削除されたものが視覚的に描写されます。
 - 
+  term: directory
+  description: >-
+    1つ以上のファイルもしくはフォルダを含むフォルダ。リポジトリの内容を整理するためにディレクトリを作成できます。
+- 
   term: ダーティ
   description: >-
     ワーキングツリーは、現在のブランチに対してコミットされていない修正が含まれている場合、「ダーティ」と見なされます。
@@ -210,7 +214,7 @@
   description: ユーザのメールアドレスに送信される通知。
 - 
   term: Enterpriseアカウント
-  description: Enterprise accounts allow you to centrally manage policy and billing for multiple organizations. {% data reusables.gated-features.enterprise-accounts %}
+  description: Enterpriseアカウントを利用すると、複数のOrganizationのポリシーと支払いを集中管理できます。{% data reusables.gated-features.enterprise-accounts %}
 - 
   term: Explorer
   description: >-
@@ -259,7 +263,7 @@
     GitHub App は、Organization 全体に対してサービスを提供し、その機能を実行する際は独自の ID を使用します。Organization や ユーザアカウントに直接インストールでき、特定のリポジトリへのアクセス権を付与できます。精細なアクセス権限が付いており、webhook が組み込まれています。
 - 
   term: GitHub Flavored Markdown
-  description: GitHub 特有の Markdown であり、GitHub 全体で文章やコードをフォーマットするのに使用されます。[GitHub Flavored Markdown の仕様]（https://github.github.com/gfm/）または [GitHub で書き、フォーマットしてみる]（/articles/getting-started-with-writing-and-formatting-on-github）を参照。
+  description: GitHub 特有の Markdown であり、GitHub 全体で文章やコードをフォーマットするのに使用されます。[GitHub Flavored Markdown の仕様](https://github.github.com/gfm/)または [GitHub で書き、フォーマットしてみる](/articles/getting-started-with-writing-and-formatting-on-github)を参照。
 - 
   term: GitHub Importer
   description: >-
@@ -594,9 +598,9 @@
   description: >-
     リポジトリは GitHub の最も基本的な要素です。プロジェクトのフォルダとして最も想像しやすいものです。リポジトリ 1 つに（ドキュメントを含む）すべてのプロジェクトファイルが含まれ、各ファイルのリビジョン履歴が格納されます。リポジトリはコラボレータを複数持つことができ、またパブリックとプライベートのいずれの場合もあります。
 - 
-  term: repository cache
+  term: リポジトリキャッシュ
   description: >-
-    A read-only mirror of repositories for your GitHub Enterprise server instance, located near distributed teams and CI clients.
+    GitHub Enterprise Serverインスタンスのリポジトリの読み取り専用ミラーで、分散しているチームやCIクライアントの近くにあります。
 - 
   term: リポジトリグラフ
   description: リポジトリのデータの視覚的表現。

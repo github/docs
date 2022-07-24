@@ -29,18 +29,19 @@ shortTitle: 基本格式语法
 
 ![突出显示目录图标的屏幕截图](/assets/images/help/repository/headings_toc.png)
 
-
 ## 样式文本
 
-您可以在评论字段和 `.md` 文件中以粗体、斜体或删除线的文字表示强调。
+您可以在评论字段和 `.md` 文件中以粗体、斜体、删除线、下标或上标的文字表示强调。
 
-| 样式       | 语法                 | 键盘快捷键                                                                                | 示例                 | 输出               |
-| -------- | ------------------ | ------------------------------------------------------------------------------------ | ------------------ | ---------------- |
-| 粗体       | `** **` 或 `__ __`  | <kbd>Command</kbd>+<kbd>B</kbd> (Mac) 或 <kbd>Ctrl</kbd>+<kbd>B</kbd> (Windows/Linux) | `**这是粗体文本**`       | **这是粗体文本**       |
-| 斜体       | `* *` 或 `_ _`      | <kbd>Command</kbd>+<kbd>I</kbd> (Mac) 或 <kbd>Ctrl</kbd>+<kbd>I</kbd> (Windows/Linux) | `*这是斜体文本*`         | *这是斜体文本*         |
-| 删除线      | `~~ ~~`            |                                                                                      | `~~这是错误文本~~`       | ~~这是错误文本~~       |
-| 粗体和嵌入的斜体 | `** **` 和 `_ _`    |                                                                                      | `**此文本 _非常_ 重要**`  | **此文本_非常_重要**    |
-| 全部粗体和斜体  | `*** ***`          |                                                                                      | `***所有这些文本都很重要***` | ***所有这些文本都是斜体*** |
+| 样式       | 语法                         | 键盘快捷键                                                                                | 示例                              | 输出                |
+| -------- | -------------------------- | ------------------------------------------------------------------------------------ | ------------------------------- | ----------------- |
+| 粗体       | `** **` 或 `__ __`          | <kbd>Command</kbd>+<kbd>B</kbd> (Mac) 或 <kbd>Ctrl</kbd>+<kbd>B</kbd> (Windows/Linux) | `**这是粗体文本**`                    | **这是粗体文本**        |
+| 斜体       | `* *` 或 `_ _`              | <kbd>Command</kbd>+<kbd>I</kbd> (Mac) 或 <kbd>Ctrl</kbd>+<kbd>I</kbd> (Windows/Linux) | `*这是斜体文本*`                      | *这是斜体文本*          |
+| 删除线      | `~~ ~~`                    |                                                                                      | `~~这是错误文本~~`                    | ~~这是错误文本~~        |
+| 粗体和嵌入的斜体 | `** **` 和 `_ _`            |                                                                                      | `**此文本 _非常_ 重要**`               | **此文本_非常_重要**     |
+| 全部粗体和斜体  | `*** ***`                  |                                                                                      | `***所有这些文本都很重要***`              | ***所有这些文本都是斜体***  |
+| 下标       | `<sub> </sub>` |                                                                                      | `<sub>这是下标文本</sub>` | <sub>这是下标文本</sub> |
+| 上标       | `<sup> </sup>` |                                                                                      | `<sup>这是上标文本</sup>` | <sup>这是上标文本</sup> |
 
 ## 引用文本
 
@@ -62,7 +63,7 @@ Text that is not a quote
 
 ## 引用代码
 
-使用单反引号可标注句子中的代码或命令。 反引号中的文本不会设置格式。{% ifversion fpt or ghae or ghes > 3.1 or ghec %} 您还可以按 <kbd>Command</kbd>+<kbd>E</kbd> (Mac) 或 <kbd>Ctrl</kbd>+<kbd>E</kbd> (Windows/Linux) 键盘快捷键，在 Markdown 的行内插入代码块的反引号。{% endif %}
+使用单反引号可标注句子中的代码或命令。 反引号中的文本不会被格式化。 还可以按 <kbd>Command</kbd>+<kbd>E</kbd> (Mac) 或 <kbd>Ctrl</kbd>+<kbd>E</kbd> (Windows/Linux) 键盘快捷键，在 Markdown 的一行内为代码块插入反引号。
 
 ```markdown
 使用 `git status` 列出尚未提交的所有新文件或已修改文件。
@@ -87,9 +88,38 @@ git commit
 
 {% data reusables.user-settings.enabling-fixed-width-fonts %}
 
+## 支持的颜色模型
+
+在议题、拉取请求和讨论中，可以使用反引号在句子中调出颜色。 反引号中支持的颜色模型将显示颜色的可视化效果。
+
+```markdown
+浅色模式的背景颜色应为“#ffffff”，深色模式的背景颜色应为“#0d1117”。
+```
+
+![渲染支持的颜色模型。](/assets/images/help/writing/supported-color-models-rendered.png)
+
+以下是当前支持的颜色模型。
+
+| 颜色   | 语法                        | 示例                        | 输出                                                                                         |
+| ---- | ------------------------- | ------------------------- | ------------------------------------------------------------------------------------------ |
+| 十六进制 | <code>\`#RRGGBB\`</code> | <code>\`#0969DA\`</code> | ![以 HEX 格式渲染支持的颜色模型。](/assets/images/help/writing/supported-color-models-hex-rendered.png) |
+| RGB  | <code>\`rgb(R,G,B)\`</code> | <code>\`rgb(9, 105, 218)\`</code> | ![以 RGB 格式渲染支持的颜色模型。](/assets/images/help/writing/supported-color-models-rgb-rendered.png) |
+| HSL  | <code>\`hsl(H,S,L)\`</code> | <code>\`hsl(212, 92%, 45%)\`</code> | ![以 HSL 格式渲染支持的颜色模型。](/assets/images/help/writing/supported-color-models-hsl-rendered.png) |
+
+{% note %}
+
+**注意：**
+
+- 支持的颜色模型在反引号内不能有任何前导空格或尾随空格。
+- 仅在议题、拉取请求和讨论中支持颜色的可视化。
+
+{% endnote %}
+
 ## 链接
 
-通过将链接文本包含在方括号 `[ ]` 内，然后将 URL 包含在括号 `( )` 内，可创建内联链接。 {% ifversion fpt or ghae or ghes > 3.1 or ghec %}您还可以使用键盘快捷键 <kbd>Command</kbd>+<kbd>K</kbd> 创建链接。{% endif %}{% ifversion fpt or ghae-issue-5434 or ghes > 3.3 or ghec %} 选择文本后，可以从剪贴板粘贴 URL，以自动从所选内容创建链接。{% endif %}
+通过将链接文本包含在方括号 `[ ]` 内，然后将 URL 包含在括号 `( )` 内，可创建内联链接。 您还可以使用键盘快捷键 <kbd>Command</kbd>+<kbd>K</kbd> 创建链接。 {% ifversion fpt or ghae-issue-5434 or ghes > 3.3 or ghec %} 选择文本后，可以从剪贴板粘贴 URL，以自动从所选内容创建链接。{% endif %}
+
+{% ifversion fpt or ghae-issue-7103 or ghes > 3.5 or ghec %} 您还可以通过突出显示文本并使用键盘快捷键 <kbd>Command</kbd>+<kbd>V</kbd> 来创建 Markdown 超链接。 如果要将文本替换为链接，请使用键盘快捷键 <kbd>命令</kbd>+<kbd>Shift</kbd>+<kbd>V</kbd>。{% endif %}
 
 `本站点是使用 [GitHub Pages](https://pages.github.com/) 构建的。`
 
@@ -131,7 +161,7 @@ git commit
 | ------------------ | ---------------------------------------------------------------------- |
 | 在同一个分支上的 `.md` 文件中 | `/assets/images/electrocat.png`                                        |
 | 在另一个分支的 `.md` 文件中  | `/../main/assets/images/electrocat.png`                                |
-| 在仓库的议题、拉取请求和评论中    | `../blob/main/assets/images/electrocat.png`                            |
+| 在仓库的议题、拉取请求和评论中    | `../blob/main/assets/images/electrocat.png?raw=true`                   |
 | 在另一个仓库的 `.md` 文件中  | `/../../../../github/docs/blob/main/assets/images/electrocat.png`      |
 | 在另一个仓库的议题、拉取请求和评论中 | `../../../github/docs/blob/main/assets/images/electrocat.png?raw=true` |
 
@@ -146,14 +176,19 @@ git commit
 {% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5559 %}
 ### 指定图像显示的主题
 
-您可以通过在 Markdown 中将 `#gh-dark-mode-only` 或 `#gh-light-mode-only` 附加到图像 URL 的末尾来指定图像显示的主题。
+您可以通过将 HTML `<picture>` 元素与 `prefers-color-scheme` 媒体功能结合使用来指定在 Markdown 中显示图像的主题。 我们区分浅色和深色模式，因此有两个选项可用。 您可以使用这些选项显示针对深色或浅色背景优化的图像。 这对于透明的 PNG 图像特别有用。
 
-我们区分浅色和深色模式，因此有两个选项可用。 您可以使用这些选项显示针对深色或浅色背景优化的图像。 这对于透明的 PNG 图像特别有用。
+例如，下面的代码为浅色主题显示一个太阳图像，为深色主题显示一个月亮：
 
-| 上下文  | URL                                                                      |
-| ---- | ------------------------------------------------------------------------ |
-| 深色主题 | `![GitHub Light](https://github.com/github-light.png#gh-dark-mode-only)` |
-| 浅色主题 | `![GitHub Dark](https://github.com/github-dark.png#gh-light-mode-only)`  |
+```HTML
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://user-images.githubusercontent.com/25423296/163456776-7f95b81a-f1ed-45f7-b7ab-8fa810d529fa.png">
+  <source media="(prefers-color-scheme: light)" srcset="https://user-images.githubusercontent.com/25423296/163456779-a8556205-d0a5-45e2-ac17-42d089e3c3f8.png">
+  <img alt="Shows an illustrated sun in light color mode and a moon with stars in dark color mode." src="https://user-images.githubusercontent.com/25423296/163456779-a8556205-d0a5-45e2-ac17-42d089e3c3f8.png">
+</picture>
+```
+
+基于主题通过使用附加到 URL 的片段（`#gh-dark-mode-only` 或 `#gh-light-mode-only`）指定图像的旧方法已弃用，并将被删除以支持上述新方法。
 {% endif %}
 
 ## 列表
@@ -235,7 +270,13 @@ git commit
 
 ## 提及人员和团队
 
-您可以在 {% data variables.product.product_name %} 上提及人员或[团队](/articles/setting-up-teams/)，方法是键入 <kbd>@</kbd> 加上其用户名或团队名称。 这将触发通知并提请他们注意对话。 如果您在编辑的评论中提及某人的用户名或团队名称，该用户也会收到通知。 有关通知的更多信息，请参阅{% ifversion fpt or ghes or ghae or ghec %}"[关于通知](/github/managing-subscriptions-and-notifications-on-github/about-notifications){% else %}“[关于通知](/github/receiving-notifications-about-activity-on-github/about-notifications){% endif %}”。
+您可以在 {% data variables.product.product_name %} 上提及人员或[团队](/articles/setting-up-teams/)，方法是键入 <kbd>@</kbd> 加上其用户名或团队名称。 这将触发通知并提请他们注意对话。 如果您在编辑的评论中提及某人的用户名或团队名称，该用户也会收到通知。 有关通知的详细信息，请参阅“[关于通知](/github/managing-subscriptions-and-notifications-on-github/about-notifications)”。
+
+{% note %}
+
+**注意：**某人仅在其对存储库具有读取权限以及为组织成员（如果存储库归组织所有）时，才会收到有关提及的通知。
+
+{% endnote %}
 
 `@github/support 您如何看待这些更新？`
 
@@ -290,7 +331,7 @@ git commit
 
 通过在文本行之间留一个空白行，可创建新段落。
 
-{% ifversion fpt or ghae-issue-5180 or ghes > 3.2 or ghec %}
+{% ifversion fpt or ghae or ghes > 3.2 or ghec %}
 ## 脚注
 
 您可以使用此括号语法为您的内容添加脚注：

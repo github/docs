@@ -1,1 +1,1 @@
-1. In the left sidebar, under "Actions", click **Runners**.
+1. 左のサイドバーで、"Actions"の下の**Runners（ランナー）**をクリックしてください。

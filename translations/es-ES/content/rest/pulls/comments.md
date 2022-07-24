@@ -1,6 +1,7 @@
 ---
-title: Review Comments
-intro: Los comentarios de revisión de las solicitudes de extracción son comentarios de una porción de la diff unificada durante la revisión de esta solicitud.
+title: Comentarios sobre revisiones de solicitudes de extracción
+shortTitle: Comentarios de revisión
+intro: ''
 versions:
   fpt: '*'
   ghes: '*'
@@ -12,7 +13,9 @@ miniTocMaxHeadingLevel: 3
 allowTitleToDifferFromFilename: true
 ---
 
-Los comentarios de confirmación y comentarios de la solicitud de extracción son diferentes de aquellos sobre la revisión de estas solicitudes. Se aplican comentarios de confirmación directamente a un confirmación, así como se aplican comentarios del informe de problemas sin referenciar una porción de la diff unificada. Para obtener más información, consulta las secciones "[Crear un comentario sobre una confirmación](/rest/reference/commits#create-a-commit-comment)" y "[Crear un comentario sobre un informe de problemas](/rest/reference/issues#create-an-issue-comment)".
+## About the Pull request review comments API
+
+Los comentarios de revisión de las solicitudes de extracción son comentarios de una porción de la diff unificada durante la revisión de esta solicitud. Los comentarios de confirmación y comentarios de la solicitud de extracción son diferentes de aquellos sobre la revisión de estas solicitudes. Se aplican comentarios de confirmación directamente a un confirmación, así como se aplican comentarios del informe de problemas sin referenciar una porción de la diff unificada. Para obtener más información, consulta las secciones "[Crear un comentario sobre una confirmación](/rest/reference/commits#create-a-commit-comment)" y "[Crear un comentario sobre un informe de problemas](/rest/reference/issues#create-an-issue-comment)".
 
 ### Tipos de medios personalizados para los comentarios sobre las revisiones de las solicitudes de extracción
 

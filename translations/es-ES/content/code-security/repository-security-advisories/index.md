@@ -1,7 +1,7 @@
 ---
-title: Managing repository security advisories for vulnerabilities in your project
+title: Administrar las asesorías de seguridad de repositorio para las vulnerabilidades de tu proyecto
 shortTitle: Asesorías de seguridad de repositorio
-intro: 'Discuss, fix, and disclose security vulnerabilities in your repositories using repository security advisories.'
+intro: 'Debate, corrige y divulga las vulnerabilidades de seguridad en tus repositorios utilizando asesorías de seguridad de repositorio.'
 redirect_from:
   - /articles/managing-security-vulnerabilities-in-your-project
   - /github/managing-security-vulnerabilities/managing-security-vulnerabilities-in-your-project

@@ -1,6 +1,6 @@
 ---
 title: リポジトリ
-intro: Repos APIを使うと、パブリック及びプライベートのGitHub Enterprise Serverリポジトリのワークフローの作成、管理、制御ができます。
+intro: ''
 versions:
   fpt: '*'
   ghes: '*'

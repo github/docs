@@ -2,8 +2,6 @@
 title: Gerenciando os gerentes de segurança da sua organização
 intro: Você pode conceceder à sua equipe de segurança o acesso mínimo necessário à sua organização atribuindo uma equipe à função de gerente de segurança.
 versions:
-  fpt: '*'
-  ghes: '>=3.3'
   feature: security-managers
 topics:
   - Organizations
@@ -30,7 +28,7 @@ Os integrantes de uma equipe com a função de gerente de segurança só têm as
 Funcionalidades adicionais, incluindo uma visão geral de segurança para a organização, estão disponíveis em organizações que usam {% data variables.product.prodname_ghe_cloud %} com {% data variables.product.prodname_advanced_security %}. Para obter mais informações, consulte a [documentação de {% data variables.product.prodname_ghe_cloud %}](/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-security-managers-in-your-organization).
 {% endif %}
 
-Se uma equipe tiver a função de gerente de segurança, as pessoas com acesso de administrador à equipe e um repositório específico poderão alterar o nível de acesso da equipe a esse repositório, mas não poderão remover o acesso. Para obter mais informações, consulte "[Gerenciando o acesso da equipe ao repositório de uma organização](/organizations/managing-access-to-your-organizations-repositories/managing-team-access-to-an-organization-repository){% ifversion ghes %}."{% else %} e "[Gerenciando as equipes e pessoas com acesso ao seu repositório](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-teams-and-people-with-access-to-your-repository)."{% endif %}
+Se uma equipe tiver a função de gerente de segurança, as pessoas com acesso de administrador à equipe e um repositório específico poderão alterar o nível de acesso da equipe a esse repositório, mas não poderão remover o acesso. Para obter mais informações, consulte "[Gerenciando o acesso da equipe ao repositório](/organizations/managing-access-to-your-organizations-repositories/managing-team-access-to-an-organization-repository){% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5974 %} da organização" e "[Gerenciando equipes e pessoas com acesso ao seu repositório](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-teams-and-people-with-access-to-your-repository).{% else %}."{% endif %}
 
   ![Gerenciar a interface do usuário do repositório com gerentes de segurança](/assets/images/help/organizations/repo-access-security-managers.png)
 

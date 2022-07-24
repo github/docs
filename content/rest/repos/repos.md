@@ -1,6 +1,6 @@
 ---
 title: Repositories
-intro: 'The Repos API allows to create, manage and control the workflow of public and private GitHub Enterprise Server repositories.'
+intro: ''
 versions:
   fpt: '*'
   ghes: '*'
@@ -11,3 +11,4 @@ topics:
 miniTocMaxHeadingLevel: 3
 allowTitleToDifferFromFilename: true
 ---
+

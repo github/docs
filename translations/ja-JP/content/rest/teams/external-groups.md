@@ -1,6 +1,6 @@
 ---
 title: 外部グループ
-intro: 外部グループAPIを使用すると、Organizationで利用できる外部のアイデンティティプロバイダグループを見て、Organization内での外部グループとTeamの接続を管理できます。
+intro: External groups APIを使用すると、Organizationで利用できる外部のアイデンティティプロバイダグループを見て、Organization内での外部グループとTeamの接続を管理できます。
 versions:
   fpt: '*'
   ghae: '*'
@@ -9,6 +9,8 @@ topics:
   - API
 miniTocMaxHeadingLevel: 3
 ---
+
+## External groups APIについて
 
 この API を使用するには、認証されたユーザーがチームメンテナまたは Team に関連づけられた Organization のコードオーナーである必要があります。
 

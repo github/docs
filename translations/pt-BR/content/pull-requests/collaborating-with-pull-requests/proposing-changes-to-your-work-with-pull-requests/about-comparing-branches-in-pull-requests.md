@@ -54,15 +54,15 @@ Para simplificar a revisão das alterações em um pull request extenso, é poss
 
 ## Comparações de diff do Git de três pontos e dois pontos
 
-There are two comparison methods for the `git diff` command; two-dot (`git diff A..B`) and three-dot (`git diff A...B`). By default, pull requests on {% data variables.product.prodname_dotcom %} show a three-dot diff.
+Existem dois métodos de comparação para o comando `git diff`; dois pontos (`git diff A..B`) e três pontos (`git diff A...B`). Por padrão, os pull requests em {% data variables.product.prodname_dotcom %} mostram um diff de três pontos.
 
-### Three-dot Git diff comparison
+### Comparação do diff de três pontos do Git
 
-The three-dot comparison shows the difference between the latest common commit of both branches (merge base) and the most recent version of the topic branch.
+A comparação de três pontos mostra a diferença entre o último commit comum de ambos os branches (merge base) e a versão mais recente do branch do tópico.
 
-### Two-dot Git diff comparison
+### Comparação do diff de dois pontos Git
 
-The two-dot comparison shows the difference between the latest state of the base branch (for example, `main`) and the most recent version of the topic branch.
+A comparação de dois pontos mostra a diferença entre o estado mais recente do branch de base (por exemplo, `principal`) e a versão mais recente do branch de tópico.
 
 Para ver duas referências de committish em uma comparação de diff de dois pontos no {% data variables.product.prodname_dotcom %}, você pode editar o URL da página "Comparing changes" (Comparar alterações) do seu repositório. Para obter mais informações, consulte [Glossário do Git para "committish"](https://git-scm.com/docs/gitglossary#gitglossary-aiddefcommit-ishacommit-ishalsocommittish) no book site do _Pro Git_.
 
@@ -74,17 +74,17 @@ Se desejar simular um diff de dois pontos em uma pull request e ver uma compara�
 
 Para obter mais informações sobre os comandos do Git para comparar alterações, consulte "[Opções de diff do Git](https://git-scm.com/docs/git-diff#git-diff-emgitdiffemltoptionsgtltcommitgtltcommitgt--ltpathgt82308203)" no site do livro do _Pro Git_.
 
-## About three-dot comparison on {% data variables.product.prodname_dotcom %}
+## Sobre a comparação de três pontos em {% data variables.product.prodname_dotcom %}
 
-Since the three-dot comparison compares with the merge base, it is focusing on "what a pull request introduces".
+Como a comparação de três pontos é comparada com a base de merge, ela está focada no "que um pull request apresenta".
 
-When you use a two-dot comparison, the diff changes when the base branch is updated, even if you haven't made any changes to the topic branch. Additionally, a two-dot comparison focuses on the base branch. This means that anything you add is displayed as missing from the base branch, as if it was a deletion, and vice versa. As a result, the changes the topic branch introduces become ambiguous.
+Ao usar uma comparação de dois pontos, o diff muda quando o branch base é atualizado, mesmo que não tenha feito nenhuma alteração no branch de tópico. Além disso, uma comparação de dois pontos foca no branch de base. Isso significa que qualquer coisa que você adicionar será exibida como ausente no branch base, como se fosse uma exclusão e vice-versa. Como resultado, as alterações que o branch do tópico introduz tornam-se ambíguas.
 
-In contrast, by comparing the branches using the three-dot comparison, changes in the topic branch are always in the diff if the base branch is updated, because the diff shows all of the changes since the branches diverged.
+Em contraste, comparando os branches usando a comparação de três pontos, as alterações no branch de tópico estão sempre no diff se o branch base for atualizado, porque o diff mostra todas as alterações desde que os branches dibergiram.
 
-### Merging often
+### Fazendo o merge frequentemente
 
-To avoid getting confused, merge the base branch (for example, `main`) into your topic branch frequently. By merging the base branch, the diffs shown by two-dot and three-dot comparisons are the same. We recommend merging a pull request as soon as possible. This encourages contributors to make pull requests smaller, which is recommended in general.
+Para evitar confusão, faça o merge do branch de base (por exemplo, `principal`) no seu branch de tópico com frequência. Ao fazer o merge do branch de base, os diffs mostrados pelas comparações de dois pontos e três pontos são iguais. Recomendamos o merge de um pull request assim que possível. Isso incentiva os contribuidores a diminuir o número de pull requests, o que é recomendado de forma geral.
 
 ## Leia mais
 

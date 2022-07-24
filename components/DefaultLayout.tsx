@@ -27,6 +27,7 @@ export const DefaultLayout = (props: Props) => {
   const { t } = useTranslation(['errors', 'meta', 'scroll_button'])
   const router = useRouter()
   const metaDescription = page.introPlainText ? page.introPlainText : t('default_description')
+
   return (
     <div className="d-lg-flex">
       <Head>

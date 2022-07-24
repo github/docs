@@ -1,6 +1,6 @@
 ---
 title: デプロイキー
-intro: The Deploy keys API lets you create and manage deploy keys.
+intro: Deploy keys APIを使うと、デプロイキーの生成と管理ができます。
 versions:
   fpt: '*'
   ghes: '*'
@@ -14,7 +14,7 @@ redirect_from:
   - /rest/reference/deploy_keys
 ---
 
-## About the Deploy keys API
+## Deploy keys APIについて
 
 {% data reusables.repositories.deploy-keys %}
 

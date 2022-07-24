@@ -1,5 +1,5 @@
-A merge queue can increase the rate at which pull requests are merged into a busy target branch while ensuring that all required branch protection checks pass.
+Una cola de fusión puede aumentar la tasa en la que se fusionan las solicitudes de cambios en una rama destino mientras se asegura de que pasen todas las verificaciones de protección de rama requeridas.
 
-Once a pull request has passed all of the required branch protection checks, a user with write access to the repository can add that pull request to a merge queue.
+Una vez que una solicitud de cambios pasa el resto de las verificaciones de protección de rama requeridas, un usuario con acceso de escritura al repositorio puede agregar dicha solicitud de cambios a una cola de fusión.
 
-A merge queue may use {% data variables.product.prodname_actions %}. Para obtener más información, consulta la sección "[{% data variables.product.prodname_actions %}](/actions/)".
+Una cola de fusión podría utilizar {% data variables.product.prodname_actions %}. Para obtener más información, consulta la sección "[{% data variables.product.prodname_actions %}](/actions/)".

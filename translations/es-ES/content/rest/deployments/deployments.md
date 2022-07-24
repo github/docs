@@ -11,6 +11,8 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
+## About the deployments API
+
 Los despliegues son slicitudes para desplegar una ref específica (rma, SHA, etiqueta). GitHub despliega un [evento de `deployment`](/developers/webhooks-and-events/webhook-events-and-payloads#deployment) al que puedan escuchar los servicios externos y al con el cual puedan actuar cuando se creen los despliegues nuevos. Los despliegues habilitan a los desarrolladores y a las organizaciones para crear herramientas sin conexión directa en torno a los despliegues, sin tener que preocuparse acerca de los detalles de implementación de entregar tipos de aplicaciones diferentes (por ejemplo, web o nativas).
 
 Los estados de despliegue permiten que los servicios externos marquen estos despliegues con un estado de `error`, `failure`, `pending`, `in_progress`, `queued`, o `success` que pueden consumir los sistemas que escuchan a los [eventos de `deployment_status`](/developers/webhooks-and-events/webhook-events-and-payloads#deployment_status).

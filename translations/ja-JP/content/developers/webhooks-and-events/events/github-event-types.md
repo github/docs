@@ -23,22 +23,30 @@ Events APIは、GitHub上のアクティビティによってトリガーされ�
 
 Events APIエンドポイントから返されるイベントオブジェクトは、同じ構造を持ちます。
 
-| Event API属性名          | 説明                                                                                                                                                   |
-| --------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `id`                  | イベントの一意の識別子。                                                                                                                                         |
-| `type`                | イベントの種類。 イベントの名前にはPascalCaseが使われます。                                                                                                                  |
-| `actor`               | イベントをトリガーしたユーザ。                                                                                                                                      |
-| `actor.id`            | アクターの一意の識別子。                                                                                                                                         |
-| `actor.login`         | アクターのユーザ名。                                                                                                                                           |
-| `actor.display_login` | ユーザ名に特定の表示形式。                                                                                                                                        |
-| `actor.gravatar_id`   | アクターのGravatarプロフィールの一意の識別子。                                                                                                                          |
-| `actor.url`           | 追加のユーザ情報を含むユーザオブジェクトの取得に使われるREST APIのURL。                                                                                                            |
-| `actor.avatar_url`    | アクターのプロフィール画像のURL。                                                                                                                                   |
-| `repo`                | イベントが発生したリポジトリオブジェクト。                                                                                                                                |
-| `repo.id`             | リポジトリの一意の識別子。                                                                                                                                        |
-| `repo.name`           | リポジトリの名前。オーナーとリポジトリの名前が含まれる。 For example, `octocat/hello-world` is the name of the `hello-world` repository owned by the `octocat` personal account. |
-| `repo.url`            | 追加のリポジトリ情報を含むリポジトリオブジェクトの取得に使われるREST APIのURL。                                                                                                        |
-| `payload`             | イベントの種類に固有のイベントペイロードオブジェクト。 イベントAPIの`payload`オブジェクトについては、以下のイベントの種類を参照してください。                                                                        |
+| Event API属性名          | 説明                                                                                                                                                                         |
+| --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `id`                  | イベントの一意の識別子。                                                                                                                                                               |
+| `type`                | イベントの種類。 イベントの名前にはPascalCaseが使われます。                                                                                                                                        |
+| `actor`               | イベントをトリガーしたユーザ。                                                                                                                                                            |
+| `actor.id`            | アクターの一意の識別子。                                                                                                                                                               |
+| `actor.login`         | アクターのユーザ名。                                                                                                                                                                 |
+| `actor.display_login` | ユーザ名に特定の表示形式。                                                                                                                                                              |
+| `actor.gravatar_id`   | アクターのGravatarプロフィールの一意の識別子。                                                                                                                                                |
+| `actor.url`           | 追加のユーザ情報を含むユーザオブジェクトの取得に使われるREST APIのURL。                                                                                                                                  |
+| `actor.avatar_url`    | アクターのプロフィール画像のURL。                                                                                                                                                         |
+| `repo`                | イベントが発生したリポジトリオブジェクト。                                                                                                                                                      |
+| `repo.id`             | リポジトリの一意の識別子。                                                                                                                                                              |
+| `repo.name`           | リポジトリの名前。オーナーとリポジトリの名前が含まれる。 For example, `octocat/hello-world` is the name of the `hello-world` repository owned by the `octocat` personal account.                       |
+| `repo.url`            | 追加のリポジトリ情報を含むリポジトリオブジェクトの取得に使われるREST APIのURL。                                                                                                                              |
+| `payload`             | イベントの種類に固有のイベントペイロードオブジェクト。 イベントAPIの`payload`オブジェクトについては、以下のイベントの種類を参照してください。                                                                                              |
+| `public`              | Whether the event is visible to all users.                                                                                                                                 |
+| `created_at`          | The date and time when the event was triggered. It is formatted according to ISO 8601.                                                                                     |
+| `org`                 | The organization that was chosen by the actor to perform action that triggers the event.<br />_The property appears in the event object only if it is applicable._ |
+| `org.id`              | The unique identifier for the organization.                                                                                                                                |
+| `org.login`           | The name of the organization.                                                                                                                                              |
+| `org.gravatar_id`     | The unique identifier of the Gravatar profile for the organization.                                                                                                        |
+| `org.url`             | The REST API URL used to retrieve the organization object, which includes additional organization information.                                                             |
+| `org.avatar_url`      | The URL of the organization's profile image.                                                                                                                               |
 
 ### WatchEventイベントのオブジェクトの例
 

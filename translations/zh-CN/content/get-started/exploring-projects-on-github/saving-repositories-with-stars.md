@@ -26,7 +26,7 @@ shortTitle: 保存有星标的仓库
 标星操作便于以后再次找到仓库或主题。 您可以到 {% data variables.explore.your_stars_page %} 查看已经加星标的所有仓库和主题。
 
 {% ifversion fpt or ghec %}
-您可以对仓库和主题加星标以在 {% data variables.product.product_name %} 上发现类似的项目。 当您为存储库或主题添加星标时， {% data variables.product.product_name %} 可能会在您的个人仪表板上推荐相关内容。 更多信息请参阅“[查找参与 {% data variables.product.prodname_dotcom %} 上的开源项目的方法](/github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github)”和“[关于个人仪表板](/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/about-your-personal-dashboard#staying-updated-with-activity-from-the-community)”。
+您可以对仓库和主题加星标以在 {% data variables.product.product_name %} 上发现类似的项目。 当您为存储库或主题添加星标时， {% data variables.product.product_name %} 可能会在您的个人仪表板上推荐相关内容。 更多信息请参阅“[查找参与 {% data variables.product.prodname_dotcom %} 上的开源项目的方法](/github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github)”和“[关于个人仪表板](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/about-your-personal-dashboard#staying-updated-with-activity-from-the-community)”。
 {% endif %}
 
 对仓库加星标也可表示赞赏仓库维护员的工作。 许多 {% data variables.product.prodname_dotcom %} 的仓库评级取决于仓库拥有的星标数。 此外，[Explore](https://github.com/explore) 也会根据星标数显示最受欢迎的仓库。
@@ -40,6 +40,16 @@ shortTitle: 保存有星标的仓库
 1. （可选）要取消先前已标星仓库的星标，请点击 **Unstar（取消星标）**。 ![解压仓库](/assets/images/help/stars/unstarring-a-repository.png)
 
 {% ifversion fpt or ghec %}
+
+## 查看谁为存储库加了星标
+
+
+您可以查看已为您有权访问的公共存储库或私有存储库加星标的每个人。
+
+
+要查看已为存储库加星标的每个人，请将 `/stargazers` 添加到存储库 URL 的末尾。 例如，要查看 github/docs 存储库的标星者，请访问 https://github.com/github/docs/stargazers。
+
+
 ## 使用列表组织带星标的存储库
 
 {% note %}

@@ -1,6 +1,6 @@
 ---
-title: External Groups
-intro: 'The external groups API allows you to view the external identity provider groups that are available to your organization and manage the connection between external groups and teams in your organization.'
+title: External groups
+intro: The External groups API allows you to view the external identity provider groups that are available to your organization and manage the connection between external groups and teams in your organization.
 versions:
   fpt: '*'
   ghae: '*'
@@ -9,6 +9,8 @@ topics:
   - API
 miniTocMaxHeadingLevel: 3
 ---
+
+## About the External groups API
 
 To use this API, the authenticated user must be a team maintainer or an owner of the organization associated with the team.
 
