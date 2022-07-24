@@ -1,6 +1,6 @@
 ---
 title: Personalizar tu codespace
-intro: '{% data variables.product.prodname_github_codespaces %} es un ambiente dedicado para ti. You can configure your repositories with a dev container to define their default {% data variables.product.prodname_github_codespaces %} environment, and personalize your development experience across all of your codespaces with dotfiles and Settings Sync.'
+intro: '{% data variables.product.prodname_github_codespaces %} es un ambiente dedicado para ti. Puedes configurar tus repositorios con un contenedor dev para definir su ambiente de {% data variables.product.prodname_github_codespaces %} predeterminado y personalizar tu experiencia de desarrollo en todos tus codespaces con dotfiles y sincronización de ajustes.'
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'

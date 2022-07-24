@@ -356,6 +356,7 @@ $ curl -I {% data variables.product.api_url_pre %}/users/octocat
 > Date: Mon, 01 Jul 2013 17:27:06 GMT
 > x-ratelimit-limit: 60
 > x-ratelimit-remaining: 56
+> x-ratelimit-used: 4
 > x-ratelimit-reset: 1372700873
 ```
 
@@ -363,6 +364,7 @@ $ curl -I {% data variables.product.api_url_pre %}/users/octocat
 | ----------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `x-ratelimit-limit`     | La cantidad máxima de solicitudes que puedes hacer por hora.                                                                                         |
 | `x-ratelimit-remaining` | La cantidad de solicitudes que quedan en la ventana de límite de tasa actual.                                                                        |
+| `x-ratelimit-used`      | La cantidad de solicitudes que hiciste en la ventana de límite de tasa actual.                                                                       |
 | `x-ratelimit-reset`     | La hora en la que se restablecerá la ventana de límite de tasa actual en [segundos de tiempo satelital UTC](http://en.wikipedia.org/wiki/Unix_time). |
 
 Si necesitas ver la hora en un formato diferente, cualquier lenguaje de programación moderno puede ayudarte con esta tarea. Por ejemplo, si abres la consola en tu buscador web, puedes obtener fácilmente el tiempo de restablecimiento como un objeto de Tiempo de JavaScript.
@@ -379,6 +381,7 @@ Si excedes el límite de tasa, se regresará una respuesta de error:
 > Date: Tue, 20 Aug 2013 14:50:41 GMT
 > x-ratelimit-limit: 60
 > x-ratelimit-remaining: 0
+> x-ratelimit-used: 60
 > x-ratelimit-reset: 1377013266
 
 > {
@@ -397,6 +400,7 @@ $ curl -u my_client_id:my_client_secret -I {% data variables.product.api_url_pre
 > Date: Mon, 01 Jul 2013 17:27:06 GMT
 > x-ratelimit-limit: 5000
 > x-ratelimit-remaining: 4966
+> x-ratelimit-used: 34
 > x-ratelimit-reset: 1372700873
 ```
 
@@ -640,4 +644,3 @@ Si los pasos anteriores no dan como resultado ninguna información, utilizaremos
 [uri]: https://github.com/hannesg/uri_template
 
 [pagination-guide]: /guides/traversing-with-pagination
-

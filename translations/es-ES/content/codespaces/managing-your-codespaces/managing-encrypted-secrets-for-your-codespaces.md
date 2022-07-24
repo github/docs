@@ -20,7 +20,7 @@ shortTitle: Secretos cifrados
  
 
 
-## About encrypted secrets for {% data variables.product.prodname_github_codespaces %}
+## Acerca de los secretos cifrados para {% data variables.product.prodname_github_codespaces %}
 
 Puedes agregar secretos cifrados a tu cuenta personal si los quieres utilizar en tus codespaces. Por ejemplo, puede que quieras almacenar y acceder a la siguiente información sensible en forma de un secreto cifrado.
 
@@ -41,7 +41,7 @@ Puedes elegir qué repositorios deben tener acceso a cada secreto. Posteriorment
 
 ### Límites para los secretos
 
-You can store up to 100 secrets for {% data variables.product.prodname_github_codespaces %}.
+Puedes almacenar hasta 100 secretos para {% data variables.product.prodname_github_codespaces %}.
 
 Los secretos tienen un tamaño máximo de 64 KB.
 
