@@ -101,6 +101,6 @@ As you continue to build your remediation processes for other secret types, star
 
 {% note %}
 
-This is the final article of a series on adopting {% data variables.product.prodname_GH_advanced_security %} at scale. If you have questions or need support, see the section on {% data variables.contact.github_support %} and {% data variables.product.prodname_professional_services_team %} in "[Introduction to adopting {% data variables.product.prodname_GH_advanced_security %} at scale](/code-security/adopting-github-advanced-security-at-scale/introduction-to-adopting-github-advanced-security-at-scale#github-support-and-professional-services)."
+This is the final article of a series on adopting {% data variables.product.prodname_GH_advanced_security %} at scale. Si tienes preguntas o necesitas apoyo, consulta la sección sobre {% data variables.contact.github_support %} y {% data variables.product.prodname_professional_services_team %} en "[Introducción a adoptar la {% data variables.product.prodname_GH_advanced_security %} a escala](/code-security/adopting-github-advanced-security-at-scale/introduction-to-adopting-github-advanced-security-at-scale#github-support-and-professional-services)".
 
 {% endnote %}

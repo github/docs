@@ -38,7 +38,7 @@ topics:
       ```
 4. En el prompt, especifica la clase de llave que quieres, o presiona `Enter` para aceptar lo predeterminado.
 5. En el prompt, especifica el tamaño de llave que quieres, o presiona `Enter` para aceptar lo predeterminado. Tu llave debe ser de al menos `4096` bits.
-6. Ingresa el periodo de validez que deberá tener la llave. Presiona `Enter` para especificar la selección predeterminada, indicando que la llave no expira. Unless you require an expiration date, we recommend accepting this default.
+6. Ingresa el periodo de validez que deberá tener la llave. Presiona `Enter` para especificar la selección predeterminada, indicando que la llave no expira. A menos de que requieras una fecha de vencimiento, te recomendamos aceptar esta característica predeterminada.
 7. Verifica que tus selecciones sean correctas.
 8. Ingresa tu información de ID de usuario.
 
@@ -62,7 +62,7 @@ topics:
 ## Leer más
 
 * "[Comprobar llaves GPG existentes](/articles/checking-for-existing-gpg-keys)"
-* "[Adding a GPG key to your GitHub account](/articles/adding-a-gpg-key-to-your-github-account)"
+* "[Agregar una llave GPG a tu cuenta de GitHub](/articles/adding-a-gpg-key-to-your-github-account)"
 * "[Informar a Git sobre tu llave de firma](/articles/telling-git-about-your-signing-key)"
 * "[Asociar un correo electrónico con tu llave GPG](/articles/associating-an-email-with-your-gpg-key)"
 * "[Firmar confirmaciones](/articles/signing-commits)"

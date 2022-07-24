@@ -44,7 +44,7 @@ El tiempo requerido para la tolerancia de fallos depende de cuánto le tome para
       $ ghe-repl-status -vv
       ```
 
-4. En el aplicativo de réplica, para detener la replicación y promover dicho aplicativo a estado primario, utiliza el comando `ghe-repl-promote`. This will also automatically put the primary node in maintenance mode if it’s reachable.
+4. En el aplicativo de réplica, para detener la replicación y promover dicho aplicativo a estado primario, utiliza el comando `ghe-repl-promote`. Esto también pondrá al nodo primario automáticamente en modo de mantenimiento si es que se puede alcanzar.
   ```shell
   $ ghe-repl-promote
   ```

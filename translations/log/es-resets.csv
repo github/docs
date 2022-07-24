@@ -34,6 +34,7 @@ translations/es-ES/content/admin/code-security/managing-github-advanced-security
 translations/es-ES/content/admin/configuration/configuring-github-connect/managing-github-connect.md,broken liquid tags
 translations/es-ES/content/admin/configuration/configuring-your-enterprise/command-line-utilities.md,broken liquid tags
 translations/es-ES/content/admin/configuration/configuring-your-enterprise/configuring-rate-limits.md,broken liquid tags
+translations/es-ES/content/admin/configuration/configuring-your-enterprise/deploying-github-ae.md,broken liquid tags
 translations/es-ES/content/admin/configuration/configuring-your-enterprise/site-admin-dashboard.md,broken liquid tags
 translations/es-ES/content/admin/enterprise-management/caching-repositories/about-repository-caching.md,Listed in localization-support#489
 translations/es-ES/content/admin/enterprise-management/caching-repositories/configuring-a-repository-cache.md,Listed in localization-support#489
@@ -80,6 +81,7 @@ translations/es-ES/content/billing/managing-billing-for-github-advanced-security
 translations/es-ES/content/billing/managing-billing-for-github-advanced-security/viewing-your-github-advanced-security-usage.md,Listed in localization-support#489
 translations/es-ES/content/billing/managing-billing-for-your-github-account/discounted-subscriptions-for-github-accounts.md,broken liquid tags
 translations/es-ES/content/billing/managing-licenses-for-visual-studio-subscriptions-with-github-enterprise/about-visual-studio-subscriptions-with-github-enterprise.md,broken liquid tags
+translations/es-ES/content/code-security/adopting-github-advanced-security-at-scale/phase-2-preparing-to-enable-at-scale.md,broken liquid tags
 translations/es-ES/content/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-alerts.md,broken liquid tags
 translations/es-ES/content/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-with-codeql.md,broken liquid tags
 translations/es-ES/content/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning.md,Listed in localization-support#489
