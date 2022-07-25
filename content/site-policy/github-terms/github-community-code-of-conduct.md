@@ -16,9 +16,9 @@ topics:
 
 Millions of developers across the world host millions of projects—both open and closed source—on GitHub. We're fortunate to be able to play a part in enabling collaboration across the developer community every day, which is a responsibility we don’t take lightly. Together, we all have the exciting opportunity to make this a community we can be proud of.
 
-GitHub Community, powered by GitHub Discussions, is intended to be a place for further collaboration, support, and brainstorming. This is a civilized place for connecting with other users, learning new skills, sharing feedback and ideas, and finding all the support you need for your GitHub projects. By participating in this Community, you are agreeing to the same [Terms of Service](/github/site-policy/github-terms-of-service/) and [GitHub Acceptable Use Policies](/github/site-policy/github-acceptable-use-policies) that apply to GitHub.com, as well as this Community-specific Code of Conduct.
+GitHub Community, powered by GitHub Discussions, is intended to be a place for further collaboration, support, and brainstorming. This is a civilized place for connecting with other users, learning new skills, sharing feedback and ideas, and finding all the support you need for your GitHub projects. By participating in GitHub Community, you are agreeing to the same [Terms of Service](/github/site-policy/github-terms-of-service/) and [GitHub Acceptable Use Policies](/github/site-policy/github-acceptable-use-policies) that apply to GitHub.com, as well as this GitHub Community-specific Code of Conduct.
 
-With this Code of Conduct, we hope to help you understand how best to collaborate in GitHub Community, what you can expect from moderators, and what type of actions or content may result in temporary or permanent suspension from Community participation. We will investigate any abuse reports and may moderate public content within the Community that we determine to be in violation of either the GitHub Terms of Service or this Code of Conduct.
+With this Code of Conduct, we hope to help you understand how best to collaborate in GitHub Community, what you can expect from moderators, and what type of actions or content may result in temporary or permanent suspension from community participation. We will investigate any abuse reports and may moderate public content within GitHub Community that we determine to be in violation of either the GitHub Terms of Service or this Code of Conduct.
 
 Our diverse user base brings different perspectives, ideas, and experiences, and ranges from people who created their first "Hello World" project last week to the most well-known software developers in the world. We are committed to making GitHub an environment that welcomes all the different voices and perspectives our community has to offer, while maintaining a safe place for developers to do their best work.
 
@@ -30,7 +30,7 @@ In the interest of fostering an open and welcoming environment, we as contributo
 
 Treat GitHub Community with respect. We are a shared resource — a place to share skills, knowledge, and interests through ongoing conversation.
 
-The following are not hard and fast rules, merely aids to the human judgment of our Community. Use these guidelines to keep this a clean, well-lighted place for civilized public discourse.
+The following are not hard and fast rules, merely aids to the human judgment of our community. Use these guidelines to keep this a clean, well-lighted place for civilized public discourse.
 
 ### *Best Practices for Maintaining a Strong Community*
 
@@ -65,11 +65,11 @@ The primary purpose of the GitHub community is to collaborate on software projec
     Rather than posting “+1” or “Agreed”, use the upvote button. Rather than taking an existing discussion in a radically different direction, open a new discussion.
 
 - Be trustworthy.
-  - **Always be honest.** Don’t knowingly share incorrect information or intentionally mislead other GitHub Community participants. If you don’t know the answer to someone’s question but still want to help, you can try helping them research or find resources instead. GitHub staff will also be active in the Community, so if you’re unsure of an answer, it’s likely a moderator will be able to help.
+  - **Always be honest.** Don’t knowingly share incorrect information or intentionally mislead other GitHub Community participants. If you don’t know the answer to someone’s question but still want to help, you can try helping them research or find resources instead. GitHub staff will also be active in GitHub Community, so if you’re unsure of an answer, it’s likely a moderator will be able to help.
 
 ### *What is not Allowed*
 
-GitHub's [Acceptable Use Policies](/site-policy/acceptable-use-policies/github-acceptable-use-policies), which are part of GitHub's [Terms of Service](/github/site-policy/github-terms-of-service/), set a baseline for what is not allowed on GitHub. In addition, these terms restrictions apply to GitHub Community in the following way: 
+GitHub's [Acceptable Use Policies](/site-policy/acceptable-use-policies/github-acceptable-use-policies), which are part of GitHub's [Terms of Service](/github/site-policy/github-terms-of-service/), set a baseline for what is not allowed on GitHub. Since GitHub Community is on GitHub.com, these terms and restrictions apply to GitHub Community, including the following restrictions:
 
 - **Anyone under the age of 13.** If you're a child under the age of 13, you may not have an account on GitHub. GitHub does not knowingly collect information from or direct any of our content specifically to children under 13. If we learn or have reason to suspect that you are a user who is under the age of 13, we will unfortunately have to close your GitHub.com account. We don't want to discourage you from learning to code, but those are the rules. Please see our [Terms of Service](/github/site-policy/github-terms-of-service/) for information about account termination.
 
@@ -83,9 +83,9 @@ GitHub's [Acceptable Use Policies](/site-policy/acceptable-use-policies/github-a
 
 ### *What GitHub Community Participants Can Do*
 
-- **If you see a problem, report it.** Moderators have special authority; they are responsible for this Community. But so are you. With your help, moderators can be Community facilitators, not just janitors or police.
+- **If you see a problem, report it.** Moderators have special authority; they are responsible for this GitHub Community. But so are you. With your help, moderators can be community facilitators, not just janitors or police.
 
-  When you see bad behavior, don’t reply. It encourages the bad behavior by acknowledging it, consumes your energy, and wastes everyone’s time. Just report it via "Report Inappropriate Content" in the Option Menu. If enough reports accrue, action will be taken, either automatically or by moderator intervention.
+  When you see bad behavior, don’t reply. It encourages the bad behavior by acknowledging it, consumes your energy, and wastes everyone’s time. You can report a disruptive user or disruptive content to GitHub. For more information, see "[Reporting abuse or spam](/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam)."
 
 ### Our Responsibilities
 
