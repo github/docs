@@ -6,6 +6,6 @@
 1. 单击 **New runner group（新运行器组）**。
 {%- elsif ghes < 3.4 or ghae %}
 {% data reusables.enterprise-accounts.actions-runners-tab %}
-1. Use the **Add new** drop-down, and select **New group**.
+1. 使用 **Add new（新增）**下拉列表，然后选择 **New group（新建组）**。
 {%- endif %}
-1. Under "Group name", type a name for your runner group.
+1. 在“Group Name（组名称）”下，输入运行器组的名称。

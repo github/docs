@@ -36,7 +36,7 @@ Tu certificado también deberá tener configurados Nombres alternativos de sujet
 
 Puedes generar una solicitud de firma de certificados (CSR) para tu instancia usando el comando `ghe-ssl-generate-csr`. Para obtener más información, consulta "[utilidades de línea de comandos](/enterprise/admin/guides/installation/command-line-utilities/#ghe-ssl-generate-csr)"
 
-Your key must be an RSA key and must not have a passphrase. Para obtener más información, consulta "[Eliminar la contraseña de tu archivo clave](/admin/guides/installation/troubleshooting-ssl-errors#removing-the-passphrase-from-your-key-file)".
+Tu llave debe ser RSA y no debe tener una frase de acceso. Para obtener más información, consulta "[Eliminar la contraseña de tu archivo clave](/admin/guides/installation/troubleshooting-ssl-errors#removing-the-passphrase-from-your-key-file)".
 
 ## Cargar un certificado TLS personalizado
 

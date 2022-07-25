@@ -15,7 +15,7 @@ shortTitle: Source control
 
  
 
-## About source control in {% data variables.product.prodname_codespaces %}
+## About source control in {% data variables.product.prodname_github_codespaces %}
 
 You can perform all the Git actions you need directly within your codespace. For example, you can fetch changes from the remote repository, switch branches, create a new branch, commit and push changes, and create a pull request. You can use the integrated terminal within your codespace to enter Git commands, or you can click icons and menu options to complete all the most common Git tasks. This guide explains how to use the graphical user interface for source control.
 

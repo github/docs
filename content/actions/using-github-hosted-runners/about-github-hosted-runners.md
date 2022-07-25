@@ -87,12 +87,12 @@ While the job runs, the logs and output can be viewed in the {% data variables.p
 ## Supported runners and hardware resources
 
 Hardware specification for Windows and Linux virtual machines:
-- 2-core CPU
+- 2-core CPU (x86_64)
 - 7 GB of RAM
 - 14 GB of SSD space
 
 Hardware specification for macOS virtual machines:
-- 3-core CPU
+- 3-core CPU (x86_64)
 - 14 GB of RAM
 - 14 GB of SSD space
 
@@ -111,6 +111,7 @@ For more information, see "[Viewing workflow run history](/actions/managing-work
 
 For the overall list of included tools for each runner operating system, see the links below:
 
+* [Ubuntu 22.04 LTS](https://github.com/actions/virtual-environments/blob/main/images/linux/Ubuntu2204-Readme.md)
 * [Ubuntu 20.04 LTS](https://github.com/actions/virtual-environments/blob/main/images/linux/Ubuntu2004-Readme.md)
 * [Ubuntu 18.04 LTS](https://github.com/actions/virtual-environments/blob/main/images/linux/Ubuntu1804-Readme.md)
 * [Windows Server 2022](https://github.com/actions/virtual-environments/blob/main/images/win/Windows2022-Readme.md)

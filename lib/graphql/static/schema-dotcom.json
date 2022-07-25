@@ -18887,58 +18887,6 @@
           "href": "/graphql/reference/scalars#uri"
         },
         {
-          "name": "userAccounts",
-          "description": "<p>A list of user accounts on this enterprise.</p>",
-          "type": "EnterpriseUserAccountConnection!",
-          "id": "enterpriseuseraccountconnection",
-          "kind": "objects",
-          "href": "/graphql/reference/objects#enterpriseuseraccountconnection",
-          "arguments": [
-            {
-              "name": "after",
-              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
-              "type": {
-                "name": "String",
-                "id": "string",
-                "kind": "scalars",
-                "href": "/graphql/reference/scalars#string"
-              }
-            },
-            {
-              "name": "before",
-              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
-              "type": {
-                "name": "String",
-                "id": "string",
-                "kind": "scalars",
-                "href": "/graphql/reference/scalars#string"
-              }
-            },
-            {
-              "name": "first",
-              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
-              "type": {
-                "name": "Int",
-                "id": "int",
-                "kind": "scalars",
-                "href": "/graphql/reference/scalars#int"
-              }
-            },
-            {
-              "name": "last",
-              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
-              "type": {
-                "name": "Int",
-                "id": "int",
-                "kind": "scalars",
-                "href": "/graphql/reference/scalars#int"
-              }
-            }
-          ],
-          "isDeprecated": true,
-          "deprecationReason": "<p>The <code>Enterprise.userAccounts</code> field is being removed. Use the <code>Enterprise.members</code> field instead. Removal on 2022-07-01 UTC.</p>"
-        },
-        {
           "name": "viewerIsAdmin",
           "description": "<p>Is the current viewer an admin of this enterprise?.</p>",
           "type": "Boolean!",
@@ -22659,72 +22607,6 @@
           "id": "user",
           "kind": "objects",
           "href": "/graphql/reference/objects#user"
-        }
-      ]
-    },
-    {
-      "name": "EnterpriseUserAccountConnection",
-      "kind": "objects",
-      "id": "enterpriseuseraccountconnection",
-      "href": "/graphql/reference/objects#enterpriseuseraccountconnection",
-      "description": "<p>The connection type for EnterpriseUserAccount.</p>",
-      "fields": [
-        {
-          "name": "edges",
-          "description": "<p>A list of edges.</p>",
-          "type": "[EnterpriseUserAccountEdge]",
-          "id": "enterpriseuseraccountedge",
-          "kind": "objects",
-          "href": "/graphql/reference/objects#enterpriseuseraccountedge"
-        },
-        {
-          "name": "nodes",
-          "description": "<p>A list of nodes.</p>",
-          "type": "[EnterpriseUserAccount]",
-          "id": "enterpriseuseraccount",
-          "kind": "objects",
-          "href": "/graphql/reference/objects#enterpriseuseraccount"
-        },
-        {
-          "name": "pageInfo",
-          "description": "<p>Information to aid in pagination.</p>",
-          "type": "PageInfo!",
-          "id": "pageinfo",
-          "kind": "objects",
-          "href": "/graphql/reference/objects#pageinfo"
-        },
-        {
-          "name": "totalCount",
-          "description": "<p>Identifies the total count of items in the connection.</p>",
-          "type": "Int!",
-          "id": "int",
-          "kind": "scalars",
-          "href": "/graphql/reference/scalars#int"
-        }
-      ]
-    },
-    {
-      "name": "EnterpriseUserAccountEdge",
-      "kind": "objects",
-      "id": "enterpriseuseraccountedge",
-      "href": "/graphql/reference/objects#enterpriseuseraccountedge",
-      "description": "<p>An edge in a connection.</p>",
-      "fields": [
-        {
-          "name": "cursor",
-          "description": "<p>A cursor for use in pagination.</p>",
-          "type": "String!",
-          "id": "string",
-          "kind": "scalars",
-          "href": "/graphql/reference/scalars#string"
-        },
-        {
-          "name": "node",
-          "description": "<p>The item at the end of the edge.</p>",
-          "type": "EnterpriseUserAccount",
-          "id": "enterpriseuseraccount",
-          "kind": "objects",
-          "href": "/graphql/reference/objects#enterpriseuseraccount"
         }
       ]
     },
@@ -36714,6 +36596,16 @@
           "href": "/graphql/reference/objects#sponsorsactivityconnection",
           "arguments": [
             {
+              "name": "actions",
+              "description": "<p>Filter activities to only the specified actions.</p>",
+              "type": {
+                "name": "[SponsorsActivityAction!]",
+                "id": "sponsorsactivityaction",
+                "kind": "enums",
+                "href": "/graphql/reference/enums#sponsorsactivityaction"
+              }
+            },
+            {
               "name": "after",
               "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
               "type": {
@@ -36766,7 +36658,7 @@
             {
               "name": "period",
               "defaultValue": "MONTH",
-              "description": "<p>Filter activities returned to only those that occurred in a given time range.</p>",
+              "description": "<p>Filter activities returned to only those that occurred in the most recent\nspecified time period. Set to ALL to avoid filtering by when the activity occurred.</p>",
               "type": {
                 "name": "SponsorsActivityPeriod",
                 "id": "sponsorsactivityperiod",
@@ -42140,6 +42032,16 @@
                 "kind": "scalars",
                 "href": "/graphql/reference/scalars#int"
               }
+            },
+            {
+              "name": "orderBy",
+              "description": "<p>Ordering options for project v2 item field values returned from the connection.</p>",
+              "type": {
+                "name": "ProjectV2ItemFieldValueOrder",
+                "id": "projectv2itemfieldvalueorder",
+                "kind": "input-objects",
+                "href": "/graphql/reference/input-objects#projectv2itemfieldvalueorder"
+              }
             }
           ]
         },
@@ -42659,6 +42561,16 @@
                 "id": "int",
                 "kind": "scalars",
                 "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "orderBy",
+              "description": "<p>Ordering options for pull requests.</p>",
+              "type": {
+                "name": "PullRequestOrder",
+                "id": "pullrequestorder",
+                "kind": "input-objects",
+                "href": "/graphql/reference/input-objects#pullrequestorder"
               }
             }
           ]
@@ -43513,55 +43425,15 @@
                 "kind": "scalars",
                 "href": "/graphql/reference/scalars#int"
               }
-            }
-          ]
-        },
-        {
-          "name": "items",
-          "description": "<p>The view's filtered items.</p>",
-          "type": "ProjectV2ItemConnection!",
-          "id": "projectv2itemconnection",
-          "kind": "objects",
-          "href": "/graphql/reference/objects#projectv2itemconnection",
-          "arguments": [
-            {
-              "name": "after",
-              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
-              "type": {
-                "name": "String",
-                "id": "string",
-                "kind": "scalars",
-                "href": "/graphql/reference/scalars#string"
-              }
             },
             {
-              "name": "before",
-              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "name": "orderBy",
+              "description": "<p>Ordering options for the project v2 fields returned from the connection.</p>",
               "type": {
-                "name": "String",
-                "id": "string",
-                "kind": "scalars",
-                "href": "/graphql/reference/scalars#string"
-              }
-            },
-            {
-              "name": "first",
-              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
-              "type": {
-                "name": "Int",
-                "id": "int",
-                "kind": "scalars",
-                "href": "/graphql/reference/scalars#int"
-              }
-            },
-            {
-              "name": "last",
-              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
-              "type": {
-                "name": "Int",
-                "id": "int",
-                "kind": "scalars",
-                "href": "/graphql/reference/scalars#int"
+                "name": "ProjectV2FieldOrder",
+                "id": "projectv2fieldorder",
+                "kind": "input-objects",
+                "href": "/graphql/reference/input-objects#projectv2fieldorder"
               }
             }
           ]
@@ -43703,6 +43575,16 @@
                 "kind": "scalars",
                 "href": "/graphql/reference/scalars#int"
               }
+            },
+            {
+              "name": "orderBy",
+              "description": "<p>Ordering options for the project v2 fields returned from the connection.</p>",
+              "type": {
+                "name": "ProjectV2FieldOrder",
+                "id": "projectv2fieldorder",
+                "kind": "input-objects",
+                "href": "/graphql/reference/input-objects#projectv2fieldorder"
+              }
             }
           ]
         },
@@ -43752,6 +43634,16 @@
                 "id": "int",
                 "kind": "scalars",
                 "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "orderBy",
+              "description": "<p>Ordering options for the project v2 fields returned from the connection.</p>",
+              "type": {
+                "name": "ProjectV2FieldOrder",
+                "id": "projectv2fieldorder",
+                "kind": "input-objects",
+                "href": "/graphql/reference/input-objects#projectv2fieldorder"
               }
             }
           ]
@@ -43875,58 +43767,6 @@
           "id": "int",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#int",
-          "isDeprecated": true,
-          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2022-10-01 UTC.</p>"
-        },
-        {
-          "name": "items",
-          "description": "<p>The view's filtered items.</p>",
-          "type": "ProjectNextItemConnection!",
-          "id": "projectnextitemconnection",
-          "kind": "objects",
-          "href": "/graphql/reference/objects#projectnextitemconnection",
-          "arguments": [
-            {
-              "name": "after",
-              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
-              "type": {
-                "name": "String",
-                "id": "string",
-                "kind": "scalars",
-                "href": "/graphql/reference/scalars#string"
-              }
-            },
-            {
-              "name": "before",
-              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
-              "type": {
-                "name": "String",
-                "id": "string",
-                "kind": "scalars",
-                "href": "/graphql/reference/scalars#string"
-              }
-            },
-            {
-              "name": "first",
-              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
-              "type": {
-                "name": "Int",
-                "id": "int",
-                "kind": "scalars",
-                "href": "/graphql/reference/scalars#int"
-              }
-            },
-            {
-              "name": "last",
-              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
-              "type": {
-                "name": "Int",
-                "id": "int",
-                "kind": "scalars",
-                "href": "/graphql/reference/scalars#int"
-              }
-            }
-          ],
           "isDeprecated": true,
           "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2022-10-01 UTC.</p>"
         },
@@ -68215,6 +68055,16 @@
           "href": "/graphql/reference/objects#sponsorsactivityconnection",
           "arguments": [
             {
+              "name": "actions",
+              "description": "<p>Filter activities to only the specified actions.</p>",
+              "type": {
+                "name": "[SponsorsActivityAction!]",
+                "id": "sponsorsactivityaction",
+                "kind": "enums",
+                "href": "/graphql/reference/enums#sponsorsactivityaction"
+              }
+            },
+            {
               "name": "after",
               "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
               "type": {
@@ -68267,7 +68117,7 @@
             {
               "name": "period",
               "defaultValue": "MONTH",
-              "description": "<p>Filter activities returned to only those that occurred in a given time range.</p>",
+              "description": "<p>Filter activities returned to only those that occurred in the most recent\nspecified time period. Set to ALL to avoid filtering by when the activity occurred.</p>",
               "type": {
                 "name": "SponsorsActivityPeriod",
                 "id": "sponsorsactivityperiod",
@@ -72651,6 +72501,16 @@
           "href": "/graphql/reference/objects#sponsorsactivityconnection",
           "arguments": [
             {
+              "name": "actions",
+              "description": "<p>Filter activities to only the specified actions.</p>",
+              "type": {
+                "name": "[SponsorsActivityAction!]",
+                "id": "sponsorsactivityaction",
+                "kind": "enums",
+                "href": "/graphql/reference/enums#sponsorsactivityaction"
+              }
+            },
+            {
               "name": "after",
               "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
               "type": {
@@ -72703,7 +72563,7 @@
             {
               "name": "period",
               "defaultValue": "MONTH",
-              "description": "<p>Filter activities returned to only those that occurred in a given time range.</p>",
+              "description": "<p>Filter activities returned to only those that occurred in the most recent\nspecified time period. Set to ALL to avoid filtering by when the activity occurred.</p>",
               "type": {
                 "name": "SponsorsActivityPeriod",
                 "id": "sponsorsactivityperiod",
@@ -75778,6 +75638,19 @@
         {
           "name": "TRACKS",
           "description": "<p>Tracks.</p>"
+        }
+      ]
+    },
+    {
+      "name": "ProjectV2ItemFieldValueOrderField",
+      "kind": "enums",
+      "id": "projectv2itemfieldvalueorderfield",
+      "href": "/graphql/reference/enums#projectv2itemfieldvalueorderfield",
+      "description": "<p>Properties by which project v2 item field value connections can be ordered.</p>",
+      "values": [
+        {
+          "name": "POSITION",
+          "description": "<p>Order project v2 item field values by the their position in the project.</p>"
         }
       ]
     },
@@ -85283,6 +85156,31 @@
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
+        }
+      ]
+    },
+    {
+      "name": "ProjectV2ItemFieldValueOrder",
+      "kind": "inputObjects",
+      "id": "projectv2itemfieldvalueorder",
+      "href": "/graphql/reference/input-objects#projectv2itemfieldvalueorder",
+      "description": "<p>Ordering options for project v2 item field value connections.</p>",
+      "inputFields": [
+        {
+          "name": "direction",
+          "description": "<p>The ordering direction.</p>",
+          "type": "OrderDirection!",
+          "id": "orderdirection",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#orderdirection"
+        },
+        {
+          "name": "field",
+          "description": "<p>The field to order the project v2 item field values by.</p>",
+          "type": "ProjectV2ItemFieldValueOrderField!",
+          "id": "projectv2itemfieldvalueorderfield",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#projectv2itemfieldvalueorderfield"
         }
       ]
     },

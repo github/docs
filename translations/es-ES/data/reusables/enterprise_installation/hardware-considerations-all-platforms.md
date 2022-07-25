@@ -8,6 +8,10 @@ Te recomendamos utilizar configuraciones de hardware diferentes dependiendo de l
 
 {% data reusables.enterprise_installation.hardware-rec-table %}
 
+{% data reusables.actions.more-resources-for-ghes %}
+
+{% data reusables.enterprise_installation.about-adjusting-resources %}
+
 ### Almacenamiento
 
 Recomendamos un SSD de alto rendimiento con operaciones de altas de entrada/salida por segundo (IOPS) y latencia baja para {% data variables.product.prodname_ghe_server %}. Las cargas de trabajo son intensivas para las I/O. Si utilizas un hipervisor de metal puro, te recomendamos adjuntar directamente el disco o utilizar un disco de una red de área de almacenamiento (SAN).

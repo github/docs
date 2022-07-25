@@ -1,6 +1,6 @@
 ---
 title: Ejecuciones de flujo de trabajo
-intro: 'The Workflow runs API allows you to view, re-run, cancel, and view logs for workflow runs.'
+intro: 'La API de ejecuciones de flujo de trabajo te permite ver, volver a ejecutar, cancelar y ver las bitácoras de las ejecuciones de los flujos de trabajo.'
 topics:
   - API
 versions:

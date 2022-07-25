@@ -46,7 +46,10 @@ export function RestOperation({ operation }: Props) {
       )}
       <div className={cx(styles.restOperation, 'd-flex flex-wrap gutter mt-4')}>
         <div className="col-md-12 col-lg-6">
-          <div dangerouslySetInnerHTML={{ __html: operation.descriptionHTML }} />
+          <div
+            className={cx(styles.codeBlock)}
+            dangerouslySetInnerHTML={{ __html: operation.descriptionHTML }}
+          />
 
           {hasParameters && (
             <RestParameterTable

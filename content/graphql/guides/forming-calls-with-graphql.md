@@ -33,13 +33,14 @@ The following scopes are recommended:
 
 ```
 repo
-repo:status
-repo_deployment{% ifversion not ghae %}
-public_repo{% endif %}
+repo_deployment
+read:packages
 read:org
 read:public_key
 read:repo_hook
 user
+read:discussion
+read:enterprise
 read:gpg_key
 ```
 

@@ -1,11 +1,11 @@
 ---
 title: Filtrar alertas en el resumen de seguridad
 intro: Utiliza filtros para ver categorías específicas de las alertas
-permissions: '{% data reusables.security-center.permissions %}'
-product: '{% data reusables.gated-features.security-center %}'
+permissions: '{% data reusables.security-overview.permissions %}'
+product: '{% data reusables.gated-features.security-overview %}'
 versions:
   ghae: '*'
-  ghes: '>3.1'
+  ghes: '*'
   ghec: '*'
 type: how_to
 topics:
@@ -18,7 +18,7 @@ shortTitle: Filtrar alertas
 ---
 
 {% ifversion ghes < 3.5 or ghae %}
-{% data reusables.security-center.beta %}
+{% data reusables.security-overview.beta %}
 {% endif %}
 
 ## Acerca de filtrar el resumen de seguridad

@@ -1,6 +1,8 @@
 ---
 title: Team をアイデンティティプロバイダグループと同期する
-intro: 'You can synchronize a {% data variables.product.product_name %} team with a supported identity provider (IdP) group to automatically add and remove team members.'
+intro: |-
+  {% data variables.product.product_name %}のTeamをサポートされているアイデンティティプロバイダ（IdP)
+  グループと同期して、自動的にTeamメンバーの追加や削除を行えます。
 redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/synchronizing-a-team-with-an-identity-provider-group
 permissions: 'Organization owners and team maintainers can synchronize a {% data variables.product.prodname_dotcom %} team with an IdP group.'

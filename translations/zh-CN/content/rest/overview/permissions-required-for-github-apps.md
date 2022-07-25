@@ -885,7 +885,7 @@ _团队_
 - [`DELETE /orgs/:org/dependabot/secrets/:secret_name`](/rest/reference/dependabot#delete-an-organization-secret) (:write)
 {% endif %}
 
-{% ifversion ghes > 3.0 or ghec %}
+{% ifversion ghes or ghec %}
 ### 对于“密码扫描警报”的权限
 
 - [`GET /repos/:owner/:repo/secret-scanning/alerts`](/rest/reference/secret-scanning#list-secret-scanning-alerts-for-a-repository) (:read)
@@ -899,18 +899,18 @@ _团队_
 - [`GET /repos/:owner/:repo/code-scanning/alerts`](/rest/reference/code-scanning#list-code-scanning-alerts-for-a-repository) (:read)
 - [`GET /repos/:owner/:repo/code-scanning/alerts/:alert_number`](/rest/reference/code-scanning#get-a-code-scanning-alert) (:read)
 - [`PATCH /repos/:owner/:repo/code-scanning/alerts/:alert_number`](/rest/reference/code-scanning#update-a-code-scanning-alert) (:write)
-{% ifversion fpt or ghec or ghes > 3.0 or ghae -%}
+{% ifversion fpt or ghec or ghes or ghae -%}
 - [`GET /repos/:owner/:repo/code-scanning/alerts/:alert_number/instances`](/rest/reference/code-scanning#list-instances-of-a-code-scanning-alert) (:read)
 {% endif -%}
 - [`GET /repos/:owner/:repo/code-scanning/analyses`](/rest/reference/code-scanning#list-code-scanning-analyses-for-a-repository) (:read)
-{% ifversion fpt or ghec or ghes > 3.0 or ghae -%}
+{% ifversion fpt or ghec or ghes or ghae -%}
 - [`GET /repos/:owner/:repo/code-scanning/analyses/:analysis_id`](/rest/reference/code-scanning#get-a-code-scanning-analysis-for-a-repository) (:read)
 {% endif -%}
-{% ifversion fpt or ghec or ghes > 3.0 -%}
+{% ifversion fpt or ghec or ghes -%}
 - [`DELETE /repos/:owner/:repo/code-scanning/analyses/:analysis_id`](/rest/reference/code-scanning#delete-a-code-scanning-analysis-from-a-repository) (:write)
 {% endif -%}
 - [`POST /repos/:owner/:repo/code-scanning/sarifs`](/rest/reference/code-scanning#upload-an-analysis-as-sarif-data) (:write)
-{% ifversion fpt or ghec or ghes > 3.0 or ghae -%}
+{% ifversion fpt or ghec or ghes or ghae -%}
 - [`GET /repos/:owner/:repo/code-scanning/sarifs/:sarif_id`](/rest/reference/code-scanning#get-information-about-a-sarif-upload) (:read)
 {% endif -%}
 {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-5435 -%}

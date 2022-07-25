@@ -1,1 +1,1 @@
-Después de que cambia la configuración de los {% data variables.product.prodname_codespaces %} para un repositorio, puedes aplicar los cambios a un codespace existente si vuelves a compilar el contenedor para el codespace.
+Después de que cambia la configuración de los {% data variables.product.prodname_github_codespaces %} para un repositorio, puedes aplicar los cambios a un codespace existente si vuelves a compilar el contenedor para el codespace.

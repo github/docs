@@ -34,7 +34,7 @@ versions:
 
 ## 环境保护规则
 
-环境保护规则要求通过特定的条件，然后引用环境的作业才能继续。 {% ifversion fpt or ghae or ghes > 3.1 or ghec %}您可以使用环境保护规则来要求手动批准、延迟作业或者将环境限于某些分支。{% else %}您可以使用环境保护规则要求手动批准或延迟作业。{% endif %}
+环境保护规则要求通过特定的条件，然后引用环境的作业才能继续。 您可以使用环境保护规则来要求人工审批、延迟工作或将环境限制于某些分支。
 
 ### 需要的审查者
 
@@ -46,7 +46,6 @@ versions:
 
 在最初触发作业后，使用等待计时器将作业延迟特定时间。 时间（分钟）必须是 0 至 43,200（30天）之间的整数。
 
-{% ifversion fpt or ghae or ghes > 3.1 or ghec %}
 ### 部署分支
 
 使用部署分支来限制哪些分支可以部署到环境中。 以下是环境部署分支的选项：
@@ -56,7 +55,6 @@ versions:
 * **Selected branches（所选分支）**：只有与指定的名称模式匹配的分支才能部署到环境。
 
   例如，如果您指定 `releases/*` 为部署分支规则，则只有其名称开头为 `releases/` 的分支才能部署到环境。 （通配符字符将不匹配 `/`。 要匹配以 `release/` 开头并且包含额外单一斜杠的分支，请使用 `release/*/*`）。 如果您添加 `main` 作为部署分支规则，则名为 `main` 的分支也可以部署到环境。 有关部署分支的语法选项的更多信息，请参阅 [Ruby File.fnmatch 文档](https://ruby-doc.org/core-2.5.1/File.html#method-c-fnmatch)。
-{% endif %}
 ## 环境机密
 
 存储在环境中的机密仅可用于引用环境的工作流程作业。 如果环境需要批准，作业在所需的审查者批准之前不能访问环境机密。 有关机密的更多信息，请参阅“[加密密码](/actions/reference/encrypted-secrets)”。
@@ -101,7 +99,7 @@ versions:
    1. 输入机密值。
    1. 单击 **Add secret（添加密码）**。
 
-{% ifversion fpt or ghae or ghes > 3.1 or ghec %}您也可以通过 REST API 创建和配置环境。 更多信息请参阅“[环境](/rest/reference/repos#environments)”和“[密码](/rest/reference/actions#secrets)”。{% endif %}
+您还可以通过 REST API 创建和配置环境。 更多信息请参阅“[环境](/rest/reference/repos#environments)”和“[密码](/rest/reference/actions#secrets)”。
 
 运行引用不存在的环境的工作流程将使用引用的名称创建环境。 新创建的环境将不配置任何保护规则或机密。 可在仓库中编辑工作流程的任何人都可以通过工作流程文件创建环境，但只有仓库管理员才能配置环境。
 
@@ -125,13 +123,13 @@ versions:
 1. 在要删除的环境旁边，单击 {% octicon "trash" aria-label="The trash icon" %}。
 2. 单击 **I understand, delete this environment（我了解，删除此环境）**。
 
-{% ifversion fpt or ghae or ghes > 3.1 or ghec %}您还可以通过 REST API 删除环境。 更多信息请参阅“[环境](/rest/reference/repos#environments)”。{% endif %}
+您也可以通过 RESEST API 删除环境。 更多信息请参阅“[环境](/rest/reference/repos#environments)”。
 
 ## 环境与部署的关系
 
 {% data reusables.actions.environment-deployment-event %}
 
-您可以通过 REST API 或 GraphQL API 访问这些对象。 您还可以订阅这些 web 挂钩事件。 更多信息请参阅“[存储库](/rest/reference/repos#deployments)”（REST API）、“[对象]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql/reference/objects#deployment)”（GraphQL API）或“[web 挂钩事件和有效负载](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#deployment)”。
+您可以通过 REST API 或 GraphQL API 访问这些对象。 您还可以订阅这些 web 挂钩事件。 更多信息请参阅“[存储库](/rest/reference/repos#deployments)”（REST API）、“[对象](/graphql/reference/objects#deployment)”（GraphQL API）或“[web 挂钩事件和有效负载](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#deployment)”。
 
 ## 后续步骤
 

@@ -1,4 +1,1 @@
-{% ifversion fpt or ghes or ghae or ghec %}
-Você pode escolher o método de entrega e a frequência das notificações sobre
-{% data variables.product.prodname_dependabot_alerts %} em repositórios que você está inspecionando ou onde você se assinou notificações para alertas de segurança.
-{% endif %}
+You can choose the delivery method and frequency of notifications about {% data variables.product.prodname_dependabot_alerts %} on repositories that you are watching or where you have subscribed to notifications for security alerts.

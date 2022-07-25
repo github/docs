@@ -11,7 +11,7 @@ topics:
 
 ## Sobre {% data variables.product.product_name %}
 
-{% data reusables.enterprise.ghes-is-a-self-hosted-platform %} Sua equipe pode usar o {% data variables.product.product_name %} para criar e enviar softwares usando o controle de versão do Git, poderosas APIs, ferramentas de produtividade e colaboração e integrações. Desenvolvedores familiarizados com {% data variables.product.prodname_dotcom_the_website %} podem a integrar-se e contribuir sem problemas usando funcionalidades e fluxos de trabalho conhecidos.
+{% data reusables.enterprise.ghes-is-a-self-hosted-platform %} Sua equipe pode usar o {% data variables.product.product_name %} para criar e enviar softwares usando o controle de versão do Git, poderosas APIs, ferramentas de produtividade e colaboração e integrações. Desenvolvedores familiarizados com {% data variables.product.prodname_dotcom_the_website %} podem a integrar-se e contribuir sem problemas usando funcionalidades e fluxos de trabalho conhecidos. {% data reusables.enterprise.about-github-for-enterprises %}
 
 {% data reusables.enterprise.ghes-runs-on-your-infrastructure %}
 
@@ -77,7 +77,7 @@ Por padrão, {% data variables.product.product_name %} é executado como uma ins
 
 Para se proteger contra perda de dados ou interrupções de serviço para os seus desenvolvedores, {% data variables.product.company_short %} recomenda que você estabeleça um plano de recuperação de desastres. Você pode fazer backup das configurações e dados de usuário da instância implantando e configurando um sistema de host Linux ou Unix com {% data variables.product.prodname_enterprise_backup_utilities %}. Para obter mais informações, consulte "[Configurar backups no appliance](/admin/configuration/configuring-your-enterprise/configuring-backups-on-your-appliance)".
 
-Além disso, você pode configurar uma instância de réplica passiva para gerar uma falha no caso de uma falha no sistema ou na rede. Para obter mais informações, consulte "[Sobre a implantação](#about-deployment-topologies)."
+Além disso, você pode configurar uma instância de réplica passiva para gerar uma falha no caso de uma falha no sistema ou na rede. For more information, see "[About deployment topologies](#about-deployment-topologies)."
 
 ## Sobre a documentação
 

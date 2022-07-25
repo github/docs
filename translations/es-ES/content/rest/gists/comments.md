@@ -2,7 +2,7 @@
 title: Gist comments
 allowTitleToDifferFromFilename: true
 shortTitle: Comentarios
-intro: The Gist comments API lets you view and modify comments on a gist.
+intro: La API de comentarios de gists te permite ver y modificar los comentarios en un gist.
 versions:
   fpt: '*'
   ghes: '*'

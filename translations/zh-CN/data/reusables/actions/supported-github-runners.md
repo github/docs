@@ -15,7 +15,7 @@ Windows Server 2022
 <code>windows-latest</code> 或 <code>windows-2022</code>
 </td>
 <td>
-The <code>windows-latest</code> label currently uses the Windows Server 2022 runner image.
+<code>windows-latest</code> 标签目前使用 Windows Server 2022 运行器映像。
 </td>
 </tr>
 <tr>
@@ -78,12 +78,13 @@ macOS Big Sur 11
 </tr>
 <tr>
 <td>
-macOS Catalina 10.15
+macOS Catalina 10.15 <sup>[deprecated]</sup>
 </td>
 <td>
 <code>macos-10.15</code>
 </td>
 <td>
+Migrate to <code>macOS-11</code> or <code>macOS-12</code>. For more information, see <A href="https://github.blog/changelog/2022-07-20-github-actions-the-macos-10-15-actions-runner-image-is-being-deprecated-and-will-be-removed-by-8-30-22/">this GitHub blog post</A>.
 </td>
 </tr>
 </tbody>
@@ -91,12 +92,12 @@ macOS Catalina 10.15
 
 {% note %}
 
-**Note:** The `-latest` virtual environments are the latest stable images that {% data variables.product.prodname_dotcom %} provides, and might not be the most recent version of the operating system available from the operating system vendor.
+**注意：** `-latest` 虚拟环境是 {% data variables.product.prodname_dotcom %} 提供的最新稳定映像，可能不是操作系统供应商提供的最新版本的操作系统。
 
 {% endnote %}
 
 {% warning %}
 
-<b>Note:</b> Beta and Deprecated Images are provided "as-is", "with all faults" and "as available" and are excluded from the service level agreement and warranty. Beta Images may not be covered by customer support.
+<b>注意：</b> 测试版和已弃用映像均按“原样”、“包含所有故障”和“可用”提供，并且不在服务级别协议和保修范围内。 测试版映像可能不在客户支持范围内。
 
 {% endwarning %}

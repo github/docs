@@ -26,9 +26,9 @@ export const LanguagePicker = ({ variant }: Props) => {
   // in a "denormalized" way.
   const routerPath = router.asPath.split('#')[0]
 
-  function rememberPreferredLanguage(option: { locale: string }) {
+  function rememberPreferredLanguage(value: string) {
     try {
-      Cookies.set(PREFERRED_LOCALE_COOKIE_NAME, option.locale, {
+      Cookies.set(PREFERRED_LOCALE_COOKIE_NAME, value, {
         expires: 365,
         secure: document.location.protocol !== 'http:',
       })

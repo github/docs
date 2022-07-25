@@ -1,4 +1,4 @@
-1. Under "Runners", locate the runner in the list. ランナーがグループ内にあるなら、{% octicon "chevron-down" aria-label="The downwards chevron" %}をクリックしてリストを展開してください。
+1. "Runners（ランナー）"の下で、ランナーのリストを見つけてください。 ランナーがグループ内にあるなら、{% octicon "chevron-down" aria-label="The downwards chevron" %}をクリックしてリストを展開してください。
 1. 削除したいランナーの隣の{% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}をクリックし、続いて** Remove（削除）**をクリックしてください。
 
     ![セルフホストランナーの設定の削除](/assets/images/help/settings/actions-runner-remove.png)
