@@ -1,32 +1,32 @@
 ---
-title: 'Phase 4: Create internal documentation'
-intro: 'You will create internal documentation and then communicate this to the consumers of {% data variables.product.prodname_GH_advanced_security %}.'
+title: 第 4 阶段：创建内部文档
+intro: '您将创建内部文档，然后将其传达给 {% data variables.product.prodname_GH_advanced_security %} 的使用者。'
 versions:
   ghes: '*'
   ghae: '*'
   ghec: '*'
 topics:
   - Advanced Security
-shortTitle: 4. Create internal documentation
+shortTitle: 4. 创建内部文档
 miniTocMaxHeadingLevel: 3
 ---
 
 {% note %}
 
-本文是关于大规模采用 {% data variables.product.prodname_GH_advanced_security %} 系列文章的一部分。 For the previous article in this series, see "[Phase 3: Pilot programs](/code-security/adopting-github-advanced-security-at-scale/phase-3-pilot-programs)."
+本文是关于大规模采用 {% data variables.product.prodname_GH_advanced_security %} 系列文章的一部分。 有关本系列的上一篇文章，请参阅“[第 3 阶段：试点计划](/code-security/adopting-github-advanced-security-at-scale/phase-3-pilot-programs)”。
 
 {% endnote %}
 
-Before enabling {% data variables.product.prodname_GH_advanced_security %}, you should create internal documentation that defines processes for teams to follow. Everyone needs to know what to do when they receive a security alert, even if the process simply asks the team to apply their best judgment. Documentation will also prevent developers from getting blocked when they have questions. You should put the documentation about GHAS with existing developer-focused documentation, such as your developer portal or custom knowledge base.
+在启用 {% data variables.product.prodname_GH_advanced_security %} 之前，应创建内部文档，用于定义团队要遵循的流程。 每个人都需要知道在收到安全警报时该怎么做，即使该流程只是要求团队运用他们的最佳判断。 文档还可以防止开发人员在遇到问题时束手无策。 您应将有关 GHAS 的文档与现有的以开发人员为中心的文档（例如开发人员门户或自定义知识库）放在一起。
 
-If you ran pilot programs, use the experiences and feedback from the teams involved in those pilots to influence your documentation. This is especially useful if you encountered issues that are specific to your company, that other teams will also likely encounter.
+如果您运行了试点计划，请使用参与这些试点的团队的经验和反馈来影响您的文档。 如果您遇到特定于公司的问题，这尤其有用，其他团队也可能会遇到这些问题。
 
-If you skip creating internal documentation, your rollout won’t go at your intended pace. Creating internal documentation may slow the initial rollout by a week or two, but that time will be made up when developers can answer their own questions instead of coming to your team.
+如果您跳过创建内部文档，部署将无法按预期速度进行。 创建内部文档可能会使初始部署速度减慢一两周，但是当开发人员可以回答自己的问题而不是来到您的团队时，这段时间将被弥补。
 
-Education is probably the most crucial part of the rollout as it teaches developers what to do in different situations. You should ensure developers are empowered to maintain the security of their repository and that the security team are authorized to verify both what developers are doing and that it's in the best interest of security. In additional to internal documentation, education can take the form of online sessions, Q&As, etc.
+教育可能是推出过程中最关键的部分，因为它教会开发人员在不同情况下该怎么做。 您应该确保开发人员有权维护其存储库的安全性，并且安全团队有权验证开发人员正在执行的操作以及这是否符合安全性的最佳利益。 除内部文档外，教育还可以采取在线会议、问答等形式。
 
 {% note %}
 
-For the next article in this series, see "[Phase 5: Rollout and scale code scanning](/code-security/adopting-github-advanced-security-at-scale/phase-5-rollout-and-scale-code-scanning)."
+有关本系列的下一篇文章，请参阅“[第 5 阶段：推出和扩展代码扫描](/code-security/adopting-github-advanced-security-at-scale/phase-5-rollout-and-scale-code-scanning)”。
 
 {% endnote %}

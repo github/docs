@@ -1,35 +1,35 @@
 ---
-title: 'フェーズ2: 大規模な有効化の準備'
-intro: 'このフェーズでは、開発者を準備し、リポジトリに関するデータを収集して、チームの準備が整い、パイロットプログラムと{% data variables.product.prodname_code_scanning %}及び{% data variables.product.prodname_secret_scanning %}のロールアウトに必要なものがすべて揃っていることを確認します。'
+title: 'Phase 2: Preparing to enable at scale'
+intro: "In this phase you will prepare developers and collect data about your repositories to ensure your teams are ready and you have everything you need for pilot programs and rolling out {% data variables.product.prodname_code_scanning %} and {% data variables.product.prodname_secret_scanning %}."
 versions:
   ghes: '*'
   ghae: '*'
   ghec: '*'
 topics:
   - Advanced Security
-shortTitle: 2. 準備
+shortTitle: 2. Preparation
 miniTocMaxHeadingLevel: 3
 ---
 
 {% note %}
 
-この記事は、{% data variables.product.prodname_GH_advanced_security %}の大規模な採用に関するシリーズの一部です。 このシリーズの以前の記事としては「[フェーズ1: ロールアウトの戦略とゴールの調整](/code-security/adopting-github-advanced-security-at-scale/phase-1-align-on-your-rollout-strategy-and-goals)」を参照してください。
+This article is part of a series on adopting {% data variables.product.prodname_GH_advanced_security %} at scale. For the previous article in this series, see "[Phase 1: Align on your rollout strategy and goals](/code-security/adopting-github-advanced-security-at-scale/phase-1-align-on-your-rollout-strategy-and-goals)."
 
 {% endnote %}
 
-## {% data variables.product.prodname_code_scanning %}の有効化の準備
+## Preparing to enable {% data variables.product.prodname_code_scanning %}
+ 
+{% data reusables.code-scanning.about-code-scanning %} For more information, see "[About code scanning](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning)."
 
-{% data reusables.code-scanning.about-code-scanning %} 詳しい情報については「[Code scanningについて](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning)」を参照してください。
+Rolling {% data variables.product.prodname_code_scanning %} out across hundreds of repositories can be difficult, especially when done inefficiently. Following these steps will ensure your rollout is both efficient and successful. As part of your preparation, you will work with your teams, use automation to collect data about your repositories, and enable {% data variables.product.prodname_code_scanning %}. 
 
-数百のリポジトリに対する{% data variables.product.prodname_code_scanning %}のロールアウトは、特に非効率的に行われた場合、難しくなることがあります。 以下のステップに従えば、確実にロールアウトは効率的に成功できます。 準備の一部として、チームと協力し、リポジトリに関するデータの収集を自動化し、{% data variables.product.prodname_code_scanning %}を有効化します。
+### Preparing teams for {% data variables.product.prodname_code_scanning %}
 
-### {% data variables.product.prodname_code_scanning %}に対するチームの準備
+First, prepare your teams to use {% data variables.product.prodname_code_scanning %}. The more teams that use {% data variables.product.prodname_code_scanning %}, the more data you'll have to drive remediation plans and monitor progress on your rollout. During this phase, focus on leveraging APIs and running internal enablement events.
 
-最初に、{% data variables.product.prodname_code_scanning %}を使う準備をチームに行ってください。 {% data variables.product.prodname_code_scanning %}を使うチームが多ければ多いほど、修復プランを推進し、ロールアウトの進捗をモニターするためのデータが得られることになります。 このフェーズの間は、APIの活用と内部的な有効化のイベントに集中してください。
-
-中核的な焦点は、できるかぎり多くのチームが{% data variables.product.prodname_code_scanning %}を使うよう準備することにすべきです。 修復を適切に行うこともチームに推奨すべきですが、このフェーズでは問題の修復よりも{% data variables.product.prodname_code_scanning %}の有効化と利用を優先することをおすすめします。
-
-### リポジトリに関する情報の収集
+Your core focus should be preparing as many teams to use {% data variables.product.prodname_code_scanning %} as possible. You can also encourage teams to remediate appropriately, but we recommend prioritizing enablement and use of {% data variables.product.prodname_code_scanning %} over fixing issues during this phase.
+  
+### Collecting information about your repositories
 
 You can programmatically gather information about the different programming languages used in your repositories and use that data to enable {% data variables.product.prodname_code_scanning %} on all repositories that use the same language, using {% data variables.product.product_name %}'s GraphQL API.
 
@@ -87,8 +87,8 @@ For more information about running GraphQL queries, see "[Forming calls with Gra
 
 Then, convert the data from the GraphQL query into a readable format, such as a table.
 
-| 言語                      | Number of Repos | Name of Repos                 |
-| ----------------------- | --------------- | ----------------------------- |
+| Language                | Number of Repos | Name of Repos                           |
+|-------------------------|-----------------|-----------------------------------------|
 | JavaScript (TypeScript) | 4212            | org/repo<br /> org/repo |
 | Python                  | 2012            | org/repo<br /> org/repo |
 | Go                      | 983             | org/repo<br /> org/repo |
@@ -101,8 +101,8 @@ You can filter out the languages that are currently not supported by {% data var
 
 If you have repositories with multiple languages, you can format the GraphQL results as shown in the table below. Filter out languages that are not supported, but retain all repositories with at least one supported language. You can enable {% data variables.product.prodname_code_scanning %} on these repositories, and all supported languages will be scanned.
 
-| Language(s)            | Number of Repos | Name of Repos                  |
-| ---------------------- | --------------- | ------------------------------ |
+| Language(s)            | Number of Repos | Name of Repos                            |
+|------------------------|-----------------|------------------------------------------|
 | JavaScript/Python/Go   | 16              | org/repo <br /> org/repo |
 | Rust/TypeScript/Python | 12              | org/repo <br /> org/repo |
 
@@ -118,7 +118,7 @@ Before you can proceed with pilot programs and rolling out {% data variables.pro
 
 ## Preparing to enable {% data variables.product.prodname_secret_scanning %}
 
-If a project communicates with an external service, it might use a token or private key for authentication. リポジトリにシークレットをチェックインする場合、リポジトリへの読み取りアクセスを持つすべてのユーザがシークレットを使用して、自分の権限で外部サービスにアクセスできます。 {% data variables.product.prodname_secret_scanning_caps %} will scan your entire Git history on all branches present in your {% data variables.product.prodname_dotcom %} repositories for secrets and alert you{% ifversion secret-scanning-push-protection %} or block the push containing the secret{% endif %}. 詳しい情報については、「[シークレットスキャニングについて](/code-security/secret-scanning/about-secret-scanning)」を参照してください。
+If a project communicates with an external service, it might use a token or private key for authentication. If you check a secret into a repository, anyone who has read access to the repository can use the secret to access the external service with your privileges. {% data variables.product.prodname_secret_scanning_caps %} will scan your entire Git history on all branches present in your {% data variables.product.prodname_dotcom %} repositories for secrets and alert you{% ifversion secret-scanning-push-protection %} or block the push containing the secret{% endif %}. For more information, see "[About secret scanning](/code-security/secret-scanning/about-secret-scanning)."
 
 ### Considerations when enabling {% data variables.product.prodname_secret_scanning %}
 
@@ -129,21 +129,21 @@ If a project communicates with an external service, it might use a token or priv
 - **Initial high volume of detected secrets**  
   If you are enabling {% data variables.product.prodname_secret_scanning %} on a large organization, be prepared to see a high number of secrets found. Sometimes this comes as a shock to organizations and the alarm is raised. If you would like to turn on {% data variables.product.prodname_secret_scanning %} across all repositories at once, plan for how you will respond to multiple alerts across the organization.
 
-{% data variables.product.prodname_secret_scanning_caps %} can be enabled for individual repositories. 詳しい情報については「[リポジトリでの{% data variables.product.prodname_secret_scanning %}の設定](/code-security/secret-scanning/configuring-secret-scanning-for-your-repositories)」を参照してください。 {% data variables.product.prodname_secret_scanning_caps %} can also be enabled for all repositories in your organization, as described above. For more information on enabling for all repositories, see "[Managing security and analysis settings for your organization](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization)."
+{% data variables.product.prodname_secret_scanning_caps %} can be enabled for individual repositories. For more information, see "[Configuring {% data variables.product.prodname_secret_scanning %} for your repositories](/code-security/secret-scanning/configuring-secret-scanning-for-your-repositories)." {% data variables.product.prodname_secret_scanning_caps %} can also be enabled for all repositories in your organization, as described above. For more information on enabling for all repositories, see "[Managing security and analysis settings for your organization](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization)."
 
 ### Custom patterns for {% data variables.product.prodname_secret_scanning %}
 
 {% ifversion ghae %}
 {% note %}
 
-**ノート:** {% data variables.product.prodname_secret_scanning %}のカスタムパターンは現在ベータであり、変更されることがあります。
+**Note:** Custom patterns for {% data variables.product.prodname_secret_scanning %} is currently in beta and is subject to change.
 
 {% endnote %}
 {% endif %}
 
-{% data variables.product.prodname_secret_scanning_caps %} detects a large number of default patterns but can also be configured to detect custom patterns, such as secret formats unique to your infrastructure or used by integrators that {% data variables.product.product_name %}'s {% data variables.product.prodname_secret_scanning %} does not currently detect. For more information about supported secrets for partner patterns, see "[Secret scanning patterns](/code-security/secret-scanning/secret-scanning-patterns)."
+{% data variables.product.prodname_secret_scanning_caps %} detects a large number of default patterns but can also be configured to detect custom patterns, such as secret formats unique to your infrastructure or used by integrators that {% data variables.product.product_name %}'s {% data variables.product.prodname_secret_scanning %} does not currently detect. For more information about supported secrets for partner patterns, see "[Secret scanning patterns](/code-security/secret-scanning/secret-scanning-patterns)." 
 
-As you audit your repositories and speak to security and developer teams, build a list of the secret types that you will later use to configure custom patterns for {% data variables.product.prodname_secret_scanning %}. 詳しい情報については「[Secret scanningのカスタムパターンの定義](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)」を参照してください。
+As you audit your repositories and speak to security and developer teams, build a list of the secret types that you will later use to configure custom patterns for {% data variables.product.prodname_secret_scanning %}. For more information, see "[Defining custom patterns for secret scanning](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)."
 
 
 {% note %}

@@ -22,7 +22,7 @@ sections:
     - Creating or updating check runs or check suites could return `500 Internal Server Error` if the value for certain fields, like the name, was too long.
     - Improves performance in pull requests' "Files changed" tab when the diff includes many changes.
     - 'The Actions repository cache usage policy no longer accepts a maximum value less than 1 for [`max_repo_cache_size_limit_in_gb`](/rest/actions/cache#set-github-actions-cache-usage-policy-for-an-enterprise).'
-    - 'When [deploying cache-server nodes](/admin/enterprise-management/caching-repositories/configuring-a-repository-cache#configuring-a-repository-cache), it is now mandatory to describe the datacenter topology (using the `--datacenter` argument) for every node in the system. This requirement prevents situations where leaving datacenter membership set to "default" leads to workloads being inappropriately balanced across multiple datacenters.'
+    - 'Cuando [despliegas nodos de servidor caché](/admin/enterprise-management/caching-repositories/configuring-a-repository-cache#configuring-a-repository-cache), ahora es obligatorio describir la topología del centro de datos (utilizando el argumento `--datacenter`) para cada nodo en el sistema. Este requisito previene situaciones en donde el dejar una membrecía del centro de datos configurada como "default" ocasiona que las cargas de trabajo se balanceen inadecuadamente a lo largo de varios centros de datos.'
   known_issues:
     - En una instancia recién configurada de {% data variables.product.prodname_ghe_server %} sin ningún usuario, un atacante podría crear el primer usuario adminsitrador.
     - Las reglas de cortafuegos personalizadas se eliminan durante el proceso de actualización.

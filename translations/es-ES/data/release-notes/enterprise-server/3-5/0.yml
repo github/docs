@@ -30,7 +30,7 @@ sections:
       heading: Dependabot updates are generally available
       notes:
         - |
-          Dependabot version and security updates are now generally available in GitHub Enterprise Server 3.5. All the popular ecosystems and features that work on GitHub.com repositories now can be set up on your GitHub Enterprise Server instance. Dependabot on GitHub Enterprise Server requires GitHub Actions and a pool of self-hosted Dependabot runners, GitHub Connect enabled, and Dependabot enabled by an admin. For more information, see "[Setting up Dependabot updates](https://docs.github.com/en/enterprise-server@3.5/admin/github-actions/enabling-github-actions-for-github-enterprise-server/setting-up-dependabot-updates)."
+          La versión del Dependabot y las actualizaciones de seguridad ahora están disponibles en general en GitHub Enterprise Sever 3.5. Todas las características y ecosistemas populares que funcionan en los repositorios de GitHub.com ahora pueden configurarse con tu instancia de GitHub Enterprise Server. El Dependabot en GitHub Enterprise Server requiere GitHub Actions y un conjunto de ejecutores auto-hospedados del Dependabot, contar con GitHub Connect habilitado y que un administrador habilite al Dependabot. Para obtener más información, consulta la sección "[Configurar las actualizaciones del Dependabot](https://docs.github.com/en/enterprise-server@3.5/admin/github-actions/enabling-github-actions-for-github-enterprise-server/setting-up-dependabot-updates)".
     - 
       heading: Server Statistics in public beta
       notes:
@@ -111,7 +111,7 @@ sections:
       heading: Re-run failed or individual GitHub Actions jobs
       notes:
         - |
-          You can now re-run only failed jobs or an individual job in a GitHub Actions workflow run. For more information, see "[Re-running workflows and jobs](/actions/managing-workflow-runs/re-running-workflows-and-jobs)."
+          Ahora puedes volver a ejecutar solo los jobs fallidos o un job individual en una ejecución de flujo de trabajo de GitHub Actions. Para obtener más información, consulta la sección "[Volver a ejecutar flujos de trabajo y jobs](/actions/managing-workflow-runs/re-running-workflows-and-jobs)".
     - 
       heading: Dependency graph supports GitHub Actions
       notes:
@@ -145,12 +145,12 @@ sections:
         - |
           Los clientes de GitHub Advanced Security ahora pueden ver las alertas del escaneo de código en la pestaña de **Seguridad** de una organización. Esta vista está disponible para los propietarios de las organizaciones y miembros de los equipos con el [rol de gerente de seguridad](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-security-managers-in-your-organization). Para obtener más información, consulta la sección "[Acerca del resumen de seguridad](/code-security/security-overview/about-the-security-overview)".
         - |
-          Users can now retrieve code scanning alerts for an organization on your GitHub Enterprise Server instance via the REST API. This new API endpoint supplements the existing [endpoint for repositories](/rest/reference/code-scanning#list-code-scanning-alerts-for-a-repository). For more information, see [Code Scanning](/rest/code-scanning) in the REST API documentation.
+          Los usuarios ahora pueden recuperar alertas del escaneo de código para una organización en tu instancia de GitHub Enterprise Server a través de la API de REST. Esta nueva terminal de la API complementa la [terminal para repositorios](/rest/reference/code-scanning#list-code-scanning-alerts-for-a-repository). For more information, see [Code Scanning](/rest/code-scanning) existente en la documentación de la API de REST.
     - 
       heading: Secret scanning available as a push protection
       notes:
         - |
-          GitHub Enterprise Server can now block any pushes where a token is detected with high confidence. Developers can bypass the block by providing details of why the secret needs to be committed via a web UI. For more information, see "[Protecting pushes with secret scanning](/code-security/secret-scanning/protecting-pushes-with-secret-scanning)."
+          GitHub Enterprise Server ahora puede bloquear cualquier subida en donde se detecte un token con confidencialidad alta. Los desarrolladores pueden soltar el bloque si proporcionan detalles de por qué el secreto necesita confirmarse a través de la IU web. Para obtener más información, consulta la sección "[Proteger las subidas con el escaneo de secretos](/code-security/secret-scanning/protecting-pushes-with-secret-scanning)".
     - 
       heading: Dry runs for custom patterns with secret scanning
       notes:
@@ -200,7 +200,7 @@ sections:
       heading: Reopen dismissed Dependabot alerts
       notes:
         - |
-          You can now reopen dismissed Dependabot alerts through the UI page for a closed alert. This does not affect Dependabot pull requests or the GraphQL API. For more information, see "[About Dependabot alerts](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)."
+          Ahora puedes reabrir las alertas descartadas del Dependabot a través de la página de IU para una alerta cerrada. Esto no afecta a las solicitudes de cambio del Dependabot ni a la API de GraphQL. Para obtener más información, consulta la sección "[Acerca de las alertas del Dependabot](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)".
     - 
       heading: Pub support for Dependabot version updates is in public beta
       notes:
@@ -269,17 +269,17 @@ sections:
       heading: Configure custom HTTP headers for GitHub Pages sites
       notes:
         - |
-          You can now configure custom HTTP headers that apply to all GitHub Pages sites served from your GitHub Enterprise Server instance. For more information, see "[Configuring GitHub Pages for your enterprise](/admin/configuration/configuring-your-enterprise/configuring-github-pages-for-your-enterprise#configuring-github-pages-response-headers-for-your-enterprise)."
+          Ahora puedes configurar los encabezados HTTP personalizados que aplican a todos los sitios de GitHub Pages que se sirven desde tu instancia de GitHub Enterprise Server. Para obtener más información, consulta la sección "[Configurar GitHub Pages para tu empresa](/admin/configuration/configuring-your-enterprise/configuring-github-pages-for-your-enterprise#configuring-github-pages-response-headers-for-your-enterprise)".
     - 
       heading: Ignore commits in blame view
       notes:
         - |
-          It's now possible to ignore revisions in the blame view by creating a _.git-blame-ignore-revs_ file in the root of your repository. For more information, see "[Viewing a file](/repositories/working-with-files/using-files/viewing-a-file#ignore-commits-in-the-blame-view)."
+          Ahora es posible ignorar las revisiones en la vista de último responsable si creas un archivo _.git-blame-ignore-revs_ en la raíz de tu repositorio. Para obtener más información, consulta la sección "[Ver un archivo](/repositories/working-with-files/using-files/viewing-a-file#ignore-commits-in-the-blame-view)".
     - 
       heading: Light high contrast theme is generally available
       notes:
         - |
-          A light high contrast theme, with greater contrast between foreground and background elements, is now generally available. For more information, see "[Managing your theme settings](/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/managing-your-theme-settings)."
+          Ahora está disponible un tema de alto contraste para el público en general, el cual tiene un contraste mayor entre los elementos de fondo y de primer plano. Para obtener más información, consulta la sección "[Administrar los ajustes de tu tema](/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/managing-your-theme-settings)".
     - 
       heading: Reglas de protección de etiquetas
       notes:
@@ -311,18 +311,18 @@ sections:
     - |
       Los gists nuevos ahora se crean con un nombre de rama predeterminado ya sea de `main` o del nombre de la rama predeterminada alterna en tus ajustes de usuario. Esto empata con cómo se crean otros repositorios en GitHub Enterprise Server. Para obtener más información, consulta las secciones "[Acerca de las ramas](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches#about-the-default-branch)" y "[Administrar el nombre de rama predeterminada de tus repositorios](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/managing-the-default-branch-name-for-your-repositories)".
     - |
-      Gists now only show the 30 most recent comments when first displayed. You can click **Load earlier comments...** to view more. This allows gists that have many comments to appear more quickly. For more information, see "[Editing and sharing content with gists](/get-started/writing-on-github/editing-and-sharing-content-with-gists)."
+      Los gists ahora solo muestran los 30 comentarios más recientes cuando se despliegan primero. Puedes hacer clic en **Cargar los comentarios anteriores...** para ver más. Esto permite que los gists que tengan muchos comentarios se muestren más rápidamente. Para obtener más información, consulta la sección "[Editar y compartir contenido con los gists](/get-started/writing-on-github/editing-and-sharing-content-with-gists)".
     - |
-      Settings pages for users, organizations, repositories, and teams have been redesigned, grouping similar settings pages into sections for improved information architecture and discoverability. For more information, see the [GitHub changelog](https://github.blog/changelog/2022-02-02-redesign-of-githubs-settings-pages/).
+      Las páginas de ajustes para usuarios, organizaciones, repositorios y equipos se rediseñaron agrupando las páginas de ajustes similares en secciones para tener una arquitectura informática y capacidad de descubrimiento mejoradas, Para obtener más información,. consulta la [Bitácora de cambios de GitHub](https://github.blog/changelog/2022-02-02-redesign-of-githubs-settings-pages/).
     - |
       Focusing or hovering over a label now displays the label description in a tooltip.
     - |
-      Creating and removing repository invitations, whether done through the API or web interface, are now subject to rate limits that may be enabled on your GitHub Enterprise Server instance. For more information about rate limits, see "[Configuring rate limits](/admin/configuration/configuring-your-enterprise/configuring-rate-limits)."
+      El crear y eliminar las invitaciones al repositorio, ya sea que se haga a través de la API o interfaz web, ahora está sujeto a los límites de tasa que pueden habilitarse en tu instancia de GitHub Enterprise Server. para obtener más información sobre los límites de tasa, consulta la sección "[Configurar los límites de tasa](/admin/configuration/configuring-your-enterprise/configuring-rate-limits)".
     - |
       MinIO anunció la eliminación de MinIO Gateways desde el 1 de junio de 2022. Si bien MinIO Gateway para NAS sigue siendo uno de los proveedores de almacenamiento compatibles para GitHub Actions y GitHub Packages, recomendamos que te migres al soporte de MinIO LTS para obtener compatibilidad y correcciones de errores desde MinIO. Para obtener más información sobre los límites de tasa, consulta la "[Eliminación programada de MinIO Gateway para GCS, Azure, HDFS en el repositorio minio/minio](https://github.com/minio/minio/issues/14331)".
   deprecations:
     - 
-      heading: Change to the format of authentication tokens affects GitHub Connect
+      heading: El cambio al formato de tokens de autenticación afecta a GitHub Connect
       notes:
         - |
           GitHub Connect ya no funcionará después del 3 de junio para las instancias que ejecuten GitHub Enterprise Server 3.1 o anterior, debido al cambio en el formato de los tokens de autenticación de GitHub. Para seguir utilizando GitHub Connect, mejora a GitHub Enterprise Server 3.2 o posterior. Para obtener más información, consulta el [Blog de GitHub](https://github.blog/2022-05-20-action-needed-by-github-connect-customers-using-ghes-3-1-and-older-to-adopt-new-authentication-token-format-updates/). [Actualizado: 2022-06-14]

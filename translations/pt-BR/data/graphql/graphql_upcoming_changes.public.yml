@@ -85,13 +85,6 @@ upcoming_changes:
     criticality: breaking
     owner: jhunschejones
   - 
-    location: Enterprise.userAccounts
-    description: '`userAccounts` será removido. Use o campo `Enterprise.members`.'
-    reason: O campo `Enterprise.userAccounts` está sendo removido.
-    date: '2022-07-01T00:00:00+00:00'
-    criticality: breaking
-    owner: jdennes
-  - 
     location: Query.sponsorables.dependencyEcosystem
     description: '`dependencyEcosystem` será removido. Use o argumento do ecossistema.'
     reason: O tipo está mudando de SecurityAdvisoryEcosystem para DependencyGraphEcosystem.
@@ -541,63 +534,63 @@ upcoming_changes:
     owner: lukewar
   - 
     location: ProjectNextFieldType.LINKED_PULL_REQUESTS
-    description: 'O `LINKED_PULL_REQUESTS` será removido. Siga o guia ProjectV2 em https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar um substituto adequado.'
+    description: '`LINKED_PULL_REQUESTS` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement.'
     reason: A API `ProjectNext` está obsoleta para favorecer a API `ProjectV2` que tem mais capacidade.
     date: '2022-10-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
   - 
     location: ProjectNextFieldType.MILESTONE
-    description: 'O `MILESTONE` será removido. Siga o guia ProjectV2 em https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar um substituto adequado.'
+    description: '`MILESTONE` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement.'
     reason: A API `ProjectNext` está obsoleta para favorecer a API `ProjectV2` que tem mais capacidade.
     date: '2022-10-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
   - 
     location: ProjectNextFieldType.NUMBER
-    description: 'O `NUMBER` será removido. Siga o guia ProjectV2 em https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar um substituto adequado.'
+    description: '`NUMBER` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement.'
     reason: A API `ProjectNext` está obsoleta para favorecer a API `ProjectV2` que tem mais capacidade.
     date: '2022-10-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
   - 
     location: ProjectNextFieldType.REPOSITORY
-    description: 'O `REPOSITORY` será removido. Siga o guia ProjectV2 em https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar um substituto adequado.'
+    description: '`REPOSITORY` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement.'
     reason: A API `ProjectNext` está obsoleta para favorecer a API `ProjectV2` que tem mais capacidade.
     date: '2022-10-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
   - 
     location: ProjectNextFieldType.REVIEWERS
-    description: 'O `REVIEWERS` será removido. Siga o guia ProjectV2 em https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar um substituto adequado.'
+    description: '`REVIEWERS` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement.'
     reason: A API `ProjectNext` está obsoleta para favorecer a API `ProjectV2` que tem mais capacidade.
     date: '2022-10-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
   - 
     location: ProjectNextFieldType.SINGLE_SELECT
-    description: 'O `SINGLE_SELECT` será removido. Siga o guia ProjectV2 em https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar um substituto adequado.'
+    description: '`SINGLE_SELECT` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement.'
     reason: A API `ProjectNext` está obsoleta para favorecer a API `ProjectV2` que tem mais capacidade.
     date: '2022-10-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
   - 
     location: ProjectNextFieldType.TEXT
-    description: 'O `TEXT` será removido. Siga o guia ProjectV2 em https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar um substituto adequado.'
+    description: '`TEXT` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement.'
     reason: A API `ProjectNext` está obsoleta para favorecer a API `ProjectV2` que tem mais capacidade.
     date: '2022-10-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
   - 
     location: ProjectNextFieldType.TITLE
-    description: 'O `TITLE` será removido. Siga o guia ProjectV2 em https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar um substituto adequado.'
+    description: '`TITLE` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement.'
     reason: A API `ProjectNext` está obsoleta para favorecer a API `ProjectV2` que tem mais capacidade.
     date: '2022-10-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
   - 
     location: ProjectNextFieldType.TRACKS
-    description: 'O `TRACKS` será removido. Siga o guia ProjectV2 em https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar um substituto adequado.'
+    description: '`TRACKS` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement.'
     reason: A API `ProjectNext` está obsoleta para favorecer a API `ProjectV2` que tem mais capacidade.
     date: '2022-10-01T00:00:00+00:00'
     criticality: breaking
@@ -856,14 +849,14 @@ upcoming_changes:
     owner: lukewar
   - 
     location: ProjectNextOrderField.NUMBER
-    description: 'O `NUMBER` será removido. Siga o guia ProjectV2 em https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar um substituto adequado.'
+    description: '`NUMBER` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement.'
     reason: A API `ProjectNext` está obsoleta para favorecer a API `ProjectV2` que tem mais capacidade.
     date: '2022-10-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
   - 
     location: ProjectNextOrderField.TITLE
-    description: 'O `TITLE` será removido. Siga o guia ProjectV2 em https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar um substituto adequado.'
+    description: '`TITLE` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement.'
     reason: A API `ProjectNext` está obsoleta para favorecer a API `ProjectV2` que tem mais capacidade.
     date: '2022-10-01T00:00:00+00:00'
     criticality: breaking
@@ -1088,7 +1081,7 @@ upcoming_changes:
   - 
     location: RemovePullRequestFromMergeQueueInput.branch
     description: '`branch` será removido.'
-    reason: Os PRs são removidos da fila de merge para o branch base, o argumento `branch` agora é um no-op
+    reason: PRs are removed from the merge queue for the base branch, the `branch` argument is now a no-op
     date: '2022-10-01T00:00:00+00:00'
     criticality: breaking
     owner: jhunschejones
@@ -1115,15 +1108,15 @@ upcoming_changes:
     owner: lukewar
   - 
     location: RepositoryVulnerabilityAlert.fixReason
-    description: '`fixReason` será removido.'
-    reason: O campo `fixReason` está sendo removido. Você ainda pode usar `fixedAt` e `dismissReason`.
+    description: '`fixReason` will be removed.'
+    reason: The `fixReason` field is being removed. You can still use `fixedAt` and `dismissReason`.
     date: '2022-10-01T00:00:00+00:00'
     criticality: breaking
     owner: jamestran201
   - 
     location: UnlockAndResetMergeGroupInput.branch
     description: '`branch` será removido.'
-    reason: O grupo de merge atual para o branch padrão do repositório, o argumento `branch` agora é um no-op
+    reason: The current merge group for the repository's default branch, the `branch` argument is now a no-op
     date: '2022-10-01T00:00:00+00:00'
     criticality: breaking
     owner: jhunschejones

@@ -112,9 +112,12 @@ Adicionalmente a las características disponibles con {% data variables.product.
 - La opción de configurar tu empresa para los {% data variables.product.prodname_emus %}, para que puedas aprovisionar y administrar a los miembros con tu proveedor de identidad y restringir sus contribuciones para que solo se hagan en tu empresa. Para obtener más información, consulta la sección "[Acerca de {% data variables.product.prodname_emus %}](/enterprise-cloud@latest/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users)".
 - La opción de administrar de forma centralizada las políticas y la facturación de múltiples organizaciones {% data variables.product.prodname_dotcom_the_website %} con una cuenta de empresa. Para obtener más información, consulta "[Acerca de las cuentas de empresa](/enterprise-cloud@latest/admin/overview/about-enterprise-accounts)".
 
-{% data variables.product.company_short %} factura por {% data variables.product.prodname_ghe_cloud %} en una modalidad "por usuario". Para obtener más información, consulta la sección "[Acerca de los precios por usuario]({% ifversion not ghec %}/enterprise-cloud@latest{% endif %}/billing/managing-billing-for-your-github-account/about-per-user-pricing){% ifversion ghec %}".{% else %}" en la documentación de {% data variables.product.prodname_ghe_cloud %}.{% endif %}
+{% data reusables.enterprise.about-github-for-enterprises %}
 
 Puedes configurar una prueba para evaluar {% data variables.product.prodname_ghe_cloud %}. Para obtener más información, consulta "[Configurar una prueba de {% data variables.product.prodname_ghe_cloud %}](/enterprise-cloud@latest/articles/setting-up-a-trial-of-github-enterprise-cloud)".
 
 Para obtener más información sobre cómo hospedar tu propia instancia de {% data variables.product.prodname_ghe_server %}, incluyendo la configuración de un periodo de prueba, consulta la sección "[Acerca de {% data variables.product.prodname_ghe_server %}](/enterprise-server/admin/overview/about-github-enterprise-server)".
 
+## Leer más
+
+- "[Acerca de los precios por usuario]({% ifversion not ghec %}/enterprise-cloud@latest{% endif %}/billing/managing-billing-for-your-github-account/about-per-user-pricing)"{% ifversion not ghec %}" en la documentación de {% data variables.product.prodname_ghe_cloud %} {% endif %}
