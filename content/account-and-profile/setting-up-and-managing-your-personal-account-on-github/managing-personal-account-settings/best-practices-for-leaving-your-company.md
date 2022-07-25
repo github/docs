@@ -13,18 +13,26 @@ topics:
   - Accounts
 shortTitle: Leaving your company
 ---
+
+## Before Leaving
+
 Before you leave your company, make sure you update the following information in your personal account:
 
-- Unverify your company email address by [deleting it in your Email settings](/articles/changing-your-primary-email-address). You can then re-add it without verifying to keep any associated commits linked to your account.
+- If you haven't already added your personal email address, add it.
+- If you haven't already verified your personal email address, verify it.
 - [Change your primary email address](/articles/changing-your-primary-email-address) from your company email to your personal email.
 {% ifversion fpt or ghec %}
-- [Verify your new primary email address](/articles/verifying-your-email-address).
-{% endif %}
+- Unverify your company email address by [deleting it in your Email settings](/articles/changing-your-primary-email-address). You can then re-add it without verifying to keep any associated commits linked to your account.
 - [Change your GitHub username](/articles/changing-your-github-username) to remove any references to your company or organization, if necessary.
+
+Note that you should really verify your new thing before you make it your primary.
 
 ## Leaving organizations
 
-If you've been working with repositories that belong to an organization, you'll want to [remove yourself as a member of the organization](/articles/removing-yourself-from-an-organization). Note that if you are the organization owner, you should first [transfer ownership of the organization](/articles/transferring-organization-ownership) to another person.
+- If you are the organization owner, you should first [transfer ownership of the organization](/articles/transferring-organization-ownership) to another person.
+- If you've been working with repositories that belong to an organization, you'll want to [remove yourself as a member of the organization](/articles/removing-yourself-from-an-organization).
+
+Note that you really should not suggest leaving a thing before suggesting transferring ownership, that's incredibly dangerous.
 
 ## Removing professional associations with personal repositories
 
@@ -35,6 +43,6 @@ If you've been collaborating professionally with another person on repositories 
 - [Delete forks that belong to you](/articles/deleting-a-repository) that are related to the work you were doing. Don't worry, deleting a fork doesn't delete the upstream repository.
 - Delete local copies of your forks that may exist on your computer:
 
-```shell
-$ rm -rf <em>work_directory</em>
-```
+  ```shell
+  $ rm -rf <em>work_directory</em>
+  ```
