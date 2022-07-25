@@ -1,3 +1,3 @@
-The audit log lists events triggered by activities that affect your enterprise{% ifversion not ghec %}. Audit logs for {% data variables.product.product_name %} are retained indefinitely.{% else %} within the current month and up to the previous six months. The audit log retains Git events for seven days.{% endif %}
+Audit logにはEnterpriseに影響するアクティビティによってトリガーされたイベントがリストされ{% ifversion not ghec %}ます。 {% data variables.product.product_name %}のAudit logは、無期限に保持されます。{% else %}、現在の月と、最大過去6ヶ月分が保持されます。 Audit logは、7日分のGitイベントを保持します。{% endif %}
 
 {% data reusables.audit_log.only-three-months-displayed %}

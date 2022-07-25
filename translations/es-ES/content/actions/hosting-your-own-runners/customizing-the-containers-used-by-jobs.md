@@ -1,11 +1,11 @@
 ---
-title: Customizing the containers used by jobs
-intro: You can customize how your self-hosted runner invokes a container for a job.
+title: Personalizar los contenedores que utilizan los jobs
+intro: Puedes personalizar la forma en que tu ejecutor auto-hospedado invoca un contenedor para un job.
 versions:
   feature: container-hooks
 type: reference
 miniTocMaxHeadingLevel: 4
-shortTitle: Customize containers used by jobs
+shortTitle: Personalizar los contenedores que utilizan los jobs
 ---
 
 {% note %}
@@ -14,79 +14,79 @@ shortTitle: Customize containers used by jobs
 
 {% endnote %}
 
-## About container customization
+## Acerca de la personalización de contenedores
 
-{% data variables.product.prodname_actions %} allows you to run a job within a container, using the `container:` statement in your workflow file. For more information, see "[Running jobs in a container](/actions/using-jobs/running-jobs-in-a-container)." To process container-based jobs, the self-hosted runner creates a container for each job.
+{% data variables.product.prodname_actions %} te permite ejecutar un job dentro de un contenedor, utilizando la declaración `container:` en tu archivo de flujo de trabajo. Para obtener más información, consulta la sección "[Ejecutar jobs en un contenedor](/actions/using-jobs/running-jobs-in-a-container)". Para procesar jobs basados en contenedores, el ejecutor auto-hospedado crea un contenedor para cada job.
 
-{% data variables.product.prodname_actions %} supports commands that let you customize the way your containers are created by the self-hosted runner. For example, you can use these commands to manage the containers through Kubernetes or Podman, and you can also customize the `docker run` or `docker create` commands used to invoke the container. The customization commands are run by a script, which is automatically triggered when a specific environment variable is set on the runner. For more information, see "[Triggering the customization script](#triggering-the-customization-script)" below.
+{% data variables.product.prodname_actions %} es compatible con comandos que te permiten personalizar la forma en la que tu ejecutor auto-hospedado crea los contenedores. Por ejemplo, puedes utilizar estos comandos para administrar los contenedores mediante Kubernetes o Podman y también puedes personalizar el comando `docker run` o `docker create` que se utilizan para invocar al contenedor. Los comandos de personalización se ejecutan mediante un script, el cual se activa automáticamente cuando una variable de ambiente específica se configura en el ejecutor. Para obtener más información, consulta la sección "[Activar el script de personalización](#triggering-the-customization-script)" a continuación.
 
-This customization is only available for Linux-based self-hosted runners, and root user access is not required.
+Esta personalización solo está disponible para los ejecutores auto-hospedados y basados en Linux y no se requiere acceso de usuario raíz.
 
-## Container customization commands
+## Comandos de personalización de contenedores
 
-{% data variables.product.prodname_actions %} includes the following commands for container customization:
+{% data variables.product.prodname_actions %} incluye los siguientes comandos para la personalización de contenedores:
 
-- [`prepare_job`](/actions/hosting-your-own-runners/customizing-the-containers-used-by-jobs#prepare_job): Called when a job is started.
-- [`cleanup_job`](/actions/hosting-your-own-runners/customizing-the-containers-used-by-jobs#cleanup_job): Called at the end of a job.
-- [`run_container_step`](/actions/hosting-your-own-runners/customizing-the-containers-used-by-jobs#run_container_step): Called once for each container action in the job.
-- [`run_script_step`](/actions/hosting-your-own-runners/customizing-the-containers-used-by-jobs#run_script_step): Runs any step that is not a container action.
+- [`prepare_job`](/actions/hosting-your-own-runners/customizing-the-containers-used-by-jobs#prepare_job): Se le llama cuando se inicia un job.
+- [`cleanup_job`](/actions/hosting-your-own-runners/customizing-the-containers-used-by-jobs#cleanup_job): Se le llama al final de un job.
+- [`run_container_step`](/actions/hosting-your-own-runners/customizing-the-containers-used-by-jobs#run_container_step): Se le llama una vez para cada acción de contenedor en el job.
+- [`run_script_step`](/actions/hosting-your-own-runners/customizing-the-containers-used-by-jobs#run_script_step): Ejecuta cualquier paso que no sea una acción de contenedor.
 
-Each of these customization commands must be defined in its own JSON file. The file name must match the command name, with the extension `.json`. For example, the `prepare_job` command is defined in `prepare_job.json`. These JSON files will then be run together on the self-hosted runner, as part of the main `index.js` script. This process is described in more detail in "[Generating the customization script](#generating-the-customization-script)."
+Cada uno de estos comandos de personalización debe definirse en su propio archivo JSON. El nombre de archivo debe empatar con el nombre del comando, con la extensión `.json`. Por ejemplo, el comando `prepare_job` se define en `prepare_job.json`. Entonces, estos archivos JSON se ejecutarán juntos en el ejecutor auto-hospedado, como parte del script principal de `index.js`. Este proceso se describe con más detalle en la sección "[Generar el script de personalización](#generating-the-customization-script)".
 
-These commands also include configuration arguments, explained below in more detail.
+Estos comandos también incluyen los argumentos de configuración que se explican abajo con más detalle.
 
 ### `prepare_job`
 
-The `prepare_job` command is called when a job is started. {% data variables.product.prodname_actions %} passes in any job or service containers the job has. This command will be called if you have any service or job containers in the job.
+Se llama al comando `prepare_job` cuando inicia un job. {% data variables.product.prodname_actions %} pasa cualquier job o contenedor de servicio que tenga el job. Se llamará a este comando si tienes cualquier servicio o contenedor de job en el job.
 
-{% data variables.product.prodname_actions %} assumes that you will do the following tasks in the `prepare_job` command:
+{% data variables.product.prodname_actions %} asume que realizarás las siguientes tareas en el comando `prepare_job`:
 
-- Prune anything from previous jobs, if needed.
-- Create a network, if needed.
-- Pull the job and service containers.
-- Start the job container.
-- Start the service containers.
-- Write to the response file any information that {% data variables.product.prodname_actions %} will need:
-  - Required: State whether the container is an `alpine` linux container (using the `isAlpine` boolean).
-  - Optional: Any context fields you want to set on the job context, otherwise they will be unavailable for users to use. For more information, see "[`job` context](/actions/learn-github-actions/contexts#job-context)."
-- Return `0` when the health checks have succeeded and the job/service containers are started.
+- Limpiar todo lo de los jobs previos, en caso de ser necesario.
+- Crear una red, en caso de ser necesario.
+- Extraer los contenedores de servicio y de job.
+- Iniciar el contenedor de job.
+- Iniciar los contenedores de servicio.
+- Escribir al archivo de respuesta cualquier información que podrá requerir {% data variables.product.prodname_actions %}:
+  - Requerido: Indicar si el contenedor es un contenedor linux `alpine` (utilizando el booleano `isAlpine`).
+  - Opcional: Cualquier campo de contexto que quieras configurar en el contexto del job, de lo contrario, no estarán disponibles para que los usuarios los utilicen. Para obtener más información, consulta el "[contexto `job`](/actions/learn-github-actions/contexts#job-context)".
+- Devuelve `0` cuando las verificaciones de salud han tenido éxito y los contenedores de job/servicio iniciaron.
 
 #### Argumentos
 
-- `jobContainer`: **Optional**. An object containing information about the specified job container.
-  - `image`: **Opcional**. A string containing the Docker image.
-  - `workingDirectory`: **Required**. A string containing the absolute path of the working directory.
-  - `createOptions`: **Opcional**. The optional _create_ options specified in the YAML. For more information, see "[Example: Running a job within a container](/actions/using-jobs/running-jobs-in-a-container#example-running-a-job-within-a-container)."
-  - `environmentVariables`: **Opcional**. Sets a map of key environment variables.
-  - `userMountVolumes`: **Optional**. An array of user mount volumes set in the YAML. For more information, see "[Example: Running a job within a container](/actions/using-jobs/running-jobs-in-a-container#example-running-a-job-within-a-container)."
-    - `sourceVolumePath`: **Requerido**. The source path to the volume that will be mounted into the Docker container.
-    - `targetVolumePath`: **Requerido**. The target path to the volume that will be mounted into the Docker container.
-    - `readOnly`: **Opcional**. Determines whether or not the mount should be read-only.
-  - `systemMountVolumes`: **Requerido**. An array of mounts to mount into the container, same fields as above.
-    - `sourceVolumePath`: **Requerido**. The source path to the volume that will be mounted into the Docker container.
-    - `targetVolumePath`: **Requerido**. The target path to the volume that will be mounted into the Docker container.
-    - `readOnly`: **Opcional**. Determines whether or not the mount should be read-only.
-  - `registro` **Optional**. The Docker registry credentials for a private container registry.
-    - `username`: **Optional**. The username of the registry account.
-    - `password`: **Opcional**. The password to the registry account.
-    - `serverUrl`: **Opcional**. The registry URL.
-  - `portMappings`: **Opcional**. A key value hash of _source:target_ ports to map into the container.
-- `services`: **Optional**. An array of service containers to spin up.
-  - `contextName`: **Required**. The name of the service in the Job context.
-  - `image`: **Opcional**. A string containing the Docker image.
-  - `createOptions`: **Opcional**. The optional _create_ options specified in the  YAML. For more information, see "[Example: Running a job within a container](/actions/using-jobs/running-jobs-in-a-container#example-running-a-job-within-a-container)."
-  - `environmentVariables`: **Opcional**. Sets a map of key environment variables.
-  - `userMountVolumes`: **Optional**. An array of mounts to mount into the container, same fields as above.
-    - `sourceVolumePath`: **Requerido**. The source path to the volume that will be mounted into the Docker container.
-    - `targetVolumePath`: **Requerido**. The target path to the volume that will be mounted into the Docker container.
-    - `readOnly`: **Opcional**. Determines whether or not the mount should be read-only.
-  - `registro` **Optional**. The Docker registry credentials for the private container registry.
-    - `username`: **Optional**. The username of the registry account.
-    - `password`: **Opcional**. The password to the registry account.
-    - `serverUrl`: **Opcional**. The registry URL.
-  - `portMappings`: **Opcional**. A key value hash of _source:target_ ports to map into the container.
+- `jobContainer`: **Opcional**. Un objeto que contiene información sobre el contenedor de job especificado.
+  - `image`: **Opcional**. Una secuencia que contiene la imagen de Docker.
+  - `workingDirectory`: **Requerido**. Una secuencia que contiene la ruta absoluta del directorio de trabajo.
+  - `createOptions`: **Opcional**. Las selecciones opcionales de _crear_ que se especifican en el YAML. Para obtener más información, consulta la sección "[Ejemplo: Ejecutar un job dentro de un contenedor](/actions/using-jobs/running-jobs-in-a-container#example-running-a-job-within-a-container)".
+  - `environmentVariables`: **Opcional**. Configura un mapa de variables de ambiente clave.
+  - `userMountVolumes`: **Opcional**. Una arreglo de volúmenes montados por el usuario y configurados en el YAML. Para obtener más información, consulta la sección "[Ejemplo: Ejecutar un job dentro de un contenedor](/actions/using-jobs/running-jobs-in-a-container#example-running-a-job-within-a-container)".
+    - `sourceVolumePath`: **Requerido**. La ruta origen hacia el volumen que se montará en el contenedor de Docker.
+    - `targetVolumePath`: **Requerido**. La ruta destino hacia el volumen que se montará en el contenedor de Docker.
+    - `readOnly`: **Opcional**. Determina si el volumen montado será de solo lectura o no.
+  - `systemMountVolumes`: **Requerido**. Un arreglo de volúmenes montados a montarse en el contenedor, con los mismos campos que se explican anteriormente.
+    - `sourceVolumePath`: **Requerido**. La ruta origen hacia el volumen que se montará en el contenedor de Docker.
+    - `targetVolumePath`: **Requerido**. La ruta destino hacia el volumen que se montará en el contenedor de Docker.
+    - `readOnly`: **Opcional**. Determina si el volumen montado será de solo lectura o no.
+  - `registro` **Opcional**. Las credenciales del registro de Docker para un registro de contenedores privado.
+    - `username`: **Opcional**. El nombre de usuario de la cuenta de registro.
+    - `password`: **Opcional**. La contraseña para la cuenta de registro.
+    - `serverUrl`: **Opcional**. La URL de registro.
+  - `portMappings`: **Opcional**. Un has de valor clave de los puertos _origen:destino_ a mapear en el contenedor.
+- `services`: **Opcional**. Un arreglo de contenedores de servicio a acelerar.
+  - `contextName`: **Requerido**. El nombre del servicio en el contexto del job.
+  - `image`: **Requerido**. Una secuencia que contiene la imagen de Docker.
+  - `createOptions`: **Opcional**. Las selecciones opcionales de _crear_ que se especifican en el YAML. Para obtener más información, consulta la sección "[Ejemplo: Ejecutar un job dentro de un contenedor](/actions/using-jobs/running-jobs-in-a-container#example-running-a-job-within-a-container)".
+  - `environmentVariables`: **Opcional**. Configura un mapa de variables de ambiente clave.
+  - `userMountVolumes`: **Opcional**. Un arreglo de volúmenes montados a montarse en el contenedor, con los mismos campos que se explican anteriormente.
+    - `sourceVolumePath`: **Requerido**. La ruta origen hacia el volumen que se montará en el contenedor de Docker.
+    - `targetVolumePath`: **Requerido**. La ruta destino hacia el volumen que se montará en el contenedor de Docker.
+    - `readOnly`: **Opcional**. Determina si el volumen montado será de solo lectura o no.
+  - `registro` **Opcional**. Las credenciales de registro de Docker para el registro de contenedores privado.
+    - `username`: **Opcional**. El nombre de usuario de la cuenta de registro.
+    - `password`: **Opcional**. La contraseña para la cuenta de registro.
+    - `serverUrl`: **Opcional**. La URL de registro.
+  - `portMappings`: **Opcional**. Un has de valor clave de los puertos _origen:destino_ a mapear en el contenedor.
 
-#### Example input
+#### Entrada de ejemplo
 
 ```json{:copy}
 {
@@ -171,9 +171,9 @@ The `prepare_job` command is called when a job is started. {% data variables.pro
 }
 ```
 
-#### Example output
+#### Salida de ejemplo
 
-This example output is the contents of the `responseFile` defined in the input above.
+Esta salida de ejemplo comprende los contenidos de `responseFile` que se definen en la entrada anterior.
 
 ```json{:copy}
 {
@@ -205,19 +205,19 @@ This example output is the contents of the `responseFile` defined in the input a
 
 ### `cleanup_job`
 
-The `cleanup_job` command is called at the end of a job. {% data variables.product.prodname_actions %} assumes that you will do the following tasks in the `cleanup_job` command:
+Se llama al comando `cleanup_job` al final de un job. {% data variables.product.prodname_actions %} asume que realizarás las siguientes tareas en el comando `cleanup_job`:
 
-- Stop any running service or job containers (or the equivalent pod).
-- Stop the network (if one exists).
-- Delete any job or service containers (or the equivalent pod).
-- Delete the network (if one exists).
-- Cleanup anything else that was created for the job.
+- Detener cualquier contenedor de job o de servicio en ejecución (o el pod equivalente).
+- Detener la red (si existe alguna).
+- Borrar cualquier contenedor de job o de servicio (o el pod equivalente).
+- Borrar la red (si alguna existe).
+- Borrar cualquier otra cosa que se haya creado para el job.
 
 #### Argumentos
 
-No arguments are provided for `cleanup_job`.
+No se proporcionan argumentos para `cleanup_job`.
 
-#### Example input
+#### Entrada de ejemplo
 
 ```json{:copy}
 {
@@ -234,46 +234,46 @@ No arguments are provided for `cleanup_job`.
 }
 ```
 
-#### Example output
+#### Salida de ejemplo
 
-No output is expected for `cleanup_job`.
+No se espera ninguna salida para `cleanup_job`.
 
 ### `run_container_step`
 
-The `run_container_step` command is called once for each container action in your job. {% data variables.product.prodname_actions %} assumes that you will do the following tasks in the `run_container_step` command:
+Se llama al comando `run_container_step` una vez para cada acción de contenedor en tu job. {% data variables.product.prodname_actions %} asume que realizarás las siguientes tareas en el comando `run_container_step`:
 
-- Pull or build the required container (or fail if you cannot).
-- Run the container action and return the exit code of the container.
-- Stream any step logs output to stdout and stderr.
-- Cleanup the container after it executes.
+- Extraer o compilar el contenedor requerido (o fallar en caso de que no se pueda).
+- Ejecutar la acción de contenedor y devolver el código de salida del contenedor.
+- Transmitir cualquier salida de bitácoras de paso a stdout y stderr.
+- Limpiar el contenedor después de que se ejecute.
 
 #### Argumentos
 
-- `image`: **Optional**. A string containing the docker image. Otherwise a dockerfile must be provided.
-- `dockerfile`: **Optional**. A string containing the path to the dockerfile, otherwise an image must be provided.
-- `entryPointArgs`: **Opcional**. A list containing the entry point args.
-- `entryPoint`: **Opcional**. The container entry point to use if the default image entrypoint should be overwritten.
-- `workingDirectory`: **Required**. A string containing the absolute path of the working directory.
-- `createOptions`: **Opcional**. The optional _create_ options specified in the YAML. For more information, see "[Example: Running a job within a container](/actions/using-jobs/running-jobs-in-a-container#example-running-a-job-within-a-container)."
-- `environmentVariables`: **Opcional**. Sets a map of key environment variables.
-- `prependPath`: **Opcional**. An array of additional paths to prepend to the `$PATH` variable.
-- `userMountVolumes`: **Optional**. an array of user mount volumes set in the YAML. For more information, see "[Example: Running a job within a container](/actions/using-jobs/running-jobs-in-a-container#example-running-a-job-within-a-container)."
-  - `sourceVolumePath`: **Requerido**. The source path to the volume that will be mounted into the Docker container.
-  - `targetVolumePath`: **Requerido**. The target path to the volume that will be mounted into the Docker container.
-  - `readOnly`: **Requerido**. Determines whether or not the mount should be read-only.
-- `systemMountVolumes`: **Requerido**. An array of mounts to mount into the container, using the same fields as above.
-  - `sourceVolumePath`: **Requerido**. The source path to the volume that will be mounted into the Docker container.
-  - `targetVolumePath`: **Requerido**. The target path to the volume that will be mounted into the Docker container.
-  - `readOnly`: **Requerido**. Determines whether or not the mount should be read-only.
-- `registro` **Optional**. The Docker registry credentials for a private container registry.
-  - `username`: **Optional**. The username of the registry account.
-  - `password`: **Opcional**. The password to the registry account.
-  - `serverUrl`: **Opcional**. The registry URL.
-- `portMappings`: **Opcional**. A key value hash of the _source:target_ ports to map into the container.
+- `image`: **Opcional**. Una secuencia que contiene la imagen de docker. De lo contrario, se debe proporcionar un dockerfile.
+- `dockerfile`: **Opcional**. Una secuencia que contiene la ruta al dockerfile, de lo contrario, se debe proporcionar una imagen.
+- `entryPointArgs`: **Opcional**. Una lista que contiene los argumentos de punto de entrada.
+- `entryPoint`: **Opcional**. El punto de entrada del contenedor a utilizar si el punto de entrada de imagen predeterminado se debe sobreescribir.
+- `workingDirectory`: **Requerido**. Una secuencia que contiene la ruta absoluta del directorio de trabajo.
+- `createOptions`: **Opcional**. Las selecciones opcionales de _crear_ que se especifican en el YAML. Para obtener más información, consulta la sección "[Ejemplo: Ejecutar un job dentro de un contenedor](/actions/using-jobs/running-jobs-in-a-container#example-running-a-job-within-a-container)".
+- `environmentVariables`: **Opcional**. Configura un mapa de variables de ambiente clave.
+- `prependPath`: **Opcional**. Un arreglo de rutas adicionales a anteponer a la variable `$PATH`.
+- `userMountVolumes`: **Opcional**. una arreglo de volúmenes montados por el usuario y configurados en el YAML. Para obtener más información, consulta la sección "[Ejemplo: Ejecutar un job dentro de un contenedor](/actions/using-jobs/running-jobs-in-a-container#example-running-a-job-within-a-container)".
+  - `sourceVolumePath`: **Requerido**. La ruta origen hacia el volumen que se montará en el contenedor de Docker.
+  - `targetVolumePath`: **Requerido**. La ruta destino hacia el volumen que se montará en el contenedor de Docker.
+  - `readOnly`: **Requerido**. Determina si el volumen montado será de solo lectura o no.
+- `systemMountVolumes`: **Requerido**. Un arreglo de volúmenes montados para montar en el contenedor utilizando los mismos campos que se mencionan anteriormente.
+  - `sourceVolumePath`: **Requerido**. La ruta origen hacia el volumen que se montará en el contenedor de Docker.
+  - `targetVolumePath`: **Requerido**. La ruta destino hacia el volumen que se montará en el contenedor de Docker.
+  - `readOnly`: **Requerido**. Determina si el volumen montado será de solo lectura o no.
+- `registro` **Opcional**. Las credenciales del registro de Docker para un registro de contenedores privado.
+  - `username`: **Opcional**. El nombre de usuario de la cuenta de registro.
+  - `password`: **Opcional**. La contraseña para la cuenta de registro.
+  - `serverUrl`: **Opcional**. La URL de registro.
+- `portMappings`: **Opcional**. Un has de valor clave de los puertos _origen:destino_ a mapear en el contenedor.
 
-#### Example input for image
+#### Entrada de ejemplo para la imagen
 
-If you're using a Docker image, you can specify the image name in the `"image":` parameter.
+Si estás utilizando una imagen de Docker, puedes especificar el nombre de esta en el parámetro `"image":`.
 
 ```json{:copy}
 {
@@ -347,9 +347,9 @@ If you're using a Docker image, you can specify the image name in the `"image":`
 }
 ```
 
-#### Example input for Dockerfile
+#### Entrada de ejemplo para Dockerfile
 
-If your container is defined by a Dockerfile, this example demonstrates how to specify the path to a `Dockerfile` in your input, using the `"dockerfile":` parameter.
+Si un Dockerfile define a tu contenedor, este ejemplo demuestra cómo especificar la ruta a un `Dockerfile` en tu entrada utilizando el parámetro `"dockerfile":`.
 
 ```json{:copy}
 {
@@ -423,26 +423,26 @@ If your container is defined by a Dockerfile, this example demonstrates how to s
 }
 ```
 
-#### Example output
+#### Salida de ejemplo
 
-No output is expected for `run_container_step`.
+No se esperan salidas para `run_container_step`.
 
 ### `run_script_step`
 
-{% data variables.product.prodname_actions %} assumes that you will do the following tasks:
+{% data variables.product.prodname_actions %} asume que realizarás las siguientes tareas:
 
-- Invoke the provided script inside the job container and return the exit code.
-- Stream any step log output to stdout and stderr.
+- Invocar el script proporcionado dentro del contenedor del job y devolver el código de salida.
+- Transmitir cualquier salida de bitácora de paso a stdout y stderr.
 
 #### Argumentos
 
-- `entryPointArgs`: **Opcional**. A list containing the entry point arguments.
-- `entryPoint`: **Opcional**. The container entry point to use if the default image entrypoint should be overwritten.
-- `prependPath`: **Opcional**. An array of additional paths to prepend to the `$PATH` variable.
-- `workingDirectory`: **Required**. A string containing the absolute path of the working directory.
-- `environmentVariables`: **Opcional**. Sets a map of key environment variables.
+- `entryPointArgs`: **Opcional**. Una lista que contiene los argumentos de punto de entrada.
+- `entryPoint`: **Opcional**. El punto de entrada del contenedor a utilizar si el punto de entrada de imagen predeterminado se debe sobreescribir.
+- `prependPath`: **Opcional**. Un arreglo de rutas adicionales a anteponer a la variable `$PATH`.
+- `workingDirectory`: **Requerido**. Una secuencia que contiene la ruta absoluta del directorio de trabajo.
+- `environmentVariables`: **Opcional**. Configura un mapa de variables de ambiente clave.
 
-#### Example input
+#### Entrada de ejemplo
 
 ```json{:copy}
 {
@@ -467,64 +467,64 @@ No output is expected for `run_container_step`.
 }
 ```
 
-#### Example output
+#### Salida de ejemplo
 
-No output is expected for `run_script_step`.
+No se espera ninguna salida para `run_script_step`.
 
-## Generating the customization script
+## Generar el script de personalización
 
-{% data variables.product.prodname_dotcom %} has created an example repository that demonstrates how to generate customization scripts for Docker and Kubernetes.
+{% data variables.product.prodname_dotcom %} creó un repositorio de ejemplo que demuestra cómo generar scripts de personalización para Docker y Kubernetes.
 
 {% note %}
 
-**Note:** The resulting scripts are available for testing purposes, and you will need to determine whether they are appropriate for your requirements.
+**Nota:** Los scripts resultantes están disponibles para propósito de pruebas y necesitarás determinar si son adecuados para tus requisitos.
 
 {% endnote %}
 
-1. Clone the [actions/runner-container-hooks](https://github.com/actions/runner-container-hooks) repository to your self-hosted runner.
+1. Clona el repositorio [actions/runner-container-hooks](https://github.com/actions/runner-container-hooks) hacia tu ejecutor auto-hospedado.
 
-1. The `examples/` directory contains some existing customization commands, each with its own JSON file. You can review these examples and use them as a starting point for your own customization commands.
+1. El directorio `examples/` contiene algunos comandos de personalización existentes, cada uno con su propio archivo JSON. Puedes revisar estos ejemplos y utilizarlos como punto de inicio para tus propios comandos de personalización.
 
    - `prepare_job.json`
    - `run_script_step.json`
    - `run_container_step.json`
 
-1. Build the npm packages. These commands generate the `index.js` files inside `packages/docker/dist` and `packages/k8s/dist`.
+1. Compila los paquetes de npm. Estos comandos generan los archivos de `index.js` dentro de `packages/docker/dist` y `packages/k8s/dist`.
 
    ```shell
    npm install && npm run bootstrap && npm run build-all
    ```
 
-When the resulting `index.js` is triggered by {% data variables.product.prodname_actions %}, it will run the customization commands defined in the JSON files. To trigger the `index.js`, you will need to add it your `ACTIONS_RUNNER_REQUIRE_JOB_CONTAINER` environment variable, as described in the next section.
+Cuando el `index.js` resultante se activa mediante {% data variables.product.prodname_actions %}, este ejecutará los comandos de personalización que se definen en los archivos JSON. Para activar el `index.js`, necesitarás agregarlo a tu variable de ambiente `ACTIONS_RUNNER_REQUIRE_JOB_CONTAINER`, tal como se describe en la siguiente sección.
 
-## Triggering the customization script
+## Activar el script de personalización
 
-The custom script must be located on the runner, but should not be stored in the self-hosted runner application directory. The scripts are executed in the security context of the service account that's running the runner service.
+El script personalizado debe ubicarse en el ejecutor, pero no debe almacenarse ene el directorio de la aplicación del ejecutor auto-hospedado. Los scripts se ejecutan en el contexto de seguridad de la cuenta de servicio que está ejecutando el servicio del ejecutor.
 
 {% note %}
 
-**Note**: The triggered script is processed synchronously, so it will block job execution while running.
+**Nota**: El script activado se procesa sincrónicamente, así que bloqueará la ejecución del job mientras se ejecuta.
 
 {% endnote %}
 
-The script is automatically executed when the runner has the following environment variable containing an absolute path to the script:
+El script se ejecuta automáticamente cuando el ejecutor tiene la siguiente variable de ambiente que conteien una ruta absoluta al script:
 
-- `ACTIONS_RUNNER_CONTAINER_HOOK`: The script defined in this environment variable is triggered when a job has been assigned to a runner, but before the job starts running.
+- `ACTIONS_RUNNER_CONTAINER_HOOK`: El script que se define en esta variable de ambiente se activa cuando un job se ha asignado a un ejecutor, pero antes de que el job comience a ejecutarse.
 
-To set this environment variable, you can either add it to the operating system, or add it to a file named `.env` within the self-hosted runner application directory. For example, the following `.env` entry will have the runner automatically run the script at `/Users/octocat/runner/index.js` before each container-based job runs:
+Para configurar esta variable de ambiente, puedes ya sea añadirla al sistema operativo o añadirla a un archivo llamado `.env` dentro del directorio de la aplicación del ejecutor auto-hospedado. Por ejemplo, la siguiente entrada de `.env` hará que el ejecutor ejecute el script en `/Users/octocat/runner/index.js` automáticamente antes de que cada job basado en contenedores se ejecute:
 
 ```bash
 ACTIONS_RUNNER_CONTAINER_HOOK=/Users/octocat/runner/index.js
 ```
 
-If you want to ensure that your job always runs inside a container, and subsequently always applies your container customizations, you can set the `ACTIONS_RUNNER_REQUIRE_JOB_CONTAINER` variable on the self hosted runner to `true`. This will fail jobs that do not specify a job container.
+Si quieres asegurarte de que tu job siempre se ejecute en un contenedor y, posteriormente, siempre aplique tus personalizaciones de contenedor, puedes configurar la variable `ACTIONS_RUNNER_REQUIRE_JOB_CONTAINER` en el ejecutor auto-hospedado como `true`. Esto hará que fallen los jobs que no especifiquen un contenedor de jobs.
 
 ## Solución de problemas
 
-### No timeout setting
+### Sin ajuste de tiempo de inactividad
 
-There is currently no timeout setting available for the script executed by `ACTIONS_RUNNER_CONTAINER_HOOK`. As a result, you could consider adding timeout handling to your script.
+Actualmente no hay un ajuste de tiempo de inactividad disponible para el script que ejecuta `ACTIONS_RUNNER_CONTAINER_HOOK`. Como resultado, podrías considerar agregar un manejo de tiempo de inactividad a tu script.
 
-### Reviewing the workflow run log
+### Revisar la bitácora de ejecución de flujo de trabajo
 
-To confirm whether your scripts are executing, you can review the logs for that job. Para obtener más información sobre cómo verificar las bitácoras, consulta la sección "[Visualizar las bitácoras para diagnosticar las fallas](/actions/monitoring-and-troubleshooting-workflows/using-workflow-run-logs#viewing-logs-to-diagnose-failures)".
+Para confirmar si se están ejecutando tus scripts, puedes revisar las bitácoras de ese job. Para obtener más información sobre cómo verificar las bitácoras, consulta la sección "[Visualizar las bitácoras para diagnosticar las fallas](/actions/monitoring-and-troubleshooting-workflows/using-workflow-run-logs#viewing-logs-to-diagnose-failures)".

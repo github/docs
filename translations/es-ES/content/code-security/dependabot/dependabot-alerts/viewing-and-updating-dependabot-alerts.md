@@ -98,7 +98,7 @@ Para obtener más información, consulta la sección "[revisar y corregir las al
    **Nota:** Predeterminadamente, las {% data variables.product.prodname_dependabot_alerts %} se ordenan por importancia. El ordenar por "Más importante" te permite priorizar en qué {% data variables.product.prodname_dependabot_alerts %} te enfocarás primero. Las alertas se clasifican con base en su impacto potencial, capacidad de acción y relevancia. Nuestro cálculo de priorización se está mejorando constantemente e incluye factores como la puntuación de CVSS, alcance de dependencia y si las llamadas a la función vulnerable se encuentran en la alerta.
    {% endnote %}
 
-   ![Screenshot of Sort dropdown with "Most important" sort](/assets/images/help/dependabot/dependabot-alerts-sort-dropdown.png)
+   ![Captura de pantalla del menú desplegable de clasificación con una clasificación de "Más importante"](/assets/images/help/dependabot/dependabot-alerts-sort-dropdown.png)
    {% endif %}
 
    También puedes hacer clic en una etiqueta de una alerta para que solo muestre las alertas de ese tipo.{% ifversion dependabot-alerts-development-label %} Por ejemplo, el hacer clic en la etiqueta `Development` en la lista de alertas solo mostrará aquellas que se relacionen con las dependencias que se utilizan en desarrollo y no en producción. Para obtener más información sobre la lista de ecosistemas compatibles, consulta la sección "[Ecosistemas y manifiestos compatibles para el alcance de dependencias ](#supported-ecosystems-and-manifests-for-dependency-scope)".
@@ -127,18 +127,18 @@ En los casos en donde no está disponible una versión parchada o en donde no pu
 
 {% ifversion dependabot-alerts-vulnerable-calls %}
 
-Para los lenguajes compatibles, el {% data variables.product.prodname_dependabot %} detecta llamadas a las funciones vulnerables por ti. When you view an alert labeled as "Vulnerable call", the details include the name of the function and a link to the code that calls it. Often you will be able to take decisions based on this information, without exploring further.
+Para los lenguajes compatibles, el {% data variables.product.prodname_dependabot %} detecta llamadas a las funciones vulnerables por ti. Cuando ves una alerta etiquetada como "Llamada vulnerable", los detalles incluyen el nombre de la función y un enlace al código que lo llama. A menudo, podrás tomar decisiones con base en esta información sin hacer una exploración más profunda.
 
 {% endif %}
 
-### Fixing vulnerable dependencies
+### Fijar las dependencias vulnerables
 
-1. Ver los detalles de una alerta. For more information, see "[Viewing {% data variables.product.prodname_dependabot_alerts %}](#viewing-dependabot-alerts)" (above).
+1. Ver los detalles de una alerta. Para obtener más información, consulta la sección "[Ver las {% data variables.product.prodname_dependabot_alerts %}](#viewing-dependabot-alerts)" (anteriormente).
 {% ifversion fpt or ghec or ghes > 3.2 %}
-1. If you have {% data variables.product.prodname_dependabot_security_updates %} enabled, there may be a link to a pull request that will fix the dependency. Alternatively, you can click **Create {% data variables.product.prodname_dependabot %} security update** at the top of the alert details page to create a pull request. ![Crea un botón de actualización de seguridad del {% data variables.product.prodname_dependabot %}](/assets/images/help/repository/create-dependabot-security-update-button-ungrouped.png)
-1. Optionally, if you do not use {% data variables.product.prodname_dependabot_security_updates %}, you can use the information on the page to decide which version of the dependency to upgrade to and create a pull request to update the dependency to a secure version.
+1. Si tienes habilitadas las {% data variables.product.prodname_dependabot_security_updates %}, podrìa haber un enlace a una solicitud de cambios que corrija la dependencia. Como alternativa, puedes hacer clic en **Crear actualización de seguridad del {% data variables.product.prodname_dependabot %}** en la parte superior de la página de detalles de la alerta para crear una solicitud de cambios. ![Crea un botón de actualización de seguridad del {% data variables.product.prodname_dependabot %}](/assets/images/help/repository/create-dependabot-security-update-button-ungrouped.png)
+1. Opcionalmente, si no utilizas las {% data variables.product.prodname_dependabot_security_updates %}, puedes utilizar la información en la página para decidir a qué versión de la dependencia actualizar y crear una solicitud de cambios para actualizar la dependencia a una versión segura.
 {% elsif ghes < 3.3 or ghae %}
-1. You can use the information on the page to decide which version of the dependency to upgrade to and create a pull request to the manifest or lock file to a secure version.
+1. Puedes utilizar la información en la página para decidir a qué versión de la dependencia actualizar y crear una solicitud de cambios para que el archivo de bloqueo o de manifiesto se actualicen a una versión segura.
 {% endif %}
 1. Cuando estés listo para actualizar tu dependencia y resolver la vulnerabilidad, fusiona la solicitud de extracción.
 
@@ -146,7 +146,7 @@ Para los lenguajes compatibles, el {% data variables.product.prodname_dependabot
    Cada solicitud de extracción que levante el {% data variables.product.prodname_dependabot %} incluye información sobre los comandos que puedes utilizar para controlar el {% data variables.product.prodname_dependabot %}. Para obtener más información, consulta la sección "[Adminsitrar las solicitudes de extracción para las actualizaciones de las dependencias](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/managing-pull-requests-for-dependency-updates#managing-dependabot-pull-requests-with-comment-commands)".
 {% endif %}
 
-## Dismissing {% data variables.product.prodname_dependabot_alerts %}
+## Descartar las {% data variables.product.prodname_dependabot_alerts %}
 
 {% tip %}
 

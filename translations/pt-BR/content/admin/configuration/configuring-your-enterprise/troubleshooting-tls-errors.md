@@ -50,7 +50,7 @@ Se não tiver, você pode usar a ferramenta SSL Converter para converter seu cer
 
 ## Instalação parada após upload de chave
 
-If {% data variables.product.product_location %} is unresponsive after uploading an TLS key, please [contact {% data variables.product.prodname_enterprise %} Support](https://enterprise.github.com/support) with specific details, including a copy of your TLS certificate.
+If {% data variables.product.product_location %} is unresponsive after uploading an TLS key, please [contact {% data variables.product.prodname_enterprise %} Support](https://enterprise.github.com/support) with specific details, including a copy of your TLS certificate. Ensure that your private key **is not** included.
 
 ## Erros de validade de certificado
 

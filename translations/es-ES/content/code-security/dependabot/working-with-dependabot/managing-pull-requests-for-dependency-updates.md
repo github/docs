@@ -44,9 +44,9 @@ Si tienes muchas dependencias para administrar, tal vez quieras personalizar la 
 
 Predeterminadamente, el {% data variables.product.prodname_dependabot %} rebasa automáticamente las solicitudes de extracción para resolver cualquier conflicto. Si prefieres manejar los conflictos de fusión manualmente, puedes inhabilitar esta opción utilizando la opción de `rebase-strategy`. Para obtener más detalles, consulta la sección "[Opciones de configuración para el archivo dependabot.yeml](/github/administering-a-repository/configuration-options-for-dependency-updates#rebase-strategy)".
 
-## Allowing {% data variables.product.prodname_dependabot %} to rebase and force push over extra commits
+## Permitir que el {% data variables.product.prodname_dependabot %} rebase y suba forzadamente sobre las confirmaciones adicionales
 
-By default, {% data variables.product.prodname_dependabot %} will stop rebasing a pull request once extra commits have been pushed to it. To allow {% data variables.product.prodname_dependabot %} to force push over commits added to its branches, include any of the following strings: `[dependabot skip]` , `[skip dependabot]`, `[dependabot-skip]`, or `[skip-dependabot]`, in either lower or uppercase, to the commit message.
+Predeterminadamente, el {% data variables.product.prodname_dependabot %} dejará de rebasar una solicitud de cambios una vez que las confirmaciones adicionales se hayan subido a esta. Para permitir que el {% data variables.product.prodname_dependabot %} suba forzadamente sobre las confirmaciones agregadas a sus ramas, incluye cualquiera de las siguientes secuencias: `[dependabot skip]` , `[skip dependabot]`, `[dependabot-skip]` o `[skip-dependabot]`, ya sea en mayúsculas o minúsculas, al mensaje de confirmación.
 
 ## Administrar las solicitudes de extracción del {% data variables.product.prodname_dependabot %} con comandos de comentario
 

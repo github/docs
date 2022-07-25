@@ -50,7 +50,7 @@ De lo contrario, puedes utilizar la herramienta SSL Converter para convertir tu 
 
 ## Instalación sin respuesta después de cargar una clave
 
-If {% data variables.product.product_location %} is unresponsive after uploading an TLS key, please [contact {% data variables.product.prodname_enterprise %} Support](https://enterprise.github.com/support) with specific details, including a copy of your TLS certificate.
+If {% data variables.product.product_location %} is unresponsive after uploading an TLS key, please [contact {% data variables.product.prodname_enterprise %} Support](https://enterprise.github.com/support) with specific details, including a copy of your TLS certificate. Ensure that your private key **is not** included.
 
 ## Errores de validez de certificado
 

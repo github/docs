@@ -73,9 +73,9 @@ Os formatos recomendados definem explicitamente quais versões são usadas para 
 |                        |           |                       |                               |
 
 {%- ifversion dependency-graph-rust-support %}
-| Cargo
+| Cargo{% ifversion ghes = 3.6 or ghae-issue-7563 %}
 
-<sup>[*]</sup> | Rust | `Cargo.lock` | `Cargo.toml`, `Cargo.lock` | 
+<sup>[*]</sup>{% endif %} | Rust | `Cargo.lock` | `Cargo.toml`, `Cargo.lock` | 
 {%- endif %}
 | Composer             | PHP           | `composer.lock` | `composer.json`, `composer.lock` | | NuGet | .NET languages (C#, F#, VB), C++  |   `.csproj`, `.vbproj`, `.nuspec`, `.vcxproj`, `.fsproj` |  `.csproj`, `.vbproj`, `.nuspec`, `.vcxproj`, `.fsproj`, `packages.config` |
 {%- ifversion github-actions-in-dependency-graph %}
@@ -92,7 +92,7 @@ Os formatos recomendados definem explicitamente quais versões são usadas para 
 {%- endif %}
 | RubyGems             | Ruby           | `Gemfile.lock` | `Gemfile.lock`, `Gemfile`, `*.gemspec` | | Yarn | JavaScript | `yarn.lock` | `package.json`, `yarn.lock` |
 
-{% ifversion dependency-graph-rust-support %}
+{% ifversion ghes = 3.6 or ghae-issue-7563 %}
 [*] Para a liberação inicial do suporte ao Rust, o gráfico de dependência não tem os metadados e mapeamentos necessários para detectar dependências transitivas. O gráfico de dependência exibe dependências transitivas, um nível de profundidade, quando são definidas em um arquivo `cargo.lock` . {% data variables.product.prodname_dependabot_alerts %} e {% data variables.product.prodname_dependabot_security_updates %} estão disponíveis para dependências vulneráveis definidas no arquivo</code>Cargo.lock`.
 </p>
 

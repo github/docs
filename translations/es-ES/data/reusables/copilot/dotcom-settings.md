@@ -1,6 +1,6 @@
 ## Configuring {% data variables.product.prodname_copilot %} settings on {% data variables.product.prodname_dotcom_the_website %}
 
-Once you have an active {% data variables.product.prodname_copilot %} trial or subscription, you can adjust {% data variables.product.prodname_copilot %} settings for your personal account on {% data variables.product.prodname_dotcom %} in the [{% data variables.product.prodname_copilot %} settings](https://github.com/settings/copilot). The settings apply anywhere that you use {% data variables.product.prodname_copilot %}. You can configure the suggestions that {% data variables.product.prodname_copilot %} offers and how {% data variables.product.company_short %} uses your telemetry data.
+Una vez que tengas un periodo de prueba o suscripción del {% data variables.product.prodname_copilot %}, puedes configurar los ajustes del {% data variables.product.prodname_copilot %} en tu cuenta personal de {% data variables.product.prodname_dotcom %} en los [ajustes del {% data variables.product.prodname_copilot %}](https://github.com/settings/copilot). The settings apply anywhere that you use {% data variables.product.prodname_copilot %}. You can configure the suggestions that {% data variables.product.prodname_copilot %} offers and how {% data variables.product.company_short %} uses your telemetry data.
 
 ### Enabling or disabling duplication detection
 
@@ -11,7 +11,7 @@ Once you have an active {% data variables.product.prodname_copilot %} trial or s
 
 ### Enabling or disabling telemetry
 
-You can configure how {% data variables.product.prodname_copilot %} uses your data. For more information about data that {% data variables.product.prodname_copilot %} may collect depending on your telemetry settings, see "[{% data variables.product.company_short %} Terms for Additional Products and Features](/free-pro-team@latest/site-policy/github-terms/github-terms-for-additional-products-and-features#github-copilot)."
+You can configure how {% data variables.product.prodname_copilot %} uses your data. Para obtener más información sobre los datos que podría recopilar el {% data variables.product.prodname_copilot %} dependiendo de tus ajustes de telemetría, consulta la sección "[Términos de {% data variables.product.company_short %} para las características y productos adicionales](/free-pro-team@latest/site-policy/github-terms/github-terms-for-additional-products-and-features#github-copilot)".
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.copilot-settings %}
