@@ -4,6 +4,55 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "Field `fieldValueByName` was removed from object type 'ProjectV2Item'"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2022-07-23"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "Argument 'actions: [SponsorsActivityAction!]` added to field `Organization.sponsorsActivities'",
+          "Field `fieldValueByName` was added to object type 'ProjectV2Item'",
+          "Argument 'actions: [SponsorsActivityAction!]` added to field `Sponsorable.sponsorsActivities'",
+          "Argument 'actions: [SponsorsActivityAction!]` added to field `User.sponsorsActivities'"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2022-07-22"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "Type `EnterpriseUserAccountConnection` was removed",
+          "Type `EnterpriseUserAccountEdge` was removed",
+          "Field `userAccounts` (deprecated) was removed from object type `Enterprise`",
+          "Field `items` was removed from object type 'ProjectV2View'",
+          "Argument 'orderBy: ProjectV2FieldOrder` added to field `ProjectV2View.groupBy'",
+          "Argument 'orderBy: ProjectV2FieldOrder` added to field `ProjectV2View.verticalGroupBy'",
+          "Argument 'orderBy: ProjectV2FieldOrder` added to field `ProjectV2View.visibleFields'",
+          "Field `items` (deprecated) was removed from object type `ProjectView`"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2022-07-19"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "Type 'ProjectV2ItemFieldValueOrder' was added",
           "Type 'ProjectV2ItemFieldValueOrderField' was added",
           "Argument 'orderBy: ProjectV2ItemFieldValueOrder` added to field `ProjectV2Item.fieldValues'",

@@ -34,7 +34,7 @@ topics:
 - [リポジトリのタグを表示する](/articles/viewing-your-repositorys-tags)
 - [既存の GPG キーのチェック](/articles/checking-for-existing-gpg-keys)
 - [新しい GPG キーの生成](/articles/generating-a-new-gpg-key)
-- [GitHub アカウントへの新しい GPG キーの追加](/articles/adding-a-new-gpg-key-to-your-github-account)
+- "[Adding a GPG key to your GitHub account](/articles/adding-a-gpg-key-to-your-github-account)"
 - 「[Git へ署名キーを伝える](/articles/telling-git-about-your-signing-key)」
 - [GPG キーとメールの関連付け](/articles/associating-an-email-with-your-gpg-key)
 - 「[コミットに署名する](/articles/signing-commits)」

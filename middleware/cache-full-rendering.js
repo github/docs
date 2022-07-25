@@ -18,10 +18,14 @@ const HEADER_VALUE_TRANSFERRING = 'transferring'
 
 const DISABLE_RENDERING_CACHE = Boolean(JSON.parse(process.env.DISABLE_RENDERING_CACHE || 'false'))
 
+// NOTE: Apr 20, when storing about 200 cheerio instances, the total
+// heap size becomes about 2.3GB.
+const CHEERIO_CACHE_MAXSIZE = parseInt(process.env.CHEERIO_CACHE_MAXSIZE || 100, 10)
+
+const GZIP_CACHE_MAXSIZE = parseInt(process.env.GZIP_CACHE_MAXSIZE || 1000, 10)
+
 const cheerioCache = new QuickLRU({
-  // NOTE: Apr 20, when storing about 200 cheerio instances, the total
-  // heap size becomes about 2.3GB.
-  maxSize: 100,
+  maxSize: CHEERIO_CACHE_MAXSIZE,
   // Don't use arrow function so we can access `this`.
   onEviction: function onEviction() {
     const { heapUsed } = process.memoryUsage()
@@ -30,7 +34,7 @@ const cheerioCache = new QuickLRU({
 })
 
 const gzipCache = new QuickLRU({
-  maxSize: 1000,
+  maxSize: GZIP_CACHE_MAXSIZE,
   // Don't use arrow function so we can access `this`.
   onEviction: function onEviction() {
     const { heapUsed } = process.memoryUsage()

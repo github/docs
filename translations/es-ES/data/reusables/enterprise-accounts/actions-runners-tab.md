@@ -1,1 +1,1 @@
-1. Click the **Runners** tab.
+1. Haz clic en la pestaña **Ejecutores**.

@@ -1,6 +1,6 @@
 ---
-title: Viewing and updating Dependabot alerts
-intro: 'If {% data variables.product.product_name %} discovers insecure dependencies in your project, you can view details on the Dependabot alerts tab of your repository. Luego, puedes actualizar tu proyecto para resolver o descartar la alerta.'
+title: Ver y actualizar las alertas del Dependabot
+intro: 'Si {% data variables.product.product_name %} descubre dependencias inseguras en tu proyecto, puedes ver los detalles en la pestaña de alertas del Dependabot de tu repositorio. Luego, puedes actualizar tu proyecto para resolver o descartar la alerta.'
 redirect_from:
   - /articles/viewing-and-updating-vulnerable-dependencies-in-your-repository
   - /github/managing-security-vulnerabilities/viewing-and-updating-vulnerable-dependencies-in-your-repository
@@ -37,7 +37,7 @@ Puedes habilitar las alertas de seguridad automáticas para cualquier repositori
 
 {% data variables.product.product_name %} genera {% data variables.product.prodname_dependabot_alerts %} cuando detectamos que tu base de còdigo està utilizando dependencias con riesgos de seguridad conocidos. Para los repositorios en donde se habilitan las {% data variables.product.prodname_dependabot_security_updates %} cuando {% data variables.product.product_name %} detecta una dependencia vulnerable en la rama predeterminada, {% data variables.product.prodname_dependabot %} crea una solicitud de cambios para arreglarla. La solicitud de extracción mejorará la dependencia a la versión segura mínima que sea posible y necesaria para evitar la vulnerabilidad.
 
-{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-5638 %}Puedes clasificar y filtrar las {% data variables.product.prodname_dependabot_alerts %} con los menús desplegables en la pestaña de {% data variables.product.prodname_dependabot_alerts %} o tecleando filtros tales como pares de `key:value` en la barra de búsqueda. Los filtros disonibles son repositorio (por ejemplo, `repo:my-repository`), paquete (por ejemplo, `package:django`), ecosistema (por ejemplo, `ecosystem:npm`), manifiesto (por ejemplo, `manifest:webwolf/pom.xml`), estado (por ejemplo, `is:open`) y ya sea si una asesorìa tiene un parche o no (por ejemplo, `has: patch`).{% ifversion dependabot-alerts-development-label %} También puedes filtrar las alertas con datos de alcance de dependencias utilizando `scope`, por ejemplo: `scope:development` o `scope:runtime`. Con `scope:development`, la lista de alertas solo mostrará a las dependencias que se utilizaron durante el desarrolo y no durante la producción.{% endif %}
+{% ifversion dependabot-most-important-sort-option %} Predeterminadamente, las {% data variables.product.prodname_dependabot_alerts %} se muestran en la pestaña de {% data variables.product.prodname_dependabot_alerts %} según su importancia, pero puedes ordenarlas por otros criterios. {% endif %}{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-5638 %}Puedes ordenar y filtrar las {% data variables.product.prodname_dependabot_alerts %} con los menús desplegables en la pestaña de {% data variables.product.prodname_dependabot_alerts %} o escribiendo filtros como pares de `key:value` en la barra de búsqueda. Los filtros disonibles son repositorio (por ejemplo, `repo:my-repository`), paquete (por ejemplo, `package:django`), ecosistema (por ejemplo, `ecosystem:npm`), manifiesto (por ejemplo, `manifest:webwolf/pom.xml`), estado (por ejemplo, `is:open`) y ya sea si una asesorìa tiene un parche o no (por ejemplo, `has: patch`).{% ifversion dependabot-alerts-development-label %} También puedes filtrar las alertas con datos de alcance de dependencias utilizando `scope`, por ejemplo: `scope:development` o `scope:runtime`. Con `scope:development`, la lista de alertas solo mostrará a las dependencias que se utilizaron durante el desarrolo y no durante la producción.{% endif %}
 
 Cada alerta del {% data variables.product.prodname_dependabot %} tiene un identificador numérico único y la pestaña de {% data variables.product.prodname_dependabot_alerts %} lista una alerta por cada vulnerabilidad detectada. Las {% data variables.product.prodname_dependabot_alerts %} tradicionales agrupan vulnerabilidades por dependencia y generan una sola alerta por dependencia. Si navegas a una alerta tradicional del {% data variables.product.prodname_dependabot %}, se te redirigirá a una pestaña de {% data variables.product.prodname_dependabot_alerts %} filtradas para este paquete. {% endif %}
 {% endif %}
@@ -90,7 +90,16 @@ Para obtener más información, consulta la sección "[revisar y corregir las al
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-security %}
 {% data reusables.repositories.sidebar-dependabot-alerts %}
-1. Opcionalmente, para filtrar alertas, selecciona el menú desplegable de **Repositorio**, l **Paquete**, **Ecosistema** o **Manifiesto** y luego haz clic en el filtro que te gustaría aplicar. También puedes teclear filtros en la barra de búsqueda. Por ejemplo, `ecosystem:npm`{% ifversion ghes < 3.7 or ghae-issue-5638 %} o `has:patch`{% endif %}{% ifversion dependabot-alerts-development-label %}, `has:patch` o `scope:development`{% endif %}. Para ordenar las alertas, selecciona el menú desplegable **Ordenar** y luego haz clic en la opción por la cual te gustaría ordenarlas.
+1. Opcionalmente, para filtrar alertas, selecciona el menú desplegable de **Repositorio**, l **Paquete**, **Ecosistema** o **Manifiesto** y luego haz clic en el filtro que te gustaría aplicar. También puedes teclear filtros en la barra de búsqueda. Por ejemplo, `ecosystem:npm`{% ifversion ghes < 3.7 or ghae-issue-5638 %} o `has:patch`{% endif %}{% ifversion dependabot-alerts-development-label %}, `has:patch` o `scope:development`{% endif %}. Para ordenar las alertas, selecciona el menú desplegable de **Ordenar** y luego haz clic en la opción por la cual te gustaría ordenarlas o escribe `sort:` en la barra de búsqueda y elige una opción de entre las sugerencias (por ejemplo, `sort:newest`).
+
+   {% ifversion dependabot-most-important-sort-option %}
+   {% note %}
+
+   **Nota:** Predeterminadamente, las {% data variables.product.prodname_dependabot_alerts %} se ordenan por importancia. El ordenar por "Más importante" te permite priorizar en qué {% data variables.product.prodname_dependabot_alerts %} te enfocarás primero. Las alertas se clasifican con base en su impacto potencial, capacidad de acción y relevancia. Nuestro cálculo de priorización se está mejorando constantemente e incluye factores como la puntuación de CVSS, alcance de dependencia y si las llamadas a la función vulnerable se encuentran en la alerta.
+   {% endnote %}
+
+   ![Captura de pantalla del menú desplegable de clasificación con una clasificación de "Más importante"](/assets/images/help/dependabot/dependabot-alerts-sort-dropdown.png)
+   {% endif %}
 
    También puedes hacer clic en una etiqueta de una alerta para que solo muestre las alertas de ese tipo.{% ifversion dependabot-alerts-development-label %} Por ejemplo, el hacer clic en la etiqueta `Development` en la lista de alertas solo mostrará aquellas que se relacionen con las dependencias que se utilizan en desarrollo y no en producción. Para obtener más información sobre la lista de ecosistemas compatibles, consulta la sección "[Ecosistemas y manifiestos compatibles para el alcance de dependencias ](#supported-ecosystems-and-manifests-for-dependency-scope)".
 
@@ -118,26 +127,26 @@ En los casos en donde no está disponible una versión parchada o en donde no pu
 
 {% ifversion dependabot-alerts-vulnerable-calls %}
 
-Para los lenguajes compatibles, el {% data variables.product.prodname_dependabot %} detecta llamadas a las funciones vulnerables por ti. When you view an alert labeled as "Vulnerable call", the details include the name of the function and a link to the code that calls it. Often you will be able to take decisions based on this information, without exploring further.
+Para los lenguajes compatibles, el {% data variables.product.prodname_dependabot %} detecta llamadas a las funciones vulnerables por ti. Cuando ves una alerta etiquetada como "Llamada vulnerable", los detalles incluyen el nombre de la función y un enlace al código que lo llama. A menudo, podrás tomar decisiones con base en esta información sin hacer una exploración más profunda.
 
 {% endif %}
 
-### Fixing vulnerable dependencies
+### Fijar las dependencias vulnerables
 
-1. Ver los detalles de una alerta. For more information, see "[Viewing {% data variables.product.prodname_dependabot_alerts %}](#viewing-dependabot-alerts)" (above).
+1. Ver los detalles de una alerta. Para obtener más información, consulta la sección "[Ver las {% data variables.product.prodname_dependabot_alerts %}](#viewing-dependabot-alerts)" (anteriormente).
 {% ifversion fpt or ghec or ghes > 3.2 %}
-1. If you have {% data variables.product.prodname_dependabot_security_updates %} enabled, there may be a link to a pull request that will fix the dependency. Alternatively, you can click **Create {% data variables.product.prodname_dependabot %} security update** at the top of the alert details page to create a pull request. ![Create {% data variables.product.prodname_dependabot %} security update button](/assets/images/help/repository/create-dependabot-security-update-button-ungrouped.png)
-1. Optionally, if you do not use {% data variables.product.prodname_dependabot_security_updates %}, you can use the information on the page to decide which version of the dependency to upgrade to and create a pull request to update the dependency to a secure version.
+1. Si tienes habilitadas las {% data variables.product.prodname_dependabot_security_updates %}, podrìa haber un enlace a una solicitud de cambios que corrija la dependencia. Como alternativa, puedes hacer clic en **Crear actualización de seguridad del {% data variables.product.prodname_dependabot %}** en la parte superior de la página de detalles de la alerta para crear una solicitud de cambios. ![Crea un botón de actualización de seguridad del {% data variables.product.prodname_dependabot %}](/assets/images/help/repository/create-dependabot-security-update-button-ungrouped.png)
+1. Opcionalmente, si no utilizas las {% data variables.product.prodname_dependabot_security_updates %}, puedes utilizar la información en la página para decidir a qué versión de la dependencia actualizar y crear una solicitud de cambios para actualizar la dependencia a una versión segura.
 {% elsif ghes < 3.3 or ghae %}
-1. You can use the information on the page to decide which version of the dependency to upgrade to and create a pull request to the manifest or lock file to a secure version.
+1. Puedes utilizar la información en la página para decidir a qué versión de la dependencia actualizar y crear una solicitud de cambios para que el archivo de bloqueo o de manifiesto se actualicen a una versión segura.
 {% endif %}
 1. Cuando estés listo para actualizar tu dependencia y resolver la vulnerabilidad, fusiona la solicitud de extracción.
 
 {% ifversion fpt or ghec or ghes > 3.2 %}
-   Each pull request raised by {% data variables.product.prodname_dependabot %} includes information on commands you can use to control {% data variables.product.prodname_dependabot %}. For more information, see "[Managing pull requests for dependency updates](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/managing-pull-requests-for-dependency-updates#managing-dependabot-pull-requests-with-comment-commands)."
+   Cada solicitud de extracción que levante el {% data variables.product.prodname_dependabot %} incluye información sobre los comandos que puedes utilizar para controlar el {% data variables.product.prodname_dependabot %}. Para obtener más información, consulta la sección "[Adminsitrar las solicitudes de extracción para las actualizaciones de las dependencias](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/managing-pull-requests-for-dependency-updates#managing-dependabot-pull-requests-with-comment-commands)".
 {% endif %}
 
-## Dismissing {% data variables.product.prodname_dependabot_alerts %}
+## Descartar las {% data variables.product.prodname_dependabot_alerts %}
 
 {% tip %}
 
@@ -146,7 +155,7 @@ Para los lenguajes compatibles, el {% data variables.product.prodname_dependabot
 
 If you schedule extensive work to upgrade a dependency, or decide that an alert does not need to be fixed, you can dismiss the alert. Dismissing alerts that you have already assessed makes it easier to triage new alerts as they appear.
 
-1. Ver los detalles de una alerta. For more information, see "[Viewing vulnerable dependencies](#viewing-dependabot-alerts)" (above).
+1. Ver los detalles de una alerta. Para obtener más información, consulta la sección "[Ver las dependencias vulnerables](#viewing-dependabot-alerts)" (anteriormente).
 1. Select the "Dismiss" dropdown, and click a reason for dismissing the alert.{% ifversion reopen-dependabot-alerts %} Unfixed dismissed alerts can be reopened later.{% endif %} ![Elegir una razón para descartar la alerta a través del menú desplegable de "Descartar"](/assets/images/help/repository/dependabot-alert-dismiss-drop-down-ungrouped.png)
 {% ifversion dependabot-bulk-alerts %}
 

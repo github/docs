@@ -27,7 +27,7 @@ topics:
 {% endif %}
 
 {% ifversion ghes %}
-有关分阶段部署 GitHub Advanced Security 的指导，请参阅“[在企业中部署 GitHub Advanced Security](/admin/advanced-security/deploying-github-advanced-security-in-your-enterprise)”。
+有关分阶段部署 GitHub Advanced Security 的说明，请参阅“[大规模采用 GitHub Advanced Security 简介](/code-security/adopting-github-advanced-security-at-scale/introduction-to-adopting-github-advanced-security-at-scale)”。
 {% endif %}
 
 ## 检查您的许可是否包含 {% data variables.product.prodname_GH_advanced_security %}

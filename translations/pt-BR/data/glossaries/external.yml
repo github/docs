@@ -202,6 +202,10 @@
   description: >-
     O diff é a diferença nas alterações entre dois commits ou o registro das alterações salvas. O diff descreverá visualmente o que foi adicionado ou removido de um arquivo desde o commit mais recente.
 - 
+  term: diretório
+  description: >-
+    A folder containing one or more files or folders. You can create directories to organize the contents of a repository.
+- 
   term: sujo
   description: >-
     Uma árvore de trabalho é considerada "suja" se contiver modificações que não passaram por commit no branch atual.
@@ -392,7 +396,7 @@
   description: >-
     O branch padrão em muitos repositórios Git. Por padrão, quando você cria um novo repositório Git na linha de comando, um branch denominado `master` será criado. Muitas ferramentas agora usam um nome alternativo para o branch padrão.{% ifversion fpt or ghes > 3.1 or ghae %} Por exemplo, quando você cria um novo repositório no GitHub, o branch padrão é denominado `main`.{% endif %}
 - 
-  term: gráfico de integrantes
+  term: members graph
   description: Gráfico que exibe todas as bifurcações de um repositório.
 - 
   term: menção
@@ -418,7 +422,7 @@
   description: >-
     Equipe secundária de uma equipe principal. É possível ter várias equipes secundárias (ou aninhadas).
 - 
-  term: gráfico de rede
+  term: network graph
   description: >-
     Gráfico que exibe o histórico de branches de toda a rede do repositório, incluindo branches do repositório raiz e branches de bifurcações que contêm commits exclusivos da rede.
 - 
@@ -539,10 +543,10 @@
   description: >-
     Comentários de colaboradores sobre uma pull request que aprovem as alterações ou solicitem outras alterações antes do merge da pull request.
 - 
-  term: gráfico Pulse
+  term: pulse graph
   description: Gráfico que mostra uma visão geral da atividade de um repositório.
 - 
-  term: gráfico Punch
+  term: punch graph
   description: >-
     Gráfico que mostra a frequência de atualizações em um repositório conforme o dia da semana e a hora do dia.
 - 
@@ -562,7 +566,7 @@
     Nível de permissão que permite ao usuário ler ou fazer pull das informações do repositório. Todos os repositórios públicos dão acesso de leitura a todos os usuários do GitHub. Sinônimo para acesso pull.
 - 
   term: README
-  description: Arquivo de texto com informações sobre os arquivos em um repositório, costuma ser o primeiro arquivo exibido aos visitantes do repositório. Com uma licença de repositório, diretrizes de contribuição e um código de conduta, o arquivo LEIAME ajuda a definir as expectativas e a gerenciar contribuições para o seu projeto.
+  description: Arquivo de texto com informações sobre os arquivos em um repositório, costuma ser o primeiro arquivo exibido aos visitantes do repositório. Com uma licença de repositório, diretrizes de contribuição e um código de conduta, o arquivo README ajuda a definir as expectativas e a gerenciar contribuições para o seu projeto.
 - 
   term: rebase
   description: >-
@@ -603,7 +607,7 @@
 - 
   term: mantenedor de repositório
   description: >-
-    Pessoa que gerencia um repositório. Como tal, ela pode ajudar na triagem de problemas e usar etiquetas e outros recursos para gerenciar o trabalho do repositório. Também pode ser responsável por manter o LEIAME e os arquivos de contribuição atualizados.
+    Pessoa que gerencia um repositório. Como tal, ela pode ajudar na triagem de problemas e usar etiquetas e outros recursos para gerenciar o trabalho do repositório. Também pode ser responsável por manter o README e os arquivos de contribuição atualizados.
 - 
   term: revisão obrigatória de pull request
   description: >-

@@ -87,12 +87,12 @@ Enquanto o trabalho é executado, os logs e saídas podem ser visualizados na in
 ## Executores e recursos de hardware compatíveis
 
 Especificação de hardware para máquinas virtuais do Windows e Linux:
-- CPU dual core
+- 2-core CPU (x86_64)
 - 7 GB de RAM
 - 14 GB de espaço SSD
 
 Especificação de hardware para máquinas virtuais do macOS:
-- CPU de 3 núcleos
+- 3-core CPU (x86_64)
 - 14 GB de RAM
 - 14 GB de espaço SSD
 

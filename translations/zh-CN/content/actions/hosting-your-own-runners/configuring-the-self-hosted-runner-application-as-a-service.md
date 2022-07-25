@@ -65,7 +65,7 @@ shortTitle: 启动时运行运行器应用程序
    sudo ./svc.sh install
    ```
 
-1. 或者，该命令采用可选的 `user` 参数，以其他用户身份安装服务。
+1. 该命令采用可选的 `user` 参数，以其他用户身份安装服务。
 
   ```shell
   ./svc.sh install <em>USERNAME</em>

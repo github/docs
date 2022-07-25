@@ -1,5 +1,6 @@
 ---
-title: Guía de inicio rápido para los Codespaces de GitHub
+title: 'Guía de inicio rápido para {% data variables.product.prodname_github_codespaces %}'
+shortTitle: 'Guía de inicio rápido para {% data variables.product.prodname_codespaces %}'
 intro: 'Intenta {% data variables.product.prodname_github_codespaces %} en 5 minutos.'
 allowTitleToDifferFromFilename: true
 product: '{% data reusables.gated-features.codespaces %}'

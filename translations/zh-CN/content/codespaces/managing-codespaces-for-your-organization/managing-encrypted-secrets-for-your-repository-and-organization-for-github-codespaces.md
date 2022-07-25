@@ -1,5 +1,5 @@
 ---
-title: Managing encrypted secrets for your repository and organization for GitHub Codespaces
+title: 为您的仓库和 GitHub Codespaces 组织管理加密的密钥
 shortTitle: 加密机密
 intro: '加密密钥允许您将敏感信息存储在您的组织、仓库或 {% data variables.product.prodname_github_codespaces %} 中。'
 product: '{% data reusables.gated-features.codespaces %}'

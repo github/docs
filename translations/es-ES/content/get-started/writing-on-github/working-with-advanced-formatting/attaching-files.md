@@ -18,7 +18,7 @@ topics:
 
 {% warning %}
 
-**Warning:** If you add an image or video to a pull request or issue comment, anyone can view the anonymized URL without authentication, even if the pull request is in a private repository{% ifversion ghes %}, or if private mode is enabled{% endif %}. Para mantener privados archivos de medios sensibles, estos se deben servir desde una red o servidor privados que requieran autenticación. {% ifversion fpt or ghec %}Para obtener más información sobre las URL anonimizadas, consulta la sección "[Acerca de las URL anonimizadas](/github/authenticating-to-github/about-anonymized-urls)".{% endif %}
+**Advertencia:** Si adjuntas un archivo a un comentario de una solicitud de cambios o propuesta, cualquiera podrá ver la URL anonimizada sin autenticación, incluso si la solicitud de cambios está en un repositorio privado{% ifversion ghes %} o si está habilitado el modo privado{% endif %}. Para mantener privados archivos de medios sensibles, estos se deben servir desde una red o servidor privados que requieran autenticación. {% ifversion fpt or ghec %}Para obtener más información sobre las URL anonimizadas, consulta la sección "[Acerca de las URL anonimizadas](/github/authenticating-to-github/about-anonymized-urls)".{% endif %}
 
 {% endwarning %}
 
@@ -35,7 +35,7 @@ Para adjuntar un archivo a una propuesta o una conversación de una solicitud de
 El tamaño máximo de archivo es:
 - 10MB de imágenes y gifs{% ifversion fpt or ghec %}
 - 10MB para videos que se suban a un repositorio que pertenezca a un usuario u organización en un plan gratuito de GitHub
-- 100MB para videos que se suban a los repositorios que pertenezcan a un usuario u organización de un plan de pago de GitHub{% elsif ghes or ghae %}
+- 100MB para videos que se suban a los repositorios que pertenezcan a un usuario u organización de un plan de pago de GitHub{% elsif ghes or ghae-issue-7575 %}
 - 100MB para videos{% endif %}
 - 25MB para el resto de los archivos
 
@@ -51,13 +51,13 @@ Archivos compatibles:
 * Documentos de Microsoft Word (*.docx*), Powerpoint (*.pptx*) y Excel (*.xlsx*)
 * Archivos de texto (*.txt*)
 * PDF (*.pdf*)
-* ZIP (*.zip*, *.gz*)
-* Video (*.mp4*, *.mov*)
+* ZIP (*.zip*, *.gz*){% ifversion fpt or ghec or ghes or ghae-issue-7575 %}
+* Video (*.mp4*, *.mov*){% endif %}
 
-{% note %}
+{% ifversion fpt or ghec or ghes or ghae-issue-7575 %}{% note %}
 
 **Nota:** La compatibilidad con los codecs de video es específica del buscador y es posible que un video que cargues en uno de los buscadores no se pueda ver en otro de ellos. Por el momento, recomendamos utilizar h.264 para una mejor compatibilidad.
 
-{% endnote %}
+{% endnote %}{% endif %}
 
 ![GIF animados adjuntos](/assets/images/help/pull_requests/dragging_images.gif)
