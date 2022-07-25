@@ -57,7 +57,7 @@ To assess the impact of a vulnerability on your code, you also need to consider 
 
 ## Secure your communication tokens
 
-Code often needs to communicate with other systems over a network, and requires secrets (like a password, or an API key) to authenticate. Your system needs access to those secrets to run, but it's best practice to not include them in your source code. This is especially important for public repositories, but also for private repositories to which many people might have access.
+Code often needs to communicate with other systems over a network, and requires secrets (like a password, or an API key) to authenticate. Your system needs access to those secrets to run, but it's best practice to not include them in your source code. This is especially important for repositories to which many people might have access{% ifversion not ghae %} and critical for public repositories{% endif %}.
 
 ### Automatic detection of secrets committed to a repository
 
