@@ -190,6 +190,10 @@ Actions that run in Docker containers have static directories under the `/github
 - `/github/workspace` - {% data reusables.repositories.action-root-user-required %}
 - `/github/workflow`
 
+### Docker engine setup
+
+To pass the inputs of actions into docker container the runner uses the environment variable which may contain dashes as part of their names. If  the docker engine is not a binary executable but a shall wrapper or a link (linus docker istalled with snap is a sample) the action is not able to get the inputs and the build fails with the message `Error: Input required and not supplied: java-version`.
+
 ## Further reading
 - "[Managing billing for {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions)"
 - You can use a matrix strategy to run your jobs on multiple images. For more information, see "[Using a matrix for your jobs](/actions/using-jobs/using-a-matrix-for-your-jobs)."
