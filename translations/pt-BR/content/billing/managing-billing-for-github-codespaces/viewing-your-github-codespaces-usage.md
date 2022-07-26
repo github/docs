@@ -1,5 +1,5 @@
 ---
-title: Viewing your GitHub Codespaces usage
+title: Visualizando seu uso do GitHub Codespaces
 shortTitle: Visualizando seu uso
 intro: 'Você pode visualizar os minutos computados e o armazenamento usado pelo {% data variables.product.prodname_github_codespaces %}.'
 permissions: 'To manage billing for {% data variables.product.prodname_github_codespaces %} for an organization, you must be an organization owner or a billing manager.'

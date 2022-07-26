@@ -1,5 +1,5 @@
 ---
-title: Using GitHub Codespaces with GitHub CLI
+title: Usando o GitHub Codespaces com o GitHub CLI
 shortTitle: GitHub CLI
 intro: 'Você pode trabalhar com {% data variables.product.prodname_github_codespaces %} diretamente da sua linha de comando usando `gh`, a interface de linha de comando de {% data variables.product.product_name %}.'
 product: '{% data reusables.gated-features.codespaces %}'
@@ -82,7 +82,7 @@ Para obter mais informações, consulte "[Criar um codespace](/codespaces/develo
 gh codespace stop -c <em>codespace-name</em>
 ```
 
-For more information, see "[Deep dive into {% data variables.product.prodname_github_codespaces %}](/codespaces/getting-started/deep-dive#closing-or-stopping-your-codespace)."
+Para obter mais informações, consulte "[Aprouundamento em {% data variables.product.prodname_github_codespaces %}](/codespaces/getting-started/deep-dive#closing-or-stopping-your-codespace)".
 
 ### Excluir um codespace
 
@@ -192,4 +192,4 @@ Você pode ver o registro de criação de um codespace. Depois de entrar neste c
 gh codespace logs -c <em>codespace-name</em>
 ```
 
-For more information about the creation log, see "[{% data variables.product.prodname_github_codespaces %} logs](/codespaces/troubleshooting/github-codespaces-logs#creation-logs)."
+Para obter mais informações sobre o log de criação, consulte "[Logs de {% data variables.product.prodname_github_codespaces %}](/codespaces/troubleshooting/github-codespaces-logs#creation-logs)".

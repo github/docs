@@ -33,12 +33,12 @@ shortTitle: Chaves GPG existentes
       $ gpg --armor --export <em>3AA5C34371567BD2</em>
       # Prints the GPG key ID, in ASCII armor format
       ```
-      Você pode [adicionar a sua chave de GPG à sua conta do GitHub](/articles/adding-a-new-gpg-key-to-your-github-account).
+      Você pode [adicionar a sua chave de GPG à sua conta do GitHub](/articles/adding-a-gpg-key-to-your-github-account).
 
 ## Leia mais
 
 * "[Gerar uma nova chave GPG](/articles/generating-a-new-gpg-key)"
-* "[Adicionar uma nova chave GPG à sua conta do GitHub](/articles/adding-a-new-gpg-key-to-your-github-account)"
+* "[Adicionar uma chave GPG à sua conta do GitHub](/articles/adding-a-gpg-key-to-your-github-account)"
 * "[Avisar o Git sobre sua chave de assinatura](/articles/telling-git-about-your-signing-key)"
 * "[Associar um e-mail à sua chave GPG](/articles/associating-an-email-with-your-gpg-key)"
 * "[Assinar commits](/articles/signing-commits)"

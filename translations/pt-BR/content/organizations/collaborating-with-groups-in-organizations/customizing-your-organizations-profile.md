@@ -11,14 +11,13 @@ topics:
 shortTitle: Personalizar perfil da organização
 ---
 
-{% ifversion org-profile-pin-private %}
 
 ## Sobre a página de perfil da sua organização
 
+{% ifversion org-profile-pin-private %}
 Você pode personalizar a página de visão geral da sua organização para mostrar o conteúdo dedicado a usuários públicos ou integrantes da organização. Os integrantes da sua organização que estão conectados em {% data variables.product.prodname_dotcom %} são exibidos em uma visualização de integrantes quando visitam a página de perfil da sua organização. Os usuários que não são integrantes da sua organização serão mostrados como público.
 
 ![Imagem de uma página de perfil da organização](/assets/images/help/organizations/new_organization_page.png)
-{% endif %}
 
 ### Repositórios fixos
 
@@ -27,6 +26,7 @@ Você pode dar aos usuários acesso fácil a repositórios importantes ou usados
 Apenas os proprietários da organização podem fixar repositórios. Para obter mais informações, consulte "[Fixando repositórios no perfil da sua organização](#pinning-repositories-to-your-organizations-profile)".
 
 ### READMEs do perfil da organização
+{% endif %}
 
 Você pode compartilhar informações sobre como se envolver com a sua organização criando um README do perfil da organização para usuários públicos e integrantes da organização. {% data variables.product.prodname_dotcom %} mostra o README do perfil da sua organização na aba "Visão geral" da sua organização.
 
@@ -57,7 +57,7 @@ Você pode formatar o texto e incluir emoji, imagens e GIFs no README do perfil 
 
 ## Fixando repositórios no perfil da sua organização
 
-Você pode fixar repositórios que deseja destacar, como aqueles que são usados com frequência, na página de perfil da sua organização. Para escolher quais repositórios deseja fixar no perfil da sua organização, você deve ser proprietário ou administrador da organização.
+Você pode fixar repositórios que deseja destacar, como aqueles que são usados com frequência, na página de perfil da sua organização. Para escolher quais repositórios deseja fixar no perfil da sua organização, você deve ser proprietário da organização.
 
 1. Acesse a página de perfil da sua organização.
 2. Na barra lateral direita da página no link {% octicon "eye" aria-label="The eye octicon" %} "Visualizar como" escolha o perfil **público** ou **integrante** no menu suspenso.

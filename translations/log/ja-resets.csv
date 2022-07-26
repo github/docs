@@ -87,6 +87,9 @@ translations/ja-JP/content/billing/managing-your-license-for-github-enterprise/t
 translations/ja-JP/content/billing/managing-your-license-for-github-enterprise/uploading-a-new-license-to-github-enterprise-server.md,broken liquid tags
 translations/ja-JP/content/billing/managing-your-license-for-github-enterprise/viewing-license-usage-for-github-enterprise.md,broken liquid tags
 translations/ja-JP/content/code-security/adopting-github-advanced-security-at-scale/introduction-to-adopting-github-advanced-security-at-scale.md,broken liquid tags
+translations/ja-JP/content/code-security/adopting-github-advanced-security-at-scale/phase-2-preparing-to-enable-at-scale.md,broken liquid tags
+translations/ja-JP/content/code-security/adopting-github-advanced-security-at-scale/phase-3-pilot-programs.md,broken liquid tags
+translations/ja-JP/content/code-security/adopting-github-advanced-security-at-scale/phase-6-rollout-and-scale-secret-scanning.md,broken liquid tags
 translations/ja-JP/content/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-alerts.md,broken liquid tags
 translations/ja-JP/content/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-with-codeql.md,broken liquid tags
 translations/ja-JP/content/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning.md,broken liquid tags
@@ -267,6 +270,7 @@ translations/ja-JP/data/reusables/actions/enterprise-marketplace-actions.md,brok
 translations/ja-JP/data/reusables/actions/enterprise-no-internet-actions.md,broken liquid tags
 translations/ja-JP/data/reusables/actions/enterprise-postinstall-nextsteps.md,broken liquid tags
 translations/ja-JP/data/reusables/actions/ghes-actions-not-enabled-by-default.md,broken liquid tags
+translations/ja-JP/data/reusables/actions/more-resources-for-ghes.md,broken liquid tags
 translations/ja-JP/data/reusables/actions/self-hosted-runner-architecture.md,broken liquid tags
 translations/ja-JP/data/reusables/actions/self-hosted-runner-auto-removal.md,broken liquid tags
 translations/ja-JP/data/reusables/actions/self-hosted-runner-reusing.md,broken liquid tags
@@ -274,6 +278,8 @@ translations/ja-JP/data/reusables/actions/self-hosted-runners-prerequisites.md,b
 translations/ja-JP/data/reusables/advanced-security/about-committer-numbers-ghec-ghes.md,broken liquid tags
 translations/ja-JP/data/reusables/advanced-security/license-overview.md,broken liquid tags
 translations/ja-JP/data/reusables/apps/user-to-server-rate-limits-ghec.md,broken liquid tags
+translations/ja-JP/data/reusables/audit_log/audit-log-action-categories.md,broken liquid tags
+translations/ja-JP/data/reusables/billing/ghes-with-no-enterprise-account.md,broken liquid tags
 translations/ja-JP/data/reusables/classroom/classroom-codespaces-link.md,broken liquid tags
 translations/ja-JP/data/reusables/code-scanning/enterprise-enable-code-scanning-actions.md,broken liquid tags
 translations/ja-JP/data/reusables/code-scanning/enterprise-enable-code-scanning.md,broken liquid tags

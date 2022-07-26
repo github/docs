@@ -221,7 +221,7 @@
   term: GET
   description: Tipo de método na API REST
 - 
-  term: geoJSON
+  term: GeoJSON
   description: Formato para codificar uma série de estruturas de dados geográficos.
 - 
   term: Contrato de desenvolvedor do GitHub Marketplace
@@ -665,7 +665,7 @@
   description: >-
     Pode ser usado no lugar de uma senha. Os tokens podem ser de acesso pessoal, de OAuth ou de API.
 - 
-  term: topoJSON
+  term: TopoJSON
   description: Extensão do GeoJSON que codifica topologia.
 - 
   term: aplicativo TOTP

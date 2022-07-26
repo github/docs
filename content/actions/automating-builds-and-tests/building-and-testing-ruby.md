@@ -38,6 +38,8 @@ To get started quickly, add the starter workflow to the `.github/workflows` dire
 ```yaml
 {% data reusables.actions.actions-not-certified-by-github-comment %}
 
+{% data reusables.actions.actions-use-sha-pinning-comment %}
+
 name: Ruby
 
 on:
@@ -101,6 +103,8 @@ The full updated workflow with a matrix strategy could look like this:
 
 ```yaml
 {% data reusables.actions.actions-not-certified-by-github-comment %}
+
+{% data reusables.actions.actions-use-sha-pinning-comment %}
 
 name: Ruby CI
 
@@ -206,6 +210,8 @@ The following example matrix tests all stable releases and head versions of MRI,
 ```yaml
 {% data reusables.actions.actions-not-certified-by-github-comment %}
 
+{% data reusables.actions.actions-use-sha-pinning-comment %}
+
 name: Matrix Testing
 
 on:
@@ -239,6 +245,8 @@ The following example installs `rubocop` and uses it to lint all files. For more
 ```yaml
 {% data reusables.actions.actions-not-certified-by-github-comment %}
 
+{% data reusables.actions.actions-use-sha-pinning-comment %}
+
 name: Linting
 
 on: [push]
@@ -264,6 +272,8 @@ You can store any access tokens or credentials needed to publish your package us
 
 ```yaml
 {% data reusables.actions.actions-not-certified-by-github-comment %}
+
+{% data reusables.actions.actions-use-sha-pinning-comment %}
 
 name: Ruby Gem
 

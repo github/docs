@@ -35,6 +35,8 @@ type: how_to
 
 ## ユーザが所有するプロジェクトボードの作成
 
+{% data reusables.projects.classic-project-creation %}
+
 {% data reusables.profile.access_profile %}
 2. プロフィールページの一番上のメインナビゲーションにある{% octicon "project" aria-label="The project board icon" %}[**Projects**] をクリックします。 ![プロジェクトタブ](/assets/images/help/projects/user-projects-tab.png)
 {% data reusables.project-management.click-new-project %}
@@ -53,6 +55,8 @@ type: how_to
 {% data reusables.project-management.edit-project-columns %}
 
 ## Organization 全体のプロジェクトボードの作成
+
+{% data reusables.projects.classic-project-creation %}
 
 {% data reusables.profile.access_org %}
 {% data reusables.user-settings.access_org %}
@@ -73,6 +77,8 @@ type: how_to
 {% data reusables.project-management.edit-project-columns %}
 
 ## リポジトリのプロジェクトボードの作成
+
+{% data reusables.projects.classic-project-creation %}
 
 {% data reusables.repositories.navigate-to-repo %}
 2. リポジトリ名の下にある {% octicon "project" aria-label="The project board icon" %}[**Projects**] をクリックします。 ![プロジェクトタブ](/assets/images/help/projects/repo-tabs-projects.png)

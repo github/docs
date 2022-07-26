@@ -20,7 +20,7 @@ shortTitle: Segredos criptografados
  
 
 
-## About encrypted secrets for {% data variables.product.prodname_github_codespaces %}
+## Sobre segredos criptografados para {% data variables.product.prodname_github_codespaces %}
 
 Você pode adicionar segredos criptografados à sua conta pessoal que deseja usar nos seus codespaces. Por exemplo, você pode querer armazenar e acessar as seguintes informações confidenciais como segredos criptografados.
 
@@ -41,7 +41,7 @@ Você pode escolher quais repositórios devem ter acesso a cada segredo. Em segu
 
 ### Limites para segredos
 
-You can store up to 100 secrets for {% data variables.product.prodname_github_codespaces %}.
+Você pode armazenar até 100 segredos para {% data variables.product.prodname_github_codespaces %}.
 
 Os segredos são limitados a 64 kB.
 

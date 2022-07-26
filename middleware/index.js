@@ -28,7 +28,7 @@ import handleRedirects from './redirects/handle-redirects.js'
 import findPage from './find-page.js'
 import blockRobots from './block-robots.js'
 import archivedEnterpriseVersionsAssets from './archived-enterprise-versions-assets.js'
-import events from './events.js'
+import api from './api/index.js'
 import search from './search.js'
 import healthz from './healthz.js'
 import anchorRedirect from './anchor-redirect.js'
@@ -249,7 +249,7 @@ export default function (app) {
   app.use(haltOnDroppedConnection)
 
   // *** Rendering, 2xx responses ***
-  app.use('/events', instrument(events, './events'))
+  app.use('/api', instrument(api, './api'))
   app.use('/search', instrument(search, './search'))
   app.use('/healthz', instrument(healthz, './healthz'))
   app.use('/anchor-redirect', instrument(anchorRedirect, './anchor-redirect'))
