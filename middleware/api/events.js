@@ -2,8 +2,8 @@ import express from 'express'
 import { omit } from 'lodash-es'
 import Ajv from 'ajv'
 import addFormats from 'ajv-formats'
-import { eventSchema, hydroNames } from '../lib/schema-event.js'
-import catchMiddlewareError from './catch-middleware-error.js'
+import { eventSchema, hydroNames } from '../../lib/schema-event.js'
+import catchMiddlewareError from '../catch-middleware-error.js'
 
 const OMIT_FIELDS = ['type']
 
