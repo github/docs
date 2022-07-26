@@ -90,7 +90,7 @@ IssueもしくはPull Requestのコメントから、新しいIssueをオープ�
 {% data reusables.repositories.assign-an-issue-as-project-maintainer %}
 {% data reusables.repositories.submit-new-issue %}
 
-{% ifversion fpt or ghec %}
+{% ifversion discussions %}
 
 ## ディスカッションからのIssueの作成
 

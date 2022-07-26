@@ -18,7 +18,7 @@ shortTitle: ワークフローをトリガーするイベント
 
 ## About events that trigger workflows
 
-Workflow triggers are events that cause a workflow to run. For more information about how to use workflow triggers, see "[Triggering a workflow](/actions/using-workflows/triggering-a-workflow)."
+ワークフロートリガーは、ワークフローの実行を引き起こすイベントです。 For more information about how to use workflow triggers, see "[Triggering a workflow](/actions/using-workflows/triggering-a-workflow)."
 
 ## Available events
 
@@ -185,7 +185,7 @@ on:
   deployment_status
 ```
 
-{% ifversion fpt or ghec %}
+{% ifversion discussions %}
 ### `ディスカッション`
 
 | webhook イベントのペイロード                                                                             | アクティビティタイプ                                                                                                                                                                                                                                                                                              | `GITHUB_SHA`      | `GITHUB_REF` |

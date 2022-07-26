@@ -10,8 +10,6 @@ topics:
 shortTitle: Server Statistics
 ---
 
-{% data reusables.server-statistics.release-phase %}
-
 ## About {% data variables.product.prodname_server_statistics %}
 
 {% data variables.product.prodname_server_statistics %} collects aggregate usage data from {% data variables.product.product_location %}, which you can use to better anticipate the needs of your organization, understand how your team works, and show the value you get from {% data variables.product.prodname_ghe_server %}. 

@@ -1,1 +1,1 @@
-1. In {% data variables.product.prodname_vscode %}, create a new JavaScript (_*.js_) file.
+1. {% data variables.product.prodname_vscode %}で、新しいJavaScript(_*.js_)のファイルを作成してください。
