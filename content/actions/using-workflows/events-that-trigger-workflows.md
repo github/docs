@@ -385,7 +385,7 @@ on:
 
 | Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
 | --------------------- | -------------- | ------------ | -------------|
-| [`merge_group`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#pull_request) | n/a | Last merge commit of the pull request before it was added to the queue | Ref of the merge group `refs/heads/gh-readonly-queue/:branchName/:refName` |
+| [`merge_group`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#pull_request) | - `checks_requested`<br/> | Last merge commit of the pull request before it was added to the queue | Ref of the merge group `refs/heads/gh-readonly-queue/:branchName/:refName` |
 
 {% note %}
 
@@ -395,11 +395,13 @@ on:
 
 Runs your workflow when a pull request is added to a group for merging with merge queue. For more information see "[Merging a pull request with a merge queue](pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request-with-a-merge-queue)".
 
-For example, you can run a workflow when the `merge_group` event occurs.
+For example, you can run a workflow when the `checks_requested` activity has occurred.
 
 ```yaml
 on:
   merge_group:
+    types: [checks_requested]
+
 ```
 
 ### `milestone`
