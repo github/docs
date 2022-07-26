@@ -43,7 +43,7 @@ The {% data variables.product.prodname_command_palette %} also gives you quick a
 |<kbd>G</kbd> <kbd>P</kbd> | Go to the **Pull requests** tab. For more information, see "[About pull requests](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)."{% ifversion fpt or ghes or ghec %}
 |<kbd>G</kbd> <kbd>A</kbd> | Go to the **Actions** tab. For more information, see "[About Actions](/actions/getting-started-with-github-actions/about-github-actions)."{% endif %}
 |<kbd>G</kbd> <kbd>B</kbd> | Go to the **Projects** tab. For more information, see "[About project boards](/articles/about-project-boards)."
-|<kbd>G</kbd> <kbd>W</kbd> | Go to the **Wiki** tab. For more information, see "[About wikis](/communities/documenting-your-project-with-wikis/about-wikis)."{% ifversion fpt or ghec %}
+|<kbd>G</kbd> <kbd>W</kbd> | Go to the **Wiki** tab. For more information, see "[About wikis](/communities/documenting-your-project-with-wikis/about-wikis)."{% ifversion discussions %}
 |<kbd>G</kbd> <kbd>G</kbd> | Go to the **Discussions** tab. For more information, see "[About discussions](/discussions/collaborating-with-your-community-using-discussions/about-discussions)."{% endif %}
 
 ## Source code editing

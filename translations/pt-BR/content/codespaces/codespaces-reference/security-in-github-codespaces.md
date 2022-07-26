@@ -1,5 +1,5 @@
 ---
-title: Security in GitHub Codespaces
+title: Segurança GitHub Codespaces
 intro: 'Visão geral da arquitetura de segurança de {% data variables.product.prodname_github_codespaces %}, com orientações para ajudar a manter a segurança e minimizar o risco de ataque.'
 miniTocMaxHeadingLevel: 3
 versions:

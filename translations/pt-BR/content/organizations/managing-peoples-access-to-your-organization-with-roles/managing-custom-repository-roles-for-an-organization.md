@@ -49,7 +49,7 @@ Depois de escolher uma função herdada, você poderá selecionar as permissões
 
 Você só pode escolher uma permissão adicional se já não estiver incluída na função herdada. Por exemplo, se a função herdada oferece acesso de **Gravação** a um repositório, a permissão "Fechar uma pull request" já estará incluída na função herdada.
 
-{% ifversion ghec %}
+{% ifversion discussions %}
 ### Discussions
 
 - **Criar uma categoria de discussão**: Capacidade de criar uma nova categoria de discussão. Para obter mais informações, consulte "[Criando uma nova categoria de discussão](/discussions/managing-discussions-for-your-community/managing-categories-for-discussions#creating-a-category)".

@@ -73,6 +73,18 @@ Os proprietários das empresas podem configurar e-mails para notificações.
 5. Quando o teste for concluído com êxito, clique em **Save settings** (Salvar configurações) na parte inferior da página. ![Botão Save settings (Salvar configurações)](/assets/images/enterprise/management-console/save-settings.png)
 {% data reusables.enterprise_site_admin_settings.wait-for-configuration-run %}
 
+{% ifversion require-tls-for-smtp %}
+## Enforcing TLS for SMTP connections
+
+You can enforce TLS encryption for all incoming SMTP connections, which can help satisfy an ISO-27017 certification requirement.
+
+{% data reusables.enterprise_site_admin_settings.email-settings %}
+1. Under "Authentication," select **Enforce TLS auth (recommended)**.
+
+   ![Screenshot of the "Enforce TLS auth (recommended)" checkbox](/assets/images/enterprise/configuration/enforce-tls-for-smtp-checkbox.png)
+{% data reusables.enterprise_management_console.save-settings %}
+{% endif %}
+
 ## Configurar DNS e firewall para o recebimento de e-mails
 
 Se quiser permitir o recebimento de respostas para os e-mails de notificação, você deverá definir suas configurações DNS.
@@ -80,7 +92,7 @@ Se quiser permitir o recebimento de respostas para os e-mails de notificação, 
 1. A porta 25 da instância deve estar acessível para o seu servidor SMTP.
 2. Crie um registro A que aponte para `reply.[hostname]`. Dependendo do provedor DNS e da configuração do host da instância, você poderá criar um único registro A que aponte para `*.[hostname]`.
 3. Crie um registro MX que aponte para `reply.[hostname]`, de forma que os e-mails desse domínio sejam roteados para a instância.
-4. Crie um registro MX que aponte `noreply.[hostname]` para `[hostname]`, de forma que as respostas ao endereço `cc` nos e-mails de notificação sejam roteadas para a instância. Para obter mais informações, consulte {% ifversion ghes %}"[Configurando notificações](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications){% else %}"[Sobre notificações de e-mail](/github/receiving-notifications-about-activity-on-github/about-email-notifications)"{% endif %}."
+4. Crie um registro MX que aponte `noreply.[hostname]` para `[hostname]`, de forma que as respostas ao endereço `cc` nos e-mails de notificação sejam roteadas para a instância. For more information, see {% ifversion ghes %}"[Configuring notifications](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications){% else %}"[About email notifications](/github/receiving-notifications-about-activity-on-github/about-email-notifications){% endif %}."
 
 ## Resolver problemas na entrega de e-mails
 
