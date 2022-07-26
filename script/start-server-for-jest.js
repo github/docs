@@ -2,9 +2,9 @@
 
 import setupJestPuppeteer from 'jest-environment-puppeteer/setup.js'
 
-import { main } from '../start-server.mjs'
+import { main } from '../start-server.js'
 
-import { PORT, START_JEST_SERVER, isServerHealthy, isPortRunning } from './server-for-jest.mjs'
+import { PORT, START_JEST_SERVER, isServerHealthy, isPortRunning } from './server-for-jest.js'
 
 export default async () => {
   if (START_JEST_SERVER) {

@@ -2,7 +2,7 @@
 
 import teardownJestPuppeteer from 'jest-environment-puppeteer/teardown.js'
 
-import { START_JEST_SERVER, isServerHealthy, killServer } from './server-for-jest.mjs'
+import { START_JEST_SERVER, isServerHealthy, killServer } from './server-for-jest.js'
 
 export default async () => {
   if (START_JEST_SERVER) {

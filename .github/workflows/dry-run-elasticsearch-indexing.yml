@@ -10,7 +10,7 @@ on:
       - gh-readonly-queue/main/**
   pull_request:
     paths:
-      - script/search/index-elasticsearch.mjs
+      - script/search/index-elasticsearch.js
       - 'package*.json'
       - .github/workflows/dry-run-elasticsearch-indexing.yml
 
@@ -63,7 +63,7 @@ jobs:
         env:
           ELASTICSEARCH_URL: 'http://localhost:9200'
         run: |
-          ./script/search/index-elasticsearch.mjs --verbose \
+          ./script/search/index-elasticsearch.js --verbose \
           -l en -l ja \
           -V dotcom -V ghes-3.5
 
