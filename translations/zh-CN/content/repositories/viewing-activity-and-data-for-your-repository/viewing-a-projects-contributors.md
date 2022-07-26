@@ -42,7 +42,7 @@ shortTitle: 查看项目贡献者
 
 {% tip %}
 
-**Tip:** To list all commit contributors in a repository, see "[List repository contributors](/rest/repos/repos#list-repository-contributors)."
+**提示：**要列出仓库中的所有提交贡献者，请参阅“[列出仓库贡献者](/rest/repos/repos#list-repository-contributors)”。
 
 {% endtip %}
 

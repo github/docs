@@ -41,7 +41,7 @@ Para habilitar el {% data variables.product.prodname_code_scanning %} en tu inst
 
 {% elsif ghae %}
 
-To enable {% data variables.product.prodname_code_scanning %} using {% data variables.product.prodname_actions %} you must make runners available to run workflows in {% data variables.product.prodname_ghe_managed %}, see "[Getting started with {% data variables.product.prodname_actions %} for {% data variables.product.prodname_ghe_managed %}](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-ae)."
+Para habilitar el {% data variables.product.prodname_code_scanning %} utilizando {% data variables.product.prodname_actions %}, debes hacer que los ejecutores estén disponibles para ejecutar flujos de trabajo en {% data variables.product.prodname_ghe_managed %}, consulta la sección "[Iniciar con {% data variables.product.prodname_actions %} para {% data variables.product.prodname_ghe_managed %}](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-ae)".
 
 {% endif %}
 

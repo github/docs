@@ -128,14 +128,14 @@ upcoming_changes:
     owner: lukewar
   - 
     location: ProjectNextFieldType.NUMBER
-    description: '`NUMBER` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement.'
+    description: 'Se eliminará a `NUMBER`. Sigue la guía de ProjectV2 en https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar un reemplazo adecuado.'
     reason: La API de `ProjectNext` quedará obsoleta para favorecer la API de `ProjectV2`, la cual tiene mayores capacidades.
     date: '2022-10-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
   - 
     location: ProjectNextFieldType.REPOSITORY
-    description: '`REPOSITORY` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement.'
+    description: 'Se eliminará a `REPOSITORY`. Sigue la guía de ProjectV2 en https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar un reemplazo adecuado.'
     reason: La API de `ProjectNext` quedará obsoleta para favorecer la API de `ProjectV2`, la cual tiene mayores capacidades.
     date: '2022-10-01T00:00:00+00:00'
     criticality: breaking
@@ -163,14 +163,14 @@ upcoming_changes:
     owner: lukewar
   - 
     location: ProjectNextFieldType.TITLE
-    description: '`TITLE` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement.'
+    description: 'Se eliminará a `TITLE`. Sigue la guía de ProjectV2 en https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar un reemplazo adecuado.'
     reason: La API de `ProjectNext` quedará obsoleta para favorecer la API de `ProjectV2`, la cual tiene mayores capacidades.
     date: '2022-10-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
   - 
     location: ProjectNextFieldType.TRACKS
-    description: '`TRACKS` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement.'
+    description: 'Se eliminará a `TRACKS`. Sigue la guía de ProjectV2 en https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar un reemplazo adecuado.'
     reason: La API de `ProjectNext` quedará obsoleta para favorecer la API de `ProjectV2`, la cual tiene mayores capacidades.
     date: '2022-10-01T00:00:00+00:00'
     criticality: breaking
@@ -178,21 +178,21 @@ upcoming_changes:
   - 
     location: RemovePullRequestFromMergeQueueInput.branch
     description: 'Se eliminará la `branch`.'
-    reason: PRs are removed from the merge queue for the base branch, the `branch` argument is now a no-op
+    reason: Las solicitudes de cambio se eliminan de la cola de fusión para la rama base, el argumento `branch` ahora es un no-op
     date: '2022-10-01T00:00:00+00:00'
     criticality: breaking
     owner: jhunschejones
   - 
     location: RepositoryVulnerabilityAlert.fixReason
-    description: '`fixReason` will be removed.'
-    reason: The `fixReason` field is being removed. You can still use `fixedAt` and `dismissReason`.
+    description: 'Se eliminará a `fixReason`.'
+    reason: El campo `fixReason` ya se eliminó. Aún puedes utilizar `fixedAt` y `dismissReason`.
     date: '2022-10-01T00:00:00+00:00'
     criticality: breaking
     owner: jamestran201
   - 
     location: UnlockAndResetMergeGroupInput.branch
     description: 'Se eliminará la `branch`.'
-    reason: The current merge group for the repository's default branch, the `branch` argument is now a no-op
+    reason: El grupo de fusión actual para la rama predeterminada del repositorio, el argumento `branch` es ahora un no-op
     date: '2022-10-01T00:00:00+00:00'
     criticality: breaking
     owner: jhunschejones

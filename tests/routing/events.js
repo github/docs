@@ -1,6 +1,6 @@
 import { expect, jest } from '@jest/globals'
 import { CookieJar } from 'tough-cookie'
-import { getDOM, post } from '../helpers/e2etest.js'
+import { getJSON, post } from '../helpers/e2etest.js'
 
 describe('POST /events', () => {
   jest.setTimeout(60 * 1000)
@@ -9,8 +9,8 @@ describe('POST /events', () => {
   const cookieJar = new CookieJar()
 
   beforeEach(async () => {
-    const $ = await getDOM('/en', { cookieJar })
-    csrfToken = $('meta[name="csrf-token"]').attr('content')
+    const csrfRes = await getJSON('/api/session', { cookieJar })
+    csrfToken = csrfRes.csrfToken
   })
 
   async function checkEvent(data, code) {

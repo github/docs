@@ -27,7 +27,7 @@ Cuando habilitas la {% data variables.product.prodname_GH_advanced_security %} p
 {% endif %}
 
 {% ifversion ghes %}
-For guidance on a phased deployment of GitHub Advanced Security, see "[Introduction to adopting GitHub Advanced Security at scale](/code-security/adopting-github-advanced-security-at-scale/introduction-to-adopting-github-advanced-security-at-scale)."
+Para obtener orientación sobre un despliegue en fases de GitHub Advanced Security, consulta la sección "[Introducción a adoptar GitHub Advanced Security a escala](/code-security/adopting-github-advanced-security-at-scale/introduction-to-adopting-github-advanced-security-at-scale)".
 {% endif %}
 
 ## Verificar si tu licencia incluye a la {% data variables.product.prodname_GH_advanced_security %}
@@ -57,7 +57,7 @@ For guidance on a phased deployment of GitHub Advanced Security, see "[Introduct
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% data reusables.enterprise_management_console.advanced-security-tab %}{% ifversion ghes %}
-1. Under "Security," select the features that you want to enable and deselect any features you want to disable.
+1. Debajo de "Seguridad"; selecciona las características que quieras habilitar y deselecciona cualquiera que quieras inhabilitar.
 {% ifversion ghes %}![Checkbox to enable or disable {% data variables.product.prodname_advanced_security %} features](/assets/images/enterprise/3.2/management-console/enable-security-checkboxes.png){% else %}![Checkbox to enable or disable {% data variables.product.prodname_advanced_security %} features](/assets/images/enterprise/management-console/enable-advanced-security-checkboxes.png){% endif %}{% else %}
 1. Debajo de "{% data variables.product.prodname_advanced_security %}", da clic en **{% data variables.product.prodname_code_scanning_capc %}**. ![Checkbox to enable or disable {% data variables.product.prodname_code_scanning %}](/assets/images/enterprise/management-console/enable-code-scanning-checkbox.png){% endif %}
 {% data reusables.enterprise_management_console.save-settings %}
