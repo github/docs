@@ -154,7 +154,7 @@ gh pr create --web
 1. Verifique se o branch local e o repositório do qual você está fazendo merge, o branch remoto e o repositório no qual você está fazendo merge estão corretos. Em seguida, dê ao pull request um título e uma descrição. ![Barra lateral de pull request do GitHub](/assets/images/help/codespaces/codespaces-commit-pr.png)
 1. Clique em **Criar**.
 
-For more information on creating pull requests in {% data variables.product.prodname_github_codespaces %}, see "[Using {% data variables.product.prodname_github_codespaces %} for pull requests](/codespaces/developing-in-codespaces/using-github-codespaces-for-pull-requests)."
+Para obter mais informações sobre como criar pull requests em {% data variables.product.prodname_github_codespaces %}, consulte "[Usando {% data variables.product.prodname_github_codespaces %} para pull requests](/codespaces/developing-in-codespaces/using-github-codespaces-for-pull-requests)".
 
 {% endcodespaces %}
 

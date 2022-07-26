@@ -130,7 +130,7 @@ export function sendEvent({ type, version = '1.0.0', ...props }: SendEventProps)
   }
 
   const blob = new Blob([JSON.stringify(body)], { type: 'application/json' })
-  const endpoint = '/events'
+  const endpoint = '/api/events'
   try {
     // Only send the beacon if the feature is not disabled in the user's browser
     // Even if the function exists, it can still throw an error from the call being blocked

@@ -27,7 +27,7 @@ Ao habilitar {% data variables.product.prodname_GH_advanced_security %} para a s
 {% endif %}
 
 {% ifversion ghes %}
-For guidance on a phased deployment of GitHub Advanced Security, see "[Introduction to adopting GitHub Advanced Security at scale](/code-security/adopting-github-advanced-security-at-scale/introduction-to-adopting-github-advanced-security-at-scale)."
+Para orientação sobre a implantação faseada do GitHub Advanced Security, consulte "[Introdução à adoção do GitHub Advanced Security em escala](/code-security/adopting-github-advanced-security-at-scale/introduction-to-adopting-github-advanced-security-at-scale)".
 {% endif %}
 
 ## Verificando se a sua licença inclui {% data variables.product.prodname_GH_advanced_security %}

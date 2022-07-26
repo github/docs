@@ -8,8 +8,6 @@ redirect_from:
   - /early-access/github/analyze-how-your-team-works-with-server-statistics/exploring-server-statistics
 ---
 
-{% data reusables.server-statistics.release-phase %}
-
 Você pode fazer o download dos últimos 365 dias de dados de {% data variables.product.prodname_server_statistics %} para um arquivo CSV ou JSON. Estes dados, que incluem métricas agregadas em repositórios, problemas e pull requests, podem ajudar você a antecipar as necessidades da sua organização, entender como sua equipe funciona e mostrar o valor que você obtém de {% data variables.product.prodname_ghe_server %}.
 
 Antes de poder fazer o download desses dados, você deverá habilitar {% data variables.product.prodname_server_statistics %}. Para obter mais informações, consulte "[Habilitar {% data variables.product.prodname_server_statistics %} para a sua empresa](/admin/configuration/configuring-github-connect/enabling-server-statistics-for-your-enterprise)."

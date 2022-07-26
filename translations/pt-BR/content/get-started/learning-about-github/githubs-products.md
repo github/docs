@@ -120,4 +120,4 @@ Para obter mais informações sobre como hospedar sua própria instância de {% 
 
 ## Leia mais
 
-- "[About per-user pricing]({% ifversion not ghec %}/enterprise-cloud@latest{% endif %}/billing/managing-billing-for-your-github-account/about-per-user-pricing)"{% ifversion not ghec %}" in the {% data variables.product.prodname_ghe_cloud %} documentation{% endif %}
+- "[Sobre os preços por usuário]({% ifversion not ghec %}/enterprise-cloud@latest{% endif %}/billing/managing-billing-for-your-github-account/about-per-user-pricing)"{% ifversion not ghec %} na documentação de {% data variables.product.prodname_ghe_cloud %}{% endif %}
