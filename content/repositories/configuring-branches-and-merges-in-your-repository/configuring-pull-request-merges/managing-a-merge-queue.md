@@ -47,6 +47,8 @@ on:
   merge_group:
 ```
 
+For more information see "[Events that trigger workflows](/actions/using-workflows/events-that-trigger-workflows)"
+
 ### Triggering merge queue checks with other CI providers
 
 With other CI providers, you may need to update your configuration when a branch that begins with the special prefix `gh-readonly-queue/{base_branch}` is created.
