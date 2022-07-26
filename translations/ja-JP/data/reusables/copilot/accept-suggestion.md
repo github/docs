@@ -1,1 +1,1 @@
-1. To accept the suggestion, press <kbd>Tab</kbd>.
+1. 提案を受け入れるには<kbd>タブ</kbd>を押してください。

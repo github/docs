@@ -6,7 +6,8 @@ Once you have an active {% data variables.product.prodname_copilot %} trial or s
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.copilot-settings %}
-1. Under **Suggestions matching public code**, select the dropdown menu, then click **Allow** to allow suggestions matching public code, or **Block** to block suggestions matching public code. ![Screenshot of duplication detection option](/assets/images/help/copilot/duplication-detection.png)
+1. Under **Suggestions matching public code**, select the dropdown menu, then click **Allow** to allow suggestions matching public code, or **Block** to block suggestions matching public code.
+  ![Screenshot of duplication detection option](/assets/images/help/copilot/duplication-detection.png)
 {% data reusables.copilot.save-settings %}
 
 ### Enabling or disabling telemetry
@@ -15,5 +16,6 @@ You can configure how {% data variables.product.prodname_copilot %} uses your da
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.copilot-settings %}
-1. To allow or prevent {% data variables.product.prodname_dotcom %} using your telemetry data, select or deselect **Allow {% data variables.product.prodname_dotcom %} to use my code snippets for product improvements**. ![Screenshot of telemetry option](/assets/images/help/copilot/telemetry-option.png)
+1. To allow or prevent {% data variables.product.prodname_dotcom %} using your telemetry data, select or deselect **Allow {% data variables.product.prodname_dotcom %} to use my code snippets for product improvements**.
+  ![Screenshot of telemetry option](/assets/images/help/copilot/telemetry-option.png)
 {% data reusables.copilot.save-settings %}

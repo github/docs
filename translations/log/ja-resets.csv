@@ -111,7 +111,6 @@ translations/ja-JP/content/code-security/code-scanning/using-codeql-code-scannin
 translations/ja-JP/content/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/migrating-from-the-codeql-runner-to-codeql-cli.md,broken liquid tags
 translations/ja-JP/content/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/running-codeql-runner-in-your-ci-system.md,broken liquid tags
 translations/ja-JP/content/code-security/dependabot/dependabot-alerts/about-dependabot-alerts.md,broken liquid tags
-translations/ja-JP/content/code-security/dependabot/dependabot-alerts/browsing-security-advisories-in-the-github-advisory-database.md,broken liquid tags
 translations/ja-JP/content/code-security/dependabot/dependabot-alerts/configuring-dependabot-alerts.md,broken liquid tags
 translations/ja-JP/content/code-security/dependabot/dependabot-security-updates/about-dependabot-security-updates.md,broken liquid tags
 translations/ja-JP/content/code-security/dependabot/dependabot-security-updates/configuring-dependabot-security-updates.md,broken liquid tags
@@ -281,10 +280,15 @@ translations/ja-JP/data/reusables/apps/user-to-server-rate-limits-ghec.md,broken
 translations/ja-JP/data/reusables/audit_log/audit-log-action-categories.md,broken liquid tags
 translations/ja-JP/data/reusables/billing/ghes-with-no-enterprise-account.md,broken liquid tags
 translations/ja-JP/data/reusables/classroom/classroom-codespaces-link.md,broken liquid tags
+translations/ja-JP/data/reusables/code-scanning/beta-alert-tracking-in-issues.md,broken liquid tags
 translations/ja-JP/data/reusables/code-scanning/enterprise-enable-code-scanning-actions.md,broken liquid tags
 translations/ja-JP/data/reusables/code-scanning/enterprise-enable-code-scanning.md,broken liquid tags
+translations/ja-JP/data/reusables/code-scanning/run-additional-queries.md,broken liquid tags
 translations/ja-JP/data/reusables/code-scanning/upload-sarif-ghas.md,broken liquid tags
 translations/ja-JP/data/reusables/community/report-content.md,broken liquid tags
+translations/ja-JP/data/reusables/copilot/dotcom-settings.md,broken liquid tags
+translations/ja-JP/data/reusables/copilot/enabling-or-disabling-in-vsc.md,broken liquid tags
+translations/ja-JP/data/reusables/copilot/enabling-or-disabling-vs.md,broken liquid tags
 translations/ja-JP/data/reusables/dotcom_billing/actions-packages-storage-enterprise-account.md,broken liquid tags
 translations/ja-JP/data/reusables/dotcom_billing/downgrade-org-to-free.md,broken liquid tags
 translations/ja-JP/data/reusables/dotcom_billing/lfs-remove-data.md,broken liquid tags

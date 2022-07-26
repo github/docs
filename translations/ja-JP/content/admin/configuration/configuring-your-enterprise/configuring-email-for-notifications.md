@@ -73,6 +73,18 @@ Enterprise オーナーは、通知用のメールを設定できます。
 5. テストメールが成功したなら、ページの下部で**Save settings（設定の保存）**をクリックしてください。 ![設定保存のボタン](/assets/images/enterprise/management-console/save-settings.png)
 {% data reusables.enterprise_site_admin_settings.wait-for-configuration-run %}
 
+{% ifversion require-tls-for-smtp %}
+## Enforcing TLS for SMTP connections
+
+You can enforce TLS encryption for all incoming SMTP connections, which can help satisfy an ISO-27017 certification requirement.
+
+{% data reusables.enterprise_site_admin_settings.email-settings %}
+1. Under "Authentication," select **Enforce TLS auth (recommended)**.
+
+   ![Screenshot of the "Enforce TLS auth (recommended)" checkbox](/assets/images/enterprise/configuration/enforce-tls-for-smtp-checkbox.png)
+{% data reusables.enterprise_management_console.save-settings %}
+{% endif %}
+
 ## メール着信を許可する DNS とファイアウォールの設定
 
 通知へのメールでの返信を許可したいなら、DNSを設定しなければなりません。
@@ -80,7 +92,7 @@ Enterprise オーナーは、通知用のメールを設定できます。
 1. インスタンスのポート25がSMTPサーバにアクセスできることを確認してください。
 2. `reply.[hostname]`を指すAレコードを作成してください。 DNSプロバイダとインスタンスのホスト設定によっては、 `*.[hostname]`を指す単一のAレコードを作成できる場合があります。
 3. `reply.[hostname]`を指すMXレコードを作成して、このドメインへのメールがインスタンスにルーティングされるようにしてください。
-4. `noreply.[hostname]` が `[hostname]` を指すようにする MX レコードを作成し、 通知メールの `cc` アドレスへの返信がインスタンスにルーティングされるようにしてください。 詳しい情報については、{% ifversion ghes %}「[通知を設定する](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications){% else %}「[メール通知について](/github/receiving-notifications-about-activity-on-github/about-email-notifications){% endif %}」を参照してください。
+4. `noreply.[hostname]` が `[hostname]` を指すようにする MX レコードを作成し、 通知メールの `cc` アドレスへの返信がインスタンスにルーティングされるようにしてください。 For more information, see {% ifversion ghes %}"[Configuring notifications](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications){% else %}"[About email notifications](/github/receiving-notifications-about-activity-on-github/about-email-notifications){% endif %}."
 
 ## メール配信のトラブルシューティング
 
