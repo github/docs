@@ -32,6 +32,8 @@ If a contributor bypasses a push protection block for a secret, {% data variable
 
 {% data variables.product.prodname_secret_scanning_caps %} as a push protection currently scans repositories for secrets issued by the following service providers.
 
+{% data reusables.secret-scanning.secret-scanning-pattern-pair-matches %}
+
 {% data reusables.secret-scanning.secret-list-private-push-protection %}
 
 ## Enabling {% data variables.product.prodname_secret_scanning %} as a push protection
