@@ -381,6 +381,8 @@ on:
     types: [created, deleted]
 ```
 
+{% ifversion fpt or ghec  %}
+
 ### `merge_group`
 
 | Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
@@ -400,6 +402,7 @@ on:
 
 ```
 
+{% endif %}
 ### `milestone`
 
 | Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
