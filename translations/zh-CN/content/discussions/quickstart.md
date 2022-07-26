@@ -3,21 +3,20 @@ title: GitHub Discussions 快速入门
 intro: '在现有仓库或组织上启用 {% data variables.product.prodname_discussions %} ，并发起与社区的对话。'
 allowTitleToDifferFromFilename: true
 versions:
-  fpt: '*'
-  ghec: '*'
+  feature: discussions
 shortTitle: 快速入门
 ---
 
 
 ## 简介
 
-{% data variables.product.prodname_discussions %} 是一个围绕开源项目为社区提供协作沟通的论坛。 不像 {% data variables.product.prodname_github_issues %}，讨论用于需要透明和可访问的对话，但不需要在项目板上进行跟踪，并且与代码无关。 讨论使公共论坛中能够进行流畅、公开的对话。
+{% data variables.product.prodname_discussions %} is a collaborative communication forum for the community around an open source or internal project. 不像 {% data variables.product.prodname_github_issues %}，讨论用于需要透明和可访问的对话，但不需要在项目板上进行跟踪，并且与代码无关。 讨论使公共论坛中能够进行流畅、公开的对话。
 
 通过连接和提供更集中的区域来连接和查找信息，讨论为更多协作对话提供了空间。
 
 ## 在仓库中启用 {% data variables.product.prodname_discussions %}
 
-仓库所有者和具有写入访问权限的人可在其公共和私有仓库中为社区启用 {% data variables.product.prodname_discussions %}。
+Repository owners and people with write access can enable {% data variables.product.prodname_discussions %} for a community on their public{% ifversion ghes > 3.5 %}, internal{% endif %} and private repositories. The visibility of a discussion is inherited from the repository the discussion is created in.
 
 当您首次启用 {% data variables.product.prodname_discussions %} 时，将邀请您配置欢迎帖子。
 
@@ -42,7 +41,7 @@ shortTitle: 快速入门
 
 ## 为贡献者设置社区指南
 
-对于仓库讨论，您可以设置参与指南，以鼓励协作者进行与仓库相关的有意义、有用的对话。 您还可以更新仓库的 README，以传达协作者何时应打开问题或讨论的期望。 有关为项目提供指南的更多信息，请参阅“[为项目添加行为准则](/communities/setting-up-your-project-for-healthy-contributions/adding-a-code-of-conduct-to-your-project)”和“[设置健康参与的项目](/communities/setting-up-your-project-for-healthy-contributions)”。
+对于仓库讨论，您可以设置参与指南，以鼓励协作者进行与仓库相关的有意义、有用的对话。 您还可以更新仓库的 README，以传达协作者何时应打开问题或讨论的期望。 For more information about providing guidelines for your project, see{% ifversion fpt or ghec %} "[Adding a code of conduct to your project](/communities/setting-up-your-project-for-healthy-contributions/adding-a-code-of-conduct-to-your-project)" and{% endif %} "[Setting up your project for healthy contributions](/communities/setting-up-your-project-for-healthy-contributions)."
 
 对于组织讨论，您可以通过创建组织配置文件 README 来共享有关如何与组织互动的信息。 更多信息请参阅“[自定义组织的配置文件](/organizations/collaborating-with-groups-in-organizations/customizing-your-organizations-profile)”。
 
@@ -62,7 +61,7 @@ shortTitle: 快速入门
 
 仓库所有者和对仓库具有写入权限的人可以创建新类别来保持讨论井然有序。 同样，由于组织讨论基于源存储库，因此存储库所有者和对源存储库具有写入访问权限的人员可以为组织讨论创建新类别。
 
-参与和创建新讨论的协作者可以将讨论分组到最相关的现有类别。 讨论也可以在创建后重新分类。 更多信息请参阅“[管理讨论的类别](/discussions/managing-discussions-for-your-community/managing-categories-for-discussions)”。
+Collaborators participating in and creating new discussions can group discussions into the most relevant existing categories. 讨论也可以在创建后重新分类。 更多信息请参阅“[管理讨论的类别](/discussions/managing-discussions-for-your-community/managing-categories-for-discussions)”。
 
 {% data reusables.discussions.you-can-label-discussions %}
 
