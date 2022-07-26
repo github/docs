@@ -2,8 +2,7 @@
 title: Pesquisar discussões
 intro: 'Você pode pesquisar discussões em {% data variables.product.product_name %} e limitar os resultados usando os qualificadores de busca.'
 versions:
-  fpt: '*'
-  ghec: '*'
+  feature: discussions
 topics:
   - GitHub search
 redirect_from:

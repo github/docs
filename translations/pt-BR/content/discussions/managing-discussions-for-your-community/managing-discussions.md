@@ -3,8 +3,7 @@ title: Gerenciando discussões
 intro: 'Você pode categorizar, destacar e transferir ou excluir as discussões de um repositório.'
 permissions: Repository administrators and people with write or greater access to a repository can manage discussions in the repository. Repository administrators and people with write or greater access to the source repository for organization discussions can manage discussions in the organization.
 versions:
-  fpt: '*'
-  ghec: '*'
+  feature: discussions
 shortTitle: Gerenciar discussões
 redirect_from:
   - /discussions/managing-discussions-for-your-community/managing-discussions-in-your-repository
@@ -17,7 +16,7 @@ redirect_from:
 
 Os proprietários da organização podem escolher as permissões necessárias para criar uma discussão para repositórios pertencentes à organização. Da mesma forma, para escolher as permissões necessárias para criar uma discussão na organização, os proprietários da organização podem alterar as permissões necessárias no repositório de origem. Para obter mais informações, consulte "[Gerenciar a criação de discussões para repositórios na sua organização](/organizations/managing-organization-settings/managing-discussion-creation-for-repositories-in-your-organization)".
 
-Como mantenedor de discussões, você pode criar recursos da comunidade para incentivar discussões alinhadas com o objetivo geral do projeto e manter um fórum aberto amigável para os colaboradores. Criar um código de conduta ou diretrizes de contribuição para os colaboradores a seguir ajudará a facilitar um fórum colaborativo e produtivo. Para obter mais informações sobre como criar recursos da comunidade, consulte "[Adicionar um código de conduta ao seu projeto](/communities/setting-up-your-project-for-healthy-contributions/adding-a-code-of-conduct-to-your-project)" e "[Diretrizes de configuração para contribuidores do repositório](/communities/setting-up-your-project-for-healthy-contributions/setting-guidelines-for-repository-contributors)".
+Como mantenedor de discussões, você pode criar recursos da comunidade para incentivar discussões alinhadas com o objetivo geral do projeto e manter um fórum aberto amigável para os colaboradores. Creating{% ifversion fpt or ghec %} a code of conduct or{% endif %} contribution guidelines for collaborators to follow will help facilitate a collaborative and productive forum. For more information on creating community resources, see{% ifversion fpt or ghec %} "[Adding a code of conduct to your project](/communities/setting-up-your-project-for-healthy-contributions/adding-a-code-of-conduct-to-your-project)," and{% endif %} "[Setting guidelines for repository contributors](/communities/setting-up-your-project-for-healthy-contributions/setting-guidelines-for-repository-contributors)."
 
 Quando uma discussão fornece uma ideia ou um erro que está pronto para ser trabalhado, você pode criar um novo problema a partir de uma discussão. Para obter mais informações, consulte "[Criar um problema](/issues/tracking-your-work-with-issues/creating-an-issue#creating-an-issue-from-a-discussion)".
 
@@ -75,7 +74,7 @@ Editar uma discussão fixada não irá alterar a categoria da discussão. Para o
 
 ## Transferir uma discussão
 
-Para transferir uma discussão, você precisa ter permissão de criar discussões no repositório, em que você deseja transferir a discussão. Se você deseja transferir uma discussão para uma organização, você deve ter permissão para criar discussões no repositório de origem para as discussões da organização. Você somente pode transferir discussões entre repositórios pertencentes à mesma conta de usuário ou organização. Você não pode transferir uma discussão de um repositório privado para um repositório público.
+Para transferir uma discussão, você precisa ter permissão de criar discussões no repositório, em que você deseja transferir a discussão. Se você deseja transferir uma discussão para uma organização, você deve ter permissão para criar discussões no repositório de origem para as discussões da organização. Você somente pode transferir discussões entre repositórios pertencentes à mesma conta de usuário ou organização. You can't transfer a discussion from a private{% ifversion ghec or ghes %} or internal{% endif %} repository to a public repository.
 
 {% data reusables.discussions.navigate-to-repo-or-org %}
 {% data reusables.discussions.discussions-tab %}

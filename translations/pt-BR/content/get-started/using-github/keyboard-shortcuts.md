@@ -47,7 +47,7 @@ O {% data variables.product.prodname_command_palette %} também fornece acesso r
 | <kbd>G</kbd> <kbd>P</kbd> | Vai para a aba **Pull requests**. Para obter mais informações, consulte "[Sobre pull requests](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)."{% ifversion fpt or ghes or ghec %}
 | <kbd>G</kbd> <kbd>A</kbd> | Acesse a aba de **Ações**. Para obter mais informações, consulte "[Sobre ações](/actions/getting-started-with-github-actions/about-github-actions)".{% endif %}
 | <kbd>G</kbd> <kbd>B</kbd> | Vai para a aba **Projects** (Projetos). Para obter mais informações, consulte "[Sobre quadros de projeto](/articles/about-project-boards)".                                                                                                                |
-| <kbd>G</kbd> <kbd>W</kbd> | Vai para a aba **Wiki**. Para obter mais informações, consulte "[Sobre wikis](/communities/documenting-your-project-with-wikis/about-wikis)."{% ifversion fpt or ghec %}
+| <kbd>G</kbd> <kbd>W</kbd> | Vai para a aba **Wiki**. Para obter mais informações, consulte "[Sobre wikis](/communities/documenting-your-project-with-wikis/about-wikis)."{% ifversion discussions %}
 | <kbd>G</kbd> <kbd>G</kbd> | Acesse a aba **Discussões**. Para obter mais informações, consulte "[Sobre discussões](/discussions/collaborating-with-your-community-using-discussions/about-discussions)".{% endif %}
 
 ## Edição de código-fonte
