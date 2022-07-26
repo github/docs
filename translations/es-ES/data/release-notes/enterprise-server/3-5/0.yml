@@ -22,7 +22,7 @@ sections:
 
           Los roles de repositorio también son totalmente compatibles en las API de REST de GitHub Enterprise. La API de organizaciones se puede utilizar para listar todos los roles de repositorio personalizados en una organización y las API existentes para otorgar acceso a los repositorios para individuos y equipos tienen soporte extendido para los roles de repositorio personalizados. Para obtener más información, consulta la sección "[Organizations](/rest/reference/orgs#list-custom-repository-roles-in-an-organization)" en la documentación de la API de REST.
     - 
-      heading: GitHub Container registry in public beta
+      heading: El registro de contenedores de GitHub está en beta público
       notes:
         - |
           El registro de contenedores de GitHub (GHCR) está ahora disponible en GitHub Enterprise Server 3.5 como un beta público. Este ofrece a los desarrolladores la capacidad de publicar, descargar y administrar contenedores. La compatibilidad de contenedores de GitHub Packages implementa los estándares OCI para hospedar imágenes de Docker. Para obtener más información, consulta la sección "[Registro de contenedores de GitHub](/packages/working-with-a-github-packages-registry/working-with-the-container-registry)".
@@ -37,7 +37,7 @@ sections:
         - |
           Ahora puedes analizar la forma en la que trabaja tu equipo, entender el valor que obtienes de GitHub Enterprise Server y ayudarnos a mejorar nuestros productos si revisas los daos de uso de tu instancia y compartes estos datos agregados con GitHub. Puedes utilizar tus propias herramientas para analizar tu uso a lo largo del tiempo si descargas los datos en un archivo CSV o JSON o si accedes a ellos utilizando la API de REST. Para ver una lista de métricas agregadas que se recolectan, consulta la sección "[Acerca de las estadísticas de servidor](/admin/monitoring-activity-in-your-enterprise/analyzing-how-your-team-works-with-server-statistics/about-server-statistics#server-statistics-data-collected)". Los datos de estadística de servidor no incluyen datos personales ni contenido de GitHub, tal como código, propuestas, comentarios o contenido de solicitudes de cambios. Para entender mejor el cómo almacenamos y aseguramos datos de estadísticas de servidor, consulta la sección "[Seguridad de GitHub](https://github.com/security)". Para obtener más información sobre las estadísticas de servidor, consulta la sección "[Analizar la forma en la que trabaja tu equipo con las estadísticas de servidor](/admin/monitoring-activity-in-your-enterprise/analyzing-how-your-team-works-with-server-statistics)". Esta característica está disponible en beta público.
     - 
-      heading: GitHub Actions rate limiting is now configurable
+      heading: El límite de tasa de GitHub Actions ahora se puede configurar
       notes:
         - |
           Los administradores de sitio ahora pueden habilitar y configurar un limite de tasa para las GitHub Actions. Predeterminadamente, el límite de tasa se inhabilita. Cuando los jobs de los flujos de trabajo no se pueden asignar inmediatamente a un ejecutor disponible, esperarán en cola hasta que un ejecutor esté disponible. Sin embargo, si las GitHub Actions sufren una carga alta sostenida, la cola puede respaldarse más rápido de lo que puede drenarse y el rendimiento de la instancia de GitHub Enterprise Server podría degradarse. Para evitar esto, un administrador puede configurar un límite de tasa. Cuando dicho límite se exceda, las ejecuciones de flujo de trabajo adicionales fallarán de inmediato en vez de ponerse en cola. Una vez que la tasa se haya estabilizado debajo del umbral, las ejecuciones nuevas se pueden poner en cola nuevamente. Para obtener más información, consulta la sección "[Configurar los límites de tasa](/admin/configuration/configuring-your-enterprise/configuring-rate-limits#configuring-rate-limits-for-github-actions)".
@@ -57,7 +57,7 @@ sections:
         - |
           La compatibilidad para las GitHub Actions en los repositorios internos ahora está disponible al público en general para las organizaciones de tu instancia de GitHub Enterprise Server. Puedes hacer innersourcing de automatización si compartes las acciones en los repositorios internos. Puedes administrar los ajustes de un repositorio o utilizar la API de REST para permitir el acceso a los flujos de trabajo en otros repositorios dentro de la organización o en cualquier organización de la instancia. Para obtener más información, consulta las secciones "[Compartir las acciones y los flujos de trabajo con tu empresa](/actions/creating-actions/sharing-actions-and-workflows-with-your-enterprise)", "[Administrar los ajustes de las GitHub Actions para un repositorio](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#allowing-access-to-components-in-an-internal-repository)" y "[Permisos de las acciones](/rest/actions/permissions#get-the-level-of-access-for-workflows-outside-of-the-repository)" en la documentación de la API de REST.
     - 
-      heading: Cache support for GitHub Actions on GitHub Enterprise Server is now generally available
+      heading: El soporte de caché para GitHub Actions en GitHub Enterprise Server ahora está disponible en general
       notes:
         - |
           Ahora puedes utilizar el almacenamiento de dependencias en caché para acelerar tus flujos de trabajo de GitHub Actions. Para almacenar las dependencias en caché para un job, puedes incluir la acción [actions/cache](https://github.com/actions/cache) para crear un caché con una llave única. Puedes compartir cachés en todos los flujos de trabajo del mismo repositorio. Estos flujos de trabajo pueden restablecer el caché y ejecutarse más rápido.
@@ -71,7 +71,7 @@ sections:
 
           El almacenamiento externo de blobs que se configura con tu cuenta empresarial ahora se compartirá entre los artefactos de flujo de trabajo, bitácoras y también con los cachés. Para obtener más información, consulta la sección "[Almacenar las dependencias en caché para acelerar los flujos de trabajo](/actions/using-workflows/caching-dependencies-to-speed-up-workflows)".
     - 
-      heading: Automatically sign commits made in the web UI
+      heading: Firma automáticamente las confirmaciones que se hagan en la IU web
       notes:
         - |
           Ahora puedes configurar GitHub Enterprise Server para que firme automáticamente las confirmaciones que se hacen en la interfaz web, tal como las de editar un archivo o fusionar una solicitud de cambios. Las confirmaciones firmadas aumentan la seguridad de que los cambios vengan de fuentes confiables. Esta característica permite que el ajuste de protección de rama [Requerir confirmaciones firmadas](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches#require-signed-commits) bloquee las confirmaciones sin firmar para que no ingresen a un repositorio, mientras que permite la entrada de confirmaciones firmadas; incluso aquellas que se hacen en la interfaz web. Para obtener más información, consulta la sección "[Configurar el firmado de las confirmaciones web](/admin/configuration/configuring-your-enterprise/configuring-web-commit-signing)".
@@ -128,7 +128,7 @@ sections:
         - |
           El resumen de alertas de seguridad a nivel organizacional ahora está disponible en general. Los clientes de GitHub Advanced Security pueden utilizar el resumen de seguridad para obtener una vista centrada en el repositorio de los riesgos de seguridad de las aplicaciones o una vista centrada en las alertas de todo el escaneo de código, el Dependabot y las alertas de escaneo para todos los repositorios en una organización. Para obtener más información, consulta la sección "[Acerca de la revisión de seguridad](/code-security/security-overview/about-the-security-overview)".
     - 
-      heading: Code scanning detects more security issues, supports new language versions
+      heading: El escaneo de código detecta más problemas de seguridad y es compatible con versiones nuevas de los lenguajes
       notes:
         - |
           El escaneo de código ahora detecta una cantidad mayor de CWE y el escaneo de código de CodeQL es totalmente compatible con las características de lenguaje en los lanzamientos de los siguientes lenguajes.
@@ -162,7 +162,7 @@ sections:
         - |
           La bitácora de auditoría ahora incluye los eventos asociados con los patrones personalizados del escaneo de secretos. Estos datos ayudan a que lis clientes de GitHub Advanced Security entiendan las acciones que se toman en los patrones personalizados de su [repository](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/reviewing-the-audit-log-for-your-organization#repository_secret_scanning_custom_pattern-category-actions), [organization](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/reviewing-the-audit-log-for-your-organization#org_secret_scanning_custom_pattern-category-actions) o [enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#business_secret_scanning_custom_pattern-category-actions) para las auditorías de seguridad y cumplimiento. Para obtener más información, consulta la sección "[Revisar la bitácora de auditoría para tu organización](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/reviewing-the-audit-log-for-your-organization)" o "[Revisar las bitácoras de auditoría para tu empresa](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise)".
     - 
-      heading: Configure permissions for secret scanning with custom repository roles
+      heading: Configurar permisos para el escaneo de código con roles de repositorio personalizados
       notes:
         - |
           Ahora puedes configurar dos permisos nuevos para el escaneo de secretos cuando administras roles de repositorio personalizados.
@@ -187,7 +187,7 @@ sections:
         - |
           Los clientes de GitHub Advanced Security ahora pueden ver las alertas del Dependabot en la pestaña de **Seguridad** de una organización. Esta vista está disponible para los propietarios de las organizaciones y miembros de los equipos con el [rol de gerente de seguridad](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-security-managers-in-your-organization). Para obtener más información, consulta la sección "[Acerca del resumen de seguridad](/code-security/security-overview/about-the-security-overview)".
     - 
-      heading: Configure permissions for Dependabot alerts with custom repository roles
+      heading: Configurar los permisos para las alertas del Dependabot con roles de repositorio personalizados
       notes:
         - |
           Ahora puedes configurar dos permisos nuevos para las alertas del Dependabot cuando administres roles de repositorio personalizados.
@@ -223,7 +223,7 @@ sections:
         - |
           El nuevo objeto de GraphQL `DependabotUpdate` te permite ver la información sobre lo que le pasa a las actualizaciones de seguridad de tu repositorio. Cuando GitHub Enterprise Server detecta que una dependencia de tu repositorio está vulnerable, el Dependabot intentará abrir la solicitud de cambios para actualizar la dependencia a una versión no vulnerable. Ahora puedes ver la solicitud de cambios que corrige la vulnerabilidad. En algunos casos, el Dependabot no puede abrir una solicitud de cambios. Anteriormente, el mensaje de error que generaba el Dependabot solo se podía ver en la sección de "Alertas del Dependabot" en la pestaña de **Seguridad**. Ahora, si el Dependabot se encuentra con un error al intentar abrir la solicitud de cambios de una alerta de seguridad, puedes determinar la razón de esto utilizando la API de GraphQL. Para obtener más información, consulta la sección "[Objects](/graphql/reference/objects#dependabotupdate)" en la documentación de la API de GraphQL.
     - 
-      heading: Access more information about Dependabot alerts via GraphQL API
+      heading: Accede a más información sobre las alertas del Dependabot a través de la API de GraphQL
       notes:
         - |
           Ahora puedes ver las alertas fijas del Dependabot con la API de GraphQL. También puedes acceder y filtrar por estado y por identificador numérico único y puedes filtrar por estado en el objeto de alerta de la vulnerabilidad. Ahora existen los siguientes campos para una `RepositoryVulnerabilityAlert`.
@@ -235,7 +235,7 @@ sections:
 
           Para obtener más información, consulta la sección "[Objects](/graphql/reference/objects#repositoryvulnerabilityalert)" en la documentación de la API de GraphQL.
     - 
-      heading: Git events in the enterprise audit log
+      heading: Los eventos de Git en la bitácora de auditoría empresarial
       notes:
         - |
           Los siguientes eventos relacionados con Git ahora pueden aparecer en la bitácora de auditoría empresarial. Si habilitas la característica y configuras un periodo de retención de bitácora de auditoría, los eventos nuevos estarán disponibles para su búsqueda a través de la IU y la API o para exportar en JSON o en CSV.
@@ -266,7 +266,7 @@ sections:
 
           - Un nuevo ajuste de repositorio permite que el botón de **Actualizar rama** siempre esté disponible cuando la rama de tema de una solicitud de cambios no está actualizada con la rama base. Anteriormente, este botón solo estaba disponible cuando el ajuste de protección de rama **Siempre sugerir la actualización de las ramas de las solicitudes de cambio** estaba habilitado. Las personas con acceso de mantenedor o administrativo pueden administrar el ajuste de **Siempre sugerir actualizar las ramas de las solicitudes de cambio** de la sección **Solicitudes de cambio** en los ajustes de repositorio. Para obtener más información, consulta la sección "[Administrar las sugerencias para actualizar las ramas de las solicitudes de cambios](/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/managing-suggestions-to-update-pull-request-branches)".
     - 
-      heading: Configure custom HTTP headers for GitHub Pages sites
+      heading: Configurar los encabezados personalizados de HTTP para los sitios de GitHub Pages
       notes:
         - |
           Ahora puedes configurar los encabezados HTTP personalizados que aplican a todos los sitios de GitHub Pages que se sirven desde tu instancia de GitHub Enterprise Server. Para obtener más información, consulta la sección "[Configurar GitHub Pages para tu empresa](/admin/configuration/configuring-your-enterprise/configuring-github-pages-for-your-enterprise#configuring-github-pages-response-headers-for-your-enterprise)".
@@ -327,7 +327,7 @@ sections:
         - |
           GitHub Connect ya no funcionará después del 3 de junio para las instancias que ejecuten GitHub Enterprise Server 3.1 o anterior, debido al cambio en el formato de los tokens de autenticación de GitHub. Para seguir utilizando GitHub Connect, mejora a GitHub Enterprise Server 3.2 o posterior. Para obtener más información, consulta el [Blog de GitHub](https://github.blog/2022-05-20-action-needed-by-github-connect-customers-using-ghes-3-1-and-older-to-adopt-new-authentication-token-format-updates/). [Actualizado: 2022-06-14]
     - 
-      heading: CodeQL runner deprecated in favor of CodeQL CLI
+      heading: El ejecutor de CodeQL se obsoletizó para favorecer al CLI de CodeQL
       notes:
         - |
           El ejecutor de CodeQL es obsoleto para favorecer al CLI de CodeQL. GitHub Enterprise Server 3.4 y posterior ya no incluyen al ejecutor de CodeQL. Esta obsoletización solo afecta a los usuarios que utilizan el escaneo de código de CodeQL en sistemas de IC/DC de terceros. No se afecta a los usuarios de GitHub Actions. GitHub recomienda fuertemente que los clientes se migren al CLI de CodeQL, lo que es un reemplazo completo de características para el ejecutor de CodeQL y tiene muchas características adicionales. Para obtener más información, consulta la sección "[Migrarse del ejecutor de CodeQL al CLI de CodeQL](/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/migrating-from-the-codeql-runner-to-codeql-cli)".
@@ -344,6 +344,6 @@ sections:
     - Cuando se habilita "Los usuarios pueden buscar en GitHub.com" con GitHub Connect, las propuestas en los repositorios privados e internos no se incluirán en los resultados de búsqueda de GitHub.com.
     - El registor de npm del {% data variables.product.prodname_registry %} ya no regresa un valor de tiempo en las respuestas de metadatos. Esto se hizo para permitir mejoras de rendimiento sustanciales. Seguimos teniendo todos los datos necesarios para devolver un valor de tiempo como parte de la respuesta de metadatos y terminaremos de devolver este valor ene l futuro una vez que hayamos resuelto los problemas de rendimiento existentes.
     - Los límites de recursos que son específicos para procesar ganchos de pre-recepción podrían ocasionar que fallen algunos ganchos de pre-recepción.
-    - Actions services need to be restarted after restoring an appliance from a backup taken on a different host.
+    - Los servicios de las acciones necesitan reiniciarse después de restablecer un aplicativo de un respaldo que se llevó a un host diferente.
     - 'Deleted repositories will not be purged from disk automatically after the 90-day retention period ends. [Updated: 2022-06-08]'
     - 'Management Console may appear stuck on the _Starting_ screen after upgrading an under-provisioned instance to GitHub Enterprise Server 3.5. [Updated: 2022-06-20]'

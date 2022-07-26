@@ -21,7 +21,7 @@ To configure {% data variables.product.prodname_copilot %} in {% data variables.
 
 You can use the default keyboard shortcuts in {% data variables.product.prodname_vs %} when using {% data variables.product.prodname_copilot %}. Alternatively, you can rebind the shortcuts in the Tools settings for {% data variables.product.prodname_vs %} using your preferred keyboard shortcuts for each specific command. You can search for each keyboard shortcut by its command name in the Keyboard Shortcuts editor.
 
-| Acción                          | Shortcut                                     | Command name                         |
+| Acción                          | Shortcut                                     | Nombre del comando                   |
 |:------------------------------- |:-------------------------------------------- |:------------------------------------ |
 | Show next inline suggestion     | <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>]</kbd>  | Tools.Nextsuggestion                 |
 | Show previous inline suggestion | <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>[</kbd>  | Tools.Previoussuggestion             |

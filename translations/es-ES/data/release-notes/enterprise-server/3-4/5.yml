@@ -8,13 +8,13 @@ sections:
   bugs:
     - Files inside an artifact archive were unable to be opened after decompression due to restrictive permissions.
     - Redis timeouts no longer halt database migrations while running `ghe-config-apply`.
-    - Background job processors would get stuck in a partially shut-down state, resulting in certain kinds of background jobs (like code scanning) appearing stuck.
+    - Los procesadores de jobs en segundo plano se atoraron en un estado de cierre parcial, lo cuál dio como resultado que algunos tipos de jobs en segundo plano (como el escaneo de código) se mostrarán atorados.
     - In some cases, site administrators were not automatically added as enterprise owners.
     - A rendering issue could affect the dropdown list for filtering secret scanning alerts in a repository.
   changes:
     - Improved the performance of Dependabot version updates after first enabled.
     - The GitHub Pages build and synchronization timeouts are now configurable in the Management Console.
-    - Creating or updating check runs or check suites could return `500 Internal Server Error` if the value for certain fields, like the name, was too long.
+    - El crear o actualizar ejecuciones de verificación o suites de verificación pudo devolver un `500 Internal Server Error` si el valor para campos específicos, como el de nombre, era demasiado largo.
     - 'Cuando [despliegas nodos de servidor caché](/admin/enterprise-management/caching-repositories/configuring-a-repository-cache#configuring-a-repository-cache), ahora es obligatorio describir la topología del centro de datos (utilizando el argumento `--datacenter`) para cada nodo en el sistema. Este requisito previene situaciones en donde el dejar una membrecía del centro de datos configurada como "default" ocasiona que las cargas de trabajo se balanceen inadecuadamente a lo largo de varios centros de datos.'
   known_issues:
     - En una instancia recién configurada de {% data variables.product.prodname_ghe_server %} sin ningún usuario, un atacante podría crear el primer usuario adminsitrador.

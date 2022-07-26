@@ -39,9 +39,10 @@ Como propietario de empresa{% ifversion ghes %} o administrador de sitio{% endif
 {%- ifversion enterprise-audit-log-ip-addresses %}
 - Puedes mostrar la dirección IP asociada con los eventos en la bitácora de auditoría. Para obtener más información, consulta la sección "[Mostrar las direcciones IP en la bitácora de auditoría de tu empresa](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/displaying-ip-addresses-in-the-audit-log-for-your-enterprise)".
 {%- endif %}
-{%- ifversion ghec %}
+{%- ifversion audit-log-streaming %}
 - Puedes trasmitir datos de eventos de Git y de auditorías desde {% data variables.product.prodname_dotcom %} hacia un sistema externo de administración de datos. Para obtener más información, consulta la sección "[Transmitir la bitácora de auditoría de tu empresa](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/streaming-the-audit-log-for-your-enterprise)".
-{%- else %}
+{%- endif %}
+{%- ifversion ghes %}
 - Puedes reenviar bitácoras de auditoría y de sistema desde tu empresa hacia un sistema de monitoreo hospedado de terceros. Para obtener más información, consulta la sección "[Reenvío de bitácoras](/admin/monitoring-activity-in-your-enterprise/exploring-user-activity/log-forwarding)".
 {%- endif %}
 {%- ifversion ghec or ghes > 3.2 or ghae-issue-6648 %}
@@ -49,13 +50,6 @@ Como propietario de empresa{% ifversion ghes %} o administrador de sitio{% endif
 {%- endif %}
 
 Para obtener una lista completa de acciones de bitácora de auditoría que pudieran aparecer en la bitácora de auditoría de tu empresa, consulta la sección "[Acciones de la bitácora de auditoría para tu empresa](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise)".
-
-{% ifversion ghec %}
-## Eventos de git
-
-Los datos de eventos de Git que se registran son los de clonar, recuperar y subir. Para obtener más información, consulta la sección "[Transmitir la bitácora de auditoría de tu empresa](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/streaming-the-audit-log-for-your-enterprise)".
-
-{% endif %}
 
 ## Leer más
 - "[Revisar el registro de auditoría para tu organización](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/reviewing-the-audit-log-for-your-organization)"

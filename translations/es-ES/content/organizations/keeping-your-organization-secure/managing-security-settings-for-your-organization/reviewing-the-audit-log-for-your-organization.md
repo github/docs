@@ -818,4 +818,6 @@ Para obtener más información, consulta la sección "[Administrar la publicaci�
 ## Leer más
 
 - "[Mantener tu organización segura](/articles/keeping-your-organization-secure)"{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5146 %}
+{%- ifversion fpt or ghec %}
 - "[Exportar la información de miembro para tu organización](/organizations/managing-membership-in-your-organization/exporting-member-information-for-your-organization)"{% endif %}
+{%- endif %}
