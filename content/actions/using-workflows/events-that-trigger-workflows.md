@@ -387,11 +387,7 @@ on:
 | --------------------- | -------------- | ------------ | -------------|
 | [`merge_group`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#pull_request) | - `checks_requested`<br/> | Last merge commit of the pull request before it was added to the queue | Ref of the merge group `refs/heads/gh-readonly-queue/:branchName/:refName` |
 
-{% note %}
-
-**Note**: {% data reusables.pull_requests.merge-queue-beta %}
-
-{% endnote %}
+{% data reusables.pull_requests.merge-queue-beta %}
 
 Runs your workflow when a pull request is added to a group for merging with merge queue. For more information see "[Merging a pull request with a merge queue](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request-with-a-merge-queue)".
 
