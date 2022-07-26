@@ -393,7 +393,7 @@ on:
 
 {% endnote %}
 
-Runs your workflow when a pull request is added to a group for merging with merge queue. For more information see "[Merging a pull request with a merge queue](pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request-with-a-merge-queue)".
+Runs your workflow when a pull request is added to a group for merging with merge queue. For more information see "[Merging a pull request with a merge queue](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request-with-a-merge-queue)".
 
 For example, you can run a workflow when the `checks_requested` activity has occurred.
 
