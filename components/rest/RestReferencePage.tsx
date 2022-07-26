@@ -107,21 +107,17 @@ export const RestReferencePage = ({ restOperations }: StructuredContentT) => {
             {intro}
           </Lead>
         )}
-        <MarkdownContent>
-          {renderedPage && <MarkdownContent className="pt-3 pb-4">{renderedPage}</MarkdownContent>}
-          {restOperations &&
-            restOperations.length > 0 &&
-            restOperations.map((operation, index) => (
-              <React.Fragment
+        {renderedPage && <MarkdownContent className="pt-3 pb-4">{renderedPage}</MarkdownContent>}
+        {restOperations.length > 0 && (
+          <MarkdownContent className="pt-3 pb-4">
+            {restOperations.map((operation) => (
+              <RestOperation
                 key={`${operation.title}-${operation.category}-${operation.subcategory}`}
-              >
-                <RestOperation
-                  key={`restOperation-${operation.title}-${index}`}
-                  operation={operation}
-                />
-              </React.Fragment>
+                operation={operation}
+              />
             ))}
-        </MarkdownContent>
+          </MarkdownContent>
+        )}
       </div>
     </DefaultLayout>
   )
