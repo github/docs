@@ -80,14 +80,13 @@ jobs:
   check-bats-version:
     runs-on: 16-core-ubuntu
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - uses: {% data reusables.actions.action-checkout %}
+      - uses:{% data reusables.actions.action-setup-node %}
         with:
           node-version: '14'
       - run: npm install -g bats
       - run: bats -v
 ```
-
 
 ## Managing access to your runners
 
