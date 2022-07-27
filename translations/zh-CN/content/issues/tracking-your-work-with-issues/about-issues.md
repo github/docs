@@ -48,7 +48,8 @@ topics:
 
 您可以在议题中@提及能访问您的仓库的协作者，以提请他们注意评论。 要将相关议题链接到同一仓库，您可以键入 `#`，后接议题标题的一部分，然后点击要链接的议题。 为了沟通责任，您可以分配议题。 如果您发现自己经常输入相同的评论，可以使用已保存的回复。
 {% ifversion fpt or ghec %} 更多信息请参阅“[基本编写和格式语法](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)”和“[将议题和拉取请求分配到其他 GitHub 用户](/issues/tracking-your-work-with-issues/assigning-issues-and-pull-requests-to-other-github-users)”。
-
+{% endif %}
+{% ifversion discussions %}
 ## 比较议题和讨论
 
 有些对话更适合 {% data variables.product.prodname_discussions %}。 {% data reusables.discussions.you-can-use-discussions %} 有关何时使用议题或讨论的指导，请参阅“[在 GitHub 上沟通](/github/getting-started-with-github/quickstart/communicating-on-github)”。

@@ -202,6 +202,10 @@
   description: >-
     O diff é a diferença nas alterações entre dois commits ou o registro das alterações salvas. O diff descreverá visualmente o que foi adicionado ou removido de um arquivo desde o commit mais recente.
 - 
+  term: diretório
+  description: >-
+    Uma pasta que contém uma ou mais arquivos ou pastas. Você pode criar diretórios para organizar o conteúdo de um repositório.
+- 
   term: sujo
   description: >-
     Uma árvore de trabalho é considerada "suja" se contiver modificações que não passaram por commit no branch atual.
@@ -562,7 +566,7 @@
     Nível de permissão que permite ao usuário ler ou fazer pull das informações do repositório. Todos os repositórios públicos dão acesso de leitura a todos os usuários do GitHub. Sinônimo para acesso pull.
 - 
   term: README
-  description: Arquivo de texto com informações sobre os arquivos em um repositório, costuma ser o primeiro arquivo exibido aos visitantes do repositório. Com uma licença de repositório, diretrizes de contribuição e um código de conduta, o arquivo LEIAME ajuda a definir as expectativas e a gerenciar contribuições para o seu projeto.
+  description: Arquivo de texto com informações sobre os arquivos em um repositório, costuma ser o primeiro arquivo exibido aos visitantes do repositório. Com uma licença de repositório, diretrizes de contribuição e um código de conduta, o arquivo README ajuda a definir as expectativas e a gerenciar contribuições para o seu projeto.
 - 
   term: rebase
   description: >-
@@ -603,7 +607,7 @@
 - 
   term: mantenedor de repositório
   description: >-
-    Pessoa que gerencia um repositório. Como tal, ela pode ajudar na triagem de problemas e usar etiquetas e outros recursos para gerenciar o trabalho do repositório. Também pode ser responsável por manter o LEIAME e os arquivos de contribuição atualizados.
+    Pessoa que gerencia um repositório. Como tal, ela pode ajudar na triagem de problemas e usar etiquetas e outros recursos para gerenciar o trabalho do repositório. Também pode ser responsável por manter o README e os arquivos de contribuição atualizados.
 - 
   term: revisão obrigatória de pull request
   description: >-

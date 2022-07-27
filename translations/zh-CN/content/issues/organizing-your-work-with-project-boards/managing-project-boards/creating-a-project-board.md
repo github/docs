@@ -35,6 +35,8 @@ type: how_to
 
 ## 创建用户拥有的项目板
 
+{% data reusables.projects.classic-project-creation %}
+
 {% data reusables.profile.access_profile %}
 2. 在个人资料页面顶部的主导航栏中，单击 {% octicon "project" aria-label="The project board icon" %} **Projects（项目）**。 ![项目选项卡](/assets/images/help/projects/user-projects-tab.png)
 {% data reusables.project-management.click-new-project %}
@@ -53,6 +55,8 @@ type: how_to
 {% data reusables.project-management.edit-project-columns %}
 
 ## 创建组织范围的项目板
+
+{% data reusables.projects.classic-project-creation %}
 
 {% data reusables.profile.access_org %}
 {% data reusables.user-settings.access_org %}
@@ -73,6 +77,8 @@ type: how_to
 {% data reusables.project-management.edit-project-columns %}
 
 ## 创建仓库项目板
+
+{% data reusables.projects.classic-project-creation %}
 
 {% data reusables.repositories.navigate-to-repo %}
 2. 在仓库名称下，单击 {% octicon "project" aria-label="The project board icon" %} **Projects（项目）**。 ![项目选项卡](/assets/images/help/projects/repo-tabs-projects.png)

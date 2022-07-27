@@ -184,7 +184,7 @@ Para obtener más información sobre los contextos, consulta la sección "[Conte
 
 ## Controlar aún más la forma en la que se ejecutará tu flujo de trabajo
 
-If you want more granular control than events, event activity types, or event filters provide, you can use conditionals and environments to control whether individual jobs or steps in your workflow will run.
+Si quieres un control más granular que el que proporcionan los eventos, tipos de actividad de eventos o filtros de evento, puedes utilizar condicionales y ambientes para controlar si se ejecutarán los jobs o pasos individuales en tu flujo de trabajo.
 
 ### Utilziar condicionales
 

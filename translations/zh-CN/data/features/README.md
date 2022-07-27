@@ -34,14 +34,7 @@ versions:
   feature: 'meow'
 ```
 
-如果您希望内容文件应用于多个功能，您可以执行以下功能：
-
-```yaml
-versions:
-  fpt: '*'
-  ghes: '>3.1'
-  feature: ['meow', 'blorp']
-```
+You cannot use `feature:` to specify multiple concurrent versions, as this is not supported. Alternatively, you could create a new feature-based versioning file with the required versioning.
 
 ## 架构执行
 

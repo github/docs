@@ -1,6 +1,6 @@
 ---
-title: Managing moderators in your organization
-intro: 'You can give an individual or team in your organization the ability to block and limit access, by assigning them to the moderator role.'
+title: Administrar moderadores en tu organización
+intro: Puedes proporcionar a un individuo o equipo de tu organización la capacidad de bloquear y limitar el acceso si les asignas el rol de moderador.
 permissions: Organization owners can assign the moderator role.
 versions:
   fpt: '*'
@@ -9,31 +9,31 @@ topics:
   - Organizations
   - Teams
   - Community
-shortTitle: Managing moderators
+shortTitle: Administrar moderadores
 ---
 
-## About organization moderators
+## Acerca de los moderadores de las organizaciones
 
-Sometimes it's necessary to block a contributor, or to set up interaction limits for your organization, or for individual repositories. As an organization owner, you can perform these tasks, but you may want to delegate these tasks to other members of your organization. You can do this by assigning an organization member, or a team, to the moderator role.
+Algunas veces es necesario bloquear a un contribuyente o configurar los límites de interacción de tu organización o para los repositorios individuales. Como propietario de organización, puedes llevar a cabo estas tareas, pero podrías necesitar delegar estas tareas a otros miembros de tu organización. Puedes hacer esto asignando el rol de moderador a un miembro de la organización o a un equipo.
 
-Organization moderators can:
-* Block and unblock users from the organization. Para obtener más información, consulta "[Bloquear un usuario de tu organización](/communities/maintaining-your-safety-on-github/blocking-a-user-from-your-organization)".
-* Manage organization interaction limits. Para obtener más información, consulta "[Limitar las interacciones en tu organización](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-organization)".
-* Manage repository interaction limits. Para obtener más información, consulta "[Limitar las interacciones en tu repositorio](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-repository)".
-* Hide comments in all public repositories owned by the organization. For more information, see "[Managing disruptive comments](/communities/moderating-comments-and-conversations/managing-disruptive-comments)."
+Los moderadores de las organizaciones pueden:
+* Bloquear y desbloquear a los usuarios de la organización. Para obtener más información, consulta "[Bloquear un usuario de tu organización](/communities/maintaining-your-safety-on-github/blocking-a-user-from-your-organization)".
+* Administrar los límites de interacción de la organización. Para obtener más información, consulta "[Limitar las interacciones en tu organización](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-organization)".
+* Administrar los límites de interacción del repositorio. Para obtener más información, consulta "[Limitar las interacciones en tu repositorio](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-repository)".
+* Ocultar los comentarios en todos los repositorios públicos que le pertenecen a la organización. Para obtener más información, consulta la sección "[Administrar los comentarios ofensivos](/communities/moderating-comments-and-conversations/managing-disruptive-comments)".
 
-Making someone an organization moderator does not give them additional abilities other than those listed above. For example, someone who only has read access to a repository will not gain write access by being made a moderator.
+El convertir a alguien en moderador de la organización no le otorgará capacidades adicionales mas que las que se listan anteriormente. Por ejemplo, alguien que solo tenga acceso de lectura a un repositorio no obtendrá acceso de escritura solo porque se haya convertido en moderador.
 
-You can add up to 10 individual people, or teams, as moderators. If you've already assigned 10 individuals and/or teams as users and you want to add more, you can group people in a moderators team and then use this to replace one or more of the existing assignments. Para obtener más información, consulta la sección "[Crear un equipo](/organizations/organizing-members-into-teams/creating-a-team)".
+Puedes agregar hasta 10 personas o equipos individuales como moderadores. Si ya asignaste a 10 individuos o equipos como usuarios y quieres agregar más, puedes agrupar personas en un equipo de moderador y luego utilizarlas para reemplazar a una o más de las tareas existentes. Para obtener más información, consulta la sección "[Crear un equipo](/organizations/organizing-members-into-teams/creating-a-team)".
 
-## Adding an organization moderator
+## Agregar a un moderador de organización
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-1. In the "Access" section of the sidebar, select **{% octicon "report" aria-label="The report icon" %} Moderation** then click **Moderators**.
-1. Under **Moderators**, search for and select the person or team you want to assign the moderator role. Each person or team you select will appear in a list below the search bar. ![The Moderators search field and list](/assets/images/help/organizations/add-moderators.png)
+1. En la sección "Acceso" de la barra lateral, selecciona **{% octicon "report" aria-label="The report icon" %} Moderación** y luego haz clic en **Moderadores**.
+1. Debajo de **Moderadores**, busca y selecciona la persona o equipo a la que le quieras asignar el rol de moderador. Cada persona o equipo que selecciones aparecerá en una lista debajo de la barra de búsqueda. ![El campo y lista de búsqueda de moderadores](/assets/images/help/organizations/add-moderators.png)
 
 
-## Removing an organization moderator
+## Eliminar a un moderador de organización
 
-Follow steps 1-3 above, then click **Remove moderator** beside the person or team you want to remove as a moderator.
+Sigue los pasos anteriores del 1 al 3, luego haz clic en **Eliminar moderador** al costado de la persona o equipo que quieras eliminar como moderador.

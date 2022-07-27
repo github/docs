@@ -14,7 +14,7 @@ topics:
 
 ## Resumen
 
-Habitualmente, cuando creas un codespace, se te ofrece una selección de especificaciones para la máquina que lo ejecutará. Puedes elegir el tipo de máquina que se acople mejor a tus necesidades. Para obtener más información, consulta la sección "[Crear un codespace](/codespaces/developing-in-codespaces/creating-a-codespace#creating-a-codespace)". Si pagas por utilizar {% data variables.product.prodname_github_codespaces %}, entonces tu elección de tipo de máquina afectará cuánto se te factura. For more information about pricing, see "[About billing for {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces)."
+Habitualmente, cuando creas un codespace, se te ofrece una selección de especificaciones para la máquina que lo ejecutará. Puedes elegir el tipo de máquina que se acople mejor a tus necesidades. Para obtener más información, consulta la sección "[Crear un codespace](/codespaces/developing-in-codespaces/creating-a-codespace#creating-a-codespace)". Si pagas por utilizar {% data variables.product.prodname_github_codespaces %}, entonces tu elección de tipo de máquina afectará cuánto se te factura. Para obtener más información sobre los precios, consulta la sección "[Acerca de la facturación para los {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces)".
 
 Como propietario de organización, podrías querer configurar restricciones en los tipos de máquina que están disponibles. Por ejemplo, si el trabajo en tu organización no requiere de una potencia de cómputo o espacio de almacenamiento significativos, puedes eliminar las máquinas con muchos recursos de la lista de opciones que las personas pueden elegir. Esto se hace definiendo una o más políticas en los ajustes de {% data variables.product.prodname_codespaces %} de tu organización.
 
@@ -58,7 +58,7 @@ Si agregas una política a nivel organizacional, deberías configurarla en la el
 
 {% data reusables.codespaces.codespaces-policy-targets %}
 1. Si quieres agregar otra restricción a la política, haz clic en **Agregar restricción** y elige otra de ellas. Para obtener información sobre otras restricciones, consulta las secciones "[Restringir la visibilidad de los puertos reenviados](/codespaces/managing-codespaces-for-your-organization/restricting-the-visibility-of-forwarded-ports)", "[Restringir el periodo de tiempo de espera inactivo](/codespaces/managing-codespaces-for-your-organization/restricting-the-idle-timeout-period)" y "[Restringir el periodo de retención para los codespaces](/codespaces/managing-codespaces-for-your-organization/restricting-the-retention-period-for-codespaces)".
-1. After you've finished adding constraints to your policy, click **Save**.
+1. Después de que termines de agregar restricciones a tu política, haz clic en **Guardar**.
 ## Editar una política
 
 You can edit an existing policy. Por ejemplo, puede que quieras agregar o eliminar restricciones hacia o desde una política.
@@ -76,4 +76,4 @@ You can edit an existing policy. Por ejemplo, puede que quieras agregar o elimin
 
 ## Leer más
 
-- "[Managing spending limits for {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/managing-spending-limits-for-github-codespaces)"
+- "[Administrar los lìmites de gastos para {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/managing-spending-limits-for-github-codespaces)"

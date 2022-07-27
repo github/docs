@@ -52,6 +52,8 @@ includeGuides:
   - /admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise
   - /admin/configuration/configuring-your-enterprise/managing-github-mobile-for-your-enterprise
   - /admin/configuration/connecting-your-enterprise-account-to-github-enterprise-cloud
+  - /admin/configuration/configuring-your-enterprise/configuring-ssh-connections-to-your-instance
+  - /admin/configuration/configuring-your-enterprise/configuring-host-keys-for-your-instance
   - /admin/configuration/enabling-and-scheduling-maintenance-mode
   - /admin/configuration/configuring-github-connect/enabling-automatic-user-license-sync-for-your-enterprise
   - /admin/configuration/enabling-private-mode

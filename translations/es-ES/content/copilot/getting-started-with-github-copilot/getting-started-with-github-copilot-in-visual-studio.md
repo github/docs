@@ -31,7 +31,7 @@ To use {% data variables.product.prodname_copilot %}, you must first install the
 1. In the Visual Studio toolbar, click **Extensions**, then click **Manage Extensions**. ![Screenshot of the Visual Studio toolbar](/assets/images/help/copilot/visual-studio-toolbar.png)
 1. In the "Manage Extensions" window, click **Visual Studio Marketplace**, search for the {% data variables.product.prodname_copilot %} extension, then click **Download**. ![Screenshot of GitHub Copilot extension for Visual Studio with the download button emphasized](/assets/images/help/copilot/install-copilot-extension-visual-studio.png)
 1. Close the "Manage Extensions" window, then exit and relaunch {% data variables.product.prodname_vs %}.
-1. Optionally, to check that {% data variables.product.prodname_copilot %} is installed and enabled, go back to **Manage Extensions**, click **Installed** to view your currently installed extensions, then click **{% data variables.product.prodname_copilot %}** to see status information. ![Screenshot of installed extensions in Visual Studio with GitHub Copilot emphasized](/assets/images/help/copilot/installed-copilot-extension-visual-studio.png)
+1. Opcionalmente, para verificar que el {% data variables.product.prodname_copilot %} se instale y habilite, regresa a **Administrar extensiones**, haz clic en **Instaladas** para ver las extensiones que tienes instaladas actualmente y luego haz clic en **{% data variables.product.prodname_copilot %}** para ver la información de estado. ![Screenshot of installed extensions in Visual Studio with GitHub Copilot emphasized](/assets/images/help/copilot/installed-copilot-extension-visual-studio.png)
 1. Open or create a new project in {% data variables.product.prodname_vs %}.
 1. In the "Microsoft {% data variables.product.prodname_vs %}" dialog box, to copy your device activation code, click **OK**. ![Screenshot of the Microsoft {% data variables.product.prodname_vs %} dialogue box](/assets/images/help/copilot/vs-auth-dialogue.png)
 1. A device activation window will open in your browser. Paste the device code, then click **Continue**.
@@ -64,7 +64,7 @@ To use {% data variables.product.prodname_copilot %}, you must first install the
 1. Optionally, you can hover over the suggestion to see the {% data variables.product.prodname_copilot %} command palette for choosing suggestions.
 {% data reusables.copilot.accept-or-reject-suggestion %}
 
-## Generating code suggestions from comments
+## Generar sugerencias de código desde los comentarios
 
 {% data reusables.copilot.generating-suggestions-from-comments %}
 

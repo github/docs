@@ -71,13 +71,6 @@ upcoming_changes:
     criticality: 破壊的
     owner: jhunschejones
   - 
-    location: Enterprise.userAccounts
-    description: '`userAccounts`は削除されます。代わりに`Enterprise.members`フィールドを使用してください。'
-    reason: '`Enterprise.userAccounts`フィールドは削除されています。'
-    date: '2022-07-01T00:00:00+00:00'
-    criticality: 破壊的
-    owner: jdennes
-  - 
     location: LockMergeQueueInput.branch
     description: '`branch`は削除されます。'
     reason: マージキューはリポジトリのデフォルトブランチにロックされており、`branch`引数はno-opになりました。

@@ -24,10 +24,9 @@ topics:
 
 {% data variables.product.product_name %} fornece ferramentas de comunicação colaborativa embutidas que permitem que você interaja de perto com sua comunidade. Este guia de início rápido irá mostrar como escolher a ferramenta certa para suas necessidades.
 
-{% ifversion fpt or ghec %}
+{% ifversion discussions %}
 Você pode criar e participar de problemas, pull requests, {% data variables.product.prodname_discussions %} e discussões com a equipe, dependendo do tipo de conversa que você gostaria de ter.
-{% endif %}
-{% ifversion ghes or ghae %}
+{% else %}
 Você pode criar e participar de problemas, pull requests e discussões de equipe, dependendo do tipo de conversa que você gostaria de ter.
 {% endif %}
 
@@ -100,7 +99,7 @@ A aba**Arquivos alterados** do pull request mostra a correção implementada.
 - O usuário cria um pull request com a correção.
 - Um mantenedor do repositório revisa o pull request, comenta e faz merge nela.
 
-{% ifversion fpt or ghec %}
+{% ifversion discussions %}
 ### Cenários para {% data variables.product.prodname_discussions %}
 
 - Tenho uma pergunta que não é necessariamente relacionada a arquivos específicos no repositório.
@@ -147,8 +146,8 @@ Para problemas, por exemplo, você pode marcar problemas com etiquetas para uma 
 
 Para pull requests, você pode criar pull requests de rascunho se as suas alterações propostas ainda forem um trabalho em andamento. Não é possível fazer o merge dos pull requests de rascunho até que estejam prontos para revisão. Para obter mais informações, consulte "[Sobre pull requests](/github/collaborating-with-issues-and-pull-requests/about-pull-requests#draft-pull-requests)".
 
-{% ifversion fpt or ghec %}
-Para {% data variables.product.prodname_discussions %}, você pode definir um código de conduta e fixar discussões que contenham informações importantes para sua comunidade. Para obter mais informações, consulte "[Sobre discussões](/discussions/collaborating-with-your-community-using-discussions/about-discussions)".
+{% ifversion discussions %}
+For {% data variables.product.prodname_discussions %}, you can{% ifversion fpt or ghec %} set up a code of conduct and{% endif %} pin discussions that contain important information for your community. Para obter mais informações, consulte "[Sobre discussões](/discussions/collaborating-with-your-community-using-discussions/about-discussions)".
 {% endif %}
 
 Para discussões em equipe, você pode editar ou excluir discussões na página de uma equipe, além de poder configurar notificações para discussões em equipe. Para obter mais informações, consulte "[Sobre discussões de equipe](/organizations/collaborating-with-your-team/about-team-discussions)".

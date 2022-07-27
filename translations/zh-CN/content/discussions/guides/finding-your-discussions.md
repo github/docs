@@ -2,8 +2,7 @@
 title: 查找讨论
 intro: 您可以轻松访问您创建或参与的每个讨论。
 versions:
-  fpt: '*'
-  ghec: '*'
+  feature: discussions
 shortTitle: 查找讨论
 redirect_from:
   - /discussions/guides/finding-discussions-across-multiple-repositories
@@ -12,8 +11,7 @@ redirect_from:
 
 ## 查找讨论
 
-1. 导航至 {% data variables.product.prodname_dotcom_the_website %}。
-1. 在 {% data variables.product.prodname_dotcom_the_website %} 的右上角，单击您的个人资料照片，然后单击 **Your discussions（您的讨论）**。 ![{% data variables.product.product_name %} 上个人资料照片下拉菜单中的"您的讨论"](/assets/images/help/discussions/your-discussions.png)
+1. 在 {% data variables.product.product_location %} 的右上角，单击您的个人资料照片，然后单击 **Your discussions（您的讨论）**。 ![{% data variables.product.product_name %} 上个人资料照片下拉菜单中的"您的讨论"](/assets/images/help/discussions/your-discussions.png)
 1. 在 **Created（已创建）**与 **Commented（已评论）**之间切换，以查看您创建或参与的讨论。
 
 ## 延伸阅读

@@ -2,7 +2,7 @@
 title: Organization内のリポジトリのセキュリティアラートの表示
 shortTitle: セキュリティの概要
 intro: 一カ所でOrganization内のセキュリティアラートを表示、ソート、フィルタしてください。
-product: '{% data reusables.gated-features.security-center %}'
+product: '{% data reusables.gated-features.security-overview %}'
 versions:
   fpt: '*'
   ghae: '*'

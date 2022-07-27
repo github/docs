@@ -1,8 +1,8 @@
 ---
 title: About the security overview
 intro: 'You can view, filter, and sort security alerts for repositories owned by your organization or team in one place: the Security Overview page.'
-permissions: '{% data reusables.security-center.permissions %}'
-product: '{% data reusables.gated-features.security-center %}'
+permissions: '{% data reusables.security-overview.permissions %}'
+product: '{% data reusables.gated-features.security-overview %}'
 redirect_from:
   - /code-security/security-overview/exploring-security-alerts
 versions:
@@ -23,7 +23,7 @@ shortTitle: About security overview
 ---
 
 {% ifversion ghes < 3.5 or ghae %}
-{% data reusables.security-center.beta %}
+{% data reusables.security-overview.beta %}
 {% endif %}
 
 ## About the security overview

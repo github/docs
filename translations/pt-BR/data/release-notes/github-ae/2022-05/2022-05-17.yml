@@ -187,3 +187,8 @@ sections:
       notes:
         - |
           Ao arrastar e soltar arquivos como imagens e vídeos para um editor de Markdown, o GitHub AE agora usa a localização do ponteiro do mouse em vez do cursor ao colocar o arquivo.
+    - 
+      heading: 'API REST'
+      notes:
+        - |
+          As pré-visualizações da API REST agora se atualizaram e fazem parte oficial da API. Os cabeçalhos de visualização não são mais necessários para API REST, mas ainda funcionará como esperado se você continuar a especificar uma pré-visualização atualizada no cabeçalho `Accept` de uma solicitação.

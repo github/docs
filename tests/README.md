@@ -89,7 +89,7 @@ since the server won't need to start and stop every time you run tests.
 In one terminal, type:
 
 ```sh
-NODE_ENV=test PORT=4000 node server.mjs
+NODE_ENV=test PORT=4000 node server.js
 ```
 
 In another terminal, type:

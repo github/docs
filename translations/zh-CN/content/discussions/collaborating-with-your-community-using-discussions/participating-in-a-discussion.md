@@ -3,8 +3,7 @@ title: 参与讨论
 intro: '您可以在仓库的论坛中与社区和维护者交流 {% data variables.product.product_name %} 上的项目。'
 permissions: 'People with read access to a repository can participate in discussions and polls in the repository. People with read access to the source repository for organization discussions can participate in discussions and polls in that organization. {% data reusables.enterprise-accounts.emu-permission-interact %}'
 versions:
-  fpt: '*'
-  ghec: '*'
+  feature: discussions
 shortTitle: 参与讨论
 ---
 
@@ -15,7 +14,7 @@ shortTitle: 参与讨论
 
 除了开始或查看讨论和投票之外，您还可以根据讨论作者的原始评论发表评论。 您还可以通过回复其他社区成员在讨论中进行的个人评论，以及使用表情符号对评论做出反应来创建评论线程。
 
-您可以阻止用户并报告破坏性内容，以便自己在 {% data variables.product.product_name %} 上保持一个安全愉快的环境。 更多信息请参阅“[保持您在 {% data variables.product.prodname_dotcom %} 上的安全](/communities/maintaining-your-safety-on-github)”。
+{% ifversion fpt or ghec %}You can block users and report disruptive content to maintain a safe and pleasant environment for yourself on {% data variables.product.product_name %}. For more information, see "[Maintaining your safety on {% data variables.product.prodname_dotcom %}](/communities/maintaining-your-safety-on-github)."{% endif %}
 
 ## 基本要求
 

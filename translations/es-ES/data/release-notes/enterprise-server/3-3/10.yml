@@ -1,14 +1,14 @@
 date: '2022-06-28'
 sections:
   security_fixes:
-    - "**MEDIUM**: Ensures that `github.company.com` and `github-company.com` are not evaluated by internal services as identical hostnames, preventing a potential server-side security forgery (SSRF) attack."
-    - "**LOW**: An attacker could access the Management Console with a path traversal attack via HTTP even if external firewall rules blocked HTTP access."
+    - "**MEDIA**: Se asegura que `github.company.com` y `github-company.com` no se evalúen por los servicios internos como nombres de host idénticos, previniendo un ataque potencial de falsificación de seguridad del lado del servidor (SSRF)."
+    - "**BAJA**: Un atacante pudo acceder a la consola de administración con un ataque de recorrido de ruta a través de HTTP, incluso si las reglas de cortafuegos externo bloqueaban el acceso HTTP."
     - Los paquetes se actualizaron a las últimas versiones de seguridad.
   bugs:
     - In some cases, site administrators were not automatically added as enterprise owners.
-    - After merging a branch into the default branch, the "History" link for a file would still link to the previous branch instead of the target branch.
+    - Después de fusionar una rama en la rama predeterminada, el enlace de "Historial" de un archivo aún enlazaba con la rama anterior en vez de con la rama destino.
   changes:
-    - Creating or updating check runs or check suites could return `500 Internal Server Error` if the value for certain fields, like the name, was too long.
+    - El crear o actualizar ejecuciones de verificación o suites de verificación pudo devolver un `500 Internal Server Error` si el valor para campos específicos, como el de nombre, era demasiado largo.
   known_issues:
     - Después de haber actualizado a {% data variables.product.prodname_ghe_server %} 3.3, podría que las {% data variables.product.prodname_actions %} no inicien automáticamente. Para resolver este problema, conéctate al aplicativo a través de SSH y ejecuta el comando `ghe-actions-start`.
     - En una instancia recién configurada de {% data variables.product.prodname_ghe_server %} sin ningún usuario, un atacante podría crear el primer usuario adminsitrador.

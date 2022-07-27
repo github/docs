@@ -42,4 +42,4 @@ Para obtener más información sobre la API Meta, consulta la sección "[Meta](/
 
 En la actualidad, no hay forma de restringir los codespaces para que no accedan al internet público ni de restringir a los usuarios autenticados adecuadamente para que no accedan a un puerto reenviado.
 
-For more information on how to secure your codespaces, see "[Security in {% data variables.product.prodname_github_codespaces %}](/codespaces/codespaces-reference/security-in-github-codespaces)."
+Para obtener más información sobre cómo asegurar tus codespaces, consulta la sección "[Seguridad en los {% data variables.product.prodname_github_codespaces %}](/codespaces/codespaces-reference/security-in-github-codespaces)".

@@ -85,13 +85,6 @@ upcoming_changes:
     criticality: breaking
     owner: jhunschejones
   - 
-    location: Enterprise.userAccounts
-    description: '`userAccounts` será removido. Use o campo `Enterprise.members`.'
-    reason: O campo `Enterprise.userAccounts` está sendo removido.
-    date: '2022-07-01T00:00:00+00:00'
-    criticality: breaking
-    owner: jdennes
-  - 
     location: Query.sponsorables.dependencyEcosystem
     description: '`dependencyEcosystem` será removido. Use o argumento do ecossistema.'
     reason: O tipo está mudando de SecurityAdvisoryEcosystem para DependencyGraphEcosystem.

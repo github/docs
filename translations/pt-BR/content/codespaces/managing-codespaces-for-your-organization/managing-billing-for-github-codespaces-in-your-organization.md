@@ -1,5 +1,5 @@
 ---
-title: Managing billing for GitHub Codespaces in your organization
+title: Gerenciando a cobrança do GitHub Codespaces em sua organização
 shortTitle: Gerenciar faturamento
 intro: 'Você pode verificar seu uso de {% data variables.product.prodname_github_codespaces %} e definir os limites de uso.'
 product: '{% data reusables.gated-features.codespaces %}'
@@ -31,7 +31,7 @@ Você pode definir um limite de uso para os codespaces na sua organização ou r
 
 - **Minutos de cálculo:** Uso do cálculo é feito pelo número real de minutos usados por todas as instâncias de {% data variables.product.prodname_codespaces %} enquanto estão ativas. Estes montantes totais são comunicados diariamente ao serviço de cobrança e são cobrados mensalmente. Você pode definir um limite de gastos para uso de {% data variables.product.prodname_codespaces %} na sua organização. Para obter mais informações, consulte "[Gerenciando limites de gastos para {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/managing-spending-limits-for-github-codespaces)".
 
-- **Uso do armazenamento:**  Para fins de cobrança de {% data variables.product.prodname_codespaces %}, isto inclui todo o armazenamento usado por todos os codespaces da sua conta. Isto inclui todos os codespacess usados pelos repositórios clonados, arquivos de configuração e extensões, entre outros. Estes montantes totais são comunicados diariamente ao serviço de cobrança e são cobrados mensalmente. No final do mês, {% data variables.product.prodname_dotcom %} arredonda seu armazenamento para o MB mais próximo. To check how many compute minutes and storage GB have been used by {% data variables.product.prodname_codespaces %}, see "[Viewing your {% data variables.product.prodname_github_codespaces %} usage"](/billing/managing-billing-for-github-codespaces/viewing-your-github-codespaces-usage)."
+- **Uso do armazenamento:**  Para fins de cobrança de {% data variables.product.prodname_codespaces %}, isto inclui todo o armazenamento usado por todos os codespaces da sua conta. Isto inclui todos os codespacess usados pelos repositórios clonados, arquivos de configuração e extensões, entre outros. Estes montantes totais são comunicados diariamente ao serviço de cobrança e são cobrados mensalmente. No final do mês, {% data variables.product.prodname_dotcom %} arredonda seu armazenamento para o MB mais próximo. Para verificar quantos minutos de computação e armazenamento em GB foram usados por {% data variables.product.prodname_codespaces %}, consulte "[Visualizando seu uso do {% data variables.product.prodname_github_codespaces %} "](/billing/managing-billing-for-github-codespaces/viewing-your-github-codespaces-usage)."
 
 ## Desabilitando ou limitando {% data variables.product.prodname_codespaces %}
 

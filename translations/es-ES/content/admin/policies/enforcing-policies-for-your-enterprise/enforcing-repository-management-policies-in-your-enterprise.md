@@ -118,9 +118,9 @@ En todas las organizaciones que pertenezcan a tu empresa, puedes permitir o proh
   ![Menú desplegable con opciones de políticas de bifurcación de repositorios](/assets/images/help/business-accounts/repository-forking-policy-drop-down.png)
 
 {% ifversion innersource-fork-policies %}
-5. If forking is enabled, you can specify where users are allowed to fork repositories. Review the information about changing the setting and choose a policy.
+5. Si se habilita la bifurcación, puedes especificar en dónde se permite que los usuarios bifurquen repositorios. Revisa la información sobre cómo cambiar el ajuste y elige una política.
 
-    ![Screenshot showing the list of repository forking policy options](/assets/images/help/business-accounts/repository-forking-policy-settings.png)
+    ![Captura de pantalla que muestra la lista de opciones de políticas para bifurcar repositorios](/assets/images/help/business-accounts/repository-forking-policy-settings.png)
 {% endif %}
 
 
@@ -203,6 +203,28 @@ Cuando impones límites de carga a los repositorios, la configuración predeterm
 4. Dentro de "Repository upload limit (Límite de subida del repositorio)", utiliza el menú desplegable y haz clic en un tamaño máximo de objeto. ![Menú desplegable con opciones de tamaño máximo de objeto](/assets/images/enterprise/site-admin-settings/repo-upload-limit-dropdown.png)
 5. Opcionalmente, para requerir un límite de carga máximo para todos los repositorios en tu empresa, selecciona **Requerir en todos los repositorios** ![Opción para imponer tamaño máximo de objetos en todos los repositorios](/assets/images/enterprise/site-admin-settings/all-repo-upload-limit-option.png)
 
+{% ifversion profile-name-enterprise-setting %}
+
+## Enforcing a policy for the display of member names in your repositories
+
+Across all organizations owned by your enterprise, you can allow members to see a comment author's profile name, in addition to their username, in issues and pull requests for public and internal repositories.
+
+![Nombre del perfil del autor del comentario que se muestra en un comentario](/assets/images/help/issues/commenter-full-name.png)
+
+{% note %}
+
+**Note:** When this policy is enforced for all repositories in the enterprise, it overrides the organization setting for private repositories. Para obtener más información, consulta "[Administrar cómo se ven los nombres de los miembros en tu organización](/organizations/managing-organization-settings/managing-the-display-of-member-names-in-your-organization)".
+
+{% endnote %}
+
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.policies-tab %}
+{% data reusables.enterprise-accounts.options-tab %}
+4. Under "Allow members to see the comment author's profile name in public and internal repositories", select the dropdown menu and click a policy. ![Screenshot of Options page with policy drop down emphasized](/assets/images/enterprise/site-admin-settings/comment-authors-profile-name-drop-down.png)
+5. Optionally, to enforce the display of profile names for all repositories in your enterprise, select **Enforce for all repositories on the instance**. ![Screenshot of "Enforce for all repositories" option emphasized](/assets/images/enterprise/site-admin-settings/enforce-for-all-repositories-option.png)
+
+{% endif %}
+
 ## Configurar el editor de fusión de conflictos para solicitudes de extracción entre repositorios
 
 Solicitarles a los usuarios que resuelvan los conflictos de fusión en forma local desde sus computadoras puede evitar que las personas escriban inadvertidamente un repositorio ascendente desde una bifurcación.
@@ -265,9 +287,21 @@ Puedes sustituir los parámetros predeterminados heredados al configurar los par
 
 {% data reusables.enterprise_user_management.disclaimer-for-git-read-access %}
 
-{% ifversion ghes %}Si [habilitaste el modo privado](/enterprise/admin/configuration/enabling-private-mode) en tu empresa, puedes {% else %}Puedes {% endif %}permitir a los administradores de repositorio habilitar el acceso de lectura de Git a los repositorios públicos.
+If you have [enabled private mode](/enterprise/admin/configuration/enabling-private-mode) for {% data variables.product.product_location %}, you can allow repository administrators to enable anonymous Git read access to public repositories.
 
 Habilitar el acceso anónimo de lectura de Git permite a los usuarios saltar la autenticación para las herramientas personalizadas en tu empresa. Cuando tú o un administrador de repositorio activan esta configuración de acceso a un repositorio, las operaciones Git no autenticadas (y cualquiera con acceso de red a {% data variables.product.product_name %}) tendrán acceso de lectura al repositorio sin autenticación.
+
+Anonymous Git read access is disabled by default.{% ifversion ghes = 3.4 or ghes = 3.5 or ghes = 3.6 or ghes = 3.7 %} When you upgrade to {% data variables.product.product_name %} 3.6 or later, anonymous Git read access is automatically disabled at the application level, and `git://` connections on port 9418 will return the following error.
+
+```
+The unauthenticated git protocol on port 9418 is no longer supported.
+```
+
+If you wish to support the unathenticated Git protocol in your environment, you must manually re-enable the feature. {% data variables.product.company_short %} recommends using SSH instead of the Git protocol. Para obtener más información, consulta [{% data variables.product.prodname_blog %}](https://github.blog/2022-06-28-improving-git-protocol-security-on-github-enterprise-server).
+
+{% endif %}
+
+
 
 De ser necesario, puedes prevenir que los administradores de repositorio cambien la configuración de acceso anónimo de Git para los repositorios de tu empresa si bloqueas la configuración de acceso de los mismos. Una vez que bloqueas los parámetros de acceso de lectura Git de un repositorio, solo un administrador del sitio puede modificar los parámetros.
 
