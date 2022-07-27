@@ -12,7 +12,7 @@ See [the contributing guide](CONTRIBUTING.md) for detailed instructions on how t
 
 We accept different [types of contributions](https://github.com/github/docs/blob/main/contributing/types-of-contributions.md), including some that don't require you to write a single line of code.
 
-On the GitHub Docs site, you can click the make a contribution button to open a pull request for quick fixes like typos, updates, or link fixes.
+On the GitHub Docs site, you can click the make a contribution button at the bottom of the page to open a pull request for quick fixes like typos, updates, or link fixes.
 
 <img src="./assets/images/contribution_cta.png" width="400">
 
