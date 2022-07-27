@@ -20,7 +20,7 @@ permissions: Enterprise owners can configure audit log streaming.
 {% ifversion ghes %}
 {% note %}
 
-**Note:** Audit log streaming is currently in beta for {% data variables.product.product_name %} and is subject to change.
+**Observação:** A transmissão do log de auditoria está atualmente em beta para {% data variables.product.product_name %} e sujeito a alterações.
 
 {% endnote %}
 {% endif %}
@@ -32,11 +32,11 @@ Para ajudar a proteger sua propriedade intelectual e manter a conformidade da su
 
 Os benefícios do streaming de dados de auditoria incluem:
 
-* **Exploração de dados**. Você pode examinar eventos transmitidos usando sua ferramenta preferida para consultar grandes quantidades de dados. The stream contains both audit events and Git events across the entire enterprise account.{% ifversion pause-audit-log-stream %}
-* **Continuidade dos dados**. You can pause the stream for up to seven days without losing any audit data.{% endif %}
+* **Exploração de dados**. Você pode examinar eventos transmitidos usando sua ferramenta preferida para consultar grandes quantidades de dados. A transmissão contém eventos de auditoria e Git em toda a conta corporativa.{% ifversion pause-audit-log-stream %}
+* **Continuidade dos dados**. Você pode pausar a transmissão por até sete dias sem perder nenhum dado da auditoria.{% endif %}
 * **Retenção de dados**. Você pode manter seus registros de auditoria exportados e dados de eventos do Git se precisar.
 
-Enterprise owners can set up{% ifversion pause-audit-log-stream %}, pause,{% endif %} or delete a stream at any time. The stream exports the audit and Git events data for all of the organizations in your enterprise.
+Os proprietários das empresas podem configurar{% ifversion pause-audit-log-stream %}, pausar{% endif %} ou excluir uma transmissão a qualquer momento. A transmissão exporta os dados de eventos de auditoria e do Git para todas as organizações da sua empresa.
 
 ## Configurando a transmissão do log de auditoria
 

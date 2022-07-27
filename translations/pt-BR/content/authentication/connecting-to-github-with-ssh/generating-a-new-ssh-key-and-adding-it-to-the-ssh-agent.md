@@ -17,11 +17,11 @@ topics:
 shortTitle: Gerar nova chave SSH
 ---
 
-## About SSH key passphrases
+## Sobre as frases secretas da chave SSH
 
-{% data reusables.ssh.about-ssh %} For more information, see "[About SSH](/authentication/connecting-to-github-with-ssh/about-ssh)."
+{% data reusables.ssh.about-ssh %} Para obter mais informações, consulte "[Sobre SSH](/authentication/connecting-to-github-with-ssh/about-ssh)".
 
-When you generate an SSH key, you can add a passphrase to further secure the key. Whenever you use the key, you must enter the passphrase. If your key has a passphrase and you don't want to enter the passphrase every time you use the key, you can add your key to the SSH agent. The SSH agent manages your SSH keys and remembers your passphrase.
+Ao gerar uma chave SSH, você pode adicionar uma senha para proteger ainda mais a chave. Sempre que você usar a chave, você deverá digitar a senha. Se a sua chave tiver uma senha e você não quiser inserir a senha toda vez que usar a tecla, você poderá adicionar sua chave ao agente SSH. O agente SSH gerencia suas chaves SSH e lembra sua frase secreta.
 
 Se você ainda não tem uma chave SSH, você deve gerar uma nova chave SSH para usar para a autenticação. Se você não tem certeza se já tem uma chave SSH, você pode verificar se há chaves existentes. Para obter mais informações, consulte "[Verificar as chaves SSH existentes](/github/authenticating-to-github/checking-for-existing-ssh-keys)".
 
@@ -29,7 +29,7 @@ Se você deseja usar uma chave de segurança de hardware para efetuar a autentic
 
 ## Gerar uma nova chave SSH
 
-You can generate a new SSH key on your local machine. After you generate the key, you can add the key to your account on {% ifversion fpt or ghec or ghes %}{% data variables.product.product_location %}{% elsif ghae %}{% data variables.product.product_name %}{% endif %} to enable authentication for Git operations over SSH.
+Você pode gerar uma nova chave SSH na sua máquina local. Após gerar a chave, você poderá adicionar a chave à sua conta em {% ifversion fpt or ghec or ghes %}{% data variables.product.product_location %}{% elsif ghae %}{% data variables.product.product_name %}{% endif %} para habilitar a autenticação para operações do Git por meio do SSH.
 
 {% data reusables.ssh.key-type-support %}
 
@@ -126,9 +126,9 @@ Antes de adicionar uma nova chave SSH ao agente para gerenciar suas chaves, voc�
 
      **Notas:**
 
-     - If you chose not to add a passphrase to your key, you should omit the `UseKeychain` line.
+     - Se você escolheu não adicionar uma senha à sua chave, você deve omitir a linha `UseKeychain`.
 
-     - If you see a `Bad configuration option: usekeychain` error, add an additional line to the configuration's' `Host *` section.
+     - Se você vir um erro `Bad configuration option: usekeychain`, adicione uma linha extra à seção `Host *` da configuração.
 
        ```
        Host *
