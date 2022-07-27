@@ -185,7 +185,7 @@ on:
   deployment_status
 ```
 
-{% ifversion fpt or ghec %}
+{% ifversion discussions %}
 ### `讨论`
 
 | Web 挂钩事件有效负载                                                                             | 活动类型                                                                                                                                                                                                                                                                                                    | `GITHUB_SHA` | `GITHUB_REF` |

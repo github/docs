@@ -1,1 +1,1 @@
-Codespaces are available for repositories owned by organizations using {% data variables.product.prodname_team %} and {% data variables.product.prodname_ghe_cloud %}.
+Codespacesは、{% data variables.product.prodname_team %}及び{% data variables.product.prodname_ghe_cloud %}を使用するOrganizationが所有するリポジトリで利用できます。

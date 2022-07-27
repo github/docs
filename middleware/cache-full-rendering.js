@@ -127,10 +127,6 @@ function setHeaders(headers, res) {
 }
 
 function mutateCheeriobodyByRequest($, req) {
-  // A fresh CSRF token into the <meta> tag
-  const freshCsrfToken = req.csrfToken()
-  $('meta[name="csrf-token"]').attr('content', freshCsrfToken)
-
   // Populate if you have the `dotcom_user` user cookie and it's truthy
   const isDotComAuthenticated = Boolean(req.cookies?.dotcom_user)
 
@@ -153,7 +149,6 @@ function mutateCheeriobodyByRequest($, req) {
   // See https://github.com/cheeriojs/cheerio/releases/tag/v1.0.0-rc.11
   // and https://github.com/cheeriojs/cheerio/pull/2509
   const parsedNextData = JSON.parse(nextData.get()[0].children[0].data)
-  parsedNextData.props.csrfToken = freshCsrfToken
   parsedNextData.props.dotComAuthenticatedContext.isDotComAuthenticated = isDotComAuthenticated
   parsedNextData.props.languagesContext.userLanguage = req.context.userLanguage
   parsedNextData.props.themeProps = {

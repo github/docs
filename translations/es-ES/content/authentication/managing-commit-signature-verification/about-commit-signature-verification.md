@@ -28,6 +28,8 @@ Commits and tags have the following verification statuses, depending on whether 
 
 {% data reusables.identity-and-permissions.vigilant-mode-beta-note %}
 
+Signing commits differs from signing off on a commit. For more information about signing off on commits, see "[Managing the commit signoff policy for your repository](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-the-commit-signoff-policy-for-your-repository)."
+
 ### Default statuses
 
 | Status         | Description |

@@ -14,7 +14,11 @@ topics:
   - SSH
 ---
 
-Cuando configures SSH, necesitarás generar una llave SSH nuevo y agregarla al agente ssh. Debes agregar la llave SSH a tu cuenta en {% data variables.product.product_name %} antes de utilizarla para autenticarte. Para obtener más información, consulta las secciones "[Generar una llave SSH nueva y agregarla al ssh-agent](/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)" y "[Agregar una llave SSH nueva a tu cuenta de {% data variables.product.prodname_dotcom %}](/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account)".
+## Acerca de SSH
+
+{% data reusables.ssh.about-ssh %} For more information about SSH, see [Secure Shell](https://en.wikipedia.org/wiki/Secure_Shell) on Wikipedia.
+
+When you set up SSH, you will need to generate a new private SSH key and add it to the SSH agent. You must also add the public SSH key to your account on {% data variables.product.product_name %} before you use the key to authenticate. Para obtener más información, consulta las secciones "[Generar una llave SSH nueva y agregarla al ssh-agent](/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)" y "[Agregar una llave SSH nueva a tu cuenta de {% data variables.product.prodname_dotcom %}](/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account)".
 
 Puedes asegurar tu llave SSH aún más si utilizas una llave de seguridad de hardware, la cual requiere que esta última se conecte físicamente a tu computadora cuando se utilice el par de llaves para autenticarte con SSH. También puedes asegurar tu llave SSH si la agregas al ssh-agent y utiliza una contraseña. Para obtener más información, consulta la sección "[Trabajar con frases de acceso con llave SSH](/github/authenticating-to-github/working-with-ssh-key-passphrases)".
 

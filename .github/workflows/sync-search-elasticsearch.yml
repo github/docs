@@ -109,7 +109,7 @@ jobs:
 
       - name: Index into Elasticsearch
         run: |
-          ./script/search/index-elasticsearch.mjs \
+          ./script/search/index-elasticsearch.js \
             --language ${{ matrix.language }} \
             --source-directory /tmp/records
 

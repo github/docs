@@ -1,1 +1,1 @@
-Organization owners can restrict the ability to make forward ports available publicly or within the organization. For more information, see "[Restricting the visibility of forwarded ports](/codespaces/managing-codespaces-for-your-organization/restricting-the-visibility-of-forwarded-ports)."
+Organizationのオーナーは、ポートのフォワードをパブリックに、あるいはOrganization内で利用できるようにする機能を制限できます。 詳しい情報については「[フォワードされたポートの可視性の制限](/codespaces/managing-codespaces-for-your-organization/restricting-the-visibility-of-forwarded-ports)」を参照してください。

@@ -45,7 +45,7 @@ Para usar {% data variables.product.prodname_copilot %}, é preciso primeiro ins
 {% data reusables.copilot.supported-languages %} As seguintes amostras estão em C#, mas outras linguagens funcionarão da mesma forma.
 
 {% data reusables.copilot.create-c-file %}
-1. In the C# file, type the following function signature. {% data variables.product.prodname_copilot %} sugerirá automaticamente o texto inteiro da função em texto cinza, como mostrado abaixo. A sugestão exata pode variar.
+1. No arquivo C#, digite a seguinte assinatura da função. {% data variables.product.prodname_copilot %} sugerirá automaticamente o texto inteiro da função em texto cinza, como mostrado abaixo. A sugestão exata pode variar.
   ```csharp{:copy}
   int CalculateDaysBetweenDates(
   ```
@@ -55,7 +55,7 @@ Para usar {% data variables.product.prodname_copilot %}, é preciso primeiro ins
 ## Vendo sugestões alternativas
 {% data reusables.copilot.alternative-suggestions %}
 {% data reusables.copilot.create-c-file %}
-1. In the C# file, type the following function signature. {% data variables.product.prodname_copilot %} irá mostrar-lhe uma sugestão.
+1. No arquivo C#, digite a seguinte assinatura da função. {% data variables.product.prodname_copilot %} irá mostrar-lhe uma sugestão.
 
    ```csharp{:copy}
    int CalculateDaysBetweenDates(

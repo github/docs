@@ -1,1 +1,1 @@
-1. Optionally, you can see alternative suggestions, if any are available.
+1. あるいは、代替提案が利用できる場合は、それらを見ることができます。

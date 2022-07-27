@@ -1,5 +1,5 @@
 ---
-title: Managing spending limits for GitHub Codespaces
+title: Gerenciar limites de gastos para codespaces do GitHub
 intro: 'Você pode definir um limite de gastos para o uso do {% data variables.product.prodname_github_codespaces %}.'
 versions:
   fpt: '*'
@@ -67,4 +67,4 @@ Você pode desabilitar essas notificações a qualquer momento, acessando a part
 ## Leia mais
 
 - "[Restringindo o acesso aos tipos de máquina](/codespaces/managing-codespaces-for-your-organization/restricting-access-to-machine-types)"
-- "[Managing billing for {% data variables.product.prodname_github_codespaces %} in your organization](/codespaces/managing-codespaces-for-your-organization/managing-billing-for-github-codespaces-in-your-organization)"
+- "[Gerenciando a cobrança de {% data variables.product.prodname_github_codespaces %} na sua organização](/codespaces/managing-codespaces-for-your-organization/managing-billing-for-github-codespaces-in-your-organization)"

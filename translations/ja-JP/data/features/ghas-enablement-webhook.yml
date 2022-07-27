@@ -2,5 +2,5 @@
 #docs-content 7314. GHAS enablement webhook
 versions:
   ghec: '*'
-  ghes: '>3.6'
+  ghes: '>= 3.6'
   ghae: 'issue-7314'
