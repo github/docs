@@ -13,7 +13,7 @@ if (testTranslation) {
   reporters.push('jest-github-actions-reporter')
 }
 
-module.exports = {
+export default {
   coverageThreshold: {
     global: {
       branches: 95,
@@ -41,6 +41,6 @@ module.exports = {
   ],
   testMatch: ['**/tests/**/*.js'],
   testLocationInResults: isActions,
-  globalSetup: './script/start-server-for-jest.mjs',
-  globalTeardown: './script/kill-server-for-jest.mjs',
+  globalSetup: './script/start-server-for-jest.js',
+  globalTeardown: './script/kill-server-for-jest.js',
 }

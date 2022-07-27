@@ -17,7 +17,9 @@ topics:
 shortTitle: Frases secretas da chave SSH
 ---
 
-Com as chaves SSH, se alguém conseguir acessar seu computador, terá acesso a todos os sistemas que usam essas chaves. Para incluir uma camada extra de segurança, adicione uma frase secreta à sua chave SSH. Você pode usar `ssh-agent` para salvar sua frase secreta de forma segura e não precisar digitá-la novamente.
+## About passphrases for SSH keys
+
+With SSH keys, if someone gains access to your computer, the attacker can gain access to every system that uses that key. Para incluir uma camada extra de segurança, adicione uma frase secreta à sua chave SSH. To avoid entering the passphrase every time you connect, you can securely save your passphrase in the SSH agent.
 
 ## Adicionar ou alterar frase secreta
 
@@ -103,7 +105,3 @@ Na primeira vez que você usar a chave, precisará digitar sua frase secreta. Se
 Caso contrário, armazene a frase secreta na keychain quando adicionar a chave ao ssh-agent. Para obter mais informações, consulte "[Adicionar sua chave SSH ao ssh-agent](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#adding-your-ssh-key-to-the-ssh-agent)".
 
 {% endmac %}
-
-## Leia mais
-
-- "[Sobre SSH](/articles/about-ssh)"

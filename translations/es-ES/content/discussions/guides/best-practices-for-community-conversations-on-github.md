@@ -3,8 +3,7 @@ title: Best practices for community conversations on GitHub
 shortTitle: Best practices for community conversations
 intro: 'You can use discussions to brainstorm with your team, and eventually move the conversation to an issue when you are ready to scope out the work.'
 versions:
-  fpt: '*'
-  ghec: '*'
+  feature: discussions
 ---
 
 
@@ -22,7 +21,7 @@ For more information about opening an issue and cross-referencing a discussion, 
 
 You can create and participate in discussions, issues, and pull requests, depending on the type of conversation you'd like to have.
 
-You can use {% data variables.product.prodname_discussions %} to discuss big picture ideas, brainstorm, and develop a project's specific details before committing it to an issue, which can then be scoped. {% data variables.product.prodname_discussions %} is useful for teams if:
+You can use {% data variables.product.prodname_discussions %} to discuss big picture ideas, brainstorm, and develop a project's specific details before committing it to an issue, which can then be scoped. {% data variables.product.prodname_discussions %} is useful for teams in a number of scenarios.
 - You are in the discovery phase of a project and are still learning which direction your team wants to go in
 - You want to collect feedback from a wider community about a project
 - You want to keep bug fixes, feature requests, and general conversations separate
@@ -34,7 +33,7 @@ Issues are useful for discussing specific details of a project such as bug repor
 
 ## Following contributing guidelines
 
-Before you open a discussion in an open source repository, check to see if the repository has contributing guidelines. The CONTRIBUTING file includes information about how the repository maintainer would like you to contribute ideas to the project.
+Before you open a discussion in a repository, check to see if the repository has contributing guidelines. The CONTRIBUTING file includes information about how the repository maintainer would like you to contribute ideas to the project.
 
 For more information, see "[Setting up your project for healthy contributions](/communities/setting-up-your-project-for-healthy-contributions)."
 

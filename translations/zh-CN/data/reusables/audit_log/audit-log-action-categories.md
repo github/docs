@@ -5,7 +5,7 @@
 | `advisory_credit`   | Contains activities related to crediting a contributor for a security advisory in the {% data variables.product.prodname_advisory_database %}. For more information, see "[About {% data variables.product.prodname_dotcom %} Security Advisories](/github/managing-security-vulnerabilities/about-github-security-advisories)."
 {%- endif %}
 | `artifact` | Contains activities related to {% data variables.product.prodname_actions %} workflow run artifacts.
-{%- ifversion ghec %}
+{%- ifversion audit-log-streaming %}
 | `audit_log_streaming`  | Contains activities related to streaming audit logs for organizations in an enterprise account.
 {%- endif %}
 {%- ifversion fpt or ghec %}

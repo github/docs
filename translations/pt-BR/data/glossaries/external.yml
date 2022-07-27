@@ -204,7 +204,7 @@
 - 
   term: diretório
   description: >-
-    A folder containing one or more files or folders. You can create directories to organize the contents of a repository.
+    Uma pasta que contém uma ou mais arquivos ou pastas. Você pode criar diretórios para organizar o conteúdo de um repositório.
 - 
   term: sujo
   description: >-
@@ -396,7 +396,7 @@
   description: >-
     O branch padrão em muitos repositórios Git. Por padrão, quando você cria um novo repositório Git na linha de comando, um branch denominado `master` será criado. Muitas ferramentas agora usam um nome alternativo para o branch padrão.{% ifversion fpt or ghes > 3.1 or ghae %} Por exemplo, quando você cria um novo repositório no GitHub, o branch padrão é denominado `main`.{% endif %}
 - 
-  term: members graph
+  term: gráfico de integrantes
   description: Gráfico que exibe todas as bifurcações de um repositório.
 - 
   term: menção
@@ -422,7 +422,7 @@
   description: >-
     Equipe secundária de uma equipe principal. É possível ter várias equipes secundárias (ou aninhadas).
 - 
-  term: network graph
+  term: gráfico de rede
   description: >-
     Gráfico que exibe o histórico de branches de toda a rede do repositório, incluindo branches do repositório raiz e branches de bifurcações que contêm commits exclusivos da rede.
 - 
@@ -543,10 +543,10 @@
   description: >-
     Comentários de colaboradores sobre uma pull request que aprovem as alterações ou solicitem outras alterações antes do merge da pull request.
 - 
-  term: pulse graph
+  term: gráfico Pulse
   description: Gráfico que mostra uma visão geral da atividade de um repositório.
 - 
-  term: punch graph
+  term: gráfico Punch
   description: >-
     Gráfico que mostra a frequência de atualizações em um repositório conforme o dia da semana e a hora do dia.
 - 

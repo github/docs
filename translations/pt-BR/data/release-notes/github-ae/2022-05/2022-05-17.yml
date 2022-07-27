@@ -191,4 +191,4 @@ sections:
       heading: 'API REST'
       notes:
         - |
-          REST API previews have now graduated and are an official part of the API. Preview headers are no longer required for REST API endpoints, but will still function as expected if you continue to specify a graduated preview in the `Accept` header of a request.
+          As pré-visualizações da API REST agora se atualizaram e fazem parte oficial da API. Os cabeçalhos de visualização não são mais necessários para API REST, mas ainda funcionará como esperado se você continuar a especificar uma pré-visualização atualizada no cabeçalho `Accept` de uma solicitação.

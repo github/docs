@@ -1,1 +1,1 @@
-1. In your JetBrains IDE, create a new Java (_*.java_) file.
+1. JetBrains IDEで、新しいJava (_*.java_) のファイルを作成してください。

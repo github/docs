@@ -233,9 +233,9 @@ HTML ドキュメントへのコミットのレンダリング済みビューは
 
 通常、埋め込み HTML を含むドキュメントへの変更のレンダリング済みビューでは、{% data variables.product.product_name %} のドキュメントのビューでサポートされている要素への変更を表示します。 埋め込み HTML を含むドキュメントへの変更のレビューは、完全を期して、常にレンダリング済みとソースの両方のビューで行う必要があります。
 
-## Mapping geoJSON files on {% data variables.product.prodname_dotcom %}
+## Mapping GeoJSON/TopoJSON files on {% data variables.product.prodname_dotcom %}
 
-{% data variables.product.product_name %} は、{% data variables.product.product_name %} リポジトリでの geoJSON および topoJSON マップ ファイルのレンダリングをサポートしています。 `.geojson` または `.topojson` 拡張子を使って、通常と同じようにファイルをコミットするだけです。 `.json` 拡張子の付いたファイルもサポートされますが、`type` が `FeatureCollection`、`GeometryCollection`、または `topology` に設定されている場合に限られます。 コミット後、GitHub.com で geoJSON ファイルのパスに移動してください。
+{% data variables.product.product_name %} supports rendering GeoJSON and TopoJSON map files within {% data variables.product.product_name %} repositories. `.geojson` または `.topojson` 拡張子を使って、通常と同じようにファイルをコミットするだけです。 `.json` 拡張子の付いたファイルもサポートされますが、`type` が `FeatureCollection`、`GeometryCollection`、または `topology` に設定されている場合に限られます。 Then, navigate to the path of the GeoJSON/TopoJSON file on GitHub.com.
 
 右側にある紙アイコンをクリックすると、そのファイル ドキュメントに加えられた変更も、コミットの一部として表示されます。
 
@@ -243,12 +243,12 @@ HTML ドキュメントへのコミットのレンダリング済みビューは
 
 ### Geometry types
 
-{% data variables.product.product_name %} のマップは [Leaflet.js](http://leafletjs.com) を使用し、[geoJSON の仕様](http://www.geojson.org/geojson-spec.html) (Point、LineString、Polygon、MultiPoint、MultiLineString、MultiPolygon、GeometryCollection) に概要が示されているジオメトリのタイプをすべてサポートしています。 TopoJSON ファイルは "Topology" タイプで、[topoJSON の仕様](https://github.com/mbostock/topojson/wiki/Specification)に従っている必要があります。
+{% data variables.product.product_name %} のマップは [Leaflet.js](http://leafletjs.com) を使用し、[geoJSON の仕様](http://www.geojson.org/geojson-spec.html) (Point、LineString、Polygon、MultiPoint、MultiLineString、MultiPolygon、GeometryCollection) に概要が示されているジオメトリのタイプをすべてサポートしています。 TopoJSON files should be type "Topology" and adhere to the [TopoJSON spec](https://github.com/mbostock/topojson/wiki/Specification).
 
 {% ifversion geoJSON-with-MapBox %}
 ### フィーチャーのスタイリング
 
-GeoJSON オブジェクトのプロパティで追加のメタデータを渡すと、特定の色を指定する、説明アイコンを追加するなど、フィーチャーの表示方法をカスタマイズすることができます。 オプションは次のとおりです:
+You can customize the way features are displayed, such as specifying a particular color or adding a descriptive icon, by passing additional metadata within the GeoJSON object's properties. オプションは次のとおりです:
 
 * `marker-size` - `small`、`medium`、または `large`
 * `marker-color` - 有効な RGB 16 進カラー
@@ -264,7 +264,7 @@ GeoJSON オブジェクトのプロパティで追加のメタデータを渡す
 
 ### マップを他の場所に埋め込む
 
-GeoJSON マップを {% data variables.product.product_name %} 以外の場所で使用するには、 次のテンプレートを修正し、JavaScript をサポートしている任意の HTML ページに貼り付けてください (例: [{% data variables.product.prodname_pages %}](http://pages.github.com))。
+Want to make your GeoJSON map available someplace other than {% data variables.product.product_name %}? Simply modify this template, and place it in any HTML page that supports JavaScript (e.g., [{% data variables.product.prodname_pages %}](http://pages.github.com)):
 
 ```html
 <script src="https://embed.github.com/view/geojson/<username>/<repo>/<ref>/<path_to_file>"></script>
@@ -287,7 +287,7 @@ GeoJSON マップを {% data variables.product.product_name %} 以外の場所�
 {% ifversion mermaid %}
 ### Mapping in Markdown
 
-You can embed geoJSON and topoJSON directly in Markdown. For more information, see "[Creating diagrams](/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams#creating-geojson-and-topojson-maps)."
+You can embed GeoJSON and TopoJSON directly in Markdown. For more information, see "[Creating diagrams](/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams#creating-geojson-and-topojson-maps)."
 {% endif %}
 
 ### クラスタリング
@@ -300,7 +300,7 @@ You can embed geoJSON and topoJSON directly in Markdown. For more information, s
 
 ### トラブルシューティング
 
-geoJSON ファイルのレンダリングに問題がある場合は、[geoJSON 文法チェッカー](http://geojsonlint.com/)でそのファイルを実行し、有効な geoJSON ファイルであることを確認してください。 ポイントが、意図しない場所 (<em></em>海の中など) にある場合、そのデータには、現在サポートされていない投影法が使われている可能性があります。 現在、{% data variables.product.product_name %}でサポートされているのは `urn:ogc:def:crs:OGC:1.3:CRS84` 投影だけです。
+If you're having trouble rendering GeoJSON files, ensure you have a valid GeoJSON file by running it through a [GeoJSON linter](http://geojsonlint.com/). ポイントが、意図しない場所 (<em></em>海の中など) にある場合、そのデータには、現在サポートされていない投影法が使われている可能性があります。 現在、{% data variables.product.product_name %}でサポートされているのは `urn:ogc:def:crs:OGC:1.3:CRS84` 投影だけです。
 
 また、10 MB を超えるような大きな `.geojson` ファイルは、ブラウザではレンダリングできません。 その場合は通常、次のようなメッセージが表示されます:
 

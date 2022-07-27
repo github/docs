@@ -8,10 +8,10 @@ sections:
   bugs:
     - 'In some cases, the collectd daemon could consume excess memory.'
     - 'In some cases, backups of rotated log files could accumulate and consume excess storage.'
-    - 'After an upgrade to a new feature release and subsequent configuration run, Elasticsearch could log excessive exceptions while rebuilding indices.'
+    - 'Después de actualizar a un lanzamiento de característica nuevo y a una ejecución de configuración posterior, Elastichsearch pudo haber registrado excepciones excesivas de bitácoras mientras recompilaba los índices.'
     - 'In some cases where a protected branch required more than one approving review, a pull request could be merged with fewer than the required number of approving reviews.'
     - 'The GitHub Enterprise Importer did not correctly migrate settings for projects within repositories.'
-    - 'On instances using LDAP authentication, the authentication prompt for sudo mode incorrectly placed the cursor within the password field by default when text fields for both a username and password were visible.'
+    - 'En las instancias que utilizan autenticación de LDAP, el mensaje de autenticación para modo sudo colocó incorrectamente el cursor dentro del campo de contraseña predeterminadamente cuando los campos de texto tanto para el nombre de usuario como par ala contraseña estaban visibles.'
     - 'The site admin dashboard erroneously included an option to export a report listing dormant users.'
     - 'La terminal de la API de facturación de "[Obtener los confirmantes activos de GitHub Advanced Security para una organización](/rest/billing#get-github-advanced-security-active-committers-for-an-organization)" ahora devuelve encabezados de `Link` para proporcionar información sobre la paginación.'
     - 'La terminal de la API de facturación de "[Obtener los confirmantes activos de GitHub Advanced Security para una organización](/rest/billing#get-github-advanced-security-active-committers-for-an-organization)" ahora devuelve la cantidad correcta de confirmantes totales.'

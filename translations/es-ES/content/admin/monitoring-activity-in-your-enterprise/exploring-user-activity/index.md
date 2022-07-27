@@ -1,6 +1,6 @@
 ---
-title: Exploring user activity in your enterprise
-intro: 'You can view user and system activity by leveraging dashboards, webhooks and log forwarding.'
+title: Explorar la actividad de los usuarios en tu empresa
+intro: 'Puedes ver la actividad de sistema y de usuario si aprovechas los tableros, webhooks y el reenvío de bitácoras.'
 versions:
   ghec: '*'
   ghes: '*'
@@ -12,6 +12,6 @@ children:
   - /viewing-push-logs
   - /log-forwarding
   - /managing-global-webhooks
-shortTitle: Explore user activity
+shortTitle: Explorar la actividad de los usuarios
 ---
 

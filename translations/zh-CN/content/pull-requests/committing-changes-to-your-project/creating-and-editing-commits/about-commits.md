@@ -18,6 +18,9 @@ versions:
 
 {% data reusables.commits.about-commits %}
 
+{% ifversion commit-signoffs %}
+If the repository you are committing to has compulsory commit signoffs enabled, and you are committing via the web interface, you will automatically sign off on the commit as part of the commit process. For more information, see "[Managing the commit signoff policy for your repository](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-the-commit-signoff-policy-for-your-repository)." {% endif %}
+
 您可以对协作处理的任何提交添加合作作者。 更多信息请参阅“[创建有多个作者的提交](/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/creating-a-commit-with-multiple-authors)”。
 
 {% ifversion fpt or ghec %}

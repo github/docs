@@ -1,1 +1,1 @@
-1. If {% data variables.product.prodname_copilot %} offers a suggestion you want to accept, press <kbd>Tab</kbd>.
+1. {% data variables.product.prodname_copilot %}が受け入れたい提案をしてきたら、<kbd>タブ</kbd>を押してください。

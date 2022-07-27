@@ -3,8 +3,7 @@ title: GitHub 上社区对话的最佳实践
 shortTitle: 社区对话的最佳实践
 intro: 您可以使用讨论与团队进行头脑风暴，并在准备好确定工作范围时最终将对话移动到议题中。
 versions:
-  fpt: '*'
-  ghec: '*'
+  feature: discussions
 ---
 
 
@@ -22,7 +21,7 @@ versions:
 
 您可以创建和参与讨论、议题及拉取请求，具体取决于您希望进行的对话类型。
 
-您可以使用 {% data variables.product.prodname_discussions %} 讨论大局想法、集思广益，并在将项目提交到议题之前，先找出项目的具体细节，然后可以确定议题的范围。 {% data variables.product.prodname_discussions %} 在以下情况下对团队有用：
+您可以使用 {% data variables.product.prodname_discussions %} 讨论大局想法、集思广益，并在将项目提交到议题之前，先找出项目的具体细节，然后可以确定议题的范围。 {% data variables.product.prodname_discussions %} is useful for teams in a number of scenarios.
 - 您处于项目的发现阶段，仍在了解您的团队希望由哪个主管领导
 - 您希望从更广泛的社区收集有关项目的反馈
 - 您希望将漏洞修复、功能请求和常规对话分开
@@ -34,7 +33,7 @@ versions:
 
 ## 遵守参与指南
 
-在开源存储库中打开讨论之前，请检查该存储库是否有参与指南。 CONTRIBUTING 文件包含仓库维护员希望您如何向项目贡献想法的信息。
+Before you open a discussion in a repository, check to see if the repository has contributing guidelines. CONTRIBUTING 文件包含仓库维护员希望您如何向项目贡献想法的信息。
 
 更多信息请参阅“[设置健康参与的项目](/communities/setting-up-your-project-for-healthy-contributions)”。
 
