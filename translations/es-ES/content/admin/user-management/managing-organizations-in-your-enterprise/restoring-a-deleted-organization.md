@@ -1,6 +1,6 @@
 ---
-title: Restoring a deleted organization
-intro: 'You can partially restore an organization that was previously deleted on {% data variables.product.product_location %}.'
+title: Restablecer una organización borrada
+intro: 'Puedes restablecer parcialmente una organización que se borró previamente en {% data variables.product.product_location %}.'
 versions:
   ghes: '*'
 type: how_to
@@ -8,22 +8,22 @@ topics:
   - Administrator
   - Enterprise
   - Organizations
-shortTitle: Restore organization
+shortTitle: Restablecer organización
 permissions: 'Site administers can restore an organization on {% data variables.product.product_name %}.'
 ---
 
-## About organization restoration
+## Acerca del restablecimiento de una organización
 
-You can use the site admin dashboard to restore an organization that was previously deleted on {% data variables.product.product_location %}, as long as the audit log Elasticsearch indices contain the data for the `org.delete` event.
+Puedes utilizar el tablero de administrador de sitio para restablecer una organización que se borró previamente en {% data variables.product.product_location %}, siempre y cuando los índices de Elasticsearch de la bitácora de auditoría contengan los datos del evento `org.delete`.
 
-Immediately after you restore an organization, the organization will not be exactly the same as it was prior to the deletion. You'll have to manually restore any repositories that were owned by the organization. Para obtener más información, consulta "[Restaurar un repositorio eliminado](/admin/user-management/managing-repositories-in-your-enterprise/restoring-a-deleted-repository)".
+Inmediatamente después de que restableces una organización, esta no será exactamente la misma que fue antes del borrado. Tendrás que restablecer manualmente cualquier repositorio que le haya pertenecido a la organización. Para obtener más información, consulta "[Restaurar un repositorio eliminado](/admin/user-management/managing-repositories-in-your-enterprise/restoring-a-deleted-repository)".
 
-You can also use the audit log to help you manually re-add teams and organization members. For more information, see "[Restoring members and teams](#restoring-members-and-teams)."
+También puedes utilizar la bitácora de auditoría para ayudarte a volver a agregar manualmente a los miembros de las organizaciones y de los equipos. Para obtener más información, consulta la sección "[Restablecer a los miembros y equipos](#restoring-members-and-teams)".
 
-## Restoring an organization
+## Restablecer una organización
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
-1. Under "Search users, organizations, enterprises, teams, repositories, gists, and applications", search for the organization.
+1. Dabjo de "Buscar usuarios, organizacioens, empresas, equipos, repositorios, gists y aplicaciones", busca a la organización.
 
   ![Captura de pantalla del campo y botón de búsqueda](/assets/images/enterprise/stafftools/search-field.png)
 

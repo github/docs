@@ -1,16 +1,15 @@
 ---
 title: 主持讨论
-intro: 您可以通过将评论标记为答案、锁定或解锁讨论、将议题转换为讨论，以及编辑或删除评论、讨论和不符合社区行为准则的类别，以促进健康的协作。
+intro: 'You can promote healthy collaboration by marking comments as answers, locking or unlocking discussions, converting issues to discussions, and editing or deleting comments, discussions, and categories that don''t align with your{% ifversion fpt or ghec %} community''s code of conduct{% elsif ghes > 3.5 %} organization''s contribution guidelines{% endif %}.'
 permissions: People with triage access to a repository can moderate discussions in the repository. People with triage access to the source repository for organization discussions can moderate discussions in the organization.
 versions:
-  fpt: '*'
-  ghec: '*'
+  feature: discussions
 ---
 
 
 ## 关于主持讨论
 
-{% data reusables.discussions.about-discussions %}如果您对仓库具有分类权限，便可通过将评论标记为答案、锁定不再有用或对社区造成损害的讨论，以及在想法仍处于开发的早期阶段时将问题转换为讨论，从而帮助主持仓库的讨论。 同样，如果您具有组织讨论的源存储库的分类权限，则可以主持该组织的讨论。
+{% data reusables.discussions.about-discussions %} If you have triage permissions for a repository, you can help moderate that repository's discussions by marking comments as answers, locking discussions that are no longer useful or are damaging to the community, and converting issues to discussions when an idea is still in the early stages of development. 同样，如果您具有组织讨论的源存储库的分类权限，则可以主持该组织的讨论。
 
 ## 将评论标记为答案
 

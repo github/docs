@@ -1,9 +1,9 @@
 ---
 title: 管理组织代码空间的存储库访问
 shortTitle: 存储库访问
-intro: '您可以管理 {% data variables.product.prodname_codespaces %} 可以访问的组织仓库。'
+intro: '您可以管理 {% data variables.product.prodname_github_codespaces %} 可以访问的组织仓库。'
 product: '{% data reusables.gated-features.codespaces %}'
-permissions: 'To manage access and security for Codespaces for an organization, you must be an organization owner.'
+permissions: 'To manage access and security for {% data variables.product.prodname_github_codespaces %} for an organization, you must be an organization owner.'
 versions:
   fpt: '*'
   ghec: '*'
@@ -26,7 +26,7 @@ redirect_from:
 
 默认情况下，代码空间只能访问创建它的仓库。 当您为组织拥有的存储库启用访问和安全性时，为该存储库创建的任何代码空间也将对组织拥有的所有其他存储库具有读取权限，并且代码空间创建者具有访问权限。 如果要限制代码空间可以访问的存储库，可以将其限制为创建代码空间的存储库或特定存储库。 您应该只对您信任的仓库启用访问和安全。
 
-要管理组织中的哪些用户可以使用 {% data variables.product.prodname_codespaces %}，请参阅“[管理组织的用户权限](/codespaces/managing-codespaces-for-your-organization/managing-user-permissions-for-your-organization)”。
+要管理组织中的哪些用户可以使用 {% data variables.product.prodname_github_codespaces %}，请参阅“[管理组织的用户权限](/codespaces/managing-codespaces-for-your-organization/managing-user-permissions-for-your-organization)”。
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}

@@ -38,8 +38,6 @@ shortTitle: 升级 GHES
 
   {% endnote %}
 
-{% data reusables.enterprise_installation.upgrade-hardware-requirements %}
-
 ## 生成快照
 
 快照是虚拟机 (VM) 在某一时间点的检查点。 强烈建议在升级虚拟机之前生成快照，这样一来，如果升级失败，您可以将 VM 还原到快照状态。 我们仅建议在设备关闭电源或处于维护模式且所有后台作业都已完成时拍摄 VM 快照。

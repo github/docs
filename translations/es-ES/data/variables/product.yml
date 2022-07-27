@@ -62,6 +62,11 @@ prodname_pages: 'Páginas de GitHub'
 prodname_codeql: 'CodeQL'
 prodname_ql: 'QL'
 prodname_codeql_cli: 'CodeQL CLI'
+#The CodeQL CLI version recommended for each GHES version.
+#CodeQL usually bumps its minor version for each minor version of GHES.
+#Update this whenever a new enterprise version of CodeQL is being prepared.
+codeql_cli_ghes_recommended_version: >-
+  {% ifversion ghes < 3.3 %}2.6.3{% elsif ghes < 3.5 %}2.7.6{% elsif ghes = 3.5 %}2.8.5{% elsif ghes = 3.6 %}2.9.4{% elsif ghae-issue-7470 %}2.8.5{% elsif ghae %}2.7.6{% endif %}
 #Apps, GitHub Marketplace, and integrations
 prodname_marketplace: 'GitHub Marketplace'
 prodname_github_app: 'GitHub App'
@@ -95,6 +100,8 @@ prodname_github_issues: 'Propuestas de GitHub'
 #GitHub Packages
 prodname_registry: 'Registro del paquete de GitHub'
 prodname_container_registry: 'Registro de contenedores'
+prodname_docker_registry_namespace: '{% ifversion fpt or ghec %}`docker.pkg.github.com`{% elsif ghes or ghae %}<code>docker.<em>HOSTNAME</em></code>{% endif %}'
+prodname_container_registry_namespace: '{% ifversion fpt or ghec %}`ghcr.io`{% elsif ghes or ghae %}<code>containers.<em>HOSTNAME</em></code>{% endif %}'
 #GitHub Insights
 prodname_insights: 'GitHub Insights'
 #GitHub Sponsors
@@ -195,7 +202,7 @@ api_url_pre: >-
 oauth_host_code: >-
   {% ifversion fpt or ghec %}https://github.com{% else %}http(s)://[hostname]{% endif %}
 device_authorization_url: >-
-  [`https://github.com/login/device`](https://github.com/login/device)
+  {%- ifversion fpt or ghec %} [`https://github.com/login/device`](https://github.com/login/device) {%- elsif ghes %} `http(s)://[hostname]/login/device` {%- elsif ghae %} `https://[hostname]/login/device` {%- endif %}
 #Use this all other code blocks
 api_url_code: >-
   {% ifversion fpt or ghec %}https://api.github.com{% elsif ghes %}http(s)://[hostname]/api/v3{% elsif ghae %}https://[hostname]/api/v3{% endif %}

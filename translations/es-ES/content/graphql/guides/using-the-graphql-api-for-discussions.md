@@ -2,7 +2,7 @@
 title: Utilizar la API de GraphQL para los debates
 intro: 'Aprende a utilizar la API de GraphQL de los {% data variables.product.prodname_discussions %}.'
 versions:
-  fpt: '*'
+  feature: discussions
 shortTitle: Utilizar GraphQL para los debates
 ---
 

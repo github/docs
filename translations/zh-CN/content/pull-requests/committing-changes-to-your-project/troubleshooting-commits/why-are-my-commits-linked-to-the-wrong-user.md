@@ -38,7 +38,7 @@ shortTitle: 链接到错误的用户
 1. 通过单击提交消息链接导航到提交。 ![提交消息链接](/assets/images/help/commits/commit-msg-link.png)
 2. 要阅读有关提交未链接原因的消息，请将鼠标悬停在用户名右侧的蓝色 {% octicon "question" aria-label="Question mark" %} 上。 ![提交悬停消息](/assets/images/help/commits/commit-hover-msg.png)
 
-  - **无法识别的作者（含电子邮件地址）**如果您看到此消息包含电子邮件地址，则表示用于创作提交的地址未连接到您在 {% data variables.product.product_name %} 上的帐户。 {% ifversion not ghae %}要链接提交，请[将电子邮件地址添加到 GitHub 电子邮件设置](/articles/adding-an-email-address-to-your-github-account)。{% endif %}如果电子邮件地址关联了 Gravatar，提交旁边将显示该 Gravatar，而不是默认的灰色 Octocat。
+  - **无法识别的作者（含电子邮件地址）**如果您看到此消息包含电子邮件地址，则表示用于创作提交的地址未连接到您在 {% data variables.product.product_name %} 上的帐户。 {% ifversion not ghae %}要链接提交，请[将电子邮件地址添加到 GitHub 电子邮件设置](/articles/adding-an-email-address-to-your-github-account)。{% endif %}{% ifversion not ghae %}如果电子邮件地址关联了 Gravatar，提交旁边将显示该 Gravatar，而不是默认的灰色 Octocat。{% endif %}
   - **无法识别的作者（无电子邮件地址）**如果您看到此消息没有电子邮件地址，则表示您使用了无法连接到您在 {% data variables.product.product_name %} 上的帐户的通用电子邮件地址。{% ifversion not ghae %} 您需要[在 Git 中设置提交电子邮件地址](/articles/setting-your-commit-email-address)，然后[将新地址添加到 GitHub 电子邮件设置](/articles/adding-an-email-address-to-your-github-account)以链接您未来的提交。 旧提交不会链接。{% endif %}
   - **无效的电子邮件地址**本地 Git 配置设置中的电子邮件地址为空白或未格式化为电子邮件地址。{% ifversion not ghae %} 您需要[在 Git 中设置提交电子邮件地址](/articles/setting-your-commit-email-address)，然后[将新地址添加到 GitHub 电子邮件设置](/articles/adding-an-email-address-to-your-github-account)以链接您未来的提交。 旧提交不会链接。{% endif %}
 

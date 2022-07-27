@@ -5,7 +5,7 @@ versions:
   ghae: '*'
 ---
 
-Este guia irá ajudar você a configurar e gerenciar as configurações para {% data variables.product.product_location %} em {% data variables.product.product_name %} como proprietário corporativo.
+Este guia irá ajudar você a configurar e gerenciar as configurações para {% data variables.product.product_location %} em {% data variables.product.product_name %} como proprietário corporativo. Para obter mais informações sobre {% data variables.product.product_name %}, consulte "[Sobre {% data variables.product.prodname_ghe_managed %}](/admin/overview/about-github-ae)."
 
 ## Parte 1: Configurando {% data variables.product.product_name %}
 Para dar os primeiros passos com {% data variables.product.product_name %}, você pode criar a conta corporativa, inicializar {% data variables.product.product_name %}, configurar uma lista de permissões de IP, configurar a autenticação e provisionamento de usuário e gerenciar a cobrança para {% data variables.product.product_location %}.

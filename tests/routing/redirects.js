@@ -1,9 +1,11 @@
 import { fileURLToPath } from 'url'
 import path from 'path'
 import { isPlainObject } from 'lodash-es'
-import { expect, jest, test } from '@jest/globals'
+import { describe, expect, jest, test } from '@jest/globals'
 
-import enterpriseServerReleases from '../../lib/enterprise-server-releases.js'
+import enterpriseServerReleases, {
+  deprecatedWithFunctionalRedirects,
+} from '../../lib/enterprise-server-releases.js'
 import Page from '../../lib/page.js'
 import { get, head } from '../helpers/e2etest.js'
 import versionSatisfiesRange from '../../lib/version-satisfies-range.js'
@@ -46,16 +48,6 @@ describe('redirects', () => {
     expect(
       pageRedirects[`/enterprise-server@${enterpriseServerReleases.latest}/creating-an-issue`]
     ).toBe(`/enterprise-server@${enterpriseServerReleases.latest}/issues`)
-  })
-
-  test('converts single `redirect_from` strings values into arrays', async () => {
-    const page = await Page.init({
-      relativePath: 'article-with-redirect-from-string.md',
-      basePath: path.join(__dirname, '../fixtures'),
-      languageCode: 'en',
-    })
-    const pageRedirects = page.buildRedirects()
-    expect(pageRedirects['/redirect-string']).toBe('/article-with-redirect-from-string')
   })
 
   describe('query params', () => {
@@ -561,6 +553,102 @@ describe('redirects', () => {
       )
       expect(res.statusCode).toBe(301)
       expect(res.headers.location).toBe(japaneseDesktopGuides)
+    })
+  })
+
+  describe('recently deprecated ghes version redirects that lack language', () => {
+    test('test redirect to an active enterprise-server version', async () => {
+      const url = `/enterprise-server@${enterpriseServerReleases.latest}/admin/release-notes`
+      const res = await get(url)
+      expect(res.statusCode).toBe(302)
+      expect(res.headers.location).toBe(`/en${url}`)
+    })
+    test('test redirect to a deprecated old enterprise-server version', async () => {
+      const url = `/enterprise-server@2.22/admin/release-notes`
+      const res = await get(url)
+      expect(res.statusCode).toBe(302)
+      expect(res.headers.location).toBe(`/en${url}`)
+    })
+    test('test redirect to a recently deprecated enterprise-server version', async () => {
+      const url = `/enterprise-server@${deprecatedWithFunctionalRedirects[0]}/admin/release-notes`
+      const res = await get(url)
+      expect(res.statusCode).toBe(302)
+      expect(res.headers.location).toBe(`/en${url}`)
+    })
+    test('any enterprise-server deprecated with functional redirects', async () => {
+      const url = `/enterprise-server@${deprecatedWithFunctionalRedirects[0]}`
+      const res = await get(url)
+      expect(res.statusCode).toBe(302)
+      expect(res.headers.location).toBe(`/en${url}`)
+    })
+  })
+
+  // These tests exists because of issue #1960
+  describe('rest reference redirects with default product', () => {
+    test('rest subcategory with fpt in URL', async () => {
+      for (const category of [
+        'migrations',
+        'actions',
+        'activity',
+        'apps',
+        'billing',
+        'checks',
+        'codes-of-conduct',
+        'code-scanning',
+        'codespaces',
+        'emojis',
+        'gists',
+        'git',
+        'gitignore',
+        'interactions',
+        'issues',
+        'licenses',
+        'markdown',
+        'meta',
+        'orgs',
+        'projects',
+        'pulls',
+        'rate-limit',
+        'reactions',
+        'repos',
+        'scim',
+        'search',
+        'teams',
+        'users',
+      ]) {
+        // Without language prefix
+        {
+          const res = await get(`/free-pro-team@latest/rest/reference/${category}`)
+          expect(res.statusCode).toBe(302)
+          expect(res.headers.location).toBe(`/en/rest/${category}`)
+        }
+        // With language prefix
+        {
+          const res = await get(`/en/free-pro-team@latest/rest/reference/${category}`)
+          expect(res.statusCode).toBe(301)
+          expect(res.headers.location).toBe(`/en/rest/${category}`)
+        }
+      }
+    })
+  })
+
+  describe('redirects with double-slashes', () => {
+    test('prefix double-slash', async () => {
+      const res = await get(`//en`)
+      expect(res.statusCode).toBe(301)
+      expect(res.headers.location).toBe(`/en`)
+    })
+
+    test('double-slash elsewhere in the URL', async () => {
+      const res = await get(`/en//rest`)
+      expect(res.statusCode).toBe(301)
+      expect(res.headers.location).toBe(`/en/rest`)
+    })
+
+    test('double-slash trailing in the URL', async () => {
+      const res = await get(`/en//`)
+      expect(res.statusCode).toBe(301)
+      expect(res.headers.location).toBe(`/en`)
     })
   })
 })

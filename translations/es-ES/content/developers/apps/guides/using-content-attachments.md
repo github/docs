@@ -119,7 +119,7 @@ curl -X "POST" "{% data variables.product.api_url_code %}/graphql" \
 }'
 ```
 
-Para obtener más información aacerca de `node_id`, consulta la sección "[Utilizar las Node ID Globales]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql/guides/using-global-node-ids)".
+Para obtener más información aacerca de `node_id`, consulta la sección "[Utilizar las Node ID Globales](/graphql/guides/using-global-node-ids)".
 
 ## Ejemplo de uso con Probot y Manifiestos de GitHub Apps
 

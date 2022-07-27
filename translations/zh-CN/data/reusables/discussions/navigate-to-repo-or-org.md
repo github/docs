@@ -1,1 +1,1 @@
-1. On {% data variables.product.product_location %}, navigate to the main page of the repository or organization.
+1. 在 {% data variables.product.product_location %} 上，导航到仓库或组织的主页面。

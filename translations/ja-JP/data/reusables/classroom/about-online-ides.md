@@ -1,1 +1,1 @@
-You can optionally configure an assignment to use an integrated development environment (IDE). IDEs allow your students to write code, run programs, and collaborate without installing Git and a full development toolchain on the student's computer. If you choose an IDE for an assignment, students can still check out and run code locally on a computer with the necessary software.
+あるいは、統合開発環境（IDE）を使う課題を設定することもできます。 IDEを使うと、学生は自分のコンピュータにGitや完全な開発のツールチェーンをインストールすることなく、コードを書き、プログラムを実行し、協力しあうことができます。 課題のためにIDEを選択した場合でも、学生はコードを必要なソフトウェアを持つコンピュータのローカルにチェックアウトして実行できます。

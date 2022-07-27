@@ -11,6 +11,7 @@ intro: 您可以将个人帐户转换为组织。 这样可以对属于组织的
 versions:
   fpt: '*'
   ghes: '*'
+  ghae: '*'
   ghec: '*'
 topics:
   - Accounts
@@ -19,24 +20,25 @@ shortTitle: 用户到组织
 
 {% warning %}
 
-**警告**：在将用户转换为组织之前，请记住以下几点：
+**Warning**: Before converting a user into an organization, keep these points in mind.
 
- - 您将**不再**能够登录被转换的个人帐户。
- - 您将**不再**能够创建或修改被转换的个人帐户所拥有的 Gist。
- - **无法**将组织转换回用户。
- - SSH 密钥、OAuth 令牌、作业档案、 反应、及关联的用户信息**不会**传输到组织。 这只适用于被转换的个人帐户，而不适用于该个人帐户的任何协作者。
- - 使用转换后个人帐户进行的任何提交**将不再链接**到该帐户。 提交本身**将**保持原状。
- - 使用转换后个人帐户创建的任何私有仓库的复刻都将被删除。
-
+* 您将**不再**能够登录被转换的个人帐户。
+* 您将**不再**能够创建或修改被转换的个人帐户所拥有的 Gist。
+* **无法**将组织转换回用户。
+* The SSH keys, OAuth tokens, job profile, reactions, and associated user information, **will not** be transferred to the organization. 这只适用于被转换的个人帐户，而不适用于该个人帐户的任何协作者。
+* 使用转换后个人帐户进行的任何提交**将不再链接**到该帐户。 提交本身**将**保持原状。
+* Any existing comments made by the converted personal account **will no longer be linked** to that account. The comments themselves **will** remain intact, but will be associated with the `ghost` user.
+* 使用转换后个人帐户创建的任何私有仓库的复刻都将被删除。
 {% endwarning %}
 
+{% ifversion fpt or ghec or ghes %}
 ## 保留个人帐户并手动创建新组织
 
 如果您希望组织的名称与目前用于个人帐户的名称相同，或者要保留个人帐户的信息不变，则必须创建一个新组织，然后将您的仓库转让给该组织，而不是将个人帐户转换为组织。
 
 1. 要保留当前个人帐户的名称供您个人使用，请[将您个人帐户的名称更改为](/articles/changing-your-github-username)一个好听的新名称。
 2. [使用个人帐户的原名称创建一个新组织](/articles/creating-a-new-organization-from-scratch)。
-3. [将您的仓库转让](/articles/transferring-a-repository)给新组织帐户。
+3. [Transfer your repositories](/articles/transferring-a-repository) to your new organization account.{% endif %}
 
 ## 自动将个人帐户转换为组织
 

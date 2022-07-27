@@ -90,6 +90,19 @@ Codespaces 的一般版本目前不适用于美国。 政府客户。 美国 政
 ## Connect
 使用 GitHub Connect，您可以在 GitHub Enterprise Server 或 GitHub AE 实例与您的GitHub Enterprise Cloud 组织或 GitHub.com 上的企业帐户之间分享某些功能和数据。 要启用 GitHub Connect，您必须在 GitHub Enterprise Cloud 或 GitHub.com 上至少有一 (1) 个帐户，以及一 (1) 个许可的 GitHub Enterprise Server 或 GitHub AE 实例。 您通过 Connect 使用 GitHub Enterprise Cloud 或 GitHub.com 是由您许可 GitHub Enterprise Cloud 或 GitHub.com的条款管理的。 个人数据的使用受 [GitHub 隐私声明](/github/site-policy/github-privacy-statement)管制。
 
+## GitHub Copilot
+要使用 GitHub Copilot，您需要安装到集成开发环境 (IDE) 或编辑器的扩展。 您在 IDE 或编辑器中使用 GitHub Copilot 扩展编写的代码（“**您的代码**”），在上传到 GitHub.com 之前不是本协议下的“内容”。
+
+GitHub Copilot 返回给您的代码、函数和其他输出称为“**建议**”。 GitHub 不对“建议”主张任何权利，并且您保留对您的代码（包括包含在“代码”中的建议）的所有权和责任。
+
+_可接受使用_
+
+您的代码受 GitHub [可接受使用政策](/site-policy/acceptable-use-policies/github-acceptable-use-policies)的约束。 例如，您不得向 GitHub Copilot 提示包含非法内容或 GitHub.com 上的 GitHub 可接受使用政策禁止的内容。
+
+_数据_
+
+GitHub Copilot (i) 可能会根据您的首选遥测设置收集您的代码片段，并且 (ii) 将通过与您的帐户关联的 IDE 或编辑器收集其他使用信息。 这可能包括[GitHub 隐私声明](/site-policy/privacy-policies/github-privacy-statement)中引用的个人数据。 有关 GitHub Copilot 数据的收集和使用的更多信息，请参阅 [GitHub Copilot 常见问题](https://github.com/features/copilot#faq-privacy)。
+
 ## GitHub Enterprise Importer
 Importer 是一个从其他来源导出数据到 GitHub 平台的框架。 Importer“按原样”提供。
 

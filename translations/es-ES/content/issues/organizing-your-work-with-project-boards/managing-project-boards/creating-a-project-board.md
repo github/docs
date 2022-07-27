@@ -35,6 +35,8 @@ También puedes configurar automatizaciones de flujo de trabajo para mantener tu
 
 ## Crear un tablero de proyecto propiedad de un usuario
 
+{% data reusables.projects.classic-project-creation %}
+
 {% data reusables.profile.access_profile %}
 2. En la parte superior de tu página de perfil, en la navegación principal, haz clic en {% octicon "project" aria-label="The project board icon" %} **Proyectos**. ![Pestaña Project (Proyecto)](/assets/images/help/projects/user-projects-tab.png)
 {% data reusables.project-management.click-new-project %}
@@ -53,6 +55,8 @@ También puedes configurar automatizaciones de flujo de trabajo para mantener tu
 {% data reusables.project-management.edit-project-columns %}
 
 ## Crear un tablero de proyecto para toda la organización
+
+{% data reusables.projects.classic-project-creation %}
 
 {% data reusables.profile.access_org %}
 {% data reusables.user-settings.access_org %}
@@ -73,6 +77,8 @@ También puedes configurar automatizaciones de flujo de trabajo para mantener tu
 {% data reusables.project-management.edit-project-columns %}
 
 ## Crear un tablero de proyecto para un repositorio
+
+{% data reusables.projects.classic-project-creation %}
 
 {% data reusables.repositories.navigate-to-repo %}
 2. En el nombre de tu repositorio, haz clic en {% octicon "project" aria-label="The project board icon" %} **Proyectos**. ![Pestaña Project (Proyecto)](/assets/images/help/projects/repo-tabs-projects.png)

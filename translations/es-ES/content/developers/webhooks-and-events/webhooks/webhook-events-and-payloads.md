@@ -400,7 +400,7 @@ Los eventos de webhook se desencadenan basándose en la especificidad del domini
 
 {% data reusables.webhooks.discussions-webhooks-beta %}
 
-Actividad relacionada con un debate. Para obtener más información, consulta la sección "[Utilizar la API de GraphQL para los debates]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql/guides/using-the-graphql-api-for-discussions)".
+Actividad relacionada con un debate. Para obtener más información, consulta la sección "[Utilizar la API de GraphQL para los debates](/graphql/guides/using-the-graphql-api-for-discussions)".
 ### Disponibilidad
 
 - Webhooks de repositorio
@@ -425,7 +425,7 @@ Actividad relacionada con un debate. Para obtener más información, consulta la
 
 {% data reusables.webhooks.discussions-webhooks-beta %}
 
-La actividad relacionada con un comentario en un debate. Para obtener más información, consulta la sección "[Utilizar la API de GraphQL para los debates]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql/guides/using-the-graphql-api-for-discussions)".
+La actividad relacionada con un comentario en un debate. Para obtener más información, consulta la sección "[Utilizar la API de GraphQL para los debates](/graphql/guides/using-the-graphql-api-for-discussions)".
 
 ### Disponibilidad
 
@@ -435,10 +435,10 @@ La actividad relacionada con un comentario en un debate. Para obtener más infor
 
 ### Objeto de carga útil del webhook
 
-| Clave        | Tipo        | Descripción                                                                                                                                                        |
-| ------------ | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `Acción`     | `secuencia` | La acción realizada. Puede ser `created`, `edited`, o `deleted`.                                                                                                   |
-| `comentario` | `objeto`    | El recurso de [`discussion comment`]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql/guides/using-the-graphql-api-for-discussions#discussioncomment). |
+| Clave        | Tipo        | Descripción                                                                                                    |
+| ------------ | ----------- | -------------------------------------------------------------------------------------------------------------- |
+| `Acción`     | `secuencia` | La acción realizada. Puede ser `created`, `edited`, o `deleted`.                                               |
+| `comentario` | `objeto`    | El recurso de [`discussion comment`](/graphql/guides/using-the-graphql-api-for-discussions#discussioncomment). |
 {% data reusables.webhooks.discussion_desc %}
 {% data reusables.webhooks.repo_desc_graphql %}
 {% data reusables.webhooks.org_desc_graphql %}
@@ -985,11 +985,11 @@ La actividad relacionada con los elementos en un proyecto de Proyectos (beta). {
 
 ### Objeto de carga útil del webhook
 
-| Clave              | Tipo        | Descripción                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| ------------------ | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `Acción`           | `secuencia` | La acción se llevó a cabo en el elemento del proyecto. Puede ser una de entre `archived`, `converted`, `created`, `edited`, `restored`, `deleted` o `reordered`.                                                                                                                                                                                                                                                               |
-| `projects_v2_item` | `objeto`    | El mismo elemento del proyecto. Para encontrar más información sobre el elemento del proyecto, puedes utilizar `node_id` (la ID de nodo del elemento de proyecto) y `project_node_id` (la ID de nodo del proyecto) para consultar la información en la API de GraphQL. For more information, see "[Using the API to manage projects (beta)](/issues/trying-out-the-new-projects-experience/using-the-api-to-manage-projects)." |
-| `changes`          | `objeto`    | Los cambios al elemento del proyecto.                                                                                                                                                                                                                                                                                                                                                                                          |
+| Clave              | Tipo        | Descripción                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| ------------------ | ----------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `Acción`           | `secuencia` | La acción se llevó a cabo en el elemento del proyecto. Puede ser una de entre `archived`, `converted`, `created`, `edited`, `restored`, `deleted` o `reordered`.                                                                                                                                                                                                                                                                                                 |
+| `projects_v2_item` | `objeto`    | El mismo elemento del proyecto. Para encontrar más información sobre el elemento del proyecto, puedes utilizar `node_id` (la ID de nodo del elemento de proyecto) y `project_node_id` (la ID de nodo del proyecto) para consultar la información en la API de GraphQL. Para obtener más información, consulta la sección "[Utilizar la API para administrar proyectos (beta)](/issues/trying-out-the-new-projects-experience/using-the-api-to-manage-projects)". |
+| `changes`          | `objeto`    | Los cambios al elemento del proyecto.                                                                                                                                                                                                                                                                                                                                                                                                                            |
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.app_desc %}
 {% data reusables.webhooks.sender_desc %}

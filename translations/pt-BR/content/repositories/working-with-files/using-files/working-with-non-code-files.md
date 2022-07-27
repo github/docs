@@ -233,9 +233,9 @@ Não oferecemos suporte direto a exibições renderizadas de commits para docume
 
 Em geral, as exibições renderizadas de alterações em um documento que contém HTML integrado mostrarão as alterações nos elementos que são compatíveis com a exibição do {% data variables.product.product_name %} do documento. As alterações em documentos que contém HTML integrado devem sempre ser confirmadas nas exibições original e renderizada.
 
-## Mapeando arquivos geJSON em {% data variables.product.prodname_dotcom %}
+## Mapeando arquivos do GeoJSON/TopoJSON em {% data variables.product.prodname_dotcom %}
 
-O {% data variables.product.product_name %} é compatível com a renderização de arquivos de mapas geoJSON e topoJSON nos repositórios do {% data variables.product.product_name %}. Simplesmente faça o commit do arquivo como você faria normalmente usando uma extensão `.geojson` ou `.topojson`. Arquivos com a extensão `.json` também são compatíveis, mas somente se o `type` (tipo) for configurado para `FeatureCollection` (Coleção de elementos gráficos), `GeometryCollection` (Coleções geométricas) ou `topology` (topologia). Depois, navegue para o caminho do arquivo geoJSON em GitHub.com.
+{% data variables.product.product_name %} é compatível com a renderização de arquivos do GeoJSON e TopoJSON em repositórios de {% data variables.product.product_name %}. Simplesmente faça o commit do arquivo como você faria normalmente usando uma extensão `.geojson` ou `.topojson`. Arquivos com a extensão `.json` também são compatíveis, mas somente se o `type` (tipo) for configurado para `FeatureCollection` (Coleção de elementos gráficos), `GeometryCollection` (Coleções geométricas) ou `topology` (topologia). Em seguida, acesse o caminho do arquivo GeoJSON/TopoJSON no GitHub.com.
 
 Quando você clicar no ícone de folha de papel à direita, também verá as alterações feitas naquele arquivo como parte de um commit.
 
@@ -243,11 +243,12 @@ Quando você clicar no ícone de folha de papel à direita, também verá as alt
 
 ### Tipos de geometria
 
-Os mapas no {% data variables.product.product_name %} usam [Leaflet.js](http://leafletjs.com) e são compatíveis com todos os tipos geométricos descritos nas [especificações geoJSON](http://www.geojson.org/geojson-spec.html) (Ponto, LineString, Polígono, Múltiplos Pontos, MultiLineString, MultiPolygon e GeometryCollection). Os arquivos TopoJSON devem ser do tipo "Topology" (Topologia) e estar de acordo com as [especificações topoJSON](https://github.com/mbostock/topojson/wiki/Specification).
+Os mapas no {% data variables.product.product_name %} usam [Leaflet.js](http://leafletjs.com) e são compatíveis com todos os tipos geométricos descritos nas [especificações geoJSON](http://www.geojson.org/geojson-spec.html) (Ponto, LineString, Polígono, Múltiplos Pontos, MultiLineString, MultiPolygon e GeometryCollection). Os arquivos TopoJSON devem ser do tipo "Topologia" e aderir às especificações do [TopoJSON](https://github.com/mbostock/topojson/wiki/Specification).
 
+{% ifversion geoJSON-with-MapBox %}
 ### Estilos de elementos gráficos
 
-Você pode personalizar a maneira como os elementos gráficos são exibidos, como especificar uma cor ou adicionar um ícone descritivo, transmitindo metadados adicionais nas propriedades do objeto geoJSON. As opções são:
+Você pode personalizar a maneira como os elementos gráficos são exibidos, como especificar uma cor ou adicionar um ícone descritivo, transmitindo metadados adicionais nas propriedades do objeto GeoJSON. As opções são:
 
 * `marker-size` (marcador de tamanho) - `small` (pequeno), `medium` (médio) ou `large` (grande)
 * `marker-color` (marcador de cores) Válido para cores RGB e hexadecimal
@@ -259,10 +260,11 @@ Você pode personalizar a maneira como os elementos gráficos são exibidos, com
 * `fill-opacity` (opacidade do preenchimento) - opacidade do interior de um polígono (0,0 - 1,0)
 
 Consulte a [ versão 1.1.0 do simplestyle especificações de código aberto](https://github.com/mapbox/simplestyle-spec/tree/master/1.1.0) para obter mais informações.
+{% endif %}
 
 ### Incorporar o mapa em outro lugar
 
-Você quer deixar o seu mapa geoJSON disponível em outro lugar além do {% data variables.product.product_name %}? Simplesmente modifique este modelo e coloque-o em qualquer página HTML compatível com javascript (por exemplo, [{% data variables.product.prodname_pages %}](http://pages.github.com)):
+Você quer deixar o seu mapa GeoJSON disponível em outro lugar além do {% data variables.product.product_name %}? Simplesmente modifique este modelo e coloque-o em qualquer página HTML compatível com JavaScript (por exemplo, [{% data variables.product.prodname_pages %}](http://pages.github.com)):
 
 ```html
 <script src="https://embed.github.com/view/geojson/<username>/<repo>/<ref>/<path_to_file>"></script>
@@ -285,7 +287,7 @@ Por padrão, o mapa incorporado tem 420px x 620px, mas é possível personalizar
 {% ifversion mermaid %}
 ### Mapeamento em Markdown
 
-Você pode incorporar geoJSON e topoJSON diretamente ao Markdown. Para obter mais informações, consulte "[Criando diagramas](/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams#creating-geojson-and-topojson-maps)".
+Você pode incorporar o GeoJSON e o TopoJSON diretamente ao Markdown. Para obter mais informações, consulte "[Criando diagramas](/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams#creating-geojson-and-topojson-maps)".
 {% endif %}
 
 ### Clustering
@@ -298,7 +300,7 @@ Os dados do mapa de base (nomes de ruas, estradas etc) são determinados pelo [O
 
 ### Solução de Problemas
 
-Se você está com problemas para renderizar arquivos geoJSON, certifique-se de que tem um arquivo geoJSON válido, executando-o por meio de um [linter geoJSON](http://geojsonlint.com/). Se os pontos não estão aparecendo onde deveriam (<em>por exemplo</em>, no meio do oceano), é provável que os dados estejam em uma projeção que não é compatível atualmente. No momento, o {% data variables.product.product_name %} somente é compatível com a projeção `urn:ogc:def:crs:OGC:1.3:CRS84`.
+Se você estiver com problemas para renderizar os arquivos do GeoJSON, certifique-se de que você tenha um arquivo do GeoJSON válido executando-o por meio de um [linter do GeoJSON](http://geojsonlint.com/). Se os pontos não estão aparecendo onde deveriam (<em>por exemplo</em>, no meio do oceano), é provável que os dados estejam em uma projeção que não é compatível atualmente. No momento, o {% data variables.product.product_name %} somente é compatível com a projeção `urn:ogc:def:crs:OGC:1.3:CRS84`.
 
 Além disso, se o seu arquivo `.geojson` for particularmente grande (acima de 10 MB), não é possível renderizar no navegador. Se esse for o caso, você normalmente verá uma mensagem parecida com esta:
 
@@ -308,8 +310,12 @@ Ainda pode ser possível renderizar os dados convertendo o arquivo `.geojson` em
 
 ### Leia mais
 
+{% ifversion geoJSON-with-MapBox %}
 * [Documentação do Leaflet.js](https://leafletjs.com/)
 * [Documentação MapBox marcadores de estilo](http://www.mapbox.com/developers/simplestyle/)
+{%- else %}
+* [Documentação do Azure Maps](https://docs.microsoft.com/en-us/azure/azure-maps/)
+{%- endif %}
 * [Wiki TopoJSON](https://github.com/mbostock/topojson/wiki)
 
 ## Trabalhando com arquivos do Jupyter Notebook no {% data variables.product.prodname_dotcom %}

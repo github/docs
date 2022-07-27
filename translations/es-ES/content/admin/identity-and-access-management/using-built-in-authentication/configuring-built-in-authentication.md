@@ -23,7 +23,7 @@ shortTitle: Configure built-in authentication
 
 By default, {% data variables.product.product_name %} uses built-in authentication. Each person creates a user account on {% data variables.product.product_location %} from an invitation or by signing up, and then authenticates with the credentials for the account to access your instance. Your {% data variables.product.product_name %} instance stores the authentication information for the account.
 
-You can prevent unauthenticated people from creating new user accounts on your instance. For more information, see "[Disabling unauthenticated sign-ups](/admin/identity-and-access-management/using-built-in-authentication/disabling-unauthenticated-sign-ups)."
+You can prevent unauthenticated people from creating new user accounts on your instance. Para obtener más información, consulta la sección "[Inhabilitar los inicios de sesión no autenticados](/admin/identity-and-access-management/using-built-in-authentication/disabling-unauthenticated-sign-ups)".
 
 {% data reusables.enterprise_user_management.alternatively-enable-external-authentication %}
 

@@ -2,8 +2,7 @@
 title: 上位コントリビューターにより高い権限を付与する
 intro: リポジトリ管理者は、コミュニティメンバーをモデレータおよびメンテナに昇格させることができます。
 versions:
-  fpt: '*'
-  ghec: '*'
+  feature: discussions
 shortTitle: Grant higher permissions
 ---
 
@@ -16,11 +15,11 @@ shortTitle: Grant higher permissions
 
 {% data reusables.discussions.navigate-to-repo-or-org %}
 {% data reusables.discussions.discussions-tab %}
-1. Compare the list of contributors with their access permissions to the repository or, for organization discussions, to the source repository to see who qualifies to moderate the discussion.
+1. Compare the list of contributors with their access permissions to the repository or, for organization discussions, to the source repository to see who qualifies to moderate the discussion. ![Screenshot of most helpful contributors](/assets/images/help/discussions/most-helpful.png)
 
 ## Step 2: Review permission levels for {% data variables.product.prodname_discussions %}
 
-People with triage permissions for a repository can help moderate a repository's discussions by marking comments as answers, locking discussions that are not longer useful or are damaging to the community, and converting issues to discussions when an idea is still in the early stages of development. Similarly, people with triage permissions for the source repository for organization discussions can moderate the organization's discussions. 詳しい情報については、「[ ディスカッションをモデレートする](/discussions/managing-discussions-for-your-community/moderating-discussions)」を参照してください。
+People with triage permissions for a repository can help moderate that repository's discussions by marking comments as answers, locking discussions that are no longer useful or are damaging to the community, and converting issues to discussions when an idea is still in the early stages of development. Similarly, people with triage permissions for the source repository for organization discussions can moderate the organization's discussions. 詳しい情報については、「[ ディスカッションをモデレートする](/discussions/managing-discussions-for-your-community/moderating-discussions)」を参照してください。
 
 リポジトリの権限レベルおよび {% data variables.product.prodname_discussions %} に関する詳しい情報については、「[Organization のリポジトリの権限レベル](/organizations/managing-access-to-your-organizations-repositories/repository-permission-levels-for-an-organization)」を参照してください。
 

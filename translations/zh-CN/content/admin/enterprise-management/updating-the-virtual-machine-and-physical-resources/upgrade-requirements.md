@@ -6,6 +6,7 @@ redirect_from:
   - /enterprise/admin/guides/installation/finding-the-current-github-enterprise-release
   - /enterprise/admin/enterprise-management/upgrade-requirements
   - /admin/enterprise-management/upgrade-requirements
+  - /enterprise/admin/guides/installation/about-upgrade-requirements
 versions:
   ghes: '*'
 type: reference
@@ -47,8 +48,6 @@ topics:
 curl -s http://localhost:9201/audit_log/_stats/store | jq ._all.primaries.store.size_in_bytes
 ```
 使用此数字估算 MySQL 审核日志将需要的磁盘空间大小。 该脚本还会在导入过程中监视可用磁盘空间大小。 在可用磁盘空间大小接近于迁移必需的磁盘空间大小时，监视此数字尤为重要。
-
-{% data reusables.enterprise_installation.upgrade-hardware-requirements %}
 
 ## 后续步骤
 

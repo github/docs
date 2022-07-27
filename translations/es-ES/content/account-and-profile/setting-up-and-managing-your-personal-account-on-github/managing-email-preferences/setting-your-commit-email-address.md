@@ -52,7 +52,7 @@ Para garantizar que las confirmaciones se te atribuyan y aparezcan en tu gráfic
 
 {% note %}
 
-**Note:** If you created your account on {% data variables.product.product_location %} _after_ July 18, 2017, your `noreply` email address for {% data variables.product.product_name %} is a seven-digit ID number and your username in the form of <code><em>ID+username</em>@users.noreply.github.com</code>. If you created your account on {% data variables.product.product_location %} _prior to_ July 18, 2017, your `noreply` email address from {% data variables.product.product_name %} is <code><em>username</em>@users.noreply.github.com</code>. You can get an ID-based `noreply` email address for {% data variables.product.product_name %} by selecting (or deselecting and reselecting) **Keep my email address private** in your email settings.
+**Nota:** Si creaste tu cuenta en {% data variables.product.product_location %} _después_ del 18 de julio de 2017, tu dirección de correo electrónico de `noreply` para {% data variables.product.product_name %} es un número de ID de siete dígitos y tu nombre de usuario en formato <code><em>ID+username</em>@users.noreply.github.com</code>. Si creaste tu cuenta en {% data variables.product.product_location %} _antes del_ 18 de julio de 2017, tu dirección de correo electrónico de tipo `noreply` de {% data variables.product.product_name %} es <code><em>username</em>@users.noreply.github.com</code>. You can get an ID-based `noreply` email address for {% data variables.product.product_name %} by selecting (or deselecting and reselecting) **Keep my email address private** in your email settings.
 
 {% endnote %}
 

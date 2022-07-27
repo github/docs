@@ -3,7 +3,7 @@ title: 'Error: Unknown key type'
 intro: Este error significa que el tipo de llave SSH que utilizaste no se reconoció o no es compatible con tu cliente SSH.
 versions:
   fpt: '*'
-  ghes: '>=3.2'
+  ghes: '*'
   ghae: '*'
   ghec: '*'
 topics:

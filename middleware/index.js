@@ -28,7 +28,7 @@ import handleRedirects from './redirects/handle-redirects.js'
 import findPage from './find-page.js'
 import blockRobots from './block-robots.js'
 import archivedEnterpriseVersionsAssets from './archived-enterprise-versions-assets.js'
-import events from './events.js'
+import api from './api/index.js'
 import search from './search.js'
 import healthz from './healthz.js'
 import anchorRedirect from './anchor-redirect.js'
@@ -66,8 +66,13 @@ import trailingSlashes from './trailing-slashes.js'
 import fastlyBehavior from './fastly-behavior.js'
 
 const { DEPLOYMENT_ENV, NODE_ENV } = process.env
-const isAzureDeployment = DEPLOYMENT_ENV === 'azure'
 const isTest = NODE_ENV === 'test' || process.env.GITHUB_ACTIONS === 'true'
+// By default, logging each request (with morgan), is on. And by default
+// it's off if you're in a production environment or running automated tests.
+// But if you set the env var, that takes precedence.
+const ENABLE_DEV_LOGGING = JSON.parse(
+  process.env.ENABLE_DEV_LOGGING || !(DEPLOYMENT_ENV === 'azure' || isTest)
+)
 
 const ENABLE_FASTLY_TESTING = JSON.parse(process.env.ENABLE_FASTLY_TESTING || 'false')
 
@@ -108,8 +113,7 @@ export default function (app) {
   }
 
   // *** Request logging ***
-  // Not enabled in Azure deployment because the request information is logged via another layer of the stack
-  if (!isAzureDeployment) {
+  if (ENABLE_DEV_LOGGING) {
     app.use(morgan('dev'))
   }
 
@@ -245,7 +249,7 @@ export default function (app) {
   app.use(haltOnDroppedConnection)
 
   // *** Rendering, 2xx responses ***
-  app.use('/events', instrument(events, './events'))
+  app.use('/api', instrument(api, './api'))
   app.use('/search', instrument(search, './search'))
   app.use('/healthz', instrument(healthz, './healthz'))
   app.use('/anchor-redirect', instrument(anchorRedirect, './anchor-redirect'))
