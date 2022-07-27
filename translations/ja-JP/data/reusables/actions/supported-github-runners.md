@@ -84,7 +84,7 @@ macOS Catalina 10.15 <sup>[deprecated]</sup>
 <code>macos-10.15</code>
 </td>
 <td>
-Migrate to <code>macOS-11</code> or <code>macOS-12</code>. For more information, see <A href="https://github.blog/changelog/2022-07-20-github-actions-the-macos-10-15-actions-runner-image-is-being-deprecated-and-will-be-removed-by-8-30-22/">this GitHub blog post</A>.
+<code>macOS-11</code>もしくは<code>macOS-12</code>に移行してください。 詳しい情報については<A href="https://github.blog/changelog/2022-07-20-github-actions-the-macos-10-15-actions-runner-image-is-being-deprecated-and-will-be-removed-by-8-30-22/">GitHubブログのポスト</A>を参照してください。
 </td>
 </tr>
 </tbody>

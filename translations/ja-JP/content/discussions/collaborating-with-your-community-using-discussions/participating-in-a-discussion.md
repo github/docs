@@ -3,8 +3,7 @@ title: ディスカッションに参加する
 intro: '{% data variables.product.product_name %} のプロジェクトのリポジトリ内のフォーラムで、コミュニティやメンテナと会話することができます。'
 permissions: 'People with read access to a repository can participate in discussions and polls in the repository. People with read access to the source repository for organization discussions can participate in discussions and polls in that organization. {% data reusables.enterprise-accounts.emu-permission-interact %}'
 versions:
-  fpt: '*'
-  ghec: '*'
+  feature: discussions
 shortTitle: Participate in discussion
 ---
 
@@ -15,7 +14,7 @@ shortTitle: Participate in discussion
 
 In addition to starting or viewing discussions and polls, you can comment in response to the original comment from the author of the discussion. また、ディスカッション内で別のコミュニティメンバーが行った個々のコメントに返信してコメントスレッドを作成し、絵文字でコメントにリアクションすることもできます。
 
-{% data variables.product.product_name %} で、ユーザをブロックし、破壊的なコンテンツを報告して、安全で快適な環境を維持できます。 詳しい情報については、「[{% data variables.product.prodname_dotcom %} での安全を維持する](/communities/maintaining-your-safety-on-github)」を参照してください。
+{% ifversion fpt or ghec %}You can block users and report disruptive content to maintain a safe and pleasant environment for yourself on {% data variables.product.product_name %}. For more information, see "[Maintaining your safety on {% data variables.product.prodname_dotcom %}](/communities/maintaining-your-safety-on-github)."{% endif %}
 
 ## 必要な環境
 

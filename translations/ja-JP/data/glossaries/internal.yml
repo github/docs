@@ -665,7 +665,7 @@
   description: >-
     パスワードの代わりに使用できます。トークンには、個人アクセストークン、OAuth トークン、API トークンがあります。
 - 
-  term: topoJSON
+  term: TopoJSON
   description: GeoJSON の機能拡張版。トポロジをエンコードします。
 - 
   term: TOTPアプリケーション

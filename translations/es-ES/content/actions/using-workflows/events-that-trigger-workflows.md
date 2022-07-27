@@ -185,7 +185,7 @@ on:
   deployment_status
 ```
 
-{% ifversion fpt or ghec %}
+{% ifversion discussions %}
 ### `debate`
 
 | Carga del evento Webhook                                                                     | Tipos de actividad                                                                                                                                                                                                                                                                                      | `GITHUB_SHA`                                  | `GITHUB_REF`        |

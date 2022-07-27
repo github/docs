@@ -16,7 +16,7 @@ describe('POST /events', () => {
   async function checkEvent(data, code) {
     const combined = Object.assign({ _csrf: csrfToken }, data)
     const body = JSON.stringify(combined)
-    const res = await post('/events', {
+    const res = await post('/api/events', {
       body,
       headers: {
         'content-type': 'application/json',

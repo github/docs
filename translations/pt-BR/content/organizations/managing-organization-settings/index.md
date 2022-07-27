@@ -27,6 +27,7 @@ children:
   - /allowing-people-to-delete-issues-in-your-organization
   - /enabling-or-disabling-github-discussions-for-an-organization
   - /managing-discussion-creation-for-repositories-in-your-organization
+  - /managing-the-commit-signoff-policy-for-your-organization
   - /setting-team-creation-permissions-in-your-organization
   - /managing-scheduled-reminders-for-your-organization
   - /managing-the-default-branch-name-for-repositories-in-your-organization

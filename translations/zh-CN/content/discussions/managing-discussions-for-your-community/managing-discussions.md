@@ -3,8 +3,7 @@ title: 管理讨论
 intro: 您可以对讨论进行分类、聚焦、转让或删除。
 permissions: Repository administrators and people with write or greater access to a repository can manage discussions in the repository. Repository administrators and people with write or greater access to the source repository for organization discussions can manage discussions in the organization.
 versions:
-  fpt: '*'
-  ghec: '*'
+  feature: discussions
 shortTitle: 管理讨论
 redirect_from:
   - /discussions/managing-discussions-for-your-community/managing-discussions-in-your-repository
@@ -17,7 +16,7 @@ redirect_from:
 
 组织所有者可以选择为组织拥有的仓库创建讨论所需的权限。 同样，要选择创建组织讨论所需的权限，组织所有者可以更改源存储库中所需的权限。 更多信息请参阅“[管理组织中仓库的讨论创建](/organizations/managing-organization-settings/managing-discussion-creation-for-repositories-in-your-organization)”。
 
-作为讨论维护者，您可以创建社区资源，以鼓励与总体项目目标一致的讨论，并为协作者维护一个友好、开放的论坛。 为协作者制定行为守则或参与指南将有助于促进协作和富有成效的论坛。 有关创建社区资源的更多信息，请参阅“[为项目中添加行为准则](/communities/setting-up-your-project-for-healthy-contributions/adding-a-code-of-conduct-to-your-project)”和“[设置仓库参与者指南](/communities/setting-up-your-project-for-healthy-contributions/setting-guidelines-for-repository-contributors)”。
+作为讨论维护者，您可以创建社区资源，以鼓励与总体项目目标一致的讨论，并为协作者维护一个友好、开放的论坛。 Creating{% ifversion fpt or ghec %} a code of conduct or{% endif %} contribution guidelines for collaborators to follow will help facilitate a collaborative and productive forum. For more information on creating community resources, see{% ifversion fpt or ghec %} "[Adding a code of conduct to your project](/communities/setting-up-your-project-for-healthy-contributions/adding-a-code-of-conduct-to-your-project)," and{% endif %} "[Setting guidelines for repository contributors](/communities/setting-up-your-project-for-healthy-contributions/setting-guidelines-for-repository-contributors)."
 
 当讨论产生可以解决的想法或漏洞时，您可以从讨论创建新议题。 更多信息请参阅“[创建议题](/issues/tracking-your-work-with-issues/creating-an-issue#creating-an-issue-from-a-discussion)”。
 
@@ -75,7 +74,7 @@ redirect_from:
 
 ## 转让讨论
 
-要转让讨论，您必须具有在要转让讨论的仓库中创建讨论的权限。 如果要将讨论转移到组织，您必须有权限在源存储库中为组织的讨论创建讨论。 您只能在同一用户或组织帐户拥有的仓库之间转让讨论。 您无法将私有仓库的讨论转让给公共仓库。
+要转让讨论，您必须具有在要转让讨论的仓库中创建讨论的权限。 如果要将讨论转移到组织，您必须有权限在源存储库中为组织的讨论创建讨论。 您只能在同一用户或组织帐户拥有的仓库之间转让讨论。 You can't transfer a discussion from a private{% ifversion ghec or ghes %} or internal{% endif %} repository to a public repository.
 
 {% data reusables.discussions.navigate-to-repo-or-org %}
 {% data reusables.discussions.discussions-tab %}

@@ -1,5 +1,5 @@
-| Clave       | Tipo        | Descripción                                                                                                       |
-| ----------- | ----------- | ----------------------------------------------------------------------------------------------------------------- |
-| `Acción`    | `secuencia` | La acción que se realizó. Currently, can only be `created`.                                                       |
-| `ubicación` | `objeto`    | The location involved in the event.                                                                               |
-| `alerta`    | `objeto`    | The [`secret scanning alert`](/rest/reference/secret-scanning#get-a-secret-scanning-alert) involved in the event. |
+| Clave       | Tipo        | Descripción                                                                                                                  |
+| ----------- | ----------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| `Acción`    | `secuencia` | La acción que se realizó. Actualmente, solo puede ser `created`.                                                             |
+| `ubicación` | `objeto`    | La ubicación que se involucra en el evento.                                                                                  |
+| `alerta`    | `objeto`    | La [`alerta del escaneo de secretos`](/rest/reference/secret-scanning#get-a-secret-scanning-alert) involucrada en el evento. |

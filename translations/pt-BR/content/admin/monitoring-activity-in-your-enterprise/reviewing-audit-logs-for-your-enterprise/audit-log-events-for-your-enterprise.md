@@ -59,7 +59,7 @@ O escopo dos eventos que aparecem no log de auditoria da sua empresa depende se 
 | ------------------ | ---------------------------------------------------------------------- |
 | `artifact.destroy` | Um artefato da execução de fluxo de trabalho foi excluído manualmente. |
 
-{%- ifversion ghec %}
+{%- ifversion audit-log-streaming %}
 ## Ações da categoria `audit_log_streaming`
 
 | Ação                          | Descrição                                                                                                                                                   |

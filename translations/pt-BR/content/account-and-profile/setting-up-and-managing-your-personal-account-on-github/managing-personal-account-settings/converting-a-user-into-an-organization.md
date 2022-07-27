@@ -25,9 +25,9 @@ shortTitle: Usuário em uma organização
 * Você **não poderá mais** efetura login na conta pessoal convertida.
 * Você **não poderá mais** criar ou modificar gists pertencentes à conta pessoal convertida.
 * Uma organização **não pode** ser convertida de volta em um usuário.
-* The SSH keys, OAuth tokens, job profile, reactions, and associated user information, **will not** be transferred to the organization. Isso é válido apenas para a conta pessoal que está sendo convertida, não para os colaboradores da conta pessoal.
+* As chaves SSH, os tokens do OAuth, o perfil de trabalho, as reações e as informações do usuário associadas, **não** serão transferidos para a organização. Isso é válido apenas para a conta pessoal que está sendo convertida, não para os colaboradores da conta pessoal.
 * Todos os commits criados com a conta pessoal convertida **não serão mais vinculados** a essa conta. Os commits em si **permanecerão** intactos.
-* Any existing comments made by the converted personal account **will no longer be linked** to that account. The comments themselves **will** remain intact, but will be associated with the `ghost` user.
+* Todos os comentários existentes feitos pela conta pessoal convertida **não serão mais vinculados** a essa conta. Os comentários em si **permanecerão** intactos, mas serão associados ao usuário `fantasma`.
 * Todas as bifurcações de repositórios privados criadas com a conta pessoal convertida serão excluídas.
 {% endwarning %}
 
@@ -38,7 +38,7 @@ Se quiser que sua organização tenha o mesmo nome que está usando atualmente n
 
 1. Para manter o seu nome de conta pessoal atual para o seu uso pessoal, [altere o nome da sua conta pessoal](/articles/changing-your-github-username) para algo novo e maravilhoso.
 2. [Crie uma nova organização](/articles/creating-a-new-organization-from-scratch) com o nome original da sua conta pessoal.
-3. [Transfer your repositories](/articles/transferring-a-repository) to your new organization account.{% endif %}
+3. [Transferir seus repositórios](/articles/transferring-a-repository) para a nova conta da organização.{% endif %}
 
 ## Converter sua conta pessoal em uma organização automaticamente
 

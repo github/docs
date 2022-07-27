@@ -1,6 +1,6 @@
 ---
 title: 关于组织
-intro: 'Organizations are shared accounts where businesses and open-source projects can collaborate across many projects at once, with sophisticated security and administrative features.'
+intro: 组织是共享帐户，企业和开源项目可以同时跨多个项目进行协作，具有复杂的安全性和管理功能。
 redirect_from:
   - /articles/about-organizations
   - /github/setting-up-and-managing-organizations-and-teams/about-organizations
@@ -18,20 +18,20 @@ topics:
 
 {% data reusables.organizations.about-organizations %} 有关帐户类型的详细信息，请参阅“[{% data variables.product.prodname_dotcom %} 帐户的类型](/get-started/learning-about-github/types-of-github-accounts)”。
 
-You can invite an unlimited number of people to join your organization, then give these organization members a variety of roles that grant different levels of access to the organization and its data. 更多信息请参阅“[组织中的角色](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)”。
+您可以邀请不限数量的人员加入您的组织，然后为这些组织成员提供各种角色，以授予对组织及其数据的不同级别的访问权限。 更多信息请参阅“[组织中的角色](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)”。
 
-In addition to managing access to the organization itself, you can separately manage access to your organization's repositories, project boards, and apps. For more information, see "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)", "[Project board permissions for an organization](/organizations/managing-access-to-your-organizations-project-boards/project-board-permissions-for-an-organization)", and "[Managing access to your organization's apps](/organizations/managing-access-to-your-organizations-apps)."
+除了管理对组织本身的访问外，您还可以单独管理对组织存储库、项目板和应用程序的访问。 更多信息请参阅“[组织的存储库角色](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)”、“[组织的项目板权限](/organizations/managing-access-to-your-organizations-project-boards/project-board-permissions-for-an-organization)”和“[管理对组织应用程序的访问](/organizations/managing-access-to-your-organizations-apps)”。
 
-To simplify access management and enhance collaboration, you can create nested teams that reflect your group's structure, with cascading access permissions and mentions. 更多信息请参阅“[关于团队](/organizations/organizing-members-into-teams/about-teams)”。
+为了简化访问管理并增强协作，您可以创建反映组结构的嵌套团队，并具有级联访问权限和提及。 更多信息请参阅“[关于团队](/organizations/organizing-members-into-teams/about-teams)”。
 
-You can configure the organization to meet the unique needs of your group by managing settings, such as restricting the types of repositories that members can create. For more information, see "[Managing organization settings](/organizations/managing-organization-settings)."
+您可以通过管理设置（例如限制成员可以创建的存储库类型）来配置组织以满足组的独特需求。 更多信息请参阅“[管理组织设置](/organizations/managing-organization-settings)”。
 
-To harden your organization's security, you can enforce security requirements and review the organization's audit log. 更多信息请参阅“[保护组织安全](/organizations/keeping-your-organization-secure)”。
+为加强组织的安全性，可以强制实施安全要求并查看组织的审核日志。 更多信息请参阅“[保护组织安全](/organizations/keeping-your-organization-secure)”。
 
 {% data reusables.organizations.org-ownership-recommendation %} 更多信息请参阅“[管理组织的所有权连续性](/organizations/managing-peoples-access-to-your-organization-with-roles/maintaining-ownership-continuity-for-your-organization)”。
 
 {% ifversion fpt or ghec %}
-## About feature availability
+## 关于功能可用性
 
 {% data reusables.organizations.organization-plans %}
 {% endif %}

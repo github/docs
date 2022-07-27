@@ -2,8 +2,7 @@
 title: Otorgar permisos superiores a los contribuyentes principales
 intro: Los administradores de repositorio pueden promover a cualquier miembro de la comunidad para que sea un moderador o un mantenedor.
 versions:
-  fpt: '*'
-  ghec: '*'
+  feature: discussions
 shortTitle: Otorgar permisos mayores
 ---
 
@@ -16,11 +15,11 @@ Los colaboradores más útiles en los últimos 30 días se resaltarán en el tab
 
 {% data reusables.discussions.navigate-to-repo-or-org %}
 {% data reusables.discussions.discussions-tab %}
-1. Compare la lista de contribuyentes con sus permisos de acceso al repositorio o, para los debates de organización, al repositorio origen para ver quién califica para moderarlos.
+1. Compare the list of contributors with their access permissions to the repository or, for organization discussions, to the source repository to see who qualifies to moderate the discussion. ![Screenshot of most helpful contributors](/assets/images/help/discussions/most-helpful.png)
 
 ## Paso 2: Revisa los niveles de permiso de los {% data variables.product.prodname_discussions %}
 
-Las personas con permisos de clasificación en un repositorio pueden ayudar a moderar los debates de este al marcar los comentarios como respuestas, bloquear los debates que ya no sean útiles o que estén dañando a la comunidad y convertir las propuestas en debates cuando alguna idea aún se encuentre en las primeras etapas de desarrollo. De forma similar, las personas con permisos de clasificación en el repositorio origen para los debates de organización pueden moderar dichos debates. Para obtener más información, consulta la sección "[Moderar los debates](/discussions/managing-discussions-for-your-community/moderating-discussions)".
+People with triage permissions for a repository can help moderate that repository's discussions by marking comments as answers, locking discussions that are no longer useful or are damaging to the community, and converting issues to discussions when an idea is still in the early stages of development. De forma similar, las personas con permisos de clasificación en el repositorio origen para los debates de organización pueden moderar dichos debates. Para obtener más información, consulta la sección "[Moderar los debates](/discussions/managing-discussions-for-your-community/moderating-discussions)".
 
 Para obtener más información sobre los niveles de permiso y los {% data variables.product.prodname_discussions %} de un repositorio, consulta la sección "[Niveles de permiso de un repositorio en una organización](/organizations/managing-access-to-your-organizations-repositories/repository-permission-levels-for-an-organization)".
 
