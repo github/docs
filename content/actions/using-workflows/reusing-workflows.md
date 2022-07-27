@@ -68,12 +68,16 @@ Called workflows that are owned by the same user or organization{% ifversion ghe
 * In the caller repository's organization{% ifversion ghes or ghec or ghae %} or enterprise{% endif %}, provided that the runner has been made available to the caller repository
 
 ## Limitations
-
+{% ifversion actions-reusable-workflow-matrix %}
+* Reusable workflows can't call other reusable workflows.
+* Reusable workflows stored within a private repository can only be used by workflows within the same repository.
+* Any environment variables set in an `env` context defined at the workflow level in the caller workflow are not propagated to the called workflow. For more information about the `env` context, see "[Context and expression syntax for GitHub Actions](/actions/reference/context-and-expression-syntax-for-github-actions#env-context)."
+{% else %}
 * Reusable workflows can't call other reusable workflows.
 * Reusable workflows stored within a private repository can only be used by workflows within the same repository.
 * Any environment variables set in an `env` context defined at the workflow level in the caller workflow are not propagated to the called workflow. For more information about the `env` context, see "[Context and expression syntax for GitHub Actions](/actions/reference/context-and-expression-syntax-for-github-actions#env-context)."
 * The `strategy` property is not supported in any job that calls a reusable workflow.
-
+{% endif %}
 ## Creating a reusable workflow
 
 Reusable workflows are YAML-formatted files, very similar to any other workflow file. As with other workflow files, you locate reusable workflows in the `.github/workflows` directory of a repository. Subdirectories of the `workflows` directory are not supported.
@@ -164,7 +168,31 @@ jobs:
           token: ${{ secrets.token }}
 ```
 {% endraw %}
+{% ifversion actions-reusable-workflow-matrix %}
+### Using a matrix strategy with a reusable workflow
 
+### Example matrix strategy with a reusable workflow
+
+{% raw %}
+```yaml{:copy}
+name: Reusable workflow with matrix strategy example
+
+on:
+  push:
+
+jobs:
+  ReuseableMatrixJobForDeployment:
+    strategy:
+      fail-fast: false
+      matrix:
+        env: [dev, stage, prod]
+    uses: octocat/octo-repo/.github/workflows/deployment.yml@main
+    with:
+      env: ${{ matrix.env }}
+```
+{% endraw %}
+
+{% endif %}
 ## Calling a reusable workflow
 
 You call a reusable workflow by using the `uses` keyword. Unlike when you are using actions within a workflow, you call reusable workflows directly within a job, and not from within job steps.
