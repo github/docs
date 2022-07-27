@@ -392,8 +392,14 @@ Action                        | Description
 | `gist.destroy` | A gist is deleted.
 | `gist.visibility_change` | The visibility of a gist is changed.
 
-{% ifversion ghec or ghes > 3.4 or ghae-issue-6724 %}
+{% ifversion git-events-audit-log %}
 ## `git` category actions
+
+{% ifversion enable-git-events %}
+Before you'll see `git` category actions, you must enable Git events in the audit log. For more information, see "[Configuring the audit log for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/configuring-the-audit-log-for-your-enterprise#managing-git-events-in-the-audit-log)."
+{% endif %}
+
+{% data reusables.audit_log.git-events-not-in-search-results %}
 
 | Action | Description
 |--------|-------------
