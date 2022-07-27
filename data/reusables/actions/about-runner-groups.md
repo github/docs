@@ -15,3 +15,5 @@ If you use {% data variables.product.prodname_ghe_cloud %}, you can create addit
 {% data reusables.actions.runner-group-enterprise-overview %}
 
 When new runners are created, they are automatically assigned to the default group. Runners can only be in one group at a time. You can move runners from the default group to another group. For more information, see "[Moving a runner to a group](#moving-a-runner-to-a-group)."
+
+{% endif %}

@@ -19,6 +19,8 @@ shortTitle: Manage access to runners
 
 {% data reusables.actions.about-runner-groups %}
 
+{% ifversion ghec or ghes or ghae %}
+
 ## Creating a runner group for an organization
 
 {% data reusables.actions.creating-a-runner-group-for-an-organization %}
@@ -26,6 +28,8 @@ shortTitle: Manage access to runners
 ## Creating a runner group for an enterprise
 
 {% data reusables.actions.creating-a-runner-group-for-an-enterprise %}
+
+{% endif %}
 
 ## Changing the access policy of a runner group
 

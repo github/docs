@@ -28,4 +28,3 @@ When creating a group, you must choose a policy that defines which organizations
 {% data reusables.actions.runner-group-assign-policy-workflow %}
 1. Click **Save group** to create the group and apply the policy.
 
-{% endif %}
