@@ -391,6 +391,12 @@ on:
 
 {% data reusables.pull_requests.merge-queue-beta %}
 
+{% note %}
+
+**Note**: {% data reusables.developer-site.multiple_activity_types %} Although only the `merge_group` activity type is supported, specifying the activity type will keep your workflow specific if more activity types are added in the future. For information about each activity type, see "[Webhook events and payloads](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#merge_group)." {% data reusables.developer-site.limit_workflow_to_activity_types %}
+
+{% endnote %}
+
 Runs your workflow when a pull request is added to a group for merging with merge queue. For more information see "[Merging a pull request with a merge queue](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request-with-a-merge-queue)".
 
 For example, you can run a workflow when the `checks_requested` activity has occurred.

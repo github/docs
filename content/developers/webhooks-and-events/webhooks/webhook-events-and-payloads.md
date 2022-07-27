@@ -716,8 +716,6 @@ For a detailed description of this payload and the payload for each type of `act
 
 Occurs when a pull request is added to a merge group. Once all required checks have completed successfully, the group will be merged by the protected branch's merge queue.
 
-{% data variables.product.prodname_actions %} workflows can be triggered by the `merge_group` event. For more information, see "[Events that trigger workflows](/actions/reference/events-that-trigger-workflows#merge_group)."
-
 
 ### Availability
 
@@ -729,10 +727,11 @@ Occurs when a pull request is added to a merge group. Once all required checks h
 
 Key | Type | Description
 ----|------|-------------
+`action`|`string` | The action that was performed. Currently, can only be `checks_requested`.
 `merge_group`|`object` | The merge group which contains the pull request.
 `merge_group[head_sha]`|`string` | The SHA of the last commit of the pull request before it was added to the merge queue.
-`merge_group[head_ref]`|`string` | The full REF of the merge group which contains the pull request. Prefixed with `refs/heads/gh-readonly-queue/:baseRefName`.
-`merge_group[base_ref]`|`string` | The REF of the base of the pull request.
+`merge_group[head_ref]`|`string` | The full ref of the merge group which contains the pull request. Prefixed with `refs/heads/gh-readonly-queue/:baseRefName`.
+`merge_group[base_ref]`|`string` | The ref of the base of the pull request.
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.app_desc %}
