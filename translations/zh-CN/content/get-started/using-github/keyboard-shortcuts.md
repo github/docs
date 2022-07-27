@@ -47,7 +47,7 @@ versions:
 | <kbd>G</kbd> <kbd>P</kbd> | 转到 **Pull requests（拉取请求）**选项卡。 更多信息请参阅“[关于拉取请求](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)”。{% ifversion fpt or ghes or ghec %}
 | <kbd>G</kbd> <kbd>A</kbd> | 转到 **Actions（操作）**选项卡。 更多信息请参阅“[关于 Actions](/actions/getting-started-with-github-actions/about-github-actions)”。{% endif %}
 | <kbd>G</kbd> <kbd>B</kbd> | 转到 **Projects（项目）**选项卡。 更多信息请参阅“[关于项目板](/articles/about-project-boards)”。                                                                                                                                   |
-| <kbd>G</kbd> <kbd>W</kbd> | 转到 **Wiki** 选项卡。 更多信息请参阅“[关于 wiki](/communities/documenting-your-project-with-wikis/about-wikis)”。{% ifversion fpt or ghec %}
+| <kbd>G</kbd> <kbd>W</kbd> | 转到 **Wiki** 选项卡。 更多信息请参阅“[关于 wiki](/communities/documenting-your-project-with-wikis/about-wikis)”。{% ifversion discussions %}
 | <kbd>G</kbd> <kbd>G</kbd> | 转到 **Discussions（讨论）**选项卡。 更多信息请参阅“[关于讨论](/discussions/collaborating-with-your-community-using-discussions/about-discussions)”。{% endif %}
 
 ## 源代码编辑

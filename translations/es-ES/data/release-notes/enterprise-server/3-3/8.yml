@@ -8,7 +8,7 @@ sections:
     - 'En algunas topologías de clúster, el comando `ghe-cluster-status` dejó directorios vacíos en `/tmp`.'
     - 'El SNMP registró una cantidad alta de mensajes de error de `Cannot statfs` incorrectamente en syslog'
     - 'Para el caso de las instancias configuradas con la autenticación de SAML y con la recuperación de fallos integrada habilitada, los usuarios integrados se atoraron en un bucle de "inicio de sesión" al intentar iniciar sesión desde la página generada después de salir de sesión.'
-    - 'Attempts to view the `git fsck` output from the `/stafftools/repositories/:owner/:repo/disk` page would fail with a `500 Internal Server Error`.'
+    - 'Los intentos pra ver la salida de `git fsck` de la página `/stafftools/repositories/:owner/:repo/disk` fallaron con un `500 Internal Server Error`.'
     - 'Al utilizar aserciones cifradas de SAML, algunas de ellas no estaban marcando correctamente a las llaves SSH como verificadas.'
     - 'Los videos que se suben a los comentarios de las propuestas no se representaron adecuadamente.'
     - 'When using the file finder on a repository page, typing the backspace key within the search field would result in search results being listed multiple times and cause rendering problems.'

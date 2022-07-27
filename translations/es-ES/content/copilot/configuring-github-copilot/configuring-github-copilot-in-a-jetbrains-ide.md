@@ -25,7 +25,7 @@ You can use the default keyboard shortcuts for inline suggestions in your JetBra
 
 | Acción                                                                                       | Shortcut                                       |
 |:-------------------------------------------------------------------------------------------- |:---------------------------------------------- |
-| Accept an inline suggestion                                                                  | <kbd>Tab</kbd>                                 |
+| Aceptar una sugerencia en una línea                                                          | <kbd>Tab</kbd>                                 |
 | Dismiss an inline suggestion                                                                 | <kbd>Esc</kbd>                                 |
 | Show next inline suggestion                                                                  | <kbd>Option (⌥) or Alt</kbd>+<kbd>]</kbd>      |
 | Show previous inline suggestion                                                              | <kbd>Option (⌥) or Alt</kbd>+<kbd>[</kbd>      |
@@ -38,7 +38,7 @@ You can use the default keyboard shortcuts for inline suggestions in your JetBra
 
 | Acción                                                                                       | Shortcut                        |
 |:-------------------------------------------------------------------------------------------- |:------------------------------- |
-| Accept an inline suggestion                                                                  | <kbd>Tab</kbd>                  |
+| Aceptar una sugerencia en una línea                                                          | <kbd>Tab</kbd>                  |
 | Dismiss an inline suggestion                                                                 | <kbd>Esc</kbd>                  |
 | Show next inline suggestion                                                                  | <kbd>Alt</kbd>+<kbd>]</kbd>     |
 | Show previous inline suggestion                                                              | <kbd>Alt</kbd>+<kbd>[</kbd>     |
@@ -51,7 +51,7 @@ You can use the default keyboard shortcuts for inline suggestions in your JetBra
 
 | Acción                                                                                       | Shortcut                        |
 |:-------------------------------------------------------------------------------------------- |:------------------------------- |
-| Accept an inline suggestion                                                                  | <kbd>Tab</kbd>                  |
+| Aceptar una sugerencia en una línea                                                          | <kbd>Tab</kbd>                  |
 | Dismiss an inline suggestion                                                                 | <kbd>Esc</kbd>                  |
 | Show next inline suggestion                                                                  | <kbd>Alt</kbd>+<kbd>]</kbd>     |
 | Show previous inline suggestion                                                              | <kbd>Alt</kbd>+<kbd>[</kbd>     |

@@ -3,8 +3,7 @@ title: ディスカッションを管理する
 intro: 'You can categorize, spotlight, transfer, or delete the discussions.'
 permissions: Repository administrators and people with write or greater access to a repository can manage discussions in the repository. Repository administrators and people with write or greater access to the source repository for organization discussions can manage discussions in the organization.
 versions:
-  fpt: '*'
-  ghec: '*'
+  feature: discussions
 shortTitle: Manage discussions
 redirect_from:
   - /discussions/managing-discussions-for-your-community/managing-discussions-in-your-repository
@@ -17,7 +16,7 @@ redirect_from:
 
 Organization owners can choose the permissions required to create a discussion in repositories owned by the organization. Similarly, to choose the permissions required to create an organization discussion, organization owners can change the permissions required in the source repository. 詳しい情報については、「[Organization 内のリポジトリのディスカッションの作成を管理する](/organizations/managing-organization-settings/managing-discussion-creation-for-repositories-in-your-organization)」を参照してください。
 
-ディスカッションのメンテナとして、コミュニティリソースを作成して、プロジェクト全体の目標に沿ったディスカッションを促し、コラボレータのための親しみやすいオープンフォーラムを維持できます。 コラボレータが従う行動規範またはコントリビューションガイドラインを作成することは、協力的で生産的なフォーラムを促進するのに役立ちます。 コミュニティリソースの作成について詳しくは、「[プロジェクトに行動規範を追加する](/communities/setting-up-your-project-for-healthy-contributions/adding-a-code-of-conduct-to-your-project)」および 「[リポジトリコントリビューター向けのガイドラインを設定する](/communities/setting-up-your-project-for-healthy-contributions/setting-guidelines-for-repository-contributors)」を参照してください。
+ディスカッションのメンテナとして、コミュニティリソースを作成して、プロジェクト全体の目標に沿ったディスカッションを促し、コラボレータのための親しみやすいオープンフォーラムを維持できます。 Creating{% ifversion fpt or ghec %} a code of conduct or{% endif %} contribution guidelines for collaborators to follow will help facilitate a collaborative and productive forum. For more information on creating community resources, see{% ifversion fpt or ghec %} "[Adding a code of conduct to your project](/communities/setting-up-your-project-for-healthy-contributions/adding-a-code-of-conduct-to-your-project)," and{% endif %} "[Setting guidelines for repository contributors](/communities/setting-up-your-project-for-healthy-contributions/setting-guidelines-for-repository-contributors)."
 
 When a discussion yields an idea or bug that is ready to be worked on, you can create a new issue from a discussion. 詳しい情報については、「[Issue を作成する](/issues/tracking-your-work-with-issues/creating-an-issue#creating-an-issue-from-a-discussion)」を参照してください。
 
@@ -75,7 +74,7 @@ You can pin up to four important discussions above the list of discussions for t
 
 ## ディスカッションを移譲する
 
-ディスカッションを移譲するには、ディスカッションを移譲するリポジトリにディスカッションを作成する権限が必要です。 If you want to transfer a discussion to an organization, you must have permissions to create discussions in the source repository for the organization's discussions. You can only transfer discussions between repositories owned by the same user or organization account. You can't transfer a discussion from a private repository to a public repository.
+ディスカッションを移譲するには、ディスカッションを移譲するリポジトリにディスカッションを作成する権限が必要です。 If you want to transfer a discussion to an organization, you must have permissions to create discussions in the source repository for the organization's discussions. You can only transfer discussions between repositories owned by the same user or organization account. You can't transfer a discussion from a private{% ifversion ghec or ghes %} or internal{% endif %} repository to a public repository.
 
 {% data reusables.discussions.navigate-to-repo-or-org %}
 {% data reusables.discussions.discussions-tab %}

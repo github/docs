@@ -90,24 +90,32 @@ Depois de criar uma etiqueta em um repositório, é possível aplicá-lo em qual
 Abaixo está um exemplo de uma etiqueta `front-end` que criamos e adicionamos ao problema.
 
 ![Adicionando uma etiqueta a um exemplo do problema](/assets/images/help/issues/quickstart-add-label-to-issue.png)
+
 ## Adicionando problemas a um quadro de projeto
-{% ifversion fpt or ghec %}Você pode usar projetos em {% data variables.product.prodname_dotcom %}, atualmente em beta público limitado, para planejar e acompanhar o trabalho da sua equipe. Um projeto é uma planilha personalizável integradas aos seus problemas e pull requests em {% data variables.product.prodname_dotcom %}, mantendo-se atualizada automaticamente com as informações em {% data variables.product.prodname_dotcom %}. Você pode personalizar o layout filtrando, organizando e agrupando seus problemas e PRs. Para começar com projetos, consulte "[Inicialização rápida para projetos (beta)](/issues/trying-out-the-new-projects-experience/quickstart). ".
-### Exemplo de projeto (beta)
+
+{% ifversion projects-v2 %}
+
+You can use {% data variables.projects.projects_v2 %} on {% data variables.product.prodname_dotcom %} to plan and track the work for your team. Um projeto é uma planilha personalizável integradas aos seus problemas e pull requests em {% data variables.product.prodname_dotcom %}, mantendo-se atualizada automaticamente com as informações em {% data variables.product.prodname_dotcom %}. Você pode personalizar o layout filtrando, organizando e agrupando seus problemas e PRs. To get started with projects, see "[Quickstart for projects](/issues/planning-and-tracking-with-projects/learning-about-projects/quickstart-for-projects)."
+### Project example
 Aqui está o layout da tabela de um projeto de exemplo, preenchido com os problemas do projeto Octocat que criamos.
 
-![Exemplo do layout da tabela de projetos (beta)](/assets/images/help/issues/quickstart-projects-table-view.png)
+![Projects table layout example](/assets/images/help/issues/quickstart-projects-table-view.png)
 
 Podemos também visualizar o mesmo projeto como um quadro.
 
-![Exemplo do quadro do layout de projetos (beta)](/assets/images/help/issues/quickstart-projects-board-view.png)
+![Projects board layout example](/assets/images/help/issues/quickstart-projects-board-view.png)
 
 {% endif %}
+{% ifversion projects-v1 %}
 
-Você também pode {% ifversion fpt or ghec %} usar os quadros de projeto existentes{% else %} usar{% endif %} no {% data variables.product.prodname_dotcom %} para planejar e acompanhar o trabalho da sua equipe. Os quadros de projeto são compostos por problemas, pull requests e observações que são categorizados como cartões em colunas de sua escolha. Você pode criar quadros de projetos para trabalho de funcionalidades, itinerários de alto nível ou até mesmo aprovar checklists. Para obter mais informações, consulte "[Sobre quadros de projeto](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards)".
+You can {% ifversion projects-v2 %} also use the existing{% else %} use{% endif %} {% data variables.product.prodname_projects_v1 %} on {% data variables.product.prodname_dotcom %} to plan and track your or your team's work. Os quadros de projeto são compostos por problemas, pull requests e observações que são categorizados como cartões em colunas de sua escolha. Você pode criar quadros de projetos para trabalho de funcionalidades, itinerários de alto nível ou até mesmo aprovar checklists. Para obter mais informações, consulte "[Sobre quadros de projeto](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards)".
 ### Exemplo de quadro de projeto
 Abaixo, está um painel de projeto para o nosso exemplo de projeto Octocat com o problema que criamos, e os problemas menores nos quais separamos, foram adicionados.
 
 ![Exemplo de quadro de projeto](/assets/images/help/issues/quickstart-project-board.png)
+
+{% endif %}
+
 ## Próximas etapas
 
 Agora você aprendeu sobre as ferramentas que {% data variables.product.prodname_dotcom %} oferece para planejamento e acompanhamento do seu trabalho e deu o seu primeiro passo para definir a sua equipe multifuncional ou repositório de projetos! Aqui estão alguns recursos úteis para personalizar ainda mais seu repositório e organizar seu trabalho.
@@ -117,6 +125,6 @@ Agora você aprendeu sobre as ferramentas que {% data variables.product.prodname
 - "[Sobre problemas e modelos de pull request](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/about-issue-and-pull-request-templates)para aprender mais sobre modelos de problemas
 - "[Gerenciando etiquetas](/issues/using-labels-and-milestones-to-track-work/managing-labels)" para aprender a criar, editar e excluir etiquetas
 - "[Sobre listas de tarefas](/issues/tracking-your-work-with-issues/creating-issues/about-task-lists)" para aprender mais sobre listas de tarefas
-{% ifversion fpt or ghec %} - "[Sobre projetos (beta)](/issues/trying-out-the-new-projects-experience/about-projects)" para aprender mais sobre a experiência dos novos projetos, atualmente em beta público limitado
-- "[Personalizando as visualizações do seu projeto (beta)](/issues/trying-out-the-new-projects-experience/customizing-your-project-views)" para aprender como personalizar visualizações para projetos, atualmente em beta público limitado{% endif %}
-- "[Sobre os quadros de projetos](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards)" para aprender como gerenciar os quadros de projetos
+{% ifversion projects-v2 %} - "[About projects](/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects)" for learning more about projects
+- "[Customizing a view](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/customizing-a-view)" for learning how to customize views for projects{% endif %}
+{% ifversion projects-v1 %}- "[About {% data variables.product.prodname_projects_v1 %}](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards)" for learning how to manage project boards{% endif %}

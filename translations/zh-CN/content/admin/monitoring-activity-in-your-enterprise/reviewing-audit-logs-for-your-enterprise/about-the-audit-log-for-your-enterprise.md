@@ -39,9 +39,10 @@ topics:
 {%- ifversion enterprise-audit-log-ip-addresses %}
 - 您可以在审核日志中显示与事件关联的 IP 地址。 更多信息请参阅“[在企业的审核日志中显示 IP 地址](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/displaying-ip-addresses-in-the-audit-log-for-your-enterprise)”。
 {%- endif %}
-{%- ifversion ghec %}
+{%- ifversion audit-log-streaming %}
 - 您可以将审核和 Git 事件数据从 {% data variables.product.prodname_dotcom %} 流式传输到外部数据管理系统。 更多信息请参阅“[流式传输企业的审核日志](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/streaming-the-audit-log-for-your-enterprise)”。
-{%- else %}
+{%- endif %}
+{%- ifversion ghes %}
 - 您可以将审核和系统日志从企业转发到第三方托管的监控系统。 更多信息请参阅“[日志转发](/admin/monitoring-activity-in-your-enterprise/exploring-user-activity/log-forwarding)。”
 {%- endif %}
 {%- ifversion ghec or ghes > 3.2 or ghae-issue-6648 %}
@@ -49,13 +50,6 @@ topics:
 {%- endif %}
 
 有关企业审核日志中可能显示的审核日志操作的完整列表，请参阅“[企业的审核日志操作](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise)”。
-
-{% ifversion ghec %}
-## Git 事件
-
-记录 Git 事件数据，如克隆、提取和推送。 更多信息请参阅“[流式传输企业的审核日志](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/streaming-the-audit-log-for-your-enterprise)”。
-
-{% endif %}
 
 ## 延伸阅读
 - “[查看组织的审核日志](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/reviewing-the-audit-log-for-your-organization)”

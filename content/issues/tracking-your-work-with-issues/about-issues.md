@@ -31,7 +31,7 @@ Issues can be created in a variety of ways, so you can choose the most convenien
 
 You can organize and prioritize issues with projects. {% ifversion fpt or ghec %}To track issues as part of a larger issue, you can use task lists.{% endif %} To categorize related issues, you can use labels and milestones.
 
-For more information about projects, see {% ifversion fpt or ghec %}"[About projects (beta)](/issues/trying-out-the-new-projects-experience/about-projects)" and {% endif %}"[Organizing your work with project boards](/issues/organizing-your-work-with-project-boards)." {% ifversion fpt or ghec %}For more information about task lists, see "[About task lists](/issues/tracking-your-work-with-issues/creating-issues/about-task-lists)." {% endif %}For more information about labels and milestones, see "[Using labels and milestones to track work](/issues/using-labels-and-milestones-to-track-work)."
+For more information about projects, see {% ifversion projects-v2 %}"[About projects](/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects)." {% else %}"[Organizing your work with project boards](/issues/organizing-your-work-with-project-boards)."{% endif %} {% ifversion fpt or ghec %}For more information about task lists, see "[About task lists](/issues/tracking-your-work-with-issues/creating-issues/about-task-lists)." {% endif %}For more information about labels and milestones, see "[Using labels and milestones to track work](/issues/using-labels-and-milestones-to-track-work)."
 
 ## Stay up to date
 

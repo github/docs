@@ -3,21 +3,20 @@ title: GitHub Discussions のクイックスタート
 intro: 'Enable {% data variables.product.prodname_discussions %} on an existing repository or organization and start conversations with your community.'
 allowTitleToDifferFromFilename: true
 versions:
-  fpt: '*'
-  ghec: '*'
+  feature: discussions
 shortTitle: クイックスタート
 ---
 
 
 ## はじめに
 
-{% data variables.product.prodname_discussions %} は、オープンソースプロジェクトに関するコミュニティ向けの共同コミュニケーションフォーラムです。 Discussions are for conversations that need to be transparent and accessible but do not need to be tracked on a project board and are not related to code, unlike {% data variables.product.prodname_github_issues %}. Discussions により、公開フォーラムで流動的でオープンな会話ができるようになります。
+{% data variables.product.prodname_discussions %} is a collaborative communication forum for the community around an open source or internal project. Discussions are for conversations that need to be transparent and accessible but do not need to be tracked on a project board and are not related to code, unlike {% data variables.product.prodname_github_issues %}. Discussions により、公開フォーラムで流動的でオープンな会話ができるようになります。
 
 Discussions では、より協力的な会話ができるように、情報に接続して検索するためのより一元的なエリアを提供しています。
 
 ## リポジトリの {% data variables.product.prodname_discussions %} を有効化する
 
-Repository owners and people with write access can enable {% data variables.product.prodname_discussions %} for a community on their public and private repositories.
+Repository owners and people with write access can enable {% data variables.product.prodname_discussions %} for a community on their public{% ifversion ghes > 3.5 %}, internal{% endif %} and private repositories. The visibility of a discussion is inherited from the repository the discussion is created in.
 
 When you first enable {% data variables.product.prodname_discussions %}, you will be invited to configure a welcome post.
 
@@ -29,7 +28,7 @@ When you first enable {% data variables.product.prodname_discussions %}, you wil
 
 ## Enabling {% data variables.product.prodname_discussions %} on your organization
 
-Organization owners can enable {% data variables.product.prodname_discussions %} for their organization.
+Organizationのオーナーは、自分のOrganizationで{% data variables.product.prodname_discussions %}を有効化できます。
 
 {% data reusables.discussions.about-organization-discussions %}
 
@@ -42,7 +41,7 @@ You can welcome your community and introduce a new way to communicate in a repos
 
 ## コントリビューター向けのコミュニティガイドラインを設定する
 
-For repository discussions, you can set contributing guidelines to encourage collaborators to have meaningful, useful conversations that are relevant to the repository. リポジトリの README を更新して、コラボレータが Issue やディスカッションをオープンするタイミングを伝えることもできます。 プロジェクトのガイドラインの提供方法の詳細については、「[プロジェクトに行動規範を追加する](/communities/setting-up-your-project-for-healthy-contributions/adding-a-code-of-conduct-to-your-project)」および 「[健全なコントリビューションのためのプロジェクトの設定](/communities/setting-up-your-project-for-healthy-contributions)」を参照してください。
+For repository discussions, you can set contributing guidelines to encourage collaborators to have meaningful, useful conversations that are relevant to the repository. リポジトリの README を更新して、コラボレータが Issue やディスカッションをオープンするタイミングを伝えることもできます。 For more information about providing guidelines for your project, see{% ifversion fpt or ghec %} "[Adding a code of conduct to your project](/communities/setting-up-your-project-for-healthy-contributions/adding-a-code-of-conduct-to-your-project)" and{% endif %} "[Setting up your project for healthy contributions](/communities/setting-up-your-project-for-healthy-contributions)."
 
 For organization discussions, you share information about how to engage with your organization by creating an organization profile README. For more information, see "[Customizing your organization's profile](/organizations/collaborating-with-groups-in-organizations/customizing-your-organizations-profile)."
 
@@ -62,7 +61,7 @@ Any authenticated user who can view a repository can create a poll. Similarly, s
 
 Repository owners and people with write access to the repository can create new categories to keep discussions organized. Similarly, since organization discussions are based on a source repository, repository owners and people with write access to the source repository can create new categories for organization discussions.
 
-参加しているコラボレータが新しいディスカッションを作成する場合、ディスカッションを最も関連性の高い既存のカテゴリにグループ化できます。 ディスカッションは、作成後に再分類することもできます。 For more information, see "[Managing categories for discussions](/discussions/managing-discussions-for-your-community/managing-categories-for-discussions)."
+Collaborators participating in and creating new discussions can group discussions into the most relevant existing categories. ディスカッションは、作成後に再分類することもできます。 For more information, see "[Managing categories for discussions](/discussions/managing-discussions-for-your-community/managing-categories-for-discussions)."
 
 {% data reusables.discussions.you-can-label-discussions %}
 

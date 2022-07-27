@@ -203,6 +203,28 @@ shortTitle: 仓库管理策略
 4. 在“Repository upload limit”下，使用下拉菜单，然后单击最大对象大小。 ![包含最大对象大小选项的下拉菜单](/assets/images/enterprise/site-admin-settings/repo-upload-limit-dropdown.png)
 5. （可选）要对企业中的所有仓库实施最大上传限制，请选择 **Enforce on all repositories（对所有仓库强制执行）** ![对所有仓库选项强制执行最大对象限制](/assets/images/enterprise/site-admin-settings/all-repo-upload-limit-option.png)
 
+{% ifversion profile-name-enterprise-setting %}
+
+## Enforcing a policy for the display of member names in your repositories
+
+Across all organizations owned by your enterprise, you can allow members to see a comment author's profile name, in addition to their username, in issues and pull requests for public and internal repositories.
+
+![评论中显示的评论者个人资料名称](/assets/images/help/issues/commenter-full-name.png)
+
+{% note %}
+
+**Note:** When this policy is enforced for all repositories in the enterprise, it overrides the organization setting for private repositories. For more information, see "[Managing the display of member names in your organization](/organizations/managing-organization-settings/managing-the-display-of-member-names-in-your-organization)".
+
+{% endnote %}
+
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.policies-tab %}
+{% data reusables.enterprise-accounts.options-tab %}
+4. Under "Allow members to see the comment author's profile name in public and internal repositories", select the dropdown menu and click a policy. ![Screenshot of Options page with policy drop down emphasized](/assets/images/enterprise/site-admin-settings/comment-authors-profile-name-drop-down.png)
+5. Optionally, to enforce the display of profile names for all repositories in your enterprise, select **Enforce for all repositories on the instance**. ![Screenshot of "Enforce for all repositories" option emphasized](/assets/images/enterprise/site-admin-settings/enforce-for-all-repositories-option.png)
+
+{% endif %}
+
 ## 为仓库之间的拉取请求配置合并冲突编辑器
 
 要求用户在其计算机上本地解决合并冲突可以避免用户因疏忽而从分叉写入到上游仓库。
@@ -265,9 +287,21 @@ shortTitle: 仓库管理策略
 
 {% data reusables.enterprise_user_management.disclaimer-for-git-read-access %}
 
-{% ifversion ghes %}如果您已经在企业上[启用私密模式](/enterprise/admin/configuration/enabling-private-mode)，{% else %}您{% endif %}可以允许仓库管理员启用对公共仓库的匿名 Git 读取访问。
+If you have [enabled private mode](/enterprise/admin/configuration/enabling-private-mode) for {% data variables.product.product_location %}, you can allow repository administrators to enable anonymous Git read access to public repositories.
 
 启用匿名 Git 读取允许用户在企业上为自定义工具绕过身份验证。 当您或仓库管理员为仓库启用此权限设置时，未经过身份验证的 Git 操作（和具有 {% data variables.product.product_name %} 的网络访问权限的任何人）将获得仓库的读取权限（无需身份验证）。
+
+Anonymous Git read access is disabled by default.{% ifversion ghes = 3.4 or ghes = 3.5 or ghes = 3.6 or ghes = 3.7 %} When you upgrade to {% data variables.product.product_name %} 3.6 or later, anonymous Git read access is automatically disabled at the application level, and `git://` connections on port 9418 will return the following error.
+
+```
+The unauthenticated git protocol on port 9418 is no longer supported.
+```
+
+If you wish to support the unathenticated Git protocol in your environment, you must manually re-enable the feature. {% data variables.product.company_short %} recommends using SSH instead of the Git protocol. 更多信息请参阅 [{% data variables.product.prodname_blog %}](https://github.blog/2022-06-28-improving-git-protocol-security-on-github-enterprise-server)。
+
+{% endif %}
+
+
 
 如有必要，您可以通过锁定仓库的访问设置，阻止仓库管理员更改企业上仓库的匿名 Git 访问设置。 在您锁定仓库的 Git 读取权限设置后，只有站点管理员可以更改设置。
 

@@ -186,7 +186,7 @@
     "browser-test": "cross-env BROWSER=1 NODE_OPTIONS=--experimental-vm-modules JEST_PUPPETEER_CONFIG=jest-puppeteer.config.cjs jest tests/browser/browser.js",
     "build": "next build",
     "debug": "cross-env NODE_ENV=development ENABLED_LANGUAGES='en,ja' nodemon --inspect server.js",
-    "dev": "npm start",
+    "dev": "cross-env DISABLE_RENDERING_CACHE=true npm start",
     "lint": "eslint '**/*.{js,mjs,ts,tsx}'",
     "lint-translation": "cross-env NODE_OPTIONS=--experimental-vm-modules TEST_TRANSLATION=true jest tests/linting/lint-files.js",
     "prepare": "husky install",

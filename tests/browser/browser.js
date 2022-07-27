@@ -165,15 +165,6 @@ describe('survey', () => {
   })
 })
 
-describe('csrf meta', () => {
-  it('should have a csrf-token meta tag on the page', async () => {
-    await page.goto(
-      'http://localhost:4000/en/actions/getting-started-with-github-actions/about-github-actions'
-    )
-    await page.waitForSelector('meta[name="csrf-token"]')
-  })
-})
-
 describe('platform picker', () => {
   // from tests/javascripts/user-agent.js
   const userAgents = [

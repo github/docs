@@ -37,9 +37,9 @@ You can use the default keyboard shortcuts in {% data variables.product.prodname
 
 {% windows %}
 
-| Acción                                                                                       | Shortcut                         | Command name                             |
+| Acción                                                                                       | Shortcut                         | Nombre del comando                       |
 |:-------------------------------------------------------------------------------------------- |:-------------------------------- |:---------------------------------------- |
-| Accept an inline suggestion                                                                  | <kbd>Tab</kbd>                   | editor.action.inlineSuggest.commit       |
+| Aceptar una sugerencia en una línea                                                          | <kbd>Tab</kbd>                   | editor.action.inlineSuggest.commit       |
 | Dismiss an inline suggestion                                                                 | <kbd>Esc</kbd>                   | editor.action.inlineSuggest.hide         |
 | Show next inline suggestion                                                                  | <kbd>Alt</kbd>+<kbd>]</kbd>      | editor.action.inlineSuggest.showNext     |
 | Show previous inline suggestion                                                              | <kbd>Alt</kbd>+<kbd>[</kbd>      | editor.action.inlineSuggest.showPrevious |
@@ -52,9 +52,9 @@ You can use the default keyboard shortcuts in {% data variables.product.prodname
 
 {% linux %}
 
-| Acción                                                                                       | Shortcut                         | Command name                             |
+| Acción                                                                                       | Shortcut                         | Nombre del comando                       |
 |:-------------------------------------------------------------------------------------------- |:-------------------------------- |:---------------------------------------- |
-| Accept an inline suggestion                                                                  | <kbd>Tab</kbd>                   | editor.action.inlineSuggest.commit       |
+| Aceptar una sugerencia en una línea                                                          | <kbd>Tab</kbd>                   | editor.action.inlineSuggest.commit       |
 | Dismiss an inline suggestion                                                                 | <kbd>Esc</kbd>                   | editor.action.inlineSuggest.hide         |
 | Show next inline suggestion                                                                  | <kbd>Alt</kbd>+<kbd>]</kbd>      | editor.action.inlineSuggest.showNext     |
 | Show previous inline suggestion                                                              | <kbd>Alt</kbd>+<kbd>[</kbd>      | editor.action.inlineSuggest.showPrevious |

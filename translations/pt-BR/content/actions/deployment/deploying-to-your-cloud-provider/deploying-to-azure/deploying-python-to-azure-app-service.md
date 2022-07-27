@@ -69,6 +69,8 @@ Certifique-se de definir `AZURE_WEBAPP_NAME` na chave de fluxo de trabalho `env`
 ```yaml{:copy}
 {% data reusables.actions.actions-not-certified-by-github-comment %}
 
+{% data reusables.actions.actions-use-sha-pinning-comment %}
+
 name: Build and deploy Python app to Azure Web App
 
 env:

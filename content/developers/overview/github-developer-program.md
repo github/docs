@@ -27,7 +27,7 @@ Awesome! We'd love to have you be part of the program. Here’s how you can spre
 * Use the [Octocat or GitHub logo](https://github.com/logos) to identify that your product works with GitHub
 * Post a video or a blog on your website about your integration
 
-## Ready to join the GitHub Developer Program?</h3>
+## Ready to join the GitHub Developer Program?
 
 Membership is open to individual developers and companies who have:
 

@@ -77,7 +77,10 @@ publishing {
 Com essa configuração, é possível criar um fluxo de trabalho que publica seu pacote no Repositório Central do Maven ao executar o comando `publicação do gradle`. Na etapa de implementação, você deverá definir variáveis de ambiente para o nome de usuário e senha ou token usado para fazer a autenticação no repositório do Maven. Para obter mais informações, consulte "[Criando e usando segredos encriptados](/github/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)".
 
 ```yaml{:copy}
+
 {% data reusables.actions.actions-not-certified-by-github-comment %}
+
+{% data reusables.actions.actions-use-sha-pinning-comment %}
 
 name: Publish package to the Maven Central Repository
 on:
@@ -146,7 +149,10 @@ publishing {
 Com esta configuração, você pode criar um fluxo de trabalho que publica seu pacote em {% data variables.product.prodname_registry %}, executando o comando `gradle publish`.
 
 ```yaml{:copy}
+
 {% data reusables.actions.actions-not-certified-by-github-comment %}
+
+{% data reusables.actions.actions-use-sha-pinning-comment %}
 
 name: Publish package to GitHub Packages
 on:
@@ -224,7 +230,10 @@ publishing {
 Com esta configuração, você pode criar um fluxo de trabalho que publica seu pacote no Repositório Central do Maven e em {% data variables.product.prodname_registry %}, executando o comando `publicação do gradle`.
 
 ```yaml{:copy}
+
 {% data reusables.actions.actions-not-certified-by-github-comment %}
+
+{% data reusables.actions.actions-use-sha-pinning-comment %}
 
 name: Publish package to the Maven Central Repository and GitHub Packages
 on:
