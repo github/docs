@@ -5,7 +5,7 @@ versions:
   ghae: '*'
 ---
 
-This guide will walk you through setting up, configuring, and managing settings for {% data variables.product.product_location %} on {% data variables.product.product_name %} as an enterprise owner.
+This guide will walk you through setting up, configuring, and managing settings for {% data variables.product.product_location %} on {% data variables.product.product_name %} as an enterprise owner. For more information about {% data variables.product.product_name %}, see "[About {% data variables.product.prodname_ghe_managed %}](/admin/overview/about-github-ae)."
 
 ## Part 1: Setting up {% data variables.product.product_name %}
 To get started with {% data variables.product.product_name %}, you can create your enterprise account, initialize {% data variables.product.product_name %}, configure an IP allow list, configure user authentication and provisioning, and manage billing for {% data variables.product.product_location %}.

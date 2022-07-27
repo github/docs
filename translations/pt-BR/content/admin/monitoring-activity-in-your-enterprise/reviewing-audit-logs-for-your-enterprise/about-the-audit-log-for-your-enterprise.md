@@ -39,9 +39,10 @@ Como proprietário corporativo{% ifversion ghes %} ou administrador do site{% en
 {%- ifversion enterprise-audit-log-ip-addresses %}
 - Você pode exibir o endereço IP associado a eventos no log de auditoria. Para obter mais informações, consulte[Exibindo endereços IP no log de auditoria para sua empresa](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/displaying-ip-addresses-in-the-audit-log-for-your-enterprise)".
 {%- endif %}
-{%- ifversion ghec %}
+{%- ifversion audit-log-streaming %}
 - Você pode transmitir dados de auditoria e eventos do Git de {% data variables.product.prodname_dotcom %} para um sistema externo de gerenciamento de dados. Para obter mais informações, consulte[Transmitindo o log de auditoria para sua empresa](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/streaming-the-audit-log-for-your-enterprise)".
-{%- else %}
+{%- endif %}
+{%- ifversion ghes %}
 - Você pode encaminhar logs de auditoria e sistema, da sua empresa para um sistema de monitoramento hospedado por terceiros. Para obter mais informações, consulte "[Encaminhamento de registro](/admin/monitoring-activity-in-your-enterprise/exploring-user-activity/log-forwarding)".
 {%- endif %}
 {%- ifversion ghec or ghes > 3.2 or ghae-issue-6648 %}
@@ -49,13 +50,6 @@ Como proprietário corporativo{% ifversion ghes %} ou administrador do site{% en
 {%- endif %}
 
 Para obter uma lista completa de ações de log de auditoria que podem aparecer no log de auditoria da sua empresa, consulte "[Ações de log de auditoria para a sua empresa](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise)".
-
-{% ifversion ghec %}
-## Eventos do Git
-
-Os dados de eventos do Git, como clonar, buscar e fazer push são registrados. Para obter mais informações, consulte[Transmitindo o log de auditoria para sua empresa](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/streaming-the-audit-log-for-your-enterprise)".
-
-{% endif %}
 
 ## Leia mais
 - "[Revisar o log de auditoria da organização](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/reviewing-the-audit-log-for-your-organization)"

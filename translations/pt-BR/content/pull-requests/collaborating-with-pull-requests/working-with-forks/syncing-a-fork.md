@@ -21,9 +21,7 @@ topics:
 permissions: People with write access for a forked repository can sync the fork to the upstream repository.
 ---
 
-{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
-
-## Syncing a fork branch from the web UI
+## Sincronizando o branch de uma bifurcação a partir da interface de usuário web
 
 1. Em {% data variables.product.product_name %}, acesse a página principal do repositório bifurcado que você deseja sincronizar com o repositório upstream.
 2. Selecione o menu suspenso **Buscar a upstream**. ![Menu suspenso "Buscar upstream"](/assets/images/help/repository/fetch-upstream-drop-down.png)
@@ -31,11 +29,11 @@ permissions: People with write access for a forked repository can sync the fork 
 
 Se as alterações do repositório a upstream gerarem conflitos, {% data variables.product.company_short %} solicitará a criação de um pull request para resolver os conflitos.
 
-## Syncing a fork branch with the {% data variables.product.prodname_cli %}
+## Sincronizando o branch de uma bifurcação com {% data variables.product.prodname_cli %}
 
 {% data reusables.cli.about-cli %} Para saber mais sobre {% data variables.product.prodname_cli %}, consulte "[Sobre {% data variables.product.prodname_cli %}](/github-cli/github-cli/about-github-cli)."
 
-To update the remote fork from its parent, use the `gh repo sync -b BRANCHNAME` subcommand and supply your fork and branch name as arguments.
+Para atualizar a bifurcação remota a partir do seu principal, use o subcomando `gh repo sync -b BRANCHNAME` e forneça seu nome de bifurcação e do branch como argumentos.
 
 ```shell
 $ gh repo sync owner/cli-fork -b BRANCHNAME
@@ -43,9 +41,8 @@ $ gh repo sync owner/cli-fork -b BRANCHNAME
 
 Se as alterações do repositório upstream causarem conflitos, o {% data variables.product.prodname_cli %} não poderá sincronizar. Você pode definir o sinalizador `-force` para substituir o branch de destino.
 
-## Syncing a fork branch from the command line
+## Sincronizando o branch de uma bifurcação a partir da linha de comando
 
-{% endif %}
 Antes de poder sincronizar a sua bifurcação com um repositório upstream, é necessário [configurar um controle remoto que aponte para o repositório upstream](/pull-requests/collaborating-with-pull-requests/working-with-forks/configuring-a-remote-for-a-fork) no Git.
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
@@ -82,7 +79,7 @@ Antes de poder sincronizar a sua bifurcação com um repositório upstream, é n
   >  create mode 100644 README.md
   ```
 
-  If your local branch didn't have any unique commits, Git will perform a fast-forward. For more information, see [Basic Branching and Merging](https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging) in the Git documentation.
+  Se o seu branch local não tiver nenhum commits exclusivo, o Git irá avançar rapidamente. Para obter mais informações, consulte [Branch básico e merge](https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging) na documentação do Git.
   ```shell
   $ git merge upstream/main
   > Updating 34e91da..16c56ad
@@ -90,7 +87,7 @@ Antes de poder sincronizar a sua bifurcação com um repositório upstream, é n
   >  README.md                 |    5 +++--
   >  1 file changed, 3 insertions(+), 2 deletions(-)
   ```
-  If your local branch had unique commits, you may need to resolve conflicts. Para obter mais informações, consulte "[Solucionar conflitos de merge](/github/collaborating-with-pull-requests/addressing-merge-conflicts)."
+  Se o seu branch local tivesse commits exclusivos, talvez fosse necessário resolver os conflitos. Para obter mais informações, consulte "[Solucionar conflitos de merge](/github/collaborating-with-pull-requests/addressing-merge-conflicts)."
 
 {% tip %}
 

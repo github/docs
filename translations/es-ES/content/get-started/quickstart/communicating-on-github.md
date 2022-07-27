@@ -24,10 +24,9 @@ topics:
 
 {% data variables.product.product_name %} proporciona herramientas de comunicación colaborativas que te permiten interactuar de cerca con tu comunidad. Esta guía de inicio rápido te mostrará cómo escoger la herramienta correcta para tus necesidades.
 
-{% ifversion fpt or ghec %}
+{% ifversion discussions %}
 Puedes crear y participar en propuestas, solicitudes de cambios, {% data variables.product.prodname_discussions %} y debates de equipo, dependiendo del tipo de conversación que te gustaría tener.
-{% endif %}
-{% ifversion ghes or ghae %}
+{% else %}
 Puedes crear y participar de propuestas, solicitudes de extracción y debates de equipos, dependiendo del tipo de conversación que quieras tener.
 {% endif %}
 
@@ -100,7 +99,7 @@ La pestaña **Archivos que cambiaron** de la solicitud de cambios muestra la sol
 - El usuario crea una solicitud de cambios con la solución.
 - Un mantenedor de repositorio revisa la solicitud de cambios, la comenta y la fusiona.
 
-{% ifversion fpt or ghec %}
+{% ifversion discussions %}
 ### Casos para los {% data variables.product.prodname_discussions %}
 
 - Tengo una pregunta que no se relaciona necesariamente con los archivos específicos del repositorio.
@@ -145,10 +144,10 @@ Estos ejemplos te muestran cómo decidir cuál es la mejor herramienta para tus 
 
 Para las propuestas, por ejemplo, puedes etiquetarlas con etiquetas para buscarlas más rápidamente y crear plantillas de propuesta para ayudar a los contribuyentes a abrir propuestas significativas. Para obtener más información, consulta la sección "[Acerca de las propuestas](/github/managing-your-work-on-github/about-issues#working-with-issues)" y "[Acerca de las plantillas de propuestas y solicitudes de cambio](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/about-issue-and-pull-request-templates)".
 
-Para las solicitudes de cambio, puedes crear borradores de estas si los cambios que propones aún están en curso. Los borradores de solicitudes de cambios no pueden fusionarse hasta que se marquen como listos para revisión. Para obtener más información, consulta "[Acerca de las solicitudes de extracción](/github/collaborating-with-issues-and-pull-requests/about-pull-requests#draft-pull-requests)."
+Para las solicitudes de cambio, puedes crear borradores de estas si los cambios que propones aún están en curso. Los borradores de solicitudes de cambios no pueden fusionarse hasta que se marquen como listos para revisión. Para obtener más información, consulta la sección "[Acerca de las solicitudes de cambios](/github/collaborating-with-issues-and-pull-requests/about-pull-requests#draft-pull-requests)".
 
-{% ifversion fpt or ghec %}
-Para el caso de los {% data variables.product.prodname_discussions %}, puedes configurar un código de conducta y fijar los debates que contengan información importante de tu comunidad. Para obtener más información, consulta la sección "[Acerca de los debates](/discussions/collaborating-with-your-community-using-discussions/about-discussions)".
+{% ifversion discussions %}
+For {% data variables.product.prodname_discussions %}, you can{% ifversion fpt or ghec %} set up a code of conduct and{% endif %} pin discussions that contain important information for your community. Para obtener más información, consulta la sección "[Acerca de los debates](/discussions/collaborating-with-your-community-using-discussions/about-discussions)".
 {% endif %}
 
 Para el caso de los debates de equipo, puedes editarlos o borrarlos en la página del equipo y puedes configurar las notificaciones para estos. Para obtener más información, consulta [Acerca de los debates del equipo](/organizations/collaborating-with-your-team/about-team-discussions)".

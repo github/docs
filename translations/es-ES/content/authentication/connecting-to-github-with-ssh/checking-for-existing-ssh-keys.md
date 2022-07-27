@@ -15,6 +15,16 @@ topics:
 shortTitle: Verificar la llave SSH existente
 ---
 
+## About SSH keys
+
+You can use SSH to perform Git operations in repositories on {% ifversion fpt or ghec or ghes %}{% data variables.product.product_location %}{% elsif ghae %}{% data variables.product.product_name %}{% endif %}. Para obtener más información, consulta la sección "[Acerca de SSH](/authentication/connecting-to-github-with-ssh/about-ssh)".
+
+If you have an existing SSH key, you can use the key to authenticate Git operations over SSH.
+
+## Comprobar tus claves SSH existentes
+
+Before you generate a new SSH key, you should check your local machine for existing keys.
+
 {% data reusables.ssh.key-type-support %}
 
 {% data reusables.command_line.open_the_multi_os_terminal %}

@@ -1,1 +1,1 @@
-`true` if branch protections are configured for the ref that triggered the workflow run.
+ワークフローの実行をトリガーしたrefに対してブランチ保護が設定されているなら`true`。

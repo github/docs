@@ -83,8 +83,8 @@ export async function getDOM(
 
 // For use with the ?json query param
 // e.g. await getJSON('/en?json=breadcrumbs')
-export async function getJSON(route) {
-  const res = await get(route, { followRedirects: true })
+export async function getJSON(route, opts) {
+  const res = await get(route, { ...opts, followRedirects: true })
   if (res.status >= 500) {
     throw new Error(`Server error (${res.status}) on ${route}`)
   }

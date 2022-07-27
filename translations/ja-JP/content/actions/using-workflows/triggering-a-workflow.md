@@ -80,15 +80,15 @@ jobs:
 
 Use the `on` key to specify what events trigger your workflow. For more information about events you can use, see "[Events that trigger workflows](/actions/using-workflows/events-that-trigger-workflows)."
 
-### Using a single event
+### 単一イベントの利用
 
 {% data reusables.actions.on-single-example %}
 
-### Using multiple events
+### 複数イベントの利用
 
 {% data reusables.actions.on-multiple-example %}
 
-### Using activity types and filters with multiple events
+### 複数のイベントでのアクティビティタイプとフィルタの利用
 
 You can use activity types and filters to further control when your workflow will run. For more information, see [Using event activity types](#using-event-activity-types) and [Using filters](#using-filters). {% data reusables.actions.actions-multiple-types %}
 
@@ -96,7 +96,7 @@ You can use activity types and filters to further control when your workflow wil
 
 {% data reusables.actions.actions-activity-types %}
 
-## Using filters
+## フィルタの利用
 
 {% data reusables.actions.actions-filters %}
 
@@ -184,7 +184,7 @@ For more information about contexts, see "[Contexts](/actions/learn-github-actio
 
 ## Further controlling how your workflow will run
 
-If you want more granular control than events, event activity types, or event filters provide, you can use conditionals{% ifversion fpt or ghae or ghes > 3.1 or ghec %} and environments{% endif %} to control whether individual jobs or steps in your workflow will run.
+If you want more granular control than events, event activity types, or event filters provide, you can use conditionals and environments to control whether individual jobs or steps in your workflow will run.
 
 ### Using conditionals
 
@@ -237,8 +237,6 @@ jobs:
 
 For more information about what information is available in the event context, see "[Using event information](#using-event-information)." For more information about how to use conditionals, see "[Expressions](/actions/learn-github-actions/expressions)."
 
-{% ifversion fpt or ghae or ghes > 3.1 or ghec %}
-
 ### Using environments to manually trigger workflow jobs
 
 If you want to manually trigger a specific job in a workflow, you can use an environment that requires approval from a specific team or user. First, configure an environment with required reviewers. For more information, see "[Using environments for deployment](/actions/deployment/targeting-different-environments/using-environments-for-deployment)." Then, reference the environment name in a job in your workflow using the `environment:` key. Any job referencing the environment will not run until at least one reviewer approves the job.
@@ -272,7 +270,6 @@ jobs:
 {% data reusables.gated-features.environments %}
 
 {% endnote %}
-{% endif %}
 
 ## Available events
 

@@ -12,7 +12,7 @@ Toda a conversa será colapsada e marcada como resolvida, tornando mais fácil e
 
 Se a sugestão em um comentário estiver fora do escopo do seu pull request, você pode abrir um novo problema que rastreia os comentários e relaciona o comentário original. Para obter mais informações, consulte "[Abrir um problema a partir de um comentário](/github/managing-your-work-on-github/opening-an-issue-from-a-comment)".
 
-{% ifversion fpt or ghes > 3.1 or ghae-issue-4382 or ghec %}
+{% ifversion fpt or ghes or ghae-issue-4382 or ghec %}
 #### Descobrindo e navegando por conversas
 
 Você pode descobrir e navegar até todas as conversas no seu pull request usando o menu **Conversas** que é exibido na parte superior da aba **Arquivos alterados**.

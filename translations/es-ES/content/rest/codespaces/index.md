@@ -1,6 +1,6 @@
 ---
 title: Codespaces
-intro: 'La API de {% data variables.product.prodname_codespaces %} te permite administrar tus codespaces utilizando la API de REST.'
+intro: 'La API de {% data variables.product.prodname_github_codespaces %} te permite administrar tus codespaces utilizando la API de REST.'
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
@@ -10,6 +10,7 @@ topics:
 miniTocMaxHeadingLevel: 3
 children:
   - /codespaces
+  - /organizations
   - /machines
   - /repository-secrets
   - /secrets

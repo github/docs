@@ -1,6 +1,7 @@
 ---
-title: Codespaces 快速入门
-intro: '在 5 分钟内尝试 {% data variables.product.prodname_codespaces %}。'
+title: '{% data variables.product.prodname_github_codespaces %} 快速入门'
+shortTitle: '{% data variables.product.prodname_codespaces %} 快速入门'
+intro: '在 5 分钟内尝试 {% data variables.product.prodname_github_codespaces %}。'
 allowTitleToDifferFromFilename: true
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
@@ -19,7 +20,7 @@ redirect_from:
 
 在本快速入门中，您将了解如何创建代码空间、连接到转发的端口以查看正在运行的应用程序、在代码空间中使用版本控制以及使用扩展个性化设置。
 
-有关 {% data variables.product.prodname_codespaces %} 如何工作的更多信息，请参阅配套指南“[深入了解 {% data variables.product.prodname_codespaces %}](/codespaces/getting-started/deep-dive)”。
+有关 {% data variables.product.prodname_github_codespaces %} 如何工作的更多信息，请参阅配套指南“[深入了解 {% data variables.product.prodname_github_codespaces %}](/codespaces/getting-started/deep-dive)”。
 
 ## 创建代码空间
 

@@ -42,7 +42,7 @@ Se você não aparecer no gráfico de contribuidores de um repositório, pode se
 
 {% tip %}
 
-**Dica:** para listar todos os contribuidores de commit em um repositório, consulte "[Repositórios](/rest/reference/repos#list-contributors)".
+**Dica:** Para listar todos os colaboradores do commit em um repositório, consulte "[Listar os contribuidores do repositório](/rest/repos/repos#list-repository-contributors)".
 
 {% endtip %}
 

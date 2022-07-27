@@ -1,6 +1,7 @@
 ---
-title: Deep dive into Codespaces
-intro: '{% data variables.product.prodname_codespaces %} のしくみを知る.'
+title: 'Deep dive into {% data variables.product.prodname_github_codespaces %}'
+shortTitle: 'Deep dive into {% data variables.product.prodname_codespaces %}'
+intro: '{% data variables.product.prodname_github_codespaces %} のしくみを知る.'
 allowTitleToDifferFromFilename: true
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
@@ -11,7 +12,7 @@ topics:
   - Codespaces
 ---
 
-{% data variables.product.prodname_codespaces %} is an instant, cloud-based development environment that uses a container to provide you with common languages, tools, and utilities for development. {% data variables.product.prodname_codespaces %} is also configurable, allowing you to create a customized development environment for your project. By configuring a custom development environment for your project, you can have a repeatable codespace configuration for all users of your project.
+{% data variables.product.prodname_github_codespaces %} is an instant, cloud-based development environment that uses a container to provide you with common languages, tools, and utilities for development. {% data variables.product.prodname_codespaces %} is also configurable, allowing you to create a customized development environment for your project. By configuring a custom development environment for your project, you can have a repeatable codespace configuration for all users of your project.
 
 ## codespace を作成する
 
@@ -54,7 +55,7 @@ Once you are connected to your codespace, your automated setup may continue to b
 
 If you want to use Git hooks in your codespace,  set up hooks using the [`devcontainer.json` lifecycle scripts](https://code.visualstudio.com/docs/remote/devcontainerjson-reference#_lifecycle-scripts), such as `postCreateCommand`. For more information, see the [`devcontainer.json` reference](https://code.visualstudio.com/docs/remote/devcontainerjson-reference#_devcontainerjson-properties) in the {% data variables.product.prodname_vscode_shortname %} documentation.
 
-If you have a public dotfiles repository for {% data variables.product.prodname_codespaces %}, you can enable it for use with new codespaces. When enabled, your dotfiles will be cloned to the container and the install script will be invoked. 詳しい情報については、「[アカウントの {% data variables.product.prodname_codespaces %} をパーソナライズする](/github/developing-online-with-codespaces/personalizing-codespaces-for-your-account#dotfiles)」を参照してください。
+If you have a public dotfiles repository for {% data variables.product.prodname_github_codespaces %}, you can enable it for use with new codespaces. When enabled, your dotfiles will be cloned to the container and the install script will be invoked. 詳しい情報については、「[アカウントの {% data variables.product.prodname_github_codespaces %} をパーソナライズする](/codespaces/customizing-your-codespace/personalizing-github-codespaces-for-your-account#dotfiles)」を参照してください。
 
 Finally, the entire history of the repository is copied down with a full clone.
 
@@ -97,7 +98,7 @@ Git is available by default in your codespace and so you can rely on your existi
 
 ![Running git status in Codespaces Terminal](/assets/images/help/codespaces/git-status.png)
 
-You can create a codespace from any branch, commit, or pull request in your project, or you can switch to a new or existing branch from within your active codespace. Because {% data variables.product.prodname_codespaces %} is designed to be ephemeral, you can use it as an isolated environment to experiment, check a teammate's pull request, or fix merge conflicts. リポジトリごと、さらにはブランチごとに1つ以上のcodespaceを作成できます。 However, each personal account has a limit of 10 codespaces. この制限に達した場合に新しいcodespaceを作成したいなら、まずcodespaceを削除しなければなりません。
+You can create a codespace from any branch, commit, or pull request in your project, or you can switch to a new or existing branch from within your active codespace. Because {% data variables.product.prodname_github_codespaces %} is designed to be ephemeral, you can use it as an isolated environment to experiment, check a teammate's pull request, or fix merge conflicts. リポジトリごと、さらにはブランチごとに1つ以上のcodespaceを作成できます。 However, each personal account has a limit of 10 codespaces. この制限に達した場合に新しいcodespaceを作成したいなら、まずcodespaceを削除しなければなりません。
 
 {% note %}
 

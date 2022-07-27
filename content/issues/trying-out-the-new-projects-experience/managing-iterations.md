@@ -1,6 +1,6 @@
 ---
 title: Managing iterations in projects (beta)
-intro: 'You can create iterations to plan upcoming work and group items.'
+intro: You can create iterations to plan upcoming work and group items.
 allowTitleToDifferFromFilename: true
 miniTocMaxHeadingLevel: 2
 versions:

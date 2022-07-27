@@ -15,6 +15,8 @@ topics:
 
 {% data variables.product.prodname_ghe_managed %} 提供一个从想法到生产的开发者平台。 您可以使用团队了解和喜爱的工具提高开发速度，同时通过安全和访问控制、工作流自动化及政策执行来维护行业和监管合规性。
 
+{% data reusables.enterprise.about-github-for-enterprises %}
+
 ## 高度可用的行星级云
 
 {% data variables.product.prodname_ghe_managed %} 是一项完全管理的服务，托管在高可用性架构中。 {% data variables.product.prodname_ghe_managed %} 全球托管于云中，可以不受限制地扩展以支持您的完整开发生命周期。 {% data variables.product.prodname_dotcom %} 完全管理备份、故障转移和灾难恢复，因此您无需担心您的服务或数据。

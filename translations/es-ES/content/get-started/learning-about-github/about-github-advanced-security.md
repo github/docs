@@ -31,11 +31,9 @@ Una licencia de {% data variables.product.prodname_GH_advanced_security %} propo
 
 - **{% data variables.product.prodname_secret_scanning_caps %}** - Detecta secretos, por ejemplo claves y tokens, que se han verificado en el repositorio.{% ifversion secret-scanning-push-protection %} Si se habilita la protección de subida, también detecta secretos cuando se suben a tu repositorio. Para obtener más información, consulta las secciones "[Acerca del {% data variables.product.prodname_secret_scanning %}](/code-security/secret-scanning/about-secret-scanning)" y "[Proteger las subidas con el {% data variables.product.prodname_secret_scanning %}](/code-security/secret-scanning/protecting-pushes-with-secret-scanning)".{% else %} Para obtener más información, consulta la sección "[Acerca del {% data variables.product.prodname_secret_scanning %}](/code-security/secret-scanning/about-secret-scanning)".{% endif %}
 
-{% ifversion fpt or ghes > 3.1 or ghec or ghae %}
 - **Revisión de dependencias** - Muestra todo el impacto de los cambios a las dependencias y vee los detalles de las versiones vulnerables antes de que fusiones una solicitud de cambios. Para obtener más información, consulta la sección "[Acerca de la revisión de dependencias](/code-security/supply-chain-security/about-dependency-review)".
-{% endif %}
 
-{% ifversion ghec or ghes > 3.1 %}
+{% ifversion ghec or ghes %}
 - **Resumen de seguridad** - Revisa la configuración de seguridad y las alertas para una organización e identifica los repositorios que tienen un riesgo mayor. Para obtener más información, consulta la sección "[Acerca del resumen de seguridad](/code-security/security-overview/about-the-security-overview)".
 {% endif %}
 
@@ -64,12 +62,11 @@ Para obtener más información sobre las características de {% data variables.p
 Las características de la {% data variables.product.prodname_GH_advanced_security %} se habilitan para todos los repositorios en {% data variables.product.prodname_dotcom_the_website %}{% ifversion ghec %}, con excepción del resumen de seguridad{% endif %}. Las organizaciones que utilizan {% data variables.product.prodname_ghe_cloud %} con la {% data variables.product.prodname_advanced_security %} pueden habilitar estas características adicionalmente para repositorios privados e internos. También tienen acceso a un resumen de seguridad a nivel organziacional. {% ifversion fpt %}Para obtener más información, consulta la [documentación de {% data variables.product.prodname_ghe_cloud %}](/enterprise-cloud@latest/get-started/learning-about-github/about-github-advanced-security#enabling-advanced-security-features).{% endif %}
 {% endif %}
 
-{% ifversion ghes or ghec %}
+{% ifversion ghes > 3.1 or ghec %}
 ## Desplegar GitHub Advanced Security en tu empresa
 
-Para aprender más sobre lo que necesitas saber para planear tu despliegue de la {% data variables.product.prodname_GH_advanced_security %} en un nivel superior, consulta el "[Resumen del despliegue de {% data variables.product.prodname_GH_advanced_security %}](/admin/advanced-security/overview-of-github-advanced-security-deployment)".
+Para aprender más sobre lo que necesitas saber para planear tu despliegue de {% data variables.product.prodname_GH_advanced_security %} en un nivel alto para revisar las fases de implementación que recomendamos, consulta la sección "[Adoptar la {% data variables.product.prodname_GH_advanced_security %} a escala](/code-security/adopting-github-advanced-security-at-scale)".
 
-Para revisar las fases de implementación, te recomendamos ver con más detalle la sección "[Desplegar la {% data variables.product.prodname_GH_advanced_security %} en tu empresa](/admin/advanced-security/deploying-github-advanced-security-in-your-enterprise)".
 {% endif %}
 
 {% ifversion not fpt %}

@@ -1,1 +1,1 @@
-For examples that demonstrate more complex features of {% data variables.product.prodname_actions %}, see "[Examples](/actions/examples)." You can see detailed examples that explain how to test your code on a runner, access the {% data variables.product.prodname_dotcom %} CLI, and use advanced features such as concurrency and test matrices.
+{% data variables.product.prodname_actions %}のさらに複雑な機能を紹介する例については「[例](/actions/examples)」を参照してください。 ランナー上でのコードのテストの方法、{% data variables.product.prodname_dotcom %} CLIへのアクセス、並行姓やテストマトリックスなどの高度な機能の使い方を説明する、詳細な例があります。

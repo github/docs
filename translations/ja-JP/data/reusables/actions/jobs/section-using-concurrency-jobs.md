@@ -4,7 +4,7 @@
 
 {% endnote %}
 
-You can use `jobs.<job_id>.concurrency` to ensure that only a single job or workflow using the same concurrency group will run at a time. 並行処理グループには、任意の文字列または式を使用できます。 式は、`secrets` コンテキストを除く任意のコンテキストを使用できます。 For more information about expressions, see "[Expressions](/actions/learn-github-actions/expressions)."
+`jobs.<job_id>.concurrency`を使って、同じ並行処理グループを使う1つのジョブもしくはワークフローだけが実行されることを保証できます。 並行処理グループには、任意の文字列または式を使用できます。 式は、`secrets` コンテキストを除く任意のコンテキストを使用できます。 式に関する詳しい情報については「[式](/actions/learn-github-actions/expressions)」を参照してください。
 
 ワークフローレベルで `concurrency` を指定することもできます。 詳しい情報については、[`concurrency`](/actions/using-workflows/workflow-syntax-for-github-actions#concurrency) を参照してください。
 

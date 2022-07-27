@@ -18,6 +18,9 @@ versions:
 
 {% data reusables.commits.about-commits %}
 
+{% ifversion commit-signoffs %}
+If the repository you are committing to has compulsory commit signoffs enabled, and you are committing via the web interface, you will automatically sign off on the commit as part of the commit process. For more information, see "[Managing the commit signoff policy for your repository](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-the-commit-signoff-policy-for-your-repository)." {% endif %}
+
 Você pode adicionar um coautor em qualquer commit em que colaborar. Para obter mais informações, consulte "[Criar um commit com vários autores](/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/creating-a-commit-with-multiple-authors)".
 
 {% ifversion fpt or ghec %}
@@ -44,20 +47,20 @@ Assim que o commit estiver no branch padrão, todas as tags que contêm o commit
 
 ## Usando a árvore de arquivos
 
-You can use the file tree to navigate between files in a commit.
+Você pode usar a árvore de arquivos para navegar entre os arquivos em um commit.
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.navigate-to-commit-page %}
 1. Navegue até o commit clicando no link da mensagem do commit. ![Captura de tela do commit com o link da mensagem do commit destacado](/assets/images/help/commits/commit-message-link.png)
-1. Clique em um arquivo na árvore de arquivos para ver o diff do arquivo correspondente. If the file tree is hidden, click {% octicon "sidebar-collapse" aria-label="The sidebar collapse icon" %} to display the file tree.
+1. Clique em um arquivo na árvore de arquivos para ver o diff do arquivo correspondente. Se a árvore de arquivos estiver oculta, clique em {% octicon "sidebar-collapse" aria-label="The sidebar collapse icon" %} para exibir a árvore de arquivos.
 
   {% note %}
 
-  **Note**: The file tree will not display if your screen width is too narrow or if the commit only includes one file.
+  **Observação**: A árvore de arquivos não será exibida se a largura da tela for muito estreita ou se o commit incluir apenas um arquivo.
 
   {% endnote %}
 
-  ![Screenshot of filter changed files search box and file tree emphasized](/assets/images/help/repository/file-tree.png)
+  ![Captura de tela do filtro de caixa de pesquisa de arquivos alterada e a árvore de arquivos destacada](/assets/images/help/repository/file-tree.png)
 1. Para filtrar por caminho do arquivo, digite parte ou todo o caminho do arquivo na caixa de pesquisa **Filtrar arquivos alterados**.
 
 {% endif %}

@@ -36,7 +36,7 @@ Seu certificado também precisará de nomes alternativos da entidade (SAN, Subje
 
 Você pode gerar uma solicitação de assinatura de certificado (CSR, Certificate Signing Request) para sua instância usando o comando `ghe-ssl-generate-csr`. Para obter mais informações, consulte "[Utilitários de linha de comando](/enterprise/admin/guides/installation/command-line-utilities/#ghe-ssl-generate-csr)".
 
-Your key must be an RSA key and must not have a passphrase. Para obter mais informações, consulte "[Remover a frase secreta de um arquivo de chave](/admin/guides/installation/troubleshooting-ssl-errors#removing-the-passphrase-from-your-key-file)".
+Sua chave deve ser uma chave RSA e não deve ter uma senha. Para obter mais informações, consulte "[Remover a frase secreta de um arquivo de chave](/admin/guides/installation/troubleshooting-ssl-errors#removing-the-passphrase-from-your-key-file)".
 
 ## Fazer upload de um certificado TLS personalizado
 

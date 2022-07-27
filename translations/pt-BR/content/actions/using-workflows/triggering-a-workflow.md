@@ -184,7 +184,7 @@ Para obter mais informações sobre os contextos, consulte "[Contextos](/actions
 
 ## Controlando ainda mais como seu fluxo de trabalho será executado
 
-Se você quiser mais controle granular do que os eventos, tipos de atividade do evento ou filtros de evento fornecem, você poderá usar condicionais{% ifversion fpt or ghae or ghes > 3.1 or ghec %} e ambientes{% endif %} para controlar se os trabalhos ou etapas individuais no seu fluxo de trabalho serão executados.
+Se você quiser mais controle granular do que os eventos, tipos de atividade do evento ou filtros de evento fornecem, você poderá usar condicionais e ambientes para controlar se os trabalhos ou etapas individuais no seu fluxo de trabalho serão executados.
 
 ### Usando condicionais
 
@@ -237,8 +237,6 @@ jobs:
 
 Para obter mais informações sobre quais informações estão disponíveis no contexto do evento, consulte "[Usando informações do evento](#using-event-information)". Para obter mais informações sobre como usar condicionais, consulte "[Expressões](/actions/learn-github-actions/expressions)".
 
-{% ifversion fpt or ghae or ghes > 3.1 or ghec %}
-
 ### Usando ambientes para acionar trabalhos de fluxo de trabalho manualmente
 
 Se você quiser acionar manualmente uma tarefa específica em um fluxo de trabalho, você pode usar um ambiente que exige a aprovação de uma equipe ou usuário específico. Primeiro, configure um ambiente com os revisores necessários. Para obter mais informações, consulte "[Usando ambientes para implantação](/actions/deployment/targeting-different-environments/using-environments-for-deployment)". Em seguida, faça referência ao nome do ambiente em um trabalho no seu fluxo de trabalho usando o a chave `environment:`. Qualquer trabalho que faz referência ao ambiente não será executado até que pelo menos um revisor aprove o trabalho.
@@ -272,7 +270,6 @@ jobs:
 {% data reusables.gated-features.environments %}
 
 {% endnote %}
-{% endif %}
 
 ## Eventos disponíveis
 

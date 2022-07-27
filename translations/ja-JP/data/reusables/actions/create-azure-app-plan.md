@@ -13,5 +13,5 @@
 
    [Azure CLI](https://docs.microsoft.com/cli/azure/)の使いからに関する詳しい情報については、Azureのドキュメンテーションを参照してください。
 
-   * For authentication, see "[Sign in with Azure CLI](https://docs.microsoft.com/cli/azure/authenticate-azure-cli)."
+   * 認証については「[Sign in with Azure CLI](https://docs.microsoft.com/cli/azure/authenticate-azure-cli)」を参照してください。
    * 新しいリソースグループを作成しなければならない場合は、「[az group](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az_group_create)」を参照してください。

@@ -64,7 +64,7 @@ jobs:
           DISABLE_RENDERING_CACHE: true
         run: |
 
-          node server.mjs &
+          node server.js &
           sleep 5
           curl --retry-connrefused --retry 3 -I http://localhost:4000/
 

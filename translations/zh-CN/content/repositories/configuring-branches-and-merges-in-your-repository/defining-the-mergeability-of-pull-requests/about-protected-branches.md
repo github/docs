@@ -43,8 +43,7 @@ topics:
 对于每个分支保护规则，您可以选择启用或禁用以下设置。
 - [合并前必需拉取请求审查](#require-pull-request-reviews-before-merging)
 - [合并前必需状态检查](#require-status-checks-before-merging)
-{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
-- [Require conversation resolution before merging（在合并前需要对话解决）](#require-conversation-resolution-before-merging){% endif %}
+- [合并前需要对话解决](#require-conversation-resolution-before-merging)
 - [要求签名提交](#require-signed-commits)
 - [需要线性历史记录](#require-linear-history)
 {% ifversion fpt or ghec %}
@@ -103,11 +102,9 @@ remote: error: Changes have been requested.
 
 有关故障排除信息，请参阅“[必需状态检查故障排除](/github/administering-a-repository/troubleshooting-required-status-checks)”。
 
-{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
 ### 合并前需要对话解决
 
 在合并到受保护的分支之前，所有对拉取请求的评论都需要解决。 这确保所有评论在合并前都得到解决或确认。
-{% endif %}
 
 ### 要求签名提交
 

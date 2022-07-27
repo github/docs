@@ -87,14 +87,14 @@ Enquanto o trabalho é executado, os logs e saídas podem ser visualizados na in
 ## Executores e recursos de hardware compatíveis
 
 Especificação de hardware para máquinas virtuais do Windows e Linux:
-- CPU dual core
-- 7 GB de memória RAM
-- 14 GB de espaço de disco SSD
+- CPU de 2 núcleos (x86_64)
+- 7 GB de RAM
+- 14 GB de espaço SSD
 
 Especificação de hardware para máquinas virtuais do macOS:
-- CPU de 3 núcleos
-- 14 GB de memória RAM
-- 14 GB de espaço de disco SSD
+- CPU de 3 núcleos (x86_64)
+- 14 GB de RAM
+- 14 GB de espaço SSD
 
 {% data reusables.actions.supported-github-runners %}
 
@@ -109,6 +109,7 @@ Os registros de fluxo de trabalho incluem um link para as ferramentas pré-insta
 
 Para a lista geral das ferramentas incluídas para cada sistema operacional do executor, consulte os links abaixo:
 
+* [Ubuntu 22.04 LTS](https://github.com/actions/virtual-environments/blob/main/images/linux/Ubuntu2204-Readme.md)
 * [Ubuntu 20.04 LTS](https://github.com/actions/virtual-environments/blob/main/images/linux/Ubuntu2004-Readme.md)
 * [Ubuntu 18.04 LTS](https://github.com/actions/virtual-environments/blob/main/images/linux/Ubuntu1804-Readme.md)
 * [Windows Server 2022](https://github.com/actions/virtual-environments/blob/main/images/win/Windows2022-Readme.md)

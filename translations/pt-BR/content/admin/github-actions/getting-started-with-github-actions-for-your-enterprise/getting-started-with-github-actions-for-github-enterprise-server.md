@@ -34,16 +34,7 @@ Este artigo explica como os administradores do site podem configurar {% data var
 
 ## Revisar os requisitos de hardware
 
-
-{%- ifversion ghes < 3.2 %}
-
-Os recursos da CPU e memória disponíveis para {% data variables.product.product_location %} determinam o rendimento máximo do trabalho para {% data variables.product.prodname_actions %}. {% data reusables.actions.minimum-hardware %}
-
-O teste interno em {% data variables.product.company_short %} demonstrou o rendimento máximo a seguir para instâncias de {% data variables.product.prodname_ghe_server %} com um intervalo de configurações da CPU e memória. Você pode ver diferentes tipos de transferência, dependendo dos níveis gerais de atividade na sua instância.
-
-{%- endif %}
-
-{%- ifversion ghes > 3.1 %}
+{%- ifversion ghes %}
 
 Os recursos de CPU e memória disponíveis para {% data variables.product.product_location %} determinam o número de trabalhos que podem ser executados simultaneamente sem perda de desempenho. {% data reusables.actions.minimum-hardware %}
 
@@ -51,11 +42,6 @@ O pico de trabalhos simultâneos rodando sem perda de desempenho depende de fato
 
 {% endif %}
 
-{%- ifversion ghes < 3.2 %}
-
-{% data reusables.actions.hardware-requirements-before %}
-
-{%- endif %}
 
 {%- ifversion ghes = 3.2 %}
 
