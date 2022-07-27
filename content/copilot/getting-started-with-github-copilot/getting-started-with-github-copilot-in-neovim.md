@@ -61,8 +61,7 @@ To use {% data variables.product.prodname_copilot %} in Neovim you must have Neo
 {% linux %}
 
 {% data reusables.copilot.install-copilot-in-neovim %}
-    - To install the {% data variables.product.prodname_copilot %} plugin with the builtin Neovim plugin manager, enter the following shell commands to clone the {% data variables.product.prodname_copilot %} release.
-
+1. Use the following commands to clone the {% data variables.product.prodname_copilot %} release for loading with the Neovim builtin plugin manager. (Or, use another plugin manager of your choice.) 
       ```
       mkdir -p ~/.config/nvim/pack/github/start
       git clone https://github.com/github/copilot.vim \
