@@ -41,6 +41,8 @@ children:
   - /integrating-jira-with-your-organization-project-board
   - /upgrading-to-the-corporate-terms-of-service
   - /disabling-project-boards-in-your-organization
+  - /disabling-insights-for-projects-in-your-organization
+  - /allowing-project-visibility-changes-in-your-organization
 shortTitle: Manage organization settings
 ---
 {% ifversion fpt or ghec %}
