@@ -10,7 +10,7 @@ versions:
   fpt: '*'
   ghec: '*'
   feature: docker-ghcr-enterprise-migration
-shortTitle: Migration to Container registry
+shortTitle: Migração para o registro do contêiner
 topics:
   - Containers
   - Docker
@@ -21,9 +21,9 @@ topics:
 
 ## Sobre o {% data variables.product.prodname_container_registry %}
 
-{% data reusables.package_registry.container-registry-benefits %} For more information, see "[Working with the {% data variables.product.prodname_container_registry %}](/packages/working-with-a-github-packages-registry/working-with-the-container-registry)."
+{% data reusables.package_registry.container-registry-benefits %} Para obter mais informações, consulte "[Trabalhando com o {% data variables.product.prodname_container_registry %}](/packages/working-with-a-github-packages-registry/working-with-the-container-registry)".
 
-## About migration from the Docker registry
+## Sobre a migração do registro do Docker
 
 {% data reusables.package_registry.container-registry-replaces-docker-registry %} If you've stored Docker images in the Docker registry, {% ifversion docker-ghcr-enterprise-migration %}an enterprise owner{% else %}{% data variables.product.company_short %}{% endif %} will gradually migrate the images to the {% data variables.product.prodname_container_registry %}. No action is required on your part.
 

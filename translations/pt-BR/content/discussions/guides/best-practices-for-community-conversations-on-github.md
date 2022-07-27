@@ -21,7 +21,7 @@ Para mais informações sobre como abrir um problema e fazer referências cruzad
 
 Você pode criar e participar de discussões, problemas e pull requests, dependendo do tipo de conversa que você gostaria de ter.
 
-Você pode usar {% data variables.product.prodname_discussions %} para discutir o panorama geral, levantamento de hipóteses e desenvolver detalhes específicos de um projeto antes de vinculá-lo a um problema, que poderá ter o escopo definido. {% data variables.product.prodname_discussions %} is useful for teams in a number of scenarios.
+Você pode usar {% data variables.product.prodname_discussions %} para discutir o panorama geral, levantamento de hipóteses e desenvolver detalhes específicos de um projeto antes de vinculá-lo a um problema, que poderá ter o escopo definido. {% data variables.product.prodname_discussions %} é útil para equipes em vários cenários.
 - Você está na fase de descoberta de um projeto e ainda está aprendendo qual direção a sua equipe quer acessar
 - Você deseja coletar comentários de uma comunidade mais ampla sobre um projeto
 - Você deseja manter correções de erros, solicitações de recursos e conversas gerais separadas
@@ -33,7 +33,7 @@ Os problemas são úteis para discutir detalhes específicos de um projeto, como
 
 ## Seguindo as diretrizes de contribuição
 
-Before you open a discussion in a repository, check to see if the repository has contributing guidelines. O arquivo CONTRIBUTING inclui informações sobre como o mantenedor do repositório gostaria que você contribuísse com ideias para o projeto.
+Antes de abrir uma discussão em um repositório, verifique se o repositório tem diretrizes de contribuição. O arquivo CONTRIBUTING inclui informações sobre como o mantenedor do repositório gostaria que você contribuísse com ideias para o projeto.
 
 Para obter mais informações, consulte "[Configurando seu projeto para Contribuições Úteis](/communities/setting-up-your-project-for-healthy-contributions)."
 

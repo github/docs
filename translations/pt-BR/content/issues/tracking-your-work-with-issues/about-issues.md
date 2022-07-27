@@ -32,7 +32,7 @@ Os problemas podem ser criados de várias maneiras. Portanto, você pode escolhe
 
 Você pode organizar e priorizar problemas com projetos. {% ifversion fpt or ghec %}Para monitorar problemas como parte de um problema maior, você pode usar as listas de tarefas.{% endif %} Para categorizar problemas relacionados, você pode usar etiquetas e marcos.
 
-Para obter mais informações sobre os projetos, consulte {% ifversion fpt or ghec %}"[Sobre projetos (beta)](/issues/trying-out-the-new-projects-experience/about-projects)e {% endif %}"[Organizar seu trabalho com quadros de projeto](/issues/organizing-your-work-with-project-boards)". {% ifversion fpt or ghec %}Para obter mais informações sobre listas de tarefas, consulte "[Sobre listas de tarefas](/issues/tracking-your-work-with-issues/creating-issues/about-task-lists)". {% endif %}Para obter mais informações sobre etiquetas e marcos, consulte "[Usando etiquetas e marcos para rastrear o trabalho](/issues/using-labels-and-milestones-to-track-work)".
+For more information about projects, see {% ifversion projects-v2 %}"[About projects](/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects)." {% else %}"[Organizing your work with project boards](/issues/organizing-your-work-with-project-boards)."{% endif %} {% ifversion fpt or ghec %}For more information about task lists, see "[About task lists](/issues/tracking-your-work-with-issues/creating-issues/about-task-lists)." {% endif %}Para obter mais informações sobre etiquetas e marcos, consulte "[Usando etiquetas e marcos para rastrear o trabalho](/issues/using-labels-and-milestones-to-track-work)".
 
 ## Mantenha-se atualizado
 
