@@ -30,9 +30,10 @@ No tutorial, primeiro você criará um arquivo de fluxo de trabalho que usa a a�
 2. Escolha um projeto que pertence ao repositório. Este fluxo de trabalho não pode ser usado com projetos que pertencem a usuários ou organizações. Você pode usar um projeto existente ou criar um novo projeto. Para obter mais informações sobre como criar um projeto, consulte "[Criar um quadro de projeto](/github/managing-your-work-on-github/creating-a-project-board)".
 3. {% data reusables.actions.make-workflow-file %}
 4. Copie o seguinte conteúdo YAML para o arquivo do fluxo de trabalho.
-
     ```yaml{:copy}
 {% indented_data_reference reusables.actions.actions-not-certified-by-github-comment spaces=4 %}
+
+{% indented_data_reference reusables.actions.actions-use-sha-pinning-comment spaces=4 %}
 
     name: Remove labels
     on:

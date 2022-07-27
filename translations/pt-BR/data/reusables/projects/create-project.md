@@ -1,8 +1,7 @@
-1. Em {% data variables.product.prodname_dotcom %}, acesse a página principal da sua organização.
-1. Clique em {% octicon "table" aria-label="The project icon" %} **Projetos**.
-1. Selecione o menu suspenso **Novo projeto** e clique em **Novo projeto (Beta)**.
-
-   ![Novo projeto](/assets/images/help/issues/new_project_beta.png)
-1. When prompted to select a template, click a template or, to start with an empty project, click "Table" or "Board". Then, click **Create**.
+{% data reusables.profile.access_org %}
+{% data reusables.user-settings.access_org %}
+1. No nome da sua organização, clique em {% octicon "table" aria-label="The project icon" %} **Projects** (Projetos). ![Screenshot showing the 'Projects' tab](/assets/images/help/projects-v2/tab-projects.png)
+1. Click **New project**. ![Screenshot showing New project button](/assets/images/help/projects-v2/new-project-button.png)
+1. When prompted to select a template, click a template or, to start with an empty project, click **Table** or **Board**. Then, click **Create**.
 
    ![Screenshot showing template selection modal](/assets/images/help/issues/projects-select-template.png)

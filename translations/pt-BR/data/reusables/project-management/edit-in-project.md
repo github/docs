@@ -1,1 +1,1 @@
-É possível visualizar e fazer pequenas edições em problemas e solicitações pull em seu quadro de projeto clicando no título do problema ou da solicitação pull.
+You can view and make lightweight edits to issues and pull requests within your {% data variables.projects.projects_v1_board %} by clicking on the issue or pull request's title.
