@@ -10,7 +10,7 @@ versions:
   ghes: '*'
   ghae: '*'
   ghec: '*'
-shortTitle: With multiple authors
+shortTitle: Co-author with multiple authors
 ---
 ## Required co-author information
 
