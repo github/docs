@@ -476,7 +476,8 @@ on: pull_request_target
 
 permissions:
   contents: write
-
+  pull-requests: write
+  
 jobs:
   dependabot:
     runs-on: ubuntu-latest
@@ -507,6 +508,7 @@ on: pull_request
 
 permissions:
   contents: write
+  pull-requests: write
 
 jobs:
   dependabot:
