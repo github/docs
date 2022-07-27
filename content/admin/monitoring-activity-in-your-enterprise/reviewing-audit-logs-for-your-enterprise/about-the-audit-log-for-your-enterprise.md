@@ -39,9 +39,10 @@ As an enterprise owner{% ifversion ghes %} or site administrator{% endif %}, you
 {%- ifversion enterprise-audit-log-ip-addresses %}
 - You can display the IP address associated with events in the audit log. For more information, see "[Displaying IP addresses in the audit log for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/displaying-ip-addresses-in-the-audit-log-for-your-enterprise)."
 {%- endif %}
-{%- ifversion ghec %}
+{%- ifversion audit-log-streaming %}
 - You can stream audit and Git events data from {% data variables.product.prodname_dotcom %} to an external data management system. For more information, see "[Streaming the audit log for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/streaming-the-audit-log-for-your-enterprise)."
-{%- else %}
+{%- endif %}
+{%- ifversion ghes %}
 - You can forward audit and system logs, from your enterprise to an third-party hosted monitoring system. For more information, see "[Log forwarding](/admin/monitoring-activity-in-your-enterprise/exploring-user-activity/log-forwarding)."
 {%- endif %}
 {%- ifversion ghec or ghes > 3.2 or ghae-issue-6648 %}
@@ -49,13 +50,6 @@ As an enterprise owner{% ifversion ghes %} or site administrator{% endif %}, you
 {%- endif %}
 
 For a full list of audit log actions that may appear in your enterprise audit log, see "[Audit log actions for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise)."
-
-{% ifversion ghec %}
-## Git events
-
-Git events data, such as cloning, fetching, and pushing is logged. For more information, see "[Streaming the audit log for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/streaming-the-audit-log-for-your-enterprise)."
-
-{% endif %}
 
 ## Further reading
 - "[Reviewing the audit log for your organization](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/reviewing-the-audit-log-for-your-organization)"

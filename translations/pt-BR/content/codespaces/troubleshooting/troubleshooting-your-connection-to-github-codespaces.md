@@ -1,5 +1,5 @@
 ---
-title: Troubleshooting your connection to GitHub Codespaces
+title: Solucionando os problemas da sua conexão com o GitHub Codespaces
 intro: 'Solução de problemas de ajuda para conectar-se a {% data variables.product.prodname_github_codespaces %}.'
 product: '{% data reusables.gated-features.codespaces %}'
 versions:

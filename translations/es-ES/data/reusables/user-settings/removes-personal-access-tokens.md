@@ -1,1 +1,1 @@
-As a security precaution, {% data variables.product.company_short %} automatically removes personal access tokens that haven't been used in a year. To provide additional security, we highly recommend adding an expiration to your personal access tokens.
+Como medida de precaución en seguridad, {% data variables.product.company_short %} elimina automáticamente los tokens de acceso personal que no se hayan utilizando en un año. Para proporcionar seguridad adicional, te recomendamos ampliamente que agregues una fecha de vencimiento a tus tokens de acceso personal.

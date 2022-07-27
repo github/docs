@@ -150,32 +150,32 @@ Para los lenguajes compatibles, el {% data variables.product.prodname_dependabot
 
 {% tip %}
 
-**Tip:** You can only dismiss open alerts.
+**Tip:** Solo puedes descartar las alertas abiertas.
 {% endtip %}
 
-If you schedule extensive work to upgrade a dependency, or decide that an alert does not need to be fixed, you can dismiss the alert. Dismissing alerts that you have already assessed makes it easier to triage new alerts as they appear.
+Si programas mucho trabajo para actualizar una dependencias o decides que una alerta no necesita corregirse, puedes descartar la alerta. El descartar alertas que ya valoraste facilita clasificar las nuevas que aparecen.
 
 1. Ver los detalles de una alerta. Para obtener más información, consulta la sección "[Ver las dependencias vulnerables](#viewing-dependabot-alerts)" (anteriormente).
-1. Select the "Dismiss" dropdown, and click a reason for dismissing the alert.{% ifversion reopen-dependabot-alerts %} Unfixed dismissed alerts can be reopened later.{% endif %} ![Elegir una razón para descartar la alerta a través del menú desplegable de "Descartar"](/assets/images/help/repository/dependabot-alert-dismiss-drop-down-ungrouped.png)
+1. Selecciona el menú desplegable de "Descartar" y haz clic en una razón para descartar la alerta.{% ifversion reopen-dependabot-alerts %} Las alertas descartadas sin fijar pueden volverse a abrir posteriormente.{% endif %} ![Elegir una razón para descartar la alerta a través del menú desplegable de "Descartar"](/assets/images/help/repository/dependabot-alert-dismiss-drop-down-ungrouped.png)
 {% ifversion dependabot-bulk-alerts %}
 
 ### Descartar varias alertas al mismo tiempo
 
-1. View the open {% data variables.product.prodname_dependabot_alerts %}. For more information, see "[Viewing {% data variables.product.prodname_dependabot_alerts %}](/en/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts#viewing-dependabot-alerts)".
-2. Optionally, filter the list of alerts by selecting a dropdown menu, then clicking the filter that you would like to apply. También puedes teclear filtros en la barra de búsqueda.
-3. To the left of each alert title, select the alerts that you want to dismiss. ![Screenshot of open alerts with checkboxes emphasized](/assets/images/help/graphs/select-multiple-alerts.png)
-4. Optionally, at the top of the list of alerts, select all alerts on the page. ![Screenshot of all open alerts selected](/assets/images/help/graphs/select-all-alerts.png)
-5. Select the "Dismiss alerts" dropdown, and click a reason for dismissing the alerts. ![Screenshot of open alerts page with "Dismiss alerts" drop-down emphasized](/assets/images/help/graphs/dismiss-multiple-alerts.png)
+1. Mira las {% data variables.product.prodname_dependabot_alerts %} abiertas. Para obtener más información, consulta la sección "[Ver las {% data variables.product.prodname_dependabot_alerts %}](/en/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts#viewing-dependabot-alerts)".
+2. Opcionalmente, filtra la lista de alertas seleccionado un menú desplegable y haciendo clic en el filtro que te gustaría aplicar. También puedes teclear filtros en la barra de búsqueda.
+3. A la izquierda de cada título de alerta, selecciona aquellas que quieras descartar. ![Captura de pantalla de las alertas abiertas con énfasis en las casillas de verificación](/assets/images/help/graphs/select-multiple-alerts.png)
+4. Opcionalmente, en la parte superior de la lista de alertas, selecciona todas en la página. ![Captura de pantalla de todas las alertas abiertas seleccionadas](/assets/images/help/graphs/select-all-alerts.png)
+5. Selecciona el menú desplegable de "Descartar alertas" y haz clic en una razón para hacerlo. ![Captura de pantalla de la página con alertas abiertas y énfasis en el menú desplegable de "Descartar alertas"](/assets/images/help/graphs/dismiss-multiple-alerts.png)
 
 {% endif %}
 
 {% ifversion reopen-dependabot-alerts %}
 
-## Viewing and updating closed alerts
+## Ver y actualziar las alertas cerradas
 
 {% tip %}
 
-**Tip:** You can only reopen alerts that have been previously dismissed. Closed alerts that have already been fixed cannot be reopened.
+**Tip:** Solo puedes volver a abrir alertas que se hayan descartado previamente. Las alertas cerradas que ya se hayan corregido no se pueden volver a abrir.
 {% endtip %}
 
 {% data reusables.repositories.navigate-to-repo %}
@@ -185,17 +185,17 @@ If you schedule extensive work to upgrade a dependency, or decide that an alert 
 ![Screenshot showing the "Closed" option](/assets/images/help/repository/dependabot-alerts-closed.png){% endif %}
 1. Haz clic en la alerta que te gustaría ver o actualizar.{% ifversion dependabot-bulk-alerts %} ![Screenshot showing a highlighted dependabot alert](/assets/images/help/repository/dependabot-alerts-select-closed-alert-checkbox.png){% else %}
 ![Screenshot showing a highlighted dependabot alert](/assets/images/help/repository/dependabot-alerts-select-closed-alert.png){% endif %}
-2. Optionally, if the alert was dismissed and you wish to reopen it, click **Reopen**. Alerts that have already been fixed cannot be reopened. ![Screenshot showing the "Reopen" button](/assets/images/help/repository/reopen-dismissed-alert.png)
+2. Opcionalmente, si se descartó la alerta y quieres volver a abrirla, haz clic en **Reabrir**. Las alertas que ya se hayan corregido no pueden volverse a abrir. ![Captura de pantalla que muestra el botón "Reabrir"](/assets/images/help/repository/reopen-dismissed-alert.png)
 
 {% endif %}
 
 {% ifversion dependabot-bulk-alerts %}
 
-### Reopening multiple alerts at once
+### Reabrir alertas múltiples al mismo tiempo
 
-1. View the closed {% data variables.product.prodname_dependabot_alerts %}. For more information, see "[Viewing and updating closed alerts](/en/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts#viewing-and-updating-closed-alerts)" (above).
-2. To the left of each alert title, select the alerts that you want to reopen. ![Screenshot of closed alerts with checkboxes emphasized](/assets/images/help/repository/dependabot-alerts-open-checkbox.png)
-3. Optionally, at the top of the list of alerts, select all closed alerts on the page. ![Screenshot of closed alerts with all alerts selected](/assets/images/help/graphs/select-all-closed-alerts.png)
-4. Click **Reopen** to reopen the alerts. Alerts that have already been fixed cannot be reopened. ![Screenshot of closed alerts with "Reopen" button emphasized](/assets/images/help/graphs/reopen-multiple-alerts.png)
+1. Ver las {% data variables.product.prodname_dependabot_alerts %} cerradas. Para obtener más información, consulta la sección "[Ver y actualizar las alertas cerradas](/en/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts#viewing-and-updating-closed-alerts)" (anteriormente).
+2. A la izquierda de cada título de alerta, selecciona aquellas que quieras reabrir. ![Captura de pantalla de las alertas cerradas con énfasis en las casillas de verificación](/assets/images/help/repository/dependabot-alerts-open-checkbox.png)
+3. Opcionalmente, en la parte superior de la lista de alertas, selecciona todas las alertas cerradas en la página. ![Captura de pantalla de las alertas cerradas con todas las alertas seleccionadas](/assets/images/help/graphs/select-all-closed-alerts.png)
+4. Haz clic en **Reabrir** para reabrir las alertas. Las alertas que ya se hayan corregido no pueden volverse a abrir. ![Captura de pantalla de las alertas cerradas con énfasis en el botón "Reabrir"](/assets/images/help/graphs/reopen-multiple-alerts.png)
 
 {% endif %}

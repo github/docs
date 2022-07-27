@@ -47,7 +47,7 @@ The {% data variables.product.prodname_command_palette %} also gives you quick a
 | <kbd>G</kbd> <kbd>P</kbd> | [**Pull requests**] タブに移動します。 詳しい情報については、「[プルリクエストについて](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)」を参照してください。"{% ifversion fpt or ghes or ghec %}
 | <kbd>G</kbd> <kbd>A</kbd> | [**Actions**] タブに移動します。 詳しい情報については、「[アクションについて](/actions/getting-started-with-github-actions/about-github-actions)」を参照してください。{% endif %}
 | <kbd>G</kbd> <kbd>B</kbd> | [**Projects**] タブに移動します。 詳細は「[プロジェクトボードについて](/articles/about-project-boards)」を参照してください。                                                                                                                                       |
-| <kbd>G</kbd> <kbd>W</kbd> | [**Wiki**] タブに移動します。 For more information, see "[About wikis](/communities/documenting-your-project-with-wikis/about-wikis)."{% ifversion fpt or ghec %}
+| <kbd>G</kbd> <kbd>W</kbd> | [**Wiki**] タブに移動します。 For more information, see "[About wikis](/communities/documenting-your-project-with-wikis/about-wikis)."{% ifversion discussions %}
 | <kbd>G</kbd> <kbd>G</kbd> | Go to the **Discussions** tab. For more information, see "[About discussions](/discussions/collaborating-with-your-community-using-discussions/about-discussions)."{% endif %}
 
 ## ソースコード編集

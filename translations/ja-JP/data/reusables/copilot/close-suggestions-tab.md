@@ -1,1 +1,1 @@
-1. Alternatively, to reject all suggestions, close the suggestions tab.
+1. あるいは、すべての提案を拒否するには、提案のタブを閉じてください。

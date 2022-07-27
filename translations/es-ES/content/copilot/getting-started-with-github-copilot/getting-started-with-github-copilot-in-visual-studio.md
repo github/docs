@@ -64,7 +64,7 @@ To use {% data variables.product.prodname_copilot %}, you must first install the
 1. Optionally, you can hover over the suggestion to see the {% data variables.product.prodname_copilot %} command palette for choosing suggestions.
 {% data reusables.copilot.accept-or-reject-suggestion %}
 
-## Generating code suggestions from comments
+## Generar sugerencias de código desde los comentarios
 
 {% data reusables.copilot.generating-suggestions-from-comments %}
 

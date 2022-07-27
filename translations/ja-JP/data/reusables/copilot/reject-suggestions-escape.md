@@ -1,1 +1,1 @@
-1. Alternatively, to reject all suggestions, press <kbd>Esc</kbd>.
+1. あるいは、すべての提案を拒否するには<kbd>Esc</kbd>を押してください。

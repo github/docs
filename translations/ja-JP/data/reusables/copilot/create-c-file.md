@@ -1,1 +1,1 @@
-1. In {% data variables.product.prodname_vs %}, create a new C# (_*.cs_) file.
+1. {% data variables.product.prodname_vs %}で、新しいC#(_*.cs_) のファイルを作成してください。

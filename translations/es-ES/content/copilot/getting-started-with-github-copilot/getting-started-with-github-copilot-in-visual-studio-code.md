@@ -75,7 +75,7 @@ To use {% data variables.product.prodname_copilot %}, you must first install the
 1. To open a new tab with multiple additional options, press <kbd>Ctrl</kbd>+<kbd>Enter</kbd>.
 1. To accept a suggestion, above the suggestion, click **Accept Solution**. To reject all suggestions, close the tab.
 
-## Generating code suggestions from comments
+## Generar sugerencias de código desde los comentarios
 
 {% data reusables.copilot.generating-suggestions-from-comments %}
 

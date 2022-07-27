@@ -58,6 +58,6 @@ Se você estiver usando uma chave GPG que corresponde à sua identidade do autor
 - "[Verificar se há chaves GPG existentes](/articles/checking-for-existing-gpg-keys)"
 - "[Gerar uma nova chave GPG](/articles/generating-a-new-gpg-key)"
 - "[Usar um endereço de e-mail verificado na chave GPG](/articles/using-a-verified-email-address-in-your-gpg-key)"
-- "[Adding a GPG key to your GitHub account](/articles/adding-a-gpg-key-to-your-github-account)"
+- "[Adicionar uma chave GPG à sua conta do GitHub](/articles/adding-a-gpg-key-to-your-github-account)"
 - "[Assinar commits](/articles/signing-commits)"
 - "[Assinar tags](/articles/signing-tags)"

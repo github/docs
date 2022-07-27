@@ -3,21 +3,20 @@ title: Início Rápido para Discussões do GitHub
 intro: 'Habilite o {% data variables.product.prodname_discussions %} em um repositório ou organização existente e inicie conversas com a sua comunidade.'
 allowTitleToDifferFromFilename: true
 versions:
-  fpt: '*'
-  ghec: '*'
+  feature: discussions
 shortTitle: QuickStart
 ---
 
 
 ## Introdução
 
-{% data variables.product.prodname_discussions %} é um fórum de comunicação colaborativo para a comunidade sobre um projeto de código aberto. As discussões são para conversas que precisam ser transparentes e acessíveis, mas não precisam ser rastreadas em um quadro de projeto e não estão relacionadas ao código, diferente de {% data variables.product.prodname_github_issues %}. As discussões permitem uma conversa fluida e aberta em um fórum público.
+{% data variables.product.prodname_discussions %} is a collaborative communication forum for the community around an open source or internal project. As discussões são para conversas que precisam ser transparentes e acessíveis, mas não precisam ser rastreadas em um quadro de projeto e não estão relacionadas ao código, diferente de {% data variables.product.prodname_github_issues %}. As discussões permitem uma conversa fluida e aberta em um fórum público.
 
 As discussões dão um espaço para conversas mais colaborativas, conectando-se e dando uma área mais centralizada para se conectar e encontrar informações.
 
 ## Habilitar {% data variables.product.prodname_discussions %} no seu repositório
 
-Os proprietários de repositórios e pessoas com acesso de escrita podem habilitar {% data variables.product.prodname_discussions %} para uma comunidade nos seus repositórios públicos e privados.
+Repository owners and people with write access can enable {% data variables.product.prodname_discussions %} for a community on their public{% ifversion ghes > 3.5 %}, internal{% endif %} and private repositories. The visibility of a discussion is inherited from the repository the discussion is created in.
 
 Ao habilitar {% data variables.product.prodname_discussions %} pela primeira vez, você será convidado a configurar um post de boas-vindas.
 
@@ -42,7 +41,7 @@ Você pode dar as boas-vindas à sua comunidade e apresentar uma nova forma de s
 
 ## Configurar diretrizes da comunidade para colaboradores
 
-Para discussões de repositório, você pode definir diretrizes de contribuição para incentivar os colaboradores a terem conversas significativas e úteis que sejam relevantes para o repositório. Você também pode atualizar o README do repositório para comunicar as expectativas quando os colaboradores devem abrir um problema ou discussão. Para obter mais informações sobre como fornecer diretrizes para o seu projeto, consulte "[Adicionar um código de conduta ao seu projeto](/communities/setting-up-your-project-for-healthy-contributions/adding-a-code-of-conduct-to-your-project)" e "[Configurar seu projeto para contribuições saudáveis](/communities/setting-up-your-project-for-healthy-contributions)".
+Para discussões de repositório, você pode definir diretrizes de contribuição para incentivar os colaboradores a terem conversas significativas e úteis que sejam relevantes para o repositório. Você também pode atualizar o README do repositório para comunicar as expectativas quando os colaboradores devem abrir um problema ou discussão. For more information about providing guidelines for your project, see{% ifversion fpt or ghec %} "[Adding a code of conduct to your project](/communities/setting-up-your-project-for-healthy-contributions/adding-a-code-of-conduct-to-your-project)" and{% endif %} "[Setting up your project for healthy contributions](/communities/setting-up-your-project-for-healthy-contributions)."
 
 Para discussões na organização, você compartilha informações sobre como se envolver com a sua organização criando um perfil README da organização. Para obter mais informações, consulte "[Personalizar o perfil da sua organização](/organizations/collaborating-with-groups-in-organizations/customizing-your-organizations-profile)".
 
@@ -62,7 +61,7 @@ Qualquer usuário autenticado que possa visualizar um repositório pode criar um
 
 Os proprietários dos repositórios e pessoas com acesso de gravação ao repositório podem criar novas categorias para manter as discussões organizadas. Da mesma forma, uma vez que as discussões da organização são baseadas em um repositório de origem, os proprietários de repositórios e as pessoas com acesso de gravação ao repositório de origem podem criar novas categorias para discussões da organização.
 
-Os colaboradores que participam e criam novas discussões podem agrupar discussões nas categorias existentes mais relevantes. As discussões também podem ser recategorizadas depois que forem criadas. Para obter mais informações, consulte "[Gerenciando categorias para discussões](/discussions/managing-discussions-for-your-community/managing-categories-for-discussions)".
+Collaborators participating in and creating new discussions can group discussions into the most relevant existing categories. As discussões também podem ser recategorizadas depois que forem criadas. Para obter mais informações, consulte "[Gerenciando categorias para discussões](/discussions/managing-discussions-for-your-community/managing-categories-for-discussions)".
 
 {% data reusables.discussions.you-can-label-discussions %}
 

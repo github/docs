@@ -3,8 +3,7 @@ title: Viewing insights for your discussions
 intro: 'Discussions insights provide data about your discussions'' activity, views, and contributors.'
 permissions: Repository administrators and people with maintain access to a repository can view the insights dashboard for discussions in that repository. Repository administrators and people with maintain access to the source repository for organization discussions can view the insights dashboard for discussions in that organization.
 versions:
-  fpt: '*'
-  ghec: '*'
+  feature: discussions
 topics:
   - Discussions
 shortTitle: View discussions insights
