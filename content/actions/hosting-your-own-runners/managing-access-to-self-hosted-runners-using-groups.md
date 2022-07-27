@@ -9,7 +9,7 @@ versions:
   ghae: '*'
   ghec: '*'
 type: tutorial
-shortTitle: Manage access to runners
+shortTitle: Using runner groups
 ---
 
 {% data reusables.actions.enterprise-beta %}

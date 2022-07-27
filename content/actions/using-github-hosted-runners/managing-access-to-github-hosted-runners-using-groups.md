@@ -4,7 +4,7 @@ intro: You can use policies to limit access to GitHub-hosted runners that have b
 versions:
   feature: 'actions-high-performance-runners'
 type: tutorial
-shortTitle: Manage access to runners
+shortTitle: Using runner groups
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -35,10 +35,6 @@ shortTitle: Manage access to runners
 {% data reusables.actions.changing-the-name-of-a-runner-group %}
 
 {% ifversion ghec or ghes or ghae %}
-## Automatically adding a runner to a group
-
-{% data reusables.actions.automatically-adding-a-runner-to-a-group %}
-
 ## Moving a runner to a group
 
 {% data reusables.actions.moving-a-runner-to-a-group %}
