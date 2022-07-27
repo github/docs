@@ -1,5 +1,5 @@
 ---
-title: Reviewing your organization's audit logs for GitHub Codespaces
+title: Revisando os logs de auditoria da sua organização para os logs do GitHub Codespaces
 shortTitle: Logs de auditoria
 intro: 'Você pode usar o log de auditoria para revisar todas as ações relacionadas a {% data variables.product.prodname_github_codespaces %}.'
 product: '{% data reusables.gated-features.codespaces %}'

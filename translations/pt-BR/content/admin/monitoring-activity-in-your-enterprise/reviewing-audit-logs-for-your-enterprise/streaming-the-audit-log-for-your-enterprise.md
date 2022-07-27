@@ -3,7 +3,7 @@ title: Transmissão do log de auditoria para a sua empresa
 intro: 'Você pode transmitir dados de auditoria e eventos do Git de {% data variables.product.prodname_dotcom %} para um sistema externo de gerenciamento de dados.'
 miniTocMaxHeadingLevel: 3
 versions:
-  ghec: '*'
+  feature: audit-log-streaming
 type: tutorial
 topics:
   - Auditing
@@ -17,6 +17,14 @@ redirect_from:
 permissions: Enterprise owners can configure audit log streaming.
 ---
 
+{% ifversion ghes %}
+{% note %}
+
+**Note:** Audit log streaming is currently in beta for {% data variables.product.product_name %} and is subject to change.
+
+{% endnote %}
+{% endif %}
+
 ## Sobre a transmissão do log de auditoria
 
 Para ajudar a proteger sua propriedade intelectual e manter a conformidade da sua organização, você pode usar o a transmissão para manter cópias dos seus dados e monitoramento do log de auditoria:
@@ -24,11 +32,11 @@ Para ajudar a proteger sua propriedade intelectual e manter a conformidade da su
 
 Os benefícios do streaming de dados de auditoria incluem:
 
-* **Exploração de dados**. Você pode examinar eventos transmitidos usando sua ferramenta preferida para consultar grandes quantidades de dados. A transmissão contém eventos de auditoria e Git em toda a conta corporativa.
-* **Continuidade dos dados**. Você pode pausar a transmissão por até sete dias sem perder nenhum dado da auditoria.
+* **Exploração de dados**. Você pode examinar eventos transmitidos usando sua ferramenta preferida para consultar grandes quantidades de dados. The stream contains both audit events and Git events across the entire enterprise account.{% ifversion pause-audit-log-stream %}
+* **Continuidade dos dados**. You can pause the stream for up to seven days without losing any audit data.{% endif %}
 * **Retenção de dados**. Você pode manter seus registros de auditoria exportados e dados de eventos do Git se precisar.
 
-Os proprietários das empresas podem configurar, pausar ou excluir uma transmissão a qualquer momento. A transmissão exporta os dados de auditoria para todas as organizações da sua empresa.
+Enterprise owners can set up{% ifversion pause-audit-log-stream %}, pause,{% endif %} or delete a stream at any time. The stream exports the audit and Git events data for all of the organizations in your enterprise.
 
 ## Configurando a transmissão do log de auditoria
 
@@ -47,7 +55,7 @@ Você pode configurar a transmissão para S3 com chaves de acesso ou, para evita
 
 - [Configurando a transmissão para S3 com chaves de acesso](#setting-up-streaming-to-s3-with-access-keys)
 - [Configurando a transmissão para S3 com OpenID Connect](#setting-up-streaming-to-s3-with-openid-connect)
-- [Disabling streaming to S3 with OpenID Connect](#disabling-streaming-to-s3-with-openid-connect)
+- [Desabilitando a transmissão para o S3 com OpenID Connect](#disabling-streaming-to-s3-with-openid-connect)
 
 #### Configurando a transmissão para S3 com chaves de acesso
 {% endif %}
@@ -125,11 +133,11 @@ Para obter informações sobre como criar ou acessar sua chave de acesso e chave
 {% data reusables.audit_log.streaming-check-s3-endpoint %}
 {% data reusables.enterprise.verify-audit-log-streaming-endpoint %}
 
-#### Disabling streaming to S3 with OpenID Connect
+#### Desabilitando a transmissão para o S3 com OpenID Connect
 
-If you want to disable streaming to S3 with OIDC for any reason, such as the discovery of a security vulnerability in OIDC, delete the {% data variables.product.prodname_dotcom %} OIDC provider you created in AWS when you set up streaming. Para obter mais informações, consulte [Criando os provedores de identidade do OpenID Connect (OIDC)](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_create_oidc.html) na documentação do AWS.
+Se você deseja desabilitar a transmissão para o S3 com OIDC por qualquer motivo, como a descoberta de uma vulnerabilidade de segurança em OIDC, exclua o provedor de OIDC de {% data variables.product.prodname_dotcom %} que você criou na AWS quando configurar a transmissão. Para obter mais informações, consulte [Criando os provedores de identidade do OpenID Connect (OIDC)](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_create_oidc.html) na documentação do AWS.
 
-Then, set up streaming with access keys until the vulnerability is resolved. For more information, see "[Setting up streaming to S3 with access keys](#setting-up-streaming-to-s3-with-access-keys)."
+Em seguida, configure a transmissão com as chaves de acesso até que a vulnerabilidade seja resolvida. Para obter mais informações, consulte "[Configurando a transmissão para S3 com chaves de acesso](#setting-up-streaming-to-s3-with-access-keys)".
 
 {% endif %}
 
@@ -272,6 +280,7 @@ Para transmitir os logs de auditoria para o Coletor de Eventos HTTP (HEC) do Spl
 1. Clique **Verificar ponto de extremidade** para verificar se {% data variables.product.prodname_dotcom %} pode conectar-se e gravar no ponto de extremidade do Splunk. ![Verificar o ponto de extremidade](/assets/images/help/enterprises/audit-stream-check-splunk.png)
 {% data reusables.enterprise.verify-audit-log-streaming-endpoint %}
 
+{% ifversion pause-audit-log-stream %}
 ## Pausando a transmissão do log de auditoria
 
 A pausa da transmissão permite que você execute a manutenção no aplicativo de recebimento sem perder dados de auditoria. Os logs de auditoria são armazenados por até sete dias em {% data variables.product.product_location %} e, em seguida, são exportados quando você suspender a pausa da transmissão.
@@ -284,6 +293,7 @@ A pausa da transmissão permite que você execute a manutenção no aplicativo d
 1. Uma mensagem de confirmação é exibida. Clique **Pausar transmissão** para confirmar.
 
 Quando o aplicativo estiver pronto para receber registros de auditoria novamente, clique em **Retomar a transmissão** para reiniciar os logs de auditoria da transmissão.
+{% endif %}
 
 ## Excluindo a transmissão do log de auditoria
 

@@ -1,16 +1,15 @@
 ---
 title: Moderar los debates
-intro: 'Puedes promover una colaboración sana si marcas los comentarios como respuestas, bloqueando y desbloqueando debates, convirtiendo propuestas en debates y editando o borrando los comentarios, debates y categorías que no se alineen con el código de conducta de tu comunidad.'
+intro: 'You can promote healthy collaboration by marking comments as answers, locking or unlocking discussions, converting issues to discussions, and editing or deleting comments, discussions, and categories that don''t align with your{% ifversion fpt or ghec %} community''s code of conduct{% elsif ghes > 3.5 %} organization''s contribution guidelines{% endif %}.'
 permissions: People with triage access to a repository can moderate discussions in the repository. People with triage access to the source repository for organization discussions can moderate discussions in the organization.
 versions:
-  fpt: '*'
-  ghec: '*'
+  feature: discussions
 ---
 
 
 ## Acerca de moderar los debates
 
-{% data reusables.discussions.about-discussions %} Si tienes permisos de clasificación para un repositorio, puedes ayudar a moderar los debates de este marcando los comentarios como respuestas, bloqueando debates que ya no sean útiles o que dañen a la comunidad y convirtiendo las propuestas en debates cuando una idea aún está en las etapas tempranas de desarrollo. De forma similar, si tienes permisos de clasificación para el repositorio origen para los debates de la organización, puedes moderarlos en esta.
+{% data reusables.discussions.about-discussions %} If you have triage permissions for a repository, you can help moderate that repository's discussions by marking comments as answers, locking discussions that are no longer useful or are damaging to the community, and converting issues to discussions when an idea is still in the early stages of development. De forma similar, si tienes permisos de clasificación para el repositorio origen para los debates de la organización, puedes moderarlos en esta.
 
 ## Marcar un comentario como una respuesta
 

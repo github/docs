@@ -1,8 +1,8 @@
 1. Navegar a tu proyecto.
-2. In the top-right, to access insights, click {% octicon "graph" aria-label="the graph icon" %}.
+2. Para acceder a las perspectivas, en la parte superior derecha, haz clic en {% octicon "graph" aria-label="the graph icon" %}.
 
     {% note %}
 
-   **Note:** This feature is currently in a private preview and only available for some organizations. If the {% octicon "graph" aria-label="the graph icon" %} icon is not displayed in your project, insights is not yet enabled for your organization.
+   **Nota:** Esta característica se encuentra actualmente en vista previa privada y solo está disponible para algunas organizaciones. Si el icono de {% octicon "graph" aria-label="the graph icon" %} no se muestra en tu proyecto, significa que las perspectivas aún no están habilitadas para tu organización.
 
    {% endnote %} 

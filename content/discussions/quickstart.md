@@ -3,21 +3,20 @@ title: Quickstart for GitHub Discussions
 intro: 'Enable {% data variables.product.prodname_discussions %} on an existing repository or organization and start conversations with your community.'
 allowTitleToDifferFromFilename: true
 versions:
-  fpt: '*'
-  ghec: '*'
+  feature: discussions
 shortTitle: Quickstart
 ---
 
 
 ## Introduction
 
-{% data variables.product.prodname_discussions %} is a collaborative communication forum for the community around an open source project. Discussions are for conversations that need to be transparent and accessible but do not need to be tracked on a project board and are not related to code, unlike {% data variables.product.prodname_github_issues %}. Discussions enable fluid, open conversation in a public forum.
+{% data variables.product.prodname_discussions %} is a collaborative communication forum for the community around an open source or internal project. Discussions are for conversations that need to be transparent and accessible but do not need to be tracked on a project board and are not related to code, unlike {% data variables.product.prodname_github_issues %}. Discussions enable fluid, open conversation in a public forum.
 
 Discussions give a space for more collaborative conversations by connecting and giving a more centralized area to connect and find information.
 
 ## Enabling {% data variables.product.prodname_discussions %} on your repository
 
-Repository owners and people with write access can enable {% data variables.product.prodname_discussions %} for a community on their public and private repositories.
+Repository owners and people with write access can enable {% data variables.product.prodname_discussions %} for a community on their public{% ifversion ghes > 3.5 %}, internal{% endif %} and private repositories. The visibility of a discussion is inherited from the repository the discussion is created in.
 
 When you first enable {% data variables.product.prodname_discussions %}, you will be invited to configure a welcome post.
 
@@ -46,7 +45,7 @@ You can welcome your community and introduce a new way to communicate in a repos
 
 ## Setting up community guidelines for contributors
 
-For repository discussions, you can set contributing guidelines to encourage collaborators to have meaningful, useful conversations that are relevant to the repository. You can also update the repository's README to communicate expectations on when collaborators should open an issue or discussion. For more information about providing guidelines for your project, see "[Adding a code of conduct to your project](/communities/setting-up-your-project-for-healthy-contributions/adding-a-code-of-conduct-to-your-project)" and "[Setting up your project for healthy contributions](/communities/setting-up-your-project-for-healthy-contributions)."
+For repository discussions, you can set contributing guidelines to encourage collaborators to have meaningful, useful conversations that are relevant to the repository. You can also update the repository's README to communicate expectations on when collaborators should open an issue or discussion. For more information about providing guidelines for your project, see{% ifversion fpt or ghec %} "[Adding a code of conduct to your project](/communities/setting-up-your-project-for-healthy-contributions/adding-a-code-of-conduct-to-your-project)" and{% endif %} "[Setting up your project for healthy contributions](/communities/setting-up-your-project-for-healthy-contributions)."
 
 For organization discussions, you share information about how to engage with your organization by creating an organization profile README. For more information, see "[Customizing your organization's profile](/organizations/collaborating-with-groups-in-organizations/customizing-your-organizations-profile)."
 
@@ -66,7 +65,7 @@ Any authenticated user who can view a repository can create a poll. Similarly, s
 
 Repository owners and people with write access to the repository can create new categories to keep discussions organized. Similarly, since organization discussions are based on a source repository, repository owners and people with write access to the source repository can create new categories for organization discussions.
 
-Collaborators participating and creating new discussions can group discussions into the most relevant existing categories. Discussions can also be recategorized after they are created. For more information, see "[Managing categories for discussions](/discussions/managing-discussions-for-your-community/managing-categories-for-discussions)."
+Collaborators participating in and creating new discussions can group discussions into the most relevant existing categories. Discussions can also be recategorized after they are created. For more information, see "[Managing categories for discussions](/discussions/managing-discussions-for-your-community/managing-categories-for-discussions)."
 
 {% data reusables.discussions.you-can-label-discussions %}
 

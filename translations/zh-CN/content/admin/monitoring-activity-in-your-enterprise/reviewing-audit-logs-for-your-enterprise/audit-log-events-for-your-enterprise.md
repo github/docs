@@ -59,7 +59,7 @@ The scope of the events that appear in your enterprise's audit log depend on whe
 |--------|-------------
 | `artifact.destroy`    | A workflow run artifact was manually deleted.
 
-{%- ifversion ghec %}
+{%- ifversion audit-log-streaming %}
 ## `audit_log_streaming` category actions
 
 | Action | Description

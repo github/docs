@@ -1,16 +1,15 @@
 ---
 title: Moderar discussões
-intro: 'Você pode promover uma colaboração saudável marcando comentários como respostas, bloqueando ou desbloqueando discussões, convertendo problemas para discussões, bem como e editar ou excluir comentários, discussões e categorias que não estão alinhadas com o código de conduta da sua comunidade.'
+intro: 'You can promote healthy collaboration by marking comments as answers, locking or unlocking discussions, converting issues to discussions, and editing or deleting comments, discussions, and categories that don''t align with your{% ifversion fpt or ghec %} community''s code of conduct{% elsif ghes > 3.5 %} organization''s contribution guidelines{% endif %}.'
 permissions: People with triage access to a repository can moderate discussions in the repository. People with triage access to the source repository for organization discussions can moderate discussions in the organization.
 versions:
-  fpt: '*'
-  ghec: '*'
+  feature: discussions
 ---
 
 
 ## Sobre a moderação de discussões
 
-{% data reusables.discussions.about-discussions %} Se você tiver permissões de triagem para um repositório, você poderá ajudar a moderar as discussões de um repositório marcando comentários como respostas, bloqueando discussões que não são mais úteis ou que prejudicam a comunidade e convertendo os problemas em discussões quando uma ideia ainda está nos primeiros estágios de desenvolvimento. Da mesma forma, se você tem permissão de triagem para o repositório de origem para discussões na organização, é possível moderar as discussões dessa organização.
+{% data reusables.discussions.about-discussions %} If you have triage permissions for a repository, you can help moderate that repository's discussions by marking comments as answers, locking discussions that are no longer useful or are damaging to the community, and converting issues to discussions when an idea is still in the early stages of development. Da mesma forma, se você tem permissão de triagem para o repositório de origem para discussões na organização, é possível moderar as discussões dessa organização.
 
 ## Marcar um comentário como uma resposta
 

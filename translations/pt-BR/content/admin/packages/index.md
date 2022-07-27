@@ -14,6 +14,7 @@ children:
   - /enabling-github-packages-with-minio
   - /quickstart-for-configuring-your-minio-storage-bucket-for-github-packages
   - /configuring-package-ecosystem-support-for-your-enterprise
+  - /migrating-your-enterprise-to-the-container-registry-from-the-docker-registry
 shortTitle: Gerenciar o GitHub Packages
 ---
 

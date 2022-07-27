@@ -59,7 +59,7 @@ If you add an organization-wide policy with a timeout constraint, you should set
 
 {% data reusables.codespaces.codespaces-policy-targets %}
 1. Si quieres agregar otra restricción a la política, haz clic en **Agregar restricción** y elige otra de ellas. Para obtener información sobre otras restricciones, consulta las secciones "[Restringir el acceso a los tipos de máquina](/codespaces/managing-codespaces-for-your-organization/restricting-access-to-machine-types)", "[Restringir la visibilidad de los puertos reenviados](/codespaces/managing-codespaces-for-your-organization/restricting-the-visibility-of-forwarded-ports)" y "[Restringir el periodo de retención para los codespaces](/codespaces/managing-codespaces-for-your-organization/restricting-the-retention-period-for-codespaces)".
-1. After you've finished adding constraints to your policy, click **Save**.
+1. Después de que termines de agregar restricciones a tu política, haz clic en **Guardar**.
 
 The policy will be applied to all new codespaces that are created, and to existing codespaces the next time they are started.
 
@@ -73,7 +73,7 @@ You can edit an existing policy. Por ejemplo, puede que quieras agregar o elimin
 
 ## Borrar una política
 
-1. Muestra la página de "Políticas del Codespace". For more information, see "[Adding a policy to set a maximum idle timeout period](#adding-a-policy-to-set-a-maximum-idle-timeout-period)."
+1. Muestra la página de "Políticas del Codespace". Para obtener más información, consulta la sección "[Agregar una política para configurar un periodo de tiempo de inactividad máximo](#adding-a-policy-to-set-a-maximum-idle-timeout-period)".
 1. Haz clic en el botón de borrar a la derecha de la política que quieras borrar.
 
    ![El botón de borrar para una política](/assets/images/help/codespaces/policy-delete.png)

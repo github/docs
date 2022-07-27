@@ -1,6 +1,6 @@
 ---
 title: Sobre organizações
-intro: 'Organizations are shared accounts where businesses and open-source projects can collaborate across many projects at once, with sophisticated security and administrative features.'
+intro: 'As organizações são contas compartilhadas em que as empresas e projetos de código aberto podem colaborar em vários projetos de uma só vez, com funcionalidades sofisticadas de segurança e administrativas.'
 redirect_from:
   - /articles/about-organizations
   - /github/setting-up-and-managing-organizations-and-teams/about-organizations
@@ -18,20 +18,20 @@ topics:
 
 {% data reusables.organizations.about-organizations %} Para obter mais informações sobre tipos de conta, consulte "[Tipos de contas de {% data variables.product.prodname_dotcom %}](/get-started/learning-about-github/types-of-github-accounts)".
 
-You can invite an unlimited number of people to join your organization, then give these organization members a variety of roles that grant different levels of access to the organization and its data. Para obter mais informações, consulte "[Funções em uma organização](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)".
+Você pode convidar um número ilimitado de pessoas para participar da sua organização e, em seguida, dar a esses integrantes da organização uma série de funções que concedam diferentes níveis de acesso à organização e seus dados. Para obter mais informações, consulte "[Funções em uma organização](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)".
 
-In addition to managing access to the organization itself, you can separately manage access to your organization's repositories, project boards, and apps. For more information, see "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)", "[Project board permissions for an organization](/organizations/managing-access-to-your-organizations-project-boards/project-board-permissions-for-an-organization)", and "[Managing access to your organization's apps](/organizations/managing-access-to-your-organizations-apps)."
+Além de gerenciar o acesso à própria organização, é possível gerenciar separadamente o acesso aos repositórios da organização, quadros de projetos e aplicativos. Para obter mais informações, consulte "[Funções de um repositório para uma organização](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)", "[Permissões do quadro de projeto para uma organização](/organizations/managing-access-to-your-organizations-project-boards/project-board-permissions-for-an-organization)" e "[Gerenciando o acesso dos aplicativos da sua organização](/organizations/managing-access-to-your-organizations-apps)."
 
-To simplify access management and enhance collaboration, you can create nested teams that reflect your group's structure, with cascading access permissions and mentions. Para obter mais informações, consulte "[Sobre equipes](/organizations/organizing-members-into-teams/about-teams)".
+Para simplificar o gerenciamento de acesso e melhorar a colaboração, você pode criar equipes aninhadas que refletem a estrutura do seu grupo, com permissões de acesso em cascata e menções. Para obter mais informações, consulte "[Sobre equipes](/organizations/organizing-members-into-teams/about-teams)".
 
-You can configure the organization to meet the unique needs of your group by managing settings, such as restricting the types of repositories that members can create. For more information, see "[Managing organization settings](/organizations/managing-organization-settings)."
+Você pode configurar a organização para atender às necessidades exclusivas do seu grupo gerenciando as configurações como, por exemplo, restringir os tipos de repositórios que os integrantes podem criar. Para obter mais informações, consulte "[Gerenciar as configurações da organização](/organizations/managing-organization-settings)".
 
-To harden your organization's security, you can enforce security requirements and review the organization's audit log. Para obter mais informações, consulte "[Mantendo sua organização segura](/organizations/keeping-your-organization-secure)".
+Para fortalecer a segurança da sua organização, você pode aplicar os requisitos de segurança e revisar o log de auditoria da organização. Para obter mais informações, consulte "[Mantendo sua organização segura](/organizations/keeping-your-organization-secure)".
 
 {% data reusables.organizations.org-ownership-recommendation %} Para obter mais informações, consulte "[Manter a continuidade da propriedade para sua organização](/organizations/managing-peoples-access-to-your-organization-with-roles/maintaining-ownership-continuity-for-your-organization)".
 
 {% ifversion fpt or ghec %}
-## About feature availability
+## Sobre a disponibilidade de recursos
 
 {% data reusables.organizations.organization-plans %}
 {% endif %}

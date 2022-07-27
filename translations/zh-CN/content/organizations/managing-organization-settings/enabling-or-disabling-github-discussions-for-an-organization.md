@@ -3,8 +3,7 @@ title: 为组织启用或禁用 GitHub 讨论
 intro: '您可以使用组织中的 {% data variables.product.prodname_discussions %} 作为组织进行对话的位置，这些对话不特定于组织中的单个存储库。'
 permissions: 'Organization owners can enable {% data variables.product.prodname_discussions %} for their organization.'
 versions:
-  fpt: '*'
-  ghec: '*'
+  feature: discussions
 topics:
   - Organizations
 shortTitle: 组织讨论

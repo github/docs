@@ -22,6 +22,9 @@ Proprietários de organização podem gerenciar a exibição do nome de integran
 
 Cada integrante da organização escolhe o próprio nome de perfil nas configurações. Para obter mais informações, consulte "[Personalizar seu perfil](/github/setting-up-and-managing-your-github-profile/personalizing-your-profile#changing-your-profile-name)".
 
+{% ifversion profile-name-enterprise-setting %}
+You may not be able to configure this setting for your organization, if an enterprise owner has set a policy at the enterprise level. Para obter mais informações, consulte "[Aplicar políticas de gerenciamento do repositório na sua empresa](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-inviting-outside-collaborators-to-repositories)".{% endif %}
+
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.member-privileges %}

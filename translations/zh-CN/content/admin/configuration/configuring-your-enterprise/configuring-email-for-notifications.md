@@ -73,6 +73,18 @@ shortTitle: 配置电子邮件通知
 5. 当测试电子邮件成功后，在页面的底部单击 **Save settings**。 ![Save settings 按钮](/assets/images/enterprise/management-console/save-settings.png)
 {% data reusables.enterprise_site_admin_settings.wait-for-configuration-run %}
 
+{% ifversion require-tls-for-smtp %}
+## Enforcing TLS for SMTP connections
+
+You can enforce TLS encryption for all incoming SMTP connections, which can help satisfy an ISO-27017 certification requirement.
+
+{% data reusables.enterprise_site_admin_settings.email-settings %}
+1. Under "Authentication," select **Enforce TLS auth (recommended)**.
+
+   ![Screenshot of the "Enforce TLS auth (recommended)" checkbox](/assets/images/enterprise/configuration/enforce-tls-for-smtp-checkbox.png)
+{% data reusables.enterprise_management_console.save-settings %}
+{% endif %}
+
 ## 配置 DNS 和防火墙设置以允许传入的电子邮件
 
 如果您希望允许通知的电子邮件回复，则必须配置 DNS 设置。
@@ -80,7 +92,7 @@ shortTitle: 配置电子邮件通知
 1. 确保您的 SMTP 服务器可以访问实例上的端口 25。
 2. 创建一个指向 `reply.[hostname]` 的 A 记录。 根据您的 DNS 提供商和实例主机配置，您可以创建一个指向 `*.[hostname]` 的 A 记录。
 3. 创建一个指向 `reply.[hostname]` 的 MX 记录，以便发送到该域的电子邮件可以路由到实例。
-4. 创建一个将 `noreply.[hostname]` 指向 `[hostname]` 的 MX 记录，以便对通知电子邮件中 `cc` 地址的回复可以路由到实例。 更多信息请参阅{% ifversion ghes %}"[配置通知](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications){% else %}“[关于电子邮件通知](/github/receiving-notifications-about-activity-on-github/about-email-notifications){% endif %}。”
+4. 创建一个将 `noreply.[hostname]` 指向 `[hostname]` 的 MX 记录，以便对通知电子邮件中 `cc` 地址的回复可以路由到实例。 For more information, see {% ifversion ghes %}"[Configuring notifications](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications){% else %}"[About email notifications](/github/receiving-notifications-about-activity-on-github/about-email-notifications){% endif %}."
 
 ## 排查电子邮件递送问题
 

@@ -57,7 +57,7 @@ Você pode formatar o texto e incluir emoji, imagens e GIFs no README do perfil 
 
 ## Fixando repositórios no perfil da sua organização
 
-Você pode fixar repositórios que deseja destacar, como aqueles que são usados com frequência, na página de perfil da sua organização. To choose which repositories to pin to your organization's profile, you must be an organization owner.
+Você pode fixar repositórios que deseja destacar, como aqueles que são usados com frequência, na página de perfil da sua organização. Para escolher quais repositórios deseja fixar no perfil da sua organização, você deve ser proprietário da organização.
 
 1. Acesse a página de perfil da sua organização.
 2. Na barra lateral direita da página no link {% octicon "eye" aria-label="The eye octicon" %} "Visualizar como" escolha o perfil **público** ou **integrante** no menu suspenso.

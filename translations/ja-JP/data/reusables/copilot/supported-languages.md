@@ -1,1 +1,1 @@
-{% data variables.product.prodname_copilot %} provides suggestions for numerous languages and a wide variety of frameworks, but works especially well for Python, JavaScript, TypeScript, Ruby, Go, C# and C++.
+{% data variables.product.prodname_copilot %}は多くの言語と幅広いフレームワークに対して提案を行いますが、特にPython、JavaScript、TypeScript、Ruby、Go、C#、C++でうまく機能します。

@@ -60,4 +60,4 @@ Você pode excluir manualmente os seus codespaces em https://github.com/codespac
 
 ## Leia mais
 
-- "[Managing billing for {% data variables.product.prodname_github_codespaces %} in your organization](/codespaces/managing-codespaces-for-your-organization/managing-billing-for-github-codespaces-in-your-organization)"
+- "[Gerenciando a cobrança de {% data variables.product.prodname_github_codespaces %} na sua organização](/codespaces/managing-codespaces-for-your-organization/managing-billing-for-github-codespaces-in-your-organization)"
