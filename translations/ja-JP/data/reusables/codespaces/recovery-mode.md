@@ -1,1 +1,1 @@
-If changes to your dev container configuration cause a container error, your codespace will run in recovery mode, and you will see an error message.
+開発コンテナの設定の変更でコンテナエラーが生じた場合、codespaceはリカバリモードで動作し、エラーメッセージが表示されます。

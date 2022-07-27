@@ -1,1 +1,1 @@
-| Controlling how many workflow runs or jobs can run at the same time: | [`concurrency`](/actions/using-jobs/using-concurrency)|
+| Controlando quantas execuções de fluxo de trabalho ou trabalhos podem ser executados ao mesmo tempo: | [`concorrência`](/actions/using-jobs/using-concurrency)|

@@ -39,11 +39,8 @@ const interactiveAlternatives: Record<string, { href: string }> = {
       href: '/codespaces/setting-up-your-project-for-codespaces/setting-up-your-project-for-codespaces?langId=py',
     },
 }
-type Props = {
-  children?: React.ReactNode
-}
 
-export const ArticlePage = ({ children }: Props) => {
+export const ArticlePage = () => {
   const { asPath } = useRouter()
   const {
     title,
@@ -145,7 +142,7 @@ export const ArticlePage = ({ children }: Props) => {
           }
         >
           <div id="article-contents">
-            <MarkdownContent>{children || renderedPage}</MarkdownContent>
+            <MarkdownContent>{renderedPage}</MarkdownContent>
             {effectiveDate && (
               <div className="mt-4" id="effectiveDate">
                 Effective as of:{' '}

@@ -1,6 +1,6 @@
 ---
 title: 管理企业中组织的团队同步
-intro: '您可以启用身份提供程序 (IdP) 与 {% data variables.product.product_name %} 之间的团队同步，以允许企业帐户拥有的组织通过 IdP 组管理团队成员身份。'
+intro: '可以在 Azure AD 和 {% data variables.product.product_name %} 之间启用团队同步，以允许企业帐户拥有的组织通过 IdP 组管理团队成员身份。'
 permissions: Enterprise owners can manage team synchronization for an enterprise account.
 versions:
   ghec: '*'
@@ -22,7 +22,7 @@ shortTitle: 管理团队同步
 
 ## 关于企业帐户的团队同步
 
-如果使用 Azure AD 作为 IdP，您可以为企业帐户启用团队同步，以允许组织所有者和团队维护员将企业帐户拥有的组织中的团队与 IdP 组同步。
+如果在企业级别使用 SAML 并将 Azure AD 用作 IdP，则可以为企业帐户启用团队同步，以允许组织所有者和团队维护人员将企业帐户拥有的组织中的团队与 IdP 组同步。
 
 {% data reusables.identity-and-permissions.about-team-sync %}
 

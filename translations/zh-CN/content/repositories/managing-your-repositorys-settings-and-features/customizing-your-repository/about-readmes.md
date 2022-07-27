@@ -43,15 +43,11 @@ topics:
 
 ![用户名/用户名仓库上的自述文件](/assets/images/help/repository/username-repo-with-readme.png)
 
-{% ifversion fpt or ghae or ghes > 3.1 or ghec %}
-
 ## 为 README 文件自动生成的目录
 
 对于仓库中任何 Markdown 文件（包括 README 文件）的视图，{% data variables.product.product_name %} 将自动生成基于章节标题的目录。 您可以通过单击渲染页面左上侧的 {% octicon "list-unordered" aria-label="The unordered list icon" %}  菜单图标来查看 README 文件的目录。
 
 ![自动生成目录的自述文件](/assets/images/help/repository/readme-automatic-toc.png)
-
-{% endif %}
 
 ## 自述文件和 blob 页面中的章节链接
 

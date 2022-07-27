@@ -47,7 +47,7 @@ shortTitle: 关于权限
 
 例如：
 -  要从仓库下载和安装包，您的令牌必须具有 `read:packages` 作用域，并且您的用户帐户必须具有读取权限。
-- |{% ifversion fpt or ghes > 3.1 or ghec %}要删除 {% data variables.product.product_name %}上的包，你的令牌必须至少具有 `delete:packages` 和 `read:packages` 作用域。 存储库作用域的软件包也需要 `repo` 作用域。 更多信息请参阅“[删除和恢复软件包](/packages/learn-github-packages/deleting-and-restoring-a-package)”{% elsif ghae %}要删除 {% data variables.product.product_name %} 上软件包的指定版本，令牌必须具有 `delete:packages` 和 `repo` 作用域。 更多信息请参阅“[删除和恢复软件包](/packages/learn-github-packages/deleting-and-restoring-a-package)”。{% endif %}
+- |{% ifversion fpt or ghes or ghec %}要删除 {% data variables.product.product_name %}上的包，你的令牌必须至少具有 `delete:packages` 和 `read:packages` 作用域。 存储库作用域的软件包也需要 `repo` 作用域。 更多信息请参阅“[删除和恢复软件包](/packages/learn-github-packages/deleting-and-restoring-a-package)”{% elsif ghae %}要删除 {% data variables.product.product_name %} 上软件包的指定版本，令牌必须具有 `delete:packages` 和 `repo` 作用域。 更多信息请参阅“[删除和恢复软件包](/packages/learn-github-packages/deleting-and-restoring-a-package)”。{% endif %}
 | 作用域                                                                                                                                                                               | 描述                                                      | 所需权限   |
 | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------- | ------ |
 | `read:packages`                                                                                                                                                                   | 从 {% data variables.product.prodname_registry %} 下载和安装包 | 读取     |

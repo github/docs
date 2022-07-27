@@ -81,7 +81,7 @@ Para obter mais informações sobre como efetuar a autenticação em {% data var
 ### 4. Escrevendo em {% data variables.product.product_name %}
 Para deixar sua comunicação clara e organizada nos problemas e pull requests, você pode usar o Markdown enriquecido {% data variables.product.prodname_dotcom %} para formatação, que combina uma sintaxe fácil de ler e fácil de escrever com algumas funcionalidades personalizadas. Para obter mais informações, consulte "[Sobre gravação e formatação no {% data variables.product.prodname_dotcom %}](/github/writing-on-github/about-writing-and-formatting-on-github)".
 
-You can learn {% data variables.product.prodname_dotcom %} Flavored Markdown with the "[Communicate using Markdown](https://github.com/skills/communicate-using-markdown)" course on {% data variables.product.prodname_learning %}.
+Você pode aprender o Markdown enriquecido de {% data variables.product.prodname_dotcom %} com o curso "[Comunicando-se usando o Markdown](https://github.com/skills/communicate-using-markdown)" em {% data variables.product.prodname_learning %}.
 
 ### 5. Pesquisando em {% data variables.product.product_name %}
 Nossa pesquisa integrada permite que você encontre o que você está procurando entre os muitos repositórios, usuários e linhas de código em {% data variables.product.product_name %}. Você pode pesquisar globalmente em todos os {% data variables.product.product_name %} ou limitar sua pesquisa a um repositório ou organização em particular. Para obter mais informações sobre os tipos de pesquisas que você pode fazer em {% data variables.product.product_name %}, consulte "[Sobre pesquisar no {% data variables.product.prodname_dotcom %}](/github/searching-for-information-on-github/getting-started-with-searching-on-github/about-searching-on-github)".
@@ -136,7 +136,7 @@ As notificações fornecem atualizações sobre a atividade em {% data variables
 ### 8. Trabalhar com o {% data variables.product.prodname_pages %}
 Você pode usar {% data variables.product.prodname_pages %} para criar e hospedar um site diretamente a partir de um repositório em {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}. Para obter mais informações, consulte "[Sobre {% data variables.product.prodname_pages %}](/pages/getting-started-with-github-pages/about-github-pages)".
 
-{% ifversion fpt or ghec %}
+{% ifversion discussions %}
 ### 9. Usar {% data variables.product.prodname_discussions %}
 Você pode habilitar {% data variables.product.prodname_discussions %} para o repositório ajudar a criar uma comunidade em torno do seu projeto. Mantenedores, colaboradores e visitantes podem usar discussões para compartilhar anúncios, fazer e responder a perguntas e participar de conversas sobre objetivos. Para obter mais informações, consulte "[Sobre discussões](/discussions/collaborating-with-your-community-using-discussions/about-discussions)".
 {% endif %}

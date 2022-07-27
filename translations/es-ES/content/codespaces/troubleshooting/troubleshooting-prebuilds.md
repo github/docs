@@ -12,8 +12,6 @@ product: '{% data reusables.gated-features.codespaces %}'
 miniTocMaxHeadingLevel: 3
 ---
 
-{% data reusables.codespaces.prebuilds-beta-note %}
-
 Para obtener más información sobre las precompilaciones de los {% data variables.product.prodname_codespaces %}, consulta la sección "[Precompilar tus codespaces](/codespaces/prebuilding-your-codespaces)".
 
 ## Verificar si un codespace se creó desde una precompilación
@@ -26,7 +24,7 @@ So configuraste las preferencias de tu editor de {% data variables.product.prodn
 
 ![El mensaje de 'se encontró un codespace precompilado'](/assets/images/help/codespaces/prebuilt-codespace-found.png)
 
-Del mismo modo, si tu preferencia de editor es "{% data variables.product.prodname_vscode_shortname %}", entonces la terminal integrada contendrá el mensaje "Estás en un codespace precompilado que definió la configuración de precompilación de tu repositorio" cuando crees un codespace nuevo. Para obtener más información, consulta la sección "[Configurar tu editor predeterminado para Codespaces](/codespaces/customizing-your-codespace/setting-your-default-editor-for-codespaces)".
+Del mismo modo, si tu preferencia de editor es "{% data variables.product.prodname_vscode_shortname %}", entonces la terminal integrada contendrá el mensaje "Estás en un codespace precompilado que definió la configuración de precompilación de tu repositorio" cuando crees un codespace nuevo. Para obtener más información, consulta la sección "[Configurar tu editor predeterminado para {% data variables.product.prodname_github_codespaces %}](/codespaces/customizing-your-codespace/setting-your-default-editor-for-github-codespaces)".
 
 Después de que hayas creado un codespace, puedes verificar si se creó desde una precompilación que ejecutó el siguiente comando del {% data variables.product.prodname_cli %} en la terminal:
 

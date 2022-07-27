@@ -1,0 +1,33 @@
+---
+date: '2022-06-09'
+sections:
+  security_fixes:
+    - Os pacotes foram atualizados para as últimas versões de segurança.
+  bugs:
+    - Um script interno para validar nomes de host no arquivo de configuração {% data variables.product.prodname_ghe_server %} retornaria um erro se a string do nome de host iniciasse com um "." (caractere de ponto final).
+    - Em configurações HA,, em que o nome de host do nó primário era maior que 60 caracteres, o MySQL falharia na configuração.
+    - Quando {% data variables.product.prodname_actions %} foi habilitado, mas TLS foi desabilitado em {% data variables.product.prodname_ghe_server %} 3.4.1 e posterior, a aplicação de uma atualização de configuração falharia.
+    - O argumento "--gateway" foi adicionado ao comando "ghe-setup-network", para permitir passar o endereço de gateway ao definir as configurações da rede usando a linha de comando.
+    - 'Os pontos de extrmidade da [API de cobrança de {% data variables.product.prodname_GH_advanced_security %} API](/rest/enterprise-admin/billing#get-github-advanced-security-active-committers-for-an-enterprise) não estavam habilitados e não eram acessíveis.'
+    - Os anexos de imagem que foram excluídos retornariam um `500 Internal Server Error` em vez de `404 Not Found`.
+    - Em ambientes configurados com um servidor de cache de repositório, o comando `ghe-repl-status` mostrou incorretamente o gist como sendo sub-replicado.
+    - Os pontos de confirmação "Obter um commit" e "Comparar dois commits" na [API de commit](/rest/commits/commits) retornariam um erro `500` se um caminho de arquivo no diff contivesse um caractere unicode codificado e escapado.
+    - O cálculo de "máximo de committers em toda a instância" relatado no painel de administração do site estava incorreto.
+    - Uma entrada de banco de dados incorreta para réplicas do repositório causou erros de banco de dados ao executar uma restauração usando {% data variables.product.prodname_enterprise_backup_utilities %}.
+    - 'Um {% data variables.product.prodname_github_app %} não poderia assinar o evento [`secret_scanning_alert_location`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#secret_scanning_alert_location) em uma instalação.'
+    - A linha do tempo de atividade para alertas de digitalização de segredo não foi exibida.
+    - Os repositórios excluídos não foram removidos após 90 dias.
+  changes:
+    - Otimizou a inclusão de métricas ao gerar um pacote de suporte para cluster.
+    - Nas configurações AH em que Elasticsearch relatou um status amarelo válido, as alterações introduzidas em uma correção anterior bloqueariam o comando `ghe-repl-stop` e não permitiriam que a replicação fosse interrompida. Usando `ghe-repo-stop --force` agora forçará o Elasticsearch a parar quando o serviço estiver em um status amarelo normal ou válido.
+  known_issues:
+    - Em uma instância de {% data variables.product.prodname_ghe_server %} recém-configurada sem usuários, um invasor pode criar o primeiro usuário administrador.
+    - As regras de firewall personalizadas são removidas durante o processo de atualização.
+    - Arquivos LFS do Git [enviados através da interface web](https://github.com/blog/2105-upload-files-to-your-repositories) são adicionados diretamente ao repositório e de forma incorreta.
+    - Os problemas não podem ser fechados se contiverem um permalink para um blob no mesmo repositório, onde o caminho do arquivo blob's é maior que 255 caracteres.
+    - Quando "Usuários podem pesquisar pelo GitHub.com" está habilitado com o GitHub Connect, os problemas em repositórios privados e internos não estão incluídos nos resultados de pesquisa do GitHub.com.
+    - O registro npm de {% data variables.product.prodname_registry %} não retorna mais o valor de tempo em respostas de metadados. Isso foi feito para permitir melhorias substanciais de desempenho. Continuamos a ter todos os dados necessários para devolver um valor de tempo como parte da resposta aos metadados e retomaremos o retorno desse valor no futuro, assim que tivermos resolvido os problemas de desempenho existentes.
+    - Os limites de recursos que são específicos para processamento de hooks pre-receive podem causar falha em alguns hooks pre-receive.
+    - Os serviços de ações precisam ser reiniciados após a restauração de um dispositivo de um backup em um host diferente.
+    - 'Os repositórios excluídos não serão removidos do disco automaticamente após o período de retenção de 90 dias. Esse problema é resolvido na versão 3.5.1. [Atualizado: 2022-06-10]'
+    - 'O Console de Gerenciamento pode aparecer preso na tela de _Starting_ depois de atualizar uma instância subprovisionada para o GitHub Enterprise Server 3.5. [Atualizado: 2022-06-20]'

@@ -1,0 +1,5 @@
+# Issue 7302
+# ProjectV2 GraphQL API
+versions:
+  fpt: '*'
+  ghec: '*'

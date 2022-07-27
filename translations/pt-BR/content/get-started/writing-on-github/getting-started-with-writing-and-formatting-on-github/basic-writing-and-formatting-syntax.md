@@ -63,7 +63,7 @@ Texto que não é uma citação
 
 ## Citar código
 
-Você pode chamar código ou um comando em uma frase com aspas simples. O texto entre aspas simples não será formatado.{% ifversion fpt or ghae or ghes > 3.1 or ghec %} Além disso, você pode pressionar o atalho no teclado <kbd>Command</kbd>+<kbd>E</kbd> (Mac) ou <kbd>Ctrl</kbd>+<kbd>E</kbd> (Windows/Linux) para inserir as aspas simples para bloqueio de código dentro de uma linha do markdown.{% endif %}
+Você pode chamar código ou um comando em uma frase com aspas simples. O texto entre as aspas não será formatado. Você também pode pressionar o atalho do teclado <kbd>Command</kbd>+<kbd>E</kbd> (Mac) ou <kbd>Ctrl</kbd>+<kbd>E</kbd> (Windows/Linux) para inserir as barras inversas para um bloco de código em uma linha de Markdown.
 
 ```markdown
 Use 'git status' para listar todos os arquivos novos ou modificados que ainda não receberam commit.
@@ -88,9 +88,36 @@ Para obter mais informações, consulte "[Criar e destacar blocos de código](/a
 
 {% data reusables.user-settings.enabling-fixed-width-fonts %}
 
+## Modelos de cor compatíveis
+
+Em problemas, pull requests e discussões, você pode invocar as cores dentro de uma frase usando barra inversa. Um modelo de cores compatível entre barras inversas exibirá uma visualização da cor.
+
+```markdown
+A cor de fundo deve ser `#ffffff` para o modo claro e `#0d1117` para o modo escuro.
+```
+
+![Modelo de cor compatível por renderização.](/assets/images/help/writing/supported-color-models-rendered.png)
+
+Aqui estão os modelos de cores atualmente compatíveis.
+
+| Cor | Sintaxe                   | Exemplo                   | Resultado                                                                                                                             |
+| --- | ------------------------- | ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
+| HEX | <code>\`#RRGGBB\`</code> | <code>\`#0969DA\`</code> | ![Modelo de cor compartível e interpretado no formato HEX.](/assets/images/help/writing/supported-color-models-hex-rendered.png)      |
+| RGB | <code>\`rgb(R,G,B)\`</code> | <code>\`rgb(9, 105, 218)\`</code> | ![Modelo de cor RGB compatível fornecido no formato RGB.](/assets/images/help/writing/supported-color-models-rgb-rendered.png)        |
+| HSL | <code>\`hsl(H,S,L)\`</code> | <code>\`hsl(212, 92%, 45%)\`</code> | ![Modelo de cor com compativilidade renderizado no formato HSL.](/assets/images/help/writing/supported-color-models-hsl-rendered.png) |
+
+{% note %}
+
+**Notas:**
+
+- Um modelo de cor compatível não pode ter espaços à esquerda ou à direita entre as barras inversas.
+- A visualização da cor só é compatível em issues, pull requests e discussões.
+
+{% endnote %}
+
 ## Links
 
-Você pode criar um link inline colocando o texto do link entre colchetes `[ ]` e, em seguida, o URL entre parênteses `( )`. {% ifversion fpt or ghae or ghes > 3.1 or ghec %}Você também pode usar o atalho de teclado <kbd>Command</kbd>+<kbd>K</kbd> para criar um link.{% endif %}{% ifversion fpt or ghae-issue-5434 or ghes > 3.3 or ghec %} Quando você tiver selecionado texto, você poderá colar um URL da sua área de transferência para criar automaticamente um link a partir da seleção.{% endif %}
+Você pode criar um link inline colocando o texto do link entre colchetes `[ ]` e, em seguida, o URL entre parênteses `( )`. Você também pode usar o atalho de teclado <kbd>Command</kbd>+<kbd>K</kbd> para criar um link.{% ifversion fpt or ghae-issue-5434 or ghes > 3.3 or ghec %} Ao selecionar o texto, você poderá colar uma URL da sua área de transferência para criar automaticamente um link a partir da seleção.{% endif %}
 
 {% ifversion fpt or ghae-issue-7103 or ghes > 3.5 or ghec %} Você também pode criar um hiperlink de Markdown destacando o texto e usando o atalho de teclado <kbd>Command</kbd>+<kbd>V</kbd>. Se você deseja substituir o texto pelo link, use o atalho de teclado <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>V</kbd>.{% endif %}
 
@@ -200,7 +227,7 @@ Para criar uma lista aninhada usando o editor web do {% data variables.product.p
 
 {% tip %}
 
-**Note**: In the web-based editor, you can indent or dedent one or more lines of text by first highlighting the desired lines and then using <kbd>Tab</kbd> or <kbd>Shift</kbd>+<kbd>Tab</kbd> respectively.
+**Nota**: No editor baseado na web, você pode colocar ou retirar uma ou mais linhas de texto primeiro destacando as linhas desejadas e, em seguida, usar <kbd>Tab</kbd> ou <kbd>Shift</kbd>+<kbd>Aba</kbd> respectivamente.
 
 {% endtip %}
 

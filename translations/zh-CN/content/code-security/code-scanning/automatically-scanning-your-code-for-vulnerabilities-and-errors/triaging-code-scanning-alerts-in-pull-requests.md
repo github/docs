@@ -58,12 +58,11 @@ topics:
 
 ### {% data variables.product.prodname_code_scanning_capc %} 结果检查失败
 
-如果 {% data variables.product.prodname_code_scanning %} 结果检查发现严重性为`错误`{% ifversion fpt or ghes > 3.1  or ghae or ghec %}、`严重`或`高`的问题，{% endif %} 检查将失败并在检查结果中报告错误。 如果 {% data variables.product.prodname_code_scanning %} 发现的所有结果的严重性都较低，则警报将被视为警告或通知，检查成功。
+如果 {% data variables.product.prodname_code_scanning %} 结果检查发现严重性为`错误`、`严重`或`高`的问题， 检查将失败并在检查结果中报告错误。 如果 {% data variables.product.prodname_code_scanning %} 发现的所有结果的严重性都较低，则警报将被视为警告或通知，检查成功。
 
 ![拉取请求上失败的 {% data variables.product.prodname_code_scanning %} 检查](/assets/images/help/repository/code-scanning-check-failure.png)
 
-{% ifversion fpt or ghes > 3.1 or ghae or ghec %}您可以通过指定会导致拉取请求检查失败的严重程度{% ifversion fpt or ghes > 3.1  or ghae or ghec %}和安全严重性{% endif %}来覆盖仓库设置中的默认行为。 更多信息请参阅“[定义导致拉取请求检查失败的严重程度](/code-security/secure-coding/configuring-code-scanning#defining-the-severities-causing-pull-request-check-failure)”。
-{% endif %}
+您可以通过指定会导致拉取请求检查失败的严重程度和安全严重程度来覆盖仓库设置中的默认行为。 更多信息请参阅“[定义导致拉取请求检查失败的严重程度](/code-security/secure-coding/configuring-code-scanning#defining-the-severities-causing-pull-request-check-failure)”。
 
 ### 其他 {% data variables.product.prodname_code_scanning %} 检查
 

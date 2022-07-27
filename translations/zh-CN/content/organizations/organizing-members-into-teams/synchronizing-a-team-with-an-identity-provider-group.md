@@ -1,6 +1,6 @@
 ---
 title: 将团队与身份提供程序组同步
-intro: '您可以将 {% data variables.product.product_name %} 团队与身份提供程序 (IdP) 组同步，以自动添加和删除团队成员。'
+intro: '您可以将 {% data variables.product.product_name %} 团队与支持的身份提供程序 (IdP) 组同步，以自动添加和删除团队成员。'
 redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/synchronizing-a-team-with-an-identity-provider-group
 permissions: 'Organization owners and team maintainers can synchronize a {% data variables.product.prodname_dotcom %} team with an IdP group.'

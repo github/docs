@@ -26,7 +26,9 @@ Os fluxos de trabalho que seriam acionados usando `on: push` ou `on: pull_reques
 * `[skip actions]`
 * `[actions skip]`
 
-Como alternativa, você pode terminar a mensagem de commit com duas linhas vazias seguidas de `skip-checks: true` ou `skip-checks:true`.
+Como alternativa, você pode terminar a mensagem do commit com duas linhas vazias seguidas por:
+- `skip-checks:true`
+- `skip-checks: true`
 
 Você não conseguirá fazer o merge do pull request se o repositório estiver configurado para exigir verificações específicas para passar primeiro. Para permitir que o merge do pull request, você pode fazer o push de um novo commit no pull request sem que a instrução seja ignorada na mensagem do commit.
 

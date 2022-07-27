@@ -1,6 +1,6 @@
 ---
 title: Announcement
-intro: 'The Announcement API allows you to manage the global announcement banner in your enterprise.'
+intro: The Announcement API allows you to manage the global announcement banner in your enterprise.
 versions:
   ghes: '*'
   ghae: '*'

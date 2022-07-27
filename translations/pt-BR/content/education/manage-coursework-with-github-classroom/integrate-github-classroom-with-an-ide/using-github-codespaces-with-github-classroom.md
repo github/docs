@@ -8,7 +8,7 @@ versions:
 permissions: 'Organization owners who are admins for a classroom can enable {% data variables.product.prodname_github_codespaces %} for their organization and integrate {% data variables.product.prodname_github_codespaces %} as the supported editor for an assignment. {% data reusables.classroom.classroom-admins-link %}'
 ---
 
-## Sobre o {% data variables.product.prodname_codespaces %}
+## Sobre {% data variables.product.prodname_github_codespaces %}
 
 {% data variables.product.prodname_github_codespaces %} é um ambiente de desenvolvimento instantâneo e baseado na nuvem que usa um recipiente para fornecer linguagens, ferramentas e utilitários de desenvolvimento comuns. {% data variables.product.prodname_codespaces %} também pode ser configurado, o que permite que você crie um ambiente de desenvolvimento personalizado que é o mesmo para todos os usuários do seu projeto. Para obter mais informações, consulte "[Visão geral de {% data variables.product.prodname_github_codespaces %}](/codespaces/overview)".
 
@@ -18,6 +18,12 @@ Definir {% data variables.product.prodname_codespaces %} como editor preferido p
 
 Para atividades com ambientes de configuração complexos, os professores podem personalizar a configuração do contêiner de desenvolvimento para os codespaces de um repositório. Isto garante que, quando um aluno cria um codespace, ele será aberto automaticamente com o ambiente de desenvolvimento configurado pelo professor. Para obter mais informações sobre contêineres de desenvolvimento, consulte "[Introdução a contêineres de desenvolvimento](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers)".
 
+{% note %}
+
+**Observação**: Os codespaces individuais são excluídos automaticamente se forem interrompidos e deixados sem serem utilizados por um período prolongado. Para obter mais informações, consulte[Configurando a exclusão automática dos seus codespaces](/codespaces/customizing-your-codespace/configuring-automatic-deletion-of-your-codespaces)".
+
+{% endnote %}
+
 ## Sobre o benefício de educação de {% data variables.product.prodname_codespaces %} para professores verificados
 
 O benefício da educação de {% data variables.product.prodname_codespaces %} dá aos professores verificados um subsídio mensal gratuito de horas de {% data variables.product.prodname_codespaces %} para ser usado em {% data variables.product.prodname_classroom %}. Estima-se que o subsídio gratuito seja suficiente para uma classe de 50 com 5 atribuições por mês. em uma máquina central com 1 codespace armazenado por aluno.
@@ -26,11 +32,11 @@ O benefício da educação de {% data variables.product.prodname_codespaces %} d
 
 Para tornar-se um professor verificado, você precisa ser aprovado para obter um benefício de educador para o professor. Para obter mais informações, consulte "[Candidatando-se a um benefício de professor ou educador](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-in-your-classroom-and-research/apply-for-an-educator-or-researcher-discount#applying-for-an-educator-or-researcher-discount)."
 
-Depois de ter confirmado que você é um professor verificado, acesse [Campus global](https://education.github.com/globalcampus/teacher) para que os professores atualizem a organização para a equipe do GitHub. Para obter mais informações, consulte [Produtos do GitHub](/get-started/learning-about-github/githubs-products#github-team).
+Depois de ter a confirmação de que é um professor verificado, acesse [{% data variables.product.prodname_global_campus %} para professores](https://education.github.com/globalcampus/teacher) para atualizar a organização para o GitHub Team. Para obter mais informações, consulte [Produtos do GitHub](/get-started/learning-about-github/githubs-products#github-team).
 
 Se você for elegível ao benefício de Educação de {% data variables.product.prodname_codespaces %}, ao habilitar {% data variables.product.prodname_codespaces %} em {% data variables.product.prodname_classroom %} para sua organização, o GitHub adiciona automaticamente uma política de codespace para restringir os tipos de máquina para todos os codespaces da organização a duas máquinas principais. Isso ajuda você a aproveitar ao máximo o uso gratuito de {% data variables.product.prodname_codespaces %}. No entanto, você pode alterar ou remover essas políticas nas configurações da sua organização. Para obter mais informações, consulte "[Restringindo o acesso aos tipos de máquina](/codespaces/managing-codespaces-for-your-organization/restricting-access-to-machine-types)."
 
-Quando o benefício da educação de {% data variables.product.prodname_codespaces %} sai do beta, se sua organização exceder o limite de uso gratuito de {% data variables.product.prodname_codespaces %}, a sua organização será cobrada por uso adicional. Para obter mais informações, consulte "[Sobre a cobrança do {% data variables.product.prodname_codespaces %}](/billing/managing-billing-for-github-codespaces/about-billing-for-codespaces#about-billing-for-codespaces)".
+Quando o benefício da educação de {% data variables.product.prodname_codespaces %} sai do beta, se sua organização exceder o limite de uso gratuito de {% data variables.product.prodname_codespaces %}, a sua organização será cobrada por uso adicional. Para obter mais informações, consulte "[Sobre a cobrança do {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#about-billing-for-codespaces)".
 
 ## Habilitando {% data variables.product.prodname_codespaces %} para a sua organização
 

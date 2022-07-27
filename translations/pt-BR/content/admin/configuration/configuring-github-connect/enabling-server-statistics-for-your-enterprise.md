@@ -10,13 +10,11 @@ topics:
 shortTitle: Estatísticas do servidor
 ---
 
-{% data reusables.server-statistics.release-phase %}
-
 ## Sobre {% data variables.product.prodname_server_statistics %}
 
 {% data variables.product.prodname_server_statistics %} coleta os dados de uso agregados de {% data variables.product.product_location %}, os quais você pode usar para prever melhor as necessidades da sua organização, entender como a sua equipe funciona e mostrar o valor que você obtém de {% data variables.product.prodname_ghe_server %}.
 
-{% data variables.product.prodname_server_statistics %} coleta apenas certas métricas agregadas em repositórios, problemas, pull requests e outras funcionalidades.{% data variables.product.prodname_dotcom %} conteúdo, como código, problemas, comentários ou conteúdo do pull request, não é coletado. Para obter mais informações, consulte "[Sobre {% data variables.product.prodname_server_statistics %}](/admin/monitoring-activity-in-your-enterprise/analyzing-how-your-team-works-with-server-statistics/about-server-statistics)."
+{% data variables.product.prodname_server_statistics %} coleta apenas certas métricas agregadas em repositórios, problemas, pull requests e outras funcionalidades.{% data variables.product.prodname_dotcom %} conteúdo, como código, problemas, comentários ou conteúdo do pull request, não é coletado. Para obter mais informações, consulte "[Sobre {% data variables.product.prodname_server_statistics %}](/admin/monitoring-activity-in-your-enterprise/analyzing-how-your-team-works-with-server-statistics/about-server-statistics)".
 
 Ao habilitar, {% data variables.product.prodname_server_statistics %}, você também está ajudando a melhorar {% data variables.product.company_short %}. Os dados agregados que você fornecerá nos ajuda a entender como nossos clientes estão usando {% data variables.product.prodname_dotcom %} e a tomar decisões melhores e mais informadas sobre o produto, o que beneficia você.
 

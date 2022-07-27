@@ -1,8 +1,8 @@
-Use `jobs.<job_id>.strategy.matrix.include` to expand existing matrix configurations or to add new configurations. The value of `include` is a list of objects.
+使用 `jobs.<job_id>.strategy.matrix.include` 扩展现有矩阵配置或添加新配置。 `include` 的值是对象的列表。
 
-For each object in the `include` list, the key:value pairs in the object will be added to each of the matrix combinations if none of the key:value pairs overwrite any of the original matrix values. If the object cannot be added to any of the matrix combinations, a new matrix combination will be created instead. Note that the original matrix values will not be overwritten, but added matrix values can be overwritten.
+对于 `include` 列表中的每个对象，如果没有键:值对覆盖任何原始矩阵值，则该对象中的键:值对将添加到每个矩阵组合中。 如果无法将对象添加到任何矩阵组合中，则将改为创建新的矩阵组合。 请注意，原始矩阵值不会被覆盖，但添加的矩阵值可能会被覆盖。
 
-For example, this matrix:
+例如，此矩阵：
 
 ```yaml
 strategy:
@@ -20,7 +20,7 @@ strategy:
         animal: cat
 ```
 
-will result in six jobs with the following matrix combinations:
+将产生六个具有以下矩阵组合的作业：
 
 - `{fruit: apple, animal: cat, color: pink, shape: circle}`
 - `{fruit: apple, animal: dog, color: green, shape: circle}`
@@ -29,10 +29,10 @@ will result in six jobs with the following matrix combinations:
 - `{fruit: banana}`
 - `{fruit: banana, animal: cat}`
 
-following this logic:
+遵循以下逻辑：
 
-- `{color: green}` is added to all of the original matrix combinations because it can be added without overwriting any part of the original combinations.
-- `{color: pink, animal: cat}` adds `color:pink` only to the original matrix combinations that include `animal: cat`. This overwrites the `color: green` that was added by the previous `include` entry.
-- `{fruit: apple, shape: circle}` adds `shape: circle` only to the original matrix combinations that include `fruit: apple`.
-- `{fruit: banana}` cannot be added to any original matrix combination without overwriting a value, so it is added as an additional matrix combination.
-- `{fruit: banana, animal: cat}` cannot be added to any original matrix combination without overwriting a value, so it is added as an additional matrix combination. It does not add to the `{fruit: banana}` matrix combination because that combination was not one of the original matrix combinations.
+- `{color: green}` 将添加到所有原始矩阵组合中，因为它可以在不覆盖原始组合的任何部分的情况下添加。
+- `{color: pink, animal: cat}` 仅将 `color:pink` 添加到包含 `animal: cat` 的原始矩阵组合中。 这将覆盖由上一个 `include` 条目添加的 `color: green`。
+- `{fruit: apple, shape: circle}` 仅将 `shape: circle` 仅添加到包含 `fruit: apple` 的原始矩阵组合。
+- `{fruit: banana}` 不能在不覆盖值的情况下添加到任何原始矩阵组合中，因此将其添加为附加矩阵组合。
+- `{fruit: banana, animal: cat}` 不能在不覆盖值的情况下添加到任何原始矩阵组合中，因此将其添加为附加矩阵组合。 它不会添加到 `{fruit: banana}` 矩阵组合中，因为该组合不是原始矩阵组合之一。

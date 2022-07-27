@@ -1,0 +1,119 @@
+name: Sync search Elasticsearch
+
+# **What it does**: It scrapes the whole site and dumps the records in a
+#                   temp directory. Then it indexes that into Elasticsearch.
+# **Why we have it**: We want our search indexes kept up to date.
+# **Who does it impact**: Anyone using search on docs.
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '23 */4 * * *' # Run every 4 hours at 23 minutes past the hour
+
+permissions:
+  contents: read
+
+env:
+  FREEZE: ${{ secrets.FREEZE }}
+  ELASTICSEARCH_URL: ${{ secrets.ELASTICSEARCH_URL }}
+
+jobs:
+  updateElasticsearchIndexes:
+    name: Update indexes
+    if: ${{ github.repository == 'github/docs-internal' }}
+    runs-on: ubuntu-20.04-xl
+    strategy:
+      fail-fast: false
+      matrix:
+        # This needs to match the languages we support
+        language: [en, ja, es, pt, cn]
+    steps:
+      - if: ${{ env.FREEZE == 'true' }}
+        run: |
+          echo 'The repo is currently frozen! Exiting this workflow.'
+          exit 1 # prevents further steps from running
+
+      - name: Check out repo
+        uses: actions/checkout@dcd71f646680f2efd8db4afa5ad64fdcba30e748
+
+      # TEMPORARY UNTIL WE HAVE A PRODUCTION ELASTICSEARCH
+      - uses: getong/elasticsearch-action@95b501ab0c83dee0aac7c39b7cea3723bef14954
+        with:
+          elasticsearch version: '7.17.5'
+          host port: 9200
+          container port: 9200
+          host node port: 9300
+          node port: 9300
+          discovery type: 'single-node'
+      # END TEMPORARY
+
+      - name: Setup Node
+        uses: actions/setup-node@17f8bd926464a1afa4c6a11669539e9c1ba77048
+        with:
+          node-version: '16.15.0'
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Cache nextjs build
+        uses: actions/cache@48af2dc4a9e8278b89d7fa154b955c30c6aaab09
+        with:
+          path: .next/cache
+          key: ${{ runner.os }}-nextjs-${{ hashFiles('package*.json') }}
+
+      - name: Run build scripts
+        run: npm run build
+
+      - name: Start the server in the background
+        env:
+          ENABLE_DEV_LOGGING: false
+        run: |
+          npm run sync-search-server > /tmp/stdout.log 2> /tmp/stderr.log &
+
+          # first sleep to give it a chance to start
+          sleep 6
+          curl --retry-connrefused --retry 4 -I http://localhost:4002/
+
+      - if: ${{ failure() }}
+        name: Debug server outputs on errors
+        run: |
+          echo "____STDOUT____"
+          cat /tmp/stdout.log
+          echo "____STDERR____"
+          cat /tmp/stderr.log
+
+      - name: Scrape records into a temp directory
+        env:
+          # If a reusable, or anything in the `data/*` directory is deleted
+          # you might get a
+          #
+          #   RenderError: Can't find the key 'site.data.reusables...' in the scope
+          #
+          # But that'll get fixed in the next translation pipeline. For now,
+          # let's just accept an empty string instead.
+          THROW_ON_EMPTY: false
+
+        run: |
+          mkdir /tmp/records
+          npm run sync-search-indices -- \
+            -l ${{ matrix.language }} \
+            -o /tmp/records \
+            --no-compression --no-lunr-index
+
+          ls -lh /tmp/records
+
+      - name: Check that Elasticsearch is accessible
+        run: |
+          curl --fail --retry-connrefused --retry 5 -I ${{ env.ELASTICSEARCH_URL }}
+
+      - name: Index into Elasticsearch
+        run: |
+          ./script/search/index-elasticsearch.js \
+            --language ${{ matrix.language }} \
+            --source-directory /tmp/records
+
+      - name: Check created indexes and aliases
+        run: |
+          curl --fail --retry-connrefused --retry 5 ${{ env.ELASTICSEARCH_URL }}/_cat/indices?v
+          curl --fail --retry-connrefused --retry 5 ${{ env.ELASTICSEARCH_URL }}/_cat/indices?v

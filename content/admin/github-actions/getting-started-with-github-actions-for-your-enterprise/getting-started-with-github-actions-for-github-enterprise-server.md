@@ -33,16 +33,7 @@ This article explains how site administrators can configure {% data variables.pr
 
 ## Review hardware requirements
 
-
-{%- ifversion ghes < 3.2 %}
-
-The CPU and memory resources available to {% data variables.product.product_location %} determine the maximum job throughput for {% data variables.product.prodname_actions %}. {% data reusables.actions.minimum-hardware %}
-
-Internal testing at {% data variables.product.company_short %} demonstrated the following maximum throughput for {% data variables.product.prodname_ghe_server %} instances with a range of CPU and memory configurations. You may see different throughput depending on the overall levels of activity on your instance.
-
-{%- endif %}
-
-{%- ifversion ghes > 3.1 %}
+{%- ifversion ghes %}
 
 The CPU and memory resources available to {% data variables.product.product_location %} determine the number of jobs that can be run concurrently without performance loss. {% data reusables.actions.minimum-hardware %}
 
@@ -50,11 +41,6 @@ The peak quantity of concurrent jobs running without performance loss depends on
 
 {% endif %}
 
-{%- ifversion ghes < 3.2 %}
-
-{% data reusables.actions.hardware-requirements-before %}
-
-{%- endif %}
 
 {%- ifversion ghes = 3.2 %}
 

@@ -43,8 +43,7 @@ topics:
 对于每个分支保护规则，您可以选择启用或禁用以下设置。
 - [合并前必需拉取请求审查](#require-pull-request-reviews-before-merging)
 - [合并前必需状态检查](#require-status-checks-before-merging)
-{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
-- [Require conversation resolution before merging（在合并前需要对话解决）](#require-conversation-resolution-before-merging){% endif %}
+- [合并前需要对话解决](#require-conversation-resolution-before-merging)
 - [要求签名提交](#require-signed-commits)
 - [需要线性历史记录](#require-linear-history)
 {% ifversion fpt or ghec %}
@@ -103,11 +102,9 @@ remote: error: Changes have been requested.
 
 有关故障排除信息，请参阅“[必需状态检查故障排除](/github/administering-a-repository/troubleshooting-required-status-checks)”。
 
-{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
 ### 合并前需要对话解决
 
 在合并到受保护的分支之前，所有对拉取请求的评论都需要解决。 这确保所有评论在合并前都得到解决或确认。
-{% endif %}
 
 ### 要求签名提交
 
@@ -186,7 +183,7 @@ remote: error: Changes have been requested.
 
 启用强制推送不会覆盖任何其他分支保护规则。 例如，如果分支需要线性提交历史记录，则无法强制推送合并提交到该分支。
 
-{% ifversion ghes or ghae %}如果站点管理员阻止了强制推送到仓库中的所有分支，则无法对受保护分支启用强制推送。 更多信息请参阅“[阻止强制推送到个人帐户或组织拥有的仓库](/enterprise/{{ currentVersion }}/admin/developer-workflow/blocking-force-pushes-to-repositories-owned-by-a-user-account-or-organization)”。
+{% ifversion ghes or ghae %}如果站点管理员阻止了强制推送到仓库中的所有分支，则无法对受保护分支启用强制推送。 更多信息请参阅“[阻止强制推送到个人帐户或组织拥有的仓库](/enterprise/admin/developer-workflow/blocking-force-pushes-to-repositories-owned-by-a-user-account-or-organization)”。
 
 如果站点管理员只阻止强制推送到默认分支，您仍然可以为任何其他受保护分支启用强制推送。{% endif %}
 

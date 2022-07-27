@@ -20,7 +20,7 @@ export const PlaygroundArticle = () => {
       {/* article header */}
       <div className="border-bottom py-5">
         <h1>{article.title}</h1>
-        <h2 className="h3 my-3 text-normal text-gray border-bottom-0">
+        <h2 className="h3 my-3 text-normal text-gray border-bottom-0" data-search="lead">
           <ArticleMarkdown className="markdown-body">{article.intro}</ArticleMarkdown>
         </h2>
 

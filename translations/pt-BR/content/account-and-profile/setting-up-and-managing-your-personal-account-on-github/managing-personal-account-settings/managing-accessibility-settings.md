@@ -1,21 +1,50 @@
 ---
 title: Gerenciando configurações de acessibilidade
-intro: 'Você pode desabilitar os principais atalhos em {% data variables.product.prodname_dotcom %} nas suas configurações de acessibilidade.'
+shortTitle: Manage accessibility settings
+intro: '{% data variables.product.product_name %}''s user interface can adapt to your vision, hearing, motor, cognitive, or learning needs.'
 versions:
   feature: keyboard-shortcut-accessibility-setting
 redirect_from:
   - /account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/managing-accessibility-settings
+type: how_to
+miniTocMaxHeadingLevel: 3
 ---
 
 ## Sobre as configurações de acessibilidade
 
-{% data variables.product.product_name %} inclui uma variedade de atalhos de teclado para que você possa executar as ações no site sem usar seu mouse para navegar. Embora os atalhos sejam úteis para economizar tempo, às vezes eles podem fazer com que {% data variables.product.prodname_dotcom %} seja mais difícil de usar e menos acessível.
+To accommodate your vision, hearing, motor, cognitive, or learning needs, you can customize the user interface for {% data variables.product.product_location %}.
 
-Todos os atalhos do teclado estão habilitados por padrão em {% data variables.product.product_name %}, mas você pode escolher desabilitar os atalhos dos botões de caractere nas suas configurações de acessibilidade. Essa configuração não afeta os atalhos do teclado fornecidos pelo seu navegador da web ou os atalhos de {% data variables.product.prodname_dotcom %} que usam uma tecla modificadora, como <kbd>Control</kbd> ou <kbd>Command</kbd>.
+## Gerenciando configurações de acessibilidade
 
-## Gerenciamento de atalhos de chave de caracteres
+You can decide whether you want to use some or all keyboard shortcuts on {% ifversion fpt or ghec %}{% data variables.product.product_location %}{% elsif ghes or ghae %}the website for {% data variables.product.product_location %}{% endif %}, and you can control the display of animated images.
+
+### Managing keyboard shortcuts
+
+You can perform actions across the {% data variables.product.product_name %} website without using your mouse by using your keyboard instead. Keyboard shortcuts can be useful to save time for some people, but may interfere with accessibility if you don't intend to use the shortcuts.
+
+By default, all keyboard shortcuts are enabled on {% data variables.product.product_name %}. Para obter mais informações, consulte "[Atalhos de teclado](/get-started/using-github/keyboard-shortcuts)".
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.accessibility_settings %}
-1. Selecione ou desmarque a caixa de seleção **Habilitar a opção de atalhos das teclas de caracteres**. ![Captura de tela da caixa de seleção 'Habilitar atalhos de teclas de caracteres'](/assets/images/help/settings/disable-character-key-shortcuts.png)
-2. Clique em **Salvar**.
+1. Under "Keyboard shortcuts", manage settings for your keyboard shortcuts.
+
+   - Optionally, to disable or enable shortcut keys that don't use modifiers keys like <kbd>Control</kbd> or <kbd>Command</kbd>, under "General", deselect **Character keys**. If you disable character keys, you may still be able to trigger shortcuts for your web browser, and you can still trigger shortcuts for {% data variables.product.product_name %} that use a modifier key.
+{%- ifversion command-palette %}
+   - Optionally, to customize the keyboard shortcuts for triggering the command palette, under "Command palette", use the drop-down menus to choose a keyboard shortcut. For more information, see "[{% data variables.product.company_short %} Command Palette](/get-started/using-github/github-command-palette)."
+   {%- endif %}
+
+{% ifversion motion-management %}
+
+### Managing motion
+
+You can control how {% data variables.product.product_name %} displays animated images.
+
+By default, {% data variables.product.product_name %} syncs with your system-level preference for reduced motion. For more information, see the documentation or settings for your operating system.
+
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.accessibility_settings %}
+1. Under "Motion", manage settings for motion.
+
+   - Optionally, to control how {% data variables.product.product_name %} displays animaged images, under "Autoplay animated images", select **Sync with system**, **Enabled**, or **Disabled**.
+
+{% endif %}

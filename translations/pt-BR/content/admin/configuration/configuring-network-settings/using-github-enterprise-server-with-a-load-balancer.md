@@ -67,7 +67,7 @@ Como as conexões do cliente com o {% data variables.product.prodname_ghe_server
 
 ## Configurar verificações de integridade
 
-As verificações de integridade permitem que um balanceador de carga pare de enviar tráfego para um nó que não responde em caso de falha na verificação pré-configurada do nó em questão. Se a instância estiver off-line devido a manutenção ou falha inesperada, o balanceador de carga poderá exibir uma página de status. Em configurações de alta disponibilidade (HA), é possível usar balanceadores de carga como parte da estratégia de failover. No entanto, não há suporte para failover automático de pares de HA. Você deve promover manualmente a instância da réplica antes que ela comece a atender a pedidos. Para obter mais informações, consulte "[Configurar o {% data variables.product.prodname_ghe_server %} para alta disponibilidade](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-github-enterprise-server-for-high-availability/)".
+As verificações de integridade permitem que um balanceador de carga pare de enviar tráfego para um nó que não responde em caso de falha na verificação pré-configurada do nó em questão. Se a instância estiver off-line devido a manutenção ou falha inesperada, o balanceador de carga poderá exibir uma página de status. Em configurações de alta disponibilidade (HA), é possível usar balanceadores de carga como parte da estratégia de failover. No entanto, não há suporte para failover automático de pares de HA. Você deve promover manualmente a instância da réplica antes que ela comece a atender a pedidos. Para obter mais informações, consulte "[Configurar o {% data variables.product.prodname_ghe_server %} para alta disponibilidade](/enterprise/admin/guides/installation/configuring-github-enterprise-server-for-high-availability/)".
 
 {% data reusables.enterprise_clustering.health_checks %}
 {% data reusables.enterprise_site_admin_settings.maintenance-mode-status %}
@@ -89,6 +89,12 @@ Se você habilitar o suporte para o header `X-Forwarded-For` na sua instância n
 Se {% data variables.product.product_location %} indica que a sua sessão venceu quando você se conectou ao {% data variables.enterprise.management_console %} através de um balanceador de carga, experimente uma das seguintes configurações no seu balanceador de carga.
 
 - Desabilite os headers `X-Forwarded-For` para conexões para sua instância nas portas 8080 e 8443.
-- Configure o seu balanceador de carga para ser operado no Layer 4 e use o protocolo PROXY em vez de `X-Forwarded-For` para passagem de endereços IP do cliente. Para obter mais informações, consulte "[Habilitando o suporte ao protocolo PROXY em {% data variables.product.product_location %} ](#enabling-proxy-protocol-support-on-your-github-enterprise-server-instance)."
+- Configure o seu balanceador de carga para ser operado no Layer 4 e use o protocolo PROXY em vez de `X-Forwarded-For` para passagem de endereços IP do cliente. Para obter mais informações, consulte "[Habilitando o suporte ao protocolo PROXY em {% data variables.product.product_location %}](#enabling-proxy-protocol-support-on-your-github-enterprise-server-instance)."
 
 Para obter mais informações, consulte a documentação do seu balanceador de carga.
+
+### Atualizações ao vivo de problmas e as verificações não funcionam
+
+Quando {% data variables.product.product_location %} for acessado por um balanceador de carga ou proxy reverso, as atualizações ativas, como novos comentários em problemas e alterações nos selos de notificação ou a saída da execução da verificação, podem não ser exibidos até que a página seja atualizada. Isso é mais comum quando o proxy reverso ou o balanceador de carga está sendo executado em um modo de camada 7 ou não é compatível com o protocolo de [websocket](https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API) necessário.
+
+Para habilitar atualizações ativas, talvez você precise reconfigurar o balanceador de carga ou proxy. Para obter mais informações, consulte a documentação do seu balanceador de carga.

@@ -29,7 +29,7 @@ on:
 Quando um padrão corresponde ao padrão `branches-ignore`, o fluxo de trabalho não será executado. Os padrões definidos em `branches` são avaliados com base no nome do ref do Git. Por exemplo, o fluxo de trabalho a seguir seria executado sempre que houver um evento `pull_request`, a menos que o pull request esteja apontando para:
 
 - Uma branch denominado `mona/octocat` (`refs/heads/mona/octocat`)
-- A branch whose name matches `releases/**-alpha`, like `releases/beta/3-alpha` (`refs/heads/releases/beta/3-alpha`)
+- Uma branch cujo nome corresponda a `releases/**-alpha`, como `releases/beta/3-alpha` (`refs/heads/releases/beta/3-alpha`)
 
 ```yaml
 on:

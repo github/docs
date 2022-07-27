@@ -60,7 +60,7 @@ A Contrapartida Financeira para Patrocinadores do GitHub tem como objetivo incen
 #### 2.2.1. Termos do Fundo Correspondente.
 A qualificação para o Fundo Correspondentes para Patrocinadores do GitHub é avaliada caso a caso e está sujeita às seguintes limitações:
 
-* Você deve ter uma conta no GitHub, ser aceito no Programa como indivíduo e estar contribuindo ativamente para o OSS. Please note, GitHub does not allow operating more than one free personal account. Dessa forma, a correspondência está disponível individualmente e não será aprovada para várias contas.
+* Você deve ter uma conta no GitHub, ser aceito no Programa como indivíduo e estar contribuindo ativamente para o OSS. Observe que o GitHub não permite operar mais de uma conta de usuário grátis. Dessa forma, a correspondência está disponível individualmente e não será aprovada para várias contas.
 
 * Seu uso do GitHub e de sua Conta de Desenvolvedor Patrocinado deve ser, com base em nossas determinações, a nosso exclusivo critério, de acordo com a missão do GitHub Sponsors de expandir as oportunidades de contribuir para o código aberto que defende as [Diretrizes da Comunidade do GitHub](/github/site-policy/github-community-guidelines).
 

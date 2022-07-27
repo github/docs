@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import program from 'commander'
+import { program } from 'commander'
 import { compareLiquidTags } from '../../lib/liquid-tags/tokens.js'
 import languages from '../../lib/languages.js'
 

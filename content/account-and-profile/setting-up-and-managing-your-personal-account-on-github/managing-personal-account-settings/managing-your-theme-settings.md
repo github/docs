@@ -4,7 +4,7 @@ intro: 'You can manage how {% data variables.product.product_name %} looks to yo
 versions:
   fpt: '*'
   ghae: '*'
-  ghes: '>=3.2'
+  ghes: '*'
   ghec: '*'
 topics:
   - Accounts

@@ -98,7 +98,6 @@ You can configure this behavior for an organization using the procedure below. M
 {% data reusables.actions.private-repository-forks-configure %}
 {% endif %}
 
-{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
 ## Setting the permissions of the `GITHUB_TOKEN` for your organization
 
 {% data reusables.actions.workflow-permissions-intro %}
@@ -138,5 +137,4 @@ By default, when you create a new organization, workflows are not allowed to {% 
    ![Set GITHUB_TOKEN pull request approval permission for this organization](/assets/images/help/settings/actions-workflow-permissions-organization{% ifversion allow-actions-to-approve-pr %}-with-pr-{% ifversion allow-actions-to-approve-pr-with-ent-repo %}creation-{% endif %}approval{% endif %}.png)
 1. Click **Save** to apply the settings.
 
-{% endif %}
 {% endif %}

@@ -16,9 +16,9 @@ topics:
 
 {% data reusables.dependabot.about-the-dependency-graph %} Para obtener más información, consulta la sección "[Acerca de la gráfica de dependencias](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)"
 
-Después de que habilites la gráfica de dependencias para tu empresa, puedes habilitar el {% data variables.product.prodname_dependabot %} para detectar las dependencias vulnerables en tu repositorio{% ifversion ghes > 3.2 %} y corregir las vulnerabilidades automáticamente{% endif %}. Para obtener más información, consulta la sección "[Habilitar la {% data variables.product.prodname_dependabot %} en tu empresa](/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise)".
+Después de que habilitas la gráfica de dependencias para tu empresa, puedes habilitar el {% data variables.product.prodname_dependabot %} para que detecte dependencias inseguras en tu repositorio{% ifversion ghes > 3.2 %} y corrija las vulnerabilidades automáticamente{% endif %}. Para obtener más información, consulta la sección "[Habilitar la {% data variables.product.prodname_dependabot %} en tu empresa](/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise)".
 
-{% ifversion ghes > 3.1 %}
+{% ifversion ghes %}
 Puedes habilitar la gráfica de dependencias a través de la {% data variables.enterprise.management_console %} o del shell administrativo. Te recomendamos utilizar la {% data variables.enterprise.management_console %} a menos de que {% data variables.product.product_location %} utilice clústering.
 
 ## Habilitar la gráfica de dependencias a través de la {% data variables.enterprise.management_console %}
@@ -35,12 +35,10 @@ Si tu {% data variables.product.product_location %} utiliza clústering, no pued
 
 ## Habilitar la gráfica de dependencias a través del shell administrativo
 
-{% endif %}{% ifversion ghes < 3.2 %}
-## Habilitar la gráfica de dependencias
 {% endif %}
 {% data reusables.enterprise_site_admin_settings.sign-in %}
 1. En el shell administrativo, habilita la gráfica de dependencias en {% data variables.product.product_location %}:
-    {% ifversion ghes > 3.1 %}```shell
+    {% ifversion ghes %}```shell
     ghe-config app.dependency-graph.enabled true
     ```
     {% else %}```shell
@@ -49,7 +47,7 @@ Si tu {% data variables.product.product_location %} utiliza clústering, no pued
     ```{% endif %}
    {% note %}
 
-   **Note**: For more information about enabling access to the administrative shell via SSH, see "[Accessing the administrative shell (SSH)](/enterprise/{{ currentVersion }}/admin/configuration/accessing-the-administrative-shell-ssh)."
+   **Note**: For more information about enabling access to the administrative shell via SSH, see "[Accessing the administrative shell (SSH)](/enterprise/admin/configuration/accessing-the-administrative-shell-ssh)."
 
    {% endnote %}
 2. Aplica la configuración

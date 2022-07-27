@@ -1,7 +1,7 @@
 ---
 title: Configuring built-in authentication
 intro: 'When you use the default authentication method, all authentication details are stored on {% data variables.product.product_location %}.'
-permissions: Site administrators can configure authentication for a {% data variables.product.product_name %} instance.
+permissions: 'Site administrators can configure authentication for a {% data variables.product.product_name %} instance.'
 redirect_from:
   - /enterprise/admin/user-management/using-built-in-authentication
   - /enterprise/admin/authentication/using-built-in-authentication

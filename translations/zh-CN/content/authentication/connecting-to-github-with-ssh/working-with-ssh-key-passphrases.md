@@ -17,7 +17,9 @@ topics:
 shortTitle: SSH 密钥密码
 ---
 
-使用 SSH 密钥时，如果有人获得您计算机的访问权限，他们也可以使用该密钥访问每个系统。 要添加额外的安全层，可以向 SSH 密钥添加密码。 您可以使用 `ssh-agent` 安全地保存密码，从而不必重新输入。
+## About passphrases for SSH keys
+
+With SSH keys, if someone gains access to your computer, the attacker can gain access to every system that uses that key. 要添加额外的安全层，可以向 SSH 密钥添加密码。 To avoid entering the passphrase every time you connect, you can securely save your passphrase in the SSH agent.
 
 ## 添加或更改密码
 
@@ -103,7 +105,3 @@ unset env
 否则，您可在将密钥添加到 ssh-agent 时在密钥链中存储密码。 更多信息请参阅“[添加 SSH 密钥到 ssh-agent](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#adding-your-ssh-key-to-the-ssh-agent)”。
 
 {% endmac %}
-
-## 延伸阅读
-
-- "[关于 SSH](/articles/about-ssh)"

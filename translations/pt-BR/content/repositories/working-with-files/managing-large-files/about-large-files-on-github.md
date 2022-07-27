@@ -40,7 +40,7 @@ O {% data variables.product.product_name %} tenta fornecer armazenamento abundan
 
 {% endnote %}
 
-{% ifversion ghes %}Por padrão, {% endif %}{% data variables.product.product_name %} bloqueia pushes que excedem {% data variables.large_files.max_github_size %}. {% ifversion ghes %}No entanto, um administrador do site pode configurar um limite diferente para {% data variables.product.product_location %}.  Para obter mais informações, consulte "[Configurando limites de push do Git](/enterprise/{{ currentVersion }}/admin/guides/installation/setting-git-push-limits)."{% endif %}
+{% ifversion ghes %}Por padrão, {% endif %}{% data variables.product.product_name %} bloqueia pushes que excedem {% data variables.large_files.max_github_size %}. {% ifversion ghes %}No entanto, um administrador do site pode configurar um limite diferente para {% data variables.product.product_location %}.  Para obter mais informações, consulte "[Configurando limites de push do Git](/enterprise/admin/guides/installation/setting-git-push-limits)."{% endif %}
 
 Para rastrear arquivos além desse limite, você deverá usar {% data variables.large_files.product_name_long %} ({% data variables.large_files.product_name_short %}). Para obter mais informações, consulte "[Sobre {% data variables.large_files.product_name_long %}](/repositories/working-with-files/managing-large-files/about-git-large-file-storage)".
 

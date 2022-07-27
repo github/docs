@@ -11,6 +11,7 @@ intro: You can convert your personal account into an organization. これによ�
 versions:
   fpt: '*'
   ghes: '*'
+  ghae: '*'
   ghec: '*'
 topics:
   - Accounts
@@ -19,24 +20,25 @@ shortTitle: User into an organization
 
 {% warning %}
 
-**警告**: ユーザを Organization に変換する前に、以下の点についてご注意ください:
+**警告**: ユーザを Organization に変換する前に、以下の点についてご注意ください.
 
- - You will **no longer** be able to sign into the converted personal account.
- - You will **no longer** be able to create or modify gists owned by the converted personal account.
- - Organization をユーザに変換して元に戻すことは**できません**。
- - SSH キー、OAuth トークン、ジョブプロフィール、リアクション、および関連するユーザ情報は、Organization に移譲**されません**。 This is only true for the personal account that's being converted, not any of the personal account's collaborators.
- - Any commits made with the converted personal account **will no longer be linked** to that account. コミットそのものは、**そのまま残ります**。
- - Any forks of private repositories made with the converted personal account will be deleted.
-
+* You will **no longer** be able to sign into the converted personal account.
+* You will **no longer** be able to create or modify gists owned by the converted personal account.
+* Organization をユーザに変換して元に戻すことは**できません**。
+* The SSH keys, OAuth tokens, job profile, reactions, and associated user information, **will not** be transferred to the organization. This is only true for the personal account that's being converted, not any of the personal account's collaborators.
+* Any commits made with the converted personal account **will no longer be linked** to that account. コミットそのものは、**そのまま残ります**。
+* Any existing comments made by the converted personal account **will no longer be linked** to that account. The comments themselves **will** remain intact, but will be associated with the `ghost` user.
+* Any forks of private repositories made with the converted personal account will be deleted.
 {% endwarning %}
 
+{% ifversion fpt or ghec or ghes %}
 ## Keep your personal account and create a new organization manually
 
 If you want your organization to have the same name that you are currently using for your personal account, or if you want to keep your personal account's information intact, then you must create a new organization and transfer your repositories to it instead of converting your personal account into an organization.
 
 1. To retain your current personal account name for your personal use, [change the name of your personal account](/articles/changing-your-github-username) to something new and wonderful.
 2. [Create a new organization](/articles/creating-a-new-organization-from-scratch) with the original name of your personal account.
-3. 新しい Organization アカウントに[リポジトリを移譲](/articles/transferring-a-repository)します。
+3. [Transfer your repositories](/articles/transferring-a-repository) to your new organization account.{% endif %}
 
 ## 個人アカウントを Organization に自動で変換する
 

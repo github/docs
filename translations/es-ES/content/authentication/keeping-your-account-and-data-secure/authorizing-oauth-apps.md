@@ -68,7 +68,9 @@ Las {% data variables.product.prodname_oauth_apps %} pueden solicitar diferentes
 | Organizaciones y equipos     | El acceso a organizaciones y equipos permite que las apps accedan y administren la membresía de la organización y del equipo.                                                                                                                                                                                                                                 |
 | Datos personales del usuario | Entre los datos del usuario se incluye información que se encuentra en tu perfil de usuario, como tu nombre, dirección de correo electrónico y ubicación.                                                                                                                                                                                                     |
 | Repositorios                 | La información del repositorio incluye los nombres de los colaboradores, las ramas que creaste y los archivos actuales dentro de tu repositorio. Las apps pueden solicitar acceso a repositorios públicos o privados a nivel del usuario.                                                                                                                     |
-| Eliminación de repositorio   | Las apps pueden solicitar la eliminación de los repositorios que administras,, pero no tendrán acceso a tu código.                                                                                                                                                                                                                                            |
+| Eliminación de repositorio   | Las apps pueden solicitar la eliminación de los repositorios que administras,, pero no tendrán acceso a tu código. |{% ifversion projects-oauth-scope %}
+| Proyectos                    | Acceso a los proyectos (beta) de usuarios y organizaciones. Las apps pueden solicitar ya sea un acceso de lectura/escritura o de solo lectura. 
+{% endif %}
 
 ## Solicitar permisos actualizados
 
