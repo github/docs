@@ -47,7 +47,7 @@ on:
   merge_group:
 ```
 
-For more information see "[Events that trigger workflows](/actions/using-workflows/events-that-trigger-workflows)"
+For more information see "[Events that trigger workflows](/actions/using-workflows/events-that-trigger-workflows#merge-group)"
 
 ### Triggering merge queue checks with other CI providers
 

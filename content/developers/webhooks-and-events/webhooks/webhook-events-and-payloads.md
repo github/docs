@@ -16,9 +16,6 @@ topics:
   - Webhooks
 shortTitle: Webhook events & payloads
 ---
-{% ifversion fpt or ghec %}
-
-{% endif %}
 
 {% data reusables.webhooks.webhooks_intro %}
 
@@ -711,6 +708,42 @@ For a detailed description of this payload and the payload for each type of `act
 
 {{ webhookPayloadsForCurrentVersion.membership.removed }}
 
+{% ifversion fpt %}
+
+## merge_group
+
+{% data reusables.pull_requests.merge-queue-beta %}
+
+Occurs when a pull request is added to a merge group. Once all required checks have completed successfully, the group will be merged by the protected branch's merge queue.
+
+{% data variables.product.prodname_actions %} workflows can be triggered by the `merge_group` event. For more information, see "[Events that trigger workflows](/actions/reference/events-that-trigger-workflows#merge_group)."
+
+
+### Availability
+
+- Repository webhooks
+- Organization webhooks
+- {% data variables.product.prodname_github_apps %} with the `merge_queues` permission
+
+### Webhook payload object
+
+Key | Type | Description
+----|------|-------------
+`merge_group`|`object` | The merge group which contains the pull request.
+`merge_group[head_sha]`|`string` | The SHA of the last commit of the pull request before it was added to the merge queue.
+`merge_group[head_ref]`|`string` | The full REF of the merge group which contains the pull request. Prefixed with `refs/heads/gh-readonly-queue/:baseRefName`.
+`merge_group[base_ref]`|`string` | The REF of the base of the pull request.
+{% data reusables.webhooks.repo_desc %}
+{% data reusables.webhooks.org_desc %}
+{% data reusables.webhooks.app_desc %}
+{% data reusables.webhooks.sender_desc %}
+
+### Webhook payload example
+
+{{ webhookPayloadsForCurrentVersion.merge_group.checks_requested }}
+
+{% endif %}
+
 ## meta
 
 The webhook this event is configured on was deleted. This event will only listen for changes to the particular hook the event is installed on. Therefore, it must be selected for each hook that you'd like to receive meta events for.
@@ -1316,7 +1349,7 @@ Key | Type | Description
 {% ifversion fpt or ghes or ghec %}
 ## security_advisory
 
-Activity related to a security advisory that has been reviewed by {% data variables.product.company_short %}. A {% data variables.product.company_short %}-reviewed security advisory provides information about security-related vulnerabilities in software on {% data variables.product.prodname_dotcom %}. 
+Activity related to a security advisory that has been reviewed by {% data variables.product.company_short %}. A {% data variables.product.company_short %}-reviewed security advisory provides information about security-related vulnerabilities in software on {% data variables.product.prodname_dotcom %}.
 
 The security advisory dataset also powers the GitHub {% data variables.product.prodname_dependabot_alerts %}. For more information, see "[About {% data variables.product.prodname_dependabot_alerts %}](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies/)."
 

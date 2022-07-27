@@ -387,7 +387,7 @@ on:
 
 | Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
 | --------------------- | -------------- | ------------ | -------------|
-| [`merge_group`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#pull_request) | `checks_requested` | Last merge commit of the pull request before it was added to the queue | Ref of the merge group `refs/heads/gh-readonly-queue/:branchName/:refName` |
+| [`merge_group`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#merge_group) | `checks_requested` | Last merge commit of the pull request before it was added to the queue | Ref of the merge group `refs/heads/gh-readonly-queue/:branchName/:refName` |
 
 {% data reusables.pull_requests.merge-queue-beta %}
 
