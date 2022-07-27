@@ -31,7 +31,7 @@ versions:
   ghec: '*'
 communityRedirect:
   name: Provide GitHub Feedback
-  href: 'https://github.com/github-community/community/discussions/categories/sponsors'
+  href: 'https://github.com/community/community/discussions/categories/sponsors'
 children:
   - /getting-started-with-github-sponsors
   - /sponsoring-open-source-contributors

@@ -30,7 +30,7 @@ versions:
   feature: discussions
 communityRedirect:
   name: Provide GitHub Feedback
-  href: 'https://github.com/github-community/community/discussions/categories/discussions'
+  href: 'https://github.com/community/community/discussions/categories/discussions'
 children:
   - /quickstart
   - /guides

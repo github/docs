@@ -160,7 +160,7 @@ You can use projects for a wide range of purposes. For example:
 
 Here are some helpful resources for taking your next steps with {% data variables.product.prodname_github_issues %}:
 
-- To provide feedback about the projects (beta) experience, go to the [GitHub feedback repository](https://github.com/github-community/community/discussions/categories/issues).
+- To provide feedback about the projects (beta) experience, go to the [GitHub feedback repository](https://github.com/community/community/discussions/categories/issues).
 - To learn more about how projects can help you with planning and tracking, see "[About projects](/issues/trying-out-the-new-projects-experience/about-projects)."
 - To learn more about the fields and items you can add to your project, see "[Creating a project](/issues/trying-out-the-new-projects-experience/creating-a-project)."
 - To learn about more ways to display the information you need, see "[Customizing your project views](/issues/trying-out-the-new-projects-experience/customizing-your-project-views)."
