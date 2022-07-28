@@ -19,7 +19,7 @@ redirect_from:
 
 {% data reusables.pull_requests.merge-queue-overview %}
 
-The merge queue creates temporary branches with a special prefix to validate pull request changes. The changes in the pull request are then grouped with the latest version of the `base_branch` as well as changes ahead of it in the queue. {% data variables.product.product_name %} will merge all these changes into `base_branch` once the checks required by the branch protections of `base_branch` pass.
+The merge queue creates temporary branches with a special prefix to validate pull request changes. The changes in the pull request are then grouped into a `merge_group` with the latest version of the `base_branch` as well as changes ahead of it in the queue. {% data variables.product.product_name %} will merge all these changes into `base_branch` once the checks required by the branch protections of `base_branch` pass.
 
 
 For information about merge methods, see "[About pull request merges](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/about-pull-request-merges)."
@@ -36,7 +36,7 @@ For information about merge methods, see "[About pull request merges](/pull-requ
 
 ### Triggering merge queue checks with {% data variables.product.prodname_actions %}
 
-With {% data variables.product.prodname_actions %}, you can use the `merge_group` event, which will trigger a workflow when a pull request is added to a merge queue. Note that this is a different event from the `pull_request` and `push` events.
+You can use the `merge_group` event to trigger your {% data variables.product.prodname_actions %} workflow when a pull request is added to a merge queue. Note that this is a different event from the `pull_request` and `push` events.
 
 A workflow that reports a check which is required by the target branch's protections would look like this:
 
