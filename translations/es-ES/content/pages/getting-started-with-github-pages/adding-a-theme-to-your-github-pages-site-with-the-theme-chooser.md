@@ -13,11 +13,20 @@ versions:
 topics:
   - Pages
 shortTitle: Agregar un tema al sitio de Páginas
+permissions: 'People with admin permissions for a repository can use the theme chooser to add a theme to a {% data variables.product.prodname_pages %} site.'
 ---
 
-Las personas con permisos de administración para un repositorio pueden usar el selector de temas para agregar un tema al sitio de {% data variables.product.prodname_pages %}.
-
 ## Acerca del selector de temas
+
+{% ifversion pages-custom-workflow %}
+
+{% note %}
+
+**Note**: The Jekyll theme chooser is not supported for {% data variables.product.prodname_pages %} sites that are published with a custom {% data variables.product.prodname_actions %} workflow. If you build your site with Jekyll and publish your site with a custom {% data variables.product.prodname_actions %} workflow, you can add a theme by editing the `_config.yml` file. For more information, see "[Adding a theme to your GitHub Pages site using Jekyll](/pages/setting-up-a-github-pages-site-with-jekyll/adding-a-theme-to-your-github-pages-site-using-jekyll)."
+
+{% endnote %}
+
+{% endif %}
 
 El selector de temas agrega un tema de Jekyll a tu repositorio. Para obtener más información acerca de Jekyll, consulta "[Acerca de las {% data variables.product.prodname_pages %} y Jekyll](/articles/about-github-pages-and-jekyll)".
 
