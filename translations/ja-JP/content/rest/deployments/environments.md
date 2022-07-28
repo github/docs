@@ -5,7 +5,7 @@ shortTitle: 環境
 intro: Deployment environments APIを使うと、デプロイメント環境の作成、設定、削除ができます。
 versions:
   fpt: '*'
-  ghes: '>=3.2'
+  ghes: '*'
   ghae: '*'
   ghec: '*'
 topics:

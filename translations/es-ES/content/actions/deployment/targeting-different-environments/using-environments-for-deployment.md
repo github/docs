@@ -34,7 +34,7 @@ Las organizaciones que utilizan {% data variables.product.prodname_ghe_cloud %} 
 
 ## Reglas de protección de ambiente
 
-Las reglas de protección de ambiente requieren que pasen condiciones específicas antes de que un job que referencia al ambiente pueda proceder. {% ifversion fpt or ghae or ghes > 3.1 or ghec %}Puedes utilizar las reglas de protección de ambiente para requerir una aprobación manual, retrasar un job, o restringir el ambiente a ramas específicas.{% else %}Puedes utilizar la protección de ambiente para requerir una aprobación manual o retrasar un job.{% endif %}
+Las reglas de protección de ambiente requieren que pasen condiciones específicas antes de que un job que referencia al ambiente pueda proceder. Puedes utilizar reglas de protección de ambiente para requerir una aprobación manual, retrasar un job o restringir el ambiente a ramas específicas.
 
 ### Revisores requeridos
 
@@ -46,7 +46,6 @@ Para obtener más información sobre cómo revisar jobs que referencian un ambie
 
 Utiliza un temporizador de espera para retrasar un job durante una cantidad de tiempo específica después de que el job se active inicialmente. El tiempo (en minutos) debe ser un número entero entre 0 y 43,200 (30 días).
 
-{% ifversion fpt or ghae or ghes > 3.1 or ghec %}
 ### Ramas de despliegue
 
 Utiliza ramas de despliegue para restringir las ramas que pueden hacer despliegues en el ambiente. A continuación encnotrarás las opciones para las ramas de despliegue de un ambiente:
@@ -56,7 +55,6 @@ Utiliza ramas de despliegue para restringir las ramas que pueden hacer despliegu
 * **Ramas selectas**: Solo las ramas que coincidan con tus patrones específicos de nombre podrán hacer despliegues en el ambiente.
 
   Por ejemplo, si especificas `releases/*` como una regla de rama de despliegue, solo aquellas ramas cuyo nombre inicie con `releases/` podrán hacer despliegues en el ambiente. (Los caracteres de comodín no coincidirán con `/`. Para hacer coincidir las ramas que inicien con `release/` y contengan una diagonal sencilla adicional utiliza `release/*/*`.) Si agregas `main` como regla de rama de despliegue, la rama que se llame `main` también podrá hacer despliegues en el ambiente. Para obtener más información sobre las opciones de sintaxis para las ramas de despliegue, consulta la [documentación de File.fnmatch de Ruby](https://ruby-doc.org/core-2.5.1/File.html#method-c-fnmatch).
-{% endif %}
 ## Secretos de ambiente
 
 Los secretos que se almacenan en un ambiente sólo se encuentran disponibles para los jobs de flujo de trabajo que referencien el ambiente. Si el ambiente requiere aprobación, un job no puede acceder a secretos de ambiente hasta que uno de los revisores requeridos lo apruebe. Para obtener más información sobre los secretos, consulta la sección "[Secretos cifrados](/actions/reference/encrypted-secrets)".
@@ -101,7 +99,7 @@ Los secretos que se almacenan en un ambiente sólo se encuentran disponibles par
    1. Ingresa el valor del secreto.
    1. Haz clic en **Agregar secreto** (Agregar secreto).
 
-{% ifversion fpt or ghae or ghes > 3.1 or ghec %}También puedes crear y configurar ambientes a través de la API de REST. Para obtener más información, consulta las secciones de "[Ambientes](/rest/reference/repos#environments)" y "[Secretos](/rest/reference/actions#secrets)".{% endif %}
+También puedes crear y configurar ambientes a través de la API de REST. Para obtener más información, consulta las secciones "[Ambientes](/rest/reference/repos#environments)" y "[Secretos](/rest/reference/actions#secrets)".
 
 El ejecutar un flujo de trabajo que referencie un ambiente que no existe creará un ambiente con el nombre referenciado. El ambiente recién creado no tendrá configurada ninguna regla de protección o secreto. Cualquiera que pueda editar flujos de trabajo en el repositorio podrá crear ambientes a través de un archivo de flujo de trabajo, pero solo los administradoresd e repositorio pueden configurar el ambiente.
 
@@ -125,13 +123,13 @@ El borrar un ambiente borrará todos los secretos y reglas de protección asocia
 1. Junto al ambiente que quieres borrar, haz clic en {% octicon "trash" aria-label="The trash icon" %}.
 2. Da clic en **Entiendo, borra este ambiente**.
 
-{% ifversion fpt or ghae or ghes > 3.1 or ghec %}También puedes borrar los ambientes a través de la API de REST Para obtener más información, consulta la sección "[Ambientes](/rest/reference/repos#environments)".{% endif %}
+También puyedes borrar ambientes a través de la API de REST. Para obtener más información, consulta la sección "[Ambientes](/rest/reference/repos#environments)".
 
 ## Cómo se relacionan los ambientes con los desplilegues
 
 {% data reusables.actions.environment-deployment-event %}
 
-Puedes acceder a estos objetos a través de la API de REST o la API de GraphQL. También puedes suscribirte a estos eventos de webhook. Para obtener más información, consulta las secciones "[Repositorios](/rest/reference/repos#deployments)" (API de REST), "[Objetos]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql/reference/objects#deployment)"(API de GraphQL) o "[Cargas útiles y eventos de Webhook](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#deployment)".
+Puedes acceder a estos objetos a través de la API de REST o la API de GraphQL. También puedes suscribirte a estos eventos de webhook. Para obtener más información, consulta las secciones "[Repositorios](/rest/reference/repos#deployments)" (API de REST), "[Objetos](/graphql/reference/objects#deployment)"(API de GraphQL) o "[Cargas útiles y eventos de Webhook](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#deployment)".
 
 ## Pasos siguientes
 

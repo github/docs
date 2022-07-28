@@ -7,19 +7,12 @@ versions:
   ghes: '> 3.1'
   ghae: '*'
   ghec: '*'
-showMiniToc: false
 type: how_to
 topics:
   - Workflows
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}
-
-- [示例概述](#example-overview)
-- [此示例中使用的功能](#features-used-in-this-example)
-- [示例工作流程](#example-workflow)
-- [了解示例](#understanding-the-example)
-- [后续步骤](#next-steps)
 
 ## 示例概述
 
@@ -50,7 +43,7 @@ topics:
 
 {% data reusables.actions.note-understanding-example %}
 
-<table style="width:350px">
+<table style="table-layout: fixed;">
 <thead>
   <tr>
     <th style="width:70%"></th>
@@ -181,7 +174,7 @@ jobs:
 
 {% data reusables.actions.example-explanation-table-intro %}
 
-<table style="width:350px">
+<table style="table-layout: fixed;">
 <thead>
   <tr>
     <th style="width:60%"><b>代码</b></th>

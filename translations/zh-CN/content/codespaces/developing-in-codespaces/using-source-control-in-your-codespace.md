@@ -15,7 +15,7 @@ shortTitle: 源控制
 
  
 
-## 关于 {% data variables.product.prodname_codespaces %} 中的源控制
+## 关于 {% data variables.product.prodname_github_codespaces %} 中的源控制
 
 您可以直接在代码空间内执行所需的所有 Git 操作。 例如，您可以从远程仓库获取更改、切换分支、创建新分支、提交和推送更改，以及创建拉取请求。 您可以使用代码空间内的集成终端输入 Git 命令，也可以单击图标和菜单选项以完成所有最常见的 Git 任务。 本指南解释如何使用图形用户界面来控制源代码。
 

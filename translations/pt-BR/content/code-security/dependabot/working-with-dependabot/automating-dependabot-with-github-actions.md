@@ -43,6 +43,8 @@ Para fluxos de trabalho iniciados por {% data variables.product.prodname_dependa
 Para fluxos de trabalho iniciados por {% data variables.product.prodname_dependabot %} (`github.actor == "dependabot[bot]"`) que usam eventos de `pull_request_target`, se a referência da base do pull request foi criada por {% data variables.product.prodname_dependabot %} (`github.actor == "dependabot[bot]"`), the `GITHUB_TOKEN` será somente leitura e os segredos não estarão disponíveis.
 {% endif %}
 
+{% ifversion actions-stable-actor-ids %}These restrictions apply even if the workflow is re-run by a different actor.{% endif %}
+
 Para obter mais informações, consulte ["Manter seus GitHub Actions e fluxos de trabalho seguro: Evitando solicitações de pwn"](https://securitylab.github.com/research/github-actions-preventing-pwn-requests/).
 
 {% ifversion fpt or ghec or ghes > 3.3 %}
@@ -224,7 +226,15 @@ jobs:
 
 ### Reexecutando manualmente um fluxo de trabalho
 
+{% ifversion actions-stable-actor-ids %}
+
+When you manually re-run a Dependabot workflow, it will run with the same privileges as before even if the user who initiated the rerun has different privileges. Para obter mais informações, consulte "[Executando novamente os fluxos de trabalho e trabalhos](/actions/managing-workflow-runs/re-running-workflows-and-jobs)".
+
+{% else %}
+
 Você também pode executar novamente um fluxo de trabalho pendente no Dependabot, e ele será executado com um token de leitura-gravação e acesso a segredos. Antes de executar manualmente um fluxo de trabalho com falha, você deve sempre verificar se a dependência está sendo atualizada para garantir que a mudança não introduza qualquer comportamento malicioso ou não intencional.
+
+{% endif %}
 
 ## Automações comuns de dependência
 
@@ -466,6 +476,7 @@ on: pull_request_target
 
 permissions:
   contents: write
+  pull-requests: write
 
 jobs:
   dependabot:
@@ -497,6 +508,7 @@ on: pull_request
 
 permissions:
   contents: write
+  pull-requests: write
 
 jobs:
   dependabot:

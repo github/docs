@@ -13,7 +13,7 @@ shortTitle: 导出更改
 
 ## 将更改导出到分支
 
-使用 {% data variables.product.prodname_codespaces %} 时，您可能希望将更改导出到分支，而无需启动代码空间。
+使用 {% data variables.product.prodname_github_codespaces %} 时，您可能希望将更改导出到分支，而无需启动代码空间。
 
 如果达到[支出限制](/billing/managing-billing-for-github-codespaces/managing-spending-limits-for-codespaces)或在访问代码空间时遇到一般问题，这可能很有用。
 

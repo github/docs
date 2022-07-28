@@ -2,10 +2,10 @@
 date: '2022-03-01'
 sections:
   security_fixes:
-    - "HIGH: An integer overflow vulnerability was identified in GitHub's markdown parser that could potentially lead to information leaks and RCE. This vulnerability was reported through the GitHub Bug Bounty program by Felix Wilhelm of Google's Project Zero and has been assigned CVE-2022-24724."
+    - "高：在 GitHub 的 markdown 解析器中发现了一个整数溢出漏洞，该漏洞可能导致信息泄漏和 RCE。此漏洞由 Google Project Zero 的 Felix Wilhelm 通过GitHub Bug Bounty 计划报告，并已分配 CVE-2022-24724。"
   bugs:
-    - Upgrades could sometimes fail if a high-availability replica's clock was out of sync with the primary.
-    - 'OAuth Applications created after September 1st, 2020 were not able to use the [Check an Authorization](https://docs.github.com/en/enterprise-server@3.2/rest/reference/apps#check-an-authorization) API endpoint.'
+    - 如果高可用性副本的时钟与主副本不同步，则升级有时可能会失败。
+    - '2020 年 9 月 1 日之后创建的 OAuth 应用程序无法使用 [检查授权](https://docs.github.com/en/enterprise-server@3.2/rest/reference/apps#check-an-authorization) API 端点。'
   known_issues:
     - 在新建的没有任何用户的 {% data variables.product.prodname_ghe_server %} 实例上，攻击者可以创建第一个管理员用户。
     - 自定义防火墙规则在升级过程中被删除。

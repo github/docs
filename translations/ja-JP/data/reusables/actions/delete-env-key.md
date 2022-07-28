@@ -1,1 +1,1 @@
-If you configured a deployment environment, change the value of `environment` to be the name of your environment. If you did not configure an environment{% ifversion fpt or ghec %} or if your workflow is in a private repository and you do not use {% data variables.product.prodname_ghe_cloud %}{% endif %}, delete the `environment` key.
+デプロイメント環境を設定したなら、`environment`の値をその環境の名前に変更してください。 環境を設定していない{% ifversion fpt or ghec %}か、ワークフローがプライベートリポジトリにあり、{% data variables.product.prodname_ghe_cloud %}を使っていない{% endif %}なら、`environment`キーを削除してください。

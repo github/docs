@@ -4,6 +4,7 @@ shortTitle: SAML SSO 故障排除
 intro: '如果使用 SAML 单点登录 (SSO)，并且用户无法通过身份验证来访问 {% data variables.product.product_location %}，则可以对问题进行故障排除。'
 versions:
   ghes: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Accounts
@@ -15,6 +16,7 @@ topics:
   - Troubleshooting
 ---
 
+{% ifversion ghes %}
 ## 关于 SAML 身份验证的问题
 
 {% data variables.product.product_name %} 在 _/var/log/github/auth.log_ 的身份验证日志中为失败的 SAML 身份验证记录错误消息。 您可以在此日志文件中查看响应，还可以配置更详细的日志记录。
@@ -100,3 +102,10 @@ Audience is invalid. Audience is invalid. Audience attribute does not match your
 ```
 
 确保将 IdP 上 `Audience` 的值设置为 {% data variables.product.product_location %} 的 `EntityId`，这是实例的完整 URL。 例如，`https://ghe.corp.example.com`。
+{% endif %}
+
+{% data reusables.saml.current-time-earlier-than-notbefore-condition %}
+
+{% ifversion ghec %}
+{% data reusables.saml.authentication-loop %}
+{% endif %}

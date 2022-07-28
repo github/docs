@@ -1,6 +1,6 @@
 ---
 title: Introduction to dev containers
-intro: When you work in a codespace, the environment you are working in is created using a development container, or dev container, hosted on a virtual machine.
+intro: 'When you work in a codespace, the environment you are working in is created using a development container, or dev container, hosted on a virtual machine.'
 permissions: People with write permissions to a repository can create or edit the codespace configuration.
 redirect_from:
   - /github/developing-online-with-github-codespaces/configuring-github-codespaces-for-your-project
@@ -53,7 +53,7 @@ For information about how to choose your preferred dev container configuration w
 
 It's useful to think of the `devcontainer.json` file as providing "customization" rather than "personalization." You should only include things that everyone working on your codebase needs as standard elements of the development environment, not things that are personal preferences. Things like linters are good to standardize on, and to require everyone to have installed, so they're good to include in your `devcontainer.json` file. Things like user interface decorators or themes are personal choices that should not be put in the `devcontainer.json` file.
 
-You can personalize your codespaces by using dotfiles and Settings Sync. For more information, see "[Personalizing Codespaces for your account](/codespaces/customizing-your-codespace/personalizing-codespaces-for-your-account)."
+You can personalize your codespaces by using dotfiles and Settings Sync. For more information, see "[Personalizing {% data variables.product.prodname_github_codespaces %} for your account](/codespaces/customizing-your-codespace/personalizing-github-codespaces-for-your-account)."
 
 ### Dockerfile
 

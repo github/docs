@@ -1,1 +1,1 @@
-To create secrets for a personal account repository, you must be the repository owner. 要为组织仓库创建密码，您必须具有`管理员`访问权限。
+要为个人帐户仓库创建密码，您必须是仓库所有者。 要为组织仓库创建密码，您必须具有`管理员`访问权限。

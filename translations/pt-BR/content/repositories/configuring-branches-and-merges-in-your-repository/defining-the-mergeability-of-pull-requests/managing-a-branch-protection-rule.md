@@ -70,9 +70,7 @@ Ao criar uma regra de branch, o branch que você especificar ainda não existe n
    - Selecione **Require status checks to pass before merging** (Exigir verificações de status para aprovação antes de fazer merge). ![Opção Required status checks (Verificações de status obrigatórias)](/assets/images/help/repository/required-status-checks.png)
    - Opcionalmente, para garantir que os pull requests sejam testados com o código mais recente no branch protegido, selecione **Exigir que os branches estejam atualizados antes do merge**. ![Caixa de seleção Status obrigatório rígido ou flexível](/assets/images/help/repository/protecting-branch-loose-status.png)
    - Pesquise verificações de status, selecionando as verificações que você deseja exigir. ![Interface de pesquisa para verificações de status disponíveis, com lista de verificações necessárias](/assets/images/help/repository/required-statuses-list.png)
-{%- ifversion fpt or ghec or ghes > 3.1 or ghae %}
 1. Opcionalmente, selecione **Exige resolução de conversas antes de fazer merge**. ![Exigir resolução de conversas antes de fazer o merge](/assets/images/help/repository/require-conversation-resolution.png)
-{%- endif %}
 1. Opcionalmente, selecione **Exigir commits assinados**. ![Opção Require signed commits (Exigir commits assinados)](/assets/images/help/repository/require-signed-commits.png)
 1. Opcionalmente, selecione **Exigir histórico linear**. ![Opção de histórico linear necessária](/assets/images/help/repository/required-linear-history.png)
 {%- ifversion fpt or ghec %}

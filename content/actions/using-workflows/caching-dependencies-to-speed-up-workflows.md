@@ -9,7 +9,7 @@ redirect_from:
   - /actions/guides/caching-dependencies-to-speed-up-workflows
   - /actions/advanced-guides/caching-dependencies-to-speed-up-workflows
 versions:
-  feature: 'actions-caching'
+  feature: actions-caching
 type: tutorial
 topics:
   - Workflows

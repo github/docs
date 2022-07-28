@@ -185,7 +185,7 @@ on:
   deployment_status
 ```
 
-{% ifversion fpt or ghec %}
+{% ifversion discussions %}
 ### `discussion`
 
 | Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
@@ -447,7 +447,7 @@ on:
 {% ifversion fpt or ghec %}
 {% note %}
 
-**Note**: This event does not occur for projects (beta). For more information, see "[About projects (beta)](/issues/trying-out-the-new-projects-experience/about-projects)."
+**Note**: This event only occurs for {% data variables.product.prodname_projects_v1 %}.
 
 {% endnote %}
 {% endif %}
@@ -485,7 +485,7 @@ on:
 {% ifversion fpt or ghec %}
 {% note %}
 
-**Note**: This event does not occur for projects (beta). For more information, see "[About projects (beta)](/issues/trying-out-the-new-projects-experience/about-projects)."
+**Note**: This event only occurs for {% data variables.product.prodname_projects_v1 %}.
 
 {% endnote %}
 {% endif %}
@@ -523,7 +523,7 @@ on:
 {% ifversion fpt or ghec %}
 {% note %}
 
-**Note**: This event does not occur for projects (beta). For more information, see "[About projects (beta)](/issues/trying-out-the-new-projects-experience/about-projects)."
+**Note**: This event only occurs for {% data variables.product.prodname_projects_v1 %}.
 
 {% endnote %}
 {% endif %}
@@ -921,6 +921,12 @@ on:
   push
 ```
 
+{% note %}
+
+**Note**: When a `push` webhook event triggers a workflow run, the Actions UI's "pushed by" field shows the account of the pusher and not the author or committer. However, if the changes are pushed to a repository using SSH authentication with a deploy key, then the "pushed by" field will be the repository admin who verified the deploy key when it was added it to a repository.
+
+{% endnote %}
+
 #### Running your workflow only when a push to specific branches occurs
 
 You can use the `branches` or `branches-ignore` filter to configure your workflow to only run when specific branches are pushed. For more information, see "[Workflow syntax for GitHub Actions](/actions/learn-github-actions/workflow-syntax-for-github-actions#onpushbranchestagsbranches-ignoretags-ignore)."
@@ -952,7 +958,7 @@ on:
 
 #### Running your workflow only when a push of specific tags occurs
 
-You can use the `tags` or `tags-ignore` filter to configure your workflow to only run when specific tags or are pushed. For more information, see "[Workflow syntax for GitHub Actions](/actions/learn-github-actions/workflow-syntax-for-github-actions#onpushbranchestagsbranches-ignoretags-ignore)."
+You can use the `tags` or `tags-ignore` filter to configure your workflow to only run when specific tags are pushed. For more information, see "[Workflow syntax for GitHub Actions](/actions/learn-github-actions/workflow-syntax-for-github-actions#onpushbranchestagsbranches-ignoretags-ignore)."
 
 For example, this workflow will run when someone pushes a tag that starts with `v1.`.
 
@@ -1007,7 +1013,7 @@ on:
 
 Runs your workflow when activity related to {% data variables.product.prodname_registry %} occurs in your repository. For more information, see "[{% data variables.product.prodname_registry %} Documentation](/packages)."
 
-For example, you can run a workflow when a package has been `published`.
+For example, you can run a workflow when a new package version has been `published`.
 
 ```yaml
 on:

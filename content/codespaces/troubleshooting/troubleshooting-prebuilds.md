@@ -24,7 +24,7 @@ If you have your {% data variables.product.prodname_codespaces %} editor prefere
 
 ![The 'prebuilt codespace found' message](/assets/images/help/codespaces/prebuilt-codespace-found.png)
 
-Similarly, if your editor preference is "{% data variables.product.prodname_vscode_shortname %}" then the integrated terminal will contain the message "You are on a prebuilt codespace defined by the prebuild configuration for your repository" when you create a new codespace. For more information, see "[Setting your default editor for Codespaces](/codespaces/customizing-your-codespace/setting-your-default-editor-for-codespaces)."
+Similarly, if your editor preference is "{% data variables.product.prodname_vscode_shortname %}" then the integrated terminal will contain the message "You are on a prebuilt codespace defined by the prebuild configuration for your repository" when you create a new codespace. For more information, see "[Setting your default editor for {% data variables.product.prodname_github_codespaces %}](/codespaces/customizing-your-codespace/setting-your-default-editor-for-github-codespaces)."
 
 After you have created a codespace you can check whether it was created from a prebuild by running the following {% data variables.product.prodname_cli %} command in the terminal:
 

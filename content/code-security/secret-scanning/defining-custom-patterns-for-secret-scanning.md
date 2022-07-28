@@ -6,7 +6,7 @@ product: '{% data reusables.gated-features.secret-scanning %}'
 redirect_from:
   - /code-security/secret-security/defining-custom-patterns-for-secret-scanning
 versions:
-  ghes: '>=3.2'
+  ghes: '*'
   ghae: '*'
   ghec: '*'
 type: how_to
@@ -187,7 +187,7 @@ When you save a change to a custom pattern, this closes all the {% data variable
 
    * For a repository or organization, display the "Security & analysis" settings for the repository or organization where the custom pattern was created. For more information, see "[Defining a custom pattern for a repository](#defining-a-custom-pattern-for-a-repository)" or "[Defining a custom pattern for an organization](#defining-a-custom-pattern-for-an-organization)" above.
    * For an enterprise, under "Policies" display the "Advanced Security" area, and then click **Security features**.  For more information, see "[Defining a custom pattern for an enterprise account](#defining-a-custom-pattern-for-an-enterprise-account)" above.
-{%- ifversion fpt or ghes > 3.2 or ghae %}
+{%- ifversion ghec or ghes > 3.2 or ghae %}
 1. To the right of the custom pattern you want to remove, click {% octicon "trash" aria-label="The trash icon" %}.
 1. Review the confirmation, and select a method for dealing with any open alerts relating to the custom pattern.
 1. Click **Yes, delete this pattern**.

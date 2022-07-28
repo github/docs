@@ -400,7 +400,7 @@ Os eventos de webhook são acionados com base na especificidade do domínio que 
 
 {% data reusables.webhooks.discussions-webhooks-beta %}
 
-Atividade relacionada a uma discussão. Para obter mais informações, consulte "[Usar a API do GraphQL para discussões]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql/guides/using-the-graphql-api-for-discussions)".
+Atividade relacionada a uma discussão. Para obter mais informações, consulte "[Usar a API do GraphQL para discussões](/graphql/guides/using-the-graphql-api-for-discussions)".
 ### Disponibilidade
 
 - Webhooks do repositório
@@ -425,7 +425,7 @@ Atividade relacionada a uma discussão. Para obter mais informações, consulte 
 
 {% data reusables.webhooks.discussions-webhooks-beta %}
 
-Atividade relacionada a um comentário em uma discussão. Para obter mais informações, consulte "[Usar a API do GraphQL para discussões]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql/guides/using-the-graphql-api-for-discussions)".
+Atividade relacionada a um comentário em uma discussão. Para obter mais informações, consulte "[Usar a API do GraphQL para discussões](/graphql/guides/using-the-graphql-api-for-discussions)".
 
 ### Disponibilidade
 
@@ -435,10 +435,10 @@ Atividade relacionada a um comentário em uma discussão. Para obter mais inform
 
 ### Objeto da carga do webhook
 
-| Tecla        | Tipo     | Descrição                                                                                                                                                           |
-| ------------ | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `Ação`       | `string` | A ação realizada. Pode ser `criado`, `editado` ou `excluído`.                                                                                                       |
-| `comentário` | `objeto` | O recurso [`comentário de discussão`]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql/guides/using-the-graphql-api-for-discussions#discussioncomment). |
+| Tecla        | Tipo     | Descrição                                                                                                       |
+| ------------ | -------- | --------------------------------------------------------------------------------------------------------------- |
+| `Ação`       | `string` | A ação realizada. Pode ser `criado`, `editado` ou `excluído`.                                                   |
+| `comentário` | `objeto` | O recurso [`comentário de discussão`](/graphql/guides/using-the-graphql-api-for-discussions#discussioncomment). |
 {% data reusables.webhooks.discussion_desc %}
 {% data reusables.webhooks.repo_desc_graphql %}
 {% data reusables.webhooks.org_desc_graphql %}
@@ -892,10 +892,10 @@ Atividade relacionada a {% data variables.product.prodname_registry %}. {% data 
 - Webhooks da organização
 - {% data variables.product.prodname_github_apps %} com a permissão `repository_projects` ou `organization_projects`
 
-{% ifversion fpt or ghec %}
+{% ifversion projects-v2 %}
 {% note %}
 
-**Observação**: Este evento não ocorre para Projetos (beta).
+**Note**: This event only occurs for {% data variables.product.prodname_projects_v1 %}.
 
 {% endnote %}
 {% endif %}
@@ -924,10 +924,10 @@ Atividade relacionada a {% data variables.product.prodname_registry %}. {% data 
 - Webhooks da organização
 - {% data variables.product.prodname_github_apps %} com a permissão `repository_projects` ou `organization_projects`
 
-{% ifversion fpt or ghec %}
+{% ifversion projects-v2 %}
 {% note %}
 
-**Observação**: Este evento não ocorre para Projetos (beta).
+**Note**: This event only occurs for {% data variables.product.prodname_projects_v1 %}.
 
 {% endnote %}
 {% endif %}
@@ -954,6 +954,14 @@ Atividade relacionada a {% data variables.product.prodname_registry %}. {% data 
 - Webhooks da organização
 - {% data variables.product.prodname_github_apps %} com a permissão `repository_projects` ou `organization_projects`
 
+{% ifversion projects-v2 %}
+{% note %}
+
+**Note**: This event only occurs for {% data variables.product.prodname_projects_v1 %}.
+
+{% endnote %}
+{% endif %}
+
 ### Objeto da carga do webhook
 
 {% data reusables.webhooks.project_column_properties %}
@@ -972,11 +980,11 @@ Atividade relacionada a {% data variables.product.prodname_registry %}. {% data 
 
 {% note %}
 
-**Observação:** Os eventos de Webhook para Projetos (beta) estão atualmente no beta e sujeitos a alterações. Para compartilhar feedback sobre webhooks de projetos (beta) com {% data variables.product.product_name %}, veja os [Webhooks de projetos (beta) de feedback](https://github.com/github/feedback/discussions/17405).
+**Note:** Webhook events for {% data variables.projects.projects_v2 %} are currently in beta and subject to change. To share feedback about {% data variables.projects.projects_v2 %} webhooks with {% data variables.product.product_name %}, see the [Projects webhook feedback discussion](https://github.com/github/feedback/discussions/17405).
 
 {% endnote %}
 
-Atividade relacionada aos itens em um projeto (beta) {% data reusables.webhooks.action_type_desc %} Para obter mais informações, consulte "[Sobre projetos (beta)](/issues/trying-out-the-new-projects-experience/about-projects).
+Activity related to items in a {% data variables.projects.project_v2 %}. {% data reusables.webhooks.action_type_desc %} Para obter mais informações, consulte "[Sobre {% data variables.projects.projects_v2 %}](/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects).
 
 ### Disponibilidade
 
@@ -985,11 +993,11 @@ Atividade relacionada aos itens em um projeto (beta) {% data reusables.webhooks.
 
 ### Objeto da carga do webhook
 
-| Tecla              | Tipo     | Descrição                                                                                                                                                                                                                                                                                                                                                                                    |
-| ------------------ | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `Ação`             | `string` | A ação que foi executada no item do projeto. Pode ser: `archived`, `converted`, `created`, `edited`, `restored`, `deleted` ou `reordered`.                                                                                                                                                                                                                                                   |
-| `projects_v2_item` | `objeto` | O item do projeto em si. Para encontrar mais informações sobre o item do projeto, você pode usar `node_id` (o ID do nó do item do projeto) e `project_node_id` (o ID do nó do projeto) para consultar informações na API do GraphQL. For more information, see "[Using the API to manage projects (beta)](/issues/trying-out-the-new-projects-experience/using-the-api-to-manage-projects)." |
-| `alterações`       | `objeto` | As alterações no item do projeto.                                                                                                                                                                                                                                                                                                                                                            |
+| Tecla              | Tipo     | Descrição                                                                                                                                                                                                                                                                                                                                                                                                  |
+| ------------------ | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `Ação`             | `string` | A ação que foi executada no item do projeto. Pode ser: `archived`, `converted`, `created`, `edited`, `restored`, `deleted` ou `reordered`.                                                                                                                                                                                                                                                                 |
+| `projects_v2_item` | `objeto` | O item do projeto em si. Para encontrar mais informações sobre o item do projeto, você pode usar `node_id` (o ID do nó do item do projeto) e `project_node_id` (o ID do nó do projeto) para consultar informações na API do GraphQL. For more information, see "[Using the API to manage projects](/issues/planning-and-tracking-with-projects/automating-your-project/using-the-api-to-manage-projects)." |
+| `alterações`       | `objeto` | As alterações no item do projeto.                                                                                                                                                                                                                                                                                                                                                                          |
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.app_desc %}
 {% data reusables.webhooks.sender_desc %}
@@ -1343,7 +1351,7 @@ O conjunto de dados consultivos de segurança também alimentam o GitHub {% data
 
 ## security_and_analysis
 
-Activity related to enabling or disabling code security and analysis features for a repository or organization.
+Atividade relacionada à habilitação ou desabilitação de recursos de segurança e análise de código para um repositório ou organização.
 
 ### Disponibilidade
 
@@ -1353,9 +1361,9 @@ Activity related to enabling or disabling code security and analysis features fo
 
 ### Objeto da carga do webhook
 
-| Tecla        | Tipo     | Descrição                                                              |
-| ------------ | -------- | ---------------------------------------------------------------------- |
-| `alterações` | `objeto` | The changes that were made to the code security and analysis features. |
+| Tecla        | Tipo     | Descrição                                                                            |
+| ------------ | -------- | ------------------------------------------------------------------------------------ |
+| `alterações` | `objeto` | As alterações que foram feitas nas funcionalidades de segurança e análise do código. |
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.app_desc %}

@@ -90,7 +90,7 @@ gh issue create --title "My new issue" --body "Here are more details." --assigne
 {% data reusables.repositories.assign-an-issue-as-project-maintainer %}
 {% data reusables.repositories.submit-new-issue %}
 
-{% ifversion fpt or ghec %}
+{% ifversion discussions %}
 
 ## 从讨论创建议题
 

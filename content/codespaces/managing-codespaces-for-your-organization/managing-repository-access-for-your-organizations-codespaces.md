@@ -1,9 +1,9 @@
 ---
 title: Managing repository access for your organization's codespaces
 shortTitle: Repository access
-intro: 'You can manage the repositories in your organization that {% data variables.product.prodname_codespaces %} can access.'
+intro: 'You can manage the repositories in your organization that {% data variables.product.prodname_github_codespaces %} can access.'
 product: '{% data reusables.gated-features.codespaces %}'
-permissions: 'To manage access and security for Codespaces for an organization, you must be an organization owner.'
+permissions: 'To manage access and security for {% data variables.product.prodname_github_codespaces %} for an organization, you must be an organization owner.'
 versions:
   fpt: '*'
   ghec: '*'
@@ -26,7 +26,7 @@ redirect_from:
 
 By default, a codespace can only access the repository where it was created. When you enable access and security for a repository owned by your organization, any codespaces that are created for that repository will also have read permissions to all other repositories the organization owns and the codespace creator has permissions to access. If you want to restrict the repositories a codespace can access, you can limit it to either the repository where the codespace was created, or to specific repositories. You should only enable access and security for repositories you trust.
 
-To manage which users in your organization can use {% data variables.product.prodname_codespaces %}, see "[Managing user permissions for your organization](/codespaces/managing-codespaces-for-your-organization/managing-user-permissions-for-your-organization)."
+To manage which users in your organization can use {% data variables.product.prodname_github_codespaces %}, see "[Managing user permissions for your organization](/codespaces/managing-codespaces-for-your-organization/managing-user-permissions-for-your-organization)."
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}

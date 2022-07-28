@@ -1,11 +1,11 @@
 ---
 title: Filtering alerts in the security overview
 intro: Use filters to view specific categories of alerts
-permissions: '{% data reusables.security-center.permissions %}'
-product: '{% data reusables.gated-features.security-center %}'
+permissions: '{% data reusables.security-overview.permissions %}'
+product: '{% data reusables.gated-features.security-overview %}'
 versions:
   ghae: '*'
-  ghes: '>3.1'
+  ghes: '*'
   ghec: '*'
 type: how_to
 topics:
@@ -18,7 +18,7 @@ shortTitle: Filtering alerts
 ---
 
 {% ifversion ghes < 3.5 or ghae %}
-{% data reusables.security-center.beta %}
+{% data reusables.security-overview.beta %}
 {% endif %}
 
 ## About filtering the security overview

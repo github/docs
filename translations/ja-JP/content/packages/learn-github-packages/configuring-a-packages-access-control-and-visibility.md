@@ -16,7 +16,7 @@ shortTitle: アクセスコントロールと可視性
 
 詳細な権限を持つパッケージは、個人ユーザもしくはOrganizationアカウントをスコープとします。 パッケージのアクセス制御と可視性は、パッケージに接続された（あるいはリンクされた）リポジトリは別個に変更できます。
 
-現在は、{% data variables.product.prodname_container_registry %}でのみ詳細な権限を使うことができます。 詳細な権限は、npmレジストリなど他のパッケージレジストリではサポートされていません。
+現在は、{% data variables.product.prodname_container_registry %}でのみ詳細な権限を使うことができます。 Granular permissions are not supported in our other package registries, such as the npm registry.{% ifversion docker-ghcr-enterprise-migration %} For more information about migration to the {% data variables.product.prodname_container_registry %}, see "[Migrating to the {% data variables.product.prodname_container_registry %} from the Docker registry](/packages/working-with-a-github-packages-registry/migrating-to-the-container-registry-from-the-docker-registry)."{% endif %}
 
 リポジトリをスコープとするパッケージの権限や、PATに関するパッケージ関連のスコープ、Actionsのワークフローの権限の管理についての詳しい情報は、「[GitHub Packagesの権限について](/packages/learn-github-packages/about-permissions-for-github-packages)」を参照してください。
 

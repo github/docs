@@ -12,7 +12,7 @@ sections:
     - Vídeos enviados para comentários de problemas não seriam interpretados corretamente.
     - Ao usar declarações criptografadas do SAML, algumas afirmações não estavam marcando corretamente chaves SSH como verificada.
     - Ao usar `ghe-migrator`, uma migração falharia na importação de anexos do arquivo de vídeo em problemas e pull requests.
-    - 'The Releases page would return a 500 error when the repository has tags that contain non-ASCII characters. [Updated: 2022-06-10]'
+    - 'A página de Versões retornaria um erro 500 quando o repositório tem tags que contêm caracteres que não são ASCII. [Atualizado: 2022-06-10]'
   changes:
     - Nas configurações de alta disponibilidade, explique que a página de visão geral de replicação no Console de Gerenciamento exibe somente a configuração de replicação atual, não o status de replicação atual.
     - Ao habilitar {% data variables.product.prodname_registry %}, explique que o uso de um token de Assinatura de Acesso Compartilhado (SAS) como string de conexão não é compatível atualmente.

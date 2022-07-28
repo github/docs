@@ -20,11 +20,11 @@ const renderTocItem = (item: MiniTocItem) => {
         listStyle: 'none',
         padding: '2px',
         ':hover': {
-          bg: 'var(--color-canvas-inset)',
+          bg: 'var(--color-canvas-inset) !important',
         },
         'ul > li': {
           ':hover': {
-            bg: 'var(--color-neutral-subtle)',
+            bg: 'var(--color-neutral-subtle) !important',
           },
         },
       }}
@@ -50,16 +50,13 @@ export function MiniTocs({ pageTitle, miniTocItems }: MiniTocsPropsT) {
         <Link href="#in-this-article">{t('miniToc')}</Link>
       </Heading>
 
-      <ActionList
-        key={pageTitle}
-        items={miniTocItems.map((items, i) => {
-          return {
-            key: pageTitle + i,
-            text: pageTitle,
-            renderItem: () => <ul>{renderTocItem(items)}</ul>,
-          }
-        })}
-      />
+      <ActionList variant="full" className="my-2" key={pageTitle} as="div">
+        <div>
+          {miniTocItems.map((items, i) => {
+            return <ul key={pageTitle + i}>{renderTocItem(items)}</ul>
+          })}
+        </div>
+      </ActionList>
     </>
   )
 }

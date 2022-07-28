@@ -162,7 +162,7 @@ gh pr create --web
 ![GitHub pull request side bar](/assets/images/help/codespaces/codespaces-commit-pr.png)
 1. Click **Create**.
 
-For more information on creating pull requests in {% data variables.product.prodname_codespaces %}, see "[Using Codespaces for pull requests](/codespaces/developing-in-codespaces/using-codespaces-for-pull-requests)."
+For more information on creating pull requests in {% data variables.product.prodname_github_codespaces %}, see "[Using {% data variables.product.prodname_github_codespaces %} for pull requests](/codespaces/developing-in-codespaces/using-github-codespaces-for-pull-requests)."
 
 {% endcodespaces %}
 

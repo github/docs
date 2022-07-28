@@ -77,4 +77,10 @@ Isso pode ser útil quando alguns commits fizerem amplas alterações no seu có
 git blame --ignore-revs-file .git-blame-ignore-revs
 ```
 
+Você também pode configurar seu git local para que ele sempre ignore as revs nesse arquivo:
+
+```shell
+git config blame.ignoreRevsFile .git-blame-ignore-revs
+```
+
 {% endif %}

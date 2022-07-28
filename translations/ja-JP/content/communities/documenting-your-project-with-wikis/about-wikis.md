@@ -21,7 +21,7 @@ Every repository on {% ifversion ghae %}{% data variables.product.product_name %
 
 {% ifversion fpt or ghes or ghec %}パブリックリポジトリに Wiki を作成すると、{% ifversion ghes %}{% data variables.product.product_location %}{% else %}パブリック{% endif %}にアクセスできるすべてのユーザがその Wiki を利用できます。 {% endif %}If you create a wiki in a private{% ifversion ghec or ghes %} or internal{% endif %} repository, only {% ifversion fpt or ghes or ghec %}people{% elsif ghae %}enterprise members{% endif %} with access to the repository can access the wiki. 詳細は「[リポジトリの可視性を設定する](/articles/setting-repository-visibility)」を参照してください。
 
-ウィキは、{% data variables.product.product_name %} 上で直接編集することも、ウィキのファイルをローカルで編集することもできます。 デフォルトでは、リポジトリへの書き込みアクセス権を持つユーザのみが Wiki に変更を加えることができますが、{% data variables.product.product_location %} のすべてのユーザが{% ifversion ghae %}内部{% else %}パブリック{% endif %}リポジトリの Wiki に貢献できるようにすることも可能ですす。 詳細は「[ウィキへのアクセス権限を変更する](/communities/documenting-your-project-with-wikis/changing-access-permissions-for-wikis)」を参照してください。
+ウィキは、{% data variables.product.product_name %} 上で直接編集することも、ウィキのファイルをローカルで編集することもできます。 デフォルトでは、リポジトリへの書き込みアクセス権を持つユーザのみが Wiki に変更を加えることができますが、{% data variables.product.product_location %} のすべてのユーザが{% ifversion ghae %}内部{% else %}パブリック{% endif %}リポジトリの Wiki に貢献できるようにすることも可能ですす。 For more information, see "[Changing access permissions for wikis](/communities/documenting-your-project-with-wikis/changing-access-permissions-for-wikis)."
 
 {% note %}
 

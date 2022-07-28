@@ -1,19 +1,19 @@
-### Using a single event
+### 単一イベントの利用
 
 {% data reusables.actions.on-single-example %}
 
-### Using multiple events
+### 複数イベントの利用
 
 {% data reusables.actions.on-multiple-example %}
 
-### Using activity types
+### アクティビティタイプの利用
 
 {% data reusables.actions.actions-activity-types %}
 
-### Using filters
+### フィルタの利用
 
 {% data reusables.actions.actions-filters %}
 
-### Using activity types and filters with multiple events
+### 複数のイベントでのアクティビティタイプとフィルタの利用
 
 {% data reusables.actions.actions-multiple-types %}

@@ -41,69 +41,65 @@ export const ArticleList = ({
         </div>
       )}
 
-      <ActionList
-        {...{ as: 'ul' }}
-        data-testid="article-list"
-        items={articles.map((link) => {
-          return {
-            renderItem: () => (
-              <ActionList.Item
-                as="li"
-                key={link.href}
-                className={cx('border-top')}
-                sx={{
+      <ActionList as="ul" data-testid="article-list" variant="full">
+        {articles.map((link) => {
+          return (
+            <ActionList.Item
+              as="li"
+              key={link.href}
+              className={cx('width-full border-top')}
+              sx={{
+                borderRadius: 0,
+                ':hover': {
                   borderRadius: 0,
-                  ':hover': {
-                    borderRadius: 0,
-                  },
-                }}
-              >
-                <BumpLink
-                  as={Link}
-                  href={link.href}
-                  className="py-3"
-                  title={
-                    !link.hideIntro && link.intro ? (
-                      <h3 className="f4" data-testid="link-with-intro-title">
-                        <span
-                          dangerouslySetInnerHTML={
-                            link.fullTitle ? { __html: link.fullTitle } : { __html: link.title }
-                          }
-                        />
-                      </h3>
-                    ) : (
+                },
+              }}
+            >
+              <BumpLink
+                as={Link}
+                href={link.href}
+                className="py-3"
+                title={
+                  !link.hideIntro && link.intro ? (
+                    <h3 className="f4" data-testid="link-with-intro-title">
                       <span
-                        className="f4 text-bold d-block"
-                        data-testid="link-with-intro-title"
                         dangerouslySetInnerHTML={
                           link.fullTitle ? { __html: link.fullTitle } : { __html: link.title }
                         }
-                      ></span>
-                    )
-                  }
-                >
-                  {!link.hideIntro && link.intro && (
-                    <TruncateLines as="p" maxLines={2} className="color-fg-muted mb-0 mt-1">
-                      <span
-                        data-testid="link-with-intro-intro"
-                        dangerouslySetInnerHTML={{ __html: link.intro }}
                       />
-                    </TruncateLines>
-                  )}
-                  {link.date && (
-                    <time
-                      className="tooltipped tooltipped-n color-fg-muted text-mono mt-1"
-                      aria-label={dayjs(link.date).format('MMMM DD')}
-                    >
-                      {dayjs(link.date).format('MMMM DD')}
-                    </time>
-                  )}
-                </BumpLink>
-              </ActionList.Item>
-            ),
-          }
+                    </h3>
+                  ) : (
+                    <span
+                      className="f4 text-bold d-block"
+                      data-testid="link-with-intro-title"
+                      dangerouslySetInnerHTML={
+                        link.fullTitle ? { __html: link.fullTitle } : { __html: link.title }
+                      }
+                    ></span>
+                  )
+                }
+              >
+                {!link.hideIntro && link.intro && (
+                  <TruncateLines as="p" maxLines={2} className="color-fg-muted mb-0 mt-1">
+                    <span
+                      data-testid="link-with-intro-intro"
+                      dangerouslySetInnerHTML={{ __html: link.intro }}
+                    />
+                  </TruncateLines>
+                )}
+                {link.date && (
+                  <time
+                    className="tooltipped tooltipped-n color-fg-muted text-mono mt-1"
+                    aria-label={dayjs(link.date).format('MMMM DD')}
+                  >
+                    {dayjs(link.date).format('MMMM DD')}
+                  </time>
+                )}
+              </BumpLink>
+            </ActionList.Item>
+          )
         })}
-      ></ActionList>
+      </ActionList>
     </>
   )
 }

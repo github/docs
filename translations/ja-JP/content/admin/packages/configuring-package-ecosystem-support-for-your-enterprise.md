@@ -26,7 +26,7 @@ shortTitle: Configure package ecosystems
    {%- ifversion ghes > 3.4 %}{% note -%}
 **Note**: Subdomain isolation must be enabled to toggle the
    {% data variables.product.prodname_container_registry %} オプション.
-   {%- endnote %}{%- endif %}{%- ifversion ghes > 3.1 %}
+   {%- endnote %}{%- endif %}{%- ifversion ghes %}
   ![エコシステムの切り替え](/assets/images/enterprise/site-admin-settings/ecosystem-toggles.png){% else %}
 ![Ecosystem toggles](/assets/images/enterprise/3.1/site-admin-settings/ecosystem-toggles.png){% endif %}
 {% data reusables.enterprise_management_console.save-settings %}

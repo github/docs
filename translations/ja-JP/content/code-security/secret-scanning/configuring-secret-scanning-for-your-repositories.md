@@ -71,4 +71,4 @@ shortTitle: シークレットスキャンの設定
 ## 参考リンク
 
 - 「[Organization のセキュリティと分析設定を管理する](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)」
-{% ifversion fpt or ghes > 3.1 or ghae or ghec %}-「[{% data variables.product.prodname_secret_scanning %}のカスタムパターンの定義](/code-security/secret-security/defining-custom-patterns-for-secret-scanning)」{% endif %}
+- 「[{% data variables.product.prodname_secret_scanning %}のカスタムパターンの定義](/code-security/secret-security/defining-custom-patterns-for-secret-scanning)」

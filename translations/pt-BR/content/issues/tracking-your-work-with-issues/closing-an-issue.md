@@ -1,6 +1,6 @@
 ---
 title: Fechando um problema
-intro: 'You can close an issue when bugs are fixed, feedback is acted on, or to show that work is not planned.'
+intro: 'Você pode fechar um problema quando erros são corrigidos, quando se tomou uma ação com base em um feedback ou mostrar que o trabalho não está planejado.'
 permissions: 'Anyone can close an issue they opened.<br><br>Repository owners, collaborators on repositories owned by a personal account, and people with triage permissions or greater on repositories owned by an organization can close issues opened by others. {% data reusables.enterprise-accounts.emu-permission-repo %}'
 versions:
   fpt: '*'

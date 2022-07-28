@@ -8,8 +8,6 @@ redirect_from:
   - /early-access/github/analyze-how-your-team-works-with-server-statistics/exploring-server-statistics
 ---
 
-{% data reusables.server-statistics.release-phase %}
-
 You can download up to the last 365 days of {% data variables.product.prodname_server_statistics %} data in a CSV or JSON file. Estos datos, los cuales incluyen métricas agregadas en los repositorios, propuestas y solicitudes de cambio pueden ayudarte a anticipar las necesidades de tu organización, entender cómo funciona tu equipo y mostrarte el valor que obtienes de {% data variables.product.prodname_ghe_server %}.
 
 Before you can download this data, you must enable {% data variables.product.prodname_server_statistics %}. Para obtener más información, consulta la sección "[Habilitar la {% data variables.product.prodname_server_statistics %} en tu empresa](/admin/configuration/configuring-github-connect/enabling-server-statistics-for-your-enterprise)".
@@ -28,7 +26,7 @@ Para aprender más sobre el {% data variables.product.prodname_github_connect %}
 
 2. Next to your desired enterprise account, click **Settings**. ![Settings button next to Enterprise admin account](/assets/images/help/enterprises/enterprise-admin-account-settings-button.png)
 
-3. On the left, click **GitHub Connect**. ![GitHub Connect option under enterprise admin account](/assets/images//help/enterprises/enterprise-admin-github-connect.png)
+3. A la izquierda, haz clic en **GitHub Connect**. ![GitHub Connect option under enterprise admin account](/assets/images//help/enterprises/enterprise-admin-github-connect.png)
 
 {% data reusables.server-statistics.csv-download %}
 

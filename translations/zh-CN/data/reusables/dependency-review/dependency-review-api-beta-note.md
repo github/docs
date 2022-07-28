@@ -1,5 +1,5 @@
 {% note %}
 
-**Note**: The Dependency Review API is currently in public beta and subject to change.
+**注意**：依赖项审查 API 目前处于公开测试阶段，可能会发生更改。
 
 {% endnote %}

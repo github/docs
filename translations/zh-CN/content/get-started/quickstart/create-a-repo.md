@@ -22,7 +22,7 @@ topics:
 
 {% ifversion fpt or ghec %}
 
-您可以在 {% data variables.product.prodname_dotcom %} 仓库中存储各种项目，包括开源项目。 通过开源项目，您可以共享代码以开发更好、更可靠的软件。 您可以使用仓库与他人协作并跟踪您的工作。 更多信息请参阅“[关于仓库](/github/creating-cloning-and-archiving-repositories/creating-a-repository-on-github/about-repositories)”。 要了解有关开源项目的更多信息，请访问 [OpenSource.org](http://opensource.org/about)。
+您可以在 {% data variables.product.prodname_dotcom %} 仓库中存储各种项目，包括开源项目。 通过开源项目，您可以共享代码以开发更好、更可靠的软件。 您可以使用仓库与他人协作并跟踪您的工作。 更多信息请参阅“[关于仓库](/github/creating-cloning-and-archiving-repositories/creating-a-repository-on-github/about-repositories)”。 要了解有关开源项目的更多信息，请访问 [OpenSource.org](https://opensource.org/about)。
 
 {% elsif ghes or ghae %}
 

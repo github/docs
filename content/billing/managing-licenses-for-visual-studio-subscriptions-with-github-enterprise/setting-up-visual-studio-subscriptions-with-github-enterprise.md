@@ -1,6 +1,6 @@
 ---
 title: Setting up Visual Studio subscriptions with GitHub Enterprise
-intro: "Your team's subscription to {% data variables.product.prodname_vs %} can also provide access to {% data variables.product.prodname_enterprise %}."
+intro: 'Your team''s subscription to {% data variables.product.prodname_vs %} can also provide access to {% data variables.product.prodname_enterprise %}.'
 versions:
   ghec: '*'
 type: how_to

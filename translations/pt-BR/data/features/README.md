@@ -34,14 +34,7 @@ versions:
   feature: 'meow'
 ```
 
-Se você quiser que um arquivo de conteúdo aplique a mais de um recurso, você pode fazer isso:
-
-```yaml
-versions:
-  fpt: '*'
-  ghes: '>3.1'
-  feature: ['meow', 'blorp']
-```
+Você não pode usar o `feature:` para especificar várias versões simultâneas, pois não há compatibilidade. Como alternativa, você pode criar um novo arquivo de versão baseado em recursos com a versão necessária.
 
 ## Aplicação de esquema
 

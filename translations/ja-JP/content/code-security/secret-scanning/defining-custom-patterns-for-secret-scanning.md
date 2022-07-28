@@ -6,7 +6,7 @@ product: '{% data reusables.gated-features.secret-scanning %}'
 redirect_from:
   - /code-security/secret-security/defining-custom-patterns-for-secret-scanning
 versions:
-  ghes: '>=3.2'
+  ghes: '*'
   ghae: '*'
   ghec: '*'
 type: how_to
@@ -187,7 +187,7 @@ aAAAe9
 
    * リポジトリあるいはOrganizationの場合は、カスタムパターンが作成されたリポジトリもしくはOrganizationの"Security & analysis（セキュリティと分析）" 設定を表示させてください。 詳しい情報については上の「[リポジトリのカスタムパターンの定義](#defining-a-custom-pattern-for-a-repository)」あるいは「[Organizationのカスタムパターンの定義](#defining-a-custom-pattern-for-an-organization)」を参照してください。
    * Enterpriseの場合は、"Policies（ポリシー）"の下で"Advanced Security（高度なセキュリティ）"を表示させ、**Security features（セキュリティの機能）**をクリックしてください。  詳しい情報については、上記の「[Enterpriseアカウントでのカスタムパターンの定義](#defining-a-custom-pattern-for-an-enterprise-account)」を参照してください。
-{%- ifversion fpt or ghes > 3.2 or ghae %}
+{%- ifversion ghec or ghes > 3.2 or ghae %}
 1. 削除したいカスタムパターンの右で{% octicon "trash" aria-label="The trash icon" %}をクリックしてください。
 1. 確認したら、そのカスタムパターンに関連するオープンなアラートを処理方法を選択してください。
 1. **Yes, delete this pattern（はい、このパターンを削除してください）**をクリックしてください。

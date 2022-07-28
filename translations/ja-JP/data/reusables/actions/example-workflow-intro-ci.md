@@ -1,1 +1,1 @@
-This article uses an example workflow to demonstrate some of the main CI features of {% data variables.product.prodname_actions %}. 
+この記事では、サンプルのワークフローを使って{% data variables.product.prodname_actions %}のCIの主な機能の一部を紹介しています。 

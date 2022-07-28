@@ -34,6 +34,8 @@ No tutorial, primeiro você vai criar um arquivo de fluxo de trabalho que usa a 
     ```yaml{:copy}
 {% indented_data_reference reusables.actions.actions-not-certified-by-github-comment spaces=4 %}
 
+{% indented_data_reference reusables.actions.actions-use-sha-pinning-comment spaces=4 %}
+
     name: Move assigned card
     on:
       issues:

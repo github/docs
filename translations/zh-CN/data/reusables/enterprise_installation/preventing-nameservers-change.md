@@ -1,5 +1,5 @@
 	{% note %}
     
-    **Note**: The 127.0.0.1 entry is required to be the first entry in the list. Do not remove the 127.0.0.1 entry, add another entry above the 127.0.0.1 entry, or use options that affect the ordering of entries, such as "options rotate".
+    **注意**：127.0.0.1 条目必须是列表中的第一个条目。 不要删除 127.0.0.1 条目，不要在 127.0.0.1 条目上方添加另一个条目，也不要使用影响条目排序的选项，如“选项旋转”。
     
     {% endnote %}

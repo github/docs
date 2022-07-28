@@ -84,13 +84,13 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
+    runs-on: ubuntu-latest
     permissions:
       # required for all workflows
       security-events: write
       # only required for workflows in private repositories
       actions: read
-      contents: read{% endif %}
+      contents: read
     steps:
       # This step checks out a copy of your repository.
       - name: Checkout repository
@@ -125,13 +125,13 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
+    runs-on: ubuntu-latest
     permissions:
       # required for all workflows
       security-events: write
       # only required for workflows in private repositories
       actions: read
-      contents: read{% endif %}
+      contents: read
     steps:
       - uses: {% data reusables.actions.action-checkout %}
       - name: Run npm install

@@ -40,9 +40,9 @@ topics:
     jobs:
       create_issue:
         name: Create team sync issue
-        runs-on: ubuntu-latest{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
+        runs-on: ubuntu-latest
         permissions:
-          issues: write{% endif %}
+          issues: write
         steps:
           - name: Create team sync issue
             uses: imjohnbo/issue-bot@3daae12aa54d38685d7ff8459fc8a2aee8cea98b

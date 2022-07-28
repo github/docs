@@ -134,26 +134,26 @@ GraphQL APIの制限は、REST APIの[レート制限](/rest/overview/resources-
 
 APIのレート制限が異なっているのはなぜでしょうか？ [GraphQL](/graphql)では、一つのGraphQLの呼び出しで[複数のRESTの呼び出し](/graphql/guides/migrating-from-rest-to-graphql)を置き換えることができます。 単一の複雑なGraphQLの呼び出しが、数千のRESTリクエストと等価なこともあります。 単一の GraphQL 呼び出しは REST API レート制限を大幅に下回りますが、クエリはGitHub のサーバーが演算するのと同等の負荷になる可能性があります。
 
-To accurately represent the server cost of a query, the GraphQL API calculates a call's **rate limit score** based on a normalized scale of points. クエリのスコアは、親のコネクションやその子のfirst及びlast引数を計算に入れます。
+クエリのサーバーにとってのコストを正確に表すために、GraphQL APIは呼び出しの**レート制限スコア**を正規化されたポイントのスケールに基づいて計算します。 クエリのスコアは、親のコネクションやその子のfirst及びlast引数を計算に入れます。
 
 * この式は、MySQLやElasticSearch、GitといったGitHubのシステムの潜在的な負荷を事前計算するために、親のコネクション及びその子の`first`及び`last`引数を使います。
 * 新しいコネクションはそれぞれ独自のポイント値を持ちます。 ポイントは呼び出しからの他のポイントと組み合わされて、全体としてのレート制限スコアになります。
 
-The GraphQL API rate limit is **5,000 points per hour**.
+GraphQL APIのレート制限は、**1時間あたり5,000ポイント**です。
 
-Note that 5,000 points per hour is not the same as 5,000 calls per hour: the GraphQL API and REST API use different rate limits.
+1時間あたり5,000ポイントは、1時間あたり5,000回の呼び出しとは同じではないことに注意してください。GraphQL APIとREST APIは、異なるレート制限を使います。
 
 {% note %}
 
-**Note**: The current formula and rate limit are subject to change as we observe how developers use the GraphQL API.
+**ノート**: 現在の式とレート制限は、開発者によるGraphQL APIの利用の様子を観察するにつれて、変更される可能性があります。
 
 {% endnote %}
 
 ### 呼び出しのレート制限のステータスを返す
 
-With the REST API, you can check the rate limit status by [inspecting](/rest/overview/resources-in-the-rest-api#rate-limiting) the returned HTTP headers.
+REST APIでは、返された HTTP ヘッダを[調べる](/rest/overview/resources-in-the-rest-api#rate-limiting)ことにより、レート制限のステータスを確認できます。
 
-With the GraphQL API, you can check the rate limit status by querying fields on the `rateLimit` object:
+GraphQL APIでは、`rateLimit`オブジェクトのフィールドに対してクエリを行うことで、レート制限のステータスを調べることができます。
 
 ```graphql
 query {
@@ -186,7 +186,7 @@ query {
 
 {% note %}
 
-**Note**: The minimum cost of a call to the GraphQL API is **1**, representing a single request.
+**ノート**: GraphQL APIに対する呼び出しの最小コストは**1**で、これは単一のリクエストを表します。
 
 {% endnote %}
 

@@ -52,7 +52,7 @@ To get an idea of what your Checks API CI server will do when you've completed t
 
 ## Prerequisites
 
-Before you get started, you may want to familiarize yourself with [GitHub Apps](/apps/), [Webhooks](/webhooks), and the [Checks API](/rest/reference/checks), if you're not already. You'll find more APIs in the [REST API docs](/rest). The Checks API is also available to use in [GraphQL]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql), but this quickstart focuses on REST. See the GraphQL [Checks Suite]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql/reference/objects#checksuite) and [Check Run]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql/reference/objects#checkrun) objects for more details.
+Before you get started, you may want to familiarize yourself with [GitHub Apps](/apps/), [Webhooks](/webhooks), and the [Checks API](/rest/reference/checks), if you're not already. You'll find more APIs in the [REST API docs](/rest). The Checks API is also available to use in [GraphQL](/graphql), but this quickstart focuses on REST. See the GraphQL [Checks Suite](/graphql/reference/objects#checksuite) and [Check Run](/graphql/reference/objects#checkrun) objects for more details.
 
 You'll use the [Ruby programming language](https://www.ruby-lang.org/en/), the [Smee](https://smee.io/) webhook payload delivery service, the [Octokit.rb Ruby library](http://octokit.github.io/octokit.rb/) for the GitHub REST API, and the [Sinatra web framework](http://sinatrarb.com/) to create your Checks API CI server app.
 
@@ -149,7 +149,7 @@ def create_check_run
     # The payload structure differs depending on whether a check run or a check suite event occurred.
     @payload['check_run'].nil? ? @payload['check_suite']['head_sha'] : @payload['check_run']['head_sha'],
     # [Hash] 'Accept' header option, to avoid a warning about the API not being ready for production use.
-    accept: 'application/vnd.github.v3+json'
+    accept: 'application/vnd.github+json'
   )
 end
 ```
@@ -220,7 +220,7 @@ def initiate_check_run
     @payload['repository']['full_name'],
     @payload['check_run']['id'],
     status: 'in_progress',
-    accept: 'application/vnd.github.v3+json'
+    accept: 'application/vnd.github+json'
   )
 
   # ***** RUN A CI TEST *****
@@ -231,7 +231,7 @@ def initiate_check_run
     @payload['check_run']['id'],
     status: 'completed',
     conclusion: 'success',
-    accept: 'application/vnd.github.v3+json'
+    accept: 'application/vnd.github+json'
   )
 end
 ```
@@ -546,7 +546,7 @@ Now you've got all the information you need to update your check run. In the [fi
   @payload['check_run']['id'],
   status: 'completed',
   conclusion: 'success',
-  accept: 'application/vnd.github.v3+json'
+  accept: 'application/vnd.github+json'
 )
 ```
 
@@ -570,7 +570,7 @@ You'll need to update that code to use the `conclusion` variable you set based o
     description: 'Automatically fix all linter notices.',
     identifier: 'fix_rubocop_notices'
   }],
-  accept: 'application/vnd.github.v3+json'
+  accept: 'application/vnd.github+json'
 )
 ```
 
