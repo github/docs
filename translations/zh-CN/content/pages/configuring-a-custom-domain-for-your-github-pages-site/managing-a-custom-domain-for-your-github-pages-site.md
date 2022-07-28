@@ -40,12 +40,12 @@ shortTitle: 管理自定义域
 
 ## 配置子域
 
-要设置 `www` 或自定义子域，例如 `www.example.com` 或 `blog.example.com`，您必须将域添加到仓库设置，这将在站点的仓库中创建 CNAME 文件。 然后，通过 DNS 提供商配置 CNAME 记录。
+To set up a `www` or custom subdomain, such as `www.example.com` or `blog.example.com`, you must add your domain in the repository settings. 然后，通过 DNS 提供商配置 CNAME 记录。
 
 {% data reusables.pages.navigate-site-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.pages.sidebar-pages %}
-4. 在 "Custom domain（自定义域）"下，输入自定义域，然后单击 **Save（保存）**。 这将创建一个在发布源根目录中添加 _CNAME _ 文件的提交。 ![保存自定义域按钮](/assets/images/help/pages/save-custom-subdomain.png)
+4. 在 "Custom domain（自定义域）"下，输入自定义域，然后单击 **Save（保存）**。 If you are publishing your site from a branch, this will create a commit that adds a `CNAME` file to the root of your source branch. If you are publishing your site with a custom {% data variables.product.prodname_actions %} workflow , no `CNAME` file is created. For more information about your publishing source, see "[Configuring a publishing source for your GitHub Pages site](/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)." ![保存自定义域按钮](/assets/images/help/pages/save-custom-subdomain.png)
 5. 导航到您的 DNS 提供程序并创建 `CNAME` 记录，使子域指向您站点的默认域。 例如，如果要对您的用户站点使用子域 `www.example.com`，您可以创建 `CNAME` 记录，使 `www.example.com` 指向 `<user>.github.io`。 如果要对您的组织站点使用子域 `www.anotherexample.com`，您可以创建 `CNAME` 记录，使 `www.anotherexample.com` 指向 `<organization>.github.io`。 `CNAME` 记录应该始终指向 `<user>.github.io` 或 `<organization>.github.io`，不包括仓库名称。 {% data reusables.pages.contact-dns-provider %} {% data reusables.pages.default-domain-information %}
 
 {% indented_data_reference reusables.pages.wildcard-dns-warning spaces=3 %}
@@ -63,14 +63,14 @@ shortTitle: 管理自定义域
 
 ## 配置 apex 域
 
-要设置 apex 域，例如 `example.com`，您必须使用 DNS 提供程序配置 {% data variables.product.prodname_pages %} 仓库中的 _CNAME_ 文件以及至少一条 `ALIAS`、`ANAME` 或 `A` 记录。
+To set up an apex domain, such as `example.com`, you must configure a custom domain in your repository settings and at least one `ALIAS`, `ANAME`, or `A` record with your DNS provider.
 
 {% data reusables.pages.www-and-apex-domain-recommendation %}更多信息请参阅“[配置子域](#configuring-a-subdomain)”。
 
 {% data reusables.pages.navigate-site-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.pages.sidebar-pages %}
-4. 在 "Custom domain（自定义域）"下，输入自定义域，然后单击 **Save（保存）**。 这将创建一个在发布源根目录中添加 _CNAME _ 文件的提交。 ![保存自定义域按钮](/assets/images/help/pages/save-custom-apex-domain.png)
+4. 在 "Custom domain（自定义域）"下，输入自定义域，然后单击 **Save（保存）**。 If you are publishing your site from a branch, this will create a commit that adds a `CNAME` file to the root of your source branch. If you are publishing your site with a custom {% data variables.product.prodname_actions %} workflow , no `CNAME` file is created. For more information about your publishing source, see "[Configuring a publishing source for your GitHub Pages site](/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)." ![保存自定义域按钮](/assets/images/help/pages/save-custom-apex-domain.png)
 5. 导航到 DNS 提供程序并创建一个 `ALIAS`、`ANAME` 或 `A` 记录。 您也可以创建 `AAAA` 记录以获得 IPv6 支持。 {% data reusables.pages.contact-dns-provider %}
     - 要创建 `ALIAS` 或 `ANAME` 记录，请将 apex 域指向站点的默认域。 {% data reusables.pages.default-domain-information %}
     - 要创建 `A` 记录，请将 apex 域指向 {% data variables.product.prodname_pages %} 的 IP 地址。

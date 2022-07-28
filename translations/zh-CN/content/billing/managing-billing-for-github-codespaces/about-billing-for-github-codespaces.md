@@ -44,8 +44,9 @@ redirect_from:
 
 ### {% data variables.product.prodname_codespaces %} 预构建的计费
 
+{% data reusables.codespaces.billing-for-prebuilds-default %}
 
-{% data reusables.codespaces.billing-for-prebuilds %}
+{% data reusables.codespaces.billing-for-prebuilds-reducing %}
 
 ## 设置支出限制
 
