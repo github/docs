@@ -4,11 +4,19 @@ import { useRouter } from 'next/router'
 const MAX_CACHE = 5000 // milliseconds
 const RETRY = 500 // milliseconds
 
+type LanguageItem = {
+  name: string
+  nativeName?: string
+  code: string
+  hreflang: string
+  wip?: boolean
+}
+
 type Session = {
   isSignedIn: boolean
   csrfToken: string
-  language: string // en, es, ja, cn
   userLanguage: string // en, es, ja, cn
+  languages: Record<string, LanguageItem> // en... name nativeName code hreflang redirectPatterns dir wip
   theme: object // colorMode, nightTheme, dayTheme
   themeCSS: object // colorMode, nightTheme, dayTheme
 }
