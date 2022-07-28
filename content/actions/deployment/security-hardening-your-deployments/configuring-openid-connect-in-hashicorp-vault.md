@@ -154,7 +154,7 @@ jobs:
 
 By default, the Vault server will automatically revoke access tokens when their TTL is expired, so you don't have to worry about revoking the access tokens.
 
-But if you want to revoke access tokens immediately soon after your job is completed/failed for your security requirements, you can manually revoke the issued token using the [Vault API](https://www.vaultproject.io/api/auth/token#revoke-a-token-self).
+However, if you do want to revoke access tokens immediately after your job has completed or failed, you can manually revoke the issued token using the [Vault API](https://www.vaultproject.io/api/auth/token#revoke-a-token-self).
 
 1. Set the `exportToken` option to `true` (default: `false`). This exports the issued Vault access token as an environment variable: `VAULT_TOKEN`.
 2. Add a step to call the [Revoke a Token (Self)](https://www.vaultproject.io/api/auth/token#revoke-a-token-self) Vault API to revoke the access token.
