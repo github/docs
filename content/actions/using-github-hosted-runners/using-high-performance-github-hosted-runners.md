@@ -20,7 +20,8 @@ High performance {% data variables.product.prodname_dotcom %}-hosted runners are
 In the following diagram, a class of hosted runner named `16-core-ubuntu-runner` has been defined with customized hardware and operating system configuration.
 - Instances of this runner are automatically created and added to a group called `16-core-ubuntu-rg`. 
 - The group has been assigned the label `16-core-ubuntu`. 
-- Jobs use the `16-core-ubuntu` label in their `runs-on` key to target the group for processing.
+- Workflow jobs use the `16-core-ubuntu` label in their `runs-on` key to indicate the type of runner they need to execute the job.
+- The job is then run on the next available instance of the `16-core-ubuntu-runner` runner in the group.
 
 ![Diagram](/assets/images/hosted-runner.png)
 
