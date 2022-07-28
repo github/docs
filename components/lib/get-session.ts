@@ -35,13 +35,12 @@ export function getSession() {
 // This function must only be called in the browser
 export async function fetchSession(): Promise<Session | null> {
   if (isCacheValid()) return sessionCache
+  lastUpdate = Date.now()
   const response = await fetch('/api/session')
   if (response.ok) {
     sessionCache = await response.json()
-    lastUpdate = Date.now()
     return sessionCache as Session
   }
-  lastUpdate = null
   sessionCache = null
   await new Promise((resolve) => setTimeout(resolve, RETRY))
   return fetchSession()
