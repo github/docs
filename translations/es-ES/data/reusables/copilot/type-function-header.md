@@ -1,4 +1,4 @@
-1. In the JavaScript file, type the following function header.
+1. En el archivo de JavaScript, escribe el siguiente encabezado de función.
 
     ```javascript{:copy}
     function calculateDaysBetweenDates(begin, end) {

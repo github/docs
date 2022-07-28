@@ -30,9 +30,10 @@ En el tutorial, primero harás un archivo de flujo de trabajo que utilice la [ac
 2. Elige un proyecto que le pertenezca al repositorio. Este flujo de trabajo no puede utilizarse con los proyectos que pertenezcan a usuarios u organizaciones. Puedes utilizar un proyecto existente o crear uno nuevo. Para obtener más información sobre cómo crear un proyecto, consulta la sección "[Crear un tablero de proyecto](/github/managing-your-work-on-github/creating-a-project-board)".
 3. {% data reusables.actions.make-workflow-file %}
 4. Copia el siguiente contenido de YAML en tu archivo de flujo de trabajo.
-
     ```yaml{:copy}
 {% indented_data_reference reusables.actions.actions-not-certified-by-github-comment spaces=4 %}
+
+{% indented_data_reference reusables.actions.actions-use-sha-pinning-comment spaces=4 %}
 
     name: Remove labels
     on:

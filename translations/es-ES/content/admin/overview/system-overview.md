@@ -15,7 +15,7 @@ topics:
   - Storage
 ---
 
-## About {% data variables.product.product_name %}
+## Acerca de {% data variables.product.product_name %}
 
 {% data reusables.enterprise.ghes-is-a-self-hosted-platform %} {% data reusables.enterprise.github-distributes-ghes %} Para obtener más información, consulta la sección "[Acerca de {% data variables.product.prodname_ghe_server %}](/admin/overview/about-github-enterprise-server)".
 

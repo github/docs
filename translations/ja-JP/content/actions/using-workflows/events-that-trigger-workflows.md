@@ -447,7 +447,7 @@ on:
 {% ifversion fpt or ghec %}
 {% note %}
 
-**Note**: This event does not occur for projects (beta). 詳しい情報については「[プロジェクト（ベータ）](/issues/trying-out-the-new-projects-experience/about-projects)について」を参照してください。
+**Note**: This event only occurs for {% data variables.product.prodname_projects_v1 %}.
 
 {% endnote %}
 {% endif %}
@@ -485,7 +485,7 @@ on:
 {% ifversion fpt or ghec %}
 {% note %}
 
-**Note**: This event does not occur for projects (beta). 詳しい情報については「[プロジェクト（ベータ）](/issues/trying-out-the-new-projects-experience/about-projects)について」を参照してください。
+**Note**: This event only occurs for {% data variables.product.prodname_projects_v1 %}.
 
 {% endnote %}
 {% endif %}
@@ -523,7 +523,7 @@ on:
 {% ifversion fpt or ghec %}
 {% note %}
 
-**Note**: This event does not occur for projects (beta). 詳しい情報については「[プロジェクト（ベータ）](/issues/trying-out-the-new-projects-experience/about-projects)について」を参照してください。
+**Note**: This event only occurs for {% data variables.product.prodname_projects_v1 %}.
 
 {% endnote %}
 {% endif %}

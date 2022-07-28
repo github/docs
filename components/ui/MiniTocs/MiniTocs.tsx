@@ -20,11 +20,11 @@ const renderTocItem = (item: MiniTocItem) => {
         listStyle: 'none',
         padding: '2px',
         ':hover': {
-          bg: 'var(--color-canvas-inset)',
+          bg: 'var(--color-canvas-inset) !important',
         },
         'ul > li': {
           ':hover': {
-            bg: 'var(--color-neutral-subtle)',
+            bg: 'var(--color-neutral-subtle) !important',
           },
         },
       }}

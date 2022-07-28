@@ -16,11 +16,7 @@ topics:
   - Pull requests
 ---
 
-{% warning %}
-
-**Advertencia:** Si adjuntas un archivo a un comentario de una solicitud de cambios o propuesta, cualquiera podrá ver la URL anonimizada sin autenticación, incluso si la solicitud de cambios está en un repositorio privado{% ifversion ghes %} o si está habilitado el modo privado{% endif %}. Para mantener privados archivos de medios sensibles, estos se deben servir desde una red o servidor privados que requieran autenticación. {% ifversion fpt or ghec %}Para obtener más información sobre las URL anonimizadas, consulta la sección "[Acerca de las URL anonimizadas](/github/authenticating-to-github/about-anonymized-urls)".{% endif %}
-
-{% endwarning %}
+{% data reusables.repositories.anyone-can-view-anonymized-url %}
 
 Para adjuntar un archivo a una propuesta o una conversación de una solicitud de extracción, arrástralo y suéltalo en el cuadro de comentarios. Como alternativa, puedes dar clic en la barra al final del recuadro de comentarios para buscar, seleccionar y agregar un archivo desde tu ordenador.
 

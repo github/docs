@@ -1,29 +1,27 @@
 ---
-title: 删除项目板
-intro: 如果您不再需要访问现有项目板的内容，可将其删除。
+title: 'Deleting a {% data variables.product.prodname_project_v1 %}'
+intro: 'You can delete an existing {% data variables.projects.projects_v1_board %} if you no longer need access to its contents.'
 redirect_from:
   - /github/managing-your-work-on-github/managing-project-boards/deleting-a-project-board
   - /articles/deleting-a-project
   - /articles/deleting-a-project-board
   - /github/managing-your-work-on-github/deleting-a-project-board
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
-  ghec: '*'
+  feature: projects-v1
 topics:
   - Pull requests
+allowTitleToDifferFromFilename: true
 ---
 
 {% data reusables.projects.project_boards_old %}
 
 {% tip %}
 
-**提示**：如果您希望保留对已完成或不需要项目板的访问权限，而不是去对其内容的访问权限，可以[关闭项目板](/articles/closing-a-project-board)而非将其删除。
+**Tip**: If you'd like to retain access to a completed or unneeded {% data variables.projects.projects_v1_board %} without losing access to its contents, you can [close the {% data variables.projects.projects_v1_board %}](/articles/closing-a-project-board) instead of deleting it.
 
 {% endtip %}
 
-1. 导航到要删除的项目板。
+1. Navigate to the {% data variables.projects.projects_v1_board %} you want to delete.
 {% data reusables.project-management.click-menu %}
 {% data reusables.project-management.click-edit-sidebar-menu-project-board %}
 4. 单击 **Delete project（删除项目）**。 ![删除项目按钮](/assets/images/help/projects/delete-project-button.png)
@@ -31,6 +29,6 @@ topics:
 
 ## 延伸阅读
 
-- "[关闭项目板](/articles/closing-a-project-board)"
-- “[在仓库中禁用项目板](/articles/disabling-project-boards-in-a-repository)”
-- “[在组织中禁用项目板](/articles/disabling-project-boards-in-your-organization)”
+- "[Closing a {% data variables.product.prodname_project_v1 %}](/articles/closing-a-project-board)"
+- "[Disabling {% data variables.product.prodname_project_v1_caps %} in a repository](/articles/disabling-project-boards-in-a-repository)"
+- "[Disabling {% data variables.product.prodname_project_v1_caps %} in your organization](/articles/disabling-project-boards-in-your-organization)"
