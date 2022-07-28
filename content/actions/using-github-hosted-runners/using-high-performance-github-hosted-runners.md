@@ -11,7 +11,7 @@ shortTitle: Using high performance runners
 
 In addition to the [standard {% data variables.product.prodname_dotcom %}-hosted runners](/actions/using-github-hosted-runners/about-github-hosted-runners#supported-runners-and-hardware-resources), {% data variables.product.prodname_dotcom %} also offers a range of larger runners with more RAM and CPU. These runners are hosted by {% data variables.product.prodname_dotcom %} and have the runner application and other tools preinstalled. Each runner is only used for one job, and is automatically shut down and wiped after the job has completed.
 
-When you add a {% data variables.product.prodname_dotcom %}-hosted runner to an organization, you are defining the hardware and operating system configuration for a customized class of runner. {% data variables.product.prodname_dotcom %} will then create multiple instances of this runner that scale up and down to match the demands of your organization, based on the autoscaling limits you define.
+When you add a hosted runner to an organization, you are defining the hardware and operating system configuration for a customized class of runner. {% data variables.product.prodname_dotcom %} will then create multiple instances of this runner that scale up and down to match the demands of your organization, based on the autoscaling limits you define.
 
 ## Architectural overview of hosted runners
 
@@ -34,15 +34,15 @@ You can set following scaling options during the runner deployment process:
 **Min** - Defines the minimum number of idle runners that are ready to pick up jobs. If this number is too low, your jobs will take longer to start. To identify an optimal number, consider the number of jobs that you will expect to run concurrently, and how long they can wait in a queue.
 **Max** - Allows you to control your costs by setting the maximum parallel number of machines that are created in this set. A higher value here can help avoid workflows being blocked due to parallelism.
 
-## Networking for {% data variables.product.prodname_dotcom %}-hosted runners
+## Networking for hosted runners
 
-{% data variables.product.prodname_dotcom %}-hosted runners can be configured to use a static IP address from {% data variables.product.prodname_dotcom %}'s dedicated IP address pool. This means that you can connect to your runner from anywhere on the Internet.  All instances of a {% data variables.product.prodname_dotcom %}-hosted runner will be assigned a static IP from a range that is unique to the runner.
+Hosted runners can be configured to use a static IP address from {% data variables.product.prodname_dotcom %}'s dedicated IP address pool. This means that you can connect to your runner from anywhere on the Internet.  All instances of a hosted runner will be assigned a static IP from a range that is unique to the runner.
 
-## Planning for {% data variables.product.prodname_dotcom %}-hosted runners
+## Planning for hosted runners
 
 ### Create a runner group
 
-Runner groups are used to collect sets of identically-configured virtual machines. You can then decide which organizations or repositories are permitted to run jobs access to those sets of machines. You can create a group by following the steps in "[Managing access to GitHub-hosted runners using groups](/actions/using-github-hosted-runners/managing-access-to-github-hosted-runners-using-groups)." During the {% data variables.product.prodname_dotcom %}-hosted runner deployment process, the runner can be added to an existing group, or otherwise it will join a default group. You can create a group by following the steps in "[Managing access to GitHub-hosted runners using groups](/actions/using-github-hosted-runners/managing-access-to-github-hosted-runners-using-groups)."
+Runner groups are used to collect sets of identically-configured virtual machines. You can then decide which organizations or repositories are permitted to run jobs access to those sets of machines. You can create a group by following the steps in "[Managing access to GitHub-hosted runners using groups](/actions/using-github-hosted-runners/managing-access-to-github-hosted-runners-using-groups)." During the hosted runner deployment process, the runner can be added to an existing group, or otherwise it will join a default group. You can create a group by following the steps in "[Managing access to GitHub-hosted runners using groups](/actions/using-github-hosted-runners/managing-access-to-github-hosted-runners-using-groups)."
 
 ### Plan the labels for your runner group
 
@@ -50,11 +50,11 @@ When you create a runner group, you can specify a set of labels that will be app
 
 ### Understanding billing
 
-The more powerful {% data variables.product.prodname_dotcom %}-hosted runners are billed differently to the standard runners. For more information, see "[Per-minute rates for larger runners](/billing/managing-billing-for-github-actions/about-billing-for-github-actions#per-minute-rates-for-larger-runners)".
+The more powerful hosted runners are billed differently to the standard runners. For more information, see "[Per-minute rates for larger runners](/billing/managing-billing-for-github-actions/about-billing-for-github-actions#per-minute-rates-for-larger-runners)".
 
-## Adding a new {% data variables.product.prodname_dotcom %}-hosted runner to an organization
+## Adding a new hosted runner to an organization
 
-This procedure demonstrates how to add a customized class of {% data variables.product.prodname_dotcom %}-hosted runner to an organization. You'll be able to choose an operating system and a hardware configuration from the list of available options. When new instances of this runner are deployed through autoscaling, they will use the same operating system and hardware configuration you've defined here..
+This procedure demonstrates how to add a customized class of hosted runner to an organization. You'll be able to choose an operating system and a hardware configuration from the list of available options. When new instances of this runner are deployed through autoscaling, they will use the same operating system and hardware configuration you've defined here..
 
 You can also define the labels that identify the runner group, which is how your workflows will be able to send jobs to the runners for processing (using `runs-on`).
 
@@ -70,7 +70,7 @@ You can also define the labels that identify the runner group, which is how your
     - **Auto-scaling**: Choose the minimum and maximum number of runners that can be active at any time.
     - **Runner group**: Choose the group that your runner will be a member of. This group will host multiple instances of your runner, as they scale up and down to suit demand.
     - **Labels**: Choose the labels that you want to apply to your runner. For easier identification, this should indicate its hardware and operating configuration, such as `16-core-ubuntu-20-04`.
-    - **Networking**: Choose the static IP address range that will be assigned to instances of the {% data variables.product.prodname_dotcom %}-hosted runner.
+    - **Networking**: Choose the static IP address range that will be assigned to instances of the hosted runner.
 
 1. Click **Create runner**.
 
