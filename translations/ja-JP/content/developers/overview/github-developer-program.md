@@ -27,7 +27,7 @@ Email <a href="mailto:partnerships@github.com">partnerships@github.com</a> to re
 * [OctocatもしくはGitHubロゴ](https://github.com/logos)を使って、あなたの製品がGitHubと動作することを示してください。
 * Webサイトにインテグレーションに関するビデオあるいはブログをポストしてください。
 
-## GitHub開発者プログラムに参加する準備はできましたか？</h3>
+## GitHub開発者プログラムに参加する準備はできましたか？
 
 メンバーシップは、以下をお持ちの個人開発者及び企業に対して開かれています。
 
