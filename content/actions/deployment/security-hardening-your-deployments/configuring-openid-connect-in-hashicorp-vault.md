@@ -46,7 +46,7 @@ To configure your Vault server to accept JSON Web Tokens (JWT) for authenticatio
       bound_issuer="{% ifversion ghes %}https://HOSTNAME/_services/token{% else %}https://token.actions.githubusercontent.com{% endif %}" \
       oidc_discovery_url="{% ifversion ghes %}https://HOSTNAME/_services/token{% else %}https://token.actions.githubusercontent.com{% endif %}"
     ```
-2. Configure policies to only grant access for certain paths in which your workflows will be retrieving secrets. For more advanced policies, see the HashiCorp Vault [Policies documentation](https://www.vaultproject.io/docs/concepts/policies).
+2. Configure a policy that only grants access to the specific paths your workflows will use to retrieve secrets. For more advanced policies, see the HashiCorp Vault [Policies documentation](https://www.vaultproject.io/docs/concepts/policies).
 
     ```sh{:copy}
     vault policy write myproject-production - <<EOF
