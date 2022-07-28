@@ -17,7 +17,10 @@ When you add a {% data variables.product.prodname_dotcom %}-hosted runner to an 
 
 High performance {% data variables.product.prodname_dotcom %}-hosted runners are managed at the organization level, where they are arranged into groups that host multiple instances of the runner. Once you've created a group, you can then add a runner to the group and update your workflows to target the group. You can also control which repositories are permitted to send jobs to the group for processing. For more information about groups, see "[Managing access to GitHub-hosted runners using groups](/actions/using-github-hosted-runners/managing-access-to-github-hosted-runners-using-groups)."
 
-In the following diagram, a class of hosted runner named `16-core-ubuntu-runner` has been defined with customized hardware and operating system configuration. Instances of this runner are then created and added to a group called `16-core-ubuntu-rg`. The group has been assigned the label `16-core-ubuntu`, and jobs use that label in their `runs-on` key to target the group for processing.
+In the following diagram, a class of hosted runner named `16-core-ubuntu-runner` has been defined with customized hardware and operating system configuration.
+- Instances of this runner are automatically created and added to a group called `16-core-ubuntu-rg`. 
+- The group has been assigned the label `16-core-ubuntu`. 
+- Jobs use the `16-core-ubuntu` label in their `runs-on` key to target the group for processing.
 
 ![Diagram](/assets/images/hosted-runner.png)
 
