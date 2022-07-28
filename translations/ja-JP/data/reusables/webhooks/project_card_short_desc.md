@@ -1,1 +1,1 @@
-プロジェクトカードに関連するアクティビティ。 {% data reusables.webhooks.action_type_desc %} 詳しい情報については「[プロジェクトカード](/rest/reference/projects#cards)」 REST APIを参照してください。
+Activity related to cards in a {% data variables.projects.projects_v1_board %}. {% data reusables.webhooks.action_type_desc %} 詳しい情報については「[プロジェクトカード](/rest/reference/projects#cards)」 REST APIを参照してください。

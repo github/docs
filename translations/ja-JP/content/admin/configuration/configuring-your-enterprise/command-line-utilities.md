@@ -344,6 +344,18 @@ With `ghe-set-password`, you can set a new password to authenticate into the [{%
 ghe-set-password <新しいパスワード>
 ```
 
+### ghe-setup-network
+
+This utility allows you to configure the primary network interface.
+
+To enter visual mode, which will guide you through configuration of network settings:
+
+```shell
+$ ghe-setup-network -v
+```
+
+追加オプションを確認するには -h フラグを使用してください。
+
 ### ghe-ssh-check-host-keys
 
 このユーティリティは、既存の SSH のホストキーを漏洩した SSH ホストキーと比べます。
@@ -654,9 +666,9 @@ ghe-repo <em>ユーザ名</em>/<em>reponame</em>
 
 ### ghe-repo-gc
 
-このユーティリティは、パックの容量を最適化するために、手動的にリポジトリのネットワークをリパックします。 大きなリポジトリの場合、このコマンドを実行するとリポジトリの全体的なサイズを減らすことができます。 リポジトリのネットワークとの対話を通じて、{% data variables.product.prodname_enterprise %} がこのコマンドを自動的に実行します。
+このユーティリティは、パックの容量を最適化するために、手動的にリポジトリのネットワークをリパックします。 大きなリポジトリの場合、このコマンドではリポジトリの全体的なサイズを減らすことができます。 リポジトリのネットワークとの対話を通じて、{% data variables.product.prodname_enterprise %} がこのコマンドを自動的に実行します。
 
-任意の`--prune` の引数を付けて、ブランチやタグ、refに参照されていない、届かないGitオブジェクトを除くことができます。 これは、[以前抹消した機密情報](/enterprise/user/articles/remove-sensitive-data/) を直ちに削除するために役立ちます。
+任意の`--prune` の引数を付けて、ブランチやタグ、refに参照されていない、届かないGitオブジェクトを除くことができます。 これは、[以前抹消した機密情報](/enterprise/user/articles/remove-sensitive-data/) を直ちに削除するのに役立ちます。
 
 {% warning %}
 
