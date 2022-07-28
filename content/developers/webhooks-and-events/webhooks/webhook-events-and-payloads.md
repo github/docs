@@ -729,8 +729,8 @@ Key | Type | Description
 ----|------|-------------
 `action`|`string` | The action that was performed. Currently, can only be `checks_requested`.
 `merge_group`|`object` | The merge group.
-`merge_group[head_sha]`|`string` | The SHA of the last commit of the pull request before it was added to the merge queue.
-`merge_group[head_ref]`|`string` | The full ref of the merge group which contains the pull request. Prefixed with `refs/heads/gh-readonly-queue/:baseRefName`.
+`merge_group[head_sha]`|`string` | The SHA of the merge group.
+`merge_group[head_ref]`|`string` | The full ref of the merge group.
 `merge_group[base_ref]`|`string` | The full ref of the branch the merge group will be merged into.
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.org_desc %}
