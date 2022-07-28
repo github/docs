@@ -708,7 +708,7 @@ For a detailed description of this payload and the payload for each type of `act
 
 {{ webhookPayloadsForCurrentVersion.membership.removed }}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 ## merge_group
 
