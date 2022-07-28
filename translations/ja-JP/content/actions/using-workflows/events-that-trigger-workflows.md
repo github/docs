@@ -415,7 +415,7 @@ on:
 
 {% data reusables.actions.branch-requirement %}
 
-Runs your workflow when someone pushes to a branch that is the publishing source for {% data variables.product.prodname_pages %}, if {% data variables.product.prodname_pages %} is enabled for the repository. For more information about {% data variables.product.prodname_pages %} publishing sources, see "[Configuring a publishing source for your GitHub Pages site](/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site#choosing-a-publishing-source)." REST API の詳細については、「[ページ](/rest/reference/repos#pages)」を参照してください。
+Runs your workflow when someone pushes to a branch that is the publishing source for {% data variables.product.prodname_pages %}, if {% data variables.product.prodname_pages %} is enabled for the repository. For more information about {% data variables.product.prodname_pages %} publishing sources, see "[Configuring a publishing source for your GitHub Pages site](/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)." REST API の詳細については、「[ページ](/rest/reference/repos#pages)」を参照してください。
 
 たとえば、`page_build` イベントが発生したときにワークフローを実行する例は、次のとおりです。
 
@@ -896,9 +896,9 @@ jobs:
 
 ### `プッシュ`
 
-| webhook イベントのペイロード                                                                   | アクティビティタイプ | `GITHUB_SHA`                                  | `GITHUB_REF` |
-| ------------------------------------------------------------------------------------ | ---------- | --------------------------------------------- | ------------ |
-| [`プッシュ`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#push) | n/a        | プッシュされたコミット、ただし (デフォルトブランチの際に) ブランチを削除する場合を除く | 更新された ref    |
+| webhook イベントのペイロード                                                                   | アクティビティタイプ | `GITHUB_SHA`                                                                                                                     | `GITHUB_REF` |
+| ------------------------------------------------------------------------------------ | ---------- | -------------------------------------------------------------------------------------------------------------------------------- | ------------ |
+| [`プッシュ`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#push) | n/a        | When you delete a branch, the SHA in the workflow run (and its associated refs) reverts to the default branch of the repository. | 更新された ref    |
 
 {% note %}
 
