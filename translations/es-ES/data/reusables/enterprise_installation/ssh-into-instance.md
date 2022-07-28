@@ -1,4 +1,4 @@
-1. SSH en {% data variables.product.product_location %}. If your instance comprises multiple nodes, for example if high availability or geo-replication are configured, SSH into the primary node. If you use a cluster, you can SSH into any node. For more information about SSH access, see "[Accessing the administrative shell (SSH)](/admin/configuration/accessing-the-administrative-shell-ssh)."
+1. SSH en {% data variables.product.product_location %}. Si tu instancia comprende nodos múltiples, por ejemplo, si se configuraron la disponibilidad alta o la geo-replicación, ingresa por SSH al nodo primario. Si utilizas un clúster, puedes ingresar por SSH a cualquier nodo. Para obtener más información sobre el acceso por SSH, consulta la sección "[Acceder al shell administrativo (SSH)](/admin/configuration/accessing-the-administrative-shell-ssh)".
 
    ```shell
    $ ssh -p 122 admin@<em>HOSTNAME</em>

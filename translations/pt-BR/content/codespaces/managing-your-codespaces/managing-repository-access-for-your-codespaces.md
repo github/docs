@@ -105,7 +105,7 @@ Para criar codespaces com permissões personalizadas definidas, você deve usar 
 
 ## Autorizando permissões solicitadas
 
-Se as permissões adicionais do repositório forem definidas no arquivo `devcontainer.json`, será apens solicitado que você revise e, opcionalmente, autorize as permissões ao criar um codespace para este repositório. Ao autorizar permissões para um repositório, {% data variables.product.prodname_codespaces %} não irá perguntar você novamente a menos que o conjunto das permissões solicitadas tenha sido alterado no repositório.
+If additional repository permissions are defined in the `devcontainer.json` file, you will be prompted to review and optionally authorize the permissions when you create a codespace or a prebuild configuration for this repository. Ao autorizar permissões para um repositório, {% data variables.product.prodname_codespaces %} não irá perguntar você novamente a menos que o conjunto das permissões solicitadas tenha sido alterado no repositório.
 
 ![Página de permissões solicitadas](/assets/images/help/codespaces/codespaces-accept-permissions.png)
 
@@ -117,7 +117,7 @@ Você só pode autorizar as permissões que sua conta pessoal já possui. Se um 
 
 {% warning %}
 
-**Observação de depreciação**: A configuração de acesso e segurança, na seção {% data variables.product.prodname_codespaces %} das configurações da sua conta pessoal está obsoleta. Para habilitar o acesso expandido a outros repositórios, adicione as permissões solicitadas à definição do contêiner de desenvolvimento para seu codespace, conforme descrito acima.
+**Deprecation note**: The access and security setting described below is now deprecated and is documented here for reference only. Para habilitar o acesso expandido a outros repositórios, adicione as permissões solicitadas à definição do contêiner de desenvolvimento para seu codespace, conforme descrito acima.
 
 {% endwarning %}
 

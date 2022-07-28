@@ -51,8 +51,8 @@ prodname_importer_proper_name: 'GitHub Enterprise Importer'
 # GitHub Education
 prodname_education: 'GitHub Education'
 prodname_education_community: 'Education Community'
-prodname_education_community_with_url: 'the [GitHub Education Community](https://github.com/orgs/github-community/discussions/categories/github-education)'
-prodname_education_forum_link: 'https://github.com/orgs/github-community/discussions/categories/github-education'
+prodname_education_community_with_url: 'the [GitHub Education Community](https://github.com/orgs/community/discussions/categories/github-education)'
+prodname_education_forum_link: 'https://github.com/orgs/community/discussions/categories/github-education'
 prodname_classroom: 'GitHub Classroom'
 prodname_classroom_with_url: '[GitHub Classroom](https://classroom.github.com/login)'
 prodname_campus_program: 'GitHub Campus Program'
@@ -84,6 +84,17 @@ prodname_codeql_cli: 'CodeQL CLI'
 # Update this whenever a new enterprise version of CodeQL is being prepared.
 codeql_cli_ghes_recommended_version: >-
   {% ifversion ghes < 3.3 %}2.6.3{% elsif ghes < 3.5 %}2.7.6{% elsif ghes = 3.5 %}2.8.5{% elsif ghes = 3.6 %}2.9.4{% elsif ghae-issue-7470 %}2.8.5{% elsif ghae %}2.7.6{% endif %}
+
+# Projects v2
+prodname_projects_v2: 'Projects'
+prodname_projects_v1: >-
+  {% ifversion ghes or ghae %}project boards{% else %}projects (classic){% endif %}
+prodname_projects_v1_caps: >-
+  {% ifversion ghes or ghae %}Project boards{% else %}Projects (classic){% endif %}
+prodname_project_v1: >-
+  {% ifversion ghes or ghae %}project board{% else %}project (classic){% endif %}
+prodname_project_v1_caps: >-
+  {% ifversion ghes or ghae %}Project board{% else %}Project (classic){% endif %}
 
 # Apps, GitHub Marketplace, and integrations
 prodname_marketplace: 'GitHub Marketplace'
@@ -188,7 +199,7 @@ prodname_code_scanning_capc: 'Code scanning'
 prodname_codeql_runner: 'CodeQL runner'
 prodname_advisory_database: 'GitHub Advisory Database'
 prodname_codeql_workflow: 'CodeQL analysis workflow'
-prodname_dependency_review_action: 'Dependency Review GitHub Action'
+prodname_dependency_review_action: 'dependency review action'
 
 # Visual Studio
 prodname_vs: 'Visual Studio'

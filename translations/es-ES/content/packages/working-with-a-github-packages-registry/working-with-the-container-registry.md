@@ -27,7 +27,7 @@ shortTitle: Registro de contenedores
 
 {% ifversion ghes > 3.4 %}
 
-To use the {% data variables.product.prodname_container_registry %} on {% data variables.product.product_name %}, your site administrator must first configure {% data variables.product.prodname_registry %} for your instance **and** enable subdomain isolation. Para obtener más información, consulta las secciones "[Iniciar con GitHub Packages para tu empresa](/admin/packages/getting-started-with-github-packages-for-your-enterprise)" y "[Habilitar el aislamiento de subdominios](/admin/configuration/configuring-network-settings/enabling-subdomain-isolation)".
+Para utilizar el {% data variables.product.prodname_container_registry %} en {% data variables.product.product_name %}, tu administrador de sitio primero debe configurar el {% data variables.product.prodname_registry %} para tu instancia **y** habilitar el aislamiento de subdominios. Para obtener más información, consulta las secciones "[Iniciar con GitHub Packages para tu empresa](/admin/packages/getting-started-with-github-packages-for-your-enterprise)" y "[Habilitar el aislamiento de subdominios](/admin/configuration/configuring-network-settings/enabling-subdomain-isolation)".
 
 {% endif %}
 

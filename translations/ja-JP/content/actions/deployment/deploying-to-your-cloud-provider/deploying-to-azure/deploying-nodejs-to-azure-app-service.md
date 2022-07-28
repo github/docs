@@ -72,6 +72,8 @@ The following example workflow demonstrates how to build, test, and deploy the N
 ```yaml{:copy}
 {% data reusables.actions.actions-not-certified-by-github-comment %}
 
+{% data reusables.actions.actions-use-sha-pinning-comment %}
+
 on:
   push:
     branches:

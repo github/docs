@@ -90,24 +90,32 @@ topics:
 下面是我们创建并添加到议题的 `front-end` 标签示例。
 
 ![向议题添加标签的示例](/assets/images/help/issues/quickstart-add-label-to-issue.png)
+
 ## 添加议题到项目板
-{% ifversion fpt or ghec %}您可以在 {% data variables.product.prodname_dotcom %}（目前在有限公测中）上使用项目，为您的团队规划和跟踪工作。 项目是一个可自定义的电子表格，集成您在 {% data variables.product.prodname_dotcom %} 上的议题和拉取请求，自动保持最新的 {% data variables.product.prodname_dotcom %} 信息。 您可以通过筛选、排序及分组议题和 PR 来自定义布局。 要开始项目，请参阅“[项目（测试版）快速入门](/issues/trying-out-the-new-projects-experience/quickstart)”。
-### 项目（测试版）示例
+
+{% ifversion projects-v2 %}
+
+You can use {% data variables.projects.projects_v2 %} on {% data variables.product.prodname_dotcom %} to plan and track the work for your team. 项目是一个可自定义的电子表格，集成您在 {% data variables.product.prodname_dotcom %} 上的议题和拉取请求，自动保持最新的 {% data variables.product.prodname_dotcom %} 信息。 您可以通过筛选、排序及分组议题和 PR 来自定义布局。 To get started with projects, see "[Quickstart for projects](/issues/planning-and-tracking-with-projects/learning-about-projects/quickstart-for-projects)."
+### Project example
 以下是一个示例项目的表布局，其中填充了我们创建的 Octocat 项目议题。
 
-![项目（测试版）表布局示例](/assets/images/help/issues/quickstart-projects-table-view.png)
+![Projects table layout example](/assets/images/help/issues/quickstart-projects-table-view.png)
 
 我们也可以将同一个项目视为一个板。
 
-![项目（测试版）板布局示例](/assets/images/help/issues/quickstart-projects-board-view.png)
+![Projects board layout example](/assets/images/help/issues/quickstart-projects-board-view.png)
 
 {% endif %}
+{% ifversion projects-v1 %}
 
-您还可以 {% ifversion fpt or ghec %} 使用现有的{% else %} 使用{% endif %} {% data variables.product.prodname_dotcom %} 上的项目板来规划和跟踪您或您团队的工作。 项目板包括议题、拉取请求和注释，在选择的列中分类为卡片。 您可以为功能工作、高级路线图甚至发布检查表创建项目板。 更多信息请参阅“[关于项目板](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards)”。
+You can {% ifversion projects-v2 %} also use the existing{% else %} use{% endif %} {% data variables.product.prodname_projects_v1 %} on {% data variables.product.prodname_dotcom %} to plan and track your or your team's work. 项目板包括议题、拉取请求和注释，在选择的列中分类为卡片。 您可以为功能工作、高级路线图甚至发布检查表创建项目板。 更多信息请参阅“[关于项目板](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards)”。
 ### 项目板示例
 下面是我们的示例项目 Octocat 的项目板， 其中我们创建了议题，并且分解成较小议题 添加到项目板。
 
 ![项目板示例](/assets/images/help/issues/quickstart-project-board.png)
+
+{% endif %}
+
 ## 后续步骤
 
 您现在已经了解了 {% data variables.product.prodname_dotcom %} 提供的用于规划和跟踪您工作的工具，并且已经开始设置您的跨功能团队或项目仓库！ 以下是一些有用的资源，可进一步定制您的仓库和组织您的工作。
@@ -117,6 +125,6 @@ topics:
 - “[关于议题和拉取请求模板](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/about-issue-and-pull-request-templates)”，用于了解有关议题模板的更多信息
 - “[管理标签](/issues/using-labels-and-milestones-to-track-work/managing-labels)”，用于学习如何创建、编辑和删除标签
 - “[关于任务列表](/issues/tracking-your-work-with-issues/creating-issues/about-task-lists)”，用于了解有关任务列表的更多内容
-{% ifversion fpt or ghec %} - “[关于项目（测试版）](/issues/trying-out-the-new-projects-experience/about-projects)”，用于了解更多关于新项目的体验，目前在有限公测中
-- “[定制项目（测试版）视图](/issues/trying-out-the-new-projects-experience/customizing-your-project-views)”，用于学习如何自定义项目视图，目前在有限公测中{% endif %}
-- “[关于项目板](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards)”，用于学习如何管理项目板
+{% ifversion projects-v2 %} - "[About projects](/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects)" for learning more about projects
+- "[Customizing a view](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/customizing-a-view)" for learning how to customize views for projects{% endif %}
+{% ifversion projects-v1 %}- "[About {% data variables.product.prodname_projects_v1 %}](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards)" for learning how to manage project boards{% endif %}

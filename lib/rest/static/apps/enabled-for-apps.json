@@ -2465,6 +2465,12 @@
         "requestPath": "/repos/{owner}/{repo}/pages/builds/{build_id}"
       },
       {
+        "slug": "create-a-github-pages-deployment",
+        "subcategory": "pages",
+        "verb": "post",
+        "requestPath": "/repos/{owner}/{repo}/pages/deployment"
+      },
+      {
         "slug": "get-a-dns-health-check-for-github-pages",
         "subcategory": "pages",
         "verb": "get",

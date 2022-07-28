@@ -13,7 +13,7 @@ miniTocMaxHeadingLevel: 3
 
 ## About the Starring API
 
-The Starring API lets you bookmark a repository. Las estrellas se muestran junto a los repositorios para denotar un nivel aproximado de interés. Las estrellas no tienen efecto alguno en las notificaciones o en los canales de actividad. Para obtener más información, consulta la sección "[Guardar repositorios con estrellas](/get-started/exploring-projects-on-github/saving-repositories-with-stars)".
+La API de marcar como favorito te permite guardar a un repositorio como favorito. Las estrellas se muestran junto a los repositorios para denotar un nivel aproximado de interés. Las estrellas no tienen efecto alguno en las notificaciones o en los canales de actividad. Para obtener más información, consulta la sección "[Guardar repositorios con estrellas](/get-started/exploring-projects-on-github/saving-repositories-with-stars)".
 
 ### Marcar con estrella vs. Observar
 

@@ -415,7 +415,7 @@ on:
 
 {% data reusables.actions.branch-requirement %}
 
-Runs your workflow when someone pushes to a branch that is the publishing source for {% data variables.product.prodname_pages %}, if {% data variables.product.prodname_pages %} is enabled for the repository. For more information about {% data variables.product.prodname_pages %} publishing sources, see "[Configuring a publishing source for your GitHub Pages site](/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site#choosing-a-publishing-source)." For information about the REST API, see "[Pages](/rest/reference/repos#pages)."
+Runs your workflow when someone pushes to a branch that is the publishing source for {% data variables.product.prodname_pages %}, if {% data variables.product.prodname_pages %} is enabled for the repository. For more information about {% data variables.product.prodname_pages %} publishing sources, see "[Configuring a publishing source for your GitHub Pages site](/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)." For information about the REST API, see "[Pages](/rest/reference/repos#pages)."
 
 For example, you can run a workflow when the `page_build` event occurs.
 
@@ -447,7 +447,7 @@ on:
 {% ifversion fpt or ghec %}
 {% note %}
 
-**Note**: This event does not occur for projects (beta). For more information, see "[About projects (beta)](/issues/trying-out-the-new-projects-experience/about-projects)."
+**Note**: This event only occurs for {% data variables.product.prodname_projects_v1 %}.
 
 {% endnote %}
 {% endif %}
@@ -485,7 +485,7 @@ on:
 {% ifversion fpt or ghec %}
 {% note %}
 
-**Note**: This event does not occur for projects (beta). For more information, see "[About projects (beta)](/issues/trying-out-the-new-projects-experience/about-projects)."
+**Note**: This event only occurs for {% data variables.product.prodname_projects_v1 %}.
 
 {% endnote %}
 {% endif %}
@@ -523,7 +523,7 @@ on:
 {% ifversion fpt or ghec %}
 {% note %}
 
-**Note**: This event does not occur for projects (beta). For more information, see "[About projects (beta)](/issues/trying-out-the-new-projects-experience/about-projects)."
+**Note**: This event only occurs for {% data variables.product.prodname_projects_v1 %}.
 
 {% endnote %}
 {% endif %}
@@ -898,7 +898,7 @@ jobs:
 
 | Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
 | --------------------- | -------------- | ------------ | -------------|
-| [`push`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#push) | n/a | Commit pushed, unless deleting a branch (when it's the default branch) | Updated ref |
+| [`push`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#push) | n/a | When you delete a branch, the SHA in the workflow run (and its associated refs) reverts to the default branch of the repository. | Updated ref |
 
 {% note %}
 

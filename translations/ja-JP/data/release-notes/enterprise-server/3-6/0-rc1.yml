@@ -4,75 +4,75 @@ deprecated: false
 intro: |
   {% note %}
 
-  **Note:** If {% data variables.product.product_location %} is running a release candidate build, you can't upgrade with a hotpatch. We recommend that you only run release candidates in a test environment.
+  **ノート:** {% data variables.product.product_location %}がリリース候補ビルドを実行しているなら、ホットパッチでのアップグレードはできません。リリース候補は、テスト環境でのみ実行することをおすすめします。
 
   {% endnote %}
 
-  For upgrade instructions, see "[Upgrading {% data variables.product.prodname_ghe_server %}](/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server)."
+  アップグレード手順については「[{% data variables.product.prodname_ghe_server %}のアップグレード](/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server)」を参照してください。
 sections:
   features:
     - 
       heading: Infrastructure
       notes:
         - |
-          Repository caching is generally available. Repository caching increases Git read performance for distributed developers, providing the data locality and convenience of geo-replication without impact on push workflows. With the general availability release, GitHub Enterprise Server caches both Git and Git LFS data. For more information, see "[About repository caching](/admin/enterprise-management/caching-repositories/about-repository-caching)."
+          リポジトリキャッシュは一般利用が可能になりました。リポジトリキャッシュは、分散している開発者のGitの読み取りパフォーマンスを向上させ、プッシュのワークフローに影響することなくデータローカリティとGeo-replicationの利便性を提供します。一般利用のリリースで、GitHub Enterprise ServerはGitとGit LFSデータの双方をキャッシュします。詳しい情報については「[リポジトリキャッシュについて](/admin/enterprise-management/caching-repositories/about-repository-caching)」を参照してください。
     - 
-      heading: Instance security
+      heading: インスタンスのセキュリティ
       notes:
         - |
-          GitHub has changed the supported algorithms and hash functions for all SSH connections to GitHub Enterprise Server, disabled the unencrypted and unauthenticated Git protocol, and optionally allowed the advertisement of an Ed25519 host key. For more information, see the [GitHub Blog](https://github.blog/2022-06-28-improving-git-protocol-security-on-github-enterprise-server/) and the following articles.
+          GitHubはGitHub Enterprise ServerへのすべてのSSHコネクションのサポートされているアルゴリズムとハッシュ関数を変串、暗号化されていない未認証のGitプロトコルを無効化し、オプションでEd25519干す尾tキーのアドバータイズメントを許可します。詳しい情報については[GitHub Blog](https://github.blog/2022-06-28-improving-git-protocol-security-on-github-enterprise-server/)と以下の記事を参照してください。
 
-          - "[Configuring SSH connections to your instance](/admin/configuration/configuring-your-enterprise/configuring-ssh-connections-to-your-instance)"
-          - "[Enforcing repository management policies in your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#configuring-anonymous-git-read-access)"
-          - "[Configuring host keys for your instance](/admin/configuration/configuring-your-enterprise/configuring-host-keys-for-your-instance)"
+          -「[インスタンスへのSSHコネクションの設定](/admin/configuration/configuring-your-enterprise/configuring-ssh-connections-to-your-instance)」
+          -「[Enterpriseでのリポジトリ管理ポリシーの施行](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#configuring-anonymous-git-read-access)」
+          -「[インスタンスのホストキーの設定](/admin/configuration/configuring-your-enterprise/configuring-host-keys-for-your-instance)」
         - |
-          You can require TLS encryption for incoming SMTP connections to your instance. For more information, see "[Configuring email for notifications](/admin/configuration/configuring-your-enterprise/configuring-email-for-notifications)."
+          インスタンスに接続してくるSMTPコネクションにTLS暗号化を要求できます。詳しい情報については「[通知のメールの設定](/admin/configuration/configuring-your-enterprise/configuring-email-for-notifications)」を参照してください。
     - 
       heading: 監査ログ
       notes:
         - |
-          You can stream audit log and Git events for your instance to Amazon S3, Azure Blob Storage, Azure Event Hubs, Google Cloud Storage, or Splunk. Audit log streaming is in public beta and subject to change. For more information, see "[Streaming the audit log for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/streaming-the-audit-log-for-your-enterprise)."
+          インスタンスのAudit logとGitイベントを、Amazon S3、Azure Blob Storage、Azure Event Hubs、Google Cloud Storage、Splunkにストリームできます。Audit logのストリーミングはパブリックベータであり、変更されることがあります。詳しい情報については「[EnterpriseのAudit logのストリーミング](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/streaming-the-audit-log-for-your-enterprise)」を参照してください。
     - 
       heading: GitHub Connect
       notes:
         - |
-          Server Statistics is now generally available. Server Statistics collects aggregate usage data from your GitHub Enterprise Server instance, which you can use to better anticipate the needs of your organization, understand how your team works, and show the value you get from GitHub Enterprise Server. For more information, see "[About Server Statistics](/admin/monitoring-activity-in-your-enterprise/analyzing-how-your-team-works-with-server-statistics/about-server-statistics)."
+          Server Statisticsは一般提供になりました。Server Statisticsは、集計された利用データをGitHub Enterprise Serverインスタンスから収集し、そのデータはOrganizationの要求の予測を向上させ、チームの働きかたを理解し、GitHub Enterprise Serverから得られる価値を示すために利用できます。詳しい情報については「[Server Statisticsについて](/admin/monitoring-activity-in-your-enterprise/analyzing-how-your-team-works-with-server-statistics/about-server-statistics)」を参照してください。
     - 
-      heading: Administrator experience
+      heading: 管理者の体験
       notes:
         - |
-          Enterprise owners can join organizations on the instance as a member or owner from the enterprise account's **Organizations** page. For more information, see "[Managing your role in an organization owned by your enterprise](/admin/user-management/managing-organizations-in-your-enterprise/managing-your-role-in-an-organization-owned-by-your-enterprise)."
+          Enterpriseオーナーは、インスタンス上のOrganizationにメンバーあるいはオーナーとして、Enterpriseアカウントの**Organizations**ページから参加できます。詳しい情報については「[Enerpriseが所有するOrganizationでの自分のロールの管理](/admin/user-management/managing-organizations-in-your-enterprise/managing-your-role-in-an-organization-owned-by-your-enterprise)」を参照してください。
         - |
-          Enterprise owners can allow users to dismiss the configured global announcement banner. For more information, see "[Customizing user messages for your enterprise](/admin/user-management/managing-users-in-your-enterprise/customizing-user-messages-for-your-enterprise#creating-a-global-announcement-banner)."
+          Enterpriseのオーナーは、設定されたグローバルなアナウンスのバナーの却下をユーザに許可できます。詳しい情報については「[Enterpriseでのユーザメッセージのカスタマイズ](/admin/user-management/managing-users-in-your-enterprise/customizing-user-messages-for-your-enterprise#creating-a-global-announcement-banner)」を参照してください。
     - 
       heading: GitHub Advanced Security
       notes:
         - |
-          Users on an instance with a GitHub Advanced Security license can opt to receive a webhook event that triggers when an organization owner or repository administrator enables or disables a code security or analysis feature. For more information, see the following documentation.
+          GitHub Advanced Securityのライセンスがあるインスタンス上のユーザは、Organizationオーナーもしくはリポジトリの管理者がコードセキュリティもしくは分析の機能を有効かあるいは無効化したときにトリガーされるwebbookイベントを受信するよう選択できます。詳しい情報については、以下のドキュメンテーションを参照してください。
 
-          - "[Webhook events and payloads](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#security_and_analysis)" in the webhook documentation
-          - "[Managing security and analysis settings for your organization](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization)"
-          - "[Managing security and analysis features for your repository](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository)"
+          -webhookのドキュメンテーションの「[webhookイベントとペイロード](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#security_and_analysis)」
+          -「[Organizationのセキュリティ及び分析設定の管理](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization)」
+          -「[リポジトリのセキュリティ及び分析機能の管理](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository)」
         - |
-          Users on an instance with a GitHub Advanced Security license can optionally add a comment when dismissing a code scanning alert in the web UI or via the REST API. Dismissal comments appear in the event timeline. Users can also add or retrieve a dismissal comment via the REST API. For more information, see "[Triaging code scanning alerts in pull requests](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/triaging-code-scanning-alerts-in-pull-requests#dismissing-an-alert-on-your-pull-request)" and "[Code Scanning](/rest/code-scanning#update-a-code-scanning-alert)" in the REST API documentation.
+          GitHub Advanced Securityのライセンスがあるインスタンス上のユーザは、Web UIから、あるいはREST APIを通じてCode scanningアラートを却下する際に、コメントを追加することもできます。却下のコメントは、イベントタイムラインに表示されます。ユーザは、REST APIを通じて却下のコメントを追加したり取得したりもできます。詳しい情報については「[Pull Request中のCode scanningアラートのトリアージ](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/triaging-code-scanning-alerts-in-pull-requests#dismissing-an-alert-on-your-pull-request)」及びREST APIドキュメンテーションの「[Code scanning](/rest/code-scanning#update-a-code-scanning-alert)」を参照してください。
         - |
-          On instances with a GitHub Advanced Security license, secret scanning prevents the leak of secrets in the web editor. For more information, see "[Protecting pushes with secret scanning](/code-security/secret-scanning/protecting-pushes-with-secret-scanning#using-secret-scanning-as-a-push-protection-from-the-web-ui)."
+          GitHub Advanced Securityのライセンスがあるインスタンスでは、Secret scanningがWebエディタ内でのシークレットの漏洩を防いでくれます。詳しい情報については「[Secret scanningでのプッシュの保護](/code-security/secret-scanning/protecting-pushes-with-secret-scanning#using-secret-scanning-as-a-push-protection-from-the-web-ui)」を参照してください。
         - |
-          Enterprise owners and users on an instance with a GitHub Advanced Security license can view secret scanning alerts and bypasses of secret scanning's push protection in the enterprise and organization audit logs, and via the REST API. For more information, see the following documentation.
+          Enterpriseのオーナーと、GitHub Advanced Securityのライセンスがあるインスタンス上のユーザは、Secret scanningのアラートと、Secret scanningのプッシュ保護のバイパスをEnterpriseとOrganizationのAudit log、そしてREST APIを通じて見ることができます。詳しい情報については以下のドキュメンテーションを参照してください。
 
-          - "[Protecting pushes with secret scanning](/code-security/secret-scanning/protecting-pushes-with-secret-scanning)"
-          - "[Audit log events for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#secret_scanning_push_protection-category-actions)"
-          - "[Reviewing the audit log for your organization](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/reviewing-the-audit-log-for-your-organization#secret_scanning_push_protection-category-actions)"
-          - "[Secret Scanning](/rest/secret-scanning#list-secret-scanning-alerts-for-an-enterprise)" in the REST API documentation
+          -「[Secret scanningでのプッシュの保護](/code-security/secret-scanning/protecting-pushes-with-secret-scanning)」
+          -「[EnterpriseのAudit logイベント](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#secret_scanning_push_protection-category-actions)」
+          -「[OrganizationのAudit logのレビュー]/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/reviewing-the-audit-log-for-your-organization#secret_scanning_push_protection-category-actions)」
+          -REST APIドキュメンテーションの「[Secret scanning](/rest/secret-scanning#list-secret-scanning-alerts-for-an-enterprise)」
         - |
-          Enterprise owners on an instance with a GitHub Advanced Security license can perform dry runs of custom secret scanning patterns for the enterprise, and all users can perform dry runs when editing a pattern. Dry runs allow you to understand a pattern's impact across the entire instance and hone the pattern before publication and generation of alerts. For more information, see "[Defining custom patterns for secret scanning](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)."
+          GitHub Advanced Securityのライセンスがあるインスタンス上のEnterpriseのオーナーは、EntepriseのカスタムのSecret scanningパターンのdry runを実行でき、すべてのユーザはパターンを編集する際にdry runを実行できます。dry runを行うことによって、パターンがインスタンス全体に与える影響を理解し、公開してアラートを生成する前にパターンを磨き上げることができます。詳しい情報については「Secret scanningのカスタムパターンの定義](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)」を参照してください。
         - |
-          Users on an instance with a GitHub Advanced Security license can use `sort` and `direction` parameters in the REST API when retrieving secret scanning alerts, and sort based on the alert’s `created` or `updated` fields. The new parameters are available for the entire instance, or for individual organizations or repositories. For more information, see the following documentation.
+          GitHub Advanced Securityのライセンスがあるインスタンス上のユーザは、Secret scanningのアラートを取得する際にREST APIで`sort`及び`direction`パラメータを使い、アラートの`created`あるいは`updated`フィールドに基づいてソートすることができます。この新しいパラメータはインスタンス全体で、あるいは個々のOrganizationあるいはリポジトリで使用できます。詳しい情報については以下のドキュメンテーションを参照してください。
 
-          - "[List secret scanning alerts for an enterprise](/rest/secret-scanning#list-secret-scanning-alerts-for-an-enterprise)"
-          - "[List secret scanning alerts for an organization](/rest/secret-scanning#list-secret-scanning-alerts-for-an-organization)"
-          - "[List secret scanning alerts for a repository](/rest/secret-scanning#list-secret-scanning-alerts-for-a-repository)"
-          - "[Secret Scanning](/rest/secret-scanning)" in the REST API documentation
+          -「[EntepriseでのSecret scanningアラートのリスト](/rest/secret-scanning#list-secret-scanning-alerts-for-an-enterprise)」
+          -「[OrganizationでのSecret scanningアラートのリスト](/rest/secret-scanning#list-secret-scanning-alerts-for-an-organization)」
+          -「[リポジトリでのSecret scanningアラートのリスト](/rest/secret-scanning#list-secret-scanning-alerts-for-a-repository)」
+          -REST APIドキュメンテーションの「[Secret Scanning](/rest/secret-scanning)」
         - |
           The contents of the `github/codeql-go` repository have moved to the `github/codeql` repository, to live alongside similar libraries for all other programming languages supported by CodeQL. The open-source CodeQL queries, libraries, and extractor for analyzing codebases written in the Go programming language with GitHub's CodeQL code analysis tools can now be found in the new location. For more information, including guidance on migrating your existing workflows, see [github/codeql-go#741](https://github.com/github/codeql-go/issues/741).
     - 

@@ -17,17 +17,17 @@ If you use {% data variables.product.prodname_vs %}, {% data variables.product.p
 
 To configure {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vs %}, you must install the {% data variables.product.prodname_copilot %} plugin. For more information, see "[Getting started with {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vs %}](/copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-visual-studio)."
 
-## Keyboard shortcuts for {% data variables.product.prodname_copilot %}
+## Atajos de teclado para el {% data variables.product.prodname_copilot %}
 
 You can use the default keyboard shortcuts in {% data variables.product.prodname_vs %} when using {% data variables.product.prodname_copilot %}. Alternatively, you can rebind the shortcuts in the Tools settings for {% data variables.product.prodname_vs %} using your preferred keyboard shortcuts for each specific command. You can search for each keyboard shortcut by its command name in the Keyboard Shortcuts editor.
 
-| Acción                          | Shortcut                                     | Nombre del comando                   |
-|:------------------------------- |:-------------------------------------------- |:------------------------------------ |
-| Show next inline suggestion     | <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>]</kbd>  | Tools.Nextsuggestion                 |
-| Show previous inline suggestion | <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>[</kbd>  | Tools.Previoussuggestion             |
-| Trigger inline suggestion       | <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>\</kbd> | Edit.Copilot.TriggerInlineSuggestion |
+| Acción                                              | Atajo                                        | Nombre del comando                   |
+|:--------------------------------------------------- |:-------------------------------------------- |:------------------------------------ |
+| Mostrar la siguiente sugerencia dentro de una línea | <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>]</kbd>  | Tools.Nextsuggestion                 |
+| Mostrar la sugerencia anterior en la línea          | <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>[</kbd>  | Tools.Previoussuggestion             |
+| Activar las sugerencias dentro de las líneas        | <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>\</kbd> | Edit.Copilot.TriggerInlineSuggestion |
 
-## Rebinding keyboard shortcuts
+## Atajos de teclado revinculantes
 
 If you don't want to use the default keyboard shortcuts in {% data variables.product.prodname_vs %} when using {% data variables.product.prodname_copilot %}, you can rebind the shortcuts in the Keyboard editor using your preferred keyboard shortcuts for each specific command.
 
@@ -42,7 +42,7 @@ If you don't want to use the default keyboard shortcuts in {% data variables.pro
 
 If you use ReSharper, {% data variables.product.prodname_copilot %} may work best when you configure ReSharper to use {% data variables.product.prodname_copilot %}'s native IntelliSense. For more information about ReSharper, see the [ReSharper documentation](https://www.jetbrains.com/resharper/documentation/documentation.html)
 
-1. In the {% data variables.product.prodname_vs %} toolbar, under **Tools**, click **Options**. ![Screenshot of the Options option in the {% data variables.product.prodname_vs %} toolbar](/assets/images/help/copilot/vs-toolbar-options.png)
+1. En la barra de herramientas de {% data variables.product.prodname_vs %}, debajo de **Herramientas**, haz clic en **Opciones**. ![Captura de pantalla de la opción de "Opciones" en la barra de herramientas de {% data variables.product.prodname_vs %}](/assets/images/help/copilot/vs-toolbar-options.png)
 1. In the "Options" dialog, under **Environment**, click **IntelliSense** and then click **General**. ![Screenshot of the IntelliSense option in the "Options" dialog](/assets/images/help/copilot/vs-options-intellisense.png)
 1. Under "General" select **Visual Studio** and then click **Save**.
 

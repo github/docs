@@ -205,23 +205,23 @@ Cuando impones límites de carga a los repositorios, la configuración predeterm
 
 {% ifversion profile-name-enterprise-setting %}
 
-## Enforcing a policy for the display of member names in your repositories
+## Requerir una política para mostrar los nombres de los miembros en tus repositorios
 
-Across all organizations owned by your enterprise, you can allow members to see a comment author's profile name, in addition to their username, in issues and pull requests for public and internal repositories.
+En todas las organizaciones que le pertenezcan a tu empresa, puedes permitir que los miembros vean el nombre de perfil del autor de un comentario, adicionalmente a su nombre de usuario, en las propuestas y solicitudes de cambio para los repositorios internos y públicos.
 
 ![Nombre del perfil del autor del comentario que se muestra en un comentario](/assets/images/help/issues/commenter-full-name.png)
 
 {% note %}
 
-**Note:** When this policy is enforced for all repositories in the enterprise, it overrides the organization setting for private repositories. Para obtener más información, consulta "[Administrar cómo se ven los nombres de los miembros en tu organización](/organizations/managing-organization-settings/managing-the-display-of-member-names-in-your-organization)".
+**Nota:** Cuando se requiere esta política para todos los repositorios en la empresa, esta anula el ajuste de la organización para los repositorios privados. Para obtener más información, consulta "[Administrar cómo se ven los nombres de los miembros en tu organización](/organizations/managing-organization-settings/managing-the-display-of-member-names-in-your-organization)".
 
 {% endnote %}
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.options-tab %}
-4. Under "Allow members to see the comment author's profile name in public and internal repositories", select the dropdown menu and click a policy. ![Screenshot of Options page with policy drop down emphasized](/assets/images/enterprise/site-admin-settings/comment-authors-profile-name-drop-down.png)
-5. Optionally, to enforce the display of profile names for all repositories in your enterprise, select **Enforce for all repositories on the instance**. ![Screenshot of "Enforce for all repositories" option emphasized](/assets/images/enterprise/site-admin-settings/enforce-for-all-repositories-option.png)
+4. Debajo de "Permitir que los miembros vean el nombre de perfil del autor de un comentario en los repositorios internos y públicos", selecciona el menú desplegable y haz clic en una política. ![Captura de pantalla de la página de opciones con énfasis en el menú desplegable de políticas](/assets/images/enterprise/site-admin-settings/comment-authors-profile-name-drop-down.png)
+5. Opcionalmente, para requerir la visualización de los nombres de perfil para todos los repositorios de tu empresa, selecciona **Requerir para todos los repositorios de la instancia**. ![Captura de pantalla de la opción "Requerir para todos los repositorios" enfatizada](/assets/images/enterprise/site-admin-settings/enforce-for-all-repositories-option.png)
 
 {% endif %}
 
@@ -287,17 +287,17 @@ Puedes sustituir los parámetros predeterminados heredados al configurar los par
 
 {% data reusables.enterprise_user_management.disclaimer-for-git-read-access %}
 
-If you have [enabled private mode](/enterprise/admin/configuration/enabling-private-mode) for {% data variables.product.product_location %}, you can allow repository administrators to enable anonymous Git read access to public repositories.
+Si [habilitaste el modo privado](/enterprise/admin/configuration/enabling-private-mode) para {% data variables.product.product_location %}, puedes permitir que los administradores de repositorio habiliten el acceso de lectura anónima de Git para los repositorios públicos.
 
 Habilitar el acceso anónimo de lectura de Git permite a los usuarios saltar la autenticación para las herramientas personalizadas en tu empresa. Cuando tú o un administrador de repositorio activan esta configuración de acceso a un repositorio, las operaciones Git no autenticadas (y cualquiera con acceso de red a {% data variables.product.product_name %}) tendrán acceso de lectura al repositorio sin autenticación.
 
-Anonymous Git read access is disabled by default.{% ifversion ghes = 3.4 or ghes = 3.5 or ghes = 3.6 or ghes = 3.7 %} When you upgrade to {% data variables.product.product_name %} 3.6 or later, anonymous Git read access is automatically disabled at the application level, and `git://` connections on port 9418 will return the following error.
+El acceso de lectura anónima de Git se encuentra inhabilitado predeterminadamente.{% ifversion ghes = 3.4 or ghes = 3.5 or ghes = 3.6 or ghes = 3.7 %} Cuando mejoras a {% data variables.product.product_name %} 3.6 o posterior, el acceso de lectura anónima de Git se inhabilita automáticamente a nivel de la aplicación y las conexiones `git://` en el puerto 9418 devuelven el siguiente error.
 
 ```
-The unauthenticated git protocol on port 9418 is no longer supported.
+El protocolo no autenticado de git en el puerto 9418 ya no tiene compatibilidad.
 ```
 
-If you wish to support the unathenticated Git protocol in your environment, you must manually re-enable the feature. {% data variables.product.company_short %} recommends using SSH instead of the Git protocol. Para obtener más información, consulta [{% data variables.product.prodname_blog %}](https://github.blog/2022-06-28-improving-git-protocol-security-on-github-enterprise-server).
+Si quieres tener compatibilidad con el protocolo no autenticado de Git en tu ambiente, debes volver a habilitar la característica manualmente. {% data variables.product.company_short %} recomienda utilizar SSH en vez del protocolo de Git. Para obtener más información, consulta [{% data variables.product.prodname_blog %}](https://github.blog/2022-06-28-improving-git-protocol-security-on-github-enterprise-server).
 
 {% endif %}
 

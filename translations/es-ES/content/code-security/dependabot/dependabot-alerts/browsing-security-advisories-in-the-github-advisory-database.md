@@ -154,11 +154,11 @@ You can also suggest improvements to any advisory directly from your local advis
 
 In the local advisory database, you can see which repositories are affected by each security vulnerability{% ifversion GH-advisory-db-supports-malware %} or malware{% endif %}. Para ver un repositorio vulnerable, debes tener acceso a las {% data variables.product.prodname_dependabot_alerts %} de este. Para obtener más información, consulta la sección "[Acerca de las {% data variables.product.prodname_dependabot_alerts %}](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies#access-to-dependabot-alerts)".
 
-1. Navigate to `https://HOSTNAME/advisories`.
+1. Navega a `https://HOSTNAME/advisories`.
 2. Haz clic en una asesoría.
 3. En la parte superior de la página de la asesoría, haz clic en **Alertas del dependabot**. ![Las alertas del dependabot](/assets/images/help/security/advisory-database-dependabot-alerts.png)
 4. Opcionalmente, para filtrar la lista, utiliza la barra de búsqueda o los menús desplegables. El menú desplegable de "Organización" te permite filtrar las {% data variables.product.prodname_dependabot_alerts %} por propietario (organización o usuario). ![Barra de búsqueda y menús desplegables para filtrar alertas](/assets/images/help/security/advisory-database-dependabot-alerts-filters.png)
-5. For more details about the advisory, and for advice on how to fix the vulnerable repository, click the repository name.
+5. Para obtener más detalles sobre la asesoría y sobre cómo corregir el repositorio vulnerable, haz clic en el nombre del repositorio.
 
 {% endif %}
 

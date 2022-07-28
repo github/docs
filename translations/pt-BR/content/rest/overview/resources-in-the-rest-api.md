@@ -304,6 +304,18 @@ Os valores de `rel` possíveis são:
 | `first`   | A relação de link para a primeira página de resultados.          |
 | `prev`    | A relação de link para a página de resultados anterior imediata. |
 
+## Tempo esgotado
+
+If {% data variables.product.prodname_dotcom %} takes more than 10 seconds to process an API request, {% data variables.product.prodname_dotcom %} will terminate the request and you will receive a timeout response like this:
+
+```json
+{
+    "message": "Server Error"
+}
+```
+
+{% data variables.product.product_name %} reserves the right to change the timeout window to protect the speed and reliability of the API.
+
 ## Limite de taxa
 
 Os diferentes tipos de solicitações de API para {% data variables.product.product_location %} estão sujeitos a diferentes limites de taxa.

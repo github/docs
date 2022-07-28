@@ -34,6 +34,8 @@ As organizações que usam {% data variables.product.prodname_ghe_cloud %} com {
 
 O {% data variables.product.product_name %} atualmente verifica repositórios públicos para encontrar segredos emitidos pelos seguintes provedores de serviços. Para obter mais informações sobre {% data variables.product.prodname_secret_scanning_partner %}, consulte "[Sobre {% data variables.product.prodname_secret_scanning_partner %}](/code-security/secret-scanning/about-secret-scanning#about-secret-scanning-for-partner-patterns)."
 
+{% data reusables.secret-scanning.secret-scanning-pattern-pair-matches %}
+
 {% data reusables.secret-scanning.partner-secret-list-public-repo %}
 {% endif %}
 
@@ -41,6 +43,8 @@ O {% data variables.product.product_name %} atualmente verifica repositórios p�
 ## Segredos compatíveis {% ifversion ghec %} para segurança avançada{% endif %}
 
 Quando {% data variables.product.prodname_secret_scanning_GHAS %} está habilitado, {% data variables.product.prodname_dotcom %} digitalia os segredos emitidos pelos seguintes prestadores de serviços. {% ifversion ghec %}Para obter mais informações sobre {% data variables.product.prodname_secret_scanning_GHAS %}, consulte "[Sobre {% data variables.product.prodname_secret_scanning_GHAS %}](/code-security/secret-scanning/about-secret-scanning#about-secret-scanning-for-advanced-security)."{% endif %}
+
+{% data reusables.secret-scanning.secret-scanning-pattern-pair-matches %}
 
 Se você usar a API REST para a digitalização de segredo, você pode usar o tipo `tipo de segredo` para relatar segredos de emissores específicos. Para obter mais informações, consulte "[Verificação de segredo](/enterprise-cloud@latest/rest/secret-scanning)".
 
