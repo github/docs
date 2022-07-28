@@ -92,6 +92,8 @@ Certifique-se de fornecer seus próprios valores para todas as variáveis na cha
 ```yaml{:copy}
 {% data reusables.actions.actions-not-certified-by-github-comment %}
 
+{% data reusables.actions.actions-use-sha-pinning-comment %}
+
 name: Deploy to Amazon ECS
 
 on:

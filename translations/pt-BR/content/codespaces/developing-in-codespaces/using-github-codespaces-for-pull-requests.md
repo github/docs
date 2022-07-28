@@ -1,5 +1,5 @@
 ---
-title: Using GitHub Codespaces for pull requests
+title: Usando o GitHub Codespaces para pull requests
 shortTitle: Pull requests
 intro: 'Você pode usar {% data variables.product.prodname_github_codespaces %} no seu fluxo de trabalho de desenvolvimento para criar pull requests, revisar pull requests e resolver comentários de revisão.'
 product: '{% data reusables.gated-features.codespaces %}'

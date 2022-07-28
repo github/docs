@@ -16,11 +16,7 @@ topics:
   - Pull requests
 ---
 
-{% warning %}
-
-**警告：** 如果将文件附加到拉取请求或发出注释，则任何人都可以在不进行身份验证的情况下查看匿名 URL，即使拉取请求位于私有存储库中{% ifversion ghes %}，或者启用了私有模式{% endif %}。 要对敏感媒体文件保密，请从需要身份验证的私有网络或服务器提供它们。 {% ifversion fpt or ghec %}有关匿名 URL 的更多信息，请参阅“[关于匿名 URL](/github/authenticating-to-github/about-anonymized-urls)”。{% endif %}
-
-{% endwarning %}
+{% data reusables.repositories.anyone-can-view-anonymized-url %}
 
 要将文件附加到议题或拉取请求对话，请将它拖放到评论框中。 或者，您也可以单击评论框底部的栏来浏览、选择和添加计算机中的文件。
 

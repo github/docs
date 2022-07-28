@@ -10,8 +10,6 @@ topics:
   - Enterprise
 ---
 
-{% data reusables.server-statistics.release-phase %}
-
 ## About the benefits of {% data variables.product.prodname_server_statistics %}
 
 {% data variables.product.prodname_server_statistics %} can help you anticipate the needs of your organization, understand how your team works, and show the value you get from {% data variables.product.prodname_ghe_server %}.
@@ -97,6 +95,6 @@ The following aggregate metrics will be collected and transmitted on a daily bas
 
 ## {% data variables.product.prodname_server_statistics %} payload example
 
-To see an example of the response payload for the {% data variables.product.prodname_server_statistics %} API, see "[Requesting {% data variables.product.prodname_server_statistics %} using the REST API](/admin/monitoring-activity-in-your-enterprise/analyzing-how-your-team-works-with-server-statistics/requesting-server-statistics-using-the-rest-api)."
+Para ver un ejemplo de la carga útil de respuesta para la API de {% data variables.product.prodname_server_statistics %}, consulta la sección "[Solicitar {% data variables.product.prodname_server_statistics %} utilizando la API de REST](/admin/monitoring-activity-in-your-enterprise/analyzing-how-your-team-works-with-server-statistics/requesting-server-statistics-using-the-rest-api)".
 
 To see a list of the data collected, see "[{% data variables.product.prodname_server_statistics %} data collected](#server-statistics-data-collected)."

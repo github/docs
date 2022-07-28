@@ -29,9 +29,11 @@ You can search your enterprise audit log directly from the user interface by usi
 
 For more information about viewing your enterprise audit log, see "[Accessing the audit log for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/accessing-the-audit-log-for-your-enterprise)."
 
+{% data reusables.audit_log.git-events-not-in-search-results %}
+
 You can also use the API to retrieve audit log events. For more information, see "[Using the audit log API for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/using-the-audit-log-api-for-your-enterprise)."
 
-テキストを使用してエントリを検索することはできません。 ただし、さまざまなフィルターを使用すれば検索クエリを作成できます。 ログを検索するときに使用される多くの演算子 (`-`、`>`、`<` など) は、{% data variables.product.product_name %} 全体で検索するものと同じ形式です。 詳細は「[{% data variables.product.prodname_dotcom %} での検索](/search-github/getting-started-with-searching-on-github/about-searching-on-github)」を参照してください。
+You cannot search for entries using text. ただし、さまざまなフィルターを使用すれば検索クエリを作成できます。 ログを検索するときに使用される多くの演算子 (`-`、`>`、`<` など) は、{% data variables.product.product_name %} 全体で検索するものと同じ形式です。 詳細は「[{% data variables.product.prodname_dotcom %} での検索](/search-github/getting-started-with-searching-on-github/about-searching-on-github)」を参照してください。
 
 {% note %}
 

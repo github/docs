@@ -410,6 +410,8 @@ workflows:
 ```yaml
 {% data reusables.actions.actions-not-certified-by-github-comment %}
 
+{% data reusables.actions.actions-use-sha-pinning-comment %}
+
 name: Containers
 
 on: [push]

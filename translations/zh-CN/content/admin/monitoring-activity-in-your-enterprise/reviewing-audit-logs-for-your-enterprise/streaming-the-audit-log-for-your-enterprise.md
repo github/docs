@@ -3,7 +3,7 @@ title: 流式传输企业的审核日志
 intro: '您可以将审核和 Git 事件数据从 {% data variables.product.prodname_dotcom %} 流式传输到外部数据管理系统。'
 miniTocMaxHeadingLevel: 3
 versions:
-  ghec: '*'
+  feature: audit-log-streaming
 type: tutorial
 topics:
   - Auditing
@@ -17,6 +17,14 @@ redirect_from:
 permissions: Enterprise owners can configure audit log streaming.
 ---
 
+{% ifversion ghes %}
+{% note %}
+
+**Note:** Audit log streaming is currently in beta for {% data variables.product.product_name %} and is subject to change.
+
+{% endnote %}
+{% endif %}
+
 ## 关于审核日志流
 
 为了帮助保护您的知识产权并保持组织的合规性，您可以使用流式处理来保留审核日志数据的副本并监控：
@@ -24,11 +32,11 @@ permissions: Enterprise owners can configure audit log streaming.
 
 流式传输审计数据的好处包括：
 
-* **数据探索**。 您可以使用首选工具检查流事件，以查询大量数据。 流包含整个企业帐户中的审核事件和 Git 事件。
-* **数据连续性**。 您可以暂停流长达七天，而不会丢失任何审核数据。
+* **数据探索**。 您可以使用首选工具检查流事件，以查询大量数据。 The stream contains both audit events and Git events across the entire enterprise account.{% ifversion pause-audit-log-stream %}
+* **数据连续性**。 You can pause the stream for up to seven days without losing any audit data.{% endif %}
 * **数据保留**。 您可以根据需要保留导出的审核日志和 Git 事件数据。
 
-企业所有者可以随时设置、暂停或删除流。 流导出企业中所有组织的审核数据。
+Enterprise owners can set up{% ifversion pause-audit-log-stream %}, pause,{% endif %} or delete a stream at any time. The stream exports the audit and Git events data for all of the organizations in your enterprise.
 
 ## 设置审核日志流
 
@@ -272,6 +280,7 @@ Then, set up streaming with access keys until the vulnerability is resolved. For
 1. 单击 **Check endpoint（检查端点）**以验证 {% data variables.product.prodname_dotcom %} 是否可以连接并写入 Splunk 端点。 ![检查端点](/assets/images/help/enterprises/audit-stream-check-splunk.png)
 {% data reusables.enterprise.verify-audit-log-streaming-endpoint %}
 
+{% ifversion pause-audit-log-stream %}
 ## 暂停审核日志流
 
 暂停流允许您对接收应用程序执行维护，而不会丢失审核数据。 审核日志在 {% data variables.product.product_location %} 上最多存储七天，然后在取消暂停流时导出。
@@ -284,6 +293,7 @@ Then, set up streaming with access keys until the vulnerability is resolved. For
 1. 将显示一条确认消息。 单击 **Pause stream（暂停流）**以确认。
 
 当应用程序准备好再次接收审核日志时，单击 **Resume stream（恢复流）**以重新启动流式处理审核日志。
+{% endif %}
 
 ## 删除审核日志流
 

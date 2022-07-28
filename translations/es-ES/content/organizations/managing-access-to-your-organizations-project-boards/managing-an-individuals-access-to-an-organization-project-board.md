@@ -1,6 +1,6 @@
 ---
-title: Administrar un acceso individual a un tablero de proyecto de una organización
-intro: 'Como propietario de la organización o administrador de un tablero de proyecto, puedes administrar al acceso de un miembro individual a un tablero de proyecto propiedad de tu organización.'
+title: 'Managing an individual’s access to an organization {% data variables.product.prodname_project_v1 %}'
+intro: 'As an organization owner or {% data variables.projects.projects_v1_board %} admin, you can manage an individual member''s access to a {% data variables.projects.projects_v1_board %} owned by your organization.'
 redirect_from:
   - /articles/managing-an-individual-s-access-to-an-organization-project-board
   - /articles/managing-an-individuals-access-to-an-organization-project-board
@@ -14,19 +14,23 @@ topics:
   - Organizations
   - Teams
 shortTitle: Administrar el acceso individual
+allowTitleToDifferFromFilename: true
 ---
+
+{% data reusables.projects.project_boards_old %}
 
 {% note %}
 
-**Nota:** {% data reusables.project-management.cascading-permissions %} Para obtener más información, consulta "[Permisos de tablero de proyecto para una organización](/articles/project-board-permissions-for-an-organization)."
+**Note:** {% data reusables.project-management.cascading-permissions %} For more information, see "[{% data variables.product.prodname_project_v1_caps %} permissions for an organization](/articles/project-board-permissions-for-an-organization)."
 
 {% endnote %}
 
-## Otorgarle acceso a un miembro de la organización a un tablero de proyecto
+## Giving an organization member access to a {% data variables.projects.projects_v1_board %}
 
 {% data reusables.profile.access_org %}
 {% data reusables.user-settings.access_org %}
-{% data reusables.organizations.organization-wide-project %}
+{% data reusables.organizations.organization-wide-project %}{% ifversion projects-v2 %}
+1. Haz clic en **Proyectos (clásico)**{% endif %}
 {% data reusables.project-management.select-project %}
 {% data reusables.project-management.click-menu %}
 {% data reusables.project-management.access-collaboration-settings %}
@@ -35,24 +39,26 @@ shortTitle: Administrar el acceso individual
 {% data reusables.project-management.add-collaborator %}
 {% data reusables.project-management.collaborator-permissions %}
 
-## Cambiar el acceso de un miembro de la organización a un tablero de proyecto
+## Changing an organization member's access to a {% data variables.projects.projects_v1_board %}
 
 {% data reusables.profile.access_org %}
 {% data reusables.user-settings.access_org %}
-{% data reusables.organizations.organization-wide-project %}
+{% data reusables.organizations.organization-wide-project %}{% ifversion projects-v2 %}
+1. Haz clic en **Proyectos (clásico)**{% endif %}
 {% data reusables.project-management.select-project %}
 {% data reusables.project-management.click-menu %}
 {% data reusables.project-management.access-collaboration-settings %}
 {% data reusables.project-management.collaborator-option %}
 {% data reusables.project-management.collaborator-permissions %}
 
-## Eliminar el acceso de un miembro de la organización a un tablero de proyecto
+## Removing an organization member's access to a {% data variables.projects.projects_v1_board %}
 
-Cuando eliminas a un colaborador de un tablero de proyecto, es posible que conserve acceso a un tablero en base a los permisos que tiene por otros roles. Para eliminar de forma completa el acceso a un tablero de proyecto, debes eliminar el acceso para cada rol que tenga esa persona. Por ejemplo, una persona puede tener acceso al tablero de proyecto como miembro de la organización o miembro del equipo. Para obtener más información, consulta "[Permisos de tablero de proyecto para una organización](/articles/project-board-permissions-for-an-organization)".
+When you remove a collaborator from a {% data variables.projects.projects_v1_board %}, they may still retain access to the board based on the permissions they have for other roles. To completely remove access to a {% data variables.projects.projects_v1_board %}, you must remove access for each role the person has. For instance, a person may have access to the {% data variables.projects.projects_v1_board %} as an organization member or team member. For more information, see "[{% data variables.product.prodname_project_v1_caps %} permissions for an organization](/articles/project-board-permissions-for-an-organization)."
 
 {% data reusables.profile.access_org %}
 {% data reusables.user-settings.access_org %}
-{% data reusables.organizations.organization-wide-project %}
+{% data reusables.organizations.organization-wide-project %}{% ifversion projects-v2 %}
+1. Haz clic en **Proyectos (clásico)**{% endif %}
 {% data reusables.project-management.select-project %}
 {% data reusables.project-management.click-menu %}
 {% data reusables.project-management.access-collaboration-settings %}
@@ -61,4 +67,4 @@ Cuando eliminas a un colaborador de un tablero de proyecto, es posible que conse
 
 ## Leer más
 
-- [Permisos de tablero de proyecto para una organización](/articles/project-board-permissions-for-an-organization)"
+- "[{% data variables.product.prodname_project_v1_caps %} permissions for an organization](/articles/project-board-permissions-for-an-organization)"

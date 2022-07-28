@@ -10,11 +10,11 @@ versions:
   ghae: '*'
   ghec: '*'
 includeGuides:
-  - /issues/trying-out-the-new-projects-experience/automating-projects
-  - /issues/trying-out-the-new-projects-experience/creating-a-project
-  - /issues/trying-out-the-new-projects-experience/customizing-your-project-views
-  - /issues/trying-out-the-new-projects-experience/quickstart
-  - /issues/trying-out-the-new-projects-experience/using-the-api-to-manage-projects
+  - /issues/planning-and-tracking-with-projects/automating-your-project/automating-projects-using-actions
+  - /issues/planning-and-tracking-with-projects/creating-projects/creating-a-project
+  - /issues/planning-and-tracking-with-projects/customizing-views-in-your-project/customizing-a-view
+  - /issues/planning-and-tracking-with-projects/learning-about-projects/quickstart-for-projects
+  - /issues/planning-and-tracking-with-projects/automating-your-project/using-the-api-to-manage-projects
   - /issues/tracking-your-work-with-issues/quickstart
   - /issues/tracking-your-work-with-issues/creating-an-issue
   - /issues/tracking-your-work-with-issues/filtering-and-searching-issues-and-pull-requests

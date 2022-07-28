@@ -1,1 +1,1 @@
-You can describe something you want to do using natural language within a comment, and {% data variables.product.prodname_copilot %} will suggest the code to accomplish your goal.
+やりたいことは自然言語でコメント内に記述でき、{% data variables.product.prodname_copilot %}はその目的を達成するためのコードを提案します。

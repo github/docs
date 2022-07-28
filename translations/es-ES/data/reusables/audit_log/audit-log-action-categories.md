@@ -5,7 +5,7 @@
 | `account` | Contains activities related to an organization account. | `advisory_credit`   | Contains activities related to crediting a contributor for a security advisory in the {% data variables.product.prodname_advisory_database %}. Para obtener más información, consulta la sección "[Acerca de las asesorías de seguridad de {% data variables.product.prodname_dotcom %}](/github/managing-security-vulnerabilities/about-github-security-advisories)".
 {%- endif %}
 | `artifact` | Contains activities related to {% data variables.product.prodname_actions %} workflow run artifacts.
-{%- ifversion ghec %}
+{%- ifversion audit-log-streaming %}
 | `audit_log_streaming`  | Contains activities related to streaming audit logs for organizations in an enterprise account.
 {%- endif %}
 {%- ifversion fpt or ghec %}
@@ -42,17 +42,17 @@
 | `dotcom_connection` | Contains activities related to {% data variables.product.prodname_github_connect %}. | `enterprise` | Contains activities related to enterprise settings.
 {%- endif %}
 {%- ifversion ghec %}
-| `enterprise_domain` | Contains activities related to verified enterprise domains. | `enterprise_installation` | Contains activities related to {% data variables.product.prodname_github_app %}s associated with an {% data variables.product.prodname_github_connect %} enterprise connection.
+| `enterprise_domain` | Contains activities related to verified enterprise domains. | `enterprise_installation` | Contiene actividades relacionadas con las {% data variables.product.prodname_github_app %}asociadas con una conexión de empresa de {% data variables.product.prodname_github_connect %}.
 {%- endif %}
 {%- ifversion fpt or ghec %}
-| `environment` | Contains activities related to {% data variables.product.prodname_actions %} environments.
+| `environment` | Contiene actividades relacionadas con ambientes de {% data variables.product.prodname_actions %}.
 {%- endif %}
 {%- ifversion ghae %}
-| `external_group` | Contains activities related to Okta groups. | `external_identity` | Contains activities related to a user in an Okta group.
+| `external_group` | Contiene actividades relacionadas con grupos de Okta. | `external_identity` | Contiene actividades relacionadas con un usuario en un grupo de Okta.
 {%- endif %}
-| `gist` | Contains activities related to Gists. | `git` | Contains activities related to Git events. | `hook` | Contains activities related to webhooks. | `integration` | Contains activities related to integrations in an account. | `integration_installation` | Contains activities related to integrations installed in an account. | `integration_installation_request`  | Contains activities related to organization member requests for owners to approve integrations for use in the organization.
+| `gist` | Contiene actividades relacionadas con Gists. | `hook` | Contiene actividades relacionadas con webhooks. | `integration` | Contiene actividades relacionadas con integraciones en una cuenta. | `integration_installation` | Contiene actividades relacionadas con integraciones instaladas en una cuenta. | `integration_installation_request`  | Contiene actividades relacionadas con solicitudes de miembros organizacionales para que los propietarios aprueben integraciones para su uso en la organización.
 {%- ifversion ghec or ghae %}
-| `ip_allow_list`   | Contains activities related to enabling or disabling the IP allow list for an organization. | `ip_allow_list_entry`   | Contains activities related to the creation, deletion, and editing of an IP allow list entry for an organization.
+| `ip_allow_list`   | Contiene actividades relacionadas con habilitar o inhabilitar la lista de direcciones IP permitidas en una organización. | `ip_allow_list_entry`   | Contains activities related to the creation, deletion, and editing of an IP allow list entry for an organization.
 {%- endif %}
 | `issue`  | Contains activities related to pinning, transferring, or deleting an issue in a repository. | `issue_comment` | Contains activities related to pinning, transferring, or deleting issue comments. | `issues` | Contains activities related to enabling or disabling issue creation for an organization.
 {%- ifversion fpt or ghec %}

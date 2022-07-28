@@ -16,7 +16,6 @@ translations/zh-CN/content/actions/hosting-your-own-runners/adding-self-hosted-r
 translations/zh-CN/content/actions/hosting-your-own-runners/monitoring-and-troubleshooting-self-hosted-runners.md,Listed in localization-support#489
 translations/zh-CN/content/actions/hosting-your-own-runners/monitoring-and-troubleshooting-self-hosted-runners.md,rendering error
 translations/zh-CN/content/actions/learn-github-actions/usage-limits-billing-and-administration.md,broken liquid tags
-translations/zh-CN/content/actions/managing-workflow-runs/re-running-workflows-and-jobs.md,rendering error
 translations/zh-CN/content/actions/managing-workflow-runs/removing-workflow-artifacts.md,broken liquid tags
 translations/zh-CN/content/actions/managing-workflow-runs/reviewing-deployments.md,Listed in localization-support#489
 translations/zh-CN/content/actions/security-guides/security-hardening-for-github-actions.md,broken liquid tags
@@ -112,7 +111,6 @@ translations/zh-CN/content/admin/user-management/migrating-data-to-and-from-your
 translations/zh-CN/content/authentication/authenticating-with-saml-single-sign-on/about-authentication-with-saml-single-sign-on.md,broken liquid tags
 translations/zh-CN/content/authentication/connecting-to-github-with-ssh/about-ssh.md,broken liquid tags
 translations/zh-CN/content/authentication/connecting-to-github-with-ssh/checking-for-existing-ssh-keys.md,broken liquid tags
-translations/zh-CN/content/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent.md,broken liquid tags
 translations/zh-CN/content/authentication/keeping-your-account-and-data-secure/about-authentication-to-github.md,broken liquid tags
 translations/zh-CN/content/authentication/keeping-your-account-and-data-secure/authorizing-github-apps.md,broken liquid tags
 translations/zh-CN/content/authentication/keeping-your-account-and-data-secure/authorizing-oauth-apps.md,broken liquid tags
@@ -162,6 +160,7 @@ translations/zh-CN/content/code-security/code-scanning/using-codeql-code-scannin
 translations/zh-CN/content/code-security/dependabot/dependabot-alerts/about-dependabot-alerts.md,rendering error
 translations/zh-CN/content/code-security/dependabot/dependabot-alerts/browsing-security-advisories-in-the-github-advisory-database.md,broken liquid tags
 translations/zh-CN/content/code-security/dependabot/dependabot-alerts/configuring-dependabot-alerts.md,broken liquid tags
+translations/zh-CN/content/code-security/dependabot/dependabot-alerts/editing-security-advisories-in-the-github-advisory-database.md,broken liquid tags
 translations/zh-CN/content/code-security/dependabot/dependabot-security-updates/about-dependabot-security-updates.md,broken liquid tags
 translations/zh-CN/content/code-security/dependabot/dependabot-security-updates/configuring-dependabot-security-updates.md,broken liquid tags
 translations/zh-CN/content/code-security/dependabot/index.md,broken liquid tags
@@ -215,10 +214,10 @@ translations/zh-CN/content/developers/overview/secret-scanning-partner-program.m
 translations/zh-CN/content/developers/webhooks-and-events/webhooks/about-webhooks.md,broken liquid tags
 translations/zh-CN/content/developers/webhooks-and-events/webhooks/webhook-events-and-payloads.md,rendering error
 translations/zh-CN/content/discussions/collaborating-with-your-community-using-discussions/about-discussions.md,broken liquid tags
+translations/zh-CN/content/discussions/quickstart.md,broken liquid tags
 translations/zh-CN/content/education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-at-your-educational-institution/about-campus-advisors.md,broken liquid tags
 translations/zh-CN/content/education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-at-your-educational-institution/about-github-campus-program.md,broken liquid tags
 translations/zh-CN/content/education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-at-your-educational-institution/index.md,broken liquid tags
-translations/zh-CN/content/education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-for-your-schoolwork/about-github-community-exchange.md,broken liquid tags
 translations/zh-CN/content/education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-for-your-schoolwork/why-wasnt-my-application-for-a-student-developer-pack-approved.md,broken liquid tags
 translations/zh-CN/content/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide/about-using-makecode-arcade-with-github-classroom.md,broken liquid tags
 translations/zh-CN/content/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide/using-github-codespaces-with-github-classroom.md,broken liquid tags
@@ -377,6 +376,7 @@ translations/zh-CN/data/reusables/dependabot/dependabot-alerts-dependency-graph-
 translations/zh-CN/data/reusables/dependabot/enterprise-enable-dependabot.md,broken liquid tags
 translations/zh-CN/data/reusables/dependency-submission/about-dependency-submission.md,broken liquid tags
 translations/zh-CN/data/reusables/dotcom_billing/downgrade-org-to-free.md,broken liquid tags
+translations/zh-CN/data/reusables/education/access-github-community-exchange.md,broken liquid tags
 translations/zh-CN/data/reusables/enterprise-accounts/emu-password-reset-session.md,broken liquid tags
 translations/zh-CN/data/reusables/enterprise-accounts/emu-short-summary.md,rendering error
 translations/zh-CN/data/reusables/enterprise-licensing/about-license-sync.md,broken liquid tags
@@ -409,13 +409,12 @@ translations/zh-CN/data/reusables/pages/pages-builds-with-github-actions-public-
 translations/zh-CN/data/reusables/repositories/deleted_forks_from_private_repositories_warning.md,broken liquid tags
 translations/zh-CN/data/reusables/repositories/enable-security-alerts.md,broken liquid tags
 translations/zh-CN/data/reusables/repositories/select-marketplace-apps.md,broken liquid tags
-translations/zh-CN/data/reusables/saml/saml-session-oauth.md,broken liquid tags
+translations/zh-CN/data/reusables/saml/saml-session-oauth.md,rendering error
 translations/zh-CN/data/reusables/saml/you-must-periodically-authenticate.md,Listed in localization-support#489
-translations/zh-CN/data/reusables/saml/you-must-periodically-authenticate.md,broken liquid tags
+translations/zh-CN/data/reusables/saml/you-must-periodically-authenticate.md,rendering error
 translations/zh-CN/data/reusables/scim/after-you-configure-saml.md,broken liquid tags
 translations/zh-CN/data/reusables/secret-scanning/enterprise-enable-secret-scanning.md,broken liquid tags
 translations/zh-CN/data/reusables/secret-scanning/partner-program-link.md,broken liquid tags
-translations/zh-CN/data/reusables/security-advisory/link-browsing-advisory-db.md,broken liquid tags
 translations/zh-CN/data/reusables/sponsors/feedback.md,broken liquid tags
 translations/zh-CN/data/reusables/support/enterprise-resolving-and-closing-tickets.md,broken liquid tags
 translations/zh-CN/data/reusables/support/free-and-paid-support.md,broken liquid tags

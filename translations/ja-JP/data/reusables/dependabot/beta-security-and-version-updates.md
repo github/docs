@@ -2,9 +2,9 @@
 
 {% note %}
 {% ifversion ghes = 3.4 %}
-**Note:** {% data variables.product.prodname_dependabot %} security and version updates are currently in public beta and subject to change.
+**ノート:** {% data variables.product.prodname_dependabot %}セキュリティ及びバージョンアップデートは現在パブリックベータであり、変更されることがあります。
 {% else %}
-**Note:** {% data variables.product.prodname_dependabot %} security and version updates are currently in private beta and subject to change. Please [contact your account management team](https://enterprise.github.com/contact) for instructions on enabling Dependabot updates.
+**ノート:** {% data variables.product.prodname_dependabot %}セキュリティ及びバージョンアップデートは現在プライベートベータであり、変更されることがあります。 Dependabotアップデートの有効化の手順については[営業チームに連絡](https://enterprise.github.com/contact)してください。
 {% endif %}
 
 {% endnote %}
@@ -15,7 +15,7 @@
 
 {% note %}
 
-**Note:** {% data variables.product.prodname_dependabot %} security and version updates are currently in public beta and subject to change.
+**ノート:** {% data variables.product.prodname_dependabot %}セキュリティ及びバージョンアップデートは現在パブリックベータであり、変更されることがあります。
 
 {% endnote %}
 {% endif %}

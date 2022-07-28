@@ -10,7 +10,7 @@ topics:
   - Legal
 ---
 
-_These terms apply to GitHub.com customers who have executed agreements in place referencing the Corporate Terms of Service. All other business or institution customers are directed to [github.com/customer-terms](https://github.com/customer-terms) for current terms._
+_Estes termos aplicam-se aos clientes do GitHub.com que tenham executado contratos que referenciam os Termos de Serviço Corporativos. Todos os outros clientes da empresa ou instituição são direcionados ao [github.com/cliente-termos](https://github.com/customer-terms) para os termos atuais._
 
 ## Termos de Serviço Corporativos do GitHub
 Entrada em vigor desta versão: 16 de novembro de 2020
@@ -27,13 +27,13 @@ Este Contrato aplica-se às seguintes ofertas do GitHub, conforme definido a seg
 
 **"Contrato"** significa, coletivamente, todos os termos, condições, avisos contidos ou referenciados neste documento e todas as outras regras de funcionamento, políticas e procedimentos que o GitHub possa publicar em algum momento no Serviço. As políticas do site do GitHub estão disponíveis em [https://docs.github.com/categories/site-policy](/categories/site-policy).
 
-**“All Users”** means, collectively, Customer’s Users and External Users who use the Service.
+**"Todos os usuários"** significa, coletivamente, usuários e usuários externos do cliente que utilizam o serviço.
 
 **"Américas"** significa Estados Unidos, Canadá, México o um país no Caribe, na América Central ou na América do Sul.
 
-**"Beta Previews"** mean software, services, or features identified as alpha, beta, preview, early access, or evaluation, or words or phrases with similar meanings.
+**"Visualizações Beta"** significa software, serviços ou funcionalidades identificados como alfa, beta, visualização, acesso antecipado ou avaliação, ou palavras e frases com significados semelhantes.
 
-**"Confidential Information"** means all non-public information disclosed by either Party to the others, whether in writing, orally or by other means, designated as confidential or that the receiving Party knows or reasonably should know, under the circumstances surrounding the disclosure and the nature of the information, is confidential to the disclosing Party. Para evitar dúvidas, nenhum Conteúdo postado no Serviço será considerado como Informações Confidenciais, exceto o Conteúdo do Cliente armazenado exclusivamente nos Repositórios Privados do Cliente. As Informações confidenciais não incluem nenhuma informação que (i) era ou se torna publicamente conhecida sem que isso seja culpa da Parte receptora; (ii) era legitimamente conhecida ou se torna legitimamente conhecida para a Parte receptora sem restrição confidencial ou proprietária de uma fonte diferente da Parte divulgadora que tem o direito de divulgá-la; (iii) é aprovada pela Parte divulgadora para divulgação sem restrição em um documento escrito assinado por um oficial devidamente autorizado dessa Parte divulgadora; (iv) a Parte receptora desenvolve de forma independente, sem usar ou acessar as Informações confidenciais da outra Parte; ou (v) é ou foi armazenada ou postada no Serviço e fora dos Repositórios privados do Cliente.
+**"Informações confidenciais"** significa todas as informações não públicas divulgadas por uma das Partes a terceiros (seja por escrito, por via oral ou por outros meios), designadas como confidenciais ou que a Parte receptora sabe ou deveria saber, nas circunstâncias em torno da divulgação e da natureza das informações, que é confidencial para a Parte divulgadora. Para evitar dúvidas, nenhum Conteúdo postado no Serviço será considerado como Informações Confidenciais, exceto o Conteúdo do Cliente armazenado exclusivamente nos Repositórios Privados do Cliente. As Informações confidenciais não incluem nenhuma informação que (i) era ou se torna publicamente conhecida sem que isso seja culpa da Parte receptora; (ii) era legitimamente conhecida ou se torna legitimamente conhecida para a Parte receptora sem restrição confidencial ou proprietária de uma fonte diferente da Parte divulgadora que tem o direito de divulgá-la; (iii) é aprovada pela Parte divulgadora para divulgação sem restrição em um documento escrito assinado por um oficial devidamente autorizado dessa Parte divulgadora; (iv) a Parte receptora desenvolve de forma independente, sem usar ou acessar as Informações confidenciais da outra Parte; ou (v) é ou foi armazenada ou postada no Serviço e fora dos Repositórios privados do Cliente.
 
 **"Conteúdo"** significa, sem limitação, código, texto, dados, artigos, imagens, pacotes, fotografias, gráficos, softwares, aplicativos, designs, recursos e outros materiais que são apresentados, exibidos ou disponibilizados por meio do Serviço.
 
@@ -112,7 +112,7 @@ O Cliente é responsável por: (i) todo o Conteúdo publicado e a atividade que 
 Em algumas situações, os termos de terceiros podem ser aplicados ao uso do GitHub pelo Cliente.  Por exemplo, o Cliente pode ser integrante de uma Organização com seus próprios termos ou contratos de licença. O cliente poderá baixar um aplicativo que se integra ao Serviço ou utilizar o Serviço para autenticar em outro serviço. Embora este Contrato seja o acordo completo do GitHub com o Cliente, os termos de outras partes regem as relações delas com o Cliente.
 
 ### 5. EUA Termos do Governo Federal
-Se o cliente é dos EUA. government entity or otherwise accessing or using the Service in a government capacity, the [U.S. Aplica-se a alteração do Governo Federal](/articles/amendment-to-github-terms-of-service-applicable-to-us-federal-government-users) e o Cliente concorda com suas disposições.
+Se o cliente é dos EUA. entidade do governo dos EUA ou que acessa ou usa o Serviço em instalações governamentais, [EUA Aplica-se a alteração do Governo Federal](/articles/amendment-to-github-terms-of-service-applicable-to-us-federal-government-users) e o Cliente concorda com suas disposições.
 
 ### 6. Acordo de Nível de Serviço de Nuvem Empresarial
 O compromisso trimestral de tempo de atividade do GitHub para o GitHub Enterprise Cloud é fornecido no [Contrato de Nível de Serviço Empresarial](/github/site-policy/github-enterprise-service-level-agreement). Se o cliente inscreveu-se no GitHub Enterprise Cloud, ele terá direito a um crédito de serviço se o GitHub não atender ao seu nível de serviço.
