@@ -17,7 +17,7 @@ contact_privacy: >-
 
 contact_enterprise_sales: "[GitHub's Sales team](https://github.com/enterprise/contact)"
 
-contact_feedback_actions: '[Feedback discussion for GitHub Actions](https://github.com/github/feedback/discussions/categories/actions-and-packages-feedback)'
+contact_feedback_actions: '[Feedback discussion for GitHub Actions](https://github.com/community/community/discussions/categories/actions-and-packages)'
 
 # The team that provides Standard Support
 enterprise_support: 'GitHub Enterprise Support'
