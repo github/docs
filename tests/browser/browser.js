@@ -54,7 +54,7 @@ describe('browser search', () => {
 
     const newPage = await browser.newPage()
     await newPage.goto(
-      `http://localhost:4000/ja/enterprise-server@${oldestSupported}/admin/installation`
+      `http://localhost:4000/en/enterprise-server@${oldestSupported}/admin/installation`
     )
 
     await newPage.setRequestInterception(true)
@@ -62,12 +62,10 @@ describe('browser search', () => {
       if (interceptedRequest.method() === 'GET' && /search\?/i.test(interceptedRequest.url())) {
         const { searchParams } = new URL(interceptedRequest.url())
         expect(searchParams.get('version')).toBe(oldestSupported)
-        expect(searchParams.get('language')).toBe('ja')
+        expect(searchParams.get('language')).toBe('en')
       }
       interceptedRequest.continue()
     })
-    
-    await page.waitForTimeout(1000)
 
     await newPage.click('[data-testid=mobile-menu-button]')
     const searchInput = await newPage.$(
@@ -93,8 +91,6 @@ describe('browser search', () => {
       }
       interceptedRequest.continue()
     })
-    
-    await page.waitForTimeout(1000)
 
     await newPage.click('[data-testid=mobile-menu-button]')
     const searchInput = await newPage.$(
@@ -120,8 +116,6 @@ describe('browser search', () => {
       }
       interceptedRequest.continue()
     })
-    
-    await page.waitForTimeout(1000)
 
     await newPage.click('[data-testid=mobile-menu-button]')
     const searchInput = await newPage.$(
