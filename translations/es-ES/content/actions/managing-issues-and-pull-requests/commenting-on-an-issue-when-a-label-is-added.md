@@ -33,6 +33,8 @@ En el tutorial, primero harás un archivo de flujo de trabajo que utilice la [ac
     ```yaml{:copy}
 {% indented_data_reference reusables.actions.actions-not-certified-by-github-comment spaces=4 %}
 
+{% indented_data_reference reusables.actions.actions-use-sha-pinning-comment spaces=4 %}
+
     name: Add comment
     on:
       issues:

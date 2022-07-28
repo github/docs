@@ -17,7 +17,7 @@ shortTitle: 添加新的 SSH 密钥
 
 ## About addition of SSH keys to your account
 
-{% data reusables.ssh.about-ssh %} For more information, see "[About SSH](/authentication/connecting-to-github-with-ssh/about-ssh)."
+{% data reusables.ssh.about-ssh %} 更多信息请参阅“[关于 SSH](/authentication/connecting-to-github-with-ssh/about-ssh)”。
 
 After you generate an SSH key pair, you must add the public key to {% ifversion fpt or ghec or ghes %}{% data variables.product.product_location %}{% elsif ghae %}{% data variables.product.product_name %}{% endif %} to enable SSH access for your account.
 

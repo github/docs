@@ -89,10 +89,13 @@ Crie um novo arquivo de fluxo de trabalho no repositório (como `.github/workflo
 {% data reusables.package_registry.publish-docker-image %}
 
 {% else %}
-```yaml{:copy}
-name: Create and publish a Docker image
 
+```yaml{:copy}
 {% data reusables.actions.actions-not-certified-by-github-comment %}
+
+{% data reusables.actions.actions-use-sha-pinning-comment %}
+
+name: Create and publish a Docker image
 
 on:
   push:

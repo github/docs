@@ -1,8 +1,8 @@
 ---
-title: 项目板
+title: '{% data variables.product.prodname_projects_v1_caps %}'
 shortTitle: 板
 allowTitleToDifferFromFilename: true
-intro: 项目板 API 允许您在存储库中创建和管理项目。
+intro: 'The {% data variables.product.prodname_projects_v1 %} API lets you create and manage {% data variables.projects.projects_v1_boards %} in a repository.'
 versions:
   fpt: '*'
   ghes: '*'

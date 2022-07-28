@@ -45,6 +45,15 @@ Dentro de las conversaciones en {% data variables.product.product_name %}, las r
 Si referencias una propuesta, solicitud de cambios o debate en una lista, la referencia se desplegará para mostrar el título y el estado en su lugar. Para obtener más información acerca de las listas de tareas, consulta la sección "[Acerca de las listas de tareas](/issues/tracking-your-work-with-issues/creating-issues/about-task-lists)".
 {% endif %}
 
+## Etiquetas
+When referencing the URL of a label in Markdown, the label is automatically rendered. Only labels of the same repository are rendered, URLs pointing to a label from a different repository are rendered as any [URL](/get-started/writing-on-github/working-with-advanced-formatting/autolinked-references-and-urls#urls).
+
+The URL of a label can be found by navigating to the labels page and clicking on a label. For example, the URL of the label "enhancement" in our public [docs repository](https://github.com/github/docs/) is
+
+```md
+https://github.com/github/docs/labels/enhancement
+```
+
 ## Confirmar SHA
 
 Las referencias a un hash SHA de confirmación se convertirán automáticamente en enlaces acortados para la confirmación en {% data variables.product.product_name %}.

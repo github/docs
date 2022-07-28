@@ -51,6 +51,8 @@ To get started quickly, you can choose the preconfigured Gradle starter workflow
 ```yaml{:copy}
 {% data reusables.actions.actions-not-certified-by-github-comment %}
 
+{% data reusables.actions.actions-use-sha-pinning-comment %}
+
 name: Java CI
 
 on: [push]

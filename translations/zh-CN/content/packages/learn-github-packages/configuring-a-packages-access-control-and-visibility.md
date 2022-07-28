@@ -16,7 +16,7 @@ shortTitle: 访问控制和可见性
 
 具有精细权限的包仅限于个人用户或组织帐户。 您可以从与包相连（或链接）的仓库分别更改包的访问控制和可见性。
 
-目前，您只能对 {% data variables.product.prodname_container_registry %} 使用粒度权限。 Granular permissions are not supported in our other package registries, such as the npm registry.{% ifversion docker-ghcr-enterprise-migration %} For more information about migration to the {% data variables.product.prodname_container_registry %}, see "[Migrating to the {% data variables.product.prodname_container_registry %} from the Docker registry](/packages/working-with-a-github-packages-registry/migrating-to-the-container-registry-from-the-docker-registry)."{% endif %}
+目前，您只能对 {% data variables.product.prodname_container_registry %} 使用粒度权限。 我们的其他包注册表（如 npm 注册表）不支持粒度权限。{% ifversion docker-ghcr-enterprise-migration %} 有关迁移到 {% data variables.product.prodname_container_registry %} 的详细信息，请参阅“[从 Docker 注册表迁移到 {% data variables.product.prodname_container_registry %}](/packages/working-with-a-github-packages-registry/migrating-to-the-container-registry-from-the-docker-registry)”。{% endif %}
 
 有关仓库作用域的包、与包相关的 PAT 作用域或管理操作工作流程的权限的更多信息，请参阅“[关于 GitHub Packages 的权限](/packages/learn-github-packages/about-permissions-for-github-packages)”。
 

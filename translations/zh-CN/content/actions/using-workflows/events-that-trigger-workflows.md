@@ -447,7 +447,7 @@ on:
 {% ifversion fpt or ghec %}
 {% note %}
 
-**注意**：此事件对项目（测试版）不会发生。 更多信息请参阅“[关于项目（测试版）](/issues/trying-out-the-new-projects-experience/about-projects)”。
+**Note**: This event only occurs for {% data variables.product.prodname_projects_v1 %}.
 
 {% endnote %}
 {% endif %}
@@ -485,7 +485,7 @@ on:
 {% ifversion fpt or ghec %}
 {% note %}
 
-**注意**：此事件对项目（测试版）不会发生。 更多信息请参阅“[关于项目（测试版）](/issues/trying-out-the-new-projects-experience/about-projects)”。
+**Note**: This event only occurs for {% data variables.product.prodname_projects_v1 %}.
 
 {% endnote %}
 {% endif %}
@@ -523,7 +523,7 @@ on:
 {% ifversion fpt or ghec %}
 {% note %}
 
-**注意**：此事件对项目（测试版）不会发生。 更多信息请参阅“[关于项目（测试版）](/issues/trying-out-the-new-projects-experience/about-projects)”。
+**Note**: This event only occurs for {% data variables.product.prodname_projects_v1 %}.
 
 {% endnote %}
 {% endif %}

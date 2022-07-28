@@ -1,5 +1,5 @@
 ---
-title: Dockeerレジストリからコンテナレジストリへの移行
+title: Migrating to the Container registry from the Docker registry
 intro: '{% ifversion docker-ghcr-enterprise-migration %}An enterprise owner can{% else %}{% data variables.product.company_short %} will{% endif %} migrate Docker images previously stored in the Docker registry on {% data variables.product.product_location %} to the {% data variables.product.prodname_container_registry %}.'
 product: '{% data reusables.gated-features.packages %}'
 redirect_from:
@@ -9,7 +9,7 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-  feature: docker-ghcr-enterprise-migration
+  feature: 'docker-ghcr-enterprise-migration'
 shortTitle: Migration to Container registry
 topics:
   - Containers
@@ -19,7 +19,7 @@ topics:
 
 {% data reusables.package_registry.container-registry-ghes-beta %}
 
-## {% data variables.product.prodname_container_registry %} について
+## About the {% data variables.product.prodname_container_registry %}
 
 {% data reusables.package_registry.container-registry-benefits %} For more information, see "[Working with the {% data variables.product.prodname_container_registry %}](/packages/working-with-a-github-packages-registry/working-with-the-container-registry)."
 
@@ -54,7 +54,7 @@ After a Docker image has been migrated to the {% data variables.product.prodname
 
 After migration, you'll no longer be able to use the GraphQL API to query for packages with a `PackageType` of "DOCKER". Instead, you can use the REST API to query for packages with a `package_type` of "container". For more information, see "[Packages](/rest/reference/packages)" in the REST API documentation.
 
-## {% data variables.product.prodname_container_registry %}の支払いについて
+## About billing for {% data variables.product.prodname_container_registry %}
 
 For more information about billing for the {% data variables.product.prodname_container_registry %}, see "[About billing for {% data variables.product.prodname_registry %}](/billing/managing-billing-for-github-packages/about-billing-for-github-packages)."
 
@@ -62,7 +62,7 @@ For more information about billing for the {% data variables.product.prodname_co
 
 {% ifversion docker-ghcr-enterprise-migration %}
 
-## 参考リンク
+## Further reading
 
 - "[Migrating your enterprise to the {% data variables.product.prodname_container_registry %} from the Docker registry](/admin/packages/migrating-your-enterprise-to-the-container-registry-from-the-docker-registry)"
 

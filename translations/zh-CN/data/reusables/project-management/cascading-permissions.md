@@ -1,1 +1,1 @@
-如果某人可通过多种途径访问组织项目板（个人访问、通过团队访问或作为组织成员访问），则最高的项目板权限级别将覆盖较低的权限级别。
+If a person has multiple avenues of access to an organization {% data variables.projects.projects_v1_board %} (individually, through a team, or as an organization member), the highest {% data variables.projects.projects_v1_board %} permission level overrides lower permission levels.
