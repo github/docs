@@ -104,7 +104,7 @@ This example demonstrates how to use OIDC with the official action to request a 
 
 **Note**:
 
-When the `permissions` key is used, all unspecified permissions are set to no access, with the exception of the metadata scope, which always gets read access. Therefore, you may need to add other permissions, such as `contents: read`. See [Automatic token authentication](/actions/security-guides/automatic-token-authentication) for more information.
+When the `permissions` key is used, all unspecified permissions are set to _no access_, with the exception of the metadata scope, which always gets _read_ access. As a result, you may need to add other permissions, such as `contents: read`. See [Automatic token authentication](/actions/security-guides/automatic-token-authentication) for more information.
 
 {% endnote %}
 
