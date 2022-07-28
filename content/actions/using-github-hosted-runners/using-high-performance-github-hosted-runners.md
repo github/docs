@@ -7,7 +7,7 @@ versions:
 shortTitle: Using high performance runners
 ---
 
-## Overview of high performance {% data variables.product.prodname_dotcom %}-hosted runners
+## Overview of hosted runners
 
 In addition to the standard {% data variables.product.prodname_dotcom %}-hosted runners, {% data variables.product.prodname_dotcom %} also offers a range of larger runners with more RAM and CPU. These runners are hosted by {% data variables.product.prodname_dotcom %} and have the runner application and other tools preinstalled. Each runner is only used for one job, and is automatically shut down and wiped after the job has completed.
 
@@ -15,7 +15,7 @@ When you add a {% data variables.product.prodname_dotcom %}-hosted runner to an 
 
 ## Architectural overview of hosted runners
 
-High performance {% data variables.product.prodname_dotcom %}-hosted runners are managed at the organization level, where they are arranged into groups that host multiple instances of the runner. Once you've created a group, you can then add a runner to the group and update your workflows to target the group. You can also control which repositories are permitted to send jobs to the group for processing. For more information about groups, see "[Managing access to GitHub-hosted runners using groups](/actions/using-github-hosted-runners/managing-access-to-github-hosted-runners-using-groups)."
+Hosted runners are managed at the organization level, where they are arranged into groups that host multiple instances of the runner. Once you've created a group, you can then add a runner to the group and update your workflows to target the group. You can also control which repositories are permitted to send jobs to the group for processing. For more information about groups, see "[Managing access to GitHub-hosted runners using groups](/actions/using-github-hosted-runners/managing-access-to-github-hosted-runners-using-groups)."
 
 In the following diagram, a class of hosted runner named `16-core-ubuntu-runner` has been defined with customized hardware and operating system configuration.
 - Instances of this runner are automatically created and added to a group called `16-core-ubuntu-rg`. 
@@ -25,9 +25,9 @@ In the following diagram, a class of hosted runner named `16-core-ubuntu-runner`
 
 ![Diagram](/assets/images/hosted-runner.png)
 
-## Autoscaling {% data variables.product.prodname_dotcom %}-hosted runners
+## Autoscaling hosted runners
 
-{% data variables.product.prodname_dotcom %}-hosted runners can be configured to scale automatically. This means that when a job is submitted to a runner group, the group will automatically add a new runner to the group if the group is not already at its maximum capacity. Each runner only processes one job at a time, so these settings effectively determine the number of jobs that can be run concurrently. 
+Hosted runners can be configured to scale automatically. This means that when a job is submitted to a runner group, the group will automatically add a new runner to the group if the group is not already at its maximum capacity. Each runner only processes one job at a time, so these settings effectively determine the number of jobs that can be run concurrently. 
 
 You can set following scaling options during the runner deployment process:
 
