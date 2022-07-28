@@ -40,9 +40,9 @@ graph TD;
 
 ## 创建 GeoJSON 和 TopoJSON 地图
 
-You can use GeoJSON/TopoJSON syntax to create interactive maps. To create a map, add GeoJSON or TopoJSON inside a fenced code block with the `geojson` or `topojson` syntax identifier. 更多信息请参阅“[创建和突出显示代码块](/get-started/writing-on-github/working-with-advanced-formatting/creating-and-highlighting-code-blocks)”。
+您可以使用 GeoJSON/TopoJSON 语法来创建交互式映射。 要创建映射，请在具有 `geojson` 或 `topojson` 语法标识符的受防护代码块中添加 GeoJSON 或 TopoJSON。 更多信息请参阅“[创建和突出显示代码块](/get-started/writing-on-github/working-with-advanced-formatting/creating-and-highlighting-code-blocks)”。
 
-### Using GeoJSON
+### 使用 GeoJSON
 
 例如，您可以创建一个简单的地图：
 
@@ -77,9 +77,9 @@ You can use GeoJSON/TopoJSON syntax to create interactive maps. To create a map,
 
 ![渲染的地图](/assets/images/help/writing/fenced-geojson-rendered-map.png)
 
-### Using TopoJSON
+### 使用 TopoJSON
 
-For example, you can create a simple TopoJSON map:
+例如，您可以创建一个简单的 TopoJSON 映射：
 
 <pre>
 ```topojson

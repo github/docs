@@ -17,11 +17,11 @@ topics:
 shortTitle: 生成新 SSH 密钥
 ---
 
-## About SSH key passphrases
+## 关于 SSH 密钥密码
 
-{% data reusables.ssh.about-ssh %} For more information, see "[About SSH](/authentication/connecting-to-github-with-ssh/about-ssh)."
+{% data reusables.ssh.about-ssh %} 更多信息请参阅“[关于 SSH](/authentication/connecting-to-github-with-ssh/about-ssh)”。
 
-When you generate an SSH key, you can add a passphrase to further secure the key. Whenever you use the key, you must enter the passphrase. If your key has a passphrase and you don't want to enter the passphrase every time you use the key, you can add your key to the SSH agent. The SSH agent manages your SSH keys and remembers your passphrase.
+生成 SSH 密钥时，可以添加密码以进一步保护密钥。 无论何时使用密钥，都必须输入密码。 如果您的密钥具有密码，并且您不想在每次使用密钥时都输入密码，则可以将密钥添加到 SSH 代理。 SSH 代理管理您的 SSH 密钥并记住您的密码。
 
 如果您还没有 SSH 密钥，则必须生成新 SSH 密钥用于身份验证。 如果不确定是否已经拥有 SSH 密钥，您可以检查现有密钥。 更多信息请参阅“[检查现有 SSH 密钥](/github/authenticating-to-github/checking-for-existing-ssh-keys)”。
 
@@ -29,7 +29,7 @@ When you generate an SSH key, you can add a passphrase to further secure the key
 
 ## 生成新 SSH 密钥
 
-You can generate a new SSH key on your local machine. After you generate the key, you can add the key to your account on {% ifversion fpt or ghec or ghes %}{% data variables.product.product_location %}{% elsif ghae %}{% data variables.product.product_name %}{% endif %} to enable authentication for Git operations over SSH.
+您可以在本地计算机上生成新的 SSH 密钥。 生成密钥后，可以将密钥添加到您在 {% ifversion fpt or ghec or ghes %}{% data variables.product.product_location %}{% elsif ghae %}{% data variables.product.product_name %}{% endif %} 上的帐户，以便为通过 SSH 的 Git 操作启用身份验证。
 
 {% data reusables.ssh.key-type-support %}
 
@@ -126,9 +126,9 @@ You can generate a new SSH key on your local machine. After you generate the key
 
      **注意：**
 
-     - If you chose not to add a passphrase to your key, you should omit the `UseKeychain` line.
+     - 如果您选择不向密钥添加密码，应该省略 `UseKeychain` 行。
 
-     - If you see a `Bad configuration option: usekeychain` error, add an additional line to the configuration's' `Host *` section.
+     - 如果您看到 `Bad configuration option: usekeychain` 错误，请在配置的 `Host *` 部分另外添加一行。
 
        ```
        Host *

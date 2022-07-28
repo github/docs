@@ -15,11 +15,11 @@ shortTitle: 授予更高权限
 
 {% data reusables.discussions.navigate-to-repo-or-org %}
 {% data reusables.discussions.discussions-tab %}
-1. Compare the list of contributors with their access permissions to the repository or, for organization discussions, to the source repository to see who qualifies to moderate the discussion. ![Screenshot of most helpful contributors](/assets/images/help/discussions/most-helpful.png)
+1. 将贡献者列表与其对存储库的访问权限进行比较，或者，对于组织讨论，比较源存储库，以查看谁有资格主持讨论。 ![最有帮助的贡献者的屏幕截图](/assets/images/help/discussions/most-helpful.png)
 
 ## 第 2 步：审查 {% data variables.product.prodname_discussions %} 的权限级别
 
-People with triage permissions for a repository can help moderate that repository's discussions by marking comments as answers, locking discussions that are no longer useful or are damaging to the community, and converting issues to discussions when an idea is still in the early stages of development. 同样，对组织讨论的源存储库具有分类权限的人员可以主持组织的讨论。 更多信息请参阅“[主持讨论](/discussions/managing-discussions-for-your-community/moderating-discussions)”。
+对仓库具有分类权限的人可以通过将评论标记为答案、锁定不再有用或对社区造成损害的讨论，以及在想法仍处于开发的早期阶段时将问题转换为讨论，从而帮助主持仓库的讨论。 同样，对组织讨论的源存储库具有分类权限的人员可以主持组织的讨论。 更多信息请参阅“[主持讨论](/discussions/managing-discussions-for-your-community/moderating-discussions)”。
 
 有关仓库权限级别和 {% data variables.product.prodname_discussions %} 的更多信息，请参阅“[组织的仓库权限级别](/organizations/managing-access-to-your-organizations-repositories/repository-permission-levels-for-an-organization)”。
 
