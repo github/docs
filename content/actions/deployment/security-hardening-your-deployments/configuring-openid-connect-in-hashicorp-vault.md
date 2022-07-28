@@ -35,7 +35,7 @@ To use OIDC with HashiCorp Vault, you will need to add a trust configuration for
 To configure your Vault server to accept JSON Web Tokens (JWT) for authentication:
 
 1. Enable the JWT auth method and write configuration.  
-  For `oidc_discovery_url` and `bound_issuer` parameters, use {% ifversion ghes %}`https://HOSTNAME/_services/token`{% else %}`https://token.actions.githubusercontent.com`{% endif %}. These parameters must be set so that the Vault server can verify the received JSON Web Tokens (JWT) upon authentication.
+  For `oidc_discovery_url` and `bound_issuer` parameters, use {% ifversion ghes %}`https://HOSTNAME/_services/token`{% else %}`https://token.actions.githubusercontent.com`{% endif %}. These parameters allow the Vault server to verify the received JSON Web Tokens (JWT) during the authentication process.
 
     ```sh{:copy}
     vault auth enable jwt
