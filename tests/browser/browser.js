@@ -66,6 +66,8 @@ describe('browser search', () => {
       }
       interceptedRequest.continue()
     })
+    
+    await page.waitForTimeout(1000)
 
     await newPage.click('[data-testid=mobile-menu-button]')
     const searchInput = await newPage.$(
@@ -91,6 +93,8 @@ describe('browser search', () => {
       }
       interceptedRequest.continue()
     })
+    
+    await page.waitForTimeout(1000)
 
     await newPage.click('[data-testid=mobile-menu-button]')
     const searchInput = await newPage.$(
@@ -116,6 +120,8 @@ describe('browser search', () => {
       }
       interceptedRequest.continue()
     })
+    
+    await page.waitForTimeout(1000)
 
     await newPage.click('[data-testid=mobile-menu-button]')
     const searchInput = await newPage.$(
