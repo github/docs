@@ -714,7 +714,7 @@ For a detailed description of this payload and the payload for each type of `act
 
 {% data reusables.pull_requests.merge-queue-beta %}
 
-Occurs when a pull request is added to a merge group. Once all required checks have completed successfully, the group will be merged by the protected branch's merge queue.
+Activity related to merge groups in a merge queue. The type of activity is specified in the action property of the payload object.
 
 
 ### Availability
@@ -731,7 +731,7 @@ Key | Type | Description
 `merge_group`|`object` | The merge group which contains the pull request.
 `merge_group[head_sha]`|`string` | The SHA of the last commit of the pull request before it was added to the merge queue.
 `merge_group[head_ref]`|`string` | The full ref of the merge group which contains the pull request. Prefixed with `refs/heads/gh-readonly-queue/:baseRefName`.
-`merge_group[base_ref]`|`string` | The ref of the base of the pull request.
+`merge_group[base_ref]`|`string` | The full ref of the branch the merge group will be merged into.
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.app_desc %}
