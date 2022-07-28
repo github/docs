@@ -47,12 +47,16 @@ export async function fetchSession(): Promise<Session | null> {
 }
 
 // React hook version
+const setFns = new Set<Function>()
 export function useSession() {
   const [session, setSession] = useState<Session | null>(sessionCache)
+  setFns.add(setSession)
   const { asPath } = useRouter()
   // Only call `fetchSession` on the client
   useEffect(() => {
-    fetchSession().then((session) => setSession(session))
+    fetchSession().then((session) => {
+      setFns.forEach((setSession) => setSession(session))
+    })
   }, [asPath])
   return session
 }
