@@ -1,4 +1,4 @@
-| Operating system  | Cores | Rate per minute (USD)
+| Operating system  | Cores | Per-minute rate (USD) |
 | --- | --- |  --- | 
 |  Linux   |   4  |   $0.016   |
 |  Linux   |   8  |   $0.032   |
