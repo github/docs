@@ -1,6 +1,6 @@
 ---
 title: 'Phase 4: Create internal documentation'
-intro: "You will create internal documentation and then communicate this to the consumers of {% data variables.product.prodname_GH_advanced_security %}."
+intro: 'You will create internal documentation and then communicate this to the consumers of {% data variables.product.prodname_GH_advanced_security %}.'
 versions:
   ghes: '*'
   ghae: '*'
@@ -13,7 +13,7 @@ miniTocMaxHeadingLevel: 3
 
 {% note %}
 
-This article is part of a series on adopting {% data variables.product.prodname_GH_advanced_security %} at scale. For the previous article in this series, see "[Phase 3: Pilot programs](/code-security/adopting-github-advanced-security-at-scale/phase-3-pilot-programs)."
+Este artículo es parte de una serie de cómo adoptar la {% data variables.product.prodname_GH_advanced_security %} a escala. For the previous article in this series, see "[Phase 3: Pilot programs](/code-security/adopting-github-advanced-security-at-scale/phase-3-pilot-programs)."
 
 {% endnote %}
 

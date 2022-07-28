@@ -14,7 +14,7 @@ shortTitle: Participa en un debate
 
 Adicionalmente a comenzar a ver los debates y encuestas, puedes comentar como respuesta al comentario original del autor de dicho debate. También puedes crear un hilo de comentarios si respondes a un comentario individual que otro miembro de la comunidad haya hecho dentro del debate, y reaccionar a los comentarios con emojis.
 
-{% ifversion fpt or ghec %}You can block users and report disruptive content to maintain a safe and pleasant environment for yourself on {% data variables.product.product_name %}. For more information, see "[Maintaining your safety on {% data variables.product.prodname_dotcom %}](/communities/maintaining-your-safety-on-github)."{% endif %}
+{% ifversion fpt or ghec %}Puedes bloquear usuarios y reportar contenido ofensivo para mantener un ambiente seguro y agradable para ti mismo en {% data variables.product.product_name %}. For more information, see "[Maintaining your safety on {% data variables.product.prodname_dotcom %}](/communities/maintaining-your-safety-on-github)."{% endif %}
 
 ## Prerrequisitos
 

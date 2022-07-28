@@ -16,11 +16,11 @@ topics:
 
 ## Acerca de {% data variables.product.prodname_container_registry %}
 
-{% data reusables.package_registry.container-registry-benefits %} For more information, see "[Working with the {% data variables.product.prodname_container_registry %}](/packages/working-with-a-github-packages-registry/working-with-the-container-registry)."
+{% data reusables.package_registry.container-registry-benefits %} Para obtener más información, consulta la sección "[Trabajar con el {% data variables.product.prodname_container_registry %}](/packages/working-with-a-github-packages-registry/working-with-the-container-registry)".
 
 For more information about configuring {% data variables.product.prodname_registry %} for {% data variables.product.product_location %}, see "[Getting started with {% data variables.product.prodname_registry %} for your enterprise](/admin/packages/getting-started-with-github-packages-for-your-enterprise)."
 
-## About migration from the Docker registry
+## Acerca de la migración desde el registro de Docker
 
 {% data reusables.package_registry.container-registry-replaces-docker-registry %} If the Docker registry on {% data variables.product.product_location %} contains images, you must manually migrate the images to the {% data variables.product.prodname_container_registry %}.
 
@@ -73,7 +73,7 @@ Prior to migration, if a user has created a package in the {% data variables.pro
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.packages-tab %}
-1. To the right of the number of packages to migrate, click **Re-run migration**. During the migration, {% data variables.product.product_name %} will display progress on this page.
+1. To the right of the number of packages to migrate, click **Re-run migration**. Durante la migración, {% data variables.product.product_name %} mostrará progreso en esta página.
 1. If the migration fails again, start from step 1 and re-run the migration.
 
 {% ifversion ghes %}

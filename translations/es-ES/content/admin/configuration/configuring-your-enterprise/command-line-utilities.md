@@ -343,6 +343,18 @@ With `ghe-set-password`, you can set a new password to authenticate into the [{%
 ghe-set-password <new_password>
 ```
 
+### ghe-setup-network
+
+This utility allows you to configure the primary network interface.
+
+To enter visual mode, which will guide you through configuration of network settings:
+
+```shell
+$ ghe-setup-network -v
+```
+
+Use the -h flag for additional options.
+
 ### ghe-ssh-check-host-keys
 
 This utility checks the existing SSH host keys against the list of known leaked SSH host keys.
