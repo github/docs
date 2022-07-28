@@ -75,7 +75,7 @@ To configure your Vault server to accept JSON Web Tokens (JWT) for authenticatio
 
 - `ttl` defines the validity of the resulting access token.
 - Ensure that the `bound_claims` parameter is defined for your security requirements, and has at least one condition. Optionally, you can also set the `bound_subject` as well as the `bound_audiences` parameter.
-- The `bound_claims` parameter contains a set of claims and their required values to check arbitrary claims in the received JWT payload. In the above example, the role will accept any incoming authentication requests from the `repo-name` repository owned by the `user-or-org-name` account.
+- To check arbitrary claims in the received JWT payload, the `bound_claims` parameter contains a set of claims and their required values. In the above example, the role will accept any incoming authentication requests from the `repo-name` repository owned by the `user-or-org-name` account.
 - To see all the available claims supported by {% data variables.product.prodname_dotcom %}'s OIDC provider, see ["Configuring the OIDC trust with the cloud"](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#configuring-the-oidc-trust-with-the-cloud).
 
 For more information, see the HashiCorp Vault [documentation](https://www.vaultproject.io/docs/auth/jwt).
