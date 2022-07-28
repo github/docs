@@ -40,7 +40,7 @@ También puedes abrir una solicitud de cambios directamente en un archivo de ase
 
 If you have {% data variables.product.prodname_github_connect %} enabled for {% data variables.product.product_location %}, you will be able to see advisories by adding `/advisories` to the instance url.
 
-1. Navigate to `https://HOSTNAME/advisories`.
+1. Navega a `https://HOSTNAME/advisories`.
 2. Selecciona la asesoría de seguridad a la cual te gustaría contribuir.
 3. On the right-hand side of the page, click the **Suggest improvements for this vulnerability on Github.com.** link. A new tab opens with the same security advisory on {% data variables.product.prodname_dotcom_the_website %}. ![Enlace para sugerir mejoras](/assets/images/help/security/suggest-improvements-to-advisory-on-github-com.png)
 4. Edit the advisory, following steps four through six in "[Editing advisories in the GitHub Advisory Database](#editing-advisories-in-the-github-advisory-database)" above.

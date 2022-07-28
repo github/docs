@@ -22,7 +22,7 @@ As an organization owner, you may want to configure constraints on the maximum r
 
 ### Configurar políticas específicas para los repositorios y a lo largo de la organización
 
-When you create a policy, you choose whether it applies to all repositories in your organization, or only to specified repositories. If you create an organization-wide policy with a codespace retention constraint, then the retention constraints in any policies that are targeted at specific repositories should be shorter than the restriction configured for the entire organization, or they will have no effect. The shortest retention period - in an organization-wide policy, a policy targeted at specified repositories, or the default retention period in someone's personal settings - is applied.
+Cuando creas una política, eliges si esta aplica a todos los repositorios de tu organización o solo a algunos específicos. If you create an organization-wide policy with a codespace retention constraint, then the retention constraints in any policies that are targeted at specific repositories should be shorter than the restriction configured for the entire organization, or they will have no effect. The shortest retention period - in an organization-wide policy, a policy targeted at specified repositories, or the default retention period in someone's personal settings - is applied.
 
 If you add an organization-wide policy with a retention constraint, you should set the retention period to the longest acceptable period. You can then add separate policies that set the maximum retention to a shorter period for specific repositories in your organization.
 
@@ -37,7 +37,7 @@ If you add an organization-wide policy with a retention constraint, you should s
 
 1. Haz clic en {% octicon "pencil" aria-label="The edit icon" %} para editar la restricción.
 
-   ![Edit the timeout constraint](/assets/images/help/codespaces/edit-timeout-constraint.png)
+   ![Editar la restricción de tiempo de espera](/assets/images/help/codespaces/edit-timeout-constraint.png)
 
 1. Enter the maximum number of days codespaces can remain stopped before they are automatically deleted, then click **Save**.
 
@@ -60,7 +60,7 @@ The policy will be applied to all new codespaces that are created.
 
 ## Editar una política
 
-You can edit an existing policy. Por ejemplo, puede que quieras agregar o eliminar restricciones hacia o desde una política.
+Puedes editar una política existente. Por ejemplo, puede que quieras agregar o eliminar restricciones hacia o desde una política.
 
 The retention period constraint is only applied to codespaces when they are created. Editing a policy has no effect on existing codespaces.
 
@@ -72,7 +72,7 @@ The retention period constraint is only applied to codespaces when they are crea
 
 You can delete a policy at any time. Deleting a policy has no effect on existing codespaces.
 
-1. Muestra la página de "Políticas del Codespace". For more information, see "[Adding a policy to set a maximum codespace retention period](#adding-a-policy-to-set-a-maximum-codespace-retention-period)."
+1. Muestra la página de "Políticas del Codespace". Para obtener más información, consulta la sección "[Agregar una política para configurar un periodo de retención máximo de codespaces](#adding-a-policy-to-set-a-maximum-codespace-retention-period)".
 1. Haz clic en el botón de borrar a la derecha de la política que quieras borrar.
 
    ![El botón de borrar para una política](/assets/images/help/codespaces/policy-delete.png)

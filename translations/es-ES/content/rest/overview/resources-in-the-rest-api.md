@@ -298,6 +298,18 @@ Los valores de `rel` posibles son:
 | `first` | La relación del enlace para la primera parte de los resultados.            |
 | `prev`  | La relación del enlace para la página previa inmediata de resultados.      |
 
+## Exceder el tiempo de espera
+
+Si {% data variables.product.prodname_dotcom %} toma más de 10 segundos en procesar una solicitud de API, {% data variables.product.prodname_dotcom %} finalizará la solicitud y recibirás una respuesta de tiempo de espera excedido como esta:
+
+```json
+{
+    "message": "Server Error"
+}
+```
+
+{% data variables.product.product_name %} se reserva el derecho de cambiar la ventana de tiempo de espera excedido para proteger la velocidad y confiabilidad de la API.
+
 ## Limitación de tasas
 
 Los distintos tipos de solicitudes de la API a {% data variables.product.product_location %} están sujetas a límites de tasa diferentes.

@@ -58,7 +58,7 @@ Si agregas una política de toda la organización, deberías configurarla para q
 1. Después de que termines de agregar restricciones a tu política, haz clic en **Guardar**.
 ## Editar una política
 
-You can edit an existing policy. Por ejemplo, puede que quieras agregar o eliminar restricciones hacia o desde una política.
+Puedes editar una política existente. Por ejemplo, puede que quieras agregar o eliminar restricciones hacia o desde una política.
 
 1. Muestra la página de "Políticas del Codespace". Para obtener más información, consulta la sección "[Agregar una política para limitar las opciones de visibilidad de puerto](#adding-a-policy-to-limit-the-port-visibility-options)".
 1. Haz clic en el nombre de la política que quieres editar.

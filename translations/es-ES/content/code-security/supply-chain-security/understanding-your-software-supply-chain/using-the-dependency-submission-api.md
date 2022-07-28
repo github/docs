@@ -13,11 +13,11 @@ versions:
 
 {% data reusables.dependency-submission.dependency-submission-api-beta %}
 
-## About the Dependency submission API
+## Acerca de la API de emisión de dependencias
 
 {% data reusables.dependency-submission.about-dependency-submission %}
 
-Dependencies are submitted to the dependency submission API in the form of a snapshot. A snapshot is a set of dependencies associated with a commit SHA and other metadata, that reflects the current state of your repository for a commit. For more information about the Dependency submission API, see the [Dependency submission REST API documentation](/rest/dependency-graph/dependency-submission).
+Las dependencias se envían a la API de emisión de dependencias en forma de una captura. Una captura es un conjunto de dependencias asociadas con el SHA de una confirmación y otros metadatos, la cual refleja el estado actual de tu repositorio para una confirmación. For more information about the Dependency submission API, see the [Dependency submission REST API documentation](/rest/dependency-graph/dependency-submission).
 
 ## Submitting dependencies at build-time
 
