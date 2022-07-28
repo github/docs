@@ -16,7 +16,7 @@ versions:
   ghec: '*'
 topics:
   - Open Source
-shortTitle: Contribute to open source
+shortTitle: Make an open source contribution
 ---
 ## Discovering relevant projects
 
