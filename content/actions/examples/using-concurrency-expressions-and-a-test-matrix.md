@@ -66,8 +66,10 @@ name: Node.js Tests
 
 on:
   workflow_dispatch:
-  merge_group:
   pull_request:
+  push:
+    branches:
+      - main
 
 permissions:
   contents: read
