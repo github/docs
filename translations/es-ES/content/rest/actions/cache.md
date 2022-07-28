@@ -2,7 +2,7 @@
 title: GitHub Actions Cache
 allowTitleToDifferFromFilename: true
 shortTitle: Caché
-intro: 'The {% data variables.product.prodname_actions %} Cache API allows you to query and manage the {% data variables.product.prodname_actions %} cache for repositories.'
+intro: 'La API de caché de {% data variables.product.prodname_actions %} te permite consultar y administrar el caché de {% data variables.product.prodname_actions %} para los repositorios.'
 topics:
   - API
 versions:
@@ -13,4 +13,4 @@ versions:
 
 ## About the Cache API
 
-La API de caché de {% data variables.product.prodname_actions %} te permite consultar y administrar el caché de {% data variables.product.prodname_actions %} para los repositorios. Para obtener más información, consulta la sección "[Almacenar las dependencias en caché para agilizar los flujos de trabajo](/actions/advanced-guides/caching-dependencies-to-speed-up-workflows#usage-limits-and-eviction-policy)".
+La API de caché de {% data variables.product.prodname_actions %} te permite consultar y administrar el caché de {% data variables.product.prodname_actions %} para los repositorios. {% ifversion actions-cache-management %}You can also install a {% data variables.product.prodname_cli %} extension to manage your caches from the command line. {% endif %}For more information, see "[Caching dependencies to speed up workflows](/actions/advanced-guides/caching-dependencies-to-speed-up-workflows#managing-caches)."
