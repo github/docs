@@ -15,7 +15,7 @@ When you add a hosted runner to an organization, you are defining the hardware a
 
 ## Architectural overview of hosted runners
 
-Hosted runners are managed at the organization level, where they are arranged into groups that host multiple instances of the runner. Once you've created a group, you can then add a runner to the group and update your workflows to target the group. You can also control which repositories are permitted to send jobs to the group for processing. For more information about groups, see "[Managing access to GitHub-hosted runners using groups](/actions/using-github-hosted-runners/managing-access-to-github-hosted-runners-using-groups)."
+Hosted runners are managed at the organization level, where they are arranged into groups that can contain multiple instances of the runner. Once you've created a group, you can then add a runner to the group and update your workflows to target the group. You can also control which repositories are permitted to send jobs to the group for processing. For more information about groups, see "[Managing access to GitHub-hosted runners using groups](/actions/using-github-hosted-runners/managing-access-to-github-hosted-runners-using-groups)."
 
 In the following diagram, a class of hosted runner named `16-core-ubuntu-runner` has been defined with customized hardware and operating system configuration.
 - Instances of this runner are automatically created and added to a group called `16-core-ubuntu-rg`. 
