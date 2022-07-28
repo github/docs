@@ -1,4 +1,4 @@
-| Runner type  | Cores | Rate per minute (USD)
+| Operating system  | Cores | Rate per minute (USD)
 | --- | --- |  --- | 
 |  Linux   |   4  |   $0.016   |
 |  Linux   |   8  |   $0.032   |
