@@ -415,7 +415,7 @@ on:
 
 {% data reusables.actions.branch-requirement %}
 
-Executa o fluxo de trabalho quando alguém faz push em um branch que é a fonte de publicação para {% data variables.product.prodname_pages %}, se o {% data variables.product.prodname_pages %} estiver habilitado no repositório. Para obter mais informações sobre fontes de publicação {% data variables.product.prodname_pages %}, consulte "[Configurando uma fonte de publicação para o site do GitHub Pages](/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site#choosing-a-publishing-source)". Para obter informações sobre a API REST, consulte "[Páginas](/rest/reference/repos#pages)".
+Executa o fluxo de trabalho quando alguém faz push em um branch que é a fonte de publicação para {% data variables.product.prodname_pages %}, se o {% data variables.product.prodname_pages %} estiver habilitado no repositório. Para obter mais informações sobre fontes de publicação {% data variables.product.prodname_pages %}, consulte "[Configurando uma fonte de publicação para o site do GitHub Pages](/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)". Para obter informações sobre a API REST, consulte "[Páginas](/rest/reference/repos#pages)".
 
 Por exemplo, você pode executar um fluxo de trabalho quando o evento `page_build` ocorrer.
 
@@ -896,9 +896,9 @@ jobs:
 
 ### `push`
 
-| Carga de evento webhook                                                              | Tipos de atividade | `GITHUB_SHA`                                                              | `GITHUB_REF`   |
-| ------------------------------------------------------------------------------------ | ------------------ | ------------------------------------------------------------------------- | -------------- |
-| [`push`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#push) | n/a                | Commit com push, exceto se excluindo um branch (quando é o branch padrão) | ref atualizado |
+| Carga de evento webhook                                                              | Tipos de atividade | `GITHUB_SHA`                                                                                                                     | `GITHUB_REF`   |
+| ------------------------------------------------------------------------------------ | ------------------ | -------------------------------------------------------------------------------------------------------------------------------- | -------------- |
+| [`push`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#push) | n/a                | When you delete a branch, the SHA in the workflow run (and its associated refs) reverts to the default branch of the repository. | ref atualizado |
 
 {% note %}
 
