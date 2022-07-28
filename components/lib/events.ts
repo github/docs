@@ -2,7 +2,7 @@
 import { v4 as uuidv4 } from 'uuid'
 import Cookies from 'js-cookie'
 import parseUserAgent from './user-agent'
-import { getSession, fetchSession } from './get-session'
+import { getSession } from './get-session'
 
 const COOKIE_NAME = '_docs-events'
 
@@ -274,8 +274,13 @@ function initPrintEvent() {
   })
 }
 
+function waitForSession(fn: Function) {
+  if (getSession()) return fn()
+  setTimeout(() => waitForSession(fn), 300)
+}
+
 export default function initializeEvents() {
-  fetchSession().then(() => {
+  waitForSession(() => {
     initPageAndExitEvent() // must come first
     initLinkEvent()
     initClipboardEvent()
