@@ -979,7 +979,7 @@ Key | Type | Description
 
 {% note %}
 
-**Note:** Webhook events for {% data variables.projects.projects_v2 %} are currently in beta and subject to change. To share feedback about {% data variables.projects.projects_v2 %} webhooks with {% data variables.product.product_name %}, see the [Projects webhook feedback discussion](https://github.com/github/feedback/discussions/17405).
+**Note:** Webhook events for {% data variables.projects.projects_v2 %} are currently in beta and subject to change. To share feedback about {% data variables.projects.projects_v2 %} webhooks with {% data variables.product.product_name %}, see the [Projects webhook feedback discussion](https://github.com/orgs/community/discussions/17405).
 
 {% endnote %}
 
