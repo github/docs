@@ -145,14 +145,14 @@ jobs:
 
 **Note**:
 
-- If your Vault server is not accessible from the public network, you may use the [self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners).
+- If your Vault server is not accessible from the public network, consider using a self-hosted runner with other available Vault [auth methods](https://www.vaultproject.io/docs/auth). For more information, see"[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners)."
 - `<Vault Namespace>` must be set for a Vault Enterprise (including HCP Vault) deployment. For more information, see [Vault namespace](https://www.vaultproject.io/docs/enterprise/namespaces).
 
 {% endnote %}
 
 ### Revoking the access token
 
-By default, the Vault server will automatically revoke access tokens when their TTL is expired, so you don't have to worry about revoking the access tokens.
+By default, the Vault server will automatically revoke access tokens when their TTL is expired, so you don't have to manually revoke the access tokens.
 
 However, if you do want to revoke access tokens immediately after your job has completed or failed, you can manually revoke the issued token using the [Vault API](https://www.vaultproject.io/api/auth/token#revoke-a-token-self).
 
