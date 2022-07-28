@@ -27,6 +27,8 @@
     - 重现问题的步骤
     - 与发现问题相关的任何特殊情况（例如，首次发生或特定活动后发生、发生频率、问题的业务影响以及建议的紧迫程度）
     - 错误消息的准确表述
+{% indented_data_reference reusables.repositories.anyone-can-view-anonymized-url spaces=3 %}
+
 {%- ifversion ghes %}
 1. （可选）通过拖放、上传或从剪贴板粘贴来附加诊断文件及其他文件。
 {%- endif %}

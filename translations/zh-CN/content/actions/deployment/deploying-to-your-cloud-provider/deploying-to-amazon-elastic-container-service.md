@@ -92,6 +92,8 @@ Ensure that you provide your own values for all the variables in the `env` key o
 ```yaml{:copy}
 {% data reusables.actions.actions-not-certified-by-github-comment %}
 
+{% data reusables.actions.actions-use-sha-pinning-comment %}
+
 name: Deploy to Amazon ECS
 
 on:

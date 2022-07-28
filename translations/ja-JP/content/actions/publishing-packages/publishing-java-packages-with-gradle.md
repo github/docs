@@ -77,7 +77,10 @@ publishing {
 この設定で、`gradle publish`コマンドの実行によってパッケージをMaven Central Repositoryに公開するワークフローを作成できます。 デプロイのステップでは、ユーザ名とパスワードのための環境変数か、Mavenリポジトリの認証に使うトークンを環境変数に設定する必要があります。 詳しい情報については、「[暗号化されたシークレットの作成と利用](/github/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)」を参照してください。
 
 ```yaml{:copy}
+
 {% data reusables.actions.actions-not-certified-by-github-comment %}
+
+{% data reusables.actions.actions-use-sha-pinning-comment %}
 
 name: Publish package to the Maven Central Repository
 on:
@@ -146,7 +149,10 @@ publishing {
 With this configuration, you can create a workflow that publishes your package to {% data variables.product.prodname_registry %} by running the `gradle publish` command.
 
 ```yaml{:copy}
+
 {% data reusables.actions.actions-not-certified-by-github-comment %}
+
+{% data reusables.actions.actions-use-sha-pinning-comment %}
 
 name: Publish package to GitHub Packages
 on:
@@ -224,7 +230,10 @@ publishing {
 この設定で、`gradle publish`コマンドの実行によってパッケージをMaven Central Repositoryと{% data variables.product.prodname_registry %}の両方に公開するワークフローを作成できます。
 
 ```yaml{:copy}
+
 {% data reusables.actions.actions-not-certified-by-github-comment %}
+
+{% data reusables.actions.actions-use-sha-pinning-comment %}
 
 name: Publish package to the Maven Central Repository and GitHub Packages
 on:

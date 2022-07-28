@@ -1,3 +1,3 @@
-- **読み取り**。プロジェクトボードの閲覧権限を与えます。
-- **書き込み**。プロジェクトボードの閲覧、プロジェクトボードへのリポジトリのリンク、プロジェクトボードの操作の権限を与えます。 詳しい情報については、「[リポジトリをプロジェクトボードにリンクする](/articles/linking-a-repository-to-a-project-board)」を参照してください。
-- **管理**。プロジェクトボードの閲覧、プロジェクトボードの操作、プロジェクトボードの設定の管理、他の人々のプロジェクトボードへのアクセス権の管理の権限を与えます。
+- **Read**, which gives people permission to view a {% data variables.projects.projects_v1_board %}.
+- **Write**, which gives people permission to view a {% data variables.projects.projects_v1_board %}, link repositories to a {% data variables.projects.projects_v1_board %}, and interact with a {% data variables.projects.projects_v1_board %}. For more information, see "[Linking a repository to a {% data variables.product.prodname_project_v1 %}](/articles/linking-a-repository-to-a-project-board)."
+- **Admin**, which gives people permission to view a {% data variables.projects.projects_v1_board %}, interact with a {% data variables.projects.projects_v1_board %}, manage {% data variables.projects.projects_v1_board %} settings, and manage other people's access to the {% data variables.projects.projects_v1_board %}.

@@ -57,7 +57,7 @@ topics:
 
 ## 保护您的通信令牌
 
-代码通常需要通过网络与其他系统通信，并且需要机密（如密码或 API 密钥）进行身份验证。 系统需要访问这些机密才能运行，但最佳做法是不将它们包含在源代码中。 This is especially important for repositories to which many people might have access{% ifversion not ghae %} and critical for public repositories{% endif %}.
+代码通常需要通过网络与其他系统通信，并且需要机密（如密码或 API 密钥）进行身份验证。 系统需要访问这些机密才能运行，但最佳做法是不将它们包含在源代码中。 这对于许多人可能有权访问的存储库尤其重要{% ifversion not ghae %} 对于公共存储库{% endif %} 至关重要。
 
 ### 自动检测提交到存储库的机密
 

@@ -1,6 +1,6 @@
 ---
-title: Organization のプロジェクトボードへのアクセスを管理する
-intro: Organization のオーナーまたはプロジェクトボードの管理者は、Organization が所有するプロジェクトボードについて、Organization のメンバー、チーム、外部のコラボレーターごとに異なるレベルのアクセス権を付与できます。
+title: 'Managing access to your organization’s {% data variables.product.prodname_projects_v1 %}'
+intro: 'As an organization owner or {% data variables.projects.projects_v1_board %} admin, you can give organization members, teams, and outside collaborators different levels of access to {% data variables.projects.projects_v1_boards %} owned by your organization.'
 redirect_from:
   - /articles/managing-access-to-your-organization-s-project-boards
   - /articles/managing-access-to-your-organizations-project-boards
@@ -20,6 +20,7 @@ children:
   - /managing-an-individuals-access-to-an-organization-project-board
   - /adding-an-outside-collaborator-to-a-project-board-in-your-organization
   - /removing-an-outside-collaborator-from-an-organization-project-board
-shortTitle: プロジェクトボードへのアクセスの管理
+shortTitle: 'Manage {% data variables.product.prodname_project_v1 %} access'
+allowTitleToDifferFromFilename: true
 ---
 

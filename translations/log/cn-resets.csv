@@ -16,7 +16,6 @@ translations/zh-CN/content/actions/hosting-your-own-runners/adding-self-hosted-r
 translations/zh-CN/content/actions/hosting-your-own-runners/monitoring-and-troubleshooting-self-hosted-runners.md,Listed in localization-support#489
 translations/zh-CN/content/actions/hosting-your-own-runners/monitoring-and-troubleshooting-self-hosted-runners.md,rendering error
 translations/zh-CN/content/actions/learn-github-actions/usage-limits-billing-and-administration.md,broken liquid tags
-translations/zh-CN/content/actions/managing-workflow-runs/re-running-workflows-and-jobs.md,rendering error
 translations/zh-CN/content/actions/managing-workflow-runs/removing-workflow-artifacts.md,broken liquid tags
 translations/zh-CN/content/actions/managing-workflow-runs/reviewing-deployments.md,Listed in localization-support#489
 translations/zh-CN/content/actions/security-guides/security-hardening-for-github-actions.md,broken liquid tags
@@ -159,7 +158,9 @@ translations/zh-CN/content/code-security/code-scanning/using-codeql-code-scannin
 translations/zh-CN/content/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/installing-codeql-cli-in-your-ci-system.md,broken liquid tags
 translations/zh-CN/content/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/running-codeql-runner-in-your-ci-system.md,broken liquid tags
 translations/zh-CN/content/code-security/dependabot/dependabot-alerts/about-dependabot-alerts.md,rendering error
+translations/zh-CN/content/code-security/dependabot/dependabot-alerts/browsing-security-advisories-in-the-github-advisory-database.md,broken liquid tags
 translations/zh-CN/content/code-security/dependabot/dependabot-alerts/configuring-dependabot-alerts.md,broken liquid tags
+translations/zh-CN/content/code-security/dependabot/dependabot-alerts/editing-security-advisories-in-the-github-advisory-database.md,broken liquid tags
 translations/zh-CN/content/code-security/dependabot/dependabot-security-updates/about-dependabot-security-updates.md,broken liquid tags
 translations/zh-CN/content/code-security/dependabot/dependabot-security-updates/configuring-dependabot-security-updates.md,broken liquid tags
 translations/zh-CN/content/code-security/dependabot/index.md,broken liquid tags
@@ -213,10 +214,10 @@ translations/zh-CN/content/developers/overview/secret-scanning-partner-program.m
 translations/zh-CN/content/developers/webhooks-and-events/webhooks/about-webhooks.md,broken liquid tags
 translations/zh-CN/content/developers/webhooks-and-events/webhooks/webhook-events-and-payloads.md,rendering error
 translations/zh-CN/content/discussions/collaborating-with-your-community-using-discussions/about-discussions.md,broken liquid tags
+translations/zh-CN/content/discussions/quickstart.md,broken liquid tags
 translations/zh-CN/content/education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-at-your-educational-institution/about-campus-advisors.md,broken liquid tags
 translations/zh-CN/content/education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-at-your-educational-institution/about-github-campus-program.md,broken liquid tags
 translations/zh-CN/content/education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-at-your-educational-institution/index.md,broken liquid tags
-translations/zh-CN/content/education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-for-your-schoolwork/about-github-community-exchange.md,broken liquid tags
 translations/zh-CN/content/education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-for-your-schoolwork/why-wasnt-my-application-for-a-student-developer-pack-approved.md,broken liquid tags
 translations/zh-CN/content/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide/about-using-makecode-arcade-with-github-classroom.md,broken liquid tags
 translations/zh-CN/content/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide/using-github-codespaces-with-github-classroom.md,broken liquid tags
@@ -267,6 +268,7 @@ translations/zh-CN/content/packages/learn-github-packages/publishing-a-package.m
 translations/zh-CN/content/packages/managing-github-packages-using-github-actions-workflows/publishing-and-installing-a-package-with-github-actions.md,broken liquid tags
 translations/zh-CN/content/packages/quickstart.md,broken liquid tags
 translations/zh-CN/content/packages/working-with-a-github-packages-registry/working-with-the-apache-maven-registry.md,broken liquid tags
+translations/zh-CN/content/packages/working-with-a-github-packages-registry/working-with-the-container-registry.md,broken liquid tags
 translations/zh-CN/content/packages/working-with-a-github-packages-registry/working-with-the-docker-registry.md,broken liquid tags
 translations/zh-CN/content/packages/working-with-a-github-packages-registry/working-with-the-gradle-registry.md,broken liquid tags
 translations/zh-CN/content/packages/working-with-a-github-packages-registry/working-with-the-npm-registry.md,broken liquid tags
@@ -374,6 +376,7 @@ translations/zh-CN/data/reusables/dependabot/dependabot-alerts-dependency-graph-
 translations/zh-CN/data/reusables/dependabot/enterprise-enable-dependabot.md,broken liquid tags
 translations/zh-CN/data/reusables/dependency-submission/about-dependency-submission.md,broken liquid tags
 translations/zh-CN/data/reusables/dotcom_billing/downgrade-org-to-free.md,broken liquid tags
+translations/zh-CN/data/reusables/education/access-github-community-exchange.md,broken liquid tags
 translations/zh-CN/data/reusables/enterprise-accounts/emu-password-reset-session.md,broken liquid tags
 translations/zh-CN/data/reusables/enterprise-accounts/emu-short-summary.md,rendering error
 translations/zh-CN/data/reusables/enterprise-licensing/about-license-sync.md,broken liquid tags
@@ -383,7 +386,7 @@ translations/zh-CN/data/reusables/enterprise_installation/hardware-consideration
 translations/zh-CN/data/reusables/enterprise_management_console/badge_indicator.md,broken liquid tags
 translations/zh-CN/data/reusables/enterprise_user_management/consider-usernames-for-external-authentication.md,rendering error
 translations/zh-CN/data/reusables/gated-features/codespaces-classroom-articles.md,broken liquid tags
-translations/zh-CN/data/reusables/gated-features/enterprise-accounts.md,broken liquid tags
+translations/zh-CN/data/reusables/gated-features/enterprise-accounts.md,rendering error
 translations/zh-CN/data/reusables/gated-features/packages.md,broken liquid tags
 translations/zh-CN/data/reusables/gated-features/secret-scanning-partner.md,broken liquid tags
 translations/zh-CN/data/reusables/gated-features/secret-scanning.md,broken liquid tags
@@ -406,9 +409,9 @@ translations/zh-CN/data/reusables/pages/pages-builds-with-github-actions-public-
 translations/zh-CN/data/reusables/repositories/deleted_forks_from_private_repositories_warning.md,broken liquid tags
 translations/zh-CN/data/reusables/repositories/enable-security-alerts.md,broken liquid tags
 translations/zh-CN/data/reusables/repositories/select-marketplace-apps.md,broken liquid tags
-translations/zh-CN/data/reusables/saml/saml-session-oauth.md,broken liquid tags
+translations/zh-CN/data/reusables/saml/saml-session-oauth.md,rendering error
 translations/zh-CN/data/reusables/saml/you-must-periodically-authenticate.md,Listed in localization-support#489
-translations/zh-CN/data/reusables/saml/you-must-periodically-authenticate.md,broken liquid tags
+translations/zh-CN/data/reusables/saml/you-must-periodically-authenticate.md,rendering error
 translations/zh-CN/data/reusables/scim/after-you-configure-saml.md,broken liquid tags
 translations/zh-CN/data/reusables/secret-scanning/enterprise-enable-secret-scanning.md,broken liquid tags
 translations/zh-CN/data/reusables/secret-scanning/partner-program-link.md,broken liquid tags

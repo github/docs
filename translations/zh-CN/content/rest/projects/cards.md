@@ -1,8 +1,8 @@
 ---
-title: 项目板卡
+title: '{% data variables.product.prodname_project_v1_caps %} cards'
 shortTitle: 卡
 allowTitleToDifferFromFilename: true
-intro: 项目板卡 API 允许您在项目板上创建和管理卡。
+intro: 'The {% data variables.product.prodname_project_v1 %} cards API lets you create and manage cards on a {% data variables.projects.projects_v1_board %}.'
 versions:
   fpt: '*'
   ghes: '*'

@@ -51,6 +51,8 @@ shortTitle: 构建和测试 Java & Gradle
 ```yaml{:copy}
 {% data reusables.actions.actions-not-certified-by-github-comment %}
 
+{% data reusables.actions.actions-use-sha-pinning-comment %}
+
 name: Java CI
 
 on: [push]

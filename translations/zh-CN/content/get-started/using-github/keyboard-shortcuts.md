@@ -146,7 +146,34 @@ versions:
 | <kbd>Alt</kbd> 并单击                                   | 通过按下 <kbd>Alt</kbd> 并单击 **Show outdated（显示已过期）**或 **Hide outdated（隐藏已过期）**，在折叠和展开拉取请求中所有过期的审查评论之间切换。                                                                                            |
 | 单击，然后按住 <kbd>Shift</kbd> 并单击                         | 单击一个行号，按住 <kbd>Shift</kbd>，然后单击另一行号，便可对拉取请求的多行发表评论。 更多信息请参阅“[评论拉取请求](/github/collaborating-with-issues-and-pull-requests/commenting-on-a-pull-request#adding-line-comments-to-a-pull-request)”。 |
 
-## 项目板
+{% ifversion projects-v2 %}
+
+## {% data variables.projects.projects_v2_caps %}
+
+### Navigating a project
+
+| 键盘快捷键                                                                           | 描述                           |
+| ------------------------------------------------------------------------------- | ---------------------------- |
+| <kbd>⌘</kbd>+<kbd>f</kbd> (Mac) or <kbd>Ctrl</kbd>+<kbd>f</kbd> (Windows/Linux) | Focus filter field           |
+| <kbd>←</kbd>                                                                    | Move cell focus to the left  |
+| <kbd>→</kbd>                                                                    | Move cell focus to the right |
+| <kbd>↑</kbd>                                                                    | Move cell focus up           |
+| <kbd>↓</kbd>                                                                    | Move cell focus down         |
+
+### Manipulating a project
+
+| 键盘快捷键                                                                                                               | 描述                                    |
+| ------------------------------------------------------------------------------------------------------------------- | ------------------------------------- |
+| <kbd>Enter</kbd>                                                                                                    | Toggle edit mode for the focused cell |
+| <kbd>Escape</kbd>                                                                                                   | Cancel editing for the focused cell   |
+| <kbd>⌘</kbd>+<kbd>Shift</kbd>+<kbd>\</kbd> (Mac) or <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>\</kbd> (Windows/Linux) | Open row actions menu                 |
+| <kbd>Shift</kbd>+<kbd>Space</kbd>                                                                                   | 选择项目                                  |
+| <kbd>Space</kbd>                                                                                                    | Open selected item                    |
+| <kbd>e</kbd>                                                                                                        | Archive selected items                |
+
+{% endif %}
+
+## {% data variables.product.prodname_projects_v1_caps %}
 
 ### 移动列
 
