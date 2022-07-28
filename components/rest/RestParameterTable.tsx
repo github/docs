@@ -44,7 +44,7 @@ export function RestParameterTable({ slug, numPreviews, parameters, bodyParamete
           <ParameterRow
             name={'accept'}
             type={'string'}
-            description={`<p>Setting to <code>application/vnd.github.v3+json</code> is recommended.</p>`}
+            description={`<p>Setting to <code>application/vnd.github+json</code> is recommended.</p>`}
             isRequired={false}
             slug={slug}
             numPreviews={numPreviews}

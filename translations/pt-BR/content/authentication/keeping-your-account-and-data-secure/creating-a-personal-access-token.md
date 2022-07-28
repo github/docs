@@ -55,7 +55,7 @@ Um token com nenhum escopo atribuído só pode acessar informações públicas. 
 8. Clique em **Generate token** (Gerar token). ![Botão Generate token (Gerar token)](/assets/images/help/settings/generate_token.png)
    {% ifversion fpt or ghec %}
    ![Token recém-criado](/assets/images/help/settings/personal_access_tokens.png)
-   {% elsif ghes > 3.1 or ghae %}
+   {% elsif ghes or ghae %}
    ![Token recém-criado](/assets/images/help/settings/personal_access_tokens_ghe.png)
    {% else %}
    ![Token recém-criado](/assets/images/help/settings/personal_access_tokens_ghe_legacy.png)
@@ -80,5 +80,5 @@ Em vez de inserir manualmente seu PAT para cada operação de HTTPS do Git, voc�
 
 ## Leia mais
 
-- "[About authentication to GitHub](/github/authenticating-to-github/about-authentication-to-github)"{% ifversion fpt or ghae or ghes > 3.2 or ghec %}
+- "[Sobre autenticação no GitHub](/github/authenticating-to-github/about-authentication-to-github)"{% ifversion fpt or ghae or ghes > 3.2 or ghec %}
 - "[Vencimento e revogação do Token](/github/authenticating-to-github/keeping-your-account-and-data-secure/token-expiration-and-revocation)"{% endif %}

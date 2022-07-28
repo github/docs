@@ -20,7 +20,7 @@ Opcionalmente, é possível escolher adicionar uma descrição, localização, s
 
 {% ifversion fpt %}
 As organizações que usam o {% data variables.product.prodname_ghe_cloud %} podem confirmar a identidade da sua organização e exibir um selo "Verificado" na página de perfil da organização, verificando os domínios da organização com {% data variables.product.product_name %}. Para obter mais informações, consulte "[verificando ou aprovando um domínio para sua organização](/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization)" na documentação de {% data variables.product.prodname_ghe_cloud %}.
-{% elsif ghec or ghes > 3.1 %}
+{% elsif ghec or ghes %}
 Para confirmar a identidade da sua organização e exibir um selo "Verificado" na página de perfil da organização, você pode verificar os domínios da sua organização com {% data variables.product.prodname_dotcom %}. Para obter mais informações, consulte "[Verificar ou aprovar um domínio para a sua organização](/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization)".
 {% endif %}
 

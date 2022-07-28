@@ -33,8 +33,7 @@ shortTitle: Segurança & análise
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.navigate-to-code-security-and-analysis %}
-4. Em "Segurança e análise de código", à direita do recurso, clique em **Habilitar** ou **Desabilitar**.{% ifversion fpt %} !["Enable" or "Disable" button for "Configure security and analysis" features in a public repository](/assets/images/help/repository/security-and-analysis-disable-or-enable-fpt-public.png){% elsif ghec %}
-!["Enable" or "Disable" button for "Configure security and analysis" features in a public repository](/assets/images/help/repository/security-and-analysis-disable-or-enable-ghec-public.png){% endif %}
+4. Em "Código de segurança e análise" à direita do recurso, clique em **Desabilitar ** ou **Habilitar **. ![Botão "Habilitar" ou "Desabilitar" para "Configurar recursos de segurança e análise" em um repositório público](/assets/images/help/repository/security-and-analysis-disable-or-enable-public.png)
 {% endif %}
 
 ## Habilitar ou desabilitar os recursos de segurança e análise{% ifversion fpt or ghec %} para repositórios privados{% endif %}
@@ -49,10 +48,9 @@ Você pode administrar as funcionalidades de segurança e análise para o seu re
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.navigate-to-code-security-and-analysis %}
 {% ifversion fpt or ghes or ghec %}
-4. Em "Código de segurança e análise" à direita do recurso, clique em **Desabilitar ** ou **Habilitar **. {% ifversion not fpt %}O controle para "{% data variables.product.prodname_GH_advanced_security %}" está desabilitado se a sua empresa não tiver licenças disponíveis para {% data variables.product.prodname_advanced_security %}.{% endif %}{% ifversion fpt %} !["Enable" or "Disable" button for "Configure security and analysis" features](/assets/images/help/repository/security-and-analysis-disable-or-enable-fpt-private.png){% elsif ghec %}
-!["Enable" or "Disable" button for "Configure security and analysis" features](/assets/images/help/repository/security-and-analysis-disable-or-enable-ghec-private.png){% elsif ghes > 3.2 %}
-!["Enable" or "Disable" button for "Configure security and analysis" features](/assets/images/enterprise/3.3/repository/security-and-analysis-disable-or-enable-ghes.png){% else %}
-!["Enable" or "Disable" button for "Configure security and analysis" features](/assets/images/enterprise/3.1/help/repository/security-and-analysis-disable-or-enable-ghes.png){% endif %}
+4. Em "Código de segurança e análise" à direita do recurso, clique em **Desabilitar ** ou **Habilitar **. {% ifversion not fpt %}O controle para "{% data variables.product.prodname_GH_advanced_security %}" está desabilitado se a sua empresa não tiver licenças disponíveis para {% data variables.product.prodname_advanced_security %}.{% endif %}{% ifversion fpt %} ![Screenshot of "Enable" or "Disable" button for "Configure security and analysis" features](/assets/images/help/repository/security-and-analysis-disable-or-enable-fpt-private.png){% elsif ghec %}
+![Screenshot of "Enable" or "Disable" button for "Configure security and analysis" features](/assets/images/help/repository/security-and-analysis-disable-or-enable-ghec-private.png){% elsif ghes > 3.6 or ghae-issue-7044 %}<!--Inserir a captura de tela do GHES 3.7 quando disponível-->{% elsif ghes = 3.2 %} ![Screenshot of "Enable" or "Disable" button for "Configure security and analysis" features](/assets/images/enterprise/3.1/help/repository/security-and-analysis-disable-or-enable-ghes.png){% else %}
+![Screenshot of "Enable" or "Disable" button for "Configure security and analysis" features](/assets/images/enterprise/3.3/repository/security-and-analysis-disable-or-enable-ghes.png){% endif %}
 
   {% ifversion not fpt %}
   {% note %}
@@ -62,9 +60,6 @@ Você pode administrar as funcionalidades de segurança e análise para o seu re
 
   {% endif %}
 
-  {% ifversion ghes = 3.0 %}
-4. Em "Código de segurança e análise" à direita do recurso, clique em **Desabilitar ** ou **Habilitar **. ![Botão "Habilitar" ou "Desabilitar" para "Configurar recursos de segurança e análise" ](/assets/images/help/repository/security-and-analysis-disable-or-enable-ghe.png)
-  {% endif %}
   {% ifversion ghae %}
 4. Em "Código de segurança e análise" à direita do recurso, clique em **Desabilitar ** ou **Habilitar **. Antes de poder habilitar "{% data variables.product.prodname_secret_scanning %}" no seu repositório, talvez seja necessário habilitar {% data variables.product.prodname_GH_advanced_security %}. ![Habilite ou desabilite {% data variables.product.prodname_GH_advanced_security %} ou {% data variables.product.prodname_secret_scanning %} para o seu repositório](/assets/images/enterprise/github-ae/repository/enable-ghas-secret-scanning-ghae.png)
   {% endif %}

@@ -1,5 +1,5 @@
 ---
-title: Maintaining ownership continuity of your personal account's repositories
+title: Manter a continuidade da propriedade dos repositórios da sua conta pessoal
 intro: Você pode convidar alguém para gerenciar seus repositórios pertencentes ao usuário se você não for capaz de fazê-lo.
 versions:
   fpt: '*'

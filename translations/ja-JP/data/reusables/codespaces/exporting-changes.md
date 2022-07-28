@@ -1,1 +1,1 @@
-If you hit a spending limit, you will no longer be able to create or resume your codespaces. You can still [export any work in progress changes to a new branch](/codespaces/troubleshooting/exporting-changes-to-a-branch). 
+利用上限に達すると、codespaceを作成したり再開したりすることはできなくなります。 ただし[進行中の変更を新しいブランチにエクスポート](/codespaces/troubleshooting/exporting-changes-to-a-branch)することはできます。 

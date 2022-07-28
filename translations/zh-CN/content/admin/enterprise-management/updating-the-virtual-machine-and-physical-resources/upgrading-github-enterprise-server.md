@@ -27,18 +27,16 @@ shortTitle: 升级 GHES
 
 ## 准备升级
 
-1. 确定升级策略并选择要升级到的版本。 更多信息请参阅“[升级要求](/enterprise/{{ currentVersion }}/admin/guides/installation/upgrade-requirements/)”，并参考 [{% data variables.enterprise.upgrade_assistant %}](https://support.github.com/enterprise/server-upgrade) 以查找当前发行版的升级路径。
+1. 确定升级策略并选择要升级到的版本。 更多信息请参阅“[升级要求](/enterprise/admin/guides/installation/upgrade-requirements/)”，并参考 [{% data variables.enterprise.upgrade_assistant %}](https://support.github.com/enterprise/server-upgrade) 以查找当前发行版的升级路径。
 1. 使用 {% data variables.product.prodname_enterprise_backup_utilities %} 创建全新的主实例备份。 更多信息请参阅 [{% data variables.product.prodname_enterprise_backup_utilities %} README.md 文件](https://github.com/github/backup-utils#readme)。
 1. 如果 {% data variables.product.product_location %} 使用临时自托管运行器进行 {% data variables.product.prodname_actions %} 并且您已禁用自动更新，请将运行器升级到已升级实例将运行的运行器应用程序的版本。
 1. 如果您要使用升级包进行升级，请为 {% data variables.product.prodname_ghe_server %} 最终用户排定维护窗口。 如果您要使用热补丁，则不需要使用维护模式。
 
   {% note %}
 
-  **注**：维护窗口取决于所执行升级的类型。 使用热补丁进行升级通常不需要维护窗口。 有时需要重启，不过您可以在之后的某个时间重启。 按照 MAJOR.FEATURE.PATCH 的版本控制方案，使用升级包的补丁版本通常需要不到 5 分钟的停机时间。 包含数据迁移的功能版本需要的时间更长，具体视存储性能以及迁移的数据量而定。 更多信息请参阅“[启用和排定维护模式](/enterprise/{{ currentVersion }}/admin/guides/installation/enabling-and-scheduling-maintenance-mode)”。
+  **注**：维护窗口取决于所执行升级的类型。 使用热补丁进行升级通常不需要维护窗口。 有时需要重启，不过您可以在之后的某个时间重启。 按照 MAJOR.FEATURE.PATCH 的版本控制方案，使用升级包的补丁版本通常需要不到 5 分钟的停机时间。 包含数据迁移的功能版本需要的时间更长，具体视存储性能以及迁移的数据量而定。 更多信息请参阅“[启用和排定维护模式](/enterprise/admin/guides/installation/enabling-and-scheduling-maintenance-mode)”。
 
   {% endnote %}
-
-{% data reusables.enterprise_installation.upgrade-hardware-requirements %}
 
 ## 生成快照
 
@@ -72,7 +70,7 @@ shortTitle: 升级 GHES
 
 {% data reusables.enterprise_installation.hotpatching-explanation %}
 
-使用 {% data variables.enterprise.management_console %}，您可以立即安装热补丁，也可以安排以后安装。 您可以使用管理 shell 的 `ghe-upgrade` 实用程序安装热补丁。 更多信息请参阅“[升级要求](/enterprise/{{ currentVersion }}/admin/guides/installation/upgrade-requirements/)”。
+使用 {% data variables.enterprise.management_console %}，您可以立即安装热补丁，也可以安排以后安装。 您可以使用管理 shell 的 `ghe-upgrade` 实用程序安装热补丁。 更多信息请参阅“[升级要求](/enterprise/admin/guides/installation/upgrade-requirements/)”。
 
 {% note %}
 
@@ -81,7 +79,7 @@ shortTitle: 升级 GHES
 {% ifversion ghes %}
 - 如果 {% data variables.product.product_location %} 正在运行发布候选版本，则无法使用热补丁升级。
 
-- {% endif %}无法在集群环境中使用 {% data variables.enterprise.management_console %} 安装热补丁。 要在集群环境中安装热补丁，请参阅“[升级集群](/enterprise/{{ currentVersion }}/admin/clustering/upgrading-a-cluster#upgrading-with-a-hotpatch)”。
+- {% endif %}无法在集群环境中使用 {% data variables.enterprise.management_console %} 安装热补丁。 要在集群环境中安装热补丁，请参阅“[升级集群](/enterprise/admin/clustering/upgrading-a-cluster#upgrading-with-a-hotpatch)”。
 
 {% endnote %}
 
@@ -93,7 +91,7 @@ shortTitle: 升级 GHES
 
 如果显示的升级目标是功能版本而不是修补程序版本，则无法使用 {% data variables.enterprise.management_console %} 来安装修补程序。 您必须改为使用管理 shell 安装热补丁。 更多信息请参阅“[使用管理 shell 安装热补丁](#installing-a-hotpatch-using-the-administrative-shell)”。
 
-1. 启用自动更新。 更多信息请参阅“[启用自动更新](/enterprise/{{ currentVersion }}/admin/guides/installation/enabling-automatic-update-checks/)”。
+1. 启用自动更新。 更多信息请参阅“[启用自动更新](/enterprise/admin/guides/installation/enabling-automatic-update-checks/)”。
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% data reusables.enterprise_management_console.updates-tab %}
@@ -144,7 +142,7 @@ shortTitle: 升级 GHES
 
 ## 使用升级包升级
 
-虽然您可以使用热补丁升级到功能系列中的最新补丁版本，但必须使用升级包升级到更新的功能版本。 例如，要从 `2.11.10` 升级到 `2.12.4`，您必须使用升级包，因为两者在不同的功能系列中。 更多信息请参阅“[升级要求](/enterprise/{{ currentVersion }}/admin/guides/installation/upgrade-requirements/)”。
+虽然您可以使用热补丁升级到功能系列中的最新补丁版本，但必须使用升级包升级到更新的功能版本。 例如，要从 `2.11.10` 升级到 `2.12.4`，您必须使用升级包，因为两者在不同的功能系列中。 更多信息请参阅“[升级要求](/enterprise/admin/guides/installation/upgrade-requirements/)”。
 
 ### 使用升级包升级单个设备
 
@@ -153,7 +151,7 @@ shortTitle: 升级 GHES
 {% data reusables.enterprise_installation.ssh-into-instance %}
 2. {% data reusables.enterprise_installation.enterprise-download-upgrade-pkg %} 选择适当的平台并复制升级包（*.pkg* 文件）的 URL。
 {% data reusables.enterprise_installation.download-package %}
-4. 启用维护模式并等待 {% data variables.product.prodname_ghe_server %} 实例上的所有活动进程完成。 更多信息请参阅“[启用和排定维护模式](/enterprise/{{ currentVersion }}/admin/guides/installation/enabling-and-scheduling-maintenance-mode)”。
+4. 启用维护模式并等待 {% data variables.product.prodname_ghe_server %} 实例上的所有活动进程完成。 更多信息请参阅“[启用和排定维护模式](/enterprise/admin/guides/installation/enabling-and-scheduling-maintenance-mode)”。
 
   {% note %}
 
@@ -174,7 +172,7 @@ shortTitle: 升级 GHES
   Target root partition:  /dev/xvda2
   Proceed with installation? [y/N]
   ```
-{% if ip-exception-list %}
+{% ifversion ip-exception-list %}
 1. （可选）若要验证升级，请将 IP 例外列表配置为允许访问指定的 IP 地址列表。 更多信息请参阅“[使用 IP 例外列表验证维护模式下的更改](/admin/configuration/configuring-your-enterprise/enabling-and-scheduling-maintenance-mode#validating-changes-in-maintenance-mode-using-the-ip-exception-list)”。
 {% endif %}
 7. 对于单个设备升级，请禁用维护模式，以便用户能够使用 {% data variables.product.product_location %}。
@@ -197,7 +195,7 @@ shortTitle: 升级 GHES
 
 {% endwarning %}
 
-1. 在主实例上，启用维护模式并等待所有活动进程完成。 更多信息请参阅“[启用维护模式](/enterprise/{{ currentVersion }}/admin/guides/installation/enabling-and-scheduling-maintenance-mode/)”。
+1. 在主实例上，启用维护模式并等待所有活动进程完成。 更多信息请参阅“[启用维护模式](/enterprise/admin/guides/installation/enabling-and-scheduling-maintenance-mode/)”。
 {% data reusables.enterprise_installation.replica-ssh %}
 3. 在副本实例或者所有副本实例（如果您将多个副本实例作为 Geo-replication 的一部分运行）上，运行 `ghe-repl-stop` 以停止复制。
 4. 按照“[使用升级包升级单个设备](#upgrading-a-single-appliance-with-an-upgrade-package)”中的说明升级主实例。
@@ -239,7 +237,7 @@ shortTitle: 升级 GHES
 
 回滚完成后，通过在所有副本上运行 `ghe-repl-start` 来重新启动复制。
 
-更多信息请参阅“[命令行实用程序](/enterprise/{{ currentVersion }}/admin/guides/installation/command-line-utilities/#ghe-upgrade)”。
+更多信息请参阅“[命令行实用程序](/enterprise/admin/guides/installation/command-line-utilities/#ghe-upgrade)”。
 
 ### 回滚功能版本
 

@@ -62,7 +62,7 @@ versions:
   ![下载日志下拉菜单](/assets/images/help/repository/download-logs-drop-down-updated-2.png)
 
 
-  {% if re-run-jobs %}
+  {% ifversion re-run-jobs %}
 
   {% note %}
 

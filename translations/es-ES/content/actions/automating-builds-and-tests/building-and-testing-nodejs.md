@@ -134,7 +134,7 @@ Si no especificas una versión de Node.js, {% data variables.product.prodname_do
 
 Los ejecutores alojados en {% data variables.product.prodname_dotcom %} tienen instalados administradores de dependencias de npm y Yarn. Puedes usar npm y Yarn para instalar dependencias en tu flujo de trabajo antes de construir y probar tu código. Los ejecutores Windows y Linux alojados en {% data variables.product.prodname_dotcom %} también tienen instalado Grunt, Gulp y Bower.
 
-{% if actions-caching %}también puedes guardar las dependencias en caché para acelerar tu flujo de trabajo. Para obtener más información, consulta la sección "[Almacenar las dependencias en caché para agilizar los flujos de trabajo](/actions/using-workflows/caching-dependencies-to-speed-up-workflows)".{% endif %}
+{% ifversion actions-caching %}También puedes almacenar las dependencias en caché para agilizar tu flujo de trabajo. Para obtener más información, consulta la sección "[Almacenar las dependencias en caché para agilizar los flujos de trabajo](/actions/using-workflows/caching-dependencies-to-speed-up-workflows)".{% endif %}
 
 ### Ejemplo con npm
 
@@ -226,7 +226,7 @@ El ejemplo anterior crea un archivo *.npmrc* con el siguiente contenido:
 always-auth=true
 ```
 
-{% if actions-caching %}
+{% ifversion actions-caching %}
 
 ### Ejemplo de dependencias en caché
 

@@ -32,7 +32,7 @@ Devido à complexidade da pesquisa de códigos, a execução das pesquisas apres
 - Apenas o _branch-padrão_ é indexado para a busca de código.{% ifversion fpt or ghec %}
 - Somente arquivos com menos de 384 KB são pesquisados.{% else %}* Somente arquivos com menos de 5 MB são pesquisados.
 - Somente os primeiros 500 KB de cada arquivo são pesquisados.{% endif %}
-- Up to 4,000 private{% ifversion ghec or ghes or ghae %} and internal{% endif %} repositories are searchable. These 4,000 repositories will be the most recently updated of the first 10,000 private{% ifversion ghec or ghes or ghae %} and internal{% endif %} repositories that you have access to.
+- Podem-se pesquisar até 4.000 repositórios privados{% ifversion ghec or ghes or ghae %} e internos de{% endif %}. Esses 4.000 repositórios serão atualizados mais recentemente a partir dos primeiros 10.000 repositórios{% ifversion ghec or ghes or ghae %} privados e internos de{% endif %} aos quais você tem acesso.
 - Apenas repositórios com menos de 500.000 arquivos são pesquisáveis.{% ifversion fpt or ghec %}
 - Apenas repositórios que tiveram atividade ou apareceram nos resultados de pesquisa do último ano são pesquisáveis.{% endif %}
 - Com exceção das pesquisas por [`filename`](#search-by-filename), é necessário incluir pelo menos um termo da pesquisa ao pesquisar o código-fonte. Por exemplo, pesquisar [`language:javascript`](https://github.com/search?utf8=%E2%9C%93&q=language%3Ajavascript&type=Code&ref=searchresults) não é válido, enquanto pesquisar [`amazing language:javascript`](https://github.com/search?utf8=%E2%9C%93&q=amazing+language%3Ajavascript&type=Code&ref=searchresults) é.

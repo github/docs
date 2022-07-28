@@ -48,8 +48,8 @@ Para obtener más información, consulta la sección "[Crear flujos de trabajo i
 Un flujo de trabajo reutilizable puede utilizar otro de ellos si {% ifversion ghes or ghec or ghae %}alguna{% else %}cualquiera{% endif %} de las siguientes condiciones es verdadera:
 
 * Ambos flujos de trabajo están en el mismo repositorio.
-* El flujo de trabajo llamado se almacena en un repositorio público{% if actions-workflow-policy %} y tu {% ifversion ghec %}empresa{% else %}organización{% endif %} te permite utilizar flujos de trabajo reutilizables y públicos{% endif %}.{% ifversion ghes or ghec or ghae %}
-* El flujo de trabajo llamado se almacena en un repositorio interno y los ajustes de dicho repositorio permiten que se acceda a él. Para obtener más información, consulta la sección {% if internal-actions %}"[Compartir acciones y flujos de trabajo con tu empresa](/actions/creating-actions/sharing-actions-and-workflows-with-your-enterprise){% else %}"[Administrar los ajustes de las {% data variables.product.prodname_actions %} en un repositorio](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#allowing-access-to-components-in-an-internal-repository){% endif %}".{% endif %}
+* El flujo de trabajo llamado se almacena en un repositorio público{% ifversion actions-workflow-policy %} y tu {% ifversion ghec %}empresa{% else %}organización{% endif %} te permite utilizar flujos de trabajo reutilizables y públicos{% endif %}.{% ifversion ghes or ghec or ghae %}
+* El flujo de trabajo llamado se almacena en un repositorio interno y los ajustes de dicho repositorio permiten que se acceda a él. Para obtener más información, consulta la sección {% ifversion internal-actions %}"[Compartir acciones y flujos de trabajo con tu empresa](/actions/creating-actions/sharing-actions-and-workflows-with-your-enterprise){% else %}"[Administrar los ajustes de las {% data variables.product.prodname_actions %} en un repositorio](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#allowing-access-to-components-in-an-internal-repository){% endif %}".{% endif %}
 
 ## Utilizar ejecutores
 
@@ -103,11 +103,10 @@ Puedes definir entradas y secretos, las cuales pueden pasarse desde el flujo de 
            required: true
    ```
    {% endraw %}
-   {% if actions-inherit-secrets-reusable-workflows %}
-   Para encontrar más detalles sobre la sintaxis para definir entradas y secretos, consulta [`on.workflow_call.inputs`](/actions/reference/workflow-syntax-for-github-actions#onworkflow_callinputs), [`on.workflow_call.secrets`](/actions/reference/workflow-syntax-for-github-actions#onworkflow_callsecrets) y [`on.workflow_call.secrets.inherit`](/actions/using-workflows/workflow-syntax-for-github-actions#onworkflow_callsecretsinherit).
+   Para encontrar los detalles de la sintaxis para definir entradas y secretos, consulta [`on.workflow_call.inputs`](/actions/reference/workflow-syntax-for-github-actions#onworkflow_callinputs) y [`on.workflow_call.secrets`](/actions/reference/workflow-syntax-for-github-actions#onworkflow_callsecrets).
+   {% ifversion actions-inherit-secrets-reusable-workflows %}
 1. En el flujo de trabajo reutilizable, referencia la entrada o secreto que definiste en la clave `on` en el paso anterior. Si los secretos se heredan utilizando `secrets: inherit`, puedes referenciarlos incluso si no se definen en la clave `on`.
    {%- else %}
-   Para encontrar los detalles de la sintaxis para definir entradas y secretos, consulta [`on.workflow_call.inputs`](/actions/reference/workflow-syntax-for-github-actions#onworkflow_callinputs) y [`on.workflow_call.secrets`](/actions/reference/workflow-syntax-for-github-actions#onworkflow_callsecrets).
 1. En el flujo de trabajo reutilizable, referencia la entrada o secreto que definiste en la clave `on` en el paso anterior.
    {%- endif %}
 
@@ -194,10 +193,11 @@ Cuando llamas a un flujo de trabajo reutilizable, solo puedes utilizar las sigui
 * [`jobs.<job_id>.with.<input_id>`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idwithinput_id)
 * [`jobs.<job_id>.secrets`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idsecrets)
 * [`jobs.<job_id>.secrets.<secret_id>`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idsecretssecret_id)
- {% if actions-inherit-secrets-reusable-workflows %}* [`jobs.<job_id>.secrets.inherit`](/actions/using-workflows/workflow-syntax-for-github-actions#onworkflow_callsecretsinherit){% endif %}
+ {% ifversion actions-inherit-secrets-reusable-workflows %}* [`jobs.<job_id>.secrets.inherit`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idsecretsinherit){% endif %}
 * [`jobs.<job_id>.needs`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idneeds)
 * [`jobs.<job_id>.if`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idif)
 * [`jobs.<job_id>.permissions`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idpermissions)
+* [`jobs.<job_id>.concurrency`](/actions/reference/workflow-syntax-for-github-actions#concurrency)
 
    {% note %}
 
@@ -310,8 +310,16 @@ Para obtener más información sobre cómo utilizar la API de REST para consulta
 
 {% endnote %}
 
+{% ifversion partial-reruns-with-reusable %}
+
+## Volver a ejecutar los flujos de trabajo y los jobs con flujos de trabajo reutilizables
+
+{% data reusables.actions.partial-reruns-with-reusable %}
+
+{% endif %}
+
 ## Pasos siguientes
 
 Para seguir aprendiendo sobre las {% data variables.product.prodname_actions %}, consulta la sección "[Eventos que activan flujos de trabajo](/actions/learn-github-actions/events-that-trigger-workflows)".
 
-{% if restrict-groups-to-workflows %}Puedes estandarizar los despliegues creando un grupo de ejecutores auto-hospedados que solo ejecute un flujo de trabajo reutilizable. Para obtener más información, consulta la sección "[Administrar acceso a los ejecutores auto-hospedados utilizando grupos](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups)".{% endif %}
+{% ifversion restrict-groups-to-workflows %}Puedes estandarizar los despliegues creando un grupo de ejecutores auto-hospedados que solo ejecute un flujo de trabajo reutilizable. Para obtener más información, consulta la sección "[Administrar acceso a los ejecutores auto-hospedados utilizando grupos](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups)".{% endif %}

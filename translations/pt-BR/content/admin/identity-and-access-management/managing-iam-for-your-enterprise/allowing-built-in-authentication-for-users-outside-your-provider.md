@@ -15,20 +15,20 @@ topics:
   - Authentication
   - Enterprise
   - Identity
-shortTitle: Fallback authentication
+shortTitle: Autenticação de fallback
 ---
 
 ## Sobre a autenticação integrada para usuários fora do seu provedor
 
 Por padrão, quando você habilitar a autenticação externa para {% data variables.product.product_name %}, a autenticação integrada está desabilitada para sua instância. Para obter mais informações, consulte "[Sobre a autenticação para sua empresa](/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-authentication-for-your-enterprise#external-authentication)".
 
-If you're unable to add specific accounts to your external authentication provider, such as accounts for contractors or machine users, you can configure fallback authentication. Fallback authentication allows built-in authentication for outside users and to access a fallback account if your authentication provider is unavailable.
+Se você não puder adicionar contas específicas ao seu provedor de autenticação externa, como contas para contratados ou usuários de máquina, você pode configurar a autenticação de fallback. A autenticação de fallback permite a autenticação integrada para usuários externos, bem como o acesso a uma conta de fallback se seu provedor de autenticação não estiver disponível.
 
 Se você configurar a autenticação integrada e uma pessoa autenticada com sucesso com o SAML ou CAS, a pessoa não terá mais a opção de realizar a autenticação com um nome de usuário e senha. Se o usuário se autenticar com êxito via LDAP, as credenciais não serão mais consideradas internas.
 
 {% warning %}
 
-**Aviso:** se desabilitar a autenticação integrada, você terá que suspender individualmente todos os usuários que não devem mais ter acesso à instância. Para obter mais informações, consulte "[Suspender e cancelar a suspensão de usuários](/enterprise/{{ currentVersion }}/admin/guides/user-management/suspending-and-unsuspending-users)."
+**Aviso:** se desabilitar a autenticação integrada, você terá que suspender individualmente todos os usuários que não devem mais ter acesso à instância. Para obter mais informações, consulte "[Suspender e cancelar a suspensão de usuários](/enterprise/admin/guides/user-management/suspending-and-unsuspending-users)."
 
 {% endwarning %}
 

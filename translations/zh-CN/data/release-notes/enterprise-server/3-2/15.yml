@@ -1,0 +1,19 @@
+date: '2022-06-28'
+sections:
+  security_fixes:
+    - "**MEDIUM**: Ensures that `github.company.com` and `github-company.com` are not evaluated by internal services as identical hostnames, preventing a potential server-side security forgery (SSRF) attack."
+    - "**LOW**: An attacker could access the Management Console with a path traversal attack via HTTP even if external firewall rules blocked HTTP access."
+    - 包已更新到最新的安全版本。
+  bugs:
+    - In some cases, site administrators were not automatically added as enterprise owners.
+    - After merging a branch into the default branch, the "History" link for a file would still link to the previous branch instead of the target branch.
+  changes:
+    - Creating or updating check runs or check suites could return `500 Internal Server Error` if the value for certain fields, like the name, was too long.
+  known_issues:
+    - 在新建的没有任何用户的 {% data variables.product.prodname_ghe_server %} 实例上，攻击者可以创建第一个管理员用户。
+    - 自定义防火墙规则在升级过程中被删除。
+    - Git LFS 跟踪的文件[通过 Web 界面上传](https://github.com/blog/2105-upload-files-to-your-repositories) 被错误地直接添加到仓库。
+    - 如果议题包含文件路径长于 255 个字符的同一仓库中 blob 的永久链接，则议题无法关闭。
+    - 当“用户可以搜索 GitHub.com”与 {% data variables.product.prodname_github_connect %} 一起启用时，私有和内部存储库中的议题不会包含在 {% data variables.product.prodname_dotcom_the_website %} 搜索结果中。
+    - '{% data variables.product.prodname_registry %} npm 注册表不再返回元数据响应的时间值。这样做是为了大幅改善性能。作为元数据响应的一部分，我们继续拥有返回时间值所需的所有数据，并将在我们解决现有性能问题后恢复返回这个值。'
+    - 特定于处理预接收挂钩的资源限制可能会导致某些预接收挂钩失败。

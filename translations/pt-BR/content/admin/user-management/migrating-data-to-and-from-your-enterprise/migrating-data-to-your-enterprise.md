@@ -129,7 +129,7 @@ Depois que sua migração for aplicada à sua instância de destino e você tive
 
 ### Desbloquear repositórios de uma organização no {% data variables.product.prodname_dotcom_the_website %}
 
-Para desbloquear repositórios em uma organização do {% data variables.product.prodname_dotcom_the_website %}, você enviará uma solicitação `DELETE` para o <a href="/rest/reference/migrations#unlock-an-organization-repository" class="dotcom-only">ponto de extremidade de desbloqueio da migração</a>. Você precisará do seguinte:
+Para desbloquear repositórios em uma organização do {% data variables.product.prodname_dotcom_the_website %}, você enviará uma solicitação `DELETE` para o [ponto de extremidade de desbloqueio da migração](/free-pro-team@latest/rest/migrations#unlock-an-organization-repository). Você precisará do seguinte:
   * Token de acesso para autenticação.
   * `id` exclusivo da migração;
   * Nome do repositório a ser desbloqueado.
@@ -141,7 +141,7 @@ curl -H "Authorization: token <em>GITHUB_ACCESS_TOKEN</em>" -X DELETE \
 
 ### Excluir repositórios de uma organização no {% data variables.product.prodname_dotcom_the_website %}
 
-Após desbloquear os repositórios da organização de {% data variables.product.prodname_dotcom_the_website %}, você deverá excluir todos os repositórios previamente migrados usando [o ponto de extremidade de exclusão do repositório](/rest/reference/repos/#delete-a-repository). Você precisará do token de acesso para autenticação:
+Após desbloquear os repositórios da organização de {% data variables.product.prodname_dotcom_the_website %}, você deverá excluir todos os repositórios previamente migrados usando [o ponto de extremidade de exclusão do repositório](/rest/repos/#delete-a-repository). Você precisará do token de acesso para autenticação:
 ```shell
 curl -H "Authorization: token <em>GITHUB_ACCESS_TOKEN</em>" -X DELETE \
   https://api.github.com/repos/<em>orgname</em>/<em>repo_name</em>

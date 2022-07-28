@@ -63,7 +63,7 @@ Text that is not a quote
 
 ## 引用代码
 
-使用单反引号可标注句子中的代码或命令。 反引号中的文本不会设置格式。{% ifversion fpt or ghae or ghes > 3.1 or ghec %} 您还可以按 <kbd>Command</kbd>+<kbd>E</kbd> (Mac) 或 <kbd>Ctrl</kbd>+<kbd>E</kbd> (Windows/Linux) 键盘快捷键，在 Markdown 的行内插入代码块的反引号。{% endif %}
+使用单反引号可标注句子中的代码或命令。 反引号中的文本不会被格式化。 还可以按 <kbd>Command</kbd>+<kbd>E</kbd> (Mac) 或 <kbd>Ctrl</kbd>+<kbd>E</kbd> (Windows/Linux) 键盘快捷键，在 Markdown 的一行内为代码块插入反引号。
 
 ```markdown
 使用 `git status` 列出尚未提交的所有新文件或已修改文件。
@@ -88,11 +88,38 @@ git commit
 
 {% data reusables.user-settings.enabling-fixed-width-fonts %}
 
+## 支持的颜色模型
+
+在议题、拉取请求和讨论中，可以使用反引号在句子中调出颜色。 反引号中支持的颜色模型将显示颜色的可视化效果。
+
+```markdown
+浅色模式的背景颜色应为“#ffffff”，深色模式的背景颜色应为“#0d1117”。
+```
+
+![渲染支持的颜色模型。](/assets/images/help/writing/supported-color-models-rendered.png)
+
+以下是当前支持的颜色模型。
+
+| 颜色   | 语法                        | 示例                        | 输出                                                                                         |
+| ---- | ------------------------- | ------------------------- | ------------------------------------------------------------------------------------------ |
+| 十六进制 | <code>\`#RRGGBB\`</code> | <code>\`#0969DA\`</code> | ![以 HEX 格式渲染支持的颜色模型。](/assets/images/help/writing/supported-color-models-hex-rendered.png) |
+| RGB  | <code>\`rgb(R,G,B)\`</code> | <code>\`rgb(9, 105, 218)\`</code> | ![以 RGB 格式渲染支持的颜色模型。](/assets/images/help/writing/supported-color-models-rgb-rendered.png) |
+| HSL  | <code>\`hsl(H,S,L)\`</code> | <code>\`hsl(212, 92%, 45%)\`</code> | ![以 HSL 格式渲染支持的颜色模型。](/assets/images/help/writing/supported-color-models-hsl-rendered.png) |
+
+{% note %}
+
+**注意：**
+
+- 支持的颜色模型在反引号内不能有任何前导空格或尾随空格。
+- 仅在议题、拉取请求和讨论中支持颜色的可视化。
+
+{% endnote %}
+
 ## 链接
 
-通过将链接文本包含在方括号 `[ ]` 内，然后将 URL 包含在括号 `( )` 内，可创建内联链接。 {% ifversion fpt or ghae or ghes > 3.1 or ghec %}您还可以使用键盘快捷键 <kbd>Command</kbd>+<kbd>K</kbd> 创建链接。{% endif %}{% ifversion fpt or ghae-issue-5434 or ghes > 3.3 or ghec %} 选择文本后，可以从剪贴板粘贴 URL，以自动从所选内容创建链接。{% endif %}
+通过将链接文本包含在方括号 `[ ]` 内，然后将 URL 包含在括号 `( )` 内，可创建内联链接。 您还可以使用键盘快捷键 <kbd>Command</kbd>+<kbd>K</kbd> 创建链接。 {% ifversion fpt or ghae-issue-5434 or ghes > 3.3 or ghec %} 选择文本后，可以从剪贴板粘贴 URL，以自动从所选内容创建链接。{% endif %}
 
-{% ifversion fpt or ghae-issue-7103 or ghes > 3.5 or ghec %} You can also create a Markdown hyperlink by highlighting the text and using the keyboard shortcut <kbd>Command</kbd>+<kbd>V</kbd>. If you'd like to replace the text with the link, use the keyboard shortcut <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>V</kbd>.{% endif %}
+{% ifversion fpt or ghae-issue-7103 or ghes > 3.5 or ghec %} 您还可以通过突出显示文本并使用键盘快捷键 <kbd>Command</kbd>+<kbd>V</kbd> 来创建 Markdown 超链接。 如果要将文本替换为链接，请使用键盘快捷键 <kbd>命令</kbd>+<kbd>Shift</kbd>+<kbd>V</kbd>。{% endif %}
 
 `本站点是使用 [GitHub Pages](https://pages.github.com/) 构建的。`
 
@@ -134,7 +161,7 @@ git commit
 | ------------------ | ---------------------------------------------------------------------- |
 | 在同一个分支上的 `.md` 文件中 | `/assets/images/electrocat.png`                                        |
 | 在另一个分支的 `.md` 文件中  | `/../main/assets/images/electrocat.png`                                |
-| 在仓库的议题、拉取请求和评论中    | `../blob/main/assets/images/electrocat.png`                            |
+| 在仓库的议题、拉取请求和评论中    | `../blob/main/assets/images/electrocat.png?raw=true`                   |
 | 在另一个仓库的 `.md` 文件中  | `/../../../../github/docs/blob/main/assets/images/electrocat.png`      |
 | 在另一个仓库的议题、拉取请求和评论中 | `../../../github/docs/blob/main/assets/images/electrocat.png?raw=true` |
 
@@ -149,14 +176,19 @@ git commit
 {% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5559 %}
 ### 指定图像显示的主题
 
-您可以通过在 Markdown 中将 `#gh-dark-mode-only` 或 `#gh-light-mode-only` 附加到图像 URL 的末尾来指定图像显示的主题。
+您可以通过将 HTML `<picture>` 元素与 `prefers-color-scheme` 媒体功能结合使用来指定在 Markdown 中显示图像的主题。 我们区分浅色和深色模式，因此有两个选项可用。 您可以使用这些选项显示针对深色或浅色背景优化的图像。 这对于透明的 PNG 图像特别有用。
 
-我们区分浅色和深色模式，因此有两个选项可用。 您可以使用这些选项显示针对深色或浅色背景优化的图像。 这对于透明的 PNG 图像特别有用。
+例如，下面的代码为浅色主题显示一个太阳图像，为深色主题显示一个月亮：
 
-| 上下文  | URL                                                                      |
-| ---- | ------------------------------------------------------------------------ |
-| 深色主题 | `![GitHub Light](https://github.com/github-light.png#gh-dark-mode-only)` |
-| 浅色主题 | `![GitHub Dark](https://github.com/github-dark.png#gh-light-mode-only)`  |
+```HTML
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://user-images.githubusercontent.com/25423296/163456776-7f95b81a-f1ed-45f7-b7ab-8fa810d529fa.png">
+  <source media="(prefers-color-scheme: light)" srcset="https://user-images.githubusercontent.com/25423296/163456779-a8556205-d0a5-45e2-ac17-42d089e3c3f8.png">
+  <img alt="Shows an illustrated sun in light color mode and a moon with stars in dark color mode." src="https://user-images.githubusercontent.com/25423296/163456779-a8556205-d0a5-45e2-ac17-42d089e3c3f8.png">
+</picture>
+```
+
+基于主题通过使用附加到 URL 的片段（`#gh-dark-mode-only` 或 `#gh-light-mode-only`）指定图像的旧方法已弃用，并将被删除以支持上述新方法。
 {% endif %}
 
 ## 列表

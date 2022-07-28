@@ -82,7 +82,7 @@ Para obtener más información, consulta la sección "[Utilizar variables de amb
 
 CircleCI y {% data variables.product.prodname_actions %} proporcionan un método para almacenar archivos en cahcé manualmente en el archivo de configuración.
 
-{% if actions-caching %}
+{% ifversion actions-caching %}
 
 Puedes encontrar un ejemplo de la sintaxis para cada sistema.
 
@@ -409,6 +409,8 @@ workflows:
 
 ```yaml
 {% data reusables.actions.actions-not-certified-by-github-comment %}
+
+{% data reusables.actions.actions-use-sha-pinning-comment %}
 
 name: Containers
 

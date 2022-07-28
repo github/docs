@@ -19,6 +19,8 @@ Você pode exportar o log de auditoria fazendo o download de um arquivo do JSON 
 
 Você pode exportar dados de eventos Git fazendo o download de um arquivo JSON do log de auditoria da empresa. Ao contrário dos dados de log de auditoria, você não pode consultar eventos específicos do Git para filtrar e exportar na interface do usuário do log de auditoria.
 
+{% data reusables.audit_log.git-events-export-limited %}
+
 {% data reusables.audit_log.exported-log-keys-and-values %}
 
 Como alternativa à exportação de eventos de log, você pode usar a API para recuperar os eventos de log de auditoria ou configurar {% data variables.product.product_name %} para transmitir dados de auditoria quando os eventos forem registrados. Para obter mais informações, consulte "[Usando a API de registro de auditoria para sua empresa](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/using-the-audit-log-api-for-your-enterprise)" e "[Transmitindo o registro de auditoria da sua empresa](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/streaming-the-audit-log-for-your-enterprise)".

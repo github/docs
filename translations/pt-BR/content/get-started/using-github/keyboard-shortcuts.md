@@ -19,11 +19,11 @@ versions:
 
 Digitar <kbd>?</kbd> no {% data variables.product.prodname_dotcom %} exibe uma caixa de diálogo que lista os atalhos de teclado disponíveis para essa página. Você pode usar esses atalhos de teclado para executar ações no site sem precisar usar o mouse para navegar.
 
-{% if keyboard-shortcut-accessibility-setting %}
+{% ifversion keyboard-shortcut-accessibility-setting %}
 É possível desabilitar os atalhos de teclas de caractere, ao mesmo tempo em que permite que os atalhos que usam teclas modificadoras, nas suas configurações de acessibilidade. Para obter mais informações, consulte "[Gerenciar configurações de acessibilidade](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/managing-accessibility-settings)".{% endif %}
 
 Veja abaixo uma lista dos atalhos de teclado disponíveis.
-{% if command-palette %}
+{% ifversion command-palette %}
 O {% data variables.product.prodname_command_palette %} também fornece acesso rápido a uma ampla gama de ações, sem a necessidade de lembrar os atalhos de teclado. Para obter mais informações, consulte "[{% data variables.product.prodname_command_palette %}](/get-started/using-github/github-command-palette)".{% endif %}
 
 ## Atalhos para o site
@@ -34,7 +34,7 @@ O {% data variables.product.prodname_command_palette %} também fornece acesso r
 | <kbd>G</kbd> <kbd>N</kbd>    | Vai para suas notificações. Para obter mais informações, consulte "[Sobre notificações](/github/managing-subscriptions-and-notifications-on-github/about-notifications)".                                                  |
 | <kbd>Esc</kbd>               | Quando direcionado a um hovercard de usuário, problema ou pull request, fecha o hovercard e redireciona para o elemento no qual o hovercard está                                                                           |
 
-{% if command-palette %}
+{% ifversion command-palette %}
 
 <kbd>Command</kbd>+<kbd>K</kbd> (Mac) ou </br> <kbd>Ctrl</kbd>+<kbd>K</kbd> (Windows/Linux) | Abre o {% data variables.product.prodname_command_palette %}. Se você estiver editanto o texto de markdown, abra a paleta de comando com <kbd>Command</kbd>+<kbd>Opção</kbd>+<kbd>K</kbd> ou <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>K</kbd>. Para obter mais informações, consulte "[{% data variables.product.prodname_command_palette %}](/get-started/using-github/github-command-palette)".{% endif %}
 
@@ -47,7 +47,7 @@ O {% data variables.product.prodname_command_palette %} também fornece acesso r
 | <kbd>G</kbd> <kbd>P</kbd> | Vai para a aba **Pull requests**. Para obter mais informações, consulte "[Sobre pull requests](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)."{% ifversion fpt or ghes or ghec %}
 | <kbd>G</kbd> <kbd>A</kbd> | Acesse a aba de **Ações**. Para obter mais informações, consulte "[Sobre ações](/actions/getting-started-with-github-actions/about-github-actions)".{% endif %}
 | <kbd>G</kbd> <kbd>B</kbd> | Vai para a aba **Projects** (Projetos). Para obter mais informações, consulte "[Sobre quadros de projeto](/articles/about-project-boards)".                                                                                                                |
-| <kbd>G</kbd> <kbd>W</kbd> | Vai para a aba **Wiki**. Para obter mais informações, consulte "[Sobre wikis](/communities/documenting-your-project-with-wikis/about-wikis)."{% ifversion fpt or ghec %}
+| <kbd>G</kbd> <kbd>W</kbd> | Vai para a aba **Wiki**. Para obter mais informações, consulte "[Sobre wikis](/communities/documenting-your-project-with-wikis/about-wikis)."{% ifversion discussions %}
 | <kbd>G</kbd> <kbd>G</kbd> | Acesse a aba **Discussões**. Para obter mais informações, consulte "[Sobre discussões](/discussions/collaborating-with-your-community-using-discussions/about-discussions)".{% endif %}
 
 ## Edição de código-fonte
@@ -92,13 +92,13 @@ Para mais atalhos de teclado, consulte a [Documentação CodeMirror](https://cod
 | Atalho                                                                                                                                                      | Descrição                                                                                                                                                                                                                                                      |
 | ----------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | <kbd>Command</kbd>+<kbd>B</kbd> (Mac) ou </br> <kbd>Ctrl</kbd>+<kbd>B</kbd> (Windows/Linux)                                                                 | Insere formatação Markdown para texto em negrito                                                                                                                                                                                                               |
-| <kbd>Command</kbd>+<kbd>I</kbd> (Mac) ou </br> <kbd>Ctrl</kbd>+<kbd>I</kbd> (Windows/Linux)                                                                 | Insere a formatação Markdown para texto em itálico{% ifversion fpt or ghae or ghes > 3.1 or ghec %}
-| <kbd>Command</kbd>+<kbd>E</kbd> (Mac) ou </br> <kbd>Ctrl</kbd>+<kbd>E</kbd> (Windows/Linux)                                                                 | Inserts Markdown formatting for code or a command within a line{% endif %}{% ifversion fpt or ghae-issue-5434 or ghes > 3.1 or ghec %}
-| <kbd>Command</kbd>+<kbd>K</kbd> (Mac) ou </br> <kbd>Ctrl</kbd>+<kbd>K</kbd> (Windows/Linux)                                                                 | Inserts Markdown formatting for creating a link{% endif %}{% ifversion fpt or ghae-issue-7103 or ghes > 3.5 or ghec %}
-| <kbd>Command</kbd>+<kbd>V</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>V</kbd> (Windows/Linux)                                                                 | Creates a Markdown link when applied over highlighted text{% endif %}
+| <kbd>Command</kbd>+<kbd>I</kbd> (Mac) ou </br> <kbd>Ctrl</kbd>+<kbd>I</kbd> (Windows/Linux)                                                                 | Insere formatação Markdown para texto em itálico                                                                                                                                                                                                               |
+| <kbd>Command</kbd>+<kbd>E</kbd> (Mac) ou </br> <kbd>Ctrl</kbd>+<kbd>E</kbd> (Windows/Linux)                                                                 | Insere a formatação de Markdown para o código ou um comando dentro da linha{% ifversion fpt or ghae-issue-5434 or ghes or ghec %}
+| <kbd>Command</kbd>+<kbd>K</kbd> (Mac) ou </br> <kbd>Ctrl</kbd>+<kbd>K</kbd> (Windows/Linux)                                                                 | Insere a formatação de Markdown para criar um link{% endif %}{% ifversion fpt or ghae-issue-7103 or ghes > 3.5 or ghec %}
+| <kbd>Command</kbd>+<kbd>V</kbd> (Mac) ou </br> <kbd>Ctrl</kbd>+<kbd>V</kbd> (Windows/Linux)                                                                 | Cria um link de Markdown quando aplicado sobre o texto destacado{% endif %}
 | <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Mac) ou </br> <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Windows/Linux)                               | Alterna entre as abas de comentários **Escrever** e **Visualizar**{% ifversion fpt or ghae or ghes > 3.4 or ghec %}
 | <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>V</kbd> (Mac) ou </br> <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>V</kbd> (Windows/Linux)                               | Cola o link HTML como texto simples{% endif %}{% ifversion fpt or ghae or ghes > 3.2 or ghec %}
-| <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>Opt</kbd>+<kbd>V</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Alt</kbd>+<kbd>V</kbd> (Windows/Linux) | Cola o link HTML como texto simples{% endif %}{% ifversion fpt or ghae or ghes > 3.2 or ghec %}
+| <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>Opt</kbd>+<kbd>V</kbd> (Mac) ou </br> <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Alt</kbd>+<kbd>V</kbd> (Windows/Linux) | Cola o link HTML como texto simples{% endif %}{% ifversion fpt or ghae or ghes > 3.2 or ghec %}
 | <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>7</kbd> (Mac) ou </br> <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>7</kbd> (Windows/Linux)                               | Insere a formatação de Markdown para uma lista ordenada                                                                                                                                                                                                        |
 | <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>8</kbd> (Mac) ou </br> <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>8</kbd> (Windows/Linux)                               | Insere a formatação Markdown para uma lista não ordenada{% endif %}
 | <kbd>Command</kbd>+<kbd>Enter</kbd> (Mac) ou </br> <kbd>Ctrl</kbd>+<kbd>Enter</kbd> (Windows/Linux)                                                         | Envia um comentário                                                                                                                                                                                                                                            |
@@ -146,7 +146,34 @@ Para mais atalhos de teclado, consulte a [Documentação CodeMirror](https://cod
 | <kbd>Alt</kbd> e clique                              | Alterna entre opções de recolhimento e expansão de todos os comentários de revisão desatualizados em uma pull request ao manter pressionada a tecla <kbd>Alt</kbd> e clicar em **Mostrar desatualizados** ou **Ocultar desatualizados**.                                                                                                                       |
 | Clique, em seguida <kbd>Shift</kbd> e clique         | Comente em várias linhas de uma pull request clicando em um número de linha, mantendo pressionado <kbd>Shift</kbd>, depois clique em outro número de linha. Para obter mais informações, consulte "[Comentando em uma pull request](/github/collaborating-with-issues-and-pull-requests/commenting-on-a-pull-request#adding-line-comments-to-a-pull-request)." |
 
-## Quadros de projeto
+{% ifversion projects-v2 %}
+
+## {% data variables.projects.projects_v2_caps %}
+
+### Navigating a project
+
+| Atalho                                                                          | Descrição                    |
+| ------------------------------------------------------------------------------- | ---------------------------- |
+| <kbd>⌘</kbd>+<kbd>f</kbd> (Mac) or <kbd>Ctrl</kbd>+<kbd>f</kbd> (Windows/Linux) | Focus filter field           |
+| <kbd>←</kbd>                                                                    | Move cell focus to the left  |
+| <kbd>→</kbd>                                                                    | Move cell focus to the right |
+| <kbd>↑</kbd>                                                                    | Move cell focus up           |
+| <kbd>↓</kbd>                                                                    | Move cell focus down         |
+
+### Manipulating a project
+
+| Atalho                                                                                                              | Descrição                             |
+| ------------------------------------------------------------------------------------------------------------------- | ------------------------------------- |
+| <kbd>Enter</kbd>                                                                                                    | Toggle edit mode for the focused cell |
+| <kbd>Escape</kbd>                                                                                                   | Cancel editing for the focused cell   |
+| <kbd>⌘</kbd>+<kbd>Shift</kbd>+<kbd>\</kbd> (Mac) or <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>\</kbd> (Windows/Linux) | Open row actions menu                 |
+| <kbd>Shift</kbd>+<kbd>Space</kbd>                                                                                   | Selecionar item                       |
+| <kbd>Space (Espaço)</kbd>                                                                                           | Open selected item                    |
+| <kbd>e</kbd>                                                                                                        | Archive selected items                |
+
+{% endif %}
+
+## {% data variables.product.prodname_projects_v1_caps %}
 
 ### Mover uma coluna
 
@@ -201,13 +228,12 @@ Para mais atalhos de teclado, consulte a [Documentação CodeMirror](https://cod
 
 ## Notificações
 
-| Atalho                        | Descrição            |
-| ----------------------------- | -------------------- |
-| <kbd>E</kbd>                  | Marcar como pronto   |
-| <kbd>Shift</kbd>+<kbd>U</kbd> | Marcar como não lido |
-| <kbd>Shift</kbd>+<kbd>I</kbd> | Marca como lido      |
-| <kbd>Shift</kbd>+<kbd>M</kbd> | Cancelar assinatura  |
-
+| Atalho                        | Descrição             |
+| ----------------------------- | --------------------- |
+| <kbd>E</kbd>                  | Marcar como concluído |
+| <kbd>Shift</kbd>+<kbd>U</kbd> | Marcar como não lido  |
+| <kbd>Shift</kbd>+<kbd>I</kbd> | Marcar como lido      |
+| <kbd>Shift</kbd>+<kbd>M</kbd> | Cancelar assinatura   |
 
 ## gráfico de rede
 

@@ -46,5 +46,6 @@ Para obtener más información, consulta "[Configurar la combinación de confirm
 
 Antes de activar cambiar de base las confirmaciones, considera estas desventajas:
 - Es posible que los colaboradores del repositorio tengan que cambiar de base en la línea de comandos, resolver cualquier conflicto y realizar un empuje forzado de sus cambios a la rama de tema de la solicitud de extracción (o rama de encabezado remota) antes de poder usar la opción **cambiar de base y fusionar** en {% data variables.product.product_location %}. El empuje forzado se debe realizar cuidadosamente para que los colaboradores no sobreescriban un trabajo en el que otros se hayan basado. Para conocer más sobre cuando la opción **Cambiar de base y fusionar** está desactivada en {% data variables.product.product_location %} y el flujo de trabajo para volver a activarlo, consulta "[Acerca de las fusiones de solicitudes de extracción](/articles/about-pull-request-merges/#rebase-and-merge-your-pull-request-commits)".
+- {% indented_data_reference reusables.pull_requests.rebase_and_merge_verification spaces=3 %}
 
 Para obtener más información, consulta [Configurar el cambio de base de las solicitudes de extracción](/articles/configuring-commit-rebasing-for-pull-requests)".

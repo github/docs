@@ -24,12 +24,6 @@ topics:
   </div>
 </div>
 
-{% warning %}
-
-Advertencia: Desde la segunda mitad de octubre del 2021, ya no se están manteniendo las librerías oficiales de Octokit. Para obtener más información, consulta [este debate en el repositorio de octokit.js](https://github.com/octokit/octokit.js/discussions/620).
-
-{% endwarning %}
-
 # Librería de terceros
 
 ### Clojure
@@ -80,7 +74,7 @@ Advertencia: Desde la segunda mitad de octubre del 2021, ya no se están manteni
 | Nombre de la librería                                                     | Repositorio                                                             |
 | ------------------------------------------------------------------------- | ----------------------------------------------------------------------- |
 | **Biblioteca de NodeJS de GitHub**                                        | [pksunkara/octonode](https://github.com/pksunkara/octonode)             |
-| **programa de seguridad gh3 de la API v3 de lado del cliente**            | [k33g/gh3](https://github.com/k33g/gh3)                                 |
+| **Wrapper gh3 de la API del lado del cliente**                            | [k33g/gh3](https://github.com/k33g/gh3)                                 |
 | **El wrapper de Github.js sobre la API de GitHub**                        | [michael/github](https://github.com/michael/github)                     |
 | **Librería de CoffeeScript basada en Promise para el buscador de NodeJS** | [philschatz/github-client](https://github.com/philschatz/github-client) |
 

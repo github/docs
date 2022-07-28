@@ -30,26 +30,47 @@ jobs:
       max-parallel: 1
       matrix:
         include:
-          # TODO: replace language_repos with actual repos once created
-          # - language: pt
-          #   crowdin_language: pt-BR
-          #   language_dir: translations/pt-BR
-          #   language_repo: github/docs-translations-pt-br
-
           - language: es
             crowdin_language: es-ES
             language_dir: translations/es-ES
-            language_repo: github/docs-localization-test-es-es
+            language_repo: github/docs-internal.es-es
 
-          # - language: cn
-          #   crowdin_language: zh-CN
-          #   language_dir: translations/zh-CN
-          #   language_repo: github/docs-translations-zh-cn
+          - language: ja
+            crowdin_language: ja-JP
+            language_dir: translations/ja-JP
+            language_repo: github/docs-internal.ja-jp
 
-          # - language: ja
-          #   crowdin_language: ja
-          #   language_dir: translations/ja-JP
-          #   language_repo: github/docs-translations-ja-jp
+          - language: pt
+            crowdin_language: pt-BR
+            language_dir: translations/pt-BR
+            language_repo: github/docs-internal.pt-br
+
+          - language: cn
+            crowdin_language: zh-CN
+            language_dir: translations/zh-CN
+            language_repo: github/docs-internal.zh-cn
+
+          # We'll be ready to add the following languages in a future effort.
+
+          # - language: ru
+          #   crowdin_language: ru-RU
+          #   language_dir: translations/ru-RU
+          #   language_repo: github/docs-internal.ru-ru
+
+          # - language: ko
+          #   crowdin_language: ko-KR
+          #   language_dir: translations/ko-KR
+          #   language_repo: github/docs-internal.ko-kr
+
+          # - language: fr
+          #   crowdin_language: fr-FR
+          #   language_dir: translations/fr-FR
+          #   language_repo: github/docs-internal.fr-fr
+
+          # - language: de
+          #   crowdin_language: de-DE
+          #   language_dir: translations/de-DE
+          #   language_repo: github/docs-internal.de-de
 
     # TODO: replace the branch name
     steps:
@@ -95,9 +116,9 @@ jobs:
           git commit -m "Add crowdin translations" || echo "Nothing to commit"
 
       - name: 'Setup node'
-        uses: actions/setup-node@1f8c6b94b26d0feae1e387ca63ccbdc44d27b561
+        uses: actions/setup-node@17f8bd926464a1afa4c6a11669539e9c1ba77048
         with:
-          node-version: 16.15.x
+          node-version: '16.15.0'
 
       - run: npm ci
 

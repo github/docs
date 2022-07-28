@@ -9,7 +9,7 @@
 
 {% indented_data_reference reusables.enterprise-accounts.access-enterprise spaces=5 %}
 2. Navega a los ajustes de {% data variables.product.prodname_actions %}:
-   * **In an organization or repository**:
+   * **En una organización o repositorio**:
 
 {% indented_data_reference reusables.actions.settings-ui.settings-actions-runners spaces=5 %}
    {%- ifversion ghec or ghae or ghes %}

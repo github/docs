@@ -6,6 +6,6 @@ Un enlace relativo es un enlace que es relativo al archivo actual. Por ejemplo, 
 [Contribution guidelines for this project](docs/CONTRIBUTING.md)
 ```
 
-{% data variables.product.product_name %} transformará de manera automática el enlace relativo o la ruta de imagen en cualquier rama en la que te encuentres actualmente, de modo que el enlace o ruta siempre funcione. Puedes usar todos los operandos del enlace relativo, como `./` y `../`.
+{% data variables.product.product_name %} transformará de manera automática el enlace relativo o la ruta de imagen en cualquier rama en la que te encuentres actualmente, de modo que el enlace o ruta siempre funcione. La ruta del enlace será relativa al archivo actual. Los enlaces que comienzan con `/` serán relativos a la raíz del repositorio. Puedes usar todos los operandos del enlace relativo, como `./` y `../`.
 
 Los enlaces relativos son más sencillos para los usuarios que clonan tu repositorio. Puede que los enlaces absolutos no funcionen en los clones de tu repositorio. Recomendamos usar enlaces relativos para consultar los archivos dentro de tu repositorio.

@@ -24,10 +24,11 @@ translations/pt-BR/content/code-security/code-scanning/integrating-with-code-sca
 translations/pt-BR/content/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/configuring-codeql-runner-in-your-ci-system.md,broken liquid tags
 translations/pt-BR/content/code-security/secret-scanning/about-secret-scanning.md,broken liquid tags
 translations/pt-BR/content/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-githubs-form-schema.md,broken liquid tags
+translations/pt-BR/content/copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-visual-studio-code.md,broken liquid tags
+translations/pt-BR/content/copilot/quickstart.md,broken liquid tags
 translations/pt-BR/content/desktop/installing-and-configuring-github-desktop/overview/creating-your-first-repository-using-github-desktop.md,broken liquid tags
 translations/pt-BR/content/education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-for-your-schoolwork/why-wasnt-my-application-for-a-student-developer-pack-approved.md,broken liquid tags
 translations/pt-BR/content/get-started/signing-up-for-github/setting-up-a-trial-of-github-enterprise-cloud.md,broken liquid tags
-translations/pt-BR/content/github/index.md,Listed in localization-support#489
 translations/pt-BR/content/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/reviewing-the-audit-log-for-your-organization.md,rendering error
 translations/pt-BR/content/organizations/organizing-members-into-teams/about-teams.md,broken liquid tags
 translations/pt-BR/content/packages/learn-github-packages/introduction-to-github-packages.md,broken liquid tags
@@ -46,6 +47,9 @@ translations/pt-BR/data/release-notes/enterprise-server/2-20/15.yml,Listed in lo
 translations/pt-BR/data/release-notes/enterprise-server/2-21/6.yml,Listed in localization-support#489
 translations/pt-BR/data/reusables/accounts/create-account.md,broken liquid tags
 translations/pt-BR/data/reusables/actions/enterprise-marketplace-actions.md,broken liquid tags
+translations/pt-BR/data/reusables/actions/settings-ui/settings-actions-general.md,broken liquid tags
+translations/pt-BR/data/reusables/actions/settings-ui/settings-actions-runner-groups.md,broken liquid tags
+translations/pt-BR/data/reusables/actions/settings-ui/settings-actions-runners.md,broken liquid tags
 translations/pt-BR/data/reusables/apps/deprecating_auth_with_query_parameters.md,Listed in localization-support#489
 translations/pt-BR/data/reusables/code-scanning/edit-workflow.md,broken liquid tags
 translations/pt-BR/data/reusables/dashboard/access-org-dashboard.md,broken liquid tags

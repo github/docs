@@ -1,6 +1,6 @@
 ---
 title: Anúncio
-intro: The Announcement API allows you to manage the global announcement banner in your enterprise.
+intro: A API de Anúncio permite que você gerencie o banner de anúncio global na sua empresa.
 versions:
   ghes: '*'
   ghae: '*'

@@ -63,7 +63,7 @@ Texto que no es una cita
 
 ## Código de cita
 
-Puedes indicar un código o un comando dentro de un enunciado con comillas simples. El texto dentro de las comillas simples no se formateará.{% ifversion fpt or ghae or ghes > 3.1 or ghec %} También puedes presionar el atajo de teclado <kbd>Command</kbd>+<kbd>E</kbd> (Mac) o <kbd>Ctrl</kbd>+<kbd>E</kbd> (Windows/Linux) para insertar las comillas simples para un bloque de código dentro de una línea de lenguaje de marcado.{% endif %}
+Puedes indicar un código o un comando dentro de un enunciado con comillas simples. El texto dentro de las comillas simples no será formateado. También puedes presionar el atajo de teclado <kbd>Command</kbd>+<kbd>E</kbd> (Mac) o <kbd>Ctrl</kbd>+<kbd>E</kbd> (Windows/Linux) para insertar los apóstrofos para un bloque de código dentro de una línea de lenguaje de marcado.
 
 ```markdown
 Usa `git status` para enumerar todos los archivos nuevos o modificados que aún no han sido confirmados.
@@ -88,9 +88,36 @@ Para obtener más información, consulta "[Crear y resaltar bloques de código](
 
 {% data reusables.user-settings.enabling-fixed-width-fonts %}
 
+## Modelos de color compatibles
+
+En las propuestas, solicitudes de cambio y debates, puedes hacer llamados a colores con una oración si utilizas comillas simples. Un modelo de color compatible dentro de comillas simples mostrará una visualización de dicho color.
+
+```markdown
+El color de fondo debe ser `#ffffff` para el modo claro y `#0d1117` para el modo oscuro.
+```
+
+![Modelo de color compatible representado.](/assets/images/help/writing/supported-color-models-rendered.png)
+
+Aquí están los modelos de color compatibles actualmente.
+
+| Color | Sintaxis                  | Ejemplo                   | Resultado                                                                                                                                  |
+| ----- | ------------------------- | ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
+| HEX   | <code>\`#RRGGBB\`</code> | <code>\`#0969DA\`</code> | ![Modelo de color representado compatible en formato HEX.](/assets/images/help/writing/supported-color-models-hex-rendered.png)            |
+| RGB   | <code>\`rgb(R,G,B)\`</code> | <code>\`rgb(9, 105, 218)\`</code> | ![Formato de modelo de color representado compatible en formato RGB.](/assets/images/help/writing/supported-color-models-rgb-rendered.png) |
+| HSL   | <code>\`hsl(H,S,L)\`</code> | <code>\`hsl(212, 92%, 45%)\`</code> | ![Formato de modelo de color representado compatible en formato HSL.](/assets/images/help/writing/supported-color-models-hsl-rendered.png) |
+
+{% note %}
+
+**Notas:**
+
+- Un modelo de color compatible no puede tener espacios iniciales o finales dentro de las comillas simples.
+- La visualización del color solo es compatible en propuestas, solicitudes de cambio y debates.
+
+{% endnote %}
+
 ## Enlaces
 
-Puedes crear un enlace en línea al encerrar el texto del enlace entre corchetes `[ ]`, y luego encerrar la URL entre paréntesis `( )`. {% ifversion fpt or ghae or ghes > 3.1 or ghec %}También puedes utilizar el atajo de teclado <kbd>Command</kbd>+<kbd>K</kbd> para crear un enlace.{% endif %}{% ifversion fpt or ghae-issue-5434 or ghes > 3.3 or ghec %} Cuando tengas texto seleccionado, puedes pegar una URL desde tu portapapeles para crear un enlace automáticamente desde la selección.{% endif %}
+Puedes crear un enlace en línea al encerrar el texto del enlace entre corchetes `[ ]`, y luego encerrar la URL entre paréntesis `( )`. También puedes utilizar el atajo de teclado <kbd>Command</kbd>+<kbd>K</kbd> para crear un enlace.{% ifversion fpt or ghae-issue-5434 or ghes > 3.3 or ghec %} Cuando tienes texto seleccionado, puedes pegar una URL desde tu portapapeles para crear automáticamente un enlace desde la selección.{% endif %}
 
 {% ifversion fpt or ghae-issue-7103 or ghes > 3.5 or ghec %} También puedes crear un hipervínculo de lenguaje de marcado si resaltas el texto y utilizas el atajo de teclado <kbd>Command</kbd>+<kbd>V</kbd>. Si quieres reemplazar el texto con el enlace, utiliza el atajo de teclado <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>V</kbd>.{% endif %}
 
@@ -134,7 +161,7 @@ Aquí tienes algunos ejemplos para utilizar enlaces relativos para mostrar una i
 | ----------------------------------------------------------------------- | ---------------------------------------------------------------------- |
 | En un archivo `.md` en la misma rama                                    | `/assets/images/electrocat.png`                                        |
 | En un archivo `.md` en otra rama                                        | `/../main/assets/images/electrocat.png`                                |
-| En propuestas, solicitudes de cambio y comentarios del repositorio      | `../blob/main/assets/images/electrocat.png`                            |
+| En propuestas, solicitudes de cambio y comentarios del repositorio      | `../blob/main/assets/images/electrocat.png?raw=true`                   |
 | En un archivo `.md` en otro repositorio                                 | `/../../../../github/docs/blob/main/assets/images/electrocat.png`      |
 | En propuestas, solicitudes de cambios y comentarios de otro repositorio | `../../../github/docs/blob/main/assets/images/electrocat.png?raw=true` |
 
@@ -149,19 +176,24 @@ Para obtener más información, consulta la sección "[Enlaces relativos](#relat
 {% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5559 %}
 ### Especificar un tema en el que se muestra una imagen
 
-Puedes especificar el tema en el cual se muestra una imagen si agregas `#gh-dark-mode-only` o `#gh-light-mode-only` al final de la URL de una imagen en lenguaje de marcado.
+Puedes especificar el tema para el cual se muestra una imagen en el lenguaje de marcado si utilizas el elemento HTML `<picture>` combinado con la característica de medios `prefers-color-scheme`. Distinguimos entre modos de color oscuro y claro, así que existen dos opciones disponibles. Puedes utilizar estas opciones para mostrar imágenes optimizadas para los fondos claros u oscuros. Esto es especialmente útil para las imágenes PNG transparentes.
 
-Distinguimos entre modos de color oscuro y claro, así que existen dos opciones disponibles. Puedes utilizar estas opciones para mostrar imágenes optimizadas para los fondos claros u oscuros. Esto es especialmente útil para las imágenes PNG transparentes.
+Por ejemplo, el siguiente código muestra una imagen de un sol para los temas claros y una luna para los oscuros:
 
-| Contexto    | URL                                                                          |
-| ----------- | ---------------------------------------------------------------------------- |
-| Tema oscuro | `![GitHub Brillante](https://github.com/github-light.png#gh-dark-mode-only)` |
-| Tema claro  | `![GitHub Oscuro](https://github.com/github-dark.png#gh-light-mode-only)`    |
+```HTML
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://user-images.githubusercontent.com/25423296/163456776-7f95b81a-f1ed-45f7-b7ab-8fa810d529fa.png">
+  <source media="(prefers-color-scheme: light)" srcset="https://user-images.githubusercontent.com/25423296/163456779-a8556205-d0a5-45e2-ac17-42d089e3c3f8.png">
+  <img alt="Shows an illustrated sun in light color mode and a moon with stars in dark color mode." src="https://user-images.githubusercontent.com/25423296/163456779-a8556205-d0a5-45e2-ac17-42d089e3c3f8.png">
+</picture>
+```
+
+El método antiguo para especificar las imágenes con base en el tema, que es utilizando un fragmento anexo a la URL (`#gh-dark-mode-only` o `#gh-light-mode-only`), será obsoleto y se eliminará para favorecer al método nuevo que se menciona anteriormente.
 {% endif %}
 
 ## Listas
 
-Puedes realizar una lista desordenada al anteceder una o más líneas de texto con <kbd>-</kbd> o <kbd>*</kbd>.
+Puedes crear una lista con viñetas si precedes una o más líneas de texto con <kbd>-</kbd> o <kbd>*</kbd>.
 
 ```markdown
 - George Washington
@@ -258,7 +290,7 @@ Los resultados autocompletados se restringen a los colaboradores del repositorio
 
 ## Hacer referencia a propuestas y solicitudes de extracción
 
-Puedes mencionar una lista de las propuestas y las solicitudes de extracción sugeridas dentro del repositorio al escribir <kbd>#</kbd>. Escribe el número o el título de la propuesta o la solicitud de extracción para filtrar la lista, y luego presiona cada pestaña o ingresa para completar el resultado resaltado.
+Puedes mencionar una lista de las propuestas y las solicitudes de cambios sugeridas dentro del repositorio al escribir <kbd>#</kbd>. Escribe el número o el título de la propuesta o la solicitud de extracción para filtrar la lista, y luego presiona cada pestaña o ingresa para completar el resultado resaltado.
 
 Para obtener más información, consulta "[Referencias y direcciones URL autovinculadas](/articles/autolinked-references-and-urls)".
 

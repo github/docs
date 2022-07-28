@@ -9,7 +9,7 @@ import type { CodeSample, Operation } from '../rest/types'
   For example: 
   curl \
   -X POST \
-  -H "Accept: application/vnd.github.v3+json" \
+  -H "Accept: application/vnd.github+json" \
   https://{hostname}/api/v3/repos/OWNER/REPO/deployments \
   -d '{"ref":"topic-branch","payload":"{ \"deploy\": \"migrate\" }","description":"Deploy request from hubot"}'
 */
@@ -17,7 +17,7 @@ export function getShellExample(operation: Operation, codeSample: CodeSample) {
   // This allows us to display custom media types like application/sarif+json
   const defaultAcceptHeader = codeSample?.response?.contentType?.includes('+json')
     ? codeSample.response.contentType
-    : 'application/vnd.github.v3+json'
+    : 'application/vnd.github+json'
 
   const requestPath = codeSample?.request?.parameters
     ? parseTemplate(operation.requestPath).expand(codeSample.request.parameters)
@@ -42,7 +42,7 @@ export function getShellExample(operation: Operation, codeSample: CodeSample) {
 
   const args = [
     operation.verb !== 'get' && `-X ${operation.verb.toUpperCase()}`,
-    `-H "Accept: ${defaultAcceptHeader}"`,
+    `-H "Accept: ${defaultAcceptHeader}" \\ \n  -H "Authorization: token <TOKEN>"`,
     `${operation.serverUrl}${requestPath}`,
     requestBodyParams,
   ].filter(Boolean)
@@ -55,14 +55,14 @@ export function getShellExample(operation: Operation, codeSample: CodeSample) {
   For example:
    gh api \
     -X POST \
-    -H "Accept: application/vnd.github.v3+json" \
+    -H "Accept: application/vnd.github+json" \
     /repos/OWNER/REPO/deployments \
     -fref,topic-branch=0,payload,{ "deploy": "migrate" }=1,description,Deploy request from hubot=2
 */
 export function getGHExample(operation: Operation, codeSample: CodeSample) {
   const defaultAcceptHeader = codeSample?.response?.contentType?.includes('+json')
     ? codeSample.response.contentType
-    : 'application/vnd.github.v3+json'
+    : 'application/vnd.github+json'
   const hostname = operation.serverUrl !== 'https://api.github.com' ? '--hostname HOSTNAME' : ''
 
   const requestPath = codeSample?.request?.parameters

@@ -1,5 +1,5 @@
 ---
-title: Setting up GitHub Sponsors for your personal account
+title: Configurando o GitHub Sponsors para sua conta pessoal
 intro: 'Você pode se tornar um desenvolvedor patrocinado participando de {% data variables.product.prodname_sponsors %}, completando seu perfil de desenvolvedor patrocinado, criando camadasde patrocínio, enviando seus dados bancários e fiscais e habilitando a autenticação de dois fatores para sua conta em {% data variables.product.product_location %}.'
 redirect_from:
   - /articles/becoming-a-sponsored-developer
@@ -13,7 +13,7 @@ type: how_to
 topics:
   - User account
   - Sponsors profile
-shortTitle: Set up for personal account
+shortTitle: Configurar a conta pessoal
 ---
 
 ## Ingressar no {% data variables.product.prodname_sponsors %}
@@ -23,7 +23,7 @@ shortTitle: Set up for personal account
 Para aderir ao {% data variables.product.prodname_sponsors %} como organização, consulte "[Configurando o {% data variables.product.prodname_sponsors %} para sua organização](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-organization)."
 
 {% data reusables.sponsors.navigate-to-github-sponsors %}
-2. Se você é o proprietário de uma organização, você tem mais de uma conta elegível. Click **View your eligible accounts**, then in the list of accounts, find your personal account.
+2. Se você é o proprietário de uma organização, você tem mais de uma conta elegível. Clique em **Ver suas contas elegíveis**, depois na lista de contas, encontrar sua conta pessoal.
 3. Clique em **Join the waitlist ** (Entrar para a lista de espera).
 {% data reusables.sponsors.contact-info %}
 {% data reusables.sponsors.accept-legal-terms %}

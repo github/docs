@@ -1,17 +1,14 @@
----
 date: '2021-12-06'
 friendlyDate: 'December 6, 2021'
 title: 'December 6, 2021'
 currentWeek: false
 sections:
   features:
-    - 
-      heading: '管理'
+    - heading: 'Administration'
       notes:
         - |
           Customers with active or trial subscriptions for {% data variables.product.product_name %} can now provision {% data variables.product.product_name %} resources from the [Azure Portal](https://portal.azure.com/signin/index/). Your Azure subscription must be feature-flagged to access {% data variables.product.product_name %} resources in the portal. Contact your account manager or {% data variables.contact.contact_enterprise_sales %} to validate your Azure subscription's eligibility. For more information, see "[Setting up a trial of {% data variables.product.prodname_ghe_managed %}](/get-started/signing-up-for-github/setting-up-a-trial-of-github-ae#deploying-github-ae-with-the-azure-portal)."
-    - 
-      heading: 'GitHub Actions'
+    - heading: 'GitHub Actions'
       notes:
         - |
           [GitHub Actions](https://github.com/features/actions) is now generally available for {% data variables.product.product_name %}. GitHub Actions is a powerful, flexible solution for CI/CD and workflow automation. For more information, see "[Introduction to GitHub Actions](/actions/learn-github-actions/introduction-to-github-actions)."
@@ -31,33 +28,29 @@ sections:
         - |
           GitHub Actions now lets you control the permissions granted to the `GITHUB_TOKEN` secret. The `GITHUB_TOKEN` is an automatically generated secret that lets you make authenticated calls to the API for {% data variables.product.product_name %} in your workflow runs. GitHub Actions generates a new token for each job and expires the token when a job completes. The token has `write` permissions to a number of [API endpoints](/actions/reference/authentication-in-a-workflow#permissions-for-the-github_token) except in the case of pull requests from forks, which are always `read`. These new settings allow you to follow a principle of least privilege in your workflows. For more information, see "[Authentication in a workflow](/actions/reference/authentication-in-a-workflow#modifying-the-permissions-for-the-github_token)."
         - |
-          GitHub 操作现在支持通过在您的提交消息中寻找一些常见的关键字，以跳过 `push` 和 `pull_request` 工作流程。
+          GitHub Actions now supports skipping `push` and `pull_request` workflows by looking for some common keywords in your commit message.
         - |
           GitHub CLI 1.9 and later allows you to work with GitHub Actions in your terminal. For more information, see [{% data variables.product.prodname_blog %}](https://github.blog/changelog/2021-04-15-github-cli-1-9-enables-you-to-work-with-github-actions-from-your-terminal/).
-    - 
-      heading: '代码扫描'
+
+    - heading: 'Code scanning'
       notes:
         - |
           Code scanning is now in beta for {% data variables.product.product_name %}. For more information, see "[About code scanning](/code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning)."
-    - 
-      heading: '秘密扫描'
+    - heading: 'Secret scanning'
       notes:
         - |
           You can now specify your own patterns for secret scanning with the beta of custom patterns on {% data variables.product.product_name %}. You can specify patterns for repositories, organizations, and your entire enterprise. When you specify a new pattern, secret scanning searches a repository's entire Git history for the pattern, as well as any new commits. For more information, see "[Defining custom patterns for secret scanning](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)."
-    - 
-      heading: 'GitHub Connect'
+    - heading: 'GitHub Connect'
       notes:
         - |
           GitHub Connect is now available in beta for {% data variables.product.product_name %}. GitHub Connect brings the power of the world's largest open source community to {% data variables.product.product_location %}. You can allow users to view search results from {% data variables.product.prodname_dotcom_the_website %} on {% data variables.product.product_name %}, show contribution counts from {% data variables.product.product_name %} on {% data variables.product.prodname_dotcom_the_website %}, and use GitHub Actions from {% data variables.product.prodname_dotcom_the_website %}. For more information, see "[Managing connections between your enterprise accounts](/admin/configuration/managing-connections-between-your-enterprise-accounts)."
-    - 
-      heading: 'GitHub Packages'
+    - heading: 'GitHub Packages'
       notes:
         - |
           You can now delete any package or package version for GitHub Packages from {% data variables.product.product_name %}'s web UI. You can also undo the deletion of any package or package version within 30 days. For more information, see "[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package)."
         - |
           The npm registry for GitHub Packages and {% data variables.product.prodname_dotcom_the_website %} no longer returns a time value in metadata responses, providing substantial performance improvements. {% data variables.product.company_short %} will continue returning the time value in the future.
-    - 
-      heading: '审核日志'
+    - heading: 'Audit logging'
       notes:
         - |
           Events for pull requests and pull request reviews are now included in the audit log for both [enterprises](/admin/user-management/monitoring-activity-in-your-enterprise/audited-actions) and [organizations](/organizations/keeping-your-organization-secure/reviewing-the-audit-log-for-your-organization). These events help administrators better monitor pull request activity and ensure security and compliance requirements are being met. Events can be viewed from the web UI, exported as CSV or JSON, or accessed via REST API. You can also search the audit log for specific pull request events.
@@ -66,8 +59,7 @@ sections:
 
           - A workflow is deleted or re-run.
           - A self-hosted runner's version is updated.
-    - 
-      heading: '身份验证'
+    - heading: 'Authentication'
       notes:
         - |
           GitHub AE now officially supports Okta for SAML single sign-on (SSO) and user provisioning with SCIM. You can also map groups in Okta to teams on GitHub AE. For more information, see "[Configuring authentication and provisioning for your enterprise using Okta](/admin/authentication/configuring-authentication-and-provisioning-with-your-identity-provider/configuring-authentication-and-provisioning-for-your-enterprise-using-okta)" and "[Mapping Okta groups to teams](/admin/authentication/configuring-authentication-and-provisioning-with-your-identity-provider/mapping-okta-groups-to-teams)."
@@ -77,13 +69,11 @@ sections:
           You can now authenticate SSH connections to {% data variables.product.product_name %} using a FIDO2 security key by adding an `sk-ecdsa-sha2-nistp256@openssh.com` SSH key to your account. SSH security keys store secret key material on a separate hardware device that requires verification, such as a tap, to operate. Storing the key on separate hardware and requiring physical interaction for your SSH key offers additional security. Since the key is stored on hardware and is non-extractable, the key can't be read or stolen by software running on the computer. The physical interaction prevents unauthorized use of the key since the security key will not operate until you physically interact with it. For more information, see "[Generating a new SSH key and adding it to the ssh-agent](/github/authenticating-to-github/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#generating-a-new-ssh-key-for-a-hardware-security-key)."
         - |
           Git Credential Manager (GCM) Core versions 2.0.452 and later now provide secure credential storage and multi-factor authentication support for {% data variables.product.product_name %}. GCM Core with support for {% data variables.product.product_name %} is included with [Git for Windows](https://gitforwindows.org) versions 2.32 and later. GCM Core is not included with Git for macOS or Linux, but can be installed separately. For more information, see the [latest release](https://github.com/microsoft/Git-Credential-Manager-Core/releases/) and [installation instructions](https://github.com/microsoft/Git-Credential-Manager-Core/releases/) in the `microsoft/Git-Credential-Manager-Core` repository.
-    - 
-      heading: '通知'
+    - heading: 'Notifications'
       notes:
         - |
           You can now configure which events you would like to be notified about on {% data variables.product.product_name %}. From any repository, select the {% octicon "file-code" aria-label="The code icon" %} **Watch** drop-down, then click **Custom**. For more information, see "[Configuring notifications](/github/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications)."
-    - 
-      heading: '议题和拉取请求'
+    - heading: 'Issues and pull requests'
       notes:
         - |
           With the [latest version of Octicons](https://github.com/primer/octicons/releases), the states of issues and pull requests are now more visually distinct so you can scan status more easily. For more information, see [{% data variables.product.prodname_blog %}](https://github.blog/changelog/2021-06-08-new-issue-and-pull-request-state-icons/).
@@ -102,9 +92,9 @@ sections:
         - |
           People with maintain access can now manage the repository-level "Allow auto-merge" setting. This setting, which is off by default, controls whether auto-merge is available on pull requests in the repository. Previously, only people with admin access could manage this setting. Additionally, this setting can now by controlled using the "[Create a repository](/rest/reference/repos#create-an-organization-repository)" and "[Update a repository](/rest/reference/repos#update-a-repository)" REST APIs. For more information, see "[Managing auto-merge for pull requests in your repository](/github/administering-a-repository/configuring-pull-request-merges/managing-auto-merge-for-pull-requests-in-your-repository)."
         - |
-          针对议题和拉取请求的受理人选择现在支持提前键入搜索，以便您可以更快地在组织中查找用户。此外，搜索结果排名已更新为首选用户的用户名或个人资料名称开头的匹配项。
-    - 
-      heading: '仓库'
+          The assignees selection for issues and pull requests now supports type ahead searching so you can find users in your organization faster. Additionally, search result rankings have been updated to prefer matches at the start of a person's username or profile name.
+
+    - heading: 'Repositories'
       notes:
         - |
           When viewing the commit history for a file, you can now click {% octicon "file-code" aria-label="The code icon" %} to view the file at the specified time in the repository's history.
@@ -118,18 +108,15 @@ sections:
           When you define a submodule in {% data variables.product.product_location %} with a relative path, the submodule is now clickable in the web UI. Clicking the submodule in the web UI will take you to the linked repository. Previously, only submodules with absolute URLs were clickable. Relative paths for repositories with the same owner that follow the pattern <code>../<em>REPOSITORY</em></code> or relative paths for repositories with a different owner that follow the pattern <code>../<em>OWNER</em>/<em>REPOSITORY</em></code> are supported. For more information about working with submodules, see [Working with submodules](https://github.blog/2016-02-01-working-with-submodules/) on {% data variables.product.prodname_blog %}.
         - |
           By precomputing checksums, the amount of time a repository is under lock has reduced dramatically, allowing more write operations to succeed immediately and improving monorepo performance.
-    - 
-      heading: '版本发布'
+    - heading: 'Releases'
       notes:
         - |
           You can now react with emoji to all releases on {% data variables.product.product_name %}. For more information, see "[About releases](/github/administering-a-repository/releasing-projects-on-github/about-releases)."
-    - 
-      heading: '主题'
+    - heading: 'Themes'
       notes:
         - |
           Dark and dark dimmed themes are now available for the web UI. {% data variables.product.product_name %} will match your system preferences when you haven't set theme preferences in {% data variables.product.product_name %}. You can also customize the themes that are active during day and night. For more information, see "[Managing your theme settings](/github/setting-up-and-managing-your-github-user-account/managing-user-account-settings/managing-your-theme-settings)."
-    - 
-      heading: 'Markdown'
+    - heading: 'Markdown'
       notes:
         - |
           Markdown files in your repositories now automatically generate a table of contents in the header the file has two or more headings. The table of contents is interactive and links to the corresponding section. All six Markdown heading levels are supported. For more information, see "[About READMEs](/github/creating-cloning-and-archiving-repositories/creating-a-repository-on-github/about-readmes#auto-generated-table-of-contents-for-readme-files)."
@@ -139,13 +126,11 @@ sections:
           While editing Markdown in files, issues, pull requests, or comments, you can now use a keyboard shortcut to insert a code block. The keyboard shortcut is <kbd>command</kbd> + <kbd>E</kbd> on a Mac or <kbd>Ctrl</kbd> + <kbd>E</kbd> on other devices. For more information, see "[Basic writing and formatting syntax](/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#quoting-code)."
         - |
           You can append `?plain=1` to the URL for any Markdown file to display the file without rendering and with line numbers. You can use the plain view to link other users to specific lines. For example, appending `?plain=1#L52` will highlight line 52 of a plain text Markdown file. For more information, "[Creating a permanent link to a code snippet](/github/writing-on-github/working-with-advanced-formatting/creating-a-permanent-link-to-a-code-snippet#linking-to-markdown)."
-    - 
-      heading: 'GitHub 应用程序'
+    - heading: 'GitHub Apps'
       notes:
         - |
           API requests to create an installation access token now respect IP allow lists for an enterprise or organization. Any API requests made with an installation access token for a GitHub App installed on your organization already respect IP allow lists. This feature does not currently consider any Azure network security group (NSG) rules that {% data variables.product.company_short %} Support has configured for {% data variables.product.product_location %}. For more information, see "[Restricting network traffic to your enterprise](/admin/configuration/configuring-your-enterprise/restricting-network-traffic-to-your-enterprise#about-ip-allow-lists)," "[Managing allowed IP addresses for your organization](/organizations/keeping-your-organization-secure/managing-allowed-ip-addresses-for-your-organization)," and  "[Apps](https://docs.github.com/en/rest/reference/apps#create-an-installation-access-token-for-an-app)" in the REST API documentation.
-    - 
-      heading: 'Web 挂钩'
+    - heading: 'Webhooks'
       notes:
         - |
           You can now programmatically resend or check the status of webhooks through the REST API. For more information, see "[Repositories](https://docs.github.com/en/rest/reference/repos#webhooks)," "[Organizations](https://docs.github.com/en/rest/reference/orgs#webhooks)," and "[Apps](https://docs.github.com/en/rest/reference/apps#webhooks)" in the REST API documentation.

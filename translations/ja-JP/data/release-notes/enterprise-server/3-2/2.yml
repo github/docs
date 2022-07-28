@@ -2,18 +2,18 @@
 date: '2021-10-28'
 sections:
   security_fixes:
-    - 'It was possible for cleartext passwords to end up in certain log files.'
+    - '平文のパスワードが特定のログファイルに残る可能性がありました。'
     - 'いくつかの既知の弱いSSH公開鍵が拒否リストに追加され、登録できなくなりました。加えて、弱いSSHキーを生成することが知られているGitKrakenのバージョン（7.6.x、7.7.x、8.0.0）による新しい公開鍵の登録がブロックされました。'
     - 'パッケージは最新のセキュリティバージョンにアップデートされました。'
   bugs:
-    - 'Restore might fail for enterprise server in clustering mode if orchestrator is not healthily.'
-    - 'Codespaces links were displayed in organization settings.'
+    - 'orchestratorが正常でない場合、クラスタリングモードのEnterpriseサーバーのリストアが失敗することがあります。'
+    - 'CodespacesのリンクがOrganizationの設定に表示されました。'
     - '多くのOrganizationのオーナーであるユーザは、アプリケーションの一部を使用できませんでした。'
-    - 'Fixed a link to https://docs.github.com.'
+    - 'https://docs.github.comへのリンクを修正しました。'
   changes:
-    - 'Browsing and job performance optimizations for repositories with many refs.'
+    - '多くのrefを持つリポジトリのブラウズ及びジョブのパフォーマンス最適化。'
   known_issues:
-    - After saving a new release on a repository, the `/releases` page shows a 500 error. A fix for this issue is expected to ship in 3.2.3.
+    - リポジトリで新しいリリースを保存したあと、`/releases`ページが500エラーを表示しました。この問題の修正は、3.2.3で出荷される予定です。
     - 新しくセットアップされたユーザを持たない{% data variables.product.prodname_ghe_server %}で、攻撃者が最初の管理ユーザを作成できました。
     - アップグレードの過程で、カスタムのファイアウォールのルールが削除されます。
     - Git LFSが追跡するファイル[Webインターフェースからアップロードされたもの](https://github.com/blog/2105-upload-files-to-your-repositories)が、不正にリポジトリに直接追加されてしまいます。

@@ -15,14 +15,12 @@ miniTocMaxHeadingLevel: 3
 
 ## Monitoring your workflows
 
-{% if github-runner-dashboard %}
+{% ifversion github-runner-dashboard %}
 ### Monitoring your current jobs in your organization or enterprise
 
 {% data reusables.actions.github-hosted-runners-check-concurrency %}
 
 {% endif %}
-
-{% ifversion fpt or ghae or ghes > 3.0 or ghec %}
 
 ### 視覚化グラフの利用
 
@@ -31,8 +29,6 @@ miniTocMaxHeadingLevel: 3
    ![ワークフローグラフ](/assets/images/help/images/workflow-graph.png)
 
 For more information, see "[Using the visualization graph](/actions/monitoring-and-troubleshooting-workflows/using-the-visualization-graph)."
-
-{% endif %}
 
 ### ワークフローステータスバッジを追加する
 

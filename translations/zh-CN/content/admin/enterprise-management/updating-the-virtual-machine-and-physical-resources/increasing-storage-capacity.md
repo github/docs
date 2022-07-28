@@ -24,7 +24,7 @@ shortTitle: 增加存储容量
 
 {% note %}
 
-**注意：** 在调整任何存储卷的大小之前，请将您的实例置于维护模式。{% if ip-exception-list %} 您可以通过配置 IP 例外列表以允许从指定的 IP 地址进行访问来验证更改。 {% endif %} 更多信息请参阅“[启用和计划维护模式](/enterprise/{{ currentVersion }}/admin/guides/installation/enabling-and-scheduling-maintenance-mode)”。
+**注意：** 在调整任何存储卷的大小之前，请将您的实例置于维护模式。{% ifversion ip-exception-list %} 您可以通过配置 IP 例外列表以允许从指定的 IP 地址进行访问来验证更改。 {% endif %} 更多信息请参阅“[启用和计划维护模式](/enterprise/admin/guides/installation/enabling-and-scheduling-maintenance-mode)”。
 
 {% endnote %}
 
@@ -36,7 +36,7 @@ shortTitle: 增加存储容量
 
 1. 使用虚拟平台工具调整现有用户卷磁盘大小。
 {% data reusables.enterprise_installation.ssh-into-instance %}
-3. 将设备置于维护模式。 更多信息请参阅“[启用和排定维护模式](/enterprise/{{ currentVersion }}/admin/guides/installation/enabling-and-scheduling-maintenance-mode)”。
+3. 将设备置于维护模式。 更多信息请参阅“[启用和排定维护模式](/enterprise/admin/guides/installation/enabling-and-scheduling-maintenance-mode)”。
 4. 重启设备，以检测新存储分配。
   ```shell
   $ sudo reboot
@@ -48,7 +48,7 @@ shortTitle: 增加存储容量
 
 ## 使用新设备增加根分区大小
 
-1. 使用版本与当前设备相同的较大根磁盘来设置新的 {% data variables.product.prodname_ghe_server %} 实例。 更多信息请参阅“[设置 {% data variables.product.prodname_ghe_server %} 实例](/enterprise/{{ currentVersion }}/admin/guides/installation/setting-up-a-github-enterprise-server-instance)”。
+1. 使用版本与当前设备相同的较大根磁盘来设置新的 {% data variables.product.prodname_ghe_server %} 实例。 更多信息请参阅“[设置 {% data variables.product.prodname_ghe_server %} 实例](/enterprise/admin/guides/installation/setting-up-a-github-enterprise-server-instance)”。
 2. 关闭当前设备：
   ```shell
   $ sudo poweroff
@@ -60,12 +60,13 @@ shortTitle: 增加存储容量
 
 {% warning %}
 
-**警告：** 在增加根分区大小之前，您必须将您的实例置于维护模式。 更多信息请参阅“[启用和排定维护模式](/enterprise/{{ currentVersion }}/admin/guides/installation/enabling-and-scheduling-maintenance-mode)”。
+**警告：** 在增加根分区大小之前，您必须将您的实例置于维护模式。 更多信息请参阅“[启用和排定维护模式](/enterprise/admin/guides/installation/enabling-and-scheduling-maintenance-mode)”。
 
 {% endwarning %}
 
 1. 将新磁盘连接到 {% data variables.product.prodname_ghe_server %} 设备。
-1. 运行 `parted` 命令，将磁盘格式化：
+1. 运行 `lsblk` 命令以标识新磁盘的设备名称。
+1. 运行 `parted` 命令格式化磁盘，将设备名称替换为 `/dev/xvdg`：
   ```shell
   $ sudo parted /dev/xvdg mklabel msdos
   $ sudo parted /dev/xvdg mkpart primary ext4 0% 50%

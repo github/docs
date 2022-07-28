@@ -1,6 +1,6 @@
 ---
-title: One-time payments for customers in India
-intro: Customers in India who have been impacted by the Reserve Bank of India's recurring payment regulation can now make one-time payments for their GitHub subscriptions and services.
+title: Pagos de una sola exhibición para los clientes de la India
+intro: Los clientes de la India que se han visto impactados por la regulación de pagos recurrentes del Banco de Reserva de la India ahora pueden hacer pagos únicos para sus suscripciones y servicios de GitHub.
 redirect_from:
   - /early-access/billing/india-rbi-regulation
 versions:
@@ -10,57 +10,57 @@ topics:
   - Billing
   - Sponsors
   - Policy
-shortTitle: India one-time payments
+shortTitle: Pagos únicos en la India
 ---
 
 
-## About the Reserve Bank of India's recurring payments regulation
+## Acerca de la regulación de pagos recurrentes del Banco de Reserva de la India
 
-A new payments regulation from the Reserve Bank of India (RBI) recently came into effect. This regulation places additional requirements on recurring online transactions and has prevented some {% data variables.product.company_short %} customers in India from making recurring payments. Customers using payment methods issued in India for any recurring transactions on {% data variables.product.product_name %} may find that their payments are declined by their banks or card issuers. For more information, see [the RBI's press release](https://www.rbi.org.in/Scripts/BS_PressReleaseDisplay.aspx?prid=51353).
+Recientemente, entró en vigor una regulación nueva para los pagos en el Banco de Reserva de la India (RBI, por sus siglas en inglés). Esta regulación coloca requisitos adicionales en las transacciones recurrentes en línea e impidió que algunos clientes de {% data variables.product.company_short %} en este país hicieran pagos recurrentes. Los clientes que utilizan métodos de pago emitidos en la India para cualquier transacción de {% data variables.product.product_name %} podrían notar que los bancos o emisores de tarjetas rechazan dichos pagos. Para obtener más información, consulta el [comunicado de prensa del RBI](https://www.rbi.org.in/Scripts/BS_PressReleaseDisplay.aspx?prid=51353).
 
-The regulation applies to all recurring transactions, including:
-- {% data variables.product.prodname_dotcom %} plan subscriptions (Pro, Team, Enterprise)
-- {% data variables.product.prodname_marketplace %} purchases
-- {% data variables.product.prodname_sponsors %} transactions
-- Git Large File Storage purchases
-- {% data variables.product.prodname_actions %}, {% data variables.product.prodname_registry %}, and {% data variables.product.prodname_codespaces %} consumption
+La regulación aplica a todas las transacciones recurrentes, incluyendo:
+- Las suscripciones de plan de {% data variables.product.prodname_dotcom %} (Pro, Team, Enterprise)
+- Las compras de {% data variables.product.prodname_marketplace %}
+- Las transacciones de {% data variables.product.prodname_sponsors %}
+- Compras de Almacenamiento de Archivos Grandes de Git
+- Consumo de {% data variables.product.prodname_actions %}, {% data variables.product.prodname_registry %} y {% data variables.product.prodname_github_codespaces %}
 
-In order to minimize disruption, recurring payments for our affected customers were paused on October 29th, 2021. Paid features and services have remained available to customers impacted by the RBI regulation.
+Para minimizar la interrupción, se pausaron los pagos recurrentes de nuestros clientes afectados el 29 de octubre de 2021. Las características y servicios de pago se han mantenido disponibles para los clientes a los que impactó la regulación del RBI.
 
-## About one-time payments on {% data variables.product.company_short %}
+## Acerca de los pagos únicos en {% data variables.product.company_short %}
 
-As we work with our payment gateway provider to meet the new requirements, we are providing a temporary one-time payment option for impacted customers in India. From February 15th 2022, {% data variables.product.company_short %} customers in India who have been affected by the new RBI regulation will be able to make one-time payments on their regular billing cycle cadence.
+Conforme trabajamos con nuestro proveedor de puerta de enlace de pagos para que cumpla con los nuevos requisitos, estamos proporcionando una opción de pagos únicos temporal para los clientes impactados de la India. Desde el 15 de febrero de 2022, los clientes de {% data variables.product.company_short %} en la India, quienes se hayan visto afectados con la regulación nueva del RBI, podrán hacer pagos únicos en su frecuencia de ciclo de facturación normal.
 
-### For customers on monthly billing
+### Para los clientes con facturación mensual
 
-Customers on monthly billing plans will be able to make a one-time payment on the same day their billing cycle usually renews. For example, if you're usually billed on the 7th of each month, you will now be able to make a one-time payment from your account from the 7th of each month. Your first one-time payment will also include any accrued usage from October 2021 onwards.
+Los clientes con planes de facturación mensual podrán hacer pagos únicos en el mismo día en el que su ciclo de facturación se renueva habitualmente. Por ejemplo, si se te factura habitualmente en el día 7 de cada mes, ahora podrás hacer un pago único desde tu cuenta el día 7 de cada mes. Tu primer pago de una sola ocasión también incluirá cualquier uso acumulado desde octubre de 2021 en adelante.
 
-If you are currently billed monthly, and would like to switch to yearly billing, you can reduce the frequency of your one-time payments. For more information, see "[Changing the duration of your billing cycle](/en/billing/managing-your-github-billing-settings/changing-the-duration-of-your-billing-cycle)."
+Si actualmente se te cobra por mes y te gustaría cambiar a una facturación anual, puedes reducir la frecuencia de tus pagos de una sola ocasión. Para obtener más información, consulta la sección "[Cambiar la duración de tu ciclo de facturación](/en/billing/managing-your-github-billing-settings/changing-the-duration-of-your-billing-cycle)".
 
-### For customers on yearly billing
+### Para los clientes en facturación anual
 
-If you are billed yearly, and your renewal date was between October 1st, 2021 and February 14th, 2022, you will be able to make a one-time payment for your annual subscriptions from February 15th. This initial payment will include the prorated outstanding cost of your subscription for the period since your previous billing cycle ended.
+Si se te cobra anualmente y tu fecha de renovación fue entre el 1 de octubre de 2021 y el 14 de febrero de 2022, podrás hacer pagos de una sola ocasión para tus suscripciones anuales desde el 15 de febrero. Este pago inicial incluirá el costo pendiente prorrateado de tu suscripción para el periodo desde que haya terminado tu ciclo de facturación anterior.
 
-If your billing cycle is due to renew after February 15th, we will attempt to take the recurring payment. If the payment attempt is declined, you will then be able to make a one-time payment through your account's billing page.
+Si tu ciclo de facturación debe renovarse después del 15 de febrero, intentaremos tomar el pago recurrente. Si se rechaza el intento de pago, entonces podrás hacer un pago de una sola ocasión a través de la página de facturación de tu cuenta.
 
-In the meantime, we are actively working with our payment partners to restore recurring payments for impacted customers. For more information or questions, you can contact [GitHub Support](https://support.github.com/contact).
+Mientras tanto, estaremos trabajando activamente con nuestros socios de pago para restablecer los pagos recurrentes para los clientes impactados. Para obtener más información o hacer preguntas, puedes contactar a [GitHub Support](https://support.github.com/contact).
 
-### Impact to {% data variables.product.prodname_sponsors %}
+### Impacto a {% data variables.product.prodname_sponsors %}
 
-Existing sponsorships will remain in place during this period and maintainers will continue to be paid out as expected. Payments for the accrued sponsorship amounts from the funding account will be collected at the same time as other accrued charges.
+Los patrocinios existentes permanecerán en su lugar durante este periodo y se les seguirá pagando a los mantenedores conforme se esperaba. Los pagos para las cantidades de patrocinio acumuladas desde la cuenta financiadora se recolectarán al mismo tiempo que el resto de los cargos acumulados.
 
-## Making a one-time payment for a GitHub subscription
+## Realizar un pago de una sola vez para una suscripción de GitHub
 
 {% note %}
 
-**Note**: Affected customers will receive an email notification with a link to their billing settings when payment is due. Two further reminder emails will be sent 7 and 14 days later if payment has not been made. After 14 days, paid features and services will be locked until payment is made.
+**Nota**: Los clientes afectados recibirán una notificación por correo electrónico con un enlace a sus ajustes de facturación cuando venza el pago. Se enviarán dos correos electrónicos de recordatorio adicionales a los 7 y 14 días posteriores de que no se haya realizado el pago. Después de 14 días, las características y servicios de pago se bloquearán hasta que se realice el pago.
 
 {% endnote %}
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.billing_plans %}
-3. At the top of the page, click **Pay now**. ![One-time payment pay now button](/assets/images/help/billing/pay-now-button.png)
-4. Review your billing and payment information. If you need to make an edit, click **Edit** next to the relevant section. Otherwise, click **Submit payment**. ![One-time payment summary](/assets/images/help/billing/payment-summary.png)
-5. Optionally, if you clicked **Edit**, make any necessary changes, and then click **Submit payment**. ![One-time payment edit summary](/assets/images/help/billing/payment-summary-edit.png)
-6. Once payment for the current billing cycle has been successfully made, the **Pay now** button on your "Billing & plans" page will be disabled until your next payment is due. ![One-time payment pay now button disabled](/assets/images/help/billing/pay-now-button-disabled.png)
+3. En la parte superior de la página, haz clic en **Pagar ahora**. ![Botón "pagar ahora" para el pago de única ocasión](/assets/images/help/billing/pay-now-button.png)
+4. Revisa tu información de pago y facturación. Si necesitas editar algo, haz clic en **Editar** junto a la sección relevante. De lo contrario, haz clic en **Enviar pago**. ![Resumen de pago de única ocasión](/assets/images/help/billing/payment-summary.png)
+5. Opcionalmente, si hiciste clic en **Editar**, haz cualquier cambio necesario y luego haz clic en **Enviar pago**. ![Resumen de ediciones de pagos de única ocasión](/assets/images/help/billing/payment-summary-edit.png)
+6. Una vez que se haya realizado con éxito el pago del ciclo de facturación actual, el botón de **Pagar ahora** en tu página de "Facturación & planes" se inhabilitará hasta que venza el siguiente pago. ![Botón de "hacer pago de una sola ocasión" inhabilitado](/assets/images/help/billing/pay-now-button-disabled.png)
   

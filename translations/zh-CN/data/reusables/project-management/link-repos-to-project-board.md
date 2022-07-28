@@ -1,1 +1,1 @@
-最多可以将 25 个仓库链接到组织或用户拥有的项目板。 链接仓库后，添加问题和拉取请求更容易，可以使用**{% octicon "plus" aria-label="The Plus icon" %} 添加卡**或者从议题或拉取请求侧边栏 添加。
+You can link up to twenty-five repositories to your organization or user-owned {% data variables.projects.projects_v1_board %}. Linking repositories makes it easier to add issues and pull requests from those repositories to your {% data variables.projects.projects_v1_board %} using **{% octicon "plus" aria-label="The Plus icon" %} Add cards** or from the issue or pull requests sidebar.

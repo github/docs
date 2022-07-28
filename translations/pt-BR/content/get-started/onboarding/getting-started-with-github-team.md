@@ -87,7 +87,7 @@ Você pode ajudar a tornar sua organização mais segura ao recomendar ou exigir
 Você pode ler a documentação que reflete as funcionalidades disponíveis com {% data variables.product.prodname_team %}. Para obter mais informações, consulte "[Sobre as versões do {% data variables.product.prodname_docs %}](/get-started/learning-about-github/about-versions-of-github-docs)."
 
 ### 4. Aprendendo com {% data variables.product.prodname_learning %}
-{% data reusables.getting-started.learning-lab %}
+{% data reusables.getting-started.learning %}
 
 ### 5. Apoiar a comunidade de código aberto
 {% data reusables.getting-started.sponsors %}

@@ -31,7 +31,7 @@ Você pode preencher o cache da ferramenta do executor, executando um fluxo de t
 
 {% note %}
 
-**Observação:** Você só pode usar um cache de ferramenta do executor hospedado em {% data variables.product.prodname_dotcom %} para um executor auto-hospedado que possua um sistema operacional e arquitetura idênticos. Por exemplo, se você estiver usando uma `ubuntu-18. 4` do executor hospedado em {% data variables.product.prodname_dotcom %} para gerar um cache de ferramentas, seu executor auto-hospedado deverá ser uma máquina Ubuntu 18.04 de 64 bits. Para mais informações sobre executores hospedados no {% data variables.product.prodname_dotcom %}, consulte "<a href="/actions/reference/virtual-environments-for-github-hosted-runners#supported-runners-and-hardware-resources" class="dotcom-only">Ambientes virtuais para executores hospedados no GitHub</a>".
+**Observação:** Você só pode usar um cache de ferramenta do executor hospedado em {% data variables.product.prodname_dotcom %} para um executor auto-hospedado que possua um sistema operacional e arquitetura idênticos. Por exemplo, se você estiver usando uma `ubuntu-18. 4` do executor hospedado em {% data variables.product.prodname_dotcom %} para gerar um cache de ferramentas, seu executor auto-hospedado deverá ser uma máquina Ubuntu 18.04 de 64 bits. Para mais informações sobre executores hospedados no {% data variables.product.prodname_dotcom %}, consulte "[Ambientes virtuais para executores hospedados no GitHub](/free-pro-team@latest/actions/using-github-hosted-runners/about-github-hosted-runners#supported-runners-and-hardware-resources)".
 
 {% endnote %}
 

@@ -300,7 +300,7 @@ Contents of quickstarts:
   - In an ideal world, the guidance provided in a quick start will always work. If it exists, link out to any relevant troubleshooting content rather than including it in the document.
 - Next steps
   - Provide a quick recap of what has been accomplished in the quick start as a means of transitioning to next steps.
-  - Include 2-3 actionable next steps that the user take after completing the quickstart. Always link to conceptual content on the feature or product. You can also link off to other related information on docs.github.com or in GitHub Learning Labs.
+  - Include 2-3 actionable next steps that the user take after completing the quickstart. Always link to conceptual content on the feature or product. You can also link off to other related information on docs.github.com or in GitHub Skills.
 
 #### Title guidelines for quickstarts
 - When the guide helps someone get started with a new tool, preface the title with "Quickstart", e.g. "Quickstart for GitHub Actions" or "Quickstart: Procedural title"
@@ -343,7 +343,7 @@ Contents of tutorials:
   - Include 2-3 actionable next steps that the user take after completing the tutorial. Link off to other related information like:
     - Projects on GitHub that illustrate the introduced concepts
     - Relevant information on docs.github.com
-    - Relevant GitHub Learning Labs
+    - Relevant GitHub Skills
     - Relevant published talks, blog posts, or Community Forum series posts by Hubbers
 
 #### Title guidelines for tutorials

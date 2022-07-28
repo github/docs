@@ -17,28 +17,6 @@ const serializeTheme = (theme) => {
 describe('in-memory render caching', () => {
   jest.setTimeout(30 * 1000)
 
-  test('second render should be a cache hit with different csrf-token', async () => {
-    const res = await get('/en')
-    // Because these are effectively end-to-end tests, you can't expect
-    // the first request to be a cache miss because another end-to-end
-    // test might have "warmed up" this endpoint.
-    expect(res.headers['x-middleware-cache']).toBeTruthy()
-    const $1 = cheerio.load(res.text)
-    const res2 = await get('/en')
-    expect(res2.headers['x-middleware-cache']).toBe('hit')
-    const $2 = cheerio.load(res2.text)
-    const csrfTokenHTML1 = $1('meta[name="csrf-token"]').attr('content')
-    const csrfTokenHTML2 = $2('meta[name="csrf-token"]').attr('content')
-    expect(csrfTokenHTML1).not.toBe(csrfTokenHTML2)
-    // The HTML is one thing, we also need to check that the
-    // __NEXT_DATA__ serialized (JSON) state is different.
-    const csrfTokenNEXT1 = getNextData($1).props.csrfToken
-    const csrfTokenNEXT2 = getNextData($2).props.csrfToken
-    expect(csrfTokenHTML1).toBe(csrfTokenNEXT1)
-    expect(csrfTokenHTML2).toBe(csrfTokenNEXT2)
-    expect(csrfTokenNEXT1).not.toBe(csrfTokenNEXT2)
-  })
-
   test('second render should be a cache hit with different dotcom-auth', async () => {
     // Anonymous first
     const res = await get('/en')

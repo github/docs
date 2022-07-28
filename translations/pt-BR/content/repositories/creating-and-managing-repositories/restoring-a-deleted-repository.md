@@ -1,6 +1,7 @@
 ---
 title: Restaurar um repositório excluído
-intro: Você pode restaurar alguns repositórios excluídos para recuperar o respectivo conteúdo.
+intro: '{% ifversion ghes or ghae %}O proprietário de uma empresa{% elsif fpt or ghec %}Você{% endif %} pode restaurar alguns repositórios excluídos para recuperar seu conteúdo.'
+permissions: '{% ifversion ghes or ghae %}{% elsif fpt or ghec %}Anyone can restore deleted repositories that were owned by their own personal account. Organization owners can restore deleted repositories that were owned by the organization.{% endif %}'
 redirect_from:
   - /articles/restoring-a-deleted-repository
   - /github/administering-a-repository/restoring-a-deleted-repository
@@ -15,12 +16,15 @@ topics:
 shortTitle: Restaurar repositório excluído
 ---
 
-{% ifversion fpt or ghec %}
-Qualquer pessoa pode restaurar repositórios excluídos que pertenciam à própria conta pessoal. Os proprietários da organização podem restaurar repositórios excluídos que pertenciam à organização.
+{% ifversion ghes or ghae %}
+
+Normalmente, os repositórios excluídos podem ser restaurados dentro de 90 dias pelo proprietário da empresa{% ifversion ghes %} em {% data variables.product.product_location %}{% endif %}. Para obter mais informações, consulte "[Restaurar um repositório excluído](/admin/user-management/managing-repositories-in-your-enterprise/restoring-a-deleted-repository)".
+
+{% else %}
 
 ## Sobre a restauração do repositório
 
-Um repositório excluído pode ser restaurado em {% ifversion fpt or ghec or ghes > 3.4 %}30{% else %}90{% endif %} dias, a menos que o repositório faça parte de uma rede de bifurcação que atualmente não está vazia. Uma rede de bifurcação consiste em um repositório principal, nas bifurcações do repositório e nas bifurcações das bifurcações do repositório. Se o repositório fazia parte de uma rede de bifurcação, ele não poderá ser restaurado, a menos que todos os outros repositórios na rede sejam excluídos ou tenham sido desanexados da rede. Para obter mais informações sobre bifurcações, consulte "[Sobre bifurcações](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks)".
+Um repositório excluído pode ser restaurado em até 90 dias, a menos que ele fizesse parte de uma rede de bifurcação que atualmente não está vazia. Uma rede de bifurcação consiste em um repositório principal, nas bifurcações do repositório e nas bifurcações das bifurcações do repositório. Se o repositório fazia parte de uma rede de bifurcação, ele não poderá ser restaurado, a menos que todos os outros repositórios na rede sejam excluídos ou tenham sido desanexados da rede. Para obter mais informações sobre bifurcações, consulte "[Sobre bifurcações](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks)".
 
 Se desejar restaurar um repositório que fazia parte de uma rede de bifurcação que atualmente não está vazia, contate o {% data variables.contact.contact_support %}.
 
@@ -49,6 +53,4 @@ Restaurar um repositório não vai restaurar anexos de versão nem permissões d
 
 - "[Excluir um repositório](/articles/deleting-a-repository)"
 
-{% else %}
-Normalmente, repositórios excluídos podem ser restaurados dentro de 90 dias por um administrador do site {% data variables.product.prodname_enterprise %}. Para obter mais informações, consulte "[Restaurar um repositório excluído](/admin/user-management/managing-repositories-in-your-enterprise/restoring-a-deleted-repository)".
 {% endif %}

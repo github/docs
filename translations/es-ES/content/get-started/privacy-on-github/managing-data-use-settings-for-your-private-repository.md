@@ -17,9 +17,9 @@ shortTitle: Administrar el uso de datos para un repositorio privado
 ## Acerca del uso de datos para tu repositorio privado
 
 
-You can control data use for your private repository with the security and analysis features.
+Puedes controlar el uso de datos de tu repositorio privado con las características de seguridad y análisis.
 
-- Enable the dependency graph to allow read-only data analysis on your repository.
+- Habilita la gráfica de dependencias para permitir un análisis de datos de solo lectura en tu repositorio.
 - Inhabilita la gráfica de dependencias para bloquear el análisis de datos de solo lectura de tu repositorio.
 
 Cuando habilitas el uso de datos para tu repositorio privado, podrás acceder a la gráfica de dependencias, en donde puedes rastrear las dependencias de tus repositorios y recibir las {% data variables.product.prodname_dependabot_alerts %} cuando {% data variables.product.product_name %} detecte las dependencias vulnerables. Para obtener más información, consulta la sección "[Acerca de las {% data variables.product.prodname_dependabot_alerts %}](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies#dependabot-alerts-for-vulnerable-dependencies)".
@@ -44,5 +44,5 @@ Cuando habilitas el uso de datos para tu repositorio privado, podrás acceder a 
 ## Leer más
 
 - "[Acerca del uso de tus datos de {% data variables.product.prodname_dotcom %}](/articles/about-github-s-use-of-your-data)"
-- "[Visualizar las {% data variables.product.prodname_dependabot_alerts %} para las dependencias vulnerables](/github/managing-security-vulnerabilities/viewing-and-updating-vulnerable-dependencies-in-your-repository)"
+- "[Ver y actualizar las {% data variables.product.prodname_dependabot_alerts %}](/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts)"
 - "[Administrar la configuración de seguridad y de análisis para tu organización](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository)"

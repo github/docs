@@ -18,23 +18,27 @@ const HEADER_VALUE_TRANSFERRING = 'transferring'
 
 const DISABLE_RENDERING_CACHE = Boolean(JSON.parse(process.env.DISABLE_RENDERING_CACHE || 'false'))
 
+// NOTE: Apr 20, when storing about 200 cheerio instances, the total
+// heap size becomes about 2.3GB.
+const CHEERIO_CACHE_MAXSIZE = parseInt(process.env.CHEERIO_CACHE_MAXSIZE || 100, 10)
+
+const GZIP_CACHE_MAXSIZE = parseInt(process.env.GZIP_CACHE_MAXSIZE || 1000, 10)
+
 const cheerioCache = new QuickLRU({
-  // NOTE: Apr 20, when storing about 200 cheerio instances, the total
-  // heap size becomes about 2.3GB.
-  maxSize: 100,
+  maxSize: CHEERIO_CACHE_MAXSIZE,
   // Don't use arrow function so we can access `this`.
   onEviction: function onEviction() {
     const { heapUsed } = process.memoryUsage()
-    statsd.gauge('rendering_cache_cheerio', heapUsed, [`size:${this.size}`])
+    statsd.gauge('middleware.rendering_cache_cheerio', heapUsed, [`size:${this.size}`])
   },
 })
 
 const gzipCache = new QuickLRU({
-  maxSize: 1000,
+  maxSize: GZIP_CACHE_MAXSIZE,
   // Don't use arrow function so we can access `this`.
   onEviction: function onEviction() {
     const { heapUsed } = process.memoryUsage()
-    statsd.gauge('rendering_cache_gzip', heapUsed, [`size:${gzipCache.size}`])
+    statsd.gauge('middleware.rendering_cache_gzip', heapUsed, [`size:${gzipCache.size}`])
   },
 })
 
@@ -83,6 +87,11 @@ export default async function cacheFullRendering(req, res, next) {
   } else {
     const originalEndFunc = res.end.bind(res)
     res.end = function (body) {
+      // Can end the response to the user now
+      originalEndFunc(body)
+
+      // After the response has been sent back to the user,
+      // take our time to store this in the cache.
       if (body && res.statusCode === 200) {
         // It's important to note that we only cache the HTML outputs.
         // Why, because JSON outputs should be cached in the CDN.
@@ -90,7 +99,10 @@ export default async function cacheFullRendering(req, res, next) {
         // and the NextJS data requests. These are not dependent on the
         // request cookie, so they're primed for caching in the CDN.
         const ct = res.get('content-type')
-        if (ct.startsWith('text/html')) {
+        // We also don't want to bother caching this if it doesn't
+        // appear to be a NextJS HTML output with
+        // its `<script id="__NEXT_DATA__">` tag.
+        if (ct.startsWith('text/html') && body.includes('__NEXT_DATA__')) {
           const $ = cheerio.load(body)
           const headers = res.getHeaders()
           cheerioCache.set(key, [$, headers])
@@ -100,7 +112,6 @@ export default async function cacheFullRendering(req, res, next) {
         // If it's not HTML or JSON, it's probably an image (binary)
         // or some plain text. Let's ignore all of those.
       }
-      return originalEndFunc(body)
     }
   }
 
@@ -116,10 +127,6 @@ function setHeaders(headers, res) {
 }
 
 function mutateCheeriobodyByRequest($, req) {
-  // A fresh CSRF token into the <meta> tag
-  const freshCsrfToken = req.csrfToken()
-  $('meta[name="csrf-token"]').attr('content', freshCsrfToken)
-
   // Populate if you have the `dotcom_user` user cookie and it's truthy
   const isDotComAuthenticated = Boolean(req.cookies?.dotcom_user)
 
@@ -142,7 +149,6 @@ function mutateCheeriobodyByRequest($, req) {
   // See https://github.com/cheeriojs/cheerio/releases/tag/v1.0.0-rc.11
   // and https://github.com/cheeriojs/cheerio/pull/2509
   const parsedNextData = JSON.parse(nextData.get()[0].children[0].data)
-  parsedNextData.props.csrfToken = freshCsrfToken
   parsedNextData.props.dotComAuthenticatedContext.isDotComAuthenticated = isDotComAuthenticated
   parsedNextData.props.languagesContext.userLanguage = req.context.userLanguage
   parsedNextData.props.themeProps = {

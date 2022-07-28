@@ -17,7 +17,7 @@ shortTitle: Enterprise Server 试用版
 
 ## 关于 {% data variables.product.prodname_ghe_server %} 试用版
 
-您可以申请 45 天试用版来试用 {% data variables.product.prodname_ghe_server %}。 您的试用版将作为虚拟设备安装，带有内部或云部署选项。 有关支持的可视化平台列表，请参阅“[设置 GitHub Enterprise Server 实例](/enterprise-server@latest/admin/installation/setting-up-a-github-enterprise-server-instance)”。
+您可以申请 45 天试用版来试用 {% data variables.product.prodname_ghe_server %}。 您的试用版将作为虚拟设备安装，带有内部或云部署选项。 有关 {% data variables.product.prodname_ghe_server %} 的详细信息以及受支持的虚拟化平台的列表，请参阅“[关于 {% data variables.product.prodname_ghe_server %}](/enterprise-server/admin/overview/about-github-enterprise-server)”。
 
 {% ifversion ghes %}{% data variables.product.prodname_dependabot %}{% else %}安全{% endif %}警报和 {% data variables.product.prodname_github_connect %} 目前在 {% data variables.product.prodname_ghe_server %} 试用版中不可用。 要获取这些功能的演示，请联系 {% data variables.contact.contact_enterprise_sales %}。 有关这些功能的详细信息，请参阅“[关于 {% data variables.product.prodname_dependabot_alerts %}](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)”和“[将企业帐户连接到 {% data variables.product.prodname_ghe_cloud %}](/enterprise-server@latest/admin/configuration/managing-connections-between-your-enterprise-accounts/connecting-your-enterprise-account-to-github-enterprise-cloud)”。
 
@@ -39,7 +39,7 @@ shortTitle: Enterprise Server 试用版
 
 1. [创建一个组织](/enterprise-server@latest/admin/user-management/creating-organizations)。
 2. 要了解使用 {% data variables.product.prodname_dotcom %} 的基础知识，请参阅：
-   - [{% data variables.product.prodname_dotcom %} 快速入门指南](https://resources.github.com/webcasts/Quick-start-guide-to-GitHub/)网络直播
+   - [ {% data variables.product.prodname_dotcom %}](https://resources.github.com/devops/methodology/maximizing-devops-roi/) 网络广播简介
    - {% data variables.product.prodname_dotcom %} 指南中的[了解 {% data variables.product.prodname_dotcom %} 流程](https://guides.github.com/introduction/flow/)
    - {% data variables.product.prodname_dotcom %} 指南中的 [Hello World](https://guides.github.com/activities/hello-world/)
    - "[关于 {% data variables.product.prodname_docs %} 的版本](/get-started/learning-about-github/about-versions-of-github-docs)"

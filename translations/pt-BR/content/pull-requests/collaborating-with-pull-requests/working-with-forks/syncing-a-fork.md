@@ -6,6 +6,11 @@ redirect_from:
   - /articles/syncing-a-fork
   - /github/collaborating-with-issues-and-pull-requests/syncing-a-fork
   - /github/collaborating-with-pull-requests/working-with-forks/syncing-a-fork
+  - /pull-requests/collaborating-with-pull-requests/working-with-forks/merging-an-upstream-repository-into-your-fork
+  - /github/collaborating-with-issues-and-pull-requests/working-with-forks/merging-an-upstream-repository-into-your-fork
+  - /articles/merging-an-upstream-repository-into-your-fork
+  - /github/collaborating-with-issues-and-pull-requests/merging-an-upstream-repository-into-your-fork
+  - /github/collaborating-with-pull-requests/working-with-forks/merging-an-upstream-repository-into-your-fork
 versions:
   fpt: '*'
   ghes: '*'
@@ -16,9 +21,7 @@ topics:
 permissions: People with write access for a forked repository can sync the fork to the upstream repository.
 ---
 
-{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
-
-## Sincronizando uma bifurcação a partir da interface de usuário da web
+## Sincronizando o branch de uma bifurcação a partir da interface de usuário web
 
 1. Em {% data variables.product.product_name %}, acesse a página principal do repositório bifurcado que você deseja sincronizar com o repositório upstream.
 2. Selecione o menu suspenso **Buscar a upstream**. ![Menu suspenso "Buscar upstream"](/assets/images/help/repository/fetch-upstream-drop-down.png)
@@ -26,21 +29,20 @@ permissions: People with write access for a forked repository can sync the fork 
 
 Se as alterações do repositório a upstream gerarem conflitos, {% data variables.product.company_short %} solicitará a criação de um pull request para resolver os conflitos.
 
-## Sincronizando uma bifurcação com {% data variables.product.prodname_cli %}
+## Sincronizando o branch de uma bifurcação com {% data variables.product.prodname_cli %}
 
 {% data reusables.cli.about-cli %} Para saber mais sobre {% data variables.product.prodname_cli %}, consulte "[Sobre {% data variables.product.prodname_cli %}](/github-cli/github-cli/about-github-cli)."
 
-Para atualizar a bifurcação remota a partir da bifurcação principal, use o subcomando `repo gh sync` e forneça o nome da sua bifurcação como argumento.
+Para atualizar a bifurcação remota a partir do seu principal, use o subcomando `gh repo sync -b BRANCHNAME` e forneça seu nome de bifurcação e do branch como argumentos.
 
 ```shell
-$ gh repo sync owner/cli-fork
+$ gh repo sync owner/cli-fork -b BRANCHNAME
 ```
 
 Se as alterações do repositório upstream causarem conflitos, o {% data variables.product.prodname_cli %} não poderá sincronizar. Você pode definir o sinalizador `-force` para substituir o branch de destino.
 
-## Sincronizando uma bifurcação a partir da linha de comando
+## Sincronizando o branch de uma bifurcação a partir da linha de comando
 
-{% endif %}
 Antes de poder sincronizar a sua bifurcação com um repositório upstream, é necessário [configurar um controle remoto que aponte para o repositório upstream](/pull-requests/collaborating-with-pull-requests/working-with-forks/configuring-a-remote-for-a-fork) no Git.
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
@@ -75,7 +77,9 @@ Antes de poder sincronizar a sua bifurcação com um repositório upstream, é n
   >  2 files changed, 7 insertions(+), 9 deletions(-)
   >  delete mode 100644 README
   >  create mode 100644 README.md
-  ``` If your local branch didn't have any unique commits, Git will instead perform a "fast-forward":
+  ```
+
+  Se o seu branch local não tiver nenhum commits exclusivo, o Git irá avançar rapidamente. Para obter mais informações, consulte [Branch básico e merge](https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging) na documentação do Git.
   ```shell
   $ git merge upstream/main
   > Updating 34e91da..16c56ad
@@ -83,6 +87,7 @@ Antes de poder sincronizar a sua bifurcação com um repositório upstream, é n
   >  README.md                 |    5 +++--
   >  1 file changed, 3 insertions(+), 2 deletions(-)
   ```
+  Se o seu branch local tivesse commits exclusivos, talvez fosse necessário resolver os conflitos. Para obter mais informações, consulte "[Solucionar conflitos de merge](/github/collaborating-with-pull-requests/addressing-merge-conflicts)."
 
 {% tip %}
 

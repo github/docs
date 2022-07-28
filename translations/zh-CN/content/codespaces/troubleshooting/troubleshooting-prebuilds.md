@@ -12,8 +12,6 @@ product: '{% data reusables.gated-features.codespaces %}'
 miniTocMaxHeadingLevel: 3
 ---
 
-{% data reusables.codespaces.prebuilds-beta-note %}
-
 有关 {% data variables.product.prodname_codespaces %} 预构建的详细信息，请参阅“[预构建代码空间](/codespaces/prebuilding-your-codespaces)”。
 
 ## 检查代码空间是否是从预构建创建的？
@@ -26,7 +24,7 @@ miniTocMaxHeadingLevel: 3
 
 ![“找到预构建的代码空间”消息](/assets/images/help/codespaces/prebuilt-codespace-found.png)
 
-同样，如果您的编辑器首选项是“{% data variables.product.prodname_vscode_shortname %}”，则当您创建新代码空间时，集成终端将包含消息“您正在使用由存储库的预构建配置定义的预构建代码空间”。 更多信息请参阅“[设置代码空间的默认编辑器](/codespaces/customizing-your-codespace/setting-your-default-editor-for-codespaces)”。
+同样，如果您的编辑器首选项是“{% data variables.product.prodname_vscode_shortname %}”，则当您创建新代码空间时，集成终端将包含消息“您正在使用由存储库的预构建配置定义的预构建代码空间”。 有关详细信息，请参阅“[设置 {% data variables.product.prodname_github_codespaces %} 的默认编辑器](/codespaces/customizing-your-codespace/setting-your-default-editor-for-github-codespaces)”。
 
 创建代码空间后，可以通过在终端中运行以下 {% data variables.product.prodname_cli %} 命令来检查它是否是从预构建创建的：
 

@@ -113,7 +113,7 @@ O qualificador `country` filtra as ações com base no país de origem.
 
 O qualificador `created` filtra as ações com base na hora em que elas ocorreram.
 - Defina as datas usando o formato `YYYY-MM-DD` (ano, mês, dia).
-- As datas têm qualificadores [antes de, depois de e intervalos](/enterprise/{{ currentVersion }}/user/articles/search-syntax). Por exemplo:
+- As datas têm qualificadores [antes de, depois de e intervalos](/enterprise/user/articles/search-syntax). Por exemplo:
   * `created:2014-07-08` localiza todos os eventos ocorridos em 8 de julho de 2014;
   * `created:>=2014-07-01` localiza todos os eventos ocorridos depois de 8 de julho de 2014;
   * `created:<=2014-07-01`  localiza todos os eventos ocorridos antes de 8 de julho de 2014;

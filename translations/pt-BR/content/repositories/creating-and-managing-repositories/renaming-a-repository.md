@@ -39,7 +39,7 @@ Se você planeja renomear um repositório que tenha um site do {% data variables
 
 {% note %}
 
-**Observação:** {% data variables.product.prodname_dotcom %} não irá redirecionar chamadas para uma ação hospedada por um repositório renomeado. Qualquer fluxo de trabalho que usar essa ação falhará com o erro `repositório não encontrado`. Instead, create a new repository and action with the new name and archive the old repository. Para obter mais informações, consulte "[Arquivando repositórios](/repositories/archiving-a-github-repository/archiving-repositories)".
+**Observação:** {% data variables.product.prodname_dotcom %} não irá redirecionar chamadas para uma ação hospedada por um repositório renomeado. Qualquer fluxo de trabalho que usar essa ação falhará com o erro `repositório não encontrado`. Em vez disso, crie um novo repositório e ação com o novo nome e arquive o repositório antigo. Para obter mais informações, consulte "[Arquivando repositórios](/repositories/archiving-a-github-repository/archiving-repositories)".
 
 {% endnote %}
 

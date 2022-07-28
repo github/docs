@@ -1,8 +1,8 @@
 ---
-title: Repository traffic
+title: Tráfego do repositório
 shortTitle: Tráfego
 allowTitleToDifferFromFilename: true
-intro: The Repository traffic API provides access to the information provided in your repository graph.
+intro: A API de tráfego do repositório fornece acesso às informações fornecidas no gráfico do seu repositório.
 versions:
   fpt: '*'
   ghec: '*'
@@ -11,6 +11,6 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-## About the Repository traffic API
+## Sobre a API de tráfego de repositório
 
-For repositories that you have push access to, the Repository traffic API provides access to the information provided in your repository graph. Para obter mais informações, consulte "[Visualizar tráfego para um repositório](/repositories/viewing-activity-and-data-for-your-repository/viewing-traffic-to-a-repository). "
+Para repositórios aos quais você tem acesso de push, a API de tráfego do repositório fornece acesso às informações fornecidas no gráfico do seu repositório. Para obter mais informações, consulte "[Visualizar tráfego para um repositório](/repositories/viewing-activity-and-data-for-your-repository/viewing-traffic-to-a-repository). "

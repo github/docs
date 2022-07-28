@@ -2,8 +2,7 @@
 title: O editor github.dev baseado na web
 intro: 'Use o github.dev {% data variables.product.prodname_serverless %} do seu repositório ou pull request para criar e fazer commit das alterações.'
 versions:
-  fpt: '*'
-  ghec: '*'
+  feature: githubdev-editor
 type: how_to
 miniTocMaxHeadingLevel: 3
 topics:
@@ -35,12 +34,18 @@ O {% data variables.product.prodname_serverless %} é executado inteiramente no 
 
 Você pode abrir qualquer repositório de {% data variables.product.prodname_dotcom %} em {% data variables.product.prodname_serverless %} em qualquer uma das seguintes maneiras:
 
-- Pressione `.` enquanto navega em qualquer repositório ou pull request no {% data variables.product.prodname_dotcom %}.
+- Para abrir o repositório na mesma guia do navegador, pressione `.` enquanto navega em qualquer repositório ou pull request no {% data variables.product.prodname_dotcom %}.
+
+   Para abrir o repositório em uma nova aba do navegador, mantenha pressionada a tecla shift e pressione `.`.
+
 - Alterando a URL de "github.com" para "github.dev".
+- Ao visualizar um arquivo, use o menu suspenso ao lado de {% octicon "pencil" aria-label="The edit icon" %} e selecione **Abrir no github.dev**.
+
+  ![Menu suspenso do botão editar arquivo](/assets/images/help/repository/edit-file-edit-dropdown.png)
 
 ## {% data variables.product.prodname_codespaces %} e {% data variables.product.prodname_serverless %}
 
-Tanto o {% data variables.product.prodname_serverless %} quanto o {% data variables.product.prodname_codespaces %} permitem que você edite seu código diretamente do seu repositório. No entanto, ambos têm benefícios ligeiramente diferentes, dependendo da sua utilização.
+Tanto o {% data variables.product.prodname_serverless %} quanto o {% data variables.product.prodname_github_codespaces %} permitem que você edite seu código diretamente do seu repositório. No entanto, ambos têm benefícios ligeiramente diferentes, dependendo da sua utilização.
 
 |                        | {% data variables.product.prodname_serverless %}                                                                                                                                                                     | {% data variables.product.prodname_codespaces %}
 | ---------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -49,7 +54,7 @@ Tanto o {% data variables.product.prodname_serverless %} quanto o {% data variab
 | **Inicialização**      | O {% data variables.product.prodname_serverless %} abre instantaneamente com um toque de tecla e você pode começar a usá-lo imediatamente, sem ter que esperar por uma configuração ou instalação adicional.         | Ao criar ou retomar um codespace, o código é atribuído a uma VM e o contêiner é configurado com base no conteúdo de um arquivo `devcontainer.json`. Essa configuração pode levar alguns minutos para criar o ambiente. Para obter mais informações, consulte "[Criando um codespace](/codespaces/developing-in-codespaces/creating-a-codespace)". |
 | **Calcular**           | Não há nenhum computador associado. Portanto você não conseguirá criar e executar o seu código ou usar o terminal integrado.                                                                                         | Com {%  data   variables.product.prodname_codespaces %}, você obtém o poder da VM dedicada na qual você pode executar e depurar seu aplicativo.                                                                                                                                                                                                   |
 | **Acesso ao terminal** | Nenhum.                                                                                                                                                                                                              | {% data variables.product.prodname_codespaces %} fornece um conjunto comum de ferramentas por padrão, o que significa que você pode usar o Terminal exatamente como você faria no seu ambiente local.                                                                                                                                             |
-| **Extensões**          | Apenas um subconjunto de extensões que podem ser executadas na web aparecerão na visualização de extensões e podem ser instaladas. Para obter mais informações, consulte "[Usando as extensões](#using-extensions)." | With Codespaces, you can use most extensions from the {% data variables.product.prodname_vscode_marketplace %}.                                                                                                                                                                                                                                 |
+| **Extensões**          | Apenas um subconjunto de extensões que podem ser executadas na web aparecerão na visualização de extensões e podem ser instaladas. Para obter mais informações, consulte "[Usando as extensões](#using-extensions)." | Com os codespaces, você pode usar a maioria das extensões do {% data variables.product.prodname_vscode_marketplace %}.                                                                                                                                                                                                                          |
 
 ### Continue trabalhando em {%  data   variables.product.prodname_codespaces %}
 

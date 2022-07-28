@@ -6,7 +6,7 @@ product: '{% data reusables.gated-features.secret-scanning %}'
 redirect_from:
   - /code-security/secret-security/defining-custom-patterns-for-secret-scanning
 versions:
-  ghes: '>=3.2'
+  ghes: '*'
   ghae: '*'
   ghec: '*'
 type: how_to
@@ -15,7 +15,7 @@ topics:
   - Secret scanning
 ---
 
-{% ifversion ghes < 3.3 or ghae %}
+{% ifversion ghes < 3.3 %}
 {% note %}
 
 **ノート:** {% data variables.product.prodname_secret_scanning %}のカスタムパターンは現在ベータであり、変更されることがあります。
@@ -28,12 +28,12 @@ topics:
 {% data variables.product.prodname_secret_scanning %}がサポートするデフォルトのパターンでは検出されないシークレットを特定するために、カスタムパターンを定義できます。 たとえば、Organizationの内部的なシークレットのパターンを持っていることもあるかもしれません。 サポートされているシークレットとサービスプロバイダーの詳細については「[{% data variables.product.prodname_secret_scanning_caps %}パターン](/code-security/secret-scanning/secret-scanning-patterns)」を参照してください。
 
 カスタムパターンは、Enterprise、Organization、リポジトリで定義できます。 {% data variables.product.prodname_secret_scanning_caps %}は最大で
-{%- ifversion fpt or ghec or ghes > 3.3 %}各OrganizationもしくはEnterpriseアカウントに対して500のカスタムパターンを、そしてリポジトリごとに最大100のカスタムパターンをサポートします。
-{%- elsif ghes = 3.3 %}各OrganizationもしくはEnterpriseアカウントに対して100のカスタムパターンを、そしてリポジトリごとに20のカスタムパターンをサポートします。
-{%- else %}各OrganizationもしくはEnterpriseアカウントに対して、そしてリポジトリごとに20のカスタムパターンをサポートします。
+{%- ifversion fpt or ghec or ghes > 3.3 or ghae-issue-7297 %}各OrganizationもしくはEnterpriseアカウントに対して500のカスタムパターンを、そしてリポジトリごとに最大100のカスタムパターンをサポートします。
+{%- elsif ghes = 3.2 %}各OrganizationもしくはEnterpriseアカウントに対して、そしてリポジトリごとに20のカスタムパターンをサポートします。
+{%- else %}各OrganizationもしくはEnterpriseアカウントに対して100のカスタムパターンを、そしてリポジトリごとに20のカスタムパターンをサポートします。
 {%- endif %}
 
-{% ifversion ghes < 3.3 or ghae %}
+{% ifversion ghes < 3.3 %}
 {% note %}
 
 **ノート:** ベータの間、{% data variables.product.prodname_secret_scanning %}のカスタムパターンの使用には多少の制限があります。
@@ -67,7 +67,7 @@ topics:
 {% data reusables.repositories.navigate-to-code-security-and-analysis %}
 {% data reusables.repositories.navigate-to-ghas-settings %}
 {% data reusables.advanced-security.secret-scanning-new-custom-pattern %}
-{% data reusables.advanced-security.secret-scanning-add-custom-pattern-details %}{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-5499 %}
+{% data reusables.advanced-security.secret-scanning-add-custom-pattern-details %}{% ifversion secret-scanning-custom-enterprise-35 %}
 1. 新しいカスタムパターンをテストする準備ができたら、アラートを作成することなくリポジトリ内のマッチを特定するために、**Save and dry run（保存してdry run）**をクリックしてください。
 {% data reusables.advanced-security.secret-scanning-dry-run-results %}
 {% endif %}
@@ -122,7 +122,7 @@ aAAAe9
 {% data reusables.repositories.navigate-to-ghas-settings %}
 {% data reusables.advanced-security.secret-scanning-new-custom-pattern %}
 {% data reusables.advanced-security.secret-scanning-add-custom-pattern-details %}
-{%- if secret-scanning-org-dry-runs %}
+{%- ifversion secret-scanning-custom-enterprise-35 %}
 1. 新しいカスタムパターンをテストする準備ができたら、アラートを作成することなく選択したリポジトリ内のマッチを特定するために、**Save and dry run（保存してdry run）**をクリックしてください。
 {% data reusables.advanced-security.secret-scanning-dry-run-select-repos %}
 {% data reusables.advanced-security.secret-scanning-dry-run-results %}
@@ -141,7 +141,7 @@ aAAAe9
 
 {% note %}
 
-{% if secret-scanning-enterprise-dry-runs %}
+{% ifversion secret-scanning-custom-enterprise-36 %}
 **ノート:**
 - Enterpriseレベルでは、カスタムパターンを編集でき、dry runで使えるのはカスタムパターンの作者だけです。
 - Enterpriseオーナーは、アクセスできるリポジトリ上でのみdry runを利用できますが、必ずしもEnterprise内のすべてのOrganizationやリポジトリにアクセスできるわけではありません。
@@ -158,8 +158,8 @@ aAAAe9
 {% data reusables.enterprise-accounts.advanced-security-security-features %}
 1. "Secret scanning custom patterns（シークレットスキャンニングのカスタムパターン）"の下で、{% ifversion ghes = 3.2 %}**New custom pattern（新規カスタムパターン）**{% else %}**New pattern（新規パターン）**{% endif %}をクリックしてください。
 {% data reusables.advanced-security.secret-scanning-add-custom-pattern-details %}
-{%- if secret-scanning-enterprise-dry-runs %}
-1. 新しいカスタムパターンをテストする準備ができたら、アラートを作成することなくリポジトリ内のマッチを特定するために、**Save and dry run（保存してdry run）**をクリックしてください。
+{%- ifversion secret-scanning-custom-enterprise-36 %}
+1. 新しいカスタムパターンをテストする準備ができたら、アラートを作成することなくEnterprise内のマッチを特定するために、**Save and dry run（保存してdry run）**をクリックしてください。
 {% data reusables.advanced-security.secret-scanning-dry-run-select-repos %}
 {% data reusables.advanced-security.secret-scanning-dry-run-results %}
 {%- endif %}
@@ -175,7 +175,10 @@ aAAAe9
    * リポジトリあるいはOrganizationの場合は、カスタムパターンが作成されたリポジトリもしくはOrganizationの"Security & analysis（セキュリティと分析）" 設定を表示させてください。 詳しい情報については上の「[リポジトリのカスタムパターンの定義](#defining-a-custom-pattern-for-a-repository)」あるいは「[Organizationのカスタムパターンの定義](#defining-a-custom-pattern-for-an-organization)」を参照してください。
    * Enterpriseの場合は、"Policies（ポリシー）"の下で"Advanced Security（高度なセキュリティ）"を表示させ、**Security features（セキュリティの機能）**をクリックしてください。 詳しい情報については、上記の「[Enterpriseアカウントでのカスタムパターンの定義](#defining-a-custom-pattern-for-an-enterprise-account)」を参照してください。
 2. "{% data variables.product.prodname_secret_scanning_caps %}"の下で、編集したいカスタムパターンの右の{% octicon "pencil" aria-label="The edit icon" %}をクリックしてください。
-3. 変更をレビューしてテストしたら、**Save changes（変更を保存）**をクリックしてください。
+{%- ifversion secret-scanning-custom-enterprise-36 %}
+3. 編集された新しいカスタムパターンをテストする準備ができたら、アラートを作成することなくマッチを特定するために、**Save and dry run（保存してdry run）**をクリックしてください。
+{%- endif %}
+4. 変更をレビューしてテストしたら、**Save changes（変更を保存）**をクリックしてください。
 {% endif %}
 
 ## カスタムパターンの削除
@@ -184,7 +187,7 @@ aAAAe9
 
    * リポジトリあるいはOrganizationの場合は、カスタムパターンが作成されたリポジトリもしくはOrganizationの"Security & analysis（セキュリティと分析）" 設定を表示させてください。 詳しい情報については上の「[リポジトリのカスタムパターンの定義](#defining-a-custom-pattern-for-a-repository)」あるいは「[Organizationのカスタムパターンの定義](#defining-a-custom-pattern-for-an-organization)」を参照してください。
    * Enterpriseの場合は、"Policies（ポリシー）"の下で"Advanced Security（高度なセキュリティ）"を表示させ、**Security features（セキュリティの機能）**をクリックしてください。  詳しい情報については、上記の「[Enterpriseアカウントでのカスタムパターンの定義](#defining-a-custom-pattern-for-an-enterprise-account)」を参照してください。
-{%- ifversion fpt or ghes > 3.2 or ghae %}
+{%- ifversion ghec or ghes > 3.2 or ghae %}
 1. 削除したいカスタムパターンの右で{% octicon "trash" aria-label="The trash icon" %}をクリックしてください。
 1. 確認したら、そのカスタムパターンに関連するオープンなアラートを処理方法を選択してください。
 1. **Yes, delete this pattern（はい、このパターンを削除してください）**をクリックしてください。

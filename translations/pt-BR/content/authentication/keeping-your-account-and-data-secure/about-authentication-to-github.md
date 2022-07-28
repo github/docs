@@ -50,7 +50,7 @@ Você pode efetuar a autenticação no {% data variables.product.product_name %}
     - Você criará uma senha ao criar sua conta em {% data variables.product.product_name %}. Recomendamos que você use um gerenciador de senhas para gerar uma senha aleatória e única. Para obter mais informações, consulte "[Criando uma senha forte](/github/authenticating-to-github/creating-a-strong-password)."{% ifversion fpt or ghec %}
   - Se você não tiver habilitado a 2FA, {% data variables.product.product_name %} irá pedir verificação adicional quando você efetuar o login a partir de um dispositivo não reconhecido, como um novo perfil de navegador, um navegador onde os cookies foram excluídos ou um novo computador.
 
-   Depois de fornecer seu nome de usuário e senha, será solicitado que você forneça um código de verificação que enviaremos para você por e-mail. If you have the {% data variables.product.prodname_mobile %} application installed, you'll receive a notification there instead. For more information, see "[{% data variables.product.prodname_mobile %}](/get-started/using-github/github-mobile)."{% endif %}
+   Depois de fornecer seu nome de usuário e senha, será solicitado que você forneça um código de verificação que enviaremos para você por e-mail. Se você tiver o aplicativo de {% data variables.product.prodname_mobile %} instalado, você receberá uma notificação lá. Para obter mais informações, consulte "[{% data variables.product.prodname_mobile %}](/get-started/using-github/github-mobile)".{% endif %}
 - **Autenticação de dois fatores (2FA)** (recomendado)
     - Se você habilitar o 2FA, depois que você digitar seu nome de usuário e senha com sucesso, também vamos solicitar que você forneça um código gerado por um aplicativo {% ifversion fpt or ghec %} baseado em senha única (TOTP) no seu dispositivo móvel ou enviado como mensagem de texto (SMS){% endif %}. Para obter mais informações, consulte "[Acessar o {% data variables.product.prodname_dotcom %} usando a autenticação de dois fatores](/github/authenticating-to-github/accessing-github-using-two-factor-authentication#providing-a-2fa-code-when-signing-in-to-the-website)".
     - Além de autenticação com um aplicativo TOTP{% ifversion fpt or ghec %} ou uma mensagem de texto{% endif %}, você pode opcionalmente adicionar um método alternativo de autenticação com {% ifversion fpt or ghec %}{% data variables.product.prodname_mobile %} ou{% endif %} uma chave de segurança usando WebAuthn. Para obter mais informações, consulte {% ifversion fpt or ghec %}"[Configurando autenticação de dois fatores com {% data variables.product.prodname_mobile %}](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication#configuring-two-factor-authentication-using-github-mobile)" e {% endif %}"[Configurando autenticação de dois fatores usando uma chave de segurança](/github/authenticating-to-github/configuring-two-factor-authentication#configuring-two-factor-authentication-using-a-security-key).{% ifversion ghes %}
@@ -93,7 +93,7 @@ Você pode trabalhar com todos os repositórios no {% data variables.product.pro
 
 Se você fizer a autenticação com {% data variables.product.prodname_cli %}, você poderá efetuar a autenticação com um token de acesso pessoal ou por meio do navegador web. Para mais informações sobre a autenticação com {% data variables.product.prodname_cli %}, consulte [`login gh`](https://cli.github.com/manual/gh_auth_login).
 
-Se você efetuar a autenticação sem {% data variables.product.prodname_cli %}, você deverá efetuar a autenticação com um token de acesso pessoal. {% data reusables.user-settings.password-authentication-deprecation %} Every time you use Git to authenticate with {% data variables.product.product_name %}, you'll be prompted to enter your credentials to authenticate with {% data variables.product.product_name %}, unless you cache them with a [credential helper](/github/getting-started-with-github/caching-your-github-credentials-in-git).
+Se você efetuar a autenticação sem {% data variables.product.prodname_cli %}, você deverá efetuar a autenticação com um token de acesso pessoal. {% data reusables.user-settings.password-authentication-deprecation %} Sempre que você usar o Git para efetuar a autenticação com {% data variables.product.product_name %}, será solicitado que você insira as suas credenciais para efetuar a autenticação com {% data variables.product.product_name %}, a menos que você faça o armazenamento em cache com um [auxiliar de credenciais](/github/getting-started-with-github/caching-your-github-credentials-in-git).
 
 
 
@@ -112,8 +112,6 @@ Se você efetuar a autenticação sem {% data variables.product.prodname_cli %},
 
 Para usar um token de acesso pessoal ou chave SSH para acessar recursos pertencentes a uma organização que usa o logon único SAML, você também deve autorizar o token pessoal ou chave SSH. Para mais informações, consulte "[Autorizando um token de acesso pessoal para usar com logon único SAML ](/enterprise-cloud@latest/authentication/authenticating-with-saml-single-sign-on/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on)" ou "[Autorizando uma chave SSH para usar com o logon único SAML](/enterprise-cloud@latest/authentication/authenticating-with-saml-single-sign-on/authorizing-an-ssh-key-for-use-with-saml-single-sign-on){% ifversion fpt %}" na documentação de {% data variables.product.prodname_ghe_cloud %}.{% else %}."{% endif %}{% endif %}
 
-{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
-
 
 
 ## Formatos de token de {% data variables.product.company_short %}
@@ -128,5 +126,3 @@ Para usar um token de acesso pessoal ou chave SSH para acessar recursos pertence
 | Token de servidor para usuário para {% data variables.product.prodname_github_app %}    | `ghs_`  | "[Autenticar com {% data variables.product.prodname_github_apps %}](/developers/apps/authenticating-with-github-apps#authenticating-as-an-installation)"      |
 | Atualizar token para um {% data variables.product.prodname_github_app %}                | `ghr_`  | "[Atualizar tokens de acesso do usuário para servidor](/developers/apps/refreshing-user-to-server-access-tokens)"                                               |
 
-
-{% endif %}

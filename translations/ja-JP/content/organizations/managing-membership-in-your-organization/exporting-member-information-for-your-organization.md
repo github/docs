@@ -18,7 +18,7 @@ Organizationのメンバーに関する情報をエクスポートできます�
 - ユーザが2要素認証を有効化しているか
 - メンバーシップがパブリックかプライベートか
 - ユーザがOrganizationのオーナーかメンバーか
-- ユーザの最後のアクティビティの日時（関連するアクティビティの完全なリストについては「[ドメインユーザの管理](/admin/user-management/managing-users-in-your-enterprise/managing-dormant-users)」を参照してください）
+- ユーザの最後のアクティビティの日時（関連するアクティビティの完全なリストについては「[休眠ユーザの管理](/admin/user-management/managing-users-in-your-enterprise/managing-dormant-users)」を参照してください）
 - 利用可能な場合はユーザのSAML NameID
 
 メンバー情報は、{% data variables.product.product_name %}のユーザインターフェースから直接、あるいはAPIを使って取得できます。 この記事では、メンバー情報を{% data variables.product.product_name %}内から取得する方法を説明します。

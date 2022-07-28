@@ -132,7 +132,7 @@ SVG 目前不支持内联脚本或动画。
 
 {% endtip %}
 
-{% if mermaid %}
+{% ifversion mermaid %}
 ### 在 Markdown 中渲染
 
 您可以直接在 Markdown 中嵌入 ASCII STL 语法。 更多信息请参阅“[创建示意图](/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams#creating-stl-3d-models)”。
@@ -233,9 +233,9 @@ GitHub 支持呈现 PDF 文档。
 
 一般来说，包含嵌入式 HTML 的文档更改的呈现视图将显示对 {% data variables.product.product_name %} 文档视图中支持元素的更改。 必须始终在呈现视图和源视图中检查对包含嵌入式 HTML 的文档的更改以确保完整性。
 
-## 映射 {% data variables.product.prodname_dotcom %} 上的 geoJSON 文件
+## 映射 {% data variables.product.prodname_dotcom %} 上的 GeoJSON/TopoJSON 文件
 
-{% data variables.product.product_name %} 支持在 {% data variables.product.product_name %} 仓库中渲染 geoJSON 和 topoJSON 地图文件。 只需像平常一样提交扩展名为 `.geojson` 或 `.topojson` 的文件。 也支持扩展名为 `.json` 的文件，但仅当 `type` 设置为 `FeatureCollection`、`GeometryCollection` 或 `topology` 时才支持。 然后导航到 GitHub.com 上 geoJSON 文件的路径。
+{% data variables.product.product_name %} 支持在 {% data variables.product.product_name %} 仓库中渲染 GeoJSON 和 TopoJSON 地图文件。 只需像平常一样提交扩展名为 `.geojson` 或 `.topojson` 的文件。 也支持扩展名为 `.json` 的文件，但仅当 `type` 设置为 `FeatureCollection`、`GeometryCollection` 或 `topology` 时才支持。 然后导航到 GitHub.com 上 GeoJSON/TopoJSON 文件的路径。
 
 单击右侧的纸张图标时，您还会看到在提交时对该文件的更改。
 
@@ -243,11 +243,12 @@ GitHub 支持呈现 PDF 文档。
 
 ### 几何类型
 
-{% data variables.product.product_name %} 上的地图使用 [Leaflet.js](http://leafletjs.com)，并且支持 [geoJSON 规格](http://www.geojson.org/geojson-spec.html)中列出的所有几何类型（Point、LineString、Polygon、MultiPoint、MultiLineString、MultiPolygon 和 GeometryCollection）。 TopoJSON 文件类型应为 "Topology"（拓扑），并且遵守 [topoJSON 规格](https://github.com/mbostock/topojson/wiki/Specification)。
+{% data variables.product.product_name %} 上的地图使用 [Leaflet.js](http://leafletjs.com)，并且支持 [geoJSON 规格](http://www.geojson.org/geojson-spec.html)中列出的所有几何类型（Point、LineString、Polygon、MultiPoint、MultiLineString、MultiPolygon 和 GeometryCollection）。 TopoJSON 文件类型应为 "Topology"（拓扑），并且遵守 [TopoJSON 规格](https://github.com/mbostock/topojson/wiki/Specification)。
 
+{% ifversion geoJSON-with-MapBox %}
 ### 样式功能
 
-您可以传递 geoJSON 对象属性中的其他元数据，自定义功能显示的方式，例如指定特定的颜色或添加描述性图标。 选项包括：
+您可以传递 GeoJSON 对象属性中的其他元数据，自定义功能显示的方式，例如指定特定的颜色或添加描述性图标。 选项包括：
 
 * `marker-size` - `small`、`medium` 或 `large`
 * `marker-color` - 有效的 RGB 十六进制颜色
@@ -259,10 +260,11 @@ GitHub 支持呈现 PDF 文档。
 * `fill-opacity` - 多边形内部的不透明度 (0.0-1.0)
 
 更多信息请参阅[开放简单样式规格 1.1.0 版](https://github.com/mapbox/simplestyle-spec/tree/master/1.1.0)。
+{% endif %}
 
 ### 在其他位置嵌入您的地图
 
-想让您的 geoJSON 地图用在 {% data variables.product.product_name %} 以外的地方？ 只需修改此模板，并将其放在任何支持 javascript 的 HTML 页面上（如 [{% data variables.product.prodname_pages %}](http://pages.github.com)）：
+想让您的 geoJSON 地图用在 {% data variables.product.product_name %} 以外的地方？ 只需修改此模板，并将其放在任何支持 JavaScript 的 HTML 页面上（如 [{% data variables.product.prodname_pages %}](http://pages.github.com)）：
 
 ```html
 <script src="https://embed.github.com/view/geojson/<username>/<repo>/<ref>/<path_to_file>"></script>
@@ -282,10 +284,10 @@ GitHub 支持呈现 PDF 文档。
 
 {% endtip %}
 
-{% if mermaid %}
+{% ifversion mermaid %}
 ### 在 Markdown 嵌入地图
 
-您可以直接在 Markdown 中嵌入 geoJSON 和 topoJSON。 更多信息请参阅“[创建示意图](/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams#creating-geojson-and-topojson-maps)”。
+您可以直接在 Markdown 中嵌入 GeoJSON 和 TopoJSON。 更多信息请参阅“[创建示意图](/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams#creating-geojson-and-topojson-maps)”。
 {% endif %}
 
 ### 集群
@@ -298,7 +300,7 @@ GitHub 支持呈现 PDF 文档。
 
 ### 疑难解答
 
-如果在渲染 geoJSON 文件时遇到问题，请通过 [geoJSON 语法检查](http://geojsonlint.com/)运行 geoJSON 文件，确认该文件有效。 如果您的地点没有出现在预期的位置（<em>例如</em>在海洋中间），可能是数据在规划中，目前不受支持。 目前，{% data variables.product.product_name %} 只支持 `urn:ogc:def:crs:OGC:1.3:CRS84` 规划。
+如果在渲染 GeoJSON 文件时遇到问题，请通过 [GeoJSON 语法检查](http://geojsonlint.com/)运行 GeoJSON 文件，确认该文件有效。 如果您的地点没有出现在预期的位置（<em>例如</em>在海洋中间），可能是数据在规划中，目前不受支持。 目前，{% data variables.product.product_name %} 只支持 `urn:ogc:def:crs:OGC:1.3:CRS84` 规划。
 
 此外，如果您的 `.geojson` 文件特别大（超过 10 MB），则无法在浏览器中渲染。 在这种情况下，您一般会看到一条类似以下的消息：
 
@@ -308,8 +310,12 @@ GitHub 支持呈现 PDF 文档。
 
 ### 延伸阅读
 
+{% ifversion geoJSON-with-MapBox %}
 * [Leaflet.js 文档](https://leafletjs.com/)
 * [MapBox marker-styling 文档](http://www.mapbox.com/developers/simplestyle/)
+{%- else %}
+* [Azure Maps 文档](https://docs.microsoft.com/en-us/azure/azure-maps/)
+{%- endif %}
 * [TopoJSON Wiki](https://github.com/mbostock/topojson/wiki)
 
 ## 在 {% data variables.product.prodname_dotcom %} 上使用 Jupyter Notebook 文件
@@ -333,9 +339,9 @@ $ jupyter nbconvert --to html <em>NOTEBOOK-NAME.ipynb</em>
 ### 延伸阅读
 
 - [Jupyter Notebook 的 GitHub 仓库](https://github.com/jupyter/jupyter_notebook)
-- [Jupyter Notebook 的图片库](https://github.com/jupyter/jupyter/wiki/A-gallery-of-interesting-Jupyter-Notebooks)
+- [Jupyter Notebook 的图片库](https://github.com/jupyter/jupyter/wiki)
 
-{% if mermaid %}
+{% ifversion mermaid %}
 ## 在 {% data variables.product.prodname_dotcom %} 上显示 Mermaid 文件
 
 {% data variables.product.product_name %} 支持在存储库中呈现 Mermaid 文件。 像往常一样使用 `.mermaid` 或 `.mmd` 扩展名提交文件。 然后，导航到 {% data variables.product.prodname_dotcom %}上的 Mermaid 文件的路径。

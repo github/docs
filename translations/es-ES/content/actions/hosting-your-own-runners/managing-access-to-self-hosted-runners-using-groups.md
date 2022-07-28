@@ -32,9 +32,9 @@ Si utilizas
 
 {% ifversion ghec or ghes or ghae %}
 Los grupos de ejecutores auto-hospedados se utilizan para controlar el acceso a los ejecutores auto-hospedados a nivel de empresas y organizaciones. Los propietarios de empresas pueden configurar políticas de acceso que controlan qué organizaciones
-{% if restrict-groups-to-workflows %}y flujos de trabajo {% endif %}en una empresa tienen acceso al grupo de ejecutores. Los propietarios de las organizaciones pueden configurar las políticas de acceso que controlan qué repositorios{% if restrict-groups-to-workflows %} y flujos de trabajo{% endif %} en una organización tienen aceso al grupo de ejecutores.
+{% ifversion restrict-groups-to-workflows %}y flujos de trabajo {% endif %}en una empresa tienen acceso al grupo de ejecutores. Los propietarios de las organizaciones pueden configurar las políticas de acceso que controlan qué repositorios{% ifversion restrict-groups-to-workflows %} y flujos de trabajo{% endif %} en una organización tienen aceso al grupo de ejecutores.
 
-Cuando un propietario de empresa otorga un acceso organizacional a un grupo de ejecutores, los propietarios de organizaciones pueden verlo listado en los ajustes del ejecutor auto-hospedado de la organización. Los propietarios organizacionales pueden entonces asignar políticas de acceso adicionales y granulares para los repositorios{% if restrict-groups-to-workflows %} y flujos de trabajo{% endif %} al grupo ejecutor de la empresa.
+Cuando un propietario de empresa otorga un acceso organizacional a un grupo de ejecutores, los propietarios de organizaciones pueden verlo listado en los ajustes del ejecutor auto-hospedado de la organización. Los propietarios organizacionales pueden entonces asignar políticas de acceso adicionales y granulares para los repositorios{% ifversion restrict-groups-to-workflows %} y flujos de trabajo{% endif %} al grupo ejecutor de la empresa.
 
 Cuando se crean nuevos ejecutores, se asignan automáticamente al grupo predeterminado. Los ejecutores solo pueden estar en un grupo a la vez. Puedes mover los ejecutores del grupo predeterminado a otro grupo. Para obtener más información, consulta la sección "[Mover un ejecutor auto-hospedado a un grupo](#moving-a-self-hosted-runner-to-a-group)".
 
@@ -44,7 +44,7 @@ Todas las organizaciones tienen un solo grupo predeterminado de ejecutores auto-
 
 Los ejecutores auto-hospedados se asignan automáticamente al grupo predeterminado cuando se crean y solo pueden ser mimebros de un grupo a la vez. Puedes mover un ejecutor del grupo predeterminado a cualquier grupo que crees.
 
-Cuando creas un grupo, debes elegir la política que define qué reositorios{% if restrict-groups-to-workflows %} y flujos de trabajo{% endif %} tienen acceso al grupo ejecutor.
+Cuando creas un grupo, debes elegir la política que define qué reositorios{% ifversion restrict-groups-to-workflows %} y flujos de trabajo{% endif %} tienen acceso al grupo ejecutor.
 
 {% ifversion ghec or ghes > 3.3 or ghae-issue-5091 %}
 {% data reusables.organizations.navigate-to-org %}
@@ -61,13 +61,13 @@ Cuando creas un grupo, debes elegir la política que define qué reositorios{% i
    Para obtener más información, consulta "[Acerca de los ejecutores autoalojados](/actions/hosting-your-own-runners/about-self-hosted-runners#self-hosted-runner-security-with-public-repositories)."
 
    {% endwarning %}
-{% data reusables.actions.runner-group-assign-policy-workflow %}{%- if restrict-groups-to-workflows %}Los grupos ejecutores que pertenecen a las organizaciones no pueden acceder a los flujos de trabajo de una organización diferente en la empresa. En vez de esto, debes crear un grupo de ejecutores que pertenezca a la empresa.{% endif %}
+{% data reusables.actions.runner-group-assign-policy-workflow %}{%- ifversion restrict-groups-to-workflows %}Los grupos ejecutores que pertenecen a las organizaciones no pueden acceder a los flujos de trabajo de una organización diferente en la empresa. En vez de esto, debes crear un grupo de ejecutores que pertenezca a la empresa.{% endif %}
 {% data reusables.actions.self-hosted-runner-create-group %}
 {% elsif ghae or ghes < 3.4 %}
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.org_settings %}
 {% data reusables.organizations.settings-sidebar-actions-runner-groups %}
-1. Debajo de {% ifversion ghes > 3.1 or ghae %}"Ejecutores"{% elsif ghes < 3.2 %}"Ejecutores auto-hospedados"{% endif %}, haz clic en **Agregar nuevo** y luego en **Grupo nuevo**.
+1. Debajo de {% ifversion ghes or ghae %}"Ejecutores"{% endif %}, haz clic en **Agregar nuevo** y luego en **Grupo nuevo**.
 
     ![Agregar un grupo de ejecutores](/assets/images/help/settings/actions-org-add-runner-group.png)
 1. Ingresa un nombre para tu grupo de ejecutores y asigna una política para el acceso al repositorio.
@@ -92,7 +92,7 @@ Cuando creas un grupo, debes elegir la política que define qué reositorios{% i
 
 ## Crear un grupo de ejecutores auto-hospedados para una empresa
 
-Las empresas pueden agregar sus ejecutores auto-hospedados a grupos para su administración de accesos. Las empresas pueden crear grupos de ejecutores auto-hospedados que son accesibles para organizaciones específicas en la cuenta empresarial{% if restrict-groups-to-workflows %} o para flujos de trabajo específicos{% endif %}. Los propietarios de organizaciones pueden entonces asignar políticas de acceso adicionales y granulares para los repositorios{% if restrict-groups-to-workflows %} o flujos de trabajo{% endif %} a los grupos de ejecutores empresariales. Para obtener más información sobre cómo crear un grupo de ejecutores auto-hospedados con la API de REST, consulta las terminales empresariales en la [API de REST de {% data variables.product.prodname_actions %}](/rest/reference/actions#self-hosted-runner-groups).
+Las empresas pueden agregar sus ejecutores auto-hospedados a grupos para su administración de accesos. Las empresas pueden crear grupos de ejecutores auto-hospedados que son accesibles para organizaciones específicas en la cuenta empresarial{% ifversion restrict-groups-to-workflows %} o para flujos de trabajo específicos{% endif %}. Los propietarios de organizaciones pueden entonces asignar políticas de acceso adicionales y granulares para los repositorios{% ifversion restrict-groups-to-workflows %} o flujos de trabajo{% endif %} a los grupos de ejecutores empresariales. Para obtener más información sobre cómo crear un grupo de ejecutores auto-hospedados con la API de REST, consulta las terminales empresariales en la [API de REST de {% data variables.product.prodname_actions %}](/rest/reference/actions#self-hosted-runner-groups).
 
 Los ejecutores auto-hospedados se asignan automáticamente al grupo predeterminado cuando se crean y solo pueden ser mimebros de un grupo a la vez. Puedes asignar el ejecutor a un grupo específico durante el proceso de registro o puedes moverlo después desde el grupo predeterminado a un grupo personalizado.
 
@@ -126,7 +126,7 @@ Cuando creas un grupo, debes elegir la política que defina qué organizaciones 
 
 ## Cambiar la política de acceso de un grupo de ejecutores auto-hospedados
 
-En el caso de los grupos de ejecutores en una empresa, puedes cambiar qué organizaciones dentro de ella pueden acceder a un grupo de ejecutores{% if restrict-groups-to-workflows %} o restringir qué flujos de trabajo puede ejecutar un grupo de ejecutores{% endif %}. En el caso de los grupos de ejecutores en una organización, puedes cambiar qué repositorios en ella pueden acceder a un grupo de ejecutores{% if restrict-groups-to-workflows %} o restringir qué flujos de trabajo puede ejecutar un grupo de ejecutores{% endif %}.
+En el caso de los grupos de ejecutores en una empresa, puedes cambiar qué organizaciones dentro de ella pueden acceder a un grupo de ejecutores{% ifversion restrict-groups-to-workflows %} o restringir qué flujos de trabajo puede ejecutar un grupo de ejecutores{% endif %}. En el caso de los grupos de ejecutores en una organización, puedes cambiar qué repositorios en ella pueden acceder a un grupo de ejecutores{% ifversion restrict-groups-to-workflows %} o restringir qué flujos de trabajo puede ejecutar un grupo de ejecutores{% endif %}.
 
 ### Cambiar qué organizaciones o repositorios pueden acceder a un grupo de ejecutores
 
@@ -150,7 +150,7 @@ En el caso de los grupos de ejecutores en una empresa, puedes cambiar qué organ
 {% data reusables.actions.self-hosted-runner-configure-runner-group-access %}
 {% endif %}
 
-{% if restrict-groups-to-workflows %}
+{% ifversion restrict-groups-to-workflows %}
 ### Cambiar los flujos de trabajo a los cuales puede acceder un grupo de ejecutores
 Puedes configurar un grupo de ejecutores auto-hospedado para que ejecute ya sea flujos selectos o todos ellos. Por ejemplo, podrías utilizar este ajuste para proteger secretos almacenados en los ejecutores auto-hospedados o estandarizar los flujos de trabajo de despliegue restringiendo un grupo de ellos para que ejecute solo un flujo de trabajo reutilizable específico. Este ajuste no se puede anular si estás configurando un grupo de ejecutores de una organización que haya compartido una empresa.
 {% data reusables.actions.self-hosted-runner-groups-navigate-to-repo-org-enterprise %}
@@ -204,7 +204,7 @@ Si no especificas un grupo de ejecutores durante el proceso de registro, tus eje
 2. Selecciona el menú desplegable de **Grupo de ejecutores**.
 3. En "Mover el ejecutor al grupo", elige un grupo destino para el ejecutor.
 {% elsif ghae or ghes < 3.4 %}
-1. En la sección de {% ifversion ghes > 3.1 or ghae %}"Grupos de ejecutores"{% elsif ghes < 3.2 %}"Ejecutores auto-hospedados"{% endif %} de la página de ajustes, ubica al grupo actual del ejecutor que quieres mover y expande la lista de sus miembros. ![Ver los miembros de un grupo de ejecutores](/assets/images/help/settings/actions-org-runner-group-members.png)
+1. En la sección {% ifversion ghes or ghae %}"Grupos de ejecutores"{% endif %} de la página de ajustes, ubica el grupo actual del ejecutor que quieras mover y expande la lista de miembros del grupo. ![Ver los miembros de un grupo de ejecutores](/assets/images/help/settings/actions-org-runner-group-members.png)
 2. Selecciona la casilla junto al ejecutor auto-hospedado y da clic en **Mover a grupo** para ver los destinos disponibles. ![Mover a un miembro de un grupo de ejecutores](/assets/images/help/settings/actions-org-runner-group-member-move.png)
 3. Para mover el ejecutor, da clic en el grupo de destino. ![Mover a un miembro de un grupo de ejecutores](/assets/images/help/settings/actions-org-runner-group-member-move-destination.png)
 {% endif %}
@@ -213,16 +213,11 @@ Si no especificas un grupo de ejecutores durante el proceso de registro, tus eje
 
 Los ejecutores auto-hospedados se devuelven automáticamente al grupo predeterminado cuando su grupo se elimina.
 
-{% ifversion ghes > 3.1 or ghae or ghec %}
+{% ifversion ghes or ghae or ghec %}
 {% data reusables.actions.self-hosted-runner-groups-navigate-to-repo-org-enterprise %}
 1. En la lista de grupos, a la derecha del grupo que quieras borrar, haz clic en {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}.
 2. Para eliminar el grupo, da clic en **Eliminar grupo**.
 3. Revisa el mensaje de confirmación y da clic en **Eliminar este grupo de ejecutores**.
-{% elsif ghes < 3.2 %}
-1. En la sección de "Ejecutores auto-hospedados" de la página de ajustes, ubica el grupo que quieras borrar y haz clic en el botón {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}. ![Ver la configuración del grupo de ejecutores](/assets/images/help/settings/actions-org-runner-group-kebab.png)
 
-1. Para eliminar el grupo, da clic en **Eliminar grupo**. ![Ver la configuración del grupo de ejecutores](/assets/images/help/settings/actions-org-runner-group-remove.png)
-
-1. Revisa el mensaje de confirmación y da clic en **Eliminar este grupo de ejecutores**.
 {% endif %}
 {% endif %}

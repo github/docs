@@ -1,6 +1,7 @@
 ---
-title: Início rápido para codespaces
-intro: 'Experimente {% data variables.product.prodname_codespaces %} em 5 minutos.'
+title: 'Quickstart for {% data variables.product.prodname_github_codespaces %}'
+shortTitle: 'Quickstart for {% data variables.product.prodname_codespaces %}'
+intro: 'Experimente {% data variables.product.prodname_github_codespaces %} em 5 minutos.'
 allowTitleToDifferFromFilename: true
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
@@ -19,7 +20,7 @@ Neste guia, você irá criar um codespace a partir de um [repositório modelo](h
 
 Neste início rápido, você aprenderá a criar um codespace, conectar-se a uma porta encaminhada para ver seu aplicativo em execução, usar o controle de versões em um codespace e personalizar a sua configuração com extensões.
 
-Para obter mais informações sobre exatamente como {% data variables.product.prodname_codespaces %} funciona, consulte o guia "[Aprofundamento em {% data variables.product.prodname_codespaces %}](/codespaces/getting-started/deep-dive)."
+Para obter mais informações sobre exatamente como {% data variables.product.prodname_github_codespaces %} funciona, consulte o guia "[Aprofundamento em {% data variables.product.prodname_github_codespaces %}](/codespaces/getting-started/deep-dive)."
 
 ## Criando seu codespace
 
@@ -72,7 +73,7 @@ Agora que você fez algumas alterações, você poderá usar o terminal integrad
 
 ## Personalizando com uma extensão
 
-Within a codespace, you have access to the {% data variables.product.prodname_vscode_marketplace %}. Para este exemplo, você instalará uma extensão que altera o tema, mas você pode instalar qualquer extensão que seja útil para o seu fluxo de trabalho.
+Dentro de um codespace, você tem acesso ao {% data variables.product.prodname_vscode_marketplace %}. Para este exemplo, você instalará uma extensão que altera o tema, mas você pode instalar qualquer extensão que seja útil para o seu fluxo de trabalho.
 
 1. Na barra lateral esquerda, clique no ícone Extensões.
 
@@ -84,7 +85,7 @@ Within a codespace, you have access to the {% data variables.product.prodname_vs
 
   ![Selecionar tema fairyfloss](/assets/images/help/codespaces/fairyfloss.png)
 
-4. Changes you make to your editor setup in the current codespace, such as theme and keyboard bindings, are synced automatically via [Settings Sync](https://code.visualstudio.com/docs/editor/settings-sync) to any other codespaces you open and any instances of {% data variables.product.prodname_vscode %} that are signed into your GitHub account.
+4. As alterações feitas na configuração do seu ditor editor no codespace atual, como ligações de tema e teclado, são sincronizadas automaticamente por meio da [Sincronização das Configurações](https://code.visualstudio.com/docs/editor/settings-sync) para qualquer outro codespace que você abrir e quaisquer instâncias do {% data variables.product.prodname_vscode %} que estiverem conectadas à sua conta do GitHub.
 
 ## Próximos passos
 

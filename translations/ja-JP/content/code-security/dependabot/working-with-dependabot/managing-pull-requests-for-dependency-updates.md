@@ -44,9 +44,13 @@ shortTitle: Dependabot PRの管理
 
 デフォルトでは、{% data variables.product.prodname_dependabot %} は自動的にプルリクエストをリベースして競合を解決します。 マージの競合を手動で処理する場合は、`rebase-strategy` オプションを使用してこれを無効にできます。 詳細については「[dependabot.ymlファイルの設定オプション](/github/administering-a-repository/configuration-options-for-dependency-updates#rebase-strategy)」を参照してください。
 
+## {% data variables.product.prodname_dependabot %}に対する追加のコミットへのリベースとフォースプッシュの許可
+
+デフォルトでは、{% data variables.product.prodname_dependabot %}はPull Requestに対して追加のコミットが行われると、そのPull Requestのリベースを止めます。 ブランチに追加されたコミットに対するフォースプッシュを{% data variables.product.prodname_dependabot %}に許可するには、`[dependabot skip]`、`[skip dependabot]`、`[dependabot-skip]`、`[skip-dependabot]`のいずれかの文字列をコミットメッセージに含めてください。大文字でも小文字でもかまいません。
+
 ## {% data variables.product.prodname_dependabot %} Pull Requestをコメントコマンドで管理する
 
-{% data variables.product.prodname_dependabot %} はコメント内の単純なコマンドに応答します。 それぞれのPull Requestには、"{% data variables.product.prodname_dependabot %} commands and options"セクションの下に、そのPull Requestを処理するのに使えるコマンド（たとえばPull Requestのマージ、squash、再オープン、クローズ、リベース）の詳細があります。 これらの自動生成されたプルリクエストをできるだけ簡単にトリアージできるようにすることが目的です。
+{% data variables.product.prodname_dependabot %} はコメント内の単純なコマンドに応答します。 それぞれのPull Requestには、"{% data variables.product.prodname_dependabot %} commands and options"セクションの下に、そのPull Requestを処理するのに使えるコマンド（たとえばPull Requestのマージ、squash、再オープン、クローズ、リベース）の詳細があります。 これらの自動生成されたPull Requestをできるだけ簡単にトリアージできるようにすることが目的です。
 
 {% data variables.product.prodname_dependabot %} Pull Requestでは、以下のいずれのコマンドを使うこともできます。
 

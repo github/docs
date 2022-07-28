@@ -1,6 +1,6 @@
-Use `jobs.<job_id>.needs` to identify any jobs that must complete successfully before this job will run. 它可以是一个字符串，也可以是字符串数组。 如果某个作业失败，则所有需要它的作业都会被跳过，除非这些作业使用让该作业继续的条件表达式。
+使用 `jobs.<job_id>.needs` 确定必须成功完成才能运行此作业的任何作业。 它可以是一个字符串，也可以是字符串数组。 如果某个作业失败，则所有需要它的作业都会被跳过，除非这些作业使用让该作业继续的条件表达式。 如果运行包含一系列相互需要的作业，则从故障点开始，故障将应用于依赖关系链中的所有作业。
 
-#### Example: Requiring successful dependent jobs
+#### 示例：需要成功的依赖作业
 
 ```yaml
 jobs:
@@ -19,7 +19,7 @@ jobs:
 2. `job2`
 3. `job3`
 
-#### Example: Not requiring successful dependent jobs
+#### 示例：不需要成功的依赖作业
 
 ```yaml
 jobs:

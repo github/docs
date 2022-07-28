@@ -24,7 +24,7 @@ export default async function prerender(context, type, includeFilename) {
   const html = htmlArray.join('\n')
 
   return {
-    html: html,
+    html,
     miniToc: getMiniTocItems(html),
   }
 }

@@ -36,6 +36,7 @@ search:
 homepage:
   explore_by_product: 按产品浏览
   version_picker: 版本
+  description: 无论您在 GitHub 历程中的哪个阶段，都能获得帮助。
 toc:
   getting_started: 入门指南
   popular: 热门
@@ -178,7 +179,7 @@ product_landing:
   try_another: 请尝试另一个过滤器或添加您的代码示例。
   no_result: 抱歉，没有与过滤条件匹配的指南。
   learn: 了解如何添加代码示例
-  communities_using_discussions: 使用讨论的社区
+  communities_using_discussions: Communities on GitHub.com using discussions
   add_your_community: 添加您的社区
   sponsor_community: GitHub Sponsors 社区
   supported_releases: 支持的版本

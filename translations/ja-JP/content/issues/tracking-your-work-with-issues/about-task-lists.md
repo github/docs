@@ -76,5 +76,5 @@ topics:
 
 ## 参考リンク
 
-* 「[基本的な執筆とフォーマットの構文](/articles/basic-writing-and-formatting-syntax)」{% if code-scanning-task-lists %}
+* 「[基本的な執筆とフォーマットの構文](/articles/basic-writing-and-formatting-syntax)」{% ifversion code-scanning-task-lists %}
 * 「タスクリストを使ったIssue内の[{% data variables.product.prodname_code_scanning %} アラートの追跡](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/tracking-code-scanning-alerts-in-issues-using-task-lists)」{% endif %}

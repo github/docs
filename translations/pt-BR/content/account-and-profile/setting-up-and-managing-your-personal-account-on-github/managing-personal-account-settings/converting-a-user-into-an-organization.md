@@ -11,6 +11,7 @@ intro: Você pode converter a sua conta pessoal em uma organização. Isso permi
 versions:
   fpt: '*'
   ghes: '*'
+  ghae: '*'
   ghec: '*'
 topics:
   - Accounts
@@ -19,24 +20,25 @@ shortTitle: Usuário em uma organização
 
 {% warning %}
 
-**Aviso**: antes de converter um usuário em uma organização, lembre-se destes pontos:
+**Aviso**: antes de converter um usuário em uma organização, lembre-se destes pontos.
 
- - Você **não poderá mais** efetura login na conta pessoal convertida.
- - Você **não poderá mais** criar ou modificar gists pertencentes à conta pessoal convertida.
- - Uma organização **não pode** ser convertida de volta em um usuário.
- - As chaves SSH, os tokens do OAuth, o perfil de trabalho, as reações e as informações do usuário associadas, **não** serão transferidos para a organização. Isso é válido apenas para a conta pessoal que está sendo convertida, não para os colaboradores da conta pessoal.
- - Todos os commits criados com a conta pessoal convertida **não serão mais vinculados** a essa conta. Os commits em si **permanecerão** intactos.
- - Todas as bifurcações de repositórios privados criadas com a conta pessoal convertida serão excluídas.
-
+* Você **não poderá mais** efetura login na conta pessoal convertida.
+* Você **não poderá mais** criar ou modificar gists pertencentes à conta pessoal convertida.
+* Uma organização **não pode** ser convertida de volta em um usuário.
+* As chaves SSH, os tokens do OAuth, o perfil de trabalho, as reações e as informações do usuário associadas, **não** serão transferidos para a organização. Isso é válido apenas para a conta pessoal que está sendo convertida, não para os colaboradores da conta pessoal.
+* Todos os commits criados com a conta pessoal convertida **não serão mais vinculados** a essa conta. Os commits em si **permanecerão** intactos.
+* Todos os comentários existentes feitos pela conta pessoal convertida **não serão mais vinculados** a essa conta. Os comentários em si **permanecerão** intactos, mas serão associados ao usuário `fantasma`.
+* Todas as bifurcações de repositórios privados criadas com a conta pessoal convertida serão excluídas.
 {% endwarning %}
 
+{% ifversion fpt or ghec or ghes %}
 ## Mantenha sua conta pessoal e crie uma nova organização manualmente
 
 Se quiser que sua organização tenha o mesmo nome que está usando atualmente na sua conta pessoal ou se quiser manter as informações da sua conta pessoal intactas, você deverá criar uma nova organização e transferir seus repositórios para ela em vez de converter sua conta pessoal em uma organização.
 
 1. Para manter o seu nome de conta pessoal atual para o seu uso pessoal, [altere o nome da sua conta pessoal](/articles/changing-your-github-username) para algo novo e maravilhoso.
 2. [Crie uma nova organização](/articles/creating-a-new-organization-from-scratch) com o nome original da sua conta pessoal.
-3. [Transfira os repositórios](/articles/transferring-a-repository) para sua nova conta de organização.
+3. [Transferir seus repositórios](/articles/transferring-a-repository) para a nova conta da organização.{% endif %}
 
 ## Converter sua conta pessoal em uma organização automaticamente
 
@@ -49,7 +51,7 @@ Você também pode converter sua conta pessoal diretamente em uma organização.
 2.  [Deixe qualquer organização](/articles/removing-yourself-from-an-organization) a conta pessoal que você está convertendo começou a participar.
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.organizations %}
-5. Under "Transform account", click **Turn <username> into an organization**. ![Botão de conversão da organização](/assets/images/help/settings/convert-to-organization.png)
+5. Em "Transformar conta", clique em **Transformar<username> em uma organização**. ![Botão de conversão da organização](/assets/images/help/settings/convert-to-organization.png)
 6. Na caixa de diálogo Account Transformation Warning (Aviso de transformação da conta), revise e confirme a conversão. Observe que as informações nessa caixa são as mesmas do aviso no início deste artigo. ![Aviso de conversão](/assets/images/help/organizations/organization-account-transformation-warning.png)
 7. Na página "Transform your user into an organization" (Transformar usuário em uma organização), em "Choose an organization owner" (Escolher um proprietário da organização), escolha a conta pessoal secundária que você criou na seção anterior ou outro usuário em que confia para gerenciar a organização. ![Página Add organization owner (Adicionar proprietário da organização)](/assets/images/help/organizations/organization-add-owner.png)
 8. Escolha a assinatura da nova organização e insira as informações de cobrança se solicitado.

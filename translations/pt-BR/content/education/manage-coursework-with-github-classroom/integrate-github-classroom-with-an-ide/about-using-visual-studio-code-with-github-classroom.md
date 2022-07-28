@@ -1,7 +1,7 @@
 ---
 title: Sobre usar o Visual Studio Code com o GitHub Classroom
 shortTitle: Sobre o uso do Visual Studio Code
-intro: 'You can configure {% data variables.product.prodname_vscode %} as the preferred editor for assignments in {% data variables.product.prodname_classroom %}.'
+intro: 'Você pode configurar {% data variables.product.prodname_vscode %} como o editor preferido para as atividades em {% data variables.product.prodname_classroom %}.'
 versions:
   fpt: '*'
 redirect_from:
@@ -10,30 +10,30 @@ redirect_from:
 
 ## Sobre o {% data variables.product.prodname_vscode %}
 
-{% data variables.product.prodname_vscode %} is a lightweight but powerful source code editor which runs on your desktop and is available for Windows, macOS and Linux. With the [GitHub Classroom extension for {% data variables.product.prodname_vscode_shortname %}](https://aka.ms/classroom-vscode-ext), students can easily browse, edit, submit, collaborate, and test their Classroom Assignments. Para obter mais informações sobre IDEs e {% data variables.product.prodname_classroom %}, consulte "[Integrar {% data variables.product.prodname_classroom %} a um IDE](/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide/integrate-github-classroom-with-an-ide)".
+{% data variables.product.prodname_vscode %} é um editor de código fonte leve mas poderoso que é executado em seu computador e está disponível para Windows, macOS e Linux. Com a extensão do [GitHub Classroom para {% data variables.product.prodname_vscode_shortname %}](https://aka.ms/classroom-vscode-ext), os alunos podem facilmente navegar, editar, enviar, colaborar e testar suas atividades no Classroom. Para obter mais informações sobre IDEs e {% data variables.product.prodname_classroom %}, consulte "[Integrar {% data variables.product.prodname_classroom %} a um IDE](/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide/integrate-github-classroom-with-an-ide)".
 
 ### Editor da escolha do seu aluno
-The GitHub Classroom integration with {% data variables.product.prodname_vscode_shortname %} provides students with an extension pack which contains:
+A integração do GitHub Classroom com {% data variables.product.prodname_vscode_shortname %} oferece aos alunos um pacote de extensão que contém:
 
 1. [Extensão GitHub Classroom](https://aka.ms/classroom-vscode-ext) com abstrações personalizadas que facilitam o início da navegação dos alunos.
 2. A [Extensão do Visual Studio Live Share](https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare-pack) foi integrada a uma visualização do aluno para facilitar o acesso a assistentes de ensino e colegas de classe para ajuda e colaboração.
 3. A [Extensão do GitHub Pull Request](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github) permite que os alunos vejam comentários de seus instrutores no editor.
 
-### How to launch the assignment in {% data variables.product.prodname_vscode_shortname %}
-When creating an assignment, {% data variables.product.prodname_vscode_shortname %} can be added as the preferred editor for an assignment. Para obter mais informações consulte "[Integrar {% data variables.product.prodname_classroom %} a um IDE](/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide/integrate-github-classroom-with-an-ide)".
+### Como iniciar a atividade em {% data variables.product.prodname_vscode_shortname %}
+Ao criar uma atividade, {% data variables.product.prodname_vscode_shortname %} pode ser adicionado como editor preferido de uma atividade. Para obter mais informações consulte "[Integrar {% data variables.product.prodname_classroom %} a um IDE](/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide/integrate-github-classroom-with-an-ide)".
 
-This will include an "Open in {% data variables.product.prodname_vscode_shortname %}" badge in all student repositories. This badge handles installing {% data variables.product.prodname_vscode_shortname %}, the Classroom extension pack, and opening to the active assignment with one click.
+Isto incluirá um selo "Abrir em {% data variables.product.prodname_vscode_shortname %}" em todos os repositórios de alunos. Este selo processa a instalação de {% data variables.product.prodname_vscode_shortname %}, o pacote de extensão de sala de aula e a abertura ao trabalho ativo com um clique.
 
 {% note %}
 
-**Note:** The student must have Git installed on their computer to push code from {% data variables.product.prodname_vscode_shortname %} to their repository. This is not automatically installed when clicking the **Open in {% data variables.product.prodname_vscode_shortname %}** button. O aluno pode fazer o download do Git em [aqui](https://git-scm.com/downloads).
+**Observaçãp:** O aluno deve ter o Git instalado no seu computador para fazer push do código de {% data variables.product.prodname_vscode_shortname %} para o seu repositório. Ele não é instalado automaticamente ao clicar no botão **Abrir em {% data variables.product.prodname_vscode_shortname %}**. O aluno pode fazer o download do Git em [aqui](https://git-scm.com/downloads).
 
 {% endnote %}
 
 ### Como usar o pacote de extensão GitHub Classroom
 A extensão GitHub Classroom tem dois componentes principais: a visualização "salas de aula" e a visualização "atividade ativa".
 
-When the student launches the extension for the first time, they are automatically navigated to the Explorer tab in {% data variables.product.prodname_vscode_shortname %}, where they can see the "Active Assignment" view alongside the tree-view of files in the repository.
+Quando o aluno lança a extensão pela primeira vez, ele é automaticamente transferido para a aba Explorador em {% data variables.product.prodname_vscode_shortname %}, onde pode ver a exibição de "Atividade ativa" ao lado da exibição em árvore de arquivos no repositório.
 
 ![Visão da atividade ativa do GitHub Classroom](/assets/images/help/classroom/vs-code-active-assignment.png)
 

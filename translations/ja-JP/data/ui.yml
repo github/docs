@@ -36,6 +36,7 @@ search:
 homepage:
   explore_by_product: 製品で調べる
   version_picker: バージョン
+  description: Help for wherever you are on your GitHub journey.
 toc:
   getting_started: はじめましょう
   popular: 人気
@@ -178,7 +179,7 @@ product_landing:
   try_another: 他のフィルタを試すか、あなたのコードサンプルを追加してください。
   no_result: 申し訳ありませんが、指定されたフィルタにマッチするガイドはありません。
   learn: コードサンプルの追加方法を学ぶ
-  communities_using_discussions: ディスカッションを使用しているコミュニティ
+  communities_using_discussions: Communities on GitHub.com using discussions
   add_your_community: コミュニティを追加する
   sponsor_community: GitHub Sponsorsコミュニティ
   supported_releases: サポートされているリリース

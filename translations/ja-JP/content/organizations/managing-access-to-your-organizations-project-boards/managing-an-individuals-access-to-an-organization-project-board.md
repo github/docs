@@ -1,6 +1,6 @@
 ---
-title: Organization のプロジェクトボードに対する個々のアクセスを管理する
-intro: Organization のオーナーまたはプロジェクトボードの管理者は、Organization で所有しているプロジェクトボードに対する個々のメンバーのアクセスを管理できます。
+title: 'Managing an individual’s access to an organization {% data variables.product.prodname_project_v1 %}'
+intro: 'As an organization owner or {% data variables.projects.projects_v1_board %} admin, you can manage an individual member''s access to a {% data variables.projects.projects_v1_board %} owned by your organization.'
 redirect_from:
   - /articles/managing-an-individual-s-access-to-an-organization-project-board
   - /articles/managing-an-individuals-access-to-an-organization-project-board
@@ -14,19 +14,23 @@ topics:
   - Organizations
   - Teams
 shortTitle: 個人のアクセスの管理
+allowTitleToDifferFromFilename: true
 ---
+
+{% data reusables.projects.project_boards_old %}
 
 {% note %}
 
-**メモ:** {% data reusables.project-management.cascading-permissions %} 詳細は「[Orgazniation のプロジェクトボード権限](/articles/project-board-permissions-for-an-organization)」を参照してください。
+**Note:** {% data reusables.project-management.cascading-permissions %} For more information, see "[{% data variables.product.prodname_project_v1_caps %} permissions for an organization](/articles/project-board-permissions-for-an-organization)."
 
 {% endnote %}
 
-## Organization メンバーにプロジェクトボードへのアクセスを付与する
+## Giving an organization member access to a {% data variables.projects.projects_v1_board %}
 
 {% data reusables.profile.access_org %}
 {% data reusables.user-settings.access_org %}
-{% data reusables.organizations.organization-wide-project %}
+{% data reusables.organizations.organization-wide-project %}{% ifversion projects-v2 %}
+1. Click **Projects (classic)**{% endif %}
 {% data reusables.project-management.select-project %}
 {% data reusables.project-management.click-menu %}
 {% data reusables.project-management.access-collaboration-settings %}
@@ -35,24 +39,26 @@ shortTitle: 個人のアクセスの管理
 {% data reusables.project-management.add-collaborator %}
 {% data reusables.project-management.collaborator-permissions %}
 
-## Organization のメンバーのプロジェクトボードへのアクセスを変更する
+## Changing an organization member's access to a {% data variables.projects.projects_v1_board %}
 
 {% data reusables.profile.access_org %}
 {% data reusables.user-settings.access_org %}
-{% data reusables.organizations.organization-wide-project %}
+{% data reusables.organizations.organization-wide-project %}{% ifversion projects-v2 %}
+1. Click **Projects (classic)**{% endif %}
 {% data reusables.project-management.select-project %}
 {% data reusables.project-management.click-menu %}
 {% data reusables.project-management.access-collaboration-settings %}
 {% data reusables.project-management.collaborator-option %}
 {% data reusables.project-management.collaborator-permissions %}
 
-## Organization メンバーのプロジェクトボードへのアクセスを削除する
+## Removing an organization member's access to a {% data variables.projects.projects_v1_board %}
 
-プロジェクトボードからコラボレーターを削除しても、コラボレーターは引き続き他のロールの権限でボードにアクセスできる場合があります。 プロジェクトボードへのアクセスを完全に削除するには、個人の各ロールごとにアクセスを削除する必要があります。 たとえば、ユーザは Organization のメンバーとして、またはチーム メンバーとしてプロジェクトボードにアクセスできます。 詳しい情報については、「[Organization のプロジェクトボードの権限](/articles/project-board-permissions-for-an-organization)」を参照してください。
+When you remove a collaborator from a {% data variables.projects.projects_v1_board %}, they may still retain access to the board based on the permissions they have for other roles. To completely remove access to a {% data variables.projects.projects_v1_board %}, you must remove access for each role the person has. For instance, a person may have access to the {% data variables.projects.projects_v1_board %} as an organization member or team member. For more information, see "[{% data variables.product.prodname_project_v1_caps %} permissions for an organization](/articles/project-board-permissions-for-an-organization)."
 
 {% data reusables.profile.access_org %}
 {% data reusables.user-settings.access_org %}
-{% data reusables.organizations.organization-wide-project %}
+{% data reusables.organizations.organization-wide-project %}{% ifversion projects-v2 %}
+1. Click **Projects (classic)**{% endif %}
 {% data reusables.project-management.select-project %}
 {% data reusables.project-management.click-menu %}
 {% data reusables.project-management.access-collaboration-settings %}
@@ -61,4 +67,4 @@ shortTitle: 個人のアクセスの管理
 
 ## 参考リンク
 
-- [Organization のプロジェクトボード権限](/articles/project-board-permissions-for-an-organization)
+- "[{% data variables.product.prodname_project_v1_caps %} permissions for an organization](/articles/project-board-permissions-for-an-organization)"

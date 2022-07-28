@@ -1,6 +1,6 @@
 ---
-title: About enterprise policies
-intro: 'With enterprise policies, you can manage the policies for all the organizations owned by your enterprise.'
+title: Sobre políticas corporativas
+intro: 'Com as políticas corporativas, você pode gerenciar as políticas para todas as organizações pertencentes à sua empresa.'
 versions:
   ghec: '*'
   ghes: '*'
@@ -11,18 +11,18 @@ topics:
   - Policies
 ---
 
-To help you enforce business rules and regulatory compliance, policies provide a single point of management for all the organizations owned by an enterprise account.
+Para ajudar você a aplicar as regras de negócios e a conformidade regulatória, as políticas fornecem um único ponto de gestão para todas as organizações pertencentes a uma conta corporativa.
 
 {% data reusables.enterprise.about-policies %}
 
-For example, with the "Base permissions" policy, you can allow organization owners to configure the "Base permissions" policy for their organization, or you can enforce a specific base permissions level, such as "Read", for all organizations within the enterprise.
+Por exemplo, com a política de "Permissões básicas", você pode permitir que os proprietários da organização configurem a política de "Permissões básicas" para sua organização, ou você pode exigir um nível específico de permissões de base, como "Leitura" para todas as organizações dentro da empresa.
 
-By default, no enterprise policies are enforced. To identify policies that should be enforced to meet the unique requirements of your business, we recommend reviewing all the available policies in your enterprise account, starting with repository management policies. For more information, see "[Enforcing repository management polices in your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise)."
+Por padrão, nenhuma política corporativa é aplicada. Para identificar as políticas que devem ser aplicadas para atender aos requisitos únicos do seu negócio, Recomendamos analisar todas as políticas disponíveis na conta corporativa, começando com as políticas de gerenciamento do repositório. Para obter mais informações, consulte "[Aplicar políticas de gerenciamento do repositório na sua empresa](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise)".
 
-While you're configuring enterprise policies, to help you understand the impact of changing each policy, you can view the current configurations for the organizations owned by your enterprise.
+Enquanto estiver configurando políticas coroprativas, para ajudar você a entender o impacto de alterar cada política, você pode ver as configurações atuais das organizações pertencentes à sua empresa.
 
 {% ifversion ghes %}
-Another way to enforce standards within your enterprise is to use pre-receive hooks, which are scripts that run on {% data variables.product.product_location %} to implement quality checks. For more information, see "[Enforcing policy with pre-receive hooks](/admin/policies/enforcing-policy-with-pre-receive-hooks)."
+Outra maneira de aplicar as normas na sua empresa é usar hooks pre-receive, que são scripts executados em {% data variables.product.product_location %} para implementar verificações de qualidade. Para obter mais informações, consulte "[Forçando política com hooks pre-receive](/admin/policies/enforcing-policy-with-pre-receive-hooks)".
 {% endif %}
 
 ## Leia mais

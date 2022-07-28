@@ -6,8 +6,8 @@ versions:
   ghes: '*'
   ghae: '*'
   ghec: '*'
-  redirect_from:
-    - /github/writing-on-github/working-with-advanced-formatting/using-keywords-in-issues-and-pull-requests
+redirect_from:
+  - /github/writing-on-github/working-with-advanced-formatting/using-keywords-in-issues-and-pull-requests
 topics:
   - Issues
   - Pull requests
@@ -15,7 +15,7 @@ topics:
 
 ## Vinculando uma pull request a um problema
 
-To link a pull request to an issue to show that a fix is in progress and to automatically close the issue when someone merges the pull request, type one of the following keywords followed by a reference to the issue. Por exemplo, `Closes #10` ou `Fixes octo-org/octo-repo#100`.
+Para vincular um pull request a um problema a mostre que uma correção está em andamento e para fechar o problema automaticamente quando alguém fizer merge do pull request, digite uma das palavras-chave a seguir seguida de uma referência ao problema. Por exemplo, `Closes #10` ou `Fixes octo-org/octo-repo#100`.
 
 * close
 * closes

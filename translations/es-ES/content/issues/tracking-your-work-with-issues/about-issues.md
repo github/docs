@@ -32,7 +32,7 @@ Las propuestas pueden crearse de varias formas, así que puedes elegir el métod
 
 Puedes organizar y priorizar las propuestas con los proyectos. {% ifversion fpt or ghec %}Para rastrear las propuestas como parte de una propuesta más grande, puedes utilizar las listas de tareas.{% endif %} Para categorizar las propuestas relacionadas, puedes utilizar etiquetas e hitos.
 
-Para obtener más información sobre los proyectos, consulta las secciones {% ifversion fpt or ghec %}"[Acerca de los proyectos (beta)](/issues/trying-out-the-new-projects-experience/about-projects)" y {% endif %}"[Organizar tu trabajo con tableros de proyecto](/issues/organizing-your-work-with-project-boards)". {% ifversion fpt or ghec %}Para obtener más información sobre las listas de tareas, consulta la sección "[Acerca de las listas de tareas](/issues/tracking-your-work-with-issues/creating-issues/about-task-lists)". {% endif %}Para obtener más información sobre las etiquetas y los hitos, consulta la sección "[Utilizar etiquetas e hitos para rastrear el trabajo](/issues/using-labels-and-milestones-to-track-work)".
+For more information about projects, see {% ifversion projects-v2 %}"[About projects](/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects)." {% else %}"[Organizing your work with project boards](/issues/organizing-your-work-with-project-boards)."{% endif %} {% ifversion fpt or ghec %}For more information about task lists, see "[About task lists](/issues/tracking-your-work-with-issues/creating-issues/about-task-lists)." {% endif %}Para obtener más información sobre las etiquetas y los hitos, consulta la sección "[Utilizar etiquetas e hitos para rastrear el trabajo](/issues/using-labels-and-milestones-to-track-work)".
 
 ## Mantente actualizado
 
@@ -48,7 +48,8 @@ Para ayudar a que los colaboradores abran propuestas significativas que proporci
 
 Puedes @mencionar colaboradores que tengan acceso a tu repositorio en una propuesta para dirigir su atención a un cometnario. Para enlazar las propuestas relacionadas en el mismo repositorio, puedes teclear `#` seguido de parte del título de la propuesta y luego hacer clic en la propueta que quieras enlazar. Para comunicar la responsabilidad, puedes asignar propuestas. Si frecuentemente te encuentras tecleando el mismo comentario, puedes utilizar las respuestas guardadas.
 {% ifversion fpt or ghec %} Para obtener más información, consulta las secciones "[Sintaxis básica para escritura y formato](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)" y "[Asignar propuestas y solicitudes de cambio a otros usuarios de GitHub](/issues/tracking-your-work-with-issues/assigning-issues-and-pull-requests-to-other-github-users)".
-
+{% endif %}
+{% ifversion discussions %}
 ## Comparar propuestas y debates
 
 Algunas conversaciones son más adecuadas para los {% data variables.product.prodname_discussions %}. {% data reusables.discussions.you-can-use-discussions %} Para orientarte sobre cuándo utilizar una propuesta o debate, consulta la sección "[Comuinicarte en GitHub](/github/getting-started-with-github/quickstart/communicating-on-github)".

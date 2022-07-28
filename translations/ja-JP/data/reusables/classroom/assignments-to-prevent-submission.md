@@ -1,1 +1,1 @@
-To prevent acceptance or submission of an assignment by students, you can change the "Assignment Status" within the "Edit assignment" view. When an assignment is Active, students will be able to accept it using the invitation link. When it is Inactive, this link will no longer be valid.
+学生による課題の受理もしくは提出を防止するには、"Edit assignment（課題の編集）"ビュー内の"Assignment Status（課題のステータス）"を変更できます。 課題がアクティブな場合、学生は招待リンクを使って受理できます。 アクティブではない場合、このリンクは有効ではありません。

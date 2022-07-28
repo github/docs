@@ -32,11 +32,11 @@ Os problemas podem ser criados de várias maneiras. Portanto, você pode escolhe
 
 Você pode organizar e priorizar problemas com projetos. {% ifversion fpt or ghec %}Para monitorar problemas como parte de um problema maior, você pode usar as listas de tarefas.{% endif %} Para categorizar problemas relacionados, você pode usar etiquetas e marcos.
 
-Para obter mais informações sobre os projetos, consulte {% ifversion fpt or ghec %}"[Sobre projetos (beta)](/issues/trying-out-the-new-projects-experience/about-projects)e {% endif %}"[Organizar seu trabalho com quadros de projeto](/issues/organizing-your-work-with-project-boards)". {% ifversion fpt or ghec %}Para obter mais informações sobre listas de tarefas, consulte "[Sobre listas de tarefas](/issues/tracking-your-work-with-issues/creating-issues/about-task-lists)". {% endif %}Para obter mais informações sobre etiquetas e marcos, consulte "[Usando etiquetas e marcos para rastrear o trabalho](/issues/using-labels-and-milestones-to-track-work)".
+For more information about projects, see {% ifversion projects-v2 %}"[About projects](/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects)." {% else %}"[Organizing your work with project boards](/issues/organizing-your-work-with-project-boards)."{% endif %} {% ifversion fpt or ghec %}For more information about task lists, see "[About task lists](/issues/tracking-your-work-with-issues/creating-issues/about-task-lists)." {% endif %}Para obter mais informações sobre etiquetas e marcos, consulte "[Usando etiquetas e marcos para rastrear o trabalho](/issues/using-labels-and-milestones-to-track-work)".
 
 ## Mantenha-se atualizado
 
-Para manter-se atualizado sobre os comentários mais recentes em um problema, você pode assinar um problema para receber notificações sobre os comentários mais recentes. Para encontrar links para problemas atualizados recentemente nos quais você está inscrito, visite seu painel. For more information, see "[About notifications](/github/managing-subscriptions-and-notifications-on-github/about-notifications)" and "[About your personal dashboard](/articles/about-your-personal-dashboard)."
+Para manter-se atualizado sobre os comentários mais recentes em um problema, você pode assinar um problema para receber notificações sobre os comentários mais recentes. Para encontrar links para problemas atualizados recentemente nos quais você está inscrito, visite seu painel. Para obter mais informações, consulte "[Sobre as notificações](/github/managing-subscriptions-and-notifications-on-github/about-notifications)" e "[Sobre o seu painel pessoal](/articles/about-your-personal-dashboard)".
 
 ## Gerenciamento da comunidade
 
@@ -48,7 +48,8 @@ Para ajudar os colaboradores a abrir problemas significativos que fornecem as in
 
 Você pode @mencionar colaboradores com acesso ao seu repositório em um problema para chamar a atenção para um comentário. Para vincular problemas relacionados no mesmo repositório, você pode digitar `#` seguido de parte do título do problema e, em seguida, clicar no problema que você deseja vincular. Para comunicar responsabilidade, você pode atribuir problemas. Se você se encontrar, frequentemente, digitando o mesmo comentário, você poderá usar as respostas salvas.
 {% ifversion fpt or ghec %} Para mais informações, consulte "[Sintaxe básica de escrita e formatação](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)" e "[Atribuindo problemas e pull requests a outros usuários do GitHub](/issues/tracking-your-work-with-issues/assigning-issues-and-pull-requests-to-other-github-users)"
-
+{% endif %}
+{% ifversion discussions %}
 ## Comparando problemas e discussões
 
 Algumas conversas são mais adequadas para {% data variables.product.prodname_discussions %}. {% data reusables.discussions.you-can-use-discussions %} Para orientação sobre quando usar um problema ou discussão, consulte "[Comunicar com o GitHub](/github/getting-started-with-github/quickstart/communicating-on-github)".

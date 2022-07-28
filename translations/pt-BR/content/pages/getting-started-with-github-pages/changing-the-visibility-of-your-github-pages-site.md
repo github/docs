@@ -11,13 +11,15 @@ shortTitle: Alterar a visibilidade do site
 
 ## Sobre controle de acesso para sites de {% data variables.product.prodname_pages %}
 
-Com controle de acesso para {% data variables.product.prodname_pages %}, você pode restringir o acesso ao seu site {% data variables.product.prodname_pages %} publicando o site de forma privada. Um site publicado de forma privada só pode ser acessado por pessoas com acesso de leitura ao repositório a partir do qual o site é publicado. Você pode usar sites publicados de forma privada para compartilhar sua documentação interna ou base de conhecimento com integrantes da sua empresa.
+Com controle de acesso para {% data variables.product.prodname_pages %}, você pode restringir o acesso ao seu site de projeto publicando o site de forma privada. Um site publicado de forma privada só pode ser acessado por pessoas com acesso de leitura ao repositório a partir do qual o site é publicado. Você pode usar sites publicados de forma privada para compartilhar sua documentação interna ou base de conhecimento com integrantes da sua empresa.
 
 {% data reusables.pages.privately-publish-ghec-only %}
 
 Se a sua empresa usa {% data variables.product.prodname_emus %}, o controle de acesso não está disponível, e todos os sites de {% data variables.product.prodname_pages %} estão acessíveis somente para os integrantes da empresa. Para obter mais informações sobre {% data variables.product.prodname_emus %}, consulte "[Sobre {% data variables.product.prodname_pages %}](/pages/getting-started-with-github-pages/about-github-pages#limitations-for-enterprise-managed-users)."
 
-Se a sua organização usar {% data variables.product.prodname_ghe_cloud %} sem {% data variables.product.prodname_emus %}, você poderá optar por publicar seus sites em particular ou publicamente para qualquer pessoa na internet. O controle de acesso está disponível para os sites de projeto publicados a partir de um repositório privado ou interno que pertencem à organização. Você não pode gerenciar o controle de acesso para um site da organização. Para obter mais informações sobre os tipos de sites do {% data variables.product.prodname_pages %}, consulte "[Sobre {% data variables.product.prodname_pages %}](/pages/getting-started-with-github-pages/about-github-pages#types-of-github-pages-sites)".
+Se a sua organização usar {% data variables.product.prodname_ghe_cloud %} sem {% data variables.product.prodname_emus %}, você poderá optar por publicar seus sites de projeto em particular ou publicamente para qualquer pessoa na internet.
+
+O controle de acesso está disponível para os sites de projeto publicados a partir de um repositório privado ou interno que pertencem à organização. Você não pode gerenciar o controle de acesso para um site da organização. Para obter mais informações sobre os tipos de sites do {% data variables.product.prodname_pages %}, consulte "[Sobre {% data variables.product.prodname_pages %}](/pages/getting-started-with-github-pages/about-github-pages#types-of-github-pages-sites)".
 
 ## Sobre subdomínios para sites publicados em particular
 

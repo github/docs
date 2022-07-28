@@ -38,26 +38,38 @@ graph TD;
 
 {% endnote %}
 
-## Crear mapas de geoJSON y topoJSON
+## Crear mapas de GeoJSON y TopoJSON
 
-Puedes utilizar la sintaxis de geo/topoJSON para crear mapas interactivos. Para crear un mapa, agrega geoJSON o topoJSON dentro de un bloque de código cercado con el identificador de sintaxis de `geojson` o de `topojson`. Para obtener más información, consulta "[Crear y resaltar bloques de código](/get-started/writing-on-github/working-with-advanced-formatting/creating-and-highlighting-code-blocks)".
+Puedes utilizar la sintaxis de GeoJSON/TopoJSON para crear mapas interactivos. Para crear un mapa, agrega GeoJSON o TopoJSON dentro de un bloque de código cercado con el identificador de sintaxis `geojson` o `topojson`. Para obtener más información, consulta "[Crear y resaltar bloques de código](/get-started/writing-on-github/working-with-advanced-formatting/creating-and-highlighting-code-blocks)".
 
-### Utilizando geoJSON
+### Utilizando GeoJSON
 
 Por ejemplo, puedes crear un mapa simple:
 
 <pre>
 ```geojson
 {
-  "type": "Polygon",
-  "coordinates": [
-      [
-          [-90,30],
-          [-90,35],
-          [-90,35],
-          [-85,35],
-          [-85,30]
-      ]
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "id": 1,
+      "properties": {
+        "ID": 0
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+              [-90,35],
+              [-90,30],
+              [-85,30],
+              [-85,35],
+              [-90,35]
+          ]
+        ]
+      }
+    }
   ]
 }
 ```
@@ -65,9 +77,9 @@ Por ejemplo, puedes crear un mapa simple:
 
 ![Mapa generado](/assets/images/help/writing/fenced-geojson-rendered-map.png)
 
-### Utilizando topoJSON
+### Utilizando TopoJSON
 
-Por ejemplo, puedes crear un mapa simple de topoJSON:
+Por ejemplo, puedes crear un mapa simple de TopoJSON:
 
 <pre>
 ```topojson

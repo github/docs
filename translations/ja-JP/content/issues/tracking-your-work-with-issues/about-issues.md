@@ -32,7 +32,7 @@ Issueは様々な方法で作成できるので、ワークフローで最も便
 
 プロジェクトで、Issueを整理して優先順位付けできます。 {% ifversion fpt or ghec %}大きなIssueの一部であるIssueを追跡するには、タスクリストが使えます。{% endif %}関連するIssueを分類するには、ラベルとマイルストーンが使えます。
 
-プロジェクトに関する詳しい情報については{% ifversion fpt or ghec %}「[プロジェクト（ベータ）について](/issues/trying-out-the-new-projects-experience/about-projects)」及び{% endif %}「[プロジェクトボードでの作業の整理](/issues/organizing-your-work-with-project-boards)」を参照してください。 {% ifversion fpt or ghec %}タスクリストに関する詳しい情報については「[タスクリストについて](/issues/tracking-your-work-with-issues/creating-issues/about-task-lists)」を参照してください。 {% endif %}ラベルとマイルストーンに関する詳しい情報については「[作業を追跡するためのラベルとマイルストーンの利用](/issues/using-labels-and-milestones-to-track-work)」を参照してください。
+For more information about projects, see {% ifversion projects-v2 %}"[About projects](/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects)." {% else %}"[Organizing your work with project boards](/issues/organizing-your-work-with-project-boards)."{% endif %} {% ifversion fpt or ghec %}For more information about task lists, see "[About task lists](/issues/tracking-your-work-with-issues/creating-issues/about-task-lists)." {% endif %}ラベルとマイルストーンに関する詳しい情報については「[作業を追跡するためのラベルとマイルストーンの利用](/issues/using-labels-and-milestones-to-track-work)」を参照してください。
 
 ## 最新情報の確認
 
@@ -48,7 +48,8 @@ Issueの最新のコメントの情報を得ておきたい場合には、Issue�
 
 コメントに注意してもらうために、Issue内でリポジトリにアクセスできるコラボレータを@メンションできます。 同じリポジトリ内の関連するIssueをリンクするために、`#`につづいてIssueのタイトルの一部を続け、リンクしたいIssueをクリックできます。 責任を伝えるために、Issueを割り当てることができます。 同じコメントを頻繁に入力しているなら、返信テンプレートを利用できます。
 {% ifversion fpt or ghec %}詳しい情報については「[基本的な記述とフォーマットの構文](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)」及び「[他のGitHubユーザへのIssueやPull Requestの割り当て](/issues/tracking-your-work-with-issues/assigning-issues-and-pull-requests-to-other-github-users)」を参照してください。
-
+{% endif %}
+{% ifversion discussions %}
 ## Issueとディスカッションの比較
 
 会話の中には、{% data variables.product.prodname_discussions %}に適しているものもあります。 {% data reusables.discussions.you-can-use-discussions %} Issueあるいはディスカッションを使う場合のガイダンスについては「[GitHubでのコミュニケーション](/github/getting-started-with-github/quickstart/communicating-on-github)」を参照してください。

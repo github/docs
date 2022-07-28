@@ -40,13 +40,13 @@ Por padrão, se seu nome de usuário for mencionado em uma discussão de equipe,
 
 Para desativar notificações de discussões de equipe, você pode cancelar a assinatura de uma postagem de discussão específica ou alterar as configurações de notificação para cancelar a inspeção ou ignorar completamente discussões de uma equipe específica. É possível assinar para receber notificações de uma postagem de discussão específica se você estiver cancelando a inspeção de discussões dessa equipe.
 
-For more information, see "[Viewing your subscriptions](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions)" and "[Nested teams](/articles/about-teams/#nested-teams)."
+Para obter mais informações, consulte "[Visualizando suas assinaturas](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions)" e "[Equipes aninhadas](/articles/about-teams/#nested-teams)".
 
 {% ifversion fpt or ghec %}
 
 ## Discussões da organização
 
-Você também pode usar discussões da organização para facilitar conversas em toda a sua organização. For more information, see "[Enabling or disabling GitHub Discussions for an organization](/organizations/managing-organization-settings/enabling-or-disabling-github-discussions-for-an-organization)."
+Você também pode usar discussões da organização para facilitar conversas em toda a sua organização. Para obter mais informações, consulte "[Habilitar ou desabilitar discussões no GitHub para uma organização](/organizations/managing-organization-settings/enabling-or-disabling-github-discussions-for-an-organization)".
 
 {% endif %}
 

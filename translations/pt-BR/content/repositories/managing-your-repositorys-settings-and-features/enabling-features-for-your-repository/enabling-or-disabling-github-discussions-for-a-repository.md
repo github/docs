@@ -1,11 +1,9 @@
 ---
 title: Habilitar ou desabilitar discussões no GitHub para um repositório
 intro: 'Você pode usar {% data variables.product.prodname_discussions %} em um repositório como um lugar para a sua comunidade ter conversas, fazer perguntas e postar respostas sem criar o escopo para um problema.'
-product: '{% data reusables.gated-features.discussions %}'
 permissions: 'People with admin permissions to a repository can enable {% data variables.product.prodname_discussions %} for the repository.'
 versions:
-  fpt: '*'
-  ghec: '*'
+  feature: discussions
 topics:
   - Repositories
 redirect_from:
@@ -19,7 +17,7 @@ shortTitle: Discussions
 {% data reusables.discussions.enabling-or-disabling-github-discussions-for-your-repository %}
 1. Para desabilitar as discussões, em "Recursos", desmarque **Discussões**.
 
-You can also use organization discussions to facilitate conversations that span multiple repositories in your organization. For more information, see "[Enabling or disabling GitHub Discussions for an organization](/organizations/managing-organization-settings/enabling-or-disabling-github-discussions-for-an-organization)."
+Você também pode usar discussões da organização para facilitar conversas que abrangem vários repositórios na sua organização. Para obter mais informações, consulte "[Habilitar ou desabilitar discussões no GitHub para uma organização](/organizations/managing-organization-settings/enabling-or-disabling-github-discussions-for-an-organization)".
 
 ## Leia mais
 

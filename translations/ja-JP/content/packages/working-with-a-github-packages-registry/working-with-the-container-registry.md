@@ -18,19 +18,19 @@ versions:
   ghes: '>= 3.5'
 shortTitle: Container registry
 ---
+
+{% data reusables.package_registry.container-registry-ghes-beta %}
+
+## About the {% data variables.product.prodname_container_registry %}
+
+{% data reusables.package_registry.container-registry-benefits %}
+
 {% ifversion ghes > 3.4 %}
-{% note %}
 
-**Note**: {% data variables.product.prodname_container_registry %} is currently in beta for {% data variables.product.product_name %} and subject to change.
+To use the {% data variables.product.prodname_container_registry %} on {% data variables.product.product_name %}, your site administrator must first configure {% data variables.product.prodname_registry %} for your instance **and** enable subdomain isolation. For more information, see "[Getting started with GitHub Packages for your enterprise](/admin/packages/getting-started-with-github-packages-for-your-enterprise)" and "[Enabling subdomain isolation](/admin/configuration/configuring-network-settings/enabling-subdomain-isolation)."
 
-{% endnote %}
 {% endif %}
 
-{% ifversion ghes > 3.4 %}
-## Prerequisites
-
-To configure and use the {% data variables.product.prodname_container_registry %} on {% data variables.product.prodname_ghe_server %}, your site administrator must first enable {% data variables.product.prodname_registry %} **and** subdomain isolation. For more information, see "[Getting started with GitHub Packages for your enterprise](/admin/packages/getting-started-with-github-packages-for-your-enterprise)" and "[Enabling subdomain isolation](/admin/configuration/configuring-network-settings/enabling-subdomain-isolation)."
-{% endif %}
 ## About {% data variables.product.prodname_container_registry %} support
 
 The {% data variables.product.prodname_container_registry %} currently supports the following container image formats:
@@ -50,14 +50,14 @@ When installing or publishing a Docker image, the {% data variables.product.prod
 
 ## Pushing container images
 
-This example pushes the latest version of `IMAGE-NAME`.
+This example pushes the latest version of `IMAGE_NAME`.
   ```shell
   $ docker push {% data reusables.package_registry.container-registry-hostname %}/OWNER/IMAGE_NAME:latest
   ```
 
 This example pushes the `2.5` version of the image.
   ```shell
-  $ docker push {% data reusables.package_registry.container-registry-hostname %}/OWNER/IMAGE-NAME:2.5
+  $ docker push {% data reusables.package_registry.container-registry-hostname %}/OWNER/IMAGE_NAME:2.5
   ```
 
 When you first publish a package, the default visibility is private. To change the visibility or set access permissions, see "[Configuring a package's access control and visibility](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility)."

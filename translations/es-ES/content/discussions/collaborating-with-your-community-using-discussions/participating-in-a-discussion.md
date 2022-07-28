@@ -3,8 +3,7 @@ title: Participar en un debate
 intro: 'Puedes conversar con la comunidad y con los mantenedores en un foro dentro del repositorio de un proyecto en {% data variables.product.product_name %}.'
 permissions: 'People with read access to a repository can participate in discussions and polls in the repository. People with read access to the source repository for organization discussions can participate in discussions and polls in that organization. {% data reusables.enterprise-accounts.emu-permission-interact %}'
 versions:
-  fpt: '*'
-  ghec: '*'
+  feature: discussions
 shortTitle: Participa en un debate
 ---
 
@@ -15,7 +14,7 @@ shortTitle: Participa en un debate
 
 Adicionalmente a comenzar a ver los debates y encuestas, puedes comentar como respuesta al comentario original del autor de dicho debate. También puedes crear un hilo de comentarios si respondes a un comentario individual que otro miembro de la comunidad haya hecho dentro del debate, y reaccionar a los comentarios con emojis.
 
-Puedes bloquear usuarios y reportar el contenido perjudicial para mantener un ambiente placentero y seguro en {% data variables.product.product_name %}. Para obtener más información, consulta la sección "[Mantener tu seguridad en {% data variables.product.prodname_dotcom %}](/communities/maintaining-your-safety-on-github)".
+{% ifversion fpt or ghec %}Puedes bloquear usuarios y reportar contenido ofensivo para mantener un ambiente seguro y agradable para ti mismo en {% data variables.product.product_name %}. For more information, see "[Maintaining your safety on {% data variables.product.prodname_dotcom %}](/communities/maintaining-your-safety-on-github)."{% endif %}
 
 ## Prerrequisitos
 

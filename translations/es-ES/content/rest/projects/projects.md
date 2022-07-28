@@ -1,8 +1,8 @@
 ---
-title: Tableros de proyecto
+title: '{% data variables.product.prodname_projects_v1_caps %}'
 shortTitle: Boards
 allowTitleToDifferFromFilename: true
-intro: The Project boards API lets you create and manage projects in a repository.
+intro: 'The {% data variables.product.prodname_projects_v1 %} API lets you create and manage {% data variables.projects.projects_v1_boards %} in a repository.'
 versions:
   fpt: '*'
   ghes: '*'

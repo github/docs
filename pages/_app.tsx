@@ -2,8 +2,7 @@ import React, { useEffect } from 'react'
 import App from 'next/app'
 import type { AppProps, AppContext } from 'next/app'
 import Head from 'next/head'
-import { ThemeProvider, ThemeProviderProps } from '@primer/react'
-import { SSRProvider } from '@react-aria/ssr'
+import { ThemeProvider, ThemeProviderProps, SSRProvider } from '@primer/react'
 
 import '../stylesheets/index.scss'
 
@@ -17,7 +16,6 @@ import {
 import { defaultComponentTheme } from 'lib/get-theme.js'
 
 type MyAppProps = AppProps & {
-  csrfToken: string
   isDotComAuthenticated: boolean
   themeProps: typeof defaultComponentTheme & Pick<ThemeProviderProps, 'colorMode'>
   languagesContext: LanguagesContextT
@@ -26,7 +24,6 @@ type MyAppProps = AppProps & {
 const MyApp = ({
   Component,
   pageProps,
-  csrfToken,
   themeProps,
   languagesContext,
   dotComAuthenticatedContext,
@@ -60,8 +57,6 @@ const MyApp = ({
           name="google-site-verification"
           content="c1kuD-K2HIVF635lypcsWPoD4kilo5-jA_wBFyT4uMY"
         />
-
-        <meta name="csrf-token" content={csrfToken} />
       </Head>
       <SSRProvider>
         <ThemeProvider
@@ -96,7 +91,6 @@ MyApp.getInitialProps = async (appContext: AppContext) => {
   return {
     ...appProps,
     themeProps: getTheme(req),
-    csrfToken: req?.csrfToken?.() || '',
     languagesContext: { languages: req.context.languages, userLanguage: req.context.userLanguage },
     dotComAuthenticatedContext: { isDotComAuthenticated: Boolean(req.cookies?.dotcom_user) },
   }

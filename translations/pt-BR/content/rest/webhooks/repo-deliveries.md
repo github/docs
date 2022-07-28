@@ -1,9 +1,9 @@
 ---
-title: Repository Webhook Deliveries
+title: Entregas do webhook do repositório
 intro: ''
 versions:
   fpt: '*'
-  ghes: '>=3.2'
+  ghes: '*'
   ghae: '*'
   ghec: '*'
 topics:

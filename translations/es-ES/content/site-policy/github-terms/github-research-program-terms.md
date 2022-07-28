@@ -36,7 +36,7 @@ Toda la información confidencial sigue siendo propiedad exclusiva y propiedad d
 
 Al participar en este programa, aceptas el uso de tu información personal con fines de investigación y para ningún otro propósito. Como parte del programa, es posible que uses tu información personal para contactarte o conservar tu información, para contactarte en una fecha posterior. La información personal no incluye información agregada, que no identifiques personalmente. Es posible que uses la información de identificación personal o agregada que se recopila a través del programa para operar, analizar y mejorar nuestros productos y servicios.
 
-Puedes retirar tu consentimiento en cualquier momento y solicitar acceso o la eliminación de la información personal que tenemos sobre ti. For more information about how you can access, update, alter, or delete the personal information GitHub collects through the Program, please see the [GitHub Privacy Statement](/articles/github-privacy-statement/) or contact us through our {% data variables.contact.contact_privacy %}.
+Puedes retirar tu consentimiento en cualquier momento y solicitar acceso o la eliminación de la información personal que tenemos sobre ti. Para obtener más información acerca de cómo puedes acceder, actualizar, modificar o eliminar la información personal que GitHub recopila a través del programa, consulta la[Declaración de privacidad de GitHub](/articles/github-privacy-statement/) o contáctanos a través de nuestra {% data variables.contact.contact_privacy %}.
 
 ## E. Términos del software y los servicios de GitHub
 

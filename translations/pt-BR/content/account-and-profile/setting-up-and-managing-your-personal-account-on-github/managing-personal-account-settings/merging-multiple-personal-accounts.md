@@ -1,5 +1,5 @@
 ---
-title: Merging multiple personal accounts
+title: Fazendo merge de várias contas pessoais
 intro: 'Se você tem contas separadas para o trabalho e uso pessoal, é possível fazer merge das contas.'
 redirect_from:
   - /articles/can-i-merge-two-accounts

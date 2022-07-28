@@ -19,25 +19,15 @@ services:
       HEROKU_PRODUCTION_APP: true
       PORT: 4000
       DD_AGENT_HOST: datadog-agent
-      SIGSCI_RPC_ADDRESS: sigsci-agent:8000
     depends_on:
       - datadog-agent
     restart: always
 
   datadog-agent:
-    image: datadog/dogstatsd:7.32.4
+    image: 'ghdocsprod.azurecr.io/datadog/dogstatsd:7.32.4'
     ports:
       - '8125:8125'
     environment:
       DD_API_KEY: ${DD_API_KEY}
       DD_AGENT_HOST: datadog-agent
       DD_HISTOGRAM_PERCENTILES: 0.99 0.95 0.50
-
-  sigsci-agent:
-    image: signalsciences/sigsci-agent
-    ports:
-      - '8000:8000'
-    environment:
-      SIGSCI_RPC_ADDRESS: 0.0.0.0:8000
-      SIGSCI_ACCESSKEY: ${SIGSCI_ACCESSKEYID}
-      SIGSCI_SECRETACCESSKEY: ${SIGSCI_SECRETACCESSKEY}

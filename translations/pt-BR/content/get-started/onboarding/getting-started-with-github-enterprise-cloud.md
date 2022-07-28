@@ -19,6 +19,8 @@ Este guia irá ajudar você a configurar e gerenciar sua conta de {% data variab
 
 A principal diferença entre os produtos é que {% data variables.product.prodname_ghe_cloud %} é hospedado por {% data variables.product.prodname_dotcom %}, enquanto {% data variables.product.prodname_ghe_server %} é auto-hospedado.
 
+{% data reusables.enterprise.about-github-for-enterprises %}
+
 Com {% data variables.product.prodname_ghe_cloud %}, você tem a opção de usar {% data variables.product.prodname_emus %}. {% data reusables.enterprise-accounts.emu-short-summary %}
 
 Se você optar por deixar seus integrantes criarem e gerenciarem suas próprias contas pessoais, há dois tipos de contas que você pode usar com {% data variables.product.prodname_ghe_cloud %}:
@@ -29,8 +31,6 @@ Se você optar por deixar seus integrantes criarem e gerenciarem suas próprias 
 ### 1. Compreender as diferenças entre uma conta de organização e a conta corporativa
 
 As contas da organização e da empresa estão disponíveis com {% data variables.product.prodname_ghe_cloud %}. Uma organização é uma conta compartilhada em que grupos de pessoas podem colaborar em vários projetos de uma só vez, e os proprietários e administradores podem gerenciar o acesso a dados e projetos. Uma conta corporativa permite a colaboração entre várias organizações e permite que os proprietários gerenciem centralmente a política, cobrança e segurança dessas organizações. Para obter mais informações sobre as diferenças, consulte "[Organizações e contas corporativas](/organizations/collaborating-with-groups-in-organizations/about-organizations#organizations-and-enterprise-accounts)".
-
-
 
 Se você escolher uma conta corporativa, tenha em mente que algumas políticas só podem ser definidas no nível organizacional, enquanto outras podem ser aplicadas a todas as organizações de uma empresa.
 
@@ -61,11 +61,11 @@ Apenas os integrantes da organização com a função de *proprietário* ou *ger
 
 Uma conta corporativa permite que você gerencie centralmente as políticas e configurações para várias organizações {% data variables.product.prodname_dotcom %}, incluindo acesso de integrantes, cobrança e uso e segurança. Para obter mais informações, consulte "[Sobre contas corporativas](/enterprise-cloud@latest/admin/overview/about-enterprise-accounts)".
 
-#### 2. Creating an enterpise account
+#### 2. Criando uma conta corporativa
 
- {% data variables.product.prodname_ghe_cloud %} customers paying by invoice can create an enterprise account directly through {% data variables.product.prodname_dotcom %}. For more information, see "[Creating an enterprise account](/enterprise-cloud@latest/admin/overview/creating-an-enterprise-account)."
+ Os clientes de {% data variables.product.prodname_ghe_cloud %} que pagam por fatura podem criar uma conta corporativa diretamente por meio de {% data variables.product.prodname_dotcom %}. Para obter mais informações, consulte[Criando uma conta corporativa](/enterprise-cloud@latest/admin/overview/creating-an-enterprise-account)".
 
- {% data variables.product.prodname_ghe_cloud %} customers not currently paying by invoice can contact [{% data variables.product.prodname_dotcom %}'s Sales team](https://enterprise.github.com/contact) to create an enterprise account for you.
+ Os clientes de {% data variables.product.prodname_ghe_cloud %} que não pagam por fatura podem entrar em contato com a [equipe de vendas de {% data variables.product.prodname_dotcom %}](https://enterprise.github.com/contact) para criar uma conta corporativa para você.
 
 #### 3. Adicionar organizações à conta corporativa
 
@@ -206,7 +206,7 @@ Os integrantes da sua organização ou empresa podem usar os recursos de aprendi
 Você pode ler a documentação que reflete as funcionalidades disponíveis com {% data variables.product.prodname_ghe_cloud %}. Para obter mais informações, consulte "[Sobre as versões do {% data variables.product.prodname_docs %}](/get-started/learning-about-github/about-versions-of-github-docs)."
 
 ### 2. Aprendendo com {% data variables.product.prodname_learning %}
-Os integrantes da sua organização ou empresa podem aprender novas habilidades realizando projetos divertidos e realistas no seu repositório do GitHub com [{% data variables.product.prodname_learning %}](https://lab.github.com/). Each course is a hands-on lesson created by the GitHub community and taught by the friendly Learning Lab bot.
+Os integrantes da sua organização ou empresa podem aprender novas habilidades realizando projetos divertidos e realistas no seu repositório do GitHub com [{% data variables.product.prodname_learning %}](https://skills.github.com/). Cada curso é uma lição prática criada pela comunidade do GitHub e ensinada por um bot intuitivo.
 
 Para obter mais informações, consulte "[Git e recursos de aprendizado de {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/quickstart/git-and-github-learning-resources). "
 ### 3. Apoiar a comunidade de código aberto

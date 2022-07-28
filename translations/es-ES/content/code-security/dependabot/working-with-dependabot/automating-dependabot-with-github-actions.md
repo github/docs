@@ -43,6 +43,8 @@ Para el caso de los flujos de trabajo que inicia el {% data variables.product.pr
 Para el caso de los flujos de trabajo que inicia el {% data variables.product.prodname_dependabot %}(`github.actor == "dependabot[bot]"`) y utilizan el evento `pull_request_target`, si {% data variables.product.prodname_dependabot %} (`github.actor == "dependabot[bot]"`) creó la ref base de la solicitud de cambios, entonces el `GITHUB_TOKEN` será de solo lectura y los secretos no estarán disponibles.
 {% endif %}
 
+{% ifversion actions-stable-actor-ids %}These restrictions apply even if the workflow is re-run by a different actor.{% endif %}
+
 Para obtener màs informaciòn, consulta la secciòn "[Mantener seguras tus GitHub Actions y flujos de trabajo: Prevenir solicitudes de tipo pwn](https://securitylab.github.com/research/github-actions-preventing-pwn-requests/)".
 
 {% ifversion fpt or ghec or ghes > 3.3 %}
@@ -224,7 +226,15 @@ jobs:
 
 ### Volver a ejecutar un flujo de trabajo manualmente
 
+{% ifversion actions-stable-actor-ids %}
+
+When you manually re-run a Dependabot workflow, it will run with the same privileges as before even if the user who initiated the rerun has different privileges. Para obtener más información, consulta la sección "[Re-ejecución de flujos de trabajo y jobs](/actions/managing-workflow-runs/re-running-workflows-and-jobs)".
+
+{% else %}
+
 También puedes volver a ejecutar un flujo de trabajo fallido del Dependabot manualmente y este seguirá ejecutándose con un token de lectura-escritura y con acceso a los secretos. Antes de volver a ejecutar los flujos de trabajo fallidos manualmente, siempre debes verificar la dependencia que se está actualizando para asegurarte de que el cambio no introduzca ningún comportamiento imprevisto o malicioso.
+
+{% endif %}
 
 ## Automatizaciones comunes del Dependabot
 
@@ -452,9 +462,9 @@ jobs:
 
 ### Habilita la fusión automática en una solicitud de cambios
 
-If you want to allow maintainers to mark certain pull requests for auto-merge, you can use {% data variables.product.prodname_dotcom %}'s auto-merge functionality. Esto habilita a la solicitud de cambios para que se fusione cuando se cumpla con todas las pruebas y aprobaciones requeridas. For more information on auto-merge, see "[Automatically merging a pull request](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/automatically-merging-a-pull-request)."
+Si quieres permitir que los mantenedores marquen solicitudes de cambio específicas para su fusión automática, puedes utilizar la funcionalidad de fusión automática de {% data variables.product.prodname_dotcom %}. Esto habilita a la solicitud de cambios para que se fusione cuando se cumpla con todas las pruebas y aprobaciones requeridas. Para obtener más información sobre la fusión automática, consulta la sección "[Fusionar una solicitud de cambios automáticamente](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/automatically-merging-a-pull-request)".
 
-You can instead use {% data variables.product.prodname_actions %} and the {% data variables.product.prodname_cli %}. Here is an example that auto merges all patch updates to `my-dependency`:
+En vez de esto, puedes trabajar con las {% data variables.product.prodname_actions %} y el {% data variables.product.prodname_cli %}. Aquí tienes un ejemplo que fusiona todas las actualizaciones de parches automáticamente a `my-dependency`:
 
 {% ifversion ghes = 3.3 %}
 
@@ -466,6 +476,7 @@ on: pull_request_target
 
 permissions:
   contents: write
+  pull-requests: write
 
 jobs:
   dependabot:
@@ -497,6 +508,7 @@ on: pull_request
 
 permissions:
   contents: write
+  pull-requests: write
 
 jobs:
   dependabot:

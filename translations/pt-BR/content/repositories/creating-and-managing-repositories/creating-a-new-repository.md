@@ -33,8 +33,8 @@ topics:
 {% endtip %}
 
 {% data reusables.repositories.create_new %}
-2. Se desejar, para criar um repositório com a estrutura de diretório e arquivos de um repositório existente, use o menu suspenso **Choose a template** (Escolher um modelo) e selecione um repositório de modelo. Você verá repositórios de modelo que pertencem a você e às organizações das quais você é integrante ou que usou antes. Para obter mais informações, consulte "[Criar um repositório a partir de um modelo](/articles/creating-a-repository-from-a-template)". ![Template drop-down menu](/assets/images/help/repository/template-drop-down.png)
-3. Opcionalmente, se você escolheu usar um modelo para incluir a estrutura do diretório e arquivos de todos os branches no modelo, e não apenas o branch-padrão, selecione **Incluir todos os branches**. ![Include all branches checkbox](/assets/images/help/repository/include-all-branches.png)
+2. Se desejar, para criar um repositório com a estrutura de diretório e arquivos de um repositório existente, use o menu suspenso **Choose a template** (Escolher um modelo) e selecione um repositório de modelo. Você verá repositórios de modelo que pertencem a você e às organizações das quais você é integrante ou que usou antes. Para obter mais informações, consulte "[Criar um repositório a partir de um modelo](/articles/creating-a-repository-from-a-template)". ![Menu suspenso do modelo](/assets/images/help/repository/template-drop-down.png)
+3. Opcionalmente, se você escolheu usar um modelo para incluir a estrutura do diretório e arquivos de todos os branches no modelo, e não apenas o branch-padrão, selecione **Incluir todos os branches**. ![Incluir caixa de seleção de branches](/assets/images/help/repository/include-all-branches.png)
 3. No menu suspenso Proprietário, selecione a conta na qual deseja criar o repositório.![Menu suspenso Owner (Proprietário)](/assets/images/help/repository/create-repository-owner.png)
 {% data reusables.repositories.repo-name %}
 {% data reusables.repositories.choose-repo-visibility %}

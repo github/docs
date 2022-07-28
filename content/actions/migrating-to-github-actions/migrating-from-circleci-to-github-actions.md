@@ -81,7 +81,7 @@ For more information, see "[Using environment variables](/actions/configuring-an
 
 CircleCI and {% data variables.product.prodname_actions %} provide a method to manually cache files in the configuration file.
 
-{% if actions-caching %}
+{% ifversion actions-caching %}
 
 Below is an example of the syntax for each system.
 
@@ -408,6 +408,8 @@ workflows:
 
 ```yaml
 {% data reusables.actions.actions-not-certified-by-github-comment %}
+
+{% data reusables.actions.actions-use-sha-pinning-comment %}
 
 name: Containers
 

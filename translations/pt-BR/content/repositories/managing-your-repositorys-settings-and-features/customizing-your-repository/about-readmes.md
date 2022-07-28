@@ -29,9 +29,9 @@ Um README, muitas vezes, é o primeiro item que um visitante verá ao visitar se
 - Onde os usuários podem obter ajuda com seu projeto
 - Quem mantém e contribui com o projeto
 
-If you put your README file in your repository's hidden `.github`, root, or `docs` directory, {% data variables.product.product_name %} will recognize and automatically surface your README to repository visitors.
+Se você colocar o seu arquivo README no `.github` oculto do seu repositório, raiz ou diretório de `docs`, {% data variables.product.product_name %} irá reconhecer e automaticamente supervisionar seu README para os visitantes do repositório.
 
-If a repository contains more than one README file, then the file shown is chosen from locations in the following order: the `.github` directory, then the repository's root directory, and finally the `docs` directory.
+Se um repositório contiver mais de um arquivo README, o arquivo mostrado será escolhido entre os locais na seguinte ordem: o diretório do `.github`, em seguida, o diretório raiz do repositório e, finalmente, o diretório `docs`.
 
 ![Página principal do repositório github/scientist e seu arquivo README](/assets/images/help/repository/repo-with-readme.png)
 
@@ -43,15 +43,11 @@ If a repository contains more than one README file, then the file shown is chose
 
 ![Arquivo LEIAME no nome de usuário/repositório do nome de usuário](/assets/images/help/repository/username-repo-with-readme.png)
 
-{% ifversion fpt or ghae or ghes > 3.1 or ghec %}
-
 ## Índice gerado automaticamente para arquivos README
 
 Para a visualização interpretada de qualquer arquivo Markdown em um repositório, incluindo arquivos README {% data variables.product.product_name %} irá gerar automaticamente um índice com base nos títulos da seção. Você pode visualizar o índice para um arquivo LEIAME, clicando no ícone de menu {% octicon "list-unordered" aria-label="The unordered list icon" %} no canto superior esquerdo da página interpretada.
 
 ![README com TOC gerado automaticamente](/assets/images/help/repository/readme-automatic-toc.png)
-
-{% endif %}
 
 ## Links de seção nos arquivos README e páginas blob
 

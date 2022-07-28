@@ -90,7 +90,7 @@ IssueもしくはPull Requestのコメントから、新しいIssueをオープ�
 {% data reusables.repositories.assign-an-issue-as-project-maintainer %}
 {% data reusables.repositories.submit-new-issue %}
 
-{% ifversion fpt or ghec %}
+{% ifversion discussions %}
 
 ## ディスカッションからのIssueの作成
 
@@ -143,7 +143,7 @@ Issueをオープンするのにクエリパラメータを利用できます。
 | `projects`  | `https://github.com/octo-org/octo-repo/issues/new?title=Bug+fix&projects=octo-org/1` は、"Bug fix" というタイトルを付けて Issue を作成し、それを Organization のプロジェクトボード 1 に追加します。                                                                                                                                                                                              |
 | `template`  | `https://github.com/octo-org/octo-repo/issues/new?template=issue_template.md` は、ボディにテンプレートを付けて Issue を作成します。 `template`クエリパラメータは、ルート内の`ISSUE_TEMPLATE`サブディレクトリ、リポジトリ内の`docs/`あるいは`.github/`ディレクトリに保存されたテンプレートで動作します。 詳しい情報については「[有益なIssueとPull Requestを促進するためのテンプレートの利用](/communities/using-templates-to-encourage-useful-issues-and-pull-requests)」を参照してください。 |
 
-{% if code-scanning-task-lists %}
+{% ifversion code-scanning-task-lists %}
 ## {% data variables.product.prodname_code_scanning %}アラートからのIssueの作成
 
 {% data reusables.code-scanning.beta-alert-tracking-in-issues %}

@@ -24,7 +24,7 @@ Esta visão geral pode ajudá-lo a auditar o acesso ao seu repositório, incluir
 
 {% data reusables.organizations.mixed-roles-warning %}
 
-For more information about repository roles, see "[Permission levels for a personal account repository](/github/setting-up-and-managing-your-github-user-account/permission-levels-for-a-user-account-repository)" and "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)."
+Para obter mais informações sobre funções do repositório, consulte "[Níveis de permissão para um repositório de conta pessoal](/github/setting-up-and-managing-your-github-user-account/permission-levels-for-a-user-account-repository)" e "[Funções do repositório para uma organização](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)".
 
 ![Acessar visão geral do gerenciamento ](/assets/images/help/repository/manage-access-overview.png)
 

@@ -1,8 +1,8 @@
-{% if codeql-ml-queries %}
+{% ifversion codeql-ml-queries %}
 
 {% note %}
 
-**Note:** Experimental alerts for {% data variables.product.prodname_code_scanning %} are created using experimental technology in the {% data variables.product.prodname_codeql %} action. This feature is currently available as a beta release for JavaScript code and is subject to change.
+**注意：** {% data variables.product.prodname_code_scanning %} 的实验性警报是在 {% data variables.product.prodname_codeql %} 操作中使用实验技术创建的。 此功能目前作为 JavaScript 代码的测试版提供，可能会发生变化。
 
 {% endnote %}
 

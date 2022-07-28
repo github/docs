@@ -1,6 +1,6 @@
 ---
-title: Organization Pre-receive Hooks
-intro: The Organization Pre-receive Hooks API allows you to view and modify enforcement of the pre-receive hooks that are available to an organization.
+title: Hooks pre-receive da organização
+intro: A API de hooks pre-receive da organização permite que você veja e modifique a aplicação dos hooks pre-receive disponíveis para uma organização.
 versions:
   ghes: '*'
 topics:
@@ -20,4 +20,4 @@ allowTitleToDifferFromFilename: true
 
 Os valores possíveis para *aplicação* são `habilitado`, `desabilitado` e`testando`. `desabilitado` indica que o hook pre-receive não será executado. `habilitado` indica que será executado e rejeitará quaisquer pushes que resultem em um estado diferente de zero. `testando` significa que o script será executado, mas não fará com que quaisquer pushes sejam rejeitados.
 
-`configuration_url` may be a link to this endpoint or this hook's global configuration. Apenas administradores do site podem acessar a configuração global.
+`configuration_url` pode ser um link para este ponto de extremidade ou a configuração global deste hook. Apenas administradores do site podem acessar a configuração global.

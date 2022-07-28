@@ -52,7 +52,7 @@ Ao criar um repositório, você pode optar por tornar o repositório público ou
 
 {% elsif ghae %}
 
-When you create a repository owned by your personal account, the repository is always private. Ao criar um repositório pertencente a uma organização, você pode optar por tornar o repositório privado ou interno.
+Ao criar um repositório pertencente à sua conta pessoal, o repositório é sempre privado. Ao criar um repositório pertencente a uma organização, você pode optar por tornar o repositório privado ou interno.
 
 {% endif %}
 
@@ -90,7 +90,7 @@ Todos os integrantes da empresa têm permissões de leitura no repositório inte
 
 {% data reusables.repositories.internal-repo-default %}
 
-Qualquer integrante da empresa pode bifurcar qualquer repositório interno pertencente a uma organização da empresa. The forked repository will belong to the member's personal account, and the visibility of the fork will be private. Se um usuário for removido de todas as organizações pertencentes à empresa, essas bifurcações do usuário dos repositórios internos do usuário serão removidas automaticamente.
+Qualquer integrante da empresa pode bifurcar qualquer repositório interno pertencente a uma organização da empresa. O repositório bifurcado pertencerá à conta pessoal do integrante e a visibilidade da bifurcação será privada. Se um usuário for removido de todas as organizações pertencentes à empresa, essas bifurcações do usuário dos repositórios internos do usuário serão removidas automaticamente.
 {% endif %}
 
 ## Limites para visualização de conteúdo e diffs no repositório

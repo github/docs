@@ -33,37 +33,13 @@ shortTitle: 配置 dependabot.yml
 
 下次安全警报触发安全更新的拉取请求时将使用所有同时影响安全更新的选项。  更多信息请参阅“[配置 {% data variables.product.prodname_dependabot_security_updates %}](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/configuring-dependabot-security-updates)。”
 
-*dependabot.yml* 文件有两个必需的顶级密钥：`version` 和 `updates`。 您可以选择包括顶级 `registries` 密钥{% ifversion fpt or ghec or ghes > 3.4 %} 和/或 `enable-beta-ecosystems` 密钥{% endif %}。 该文件必须以 `version: 2` 开头。
+*dependabot.yml* 文件有两个必需的顶级密钥：`version` 和 `updates`。 您可以选择包括顶级 `registries` 密钥{% ifversion ghes = 3.5 %} 和/或 `enable-beta-ecosystems` 密钥{% endif %}。 该文件必须以 `version: 2` 开头。
 
-## 更新的配置选项
+## *dependabot.yml* 文件的配置选项
 
 顶级 `updates` 密钥是必需的。 您使用它来配置 {% data variables.product.prodname_dependabot %} 如何更新版本或项目的依赖项。 每个条目都为特定的包管理器配置更新设置。 您可以使用以下选项。
 
-| 选项                                                                         |  必选   | 描述                                                                  |
-|:-------------------------------------------------------------------------- |:-----:|:------------------------------------------------------------------- |
-| [`package-ecosystem`](#package-ecosystem)                                  | **X** | 要使用的包管理器                                                            |
-| [`目录`](#directory)                                                         | **X** | 包清单位置                                                               |
-| [`schedule.interval`](#scheduleinterval)                                   | **X** | 检查更新的频率                                                             |
-| [`allow`](#allow)                                                          |       | 自定义允许的更新                                                            |
-| [`assignees`](#assignees)                                                  |       | 要在拉取请求上设置的受让人                                                       |
-| [`commit-message`](#commit-message)                                        |       | 提交消息首选项                  |{% ifversion fpt or ghec or ghes > 3.4 %}
-| [`enable-beta-ecosystems`](#enable-beta-ecosystems)                        |       | 启用具有测试版级支持的生态系统
-{% endif %}
-| [`ignore`](#ignore)                                                        |       | 忽略某些依赖项或版本                                                          |
-| [`insecure-external-code-execution`](#insecure-external-code-execution)    |       | 允许或拒绝清单文件中的代码执行                                                     |
-| [`labels`](#labels)                                                        |       | 要在拉取请求上设置的标签                                                        |
-| [`里程碑`](#milestone)                                                        |       | 要在拉取请求上设置的里程碑                                                       |
-| [`open-pull-requests-limit`](#open-pull-requests-limit)                    |       | 限制对版本更新打开的拉取请求数                                                     |
-| [`pull-request-branch-name.separator`](#pull-request-branch-nameseparator) |       | 更改拉取请求分支名称的分隔符                                                      |
-| [`rebase-strategy`](#rebase-strategy)                                      |       | 禁用自动变基                                                              |
-| [`registries`](#registries)                                                |       | {% data variables.product.prodname_dependabot %} 可以访问的私有注册表         |
-| [`reviewers`](#reviewers)                                                  |       | 要在拉取请求上设置的审查者                                                       |
-| [`schedule.day`](#scheduleday)                                             |       | 检查更新的周日期                                                            |
-| [`schedule.time`](#scheduletime)                                           |       | 每天检查更新的时间 (hh:mm)                                                   |
-| [`schedule.timezone`](#scheduletimezone)                                   |       | 一天中时间的时区（区域标识符）                                                     |
-| [`target-branch`](#target-branch)                                          |       | 对其创建拉取请求的分支                                                         |
-| [`vendor`](#vendor)                                                        |       | 更新供应或缓存的依赖项                                                         |
-| [`versioning-strategy`](#versioning-strategy)                              |       | 如何更新清单版本要求                                                          |
+{% data reusables.dependabot.configuration-options %}
 
 这些选项大致分为以下类别。
 
@@ -304,6 +280,10 @@ updates:
       prefix-development: "pip dev"
       include: "scope"
 ```
+如果使用与上述示例中相同的配置，则在 `pip` 开发依赖项组中刷入 `requests` 库将生成以下提交消息：
+
+   `pip dev: bump requests from 1.0.0 to 1.0.1`
+
 ### `ignore`
 
 {% data reusables.dependabot.default-dependencies-allow-ignore %}
@@ -322,7 +302,7 @@ updates:
 
 可以使用 `ignore` 选项自定义更新哪些依赖项。 `ignore` 选项支持以下选项。
 
-- `dependency-name`—用于忽略名称匹配的依赖项，可以选择使用 `*` 来匹配零个或更多字符。 对于 Java 依赖项，`dependency-name` 属性的格式为：`groupId:artifactId`（例如：`org.kohsuke:github-api`）。 {% if dependabot-grouped-dependencies %} 要防止 {% data variables.product.prodname_dependabot %} 从 DefinitelyTyped 自动更新 TypeScript 类型定义，请使用 `@types/*`。{% endif %}
+- `dependency-name`—用于忽略名称匹配的依赖项，可以选择使用 `*` 来匹配零个或更多字符。 对于 Java 依赖项，`dependency-name` 属性的格式为：`groupId:artifactId`（例如：`org.kohsuke:github-api`）。 {% ifversion dependabot-grouped-dependencies %} 要防止 {% data variables.product.prodname_dependabot %} 从 DefinitelyTyped 自动更新 TypeScript 类型定义，请使用 `@types/*`。{% endif %}
 - `versions`—用于忽略特定版本或版本范围。 如果要定义范围，请使用包管理器的标准模式（例如：对 npm 使用 `^1.0.0`，对 Bundler 使用 `~> 2.0`）。
 - `update-types`—用于忽略更新类型，如关于版本更新的 semver `major`、`minor` 或 `patch` 更新（例如：`version-update:semver-patch` 将忽略补丁更新）。 您可以将此与 `dependency-name: "*"` 结合，以忽略所有依赖项的特定 `update-types`。 目前，`version-update:semver-major`、`version-update:semver-minor` 和 `version-update:semver-patch` 是唯一支持的选项。 安全更新不受此设置的影响。
 
@@ -995,8 +975,9 @@ registries:
 
 version: 2
 enable-beta-ecosystems: true
-updates:
-  - package-ecosystem: "pub"
+updates:{% ifversion fpt or ghec or ghes > 3.5 %}
+  - package-ecosystem: "beta-ecosystem"{% else %}
+  - package-ecosystem: "pub"{% endif %}
     directory: "/"
     schedule:
       interval: "daily"

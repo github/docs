@@ -82,7 +82,7 @@ CircleCI 和 {% data variables.product.prodname_actions %} 支持在配置文件
 
 CircleCI 和 {% data variables.product.prodname_actions %} 提供在配置文件中手动缓存文件的方法。
 
-{% if actions-caching %}
+{% ifversion actions-caching %}
 
 下面是每个系统的语法示例：
 
@@ -409,6 +409,8 @@ workflows:
 
 ```yaml
 {% data reusables.actions.actions-not-certified-by-github-comment %}
+
+{% data reusables.actions.actions-use-sha-pinning-comment %}
 
 name: Containers
 

@@ -5,7 +5,7 @@ shortTitle: 环境
 intro: 部署环境 API 允许您创建、配置和删除部署环境。
 versions:
   fpt: '*'
-  ghes: '>=3.2'
+  ghes: '*'
   ghae: '*'
   ghec: '*'
 topics:

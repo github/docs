@@ -43,15 +43,14 @@ Por padrão, as restrições de uma regra de proteção de branch não se aplica
 Para cada regra de proteção do branch, você pode escolher habilitar ou desabilitar as seguintes configurações.
 - [Exigir revisões de pull request antes do merge](#require-pull-request-reviews-before-merging)
 - [Exigir verificações de status antes do merge](#require-status-checks-before-merging)
-{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
-- [Exigir resolução de conversas antes do merge](#require-conversation-resolution-before-merging){% endif %}
+- [Exigir resolução de conversa antes de merge](#require-conversation-resolution-before-merging)
 - [Exigir commits assinados](#require-signed-commits)
 - [Exigir histórico linear](#require-linear-history)
 {% ifversion fpt or ghec %}
 - [Exigir uma fila de fusão](#require-merge-queue)
 {% endif %}
-{%- if required-deployments %}
-- [Require deployments to succeed before merging](#require-deployments-to-succeed-before-merging)
+{%- ifversion required-deployments %}
+- [Exige implantações para ter sucesso antes do merge](#require-deployments-to-succeed-before-merging)
 {%- endif %}
 - [Incluir administradores](#include-administrators)
 - [Restringir quem pode fazer push para branches correspondentes](#restrict-who-can-push-to-matching-branches)
@@ -103,11 +102,9 @@ Você pode configurar as verificações de status obrigatórias como "flexível"
 
 Para obter informações sobre a solução de problemas, consulte "[Solucionar problemas para as verificações de status obrigatórias](/github/administering-a-repository/troubleshooting-required-status-checks)".
 
-{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
 ### Exigir resolução de conversa antes de merge
 
 Exige que todos os comentários no pull request sejam resolvidos antes de poder fazer merge em um branch protegido. Isso garante que todos os comentários sejam resolvidos ou reconhecidos antes do merge.
-{% endif %}
 
 ### Exigir commits assinados
 
@@ -148,7 +145,7 @@ Antes de exigir um histórico de commit linear, seu repositório deve permitir m
 
 {% endif %}
 
-### Require deployments to succeed before merging
+### Exige implantações para ter sucesso antes do merge
 
 Você pode exigir que as alterações sejam implantadas em ambientes específicos antes de ua branch poder ser mesclado. Por exemplo, você pode usar essa regra para garantir que as alterações sejam implantadas com sucesso em um ambiente de teste antes das alterações sofrerem merge no seu branch padrão.
 
@@ -164,7 +161,7 @@ Você pode habilitar as restrições do branch se seu repositório for proprieda
 
 Ao habilitar as restrições de branches, apenas usuários, equipes ou aplicativos com permissão podem fazer push para o branch protegido. Você pode visualizar e editar usuários, equipes ou aplicativos com acesso de push a um branch protegido nas configurações do branch protegido. Quando as verificações de status são necessárias, as pessoas, as equipes e os aplicativos que têm permissão para fazer push em um branch protegido ainda serão impedidos de realizar merge no branch quando a verificação necessária falhar. As pessoas, equipes, e aplicativos que têm permissão para fazer push em um branch protegido ainda precisarão criar um pull request quando forem necessários pull requests.
 
-{% if restrict-pushes-create-branch %}
+{% ifversion restrict-pushes-create-branch %}
 Opcionalmente, você pode aplicar as mesmas restrições à criação de branches que correspondam à regra. Por exemplo, se você criar uma regra que só permite a uma determinada equipe fazer push para quaisquer branches que contenham a palavra `versão`, somente os integrantes dessa equipe poderiam criar um novo branch que contém a palavra `versão`.
 {% endif %}
 
@@ -186,7 +183,7 @@ Por padrão, os blocks do {% data variables.product.product_name %} fazem push f
 
 Habilitar push forçado não irá substituir quaisquer outras regras de proteção de branch. Por exemplo, se um branch exigir um histórico de commit linear, você não poderá forçar commits a mesclar commits para esse branch.
 
-{% ifversion ghes or ghae %}Você não pode habilitar pushes forçados para um branch protegido se um administrador do site bloquear push forçados para todos os branches do seu repositório. Para obter mais informações, consulte "[Bloqueando push forçado para repositórios de propriedade de uma conta pessoal ou de organização](/enterprise/{{ currentVersion }}/admin/developer-workflow/blocking-force-pushes-to-repositories-owned-by-a-user-account-or-organization)."
+{% ifversion ghes or ghae %}Você não pode habilitar pushes forçados para um branch protegido se um administrador do site bloquear push forçados para todos os branches do seu repositório. Para obter mais informações, consulte "[Bloqueando push forçado para repositórios de propriedade de uma conta pessoal ou de organização](/enterprise/admin/developer-workflow/blocking-force-pushes-to-repositories-owned-by-a-user-account-or-organization)."
 
 Se um administrador do site bloquear pushes forçados apenas para o branch padrão, você ainda pode habilitar pushes forçados para qualquer outro branch protegido.{% endif %}
 
