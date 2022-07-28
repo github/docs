@@ -71,13 +71,6 @@ upcoming_changes:
     criticality: breaking
     owner: jhunschejones
   - 
-    location: Enterprise.userAccounts
-    description: '`userAccounts` será removido. Use o campo `Enterprise.members`.'
-    reason: O campo `Enterprise.userAccounts` está sendo removido.
-    date: '2022-07-01T00:00:00+00:00'
-    criticality: breaking
-    owner: jdennes
-  - 
     location: LockMergeQueueInput.branch
     description: '`branch` será removido.'
     reason: A fila de merge está bloqueada para o branch padrão do repositório, o argumento `branch` agora é um no-op

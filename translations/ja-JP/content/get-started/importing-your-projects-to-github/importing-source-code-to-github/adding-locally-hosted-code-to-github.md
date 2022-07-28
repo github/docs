@@ -19,7 +19,7 @@ shortTitle: Add locally hosted code
 
 If you have existing source code or repositories stored locally on your computer or private network you can add them to {% data variables.product.product_name %} by typing commands in a terminal. You can do this by typing Git commands directly, or by using {% data variables.product.prodname_cli %}.
 
-{% data variables.product.prodname_cli %} は、コンピューターのコマンドラインから {% data variables.product.prodname_dotcom %} を使用するためのオープンソースツールです。 {% data variables.product.prodname_cli %} can simplify the process of adding an existing project to {% data variables.product.product_name %} using the command line. To learn more about {% data variables.product.prodname_cli %}, see "[About {% data variables.product.prodname_cli %}](/github-cli/github-cli/about-github-cli)."
+{% data variables.product.prodname_cli %} は、コンピューターのコマンドラインから {% data variables.product.prodname_dotcom %} を使用するためのオープンソースツールです。 {% data variables.product.prodname_cli %} can simplify the process of adding an existing project to {% data variables.product.product_name %} using the command line. {% data variables.product.prodname_cli %}についてさらに学ぶには、「[{% data variables.product.prodname_cli %}について](/github-cli/github-cli/about-github-cli)」を参照してください。
 
 {% tip %}
 

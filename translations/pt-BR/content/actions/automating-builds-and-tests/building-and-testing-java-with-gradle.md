@@ -51,6 +51,8 @@ Você também pode adicionar este fluxo de trabalho manualmente, criando um novo
 ```yaml{:copy}
 {% data reusables.actions.actions-not-certified-by-github-comment %}
 
+{% data reusables.actions.actions-use-sha-pinning-comment %}
+
 name: Java CI
 
 on: [push]

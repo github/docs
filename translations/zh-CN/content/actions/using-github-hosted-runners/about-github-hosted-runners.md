@@ -87,12 +87,12 @@ jobs:
 ## 支持的运行器和硬件资源
 
 Windows 和 Linux 虚拟机的硬件规格：
-- 2 核 CPU
+- 2 核 CPU (x86_64)
 - 7 GB RAM
 - 14 GB SSD 空间
 
 MacOS 虚拟机的硬件规格：
-- 3 核 CPU
+- 3 核 CPU (x86_64)
 - 14 GB RAM
 - 14 GB SSD 空间
 

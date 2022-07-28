@@ -32,30 +32,30 @@ To use {% data variables.product.prodname_copilot %}, you must first install the
 1. In {% data variables.product.prodname_vscode %}, in the "{% data variables.product.prodname_vscode %}" dialog box, to confirm the authentication, click **Open**.
 
 
-## Seeing your first suggestion
+## Enviar tu primer sugerencia
 
 {% data reusables.copilot.supported-languages %} The following samples are in JavaScript, but other languages will work similarly.
 
 {% data reusables.copilot.create-js-file %}
-1. In the JavaScript file, type the following function header. {% data variables.product.prodname_copilot %} will automatically suggest an entire function body in grayed text, as shown below. The exact suggestion may vary.
+1. In the JavaScript file, type the following function header. {% data variables.product.prodname_copilot %} sugerirá automáticamente todo el cuerpo de una función en texto gris, tal como se muestra a continuación. La sugerencia exacta podría variar.
   ```javascript{:copy}
   function calculateDaysBetweenDates(begin, end) {
   ```
    ![Screenshot of a first suggestion {% data variables.product.prodname_vscode %}](/assets/images/help/copilot/first-suggestion-visual-studio-code.png)
 {% data reusables.copilot.accept-suggestion %}
 
-## Seeing alternative suggestions
+## Ver sugerencias alternativas
 
 {% data reusables.copilot.alternative-suggestions %}
 
 {% data reusables.copilot.create-js-file %}
-1. In the JavaScript file, type the following function header. {% data variables.product.prodname_copilot %} will show you a suggestion.
+1. En el archivo de JavaScript, escribe el siguiente encabezado de función. El {% data variables.product.prodname_copilot %} te mostrará una sugerencia.
   ```javascript{:copy}
   function calculateDaysBetweenDates(begin, end) {
   ```
 {% data reusables.copilot.see-alternative-suggestions %}
 
-   | OS      | See next suggestion                       | See previous suggestion                   |
+   | OS      | Ver la siguiente sugerencia               | Ver sugerencia anterior                   |
    |:------- |:----------------------------------------- |:----------------------------------------- |
    | macOS   | <kbd>Option (⌥) or Alt</kbd>+<kbd>]</kbd> | <kbd>Option (⌥) or Alt</kbd>+<kbd>[</kbd> |
    | Windows | <kbd>Alt</kbd>+<kbd>]</kbd>               | <kbd>Alt</kbd>+<kbd>[</kbd>               |
@@ -63,24 +63,24 @@ To use {% data variables.product.prodname_copilot %}, you must first install the
 1. Alternatively, you can hover over the suggestion to see the {% data variables.product.prodname_copilot %} command palette for choosing suggestions.
 {% data reusables.copilot.accept-or-reject-suggestion %}
 
-## Seeing multiple suggestions in a new tab
+## Ver varias sugerencias en una pestaña nueva
 
 {% data reusables.copilot.suggestions-new-tab %}
 
 {% data reusables.copilot.create-js-file %}
-1. In the JavaScript file, type the following function header. {% data variables.product.prodname_copilot %} will show you a suggestion.
+1. En el archivo de JavaScript, escribe el siguiente encabezado de función. El {% data variables.product.prodname_copilot %} te mostrará una sugerencia.
   ```javascript{:copy}
   function calculateDaysBetweenDates(begin, end) {
   ```
 1. To open a new tab with multiple additional options, press <kbd>Ctrl</kbd>+<kbd>Enter</kbd>.
-1. To accept a suggestion, above the suggestion, click **Accept Solution**. To reject all suggestions, close the tab.
+1. Para aceptar una sugerencia, sobre esta, haz clic en **Aceptar solución**. Para rechazar todas las sugerencias, cierra la pestaña.
 
-## Generating code suggestions from comments
+## Generar sugerencias de código desde los comentarios
 
 {% data reusables.copilot.generating-suggestions-from-comments %}
 
 {% data reusables.copilot.create-js-file %}
-1. In the JavaScript file, type the following comment. {% data variables.product.prodname_copilot %} will suggest an implementation of the function.
+1. In the JavaScript file, type the following comment. El {% data variables.product.prodname_copilot %} te sugerirá una implementación de la función.
    ```javascript{:copy}
    // find all images without alternate text
    // and give them a red border

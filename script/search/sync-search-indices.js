@@ -30,8 +30,13 @@ program
   .option('-d, --dry-run', 'Does not write to disk')
   .option(
     '-o, --out-directory <DIRECTORY>',
-    `Where to dump the created files (default ${DEFAULT_OUT_DIRECTORY}`
+    `Where to dump the created files (default ${DEFAULT_OUT_DIRECTORY})`
   )
+  .option('--no-compression', `Do not Brotli compress the created .json files (default false)`)
+  // Once we've fully removed all Lunr indexing code, we can remove this option
+  // and change where it's used to be that the default is to not generate
+  // any Lunr indexes.
+  .option('--no-lunr-index', `Do not generate a Lunr index, just the records file (default false)`)
   .parse(process.argv)
 
 main(program.opts())
@@ -88,12 +93,18 @@ async function main(opts) {
 
   const outDirectory = opts.outDirectory || DEFAULT_OUT_DIRECTORY
 
+  const compressFiles = !!opts.compression
+
+  const generateLunrIndex = !!opts.lunrIndex
+
   const options = {
     dryRun,
     language,
     notLanguage,
     version,
     outDirectory,
+    compressFiles,
+    generateLunrIndex,
   }
   await searchSync(options)
 }

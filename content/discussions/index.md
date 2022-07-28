@@ -1,7 +1,7 @@
 ---
 title: GitHub Discussions Documentation
 shortTitle: GitHub Discussions
-intro: '{% data variables.product.prodname_discussions %} is a collaborative communication forum for the community around an open source project. Community members can ask and answer questions, share updates, have open-ended conversations, and follow along on decisions affecting the community''s way of working.'
+intro: '{% data variables.product.prodname_discussions %} is a collaborative communication forum for the community around an{% ifversion fpt or ghec %} open source or{% endif %} internal project. Community members can ask and answer questions, share updates, have open-ended conversations, and follow along on decisions affecting the community''s way of working.'
 introLinks:
   quickstart: /discussions/quickstart
 featuredLinks:
@@ -27,8 +27,7 @@ examples_source: data/product-examples/discussions/community-examples.yml
 product_video: 'https://www.youtube-nocookie.com/embed/IpBw2SJkFyk'
 layout: product-landing
 versions:
-  fpt: '*'
-  ghec: '*'
+  feature: discussions
 communityRedirect:
   name: Provide GitHub Feedback
   href: 'https://github.com/orgs/community/discussions/categories/discussions'

@@ -40,4 +40,4 @@ Veja outras questões que você deve manter em mente:
 
 * **Autenticação de dois fatores:** {% data reusables.enterprise_user_management.external_auth_disables_2fa %}
 
-* **Fallback authentication for users with no account on your external authentication provider:** You can invite users to authenticate to {% data variables.product.product_location %} without adding them to your identity provider. Para obter mais informações, consulte "[Permitir a autenticação integrada para usuários de fora do seu provedor](/admin/identity-and-access-management/managing-iam-for-your-enterprise/allowing-built-in-authentication-for-users-outside-your-provider)".
+* **Autenticação de fallback para usuários sem conta no seu provedor de autenticação externo:** Você pode convidar usuários para efetuarem a autenticação em {% data variables.product.product_location %} sem adicioná-los ao seu provedor de identidade. Para obter mais informações, consulte "[Permitir a autenticação integrada para usuários de fora do seu provedor](/admin/identity-and-access-management/managing-iam-for-your-enterprise/allowing-built-in-authentication-for-users-outside-your-provider)".

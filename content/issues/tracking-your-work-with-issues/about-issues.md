@@ -31,7 +31,7 @@ Issues can be created in a variety of ways, so you can choose the most convenien
 
 You can organize and prioritize issues with projects. {% ifversion fpt or ghec %}To track issues as part of a larger issue, you can use task lists.{% endif %} To categorize related issues, you can use labels and milestones.
 
-For more information about projects, see {% ifversion fpt or ghec %}"[About projects (beta)](/issues/trying-out-the-new-projects-experience/about-projects)" and {% endif %}"[Organizing your work with project boards](/issues/organizing-your-work-with-project-boards)." {% ifversion fpt or ghec %}For more information about task lists, see "[About task lists](/issues/tracking-your-work-with-issues/creating-issues/about-task-lists)." {% endif %}For more information about labels and milestones, see "[Using labels and milestones to track work](/issues/using-labels-and-milestones-to-track-work)."
+For more information about projects, see {% ifversion projects-v2 %}"[About projects](/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects)." {% else %}"[Organizing your work with project boards](/issues/organizing-your-work-with-project-boards)."{% endif %} {% ifversion fpt or ghec %}For more information about task lists, see "[About task lists](/issues/tracking-your-work-with-issues/creating-issues/about-task-lists)." {% endif %}For more information about labels and milestones, see "[Using labels and milestones to track work](/issues/using-labels-and-milestones-to-track-work)."
 
 ## Stay up to date
 
@@ -47,7 +47,8 @@ To help contributors open meaningful issues that provide the information that yo
 
 You can @mention collaborators who have access to your repository in an issue to draw their attention to a comment. To link related issues in the same repository, you can type `#` followed by part of the issue title and then clicking the issue that you want to link. To communicate responsibility, you can assign issues. If you find yourself frequently typing the same comment, you can use saved replies.
 {% ifversion fpt or ghec %} For more information, see "[Basic writing and formatting syntax](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)" and "[Assigning issues and pull requests to other GitHub users](/issues/tracking-your-work-with-issues/assigning-issues-and-pull-requests-to-other-github-users)."
-
+{% endif %}
+{% ifversion discussions %}
 ## Comparing issues and discussions
 
 Some conversations are more suitable for {% data variables.product.prodname_discussions %}. {% data reusables.discussions.you-can-use-discussions %} For guidance on when to use an issue or a discussion, see "[Communicating on GitHub](/github/getting-started-with-github/quickstart/communicating-on-github)."

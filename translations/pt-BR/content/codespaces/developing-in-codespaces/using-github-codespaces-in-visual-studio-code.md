@@ -25,7 +25,7 @@ Você pode usar sua instalação local de {% data variables.product.prodname_vsc
 
 Por padrão, se você criar um novo codespace em {% data variables.product.prodname_dotcom_the_website %}, ele será aberto no navegador. Se você preferir abrir qualquer codespace novo em {% data variables.product.prodname_vscode_shortname %} automaticamente, você pode definir seu editor padrão como {% data variables.product.prodname_vscode_shortname %}. Para obter mais informações, consulte "[Definindo seu editor padrão para {% data variables.product.prodname_github_codespaces %}](/codespaces/customizing-your-codespace/setting-your-default-editor-for-github-codespaces)".
 
-Se você preferir trabalhar no navegador, mas deseja continuar usando suas extensões de {% data variables.product.prodname_vscode_shortname %} temas e atalhos existentes, você poderá ativar as Configurações Sincronizadas. For more information, see "[Personalizing {% data variables.product.prodname_github_codespaces %} for your account](/codespaces/customizing-your-codespace/personalizing-github-codespaces-for-your-account#settings-sync)."
+Se você preferir trabalhar no navegador, mas deseja continuar usando suas extensões de {% data variables.product.prodname_vscode_shortname %} temas e atalhos existentes, você poderá ativar as Configurações Sincronizadas. Para obter mais informações, consulte "[Personalizar {% data variables.product.prodname_github_codespaces %} para sua conta](/codespaces/customizing-your-codespace/personalizing-github-codespaces-for-your-account#settings-sync)".
 
 ## Pré-requisitos
 

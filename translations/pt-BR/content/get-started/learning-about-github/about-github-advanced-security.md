@@ -65,7 +65,7 @@ As funcionalidades de{% data variables.product.prodname_GH_advanced_security %} 
 {% ifversion ghes > 3.1 or ghec %}
 ## Implantando o GitHub Advanced Security na sua empresa
 
-To learn about what you need to know to plan your {% data variables.product.prodname_GH_advanced_security %} deployment at a high level and to review the rollout phases we recommended, see "[Adopting {% data variables.product.prodname_GH_advanced_security %} at scale](/code-security/adopting-github-advanced-security-at-scale)."
+Para saber mais sobre o que você precisa saber para planejar a sua implantação de {% data variables.product.prodname_GH_advanced_security %} em um nível alto e para revisar as fases de implementação recomendadas, consulte "[Adotando {% data variables.product.prodname_GH_advanced_security %} em escala](/code-security/adopting-github-advanced-security-at-scale)".
 
 {% endif %}
 

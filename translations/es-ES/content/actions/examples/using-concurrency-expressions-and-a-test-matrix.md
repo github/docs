@@ -1,6 +1,6 @@
 ---
 title: 'Using concurrency, expressions, and a test matrix'
-shortTitle: 'Using concurrency, expressions, and a test matrix'
+shortTitle: 'Utilizar concurrencia, expresiones y una matriz de pruebas'
 intro: 'Cómo utilizar características avanzadas de {% data variables.product.prodname_actions %} para la integración continua (IC).'
 versions:
   fpt: '*'

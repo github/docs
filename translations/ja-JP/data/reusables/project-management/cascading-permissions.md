@@ -1,1 +1,1 @@
-Organizationのプロジェクトボードに対して複数のアクセス経路がある場合（個人として、Teamを通じて、Organizationのメンバーとして）、プロジェクトボードに対する最上位の権限レベルが下位の権限レベルをオーバーライドします。
+If a person has multiple avenues of access to an organization {% data variables.projects.projects_v1_board %} (individually, through a team, or as an organization member), the highest {% data variables.projects.projects_v1_board %} permission level overrides lower permission levels.

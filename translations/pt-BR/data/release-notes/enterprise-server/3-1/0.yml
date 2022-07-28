@@ -171,7 +171,7 @@ sections:
       notes:
         - A partir de {% data variables.product.prodname_ghe_server %} 3.1, começaremos a cancelar o suporte para o Hypervisor Xen. A obsolescência completa está agendada para {% data variables.product.prodname_ghe_server %} 3.3, seguindo o padrão de janela de obsolescência de um ano.
     - 
-      heading: Change to the format of authentication tokens affects GitHub Connect
+      heading: A alteração no formato de autenticação dos tokens afeta o GitHub Connect
       notes:
         - |
           O GitHub Connect não funcionará mais após 3 de junho para instâncias executadas no GitHub Enterprise Server 3.1 ou anterior, devido à alteração no formato dos tokens de autenticação do GitHub. Para continuar usando o GitHub Connect, atualize para o GitHub Enterprise Server 3.2 ou superior. Para obter mais informações, consulte o [Blogue do GitHub](https://github.blog/2022-05-20-action-needed-by-github-customers-using-ghes-3-1-and-older-to-adopt-new-authentication-token-format-updates/). [Atualizado: 2022-06-14]

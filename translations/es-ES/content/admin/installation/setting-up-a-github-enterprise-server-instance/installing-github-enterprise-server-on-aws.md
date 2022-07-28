@@ -24,7 +24,7 @@ shortTitle: Instalar en AWS
 
 {% note %}
 
-**Note:** At this time {% data variables.product.prodname_ghe_server %} does not support the use of the Amazon IDMSv2 Metadata API.
+**Nota:** En este momento, {% data variables.product.prodname_ghe_server %} no es compatible con la utilización de la API de Metadatos IDMSv2 de Amazon.
 
 {% endnote %}
 

@@ -73,7 +73,7 @@ We have a few simple rules for Personal Accounts on GitHub's Service.
 - 1 人の個人または 1 つの法人が複数の無料「アカウント」を保持することはできません (コンピュータアカウントも制御することを選択した場合、それは問題ありませんが、それはコンピュータの実行にのみ使用できます)。
 - 年齢が13歳以上である必要があります。 当社は若く優秀なプログラマーがプログラミングを熱心に習得することを歓迎していますが、その一方で当社は米国の法律に従う必要があります。 GitHub の「サービス」は 13 歳未満の未成年を対象としておらず、当社は 13 歳未満の「ユーザ」が「サービス」を利用することを許可していません。 当社は「ユーザ」が 13 歳未満であることを知った場合、[その「ユーザ」の「アカウント」を直ちに解約](#l-cancellation-and-termination)します。 あなたが米国外の居住者である場合には、その国に適用される最低年齢が 13 歳以上である場合があります。そのような場合には、あなたはその国の法律に従う責任を負います。
 - ログインを使用できるのは 1 人だけです。つまり、1 つのログインを複数の人で共有することはできません。 A paid Organization may only provide access to as many Personal Accounts as your subscription allows.
-- 米国またはその他の適用法域の輸出管理法または制裁法に違反して GitHub を使用することはできません。 あなたが[ 特定国籍 (SDN)](https://www.treasury.gov/resource-center/sanctions/SDN-List/Pages/default.aspx) 者もしくは米国政府機関によって管理されている同様の制限の対象者またはその代理で作業している場合は、GitHub を使用することはできません。    GitHub は、特定の認可された国または地域の人々が、米国政府の許可に従って特定の GitHub サービスにアクセスすることを許可する場合があります。    For more information, please see our [Export Controls policy](/articles/github-and-export-controls).
+- 米国またはその他の適用法域の輸出管理法または制裁法に違反して GitHub を使用することはできません。 あなたが[ 特定国籍 (SDN)](https://www.treasury.gov/resource-center/sanctions/SDN-List/Pages/default.aspx) 者もしくは米国政府機関によって管理されている同様の制限の対象者またはその代理で作業している場合は、GitHub を使用することはできません。    GitHub は、特定の認可された国または地域の人々が、米国政府の許可に従って特定の GitHub サービスにアクセスすることを許可する場合があります。    詳しくは「[輸出規制方針](/articles/github-and-export-controls)」をご覧ください。
 
 ### 4. アカウントのセキュリティ
 お客様には、当社の「サービス」を利用している間、「アカウント」を安全に保つ責任があります。 当社は「アカウント」のセキュリティを維持するのに役立つ 2 要素認証などのツールを提供していますが、「アカウント」のコンテンツとそのセキュリティはお客様の手に委ねられています。

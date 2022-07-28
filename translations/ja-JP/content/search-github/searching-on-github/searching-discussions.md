@@ -2,8 +2,7 @@
 title: ディスカッションを検索する
 intro: '{% data variables.product.product_name %} 上のディスカッションを検索し、検索修飾子を使用して検索結果を絞り込むことができます。'
 versions:
-  fpt: '*'
-  ghec: '*'
+  feature: discussions
 topics:
   - GitHub search
 redirect_from:

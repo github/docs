@@ -56,17 +56,21 @@ topics:
 
 以下の設定オプションが利用できます。
 
-| オプション              | 必須 | 使い方                                                                                                                                                       |
-| ------------------ | -- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `fail-on-severity` | 任意 | 重要度(`low`、`moderate`、`high`、`critical`)の閾値を定義します。</br>指定された重要度以上の脆弱性を導入するPull Requestについて、このアクションは失敗します。                                                  |
-| `allow-licenses`   | 任意 | 許可されているライセンスのリストを含みます。 このパラメータで利用できる値は、APIドキュメンテーションの[Licenses](/rest/licenses)ページにあります。</br>このリストにマッチしないライセンスを持つ依存関係を導入するPull Requestについて、このアクションは失敗します。 |
-| `deny-licenses`    | 任意 | 禁じられているライセンスのリストを含みます。 このパラメータで利用できる値は、APIドキュメンテーションの[Licenses](/rest/licenses)ページにあります。</br>このリストにマッチするライセンスを持つ依存関係を導入するPull Requestについて、このアクションは失敗します。  |
+| オプション              | 必須 | 使い方                                                                                                      |
+| ------------------ | -- | -------------------------------------------------------------------------------------------------------- |
+| `fail-on-severity` | 任意 | 重要度(`low`、`moderate`、`high`、`critical`)の閾値を定義します。</br>指定された重要度以上の脆弱性を導入するPull Requestについて、このアクションは失敗します。 |
+{%- ifversion dependency-review-action-licenses %}
+| `allow-licenses` | Optional | Contains a list of allowed licenses. You can find the possible values for this parameter in the [Licenses](/rest/licenses) page of the API documentation.</br>The action will fail on pull requests that introduce dependencies with licenses that do not match the list.|{% endif %}
+{%- ifversion dependency-review-action-licenses %}
+| `deny-licenses` | Optional | Contains a list of prohibited licenses. You can find the possible values for this parameter in the [Licenses](/rest/licenses) page of the API documentation.</br>The action will fail on pull requests that introduce dependencies with licenses that match the list.|{% endif %}
 
+{% ifversion dependency-review-action-licenses %}
 {% tip %}
 
 **参考:** `allow-licenses`及び`deny-licenses`オプションは、相互排他です。
 
 {% endtip %}
+{% endif %}
 
 この{% data variables.product.prodname_dependency_review_action %}のサンプルファイルは、これらの設定オプションの使い方を示しています。
 
@@ -86,16 +90,18 @@ jobs:
       - name: Dependency Review
         uses: actions/dependency-review-action@v2
         with:
-          # 取り得る値: "critical", "high", "moderate", "low" 
+          # Possible values: "critical", "high", "moderate", "low" 
           fail-on-severity: critical
-          # この2つの選択肢のいずれかだけを含めることができる: `allow-licenses` and `deny-licences`
+{% ifversion dependency-review-action-licenses %}
+          # You can only can only include one of these two options: `allow-licenses` and `deny-licences`
           # ([String]). これらのライセンスだけを許可 (オプション)
           # 取り得る値: https://docs.github.com/en/rest/licensesからの任意の`spdx_id`値
           # 許可ライセンス: GPL-3.0, BSD-3-Clause, MIT
 
-          # ([String]). これらのライセンスでPull Requestはブロック (オプション)
-          # 取り得る値: https://docs.github.com/en/rest/licensesからの任意の`spdx_id`値
-          # 拒否ライセンス: LGPL-2.0, BSD-2-Clause
+          # ([String]). Block the pull request on these licenses (optional)
+          # Possible values: Any  `spdx_id` value(s) from https://docs.github.com/en/rest/licenses 
+          # deny-licenses: LGPL-2.0, BSD-2-Clause
+{% endif %}
 ```
 
 これらの設定オプションに関する詳細については[`dependency-review-action`](https://github.com/actions/dependency-review-action#readme)を参照してください。

@@ -28,6 +28,8 @@ Commits and tags have the following verification statuses, depending on whether 
 
 {% data reusables.identity-and-permissions.vigilant-mode-beta-note %}
 
+Signing commits differs from signing off on a commit. For more information about signing off on commits, see "[Managing the commit signoff policy for your repository](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-the-commit-signoff-policy-for-your-repository)."
+
 ### Default statuses
 
 | Status         | Description |
@@ -70,7 +72,7 @@ To sign commits using GPG and have those commits verified on {% data variables.p
 
 1. [Check for existing GPG keys](/articles/checking-for-existing-gpg-keys)
 2. [Generate a new GPG key](/articles/generating-a-new-gpg-key)
-3. [Add a new GPG key to your GitHub account](/articles/adding-a-new-gpg-key-to-your-github-account)
+3. [Add a GPG key to your GitHub account](/articles/adding-a-gpg-key-to-your-github-account)
 4. [Tell Git about your signing key](/articles/telling-git-about-your-signing-key)
 5. [Sign commits](/articles/signing-commits)
 6. [Sign tags](/articles/signing-tags)

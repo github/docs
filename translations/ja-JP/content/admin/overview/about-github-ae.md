@@ -15,6 +15,8 @@ topics:
 
 {% data variables.product.prodname_ghe_managed %} は、アイデアから本番まで1つの開発者プラットフォームを提供します。 You can increase development velocity with the tools that teams know and love, while you maintain industry and regulatory compliance with security and access controls, workflow automation, and policy enforcement.
 
+{% data reusables.enterprise.about-github-for-enterprises %}
+
 ## 高可用性および地球規模のクラウド
 
 {% data variables.product.prodname_ghe_managed %} は、高可用性アーキテクチャでホストされているフルマネージドサービスです。 {% data variables.product.prodname_ghe_managed %} は、クラウドでグローバルにホストされており、無制限に開発ライフサイクル全体をサポートするように拡張できます。 {% data variables.product.prodname_dotcom %} は、バックアップ、フェイルオーバー、およびシステム災害復旧を完全に管理するため、サービスやデータについて心配する必要はありません。

@@ -27,6 +27,8 @@
     - Pasos para reproducir el incidente
     - Cualquier circunstancia especial relacionada con el descubrimiento del problema (por ejemplo, la primera vez que se suscitó, o su materialización después de cierto evento, frecuencia en la que se presenta, impacto al negocio, y urgencia sugerida)
     - Las palabras exactas de los mensajes de error
+{% indented_data_reference reusables.repositories.anyone-can-view-anonymized-url spaces=3 %}
+
 {%- ifversion ghes %}
 1. Opcionalmente, adjunta archivos de diagnóstico y de otros tipos arrastrándolos y soltándolos, cargándolos o copiándolos desde el portapapeles.
 {%- endif %}

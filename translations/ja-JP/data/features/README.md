@@ -34,7 +34,7 @@ versions:
   feature: 'meow'
 ```
 
-You cannot use `feature:` to specify multiple concurrent versions, as this is not supported. Alternatively, you could create a new feature-based versioning file with the required versioning.
+`feature:`を使って複数の並行バージョンを指定することはできません。これはサポートされていません。 あるいは、必要なバージョンを持つ新しい機能ベースのバージョンファイルを作成することもできます。
 
 ## スキーマの適用
 

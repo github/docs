@@ -42,7 +42,7 @@ shortTitle: View project contributors
 
 {% tip %}
 
-**ヒント:** リポジトリへのコミットのコントリビューターを一覧表示する方法については、「[リポジトリ](/rest/reference/repos#list-contributors)」を参照してください。
+**Tip:** To list all commit contributors in a repository, see "[List repository contributors](/rest/repos/repos#list-repository-contributors)."
 
 {% endtip %}
 

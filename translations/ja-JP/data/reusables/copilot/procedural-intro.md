@@ -1,1 +1,1 @@
-{% data variables.product.prodname_copilot %} provides autocomplete-style suggestions from an AI pair programmer as you code. For more information, see "[About {% data variables.product.prodname_copilot %}](/copilot/overview-of-github-copilot/about-github-copilot)".
+{% data variables.product.prodname_copilot %}は、コーディング中にAIペアプログラマから自動補完スタイルの提案を提供します。 詳しい情報については「[{% data variables.product.prodname_copilot %}について](/copilot/overview-of-github-copilot/about-github-copilot)」を参照してください。

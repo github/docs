@@ -1,1 +1,1 @@
-1. Locate the list of runners under "Runners".
+1. Ubica el reto de los ejecutores debajo de "Ejecutores".

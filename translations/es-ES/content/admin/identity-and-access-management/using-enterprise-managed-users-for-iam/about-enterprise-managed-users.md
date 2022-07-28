@@ -28,7 +28,7 @@ Organization membership can be managed manually, or you can update membership au
 
 {% ifversion oidc-for-emu %}
 
-{% data reusables.enterprise-accounts.emu-cap-validates %} For more information, see "[About support for your IdP's Conditional Access Policy](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-support-for-your-idps-conditional-access-policy)."
+{% data reusables.enterprise-accounts.emu-cap-validates %} Para obtener más información, consulta la sección "[Acerca del soporte para la Política de Acceso Condicional de tu IdP](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-support-for-your-idps-conditional-access-policy)".
 
 {% endif %}
 
