@@ -2,13 +2,8 @@ import cheerio from 'cheerio'
 import { expect, jest, test } from '@jest/globals'
 
 import { get } from '../helpers/e2etest.js'
-import { PREFERRED_LOCALE_COOKIE_NAME } from '../../middleware/detect-language.js'
-import {
-  getNextData,
-  getPrimerData,
-  getUserLanguage,
-  getIsDotComAuthenticated,
-} from '../helpers/script-data.js'
+// import { PREFERRED_LOCALE_COOKIE_NAME } from '../../middleware/detect-language.js'
+import { getNextData, getPrimerData } from '../helpers/script-data.js'
 
 const serializeTheme = (theme) => {
   return encodeURIComponent(JSON.stringify(theme))
@@ -16,28 +11,6 @@ const serializeTheme = (theme) => {
 
 describe('in-memory render caching', () => {
   jest.setTimeout(30 * 1000)
-
-  test('second render should be a cache hit with different dotcom-auth', async () => {
-    // Anonymous first
-    const res = await get('/en')
-    // Because these are effectively end-to-end tests, you can't expect
-    // the first request to be a cache miss because another end-to-end
-    // test might have "warmed up" this endpoint.
-    expect(res.headers['x-middleware-cache']).toBeTruthy()
-    const $1 = cheerio.load(res.text)
-    const res2 = await get('/en', {
-      headers: {
-        cookie: 'dotcom_user=peterbe',
-      },
-    })
-    expect(res2.headers['x-middleware-cache']).toBe('hit')
-    const $2 = cheerio.load(res2.text)
-    // The HTML is one thing, we also need to check that the
-    // __NEXT_DATA__ serialized (JSON) state is different.
-    const dotcomAuthNEXT1 = getIsDotComAuthenticated($1)
-    const dotcomAuthNEXT2 = getIsDotComAuthenticated($2)
-    expect(dotcomAuthNEXT1).not.toBe(dotcomAuthNEXT2)
-  })
 
   test('second render should be a cache hit with different theme properties', async () => {
     const cookieValue1 = {
@@ -108,31 +81,5 @@ describe('in-memory render caching', () => {
     const $2 = cheerio.load(res2.text)
     const data2 = getPrimerData($2)
     expect(data2.resolvedServerColorMode).toBe('day')
-  })
-
-  test('user-language, by header, in meta tag', async () => {
-    await get('/en') // first render to assert the next render comes from cache
-
-    const res = await get('/en', {
-      headers: { 'accept-language': 'ja;q=1.0, *;q=0.9' },
-    })
-    expect(res.headers['x-middleware-cache']).toBeTruthy()
-    const $ = cheerio.load(res.text)
-    const userLanguage = getUserLanguage($)
-    expect(userLanguage).toBe('ja')
-  })
-
-  test('user-language, by cookie, in meta tag', async () => {
-    await get('/en') // first render to assert the next render comes from cache
-
-    const res = await get('/en', {
-      headers: {
-        Cookie: `${PREFERRED_LOCALE_COOKIE_NAME}=ja`,
-      },
-    })
-    expect(res.headers['x-middleware-cache']).toBeTruthy()
-    const $ = cheerio.load(res.text)
-    const userLanguage = getUserLanguage($)
-    expect(userLanguage).toBe('ja')
   })
 })
