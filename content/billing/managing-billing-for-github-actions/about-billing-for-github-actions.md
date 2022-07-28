@@ -55,17 +55,25 @@ The storage used by a repository is the total storage used by {% data variables.
 
 {% endnote %}
 
-### Per-minute rates
+### Per-minute rates for standard runners
 
-| Operating system | Per-minute rate (USD) |
-|------- | ---------|
-| Linux | $0.008 |
-| macOS | $0.08 |
-| Windows | $0.016 |
+{% data reusables.billing.billing-standard-runners %}
 
 The number of jobs you can run concurrently across all repositories in your user or organization account depends on your GitHub plan. For more information, see "[Usage limits and billing](/actions/reference/usage-limits-billing-and-administration)" for {% data variables.product.prodname_dotcom %}-hosted runners and "[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners/#usage-limits)" for self-hosted runner usage limits.
 
 {% data reusables.user-settings.context_switcher %}
+
+{% ifversion actions-larger-runners %} 
+
+### Per-minute rates for larger runners
+
+{% data variables.product.prodname_dotcom %} offers more powerful runners that are billed differently to the standard runners. In addition, entitlement minutes cannot be used for these larger runners.
+
+{% data reusables.billing.billing-larger-runners %}
+
+For the public static IP addresses that can be assigned to a {% data variables.product.prodname_dotcom %}-hosted runner, there is no additional cost for this configuration.
+
+{% endif %}
 
 ## Calculating minute and storage spending
 

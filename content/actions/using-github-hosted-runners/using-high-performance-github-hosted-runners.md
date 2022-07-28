@@ -3,13 +3,13 @@ title: Using high performance GitHub-hosted runners
 intro: '{% data variables.product.prodname_dotcom %} offers more powerful hosted runners for your demanding jobs.'
 miniTocMaxHeadingLevel: 3
 versions:
-  feature: 'actions-high-performance-runners'
+  feature: 'actions-larger-runners'
 shortTitle: Using high performance runners
 ---
 
 ## Overview of high performance {% data variables.product.prodname_dotcom %}-hosted runners
 
-In addition to the general purpose {% data variables.product.prodname_dotcom %}-hosted runners, {% data variables.product.prodname_dotcom %} also offers a range of powerful runners with more RAM and CPU. These powerful runners are hosted by {% data variables.product.prodname_dotcom %} and have the runner application and other tools preinstalled. Each runner is only used for one job, and is automatically shut down and wiped after the job has completed.
+In addition to the standard {% data variables.product.prodname_dotcom %}-hosted runners, {% data variables.product.prodname_dotcom %} also offers a range of larger runners with more RAM and CPU. These runners are hosted by {% data variables.product.prodname_dotcom %} and have the runner application and other tools preinstalled. Each runner is only used for one job, and is automatically shut down and wiped after the job has completed.
 
 When you add a {% data variables.product.prodname_dotcom %}-hosted runner to an organization, you are defining the hardware and operating system configuration for a customized class of runner. {% data variables.product.prodname_dotcom %} will then create multiple instances of this runner that scale up and down to match the demands of your organization, based on the autoscaling limits you define.
 
@@ -46,9 +46,7 @@ When you create a runner group, you can specify a set of labels that will be app
 
 ### Understanding billing
 
-The more powerful {% data variables.product.prodname_dotcom %}-hosted runners are billed differently to the general purpose runners. For more information, see "[Managing billing for {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions)".
-
-For the public static IP addresses that can be assigned to a {% data variables.product.prodname_dotcom %}-hosted runner, there is no additional cost for doing this. 
+The more powerful {% data variables.product.prodname_dotcom %}-hosted runners are billed differently to the standard runners. For more information, see "[Per-minute rates for larger runners](/billing/managing-billing-for-github-actions/about-billing-for-github-actions#per-minute-rates-for-larger-runners)".
 
 ## Adding a new {% data variables.product.prodname_dotcom %}-hosted runner to an organization
 
