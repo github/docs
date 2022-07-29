@@ -31,7 +31,7 @@ topics:
 - 当您将您拥有的存储库转移到另一个个人帐户时，新所有者将收到一封确认电子邮件。{% ifversion fpt or ghec %} 确认电子邮件包含接受转移的说明。 如果新所有者在一天之内没有接受转让，则邀请将过期。{% endif %}
 - 要将您拥有的仓库转让给一个组织，您必须拥有在目标组织中创建仓库的权限。
 - 目标帐户不得具有相同名称的仓库，或位于同一网络中的复刻。
-- 仓库原来的所有者将添加为已转让仓库的协作者。 转移的仓库的其他协作者保持不变。{% ifversion ghec or ghes or ghae %}
+- 仓库原来的所有者将添加为已转让仓库的协作者。 Other collaborators to the transferred repository remain intact.{% ifversion ghes < 3.7 %}
 - 无法转移内部仓库。{% endif %}
 - 私有复刻无法进行转让。
 
