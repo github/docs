@@ -776,6 +776,12 @@ registries:
 
 ### `docker-registry`
 
+{% note %}
+
+**Note:** Azure Container Registry is currently not supported
+
+{% endnote %}
+
 The `docker-registry` type supports username and password.
 
 {% raw %}
