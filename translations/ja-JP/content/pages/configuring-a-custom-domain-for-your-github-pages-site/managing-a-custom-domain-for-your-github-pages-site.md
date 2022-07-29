@@ -40,12 +40,12 @@ DNS レコードの設定が正しいかどうかを検証するために利用�
 
 ## サブドメインを設定する
 
-`www` または `www.example.com` や `blog.example.com` などのカスタムサブドメインを設定するには、リポジトリ設定にドメインを追加する必要があります。これにより、サイトのリポジトリに CNAME ファイルが作成されます。 その後、DNS プロバイダで CNAME レコードを設定します。
+To set up a `www` or custom subdomain, such as `www.example.com` or `blog.example.com`, you must add your domain in the repository settings. その後、DNS プロバイダで CNAME レコードを設定します。
 
 {% data reusables.pages.navigate-site-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.pages.sidebar-pages %}
-4. "Custom domain（カスタムドメイン）" の下で、カスタムドメインを入力して**Save（保存）**をクリックします。 これで_CNAME_ファイルを公開ソースのルートに追加するコミットが作成されます。 ![カスタムドメインの保存ボタン](/assets/images/help/pages/save-custom-subdomain.png)
+4. "Custom domain（カスタムドメイン）" の下で、カスタムドメインを入力して**Save（保存）**をクリックします。 If you are publishing your site from a branch, this will create a commit that adds a `CNAME` file to the root of your source branch. If you are publishing your site with a custom {% data variables.product.prodname_actions %} workflow , no `CNAME` file is created. For more information about your publishing source, see "[Configuring a publishing source for your GitHub Pages site](/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)." ![カスタムドメインの保存ボタン](/assets/images/help/pages/save-custom-subdomain.png)
 5. お使いの DNS プロバイダにアクセスし、サブドメインがサイトのデフォルトドメインを指す `CNAME` レコードを作成します。 たとえば、サイトで `www.example.com` というサブドメインを使いたい場合、`www.example.com` が `<user>.github.io` を指す`CNAME` レコードを作成します。 Organization サイトで `www.anotherexample.com` というサブドメインを使用する場合、`www.anotherexample.com` が `<organization>.github.io` を指す`CNAME` レコードを作成します。 `CNAME` レコードは、リポジトリ名を除いて、常に`<user>.github.io` または `<organization>.github.io` を指している必要があります。 {% data reusables.pages.contact-dns-provider %} {% data reusables.pages.default-domain-information %}
 
 {% indented_data_reference reusables.pages.wildcard-dns-warning spaces=3 %}
@@ -63,14 +63,14 @@ DNS レコードの設定が正しいかどうかを検証するために利用�
 
 ## Apexドメインを設定する
 
-`example.com` などの Apex ドメインを設定するには、{% data variables.product.prodname_pages %} リポジトリに _CNAME_ ファイルを設定し、DNS プロバイダで少なくとも 1 つの `ALIAS`、`ANAME`、または `A` レコードを設定する必要があります。
+To set up an apex domain, such as `example.com`, you must configure a custom domain in your repository settings and at least one `ALIAS`, `ANAME`, or `A` record with your DNS provider.
 
 {% data reusables.pages.www-and-apex-domain-recommendation %} 詳しい情報については、「[サブドメインを設定する](#configuring-a-subdomain)」を参照してください。
 
 {% data reusables.pages.navigate-site-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.pages.sidebar-pages %}
-4. "Custom domain（カスタムドメイン）" の下で、カスタムドメインを入力して**Save（保存）**をクリックします。 これで_CNAME_ファイルを公開ソースのルートに追加するコミットが作成されます。 ![カスタムドメインの保存ボタン](/assets/images/help/pages/save-custom-apex-domain.png)
+4. "Custom domain（カスタムドメイン）" の下で、カスタムドメインを入力して**Save（保存）**をクリックします。 If you are publishing your site from a branch, this will create a commit that adds a `CNAME` file to the root of your source branch. If you are publishing your site with a custom {% data variables.product.prodname_actions %} workflow , no `CNAME` file is created. For more information about your publishing source, see "[Configuring a publishing source for your GitHub Pages site](/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)." ![カスタムドメインの保存ボタン](/assets/images/help/pages/save-custom-apex-domain.png)
 5. DNS プロバイダに移動し、`ALIAS`、`ANAME`、または `A` レコードを作成します。 IPv6サポートのために`AAAA`レコードを作成することもできます。 {% data reusables.pages.contact-dns-provider %}
     - `ALIAS`または`ANAME`レコードを作成するには、Apexドメインをサイトのデフォルトドメインにポイントします。 {% data reusables.pages.default-domain-information %}
     - `A` レコードを作成するには、Apex ドメインが {% data variables.product.prodname_pages %} の IP アドレスを指すようにします。

@@ -13,11 +13,20 @@ versions:
 topics:
   - Pages
 shortTitle: Pagesサイトへのテーマの追加
+permissions: 'People with admin permissions for a repository can use the theme chooser to add a theme to a {% data variables.product.prodname_pages %} site.'
 ---
 
-リポジトリの管理者権限があるユーザは、{% data variables.product.prodname_pages %} サイトにテーマを追加するため、テーマ選択画面を使用できます。
-
 ## テーマ選択画面について
+
+{% ifversion pages-custom-workflow %}
+
+{% note %}
+
+**Note**: The Jekyll theme chooser is not supported for {% data variables.product.prodname_pages %} sites that are published with a custom {% data variables.product.prodname_actions %} workflow. If you build your site with Jekyll and publish your site with a custom {% data variables.product.prodname_actions %} workflow, you can add a theme by editing the `_config.yml` file. For more information, see "[Adding a theme to your GitHub Pages site using Jekyll](/pages/setting-up-a-github-pages-site-with-jekyll/adding-a-theme-to-your-github-pages-site-using-jekyll)."
+
+{% endnote %}
+
+{% endif %}
 
 テーマ選択画面は、リポジトリに Jekyll テーマを追加するためのものです。 Jekyll に関する詳しい情報については、「[{% data variables.product.prodname_pages %} と Jekyll](/articles/about-github-pages-and-jekyll)」を参照してください。
 
