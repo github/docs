@@ -18,7 +18,7 @@ Available {% data variables.product.prodname_dotcom %}-hosted runner types are:
 runs-on: ubuntu-latest
 ```
 
-For more information, see "[Virtual environments for {% data variables.product.prodname_dotcom %}-hosted runners](/github/automating-your-workflow-with-github-actions/virtual-environments-for-github-hosted-runners)."
+For more information, see "[About {% data variables.product.prodname_dotcom %}-hosted runners](/actions/using-github-hosted-runners/about-github-hosted-runners)."
 {% endif %}
 
 {% ifversion fpt or ghec or ghes %}
