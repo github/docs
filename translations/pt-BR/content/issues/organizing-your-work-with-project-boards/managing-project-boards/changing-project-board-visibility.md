@@ -1,18 +1,16 @@
 ---
-title: Alterar a visibilidade dos quadros de projeto
-intro: 'Como proprietário ou administrador de um projeto da organização, você pode tornar um quadro de projeto {% ifversion ghae %}interno{% else %}público{% endif %} ou privado.'
+title: 'Changing {% data variables.product.prodname_project_v1 %} visibility'
+intro: 'As an organization owner or {% data variables.projects.projects_v1_board %} admin, you can make a {% data variables.projects.projects_v1_board %} {% ifversion ghae %}internal{% else %}public{% endif %} or private.'
 redirect_from:
   - /github/managing-your-work-on-github/managing-project-boards/changing-project-board-visibility
   - /articles/changing-project-board-visibility
   - /github/managing-your-work-on-github/changing-project-board-visibility
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
-  ghec: '*'
+  feature: projects-v1
 topics:
   - Pull requests
 shortTitle: Alterar visibilidade
+allowTitleToDifferFromFilename: true
 ---
 
 {% data reusables.projects.project_boards_old %}
@@ -21,7 +19,7 @@ shortTitle: Alterar visibilidade
 
 {% tip %}
 
-**Dica:** Ao tornar seu quadro de projeto {% ifversion ghae %}interno{% else %}público{% endif %}, os integrantes da organização recebem acesso de leitura por padrão. Você pode conceder a integrantes específicos da organização permissões de gravação ou de administrador dando às equipes acesso ao quadro de projeto em que eles estão ativos ou adicionando-os ao quadro de projeto como um colaborador. Para obter mais informações, consulte "[Permissões de quadro de projeto para uma organização](/articles/project-board-permissions-for-an-organization)".
+**Tip:** When you make your {% data variables.projects.projects_v1_board %} {% ifversion ghae %}internal{% else %}public{% endif %}, organization members are given read access by default. You can give specific organization members write or admin permissions by giving access to teams they're on or by adding them to the {% data variables.projects.projects_v1_board %} as a collaborator. For more information, see "[{% data variables.product.prodname_project_v1_caps %} permissions for an organization](/articles/project-board-permissions-for-an-organization)."
 
 {% endtip %}
 

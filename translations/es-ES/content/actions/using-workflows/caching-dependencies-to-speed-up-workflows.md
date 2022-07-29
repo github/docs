@@ -24,32 +24,13 @@ Las ejecuciones de flujo de trabajo a menudo reutilizan las mismas salidas o dep
 
 Para almacenar las dependencias en caché para un job, puedes utilizar la {% data variables.product.prodname_dotcom %}acción de [cache`` de ](https://github.com/actions/cache). La acción crea y restablece un caché identificado con una llave única. Como alternativa, si estás almacenando los siguientes administradores de paquetes en caché, el utilizar sus acciones respectivas de setup-* requiere de una configuración mínima y creará y restablecerá los cachés de dependencia para ti.
 
-<table>
-<thead>
-  <tr>
-    <th>Administradores de paquetes</th>
-    <th>acción de setup-* para almacenar en caché</th>
-  </tr>
-</thead>
-<tbody>
-  <tr>
-    <td>npm, yarn, pnpm</td>
-    <td><a href="https://github.com/actions/setup-node#caching-global-packages-data">setup-node</a></td>
-  </tr>
-  <tr>
-    <td>pip, pipenv, poetry</td>
-    <td><a href="https://github.com/actions/setup-python#caching-packages-dependencies">setup-python</a></td>
-  </tr>
-  <tr>
-    <td>gradle, maven</td>
-    <td><a href="https://github.com/actions/setup-java#caching-packages-dependencies">setup-java</a></td>
-  </tr>
-  <tr>
-    <td>ruby gems</td>
-    <td><a href="https://github.com/ruby/setup-ruby#caching-bundle-install-automatically">setup-ruby</a></td>
-  </tr>
-</tbody>
-</table>
+| Administradores de paquetes | acción de setup-* para almacenar en caché                                                  |
+| --------------------------- | ------------------------------------------------------------------------------------------ |
+| npm, Yarn, pnpm             | [setup-node](https://github.com/actions/setup-node#caching-global-packages-data)           |
+| pip, pipenv, Poetry         | [setup-python](https://github.com/actions/setup-python#caching-packages-dependencies)      |
+| Gradle, Maven               | [setup-java](https://github.com/actions/setup-java#caching-packages-dependencies)          |
+| RubyGems                    | [setup-ruby](https://github.com/ruby/setup-ruby#caching-bundle-install-automatically)      |
+| Go `go.sum`                 | [setup-go](https://github.com/actions/setup-go#caching-dependency-files-and-build-outputs) |
 
 {% warning %}
 
@@ -269,6 +250,8 @@ Para obtener más información sobre cómo cambiar las políticas del límite de
 
 ## Administrar los cachés
 
-Puedes utilizar la API de REST de {% data variables.product.product_name %} para administrar tus cachés. En la actualidad, puedes utilizar la API para ver tu uso de caché y esperamos tener más funcionalidades en las siguientes actualizaciones. Para obtener más información, consulta la sección "[Acciones](/rest/reference/actions#cache)" en la documentación de la API de REST.
+Puedes utilizar la API de REST de {% data variables.product.product_name %} para administrar tus cachés. {% ifversion actions-cache-list-delete-apis %}Puedes utilizar la API para listar y borrar entradas de caché y ver tu uso de caché.{% elsif actions-cache-management %}En la actualidad, puedes utilizar la API para ver tu uso de caché y esperar más funcionalidades en las actualizaciones futuras.{% endif %} Para obtener más información, consulta la sección "[Caché de {% data variables.product.prodname_actions %}](/rest/actions/cache)" en la documentación de la API de REST.
+
+You can also install a {% data variables.product.prodname_cli %} extension to manage your caches from the command line. For more information about the extension, see [the extension documentation](https://github.com/actions/gh-actions-cache#readme). For more information about {% data variables.product.prodname_cli %} extensions, see "[Using GitHub CLI extensions](/github-cli/github-cli/using-github-cli-extensions)."
 
 {% endif %}

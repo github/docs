@@ -17,9 +17,9 @@ topics:
 
 ハードコードされたIPアドレスの代わりにホスト名を設定すれば、ユーザやクライアントソフトウェアに影響を与えることなく{% data variables.product.product_location %}を動作させる物理ハードウェアを変更できるようになります。
 
-{% data variables.enterprise.management_console %} のホスト名の設定は、適切な完全修飾ドメイン名 (FQDN) に設定して、インターネット上または内部ネットワーク内で解決できるようにしてください。 For example, your hostname setting could be `github.companyname.com.` Web and API requests will automatically redirect to the hostname configured in the {% data variables.enterprise.management_console %}.
+{% data variables.enterprise.management_console %} のホスト名の設定は、適切な完全修飾ドメイン名 (FQDN) に設定して、インターネット上または内部ネットワーク内で解決できるようにしてください。 For example, your hostname setting could be `github.companyname.com.` Web and API requests will automatically redirect to the hostname configured in the {% data variables.enterprise.management_console %}. Note that `localhost` is not a valid hostname setting.
 
-After you configure a hostname, you can enable subdomain isolation to further increase the security of {% data variables.product.product_location %}. 詳しい情報については"[Subdomain Isolationの有効化](/enterprise/{{ currentVersion }}/admin/guides/installation/enabling-subdomain-isolation/)"を参照してください。
+After you configure a hostname, you can enable subdomain isolation to further increase the security of {% data variables.product.product_location %}. 詳しい情報については"[Subdomain Isolationの有効化](/enterprise/admin/guides/installation/enabling-subdomain-isolation/)"を参照してください。
 
 For more information on the supported hostname types, see [Section 2.1 of the HTTP RFC](https://tools.ietf.org/html/rfc1123#section-2).
 
@@ -33,4 +33,4 @@ For more information on the supported hostname types, see [Section 2.1 of the HT
 {% data reusables.enterprise_management_console.test-domain-settings-failure %}
 {% data reusables.enterprise_management_console.save-settings %}
 
-To help mitigate various cross-site scripting vulnerabilities, we recommend that you enable subdomain isolation for {% data variables.product.product_location %} after you configure a hostname. 詳しい情報については"[Subdomain Isolationの有効化](/enterprise/{{ currentVersion }}/admin/guides/installation/enabling-subdomain-isolation/)"を参照してください。
+To help mitigate various cross-site scripting vulnerabilities, we recommend that you enable subdomain isolation for {% data variables.product.product_location %} after you configure a hostname. 詳しい情報については"[Subdomain Isolationの有効化](/enterprise/admin/guides/installation/enabling-subdomain-isolation/)"を参照してください。

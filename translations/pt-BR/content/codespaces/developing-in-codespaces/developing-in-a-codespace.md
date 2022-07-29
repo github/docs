@@ -19,9 +19,9 @@ shortTitle: Desenvolver em um codespace
 
  
 
-## Sobre o desenvolvimento com {% data variables.product.prodname_codespaces %}
+## Sobre o desenvolvimento com {% data variables.product.prodname_github_codespaces %}
 
-{% data variables.product.prodname_codespaces %} fornece a você a experiência completa de desenvolvimento de {% data variables.product.prodname_vscode %}. {% data reusables.codespaces.use-visual-studio-features %}
+{% data variables.product.prodname_github_codespaces %} fornece a você a experiência completa de desenvolvimento de {% data variables.product.prodname_vscode %}. {% data reusables.codespaces.use-visual-studio-features %}
 
 {% data reusables.codespaces.links-to-get-started %}
 
@@ -41,7 +41,7 @@ Para obter mais informações sobre como usar {% data variables.product.prodname
 
 ### Personalizando seu codespace
 
-{% data reusables.codespaces.about-personalization %} Para obter mais informações, consulte "[Personalizar {% data variables.product.prodname_codespaces %} para sua conta](/codespaces/setting-up-your-codespace/personalizing-codespaces-for-your-account)".
+{% data reusables.codespaces.about-personalization %} Para obter mais informações, consulte "[Personalizar {% data variables.product.prodname_github_codespaces %} para sua conta](/codespaces/customizing-your-codespace/personalizing-github-codespaces-for-your-account)".
 
 {% data reusables.codespaces.apply-devcontainer-changes %} Para obter mais informações, consulte "[Configurar o {% data variables.product.prodname_codespaces %} para o seu projeto](/github/developing-online-with-codespaces/configuring-codespaces-for-your-project#apply-changes-to-your-configuration)".
 

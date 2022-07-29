@@ -15,7 +15,6 @@ topics:
   - Access management
 children:
   - /checking-your-commit-and-tag-signature-verification-status
-  - /updating-an-expired-gpg-key
   - /using-a-verified-email-address-in-your-gpg-key
 shortTitle: 验证疑难解答
 ---

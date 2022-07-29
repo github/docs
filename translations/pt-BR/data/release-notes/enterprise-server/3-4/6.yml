@@ -1,0 +1,20 @@
+date: '2022-07-21'
+sections:
+  security_fixes:
+    - "**MÉDIO**: Impede um ataque em que uma falsificação do lado do servidor (SSRF) poderia forçar, possivelmente, a ponte do Subversion (SVN) a executar código remoto injetando dados arbitrários no Memcached."
+    - "**MÉDIO**: Impede que um invasor execute o código do Javascript explorando uma vulnerabilidade de script entre sites (XSS) nos elementos da interface de usuário do menu suspenso na interface web do GitHub Enterprise Server."
+    - Atualiza o Grafana para a versão 7.5.16, que aborda várias vulnerabilidades de segurança, incluindo [CVE-2020-13379](https://github.com/advisories/GHSA-wc9w-wvq2-ffm9) e [CVE-2022-21702](https://github.com/grafana/grafana/security/advisories/GHSA-xc3p-28hw-q24g).
+    - Os pacotes foram atualizados para as últimas versões de segurança.
+  bugs:
+    - Em alguns casos, o collectd daemon poderia consumir o excesso de memória.
+    - Em alguns casos, os backups dos arquivos de log girados podem acumular e consumir o excesso de armazenamento.
+    - Após uma atualização para uma nova versão de recurso e uma subsequente execução de configuração, o Elasticsearch pode registrar exceções excessivas ao mesmo tempo em que reconstroi índices.
+    - Em alguns casos, quando um branch protegido exigia mais de uma revisão de aprovação, um pull request pode ser mesclado com menos do que o número necessário de revisões de aprovação.
+    - Em instâncias que usam a autenticação LDAP, a solicitação de autenticação do modo sudo colocou incorretamente o cursor dentro do campo de senha por padrão quando campos de texto para um nome de usuário e senha estavam visíveis.
+    - Em alguns casos, os fluxos de trabalho agendados do GitHub Actions podem ficar desabilitados.
+    - 'The Billing API''s "[Get GitHub Advanced Security active committers for an organization](/rest/billing#get-github-advanced-security-active-committers-for-an-organization)" endpoint now returns `Link` headers to provide information about pagination.'
+    - 'The Billing API''s "[Get GitHub Advanced Security active committers for an organization](/rest/billing#get-github-advanced-security-active-committers-for-an-organization)" endpoint now returns the correct number of total committers.'
+  changes:
+    - A ferramenta de linha de comando `ghe-set-password` inicia os serviços necessários automaticamente quando a instância é iniciada no modo de recuperação.
+    - As métricas para processos em segundo plano `aqueduct` são coletadas para encaminhamento e exibição no console de gerenciamento.
+    - A localização da migração e do log de execução da configuração do banco de dados, `/data/user/common/ghe-config.log`, agora é exibida na página que detalha uma migração em andamento.

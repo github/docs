@@ -20,7 +20,7 @@ shortTitle: Segredos criptografados
  
 
 
-## Sobre os segredos criptografados para {% data variables.product.prodname_codespaces %}
+## Sobre segredos criptografados para {% data variables.product.prodname_github_codespaces %}
 
 Você pode adicionar segredos criptografados à sua conta pessoal que deseja usar nos seus codespaces. Por exemplo, você pode querer armazenar e acessar as seguintes informações confidenciais como segredos criptografados.
 
@@ -41,7 +41,7 @@ Você pode escolher quais repositórios devem ter acesso a cada segredo. Em segu
 
 ### Limites para segredos
 
-Você pode armazenar até 100 segredos para {% data variables.product.prodname_codespaces %}.
+Você pode armazenar até 100 segredos para {% data variables.product.prodname_github_codespaces %}.
 
 Os segredos são limitados a 64 kB.
 
@@ -75,6 +75,22 @@ Você pode atualizar o valor de um segredo existente, bem como alterar quais rep
 1. Em "Segredos dos codespaces", à direita do segredo que você deseja excluir, clique em **Excluir**. ![Botão "Excluir"](/assets/images/help/settings/codespaces-secret-delete-button.png)
 1. Leia o alerta e clique em **OK**. ![Confirmação para excluir um segredo](/assets/images/help/settings/codespaces-secret-delete-warning.png)
 
+## Usar segredos
+
+A secret is exported as an environment variable into the user's terminal session.
+
+  ![Displaying the value of an exported secret in the terminal](/assets/images/help/codespaces/exported-codespace-secret.png)
+
+You can use secrets in a codespace after the codespace is built and is running. For example, a secret can be used:
+
+* When launching an application from the integrated terminal or ssh session.
+* Within a dev container lifecycle script that is run after the codespace is running. For more information about dev container lifecycle scripts, see the documentation on containers.dev: [Specification](https://containers.dev/implementors/json_reference/#lifecycle-scripts).
+
+Codespace secrets cannot be used during:
+
+* Codespace build time (that is, within a Dockerfile or custom entry point).
+* Within a dev container feature. For more information, see the `features` attribute in the documentation on containers.dev: [Specification](https://containers.dev/implementors/json_reference/#general-properties).
+
 ## Leia mais
 
-- "[Gerenciando segredos criptografados para o seu repositório e organização para {% data variables.product.prodname_codespaces %}](/codespaces/managing-codespaces-for-your-organization/managing-encrypted-secrets-for-your-repository-and-organization-for-codespaces)"
+- "[Gerenciando segredos criptografados para o seu repositório e organização para {% data variables.product.prodname_github_codespaces %}](/codespaces/managing-codespaces-for-your-organization/managing-encrypted-secrets-for-your-repository-and-organization-for-github-codespaces)"

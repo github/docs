@@ -10,6 +10,7 @@ sections:
     - O SNMP registrou incorretamente um número alto de mensagens de erro `Cannot statfs` para o syslog.
     - Para instâncias configuradas com a autenticação SAML e o recurso interno habilitado, usuários integrados ficariam presos em um loop de "login" ao tentar efetuar o login a partir da página gerada após o logout.
     - Ao usar declarações criptografadas do SAML, algumas afirmações não estavam marcando corretamente chaves SSH como verificada.
+    - 'A página de Versões retornaria um erro 500 quando o repositório tem tags que contêm caracteres que não são ASCII. [Atualizado: 2022-06-10]'
   changes:
     - Nas configurações de alta disponibilidade, explique que a página de visão geral de replicação no Console de Gerenciamento exibe somente a configuração de replicação atual, não o status de replicação atual.
     - Ao habilitar {% data variables.product.prodname_registry %}, explique que o uso de um token de Assinatura de Acesso Compartilhado (SAS) como string de conexão não é compatível.

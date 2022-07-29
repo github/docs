@@ -1,7 +1,7 @@
 ---
 title: GitHub Discussions のドキュメント
 shortTitle: GitHub Discussions
-intro: '{% data variables.product.prodname_discussions %} は、オープンソースプロジェクトに関するコミュニティ向けの共同コミュニケーションフォーラムです。 コミュニティメンバーは、質問をしたり、質問に答えたり、最新情報を共有したり、自由形式の会話をしたり、コミュニティの動向に影響を与える決定をフォローしたりすることができます。'
+intro: '{% data variables.product.prodname_discussions %} is a collaborative communication forum for the community around an{% ifversion fpt or ghec %} open source or{% endif %} internal project. コミュニティメンバーは、質問をしたり、質問に答えたり、最新情報を共有したり、自由形式の会話をしたり、コミュニティの動向に影響を与える決定をフォローしたりすることができます。'
 introLinks:
   quickstart: /discussions/quickstart
 featuredLinks:
@@ -27,8 +27,7 @@ examples_source: data/product-examples/discussions/community-examples.yml
 product_video: 'https://www.youtube-nocookie.com/embed/IpBw2SJkFyk'
 layout: product-landing
 versions:
-  fpt: '*'
-  ghec: '*'
+  feature: discussions
 communityRedirect:
   name: Provide GitHub Feedback
   href: 'https://github.com/github/feedback/discussions/categories/discussions-feedback'

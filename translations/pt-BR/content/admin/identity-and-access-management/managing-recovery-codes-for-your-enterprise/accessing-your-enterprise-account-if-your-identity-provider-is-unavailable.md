@@ -15,7 +15,7 @@ permissions: Enterprise owners can use a recovery code to access an enterprise a
 
 Você pode usar um código de recuperação para acessar a sua conta corporativa quando um erro de configuração de autenticação ou um problema com o seu provedor de identidade (IdP) impede que você use o SSO.
 
-Para acessar a conta corporativa desta forma, você deve ter baixado e armazenado previamente os códigos de recuperação da sua empresa. For more information, see "[Downloading your enterprise account's single sign-on recovery codes](/admin/identity-and-access-management/managing-recovery-codes-for-your-enterprise/downloading-your-enterprise-accounts-single-sign-on-recovery-codes)."
+Para acessar a conta corporativa desta forma, você deve ter baixado e armazenado previamente os códigos de recuperação da sua empresa. Para obter mais informações, consulte "[Fazendo o download dos códigos de recuperação do logon único único da sua conta corporativa](/admin/identity-and-access-management/managing-recovery-codes-for-your-enterprise/downloading-your-enterprise-accounts-single-sign-on-recovery-codes)."
 
 {% data reusables.saml.recovery-code-caveats %}
 

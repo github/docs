@@ -24,9 +24,9 @@ concurrency:
 ```
 {% endraw %}
 
-### Example: Using a fallback value
+### 例: フォールバック値の利用
 
-If you build the group name with a property that is only defined for specific events, you can use a fallback value. For example, `github.head_ref` is only defined on `pull_request` events. If your workflow responds to other events in addition to `pull_request` events, you will need to provide a fallback to avoid a syntax error. The following concurrency group cancels in-progress jobs or runs on `pull_request` events only; if `github.head_ref` is undefined, the concurrency group will fallback to the run ID, which is guaranteed to be both unique and defined for the run.
+特定のイベントに対してのみ定義されているプロパティでグループ名を構築した場合、フォールバック値を使用できます。 たとえば`github.head_ref`は`pull_request`でのみ定義されています。 ワークフローが`pull_request`イベントに加えて他のイベントにも反応するなら、構文エラーを避けるためにフォールバックを提供する必要があります。 以下の並行グループは、進行中のジョブをキャンセルするか、`pull_request`イベントでのみ実行されます。`github.head_ref`が未定の場合、この並行グループは一意であることが保証され、実行に対して定義される実行IDにフォールバックします。
 
 {% raw %}
 ```yaml
@@ -37,11 +37,11 @@ concurrency:
 {% endraw %}
 
 
-### Example: Only cancel in-progress jobs or runs for the current workflow
+### 例: 進行中のジョブをキャンセルするか、現在のワークフローに対して実行する
 
- If you have multiple workflows in the same repository, concurrency group names must be unique across workflows to avoid canceling in-progress jobs or runs from other workflows. Otherwise, any previously in-progress or pending job will be canceled, regardless of the workflow.
+ 同じリポジトリに複数のワークフローを持っている場合、進行中のジョブがキャンセルされたり、他のワークフローから実行されたりすることを防ぐために、並行グループ名はワークフロー全体に対して一意でなければなりません。 そうでなかった場合、進行中あるいは保留されているジョブは、ワークフローに関係なくキャンセルされます。
 
-To only cancel in-progress runs of the same workflow, you can use the `github.workflow` property to build the concurrency group:
+同じワークフローで進行中の実行だけをキャンセルするには、並行グループの構築に`github.workflow`プロパティが利用できます。
 
 {% raw %}
 ```yaml

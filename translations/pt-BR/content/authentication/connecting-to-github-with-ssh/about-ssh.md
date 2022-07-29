@@ -14,7 +14,11 @@ topics:
   - SSH
 ---
 
-Ao configurar o SSH, você precisará gerar uma nova chave SSH e adicioná-la ao agente ssh. Você deve adicionar a chave SSH à sua conta {% data variables.product.product_name %} antes de usar a chave para efetuar a autenticação. Para mais informações consulte "[Gerar uma nova chave SSH e adicioná-la ao ssh-agent](/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)" e "[Adicionar uma nova chave SSH à sua conta de {% data variables.product.prodname_dotcom %}](/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account)".
+## Sobre o SSH
+
+{% data reusables.ssh.about-ssh %} Para obter mais informações sobre SSH, consulte [Secure Shell](https://en.wikipedia.org/wiki/Secure_Shell) na Wikipédia.
+
+Ao configurar o SSH, você deverá gerar uma nova chave SSH privada e adicioná-la ao agente SSH. Você também deve adicionar a chave SSH pública à sua conta no {% data variables.product.product_name %} antes de usar a chave para efetuar a autenticação. Para mais informações consulte "[Gerar uma nova chave SSH e adicioná-la ao ssh-agent](/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)" e "[Adicionar uma nova chave SSH à sua conta de {% data variables.product.prodname_dotcom %}](/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account)".
 
 Você pode proteger ainda mais sua chave SSH usando uma chave de segurança de hardware, o que exige que a chave de segurança física do hardware seja conectada ao seu computador quando o par de chaves é usado para efetuar a autenticação com SSH. Você também pode proteger sua chave SSH, adicionando sua chave ao agente do ssh-agent e usando uma frase secreta. Para obter mais informações, consulte "[Trabalhar com frases secretas da chave SSH](/github/authenticating-to-github/working-with-ssh-key-passphrases)".
 

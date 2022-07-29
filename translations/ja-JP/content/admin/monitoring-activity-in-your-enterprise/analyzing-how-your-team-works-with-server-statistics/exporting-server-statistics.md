@@ -8,8 +8,6 @@ redirect_from:
   - /early-access/github/analyze-how-your-team-works-with-server-statistics/exploring-server-statistics
 ---
 
-{% data reusables.server-statistics.release-phase %}
-
 You can download up to the last 365 days of {% data variables.product.prodname_server_statistics %} data in a CSV or JSON file. This data, which includes aggregate metrics on repositories, issues, and pull requests, can help you anticipate the needs of your organization, understand how your team works, and show the value you get from {% data variables.product.prodname_ghe_server %}.
 
 Before you can download this data, you must enable {% data variables.product.prodname_server_statistics %}. 詳しい情報については「[Enterpriseでの{% data variables.product.prodname_server_statistics %}の有効化](/admin/configuration/configuring-github-connect/enabling-server-statistics-for-your-enterprise)」を参照してください。
@@ -20,7 +18,7 @@ To download these metrics, you must be an enterprise owner or organization owner
   - If {% data variables.product.product_location %} is connected to an enterprise account on {% data variables.product.prodname_ghe_cloud %}, see "[Downloading metrics from your enterprise account](#downloading-metrics-from-your-enterprise-account)."
   - If {% data variables.product.product_location %} is connected to an organization on {% data variables.product.prodname_ghe_cloud %}, see "[Downloading metrics from your organization](#downloading-metrics-from-your-organization)."
 
-To learn more about {% data variables.product.prodname_github_connect %}, see "[About {% data variables.product.prodname_github_connect %}](/admin/configuration/configuring-github-connect/about-github-connect)."
+{% data variables.product.prodname_github_connect %}についてさらに学ぶには、「[{% data variables.product.prodname_github_connect %}について](/admin/configuration/configuring-github-connect/about-github-connect)」を参照してください。
 
 ## Downloading metrics from your enterprise account
 

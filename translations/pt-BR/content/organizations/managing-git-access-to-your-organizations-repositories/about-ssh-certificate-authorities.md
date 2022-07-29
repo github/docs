@@ -44,7 +44,7 @@ A cada emissão de certificado, você deve incluir uma extensão especificando p
 
 {% note %}
 
-**Note:** You must update to OpenSSH 7.6 or later to use these commands.
+**Observação:** Você deve atualizar para o OpenSSH 7.6 ou posterior para usar esses comandos.
 
 {% endnote %}
 

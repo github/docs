@@ -39,7 +39,7 @@ Você pode visualizar os fluxos de trabalho referenciados nos seus fluxos de tra
 
 ### Fluxos de trabalho e fluxos de trabalho iniciais reutilizáveis
 
-Starter workflows allow everyone in your organization who has permission to create workflows to do so more quickly and easily. Quando as pessoas criam um novo fluxo de trabalho, eles podem escolher um fluxo de trabalho inicial e uma parte ou todo o trabalho de escrita do fluxo de trabalho será feito para essas pessoas. Dentro de um fluxo de trabalho inicial, você também pode fazer referência a fluxos de trabalho reutilizáveis para facilitar a utilização de código de fluxo de trabalho gerenciado centralmente. Se você usar uma tag ou nome de branch ao fazer referência ao fluxo de trabalho reutilizável, você poderá garantir que todos que reutilizarem esse fluxo de trabalho sempre usarão o mesmo código YAML. No entanto, se você fizer referência a um fluxo de trabalho reutilizável por uma tag ou branch, certifique-se de que você poderá confiar nessa versão do fluxo de trabalho. Para obter mais informações, consulte "[Fortalecimento da segurança para {% data variables.product.prodname_actions %}](/actions/security-guides/security-hardening-for-github-actions#reusing-third-party-workflows)".
+Os fluxos de trabalho iniciais permitem que todos em sua organização que têm permissão para criar fluxos de trabalho o façam de forma mais rápida e facilmente. Quando as pessoas criam um novo fluxo de trabalho, eles podem escolher um fluxo de trabalho inicial e uma parte ou todo o trabalho de escrita do fluxo de trabalho será feito para essas pessoas. Dentro de um fluxo de trabalho inicial, você também pode fazer referência a fluxos de trabalho reutilizáveis para facilitar a utilização de código de fluxo de trabalho gerenciado centralmente. Se você usar uma tag ou nome de branch ao fazer referência ao fluxo de trabalho reutilizável, você poderá garantir que todos que reutilizarem esse fluxo de trabalho sempre usarão o mesmo código YAML. No entanto, se você fizer referência a um fluxo de trabalho reutilizável por uma tag ou branch, certifique-se de que você poderá confiar nessa versão do fluxo de trabalho. Para obter mais informações, consulte "[Fortalecimento da segurança para {% data variables.product.prodname_actions %}](/actions/security-guides/security-hardening-for-github-actions#reusing-third-party-workflows)".
 
 Para obter mais informações, consulte "[Criando fluxos de trabalho iniciais para a sua organização](/actions/learn-github-actions/creating-starter-workflows-for-your-organization)".
 
@@ -309,6 +309,14 @@ Para obter informações sobre o uso da API REST para consultar o log de auditor
 **Observação**: Os dados de auditoria para `prepared_workflow_job` só podem ser vistos usando a API REST. Eles não são visíveis na interface web de {% data variables.product.prodname_dotcom %} ou incluídos nos dados de auditoria exportados pelo JSON/CSV.
 
 {% endnote %}
+
+{% ifversion partial-reruns-with-reusable %}
+
+## Re-executar fluxos de trabalho e trabalhos com fluxos de trabalho reutilizáveis
+
+{% data reusables.actions.partial-reruns-with-reusable %}
+
+{% endif %}
 
 ## Próximas etapas
 

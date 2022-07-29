@@ -16,7 +16,7 @@ shortTitle: Controle de acesso & visibilidade
 
 Pacotes com permissões granulares são escopos para uma conta de usuário pessoal ou de organização. Você pode alterar o controle de acesso e a visibilidade de um pacote separadamente do repositório ao qual ele está conectado (ou vinculado).
 
-Atualmente, você só pode usar permissões granulares com o {% data variables.product.prodname_container_registry %}. Permissões granulares não são compatíveis nos nossos outros registros de pacotes, como o registro npm.
+Atualmente, você só pode usar permissões granulares com o {% data variables.product.prodname_container_registry %}. Granular permissions are not supported in our other package registries, such as the npm registry.{% ifversion docker-ghcr-enterprise-migration %} For more information about migration to the {% data variables.product.prodname_container_registry %}, see "[Migrating to the {% data variables.product.prodname_container_registry %} from the Docker registry](/packages/working-with-a-github-packages-registry/migrating-to-the-container-registry-from-the-docker-registry)."{% endif %}
 
 Para obter mais informações sobre permissões para pacotes com escopo de repositório, escopos relacionados aos pacotes para PATs, ou gerenciar permissões para seus fluxos de trabalho de ações, consulte "[Sobre permissões para os Pacotes GitHub](/packages/learn-github-packages/about-permissions-for-github-packages)".
 

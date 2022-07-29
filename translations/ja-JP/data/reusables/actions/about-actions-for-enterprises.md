@@ -1,1 +1,1 @@
-{% data variables.product.prodname_actions %} allows {% ifversion ghec or ghae %}members of your enterprise{% elsif ghes %}people who use {% data variables.product.product_location %}{% endif %} to improve productivity by automating every phase of the software development workflow.
+{% data variables.product.prodname_actions %}を使うと、{% ifversion ghec or ghae %}Enterpriseのメンバーは{% elsif ghes %}{% data variables.product.product_location %}を使う人は{% endif %}ソフトウェアの開発ワークフローのすべてのフェーズを自動化することによって、生産性を改善できます。

@@ -33,7 +33,7 @@ El {% data variables.product.prodname_dependabot %} ayuda a que los usuarios de 
 
 {% data reusables.dependabot.dependabot-alerts-beta %}
 
-Con las {% data variables.product.prodname_dependabot_alerts %}, {% data variables.product.prodname_dotcom %} identifica las dependencias vulnerables en los repositorios y crea alertas en {% data variables.product.product_location %} utilizando datos de la {% data variables.product.prodname_advisory_database %} y del servicio de la gráfica de dependencias.
+Con las {% data variables.product.prodname_dependabot_alerts %}, {% data variables.product.prodname_dotcom %} identifica las dependencias inseguras en los repositorios y crea alertas en {% data variables.product.product_location %} utilizando datos de la {% data variables.product.prodname_advisory_database %} y el servicio de la gráfica de dependencias.
 
 {% data reusables.repositories.tracks-vulnerabilities %}
 

@@ -87,14 +87,14 @@ jobs:
 ## 支持的运行器和硬件资源
 
 Windows 和 Linux 虚拟机的硬件规格：
-- 2 核 CPU
-- 7 GB RAM 内存
-- 14 GB SSD 硬盘空间
+- 2 核 CPU (x86_64)
+- 7 GB RAM
+- 14 GB SSD 空间
 
 MacOS 虚拟机的硬件规格：
-- 3 核 CPU
-- 14 GB RAM 内存
-- 14 GB SSD 硬盘空间
+- 3 核 CPU (x86_64)
+- 14 GB RAM
+- 14 GB SSD 空间
 
 {% data reusables.actions.supported-github-runners %}
 
@@ -109,6 +109,7 @@ MacOS 虚拟机的硬件规格：
 
 有关每个运行器操作系统包含的工具整个列表，请参阅以下链接：
 
+* [Ubuntu 22.04 LTS](https://github.com/actions/virtual-environments/blob/main/images/linux/Ubuntu2204-Readme.md)
 * [Ubuntu 20.04 LTS](https://github.com/actions/virtual-environments/blob/main/images/linux/Ubuntu2004-Readme.md)
 * [Ubuntu 18.04 LTS](https://github.com/actions/virtual-environments/blob/main/images/linux/Ubuntu1804-Readme.md)
 * [Windows Server 2022](https://github.com/actions/virtual-environments/blob/main/images/win/Windows2022-Readme.md)
@@ -189,6 +190,6 @@ API 返回的 {% data variables.product.prodname_actions %} IP 地址列表每�
 
 ## 延伸阅读
 - "[管理 {% data variables.product.prodname_actions %} 的计费](/billing/managing-billing-for-github-actions)"
-- You can use a matrix strategy to run your jobs on multiple images. 更多信息请参阅“[对作业使用矩阵](/actions/using-jobs/using-a-matrix-for-your-jobs)”。
+- 可以使用矩阵策略在多个映像上运行作业。 更多信息请参阅“[对作业使用矩阵](/actions/using-jobs/using-a-matrix-for-your-jobs)”。
 
 {% endif %}

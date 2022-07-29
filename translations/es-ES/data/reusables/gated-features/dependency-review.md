@@ -4,7 +4,7 @@ La revisión de dependencias se encuentra habilitada en los repositorios públic
 {%- elsif ghec %}
 La revisión de dependencias se incluye en {% data variables.product.product_name %} para los repositorios públicos. Para utilizar la revisión de dependencias en los repositorios privados que pertenecen a las organizaciones, debes tener una licencia para la {% data variables.product.prodname_GH_advanced_security %}.
 
-{%- elsif ghes > 3.1 %}
+{%- elsif ghes %}
 La revisión de dependencias se encuentra disponible para los repositorios que pertenecen a las organizaciones en {% data variables.product.product_name %}. Esta característica requiere una licencia para la {% data variables.product.prodname_GH_advanced_security %}.
 
 {%- elsif ghae %}

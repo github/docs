@@ -1,1 +1,1 @@
-Overages are always billed monthly regardless of your billing term (even if your account is otherwise billed annually).
+超過料金は、支払いの期間に関係なく（アカウントの支払いが年次であっても）常に月次で請求されます。

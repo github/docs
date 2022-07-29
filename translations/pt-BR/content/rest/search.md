@@ -88,7 +88,7 @@ As solicitações podem optar por receber esses fragmentos de texto na resposta,
 Para obter esses metadados nos resultados da sua pesquisa, especifique o tipo de mídia de `text-match` no seu cabeçalho `Aceitar`.
 
 ```shell
-application/vnd.github.v3.text-match+json
+application/vnd.github.text-match+json
 ```
 
 Ao fornecer o tipo de mídia `text-match`, você receberá uma chave extra na carga do JSON denominada `text_matches`, que fornece informações sobre a posição dos seus termos de pesquisa dentro do texto e da `propriedade` que inclui o termo de pesquisa. Dentro do array `text_match`, cada objeto inclui os atributos a seguir:
@@ -106,8 +106,9 @@ Ao fornecer o tipo de mídia `text-match`, você receberá uma chave extra na ca
 Se usarmos cURL e o [exemplo de pesquisa de problemas](#search-issues-and-pull-requests) acima, nossa solicitação de API seria da seguinte forma:
 
 ``` shell
-curl -H 'Accept: application/vnd.github.v3.text-match+json' \
-'{% data variables.product.api_url_pre %}/search/issues?q=windows+label:bug+language:python+state:open&sort=created&order=asc'
+curl -H 'Accept: application/vnd.github.text-match+json' \
+'{% data variables.product.api_url_pre %}/search/issues?q=windows+label:bug \
++language:python+state:open&sort=created&order=asc'
 ```
 
 A resposta incluirá um array `text_matches` para cada resultado de pesquisa. No JSON abaixo, temos dois objetos no array `text_matches`.
@@ -123,7 +124,9 @@ A segunda correspondência de texto ocorreu na propriedade do `texto` de um dos 
       "object_url": "https://api.github.com/repositories/215335/issues/132",
       "object_type": "Issue",
       "property": "body",
-      "fragment": "comprehensive windows font I know of).\n\nIf we can find a commonly distributed windows font that supports them then no problem (we can use html font tags) but otherwise the '(21)' style is probably better.\n",
+      "fragment": "comprehensive windows font I know of).\n\nIf we can find a commonly
+      distributed windows font that supports them then no problem (we can use html
+      font tags) but otherwise the '(21)' style is probably better.\n",
       "matches": [
         {
           "text": "windows",
@@ -145,7 +148,9 @@ A segunda correspondência de texto ocorreu na propriedade do `texto` de um dos 
       "object_url": "https://api.github.com/repositories/215335/issues/comments/25688",
       "object_type": "IssueComment",
       "property": "body",
-      "fragment": " right after that are a bit broken IMHO :). I suppose we could have some hack that maxes out at whatever the font does...\n\nI'll check what the state of play is on Windows.\n",
+      "fragment": " right after that are a bit broken IMHO :). I suppose we could
+      have some hack that maxes out at whatever the font does...\n\nI'll check
+      what the state of play is on Windows.\n",
       "matches": [
         {
           "text": "Windows",

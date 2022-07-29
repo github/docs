@@ -77,6 +77,7 @@
 | Proctorio                 | Chave de segredo de Proctorio                             |
 | Pulumi                    | Token de acesso de Pulumi                                 |
 | PyPI                      | PyPI API Token                                            |
+| redirect.pizza            | redirect.pizza API Token                                  |
 | RubyGems                  | RubyGems API Key                                          |
 | Samsara                   | Token de API de Samsara                                   |
 | Samsara                   | Token de acesso de OAuth de Samsara                       |
@@ -102,3 +103,4 @@
 | Twilio                    | Chave da API de Twilio                                    |
 | Typeform                  | Typeform Personal Access Token                            |
 | Valour                    | Valour Access Token                                       |
+| Zuplo                     | Zuplo Consumer API                                        |

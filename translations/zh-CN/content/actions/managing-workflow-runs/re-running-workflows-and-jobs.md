@@ -17,7 +17,7 @@ versions:
 
 ## 关于重新运行工作流程和作业
 
-重新运行工作流程{% ifversion re-run-jobs %} 或工作流程中的作业{% endif %} 会使用触发工作流程运行的原始事件的 `GITHUB_SHA`（提交 SHA）和 `GITHUB_REF` (Git ref)。 在初始运行后最长 30 天内，您可以重新运行工作流程{% ifversion re-run-jobs %} 或工作流程中的作业{% endif %}。{% ifversion debug-reruns %} 在重新运行工作流程或工作流程中的作业时，可以为重新运行启用调试日志记录。 这将为重新运行启用运行程序诊断日志记录和步骤调试日志记录。 有关调试日志记录的更多信息，请参阅“[启用调试日志记录](/actions/monitoring-and-troubleshooting-workflows/enabling-debug-logging)”。{% endif %}
+重新运行工作流程{% ifversion re-run-jobs %} 或工作流程中的作业{% endif %} 会使用触发工作流程运行的原始事件的 `GITHUB_SHA`（提交 SHA）和 `GITHUB_REF` (Git ref)。 {% ifversion actions-stable-actor-ids %}The workflow will use the privileges of the actor who initially triggered the workflow, not the privileges of the actor who initiated the re-run. {% endif %}You can re-run a workflow{% ifversion re-run-jobs %} or jobs in a workflow{% endif %} for up to 30 days after the initial run.{% ifversion re-run-jobs %} You cannot re-run jobs in a workflow once its logs have passed their retention limits. 更多信息请参阅“[使用限制、计费和管理](/actions/learn-github-actions/usage-limits-billing-and-administration#artifact-and-log-retention-policy)”。{% endif %}{% ifversion debug-reruns %} 当您重新运行工作流程或工作流程中的作业时，您可以为重新运行启用调试日志记录。 这将为重新运行启用运行程序诊断日志记录和步骤调试日志记录。 有关调试日志记录的更多信息，请参阅“[启用调试日志记录](/actions/monitoring-and-troubleshooting-workflows/enabling-debug-logging)”。{% endif %}
 
 ## 重新运行工作流程中的所有作业
 
@@ -134,6 +134,14 @@ gh run rerun --job <em>job-id</em> --debug
 
 {% endif %}
 {% endcli %}
+
+{% endif %}
+
+{% ifversion partial-reruns-with-reusable %}
+
+## 使用可重用工作流程重新运行工作流程和作业
+
+{% data reusables.actions.partial-reruns-with-reusable %}
 
 {% endif %}
 

@@ -1,6 +1,6 @@
 ---
 title: Connecting to a private network
-intro: 'You can connect {% data variables.product.prodname_codespaces %} to resources on a private network, including package registries, license servers, and on-premises databases.'
+intro: 'You can connect {% data variables.product.prodname_github_codespaces %} to resources on a private network, including package registries, license servers, and on-premises databases.'
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
@@ -42,4 +42,4 @@ For more information about the Meta API, see "[Meta](/rest/reference/meta)."
 
 At present, there is no way to restrict codespaces from accessing the public internet, or to restrict appropriately authenticated users from accessing a forwarded port.
 
-For more information on how to secure your codespaces, see "[Security in Codespaces](/codespaces/codespaces-reference/security-in-codespaces)."
+For more information on how to secure your codespaces, see "[Security in {% data variables.product.prodname_github_codespaces %}](/codespaces/codespaces-reference/security-in-github-codespaces)."

@@ -2,97 +2,99 @@
 date: '2022-04-04'
 sections:
   security_fixes:
-    - 'MEDIUM: A path traversal vulnerability was identified in {% data variables.product.prodname_ghe_server %} Management Console that allowed the bypass of CSRF protections. This vulnerability affected all versions of {% data variables.product.prodname_ghe_server %} prior to 3.5 and was fixed in versions 3.1.19, 3.2.11, 3.3.6, 3.4.1. This vulnerability was reported via the {% data variables.product.prodname_dotcom %} Bug Bounty program and has been assigned CVE-2022-23732.'
-    - 'MEDIUM: An integer overflow vulnerability was identified in the 1.x branch and the 2.x branch of `yajil` which leads to subsequent heap memory corruption when dealing with large (~2GB) inputs. This vulnerability was reported internally and has been assigned CVE-2022-24795. '
-    - Support bundles could include sensitive files if {% data variables.product.prodname_actions %} was enabled.
+    - '中：在 {% data variables.product.prodname_ghe_server %} 管理控制台中发现了一个路径遍历漏洞，该漏洞允许绕过 CSRF 保护。此漏洞影响了 3.5 之前的所有版本的 {% data variables.product.prodname_ghe_server %} ，并在版本 3.1.19、3.2.11、3.3.6、3.4.1 中得到修复。此漏洞是通过 {% data variables.product.prodname_dotcom %} Bug Bounty 程序报告的，并已分配 CVE-2022-23732。'
+    - '中：在 1.x 分支和 ''yajil'' 的 2.x 分支中发现了一个整数溢出漏洞，该漏洞导致在处理大型 (~2GB) 输入时导致后续堆内存损坏。此漏洞已在内部报告，并已分配 CVE-2022-24795。 '
+    - 如果启用了 {% data variables.product.prodname_actions %} ，则支持包可能包含敏感文件。
     - 包已更新到最新的安全版本。
   bugs:
-    - A workflow run may not complete if it uses composite-actions.
-    - When enabling {% data variables.product.prodname_dependabot %}, an error caused some security advisories to temporarily read as no-longer applicable.
-    - Minio processes would have high CPU usage if an old configuration option was present after upgrading {% data variables.product.prodname_ghe_server %}.
-    - The options to enable `TLS 1.0` and `TLS 1.1` in the Privacy settings of the Management Console were shown, although removal of those protocol versions occurred in an earlier release.
-    - In a HA environment, configuring MSSQL replication could require additional manual steps after enabling {% data variables.product.prodname_actions %} for the first time.
-    - A subset of internal configuration files are more reliably updated after a hotpatch.
-    - The `ghe-run-migrations` script would sometimes fail to generate temporary certificate names correctly.
-    - Pre-receive hooks that used `gpg --import` timed out due to insufficient `syscall` privileges.
-    - In some cluster topologies, webhook delivery information was not available.
-    - The {% data variables.product.prodname_actions %} deployment graph would display an error when rendering a pending job.
-    - Elasticsearch health checks would not allow a yellow cluster status when running migrations.
-    - When using the [Migrations API](/rest/reference/migrations), queued export jobs were not processed.
-    - Repositories would display a non-functional Discussions tab in the web UI.
-    - Organizations created as a result of a user transforming their user account into an organization were not added to the global enterprise account.
-    - LDAP user sync jobs would fail when trying to sync GPG keys that had been synced previously.
-    - Links to inaccessible pages were removed.
-    - Some instances experienced high CPU usage due to large amounts unnecessary background jobs being queued.
-    - Empty repositories didnt sync correctly to cache servers.
-    - Adding a team as a reviewer to a pull request would sometimes show the incorrect number of members on that team.
-    - The remove team membership API endpoint would respond with an error when attempting to remove member externally managed via a SCIM Group.
-    - A large number of dormant users could cause a {% data variables.product.prodname_github_connect %} configuration to fail.
-    - The "Feature & beta enrollments" page in the Site admin web UI was incorrectly available.
-    - The "Site admin mode" link in the site footer did not change state when clicked.
+    - 如果工作流程运行使用复合操作，则可能无法完成。
+    - 启用 {% data variables.product.prodname_dependabot %} 时，一个错误导致一些安全公告暂时读作不再适用。
+    - 如果在升级 {% data variables.product.prodname_ghe_server %} 后存在旧的配置选项，Minio 进程将具有高 CPU 使用率。
+    - 显示了管理控制台的隐私设置中启用“TLS 1.0”和“TLS 1.1”的选项，尽管在早期版本中删除了这些协议版本。
+    - 在 HA 环境中，首次启用 {% data variables.product.prodname_actions %} msSQL 复制后，配置 MSSQL 复制可能需要额外的手动步骤。
+    - 内部配置文件子集在热补丁后更可靠地更新。
+    - '“ghe-run-migrations”脚本有时无法正确生成临时证书名称。'
+    - 由于`syscall`权限不足，使用 `gpg --import` 的预接收挂钩超时。
+    - 在某些群集拓扑中，web 挂钩传递信息不可用。
+    - '{% data variables.product.prodname_actions %} 部署图将在呈现挂起的作业时显示错误。'
+    - Elasticsearch 运行状况检查不允许在运行迁移时出现黄色集群状态。
+    - 使用 [迁移 API](/rest/reference/migrations) 时，未处理排队的导出作业。
+    - 存储库将在 Web UI 中显示一个不起作用的 Discussions（讨论）选项卡。
+    - 由于用户将其用户帐户转换为组织而创建的组织不会添加到全局企业帐户中。
+    - 尝试同步以前同步的 GPG 密钥时，LDAP 用户同步作业将失败。
+    - 删除了指向无法访问的页面的链接。
+    - 由于大量不必要的后台作业排队，某些实例的 CPU 使用率过高。
+    - 空存储库未正确同步到缓存服务器。
+    - 将团队作为审阅者添加到拉取请求中有时会显示该团队中不正确的成员数。
+    - 删除团队成员身份 API 端点在尝试删除通过 SCIM 组进行外部管理的成员时将响应错误。
+    - 大量休眠用户可能会导致 {% data variables.product.prodname_github_connect %} 配置失败。
+    - 站点管理员 Web UI 中的“功能和测试版注册”页面不可用。
+    - 单击站点页脚中的“站点管理模式”链接不会改变状态。
   changes:
-    - Memcached connection limits were increased to better accommodate large cluster topologies.
-    - The Dependency Graph API previously ran with a statically defined port.
-    - The default shard counts for cluster-related Elasticsearch shard settings have been updated.
-    - The [Migrations API](/rest/reference/migrations) now generates exports of repositories.
-    - When filtering enterprise members by organization role on the "People" page, the text for the dropdown menu items has been improved.
-    - The “Triage” and “Maintain” team roles are preserved during repository migrations.
-    - Using ghe-migrator or exporting from GitHub.com, an export would not include Pull Request attachments.
-    - Performance has been improved for web requests made by enterprise owners.
+    - 增加了 Memcached 连接限制，以更好地适应大型集群拓扑。
+    - 依赖关系图 API 以前使用静态定义的端口运行。
+    - 与集群相关的 Elasticsearch 分片设置的默认分片计数已更新。
+    - '[迁移 API](/rest/reference/migrations) 现在生成存储库的导出。'
+    - 在“People（人员）”页面上按组织角色筛选企业成员时，改进了下拉菜单项的文本。
+    - '“分类”和“维护”团队角色在存储库迁移期间保留。'
+    - 使用 ghe-migrator 或从 GitHub.com 导出，导出将不包括拉取请求附件。
+    - 改进了企业所有者发出的 Web 请求的性能。
   known_issues:
     - 在新建的没有任何用户的 {% data variables.product.prodname_ghe_server %} 实例上，攻击者可以创建第一个管理员用户。
     - 自定义防火墙规则在升级过程中被删除。
     - Git LFS 跟踪的文件[通过 Web 界面上传](https://github.com/blog/2105-upload-files-to-your-repositories) 被错误地直接添加到仓库。
     - 如果议题包含文件路径长于 255 个字符的同一仓库中 blob 的永久链接，则议题无法关闭。
-    - When "Users can search GitHub.com" is enabled with {% data variables.product.prodname_github_connect %}, issues in private and internal repositories are not included in {% data variables.product.prodname_dotcom_the_website %} search results.
+    - 当“用户可以搜索 GitHub.com”与 {% data variables.product.prodname_github_connect %} 一起启用时，私有和内部存储库中的议题不会包含在 {% data variables.product.prodname_dotcom_the_website %} 搜索结果中。
     - '{% data variables.product.prodname_registry %} npm 注册表不再返回元数据响应的时间值。这样做是为了大幅改善性能。作为元数据响应的一部分，我们继续拥有返回时间值所需的所有数据，并将在我们解决现有性能问题后恢复返回这个值。'
     - 特定于处理预接收挂钩的资源限制可能会导致某些预接收挂钩失败。
     - |
-      When using SAML encrypted assertions with {% data variables.product.prodname_ghe_server %} 3.4.0 and 3.4.1, a new XML attribute `WantAssertionsEncrypted` in the `SPSSODescriptor` contains an invalid attribute for SAML metadata. IdPs that consume this SAML metadata endpoint may encounter errors when validating the SAML metadata XML schema. A fix will be available in the next patch release. [Updated: 2022-04-11]
+      在多个级别（例如，企业和组织）上使用“--ephemeral”参数注册自托管运行器后，运行器可能会陷入空闲状态并需要重新注册。[更新时间：2022 年 6 月 17 日]
+    - |
+      将 SAML 加密断言与 {% data variables.product.prodname_ghe_server %} 3.4.0 和 3.4.1 一起使用时，“SPSSODescriptor”中的新 XML 属性“WantAssertionsEncrypted”包含 SAML 元数据的无效属性。使用此 SAML 元数据终端节点的 IdP 在验证 SAML 元数据 XML 架构时可能会遇到错误。修复程序将在下一个修补程序版本中提供。[更新时间：2022-04-11]
 
-      To work around this problem, you can take one of the two following actions.
-      - Reconfigure the IdP by uploading a static copy of the SAML metadata without the `WantAssertionsEncrypted` attribute.
-      - Copy the SAML metadata, remove `WantAssertionsEncrypted` attribute, host it on a web server, and reconfigure the IdP to point to that URL.
+      要解决此问题，您可以执行以下两个操作之一。
+      - 通过上传 SAML 元数据的静态副本（不带“WantAssertionsEncrypted”属性）来重新配置 IdP。
+      - 复制 SAML 元数据，删除“WantAssertionsEncrypted”属性，将其托管在 Web 服务器上，然后将 IdP 重新配置为指向该 URL。
   deprecations:
     - 
       heading: 弃用 GitHub Enterprise Server 3.0
       notes:
-        - '**{% data variables.product.prodname_ghe_server %} 3.0 was discontinued on February 16, 2022**. This means that no patch releases will be made, even for critical security issues, after this date. For better performance, improved security, and new features, [upgrade to the newest version of {% data variables.product.prodname_ghe_server %}](/enterprise-server@3.4/admin/enterprise-management/upgrading-github-enterprise-server) as soon as possible.'
+        - '*{% data variables.product.prodname_ghe_server %} 3.0 自 2022 年 2 月 16 日起停止使用**。这意味着在此日期之后，即使对于关键的安全问题，也不会发布修补程序。为获得更好的性能、更高的安全性和新功能，请尽快[升级到最新版本的 {% data variables.product.prodname_ghe_server %}](/enterprise-server@3.4/admin/enterprise-management/upgrading-github-enterprise-server)。'
     - 
-      heading: Deprecation of GitHub Enterprise Server 3.1
+      heading: 弃用 GitHub Enterprise Server 3.1
       notes:
-        - '**{% data variables.product.prodname_ghe_server %} 3.1 will be discontinued on June 3, 2022**. This means that no patch releases will be made, even for critical security issues, after this date. For better performance, improved security, and new features, [upgrade to the newest version of {% data variables.product.prodname_ghe_server %}](/enterprise-server@3.4/admin/enterprise-management/upgrading-github-enterprise-server) as soon as possible.'
+        - '*{% data variables.product.prodname_ghe_server %} 3.1 自 2022 年 6 月 3 日起停止使用**。这意味着在此日期之后，即使对于关键的安全问题，也不会发布修补程序。为获得更好的性能、更高的安全性和新功能，请尽快[升级到最新版本的 {% data variables.product.prodname_ghe_server %}](/enterprise-server@3.4/admin/enterprise-management/upgrading-github-enterprise-server)。'
     - 
       heading: XenServer Hypervisor 支持终止
       notes:
-        - Starting in {% data variables.product.prodname_ghe_server %} 3.3, {% data variables.product.prodname_ghe_server %} on XenServer was deprecated and is no longer supported. Please contact [GitHub Support](https://support.github.com) with questions or concerns.
+        - 从 {% data variables.product.prodname_ghe_server %} 3.3 开始，XenServer 上的 {% data variables.product.prodname_ghe_server %} 已弃用，不再受支持。如有疑问或疑虑，请联系 [GitHub 支持](https://support.github.com)。
     - 
-      heading: Deprecation of the Content Attachments API preview
+      heading: 内容附件 API 预览版的弃用
       notes:
-        - Due to low usage, we have deprecated the Content References API preview in {% data variables.product.prodname_ghe_server %} 3.4. The API was previously accessible with the `corsair-preview` header. Users can continue to navigate to external URLs without this API. Any registered usages of the Content References API will no longer receive a webhook notification for URLs from your registered domain(s) and we no longer return valid response codes for attempted updates to existing content attachments.
+        - 由于使用率低，我们已弃用 {% data variables.product.prodname_ghe_server %} 3.4 中的内容引用 API 预览版。该 API 以前可通过“corsair-preview”标头进行访问。用户可以继续导航到没有此 API 的外部 URL。内容引用 API 的任何已注册用法将不再收到来自已注册域的 URL 的 web 挂钩通知，并且我们不再为尝试更新现有内容附件返回有效的响应代码。
     - 
-      heading: Deprecation of the Codes of Conduct API preview
+      heading: 弃用行为准则 API 预览
       notes:
-        - 'The Codes of Conduct API preview, which was accessible with the `scarlet-witch-preview` header, is deprecated and no longer accessible in {% data variables.product.prodname_ghe_server %} 3.4. We instead recommend using the "[Get community profile metrics](/rest/reference/repos#get-community-profile-metrics)" endpoint to retrieve information about a repository''s code of conduct. For more information, see the "[Deprecation Notice: Codes of Conduct API preview](https://github.blog/changelog/2021-10-06-deprecation-notice-codes-of-conduct-api-preview/)" in the {% data variables.product.prodname_dotcom %} changelog.'
+        - '行为准则 API 预览（可通过“scarlet-witch-preview”标头访问）已弃用，在 {% data variables.product.prodname_ghe_server %} 3.4 中不再可访问。相反，我们建议使用“[获取社区配置文件指标](/rest/reference/repos#get-community-profile-metrics)”端点来检索有关存储库行为准则的信息。更多信息请参阅 {% data variables.product.prodname_dotcom %} 更改日志中的“[弃用通知：行为准则 API 预览](https://github.blog/changelog/2021-10-06-deprecation-notice-codes-of-conduct-api-preview/)”。'
     - 
       heading: OAuth 应用程序 API 端点的弃用和通过查询参数的 API 身份验证
       notes:
         - |
-          Starting with {% data variables.product.prodname_ghe_server %} 3.4, the [deprecated version of the OAuth Application API endpoints](https://developer.github.com/changes/2020-02-14-deprecating-oauth-app-endpoint/#endpoints-affected) have been removed. If you encounter 404 error messages on these endpoints, convert your code to the versions of the OAuth Application API that do not have `access_tokens` in the URL. We've also disabled the use of API authentication using query parameters. We instead recommend using [API authentication in the request header](https://developer.github.com/changes/2020-02-10-deprecating-auth-through-query-param/#changes-to-make).
+          从 {% data variables.product.prodname_ghe_server %} 3.4 开始，[OAuth Application API 端点的已弃用版本](https://developer.github.com/changes/2020-02-14-deprecating-oauth-app-endpoint/#endpoints-affected) 已被删除。如果在这些端点上遇到 404 错误消息，请将代码转换为 URL 中没有“access_tokens”的 OAuth 应用程序 API 版本。我们还禁用了使用查询参数的 API 身份验证。相反，我们建议使用[请求标头中的API身份验证](https://developer.github.com/changes/2020-02-10-deprecating-auth-through-query-param/#changes-to-make)。
     - 
       heading: 废弃 CodeQL 运行器
       notes:
-        - The {% data variables.product.prodname_codeql %} runner is deprecated in {% data variables.product.prodname_ghe_server %} 3.4 and is no longer supported. The deprecation only affects users who use {% data variables.product.prodname_codeql %} code scanning in third party CI/CD systems; {% data variables.product.prodname_actions %} users are not affected. We strongly recommend that customers migrate to the {% data variables.product.prodname_codeql %} CLI, which is a feature-complete replacement for the {% data variables.product.prodname_codeql %} runner. For more information, see the [{% data variables.product.prodname_dotcom %} changelog](https://github.blog/changelog/2021-09-21-codeql-runner-deprecation/).
+        - '{% data variables.product.prodname_codeql %} 运行器在 {% data variables.product.prodname_ghe_server %} 3.4 中已弃用，不再受支持。弃用仅影响在第三方 CI/CD 系统中使用 {% data variables.product.prodname_codeql %} 代码扫描的用户。{% data variables.product.prodname_actions %} 用户不受影响。我们强烈建议客户迁移到 {% data variables.product.prodname_codeql %} CLI，这是 {% data variables.product.prodname_codeql %} 运行器的功能完整替代品。更多信息请参阅 [{% data variables.product.prodname_dotcom %} 变更日志](https://github.blog/changelog/2021-09-21-codeql-runner-deprecation/)。'
     - 
       heading: 废弃自定义位缓存扩展
       notes:
         - |
-          Starting in {% data variables.product.prodname_ghe_server %} 3.1, support for {% data variables.product.company_short %}'s proprietary bit-cache extensions began to be phased out. These extensions are deprecated in {% data variables.product.prodname_ghe_server %} 3.3 onwards.
+          从 {% data variables.product.prodname_ghe_server %} 3.1 开始，对 {% data variables.product.company_short %} 专有的位缓存扩展的支持开始逐步淘汰。这些扩展现在已在 {% data variables.product.prodname_ghe_server %} 3.3 及以后版本中弃用。
 
-          Any repositories that were already present and active on {% data variables.product.product_location %} running version 3.1 or 3.2 will have been automatically updated.
+          运行版本 3.1 或 3.2 {% data variables.product.product_location %} 上已存在且处于活动状态的任何储存库都将自动更新。
 
-          Repositories which were not present and active before upgrading to {% data variables.product.prodname_ghe_server %} 3.3 may not perform optimally until a repository maintenance task is run and has successfully completed.
+          在升级到 {% data variables.product.prodname_ghe_server %} 3.3 之前不存在且处于活动状态的存储库可能无法以最佳状态执行，直到运行存储库维护任务并成功完成。
 
-          To start a repository maintenance task manually, browse to `https://<hostname>/stafftools/repositories/<owner>/<repository>/network` for each affected repository and click the Schedule button.
+          要手动启动存储库维护任务，请浏览到每个受影响的存储库的 `https://<hostname>/stafftools/repositories/<owner>/<repository>/network`，然后单击 Schedule（计划）按钮。
   backups:
-    - '{% data variables.product.prodname_ghe_server %} 3.4 requires at least [GitHub Enterprise Backup Utilities 3.4.0](https://github.com/github/backup-utils) for [Backups and Disaster Recovery](/admin/configuration/configuring-your-enterprise/configuring-backups-on-your-appliance).'
+    - '{% data variables.product.prodname_ghe_server %} 3.4 至少需要 [GitHub Enterprise Backup Utilities 3.4.0](https://github.com/github/backup-utils) 才可进行[备份和灾难恢复](/admin/configuration/configuring-your-enterprise/configuring-backups-on-your-appliance)。'

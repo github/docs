@@ -1,7 +1,7 @@
 ---
 title: GitHub Discussions 文档
 shortTitle: GitHub Discussions
-intro: '{% data variables.product.prodname_discussions %} 是一个围绕开源项目为社区提供协作沟通的论坛。 社区成员可以提出和回答问题，分享更新，进行开放式对话，并关注影响社区工作方式的决策。'
+intro: '{% data variables.product.prodname_discussions %} 是一个围绕{% ifversion fpt or ghec %}开源或{% endif %}内部项目为社区提供协作沟通的论坛。 社区成员可以提出和回答问题，分享更新，进行开放式对话，并关注影响社区工作方式的决策。'
 introLinks:
   quickstart: /discussions/quickstart
 featuredLinks:
@@ -27,8 +27,7 @@ examples_source: data/product-examples/discussions/community-examples.yml
 product_video: 'https://www.youtube-nocookie.com/embed/IpBw2SJkFyk'
 layout: product-landing
 versions:
-  fpt: '*'
-  ghec: '*'
+  feature: discussions
 communityRedirect:
   name: Provide GitHub Feedback
   href: 'https://github.com/github/feedback/discussions/categories/discussions-feedback'

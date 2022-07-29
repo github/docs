@@ -1,25 +1,18 @@
 ---
-title: Using concurrency, expressions, and a test matrix
-shortTitle: Using concurrency, expressions, and a test matrix
+title: 'Using concurrency, expressions, and a test matrix'
+shortTitle: 'Using concurrency, expressions, and a test matrix'
 intro: 'How to use advanced {% data variables.product.prodname_actions %} features for continuous integration (CI).'
 versions:
   fpt: '*'
   ghes: '>= 3.5'
-  ghae: 'issue-4925'
+  ghae: issue-4925
   ghec: '*'
-showMiniToc: false
 type: how_to
 topics:
   - Workflows
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}
-
-- [Example overview](#example-overview)
-- [Features used in this example](#features-used-in-this-example)
-- [Example workflow](#example-workflow)
-- [Understanding the example](#understanding-the-example)
-- [Next steps](#next-steps)
 
 ## Example overview
 
@@ -54,7 +47,7 @@ topics:
 
 {% data reusables.actions.note-understanding-example %}
 
-<table style="width:350px">
+<table style="table-layout: fixed;">
 <thead>
   <tr>
     <th style="width:100%"></th>
@@ -222,7 +215,7 @@ jobs:
 
  {% data reusables.actions.example-explanation-table-intro %}
 
-<table style="width:350px">
+<table style="table-layout: fixed;">
 <thead>
   <tr>
     <th style="width:60%"><b>Code</b></th>

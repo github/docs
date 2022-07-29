@@ -334,7 +334,7 @@ Just add a hyphen on either the left, right, or both sides to indicate that ther
 {%- ifversion fpt %}
 ```
 
-## Links and image paths
+## Links
 
 Links to docs in the `docs-internal` repository must start with a product ID (like `/actions` or `/admin`) and contain the entire filepath, but not the file extension. For example, `/actions/creating-actions/about-custom-actions`.
 
@@ -356,14 +356,12 @@ and when viewed on GitHub Enterprise Server docs, the version is included as wel
 /en/enterprise-server@2.20/github/writing-on-github/creating-a-saved-reply
 ```
 
-There are transformations for image paths in GitHub Enterprise Server (versions 2.20-3.0) only. Once those versions are deprecation, there will no longer be any transformations for image paths. For more information, see [/assets/images/enterprise/legacy-format/README.md](/assets/images/enterprise/legacy-format/README.md).
-
 ### Preventing transformations
 
-Sometimes you want to link to a Dotcom-only article in Enterprise content and you don't want the link to be Enterprise-ified. To prevent the transformation, write the link using HTML and add a class of `dotcom-only`. For example:
+Sometimes you want to link to a Dotcom-only article in Enterprise content and you don't want the link to be Enterprise-ified. To prevent the transformation, include the preferred version in the path.
 
-```html
-<a href="/github/site-policy/github-terms-of-service" class="dotcom-only">GitHub's Terms of Service</a>
+```markdown
+"[GitHub's Terms of Service](/free-pro-team@latest/github/site-policy/github-terms-of-service)"
 ```
 
 Sometimes the canonical home of content moves outside the docs site. None of the links included in [`lib/redirects/external-sites.json`](/lib/redirects/external-sites.json) get rewritten. See  [`contributing/redirects.md`](/contributing/redirects.md) for more info about this type of redirect.

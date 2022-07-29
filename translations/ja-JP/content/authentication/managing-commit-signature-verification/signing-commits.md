@@ -54,7 +54,7 @@ Git バージョン 2.0.0 以降で、ローカルリポジトリでデフォル
 
 * [既存の GPG キーのチェック](/articles/checking-for-existing-gpg-keys)
 * [新しい GPG キーの生成](/articles/generating-a-new-gpg-key)
-* [GitHub アカウントへの新しい GPG キーの追加](/articles/adding-a-new-gpg-key-to-your-github-account)
+* "[Adding a GPG key to your GitHub account](/articles/adding-a-gpg-key-to-your-github-account)"
 * 「[Git へ署名キーを伝える](/articles/telling-git-about-your-signing-key)」
 * [GPG キーとメールの関連付け](/articles/associating-an-email-with-your-gpg-key)
 * 「[タグに署名する](/articles/signing-tags)」

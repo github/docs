@@ -4,6 +4,7 @@ shortTitle: Troubleshoot SAML SSO
 intro: 'If you use SAML single sign-on (SSO) and people are unable to authenticate to access {% data variables.product.product_location %}, you can troubleshoot the problem.'
 versions:
   ghes: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Accounts
@@ -15,6 +16,7 @@ topics:
   - Troubleshooting
 ---
 
+{% ifversion ghes %}
 ## About problems with SAML authentication
 
 {% data variables.product.product_name %} logs error messages for failed SAML authentication in the authentication log at _/var/log/github/auth.log_. You can review responses in this log file, and you can also configure more verbose logging.
@@ -100,3 +102,10 @@ La audiencia es no válida. Audience attribute does not match https://<em>YOUR-I
 ```
 
 Ensure that you set the value for `Audience` on your IdP to the `EntityId` for {% data variables.product.product_location %}, which is the full URL to your instance. Por ejemplo, `https://ghe.corp.example.com`.
+{% endif %}
+
+{% data reusables.saml.current-time-earlier-than-notbefore-condition %}
+
+{% ifversion ghec %}
+{% data reusables.saml.authentication-loop %}
+{% endif %}

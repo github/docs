@@ -43,11 +43,11 @@ Se você quiser usar hooks do Git para o seu código, você deverá configurar h
 
 {% data reusables.codespaces.prebuilds-crossreference %}
 
-## Acesso a {% data variables.product.prodname_codespaces %}
+## Acesso a {% data variables.product.prodname_github_codespaces %}
 
 {% data reusables.codespaces.availability %}
 
-Quando você tem acesso a {% data variables.product.prodname_codespaces %}, você verá uma aba "Codespace" dentro do menu suspenso ** Código de{% octicon "code" aria-label="The code icon" %} ** ao visualizar um repositório.
+Quando você tem acesso a {% data variables.product.prodname_github_codespaces %}, você verá uma aba "Codespace" dentro do menu suspenso ** Código de{% octicon "code" aria-label="The code icon" %} ** ao visualizar um repositório.
 
 Você terá acesso a codespaces nas seguintes condições:
 
@@ -65,7 +65,7 @@ Os proprietários da organização podem permitir que todos os integrantes da or
 
 Antes de {% data variables.product.prodname_codespaces %} pode ser usado em uma organização, um proprietário ou gerente de cobrança deverá ter um limite de gastos. Para obter mais informações, consulte "[Sobre limites de gastos para codespaces](/billing/managing-billing-for-github-codespaces/managing-spending-limits-for-codespaces#about-spending-limits-for-codespaces)".
 
-Se você deseja criar um codespace para um repositório pertencente à sua conta pessoal ou outro usuário e você tem permissão para criar repositórios em uma organização que habilitou {% data variables.product.prodname_codespaces %}, você poderá criar uma bifurcação de repositórios pertencentes ao usuário na organização e, em seguida, criar um codespace para a bifurcação.
+Se você deseja criar um codespace para um repositório pertencente à sua conta pessoal ou outro usuário e você tem permissão para criar repositórios em uma organização que habilitou {% data variables.product.prodname_github_codespaces %}, você poderá criar uma bifurcação de repositórios pertencentes ao usuário na organização e, em seguida, criar um codespace para a bifurcação.
 
 ## Criar um codespace
 
@@ -111,7 +111,7 @@ Se você deseja criar um codespace para um repositório pertencente à sua conta
          **Observações**
 
          * Você pode favoritar a página de opções para criar rapidamente um codespace para este repositório e branch.
-         * A página [https://github.com/codespaces/nova](https://github.com/codespaces/new) fornece uma maneira rápida de criar um codespace para qualquer repositório e branch.
+         * A página [https://github.com/codespaces/nova](https://github.com/codespaces/new) fornece uma maneira rápida de criar um codespace para qualquer repositório e branch. You can get to this page quickly by typing `codespace.new` into your browser's address bar.
          * Para obter mais informações sobre o arquivo `devcontainer.json`, consulte "[Introdução aos contêineres de desenvolvimento](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers#devcontainerjson)".
          * Para obter mais informações sobre os tipos de máquina, consulte "[Alterando o tipo de máquina para seu codespace](/codespaces/customizing-your-codespace/changing-the-machine-type-for-your-codespace#about-machine-types)".
          * {% data reusables.codespaces.codespaces-machine-type-availability %}
@@ -152,10 +152,10 @@ Como alternativa, você pode usar sinalizadores para especificar algumas ou toda
 gh codespace create -r <em>owner</em>/<em>repo</em> -b <em>branch</em> -m <em>machine-type</em> 
 ```
 
-Substitua `proprietário/repositório` pelo identificador do repositório. Substitua `branch` pelo nome do branch ou o hash SHA completo do commit, que você deseja fazer check-out inicialmente no codespace. Se você usar o sinalizador `-r` sem o sinalizador `b`, o codespace será criado a partir do branch padrão.
+In this example, replace `owner/repo` with the repository identifier. Substitua `branch` pelo nome do branch ou o hash SHA completo do commit, que você deseja fazer check-out inicialmente no codespace. Se você usar o sinalizador `-r` sem o sinalizador `b`, o codespace será criado a partir do branch padrão.
 
 Substitua `machine-type` por um identificador válido para um tipo de máquina disponível. Os identificadores são strings como: `basicLinux32gb` e `standardLinux32gb`. O tipo de máquina disponível depende do repositório, da sua conta pessoal e da sua localização. Se você digitar um tipo de máquina inválido ou indisponível, os tipos disponíveis serão mostrados na mensagem de erro. Se você omitir este sinalizador e mais de um tipo de máquina estiver disponível, será solicitado que você escolha uma na lista.
 
-Para obter mais informações sobre esse comando, consulte [o manual de{% data variables.product.prodname_cli %}](https://cli.github.com/manual/gh_codespace_create).
+For full details of the options for this command, see [the {% data variables.product.prodname_cli %} manual](https://cli.github.com/manual/gh_codespace_create).
 
 {% endcli %}

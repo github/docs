@@ -87,14 +87,14 @@ Enquanto o trabalho é executado, os logs e saídas podem ser visualizados na in
 ## Executores e recursos de hardware compatíveis
 
 Especificação de hardware para máquinas virtuais do Windows e Linux:
-- CPU dual core
-- 7 GB de memória RAM
-- 14 GB de espaço de disco SSD
+- CPU de 2 núcleos (x86_64)
+- 7 GB de RAM
+- 14 GB de espaço SSD
 
 Especificação de hardware para máquinas virtuais do macOS:
-- CPU de 3 núcleos
-- 14 GB de memória RAM
-- 14 GB de espaço de disco SSD
+- CPU de 3 núcleos (x86_64)
+- 14 GB de RAM
+- 14 GB de espaço SSD
 
 {% data reusables.actions.supported-github-runners %}
 
@@ -109,6 +109,7 @@ Os registros de fluxo de trabalho incluem um link para as ferramentas pré-insta
 
 Para a lista geral das ferramentas incluídas para cada sistema operacional do executor, consulte os links abaixo:
 
+* [Ubuntu 22.04 LTS](https://github.com/actions/virtual-environments/blob/main/images/linux/Ubuntu2204-Readme.md)
 * [Ubuntu 20.04 LTS](https://github.com/actions/virtual-environments/blob/main/images/linux/Ubuntu2004-Readme.md)
 * [Ubuntu 18.04 LTS](https://github.com/actions/virtual-environments/blob/main/images/linux/Ubuntu1804-Readme.md)
 * [Windows Server 2022](https://github.com/actions/virtual-environments/blob/main/images/win/Windows2022-Readme.md)
@@ -189,6 +190,6 @@ O {% data variables.product.prodname_dotcom %} reserva o prefixo de caminho `/gi
 
 ## Leia mais
 - "[Gerenciando cobrança para {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions)"
-- You can use a matrix strategy to run your jobs on multiple images. Para obter mais informações, consulte "[Usando uma matriz para seus trabalhos](/actions/using-jobs/using-a-matrix-for-your-jobs)".
+- Você pode usar uma estratégia matrix para executar seus trabalhos em várias imagens. Para obter mais informações, consulte "[Usando uma matriz para seus trabalhos](/actions/using-jobs/using-a-matrix-for-your-jobs)".
 
 {% endif %}

@@ -1,11 +1,11 @@
 ---
 title: Filtrando alertas na visão geral de segurança
 intro: Use os filtros para ver categorias específicas de alertas
-permissions: '{% data reusables.security-center.permissions %}'
-product: '{% data reusables.gated-features.security-center %}'
+permissions: '{% data reusables.security-overview.permissions %}'
+product: '{% data reusables.gated-features.security-overview %}'
 versions:
   ghae: '*'
-  ghes: '>3.1'
+  ghes: '*'
   ghec: '*'
 type: how_to
 topics:
@@ -18,12 +18,12 @@ shortTitle: Filtrando alertas
 ---
 
 {% ifversion ghes < 3.5 or ghae %}
-{% data reusables.security-center.beta %}
+{% data reusables.security-overview.beta %}
 {% endif %}
 
 ## Sobre a filtragem da visão geral de segurança
 
-Você pode usar filtros na visão geral de segurança para restringir seu foco baseado em uma série de fatores como, por exemplo, o nível de risco de alerta, tipo de alerta e habilitação do recurso. Existem filtros diferentes disponíveis, dependendo da visualização específica e da análise no nível da organização, da equipe ou do repositório.
+Você pode usar filtros na visão geral de segurança para restringir seu foco baseado em uma série de fatores como, por exemplo, o nível de risco de alerta, tipo de alerta e habilitação do recurso. Diferentes filtros estão disponíveis dependendo da exibição específica e se sua análise está no nível de organização, equipe ou repositório.
 
 ## Filtrar por repositório
 

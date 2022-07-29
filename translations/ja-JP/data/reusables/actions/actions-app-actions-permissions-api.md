@@ -1,1 +1,1 @@
-{% data variables.product.prodname_github_apps %} must have the `actions` permission to use this API.
+{% data variables.product.prodname_github_apps %}がこのAPIを使うためには、`actions`権限が必要です。
