@@ -14,6 +14,12 @@ shortTitle: Add a status badge
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
+{% note %}
+
+**Note**: Workflow badges in a private repository are not accessible externally, so you won't be able to embed them or link to them from an external site.
+
+{% endnote %}
+
 {% data reusables.repositories.actions-workflow-status-badge-intro %}
 
 You reference the workflow by the name of your workflow file.
