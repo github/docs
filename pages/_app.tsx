@@ -8,28 +8,13 @@ import '../stylesheets/index.scss'
 
 import events from 'components/lib/events'
 import experiment from 'components/lib/experiment'
-import { LanguagesContext, LanguagesContextT } from 'components/context/LanguagesContext'
-import {
-  DotComAuthenticatedContext,
-  DotComAuthenticatedContextT,
-} from 'components/context/DotComAuthenticatedContext'
 import { defaultComponentTheme } from 'lib/get-theme.js'
 
 type MyAppProps = AppProps & {
-  csrfToken: string
   isDotComAuthenticated: boolean
   themeProps: typeof defaultComponentTheme & Pick<ThemeProviderProps, 'colorMode'>
-  languagesContext: LanguagesContextT
-  dotComAuthenticatedContext: DotComAuthenticatedContextT
 }
-const MyApp = ({
-  Component,
-  pageProps,
-  csrfToken,
-  themeProps,
-  languagesContext,
-  dotComAuthenticatedContext,
-}: MyAppProps) => {
+const MyApp = ({ Component, pageProps, themeProps }: MyAppProps) => {
   useEffect(() => {
     events()
     experiment()
@@ -59,8 +44,6 @@ const MyApp = ({
           name="google-site-verification"
           content="c1kuD-K2HIVF635lypcsWPoD4kilo5-jA_wBFyT4uMY"
         />
-
-        <meta name="csrf-token" content={csrfToken} />
       </Head>
       <SSRProvider>
         <ThemeProvider
@@ -69,11 +52,7 @@ const MyApp = ({
           nightScheme={themeProps.nightTheme}
           preventSSRMismatch
         >
-          <LanguagesContext.Provider value={languagesContext}>
-            <DotComAuthenticatedContext.Provider value={dotComAuthenticatedContext}>
-              <Component {...pageProps} />
-            </DotComAuthenticatedContext.Provider>
-          </LanguagesContext.Provider>
+          <Component {...pageProps} />
         </ThemeProvider>
       </SSRProvider>
     </>
@@ -95,9 +74,6 @@ MyApp.getInitialProps = async (appContext: AppContext) => {
   return {
     ...appProps,
     themeProps: getTheme(req),
-    csrfToken: req?.csrfToken?.() || '',
-    languagesContext: { languages: req.context.languages, userLanguage: req.context.userLanguage },
-    dotComAuthenticatedContext: { isDotComAuthenticated: Boolean(req.cookies?.dotcom_user) },
   }
 }
 

@@ -1,5 +1,5 @@
 ---
-title: Managing encrypted secrets for your repository and organization for GitHub Codespaces
+title: Gerenciar segredos criptografados para o seu repositório e organização para o GitHub Codespaces
 shortTitle: Segredos criptografados
 intro: 'Os segredos criptografados permitem que você armazene informações confidenciais na sua organização, repositório ou {% data variables.product.prodname_github_codespaces %}.'
 product: '{% data reusables.gated-features.codespaces %}'

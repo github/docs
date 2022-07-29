@@ -1,27 +1,25 @@
 ---
-title: 将仓库链接到项目板
-intro: 您可以将仓库链接到组织或个人帐户的项目板。
+title: 'Linking a repository to a {% data variables.product.prodname_project_v1 %}'
+intro: 'You can link a repository to your organization''s or personal account''s {% data variables.projects.projects_v1_board %}.'
 redirect_from:
   - /github/managing-your-work-on-github/managing-project-boards/linking-a-repository-to-a-project-board
   - /articles/linking-a-repository-to-a-project-board
   - /github/managing-your-work-on-github/linking-a-repository-to-a-project-board
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
-  ghec: '*'
+  feature: projects-v1
 topics:
   - Pull requests
 shortTitle: 将仓库链接到板
+allowTitleToDifferFromFilename: true
 ---
 
 {% data reusables.projects.project_boards_old %}
 
-对项目板具有写入权限的任何人都可以将该组织或个人帐户拥有的仓库链接到项目板。 更多信息请参阅“[组织的项目板权限](/articles/project-board-permissions-for-an-organization/)”或“[用户拥有的项目板的权限级别](/articles/permission-levels-for-user-owned-project-boards/)”。
+Anyone with write permissions to a {% data variables.projects.projects_v1_board %} can link repositories owned by that organization or personal account to the {% data variables.projects.projects_v1_board %}. For more information, see "[{% data variables.product.prodname_project_v1_caps %} permissions for an organization](/articles/project-board-permissions-for-an-organization/)" or "[Permission levels for user-owned {% data variables.product.prodname_projects_v1 %}](/articles/permission-levels-for-user-owned-project-boards/)."
 
-{% data reusables.project-management.link-repos-to-project-board %} 您可以在卡中输入议题或拉取请求 URL，从任何未链接的仓库添加议题和拉取请求。 更多信息请参阅“[添加议题和拉取请求到项目板](/articles/adding-issues-and-pull-requests-to-a-project-board)”。
+{% data reusables.project-management.link-repos-to-project-board %} 您可以在卡中输入议题或拉取请求 URL，从任何未链接的仓库添加议题和拉取请求。 For more information, see "[Adding issues and pull requests to a {% data variables.product.prodname_project_v1 %}](/articles/adding-issues-and-pull-requests-to-a-project-board)."
 
-1. 导航到您要在其中链接仓库的项目板。
+1. Navigate to the {% data variables.projects.projects_v1_board %} where you want to link a repository.
 {% data reusables.project-management.click-menu %}
 {% data reusables.project-management.access-collaboration-settings %}
 4. 在左侧边栏中，单击 **Linked repositories（链接的仓库）**。 ![左侧边栏中链接的仓库菜单选项](/assets/images/help/projects/project-board-linked-repositories-setting.png)
@@ -31,10 +29,10 @@ shortTitle: 将仓库链接到板
 
 {% note %}
 
-**注：**要将仓库链接到组织或用户拥有的项目板，仓库需要启用议题。 也就是说，仓库有一个“议题”选项卡（在复刻的仓库中默认禁用议题）。  有关如何对仓库启用或禁用议题的信息，请参阅“[对仓库禁用议题](/github/managing-your-work-on-github/disabling-issues)”。
+**Note:** In order to link a repository to your organization or user owned {% data variables.projects.projects_v1_board %} the repository needs to have issues enabled. 也就是说，仓库有一个“议题”选项卡（在复刻的仓库中默认禁用议题）。  有关如何对仓库启用或禁用议题的信息，请参阅“[对仓库禁用议题](/github/managing-your-work-on-github/disabling-issues)”。
 
 {% endnote %}
 
 ## 延伸阅读
 
-- "[关于项目板](/articles/about-project-boards)"
+- "[关于 {% data variables.product.prodname_projects_v1 %}](/articles/about-project-boards)"

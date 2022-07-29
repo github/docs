@@ -1,6 +1,6 @@
 ---
-title: Desabilitar quadros de projeto em um repositório
-intro: Os administradores de repositório podem desativar quadros de projeto de um repositório se você ou sua equipe gerenciam o trabalho de forma diferente.
+title: 'Disabling {% data variables.projects.projects_v1_boards %} in a repository'
+intro: 'Repository administrators can turn off {% data variables.projects.projects_v1_boards %} for a repository if you or your team manages work differently.'
 redirect_from:
   - /github/managing-your-work-on-github/managing-project-boards/disabling-project-boards-in-a-repository
   - /articles/disabling-project-boards-in-a-repository
@@ -13,13 +13,14 @@ versions:
   ghec: '*'
 topics:
   - Pull requests
-shortTitle: Desabilitar quadro de projetos
+shortTitle: 'Disable {% data variables.projects.projects_v1_boards %}'
+allowTitleToDifferFromFilename: true
 ---
 
-Quando você desabilita quadros de projeto, deixa de ver informações relacionadas a eles em linhas do tempo ou [logs de auditoria](/articles/reviewing-your-security-log/).
+When you disable {% data variables.projects.projects_v1_boards %}, you will no longer see {% data variables.projects.projects_v1_board %} information in timelines or [audit logs](/articles/reviewing-your-security-log/).
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 3. Em "Features" (Recursos), desmarque a caixa de seleção **Projects** (Projetos). ![Caixa de seleção Remove Projects (Remover projetos)](/assets/images/help/projects/disable-projects-checkbox.png)
 
-Após a desabilitação dos quadros de projeto, não é mais possível acessar os quadros de projeto já existentes pelas URLs anteriores. {% data reusables.organizations.disable_project_board_results %}
+After {% data variables.projects.projects_v1_boards %} are disabled, existing {% data variables.projects.projects_v1_boards %} are inaccessible at their previous URLs. {% data reusables.organizations.disable_project_board_results %}

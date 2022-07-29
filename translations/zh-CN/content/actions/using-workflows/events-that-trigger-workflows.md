@@ -415,7 +415,7 @@ on:
 
 {% data reusables.actions.branch-requirement %}
 
-当有人推送到作为 {% data variables.product.prodname_pages %} 的发布源的分支时，如果为存储库启用了 {% data variables.product.prodname_pages %} ，则运行工作流程。 有关 {% data variables.product.prodname_pages %} 发布源的详细信息，请参阅“[为 GitHub Pages 站点配置发布源](/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site#choosing-a-publishing-source)”。 有关 REST API 的信息，请参阅“[页面](/rest/reference/repos#pages)”。
+当有人推送到作为 {% data variables.product.prodname_pages %} 的发布源的分支时，如果为存储库启用了 {% data variables.product.prodname_pages %} ，则运行工作流程。 有关 {% data variables.product.prodname_pages %} 发布源的详细信息，请参阅“[为 GitHub Pages 站点配置发布源](/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)”。 有关 REST API 的信息，请参阅“[页面](/rest/reference/repos#pages)”。
 
 例如，您可以在发生 `page_build` 事件时运行工作流程。
 
@@ -447,7 +447,7 @@ on:
 {% ifversion fpt or ghec %}
 {% note %}
 
-**注意**：此事件对项目（测试版）不会发生。 更多信息请参阅“[关于项目（测试版）](/issues/trying-out-the-new-projects-experience/about-projects)”。
+**Note**: This event only occurs for {% data variables.product.prodname_projects_v1 %}.
 
 {% endnote %}
 {% endif %}
@@ -485,7 +485,7 @@ on:
 {% ifversion fpt or ghec %}
 {% note %}
 
-**注意**：此事件对项目（测试版）不会发生。 更多信息请参阅“[关于项目（测试版）](/issues/trying-out-the-new-projects-experience/about-projects)”。
+**Note**: This event only occurs for {% data variables.product.prodname_projects_v1 %}.
 
 {% endnote %}
 {% endif %}
@@ -523,7 +523,7 @@ on:
 {% ifversion fpt or ghec %}
 {% note %}
 
-**注意**：此事件对项目（测试版）不会发生。 更多信息请参阅“[关于项目（测试版）](/issues/trying-out-the-new-projects-experience/about-projects)”。
+**Note**: This event only occurs for {% data variables.product.prodname_projects_v1 %}.
 
 {% endnote %}
 {% endif %}
@@ -896,9 +896,9 @@ jobs:
 
 ### `推送`
 
-| Web 挂钩事件有效负载                                                                       | 活动类型 | `GITHUB_SHA`           | `GITHUB_REF` |
-| ---------------------------------------------------------------------------------- | ---- | ---------------------- | ------------ |
-| [`推送`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#push) | n/a  | 推送的提交，除非删除分支（当它是默认分支时） | 更新的引用        |
+| Web 挂钩事件有效负载                                                                       | 活动类型 | `GITHUB_SHA`                                                                                                                     | `GITHUB_REF` |
+| ---------------------------------------------------------------------------------- | ---- | -------------------------------------------------------------------------------------------------------------------------------- | ------------ |
+| [`推送`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#push) | n/a  | When you delete a branch, the SHA in the workflow run (and its associated refs) reverts to the default branch of the repository. | 更新的引用        |
 
 {% note %}
 

@@ -141,7 +141,34 @@ For more keyboard shortcuts, see the [CodeMirror documentation](https://codemirr
 |<kbd>Alt</kbd> and click | Toggle between collapsing and expanding all outdated review comments in a pull request by holding down <kbd>Alt</kbd> and clicking **Show outdated** or **Hide outdated**.|
 |Click, then <kbd>Shift</kbd> and click | Comment on multiple lines of a pull request by clicking a line number, holding <kbd>Shift</kbd>, then clicking another line number. For more information, see "[Commenting on a pull request](/github/collaborating-with-issues-and-pull-requests/commenting-on-a-pull-request#adding-line-comments-to-a-pull-request)."|
 
-## Project boards
+{% ifversion projects-v2 %}
+
+## {% data variables.projects.projects_v2_caps %}
+
+### Navigating a project
+
+| Keyboard shortcut | Description
+|-----------|------------
+|<kbd>⌘</kbd>+<kbd>f</kbd> (Mac) or <kbd>Ctrl</kbd>+<kbd>f</kbd> (Windows/Linux) | Focus filter field
+|<kbd>←</kbd> | Move cell focus to the left
+|<kbd>→</kbd> | Move cell focus to the right
+|<kbd>↑</kbd> | Move cell focus up
+|<kbd>↓</kbd> | Move cell focus down
+
+### Manipulating a project
+
+| Keyboard shortcut | Description
+|-----------|------------
+|<kbd>Enter</kbd> | Toggle edit mode for the focused cell
+|<kbd>Escape</kbd> | Cancel editing for the focused cell
+|<kbd>⌘</kbd>+<kbd>Shift</kbd>+<kbd>\</kbd> (Mac) or <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>\</kbd> (Windows/Linux) | Open row actions menu
+|<kbd>Shift</kbd>+<kbd>Space</kbd> | Select item
+|<kbd>Space</kbd> | Open selected item
+|<kbd>e</kbd> | Archive selected items
+
+{% endif %}
+
+## {% data variables.product.prodname_projects_v1_caps %}
 
 ### Moving a column
 

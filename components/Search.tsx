@@ -12,7 +12,7 @@ import { useMainContext } from './context/MainContext'
 import { DEFAULT_VERSION, useVersion } from 'components/hooks/useVersion'
 import { useQuery } from 'components/hooks/useQuery'
 import { Link } from 'components/Link'
-import { useLanguages } from './context/LanguagesContext'
+import { useSession } from 'components/lib/get-session'
 
 import styles from './Search.module.scss'
 
@@ -46,13 +46,16 @@ export function Search({
   const inputRef = useRef<HTMLInputElement>(null)
   const { t } = useTranslation('search')
   const { currentVersion } = useVersion()
-  const { languages } = useLanguages()
+  const session = useSession()
+  const languages = session?.languages
 
   // Figure out language and version for index
   const { searchVersions, nonEnterpriseDefaultVersion } = useMainContext()
   // fall back to the non-enterprise default version (FPT currently) on the homepage, 404 page, etc.
   const version = searchVersions[currentVersion] || searchVersions[nonEnterpriseDefaultVersion]
-  const language = (Object.keys(languages).includes(router.locale || '') && router.locale) || 'en'
+  const language = languages
+    ? (Object.keys(languages).includes(router.locale || '') && router.locale) || 'en'
+    : 'en'
 
   const fetchURL = query
     ? `/search?${new URLSearchParams({

@@ -66,6 +66,8 @@ The following example workflow demonstrates how to build and deploy a PHP projec
 ```yaml{:copy}
 {% data reusables.actions.actions-not-certified-by-github-comment %}
 
+{% data reusables.actions.actions-use-sha-pinning-comment %}
+
 name: Build and deploy PHP app to Azure Web App
 
 env:

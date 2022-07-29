@@ -29,21 +29,21 @@ describe('footer', () => {
     test('codespaces product landing page leads to codespaces discussions page', async () => {
       const $ = await getDOM(`/en/codespaces`)
       expect($('a#ask-community').attr('href')).toBe(
-        'https://github.com/github/feedback/discussions/categories/codespaces-feedback'
+        'https://github.com/community/community/discussions/categories/codespaces'
       )
     })
 
     test('sponsors product landing page leads to sponsors discussions page', async () => {
       const $ = await getDOM(`/en/sponsors`)
       expect($('a#ask-community').attr('href')).toBe(
-        'https://github.com/github/feedback/discussions/categories/sponsors-feedback'
+        'https://github.com/community/community/discussions/categories/sponsors'
       )
     })
 
     test('codespaces product landing page leads to discussions discussions page', async () => {
       const $ = await getDOM(`/en/discussions`)
       expect($('a#ask-community').attr('href')).toBe(
-        'https://github.com/github/feedback/discussions/categories/discussions-feedback'
+        'https://github.com/community/community/discussions/categories/discussions'
       )
     })
   })

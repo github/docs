@@ -18,7 +18,9 @@ shortTitle: 排除自定义域的故障
 
 ## _CNAME_ 错误
 
-自定义域存储在发布源的根目录下的 _CNAME_ 文件中。 您可以通过仓库设置或手动添加或更新此文件。 更多信息请参阅“[管理 {% data variables.product.prodname_pages %} 网站的自定义域](/articles/managing-a-custom-domain-for-your-github-pages-site)。
+{% ifversion pages-custom-workflow %}If you are publishing from a custom {% data variables.product.prodname_actions %} workflow, any _CNAME_ file is ignored and is not required.{% endif %}
+
+If you are publishing from a branch, custom domains are stored in a _CNAME_ file in the root of your publishing source. 您可以通过仓库设置或手动添加或更新此文件。 更多信息请参阅“[管理 {% data variables.product.prodname_pages %} 网站的自定义域](/articles/managing-a-custom-domain-for-your-github-pages-site)。
 
 要让您的站点呈现在正确的域中，请确保您的 _CNAME_ 文件仍存在于仓库中。 例如，许多静态站点生成器会强制推送到您的仓库，这可能会覆盖在配置自定义域时添加到仓库中的 _CNAME_ 文件。 如果您在本地构建站点并将生成的文件推送到 {% data variables.product.product_name %}，请确保先将添加 _CNAME_ 文件的提交拉取到本地仓库，使该文件纳入到构建中。
 

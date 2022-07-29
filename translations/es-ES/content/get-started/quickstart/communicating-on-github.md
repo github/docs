@@ -147,7 +147,7 @@ Para las propuestas, por ejemplo, puedes etiquetarlas con etiquetas para buscarl
 Para las solicitudes de cambio, puedes crear borradores de estas si los cambios que propones aún están en curso. Los borradores de solicitudes de cambios no pueden fusionarse hasta que se marquen como listos para revisión. Para obtener más información, consulta la sección "[Acerca de las solicitudes de cambios](/github/collaborating-with-issues-and-pull-requests/about-pull-requests#draft-pull-requests)".
 
 {% ifversion discussions %}
-For {% data variables.product.prodname_discussions %}, you can{% ifversion fpt or ghec %} set up a code of conduct and{% endif %} pin discussions that contain important information for your community. Para obtener más información, consulta la sección "[Acerca de los debates](/discussions/collaborating-with-your-community-using-discussions/about-discussions)".
+Para los {% data variables.product.prodname_discussions %}, puedes{% ifversion fpt or ghec %} configura run código de conducta y{% endif %} fijar los debates que contengan información importante para tu comunidad. Para obtener más información, consulta la sección "[Acerca de los debates](/discussions/collaborating-with-your-community-using-discussions/about-discussions)".
 {% endif %}
 
 Para el caso de los debates de equipo, puedes editarlos o borrarlos en la página del equipo y puedes configurar las notificaciones para estos. Para obtener más información, consulta [Acerca de los debates del equipo](/organizations/collaborating-with-your-team/about-team-discussions)".

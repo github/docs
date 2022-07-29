@@ -146,7 +146,34 @@ Para mais atalhos de teclado, consulte a [Documentação CodeMirror](https://cod
 | <kbd>Alt</kbd> e clique                              | Alterna entre opções de recolhimento e expansão de todos os comentários de revisão desatualizados em uma pull request ao manter pressionada a tecla <kbd>Alt</kbd> e clicar em **Mostrar desatualizados** ou **Ocultar desatualizados**.                                                                                                                       |
 | Clique, em seguida <kbd>Shift</kbd> e clique         | Comente em várias linhas de uma pull request clicando em um número de linha, mantendo pressionado <kbd>Shift</kbd>, depois clique em outro número de linha. Para obter mais informações, consulte "[Comentando em uma pull request](/github/collaborating-with-issues-and-pull-requests/commenting-on-a-pull-request#adding-line-comments-to-a-pull-request)." |
 
-## Quadros de projeto
+{% ifversion projects-v2 %}
+
+## {% data variables.projects.projects_v2_caps %}
+
+### Navigating a project
+
+| Atalho                                                                          | Descrição                    |
+| ------------------------------------------------------------------------------- | ---------------------------- |
+| <kbd>⌘</kbd>+<kbd>f</kbd> (Mac) or <kbd>Ctrl</kbd>+<kbd>f</kbd> (Windows/Linux) | Focus filter field           |
+| <kbd>←</kbd>                                                                    | Move cell focus to the left  |
+| <kbd>→</kbd>                                                                    | Move cell focus to the right |
+| <kbd>↑</kbd>                                                                    | Move cell focus up           |
+| <kbd>↓</kbd>                                                                    | Move cell focus down         |
+
+### Manipulating a project
+
+| Atalho                                                                                                              | Descrição                             |
+| ------------------------------------------------------------------------------------------------------------------- | ------------------------------------- |
+| <kbd>Enter</kbd>                                                                                                    | Toggle edit mode for the focused cell |
+| <kbd>Escape</kbd>                                                                                                   | Cancel editing for the focused cell   |
+| <kbd>⌘</kbd>+<kbd>Shift</kbd>+<kbd>\</kbd> (Mac) or <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>\</kbd> (Windows/Linux) | Open row actions menu                 |
+| <kbd>Shift</kbd>+<kbd>Space</kbd>                                                                                   | Selecionar item                       |
+| <kbd>Space (Espaço)</kbd>                                                                                           | Open selected item                    |
+| <kbd>e</kbd>                                                                                                        | Archive selected items                |
+
+{% endif %}
+
+## {% data variables.product.prodname_projects_v1_caps %}
 
 ### Mover uma coluna
 
@@ -201,12 +228,12 @@ Para mais atalhos de teclado, consulte a [Documentação CodeMirror](https://cod
 
 ## Notificações
 
-| Atalho                        | Descrição            |
-| ----------------------------- | -------------------- |
-| <kbd>E</kbd>                  | Marcar como pronto   |
-| <kbd>Shift</kbd>+<kbd>U</kbd> | Marcar como não lido |
-| <kbd>Shift</kbd>+<kbd>I</kbd> | Marca como lido      |
-| <kbd>Shift</kbd>+<kbd>M</kbd> | Cancelar assinatura  |
+| Atalho                        | Descrição             |
+| ----------------------------- | --------------------- |
+| <kbd>E</kbd>                  | Marcar como concluído |
+| <kbd>Shift</kbd>+<kbd>U</kbd> | Marcar como não lido  |
+| <kbd>Shift</kbd>+<kbd>I</kbd> | Marcar como lido      |
+| <kbd>Shift</kbd>+<kbd>M</kbd> | Cancelar assinatura   |
 
 ## gráfico de rede
 

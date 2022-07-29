@@ -17,9 +17,9 @@ topics:
 shortTitle: Frases secretas da chave SSH
 ---
 
-## About passphrases for SSH keys
+## Sobre as frases secretas para chaves SSH
 
-With SSH keys, if someone gains access to your computer, the attacker can gain access to every system that uses that key. Para incluir uma camada extra de segurança, adicione uma frase secreta à sua chave SSH. To avoid entering the passphrase every time you connect, you can securely save your passphrase in the SSH agent.
+Com chaves SSH, se alguém obtiver acesso ao seu computador, o invasor poderá obter acesso a todos os sistemas que usam essa chave. Para incluir uma camada extra de segurança, adicione uma frase secreta à sua chave SSH. Para evitar inserir a senha toda vez que você se conectar, você pode salvar a sua frase secreta de forma segura no agente SSH.
 
 ## Adicionar ou alterar frase secreta
 
