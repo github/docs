@@ -363,7 +363,7 @@ When you view the file in the repository, it is rendered as a flow chart. ![Rend
 
 If your chart does not render at all, verify that it contains valid Mermaid Markdown syntax by checking your chart with the [Mermaid live editor](https://mermaid.live/edit).
 
-If the chart displays, but does not appear as you'd expect, you can create a new [feedback discussion](https://github.com/github/feedback/discussions/categories/general-feedback), and add the `mermaid` tag.
+If the chart displays, but does not appear as you'd expect, you can create a new [{% data variables.product.prodname_github_community %} discussion](https://github.com/orgs/community/discussions/categories/general), and add the `Mermaid` label.
 
 #### 既知の問題
 
