@@ -15,11 +15,11 @@ Los colaboradores más útiles en los últimos 30 días se resaltarán en el tab
 
 {% data reusables.discussions.navigate-to-repo-or-org %}
 {% data reusables.discussions.discussions-tab %}
-1. Compare the list of contributors with their access permissions to the repository or, for organization discussions, to the source repository to see who qualifies to moderate the discussion. ![Screenshot of most helpful contributors](/assets/images/help/discussions/most-helpful.png)
+1. Compara la lista de contribuyentes con sus permisos de acceso al repositorio o, para los debates de organización, al repositorio origen para ver quién califica para moderarlos. ![Captura de pantalla de los contribuyentes más útiles](/assets/images/help/discussions/most-helpful.png)
 
 ## Paso 2: Revisa los niveles de permiso de los {% data variables.product.prodname_discussions %}
 
-People with triage permissions for a repository can help moderate that repository's discussions by marking comments as answers, locking discussions that are no longer useful or are damaging to the community, and converting issues to discussions when an idea is still in the early stages of development. De forma similar, las personas con permisos de clasificación en el repositorio origen para los debates de organización pueden moderar dichos debates. Para obtener más información, consulta la sección "[Moderar los debates](/discussions/managing-discussions-for-your-community/moderating-discussions)".
+Las personas con permisos de clasificación para un repositorio pueden ayudar a moderar los debates del mismo marcando los comentarios como respuestas, bloqueando debates que ya no son útiles o que estén dañando a la comunidad y convirtiendo propuestas en debates cuando una idea aún está en las primeras fases de desarrollo. De forma similar, las personas con permisos de clasificación en el repositorio origen para los debates de organización pueden moderar dichos debates. Para obtener más información, consulta la sección "[Moderar los debates](/discussions/managing-discussions-for-your-community/moderating-discussions)".
 
 Para obtener más información sobre los niveles de permiso y los {% data variables.product.prodname_discussions %} de un repositorio, consulta la sección "[Niveles de permiso de un repositorio en una organización](/organizations/managing-access-to-your-organizations-repositories/repository-permission-levels-for-an-organization)".
 

@@ -32,7 +32,7 @@ topics:
 
 您可以通过项目组织议题并排定优先级。 {% ifversion fpt or ghec %}要跟踪作为较大议题一部分的议题，您可以使用任务列表。{% endif %} 要对相关议题进行分类，您可以使用标签和里程碑。
 
-有关项目的更多信息，请参阅 {% ifversion fpt or ghec %}“[关于项目（测试版）](/issues/trying-out-the-new-projects-experience/about-projects)”和{% endif %}“[组织对项目板的使用](/issues/organizing-your-work-with-project-boards)”。 {% ifversion fpt or ghec %}有关任务列表的更多信息，请参阅“[关于任务列表](/issues/tracking-your-work-with-issues/creating-issues/about-task-lists)”。 {% endif %}有关标签和里程碑的更多信息，请参阅“[使用标签和里程碑跟踪工作](/issues/using-labels-and-milestones-to-track-work)”。
+For more information about projects, see {% ifversion projects-v2 %}"[About projects](/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects)." {% else %}"[Organizing your work with project boards](/issues/organizing-your-work-with-project-boards)."{% endif %} {% ifversion fpt or ghec %}For more information about task lists, see "[About task lists](/issues/tracking-your-work-with-issues/creating-issues/about-task-lists)." {% endif %}有关标签和里程碑的更多信息，请参阅“[使用标签和里程碑跟踪工作](/issues/using-labels-and-milestones-to-track-work)”。
 
 ## 保持更新
 

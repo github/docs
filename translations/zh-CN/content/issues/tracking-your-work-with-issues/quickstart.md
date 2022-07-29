@@ -71,7 +71,7 @@ topics:
 
 ## 添加议题到项目
 
-您可以将议题添加到现有项目。 {% ifversion fpt or ghec %}如果您使用的是项目（测试版），也可以填充项目的元数据。 {% endif %} 有关项目的更多信息，请参阅 {% ifversion fpt or ghec %}“[关于项目（测试版）](/issues/trying-out-the-new-projects-experience/about-projects)”和{% endif %}“[组织对项目板的使用](/issues/organizing-your-work-with-project-boards)”。
+You can add the issue to an existing project{% ifversion projects-v2 %} and populate metadata for the project. {% endif %} For more information about projects, see {% ifversion projects-v2 %}"[About projects](/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects)."{% else %}"[Organizing your work with project boards](/issues/organizing-your-work-with-project-boards)."{% endif %}
 
 ![有项目的议题](/assets/images/help/issues/issue-project.png)
 
@@ -97,5 +97,5 @@ topics:
 以下是一些帮助您对 {% data variables.product.prodname_github_issues %} 执行后续操作的有用资源：
 
 - 要了解议题的更多信息，请参阅“[关于议题](/issues/tracking-your-work-with-issues/about-issues)”。
-- 要详细了解项目如何帮助您规划和跟踪，请参阅{% ifversion fpt or ghec %}“[关于项目（测试版）](/issues/trying-out-the-new-projects-experience/about-projects)”或{% endif %}“[使用项目板组织工作](/issues/organizing-your-work-with-project-boards)”。
+- To learn more about how projects can help you with planning and tracking, see {% ifversion projects-v2 %}"[About projects](/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects)."{% else %}"[Organizing your work with project boards](/issues/organizing-your-work-with-project-boards)."{% endif %}
 - 要详细了解使用议题模板{% ifversion fpt or ghec %} 和议题表单{% endif %} 鼓励贡献者提供具体信息，请参阅“[使用模板鼓励有用的议题和拉取请求](/communities/using-templates-to-encourage-useful-issues-and-pull-requests)”。

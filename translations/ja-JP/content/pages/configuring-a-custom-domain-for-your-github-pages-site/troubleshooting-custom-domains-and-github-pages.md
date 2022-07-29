@@ -18,7 +18,9 @@ shortTitle: カスタムドメインのトラブルシューティング
 
 ## _CNAME_ エラー
 
-カスタムドメインは、公開ソースのルートにある _CNAME_ ファイルに保存されます。 このファイルは、リポジトリ設定を通じて、あるいは手動で追加または更新することができます。 詳しい情報については、「[{% data variables.product.prodname_pages %} サイト用のカスタムドメインを管理する](/articles/managing-a-custom-domain-for-your-github-pages-site)」を参照してください。
+{% ifversion pages-custom-workflow %}If you are publishing from a custom {% data variables.product.prodname_actions %} workflow, any _CNAME_ file is ignored and is not required.{% endif %}
+
+If you are publishing from a branch, custom domains are stored in a _CNAME_ file in the root of your publishing source. このファイルは、リポジトリ設定を通じて、あるいは手動で追加または更新することができます。 詳しい情報については、「[{% data variables.product.prodname_pages %} サイト用のカスタムドメインを管理する](/articles/managing-a-custom-domain-for-your-github-pages-site)」を参照してください。
 
 サイトが正しいドメインをレンダリングするには、_CNAME_ ファイルがまだリポジトリに存在していることを確認します。 たとえば、静的サイトジェネレータの多くはリポジトリへのプッシュを強制するので、カスタムドメインの設定時にリポジトリに追加された _CNAME_ ファイルを上書きすることができます。 ローカルでサイトをビルドし、生成されたファイルを {% data variables.product.product_name %} にプッシュする場合は、_CNAME_ ファイルをローカルリポジトリに追加したコミットを先にプルして、そのファイルがビルドに含まれるようにする必要があります。
 

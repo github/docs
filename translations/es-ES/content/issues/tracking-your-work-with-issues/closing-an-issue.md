@@ -26,5 +26,5 @@ shortTitle: Cerrar una propuesta
 1. Optionally, to change the reason for closing the issue, select {% octicon "triangle-down" aria-label="The down triangle octicon" %} next to "Close issue" and click a reason. ![Screenshot showing dropdown menu containing issue close reasons](/assets/images/help/issues/close-issue-select-reason.png)
 2. Click **Close issue**. ![Screenshot showing "close issue" button](/assets/images/help/issues/close-issue-with-reason.png)
 {%- else %}
-1. At the bottom of the page, click **Close issue**. ![Screenshot showing "close issue" button](/assets/images/help/issues/close-issue.png)
+1. At the bottom of the page, click **Close issue**. ![Captura de pantalla que muestra el botón "cerrar propuesta"](/assets/images/help/issues/close-issue.png)
 {% endif %}

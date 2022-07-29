@@ -52,6 +52,7 @@ To search for specific events, use the `action` qualifier in your query. Actions
 | [`discussion_post_reply`](#discussion_post_reply-category-actions) | Contains all activities related to replies to discussions posted to a team page.{% ifversion fpt or ghes or ghec %}
 | [`enterprise`](#enterprise-category-actions) | Contains activities related to enterprise settings. | {% endif %}
 | [`hook`](#hook-category-actions) | Contains all activities related to webhooks.
+| [`integration_installation`](#integration_installation-category-actions)  | Contains activities related to integrations installed in an account. |
 | [`integration_installation_request`](#integration_installation_request-category-actions) | Contains all activities related to organization member requests for owners to approve integrations for use in the organization. |{% ifversion ghec or ghae %}
 | [`ip_allow_list`](#ip_allow_list-category-actions) | Contains activities related to enabling or disabling the IP allow list for an organization.
 | [`ip_allow_list_entry`](#ip_allow_list_entry-category-actions) | Contains activities related to the creation, deletion, and editing of an IP allow list entry for an organization.{% endif %}
@@ -360,6 +361,21 @@ An overview of some of the most common actions that are recorded as events in th
 | `config_changed` | Triggered when an existing hook has its configuration altered.
 | `destroy` | Triggered when an existing hook was removed from a repository.
 | `events_changed` | Triggered when the events on a hook have been altered.
+
+### `integration_installation` category actions
+
+| Action | Description
+|--------|-------------
+| `contact_email_changed` | A contact email for an integration was changed.
+| `create` | An integration was installed.
+| `destroy` | An integration was uninstalled.
+| `repositories_added` | Repositories were added to an integration.
+| `repositories_removed` | Repositories were removed from an integration.
+{%- ifversion fpt or ghec %}
+| `suspend` | An integration was suspended.
+| `unsuspend` | An integration was unsuspended.
+{%- endif %}
+| `version_updated` | Permissions for an integration were updated.
 
 ### `integration_installation_request` category actions
 
