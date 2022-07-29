@@ -1,0 +1,2 @@
+Will have a value of 1 if [debug logging was enabled for the runner](actions/monitoring-and-troubleshooting-workflows/enabling-debug-logging).
+This is useful as an indicator to enable additional debugging or verbose logging in your own workflow steps.
