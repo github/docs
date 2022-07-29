@@ -3,6 +3,7 @@ import { useRouter } from 'next/router'
 
 const MAX_CACHE = 5000 // milliseconds
 const RETRY = 500 // milliseconds
+const WAIT_CHECK = 100 // millisecond
 
 type LanguageItem = {
   name: string
@@ -44,6 +45,12 @@ export async function fetchSession(): Promise<Session | null> {
   sessionCache = null
   await new Promise((resolve) => setTimeout(resolve, RETRY))
   return fetchSession()
+}
+
+// For subscribers outside of React
+export function waitForSession(fn: Function) {
+  if (getSession()) return fn()
+  setTimeout(() => waitForSession(fn), WAIT_CHECK)
 }
 
 // React hook version
