@@ -12,7 +12,7 @@ topics:
 shortTitle: Notas de lanzamiento automatizadas
 communityRedirect:
   name: Provide GitHub Feedback
-  href: 'https://github.com/github/feedback/discussions/categories/general-feedback'
+  href: 'https://github.com/orgs/community/discussions/categories/general'
 ---
 
 ## Acerca de las notas de lanzamiento generadas automáticamente

@@ -63,7 +63,7 @@ Puedes destacar los debates que contengan conversaciones importantes, útiles o 
 
 ## Compartir retroalimentación
 
-Puedes compartir tu retroalimentación sobre los {% data variables.product.prodname_discussions %} con {% data variables.product.company_short %}. Para unirte a la conversación, consulta la sección [`github/feedback`](https://github.com/github/feedback/discussions?discussions_q=category%3A%22Discussions+Feedback%22).
+Puedes compartir tu retroalimentación sobre los {% data variables.product.prodname_discussions %} con {% data variables.product.company_short %}. To join the conversation, see [{% data variables.product.prodname_github_community %} discussions](https://github.com/orgs/community/discussions/categories/discussions).
 
 ## Leer más
 

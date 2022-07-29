@@ -7,6 +7,13 @@ import statsd from '../lib/statsd.js'
 import { allVersions } from '../lib/all-versions.js'
 import { isConnectionDropped } from './halt-on-dropped-connection.js'
 import { nextApp, nextHandleRequest } from './next.js'
+import { cacheControlFactory } from './cache-control.js'
+
+const noCacheControl = cacheControlFactory(0)
+
+const htmlCacheControl = cacheControlFactory(0)
+// We'll start with no cache, the increase to one minute (60),
+// then five minutes (60 * 5), finally ten minutes (60 * 10)
 
 async function buildRenderedPage(req) {
   const { context } = req
@@ -54,6 +61,7 @@ export default async function renderPage(req, res, next) {
 
   // render a 404 page
   if (!page) {
+    noCacheControl(res)
     if (process.env.NODE_ENV !== 'test' && context.redirectNotFound) {
       console.error(
         `\nTried to redirect to ${context.redirectNotFound}, but that page was not found.\n`
@@ -64,8 +72,11 @@ export default async function renderPage(req, res, next) {
 
   // Just finish fast without all the details like Content-Length
   if (req.method === 'HEAD') {
+    noCacheControl(res)
     return res.status(200).send('')
   }
+
+  htmlCacheControl(res)
 
   // Updating the Last-Modified header for substantive changes on a page for engineering
   // Docs Engineering Issue #945
