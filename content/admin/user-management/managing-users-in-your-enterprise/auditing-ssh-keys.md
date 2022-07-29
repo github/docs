@@ -49,9 +49,7 @@ After they approve or reject their keys, they'll be able interact with repositor
 
 ## Adding an SSH key
 
-New users will be prompted for their password when adding an SSH key:
-
-![Password confirmation](/assets/images/help/settings/sudo_mode_popup.png)
+New users will be prompted to [confirm access to their account](/authentication/keeping-your-account-and-data-secure/sudo-mode) when adding an SSH key.
 
 When a user adds a key, they'll receive a notification email that will look something like this:
 
