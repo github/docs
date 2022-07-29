@@ -53,7 +53,7 @@ After they approve or reject their keys, they'll be able interact with repositor
 
 New users will be prompted to [confirm access to their account](/authentication/keeping-your-account-and-data-secure/sudo-mode) when adding an SSH key.
 
-{% endif }
+{% endif %}
 
 When a user adds a key, they'll receive a notification email that will look something like this:
 
