@@ -32,6 +32,7 @@ Hosted runners can be configured to scale automatically. This means that when a 
 You can set following scaling options during the runner deployment process:
 
 **Min** - Defines the minimum number of idle runners that are ready to pick up jobs. If this number is too low, your jobs will take longer to start. To identify an optimal number, consider the number of jobs that you will expect to run concurrently, and how long they can wait in a queue.
+
 **Max** - Allows you to control your costs by setting the maximum parallel number of machines that are created in this set. A higher value here can help avoid workflows being blocked due to parallelism.
 
 ## Networking for hosted runners
