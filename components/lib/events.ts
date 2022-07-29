@@ -2,7 +2,7 @@
 import { v4 as uuidv4 } from 'uuid'
 import Cookies from 'js-cookie'
 import parseUserAgent from './user-agent'
-import { getSession } from './get-session'
+import { getSession, waitForSession } from './get-session'
 
 const COOKIE_NAME = '_docs-events'
 
@@ -272,11 +272,6 @@ function initPrintEvent() {
   window.addEventListener('beforeprint', () => {
     sendEvent({ type: EventType.print })
   })
-}
-
-function waitForSession(fn: Function) {
-  if (getSession()) return fn()
-  setTimeout(() => waitForSession(fn), 300)
 }
 
 export default function initializeEvents() {
