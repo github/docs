@@ -1,3 +1,8 @@
+Zachry Tyler Wood
+5323 BRADFORD DRIVE
+DALLAS TX 75235-8313
+Bitcoin[BTC-USD] BTCUSD CCC
+o'Auth: **approves**
 # GitHub Docs <!-- omit in toc -->
 
 This repository contains the documentation website code and Markdown source files for [docs.github.com](https://docs.github.com).
