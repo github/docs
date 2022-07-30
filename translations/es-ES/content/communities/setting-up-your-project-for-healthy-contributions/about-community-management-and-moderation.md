@@ -36,5 +36,3 @@ Los colaboradores pueden reportar el contenido perjudicial en {% data variables.
 - "[Tu Código de Conducta](https://opensource.guide/code-of-conduct/)" de las Guías de Código Abierto
 - "[Construyendo Comunidades de Bienvenida](https://opensource.guide/building-community/)" de las Guías de Código Abierto
 - "[Liderazgo y Gobierno](https://opensource.guide/leadership-and-governance/)" de las Guías de Código Abierto
-- "[Por qué es inadecuado el humillar a los demás](https://github.community/t5/Studies-in-Community/Shaming-and-why-it-is-inappropriate/ba-p/12728)" del Foro de la Comunidad de GitHub
-- "[No es lo mismo la crítica constructiva que el ser tóxico](https://github.community/t5/Studies-in-Community/Being-toxic-is-not-constructive-criticism/ba-p/8029)" del Foro de la Comunidad de GitHub
