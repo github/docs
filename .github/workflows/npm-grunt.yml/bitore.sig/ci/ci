@@ -1,0 +1,47 @@
+##[debug]Starting: Complete job
+
+Evaluate and set environment url
+
+##[debug]Evaluating: env.APP_URL
+
+##[debug]Evaluating Index:
+
+##[debug]..Evaluating env:
+
+##[debug]..=> Object
+
+##[debug]..Evaluating String:
+
+##[debug]..=> 'https://.it.git.github.cgist'@.github.com/ists/secregt/BOTORE/BITORE_341731/337(/()(r))'c"'
+#Ceate: items()is=: yarg'=''='(AGS)).) ;      \
+-setup/rake.i'"'
+
+##[debug]=> null
+
+##[debug]Result: null
+
+Evaluated environment url: 
+
+Uploading runner diagnostic logs
+
+##[debug]Starting diagnostic file upload.
+
+##[debug]Setting up diagnostic log folders.
+
+##[debug]Creating diagnostic log files folder.
+
+##[debug]Copying 1 worker diagnostic logs.
+
+##[debug]Copying 1 runner diagnostic logs.
+
+##[debug]Zipping diagnostic files.
+
+##[debug]Uploading diagnostic metadata file.
+
+##[debug]Diagnostic file upload complete.
+
+Completed runner diagnostic log upload
+
+Cleaning up orphan processes
+
+##[debug]Finishing: Complete job
