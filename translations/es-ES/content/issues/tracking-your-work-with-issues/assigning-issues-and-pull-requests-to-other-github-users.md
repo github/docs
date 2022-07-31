@@ -1,6 +1,7 @@
 ---
 title: Asignar propuestas y solicitudes de extracción a otros usuarios de GitHub
 intro: Los asignatarios aclaran quién está trabajando en propuestas y solicitudes de extracción específicas.
+permissions: 'Anyone with write access to a repository can assign issues and pull requests. {% data reusables.enterprise-accounts.emu-permission-repo %}'
 redirect_from:
   - /github/managing-your-work-on-github/managing-your-work-with-issues-and-pull-requests/assigning-issues-and-pull-requests-to-other-github-users
   - /articles/assigning-issues-and-pull-requests-to-other-github-users
@@ -10,16 +11,17 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
 shortTitle: Asignar propuestas & solicitudes de cambio
 ---
 
-Cualquier persona con permisos de escritura en un repositorio puede asignar propuestas y solicitudes de extracción.
-
 ## Acerca de los asignatarios de las propuestas y solicitudes de cambios
 
-Puedes asignar hasta 10 personas a cada propuesta o solicitud de cambios, incluyéndote a ti mismo, a cualquiera que haya comentado en la propuesta o solicitud de cambios, a cualquiera con permisos de escritura en el repositorio y a los miembros de la organización con permisos de lectura en el repositorio. Para obtener más información, consulta "[Permisos de acceso en {% data variables.product.prodname_dotcom %}](/articles/access-permissions-on-github)".
+Puedes asignar a varias personas a cada propuesta o solicitud de cambios, incluyendo a ti mismo, a cualquiera que haya comentado en la propuesta o solicitud de cambios, a cualquiera con permisos de escritura en el repositorio y a los miembros de la organización con permisos de lectura en dicho repositorio. Para obtener más información, consulta "[Permisos de acceso en {% data variables.product.prodname_dotcom %}](/articles/access-permissions-on-github)".
+
+Se puede tener hasta 10 personas asignadas en las propuestas y solicitudes de cambio en los repositorios públicos y en los privados de una cuenta de pago. Los repositorios privados en el plan gratuito se limitan a una persona por propuesta o solicitud de cambios.
 
 ## Asignar una propuesta o solicitud de cambios individual
 

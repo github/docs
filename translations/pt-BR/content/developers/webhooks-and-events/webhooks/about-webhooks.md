@@ -8,11 +8,12 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Webhooks
 ---
 
-Webhooks allow you to build or set up integrations, such as [{% data variables.product.prodname_github_apps %}](/apps/building-github-apps/) or [{% data variables.product.prodname_oauth_apps %}](/apps/building-oauth-apps/), which subscribe to certain events on GitHub.com. Quando um desses eventos é acionado, enviaremos uma carga de POST por HTTP POST para a URL de configuração do webhook. Os webhooks podem ser usados para atualizar um rastreador de problemas externo, acionar criações de CI, atualizar um espelho de backup, ou até mesmo fazer uma implantação no seu servidor de produção. A sua imaginação é o único limite.
+Os webhooks permitem que você construa ou configure integrações, como [{% data variables.product.prodname_github_apps %}](/apps/building-github-apps/) ou [{% data variables.product.prodname_oauth_apps %}](/apps/building-oauth-apps/), que assinam certos eventos no GitHub.com. Quando um desses eventos é acionado, enviaremos uma carga de POST por HTTP POST para a URL de configuração do webhook. Os webhooks podem ser usados para atualizar um rastreador de problemas externo, acionar criações de CI, atualizar um espelho de backup, ou até mesmo fazer uma implantação no seu servidor de produção. A sua imaginação é o único limite.
 
 Os webhooks podem ser instalados em{% ifversion ghes or ghae %} [{% data variables.product.prodname_enterprise %}](/rest/reference/enterprise-admin#global-webhooks/),{% endif %} uma [organização][org-hooks], em um repositório[específico][repo-hooks] ou em {% data variables.product.prodname_github_app %}. Uma vez instalado, o webhook será enviado cada vez que ocorrer um ou mais eventos assinados.
 
@@ -33,4 +34,4 @@ Para obter uma lista completa de eventos de webhook disponíveis e suas cargas, 
 Para obter mais informações sobre a carga do webhook do evento de `ping`, consulte o evento [`ping`](/webhooks/event-payloads/#ping).
 
 [org-hooks]: /rest/reference/orgs#webhooks/
-[repo-hooks]: /rest/reference/repos#hooks
+[repo-hooks]: /rest/reference/repos#webhooks

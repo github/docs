@@ -9,6 +9,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Repositories
 shortTitle: About merge methods
@@ -16,10 +17,17 @@ shortTitle: About merge methods
 
 {% data reusables.pull_requests.configure_pull_request_merges_intro %}コミットsquashingあるいはリベースのようなマージの1つの種類を、リポジトリでその方法だけを有効化することで強制できます。
 
+{% ifversion fpt or ghec %}
+{% note %}
+
+**Note:** When using the merge queue, you no longer get to choose the merge method, as this is controlled by the queue. {% data reusables.pull_requests.merge-queue-references %}
+
+{% endnote %}
+{% endif %}
+
 {% data reusables.pull_requests.default_merge_option %}
 
-{% ifversion fpt or ghae or ghes %}
-デフォルトのマージ方法では、マージコミットが作成されます。 直線状のコミット履歴を強制して、保護されたブランチにマージコミットをプッシュできないようにすることができます。 詳しい情報については、「[保護されたブランチについて](/github/administering-a-repository/about-protected-branches#require-linear-history)」を参照してください。{% endif %}
+デフォルトのマージ方法では、マージコミットが作成されます。 直線状のコミット履歴を強制して、保護されたブランチにマージコミットをプッシュできないようにすることができます。 詳しい情報については、「[保護されたブランチについて](/github/administering-a-repository/about-protected-branches#require-linear-history)」を参照してください。
 
 ## マージコミットのsquash
 
@@ -38,5 +46,6 @@ shortTitle: About merge methods
 
 コミットのリベースを有効化する前に、以下の欠点について考慮してください:
 - リポジトリのコントリビューターは、コマンドライン上でリベースし、コンフリクトがあれば解決し、変更をプルリクエストのトピックブランチ (あるいはリモートの head ブランチ) へフォースプッシュしなければ、{% data variables.product.product_location %} 上で**リベースとマージ**という選択肢を使えるようにならないかもしれません。 フォースプッシュは、コントリビューターが他者が作業のベースとしている作業を上書きすることがないよう、慎重に行わなければなりません。 {% data variables.product.product_location %}で**リベースとマージ**の選択肢が無効化されている場合と、それを再度有効にするワークフローについてもっと知るには、[プルリクエストのマージについて](/articles/about-pull-request-merges/#rebase-and-merge-your-pull-request-commits)を参照してください。
+- {% indented_data_reference reusables.pull_requests.rebase_and_merge_verification spaces=3 %}
 
 詳しい情報については[プルリクエストのためのコミットのリベースの設定](/articles/configuring-commit-rebasing-for-pull-requests)を参照してください。

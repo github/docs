@@ -1,6 +1,7 @@
 ---
 title: Seguir pessoas
-intro: 'É possível seguir pessoas em {% data variables.product.product_name %} para receber notificações sobre as atividades delas {% ifversion fpt %} e descobrir projetos nas comunidades em que elas estão inseridas.{% endif %}.'
+intro: 'É possível seguir pessoas em {% data variables.product.product_name %} para receber notificações sobre as atividades delas {% ifversion fpt or ghec %} e descobrir projetos nas comunidades em que elas estão inseridas.{% endif %}.'
+permissions: '{% data reusables.enterprise-accounts.emu-permission-follow %}'
 redirect_from:
   - /articles/following-people
   - /github/getting-started-with-github/following-people
@@ -9,59 +10,60 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Profile
 ---
 
-## About followers on {% data variables.product.product_name %}
+## Sobre seguidores em {% data variables.product.product_name %}
 
-When you follow people, you'll see their public activity in the activity view of your news feed.{% ifversion fpt %} If someone you follow stars a public repository, {% data variables.product.product_name %} may recommend the repository to you in the discovery view of your news feed.{% endif %}
+Ao seguir pessoas, você verá as atividades públicas delas no seu painel pessoal.{% ifversion fpt or ghec %} Se alguém que você segue favoritar um repositório público, {% data variables.product.product_name %} poderá recomendar o repositório a você.{% endif %} Para obter mais informações, consulte "[Sobre o seu painel pessoal](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/about-your-personal-dashboard#staying-updated-with-activity-from-the-community)."
 
-You can unfollow someone if you do not wish to see their public activity on {% data variables.product.product_name %}.
+Você pode deixar de seguir alguém, se você não quiser ver suas atividades públicas em {% data variables.product.product_name %}.
 
-## Following a user on {% data variables.product.product_name %}
+## Seguindo um usuário em {% data variables.product.product_name %}
 
-1. Click a user image to display that user's profile.
+1. Clique em uma imagem de usuário para exibir o perfil do usuário.
 
-  ![User image](/assets/images/help/profile/user-profile-image.png)
+  ![Imagem do usuário](/assets/images/help/profile/user-profile-image.png)
 
-2. Click **Follow** under their profile image.
+2. Clique em **Seguir** na imagem do seu perfil.
 
   ![Botão Follow user (Seguir usuário)](/assets/images/help/profile/follow-user-button.png)
 
-## Unfollowing a user on {% data variables.product.product_name %}
+## Deixando de seguir um usuário em {% data variables.product.product_name %}
 
-1.  Click a user image to display that user's profile.
+1.  Clique em uma imagem de usuário para exibir o perfil do usuário.
 
-  ![User image](/assets/images/help/profile/user-profile-image.png)
+  ![Imagem do usuário](/assets/images/help/profile/user-profile-image.png)
 
-2.  Click **Unfollow** under their profile image.
+2.  Clique em **Deixar de seguir** na imagem do perfil dele.
 
-  ![User profile button](/assets/images/help/profile/user-profile-unfollow-button.png)
+  ![Botão Perfil do Usuário](/assets/images/help/profile/user-profile-unfollow-button.png)
 
-## Viewing followed users on {% data variables.product.product_name %}
+## Visualizando usuários seguidos em {% data variables.product.product_name %}
 
-1. Click a user image to display that user's profile.
+1. Clique em uma imagem de usuário para exibir o perfil do usuário.
 
-  ![User image](/assets/images/help/profile/user-profile-image.png)
+  ![Imagem do usuário](/assets/images/help/profile/user-profile-image.png)
 
-2. Click **following** under their profile image.
+2. Clique em **Seguindo** na imagem do perfil deles.
 
-  ![User following](/assets/images/help/profile/user-profile-following.png)
+  ![Seguindo usuário](/assets/images/help/profile/user-profile-following.png)
 
-## Viewing followers on {% data variables.product.product_name %}
+## Visualizando seguidores em {% data variables.product.product_name %}
 
-1. Click a user image to display that user's profile.
+1. Clique em uma imagem de usuário para exibir o perfil do usuário.
 
-  ![User image](/assets/images/help/profile/user-profile-image.png)
+  ![Imagem do usuário](/assets/images/help/profile/user-profile-image.png)
 
-2. Click **followers** under their profile image.
+2. Clique em **seguidores** na imagem do perfil deles.
 
-  ![User following](/assets/images/help/profile/user-profile-followers.png)
+  ![Seguindo usuário](/assets/images/help/profile/user-profile-followers.png)
 
 
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ## Leia mais
 
 - "[Salvar repositórios com estrelas](/articles/saving-repositories-with-stars/)"

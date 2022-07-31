@@ -1,9 +1,10 @@
 ---
-title: Paying for GitHub Sponsors by invoice
-shortTitle: Paying by invoice
-intro: 'If your company pays {% data variables.product.company_short %} by invoice, you can join the Sponsors for Companies service.'
+title: Pagar por GitHub Sponsors por factura
+shortTitle: Pagar por factura
+intro: 'Si tu compañía paga por {% data variables.product.company_short %} por factura, puedes unirte al servicio de Patrocinadores para Compañías.'
 versions:
   fpt: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Sponsors
@@ -14,8 +15,7 @@ redirect_from:
 
 {% data reusables.sponsors.beta-note-sponsors-for-companies %}
 
-Companies can use an invoice method to participate in the {% data variables.product.prodname_sponsors %} program. This can be particularly convenient if your company has an existing invoiced billing relationship with {% data variables.product.company_short %}. Companies paying by invoice get access to a {% data variables.product.product_name %} dashboard that measures open source contributions and activity across the public projects on {% data variables.product.prodname_dotcom_the_website %} they're interested in.
+Las compañías utilizan un método de facturación para participar en el programa de {% data variables.product.prodname_sponsors %}. Esto puede ser particularmente conveniente si tu compañía tiene una relación de cobro por factura con {% data variables.product.company_short %}. Las compañías que pagan por factura obtiene acceso a un tablero de {% data variables.product.product_name %} que mide las contribuciones de código abierto y la actividad a través de los proyectos públicos de {% data variables.product.prodname_dotcom_the_website %} en las que están interesadas.
 
-You can join this beta program by talking to your sales representative, or by [contacting us](https://support.github.com/contact/org-sponsors-waitlist).
+Puedes unirte a este programa beta si hablas con tu representante de ventas o si [nos contactas](https://support.github.com/contact/org-sponsors-waitlist).
 
-For information about receiving payments from the Sponsors for Companies service, see "[Receiving payments from Sponsors for Companies](/sponsors/receiving-sponsorships-through-github-sponsors/sponsors-for-companies)."

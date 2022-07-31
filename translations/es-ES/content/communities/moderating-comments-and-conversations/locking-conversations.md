@@ -8,19 +8,20 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Community
 ---
 
-Corresponde bloquear una conversación cuando en su conjunto no es constructiva o viola el código de conducta de tu comunidad {% ifversion fpt %} o las [Pautas de la comunidad](/articles/github-community-guidelines){% endif %} de GitHub. Cuando bloqueas una conversación, también puedes especificar el motivo, que queda públicamente visible.
+Es adecuado fijar una conversación cuando toda ella carece de comentarios constructivos o cuando viola el código de conducta de tu comunidad{% ifversion fpt or ghec %} o los [Lineamientos comunitarios](/free-pro-team@latest/github/site-policy/github-community-guidelines) de GitHub{% endif %}. Cuando bloqueas una conversación, también puedes especificar el motivo, que queda públicamente visible.
 
 Bloquear una conversación genera un evento de cronología que queda visible para cualquiera que tenga acceso de lectura al repositorio. Sin embargo, el nombre de usuario de la persona que bloqueó la conversación solo lo pueden ver las personas con acceso de escritura al repositorio. Para cualquiera que no tenga acceso de escritura, el evento de cronología es anónimo.
 
 ![Evento de cronología anónimo de una conversación bloqueada](/assets/images/help/issues/anonymized-timeline-entry-for-locked-conversation.png)
 
-Mientras una conversación está bloqueada, solo [las personas con acceso de escritura](/articles/repository-permission-levels-for-an-organization/) y [los propietarios y colaboradores del repositorio](/articles/permission-levels-for-a-user-account-repository/#collaborator-access-for-a-repository-owned-by-a-user-account) pueden agregar, ocultar y eliminar comentarios.
+Mientras una conversación está bloqueada, solo [las personas con acceso de escritura](/articles/repository-permission-levels-for-an-organization/) y [los propietarios y colaboradores del repositorio](/articles/permission-levels-for-a-user-account-repository/#collaborator-access-for-a-repository-owned-by-a-personal-account) pueden agregar, ocultar y eliminar comentarios.
 
-Para buscar conversaciones bloqueadas en un repositorio que no está archivado, puedes usar los calificadores de búsqueda `is:locked` y `archived:false`. Las conversaciones se bloquean de forma automática en los repositorios archivados. Para obtener más información, consulta "[Buscar propuestas y solicitudes de extracción](/articles/searching-issues-and-pull-requests#search-based-on-whether-a-conversation-is-locked)".
+Para buscar conversaciones bloqueadas en un repositorio que no está archivado, puedes usar los calificadores de búsqueda `is:locked` y `archived:false`. Las conversaciones se bloquean de forma automática en los repositorios archivados. Para obtener más información, consulta "[Buscar propuestas y solicitudes de extracción](/search-github/searching-on-github/searching-issues-and-pull-requests#search-based-on-whether-a-conversation-is-locked)".
 
 1. De manera opcional, escribe un comentario que explique el motivo por el cual estás bloqueando la conversación.
 2. En el margen derecho de la propuesta o solicitud de extracción, o por encima del cuadro de comentarios de la página de confirmaciones, haz clic en **Lock conversation** (Bloquear conversación). ![Enlace Lock conversation (Bloquear conversación)](/assets/images/help/repository/lock-conversation.png)
@@ -32,7 +33,7 @@ Para buscar conversaciones bloqueadas en un repositorio que no está archivado, 
 
 - "[Configurar tu proyecto para contribuciones positivas](/communities/setting-up-your-project-for-healthy-contributions)"
 - [Utilizar plantillas para promover informes de problemas y solicitudes de extracción útiles](/communities/using-templates-to-encourage-useful-issues-and-pull-requests)"
-- [Administrar los comentarios ofensivos](/communities/moderating-comments-and-conversations/managing-disruptive-comments)"{% ifversion fpt %}
+- [Administrar los comentarios ofensivos](/communities/moderating-comments-and-conversations/managing-disruptive-comments)"{% ifversion fpt or ghec %}
 - "[Mantener tu seguridad en {% data variables.product.prodname_dotcom %}](/communities/maintaining-your-safety-on-github)"
 - "[Informar abuso o spam](/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam)"
 - "[Limitar interacciones en tu repositorio](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-repository)"

@@ -1,13 +1,14 @@
 ---
 title: インテグレーターのためのベストプラクティス
-intro: '{% data variables.product.prodname_dotcom %} APIと確実にやり取りできるアプリケーションを構築し、ユーザに最高のエクスペリエンスを提供しましょう。'
+intro: '信頼性を持って{% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} APIとやりとりをするアプリケーションを構築し、ユーザに最善の体験を提供してください。'
 redirect_from:
-  - /guides/best-practices-for-integrators/
+  - /guides/best-practices-for-integrators
   - /v3/guides/best-practices-for-integrators
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - API
 shortTitle: インテグレーターのベストプラクティス
@@ -22,17 +23,17 @@ GitHubプラットフォームとの統合に興味はありますか。 [同じ
 
 いくつかのステップを踏むことで、GitHubから配信されるペイロードを安全に受信できます。
 
-1. 受信サーバーは必ずHTTPS接続にしてください。 デフォルトでは、GitHubはペイロードを配信する際にSSL証明書を検証します。{% ifversion fpt %}
+1. 受信サーバーは必ずHTTPS接続にしてください。 デフォルトでは、GitHubはペイロードを配信する際にSSL証明書を検証します。{% ifversion fpt or ghec %}
 1. [フック配信時に使用するIPアドレス](/github/authenticating-to-github/about-githubs-ip-addresses)をサーバーの許可リストに追加できます。 正しいIPアドレスを常に確認していることを確かめるため、[`/meta`エンドポイントを使用して](/rest/reference/meta#meta)GitHubが使用するアドレスを見つけることができます。{% endif %}
 1. ペイロードがGitHubから配信されていることを確実に保証するため、[シークレットトークン](/webhooks/securing/)を提供します。 シークレットトークンを強制することにより、サーバーが受信するあらゆるデータが確実にGitHubから来ていることを保証できます。 サービスの*ユーザごと*に異なるシークレットトークンを提供するのが理想的です。 そうすれば、1つのトークンが侵害されても、他のユーザは影響を受けません。
 
 ## 同期作業より非同期作業を優先する
 
-GitHubは、webhookペイロードを受信後{% ifversion fpt %}10{% else %}30{% endif %}秒以内にインテグレーションが応答することを求めています。 サービスの応答時間がそれ以上になると、GitHubは接続を中止し、ペイロードは失われます。
+GitHubは、webhookペイロードを受信後{% ifversion fpt or ghec %}10{% else %}30{% endif %}秒以内にインテグレーションが応答することを求めています。 サービスの応答時間がそれ以上になると、GitHubは接続を中止し、ペイロードは失われます。
 
 サービスの完了時間を予測することは不可能なので、「実際の作業」のすべてはバックグラウンドジョブで実行すべきです。 バックグラウンドジョブのキューや処理を扱えるライブラリには、[Resque](https://github.com/resque/resque/) (Ruby用)、[RQ](http://python-rq.org/) (Python用)、[RabbitMQ](http://www.rabbitmq.com/)などがあります。
 
-バックグラウンドジョブが実行中でも、GitHubはサーバが{% ifversion fpt %}10{% else %}30{% endif %}秒以内で応答することを求めていることに注意してください。 サーバは何らかの応答を送信することにより、ペイロードの受信を確認する必要があります。 サービスがペイロードについての確認を可能な限り速やかに行うことは非常に重要です。そうすることにより、サーバがリクエストを継続するかどうか正確に報告できます。
+バックグラウンドジョブが実行中でも、GitHubはサーバが{% ifversion fpt or ghec %}10{% else %}30{% endif %}秒以内で応答することを求めていることに注意してください。 サーバは何らかの応答を送信することにより、ペイロードの受信を確認する必要があります。 サービスがペイロードについての確認を可能な限り速やかに行うことは非常に重要です。そうすることにより、サーバがリクエストを継続するかどうか正確に報告できます。
 
 ## GitHubへの応答時に適切なHTTPステータスコードを使用する
 
@@ -132,7 +133,7 @@ end
 
 この例では、始めに`closed`アクションを確認してから、`process_closed`メソッドを呼びます。 未確認のアクションは、今後の参考のために記録されます。
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec or ghae %}
 
 ## レート制限の扱い
 
@@ -142,11 +143,11 @@ GitHub APIの[レート制限](/rest/overview/resources-in-the-rest-api#rate-lim
 
 [レート制限ステータスの確認](/rest/reference/rate-limit)はいつでも可能です。 レート制限を確認しても、その通信量はレート制限に影響しません。
 
-## Dealing with secondary rate limits
+## セカンダリレート制限の扱い
 
-[Secondary rate limits](/rest/overview/resources-in-the-rest-api#secondary-rate-limits) are another way we ensure the API's availability. この制限に到達することを避けるため、アプリケーションは以下のガイドラインに従うようにしてください。
+[セカンダリレート制限](/rest/overview/resources-in-the-rest-api#secondary-rate-limits)は、APIの可用性を保証するもう1つの方法です。 この制限に到達することを避けるため、アプリケーションは以下のガイドラインに従うようにしてください。
 
-* 認証済みのリクエストを行うか、アプリケーションのクライアントIDとシークレットを使用してください。 Unauthenticated requests are subject to more aggressive secondary rate limiting.
+* 認証済みのリクエストを行うか、アプリケーションのクライアントIDとシークレットを使用してください。 認証されていないリクエストには、より強いセカンダリレート制限が適用されます。
 * 単一のユーザまたはクライアントIDに順番にリクエストを行ってください。 単一のユーザまたはクライアントIDのリクエストは同時に行わないでください。
 * 単一のユーザまたはクライアントIDで多数の`POST`、`PATCH`、`PUT`、`DELETE`リクエストを行う場合には、リクエストごとに少なくとも1秒の間隔をとってください。
 * 制限がかかっている間は、速さを遅くするため`Retry-After`レスポンスヘッダを使用します。 `Retry-After`ヘッダの値は常に整数とします。この値は、再度リクエストを行う前に待機すべき秒数を示します。 たとえば、`Retry-After: 30`は、次のリクエストを送信するまで30秒待機する必要があることを意味します。

@@ -4,7 +4,7 @@ intro: Enterpriseアカウントと、そのアカウントが所有するOrgani
 redirect_from:
   - /v4/guides/managing-enterprise-accounts
 versions:
-  fpt: '*'
+  ghec: '*'
   ghes: '*'
   ghae: '*'
 topics:
@@ -58,11 +58,12 @@ GraphQLを使ってEnterpriseアカウントの管理を始めるには、以下
     - `admin:enterprise`
 
   Enterpriseアカウントに固有にスコープは以下のとおりです。
-    - `admin:enterprise`: Enterpriseの完全な制御を与えます（`manage_billing:enterprise`及び`read:enterprise`を含む）
-    - `manage_billing:enterprise`: Enterpriseの支払いデータの読み書き。
+    - `admin:enterprise`: Enterpriの完全な西予を与えます（{% ifversion ghes > 3.2 or ghae or ghec %}`manage_runners:enterprise`、{% endif %}`manage_billing:enterprise`及び`read:enterprise`を含みます）。
+    - `manage_billing:enterprise`: Enterpriseの支払いデータの読み書き。{% ifversion ghes > 3.2 or ghae  %}
+    - `manage_runners:enterprise`: GitHub ActionsのEnterpriseランナー及びランナーグループを管理するためのアクセス。{% endif %}
     - `read:enterprise`: Enterpriseのプロフィールデータの読み取り。
 
-4. 個人アクセストークンをコピーし、GraphQLクライアントに追加するまでは安全な場所に保管しておいてください。
+3. 個人アクセストークンをコピーし、GraphQLクライアントに追加するまでは安全な場所に保管しておいてください。
 
 ### 2. GraphQLクライアントの選択
 
@@ -94,7 +95,7 @@ GraphiQLもしくはベースURLの設定ができる他のスタンドアロー
 
 ## Enterprise Accounts APIを使ったクエリの例
 
-このGraphQLクエリは、Enterprise Accounts APIを使い、アプライアンス中の各Organization内の{% ifversion not ghae %}`パブリック`{% else %}`プライベート`{% endif %}なリポジトリの総数を要求しています。 このクエリをカスタマイズするには、`<enterprise-account-name>`をお使いのEnterpriseインスタンスのスラッグで置き換えてください。
+このGraphQLクエリは、Enterprise Accounts APIを使い、アプライアンス中の各Organization内の{% ifversion not ghae %}`パブリック`{% else %}`プライベート`{% endif %}なリポジトリの総数を要求しています。 このクエリをカスタマイズするには、`<enterprise-account-name>`をEnterpriseアカウントのハンドルで置き換えてください。 たとえばEnterpriseアカウントが`https://github.com/enterprises/octo-enterprise`にあるなら、`<enterprise-account-name>`を`octo-enterprise`で置き換えてください。
 
 {% ifversion not ghae %}
 

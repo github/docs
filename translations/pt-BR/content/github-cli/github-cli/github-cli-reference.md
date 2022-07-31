@@ -1,28 +1,35 @@
 ---
-title: GitHub CLI reference
-intro: 'You can view all of the {% data variables.product.prodname_cli %} commands in your terminal or in the {% data variables.product.prodname_cli %} manual.'
+title: Referência da CLI do GitHub
+intro: 'Você pode visualizar todos os comandos de {% data variables.product.prodname_cli %} no seu terminal ou no manual de {% data variables.product.prodname_cli %}.'
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - CLI
 type: reference
 ---
 
-To view all {% data variables.product.prodname_cli %} commands, see the [{% data variables.product.prodname_cli %} manual](https://cli.github.com/manual/gh_help_reference) or use the `reference` command.
+Para visualizar todos os comandos de {% data variables.product.prodname_cli %} de alto nível, consulte o manual de [{% data variables.product.prodname_cli %}](https://cli.github.com/manual/gh) ou ligue para `gh` sem argumentos.
 
 ```shell
-gh reference
+gh
 ```
 
-To view the environment variables that can be used with {% data variables.product.prodname_cli %}, see the [{% data variables.product.prodname_cli %} manual](https://cli.github.com/manual/gh_help_environment) or use the `environment` command.
+Para listar todos os comandos sob um grupo específico, use o comando de nível superior sem argumentos. Por exemplo, para listar [comandos para gerenciar repositórios](https://cli.github.com/manual/gh_repo):
+
+```shell
+gh repo
+```
+
+Para ver as variáveis de ambiente que podem ser usadas com {% data variables.product.prodname_cli %}, consulte o [manual de {% data variables.product.prodname_cli %}](https://cli.github.com/manual/gh_help_environment) ou use o comando `ambiente`.
 
 ```shell
 gh environment
 ```
 
-To view the configuration settings that can be used with {% data variables.product.prodname_cli %}, see the [{% data variables.product.prodname_cli %} manual](https://cli.github.com/manual/gh_config) or use the `config` command.
+Para ver as configurações que podem ser usadas com {% data variables.product.prodname_cli %}, consulte o [manual de {% data variables.product.prodname_cli %}](https://cli.github.com/manual/gh_config) ou use o comando `config`.
 
 ```shell
 gh config

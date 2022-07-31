@@ -2,13 +2,14 @@
 title: GitHub Appの所有権を移譲する
 intro: '{% data reusables.shortdesc.transferring_ownership_of_github_apps %}'
 redirect_from:
-  - /apps/building-integrations/managing-github-apps/transferring-ownership-of-a-github-app/
+  - /apps/building-integrations/managing-github-apps/transferring-ownership-of-a-github-app
   - /apps/managing-github-apps/transferring-ownership-of-a-github-app
   - /developers/apps/transferring-ownership-of-a-github-app
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - GitHub Apps
 shortTitle: 所有権の移譲

@@ -1,17 +1,16 @@
 ---
 title: ワークフローの無効化と有効化
 intro: '{% data variables.product.prodname_dotcom %} UI、REST API、または {% data variables.product.prodname_cli %} を使用して、ワークフローを無効化したり再度有効化したりすることができます。'
-product: '{% data reusables.gated-features.actions %}'
 versions:
   fpt: '*'
-  ghes: '>=3.0'
+  ghes: '*'
   ghae: '*'
+  ghec: '*'
 shortTitle: Disable & enable a workflow
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ワークフローを無効にすると、リポジトリからファイルを削除することなく、ワークフローがトリガーされないようにすることができます。 {% data variables.product.prodname_dotcom %} でワークフローを簡単に再度有効にすることができます。
 
@@ -31,8 +30,6 @@ shortTitle: Disable & enable a workflow
 REST API を使用して、ワークフローを無効化または有効化することもできます。 詳しい情報については、「[Actions REST API](/rest/reference/actions#workflows)」を参照してください。
 
 ## ワークフローの無効化
-
-{% include tool-switcher %}
 
 {% webui %}
 
@@ -57,8 +54,6 @@ gh workflow disable <em>workflow</em>
 {% endcli %}
 
 ## ワークフローの有効化
-
-{% include tool-switcher %}
 
 {% webui %}
 

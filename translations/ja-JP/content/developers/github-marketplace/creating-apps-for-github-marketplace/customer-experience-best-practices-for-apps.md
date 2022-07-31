@@ -4,6 +4,7 @@ intro: 使いやすく、分かりやすいアプリケーションを作成す�
 shortTitle: 顧客体験のベストプラクティス
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Marketplace
 redirect_from:

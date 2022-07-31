@@ -1,8 +1,8 @@
 ---
 title: Auditar de usuários em toda a sua empresa
-intro: 'O painel de log de auditoria mostra aos administradores do site as ações realizadas por todos os usuários e organizações de sua empresa nos últimos 90 dias incluindo detalhes como quem executou a ação, qual era a ação e quando a ação foi realizada.'
+intro: 'O painel do log de auditoria mostra aos administradores do site as ações realizadas por todos os usuários e organizações de toda a sua empresa dentro do mês atual e dos seis meses anteriores. O log de auditoria inclui detalhes como quem realizou a ação, qual foi a ação e quando a ação foi realizada.'
 redirect_from:
-  - /enterprise/admin/guides/user-management/auditing-users-across-an-organization/
+  - /enterprise/admin/guides/user-management/auditing-users-across-an-organization
   - /enterprise/admin/user-management/auditing-users-across-your-instance
   - /admin/user-management/auditing-users-across-your-instance
   - /admin/user-management/auditing-users-across-your-enterprise
@@ -47,7 +47,7 @@ O log de auditoria lista as seguintes informações sobre as ações feitas na s
 **Notas:**
 
 - Embora não seja possível usar texto para pesquisar entradas de auditoria, você pode criar consultas de pesquisa usando filtros diversificados. {% data variables.product.product_name %} é compatível com muitos operadores para fazer pesquisa em {% data variables.product.product_name %}. Para obter mais informações, consulte "[Sobre a pesquisa no {% data variables.product.prodname_dotcom %}](/github/searching-for-information-on-github/about-searching-on-github)".
-- Para pesquisar eventos com mais de 90 dias, use o qualificador `created`.
+- Os registros de auditoria estão disponíveis para o mês atual e todos os dias dos seis meses anteriores.
 
 {% endwarning %}
 
@@ -81,7 +81,7 @@ O qualificador `org` limita as ações a uma organização específica. Por exem
 
 ### Pesquisar com base na ação
 
-O qualificador `action` pesquisa eventos específicos, agrupados em categorias. Para informações sobre os eventos associados a essas categorias, consulte "[Ações auditadas](/admin/user-management/audited-actions)".
+O qualificador `action` pesquisa eventos específicos, agrupados em categorias. Para obter informações sobre os eventos associados a essas categorias, consulte "[Eventos de log de auditoria para sua empresa](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise)".
 
 | Categoria | Descrição                                                                         |
 | --------- | --------------------------------------------------------------------------------- |
@@ -113,7 +113,7 @@ O qualificador `country` filtra as ações com base no país de origem.
 
 O qualificador `created` filtra as ações com base na hora em que elas ocorreram.
 - Defina as datas usando o formato `YYYY-MM-DD` (ano, mês, dia).
-- As datas têm qualificadores [antes de, depois de e intervalos](/enterprise/{{ currentVersion }}/user/articles/search-syntax). Por exemplo:
+- As datas têm qualificadores [antes de, depois de e intervalos](/enterprise/user/articles/search-syntax). Por exemplo:
   * `created:2014-07-08` localiza todos os eventos ocorridos em 8 de julho de 2014;
   * `created:>=2014-07-01` localiza todos os eventos ocorridos depois de 8 de julho de 2014;
   * `created:<=2014-07-01`  localiza todos os eventos ocorridos antes de 8 de julho de 2014;

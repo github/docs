@@ -8,6 +8,7 @@ redirect_from:
 permissions: 'Organization owners can set up {% data variables.product.prodname_sponsors %} for an organization.'
 versions:
   fpt: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Organizations
@@ -22,7 +23,7 @@ shortTitle: Configuración para una organización
 
 Después de recibir una invitación para que tu organización se una a {% data variables.product.prodname_sponsors %} puedes completar los pasos a continuación para que se convierta en una organización patrocinada.
 
-Para unirte a {% data variables.product.prodname_sponsors %} como un colaborador individual independiente a una organización, consulta la sección "[Configurar {% data variables.product.prodname_sponsors %} para tu cuenta de usuario](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-user-account)".
+Para unirte a {% data variables.product.prodname_sponsors %} como un colaborador individual independiente a una organización, consulta la sección "[Configurar {% data variables.product.prodname_sponsors %} para tu cuenta personal](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-personal-account)".
 
 {% data reusables.sponsors.navigate-to-github-sponsors %}
 {% data reusables.sponsors.view-eligible-accounts %}
@@ -51,6 +52,7 @@ Para unirte a {% data variables.product.prodname_sponsors %} como un colaborador
 {% data reusables.sponsors.navigate-to-sponsor-tiers-tab %}
 {% data reusables.sponsors.click-add-tier %}
 {% data reusables.sponsors.tier-price-description %}
+{% data reusables.sponsors.add-welcome-message %}
 {% data reusables.sponsors.save-tier-draft %}
 {% data reusables.sponsors.review-and-publish-tier %}
 {% data reusables.sponsors.add-more-tiers %}
@@ -71,14 +73,12 @@ Para obtener más información acerca de cómo configurar Stripe Connect utiliza
 {% data reusables.sponsors.tax-form-information-org %}
 
 {% data reusables.sponsors.navigate-to-sponsors-dashboard %}
-{% data reusables.sponsors.settings-tab %}
-{% data reusables.sponsors.country-of-residence %}
 {% data reusables.sponsors.overview-tab %}
 {% data reusables.sponsors.tax-form-link %}
 
 ## Habilitar la autenticación de dos factores (2FA) en tu cuenta {% data variables.product.prodname_dotcom %}
 
-Antes de que tu organización pueda convertirse en patrocinada, deberás habilitar la autenticación de dos factores en tu cuenta de {% data variables.product.product_name %}. Para obtener más información, consulta "[Configurar autenticación de dos factores](/articles/configuring-two-factor-authentication)".
+Antes de que tu organización pueda convertirse en una organización patrocinada, debes habilitar la 2FA para tu cuenta en {% data variables.product.product_location %}. Para obtener más información, consulta "[Configurar autenticación de dos factores](/articles/configuring-two-factor-authentication)".
 
 ## Enviar tu aplicación a {% data variables.product.prodname_dotcom %} para su aprobación
 
@@ -88,5 +88,6 @@ Antes de que tu organización pueda convertirse en patrocinada, deberás habilit
 {% data reusables.sponsors.github-review-app %}
 
 ## Leer más
+
 - "[Acerca de {% data variables.product.prodname_sponsors %}](/sponsors/getting-started-with-github-sponsors/about-github-sponsors)"
 - "[Recibir patrocinios a través de {% data variables.product.prodname_sponsors %}](/sponsors/receiving-sponsorships-through-github-sponsors)".

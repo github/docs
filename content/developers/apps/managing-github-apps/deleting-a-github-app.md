@@ -2,13 +2,14 @@
 title: Deleting a GitHub App
 intro: '{% data reusables.shortdesc.deleting_github_apps %}'
 redirect_from:
-  - /apps/building-integrations/managing-github-apps/deleting-a-github-app/
+  - /apps/building-integrations/managing-github-apps/deleting-a-github-app
   - /apps/managing-github-apps/deleting-a-github-app
   - /developers/apps/deleting-a-github-app
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - GitHub Apps
 ---

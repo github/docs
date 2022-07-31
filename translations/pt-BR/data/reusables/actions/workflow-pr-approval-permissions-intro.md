@@ -1,0 +1,1 @@
+Você pode optar por permitir ou impedir fluxos de trabalho {% data variables.product.prodname_actions %} de{% ifversion allow-actions-to-approve-pr-with-ent-repo %} de criar ou{% endif %} aprovar pull requests.

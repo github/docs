@@ -2,9 +2,9 @@
 title: Configurar Git para manejar finales de línea
 intro: 'Para evitar problemas en tus diferencias, puedes configurar Git para manejar correctamente los finales de línea.'
 redirect_from:
-  - /dealing-with-lineendings/
-  - /line-endings/
-  - /articles/dealing-with-line-endings/
+  - /dealing-with-lineendings
+  - /line-endings
+  - /articles/dealing-with-line-endings
   - /articles/configuring-git-to-handle-line-endings
   - /github/using-git/configuring-git-to-handle-line-endings
   - /github/getting-started-with-github/configuring-git-to-handle-line-endings
@@ -13,10 +13,11 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 shortTitle: Manejar los extremos de línea
 ---
 
-## About line endings
+## Acerca de los finales de línea
 Cada vez que presionas <kbd>Enter</kbd> en tu teclado, insertas un caracter invisible denominado fin de línea. Esto se maneja de forma diferente en los diferentes sistemas operativos.
 
 Cuando colaboras en proyectos con Git y {% data variables.product.product_name %}, Git podría producir resultados inesperados si, por ejemplo, estás trabajando en una máquina Windows y tu colaborador hizo cambios en macOS.

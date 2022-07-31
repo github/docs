@@ -6,11 +6,12 @@ redirect_from:
   - /github/automating-your-workflow-with-github-actions/building-actions
   - /actions/automating-your-workflow-with-github-actions/building-actions
   - /actions/building-actions
-  - /articles/creating-a-github-action/
+  - /articles/creating-a-github-action
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 children:
   - /about-custom-actions
   - /creating-a-docker-container-action
@@ -20,7 +21,9 @@ children:
   - /dockerfile-support-for-github-actions
   - /setting-exit-codes-for-actions
   - /publishing-actions-in-github-marketplace
+  - /sharing-actions-and-workflows-with-your-enterprise
+  - /releasing-and-maintaining-actions
+  - /developing-a-third-party-cli-action
 ---
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}

@@ -6,7 +6,7 @@ redirect_from:
   - /enterprise/admin/migrations/generating-a-list-of-migration-conflicts
   - /enterprise/admin/migrations/reviewing-migration-conflicts
   - /enterprise/admin/migrations/resolving-migration-conflicts-or-setting-up-custom-mappings
-  - /enterprise/admin/guides/migrations/preparing-the-migrated-data-for-import-to-github-enterprise/
+  - /enterprise/admin/guides/migrations/preparing-the-migrated-data-for-import-to-github-enterprise
   - /enterprise/admin/user-management/preparing-to-migrate-data-to-your-enterprise
   - /admin/user-management/preparing-to-migrate-data-to-your-enterprise
 versions:
@@ -20,7 +20,7 @@ shortTitle: 准备迁移数据
 
 ## 准备迁移的数据以导入到 {% data variables.product.prodname_ghe_server %}
 
-1. 使用 [`scp`](https://linuxacademy.com/blog/linux/ssh-and-scp-howto-tips-tricks#scp) 命令将从源实例或组织生成的迁移存档复制到 {% data variables.product.prodname_ghe_server %} 目标：
+1. 使用 [`scp`](https://acloudguru.com/blog/engineering/ssh-and-scp-howto-tips-tricks#scp) 命令将从源实例或组织生成的迁移存档复制到 {% data variables.product.prodname_ghe_server %} 目标：
 
     ```shell
     $ scp -P 122 <em>/path/to/archive/MIGRATION_GUID.tar.gz</em> admin@<em>hostname</em>:/home/admin/
@@ -44,7 +44,7 @@ shortTitle: 准备迁移数据
     $ ghe-migrator conflicts -g <em>MIGRATION_GUID</em> > conflicts.csv
     ```
     - 如果未报告冲突，您可以按照“[将数据迁移到企业](/enterprise/admin/guides/migrations/applying-the-imported-data-on-github-enterprise-server/)”中的步骤操作，安全地导入数据。
-2. 如果存在冲突，请使用 [`scp`](https://linuxacademy.com/blog/linux/ssh-and-scp-howto-tips-tricks#scp) 命令将 *conflicts.csv* 复制到您的本地计算机：
+2. 如果存在冲突，请使用 [`scp`](https://acloudguru.com/blog/engineering/ssh-and-scp-howto-tips-tricks#scp) 命令将 *conflicts.csv* 复制到您的本地计算机：
   ```shell
   $ scp -P 122 admin@<em>hostname</em>:conflicts.csv ~/Desktop
   ```
@@ -134,7 +134,7 @@ $ ghe-migrator audit -m user -g <em>MIGRATION_GUID</em> > users.csv
 
 ### 应用修改的迁移数据
 
-1. 进行更改后，请使用 [`scp`](https://linuxacademy.com/blog/linux/ssh-and-scp-howto-tips-tricks#scp) 命令将修改后的 *conflicts.csv*（或格式正确的任何其他映射 *.csv* 文件）应用到目标实例：
+1. 进行更改后，请使用 [`scp`](https://acloudguru.com/blog/engineering/ssh-and-scp-howto-tips-tricks#scp) 命令将修改后的 *conflicts.csv*（或格式正确的任何其他映射 *.csv* 文件）应用到目标实例：
 
     ```shell
     $ scp -P 122 ~/Desktop/conflicts.csv admin@<em>hostname</em>:/home/admin/

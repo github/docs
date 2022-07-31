@@ -2,13 +2,14 @@
 title: Using the GitHub API in your app
 intro: Learn how to set up your app to listen for events and use the Octokit library to perform REST API operations.
 redirect_from:
-  - /apps/building-your-first-github-app/
+  - /apps/building-your-first-github-app
   - /apps/quickstart-guides/using-the-github-api-in-your-app
   - /developers/apps/using-the-github-api-in-your-app
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - GitHub Apps
 shortTitle: Build an app with the REST API
@@ -24,7 +25,7 @@ This project will walk you through the following:
 
 {% data reusables.apps.app-ruby-guides %}
 
-Once you've worked through the steps, you'll be ready to develop other kinds of integrations using the full suite of GitHub APIs. {% ifversion fpt %}You can check out successful examples of apps on [GitHub Marketplace](https://github.com/marketplace) and [Works with GitHub](https://github.com/works-with).{% endif %}
+Once you've worked through the steps, you'll be ready to develop other kinds of integrations using the full suite of GitHub APIs. {% ifversion fpt or ghec %}You can check out successful examples of apps on [GitHub Marketplace](https://github.com/marketplace) and [Works with GitHub](https://github.com/works-with).{% endif %}
 
 ## Prerequisites
 
@@ -233,5 +234,5 @@ Here are some ideas for what you can do next:
 * When the bot successfully adds the label, show a message in the Terminal. (Hint: compare the `needs-response` label ID with the ID of the label in the payload as a condition for your message, so that the message only displays when the relevant label is added and not some other label.)
 * Add a landing page to your app and hook up a [Sinatra route](https://github.com/sinatra/sinatra#routes) for it.
 * Move your code to a hosted server (like Heroku). Don't forget to update your app settings with the new domain.
-* Share your project or get advice in the {% data variables.product.prodname_support_forum_with_url %}{% ifversion fpt %}
+* Share your project or get advice in the {% data variables.product.prodname_support_forum_with_url %}{% ifversion fpt or ghec %}
 * Have you built a shiny new app you think others might find useful? [Add it to GitHub Marketplace](/apps/marketplace/creating-and-submitting-your-app-for-approval/)!{% endif %}

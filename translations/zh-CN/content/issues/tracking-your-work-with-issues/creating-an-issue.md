@@ -1,7 +1,7 @@
 ---
 title: 创建议题
 intro: 议题可以通过多种方式创建，因此您可以为工作流程选择最方便的方法。
-permissions: People with read permissions can create an issue in a repository where issues are enabled.
+permissions: 'People with read access can create an issue in a repository where issues are enabled. {% data reusables.enterprise-accounts.emu-permission-repo %}'
 redirect_from:
   - /github/managing-your-work-on-github/managing-your-work-with-issues-and-pull-requests/creating-an-issue
   - /articles/creating-an-issue
@@ -22,11 +22,13 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
   - Issues
   - Project management
 shortTitle: 创建议题
+type: how_to
 ---
 
 议题可用于跟踪漏洞、增强功能或其他请求。 更多信息请参阅“[关于议题](/issues/tracking-your-work-with-issues/about-issues)”。
@@ -43,17 +45,17 @@ shortTitle: 创建议题
 {% data reusables.repositories.assign-an-issue-as-project-maintainer %}
 {% data reusables.repositories.submit-new-issue %}
 
-## Creating an issue with {% data variables.product.prodname_cli %}
+## 使用 {% data variables.product.prodname_cli %} 创建议题
 
-{% data reusables.cli.about-cli %} To learn more about {% data variables.product.prodname_cli %}, see "[About {% data variables.product.prodname_cli %}](/github-cli/github-cli/about-github-cli)."
+{% data reusables.cli.about-cli %} 要了解 {% data variables.product.prodname_cli %} 的更多信息，请参阅“[关于 {% data variables.product.prodname_cli %}](/github-cli/github-cli/about-github-cli)”。
 
-To create an issue, use the `gh issue create` subcommand. To skip the interactive prompts, include the `--body` and the `--title` flags.
+要创建议题，请使用 `gh issue create` 子命令。 若要跳过交互式提示，请包括 `--body` and the `--title` 标志。
 
 ```shell
 gh issue create --title "My new issue" --body "Here are more details."
 ```
 
-You can also specify assignees, labels, milestones, and projects.
+您还可以指定受理人、标签、里程碑和项目。
 
 ```shell
 gh issue create --title "My new issue" --body "Here are more details." --assignee @me,monalisa --label "bug,help wanted" --project onboarding --milestone "learning codebase"
@@ -88,17 +90,17 @@ gh issue create --title "My new issue" --body "Here are more details." --assigne
 {% data reusables.repositories.assign-an-issue-as-project-maintainer %}
 {% data reusables.repositories.submit-new-issue %}
 
-{% ifversion fpt %}
+{% ifversion discussions %}
 
-## Creating an issue from discussion
+## 从讨论创建议题
 
-People with triage permission to a repository can create an issue from a discussion.
+对存储库具有分类权限的人员可以从讨论创建议题。
 
-When you create an issue from a discussion, the contents of the discussion post will be automatically included in the issue body, and any labels will be retained. Creating an issue from a discussion does not convert the discussion to an issue or delete the existing discussion. For more information about {% data variables.product.prodname_discussions %}, see "[About discussions](/discussions/collaborating-with-your-community-using-discussions/about-discussions)."
+从讨论创建议题时，讨论帖子的内容将自动包含在议题正文中，并且将保留所有标签。 从讨论创建议题不会将讨论转换为议题或删除现有讨论。 有关 {% data variables.product.prodname_discussions %} 的更多信息，请参阅“[关于讨论](/discussions/collaborating-with-your-community-using-discussions/about-discussions)”。
 
 {% data reusables.discussions.discussions-tab %}
 {% data reusables.discussions.click-discussion-in-list %}
-1. In the right sidebar, click {% octicon "issue-opened" aria-label="The issues icon" %} **Create issue from discussion**. ![Button to create issue from discussion](/assets/images/help/discussions/create-issue-from-discussion.jpg)
+1. 在右侧边栏中，单击 {% octicon "issue-opened" aria-label="The issues icon" %} **Create issue from discussion（从讨论创建议题）**。 ![用于从讨论创建议题的按钮](/assets/images/help/discussions/create-issue-from-discussion.jpg)
 {% data reusables.repositories.type-issue-title-and-description %}
 {% data reusables.repositories.assign-an-issue-as-project-maintainer %}
 {% data reusables.repositories.submit-new-issue %}
@@ -109,7 +111,7 @@ When you create an issue from a discussion, the contents of the discussion post 
 
 如果使用项目板对工作进行跟踪和排列优先级，您可以将项目板注释转换为议题。 更多信息请参阅“[关于项目板](/github/managing-your-work-on-github/about-project-boards)”和“[向项目板添加备注](/github/managing-your-work-on-github/adding-notes-to-a-project-board#converting-a-note-to-an-issue)”。
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 ## 从任务列表项创建议题
 
@@ -127,7 +129,7 @@ When you create an issue from a discussion, the contents of the discussion post 
 
 {% endtip %}
 
-必须具有适当的权限才可执行使用相关查询参数的操作。 例如，必须具有向议题添加标签的权限才可使用 `labels` 查询参数。 更多信息请参阅“[组织的仓库权限级别](/organizations/managing-access-to-your-organizations-repositories/repository-permission-levels-for-an-organization#permission-levels-for-repositories-owned-by-an-organization)”。
+必须具有适当的权限才可执行使用相关查询参数的操作。 例如，必须具有向议题添加标签的权限才可使用 `labels` 查询参数。 更多信息请参阅“[组织的仓库角色](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)”。
 
 如果使用查询参数创建无效的 URL，或者没有适当的权限，URL 将返回 `404 未找到`错误页。 如果您创建的 URL 超过服务器限制，URL 将返回 `414 URI 过长`错误页面。
 
@@ -140,6 +142,15 @@ When you create an issue from a discussion, the contents of the discussion post 
 | `assignees` | `https://github.com/octo-org/octo-repo/issues/new?assignees=octocat` 创建议题并分配到 @octocat。                                                                                                                                                                                         |
 | `projects`  | `https://github.com/octo-org/octo-repo/issues/new?title=Bug+fix&projects=octo-org/1` 创建标题为 "Bug fix" 的议题并将其添加到组织的项目板 1。                                                                                                                                                     |
 | `模板`        | `https://github.com/octo-org/octo-repo/issues/new?template=issue_template.md` 使用模板在议题正文中创建议题。 `template` 查询参数支持仓库根目录 `docs/` 或 `.github/` 的 `ISSUE_TEMPLATE` 子目录中存储的模板。 更多信息请参阅“[使用模板鼓励有用的议题和拉取请求](/communities/using-templates-to-encourage-useful-issues-and-pull-requests)”。 |
+
+{% ifversion code-scanning-task-lists %}
+## 从 {% data variables.product.prodname_code_scanning %} 警报创建议题
+
+{% data reusables.code-scanning.beta-alert-tracking-in-issues %}
+如果您使用议题来跟踪工作并确定其优先级，则可以使用议题来跟踪 {% data variables.product.prodname_code_scanning %} 警报。
+{% data reusables.code-scanning.alert-tracking-link %}
+
+{% endif %}
 
 ## 延伸阅读
 

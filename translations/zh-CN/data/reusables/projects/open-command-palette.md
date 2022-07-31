@@ -1,1 +1,1 @@
-输入 `cmd + k` (Mac) 或 `ctrl + k` (windows/Linux) 打开命令面板。
+要打开项目命令面板，请按 <kbd>Command</kbd>+<kbd>K</kbd> (Mac) 或 <kbd>Ctrl</kbd>+<kbd>K</kbd> (Windows/Linux)。

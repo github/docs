@@ -9,17 +9,25 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Repositories
-shortTitle: About merge methods
+shortTitle: Sobre métodos de merge
 ---
 
 {% data reusables.pull_requests.configure_pull_request_merges_intro %} É possível aplicar um tipo de método de merge, como combinação por squash ou rebase de commit, apena habilitando o método desejado para o repositório.
 
+{% ifversion fpt or ghec %}
+{% note %}
+
+**Observação:** Ao usar a fila de merge, você não poderá mais escolher o método de merge, uma vez que isso é controlado pela fila. {% data reusables.pull_requests.merge-queue-references %}
+
+{% endnote %}
+{% endif %}
+
 {% data reusables.pull_requests.default_merge_option %}
 
-{% ifversion fpt or ghae or ghes %}
-O método de merge padrão cria um commit de mesclagem. Você pode impedir que uma pessoa faça pushing com commits por merge em um branch protegido aplicando um histórico de commit linear. Para obter mais informações, consulte "[Sobre branches protegidos](/github/administering-a-repository/about-protected-branches#require-linear-history)."{% endif %}
+O método de merge padrão cria um commit de mesclagem. Você pode impedir que uma pessoa faça pushing com commits por merge em um branch protegido aplicando um histórico de commit linear. Para obter mais informações, consulte "[Sobre branches protegidos](/github/administering-a-repository/about-protected-branches#require-linear-history)."
 
 ## Combinar por squash os commits de merge
 
@@ -38,5 +46,6 @@ Para obter mais informações, consulte "[Configurar combinação de commits por
 
 Antes de habilitar o rebase de commit, leve em consideração estas desvantagens:
 - Os contribuidores do repositório podem ter que fazer rebase na linha de comando, resolver conflitos e forçar push de suas alterações no branch de tópico da pull request (ou branch de head remoto) para que possam usar a opção **rebase and merge** (fazer rebase e merge) no {% data variables.product.product_location %}. O push forçado deve ser feito com cuidado para que os contribuidores não substituam o trabalho que outras pessoas usaram como base para o respectivo trabalho. Para saber mais sobre quando a opção **Rebase and merge** (Fazer rebase e merge) é desabilitada no {% data variables.product.product_location %} e sobre o fluxo de trabalho para reabilitá-la, consulte "[Sobre merges de pull request](/articles/about-pull-request-merges/#rebase-and-merge-your-pull-request-commits)".
+- {% indented_data_reference reusables.pull_requests.rebase_and_merge_verification spaces=3 %}
 
 Para obter mais informações, consulte "[Configurar rebase de commit para pull requests](/articles/configuring-commit-rebasing-for-pull-requests)".

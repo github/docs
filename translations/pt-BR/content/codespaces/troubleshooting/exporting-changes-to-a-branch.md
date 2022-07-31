@@ -1,27 +1,28 @@
 ---
-title: Exporting changes to a branch
-intro: This article provides steps for exporting your codespace changes to a branch.
+title: Exportando alterações para um branch
+intro: Este artigo fornece etapas para exportar suas alterações de codespace para um branch.
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
+  ghec: '*'
 type: reference
 topics:
   - Codespaces
-shortTitle: Exporting changes
+shortTitle: Exportando alterações
 ---
 
-## Exporting changes to a branch
+## Exportando alterações para um branch
 
-While using {% data variables.product.prodname_codespaces %}, you may want to export your changes to a branch without launching a your codespace.
+Ao usar o {% data variables.product.prodname_github_codespaces %}, você deverá exportar suas alterações para um branch sem carregar o seu codespace.
 
-This can be useful when you have hit a [spending limit](/billing/managing-billing-for-github-codespaces/managing-spending-limits-for-codespaces) or have a general issue accessing your codespace.
+Isso pode ser útil quando você atingir um limite de gastos [](/billing/managing-billing-for-github-codespaces/managing-spending-limits-for-codespaces) ou tiver um problema geral ao acessar seu código.
 
-To export your changes:
+Para exportar suas alterações:
 
-1. Browse to the "Your Codespaces" page at [github.com/codespaces](https://github.com/codespaces) or, for an individual repository, click the **{% octicon "code" aria-label="The code icon" %} Code** menu.
-2. Click the ellipsis (**...**) to the right of the codespace you want to export from.
-3. Select **{% octicon "git-branch" aria-label="The git branch icon" %} Export changes to branch**.
+1. Acesse a página "Seus codespaces" em [github.com/codespaces](https://github.com/codespaces) ou, em um repositório individual, clique no menu **{% octicon "code" aria-label="The code icon" %} Código**.
+2. Clique nas reticências (**...**) à direita do codespace a partir do qual que você deseja exportar.
+3. Selecione **{% octicon "git-branch" aria-label="The git branch icon" %} Alterações de exportação para o branch**.
 
-  ![Export changes to a branch](/assets/images/help/codespaces/export-changes-to-a-branch.png)
+  ![Exportar alterações para um branch](/assets/images/help/codespaces/export-changes-to-a-branch.png)
 
-4. From the popover, select **Create branch**.
+4. No anúncio emergente, selecione **Criar branch**.

@@ -6,6 +6,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: overview
 topics:
   - Fundamentals
@@ -13,7 +14,6 @@ topics:
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## Visão Geral
 
@@ -62,7 +62,7 @@ Para obter mais informações, consulte "[Sintaxe de fluxo de trabalho para o {%
 
 ## Compartilhar dados entre trabalhos
 
-Se o seu trabalho gera arquivos que você deseja compartilhar com outro trabalho no mesmo fluxo de trabalho, ou se você quiser salvar os arquivos para referência posterior, você pode armazená-los em {% data variables.product.prodname_dotcom %} como _artefatos_. Artefatos são os arquivos que surgem quando você compila e testa seu código. Por exemplo, os artefatos podem incluir arquivos binários ou de pacotes, resultados de testes, capturas de tela ou arquivos de log. Os artefatos estão associados à execução do fluxo de trabalho em que foram criados e podem ser usados por outro trabalho.
+Se o seu trabalho gera arquivos que você deseja compartilhar com outro trabalho no mesmo fluxo de trabalho, ou se você quiser salvar os arquivos para referência posterior, você pode armazená-los em {% data variables.product.prodname_dotcom %} como _artefatos_. Artefatos são os arquivos que surgem quando você compila e testa seu código. Por exemplo, os artefatos podem incluir arquivos binários ou de pacotes, resultados de testes, capturas de tela ou arquivos de log. Os artefatos estão associados à execução do fluxo de trabalho em que foram criados e podem ser usados por outro trabalho. {% data reusables.actions.reusable-workflow-artifacts %}
 
 Por exemplo, você pode criar um arquivo e, em seguida, carregá-lo como um artefato.
 
@@ -75,7 +75,7 @@ jobs:
         run: |
           expr 1 + 1 > output.log
       - name: Upload output file
-        uses: actions/upload-artifact@v2
+        uses: {% data reusables.actions.action-upload-artifact %}
         with:
           name: output-log-file
           path: output.log
@@ -88,10 +88,12 @@ jobs:
   example-job:
     steps:
       - name: Download a single artifact
-        uses: actions/download-artifact@v2
+        uses: {% data reusables.actions.action-download-artifact %}
         with:
           name: output-log-file
 ```
+
+Para fazer o download de um artefato da mesma execução de fluxo de trabalho, seu trabalho de download deverá especificar `needs: upload-job-name` para que não inicie até que o trabalho de upload seja concluído.
 
 Para obter mais informações sobre artefatos, consulte "[Persistir dados de fluxo de trabalho usando artefatos](/actions/configuring-and-managing-workflows/persisting-workflow-data-using-artifacts)".
 

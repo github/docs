@@ -2,14 +2,15 @@
 title: Autenticar com os aplicativos GitHub
 intro: '{% data reusables.shortdesc.authenticating_with_github_apps %}'
 redirect_from:
-  - /apps/building-integrations/setting-up-and-registering-github-apps/about-authentication-options-for-github-apps/
-  - /apps/building-github-apps/authentication-options-for-github-apps/
+  - /apps/building-integrations/setting-up-and-registering-github-apps/about-authentication-options-for-github-apps
+  - /apps/building-github-apps/authentication-options-for-github-apps
   - /apps/building-github-apps/authenticating-with-github-apps
   - /developers/apps/authenticating-with-github-apps
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - GitHub Apps
 shortTitle: Autenticação
@@ -38,14 +39,14 @@ Para gerar uma chave privada:
 {% endnote %}
 
 ## Verificar chaves privadas
-{% data variables.product.product_name %} gera uma impressão digital para cada par de chave privada e pública usando a função de hash {% ifversion ghes < 3.0 %}SHA-1{% else %}SHA-256{% endif %} Você pode verificar se a sua chave privada corresponde à chave pública armazenada no {% data variables.product.product_name %}, gerando a impressão digital da sua chave privada e comparando-a com a impressão digital exibida no {% data variables.product.product_name %}.
+O {% data variables.product.product_name %} gera uma impressão digital para cada par de chave privada e pública usando a função hash SHA-256. Você pode verificar se a sua chave privada corresponde à chave pública armazenada no {% data variables.product.product_name %}, gerando a impressão digital da sua chave privada e comparando-a com a impressão digital exibida no {% data variables.product.product_name %}.
 
 Para verificar uma chave privada:
 
 1. Encontre a impressão digital para o par de chaves privada e pública que deseja verificar na seção "Chaves privadas" da página de configurações de desenvolvedor do seu {% data variables.product.prodname_github_app %}. Para obter mais informações, consulte [Gerar uma chave privada](#generating-a-private-key). ![Impressão digital de chave privada](/assets/images/github-apps/github_apps_private_key_fingerprint.png)
 2. Gere a impressão digital da sua chave privada (PEM) localmente usando o comando a seguir:
     ```shell
-    $ openssl rsa -in <em>PATH_TO_PEM_FILE</em> -pubout -outform DER | openssl {% ifversion ghes < 3.0 %}sha1 -c{% else %}sha256 -binary | openssl base64{% endif %}
+    $ openssl rsa -in <em>PATH_TO_PEM_FILE</em> -pubout -outform DER | openssl sha256 -binary | openssl base64
     ```
 3. Compare os resultados da impressão digital gerada localmente com a impressão digital que você vê no {% data variables.product.product_name %}.
 
@@ -87,14 +88,14 @@ jwt = JWT.encode(payload, private_key, "RS256")
 puts jwt
 ```
 
-`YOUR_PATH_TO_PEM` e `YOUR_APP_ID` são os valores que você deve substituir. Make sure to enclose the values in double quotes.
+`YOUR_PATH_TO_PEM` e `YOUR_APP_ID` são os valores que você deve substituir. Certifique-se de incluir os valores entre aspas duplas.
 
 Use o seu identificador de {% data variables.product.prodname_github_app %}(`YOUR_APP_ID`) como o valor para a reivindicação do JWT [iss](https://tools.ietf.org/html/rfc7519#section-4.1.1) (emissor). Você pode obter o identificador {% data variables.product.prodname_github_app %} por meio do ping inicial do webhook, após [criar o aplicativo](/apps/building-github-apps/creating-a-github-app/), ou a qualquer momento na da página de configurações do aplicativo na UI do GitHub.com.
 
 Após criar o JWT, defina-o no `Cabeçalho` da solicitação de API:
 
 ```shell
-$ curl -i -H "Authorization: Bearer YOUR_JWT" -H "Accept: application/vnd.github.v3+json" {% data variables.product.api_url_pre %}/app
+$ curl -i -H "Authorization: Bearer YOUR_JWT" -H "Accept: application/vnd.github+json" {% data variables.product.api_url_pre %}/app
 ```
 
 `YOUR_JWT` é o valor que você deve substituir.
@@ -116,7 +117,7 @@ Para obter uma lista dos pontos finais da API REST que você pode usar para obte
 
 ## Autenticar como uma instalação
 
-Autenticar como uma instalação permite que você execute ações na API para essa instalação. Antes de autenticar como uma instalação, você deverá criar um token de acesso de instalação. Certifique-se de que você já instalou o aplicativo GitHub em pelo menos um repositório; é impossível criar um token de instalação sem uma única instalação. These installation access tokens are used by {% data variables.product.prodname_github_apps %} to authenticate. For more information, see "[Installing GitHub Apps](/developers/apps/managing-github-apps/installing-github-apps)."
+Autenticar como uma instalação permite que você execute ações na API para essa instalação. Antes de autenticar como uma instalação, você deverá criar um token de acesso de instalação. Certifique-se de que você já instalou o aplicativo GitHub em pelo menos um repositório; é impossível criar um token de instalação sem uma única instalação. Estes tokens de acesso de instalação são usados por {% data variables.product.prodname_github_apps %} para efetuar a autenticação. Para obter mais informações, consulte "[Instalando aplicativos GitHub](/developers/apps/managing-github-apps/installing-github-apps)".
 
 Por padrão, os tokens de acesso de instalação são limitados em todos os repositórios que uma instalação pode acessar. É possível limitar o escopo do token de acesso de instalação a repositórios específicos usando o parâmetro `repository_ids`. Consulte [Criar um token de acesso de instalação para um ponto final de um aplicativo](/rest/reference/apps#create-an-installation-access-token-for-an-app) para obter mais informações. Os tokens de acesso de instalação têm as permissões configuradas pelo {% data variables.product.prodname_github_app %} e expiram após uma hora.
 
@@ -125,7 +126,7 @@ Para listar as instalações para um aplicativo autenticado, inclua o JWT [gerad
 ```shell
 $ curl -i -X GET \
 -H "Authorization: Bearer YOUR_JWT" \
--H "Accept: application/vnd.github.v3+json" \
+-H "Accept: application/vnd.github+json" \
 {% data variables.product.api_url_pre %}/app/installations
 ```
 
@@ -136,7 +137,7 @@ Para criar um token de acesso de instalação, inclua o JWT [gerado acima](#jwt-
 ```shell
 $ curl -i -X POST \
 -H "Authorization: Bearer YOUR_JWT" \
--H "Accept: application/vnd.github.v3+json" \
+-H "Accept: application/vnd.github+json" \
 {% data variables.product.api_url_pre %}/app/installations/:installation_id/access_tokens
 ```
 
@@ -147,7 +148,7 @@ Para efetuar a autenticação com um token de acesso de instalação, inclua-o n
 ```shell
 $ curl -i \
 -H "Authorization: token YOUR_INSTALLATION_ACCESS_TOKEN" \
--H "Accept: application/vnd.github.v3+json" \
+-H "Accept: application/vnd.github+json" \
 {% data variables.product.api_url_pre %}/installation/repositories
 ```
 
@@ -155,7 +156,7 @@ $ curl -i \
 
 ## Acessar pontos finais da API como uma instalação
 
-For a list of REST API endpoints that are available for use by {% data variables.product.prodname_github_apps %} using an installation access token, see "[Available Endpoints](/rest/overview/endpoints-available-for-github-apps)."
+Para obter uma lista de pontos de extremidade da API REST disponíveis para uso por {% data variables.product.prodname_github_apps %} usando um token de acesso de instalação, consulte "[pontos de extremidade disponíveis](/rest/overview/endpoints-available-for-github-apps)."
 
 Para obter uma lista de pontos finais relacionados a instalações, consulte "[Instalações](/rest/reference/apps#installations)".
 

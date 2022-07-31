@@ -3,7 +3,7 @@ title: Supervisar por medio de SNMP
 intro: '{% data variables.product.prodname_enterprise %} proporciona datos sobre el uso del disco, la utilización del CPU, el uso de la memoria y más sobre SNMP.'
 redirect_from:
   - /enterprise/admin/installation/monitoring-using-snmp
-  - /enterprise/admin/articles/monitoring-using-snmp/
+  - /enterprise/admin/articles/monitoring-using-snmp
   - /enterprise/admin/enterprise-management/monitoring-using-snmp
   - /admin/enterprise-management/monitoring-using-snmp
 versions:
@@ -18,7 +18,7 @@ topics:
 
 SNMP es una norma común para controlar dispositivos en una red. Recomendamos firmemente habilitar SNMP para que puedas controlar la salud de {% data variables.product.product_location %} y saber cuándo agregar más memoria, almacenamiento, o rendimiento del procesador a la máquina del servidor.
 
-{% data variables.product.prodname_enterprise %} tiene una instalación SNMP estándar, para poder aprovechar los [diversos plugins](http://www.monitoring-plugins.org/doc/man/check_snmp.html) disponibles para Nagios o para cualquier otro sistema de control.
+{% data variables.product.prodname_enterprise %} tiene una instalación SNMP estándar, para poder aprovechar los [diversos plugins](https://www.monitoring-plugins.org/doc/man/check_snmp.html) disponibles para Nagios o para cualquier otro sistema de control.
 
 ## Configurar SNMP v2c
 
@@ -66,7 +66,7 @@ Si habilitas el SNMP v3, puedes aprovechar la seguridad en base al usuario aumen
 
 #### Consultar datos de SNMP
 
-Tanto la información del nivel de software como de hardware sobre tu aparato está disponible con SNMP v3. Debido a la falta de cifrado y privacidad para los niveles de seguridad `noAuthNoPriv` y `authNoPriv`, excluimos la tabla de `hrSWRun` (1.3.6.1.2.1.25.4) de los reportes de SNMP resultantes. Incluimos esta tabla si estás usando el nivel de seguridad `authPriv`. Para obtener más información, consulta la "[Documentación de referencia de OID](http://oidref.com/1.3.6.1.2.1.25.4)".
+Tanto la información del nivel de software como de hardware sobre tu aparato está disponible con SNMP v3. Debido a la falta de cifrado y privacidad para los niveles de seguridad `noAuthNoPriv` y `authNoPriv`, excluimos la tabla de `hrSWRun` (1.3.6.1.2.1.25.4) de los reportes de SNMP resultantes. Incluimos esta tabla si estás usando el nivel de seguridad `authPriv`. Para obtener más información, consulta la "[Documentación de referencia de OID](https://oidref.com/1.3.6.1.2.1.25.4)".
 
 Con SNMP v2c, solo está disponible la información del nivel de hardware de tu aparato. Estas aplicaciones y servicios dentro de {% data variables.product.prodname_enterprise %} no tienen configurado OID para informar métricas. Hay varios MIB disponibles, que puedes ver ejecutando `snmpwalk` en una estación de trabajo separada con soporte SNMP en tu red:
 

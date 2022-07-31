@@ -8,6 +8,7 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
+  ghec: '*'
 topics:
   - Identity
   - Access management
@@ -20,7 +21,7 @@ Después de cambiar tu contraseña, deberías realizar estas acciones para asegu
 
 - [Habilitar una autenticación de dos factores](/articles/about-two-factor-authentication) en tu cuenta para que el acceso requiera más de una contraseña.
 - [Revisar tus claves SSH](/articles/reviewing-your-ssh-keys), [llaves de implementación](/articles/reviewing-your-deploy-keys), e [integraciones autorizadas](/articles/reviewing-your-authorized-integrations) y revocar el acceso no autorizado o desconocido en tus configuraciones de SSH y de Aplicaciones.
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 - [Verificar todas tus direcciones de correo electrónico](/articles/verifying-your-email-address). Si un atacante agregó sus direcciones de correo electrónico a tu cuenta, esto puede permitirle forzar un restablecimiento de contraseña no deseado.
 {% endif %}
 - [Revisar el registro de seguridad de tu cuenta](/github/authenticating-to-github/reviewing-your-security-log). Esto brinda un resumen de varias configuraciones realizadas a tus repositorios. Por ejemplo, puedes asegurarte que no se convirtieron repositorios privados en públicos, o que no se transfirieron repositorios.

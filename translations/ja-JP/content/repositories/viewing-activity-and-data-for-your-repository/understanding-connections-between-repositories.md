@@ -1,6 +1,7 @@
 ---
 title: リポジトリ間の接続を理解する
 intro: You can better understand the connections that exist between repositories by viewing a repository's network and forks and the projects that depend on the repository.
+product: '{% data reusables.gated-features.repository-insights %}'
 redirect_from:
   - /articles/viewing-a-repository-s-network
   - /articles/viewing-a-repositorys-network
@@ -17,6 +18,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Repositories
 shortTitle: Connections between repositories
@@ -24,7 +26,7 @@ shortTitle: Connections between repositories
 
 ## リポジトリのネットワークを表示する
 
-'The network graph displays the branch history of the entire repository network, including branches of the root repository and branches of forks that contain commits unique to the network.' product: '{% data reusables.gated-features.repository-insights %}'
+ネットワークグラフには、ルートリポジトリのブランチとネットワークに固有のコミットを含むフォークのブランチを含む、リポジトリネットワーク全体のブランチ履歴が表示されます。
 
 ![リポジトリネットワークグラフ](/assets/images/help/graphs/repo_network_graph.png)
 
@@ -46,7 +48,7 @@ shortTitle: Connections between repositories
 
 フォークは、リポジトリをフォークしたユーザの名前のアルファベット順に表示されます。 ユーザ名をクリックして、そのユーザの {% data variables.product.product_name %} プロフィール ページにリダイレクトすることも、フォーク名をクリックして、リポジトリの特定のフォークにリダイレクトすることもできます。
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 ![リポジトリ メンバーグラフ](/assets/images/help/graphs/repo_forks_graph_dotcom.png)
 
@@ -62,7 +64,6 @@ shortTitle: Connections between repositories
 {% data reusables.repositories.accessing-repository-graphs %}
 3. 左サイトバーで [**Forks**] をクリックします。 ![[Forks] タブ](/assets/images/help/graphs/graphs-sidebar-forks-tab.png)
 
-{% ifversion fpt or ghes > 2.22 %}
 ## リポジトリの依存関係を表示する
 
 依存関係グラフを使用して、リポジトリが依存するコードを調べることができます。
@@ -71,5 +72,4 @@ shortTitle: Connections between repositories
 
 依存関係グラフは、リポジトリの依存関係を視覚化して調査するために最適な方法を提供しています。 詳しい情報については、「[依存関係グラフについて](/code-security/supply-chain-security/about-the-dependency-graph)」および「[リポジトリの依存関係を調べる](/code-security/supply-chain-security/exploring-the-dependencies-of-a-repository) 」を参照してください。
 
-依存関係の 1 つにセキュリティの脆弱性が見つかった場合は、{% data variables.product.company_short %} が自動的に警告するようにリポジトリを設定することもできます。 詳しい情報については、「[脆弱性のある依存関係に対するアラートについて](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)」を参照してください。
-{% endif %}
+依存関係の 1 つにセキュリティの脆弱性が見つかった場合は、{% data variables.product.company_short %} が自動的に警告するようにリポジトリを設定することもできます。 詳しい情報については、「[{% data variables.product.prodname_dependabot_alerts %} について](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)」を参照してください。

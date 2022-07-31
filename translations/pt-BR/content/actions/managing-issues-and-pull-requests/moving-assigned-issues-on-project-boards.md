@@ -1,13 +1,13 @@
 ---
 title: Transferir problemas atribuídos em quadros de projeto
 intro: 'Você pode usar {% data variables.product.prodname_actions %} para transferir automaticamente um problema para uma coluna específica no quadro de um projeto quando o problema for atribuído.'
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /actions/guides/moving-assigned-issues-on-project-boards
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: tutorial
 topics:
   - Workflows
@@ -17,8 +17,6 @@ shortTitle: Mover problemas atribuídos
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
-{% data reusables.actions.ae-self-hosted-runners-notice %}
 
 ## Introdução
 
@@ -35,6 +33,8 @@ No tutorial, primeiro você vai criar um arquivo de fluxo de trabalho que usa a 
 
     ```yaml{:copy}
 {% indented_data_reference reusables.actions.actions-not-certified-by-github-comment spaces=4 %}
+
+{% indented_data_reference reusables.actions.actions-use-sha-pinning-comment spaces=4 %}
 
     name: Move assigned card
     on:
@@ -65,7 +65,7 @@ No tutorial, primeiro você vai criar um arquivo de fluxo de trabalho que usa a 
 
 Sempre que um problema no seu repositório for atribuído, o problema será transferido para a coluna do quadro de projeto especificado. Se o problema não estiver já no quadro de projeto, ele será adicionado ao quadro de projeto.
 
-Se o repositório pertencer a um usuário, a ação `alex-page/github-project-automation-plus` atuará em todos os projetos no seu repositório ou conta de usuário que têm o nome e a coluna especificados. Da mesma forma, se o repositório pertencer a uma organização, a ação atuará sobre todos os projetos do seu repositório ou organização que têm o nome e a coluna especificados.
+Se o repositório pertencer a um usuário, a ação `alex-page/github-project-automation-plus` atuará em todos os projetos no seu repositório ou conta pessoal que têm o nome e a coluna especificados. Da mesma forma, se o repositório pertencer a uma organização, a ação atuará sobre todos os projetos do seu repositório ou organização que têm o nome e a coluna especificados.
 
 Teste seu fluxo de trabalho atribuindo um problema no seu repositório.
 

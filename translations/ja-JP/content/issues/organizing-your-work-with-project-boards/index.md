@@ -1,11 +1,10 @@
 ---
-title: プロジェクトボードで作業を整理する
-shortTitle: プロジェクトボード
-intro: 'プロジェクトボードを使って{% data variables.product.prodname_dotcom %}上の作業を管理してください'
+title: 'Organizing your work with {% data variables.product.prodname_projects_v1 %}'
+shortTitle: '{% data variables.product.prodname_projects_v1_caps %}'
+intro: 'Use {% data variables.product.prodname_projects_v1 %} to manage your work on {% data variables.product.prodname_dotcom %}'
+allowTitleToDifferFromFilename: true
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
+  feature: projects-v1
 topics:
   - Issues
   - Projects

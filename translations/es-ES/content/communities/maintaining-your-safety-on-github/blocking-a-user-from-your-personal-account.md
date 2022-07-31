@@ -6,6 +6,7 @@ redirect_from:
   - /github/building-a-strong-community/blocking-a-user-from-your-personal-account
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Community
 shortTitle: Hacer bloqueos de tu cuenta
@@ -33,6 +34,8 @@ Cuando bloqueas a un usuario:
 - Se te elimina como colaborador en sus repositorios
 - Ya no contarás con su patrocinio
 - Cualquier invitación de sucesor de una cuenta o repositorio que se haga a o que provenga del usuario bloqueado se cancela
+- The user is removed as a collaborator from all the projects and {% data variables.projects.projects_v1_boards %} owned by you
+- You are removed as a collaborator from all the projects and {% data variables.projects.projects_v1_boards %} owned by the user
 
 Después de que hayas bloqueado a un usuario, no podrá:
 - Enviarte notificaciones, incluso al [@mencionar](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams) tu nombre de usuario
@@ -45,6 +48,8 @@ Después de que hayas bloqueado a un usuario, no podrá:
 - Realizar referencias cruzadas con tus repositorios en comentarios
 - Bifurcar, observar, fijar o marcar con estrella a tus repositorios
 - Patrocinarte
+- Add you as a collaborator on their projects and {% data variables.projects.projects_v1_boards %}
+- Make changes to your public projects and {% data variables.projects.projects_v1_boards %}
 
 En los repositorios que te pertenecen, los usuarios bloqueados tampoco podrán:
 - Abrir propuestas
@@ -54,8 +59,8 @@ En los repositorios que te pertenecen, los usuarios bloqueados tampoco podrán:
 
 ## Bloquear a un usuario en tus parámetros de cuenta
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.blocked_users %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.blocked_users %}
 3. En "Block a user" (Bloquear a un usuario), escribe el nombre de usuario del usuario que deseas bloquear, luego haz clic en **Block user** (Bloquear usuario). ![Campo Username (Nombre de usuario) y botón Block (Bloquear)](/assets/images/help/settings/user-settings-block-user.png)
 4. Opcionalmente, para mostrar una advertencia al visitar un repositorio donde un usuario bloqueado es un colaborador, selecciona **Warn me when blocked user is a prior contributor to a repository** (Advertirme cuando un usuario bloqueado es un colaborador anterior del repositorio). ![Opción para advertir sobre usuarios bloqueados](/assets/images/help/settings/warn-block-user.png)
 

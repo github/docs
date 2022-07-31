@@ -5,6 +5,7 @@ redirect_from:
   - /v4/guides/using-the-explorer
 versions:
   fpt: '*'
+  ghec: '*'
   ghes: '*'
   ghae: '*'
 topics:
@@ -13,15 +14,9 @@ topics:
 
 ## GraphQL Explorerについて
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 [GraphQL Explorer](/graphql/overview/explorer)は、「グラフィカルでインタラクティブなブラウザ内のGraphQL IDE」である[ GraphiQL](https://github.com/graphql/graphiql)のインスタンスです。
-
-{% note %}
-
-**ノート**: {% data variables.product.prodname_dotcom %}はExplorer内での[ミューテーション](/graphql/reference/mutations)を無効化していますが、独自のGraphiQLのインスタンスではミューテーションが利用できます。
-
-{% endnote %}
 
 {% else %}
 

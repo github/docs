@@ -3,13 +3,20 @@ title: Solucionar problemas no GitHub Actions para a sua empresa
 intro: 'Solucionar problemas comuns que ocorrem ao usar {% data variables.product.prodname_actions %} em {% data variables.product.prodname_ghe_server %}.'
 permissions: 'Site administrators can troubleshoot {% data variables.product.prodname_actions %} issues and modify {% data variables.product.prodname_ghe_server %} configurations.'
 versions:
-  ghes: '>=3.0'
+  ghes: '*'
+type: how_to
 topics:
+  - Actions
   - Enterprise
+  - Troubleshooting
 redirect_from:
   - /admin/github-actions/troubleshooting-github-actions-for-your-enterprise
 shortTitle: Solução de problemas do GitHub Actions
 ---
+
+## Verificando a saúde de {% data variables.product.prodname_actions %}
+
+Você pode verificar a saúde de {% data variables.product.prodname_actions %} em {% data variables.product.product_location %} com o utilitário da linha de comando `ghe-actions-check`. Para obter mais informações, consulte "[Utilitários de linha de comando](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-actions-check)" e "[Acessando o shell administrativo (SSH)](/admin/configuration/configuring-your-enterprise/accessing-the-administrative-shell-ssh)".
 
 ## Configurar executores auto-hospedados ao usar um certificado autoassinado por {% data variables.product.prodname_ghe_server %}
 
@@ -45,9 +52,11 @@ Se você usa ações do contêiner do Docker ou contêineres de serviço nos seu
 
 Se estas configurações não estiverem definidas corretamente, você poderá receber erros como `Recurso movido inesperadamente para https://<IP_ADDRESS>` ao definir ou mudar a configuração de {% data variables.product.prodname_actions %}.
 
-## Os executores que não se conectam a {% data variables.product.prodname_ghe_server %} depois de mudar o hostname
+## Os executores não se conectam a {% data variables.product.prodname_ghe_server %} com um novo nome de host
 
-Se você alterar o nome do host de {% data variables.product.product_location %}, os executores auto-hospedados não poderão conectar-se ao host antigo e não executarão nenhum trabalho.
+{% data reusables.enterprise_installation.changing-hostname-not-supported %}
+
+Se você implantar {% data variables.product.prodname_ghe_server %} no seu ambiente com um novo nome de host e o antigo nome de host não resolver mais a sua instância, os executores auto-hospedados não conseguirão conectar-se ao nome de host antigo e não executarão nenhum trabalho.
 
 Você precisará atualizar a configuração dos seus executores auto-hospedados para usar o novo nome de host para {% data variables.product.product_location %}. Cada executor auto-hospedado exigirá um dos seguintes procedimentos:
 
@@ -146,3 +155,73 @@ Se qualquer um destes serviços estiver em ou perto de 100% de utilização da C
 
     Ao executar `ghe-config-apply`, se você vir a saída como `Failed to run nomad job '/etc/nomad-jobs/<name>.hcl'`, a mudança provavelmente atribuiu muitos recursos de CPU ou memória. Se isso acontecer, edite os arquivos de configuração novamente e baixe a CPU ou memória alocados e execute `ghe-config-apply` novamente.
 1. Depois que a configuração for aplicada, execute `ghe-actions-check` para verificar se os serviços {% data variables.product.prodname_actions %} estão operando.
+
+{% ifversion fpt or ghec or ghes > 3.2 %}
+## Solucionar problemas de falhas quando {% data variables.product.prodname_dependabot %} dispara fluxos de trabalho existentes
+
+{% data reusables.dependabot.beta-security-and-version-updates %}
+
+Após configurar as atualizações de {% data variables.product.prodname_dependabot %} para {% data variables.product.product_location %}, você pode ver falhas quando os fluxos de trabalho existentes são acionados por eventos de {% data variables.product.prodname_dependabot %}.
+
+Por padrão, as execuções do fluxo de trabalho de {% data variables.product.prodname_actions %} que são acionadas por {% data variables.product.prodname_dependabot %} a partir de eventos de `push`, `pull_request`, `pull_request_review`, ou `pull_request_review_comment` são tratados como se tivessem sido abertas em uma bifurcação de repositório. Ao contrário dos fluxos de trabalho acionados por outros criadores, isso significa que eles recebem somente leitura de `GITHUB_TOKEN` e não têm acesso a nenhum segredo que esteja normalmente disponível. Isso fará com que quaisquer fluxos de trabalho que tentam gravar no repositório falhem quando forem acionados por {% data variables.product.prodname_dependabot %}.
+
+Há três maneiras de resolver este problema:
+
+1. Você pode atualizar seus fluxos de trabalho para que não sejam mais acionados por {% data variables.product.prodname_dependabot %} usando uma expressão como: `if: github.actor != 'dependabot[bot]'`. Para obter mais informações, consulte "[Expressões](/actions/learn-github-actions/expressions)".
+2. Você pode modificar seus fluxos de trabalho para usar um processo de duas etapas que inclui `pull_request_target` que não tem essas limitações. Para obter mais informações, consulte "[Automatizando {% data variables.product.prodname_dependabot %} com {% data variables.product.prodname_actions %}](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/automating-dependabot-with-github-actions#responding-to-events)".
+3. Você pode fornecer fluxos de trabalho acionados pelo acesso de {% data variables.product.prodname_dependabot %} a segredos e permitir que o termo `permissões` aumente o escopo padrão do `GITHUB_TOKEN`. Para obter mais informações, consulte [Fornecendo fluxos de trabalho acionados pelo acesso{% data variables.product.prodname_dependabot %} a segredos e aumento das permissões](#providing-workflows-triggered-by-dependabot-access-to-secrets-and-increased-permissions)" abaixo.
+
+### Fornecendo fluxos de trabalho acionados pelo acesso de {% data variables.product.prodname_dependabot %} a segredos e permissões ampliadas
+
+1. Efetue o login no shell administrativo usando SSH. Para obter mais informações, consulte "[Acessar o shell administrativo (SSH)](/admin/configuration/accessing-the-administrative-shell-ssh)".
+1. Para remover as limitações dos fluxos de trabalho acionados por {% data variables.product.prodname_dependabot %} em {% data variables.product.product_location %}, use o seguinte comando.
+    ``` shell
+    $ ghe-config app.actions.disable-dependabot-enforcement true
+    ```
+1. Aplique a configuração.
+    ```shell
+    $ ghe-config-apply
+    ```
+1. Volte para o {% data variables.product.prodname_ghe_server %}.
+
+{% endif %}
+
+{% ifversion ghes > 3.3 %}
+
+<a name="bundled-actions"></a>
+
+## Solucionando problemas das ações agrupadas em {% data variables.product.prodname_actions %}
+
+Se você receber o erro a seguir ao instalar {% data variables.product.prodname_actions %} em {% data variables.product.prodname_ghe_server %}, você poderá resolver o problema instalando as ações oficiais empacotadas e os fluxos de trabalho iniciais.
+
+```shell
+Uma parte da configuração de Ações teve problemas e precisa que um administrador resolva.
+```
+
+Para instalar as ações oficiais empacotadas e fluxos de trabalho iniciais dentro de uma organização designada em {% data variables.product.prodname_ghe_server %}, siga este procedimento.
+
+1. Identifique uma organização que armazenará as ações oficiais agrupadas e os fluxos de trabalho iniciais. Você pode criar uma nova organização ou reutilizar uma já existente.
+    - Para criar uma nova organização, consulte "[Criando uma nova organização a partir do zero](/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch)".
+    - Para obter assistência com a escolha de um nome para esta organização, consulte "[Nomes Reservados](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server#reserved-names). "
+
+1. Efetue o login no shell administrativo usando SSH. Para obter mais informações, consulte "[Acessar o shell administrativo (SSH)](/admin/configuration/accessing-the-administrative-shell-ssh)".
+1. Para designar sua organização como a localização para armazenar as ações agrupadas, use o comando `ghe-config`, substituindo o `ORGANIZAÇÃO` pelo nome da sua organização.
+    ```shell
+    $ ghe-config app.actions.actions-org ORGANIZATION
+    ```
+    e:
+    ```shell
+    $ ghe-config app.actions.github-org ORGANIZATION
+    ```
+1.  Para adicionar as ações empacotadas à sua organização, cancele a definição do SHA.
+    ```shell
+    $ ghe-config --unset 'app.actions.actions-repos-sha1sum'
+    ```
+1. Aplique a configuração.
+    ```shell
+    $ ghe-config-apply
+    ```
+
+Depois de concluir esses passos, você poderá retomar a configuração de {% data variables.product.prodname_actions %} em[Gerenciando as permissões de acesso para o GitHub Actions na sua empresa](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server#managing-access-permissions-for-github-actions-in-your-enterprise)."
+
+{% endif %}

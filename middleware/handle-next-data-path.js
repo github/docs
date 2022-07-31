@@ -1,4 +1,4 @@
-export default async function handleNextDataPath(req, res, next) {
+export default function handleNextDataPath(req, res, next) {
   if (req.path.startsWith('/_next/data') && req.path.endsWith('.json')) {
     // translate a nextjs data request to a page path that the server can use on context
     // this is triggered via client-side route tranistions

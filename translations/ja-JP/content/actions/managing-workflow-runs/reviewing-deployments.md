@@ -4,17 +4,17 @@ intro: レビュー待ちのジョブを承認もしくは拒否できます。
 product: '{% data reusables.gated-features.environments %}'
 versions:
   fpt: '*'
-  ghes: '>=3.1'
+  ghes: '*'
   ghae: '*'
+  ghec: '*'
 ---
 
-{% data reusables.actions.ae-beta %}
 
 ## ワークフローで必須のレビューについて
 
 必須のレビュー担当者が設定された環境を参照するジョブは、開始前に承認を待ちます。 承認を待っている間のジョブは、ステータスが"Waiting"になります。 ジョブが30日以内に承認されなければ、そのワークフローは自動的にキャンセルされます。
 
-環境と必要な承認の詳細については、「[環境](/actions/reference/environments)」を参照してください。{% ifversion fpt or ghae-next or ghes > 3.1 %}REST API を使用してデプロイメントをレビューする方法については、「[ワークフローの実行](/rest/reference/actions#workflow-runs)」を参照してください。{% endif %}
+For more information about environments and required approvals, see "[Using environments for deployment](/actions/deployment/using-environments-for-deployment)." REST API を使用してデプロイメントを確認する方法については、「[ワークフローの実行](/rest/reference/actions#workflow-runs)」を参照してください。
 
 ## ジョブの承認もしくは拒否
 

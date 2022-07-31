@@ -1,6 +1,7 @@
 .search-cache
 .DS_Store
 .env
+.vscode/settings.json
 /node_modules/
 npm-debug.log
 coverage/
@@ -10,8 +11,17 @@ coverage/
 /data/early-access
 .next
 .eslintcache
+*.tsbuildinfo
 
 # blc: broken link checker
 blc_output.log
 blc_output_internal.log
 broken_links.md
+lib/redirects/.redirects-cache.json
+# This one is purely for historical reasons because so many people might
+# still have thes files on their disk.
+lib/redirects/.redirects-cache_*.json
+
+# During the preview deploy untrusted user code may be cloned into this directory
+# We ignore it from git to keep things deterministic
+user-code/

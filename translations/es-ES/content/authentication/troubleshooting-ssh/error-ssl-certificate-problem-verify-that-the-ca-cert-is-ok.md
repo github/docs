@@ -7,6 +7,7 @@ redirect_from:
   - /github/authenticating-to-github/troubleshooting-ssh/error-ssl-certificate-problem-verify-that-the-ca-cert-is-ok
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - SSH
 shortTitle: Problema con el certificado SSL

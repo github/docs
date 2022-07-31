@@ -7,6 +7,7 @@ redirect_from:
   - /github/building-a-strong-community/encouraging-helpful-contributions-to-your-project-with-labels
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Community
 shortTitle: Encourage contributions

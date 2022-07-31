@@ -6,7 +6,8 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '>=3.3'
-  ghae: issue-4651
+  ghae: '*'
+  ghec: '*'
 topics:
   - Repositories
 ---
@@ -46,18 +47,19 @@ Lisa, M., & Bot, H. (2017). My Research Software (Version 2.0.4) [Computer softw
 
 {% raw %}
 ```
-@misc{Lisa_My_Research_Software_2017,
+@software{Lisa_My_Research_Software_2017,
   author = {Lisa, Mona and Bot, Hew},
   doi = {10.5281/zenodo.1234},
   month = {12},
   title = {{My Research Software}},
   url = {https://github.com/github/linguist},
+  version = {2.0.4},
   year = {2017}
 }
 ```
 {% endraw %}
 
-Note the example above produces a _software_ citation (i.e., `@misc` type in BibTeX rather than `@article`).
+Note the example above produces a _software_ citation (i.e., `@software` type in BibTeX rather than `@article`).
 
 For more information, see the [Citation File Format](https://citation-file-format.github.io/) website.
 
@@ -67,9 +69,25 @@ When you add a `CITATION.cff` file to the default branch of your repository, it 
 
 ## Citing something other than software
 
-If you would prefer the GitHub citation information to link to another resource such as a research paper then you can use the `preferred-citation` override in CFF.
+If you would prefer the {% data variables.product.prodname_dotcom %} citation information to link to another resource such as a research article, then you can use the `preferred-citation` override in CFF with the following types.
 
-Extended CITATION.cff file describing the software, but linking to a research paper as the preferred citation:
+| Resource                          | CFF type                                                                                             | BibTeX type      | APA annotation      |
+| --------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------- | ------------------- |
+| Journal article/paper             | `article`                                                                                            | `@article`       |                     |
+| Book                              | `book`                                                                                               | `@book`          |                     |
+| Booklet (bound but not published) | `pamphlet`                                                                                           | `@booklet`       |                     |
+| Conference article/paper          | `conference-paper`                                                                                   | `@inproceedings` | [Conference paper]  |
+| Conference proceedings            | `conference`, `proceedings`                                                                          | `@proceedings`   |                     |
+| Data set                          | `data`, `database`                                                                                   | `@misc`          | [Data set]          |
+| Magazine article                  | `magazine-article`                                                                                   | `@article`       |                     |
+| Manual                            | `manual`                                                                                             | `@manual`        |                     |
+| Misc/generic/other                | `generic`, any other CFF type                                                                        | `@misc`          |                     |
+| Newspaper article                 | `newspaper-article`                                                                                  | `@article`       |                     |
+| Software                          | `software`, `software-code`, `software-container`, `software-executable`, `software-virtual-machine` | `@software`      | [Computer software] |
+| Report/technical report           | `report`                                                                                             | `@techreport`    |                     |
+| Unpublished                       | `unpublished`                                                                                        | `@unpublished`   |                     |
+
+Extended CITATION.cff file describing the software, but linking to a research article as the preferred citation:
 
 ```
 cff-version: 1.2.0
@@ -132,6 +150,10 @@ Lisa, M., & Bot, H. (2021). My awesome research software. Journal Title, 1(1), 1
 ```
 {% endraw %}
 
+## Citing a dataset
+
+If your repository contains a dataset, you can set `type: dataset` at the top level of your `CITATION.cff` file to produce a data citation string output in the {% data variables.product.prodname_dotcom %} citation prompt.
+
 ## Other citation files
 
 The GitHub citation feature will also detect a small number of additional files that are often used by communities and projects to describe how they would like their work to be cited.
@@ -147,7 +169,7 @@ CITATIONS.bib
 CITATION.md
 CITATIONS.md
 
-# CITATION files for R packages are typically found at inst/CITATION 
+# CITATION files for R packages are typically found at inst/CITATION
 inst/CITATION
 ```
 

@@ -229,7 +229,7 @@
 - 
   term: GPG
   description: >-
-    GNU Privacy Guard. Encryption software that you can use to encrypt (and decrypt) files that contain sensitive data
+    GNU Privacy Guard。機密データを含むファイルを暗号化（および復号化）するのに使用できる暗号化ソフトウェア
 - 
   term: GPGキー
   description: GPG で使用する暗号化キー。
@@ -665,7 +665,7 @@
   description: >-
     パスワードの代わりに使用できます。トークンには、個人アクセストークン、OAuth トークン、API トークンがあります。
 - 
-  term: topoJSON
+  term: TopoJSON
   description: GeoJSON の機能拡張版。トポロジをエンコードします。
 - 
   term: TOTPアプリケーション

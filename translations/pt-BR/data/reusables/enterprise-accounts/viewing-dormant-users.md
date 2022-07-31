@@ -1,0 +1,1 @@
+É possível exibir uma lista de todos os usuários inativos que não foram suspensos e que não são administradores do site.

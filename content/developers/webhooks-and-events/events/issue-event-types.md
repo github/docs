@@ -8,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Events
 ---
@@ -319,6 +320,16 @@ The pull request's `HEAD` branch was restored to the last known commit.
 |:----------|:----------------:|:-----------------:|
 | <ul><li>Pull requests</li></ul> | **X** | **X** |
 
+## head_ref_force_pushed
+
+The pull request's HEAD branch was force pushed.
+
+### Availability
+
+|Issue type | Issue events API | Timeline events API|
+|:----------|:----------------:|:-----------------:|
+| <ul><li>Pull requests</li></ul> | **X** | **X** |
+
 ### Event object properties
 
 {% data reusables.issue-events.issue-event-common-properties %}
@@ -389,7 +400,7 @@ The pull request was merged. The `commit_id` attribute is the SHA1 of the `HEAD`
 
 |Issue type | Issue events API | Timeline events API|
 |:----------|:----------------:|:-----------------:|
-| <ul><li>Pull requests</li></ul> | **X** |   |
+| <ul><li>Pull requests</li></ul> | **X** | **X** |
 
 ### Event object properties
 
@@ -446,7 +457,7 @@ The issue was pinned.
 
 ## ready_for_review
 
-A pull request was created that is not in draft mode.
+A draft pull request was marked as ready for review.
 
 ### Availability
 
@@ -710,7 +721,7 @@ Someone unsubscribed from receiving notifications for an issue or pull request.
 
 {% data reusables.issue-events.issue-event-common-properties %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ## user_blocked
 
 An organization owner blocked a user from the organization. This was done [through one of the blocked user's comments on the issue](/communities/maintaining-your-safety-on-github/blocking-a-user-from-your-organization#blocking-a-user-in-a-comment).

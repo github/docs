@@ -6,6 +6,7 @@ redirect_from:
   - /graphql/guides/forming-calls
 versions:
   fpt: '*'
+  ghec: '*'
   ghes: '*'
   ghae: '*'
 topics:
@@ -19,7 +20,7 @@ Para comunicarte con el servidor de GraphQL, deberás tener un token OAuth con e
 
 Sigue los pasos en "[Crear un token de acceso personal](/github/authenticating-to-github/creating-a-personal-access-token)" para crear un token. Los alcances que requieres dependen del tipo de datos que quieras solicitar. Por ejemplo, selecciona los alcances del **Usuario** para solicitar datos de usuario. Si necesitas acceder a la información de un repositorio, selecciona los alcances de **Repositorio** adecuados.
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 Para empatar el comportamiento del [Explorador de GraphQL](/graphql/guides/using-the-explorer), solicita los siguientes alcances:
 
@@ -31,14 +32,15 @@ Se recomiendan los siguientes alcances:
 
 
 ```
-user{% ifversion not ghae %}
-public_repo{% endif %}
 repo
 repo_deployment
-repo:status
-read:repo_hook
+read:packages
 read:org
 read:public_key
+read:repo_hook
+user
+read:discussion
+read:enterprise
 read:gpg_key
 ```
 

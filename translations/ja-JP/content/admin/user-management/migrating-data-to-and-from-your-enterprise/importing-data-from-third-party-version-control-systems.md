@@ -27,7 +27,7 @@ shortTitle: Import from another VCS
   ```shell
   $ git-import-rewrite --flavor hg --authors /<em>PATH</em>/<em>AUTHORS-MAP-FILE</em>.csv /<em>PATH</em>/<em>REPO-NAME</em>.git
   ```
-5. まだ [{% data variables.product.prodname_ghe_server %} 上に新しい空のリポジトリを作成](/enterprise/{{ currentVersion }}/user/articles/creating-a-new-repository)していない場合は作成してください。
+5. まだ [{% data variables.product.prodname_ghe_server %} 上に新しい空のリポジトリを作成](/enterprise/user/articles/creating-a-new-repository)していない場合は作成してください。
 {% data reusables.command_line.switching_directories_procedural %}
 7. インポートされたリポジトリを {% data variables.product.prodname_ghe_server %} にプッシュします。
   ```shell
@@ -47,7 +47,7 @@ shortTitle: Import from another VCS
   ```shell
   $ git-import-rewrite --flavor svn --authors /<em>PATH</em>/<em>AUTHORS-MAP-FILE</em>.csv /<em>PATH</em>/<em>REPO-NAME</em>.git
   ```
-5. まだ [{% data variables.product.prodname_ghe_server %} 上に新しい空のリポジトリを作成](/enterprise/{{ currentVersion }}/user/articles/creating-a-new-repository)していない場合は作成してください。
+5. まだ [{% data variables.product.prodname_ghe_server %} 上に新しい空のリポジトリを作成](/enterprise/user/articles/creating-a-new-repository)していない場合は作成してください。
 {% data reusables.command_line.switching_directories_procedural %}
 7. インポートされたリポジトリを {% data variables.product.prodname_ghe_server %} にプッシュします。
   ```shell
@@ -67,7 +67,7 @@ shortTitle: Import from another VCS
   ```shell
   $ git-import-rewrite --flavor tfs --authors /<em>PATH</em>/<em>AUTHORS-MAP-FILE</em>.csv /<em>PATH</em>/<em>REPO-NAME</em>.git
   ```
-5. まだ [{% data variables.product.prodname_ghe_server %} 上に新しい空のリポジトリを作成](/enterprise/{{ currentVersion }}/user/articles/creating-a-new-repository)していない場合は作成してください。
+5. まだ [{% data variables.product.prodname_ghe_server %} 上に新しい空のリポジトリを作成](/enterprise/user/articles/creating-a-new-repository)していない場合は作成してください。
 {% data reusables.command_line.switching_directories_procedural %}
 7. インポートされたリポジトリを {% data variables.product.prodname_ghe_server %} にプッシュします。
   ```shell
@@ -76,4 +76,4 @@ shortTitle: Import from another VCS
 
 ## 参考リンク
 
-- "[コマンドラインユーティリティ](/enterprise/{{ currentVersion }}/admin/guides/installation/command-line-utilities/#import-and-export)"
+- 「[コマンドラインユーティリティ](/enterprise/admin/guides/installation/command-line-utilities/#import-and-export)」

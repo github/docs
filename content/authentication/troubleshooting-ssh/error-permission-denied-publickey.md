@@ -9,13 +9,14 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - SSH
 shortTitle: Permission denied (publickey)
 ---
-## Should the `sudo` command be used with Git?
+## Should the `sudo` command or elevated privileges be used with Git?
 
-You should not be using the `sudo` command with Git. If you have a *very good reason* you must use `sudo`, then ensure you are using it with every command (it's probably just better to use `su` to get a shell as root at that point). If you [generate SSH keys](/articles/generating-an-ssh-key) without `sudo` and then try to use a command like `sudo git push`, you won't be using the same keys that you generated.
+You should not be using the `sudo` command or elevated privileges, such as administrator permissions, with Git. If you have a *very good reason* you must use `sudo`, then ensure you are using it with every command (it's probably just better to use `su` to get a shell as root at that point). If you [generate SSH keys](/articles/generating-an-ssh-key) without `sudo` and then try to use a command like `sudo git push`, you won't be using the same keys that you generated.
 
 ## Check that you are connecting to the correct server
 
@@ -32,7 +33,7 @@ $ ssh -vT git@{% data variables.command_line.codeblock %}
 > debug1: Connecting to {% data variables.command_line.codeblock %} port 22.
 ```
 
-The connection should be made on port 22{% ifversion fpt %}, unless you're overriding settings to use [SSH over HTTPS](/articles/using-ssh-over-the-https-port){% endif %}.
+The connection should be made on port 22{% ifversion fpt or ghec %}, unless you're overriding settings to use [SSH over HTTPS](/articles/using-ssh-over-the-https-port){% endif %}.
 
 ## Always use the "git" user
 
@@ -56,31 +57,14 @@ $ ssh -T git@{% data variables.command_line.codeblock %}
 {% mac %}
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
-2. Verify that you have a private key generated and loaded into SSH. {% ifversion ghes < 3.0 %}If you're using OpenSSH 6.7 or older:
-  ```shell
-  # start the ssh-agent in the background
-  $ eval "$(ssh-agent -s)"
-  > Agent pid 59566
-  $ ssh-add -l
-  > 2048 <em>a0:dd:42:3c:5a:9d:e4:2a:21:52:4e:78:07:6e:c8:4d</em> /Users/<em>you</em>/.ssh/id_rsa (RSA)
-  ```
-
-  If you're using OpenSSH 6.8 or newer:
-  ```shell
-  # start the ssh-agent in the background
-  $ eval "$(ssh-agent -s)"
-  > Agent pid 59566
-  $ ssh-add -l -E md5
-  > 2048 <em>MD5:a0:dd:42:3c:5a:9d:e4:2a:21:52:4e:78:07:6e:c8:4d</em> /Users/<em>you</em>/.ssh/id_rsa (RSA)
-  ```
-  {% else %}
+2. Verify that you have a private key generated and loaded into SSH. 
   ```shell
   # start the ssh-agent in the background
   $ eval "$(ssh-agent -s)"
   > Agent pid 59566
   $ ssh-add -l -E sha256
   > 2048 <em>SHA256:274ffWxgaxq/tSINAykStUL7XWyRNcRTlcST1Ei7gBQ</em> /Users/<em>USERNAME</em>/.ssh/id_rsa (RSA)
-  ```{% endif %}
+  ```
 
 {% endmac %}
 
@@ -91,50 +75,22 @@ $ ssh -T git@{% data variables.command_line.codeblock %}
 1. {% data reusables.desktop.windows_git_bash_turn_on_ssh_agent %}
 
   {% data reusables.desktop.windows_git_for_windows_turn_on_ssh_agent %}
-2. Verify that you have a private key generated and loaded into SSH. {% ifversion ghes < 3.0 %}If you're using OpenSSH 6.7 or older:
-  ```shell
-  $ ssh-add -l
-  > 2048 <em>a0:dd:42:3c:5a:9d:e4:2a:21:52:4e:78:07:6e:c8:4d</em> /Users/<em>you</em>/.ssh/id_rsa (RSA)
-  ```
-
-  If you're using OpenSSH 6.8 or newer:
-  ```shell
-  $ ssh-add -l -E md5
-  > 2048 <em>MD5:a0:dd:42:3c:5a:9d:e4:2a:21:52:4e:78:07:6e:c8:4d</em> /Users/<em>you</em>/.ssh/id_rsa (RSA)
-  ```
-  {% else %}
+2. Verify that you have a private key generated and loaded into SSH. 
   ```shell
   $ ssh-add -l -E sha256
   > 2048 <em>SHA256:274ffWxgaxq/tSINAykStUL7XWyRNcRTlcST1Ei7gBQ</em> /Users/<em>USERNAME</em>/.ssh/id_rsa (RSA)
-  ```{% endif %}
+  ```
 
 {% endwindows %}
 
 {% linux %}
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
-2. Verify that you have a private key generated and loaded into SSH. {% ifversion ghes < 3.0 %}If you're using OpenSSH 6.7 or older:
-  ```shell
-  # start the ssh-agent in the background
-  $ eval "$(ssh-agent -s)"
-  > Agent pid 59566
-  $ ssh-add -l
-  > 2048 <em>a0:dd:42:3c:5a:9d:e4:2a:21:52:4e:78:07:6e:c8:4d</em> /Users/<em>you</em>/.ssh/id_rsa (RSA)
-  ```
-
-  If you're using OpenSSH 6.8 or newer:
-  ```shell
-  # start the ssh-agent in the background
-  $ eval "$(ssh-agent -s)"
-  > Agent pid 59566
-  $ ssh-add -l -E md5
-  > 2048 <em>MD5:a0:dd:42:3c:5a:9d:e4:2a:21:52:4e:78:07:6e:c8:4d</em> /Users/<em>you</em>/.ssh/id_rsa (RSA)
-  ```
-  {% else %}
+2. Verify that you have a private key generated and loaded into SSH. 
   ```shell
   $ ssh-add -l -E sha256
   > 2048 <em>SHA256:274ffWxgaxq/tSINAykStUL7XWyRNcRTlcST1Ei7gBQ</em> /Users/<em>USERNAME</em>/.ssh/id_rsa (RSA)
-  ```{% endif %}
+  ```
   
 
 {% endlinux %}
@@ -191,25 +147,14 @@ You must provide your public key to {% data variables.product.product_name %} to
   $ eval "$(ssh-agent -s)"
   > Agent pid 59566
   ```
-3. Find and take a note of your public key fingerprint. {% ifversion ghes < 3.0 %}If you're using OpenSSH 6.7 or older:
-  ```shell
-  $ ssh-add -l
-  > 2048 <em>a0:dd:42:3c:5a:9d:e4:2a:21:52:4e:78:07:6e:c8:4d</em> /Users/<em>USERNAME</em>/.ssh/id_rsa (RSA)
-  ```
-
-  If you're using OpenSSH 6.8 or newer:
-  ```shell
-  $ ssh-add -l -E md5
-  > 2048 <em>MD5:a0:dd:42:3c:5a:9d:e4:2a:21:52:4e:78:07:6e:c8:4d</em> /Users/<em>USERNAME</em>/.ssh/id_rsa (RSA)
-  ```
-  {% else %}
+3. Find and take a note of your public key fingerprint. 
   ```shell
   $ ssh-add -l -E sha256
   > 2048 <em>SHA256:274ffWxgaxq/tSINAykStUL7XWyRNcRTlcST1Ei7gBQ</em> /Users/<em>USERNAME</em>/.ssh/id_rsa (RSA)
-  ```{% endif %}
+  ```
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.ssh %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.ssh %}
 6. Compare the list of SSH keys with the output from the `ssh-add` command.
 ![SSH key listing in {% data variables.product.product_name %}](/assets/images/help/settings/ssh_key_listing.png)
 
@@ -223,25 +168,14 @@ You must provide your public key to {% data variables.product.product_name %} to
   $ ssh-agent -s
   > Agent pid 59566
   ```
-3. Find and take a note of your public key fingerprint. {% ifversion ghes < 3.0 %}If you're using OpenSSH 6.7 or older:
-  ```shell
-  $ ssh-add -l
-  > 2048 <em>a0:dd:42:3c:5a:9d:e4:2a:21:52:4e:78:07:6e:c8:4d</em> /Users/<em>USERNAME</em>/.ssh/id_rsa (RSA)
-  ```
-
-  If you're using OpenSSH 6.8 or newer:
-  ```shell
-  $ ssh-add -l -E md5
-  > 2048 <em>MD5:a0:dd:42:3c:5a:9d:e4:2a:21:52:4e:78:07:6e:c8:4d</em> /Users/<em>USERNAME</em>/.ssh/id_rsa (RSA)
-  ```
-  {% else %}
+3. Find and take a note of your public key fingerprint. 
   ```shell
   $ ssh-add -l -E sha256
   > 2048 <em>SHA256:274ffWxgaxq/tSINAykStUL7XWyRNcRTlcST1Ei7gBQ</em> /Users/<em>USERNAME</em>/.ssh/id_rsa (RSA)
-  ```{% endif %}
+  ```
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.ssh %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.ssh %}
 6. Compare the list of SSH keys with the output from the `ssh-add` command.
 ![SSH key listing in {% data variables.product.product_name %}](/assets/images/help/settings/ssh_key_listing.png)
 
@@ -267,8 +201,8 @@ You must provide your public key to {% data variables.product.product_name %} to
   > 2048 <em>MD5:a0:dd:42:3c:5a:9d:e4:2a:21:52:4e:78:07:6e:c8:4d</em> /Users/<em>USERNAME</em>/.ssh/id_rsa (RSA)
   ```
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.ssh %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.ssh %}
 6. Compare the list of SSH keys with the output from the `ssh-add` command.
 ![SSH key listing in {% data variables.product.product_name %}](/assets/images/help/settings/ssh_key_listing.png)
 

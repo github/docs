@@ -7,6 +7,7 @@ redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-sponsors/about-billing-for-github-sponsors
 versions:
   fpt: '*'
+  ghec: '*'
 type: overview
 topics:
   - Sponsors
@@ -19,7 +20,7 @@ shortTitle: 关于计费
 
 {% data reusables.dotcom_billing.view-all-subscriptions %}
 
-{% data reusables.user_settings.context_switcher %}
+{% data reusables.user-settings.context_switcher %}
 
 ## 延伸阅读
 

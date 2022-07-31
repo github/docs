@@ -8,17 +8,22 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
 shortTitle: Restringir la creación de repositorios
 ---
 
-Puedes elegir si los miembros pueden crear repositorios en tu organización o no. If you allow members to create repositories, you can choose which types of repositories members can create.{% ifversion fpt %} To allow members to create private repositories only, your organization must use {% data variables.product.prodname_ghe_cloud %}.{% endif %} For more information, see "[About repositories](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)."
+Puedes elegir si los miembros pueden crear repositorios en tu organización o no. {% ifversion ghec or ghes or ghae %}Si permites que los miembros creen repositorios, puedes elegir qué tipos de estos pueden crear.{% elsif fpt %}Si permites que los miembros creen repositorios, puedes elegir si ellos pueden crear tanto repositorios públicos como privados o solo públicos.{% endif %} Los propietarios de las organizaciones siempre pueden crear cualquier tipo de repositorio.
 
-Los propietarios de la organización siempre pueden crear cualquier tipo de repositorio.
+{% ifversion fpt %}
+Las organizaciones que utilizan {% data variables.product.prodname_ghe_cloud %} también pueden restringir a los miembros para que creen únicamente repositorios privados. Para obtener más información, consulta la [documentación de {% data variables.product.prodname_ghe_cloud %}](/enterprise-cloud@latest/organizations/managing-organization-settings/restricting-repository-creation-in-your-organization).
+{% endif %}
 
-{% ifversion fpt %}Los propietarios de empresas{% else %}administradores de sitio{% endif %} pueden restringir las opciones que tienes disponibles para la política de creación de repositorios de tu organización. Para obtener más información, consulta la sección {% ifversion fpt %}"[Requerir políticas de administración de repositorios en tu cuenta empresarial](/github/setting-up-and-managing-your-enterprise/enforcing-repository-management-policies-in-your-enterprise-account)".{% else %}"[restringir la creación de repositorios en tu empresa](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#setting-a-policy-for-repository-creation)".{% endif %}
+{% ifversion ghec or ghae or ghes %}
+Los propietarios de las empresas pueden restringir las opciones que tienes disponibles para la política de creación de repositorios de tu organización. Para obtener más información, consulta la sección "[Requerir políticas de administración de repositorios en tu empresa](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-repository-creation)".
+{% endif %}
 
 {% warning %}
 
@@ -26,10 +31,23 @@ Los propietarios de la organización siempre pueden crear cualquier tipo de repo
 
 {% endwarning %}
 
-{% data reusables.organizations.internal-repos-enterprise %}
-
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.member-privileges %}
-5. Debajo de "Creación de repositorios", selecciona una o más opciones. ![Opciones de creación de repositorio](/assets/images/help/organizations/repo-creation-perms-radio-buttons.png)
+5. Debajo de "Creación de repositorios", selecciona una o más opciones.
+
+   {%- ifversion ghes or ghec or ghae %}
+   ![Opciones de creación de repositorio](/assets/images/help/organizations/repo-creation-perms-radio-buttons.png)
+   {%- elsif fpt %}
+   ![Opciones de creación de repositorio](/assets/images/help/organizations/repo-creation-perms-radio-buttons-fpt.png)
+   {%- endif %}
+
+   {% ifversion fpt or ghec %}
+   {% note %}
+
+   **Nota:** Para restringir a los miembros y que no creen solo repositorios privados, tu organización debe utilizar {% data variables.product.prodname_ghe_cloud %}. {% data reusables.enterprise.link-to-ghec-trial %}
+
+   {% endnote %}
+   {%- endif %}
+
 6. Haz clic en **Save ** (guardar).

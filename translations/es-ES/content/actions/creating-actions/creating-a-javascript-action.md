@@ -1,7 +1,6 @@
 ---
 title: Crear una acción de JavaScript
 intro: 'En esta guía, aprenderás como desarrollar una acción de JavaScript usando el kit de herramientas de acciones.'
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /articles/creating-a-javascript-action
   - /github/automating-your-workflow-with-github-actions/creating-a-javascript-action
@@ -11,6 +10,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: tutorial
 topics:
   - Action development
@@ -20,7 +20,6 @@ shortTitle: Acción de JavaScript
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## Introducción
 
@@ -30,17 +29,17 @@ Esta guía usa el módulo Node.js del kit de herramientas {% data variables.prod
 
 Una vez que completes este proyecto, deberías comprender cómo crear tu propia acción de JavaScript y probarla en un flujo de trabajo.
 
-{% data reusables.github-actions.pure-javascript %}
+{% data reusables.actions.pure-javascript %}
 
-{% data reusables.github-actions.context-injection-warning %}
+{% data reusables.actions.context-injection-warning %}
 
 ## Prerrequisitos
 
 Antes de que comiences, necesitarás descargar Node.js y crear un repositorio público de {% data variables.product.prodname_dotcom %}.
 
-1. Descarga e instala Node.js 12.x, que incluye npm.
+1. Descarga e instala Node.js {% ifversion fpt or ghes > 3.3 or ghae-issue-5504 or ghec %}16.x{% else %}12.x{% endif %}, el cual incluye a npm.
 
-  https://nodejs.org/en/download/current/
+  {% ifversion fpt or ghes > 3.3 or ghae-issue-5504 or ghec %}https://nodejs.org/en/download/{% else %}https://nodejs.org/en/download/releases/{% endif %}
 
 1. Crea un repositorio público nuevo en {% data variables.product.product_location %} y llámalo "hello-world-javascript-action". Para obtener más información, consulta "[Crear un repositorio nuevo](/articles/creating-a-new-repository)".
 
@@ -48,13 +47,13 @@ Antes de que comiences, necesitarás descargar Node.js y crear un repositorio p�
 
 1. Desde tu terminal, cambia los directorios en el repositorio nuevo.
 
-  ```shell
+  ```shell{:copy}
   cd hello-world-javascript-action
   ```
 
 1. Desde tu terminal, inicializa el directorio con npm para generar un archivo `package.json`.
 
-  ```shell
+  ```shell{:copy}
   npm init -y
   ```
 
@@ -62,7 +61,7 @@ Antes de que comiences, necesitarás descargar Node.js y crear un repositorio p�
 
 Crea un archivo nuevo que se llame `action.yml` en el directorio `hello-world-javascript-action` con el siguiente código de ejemplo. Para obtener más información, consulta la sección "[Sintaxis de metadatos para {% data variables.product.prodname_actions %}](/actions/creating-actions/metadata-syntax-for-github-actions)".
 
-```yaml
+```yaml{:copy}
 name: 'Hello World'
 description: 'Greet someone and record the time'
 inputs:
@@ -74,7 +73,7 @@ outputs:
   time: # id of output
     description: 'The time we greeted you'
 runs:
-  using: 'node12'
+  using: {% ifversion fpt or ghes > 3.3 or ghae-issue-5504 or ghec %}'node16'{% else %}'node12'{% endif %}
   main: 'index.js'
 ```
 
@@ -92,7 +91,7 @@ El kit de herramientas ofrece más de un paquete `core` y `github`. Para obtener
 
 En tu terminal, instala los paquetes `core` y `github` del kit de herramientas de acciones.
 
-```shell
+```shell{:copy}
 npm install @actions/core
 npm install @actions/github
 ```
@@ -108,7 +107,7 @@ Las Acciones de GitHub proporcionan información de contexto sobre el evento de 
 Agrega un archivo nuevo denominado `index.js`, con el siguiente código.
 
 {% raw %}
-```javascript
+```javascript{:copy}
 const core = require('@actions/core');
 const github = require('@actions/github');
 
@@ -129,7 +128,6 @@ try {
 
 Si en el ejemplo anterior de `index.js` ocurre un error, entonces `core.setFailed(error.message);` utilizará el paquete [`@actions/core`](https://github.com/actions/toolkit/tree/main/packages/core) del kit de herramientas de las acciones para registrar un mensaje y configurar un código de salida defectuoso. Para obtener más información, consulta la sección "[Configurar los códigos de salida para las acciones](/actions/creating-actions/setting-exit-codes-for-actions)".
 
-
 ## Crear un README
 
 Puedes crear un archivo README para que las personas sepan cómo usar tu acción. Un archivo README resulta más útil cuando planificas el intercambio de tu acción públicamente, pero también es una buena manera de recordarle a tu equipo cómo usar la acción.
@@ -143,7 +141,7 @@ En tu directorio `hello-world-javascript-action`, crea un archivo `README.md` qu
 - Variables de entorno que utiliza la acción.
 - Un ejemplo de cómo usar tu acción en un flujo de trabajo.
 
-```markdown
+```markdown{:copy}
 # Hello world docker action
 
 Esta acción imprime "Hello World" o "Hello" + el nombre de una persona a quien saludar en el registro.
@@ -175,8 +173,7 @@ Desde tu terminal, confirma tus archivos `action.yml`, `index.js`, `node_modules
 
 También se recomienda agregarles una etiqueta de versión a los lanzamientos de tu acción. Para obtener más información sobre el control de versiones de tu acción, consulta la sección "[Acerca de las acciones](/actions/automating-your-workflow-with-github-actions/about-actions#using-release-management-for-actions)".
 
-
-```shell
+```shell{:copy}
 git add action.yml index.js node_modules/* package.json package-lock.json README.md
 git commit -m "My first action is ready"
 git tag -a -m "My first action release" v1.1
@@ -196,7 +193,7 @@ Ingresar tu directorio de `node_modules` puede causar problemas. Como alternativ
 1. Si ya has comprobado tu directorio `node_modules`, eliminínalo. `rm -rf node_modules/*`
 
 1. Desde tu terminal, confirma las actualizaciones para tu `action.yml`, `dist/index.js` y `node_modules`.
-```shell
+```shell{:copy}
 git add action.yml dist/index.js node_modules/*
 git commit -m "Use vercel/ncc"
 git tag -a -m "My first action release" v1.1
@@ -216,7 +213,7 @@ Este ejemplo demuestra cómo se puede ejecutar tu acción nueva y pública desde
 Copia el siguiente YAML en un archivo nuevo en `.github/workflows/main.yml` y actualiza la línea `uses: octocat/hello-world-javascript-action@v1.1` con tu nombre de usuario y con el nombre del repositorio público que creaste anteriormente. También puedes reemplazar la entrada `who-to-greet` con tu nombre.
 
 {% raw %}
-```yaml
+```yaml{:copy}
 on: [push]
 
 jobs:
@@ -241,9 +238,8 @@ Cuando se activa este flujo de trabajo, el ejecutor descargará la acción `hell
 
 Copia el siguiente ejemplo de código de flujo de trabajo en un archivo `.github/workflows/main.yml` en tu repositorio de acción. También puedes reemplazar la entrada `who-to-greet` con tu nombre.
 
-{% raw %}
 **.github/workflows/main.yml**
-```yaml
+```yaml{:copy}
 on: [push]
 
 jobs:
@@ -254,7 +250,7 @@ jobs:
       # To use this repository's private action,
       # you must check out the repository
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: {% data reusables.actions.action-checkout %}
       - name: Hello world action step
         uses: ./ # Uses an action in the root directory
         id: hello
@@ -262,16 +258,9 @@ jobs:
           who-to-greet: 'Mona the Octocat'
       # Use the output from the `hello` step
       - name: Get the output time
-        run: echo "The time was ${{ steps.hello.outputs.time }}"
+        run: echo "The time was {% raw %}${{ steps.hello.outputs.time }}{% endraw %}"
 ```
-{% endraw %}
 
-Desde tu repositorio, da clic en la pestaña de **Acciones** y selecciona la última ejecución de flujo de trabajo. {% ifversion fpt or ghes > 3.0 or ghae %}Debajo de **Jobs** o en la gráfica de visualización, da clic en **A job to say hello**. {% endif %}Debrás ver la frase "Hello Mona the Octocat" o el nombre que utilizaste para la entrada `who-to-greet` y la marca de tiempo impresa en la bitácora.
+Desde tu repositorio, da clic en la pestaña de **Acciones** y selecciona la última ejecución de flujo de trabajo. Debajo de **Jobs** o en la gráfica de visualización, haz clic en **A job to say hello**. Deberías ver "Hello Mona the Octocat" o el nombre que usaste para la entrada `who-to-greet` y la marcación de hora impresa en el registro.
 
-{% ifversion fpt or ghes > 3.0 or ghae %}
 ![Captura de pantalla del uso de tu acción en un flujo de trabajo](/assets/images/help/repository/javascript-action-workflow-run-updated-2.png)
-{% elsif ghes > 2.22 %}
-![Captura de pantalla del uso de tu acción en un flujo de trabajo](/assets/images/help/repository/javascript-action-workflow-run-updated.png)
-{% else %}
-![Captura de pantalla del uso de tu acción en un flujo de trabajo](/assets/images/help/repository/javascript-action-workflow-run.png)
-{% endif %}

@@ -9,6 +9,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Identity
   - Access management
@@ -17,7 +18,7 @@ shortTitle: 将电子邮件与 GPG 密钥关联
 
 {% note %}
 
-如果使用的 GPG 密钥匹配提交者身份以及与 {% data variables.product.product_name %} 帐户关联的已验证电子邮件地址，则您可以开始对提交和标记签名。
+如果您使用与您的提交者身份以及 {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}上帐户关联的已验证电子邮件地址相匹配的 GPG 密钥，则可以开始对提交和标签进行签名。
 
 {% endnote %}
 
@@ -32,7 +33,7 @@ shortTitle: 将电子邮件与 GPG 密钥关联
   ```shell
   $ gpg> adduid
   ```
-6. 按照提示提供您的真实姓名、电子邮件地址和任何注释。 您可以选择 `N`、`C` 或 `E` 来修改各个条目。 {% data reusables.gpg.private-email %} {% ifversion fpt %} 更多信息请参阅“[设置提交电子邮件地址](/articles/setting-your-commit-email-address)”。{% endif %}
+6. 按照提示提供您的真实姓名、电子邮件地址和任何注释。 您可以选择 `N`、`C` 或 `E` 来修改各个条目。 {% data reusables.gpg.private-email %} {% ifversion fpt or ghec %} 更多信息请参阅“[设置提交电子邮件地址](/articles/setting-your-commit-email-address)”。{% endif %}
   ```shell
   Real Name: <em>Octocat</em>
   Email address: <em>octocat@github.com</em>
@@ -50,13 +51,13 @@ shortTitle: 将电子邮件与 GPG 密钥关联
   $ gpg --armor --export <em>3AA5C34371567BD2</em>
   # Prints the GPG key, in ASCII armor format
   ```
-11. [添加 GPG 密钥到 GitHub 帐户](/articles/adding-a-new-gpg-key-to-your-github-account)以上传该 GPG 密钥。
+11. [添加 GPG 密钥到 GitHub 帐户](/articles/adding-a-gpg-key-to-your-github-account)以上传该 GPG 密钥。
 
 ## 延伸阅读
 
 - "[检查现有 GPG 密钥](/articles/checking-for-existing-gpg-keys)"
 - "[生成新 GPG 密钥](/articles/generating-a-new-gpg-key)"
 - "[在 GPG 密钥中使用经验证的电子邮件地址](/articles/using-a-verified-email-address-in-your-gpg-key)"
-- "[添加新 GPG 密钥到 GitHub 帐户](/articles/adding-a-new-gpg-key-to-your-github-account)"
+- "[添加 GPG 密钥到 GitHub 帐户](/articles/adding-a-gpg-key-to-your-github-account)"
 - "[对提交签名](/articles/signing-commits)"
 - "[对标记签名](/articles/signing-tags)"

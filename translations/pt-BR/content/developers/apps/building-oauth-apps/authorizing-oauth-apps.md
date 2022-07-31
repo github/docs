@@ -2,29 +2,30 @@
 title: Autorizar aplicativos OAuth
 intro: '{% data reusables.shortdesc.authorizing_oauth_apps %}'
 redirect_from:
-  - /apps/building-integrations/setting-up-and-registering-oauth-apps/about-authorization-options-for-oauth-apps/
-  - /apps/building-integrations/setting-up-and-registering-oauth-apps/directing-users-to-review-their-access/
-  - /apps/building-integrations/setting-up-and-registering-oauth-apps/creating-multiple-tokens-for-oauth-apps/
-  - /v3/oauth/
-  - /apps/building-oauth-apps/authorization-options-for-oauth-apps/
+  - /apps/building-integrations/setting-up-and-registering-oauth-apps/about-authorization-options-for-oauth-apps
+  - /apps/building-integrations/setting-up-and-registering-oauth-apps/directing-users-to-review-their-access
+  - /apps/building-integrations/setting-up-and-registering-oauth-apps/creating-multiple-tokens-for-oauth-apps
+  - /v3/oauth
+  - /apps/building-oauth-apps/authorization-options-for-oauth-apps
   - /apps/building-oauth-apps/authorizing-oauth-apps
   - /developers/apps/authorizing-oauth-apps
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - OAuth Apps
 ---
 
-{% data variables.product.product_name %}'s OAuth implementation supports the standard [authorization code grant type](https://tools.ietf.org/html/rfc6749#section-4.1) and the OAuth 2.0 [Device Authorization Grant](https://tools.ietf.org/html/rfc8628) for apps that don't have access to a web browser.
+A implementação OAuth de {% data variables.product.product_name %} é compatível com o [ tipo de código de autorização padrão](https://tools.ietf.org/html/rfc6749#section-4.1) e com o OAuth 2.0 [Concessão de Autorização do Dispositivo](https://tools.ietf.org/html/rfc8628) para aplicativos que não têm acesso a um navegador web.
 
 Se você desejar ignorar a autorização do seu aplicativo da forma-padrão, como no teste do seu aplicativo, você poderá usar o fluxo do aplicativo [que não é web](#non-web-application-flow).
 
 Para autorizar o seu aplicativo OAuth, considere qual fluxo de autorização melhor se adequa ao seu aplicativo.
 
-- [Fluxo de aplicativos web](#web-application-flow): Usado para autorizar usuários para aplicativos OAuth padrão executados no navegador. (The [implicit grant type](https://tools.ietf.org/html/rfc6749#section-4.2) is not supported.){% ifversion fpt or ghae or ghes > 3.0 %}
-- [device flow](#device-flow):  Used for headless apps, such as CLI tools.{% endif %}
+- [Fluxo de aplicativos web](#web-application-flow): Usado para autorizar usuários para aplicativos OAuth padrão executados no navegador. (O [tipo implícito de concessão](https://tools.ietf.org/html/rfc6749#section-4.2) não é compatível)
+- [fluxo de dispositivo](#device-flow): Usado para aplicativos sem cabeçalho, como ferramentas de CLI.
 
 ## Fluxo do aplicativo web
 
@@ -50,7 +51,7 @@ Quando seu aplicativo GitHub especifica um parâmetro do `login`, ele solicita a
 
 | Nome           | Tipo     | Descrição                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 | -------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `client_id`    | `string` | **Obrigatório**. O ID do cliente que você recebeu do GitHub quando você {% ifversion fpt %}[fez o cadastro](https://github.com/settings/applications/new){% else %}registrados{% endif %}.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| `client_id`    | `string` | **Obrigatório**. O ID do cliente que você recebeu do GitHub quando você {% ifversion fpt or ghec %}[fez o cadastro](https://github.com/settings/applications/new){% else %}registrados{% endif %}.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 | `redirect_uri` | `string` | A URL no seu aplicativo para o qual os usuários serão enviados após a autorização. Veja os detalhes abaixo sobre [redirecionamento das urls](#redirect-urls).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 | `login`        | `string` | Sugere uma conta específica para iniciar a sessão e autorizar o aplicativo.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 | `escopo`       | `string` | Uma lista de [escopos](/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/) delimitada por espaço. Caso não seja fornecido, o `escopo`-padrão será uma lista vazia para usuários que não autorizaram nenhum escopo para o aplicativo. Para usuários que têm escopos autorizados para o aplicativo, a página de autorização OAuth com a lista de escopos não será exibida para o usuário. Em vez disso, esta etapa do fluxo será concluída automaticamente com o conjunto de escopos que o usuário autorizou para o aplicativo. Por exemplo, se um usuário já executou o fluxo web duas vezes e autorizou um token com escopo do `usuário` e outro token com o escopo do `repositório`, um terceiro fluxo web que não fornece um escopo `` receberá um token com os escopos do `usuário` e do `repositório`. |
@@ -78,19 +79,29 @@ Troque este `código` por um token de acesso:
 
 Por padrão, a resposta assume o seguinte formato:
 
-    access_token={% ifversion fpt or ghes > 3.1 or ghae-next %}gho_16C7e42F292c6912E7710c838347Ae178B4a{% else %}e72e16c7e42f292c6912e7710c838347ae178b4a{% endif %}&token_type=bearer
+```
+access_token=gho_16C7e42F292c6912E7710c838347Ae178B4a&scope=repo%2Cgist&token_type=bearer
+```
 
-Você também pode receber o conteúdo em diferentes formatos, dependendo do cabeçalho Aceitar:
+{% data reusables.apps.oauth-auth-vary-response %}
 
-    Accept: application/json
-    {"access_token":"{% ifversion fpt or ghes > 3.1 or ghae-next %}gho_16C7e42F292c6912E7710c838347Ae178B4a{% else %}e72e16c7e42f292c6912e7710c838347ae178b4a{% endif %}", "scope":"repo,gist", "token_type":"bearer"}
-    
-    Accept: application/xml
-    <OAuth>
-      <token_type>bearer</token_type>
-      <scope>repo,gist</scope>
-      <access_token>{% ifversion fpt or ghes > 3.1 or ghae-next %}gho_16C7e42F292c6912E7710c838347Ae178B4a{% else %}e72e16c7e42f292c6912e7710c838347ae178b4a{% endif %}</access_token>
-    </OAuth>
+```json
+Accept: application/json
+{
+  "access_token":"gho_16C7e42F292c6912E7710c838347Ae178B4a",
+  "scope":"repo,gist",
+  "token_type":"bearer"
+}
+```
+
+```xml
+Accept: application/xml
+<OAuth>
+  <token_type>bearer</token_type>
+  <scope>repo,gist</scope>
+  <access_token>gho_16C7e42F292c6912E7710c838347Ae178B4a</access_token>
+</OAuth>
+```
 
 ### 3. Use o token de acesso para acessar a API
 
@@ -105,8 +116,6 @@ Por exemplo, no cURL você pode definir o cabeçalho de autorização da seguint
 curl -H "Authorization: token OAUTH-TOKEN" {% data variables.product.api_url_pre %}/user
 ```
 
-{% ifversion fpt or ghae or ghes > 3.0 %}
-
 ## Fluxo de dispositivo
 
 {% note %}
@@ -116,6 +125,12 @@ curl -H "Authorization: token OAUTH-TOKEN" {% data variables.product.api_url_pre
 {% endnote %}
 
 O fluxo de dispositivos permite que você autorize usuários para um aplicativo sem cabeçalho, como uma ferramenta de CLI ou um gerenciador de credenciais do Git.
+
+{% ifversion device-flow-is-opt-in %}
+
+Antes de usar o fluxo do dispositivo para autorizar e identificar usuários, primeiro habilite-o nas configurações do aplicativo. Para obter mais informações sobre como habilitar o fluxo do dispositivo no seu aplicativo, consulte "[Modificando um aplicativo OAuth](/developers/apps/managing-oauth-apps/modifying-an-oauth-app)" para aplicativos OAuth e "[Modificando um aplicativo GitHub](/developers/apps/managing-github-apps/modifying-a-github-app)" para aplicativos GitHub.
+
+{% endif %}
 
 ### Visão geral do fluxo do dispositivo
 
@@ -138,27 +153,35 @@ O seu aplicativo deve solicitar um código de verificação e uma URL de verific
 
 #### Resposta
 
-{% ifversion fpt %}
-  ```JSON
-  {
-    "device_code": "3584d83530557fdd1f46af8289938c8ef79f9dc5",
-    "user_code": "WDJB-MJHT",
-    "verification_uri": "https://github.com/login/device",
-    "expires_in": 900,
-    "interval": 5
-  }
-  ```
-{% else %}
-  ```JSON
-  {
-    "device_code": "3584d83530557fdd1f46af8289938c8ef79f9dc5",
-    "user_code": "WDJB-MJHT",
-    "verification_uri": "http(s)://[hostname]/login/device",
-    "expires_in": 900,
-    "interval": 5
-  }
-  ```
-{% endif %}
+Por padrão, a resposta assume o seguinte formato:
+
+```
+device_code=3584d83530557fdd1f46af8289938c8ef79f9dc5&expires_in=900&interval=5&user_code=WDJB-MJHT&verification_uri=https%3A%2F%{% data variables.product.product_url %}%2Flogin%2Fdevice
+```
+
+{% data reusables.apps.oauth-auth-vary-response %}
+
+```json
+Accept: application/json
+{
+  "device_code": "3584d83530557fdd1f46af8289938c8ef79f9dc5",
+  "user_code": "WDJB-MJHT",
+  "verification_uri": "{% data variables.product.oauth_host_code %}/login/device",
+  "expires_in": 900,
+  "interval": 5
+}
+```
+
+```xml
+Accept: application/xml
+<OAuth>
+  <device_code>3584d83530557fdd1f46af8289938c8ef79f9dc5</device_code>
+  <user_code>WDJB-MJHT</user_code>
+  <verification_uri>{% data variables.product.oauth_host_code %}/login/device</verification_uri>
+  <expires_in>900</expires_in>
+  <interval>5</interval>
+</OAuth>
+```
 
 #### Parâmetros de resposta
 
@@ -196,12 +219,30 @@ Uma vez que o usuário tenha autorizado, o aplicativo receberá um token de aces
 
 #### Resposta
 
+Por padrão, a resposta assume o seguinte formato:
+
+```
+access_token=gho_16C7e42F292c6912E7710c838347Ae178B4a&token_type=bearer&scope=repo%2Cgist
+```
+
+{% data reusables.apps.oauth-auth-vary-response %}
+
 ```json
+Accept: application/json
 {
- "access_token": "{% ifversion fpt or ghes > 3.1 or ghae-next %}gho_16C7e42F292c6912E7710c838347Ae178B4a{% else %}e72e16c7e42f292c6912e7710c838347ae178b4a{% endif %}",
+ "access_token": "gho_16C7e42F292c6912E7710c838347Ae178B4a",
   "token_type": "bearer",
-  "scope": "user"
+  "scope": "repo,gist"
 }
+```
+
+```xml
+Accept: application/xml
+<OAuth>
+  <access_token>gho_16C7e42F292c6912E7710c838347Ae178B4a</access_token>
+  <token_type>bearer</token_type>
+  <scope>gist,repo</scope>
+</OAuth>
 ```
 
 ### Limites de taxa para o fluxo do dispositivo
@@ -220,17 +261,16 @@ Se você fizer mais de uma solicitação de token de acesso (`POST {% data varia
 | `unsupported_grant_type`       | O tipo de concessão deve ser `urn:ietf:params:oauth:grant-type:device_code` e incluído como um parâmetro de entrada quando você faz a sondagem da solicitação do token do OAuth `POST {% data variables.product.oauth_host_code %}/login/oauth/oaccess_token`.                                                                                                                                                                                                                                                                                                             |
 | `incorrect_client_credentials` | Para o fluxo do dispositivo, você deve passar o ID de cliente do aplicativo, que pode ser encontrado na página de configurações do aplicativo. O `client_secret` não é necessário para o fluxo do dispositivo.                                                                                                                                                                                                                                                                                                                                                             |
 | `incorrect_device_code`        | O device_code fornecido não é válido.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| `access_denied`                | Quando um usuário clica em cancelar durante o processo de autorização, você receberá uma mensagem de erro de `access_denied` e o usuário não poderá usar o código de verificação novamente.                                                                                                                                                                                                                                                                                                                                                                                |
+| `access_denied`                | Quando um usuário clica em cancelar durante o processo de autorização, você receberá um erro de `access_denied` e o usuário não poderá usar o código de verificação novamente.{% ifversion device-flow-is-opt-in %}
+| `device_flow_disabled`         | O fluxo do dispositivo não foi habilitado nas configurações do aplicativo. Para obter mais informações, consulte "[fluxo do dispositivo](#device-flow)".{% endif %}
 
 Para obter mais informações, consulte "[Concessão de Autorização do Dispositivo OAuth 2.0](https://tools.ietf.org/html/rfc8628#section-3.5)".
-
-{% endif %}
 
 ## Fluxo do aplicativo que não são da web
 
 A autenticação que não é da web está disponível para situações limitadas como testes. Se necessário, você pode usar a [autenticação básica](/rest/overview/other-authentication-methods#basic-authentication) para criar um token de acesso usando a sua [página pessoal de configurações de tokens de acesso](/articles/creating-an-access-token-for-command-line-use). Essa técnica permite ao usuário revogar o acesso a qualquer momento.
 
-{% ifversion fpt or ghes %}
+{% ifversion fpt or ghes or ghec %}
 {% note %}
 
 **Observação:** Quando usar o fluxo do aplicativo que não é web para criar um token do OAuth2, certifique-se de entender como [trabalhar com a autenticação de dois fatores](/rest/overview/other-authentication-methods#working-with-two-factor-authentication) se você ou seus usuários tiverem a autenticação de dois fatores habilitada.
@@ -256,10 +296,10 @@ O parâmetro `redirect_uri` é opcional. Se ignorado, o GitHub redirecionará os
 
 O parâmetro opcional `redirect_uri` também pode ser usado para URLs do localhhost. Se o aplicativo especificar uma URL do localhost e uma porta, após a autorização, os usuários do aplicativo serão redirecionados para a URL e porta fornecidas. O `redirect_uri` não precisa corresponder à porta especificada na URL de retorno de chamada do aplicativo.
 
-Para a URL de retorno de chamada `http://localhost/path`, você poderá usar este `redirect_uri`:
+Para a URL de retorno de chamada `http://127.0.0.1/path`, você poderá usar este `redirect_uri`:
 
 ```
-http://localhost:1234/path
+http://127.0.0.1:1234/path
 ```
 
 ## Criar vários tokens para aplicativos OAuth
@@ -292,8 +332,8 @@ Para criar esse vínculo, você precisará do `client_id` dos aplicativos OAuth,
 
 * "[Solucionando erros de solicitação de autorização](/apps/managing-oauth-apps/troubleshooting-authorization-request-errors)"
 * "[Solucionando erros na requisição de token de acesso do aplicativo OAuth](/apps/managing-oauth-apps/troubleshooting-oauth-app-access-token-request-errors)"
-{% ifversion fpt or ghae or ghes > 3.0 %}* "[Device flow errors](#error-codes-for-the-device-flow)"{% endif %}{% ifversion fpt or ghae-issue-4374 or ghes > 3.2 %}
-* "[Token expiration and revocation](/github/authenticating-to-github/keeping-your-account-and-data-secure/token-expiration-and-revocation)"{% endif %}
+* "[Erros de fluxo do dispositivo](#error-codes-for-the-device-flow)"{% ifversion fpt or ghae or ghes > 3.2 or ghec %}
+* "[Vencimento e revogação do Token](/github/authenticating-to-github/keeping-your-account-and-data-secure/token-expiration-and-revocation)"{% endif %}
 
 ## Leia mais
 

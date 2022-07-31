@@ -8,13 +8,13 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - GitHub Apps
 shortTitle: ユーザからサーバーへのアクセスの更新
 ---
 
 {% data reusables.pre-release-program.expiring-user-access-tokens %}
-
 
 ## ユーザアクセストークンの期限切れについて
 
@@ -43,9 +43,9 @@ shortTitle: ユーザからサーバーへのアクセスの更新
 
 ```json
 {
-  "access_token": "{% ifversion fpt or ghes > 3.1 or ghae-next %}ghu_16C7e42F292c6912E7710c838347Ae178B4a{% else %}e72e16c7e42f292c6912e7710c838347ae178b4a{% endif %}",
+  "access_token": "ghu_16C7e42F292c6912E7710c838347Ae178B4a",
   "expires_in": "28800",
-  "refresh_token": "{% ifversion fpt or ghes > 3.1 or ghae-next %}ghr_1B4a2e77838347a7E420ce178F2E7c6912E169246c34E1ccbF66C46812d16D5B1A9Dc86A1498{% else %}r1.c1b4a2e77838347a7e420ce178f2e7c6912e169246c34e1ccbf66c46812d16d5b1a9dc86a149873c{% endif %}",
+  "refresh_token": "ghr_1B4a2e77838347a7E420ce178F2E7c6912E169246c34E1ccbF66C46812d16D5B1A9Dc86A1498",
   "refresh_token_expires_in": "15811200",
   "scope": "",
   "token_type": "bearer"
@@ -59,8 +59,7 @@ shortTitle: ユーザからサーバーへのアクセスの更新
 {% data reusables.user-settings.developer_settings %}
 {% data reusables.user-settings.github_apps %}
 4. 選択した{% data variables.product.prodname_github_app %}の隣の**Edit（編集）**をクリックしてください。 ![GitHub Appを編集する設定](/assets/images/github-apps/edit-test-app.png)
-5. 左サイドバーで、[**{% ifversion ghes < 3.1 %} Beta {% else %} Optional {% endif %} Features**] をクリックします。
-  {% ifversion ghes < 3.1 %} ![Beta features tab](/assets/images/github-apps/beta-features-option.png) {% else %} ![Optional features tab](/assets/images/github-apps/optional-features-option.png) {% endif %}
+5. In the left sidebar, click **Optional Features**. ![Optional features tab](/assets/images/github-apps/optional-features-option.png)
 6. 「User-to-server token expiration（ユーザからサーバーへのトークンの有効期限）」の隣の**Opt-in（オプトイン）**もしくは**Opt-out（オプトアウト）**をクリックしてください。 この設定が適用されるまで、数秒かかることがあります。
 
 ## 新しいGitHub Appでの期限切れになるトークンのオプトアウト
@@ -71,14 +70,11 @@ shortTitle: ユーザからサーバーへのアクセスの更新
 
 ![GitHub App のセットアップ中に期限付きユーザトークンをオプトインするオプション](/assets/images/github-apps/expire-user-tokens-selection.png)
 
-Existing {% data variables.product.prodname_github_apps %} using user-to-server authorization tokens are only affected by this new flow when the app owner enables expiring user tokens for their app.
+ユーザからサーバーへの認可トークンを使用する既存の{% data variables.product.prodname_github_apps %}は、アプリケーションのオーナーが期限になるユーザトークンをアプリケーションに対して有効化した場合にのみ、この新しいフローの影響を受けます。
 
-Enabling expiring user tokens for existing {% data variables.product.prodname_github_apps %} requires sending users through the OAuth flow to re-issue new user tokens that will expire in 8 hours and making a request with the refresh token to get a new access token and refresh token. 詳しい情報については「[GitHub App のユーザの特定と認可](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/)」を参照してください。
-
-{% ifversion fpt or ghes > 3.1 or ghae-next %}
+既存の{% data variables.product.prodname_github_apps %}に対して期限設定付きのユーザトークンを有効化するためには、8時間で期限切れになる新しいユーザトークンを再発行するためにOAuthフローを通じてユーザを送信し、リフレッシュトークンを使って新しいアクセストークンとリフレッシュトークンを取得するためのリクエストを発行する必要があります。 詳しい情報については「[GitHub App のユーザの特定と認可](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/)」を参照してください。
 
 ## 参考リンク
 
 - "[{% data variables.product.prodname_dotcom %} への認証について](/github/authenticating-to-github/about-authentication-to-github#githubs-token-formats)"
 
-{% endif %}

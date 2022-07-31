@@ -3,7 +3,7 @@ title: collectd のコンフィグレーション
 intro: '{% data variables.product.prodname_enterprise %}は、`collectd` でデータを収集し、外部の `collectd` に送信することができます。 CPU の使用率やメモリーとディスクの消費、ネットワークインタフェーストラフィックとエラー、仮想マシンの全体的な負荷などのデータを収集しています。'
 redirect_from:
   - /enterprise/admin/installation/configuring-collectd
-  - /enterprise/admin/articles/configuring-collectd/
+  - /enterprise/admin/articles/configuring-collectd
   - /enterprise/admin/enterprise-management/configuring-collectd
   - /admin/enterprise-management/configuring-collectd
 versions:
@@ -47,7 +47,7 @@ topics:
 
 ## collectd データの `ghe-export-graphs`でのエクスポート
 
-`ghe-export-graphs` のコマンドラインツールは、`collectd` が RRD データベースに保存するデータをエクスポートします。 このコマンドは、データを XML にして、1つのTAR書庫（.tgz）にエクスポートします。
+`ghe-export-graphs` のコマンドラインツールは、`collectd` が RRD データベースに保存するデータをエクスポートします。 This command turns the data into XML and exports it into a single tarball (`.tgz`).
 
 その主な用途は、Support Bundleを一括ダウンロードする必要なく、{% data variables.contact.contact_ent_support %}のチームに仮想マシンのパフォーマンスに関するデータ提供することです。 定期的なバックアップエクスポートに含めてはなりません。また、その逆のインポートもありません。 {% data variables.contact.contact_ent_support %}に連絡したとき、問題解決を容易にするため、このデータが必要となる場合があります。
 

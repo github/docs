@@ -1,8 +1,8 @@
+import { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
-import cx from 'classnames'
-import { Heading } from '@primer/components'
+import dynamic from 'next/dynamic'
 
-import { ZapIcon, InfoIcon } from '@primer/octicons-react'
+import { ZapIcon, InfoIcon, ShieldLockIcon } from '@primer/octicons-react'
 import { Callout } from 'components/ui/Callout'
 
 import { Link } from 'components/Link'
@@ -14,46 +14,79 @@ import { LearningTrackNav } from './LearningTrackNav'
 import { MarkdownContent } from 'components/ui/MarkdownContent'
 import { Lead } from 'components/ui/Lead'
 import { ArticleGridLayout } from './ArticleGridLayout'
-import { VersionPicker } from 'components/VersionPicker'
-import { Breadcrumbs } from 'components/Breadcrumbs'
+import { PlatformPicker } from 'components/article/PlatformPicker'
+import { ToolPicker } from 'components/article/ToolPicker'
+import { MiniTocs } from 'components/ui/MiniTocs'
+
+const ClientSideHighlightJS = dynamic(() => import('./ClientSideHighlightJS'), { ssr: false })
 
 // Mapping of a "normal" article to it's interactive counterpart
 const interactiveAlternatives: Record<string, { href: string }> = {
-  '/actions/automating-builds-and-tests/building-and-testing-nodejs': {
-    href: '/actions/automating-builds-and-tests/building-and-testing-nodejs-or-python?langId=nodejs',
-  },
-  '/actions/automating-builds-and-tests/building-and-testing-python': {
-    href: '/actions/automating-builds-and-tests/building-and-testing-nodejs-or-python?langId=python',
-  },
+  '/codespaces/setting-up-your-project-for-codespaces/setting-up-your-nodejs-project-for-codespaces':
+    {
+      href: '/codespaces/setting-up-your-project-for-codespaces/setting-up-your-project-for-codespaces?langId=nodejs',
+    },
+  '/codespaces/setting-up-your-project-for-codespaces/setting-up-your-dotnet-project-for-codespaces':
+    {
+      href: '/codespaces/setting-up-your-project-for-codespaces/setting-up-your-project-for-codespaces?langId=dotnet',
+    },
+  '/codespaces/setting-up-your-project-for-codespaces/setting-up-your-java-project-for-codespaces':
+    {
+      href: '/codespaces/setting-up-your-project-for-codespaces/setting-up-your-project-for-codespaces?langId=java',
+    },
+  '/codespaces/setting-up-your-project-for-codespaces/setting-up-your-python-project-for-codespaces':
+    {
+      href: '/codespaces/setting-up-your-project-for-codespaces/setting-up-your-project-for-codespaces?langId=py',
+    },
 }
 
 export const ArticlePage = () => {
-  const router = useRouter()
+  const { asPath } = useRouter()
   const {
     title,
     intro,
+    effectiveDate,
     renderedPage,
     contributor,
     permissions,
     includesPlatformSpecificContent,
-    defaultPlatform,
+    includesToolSpecificContent,
     product,
     miniTocItems,
     currentLearningTrack,
   } = useArticleContext()
   const { t } = useTranslation('pages')
-  const currentPath = router.asPath.split('?')[0]
+  const currentPath = asPath.split('?')[0]
+
+  // If the page contains `[data-highlight]` blocks, these pages need
+  // syntax highlighting. But not every page needs it, so it's conditionally
+  // lazy-loaded on the client.
+  const [lazyLoadHighlightJS, setLazyLoadHighlightJS] = useState(false)
+  useEffect(() => {
+    // It doesn't need to use querySelector because all we care about is if
+    // there is greater than zero of these in the DOM.
+    // Note! This "core selector", which determines whether to bother
+    // or not, needs to match what's used inside ClientSideHighlightJS.tsx
+    if (document.querySelector('[data-highlight]')) {
+      setLazyLoadHighlightJS(true)
+    }
+
+    // Important to depend on the current path because the first page you
+    // load, before any client-side navigation, might not need it, but the
+    // consecutive one does.
+  }, [asPath])
 
   return (
     <DefaultLayout>
+      {/* Doesn't matter *where* this is included because it will
+      never render anything. It always just return null. */}
+      {lazyLoadHighlightJS && <ClientSideHighlightJS />}
+
       <div className="container-xl px-3 px-md-6 my-4">
         <ArticleGridLayout
-          topper={<Breadcrumbs />}
-          topperSidebar={<VersionPicker />}
+          topper={<ArticleTitle>{title}</ArticleTitle>}
           intro={
             <>
-              <ArticleTitle>{title}</ArticleTitle>
-
               {contributor && (
                 <Callout variant="info" className="mb-3">
                   <p>
@@ -65,44 +98,23 @@ export const ArticlePage = () => {
                 </Callout>
               )}
 
-              {intro && <Lead data-testid="lead">{intro}</Lead>}
+              {intro && (
+                <Lead data-testid="lead" data-search="lead">
+                  {intro}
+                </Lead>
+              )}
 
               {permissions && (
-                <div
-                  className="permissions-statement"
-                  dangerouslySetInnerHTML={{ __html: permissions }}
-                />
+                <div className="permissions-statement d-table">
+                  <div className="d-table-cell pr-2">
+                    <ShieldLockIcon size={16} />
+                  </div>
+                  <div className="d-table-cell" dangerouslySetInnerHTML={{ __html: permissions }} />
+                </div>
               )}
 
-              {includesPlatformSpecificContent && (
-                <nav
-                  className="UnderlineNav my-3"
-                  data-default-platform={defaultPlatform || undefined}
-                >
-                  <div className="UnderlineNav-body">
-                    {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-                    <a href="#" className="UnderlineNav-item platform-switcher" data-platform="mac">
-                      Mac
-                    </a>
-                    {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-                    <a
-                      href="#"
-                      className="UnderlineNav-item platform-switcher"
-                      data-platform="windows"
-                    >
-                      Windows
-                    </a>
-                    {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-                    <a
-                      href="#"
-                      className="UnderlineNav-item platform-switcher"
-                      data-platform="linux"
-                    >
-                      Linux
-                    </a>
-                  </div>
-                </nav>
-              )}
+              {includesPlatformSpecificContent && <PlatformPicker variant="underlinenav" />}
+              {includesToolSpecificContent && <ToolPicker variant="underlinenav" />}
 
               {product && (
                 <Callout
@@ -124,34 +136,21 @@ export const ArticlePage = () => {
                 </div>
               )}
               {miniTocItems.length > 1 && (
-                <>
-                  <Heading as="h2" fontSize={1} id="in-this-article" className="mb-1">
-                    <a className="Link--primary" href="#in-this-article">
-                      {t('miniToc')}
-                    </a>
-                  </Heading>
-                  <ul className="list-style-none pl-0 f5 mb-0">
-                    {miniTocItems.map((item) => {
-                      return (
-                        <li
-                          key={item.contents}
-                          className={cx(
-                            `ml-${item.indentationLevel * 3}`,
-                            item.platform,
-                            'mb-2 lh-condensed'
-                          )}
-                          dangerouslySetInnerHTML={{ __html: item.contents }}
-                        />
-                      )
-                    })}
-                  </ul>
-                </>
+                <MiniTocs pageTitle={title} miniTocItems={miniTocItems} />
               )}
             </>
           }
         >
           <div id="article-contents">
             <MarkdownContent>{renderedPage}</MarkdownContent>
+            {effectiveDate && (
+              <div className="mt-4" id="effectiveDate">
+                Effective as of:{' '}
+                <time dateTime={new Date(effectiveDate).toISOString()}>
+                  {new Date(effectiveDate).toDateString()}
+                </time>
+              </div>
+            )}
           </div>
         </ArticleGridLayout>
 

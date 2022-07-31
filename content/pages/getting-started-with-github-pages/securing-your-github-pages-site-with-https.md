@@ -7,6 +7,7 @@ redirect_from:
   - /github/working-with-github-pages/securing-your-github-pages-site-with-https
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Pages
 shortTitle: Secure site with HTTPS
@@ -22,6 +23,12 @@ All {% data variables.product.prodname_pages %} sites, including sites that are 
 
 {% data reusables.pages.private_pages_are_public_warning %}
 
+{% note %}
+
+**Note:** RFC3280 states that the maximum length of the common name should be 64 characters. Therefore, the entire domain name of your {% data variables.product.prodname_pages %} site must be less than 64 characters long for a certificate to be successfully created.
+
+{% endnote %}
+
 ## Enforcing HTTPS for your {% data variables.product.prodname_pages %} site
 
 {% data reusables.pages.navigate-site-repo %}
@@ -29,6 +36,12 @@ All {% data variables.product.prodname_pages %} sites, including sites that are 
 {% data reusables.pages.sidebar-pages %}
 3. Under "{% data variables.product.prodname_pages %}," select **Enforce HTTPS**.
   ![Enforce HTTPS checkbox](/assets/images/help/pages/enforce-https-checkbox.png)
+
+## Troubleshooting certificate provisioning ("Certificate not yet created" error")
+
+When you set or change your custom domain in the Pages settings, an automatic DNS check begins. This check determines if your DNS settings are configured to allow {% data variables.product.prodname_dotcom %} to obtain a certificate automatically. If the check is successful, {% data variables.product.prodname_dotcom %} queues a job to request a TLS certificate from [Let's Encrypt](https://letsencrypt.org/). On receiving a valid certificate, {% data variables.product.prodname_dotcom %} automatically uploads it to the servers that handle TLS termination for Pages. When this process completes successfully, a check mark is displayed beside your custom domain name.
+
+The process may take some time. If the process has not completed several minutes after you clicked **Save**, try clicking **Remove** next to your custom domain name. Retype the domain name and click **Save** again. This will cancel and restart the provisioning process.
 
 ## Resolving problems with mixed content
 
@@ -54,4 +67,4 @@ Assets are commonly found in the following locations:
 |:----------:|:-----------------------------------------:|:---------------------------------:|
 | CSS        | `<link rel="stylesheet" href="http://example.com/css/main.css">` | `<link rel="stylesheet" href="https://example.com/css/main.css">`
 | JavaScript   |  `<script type="text/javascript" src="http://example.com/js/main.js"></script>`  |   `<script type="text/javascript" src="https://example.com/js/main.js"></script>`
-| Image        |  `<A HREF="http://www.somesite.com"><IMG SRC="http://www.example.com/logo.jpg" alt="Logo"></a>`  | `<A HREF="https://www.somesite.com"><IMG SRC="https://www.example.com/logo.jpg" alt="Logo"></a>`  
+| Image        |  `<a href="http://www.somesite.com"><img src="http://www.example.com/logo.jpg" alt="Logo"></a>`  | `<a href="https://www.somesite.com"><img src="https://www.example.com/logo.jpg" alt="Logo"></a>`  

@@ -43,6 +43,8 @@ shortTitle: ガイド
 
 コミュニティに参加して、 {% data variables.product.company_short %}からトレーニングを受け、新しいスキルを学んだり教えたりしましょう。
 
-- [{% data variables.product.prodname_education_community %}](https://education.github.community)
+- [{% data variables.product.prodname_education_community %}]({% data variables.product.prodname_education_forum_link %})
 - [Campus Expertsについて](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/about-campus-experts)
 - [Campus Advisorsについて](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/about-campus-advisors)
+- [{% data variables.product.prodname_community_exchange %}について](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-for-your-schoolwork/about-github-community-exchange)
+- [Contribute with GitHub Community Exchange](/education/contribute-with-github-community-exchange)

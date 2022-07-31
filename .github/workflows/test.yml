@@ -1,5 +1,3 @@
-# NOTE: Changes to this file should also be applied to './test-windows.yml'
-
 name: Node.js Tests
 
 # **What it does**: Runs our tests.
@@ -8,55 +6,142 @@ name: Node.js Tests
 
 on:
   workflow_dispatch:
+  pull_request:
   push:
     branches:
-      - main
-  pull_request:
+      - gh-readonly-queue/main/**
 
-env:
-  CI: true
+permissions:
+  contents: read
+  # Needed for the 'trilom/file-changes-action' action
+  pull-requests: read
+
+# This allows a subsequently queued workflow run to interrupt previous runs
+concurrency:
+  group: '${{ github.workflow }} @ ${{ github.event.pull_request.head.label || github.head_ref || github.ref }}'
+  cancel-in-progress: true
 
 jobs:
   test:
-    # Run on self-hosted if the private repo or ubuntu-latest if the public repo
+    # Run on ubuntu-20.04-xl if the private repo or ubuntu-latest if the public repo
     # See pull # 17442 in the private repo for context
-    runs-on: ${{ fromJSON('["ubuntu-latest", "self-hosted"]')[github.repository == 'github/docs-internal'] }}
+    runs-on: ${{ fromJSON('["ubuntu-latest", "ubuntu-20.04-xl"]')[github.repository == 'github/docs-internal'] }}
     timeout-minutes: 60
     strategy:
       fail-fast: false
       matrix:
         # The same array lives in test-windows.yml, so make any updates there too.
-        test-group: [content, graphql, meta, rendering, routing, unit, linting]
+        test-group:
+          [
+            content,
+            graphql,
+            meta,
+            rendering,
+            routing,
+            unit,
+            linting,
+            translations,
+          ]
     steps:
       # Each of these ifs needs to be repeated at each step to make sure the required check still runs
       # Even if if doesn't do anything
       - name: Check out repo
-        uses: actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f
+        uses: actions/checkout@dcd71f646680f2efd8db4afa5ad64fdcba30e748
         with:
+          # Not all test suites need the LFS files. So instead, we opt to
+          # NOT clone them initially and instead, include them manually
+          # only for the test groups that we know need the files.
+          lfs: ${{ matrix.test-group == 'content' }}
           # Enables cloning the Early Access repo later with the relevant PAT
           persist-credentials: 'false'
 
-      - name: Setup node
-        uses: actions/setup-node@38d90ce44d5275ad62cc48384b3d8a58c500bb5f
+      - name: Figure out which docs-early-access branch to checkout, if internal repo
+        if: ${{ github.repository == 'github/docs-internal' }}
+        id: check-early-access
+        uses: actions/github-script@2b34a689ec86a68d8ab9478298f91d5401337b7d
+        env:
+          BRANCH_NAME: ${{ github.head_ref || github.ref_name }}
         with:
-          node-version: 16.8.x
+          github-token: ${{ secrets.DOCUBOT_REPO_PAT }}
+          result-encoding: string
+          script: |
+            // If being run from a PR, this becomes 'my-cool-branch'.
+            // If run on main, with the `workflow_dispatch` action for
+            // example, the value becomes 'main'.
+            const { BRANCH_NAME } = process.env
+            try {
+              const response = await github.repos.getBranch({
+                owner: 'github',
+                repo: 'docs-early-access',
+                BRANCH_NAME,
+              })
+              console.log(`Using docs-early-access branch called '${BRANCH_NAME}'.`)
+              return BRANCH_NAME
+            } catch (err) {
+              if (err.status === 404) {
+                console.log(`There is no docs-early-access branch called '${BRANCH_NAME}' so checking out 'main' instead.`)
+                return 'main'
+              }
+              throw err
+            }
+
+      - name: Check out docs-early-access too, if internal repo
+        if: ${{ github.repository == 'github/docs-internal' }}
+        uses: actions/checkout@dcd71f646680f2efd8db4afa5ad64fdcba30e748
+        with:
+          repository: github/docs-early-access
+          token: ${{ secrets.DOCUBOT_REPO_PAT }}
+          path: docs-early-access
+          ref: ${{ steps.check-early-access.outputs.result }}
+
+      - name: Merge docs-early-access repo's folders
+        if: ${{ github.repository == 'github/docs-internal' }}
+        run: |
+          mv docs-early-access/assets assets/images/early-access
+          mv docs-early-access/content content/early-access
+          mv docs-early-access/data data/early-access
+          rm -r docs-early-access
+
+      # This is necessary when LFS files where cloned but does nothing
+      # if actions/checkout was run with `lfs:false`.
+      - name: Checkout LFS objects
+        run: git lfs checkout
+
+      - name: Gather files changed
+        uses: trilom/file-changes-action@a6ca26c14274c33b15e6499323aac178af06ad4b
+        id: get_diff_files
+        with:
+          # So that `steps.get_diff_files.outputs.files` becomes
+          # a string like `foo.js path/bar.md`
+          output: ' '
+
+      - name: Insight into changed files
+        run: |
+
+          # Must to do this because the list of files can be HUGE. Especially
+          # in a repo-sync when there are lots of translation files involved.
+          echo "${{ steps.get_diff_files.outputs.files }}" > get_diff_files.txt
+
+      - name: Setup node
+        uses: actions/setup-node@17f8bd926464a1afa4c6a11669539e9c1ba77048
+        with:
+          node-version: '16.15.0'
           cache: npm
 
       - name: Install dependencies
         run: npm ci
 
-      - if: ${{ github.repository == 'github/docs-internal' }}
-        name: Clone early access
-        run: npm run heroku-postbuild
-        env:
-          DOCUBOT_REPO_PAT: ${{ secrets.DOCUBOT_REPO_PAT }}
-          GIT_BRANCH: ${{ github.head_ref || github.ref }}
+      - name: Cache nextjs build
+        uses: actions/cache@48af2dc4a9e8278b89d7fa154b955c30c6aaab09
+        with:
+          path: .next/cache
+          key: ${{ runner.os }}-nextjs-${{ hashFiles('package*.json') }}
 
-      - if: ${{ github.repository != 'github/docs-internal' }}
-        name: Run build script
+      - name: Run build script
         run: npm run build
 
       - name: Run tests
-        run: npx jest tests/${{ matrix.test-group }}/
         env:
-          NODE_OPTIONS: '--max_old_space_size=8192 --experimental-vm-modules'
+          DIFF_FILE: get_diff_files.txt
+          CHANGELOG_CACHE_FILE_PATH: tests/fixtures/changelog-feed.json
+        run: npm test -- tests/${{ matrix.test-group }}/

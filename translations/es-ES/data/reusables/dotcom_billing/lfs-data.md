@@ -1,3 +1,3 @@
-1. View details of your bandwidth and storage usage under "{% data variables.large_files.product_name_short %} Data." To view your organization's LFS data usage by repository, click the arrows next to "Storage" and "Bandwidth."
+1. Ve los detalles de tu uso de almacenamiento y ancho de banda en "Datos de {% data variables.large_files.product_name_short %}". Para ver el uso de datos LFS de tu organización por repositorio, haz clic en las flechas junto a "Almacenamiento" y "Ancho de Banda".
 
   ![Detalles del uso de datos de Git LFS](/assets/images/help/billing/lfs-data.png)

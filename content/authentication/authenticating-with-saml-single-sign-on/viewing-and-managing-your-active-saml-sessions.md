@@ -6,13 +6,13 @@ redirect_from:
   - /github/authenticating-to-github/viewing-and-managing-your-active-saml-sessions
   - /github/authenticating-to-github/authenticating-with-saml-single-sign-on/viewing-and-managing-your-active-saml-sessions
 versions:
-  fpt: '*'
+  ghec: '*'
 topics:
   - SSO
 shortTitle: Active SAML sessions
 ---
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.security %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.security %}
 3. Under "Sessions," you can see your active SAML sessions.
    ![List of active SAML sessions](/assets/images/help/settings/saml-active-sessions.png)
 4. To see the session details, click **See more**.

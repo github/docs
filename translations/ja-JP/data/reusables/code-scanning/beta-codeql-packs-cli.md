@@ -1,8 +1,8 @@
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 {% note %}
 
-**Note:** The {% data variables.product.prodname_codeql %} package management functionality, including {% data variables.product.prodname_codeql %} packs, is currently in beta and subject to change.
+**ノート:** {% data variables.product.prodname_codeql %}を含む{% data variables.product.prodname_codeql %}パッケージ管理の機能は、現在ベータであり、変更されることがあります。
 
 {% endnote %}
 

@@ -7,6 +7,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: quick_start
 topics:
   - Issues
@@ -19,7 +20,7 @@ Esta guía te muestra cómo utilizar las {% data variables.product.prodname_gith
 
 ## Prerrequisitos
 
-Para crear una propuesta, necesitas un repositorio. Puedes utilizar un repositorio existente al cual tengas acceso de escritura o puedes crear un repositorio nuevo. El repositorio debe tener habilitadas las propuestas. Para obtener más información sobre la creación de repositorios, consulta "[Crear un repositorio nuevo](/articles/creating-a-new-repository)." Para obtener más información acerca de habilitar las propuestas si están inhabilitadas en tu repositorio, consulta la sección "[Inhabilitar las propuestas](/github/administering-a-repository/managing-repository-settings/disabling-issues)".
+Para crear una propuesta, necesitas un repositorio. Puedes utilizar un repositorio existente al cual tengas acceso de escritura o puedes crear un repositorio nuevo. {% data reusables.enterprise-accounts.emu-permission-repo %} El repositorio debe tener habilitadas las propuestas. Para obtener más información sobre la creación de repositorios, consulta "[Crear un repositorio nuevo](/articles/creating-a-new-repository)." Para obtener más información acerca de habilitar las propuestas si están inhabilitadas en tu repositorio, consulta la sección "[Inhabilitar las propuestas](/github/administering-a-repository/managing-repository-settings/disabling-issues)".
 
 ## Abrir una propuesta en blanco
 
@@ -28,7 +29,7 @@ Primero, crea una propuesta. Hay varias formas de crear una propuesta; puedes el
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-issues %}
 {% data reusables.repositories.new_issue %}
-1. En este ejemplo, comenzaremos con una propuesta en blanco. Tu repositorio podría utilizar las plantillas de propuesta{% ifversion fpt %} y formatos de propuesta{% endif %} para exhortar a que los contribuyentes proporcionen información específica. Si tu repositorio utiliza plantillas de propuestas, {% ifversion fpt or ghes %}Haz clic en **Abrir una propuesta en blanco**{% else %}haz clic en **Abrir una propuesta normal.**{% endif %}.
+1. En este ejemplo, comenzaremos con una propuesta en blanco. Tu repositorio podría utilizar las plantillas de propuesta{% ifversion fpt or ghec %} y formatos de propuesta{% endif %} para exhortar a que los contribuyentes proporcionen información específica. Si tu repositorio utiliza plantillas de propuestas, {% ifversion fpt or ghes or ghec %}Haz clic en **Abrir una propuesta en blanco**{% else %}haz clic en **Abrir una propuesta normal.**{% endif %}.
 
 ![propuesta en blanco](/assets/images/help/issues/blank-issue.png)
 
@@ -70,7 +71,7 @@ Para comunicar la responsabilidad, puedes asignar la propeusta a un miembro de t
 
 ## Agregar la propuesta a un proyecto
 
-Puedes agregar la propuesta a un proyecto existente. {% ifversion fpt %}Si estás utilizando proyectos (beta), también puedes llenar los metadatos del proyecto. {% endif %} Para obtener más información sobre los proyectos, consulta las secciones {% ifversion fpt %}"[Acerca de los proyectos (beta)](/issues/trying-out-the-new-projects-experience/about-projects)" y {% endif %}"[Organizar tu trabajo con tableros de proyecto](/issues/organizing-your-work-with-project-boards)".
+You can add the issue to an existing project{% ifversion projects-v2 %} and populate metadata for the project. {% endif %} For more information about projects, see {% ifversion projects-v2 %}"[About projects](/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects)."{% else %}"[Organizing your work with project boards](/issues/organizing-your-work-with-project-boards)."{% endif %}
 
 ![propuesta con proyectos](/assets/images/help/issues/issue-project.png)
 
@@ -96,5 +97,5 @@ Puedes utilizar las propuestas para una amplia gama de propósitos. Por ejemplo:
 Aquí tienes algunos recursos útiles para que tomes tus siguientes pasos con {% data variables.product.prodname_github_issues %}:
 
 - Para aprender más sobre las propuestas, consulta la sección "[Acerca de las propuestas](/issues/tracking-your-work-with-issues/about-issues)".
-- Para aprender sobre cómo pueden ayudarte los proyectos para planear y hacer rastres, consulta la sección {% ifversion fpt %}"[Acerca de los proyectos (beta)](/issues/trying-out-the-new-projects-experience/about-projects)" o la sección{% endif %}"[Organizar tu trabajo con tableros de proyecto](/issues/organizing-your-work-with-project-boards)".
-- Para aprender más sobre cómo utilizar las plantillas de propuestas{% ifversion fpt %} y emitir formatos{% endif %} para motivar a los contribuyentes a proporcionar información específica, consulta la sección "[Utilizar las plantillas para motivar las propuestas y solicitudes de cambios útiles](/communities/using-templates-to-encourage-useful-issues-and-pull-requests)".
+- To learn more about how projects can help you with planning and tracking, see {% ifversion projects-v2 %}"[About projects](/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects)."{% else %}"[Organizing your work with project boards](/issues/organizing-your-work-with-project-boards)."{% endif %}
+- Para aprender más sobre cómo utilizar las plantillas de propuestas{% ifversion fpt or ghec %} y emitir formatos{% endif %} para motivar a los contribuyentes a proporcionar información específica, consulta la sección "[Utilizar las plantillas para motivar las propuestas y solicitudes de cambios útiles](/communities/using-templates-to-encourage-useful-issues-and-pull-requests)".

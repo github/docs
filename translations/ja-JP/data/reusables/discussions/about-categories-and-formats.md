@@ -1,1 +1,1 @@
-すべてのディスカッションは、カテゴリ内に作成しなければなりません。 メンテナンスもしくは管理権限を持つ人は、リポジトリのカテゴリを定義できます。 それぞれのカテゴリには、オープンエンドのディスカッション、質問と回答、アナウンスといったフォーマットがあります。
+すべてのディスカッションは、カテゴリ内に作成しなければなりません。 For repository discussions, people with maintain or admin permissions to the repository define the categories for discussions in that repository. For organization discussions, people with maintain or admin permissions to the source repository define the categories for discussions in that organization. それぞれのカテゴリには、オープンエンドのディスカッション、質問と回答、アナウンスといったフォーマットがあります。

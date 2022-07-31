@@ -1,5 +1,5 @@
 {% note %}
 
-**注意：** 项目（测试版）目前在有限公测中。 更多信息请参阅“[{% data variables.product.prodname_github_issues %}](https://github.com/features/issues)”。
+**注意：** 项目（测试版）目前处于公开测试阶段，可能会有所变化。
 
 {% endnote %}

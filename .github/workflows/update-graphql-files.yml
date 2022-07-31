@@ -9,6 +9,10 @@ on:
   schedule:
     - cron: '20 16 * * *' # run every day at 16:20 UTC / 8:20 PST
 
+permissions:
+  contents: write
+  pull-requests: write
+
 # **IMPORTANT:** Do not change the FREEZE environment variable set here!
 # This workflow runs on a recurring basis. To temporarily disable it (e.g.,
 # during a docs deployment freeze), add an Actions Secret to the repo settings
@@ -28,11 +32,11 @@ jobs:
           echo 'The repo is currently frozen! Exiting this workflow.'
           exit 1 # prevents further steps from running
       - name: Checkout
-        uses: actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f
+        uses: actions/checkout@dcd71f646680f2efd8db4afa5ad64fdcba30e748
       - name: Setup Node
-        uses: actions/setup-node@38d90ce44d5275ad62cc48384b3d8a58c500bb5f
+        uses: actions/setup-node@17f8bd926464a1afa4c6a11669539e9c1ba77048
         with:
-          node-version: 16.8.x
+          node-version: '16.15.0'
           cache: npm
       - name: Install Node.js dependencies
         run: npm ci
@@ -44,13 +48,16 @@ jobs:
           script/graphql/update-files.js
       - name: Create pull request
         id: create-pull-request
-        uses: peter-evans/create-pull-request@8c603dbb04b917a9fc2dd991dc54fef54b640b43
+        uses: peter-evans/create-pull-request@bd72e1b7922d417764d27d30768117ad7da78a0e
         env:
           # Disable pre-commit hooks; they don't play nicely here
           HUSKY: '0'
         with:
-          # need to use a token with repo and workflow scopes for this step
-          token: ${{ secrets.GITHUB_TOKEN }}
+          # Need to use a token with repo and workflow scopes for this step.
+          # Token should be a PAT because actions performed with GITHUB_TOKEN
+          # don't trigger other workflows and this action force pushes updates
+          # from the default branch.
+          token: ${{ secrets.OCTOMERGER_PAT_WITH_REPO_AND_WORKFLOW_SCOPE }}
           commit-message: 'Action ran graphql script"update-files"'
           title: GraphQL schema update
           body:
@@ -58,8 +65,14 @@ jobs:
             syncs up the GraphQL data in this repo.\n\n
             If CI passes, this PR will be auto-merged. :green_heart:\n\n
             If CI does not pass or other problems arise, contact #docs-engineering on slack."
-          labels: automerge,autoupdate
           branch: graphql-schema-update
+
+      - name: Enable GitHub auto-merge
+        if: ${{ steps.create-pull-request.outputs.pull-request-number }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.DOCUBOT_REPO_PAT }}
+          AUTOMERGE_PR_NUMBER: ${{ steps.create-pull-request.outputs.pull-request-number }}
+        run: node .github/actions-scripts/enable-automerge.js
 
       - if: ${{ failure() && env.FREEZE != 'true'}}
         name: Delete remote branch (if previous steps failed)
@@ -74,8 +87,8 @@ jobs:
           github-token: ${{ secrets.DOCUBOT_REPO_PAT }}
           number: ${{ steps.create-pull-request.outputs.pull-request-number }}
       - name: Send Slack notification if workflow fails
-        uses: someimportantcompany/github-actions-slack-message@0b470c14b39da4260ed9e3f9a4f1298a74ccdefd
-        if: failure()
+        uses: someimportantcompany/github-actions-slack-message@f8d28715e7b8a4717047d23f48c39827cacad340
+        if: ${{ failure() && env.FREEZE != 'true' }}
         with:
           channel: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
           bot-token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}

@@ -1,13 +1,13 @@
 ---
 title: 将卡片添加到项目板列时删除标签
 intro: '您可以使用 {% data variables.product.prodname_actions %} 在议题或拉取请求添加到项目板上的特定列时自动删除标签。'
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /actions/guides/removing-a-label-when-a-card-is-added-to-a-project-board-column
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: tutorial
 topics:
   - Workflows
@@ -17,8 +17,6 @@ shortTitle: 添加卡片时删除标签
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
-{% data reusables.actions.ae-self-hosted-runners-notice %}
 
 ## 简介
 
@@ -32,9 +30,10 @@ shortTitle: 添加卡片时删除标签
 2. 选择属于仓库的项目。 此工作流程不能用于属于用户或组织的项目。 您可以使用现有项目，也可以创建新项目。 有关创建项目的更多信息，请参阅“[创建项目板](/github/managing-your-work-on-github/creating-a-project-board)”。
 3. {% data reusables.actions.make-workflow-file %}
 4. 将以下 YAML 内容复制到工作流程文件中。
-
     ```yaml{:copy}
 {% indented_data_reference reusables.actions.actions-not-certified-by-github-comment spaces=4 %}
+
+{% indented_data_reference reusables.actions.actions-use-sha-pinning-comment spaces=4 %}
 
     name: Remove labels
     on:
@@ -44,10 +43,10 @@ shortTitle: 添加卡片时删除标签
     jobs:
       remove_labels:
         if: github.event.project_card.column_id == '12345678'
-        runs-on: ubuntu-latest{% ifversion fpt or ghes > 3.1 or ghae-next %}
+        runs-on: ubuntu-latest
         permissions:
           issues: write
-          pull-requests: write{% endif %}
+          pull-requests: write
         steps:
           - name: remove labels
             uses: andymckay/labeler@5c59dabdfd4dd5bd9c6e6d255b01b9d764af4414

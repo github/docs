@@ -4,10 +4,10 @@ sections:
   security_fixes:
     - パッケージは最新のセキュリティバージョンにアップデートされました。
   bugs:
-    - A significant number of 503 errors were being created if the scheduled job to sync vulnerabilities with GitHub.com attempted to run when dependency graph was not enabled and content analysis was enabled.
-    - Unauthenticated HTTP proxy for the pages containers build was not supported for any users that use HTTP proxies.
+    - 依存関係グラフが有効化されておらず、コンテンツ分析が有効化されている状態で、スケジュールジョブがGitHub.comと脆弱性を同期しようとすると、大量の503エラーが発生しました。
+    - HTTPプロキシを使用するユーザでは、Pagesのコンテナビルドの認証されていないHTTPプロキシはサポートされていませんでした。
   changes:
-    - The logs for `babeld` now include a `cmd` field for HTTP ref advertisement requests instead of only including it during the negotiation requests.
+    - '`babeld`のログには、ネゴシエーションリクエストの際だけではなく、HTTP参照広告リクエストの`cmd`フィールドが含まれるようになりました。'
   known_issues:
     - 新しくセットアップされたユーザを持たない{% data variables.product.prodname_ghe_server %}で、攻撃者が最初の管理ユーザを作成できました。
     - アップグレードの過程で、カスタムのファイアウォールのルールが削除されます。

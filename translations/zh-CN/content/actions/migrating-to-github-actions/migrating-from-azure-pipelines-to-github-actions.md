@@ -2,12 +2,12 @@
 title: 从 Azure Pelines 迁移到 GitHub Actions
 intro: '{% data variables.product.prodname_actions %} 和 Azure Pipelines 具有一些相似的配置，这使得迁移到 {% data variables.product.prodname_actions %} 很简单。'
 redirect_from:
-  - /actions/migrating-to-github-actions/migrating-from-azure-pipelines-to-github-actions
   - /actions/learn-github-actions/migrating-from-azure-pipelines-to-github-actions
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: tutorial
 topics:
   - Azure Pipelines
@@ -19,7 +19,6 @@ shortTitle: 从 Azure Pelines 迁移
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## 简介
 
@@ -204,7 +203,7 @@ jobs:
 </tr>
 </table>
 
-For more information, see "[Expressions](/actions/learn-github-actions/expressions)."
+更多信息请参阅“[表达式](/actions/learn-github-actions/expressions)”。
 
 ## 作业之间的依赖关系
 
@@ -316,19 +315,19 @@ jobs:
 {% endraw %}
 </td>
 <td class="d-table-cell v-align-top">
-{% raw %}
+
 ```yaml
 jobs:
   run_python:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/setup-python@v2
+      - uses: {% data reusables.actions.action-setup-python %}
         with:
           python-version: '3.7'
           architecture: 'x64'
       - run: python script.py
 ```
-{% endraw %}
+
 </td>
 </tr>
 </table>

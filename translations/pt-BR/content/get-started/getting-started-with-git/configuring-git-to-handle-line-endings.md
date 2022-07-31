@@ -2,9 +2,9 @@
 title: Configurar o Git para uso com delimitadores de linha
 intro: 'Para evitar problemas com diffs, é possível configurar o Git para operar adequadamente com delimitadores de linhas.'
 redirect_from:
-  - /dealing-with-lineendings/
-  - /line-endings/
-  - /articles/dealing-with-line-endings/
+  - /dealing-with-lineendings
+  - /line-endings
+  - /articles/dealing-with-line-endings
   - /articles/configuring-git-to-handle-line-endings
   - /github/using-git/configuring-git-to-handle-line-endings
   - /github/getting-started-with-github/configuring-git-to-handle-line-endings
@@ -13,10 +13,11 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 shortTitle: Manusear delimitadores
 ---
 
-## About line endings
+## Sobre os delimitadores de linha
 Toda vez que você pressionar <kbd>retornar</kbd> no seu teclado, você insere um caractere invisível denominado delimitador. Os diferentes sistemas operacionais gerenciam os delimitadores de formas diferentes.
 
 Ao colaborar em projetos com Git e {% data variables.product.product_name %}, o Git pode produzir resultados inesperados se, por exemplo, você estiver trabalhando em uma máquina que use o Windows e o seu colaborador dizer uma mudança no macOS.

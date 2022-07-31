@@ -1,14 +1,15 @@
 ---
 title: Teamへの人の追加
 redirect_from:
-  - /enterprise/admin/articles/adding-teams/
-  - /enterprise/admin/articles/adding-or-inviting-people-to-teams/
-  - /enterprise/admin/guides/user-management/adding-or-inviting-people-to-teams/
+  - /enterprise/admin/articles/adding-teams
+  - /enterprise/admin/articles/adding-or-inviting-people-to-teams
+  - /enterprise/admin/guides/user-management/adding-or-inviting-people-to-teams
   - /enterprise/admin/user-management/adding-people-to-teams
   - /admin/user-management/adding-people-to-teams
 intro: 'Team が作成されると、Organization の管理者はユーザを {% data variables.product.product_location %} から Team に追加し、どのリポジトリにアクセスできるようにするかを決定できます。'
 versions:
   ghes: '*'
+  ghae: '*'
 type: how_to
 topics:
   - Access management
@@ -25,13 +26,17 @@ topics:
 ## チームのセットアップ
 
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.invite_to_team %}
 {% data reusables.organizations.review-team-repository-access %}
+
+{% ifversion ghes %}
 
 ## TeamのLDAPグループへのマッピング（たとえばLDAP Syncをユーザ認証に使って）
 
 {% data reusables.enterprise_management_console.badge_indicator %}
 
 LDAPグループに同期されているTeamに新しいメンバーを追加するには、そのユーザをLDAPグループのメンバーとして追加するか、LDAPの管理者に連絡してください。
+
+{% endif %}

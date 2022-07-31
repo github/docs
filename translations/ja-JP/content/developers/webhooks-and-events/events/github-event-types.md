@@ -1,7 +1,6 @@
 ---
 title: GitHubイベントの種類
 intro: '{% data variables.product.prodname_dotcom %} Event APIについて、各イベントの種類、{% data variables.product.prodname_dotcom %}上でのトリガーするアクション、各イベント固有のプロパティについて学んでください。'
-product: '{% data reusables.gated-features.enterprise-accounts %}'
 redirect_from:
   - /v3/activity/event_types
   - /developers/webhooks-and-events/github-event-types
@@ -9,13 +8,14 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Events
 ---
 
 Events APIは、GitHub上のアクティビティによってトリガーされる様々な種類のイベントを返します。 各イベントのレスポンスは共有プロパティを含むとともに、イベントの種類によって決まる固有の`payload`オブジェクトを持ちます。 [イベントオブジェクトの共通プロパティ](#event-object-common-properties)は、すべてのイベントが共有するプロパティを示すものであり、各イベントの種類にはそのイベントに固有の`payload`プロパティが示されています。
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 {% endif %}
 
@@ -23,22 +23,30 @@ Events APIは、GitHub上のアクティビティによってトリガーされ�
 
 Events APIエンドポイントから返されるイベントオブジェクトは、同じ構造を持ちます。
 
-| Event API属性名          | 説明                                                                                                   |
-| --------------------- | ---------------------------------------------------------------------------------------------------- |
-| `id`                  | イベントの一意の識別子。                                                                                         |
-| `type`                | イベントの種類。 イベントの名前にはPascalCaseが使われます。                                                                  |
-| `actor`               | イベントをトリガーしたユーザ。                                                                                      |
-| `actor.id`            | アクターの一意の識別子。                                                                                         |
-| `actor.login`         | アクターのユーザ名。                                                                                           |
-| `actor.display_login` | ユーザ名に特定の表示形式。                                                                                        |
-| `actor.gravatar_id`   | アクターのGravatarプロフィールの一意の識別子。                                                                          |
-| `actor.url`           | 追加のユーザ情報を含むユーザオブジェクトの取得に使われるREST APIのURL。                                                            |
-| `actor.avatar_url`    | アクターのプロフィール画像のURL。                                                                                   |
-| `repo`                | イベントが発生したリポジトリオブジェクト。                                                                                |
-| `repo.id`             | リポジトリの一意の識別子。                                                                                        |
-| `repo.name`           | リポジトリの名前。オーナーとリポジトリの名前が含まれる。 たとえば`octocat/hello-world`は、`octocat`ユーザアカウントが所有する`hello-world`リポジトリの名前。 |
-| `repo.url`            | 追加のリポジトリ情報を含むリポジトリオブジェクトの取得に使われるREST APIのURL。                                                        |
-| `payload`             | イベントの種類に固有のイベントペイロードオブジェクト。 イベントAPIの`payload`オブジェクトについては、以下のイベントの種類を参照してください。                        |
+| Event API属性名          | 説明                                                                                                                                                                         |
+| --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `id`                  | イベントの一意の識別子。                                                                                                                                                               |
+| `type`                | イベントの種類。 イベントの名前にはPascalCaseが使われます。                                                                                                                                        |
+| `actor`               | イベントをトリガーしたユーザ。                                                                                                                                                            |
+| `actor.id`            | アクターの一意の識別子。                                                                                                                                                               |
+| `actor.login`         | アクターのユーザ名。                                                                                                                                                                 |
+| `actor.display_login` | ユーザ名に特定の表示形式。                                                                                                                                                              |
+| `actor.gravatar_id`   | アクターのGravatarプロフィールの一意の識別子。                                                                                                                                                |
+| `actor.url`           | 追加のユーザ情報を含むユーザオブジェクトの取得に使われるREST APIのURL。                                                                                                                                  |
+| `actor.avatar_url`    | アクターのプロフィール画像のURL。                                                                                                                                                         |
+| `repo`                | イベントが発生したリポジトリオブジェクト。                                                                                                                                                      |
+| `repo.id`             | リポジトリの一意の識別子。                                                                                                                                                              |
+| `repo.name`           | リポジトリの名前。オーナーとリポジトリの名前が含まれる。 For example, `octocat/hello-world` is the name of the `hello-world` repository owned by the `octocat` personal account.                       |
+| `repo.url`            | 追加のリポジトリ情報を含むリポジトリオブジェクトの取得に使われるREST APIのURL。                                                                                                                              |
+| `payload`             | イベントの種類に固有のイベントペイロードオブジェクト。 イベントAPIの`payload`オブジェクトについては、以下のイベントの種類を参照してください。                                                                                              |
+| `public`              | Whether the event is visible to all users.                                                                                                                                 |
+| `created_at`          | The date and time when the event was triggered. It is formatted according to ISO 8601.                                                                                     |
+| `org`                 | The organization that was chosen by the actor to perform action that triggers the event.<br />_The property appears in the event object only if it is applicable._ |
+| `org.id`              | The unique identifier for the organization.                                                                                                                                |
+| `org.login`           | The name of the organization.                                                                                                                                              |
+| `org.gravatar_id`     | The unique identifier of the Gravatar profile for the organization.                                                                                                        |
+| `org.url`             | The REST API URL used to retrieve the organization object, which includes additional organization information.                                                             |
+| `org.avatar_url`      | The URL of the organization's profile image.                                                                                                                               |
 
 ### WatchEventイベントのオブジェクトの例
 
@@ -164,7 +172,7 @@ Link: <https://api.github.com/resource?page=2>; rel="next",
 {% data reusables.webhooks.member_event_api_properties %}
 {% data reusables.webhooks.member_properties %}
 
-{% ifversion fpt or ghes %}
+{% ifversion fpt or ghes or ghec %}
 ## PublicEvent
 
 {% data reusables.webhooks.public_short_desc %}
@@ -191,11 +199,11 @@ Link: <https://api.github.com/resource?page=2>; rel="next",
 
 ### イベントの`payload`オブジェクト
 
-| キー             | 種類       | 説明                                       |
-| -------------- | -------- | ---------------------------------------- |
-| `action`       | `string` | 実行されたアクション. `created `になりうる。             |
-| `pull_request` | `オブジェクト` | The pull request the review pertains to. |
-| `レビュー`         | `オブジェクト` | 影響されるレビュー。                               |
+| キー             | 種類       | 説明                           |
+| -------------- | -------- | ---------------------------- |
+| `action`       | `string` | 実行されたアクション. `created `になりうる。 |
+| `pull_request` | `オブジェクト` | レビューが関連するプルリクエスト。            |
+| `レビュー`         | `オブジェクト` | 影響されるレビュー。                   |
 
 ## PullRequestReviewCommentEvent
 
@@ -207,6 +215,16 @@ Link: <https://api.github.com/resource?page=2>; rel="next",
 
 {% data reusables.webhooks.pull_request_review_comment_event_api_properties %}
 {% data reusables.webhooks.pull_request_review_comment_properties %}
+
+## PullRequestReviewThreadEvent
+
+{% data reusables.webhooks.pull_request_review_thread_short_desc %}
+
+{% data reusables.webhooks.events_api_payload %}
+
+### イベントの`payload`オブジェクト
+
+{% data reusables.webhooks.pull_request_thread_properties %}
 
 ## PushEvent
 
@@ -244,7 +262,7 @@ Link: <https://api.github.com/resource?page=2>; rel="next",
 {% data reusables.webhooks.release_event_api_properties %}
 {% data reusables.webhooks.release_properties %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ## SponsorshipEvent
 
 {% data reusables.webhooks.sponsorship_short_desc %}

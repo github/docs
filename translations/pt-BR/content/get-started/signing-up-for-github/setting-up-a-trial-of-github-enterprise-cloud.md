@@ -1,64 +1,82 @@
 ---
-title: Configurar uma versão de avaliação do GitHub Enterprise Cloud
-intro: 'Você pode avaliar o {% data variables.product.prodname_ghe_cloud %} gratuitamente.'
+title: Setting up a trial of GitHub Enterprise Cloud
+intro: 'You can try {% data variables.product.prodname_ghe_cloud %} for free.'
 redirect_from:
   - /articles/setting-up-a-trial-of-github-enterprise-cloud
   - /github/getting-started-with-github/setting-up-a-trial-of-github-enterprise-cloud
   - /github/getting-started-with-github/signing-up-for-github/setting-up-a-trial-of-github-enterprise-cloud
 versions:
   fpt: '*'
+  ghec: '*'
   ghes: '*'
 topics:
   - Accounts
-shortTitle: Desafio da nuvem corporativa
+shortTitle: Enterprise Cloud trial
 ---
 
 {% data reusables.enterprise.ghec-cta-button %}
 
 
-## Sobre o {% data variables.product.prodname_ghe_cloud %}
+## About {% data variables.product.prodname_ghe_cloud %}
 
-{% data reusables.organizations.about-organizations %}
+{% data variables.product.prodname_ghe_cloud %} is a plan for large businesses or teams who collaborate on {% data variables.product.prodname_dotcom_the_website %}. {% data reusables.enterprise.about-github-for-enterprises %}
+
+{% data reusables.organizations.about-organizations %} For more information about accounts, see "[Types of {% data variables.product.prodname_dotcom %} accounts](/get-started/learning-about-github/types-of-github-accounts)."
 
 You can use organizations for free with {% data variables.product.prodname_free_team %}, which includes limited features. For additional features, such as SAML single sign-on (SSO), access control for {% data variables.product.prodname_pages %}, and included {% data variables.product.prodname_actions %} minutes, you can upgrade to {% data variables.product.prodname_ghe_cloud %}. For a detailed list of the features available with {% data variables.product.prodname_ghe_cloud %}, see our [Pricing](https://github.com/pricing) page.
 
-{% data reusables.saml.saml-accounts %} Para obter mais informações, consulte "<a href="/organizations/managing-saml-single-sign-on-for-your-organization/about-identity-and-access-management-with-saml-single-sign-on" class="dotcom-only">Sobre identidade e gerenciamento de acesso com o logon único SAML</a>".
+You can set up a trial of {% data variables.product.prodname_ghe_cloud %} to evaluate these additional features on a new or existing organization account.
+
+Trials are also available for {% data variables.product.prodname_ghe_server %}. For more information, see "[Setting up a trial of {% data variables.product.prodname_ghe_server %}](/articles/setting-up-a-trial-of-github-enterprise-server)."
 
 {% data reusables.products.which-product-to-use %}
 
-## Sobre as versões de avaliação do {% data variables.product.prodname_ghe_cloud %}
+## About trials of {% data variables.product.prodname_ghe_cloud %}
 
-You can set up a 14-day trial to evaluate {% data variables.product.prodname_ghe_cloud %}. Não há necessidade de fornecer um método de pagamento durante a avaliação, a menos que você adicione à sua organização aplicativos do {% data variables.product.prodname_marketplace %} que exijam um método de pagamento. Para obter mais informações, consulte "<a href="/articles/about-billing-for-github-marketplace/" class="dotcom-only">Sobre a cobrança do {% data variables.product.prodname_marketplace %}</a>".
+You can set up a 30-day trial to evaluate {% data variables.product.prodname_ghe_cloud %}. You do not need to provide a payment method during the trial unless you add {% data variables.product.prodname_marketplace %} apps to your organization that require a payment method. For more information, see "[About billing for {% data variables.product.prodname_marketplace %}](/enterprise-cloud@latest/articles/about-billing-for-github-marketplace/)."
 
-Sua versão de avaliação inclui 50 estações. Se precisar de mais estações para avaliar o {% data variables.product.prodname_ghe_cloud %}, entre em contato com {% data variables.contact.contact_enterprise_sales %}. Ao final da avaliação, você poderá escolher um número diferente de estações.
+Your trial includes 50 seats. If you need more seats to evaluate {% data variables.product.prodname_ghe_cloud %}, contact {% data variables.contact.contact_enterprise_sales %}. At the end of the trial, you can choose a different number of seats.
 
-As versões de avaliação também estão disponíveis para o {% data variables.product.prodname_ghe_server %}. Para obter mais informações, consulte "[Configurar uma versão de avaliação do {% data variables.product.prodname_ghe_server %}](/articles/setting-up-a-trial-of-github-enterprise-server)".
+{% data reusables.saml.saml-accounts %}
 
-## Configurar a versão de avaliação do {% data variables.product.prodname_ghe_cloud %}
+For more information, see "[About identity and access management with SAML single sign-on](/enterprise-cloud@latest/organizations/managing-saml-single-sign-on-for-your-organization/about-identity-and-access-management-with-saml-single-sign-on){% ifversion not ghec %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}."{% endif %}
 
-Before you can try {% data variables.product.prodname_ghe_cloud %}, you must be signed into a user account. If you don't already have a user account on {% data variables.product.prodname_dotcom_the_website %}, you must create one. Para obter mais informações, consulte "<a href="/articles/signing-up-for-a-new-github-account" class="dotcom-only">Inscrever-se em uma nova conta do {% data variables.product.prodname_dotcom %}</a>".
+{% data variables.product.prodname_emus %} is not part of the free trial of {% data variables.product.prodname_ghe_cloud %}. If you're interested in {% data variables.product.prodname_emus %}, please contact [{% data variables.product.prodname_dotcom %}'s Sales team](https://enterprise.github.com/contact).
+
+## Setting up your trial of {% data variables.product.prodname_ghe_cloud %}
+
+Before you can try {% data variables.product.prodname_ghe_cloud %}, you must be signed into a personal account. If you don't already have a personal account on {% data variables.product.prodname_dotcom_the_website %}, you must create one. For more information, see "[Signing up for a new {% data variables.product.prodname_dotcom %} account](/free-pro-team@latest/articles/signing-up-for-a-new-github-account)."
 
 1. Navigate to [{% data variables.product.prodname_dotcom %} for enterprises](https://github.com/enterprise).
-1. Click **Start a free trial**. !["Start a free trial" button](/assets/images/help/organizations/start-a-free-trial-button.png)
-1. Click **Enterprise Cloud**. !["Enterprise Cloud" button](/assets/images/help/organizations/enterprise-cloud-trial-option.png)
+1. Click **Start a free trial**.
+   !["Start a free trial" button](/assets/images/help/organizations/start-a-free-trial-button.png)
+1. Click **Enterprise Cloud**.
+   !["Enterprise Cloud" button](/assets/images/help/organizations/enterprise-cloud-trial-option.png)
 1. Follow the prompts to configure your trial.
 
-## Explorar o {% data variables.product.prodname_ghe_cloud %}
+## Exploring {% data variables.product.prodname_ghe_cloud %}
 
-Depois de configurar sua versão de avaliação, você pode explorar o {% data variables.product.prodname_ghe_cloud %} seguindo o [Guia de Ativação Enterprise](https://resources.github.com/enterprise-onboarding/).
+After you set up your trial, you can explore {% data variables.product.prodname_ghe_cloud %} by following the suggested tasks on the "Overview" tab of your organization. If you've previously dismissed the tasks, you can access them again by clicking **Get started with suggested tasks** at the top of the page.
+
+!["Get started with suggested tasks" button](/assets/images/help/organizations/suggested-tasks-button.png)
+
+{% data reusables.docs.you-can-read-docs-for-your-product %}
 
 {% data reusables.products.product-roadmap %}
 
-## Finalizar a versão de avaliação
+## Finishing your trial
 
-Você pode comprar o {% data variables.product.prodname_enterprise %} ou fazer downgrade para o {% data variables.product.prodname_team %} em qualquer momento de sua avaliação.
+You can buy {% data variables.product.prodname_enterprise %} at any time during your trial. Purchasing {% data variables.product.prodname_enterprise %} ends your trial, removing the 50-seat maximum and initiating payment.
 
-Se você não comprar o {% data variables.product.prodname_enterprise %} ou o {% data variables.product.prodname_team %} antes de expirar sua versão de avaliação, sua organização será rebaixada para o {% data variables.product.prodname_free_team %} e perder acesso a ferramentas e recursos avançados incluídos apenas em produtos pagos, incluindo sites {% data variables.product.prodname_pages %} publicados a partir desses repositórios privados. Se você não planeja atualizar, para evitar a perda de acesso aos recursos avançados, transforme-os em repositórios públicos antes de sua versão de avaliação expirar. Para obter mais informações, consulte "[Configurar visibilidade do repositório](/articles/setting-repository-visibility)".
+If you don't purchase {% data variables.product.prodname_enterprise %}, when the trial ends, your organization will be downgraded. If you used an existing organization for the trial, the organization will be downgraded to the product you were using before the trial. If you created a new organization for the trial, the organization will be downgraded to {% data variables.product.prodname_free_team %}. 
 
-Fazer downgrade para o {% data variables.product.prodname_free_team %} para organizações também desabilita quaisquer configurações SAML feitas durante o período de avaliação. Ao adquirir o {% data variables.product.prodname_enterprise %} ou o {% data variables.product.prodname_team %}, suas configurações SAML serão habilitadas novamente para os usuários da organização se autenticarem.
+Your organization will lose access to any functionality that is not included in the new product, such as advanced features like {% data variables.product.prodname_pages %} for private repositories. If you don't plan to upgrade, to avoid losing access to advanced features, consider making affected repositories public before your trial ends. For more information, see "[Setting repository visibility](/articles/setting-repository-visibility)."
+
+Downgrading also disables any SAML settings configured during the trial period. If you later purchase {% data variables.product.prodname_enterprise %}, your SAML settings will be enabled again for users in your organization to authenticate.
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.billing_plans %}
-5. Em "{% data variables.product.prodname_ghe_cloud %} Free Trial" (Versão de avaliação grátis do {% data variables.product.prodname_ghe_cloud %}) clique em **Buy Enterprise** (Comprar versão Enterprise) ou **Downgrade to Team** (Fazer downgrade para versão Team). ![Botões comprar versão Enterprise e fazer downgrade para versão Team](/assets/images/help/organizations/finish-trial-buttons.png)
-6. Siga as instruções para inserir seu método de pagamento e clique em **Submit** (Enviar).
+5. Under "{% data variables.product.prodname_ghe_cloud %} Free Trial", click **Buy Enterprise** or **Downgrade to Team**.
+  ![Buy Enterprise and Downgrade to Team buttons](/assets/images/help/organizations/finish-trial-buttons.png)
+6. Follow the prompts to enter your payment method, then click **Submit**.

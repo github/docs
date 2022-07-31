@@ -9,6 +9,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Identity
   - Access management
@@ -17,7 +18,7 @@ shortTitle: Associate email with GPG key
 
 {% note %}
 
-コミッタのアイデンティティと {% data variables.product.product_name %}アカウントに関連付けられた検証済みのメールアドレスに一致する GPG キーを使っている場合、コミットやタグへの署名を始めることができます。
+If you're using a GPG key that matches your committer identity and your verified email address associated with your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}, then you can begin signing commits and signing tags.
 
 {% endnote %}
 
@@ -32,7 +33,7 @@ shortTitle: Associate email with GPG key
   ```shell
   $ gpg> adduid
   ```
-6. プロンプトに従って、本名、メールアドレス、あればコメントを入力してください。 エントリーは、`N`、`C`、`E` を選択して変更できます。 {% data reusables.gpg.private-email %} {% ifversion fpt %}詳細は「[コミットメールアドレスを設定する](/articles/setting-your-commit-email-address)」を参照してください。{% endif %}
+6. プロンプトに従って、本名、メールアドレス、あればコメントを入力してください。 エントリーは、`N`、`C`、`E` を選択して変更できます。 {% data reusables.gpg.private-email %} {% ifversion fpt or ghec %}詳細は「[コミットメールアドレスを設定する](/articles/setting-your-commit-email-address)」を参照してください。{% endif %}
   ```shell
   Real Name: <em>Octocat</em>
   Email address: <em>octocat@github.com</em>
@@ -50,13 +51,13 @@ shortTitle: Associate email with GPG key
   $ gpg --armor --export <em>3AA5C34371567BD2</em>
   # ASCII armor 形式で GPG キーを出力する
   ```
-11. [GPG キーを GitHub アカウントに追加](/articles/adding-a-new-gpg-key-to-your-github-account)することで、GPG キーをアップロードしてください。
+11. [GPG キーを GitHub アカウントに追加](/articles/adding-a-gpg-key-to-your-github-account)することで、GPG キーをアップロードしてください。
 
 ## 参考リンク
 
 - [既存の GPG キーのチェック](/articles/checking-for-existing-gpg-keys)
 - [新しい GPG キーの生成](/articles/generating-a-new-gpg-key)
 - [GPG キーで検証済みのメールアドレスを使う](/articles/using-a-verified-email-address-in-your-gpg-key)
-- [GitHub アカウントへの新しい GPG キーの追加](/articles/adding-a-new-gpg-key-to-your-github-account)
+- "[Adding a GPG key to your GitHub account](/articles/adding-a-gpg-key-to-your-github-account)"
 - 「[コミットに署名する](/articles/signing-commits)」
 - 「[タグに署名する](/articles/signing-tags)」

@@ -2,12 +2,13 @@
 title: 替换 GitHub 服务
 intro: '如果您仍然依赖已弃用的 {% data variables.product.prodname_dotcom %} 服务，请了解如何将服务挂钩迁移到 web 挂钩。'
 redirect_from:
-  - /guides/replacing-github-services/
-  - /v3/guides/automating-deployments-to-integrators/
+  - /guides/replacing-github-services
+  - /v3/guides/automating-deployments-to-integrators
   - /v3/guides/replacing-github-services
 versions:
   fpt: '*'
   ghes: '*'
+  ghec: '*'
 topics:
   - API
 ---
@@ -31,7 +32,7 @@ topics:
 
 GitHub 服务（有时称为服务挂钩）是传统的集成方法，其中 GitHub 通过[ `github-services` 仓库](https://github.com/github/github-services)托管集成者的部分服务。 在 GitHub 上执行的操作会触发这些服务，您可以使用这些服务在 GitHub 之外触发操作。
 
-{% ifversion ghes or ghae %}
+{% ifversion ghes %}
 ## 查找使用 GitHub 服务的仓库
 我们提供命令行脚本，帮助您识别设备上哪些仓库使用 GitHub 服务。 更多信息请参阅 [ghe-legacy-github-services-report](/enterprise/{{currentVersion}}/admin/articles/command-line-utilities/#ghe-legacy-github-services-report)。{% endif %}
 
@@ -70,4 +71,4 @@ GitHub 服务与 web 挂钩之间的主要区别：
 作为高度概述，迁移过程通常涉及：
   - 确定产品使用 GitHub 服务的方式和位置。
   - 确定需要配置的相应 web 挂钩事件，以便移动到普通 web 挂钩。
-  - Implementing the design using either [{% data variables.product.prodname_oauth_apps %}](/apps/building-oauth-apps/) or [{% data variables.product.prodname_github_apps %}. {% data variables.product.prodname_github_apps %}](/apps/building-github-apps/) are preferred. To learn more about why {% data variables.product.prodname_github_apps %} are preferred, see "[Reasons for switching to {% data variables.product.prodname_github_apps %}](/apps/migrating-oauth-apps-to-github-apps/#reasons-for-switching-to-github-apps)."
+  - 使用 [{% data variables.product.prodname_oauth_apps %}](/apps/building-oauth-apps/) 或 [{% data variables.product.prodname_github_apps %} 实现设计。 {% data variables.product.prodname_github_apps %}](/apps/building-github-apps/) 优先。 要了解为什么优先使用 {% data variables.product.prodname_github_apps %}，请参阅“[切换到 {% data variables.product.prodname_github_apps %} 的原因](/apps/migrating-oauth-apps-to-github-apps/#reasons-for-switching-to-github-apps)”。

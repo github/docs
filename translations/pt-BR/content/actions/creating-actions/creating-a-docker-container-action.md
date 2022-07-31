@@ -1,7 +1,6 @@
 ---
 title: Criar uma ação de contêiner Docker
 intro: Este guia apresenta as etapas mínimas exigidas para criar uma ação de contêiner Docker.
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /articles/creating-a-docker-container-action
   - /github/automating-your-workflow-with-github-actions/creating-a-docker-container-action
@@ -11,6 +10,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: tutorial
 topics:
   - Action development
@@ -20,7 +20,6 @@ shortTitle: Ação de contêiner do Docker
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## Introdução
 
@@ -28,9 +27,9 @@ Neste guia, você aprenderá os componentes básicos necessários para criar e u
 
 Ao terminar esse projeto, você entenderá como criar sua própria ação de contêiner Docker e poderá testá-la em um fluxo de trabalho.
 
-{% data reusables.github-actions.self-hosted-runner-reqs-docker %}
+{% data reusables.actions.self-hosted-runner-reqs-docker %}
 
-{% data reusables.github-actions.context-injection-warning %}
+{% data reusables.actions.context-injection-warning %}
 
 ## Pré-requisitos
 
@@ -57,7 +56,7 @@ Antes de começar, você deverá criar um repositório de {% data variables.prod
 
 ## Criar um arquivo Docker
 
-Em seu novo diretório `hello-world-docker-action`, crie um arquivo `Dockerfile`. Para obter mais informações, consulte "[Suporte do arquivo Docker para {% data variables.product.prodname_actions %}](/actions/creating-actions/dockerfile-support-for-github-actions)".
+Em seu novo diretório `hello-world-docker-action`, crie um arquivo `Dockerfile`. Certifique-se de que seu nome de arquivo esteja em maiúsculas corretamente (use um `D` maiúsculo mas não um `f` maiúsculo) se você tiver problemas. Para obter mais informações, consulte "[Suporte do arquivo Docker para {% data variables.product.prodname_actions %}](/actions/creating-actions/dockerfile-support-for-github-actions)".
 
 **arquivo Docker**
 ```Dockerfile{:copy}
@@ -97,7 +96,7 @@ runs:
 ```
 {% endraw %}
 
-Esses metadados definem uma entrada `who-to-greet` e um parâmetro de saída `time`. Para introduzir as entradas no contêiner Docker, você deve declarar a entrada usando `inputs` (entradas) e introduzir a entrada na palavra-chave `args`.
+Esses metadados definem uma entrada `who-to-greet` e um parâmetro de saída `time`. Para passar entradas para o contêiner do Docker, você deverá declarar a entrada usando `entradas` e passar a entrada na palavra-chave `args`. Tudo o que você incluir em `args` é passado para o contêiner, mas para uma melhor descoberta para os usuários da sua ação, recomendamos o uso de entradas.
 
 O {% data variables.product.prodname_dotcom %} criará uma imagem a partir do seu `Dockerfile` e executará os comandos em um novo contêiner usando essa imagem.
 
@@ -186,7 +185,7 @@ Agora você está pronto para testar sua ação em um fluxo de trabalho. Quando 
 
 ### Exemplo usando uma ação pública
 
-O código do fluxo de trabalho a seguir usa a ação completa _hello world_ no repositório público [`actions/hello-world-docker-action`](https://github.com/actions/hello-world-docker-action). Copie o exemplo de código de fluxo de trabalho a seguir em um arquivo `.github/workflows/main.yml`, mas substitua `actions/hello-world-docker-action` pelo nome de seu repositório e ação. Você também pode substituir a entrada `who-to-greet` pelo seu nome. {% ifversion fpt %}As ações públicas podem ser usadas mesmo se não forem publicadas em {% data variables.product.prodname_marketplace %}. Para obter mais informações, consulte "[Publicar uma ação](/actions/creating-actions/publishing-actions-in-github-marketplace#publishing-an-action)". {% endif %}
+O código do fluxo de trabalho a seguir usa a ação completa _hello world_ no repositório público [`actions/hello-world-docker-action`](https://github.com/actions/hello-world-docker-action). Copie o exemplo de código de fluxo de trabalho a seguir em um arquivo `.github/workflows/main.yml`, mas substitua `actions/hello-world-docker-action` pelo nome de seu repositório e ação. Você também pode substituir a entrada `who-to-greet` pelo seu nome. {% ifversion fpt or ghec %}As ações públicas podem ser usadas mesmo se não forem publicadas em {% data variables.product.prodname_marketplace %}. Para obter mais informações, consulte "[Publicar uma ação](/actions/creating-actions/publishing-actions-in-github-marketplace#publishing-an-action)". {% endif %}
 
 {% raw %}
 **.github/workflows/main.yml**
@@ -211,37 +210,32 @@ jobs:
 
 ### Exemplo usando uma ação privada
 
-Copie o seguinte exemplo de código de fluxo de trabalho em um arquivo `.github/workflows/main.yml` no repositório da ação. Você também pode substituir a entrada `who-to-greet` pelo seu nome. {% ifversion fpt %}Esta ação privada não pode ser publicada em {% data variables.product.prodname_marketplace %}, e só pode ser usada neste repositório.{% endif %}
+Copie o seguinte exemplo de código de fluxo de trabalho em um arquivo `.github/workflows/main.yml` no repositório da ação. Você também pode substituir a entrada `who-to-greet` pelo seu nome. {% ifversion fpt or ghec %}Esta ação privada não pode ser publicada em {% data variables.product.prodname_marketplace %}, e só pode ser usada neste repositório.{% endif %}
 
-{% raw %}
 **.github/workflows/main.yml**
 ```yaml{:copy}
-em: [push]
+on: [push]
 
-trabalhos:
+jobs:
   hello_world_job:
     runs-on: ubuntu-latest
-    nome: Um trabalho para dizer "Olá"
-    etapas:
-      # Para usar a ação privada desse repositório,
-      # você deve verificar o repositório
-      - nome: Checkout
-        usa: actions/checkout@v2
-      - nome: Etapa da ação "Olá, mundo"
-        usa: ./ # Usa uma ação no diretório-raiz
-        id: olá
-        com:
+    name: A job to say hello
+    steps:
+      # To use this repository's private action,
+      # you must check out the repository
+      - name: Checkout
+        uses: {% data reusables.actions.action-checkout %}
+      - name: Hello world action step
+        uses: ./ # Uses an action in the root directory
+        id: hello
+        with:
           who-to-greet: 'Mona the Octocat'
-      # Usa a saída da etapa `hello`
-      - nome: Obtém o tempo de saída
-        executar: echo "O tempo foi ${{ steps.hello.outputs.time }}"
+      # Use the output from the `hello` step
+      - name: Get the output time
+        run: echo "The time was {% raw %}${{ steps.hello.outputs.time }}"{% endraw %}
 ```
-{% endraw %}
 
-No seu repositório, clique na aba **Ações** e selecione a última execução do fluxo de trabalho. {% ifversion fpt or ghes > 3.0 or ghae %}Em **Trabalhos** ou no gráfico de visualização, clique em **A job to say hello**. {% endif %}Você deverá ver "Hello Mona the Octocat" ou o nome que você usou como entrada em `who-to-greet` e o horário impresso no log.
+No seu repositório, clique na aba **Ações** e selecione a última execução do fluxo de trabalho. Em **Trabalhos** ou no gráfico de visualização, clique em **A job to say hello**. Você deverá ver "Hello Mona the Octocat" ou o nome que você usou como entrada em `who-to-greet` e o horário impresso no log.
 
-{% ifversion fpt or ghes > 3.0 or ghae %}
 ![Uma captura de tela de sua ação em um fluxo de trabalho](/assets/images/help/repository/docker-action-workflow-run-updated.png)
-{% else %}
-![Uma captura de tela de sua ação em um fluxo de trabalho](/assets/images/help/repository/docker-action-workflow-run.png)
-{% endif %}
+

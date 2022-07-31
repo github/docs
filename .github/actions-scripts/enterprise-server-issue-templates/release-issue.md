@@ -12,17 +12,14 @@ If you aren't comfortable going through the steps alone, sync up with a docs eng
   - [ ] Increment the `next` variable above the `supported` array (e.g., new release number + `.1`).
   - [ ] Increment the `nextNext` variable above the `supported` array (e.g., new release number + `.2`).
 - [ ] Update the GHES dates file:
-  - [ ] Make sure you have a `.env` file at the root directory of your local checkout, and that it contains a PAT in the format of `GITHUB_TOKEN=<token>`.
+  - [ ] Make sure you have a `.env` file at the root directory of your local checkout, and that it contains a PAT in the format of `GITHUB_TOKEN=<token>` with `repo` scope. Ensure the PAT is SSO-enabled for the `github` org.
   - [ ] Run the script to update the dates file:
 
     ```
     script/update-enterprise-dates.js
     ```
-- [ ] Create REST files based on previous version:
+- [ ] Create REST files based on previous version. Copy the latest GHES version of the dereferenced file from `lib/rest/static/dereferenced` to a new file in the same directory for the new GHES release. Ex, `cp lib/rest/static/dereferenced/ghes-3.4.deref.json lib/rest/static/dereferenced/ghes-3.5.deref.json`. Then run `script/rest/updated-files.js --decorate-only` and check in the resulting files.
 
-  ```
-  script/enterprise-server-releases/create-rest-files.js --oldVersion <PLAN@RELEASE> --newVersion <PLAN@RELEASE>
-  ```
 - [ ] Create GraphQL files based on previous version:
 
   ```
@@ -33,7 +30,7 @@ If you aren't comfortable going through the steps alone, sync up with a docs eng
   ```
   script/enterprise-server-releases/create-webhook-files.js --oldVersion <PLAN@RELEASE> --newVersion <PLAN@RELEASE>
   ```
-- [ ] Create a placeholder release notes file called `data/release-notes/<PRODUCT>/<RELEASE NUMBER>/PLACEHOLDER.yml`. For example `data/release-notes/3-1/PLACEHOLDER.yml`. Add the following placeholder content to the file:
+- [ ] Create a placeholder release notes file called `data/release-notes/<PRODUCT>/<RELEASE NUMBER>/PLACEHOLDER.yml`. For example `data/release-notes/enterprise-server/3-1/PLACEHOLDER.yml`. Add the following placeholder content to the file:
 
   ```
   date: '2021-05-04'
@@ -54,6 +51,8 @@ If you aren't comfortable going through the steps alone, sync up with a docs eng
   ```
   script/enterprise-server-releases/release-banner.js --action create --version <PLAN@RELEASE>
   ```
+
+- [ ] Create a PR with the above changes. This PR is used to track all docs changes and smoke tests associated with the release. For example https://github.com/github/docs-internal/pull/22286.
 
 ### When the `docs-internal` release branch is open
 
@@ -96,25 +95,37 @@ This file should be automatically updated, but you can also run `script/update-e
 
 ### Before shipping the release branch
 
-- [ ] Add the GHES release notes to `data/release-notes/` and update the versioning frontmatter in `content/admin/release-notes.md` to `enterprise-server: '<=<RELEASE>'`
+- [ ] Add the GHES release notes to `data/release-notes/`.
 - [ ] Add any required smoke tests to the opening post in the megabranch PR.
 
   Usually, we should smoke test any new GHES admin guides, any large features landing in this GHES version for the first time, and the REST and GraphQL API references.
-- [ ] Alert the Neon Squad (formally docs-ecosystem team)  1-2 days before the release to deploy to `github/github`. A PR should already be open in `github/github`, to change `published` to `true` in  `app/api/description/config/releases/ghes-<NEXT RELEASE NUMBER>.yaml`. They will need to:
+- [ ] A few days before shipping, check for broken links. Run `script/check-english-links.js` in a local copy of the megabranch.
+- [ ] [Freeze the repos](https://github.com/github/docs-content/blob/main/docs-content-docs/docs-content-workflows/freezing.md) at least 1-2 days before the release, and post an announcement in Slack so everybody knows. It's helpful to freeze the repos before doing the OpenAPI merges to avoid changes to the megabranch while preparing and deploying.
+- [ ] Alert the Neon Squad (formally docs-ecosystem team)  1-2 days before the release to deploy to `github/github`. A PR should already be open in `github/github`, to change the OpenAPI schema config `published` to `true` in `app/api/description/config/releases/ghes-<NEXT RELEASE NUMBER>.yaml`. They will need to:
   - [ ] Get the required approval from `@github/ecosystem-api-reviewers` then deploy the PR to dotcom. This process generally takes 30-90 minutes.
-  - [ ] Once the PR merges, make sure that the auto-generated PR titled "Update OpenAPI Descriptions" in doc-internal contains both the derefrenced and decorated JSON files for the new GHES release. If everything looks good, merge the "Update OpenAPI Description" PR into the GHES release megabranch.
-  - [ ] Add a blocking review to the auto-generated "Update OpenAPI Descriptions" PR in the public REST API description. (Remove this blocking review once the GHES release ships.)
-- [ ] [Freeze the repos](https://github.com/github/docs-content/blob/main/docs-content-docs/docs-content-workflows/freezing.md) at least 1-2 days before the release, and post an announcement in Slack so everybody knows.
+  - [ ] Once the PR merges, make sure that the auto-generated PR titled "Update OpenAPI Descriptions" in doc-internal contains both the dereferenced and decorated JSON files for the new GHES release. If everything looks good, merge the "Update OpenAPI Description" PR into the GHES release megabranch. **Note:** Be careful about resolving the conflicts correctly—you may wish to delete the existing OpenAPI files for the release version from the megabranch (that is, delete the GHES release version `lib/rest/static` decorated and dereferenced JSON files), so there are no conflicts to resolve and to ensure that the incoming artifacts are the correct ones.
+- [ ] Alert the Ecosystem-API team in #ecosystem-api about the pending release freeze and incoming blocking review of OpenAPI updates in the public REST API description (the `rest-api-descriptions` repo). They'll need to block any future "Update OpenAPI Descriptions" PRs in the public REST API description until after the ship.
+  - [ ] Add a blocking review to the auto-generated "Update OpenAPI Descriptions" PR in the public REST API description. (You or they will remove this blocking review once the GHES release ships.)
+
 
 ### 🚢 🛳️ 🚢 Shipping the release branch
 
+- [ ] The megabranch creator should push the search index LFS objects for the public `github/docs` repo. The LFS objects were already pushed for the internal repo after the `sync-english-index-for-<PLAN@RELEASE>` was added to the megabranch. To push the LFS objects to the public repo:
+  1. First navigate to the [sync search indices workflow](https://github.com/github/docs-internal/actions/workflows/sync-search-indices.yml). 
+  2. Then, to run the workflow with parameters, click on `Run workflow` button. 
+  3. A modal will pop up where you will set the following inputs:
+     - Branch: The new `ghes-<RELEASE>-megabranch` version megabranch you're working on
+     - Version: `enterprise-server@<RELEASE>`
+     - Language: `en`
+  4. Run the job. The workflow job may fail on the first run—so retry the failed job if needed.
 - [ ] Remove `[DO NOT MERGE]` and other meta information from the PR title 😜.
 - [ ] The `github/docs-internal` repo is frozen, and the `Repo Freeze Check / Prevent merging during deployment freezes (pull_request_target)` test is expected to fail.
 
   Use admin permissions to ship the release branch with this failure. Make sure that the merge's commit title does not include anything like `[DO NOT MERGE]`, and remove all the branch's commit details from the merge's commit message except for the co-author list.
-- [ ] Do any required smoke tests listed in the opening post in the megabranch PR.
-- [ ] Push the search index LFS objects for the public `github/docs` repo. The LFS objects were already being pushed for the internal repo after the `sync-english-index-for-<PLAN@RELEASE>` was added to the megabranch. To push the LFS objects, run the [search sync workflow](https://github.com/github/docs-internal/actions/workflows/sync-search-indices.yml) with the following inputs:
-  version: `enterprise-server@<RELEASE>`
-  language: `en`
+- [ ] Do any required smoke tests listed in the opening post in the megabranch PR. You can monitor and check when the production deploy completed by viewing the [`docs-internal` deployments page](https://github.com/github/docs-internal/deployments).
 - [ ] Once smoke tests have passed, you can [unfreeze the repos](https://github.com/github/docs-content/blob/main/docs-content-docs/docs-content-workflows/freezing.md) and post an announcement in Slack.
+- [ ] After unfreezing, alert the Ecosystem-API team in #ecosystem-api the docs freeze is finished/thawed and the release has shipped. 
+  - [ ] You (or they) can now remove your blocking review on the auto-generated "Update OpenAPI Descriptions" PR in public REST API description (the `rest-api-descriptions` repo). (although it's likely newer PRs have been created since yours with the blocking review, in which case the Ecosystem-API team will close your PR and perform the next step on the most recent PR).
+  - [ ] The Ecosystem-API team will merge the latest auto-generated "Update OpenAPI Descriptions" PR (which will contain the OpenAPI schema config that changed `published` to `true` for the release).
+- [ ] After unfreezing, if there were significant or highlighted GraphQL changes in the release, consider manually running the [GraphQL update workflow](https://github.com/github/docs-internal/actions/workflows/update-graphql-files.yml) to update our GraphQL schemas. By default this workflow only runs once every 24 hours.
 - [ ] After the release, in the `docs-content` repo, add the now live version number to the "Specific GHES version(s)" section in the following files: [`.github/ISSUE_TEMPLATE/release-tier-1-or-2-tracking.yml`](https://github.com/github/docs-content/blob/main/.github/ISSUE_TEMPLATE/release-tier-1-or-2-tracking.yml) and [`.github/ISSUE_TEMPLATE/release-tier-3-or-tier-4.yml`](https://github.com/github/docs-content/blob/main/.github/ISSUE_TEMPLATE/release-tier-3-or-tier-4.yml). When the PR is approved, merge it in. 

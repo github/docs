@@ -2,10 +2,10 @@
 title: Configurar notificações de e-mail
 intro: 'Para facilitar a resposta rápida dos usuários à atividade em {% data variables.product.product_name %}, você pode configurar {% data variables.product.product_location %} para enviar notificações por e-mail para problema, pull request e comentários do commit.'
 redirect_from:
-  - /enterprise/admin/guides/installation/email-configuration/
-  - /enterprise/admin/articles/configuring-email/
-  - /enterprise/admin/articles/troubleshooting-email/
-  - /enterprise/admin/articles/email-configuration-and-troubleshooting/
+  - /enterprise/admin/guides/installation/email-configuration
+  - /enterprise/admin/articles/configuring-email
+  - /enterprise/admin/articles/troubleshooting-email
+  - /enterprise/admin/articles/email-configuration-and-troubleshooting
   - /enterprise/admin/user-management/configuring-email-for-notifications
   - /admin/configuration/configuring-email-for-notifications
 versions:
@@ -26,10 +26,7 @@ Os proprietários das empresas podem configurar e-mails para notificações.
 ## Configurar SMTP para sua empresa
 
 {% ifversion ghes %}
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.management-console %}
-2. Na parte superior da página, clique em **Settings** (Configurações). ![Guia Settings (Configurações)](/assets/images/enterprise/management-console/settings-tab.png)
-3. Na barra lateral esquerda, clique em **Email**. ![Guia E-mail](/assets/images/enterprise/management-console/email-sidebar.png)
+{% data reusables.enterprise_site_admin_settings.email-settings %}
 4. Selecione **Enable email** (Habilitar e-mail). Fazer isso vai habilitar os e-mails enviados (saída) e recebidos (entrada). No entanto, para que o recebimento de e-mails funcione, você terá que definir suas configurações de DNS conforme descrito em "[Configurar o DNS e o firewall para o recebimento de e-mails](#configuring-dns-and-firewall-settings-to-allow-incoming-emails)". ![Habilitar e-mail de saída](/assets/images/enterprise/management-console/enable-outbound-email.png)
 5. Digite as configurações para o seu servidor SMTP.
       - No campo **Server address** (Endereço do servidor), digite o endereço do seu servidor SMTP.
@@ -38,9 +35,9 @@ Os proprietários das empresas podem configurar e-mails para notificações.
       - Selecione o menu suspenso **Autenticação** e escolha o tipo de criptografia usado pelo seu servidor SMTP.
       - No campo **No-reply email address** (Endereço de e-mail no-reply), digite o endereço de e-mail para usar nos campos De e Para em todos os e-mails de notificação.
 6. Se você quiser descartar todos os e-mails recebidos destinados ao endereço no-reply, selecione **Discard email addressed to the no-reply email address** (Descartar e-mails recebidos no endereço no-reply). ![Caixa de seleção para descartar e-mails destinados ao endereço no-reply](/assets/images/enterprise/management-console/discard-noreply-emails.png)
-7. Em **Support** (Suporte), escolha um tipo de link para dar suporte adicional aos usuários.
-    - **Email:** endereço de e-mail interno.
-    - **URL:** link para um site interno de suporte. Você deve incluir `http://` ou `https://`. ![E-mail ou URL de suporte](/assets/images/enterprise/management-console/support-email-url.png)
+7. Em **Suporte**, escolha um tipo de link para dar suporte adicional aos seus usuários.
+    - **Email:** Endereço de e-mail interno.
+    - **URL:** Link para um site interno de suporte. Você deve incluir `http://` ou `https://`. ![E-mail ou URL de suporte](/assets/images/enterprise/management-console/support-email-url.png)
 8. [Teste a entrega de e-mails](#testing-email-delivery).
 {% elsif ghae %}
 {% data reusables.enterprise-accounts.access-enterprise %}
@@ -74,7 +71,19 @@ Os proprietários das empresas podem configurar e-mails para notificações.
 
 4. Se houver falha no teste, consulte a [solução de problemas das suas configurações de e-mail](#troubleshooting-email-delivery).
 5. Quando o teste for concluído com êxito, clique em **Save settings** (Salvar configurações) na parte inferior da página. ![Botão Save settings (Salvar configurações)](/assets/images/enterprise/management-console/save-settings.png)
-6. Aguarde a conclusão da execução de suas configurações. ![Configurar a instância](/assets/images/enterprise/management-console/configuration-run.png)
+{% data reusables.enterprise_site_admin_settings.wait-for-configuration-run %}
+
+{% ifversion require-tls-for-smtp %}
+## Aplicando TLS para conexões SMTP
+
+Você pode aplicar a criptografia TLS para todas as conexões SMTP recebidas, o que pode ajudar a satisfazer um requisito de certificação ISO-27017.
+
+{% data reusables.enterprise_site_admin_settings.email-settings %}
+1. Em "Autenticação", selecione **Aplicar TLS auth (recomendado)**.
+
+   ![Captura de tela da caixa de seleção "Forçar autenticação TLS (recomendado)"](/assets/images/enterprise/configuration/enforce-tls-for-smtp-checkbox.png)
+{% data reusables.enterprise_management_console.save-settings %}
+{% endif %}
 
 ## Configurar DNS e firewall para o recebimento de e-mails
 
@@ -89,7 +98,7 @@ Se quiser permitir o recebimento de respostas para os e-mails de notificação, 
 
 ### Criar um pacote de suporte
 
-Se não conseguir determinar o que houve de errado na mensagem de erro exibida, você pode baixar um [pacote de suporte](/enterprise/{{ currentVersion }}/admin/guides/enterprise-support/providing-data-to-github-support) com toda a conversa SMTP entre o seu servidor de e-mail e o {% data variables.product.prodname_ghe_server %}. Depois de fazer o download e extrair o pacote, verifique as entradas em *enterprise-manage-logs/unicorn.log* e veja o log completo de conversas SMTP com os erros relacionados.
+Se você não conseguir determinar o que houve de errado na mensagem de erro exibida, você poderá fazer o download de um [pacote de suporte](/enterprise/admin/guides/enterprise-support/providing-data-to-github-support) com toda a conversa SMTP entre o seu servidor de e-mail e o {% data variables.product.prodname_ghe_server %}. Depois de fazer o download e extrair o pacote, verifique as entradas em *enterprise-manage-logs/unicorn.log* e veja o log completo de conversas do SMTP com os erros relacionados.
 
 O log unicorn mostrará uma transação semelhante a esta:
 

@@ -6,6 +6,7 @@ redirect_from:
   - /github/building-a-strong-community/reporting-abuse-or-spam
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Community
 ---
@@ -19,6 +20,8 @@ Los propietarios, colaboradores actuales y previos, y personas con acceso de esc
 Puedes reportar a los usuarios que hayan violado las condiciones de servicio o los lineamientos comunitarios de {% data variables.product.prodname_dotcom %} a través de {% data variables.contact.report_abuse %} o {% data variables.contact.report_content %}. También puedes reportar los comentarios en informes de problemas, solicitudes de extracción y confirmaciones.
 
 Si se ha habilitado la capacidad para reportar contenido en un repositorio público, también puedes reportarlo directamente a los mantenedores del mismo.
+
+Los usuarios de la India pueden contactar al funcionario encargado de las quejas en este país [aquí](https://support.github.com/contact/india-grievance-officer).
 
 ## Informar un usuario
 
@@ -57,7 +60,7 @@ Si se ha habilitado la capacidad para reportar contenido en un repositorio públ
 
 - "[Configurar tu proyecto para contribuciones positivas](/communities/setting-up-your-project-for-healthy-contributions)"
 - [Utilizar plantillas para promover informes de problemas y solicitudes de extracción útiles](/communities/using-templates-to-encourage-useful-issues-and-pull-requests)"
-- [Administrar los comentarios ofensivos](/communities/moderating-comments-and-conversations/managing-disruptive-comments)"{% ifversion fpt %}
+- [Administrar los comentarios ofensivos](/communities/moderating-comments-and-conversations/managing-disruptive-comments)"{% ifversion fpt or ghec %}
 - "[Mantener tu seguridad en {% data variables.product.prodname_dotcom %}](/communities/maintaining-your-safety-on-github)"
 - [Limitar las interacciones en tu repositorio](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-repository)"{% endif %}
 - "[Rastrear cambios en un comentario](/communities/moderating-comments-and-conversations/tracking-changes-in-a-comment)"

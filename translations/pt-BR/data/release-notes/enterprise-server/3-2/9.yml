@@ -1,0 +1,20 @@
+---
+date: '2022-02-17'
+sections:
+  security_fixes:
+    - Foi possível para um usuário registrar um usuário ou organização denominado "saml".
+    - Os pacotes foram atualizados para as últimas versões de segurança.
+  bugs:
+    - As configurações de armazenamento de pacotes do GitHub não puderam ser validadas e salvas no Console de Gerenciamento quando o Azure Blob Storage foi usado.
+    - A opção de configuração mssql.backup.cadence falhou no ghe-config-check com um alerta de conjunto de caracteres inválido.
+    - Corrige SystemStackError (stack muito profundo) ao obter mais de 2<sup>^16</sup> chaves de memcached.
+  changes:
+    - A verificação de segredo ignora a verificação ZIP e outros arquivos para segredos.
+  known_issues:
+    - Em uma instância de {% data variables.product.prodname_ghe_server %} recém-configurada sem usuários, um invasor pode criar o primeiro usuário administrador.
+    - As regras de firewall personalizadas são removidas durante o processo de atualização.
+    - Arquivos LFS do Git [enviados através da interface web](https://github.com/blog/2105-upload-files-to-your-repositories) são adicionados diretamente ao repositório e de forma incorreta.
+    - Os problemas não podem ser fechados se contiverem um permalink para um blob no mesmo repositório, onde o caminho do arquivo blob's é maior que 255 caracteres.
+    - Quando "Usuários podem pesquisar pelo GitHub.com" está habilitado com o GitHub Connect, os problemas em repositórios privados e internos não estão incluídos nos resultados de pesquisa do GitHub.com.
+    - O registro npm de {% data variables.product.prodname_registry %} não retorna mais o valor de tempo em respostas de metadados. Isso foi feito para permitir melhorias substanciais de desempenho. Continuamos a ter todos os dados necessários para devolver um valor de tempo como parte da resposta aos metadados e retomaremos o retorno desse valor no futuro, assim que tivermos resolvido os problemas de desempenho existentes.
+    - Os limites de recursos que são específicos para processamento de hooks pre-receive podem causar falha em alguns hooks pre-receive.

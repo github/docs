@@ -4,10 +4,12 @@ intro: 'Revisa tus entregas de webhook en {% data variables.product.prodname_dot
 redirect_from:
   - /webhooks/testing
   - /developers/webhooks-and-events/testing-webhooks
+  - /articles/testing-webhooks
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Webhooks
 ---
@@ -18,7 +20,7 @@ Ahor que [configuraste tu servidor local](/webhooks/configuring/), podrías esta
 
 Cada webhook tiene su propia sección de "Entregas Recientes", la cual lista rápidamente si una entrega fue exitosa (paloma verde) o fallida (x roja). También puedes identificar cuando se intentó cada entrega.
 
-{% data variables.product.product_name %} mantiene una bitácora de cada entrega de webhook para {% ifversion fpt %}30 {% else %} 8 {% endif %} días.
+{% data variables.product.product_name %} mantiene una bitácora de cada entrega de webhook para {% ifversion fpt or ghec %}30 {% else %} 8 {% endif %} días.
 
 ![Vista de entregas recientes](/assets/images/webhooks_recent_deliveries.png)
 

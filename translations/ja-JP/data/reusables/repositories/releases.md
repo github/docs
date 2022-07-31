@@ -1,1 +1,1 @@
-1. ファイルのリストの右で、**Releases（リリース）**もしくは**Latest release（最新のリリース）**をクリックしてください。 ![右側のサイドバー内のリリースセクション](/assets/images/help/releases/release-link.png)
+1. To the right of the list of files, click **Releases**. ![右側のサイドバー内のリリースセクション](/assets/images/help/releases/release-link.png)

@@ -1,20 +1,19 @@
 ---
 title: Dockerfile 对 GitHub Actions 的支持
-shortTitle: Dockerfile support
+shortTitle: Dockerfile 支持
 intro: 为 Docker 容器创建 `Dockerfile` 时， 您应该知道一些 Docker 指令如何与 GitHub Actions 及操作的元数据文件交互。
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /actions/building-actions/dockerfile-support-for-github-actions
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: reference
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## 关于 Dockerfile 指令
 
@@ -22,7 +21,7 @@ type: reference
 
 ## Dockerfile 指令和覆盖
 
-某些 Docker 指令与 GitHub 操作交互，操作的元数据文件可以覆盖某些 Docker 指令。 确保您熟悉 Dockerfile 如何与 {% data variables.product.prodname_actions %} 交互以防止任何意外行为。
+某些 Docker 指令与 GitHub Actions 交互，操作的元数据文件可以覆盖某些 Docker 指令。 确保您熟悉 Dockerfile 如何与 {% data variables.product.prodname_actions %} 交互以防止任何意外行为。
 
 ### USER
 
@@ -47,6 +46,8 @@ Docker 操作必须由默认 Docker 用户 (root) 运行。 不要在 `Dockerfil
 如果在操作的元数据文件中定义 `entrypoint`，它将覆盖 `Dockerfile` 中定义的 `ENTRYPOINT`。 更多信息请参阅“[{% data variables.product.prodname_actions %} 的元数据语法](/actions/creating-actions/metadata-syntax-for-github-actions/#runsentrypoint)”。
 
 Docker `ENTRYPOINT` 指令有 _shell_ 形式和 _exec_ 形式。 Docker `ENTRYPOINT` 文档建议使用 _exec_ 形式的 `ENTRYPOINT` 指令。 有关 _exec_ 和 _shell_ 形式的更多信息，请参阅 Docker 文档中的 [ENTRYPOINT 参考](https://docs.docker.com/engine/reference/builder/#entrypoint)。
+
+您不应使用 `WORKDIR` 在 Dockerfile 中指定入口点。 而应使用绝对路径。 更多信息请参阅 [WORKDIR](#workdir)。
 
 如果您配置容器使用 _exec_ 形式的 `ENTRYPOINT` 指令，在操作元数据文件中配置的 `args` 不会在命令 shell 中运行。 如果操作的 `args` 包含环境变量，不会替换该变量。 例如，使用以下 _exec_ 格式将不会打印存储在 `$GITHUB_SHA` 中的值， 但会打印 `"$GITHUB_SHA"`。
 
@@ -104,7 +105,7 @@ Error response from daemon: OCI runtime create failed: container_linux.go:348: s
 
 如果在 `Dockerfile` 中使用 `CMD`，请遵循以下指导方针：
 
-{% data reusables.github-actions.dockerfile-guidelines %}
+{% data reusables.actions.dockerfile-guidelines %}
 
 ## 支持的 Linux 功能
 

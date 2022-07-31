@@ -3,6 +3,7 @@ title: 查找要赞助的贡献者快速入门
 intro: 了解一些查找要赞助的开源贡献者的最佳实践。
 versions:
   fpt: '*'
+  ghec: '*'
 type: quick_start
 topics:
   - Open Source
@@ -45,7 +46,7 @@ shortTitle: 快速入门
 
 ## 搜索特定项目或贡献者
 
-在 https://github.com/sponsors/community 上，您可以按生态系统、最常用、最近更新等搜索。 您可以筛选个人用户帐户或您是其成员的组织的搜索结果。
+在 https://github.com/sponsors/community 上，您可以按生态系统、最常用、最近更新等搜索。 您可以筛选个人帐户或您是其成员的组织的搜索结果。
 
 ## 后续步骤
 

@@ -1,1 +1,1 @@
-2. 在提示时上传许可文件并设置管理控制台密码。 For more information, see "[Managing your license for {% data variables.product.prodname_enterprise %}](/billing/managing-your-license-for-github-enterprise)."
+2. 在提示时上传许可文件并设置管理控制台密码。 更多信息请参阅“[管理 {% data variables.product.prodname_enterprise %} 的许可](/billing/managing-your-license-for-github-enterprise)”。

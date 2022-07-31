@@ -15,26 +15,27 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Repositories
 ---
 
-## About repositories 
+## About repositories
 
 You can own repositories individually, or you can share ownership of repositories with other people in an organization.
 
 You can restrict who has access to a repository by choosing the repository's visibility. For more information, see "[About repository visibility](#about-repository-visibility)."
 
-For user-owned repositories, you can give other people collaborator access so that they can collaborate on your project. If a repository is owned by an organization, you can give organization members access permissions to collaborate on your repository. For more information, see "[Permission levels for a user account repository](/articles/permission-levels-for-a-user-account-repository/)" and "[Repository permission levels for an organization](/articles/repository-permission-levels-for-an-organization/)."
+For user-owned repositories, you can give other people collaborator access so that they can collaborate on your project. If a repository is owned by an organization, you can give organization members access permissions to collaborate on your repository. For more information, see "[Permission levels for a personal account repository](/articles/permission-levels-for-a-user-account-repository/)" and "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)."
 
-{% ifversion fpt %}
-With {% data variables.product.prodname_free_team %} for user accounts and organizations, you can work with unlimited collaborators on unlimited public repositories with a full feature set, or unlimited private repositories with a limited feature set. To get advanced tooling for private repositories, you can upgrade to {% data variables.product.prodname_pro %}, {% data variables.product.prodname_team %}, or {% data variables.product.prodname_ghe_cloud %}. {% data reusables.gated-features.more-info %}
+{% ifversion fpt or ghec %}
+With {% data variables.product.prodname_free_team %} for personal accounts and organizations, you can work with unlimited collaborators on unlimited public repositories with a full feature set, or unlimited private repositories with a limited feature set. To get advanced tooling for private repositories, you can upgrade to {% data variables.product.prodname_pro %}, {% data variables.product.prodname_team %}, or {% data variables.product.prodname_ghe_cloud %}. {% data reusables.gated-features.more-info %}
 {% else %}
 Each person and organization can own unlimited repositories and invite an unlimited number of collaborators to all repositories.
 {% endif %}
 
 You can use repositories to manage your work and collaborate with others.
-- You can use issues to collect user feedback, report software bugs, and organize tasks you'd like to accomplish. For more information, see "[About issues](/github/managing-your-work-on-github/about-issues)."{% ifversion fpt %}
+- You can use issues to collect user feedback, report software bugs, and organize tasks you'd like to accomplish. For more information, see "[About issues](/github/managing-your-work-on-github/about-issues)."{% ifversion fpt or ghec %}
 - {% data reusables.discussions.you-can-use-discussions %}{% endif %}
 - You can use pull requests to propose changes to a repository. For more information, see "[About pull requests](/github/collaborating-with-issues-and-pull-requests/about-pull-requests)."
 - You can use project boards to organize and prioritize your issues and pull requests. For more information, see "[About project boards](/github/managing-your-work-on-github/about-project-boards)."
@@ -43,38 +44,53 @@ You can use repositories to manage your work and collaborate with others.
 
 ## About repository visibility
 
-You can restrict who has access to a repository by choosing a repository's visibility: {% ifversion fpt or ghes %}public, internal, or private{% elsif ghae %}private or internal{% else %} public or private{% endif %}.
+You can restrict who has access to a repository by choosing a repository's visibility: {% ifversion ghes or ghec %}public, internal, or private{% elsif ghae %}private or internal{% else %} public or private{% endif %}.
 
-{% ifversion ghae %}When you create a repository owned by your user account, the repository is always private. When you create a repository owned by an organization, you can choose to make the repository private or internal.{% else %}When you create a repository, you can choose to make the repository public or private.{% ifversion fpt or ghes %} If you're creating the repository in an organization{% ifversion fpt %} that is owned by an enterprise account{% endif %}, you can also choose to make the repository internal.{% endif %}{% endif %}
+{% ifversion fpt or ghec or ghes %}
 
-{% ifversion ghes %}
-If {% data variables.product.product_location %} is not in private mode or behind a firewall, public repositories are accessible to everyone on the internet. Otherwise, public repositories are available to everyone using {% data variables.product.product_location %}, including outside collaborators. Private repositories are only accessible to you, people you explicitly share access with, and, for organization repositories, certain organization members. {% ifversion ghes %} Internal repositories are accessible to enterprise members. For more information, see "[About internal repositories](#about-internal-repositories)."{% endif %}
+When you create a repository, you can choose to make the repository public or private.{% ifversion ghec or ghes %} If you're creating the repository in an organization{% ifversion ghec %} that is owned by an enterprise account{% endif %}, you can also choose to make the repository internal.{% endif %}{% endif %}{% ifversion fpt %} Repositories in organizations that use {% data variables.product.prodname_ghe_cloud %} and are owned by an enterprise account can also be created with internal visibility. For more information, see [the {% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/repositories/creating-and-managing-repositories/about-repositories).
+
 {% elsif ghae %}
-Private repositories are only accessible to you, people you explicitly share access with, and, for organization repositories, certain organization members. Internal repositories are accessible to all enterprise members. For more information, see "[About internal repositories](#about-internal-repositories)."
-{% else %}
-Public repositories are accessible to everyone on the internet. Private repositories are only accessible to you, people you explicitly share access with, and, for organization repositories, certain organization members. Internal repositories are accessible to enterprise members. For more information, see "[About internal repositories](#about-internal-repositories)."
+
+When you create a repository owned by your personal account, the repository is always private. When you create a repository owned by an organization, you can choose to make the repository private or internal.
+
 {% endif %}
 
-Organization owners always have access to every repository created in an organization. For more information, see "[Repository permission levels for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-permission-levels-for-an-organization)."
+{%- ifversion fpt or ghec %}
+- Public repositories are accessible to everyone on the internet.
+- Private repositories are only accessible to you, people you explicitly share access with, and, for organization repositories, certain organization members.
+{%- elsif ghes %}
+- If {% data variables.product.product_location %} is not in private mode or behind a firewall, public repositories are accessible to everyone on the internet. Otherwise, public repositories are available to everyone using {% data variables.product.product_location %}, including outside collaborators.
+- Private repositories are only accessible to you, people you explicitly share access with, and, for organization repositories, certain organization members.
+{%- elsif ghae %}
+- Private repositories are only accessible to you, people you explicitly share access with, and, for organization repositories, certain organization members.
+{%- endif %}
+{%- ifversion ghec or ghes or ghae %}
+- Internal repositories are accessible to all enterprise members. For more information, see "[About internal repositories](#about-internal-repositories)."
+{%- endif %}
+
+Organization owners always have access to every repository created in an organization. For more information, see "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)."
 
 People with admin permissions for a repository can change an existing repository's visibility. For more information, see "[Setting repository visibility](/github/administering-a-repository/setting-repository-visibility)."
 
-{% ifversion fpt or ghae or ghes %}
+{% ifversion ghes or ghec or ghae %}
 ## About internal repositories
-
-{% note %}
-
-**Note:** {% data reusables.gated-features.internal-repos %}
-
-{% endnote %}
 
 {% data reusables.repositories.about-internal-repos %} For more information on innersource, see {% data variables.product.prodname_dotcom %}'s whitepaper "[An introduction to innersource](https://resources.github.com/whitepapers/introduction-to-innersource/)."
 
-All enterprise members have read permissions to the internal repository, but internal repositories are not visible to people {% ifversion fpt %}outside of the enterprise{% else %}who are not members of an organization{% endif %}, including outside collaborators on organization repositories. For more information, see {% ifversion fpt or ghae %}"[Roles in an enterprise](/github/setting-up-and-managing-your-enterprise/roles-in-an-enterprise#enterprise-members)" and {% endif %}"[Repository permission levels for an organization](/articles/repository-permission-levels-for-an-organization)."
+All enterprise members have read permissions to the internal repository, but internal repositories are not visible to people {% ifversion fpt or ghec %}outside of the enterprise{% else %}who are not members of any organization{% endif %}, including outside collaborators on organization repositories. For more information, see "[Roles in an enterprise](/github/setting-up-and-managing-your-enterprise/roles-in-an-enterprise#enterprise-members)" and "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)."
+
+{% ifversion ghes %}
+{% note %}
+
+**Note:** A user must be part of an organization to be an enterprise member and have access to internal repositories. If a user on {% data variables.product.product_location %} is not a member of any organization, that user will not have access to internal repositories.
+
+{% endnote %}
+{% endif %}
 
 {% data reusables.repositories.internal-repo-default %}
 
-If a user is removed from all organizations owned by the enterprise, that user's forks of internal repositories are removed automatically.
+Any member of the enterprise can fork any internal repository owned by an organization in the enterprise. The forked repository will belong to the member's personal account, and the visibility of the fork will be private. If a user is removed from all organizations owned by the enterprise, that user's forks of internal repositories are removed automatically.
 {% endif %}
 
 ## Limits for viewing content and diffs in a repository
@@ -107,6 +123,7 @@ The compare view and pull requests pages display a list of commits between the `
 ## Further reading
 
 - "[Creating a new repository](/articles/creating-a-new-repository)"
+- "[About forks](/github/collaborating-with-pull-requests/working-with-forks/about-forks)"
 - "[Collaborating with issues and pull requests](/categories/collaborating-with-issues-and-pull-requests)"
 - "[Managing your work on {% data variables.product.prodname_dotcom %}](/categories/managing-your-work-on-github/)"
 - "[Administering a repository](/categories/administering-a-repository)"

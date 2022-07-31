@@ -7,6 +7,7 @@ redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-your-github-billing-settings/about-billing-on-github
 versions:
   fpt: '*'
+  ghec: '*'
 type: overview
 topics:
   - Fundamentals
@@ -15,7 +16,7 @@ topics:
 ## 有料の機能と製品
 
 個人アカウントや Organization は、いつでも有料プランにアップグレードできます。 {% data variables.product.prodname_marketplace %} からアプリケーションを購入したり、{% data variables.large_files.product_name_long %} のストレージや帯域をアップグレードしたりすることもできます。 詳しい情報については、以下を参照してください。
-- 「[{% data variables.product.product_name %} アカウントの支払いについて](/articles/about-billing-for-github-accounts)」
+- 「[{% data variables.product.prodname_dotcom %} アカウントの支払いについて](/articles/about-billing-for-github-accounts)」
 - [{% data variables.product.prodname_marketplace %} の支払いについて](/articles/about-billing-for-github-marketplace)
 - [{% data variables.large_files.product_name_long %} の支払いについて](/articles/about-billing-for-git-large-file-storage)
 - [{% data variables.product.prodname_sponsors %} の支払いについて](/articles/about-billing-for-github-sponsors)
@@ -32,10 +33,10 @@ topics:
 
 OrganizationあるいはEnterpriseのオーナーは、設定のコンテキストスイッチャーを使って様々なアカウントの設定を切り替えることができます。
 
-{% data reusables.user_settings.access_settings %}
+{% data reusables.user-settings.access_settings %}
 1. ページの上部で、ユーザ名の右の**Switch to another account（他のアカウントに切り替え）** ![コンテキストスイッチャーボタン](/assets/images/help/settings/context-switcher-button.png)
 1. 切り替えたいアカウントの名前を入力し始め、そのアカウントの名前をクリックしてください。 ![コンテキストスイッチャーメニュー](/assets/images/help/settings/context-switcher-menu.png)
-1. 左のサイドバーで**Billing & plans（支払とプラン）**をクリックしてください。 ![設定サイドバーの支払とプラン](/assets/images/help/organizations/billing-settings.png)
+1. 左のサイドバーで**{% octicon "credit-card" aria-label="The credit card icon" %} Billing and plans（支払いとプラン）**をクリックしてください。
 
 ## 参考リンク
 

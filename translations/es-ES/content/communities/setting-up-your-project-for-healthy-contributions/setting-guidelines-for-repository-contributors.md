@@ -5,8 +5,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 redirect_from:
-  - /articles/how-do-i-set-up-guidelines-for-contributors/
+  - /articles/how-do-i-set-up-guidelines-for-contributors
   - /articles/setting-guidelines-for-repository-contributors
   - /github/building-a-strong-community/setting-guidelines-for-repository-contributors
 topics:
@@ -25,9 +26,9 @@ Para los colaboradores, las pautas los ayudan a verificar que están presentando
 
 Tanto para los propietarios como para los colaboradores, las pautas de contribución ahorran tiempo y evitan inconvenientes generados por solicitudes de extracción o propuestas creadas de manera incorrecta que deben ser rechazadas o se deben volver a presentar.
 
-{% ifversion fpt or ghes %}
+{% ifversion fpt or ghes or ghec %}
 
-Puedes crear lineamientos de contribución predeterminados para tu organización{% ifversion fpt or ghes %} o cuenta de usuario{% endif %}. Para obtener más información, consulta "[Crear un archivo de salud predeterminado para la comunidad](//communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)."
+Puedes crear lineamientos de contribución predeterminados para tu cuenta organizacional{% ifversion fpt or ghes or ghec %} o personal{% endif %}. Para obtener más información, consulta "[Crear un archivo de salud predeterminado para la comunidad](//communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)."
 
 {% endif %}
 
@@ -41,7 +42,7 @@ Puedes crear lineamientos de contribución predeterminados para tu organización
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.files.add-file %}
-3. Decide si almacenar tus pautas de contribución en la raíz de tu repositorio, el directorio `docs`, o el directorio `.github`. Después, en el campo nombre de archivo, escribe el nombre y la extensión del archivo. Los nombres de archivo de los lineamientos de contribución no distinguen entre mayúsculas y minúsculas. Los archivos se interpretan en formato de texto rico si la extensión de archivo se encuentra en un formato compatible. For more information, see "[Working with non-code files](/repositories/working-with-files/using-files/working-with-non-code-files#rendering-differences-in-prose-documents)." ![Nombre del nuevo archivo](/assets/images/help/repository/new-file-name.png)
+3. Decide si almacenar tus pautas de contribución en la raíz de tu repositorio, el directorio `docs`, o el directorio `.github`. Después, en el campo nombre de archivo, escribe el nombre y la extensión del archivo. Los nombres de archivo de los lineamientos de contribución no distinguen entre mayúsculas y minúsculas. Los archivos se interpretan en formato de texto rico si la extensión de archivo se encuentra en un formato compatible. Para obtener más información, consulta la sección "[Trabajar con archivos que no sean de código](/repositories/working-with-files/using-files/working-with-non-code-files#rendering-differences-in-prose-documents)". ![Nombre del nuevo archivo](/assets/images/help/repository/new-file-name.png)
     - Para hacer visibles tus pautas de contribución en el directorio raíz del repositorio, escribe *CONTRIBUTING*.
     - Para hacer visibles tus pautas de contribución en el directorio `docs` del repositorio, escribe *docs/* para crear el nuevo directorio, y luego *CONTRIBUTING*.
     - Si un repositorio contiene más de un archivo de *CONTRIBUCIÓN*, entonces el archivo que se muestra en los enlaces se elige de las ubicaciones en el siguiente orden: el directorio `.github`, luego el directorio raíz del repositorio y finalmente el directorio `docs`.
@@ -62,6 +63,6 @@ Si estás confundido, aquí hay algunos buenos ejemplos de pautas de contribuci�
 - Pautas de contribución de Open Government [](https://github.com/opengovernment/opengovernment/blob/master/CONTRIBUTING.md).
 
 ## Leer más
-- La sección de la Guía de código abierto "[Iniciar un proyecto de código abierto](https://opensource.guide/starting-a-project/)"{% ifversion fpt %}
-- [{% data variables.product.prodname_learning %}]({% data variables.product.prodname_learning_link %}){% endif %}{% ifversion fpt or ghes %}
+- La sección de la Guía de código abierto "[Iniciar un proyecto de código abierto](https://opensource.guide/starting-a-project/)"{% ifversion fpt or ghec %}
+- [{% data variables.product.prodname_learning %}]({% data variables.product.prodname_learning_link %}){% endif %}{% ifversion fpt or ghes or ghec %}
 - "[Agregar una licencia a un repositorio](/articles/adding-a-license-to-a-repository)"{% endif %}

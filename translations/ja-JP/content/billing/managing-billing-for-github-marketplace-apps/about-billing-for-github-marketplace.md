@@ -7,6 +7,7 @@ redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-marketplace-apps/about-billing-for-github-marketplace
 versions:
   fpt: '*'
+  ghec: '*'
 type: overview
 topics:
   - Marketplace
@@ -40,7 +41,7 @@ shortTitle: GitHub Marketplaceの支払い
 - 他の有料プランを持っているなら、14 日の無料トライアルが終了すると、ファイル上の支払い方法に対して次の支払日までの時間に応じて比例配分された額が即座に課金されます。
 - 他の有料プランを持っているなら、次の支払日に有料の {% data variables.product.prodname_dotcom %} プランとアプリケーションのプランへの課金が領収リストに記載されます。
 
-{% data reusables.user_settings.context_switcher %}
+{% data reusables.user-settings.context_switcher %}
 
 ## 単位を入力する必要があるプランの制限
 

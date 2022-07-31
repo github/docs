@@ -3,6 +3,7 @@ title: Primeiros passos com a API dos do GraphQL Sponsors
 intro: 'Ao usar a API do GraphQL, você pode criar integrações personalizadas para gerenciar ou revisar seus patrocinadores.'
 versions:
   fpt: '*'
+  ghec: '*'
 type: overview
 topics:
   - GraphQL

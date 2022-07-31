@@ -3,6 +3,7 @@ title: Cancelando a publicação do seu perfil do GitHub Sponsors
 intro: 'Se você não tiver nenhum patrocinador, você poderá cancelar a publicação do seu perfil de {% data variables.product.prodname_sponsors %}.'
 versions:
   fpt: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Open Source

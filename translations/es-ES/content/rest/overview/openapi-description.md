@@ -4,6 +4,7 @@ intro: 'La API de REST de {% data variables.product.product_name %} se describe 
 versions:
   fpt: '*'
   ghes: '*'
+  ghec: '*'
 topics:
   - API
 ---
@@ -26,4 +27,4 @@ Hay muchos tipos de uso para la descripción de OpenAPI. Por ejemplo, podrías:
 * Validar y probar una ingegración a la API de REST de {% data variables.product.company_short %}.
 * Explorar e interactuar con la API de REST de {% data variables.product.product_name %} utilizando herramientas de terceros tales como Insomnia o Postman.
 
-Por ejemplo, {% data variables.product.company_short %} utiliza la descripción de OpenAPI de REST para generar la [documentación de referencia de la API de REST](/rest/reference) de {% data variables.product.product_name %}.
+Por ejemplo, {% data variables.product.company_short %} utiliza la descripción de OpenAPI de REST para generar la [documentación de referencia de la API de REST](/rest) de {% data variables.product.product_name %}.

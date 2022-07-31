@@ -1,22 +1,21 @@
 ---
 title: Expressions
 shortTitle: Expressions
-intro: You can evaluate expressions in workflows and actions.
-product: '{% data reusables.gated-features.actions %}'
+intro: 您可以评估工作流程和操作中的表达式。
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 miniTocMaxHeadingLevel: 3
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
-## About expressions
+## 关于表达式
 
-您可以使用表达式程序化设置工作流程文件中的变量和访问上下文。 表达式可以是文字值、上下文引用或函数的任意组合。 您可以使用运算符组合文字、上下文引用和函数。 For more information about contexts, see "[Contexts](/actions/learn-github-actions/contexts)."
+您可以使用表达式程序化设置工作流程文件中的环境变量和访问上下文。 表达式可以是文字值、上下文引用或函数的任意组合。 您可以使用运算符组合文字、上下文引用和函数。 有关上下文的更多信息，请参阅“[上下文](/actions/learn-github-actions/contexts)”。
 
 表达式通常在工作流程文件中与条件性 `if` 关键词一起用来确定步骤是否应该运行。 当 `if` 条件为 `true` 时，步骤将会运行。
 
@@ -26,9 +25,9 @@ miniTocMaxHeadingLevel: 3
 `${{ <expression> }}`
 {% endraw %}
 
-{% data reusables.github-actions.expression-syntax-if %}有关 `if` 条件的更多信息，请参阅“[{% data variables.product.prodname_actions %} 的工作流程语法](/articles/workflow-syntax-for-github-actions/#jobsjob_idif)”。
+{% data reusables.actions.expression-syntax-if %}有关 `if` 条件的更多信息，请参阅“[{% data variables.product.prodname_actions %} 的工作流程语法](/articles/workflow-syntax-for-github-actions/#jobsjob_idif)”。
 
-{% data reusables.github-actions.context-injection-warning %}
+{% data reusables.actions.context-injection-warning %}
 
 #### `if` 条件的示例表达式
 
@@ -51,16 +50,17 @@ env:
 
 作为表达式的一部分，您可以使用 `boolean`、`null`、`number` 或 `string` 数据类型。
 
-| 数据类型     | 文字值                    |
-| -------- | ---------------------- |
-| `布尔值`    | `true` 或 `false`       |
-| `null`   | `null`                 |
-| `number` | JSON 支持的任何数字格式。        |
-| `字符串`    | 必须使用单引号。 使用单引号逸出文字单引号。 |
+| 数据类型     | 文字值                                                                                                                                                        |
+| -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `布尔值`    | `true` 或 `false`                                                                                                                                           |
+| `null`   | `null`                                                                                                                                                     |
+| `number` | JSON 支持的任何数字格式。                                                                                                                                            |
+| `字符串`    | 您不需要将字符串括在 `{% raw %}${{{% endraw %}` 和 `{% raw %}}}{% endraw %}` 中。 但是，如果这样做，则必须在字符串两边使用单引号 (`'`)。 要使用文字单引号，请使用额外的单引号转义文字单引号 (`''`)。 用双引号 (`"`) 括起来会引发错误。 |
 
 #### 示例
 
 {% raw %}
+
 ```yaml
 env:
   myNull: ${{ null }}
@@ -68,10 +68,11 @@ env:
   myIntegerNumber: ${{ 711 }}
   myFloatNumber: ${{ -9.2 }}
   myHexNumber: ${{ 0xff }}
-  myExponentialNumber: ${{ -2.99-e2 }}
-  myString: ${{ 'Mona the Octocat' }}
-  myEscapedString: ${{ 'It''s open source!' }}
+  myExponentialNumber: ${{ -2.99e-2 }}
+  myString: Mona the Octocat
+  myStringInBraces: ${{ 'It''s open source!' }}
 ```
+
 {% endraw %}
 
 ## 运算符
@@ -80,7 +81,7 @@ env:
 | ------------------------- | ------ |
 | `( )`                     | 逻辑分组   |
 | `[ ]`                     | 索引     |
-| `.`                       | 属性解除参考 |
+| `.`                       | 属性取消引用 |
 | `!`                       | 非      |
 | `<`                    | 小于     |
 | `<=`                   | 小于或等于  |
@@ -126,11 +127,11 @@ env:
 
 #### 使用数组的示例
 
-`contains(github.event.issue.labels.*.name, 'bug')`
+`contains(github.event.issue.labels.*.name, 'bug')` 返回与事件相关的议题是否带有标签 "bug"。
 
 #### 使用字符串的示例
 
-`contains('Hello world', 'llo')` 返回 `true`
+`contains('Hello world', 'llo')` 返回 `true`.
 
 ### startsWith
 
@@ -140,7 +141,7 @@ env:
 
 #### 示例
 
-`startsWith('Hello world', 'He')` 返回 `true`
+`startsWith('Hello world', 'He')` 返回 `true`.
 
 ### endsWith
 
@@ -150,7 +151,7 @@ env:
 
 #### 示例
 
-`endsWith('Hello world', 'ld')` 返回 `true`
+`endsWith('Hello world', 'ld')` 返回 `true`.
 
 ### format
 
@@ -160,19 +161,19 @@ env:
 
 #### 示例
 
-返回 'Hello Mona the Octocat'
-
 `format('Hello {0} {1} {2}', 'Mona', 'the', 'Octocat')`
 
-#### 逸出括号示例
+返回 'Hello Mona the Octocat'.
 
-返回 '{Hello Mona the Octocat!}'
+#### 逸出括号示例
 
 {% raw %}
 ```js
 format('{{Hello {0} {1} {2}!}}', 'Mona', 'the', 'Octocat')
 ```
 {% endraw %}
+
+返回 '{Hello Mona the Octocat!}'.
 
 ### join
 
@@ -251,9 +252,9 @@ jobs:
 
 `hashFiles(path)`
 
-返回匹配 `path` 模式的文件集的单个哈希值。 您可以提供单一 `path` 模式，或以逗号分隔的多个 `path` 模式。 `path` 相对于 `GITHUB_WORKSPACE` 目录，只能包括 `GITHUB_WORKSPACE` 中的文件。 此函数为每个匹配的文件计算单独的 SHA-256 哈希， 然后使用这些哈希来计算文件集的最终 SHA-256 哈希。 有关 SHA-256 的更多信息，请参阅“[SHA-2](https://en.wikipedia.org/wiki/SHA-2)”。
+返回匹配 `path` 模式的文件集的单个哈希值。 您可以提供单一 `path` 模式，或以逗号分隔的多个 `path` 模式。 `path` 相对于 `GITHUB_WORKSPACE` 目录，只能包括 `GITHUB_WORKSPACE` 中的文件。 此函数为每个匹配的文件计算单独的 SHA-256 哈希， 然后使用这些哈希来计算文件集的最终 SHA-256 哈希。 如果 `path` 模式与任何文件都不匹配，则返回空字符串。 有关 SHA-256 的更多信息，请参阅“[SHA-2](https://en.wikipedia.org/wiki/SHA-2)”。
 
-您可以使用模式匹配字符来匹配文件名。 模式匹配在 Windows 上不区分大小写。 有关支持的模式匹配字符的更多信息，请参阅“[{% data variables.product.prodname_actions %} 的工作流程语法](/github/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions/#filter-pattern-cheat-sheet)”。
+您可以使用模式匹配字符来匹配文件名。 模式匹配在 Windows 上不区分大小写。 有关支持的模式匹配字符的更多信息，请参阅“[{% data variables.product.prodname_actions %} 的工作流程语法](/actions/using-workflows/workflow-syntax-for-github-actions/#filter-pattern-cheat-sheet)”。
 
 #### 单一模式示例
 
@@ -267,9 +268,15 @@ jobs:
 
 `hashFiles('**/package-lock.json', '**/Gemfile.lock')`
 
-## 作业状态检查函数
 
+{% ifversion fpt or ghes > 3.3 or ghae-issue-5504 or ghec %}
+## 状态检查函数
+
+您可以使用以下状态检查函数作为 `if` 条件中的表达式。 除非您包含其中一个函数，否则 `success()` 的默认状态检查将会应用。 有关 `if` 条件的更多信息，请参阅“[GitHub 操作的工作流程语法](/articles/workflow-syntax-for-github-actions/#jobsjob_idif)”和“[GitHub 复合操作的元数据语法](/actions/creating-actions/metadata-syntax-for-github-actions/#runsstepsif)”。
+{% else %}
+## 检查函数
 您可以使用以下状态检查函数作为 `if` 条件中的表达式。 除非您包含其中一个函数，否则 `success()` 的默认状态检查将会应用。 有关 `if` 条件的更多信息，请参阅“[GitHub 操作的工作流程语法](/articles/workflow-syntax-for-github-actions/#jobsjob_idif)”。
+{% endif %}
 
 ### success
 
@@ -286,7 +293,7 @@ steps:
 
 ### always
 
-Causes the step to always execute, and returns `true`, even when canceled. 作业或步骤在重大故障阻止任务运行时不会运行。 例如，如果获取来源失败。
+导致该步骤总是执行，并返回 `true`，即使取消也一样。 作业或步骤在重大故障阻止任务运行时不会运行。 例如，如果获取来源失败。
 
 #### 示例
 
@@ -306,7 +313,7 @@ if: {% raw %}${{ cancelled() }}{% endraw %}
 
 ### failure
 
-在作业的任何之前一步失败时返回 `true`。
+在作业的任何之前一步失败时返回 `true`。 如果您有相依作业链，`failure()` 在任何上层节点作业失败时返回 `true`。
 
 #### 示例
 
@@ -315,6 +322,22 @@ steps:
   ...
   - name: The job has failed
     if: {% raw %}${{ failure() }}{% endraw %}
+```
+
+#### 有条件的失败
+
+您可以为失败后运行的步骤添加额外的条件，但仍必须包含 `failure()` 以覆盖自动应用到不含状态检查功能的 `if` 条件的 `success()` 默认状态检查。
+
+##### 示例
+
+```yaml
+steps:
+  ...
+  - name: Failing step
+    id: demo
+    run: exit 1
+  - name: The demo step has failed
+    if: {% raw %}${{ failure() && steps.demo.conclusion == 'failure' }}{% endraw %}
 ```
 
 ## 对象过滤器
@@ -331,4 +354,40 @@ steps:
 ]
 ```
 
-过滤条件 `fruits.*.name` 返回数组 `[ "apple", "orange", "pear" ]`
+过滤条件 `fruits.*.name` 返回数组 `[ "apple", "orange", "pear" ]`.
+
+您也可以在对象上使用 `*` 语法。 例如，假设您有一个名为 `vegetables` 的对象。
+
+```json
+
+{
+  "scallions":
+  {
+    "colors": ["green", "white", "red"],
+    "ediblePortions": ["roots", "stalks"],
+  },
+  "beets":
+  {
+    "colors": ["purple", "red", "gold", "white", "pink"],
+    "ediblePortions": ["roots", "stems", "leaves"],
+  },
+  "artichokes":
+  {
+    "colors": ["green", "purple", "red", "black"],
+    "ediblePortions": ["hearts", "stems", "leaves"],
+  },
+}
+```
+
+筛选器 `vegetables.*.ediblePortions` 可求值为：
+
+```json
+
+[
+  ["roots", "stalks"],
+  ["hearts", "stems", "leaves"],
+  ["roots", "stems", "leaves"],
+]
+```
+
+由于对象不保持顺序，因此无法保证输出的顺序。

@@ -7,10 +7,6 @@
   description: >-
     Token usado no lugar de uma senha ao executar operações do Git em HTTPS com Git na linha de comando ou na API. Também chamado de token de acesso pessoal.
 - 
-  term: token de recuperação de conta
-  description: >-
-    Credencial de autenticação armazenada como parte de uma configuração de recuperação de conta chamada Recuperação de contas em outro lugar que permite armazenar essa credencial de backup.
-- 
   term: Visualização da API
   description: >-
     Forma de testar novas APIs e alterações nos métodos existentes antes de integrá-las como parte da API oficial do GitHub.
@@ -206,6 +202,10 @@
   description: >-
     O diff é a diferença nas alterações entre dois commits ou o registro das alterações salvas. O diff descreverá visualmente o que foi adicionado ou removido de um arquivo desde o commit mais recente.
 - 
+  term: diretório
+  description: >-
+    Uma pasta que contém uma ou mais arquivos ou pastas. Você pode criar diretórios para organizar o conteúdo de um repositório.
+- 
   term: sujo
   description: >-
     Uma árvore de trabalho é considerada "suja" se contiver modificações que não passaram por commit no branch atual.
@@ -214,7 +214,7 @@
   description: Notificações enviadas para o endereço de e-mail de um usuário.
 - 
   term: enterprise account
-  description: As contas corporativas permitem que você gerencie a política e a cobrança centralmente para várias organizações de {% data variables.product.prodname_dotcom_the_website %}. {% data reusables.gated-features.enterprise-accounts %}
+  description: As contas corporativas permitem que você gerencie a política e a cobrança centralmente para várias organizações. {% data reusables.gated-features.enterprise-accounts %}
 - 
   term: Explorador
   description: >-
@@ -572,10 +572,6 @@
   description: >-
     Reaplicar uma série de alterações de um branch para uma base diferente e redefinir o HEAD daquele branch para o resultado.
 - 
-  term: recuperação de contas em outro lugar
-  description: >-
-    Permite aos usuários adicionar uma camada de segurança extra à conta do GitHub em caso de perda do acesso à autenticação de dois fatores ou aos códigos de recuperação. Os usuários podem associar suas contas do GitHub às contas do Facebook armazenando uma credencial de autenticação em forma de token de recuperação para a conta do GitHub no Facebook.
-- 
   term: código de recuperação
   description: Código que ajuda a recuperar o acesso à conta do GitHub.
 - 
@@ -601,6 +597,10 @@
   term: repositório
   description: >-
     Repositórios são o elemento mais essencial do GitHub e podem ser imaginados como pastas de um projeto. O repositório contém todos os arquivos do projeto (inclusive a documentação) e armazena o histórico de revisão de cada arquivo. Repositórios podem ter vários colaboradores e podem ser públicos ou privados.
+- 
+  term: cache do repositório
+  description: >-
+    Um espelho somente leitura de repositórios para o seu exemplo de servidor do GitHub Enterprise, localizado perto de equipes distribuídas e clientes de CI.
 - 
   term: gráfico do repositório
   description: Representação visual dos dados do seu repositório.
@@ -656,7 +656,7 @@
 - 
   term: server-to-server request
   description: >-
-    An API request used by an application that acts as a bot, independently of any particular user. For example, an application that runs on a scheduled basis and closes issues where there has been no activity for a long time. Applications that use this type of authentication don't use a licensed GitHub account so, in an enterprise with a billing plan that allows a certain number of licenses to be used, a server-to-server bot is not consuming one of your GitHub licenses. The token used in a server-to-server request is acquired programmatically, via [the GitHub API](/rest/reference/apps#create-an-installation-access-token-for-an-app). See also, "[user-to-server request](#user-to-server-request)."
+    Uma solicitação de API usada por um aplicativo que atua como um bot, independentemente de qualquer usuário em particular. Por exemplo, um aplicativo que é executado de forma programada e fecha problemas onde não há atividade há muito tempo. Os aplicativos que usam este tipo de autenticação não usam uma conta do GitHub licenciada. Portanto, em uma empresa com um plano de cobrança que permite a utilização de um determinado número de licenças, um bot de servidor para servidor não está consumindo uma das suas licenças do GitHub. O token usado em uma solicitação de servidor para servidor é adquirido de forma programática por meio da [API do GitHub](/rest/reference/apps#create-an-installation-access-token-for-an-app). Consulte também, "[pedido do usuário usuário para servidor](#user-to-server-request)."
 - 
   term: hook de serviço
   description: >-
@@ -684,7 +684,7 @@
   description: >-
     Representação visual em uma pull request indicativa de que os seus commit atendem às condições definidas para o repositório com o qual você está contribuindo.
 - 
-  term: status checks
+  term: verificações de status
   description: >-
     Verificações de status são processos externos, como criações de integração contínua, que são executadas para cada commit que você fizer em um repositório. Para obter mais informações, consulte "[Verificações de status](/articles/about-status-checks)".
 - 
@@ -743,7 +743,7 @@
 - 
   term: user-to-server request
   description: >-
-    An API request used by an application that performs a task on behalf of a particular user. Where a task is carried out with user-to-server authentication it's shown on GitHub as having been done by a user via an application. For example, you might choose to create an issue from within a third-party application, and the application would do this on your behalf on GitHub. The scope of tasks an application can perform using a user-to-server request is restricted by both the app's and the user's permissions and access. The token used in a user-to-server request is acquired via OAuth. For more information, see "[Identifying and authorizing users for GitHub Apps](/developers/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps)." See also, "[server-to-server request](#server-to-server-request)."
+    A solicitação de uma API usada por um aplicativo que executa uma tarefa em nome de um usuário em particular. Quando uma tarefa é realizada com autenticação de usuário para servidor é exibida no GitHub como sido feita por um usuário por meio de um aplicativo. Por exemplo, você pode optar por criar um problema dentro de um aplicativo de terceiros, e o aplicativo faria isso no seu nome no GitHub. O escopo de tarefas que um aplicativo pode executar usando uma solicitação de usuário para servidor é restrito tanto pelas permissões e acesso do aplicativo quanto pelo usuário. O token usado em um pedido do usuário para servidor é otido por meio do OAuth. Para obter mais informações, consulte "[Identificar e autorizar usuários para aplicativos GitHub](/developers/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps)". Consulte também, "[server-to-server request](#server-to-server-request)."
 - 
   term: equipe visível
   description: Equipe que pode ser vista e @mencionada por qualquer integrante da organização.

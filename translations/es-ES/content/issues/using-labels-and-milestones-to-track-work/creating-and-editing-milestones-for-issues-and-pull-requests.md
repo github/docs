@@ -3,16 +3,20 @@ title: Crear y editar hitos para propuestas y solicitudes de extracción
 intro: Puedes crear un hito para hacer un seguimiento del progreso en grupos de propuestas o solicitudes de extracción en un repositorio.
 redirect_from:
   - /github/managing-your-work-on-github/tracking-the-progress-of-your-work-with-milestones/creating-and-editing-milestones-for-issues-and-pull-requests
-  - /articles/creating-milestones-for-issues-and-pull-requests/
+  - /articles/creating-milestones-for-issues-and-pull-requests
   - /articles/creating-and-editing-milestones-for-issues-and-pull-requests
   - /github/managing-your-work-on-github/creating-and-editing-milestones-for-issues-and-pull-requests
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
+  - Issues
+  - Project management
 shortTitle: Crear & editar hitos
+type: how_to
 ---
 
 {% data reusables.repositories.navigate-to-repo %}

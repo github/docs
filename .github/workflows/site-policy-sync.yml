@@ -1,8 +1,8 @@
-name: site-policy-sync
+name: Site policy sync
 
 # **What it does**: Updates our site-policy repo when changes happen to site policy docs.
 # **Why we have it**: We want keep site-policy repo up to date.
-# **Who does it impact**: Site-policy team.
+# **Who does it impact**: site-policy-admins and Developer Policy teams.
 
 # Controls when the action will run.
 on:
@@ -14,40 +14,67 @@ on:
       - closed
     paths:
       - 'content/github/site-policy/**'
-
-  # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+permissions:
+  contents: read
+
 jobs:
-  # This workflow contains a single job called "build"
-  copy-file:
-    if: >-
-      github.event.pull_request.merged == true &&
-      github.repository == 'github/docs-internal'
-    # The type of runner that the job will run on
+  sync:
+    name: Get the latest docs
+    if: github.event_name == 'workflow_dispatch' || (github.event.pull_request.merged == true && github.repository == 'github/docs-internal')
     runs-on: ubuntu-latest
-
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f
-      # Sets commit message
-      - name: custom message
-        run: |
-          echo "MESSAGE=${{github.event.pull_request.title}}" >> $GITHUB_ENV
+      - name: checkout docs-internal
+        uses: actions/checkout@dcd71f646680f2efd8db4afa5ad64fdcba30e748
 
-      # Pushes to other repo
-      - name: Push folder to another repository
-        uses: crykn/copy_folder_to_another_repo_action@0282e8b9fef06de92ddcae9fe6cb44df6226646c
-        env:
-          API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_SITEPOLICY }}
+      - name: checkout public site-policy
+        uses: actions/checkout@dcd71f646680f2efd8db4afa5ad64fdcba30e748
         with:
-          source_folder: 'content/github/site-policy'
-          destination_repo: 'github/site-policy'
-          destination_branch: 'main'
-          destination_branch_create: 'repo-sync'
-          destination_folder: 'Policies'
-          user_email: 'site-policy-bot@users.noreply.github.com'
-          user_name: 'site-policy-bot'
-          commit_msg: '${{ env.MESSAGE }}'
+          repository: github/site-policy
+          token: ${{ secrets.API_TOKEN_SITEPOLICY }}
+          fetch-depth: ''
+          path: public-repo
+
+      - name: Commits internal policies to copy of public repo with descriptive message from triggering PR title
+        env:
+          PR_TITLE: ${{ github.event.pull_request.title }}
+        run: |
+          cd public-repo
+          git config --local user.name 'site-policy-bot'
+          git config --local user.email 'site-policy-bot@github.com'
+          rm -rf Policies
+          cp -r ../content/github/site-policy Policies
+          git status
+          git checkout -b automated-sync-$GITHUB_RUN_ID
+          git add .
+          echo PR_TITLE: $PR_TITLE
+          [[ ! -z $PR_TITLE ]] && DESCRIPTION="${PR_TITLE}" || DESCRIPTION="Update manually triggered by workflow"
+          echo "DESCRIPTION=$DESCRIPTION" >> $GITHUB_ENV
+          git commit -m "$(echo $DESCRIPTION)"
+
+      - name: If there are changes to push, create a pull request in the public repo using the gh command line tool, then immediately merge the PR and delete the branch
+        id: createAndMergePullRequest
+        env:
+          GITHUB_TOKEN: ${{ secrets.API_TOKEN_SITEPOLICY }}
+        run: |
+          cd public-repo
+          git config --local user.name 'site-policy-bot'
+          git config --local user.email 'site-policy-bot@github.com'
+          DIFF=$(git diff --name-status --summary HEAD^..HEAD)
+          NUM_FILES_CHANGED=$(git diff --name-only HEAD^..HEAD | wc -l)
+          [[ $NUM_FILES_CHANGED -ge 2 ]] && TITLE="Sync changes from GitHub Docs" || TITLE=$(echo $DIFF | sed -e 's/^A\s/Added /g;s/^D\s/Deleted /g;s/^C\s/Copied /g;s/^M\s/Modified /g;s/^R100\s/Renamed /g;')
+          if [[ ! -z $TITLE ]]
+            then
+              echo -e "This is an automated pull request to sync changes from GitHub Docs.\n\nDiff summary:\n\n${DIFF}" > msg
+              git push --set-upstream origin automated-sync-$GITHUB_RUN_ID
+              PR_URL=$(gh pr create --title "${TITLE}" --body-file msg --head automated-sync-$GITHUB_RUN_ID --base main --repo github/site-policy)
+              gh pr diff ${PR_URL}
+              gh pr merge ${PR_URL} --merge --delete-branch
+            else
+              echo "No updates to push to the public repo"
+          fi
+
+      - name: Delete remote updates branch if previous step failed
+        if: failure() && steps.createAndMergePullRequest.outcome == 'failure'
+        run: git push github/site-policy --delete automated-sync-$GITHUB_RUN_ID

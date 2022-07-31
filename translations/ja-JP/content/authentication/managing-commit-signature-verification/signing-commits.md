@@ -2,8 +2,8 @@
 title: コミットに署名する
 intro: GPG または S/MIME を使用してローカルでコミットに署名できます。
 redirect_from:
-  - /articles/signing-commits-and-tags-using-gpg/
-  - /articles/signing-commits-using-gpg/
+  - /articles/signing-commits-and-tags-using-gpg
+  - /articles/signing-commits-using-gpg
   - /articles/signing-commits
   - /github/authenticating-to-github/signing-commits
   - /github/authenticating-to-github/managing-commit-signature-verification/signing-commits
@@ -11,6 +11,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Identity
   - Access management
@@ -36,8 +37,8 @@ Git バージョン 2.0.0 以降で、ローカルリポジトリでデフォル
 
 1. ローカルブランチに変更をコミットする場合、 -S フラグをGitコミットコマンドに追加します。
   ```shell
-  $ git commit -S -m <em>your commit message</em>
-  # 署名済みのコミットを作成する
+  $ git commit -S -m <em>"your commit message"</em>
+  # Creates a signed commit
   ```
 2. コミットの作成後にGPGを使っている場合、設定したパスフレーズをGPGキーを作成する時に提供します。
 3. ローカルでのコミット作成が完了したら、{% data variables.product.product_name %} 上のリモートリポジトリにプッシュします。
@@ -53,7 +54,7 @@ Git バージョン 2.0.0 以降で、ローカルリポジトリでデフォル
 
 * [既存の GPG キーのチェック](/articles/checking-for-existing-gpg-keys)
 * [新しい GPG キーの生成](/articles/generating-a-new-gpg-key)
-* [GitHub アカウントへの新しい GPG キーの追加](/articles/adding-a-new-gpg-key-to-your-github-account)
+* "[Adding a GPG key to your GitHub account](/articles/adding-a-gpg-key-to-your-github-account)"
 * 「[Git へ署名キーを伝える](/articles/telling-git-about-your-signing-key)」
 * [GPG キーとメールの関連付け](/articles/associating-an-email-with-your-gpg-key)
 * 「[タグに署名する](/articles/signing-tags)」

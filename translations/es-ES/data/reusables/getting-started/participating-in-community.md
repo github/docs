@@ -1,1 +1,1 @@
-There are many ways to participate in the {% data variables.product.prodname_dotcom %} community. You can contribute to open source projects, interact with people in the {% data variables.product.prodname_gcf %}, or learn with {% data variables.product.prodname_learning %}.
+Hay muchas formas de participar en la comunidad de {% data variables.product.prodname_dotcom %}. Puedes contribuir con los proyectos de código abierto, interactuar con las personas en {% data variables.product.prodname_gcf %} o aprender con {% data variables.product.prodname_learning %}.

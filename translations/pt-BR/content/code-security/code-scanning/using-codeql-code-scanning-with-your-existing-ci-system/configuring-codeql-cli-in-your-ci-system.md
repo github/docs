@@ -8,8 +8,9 @@ redirect_from:
   - /code-security/secure-coding/using-codeql-code-scanning-with-your-existing-ci-system/configuring-codeql-cli-in-your-ci-system
 versions:
   fpt: '*'
-  ghes: '>=3.1'
-  ghae: next
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Advanced Security
@@ -24,23 +25,24 @@ topics:
 
 {% data reusables.code-scanning.enterprise-enable-code-scanning %}
 
+{% ifversion ghes or ghae %}
+{% note %}
+
+**Observação:** Este artigo descreve as funcionalidades presentes na versão de {% data variables.product.prodname_codeql_cli %} disponível no momento da versão de {% data variables.product.product_name %}. Se a sua empresa usar uma versão mais recente de {% data variables.product.prodname_codeql_cli %}, consulte a [a documentação de {% data variables.product.prodname_ghe_cloud %}](/enterprise-cloud@latest/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/configuring-codeql-cli-in-your-ci-system).
+
+{% endnote %}
+{% endif %}
+
 ## Sobre como gerar resultados de varredura de código com {% data variables.product.prodname_codeql_cli %}
 
 Uma vez disponibilizado o {% data variables.product.prodname_codeql_cli %} para servidores o seu sistema de CI e após garantir ele possa ser autenticado com {% data variables.product.product_name %}, você estárá pronto para gerar dados.
 
 Você usa três comandos diferentes para gerar resultados e fazer o upload deles para {% data variables.product.product_name %}:
 
-{% ifversion fpt or ghes > 3.1 or ghae-next %}
 <!--Option to analyze multiple languages with one call-->
 1. `criar um banco de dados` para criar um banco de dados de {% data variables.product.prodname_codeql %} para representar a estrutura hierárquica de cada linguagem de programação compatível no repositório.
 2. `análise do banco de dados` para executar consultas para analisar cada banco de dados de {% data variables.product.prodname_codeql %} e resumir os resultados em um arquivo SARIF.
 3. `github upload-results` para fazer o upload dos arquivos SARIF resultantes para {% data variables.product.product_name %} em que os resultados são correspondentes a um branch ou pull request e exibidos como alertas de {% data variables.product.prodname_code_scanning %}.
-{% else %}
-<!--Only one language can be analyzed-->
-1. `database create` para criar um banco de dados {% data variables.product.prodname_codeql %} para representar a estrutura hierárquica de uma linguagem de programação compatível com o repositório.
-2. `database analyze` para executar consultas a fim de analisar o banco de dados {% data variables.product.prodname_codeql %} e resumir os resultados em um arquivo SARIF.
-3. `github upload-results` para fazer o upload do arquivo SARIF resultante para {% data variables.product.product_name %} em que os resultados são correspondentes a um branch ou pull request e exibidos como alertas de {% data variables.product.prodname_code_scanning %}.
-{% endif %}
 
 Você pode mostrar a ajuda de linha de comando para qualquer comando usando <nobr>`--help`</nobr> opção.
 
@@ -50,24 +52,20 @@ Você pode mostrar a ajuda de linha de comando para qualquer comando usando <nob
 
 1. Confira o código que você deseja analisar:
     - Para um branch, confira o cabeçalho do branch que você deseja analisar.
-    - Para um pull request, faça o checkout do commit principal do pull request, ou confira um commit do pull request gerado por {% data variables.product.product_name %}.
+    - Para um pull request, faça o checkout do commit principal do pull request, ou confira um commit do pull request gerado por {% data variables.product.prodname_dotcom %}.
 2. Defina o ambiente para a base de código, garantindo que quaisquer dependências estejam disponíveis. Para mais informações, consulte [Criando bancos de dados para linguagens não compiladas](https://codeql.github.com/docs/codeql-cli/creating-codeql-databases/#creating-databases-for-non-compiled-languages) e [Criando bancos de dados para linguagens compiladas](https://codeql.github.com/docs/codeql-cli/creating-codeql-databases/#creating-databases-for-compiled-languages) na documentação do {% data variables.product.prodname_codeql_cli %}.
 3. Encontre o comando de criação, se houver, para a base de código. Normalmente, ele está disponível em um arquivo de configuração no sistema de CI.
 4. Execute `codeql database creater` a partir da raiz de checkout do seu repositório e construa a base de código.
-  {% ifversion fpt or ghes > 3.1 or ghae-next %}
+
   ```shell
   # Single supported language - create one CodeQL databsae
-  codeql database create &lt;database&gt; --command&lt;build&gt; --language=&lt;language-identifier&gt; 
-
-  # Multiple supported languages - create one CodeQL database per langauge
-  codeql database create &lt;database&gt; --command&lt;build&gt; \
-        --db-cluster --language=&lt;language-identifier&gt;,&lt;language-identifier&gt; 
-  ```
-  {% else %}
-    ```shell
   codeql database create &lt;database&gt; --command&lt;build&gt; --language=&lt;language-identifier&gt;
+
+  # Multiple supported languages - create one CodeQL database per language
+  codeql database create &lt;database&gt; --command&lt;build&gt; \
+        --db-cluster --language=&lt;language-identifier&gt;,&lt;language-identifier&gt;
   ```
-  {% endif %}
+
   {% note %}
 
   **Observação:** Se você usar uma criação conteinerizada, você deverá executar o {% data variables.product.prodname_codeql_cli %} no contêiner em que ocorre a tarefa de criação.
@@ -113,19 +111,7 @@ Você pode mostrar a ajuda de linha de comando para qualquer comando usando <nob
     </td>
     
     <td>
-      Especifique o identificador para a linguagem para criar um banco de dados: <code>{% data reusables.code-scanning.codeql-languages-keywords %}</code> (use <code>javascript</code> para analisar o código TypeScript).
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      {% ifversion fpt or ghes > 3.1 or ghae-next %}When used with <nobr>`--db-cluster`</nobr>, a opção aceita uma lista separada por vírgulas, ou pode ser especificada mais de uma vez.{% endif %}
-    </td>
-    
-    <td align="center">
-    </td>
-    
-    <td>
+      Especifique o identificador para a linguagem para criar um banco de dados: <code>{% data reusables.code-scanning.codeql-languages-keywords %}</code> (use <code>javascript</code> para analisar o código TypeScript). Quando usado com <nobr>`--db-cluster`</nobr>, a opção aceita uma lista separada por vírgulas, ou pode ser especificada mais de uma vez.
     </td>
   </tr>
   
@@ -139,18 +125,6 @@ Você pode mostrar a ajuda de linha de comando para qualquer comando usando <nob
     
     <td>
       Recomendado. Use para especificar o comando de criação ou o script que invoca o processo de criação para a base de código. Os comandos são executados a partir da pasta atual ou de onde são definidos, a partir de <nobr>`--source-root`</nobr>. Não é necessário para análise de Python e JavaScript/TypeScript.
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      {% ifversion fpt or ghes > 3.1 or ghae-next %}
-    </td>
-    
-    <td align="center">
-    </td>
-    
-    <td>
     </td>
   </tr>
   
@@ -182,18 +156,6 @@ Você pode mostrar a ajuda de linha de comando para qualquer comando usando <nob
   
   <tr>
     <td>
-      {% endif %}
-    </td>
-    
-    <td align="center">
-    </td>
-    
-    <td>
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
       <nobr>`--source-root`</nobr>
     </td>
     
@@ -208,7 +170,7 @@ Você pode mostrar a ajuda de linha de comando para qualquer comando usando <nob
 
 Para obter mais informações, consulte [Criar bancos de dados de {% data variables.product.prodname_codeql %} ](https://codeql.github.com/docs/codeql-cli/creating-codeql-databases/) na documentação para o {% data variables.product.prodname_codeql_cli %}.
 
-### {% ifversion fpt or ghes > 3.1 or ghae-next %}Exemplo de linguagem única{% else %}Exemplo básico{% endif %}
+### Exemplo de linguagem única
 
 Este exemplo cria um banco de dados de {% data variables.product.prodname_codeql %} para o repositório verificado em `/checkouts/example-repo`. Ele usa o extrator do JavaScript para criar uma representação hierárquica do código JavaScript e TypeScript no repositório. O banco de dados resultante é armazenado em `/codeql-dbs/example-repo`.
 
@@ -221,12 +183,11 @@ $ codeql database create /codeql-dbs/example-repo --language=javascript \
     in /checkouts/example-repo.
 > [build-stdout] Single-threaded extraction.
 > [build-stdout] Extracting
-... 
+...
 > Finalizing database at /codeql-dbs/example-repo.
 > Successfully created database at /codeql-dbs/example-repo.
 ```
 
-{% ifversion fpt or ghes > 3.1 or ghae-next %}
 ### Exemplo de linguagem múltipla
 
 Este exemplo cria dois bancos de dados de {% data variables.product.prodname_codeql %} para o repositório verificado em `/checkouts/example-repo-multi`. Ela usa:
@@ -257,23 +218,16 @@ Finalizing databases at /codeql-dbs/example-repo-multi.
 Banco de dados criado com sucesso em /codeql-dbs/example-repo-multi.
 $
 ```
-{% endif %}
 
 ## Analisando um banco de dados de {% data variables.product.prodname_codeql %}
 
-1. Create a {% data variables.product.prodname_codeql %} database (see above).{% if codeql-packs %}
-2. Optional, run `codeql pack download` to download any {% data variables.product.prodname_codeql %} packs (beta) that you want to run during analysis. For more information, see "[Downloading and using {% data variables.product.prodname_codeql %} query packs](#downloading-and-using-codeql-query-packs)" below.
-    ```shell
-    codeql pack download &lt;packs&gt; 
-    ```
-    {% endif %}
-3. Run `codeql database analyze` on the database and specify which {% if codeql-packs %}packs and/or {% endif %}queries to use.
+1. Criar um banco de dados de {% data variables.product.prodname_codeql %} (ver acima).
+2. Executar `codeql database analyze` no banco de dados e especifique quais {% ifversion codeql-packs %}pacotes e/ou {% endif %}consultas devem ser usados.
   ```shell
   codeql database analyze &lt;database&gt; --format=&lt;format&gt; \
-      --output=&lt;output&gt;  {% if codeql-packs %}&lt;packs,queries&gt;{% else %} &lt;queries&gt;{% endif %} 
+      --output=&lt;output&gt;  {% ifversion codeql-packs %}--download &lt;packs,queries&gt;{% else %}&lt;queries&gt;{% endif %}
   ```
 
-{% ifversion fpt or ghes > 3.1 or ghae-next %}
 {% note %}
 
 **Observação:** Se você analisar mais de um banco de dados de {% data variables.product.prodname_codeql %} para um único commit, você deverá especificar uma categoria SARIF para cada conjunto de resultados gerados por este comando. Ao fazer o upload dos resultados para {% data variables.product.product_name %}, {% data variables.product.prodname_code_scanning %} usa essa categoria para armazenar os resultados para cada linguagem separadamente. Se você esquecer de fazer isso, cada upload irá substituir os resultados anteriores.
@@ -281,11 +235,10 @@ $
 ```shell
 codeql database analyze &lt;database&gt; --format=&lt;format&gt; \
     --sarif-category=&lt;language-specifier&gt; --output=&lt;output&gt; \
-    {% if codeql-packs %}&lt;packs,queries&gt;{% else %}&lt;queries&gt;{% endif %}
+    {% ifversion codeql-packs %}&lt;packs,queries&gt;{% else %}&lt;queries&gt;{% endif %}
 ```
 {% endnote %}
 
-{% endif %}
 <table spaces-before="0">
   <tr>
     <th>
@@ -317,15 +270,14 @@ codeql database analyze &lt;database&gt; --format=&lt;format&gt; \
   
   <tr>
     <td>
-      <code>&lt;queries&gt;</code>
+      <code>&lt;packs,queries&gt;</code>
     </td>
     
     <td align="center">
-      {% octicon "check-circle-fill" aria-label="Required" %}
     </td>
     
     <td>
-      Especifique as consultas a executar. Para executar as consultas padrão usadas para {% data variables.product.prodname_code_scanning %}, use: <code>&lt;language&gt;-code-scanning.qls</code>, em que <code>&lt;language&gt;</code> é um código curto para a linguagem do banco de dados. Para ver os outros itens de consultas incluídos no pacote de {% data variables.product.prodname_codeql_cli %}, procure em <code>/&lt;extraction-root&gt;/codeql/qlpacks/codeql-&lt;language&gt;/codeql-suites</code>. Para obter informações sobre como criar seu próprio conjunto de consulta, consulte <a href="https://codeql.github.com/docs/codeql-cli/creating-codeql-query-suites/">Criando conjuntos de consultas de CodeQL</a> na documentação do {% data variables.product.prodname_codeql_cli %}.
+      Especifique pacotes ou consultas de {% data variables.product.prodname_codeql %} para executar. Para executar as consultas padrão usadas para {% data variables.product.prodname_code_scanning %}, omita este parâmetro. Para ver os outros itens de consulta incluídos no pacote de {% data variables.product.prodname_codeql_cli %}, consulte <code>/&lt;extraction-root&gt;/qlpacks/codeql/&lt;language&gt;-queries/codeql-suites</code>. Para obter informações sobre como criar seu próprio conjunto de consulta, consulte <a href="https://codeql.github.com/docs/codeql-cli/creating-codeql-query-suites/">Criando conjuntos de consultas de CodeQL</a> na documentação do {% data variables.product.prodname_codeql_cli %}.
     </td>
   </tr>
   
@@ -339,7 +291,7 @@ codeql database analyze &lt;database&gt; --format=&lt;format&gt; \
     </td>
     
     <td>
-      Especifique o formato para o arquivo de resultados gerado pelo comando. Para fazer upload para {% data variables.product.company_short %}, deverá ser: {% ifversion fpt or ghae %}<code>sarif-latest</code>{% else %}<code>sarifv2.1.0</code>{% endif %}. Para obter mais informações, consulte "<a href="/code-security/secure-coding/sarif-support-for-code-scanning">Suporte SARIF para {% data variables.product.prodname_code_scanning %}</a>".
+      Especifique o formato para o arquivo de resultados gerado pelo comando. Para fazer upload para {% data variables.product.company_short %}, deverá ser: {% ifversion fpt or ghae or ghec %}<code>sarif-latest</code>{% else %}<code>sarifv2.1.0</code>{% endif %}. Para obter mais informações, consulte "<a href="/code-security/secure-coding/sarif-support-for-code-scanning">Suporte SARIF para {% data variables.product.prodname_code_scanning %}</a>".
     </td>
   </tr>
   
@@ -353,7 +305,7 @@ codeql database analyze &lt;database&gt; --format=&lt;format&gt; \
     </td>
     
     <td>
-      Especifique onde salvar o arquivo de resultados SARIF.{% ifversion fpt or ghes > 3.1 or ghae-next %}
+      Especifique onde salvar o arquivo de resultados SARIF.
     </td>
   </tr>
   
@@ -367,7 +319,20 @@ codeql database analyze &lt;database&gt; --format=&lt;format&gt; \
     </td>
     
     <td>
-      Opcional para análise única do banco de dados. Necessário para definir a linguagem quando você analisa vários bancos de dados para um único commit em um repositório. Especifique uma categoria a incluir no arquivo de resultados SARIF para esta análise. A category is used to distinguish multiple analyses for the same tool and commit, but performed on different languages or different parts of the code.|{% endif %}{% if codeql-packs %}
+      Opcional para análise única do banco de dados. Necessário para definir a linguagem quando você analisa vários bancos de dados para um único commit em um repositório. Especifique uma categoria a incluir no arquivo de resultados SARIF para esta análise. Uma categoria é usada para distinguir várias análises para a mesma ferramenta e commit, mas executada em diferentes linguagens ou em diferentes partes do código.{% ifversion fpt or ghes > 3.3 or ghae or ghec %}
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      <nobr>`--sarif-add-query-help`</nobr>
+    </td>
+    
+    <td align="center">
+    </td>
+    
+    <td>
+      Opcional. Use se quiser incluir qualquer ajuda de consulta disponível para consultas personalizadas usadas na sua análise. Qualquer consulta ajuda para consultas personalizadas incluídas na saída do SARIF será exibida na interface de digitalização de código se a consulta relevante gerar um alerta. Para obter mais informações, consulte <a href="https://codeql.github.com/docs/codeql-cli/analyzing-databases-with-the-codeql-cli/#including-query-help-for-custom-codeql-queries-in-sarif-files">Analisando bancos de dados com o {% data variables.product.prodname_codeql_cli %}</a> na documentação do {% data variables.product.prodname_codeql_cli %}.{% endif %}{% ifversion codeql-packs %}
     </td>
   </tr>
   
@@ -380,7 +345,20 @@ codeql database analyze &lt;database&gt; --format=&lt;format&gt; \
     </td>
     
     <td>
-      Opcional. Use if you have downloaded CodeQL query packs and want to run the default queries or query suites specified in the packs. For more information, see "<a href="#downloading-and-using-codeql-query-packs">Downloading and using {% data variables.product.prodname_codeql %} packs</a>."{% endif %}
+      Opcional. Use se você quiser incluir pacotes de consultas do CodeQL na sua análise. Para obter mais informações, consulte "<a href="#downloading-and-using-codeql-query-packs">Fazer o download e usar pacotes de {% data variables.product.prodname_codeql %}</a>."
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      <nobr>`--download`</nobr>
+    </td>
+    
+    <td align="center">
+    </td>
+    
+    <td>
+      Opcional. Use se alguns de seus pacotes de consulta do CodeQL ainda não estiverem em disco e precisarem ser baixados antes de executar consultas.{% endif %}
     </td>
   </tr>
   
@@ -406,7 +384,7 @@ codeql database analyze &lt;database&gt; --format=&lt;format&gt; \
     </td>
     
     <td>
-      Opcional. Use para obter informações mais detalhadas sobre o processo de análise{% ifversion fpt or ghes > 3.1 or ghae-next %} e dados de diagnóstico do processo de criação do banco de dados{% endif %}.
+      Opcional. Use para obter informações mais detalhadas sobre o processo de análise e dados de diagnóstico do processo de criação do banco de dados.
     </td>
   </tr>
 </table>
@@ -415,17 +393,16 @@ Para obter mais informações, consulte [Analisando bancos de dados com {% data 
 
 ### Exemplo básico
 
-Este exemplo analisa um banco de dados {% data variables.product.prodname_codeql %} armazenado em `/codeql-dbs/example-repo` e salva os resultados como um arquivo SARIF: `/temp/example-repo-js.sarif`. {% ifversion fpt or ghes > 3.1 or ghae-next %}}Ele usa `--sarif-category` para incluir informações extras no arquivo SARIF que identifica os resultados como JavaScript. Isto é essencial quando você tem mais de um banco de dados de {% data variables.product.prodname_codeql %} para analisar um único commit em um repositório.{% endif %}
+Este exemplo analisa um banco de dados {% data variables.product.prodname_codeql %} armazenado em `/codeql-dbs/example-repo` e salva os resultados como um arquivo SARIF: `/temp/example-repo-js.sarif`. Ele usa `--sarif-category` para incluir informações extras no arquivo SARIF que identifica os resultados como JavaScript. Isto é essencial quando você tem mais de um banco de dados de {% data variables.product.prodname_codeql %} para analisar um único commit em um repositório.
 
 ```
 $ codeql database analyze /codeql-dbs/example-repo  \
-    javascript-code-scanning.qls {% ifversion fpt or ghes > 3.1 or ghae-next %}--sarif-category=javascript{% endif %}
-    --format={% ifversion fpt or ghae %}sarif-latest{% else %}sarifv2.1.0{% endif %} --output=/temp/example-repo-js.sarif
+    javascript-code-scanning.qls --sarif-category=javascript \
+    --format={% ifversion fpt or ghae or ghec %}sarif-latest{% else %}sarifv2.1.0{% endif %} --output=/temp/example-repo-js.sarif
 
 > Running queries.
-> Compiling query plan for /codeql-home/codeql/qlpacks/
-    codeql-javascript/AngularJS/DisablingSce.ql.
-... 
+> Compiling query plan for /codeql-home/codeql/qlpacks/codeql-javascript/AngularJS/DisablingSce.ql.
+...
 > Shutting down query evaluator.
 > Interpreting results.
 ```
@@ -444,7 +421,7 @@ Quando você decidir o método mais seguro e confiável para o seu servidor de C
   ```shell
   echo "$UPLOAD_TOKEN" | codeql github upload-results --repository=&lt;repository-name&gt; \
       --ref=&lt;ref&gt; --commit=&lt;commit&gt; --sarif=&lt;file&gt; \
-      {% ifversion ghes > 3.0 or ghae-next %}--github-url=&lt;URL&gt; {% endif %}--github-auth-stdin
+      {% ifversion ghes or ghae %}--github-url=&lt;URL&gt; {% endif %}--github-auth-stdin
   ```
 
 <table spaces-before="0">
@@ -472,7 +449,7 @@ Quando você decidir o método mais seguro e confiável para o seu servidor de C
     </td>
     
     <td>
-      Especifique o <em x-id="3">PROPRIETÁRIO/NOME</em> do repositório para o qual será feito o upload dos dados. O proprietário deve ser uma organização dentro de uma empresa com uma licença para {% data variables.product.prodname_GH_advanced_security %} e {% data variables.product.prodname_GH_advanced_security %} deve estar habilitado para o repositório{% ifversion fpt %}, a menos que o repositório seja público{% endif %}. Para obter mais informações, consulte "<a href="/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository">Gerenciar configurações de segurança e análise do seu repositório</a>".
+      Especifique o <em x-id="3">PROPRIETÁRIO/NOME</em> do repositório para o qual será feito o upload dos dados. O proprietário deve ser uma organização dentro de uma empresa com uma licença para {% data variables.product.prodname_GH_advanced_security %} e {% data variables.product.prodname_GH_advanced_security %} deve estar habilitado para o repositório{% ifversion fpt or ghec %}, a menos que o repositório seja público{% endif %}. Para obter mais informações, consulte "<a href="/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository">Gerenciar configurações de segurança e análise do seu repositório</a>".
     </td>
   </tr>
   
@@ -486,7 +463,7 @@ Quando você decidir o método mais seguro e confiável para o seu servidor de C
     </td>
     
     <td>
-      Especifique o nome do <code>ref</code> que você verificou e analisou para que os resultados possam ser correspondidos ao código correto. Para o uso de um branch: <code>refs/heads/BRANCH-NAME</code>, para o commit principal de um pull request, use <code>refs/pulls/NUMBER/head</code> ou para o commit de merge gerado por {% data variables.product.product_name %} do uso de um pull request <code>refs/pulls/NUMBER/merge</code>.
+      Especifique o nome do <code>ref</code> que você verificou e analisou para que os resultados possam ser correspondidos ao código correto. Para o uso de um branch: <code>refs/heads/BRANCH-NAME</code>, para o commit principal de um pull request, use <code>refs/pull/NUMBER/head</code> ou para o commit de merge gerado por {% data variables.product.prodname_dotcom %} do uso de um pull request <code>refs/pull/NUMBER/merge</code>.
     </td>
   </tr>
   
@@ -514,7 +491,7 @@ Quando você decidir o método mais seguro e confiável para o seu servidor de C
     </td>
     
     <td>
-      Especifique o arquivo SARIF a ser carregado.{% ifversion ghes > 3.0 or ghae-next %}
+      Especifique o arquivo SARIF a ser carregado.{% ifversion ghes or ghae %}
     </td>
   </tr>
   
@@ -555,24 +532,20 @@ Este exemplo faz o upload dos resultados do arquivo SARIF `temp/example-repo-js.
 ```
 $ echo $UPLOAD_TOKEN | codeql github upload-results --repository=my-org/example-repo \
     --ref=refs/heads/main --commit=deb275d2d5fe9a522a0b7bd8b6b6a1c939552718 \
-    --sarif=/temp/example-repo-js.sarif {% ifversion ghes > 3.0 or ghae-next %}--github-url={% data variables.command_line.git_url_example %} \
+    --sarif=/temp/example-repo-js.sarif {% ifversion ghes or ghae %}--github-url={% data variables.command_line.git_url_example %} \
     {% endif %}--github-auth-stdin
 ```
 
 Não há saída deste comando a menos que o upload não tenha sido bem-sucedido. A instrução de comando retorna quando o upload foi concluído e o processamento de dados é iniciado. Em bases de código menores, você poderá explorar os alertas de {% data variables.product.prodname_code_scanning %} em {% data variables.product.product_name %} pouco tempo depois. É possível ver alertas diretamente no pull request ou na aba **Segurança** para branches, dependendo do código que você fizer checkout. Para obter mais informações, consulte "[Triar alertas de {% data variables.product.prodname_code_scanning %} em pull requests](/code-security/secure-coding/triaging-code-scanning-alerts-in-pull-requests)" e "[Gerenciar alertas de {% data variables.product.prodname_code_scanning %} para o seu repositório](/code-security/secure-coding/managing-code-scanning-alerts-for-your-repository)".
 
-{% if codeql-packs %}
-## Downloading and using {% data variables.product.prodname_codeql %} query packs
+{% ifversion codeql-packs %}
+## Fazendo o download e usando pacotes de consulta de {% data variables.product.prodname_codeql %}
 
 {% data reusables.code-scanning.beta-codeql-packs-cli %}
 
-The {% data variables.product.prodname_codeql_cli %} bundle includes queries that are maintained by {% data variables.product.company_short %} experts, security researchers, and community contributors. If you want to run queries developed by other organizations, {% data variables.product.prodname_codeql %} query packs provide an efficient and reliable way to download and run queries. For more information, see "[About code scanning with CodeQL](/code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-with-codeql#about-codeql-queries)."
+O pacote de {% data variables.product.prodname_codeql_cli %} inclui consultas mantidas por especialistas de {% data variables.product.company_short %}, pesquisadores de segurança e contribuidores da comunidade. Se você quiser executar consultas desenvolvidas por outras organizações, os pacotes de consulta de {% data variables.product.prodname_codeql %} fornecem uma forma eficiente e confiável de fazer o download e executar consultas. Para obter mais informações, consulte "[Sobre digitalização de código com o CodeQL](/code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-with-codeql#about-codeql-queries)".
 
-Before you can use a {% data variables.product.prodname_codeql %} pack to analyze a database, you must download any packages you require from the {% data variables.product.company_short %} {% data variables.product.prodname_container_registry %} by running `codeql pack download` and specifying the packages you want to download. If a package is not publicly available, you will need to use a {% data variables.product.prodname_github_app %} or personal access token to authenticate. For more information and an example, see "[Uploading results to {% data variables.product.product_name %}](#uploading-results-to-github)" above.
-
-```shell
-codeql pack download &lt;scope/name@version&gt;,... 
-```
+Antes de poder usar um pacote de {% data variables.product.prodname_codeql %} para analisar um banco de dados, você deve fazer o download de todos os pacotes que necessitar no {% data variables.product.company_short %} {% data variables.product.prodname_container_registry %}. Isso pode ser feito usando o sinalizador `--download` como parte do comando `codeql database analyze`. Se um pacote não estiver disponível publicamente, você precisará usar um {% data variables.product.prodname_github_app %} ou um token de acesso pessoal para efetuar a autenticação. Para obter mais informações e um exemplo, consulte "[o Fazer upload dos resultados para {% data variables.product.product_name %}](#uploading-results-to-github)" acima.
 
 <table spaces-before="0">
   <tr>
@@ -599,7 +572,7 @@ codeql pack download &lt;scope/name@version&gt;,...
     </td>
     
     <td>
-      Specify the scope and name of one or more CodeQL query packs to download using a comma-separated list. Optionally, include the version to download and unzip. By default the latest version of this pack is downloaded.
+      Especifique o escopo e o nome de um ou mais pacotes de consulta CodeQL para fazer o download usando uma lista separada por vírgulas. Opcionalmente, inclua a versão para fazer o download e descompactar. Por padrão, a versão mais recente deste pacote foi baixada. Opcionalmente, inclua um caminho para uma consulta, diretório ou conjunto de consultas para ser executado. Se nenhum caminho for incluído, execute as consultas padrão deste pacote.
     </td>
   </tr>
   
@@ -612,35 +585,50 @@ codeql pack download &lt;scope/name@version&gt;,...
     </td>
     
     <td>
-      Opcional. Pass the {% data variables.product.prodname_github_app %} or personal access token created for authentication with {% data variables.product.company_short %}'s REST API to the CLI via standard input. Isso não é necessário se o comando tiver acesso a uma variável de ambiente <code>GITHUB_TOKEN</code> definida com este token.
+      Opcional. Passe o token de acesso {% data variables.product.prodname_github_app %} ou pessoal criado para autenticação com a API REST de {% data variables.product.company_short %}para a CLI por meio da entrada padrão. Isso não é necessário se o comando tiver acesso a uma variável de ambiente <code>GITHUB_TOKEN</code> definida com este token.
     </td>
   </tr>
 </table>
 
 ### Exemplo básico
 
-This example runs two commands to download the latest version of the `octo-org/security-queries` pack and then analyze the database `/codeql-dbs/example-repo`.
+Este exemplo executa o comando `codeql database analyze` com a opção `--download` para:
+
+1. Faça o download do pacote `octo-org/security-queries`.
+2. Faça o download de uma versão do pacote `octo-org/optional-security-queries` que é *compatível* com a versão 1.0.1 (nesse caso, é a versão 1.0.2). Para obter mais informações sobre a compatibilidade de semver, consulte [documentação da intervalo da versão semântica do npm](https://github.com/npm/node-semver#ranges).
+3. Executar todas as consultas padrão em `octo-org/security-queries`.
+4. Execute apenas a consulta `queries/csrf.ql` a partir de `octo-org/opcional-security-queries`
 
 ```
-$ echo $OCTO-ORG_ACCESS_TOKEN | codeql pack download octo-org/security-queries
+$ echo $OCTO-ORG_ACCESS_TOKEN | codeql database analyze --download /codeql-dbs/example-repo \
+    octo-org/security-queries \
+    octo-org/optional-security-queries@~1.0.1:queries/csrf.ql \
+    --format=sarif-latest --output=/temp/example-repo-js.sarif
 
 > Download location: /Users/mona/.codeql/packages
 > Installed fresh octo-org/security-queries@1.0.0
-
-$ codeql database analyze /codeql-dbs/example-repo  octo-org/security-queries \
-    --format=sarif-latest --output=/temp/example-repo-js.sarif
-
+> Installed fresh octo-org/optional-security-queries@1.0.2
 > Running queries.
 > Compiling query plan for /Users/mona/.codeql/packages/octo-org/security-queries/1.0.0/potential-sql-injection.ql.
-> [1/1] Found in cache: /Users/mona/.codeql/packages/octo-org/security-queries/1.0.0/potential-sql-injection.ql.
+> [1/2] Found in cache: /Users/mona/.codeql/packages/octo-org/security-queries/1.0.0/potential-sql-injection.ql.
 > Starting evaluation of octo-org/security-queries/query1.ql.
-> [1/1 eval 394ms] Evaluation done; writing results to docto-org/security-queries/query1.bqrs.
+> Compiling query plan for /Users/mona/.codeql/packages/octo-org/optional-security-queries/1.0.2/queries/csrf.ql.
+> [2/2] Found in cache: /Users/mona/.codeql/packages/octo-org/optional-security-queries/1.0.2/queries/csrf.ql.
+> Starting evaluation of octo-org/optional-security-queries/queries/csrf.ql.
+> [2/2 eval 694ms] Evaluation done; writing results to octo-org/security-queries/query1.bqrs.
 > Shutting down query evaluator.
 > Interpreting results.
 ```
+
+### Download direto dos pacotes de {% data variables.product.prodname_codeql %}
+
+Se você quiser fazer o download de um pacote de {% data variables.product.prodname_codeql %} sem executá-lo imediatamente, você pode usar o comando `codeql pack download`. Isso é útil se você quiser evitar acessar a internet quando executar consultas de {% data variables.product.prodname_codeql %}. Ao executar a análise {% data variables.product.prodname_codeql %}, você pode especificar pacotes, versões e caminhos da mesma forma como no exemplo anterior:
+
+```shell
+echo $OCTO-ORG_ACCESS_TOKEN | codeql pack download &lt;scope/name@version:path&gt; &lt;scope/name@version:path&gt; ...
+```
 {% endif %}
 
-{% ifversion fpt or ghes > 3.1 or ghae-next %}
 ## Exemplo de configuração de CI para análise de {% data variables.product.prodname_codeql %}
 
 Este é um exemplo da série de comandos que você pode usar para analisar uma base de código com duas linguagens compatíveis e, em seguida, fazer o upload dos resultados para {% data variables.product.product_name %}.
@@ -690,24 +678,6 @@ Para obter mais informações sobre o tipo de informações de diagnóstico disp
 Por padrão, {% data variables.product.prodname_code_scanning %} espera um arquivo de resultados SARIF por análise de um repositório. Consequentemente, quando se faz o upload de um segundo arquivo SARIF para um compromisso, ele é tratado como uma substituição do conjunto original de dados.
 
 Se desejar fazer o upload de mais de um conjunto de resultados para a API de {% data variables.product.prodname_code_scanning %} para um commit em um repositório, você deve identificar cada conjunto de resultados como um conjunto único. Para repositórios em que você cria mais de um banco de dados de {% data variables.product.prodname_codeql %} para analisar para cada commit, use a opção `--sarif-category` para especificar uma linguagem ou outra categoria exclusiva para cada arquivo SARIF que você gerar para esse repositório.
-
-### Alternativa caso o seu sistema de CI não puder acionar {% data variables.product.prodname_codeql_cli %}
-
-{% ifversion fpt or ghes > 3.2 or ghae-next %}
-
-If your CI system cannot trigger the {% data variables.product.prodname_codeql_cli %} autobuild and you cannot specify a command line for the build, you can use indirect build tracing to create {% data variables.product.prodname_codeql %} databases for compiled languages. For more information, see [Using indirect build tracing](https://codeql.github.com/docs/codeql-cli/creating-codeql-databases/#using-indirect-build-tracing) in the documentation for the {% data variables.product.prodname_codeql_cli %}.
-
-{% endif %}
-
-{% ifversion ghes < 3.3 %}
-
-{% data reusables.code-scanning.use-codeql-runner-not-cli %}
-
-{% data reusables.code-scanning.deprecation-codeql-runner %}
-
-{% endif %}
-
-{% endif %}
 
 ## Leia mais
 

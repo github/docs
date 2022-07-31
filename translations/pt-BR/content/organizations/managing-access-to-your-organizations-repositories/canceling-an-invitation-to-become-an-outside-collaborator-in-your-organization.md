@@ -6,6 +6,7 @@ redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/canceling-an-invitation-to-become-an-outside-collaborator-in-your-organization
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
@@ -17,7 +18,7 @@ Você pode visualizar uma lista de todas as pessoas com convites pendentes para 
 Para cada colaborador pendente, você pode cancelar todos os convites para juntar-se aos repositórios da organização ao mesmo tempo.
 
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.people %}
 {% data reusables.organizations.people_tab_outside_collaborators %}
 5. Clique em **X colaboradores pendentes**. ![Botão "Colaboradores pendentes"](/assets/images/help/organizations/pending-collaborator-list.png)

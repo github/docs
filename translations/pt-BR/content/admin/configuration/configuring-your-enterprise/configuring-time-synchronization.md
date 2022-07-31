@@ -2,10 +2,10 @@
 title: Configurar a sincronização de hora
 intro: 'O {% data variables.product.prodname_ghe_server %} sincroniza automaticamente o relógio conectando-se a servidores NTP. Você pode definir os servidores NTP usados para sincronizar o relógio ou pode usar os servidores NTP padrão.'
 redirect_from:
-  - /enterprise/admin/articles/adjusting-the-clock/
-  - /enterprise/admin/articles/configuring-time-zone-and-ntp-settings/
-  - /enterprise/admin/articles/setting-ntp-servers/
-  - /enterprise/admin/categories/time/
+  - /enterprise/admin/articles/adjusting-the-clock
+  - /enterprise/admin/articles/configuring-time-zone-and-ntp-settings
+  - /enterprise/admin/articles/setting-ntp-servers
+  - /enterprise/admin/categories/time
   - /enterprise/admin/installation/configuring-time-synchronization
   - /enterprise/admin/configuration/configuring-time-synchronization
   - /admin/configuration/configuring-time-synchronization

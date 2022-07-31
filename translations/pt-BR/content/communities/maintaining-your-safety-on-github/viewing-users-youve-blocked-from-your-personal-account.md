@@ -7,13 +7,14 @@ redirect_from:
   - /github/building-a-strong-community/viewing-users-youve-blocked-from-your-personal-account
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Community
 shortTitle: Ver usuários bloqueados na conta
 ---
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.blocked_users %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.blocked_users %}
 3. Em "Blocked users" (Usuários bloqueados), revise a lista de usuários bloqueados da sua conta. ![Lista de usuários bloqueados](/assets/images/help/settings/list-of-blocked-users.png)
 
 ## Leia mais

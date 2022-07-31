@@ -1,13 +1,13 @@
 ---
 title: Mover las propuestas asignadas en los tableros de proyecto
 intro: 'Puedes utilizar las {% data variables.product.prodname_actions %} para mover automáticamente una propuesta a una columna específica en un tablero de proyecto cuando se asigna la propuesta.'
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /actions/guides/moving-assigned-issues-on-project-boards
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: tutorial
 topics:
   - Workflows
@@ -17,8 +17,6 @@ shortTitle: Mover las propuestas asignadas
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
-{% data reusables.actions.ae-self-hosted-runners-notice %}
 
 ## Introducción
 
@@ -35,6 +33,8 @@ En el tutorial, primero crearás un archivo de flujo de trabajo que utilice la [
 
     ```yaml{:copy}
 {% indented_data_reference reusables.actions.actions-not-certified-by-github-comment spaces=4 %}
+
+{% indented_data_reference reusables.actions.actions-use-sha-pinning-comment spaces=4 %}
 
     name: Move assigned card
     on:
@@ -65,7 +65,7 @@ En el tutorial, primero crearás un archivo de flujo de trabajo que utilice la [
 
 Cada vez que se asigne una propuesta en tu repositorio, dicha propuesta se moverá al tablero de proyecto especificado. Si la propuesta no estaba ya en el tablero de proyecto, se agregará a este.
 
-Si tu repositorio pertenece a un usuario, la acción `alex-page/github-project-automation-plus` actuará sobre todos los proyectos en dicho repositorio o en la cuenta de usuario que tengan el nombre y columna del proyecto especificado. De la misma forma, si tu repositorio pertenece a una organización, la acción actuará en todos los poryectos de tu repositorio u organización que tengan el nombre y columna especificadas.
+Si tu repositorio le pertenece a un usuario, la acción `alex-page/github-project-automation-plus` actuará en todos los proyectos de tu repositorio o cuenta personal que tengan el nombre de proyecto y columna específicos. De la misma forma, si tu repositorio pertenece a una organización, la acción actuará en todos los poryectos de tu repositorio u organización que tengan el nombre y columna especificadas.
 
 Prueba tu flujo de trabajo asignando una propuesta en tu repositorio.
 

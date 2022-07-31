@@ -6,6 +6,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: overview
 topics:
   - Fundamentals
@@ -13,7 +14,6 @@ topics:
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## 概要
 
@@ -62,7 +62,7 @@ jobs:
 
 ## ジョブ間でデータを共有する
 
-ジョブが同じワークフロー内の別のジョブと共有するファイルを生成する場合、または後で参照できるようにファイルを保存する場合は、それらを_成果物_として {% data variables.product.prodname_dotcom %} に保存できます。 成果物とは、コードをビルドしてテストするときに作成されるファイルのことです。 たとえば、成果物には、バイナリまたパッケージファイル、テスト結果、スクリーンショット、ログファイルなどがあります。 成果物は、それが作成されたワークフロー実行に関連付けられており、別のジョブで使用できます。
+ジョブが同じワークフロー内の別のジョブと共有するファイルを生成する場合、または後で参照できるようにファイルを保存する場合は、それらを_成果物_として {% data variables.product.prodname_dotcom %} に保存できます。 成果物とは、コードをビルドしてテストするときに作成されるファイルのことです。 たとえば、成果物には、バイナリまたパッケージファイル、テスト結果、スクリーンショット、ログファイルなどがあります。 成果物は、それが作成されたワークフロー実行に関連付けられており、別のジョブで使用できます。 {% data reusables.actions.reusable-workflow-artifacts %}
 
 たとえば、ファイルを作成し、それを成果物としてアップロードできます。
 
@@ -75,7 +75,7 @@ jobs:
         run: |
           expr 1 + 1 > output.log
       - name: Upload output file
-        uses: actions/upload-artifact@v2
+        uses: {% data reusables.actions.action-upload-artifact %}
         with:
           name: output-log-file
           path: output.log
@@ -88,10 +88,12 @@ jobs:
   example-job:
     steps:
       - name: Download a single artifact
-        uses: actions/download-artifact@v2
+        uses: {% data reusables.actions.action-download-artifact %}
         with:
           name: output-log-file
 ```
+
+To download an artifact from the same workflow run, your download job should specify `needs: upload-job-name` so it doesn't start until the upload job finishes.
 
 成果物に関する詳しい情報については「[成果物を利用してワークフローのデータを永続化する](/actions/configuring-and-managing-workflows/persisting-workflow-data-using-artifacts)」を参照してください。
 

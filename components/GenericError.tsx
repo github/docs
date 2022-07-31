@@ -3,12 +3,9 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 
 import { MarkGithubIcon, CommentDiscussionIcon } from '@primer/octicons-react'
-import { useVersion } from 'components/hooks/useVersion'
 import { Lead } from 'components/ui/Lead'
 
 export function GenericError() {
-  const { isEnterprise } = useVersion()
-
   return (
     <div className="min-h-screen d-flex flex-column">
       <Head>
@@ -20,7 +17,7 @@ export function GenericError() {
 
       <div className="container-xl p-responsive py-9 width-full flex-1">
         <article className="col-md-10 col-lg-7 mx-auto">
-          <h1 className="mb-3 pb-3 border-bottom">Ooops!</h1>
+          <h1>Ooops!</h1>
           <Lead>It looks like something went wrong.</Lead>
           <p className="f3">
             We track these errors automatically, but if the problem persists please feel free to
@@ -28,11 +25,7 @@ export function GenericError() {
           </p>
           <a
             id="contact-us"
-            href={
-              isEnterprise
-                ? 'https://enterprise.github.com/support'
-                : 'https://support.github.com/contact'
-            }
+            href="https://support.github.com/contact"
             className="btn btn-outline mt-2"
           >
             <CommentDiscussionIcon size="small" className="octicon mr-1" />
@@ -49,24 +42,19 @@ export function GenericError() {
 export const SimpleHeader = () => {
   const router = useRouter()
   return (
-    <div className="border-bottom color-border-secondary no-print">
+    <div className="border-bottom color-border-muted no-print">
       <header className="container-xl p-responsive py-3 position-relative d-flex width-full">
-        <div
-          className="d-flex flex-items-center"
-          style={{ zIndex: 3 }}
-          id="github-logo-mobile"
-          role="banner"
-        >
+        <div className="d-flex flex-items-center" style={{ zIndex: 3 }} id="github-logo-mobile">
           <Link href={`/${router.locale}`}>
             {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
             <a aria-hidden="true" tabIndex={-1}>
-              <MarkGithubIcon size={32} className="color-icon-primary" />
+              <MarkGithubIcon size={32} className="color-fg-default" />
             </a>
           </Link>
 
           <Link href={`/${router.locale}`}>
             {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-            <a className="h4 color-text-primary no-underline no-wrap pl-2">GitHub Docs</a>
+            <a className="h4 color-fg-default no-underline no-wrap pl-2">GitHub Docs</a>
           </Link>
         </div>
       </header>
@@ -79,7 +67,7 @@ export const SimpleFooter = () => {
     <footer className="py-6 text-small">
       <div className="container-xl d-flex px-3 px-md-6 flex-justify-center">
         <ul className="d-flex list-style-none flex-wrap flex-justify-center">
-          <li className="d-flex mr-xl-3 color-text-secondary">
+          <li className="d-flex mr-xl-3 color-fg-muted">
             <MarkGithubIcon className="mr-2 mr-xl-3" size={20} />
             <span>&copy; {new Date().getFullYear()} GitHub, Inc.</span>
           </li>

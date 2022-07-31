@@ -1,0 +1,1 @@
+环境用于描述一般的部署目标，如`生产`、`暂存`或`开发`。 当 {% data variables.product.prodname_actions %} 工作流程部署到某个环境时，该环境将显示在存储库的主页上。 您可以使用环境来要求批准才能继续作业，限制哪些分支可以触发工作流程，或限制对机密的访问。 有关创建环境的更多信息，请参阅“[使用环境进行部署](/actions/deployment/using-environments-for-deployment)”。

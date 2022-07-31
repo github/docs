@@ -4,7 +4,7 @@ intro: 查看申请教育工作者或研究人员折扣未获批准的常见原�
 redirect_from:
   - /education/teach-and-learn-with-github-education/why-wasnt-my-application-for-an-educator-or-researcher-discount-approved
   - /github/teaching-and-learning-with-github-education/why-wasnt-my-application-for-an-educator-or-researcher-discount-approved
-  - /articles/why-was-my-application-for-an-educator-or-researcher-discount-denied/
+  - /articles/why-was-my-application-for-an-educator-or-researcher-discount-denied
   - /articles/why-wasn-t-my-application-for-an-educator-or-researcher-discount-approved
   - /articles/why-wasnt-my-application-for-an-educator-or-researcher-discount-approved
   - /education/explore-the-benefits-of-teaching-and-learning-with-github-education/why-wasnt-my-application-for-an-educator-or-researcher-discount-approved

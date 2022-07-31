@@ -6,6 +6,7 @@ redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/canceling-or-editing-an-invitation-to-join-your-organization
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
@@ -13,7 +14,7 @@ shortTitle: 取消或编辑邀请
 ---
 
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.people %}
 4. 在 People（人员）选项卡上，单击 **Pending invitation（待定邀请）**。 ![待定邀请链接](/assets/images/help/organizations/pending-invitation-link.png)
 5. 在要编辑或取消其邀请的受邀人用户名或电子邮件地址旁边，单击 **Edit invitation（编辑邀请）**。 ![编辑邀请按钮](/assets/images/help/organizations/edit-invitation-button.png)
@@ -25,7 +26,7 @@ shortTitle: 取消或编辑邀请
 
 ## 延伸阅读
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 - “[邀请用户加入您的组织](/articles/inviting-users-to-join-your-organization)”
 {% endif %}
 - "[向团队添加组织成员](/articles/adding-organization-members-to-a-team)"

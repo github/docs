@@ -1,13 +1,13 @@
 ---
 title: カードがプロジェクトボードの列に追加されたときにラベルを削除する
 intro: '{% data variables.product.prodname_actions %} を使用すると、プロジェクトボードの特定の列に Issue またはプルリクエストが追加されたときに、ラベルを自動的に削除できます。'
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /actions/guides/removing-a-label-when-a-card-is-added-to-a-project-board-column
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: tutorial
 topics:
   - Workflows
@@ -17,8 +17,6 @@ shortTitle: Remove label when adding card
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
-{% data reusables.actions.ae-self-hosted-runners-notice %}
 
 ## はじめに
 
@@ -32,9 +30,10 @@ shortTitle: Remove label when adding card
 2. リポジトリに属するプロジェクトを選択します。 このワークフローは、ユーザまたは Organization に属するプロジェクトでは使用できません。 既存のプロジェクトを使用することも、新しいプロジェクトを作成することもできます。 プロジェクトの作成の詳細については、「[プロジェクトボードを作成する](/github/managing-your-work-on-github/creating-a-project-board)」を参照してください。
 3. {% data reusables.actions.make-workflow-file %}
 4. 次の YAML コンテンツをワークフローファイルにコピーします。
-
     ```yaml{:copy}
 {% indented_data_reference reusables.actions.actions-not-certified-by-github-comment spaces=4 %}
+
+{% indented_data_reference reusables.actions.actions-use-sha-pinning-comment spaces=4 %}
 
     name: Remove labels
     on:
@@ -44,10 +43,10 @@ shortTitle: Remove label when adding card
     jobs:
       remove_labels:
         if: github.event.project_card.column_id == '12345678'
-        runs-on: ubuntu-latest{% ifversion fpt or ghes > 3.1 or ghae-next %}
+        runs-on: ubuntu-latest
         permissions:
           issues: write
-          pull-requests: write{% endif %}
+          pull-requests: write
         steps:
           - name: remove labels
             uses: andymckay/labeler@5c59dabdfd4dd5bd9c6e6d255b01b9d764af4414

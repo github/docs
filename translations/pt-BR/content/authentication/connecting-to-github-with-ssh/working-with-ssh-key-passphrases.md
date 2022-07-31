@@ -2,8 +2,8 @@
 title: Trabalhar com frase secreta da chave SSH
 intro: Você pode proteger suas chaves SSH e configurar um agente de autenticação para que não precise redigitar a senha toda vez que usar as chaves SSH.
 redirect_from:
-  - /ssh-key-passphrases/
-  - /working-with-key-passphrases/
+  - /ssh-key-passphrases
+  - /working-with-key-passphrases
   - /articles/working-with-ssh-key-passphrases
   - /github/authenticating-to-github/working-with-ssh-key-passphrases
   - /github/authenticating-to-github/connecting-to-github-with-ssh/working-with-ssh-key-passphrases
@@ -11,19 +11,22 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - SSH
 shortTitle: Frases secretas da chave SSH
 ---
 
-Com as chaves SSH, se alguém conseguir acessar seu computador, terá acesso a todos os sistemas que usam essas chaves. Para incluir uma camada extra de segurança, adicione uma frase secreta à sua chave SSH. Você pode usar `ssh-agent` para salvar sua frase secreta de forma segura e não precisar digitá-la novamente.
+## Sobre as frases secretas para chaves SSH
+
+Com chaves SSH, se alguém obtiver acesso ao seu computador, o invasor poderá obter acesso a todos os sistemas que usam essa chave. Para incluir uma camada extra de segurança, adicione uma frase secreta à sua chave SSH. Para evitar inserir a senha toda vez que você se conectar, você pode salvar a sua frase secreta de forma segura no agente SSH.
 
 ## Adicionar ou alterar frase secreta
 
 É possível alterar a frase secreta de uma chave privada sem gerar novamente o par de chaves. Basta digitar o seguinte comando:
 
 ```shell
-$ ssh-keygen -p -f ~/.ssh/id_ed25519
+$ ssh-keygen -p -f ~/.ssh/id_{% ifversion ghae %}rsa{% else %}ed25519{% endif %}
 > Enter old passphrase: <em>[Type old passphrase]</em>
 > Key has comment '<em>your_email@example.com</em>'
 > Enter new passphrase (empty for no passphrase): <em>[Type new passphrase]</em>
@@ -102,7 +105,3 @@ Na primeira vez que você usar a chave, precisará digitar sua frase secreta. Se
 Caso contrário, armazene a frase secreta na keychain quando adicionar a chave ao ssh-agent. Para obter mais informações, consulte "[Adicionar sua chave SSH ao ssh-agent](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#adding-your-ssh-key-to-the-ssh-agent)".
 
 {% endmac %}
-
-## Leia mais
-
-- "[Sobre SSH](/articles/about-ssh)"

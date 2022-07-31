@@ -9,6 +9,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Identity
   - Access management
@@ -17,7 +18,7 @@ shortTitle: Asociar el correo electrónico con una llave GPG
 
 {% note %}
 
-Si estás usando una llave GPG que coincida con la identidad de la persona que confirma el cambio y tu dirección de correo electrónico verificada con tu cuenta de {% data variables.product.product_name %}, puedes comenzar a firmar confirmaciones y firmar etiquetas.
+Si estás utilizando una llave GPG que empata con tu identidad de confirmante y tu dirección de correo electrónico verificada asociada con tu cuenta de {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}, entonces puedes comenzar a firmar confirmaciones y etiquetas.
 
 {% endnote %}
 
@@ -32,7 +33,7 @@ Si estás usando una llave GPG que coincida con la identidad de la persona que c
   ```shell
   $ gpg> adduid
   ```
-6. Sigue las indicaciones para suminsitrar tu nombre real, dirección de correo electrónica o cualquier comentario. Puedes modificar tus entradas al elegir `N`, `C` o `E`. {% data reusables.gpg.private-email %} {% ifversion fpt %} Para obtener más información, consulta "[Configurar la confirmación de tu dirección de correo electrónico](/articles/setting-your-commit-email-address)."{% endif %}
+6. Sigue las indicaciones para suminsitrar tu nombre real, dirección de correo electrónica o cualquier comentario. Puedes modificar tus entradas al elegir `N`, `C` o `E`. {% data reusables.gpg.private-email %} {% ifversion fpt or ghec %} Para obtener más información, consulta "[Configurar la confirmación de tu dirección de correo electrónico](/articles/setting-your-commit-email-address)."{% endif %}
   ```shell
   Real Name: <em>Octocat</em>
   Email address: <em>octocat@github.com</em>
@@ -50,13 +51,13 @@ Si estás usando una llave GPG que coincida con la identidad de la persona que c
   $ gpg --armor --export <em>3AA5C34371567BD2</em>
   # Prints the GPG key, in ASCII armor format
   ```
-11. Carga la llave GPG al [agregarla a tu cuenta GitHub](/articles/adding-a-new-gpg-key-to-your-github-account).
+11. Carga la llave GPG al [agregarla a tu cuenta GitHub](/articles/adding-a-gpg-key-to-your-github-account).
 
 ## Leer más
 
 - "[Comprobar llaves GPG existentes](/articles/checking-for-existing-gpg-keys)"
 - "[Generar una llave GPG nueva](/articles/generating-a-new-gpg-key)"
 - "[Utilizar una dirección de correo electrónico verificada en tu llave GPG](/articles/using-a-verified-email-address-in-your-gpg-key)"
-- "[Agregar una nueva llave GPG a tu cuenta de GitHub](/articles/adding-a-new-gpg-key-to-your-github-account)"
+- "[Agregar una llave GPG a tu cuenta de GitHub](/articles/adding-a-gpg-key-to-your-github-account)"
 - "[Firmar confirmaciones](/articles/signing-commits)"
 - "[Firmar etiquetas](/articles/signing-tags)"

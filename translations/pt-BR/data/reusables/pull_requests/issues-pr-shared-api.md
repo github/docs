@@ -1,0 +1,1 @@
+Cada pull request é um problema, mas nem todos os problemas são um pull request. For this reason, "shared" actions for both features, like managing assignees, labels, and milestones, are provided within Issues API.

@@ -1,5 +1,5 @@
 // match plan@release
-// e.g., free-pro-team@latest, enterprise-server@2.22
+// e.g., free-pro-team@latest, enterprise-server@3.0
 const planPattern = '^[a-z-]+'
 const releasePattern = '[a-z0-9-.]+'
 const delimiter = '@'
@@ -84,6 +84,15 @@ export default {
     miscVersionName: {
       required: true,
       description: 'final name used to map GraphQL and webhook schema names to the current version',
+      type: 'string',
+    },
+    allowedFrontmatterPattern: {
+      desciption: 'pattern used in a regex to validate versions frontmatter in lib/frontmatter.js',
+      type: 'string',
+    },
+    allowedInlinePattern: {
+      desciption:
+        'pattern used in a regex to valid ifversion tag in tests/linting/lint-versioning.js',
       type: 'string',
     },
   },

@@ -1,6 +1,6 @@
 ---
 title: Agregar un archivo a un repositorio
-intro: 'You can upload and commit an existing file to a repository on {% data variables.product.product_name %} or by using the command line.'
+intro: 'Puedes cargar y confirmar un archivo existente a un repositorio de {% data variables.product.product_name %} o utilizando la línea de comandos.'
 redirect_from:
   - /articles/adding-a-file-to-a-repository
   - /github/managing-files-in-a-repository/adding-a-file-to-a-repository
@@ -13,12 +13,13 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Repositories
 shortTitle: Agregar un archivo
 ---
 
-## Adding a file to a repository on {% data variables.product.product_name %}
+## Agregar un archivo a un repositorio en {% data variables.product.product_name %}
 
 Los archivos que agregues a un repositorio mediante un navegador están limitados a {% data variables.large_files.max_github_browser_size %} por archivo. Puedes agregar archivos más grandes, de hasta {% data variables.large_files.max_github_size %} cada uno, mediante la línea de comando. Para obtener más información, consulta "[Agregar un archivo a un repositorio mediante la línea de comando](#adding-a-file-to-a-repository-using-the-command-line)".
 
@@ -39,7 +40,7 @@ Los archivos que agregues a un repositorio mediante un navegador están limitado
 
 ## Agregar un archivo a un repositorio utilizando la línea de comando
 
-Puedes cargar un archivo existente a un repositorio {% data variables.product.product_name %} utilizando la línea de comando.
+Puedes cargar un archivo existente a un repositorio en {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} utilizando la línea de comandos.
 
 {% tip %}
 
@@ -68,4 +69,4 @@ Puedes cargar un archivo existente a un repositorio {% data variables.product.pr
 
 ## Leer más
 
-- [Agregar un proyecto existente a GitHub mediante la línea de comando](/articles/adding-an-existing-project-to-github-using-the-command-line)"
+- "[Agregar código hspedado localmente en {% data variables.product.product_name %}](/get-started/importing-your-projects-to-github/importing-source-code-to-github//adding-locally-hosted-code-to-github)"

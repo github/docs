@@ -3,6 +3,7 @@ title: GitHub のプランの変更に関する FAQ
 intro: 2020 年 4 月 14 日時点で、GitHub は GitHub の主要機能がすべて無料で利用可能になったことを発表しました。
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - GitHub
 redirect_from:
@@ -27,11 +28,11 @@ GitHub は、以下のプランと価格の変更を発表しました。
 
 ## プランのアップグレード方法
 
-ユーザアカウントのプランをアップグレードするには、「[個人アカウントのサブスクリプションのアップグレード](/billing/managing-billing-for-your-github-account/upgrading-your-github-subscription#upgrading-your-personal-accounts-subscription)」を参照してください。 Organizationのプランをアップグレードするには、「[Organizationのサブスクリプションのアップグレード](/billing/managing-billing-for-your-github-account/upgrading-your-github-subscription#upgrading-your-organizations-subscription)」を参照してください。
+To upgrade your personal account's plan, see "[Upgrading your personal account's subscription](/billing/managing-billing-for-your-github-account/upgrading-your-github-subscription#upgrading-your-personal-accounts-subscription)." Organizationのプランをアップグレードするには、「[Organizationのサブスクリプションのアップグレード](/billing/managing-billing-for-your-github-account/upgrading-your-github-subscription#upgrading-your-organizations-subscription)」を参照してください。
 
 ## プランのダウングレード方法
 
-アカウントのプランをダウングレードするには、「[ユーザアカウントのサブスクリプションのダウングレード](/billing/managing-billing-for-your-github-account/downgrading-your-github-subscription#downgrading-your-user-accounts-subscription)」を参照してください。 Organizationのプランをダウングレードするには、「[Organizationのサブスクリプションのダウングレード](/billing/managing-billing-for-your-github-account/downgrading-your-github-subscription#downgrading-your-organizations-subscription)」を参照してください。
+To downgrade your personal account's plan, see "[Downgrading your personal account's subscription](/billing/managing-billing-for-your-github-account/downgrading-your-github-subscription#downgrading-your-personal-accounts-subscription)." Organizationのプランをダウングレードするには、「[Organizationのサブスクリプションのダウングレード](/billing/managing-billing-for-your-github-account/downgrading-your-github-subscription#downgrading-your-organizations-subscription)」を参照してください。
 
 ## GitHub Teamあるいは旧来のプランからGitHub Freeにダウングレードした場合、なくなるのはどの機能ですか？
 - プライベートリポジトリでの必須レビュー担当者
@@ -79,7 +80,7 @@ GitHub Freeの各製品の差異の詳細については、「[{% data variables
 
 ## GitHub コミュニティサポートとは
 
-GitHub コミュニティサポートには、[コミュニティフォーラム](https://github.community/)によるサポートが含まれており、GitHub コミュニティで解決方法を閲覧したり、新しい質問をしたり、アイデアを共有したりすることができます。 GitHub コミュニティサポートには、GitHub Team のサポートエンジニアが配置されています。サポートエンジニアは、最もアクティブなコミュニティメンバーと共にコミュニティフォーラムを管理しています。 スパムの報告、不正利用の報告、アカウントへのアクセスに問題がある場合は、https://support.github.com/ からサポートチームにメッセージを送信できます。
+GitHub Community Support includes support through our [{% data variables.product.prodname_github_community %} discussions](https://github.com/orgs/community/discussions), where you can browse solutions from the GitHub community, ask new questions, and share ideas. GitHub Community Support is staffed by Support Engineers on the GitHub Team, who moderate {% data variables.product.prodname_github_community %} along with our most active community members. スパムの報告、不正利用の報告、アカウントへのアクセスに問題がある場合は、https://support.github.com/ からサポートチームにメッセージを送信できます。
 
 ## この変更による教育関係の特典への影響
 
@@ -91,6 +92,6 @@ GitHub コミュニティサポートには、[コミュニティフォーラム
 
 ## 米国政府の制裁が適用される地域のユーザと Organization にどのように影響しますか？ -
 
-- 米国の貿易管理法の制限により、GitHub は米国の制裁対象地域のアカウントにプライベートリポジトリサービスと有料サービスを提供できません。 - ただし、GitHub は無料の公開リポジトリサービスへのアクセスを保持しています。 詳細については、「[GitHub と貿易管理](/github/site-policy/github-and-trade-controls)」をご覧ください。
+- 米国の貿易管理法の制限により、GitHub は米国の制裁対象地域のアカウントにプライベートリポジトリサービスと有料サービスを提供できません。 - ただし、GitHub は無料の公開リポジトリサービスへのアクセスを保持しています。 詳細については、「[GitHub と貿易管理](/free-pro-team@latest/github/site-policy/github-and-trade-controls)」をご覧ください。
 
 GitHub は、無料のプライベートリポジトリを含め、認可された地域の開発者が無料のコードコラボレーションサービスに最大限にアクセスできるように、米国の規制当局に引き続き提唱していきます。 - 当社は、これらの無料サービスを提供することが、 各地域での情報の自由な流れと言論の自由を奨励するという米国の外交政策をサポートすることに繋がると信じています。

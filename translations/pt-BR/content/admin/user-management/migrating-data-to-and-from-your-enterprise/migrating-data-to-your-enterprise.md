@@ -2,14 +2,14 @@
 title: Migrar dados para a sua empresa
 intro: 'Após gerar um arquivo de migração, você poderá importar os dados para a sua instância de destino do {% data variables.product.prodname_ghe_server %}. Antes de aplicar as alterações permanentemente na instância de destino, será possível revisá-las para resolver possíveis conflitos.'
 redirect_from:
-  - /enterprise/admin/guides/migrations/importing-migration-data-to-github-enterprise/
+  - /enterprise/admin/guides/migrations/importing-migration-data-to-github-enterprise
   - /enterprise/admin/migrations/applying-the-imported-data-on-github-enterprise-server
   - /enterprise/admin/migrations/reviewing-migration-data
   - /enterprise/admin/migrations/completing-the-import-on-github-enterprise-server
-  - /enterprise/admin/guides/migrations/applying-the-imported-data-on-github-enterprise/
-  - /enterprise/admin/guides/migrations/reviewing-the-imported-data/
-  - /enterprise/admin/guides/migrations/completing-the-import-on-github-enterprise/
-  - /enterprise/admin/guides/migrations/importing-migration-data-to-github-enterprise-server/
+  - /enterprise/admin/guides/migrations/applying-the-imported-data-on-github-enterprise
+  - /enterprise/admin/guides/migrations/reviewing-the-imported-data
+  - /enterprise/admin/guides/migrations/completing-the-import-on-github-enterprise
+  - /enterprise/admin/guides/migrations/importing-migration-data-to-github-enterprise-server
   - /enterprise/admin/user-management/migrating-data-to-your-enterprise
   - /admin/user-management/migrating-data-to-your-enterprise
 versions:
@@ -23,7 +23,9 @@ shortTitle: Importar para a sua empresa
 
 ## Aplicar os dados importados em {% data variables.product.prodname_ghe_server %}
 
-Após [haver preparado a sua migração](/admin/user-management/preparing-to-migrate-data-to-your-enterprise) você poderá usar os seguintes passos para concluir a migração.
+Antes de migrar dados para sua empresa, você deve preparar os dados e resolver quaisquer conflitos. Para obter mais informações, consulte "[Preparar para migrar dados para sua empresa](/admin/user-management/preparing-to-migrate-data-to-your-enterprise)".
+
+Depois de preparar os dados e os conflitos de resolução, você poderá aplicar os dados importados em {% data variables.product.product_name %}.
 
 {% data reusables.enterprise_installation.ssh-into-target-instance %}
 
@@ -127,7 +129,7 @@ Depois que sua migração for aplicada à sua instância de destino e você tive
 
 ### Desbloquear repositórios de uma organização no {% data variables.product.prodname_dotcom_the_website %}
 
-Para desbloquear repositórios em uma organização do {% data variables.product.prodname_dotcom_the_website %}, você enviará uma solicitação `DELETE` para o <a href="/rest/reference/migrations#unlock-an-organization-repository" class="dotcom-only">ponto de extremidade de desbloqueio da migração</a>. Você precisará do seguinte:
+Para desbloquear repositórios em uma organização do {% data variables.product.prodname_dotcom_the_website %}, você enviará uma solicitação `DELETE` para o [ponto de extremidade de desbloqueio da migração](/free-pro-team@latest/rest/migrations#unlock-an-organization-repository). Você precisará do seguinte:
   * Token de acesso para autenticação.
   * `id` exclusivo da migração;
   * Nome do repositório a ser desbloqueado.
@@ -139,7 +141,7 @@ curl -H "Authorization: token <em>GITHUB_ACCESS_TOKEN</em>" -X DELETE \
 
 ### Excluir repositórios de uma organização no {% data variables.product.prodname_dotcom_the_website %}
 
-Após desbloquear os repositórios da organização de {% data variables.product.prodname_dotcom_the_website %}, você deverá excluir todos os repositórios previamente migrados usando [o ponto de extremidade de exclusão do repositório](/rest/reference/repos/#delete-a-repository). Você precisará do token de acesso para autenticação:
+Após desbloquear os repositórios da organização de {% data variables.product.prodname_dotcom_the_website %}, você deverá excluir todos os repositórios previamente migrados usando [o ponto de extremidade de exclusão do repositório](/rest/repos/#delete-a-repository). Você precisará do token de acesso para autenticação:
 ```shell
 curl -H "Authorization: token <em>GITHUB_ACCESS_TOKEN</em>" -X DELETE \
   https://api.github.com/repos/<em>orgname</em>/<em>repo_name</em>

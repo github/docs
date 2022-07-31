@@ -9,14 +9,15 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - SSH
 shortTitle: Permission denied (publickey)
 ---
 
-## 对 Git 是否应该使用 `sudo` 命令？
+## `sudo` 命令或提升权限应该与 Git 一起使用吗？
 
-不应对 Git 使用 `sudo` 命令。 如果有*很好的原因*必须使用 `sudo`，请确保对每个命令使用它（可能使用 `su` 获取 shell 作为该点的根更好）。 如果[生成 SSH 密钥](/articles/generating-an-ssh-key)而不使用 `sudo`，则尝试使用 `sudo git push` 而不使用生成的相同密钥。
+您不应将 `sudo` 命令或提升的权限（如管理员权限）与 Git 一起使用。 如果有*很好的原因*必须使用 `sudo`，请确保对每个命令使用它（可能使用 `su` 获取 shell 作为该点的根更好）。 如果[生成 SSH 密钥](/articles/generating-an-ssh-key)而不使用 `sudo`，则尝试使用 `sudo git push` 而不使用生成的相同密钥。
 
 ## 检查是否连接到正确的服务器
 
@@ -33,7 +34,7 @@ $ ssh -vT git@{% data variables.command_line.codeblock %}
 > debug1: Connecting to {% data variables.command_line.codeblock %} port 22.
 ```
 
-应连接端口 22{% ifversion fpt %}，除非覆盖设置以使用[通过 HTTPS 的 SSH](/articles/using-ssh-over-the-https-port){% endif %}。
+应连接端口 22{% ifversion fpt or ghec %}，除非覆盖设置以使用[通过 HTTPS 的 SSH](/articles/using-ssh-over-the-https-port){% endif %}。
 
 ## 始终使用 "git" 用户
 
@@ -57,31 +58,14 @@ $ ssh -T git@{% data variables.command_line.codeblock %}
 {% mac %}
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
-2. 确认您的私钥已生成并加载到 SSH。 {% ifversion ghes < 3.0 %}如果您使用的是 OpenSSH 6.7 或更早版本：
-  ```shell
-  # start the ssh-agent in the background
-  $ eval "$(ssh-agent -s)"
-  > Agent pid 59566
-  $ ssh-add -l
-  > 2048 <em>a0:dd:42:3c:5a:9d:e4:2a:21:52:4e:78:07:6e:c8:4d</em> /Users/<em>you</em>/.ssh/id_rsa (RSA)
-  ```
-
-  如果使用的是 OpenSSH 6.8 或更新版本：
-  ```shell
-  # start the ssh-agent in the background
-  $ eval "$(ssh-agent -s)"
-  > Agent pid 59566
-  $ ssh-add -l -E md5
-  > 2048 <em>MD5:a0:dd:42:3c:5a:9d:e4:2a:21:52:4e:78:07:6e:c8:4d</em> /Users/<em>you</em>/.ssh/id_rsa (RSA)
-  ```
-  {% else %}
+2. 确认您的私钥已生成并加载到 SSH。
   ```shell
   # start the ssh-agent in the background
   $ eval "$(ssh-agent -s)"
   > Agent pid 59566
   $ ssh-add -l -E sha256
   > 2048 <em>SHA256:274ffWxgaxq/tSINAykStUL7XWyRNcRTlcST1Ei7gBQ</em> /Users/<em>USERNAME</em>/.ssh/id_rsa (RSA)
-  ```{% endif %}
+  ```
 
 {% endmac %}
 
@@ -92,65 +76,37 @@ $ ssh -T git@{% data variables.command_line.codeblock %}
 1. {% data reusables.desktop.windows_git_bash_turn_on_ssh_agent %}
 
   {% data reusables.desktop.windows_git_for_windows_turn_on_ssh_agent %}
-2. 确认您的私钥已生成并加载到 SSH。 {% ifversion ghes < 3.0 %}If you're using OpenSSH 6.7 or older:
-  ```shell
-  $ ssh-add -l
-  > 2048 <em>a0:dd:42:3c:5a:9d:e4:2a:21:52:4e:78:07:6e:c8:4d</em> /Users/<em>you</em>/.ssh/id_rsa (RSA)
-  ```
-
-  如果使用的是 OpenSSH 6.8 或更新版本：
-  ```shell
-  $ ssh-add -l -E md5
-  > 2048 <em>MD5:a0:dd:42:3c:5a:9d:e4:2a:21:52:4e:78:07:6e:c8:4d</em> /Users/<em>you</em>/.ssh/id_rsa (RSA)
-  ```
-  {% else %}
+2. 确认您的私钥已生成并加载到 SSH。
   ```shell
   $ ssh-add -l -E sha256
   > 2048 <em>SHA256:274ffWxgaxq/tSINAykStUL7XWyRNcRTlcST1Ei7gBQ</em> /Users/<em>USERNAME</em>/.ssh/id_rsa (RSA)
-  ```{% endif %}
+  ```
 
 {% endwindows %}
 
 {% linux %}
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
-2. 确认您的私钥已生成并加载到 SSH。 {% ifversion ghes < 3.0 %}If you're using OpenSSH 6.7 or older:
-  ```shell
-  # start the ssh-agent in the background
-  $ eval "$(ssh-agent -s)"
-  > Agent pid 59566
-  $ ssh-add -l
-  > 2048 <em>a0:dd:42:3c:5a:9d:e4:2a:21:52:4e:78:07:6e:c8:4d</em> /Users/<em>you</em>/.ssh/id_rsa (RSA)
-  ```
-
-  如果使用的是 OpenSSH 6.8 或更新版本：
-  ```shell
-  # start the ssh-agent in the background
-  $ eval "$(ssh-agent -s)"
-  > Agent pid 59566
-  $ ssh-add -l -E md5
-  > 2048 <em>MD5:a0:dd:42:3c:5a:9d:e4:2a:21:52:4e:78:07:6e:c8:4d</em> /Users/<em>you</em>/.ssh/id_rsa (RSA)
-  ```
-  {% else %}
+2. 确认您的私钥已生成并加载到 SSH。
   ```shell
   $ ssh-add -l -E sha256
   > 2048 <em>SHA256:274ffWxgaxq/tSINAykStUL7XWyRNcRTlcST1Ei7gBQ</em> /Users/<em>USERNAME</em>/.ssh/id_rsa (RSA)
-  ```{% endif %}
+  ```
 
 
 {% endlinux %}
 
-The `ssh-add` command *should* print out a long string of numbers and letters. If it does not print anything, you will need to [generate a new SSH key](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent) and associate it with {% data variables.product.product_name %}.
+`ssh-add` 命令*应*印出一个长的数字和字母字符串。 如果未印出任何内容，则需要[生成新 SSH 密钥](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)并将其与 {% data variables.product.product_name %} 关联。
 
 {% tip %}
 
-**Tip**: On most systems the default private keys (`~/.ssh/id_rsa` and `~/.ssh/identity`) are automatically added to the SSH authentication agent. You shouldn't need to run `ssh-add path/to/key` unless you override the file name when you generate a key.
+**提示**：在大多数系统中，默认私钥（`~/.ssh/id_rsa` 和 `~/.ssh/identity`）会自动添加到 SSH 身份验证代理中。 应无需运行 `ssh-add path/to/key`，除非在生成密钥时覆盖文件名。
 
 {% endtip %}
 
-### Getting more details
+### 获取更多详细信息
 
-You can also check that the key is being used by trying to connect to `git@{% data variables.command_line.backticks %}`:
+也可尝试连接 `git@{% data variables.command_line.backticks %}` 来检查使用的密钥：
 
 ```shell
 $ ssh -vT git@{% data variables.command_line.codeblock %}
@@ -192,27 +148,15 @@ $ ssh -vT git@{% data variables.command_line.codeblock %}
   $ eval "$(ssh-agent -s)"
   > Agent pid 59566
   ```
-3. 找到并记录公钥指纹。 {% ifversion ghes < 3.0 %}如果您使用的是 OpenSSH 6.7 或更早版本：
-  ```shell
-  $ ssh-add -l
-  > 2048 <em>a0:dd:42:3c:5a:9d:e4:2a:21:52:4e:78:07:6e:c8:4d</em> /Users/<em>USERNAME</em>/.ssh/id_rsa (RSA)
-  ```
-
-  如果使用的是 OpenSSH 6.8 或更新版本：
-  ```shell
-  $ ssh-add -l -E md5
-  > 2048 <em>MD5:a0:dd:42:3c:5a:9d:e4:2a:21:52:4e:78:07:6e:c8:4d</em> /Users/<em>USERNAME</em>/.ssh/id_rsa (RSA)
-  ```
-  {% else %}
+3. 找到并记录公钥指纹。
   ```shell
   $ ssh-add -l -E sha256
   > 2048 <em>SHA256:274ffWxgaxq/tSINAykStUL7XWyRNcRTlcST1Ei7gBQ</em> /Users/<em>USERNAME</em>/.ssh/id_rsa (RSA)
-  ```{% endif %}
+  ```
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.ssh %}
-6. Compare the list of SSH keys with the output from the `ssh-add` command.
-![SSH key listing in {% data variables.product.product_name %}](/assets/images/help/settings/ssh_key_listing.png)
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.ssh %}
+6. 比较 SSH 公钥列表与 `ssh-add` 命令的输出。 ![{% data variables.product.product_name %} 中的 SSH 密钥列表](/assets/images/help/settings/ssh_key_listing.png)
 
 {% endmac %}
 
@@ -224,27 +168,15 @@ $ ssh -vT git@{% data variables.command_line.codeblock %}
   $ ssh-agent -s
   > Agent pid 59566
   ```
-3. 找到并记录公钥指纹。 {% ifversion ghes < 3.0 %}如果您使用的是 OpenSSH 6.7 或更早版本：
-  ```shell
-  $ ssh-add -l
-  > 2048 <em>a0:dd:42:3c:5a:9d:e4:2a:21:52:4e:78:07:6e:c8:4d</em> /Users/<em>USERNAME</em>/.ssh/id_rsa (RSA)
-  ```
-
-  如果使用的是 OpenSSH 6.8 或更新版本：
-  ```shell
-  $ ssh-add -l -E md5
-  > 2048 <em>MD5:a0:dd:42:3c:5a:9d:e4:2a:21:52:4e:78:07:6e:c8:4d</em> /Users/<em>USERNAME</em>/.ssh/id_rsa (RSA)
-  ```
-  {% else %}
+3. 找到并记录公钥指纹。
   ```shell
   $ ssh-add -l -E sha256
   > 2048 <em>SHA256:274ffWxgaxq/tSINAykStUL7XWyRNcRTlcST1Ei7gBQ</em> /Users/<em>USERNAME</em>/.ssh/id_rsa (RSA)
-  ```{% endif %}
+  ```
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.ssh %}
-6. Compare the list of SSH keys with the output from the `ssh-add` command.
-![SSH key listing in {% data variables.product.product_name %}](/assets/images/help/settings/ssh_key_listing.png)
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.ssh %}
+6. 比较 SSH 公钥列表与 `ssh-add` 命令的输出。 ![{% data variables.product.product_name %} 中的 SSH 密钥列表](/assets/images/help/settings/ssh_key_listing.png)
 
 {% endwindows %}
 
@@ -268,8 +200,8 @@ $ ssh -vT git@{% data variables.command_line.codeblock %}
   > 2048 <em>MD5:a0:dd:42:3c:5a:9d:e4:2a:21:52:4e:78:07:6e:c8:4d</em> /Users/<em>USERNAME</em>/.ssh/id_rsa (RSA)
   ```
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.ssh %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.ssh %}
 6. 比较 SSH 公钥列表与 `ssh-add` 命令的输出。 ![{% data variables.product.product_name %} 中的 SSH 密钥列表](/assets/images/help/settings/ssh_key_listing.png)
 
 {% endlinux %}

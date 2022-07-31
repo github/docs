@@ -1,16 +1,15 @@
 ---
 title: ワークフローをキャンセルする
 intro: '進行中のワークフロー実行をキャンセルできます。 ワークフロー実行をキャンセルすると、{% data variables.product.prodname_dotcom %} はそのワークフローの一部であるすべてのジョブとステップをキャンセルします。'
-product: '{% data reusables.gated-features.actions %}'
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 {% data reusables.repositories.permissions-statement-write %}
 
@@ -20,12 +19,7 @@ versions:
 {% data reusables.repositories.actions-tab %}
 {% data reusables.repositories.navigate-to-workflow %}
 1. ワークフローの実行のリストから、キャンセルしたい`queued`もしくは`in progress`の実行の名前をクリックしてください。 ![ワークフローの実行の名前](/assets/images/help/repository/in-progress-run.png)
-1. ワークフローの右上隅にある [**Cancel workflow（ワークフローのキャンセル）**] をクリックします。
-{% ifversion fpt or ghes > 3.0 or ghae %}
- ![[Cancel check suite] ボタン](/assets/images/help/repository/cancel-check-suite-updated.png)
-{% else %}
- ![[Cancel check suite] ボタン](/assets/images/help/repository/cancel-check-suite.png)
-{% endif %}
+1. ワークフローの右上隅にある [**Cancel workflow（ワークフローのキャンセル）**] をクリックします。 ![[Cancel check suite] ボタン](/assets/images/help/repository/cancel-check-suite-updated.png)
 
 ## ワークフロー実行をキャンセルするために {% data variables.product.prodname_dotcom %} が実行するステップ
 

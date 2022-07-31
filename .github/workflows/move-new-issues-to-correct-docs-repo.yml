@@ -11,6 +11,9 @@ on:
       - transferred
       - reopened
 
+permissions:
+  contents: none
+
 jobs:
   transfer_issue:
     runs-on: ubuntu-latest

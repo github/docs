@@ -9,6 +9,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Identity
   - Access management
@@ -20,7 +21,7 @@ topics:
 
 {% note %}
 
-**Nota:** Antes de generar una nueva llave GPG, asegúrate de haber verificado tu dirección de correo electrónico. Si no has verificado tu dirección de correo electrónico, no podrás firmar confirmaciones y etiquetas con GPG.{% ifversion fpt %}Para obtener más información, consulta "[Verificar tu dirección de correo electrónico](/articles/verifying-your-email-address)".{% endif %}
+**Nota:** Antes de generar una nueva llave GPG, asegúrate de haber verificado tu dirección de correo electrónico. Si no has verificado tu dirección de correo electrónico, no podrás firmar confirmaciones y etiquetas con GPG.{% ifversion fpt or ghec %}Para obtener más información, consulta "[Verificar tu dirección de correo electrónico](/articles/verifying-your-email-address)".{% endif %}
 
 {% endnote %}
 
@@ -37,13 +38,13 @@ topics:
       ```
 4. En el prompt, especifica la clase de llave que quieres, o presiona `Enter` para aceptar lo predeterminado.
 5. En el prompt, especifica el tamaño de llave que quieres, o presiona `Enter` para aceptar lo predeterminado. Tu llave debe ser de al menos `4096` bits.
-6. Ingresa el periodo de validez que deberá tener la llave. Presiona `Enter` para especificar la selección predeterminada, indicando que la llave no expira.
+6. Ingresa el periodo de validez que deberá tener la llave. Presiona `Enter` para especificar la selección predeterminada, indicando que la llave no expira. A menos de que requieras una fecha de vencimiento, te recomendamos aceptar esta característica predeterminada.
 7. Verifica que tus selecciones sean correctas.
 8. Ingresa tu información de ID de usuario.
 
   {% note %}
 
-  **Nota:** Cuando se te pida que ingreses tu dirección de correo electrónico, asegúrate de ingresar la dirección de correo electrónico verificada para tu cuenta Github. {% data reusables.gpg.private-email %} {% ifversion fpt %}  Para obtener más información, consulta "[Verificar tu dirección de correo electrónico](/articles/verifying-your-email-address)" and "[Establecer tu dirección de correo electrónico para confirmaciones](/articles/setting-your-commit-email-address)".{% endif %}
+  **Nota:** Cuando se te pida que ingreses tu dirección de correo electrónico, asegúrate de ingresar la dirección de correo electrónico verificada para tu cuenta Github. {% data reusables.gpg.private-email %} {% ifversion fpt or ghec %}  Para obtener más información, consulta "[Verificar tu dirección de correo electrónico](/articles/verifying-your-email-address)" and "[Establecer tu dirección de correo electrónico para confirmaciones](/articles/setting-your-commit-email-address)".{% endif %}
 
   {% endnote %}
 
@@ -56,12 +57,12 @@ topics:
   # Prints the GPG key ID, in ASCII armor format
   ```
 11. Copia tu llave GPG, comenzando con `-----BEGIN PGP PUBLIC KEY BLOCK-----` y terminando con `-----END PGP PUBLIC KEY BLOCK-----`.
-12. [Agrega la llave GPG a tu cuenta de GitHub](/articles/adding-a-new-gpg-key-to-your-github-account).
+12. [Agrega la llave GPG a tu cuenta de GitHub](/articles/adding-a-gpg-key-to-your-github-account).
 
 ## Leer más
 
 * "[Comprobar llaves GPG existentes](/articles/checking-for-existing-gpg-keys)"
-* "[Agregar una nueva llave GPG a tu cuenta de GitHub](/articles/adding-a-new-gpg-key-to-your-github-account)"
+* "[Agregar una llave GPG a tu cuenta de GitHub](/articles/adding-a-gpg-key-to-your-github-account)"
 * "[Informar a Git sobre tu llave de firma](/articles/telling-git-about-your-signing-key)"
 * "[Asociar un correo electrónico con tu llave GPG](/articles/associating-an-email-with-your-gpg-key)"
 * "[Firmar confirmaciones](/articles/signing-commits)"

@@ -11,9 +11,7 @@ redirect_from:
   - /code-security/secure-coding/configuring-codeql-runner-in-your-ci-system
   - /code-security/secure-coding/using-codeql-code-scanning-with-your-existing-ci-system/configuring-codeql-runner-in-your-ci-system
 versions:
-  fpt: '*'
-  ghes: '>=3.0'
-  ghae: '*'
+  feature: codeql-runner-supported
 type: how_to
 topics:
   - Advanced Security
@@ -27,7 +25,7 @@ topics:
   - C#
   - Java
 ---
-<!--For this article in earlier GHES versions, see /content/github/finding-security-vulnerabilities-and-errors-in-your-code-->
+
 
 {% data reusables.code-scanning.deprecation-codeql-runner %}
 {% data reusables.code-scanning.beta %}
@@ -82,7 +80,7 @@ $ /path/to-runner/codeql-runner-linux init --languages cpp,java
 
 {% data reusables.code-scanning.run-additional-queries %}
 
-{% data reusables.code-scanning.codeql-query-suites %}
+{% data reusables.code-scanning.codeql-query-suites-explanation %}
 
 To add one or more queries, pass a comma-separated list of paths to the `--queries` flag of the `init` command. You can also specify additional queries in a configuration file.
 
@@ -148,9 +146,8 @@ Initializes the {% data variables.product.prodname_codeql_runner %} and creates 
 | Flag | Required | Input value |
 | ---- |:--------:| ----------- |
 | `--repository` | ✓ | Name of the repository to initialize. |
-| `--github-url` | ✓ | URL of the {% data variables.product.prodname_dotcom %} instance where your repository is hosted. |{% ifversion ghes < 3.1 %}
-| `--github-auth` | ✓ | A {% data variables.product.prodname_github_apps %} token or personal access token. |{% else %}
-| <nobr>`--github-auth-stdin`</nobr> | ✓ | Read the {% data variables.product.prodname_github_apps %} token or personal access token from standard input. |{% endif %}
+| `--github-url` | ✓ | URL of the {% data variables.product.prodname_dotcom %} instance where your repository is hosted. |
+| <nobr>`--github-auth-stdin`</nobr> | ✓ | Read the {% data variables.product.prodname_github_apps %} token or personal access token from standard input. |
 | `--languages` | | Comma-separated list of languages to analyze. By default, the {% data variables.product.prodname_codeql_runner %} detects and analyzes all supported languages in the repository. |
 | `--queries` | | Comma-separated list of additional queries to run, in addition to the default suite of security queries. This overrides the `queries` setting in the custom configuration file. |
 | `--config-file` | | Path to custom configuration file. |
@@ -183,15 +180,14 @@ Analyzes the code in the {% data variables.product.prodname_codeql %} databases 
 | `--repository` | ✓ | Name of the repository to analyze. |
 | `--commit` | ✓ | SHA of the commit to analyze. In Git and in Azure DevOps, this corresponds to the value of `git rev-parse HEAD`. In Jenkins, this corresponds to `$GIT_COMMIT`. |
 | `--ref` | ✓ | Name of the reference to analyze, for example `refs/heads/main` or `refs/pull/42/merge`. In Git or in Jenkins, this corresponds to the value of `git symbolic-ref HEAD`. In Azure DevOps, this corresponds to `$(Build.SourceBranch)`. |
-| `--github-url` | ✓ | URL of the {% data variables.product.prodname_dotcom %} instance where your repository is hosted. |{% ifversion ghes < 3.1 %}
-| `--github-auth` | ✓ | A {% data variables.product.prodname_github_apps %} token or personal access token. |{% else %}
-| <nobr>`--github-auth-stdin`</nobr> | ✓ | Read the {% data variables.product.prodname_github_apps %} token or personal access token from standard input. |{% endif %}
+| `--github-url` | ✓ | URL of the {% data variables.product.prodname_dotcom %} instance where your repository is hosted. |
+| <nobr>`--github-auth-stdin`</nobr> | ✓ | Read the {% data variables.product.prodname_github_apps %} token or personal access token from standard input. |
 | <nobr>`--checkout-path`</nobr> | | The path to the checkout of your repository. The default is the current working directory.  |
 | `--no-upload` | | None. Stops the {% data variables.product.prodname_codeql_runner %} from uploading the results to {% data variables.product.product_name %}. |
 | `--output-dir` | | Directory where the output SARIF files are stored. The default is in the directory of temporary files. |
 | `--ram` | | Amount of memory to use when running queries. The default is to use all available memory. |
-| <nobr>`--no-add-snippets`</nobr> | | None. Excludes code snippets from the SARIF output. |{% ifversion fpt or ghes > 3.1 %}
-| <nobr>`--category`<nobr> | | Category to include in the SARIF results file for this analysis. A category can be used to distinguish multiple analyses for the same tool and commit, but performed on different languages or different parts of the code. This value will appear in the `<run>.automationDetails.id` property in SARIF v2.1.0. |{% endif %}
+| <nobr>`--no-add-snippets`</nobr> | | None. Excludes code snippets from the SARIF output. |
+| <nobr>`--category`<nobr> | | Category to include in the SARIF results file for this analysis. A category can be used to distinguish multiple analyses for the same tool and commit, but performed on different languages or different parts of the code. This value will appear in the `<run>.automationDetails.id` property in SARIF v2.1.0. |
 | `--threads` | | Number of threads to use when running queries. The default is to use all available cores. |
 | `--temp-dir` | | Directory where temporary files are stored. The default is `./codeql-runner`. |
 | `--debug` | | None. Prints more verbose output. |
@@ -213,9 +209,8 @@ Uploads SARIF files to {% data variables.product.product_name %}.
 | `--repository` | ✓ | Name of the repository that was analyzed. |
 | `--commit` | ✓ | SHA of the commit that was analyzed. In Git and in Azure DevOps, this corresponds to the value of `git rev-parse HEAD`. In Jenkins, this corresponds to `$GIT_COMMIT`. |
 | `--ref` | ✓ | Name of the reference that was analyzed, for example `refs/heads/main` or `refs/pull/42/merge`. In Git or in Jenkins, this corresponds to the value of `git symbolic-ref HEAD`. In Azure DevOps, this corresponds to `$(Build.SourceBranch)`. |
-| `--github-url` | ✓ | URL of the {% data variables.product.prodname_dotcom %} instance where your repository is hosted. |{% ifversion ghes < 3.1 %}
-| `--github-auth` | ✓ | A {% data variables.product.prodname_github_apps %} token or personal access token. |{% else %}
-| <nobr>`--github-auth-stdin`</nobr> | ✓ | Read the {% data variables.product.prodname_github_apps %} token or personal access token from standard input. |{% endif %}
+| `--github-url` | ✓ | URL of the {% data variables.product.prodname_dotcom %} instance where your repository is hosted. |
+| <nobr>`--github-auth-stdin`</nobr> | ✓ | Read the {% data variables.product.prodname_github_apps %} token or personal access token from standard input. |
 | <nobr>`--checkout-path`</nobr> | | The path to the checkout of your repository. The default is the current working directory.  |
 | `--debug` | | None. Prints more verbose output. |
 | `-h`, `--help` | | None. Displays help for the command. |

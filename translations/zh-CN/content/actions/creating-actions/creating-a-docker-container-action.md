@@ -1,7 +1,6 @@
 ---
 title: 创建 Docker 容器操作
 intro: 本指南向您展示构建 Docker 容器操作所需的最少步骤。
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /articles/creating-a-docker-container-action
   - /github/automating-your-workflow-with-github-actions/creating-a-docker-container-action
@@ -11,6 +10,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: tutorial
 topics:
   - Action development
@@ -20,7 +20,6 @@ shortTitle: Docker 容器操作
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## 简介
 
@@ -28,9 +27,9 @@ shortTitle: Docker 容器操作
 
 完成此项目后，您应了解如何构建自己的 Docker 容器操作和在工作流程测试该操作。
 
-{% data reusables.github-actions.self-hosted-runner-reqs-docker %}
+{% data reusables.actions.self-hosted-runner-reqs-docker %}
 
-{% data reusables.github-actions.context-injection-warning %}
+{% data reusables.actions.context-injection-warning %}
 
 ## 基本要求
 
@@ -57,7 +56,7 @@ shortTitle: Docker 容器操作
 
 ## 创建 Dockerfile
 
-在新的 `hello-world-docker-action` 目录中，创建新的 `Dockerfile` 文件。 更多信息请参阅“[{% data variables.product.prodname_actions %} 的 Dockerfile 支持](/actions/creating-actions/dockerfile-support-for-github-actions)”。
+在新的 `hello-world-docker-action` 目录中，创建新的 `Dockerfile` 文件。 如果您有问题，请确保您的文件名正确大写（使用大写字母 `D` 但不要大写 `f`）。 更多信息请参阅“[{% data variables.product.prodname_actions %} 的 Dockerfile 支持](/actions/creating-actions/dockerfile-support-for-github-actions)”。
 
 **Dockerfile**
 ```Dockerfile{:copy}
@@ -97,7 +96,7 @@ runs:
 ```
 {% endraw %}
 
-此元数据定义一个 `who-to-greet`  输入和一个 `time` 输出参数。 要将输入传递给 Docker 容器，您必须使用 `inputs` 声明输入并以 `args` 关键词传递输入。
+此元数据定义一个 `who-to-greet`  输入和一个 `time` 输出参数。 要将输入传递给 Docker 容器，应使用 `inputs` 声明输入并以 `args` 关键词传递输入。 `args` 中包含的所有内容都将传递到容器，但为了更便于操作用户发现，我们建议使用输入。
 
 {% data variables.product.prodname_dotcom %} 将从 `Dockerfile` 构建映像，然后使用此映像在新容器中运行命令。
 
@@ -186,7 +185,7 @@ git push --follow-tags
 
 ### 使用公共操作的示例
 
-以下工作流程代码使用公共 [`actions/hello-world-docker-action`](https://github.com/actions/hello-world-docker-action) 仓库中完整的 _hello world_ 操作。 将以下工作流程示例代码复制到 `.github/workflows/main.yml` 文件中，但将 `actions/hello-world-docker-action` 替换为您的仓库和操作名称。 您还可以将 `who-to-greet` 输入替换为您的名称。 {% ifversion fpt %}公共操作即使未发布到 {% data variables.product.prodname_marketplace %} 也可使用。 更多信息请参阅“[发布操作](/actions/creating-actions/publishing-actions-in-github-marketplace#publishing-an-action)”。 {% endif %}
+以下工作流程代码使用公共 [`actions/hello-world-docker-action`](https://github.com/actions/hello-world-docker-action) 仓库中完整的 _hello world_ 操作。 将以下工作流程示例代码复制到 `.github/workflows/main.yml` 文件中，但将 `actions/hello-world-docker-action` 替换为您的仓库和操作名称。 您还可以将 `who-to-greet` 输入替换为您的名称。 {% ifversion fpt or ghec %}公共操作即使未发布到 {% data variables.product.prodname_marketplace %} 也可使用。 更多信息请参阅“[发布操作](/actions/creating-actions/publishing-actions-in-github-marketplace#publishing-an-action)”。 {% endif %}
 
 {% raw %}
 **.github/workflows/main.yml**
@@ -211,9 +210,8 @@ jobs:
 
 ### 使用私有操作的示例
 
-将以下示例工作流程代码复制到操作仓库中的 `.github/workflows/main.yml` 文件。 您还可以将 `who-to-greet` 输入替换为您的名称。 {% ifversion fpt %}此操作不能发布到 {% data variables.product.prodname_marketplace %}，并且只能在此仓库中使用。{% endif %}
+将以下示例工作流程代码复制到操作仓库中的 `.github/workflows/main.yml` 文件。 您还可以将 `who-to-greet` 输入替换为您的名称。 {% ifversion fpt or ghec %}此操作不能发布到 {% data variables.product.prodname_marketplace %}，并且只能在此仓库中使用。{% endif %}
 
-{% raw %}
 **.github/workflows/main.yml**
 ```yaml{:copy}
 on: [push]
@@ -226,7 +224,7 @@ jobs:
       # To use this repository's private action,
       # you must check out the repository
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: {% data reusables.actions.action-checkout %}
       - name: Hello world action step
         uses: ./ # Uses an action in the root directory
         id: hello
@@ -234,14 +232,10 @@ jobs:
           who-to-greet: 'Mona the Octocat'
       # Use the output from the `hello` step
       - name: Get the output time
-        run: echo "The time was ${{ steps.hello.outputs.time }}"
+        run: echo "The time was {% raw %}${{ steps.hello.outputs.time }}"{% endraw %}
 ```
-{% endraw %}
 
-从您的仓库中，单击 **Actions（操作）**选项卡，然后选择最新的工作流程来运行。 {% ifversion fpt or ghes > 3.0 or ghae %}在 **Jobs（作业）**下或可视化图表中，单击 **A job to say hello（表示问候的作业）**。 {% endif %}您应看到 "Hello Mona the Octocat" 或您用于 `who-to-greet` 输入的姓名和时间戳在日志中打印。
+从您的仓库中，单击 **Actions（操作）**选项卡，然后选择最新的工作流程来运行。 在 **Jobs（作业）**下或可视化图形中，单击 **A job to say hello（打招呼的作业）**。 您应看到 "Hello Mona the Octocat" 或您用于 `who-to-greet` 输入的姓名和时间戳在日志中打印。
 
-{% ifversion fpt or ghes > 3.0 or ghae %}
 ![在工作流中使用操作的屏幕截图](/assets/images/help/repository/docker-action-workflow-run-updated.png)
-{% else %}
-![在工作流中使用操作的屏幕截图](/assets/images/help/repository/docker-action-workflow-run.png)
-{% endif %}
+

@@ -4,6 +4,7 @@ shortTitle: Displaying verification for all commits
 intro: You can enable vigilant mode for commit signature verification to mark all of your commits and tags with a signature verification status.
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Identity
   - Access management
@@ -31,8 +32,8 @@ You should only enable vigilant mode if you sign all of your commits and tags an
 
 ## Enabling vigilant mode
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.ssh %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.ssh %}
 3. On the SSH Settings page, under "Vigilant mode," select **Flag unsigned commits as unverified**.
 
    ![Flag unsigned commits as unverified checkbox](/assets/images/help/commits/vigilant-mode-checkbox.png)

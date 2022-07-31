@@ -2,7 +2,7 @@
 title: DNSネームサーバの設定
 intro: '{% data variables.product.prodname_ghe_server %} は、動的ホスト構成プロトコル (DHCP) のリースがネームサーバーを提供するときに、DNS 設定に対して DHCP を使用します。 ネームサーバがDHCPのリースで提供されない場合、あるいは特定のDNS設定を使う必要がある場合は、手動でネームサーバを指定できます。'
 redirect_from:
-  - /enterprise/admin/guides/installation/about-dns-nameservers/
+  - /enterprise/admin/guides/installation/about-dns-nameservers
   - /enterprise/admin/installation/configuring-dns-nameservers
   - /enterprise/admin/configuration/configuring-dns-nameservers
   - /admin/configuration/configuring-dns-nameservers
@@ -30,14 +30,16 @@ shortTitle: Configure DNS servers
 ## 管理シェルを使ったネームサーバの設定
 
 {% data reusables.enterprise_installation.ssh-into-instance %}
-2. ネームサーバーを編集するには、次を入力します:
+
+2. To edit your nameservers, use the `ghe-setup-network` command in visual mode. 詳しい情報については、「[コマンドラインユーティリティ](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-setup-network)」を参照してください。
+
   ```shell
-  $ sudo vim /etc/resolvconf/resolv.conf.d/head
+  ghe-setup-network -v
   ```
-3. `nameserver` エントリを追加し、続いてファイルを保存します。
-4. 変更を確認したら、ファイルを保存します。
+
 5. To add your new nameserver entries to {% data variables.product.product_location %}, run the following:
+
   ```shell
-  $ sudo service resolvconf restart
-  $ sudo service dnsmasq restart
+  sudo service resolvconf restart
+  sudo service dnsmasq restart
   ```

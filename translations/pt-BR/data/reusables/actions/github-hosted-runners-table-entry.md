@@ -1,0 +1,1 @@
+1. Na tabela "Runners", clique na entrada para **Executores hospedados no GitHub**. Esta entrada só estará presente se você estiver usando executores hospedados em {% data variables.product.prodname_dotcom %}.

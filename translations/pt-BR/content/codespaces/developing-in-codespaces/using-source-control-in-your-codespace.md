@@ -4,6 +4,7 @@ intro: 'Depois de fazer alterações em um arquivo no seu código, você pode fa
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Codespaces
@@ -14,11 +15,11 @@ shortTitle: controle de origem
 
  
 
-## Sobre o controle de origem em {% data variables.product.prodname_codespaces %}
+## Sobre o controle de origem em {% data variables.product.prodname_github_codespaces %}
 
 Você pode executar todas as ações do Git necessárias diretamente no seu codespace. Por exemplo, é possível obter alterações do repositório remoto, alternar os branches, criar um novo branch, fazer commit, fazer push e criar um pull request. Você pode usar o terminal integrado dentro do seu codespace para inserir nos comandos do Git, ou você pode clicar em ícones e opções de menu para realizar todas as tarefas mais comuns do Git. Este guia explica como usar a interface gráfica de usuário para controle de origem.
 
-O controle de origem em {% data variables.product.prodname_github_codespaces %} usa o mesmo fluxo de trabalho que {% data variables.product.prodname_vscode %}. Para obter mais informações, consulte a documentação {% data variables.product.prodname_vscode %}"[Usando Controle de Versão no Código VS](https://code.visualstudio.com/docs/editor/versioncontrol#_git-support)".
+O controle de origem em {% data variables.product.prodname_github_codespaces %} usa o mesmo fluxo de trabalho que {% data variables.product.prodname_vscode %}. Para obter mais informações, consulte a documentação de {% data variables.product.prodname_vscode_shortname %} "[Usando Controle de Versão em {% data variables.product.prodname_vscode_shortname %}](https://code.visualstudio.com/docs/editor/versioncontrol#_git-support)".
 
 Um fluxo de trabalho típico para atualizar um arquivo que usa {% data variables.product.prodname_github_codespaces %} seria:
 
@@ -30,9 +31,7 @@ Um fluxo de trabalho típico para atualizar um arquivo que usa {% data variables
 
 ## Criar ou trocar de branches
 
-1. Se o branch atual não for mostrado na barra de status, na parte inferior do seu codespace, clique com o botão direito na barra de status e selecione **Controle de origem**.
-1. Clique no nome do branch na barra de status. ![O branch na barra de status](/assets/images/help/codespaces/branch-in-status-bar.png)
-1. No menu suspenso, clique no branch para o qual você deseja alternar ou digite o nome de um novo branch e clique em **Criar novo branch**. ![Escolha no menu do branch](/assets/images/help/codespaces/create-new-branch.png)
+{% data reusables.codespaces.create-or-switch-branch %}
 
 {% tip %}
 
@@ -48,7 +47,7 @@ Você pode fazer pull das alterações do repositório remoto para seu codespace
 1. Na parte superior da barra lateral, clique na elipse (**...**). ![Botão Elipsis para visualizar e mais ações](/assets/images/help/codespaces/source-control-ellipsis-button.png)
 1. No menu suspenso, clique em **Pull**.
 
-If the dev container configuration has been changed since you created the codespace, you can apply the changes by rebuilding the container for the codespace. Para obter mais informações, consulte "[Configurar codespaces para o seu projeto](/codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project#applying-changes-to-your-configuration)".
+Se a configuração do contêiner dev foi alterada desde que você criou o codespace, você pode aplicar as alterações reconstruindo o contêiner para o codespace. Para obter mais informações, consulte "[Introdução a contêineres de desenvolvimento](/codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project#applying-configuration-changes-to-a-codespace)".
 
 ## Configurar o seu codespace para buscar novas alterações automaticamente
 
@@ -64,16 +63,11 @@ Se a operação de busca detectarem novas alterações no repositório remoto, v
 
 ## Fazendo commit das suas alterações
 
-{% data reusables.codespaces.source-control-display-dark %}
-1. Para testar suas alterações, clique  **+** ao lado do arquivo que você alterou, ou ao lado de **Alterações** se você mudou vários arquivos e quiser testar todos. ![Barra lateral de controle de origem com botão de staging destacado](/assets/images/help/codespaces/codespaces-commit-stage.png)
-1. Digite uma mensagem do commit que descreve a alteração que você fez. ![Barra lateral do controle de origem com uma mensagem de commit](/assets/images/help/codespaces/codespaces-commit-commit-message.png)
-1. Para fazer commit das alterações em fase de preparação, clique na marca de seleção na parte superior da barra lateral de controle de origem. ![Clique no ícone da marca de verificação](/assets/images/help/codespaces/codespaces-commit-checkmark-icon.png)
+{% data reusables.codespaces.source-control-commit-changes %}
 
 ## Abrindo um pull request
 
-1. Depois de realizar alterações na sua cópia local do repositório, clique no ícone **Criar Pull Request**. ![Barra lateral de controle de origem com botão de staging destacado](/assets/images/help/codespaces/codespaces-commit-pr-button.png)
-1. Verifique se o branch local e o repositório do qual você está fazendo merge, o branch remoto e o repositório no qual você está fazendo merge estão corretos. Em seguida, dê ao pull request um título e uma descrição. ![Barra lateral de controle de origem com botão de staging destacado](/assets/images/help/codespaces/codespaces-commit-pr.png)
-1. Clique em **Criar**.
+{% data reusables.codespaces.source-control-pull-request %}
 
 ## Fazer push das alterações para o seu repositório remoto
 

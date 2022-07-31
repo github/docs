@@ -8,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 intro: La hoja de referencia de Git te ahorrará tiempo si es que olvidas un comando o si no quieres utilizar ayuda en el CLI.
 ---
 

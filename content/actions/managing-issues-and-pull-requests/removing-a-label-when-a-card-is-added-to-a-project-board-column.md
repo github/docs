@@ -1,13 +1,13 @@
 ---
 title: Removing a label when a card is added to a project board column
 intro: 'You can use {% data variables.product.prodname_actions %} to automatically remove a label when an issue or pull request is added to a specific column on a project board.'
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /actions/guides/removing-a-label-when-a-card-is-added-to-a-project-board-column
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: tutorial
 topics:
   - Workflows
@@ -17,8 +17,6 @@ shortTitle: Remove label when adding card
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
-{% data reusables.actions.ae-self-hosted-runners-notice %}
 
 ## Introduction
 
@@ -32,9 +30,10 @@ In the tutorial, you will first make a workflow file that uses the [`andymckay/l
 2. Choose a project that belongs to the repository. This workflow cannot be used with projects that belong to users or organizations. You can use an existing project, or you can create a new project. For more information about creating a project, see "[Creating a project board](/github/managing-your-work-on-github/creating-a-project-board)."
 3. {% data reusables.actions.make-workflow-file %}
 4. Copy the following YAML contents into your workflow file.
-
     ```yaml{:copy}
 {% indented_data_reference reusables.actions.actions-not-certified-by-github-comment spaces=4 %}
+
+{% indented_data_reference reusables.actions.actions-use-sha-pinning-comment spaces=4 %}
 
     name: Remove labels
     on:
@@ -44,10 +43,10 @@ In the tutorial, you will first make a workflow file that uses the [`andymckay/l
     jobs:
       remove_labels:
         if: github.event.project_card.column_id == '12345678'
-        runs-on: ubuntu-latest{% ifversion fpt or ghes > 3.1 or ghae-next %}
+        runs-on: ubuntu-latest
         permissions:
           issues: write
-          pull-requests: write{% endif %}
+          pull-requests: write
         steps:
           - name: remove labels
             uses: andymckay/labeler@5c59dabdfd4dd5bd9c6e6d255b01b9d764af4414

@@ -1,12 +1,12 @@
 ---
 title: Acerca de la facturación para GitHub Actions
 intro: 'Si quieres utilizar {% data variables.product.prodname_actions %} con más almacenamiento o minutos de los que se incluyen en tu cuenta, se te cobrará por estos recursos adicionales.'
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-actions
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-actions/about-billing-for-github-actions
 versions:
   fpt: '*'
+  ghec: '*'
 type: overview
 topics:
   - Actions
@@ -16,15 +16,17 @@ shortTitle: Facturación de las GitHub Actions
 
 ## Acerca de la facturación para {% data variables.product.prodname_actions %}
 
-{% data reusables.github-actions.actions-billing %}
+{% data reusables.actions.actions-billing %}
 
-{% data reusables.github-actions.actions-spending-limit-brief %} Para obtener más información, consulta la sección "[Acerca de los límites de gasto](#about-spending-limits)".
+{% data reusables.actions.actions-spending-limit-brief %} Para obtener más información, consulta la sección "[Acerca de los límites de gasto](#about-spending-limits)".
 
-Si compraste {% data variables.product.prodname_enterprise %} mediante un Acuerdo de Microsoft Enterprise, puedes conectar tu ID de Suscripción de Azure a tu cuenta empresarial para habilitar y pagar por el uso de {% data variables.product.prodname_actions %} más allá de las cantidades que se incluyen en tu cuenta. Para obtener más información, consulta la sección "[Conectar una suscripción de Azure a tu empresa](/github/setting-up-and-managing-your-enterprise/connecting-an-azure-subscription-to-your-enterprise)".
+{% ifversion ghec %}
+Si compraste {% data variables.product.prodname_enterprise %} mediante un Acuerdo de Microsoft Enterprise, puedes conectar tu ID de Suscripción de Azure a tu cuenta empresarial para habilitar y pagar por el uso de {% data variables.product.prodname_actions %} más allá de las cantidades que se incluyen en tu cuenta. Para obtener más información, consulta la sección "[Conectar una suscripción de Azure a tu empresa](/billing/managing-billing-for-your-github-account/connecting-an-azure-subscription-to-your-enterprise)".
+{% endif %}
 
 Los minutos se restablecen cada mes, pero no es el caso para el uso de almacenamiento.
 
-### Included storage and minutes
+### Minutos y almacenamiento incluídos
 
 | Producto                                                              | Almacenamiento | Minutos (por mes) |
 | --------------------------------------------------------------------- | -------------- | ----------------- |
@@ -36,7 +38,7 @@ Los minutos se restablecen cada mes, pero no es el caso para el uso de almacenam
 
 Los jobs que se ejecutan en Windows y macOS y que se hospedan en {% data variables.product.prodname_dotcom %} consumen minutos en una proporción de 2 a 10 veces mayor que aquellos que se ejecutan en Linux. Por ejemplo, utilizar 1,000 minutos en Windows consumirá 2,000 de los minutos incluidos en tu cuenta. Utilizar 1,000 minutos en macOS consumiría 10,000 de los minutos incluidos en tu cuenta.
 
-### Minute multipliers
+### Multiplicadores de minutos
 
 | Sistema operativo | Multiplicador de minutos |
 | ----------------- | ------------------------ |
@@ -46,7 +48,7 @@ Los jobs que se ejecutan en Windows y macOS y que se hospedan en {% data variabl
 
 El almacenamiento que utilza un repositorio es el total del almacenamiento utilizado por los artefactos de {% data variables.product.prodname_actions %} y por {% data variables.product.prodname_registry %}. Tu costo de almacenamiento es el uso total para todos los repositorios que pertenezcan a tu cuenta. Para obtener más información sobre los costos de {% data variables.product.prodname_registry %}, consulta la sección "[Acerca de la facturación para {% data variables.product.prodname_registry %}](/billing/managing-billing-for-github-packages/about-billing-for-github-packages)".
 
- If your account's usage surpasses these limits and you have set a spending limit above $0 USD, you will pay $0.25 USD per GB of storage per month and per-minute usage depending on the operating system used by the {% data variables.product.prodname_dotcom %}-hosted runner. {% data variables.product.prodname_dotcom %} redondea hacia arriba los minutos que utiliza cada job.
+ Si el uso de tu cuenta sobrepasa estos límites y configuraste un límite de gastos mayor a $0 USD, pagarás $0.008 USD por GB de almacenamiento por uso de día y minuto dependiendo del sistema operativo que utiliza el ejecutor hospedado en {% data variables.product.prodname_dotcom %}. {% data variables.product.prodname_dotcom %} redondea hacia arriba los minutos que utiliza cada job.
 
 {% note %}
 
@@ -54,9 +56,9 @@ El almacenamiento que utilza un repositorio es el total del almacenamiento utili
 
 {% endnote %}
 
-### Per-minute rates
+### Tasas por minuto
 
-| Sistema operativo | Per-minute rate (USD) |
+| Sistema operativo | Tasa por minuto (USD) |
 | ----------------- | --------------------- |
 | Linux             | $0.008                |
 | macOS             | $0.08                 |
@@ -64,23 +66,25 @@ El almacenamiento que utilza un repositorio es el total del almacenamiento utili
 
 La cantidad de jobs que puedes ejecutar simultáneamente a través de todos los repositorios que pertenezcan a tu cuenta de usuario u organización dependerá de tu plan de GitHub. Para obtener más información, consulta la sección "[Facturación y límites de uso](/actions/reference/usage-limits-billing-and-administration)" para los ejecutores hospedados en {% data variables.product.prodname_dotcom %} y la sección "[Acerca de los ejecutores auto-hospedados](/actions/hosting-your-own-runners/about-self-hosted-runners/#usage-limits)" para los límites de uso de los ejecutores auto-hospedados.
 
-{% data reusables.user_settings.context_switcher %}
+{% data reusables.user-settings.context_switcher %}
 
 ## Calcular los gastos por minuto y por almacenamiento
 
+{% data reusables.dotcom_billing.pricing_calculator.pricing_cal_actions %}
+
 Al final de cada mes, {% data variables.product.prodname_dotcom %} calcula el costo de los minutos y almacenamiento utilizados en comparación con lo que se incluye en tu cuenta.
 
-### Sample minutes cost calculation
+### Ejemplo de cálculos de costo por minuto
 
-For example, if your organization uses {% data variables.product.prodname_team %} and allows unlimited spending, using 15,000 minutes could have a total storage and minute overage cost of $56 USD, depending on the operating systems used to run jobs.
+Por ejemplo, si tu organización utiliza {% data variables.product.prodname_team %} y permite gastos ilimitados, utilizar 5,000 minutos podría tener un costo extra de almacenamiento y minutos de $56 USD dependiendo de los sistemas operativos que se utilizan para ejecutar jobs.
 
-- 5,000 (3,000 Linux and 2,000 Windows) minutes = $56 USD ($24 USD + $32 USD).
-  - 3,000 Linux minutes at $0.008 USD per minute = $24 USD.
-  - 2,000 Windows minutes at $0.016 USD per minute = $32 USD.
+- 5,000 minutos (3,000 de Linux y 2,000 de Windows) = $56 USD ($24 USD + $32 USD).
+  - 3,000 minutos de Linux a $0.008 USD por minuto = $24 USD.
+  - 2,000 minutos de Windows a $0.016 USD por minuto = $32 USD.
 
 {% data variables.product.prodname_dotcom %} calcula tu uso de almacenamiento para cada mes basándose en el uso por hora durante el mismo mes.
 
-### Sample storage cost calculation
+### Muestra de cálculo de costos de almacenamiento
 
 Por ejemplo, si utilizas 3 GB de almacenamiento durante 10 días de Marzo y 12 GB durante 21 días de Marzo, tu uso de almacenamiento sería:
 
@@ -95,7 +99,7 @@ Tu uso de {% data variables.product.prodname_actions %} comparte la fecha de fac
 
 ## Acerca de los límites de gasto
 
-{% data reusables.github-actions.actions-spending-limit-detailed %}
+{% data reusables.actions.actions-spending-limit-detailed %}
 
 Para obtener más información sobre cómo administrar y cambiar el límite de gastos de tu organización, consulta la sección "[Administrar tu límite de gastos para {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions/managing-your-spending-limit-for-github-actions)".
 

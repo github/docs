@@ -8,17 +8,22 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
 shortTitle: リポジトリの作成の制限
 ---
 
-メンバーが Organization でリポジトリを作成できるかどうかを選択できます。 If you allow members to create repositories, you can choose which types of repositories members can create.{% ifversion fpt %} To allow members to create private repositories only, your organization must use {% data variables.product.prodname_ghe_cloud %}.{% endif %} For more information, see "[About repositories](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)."
+メンバーが Organization でリポジトリを作成できるかどうかを選択できます。 {% ifversion ghec or ghes or ghae %}メンバーにリポジトリの作成を許可した場合、メンバーが作成できるリポジトリの種類を選択できます。{% elsif fpt %}メンバーにリポジトリの作成を許可した場合、メンバーがパブリックとプライベートのリポジトリをどちらも作成できるのか、あるいはパブリックリポジトリだけを作成できるのかが選択できます。{% endif %}Organizationのオーナーは、常にすべての種類のリポジトリを作成できます。
 
-Organization のオーナーは、いつでもどんなタイプの Team でも作成できます。
+{% ifversion fpt %}
+{% data variables.product.prodname_ghe_cloud %}を使用するOrganizationは、プライベートリポジトリだけを作成できるメンバーを制限できます。 詳しい情報については[{% data variables.product.prodname_ghe_cloud %}のドキュメンテーション](/enterprise-cloud@latest/organizations/managing-organization-settings/restricting-repository-creation-in-your-organization)を参照してください。
+{% endif %}
 
-{% ifversion fpt %}Enterprise オーナー{% else %}サイト管理者{% endif %}は、Organization のリポジトリ作成ポリシーで使用できるオプションを制限できます。 詳しい情報については、{% ifversion fpt %}"「[Enterprise アカウントでリポジトリ管理ポリシーを施行する](/github/setting-up-and-managing-your-enterprise/enforcing-repository-management-policies-in-your-enterprise-account)」{% else %}「[Enterprise でのリポジトリの作成を制限する](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#setting-a-policy-for-repository-creation)」{% endif %} を参照してください。
+{% ifversion ghec or ghae or ghes %}
+Enterpriseのオーナーは、Organizatoinのリポジトリ作成ポリシーで利用できる選択肢を制限できます。 詳しい情報については、「[Enterprise でのリポジトリ管理ポリシーを適用する](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-repository-creation)」を参照してください。
+{% endif %}
 
 {% warning %}
 
@@ -26,10 +31,23 @@ Organization のオーナーは、いつでもどんなタイプの Team でも�
 
 {% endwarning %}
 
-{% data reusables.organizations.internal-repos-enterprise %}
-
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.member-privileges %}
-5. [Repository creation] で、1 つ以上のオプションを選択します。 ![リポジトリ作成のオプション](/assets/images/help/organizations/repo-creation-perms-radio-buttons.png)
+5. [Repository creation] で、1 つ以上のオプションを選択します。
+
+   {%- ifversion ghes or ghec or ghae %}
+   ![リポジトリ作成のオプション](/assets/images/help/organizations/repo-creation-perms-radio-buttons.png)
+   {%- elsif fpt %}
+   ![リポジトリ作成のオプション](/assets/images/help/organizations/repo-creation-perms-radio-buttons-fpt.png)
+   {%- endif %}
+
+   {% ifversion fpt or ghec %}
+   {% note %}
+
+   **ノート:** プライベートリポジトリだけを作成できるメンバーを制限するには、Organizationは{% data variables.product.prodname_ghe_cloud %}を使っていなければなりません。 {% data reusables.enterprise.link-to-ghec-trial %}
+
+   {% endnote %}
+   {%- endif %}
+
 6. [**Save**] をクリックします。

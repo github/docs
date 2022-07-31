@@ -9,6 +9,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
@@ -20,6 +21,9 @@ shortTitle: 管理成员名称的显示
 ![评论中显示的评论者个人资料名称](/assets/images/help/issues/commenter-full-name.png)
 
 每个组织成员在自己的设置中选择自己的个人资料名称。 更多信息请参阅“[个性化您的个人资料](/github/setting-up-and-managing-your-github-profile/personalizing-your-profile#changing-your-profile-name)”。
+
+{% ifversion profile-name-enterprise-setting %}
+如果企业所有者在企业级别设置了策略，则可能无法为组织配置此设置。 更多信息请参阅“[在企业中实施仓库管理策略](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-inviting-outside-collaborators-to-repositories)”。{% endif %}
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}

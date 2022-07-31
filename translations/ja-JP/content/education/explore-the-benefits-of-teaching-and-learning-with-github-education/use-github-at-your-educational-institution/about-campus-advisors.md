@@ -14,7 +14,7 @@ versions:
 
 {% note %}
 
-**ノート：**インストラクターとして、学生のために{% data variables.product.prodname_dotcom %}のアカウントを作成することはできません。 学生は自分の{% data variables.product.prodname_dotcom %}アカウントを作成しなければなりません。
+**注釈:** インストラクターとして、学生のために {% data variables.product.product_location %} でアカウントを作成することはできません。 学生は {% data variables.product.product_location %} で自分のアカウントを作成する必要があります。
 
 {% endnote %}
 

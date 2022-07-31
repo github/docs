@@ -8,6 +8,7 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
+  ghec: '*'
 topics:
   - 2FA
 shortTitle: Desabilitar 2FA
@@ -17,7 +18,7 @@ shortTitle: Desabilitar 2FA
 
 {% warning %}
 
-**Aviso:** se você for integrante{% ifversion fpt %}, gerente de cobrança{% endif %} ou colaborador externo em um repositório público de uma organização que requeira autenticação de dois fatores e desabilitar a 2FA, será automaticamente removido da organização e perderá acesso aos repositórios. Para recuperar o acesso à organização, torne a habilitar a autenticação de dois fatores e entre em contato com um proprietário da organização.
+**Aviso:** se você for integrante{% ifversion fpt or ghec %}, gerente de cobrança{% endif %} ou colaborador externo em um repositório público de uma organização que requeira autenticação de dois fatores e desabilitar a 2FA, será automaticamente removido da organização e perderá acesso aos repositórios. Para recuperar o acesso à organização, torne a habilitar a autenticação de dois fatores e entre em contato com um proprietário da organização.
 
 {% endwarning %}
 
@@ -27,8 +28,8 @@ Para remover a si mesmo da organização:
  - Como integrante ou proprietário da organização, consulte "[Como remover a si mesmo de uma organização](/articles/removing-yourself-from-an-organization/)."
  - Como colaborador externo, peça ao administrador de repositório ou proprietário da organização para remover você dos repositórios dela. Para obter mais informações, consulte "[Exibir funções na organização](/articles/viewing-people-s-roles-in-an-organization)" e "[Remover colaborador externo do repositório de uma organização](/articles/removing-an-outside-collaborator-from-an-organization-repository/)".
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.security %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.security %}
 3. Clique **Desabilitar**. ![Botão Disable two-factor authentication (Desabilitar autenticação de dois fatores)](/assets/images/help/2fa/disable-two-factor-authentication.png)
 
 ## Leia mais

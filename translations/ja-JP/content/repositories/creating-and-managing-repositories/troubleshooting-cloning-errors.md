@@ -16,6 +16,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Repositories
 ---
@@ -51,7 +52,7 @@ HTTPS エラーの例を次に示します:
 
 フェッチするリポジトリが {% data variables.product.product_location %} に存在する必要があります。また、URL では大文字と小文字が区別されます。
 
-コマンドラインを開き、`git remot -v` と入力して、ローカルリポジトリの URL を見つけることができます。
+コマンドラインを開き、`git remote -v` と入力して、ローカルリポジトリの URL を見つけることができます。
 
 ```shell
 $ git remote -v
@@ -92,7 +93,7 @@ $ git remote -v
 
 ## Error: Repository not found
 
-{% ifversion fpt or ghae %}リポジトリのクローン作成時にこのエラーが表示される場合は、リポジトリが存在しないか、リポジトリにアクセスする権限がないことを示しています。{% else %}リポジトリのクローン作成時にこのエラーが表示される場合は、リポジトリが存在しないか、リポジトリにアクセスする権限がないか、{% data variables.product.product_location %} がプライベートモードになっていることを示しています。{% endif %} 原因に応じて、このエラーに対するいくつかの解決策があります。
+{% ifversion fpt or ghae or ghec %}リポジトリのクローン作成時にこのエラーが表示される場合は、リポジトリが存在しないか、リポジトリにアクセスする権限がないことを示しています。{% else %}リポジトリのクローン作成時にこのエラーが表示される場合は、リポジトリが存在しないか、リポジトリにアクセスする権限がないか、{% data variables.product.product_location %} がプライベートモードになっていることを示しています。{% endif %} 原因に応じて、このエラーに対するいくつかの解決策があります。
 
 ### スペルを確認する
 
@@ -116,7 +117,7 @@ To update the remote on an existing repository, see "[Managing remote repositori
 
 ごくまれに、リポジトリへの正しい SSH アクセス権がない場合があります。
 
-使用している SSH キーが {% data variables.product.product_name %} ユーザアカウントに添付されていることを確認する必要があります。 以下をコマンドラインに入力してこれをチェックできます:
+You should ensure that the SSH key you are using is attached to your personal account on {% data variables.product.product_name %}. 以下をコマンドラインに入力してこれをチェックできます:
 
 ```shell
 $ ssh -T git@{% data variables.command_line.codeblock %}
@@ -124,9 +125,11 @@ $ ssh -T git@{% data variables.command_line.codeblock %}
 > provide shell access.
 ```
 
-リポジトリが Organization に属し、OAuth App によって生成された SSH キーを使用している場合、OAuth App へのアクセスは Organization のオーナーによって制限されている可能性があります。 For more information, see "<a href="/organizations/restricting-access-to-your-organizations-data/about-oauth-app-access-restrictions" class="dotcom-only">About OAuth App access restrictions</a>."
+{% ifversion fpt or ghec %}
+リポジトリが Organization に属し、OAuth App によって生成された SSH キーを使用している場合、OAuth App へのアクセスは Organization のオーナーによって制限されている可能性があります。 詳しい情報については、「[OAuth App のアクセス制限について](/organizations/restricting-access-to-your-organizations-data/about-oauth-app-access-restrictions)」を参照してください。
+{% endif %}
 
-詳細は「[GitHub アカウントに新しい GPG キーを追加する](/articles/adding-a-new-gpg-key-to-your-github-account)」を参照してください。
+For more information, see [Adding a new SSH key to your GitHub account](/articles/adding-a-new-ssh-key-to-your-github-account).
 
 {% ifversion ghes %}
 ### インスタンスがプライベートモードであるかを確認する

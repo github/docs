@@ -19,7 +19,7 @@ shortTitle: Migração interna de repositório
 
 ## Sobre repositórios internos
 
-Os repositórios internos estão disponíveis em {% data variables.product.prodname_ghe_server %} 2.20+. {% data reusables.repositories.about-internal-repos %} For more information, see "[About repositories](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)."
+Os repositórios internos estão disponíveis em {% data variables.product.prodname_ghe_server %} 2.20+. {% data reusables.repositories.about-internal-repos %} Para obter mais informações, consulte "[Sobre repositórios](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)".
 
 Em versões futuras do {% data variables.product.prodname_ghe_server %}, ajustaremos como a visibilidade do repositório funciona para que os termos público, interno e privado tenham significados uniformes para desenvolvedores em {% data variables.product.prodname_ghe_server %} e {% data variables.product.prodname_ghe_cloud %}.
 
@@ -40,11 +40,13 @@ Se você não tiver o modo privado ativado, o script de migração não terá ef
 ## Executando a migração
 
 1. Conecte-se ao shell administrativo. Para obter mais informações, consulte "[Acessar o shell administrativo (SSH)](/enterprise/{}/admin/installation/accessing-the-administrative-shell-ssh)".
-{% ifversion ghes > 2.22 or ghae %}
+{% ifversion ghes or ghae %}
 2. Execute o comando de migração.
+
    ```shell
    github-env bin/safe-ruby lib/github/transitions/20191210220630_convert_public_ghes_repos_to_internal.rb --verbose -w |  tee -a /tmp/convert_public_ghes_repos_to_internal.log
    ```
+
 {% else %}
 2. Navegue no diretório `/data/github/current`.
    ```shell

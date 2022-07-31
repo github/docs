@@ -3,6 +3,7 @@ title: 创建组分配
 intro: 您可以为参加您课程的学生团队创建协作作业。
 versions:
   fpt: '*'
+permissions: 'Organization owners who are admins for a classroom can create and manage group assignments for a classroom. {% data reusables.classroom.classroom-admins-link %}'
 redirect_from:
   - /education/manage-coursework-with-github-classroom/create-group-assignments
   - /education/manage-coursework-with-github-classroom/create-a-group-assignment
@@ -21,6 +22,8 @@ redirect_from:
 您可以决定一个任务可以拥有多少个团队，以及每个团队可以拥有多少成员。 学生为作业创建的每个团队都是 {% data variables.product.product_name %} 上组织内的团队。 团队的可见性是秘密。 您在 {% data variables.product.product_name %} 上创建的团队不会出现在 {% data variables.product.prodname_classroom %} 中。 更多信息请参阅“[关于团队](/organizations/organizing-members-into-teams/about-teams)”。
 
 有关创建小组作业的视频演示，请参阅“[设置 {% data variables.product.prodname_classroom %} 的基本知识](/education/manage-coursework-with-github-classroom/basics-of-setting-up-github-classroom)”。
+
+{% data reusables.classroom.reuse-assignment-link %}
 
 ## 基本要求
 
@@ -81,7 +84,7 @@ redirect_from:
 {% data reusables.classroom.assignments-guide-intro-for-environment %}
 
 - [选择模板仓库](#choosing-a-template-repository)
-- [Choosing an integrated development environment (IDE)](#choosing-an-integrated-development-environment-ide)
+- [选择集成开发环境 (IDE)](#choosing-an-integrated-development-environment-ide)
 
 ### 选择模板仓库
 
@@ -89,9 +92,11 @@ redirect_from:
 
 {% data reusables.classroom.assignments-guide-choose-template-repository %}
 
-### Choosing an integrated development environment (IDE)
+### 选择集成开发环境 (IDE)
 
 {% data reusables.classroom.about-online-ides %} 更多信息请参阅“[集成 {% data variables.product.prodname_classroom %} 与 IDE](/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide)”。
+
+{% data reusables.classroom.classroom-codespaces-link %}
 
 {% data reusables.classroom.assignments-guide-choose-an-online-ide %}
 
@@ -126,13 +131,23 @@ redirect_from:
   <img alt="组分配" class="procedural-image-wrapper" src="/assets/images/help/classroom/assignment-group-hero.png">
 </div>
 
+## 监控学生的进度
+作业概述页显示有关作业接受和团队进度的信息。 根据作业的配置，您可能有不同的摘要信息。
+
+- **团队总数**：已创建的团队数。
+- **名册学生**：教室名册上的学生人数。
+- **不在团队的学生**：课堂名册上尚未加入团队的学生人数。
+-  **接受的团队**：已接受此任务的团队数。
+-  **作业提交**：已提交作业的团队数。 在作业截止日期触发提交。
+-  **通过团队**：当前通过此作业的自动评分测试的团队数。
+
 ## 后续步骤
 
-- 在创建作业和学生组成团队后，团队成员可以使用 Git 和 {% data variables.product.product_name %} 的功能开始处理作业。 学生可以克隆仓库、推送提交、管理分支、创建和审查拉取请求、解决合并冲突以及讨论议题的更改。 您和团队都可以审查仓库的提交历史记录。 For more information, see "[Getting started with {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github)," "[Repositories](/repositories)," "[Using Git](/github/getting-started-with-github/using-git)," and "[Collaborating with issues and pull requests](/github/collaborating-with-issues-and-pull-requests)," and the free course on [managing merge conflicts](https://lab.github.com/githubtraining/managing-merge-conflicts) from {% data variables.product.prodname_learning %}.
+- 在创建作业和学生组成团队后，团队成员可以使用 Git 和 {% data variables.product.product_name %} 的功能开始处理作业。 学生可以克隆仓库、推送提交、管理分支、创建和审查拉取请求、解决合并冲突以及讨论议题的更改。 您和团队都可以审查仓库的提交历史记录。 更多信息请参阅“[{% data variables.product.prodname_dotcom %} 使用入门](/github/getting-started-with-github)”、“[仓库](/repositories)”、“[使用 Git](/github/getting-started-with-github/using-git)”和“[协作处理议题和拉取请求](/github/collaborating-with-issues-and-pull-requests)”，以及 {% data variables.product.prodname_learning %} 中的[解决合并冲突](https://github.com/skills/resolve-merge-conflicts)免费课程。
 
 - 当团队完成作业时，您可以查看仓库中的文件，或者查看仓库的历史和可视化内容，以更好地了解团队如何协作。 更多信息请参阅“[使用图表可视化仓库](/github/visualizing-repository-data-with-graphs)”。
 
-- 您可以通过在拉取请求中评论个别提交或行来提供作业反馈。 更多信息请参阅“[评论拉取请求](/github/collaborating-with-issues-and-pull-requests/commenting-on-a-pull-request)”和“[从代码打开议题](/github/managing-your-work-on-github/opening-an-issue-from-code)”。 有关创建已保存回复以对常见错误提供反馈的信息，请参阅“[关于已保存回复](/github/writing-on-github/about-saved-replies)”。
+- 您可以通过在拉取请求中评论个别提交或行来提供作业反馈。 更多信息请参阅“[评论拉取请求](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/commenting-on-a-pull-request)”和“[从代码打开议题](/github/managing-your-work-on-github/opening-an-issue-from-code)”。 有关创建已保存回复以对常见错误提供反馈的信息，请参阅“[关于已保存回复](/github/writing-on-github/about-saved-replies)”。
 
 ## 延伸阅读
 

@@ -1,1 +1,1 @@
-If {% data variables.product.prodname_actions %} is enabled for your enterprise, only HTTP proxies are supported. SOCK5 and HTTPS proxies and Polipo are not supported.
+Si se habilitan las {% data variables.product.prodname_actions %} para tu empresa, solo los proxies HTTP serán compatibles. Los proxies de SOCKS5 y HTTPS no son compatibles.

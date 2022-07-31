@@ -11,6 +11,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: overview
 topics:
   - Fundamentals
@@ -18,226 +19,89 @@ topics:
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## 概要
 
-{% data variables.product.prodname_actions %} は、ソフトウェア開発ライフサイクル内のタスクを自動化するのに役立ちます。 {% data variables.product.prodname_actions %} はイベント駆動型で、指定されたイベントが発生した後に一連のコマンドを実行できます。 たとえば、誰かがリポジトリのPull Requestを作成するたびに、ソフトウェアテストスクリプトを実行するコマンドを自動的に実行できます。
+{% data reusables.actions.about-actions %}  You can create workflows that build and test every pull request to your repository, or deploy merged pull requests to production.
 
-この図は、{% data variables.product.prodname_actions %} を使用してソフトウェアテストスクリプトを自動的に実行する方法を示しています。 イベントは、_ジョブ_を含む_ワークフロー_を自動的にトリガーします。 次に、ジョブは_ステップ_を使用して、_アクション_が実行される順序を制御します。 これらのアクションは、ソフトウェアテストを自動化するコマンドです。
+{% data variables.product.prodname_actions %} goes beyond just DevOps and lets you run workflows when other events happen in your repository. For example, you can run a workflow to automatically add the appropriate labels whenever someone creates a new issue in your repository.
 
-![ワークフローの概要](/assets/images/help/images/overview-actions-simple.png)
+{% ifversion fpt or ghec %}
+
+{% data variables.product.prodname_dotcom %} provides Linux, Windows, and macOS virtual machines to run your workflows, or you can host your own self-hosted runners in your own data center or cloud infrastructure.
+
+{% elsif ghes or ghae %}
+
+You must host your own Linux, Windows, or macOS virtual machines to run workflows for {% data variables.product.product_location %}. {% data reusables.actions.self-hosted-runner-locations %}
+
+{% endif %}
+
+{% ifversion ghec or ghes or ghae %}
+
+For more information about introducing {% data variables.product.prodname_actions %} to your enterprise, see "[Introducing {% data variables.product.prodname_actions %} to your enterprise](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/introducing-github-actions-to-your-enterprise)."
+
+{% endif %}
 
 ## {% data variables.product.prodname_actions %} のコンポーネント
 
-以下は、ジョブを実行するために連動する複数の {% data variables.product.prodname_actions %} コンポーネントのリストです。 これらのコンポーネントがどのように相互作用するかを確認できます。
+You can configure a {% data variables.product.prodname_actions %} _workflow_ to be triggered when an _event_ occurs in your repository, such as a pull request being opened or an issue being created.  Your workflow contains one or more _jobs_ which can run in sequential order or in parallel.  Each job will run inside its own virtual machine _runner_, or inside a container, and has one or more _steps_ that either run a script that you define or run an _action_, which is a reusable extension that can simplify your workflow.
 
-![コンポーネントとサービスの概要](/assets/images/help/images/overview-actions-design.png)
+![ワークフローの概要](/assets/images/help/images/overview-actions-simple.png)
 
 ### ワークフロー
 
-ワークフローは、リポジトリに追加する自動化された手順です。 ワークフローは 1 つ以上のジョブで構成されており、スケジュールまたはイベントによってトリガーできます。 ワークフローを使用して、{% data variables.product.prodname_dotcom %} でプロジェクトをビルド、テスト、パッケージ、リリース、またはデプロイできます。
+{% data reusables.actions.about-workflows-long %}
+
+{% ifversion fpt or ghes > 3.3 or ghae-issue-4757 or ghec %}You can reference a workflow within another workflow, see "[Reusing workflows](/actions/learn-github-actions/reusing-workflows)."{% endif %}
+
+For more information about workflows, see "[Using workflows](/actions/using-workflows)."
 
 ### イベント
 
-イベントは、ワークフローをトリガーする特定のアクティビティです。 たとえば、誰かがコミットをリポジトリにプッシュした場合、あるいはIssueもしくはプルリクエストが作成された場合、{% data variables.product.prodname_dotcom %}からアクティビティを発生させることができます。 [リポジトリディスパッチ webhook](/rest/reference/repos#create-a-repository-dispatch-event) を使用して、外部イベントが発生したときにワークフローをトリガーすることもできます。 ワークフローのトリガーに使用できるイベントの完全なリストについては、[ワークフローをトリガーするイベント](/actions/reference/events-that-trigger-workflows)を参照してください。
+An event is a specific activity in a repository that triggers a workflow run. For example, activity can originate from {% data variables.product.prodname_dotcom %} when someone creates a pull request, opens an issue, or pushes a commit to a repository.  You can also trigger a workflow run on a schedule, by [posting to a REST API](/rest/reference/repos#create-a-repository-dispatch-event), or manually.
+
+ワークフローのトリガーに使用できるイベントの完全なリストについては、[ワークフローをトリガーするイベント](/actions/reference/events-that-trigger-workflows)を参照してください。
 
 ### ジョブ
 
-ジョブは、同じランナーで実行される一連のステップです。 デフォルトでは、複数のジョブを含むワークフローは、それらのジョブを並行して実行します。 ジョブを順番に実行するようにワークフローを設定することもできます。 たとえば、ワークフローにコードのビルドとテストという2つのシーケンシャルなジョブを持たせ、テストジョブをビルドジョブのステータスに依存させることができます。 ビルドジョブが失敗した場合は、テストジョブは実行されません。
+A job is a set of _steps_ in a workflow that execute on the same runner.  Each step is either a shell script that will be executed, or an _action_ that will be run.  Steps are executed in order and are dependent on each other.  Since each step is executed on the same runner, you can share data from one step to another.  For example, you can have a step that builds your application followed by a step that tests the application that was built.
 
-### ステップ
+You can configure a job's dependencies with other jobs; by default, jobs have no dependencies and run in parallel with each other.  When a job takes a dependency on another job, it will wait for the dependent job to complete before it can run.  For example, you may have multiple build jobs for different architectures that have no dependencies, and a packaging job that is dependent on those jobs.  The build jobs will run in parallel, and when they have all completed successfully, the packaging job will run.
 
-ステップは、ジョブでコマンドを実行できる個々のタスクです。 ステップは、_アクション_またはシェルコマンドのいずれかです。 ジョブの各ステップは同じランナーで実行され、そのジョブのアクションが互いにデータを共有できるようにします。
+For more information about jobs, see "[Using jobs](/actions/using-jobs)."
 
-### アクション
+### Actions
 
-_アクション_は、_ジョブ_を作成するために_ステップ_に結合されるスタンドアロンコマンドです。 アクションは、ワークフローの最小のポータブルな構成要素です。 独自のアクションを作成することも、{% data variables.product.prodname_dotcom %} コミュニティによって作成されたアクションを使用することもできます。 ワークフローでアクションを使うには、それをステップとして含めなければなりません。
+An _action_ is a custom application for the {% data variables.product.prodname_actions %} platform that performs a complex but frequently repeated task.  Use an action to help reduce the amount of repetitive code that you write in your workflow files.  An action can pull your git repository from {% data variables.product.prodname_dotcom %}, set up the correct toolchain for your build environment, or set up the authentication to your cloud provider.
+
+You can write your own actions, or you can find actions to use in your workflows in the {% data variables.product.prodname_marketplace %}.
+
+{% data reusables.actions.internal-actions-summary %}
+
+詳細については、「[アクションを作成する](/actions/creating-actions)」を参照してください。
 
 ### ランナー
 
-{% ifversion ghae %} ランナーは、[{% data variables.product.prodname_actions %}ランナーアプリケーション](https://github.com/actions/runner)がインストールされているサーバーです。 {% data variables.product.prodname_ghe_managed %} では、クラウド内のインスタンスにバンドルされているセキュリティ強化された {% data variables.actions.hosted_runner %} を使用できます。 ランナーは、使用可能なジョブをリッスンし、一度に 1 つのジョブを実行し、進行状況、ログ、および結果を {% data variables.product.prodname_dotcom %} に返します。 {% data variables.actions.hosted_runner %} は、新しい仮想環境で各ワークフロージョブを実行します。 詳しい情報については「[{% data variables.actions.hosted_runner %}について](/actions/using-github-hosted-runners/about-ae-hosted-runners)」を参照してください。
-{% else %}
-ランナーは、[{% data variables.product.prodname_actions %}ランナーアプリケーション](https://github.com/actions/runner)がインストールされているサーバーです。 {% data variables.product.prodname_dotcom %} がホストするランナーを使用することも、自分でランナーをホストすることもできます。 ランナーは、使用可能なジョブをリッスンし、一度に 1 つのジョブを実行し、進行状況、ログ、および結果を {% data variables.product.prodname_dotcom %} に返します。 {% data variables.product.prodname_dotcom %} ホストランナーは Ubuntu Linux、Microsoft Windows、macOS に基づいており、ワークフローの各ジョブは新しい仮想環境で実行されます。  {% data variables.product.prodname_dotcom %} ホストランナーについては、[{% data variables.product.prodname_dotcom %} ホストランナーについて](/actions/using-github-hosted-runners/about-github-hosted-runners)」を参照してください。 別のオペレーティングシステムが必要な場合、または特定のハードウェア設定が必要な場合は、自分のランナーをホストできます。 セルフホストランナーの詳細については、「[自分のランナーをホストする](/actions/hosting-your-own-runners)」を参照してください。
-{% endif %}
+{% data reusables.actions.about-runners %} Each runner can run a single job at a time. {% ifversion ghes or ghae %} You must host your own runners for {% data variables.product.product_name %}. {% elsif fpt or ghec %}{% data variables.product.company_short %} provides Ubuntu Linux, Microsoft Windows, and macOS runners to run your workflows; each workflow run executes in a fresh, newly-provisioned virtual machine. If you need a different operating system or require a specific hardware configuration, you can host your own runners.{% endif %} For more information{% ifversion fpt or ghec %} about self-hosted runners{% endif %}, see "[Hosting your own runners](/actions/hosting-your-own-runners)."
 
-## サンプルワークフローを作成する
+{% data reusables.actions.workflow-basic-example-and-explanation %}
 
-{% data variables.product.prodname_actions %}は、YAML 構文を使用して、イベント、ジョブ、およびステップを定義します。 これらの YAML ファイルは、コードリポジトリの `.github/workflows` というディレクトリに保存されます。
-
-コードがプッシュされるたびに一連のコマンドを自動的にトリガーするサンプルワークフローをリポジトリに作成できます。 このワークフローでは、{% data variables.product.prodname_actions %} がプッシュされたコードをチェックアウトし、ソフトウェアの依存関係をインストールして、`bats-v` を実行します。
-
-1. リポジトリに、ワークフローファイルを保存するための `.github/workflows/` ディレクトリを作成します。
-1. `.github/workflows/` ディレクトリに、`learn-github-actions.yml` という名前の新しいファイルを作成し、次のコードを追加します。
-    ```yaml
-    name: learn-github-actions
-    on: [push]
-    jobs:
-      check-bats-version:
-        runs-on: ubuntu-latest
-        steps:
-          - uses: actions/checkout@v2
-          - uses: actions/setup-node@v2
-            with:
-              node-version: '14'
-          - run: npm install -g bats
-          - run: bats -v
-    ```
-1. これらの変更をコミットして、{% data variables.product.prodname_dotcom %} リポジトリにプッシュします。
-
-これで、新しい {% data variables.product.prodname_actions %} ワークフローファイルがリポジトリにインストールされ、別のユーザがリポジトリに変更をプッシュするたびに自動的に実行されます。 ジョブの実行履歴の詳細については、「[ワークフローのアクティビティを表示する](/actions/learn-github-actions/introduction-to-github-actions#viewing-the-jobs-activity)」を参照してください。
-
-## ワークフローファイルを理解する
-
-YAML 構文を使用してワークフローファイルを作成する方法を理解しやすくするために、このセクションでは、導入例の各行について説明します。
-
-<table>
-<tr>
-<td>
-
-  ```yaml
-  name: learn-github-actions
-  ```
-</td>
-<td>
-  <em>オプション</em> - {% data variables.product.prodname_dotcom %} リポジトリの [Actions] タブに表示されるワークフローの名前。
-</td>
-</tr>
-<tr>
-<td>
-
-  ```yaml
-  on: [push]
-  ```
-</td>
-<td>
-  ワークフローファイルを自動的にトリガーするイベントを指定します。 この例では <code>push</code> イベントを使用しているため、別のユーザが変更をリポジトリにプッシュするたびにジョブが実行されます。 特定のブランチ、パス、またはタグでのみ実行するようにワークフローを設定できます。 ブランチ、パス、またはタグを含むまたは除外する構文の例については、「<a href="https://docs.github.com/actions/reference/workflow-syntax-for-github-actions#onpushpull_requestpaths">{% data variables.product.prodname_actions %} のワークフロー構文</a>」を参照してください。
-</td>
-</tr>
-<tr>
-<td>
-
-  ```yaml
-  jobs:
-  ```
-</td>
-<td>
- <code>learn-github-actions</code> ワークフローファイルで実行されるすべてのジョブをグループ化します。
-</td>
-</tr>
-<tr>
-<td>
-
-  ```yaml
-  check-bats-version:
-  ```
-</td>
-<td>
-  <code>jobs</code> セクション内に保存されている <code>check-bats-version</code> ジョブの名前を定義します。
-</td>
-</tr>
-<tr>
-<td>
-
-  ```yaml
-    runs-on: ubuntu-latest
-  ```
-</td>
-<td>
-  Ubuntu Linux ランナーで実行するようにジョブを設定します。 これは、ジョブが GitHub によってホストされている新しい仮想マシンで実行されるということです。 他のランナーを使用した構文例については、「<a href="https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idruns-on">{% data variables.product.prodname_actions %} のワークフロー構文</a>」を参照してください。
-</td>
-</tr>
-<tr>
-<td>
-
-  ```yaml
-    steps:
-  ```
-</td>
-<td>
-  <code>check-bats-version</code> ジョブで実行されるすべてのステップをグループ化します。 このセクションの下にネストされている各アイテム、個別のアクションもしくはシェルコマンドです。
-</td>
-</tr>
-<tr>
-<td>
-
-  ```yaml
-      - uses: actions/checkout@v2
-  ```
-</td>
-<td>
-  <code>uses</code> キーワードは、<code>actions/checkout@v2</code> という名前のコミュニティアクションの <code>v2</code> を取得するようにジョブに指示します。 これは、リポジトリをチェックアウトしてランナーにダウンロードし、コードに対してアクション（テストツールなど）を実行できるようにします。 ワークフローがリポジトリのコードに対して実行されるとき、またはリポジトリで定義されたアクションを使用しているときはいつでも、チェックアウトアクションを使用する必要があります。
-</td>
-</tr>
-<tr>
-<td>
-
-  ```yaml
-      - uses: actions/setup-node@v2
-        with:
-          node-version: '14'
-  ```
-</td>
-<td>
-  This step uses the <code>actions/setup-node@v2</code> action to install the specified version of the <code>node</code> software package on the runner, which gives you access to the <code>npm</code> command.
-</td>
-</tr>
-<tr>
-<td>
-
-  ```yaml
-      - run: npm install -g bats
-  ```
-</td>
-<td>
-  <code>run</code> キーワードは、ランナーでコマンドを実行するようにジョブに指示します。 この場合、<code>npm</code> を使用して <code>bats</code> ソフトウェアテストパッケージをインストールしています。
-</td>
-</tr>
-<tr>
-<td>
-
-  ```yaml
-      - run: bats -v
-  ```
-</td>
-<td>
-  最後に、ソフトウェアバージョンを出力するパラメータを指定して <code>bats</code> コマンドを実行します。
-</td>
-</tr>
-</table>
-
-### ワークフローファイルの視覚化
-
-この図では、作成したワークフローファイルと、{% data variables.product.prodname_actions %} コンポーネントが階層にどのように整理されているかを確認できます。 各ステップは、単一のアクションまたはシェルコマンドを実行します。 ステップ 1 と 2 は、ビルド済みのコミュニティアクションを使用します。 ステップ 3 と 4 では、ランナーで直接シェルコマンドを実行します。 ワークフローのビルド済みアクションの詳細については、「[アクションの検索とカスタマイズ](/actions/learn-github-actions/finding-and-customizing-actions)」を参照してください。
-
-![ワークフローの概要](/assets/images/help/images/overview-actions-event.png)
-
-
-## ジョブのアクティビティを表示する
-
-ジョブの実行が開始されると、{% ifversion fpt or ghes > 3.0 or ghae %}実行の進行状況{% endif %}の視覚化グラフが表示され、{% data variables.product.prodname_dotcom %} での各ステップのアクティビティが表示されます。
-
-{% data reusables.repositories.navigate-to-repo %}
-1. リポジトリ名の下で**Actions（アクション）**をクリックしてください。 ![リポジトリに移動](/assets/images/help/images/learn-github-actions-repository.png)
-1. 左サイドバーで、表示するワークフローをクリックします。 ![ワークフロー結果のスクリーンショット](/assets/images/help/images/learn-github-actions-workflow.png)
-1. [Workflow runs] で、表示する実行の名前をクリックします。 ![ワークフロー実行のスクリーンショット](/assets/images/help/images/learn-github-actions-run.png)
-{% ifversion fpt or ghes > 3.0 or ghae %}
-1. [**Jobs**] または視覚化グラフで、表示するジョブをクリックします。 ![ジョブを選択](/assets/images/help/images/overview-actions-result-navigate.png)
-{% endif %}
-{% ifversion fpt or ghes > 3.0 or ghae %}
-1. 各ステップの結果を表示します。 ![ワークフロー実行の詳細のスクリーンショット](/assets/images/help/images/overview-actions-result-updated-2.png)
-{% elsif ghes > 2.22 %}
-1. ジョブ名をクリックして、各ステップの結果を確認します。 ![ワークフロー実行の詳細のスクリーンショット](/assets/images/help/images/overview-actions-result-updated.png)
-{% else %}
-1. ジョブ名をクリックして、各ステップの結果を確認します。 ![ワークフロー実行の詳細のスクリーンショット](/assets/images/help/images/overview-actions-result.png)
-{% endif %}
+## More complex examples
+{% data reusables.actions.link-to-example-library %}
 
 ## 次のステップ
 
-{% data variables.product.prodname_actions %} について詳しくは、「[アクションの検索とカスタマイズ](/actions/learn-github-actions/finding-and-customizing-actions)」を参照してください。
-
-To understand how billing works for {% data variables.product.prodname_actions %}, see "[About billing for {% data variables.product.prodname_actions %}](/actions/reference/usage-limits-billing-and-administration#about-billing-for-github-actions)".
+- {% data variables.product.prodname_actions %} について詳しくは、「[アクションの検索とカスタマイズ](/actions/learn-github-actions/finding-and-customizing-actions)」を参照してください。
+{% ifversion fpt or ghec or ghes %}
+- To understand how billing works for {% data variables.product.prodname_actions %}, see "[About billing for {% data variables.product.prodname_actions %}](/actions/reference/usage-limits-billing-and-administration#about-billing-for-github-actions)".
+{% endif %}
 
 ## サポートへの連絡
 
-{% data reusables.github-actions.contacting-support %}
+{% data reusables.actions.contacting-support %}
+
+{% ifversion ghec or ghes or ghae %}
+## 参考リンク
+
+- "[About {% data variables.product.prodname_actions %} for enterprises](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/about-github-actions-for-enterprises)"
+{% endif %}

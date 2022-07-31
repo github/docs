@@ -1,13 +1,13 @@
 ---
 title: 添加标签时评论议题
 intro: '您可以使用 {% data variables.product.prodname_actions %} 在应用特定标签时自动评论议题。'
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /actions/guides/commenting-on-an-issue-when-a-label-is-added
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: tutorial
 topics:
   - Workflows
@@ -17,8 +17,6 @@ shortTitle: 添加标签以评论议题
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
-{% data reusables.actions.ae-self-hosted-runners-notice %}
 
 ## 简介
 
@@ -35,6 +33,8 @@ shortTitle: 添加标签以评论议题
     ```yaml{:copy}
 {% indented_data_reference reusables.actions.actions-not-certified-by-github-comment spaces=4 %}
 
+{% indented_data_reference reusables.actions.actions-use-sha-pinning-comment spaces=4 %}
+
     name: Add comment
     on:
       issues:
@@ -43,9 +43,9 @@ shortTitle: 添加标签以评论议题
     jobs:
       add-comment:
         if: github.event.label.name == 'help-wanted'
-        runs-on: ubuntu-latest{% ifversion fpt or ghes > 3.1 or ghae-next %}
+        runs-on: ubuntu-latest
         permissions:
-          issues: write{% endif %}
+          issues: write
         steps:
           - name: Add comment
             uses: peter-evans/create-or-update-comment@a35cf36e5301d70b76f316e867e7788a55a31dae

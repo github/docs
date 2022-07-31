@@ -7,6 +7,7 @@ redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-sponsors/downgrading-a-sponsorship
 versions:
   fpt: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Cancellation
@@ -30,8 +31,8 @@ Cuando bajas de categoría o cancelas un patrocinio, el cambio entra en vigencia
 
 ## Cancelar un patrocinio
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.billing_plans %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.billing_plans %}
 {% data reusables.sponsors.billing-switcher %}
 3. Debajo de "{% data variables.product.prodname_sponsors %}", a la derecha del contribuyente de código abierto, da clic en {% octicon "triangle-down" aria-label="The down triangle octicon" %} a un costado de tu cantidad patrocinada. Posteriormente, da clic en **Cancelar patrocinio**. ![Botón Cancelar patrocinio](/assets/images/help/billing/edit-sponsor-billing.png)
 4. Revisa la información acerca de la cancelación de tu patrocinio y luego haz clic en **Aceptar**. ![Casilla de confirmación de cancelación](/assets/images/help/billing/confirm-sponsorship-cancellation.png)

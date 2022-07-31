@@ -1,13 +1,13 @@
 ---
 title: プロジェクトボードで割り当てられた Issue を移動する
 intro: '{% data variables.product.prodname_actions %} を使用して、Issue が割り当てられたときに、プロジェクトボードの特定の列に Issue を自動的に移動できます。'
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /actions/guides/moving-assigned-issues-on-project-boards
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: tutorial
 topics:
   - Workflows
@@ -17,8 +17,6 @@ shortTitle: Move assigned issues
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
-{% data reusables.actions.ae-self-hosted-runners-notice %}
 
 ## はじめに
 
@@ -35,6 +33,8 @@ shortTitle: Move assigned issues
 
     ```yaml{:copy}
 {% indented_data_reference reusables.actions.actions-not-certified-by-github-comment spaces=4 %}
+
+{% indented_data_reference reusables.actions.actions-use-sha-pinning-comment spaces=4 %}
 
     name: Move assigned card
     on:
@@ -65,7 +65,7 @@ shortTitle: Move assigned issues
 
 リポジトリで Issue が割り当てられるたびに、その Issue は指定されたプロジェクトボード列に移動されます。 Issue がまだプロジェクトボードにない場合は、プロジェクトボードに追加されます。
 
-リポジトリがユーザ所有の場合、`alex-page/github-project-automation-plus` アクションは、指定されたプロジェクト名と列を持つリポジトリまたはユーザアカウント内のすべてのプロジェクトに対して動作します。 同様に、リポジトリが Organization 所有の場合、アクションは、指定されたプロジェクト名と列を持つリポジトリまたは Organization 内のすべてのプロジェクトに対して動作します。
+If your repository is user-owned, the `alex-page/github-project-automation-plus` action will act on all projects in your repository or personal account that have the specified project name and column. 同様に、リポジトリが Organization 所有の場合、アクションは、指定されたプロジェクト名と列を持つリポジトリまたは Organization 内のすべてのプロジェクトに対して動作します。
 
 リポジトリに Issue を割り当てて、ワークフローをテストします。
 

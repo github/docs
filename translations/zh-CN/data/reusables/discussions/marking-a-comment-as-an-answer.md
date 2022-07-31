@@ -6,7 +6,7 @@
 
 您不能将评论回复标记为讨论的答案。 您也不能将最小化的评论标记为讨论的答案。
 
-{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.discussions.navigate-to-repo-or-org %}
 {% data reusables.discussions.discussions-tab %}
 1. 在讨论列表中，单击要标记为已回答的未回答讨论。 ![未回答的讨论](/assets/images/help/discussions/unanswered-discussion.png)
 1. 在讨论中，找到要标记为答案的评论。

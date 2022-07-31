@@ -10,10 +10,11 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 shortTitle: Configura tu nombre de usuario
 ---
 
-## About Git usernames
+## Acerca de los nombres de usuario de Git
 Puedes cambiar el nombre que está asociado con tus confirmaciones de Git utilizando el comando `git config`. El nuevo nombre que configures será visible en cualquier confirmación futura que subas a {% data variables.product.product_name %} desde la línea de comando. Si deseas mantener tu nombre real privado, puedes utilizar cualquier texto como nombre de usuario de Git.
 
 Cambiar el nombre asociado con tus confirmaciones de Git utilizando `git config` afectará únicamente a las confirmaciones futuras y no cambiará el nombre utilizado para las confirmaciones anteriores.
@@ -22,12 +23,12 @@ Cambiar el nombre asociado con tus confirmaciones de Git utilizando `git config`
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
 
-2. {% data reusables.user_settings.set_your_git_username %}
+2. {% data reusables.user-settings.set_your_git_username %}
    ```shell
    $ git config --global user.name "<em>Mona Lisa</em>"
    ```
 
-3. {% data reusables.user_settings.confirm_git_username_correct %}
+3. {% data reusables.user-settings.confirm_git_username_correct %}
    ```shell
    $ git config --global user.name
    > Mona Lisa
@@ -39,12 +40,12 @@ Cambiar el nombre asociado con tus confirmaciones de Git utilizando `git config`
 
 2. Cambia el directorio de trabajo actual al repositorio local donde deseas configurar el nombre que está asociado con tus confirmaciones de Git.
 
-3. {% data reusables.user_settings.set_your_git_username %}
+3. {% data reusables.user-settings.set_your_git_username %}
    ```shell
    $ git config user.name "<em>Mona Lisa</em>"
    ```
 
-3. {% data reusables.user_settings.confirm_git_username_correct %}
+3. {% data reusables.user-settings.confirm_git_username_correct %}
    ```shell
    $ git config user.name
    > Mona Lisa

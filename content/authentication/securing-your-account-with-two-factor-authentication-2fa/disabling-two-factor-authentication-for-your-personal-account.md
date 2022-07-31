@@ -8,6 +8,7 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
+  ghec: '*'
 topics:
   - 2FA
 shortTitle: Disable 2FA
@@ -16,7 +17,7 @@ We strongly recommend using two-factor authentication to secure your account. If
 
 {% warning %}
 
-**Warning:** If you're a member{% ifversion fpt %}, billing manager,{% endif %} or outside collaborator to a public repository of an organization that requires two-factor authentication and you disable 2FA, you'll be automatically removed from the organization, and you'll lose your access to their repositories. To regain access to the organization, re-enable two-factor authentication and contact an organization owner.
+**Warning:** If you're a member{% ifversion fpt or ghec %}, billing manager,{% endif %} or outside collaborator to a public repository of an organization that requires two-factor authentication and you disable 2FA, you'll be automatically removed from the organization, and you'll lose your access to their repositories. To regain access to the organization, re-enable two-factor authentication and contact an organization owner.
 
 {% endwarning %}
 
@@ -26,8 +27,8 @@ To remove yourself from your organization:
  - As an organization member or owner, see "[Removing yourself from an organization](/articles/removing-yourself-from-an-organization/)."
  - As an outside collaborator, ask an organization owner or repository administrator to remove you from the organization's repositories. For more information, see "[Viewing people's roles in an organization](/articles/viewing-people-s-roles-in-an-organization)" and "[Removing an outside collaborator from an organization repository](/articles/removing-an-outside-collaborator-from-an-organization-repository/)."
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.security %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.security %}
 3. Click **Disable**.
   ![Disable two-factor authentication button](/assets/images/help/2fa/disable-two-factor-authentication.png)
 

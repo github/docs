@@ -3,6 +3,7 @@ title: Guía rápida para encontrar contribuyentes para patrocinar
 intro: Aprende algunas de las mejores prácticas para encontrar contribuyentes de código abierto para patrocinar.
 versions:
   fpt: '*'
+  ghec: '*'
 type: quick_start
 topics:
   - Open Source
@@ -45,7 +46,7 @@ Puedes verificar si los contribuyentes de los que te has beneficiado tienen perf
 
 ## Busca un proyecto o contribuyente específico
 
-En https://github.com/sponsors/community, puedes buscar por ecosistema, los más utilizados, actualizados recientemente, y más. Puedes filtrar los resultados de búsqueda para tu cuenta de usuario personal o para las organizaciones de las cuales eres miembro.
+En https://github.com/sponsors/community, puedes buscar por ecosistema, los más utilizados, actualizados recientemente, y más. Puedes filtrar los resultados de búsqueda para tu cuenta personal o para las organizaciones de las cuales eres miembro.
 
 ## Pasos siguientes
 

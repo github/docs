@@ -1,6 +1,6 @@
 ---
-title: About large files on GitHub
-intro: '{% data variables.product.product_name %} limits the size of files you can track in regular Git repositories. Learn how to track or remove files that are beyond the limit.'
+title: Acerca de los archivos grandes en GitHub
+intro: '{% data variables.product.product_name %} limita el tamaño de los archivos que puedes rastrear en los repositorios regulares de Git. Aprende cómo rastrear o eliminar archivos que sobrepasan el límite.'
 redirect_from:
   - /articles/distributing-large-binaries
   - /github/managing-large-files/distributing-large-binaries
@@ -12,7 +12,7 @@ redirect_from:
   - /articles/conditions-for-large-files
   - /github/managing-large-files/conditions-for-large-files
   - /github/managing-large-files/working-with-large-files/conditions-for-large-files
-  - /articles/what-is-the-size-limit-for-a-repository/
+  - /articles/what-is-the-size-limit-for-a-repository
   - /articles/what-is-my-disk-quota
   - /github/managing-large-files/what-is-my-disk-quota
   - /github/managing-large-files/working-with-large-files/what-is-my-disk-quota
@@ -20,18 +20,19 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
-shortTitle: Large files
+  ghec: '*'
+shortTitle: Archivos grandes
 ---
 
-## About size limits on {% data variables.product.product_name %}
+## Acerca de los límites de tamaño en {% data variables.product.product_name %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 {% data variables.product.product_name %} intenta proporcionar almacenamiento abundante para todos los repositorios de Git, aunque existen límites físicos para los tamaños de los archivos y repositorios. Para garantizar el rendimiento y la legibilidad para nuestros usuarios, monitoreamos activamente las señales de la salud general de los repositorios. La salud de los repositorios es una función de varios factores de interacción, incluyendo el tamaño, frecuencia de confirmaciones y estructura.
 
-### File size limits
+### Límites de tamaño de archivos
 {% endif %}
 
-{% data variables.product.product_name %} limits the size of files allowed in repositories. Recibirás una advertencia de Git si intentas añadir o actualizar un archivo mayor a {% data variables.large_files.warning_size %}. Los cambios aún se subirán a tu repositorio, pero puedes considerar eliminar la confirmación para minimizar el impacto en el rendimiento. Para obtener información, consulta [Eliminar archivos del historial de un repositorio](#removing-files-from-a-repositorys-history)"
+{% data variables.product.product_name %} limita el tamaño de los archivos permitidos en los repositorios. Recibirás una advertencia de Git si intentas añadir o actualizar un archivo mayor a {% data variables.large_files.warning_size %}. Los cambios aún se subirán a tu repositorio, pero puedes considerar eliminar la confirmación para minimizar el impacto en el rendimiento. Para obtener información, consulta [Eliminar archivos del historial de un repositorio](#removing-files-from-a-repositorys-history)"
 
 {% note %}
 
@@ -39,16 +40,16 @@ shortTitle: Large files
 
 {% endnote %}
 
-{% ifversion ghes %}Predeterminadamente, {% endif %}{% data variables.product.product_name %} bloquea las subidas que excedan {% data variables.large_files.max_github_size %}. {% ifversion ghes %}Sin embargo, un administrador de sitio puede configurar un límite diferente para {% data variables.product.product_location %}.  For more information, see "[Setting Git push limits](/enterprise/{{ currentVersion }}/admin/guides/installation/setting-git-push-limits)."{% endif %}
+{% ifversion ghes %}Predeterminadamente, {% endif %}{% data variables.product.product_name %} bloquea las subidas que excedan {% data variables.large_files.max_github_size %}. {% ifversion ghes %}Sin embargo, un administrador de sitio puede configurar un límite diferente para {% data variables.product.product_location %}.  Para obtener más información, consulta la sección "[Configurar los límites de subida de Git](/enterprise/admin/guides/installation/setting-git-push-limits)".{% endif %}
 
-To track files beyond this limit, you must use {% data variables.large_files.product_name_long %} ({% data variables.large_files.product_name_short %}). Para obtener más información, consulta la sección "[Acerca de {% data variables.large_files.product_name_long %}](/repositories/working-with-files/managing-large-files/about-git-large-file-storage)".
+Para rastrear archivos que sobrepasen este límite, debes utilizar {% data variables.large_files.product_name_long %} ({% data variables.large_files.product_name_short %}). Para obtener más información, consulta la sección "[Acerca de {% data variables.large_files.product_name_long %}](/repositories/working-with-files/managing-large-files/about-git-large-file-storage)".
 
-If you need to distribute large files within your repository, you can create releases on {% data variables.product.product_location %} instead of tracking the files. Para obtener más información, consulta la sección "[Distribuir archivos binarios grandes](#distributing-large-binaries)".
+Si necesitas distribuir archivos grandes dentro de tu repositorio, puedes crear lanzamientos en {% data variables.product.product_location %} en vez de rastrear los archivos. Para obtener más información, consulta la sección "[Distribuir archivos binarios grandes](#distributing-large-binaries)".
 
-Git is not designed to handle large SQL files. Para compartir bases de datos grandes con otros desarrolladores, te recomendamos utilizar [Dropbox](https://www.dropbox.com/).
+Git no se diseñó para manejar archivos grandes de SQL. Para compartir bases de datos grandes con otros desarrolladores, te recomendamos utilizar [Dropbox](https://www.dropbox.com/).
 
-{% ifversion fpt %}
-### Repository size limits
+{% ifversion fpt or ghec %}
+### Límites de tamaño de repositorio
 
 Te recomendamos que los repositorios sean siempre pequeños, idealmente, de menos de 1 GB, y se recomienda ampliamente que sean de menos de 5GB. Los repositorios más pequeños se clonan más rápido y se puede mantenerlos mejor y trabajar en ellos más fácilmente. Si tu repositorio impacta excesivamente nuestra infraestructura, puede que recibas un mensaje de correo electrónico de {% data variables.contact.github_support %}, el cual te solicitará que tomes acciones correctivas. Intentamos ser flexibles, especialmente con proyectos grandes que tienen muchos colaboradores, y trabajaremos junto contigo para encontrar una resolución cada que sea posible. Puedes prevenir que tu repositorio impacte nuestra infraestructura si administras el tamaño de tu repositorio y su salud general con eficacia. Puedes encontrar consejos y una herramienta para análisis de repositorios en el repositorio [`github/git-sizer`](https://github.com/github/git-sizer).
 
@@ -97,7 +98,7 @@ Si añadiste un archivo en una confirmación previa, necesitas eliminarlo del hi
 
 Si necesitas distribuir archivos grandes dentro de tu repositorio, puedes crear lanzamientos en {% data variables.product.product_location %}. Los lanzamientos te permiten empaquetar el software, notas de lanzamiento y enlaces a los archivos binarios para que otras personas puedan utilizarlos. Para obtener más información, consulta la sección "[Acerca de los lanzamientos](/github/administering-a-repository/about-releases)".
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 No limitamos el tamaño total de los archivos binarios en los lanzamientos o anchos de banda que se utilizan para entregarlos. Sin embargo, cada archivo individual debe ser menor a {% data variables.large_files.max_lfs_size %}.
 

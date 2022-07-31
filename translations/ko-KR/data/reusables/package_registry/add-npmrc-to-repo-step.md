@@ -1,1 +1,0 @@
-3. Add the *.npmrc* file to the repository where {% data variables.product.prodname_registry %} can find your project. For more information, see "[Adding a file to a repository](/repositories/working-with-files/managing-files/adding-a-file-to-a-repository)."

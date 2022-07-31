@@ -1,8 +1,8 @@
 import { difference } from 'lodash-es'
-import { getJSON } from '../helpers/supertest.js'
+import { getJSON } from '../helpers/e2etest.js'
 import { latest } from '../../lib/enterprise-server-releases.js'
 import { allVersions } from '../../lib/all-versions.js'
-import webhookPayloads from '../../lib/webhooks'
+import getWebhookPayloads from '../../lib/webhooks'
 import { jest } from '@jest/globals'
 
 const allVersionValues = Object.values(allVersions)
@@ -25,16 +25,25 @@ const ghaePayloadVersion = allVersionValues.find(
 describe('webhook payloads', () => {
   jest.setTimeout(3 * 60 * 1000)
 
+  const webhookPayloads = getWebhookPayloads()
+
   test('have expected top-level keys', () => {
     payloadVersions.forEach((version) => {
-      expect(version in webhookPayloads).toBe(true)
+      // todo: remove if check once we have API/webhook versions for ghec
+      // Docs Engineering issue: 979
+      if (version !== 'ghec') {
+        expect(version in webhookPayloads).toBe(true)
+      }
     })
   })
 
   test('have a reasonable number of payloads per version', () => {
     payloadVersions.forEach((version) => {
-      const payloadsPerVersion = Object.keys(webhookPayloads[version])
-      expect(payloadsPerVersion.length).toBeGreaterThan(20)
+      // todo: remove if check once we have API/webhook versions for ghec
+      if (version !== 'ghec') {
+        const payloadsPerVersion = Object.keys(webhookPayloads[version])
+        expect(payloadsPerVersion.length).toBeGreaterThan(20)
+      }
     })
   })
 
@@ -46,7 +55,8 @@ describe('webhook payloads', () => {
     const payloadLines = payloadString.split('\n')
 
     expect(payloadLines.length).toBeGreaterThan(5)
-    expect(payloadLines[2].trim()).toBe('```json')
+    expect(payloadLines[0].includes('data-highlight="json"')).toBe(true)
+    expect(payloadLines[2].trim()).toBe('```')
     expect(payloadLines[3].trim()).toBe('{')
     expect(payloadLines[payloadLines.length - 3].trim()).toBe('```')
   })
@@ -75,8 +85,8 @@ describe('webhook payloads', () => {
 
     const ghesPayloadString = getPayloadString(ghesPayloadsWithFallbacks[dotcomOnlyPayload])
     const ghaePayloadString = getPayloadString(ghaePayloadsWithFallbacks[dotcomOnlyPayload])
-    expect(ghesPayloadString.includes('```json')).toBe(true)
-    expect(ghaePayloadString.includes('```json')).toBe(true)
+    expect(ghesPayloadString.includes('data-highlight="json"')).toBe(true)
+    expect(ghaePayloadString.includes('data-highlight="json"')).toBe(true)
   })
 })
 

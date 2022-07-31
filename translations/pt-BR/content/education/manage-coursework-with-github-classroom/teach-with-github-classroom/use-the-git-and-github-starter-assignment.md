@@ -3,16 +3,11 @@ title: Use a atividade do Git e GitHub starter
 intro: 'Você pode usar a atividade inicial do Git & {% data variables.product.company_short %} para dar aos alunos uma visão geral do Git e dos princípios básicos do {% data variables.product.company_short %}.'
 versions:
   fpt: '*'
+permissions: 'Organization owners who are admins for a classroom can use Git & {% data variables.product.company_short %} starter assignments. {% data reusables.classroom.classroom-admins-link %}'
 redirect_from:
   - /education/manage-coursework-with-github-classroom/use-the-git-and-github-starter-assignment
 shortTitle: Atribuição inicial
 ---
-
-{% note %}
-
-**Observação:** A atividade inicial do Git & {% data variables.product.company_short %} está em fase beta e sujeita a alterações.
-
-{% endnote %}
 
 A atividade inicial do Git & {% data variables.product.company_short %} é um curso pré-fabricado que resume os conceitos básicos do Git e {% data variables.product.company_short %} e vincula os alunos a recursos para aprender mais sobre tópicos específicos.
 
@@ -46,11 +41,18 @@ A atividade inicial do Git & {% data variables.product.company_short %} é um cu
 
 Importe o curso introdutório para a sua organização, nomeie sua atividade, decida se deseja atribuir um prazo e escolha a visibilidade dos repositórios de tarefas.
 
-- [Importando a tarefa](#importing-the-assignment)
-- [Nomear uma atividade](#naming-an-assignment)
-- [Atribuir um prazo para uma atividade](#assigning-a-deadline-for-an-assignment)
-- [Escolher um tipo de atividade](#choosing-an-assignment-type)
-- [Escolher uma visibilidade para repositórios de atividades](#choosing-a-visibility-for-assignment-repositories)
+- [Pré-requisitos](#prerequisites)
+- [Criando a atividade inicial](#creating-the-starter-assignment)
+  - [Se não houver recomendações na sala de aula](#if-there-are-no-existing-assignments-in-the-classroom)
+  - [Se já existirem recomendações na sala de aula](#if-there-already-are-existing-assignments-in-the-classroom)
+- [Configurar os fundamentos para uma atividade](#setting-up-the-basics-for-an-assignment)
+  - [Importando a tarefa](#importing-the-assignment)
+  - [Nomeando a atividade](#naming-the-assignment)
+  - [Atribuir um prazo para uma atividade](#assigning-a-deadline-for-an-assignment)
+  - [Escolher uma visibilidade para repositórios de atividades](#choosing-a-visibility-for-assignment-repositories)
+- [Convidar alunos para uma atividade](#inviting-students-to-an-assignment)
+- [Próximas etapas](#next-steps)
+- [Leia mais](#further-reading)
 
 ### Importando a tarefa
 
@@ -94,7 +96,7 @@ A atividade inicial do Git & {% data variables.product.company_short %} só est�
 
 ## Próximas etapas
 
-- Faça recomendações adicionais personalizadas para seu curso. Para obter mais informações, consulte "[Criar uma atividade individual](/education/manage-coursework-with-github-classroom/create-an-individual-assignment)" e "[Criar uma atividade em grupo](/education/manage-coursework-with-github-classroom/create-a-group-assignment)".
+- Faça recomendações adicionais personalizadas para seu curso. Para obter mais informações, consulte "[Criar uma atividade individual](/education/manage-coursework-with-github-classroom/create-an-individual-assignment), "[Criar uma atividade em grupo](/education/manage-coursework-with-github-classroom/create-a-group-assignment)e "[Reutilizar uma atividade](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/reuse-an-assignment)".
 
 ## Leia mais
 

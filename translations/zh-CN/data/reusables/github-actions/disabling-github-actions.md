@@ -1,1 +1,0 @@
-默认情况下，{% ifversion ghes or ghae %}{% data variables.product.prodname_actions %} 在 {% data variables.product.product_location %} 上启用后，它{% elsif fpt %}{% data variables.product.prodname_actions %}{% endif %} 将在所有仓库和组织上启用。 您可以选择禁用 {% data variables.product.prodname_actions %} 或将其限制为私有操作，这意味着人们只能使用仓库中存在的操作。

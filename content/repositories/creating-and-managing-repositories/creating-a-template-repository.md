@@ -1,6 +1,6 @@
 ---
 title: Creating a template repository
-intro: 'You can make an existing repository a template, so you and others can generate new repositories with the same directory structure{% ifversion fpt or ghae or ghes %}, branches,{% endif %} and files.'
+intro: 'You can make an existing repository a template, so you and others can generate new repositories with the same directory structure, branches, and files.'
 permissions: Anyone with admin permissions to a repository can make the repository a template.
 redirect_from:
   - /articles/creating-a-template-repository
@@ -10,6 +10,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Repositories
 shortTitle: Create a template repo
@@ -22,7 +23,7 @@ shortTitle: Create a template repo
 
 To create a template repository, you must create a repository, then make the repository a template. For more information about creating a repository, see "[Creating a new repository](/articles/creating-a-new-repository)."
 
-After you make your repository a template, anyone with access to the repository can generate a new repository with the same directory structure and files as your default branch.{% ifversion fpt or ghae or ghes %} They can also choose to include all the other branches in your repository. Branches created from a template have unrelated histories, so you cannot create pull requests or merge between the branches.{% endif %} For more information, see "[Creating a repository from a template](/articles/creating-a-repository-from-a-template)."
+After you make your repository a template, anyone with access to the repository can generate a new repository with the same directory structure and files as your default branch. They can also choose to include all the other branches in your repository. Branches created from a template have unrelated histories, so you cannot create pull requests or merge between the branches. For more information, see "[Creating a repository from a template](/articles/creating-a-repository-from-a-template)."
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}

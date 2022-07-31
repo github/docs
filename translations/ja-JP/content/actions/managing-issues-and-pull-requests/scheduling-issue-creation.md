@@ -1,13 +1,13 @@
 ---
 title: Issue の作成をスケジュールする
 intro: '{% data variables.product.prodname_actions %} を使用して、毎日の会議や四半期ごとのレビューなどの Issue を定期的に作成できます。'
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /actions/guides/scheduling-issue-creation
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: tutorial
 topics:
   - Workflows
@@ -16,8 +16,6 @@ topics:
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
-{% data reusables.actions.ae-self-hosted-runners-notice %}
 
 ## はじめに
 
@@ -34,6 +32,8 @@ topics:
     ```yaml{:copy}
 {% indented_data_reference reusables.actions.actions-not-certified-by-github-comment spaces=4 %}
 
+{% indented_data_reference reusables.actions.actions-use-sha-pinning-comment spaces=4 %}
+
     name: Weekly Team Sync
     on:
       schedule:
@@ -42,9 +42,9 @@ topics:
     jobs:
       create_issue:
         name: Create team sync issue
-        runs-on: ubuntu-latest{% ifversion fpt or ghes > 3.1 or ghae-next %}
+        runs-on: ubuntu-latest
         permissions:
-          issues: write{% endif %}
+          issues: write
         steps:
           - name: Create team sync issue
             uses: imjohnbo/issue-bot@3daae12aa54d38685d7ff8459fc8a2aee8cea98b

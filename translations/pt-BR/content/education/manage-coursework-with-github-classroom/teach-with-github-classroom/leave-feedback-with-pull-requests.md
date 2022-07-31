@@ -26,7 +26,7 @@ Para criar e acessar o pull request de feedback, você deve habilitar o pull req
 1. Na lista de salas de aula, clique na sala de aula com a atividade que você deseja revisar. ![Sala de aula na lista de salas de aula de uma organização](/assets/images/help/classroom/click-classroom-in-list.png)
 {% data reusables.classroom.click-assignment-in-list %}
 1. À direita do envio, clique em **Revisar**. ![Botão de revisão para a atividade na lista de envios para uma atividade](/assets/images/help/classroom/assignments-click-review-button.png)
-1. Revise o pull request. Para obter mais informações, consulte "[Comentando em uma pull request](/github/collaborating-with-issues-and-pull-requests/commenting-on-a-pull-request)."
+1. Revise o pull request. Para obter mais informações, consulte "[Comentando em uma pull request](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/commenting-on-a-pull-request)."
 
 ## Leia mais
 

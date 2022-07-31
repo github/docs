@@ -1,13 +1,13 @@
 ---
 title: Rubyでのビルドとテスト
 intro: Rubyプロジェクトのビルドとテストのための継続的インテグレーション（CI）ワークフローを作成できます。
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /actions/guides/building-and-testing-ruby
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: tutorial
 topics:
   - CI
@@ -17,7 +17,6 @@ shortTitle: Build & test Ruby
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## はじめに
 
@@ -30,14 +29,16 @@ Ruby、YAML、ワークフローの設定オプションと、ワークフロー
 - [{% data variables.product.prodname_actions %}を学ぶ](/actions/learn-github-actions)
 - [20分のRuby](https://www.ruby-lang.org/en/documentation/quickstart/)
 
-## Rubyワークフローテンプレートを使い始める
+## Using the Ruby starter workflow
 
-{% data variables.product.prodname_dotcom %}は、ほとんどのRubyプロジェクトで使えるRubyのワークフローテンプレートを提供しています。 詳しい情報については[Rubyワークフローテンプレート](https://github.com/actions/starter-workflows/blob/master/ci/ruby.yml)を参照してください。
+{% data variables.product.prodname_dotcom %} provides a Ruby starter workflow that will work for most Ruby projects. For more information, see the [Ruby starter workflow](https://github.com/actions/starter-workflows/blob/master/ci/ruby.yml).
 
-手早く始めるために、テンプレートをリポジトリの`.github/workflows`ディレクトリに追加してください。 以下に示すワークフローは、リポジトリのデフォルトブランチが `main` であることを前提としています。
+To get started quickly, add the starter workflow to the `.github/workflows` directory of your repository. 以下に示すワークフローは、リポジトリのデフォルトブランチが `main` であることを前提としています。
 
 ```yaml
 {% data reusables.actions.actions-not-certified-by-github-comment %}
+
+{% data reusables.actions.actions-use-sha-pinning-comment %}
 
 name: Ruby
 
@@ -53,11 +54,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: {% data reusables.actions.action-checkout %}
       - name: Set up Ruby
-        uses: ruby/setup-ruby@477b21f02be01bcb8030d50f37cfec92bfa615b6
+        uses: ruby/setup-ruby@359bebbc29cbe6c87da6bc9ea3bc930432750108
         with:
-          ruby-version: 2.6
+          ruby-version: '3.1'
       - name: Install dependencies
         run: bundle install
       - name: Run tests
@@ -66,35 +67,33 @@ jobs:
 
 ## Rubyのバージョンの指定
 
-Rubyのバージョンを指定する最も簡単な方法は、GitHub上でRuby Organizationが提供している`ruby/setup-ruby`アクションを使うことです。 このアクションは、ワークフロー中の各ジョブの実行時に、`PATH`にサポートされているRubyのバージョンを追加します。 詳しい情報については[`ruby/setup-ruby`](https://github.com/ruby/setup-ruby)を参照してください。
+Rubyのバージョンを指定する最も簡単な方法は、GitHub上でRuby Organizationが提供している`ruby/setup-ruby`アクションを使うことです。 このアクションは、ワークフロー中の各ジョブの実行時に、`PATH`にサポートされているRubyのバージョンを追加します。 For more information and available Ruby versions, see [`ruby/setup-ruby`](https://github.com/ruby/setup-ruby).
 
 Ruby の `ruby/setup-ruby` アクションの使用は、GitHub Actions で Ruby を使用する際に推奨されている方法です。これは、そうすることで Ruby のさまざまなランナーやバージョン間で一貫した振る舞いが保証されるためです。
 
 `setup-ruby`アクションはRubyのバージョンを入力として取り、ランナー上でそのバージョンを設定します。
 
-{% raw %}
 ```yaml
 steps:
-- uses: actions/checkout@v2
-- uses: ruby/setup-ruby@477b21f02be01bcb8030d50f37cfec92bfa615b6
+- uses: {% data reusables.actions.action-checkout %}
+- uses: ruby/setup-ruby@359bebbc29cbe6c87da6bc9ea3bc930432750108
   with:
-    ruby-version: 2.6 # Not needed with a .ruby-version file
+    ruby-version: '3.1' # Not needed with a .ruby-version file
 - run: bundle install
 - run: bundle exec rake
 ```
-{% endraw %}
 
 あるいは、リポジトリのルートに`.ruby-version`ファイルをチェックインすれば、このファイルで定義されたバージョンを`setup-ruby`が使います。
 
 ## 複数のバージョンの Ruby でのテスト
 
-複数バージョンのRubyでワークフローを実行するように、マトリクス戦略を追加できます。 たとえば、バージョン2.7、2.6、2.5の最新のパッチリリースでコードをテストできます。 この'x'はワイルドカードキャラクターで、そのバージョンで利用できる最新のパッチリリースにマッチします。
+複数バージョンのRubyでワークフローを実行するように、マトリクス戦略を追加できます。 たとえば、バージョン3.1、3.0、2.7の最新のパッチリリースでコードをテストできます。
 
 {% raw %}
 ```yaml
 strategy:
   matrix:
-    ruby-version: [2.7.x, 2.6.x, 2.5.x]
+    ruby-version: ['3.1', '3.0', '2.7']
 ```
 {% endraw %}
 
@@ -104,6 +103,8 @@ strategy:
 
 ```yaml
 {% data reusables.actions.actions-not-certified-by-github-comment %}
+
+{% data reusables.actions.actions-use-sha-pinning-comment %}
 
 name: Ruby CI
 
@@ -120,12 +121,12 @@ jobs:
 
     strategy:
       matrix:
-        ruby-version: [2.7.x, 2.6.x, 2.5.x]
+        ruby-version: ['3.1', '3.0', '2.7']
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: {% data reusables.actions.action-checkout %}
       - name: {% raw %}Set up Ruby ${{ matrix.ruby-version }}{% endraw %}
-        uses: ruby/setup-ruby@477b21f02be01bcb8030d50f37cfec92bfa615b6
+        uses: ruby/setup-ruby@359bebbc29cbe6c87da6bc9ea3bc930432750108
         with:
           ruby-version: {% raw %}${{ matrix.ruby-version }}{% endraw %}
       - name: Install dependencies
@@ -138,71 +139,69 @@ jobs:
 
 `setup-ruby` アクションは自動的にbundlerをインストールします。 バージョンは、`gemfile.lock`ファイルで決定されます。 ロックファイルにバージョンがなければ、互換性のある最新のバージョンがインストールされます。
 
-{% raw %}
 ```yaml
 steps:
-- uses: actions/checkout@v2
-- uses: ruby/setup-ruby@477b21f02be01bcb8030d50f37cfec92bfa615b6
+- uses: {% data reusables.actions.action-checkout %}
+- uses: ruby/setup-ruby@359bebbc29cbe6c87da6bc9ea3bc930432750108
   with:
-    ruby-version: 2.6
+    ruby-version: '3.1'
 - run: bundle install
 ```
-{% endraw %}
+
+{% ifversion actions-caching %}
 
 ### 依存関係のキャッシング
 
-{% data variables.product.prodname_dotcom %}ホストランナーを使っているなら、`setup-ruby`は実行間でのgemのキャッシュを自動的に処理する方法を提供します。
+The `setup-ruby` actions provides a method to automatically handle the caching of your gems between runs.
 
 キャッシングを有効にするには、以下の設定をしてください。
 
 {% raw %}
 ```yaml
 steps:
-- uses: ruby/setup-ruby@477b21f02be01bcb8030d50f37cfec92bfa615b6
+- uses: ruby/setup-ruby@359bebbc29cbe6c87da6bc9ea3bc930432750108
     with:
       bundler-cache: true
 ```
 {% endraw %}
 
-これで、gemを`vendor/cache`にインストールするようbundlerが設定されます。 ワークフローの実行が成功するたびに、このフォルダーはアクションによってキャッシュされ、それ以降のワークフローの実行の際に再ダウンロードされます。 キャッシュのキーとしては、gemfile.lockのハッシュとRubyのバージョンが使われます。 新しいgemをインストールしたり、バージョンを変更したりすると、キャッシュは無効になり、bundlerは新しくインストールを行います。
+これで、gemを`vendor/cache`にインストールするようbundlerが設定されます。 For each successful run of your workflow, this folder will be cached by {% data variables.product.prodname_actions %} and re-downloaded for subsequent workflow runs. キャッシュのキーとしては、gemfile.lockのハッシュとRubyのバージョンが使われます。 新しいgemをインストールしたり、バージョンを変更したりすると、キャッシュは無効になり、bundlerは新しくインストールを行います。
 
 **setup-rubyを使わないキャッシング**
 
-キャッシュをさらに制御するには、{% data variables.product.prodname_dotcom %}ホストランナーを使っているなら、`actions/cache`アクションを直接使うことができます。 詳しい情報については、「<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">ワークフローを高速化するための依存関係のキャッシュ</a>」を参照してください。
+For greater control over caching, you can use the `actions/cache` action directly. 詳しい情報については、「[ワークフローを高速化するための依存関係のキャッシュ](/actions/using-workflows/caching-dependencies-to-speed-up-workflows)」を参照してください。
 
-{% raw %}
 ```yaml
 steps:
-- uses: actions/cache@v2
+- uses: {% data reusables.actions.action-cache %}
   with:
     path: vendor/bundle
-    key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
+    key: {% raw %}${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}{% endraw %}
     restore-keys: |
-      ${{ runner.os }}-gems-
+      {% raw %}${{ runner.os }}-gems-{% endraw %}
 - name: Bundle install
   run: |
     bundle config path vendor/bundle
     bundle install --jobs 4 --retry 3
 ```
-{% endraw %}
 
 マトリクスビルドを使っているなら、キャッシュのキーにマトリクスの変数を含めたくなるでしょう。 たとえば様々なRubyのバージョン(`matrix.ruby-version`) と、様々なオペレーティングシステム(`matrix.os`)のマトリクス戦略を持っているなら、ワークフローのステップは以下のようになるでしょう。
 
-{% raw %}
 ```yaml
 steps:
-- uses: actions/cache@v2
+- uses: {% data reusables.actions.action-cache %}
   with:
     path: vendor/bundle
-    key: bundle-use-ruby-${{ matrix.os }}-${{ matrix.ruby-version }}-${{ hashFiles('**/Gemfile.lock') }}
+    key: {% raw %}bundle-use-ruby-${{ matrix.os }}-${{ matrix.ruby-version }}-${{ hashFiles('**/Gemfile.lock') }}{% endraw %}
     restore-keys: |
-      bundle-use-ruby-${{ matrix.os }}-${{ matrix.ruby-version }}-
+      {% raw %}bundle-use-ruby-${{ matrix.os }}-${{ matrix.ruby-version }}-{% endraw %}
 - name: Bundle install
   run: |
     bundle config path vendor/bundle
     bundle install --jobs 4 --retry 3
 ```
-{% endraw %}
+
+{% endif %}
 
 ## コードのマトリクステスト
 
@@ -210,6 +209,8 @@ steps:
 
 ```yaml
 {% data reusables.actions.actions-not-certified-by-github-comment %}
+
+{% data reusables.actions.actions-use-sha-pinning-comment %}
 
 name: Matrix Testing
 
@@ -229,7 +230,7 @@ jobs:
         ruby: [2.5, 2.6, 2.7, head, debug, jruby, jruby-head, truffleruby, truffleruby-head]
     continue-on-error: {% raw %}${{ endsWith(matrix.ruby, 'head') || matrix.ruby == 'debug' }}{% endraw %}
     steps:
-      - uses: actions/checkout@v2
+      - uses: {% data reusables.actions.action-checkout %}
       - uses: ruby/setup-ruby@477b21f02be01bcb8030d50f37cfec92bfa615b6
         with:
           ruby-version: {% raw %}${{ matrix.ruby }}{% endraw %}
@@ -239,10 +240,12 @@ jobs:
 
 ## コードの文法チェック
 
-以下の例は`rubocop`をインストールし、それを使ってすべてのファイルの文法チェックを行います。 詳しい情報については[ Rubocop](https://github.com/rubocop-hq/rubocop)を参照してください。 特定の文法チェックルールを決めるために、[ Rubocopを設定](https://docs.rubocop.org/rubocop/configuration.html)できます。
+以下の例は`rubocop`をインストールし、それを使ってすべてのファイルの文法チェックを行います。 For more information, see [RuboCop](https://github.com/rubocop-hq/rubocop). 特定の文法チェックルールを決めるために、[ Rubocopを設定](https://docs.rubocop.org/rubocop/configuration.html)できます。
 
 ```yaml
 {% data reusables.actions.actions-not-certified-by-github-comment %}
+
+{% data reusables.actions.actions-use-sha-pinning-comment %}
 
 name: Linting
 
@@ -252,7 +255,7 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: {% data reusables.actions.action-checkout %}
       - uses: ruby/setup-ruby@477b21f02be01bcb8030d50f37cfec92bfa615b6
         with:
           ruby-version: 2.6
@@ -265,10 +268,12 @@ jobs:
 
 CIテストにパスしたなら、Rubyパッケージを任意のパッケージレジストリに公開するようにワークフローを設定できます。
 
-パッケージを公開するのに必要なアクセストークンやクレデンシャルは、リポジトリシークレットを使って保存できます。 以下の例は、パッケージを作成して`GitHub Package Registry`及び`RubyGems`に公開します。
+パッケージを公開するのに必要なアクセストークンや認証情報は、リポジトリシークレットを使って保存できます。 以下の例は、パッケージを作成して`GitHub Package Registry`及び`RubyGems`に公開します。
 
 ```yaml
 {% data reusables.actions.actions-not-certified-by-github-comment %}
+
+{% data reusables.actions.actions-use-sha-pinning-comment %}
 
 name: Ruby Gem
 
@@ -284,13 +289,13 @@ on:
 jobs:
   build:
     name: Build + Publish
-    runs-on: ubuntu-latest{% ifversion fpt or ghes > 3.1 or ghae-next %}
+    runs-on: ubuntu-latest
     permissions:
       packages: write
-      contents: read{% endif %}
+      contents: read
 
-    steps:{% raw %}
-      - uses: actions/checkout@v2
+    steps:
+      - uses: {% data reusables.actions.action-checkout %}
       - name: Set up Ruby 2.6
         uses: ruby/setup-ruby@477b21f02be01bcb8030d50f37cfec92bfa615b6
         with:
@@ -298,7 +303,7 @@ jobs:
       - run: bundle install
 
       - name: Publish to GPR
-        run: |
+        run: |{% raw %}
           mkdir -p $HOME/.gem
           touch $HOME/.gem/credentials
           chmod 0600 $HOME/.gem/credentials

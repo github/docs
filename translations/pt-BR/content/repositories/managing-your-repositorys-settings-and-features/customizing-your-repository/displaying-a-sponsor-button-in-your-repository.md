@@ -8,6 +8,7 @@ redirect_from:
   - /github/administering-a-repository/managing-repository-settings/displaying-a-sponsor-button-in-your-repository
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Repositories
 shortTitle: Exibir um botão de patrocinador
@@ -57,7 +58,7 @@ custom: ["https://www.paypal.me/octocat", octocat.com]
 
 {% endnote %}
 
-Você pode criar um botão de patrocinador padrão para sua organização ou conta de usuário. Para obter mais informações, consulte "[Criando um arquivo padrão de integridade da comunidade](/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)."
+Você pode criar um botão de patrocinador padrão para sua organização ou conta pessoal. Para obter mais informações, consulte "[Criando um arquivo padrão de integridade da comunidade](/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)."
 
 {% note %}
 

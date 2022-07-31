@@ -9,6 +9,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
 shortTitle: 按里程碑过滤
@@ -31,5 +32,5 @@ shortTitle: 按里程碑过滤
 
 ## 延伸阅读
 
-- "[Filtering and searching issues and pull requests](/issues/tracking-your-work-with-issues/filtering-and-searching-issues-and-pull-requests)"
+- "[过滤和搜索议题和拉取请求](/issues/tracking-your-work-with-issues/filtering-and-searching-issues-and-pull-requests)"
 - "[过滤项目板上的卡](/articles/filtering-cards-on-a-project-board)"

@@ -8,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - OAuth Apps
 shortTitle: Crear insignias personalizadas
@@ -19,9 +20,9 @@ Predeterminadamente, una App de OAuth nueva tendrá un [identicon](https://githu
 
 Después de que crees una App de OAuth, podrás personalizar la insignia de la misma si cargas un logo y seleccionas un color de fondo. Una insignia es una imagen de logo cuadrado dentro de una insignia circular. Puedes elegir un color de fondo para la insignia, la cual puede utilizarse para distinguir a tu app visualmente.
 
-Tu logo debe ser un archivo en PNG, JPG, o GIF de menos de 1 MB de tamaño. Para obtener la mejor calidad, te recomendamos un tamaño de por lo menos 200px x 200px. {% ifversion fpt %}Consulta la sección "[Tips para las imagenes de logos e insignias](/marketplace/listing-on-github-marketplace/writing-github-marketplace-listing-descriptions/#guidelines-for-logos)" para obtener lineamientos adicionales sobre la personalización de insignias.{% endif %}
+Tu logo debe ser un archivo en PNG, JPG, o GIF de menos de 1 MB de tamaño. Para obtener la mejor calidad, te recomendamos un tamaño de por lo menos 200px x 200px. {% ifversion fpt or ghec %}Consulta la sección "[Tips para las imagenes de logos e insignias](/marketplace/listing-on-github-marketplace/writing-github-marketplace-listing-descriptions/#guidelines-for-logos)" para obtener lineamientos adicionales sobre la personalización de insignias.{% endif %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 Puedes cambiar una insignia personalizada para una GitHub App que ya tenga una lista de Marketplace aprobada si navegas a https://github.com/marketplace/manage.
 
@@ -35,10 +36,10 @@ Para crear una insignia personalizada:
 {% data reusables.user-settings.modify_oauth_app %}
 1. En la zona de "Logo de la aplicación", arrastra y suelta una imagen de alguna carpeta local, o da clic en **Cargar logo nuevo** para seleccionar una imagen de tu ordenador. ![Cargar un logo](/assets/images/oauth-apps/oauth_apps_upload_logo.png)
 6. Recorta tu imagen. Cuando hayas terminado, da clic en **Configurar nuevo logo de la aplicación**. ![Cortar y confirmar logo](/assets/images/oauth-apps/oauth_apps_crop_and_set_logo.png)
-7. En "Color de fondo de la insignia", teclea el [código hexadecimal de color](http://www.color-hex.com/) para el color de fondo de tu insignia. {% ifversion fpt %}**Nota:** El campo de entrada de "Color de fondo de la insignia" se podrá visualizar después de que se haya cargado el logo de una aplicación.{% endif %} ![Color de fondo de la insignia](/assets/images/oauth-apps/oauth_apps_badge_background_color.png)
+7. En "Color de fondo de la insignia", teclea el [código hexadecimal de color](http://www.color-hex.com/) para el color de fondo de tu insignia. {% ifversion fpt or ghec %}**Nota:** El campo de entrada de "Color de fondo de la insignia" se podrá visualizar después de que se haya cargado el logo de una aplicación.{% endif %} ![Color de fondo de la insignia](/assets/images/oauth-apps/oauth_apps_badge_background_color.png)
 {% data reusables.user-settings.update_oauth_app %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 ## Pasos siguientes
 

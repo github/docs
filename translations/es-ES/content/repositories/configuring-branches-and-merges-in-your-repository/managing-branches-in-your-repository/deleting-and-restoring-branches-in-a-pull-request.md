@@ -2,9 +2,9 @@
 title: Eliminar y restaurar ramas en una solicitud de extracción
 intro: 'Si tienes acceso de escritura en un repositorio, puedes eliminar las ramas asociadas con solicitudes de extracción cerradas o fusionadas. No puedes eliminar las ramas asociadas con solicitudes de extracción abiertas.'
 redirect_from:
-  - /articles/tidying-up-pull-requests/
-  - /articles/restoring-branches-in-a-pull-request/
-  - /articles/deleting-unused-branches/
+  - /articles/tidying-up-pull-requests
+  - /articles/restoring-branches-in-a-pull-request
+  - /articles/deleting-unused-branches
   - /articles/deleting-and-restoring-branches-in-a-pull-request
   - /github/administering-a-repository/deleting-and-restoring-branches-in-a-pull-request
   - /github/administering-a-repository/managing-branches-in-your-repository/deleting-and-restoring-branches-in-a-pull-request
@@ -12,9 +12,10 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Repositories
-shortTitle: Delete & restore branches
+shortTitle: Borrar & restablecer las ramas
 ---
 
 ## Borrar la rama utilizada para una solicitud de extracción

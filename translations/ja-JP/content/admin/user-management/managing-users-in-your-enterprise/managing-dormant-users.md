@@ -1,13 +1,14 @@
 ---
 title: 休眠ユーザの管理
 redirect_from:
-  - /enterprise/admin/articles/dormant-users/
-  - /enterprise/admin/articles/viewing-dormant-users/
-  - /enterprise/admin/articles/determining-whether-a-user-account-is-dormant/
+  - /enterprise/admin/articles/dormant-users
+  - /enterprise/admin/articles/viewing-dormant-users
+  - /enterprise/admin/articles/determining-whether-a-user-account-is-dormant
   - /enterprise/admin/user-management/managing-dormant-users
   - /admin/user-management/managing-dormant-users
-intro: 'ユーザアカウントが少なくとも 1 か月間アクティブになっていない場合、休眠状態であると見なされます。{% ifversion ghes %} 休眠ユーザを一時停止してユーザライセンスを解放することができます。{% endif %}'
+intro: '{% data reusables.enterprise-accounts.dormant-user-activity-threshold %}'
 versions:
+  ghec: '*'
   ghes: '*'
   ghae: '*'
 type: how_to
@@ -17,16 +18,18 @@ topics:
   - Licensing
 ---
 
-「活動」には以下のことが含まれますが、以下に限定はされません:
-- {% data variables.product.product_name %} へのサインイン。
-- Issue やプルリクエストへのコメント。
-- リポジトリの作成、削除、Watch、スター付け。
-- コミットのプッシュ。{% ifversion ghes or ghae %}
-- 個人アクセストークンまたは SSH キーを使用してリソースにアクセスします。{% endif %}
+{% ifversion ghec %}
+{% data reusables.enterprise-accounts.dormant-user-release-phase %}
+{% endif %}
 
+## About dormant users
+
+{% data reusables.enterprise-accounts.dormant-user-activity %}
+
+{% ifversion ghes or ghae%}
 ## 休眠ユーザの表示
 
-サスペンドされておらず、サイト管理者でもないすべての休眠ユーザのリストを表示できます。
+{% data reusables.enterprise-accounts.viewing-dormant-users %}
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 3. 左のサイドバーで**Dormant users（休眠ユーザ）**をクリックしてください。 ![Dormant users tab](/assets/images/enterprise/site-admin-settings/dormant-users-tab.png){% ifversion ghes %}
@@ -44,10 +47,25 @@ topics:
 {% data reusables.enterprise_site_admin_settings.dormancy-threshold %}
 
 {% data reusables.enterprise-accounts.access-enterprise %}
-{% ifversion ghes or ghae %}
 {% data reusables.enterprise-accounts.policies-tab %}
-{% else %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% endif %}
 {% data reusables.enterprise-accounts.options-tab %}
 4. [Dormancy threshold] の下で、ドロップダウンメニューを使って、希望する休眠閾値をクリックします。 ![休眠の閾値のドロップダウンメニュー](/assets/images/enterprise/site-admin-settings/dormancy-threshold-menu.png)
+
+{% endif %}
+
+{% ifversion ghec %}
+## Downloading the dormant users report from your enterprise account
+
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.enterprise-accounts-compliance-tab %}
+1. To download your Dormant Users (beta) report as a CSV file, under "Other", click {% octicon "download" aria-label="The Download icon" %} **Download**. ![Download button under "Other" on the Compliance page](/assets/images/help/business-accounts/dormant-users-download-button.png)
+
+{% tip %}
+
+**Tip:** For the purposes of assessing user dormancy, user activity is scoped to include only user activity associated with organizations, repositories, or sign-on events that are associated with the enterprise. For example, if a user has recently commented on an issue in a public repository not associated with the enterprise, they may be considered dormant. However, if they have recently commented on an issue in a public repository associated with an organization in your enterprise, they will not be considered dormant and will not appear in the Dormant User report.
+
+In the case of web sign-on events, only sign-on events through via an SSO domain associated with your enterprise are considered user activity associated with the enterprise.
+
+{% endtip %}
+
+{% endif %}

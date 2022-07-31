@@ -1,7 +1,6 @@
 ---
 title: Building and testing Java with Ant
 intro: You can create a continuous integration (CI) workflow in GitHub Actions to build and test your Java project with Ant.
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /actions/language-and-framework-guides/building-and-testing-java-with-ant
   - /actions/guides/building-and-testing-java-with-ant
@@ -9,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: tutorial
 topics:
   - CI
@@ -19,13 +19,13 @@ shortTitle: Build & test Java & Ant
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## Introduction
 
 This guide shows you how to create a workflow that performs continuous integration (CI) for your Java project using the Ant build system. The workflow you create will allow you to see when commits to a pull request cause build or test failures against your default branch; this approach can help ensure that your code is always healthy. You can extend your CI workflow to upload artifacts from a workflow run.
 
-{% ifversion ghae %}For instructions on how to make sure your {% data variables.actions.hosted_runner %} has the required software installed, see "[Creating custom images](/actions/using-github-hosted-runners/creating-custom-images)."
+{% ifversion ghae %}
+{% data reusables.actions.self-hosted-runners-software %}
 {% else %}
 {% data variables.product.prodname_dotcom %}-hosted runners have a tools cache with pre-installed software, which includes Java Development Kits (JDKs) and Ant. For a list of software and the pre-installed versions for JDK and Ant, see "[Specifications for {% data variables.product.prodname_dotcom %}-hosted runners](/actions/reference/specifications-for-github-hosted-runners/#supported-software)".
 {% endif %}
@@ -40,15 +40,14 @@ We recommend that you have a basic understanding of Java and the Ant framework. 
 
 {% data reusables.actions.enterprise-setup-prereq %}
 
-## Starting with an Ant workflow template
+## Using the Ant starter workflow
 
-{% data variables.product.prodname_dotcom %} provides an Ant workflow template that will work for most Ant-based Java projects. For more information, see the [Ant workflow template](https://github.com/actions/starter-workflows/blob/main/ci/ant.yml).
+{% data variables.product.prodname_dotcom %} provides an Ant starter workflow that will work for most Ant-based Java projects. For more information, see the [Ant starter workflow](https://github.com/actions/starter-workflows/blob/main/ci/ant.yml).
 
-To get started quickly, you can choose the preconfigured Ant template when you create a new workflow. For more information, see the "[{% data variables.product.prodname_actions %} quickstart](/actions/quickstart)."
+To get started quickly, you can choose the preconfigured Ant starter workflow when you create a new workflow. For more information, see the "[{% data variables.product.prodname_actions %} quickstart](/actions/quickstart)."
 
 You can also add this workflow manually by creating a new file in the `.github/workflows` directory of your repository.
 
-{% raw %}
 ```yaml{:copy}
 name: Java CI
 
@@ -59,16 +58,15 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: {% data reusables.actions.action-checkout %}
       - name: Set up JDK 11
-        uses: actions/setup-java@v2
+        uses: {% data reusables.actions.action-setup-java %}
         with:
           java-version: '11'
           distribution: 'adopt'
       - name: Build with Ant
         run: ant -noinput -buildfile build.xml
 ```
-{% endraw %}
 
 This workflow performs the following steps:
 
@@ -76,11 +74,11 @@ This workflow performs the following steps:
 2. The `setup-java` step configures the Java 11 JDK by Adoptium.
 3. The "Build with Ant" step runs the default target in your `build.xml` in non-interactive mode.
 
-The default workflow templates are excellent starting points when creating your build and test workflow, and you can customize the template to suit your project’s needs.
+The default starter workflows are excellent starting points when creating your build and test workflow, and you can customize the starter workflow to suit your project’s needs.
 
-{% data reusables.github-actions.example-github-runner %}
+{% data reusables.actions.example-github-runner %}
 
-{% data reusables.github-actions.java-jvm-architecture %}
+{% data reusables.actions.java-jvm-architecture %}
 
 ## Building and testing your code
 
@@ -88,20 +86,18 @@ You can use the same commands that you use locally to build and test your code.
 
 The starter workflow will run the default target specified in your _build.xml_ file.  Your default target will commonly be set to build classes, run tests and package classes into their distributable format, for example, a JAR file.
 
-If you use different commands to build your project, or you want to run a different target, you can specify those. For example, you may want to run the `jar` target that's configured in your _build-ci.xml_ file.
+If you use different commands to build your project, or you want to run a different target, you can specify those. For example, you may want to run the `jar` target that's configured in your `_build-ci.xml_` file.
 
-{% raw %}
 ```yaml{:copy}
 steps:
-  - uses: actions/checkout@v2
-  - uses: actions/setup-java@v2
+  - uses: {% data reusables.actions.action-checkout %}
+  - uses: {% data reusables.actions.action-setup-java %}
     with:
       java-version: '11'
       distribution: 'adopt'
   - name: Run the Ant jar target
     run: ant -noinput -buildfile build-ci.xml jar
 ```
-{% endraw %}
 
 ## Packaging workflow data as artifacts
 
@@ -109,19 +105,17 @@ After your build has succeeded and your tests have passed, you may want to uploa
 
 Ant will usually create output files like JARs, EARs, or WARs in the `build/jar` directory. You can upload the contents of that directory using the `upload-artifact` action.
 
-{% raw %}
 ```yaml{:copy}
 steps:
-  - uses: actions/checkout@v2
-  - uses: actions/setup-java@v2
+  - uses: {% data reusables.actions.action-checkout %}
+  - uses: {% data reusables.actions.action-setup-java %}
     with:
       java-version: '11'
       distribution: 'adopt'
   
   - run: ant -noinput -buildfile build.xml
-  - uses: actions/upload-artifact@v2
+  - uses: {% data reusables.actions.action-upload-artifact %}
     with:
       name: Package
       path: build/jar
 ```
-{% endraw %}

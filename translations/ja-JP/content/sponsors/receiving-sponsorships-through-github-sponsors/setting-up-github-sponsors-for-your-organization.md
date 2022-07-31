@@ -8,6 +8,7 @@ redirect_from:
 permissions: 'Organization owners can set up {% data variables.product.prodname_sponsors %} for an organization.'
 versions:
   fpt: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Organizations
@@ -22,7 +23,7 @@ shortTitle: Set up for organization
 
 Organizationとして{% data variables.product.prodname_sponsors %} 参加する招待を受け取ったら、以下のステップを実行すればスポンサードOrganizationになることができます。
 
-Organization 外の個人コントリビューターとして {% data variables.product.prodname_sponsors %} に参加するには、「[ユーザーアカウントに {% data variables.product.prodname_sponsors %} を設定する](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-user-account)」を参照してください。
+To join {% data variables.product.prodname_sponsors %} as an individual contributor outside an organization, see "[Setting up {% data variables.product.prodname_sponsors %} for your personal account](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-personal-account)."
 
 {% data reusables.sponsors.navigate-to-github-sponsors %}
 {% data reusables.sponsors.view-eligible-accounts %}
@@ -51,6 +52,7 @@ Organization 外の個人コントリビューターとして {% data variables.
 {% data reusables.sponsors.navigate-to-sponsor-tiers-tab %}
 {% data reusables.sponsors.click-add-tier %}
 {% data reusables.sponsors.tier-price-description %}
+{% data reusables.sponsors.add-welcome-message %}
 {% data reusables.sponsors.save-tier-draft %}
 {% data reusables.sponsors.review-and-publish-tier %}
 {% data reusables.sponsors.add-more-tiers %}
@@ -71,14 +73,12 @@ Open Collective を使用して Stripe Connect を設定する方法について
 {% data reusables.sponsors.tax-form-information-org %}
 
 {% data reusables.sponsors.navigate-to-sponsors-dashboard %}
-{% data reusables.sponsors.settings-tab %}
-{% data reusables.sponsors.country-of-residence %}
 {% data reusables.sponsors.overview-tab %}
 {% data reusables.sponsors.tax-form-link %}
 
 ## {% data variables.product.prodname_dotcom %} アカウントで 2 要素認証 (2FA) を有効にする
 
-Organization がスポンサード Organization になるには、{% data variables.product.product_name %} アカウントで 2FA を有効化する必要があります。 詳しい情報については「[2 要素認証の設定](/articles/configuring-two-factor-authentication)」を参照してください。
+Before your organization can become a sponsored organization, you must enable 2FA for your account on {% data variables.product.product_location %}. 詳しい情報については「[2 要素認証の設定](/articles/configuring-two-factor-authentication)」を参照してください。
 
 ## {% data variables.product.prodname_dotcom %} に申請をサブミットして承認を求める
 
@@ -88,5 +88,6 @@ Organization がスポンサード Organization になるには、{% data variab
 {% data reusables.sponsors.github-review-app %}
 
 ## 参考リンク
+
 - [{% data variables.product.prodname_sponsors %} について](/sponsors/getting-started-with-github-sponsors/about-github-sponsors)
 - 「[{% data variables.product.prodname_sponsors %} を通じてスポンサーシップを獲得する](/sponsors/receiving-sponsorships-through-github-sponsors)」

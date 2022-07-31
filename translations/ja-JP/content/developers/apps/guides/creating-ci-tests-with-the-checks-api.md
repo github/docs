@@ -8,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - GitHub Apps
 shortTitle: Checks API を使用した CI テスト
@@ -92,7 +93,7 @@ Checks API は、新しいコードがリポジトリにプッシュされるた
 
 アプリケーションの権限を更新するには、以下の手順に従います。
 
-1. [アプリケーションの設定ページ](https://github.com/settings/apps)からアプリケーションを選択肢、サイドバーの [**Permissions & Webhooks**] をクリックします。
+1. [アプリケーションの設定ページ](https://github.com/settings/apps)からアプリケーションを選択し、サイドバーの [**Permissions & Webhooks**] をクリックします。
 1. [Permissions] セクションで [Checks] を見つけて、隣にある [Access] ドロップダウンで [**Read & write**] を選択します。
 1. [Subscribe to events] セクションで [**Check suite**] と [**Check run**] を選択してこれらのイベントをサブスクライブします。
 {% data reusables.apps.accept_new_permissions_steps %}
@@ -137,7 +138,6 @@ GitHub が送信する全てのイベントには、`HTTP_X_GITHUB_EVENT` とい
 
 他のルートでも使用する場合のために、新しいメソッドを [Sinatra ヘルパー](https://github.com/sinatra/sinatra#helpers) として追加します。 `helpers do` の下に、以下の `create_check_run` メソッドを追加します。
 
-{% ifversion fpt or ghes > 2.22 or ghae %}
 ``` ruby
 # Create a new check run with the status queued
 def create_check_run
@@ -150,32 +150,14 @@ def create_check_run
     # The payload structure differs depending on whether a check run or a check suite event occurred.
     @payload['check_run'].nil? ? @payload['check_suite']['head_sha'] : @payload['check_run']['head_sha'],
     # [Hash] 'Accept' header option, to avoid a warning about the API not being ready for production use.
-    accept: 'application/vnd.github.v3+json'
+    accept: 'application/vnd.github+json'
   )
 end
 ```
-{% else %}
-``` ruby
-# Create a new check run with the status queued
-def create_check_run
-  @installation_client.create_check_run(
-    # [String, Integer, Hash, Octokit Repository object] A GitHub repository.
-    @payload['repository']['full_name'],
-    # [String] The name of your check run.
-    'Octo RuboCop',
-    # [String] The SHA of the commit to check 
-    # The payload structure differs depending on whether a check run or a check suite event occurred.
-    @payload['check_run'].nil? ? @payload['check_suite']['head_sha'] : @payload['check_run']['head_sha'],
-    # [Hash] 'Accept' header option, to avoid a warning about the API not being ready for production use.
-    accept: 'application/vnd.github.antiope-preview+json'
-  )
-end
-```
-{% endif %}
 
 このコードは[create_check_run method](https://rdoc.info/gems/octokit/Octokit%2FClient%2FChecks:create_check_run)メソッドを使用して、[Create a check run](/rest/reference/checks#create-a-check-run)エンドポイントを呼び出します。
 
-チェック実行を作成するために必要なのは、`name` と `head_sha` の 2 つの入力パラメータのみです。 このクイックスタートでは、後で [Rubocop](https://rubocop.readthedocs.io/en/latest/) を使用して CI テストを実装します。そのため、ここでは「Octo Rubocop」という名前を使っていますが、チェック実行には任意の名前を選ぶことができます。
+チェック実行を作成するために必要なのは、`name` と `head_sha` の 2 つの入力パラメータのみです。 We will use [RuboCop](https://rubocop.readthedocs.io/en/latest/) to implement the CI test later in this quickstart, which is why the name "Octo RuboCop" is used here, but you can choose any name you'd like for the check run.
 
 ここでは基本的な機能を実行するため必要なパラメータのみを指定していますが、チェック実行について必要な情報を収集するため、後でチェック実行を更新することになります。 デフォルトでは、GitHub は `status` を `queued` に設定します。
 
@@ -228,7 +210,6 @@ GitHub は `created` チェック実行のすべてのイベントを、必要�
 
 `initiate_check_run` メソッドを作成し、チェック実行のステータスを更新しましょう。 以下のコードを helpers セクションに追加します。
 
-{% ifversion fpt or ghes > 2.22 or ghae %}
 ``` ruby
 # Start the CI process
 def initiate_check_run
@@ -240,7 +221,7 @@ def initiate_check_run
     @payload['repository']['full_name'],
     @payload['check_run']['id'],
     status: 'in_progress',
-    accept: 'application/vnd.github.v3+json'
+    accept: 'application/vnd.github+json'
   )
 
   # ***** RUN A CI TEST *****
@@ -251,38 +232,10 @@ def initiate_check_run
     @payload['check_run']['id'],
     status: 'completed',
     conclusion: 'success',
-    accept: 'application/vnd.github.v3+json'
+    accept: 'application/vnd.github+json'
   )
 end
 ```
-{% else %}
-``` ruby
-# Start the CI process
-def initiate_check_run
-  # Once the check run is created, you'll update the status of the check run
-  # to 'in_progress' and run the CI process. When the CI finishes, you'll
-  # update the check run status to 'completed' and add the CI results.
-
-  @installation_client.update_check_run(
-    @payload['repository']['full_name'],
-    @payload['check_run']['id'],
-    status: 'in_progress',
-    accept: 'application/vnd.github.antiope-preview+json'
-  )
-
-  # ***** RUN A CI TEST *****
-
-  # Mark the check run as complete!
-  @installation_client.update_check_run(
-    @payload['repository']['full_name'],
-    @payload['check_run']['id'],
-    status: 'completed',
-    conclusion: 'success',
-    accept: 'application/vnd.github.antiope-preview+json'
-  )
-end
-```
-{% endif %}
 
 上記のコードは、[`update_check_run` Octokit メソッド](https://rdoc.info/gems/octokit/Octokit%2FClient%2FChecks:update_check_run)を使用して「[チェック実行を更新する](/rest/reference/checks#update-a-check-run)」API エンドポイントを呼び出し、既に作成したチェック実行を更新します。
 
@@ -364,7 +317,7 @@ require 'git'
 
 リポジトリをクローンするには、アプリケーションに「リポジトリコンテンツ」の読み取り権限が必要です。 このクイックスタートでは、後ほどコンテンツを GitHub にプッシュする必要がありますが、そのためには書き込み権限が必要です。 先に進んでアプリケーションの [Repository contents] の権限を [**Read & write**] に今すぐ変更してください。そうすれば、後で再び変更する必要がなくなります。 アプリケーションの権限を更新するには、以下の手順に従います。
 
-1. [アプリケーションの設定ページ](https://github.com/settings/apps)からアプリケーションを選択肢、サイドバーの [**Permissions & Webhooks**] をクリックします。
+1. [アプリケーションの設定ページ](https://github.com/settings/apps)からアプリケーションを選択し、サイドバーの [**Permissions & Webhooks**] をクリックします。
 1. [Permissions] セクションで [Repository contents] を見つけて、隣にある [Access] ドロップダウンで [**Read & write**] を選択します。
 {% data reusables.apps.accept_new_permissions_steps %}
 
@@ -587,7 +540,6 @@ text = "Octo RuboCop version: #{@output['metadata']['rubocop_version']}"
 
 さて、これでチェック実行を更新するために必要な情報がすべて揃いました。 [このクイックスタートの前半](#step-14-updating-a-check-run)では、このコードを追加して、チェック実行のステータスを `success` に設定しました。
 
-{% ifversion fpt or ghes > 2.22 or ghae %}
 ``` ruby
 # Mark the check run as complete!
 @installation_client.update_check_run(
@@ -595,25 +547,12 @@ text = "Octo RuboCop version: #{@output['metadata']['rubocop_version']}"
   @payload['check_run']['id'],
   status: 'completed',
   conclusion: 'success',
-  accept: 'application/vnd.github.v3+json'
+  accept: 'application/vnd.github+json'
 )
 ```
-{% else %}
-``` ruby
-# Mark the check run as complete!
-@installation_client.update_check_run(
-  @payload['repository']['full_name'],
-  @payload['check_run']['id'],
-  status: 'completed',
-  conclusion: 'success',
-  accept: 'application/vnd.github.antiope-preview+json' # This header is necessary for beta access to Checks API
-)
-```
-{% endif %}
 
 RuboCop の結果に基づいて (`success` または `neutral` に) 設定した `conclusion` 変数を使用するよう、このコードを更新する必要があります。 コードは以下のようにして更新できます。
 
-{% ifversion fpt or ghes > 2.22 or ghae %}
 ``` ruby
 # Mark the check run as complete! And if there are warnings, share them.
 @installation_client.update_check_run(
@@ -632,36 +571,13 @@ RuboCop の結果に基づいて (`success` または `neutral` に) 設定し�
     description: 'Automatically fix all linter notices.',
     identifier: 'fix_rubocop_notices'
   }],
-  accept: 'application/vnd.github.v3+json'
+  accept: 'application/vnd.github+json'
 )
 ```
-{% else %}
-``` ruby
-# Mark the check run as complete! And if there are warnings, share them.
-@installation_client.update_check_run(
-  @payload['repository']['full_name'],
-  @payload['check_run']['id'],
-  status: 'completed',
-  conclusion: conclusion,
-  output: {
-    title: 'Octo RuboCop',
-    summary: summary,
-    text: text,
-    annotations: annotations
-  },
-  actions: [{
-    label: 'Fix this',
-    description: 'Automatically fix all linter notices.',
-    identifier: 'fix_rubocop_notices'
-  }],
-  accept: 'application/vnd.github.antiope-preview+json'
-)
-```
-{% endif %}
 
 さて、これで CI テストのステータスに基づいて結論を設定し、RuboCop の結果からの出力を追加しました。あなたは CI テストを作成したのです。 おめでとうございます。 🙌
 
-また、上記のコードは、`actions` オブジェクトを介して CI サーバーに[リクエストされたアクション](https://developer.github.com/changes/2018-05-23-request-actions-on-checks/)という機能も追加しています。 {% ifversion fpt %}(Note this is not related to [GitHub Actions](/actions).) {% endif %}リクエストされたアクションは、追加のアクションを実行するためにチェック実行をリクエストできるボタンを GitHub の [**Checks**] タブに追加します。 追加のアクションは、アプリケーションが自由に設定できます。 たとえば、RuboCop には Ruby のコードで見つかったエラーを自動的に修正する機能があるので、CI サーバーはリクエストされたアクションボタンを使用して、自動的なエラー修正をユーザが許可することができます。 このボタンをクリックすると、アプリケーションは `requested_action` アクションで `check_run` イベントを受け取ります。 リクエストされた各アクションには、どのボタンがクリックされたかアプリケーションが判断するために使用する `identifier` があります。
+また、上記のコードは、`actions` オブジェクトを介して CI サーバーに[リクエストされたアクション](https://developer.github.com/changes/2018-05-23-request-actions-on-checks/)という機能も追加しています。 {% ifversion fpt or ghec %}(Note this is not related to [GitHub Actions](/actions).) {% endif %}リクエストされたアクションは、追加のアクションを実行するためにチェック実行をリクエストできるボタンを GitHub の [**Checks**] タブに追加します。 追加のアクションは、アプリケーションが自由に設定できます。 たとえば、RuboCop には Ruby のコードで見つかったエラーを自動的に修正する機能があるので、CI サーバーはリクエストされたアクションボタンを使用して、自動的なエラー修正をユーザが許可することができます。 このボタンをクリックすると、アプリケーションは `requested_action` アクションで `check_run` イベントを受け取ります。 リクエストされた各アクションには、どのボタンがクリックされたかアプリケーションが判断するために使用する `identifier` があります。
 
 上記のコードには、まだ RuboCop が自動的にエラーを修正する処理がありません。 この処理については、次のセクションで追加します。 しかしまずは、`template_server.rb` サーバーを再起動して新しいプルリクエストを作成し、さきほど作成した CI テストを見てみましょう。
 

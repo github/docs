@@ -2,7 +2,7 @@
 title: Otorgar permisos superiores a los contribuyentes principales
 intro: Los administradores de repositorio pueden promover a cualquier miembro de la comunidad para que sea un moderador o un mantenedor.
 versions:
-  fpt: '*'
+  feature: discussions
 shortTitle: Otorgar permisos mayores
 ---
 
@@ -11,15 +11,15 @@ shortTitle: Otorgar permisos mayores
 
 Los colaboradores más útiles en los últimos 30 días se resaltarán en el tablero de {% data variables.product.prodname_discussions %} con base en cuántos comentarios marcaron otros miembros de la comunidad como respuestas. Los colaboradores útiles pueden ayudar a mantener una comunidad saludable y a moderar y guiar el espacio comunitario adicionalmente al trabajo que hacen los mantenedores.
 
-## Step 1: Audit your {% data variables.product.prodname_discussions %} top contributors
+## Pase 1: Audita tus contribuyentes principales de los {% data variables.product.prodname_discussions %}
 
-{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.discussions.navigate-to-repo-or-org %}
 {% data reusables.discussions.discussions-tab %}
-1. Compara la lista de contribuyentes con sus permisos de acceso para ver quién califica para moderar el debate.
+1. Compara la lista de contribuyentes con sus permisos de acceso al repositorio o, para los debates de organización, al repositorio origen para ver quién califica para moderarlos. ![Captura de pantalla de los contribuyentes más útiles](/assets/images/help/discussions/most-helpful.png)
 
-## Step 2: Review permission levels for {% data variables.product.prodname_discussions %}
+## Paso 2: Revisa los niveles de permiso de los {% data variables.product.prodname_discussions %}
 
-Las personas con permisos de clasificación en un repositorio pueden ayudar a moderar los debates de un proyecto si marcan los comentarios como respuestas, fijar los debates que ya no son útiles o que están haciendo daño a la comunidad, y convertir las propuestas en debates cuando una idea aún se encuentra en una etapa temprana de desarrollo. Para obtener más información, consulta la sección "[Moderar los debates](/discussions/managing-discussions-for-your-community/moderating-discussions)".
+Las personas con permisos de clasificación para un repositorio pueden ayudar a moderar los debates del mismo marcando los comentarios como respuestas, bloqueando debates que ya no son útiles o que estén dañando a la comunidad y convirtiendo propuestas en debates cuando una idea aún está en las primeras fases de desarrollo. De forma similar, las personas con permisos de clasificación en el repositorio origen para los debates de organización pueden moderar dichos debates. Para obtener más información, consulta la sección "[Moderar los debates](/discussions/managing-discussions-for-your-community/moderating-discussions)".
 
 Para obtener más información sobre los niveles de permiso y los {% data variables.product.prodname_discussions %} de un repositorio, consulta la sección "[Niveles de permiso de un repositorio en una organización](/organizations/managing-access-to-your-organizations-repositories/repository-permission-levels-for-an-organization)".
 

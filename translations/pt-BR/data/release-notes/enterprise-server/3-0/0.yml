@@ -25,7 +25,7 @@ sections:
         - 'O sistema de entrega de eventos de webhook foi rearquitetado para rendimentos mais altos, entregas mais rápidas e menor atraso nas mensagens de erro.. Além disso, ele usa menos CPU e memória em {% data variables.product.prodname_ghe_server %} 3.0+.'
         - 'Os proprietários da organização e da empresa agora podem ver quando um integrante da equipe foi promovido ou rebaixado de ser um mantenedor de equipe no log de auditoria por meio os novos eventos de log de auditoria `team.promote_maintainer` e `team.demote_maintainer`. Para obter mais informações, consulte "[Ações auditadas](/enterprise-server@3.0/admin/user-management/audited-actions)."'
         - 'Os mantenedores do repositório com os sites de {% data variables.product.prodname_pages %} existentes podem [atualizar facilmente o nome padrão anterior do branch](/enterprise-server@3.0/github/working-with-github-pages/about-github-pages#publishing-sources-for-github-pages-sites).'
-        - 'Additional hardware resources are required to run {% data variables.product.prodname_ghe_server %} with any of Actions, Packages or Advanced Security enabled. For more information on the minimum required resources for each supported platform, see "[Setting up a {% data variables.product.prodname_ghe_server %} instance](/enterprise-server@3.0/admin/installation/setting-up-a-github-enterprise-server-instance)."'
+        - 'São necessários recursos adicionais de hardware para executar {% data variables.product.prodname_ghe_server %} com qualquer uma das Ações, Pacotes ou Segurança Avançada habilitadas. Para obter mais informações sobre os recursos mínimos necessários para cada plataforma compatível, consulte "[Configurar uma instância de {% data variables.product.prodname_ghe_server %}](/enterprise-server@3.0/admin/installation/setting-up-a-github-enterprise-server-instance)."'
         - 'Agora os administradores podem [publicar uma mensagem](/enterprise-server@3.0/admin/user-management/customizing-user-messages-for-your-enterprise), que todos os usuários devem aceitar. Isso pode ajudar a integrar novos usuários e supervisionar outras informações e políticas específicas da organização.'
     - heading: 'Alterações de segurança'
       notes:
@@ -80,7 +80,7 @@ sections:
     - 'As criações antigas das páginas não foram limpas, o que pode preencher o disco do usuário (`/data/user/`).'
     - 'Ao excluir um branch após o merge de um pull request, será exibida uma mensagem de erro, embora a exclusão do branch tenha êxito.'
     - 'Quando um nó de réplica está off-line em uma configuração de alta disponibilidade, {% data variables.product.product_name %} ainda pode encaminhar solicitações de {% data variables.product.prodname_pages %} para o nó off-line, reduzindo a disponibilidade de {% data variables.product.prodname_pages %} para os usuários.'
-    - 'Resource limits that are specific to processing pre-receive hooks may cause some pre-receive hooks to fail.'
+    - 'Os limites de recursos que são específicos para processamento de hooks pre-receive podem causar falha em alguns hooks pre-receive.'
   deprecations:
     - heading: 'Depreciação do GitHub Enterprise Server 2.19'
       notes:

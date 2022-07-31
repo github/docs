@@ -157,7 +157,7 @@ export async function getPathsWithMatchingStrings(strArr, org, repo) {
 
 async function searchCode(q, perPage, currentPage) {
   try {
-    const { data } = await github.rest.search.code({
+    const { data } = await secondaryRateLimitRetry(github.rest.search.code, {
       q,
       per_page: perPage,
       page: currentPage,
@@ -166,6 +166,43 @@ async function searchCode(q, perPage, currentPage) {
     return data
   } catch (err) {
     console.log(`error searching for ${q} in code`)
+    throw err
+  }
+}
+
+async function secondaryRateLimitRetry(callable, args, maxAttempts = 10, sleepTime = 1000) {
+  try {
+    const response = await callable(args)
+    return response
+  } catch (err) {
+    // If you get a secondary rate limit error (403) you'll get a data
+    // response that includes:
+    //
+    //  {
+    //    documentation_url: 'https://docs.github.com/en/free-pro-team@latest/rest/overview/resources-in-the-rest-api#secondary-rate-limits',
+    //    message: 'You have exceeded a secondary rate limit. Please wait a few minutes before you try again.'
+    //  }
+    //
+    // Let's look for that an manually self-recurse, under certain conditions
+    const lookFor = 'You have exceeded a secondary rate limit.'
+    if (
+      err.status &&
+      err.status === 403 &&
+      err.response?.data?.message.includes(lookFor) &&
+      maxAttempts > 0
+    ) {
+      console.warn(
+        `Got secondary rate limit blocked. Sleeping for ${
+          sleepTime / 1000
+        } seconds. (attempts left: ${maxAttempts})`
+      )
+      return new Promise((resolve) => {
+        setTimeout(() => {
+          resolve(secondaryRateLimitRetry(callable, args, maxAttempts - 1, sleepTime * 2))
+        }, sleepTime)
+      })
+    }
+
     throw err
   }
 }

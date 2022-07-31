@@ -4,31 +4,21 @@ import { MainContextT, MainContext, getMainContext } from 'components/context/Ma
 import { DefaultLayout } from 'components/DefaultLayout'
 import { GHAEReleaseNotes } from 'components/release-notes/GHAEReleaseNotes'
 import { GHESReleaseNotes } from 'components/release-notes/GHESReleaseNotes'
-import {
-  CurrentVersion,
-  GHAEReleaseNotesContextT,
-  GHESReleaseNotesContextT,
-} from 'components/release-notes/types'
+import { GHAEReleaseNotesContextT, GHESReleaseNotesContextT } from 'components/release-notes/types'
 
 const liquid = new Liquid()
 type Props = {
   mainContext: MainContextT
-  ghaeContext: GHAEReleaseNotesContextT
-  ghesContext: GHESReleaseNotesContextT
-  currentVersion: CurrentVersion
+  ghaeContext: GHAEReleaseNotesContextT | null
+  ghesContext: GHESReleaseNotesContextT | null
 }
-export default function ReleaseNotes({
-  mainContext,
-  ghesContext,
-  ghaeContext,
-  currentVersion,
-}: Props) {
+export default function ReleaseNotes({ mainContext, ghesContext, ghaeContext }: Props) {
   return (
     <MainContext.Provider value={mainContext}>
       <DefaultLayout>
-        {currentVersion.plan === 'enterprise-server' && <GHESReleaseNotes context={ghesContext} />}
+        {ghesContext && <GHESReleaseNotes context={ghesContext} />}
 
-        {currentVersion.plan === 'github-ae' && <GHAEReleaseNotes context={ghaeContext} />}
+        {ghaeContext && <GHAEReleaseNotes context={ghaeContext} />}
       </DefaultLayout>
     </MainContext.Provider>
   )
@@ -42,35 +32,41 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
   return {
     props: {
       mainContext: getMainContext(req, res),
-      currentVersion,
-      ghesContext: {
-        currentVersion,
-        latestPatch,
-        latestRelease,
-        prevRelease: req.context.prevRelease || '',
-        nextRelease: req.context.nextRelease || '',
-        releaseNotes: req.context.releaseNotes,
-        releases: req.context.releases,
-        message: {
-          ghes_release_notes_upgrade_patch_only: liquid.parseAndRenderSync(
-            req.context.site.data.ui.header.notices.ghes_release_notes_upgrade_patch_only,
-            { latestPatch, latestRelease }
-          ),
-          ghes_release_notes_upgrade_release_only: liquid.parseAndRenderSync(
-            req.context.site.data.ui.header.notices.ghes_release_notes_upgrade_release_only,
-            { latestPatch, latestRelease }
-          ),
-          ghes_release_notes_upgrade_patch_and_release: liquid.parseAndRenderSync(
-            req.context.site.data.ui.header.notices.ghes_release_notes_upgrade_patch_and_release,
-            { latestPatch, latestRelease }
-          ),
-        },
-      },
-      ghaeContext: {
-        currentVersion,
-        releaseNotes: req.context.releaseNotes,
-        releases: req.context.releases,
-      },
+      ghesContext:
+        currentVersion.plan === 'enterprise-server'
+          ? {
+              currentVersion,
+              latestPatch,
+              latestRelease,
+              prevRelease: req.context.prevRelease || '',
+              nextRelease: req.context.nextRelease || '',
+              releaseNotes: req.context.releaseNotes,
+              releases: req.context.releases,
+              message: {
+                ghes_release_notes_upgrade_patch_only: liquid.parseAndRenderSync(
+                  req.context.site.data.ui.header.notices.ghes_release_notes_upgrade_patch_only,
+                  { latestPatch, latestRelease }
+                ),
+                ghes_release_notes_upgrade_release_only: liquid.parseAndRenderSync(
+                  req.context.site.data.ui.header.notices.ghes_release_notes_upgrade_release_only,
+                  { latestPatch, latestRelease }
+                ),
+                ghes_release_notes_upgrade_patch_and_release: liquid.parseAndRenderSync(
+                  req.context.site.data.ui.header.notices
+                    .ghes_release_notes_upgrade_patch_and_release,
+                  { latestPatch, latestRelease }
+                ),
+              },
+            }
+          : null,
+      ghaeContext:
+        currentVersion.plan === 'github-ae'
+          ? {
+              currentVersion,
+              releaseNotes: req.context.releaseNotes,
+              releases: req.context.releases,
+            }
+          : null,
     },
   }
 }

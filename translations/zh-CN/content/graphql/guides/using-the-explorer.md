@@ -5,6 +5,7 @@ redirect_from:
   - /v4/guides/using-the-explorer
 versions:
   fpt: '*'
+  ghec: '*'
   ghes: '*'
   ghae: '*'
 topics:
@@ -13,15 +14,9 @@ topics:
 
 ## 关于 GraphQL Explorer
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 [GraphQL Explorer](/graphql/overview/explorer) 是 [GraphiQL](https://github.com/graphql/graphiql) -“浏览器内的图形交互式 GraphQL IDE”- 的实例。
-
-{% note %}
-
-**注**：{% data variables.product.prodname_dotcom %} 在 Explorer 中禁用[突变](/graphql/reference/mutations)，但您在自己的 GraphiQL 实例中可以使用它们。
-
-{% endnote %}
 
 {% else %}
 

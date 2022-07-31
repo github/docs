@@ -19,34 +19,26 @@ shortTitle: Criar réplica HA
 
 ## Criar réplica de alta disponibilidade
 
-1. Configure um novo appliance do {% data variables.product.prodname_ghe_server %} na plataforma desejada. O appliance réplica deve refletir as configurações de CPU, RAM e armazenamento do appliance primário. É recomendável instalar o appliance réplica em um ambiente independente. Hardware, software e componentes de rede subjacentes devem ser isolados dos do appliance primário. Se estiver em um provedor de nuvem, use uma região ou zona separada. Para obter mais informações, consulte [Configurar uma instância do {% data variables.product.prodname_ghe_server %}](/enterprise/{{ currentVersion }}/admin/guides/installation/setting-up-a-github-enterprise-server-instance).
-2. Em um navegador, vá até o novo endereço IP do appliance réplica e faça o upload da sua licença do {% data variables.product.prodname_enterprise %}.
-3. Defina uma senha de administrador correspondente à senha no appliance primário e continue.
-4. Clique em **Configure as Replica** (Configurar como réplica). ![Opções de instalação com link para configurar a nova instância como réplica](/assets/images/enterprise/management-console/configure-as-replica.png)
-5. Em "Add new SSH key" (Adicionar nova chave SSH), digite a chave SSH. ![Adicionar chave SSH](/assets/images/enterprise/management-console/add-ssh-key.png)
-6. Clique em **Add key** (Adicionar chave) e em **Continue** (Continuar).
-6. Conecte-se ao endereço IP do appliance réplica usando SSH.
+1. Configure um novo appliance do {% data variables.product.prodname_ghe_server %} na plataforma desejada. O appliance réplica deve refletir as configurações de CPU, RAM e armazenamento do appliance primário. É recomendável instalar o appliance réplica em um ambiente independente. Hardware, software e componentes de rede subjacentes devem ser isolados dos do appliance primário. Se estiver em um provedor de nuvem, use uma região ou zona separada. Para obter mais informações, consulte [Configurar uma instância do {% data variables.product.prodname_ghe_server %}](/enterprise/admin/guides/installation/setting-up-a-github-enterprise-server-instance).
+1. Certifique-se de que o dispositivo primário e o novo dispositivo da réplica possam se comunicar entre si por meio das portas 122/TCP e 1194/UDP. Para obter mais informações, consulte "[Portas de rede](/admin/configuration/configuring-network-settings/network-ports#administrative-ports)".
+1. Em um navegador, vá até o novo endereço IP do appliance réplica e faça o upload da sua licença do {% data variables.product.prodname_enterprise %}.
+{% data reusables.enterprise_installation.replica-steps %}
+1. Conecte-se ao endereço IP do appliance réplica usando SSH.
   ```shell
   $ ssh -p 122 admin@<em>REPLICA IP</em>
   ```
-7. Para gerar um par de chaves para replicação, use o comando `ghe-repl-setup` com o endereço IP do appliance primário e copie a chave pública que ele retorna.
-  ```shell
-  $ ghe-repl-setup <em>PRIMARY IP</em>
-  ```
+{% data reusables.enterprise_installation.generate-replication-key-pair %}
 {% data reusables.enterprise_installation.add-ssh-key-to-primary %}
-9. Para verificar a conexão com o primário e habilitar o modo de réplica para a nova réplica, execute `ghe-repl-setup` novamente.
+1. Para verificar a conexão com o primário e habilitar o modo de réplica para a nova réplica, execute `ghe-repl-setup` novamente.
   ```shell
   $ ghe-repl-setup <em>PRIMARY IP</em>
   ```
 {% data reusables.enterprise_installation.replication-command %}
-11. Para verificar o status do canal de replicação de cada armazenamento de dados, use o comando `ghe-repl-status`.
-  ```shell
-  $ ghe-repl-status
-  ```
+{% data reusables.enterprise_installation.verify-replication-channel %}
 
 ## Criar réplicas com replicação geográfica
 
-Este exemplo de configuração usa um primário e duas réplicas, localizados em três regiões geográficas diferentes. Mesmo que os três nós estejam em redes diferentes, todos os nós precisam estar acessíveis entre si. No mínimo, as portas administrativas necessárias devem ficar abertas para todos os outros nós. Para obter mais informações sobre os requisitos de portas, consulte "[Portas de rede](/enterprise/{{ currentVersion }}/admin/guides/installation/network-ports/#administrative-ports)".
+Este exemplo de configuração usa um primário e duas réplicas, localizados em três regiões geográficas diferentes. Mesmo que os três nós estejam em redes diferentes, todos os nós precisam estar acessíveis entre si. No mínimo, as portas administrativas necessárias devem ficar abertas para todos os outros nós. Para obter mais informações sobre os requisitos de portas, consulte "[Portas de rede](/enterprise/admin/guides/installation/network-ports/#administrative-ports)".
 
 1. Crie a primeira réplica da mesma forma que você faria em uma configuração padrão de dois nós executando `ghe-repl-setup` na primeira réplica.
   ```shell
@@ -106,6 +98,6 @@ Para fins de teste, é possível adicionar entradas ao arquivo `hosts` da estaç
 
 ## Leia mais
 
-- [Sobre a configuração de alta disponibilidade](/enterprise/{{ currentVersion }}/admin/guides/installation/about-high-availability-configuration)
-- [Utilitários para gerenciamento de replicações](/enterprise/{{ currentVersion }}/admin/guides/installation/about-high-availability-configuration/#utilities-for-replication-management)
-- [Sobre a replicação geográfica](/enterprise/{{ currentVersion }}/admin/guides/installation/about-geo-replication/)
+- [Sobre a configuração de alta disponibilidade](/enterprise/admin/guides/installation/about-high-availability-configuration)
+- [Utilitários para gerenciamento de replicações](/enterprise/admin/guides/installation/about-high-availability-configuration/#utilities-for-replication-management)
+- [Sobre a replicação geográfica](/enterprise/admin/guides/installation/about-geo-replication/)

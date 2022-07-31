@@ -2,13 +2,14 @@
 title: Utilizar la API de GitHub en tu app
 intro: Aprende cómo configurar tu app para que escuche los eventos y utilice la biblioteca de Octokit para hacer operaciones de la API de REST.
 redirect_from:
-  - /apps/building-your-first-github-app/
+  - /apps/building-your-first-github-app
   - /apps/quickstart-guides/using-the-github-api-in-your-app
   - /developers/apps/using-the-github-api-in-your-app
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - GitHub Apps
 shortTitle: Crear una app con la API de REST
@@ -25,7 +26,7 @@ Este proyecto te mostrará cómo hacer lo siguiente:
 
 {% data reusables.apps.app-ruby-guides %}
 
-Una vez que hayas seguido estos pasos, estarás listo para desarrollar otros tipos de integraciones utilizando la suite completa de las API de GItHub. {% ifversion fpt %}Puedes revisar los ejemplos exitosos de estas aplicaciones en [GitHub Marketplace](https://github.com/marketplace) y en [Compatible con GitHub](https://github.com/works-with).{% endif %}
+Una vez que hayas seguido estos pasos, estarás listo para desarrollar otros tipos de integraciones utilizando la suite completa de las API de GItHub. {% ifversion fpt or ghec %}Puedes revisar los ejemplos exitosos de estas aplicaciones en [GitHub Marketplace](https://github.com/marketplace) y en [Compatible con GitHub](https://github.com/works-with).{% endif %}
 
 ## Prerrequisitos
 
@@ -234,5 +235,5 @@ Aquí tienes algunas ideas para lo que puedes hacer después:
 * Cuando el bot agregue la etiqueta exitosamente, muestra un mensaje en la terminal. (Pista: compara la ID de la etiqueta `needs-response` con la ID de la etiqueta en la carga útil como una condición para tu mensaje, para que así, el mensaje solo muestre cuando la etiqueta relevante se agregue y no lo haga con otra etiqueta).
 * Agrega una página de llegada para tu app y conéctale una [Ruta de Sinatra](https://github.com/sinatra/sinatra#routes).
 * Migra tu código a un servidor hospedado (como Heroku). No olvides actualizar la configuración de tu app con el dominio nuevo.
-* Comparte tu proyecto u obtén consejos en el {% data variables.product.prodname_support_forum_with_url %}{% ifversion fpt %}
+* Comparte tu proyecto u obtén consejos en el {% data variables.product.prodname_support_forum_with_url %}{% ifversion fpt or ghec %}
 * ¿Has creado una nueva y reluciente app que crees que pueda ser útil para otros? ¡[Agrégala a GitHub Marketplace](/apps/marketplace/creating-and-submitting-your-app-for-approval/)!{% endif %}

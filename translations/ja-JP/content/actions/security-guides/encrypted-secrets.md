@@ -1,40 +1,48 @@
 ---
 title: 暗号化されたシークレット
-intro: '暗号化されたシークレットを使うと、機密情報をOrganization{% ifversion fpt or ghes > 3.0 %}、リポジトリ、あるいはリポジトリの環境{% else %}あるいはリポジトリ{% endif %}に保存できます。'
-product: '{% data reusables.gated-features.actions %}'
+intro: '暗号化されたシークレットを使うと、機密情報をOrganization{% ifversion fpt or ghes or ghec %}、リポジトリ、あるいはリポジトリの環境{% else %}あるいはリポジトリ{% endif %}に保存できます。'
 redirect_from:
   - /github/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets
   - /actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets
   - /actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets
   - /actions/configuring-and-managing-workflows/using-variables-and-secrets-in-a-workflow
   - /actions/reference/encrypted-secrets
+miniTocMaxHeadingLevel: 3
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## 暗号化されたシークレットについて
 
-シークレットは暗号化された環境変数で、Organization{% ifversion fpt or ghes > 3.0 or ghae %} リポジトリ、あるいはリポジトリ環境{% else %}あるいはリポジトリ{% endif %}に作成できます。 作成したシークレットは、{% data variables.product.prodname_actions %}ワークフローで利用できます。 {% data variables.product.prodname_dotcom %}はシークレットが{% data variables.product.prodname_dotcom %}に到達する前に暗号化され、ワークフローで使用されるまで暗号化されたままになっていることを確実にするのを助けるために[libsodium sealed box](https://libsodium.gitbook.io/doc/public-key_cryptography/sealed_boxes)を使います。
+Secrets are encrypted environment variables that you create in an organization, repository, or repository environment. 作成したシークレットは、{% data variables.product.prodname_actions %}ワークフローで利用できます。 {% data variables.product.prodname_dotcom %}はシークレットが{% data variables.product.prodname_dotcom %}に到達する前に暗号化され、ワークフローで使用されるまで暗号化されたままになっていることを確実にするのを助けるために[libsodium sealed box](https://libsodium.gitbook.io/doc/public-key_cryptography/sealed_boxes)を使います。
 
-{% data reusables.github-actions.secrets-org-level-overview %}
+{% data reusables.actions.secrets-org-level-overview %}
 
-{% ifversion fpt or ghes > 3.0 or ghae %}
 環境レベルで保存されたシークレットについては、それらへのアクセスを制御するために必須のレビュー担当者を有効化することができます。 必須の承認者によって許可されるまで、ワークフローのジョブは環境のシークレットにアクセスできません。
+
+{% ifversion fpt or ghec or ghae-issue-4856 or ghes > 3.4 %}
+
+{% note %}
+
+**注釈**: {% data reusables.actions.about-oidc-short-overview %}
+
+{% endnote %}
+
 {% endif %}
 
 ### シークレットに名前を付ける
 
 {% data reusables.codespaces.secrets-naming %}
 
-  たとえば {% ifversion fpt or ghes > 3.0 or ghae %}環境のレベルで作成されたシークレットはその環境内でユニークな名前になっていなければならず、{% endif %}リポジトリのレベルで作成されたシークレットはそのリポジトリ内でユニークな名前になっていなければならず、Organizationのレベルで作成されたシークレットはそのレベルでユニークな名前になっていなければなりません。
+  For example, a secret created at the environment level must have a unique name in that environment, a secret created at the repository level must have a unique name in that repository, and a secret created at the organization level must have a unique name at that level.
 
-  {% data reusables.codespaces.secret-precedence %}{% ifversion fpt or ghes > 3.0 or ghae %}同様に、Organization、リポジトリ、および環境がすべて同じ名前のシークレットがある場合、環境レベルのシークレットが優先されます。{% endif %}
+  {% data reusables.codespaces.secret-precedence %} Similarly, if an organization, repository, and environment all have a secret with the same name, the environment-level secret takes precedence.
 
 {% data variables.product.prodname_dotcom %} がログのシークレットを確実に削除するよう、シークレットの値として構造化データを使用しないでください。 たとえば、JSONやエンコードされたGit blobを含むシークレットは作成しないでください。
 
@@ -44,15 +52,9 @@ versions:
 
 ファイルを編集するアクセス権を持っていれば、ワークフローファイル中の暗号化されたシークレットを使い、読み取ることができます。 詳細は「[{% data variables.product.prodname_dotcom %} 上のアクセス権限](/github/getting-started-with-github/access-permissions-on-github)」を参照してください。
 
-{% warning %}
+{% data reusables.actions.secrets-redaction-warning %}
 
-**警告：** {% data variables.product.prodname_dotcom %}は、ログに出力されたシークレットを自動的に削除しますが、シークレットをログに出力することは意識的に避けなくてはなりません。
-
-{% endwarning %}
-
-{% ifversion fpt or ghes > 3.0 or ghae %}
 Organization及びリポジトリのシークレットはワークフローの実行がキューイングされた時点で読まれ、環境のシークレットは環境を参照しているジョブが開始された時点で読まれます。
-{% endif %}
 
 REST API を使用してシークレットを管理することもできます。 詳しい情報については、「[シークレット](/rest/reference/actions#secrets)」を参照してください。
 
@@ -68,21 +70,19 @@ REST API を使用してシークレットを管理することもできます�
 
 ## リポジトリに暗号化されたシークレットを作成する
 
-{% data reusables.github-actions.permissions-statement-secrets-repository %}
-
-{% include tool-switcher %}
+{% data reusables.actions.permissions-statement-secrets-repository %}
 
 {% webui %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-{% data reusables.github-actions.sidebar-secret %}
+{% data reusables.actions.sidebar-secret %}
 1. **New repository secret（新しいリポジトリのシークレット）**をクリックしてください。
 1. **[Name（名前）]** 入力ボックスにシークレットの名前を入力します。
 1. シークレットの値を入力します。
 1. [**Add secret（シークレットの追加）**] をクリックします。
 
-リポジトリが{% ifversion fpt or ghes > 3.0 or ghae %}環境のシークレットを持っているか{% endif %}親のOrganizationのシークレットにアクセスできるなら、それらのシークレットもこのページにリストされます。
+If your repository has environment secrets or can access secrets from the parent organization, then those secrets are also listed on this page.
 
 {% endwebui %}
 
@@ -106,19 +106,15 @@ To list all secrets for the repository, use the `gh secret list` subcommand.
 
 {% endcli %}
 
-{% ifversion fpt or ghes > 3.0 or ghae %}
-
 ## 環境の暗号化されたシークレットの生成
 
-{% data reusables.github-actions.permissions-statement-secrets-environment %}
-
-{% include tool-switcher %}
+{% data reusables.actions.permissions-statement-secrets-environment %}
 
 {% webui %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-{% data reusables.github-actions.sidebar-environment %}
+{% data reusables.actions.sidebar-environment %}
 1. シークレットを追加したい環境をクリックしてください。
 2. **Environment secrets（環境のシークレット）**の下で、**Add secret（シークレットの追加）**をクリックしてください。
 3. **[Name（名前）]** 入力ボックスにシークレットの名前を入力します。
@@ -143,21 +139,17 @@ gh secret list --env <em>environment-name</em>
 
 {% endcli %}
 
-{% endif %}
-
 ## Organizationの暗号化されたシークレットの作成
 
 Organizationでシークレットを作成する場合、ポリシーを使用して、そのシークレットにアクセスできるリポジトリを制限できます。 たとえば、すべてのリポジトリにアクセスを許可したり、プライベート リポジトリまたは指定したリポジトリ のリストのみにアクセスを制限したりできます。
 
-{% data reusables.github-actions.permissions-statement-secrets-organization %}
-
-{% include tool-switcher %}
+{% data reusables.actions.permissions-statement-secrets-organization %}
 
 {% webui %}
 
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.org_settings %}
-{% data reusables.github-actions.sidebar-secret %}
+{% data reusables.actions.sidebar-secret %}
 1. **New organization secret（新しいOrganizationのシークレット）**をクリックしてください。
 1. **[Name（名前）]** 入力ボックスにシークレットの名前を入力します。
 1. シークレットの **Value（値）** を入力します。
@@ -210,7 +202,7 @@ Organization内のシークレットに適用されているアクセス ポリ�
 
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.org_settings %}
-{% data reusables.github-actions.sidebar-secret %}
+{% data reusables.actions.sidebar-secret %}
 1. シークレットのリストには、設定済みのアクセス許可とポリシーが含まれます。 例: ![シークレットリスト](/assets/images/help/settings/actions-org-secrets-list.png)
 1. 各シークレットに設定されているアクセス許可の詳細については、[**Update（更新）**] をクリックしてください。
 
@@ -234,6 +226,10 @@ steps:
       super_secret: ${{ secrets.SuperSecret }}
 ```
 {% endraw %}
+
+Secrets cannot be directly referenced in `if:` conditionals. Instead, consider setting secrets as job-level environment variables, then referencing the environment variables to conditionally run steps in the job. For more information, see "[Context availability](/actions/learn-github-actions/contexts#context-availability)" and [`jobs.<job_id>.steps[*].if`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsif).
+
+If a secret has not been set, the return value of an expression referencing the secret (such as {% raw %}`${{ secrets.SuperSecret }}`{% endraw %} in the example) will be an empty string.
 
 可能であれば、コマンドラインからプロセス間でシークレットを渡すのは避けてください。 コマンドラインプロセスは他のユーザから見えるかもしれず（`ps`コマンドを使って）、あるいは[セキュリティ監査イベント](https://docs.microsoft.com/windows-server/identity/ad-ds/manage/component-updates/command-line-process-auditing)でキャプチャされるかもしれません。 シークレットの保護のために、環境変数、`STDIN`、あるいはターゲットのプロセスがサポートしている他の仕組みの利用を考慮してください。
 
@@ -280,78 +276,136 @@ steps:
 
 ## シークレットの制限
 
-You can store up to 1,000 organization secrets{% ifversion fpt or ghes > 3.0 or ghae %}, 100 repository secrets, and 100 environment secrets{% else %} and 100 repository secrets{% endif %}.
+You can store up to 1,000 organization secrets, 100 repository secrets, and 100 environment secrets.
 
 A workflow created in a repository can access the following number of secrets:
 
 * All 100 repository secrets.
 * If the repository is assigned access to more than 100 organization secrets, the workflow can only use the first 100 organization secrets (sorted alphabetically by secret name).
-{% ifversion fpt or ghes > 3.0 or ghae %}* All 100 environment secrets.{% endif %}
+* All 100 environment secrets.
 
-シークレットの容量は最大64 KBです。 64 KBより大きなシークレットを使うには、暗号化されたシークレットをリポジトリ内に保存して、復号化パスフレーズを{% data variables.product.prodname_dotcom %}に保存します。 たとえば、{% data variables.product.prodname_dotcom %}のリポジトリにファイルをチェックインする前に、`gpg`を使って認証情報をローカルで暗号化します。 詳しい情報については、「[gpg manpage](https://www.gnupg.org/gph/de/manual/r1023.html)」を参照してください。
+シークレットの容量は最大64 KBです。 To store larger secrets, see the "[Storing large secrets](#storing-large-secrets)" workaround below.
+
+### Storing large secrets
+
+To use secrets that are larger than 64 KB, you can use a workaround to store encrypted secrets in your repository and save the decryption passphrase as a secret on {% data variables.product.prodname_dotcom %}. For example, you can use `gpg` to encrypt a file containing your secret locally before checking the encrypted file in to your repository on {% data variables.product.prodname_dotcom %}. 詳しい情報については、「[gpg manpage](https://www.gnupg.org/gph/de/manual/r1023.html)」を参照してください。
 
 {% warning %}
 
-**警告**: アクションを実行する際、シークレットが出力されないよう注意してください。 この回避策を用いる場合、{% data variables.product.prodname_dotcom %}はログに出力されたシークレットを削除しません。
+**Warning**: Be careful that your secrets do not get printed when your workflow runs. この回避策を用いる場合、{% data variables.product.prodname_dotcom %}はログに出力されたシークレットを削除しません。
 
 {% endwarning %}
 
-1. ターミナルから以下のコマンドを実行して、`gpg`およびAES256暗号アルゴリズムを使用して`my_secret.json`ファイルを暗号化します。
+1. Run the following command from your terminal to encrypt the file containing your secret using `gpg` and the AES256 cipher algorithm. In this example, `my_secret.json` is the file containing the secret.
 
- ``` shell
- $ gpg --symmetric --cipher-algo AES256 my_secret.json
- ```
+   ```bash
+   gpg --symmetric --cipher-algo AES256 my_secret.json
+   ```
 
 1. パスフレーズを入力するよう求められます。 このパスフレーズを覚えておいてください。{% data variables.product.prodname_dotcom %}で、このパスフレーズを値として用いる新しいシークレットを作成するために必要になります。
 
-1. パスフレーズを含む新しいシークレットを作成します。 たとえば、`LARGE_SECRET_PASSPHRASE`という名前で新しいシークレットを作成し、シークレットの値を上記のステップで選択したパスフレーズに設定します。
+1. パスフレーズを含む新しいシークレットを作成します。 For example, create a new secret with the name `LARGE_SECRET_PASSPHRASE` and set the value of the secret to the passphrase you used in the step above.
 
-1. 暗号化したファイルをリポジトリ内にコピーしてコミットします。 この例では、暗号化したファイルは`my_secret.json.gpg`です。
+1. Copy your encrypted file to a path in your repository and commit it. この例では、暗号化したファイルは`my_secret.json.gpg`です。
 
-1. パスワードを復号化するシェルスクリプトを作成します。 このファイルを`decrypt_secret.sh`として保存します。
+   {% warning %}
 
-  ``` shell
-  #!/bin/sh
+   **Warning**: Make sure to copy the encrypted `my_secret.json.gpg` file ending with the `.gpg` file extension, and **not** the unencrypted `my_secret.json` file.
 
-  # ファイルを復号化
-  mkdir $HOME/secrets
-  # --batchでインタラクティブなコマンドを防ぎ、
-  # --yes で質問に対して "はい" が返るようにする
-  gpg --quiet --batch --yes --decrypt --passphrase="$LARGE_SECRET_PASSPHRASE" \
-  --output $HOME/secrets/my_secret.json my_secret.json.gpg
-  ```
+   {% endwarning %}
+
+   ```bash
+   git add my_secret.json.gpg
+   git commit -m "Add new encrypted secret JSON file"
+   ```
+
+1. Create a shell script in your repository to decrypt the secret file. In this example, the script is named `decrypt_secret.sh`.
+
+   ```bash
+   #!/bin/sh
+
+   # Decrypt the file
+   mkdir $HOME/secrets
+   # --batch to prevent interactive command
+   # --yes to assume "yes" for questions
+   gpg --quiet --batch --yes --decrypt --passphrase="$LARGE_SECRET_PASSPHRASE" \
+   --output $HOME/secrets/my_secret.json my_secret.json.gpg
+   ```
 
 1. リポジトリにチェックインする前に、シェルスクリプトが実行可能であることを確かめてください。
 
-  ``` shell
-  $ chmod +x decrypt_secret.sh
-  $ git add decrypt_secret.sh
-  $ git commit -m "Add new decryption script"
-  $ git push
-  ```
+   ```bash
+   chmod +x decrypt_secret.sh
+   git add decrypt_secret.sh
+   git commit -m "Add new decryption script"
+   git push
+   ```
 
-1. ワークフローから、`step`を使用してシェルスクリプトを呼び出し、シークレットを復号化します。 ワークフローを実行している環境にリポジトリのコピーを作成するには、[`actions/checkout`](https://github.com/actions/checkout)アクションを使用する必要があります。 リポジトリのルートを基準として`run`コマンドを使用し、シェルスクリプトを参照します。
+1. In your {% data variables.product.prodname_actions %} workflow, use a `step` to call the shell script and decrypt the secret. ワークフローを実行している環境にリポジトリのコピーを作成するには、[`actions/checkout`](https://github.com/actions/checkout)アクションを使用する必要があります。 リポジトリのルートを基準として、`run`コマンドを使用することで、シェルスクリプトを参照します。
 
-{% raw %}
-  ```yaml
-  name: Workflows with large secrets
+   ```yaml
+   name: Workflows with large secrets
 
-  on: push
+   on: push
 
-  jobs:
-    my-job:
-      name: My Job
-      runs-on: ubuntu-latest
-      steps:
-        - uses: actions/checkout@v2
-        - name: Decrypt large secret
-          run: ./.github/scripts/decrypt_secret.sh
-          env:
-            LARGE_SECRET_PASSPHRASE: ${{ secrets.LARGE_SECRET_PASSPHRASE }}
-        # このコマンドは、あなたの秘密が印刷されていることを示す例
-        # シークレットを出力する文は必ず削除してください。 GitHubは
-        # この回避先を使うシークレットは隠蔽しません。
-        - name: Test printing your secret (Remove this step in production)
-          run: cat $HOME/secrets/my_secret.json
-  ```
-{% endraw %}
+   jobs:
+     my-job:
+       name: My Job
+       runs-on: ubuntu-latest
+       steps:
+         - uses: {% data reusables.actions.action-checkout %}
+         - name: Decrypt large secret
+           run: ./decrypt_secret.sh
+           env:
+             LARGE_SECRET_PASSPHRASE: {% raw %}${{ secrets.LARGE_SECRET_PASSPHRASE }}{% endraw %}
+         # This command is just an example to show your secret being printed
+         # Ensure you remove any print statements of your secrets. GitHub does
+         # not hide secrets that use this workaround.
+         - name: Test printing your secret (Remove this step in production)
+           run: cat $HOME/secrets/my_secret.json
+   ```
+
+## Storing Base64 binary blobs as secrets
+
+You can use Base64 encoding to store small binary blobs as secrets. You can then reference the secret in your workflow and decode it for use on the runner. For the size limits, see ["Limits for secrets"](/actions/security-guides/encrypted-secrets#limits-for-secrets).
+
+{% note %}
+
+**Note**: Note that Base64 only converts binary to text, and is not a substitute for actual encryption.
+
+{% endnote %}
+
+1. Use `base64` to encode your file into a Base64 string. 例:
+
+   ```
+   $ base64 -i cert.der -o cert.base64
+   ```
+
+1. Create a secret that contains the Base64 string. 例:
+
+   ```
+   $ gh secret set CERTIFICATE_BASE64 < cert.base64
+   ✓ Set secret CERTIFICATE_BASE64 for octocat/octorepo
+   ```
+
+1. To access the Base64 string from your runner, pipe the secret to `base64 --decode`.  例:
+
+   ```yaml
+   name: Retrieve Base64 secret
+   on:
+     push:
+       branches: [ octo-branch ]
+   jobs:
+     decode-secret:
+       runs-on: ubuntu-latest
+       steps:
+         - uses: {% data reusables.actions.action-checkout %}
+         - name: Retrieve the secret and decode it to a file
+           env:
+             {% raw %}CERTIFICATE_BASE64: ${{ secrets.CERTIFICATE_BASE64 }}{% endraw %}
+           run: |
+             echo $CERTIFICATE_BASE64 | base64 --decode > cert.der
+         - name: Show certificate information
+           run: |
+             openssl x509 -in cert.der -inform DER -text -noout
+   ```

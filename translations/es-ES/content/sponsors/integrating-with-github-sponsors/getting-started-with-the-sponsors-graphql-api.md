@@ -3,6 +3,7 @@ title: Comenzar con la API de GraphQL de Patrocinadores
 intro: 'Al utilizar la API de GraphQL, puedes crear integraciones personalizadas para administrar o revisar tus patrocinios.'
 versions:
   fpt: '*'
+  ghec: '*'
 type: overview
 topics:
   - GraphQL

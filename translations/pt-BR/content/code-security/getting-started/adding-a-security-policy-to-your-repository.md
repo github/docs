@@ -7,8 +7,9 @@ redirect_from:
   - /github/code-security/security-advisories/adding-a-security-policy-to-your-repository
 versions:
   fpt: '*'
-  ghes: '>=3.1'
-  ghae: next
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Security policies
@@ -20,11 +21,11 @@ shortTitle: Adicionar uma política de segurança
 
 ## Sobre políticas de segurança
 
-Para dar às pessoas instruções para relatar vulnerabilidades de segurança no seu projeto{% ifversion fpt or ghes > 3.0 %} você pode adicionar um arquivo _SECURITY.md_ à raiz do seu repositório, `docs` ou à pasta `.github`.{% else %} você pode adicionar um arquivo _SECURITY.md_ à raiz do seu repositório ou à pasta `docs`.{% endif %} Quando alguém criar um problema no seu repositório, a pessoa verá um link para a política de segurança do seu projeto.
+Para dar às pessoas instruções para relatar vulnerabilidades de segurança no seu projeto{% ifversion fpt or ghes or ghec %} você pode adicionar um arquivo _SECURITY.md_ à raiz do seu repositório, `docs` ou à pasta `.github`.{% else %} você pode adicionar um arquivo _SECURITY.md_ à raiz do seu repositório ou à pasta `docs`.{% endif %} Quando alguém criar um problema no seu repositório, a pessoa verá um link para a política de segurança do seu projeto.
 
 {% ifversion not ghae %}
 <!-- no public repos in GHAE -->
-Você pode criar uma política de segurança padrão para sua organização ou conta de usuário. Para obter mais informações, consulte "[Criando um arquivo padrão de integridade da comunidade](/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)."
+Você pode criar uma política de segurança padrão para sua organização ou conta pessoal. Para obter mais informações, consulte "[Criando um arquivo padrão de integridade da comunidade](/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)."
 {% endif %}
 
 {% tip %}
@@ -33,12 +34,12 @@ Você pode criar uma política de segurança padrão para sua organização ou c
 
 {% endtip %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 Depois que alguém informar uma vulnerabilidade de segurança no seu projeto, você pode usar o {% data variables.product.prodname_security_advisories %} para divulgar, corrigir e publicar informações sobre a vulnerabilidade. Para obter mais informações sobre o processo de relatórios e divulgação de vulnerabilidades em {% data variables.product.prodname_dotcom %}, consulte "[Sobre divulgação coordenada das vulnerabilidades de segurança](/code-security/security-advisories/about-coordinated-disclosure-of-security-vulnerabilities#about-reporting-and-disclosing-vulnerabilities-in-projects-on-github)". Para obter mais informações sobre {% data variables.product.prodname_security_advisories %}, consulte "[Sobre {% data variables.product.prodname_security_advisories %}](/github/managing-security-vulnerabilities/about-github-security-advisories)."
 
 {% data reusables.repositories.github-security-lab %}
 {% endif %}
-{% ifversion ghes > 3.0 or ghae-next %}
+{% ifversion ghes or ghae %}
 <!-- alternative to the content about GitHub Security Advisories in the dotcom article -->
 Ao disponibilizar claramente instruções de relatório de segurança, você torna mais fácil para os usuários relatar quaisquer vulnerabilidades de segurança que encontrem no repositório usando seu canal de comunicação preferido.
 {% endif %}
@@ -58,5 +59,5 @@ Ao disponibilizar claramente instruções de relatório de segurança, você tor
 ## Leia mais
 
 - "[Protegendo o seu repositório](/code-security/getting-started/securing-your-repository)"{% ifversion not ghae %}
-- "[Configurar o projeto para contribuições saudáveis](/communities/setting-up-your-project-for-healthy-contributions)"{% endif %}{% ifversion fpt %}
+- "[Configurar o projeto para contribuições saudáveis](/communities/setting-up-your-project-for-healthy-contributions)"{% endif %}{% ifversion fpt or ghec %}
 - [{% data variables.product.prodname_security %}]({% data variables.product.prodname_security_link %}){% endif %}

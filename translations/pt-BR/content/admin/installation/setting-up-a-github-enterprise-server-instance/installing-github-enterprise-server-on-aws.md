@@ -2,13 +2,17 @@
 title: Instalar o GitHub Enterprise Server no AWS
 intro: 'Para instalar o {% data variables.product.prodname_ghe_server %} no Amazon Web Services (AWS), você deve iniciar uma instância do Amazon Elastic Compute Cloud (EC2) e, em seguida, criar e vincular um volume de dados separado do Amazon Elastic Block Store (EBS).'
 redirect_from:
-  - /enterprise/admin/guides/installation/installing-github-enterprise-on-aws/
+  - /enterprise/admin/guides/installation/installing-github-enterprise-on-aws
   - /enterprise/admin/installation/installing-github-enterprise-server-on-aws
   - /admin/installation/installing-github-enterprise-server-on-aws
 versions:
   ghes: '*'
+type: tutorial
 topics:
+  - Administrator
   - Enterprise
+  - Infrastructure
+  - Set up
 shortTitle: Instalar no AWS
 ---
 
@@ -17,6 +21,12 @@ shortTitle: Instalar no AWS
 - {% data reusables.enterprise_installation.software-license %}
 - Você deve ter uma conta do AWS que possa iniciar instâncias do EC2 e criar volumes EBS. Para obter mais informações, consulte o [site do Amazon Web Services](https://aws.amazon.com/).
 - A maioria das ações necessárias para iniciar a {% data variables.product.product_location %} também pode ser executada usando o console de gerenciamento do AWS. No entanto, é recomendável instalar a interface da linha de comando (CLI) do AWS para a configuração inicial. Veja abaixo alguns exemplos de uso da CLI do AWS. Para obter mais informações, consulte os guias "[Trabalhar com o console de gerenciamento do AWS](http://docs.aws.amazon.com/awsconsolehelpdocs/latest/gsg/getting-started.html)" e "[O que é a interface da linha de comando do AWS](http://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html)".
+
+{% note %}
+
+**Observação:** Neste momento, {% data variables.product.prodname_ghe_server %} não é compatível com o uso da API De Metadados IDMSv2 da Amazon.
+
+{% endnote %}
 
 Para usar este guia, você deve conhecer os seguintes conceitos do AWS:
 
@@ -27,7 +37,7 @@ Para usar este guia, você deve conhecer os seguintes conceitos do AWS:
  - [EC2 e Virtual Private Cloud](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-vpc.html) (se você pretende iniciar uma nuvem virtual privada)
  - [Preços do AWS](https://aws.amazon.com/pricing/) (para calcular e gerenciar custos)
 
-For an architectural overview, see the "[AWS Architecture Diagram for Deploying GitHub Enterprise Server](/assets/images/installing-github-enterprise-server-on-aws.png)".
+Para obter uma visão geral da arquitetura, consulte o "[Diagrama de arquitetura AWS para implantar o GitHub Enterprise Server](/assets/images/installing-github-enterprise-server-on-aws.png)".
 
 Este guia recomenda o princípio do menor privilégio ao configurar {% data variables.product.product_location %} no AWS. Para obter mais informações, consulte a [Documentação do Gerencimaento de acesso e Identidade (IAM) do AWS](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#grant-least-privilege).
 
@@ -51,10 +61,9 @@ As AMIs para o {% data variables.product.prodname_ghe_server %} estão disponív
 
 ### Usar o portal do {% data variables.product.prodname_ghe_server %} para selecionar uma AMI
 
-{% data reusables.enterprise_installation.enterprise-download-procedural %}
 {% data reusables.enterprise_installation.download-appliance %}
-3. No menu suspenso Select your platform (Selecionar plataforma), clique em **Amazon Web Services**.
-4. No menu suspenso Select your AWS region (Selecionar região do AWS), escolha a região.
+3. Em "Na nuvem de {% data variables.product.prodname_dotcom %}", selecione o menu suspenso "Selecione sua plataforma" e clique em **Amazon Web Services**.
+4. Selecione "Selecione sua região AWS" no menu suspenso e clique na região desejada.
 5. Anote a ID da AMI.
 
 ### Usar a CLI do AWS para selecionar uma AMI
@@ -121,7 +130,7 @@ aws ec2 run-instances \
 
 Se for uma instância de produção, é recomendável alocar uma IP Elástica (EIP) e associá-la à instância antes de seguir para a configuração do {% data variables.product.prodname_ghe_server %}. Caso contrário, o endereço IP público da instância não será retido após a reinicialização da instância. Para obter mais informações, consulte "[Alocar um endereço de IP elástica](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html#using-instance-addressing-eips-allocating)" e "[Associar um endereço de IP elástica a uma instância em execução](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html#using-instance-addressing-eips-associating)" na documentação da Amazon.
 
-As instâncias primária e de réplica devem receber EIPs separados nas configurações de alta disponibilidade de produção. Para obter mais informações, consulte "[Configurar o {% data variables.product.prodname_ghe_server %} para alta disponibilidade](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-github-enterprise-server-for-high-availability/)".
+As instâncias primária e de réplica devem receber EIPs separados nas configurações de alta disponibilidade de produção. Para obter mais informações, consulte "[Configurar o {% data variables.product.prodname_ghe_server %} para alta disponibilidade](/enterprise/admin/guides/installation/configuring-github-enterprise-server-for-high-availability/)".
 
 ## Configurar a instância do {% data variables.product.prodname_ghe_server %}
 
@@ -133,5 +142,5 @@ As instâncias primária e de réplica devem receber EIPs separados nas configur
 
 ## Leia mais
 
-- "[Visão geral do sistema](/enterprise/admin/guides/installation/system-overview){% ifversion ghes > 2.22 %}
+- "[Visão geral do sistema](/enterprise/admin/guides/installation/system-overview){% ifversion ghes %}
 - "[Sobre atualizações para novas versões](/admin/overview/about-upgrades-to-new-releases)"{% endif %}

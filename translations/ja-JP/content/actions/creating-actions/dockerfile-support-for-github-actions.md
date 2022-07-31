@@ -2,19 +2,18 @@
 title: GitHub ActionsのためのDockerfileサポート
 shortTitle: Dockerfile support
 intro: Dockerコンテナアクション用の`Dockerfile`を作成する際には、いくつかのDockerの命令がGitHub Actionsやアクションのメタデータファイルとどのように関わるのかを知っておく必要があります。
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /actions/building-actions/dockerfile-support-for-github-actions
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: reference
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## Dockerfileの命令について
 
@@ -22,7 +21,7 @@ type: reference
 
 ## Dockerfileの命令とオーバーライド
 
-Dockerの命令の中にはGitHub Actionと関わるものがあり、アクションのメタデータファイルはDockerの命令のいくつかをオーバーライドできます。 予期しない動作を避けるために、Dockerfileが{% data variables.product.prodname_actions %}とどのように関わるかについて馴染んでおいてください。
+Dockerの命令の中にはGitHub Actionsと関わるものがあり、アクションのメタデータファイルはDockerの命令のいくつかをオーバーライドできます。 予期しない動作を避けるために、Dockerfileが{% data variables.product.prodname_actions %}とどのように関わるかについて馴染んでおいてください。
 
 ### USER
 
@@ -47,6 +46,8 @@ DockerアクションはデフォルトのDockerユーザ（root）で実行さ�
 アクションのメタデータファイル中で`entrypoint`を定義すると、それは`Dockerfile`中で定義された`ENTRYPOINT`をオーバーライドします。 詳しい情報については「[{% data variables.product.prodname_actions %}のメタデータ構文](/actions/creating-actions/metadata-syntax-for-github-actions/#runsentrypoint)」を参照してください。
 
 Dockerの`ENTRYPOINT`命令には、_shell_形式と_exec_形式があります。 Dockerの`ENTRYPOINT`のドキュメンテーションは、`ENTRYPOINT`の_exec_形式を使うことを勧めています。 _exec_および_shell_形式に関する詳しい情報については、Dockerのドキュメンテーション中の[ENTRYPOINTのリファレンス](https://docs.docker.com/engine/reference/builder/#entrypoint)を参照してください。
+
+You should not use `WORKDIR` to specify your entrypoint in your Dockerfile. Instead, you should use an absolute path. For more information, see [WORKDIR](#workdir).
 
 _exec_形式の`ENTRYPOINT`命令を使うようにコンテナを設定した場合、アクションのメタデータファイル中に設定された`args`はコマンドシェル内では実行されません。 アクションの`args`に環境変数が含まれている場合、その変数は置換されません。 たとえば、以下の_exec_形式は`$GITHUB_SHA`に保存された値を出力せず、代わりに`"$GITHUB_SHA"`を出力します。
 
@@ -77,7 +78,7 @@ ENTRYPOINT ["/entrypoint.sh"]
 
 #### *entrypoint.sh*ファイルの例
 
-上のDockerfileを使って、{% data variables.product.product_name %}はアクションのメタデータファイルに設定された`args`を、`entrypoint.sh`の引数として送ります。 `#!/bin/sh`[シバン](https://ja.wikipedia.org/wiki/シバン_(Unix))を`entrypoint.sh`ファイルの先頭に追加し、システムの[POSIX](https://ja.wikipedia.org/wiki/POSIX)準拠のシェルを明示的に使ってください。
+上のDockerfileを使って、{% data variables.product.product_name %}はアクションのメタデータファイルに設定された`args`を、`entrypoint.sh`の引数として送ります。 Add the `#!/bin/sh` [shebang](https://en.wikipedia.org/wiki/Shebang_(Unix)) at the top of the `entrypoint.sh` file to explicitly use the system's [POSIX](https://en.wikipedia.org/wiki/POSIX)-compliant shell.
 
 ``` sh
 #!/bin/sh
@@ -104,7 +105,7 @@ Error response from daemon: OCI runtime create failed: container_linux.go:348: s
 
 `Dockerfile`中で`CMD`を使っているなら、以下のガイドラインに従ってください。
 
-{% data reusables.github-actions.dockerfile-guidelines %}
+{% data reusables.actions.dockerfile-guidelines %}
 
 ## サポートされているLinuxの機能
 

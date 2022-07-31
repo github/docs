@@ -1,1 +1,1 @@
-1. 在 Okta 仪表板中，单击 **Applications（应用程序）**。 ![Okta 仪表板导航栏中的"应用程序"项](/assets/images/help/saml/okta-applications.png)
+1. 在左侧边栏中，使用 **Applications（应用程序）**下拉列表，然后单击 **Applications（应用程序）**。

@@ -5,12 +5,17 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
+type: overview
+topics:
+  - Project management
+  - Projects
 ---
 
 ## 简介
 您可以使用 {% data variables.product.prodname_dotcom %} 仓库、议题、项目板及其他工具来规划和跟踪您的工作，无论是单个项目或跨职能团队。
 
-在本指南中，您将学习如何创建和设置一个与一群人合作的仓库，创建议题模板{% ifversion fpt %} 和表单{% endif %}，打开议题并使用任务列表来分解工作，并建立项目委员会来组织和跟踪议题。
+在本指南中，您将学习如何创建和设置一个与一群人合作的仓库，创建议题模板{% ifversion fpt or ghec %} 和表单{% endif %}，打开议题并使用任务列表来分解工作，并建立项目委员会来组织和跟踪议题。
 
 ## 创建仓库
 启动新项目、计划或功能时，第一步是创建仓库。 仓库包含您项目的所有文件，并为您提供了一个与他人合作和管理您工作的地方。 更多信息请参阅“[创建新仓库](/github/creating-cloning-and-archiving-repositories/creating-a-repository-on-github/creating-a-new-repository)”。
@@ -42,7 +47,7 @@ versions:
 - 功能请求：您的团队或用户可以创建议题，要求改进您的产品或项目。
 - 错误：您的团队或用户可以创建议题来报告错误。
 
-根据您处理的仓库和项目类型，您可以将某些类型的议题置于其他议题之上。 在为团队确定最常见的议题类型后，您可以为仓库创建议题模板{% ifversion fpt %}和表单{% endif %}。 议题模板{% ifversion fpt %}和表单{% endif %}允许您创建标准化的模板列表，供贡献者在您的仓库中打开议题时选择。 更多信息请参阅“[为仓库配置议题模板](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/configuring-issue-templates-for-your-repository)”。
+根据您处理的仓库和项目类型，您可以将某些类型的议题置于其他议题之上。 在为团队确定最常见的议题类型后，您可以为仓库创建议题模板{% ifversion fpt or ghec %}和表单{% endif %}。 议题模板{% ifversion fpt or ghec %}和表单{% endif %}允许您创建标准化的模板列表，供贡献者在您的仓库中打开议题时选择。 更多信息请参阅“[为仓库配置议题模板](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/configuring-issue-templates-for-your-repository)”。
 
 ### 议题模板示例
 下面我们创建一个议题模板，用于报告 Octocat 项目中的错误。
@@ -61,7 +66,7 @@ versions:
 ![创建一个大型计划议题示例](/assets/images/help/issues/quickstart-create-large-initiative-issue.png)
 ### 任务列表示例
 
-您可以使用任务列表将较大的议题分解成较小的任务，并将追踪议题作为更大目标的一部分。 {% ifversion fpt %} 任务列表添加到议题正文时具有额外的功能。 在议题顶端可以看到全部完成的任务数量，如果有人关闭任务列表中链接的议题，复选框将自动标记为完成。{% endif %} 更多信息请参阅“[关于任务列表](/issues/tracking-your-work-with-issues/creating-issues/about-task-lists)”。
+您可以使用任务列表将较大的议题分解成较小的任务，并将追踪议题作为更大目标的一部分。 {% ifversion fpt or ghec %} 任务列表添加到议题正文时具有额外的功能。 在议题顶端可以看到全部完成的任务数量，如果有人关闭任务列表中链接的议题，复选框将自动标记为完成。{% endif %} 更多信息请参阅“[关于任务列表](/issues/tracking-your-work-with-issues/creating-issues/about-task-lists)”。
 
 下面，我们在 Octocat 项目议题中添加了任务列表，将其分解为较小的议题。
 
@@ -80,29 +85,37 @@ versions:
 
 更多信息请参阅“[创建标签](/issues/using-labels-and-milestones-to-track-work/managing-labels#creating-a-label)”。
 
-在仓库中创建标签后，您可以将其应用于仓库中的任何议题、拉取请求或讨论。 然后您可以通过标签过滤问题和拉取请求来查找所有相关的工作。 例如，过滤具有 `front-end` 和 `bug` 标签的议题，在项目中找到所有前端错误。 For more information, see "[Filtering and searching issues and pull requests](/issues/tracking-your-work-with-issues/filtering-and-searching-issues-and-pull-requests)."
+在仓库中创建标签后，您可以将其应用于仓库中的任何议题、拉取请求或讨论。 然后您可以通过标签过滤问题和拉取请求来查找所有相关的工作。 例如，过滤具有 `front-end` 和 `bug` 标签的议题，在项目中找到所有前端错误。 更多信息请参阅“[筛选和搜索问题以及拉取请求](/issues/tracking-your-work-with-issues/filtering-and-searching-issues-and-pull-requests)”。
 ### 标签示例
 下面是我们创建并添加到议题的 `front-end` 标签示例。
 
 ![向议题添加标签的示例](/assets/images/help/issues/quickstart-add-label-to-issue.png)
-## 添加议题到项目板
-{% ifversion fpt %}您可以在 {% data variables.product.prodname_dotcom %}（目前在有限公测中）上使用项目，为您的团队规划和跟踪工作。 项目是一个可自定义的电子表格，集成您在 {% data variables.product.prodname_dotcom %} 上的议题和拉取请求，自动保持最新的 {% data variables.product.prodname_dotcom %} 信息。 您可以通过筛选、排序及分组议题和 PR 来自定义布局。 要开始项目，请参阅“[项目（测试版）快速入门](/issues/trying-out-the-new-projects-experience/quickstart)”。
-### 项目（测试版）示例
-以下是一个示例项目的表视图，其中填充了我们创建的 Octocat 项目议题。
 
-![项目（测试版）表视图示例](/assets/images/help/issues/quickstart-projects-table-view.png)
+## 添加议题到项目板
+
+{% ifversion projects-v2 %}
+
+You can use {% data variables.projects.projects_v2 %} on {% data variables.product.prodname_dotcom %} to plan and track the work for your team. 项目是一个可自定义的电子表格，集成您在 {% data variables.product.prodname_dotcom %} 上的议题和拉取请求，自动保持最新的 {% data variables.product.prodname_dotcom %} 信息。 您可以通过筛选、排序及分组议题和 PR 来自定义布局。 To get started with projects, see "[Quickstart for projects](/issues/planning-and-tracking-with-projects/learning-about-projects/quickstart-for-projects)."
+### Project example
+以下是一个示例项目的表布局，其中填充了我们创建的 Octocat 项目议题。
+
+![Projects table layout example](/assets/images/help/issues/quickstart-projects-table-view.png)
 
 我们也可以将同一个项目视为一个板。
 
-![项目（测试版）板视图示例](/assets/images/help/issues/quickstart-projects-board-view.png)
+![Projects board layout example](/assets/images/help/issues/quickstart-projects-board-view.png)
 
 {% endif %}
+{% ifversion projects-v1 %}
 
-您还可以 {% ifversion fpt %} 使用现有的{% else %} 使用{% endif %} {% data variables.product.prodname_dotcom %} 上的项目板来规划和跟踪您或您团队的工作。 项目板包括议题、拉取请求和注释，在选择的列中分类为卡片。 您可以为功能工作、高级路线图甚至发布检查表创建项目板。 更多信息请参阅“[关于项目板](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards)”。
+You can {% ifversion projects-v2 %} also use the existing{% else %} use{% endif %} {% data variables.product.prodname_projects_v1 %} on {% data variables.product.prodname_dotcom %} to plan and track your or your team's work. 项目板包括议题、拉取请求和注释，在选择的列中分类为卡片。 您可以为功能工作、高级路线图甚至发布检查表创建项目板。 更多信息请参阅“[关于项目板](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards)”。
 ### 项目板示例
 下面是我们的示例项目 Octocat 的项目板， 其中我们创建了议题，并且分解成较小议题 添加到项目板。
 
 ![项目板示例](/assets/images/help/issues/quickstart-project-board.png)
+
+{% endif %}
+
 ## 后续步骤
 
 您现在已经了解了 {% data variables.product.prodname_dotcom %} 提供的用于规划和跟踪您工作的工具，并且已经开始设置您的跨功能团队或项目仓库！ 以下是一些有用的资源，可进一步定制您的仓库和组织您的工作。
@@ -112,6 +125,6 @@ versions:
 - “[关于议题和拉取请求模板](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/about-issue-and-pull-request-templates)”，用于了解有关议题模板的更多信息
 - “[管理标签](/issues/using-labels-and-milestones-to-track-work/managing-labels)”，用于学习如何创建、编辑和删除标签
 - “[关于任务列表](/issues/tracking-your-work-with-issues/creating-issues/about-task-lists)”，用于了解有关任务列表的更多内容
-{% ifversion fpt %} - “[关于项目（测试版）](/issues/trying-out-the-new-projects-experience/about-projects)”，用于了解更多关于新项目的体验，目前在有限公测中
-- “[定制项目（测试版）视图](/issues/trying-out-the-new-projects-experience/customizing-your-project-views)”，用于学习如何自定义项目视图，目前在有限公测中{% endif %}
-- “[关于项目板](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards)”，用于学习如何管理项目板
+{% ifversion projects-v2 %} - "[About projects](/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects)" for learning more about projects
+- "[Customizing a view](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/customizing-a-view)" for learning how to customize views for projects{% endif %}
+{% ifversion projects-v1 %}- "[About {% data variables.product.prodname_projects_v1 %}](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards)" for learning how to manage project boards{% endif %}

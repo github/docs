@@ -14,7 +14,7 @@ Os mestres, professores e mentores podem usar o treinamento online Consultores d
 
 {% note %}
 
-**Observação:** como um instrutor, você não pode criar contas do {% data variables.product.prodname_dotcom %} para seus alunos. Os estudantes devem criar as próprias contas do {% data variables.product.prodname_dotcom %}.
+**Observação:** Como instrutor, você não pode criar contas em {% data variables.product.product_location %} para seus alunos. Os alunos devem criar suas próprias contas em {% data variables.product.product_location %}.
 
 {% endnote %}
 

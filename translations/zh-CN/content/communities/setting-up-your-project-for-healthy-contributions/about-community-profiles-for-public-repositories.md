@@ -2,11 +2,12 @@
 title: 关于公共仓库的社区资料
 intro: 仓库维护员可以审查其公共仓库的社区资料，以了解如何帮助发展其社区和支持贡献者。 贡献者可以查看公共仓库的社区资料，确定他们是否要参与该项目。
 redirect_from:
-  - /articles/viewing-your-community-profile/
+  - /articles/viewing-your-community-profile
   - /articles/about-community-profiles-for-public-repositories
   - /github/building-a-strong-community/about-community-profiles-for-public-repositories
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Community
 shortTitle: 社区简介

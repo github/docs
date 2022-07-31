@@ -4,6 +4,7 @@ intro: Codespace 内のファイルに変更を加えた後、変更をすばや
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Codespaces
@@ -14,11 +15,11 @@ shortTitle: ソースコントロール
 
  
 
-## {% data variables.product.prodname_codespaces %} のソースコントロールについて
+## {% data variables.product.prodname_github_codespaces %} のソースコントロールについて
 
 必要なすべての Git アクションを codespace 内で直接実行できます。 たとえば、リモートリポジトリから変更をフェッチしたり、ブランチを切り替えたり、新しいブランチを作成したり、変更をコミットしてプッシュしたり、プルリクエストを作成したりすることができます。 Codespace 内の統合ターミナルを使用して Git コマンドを入力するか、アイコンとメニューオプションをクリックして最も一般的な Git タスクをすべて完了することができます。 このガイドでは、ソースコントロールにグラフィカルユーザインターフェースを使用する方法について説明します。
 
-{% data variables.product.prodname_github_codespaces %} 内のソースコントロールは、{% data variables.product.prodname_vscode %} と同じワークフローを使用します。 詳しい情報については、{% data variables.product.prodname_vscode %} のドキュメント「[VS Code でバージョン管理を使用する](https://code.visualstudio.com/docs/editor/versioncontrol#_git-support)」を参照してください。
+{% data variables.product.prodname_github_codespaces %} 内のソースコントロールは、{% data variables.product.prodname_vscode %} と同じワークフローを使用します。 For more information, see the {% data variables.product.prodname_vscode_shortname %} documentation "[Using Version Control in {% data variables.product.prodname_vscode_shortname %}](https://code.visualstudio.com/docs/editor/versioncontrol#_git-support)."
 
 {% data variables.product.prodname_github_codespaces %} を使用してファイルを更新するための一般的なワークフローは次のとおりです。
 
@@ -30,9 +31,7 @@ shortTitle: ソースコントロール
 
 ## ブランチの作成または切り替え
 
-1. 現在のブランチがステータスバーに表示されていない場合は、codespace の下部でステータスバーを右クリックし、[**Source control**] を選択します。
-1. ステータスバーでブランチ名をクリックします。 ![ステータスバーにあるブランチ](/assets/images/help/codespaces/branch-in-status-bar.png)
-1. ドロップダウンで、切り替えるブランチをクリックするか、新しいブランチ名を入力して [**Create new branch**] をクリックします。 ![ブランチメニューから選択](/assets/images/help/codespaces/create-new-branch.png)
+{% data reusables.codespaces.create-or-switch-branch %}
 
 {% tip %}
 
@@ -48,7 +47,7 @@ shortTitle: ソースコントロール
 1. サイドバーの上部にある省略記号(**...**) をクリックします。 ![[View] および [More Actions] の省略記号ボタン](/assets/images/help/codespaces/source-control-ellipsis-button.png)
 1. ドロップダウンメニューで、[**Pull**] をクリックします。
 
-If the dev container configuration has been changed since you created the codespace, you can apply the changes by rebuilding the container for the codespace. 詳しい情報については、「[プロジェクトの Codespaces を設定する](/codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project#applying-changes-to-your-configuration)」を参照してください。
+If the dev container configuration has been changed since you created the codespace, you can apply the changes by rebuilding the container for the codespace. For more information, see "[Introduction to dev containers](/codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project#applying-configuration-changes-to-a-codespace)."
 
 ## 新しい変更を自動的にフェッチするように codespace を設定する
 
@@ -64,16 +63,11 @@ If the dev container configuration has been changed since you created the codesp
 
 ## 変更をコミットする
 
-{% data reusables.codespaces.source-control-display-dark %}
-1. 変更をステージングするには、変更したファイルの隣にある [**+**] をクリックするか、複数のファイルを変更してすべてをステージングする場合は [**Changes**] の隣をクリックします。 ![ステージングボタンが強調表示されたソースコントロールサイドバー](/assets/images/help/codespaces/codespaces-commit-stage.png)
-1. 行った変更について説明するコミットメッセージを入力します。 ![コミットメッセージがあるソースコントロールサイドバー](/assets/images/help/codespaces/codespaces-commit-commit-message.png)
-1. ステージングされた変更をコミットするには、ソースコントロールサイドバーの上部にあるチェックマークをクリックします。 ![チェックマークアイコンをクリックする](/assets/images/help/codespaces/codespaces-commit-checkmark-icon.png)
+{% data reusables.codespaces.source-control-commit-changes %}
 
 ## プルリクエストを発行する
 
-1. リポジトリのローカルコピーに変更をコミットしてから、[**Create Pull Request**] アイコンをクリックします。 ![ステージングボタンが強調表示されたソースコントロールサイドバー](/assets/images/help/codespaces/codespaces-commit-pr-button.png)
-1. マージ元のローカルブランチとリポジトリ、およびマージ先のリモートブランチとリポジトリが正しいことを確認します。 そして、プルリクエストにタイトルと説明を付けます。 ![ステージングボタンが強調表示されたソースコントロールサイドバー](/assets/images/help/codespaces/codespaces-commit-pr.png)
-1. ** Create（作成）**をクリックしてください。
+{% data reusables.codespaces.source-control-pull-request %}
 
 ## リモートリポジトリに変更をプッシュする
 

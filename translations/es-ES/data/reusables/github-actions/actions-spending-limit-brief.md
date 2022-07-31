@@ -1,1 +1,0 @@
-If you are a monthly-billed customer, your account will have a default spending limit of 0 US dollars (USD), which prevents additional usage of minutes or storage for private repositories beyond the amounts included with your account. Si pagas tu cuenta por factura, ésta tendrá un límite de gastos ilimitado predeterminadamente.

@@ -8,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - GitHub Apps
 shortTitle: Pruebas de IC utilizando la API de verificaciones
@@ -137,7 +138,6 @@ La acción `requested` solicita una ejecución de verificación cada vez que se 
 
 Agregarás este método nuevo como un [Ayudante de Sinatra](https://github.com/sinatra/sinatra#helpers) en caso de que quieras que otras rutas lo utilicen también. Debajo de `helpers do`, agrega este método de `create_check_run`:
 
-{% ifversion fpt or ghes > 2.22 or ghae %}
 ``` ruby
 # Create a new check run with the status queued
 def create_check_run
@@ -150,32 +150,14 @@ def create_check_run
     # The payload structure differs depending on whether a check run or a check suite event occurred.
     @payload['check_run'].nil? ? @payload['check_suite']['head_sha'] : @payload['check_run']['head_sha'],
     # [Hash] 'Accept' header option, to avoid a warning about the API not being ready for production use.
-    accept: 'application/vnd.github.v3+json'
+    accept: 'application/vnd.github+json'
   )
 end
 ```
-{% else %}
-``` ruby
-# Create a new check run with the status queued
-def create_check_run
-  @installation_client.create_check_run(
-    # [String, Integer, Hash, Octokit Repository object] A GitHub repository.
-    @payload['repository']['full_name'],
-    # [String] The name of your check run.
-    'Octo RuboCop',
-    # [String] The SHA of the commit to check 
-    # The payload structure differs depending on whether a check run or a check suite event occurred.
-    @payload['check_run'].nil? ? @payload['check_suite']['head_sha'] : @payload['check_run']['head_sha'],
-    # [Hash] 'Accept' header option, to avoid a warning about the API not being ready for production use.
-    accept: 'application/vnd.github.antiope-preview+json'
-  )
-end
-```
-{% endif %}
 
 Este código llama a la terminal "[Crear una ejecución de verificación](/rest/reference/checks#create-a-check-run)" utilizando el [método create_check-run](https://rdoc.info/gems/octokit/Octokit%2FClient%2FChecks:create_check_run).
 
-Solo se requieren dos parámetros de entrada para crear una ejecución de flujo de trabajo: `name` y `head_sha`. Utilizaremos a [Rubocop](https://rubocop.readthedocs.io/en/latest/) para implementar la prueba de IC más adelante en esta guía de inicio rápido, y esto es por lo que se utiliza el nombre "Octo Rubocop" aquí, pero puedes elegir cualquier nombre que quieras para la ejecución de verificación.
+Solo se requieren dos parámetros de entrada para crear una ejecución de flujo de trabajo: `name` y `head_sha`. Utilizaremos [RuboCop](https://rubocop.readthedocs.io/en/latest/) para implementar la prueba de IC posteriormente en esta guía rápida, por lo cual utilizaremos el nombre "Octo RuboCop" en el ejemplo, pero puedes elegir cualquier nombre que quieras para la ejecución de verificación.
 
 Ahora mismo, solo estás proporcionando los parámetros requeridos para echar a andar la funcionalidad básica, pero actualizarás la ejecución de verificación más adelante mientras recolectes más información acerca de la ejecución de verificación. Predeterminadamente, GitHub configura el `Estado` como `queued`.
 
@@ -228,7 +210,6 @@ En esta sección no vas a lanzar la prueba de IC aún, pero te mostraremos cómo
 
 Vamos a crear el método `initiate_check_run` y a actualizar el estado de la ejecución de verificación. Agrega el siguiente código a la sección de ayudantes:
 
-{% ifversion fpt or ghes > 2.22 or ghae %}
 ``` ruby
 # Start the CI process
 def initiate_check_run
@@ -240,7 +221,7 @@ def initiate_check_run
     @payload['repository']['full_name'],
     @payload['check_run']['id'],
     status: 'in_progress',
-    accept: 'application/vnd.github.v3+json'
+    accept: 'application/vnd.github+json'
   )
 
   # ***** RUN A CI TEST *****
@@ -251,38 +232,10 @@ def initiate_check_run
     @payload['check_run']['id'],
     status: 'completed',
     conclusion: 'success',
-    accept: 'application/vnd.github.v3+json'
+    accept: 'application/vnd.github+json'
   )
 end
 ```
-{% else %}
-``` ruby
-# Start the CI process
-def initiate_check_run
-  # Once the check run is created, you'll update the status of the check run
-  # to 'in_progress' and run the CI process. When the CI finishes, you'll
-  # update the check run status to 'completed' and add the CI results.
-
-  @installation_client.update_check_run(
-    @payload['repository']['full_name'],
-    @payload['check_run']['id'],
-    status: 'in_progress',
-    accept: 'application/vnd.github.antiope-preview+json'
-  )
-
-  # ***** RUN A CI TEST *****
-
-  # Mark the check run as complete!
-  @installation_client.update_check_run(
-    @payload['repository']['full_name'],
-    @payload['check_run']['id'],
-    status: 'completed',
-    conclusion: 'success',
-    accept: 'application/vnd.github.antiope-preview+json'
-  )
-end
-```
-{% endif %}
 
 El código anterior llama a la terminal de la API "[Actualizar una ejecución de verificación](/rest/reference/checks#update-a-check-run)" utilizando el [método del Octokit `update_check_run`](https://rdoc.info/gems/octokit/Octokit%2FClient%2FChecks:update_check_run) para actualizar la ejecución de verificación que ya creaste.
 
@@ -587,7 +540,6 @@ text = "Octo RuboCop version: #{@output['metadata']['rubocop_version']}"
 
 Ahora tienes toda la información que necesitas para actualizar tu ejecución de verificación. En la [primera parte de esta guía de inicio rápido](#step-14-updating-a-check-run), agregaste este código para configurar el estado de la ejecución de verificación como `success`:
 
-{% ifversion fpt or ghes > 2.22 or ghae %}
 ``` ruby
 # Mark the check run as complete!
 @installation_client.update_check_run(
@@ -595,25 +547,12 @@ Ahora tienes toda la información que necesitas para actualizar tu ejecución de
   @payload['check_run']['id'],
   status: 'completed',
   conclusion: 'success',
-  accept: 'application/vnd.github.v3+json'
+  accept: 'application/vnd.github+json'
 )
 ```
-{% else %}
-``` ruby
-# Mark the check run as complete!
-@installation_client.update_check_run(
-  @payload['repository']['full_name'],
-  @payload['check_run']['id'],
-  status: 'completed',
-  conclusion: 'success',
-  accept: 'application/vnd.github.antiope-preview+json' # This header is necessary for beta access to Checks API
-)
-```
-{% endif %}
 
 Necesitarás actualizar este código para utilizar la variable `conclusion` que configures con base en los resultados de RuboCop (ya sea como `success` o como `neutral`). Puedes actualizar el código con lo siguiente:
 
-{% ifversion fpt or ghes > 2.22 or ghae %}
 ``` ruby
 # Mark the check run as complete! And if there are warnings, share them.
 @installation_client.update_check_run(
@@ -632,36 +571,13 @@ Necesitarás actualizar este código para utilizar la variable `conclusion` que 
     description: 'Automatically fix all linter notices.',
     identifier: 'fix_rubocop_notices'
   }],
-  accept: 'application/vnd.github.v3+json'
+  accept: 'application/vnd.github+json'
 )
 ```
-{% else %}
-``` ruby
-# Mark the check run as complete! And if there are warnings, share them.
-@installation_client.update_check_run(
-  @payload['repository']['full_name'],
-  @payload['check_run']['id'],
-  status: 'completed',
-  conclusion: conclusion,
-  output: {
-    title: 'Octo RuboCop',
-    summary: summary,
-    text: text,
-    annotations: annotations
-  },
-  actions: [{
-    label: 'Fix this',
-    description: 'Automatically fix all linter notices.',
-    identifier: 'fix_rubocop_notices'
-  }],
-  accept: 'application/vnd.github.antiope-preview+json'
-)
-```
-{% endif %}
 
 Ahora que estás configurando una conclusión con base en el estado de la prueba de IC y has agregado la salida de los resultados de RuboCop, ¡has creado una prueba de IC! Felicidades. 🙌
 
-El código anterior también agrega una característica a tu servidor de IC, la cual se llama [acciones solicitadas](https://developer.github.com/changes/2018-05-23-request-actions-on-checks/) a través del objeto `actions`. {% ifversion fpt %}(Nota que esto no tiene relación con [GitHub Actions](/actions).) {% endif %}Las acciones que se solicitan agregan un botón en la pestaña **Verificaciones** en GitHub que permite a las personas solicitar que la ejecución de verificación tome acciones adicionales. Tu app puede configurar la acción adicional en su totalidd. Por ejemplo, ya que RuboCop tiene una característica para corregir automáticamente los errores que encuentre en el código de Ruby, tu servidor de IC puede utilizar un botón de acciones solicitadas para ayudar a que las personas soliciten correcciónes de errores automáticas. Cuando alguien da clic en el botón, la app recibe el evento de `check_run` con una acción de `requested_action`. Cada acción solicitada tiene un `identifier` que la app utiliza para determinar en qué botón se dio clic.
+El código anterior también agrega una característica a tu servidor de IC, la cual se llama [acciones solicitadas](https://developer.github.com/changes/2018-05-23-request-actions-on-checks/) a través del objeto `actions`. {% ifversion fpt or ghec %}(Nota que esto no tiene relación con [GitHub Actions](/actions).) {% endif %}Las acciones que se solicitan agregan un botón en la pestaña **Verificaciones** en GitHub que permite a las personas solicitar que la ejecución de verificación tome acciones adicionales. Tu app puede configurar la acción adicional en su totalidd. Por ejemplo, ya que RuboCop tiene una característica para corregir automáticamente los errores que encuentre en el código de Ruby, tu servidor de IC puede utilizar un botón de acciones solicitadas para ayudar a que las personas soliciten correcciónes de errores automáticas. Cuando alguien da clic en el botón, la app recibe el evento de `check_run` con una acción de `requested_action`. Cada acción solicitada tiene un `identifier` que la app utiliza para determinar en qué botón se dio clic.
 
 El código anterior aún no hace que RuboCop corrija los errores automáticamente. Eso lo agregarás en la siguiente sección. Pero primero, observa la prueba de IC que acabas de crear iniciando nuevamente el servidor `template_server.rb` y creando una nueva solicitud de extracción:
 

@@ -6,6 +6,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: overview
 topics:
   - Fundamentals
@@ -13,7 +14,6 @@ topics:
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## Resumen
 
@@ -34,7 +34,7 @@ jobs:
             POSTGRES_PORT: 5432
 ```
 
-Para obtener más información, consulta "[Usar variables de entorno](/actions/configuring-and-managing-workflows/using-environment-variables)".
+Para obtener más información, consulta "[Usar variables de entorno](/actions/configuring-and-managing-workflows/using-environment-variables)."
 
 ## Agregar scripts a tu flujo de trabajo
 
@@ -62,7 +62,7 @@ Para obtener más información, consulta la sección "[Sintaxis de flujo de trab
 
 ## Compartir datos entre jobs
 
-Si tu job genera archivos que quieras compartir con otro job en el mismo flujo de trabajo, o si quieres guardar los archivos para su referencia futura, puedes almacenarlos en {% data variables.product.prodname_dotcom %} como _artefactos_. Los artefactos son los archivos que se crean cuando desarrollas y pruebas tu código. Por ejemplo, los artefactos podrían incluir archivos binarios o de paquete, resultados de pruebas, capturas de pantalla o archivos de registro. Los artefactos se asocian con la ejecución del flujo de trabajo en donde se crearon y otro job puede utilizarlos.
+Si tu job genera archivos que quieras compartir con otro job en el mismo flujo de trabajo, o si quieres guardar los archivos para su referencia futura, puedes almacenarlos en {% data variables.product.prodname_dotcom %} como _artefactos_. Los artefactos son los archivos que se crean cuando desarrollas y pruebas tu código. Por ejemplo, los artefactos podrían incluir archivos binarios o de paquete, resultados de pruebas, capturas de pantalla o archivos de registro. Los artefactos se asocian con la ejecución del flujo de trabajo en donde se crearon y otro job puede utilizarlos. {% data reusables.actions.reusable-workflow-artifacts %}
 
 Por ejemplo, puedes crear un archivo y luego subirlo como un artefacto.
 
@@ -75,7 +75,7 @@ jobs:
         run: |
           expr 1 + 1 > output.log
       - name: Upload output file
-        uses: actions/upload-artifact@v2
+        uses: {% data reusables.actions.action-upload-artifact %}
         with:
           name: output-log-file
           path: output.log
@@ -88,10 +88,12 @@ jobs:
   example-job:
     steps:
       - name: Download a single artifact
-        uses: actions/download-artifact@v2
+        uses: {% data reusables.actions.action-download-artifact %}
         with:
           name: output-log-file
 ```
+
+Para descargar un artefacto de la misma ejecución de flujo de trabajo, tu job de descarga debe especificar `needs: upload-job-name` para que no comience hasta que el job de carga termine.
 
 Para obtener más información acerca de los artefactos, consulta la sección "[Persistir datos de flujos de trabajo utilizando artefactos](/actions/configuring-and-managing-workflows/persisting-workflow-data-using-artifacts)".
 

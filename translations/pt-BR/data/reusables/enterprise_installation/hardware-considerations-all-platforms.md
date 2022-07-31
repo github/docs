@@ -1,5 +1,4 @@
-- [Requisitos mínimos](#minimum-requirements){% ifversion ghes = 2.22 %}
-- [Funcionalidades de beta em {% data variables.product.prodname_ghe_server %} 2.22](#beta-features-in-github-enterprise-server-222){% endif %}
+- [Requisitos mínimos](#minimum-requirements)
 - [Armazenamento](#storage)
 - [CPU e memória](#cpu-and-memory)
 
@@ -9,6 +8,10 @@ Recomendamos diferentes configurações de hardware, dependendo do número de li
 
 {% data reusables.enterprise_installation.hardware-rec-table %}
 
+{% data reusables.actions.more-resources-for-ghes %}
+
+{% data reusables.enterprise_installation.about-adjusting-resources %}
+
 ### Armazenamento
 
 Recomendamos um SSD de alto desempenho com operações de alta entrada/saída por segundo (IOPS) e baixa latência para {% data variables.product.prodname_ghe_server %}. Cargas de trabalho são intensivas em I/O. Se você usar um hipervisor de metal simples, recomendamos anexar diretamente o disco ou usar um disco a partir de uma rede de área de armazenamento (SAN).
@@ -17,11 +20,11 @@ A sua instância exige um disco de dados persistente separado do disco raiz. Par
 
 {% ifversion ghes %}
 
-Para configurar{% ifversion ghes = 2.22 %} beta de{% endif %} {% data variables.product.prodname_actions %}, você deve fornecer armazenamento externo de blob. Para obter mais informações, consulte "[Primeiros passos com {% data variables.product.prodname_actions %} for {% data variables.product.prodname_ghe_server %}](/admin/github-actions/getting-started-with-github-actions-for-github-enterprise-server##external-storage-requirements)".
+To configure {% data variables.product.prodname_actions %}, you must provide external blob storage. Para obter mais informações, consulte "[Primeiros passos com {% data variables.product.prodname_actions %} for {% data variables.product.prodname_ghe_server %}](/admin/github-actions/getting-started-with-github-actions-for-github-enterprise-server##external-storage-requirements)".
 
 {% endif %}
 
-Você pode redimensionar o disco raiz da sua instância criando uma nova instância ou usando uma instância existente. Para obter mais informações, consulte "[Increasing storage capacity](/enterprise/{{ currentVersion }}/admin/guides/installation/increasing-storage-capacity)."
+The available space on the root filesystem will be 50% of the total disk size. Você pode redimensionar o disco raiz da sua instância criando uma nova instância ou usando uma instância existente. For more information, see "[System overview](/enterprise/admin/guides/installation/system-overview#storage-architecture)" and "[Increasing storage capacity](/enterprise/admin/guides/installation/increasing-storage-capacity)."
 
 ### CPU e memória
 
@@ -29,7 +32,7 @@ Os recursos de CPU e memória que {% data variables.product.prodname_ghe_server 
 
 {% ifversion ghes %}
 
-Se você {% ifversion ghes = 2.22 %}habilitou a versão beta do{% else %}plano para habilitar{% endif %} {% data variables.product.prodname_actions %} para os usuários da sua instância de {% data variables.product.prodname_ghe_server %}, talvez você tenha de fornecer recursos adicionais de CPU e memória para sua instância. Para obter mais informações, consulte "[Primeiros passos com {% data variables.product.prodname_actions %} for {% data variables.product.prodname_ghe_server %}](/admin/github-actions/getting-started-with-github-actions-for-github-enterprise-server#review-hardware-considerations)".
+If you plan to enable {% data variables.product.prodname_actions %} for the users of your {% data variables.product.prodname_ghe_server %} instance, you may need to provision additional CPU and memory resources for your instance. Para obter mais informações, consulte "[Primeiros passos com {% data variables.product.prodname_actions %} for {% data variables.product.prodname_ghe_server %}](/admin/github-actions/getting-started-with-github-actions-for-github-enterprise-server#review-hardware-considerations)".
 
 {% endif %}
 

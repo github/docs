@@ -2,10 +2,10 @@
 title: ウィキページを追加または編集する
 intro: 'ウィキページは、{% data variables.product.product_name %} 上で直接、あるいはコマンドラインを使ってローカルで追加および編集できます。'
 redirect_from:
-  - /articles/adding-wiki-pages-via-the-online-interface/
-  - /articles/editing-wiki-pages-via-the-online-interface/
-  - /articles/adding-and-editing-wik-pages-locally/
-  - /articles/adding-and-editing-wiki-pages-locally/
+  - /articles/adding-wiki-pages-via-the-online-interface
+  - /articles/editing-wiki-pages-via-the-online-interface
+  - /articles/adding-and-editing-wik-pages-locally
+  - /articles/adding-and-editing-wiki-pages-locally
   - /articles/adding-or-editing-wiki-pages
   - /github/building-a-strong-community/adding-or-editing-wiki-pages
 product: '{% data reusables.gated-features.wikis %}'
@@ -13,6 +13,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Community
 shortTitle: Wikiページの管理
@@ -33,7 +34,7 @@ shortTitle: Wikiページの管理
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-wiki %}
 4. ウィキサイドバーを使用して、変更したいページに移動してください。 ページの右上にある [**Edit**] をクリックしてください。 ![ウィキのページ編集ボタン](/assets/images/help/wiki/wiki_edit_page_button.png)
-5. テキストエディタを使って、ページの内容を編集します。 ![ウィキの WYSIWYG](/assets/images/help/wiki/wiki_wysiwyg.png)
+5. Use the text editor to edit the page's content. ![ウィキの WYSIWYG](/assets/images/help/wiki/wiki_wysiwyg.png)
 6. 変更内容を説明するコミットメッセージを入力します。 ![ウィキのコミットメッセージ](/assets/images/help/wiki/wiki_commit_message.png)
 7. 変更を wiki にコミットするには [**Save Page**] をクリックします。
 
@@ -43,7 +44,7 @@ shortTitle: Wikiページの管理
 
 ### 手元のコンピュータへウィキをクローンする
 
-すべてのウィキは、その内容をあなたのコンピュータにクローンする簡単な方法を提供しています。 提供されている次の URL でお使いのコンピュータにリポジトリをクローンできます。
+すべてのウィキは、その内容をあなたのコンピュータにクローンする簡単な方法を提供しています。 Once you've created an initial page on {% data variables.product.product_name %}, you can clone the repository to your computer with the provided URL:
 
 ```shell
 $ git clone https://github.com/<em>YOUR_USERNAME</em>/<em>YOUR_REPOSITORY</em>.wiki.git

@@ -9,6 +9,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 shortTitle: Eliminar archivos
 ---
 
@@ -39,9 +40,9 @@ shortTitle: Eliminar archivos
 
 ## objetos {% data variables.large_files.product_name_short %} en tu repositorio
 
-Después de eliminar archivos de {% data variables.large_files.product_name_short %}, los objetos {% data variables.large_files.product_name_short %} siguen existiendo en el almacenamiento remoto{% ifversion fpt %} y seguirán contabilizando en tu {% data variables.large_files.product_name_short %} cuota de almacenamiento{% endif %}.
+Después de eliminar archivos de {% data variables.large_files.product_name_short %}, los objetos {% data variables.large_files.product_name_short %} siguen existiendo en el almacenamiento remoto{% ifversion fpt or ghec %} y seguirán contabilizando en tu {% data variables.large_files.product_name_short %} cuota de almacenamiento{% endif %}.
 
-Para eliminar objetos de {% data variables.large_files.product_name_short %} de un repositorio, {% ifversion fpt %}bórralo y vuelve a crearlo. Cuando se borra un repositorio también se borra cualquier informe de problemas, estrellas y bifurcaciones asociados al mismo. Para obtener más información, consulta la sección "[Borrar un repositorio](/github/administering-a-repository/deleting-a-repository)". Si necesitas purgar un objeto eliminado y no puedes borrar el repositorio, por favor [contacta a soporte](/github/working-with-github-support) para recibir ayuda.{% else %}contacta a tu administrador de {% data variables.product.prodname_enterprise %} para archivar los objetos. Los objetos archivados se purgan después de tres meses.{% endif %}
+Para eliminar objetos de {% data variables.large_files.product_name_short %} de un repositorio, {% ifversion fpt or ghec %}bórralo y vuelve a crearlo. Cuando se borra un repositorio también se borra cualquier informe de problemas, estrellas y bifurcaciones asociados al mismo. Para obtener más información, consulta la sección "[Borrar un repositorio](/github/administering-a-repository/deleting-a-repository)". Si necesitas purgar un objeto eliminado y no puedes borrar el repositorio, por favor [contacta a soporte](/github/working-with-github-support) para recibir ayuda.{% else %}contacta a tu administrador de {% data variables.product.prodname_enterprise %} para archivar los objetos. Los objetos archivados se purgan después de tres meses.{% endif %}
 
 {% note %}
 

@@ -9,6 +9,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 ---
 
 {% for term in site.data.glossaries.external %}
@@ -22,5 +23,5 @@ versions:
 ## Leer más
 
 - [El glosario oficial de Git](https://www.kernel.org/pub/software/scm/git/docs/gitglossary.html)
-- [Referencia de Git](http://gitref.org/)
-- [SCM de Git](https://git-scm.com/doc)
+- [Documentación de Git](https://git-scm.com/doc)
+- [Lista de comandos de Git](https://git-scm.com/docs)

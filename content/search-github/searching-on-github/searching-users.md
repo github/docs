@@ -9,6 +9,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - GitHub search
 ---
@@ -66,7 +67,7 @@ Using the `language` qualifier you can search for users based on the languages o
 | <code>language:<em>LANGUAGE</em></code> | [**language:javascript location:russia**](https://github.com/search?q=language%3Ajavascript+location%3Arussia&type=Users) matches users in Russia with a majority of their repositories written in JavaScript.
 | | [**jenny language:javascript in:fullname**](https://github.com/search?q=jenny+language%3Ajavascript+in%3Afullname&type=Users) matches users with JavaScript repositories whose full name contains the word "jenny."
 
-## Search by when a user account was created
+## Search by when a personal account was created
 
 You can filter users based on when they joined {% data variables.product.product_name %} with the `created` qualifier. This takes a date as its parameter. {% data reusables.time_date.date_format %} {% data reusables.time_date.time_format %}
 
@@ -88,7 +89,7 @@ You can filter users based on the number of followers that they have, using the 
 | <code>followers:<em>n</em></code> | [**followers:>=1000**](https://github.com/search?q=followers%3A%3E%3D1000&type=Users) matches users with 1,000 or more followers.
 | | [**sparkle followers:1..10**](https://github.com/search?q=sparkle+followers%3A1..10&type=Users) matches users with between 1 and 10 followers, with the word "sparkle" in their name.
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 ## Search based on ability to sponsor
 

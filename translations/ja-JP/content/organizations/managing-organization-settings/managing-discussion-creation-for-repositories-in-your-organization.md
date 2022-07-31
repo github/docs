@@ -5,11 +5,11 @@ redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/managing-discussion-creation-for-repositories-in-your-organization
 permissions: Organization owners can manage discussion creation for repositories owned by the organization.
 versions:
-  fpt: '*'
+  feature: discussions
 topics:
   - Organizations
   - Teams
-shortTitle: ディスカッションの作成の管理
+shortTitle: リポジトリのディスカッションの管理
 ---
 
 
@@ -27,3 +27,4 @@ shortTitle: ディスカッションの作成の管理
 
 - 「[Discussions について](/discussions/collaborating-with-your-community-using-discussions/about-discussions)」
 - 「[コミュニティの Discussions を管理する](/discussions/managing-discussions-for-your-community)」
+- 「[OrganizationのGitHub Discussionsの有効化もしくは無効化](/organizations/managing-organization-settings/enabling-or-disabling-github-discussions-for-an-organization)」

@@ -7,6 +7,7 @@ redirect_from:
   - /github/getting-started-with-github/using-github/troubleshooting-connectivity-problems
 versions:
   fpt: '*'
+  ghec: '*'
 shortTitle: Problemas de conectividade
 ---
 
@@ -30,7 +31,7 @@ Se você não conseguir verificar o captcha:
 
 ## Alternar métodos de clonagem
 
-Alternar da clonagem via SSH para a clonagem via HTTPS (ou vice-versa) pode melhorar a conectividade. For more information, see "[Troubleshooting cloning errors](/repositories/creating-and-managing-repositories/troubleshooting-cloning-errors)."
+Alternar da clonagem via SSH para a clonagem via HTTPS (ou vice-versa) pode melhorar a conectividade. Para obter mais informações, consulte "[Solução de problemas de erros de clonagem](/repositories/creating-and-managing-repositories/troubleshooting-cloning-errors)"
 
 Se você encontrar tempo limite com SSH, consulte "[Erro: número de arquivo inadequado](/articles/error-bad-file-number)".
 

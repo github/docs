@@ -8,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - OAuth Apps
 shortTitle: カスタムバッジの作成
@@ -19,9 +20,9 @@ shortTitle: カスタムバッジの作成
 
 OAuth App の作成後、ロゴをアップロードし、背景色を設定することで、アプリケーションのバッジをカスタマイズできます。 バッジは、丸の中に正方形のロゴ画像があります。 バッジの背景色を選ぶと、他のアプリケーションと視覚的に区別させることができます。
 
-ロゴは、1 MB 未満の PNG、JPG または GIF ファイルである必要があります。 最高の画質を得るため、画像の大きさは 200 x 200 ピクセル以上にすることをお勧めします。 {% ifversion fpt %}バッジのカスタマイズに関する詳細については、「[ロゴとバッジ画像のためのヒント](/marketplace/listing-on-github-marketplace/writing-github-marketplace-listing-descriptions/#guidelines-for-logos)」を参照してください。{% endif %}
+ロゴは、1 MB 未満の PNG、JPG または GIF ファイルである必要があります。 最高の画質を得るため、画像の大きさは 200 x 200 ピクセル以上にすることをお勧めします。 {% ifversion fpt or ghec %}バッジのカスタマイズに関する詳細については、「[ロゴとバッジ画像のためのヒント](/marketplace/listing-on-github-marketplace/writing-github-marketplace-listing-descriptions/#guidelines-for-logos)」を参照してください。{% endif %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 Marketplace に掲載が承認されている GitHub App のカスタムバッジを変更するには、https://github.com/marketplace/manage に移動します。
 
@@ -35,10 +36,10 @@ Marketplace に掲載が承認されている GitHub App のカスタムバッ�
 {% data reusables.user-settings.modify_oauth_app %}
 1. [Application logo] にローカルフォルダの画像をドラッグアンドドロップするか、[**Upload new logo**] をクリックして、お手元のコンピューターから画像を選択します。 ![ロゴをアップロード](/assets/images/oauth-apps/oauth_apps_upload_logo.png)
 6. 画像をクロッピングします。 完了したら、[**Set new application logo**] をクリックします。 ![ロゴをトリミングして設定](/assets/images/oauth-apps/oauth_apps_crop_and_set_logo.png)
-7. [Badge background color] に、バッジの背景色を[16 進数カラーコード](http://www.color-hex.com/)で入力します。 {% ifversion fpt %}**注釈:** [Badge background color] 入力フィールドは、アプリケーションロゴをアップロードした後に表示されます。{% endif %} ![バッジの背景色](/assets/images/oauth-apps/oauth_apps_badge_background_color.png)
+7. [Badge background color] に、バッジの背景色を[16 進数カラーコード](http://www.color-hex.com/)で入力します。 {% ifversion fpt or ghec %}**注釈:** [Badge background color] 入力フィールドは、アプリケーションロゴをアップロードした後に表示されます。{% endif %} ![バッジの背景色](/assets/images/oauth-apps/oauth_apps_badge_background_color.png)
 {% data reusables.user-settings.update_oauth_app %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 ## 次のステップ
 

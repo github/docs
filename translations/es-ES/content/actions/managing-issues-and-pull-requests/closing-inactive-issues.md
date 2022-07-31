@@ -1,13 +1,13 @@
 ---
 title: Cerrar las propuestas inactivas
 intro: 'Puedes utilizar las {% data variables.product.prodname_actions %} para comentar o cerrar las propuestas que han estado inactivas por algún tiempo.'
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /actions/guides/closing-inactive-issues
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: tutorial
 topics:
   - Workflows
@@ -16,8 +16,6 @@ topics:
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
-{% data reusables.actions.ae-self-hosted-runners-notice %}
 
 ## Introducción
 
@@ -39,12 +37,12 @@ En el tutorial, prmero crearás un archivo de flujo de trabajo que utilice la [a
 
     jobs:
       close-issues:
-        runs-on: ubuntu-latest{% ifversion fpt or ghes > 3.1 or ghae-next %}
+        runs-on: ubuntu-latest
         permissions:
           issues: write
-          pull-requests: write{% endif %}
+          pull-requests: write
         steps:
-          - uses: actions/stale@v3
+          - uses: {% data reusables.actions.action-stale %}
             with:
               days-before-issue-stale: 30
               days-before-issue-close: 14
@@ -73,7 +71,7 @@ Con base en el parámetro `schedule` (por ejemplo, todos los días a la 1:39 UTC
 
 Puedes ver el historial de tus ejecuciones de flujo de trabajo para ver que este flujo de trabajo se ejecute regularmente. Para obtener más información, consulta la sección "[Visualizar el historial de ejecuciones de un flujo de trabajo](/actions/managing-workflow-runs/viewing-workflow-run-history)".
 
-This workflow will only label and/or close 30 issues at a time in order to avoid exceeding a rate limit. Puedes configurar esto con el ajuste de `operations-per-run`. Para obtener más información, consulta la [documentación de la acción `actions/stale`](https://github.com/marketplace/actions/close-stale-issues).
+Este flujo de trabajo solo etiquetará o cerrará 30 propuestas a la vez para evitar exceder el límite de tasa. Puedes configurar esto con el ajuste de `operations-per-run`. Para obtener más información, consulta la [documentación de la acción `actions/stale`](https://github.com/marketplace/actions/close-stale-issues).
 
 ## Pasos siguientes
 

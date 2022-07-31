@@ -9,6 +9,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 shortTitle: Remove files
 ---
 
@@ -39,9 +40,9 @@ shortTitle: Remove files
 
 ## リポジトリにある {% data variables.large_files.product_name_short %}オブジェクト
 
-{% data variables.large_files.product_name_short %} からファイルを削除した後でも、{% data variables.large_files.product_name_short %} オブジェクトはそのままリモートストレージに存在し{% ifversion fpt %}、{% data variables.large_files.product_name_short %} ストレージ容量に対するカウントも継続し{% endif %}ます。
+{% data variables.large_files.product_name_short %} からファイルを削除した後でも、{% data variables.large_files.product_name_short %} オブジェクトはそのままリモートストレージに存在し{% ifversion fpt or ghec %}、{% data variables.large_files.product_name_short %} ストレージ容量に対するカウントも継続し{% endif %}ます。
 
-{% data variables.large_files.product_name_short %} オブジェクトをリポジトリから削除するには、{% ifversion fpt %}リポジトリを削除して再作成します。 リポジトリを削除すると、関連する Issue、Star、フォークもすべて削除されます。 For more information, see "[Deleting a repository](/github/administering-a-repository/deleting-a-repository)." If you need to purge a removed object and you are unable to delete the repository, please [contact support](/github/working-with-github-support) for help.{% else %}contact your {% data variables.product.prodname_enterprise %} administrator to archive the objects. アーカイブ化されたオブジェクトは、3 か月後にパージされます。{% endif %}
+{% data variables.large_files.product_name_short %} オブジェクトをリポジトリから削除するには、{% ifversion fpt or ghec %}リポジトリを削除して再作成します。 リポジトリを削除すると、関連する Issue、Star、フォークもすべて削除されます。 For more information, see "[Deleting a repository](/github/administering-a-repository/deleting-a-repository)." If you need to purge a removed object and you are unable to delete the repository, please [contact support](/github/working-with-github-support) for help.{% else %}contact your {% data variables.product.prodname_enterprise %} administrator to archive the objects. アーカイブ化されたオブジェクトは、3 か月後にパージされます。{% endif %}
 
 {% note %}
 

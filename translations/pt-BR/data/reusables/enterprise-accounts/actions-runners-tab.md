@@ -1,1 +1,1 @@
-1. Clique na aba {% ifversion fpt %}**Executores**{% else %}**Executores auto-hospedados **{% endif %}.
+1. Click the **Runners** tab.

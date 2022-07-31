@@ -1,1 +1,1 @@
-1. 在 {% data variables.product.product_location_enterprise %} 上任何页面的右上角，单击您的个人资料照片，然后单击**设置**。 ![用户栏中的 Settings 图标](/assets/images/help/settings/userbar-account-settings.png)
+1. 在 {% ifversion ghes %}{% data variables.product.prodname_ghe_server %}{% else %}{% data variables.product.prodname_ghe_managed %}{% endif %} 上，在任何页面的右上角，单击您的头像，然后单击 **Settings（设置）**。 ![用户栏中的 Settings 图标](/assets/images/help/settings/userbar-account-settings.png)

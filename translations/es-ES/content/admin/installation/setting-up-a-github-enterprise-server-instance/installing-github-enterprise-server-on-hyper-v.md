@@ -2,13 +2,17 @@
 title: Instalar el servidor de GitHub Enterprise en Hyper-V
 intro: 'Para instalar {% data variables.product.prodname_ghe_server %} en Hyper-V, debes implementarlo en una máquina ejecutando Windows Server 2008 a través de Windows Server 2019.'
 redirect_from:
-  - /enterprise/admin/guides/installation/installing-github-enterprise-on-hyper-v/
+  - /enterprise/admin/guides/installation/installing-github-enterprise-on-hyper-v
   - /enterprise/admin/installation/installing-github-enterprise-server-on-hyper-v
   - /admin/installation/installing-github-enterprise-server-on-hyper-v
 versions:
   ghes: '*'
+type: tutorial
 topics:
+  - Administrator
   - Enterprise
+  - Infrastructure
+  - Set up
 shortTitle: Instalar en Hyper-V
 ---
 
@@ -24,10 +28,9 @@ shortTitle: Instalar en Hyper-V
 
 ## Descargar la imagen {% data variables.product.prodname_ghe_server %}
 
-{% data reusables.enterprise_installation.enterprise-download-procedural %}
 {% data reusables.enterprise_installation.download-license %}
 {% data reusables.enterprise_installation.download-appliance %}
-4. Selecciona {% data variables.product.prodname_dotcom %} locales, después haz clic en **Hyper-V (VHD)**.
+4. Debajo de "{% data variables.product.prodname_dotcom %} en las instalacioens", selecciona el menú desplegable "Selecciona tu hipervisor" y haz clic en **Hyper-V (VHD)**.
 5. Haz clic en **Download for Hyper-V (VHD) (Descarga para Hyper-V (VHD))**.
 
 ## Crear la instancia {% data variables.product.prodname_ghe_server %}
@@ -66,5 +69,5 @@ shortTitle: Instalar en Hyper-V
 
 ## Leer más
 
-- "[Resumen del sistema](/enterprise/admin/guides/installation/system-overview)"{% ifversion ghes > 2.22 %}
+- "[Resumen del sistema](/enterprise/admin/guides/installation/system-overview)"{% ifversion ghes %}
 - "[Acerca de las mejoras a los lanzamientos nuevos](/admin/overview/about-upgrades-to-new-releases)"{% endif %}

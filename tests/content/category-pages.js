@@ -6,7 +6,6 @@ import matter from '../../lib/read-frontmatter.js'
 import { zip, difference } from 'lodash-es'
 import GithubSlugger from 'github-slugger'
 import { decode } from 'html-entities'
-import readFileAsync from '../../lib/readfile-async.js'
 import loadSiteData from '../../lib/site-data.js'
 import renderContent from '../../lib/render-content/index.js'
 import getApplicableVersions from '../../lib/get-applicable-versions.js'
@@ -17,13 +16,7 @@ const slugger = new GithubSlugger()
 const contentDir = path.join(__dirname, '../../content')
 
 describe('category pages', () => {
-  let siteData
-
-  beforeAll(async () => {
-    // Load the English site data
-    const allSiteData = await loadSiteData()
-    siteData = allSiteData.en.site
-  })
+  const siteData = loadSiteData().en.site
 
   const walkOptions = {
     globs: ['*/index.md', 'enterprise/*/index.md'],
@@ -66,19 +59,38 @@ describe('category pages', () => {
     describe.each(categoryTuples)(
       'category index "%s"',
       (indexRelPath, indexAbsPath, indexLink) => {
-        let publishedArticlePaths, availableArticlePaths, indexTitle, categoryVersions
+        let publishedArticlePaths,
+          availableArticlePaths,
+          indexTitle,
+          categoryVersions,
+          categoryChildTypes
         const articleVersions = {}
 
         beforeAll(async () => {
           const categoryDir = path.dirname(indexAbsPath)
 
           // Get child article links included in each subdir's index page
-          const indexContents = await readFileAsync(indexAbsPath, 'utf8')
+          const indexContents = await fs.promises.readFile(indexAbsPath, 'utf8')
           const { data } = matter(indexContents)
           categoryVersions = getApplicableVersions(data.versions, indexAbsPath)
+          categoryChildTypes = []
           const articleLinks = data.children.filter((child) => {
             const mdPath = getPath(productDir, indexLink, child)
-            return fs.existsSync(mdPath) && fs.statSync(mdPath).isFile()
+
+            const fileExists = fs.existsSync(mdPath)
+
+            // We're checking each item in the category's 'children' frontmatter
+            // to see if the child is an article by tacking on `.md` to it.  If
+            // that file exists it's an article, otherwise it's a map topic.  A
+            // category needs to have all the same type of children so we track
+            // that here so we can test to make sure all the types are the same.
+            if (fileExists) {
+              categoryChildTypes.push('article')
+            } else {
+              categoryChildTypes.push('mapTopic')
+            }
+
+            return fileExists && fs.statSync(mdPath).isFile()
           })
 
           // Save the index title for later testing
@@ -88,7 +100,7 @@ describe('category pages', () => {
             await Promise.all(
               articleLinks.map(async (articleLink) => {
                 const articlePath = getPath(productDir, indexLink, articleLink)
-                const articleContents = await readFileAsync(articlePath, 'utf8')
+                const articleContents = await fs.promises.readFile(articlePath, 'utf8')
                 const { data } = matter(articleContents)
 
                 // Do not include map topics in list of published articles
@@ -110,7 +122,7 @@ describe('category pages', () => {
           availableArticlePaths = (
             await Promise.all(
               childFilePaths.map(async (articlePath) => {
-                const articleContents = await readFileAsync(articlePath, 'utf8')
+                const articleContents = await fs.promises.readFile(articlePath, 'utf8')
                 const { data } = matter(articleContents)
 
                 // Do not include map topics nor hidden pages in list of available articles
@@ -124,7 +136,7 @@ describe('category pages', () => {
 
           await Promise.all(
             childFilePaths.map(async (articlePath) => {
-              const articleContents = await readFileAsync(articlePath, 'utf8')
+              const articleContents = await fs.promises.readFile(articlePath, 'utf8')
               const { data } = matter(articleContents)
 
               articleVersions[articlePath] = getApplicableVersions(data.versions, articlePath)
@@ -152,7 +164,21 @@ describe('category pages', () => {
           })
         })
 
+        test('categories contain all the same type of children', () => {
+          let errorType = ''
+          expect(
+            categoryChildTypes.every((categoryChildType) => {
+              errorType = categoryChildType
+              return categoryChildType === categoryChildTypes[0]
+            }),
+            `${indexRelPath.replace('index.md', '')} contains a mix of ${errorType}s and ${
+              categoryChildTypes[0]
+            }s, category children must be of the same type`
+          ).toBe(true)
+        })
+
         // TODO: Unskip this test once the related script has been executed
+        // Docs Engineering issue: 963
         test.skip('slugified title matches parent directory name', () => {
           // Get the parent directory name
           const categoryDirPath = path.dirname(indexAbsPath)

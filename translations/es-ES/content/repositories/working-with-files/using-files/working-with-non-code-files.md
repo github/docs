@@ -1,6 +1,6 @@
 ---
 title: Trabajar con archivos sin código
-intro: '{% data variables.product.product_name %} supports rendering and diffing in a number of non-code file formats.'
+intro: '{% data variables.product.product_name %} es compatible con interpretar y diferenciar varios formatos de archivo que no son de código.'
 redirect_from:
   - /articles/rendering-and-diffing-images
   - /github/managing-files-in-a-repository/rendering-and-diffing-images
@@ -29,6 +29,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Repositories
 shortTitle: Trabajar con archivos sin código
@@ -36,17 +37,19 @@ shortTitle: Trabajar con archivos sin código
 
 ## Representar y comparar imágenes
 
-{% data variables.product.product_name %} puede mostrar varios formatos de imagen comunes, incluidos PNG, JPG, GIF, PSD y SVG. Asimismo, para simplificar mostrarlas, existen diversas formas de comparar las diferencias entre las versiones de esos formatos de imagen.'
+{% data variables.product.product_name %} puede mostrar varios formatos de imagen comunes, incluidos PNG, JPG, GIF, PSD y SVG. Asimismo, para simplificar mostrarlas, existen diversas formas de comparar las diferencias entre las versiones de esos formatos de imagen.
 
 {% note %}
 
-**Nota:** Si estás utilizando el navegador Firefox, puede que los SVG en {% data variables.product.prodname_dotcom %} no se representen.
+**Nota:**
+- {% data variables.product.prodname_dotcom %} no es compatible con comparar las diferencias entre archivos PSD.
+- Si estás utilizando el buscador Firefox, podrían no interpretarse los SVG en {% data variables.product.prodname_dotcom %}.
 
 {% endnote %}
 
 ### Ver imágenes
 
-Puedes navegar y ver imágenes directamente en tu {% data variables.product.product_name %} repositorio:
+Puedes buscar y ver imágenes directamente en tu repositorio de {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}:
 
 ![imagen alineada](/assets/images/help/images/view.png)
 
@@ -115,7 +118,7 @@ Para mostrar tu archivo 3D en algún otro lugar de Internet, modifica esta plant
 <script src="https://embed.github.com/view/3d/<username>/<repo>/<ref>/<path_to_file>"></script>
 ```
 
-Por ejemplo, si la URL de tu modelo es [github.com/skalnik/secret-bear-clip/blob/master/stl/clip.stl](https://github.com/skalnik/secret-bear-clip/blob/master/stl/clip.stl), tu código para insertar sería:
+Por ejemplo, si la URL de tu modelo es [`github.com/skalnik/secret-bear-clip/blob/master/stl/clip.stl`](https://github.com/skalnik/secret-bear-clip/blob/master/stl/clip.stl), tu código de inserción sería:
 
 ```html
 <script src="https://embed.github.com/view/3d/skalnik/secret-bear-clip/master/stl/clip.stl"></script>
@@ -129,13 +132,19 @@ Por defecto, la representación insertada es de 420 píxeles de ancho por 620 de
 
 {% endtip %}
 
+{% ifversion mermaid %}
+### Representar en lenguaje de marcado
+
+Puedes embeber una sintaxis de ASCII STL directamente en el lenguaje de marcado. Para obtener más información, consulta la sección "[Crear diagramas](/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams#creating-stl-3d-models)".
+{% endif %}
+
 ## Representar datos CSV y TSV
 
 GitHub admite la representación de datos tabulares en la forma de archivos *.csv* (separados por coma) y .*tsv* (separados por pestaña).
 
 ![Muestra de CSV representado](/assets/images/help/repository/rendered_csv.png)
 
-Cuando se visualiza, cualquier archivo _.csv_ o _.tsv_ confirmado en un repositorio de {% data variables.product.product_name %} se representa automáticamente como una tabla interactiva, completa con encabezados y numeración de filas. Por defecto, siempre asumimos que la primera fila es tu fila de encabezados.
+Cuando se visualiza, cualquier archivo _.csv_ o _.tsv_ que se haya confirmado en un repositorio de {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} se interpretará automáticamente como una tabla interactiva completa con encabezados y números de fila. Por defecto, siempre asumimos que la primera fila es tu fila de encabezados.
 
 Puedes generar un enlace a una fila particular haciendo clic en el número de fila o seleccionar varias filas manteniendo presionada la tecla shift. Tan solo copia la URL y envíasela a un amigo.
 
@@ -188,11 +197,19 @@ Puedes hacer clic en {% octicon "file" aria-label="The paper icon" %} para ver l
 
 ![Cambios en prosa representados](/assets/images/help/repository/rendered_prose_changes.png)
 
+{% ifversion fpt or ghes > 3.2 or ghae-issue-5232 or ghec %}
+
+### Inhabilitar la representación del lenguaje de marcado
+
+{% data reusables.repositories.disabling-markdown-rendering %}
+
+{% endif %}
+
 ### Ver los cambios del atributo
 
 Proporcionamos una información de herramienta que describe los cambios en los atributos que, a diferencia de las palabras, no serían visibles en el documento representado. Por ejemplo, si la URL de un enlace cambia de un sitio web a otro, mostraríamos una información de herramienta como la siguiente:
 
-![Cambios en atributos de la prosa representados](/assets/images/help/repository/prose_diff_attributes.png)
+![Cambios en atributos de la prosa representados](/assets/images/help/repository/previous-run-attempts.png)
 
 ### Comentar cambios
 
@@ -216,21 +233,22 @@ No admitimos directamente vistas representadas de confirmaciones en documentos H
 
 En general, las vistas representadas de los cambios en un documento que contiene HTML insertados mostrarán los cambios en los elementos que se admiten en la vista del documento de {% data variables.product.product_name %}. Los cambios en los documentos que contienen HTML insertados siempre se deben verificar en las vistas de origen y representada para corroborar que estén todos.
 
-## Mapping geoJSON files on {% data variables.product.prodname_dotcom %}
+## Mapear archivos de GeoJSON/TopoJSON en {% data variables.product.prodname_dotcom %}
 
-{% data variables.product.product_name %} admite representar archivos de mapa geoJSON y topoJSON dentro de repositorios {% data variables.product.product_name %}. Simplemente confirma el archivo como lo harías normalmente utilizando una extensión `.geojson` o `.topojson`. También se admiten archivos con una extensión `.json`, pero únicamente si `type` están configurados para `FeatureCollection`, `GeometryCollection`, o `topology`. Después, navega hasta la ruta del archivo geoJSON en GitHub.com.
+{% data variables.product.product_name %} es compatible con la representación de archivos de mapa GeoJSON y TopoJSON dentro de los repositorios de {% data variables.product.product_name %}. Simplemente confirma el archivo como lo harías normalmente utilizando una extensión `.geojson` o `.topojson`. También se admiten archivos con una extensión `.json`, pero únicamente si `type` están configurados para `FeatureCollection`, `GeometryCollection`, o `topology`. Entonces, navega a la ruta del archivo GeoJSON/TopoJSON en GitHub.com.
 
 Cuando haces clic en el ícono de papel a la derecha, también verás los cambios realizados a ese archivo como parte de una confirmación de cambios.
 
 ![Captura de pantalla de conmutación de representación de fuente](/assets/images/help/repository/source-render-toggle-geojson.png)
 
-### Tipos de Geometry
+### Tipos de geometría
 
-Los mapas en {% data variables.product.product_name %} utilizan [Leaflet.js](http://leafletjs.com) y admiten todos los tipos de Geometry indicados en [las especificaciones de geoJSON](http://www.geojson.org/geojson-spec.html) (Point, LineString, Polygon, MultiPoint, MultiLineString, MultiPolygon y GeometryCollection). Los archivos TopoJSON deberían ser del tipo "Topology" y adherir a las especificaciones [topoJSON](https://github.com/mbostock/topojson/wiki/Specification).
+Los mapas en {% data variables.product.product_name %} utilizan [Leaflet.js](http://leafletjs.com) y admiten todos los tipos de Geometry indicados en [las especificaciones de geoJSON](http://www.geojson.org/geojson-spec.html) (Point, LineString, Polygon, MultiPoint, MultiLineString, MultiPolygon y GeometryCollection). Los archivos de TopoJSON deben ser de tipo "Topology" y apegarse a la [Especificación de TopoJSON](https://github.com/mbostock/topojson/wiki/Specification).
 
+{% ifversion geoJSON-with-MapBox %}
 ### Características de estilo
 
-Puedes personalizar la manera en que se muestran las características, como especificar un color particular o agregar un ícono descriptivo, al pasar metadatos adicionales dentro de las propiedades del objeto geoJSON. Las opciones son:
+Puedes personalizar la forma en la que se muestran las características, tal como especificar un color en particular o agregar un icono descriptivo, si pasas los metadatos adicionales dentro de las propiedades del objeto de GeoJSON. Las opciones son:
 
 * `marker-size` - `small`, `medium`, o `large`
 * `marker-color` - color RGB hex válido
@@ -242,10 +260,11 @@ Puedes personalizar la manera en que se muestran las características, como espe
 * `fill-opacity` - la opacidad del interior de un polígono (0.0-1.0)
 
 Consulta la versión [1.1.0 de las especificaciones de estilo simple abierto](https://github.com/mapbox/simplestyle-spec/tree/master/1.1.0) para obtener más información.
+{% endif %}
 
 ### Incrustrar tu mapa en otro lugar
 
-Deseas hacer disponible tu mapa geoJSON en un lugar distinto a {% data variables.product.product_name %}? Simplemente modifica esta plantilla, y colócala en alguna página HTML que admita javascript (p. ej., [{% data variables.product.prodname_pages %}](http://pages.github.com)):
+¿Quieres que tu mapa de GeoJSON esté disponible en algún lugar diferente a {% data variables.product.product_name %}? Simplemente modifica esta plantilla y colócala en cualquier página HTML que sea compatible con JavaScript (por ejemplo: [{% data variables.product.prodname_pages %}](http://pages.github.com)):
 
 ```html
 <script src="https://embed.github.com/view/geojson/<username>/<repo>/<ref>/<path_to_file>"></script>
@@ -265,6 +284,12 @@ Por defecto, el mapa incrustado es 420px x 620px, pero puedes personalizar el re
 
 {% endtip %}
 
+{% ifversion mermaid %}
+### Mapear en lenguaje de marcado
+
+Puedes embeber GeoJSON y TopoJSON directamente en el lenguaje de marcado. Para obtener más información, consulta la sección "[Crear diagramas](/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams#creating-geojson-and-topojson-maps)".
+{% endif %}
+
 ### Agrupación
 
 Si tu mapa contiende una gran cantidad de marcadores (aproximadamente más de 750), GitHub automáticamente agrupará marcadores cercanos en niveles superiores de zoom. Simplemente haz clic la agrupación o el zoom de acercamiento para ver los marcadores individuales.
@@ -275,7 +300,7 @@ Los datos del mapa subyacente (nombres de calles, caminos, etc.) están controla
 
 ### Solución de problemas
 
-Si estás teniendo problemas al representar archivos geoJSON, asegúrate que tienes un archivo geoJSON válido al ejecutarlo en un [limpiador de geoJSON](http://geojsonlint.com/). Si tus puntos no aparecen donde lo esperas (<em>p. ej.</em>, aparecen en la mitad del océano), es probable que los datos estén en una proyección que actualmente no se admite. Actualmente, {% data variables.product.product_name %} admite únicamente la proyección `urn:ogc:def:crs:OGC:1.3:CRS84`.
+Si tienes problemas para representar archivos GeoJSON, asegúrate de tener un archivo GeoJSON válido pasándolo por un [Limpiador de GeoJSON](http://geojsonlint.com/). Si tus puntos no aparecen donde lo esperas (<em>p. ej.</em>, aparecen en la mitad del océano), es probable que los datos estén en una proyección que actualmente no se admite. Actualmente, {% data variables.product.product_name %} admite únicamente la proyección `urn:ogc:def:crs:OGC:1.3:CRS84`.
 
 Por otra parte, si tu archivo `.geojson` es particularmente grande (superior a 10 MB), no es posible representarlo dentro del navegador. Si ese es el caso, por lo general verás un mensaje similar a este:
 
@@ -283,15 +308,19 @@ Por otra parte, si tu archivo `.geojson` es particularmente grande (superior a 1
 
 Todavía se podrían representar los datos al convertir el archivo `.geojson` a [TopoJSON](https://github.com/mbostock/topojson), un formato de compresión que, en algunos casos, puede reducir el tamaño del archivo hasta un 80 %. Por supuesto, siempre puedes partir el archivo en fragmentos más pequeños (como por estado o por año), y almacenar los datos como archivos múltiples dentro del repositorio.
 
-### Recursos adicionales
+### Leer más
 
-* [Documentación Leaflet.js geojson](http://leafletjs.com/examples/geojson.html)
+{% ifversion geoJSON-with-MapBox %}
+* [Documentación de Leaflet.js](https://leafletjs.com/)
 * [Documentación de estilización de marcador MapBox](http://www.mapbox.com/developers/simplestyle/)
+{%- else %}
+* [Documentación de Azure Maps](https://docs.microsoft.com/en-us/azure/azure-maps/)
+{%- endif %}
 * [TopoJSON Wiki](https://github.com/mbostock/topojson/wiki)
 
-## Working with Jupyter Notebook files on {% data variables.product.prodname_dotcom %}
+## Trabajar con arhivos de Jupyter Notebook en {% data variables.product.prodname_dotcom %}
 
-When you add Jupyter Notebook or IPython Notebook files with a *.ipynb* extension on {% data variables.product.product_location %}, they will render as static HTML files in your repository.
+Cuando agregas archivos de Jupyter Notebook o IPython Notebook con una extensión *.ipynb* en {% data variables.product.product_location %}, estas se interpretarán como archivos HTML estáticos en tu repositorio.
 
 Las funciones interactivas de notebook, como los gráficos JavaScript personalizados, no funcionarán en tu repositorio en {% data variables.product.product_location %}. Para obtener un ejemplo, consulta [*Enlaces e interacciones.ipynb*](https://github.com/bokeh/bokeh-notebooks/blob/main/tutorial/06%20-%20Linking%20and%20Interactions.ipynb).
 
@@ -310,4 +339,45 @@ $ jupyter nbconvert --to html <em>NOTEBOOK-NAME.ipynb</em>
 ### Leer más
 
 - [Repositorio GitHub de notebook Jupyter](https://github.com/jupyter/jupyter_notebook)
-- [Galería de notebooks Jupyter](https://github.com/jupyter/jupyter/wiki/A-gallery-of-interesting-Jupyter-Notebooks)
+- [Galería de notebooks Jupyter](https://github.com/jupyter/jupyter/wiki)
+
+{% ifversion mermaid %}
+## Mostrar los archivos de Mermaid en {% data variables.product.prodname_dotcom %}
+
+{% data variables.product.product_name %} es compatible con el procesamiento de archivos de Mermaid dentro de los repositorios. Confirma el archivo como lo harías habitualmente utilizando una extensión `.mermaid` o `.mmd`. Luego, navega a la ruta del archivo Mermaid en {% data variables.product.prodname_dotcom %}.
+
+Por ejemplo, si agregas un archivo `.mmd` con el siguiente contenido a tu repositorio:
+
+```
+graph TD
+    A[Friend's Birthday] -->|Get money| B(Go shopping)
+    B --> C{Let me think}
+    C -->|One| D["Cool <br> Laptop"]
+    C -->|Two| E[iPhone]
+    C -->|Three| F[fa:fa-car Car]
+```
+
+Cuando ves el archivo en el repositorio, este se procesa como un diagrama de flujo. ![Diagrama de archivo mermaid procesado](/assets/images/help/repository/mermaid-file-diagram.png)
+
+### Solución de problemas
+
+Si tu gráfica no se procesa, verifica que contenga una sintaxis de lenguaje de marcado de Mermaid verificándola con el [Editor de Mermaid](https://mermaid.live/edit).
+
+If the chart displays, but does not appear as you'd expect, you can create a new [{% data variables.product.prodname_github_community %} discussion](https://github.com/orgs/community/discussions/categories/general), and add the `Mermaid` label.
+
+#### Problemas conocidos
+
+* Las gráficas de diagramas secuenciales a menudo se interpretan con espacios adicionales debajo de ellas y se les agrega aún más espacio conforme el tamaño de la gráfica aumenta. Este es un problema conocido de la librería de Mermaid.
+* Los nodos actores con menús emergentes no funcionan como se esperaba dentro de las gráficas de diagrama secuencial. Esto es debido a una discrepancia en la forma en la que se agregan los eventos de JavaScript cuando se utiliza la API de la librería de Mermaid para interpretar una gráfica.
+* No todas las gráficas cumplen con a11y. Esto podría afectar a los usuarios que dependen en un lector de pantalla.
+
+### Mermaid en el lenguaje de marcado
+
+Puedes embeber una sintaxis de Mermaid directamente en el lenguaje de marcado. Para obtener más información, consulta la sección "[Crear diagramas](/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams#creating-mermaid-diagrams)".
+
+### Leer más
+
+* [Documentación de Mermaid.js](https://mermaid-js.github.io/mermaid/#/)
+* [Editor de Mermaid.js](https://mermaid.live/edit)
+{% endif %}
+

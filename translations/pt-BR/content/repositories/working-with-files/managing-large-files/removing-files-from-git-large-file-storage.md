@@ -9,6 +9,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 shortTitle: Remover arquivos
 ---
 
@@ -39,9 +40,9 @@ shortTitle: Remover arquivos
 
 ## Objetos do {% data variables.large_files.product_name_short %} no repositório
 
-Quando você remove os arquivos do {% data variables.large_files.product_name_short %}, os objetos do {% data variables.large_files.product_name_short %} permanecem no armazenamento remoto{% ifversion fpt %} e são considerados na cota de armazenamento do {% data variables.large_files.product_name_short %}{% endif %}.
+Quando você remove os arquivos do {% data variables.large_files.product_name_short %}, os objetos do {% data variables.large_files.product_name_short %} permanecem no armazenamento remoto{% ifversion fpt or ghec %} e são considerados na cota de armazenamento do {% data variables.large_files.product_name_short %}{% endif %}.
 
-Para remover os objetos do {% data variables.large_files.product_name_short %} de um repositório, {% ifversion fpt %}exclua e recrie o repositório. Ao excluir um repositório, todos os problemas associados, estrelas e bifurcações também serão excluídos. Para obter mais informações, consulte "[Excluir um repositório](/github/administering-a-repository/deleting-a-repository). " Se você precisar limpar um objeto removido e não puder excluir o repositório, [entre em contato com o suporte](/github/working-with-github-support) para obter ajuda.{% else %}entre em contato com o seu {% data variables.product.prodname_enterprise %} administrador para arquivar os objetos. Os objetos arquivados são excluídos após três meses.{% endif %}
+Para remover os objetos do {% data variables.large_files.product_name_short %} de um repositório, {% ifversion fpt or ghec %}exclua e recrie o repositório. Ao excluir um repositório, todos os problemas associados, estrelas e bifurcações também serão excluídos. Para obter mais informações, consulte "[Excluir um repositório](/github/administering-a-repository/deleting-a-repository). " Se você precisar limpar um objeto removido e não puder excluir o repositório, [entre em contato com o suporte](/github/working-with-github-support) para obter ajuda.{% else %}entre em contato com o seu {% data variables.product.prodname_enterprise %} administrador para arquivar os objetos. Os objetos arquivados são excluídos após três meses.{% endif %}
 
 {% note %}
 

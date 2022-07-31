@@ -13,6 +13,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Repositories
 shortTitle: Add a file
@@ -42,7 +43,7 @@ Files that you add to a repository via a browser are limited to {% data variable
 
 ## Adding a file to a repository using the command line
 
-You can upload an existing file to a {% data variables.product.product_name %} repository using the command line.
+You can upload an existing file to a repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} using the command line.
 
 {% tip %}
 
@@ -71,4 +72,4 @@ You can upload an existing file to a {% data variables.product.product_name %} r
 
 ## Further reading
 
-- "[Adding an existing project to GitHub using the command line](/articles/adding-an-existing-project-to-github-using-the-command-line)"
+- "[Adding locally hosted code to {% data variables.product.product_name %}](/get-started/importing-your-projects-to-github/importing-source-code-to-github//adding-locally-hosted-code-to-github)"

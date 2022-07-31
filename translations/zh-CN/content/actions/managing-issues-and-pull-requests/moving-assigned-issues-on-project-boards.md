@@ -1,13 +1,13 @@
 ---
 title: 在项目板上移动分配的议题
 intro: '您可以使用 {% data variables.product.prodname_actions %} 在议题被分配时自动将议题移到项目板上的特定列。'
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /actions/guides/moving-assigned-issues-on-project-boards
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: tutorial
 topics:
   - Workflows
@@ -17,8 +17,6 @@ shortTitle: 移动分配的议题
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
-{% data reusables.actions.ae-self-hosted-runners-notice %}
 
 ## 简介
 
@@ -35,6 +33,8 @@ shortTitle: 移动分配的议题
 
     ```yaml{:copy}
 {% indented_data_reference reusables.actions.actions-not-certified-by-github-comment spaces=4 %}
+
+{% indented_data_reference reusables.actions.actions-use-sha-pinning-comment spaces=4 %}
 
     name: Move assigned card
     on:
@@ -65,7 +65,7 @@ shortTitle: 移动分配的议题
 
 每当分配仓库中的议题时，议题将移到指定的项目板列。 如果议题尚未在项目板上，则将添加到项目板中。
 
-如果您的仓库是用户所有，则 `Alex-page/github-project-automation-plus` 操作将对仓库或用户帐户中具有指定项目名称和列的所有项目执行。 同样，如果您的仓库归组织所有，则该操作将对仓库或组织中具有指定项目名称和列的所有项目执行。
+如果您的仓库是用户所有，则 `Alex-page/github-project-automation-plus` 操作将对仓库或个人帐户中具有指定项目名称和列的所有项目执行。 同样，如果您的仓库归组织所有，则该操作将对仓库或组织中具有指定项目名称和列的所有项目执行。
 
 通过在仓库中分配议题来测试工作流程。
 

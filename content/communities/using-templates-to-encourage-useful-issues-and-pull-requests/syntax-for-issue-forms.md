@@ -1,9 +1,9 @@
 ---
 title: Syntax for issue forms
 intro: 'You can define different input types, validations, default assignees, and default labels for your issue forms.'
-product: 'Issue forms are available in beta for public repositories on {% data variables.product.prodname_dotcom_the_website %}'
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Community
 ---
@@ -40,7 +40,7 @@ You can set the following top-level keys for each issue form.
 | `description` | A description for the issue form template, which appears in the template chooser interface. | Required | String |
 | `body` | Definition of the input types in the form. | Required | Array |
 | `assignees` | People who will be automatically assigned to issues created with this template. | Optional | Array or comma-delimited string |
-| `labels` | Labels that will automatically be added to issues created with this template. | Optional | String |
+| `labels` | Labels that will automatically be added to issues created with this template. | Optional | Array or comma-delimited string |
 | `title` | A default title that will be pre-populated in the issue submission form. | Optional | String |
 
 For the available `body` input types and their syntaxes, see "[Syntax for {% data variables.product.prodname_dotcom %}'s form schema](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-githubs-form-schema)."
@@ -165,3 +165,4 @@ body:
 ## Further reading
 
 - [YAML](https://yaml.org/)
+- [Common validation errors when creating issue forms](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/common-validation-errors-when-creating-issue-forms)

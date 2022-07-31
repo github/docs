@@ -1,30 +1,29 @@
 ---
-title: Sobre a automação para quadros de projeto
-intro: Você pode configurar fluxos de trabalho automáticos para manter o status dos cartões do quadro de projeto em sincronia com os problemas e pull requests associados.
+title: 'About automation for {% data variables.product.prodname_projects_v1 %}'
+intro: 'You can configure automatic workflows to keep the status of {% data variables.projects.projects_v1_board %} cards in sync with the associated issues and pull requests.'
 redirect_from:
   - /github/managing-your-work-on-github/managing-project-boards/about-automation-for-project-boards
   - /articles/about-automation-for-project-boards
   - /github/managing-your-work-on-github/about-automation-for-project-boards
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
+  feature: projects-v1
 topics:
   - Pull requests
-shortTitle: Automação para quadros de projeto
+shortTitle: 'Automation for {% data variables.product.prodname_projects_v1 %}'
+allowTitleToDifferFromFilename: true
 ---
 
 {% data reusables.projects.project_boards_old %}
 
-{% data reusables.project-management.automate-project-board-permissions %}  Para obter mais informações, consulte "[Permissões do quadro de projeto para uma organização](/articles/project-board-permissions-for-an-organization)."
+{% data reusables.project-management.automate-project-board-permissions %}  For more information, see "[{% data variables.product.prodname_projects_v1_caps %} permissions for an organization](/articles/project-board-permissions-for-an-organization)."
 
-Você pode automatizar ações com base nos eventos de disparo para colunas do quadro de projeto. Isso elimina algumas das tarefas manuais no gerenciamento de um quadro de projeto. Por exemplo, é possível configurar uma coluna "Tarefas pendentes", onde qualquer problema ou pull request que você adiciona a um quadro de projeto é automaticamente movido para a coluna configurada. Para obter mais informações, consulte "[Configurar a automação para quadros de projeto](/articles/configuring-automation-for-project-boards)."
+You can automate actions based on triggering events for {% data variables.projects.projects_v1_board %} columns. This eliminates some of the manual tasks in managing a {% data variables.projects.projects_v1_board %}. For example, you can configure a "To do" column, where any new issues or pull requests you add to a {% data variables.projects.projects_v1_board %} are automatically moved to the configured column. For more information, see "[Configuring automation for {% data variables.product.prodname_projects_v1 %}](/articles/configuring-automation-for-project-boards)."
 
 {% data reusables.project-management.use-automated-template %}
 
 {% data reusables.project-management.copy-project-boards %}
 
-A automação do quadro de projeto também pode ajudar as equipes a desenvolver uma compreensão compartilhada da finalidade de um quadro de projeto e o processo de desenvolvimento da equipe criando um fluxo de trabalho padrão para determinadas ações.
+{% data variables.projects.projects_v1_board_caps %} automation can also help teams develop a shared understanding of a {% data variables.projects.projects_v1_board %}'s purpose and the team's development process by creating a standard workflow for certain actions.
 
 {% data reusables.project-management.resync-automation %}
 
@@ -38,10 +37,10 @@ A automação do quadro de projeto também pode ajudar as equipes a desenvolver 
 
 ## Acompanhamento do andamento do projeto
 
-Você pode acompanhar o progresso no seu quadro de projeto. Cartões nas colunas "Pendente", "Em progresso" ou "Concluído" contam para o progresso geral do projeto. {% data reusables.project-management.project-progress-locations %}
+You can track the progress on your {% data variables.projects.projects_v1_board %}. Cartões nas colunas "Pendente", "Em progresso" ou "Concluído" contam para o progresso geral do projeto. {% data reusables.project-management.project-progress-locations %}
 
-Para obter mais informações, consulte "[Acompanhamento do progresso no quadro de projeto](/github/managing-your-work-on-github/tracking-progress-on-your-project-board)".
+For more information, see "[Tracking progress on your {% data variables.product.prodname_project_v1 %}](/github/managing-your-work-on-github/tracking-progress-on-your-project-board)."
 
 ## Leia mais
-- "[Configurar a automação para quadros de projeto](/articles/configuring-automation-for-project-boards)"{% ifversion fpt %}
-- "[Copiar um quadro de projeto](/articles/copying-a-project-board)"{% endif %}
+- "[Configuring automation for {% data variables.product.prodname_projects_v1 %}](/articles/configuring-automation-for-project-boards)"{% ifversion fpt or ghec %}
+- "[Copying a {% data variables.product.prodname_project_v1 %}](/articles/copying-a-project-board)"{% endif %}

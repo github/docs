@@ -3,16 +3,11 @@ title: 使用 Git 和 GitHub 起始作业
 intro: '您可以使用 Git 和 {% data variables.product.company_short %} 起始作业，让学生全面了解 Git 和 {% data variables.product.company_short %} 基础知识。'
 versions:
   fpt: '*'
+permissions: 'Organization owners who are admins for a classroom can use Git & {% data variables.product.company_short %} starter assignments. {% data reusables.classroom.classroom-admins-link %}'
 redirect_from:
   - /education/manage-coursework-with-github-classroom/use-the-git-and-github-starter-assignment
 shortTitle: 入门作业
 ---
-
-{% note %}
-
-**注意：**Git 和 {% data variables.product.company_short %} 起始作业目前处于测试阶段，可能会更改。
-
-{% endnote %}
 
 Git 和 {% data variables.product.company_short %} 起始作业是一个预制课程，概括了 Git 和 {% data variables.product.company_short %} 的基础知识，并将学生与资源联系起来以了解更多关于具体主题的信息。
 
@@ -46,11 +41,18 @@ Git 和 {% data variables.product.company_short %} 起始作业是一个预制�
 
 将入门课程导入您的组织，命名您的作业，决定是否分配截止日期，并选择分配仓库的可见性。
 
-- [导入作业](#importing-the-assignment)
-- [指定作业名称](#naming-an-assignment)
-- [分配作业的截止时间](#assigning-a-deadline-for-an-assignment)
-- [选择作业类型](#choosing-an-assignment-type)
-- [选择作业仓库的可见性](#choosing-a-visibility-for-assignment-repositories)
+- [基本要求](#prerequisites)
+- [创建起始作业](#creating-the-starter-assignment)
+  - [如果在课堂中没有现有作业](#if-there-are-no-existing-assignments-in-the-classroom)
+  - [如果在课堂中已经有现有作业](#if-there-already-are-existing-assignments-in-the-classroom)
+- [设置作业的基本信息](#setting-up-the-basics-for-an-assignment)
+  - [导入作业](#importing-the-assignment)
+  - [命名作业](#naming-the-assignment)
+  - [分配作业的截止时间](#assigning-a-deadline-for-an-assignment)
+  - [选择作业仓库的可见性](#choosing-a-visibility-for-assignment-repositories)
+- [邀请学生参加作业](#inviting-students-to-an-assignment)
+- [后续步骤](#next-steps)
+- [延伸阅读](#further-reading)
 
 ### 导入作业
 
@@ -94,7 +96,7 @@ Git 和 {% data variables.product.company_short %} 起始作业只适用于个�
 
 ## 后续步骤
 
-- 根据课程定制其他作业。 更多信息请参阅“[创建个人作业](/education/manage-coursework-with-github-classroom/create-an-individual-assignment)”和“[创建小组作业](/education/manage-coursework-with-github-classroom/create-a-group-assignment)”。
+- 根据课程定制其他作业。 更多信息请参阅“[创建单个作业](/education/manage-coursework-with-github-classroom/create-an-individual-assignment)”、“[创建组作业](/education/manage-coursework-with-github-classroom/create-a-group-assignment)”和“[重复使用作业](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/reuse-an-assignment)”。
 
 ## 延伸阅读
 

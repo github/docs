@@ -8,6 +8,7 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
+  ghec: '*'
 topics:
   - 2FA
 shortTitle: Inhabilitar la 2FA
@@ -17,7 +18,7 @@ Te recomendamos encarecidamente que uses la autenticación de dos factores para 
 
 {% warning %}
 
-**Advertencia:** Si eres un miembro,{% ifversion fpt %}, gerente de facturación{% endif %} o colaborador externo de un repositorio público de una organización que requiere autenticación de dos factores y procedes a su inhabilitación, serás automáticamente eliminado de la organización y ya no podrás acceder a sus repositorios. Para volver a obtener acceso a la organización, habilita nuevamente la autenticación de dos factores y comunícate con un propietario de la organización.
+**Advertencia:** Si eres un miembro,{% ifversion fpt or ghec %}, gerente de facturación{% endif %} o colaborador externo de un repositorio público de una organización que requiere autenticación de dos factores y procedes a su inhabilitación, serás automáticamente eliminado de la organización y ya no podrás acceder a sus repositorios. Para volver a obtener acceso a la organización, habilita nuevamente la autenticación de dos factores y comunícate con un propietario de la organización.
 
 {% endwarning %}
 
@@ -27,8 +28,8 @@ Para eliminarte a ti mismo de la organización:
  - Como miembro o propietario de la organización, consulta "[Eliminarte a ti mismo de una organización](/articles/removing-yourself-from-an-organization/)".
  - Como colaborador externo, solicita a un propietario de la organización o administrador de un repositorio que te elimine de los repositorios de la organización. Para obtener más información, consulta "[Ver los roles de las personas en una organización](/articles/viewing-people-s-roles-in-an-organization)" y "[Eliminar un colaborador externo de un repositorio de la organización](/articles/removing-an-outside-collaborator-from-an-organization-repository/)".
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.security %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.security %}
 3. Da clic en **Inhabilitar**. ![Botón Inhabilitar autenticación de dos factores](/assets/images/help/2fa/disable-two-factor-authentication.png)
 
 ## Leer más

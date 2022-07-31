@@ -9,19 +9,27 @@ on:
     types:
       - labeled
 
+permissions:
+  pull-requests: write
+
 jobs:
   unmark_for_review:
-    if: github.repository == 'github/docs' && github.event.label.name == 'ready to merge'
+    if: >-
+      ${{
+        github.repository == 'github/docs' &&
+        github.event.label.name == 'ready to merge'
+      }}
     runs-on: ubuntu-latest
     steps:
       - name: move PR
-        uses: alex-page/github-project-automation-plus@fdb7991b72040d611e1123d2b75ff10eda9372c9
+        uses: alex-page/github-project-automation-plus@bb266ff4dde9242060e2d5418e120a133586d488
         with:
-          project: Docs team reviews
+          project: Docs open source board
           column: Triage
           repo-token: ${{ secrets.DOCUBOT_READORG_REPO_WORKFLOW_SCOPES }}
+
       - name: remove label
-        uses: andymckay/labeler@22d5392de2b725cea4b284df5824125054049d84
+        uses: andymckay/labeler@e6c4322d0397f3240f0e7e30a33b5c5df2d39e90
         with:
+          ignore-if-assigned: 'false'
           remove-labels: 'waiting for review'
-          repo-token: ${{ secrets.GITHUB_TOKEN }}

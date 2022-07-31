@@ -4,6 +4,7 @@ intro: 'Puedes agregar una lista de direcciones IP permitidas a tu {% data varia
 versions:
   fpt: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - GitHub Apps
 shortTitle: Administrar las direcciones IP permitidas
@@ -11,12 +12,12 @@ shortTitle: Administrar las direcciones IP permitidas
 
 ## Acerca de las listas de direcciones IP permitidas para las {% data variables.product.prodname_github_apps %}
 
-Los propietarios de organizaciones y empresas pueden restringir el acceso a los activos si configuran una lista de direcciones IP permitidas. Esta lista especifica las direcciones IP a las que se les permite conectarse. Para obtener más información, consulta las secciones "[Administrar las direcciones IP para tu organización](/organizations/keeping-your-organization-secure/managing-allowed-ip-addresses-for-your-organization#enabling-allowed-ip-addresses)" y {% ifversion ghae %}"[Restringir el tráfico de red a tu empresa](/admin/configuration/configuring-your-enterprise/restricting-network-traffic-to-your-enterprise)". {% else %}"[Requerir una configuración de seguridad en tu cuenta empresarial](/github/setting-up-and-managing-your-enterprise/setting-policies-for-organizations-in-your-enterprise-account/enforcing-security-settings-in-your-enterprise-account#managing-allowed-ip-addresses-for-organizations-in-your-enterprise-account)." {% endif %}
+Los propietarios de organizaciones y empresas pueden restringir el acceso a los activos si configuran una lista de direcciones IP permitidas. Esta lista especifica las direcciones IP a las que se les permite conectarse. Para obtener más información, consulta la sección "[Requerir políticas para la configuración de seguridad en tu empresa](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise#managing-allowed-ip-addresses-for-organizations-in-your-enterprise)".
 
 Cuando una organización tiene una lista de direcciones permitidas, se negará el acceso a las aplicaciones de terceros que se conecten a través de una {% data variables.product.prodname_github_app %}, a menos de que ambas condiciones siguientes sean verdaderas:
 
 * El creador de {% data variables.product.prodname_github_app %} configuró una lista de direcciones permitidas para la aplicación, la cual especifica las direcciones IP en donde se ejecuta la aplicación. Consulta los detalles de cómo hacerlo a continuación.
-* El propietario de la organización eligió permitir que las direcciones en la lista de direcciones permitidas de la {% data variables.product.prodname_github_app %} se agreguen a su propia lista de direcciones permitidas. Para obtener más información, consulta "[Administrar las direcciones IP permitidas en tu organización](/organizations/keeping-your-organization-secure/managing-allowed-ip-addresses-for-your-organization#allowing-access-by-github-apps)".
+* El propietario de la organización eligió permitir que las direcciones en la lista de direcciones permitidas de la {% data variables.product.prodname_github_app %} se agreguen a su propia lista de direcciones permitidas. Para obtener más información, consulta la sección "[Administrar las direcciones IP permitidas para tu organización](/{% ifversion fpt %}enterprise-cloud@latest/{% endif %}organizations/keeping-your-organization-secure/managing-allowed-ip-addresses-for-your-organization#using-github-actions-with-an-ip-allow-list){% ifversion fpt %}" en la documentación de {% data variables.product.prodname_ghe_cloud %}.{% else %}".{% endif %}
 
 {% data reusables.apps.ip-allow-list-only-apps %}
 

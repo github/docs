@@ -2,11 +2,12 @@
 title: Acerca de Mercado GitHub
 intro: 'Aprende más sobre {% data variables.product.prodname_marketplace %}, en donde puedes compartir tus apps y acciones públicamente con todos los usuarios de {% data variables.product.product_name %}.'
 redirect_from:
-  - /apps/marketplace/getting-started/
+  - /apps/marketplace/getting-started
   - /marketplace/getting-started
   - /developers/github-marketplace/about-github-marketplace
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Marketplace
 ---
@@ -31,11 +32,11 @@ Para publicar las apps con planes gratuitos, solo necesitas cumplir con los requ
 
 ### ¿Eres nuevo en las apps?
 
-If you're interested in creating an app for {% data variables.product.prodname_marketplace %}, but you're new to {% data variables.product.prodname_github_apps %} or {% data variables.product.prodname_oauth_apps %}, see "[Building {% data variables.product.prodname_github_apps %}](/developers/apps/building-github-apps)" or "[Building {% data variables.product.prodname_oauth_apps %}](/developers/apps/building-oauth-apps)."
+Si te interesa crear una app para {% data variables.product.prodname_marketplace %}, pero eres nuevo en las {% data variables.product.prodname_github_apps %} o en las {% data variables.product.prodname_oauth_apps %}, consulta la sección "[Crear {% data variables.product.prodname_github_apps %}](/developers/apps/building-github-apps)" o la sección "[Crear {% data variables.product.prodname_oauth_apps %}](/developers/apps/building-oauth-apps)".
 
 ### {% data variables.product.prodname_github_apps %} vs. {% data variables.product.prodname_oauth_apps %}
 
-{% data reusables.marketplace.github_apps_preferred %}, although you can list both OAuth and {% data variables.product.prodname_github_apps %} in {% data variables.product.prodname_marketplace %}. For more information, see "[Differences between {% data variables.product.prodname_github_apps %} and {% data variables.product.prodname_oauth_apps %}](/apps/differences-between-apps/)" and "[Migrating {% data variables.product.prodname_oauth_apps %} to {% data variables.product.prodname_github_apps %}](/apps/migrating-oauth-apps-to-github-apps/)."
+{% data reusables.marketplace.github_apps_preferred %}, aunque puedes listar tanto las Apps de OAuth como las {% data variables.product.prodname_github_apps %} en {% data variables.product.prodname_marketplace %}. Para obtener más información, consulta las secciones "[Diferencias entre las {% data variables.product.prodname_github_apps %} y las {% data variables.product.prodname_oauth_apps %}](/apps/differences-between-apps/)" y "[Migrar de las {% data variables.product.prodname_oauth_apps %} a las {% data variables.product.prodname_github_apps %}](/apps/migrating-oauth-apps-to-github-apps/)".
 
 ## Resumen de cómo publicar una app en {% data variables.product.prodname_marketplace %}
 
@@ -49,7 +50,7 @@ Cuando termines de crear tu app, puedes compartirla con otros usuarios si la pub
 
 1. Agrega un plan de precios. Para obtener más información, consulta la sección "[Configurar planes de precios para tu listado](/developers/github-marketplace/setting-pricing-plans-for-your-listing)".
 
-1. Lee y acepta las condiciones del "[Acuerdo de Desarrollador de {% data variables.product.prodname_marketplace %}](/articles/github-marketplace-developer-agreement/)".
+1. Lee y acepta las condiciones del "[Acuerdo de Desarrollador de {% data variables.product.prodname_marketplace %}](/free-pro-team@latest/github/site-policy/github-marketplace-developer-agreement)".
 
 1. Emite tu listado para que se publique en {% data variables.product.prodname_marketplace %}. Para obtener más información, consulta la sección "[Emitir tu lista para su publicación](/developers/github-marketplace/submitting-your-listing-for-publication)".
 

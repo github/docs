@@ -7,22 +7,17 @@
 //
 // [end-readme]
 
-import { fileURLToPath } from 'url'
 import path from 'path'
 import fs from 'fs/promises'
 import matter from 'gray-matter'
 import walk from 'walk-sync'
-import readFileAsync from '../../lib/readfile-async.js'
 import fm from '../../lib/frontmatter.js'
-
-const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
 // Run!
 main()
 
 async function main() {
-  const translationDir = path.posix.join(__dirname, '../../translations')
-  const translatedMarkdownFiles = walk(translationDir)
+  const translatedMarkdownFiles = walk('translations')
     .filter((filename) => {
       return (
         filename.includes('/content/') &&
@@ -46,18 +41,13 @@ async function main() {
 }
 
 async function extractFrontmatter(path) {
-  const fileContents = await readFileAsync(path, 'utf8')
+  const fileContents = await fs.readFile(path, 'utf8')
   return fm(fileContents)
 }
 
 async function updateTranslatedMarkdownFile(relPath) {
-  const localisedAbsPath = path.posix.join(__dirname, '../..', relPath)
   // find the corresponding english file by removing the first 2 path segments: /translations/<language code>
-  const engAbsPath = path.posix.join(
-    __dirname,
-    '../..',
-    relPath.split(path.sep).slice(2).join(path.sep)
-  )
+  const engAbsPath = relPath.split(path.sep).slice(2).join(path.sep)
 
   // Load frontmatter from the source english file
   let englishFrontmatter
@@ -71,7 +61,7 @@ async function updateTranslatedMarkdownFile(relPath) {
     return // silence
   }
 
-  const localisedFrontmatter = await extractFrontmatter(localisedAbsPath)
+  const localisedFrontmatter = await extractFrontmatter(relPath)
   if (!localisedFrontmatter) return `${relPath}: No localised frontmatter`
 
   // Look for differences between the english and localised non-translatable properties
@@ -93,7 +83,7 @@ async function updateTranslatedMarkdownFile(relPath) {
       lineWidth: 10000,
       forceQuotes: true,
     })
-    await fs.writeFile(localisedAbsPath, toWrite)
+    await fs.writeFile(relPath, toWrite)
 
     // return `${relPath}: updated`
     // silence

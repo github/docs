@@ -2,13 +2,17 @@
 title: Google Cloud Platform で GitHub Enterprise Server をインストールする
 intro: '{% data variables.product.prodname_ghe_server %} を Google Cloud Platform にインストールするには、サポートされているマシンタイプにデプロイし、永続的な標準ディスクまたは永続的な SSD を使用する必要があります。'
 redirect_from:
-  - /enterprise/admin/guides/installation/installing-github-enterprise-on-google-cloud-platform/
+  - /enterprise/admin/guides/installation/installing-github-enterprise-on-google-cloud-platform
   - /enterprise/admin/installation/installing-github-enterprise-server-on-google-cloud-platform
   - /admin/installation/installing-github-enterprise-server-on-google-cloud-platform
 versions:
   ghes: '*'
+type: tutorial
 topics:
+  - Administrator
   - Enterprise
+  - Infrastructure
+  - Set up
 shortTitle: Install on GCP
 ---
 
@@ -94,5 +98,5 @@ GCE 仮想マシンは、ファイアウォールが存在するネットワー�
 
 ## 参考リンク
 
-- 「[システム概要](/enterprise/admin/guides/installation/system-overview)」{% ifversion ghes > 2.22 %}
+- 「[システム概要](/enterprise/admin/guides/installation/system-overview)」{% ifversion ghes %}
 - 「[新しいリリースへのアップグレードについて](/admin/overview/about-upgrades-to-new-releases)」{% endif %}

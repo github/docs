@@ -2,7 +2,7 @@
 title: Conceder permissões superiores aos melhores colaboradores
 intro: Administradores de repositório podem promover qualquer integrante da comunidade a moderador e mantenedor.
 versions:
-  fpt: '*'
+  feature: discussions
 shortTitle: Conceder permissões superiores
 ---
 
@@ -11,15 +11,15 @@ shortTitle: Conceder permissões superiores
 
 Os contribuidores mais úteis dos últimos 30 dias são destacados no painel de {% data variables.product.prodname_discussions %} baseado em quantos comentários foram marcados como respostas de outros integrantes da comunidade. Contribuidores úteis podem ajudar a conduzir uma comunidade saudável e moderada e guiar o espaço da comunidade, além de mantenedores.
 
-## Step 1: Audit your {% data variables.product.prodname_discussions %} top contributors
+## Etapa 1: Audite os seus melhores contribuidores de {% data variables.product.prodname_discussions %}
 
-{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.discussions.navigate-to-repo-or-org %}
 {% data reusables.discussions.discussions-tab %}
-1. Compare a lista de contribuidores com suas permissões de acesso para ver quem se qualifica para moderar a discussão.
+1. Comparar a lista de contribuidores com suas permissões de acesso ao repositório, ou para discussões na organização com o repositório de origem para ver quem se qualifica para moderar a discussão. ![Captura de tela dos colaboradores mais úteis](/assets/images/help/discussions/most-helpful.png)
 
-## Step 2: Review permission levels for {% data variables.product.prodname_discussions %}
+## Etapa 2: Reveja os níveis de permissão para {% data variables.product.prodname_discussions %}
 
-Pessoas com permissões de triagem para um repositório podem ajudar a moderar as discussões de um projeto marcando comentários como respostas, bloqueando discussões que já não são úteis ou prejudicam a comunidade e convertendo os problemas em discussões quando uma ideia ainda está nos primeiros estágios de desenvolvimento. Para obter mais informações, consulte "[Moderação de discussões](/discussions/managing-discussions-for-your-community/moderating-discussions)".
+Pessoas com permissões de triagem para um repositório podem ajudar a moderar as discussões de um repositório, marcando comentários como respostas, bloqueando discussões que já não são úteis ou prejudicam a comunidade e convertendo os problemas em discussões quando uma ideia ainda está nos primeiros estágios de desenvolvimento. Da mesma forma, as pessoas com permissões de triagem para o repositório de origem para discussões da organização podem moderar as discussões da organização. Para obter mais informações, consulte "[Moderação de discussões](/discussions/managing-discussions-for-your-community/moderating-discussions)".
 
 Para obter mais informações sobre os níveis de permissão do repositório e {% data variables.product.prodname_discussions %}, consulte "[Níveis de permissões do repositório para uma organização](/organizations/managing-access-to-your-organizations-repositories/repository-permission-levels-for-an-organization)".
 

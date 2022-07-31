@@ -4,6 +4,7 @@ intro: É possível fornecer feedback automaticamente sobre envios de código de
 miniTocMaxHeadingLevel: 3
 versions:
   fpt: '*'
+permissions: 'Organization owners who are admins for a classroom can set up and use autograding on assignments in a classroom. {% data reusables.classroom.classroom-admins-link %}'
 redirect_from:
   - /education/manage-coursework-with-github-classroom/adding-tests-for-auto-grading
   - /education/manage-coursework-with-github-classroom/reviewing-auto-graded-work-teachers
@@ -20,7 +21,7 @@ Pode usar uma estrutura de teste, executar um comando personalizado, escrever te
 
 Você pode ter uma visão geral dos alunos que estão passando testes de avaliação automática acessando a atividade em {% data variables.product.prodname_classroom %}. Uma marca de verificação verde significa que todos os testes estão passando para o aluno, e um X vermelho significa que alguns ou todos os testes estão falhando para o aluno. Se você ganhou pontos para um ou mais testes, uma bolha irá mostrar a pontuação para os testes da pontuação máxima possível para a atividade.
 
-![Visão geral de uma atividade com resultados de avaliação automática](/assets/images/help/classroom/autograding-hero.png)
+![Visão geral de uma atividade com resultados de avaliação automática](/assets/images/help/classroom/assignment-individual-hero.png)
 
 ## Métodos de avaliação
 
@@ -59,7 +60,7 @@ Um comando de execução executa um comando de configuração e, em seguida, exe
 
 Você pode adicionar testes de avaliação automática durante a criação de uma nova atividade. {% data reusables.classroom.for-more-information-about-assignment-creation %}
 
-Você pode adicionar, editar ou excluir testes de avaliação automática para uma atividade existente. Se você alterar os testes de avaliação automática para uma atribuição existente, os repositórios de atividade existentes não serão afetados. Um aluno ou equipe deve aceitar a atividade e criar um novo repositório de atividade para usar os novos testes.
+Você pode adicionar, editar ou excluir testes de avaliação automática para uma atividade existente. Todas as alterações feitas por meio da interface do usuário do Classroom serão enviadas por push para os repositórios de alunos existentes. Portanto, tenha cuidado ao editar seus testes.
 
 {% data reusables.classroom.sign-into-github-classroom %}
 {% data reusables.classroom.click-classroom-in-list %}
@@ -71,15 +72,15 @@ Você pode adicionar, editar ou excluir testes de avaliação automática para u
     - Para excluir um teste, à direita do nome do teste, clique em {% octicon "trash" aria-label="The trash icon" %}. ![Ícone da lixeira para excluir um teste de avaliação automática](/assets/images/help/classroom/autograding-click-trash.png)
 1. Na parte inferior da página, clique em **Atualizar atividade**. ![Botão "Atualizar a atividade" na parte inferior da página](/assets/images/help/classroom/assignments-click-update-assignment.png)
 
-## Viewing and downloading results from autograding tests
+## Visualizar e fazer o download de resultados de testes de autoavaliação
 
-### Download autograding results
+### Fazer o download dos resultados da auto-avaliação
 
-You can also download a CSV of your students' autograding scores via the "Download" button. This will generate and download a CSV containing a link to the student's repository, their {% data variables.product.prodname_dotcom %} handle, roster identifier, submission timestamp, and autograding score.
+Você também pode fazer o download do CSV da pontuação da autoavaliação dos seus alunos por meio do botão "Download". Isso irá gerar e fazer o download de um CSV que contém um link para o repositório do aluno, seu gerenciador de {% data variables.product.prodname_dotcom %}, identificador da lista de participantes, registro de hora de envio e pontuação de da autoavaliação.
 
-!["Download" button selected showing "Download grades highlighted" and an additional option to "Download repositories"](/assets/images/help/classroom/download-grades.png)
+![O botão "Download" selecionado que mostra "Fazer o download de notas destacadas" e uma opção adicional para "Fazer o download dos repositórios"](/assets/images/help/classroom/download-grades.png)
 
-### View individual logs
+### Ver registros individuais
 {% data reusables.classroom.sign-into-github-classroom %}
 {% data reusables.classroom.click-classroom-in-list %}
 {% data reusables.classroom.click-assignment-in-list %}

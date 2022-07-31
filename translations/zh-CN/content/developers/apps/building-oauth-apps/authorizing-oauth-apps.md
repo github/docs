@@ -2,29 +2,30 @@
 title: 授权 OAuth 应用程序
 intro: '{% data reusables.shortdesc.authorizing_oauth_apps %}'
 redirect_from:
-  - /apps/building-integrations/setting-up-and-registering-oauth-apps/about-authorization-options-for-oauth-apps/
-  - /apps/building-integrations/setting-up-and-registering-oauth-apps/directing-users-to-review-their-access/
-  - /apps/building-integrations/setting-up-and-registering-oauth-apps/creating-multiple-tokens-for-oauth-apps/
-  - /v3/oauth/
-  - /apps/building-oauth-apps/authorization-options-for-oauth-apps/
+  - /apps/building-integrations/setting-up-and-registering-oauth-apps/about-authorization-options-for-oauth-apps
+  - /apps/building-integrations/setting-up-and-registering-oauth-apps/directing-users-to-review-their-access
+  - /apps/building-integrations/setting-up-and-registering-oauth-apps/creating-multiple-tokens-for-oauth-apps
+  - /v3/oauth
+  - /apps/building-oauth-apps/authorization-options-for-oauth-apps
   - /apps/building-oauth-apps/authorizing-oauth-apps
   - /developers/apps/authorizing-oauth-apps
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - OAuth Apps
 ---
 
-{% data variables.product.product_name %}'s OAuth implementation supports the standard [authorization code grant type](https://tools.ietf.org/html/rfc6749#section-4.1) and the OAuth 2.0 [Device Authorization Grant](https://tools.ietf.org/html/rfc8628) for apps that don't have access to a web browser.
+{% data variables.product.product_name %} 的 OAuth 实现支持标准[授权代码授予类型](https://tools.ietf.org/html/rfc6749#section-4.1)以及 OAuth 2.0 [设备授权授予](https://tools.ietf.org/html/rfc8628)（针对无法访问 web 浏览器的应用程序）。
 
 如果您想要跳过以标准方式授权应用程序，例如测试应用程序时， 您可以使用[非 web 应用程序流程](#non-web-application-flow)。
 
 要授权您的 OAuth 应用程序，请考虑哪个授权流程最适合您的应用程序。
 
-- [Web 应用程序流程](#web-application-flow)：用于授权在浏览器中运行标准 OAuth 应用程序的用户。 (The [implicit grant type](https://tools.ietf.org/html/rfc6749#section-4.2) is not supported.){% ifversion fpt or ghae or ghes > 3.0 %}
-- [device flow](#device-flow):  Used for headless apps, such as CLI tools.{% endif %}
+- [Web 应用程序流程](#web-application-flow)：用于授权在浏览器中运行标准 OAuth 应用程序的用户。 （不支持[隐式授予类型](https://tools.ietf.org/html/rfc6749#section-4.2)。）
+- [设备流程](#device-flow)：用于无头应用程序，例如 CLI 工具。
 
 ## Web 应用程序流程
 
@@ -50,7 +51,7 @@ topics:
 
 | 名称             | 类型    | 描述                                                                                                                                                                                                                                                                                                                    |
 | -------------- | ----- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `client_id`    | `字符串` | **必填**。 您{% ifversion fpt %}[注册 ](https://github.com/settings/applications/new){% else %}registered{% endif %} 时从 GitHub 收到的客户端 ID。                                                                                                                                                                                   |
+| `client_id`    | `字符串` | **必填**。 您{% ifversion fpt or ghec %}[注册 ](https://github.com/settings/applications/new){% else %}registered{% endif %} 时从 GitHub 收到的客户端 ID。                                                                                                                                                                           |
 | `redirect_uri` | `字符串` | 用户获得授权后被发送到的应用程序中的 URL。 有关[重定向 url](#redirect-urls)，请参阅下方的详细信息。                                                                                                                                                                                                                                                       |
 | `login`        | `字符串` | 提供用于登录和授权应用程序的特定账户。                                                                                                                                                                                                                                                                                                   |
 | `作用域`          | `字符串` | 用空格分隔的[作用域](/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/)列表。 如果未提供，对于未向应用程序授权任何作用域的用户，`scope` 将默认为空白列表。 对于已向应用程序授权作用域的用户，不会显示含作用域列表的 OAuth 授权页面。 相反，通过用户向应用程序授权的作用域集，此流程步骤将自动完成。 例如，如果用户已执行两次 web 流程，且授权了一个拥有 `user` 作用域的令牌和一个拥有 `repo` 作用域的令牌，未提供 `scope` 的第三次 web 流程将收到拥有 `user` 和 `repo` 作用域的令牌。 |
@@ -78,19 +79,29 @@ topics:
 
 默认情况下，响应采用以下形式：
 
-    access_token={% ifversion fpt or ghes > 3.1 or ghae-next %}gho_16C7e42F292c6912E7710c838347Ae178B4a{% else %}e72e16c7e42f292c6912e7710c838347ae178b4a{% endif %}&token_type=bearer
+```
+access_token=gho_16C7e42F292c6912E7710c838347Ae178B4a&scope=repo%2Cgist&token_type=bearer
+```
 
-您也可以根据“接受”标头接收不同格式的内容：
+{% data reusables.apps.oauth-auth-vary-response %}
 
-    Accept: application/json
-    {"access_token":"{% ifversion fpt or ghes > 3.1 or ghae-next %}gho_16C7e42F292c6912E7710c838347Ae178B4a{% else %}e72e16c7e42f292c6912e7710c838347ae178b4a{% endif %}", "scope":"repo,gist", "token_type":"bearer"}
-    
-    Accept: application/xml
-    <OAuth>
-      <token_type>bearer</token_type>
-      <scope>repo,gist</scope>
-      <access_token>{% ifversion fpt or ghes > 3.1 or ghae-next %}gho_16C7e42F292c6912E7710c838347Ae178B4a{% else %}e72e16c7e42f292c6912e7710c838347ae178b4a{% endif %}</access_token>
-    </OAuth>
+```json
+Accept: application/json
+{
+  "access_token":"gho_16C7e42F292c6912E7710c838347Ae178B4a",
+  "scope":"repo,gist",
+  "token_type":"bearer"
+}
+```
+
+```xml
+Accept: application/xml
+<OAuth>
+  <token_type>bearer</token_type>
+  <scope>repo,gist</scope>
+  <access_token>gho_16C7e42F292c6912E7710c838347Ae178B4a</access_token>
+</OAuth>
+```
 
 ### 3. 使用访问令牌访问 API
 
@@ -105,8 +116,6 @@ topics:
 curl -H "Authorization: token OAUTH-TOKEN" {% data variables.product.api_url_pre %}/user
 ```
 
-{% ifversion fpt or ghae or ghes > 3.0 %}
-
 ## 设备流程
 
 {% note %}
@@ -116,6 +125,12 @@ curl -H "Authorization: token OAUTH-TOKEN" {% data variables.product.api_url_pre
 {% endnote %}
 
 设备流程允许您授权用户使用无头应用程序，例如 CLI 工具或 Git 凭据管理器。
+
+{% ifversion device-flow-is-opt-in %}
+
+在使用设备流识别和授权用户之前，必须先在应用的设置中启用它。 有关在应用中启用设备流的详细信息，请参阅“[修改 OAuth 应用程序](/developers/apps/managing-oauth-apps/modifying-an-oauth-app)”（对于 OAuth 应用程序）和“[修改 GitHub 应用程序](/developers/apps/managing-github-apps/modifying-a-github-app)”（对于 GitHub 应用程序）。
+
+{% endif %}
 
 ### 设备流程概述
 
@@ -138,27 +153,35 @@ curl -H "Authorization: token OAUTH-TOKEN" {% data variables.product.api_url_pre
 
 #### 响应
 
-{% ifversion fpt %}
-  ```JSON
-  {
-    "device_code": "3584d83530557fdd1f46af8289938c8ef79f9dc5",
-    "user_code": "WDJB-MJHT",
-    "verification_uri": "https://github.com/login/device",
-    "expires_in": 900,
-    "interval": 5
-  }
-  ```
-{% else %}
-  ```JSON
-  {
-    "device_code": "3584d83530557fdd1f46af8289938c8ef79f9dc5",
-    "user_code": "WDJB-MJHT",
-    "verification_uri": "http(s)://[hostname]/login/device",
-    "expires_in": 900,
-    "interval": 5
-  }
-  ```
-{% endif %}
+默认情况下，响应采用以下形式：
+
+```
+device_code=3584d83530557fdd1f46af8289938c8ef79f9dc5&expires_in=900&interval=5&user_code=WDJB-MJHT&verification_uri=https%3A%2F%{% data variables.product.product_url %}%2Flogin%2Fdevice
+```
+
+{% data reusables.apps.oauth-auth-vary-response %}
+
+```json
+Accept: application/json
+{
+  "device_code": "3584d83530557fdd1f46af8289938c8ef79f9dc5",
+  "user_code": "WDJB-MJHT",
+  "verification_uri": "{% data variables.product.oauth_host_code %}/login/device",
+  "expires_in": 900,
+  "interval": 5
+}
+```
+
+```xml
+Accept: application/xml
+<OAuth>
+  <device_code>3584d83530557fdd1f46af8289938c8ef79f9dc5</device_code>
+  <user_code>WDJB-MJHT</user_code>
+  <verification_uri>{% data variables.product.oauth_host_code %}/login/device</verification_uri>
+  <expires_in>900</expires_in>
+  <interval>5</interval>
+</OAuth>
+```
 
 #### 响应参数
 
@@ -196,12 +219,30 @@ curl -H "Authorization: token OAUTH-TOKEN" {% data variables.product.api_url_pre
 
 #### 响应
 
+默认情况下，响应采用以下形式：
+
+```
+access_token=gho_16C7e42F292c6912E7710c838347Ae178B4a&token_type=bearer&scope=repo%2Cgist
+```
+
+{% data reusables.apps.oauth-auth-vary-response %}
+
 ```json
+Accept: application/json
 {
- "access_token": "{% ifversion fpt or ghes > 3.1 or ghae-next %}gho_16C7e42F292c6912E7710c838347Ae178B4a{% else %}e72e16c7e42f292c6912e7710c838347ae178b4a{% endif %}",
+ "access_token": "gho_16C7e42F292c6912E7710c838347Ae178B4a",
   "token_type": "bearer",
-  "scope": "user"
+  "scope": "repo,gist"
 }
+```
+
+```xml
+Accept: application/xml
+<OAuth>
+  <access_token>gho_16C7e42F292c6912E7710c838347Ae178B4a</access_token>
+  <token_type>bearer</token_type>
+  <scope>gist,repo</scope>
+</OAuth>
 ```
 
 ### 设备流程的速率限制
@@ -220,17 +261,16 @@ curl -H "Authorization: token OAUTH-TOKEN" {% data variables.product.api_url_pre
 | `unsupported_grant_type`       | 授予类型必须为 `urn:ietf:params:oauth:grant-type:device_code`，并在您轮询 OAuth 令牌请求 `POST {% data variables.product.oauth_host_code %}/login/oauth/access_token` 时作为输入参数包括在内。                                                                                      |
 | `incorrect_client_credentials` | 对于设备流程，您必须传递应用程序的客户端 ID，您可以在应用程序设置页面上找到该 ID。 设备流程不需要 `client_secret`。                                                                                                                                                                                  |
 | `incorrect_device_code`        | 提供的 device_code 无效。                                                                                                                                                                                                                                    |
-| `access_denied`                | 当用户在授权过程中单击取消时，您将收到 `access_denied` 错误，用户将无法再次使用验证码。                                                                                                                                                                                                   |
+| `access_denied`                | 当用户在授权过程中单击取消时，您将收到 `access_denied` 错误，用户将无法再次使用验证码。{% ifversion device-flow-is-opt-in %}
+| `device_flow_disabled`         | 尚未在应用的设置中启用设备流。 更多信息请参阅“[设备流](#device-flow)”。{% endif %}
 
 更多信息请参阅“[OAuth 2.0 设备授权授予](https://tools.ietf.org/html/rfc8628#section-3.5)”。
-
-{% endif %}
 
 ## 非 Web 应用程序流程
 
 非 web 身份验证适用于测试等有限的情况。 如果您需要，可以使用[基本验证](/rest/overview/other-authentication-methods#basic-authentication)，通过[个人访问令牌设置页面](/articles/creating-an-access-token-for-command-line-use)创建个人访问令牌。 此方法支持用户随时撤销访问权限。
 
-{% ifversion fpt or ghes %}
+{% ifversion fpt or ghes or ghec %}
 {% note %}
 
 **注：**使用非 web 应用流程创建 OAuth2 令牌时，如果您或您的用户已启用双重身份验证，请确保明白如何[使用双重身份验证](/rest/overview/other-authentication-methods#working-with-two-factor-authentication)。
@@ -256,10 +296,10 @@ curl -H "Authorization: token OAUTH-TOKEN" {% data variables.product.api_url_pre
 
 可选的 `redirect_uri` 参数也可用于本地主机 URL。 如果应用程序指定 URL 和端口，授权后，应用程序用户将被重定向到提供的 URL 和端口。 `redirect_uri` 不需要匹配应用程序回调 url 中指定的端口。
 
-对于 `http://localhost/path` 回调 URL，您可以使用此 `redirect_uri`：
+对于 `http://127.0.0.1/path` 回调 URL，您可以使用此 `redirect_uri`：
 
 ```
-http://localhost:1234/path
+http://127.0.0.1:1234/path
 ```
 
 ## 为 OAuth 应用程序创建多个令牌
@@ -292,8 +332,8 @@ http://localhost:1234/path
 
 * "[对授权请求错误进行故障排除](/apps/managing-oauth-apps/troubleshooting-authorization-request-errors)"
 * "[对 OAuth 应用程序访问令牌请求错误进行故障排除](/apps/managing-oauth-apps/troubleshooting-oauth-app-access-token-request-errors)"
-{% ifversion fpt or ghae or ghes > 3.0 %}* "[Device flow errors](#error-codes-for-the-device-flow)"{% endif %}{% ifversion fpt or ghae-issue-4374 or ghes > 3.2 %}
-* "[Token expiration and revocation](/github/authenticating-to-github/keeping-your-account-and-data-secure/token-expiration-and-revocation)"{% endif %}
+* "[设备流错误](#error-codes-for-the-device-flow)"{% ifversion fpt or ghae or ghes > 3.2 or ghec %}
+* "[令牌到期和撤销](/github/authenticating-to-github/keeping-your-account-and-data-secure/token-expiration-and-revocation)"{% endif %}
 
 ## 延伸阅读
 

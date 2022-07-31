@@ -1,25 +1,24 @@
-1. 针对要完成的任务，新创具有适当作用域的个人访问令牌 (PAT)。 如果您的组织需要 SSO，则必须为新令牌启用 SSO。
+1. Create a new personal access token (PAT) with the appropriate scopes for the tasks you want to accomplish. If your organization requires SSO, you must enable SSO for your new token.
   {% warning %}
 
-  **注意：** 默认情况下， 当您在用户界面中选择 `write:packages` 范围的个人访问令牌 (PAT) 时，`repo` 范围也将被选中。 `repo` 范围提供了不必要和广泛的访问权限，我们建议您尤其避免使用 GitHub Actions 工作流程。 更多信息请参阅“[GitHub Actions 的安全性增强](/actions/getting-started-with-github-actions/security-hardening-for-github-actions#considering-cross-repository-access)”。 作为一种解决方法，您可以在以下 URL 的用户界面中为 PAT 选择 `write:packages` 范围：`https://github.com/settings/tokens/new?scopes=write:packages`。
+  **Note:** By default, when you select the `write:packages` scope for your personal access token (PAT) in the user interface, the `repo` scope will also be selected. The `repo` scope offers unnecessary and broad access, which we recommend you avoid using for GitHub Actions workflows in particular. For more information, see "[Security hardening for GitHub Actions](/actions/getting-started-with-github-actions/security-hardening-for-github-actions#considering-cross-repository-access)." As a workaround, you can select just the `write:packages` scope for your PAT in the user interface with this url: `https://{% ifversion fpt or ghec %}github.com{% else %}HOSTNAME{% endif %}/settings/tokens/new?scopes=write:packages`. 
 
   {% endwarning %}
 
-    - 选择 `read:packs` 作用域以下载容器映像并读取其元数据。
-    - 选择 `write:packages` 作用域以下载和上传容器映像并读取和写入其元数据。
-    - 选择 `delete:packages` 作用域以删除容器映像。
+    - Select the `read:packages` scope to download container images and read their metadata.
+    - Select the `write:packages` scope to download and upload container images and read and write their metadata.
+    - Select the `delete:packages` scope to delete container images.
 
-  更多信息请参阅“[创建用于命令行的个人访问令牌](/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line)。”
+  For more information, see "[Creating a personal access token for the command line](/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line)."
 
-2. 保存您的 PAT。 我们建议将 PAT 保存为环境变量。
+2. Save your PAT. We recommend saving your PAT as an environment variable.
   ```shell
   $ export CR_PAT=YOUR_TOKEN
   ```
-3. 使用您的容器类型的 CLI 登录到
-`ghcr.io` 上的 {% data variables.product.prodname_container_registry %} 服务。
+3. Using the CLI for your container type, sign in to the {% data variables.product.prodname_container_registry %} service at `{% data reusables.package_registry.container-registry-hostname %}`.
   {% raw %}
   ```shell
-  $ echo $CR_PAT | docker login ghcr.io -u USERNAME --password-stdin
+  $ echo $CR_PAT | docker login {% endraw %}{% data reusables.package_registry.container-registry-hostname %}{% raw %} -u USERNAME --password-stdin
   > Login Succeeded
   ```
   {% endraw %}

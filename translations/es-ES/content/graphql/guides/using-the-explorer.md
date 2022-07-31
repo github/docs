@@ -5,6 +5,7 @@ redirect_from:
   - /v4/guides/using-the-explorer
 versions:
   fpt: '*'
+  ghec: '*'
   ghes: '*'
   ghae: '*'
 topics:
@@ -13,15 +14,9 @@ topics:
 
 ## Acerca del explorador de GraphQL
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 El [Explorador de GraphQL](/graphql/overview/explorer) es una instancia de [GraphQL](https://github.com/graphql/graphiql), la cual es una "IDE de GraphQL gráfica e interactiva en el mismo buscador".
-
-{% note %}
-
-**Nota**: {% data variables.product.prodname_dotcom %} ha inhabilitado las [mutaciones](/graphql/reference/mutations) en el explorador, pero puedes utilizarlas en tu propia instancia de GraphiQL.
-
-{% endnote %}
 
 {% else %}
 

@@ -2,7 +2,7 @@
 title: 审核 SSH 密钥
 intro: 站点管理员可以发起 SSH 密钥的实例级审核。
 redirect_from:
-  - /enterprise/admin/articles/auditing-ssh-keys/
+  - /enterprise/admin/articles/auditing-ssh-keys
   - /enterprise/admin/user-management/auditing-ssh-keys
   - /admin/user-management/auditing-ssh-keys
 versions:

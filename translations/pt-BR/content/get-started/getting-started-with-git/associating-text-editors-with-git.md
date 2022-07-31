@@ -2,9 +2,9 @@
 title: Associar editores de texto ao Git
 intro: Use um editor de texto para abrir e editar seus arquivos com o Git.
 redirect_from:
-  - /textmate/
-  - /articles/using-textmate-as-your-default-editor/
-  - /articles/using-sublime-text-2-as-your-default-editor/
+  - /textmate
+  - /articles/using-textmate-as-your-default-editor
+  - /articles/using-sublime-text-2-as-your-default-editor
   - /articles/associating-text-editors-with-git
   - /github/using-git/associating-text-editors-with-git
   - /github/getting-started-with-github/associating-text-editors-with-git
@@ -13,6 +13,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 shortTitle: Editores de texto associados
 ---
 
@@ -27,9 +28,9 @@ shortTitle: Editores de texto associados
   $ git config --global core.editor "atom --wait"
   ```
 
-## Usando o Visual Studio Code como seu editor
+## Usando {% data variables.product.prodname_vscode %} como seu editor
 
-1. Instale o [Visual Studio Code](https://code.visualstudio.com/) (VS Code). Para obter mais informações, consulte "[Configurar o Visual Studio Code](https://code.visualstudio.com/Docs/setup/setup-overview)" na documentação do VS Code.
+1. Instale [{% data variables.product.prodname_vscode %}](https://code.visualstudio.com/) ({% data variables.product.prodname_vscode_shortname %}). Para obter mais informações, consulte "[Configurando {% data variables.product.prodname_vscode_shortname %}](https://code.visualstudio.com/Docs/setup/setup-overview)" na documentação do {% data variables.product.prodname_vscode_shortname %}.
 {% data reusables.command_line.open_the_multi_os_terminal %}
 3. Digite este comando:
   ```shell
@@ -48,7 +49,7 @@ shortTitle: Editores de texto associados
 ## Usar o TextMate como seu editor
 
 1. Instale o [TextMate](https://macromates.com/).
-2. Instale o utilitário do shell `mate`. Para obter mais informações, consulte "[mate e rmate](https://macromates.com/blog/2011/mate-and-rmate/)" na documentação do TextMate.
+2. Instale o utilitário do shell `mate`. Para obter mais informações, consulte "[`mate` e `mate`](https://macromates.com/blog/2011/mate-and-rmate/)" na documentação do TextMate.
 {% data reusables.command_line.open_the_multi_os_terminal %}
 4. Digite este comando:
   ```shell
@@ -61,14 +62,15 @@ shortTitle: Editores de texto associados
 ## Usar o Atom como seu editor
 
 1. Instale o [Atom](https://atom.io/). Para obter mais informações, consulte "[Instalar o Atom](https://flight-manual.atom.io/getting-started/sections/installing-atom/)" na documentação do Atom.
+{% data reusables.command_line.open_the_multi_os_terminal %}
 3. Digite este comando:
   ```shell
   $ git config --global core.editor "atom --wait"
   ```
 
-## Usando o Visual Studio Code como seu editor
+## Usando {% data variables.product.prodname_vscode %} como seu editor
 
-1. Instale o [Visual Studio Code](https://code.visualstudio.com/) (VS Code). Para obter mais informações, consulte "[Configurar o Visual Studio Code](https://code.visualstudio.com/Docs/setup/setup-overview)" na documentação do VS Code.
+1. Instale [{% data variables.product.prodname_vscode %}](https://code.visualstudio.com/) ({% data variables.product.prodname_vscode_shortname %}). Para obter mais informações, consulte "[Configurando {% data variables.product.prodname_vscode_shortname %}](https://code.visualstudio.com/Docs/setup/setup-overview)" na documentação do {% data variables.product.prodname_vscode_shortname %}.
 {% data reusables.command_line.open_the_multi_os_terminal %}
 3. Digite este comando:
   ```shell
@@ -105,9 +107,9 @@ shortTitle: Editores de texto associados
   $ git config --global core.editor "atom --wait"
   ```
 
-## Usando o Visual Studio Code como seu editor
+## Usando {% data variables.product.prodname_vscode %} como seu editor
 
-1. Instale o [Visual Studio Code](https://code.visualstudio.com/) (VS Code). Para obter mais informações, consulte "[Configurar o Visual Studio Code](https://code.visualstudio.com/Docs/setup/setup-overview)" na documentação do VS Code.
+1. Instale [{% data variables.product.prodname_vscode %}](https://code.visualstudio.com/) ({% data variables.product.prodname_vscode_shortname %}). Para obter mais informações, consulte "[Configurando {% data variables.product.prodname_vscode_shortname %}](https://code.visualstudio.com/Docs/setup/setup-overview)" na documentação do {% data variables.product.prodname_vscode_shortname %}.
 {% data reusables.command_line.open_the_multi_os_terminal %}
 3. Digite este comando:
   ```shell

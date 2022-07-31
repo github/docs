@@ -4,10 +4,12 @@ intro: 'Revise as entregas de webhook em {% data variables.product.prodname_dotc
 redirect_from:
   - /webhooks/testing
   - /developers/webhooks-and-events/testing-webhooks
+  - /articles/testing-webhooks
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Webhooks
 ---
@@ -18,7 +20,7 @@ Agora que você [configurou seu servidor local](/webhooks/configuring/), você p
 
 Cada webhook tem sua própria seção "Entregas Recentes", que lista, se uma entrega foi bem sucedida (verificação verde) ou falhou (vermelho x). Você também pode identificar quando se tentou cada entrega.
 
-{% data variables.product.product_name %} mantém um registro de cada entrega de webhook para {% ifversion fpt %} 30 {% else %} 8 {% endif %} dias.
+{% data variables.product.product_name %} mantém um registro de cada entrega de webhook para {% ifversion fpt or ghec %} 30 {% else %} 8 {% endif %} dias.
 
 ![Vista das entregas recentes](/assets/images/webhooks_recent_deliveries.png)
 

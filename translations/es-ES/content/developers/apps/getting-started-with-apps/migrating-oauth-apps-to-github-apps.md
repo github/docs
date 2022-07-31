@@ -8,9 +8,10 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - GitHub Apps
-shortTitle: Migrate from OAuth Apps
+shortTitle: Migrarse desde las Apps de OAuth
 ---
 
 Este artículo proporciona los lineamientos para los integradores existentes que están considerando migrarse de una App de OAuth a una GitHub App.
@@ -31,7 +32,7 @@ Las [GitHub Apps](/apps/) son la forma recomendada de integrarse con GitHub, ya 
 
 ## Convertir una App de OAuth en una GitHub App
 
-Estos lineamientos asumen que has registrado una App de OAuth{% ifversion fpt %} que puede o no estar listada en GitHub Marketplace{% endif %}. A nivel superior, necesitarás llevar a cabo los siguientes pasos:
+Estos lineamientos asumen que has registrado una App de OAuth{% ifversion fpt or ghec %} que puede o no estar listada en GitHub Marketplace{% endif %}. A nivel superior, necesitarás llevar a cabo los siguientes pasos:
 
 1. [Revisar las terminales de la API disponibles para las Github Apps](#review-the-available-api-endpoints-for-github-apps)
 1. [Diseñar con apego a los límites de tasa de la API](#design-to-stay-within-api-rate-limits)
@@ -41,18 +42,18 @@ Estos lineamientos asumen que has registrado una App de OAuth{% ifversion fpt %}
 1. [Entender los diferentes métodos de autenticación](#understand-the-different-methods-of-authentication)
 1. [Dirigir a los usuarios a instalar tu GitHub App en los repositorios](#direct-users-to-install-your-github-app-on-repositories)
 1. [Eliminar cualquier gancho innecesario en los repositorios](#remove-any-unnecessary-repository-hooks)
-1. [Encourage users to revoke access to your OAuth App](#encourage-users-to-revoke-access-to-your-oauth-app)
-1. [Delete the OAuth App](#delete-the-oauth-app)
+1. [Anima a los usuarios para revocar el acceso a tu App de OAuth](#encourage-users-to-revoke-access-to-your-oauth-app)
+1. [Borra la App de OAuth](#delete-the-oauth-app)
 
 ### Revisar las terminales de la API disponibles para las Github Apps
 
 Mientras que la mayoría de las terminales de la [API de REST](/rest) y de las consultas de [GraphQL](/graphql) están disponibles hoy en día para las GitHub Apps, aún estamos en el proceso de habilitar algunas de ellas. Revisa las [terminales disponibles de REST](/rest/overview/endpoints-available-for-github-apps) para garantizar que las terminales que necesitas sean compatibles con las GitHub Apps. Nota que algunas de las terminales de la API que están habilitadas para las GtiHub Apps permiten que éstas interactúen en nombre del usuario. Consulta la sección "[Solicitudes de usuario a servidor](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/#user-to-server-requests)" para encontrar una lista de terminales disponibles para que una GitHub App se autentique como un usuario.
 
-Te recomendamos revisar la lista de terminales de la API que necesitas tan pronto como te sea posible. Please let Support know if there is an endpoint you require that is not yet enabled for {% data variables.product.prodname_github_apps %}.
+Te recomendamos revisar la lista de terminales de la API que necesitas tan pronto como te sea posible. Por favor, comunícale a soporte si hay alguna terminal que requieras y que no esté habilitada aún para las {% data variables.product.prodname_github_apps %}.
 
 ### Diseñar con apego a los límites de tasa de la API
 
-Las GitHub Apps utilizan [reglas móviles para los límites de tasa](/apps/building-github-apps/understanding-rate-limits-for-github-apps/), las cuales pueden incrementar con base en la cantidad de repositorios y usuarios de la organización. Una GitHub App también puede hacer uso de [solicitudes condicionales](/rest/overview/resources-in-the-rest-api#conditional-requests) o de solicitudes consolidadas si utiliza la [API de GraphQL V4](/graphql).
+Las GitHub Apps utilizan [reglas móviles para los límites de tasa](/apps/building-github-apps/understanding-rate-limits-for-github-apps/), las cuales pueden incrementar con base en la cantidad de repositorios y usuarios de la organización. Una GitHub App también puede utilizar [solicitudes condicionales](/rest/overview/resources-in-the-rest-api#conditional-requests) o consolidar solicitudes utilizando la [API de GraphQL](/graphql).
 
 ### Registrar una GitHub App nueva
 
@@ -98,12 +99,12 @@ Necesitarás reemplazar a `YOUR_APP_NAME` con el nombre de tu GitHub App, a `ID_
 
 ### Eliminar cualquier gancho innecesario en los repositorios
 
-Una vez que ti GitHub App se haya instalado en un repositorio, deberías eliminar cualquier webhook innecesario que haya creado tu App tradicional de OAuth. Si ambas apps están instaladas en un repositorio, puede que se duplique la funcionalidad para el usuario. Para eliminar los webhooks, puedes escuchar al [webhook de `installation_repositories`](/webhooks/event-payloads/#installation_repositories) con la acción `repositories_added` y al [webhook para borrar un repositorio](/rest/reference/repos#delete-a-repository-webhook) en los repositorios que creó tu App de OAuth.
+Una vez que ti GitHub App se haya instalado en un repositorio, deberías eliminar cualquier webhook innecesario que haya creado tu App tradicional de OAuth. Si ambas apps están instaladas en un repositorio, puede que se duplique la funcionalidad para el usuario. Para eliminar los webhooks, puedes escuchar al [webhook de `installation_repositories`](/webhooks/event-payloads/#installation_repositories) con la acción `repositories_added` y al [webhook para borrar un repositorio](/rest/reference/webhooks#delete-a-repository-webhook) en los repositorios que creó tu App de OAuth.
 
 ### Animar a los usuarios a que revoquen el acceso a tu App de OAuth
 
-As your GitHub App installation base grows, consider encouraging your users to revoke access to the legacy OAuth integration. Para obtener más información, consulta la sección "[Autorizar las Apps de OAuth](/github/authenticating-to-github/keeping-your-account-and-data-secure/authorizing-oauth-apps)".
+En medida en que vaya creciendo tu base de instalación de la GitHub App, considera exhortar a tus usuarios para revocar el acceso a la integración tradicional de OAuth. Para obtener más información, consulta la sección "[Autorizar las Apps de OAuth](/github/authenticating-to-github/keeping-your-account-and-data-secure/authorizing-oauth-apps)".
 
-### Delete the OAuth App
+### Borrar la App de OAuth
 
-To avoid abuse of the OAuth App's credentials, consider deleting the OAuth App. This action will also revoke all of the OAuth App's remaining authorizations. For more information, see "[Deleting an OAuth App](/developers/apps/managing-oauth-apps/deleting-an-oauth-app)."
+Para evitar el abuso de las credenciales de las Apps de OAuth, considera borrar la App de OAuth. Esta acción también revocará todas las autorizaciones restantes de la App de OAuth. Para obtener más información, consulta la sección "[Borrar una App de OAuth](/developers/apps/managing-oauth-apps/deleting-an-oauth-app)".

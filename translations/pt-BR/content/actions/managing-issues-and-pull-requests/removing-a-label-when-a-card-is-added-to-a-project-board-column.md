@@ -1,13 +1,13 @@
 ---
 title: Remover uma etiqueta quando um cartão é adicionado à coluna de um quadro de projeto
 intro: 'Você pode usar {% data variables.product.prodname_actions %} para remover automaticamente uma etiqueta quando um problema ou pull request for adicionado a uma coluna específica no quadro de um projeto.'
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /actions/guides/removing-a-label-when-a-card-is-added-to-a-project-board-column
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: tutorial
 topics:
   - Workflows
@@ -17,8 +17,6 @@ shortTitle: Remover etiqueta ao adicionar cartão
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
-{% data reusables.actions.ae-self-hosted-runners-notice %}
 
 ## Introdução
 
@@ -32,9 +30,10 @@ No tutorial, primeiro você criará um arquivo de fluxo de trabalho que usa a a�
 2. Escolha um projeto que pertence ao repositório. Este fluxo de trabalho não pode ser usado com projetos que pertencem a usuários ou organizações. Você pode usar um projeto existente ou criar um novo projeto. Para obter mais informações sobre como criar um projeto, consulte "[Criar um quadro de projeto](/github/managing-your-work-on-github/creating-a-project-board)".
 3. {% data reusables.actions.make-workflow-file %}
 4. Copie o seguinte conteúdo YAML para o arquivo do fluxo de trabalho.
-
     ```yaml{:copy}
 {% indented_data_reference reusables.actions.actions-not-certified-by-github-comment spaces=4 %}
+
+{% indented_data_reference reusables.actions.actions-use-sha-pinning-comment spaces=4 %}
 
     name: Remove labels
     on:
@@ -44,10 +43,10 @@ No tutorial, primeiro você criará um arquivo de fluxo de trabalho que usa a a�
     jobs:
       remove_labels:
         if: github.event.project_card.column_id == '12345678'
-        runs-on: ubuntu-latest{% ifversion fpt or ghes > 3.1 or ghae-next %}
+        runs-on: ubuntu-latest
         permissions:
           issues: write
-          pull-requests: write{% endif %}
+          pull-requests: write
         steps:
           - name: remove labels
             uses: andymckay/labeler@5c59dabdfd4dd5bd9c6e6d255b01b9d764af4414

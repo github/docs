@@ -1,13 +1,14 @@
 ---
 title: Managing dormant users
 redirect_from:
-  - /enterprise/admin/articles/dormant-users/
-  - /enterprise/admin/articles/viewing-dormant-users/
-  - /enterprise/admin/articles/determining-whether-a-user-account-is-dormant/
+  - /enterprise/admin/articles/dormant-users
+  - /enterprise/admin/articles/viewing-dormant-users
+  - /enterprise/admin/articles/determining-whether-a-user-account-is-dormant
   - /enterprise/admin/user-management/managing-dormant-users
   - /admin/user-management/managing-dormant-users
-intro: 'A user account is considered to be dormant if it has not been active for at least a month.{% ifversion ghes %} You may choose to suspend dormant users to free up user licenses.{% endif %}'
+intro: '{% data reusables.enterprise-accounts.dormant-user-activity-threshold %}'
 versions:
+  ghec: '*'
   ghes: '*'
   ghae: '*'
 type: how_to
@@ -16,16 +17,19 @@ topics:
   - Enterprise
   - Licensing
 ---
-"Activity" includes, but is not limited to:
-- Signing in to {% data variables.product.product_name %}.
-- Commenting on issues and pull requests.
-- Creating, deleting, watching, and starring repositories.
-- Pushing commits.{% ifversion ghes or ghae %}
-- Accessing resources by using a personal access token or SSH key.{% endif %}
 
+{% ifversion ghec %}
+{% data reusables.enterprise-accounts.dormant-user-release-phase %}
+{% endif %}
+
+## About dormant users
+
+{% data reusables.enterprise-accounts.dormant-user-activity %}
+
+{% ifversion ghes or ghae%}
 ## Viewing dormant users
 
-You can view a list of all dormant users who have not been suspended and who are not site administrators.
+{% data reusables.enterprise-accounts.viewing-dormant-users %}
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 3. In the left sidebar, click **Dormant users**.
@@ -47,11 +51,28 @@ You can view a list of all dormant users who have not been suspended and who are
 {% data reusables.enterprise_site_admin_settings.dormancy-threshold %}
 
 {% data reusables.enterprise-accounts.access-enterprise %}
-{% ifversion ghes or ghae %}
 {% data reusables.enterprise-accounts.policies-tab %}
-{% else %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% endif %}
 {% data reusables.enterprise-accounts.options-tab %}
 4. Under "Dormancy threshold", use the drop-down menu, and click the desired dormancy threshold.
 ![The Dormancy threshold drop-down menu](/assets/images/enterprise/site-admin-settings/dormancy-threshold-menu.png)
+
+{% endif %}
+
+{% ifversion ghec %}
+## Downloading the dormant users report from your enterprise account
+
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.enterprise-accounts-compliance-tab %}
+1. To download your Dormant Users (beta) report as a CSV file, under "Other", click {% octicon "download" aria-label="The Download icon" %} **Download**.
+  ![Download button under "Other" on the Compliance page](/assets/images/help/business-accounts/dormant-users-download-button.png)
+
+{% tip %}
+
+**Tip:**
+For the purposes of assessing user dormancy, user activity is scoped to include only user activity associated with organizations, repositories, or sign-on events that are associated with the enterprise. For example, if a user has recently commented on an issue in a public repository not associated with the enterprise, they may be considered dormant. However, if they have recently commented on an issue in a public repository associated with an organization in your enterprise, they will not be considered dormant and will not appear in the Dormant User report.
+
+In the case of web sign-on events, only sign-on events through via an SSO domain associated with your enterprise are considered user activity associated with the enterprise.
+
+{% endtip %}
+
+{% endif %}

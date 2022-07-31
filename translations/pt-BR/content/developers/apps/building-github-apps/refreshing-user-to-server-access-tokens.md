@@ -8,13 +8,13 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - GitHub Apps
 shortTitle: Atualizar acesso do usuário-servidor
 ---
 
 {% data reusables.pre-release-program.expiring-user-access-tokens %}
-
 
 ## Sobre os tokens de acesso do usuário expirados
 
@@ -43,9 +43,9 @@ Esta solicitação de retorno de chamada enviará um novo token de acesso e um n
 
 ```json
 {
-  "access_token": "{% ifversion fpt or ghes > 3.1 or ghae-next %}ghu_16C7e42F292c6912E7710c838347Ae178B4a{% else %}e72e16c7e42f292c6912e7710c838347ae178b4a{% endif %}",
+  "access_token": "ghu_16C7e42F292c6912E7710c838347Ae178B4a",
   "expires_in": "28800",
-  "refresh_token": "{% ifversion fpt or ghes > 3.1 or ghae-next %}ghr_1B4a2e77838347a7E420ce178F2E7c6912E169246c34E1ccbF66C46812d16D5B1A9Dc86A1498{% else %}r1.c1b4a2e77838347a7e420ce178f2e7c6912e169246c34e1ccbf66c46812d16d5b1a9dc86a149873c{% endif %}",
+  "refresh_token": "ghr_1B4a2e77838347a7E420ce178F2E7c6912E169246c34E1ccbF66C46812d16D5B1A9Dc86A1498",
   "refresh_token_expires_in": "15811200",
   "scope": "",
   "token_type": "bearer"
@@ -59,8 +59,7 @@ Você pode habilitar ou desabilitar a expiração de tokens de autorização usu
 {% data reusables.user-settings.developer_settings %}
 {% data reusables.user-settings.github_apps %}
 4. Clique em **Editar** próximo à sua escolha {% data variables.product.prodname_github_app %}. ![Configurações para edição de um aplicativo GitHub](/assets/images/github-apps/edit-test-app.png)
-5. Na barra lateral esquerda, clique em **{% ifversion ghes < 3.1 %} Funcionalidades {% else %} Opcionais {% endif %} de Beta**.
-  {% ifversion ghes < 3.1 %} ![Beta features tab](/assets/images/github-apps/beta-features-option.png) {% else %} ![Optional features tab](/assets/images/github-apps/optional-features-option.png) {% endif %}
+5. Na barra lateral esquerda, clique em **Funcionalidades opcionais**. ![Aba de funcionalidades opcionais](/assets/images/github-apps/optional-features-option.png)
 6. Ao lado de "Expiração do token do usuário para o servidor", clique em **Participar** ou **Não participar**. Esta configuração pode levar alguns segundos para ser aplicada.
 
 ## Não participar dos tokens expirados para novos aplicativos do GitHub
@@ -71,14 +70,11 @@ Se você desejar que o seu aplicativo use tokens de acesso do usuário para serv
 
 ![Opção para expirar os tokens dos usuários durante a configuração dos aplicativos GitHub](/assets/images/github-apps/expire-user-tokens-selection.png)
 
-Existing {% data variables.product.prodname_github_apps %} using user-to-server authorization tokens are only affected by this new flow when the app owner enables expiring user tokens for their app.
+Os {% data variables.product.prodname_github_apps %} existentes que usa tokens de autorização de usuário para servidor só são afetados por este novo fluxo quando o proprietário do aplicativo habilita o vencimento de tokens de usuário para seu aplicativo.
 
-Enabling expiring user tokens for existing {% data variables.product.prodname_github_apps %} requires sending users through the OAuth flow to re-issue new user tokens that will expire in 8 hours and making a request with the refresh token to get a new access token and refresh token. Para obter mais informações, consulte "[Identificar e autorizar usuários para aplicativos GitHub](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/)".
-
-{% ifversion fpt or ghes > 3.1 or ghae-next %}
+Habilitar o vencimento de tokens de usuário para {% data variables.product.prodname_github_apps %} existentes exige o envio de usuários por meio do do fluxo do OAuth para reemitir tokens de usuário que vencerão em 8 horas e fazer uma solicitação com o token de atualização para obter um novo token de acesso e token de atualização. Para obter mais informações, consulte "[Identificar e autorizar usuários para aplicativos GitHub](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/)".
 
 ## Leia mais
 
 - "[Sobre a autenticação em {% data variables.product.prodname_dotcom %}](/github/authenticating-to-github/about-authentication-to-github#githubs-token-formats)"
 
-{% endif %}

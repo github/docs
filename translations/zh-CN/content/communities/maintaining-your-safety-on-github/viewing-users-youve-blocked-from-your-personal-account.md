@@ -7,13 +7,14 @@ redirect_from:
   - /github/building-a-strong-community/viewing-users-youve-blocked-from-your-personal-account
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Community
 shortTitle: 查看帐户中被阻止的用户
 ---
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.blocked_users %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.blocked_users %}
 3. 在“Blocked users（被阻止的用户）”下，查看您已阻止访问您的帐户的用户的列表。 ![被阻止的用户的列表](/assets/images/help/settings/list-of-blocked-users.png)
 
 ## 延伸阅读

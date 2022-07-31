@@ -3,6 +3,7 @@ title: 有关 GitHub 计划变更的常见问题解答
 intro: GitHub 宣布，从 2020 年 4 月 14 日起，向所有人免费提供所有核心 GitHub 功能。
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - GitHub
 redirect_from:
@@ -27,11 +28,11 @@ GitHub 宣布了以下计划和价格变更：
 
 ## 如何升级我的计划？
 
-要升级用户帐户的计划，请参阅“[升级个人帐户的订阅](/billing/managing-billing-for-your-github-account/upgrading-your-github-subscription#upgrading-your-personal-accounts-subscription)”。 要升级组织的计划，请参阅“[升级组织的订阅](/billing/managing-billing-for-your-github-account/upgrading-your-github-subscription#upgrading-your-organizations-subscription)”。
+要升级个人帐户的计划，请参阅“[升级个人帐户的订阅](/billing/managing-billing-for-your-github-account/upgrading-your-github-subscription#upgrading-your-personal-accounts-subscription)”。 要升级组织的计划，请参阅“[升级组织的订阅](/billing/managing-billing-for-your-github-account/upgrading-your-github-subscription#upgrading-your-organizations-subscription)”。
 
 ## 如何降级我的计划？
 
-要降级用户帐户的计划，请参阅“[降级用户帐户的订阅](/billing/managing-billing-for-your-github-account/downgrading-your-github-subscription#downgrading-your-user-accounts-subscription)”。 要降级组织的计划，请参阅“[降级组织的订阅](/billing/managing-billing-for-your-github-account/downgrading-your-github-subscription#downgrading-your-organizations-subscription)”。
+要降级个人帐户的计划，请参阅“[降级个人帐户的订阅](/billing/managing-billing-for-your-github-account/downgrading-your-github-subscription#downgrading-your-personal-accounts-subscription)”。 要降级组织的计划，请参阅“[降级组织的订阅](/billing/managing-billing-for-your-github-account/downgrading-your-github-subscription#downgrading-your-organizations-subscription)”。
 
 ## 如果我从 GitHub Team 或旧计划降级到 GitHub Free，我会失去哪些功能？
 - 私有仓库中的必需审查者
@@ -79,7 +80,7 @@ GitHub 宣布了以下计划和价格变更：
 
 ## 什么是 GitHub Community Support?
 
-GitHub Community Support 包括通过我们的[社区论坛](https://github.community/)提供支持，您可以在其中浏览 GitHub 社区的解决方案、提出新问题和交流意见。 GitHub Community Support 的工作人员由 GitHub Team 的支持工程师组成，他们与最活跃的社区成员一起主持社区论坛。 如果您要举报垃圾邮件、举报滥用行为或报告帐户访问问题，您可以在 https://support.github.com/ 上向我们的支持团队发送消息。
+GitHub Community Support includes support through our [{% data variables.product.prodname_github_community %} discussions](https://github.com/orgs/community/discussions), where you can browse solutions from the GitHub community, ask new questions, and share ideas. GitHub Community Support is staffed by Support Engineers on the GitHub Team, who moderate {% data variables.product.prodname_github_community %} along with our most active community members. 如果您要举报垃圾邮件、举报滥用行为或报告帐户访问问题，您可以在 https://support.github.com/ 上向我们的支持团队发送消息。
 
 ## 本次变更对教育福利有何影响？
 
@@ -91,6 +92,6 @@ GitHub Community Support 包括通过我们的[社区论坛](https://github.comm
 
 ## How will this impact users and organizations in regions where U.S. government sanctions are applied? 政府制裁是否适用？
 
-由于美国 Due to U.S. trade controls law restrictions, GitHub is unable to provide private repository services and paid services to accounts in U.S. sanctioned regions. GitHub has preserved, however, access to free public repository services. 请阅读 [GitHub 和贸易管制](https://help.github.com/github/site-policy/github-and-trade-controls)了解更多信息。 受制裁区域。 但是，GitHub 保留了对免费公共仓库服务的使用权。 请阅读 [GitHub 和贸易管制](/github/site-policy/github-and-trade-controls)了解更多信息。
+由于美国 Due to U.S. trade controls law restrictions, GitHub is unable to provide private repository services and paid services to accounts in U.S. sanctioned regions. GitHub has preserved, however, access to free public repository services. 请阅读 [GitHub 和贸易管制](https://help.github.com/github/site-policy/github-and-trade-controls)了解更多信息。 受制裁区域。 但是，GitHub 保留了对免费公共仓库服务的使用权。 请阅读 [GitHub 和贸易管制](/free-pro-team@latest/github/site-policy/github-and-trade-controls)了解更多信息。
 
 GitHub will continue advocating with U.S. regulators for the greatest possible access to free code collaboration services to developers in sanctioned regions, including free private repositories. We believe that offering those free services supports U.S. foreign policy of encouraging the free flow of information and free speech in those regions. 监管机构提倡让受制裁地区的开发者尽可能获得免费代码协作服务，包括访问免费私有仓库。 我们认为，提供这些免费服务有助于美国关于鼓励这些地区的信息自由流动和言论自由的外交政策。 关于鼓励这些市场的信息自由流动和言论自由的外交政策。

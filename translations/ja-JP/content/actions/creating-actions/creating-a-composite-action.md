@@ -1,13 +1,13 @@
 ---
 title: Creating a composite action
 intro: 'In this guide, you''ll learn how to build a composite action.'
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /actions/creating-actions/creating-a-composite-run-steps-action
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: tutorial
 topics:
   - Action development
@@ -16,7 +16,6 @@ shortTitle: Composite action
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## はじめに
 
@@ -24,11 +23,11 @@ In this guide, you'll learn about the basic components needed to create and use 
 
 Once you complete this project, you should understand how to build your own composite action and test it in a workflow.
 
-{% data reusables.github-actions.context-injection-warning %}
+{% data reusables.actions.context-injection-warning %}
 
 ## 必要な環境
 
-始める前に、{% data variables.product.product_name %} リポジトリを作成します。
+Before you begin, you'll create a repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}.
 
 1. {% data variables.product.product_location %} に新しいパブリックリポジトリを作成します。 You can choose any repository name, or use the following `hello-world-composite-action` example. これらのファイルは、プロジェクトを {% data variables.product.product_name %}にプッシュした後で追加できます。 詳しい情報については、「[新しいリポジトリの作成](/articles/creating-a-new-repository)」を参照してください。
 
@@ -76,16 +75,18 @@ Once you complete this project, you should understand how to build your own comp
     outputs:
       random-number:
         description: "Random number"
-        value: ${{ steps.random-number-generator.outputs.random-id }}
+        value: ${{ steps.random-number-generator.outputs.random-number }}
     runs:
       using: "composite"
       steps:
         - run: echo Hello ${{ inputs.who-to-greet }}.
           shell: bash
         - id: random-number-generator
-          run: echo "::set-output name=random-id::$(echo $RANDOM)"
+          run: echo "::set-output name=random-number::$(echo $RANDOM)"
           shell: bash
-        - run: ${{ github.action_path }}/goodbye.sh
+        - run: echo "${{ github.action_path }}" >> $GITHUB_PATH
+          shell: bash          
+        - run: goodbye.sh
           shell: bash
     ```
     {% endraw %}
@@ -116,7 +117,6 @@ Once you complete this project, you should understand how to build your own comp
 
 Copy the workflow code into a `.github/workflows/main.yml` file in another repository, but replace `actions/hello-world-composite-action@v1` with the repository and tag you created. `who-to-greet`の入力を自分の名前に置き換えることもできます。
 
-{% raw %}
 **.github/workflows/main.yml**
 ```yaml
 on: [push]
@@ -126,14 +126,13 @@ jobs:
     runs-on: ubuntu-latest
     name: A job to say hello
     steps:
-      - uses: actions/checkout@v2
+      - uses: {% data reusables.actions.action-checkout %}
       - id: foo
         uses: actions/hello-world-composite-action@v1
         with:
           who-to-greet: 'Mona the Octocat'
-      - run: echo random-number ${{ steps.foo.outputs.random-number }}
+      - run: echo random-number {% raw %}${{ steps.foo.outputs.random-number }}{% endraw %}
         shell: bash
 ```
-{% endraw %}
 
 リポジトリから [**Actions**] タブをクリックして、最新のワークフロー実行を選択します。 出力には、「Hello Mona the Octocat」、"Goodbye"スクリプトの結果、および乱数が含まれているはずです。

@@ -7,6 +7,7 @@ redirect_from:
   - /github/authenticating-to-github/troubleshooting-ssh/using-ssh-over-the-https-port
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - SSH
 shortTitle: Utilizar SSH por un puerto HTTPS
@@ -30,9 +31,9 @@ Si eso funcionó, ¡fantástico! De lo contrario, puede que debas [seguir nuestr
 
 ## Habilitar conexiones SSH a través de HTTPS
 
-If you are able to SSH into `git@ssh.{% data variables.command_line.backticks %}` over port 443, you can override your SSH settings to force any connection to {% data variables.product.product_location %} to run through that server and port.
+Si puedes ingresar a `git@ssh.{% data variables.command_line.backticks %}` por SSH a través del puerto 443, podrás reemplazar los parámetros SSH para forzar que cualquier conexión a {% data variables.product.product_location %} se ejecute a través de ese servidor y puerto.
 
-Para establecer esto en tus parámetros ssh, edita el archivo en `~/.ssh/config` y agrega esta sección:
+Para ajustar esto en tu archivo de configuración SSH, edita el archivo en `~/.ssh/config` y agrega esta sección:
 
 ```
 Host {% data variables.command_line.codeblock %}

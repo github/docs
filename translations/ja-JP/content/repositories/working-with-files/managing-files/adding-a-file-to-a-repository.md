@@ -13,6 +13,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Repositories
 shortTitle: Add a file
@@ -39,7 +40,7 @@ shortTitle: Add a file
 
 ## コマンドラインを使用してファイルをリポジトリに追加する
 
-コマンドラインを使って、既存のファイルを {% data variables.product.product_name %}のリポジトリにアップロードできます。
+You can upload an existing file to a repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} using the command line.
 
 {% tip %}
 
@@ -68,4 +69,4 @@ shortTitle: Add a file
 
 ## 参考リンク
 
-- [コマンドラインを使った既存のプロジェクトの GitHub への追加](/articles/adding-an-existing-project-to-github-using-the-command-line)
+- "[Adding locally hosted code to {% data variables.product.product_name %}](/get-started/importing-your-projects-to-github/importing-source-code-to-github//adding-locally-hosted-code-to-github)"

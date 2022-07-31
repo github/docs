@@ -2,12 +2,13 @@
 title: GitHub Servicesの置き換え
 intro: '非推奨となった{% data variables.product.prodname_dotcom %} Servicesにまだ依存しているなら、サービスフックをwebhookに移行する方法を学んでください。'
 redirect_from:
-  - /guides/replacing-github-services/
-  - /v3/guides/automating-deployments-to-integrators/
+  - /guides/replacing-github-services
+  - /v3/guides/automating-deployments-to-integrators
   - /v3/guides/replacing-github-services
 versions:
   fpt: '*'
   ghes: '*'
+  ghec: '*'
 topics:
   - API
 ---
@@ -31,7 +32,7 @@ GitHub Servicesは、webhookとの統合を進めるために非推奨となり�
 
 GitHub Services（Service Hooksと呼ばれることもあります）は、インテグレーションの旧来の方法であり、GitHubがインテグレーターのサービスの一部を[`github-services`リポジトリ](https://github.com/github/github-services)を通じてホストします。 GitHub上で行われたアクションがこれらのサービスをトリガーし、これらのサービスを使ってGitHubの外部のアクションをトリガーできます。
 
-{% ifversion ghes or ghae %}
+{% ifversion ghes %}
 ## GitHub Servicesを使っているリポジトリを探す
 アプライアンス上でどのリポジトリがGitHub Servicesを使っているかを特定するためのコマンドラインスクリプトが提供されています。 詳しい情報については[ghe-legacy-github-services-report](/enterprise/{{currentVersion}}/admin/articles/command-line-utilities/#ghe-legacy-github-services-report)を参照してください。{% endif %}
 
@@ -70,4 +71,4 @@ GitHub Servicesをwebhookで置き換えるには、以下のようにします�
 高レベルの概要としては、移行のプロセスは通常以下を含みます。
   - 製品がどこでどのようにGitHub Servicesを使っているかの特定。
   - 通常のwebhookに移行するために設定する必要がある、対応するwebhookイベントの特定。
-  - Implementing the design using either [{% data variables.product.prodname_oauth_apps %}](/apps/building-oauth-apps/) or [{% data variables.product.prodname_github_apps %}. {% data variables.product.prodname_github_apps %}](/apps/building-github-apps/) are preferred. To learn more about why {% data variables.product.prodname_github_apps %} are preferred, see "[Reasons for switching to {% data variables.product.prodname_github_apps %}](/apps/migrating-oauth-apps-to-github-apps/#reasons-for-switching-to-github-apps)."
+  - [{% data variables.product.prodname_oauth_apps %}](/apps/building-oauth-apps/)または[{% data variables.product.prodname_github_apps %}のいずれかを利用して設計を実装。 {% data variables.product.prodname_github_apps %}](/apps/building-github-apps/)の方が望ましいです。 {% data variables.product.prodname_github_apps %}が望ましい理由の詳細を学ぶには、「[{% data variables.product.prodname_github_apps %}に切り替える理由](/apps/migrating-oauth-apps-to-github-apps/#reasons-for-switching-to-github-apps)」を参照してください。

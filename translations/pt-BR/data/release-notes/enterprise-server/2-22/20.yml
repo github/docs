@@ -4,8 +4,8 @@ sections:
   security_fixes:
     - Os pacotes foram atualizados para as últimas versões de segurança.
   bugs:
-    - Journald messages related to automatic updates (`Adding h/m/s random time.`) were logged to syslog.
-    - Git hooks to the internal API that result in failing requests returned the exception `undefined method body for "success":String (NoMethodError)` instead of returning an explicit `nil`.
+    - As mensagens de Journald relacionadas a atualizações automáticas (`Adicionando h/m/s tempo aleatório.`) foram registradas no syslog.
+    - Os hooks do Git para a API interna que resultam em solicitações falhadas retornaram a exceção `undefined method body for "success":String (NoMethodError)` instead of returning an explicit `nil`.
   known_issues:
     - Em uma nova configuração de {% data variables.product.prodname_ghe_server %} sem qualquer usuário, um invasor pode criar o primeiro usuário administrador.
     - As regras de firewall personalizadas são removidas durante o processo de atualização.

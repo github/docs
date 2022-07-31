@@ -70,4 +70,4 @@ Para restrições no nível da instância que usam o Azure NSGs, entre em contat
 
 ## Usar {% data variables.product.prodname_actions %} com uma lista endereços IP permitidos
 
-{% data reusables.github-actions.ip-allow-list-hosted-runners %}
+{% data reusables.actions.ip-allow-list-self-hosted-runners %}

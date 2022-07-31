@@ -353,7 +353,7 @@ Você pode parar a replicação nos nós passivos para a sua implantação de cl
 
 {% data reusables.enterprise_clustering.open-configuration-file %}
 
-3. In the top-level `[cluster]` section, delete the `redis-master-replica`, and `mysql-master-replica` key-value pairs.
+3. Na seção de nível superior `[cluster]` exclua os pares chave-valor`redis-master-replica` e `mysql-master-replica`.
 
 4. Exclua cada seção para um nó passivo. Para nódulos passivos, a `réplica` é configurada como </code>habilitada.</p></li>
 </ol>

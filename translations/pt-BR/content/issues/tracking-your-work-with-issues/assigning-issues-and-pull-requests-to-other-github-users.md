@@ -1,6 +1,7 @@
 ---
 title: Atribuir problemas e pull requests a outros usuários do GitHub
 intro: Os responsáveis esclarecem quem está trabalhando em problemas e pull requests específicos.
+permissions: 'Anyone with write access to a repository can assign issues and pull requests. {% data reusables.enterprise-accounts.emu-permission-repo %}'
 redirect_from:
   - /github/managing-your-work-on-github/managing-your-work-with-issues-and-pull-requests/assigning-issues-and-pull-requests-to-other-github-users
   - /articles/assigning-issues-and-pull-requests-to-other-github-users
@@ -10,16 +11,17 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
 shortTitle: Atribuir problemas & PRs
 ---
 
-Qualquer pessoa com permissões de gravação em um repositório pode atribuir problemas e pull requests.
-
 ## Sobre o problema e os responsáveis por pull request
 
-Você pode atribuir até 10 pessoas a cada problema ou pull request, incluindo a si mesmo, qualquer pessoa que comentou sobre o problema ou pull request, qualquer pessoa com permissões de gravação no repositório e integrantes da organização com permissões de leitura no repositório. Para obter mais informações, consulte "[Permissões de acesso no {% data variables.product.prodname_dotcom %}](/articles/access-permissions-on-github)".
+Você pode atribuir várias pessoas a cada problema ou pull request, incluindo a si mesmo, qualquer pessoa que comentou sobre o problema ou pull request, qualquer pessoa com permissões de gravação no repositório e integrantes da organização com permissões de leitura no repositório. Para obter mais informações, consulte "[Permissões de acesso no {% data variables.product.prodname_dotcom %}](/articles/access-permissions-on-github)".
+
+Os problemas e pull requests em repositórios públicos e em repositórios privados de uma conta paga podem ter até 10 pessoas atribuídas. Os repositórios privados no plano grátis estão limitados a uma pessoa por problema ou pull request.
 
 ## Atribuir um problema individual ou pull request
 

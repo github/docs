@@ -4,8 +4,8 @@ sections:
   security_fixes:
     - パッケージは最新のセキュリティバージョンにアップデートされました。
   bugs:
-    - Journald messages related to automatic updates (`Adding h/m/s random time.`) were logged to syslog.
-    - Git hooks to the internal API that result in failing requests returned the exception `undefined method body for "success":String (NoMethodError)` instead of returning an explicit `nil`.
+    - 自動アップデートに関係するJournaldのメッセージ (`Adding h/m/s random time.`)が、syslogに記録されました。
+    - リクエストに失敗する内部APIへのGitフックが、明示的な`nil`を返す代わりに`undefined method body for "success":String (NoMethodError)`という例外を返しました。
   known_issues:
     - 新しくセットアップされたユーザを持たない{% data variables.product.prodname_ghe_server %}で、攻撃者が最初の管理ユーザを作成できました。
     - アップグレードの過程で、カスタムのファイアウォールのルールが削除されます。

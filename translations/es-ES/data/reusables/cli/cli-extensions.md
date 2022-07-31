@@ -1,1 +1,1 @@
-{% data variables.product.prodname_cli %} extensions are custom {% data variables.product.prodname_cli %} commands that anyone can create and use.
+Las extensiones del {% data variables.product.prodname_cli %} son comandos personalizados del {% data variables.product.prodname_cli %} que cualquiera puede crear y utilizar.

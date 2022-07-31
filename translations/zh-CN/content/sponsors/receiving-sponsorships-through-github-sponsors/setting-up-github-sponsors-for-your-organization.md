@@ -8,6 +8,7 @@ redirect_from:
 permissions: 'Organization owners can set up {% data variables.product.prodname_sponsors %} for an organization.'
 versions:
   fpt: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Organizations
@@ -22,7 +23,7 @@ shortTitle: 为组织设置
 
 收到邀请您的组织加入 {% data variables.product.prodname_sponsors %} 的邀请后，您可以完成以下步骤以成为被赞助的组织。
 
-要作为组织外部的个人贡献者加入 {% data variables.product.prodname_sponsors %}，请参阅“[为用户帐户设置 {% data variables.product.prodname_sponsors %}](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-user-account)”。
+要作为组织外部的个人贡献者加入 {% data variables.product.prodname_sponsors %}，请参阅“[为个人帐户设置 {% data variables.product.prodname_sponsors %}](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-personal-account)”。
 
 {% data reusables.sponsors.navigate-to-github-sponsors %}
 {% data reusables.sponsors.view-eligible-accounts %}
@@ -51,6 +52,7 @@ shortTitle: 为组织设置
 {% data reusables.sponsors.navigate-to-sponsor-tiers-tab %}
 {% data reusables.sponsors.click-add-tier %}
 {% data reusables.sponsors.tier-price-description %}
+{% data reusables.sponsors.add-welcome-message %}
 {% data reusables.sponsors.save-tier-draft %}
 {% data reusables.sponsors.review-and-publish-tier %}
 {% data reusables.sponsors.add-more-tiers %}
@@ -71,14 +73,12 @@ shortTitle: 为组织设置
 {% data reusables.sponsors.tax-form-information-org %}
 
 {% data reusables.sponsors.navigate-to-sponsors-dashboard %}
-{% data reusables.sponsors.settings-tab %}
-{% data reusables.sponsors.country-of-residence %}
 {% data reusables.sponsors.overview-tab %}
 {% data reusables.sponsors.tax-form-link %}
 
 ## 在您的 {% data variables.product.prodname_dotcom %} 帐户上启用双重身份验证 (2FA)。
 
-在您的组织成为被赞助的组织之前，您必须在 {% data variables.product.product_name %} 帐户上启用 2FA。 更多信息请参阅“[配置双重身份验证](/articles/configuring-two-factor-authentication)”。
+在您的组织成为被赞助的组织之前，您必须为您在 {% data variables.product.product_location %} 上的帐户启用 2FA。 更多信息请参阅“[配置双重身份验证](/articles/configuring-two-factor-authentication)”。
 
 ## 向 {% data variables.product.prodname_dotcom %} 提交申请以请求批准
 
@@ -88,5 +88,6 @@ shortTitle: 为组织设置
 {% data reusables.sponsors.github-review-app %}
 
 ## 延伸阅读
+
 - "[关于 {% data variables.product.prodname_sponsors %}](/sponsors/getting-started-with-github-sponsors/about-github-sponsors)"
 - "[通过 {% data variables.product.prodname_sponsors %} 接受赞助](/sponsors/receiving-sponsorships-through-github-sponsors)"

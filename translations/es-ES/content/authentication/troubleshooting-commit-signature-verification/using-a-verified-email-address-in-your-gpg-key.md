@@ -9,13 +9,14 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Identity
   - Access management
 shortTitle: Utilizar un correo electrónico verificado en la llave GPG
 ---
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 Si debes verificar tu dirección de correo electrónico de GitHub, consulta "[Verificar tu dirección de correo electrónico](/articles/verifying-your-email-address/)". {% endif %}Si debes actualizar o agregar una dirección de correo electrónico para tu llave GPG, consulta "[Asociar un correo electrónico a tu llave GPG](/articles/associating-an-email-with-your-gpg-key)".
 
 Las confirmaciones y etiquetas pueden contener varias direcciones de correo electrónico. Para las confirmaciones, está el autor —la persona que escribió el código— y la persona que confirma el cambio —la persona que agregó la confirmación al árbol—. Cuando se firma una confirmación con Git, sea durante una fusión, cherry-picking o `confirmación git` normal, la dirección de correo electrónico de la persona que confirma el cambio debe ser la tuya, incluso si la dirección de correo electrónico del autor no lo es. Con las etiquetas es más simple: la dirección de correo electrónico del etiquetador es siempre la del usuario que creó la etiqueta.

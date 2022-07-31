@@ -1,11 +1,9 @@
 import { SimpleHeader, SimpleFooter } from 'components/GenericError'
 import Head from 'next/head'
 import { CommentDiscussionIcon } from '@primer/octicons-react'
-import { useVersion } from 'components/hooks/useVersion'
 import { Lead } from 'components/ui/Lead'
 
 const Custom404 = () => {
-  const { isEnterprise } = useVersion()
   return (
     <div className="min-h-screen d-flex flex-column">
       <Head>
@@ -17,7 +15,7 @@ const Custom404 = () => {
 
       <div className="container-xl p-responsive py-6 width-full flex-1">
         <article className="col-md-10 col-lg-7 mx-auto">
-          <h1 className="mb-3 pb-3 border-bottom">Ooops!</h1>
+          <h1>Ooops!</h1>
           <Lead>It looks like this page doesn't exist.</Lead>
           <p className="f3">
             We track these errors automatically, but if the problem persists please feel free to
@@ -25,11 +23,7 @@ const Custom404 = () => {
           </p>
           <a
             id="contact-us"
-            href={
-              isEnterprise
-                ? 'https://enterprise.github.com/support'
-                : 'https://support.github.com/contact'
-            }
+            href="https://support.github.com/contact"
             className="btn btn-outline mt-2"
           >
             <CommentDiscussionIcon size="small" className="octicon mr-1" />

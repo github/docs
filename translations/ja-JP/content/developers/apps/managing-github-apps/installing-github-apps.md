@@ -1,6 +1,6 @@
 ---
 title: GitHub Appのインストール
-intro: 'アプリケーションがパブリックの場合、誰でも{% ifversion fpt %} {% data variables.product.prodname_marketplace %}または{% endif %}インストールURLを使用して、リポジトリにアプリケーションをインストールできます。 アプリケーションがプライベートの場合は、あなたが所有するリポジトリそのアプリケーションをインストールできるのはあなただけです。'
+intro: 'アプリケーションがパブリックの場合、誰でも{% ifversion fpt or ghec %} {% data variables.product.prodname_marketplace %}または{% endif %}インストールURLを使用して、リポジトリにアプリケーションをインストールできます。 アプリケーションがプライベートの場合は、あなたが所有するリポジトリにそのアプリケーションをインストールできるのはあなただけです。'
 redirect_from:
   - /apps/installing-github-apps
   - /developers/apps/installing-github-apps
@@ -8,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - GitHub Apps
 ---
@@ -24,11 +25,11 @@ topics:
 
 1. [GitHub Appsの設定ページ](https://github.com/settings/apps)から、アプリケーションを選択してください。
 2. 左のサイドバーで、**Install App（アプリケーションのインストール）**をクリックしてください。
-3. 適切なリポジトリを含むOrganizationもしくはユーザアカウントの隣の** Install（インストール）**をクリックしてください。
+3. Click **Install** next to the organization or personal account containing the correct repository.
 4. すべてのリポジトリ、もしくは選択したリポジトリにアプリケーションをインストールしてください。 ![アプリケーションのインストール権限](/assets/images/install_permissions.png)
 5. インストールが終わると、選択したアカウントでアプリケーションの設定オプションが表示されます。 ここで変更をすることも、あるいは先のステップを繰り返して他のアカウントへアプリケーションをインストールすることもできます。
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ## GitHub Marketplaceでのアプリケーションの提供
 
 [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace)では有料あるいは無料バージョンのアプリケーションを提供でき、ユーザがアプリケーションについて検索したり表示したりできます。 {% data variables.product.prodname_marketplace %}は注文が完了すると、自動的にGitHub Appをインストールします。

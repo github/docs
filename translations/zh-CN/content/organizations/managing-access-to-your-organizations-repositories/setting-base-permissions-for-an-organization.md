@@ -8,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
@@ -18,9 +19,13 @@ shortTitle: 设置基本权限
 
 您可以在访问组织的任何仓库时设置适用于组织所有成员的基本权限。 基本权限不适用于外部协作者。
 
-{% ifversion fpt %}默认情况下，组织成员具有对组织仓库的**读取**权限。{% endif %}
+{% ifversion fpt or ghec %}默认情况下，组织成员具有对组织仓库的**读取**权限。{% endif %}
 
-如果拥有组织仓库管理员权限的人向组织成员授予更高级别的仓库权限，则更高级别的权限将覆盖基本权限。
+如果对组织存储库具有管理员访问权限的人员向成员授予对存储库的更高级别的访问权限，则较高级别的访问权限将覆盖基本权限。
+
+{% ifversion custom-repository-roles %}
+如果您创建了继承角色的访问权限低于组织基本权限的自定义仓库角色，则分配给该角色的任何成员都将默认使用组织的基本权限，而不是继承的角色。 更多信息请参阅“[管理组织的自定义仓库角色](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization)”。
+{% endif %}
 
 ## 设置基本权限
 
@@ -32,5 +37,5 @@ shortTitle: 设置基本权限
 
 ## 延伸阅读
 
-- "[组织的仓库权限级别](/organizations/managing-access-to-your-organizations-repositories/repository-permission-levels-for-an-organization#permission-levels-for-repositories-owned-by-an-organization)"
+- "[组织的仓库角色](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)"
 - “[将外部协作者添加到组织中的仓库](/organizations/managing-access-to-your-organizations-repositories/adding-outside-collaborators-to-repositories-in-your-organization)”

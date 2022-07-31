@@ -3,6 +3,7 @@ title: 关于社区管理和调解
 intro: '{% data variables.product.prodname_dotcom %} 提供帮助仓库维护员在 {% data variables.product.prodname_dotcom_the_website %} 社区建立和执行行为标准的工具。'
 versions:
   fpt: '*'
+  ghec: '*'
 redirect_from:
   - /github/building-a-strong-community/about-community-management-and-moderation
 topics:
@@ -15,6 +16,8 @@ shortTitle: 管理和调节
 {% data reusables.policies.github-community-guidelines-and-terms %}
 
 {% data variables.product.prodname_dotcom %} 还为仓库维护员提供在他们自己的 {% data variables.product.prodname_dotcom_the_website %} 社区制定和执行更高行为标准的工具。
+
+组织所有者可以将组织成员指定为版主。 这使这些成员可以访问为组织所有者保留的审核功能。 更多信息请参阅“[管理组织中的版主](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-moderators-in-your-organization)”。
 
 在为社区制定行为标准后，可以通过快速、公平地响应破坏性行为来促进营造一个愉快、高效的环境。 有效的调解能在社区中建立信任，让贡献者感受到安全和热情。
 
@@ -33,5 +36,3 @@ shortTitle: 管理和调节
 - 开源指南中的“[您的行为准则](https://opensource.guide/code-of-conduct/)”
 - 开源指南中的“[创建受欢迎的社区](https://opensource.guide/building-community/)”
 - 开源指南中的“[领导和治理](https://opensource.guide/leadership-and-governance/)”
-- GitHub 社区论坛中的“[羞辱及其不宜的原因](https://github.community/t5/Studies-in-Community/Shaming-and-why-it-is-inappropriate/ba-p/12728)”
-- GitHub 社区论坛中的“[恶毒不是建设性的批评](https://github.community/t5/Studies-in-Community/Being-toxic-is-not-constructive-criticism/ba-p/8029)”

@@ -2,14 +2,15 @@
 title: Solucionar problemas de domínios personalizados e do GitHub Pages
 intro: 'Você pode verificar os erros comuns para resolver problemas com domínios personalizados ou HTTPS no seu site do {% data variables.product.prodname_pages %}.'
 redirect_from:
-  - /articles/my-custom-domain-isn-t-working/
-  - /articles/custom-domain-isn-t-working/
-  - /articles/troubleshooting-custom-domains/
+  - /articles/my-custom-domain-isn-t-working
+  - /articles/custom-domain-isn-t-working
+  - /articles/troubleshooting-custom-domains
   - /articles/troubleshooting-custom-domains-and-github-pages
   - /github/working-with-github-pages/troubleshooting-custom-domains-and-github-pages
 product: '{% data reusables.gated-features.pages %}'
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Pages
 shortTitle: Solucione o problema de um domínio personalizado
@@ -17,7 +18,9 @@ shortTitle: Solucione o problema de um domínio personalizado
 
 ## Erros _CNAME_
 
-Os domínios personalizados são armazenados em um arquivo _CNAME_ na raiz da fonte de publicação que pode ser adicionado ou atualizado manualmente ou por meio das configurações do repositório. Para obter mais informações, consulte "[Gerenciar um domínio personalizado para seu site do {% data variables.product.prodname_pages %}](/articles/managing-a-custom-domain-for-your-github-pages-site)".
+{% ifversion pages-custom-workflow %}If you are publishing from a custom {% data variables.product.prodname_actions %} workflow, any _CNAME_ file is ignored and is not required.{% endif %}
+
+If you are publishing from a branch, custom domains are stored in a _CNAME_ file in the root of your publishing source. que pode ser adicionado ou atualizado manualmente ou por meio das configurações do repositório. Para obter mais informações, consulte "[Gerenciar um domínio personalizado para seu site do {% data variables.product.prodname_pages %}](/articles/managing-a-custom-domain-for-your-github-pages-site)".
 
 Para que o site seja renderizado no domínio correto, verifique se o arquivo _CNAME_ ainda existe no repositório. Por exemplo, muitos geradores de site estáticos fazem push forçado para o repositório, o que pode substituir o arquivo _CNAME_ que foi adicionado ao repositório quando você configurou o domínio personalizado. Se você criar o site localmente e fizer push dos arquivos gerados para o {% data variables.product.product_name %}, primeiro insira o commit que adicionou o arquivo _CNAME_ ao repositório local, para que o arquivo seja incluído na criação.
 
@@ -32,10 +35,10 @@ Em seguida, verifique se o arquivo _CNAME_ está formatado corretamente.
 
 Se você tiver problemas para apontar o domínio padrão do site para o domínio personalizado, entre em contato com seu provedor DNS.
 
-You can also use one of the following methods to test whether your custom domain's DNS records are configured correctly:
+Você também pode usar um dos seguintes métodos para testar se os registros DNS do seu domínio personalizado estão configurados corretamente:
 
-- A CLI tool such as `dig`. Para obter mais informações, consulte "[Gerenciar um domínio personalizado para o seu site de {% data variables.product.prodname_pages %}](/articles/managing-a-custom-domain-for-your-github-pages-site)".
-- An online DNS lookup tool.
+- Uma ferramenta CLI como `dig`. Para obter mais informações, consulte "[Gerenciar um domínio personalizado para o seu site de {% data variables.product.prodname_pages %}](/articles/managing-a-custom-domain-for-your-github-pages-site)".
+- Uma ferramenta de pesquisa de DNS on-line.
 
 ## Nomes de domínios personalizados que não são compatíveis
 
@@ -54,7 +57,7 @@ Para obter uma lista de domínios personalizados compatíveis, consulte "[Sobre 
 
 ## Erros de HTTPS
 
-É possível acessar por HTTPS os sites do {% data variables.product.prodname_pages %} que usem domínios personalizados e estejam corretamente configurados com registros DNS _CNAME_, `ALIAS`, `ANAME` ou `A`. Para obter mais informações, consulte "[Proteger seu site do {% data variables.product.prodname_pages %} com HTTPS](/articles/securing-your-github-pages-site-with-https)".
+É possível acessar por HTTPS os sites do {% data variables.product.prodname_pages %} que usem domínios personalizados e estejam corretamente configurados com registros DNS `CNAME`, `ALIAS`, `ANAME` ou `A`. Para obter mais informações, consulte "[Proteger seu site do {% data variables.product.prodname_pages %} com HTTPS](/articles/securing-your-github-pages-site-with-https)".
 
 Depois que você configurar seu domínio personalizado, pode levar até uma hora para o seu site ser disponibilizado por HTTPS. Após a atualização das configurações DNS existentes, talvez seja necessário remover o domínio personalizado e tornar a adicioná-lo ao repositório do site para acionar o processo de habilitação do HTTPS. Para obter mais informações, consulte "[Gerenciar um domínio personalizado para seu site do {% data variables.product.prodname_pages %}](/articles/managing-a-custom-domain-for-your-github-pages-site)".
 

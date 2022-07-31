@@ -1,6 +1,6 @@
 ---
 title: Testar a conexão SSH
-intro: 'Depois de configurar a chave SSH e adicioná-la à sua conta do {% data variables.product.product_name %}, você pode testar a conexão.'
+intro: 'Depois de configurar sua chave SSH e adicioná-la à sua conta em {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}, você poderá testar a sua conexão.'
 redirect_from:
   - /articles/testing-your-ssh-connection
   - /github/authenticating-to-github/testing-your-ssh-connection
@@ -9,6 +9,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - SSH
 shortTitle: Teste sua conexão SSH
@@ -36,7 +37,7 @@ Quando você testar a conexão, precisará autenticar essa ação usando sua sen
   > Tem certeza de que deseja continuar com a conexão (sim/não)?
   ```
 
-3. Verifique se a impressão digital na mensagem em que você vê correspondências com {% ifversion fpt %}[{% data variables.product.prodname_dotcom %} é da chave pública de RSA de](/github/authenticating-to-github/githubs-ssh-key-fingerprints){% else %} é da chave pública da sua empresa{% endif %}. Se isso acontecer, digite `sim`:
+3. Verifique se a impressão digital da mensagem que você vê corresponde à {% ifversion fpt or ghec %}[ impressão digital da chave pública de {% data variables.product.prodname_dotcom %}](/github/authenticating-to-github/githubs-ssh-key-fingerprints){% else %} impressão digital da chave pública da sua empresa{% endif %}. Se isso acontecer, digite `sim`:
   ```shell
   > Olá, <em>username</em>! You've successfully authenticated, but GitHub does not
   > provide shell access.
@@ -55,5 +56,11 @@ Quando você testar a conexão, precisará autenticar essa ação usando sua sen
   Esse é um problema conhecido com determinadas distribuições Linux. Para obter mais informações, consulte ["Erro: agente com falha ao entrar"](/articles/error-agent-admitted-failure-to-sign).
 
   {% endlinux %}
+
+   {% note %}
+
+   **Observação:** O comando remoto deve sair com o código 1.
+
+   {% endnote %}
 
 4. Verifique se a mensagem resultante contém seu nome de usuário. Se você receber uma mensagem de "permissão negada", consulte ["Erro: permissão negada (publickey)"](/articles/error-permission-denied-publickey).

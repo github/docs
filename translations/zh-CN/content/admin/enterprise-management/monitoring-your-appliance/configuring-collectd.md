@@ -3,7 +3,7 @@ title: 配置 collectd
 intro: '{% data variables.product.prodname_enterprise %} 可以通过“collectd”收集数据并将数据发送到外部“collectd”服务器。 除了其他指标外，我们还会收集标准数据集，例如 CPU 利用率、内存与磁盘使用量、网络接口流量与错误，以及 VM 的总负荷。'
 redirect_from:
   - /enterprise/admin/installation/configuring-collectd
-  - /enterprise/admin/articles/configuring-collectd/
+  - /enterprise/admin/articles/configuring-collectd
   - /enterprise/admin/enterprise-management/configuring-collectd
   - /admin/enterprise-management/configuring-collectd
 versions:
@@ -47,7 +47,7 @@ topics:
 
 ## 使用 `ghe-export-graphs` 导出 collectd 数据
 
-命令行工具 `ghe-export-graphs` 将导出 `collectd` 存储在 RRD 数据库中的数据。 此命令会将数据转换为 XML 格式并导出到一个 tarball (.tgz) 中。
+命令行工具 `ghe-export-graphs` 将导出 `collectd` 存储在 RRD 数据库中的数据。 此命令会将数据转换为 XML 格式并导出到一个 tarball (`.tgz`) 中。
 
 此文件的主要用途是为 {% data variables.contact.contact_ent_support %} 团队提供关于 VM 性能的数据（无需下载整个支持包）， 不应包含在常规备份导出范围中，也没有对应的导入文件。 如果您联系 {% data variables.contact.contact_ent_support %}，我们可能会要求您提供此数据，以便协助故障排查。
 

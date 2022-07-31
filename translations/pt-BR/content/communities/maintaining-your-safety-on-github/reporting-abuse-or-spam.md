@@ -6,6 +6,7 @@ redirect_from:
   - /github/building-a-strong-community/reporting-abuse-or-spam
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Community
 ---
@@ -19,6 +20,8 @@ Proprietários, colaboradores, contribuidores anteriores e pessoas com acesso de
 Você pode denunciar usuários que violaram Diretrizes da comunidade ou Termos de Serviço do {% data variables.product.prodname_dotcom %} através do {% data variables.contact.report_abuse %} ou {% data variables.contact.report_content %}. Você também pode relatar problemas, pull requests ou comentários sobre problemas, pull requests e commits.
 
 Se o conteúdo denunciado estiver ativado para um repositório público, você também poderá denunciar o conteúdo diretamente aos mantenedores do repositório.
+
+Os usuários na Índia podem entrar em contato com o Oficial Grievance do GitHub da Índia [aqui](https://support.github.com/contact/india-grievance-officer).
 
 ## Denunciar um usuário
 
@@ -57,7 +60,7 @@ Se o conteúdo denunciado estiver ativado para um repositório público, você t
 
 - "[Configurar seu projeto para contribuições úteis](/communities/setting-up-your-project-for-healthy-contributions)"
 - "[Usando modelos para encorajar problemas úteis e pull requests](/communities/using-templates-to-encourage-useful-issues-and-pull-requests)"
-- "[Gerenciando comentários disruptivos](/communities/moderating-comments-and-conversations/managing-disruptive-comments)"{% ifversion fpt %}
+- "[Gerenciando comentários disruptivos](/communities/moderating-comments-and-conversations/managing-disruptive-comments)"{% ifversion fpt or ghec %}
 - "[Mantendo sua segurança no {% data variables.product.prodname_dotcom %}](/communities/maintaining-your-safety-on-github)"
 - "[Limitando interações em seu repositório](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-repository)"{% endif %}
 - "[Controlar as alterações em um comentário](/communities/moderating-comments-and-conversations/tracking-changes-in-a-comment)"

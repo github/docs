@@ -5,28 +5,46 @@ name: OpenAPI generate decorated schema files
 # **Who does it impact**: Anyone making OpenAPI changes in `github/github`, and wanting to get them published on the docs site.
 
 on:
-  workflow_dispatch:
   pull_request:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+# This allows a subsequently queued workflow run to interrupt previous runs
+concurrency:
+  group: '${{ github.workflow }} @ ${{ github.event.pull_request.head.label || github.head_ref || github.ref }}'
+  cancel-in-progress: true
 
 jobs:
   generate-decorated-files:
-    if: github.event.pull_request.user.login == 'github-openapi-bot'
+    if: >-
+      ${{
+        github.repository == 'github/docs-internal' &&
+        github.event.pull_request.user.login == 'github-openapi-bot'
+      }}
     runs-on: ubuntu-latest
     steps:
       - name: Label pull requests with 'github-openapi-bot'
-        uses: rachmari/labeler@832d42ec5523f3c6d46e8168de71cd54363e3e2e
+        uses: andymckay/labeler@e6c4322d0397f3240f0e7e30a33b5c5df2d39e90
         with:
-          repo-token: '${{ secrets.GITHUB_TOKEN }}'
           add-labels: 'github-openapi-bot'
+
       - name: Checkout repository code
-        uses: actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f
+        uses: actions/checkout@dcd71f646680f2efd8db4afa5ad64fdcba30e748
         with:
+          # actions/checkout by default will leave you in a detached head state
+          # so we need to specify the PR head ref explicitly since we're making
+          # changes that we want to commit to the branch.
+          ref: ${{ github.event.pull_request.head.ref }}
+          # Using a PAT is necessary so that the new commit will trigger the
+          # CI in the PR. (Events from GITHUB_TOKEN don't trigger new workflows.)
           token: ${{ secrets.DOCUBOT_REPO_PAT }}
 
       - name: Setup node
-        uses: actions/setup-node@38d90ce44d5275ad62cc48384b3d8a58c500bb5f
+        uses: actions/setup-node@17f8bd926464a1afa4c6a11669539e9c1ba77048
         with:
-          node-version: 16.8.x
+          node-version: '16.15.0'
           cache: npm
 
       - name: Install dependencies
@@ -36,10 +54,10 @@ jobs:
         run: script/rest/update-files.js --decorate-only
 
       - name: Check in the decorated files
-        uses: EndBug/add-and-commit@2bdc0a61a03738a1d1bda24d566ad0dbe3083d87
+        uses: EndBug/add-and-commit@050a66787244b10a4874a2a5f682130263edc192
         with:
           # The arguments for the `git add` command
-          add: 'lib/rest/static/decorated'
+          add: '["lib/rest/static/apps", "lib/rest/static/decorated", "lib/redirects/static/client-side-rest-api-redirects.json"]'
 
           # The message for the commit
           message: 'Add decorated OpenAPI schema files'

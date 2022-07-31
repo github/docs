@@ -2,17 +2,18 @@
 title: Creating an OAuth App
 intro: '{% data reusables.shortdesc.creating_oauth_apps %}'
 redirect_from:
-  - /apps/building-integrations/setting-up-and-registering-oauth-apps/registering-oauth-apps/
+  - /apps/building-integrations/setting-up-and-registering-oauth-apps/registering-oauth-apps
   - /apps/building-oauth-apps/creating-an-oauth-app
   - /developers/apps/creating-an-oauth-app
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - OAuth Apps
 ---
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 {% note %}
 
   **Note:** {% data reusables.apps.maximum-oauth-apps-allowed %}
@@ -46,12 +47,14 @@ topics:
 ![Field for a description of your app](/assets/images/oauth-apps/oauth_apps_application_description.png)
 9. In "Authorization callback URL", type the callback URL of your app.
 ![Field for the authorization callback URL of your app](/assets/images/oauth-apps/oauth_apps_authorization_callback_url.png)
-{% ifversion fpt or ghes > 3.0 %}
+{% ifversion fpt or ghes or ghec %}
    {% note %}
 
    **Note:** OAuth Apps cannot have multiple callback URLs, unlike {% data variables.product.prodname_github_apps %}.
 
    {% endnote %}
-{% endif %}
-10. Click **Register application**.
+{% endif %}{% ifversion device-flow-is-opt-in %}
+1. If your OAuth App will use the device flow to identify and authorize users, click **Enable Device Flow**. For more information about the device flow, see "[Authorizing OAuth Apps](/developers/apps/building-oauth-apps/authorizing-oauth-apps#device-flow)."
+  ![Screenshot showing field for enabling device flow](/assets/images/oauth-apps/enable-device-flow.png){% endif %}
+2.  Click **Register application**.
 ![Button to register an application](/assets/images/oauth-apps/oauth_apps_register_application.png)

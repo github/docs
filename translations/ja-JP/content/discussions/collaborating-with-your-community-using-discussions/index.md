@@ -3,7 +3,7 @@ title: ディスカッションを使用してコミュニティとコラボレ�
 shortTitle: ディスカッションを使用してコラボレーションする
 intro: コミュニティメンバーや他のメンテナと集まってプロジェクトについてディスカッションしましょう。
 versions:
-  fpt: '*'
+  feature: discussions
 children:
   - /about-discussions
   - /participating-in-a-discussion

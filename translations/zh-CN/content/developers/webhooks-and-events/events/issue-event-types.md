@@ -8,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Events
 ---
@@ -319,6 +320,16 @@ GitHub 尝试自动更改拉取请求的基本分支已成功。
 |:-------------------------- |:--------:|:---------:|
 | <ul><li>拉取请求</li></ul> |  **X**   |   **X**   |
 
+## head_ref_force_pushed
+
+拉取请求的 HEAD 分支已强制推送。
+
+### 可用性
+
+| 议题类型                       | 议题事件 API | 时间表事件 API |
+|:-------------------------- |:--------:|:---------:|
+| <ul><li>拉取请求</li></ul> |  **X**   |   **X**   |
+
 ### 事件对象属性
 
 {% data reusables.issue-events.issue-event-common-properties %}
@@ -389,7 +400,7 @@ GitHub 尝试自动更改拉取请求的基本分支已成功。
 
 | 议题类型                       | 议题事件 API | 时间表事件 API |
 |:-------------------------- |:--------:|:---------:|
-| <ul><li>拉取请求</li></ul> |  **X**   |           |
+| <ul><li>拉取请求</li></ul> |  **X**   |   **X**   |
 
 ### 事件对象属性
 
@@ -445,7 +456,7 @@ GitHub 尝试自动更改拉取请求的基本分支已成功。
 
 ## ready_for_review
 
-已创建未处于草稿模式下的拉取请求。
+草稿拉取请求已标记为可供审阅。
 
 ### 可用性
 
@@ -707,7 +718,7 @@ GitHub 尝试自动更改拉取请求的基本分支已成功。
 
 {% data reusables.issue-events.issue-event-common-properties %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ## user_blocked
 
 组织所有者阻止了用户访问组织。 其方法是[阻止用户对议题发表评论](/communities/maintaining-your-safety-on-github/blocking-a-user-from-your-organization#blocking-a-user-in-a-comment)。

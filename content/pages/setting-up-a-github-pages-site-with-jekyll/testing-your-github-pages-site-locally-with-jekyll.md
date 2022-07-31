@@ -2,8 +2,8 @@
 title: Testing your GitHub Pages site locally with Jekyll
 intro: 'You can build your {% data variables.product.prodname_pages %} site locally to preview and test changes to your site.'
 redirect_from:
-  - /articles/setting-up-your-pages-site-locally-with-jekyll/
-  - /articles/setting-up-your-github-pages-site-locally-with-jekyll/
+  - /articles/setting-up-your-pages-site-locally-with-jekyll
+  - /articles/setting-up-your-github-pages-site-locally-with-jekyll
   - /articles/testing-your-github-pages-site-locally-with-jekyll
   - /github/working-with-github-pages/testing-your-github-pages-site-locally-with-jekyll
 product: '{% data reusables.gated-features.pages %}'
@@ -11,6 +11,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pages
 shortTitle: Test site locally with Jekyll
@@ -48,6 +49,12 @@ Before you can use Jekyll to test a site, you must:
   >  Server running... press ctrl-c to stop.
   ```
 3. To preview your site, in your web browser, navigate to `http://localhost:4000`.
+
+{% note %}
+
+**Note:** If you are using Ruby 3.0 and Jekyll 4.2.x or older, you will need to add the `webrick` gem to your project's Gemfile prior to running `bundle install`.
+
+{% endnote %}
 
 ## Updating the {% data variables.product.prodname_pages %} gem
 

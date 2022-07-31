@@ -1,6 +1,6 @@
 ---
 title: Solucionar problemas de erros de clonagem
-intro: 'If you''re having trouble cloning a repository, check these common errors.'
+intro: 'Se você tiver problemas para clonar um repositório, verifique estes erros mais comuns.'
 redirect_from:
   - /articles/error-the-requested-url-returned-error-403
   - /articles/error-the-requested-url-returned-error-401
@@ -16,6 +16,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Repositories
 ---
@@ -92,7 +93,7 @@ Se você configurou as chaves SSH previamente, é possível usar a URL clone SSH
 
 ## Erro: repositório não encontrado
 
-{% ifversion fpt or ghae %}Se você vir este erro ao clonar um repositório, significa que o repositório não existe ou que você não tem permissão para acessá-lo.{% else %}Se você vir este erro ao clonar um repositório, significa que o repositório não existe, você não tem permissão para acessá-lo ou {% data variables.product.product_location %} está em modo privado.{% endif %} Existem algumas soluções para este erro, dependendo da causa.
+{% ifversion fpt or ghae or ghec %}Se você vir este erro ao clonar um repositório, significa que o repositório não existe ou que você não tem permissão para acessá-lo.{% else %}Se você vir este erro ao clonar um repositório, significa que o repositório não existe, você não tem permissão para acessá-lo ou {% data variables.product.product_location %} está em modo privado.{% endif %} Existem algumas soluções para este erro, dependendo da causa.
 
 ### Verifique a ortografia
 
@@ -116,7 +117,7 @@ Assegure-se de ter acesso ao repositório como:
 
 Em raras circunstâncias, você pode não ter o devido acesso SSH a um repositório.
 
-Confirme que a chave SSH em uso está associada à sua conta de usuário {% data variables.product.product_name %}. Para confirmar, digite na linha de comando:
+Você deve garantir que a chave SSH que você está usando esteja anexada à sua conta pessoal em {% data variables.product.product_name %}. Para confirmar, digite na linha de comando:
 
 ```shell
 $ ssh -T git@{% data variables.command_line.codeblock %}
@@ -124,7 +125,9 @@ $ ssh -T git@{% data variables.command_line.codeblock %}
 > fornece acesso shell.
 ```
 
-Se o repositório pertencer a uma organização e você estiver usando uma chave SSH gerada por um aplicativo OAuth, o acesso ao aplicativo OAuth poderá ser restringido pelo proprietário da organização. Para obter mais informações, consulte "<a href="/organizations/restricting-access-to-your-organizations-data/about-oauth-app-access-restrictions" class="dotcom-only">Sobre as restrições de acesso ao aplicativo OAuth</a>".
+{% ifversion fpt or ghec %}
+Se o repositório pertencer a uma organização e você estiver usando uma chave SSH gerada por um aplicativo OAuth, o acesso ao aplicativo OAuth poderá ser restringido pelo proprietário da organização. Para obter mais informações, consulte "[Sobre as restrições de acesso ao aplicativo OAuth](/organizations/restricting-access-to-your-organizations-data/about-oauth-app-access-restrictions)".
+{% endif %}
 
 Para obter mais informações, consulte [Adicionar uma nova chave SSH à sua conta GitHub](/articles/adding-a-new-ssh-key-to-your-github-account).
 

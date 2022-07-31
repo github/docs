@@ -2,12 +2,13 @@
 title: Substituir os GitHub Services
 intro: 'Se você ainda depende dos serviços obsoletos do {% data variables.product.prodname_dotcom %}, aprenda como migrar seus hooks de serviço para webhooks.'
 redirect_from:
-  - /guides/replacing-github-services/
-  - /v3/guides/automating-deployments-to-integrators/
+  - /guides/replacing-github-services
+  - /v3/guides/automating-deployments-to-integrators
   - /v3/guides/replacing-github-services
 versions:
   fpt: '*'
   ghes: '*'
+  ghec: '*'
 topics:
   - API
 ---
@@ -31,7 +32,7 @@ Como uma alternativa ao serviço de e-mail, agora você pode começar a usar not
 
 P GitHub Services (às vezes referido como Hooks de Serviço) é o método legado de integração, em que o GitHub hospedou uma parte dos serviços do nosso integrador por meio do [repositório `github-services`](https://github.com/github/github-services). Ações executadas no GitHub acionam esses serviços e você pode usá-los para acionar ações fora do GitHub.
 
-{% ifversion ghes or ghae %}
+{% ifversion ghes %}
 ## Encontrar repositórios que usam o GitHub Services
 Fornecemos um script de linha de comando que ajuda a identificar quais repositórios usam o GitHub Services. Para obter mais informações, consulte [ghe-legacy-github-services-report](/enterprise/{{currentVersion}}/admin/articles/command-line-utilities/#ghe-legacy-github-services-report).{% endif %}
 
@@ -70,4 +71,4 @@ A versão 2.17 do {% data variables.product.prodname_ghe_server %} será a prime
 Como uma visão geral de alto nível, o processo de migração normalmente envolve:
   - Identificar como e onde seu produto está usando o GitHub Services.
   - Identificar os eventos de webhook correspondentes que você precisa configurar para mover para webhooks simples.
-  - Implementing the design using either [{% data variables.product.prodname_oauth_apps %}](/apps/building-oauth-apps/) or [{% data variables.product.prodname_github_apps %}. {% data variables.product.prodname_github_apps %}](/apps/building-github-apps/) are preferred. To learn more about why {% data variables.product.prodname_github_apps %} are preferred, see "[Reasons for switching to {% data variables.product.prodname_github_apps %}](/apps/migrating-oauth-apps-to-github-apps/#reasons-for-switching-to-github-apps)."
+  - Implementando o design usando [{% data variables.product.prodname_oauth_apps %}](/apps/building-oauth-apps/) ou [{% data variables.product.prodname_github_apps %}. {% data variables.product.prodname_github_apps %}s](/apps/building-github-apps/) são preferidos. Para saber mais sobre o porquê de {% data variables.product.prodname_github_apps %} ser preferido, consulte "[Motivos para mudar para {% data variables.product.prodname_github_apps %}](/apps/migrating-oauth-apps-to-github-apps/#reasons-for-switching-to-github-apps)".

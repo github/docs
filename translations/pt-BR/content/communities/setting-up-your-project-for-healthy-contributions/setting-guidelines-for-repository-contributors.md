@@ -5,8 +5,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 redirect_from:
-  - /articles/how-do-i-set-up-guidelines-for-contributors/
+  - /articles/how-do-i-set-up-guidelines-for-contributors
   - /articles/setting-guidelines-for-repository-contributors
   - /github/building-a-strong-community/setting-guidelines-for-repository-contributors
 topics:
@@ -25,9 +26,9 @@ Para contribuidores, as diretrizes ajudam a verificar se eles estão enviando pu
 
 Para proprietários e contribuidores, as diretrizes de contribuição economizam tempo e evitam aborrecimentos causados por pull requests ou problemas incorretos que precisam ser rejeitados e enviados novamente.
 
-{% ifversion fpt or ghes %}
+{% ifversion fpt or ghes or ghec %}
 
-Você pode criar diretrizes de contribuição padrão para sua organização{% ifversion fpt or ghes %} ou conta de usuário{% endif %}. Para obter mais informações, consulte "[Criando um arquivo padrão de integridade da comunidade](//communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)."
+Você pode criar diretrizes de contribuição padrão para sua organização{% ifversion fpt or ghes or ghec %} ou conta pessoal{% endif %}. Para obter mais informações, consulte "[Criando um arquivo padrão de integridade da comunidade](//communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)."
 
 {% endif %}
 
@@ -41,7 +42,7 @@ Você pode criar diretrizes de contribuição padrão para sua organização{% i
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.files.add-file %}
-3. Decida se deseja armazenar as diretrizes de contribuição no diretório root, `docs` ou `.github` do repositório. Em seguida, no campo de nome do arquivo, digite o nome e a extensão do arquivo. Os nomes de arquivos com diretrizes de contribuição não são sensíveis a maiúsculas de minúsculas. Os arquivos são renderizados no formato de texto rich se a extensão do arquivo estiver em um formato compatível. For more information, see "[Working with non-code files](/repositories/working-with-files/using-files/working-with-non-code-files#rendering-differences-in-prose-documents)." ![Nome do novo arquivo](/assets/images/help/repository/new-file-name.png)
+3. Decida se deseja armazenar as diretrizes de contribuição no diretório root, `docs` ou `.github` do repositório. Em seguida, no campo de nome do arquivo, digite o nome e a extensão do arquivo. Os nomes de arquivos com diretrizes de contribuição não são sensíveis a maiúsculas de minúsculas. Os arquivos são renderizados no formato de texto rich se a extensão do arquivo estiver em um formato compatível. Para obter mais informações, consulte "[Trabalhando com arquivos sem código](/repositories/working-with-files/using-files/working-with-non-code-files#rendering-differences-in-prose-documents)". ![Nome do novo arquivo](/assets/images/help/repository/new-file-name.png)
     - Para tornar as diretrizes de contribuição visíveis no diretório raiz do repositório, digite *CONTRIBUTING*.
     - Para tornar as diretrizes de contribuição visíveis no diretório `docs` do repositório, digite *docs/* para criar o diretório e, em seguida, digite *CONTRIBUTING*.
     - Se um repositório contiver mais de um arquivo *CONTRIBUTING*, o arquivo mostrado em links será escolhido entre locais na seguinte ordem: diretório do `.github`, em seguida, o diretório raiz do repositório e, finalmente, o diretório de `docs`.
@@ -62,6 +63,6 @@ Caso tenha dúvidas, estes são alguns bons exemplos de diretrizes de contribui�
 - [Diretrizes de contribuição](https://github.com/opengovernment/opengovernment/blob/master/CONTRIBUTING.md) do Open Government.
 
 ## Leia mais
-- Seção "[Iniciar um projeto de código aberto](https://opensource.guide/starting-a-project/)" de Guias de código aberto{% ifversion fpt %}
-- [{% data variables.product.prodname_learning %}]({% data variables.product.prodname_learning_link %}){% endif %}{% ifversion fpt or ghes %}
+- Seção "[Iniciar um projeto de código aberto](https://opensource.guide/starting-a-project/)" de Guias de código aberto{% ifversion fpt or ghec %}
+- [{% data variables.product.prodname_learning %}]({% data variables.product.prodname_learning_link %}){% endif %}{% ifversion fpt or ghes or ghec %}
 - "[Adicionar uma licença a um repositório](/articles/adding-a-license-to-a-repository)"{% endif %}

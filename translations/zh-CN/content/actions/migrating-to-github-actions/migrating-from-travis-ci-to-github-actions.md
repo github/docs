@@ -2,12 +2,12 @@
 title: 从 Travis CI 迁移到 GitHub Actions
 intro: '{% data variables.product.prodname_actions %} 和 Travis CI 有多个相似之处，这有助于很简便地迁移到 {% data variables.product.prodname_actions %}。'
 redirect_from:
-  - /actions/migrating-to-github-actions/migrating-from-travis-ci-to-github-actions
   - /actions/learn-github-actions/migrating-from-travis-ci-to-github-actions
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: tutorial
 topics:
   - Travis CI
@@ -19,7 +19,6 @@ shortTitle: 从 Travis CI 迁移
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## 简介
 
@@ -60,9 +59,9 @@ Travis CI 可以使用 `stages` 并行运行作业。 同样，{% data variables
 
 Travis CI 和 {% data variables.product.prodname_actions %} 都支持状态徽章，用于表示构建是通过还是失败。 更多信息请参阅“[将工作流程状态徽章添加到仓库](/actions/managing-workflow-runs/adding-a-workflow-status-badge)”。
 
-### 使用构建矩阵
+### 使用矩阵
 
-Travis CI和 {% data variables.product.prodname_actions %} 都支持构建矩阵，允许您使用操作系统和软件包的组合进行测试。 更多信息请参阅“[使用构建矩阵](/actions/learn-github-actions/managing-complex-workflows#using-a-build-matrix)”。
+Travis CI和 {% data variables.product.prodname_actions %} 都支持矩阵，允许您使用操作系统和软件包的组合进行测试。 更多信息请参阅“[对作业使用矩阵](/actions/using-jobs/using-a-matrix-for-your-jobs)”。
 
 下面是比较每个系统的语法示例：
 
@@ -102,7 +101,7 @@ jobs:
 
 ### 定向特定分支
 
-Travis CI 和 {% data variables.product.prodname_actions %} 允许您将 CI 定向到特定分支。 更多信息请参阅“[GitHub Actions 的工作流程语法](/actions/reference/workflow-syntax-for-github-actions#onpushpull_requestbranchestags)”。
+Travis CI 和 {% data variables.product.prodname_actions %} 允许您将 CI 定向到特定分支。 更多信息请参阅“[GitHub Actions 的工作流程语法](/actions/reference/workflow-syntax-for-github-actions#onpushbranchestagsbranches-ignoretags-ignore)”。
 
 下面是每个系统的语法示例：
 
@@ -165,13 +164,13 @@ git:
 {% endraw %}
 </td>
 <td class="d-table-cell v-align-top">
-{% raw %}
+
 ```yaml
-- uses: actions/checkout@v2
+- uses: {% data reusables.actions.action-checkout %}
   with:
     submodules: false
 ```
-{% endraw %}
+
 </td>
 </tr>
 </table>
@@ -180,7 +179,7 @@ git:
 
 Travis CI 和 {% data variables.product.prodname_actions %} 可以将自定义环境变量添加到测试矩阵，这可让您在后面的步骤中引用该变量。
 
-在 {% data variables.product.prodname_actions %}中，您可以使用 `include` 键将自定义环境变量添加到矩阵中。 {% data reusables.github-actions.matrix-variable-example %}
+在 {% data variables.product.prodname_actions %}中，您可以使用 `include` 键将自定义环境变量添加到矩阵中。 {% data reusables.actions.matrix-variable-example %}
 
 ## {% data variables.product.prodname_actions %} 中的关键功能
 
@@ -188,7 +187,7 @@ Travis CI 和 {% data variables.product.prodname_actions %} 可以将自定义�
 
 ### 存储密码
 
-{% data variables.product.prodname_actions %} 允许您存储密码并在作业中引用它们。 {% data variables.product.prodname_actions %} 组织可以限制哪些仓库能够访问组织机密。 {% ifversion fpt or ghes > 3.0 or ghae %}环境保护规则可能需要手动批准工作流程才能访问环境秘密。 {% endif %}更多信息请参阅“[加密密码](/actions/reference/encrypted-secrets)”。
+{% data variables.product.prodname_actions %} 允许您存储密码并在作业中引用它们。 {% data variables.product.prodname_actions %} 组织可以限制哪些仓库能够访问组织机密。 环境保护规则可能需要手动批准工作流程才能访问环境秘密。 更多信息请参阅“[加密密码](/actions/reference/encrypted-secrets)”。
 
 ### 在作业和工作流程之间共享文件
 
@@ -198,14 +197,19 @@ Travis CI 和 {% data variables.product.prodname_actions %} 可以将自定义�
 
 如果您的作业需要特定的硬件或软件，{% data variables.product.prodname_actions %} 允许您托管自己的运行器，并将其作业发送给它们进行处理。 {% data variables.product.prodname_actions %} 还允许您使用策略来控制访问这些运行器的方式，在组织或仓库级别授予访问权限。 更多信息请参阅“[托管您自己的运行器](/actions/hosting-your-own-runners)”。
 
+{% ifversion fpt or ghec %}
+
 ### 并行作业和执行时间
 
 {% data variables.product.prodname_actions %} 中的并行作业和工作流程执行时间因 {% data variables.product.company_short %} 计划而异。 更多信息请参阅“[使用限制、计费和管理](/actions/reference/usage-limits-billing-and-administration)”。
 
+{% endif %}
+
 ### 在 {% data variables.product.prodname_actions %} 中使用不同的语言
 
 在 {% data variables.product.prodname_actions %} 中使用不同语言时，您可以在作业中创建步骤来设置语言依赖项。 有关使用特定语言的信息，请参阅特定指南：
-  - [Building and testing Node.js or Python](/actions/guides/building-and-testing-nodejs-or-python)
+  - [构建和测试 Node.js](/actions/guides/building-and-testing-nodejs)
+  - [构建和测试 Python](/actions/guides/building-and-testing-python)
   - [构建和测试 PowerShell](/actions/guides/building-and-testing-powershell)
   - [使用 Maven 构建和测试 Java](/actions/guides/building-and-testing-java-with-maven)
   - [使用 Gradle 构建和测试 Java](/actions/guides/building-and-testing-java-with-gradle)
@@ -238,7 +242,7 @@ steps:
 
 ## 迁移条件和表达式的语法
 
-要在条件表达式下运行作业，Travis CI 和 {% data variables.product.prodname_actions %} 具有类似的 `if` 条件语法。 {% data variables.product.prodname_actions %} 允许您使用 `if` 条件使作业或步骤仅在满足条件时才运行。 For more information, see "[Expressions](/actions/learn-github-actions/expressions)."
+要在条件表达式下运行作业，Travis CI 和 {% data variables.product.prodname_actions %} 具有类似的 `if` 条件语法。 {% data variables.product.prodname_actions %} 允许您使用 `if` 条件使作业或步骤仅在满足条件时才运行。 更多信息请参阅“[表达式](/actions/learn-github-actions/expressions)”。
 
 此示例演示 `if` 条件如何控制是否执行步骤：
 
@@ -280,26 +284,30 @@ script:
 {% endraw %}
 </td>
 <td class="d-table-cell v-align-top">
-{% raw %}
+
 ```yaml
 jobs:
   run_python:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/setup-python@v2
+      - uses: {% data reusables.actions.action-setup-python %}
         with:
           python-version: '3.7'
           architecture: 'x64'
       - run: python script.py
 ```
-{% endraw %}
+
 </td>
 </tr>
 </table>
 
 ## 缓存依赖项
 
-Travis CI 和 {% data variables.product.prodname_actions %} 可让您手动缓存依赖供以后使用。 此示例说明每个系统的缓存语法。
+Travis CI 和 {% data variables.product.prodname_actions %} 可让您手动缓存依赖供以后使用。
+
+{% ifversion actions-caching %}
+
+此示例说明每个系统的缓存语法。
 
 <table>
 <tr>
@@ -320,21 +328,25 @@ cache: npm
 {% endraw %}
 </td>
 <td class="d-table-cell v-align-top">
-{% raw %}
+
 ```yaml
 - name: Cache node modules
-  uses: actions/cache@v2
+  uses: {% data reusables.actions.action-cache %}
   with:
     path: ~/.npm
-    key: v1-npm-deps-${{ hashFiles('**/package-lock.json') }}
+    key: {% raw %}v1-npm-deps-${{ hashFiles('**/package-lock.json') }}{% endraw %}
     restore-keys: v1-npm-deps-
 ```
-{% endraw %}
+
 </td>
 </tr>
 </table>
 
-{% data variables.product.prodname_actions %} 缓存仅适用于 {% data variables.product.prodname_dotcom %} 托管的运行器。  更多信息请参阅“<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">缓存依赖项以加快工作流程</a>”。
+{% else %}
+
+{% data reusables.actions.caching-availability %}
+
+{% endif %}
 
 ## 常见任务示例
 
@@ -399,7 +411,7 @@ script:
 {% endraw %}
 </td>
 <td>
-{% raw %}
+
 ```yaml
 name: Node.js CI
 on: [push]
@@ -407,16 +419,16 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: {% data reusables.actions.action-checkout %}
       - name: Use Node.js
-        uses: actions/setup-node@v2
+        uses: {% data reusables.actions.action-setup-node %}
         with:
           node-version: '12.x'
       - run: npm install
       - run: npm run build
       - run: npm test
 ```
-{% endraw %}
+
 </td>
 </tr>
 </table>

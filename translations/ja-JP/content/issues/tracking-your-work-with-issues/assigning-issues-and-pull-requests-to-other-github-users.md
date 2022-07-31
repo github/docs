@@ -1,6 +1,7 @@
 ---
 title: GitHub の他のユーザに Issue およびPull Requestをアサインする
 intro: アサインされた人によって、誰が特定の Issue やPull Requestで作業しているかが明確になります。
+permissions: 'Anyone with write access to a repository can assign issues and pull requests. {% data reusables.enterprise-accounts.emu-permission-repo %}'
 redirect_from:
   - /github/managing-your-work-on-github/managing-your-work-with-issues-and-pull-requests/assigning-issues-and-pull-requests-to-other-github-users
   - /articles/assigning-issues-and-pull-requests-to-other-github-users
@@ -10,16 +11,17 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
 shortTitle: Issue及びPRのアサイン
 ---
 
-リポジトリへの書き込み権限があるユーザなら誰でもIssue およびPull Requestをアサインできます。
-
 ## Issue およびPull Requestをアサインされた人について
 
-自身、該当する Issue またはPull Requestにコメントした任意の人、リポジトリへの書き込み権限がある任意の人、およびリポジトリの読み取り権限がある Organization メンバーを含めて、最大 10 人まで各 Issue またはPull Requestにアサインできます。 詳細は「[{% data variables.product.prodname_dotcom %} 上のアクセス権限](/articles/access-permissions-on-github)」を参照してください。
+自身、該当する Issue またはPull Requestにコメントした任意の人、リポジトリへの書き込み権限がある任意の人、およびリポジトリの読み取り権限がある Organization メンバーを含めて、複数人を各 Issue またはPull Requestにアサインできます。 詳細は「[{% data variables.product.prodname_dotcom %} 上のアクセス権限](/articles/access-permissions-on-github)」を参照してください。
+
+パブリックリポジトリのIssue及びPull Request、そして有料アカウントのプライベートリポジトリでは、最大10人を割り当てできます。 無料プランのプライベートリポジトリでは、IssueあるいはPull Requestごとに1人に制限されます。
 
 ## 個別の Issue またはPull Requestを割り当てる
 

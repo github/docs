@@ -9,30 +9,45 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - SSH
 shortTitle: Check for existing SSH key
 ---
+
+## About SSH keys
+
+You can use SSH to perform Git operations in repositories on {% ifversion fpt or ghec or ghes %}{% data variables.product.product_location %}{% elsif ghae %}{% data variables.product.product_name %}{% endif %}. For more information, see "[About SSH](/authentication/connecting-to-github-with-ssh/about-ssh)."
+
+If you have an existing SSH key, you can use the key to authenticate Git operations over SSH.
+
+## Checking for existing SSH keys
+
+Before you generate a new SSH key, you should check your local machine for existing keys.
+
 {% data reusables.ssh.key-type-support %}
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
-2. Enter `ls -al ~/.ssh` to see if existing SSH keys are present:
+2. Enter `ls -al ~/.ssh` to see if existing SSH keys are present.
 
   ```shell
   $ ls -al ~/.ssh
   # Lists the files in your .ssh directory, if they exist
   ```
-3. Check the directory listing to see if you already have a public SSH key. By default, the filenames of the public keys are one of the following:
+
+3. Check the directory listing to see if you already have a public SSH key. By default, the {% ifversion ghae %}filename of a supported public key for {% data variables.product.product_name %} is *id_rsa.pub*.{% else %}filenames of supported public keys for {% data variables.product.product_name %} are one of the following.
     - *id_rsa.pub*
     - *id_ecdsa.pub*
-    - *id_ed25519.pub*
+    - *id_ed25519.pub*{% endif %}
 
-If you don't have an existing public and private key pair, or don't wish to use any that are available to connect to {% data variables.product.product_name %}, then [generate a new SSH key](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent).
+  {% tip %}
 
-If you see an existing public and private key pair listed (for example *id_rsa.pub* and *id_rsa*) that you would like to use to connect to {% data variables.product.product_name %}, you can [add your SSH key to the ssh-agent](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/#adding-your-ssh-key-to-the-ssh-agent).
+  **Tip**: If you receive an error that *~/.ssh* doesn't exist, you do not have an existing SSH key pair in the default location. You can create a new SSH key pair in the next step.
 
-{% tip %}
+  {% endtip %}
 
-**Tip:** If you receive an error that *~/.ssh* doesn't exist, don't worry! We'll create it when we [generate a new SSH key](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent).
+4. Either generate a new SSH key or upload an existing key.
+    - If you don't have a supported public and private key pair, or don't wish to use any that are available, generate a new SSH key.
+    - If you see an existing public and private key pair listed (for example, *id_rsa.pub* and *id_rsa*) that you would like to use to connect to {% data variables.product.product_name %}, you can add the key to the ssh-agent.
 
-{% endtip %}
+      For more information about generation of a new SSH key or addition of an existing key to the ssh-agent, see "[Generating a new SSH key and adding it to the ssh-agent](/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)."

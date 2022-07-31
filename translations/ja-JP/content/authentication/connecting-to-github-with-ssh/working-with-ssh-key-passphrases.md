@@ -2,8 +2,8 @@
 title: SSH キーのパスフレーズを使う
 intro: SSH キーを使用するたびにパスフレーズを再入力する必要がないように、SSH キーを保護し、認証エージェントを設定できます。
 redirect_from:
-  - /ssh-key-passphrases/
-  - /working-with-key-passphrases/
+  - /ssh-key-passphrases
+  - /working-with-key-passphrases
   - /articles/working-with-ssh-key-passphrases
   - /github/authenticating-to-github/working-with-ssh-key-passphrases
   - /github/authenticating-to-github/connecting-to-github-with-ssh/working-with-ssh-key-passphrases
@@ -11,19 +11,22 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - SSH
 shortTitle: SSH key passphrases
 ---
 
-SSH キーにより、誰かがあなたのコンピュータにアクセスすると、そのキーを使用するすべてのシステムにもアクセスすることになります。 セキュリティをさらに強化するには、SSH キーにパスフレーズを追加します。 パスフレーズを安全に保存するために `ssh-agent` を使用すると、パスフレーズを再入力する必要がありません。
+## About passphrases for SSH keys
+
+With SSH keys, if someone gains access to your computer, the attacker can gain access to every system that uses that key. セキュリティをさらに強化するには、SSH キーにパスフレーズを追加します。 To avoid entering the passphrase every time you connect, you can securely save your passphrase in the SSH agent.
 
 ## パスフレーズを追加または変更する
 
 次のコマンドを入力して、鍵ペアを再生成せずに既存の秘密鍵のパスフレーズを変更できます:
 
 ```shell
-$ ssh-keygen -p -f ~/.ssh/id_ed25519
+$ ssh-keygen -p -f ~/.ssh/id_{% ifversion ghae %}rsa{% else %}ed25519{% endif %}
 > Enter old passphrase: <em>[Type old passphrase]</em>
 > Key has comment '<em>your_email@example.com</em>'
 > Enter new passphrase (empty for no passphrase): <em>[Type new passphrase]</em>
@@ -104,7 +107,3 @@ OS X El Capitan を介する Mac OS X Leopard では、これらのデフォル�
 それ以外の場合は、鍵を ssh-agent に追加するときに、パスフレーズをキーチェーンに格納できます。 詳細は「[SSH キーを ssh-agent に追加する](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#adding-your-ssh-key-to-the-ssh-agent)」を参照してください。
 
 {% endmac %}
-
-## 参考リンク
-
-- 「[SSHについて](/articles/about-ssh)」

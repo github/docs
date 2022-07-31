@@ -4,17 +4,17 @@ intro: Puedes aprobar o rechazar jobs que estén esperando una revisión.
 product: '{% data reusables.gated-features.environments %}'
 versions:
   fpt: '*'
-  ghes: '>=3.1'
+  ghes: '*'
   ghae: '*'
+  ghec: '*'
 ---
 
-{% data reusables.actions.ae-beta %}
 
 ## Acerca de las revisiones requeridas en los flujos de trabajo
 
 Los jobs que referencian un ambiente configurado con revisores requeridos esperarán por una aprobación antes de comenzar. Mientras que un job espera su revisión, tendrá un estado de "Waiting". Si un job no se aprueba dentro de 30 días, la ejecución del flujo de trabajo se cancelará automáticamente.
 
-Para obtener más información acerca de los ambientes y las aprobaciones requeridas, consulta la sección "[Ambientes](/actions/reference/environments)".{% ifversion fpt or ghae-next or ghes > 3.1 %} Para obtener información sobre cómo revisar los despliegues con la API de REST, consulta la sección "[Ejecuciones de flujo de trabajo](/rest/reference/actions#workflow-runs)".{% endif %}
+Para obtener más información sobre los ambientes y las aprobaciones requeridas, consulta la sección "[Utilizar ambientes para despliegue](/actions/deployment/using-environments-for-deployment)". Para obtener más información sobre cómo revisar los despliegues con la API de REST, consulta la sección "[Ejecutores de Flujo de Trabajo](/rest/reference/actions#workflow-runs)".
 
 ## Aprobar o rechazar un job
 

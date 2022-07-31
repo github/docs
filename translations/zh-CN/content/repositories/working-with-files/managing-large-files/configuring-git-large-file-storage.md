@@ -2,7 +2,7 @@
 title: 配置 Git Large File Storage
 intro: '安装 [{% data variables.large_files.product_name_short %}] 后 (/articles/installing-git-large-file-storage/)，需要将其与仓库中的大文件相关联。'
 redirect_from:
-  - /articles/configuring-large-file-storage/
+  - /articles/configuring-large-file-storage
   - /articles/configuring-git-large-file-storage
   - /github/managing-large-files/configuring-git-large-file-storage
   - /github/managing-large-files/versioning-large-files/configuring-git-large-file-storage
@@ -10,6 +10,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 shortTitle: 配置 Git LFS
 ---
 
@@ -21,7 +22,7 @@ shortTitle: 配置 Git LFS
 
 {% tip %}
 
-**注：**尝试向 {% data variables.product.product_name %} 推送大文件之前，请确保在您的企业上启用了 {% data variables.large_files.product_name_short %}。 更多信息请参阅“[在 GitHub Enterprise Server 上配置 Git Large File Storage](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-git-large-file-storage-on-github-enterprise-server/)”。
+**注：**尝试向 {% data variables.product.product_name %} 推送大文件之前，请确保在您的企业上启用了 {% data variables.large_files.product_name_short %}。 更多信息请参阅“[在 GitHub Enterprise Server 上配置 Git Large File Storage](/enterprise/admin/guides/installation/configuring-git-large-file-storage-on-github-enterprise-server/)”。
 
 {% endtip %}
 
@@ -38,11 +39,15 @@ shortTitle: 配置 Git LFS
   ```
   要与 {% data variables.large_files.product_name_short %} 关联的每个文件类型都需要添加 `git {% data variables.large_files.command_name %} track`。 此命令将修改仓库的 *.gitattributes* 文件，并将大文件与 {% data variables.large_files.product_name_short %} 相关联。
 
-  {% tip %}
+  {% note %}
 
-  **提示：**我们强烈建议您将本地 *.gitattributes* 文件提交到仓库中。 依赖与 {% data variables.large_files.product_name_short %} 关联的全局 *.gitattributes* 文件，可能会导致在参与其他 Git 项目时发生冲突。
+  **注意：**我们强烈建议您将本地 *.gitattributes* 文件提交到仓库中。
 
-  {% endtip %}
+    - 依赖与 {% data variables.large_files.product_name_short %} 关联的全局 *.gitattributes* 文件，可能会导致在参与其他 Git 项目时发生冲突。
+    - 在存储库中包含 *.gitattributes* 文件允许创建复刻或新克隆的人员使用 {% data variables.large_files.product_name_short %} 更轻松地进行协作。
+    - 在存储库中包含 *.gitattributes* 文件允许 {% data variables.large_files.product_name_short %} 对象选择性地包含在 ZIP 文件和压缩包存档中。
+
+  {% endnote %}
 
 4. 将文件添加到与关联的扩展名相匹配的仓库：
   ```shell
@@ -62,5 +67,5 @@ shortTitle: 配置 Git LFS
 
 ## 延伸阅读
 
-- "[使用 {% data variables.large_files.product_name_long %} 进行协作](/articles/collaboration-with-git-large-file-storage/)"{% ifversion fpt %}
+- "[使用 {% data variables.large_files.product_name_long %} 进行协作](/articles/collaboration-with-git-large-file-storage/)"{% ifversion fpt or ghec %}
 - "[管理仓库存档中的 {% data variables.large_files.product_name_short %} 对象](/github/administering-a-repository/managing-git-lfs-objects-in-archives-of-your-repository)"{% endif %}

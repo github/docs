@@ -2,17 +2,18 @@
 title: アプリケーションのリストの説明を書く
 intro: '{% data variables.product.prodname_marketplace %}で[アプリケーションをリスト](/marketplace/listing-on-github-marketplace/) するには、GitHubのガイドラインに従ってアプリケーションの説明を書き、画像を指定する必要があります。'
 redirect_from:
-  - /apps/marketplace/getting-started-with-github-marketplace-listings/guidelines-for-writing-github-app-descriptions/
-  - /apps/marketplace/creating-and-submitting-your-app-for-approval/writing-github-app-descriptions/
-  - /apps/adding-integrations/listing-apps-on-github-marketplace/guidelines-for-creating-a-github-marketplace-listing/
-  - /apps/marketplace/listing-apps-on-github/guidelines-for-creating-a-github-marketplace-listing/
-  - /apps/marketplace/getting-started-with-github-marketplace-listings/guidelines-for-creating-github-marketplace-listing-images/
-  - /apps/marketplace/creating-and-submitting-your-app-for-approval/creating-github-marketplace-listing-images/
-  - /apps/marketplace/listing-on-github-marketplace/writing-github-marketplace-listing-descriptions/
+  - /apps/marketplace/getting-started-with-github-marketplace-listings/guidelines-for-writing-github-app-descriptions
+  - /apps/marketplace/creating-and-submitting-your-app-for-approval/writing-github-app-descriptions
+  - /apps/adding-integrations/listing-apps-on-github-marketplace/guidelines-for-creating-a-github-marketplace-listing
+  - /apps/marketplace/listing-apps-on-github/guidelines-for-creating-a-github-marketplace-listing
+  - /apps/marketplace/getting-started-with-github-marketplace-listings/guidelines-for-creating-github-marketplace-listing-images
+  - /apps/marketplace/creating-and-submitting-your-app-for-approval/creating-github-marketplace-listing-images
+  - /apps/marketplace/listing-on-github-marketplace/writing-github-marketplace-listing-descriptions
   - /marketplace/listing-on-github-marketplace/writing-github-marketplace-listing-descriptions
   - /developers/github-marketplace/writing-a-listing-description-for-your-app
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Marketplace
 shortTitle: リストの説明を書く
@@ -24,7 +25,7 @@ shortTitle: リストの説明を書く
 
 ### リスト名
 
-リストの名前は、 [{% data variables.product.prodname_marketplace %}ホームページ](https://github.com/marketplace)に表示されます。 名前は255文字を上限とし、アプリケーションの名前と異なっていても構いません。 リストの名前は、既存の{% data variables.product.product_name %}アカウントと同じ名前にできません。ただし、その名前があなた自身のユーザ名やOrganization名である場合は例外です。
+リストの名前は、 [{% data variables.product.prodname_marketplace %}ホームページ](https://github.com/marketplace)に表示されます。 名前は255文字を上限とし、アプリケーションの名前と異なっていても構いません。 リストの名前は、{% data variables.product.product_location %}上の既存アカウントと同じ名前にできません。ただし、その名前があなた自身のユーザ名やOrganization名である場合は例外です。
 
 ### ごく簡単な説明
 
@@ -167,7 +168,7 @@ shortTitle: リストの説明を書く
 
   ### 必要なスキルを学ぶ
 
-  GitHub Learning Labでは、GitHubの使い方を学習、Markdownによる効果的な連絡、マージコンフリクトの処理などが可能です。
+  GitHub Skills can help you learn how to use GitHub, communicate more effectively with Markdown, handle merge conflicts, and more.
 
 - 大文字で始めて英文字表記するのは固有名詞だけです。
 

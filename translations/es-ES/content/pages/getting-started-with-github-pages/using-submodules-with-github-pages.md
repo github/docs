@@ -2,12 +2,13 @@
 title: Usar submódulos con las Páginas de GitHub
 intro: 'Puedes usar submódulos con las {% data variables.product.prodname_pages %} para incluir otros proyectos en el código de tu sitio.'
 redirect_from:
-  - /articles/using-submodules-with-pages/
+  - /articles/using-submodules-with-pages
   - /articles/using-submodules-with-github-pages
   - /github/working-with-github-pages/using-submodules-with-github-pages
 product: '{% data reusables.gated-features.pages %}'
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Pages
 shortTitle: Utilizar submódulos con páginas

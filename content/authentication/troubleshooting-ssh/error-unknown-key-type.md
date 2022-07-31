@@ -3,8 +3,9 @@ title: 'Error: Unknown key type'
 intro: 'This error means that the SSH key type you used was unrecognized or is unsupported by your SSH client. '
 versions:
   fpt: '*'
-  ghes: '>=3.2'
-  ghae: next
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - SSH
 redirect_from:

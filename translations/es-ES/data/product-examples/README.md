@@ -2,7 +2,7 @@
 
 Las páginas que utilizan el diseño de `product-landing` podrían incluir una sección de `Examples` opcionalmente. Actualmente, tenemos compatibilidad con tres tipos de ejemplos:
 
-1. Ejemplos de código Consulta https://docs.github.com/en/actions#code-examples.
+1. Ejemplos de código Consulta https://docs.github.com/en/codespaces#code-examples.
 
 2. Ejemplos de comunidad Consulta https://docs.github.com/en/discussions#community-examples.
 
@@ -10,7 +10,7 @@ Las páginas que utilizan el diseño de `product-landing` podrían incluir una s
 
 ## Cómo funciona
 
-Los datos de ejemplo de cada producto se definen en `data/product-landing-examples`, en un subdirectorio que obtiene su nombre para el **producto** y un archivo YML que obtiene su nombre para el **tipo de ejemplo** (por ejemplo: `data/product-examples/sponsors/user-examples.yml` o `data/product-examples/actions/code-examples.yml`). Actualmente solo tenemos compatibilidad con un tipo de ejemplo por producto.
+Los datos de ejemplo para cada producto se definen en `data/product-landing-examples`, en un subdirectorio nombrado para el **producto** y en un archivo de YML nombrado para el **tipo de ejemplo** (por ejemplo: `data/product-examples/sponsors/user-examples.yml` o `data/product-examples/codespaces/code-examples.yml`). Actualmente solo tenemos compatibilidad con un tipo de ejemplo por producto.
 
 ### Control de versiones
 
@@ -35,7 +35,7 @@ en donde la sintaxis para `versions` es la misma que la [propiedad de texto prel
 
 Los datos de ejemplo del producto se agregan al objeto `context` en `middleware/contextualizers/product-examples.js`.
 
-The data is then rendered by `components/landing`.
+Entonces, `components/landing` interpretará los datos.
 
 ## Imposición del modelado
 

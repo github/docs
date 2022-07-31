@@ -7,6 +7,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - API
 ---
@@ -19,7 +20,7 @@ API で不可解な問題が発生した場合、発生したと思われる問�
 
 通常、クライアントが正しく認証されていない場合、`404` エラーが送信されます。 このような場合、`403 Forbidden` が表示されるはずであると考えるかもしれません。 しかし、プライベートリポジトリに関する_いずれの_情報も提供されないため、API は代わりに `404` エラーを返します。
 
-To troubleshoot, ensure [you're authenticating correctly](/guides/getting-started/), [your OAuth access token has the required scopes](/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/), [third-party application restrictions][oap-guide] are not blocking access, and that [the token has not expired or been revoked](/github/authenticating-to-github/keeping-your-account-and-data-secure/token-expiration-and-revocation).
+トラブルシューティングを行うには、[正しく認証されていること](/guides/getting-started/)、[OAuth アクセストークンに必要なスコープがあること](/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/)、[サードパーティアプリケーションの制限][oap-guide]によってアクセスがブロックされていないこと、そして[トークンが期限切れになっていたり取り消されたりしてない](/github/authenticating-to-github/keeping-your-account-and-data-secure/token-expiration-and-revocation)ことを確認してください。
 
 ## 表示されない結果がある
 
@@ -27,7 +28,7 @@ To troubleshoot, ensure [you're authenticating correctly](/guides/getting-starte
 
 ページネーション URL のフォーマットを推測*しない*ことが重要です。 すべての API 呼び出しで同じ構造が使用されるわけではありません。 代わりに、すべてのリクエストで送信される [Link Header](/rest#pagination) からページネーション情報を抽出します。
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ## Basic 認証のエラー
 
 2020 年 11 月 13 日に、 REST API に対するユーザ名およびパスワードによる認証と OAuth 認証 API は非推奨となり、使用できなくなりました。
@@ -61,6 +62,10 @@ curl -u my_username:my_password -X POST "https://api.github.com/authorizations" 
 ```
 
 次に、[Web アプリケーションフロー](/apps/building-oauth-apps/authorizing-oauth-apps/#web-application-flow)に切り替えて、アクセストークンを生成します。
+
+## タイムアウト
+
+{% data variables.product.product_name %}がAPIを処理するのに10秒以上かかると、{% data variables.product.product_name %}はリクエストを終了させ、タイムアウトのレスポンスが返されます。
 
 {% endif %}
 

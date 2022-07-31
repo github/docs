@@ -67,7 +67,7 @@ sections:
         - |
           [{% data variables.product.prodname_mobile %}](https://github.com/mobile) filtering allows you to search for and find issues, pull requests, and discussions from your device. New metadata for issues and pull request list items allow you to filter by assignees, checks status, review states, and comment counts.
 
-          {% data variables.product.prodname_mobile %} beta is available for {% data variables.product.prodname_ghe_server %}. Sign in with our [Android](https://play.google.com/store/apps/details?id=com.github.android) and [iOS](https://apps.apple.com/app/github/id1477376905) apps to triage notifications and manage issues and pull requests on the go. Administrators can disable mobile support for their Enterprise using the management console or by running `ghe-config app.mobile.enabled false`. For more information, see "[GitHub for mobile](/github/getting-started-with-github/using-github/github-for-mobile)."
+          {% data variables.product.prodname_mobile %} beta is available for {% data variables.product.prodname_ghe_server %}. Sign in with our [Android](https://play.google.com/store/apps/details?id=com.github.android) and [iOS](https://apps.apple.com/app/github/id1477376905) apps to triage notifications and manage issues and pull requests on the go. Administrators can disable mobile support for their Enterprise using the management console or by running `ghe-config app.mobile.enabled false`. For more information, see "[GitHub Mobile](/get-started/using-github/github-mobile)."
 
   changes:
     - heading: Administration Changes
@@ -76,6 +76,7 @@ sections:
         - The latest release of the CodeQL CLI supports uploading analysis results to GitHub. This makes it easier to run code analysis for customers who wish to use CI/CD systems other than {% data variables.product.prodname_actions %}. Previously, such users had to use the separate CodeQL runner, which will continue to be available. For more information, see "[About CodeQL code scanning in your CI system](/enterprise-server@3.1/code-security/secure-coding/about-codeql-code-scanning-in-your-ci-system)."
         - '{% data variables.product.prodname_actions %} now supports skipping `push` and `pull_request` workflows by looking for some common keywords in your commit message.'
         - Check annotations older than four months will be archived.
+        - Scaling of worker allocation for background tasks has been revised. We recommend validating that the new defaults are appropriate for your workload. Custom background worker overrides should be unset in most cases. [Updated 2022-03-18]
 
     - heading: Security Changes
       notes:
@@ -162,6 +163,11 @@ sections:
     - heading: Deprecation of XenServer Hypervisor support
       notes:
         - Beginning in {% data variables.product.prodname_ghe_server %} 3.1, we will begin discontinuing support for Xen Hypervisor. The complete deprecation is scheduled for {% data variables.product.prodname_ghe_server %} 3.3, following the standard one year deprecation window.
+    - heading: Change to the format of authentication tokens affects GitHub Connect
+      notes:
+        # https://github.com/github/releases/issues/1235
+        - |
+          GitHub Connect will no longer work after June 3rd for instances running GitHub Enterprise Server 3.1 or older, due to the format of GitHub authentication tokens changing. To continue using GitHub Connect, upgrade to GitHub Enterprise Server 3.2 or later. For more information, see the [GitHub Blog](https://github.blog/2022-05-20-action-needed-by-github-connect-customers-using-ghes-3-1-and-older-to-adopt-new-authentication-token-format-updates/). [Updated: 2022-06-14]
 
   backups:
     - '{% data variables.product.prodname_ghe_server %} 3.1 requires at least [GitHub Enterprise Backup Utilities 3.1.0](https://github.com/github/backup-utils) for [Backups and Disaster Recovery](/enterprise-server@3.1/admin/configuration/configuring-backups-on-your-appliance).'

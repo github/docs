@@ -9,16 +9,21 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Repositories
 shortTitle: Social media preview
 ---
 Until you add an image, repository links expand to show basic information about the repository and the owner's avatar. Adding an image to your repository can help identify your project across various social platforms.
 
+## Adding an image to customize the social media preview of your repository
+
 {% ifversion not ghae %}You can upload an image to a private repository, but your image can only be shared from a public repository.{% endif %}
 
 {% tip %}
-Tip: Your image should be a PNG, JPG, or GIF file under 1 MB in size. For the best quality rendering, we recommend keeping the image at 640 by 320 pixels.
+
+**Tip:** Your image should be a PNG, JPG, or GIF file under 1 MB in size. For the best quality rendering, we recommend keeping the image at 640 by 320 pixels.
+
 {% endtip %}
 
 {% data reusables.repositories.navigate-to-repo %}
@@ -28,3 +33,16 @@ Tip: Your image should be a PNG, JPG, or GIF file under 1 MB in size. For the be
     - To remove an image, click **Remove image**
 
     ![Social preview dropdown](/assets/images/help/repository/social-preview.png)
+
+## About transparency
+
+We support PNG images with transparency. Many communication platforms support a dark mode, so using a transparent social preview may be beneficial. The transparent image below is acceptable on a dark background; however, this may not always be the case. 
+
+When using an image with transparency, keep in mind how it may look on different color backgrounds or platforms that don't support transparency.
+
+{% tip %}
+
+**Tip:** If you aren't sure, we recommend using an image with a solid background.
+{% endtip %}
+
+![Social preview transparency](/assets/images/help/repository/social-preview-transparency.png)

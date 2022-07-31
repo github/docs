@@ -9,8 +9,9 @@ redirect_from:
   - /code-security/secure-coding/integrating-with-code-scanning
 versions:
   fpt: '*'
-  ghes: '>=3.0'
+  ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Advanced Security
   - Code scanning
@@ -21,4 +22,3 @@ children:
   - /sarif-support-for-code-scanning
 ---
 
-<!--For this article in earlier GHES versions, see /content/github/finding-security-vulnerabilities-and-errors-in-your-code-->

@@ -1,6 +1,6 @@
 ---
 title: Solucionar los errores de clonado
-intro: 'If you''re having trouble cloning a repository, check these common errors.'
+intro: 'Si estás teniendo problemas para clonar un repositorio, verifica estos errores comunes.'
 redirect_from:
   - /articles/error-the-requested-url-returned-error-403
   - /articles/error-the-requested-url-returned-error-401
@@ -16,6 +16,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Repositories
 ---
@@ -92,7 +93,7 @@ Si ya has configurado claves SSH, puedes usar el clon SSH en lugar de HTTPS.  Pa
 
 ## Error: Repositorio no encontrado
 
-{% ifversion fpt or ghae %}Si ves este error al clonar un repositorio, significa que éste no existe o que no tienes permiso para acceder a él.{% else %}Si ves este error cuando clonas un repositorio, significa que éste no existe, no tienes permiso para acceder a él, o {% data variables.product.product_location %} se encuentra en modo privado.{% endif %} Hay algunas cuantas formas de solucionar este error, dependiendo de cuál sea su causa.
+{% ifversion fpt or ghae or ghec %}Si ves este error al clonar un repositorio, significa que éste no existe o que no tienes permiso para acceder a él.{% else %}Si ves este error cuando clonas un repositorio, significa que éste no existe, no tienes permiso para acceder a él, o {% data variables.product.product_location %} se encuentra en modo privado.{% endif %} Hay algunas cuantas formas de solucionar este error, dependiendo de cuál sea su causa.
 
 ### Comprueba que no haya errores tipográficos
 
@@ -116,7 +117,7 @@ Verifica si tienes acceso al repositorio de alguna de las siguientes maneras:
 
 En muy raros casos, es posible que no tengas el acceso SSH correcto al repositorio.
 
-Debes asegurarte de que la clave SSH que estás usando se encuentre conectada con tu usuario de {% data variables.product.product_name %}. Para comprobarlo, escribe lo siguiente en la línea de comando:
+Debes asegurarte de que la llave SSH que estás utilizando esté adjunta a tu cuenta personal en {% data variables.product.product_name %}. Para comprobarlo, escribe lo siguiente en la línea de comando:
 
 ```shell
 $ ssh -T git@{% data variables.command_line.codeblock %}
@@ -124,7 +125,9 @@ $ ssh -T git@{% data variables.command_line.codeblock %}
 > provide shell access.
 ```
 
-Si el repositorio pertenece a una organización y estás utilizando una llave SSH generada por una OAuth App, puede que algún dueño de la organización haya restringido el acceso OAuth App. Para obtener más información, consulta la sección "<a href="/organizations/restricting-access-to-your-organizations-data/about-oauth-app-access-restrictions" class="dotcom-only">Acerca de las restricciones de acceso a las OAuth Apps</a>".
+{% ifversion fpt or ghec %}
+Si el repositorio pertenece a una organización y estás utilizando una llave SSH generada por una OAuth App, puede que algún dueño de la organización haya restringido el acceso OAuth App. Para obtener más información, consulta la sección "[Acerca de las restricciones de acceso a las OAuth Apps](/organizations/restricting-access-to-your-organizations-data/about-oauth-app-access-restrictions)".
+{% endif %}
 
 Para obtener más información, consulta "[Agregar una nueva clave SSH a tu cuenta de GitHub](/articles/adding-a-new-ssh-key-to-your-github-account)".
 

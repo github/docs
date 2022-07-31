@@ -3,11 +3,12 @@ title: GitHub へのサインアップ
 intro: 'Start using {% data variables.product.prodname_dotcom %} for yourself or your team.'
 redirect_from:
   - /articles/signing-up-for-github
-  - /github/getting-started-with-github/signing-up-for-github/
+  - /github/getting-started-with-github/signing-up-for-github
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Accounts
 children:

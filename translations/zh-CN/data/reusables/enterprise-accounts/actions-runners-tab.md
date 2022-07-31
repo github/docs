@@ -1,1 +1,1 @@
-1. 单击 {% ifversion fpt %}**Runners**{% else %}**自托管运行器**{% endif %} 选项卡。
+1. 单击 **Runners（运行器）**选项卡。

@@ -2,13 +2,14 @@
 title: Crear de forma manual una plantilla de propuesta única para tu repositorio
 intro: 'Cuando agregas una plantilla de propuesta creada de forma manual a tu repositorio, los colaboradores del proyecto verán automáticamente los contenidos de la plantilla en el cuerpo de la propuesta.'
 redirect_from:
-  - /articles/creating-an-issue-template-for-your-repository/
+  - /articles/creating-an-issue-template-for-your-repository
   - /articles/manually-creating-a-single-issue-template-for-your-repository
   - /github/building-a-strong-community/manually-creating-a-single-issue-template-for-your-repository
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Community
 shortTitle: Crear una plantilla de propuesta
@@ -37,13 +38,13 @@ asignados: octocat
 
 {% endnote %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 {% data reusables.repositories.valid-community-issues %}
 
 {% endif %}
 
-{% ifversion fpt or ghes %}
+{% ifversion fpt or ghes or ghec %}
 
 {% data reusables.repositories.default-issue-templates %}
 

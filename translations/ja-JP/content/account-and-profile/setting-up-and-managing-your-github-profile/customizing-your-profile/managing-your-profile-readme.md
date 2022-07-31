@@ -4,6 +4,7 @@ intro: '{% data variables.product.prodname_dotcom %} プロフィールに READM
 versions:
   fpt: '*'
   ghes: '*'
+  ghec: '*'
 topics:
   - Profiles
 redirect_from:
@@ -14,7 +15,7 @@ shortTitle: Your profile README
 
 ## プロフィール README について
 
-プロフィール README を作成すると、{% data variables.product.prodname_dotcom %} で自分に関する情報をコミュニティと共有できます。 {% data variables.product.prodname_dotcom %} では、プロフィールページの上部にプロフィール README が表示されます。
+プロフィール README を作成すると、{% data variables.product.product_location %} で自分に関する情報をコミュニティと共有できます。 {% data variables.product.prodname_dotcom %} では、プロフィールページの上部にプロフィール README が表示されます。
 
 プロフィール README に含める情報を決めることができるため、{% data variables.product.prodname_dotcom %} で自分に関するどのような情報を表示するかを完全に制御できます。 アクセスしたユーザがあなたのプロフィール README を見て、興味深い、楽しい、役立つと感じる可能性のある情報の例は次のとおりです。
 
@@ -55,7 +56,7 @@ shortTitle: Your profile README
 
   生成された README ファイルには、プロフィール README のアイディアを得るためのテンプレートが事前入力されています。 ![テンプレートが事前入力された README ファイル](/assets/images/help/repository/personal-repository-readme-template.png)
 
-利用可能なすべての絵文字とそのコードの概要については、「[絵文字のチートシート](http://www.emoji-cheat-sheet.com/)」を参照してください。
+利用可能なすべての絵文字とそのコードの概要については、「[絵文字のチートシート](https://www.webfx.com/tools/emoji-cheat-sheet/)」を参照してください。
 
 ## プロフィール README を削除する
 

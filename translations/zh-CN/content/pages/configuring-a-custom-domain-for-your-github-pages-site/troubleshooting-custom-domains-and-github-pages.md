@@ -2,14 +2,15 @@
 title: 自定义域和 GitHub Pages 疑难解答
 intro: '您可以检查常见错误，以解决与 {% data variables.product.prodname_pages %} 站点的自定义域或 HTTPS 相关的问题。'
 redirect_from:
-  - /articles/my-custom-domain-isn-t-working/
-  - /articles/custom-domain-isn-t-working/
-  - /articles/troubleshooting-custom-domains/
+  - /articles/my-custom-domain-isn-t-working
+  - /articles/custom-domain-isn-t-working
+  - /articles/troubleshooting-custom-domains
   - /articles/troubleshooting-custom-domains-and-github-pages
   - /github/working-with-github-pages/troubleshooting-custom-domains-and-github-pages
 product: '{% data reusables.gated-features.pages %}'
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Pages
 shortTitle: 排除自定义域的故障
@@ -17,7 +18,9 @@ shortTitle: 排除自定义域的故障
 
 ## _CNAME_ 错误
 
-自定义域存储在发布源的根目录下的 _CNAME_ 文件中。 您可以通过仓库设置或手动添加或更新此文件。 更多信息请参阅“[管理 {% data variables.product.prodname_pages %} 网站的自定义域](/articles/managing-a-custom-domain-for-your-github-pages-site)。
+{% ifversion pages-custom-workflow %}If you are publishing from a custom {% data variables.product.prodname_actions %} workflow, any _CNAME_ file is ignored and is not required.{% endif %}
+
+If you are publishing from a branch, custom domains are stored in a _CNAME_ file in the root of your publishing source. 您可以通过仓库设置或手动添加或更新此文件。 更多信息请参阅“[管理 {% data variables.product.prodname_pages %} 网站的自定义域](/articles/managing-a-custom-domain-for-your-github-pages-site)。
 
 要让您的站点呈现在正确的域中，请确保您的 _CNAME_ 文件仍存在于仓库中。 例如，许多静态站点生成器会强制推送到您的仓库，这可能会覆盖在配置自定义域时添加到仓库中的 _CNAME_ 文件。 如果您在本地构建站点并将生成的文件推送到 {% data variables.product.product_name %}，请确保先将添加 _CNAME_ 文件的提交拉取到本地仓库，使该文件纳入到构建中。
 
@@ -32,10 +35,10 @@ shortTitle: 排除自定义域的故障
 
 如果将站点的默认域指向自定义域时遇到问题，请联系 DNS 提供商。
 
-You can also use one of the following methods to test whether your custom domain's DNS records are configured correctly:
+您还可以使用以下方法之一来测试自定义域的 DNS 记录是否正确配置：
 
-- A CLI tool such as `dig`. For more information, see "[Managing a custom domain for your {% data variables.product.prodname_pages %} site](/articles/managing-a-custom-domain-for-your-github-pages-site)".
-- An online DNS lookup tool.
+- CLI 工具，如 `dig`。 更多信息请参阅“[管理 {% data variables.product.prodname_pages %} 网站的自定义域](/articles/managing-a-custom-domain-for-your-github-pages-site)。
+- 在线 DNS 查找工具。
 
 ## 自定义域名不受支持
 
@@ -54,7 +57,7 @@ You can also use one of the following methods to test whether your custom domain
 
 ## HTTPS 错误
 
-通过 _CNAME_、`ALIAS`、`ANAME` 或 `A` DNS 记录正确配置的使用自定义域的 {% data variables.product.prodname_pages %} 站点可通过 HTTPS 进行访问。 更多信息请参阅“[使用 HTTPS 保护 {% data variables.product.prodname_pages %} 站点](/articles/securing-your-github-pages-site-with-https)”。
+通过 `CNAME`、`ALIAS`、`ANAME` 或 `A` DNS 记录正确配置的使用自定义域的 {% data variables.product.prodname_pages %} 站点可通过 HTTPS 进行访问。 更多信息请参阅“[使用 HTTPS 保护 {% data variables.product.prodname_pages %} 站点](/articles/securing-your-github-pages-site-with-https)”。
 
 配置自定义域后，您的站点可能需要最多一个小时才能通过 HTTPS 访问。 更新现有 DNS 设置后，您可能需要删除自定义域并将其重新添加到站点仓库，以触发启用 HTTPS 的进程。 更多信息请参阅“[管理 {% data variables.product.prodname_pages %} 网站的自定义域](/articles/managing-a-custom-domain-for-your-github-pages-site)。
 

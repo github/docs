@@ -1,1 +1,0 @@
-デフォルトでは、{% ifversion ghes or ghae %}{% data variables.product.product_location %}上で有効化されると、{% data variables.product.prodname_actions %}{% elsif fpt %}{% data variables.product.prodname_actions %}{% endif %}はすべてのリポジトリとOrganizationで有効になります。 {% data variables.product.prodname_actions %}を無効化したり、プライベートのアクションのみに制限し、リポジトリ内に存在するアクションだけを使えるようにすることができます。

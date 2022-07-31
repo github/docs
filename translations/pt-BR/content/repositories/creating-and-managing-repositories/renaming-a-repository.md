@@ -9,6 +9,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Repositories
 ---
@@ -30,17 +31,17 @@ $ git remote set-url origin <em>new_url</em>
 
 Para obter mais informações, consulte "[Gerenciar repositórios remotos](/github/getting-started-with-github/managing-remote-repositories)".
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 Se você planeja renomear um repositório que tenha um site do {% data variables.product.prodname_pages %} , recomendamos usar um domínio personalizado para o seu site. Isso garante que a URL do site não seja impactada pela renomeação do repositório. Para obter mais informações, consulte "[Sobre um domínio personalizado e o site {% data variables.product.prodname_pages %}](/pages/configuring-a-custom-domain-for-your-github-pages-site/about-custom-domains-and-github-pages)".
 
 {% endif %}
 
-{% tip %}
+{% note %}
 
-**Dica:** {% data reusables.organizations.owners-and-admins-can %} renomear um repositório. {% data reusables.organizations.new-repo-permissions-more-info %}
+**Observação:** {% data variables.product.prodname_dotcom %} não irá redirecionar chamadas para uma ação hospedada por um repositório renomeado. Qualquer fluxo de trabalho que usar essa ação falhará com o erro `repositório não encontrado`. Em vez disso, crie um novo repositório e ação com o novo nome e arquive o repositório antigo. Para obter mais informações, consulte "[Arquivando repositórios](/repositories/archiving-a-github-repository/archiving-repositories)".
 
-{% endtip %}
+{% endnote %}
 
 {% warning %}
 

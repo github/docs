@@ -2,12 +2,12 @@
 date: '2021-08-10'
 sections:
   bugs:
-    - When GitHub Actions is enabled without running regular scheduled backups the MSSQL Transaction Log could grow unbounded and can consume all available space on the appliance's Data Disk causing a possible outage.
-    - Audit log entries for changes made to "Repository creation" organization settings were inaccurate.
-    - Excessive logging of `ActionController::UnknownFormat` exceptions caused unnecessary disk usage.
-    - "LDAP `group_dn` values longer than 255 characters would result in errors being logged: `Data truncated for column 'group_dn' at row 1`."
+    - 定期的なMSSQLのトランザクションログのスケジュールバックアップを実行することなくGitHub Actionsを有効化すると、ログが無制限に拡大し、アプライアンスのデータディスクの利用可能な領域をすべて消費し、障害につながる可能性があります。
+    - '"Repository creation" Organizationの設定に対する変更の監査ログエントリが不正確でした。'
+    - '`ActionController::UnknownFormat`例外の過剰なロギングが、不要なディスク消費を招いていました。'
+    - "255文字以上のLDAP `group_dn`値によって、`Data truncated for column 'group_dn' at row 1`というエラーが記録されます。"
   changes:
-    - Abuse rate limits are now called Secondary rate limits, since the behavior they limit is not always abusive.
+    - 不正利用レート制限は、セカンダリレート制限と呼ばれるようになりました。これは、これによって制限されるのが必ずしも不正利用とは限らないためです。
   known_issues:
     - 新しくセットアップされたユーザを持たない{% data variables.product.prodname_ghe_server %}で、攻撃者が最初の管理ユーザを作成できました。
     - アップグレードの過程で、カスタムのファイアウォールのルールが削除されます。
@@ -15,4 +15,4 @@ sections:
     - 同じリポジトリ内のファイルパスが255文字を超えるblobへのパーマリンクを含むIssueをクローズできませんでした。
     - GitHub Connectで"Users can search GitHub.com"が有効化されている場合、GitHub.comの検索結果にプライベート及びインターナルリポジトリのIssueが含まれません。
     - High Availability構成でレプリカノードがオフラインの場合でも、{% data variables.product.product_name %}が{% data variables.product.prodname_pages %}リクエストをオフラインのノードにルーティングし続ける場合があり、それによってユーザにとっての{% data variables.product.prodname_pages %}の可用性が下がってしまいます。
-    - Resource limits that are specific to processing pre-receive hooks may cause some pre-receive hooks to fail.
+    - pre-receive フックの処理に固有のリソース制限によって、pre-receive フックに失敗するものが生じることがあります。

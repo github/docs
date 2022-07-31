@@ -2,7 +2,7 @@
 title: 推送提交到远程仓库
 intro: 使用 `git push` 将本地分支上的提交推送到远程仓库。
 redirect_from:
-  - /articles/pushing-to-a-remote/
+  - /articles/pushing-to-a-remote
   - /articles/pushing-commits-to-a-remote-repository
   - /github/using-git/pushing-commits-to-a-remote-repository
   - /github/getting-started-with-github/pushing-commits-to-a-remote-repository
@@ -11,10 +11,11 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 shortTitle: 推送提交到远程
 ---
 
-## About `git push`
+## 关于 `git push`
 `git push` 命令使用两个参数：
 
 * 远程命令，如 `origin`
@@ -93,14 +94,14 @@ git fetch upstream
 >  * [new branch]      main     -> upstream/main
 ```
 
-在完成本地更改后，可以推送本地分支到 GitHub 并[发起拉取请求](/articles/about-pull-requests)。
+在完成本地更改后，可以推送本地分支到 GitHub 并[发起拉取请求](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)。
 
-有关使用复刻的更多信息，请参阅“[同步复刻](/articles/syncing-a-fork)”。
+有关使用复刻的更多信息，请参阅“[同步复刻](/pull-requests/collaborating-with-pull-requests/working-with-forks/syncing-a-fork)”。
 
 ## 延伸阅读
 
 - ["Pro Git" 书中的“远程”一章](https://git-scm.com/book/ch5-2.html)
-- [`git remote` 手册页](https://git-scm.com/docs/git-remote.html)
+- [`git remote` 主页面](https://git-scm.com/docs/git-remote.html)
 - "[Git 小抄](/articles/git-cheatsheet)"
 - "[Git 工作流程](/github/getting-started-with-github/git-workflows)"
 - "[Git 手册](https://guides.github.com/introduction/git-handbook/)"

@@ -13,6 +13,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 ---
 
 {% data reusables.package_registry.packages-ghes-release-stage %}
@@ -22,18 +23,18 @@ versions:
 
 查看包的权限取决于几个因素。 默认情况下，您可以查看您发布的所有包。
 
-仓库作用域的包从拥有该包的仓库继承权限和可见性。 下面的注册表使用此类权限：{% ifversion not fpt %}
+仓库作用域的包从拥有该包的仓库继承权限和可见性。 下面的注册表使用此类权限：{% ifversion not fpt or ghec %}
 - Docker 注册表 (`docker.pkg.github.com`){% endif %}
 - npm 注册表
 - RubyGems 注册表
 - Apache Maven 注册表
 - NuGet 注册表
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 容器注册表提供粒度权限和可见性设置，可针对个人用户或组织帐户拥有的每个包进行自定义。 您可以选择使用粒度权限或连接包到仓库并继承它的权限。 更多信息请参阅“[将仓库连接到包](/packages/learn-github-packages/connecting-a-repository-to-a-package)”。
 {% endif %}
 
-更多信息请参阅“[关于 GitHub Packages 的权限](/packages/learn-github-packages/about-permissions-for-github-packages)”{% ifversion fpt %} 或“[配置包的访问控制和可见性](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility)”。{% endif %}
+更多信息请参阅“[关于 GitHub Packages 的权限](/packages/learn-github-packages/about-permissions-for-github-packages)”{% ifversion fpt or ghec %} 或“[配置包的访问控制和可见性](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility)”。{% endif %}
 
 {% data reusables.package_registry.package-page-info %}
 
@@ -50,7 +51,7 @@ versions:
 您可以查找并查看位于您所属组织的仓库中的包。
 
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 3. 在组织名称下，单击 {% octicon "package" aria-label="The package icon" %} **Packages（包）**。
 {% data reusables.package_registry.navigate-to-packages %}
 
@@ -64,4 +65,4 @@ versions:
 
 ## 延伸阅读
 
-- “[搜索包](/github/searching-for-information-on-github/searching-for-packages)”
+- “[搜索包](/search-github/searching-on-github/searching-for-packages)”

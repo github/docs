@@ -1,8 +1,8 @@
 ---
 title: Ignorar arquivos
 redirect_from:
-  - /git-ignore/
-  - /ignore-files/
+  - /git-ignore
+  - /ignore-files
   - /articles/ignoring-files
   - /github/using-git/ignoring-files
   - /github/getting-started-with-github/ignoring-files
@@ -12,6 +12,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 ---
 
 ## Configurar arquivos ignorados para um único repositório
@@ -26,6 +27,8 @@ O GitHub mantém uma lista oficial de arquivos *.gitignore* recomendados para mu
    ```shell
    $ touch .gitignore
   ```
+
+   Se o comando for bem-sucedido, não haverá saída.
 
 Por obter um exemplo do arquivo *.gitignore*, consulte "[Algumas configurações comuns do .gitignore](https://gist.github.com/octocat/9257657)" no repositório do Octocat.
 

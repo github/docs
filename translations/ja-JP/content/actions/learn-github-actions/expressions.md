@@ -2,21 +2,20 @@
 title: Expressions
 shortTitle: Expressions
 intro: You can evaluate expressions in workflows and actions.
-product: '{% data reusables.gated-features.actions %}'
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 miniTocMaxHeadingLevel: 3
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## About expressions
 
-プログラムでワークフローファイルの変数を設定したり、コンテキストにアクセスするために、式を利用できます。 式で使えるのは、リテラル値、コンテキストへの参照、関数の組み合わせです。 リテラル、コンテキストへの参照、および関数を組み合わせるには、演算子を使います。 For more information about contexts, see "[Contexts](/actions/learn-github-actions/contexts)."
+You can use expressions to programmatically set environment variables in workflow files and access contexts. 式で使えるのは、リテラル値、コンテキストへの参照、関数の組み合わせです。 リテラル、コンテキストへの参照、および関数を組み合わせるには、演算子を使います。 For more information about contexts, see "[Contexts](/actions/learn-github-actions/contexts)."
 
 式は、ステップを実行すべきか判断するための `if` 条件キーワードをワークフローファイル内に記述して使用するのが一般的です。 `if`条件が`true`になれば、ステップは実行されます。
 
@@ -26,9 +25,9 @@ miniTocMaxHeadingLevel: 3
 `${{ <expression> }}`
 {% endraw %}
 
-{% data reusables.github-actions.expression-syntax-if %} `if`条件の詳細については、「[{% data variables.product.prodname_actions %}のためのワークフローの構文](/articles/workflow-syntax-for-github-actions/#jobsjob_idif)」を参照してください。
+{% data reusables.actions.expression-syntax-if %} `if`条件の詳細については、「[{% data variables.product.prodname_actions %}のためのワークフローの構文](/articles/workflow-syntax-for-github-actions/#jobsjob_idif)」を参照してください。
 
-{% data reusables.github-actions.context-injection-warning %}
+{% data reusables.actions.context-injection-warning %}
 
 #### `if` 条件内の式の例
 
@@ -51,16 +50,17 @@ env:
 
 式の一部として、`boolean`、`null`、`number`、または`string`のデータ型を使用できます。
 
-| データ型      | リテラル値                                                |
-| --------- | ---------------------------------------------------- |
-| `boolean` | `true` または `false`                                   |
-| `null`    | `null`                                               |
-| `number`  | JSONでサポートされている任意の数値書式。                               |
-| `string`  | 一重引用符で囲む必要があります。 一重引用符そのものを使用するには、一重引用符でエスケープしてください。 |
+| データ型      | リテラル値                                                                                                                                                                                                                                                                                                                                 |
+| --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `boolean` | `true` または `false`                                                                                                                                                                                                                                                                                                                    |
+| `null`    | `null`                                                                                                                                                                                                                                                                                                                                |
+| `number`  | JSONでサポートされている任意の数値書式。                                                                                                                                                                                                                                                                                                                |
+| `string`  | You don't need to enclose strings in `{% raw %}${{{% endraw %}` and `{% raw %}}}{% endraw %}`. However, if you do, you must use single quotes (`'`) around the string. To use a literal single quote, escape the literal single quote using an additional single quote (`''`). Wrapping with double quotes (`"`) will throw an error. |
 
 #### サンプル
 
 {% raw %}
+
 ```yaml
 env:
   myNull: ${{ null }}
@@ -68,28 +68,29 @@ env:
   myIntegerNumber: ${{ 711 }}
   myFloatNumber: ${{ -9.2 }}
   myHexNumber: ${{ 0xff }}
-  myExponentialNumber: ${{ -2.99-e2 }}
-  myString: ${{ 'Mona the Octocat' }}
-  myEscapedString: ${{ 'It''s open source!' }}
+  myExponentialNumber: ${{ -2.99e-2 }}
+  myString: Mona the Octocat
+  myStringInBraces: ${{ 'It''s open source!' }}
 ```
+
 {% endraw %}
 
 ## 演算子
 
-| 演算子                       | 説明        |
-| ------------------------- | --------- |
-| `( )`                     | 論理グループ化   |
-| `[ ]`                     | インデックス    |
-| `.`                       | プロパティ参照外し |
-| `!`                       | 否定        |
-| `<`                    | 小なり       |
-| `<=`                   | 以下        |
-| `>`                    | 大なり       |
-| `>=`                   | 以上        |
-| `==`                      | 等しい       |
-| `!=`                      | 等しくない     |
-| `&&`              | AND       |
-| <code>\|\|</code> | OR        |
+| 演算子                       | 説明                    |
+| ------------------------- | --------------------- |
+| `( )`                     | 論理グループ化               |
+| `[ ]`                     | インデックス                |
+| `から実行されます。`               | Property de-reference |
+| `!`                       | 否定                    |
+| `<`                    | 小なり                   |
+| `<=`                   | 以下                    |
+| `>`                    | 大なり                   |
+| `>=`                   | 以上                    |
+| `==`                      | 等しい                   |
+| `!=`                      | 等しくない                 |
+| `&&`              | AND                   |
+| <code>\|\|</code> | OR                    |
 
 {% data variables.product.prodname_dotcom %} は、等価性を緩やかに比較します。
 
@@ -126,11 +127,11 @@ env:
 
 #### 配列の利用例
 
-`contains(github.event.issue.labels.*.name, 'bug')`
+`contains(github.event.issue.labels.*.name, 'bug')` returns whether the issue related to the event has a label "bug".
 
 #### 文字列の使用例
 
-`contains('Hello world', 'llo')` は、`true` を返します。
+`contains('Hello world', 'llo')` returns `true`.
 
 ### startsWith
 
@@ -140,7 +141,7 @@ env:
 
 #### サンプル
 
-`startsWith('Hello world', 'He')` は、`true` を返します
+`startsWith('Hello world', 'He')` は、`true` を返します.
 
 ### endsWith
 
@@ -150,7 +151,7 @@ env:
 
 #### サンプル
 
-`endsWith('Hello world', 'ld')` は、`true` を返します
+`endsWith('Hello world', 'ld')` は、`true` を返します.
 
 ### format
 
@@ -160,19 +161,19 @@ env:
 
 #### サンプル
 
-'Hello Mona the Octocat' を返します
-
 `format('Hello {0} {1} {2}', 'Mona', 'the', 'Octocat')`
 
-#### 括弧をエスケープするサンプル
+Returns 'Hello Mona the Octocat'.
 
-'{Hello Mona the Octocat!}'を返します。
+#### 括弧をエスケープするサンプル
 
 {% raw %}
 ```js
 format('{{Hello {0} {1} {2}!}}', 'Mona', 'the', 'Octocat')
 ```
 {% endraw %}
+
+Returns '{Hello Mona the Octocat!}'.
 
 ### join
 
@@ -251,9 +252,9 @@ jobs:
 
 `hashFiles(path)`
 
-`path`パターンにマッチするファイル群から単一のハッシュを返します。 単一の `path` パターンまたはコンマで区切られた複数の `path` パターンを指定できます。 `path`は`GITHUB_WORKSPACE`ディレクトリに対する相対であり、含められるのは`GITHUB_WORKSPACE`内のファイルだけです。 この関数はマッチしたそれぞれのファイルに対するSHA-256ハッシュを計算し、それらのハッシュを使ってファイルの集合に対する最終的なSHA-256ハッシュを計算します。 SHA-256に関する詳しい情報については「[SHA-2](https://en.wikipedia.org/wiki/SHA-2)」を参照してください。
+`path`パターンにマッチするファイル群から単一のハッシュを返します。 単一の `path` パターンまたはコンマで区切られた複数の `path` パターンを指定できます。 `path`は`GITHUB_WORKSPACE`ディレクトリに対する相対であり、含められるのは`GITHUB_WORKSPACE`内のファイルだけです。 この関数はマッチしたそれぞれのファイルに対するSHA-256ハッシュを計算し、それらのハッシュを使ってファイルの集合に対する最終的なSHA-256ハッシュを計算します。 If the `path` pattern does not match any files, this returns an empty string. SHA-256に関する詳しい情報については「[SHA-2](https://en.wikipedia.org/wiki/SHA-2)」を参照してください。
 
-パターンマッチング文字を使ってファイル名をマッチさせることができます。 パターンマッチングは、Windowsでは大文字小文字を区別しません。 サポートされているパターンマッチング文字に関する詳しい情報については「[{% data variables.product.prodname_actions %}のワークフロー構文](/github/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions/#filter-pattern-cheat-sheet)」を参照してください。
+パターンマッチング文字を使ってファイル名をマッチさせることができます。 パターンマッチングは、Windowsでは大文字小文字を区別しません。 サポートされているパターンマッチング文字に関する詳しい情報については「[{% data variables.product.prodname_actions %}のワークフロー構文](/actions/using-workflows/workflow-syntax-for-github-actions/#filter-pattern-cheat-sheet)」を参照してください。
 
 #### 単一のパターンの例
 
@@ -267,9 +268,15 @@ jobs:
 
 `hashFiles('**/package-lock.json', '**/Gemfile.lock')`
 
-## ジョブステータスのチェック関数
 
-`if` 条件では、次のステータスチェック関数を式として使用できます。 A default status check of `success()` is applied unless you include one of these functions. `if` 条件に関する詳しい情報については、「[GitHub Actions のワークフロー構文](/articles/workflow-syntax-for-github-actions/#jobsjob_idif)」を参照してください。
+{% ifversion fpt or ghes > 3.3 or ghae-issue-5504 or ghec %}
+## ステータスチェック関数
+
+`if` 条件では、次のステータスチェック関数を式として使用できます。 A default status check of `success()` is applied unless you include one of these functions. For more information about `if` conditionals, see "[Workflow syntax for GitHub Actions](/articles/workflow-syntax-for-github-actions/#jobsjob_idif)" and "[Metadata syntax for GitHub Composite Actions](/actions/creating-actions/metadata-syntax-for-github-actions/#runsstepsif)".
+{% else %}
+## Check Functions
+`if` 条件では、次のステータスチェック関数を式として使用できます。 A default status check of `success()` is applied unless you include one of these functions. For more information about `if` conditionals, see "[Workflow syntax for GitHub Actions](/articles/workflow-syntax-for-github-actions/#jobsjob_idif)".
+{% endif %}
 
 ### success
 
@@ -306,7 +313,7 @@ if: {% raw %}${{ cancelled() }}{% endraw %}
 
 ### failure
 
-ジョブの以前のステップのいずれかが失敗したなら`true`を返します。
+ジョブの以前のステップのいずれかが失敗したなら`true`を返します。 If you have a chain of dependent jobs, `failure()` returns `true` if any ancestor job fails.
 
 #### サンプル
 
@@ -315,6 +322,22 @@ steps:
   ...
   - name: The job has failed
     if: {% raw %}${{ failure() }}{% endraw %}
+```
+
+#### failure with conditions
+
+You can include extra conditions for a step to run after a failure, but you must still include `failure()` to override the default status check of `success()` that is automatically applied to `if` conditions that don't contain a status check function.
+
+##### サンプル
+
+```yaml
+steps:
+  ...
+  - name: Failing step
+    id: demo
+    run: exit 1
+  - name: The demo step has failed
+    if: {% raw %}${{ failure() && steps.demo.conclusion == 'failure' }}{% endraw %}
 ```
 
 ## オブジェクトフィルタ
@@ -331,4 +354,40 @@ steps:
 ]
 ```
 
-`fruits.*.name`というフィルタを指定すると、配列`[ "apple", "orange", "pear" ]`が返されます。
+The filter `fruits.*.name` returns the array `[ "apple", "orange", "pear" ]`.
+
+You may also use the `*` syntax on an object. For example, suppose you have an object named `vegetables`.
+
+```json
+
+{
+  "scallions":
+  {
+    "colors": ["green", "white", "red"],
+    "ediblePortions": ["roots", "stalks"],
+  },
+  "beets":
+  {
+    "colors": ["purple", "red", "gold", "white", "pink"],
+    "ediblePortions": ["roots", "stems", "leaves"],
+  },
+  "artichokes":
+  {
+    "colors": ["green", "purple", "red", "black"],
+    "ediblePortions": ["hearts", "stems", "leaves"],
+  },
+}
+```
+
+The filter `vegetables.*.ediblePortions` could evaluate to:
+
+```json
+
+[
+  ["roots", "stalks"],
+  ["hearts", "stems", "leaves"],
+  ["roots", "stems", "leaves"],
+]
+```
+
+Since objects don't preserve order, the order of the output can not be guaranteed.

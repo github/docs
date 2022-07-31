@@ -1,1 +1,0 @@
-Para obtener más información sobre las direcciones de correo electrónico para las confirmaciones, {% ifversion fpt %} incluyendo tu dirección de `noreply` proporcionada por {% data variables.product.product_name %}, {% endif %} consulta la sección "[Configurar tu dirección de correo electrónico para confirmaciones](/articles/setting-your-commit-email-address)".

@@ -6,6 +6,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 redirect_from:
   - /github/administering-a-repository/setting-the-default-branch
   - /articles/setting-the-default-branch
@@ -28,17 +29,9 @@ Puedes elegir la rama predeterminada para un repositorio. Èsta es la rama base 
 {% endnote %}
 {% endif %}
 
-{% ifversion fpt or ghes > 3.0 %}
-
 También puedes renombrar la rama predeterminada. Para obtener más información, consulta la sección "[Renombrar una rama](/github/administering-a-repository/renaming-a-branch)".
 
-{% endif %}
-
-{% ifversion fpt or ghes > 2.22 %}
-
 {% data reusables.branches.set-default-branch %}
-
-{% endif %}
 
 ## Prerrequisitos
 
@@ -46,22 +39,11 @@ Para cambiar la rama predeterminada, tu repositorio debe tener màs de una rama.
 
 ## Cambiar la rama predeterminada
 
-{% ifversion fpt or ghes > 2.22 or ghae %}
-
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.repository-branches %}
 1. Debajo de "Rama predeterminada", a la derecha del nombre de rama predeterminado, da clic en el {% octicon "arrow-switch" aria-label="The switch icon with two arrows" %}. ![Cambiar el icono con dos flechas hacia la derecha del nombre de la rama predeterminada actual](/assets/images/help/repository/repository-options-defaultbranch-change.png)
 1. Utiliza el menù desplegable y luego da clic en el nombre de una rama. ![Menù desplegable para elegir una rama predeterminada nueva](/assets/images/help/repository/repository-options-defaultbranch-drop-down.png)
 1. Da clic en **Actualizar**. ![Botòn de "Update" despuès de elegir una rama predeterminada nueva](/assets/images/help/repository/repository-options-defaultbranch-update.png)
-1. Lee la advertencia y luego da clic en **Entiendo, actualizar la rama predeterminada.** !["I understand, update the default branch." button to perform the update](/assets/images/help/repository/repository-options-defaultbranch-i-understand.png)
+1. Lee la advertencia y luego da clic en **Entiendo, actualizar la rama predeterminada.** ![Botón de "Entiendo, actualizar la rama predeterminada." para realizar la actualización](/assets/images/help/repository/repository-options-defaultbranch-i-understand.png)
 
-{% else %}
-
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-settings %}
-{% data reusables.repositories.repository-branches %}
-1. En el menú desplegable de la rama predeterminada, elige la rama predeterminada nueva. ![Selector desplegable de la rama por defecto](/assets/images/help/repository/repository-options-defaultbranch.png)
-1. Da clic en **Actualizar**.
-
-{% endif %}

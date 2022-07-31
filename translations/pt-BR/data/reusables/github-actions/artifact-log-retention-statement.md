@@ -1,2 +1,0 @@
-{% ifversion fpt or ghes > 2.22 or ghae %} Por padrão, {% data variables.product.product_name %} armazena registros e artefatos de criação por 90 dias, e este período de retenção pode ser personalizado. Para obter mais informações, consulte "[Limites de uso, cobrança e administração](/actions/reference/usage-limits-billing-and-administration#artifact-and-log-retention-policy)".{% endif %}
-{% ifversion ghes = 2.22 %} {% data variables.product.product_name %} armazena registros de criação completos e artefatos por 90 dias.{% endif %}

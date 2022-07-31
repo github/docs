@@ -2,8 +2,8 @@
 title: Recovering your SSH key passphrase
 intro: 'If you''ve lost your SSH key passphrase, depending on the operating system you use, you may either recover it or you may need to generate a new SSH key passphrase.'
 redirect_from:
-  - /articles/how-do-i-recover-my-passphrase/
-  - /articles/how-do-i-recover-my-ssh-key-passphrase/
+  - /articles/how-do-i-recover-my-passphrase
+  - /articles/how-do-i-recover-my-ssh-key-passphrase
   - /articles/recovering-your-ssh-key-passphrase
   - /github/authenticating-to-github/recovering-your-ssh-key-passphrase
   - /github/authenticating-to-github/troubleshooting-ssh/recovering-your-ssh-key-passphrase
@@ -11,6 +11,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - SSH
 shortTitle: Recover SSH key passphrase

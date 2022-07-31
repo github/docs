@@ -8,7 +8,7 @@ import { LoadingIndicator } from './LoadingIndicator'
 import { ActionBar } from './ActionBar'
 
 import { CodeBlockRef, PlaygroundArticleT } from '../types'
-import { useTheme } from '@primer/components'
+import { useTheme } from '@primer/react'
 
 const getNormalizedHighlight = (
   highlight: Exclude<CodeBlockRef['highlight'], undefined>
@@ -75,7 +75,7 @@ export const Editor: React.FC<Props> = ({ article }) => {
             return (
               <button
                 className={cx('btn-link Link--secondary no-underline mr-2 f6 py-2 px-3', {
-                  'color-bg-tertiary': i === selectedFileIndex,
+                  'color-bg-subtle': i === selectedFileIndex,
                 })}
                 onClick={() => setSelectedFileIndex(i)}
               >
@@ -98,7 +98,7 @@ export const Editor: React.FC<Props> = ({ article }) => {
                 let className = ''
                 for (const highlight of normalizedHighlight) {
                   if (lineNumber >= highlight[0] && lineNumber <= highlight[1]) {
-                    className = 'color-bg-info'
+                    className = 'color-bg-accent'
                   }
                 }
                 return { style: { display: 'block' }, class: className }

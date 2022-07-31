@@ -12,7 +12,7 @@ redirect_from:
   - /articles/conditions-for-large-files
   - /github/managing-large-files/conditions-for-large-files
   - /github/managing-large-files/working-with-large-files/conditions-for-large-files
-  - /articles/what-is-the-size-limit-for-a-repository/
+  - /articles/what-is-the-size-limit-for-a-repository
   - /articles/what-is-my-disk-quota
   - /github/managing-large-files/what-is-my-disk-quota
   - /github/managing-large-files/working-with-large-files/what-is-my-disk-quota
@@ -20,12 +20,13 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 shortTitle: Large files
 ---
 
 ## About size limits on {% data variables.product.product_name %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 {% data variables.product.product_name %} は、すべての Git リポジトリに対して十分なストレージを提供するよう努めていますが、ファイルとリポジトリのサイズにはハードリミットがあります。 ユーザのパフォーマンスと信頼性を確保するため、リポジトリ全体の健全性のシグナルを積極的に監視しています。 リポジトリの健全性は、サイズ、コミット頻度、コンテンツ、構造など、さまざまな相互作用要因の機能よるものです。
 
 ### File size limits
@@ -39,7 +40,7 @@ shortTitle: Large files
 
 {% endnote %}
 
-{% ifversion ghes %}デフォルトでは、{% endif %}{% data variables.product.product_name %}は{% data variables.large_files.max_github_size %}以上のプッシュをブロックします。 {% ifversion ghes %} ただし、サイト管理者は {% data variables.product.product_location %} に別の制限を設定できます。  For more information, see "[Setting Git push limits](/enterprise/{{ currentVersion }}/admin/guides/installation/setting-git-push-limits)."{% endif %}
+{% ifversion ghes %}デフォルトでは、{% endif %}{% data variables.product.product_name %}は{% data variables.large_files.max_github_size %}以上のプッシュをブロックします。 {% ifversion ghes %} ただし、サイト管理者は {% data variables.product.product_location %} に別の制限を設定できます。  For more information, see "[Setting Git push limits](/enterprise/admin/guides/installation/setting-git-push-limits)."{% endif %}
 
 To track files beyond this limit, you must use {% data variables.large_files.product_name_long %} ({% data variables.large_files.product_name_short %}). 詳しい情報については、「[{% data variables.large_files.product_name_long %} について](/repositories/working-with-files/managing-large-files/about-git-large-file-storage)」を参照してください。
 
@@ -47,7 +48,7 @@ If you need to distribute large files within your repository, you can create rel
 
 Git is not designed to handle large SQL files. 大規模なデータベースを他の開発者と共有するには、[Dropbox](https://www.dropbox.com/) の使用をお勧めします。
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ### Repository size limits
 
 リポジトリは小さく保ち、理想としては 1GB 未満、および 5GB 未満にすることを強くお勧めします。 リポジトリが小さいほど、クローン作成が速く、操作やメンテナンスが簡単になります。 リポジトリがインフラストラクチャに過度に影響する場合は、{% data variables.contact.github_support %} から是正措置を求めるメールが送られてくる場合があります。 特に多くのコラボレータが参加している大規模なプロジェクトでは、柔軟に対応するよう努めており、可能な限り解決策を見つけるために協力します。 リポジトリのサイズと全体的な健全性を効果的に管理することで、リポジトリがインフラストラクチャに影響を与えることを防ぎます。 [`github/git-sizer`](https://github.com/github/git-sizer) リポジトリには、リポジトリ分析のためのアドバイスとツールがあります。
@@ -97,7 +98,7 @@ Git はバックアップツールとして機能するようには設計され�
 
 リポジトリ内で大きなファイルを配布する必要がある場合は、{% data variables.product.product_location %}でリリースを作成できます。 リリースでは、他の人が使用できるように、ソフトウェア、リリースノート、バイナリファイルへのリンクをパッケージ化できます。 詳細は「[リリースについて](/github/administering-a-repository/about-releases)」を参照してください。
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 リリース内のバイナリファイルの合計サイズや、それらの配布に使用される帯域は制限されません。 ただし、個々のファイルは{% data variables.large_files.max_lfs_size %}未満でなければなりません。
 

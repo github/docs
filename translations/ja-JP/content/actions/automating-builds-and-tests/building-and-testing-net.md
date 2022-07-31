@@ -1,25 +1,24 @@
 ---
 title: .NETでのビルドとテスト
 intro: .NETプロジェクトのビルドとテストのための継続的インテグレーション（CI）ワークフローを作成できます。
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /actions/guides/building-and-testing-net
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 shortTitle: Build & test .NET
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## はじめに
 
 このガイドは、.NETパッケージのビルド、テスト、公開の方法を紹介します。
 
-{% ifversion ghae %} To build and test your .NET project on {% data variables.product.prodname_ghe_managed %}, you will need to create a custom operating system image that includes the .NET Core SDK. {% data variables.actions.hosted_runner %} に必要なソフトウェアがインストールされていることを確認する方法については、「[カスタムイメージの作成](/actions/using-github-hosted-runners/creating-custom-images)」を参照してください。
+{% ifversion ghae %} To build and test your .NET project on {% data variables.product.prodname_ghe_managed %}, the .NET Core SDK is required. {% data reusables.actions.self-hosted-runners-software %}
 {% else %} {% data variables.product.prodname_dotcom %} ホストランナーには、.NET Core SDKを含むソフトウェアがプリインストールされたツールキャッシュがあります。 最新のソフトウェアとプリインストールされたバージョンの.NET Core SDKの完全なリストについては、[{% data variables.product.prodname_dotcom %}ホストランナー上にインストールされているソフトウェア](/actions/reference/specifications-for-github-hosted-runners)を参照してください。
 {% endif %}
 
@@ -29,13 +28,12 @@ YAMLの構文と、{% data variables.product.prodname_actions %}でのYAMLの使
 
 .NET Core SDKの基本的な理解をしておくことをおすすめします。 詳細は「[Getting started with .NET](https://dotnet.microsoft.com/learn)」を参照してください。
 
-## .NETワークフローテンプレートを使い始める
+## Using the .NET starter workflow
 
-{% data variables.product.prodname_dotcom %}は、ほとんどの.NETプロジェクトで動作する.NETワークフローテンプレートを提供しており、このガイドにはこのテンプレートのカスタマイズ方法を示す例が含まれています。 詳しい情報については[.NETワークフローテンプレート](https://github.com/actions/setup-dotnet)を参照してください。
+{% data variables.product.prodname_dotcom %} provides a .NET starter workflow that should work for most .NET projects, and this guide includes examples that show you how to customize this starter workflow. For more information, see the [.NET starter workflow](https://github.com/actions/setup-dotnet).
 
-手早く始めるために、テンプレートをリポジトリの`.github/workflows`ディレクトリに追加してください。
+To get started quickly, add the starter workflow to the `.github/workflows` directory of your repository.
 
-{% raw %}
 ```yaml
 name: dotnet package
 
@@ -50,11 +48,11 @@ jobs:
         dotnet-version: ['3.0', '3.1.x', '5.0.x' ]
 
     steps:
-      - uses: actions/checkout@v2
-      - name: Setup .NET Core SDK ${{ matrix.dotnet-version }}
-        uses: actions/setup-dotnet@v1.7.2
+      - uses: {% data reusables.actions.action-checkout %}
+      - name: Setup .NET Core SDK {% raw %}${{ matrix.dotnet-version }}{% endraw %}
+        uses: {% data reusables.actions.action-setup-dotnet %}
         with:
-          dotnet-version: ${{ matrix.dotnet-version }}
+          dotnet-version: {% raw %}${{ matrix.dotnet-version }}{% endraw %}
       - name: Install dependencies
         run: dotnet restore
       - name: Build
@@ -62,7 +60,6 @@ jobs:
       - name: Test
         run: dotnet test --no-restore --verbosity normal
 ```
-{% endraw %}
 
 ## .NETのバージョンの指定
 
@@ -72,7 +69,6 @@ jobs:
 
 ### 複数の.NETバージョンの利用
 
-{% raw %}
 ```yaml
 name: dotnet package
 
@@ -84,52 +80,47 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        dotnet: [ '3.0', '3.1.x', '5.0.x' ]
+        dotnet-version: [ '3.0', '3.1.x', '5.0.x' ]
 
     steps:
-      - uses: actions/checkout@v2
-      - name: Setup dotnet ${{ matrix.dotnet-version }}
-        uses: actions/setup-dotnet@v1
+      - uses: {% data reusables.actions.action-checkout %}
+      - name: Setup dotnet {% raw %}${{ matrix.dotnet-version }}{% endraw %}
+        uses: {% data reusables.actions.action-setup-dotnet %}
         with:
-          dotnet-version: ${{ matrix.dotnet-version }}
-      # 現在の dotnet バージョンを出力してマトリックスをテストする
+          dotnet-version: {% raw %}${{ matrix.dotnet-version }}{% endraw %}
+      # You can test your matrix by printing the current dotnet version
       - name: Display dotnet version
         run: dotnet --version
 ```
-{% endraw %}
 
 ### 特定のバージョンの.NETの利用
 
 `3.1.3`というような、特定のバージョンの.NETを使うようにジョブを設定できます。 あるいは、最新のマイナーリリースを取得するためにセマンティックバージョン構文を使うこともできます。 この例では.NET 3の最新のマイナーリリースを使っています。
 
-{% raw %}
 ```yaml
     - name: Setup .NET 3.x
-      uses: actions/setup-dotnet@v1
+      uses: {% data reusables.actions.action-setup-dotnet %}
       with:
-        # セマンティックバージョン範囲の構文または dotnet バージョンの正確なバージョン
+        # Semantic version range syntax or exact version of a dotnet version
         dotnet-version: '3.x'
 ```
-{% endraw %}
 
 ## 依存関係のインストール
 
 {% data variables.product.prodname_dotcom %}ホストランナーには、NuGetパッケージマネージャーがインストールされています。 コードをビルドしてテストする前に、dotnetCLIを使って依存関係をNuGetパッケージレジストリからインストールしておくことができます。 たとえば、以下のYAMLは`Newtonsoft`パッケージをインストールします。
 
-{% raw %}
 ```yaml
 steps:
-- uses: actions/checkout@v2
+- uses: {% data reusables.actions.action-checkout %}
 - name: Setup dotnet
-  uses: actions/setup-dotnet@v1
+  uses: {% data reusables.actions.action-setup-dotnet %}
   with:
     dotnet-version: '3.1.x'
 - name: Install dependencies
   run: dotnet add package Newtonsoft.Json --version 12.0.1
 ```
-{% endraw %}
 
-{% ifversion fpt %}
+{% ifversion actions-caching %}
 
 ### 依存関係のキャッシング
 
@@ -137,25 +128,23 @@ steps:
 
 詳しい情報については、「[ワークフローを高速化するための依存関係のキャッシュ](/actions/guides/caching-dependencies-to-speed-up-workflows)」を参照してください。
 
-{% raw %}
 ```yaml
 steps:
-- uses: actions/checkout@v2
+- uses: {% data reusables.actions.action-checkout %}
 - name: Setup dotnet
-  uses: actions/setup-dotnet@v1
+  uses: {% data reusables.actions.action-setup-dotnet %}
   with:
     dotnet-version: '3.1.x'
-- uses: actions/cache@v2
+- uses: {% data reusables.actions.action-cache %}
   with:
     path: ~/.nuget/packages
-    # 対応する要件ファイルのキャッシュヒットがあるかどうかを確認する
-    key: ${{ runner.os }}-nuget-${{ hashFiles('**/packages.lock.json') }}
+    # Look to see if there is a cache hit for the corresponding requirements file
+    key: {% raw %}${{ runner.os }}-nuget-${{ hashFiles('**/packages.lock.json') }}
     restore-keys: |
-      ${{ runner.os }}-nuget
+      ${{ runner.os }}-nuget{% endraw %}
 - name: Install dependencies
   run: dotnet add package Newtonsoft.Json --version 12.0.1
 ```
-{% endraw %}
 
 {% note %}
 
@@ -169,12 +158,11 @@ steps:
 
 ローカルで使うのと同じコマンドを、コードのビルドとテストに使えます。 以下の例は、ジョブで`dotnet build`と`dotnet test`を使う方法を示します。
 
-{% raw %}
 ```yaml
 steps:
-- uses: actions/checkout@v2
+- uses: {% data reusables.actions.action-checkout %}
 - name: Setup dotnet
-  uses: actions/setup-dotnet@v1
+  uses: {% data reusables.actions.action-setup-dotnet %}
   with:
     dotnet-version: '3.1.x'
 - name: Install dependencies
@@ -184,7 +172,6 @@ steps:
 - name: Test with the dotnet CLI
   run: dotnet test
 ```
-{% endraw %}
 
 ## 成果物としてのワークフローのデータのパッケージ化
 
@@ -192,7 +179,6 @@ steps:
 
 詳しい情報については「[成果物を利用してワークフローのデータを永続化する](/github/automating-your-workflow-with-github-actions/persisting-workflow-data-using-artifacts)」を参照してください。
 
-{% raw %}
 ```yaml
 name: dotnet package
 
@@ -207,28 +193,27 @@ jobs:
         dotnet-version: [ '3.0', '3.1.x', '5.0.x' ]
 
       steps:
-        - uses: actions/checkout@v2
+        - uses: {% data reusables.actions.action-checkout %}
         - name: Setup dotnet
-          uses: actions/setup-dotnet@v1
+          uses: {% data reusables.actions.action-setup-dotnet %}
           with:
-            dotnet-version: ${{ matrix.dotnet-version }}
+            dotnet-version: {% raw %}${{ matrix.dotnet-version }}{% endraw %}
         - name: Install dependencies
           run: dotnet restore
         - name: Test with dotnet
-          run: dotnet test --logger trx --results-directory "TestResults-${{ matrix.dotnet-version }}"
+          run: dotnet test --logger trx --results-directory {% raw %}"TestResults-${{ matrix.dotnet-version }}"{% endraw %}
         - name: Upload dotnet test results
-          uses: actions/upload-artifact@v2
+          uses: {% data reusables.actions.action-upload-artifact %}
           with:
-            name: dotnet-results-${{ matrix.dotnet-version }}
-            path: TestResults-${{ matrix.dotnet-version }}
-          # always() を使用して常にこのステップを実行し、テストが失敗したときにテスト結果を公開する
-          if: ${{ always() }}
+            name: {% raw %}dotnet-results-${{ matrix.dotnet-version }}{% endraw %}
+            path: {% raw %}TestResults-${{ matrix.dotnet-version }}{% endraw %}
+          # Use always() to always run this step to publish test results when there are test failures
+          if: {% raw %}${{ always() }}{% endraw %}
 ```
-{% endraw %}
 
 ## パッケージレジストリへの公開
 
-CIテストにパスしたら、Dotnetパッケージをパッケージレジストリに公開するようにワークフローを設定できます。 バイナリを公開するのに必要なトークンや認証情報を保存するために、リポジトリシークレットを使うことができます。 以下の例では、`dotnet core cli`を使ってパッケージを作成し、{% data variables.product.prodname_registry %}に公開しています。
+You can configure your workflow to publish your .NET package to a package registry when your CI tests pass. バイナリを公開するのに必要なトークンや認証情報を保存するために、リポジトリシークレットを使うことができます。 以下の例では、`dotnet core cli`を使ってパッケージを作成し、{% data variables.product.prodname_registry %}に公開しています。
 
 ```yaml
 name: Upload dotnet package
@@ -239,13 +224,13 @@ on:
 
 jobs:
   deploy:
-    runs-on: ubuntu-latest{% ifversion fpt or ghes > 3.1 or ghae-next %}
+    runs-on: ubuntu-latest
     permissions:
       packages: write
-      contents: read{% endif %}
+      contents: read
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-dotnet@v1
+      - uses: {% data reusables.actions.action-checkout %}
+      - uses: {% data reusables.actions.action-setup-dotnet %}
         with:
           dotnet-version: '3.1.x' # SDK Version to use.
           source-url: https://nuget.pkg.github.com/<owner>/index.json

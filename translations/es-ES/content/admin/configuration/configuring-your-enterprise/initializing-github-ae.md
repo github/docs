@@ -8,13 +8,14 @@ topics:
   - Enterprise
 redirect_from:
   - /admin/configuration/initializing-github-ae
+  - /enterprise-server@latest/admin/configuration/configuring-your-enterprise/initializing-github-ae
 ---
 
 ## Acerca de la inicialización
 
 Antes de que puedas inicializar tue mpresa, debes comprar {% data variables.product.product_name %}. Para obtener más información, contacta a {% data variables.contact.contact_enterprise_sales %}.
 
-{% data reusables.github-ae.initialize-enterprise %} Make sure the information you provide matches the intended enterprise owner's information in the IdP. Para obtener más información acerca de los propietarios de las empresas, consulta la sección "[Roles en una empresa](/github/setting-up-and-managing-your-enterprise/roles-in-an-enterprise#enterprise-owner)".
+{% data reusables.github-ae.initialize-enterprise %} Asegúrate de que la información que proporcionas empate con la información destinada del propietario de la empresa en el IdP. Para obtener más información acerca de los propietarios de las empresas, consulta la sección "[Roles en una empresa](/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise#enterprise-owner)".
 
 {% note %}
 

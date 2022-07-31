@@ -8,6 +8,7 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
+  ghec: '*'
 topics:
   - 2FA
 shortTitle: 禁用 2FA
@@ -17,7 +18,7 @@ shortTitle: 禁用 2FA
 
 {% warning %}
 
-**警告：** 如果您是需要双重身份验证的某组织的公共仓库的成员{% ifversion fpt %}、帐单管理员{% endif %} 或外部协作者，并且已禁用 2FA，您将被从该组织中自动删除，并会失去对其仓库的访问权限。 要重新获得对组织的访问权限，请重新启用双重身份验证并联系组织所有者。
+**警告：** 如果您是需要双重身份验证的某组织的公共仓库的成员{% ifversion fpt or ghec %}、帐单管理员{% endif %} 或外部协作者，并且已禁用 2FA，您将被从该组织中自动删除，并会失去对其仓库的访问权限。 要重新获得对组织的访问权限，请重新启用双重身份验证并联系组织所有者。
 
 {% endwarning %}
 
@@ -27,8 +28,8 @@ shortTitle: 禁用 2FA
  - 作为组织成员或所有者，请参阅“[从组织中删除自己](/articles/removing-yourself-from-an-organization/)”。
  - 作为外部协作者，请要求组织所有者或仓库管理员从组织的仓库中删除自己。 更多信息请参阅“[查看组织中的人员角色](/articles/viewing-people-s-roles-in-an-organization)”和“[从组织仓库中删除外部协作者](/articles/removing-an-outside-collaborator-from-an-organization-repository/)”。
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.security %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.security %}
 3. 单击 **Disable（禁用）**。 ![禁用双重身份验证](/assets/images/help/2fa/disable-two-factor-authentication.png)
 
 ## 延伸阅读

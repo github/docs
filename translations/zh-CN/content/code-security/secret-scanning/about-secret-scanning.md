@@ -1,7 +1,7 @@
 ---
-title: 关于密码扫描
-intro: '{% data variables.product.product_name %} 扫描仓库查找已知的密码类型，以防止欺诈性使用意外提交的密码。'
-product: '{% data reusables.gated-features.secret-scanning %}'
+title: About secret scanning
+intro: '{% data variables.product.product_name %} scans repositories for known types of secrets, to prevent fraudulent use of secrets that were committed accidentally.'
+product: '{% data reusables.gated-features.secret-scanning-partner %}'
 redirect_from:
   - /github/administering-a-repository/about-token-scanning
   - /articles/about-token-scanning
@@ -10,8 +10,9 @@ redirect_from:
   - /code-security/secret-security/about-secret-scanning
 versions:
   fpt: '*'
-  ghes: '>=3.0'
+  ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: overview
 topics:
   - Secret scanning
@@ -21,68 +22,90 @@ topics:
 {% data reusables.secret-scanning.beta %}
 {% data reusables.secret-scanning.enterprise-enable-secret-scanning %}
 
-如果项目与外部服务通信，您可能使用令牌或私钥进行身份验证。 令牌和私钥是服务提供商可以签发的典型密码。 如果将密码检入仓库，则对仓库具有读取权限的任何人都可以使用该密码以您的权限访问外部服务。 建议将密码存储在项目仓库外部专用的安全位置。
+## About {% data variables.product.prodname_secret_scanning %}
 
-{% data variables.product.prodname_secret_scanning_caps %} 将在 {% data variables.product.prodname_dotcom %} 仓库中存在的所有分支上扫描整个 Git 历史记录，以查找任何密钥。 服务提供商可与 {% data variables.product.company_short %} 合作提供其用于扫描的密码格式。{% ifversion fpt %} 更多信息请参阅“[密码扫描合作伙伴计划](/developers/overview/secret-scanning-partner-program)”。
+If your project communicates with an external service, you might use a token or private key for authentication. Tokens and private keys are examples of secrets that a service provider can issue. If you check a secret into a repository, anyone who has read access to the repository can use the secret to access the external service with your privileges. We recommend that you store secrets in a dedicated, secure location outside of the repository for your project.
+
+{% data variables.product.prodname_secret_scanning_caps %} will scan your entire Git history on all branches present in your {% data variables.product.prodname_dotcom %} repository for secrets{% ifversion ghec or ghes > 3.4 or ghae-issue-6329 %}, even if the repository is archived{% endif %}.
+
+{% ifversion fpt or ghec %}
+{% data variables.product.prodname_secret_scanning_caps %} is available on {% data variables.product.prodname_dotcom_the_website %} in two forms:
+
+1. **{% data variables.product.prodname_secret_scanning_partner_caps %}.** Runs automatically on all public repositories. Any strings that match patterns that were provided by secret scanning partners are reported directly to the relevant partner.
+
+2. **{% data variables.product.prodname_secret_scanning_GHAS_caps %}.** {% ifversion fpt %}Organizations using {% data variables.product.prodname_ghe_cloud %} with a license for {% data variables.product.prodname_GH_advanced_security %} can enable and configure additional scanning for repositories owned by the organization.{% elsif ghec %}You can enable and configure additional scanning for repositories owned by organizations that use {% data variables.product.prodname_ghe_cloud %} and have a license for {% data variables.product.prodname_GH_advanced_security %}.{% endif %} Any strings that match patterns provided by secret scanning partners, by other service providers, or defined by your organization, are reported as alerts in the "Security" tab of repositories. If a string in a public repository matches a partner pattern, it is also reported to the partner.{% endif %}{% ifversion fpt %} For more information, see the [{% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/code-security/secret-security/about-secret-scanning#about-secret-scanning-for-advanced-security).{% endif %}
+
+Service providers can partner with {% data variables.product.company_short %} to provide their secret formats for scanning. {% data reusables.secret-scanning.partner-program-link %}
+
+{% ifversion secret-scanning-push-protection %}
+
+You can also enable {% data variables.product.prodname_secret_scanning %} as a push protection for a repository or an organization. When you enable this feature, {% data variables.product.prodname_secret_scanning %} prevents contributors from pushing code with a detected secret. To proceed, contributors must either remove the secret(s) from the push or, if needed, bypass the protection. For more information, see "[Protecting pushes with {% data variables.product.prodname_secret_scanning %}](/code-security/secret-scanning/protecting-pushes-with-secret-scanning)."
+
 {% endif %}
 
-{% data reusables.secret-scanning.about-secret-scanning %}
+{% ifversion fpt or ghec %}
+## About {% data variables.product.prodname_secret_scanning_partner %}
+
+When you make a repository public, or push changes to a public repository, {% data variables.product.product_name %} always scans the code for secrets that match partner patterns. If {% data variables.product.prodname_secret_scanning %} detects a potential secret, we notify the service provider who issued the secret. The service provider validates the string and then decides whether they should revoke the secret, issue a new secret, or contact you directly. Their action will depend on the associated risks to you or them. For more information, see "[Supported secrets for partner patterns](/code-security/secret-scanning/secret-scanning-patterns#supported-secrets-for-partner-patterns)."
+
+You cannot change the configuration of {% data variables.product.prodname_secret_scanning %} on public repositories.
 
 {% ifversion fpt %}
-## 关于公共仓库的 {% data variables.product.prodname_secret_scanning %}
-
-{% data variables.product.prodname_secret_scanning_caps %} 自动对公共仓库启用。 当您推送到公共仓库时，{% data variables.product.product_name %} 会扫描提交的内容中是否有密码。 如果将私有仓库切换到公共仓库，{% data variables.product.product_name %} 会扫描整个仓库中的密码。
-
-当 {% data variables.product.prodname_secret_scanning %} 检测一组凭据时，我们会通知发布密码的服务提供商。 服务提供商会验证该凭据，然后决定是否应撤销密钥、颁发新密钥或直接与您联系，具体取决于与您或服务提供商相关的风险。 有关如何使用令牌颁发合作伙伴的概述，请参阅“[密码扫描合作伙伴计划](/developers/overview/secret-scanning-partner-program)”。
-
-{% data variables.product.product_name %} 当前会扫描公共仓库，查找以下服务提供商发布的密码。
-
-{% data reusables.secret-scanning.partner-secret-list-public-repo %}
-
-## 关于私有仓库的 {% data variables.product.prodname_secret_scanning %}
-{% endif %}
-
-{% ifversion ghes > 2.22 or ghae %}
-## 关于 {% data variables.product.product_name %} 上的 {% data variables.product.prodname_secret_scanning %}
-
-{% data variables.product.prodname_secret_scanning_caps %} 作为 {% data variables.product.prodname_GH_advanced_security %} 的一部分，在组织拥有的所有仓库上可用。 它不适用于用户拥有的仓库。
-{% endif %}
-
-如果您是仓库管理员或组织所有者，您可以为组织拥有的{% ifversion fpt %}私有{% endif %}仓库启用 {% data variables.product.prodname_secret_scanning %}。 您可以对您的所有仓库或您组织内的所有新仓库启用 {% data variables.product.prodname_secret_scanning %}。{% ifversion fpt %}{% data variables.product.prodname_secret_scanning_caps %} 不适用于用户拥有的私有仓库。{% endif %}更多信息请参阅“[管理仓库的安全和分析设置](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository)”和“[管理组织的安全和分析设置](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)”。
-
-{% ifversion fpt or ghes > 3.1 or ghae-next %}您也可以定义只应用到您的仓库或组织的自定义 {% data variables.product.prodname_secret_scanning %} 模式。 更多信息请参阅“[定义 {% data variables.product.prodname_secret_scanning %} 的自定义模式](/code-security/secret-security/defining-custom-patterns-for-secret-scanning)”。{% endif %}
-
-将提交推送到启用了 {% data variables.product.prodname_secret_scanning %} 的{% ifversion fpt %}私有{% endif %}仓库时，{% data variables.product.prodname_dotcom %} 会扫描提交的内容中是否有密码。
-
-当 {% data variables.product.prodname_secret_scanning %} 在{% ifversion fpt %}私有{% endif %}仓库中检测到密码时，{% data variables.product.prodname_dotcom %} 会生成警报。
-
-- {% data variables.product.prodname_dotcom %} 向仓库管理员和组织所有者发送电子邮件警报。
-{% ifversion fpt or ghes > 3.0 or ghae-next %}
-- {% data variables.product.prodname_dotcom %} 向提交机密到仓库的贡献者发送电子邮件警报，其中包括指向相关 {% data variables.product.prodname_secret_scanning %} 警报的链接。 然后，提交作者可以在仓库中查看警报，然后解决警报。
-{% endif %}
-- {% data variables.product.prodname_dotcom %} 显示仓库中的警报。{% ifversion ghes = 3.0 %} 更多信息请参阅“[管理来自 {% data variables.product.prodname_secret_scanning %} 的警报](/github/administering-a-repository/managing-alerts-from-secret-scanning)”。{% endif %}
-
-{% ifversion fpt or ghes > 3.0 or ghae-next %}
-有关查看和解析 {% data variables.product.prodname_secret_scanning %} 警报的详细信息，请参阅“[管理来自 {% data variables.product.prodname_secret_scanning %} 的警报](/github/administering-a-repository/managing-alerts-from-secret-scanning)”。{% endif %}
-
-仓库管理员和组织所有者可以授权用户和团队访问 {% data variables.product.prodname_secret_scanning %} 警报。 更多信息请参阅“[管理仓库的安全和分析设置](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository#granting-access-to-security-alerts)”。
-
-{% ifversion fpt or ghes > 3.0 %}
-要监控来自私有仓库或组织中的 {% data variables.product.prodname_secret_scanning %} 的结果，可以使用 {% data variables.product.prodname_secret_scanning %} API。 有关 API 端点的更多信息，请参阅“[{% data variables.product.prodname_secret_scanning_caps %}](/rest/reference/secret-scanning)”。{% endif %}
-
-{% data variables.product.prodname_dotcom %}  目前扫描{% ifversion fpt %}私有{% endif %}仓库，以检查由以下服务提供者颁发的密码。
-
-{% data reusables.secret-scanning.partner-secret-list-private-repo %}
-
-{% ifversion ghes < 3.2 or ghae %}
 {% note %}
 
-**注：** {% data variables.product.prodname_secret_scanning_caps %} 当前不允许定义自己的模式来检测密码。
+{% data reusables.secret-scanning.fpt-GHAS-scans %}
 
 {% endnote %}
 {% endif %}
 
-## 延伸阅读
+{% endif %}
 
-- "[保护您的仓库](/code-security/getting-started/securing-your-repository)"
-- "[保护帐户和数据安全](/github/authenticating-to-github/keeping-your-account-and-data-secure)"
+{% ifversion not fpt %}
+
+{% ifversion ghec %}
+## About {% data variables.product.prodname_secret_scanning_GHAS %}
+{% elsif ghes or ghae %}
+## About {% data variables.product.prodname_secret_scanning %} on {% data variables.product.product_name %}
+{% endif %}
+
+{% data variables.product.prodname_secret_scanning_GHAS_caps %} is available on all organization-owned repositories as part of {% data variables.product.prodname_GH_advanced_security %}. It is not available on user-owned repositories. When you enable {% data variables.product.prodname_secret_scanning %} for a repository, {% data variables.product.prodname_dotcom %} scans the code for patterns that match secrets used by many service providers. For more information, see "{% ifversion ghec %}[Supported secrets for advanced security](/code-security/secret-scanning/secret-scanning-patterns#supported-secrets-for-advanced-security){% else %}[{% data variables.product.prodname_secret_scanning_caps %} patterns](/code-security/secret-scanning/secret-scanning-patterns){% endif %}."
+
+If you're a repository administrator you can enable {% data variables.product.prodname_secret_scanning_GHAS %} for any repository{% ifversion ghec or ghes > 3.4 or ghae-issue-6329 %}, including archived repositories{% endif %}. Organization owners can also enable {% data variables.product.prodname_secret_scanning_GHAS %} for all repositories or for all new repositories within an organization. For more information, see "[Managing security and analysis settings for your repository](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository)" and "[Managing security and analysis settings for your organization](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)."
+
+{% ifversion ghes or ghae or ghec %}You can also define custom {% data variables.product.prodname_secret_scanning %} patterns for a repository, organization, or enterprise. For more information, see "[Defining custom patterns for {% data variables.product.prodname_secret_scanning %}](/code-security/secret-security/defining-custom-patterns-for-secret-scanning)."
+{% endif %}
+### About {% data variables.product.prodname_secret_scanning %} alerts
+
+When you push commits to a repository with {% data variables.product.prodname_secret_scanning %} enabled, {% data variables.product.prodname_dotcom %} scans the contents of those commits for secrets that match patterns defined by service providers{% ifversion ghes or ghae or ghec %} and any custom patterns defined in your enterprise, organization, or repository{% endif %}. 
+
+If {% data variables.product.prodname_secret_scanning %} detects a secret, {% data variables.product.prodname_dotcom %} generates an alert.
+
+- {% data variables.product.prodname_dotcom %} sends an email alert to the repository administrators and organization owners.
+{% ifversion ghes or ghae or ghec %}
+- {% data variables.product.prodname_dotcom %} sends an email alert to the contributor who committed the secret to the repository, with a link to the related {% data variables.product.prodname_secret_scanning %} alert. The commit author can then view the alert in the repository, and resolve the alert.
+{% endif %}
+- {% data variables.product.prodname_dotcom %} displays an alert in the "Security" tab of the repository.
+
+{% ifversion ghes or ghae or ghec %}
+For more information about viewing and resolving {% data variables.product.prodname_secret_scanning %} alerts, see "[Managing alerts from {% data variables.product.prodname_secret_scanning %}](/github/administering-a-repository/managing-alerts-from-secret-scanning)."{% endif %}
+
+Repository administrators and organization owners can grant users and teams access to {% data variables.product.prodname_secret_scanning %} alerts. For more information, see "[Managing security and analysis settings for your repository](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository#granting-access-to-security-alerts)."
+
+{% ifversion ghec or ghes %}
+You can use the security overview to see an organization-level view of which repositories have enabled {% data variables.product.prodname_secret_scanning %} and the alerts found. For more information, see "[Viewing the security overview](/code-security/security-overview/viewing-the-security-overview)."
+{% endif %}
+
+{%- ifversion ghec or ghes %}You can also use the REST API to {% endif %}
+monitor results from {% data variables.product.prodname_secret_scanning %} across your {% ifversion ghec %}private {% endif %}repositories{% ifversion ghes %} or your organization{% endif %}. For more information about API endpoints, see "[{% data variables.product.prodname_secret_scanning_caps %}](/rest/reference/secret-scanning)."
+
+{% endif %}
+
+## Further reading
+
+- "[Securing your repository](/code-security/getting-started/securing-your-repository)"
+- "[Keeping your account and data secure](/github/authenticating-to-github/keeping-your-account-and-data-secure)"
+{%- ifversion fpt or ghec %}
+- "[Managing encrypted secrets for your codespaces](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)"{% endif %}
+{%- ifversion fpt or ghec or ghes > 3.2 %}
+- "[Managing encrypted secrets for Dependabot](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/managing-encrypted-secrets-for-dependabot)"{% endif %}
+- "[Encrypted secrets](/actions/security-guides/encrypted-secrets)"

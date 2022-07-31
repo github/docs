@@ -1,0 +1,28 @@
+---
+date: '2021-10-12'
+sections:
+  security_fixes:
+    - '包已更新到最新的安全版本。{% comment %} https://github.com/github/enterprise2/pull/27118, https://github.com/github/enterprise2/pull/27110 {% endcomment %}'
+  bugs:
+    - '自定义预接收挂钩可能由于限制过多的虚拟内存或 CPU 时间限制而失败。 {% comment %} https://github.com/github/enterprise2/pull/26973， https://github.com/github/enterprise2/pull/26955 {% endcomment %}'
+    - '在 GitHub Enterprise Server 群集配置中，可能错误地应用了依赖关系图设置。{% comment %} https://github.com/github/enterprise2/pull/26981, https://github.com/github/enterprise2/pull/26861 {% endcomment %}'
+    - '尝试使用 `ghe-cleanup-settings` 擦除所有现有配置设置失败，无法重新启动管理控制台服务。{% comment %} https://github.com/github/enterprise2/pull/26988, https://github.com/github/enterprise2/pull/26901 {% endcomment %}'
+    - '在通过 `ghe-repl-teardown` 进行复制拆解期间，Memcached 无法重新启动。{% comment %} https://github.com/github/enterprise2/pull/26994, https://github.com/github/enterprise2/pull/26983 {% endcomment %}'
+    - '在高负载期间，当上游服务未通过内部运行状况检查时，用户将收到 HTTP 503 状态代码。{% comment %} https://github.com/github/enterprise2/pull/27083, https://github.com/github/enterprise2/pull/26999 {% endcomment %}'
+    - '预接收挂钩环境被禁止通过 Alpine 上的 BusyBox 调用 cat 命令。{% comment %} https://github.com/github/enterprise2/pull/27116, https://github.com/github/enterprise2/pull/27094 {% endcomment %}'
+    - '从主集群数据中心故障转移到辅助集群数据中心成功，但随后故障回复到原始主集群数据中心失败，无法提升 Elasticsearch 指标。{% comment %} https://github.com/github/github/pull/193182, https://github.com/github/github/pull/192447 {% endcomment %}'
+    - '组织的“团队”页面上的“Import teams（导入团队）”按钮返回了 HTTP 404。{% comment %} https://github.com/github/github/pull/193303 {% endcomment %}'
+    - '使用 API 禁用机密扫描可正确禁用该属性，但错误地返回 HTTP 422 和错误消息。{% comment %} https://github.com/github/github/pull/193455, https://github.com/github/github/pull/192907 {% endcomment %}'
+    - '在某些情况下，尝试查看“休眠用户”页面的 GitHub 企业管理员会收到“502 网关错误”或“504 网关超时”响应。{% comment %} https://github.com/github/github/pull/194262, https://github.com/github/github/pull/193609 {% endcomment %}'
+    - '在某些高负载情况下，由于 `SynchronizePullRequestJob` 作业的数量增加，性能受到负面影响。{% comment %} https://github.com/github/github/pull/195256, https://github.com/github/github/pull/194591 {% endcomment %}'
+    - '为秘密扫描创建的用户定义的模式即使在被删除后也将继续被扫描。{% comment %} https://github.com/github/token-scanning-service/pull/1039, https://github.com/github/token-scanning-service/pull/822 {% endcomment %}'
+  changes:
+    - 'GitHub 应用程序现在已在存储库上设置与 API 一致的机密扫描功能。{% comment %} https://github.com/github/github/pull/193456, https://github.com/github/github/pull/193125 {% endcomment %}'
+  known_issues:
+    - 在新建的没有任何用户的 {% data variables.product.prodname_ghe_server %} 上，攻击者可以创建第一个管理员用户。
+    - 自定义防火墙规则在升级过程中被删除。
+    - Git LFS 跟踪的文件[通过 Web 界面上传](https://github.com/blog/2105-upload-files-to-your-repositories) 被错误地直接添加到仓库。
+    - 如果议题包含文件路径长于 255 个字符的同一仓库中 blob 的永久链接，则议题无法关闭。
+    - 对 GitHub Connect 启用“用户可以搜索 GitHub.com”后，私有和内部仓库中的议题不包括在 GitHub.com 搜索结果中。
+    - '{% data variables.product.prodname_registry %} npm 注册表不再返回元数据响应的时间值。这样做是为了大幅改善性能。作为元数据响应的一部分，我们继续拥有返回时间值所需的所有数据，并将在我们解决现有性能问题后恢复返回这个值。'
+    - 特定于处理预接收挂钩的资源限制可能会导致某些预接收挂钩失败。

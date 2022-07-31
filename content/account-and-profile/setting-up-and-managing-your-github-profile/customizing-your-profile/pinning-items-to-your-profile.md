@@ -2,13 +2,14 @@
 title: Pinning items to your profile
 intro: You can pin gists and repositories to your profile so other people can quickly see your best work.
 redirect_from:
-  - /articles/pinning-repositories-to-your-profile/
+  - /articles/pinning-repositories-to-your-profile
   - /articles/pinning-items-to-your-profile
   - /github/setting-up-and-managing-your-github-profile/pinning-items-to-your-profile
   - /github/setting-up-and-managing-your-github-profile/customizing-your-profile/pinning-items-to-your-profile
 versions:
   fpt: '*'
   ghes: '*'
+  ghec: '*'
 topics:
   - Profiles
 shortTitle: Pin items

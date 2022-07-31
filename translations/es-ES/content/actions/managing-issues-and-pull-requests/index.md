@@ -1,11 +1,12 @@
 ---
-title: Managing issues and pull requests
-shortTitle: Managing issues and pull requests
-intro: 'You can automatically manage your issues and pull requests using {% data variables.product.prodname_actions %} workflows.'
+title: Administrar propuestas y solicitudes de cambios
+shortTitle: Administrar propuestas y solicitudes de cambios
+intro: 'Puedes fusionar tus propuestas y solicitudes de cambios automáticamente utilizando los flujos de trabajo de {% data variables.product.prodname_actions %}.'
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 children:
   - /using-github-actions-for-project-management
   - /adding-labels-to-issues

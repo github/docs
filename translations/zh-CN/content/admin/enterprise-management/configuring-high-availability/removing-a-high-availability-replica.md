@@ -40,7 +40,7 @@ shortTitle: 删除 HA 副本
   $ ghe-repl-teardown
   ```
 
-  {% ifversion ghes > 2.22 %}
+  {% ifversion ghes %}
   {% note %}
 
   **注：**如果您已启用 {% data variables.product.prodname_actions %} ，则应取消前一个副本服务器的功能，或更新其 {% data variables.product.prodname_actions %} 配置，以使用不同的外部存储。 更多信息请参阅“[{% data variables.product.prodname_actions %} 的高可用性](/admin/github-actions/high-availability-for-github-actions#high-availability-replicas)”。

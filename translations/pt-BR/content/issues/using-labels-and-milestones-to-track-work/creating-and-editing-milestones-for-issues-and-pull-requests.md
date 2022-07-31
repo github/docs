@@ -3,16 +3,20 @@ title: Criar e editar marcos para problemas e pull requests
 intro: Você pode criar um marco para rastrear o progresso em grupos de problemas ou pull requests em um repositório.
 redirect_from:
   - /github/managing-your-work-on-github/tracking-the-progress-of-your-work-with-milestones/creating-and-editing-milestones-for-issues-and-pull-requests
-  - /articles/creating-milestones-for-issues-and-pull-requests/
+  - /articles/creating-milestones-for-issues-and-pull-requests
   - /articles/creating-and-editing-milestones-for-issues-and-pull-requests
   - /github/managing-your-work-on-github/creating-and-editing-milestones-for-issues-and-pull-requests
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
+  - Issues
+  - Project management
 shortTitle: Criar & editar marcos
+type: how_to
 ---
 
 {% data reusables.repositories.navigate-to-repo %}

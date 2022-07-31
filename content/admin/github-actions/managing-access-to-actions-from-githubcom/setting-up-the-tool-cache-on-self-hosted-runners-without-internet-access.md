@@ -6,14 +6,17 @@ redirect_from:
   - /admin/github-actions/setting-up-the-tool-cache-on-self-hosted-runners-without-internet-access
 versions:
   ghes: '*'
-  ghae: next
+  ghae: '*'
+type: tutorial
 topics:
+  - Actions
   - Enterprise
+  - Networking
+  - Storage
 shortTitle: Tool cache for offline runners
 ---
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## About the included setup actions and the runner tool cache
 
@@ -27,7 +30,7 @@ You can populate the runner tool cache by running a {% data variables.product.pr
 
 {% note %}
 
-**Note:** You can only use a {% data variables.product.prodname_dotcom %}-hosted runner's tool cache for a self-hosted runner that has an identical operating system and architecture. For example, if you are using a `ubuntu-18.04` {% data variables.product.prodname_dotcom %}-hosted runner to generate a tool cache, your self-hosted runner must be a 64-bit Ubuntu 18.04 machine. For more information on {% data variables.product.prodname_dotcom %}-hosted runners, see "<a href="/actions/reference/virtual-environments-for-github-hosted-runners#supported-runners-and-hardware-resources" class="dotcom-only">Virtual environments for GitHub-hosted runners</a>."
+**Note:** You can only use a {% data variables.product.prodname_dotcom %}-hosted runner's tool cache for a self-hosted runner that has an identical operating system and architecture. For example, if you are using a `ubuntu-18.04` {% data variables.product.prodname_dotcom %}-hosted runner to generate a tool cache, your self-hosted runner must be a 64-bit Ubuntu 18.04 machine. For more information on {% data variables.product.prodname_dotcom %}-hosted runners, see "[Virtual environments for GitHub-hosted runners](/free-pro-team@latest/actions/using-github-hosted-runners/about-github-hosted-runners#supported-runners-and-hardware-resources)."
 
 {% endnote %}
 
@@ -44,7 +47,6 @@ You can populate the runner tool cache by running a {% data variables.product.pr
 
    The following example demonstrates a workflow that uploads the tool cache for an Ubuntu 18.04 environment, using the `setup-node` action with Node.js versions 10 and 12.
 
-   {% raw %}
    ```yaml
    name: Upload Node.js 10 and 12 tool cache
    on: push
@@ -54,26 +56,25 @@ You can populate the runner tool cache by running a {% data variables.product.pr
        steps:
          - name: Clear any existing tool cache
            run: |
-             mv "${{ runner.tool_cache }}" "${{ runner.tool_cache }}.old"
-             mkdir -p "${{ runner.tool_cache }}"
+             mv "{% raw %}${{ runner.tool_cache }}" "${{ runner.tool_cache }}.old"{% endraw %}
+             mkdir -p "{% raw %}${{ runner.tool_cache }}{% endraw %}"
          - name: Setup Node 10
-           uses: actions/setup-node@v2
+           uses: {% data reusables.actions.action-setup-node %}
            with:
              node-version: 10.x
          - name: Setup Node 12
-           uses: actions/setup-node@v2
+           uses: {% data reusables.actions.action-setup-node %}
            with:
              node-version: 12.x
          - name: Archive tool cache
            run: |
-             cd "${{ runner.tool_cache }}"
+             cd "{% raw %}${{ runner.tool_cache }}{% endraw %}"
              tar -czf tool_cache.tar.gz *
          - name: Upload tool cache artifact
-           uses: actions/upload-artifact@v2
+           uses: {% data reusables.actions.action-upload-artifact %}
            with:
-             path: ${{runner.tool_cache}}/tool_cache.tar.gz
+             path: {% raw %}${{runner.tool_cache}}/tool_cache.tar.gz{% endraw %}
    ```
-   {% endraw %}
 1. Download the tool cache artifact from the workflow run. For instructions on downloading artifacts, see "[Downloading workflow artifacts](/actions/managing-workflow-runs/downloading-workflow-artifacts)."
 1. Transfer the tool cache artifact to your self hosted runner and extract it to the local tool cache directory. The default tool cache directory is `RUNNER_DIR/_work/_tool`. If the runner hasn't processed any jobs yet, you might need to create the `_work/_tool` directories.
 

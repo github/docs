@@ -7,12 +7,13 @@ redirect_from:
   - /github/building-a-strong-community/encouraging-helpful-contributions-to-your-project-with-labels
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Community
 shortTitle: 鼓励参与
 ---
 
-您可以将 `good first issue` 标签应用到公共仓库中的议题，以便人们在按标签搜索时查找它们。 有关按标签搜索的更多信息，请参阅“[搜索议题和拉取请求](/articles/searching-issues-and-pull-requests/#search-by-label)”。
+您可以将 `good first issue` 标签应用到公共仓库中的议题，以便人们在按标签搜索时查找它们。 有关按标签搜索的更多信息，请参阅“[搜索议题和拉取请求](/search-github/searching-on-github/searching-issues-and-pull-requests/#search-by-label)”。
 
 {% data variables.product.prodname_dotcom %} 使用算法确定每个仓库中最接近的议题，并将它们显示在 {% data variables.product.prodname_dotcom_the_website %} 上的不同位置。 添加 `good first issue` 标签可以提高您的议题显示的概率。
 
@@ -24,4 +25,4 @@ shortTitle: 鼓励参与
 ## 延伸阅读
 
 - "[关于标签](/articles/about-labels)"
-- "[搜索仓库](/articles/searching-for-repositories)"
+- "[搜索仓库](/search-github/searching-on-github/searching-for-repositories)"

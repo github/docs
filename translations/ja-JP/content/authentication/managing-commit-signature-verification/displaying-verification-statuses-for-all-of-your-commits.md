@@ -4,6 +4,7 @@ shortTitle: すべてのコミットの検証を表示
 intro: コミット署名検証の警戒モードを有効にして、すべてのコミットとタグに署名検証ステータスのマークを付けることができます。
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Identity
   - Access management
@@ -32,8 +33,8 @@ You should only enable vigilant mode if you sign all of your commits and tags an
 
 ## 警戒モードの有効化
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.ssh %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.ssh %}
 3. [SSH Settings] ページの [Vigilant mode] で、[**Flag unsigned commits as unverified**] を選択します。
 
    ![署名されていないコミットを未検証のチェックボックスとしてフラグを立てる](/assets/images/help/commits/vigilant-mode-checkbox.png)

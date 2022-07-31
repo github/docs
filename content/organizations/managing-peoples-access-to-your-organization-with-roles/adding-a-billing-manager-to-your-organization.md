@@ -6,6 +6,7 @@ redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/adding-a-billing-manager-to-your-organization
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
@@ -49,11 +50,13 @@ Billing managers **are not** able to:
 
 ## Inviting a billing manager
 
+{% ifversion ghec %}
 {% note %}
 
-**Note:** If your organization is managed using [Enterprise Accounts](/github/setting-up-and-managing-your-enterprise/managing-your-enterprise-account/about-enterprise-accounts) you will not be able to invite Billing Managers at the organization level. 
+**Note:** If your organization is owned by an enterprise account, you cannot invite billing managers at the organization level. For more information, see "[About enterprise accounts](/admin/overview/about-enterprise-accounts)."
 
 {% endnote %}
+{% endif %}
 
 The invited person will receive an invitation email asking them to become a billing manager for your organization. Once the invited person clicks the accept link in their invitation email, they will automatically be added to the organization as a billing manager. If they don't already have a GitHub account, they will be directed to sign up for one, and they will be automatically added to the organization as a billing manager after they create an account.
 
@@ -62,3 +65,7 @@ The invited person will receive an invitation email asking them to become a bill
   ![Invite billing manager](/assets/images/help/billing/settings_billing_managers_list.png)
 6. Type the username or email address of the person you want to add and click **Send invitation**.
   ![Invite billing manager page](/assets/images/help/billing/billing_manager_invite.png)
+
+## Further reading
+
+- "[Inviting people to manage your enterprise](/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise/inviting-people-to-manage-your-enterprise)"{% ifversion fpt %} in the {% data variables.product.prodname_ghe_cloud %} documentation{% endif %}

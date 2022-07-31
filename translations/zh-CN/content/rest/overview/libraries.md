@@ -1,13 +1,14 @@
 ---
 title: 库
-intro: '您可以使用官方的 Octokit 库和其他第三方库来扩展和简化 {% data variables.product.prodname_dotcom %} API 的使用方式。'
+intro: '您可以使用官方的 Octokit 库和其他第三方库来扩展和简化您使用 {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API 的方式。'
 redirect_from:
-  - /libraries/
+  - /libraries
   - /v3/libraries
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - API
 ---
@@ -17,7 +18,7 @@ topics:
   <h1>Octokit 风格多样</h1>
   <p class="lead">使用官方的 Octokit 库，或者使用任何适用的第三方库。</p>
   <div class="octokit-links"><br/>
-     <div class="octokit-language"> <span>Ruby → </span><a href="https://github.com/octokit/octokit.rb">octokit.rb</a></div><br/>
+     <div class="octokit-language"><span>Ruby → </span><a href="https://github.com/octokit/octokit.rb">octokit.rb</a></div><br/>
      <div class="octokit-language"><span>.NET → </span> <a href="https://github.com/octokit/octokit.net">octokit.net</a></div><br/>
      <div class="octokit-language"><span>JavaScript → </span> <a href="https://github.com/octokit/octokit.js">octokit/octokit.js</a></div><br/>
   </div>
@@ -35,7 +36,7 @@ topics:
 
 | 库名称             | 仓库                                                                      |
 | --------------- | ----------------------------------------------------------------------- |
-| **github.dart** | [DirectMyFile/github.dart](https://github.com/DirectMyFile/github.dart) |
+| **github.dart** | [SpinlockLabs/github.dart](https://github.com/SpinlockLabs/github.dart) |
 
 ### Emacs Lisp
 
@@ -73,7 +74,7 @@ topics:
 | 库名称                                                   | 仓库                                                                      |
 | ----------------------------------------------------- | ----------------------------------------------------------------------- |
 | **NodeJS GitHub library**                             | [pksunkara/octonode](https://github.com/pksunkara/octonode)             |
-| **gh3 client-side API v3 wrapper**                    | [k33g/gh3](https://github.com/k33g/gh3)                                 |
+| **gh3 client-side API wrapper**                       | [k33g/gh3](https://github.com/k33g/gh3)                                 |
 | **关于 GitHub API 的 Github.js 包装程序**                    | [michael/github](https://github.com/michael/github)                     |
 | **适用于 Browser 或 NodeJS 的基于 Promise 的 CoffeeScript 库** | [philschatz/github-client](https://github.com/philschatz/github-client) |
 
@@ -134,9 +135,10 @@ topics:
 
 ### Rust
 
-| 库名称          | 仓库                                                            |
-| ------------ | ------------------------------------------------------------- |
-| **Octocrab** | [XAMPPRocky/octocrab](https://github.com/XAMPPRocky/octocrab) |
+| 库名称          | 仓库                                                                |
+| ------------ | ----------------------------------------------------------------- |
+| **Octocrab** | [XAMPPRocky/octocrab](https://github.com/XAMPPRocky/octocrab)     |
+| **Octocat**  | [octocat-rs/octocat-rs](https://github.com/octocat-rs/octocat-rs) |
 
 ### Scala
 

@@ -1,6 +1,7 @@
 ---
 title: 分配议题和拉取请求到其他 GitHub 用户
 intro: 受理人明确谁在处理特定议题和拉取请求。
+permissions: 'Anyone with write access to a repository can assign issues and pull requests. {% data reusables.enterprise-accounts.emu-permission-repo %}'
 redirect_from:
   - /github/managing-your-work-on-github/managing-your-work-with-issues-and-pull-requests/assigning-issues-and-pull-requests-to-other-github-users
   - /articles/assigning-issues-and-pull-requests-to-other-github-users
@@ -10,16 +11,17 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
 shortTitle: 分配议题和 PR
 ---
 
-对仓库有写入权限的任何人都可以分配议题和拉取请求。
-
 ## 关于议题和拉取请求受理人
 
-每个议题和拉取请求最多可分配给 10 个人，包括您自己、 任何评论了议题或拉取请求的人、任何对仓库有写入权限的人以及对仓库有读取权限的组织成员 。 更多信息请参阅“[{% data variables.product.prodname_dotcom %} 上的访问权限](/articles/access-permissions-on-github)”。
+每个议题和拉取请求可分配给多个人，包括您自己、 任何评论了议题或拉取请求的人、任何对仓库有写入权限的人以及对仓库有读取权限的组织成员 。 更多信息请参阅“[{% data variables.product.prodname_dotcom %} 上的访问权限](/articles/access-permissions-on-github)”。
+
+公共仓库和付费帐户的私有仓库中的议题和拉取请求最多可以分配 10 个人。 免费计划中的私有仓库限制为每个议题或拉取请求一个人。
 
 ## 分配单个议题或拉取请求
 

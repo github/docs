@@ -8,6 +8,7 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
+  ghec: '*'
 topics:
   - 2FA
 shortTitle: Disable 2FA
@@ -17,7 +18,7 @@ shortTitle: Disable 2FA
 
 {% warning %}
 
-**警告:** 2 要素認証を必要とする Organization のメンバー{% ifversion fpt %}、支払いマネージャー{% endif %}、または Organization のパブリックリポジトリへの外部コラボレーターが 2 要素認証を無効化すると、Organization から自動的に削除され、リポジトリへのアクセスを失います。 Organization へのアクセスを再取得するには、2 要素認証を再有効化し、Organization オーナーに連絡します。
+**警告:** 2 要素認証を必要とする Organization のメンバー{% ifversion fpt or ghec %}、支払いマネージャー{% endif %}、または Organization のパブリックリポジトリへの外部コラボレーターが 2 要素認証を無効化すると、Organization から自動的に削除され、リポジトリへのアクセスを失います。 Organization へのアクセスを再取得するには、2 要素認証を再有効化し、Organization オーナーに連絡します。
 
 {% endwarning %}
 
@@ -27,8 +28,8 @@ Organization から自分を削除するには:
  - Organization のメンバーまたはオーナーの場合は「[Organization から自分を削除する](/articles/removing-yourself-from-an-organization/)」を参照してください。
  - 外部コラボレーターの場合は、Organization のオーナーかリポジトリの管理者に Organization のリポジトリから削除してもらうよう依頼してください。 詳細は「[Organization における人のロールを表示する](/articles/viewing-people-s-roles-in-an-organization)」および「[外部コラボレーターを Organization リポジトリから削除する](/articles/removing-an-outside-collaborator-from-an-organization-repository/)」を参照してください。
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.security %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.security %}
 3. [**Disable**] をクリックします。 ![[Disable two-factor authentication] ボタン](/assets/images/help/2fa/disable-two-factor-authentication.png)
 
 ## 参考リンク

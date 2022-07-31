@@ -6,6 +6,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 redirect_from:
   - /github/administering-a-repository/setting-the-default-branch
   - /articles/setting-the-default-branch
@@ -28,17 +29,9 @@ shortTitle: 更改默认分支
 {% endnote %}
 {% endif %}
 
-{% ifversion fpt or ghes > 3.0 %}
-
 您也可以重命名默认分支。 更多信息请参阅“[重命名分支](/github/administering-a-repository/renaming-a-branch)”。
 
-{% endif %}
-
-{% ifversion fpt or ghes > 2.22 %}
-
 {% data reusables.branches.set-default-branch %}
-
-{% endif %}
 
 ## 基本要求
 
@@ -46,22 +39,11 @@ shortTitle: 更改默认分支
 
 ## 更改默认分支
 
-{% ifversion fpt or ghes > 2.22 or ghae %}
-
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.repository-branches %}
 1. 在“Default branch（默认分支）”下，在默认分支名称的右侧单击 {% octicon "arrow-switch" aria-label="The switch icon with two arrows" %}。 ![当前默认分支名称右侧的两个箭头切换图标](/assets/images/help/repository/repository-options-defaultbranch-change.png)
 1. 使用下拉菜单，然后单击分支名称。 ![选择新默认分支的下拉菜单](/assets/images/help/repository/repository-options-defaultbranch-drop-down.png)
 1. 单击 **Update（更新）**。 ![选择新默认分支后的"更新"按钮](/assets/images/help/repository/repository-options-defaultbranch-update.png)
-1. 阅读警告，然后单击 **I understand, update the default branch（我了解，请更新默认分支）**。 !["I understand, update the default branch." button to perform the update](/assets/images/help/repository/repository-options-defaultbranch-i-understand.png)
+1. 阅读警告，然后单击 **I understand, update the default branch（我了解，请更新默认分支）**。 !["我了解，请更新默认分支" 按钮以执行更新](/assets/images/help/repository/repository-options-defaultbranch-i-understand.png)
 
-{% else %}
-
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-settings %}
-{% data reusables.repositories.repository-branches %}
-1. 在默认分支下拉菜单中，选择新的默认分支。 ![默认分支下拉选择器](/assets/images/help/repository/repository-options-defaultbranch.png)
-1. 单击 **Update（更新）**。
-
-{% endif %}

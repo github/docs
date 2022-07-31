@@ -6,6 +6,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Repositories
 redirect_from:
@@ -15,5 +16,15 @@ redirect_from:
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.releases %}
-3. Ao lado da versão que você deseja usar como sua base, clique em **Comparar**. ![Comparar menu de tags de versões](/assets/images/help/releases/compare-tags-menu.png)
-4. Use o menu suspenso "comparar" e selecione as tags que você deseja comparar. ![Comparar opções de menu de tags de versões](/assets/images/help/releases/compare-tags-menu-options.png)
+3. Ao lado da versão que você deseja usar como sua base, clique em **Comparar**.
+  {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-4974 %}
+  ![Comparar menu de tags de versões](/assets/images/help/releases/refreshed-compare-tags.png)
+  {% else %}
+  ![Comparar menu de tags de versões](/assets/images/help/releases/compare-tags-menu.png)
+  {% endif %}
+4. Use o menu suspenso "comparar" e selecione as tags que você deseja comparar.
+  {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-4974 %}
+  ![Comparar menu de tags de versões](/assets/images/help/releases/refreshed-compare-tags-menu-options.png)
+  {% else %}
+  ![Comparar opções de menu de tags de versões](/assets/images/help/releases/compare-tags-menu-options.png)
+  {% endif %}

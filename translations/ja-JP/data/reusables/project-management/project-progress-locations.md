@@ -1,1 +1,1 @@
-進捗の追跡が有効になっている場合、プロジェクトボードの上部、プロジェクトリストのページ、Issueのサイドバー、他のプロジェクトボードのプロジェクトへの参照に、プログレスバーが表示されます。
+If progress tracking is enabled, a progress bar appears above the {% data variables.projects.projects_v1_board %}, on the project listing page, in the issue sidebar, and in references to the project on other {% data variables.projects.projects_v1_boards %}.

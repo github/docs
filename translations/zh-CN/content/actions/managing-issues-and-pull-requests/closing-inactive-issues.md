@@ -1,13 +1,13 @@
 ---
 title: 关闭不活跃的议题
 intro: '您可以使用 {% data variables.product.prodname_actions %} 评论或关闭在一定时间内未活动的议题。'
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /actions/guides/closing-inactive-issues
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: tutorial
 topics:
   - Workflows
@@ -16,8 +16,6 @@ topics:
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
-{% data reusables.actions.ae-self-hosted-runners-notice %}
 
 ## 简介
 
@@ -39,12 +37,12 @@ topics:
 
     jobs:
       close-issues:
-        runs-on: ubuntu-latest{% ifversion fpt or ghes > 3.1 or ghae-next %}
+        runs-on: ubuntu-latest
         permissions:
           issues: write
-          pull-requests: write{% endif %}
+          pull-requests: write
         steps:
-          - uses: actions/stale@v3
+          - uses: {% data reusables.actions.action-stale %}
             with:
               days-before-issue-stale: 30
               days-before-issue-close: 14
@@ -73,7 +71,7 @@ topics:
 
 您可以查看工作流程运行的历史记录，以便定期查看此工作流程运行。 更多信息请参阅“[查看工作流程运行历史记录](/actions/managing-workflow-runs/viewing-workflow-run-history)”。
 
-This workflow will only label and/or close 30 issues at a time in order to avoid exceeding a rate limit. 您可以使用 `operations-per-run` 设置配置此项。 更多信息请参阅 [`actions/stale` 操作文档](https://github.com/marketplace/actions/close-stale-issues)。
+为了避免超过速率限制，此工作流程将一次只标记和/或关闭 30 个议题。 您可以使用 `operations-per-run` 设置配置此项。 更多信息请参阅 [`actions/stale` 操作文档](https://github.com/marketplace/actions/close-stale-issues)。
 
 ## 后续步骤
 

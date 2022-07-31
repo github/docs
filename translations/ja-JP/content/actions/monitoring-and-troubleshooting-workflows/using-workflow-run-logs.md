@@ -1,18 +1,17 @@
 ---
 title: ワークフロー実行ログを使用する
 intro: ワークフロー実行の各ジョブのログを表示、検索、およびダウンロードできます。
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /actions/managing-workflow-runs/using-workflow-run-logs
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ワークフローの実行ページから、ワークフローの実行が進行中か完了しているかを確認できます。 パブリックなリポジトリの分も含むワークフローの実行情報を見るには、{% data variables.product.prodname_dotcom %}のアカウントにログインしなければなりません。 詳細は「[GitHub 上のアクセス権限](/articles/access-permissions-on-github)」を参照してください。
 
@@ -20,7 +19,7 @@ versions:
 
 {% data variables.product.prodname_actions %}は、Checks APIを使用してワークフローのステータス、結果、ログを出力します。 {% data variables.product.prodname_dotcom %} は、ワークフローの実行に対してそれぞれ新しいチェックスイートを作成します。 チェックスイートには、ワークフロー内の各ジョブに対するチェック実行が含まれ、各ジョブにはステップが含まれています。 {% data variables.product.prodname_actions %}は、ワークフローのステップとして実行されます。 Checks APIに関する詳しい情報については「[チェック](/rest/reference/checks)」を参照してください。
 
-{% data reusables.github-actions.invalid-workflow-files %}
+{% data reusables.actions.invalid-workflow-files %}
 
 ## ログを表示してエラーを診断する
 
@@ -32,11 +31,11 @@ versions:
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.actions-tab %}
-{% data reusables.repositories.navigate-to-workflow-superlinter %}
-{% data reusables.repositories.view-run-superlinter %}
-{% data reusables.repositories.navigate-to-job-superlinter %}
-{% data reusables.repositories.view-failed-job-results-superlinter %}
-{% data reusables.repositories.view-specific-line-superlinter %}
+{% data reusables.repositories.navigate-to-workflow %}
+{% data reusables.repositories.view-run %}
+{% data reusables.repositories.navigate-to-job %}
+{% data reusables.repositories.view-failed-job-results %}
+{% data reusables.repositories.view-specific-line %}
 
 ## ログを検索する
 
@@ -44,20 +43,10 @@ versions:
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.actions-tab %}
-{% data reusables.repositories.navigate-to-workflow-superlinter %}
-{% data reusables.repositories.view-run-superlinter %}
-{% data reusables.repositories.navigate-to-job-superlinter %}
-{% ifversion fpt or ghes > 2.22 or ghae %}
-1. ログ出力の右上隅にある [**Search logs（ログの検索）**] 検索ボックスに、検索クエリを入力します。
-{% ifversion fpt or ghes > 3.0 or ghae %}
-  ![ログを検索するための検索ボックス](/assets/images/help/repository/search-log-box-updated-2.png)
-{% else %}
-  ![ログを検索するための検索ボックス](/assets/images/help/repository/search-log-box-updated.png)
-{% endif %}
-{% else %}
-1. 検索に含めたい各ステップを展開するには、そのステップをクリックします。![ステップの名前](/assets/images/help/repository/failed-check-step.png)
-1. ログ出力の右上隅にある [**Search logs（ログの検索）**] 検索ボックスに、検索クエリを入力します。 ![ログを検索するための検索ボックス](/assets/images/help/repository/search-log-box.png)
-{% endif %}
+{% data reusables.repositories.navigate-to-workflow %}
+{% data reusables.repositories.view-run %}
+{% data reusables.repositories.navigate-to-job %}
+1. ログ出力の右上隅にある [**Search logs（ログの検索）**] 検索ボックスに、検索クエリを入力します。 ![ログを検索するための検索ボックス](/assets/images/help/repository/search-log-box-updated-2.png)
 
 ## ログのダウンロード
 
@@ -65,19 +54,23 @@ versions:
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.actions-tab %}
-{% data reusables.repositories.navigate-to-workflow-superlinter %}
-{% data reusables.repositories.view-run-superlinter %}
-{% data reusables.repositories.navigate-to-job-superlinter %}
-{% ifversion fpt or ghes > 2.22 or ghae %}
-1. In the upper right corner, click {% ifversion fpt or ghes > 3.0 or ghae %}{% octicon "gear" aria-label="The gear icon" %}{% else %}{% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}{% endif %} and select **Download log archive**.
-  {% ifversion fpt or ghes > 3.0 or ghae %}
+{% data reusables.repositories.navigate-to-workflow %}
+{% data reusables.repositories.view-run %}
+{% data reusables.repositories.navigate-to-job %}
+1. 右上隅にある {% octicon "gear" aria-label="The gear icon" %} をクリックし、[**Download log archive**] を選択します。
+
   ![[Download logs] ドロップダウンメニュー](/assets/images/help/repository/download-logs-drop-down-updated-2.png)
-  {% else %}
-  ![[Download logs] ドロップダウンメニュー](/assets/images/help/repository/download-logs-drop-down-updated.png)
+
+
+  {% ifversion re-run-jobs %}
+
+  {% note %}
+
+  **Note**: When you download the log archive for a workflow that was partially re-run, the archive only includes the jobs that were re-run. To get a complete set of logs for jobs that were run from a workflow, you must download the log archives for the previous run attempts that ran the other jobs.
+
+  {% endnote %}
+
   {% endif %}
-{% else %}
-1. 右上隅にある {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} をクリックし、[**Download log archive**] を選択します。 ![[Download logs] ドロップダウンメニュー](/assets/images/help/repository/download-logs-drop-down.png)
-{% endif %}
 
 ## ログの削除
 
@@ -85,26 +78,17 @@ versions:
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.actions-tab %}
-{% data reusables.repositories.navigate-to-workflow-superlinter %}
-{% data reusables.repositories.view-run-superlinter %}
-{% ifversion fpt or ghes > 2.22 or ghae %}
+{% data reusables.repositories.navigate-to-workflow %}
+{% data reusables.repositories.view-run %}
 1. In the upper right corner, click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}.
-    {% ifversion fpt or ghes > 3.0 or ghae %}
+
     ![水平ケバブアイコン](/assets/images/help/repository/workflow-run-kebab-horizontal-icon-updated-2.png)
-    {% else %}
-    ![水平ケバブアイコン](/assets/images/help/repository/workflow-run-kebab-horizontal-icon-updated.png)
-    {% endif %}
+
 2. ログファイルを削除するには、**Delete all logs（すべてのログを削除）**ボタンをクリックして、確認の要求を見てください 。
-  {% ifversion fpt or ghes > 3.0 or ghae %}
+
   ![すべてのログを削除](/assets/images/help/repository/delete-all-logs-updated-2.png)
-  {% else %}
-  ![すべてのログを削除](/assets/images/help/repository/delete-all-logs-updated.png)
-  {% endif %}
+
 ログを削除すると、**Delete all logs（すべてのログを削除）**ボタンは消え、ワークフローの実行にログファイルが残っていないことを示します。
-{% else %}
-1. 右上隅にある {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} をクリックします。 ![水平ケバブアイコン](/assets/images/help/repository/workflow-run-kebab-horizontal-icon.png)
-2. ログファイルを削除するには、**Delete all logs（すべてのログを削除）**ボタンをクリックして、確認の要求を見てください 。 ![Delete all logs](/assets/images/help/repository/delete-all-logs.png)ログが削除されると、[**Delete all logs**] ボタンが削除され、ワークフローの実行にログファイルが残っていないことを示します。
-{% endif %}
 
 ## {% data variables.product.prodname_cli %} でログを表示する
 

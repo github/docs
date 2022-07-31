@@ -1,16 +1,18 @@
 ---
 title: 部署
 shortTitle: 部署
-intro: 'Automatically deploy projects with {% data variables.product.prodname_actions %}.'
+intro: '使用 {% data variables.product.prodname_actions %} 自动部署项目。'
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 children:
-  - /deploying-to-amazon-elastic-container-service
-  - /deploying-to-azure-app-service
-  - /deploying-to-google-kubernetes-engine
-  - /installing-an-apple-certificate-on-macos-runners-for-xcode-development
-  - /environments
+  - /about-deployments
+  - /deploying-to-your-cloud-provider
+  - /security-hardening-your-deployments
+  - /targeting-different-environments
+  - /managing-your-deployments
+  - /deploying-xcode-applications
 ---
 

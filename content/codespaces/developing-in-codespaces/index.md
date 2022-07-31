@@ -4,16 +4,20 @@ intro: 'Create a codespace to get started with developing your project inside a 
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Codespaces
 children:
+  - /codespaces-lifecycle
   - /creating-a-codespace
   - /developing-in-a-codespace
   - /using-source-control-in-your-codespace
-  - /using-codespaces-for-pull-requests
+  - /using-github-codespaces-for-pull-requests
   - /deleting-a-codespace
   - /forwarding-ports-in-your-codespace
-  - /changing-the-machine-type-for-your-codespace
-  - /using-codespaces-in-visual-studio-code
+  - /default-environment-variables-for-your-codespace
+  - /connecting-to-a-private-network
+  - /using-github-codespaces-in-visual-studio-code
+  - /using-github-codespaces-with-github-cli
 ---
  

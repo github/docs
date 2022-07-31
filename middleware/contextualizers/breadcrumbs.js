@@ -1,6 +1,9 @@
+import liquid from '../../lib/render-content/liquid.js'
+
 export default async function breadcrumbs(req, res, next) {
   if (!req.context.page) return next()
-  if (req.context.page.hidden) return next()
+  const isEarlyAccess = req.context.page.relativePath.startsWith('early-access')
+  if (req.context.page.hidden && !isEarlyAccess) return next()
 
   req.context.breadcrumbs = []
 
@@ -9,68 +12,74 @@ export default async function breadcrumbs(req, res, next) {
     return next()
   }
 
-  const currentSiteTree =
-    req.context.siteTree[req.context.currentLanguage][req.context.currentVersion]
-  const fallbackSiteTree = req.context.siteTree.en[req.context.currentVersion]
-
-  req.context.breadcrumbs = await getBreadcrumbs(
-    // Array of child pages on the root, i.e., the product level.
-    currentSiteTree.childPages,
-    fallbackSiteTree.childPages,
-    req.context.currentPath.slice(3),
-    req.context.currentLanguage
-  )
+  req.context.breadcrumbs = await getBreadcrumbs(req, isEarlyAccess)
 
   return next()
 }
 
-async function getBreadcrumbs(
-  pageArray,
-  fallbackPageArray,
-  currentPathWithoutLanguage,
-  intendedLanguage
-) {
-  // Find the page that starts with the requested path
-  let childPage = pageArray.find((page) =>
-    currentPathWithoutLanguage.startsWith(page.href.slice(3))
-  )
+async function getBreadcrumbs(req, isEarlyAccess = false) {
+  const crumbs = []
+  const { currentPath, currentVersion } = req.context
+  const split = currentPath.split('/')
+  let cutoff = 2
+  if (isEarlyAccess) {
+    // When in Early access docs consider the "root" be much higher.
+    // E.g. /en/early-access/github/migrating/understanding/about
+    // we only want it start at /migrating/understanding/about
+    // Essentially, we're skipping "/early-access" and its first
+    // top-level like "/github"
+    cutoff++
 
-  // Find the page in the fallback page array (likely the English sub-tree)
-  const fallbackChildPage =
-    (fallbackPageArray || []).find((page) => {
-      return currentPathWithoutLanguage.startsWith(page.href.slice(3))
-    }) || childPage
+    // The only exception to this rule is for the
+    // /{version}/early-access/insights/... URLs because they're a
+    // bit different.
+    // If there are more known exceptions, extend this conditional.
+    if (!split.includes('insights')) {
+      cutoff++
+    }
 
-  // No matches, we bail
-  if (!childPage && !fallbackChildPage) {
-    return []
+    // If the URL is early access AND has a version in it, go even further
+    // E.g. /en/enterprise-server@3.3/early-access/admin/hosting/mysql
+    // should start at /hosting/mysql.
+    if (currentVersion !== 'free-pro-team@latest') {
+      cutoff++
+    }
   }
-
-  // Didn't find the intended page, but found the fallback
-  if (!childPage) {
-    childPage = fallbackChildPage
+  while (split.length > cutoff && split[split.length - 1] !== currentVersion) {
+    const href = split.join('/')
+    const page = req.context.pages[href]
+    if (page) {
+      crumbs.push({
+        href,
+        title: await getShortTitle(page, req.context),
+      })
+    } else {
+      console.warn(`No page found with for '${href}'`)
+    }
+    split.pop()
   }
+  crumbs.reverse()
 
-  const breadcrumb = {
-    documentType: childPage.page.documentType,
-    // give the breadcrumb the intendedLanguage, so nav through breadcrumbs doesn't inadvertantly change the user's selected language
-    href: `/${intendedLanguage}/${childPage.href.slice(4)}`,
-    title: childPage.renderedShortTitle || childPage.renderedFullTitle,
-  }
+  return crumbs
+}
 
-  // Recursively loop through the childPages and create each breadcrumb, until we reach the
-  // point where the current siteTree page is the same as the requested page. Then stop.
-  if (childPage.childPages && currentPathWithoutLanguage !== childPage.href.slice(3)) {
-    return [
-      breadcrumb,
-      ...(await getBreadcrumbs(
-        childPage.childPages,
-        fallbackChildPage.childPages,
-        currentPathWithoutLanguage,
-        intendedLanguage
-      )),
-    ]
-  } else {
-    return [breadcrumb]
+async function getShortTitle(page, context) {
+  // Note! Don't use `page.title` or `page.shortTitle` because if they get
+  // set during rendering, they become the HTML entities encoded string.
+  // E.g. "Delete &amp; restore a package"
+
+  if (page.rawShortTitle) {
+    if (page.rawShortTitle.includes('{')) {
+      // Can't easily cache this because the `page` is reused for multiple
+      // permalinks. We could do what the `Page.render()` method does which
+      // specifically caches based on the `context.currentPath` but at
+      // this point it's probably not worth it.
+      return await liquid.parseAndRender(page.rawShortTitle, context)
+    }
+    return page.rawShortTitle
   }
+  if (page.rawTitle.includes('{')) {
+    return await liquid.parseAndRender(page.rawTitle, context)
+  }
+  return page.rawTitle
 }

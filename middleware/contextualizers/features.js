@@ -1,12 +1,12 @@
 import getApplicableVersions from '../../lib/get-applicable-versions.js'
 
-export default async function features(req, res, next) {
+export default function features(req, res, next) {
   if (!req.context.page) return next()
 
   // Determine whether the currentVersion belongs to the list of versions the feature is available in.
   Object.keys(req.context.site.data.features).forEach((featureName) => {
     const { versions } = req.context.site.data.features[featureName]
-    const applicableVersions = getApplicableVersions(versions, req.path)
+    const applicableVersions = getApplicableVersions(versions, `data/features/${featureName}.yml`)
 
     // Adding the resulting boolean to the context object gives us the ability to use
     // `{% if featureName ... %}` conditionals in content files.
