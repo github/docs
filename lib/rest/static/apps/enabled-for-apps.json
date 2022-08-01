@@ -2408,6 +2408,24 @@
         "requestPath": "/orgs/{org}/public_members/{username}"
       },
       {
+        "slug": "list-security-manager-teams",
+        "subcategory": "security-managers",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/security-managers"
+      },
+      {
+        "slug": "add-a-security-manager-team",
+        "subcategory": "security-managers",
+        "verb": "put",
+        "requestPath": "/orgs/{org}/security-managers/teams/{team_slug}"
+      },
+      {
+        "slug": "remove-a-security-manager-team",
+        "subcategory": "security-managers",
+        "verb": "delete",
+        "requestPath": "/orgs/{org}/security-managers/teams/{team_slug}"
+      },
+      {
         "slug": "list-organizations-for-a-user",
         "subcategory": "orgs",
         "verb": "get",
