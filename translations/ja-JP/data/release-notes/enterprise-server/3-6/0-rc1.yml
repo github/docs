@@ -118,52 +118,51 @@ sections:
         - |
           ワークフローの再実行の際のジョブの実行の失敗の診断をやりやすくするために、ユーザはジョブの実行と環境に関する情報を出力するデバッグロギングを有効化できます。詳しい情報については「[ワークフローとジョブの再実行](/actions/managing-workflow-runs/re-running-workflows-and-jobs)」及び[ワークフローの実行ログの利用](/actions/monitoring-and-troubleshooting-workflows/using-workflow-run-logs#viewing-logs-to-diagnose-failures)」を参照してください。
         - |
-          If you manage self-hosted runners for GitHub Actions, you can ensure a consistent state on the runner itself before and after a workflow run by defining scripts to execute. By using scripts, you no longer need to require that users manually incorporate these steps into workflows. Pre- and post-job scripts are in beta and subject to change. For more information, see "[Running scripts before or after a job](/actions/hosting-your-own-runners/running-scripts-before-or-after-a-job)."
+          GitHub Actions用のセルフホストランナーを管理しているなら、実行するスクリプトを定義することによって、ワークフローの実行の前後のランナー自体の一貫した状態を保つことができます。スクリプトを使うことによって、ユーザがこれらのステップをワークフローに手動で取り入れてもらうことが必要なくなります。ジョブの前後のスクリプトはベータであり、変更されることがあります。詳しい情報については「[ジョブの前後でのスクリプトの実行](/actions/hosting-your-own-runners/running-scripts-before-or-after-a-job)」を参照してください。
     - 
       heading: GitHub Packages
       notes:
         - |
-          Enterprise owners can migrate container images from the GitHub Docker registry to the GitHub Container registry. The Container registry provides the following benefits.
+          Enterpriseのオーナーは、GitHub DockerレジストリからのコンテナイメージをGitHub Containerレジストリに移行できます。Containerレジストリには以下の利点があります。
 
-          - Improves the sharing of containers within an organization
-          - Allows the application of granular access permissions
-          - Permits the anonymous sharing of public container images
-          - Implements OCI standards for hosting Docker images
+          - Organization内でのコンテナの共有を改善します
+          - 詳細なアクセス権限の適用が可能です
+          - パブリックなコンテナイメージの匿名共有ができます
+          - DockerイメージのホストにおいてOCI標準を実装します
 
-          The Container registry is in beta and subject to change. For more information, see "[Migrating your enterprise to the Container registry from the Docker registry](/admin/packages/migrating-your-enterprise-to-the-container-registry-from-the-docker-registry)."
+          Containerレジストリはベータであり、変更されることがあります。詳しい情報については「[EnterpriseのDockerレジストリからContainerレジストリへの移行](/admin/packages/migrating-your-enterprise-to-the-container-registry-from-the-docker-registry)」を参照してください。
     - 
-      heading: Community experience
+      heading: コミュニティ体験
       notes:
         - |
-          GitHub Discussions is available for GitHub Enterprise Server. GitHub Discussions provides a central gathering space to ask questions, share ideas, and build connections. For more information, see "[GitHub Discussions](/discussions)."
+          GitHub Discussionsは、GitHub Enterprise Serverで利用できます。GitHub Discussionsは、質問し、発想を共有し、つながりを作るために集まる場所を提供します。詳しい情報については「[GitHub Discussions](/discussions)」を参照してください。
         - |
-          Enterprise owners can configure a policy to control whether people's usernames or full names are displayed within internal or public repositories. For more information, see "[Enforcing repository management policies in your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-the-display-of-member-names-in-your-repositories)."
+          Enterpriseのオーナは、ユーザ名あるいはフルネームがインターナルあるいはパブリックなリポジトリに表示されるかを制御するポリシーを設定できます。詳しい情報については「[Enterpriseでのリポジトリ管理の施行](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-the-display-of-member-names-in-your-repositories)」を参照してください。
     - 
       heading: Organization
       notes:
         - |
-          Users can create member-only READMEs for an organization. For more information, see "[Customizing your organization's profile](/organizations/collaborating-with-groups-in-organizations/customizing-your-organizations-profile)."
+          ユーザはメンバー専用のRESTMEをOrganizationで作成できます。詳しい情報については「[Organizatonのプロフィールのカスタマイズ](/organizations/collaborating-with-groups-in-organizations/customizing-your-organizations-profile)」を参照してください。
         - |
-          Organization owners can pin a repository to an organization's profile directly from the repository via the new **Pin repository** dropdown. Pinned public repositories appear to all users of your instance, while public, private, and internal repositories are only visible to organization members.
+          Organizationのオーナーは、新しい**Pin repository（リポジトリをピン止め）**ドロップダウンを使ってリポジトリから直接Organizationのプロフィールにリポジトリをピン止めできます。ピン止めされたパブリックリポジトリは、インスタンスのすべてのユーザに表示されますが、パブリック、プライベート、インターナルリポジトリはOrganizationのメンバーだけが見ることができます。
     - 
       heading: リポジトリ
       notes:
         - |
-          While creating a fork, users can customize the fork's name. For more information, see "[Fork a repo](/get-started/quickstart/fork-a-repo)."
+          フォークを作成する際に、ユーザはフォークの名前をカスタマイズできます。詳しい情報については「[リポジトリのフォーク](/get-started/quickstart/fork-a-repo)」を参照してください。
         - |
-          Users can block creation of branches that match a configured name pattern with the **Restrict pushes that create matching branches** branch protection rule. For example, if a repository's default branch changes from `master` to `main`, a repository administrator can prevent any subsequent creation or push of the `master` branch. For more information, see
-          "[About protected branches](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches#restrict-who-can-push-to-matching-branches)" and "[Managing a branch protection rule](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/managing-a-branch-protection-rule#creating-a-branch-protection-rule)."
+          ユーザは、**Restrict pushes that create matching branches（マッチするブランチを作成するプッシュの制限）**ブランチ保護ルールで、設定された名前のパターンにマッチするブランチの作成をブロックできます。たとえば、リポジトリのデフォルトブランチを`master`から`main`に変更した場合、リポジトリの管理者はそれ以降`master`ブランチの作成やプッシュを防ぐことができます。詳しい情報については「[保護されたブランチについて](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches#restrict-who-can-push-to-matching-branches)」及び[ブランチの保護ルールの管理](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/managing-a-branch-protection-rule#creating-a-branch-protection-rule)」を参照してください。
         - |
-          Users can create a branch directly from a repository's **Branches** page by clicking the **New branch**. For more information, see "[Creating and deleting branches within your repository](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository)."
+          ユーザは、リポジトリの**Branches（ブランチ）**ページから、**New branch（新規ブランチ）**をクリックすることで直接ブランチを作成できます。詳しい情報については「[リポジトリ内でのブランチの作成と削除(/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository)」を参照してください。
         - |
-          Users can delete a branch that's associated with an open pull request. For more information, see "[Creating and deleting branches within your repository](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository)."
+          ユーザはオープンなPull Requestに関連づけられたブランチを削除できます。詳しい情報については「[リポジトリ内でのブランチの作成と削除](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository)」を参照してください。
         - |
-          Repositories with multiple licenses display all of the licenses in the "About" sidebar on the {% octicon "code" aria-label="The code icon" %} **Code** tab. For more information, see "[Licensing a repository](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository)."
-        - When a user renames or moves a file to a new directory, if at least half of the file's contents are identical, the commit history indicates that the file was renamed, similar to `git log --follow`. For more information, see the [GitHub Blog](https://github.blog/changelog/2022-06-06-view-commit-history-across-file-renames-and-moves/).
+          複数のライセンスがあるリポジトリは、すべてのライセンスを{% octicon "code" aria-label="The code icon" %}**Code**タブの"About"サイドバーに表示します。詳しい情報については「[リポジトリのライセンス](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository)」を参照してください。
+        - ユーザがファイルの名前を変更したり、新しいディレクトリに移動させたりした場合、少なくともファイルの内容の半分が同じであれば、コミット履歴は`git log --follow`と同じようにファイルの名前が変更されたことを示します。詳しい情報については[GitHub Blog](https://github.blog/changelog/2022-06-06-view-commit-history-across-file-renames-and-moves/)を参照してください。
         - |
-          Users can require a successful deployment of a branch before anyone can merge the pull request associated with the branch. For more information, see "[About protected branches](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches#require-deployments-to-succeed-before-merging)" and "[Managing a branch protection rule](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/managing-a-branch-protection-rule)."
+          ユーザは、Pull Requestがマージできるためには、そのPull Requestに関連づけられたブランチのデプロイが成功していることを必要とすることができます。詳しい情報については「[保護されたブランチについて](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches#require-deployments-to-succeed-before-merging)」及び「[ブランチ保護ルールの管理](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/managing-a-branch-protection-rule)」を参照してください。
         - |
-          Enterprise owners can prevent organization owners from inviting collaborators to repositories on the instance. For more information, see "[Enforcing a policy for inviting collaborators to repositories](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-inviting-collaborators-to-repositories)."
+          Enterpriseのオーナーは、Organizationのオーナーがインスタンスのリポジトリにコラボレータを招待するのを防ぐことができます。詳しい情報については「[リポジトリへのコラボレータの招待に関するポリシーの施行](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-inviting-collaborators-to-repositories)」を参照してください。
         - |
           Users can grant exceptions to GitHub Apps for any branch protection rule that supports exceptions. For more information, see "[About apps](/developers/apps/getting-started-with-apps/about-apps)" and "[Managing a branch protection rule](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/managing-a-branch-protection-rule)."
     - 
