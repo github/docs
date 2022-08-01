@@ -80,7 +80,7 @@ Si tu cuenta de organización utiliza el plan de GitHub Team para código abiert
 
 ## ¿Qué es el Soporte de la Comunidad de GitHub?
 
-El Soporte de la Comunidad de GitHub incluye soporte a través de nuestro [Foro de la Comunidad](https://github.community/), en donde puedes buscar soluciones de la comunidad de GitHub, hacer preguntas nuevas, y compartir ideas. Los Ingenieros de Soporte de GitHub Team son quienes atienden la parte de Soporte de la Comunidad de Github, y quienes moderan el Foro de la Comunidad en conjunto con nuestros miembros más activos en la misma. Si necesitas reportar spam, algún tipo de abuso, o si tienes problemas con el acceso a tu cuenta, puedes enviar un mensaje a nuestro Equipo de Soporte en https://support.github.com/..
+GitHub Community Support includes support through our [{% data variables.product.prodname_github_community %} discussions](https://github.com/orgs/community/discussions), where you can browse solutions from the GitHub community, ask new questions, and share ideas. GitHub Community Support is staffed by Support Engineers on the GitHub Team, who moderate {% data variables.product.prodname_github_community %} along with our most active community members. Si necesitas reportar spam, algún tipo de abuso, o si tienes problemas con el acceso a tu cuenta, puedes enviar un mensaje a nuestro Equipo de Soporte en https://support.github.com/..
 
 ## ¿Cómo afecta este cambio a los beneficios educacionales?
 
