@@ -34,7 +34,7 @@ For information about merge methods, see "[About pull request merges](/pull-requ
 
 {% data reusables.pull_requests.merge-queue-reject %}
 
-### Triggering merge queue checks with {% data variables.product.prodname_actions %}
+### Triggering merge group checks with {% data variables.product.prodname_actions %}
 
 You can use the `merge_group` event to trigger your {% data variables.product.prodname_actions %} workflow when a pull request is added to a merge queue. Note that this is a different event from the `pull_request` and `push` events.
 
@@ -48,7 +48,7 @@ on:
 
 For more information see "[Events that trigger workflows](/actions/using-workflows/events-that-trigger-workflows#merge-group)"
 
-### Triggering merge queue checks with other CI providers
+### Triggering merge group checks with other CI providers
 
 With other CI providers, you may need to update your CI configuration to run when a branch that begins with the special prefix `gh-readonly-queue/{base_branch}` is created.
 
