@@ -62,7 +62,7 @@ After adding a new SSH key to your account on {% ifversion ghae %}{% data variab
   ![The key field](/assets/images/help/settings/ssh-key-paste.png)
 7. Click **Add SSH key**.
   ![The Add key button](/assets/images/help/settings/ssh-add-key.png)
-8. If prompted, [confirm access to your account](/authentication/keeping-your-account-and-data-secure/sudo-mode).
+{% ifversion not ghae %}8. If prompted, [confirm access to your account](/authentication/keeping-your-account-and-data-secure/sudo-mode).{% endif %}
 
 {% endwebui %}
 
@@ -96,7 +96,7 @@ After adding a new SSH key to your account on {% ifversion ghae %}{% data variab
   ![The key field](/assets/images/help/settings/ssh-key-paste.png)
 7. Click **Add SSH key**.
   ![The Add key button](/assets/images/help/settings/ssh-add-key.png)
-8. If prompted, [confirm access to your account](/authentication/keeping-your-account-and-data-secure/sudo-mode).
+{% ifversion not ghae %}8. If prompted, [confirm access to your account](/authentication/keeping-your-account-and-data-secure/sudo-mode).{% endif %}
 
 {% endwebui %}
 
@@ -131,7 +131,7 @@ After adding a new SSH key to your account on {% ifversion ghae %}{% data variab
   ![The key field](/assets/images/help/settings/ssh-key-paste.png)
 7. Click **Add SSH key**.
   ![The Add key button](/assets/images/help/settings/ssh-add-key.png)
-8. If prompted, [confirm access to your account](/authentication/keeping-your-account-and-data-secure/sudo-mode).
+{% ifversion not ghae %}8. If prompted, [confirm access to your account](/authentication/keeping-your-account-and-data-secure/sudo-mode).{% endif %}
 
 {% endwebui %}
 
