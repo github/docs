@@ -1,38 +1,38 @@
-# GitHub Docs <!-- omit in toc --> 
+GitHub Docs <! - حذف في toc ->
 
-This repository contains the documentation website code and Markdown source files for [docs.github.com](https://docs.github.com).
+يحتوي هذا المستودع على رمز موقع الويب الخاص بالوثائق وملفات مصدر Markdown لـ [docs.github.com] (https://docs.github.com).
 
-GitHub's Docs team works on pre-production content in a private repo that regularly syncs with this public repo.
+يعمل فريق المستندات في GitHub على محتوى ما قبل الإنتاج في إعادة شراء خاصة تتم مزامنتها بانتظام مع هذا الريبو العام.
 
-Use the table of contents icon <img src="./assets/images/table-of-contents.png" width="25" height="25" /> on the top left corner of this document to get to a specific section of this guide quickly.
+استخدم رمز جدول المحتويات <img src = "./ الأصول / الصور / table-of-content.png" width = "25" height = "25" /> في الزاوية العلوية اليسرى من هذا المستند للوصول إلى قسم من هذا الدليل بسرعة.
 
-## Contributing
+## المساهمة
 
-See [the contributing guide](CONTRIBUTING.md) for detailed instructions on how to get started with our project. 
+راجع [دليل المساهمة] (CONTRIBUTING.md) للحصول على إرشادات مفصلة حول كيفية البدء في مشروعنا.
 
-We accept different [types of contributions](https://github.com/github/docs/blob/main/contributing/types-of-contributions.md), including some that don't require you to write a single line of code.
+نقبل [أنواعًا مختلفة من المساهمات] (https://github.com/github/docs/blob/main/contributing/types-of-contributions.md) ، بما في ذلك بعض المساهمات التي لا تتطلب منك كتابة سطر واحد من الشفرة.
 
-On the GitHub Docs site, you can click the make a contribution button at the bottom of the page to open a pull request for quick fixes like typos, updates, or link fixes.
+في موقع GitHub Docs ، يمكنك النقر فوق زر تقديم مساهمة أسفل الصفحة لفتح طلب سحب لإصلاحات سريعة مثل الأخطاء الإملائية أو التحديثات أو إصلاحات الارتباط.
 
-<img src="./assets/images/contribution_cta.png" width="400">
+<img src = "./ asset / images / contrib_cta.png" width = "400">
 
-For more complex contributions, you can open an issue using the most appropriate [issue template](https://github.com/github/docs/issues/new/choose) to describe the changes you'd like to see.
+لمزيد من المساهمات المعقدة ، يمكنك فتح مشكلة باستخدام أنسب [قالب المشكلة] (https://github.com/github/docs/issues/new/choose) لوصف التغييرات التي ترغب في رؤيتها.
 
-If you're looking for a way to contribute, you can scan through our [existing issues](https://github.com/github/docs/issues) for something to work on. When ready, check out [Getting Started with Contributing](/CONTRIBUTING.md) for detailed instructions.
+إذا كنت تبحث عن طريقة للمساهمة ، فيمكنك البحث من خلال [المشكلات الحالية] (https://github.com/github/docs/issues) بحثًا عن شيء ما للعمل عليه. عندما تكون جاهزًا ، تحقق من [Getting Started with Contributing] (/ CONTRIBUTING.md) للحصول على إرشادات مفصلة.
 
-### Join us in discussions
+### انضم إلينا في المناقشات
 
-We use GitHub Discussions to talk about all sorts of topics related to documentation and this site. For example: if you'd like help troubleshooting a PR, have a great new idea, or want to share something amazing you've learned in our docs, join us in the [discussions](https://github.com/github/docs/discussions).
+نستخدم GitHub Discussions للتحدث عن جميع أنواع الموضوعات المتعلقة بالتوثيق وهذا الموقع. على سبيل المثال: إذا كنت تريد المساعدة في استكشاف أخطاء أحد العلاقات العامة وإصلاحها ، أو لديك فكرة جديدة رائعة ، أو ترغب في مشاركة شيء رائع تعلمته في مستنداتنا ، فقم بالانضمام إلينا في [المناقشات] (https://github.com/github / مستندات / مناقشات).
 
-### And that's it!
+### وهذا كل شيء!
 
-If you're having trouble with your GitHub account, contact [Support](https://support.github.com/contact).
+إذا كنت تواجه مشكلة في حساب GitHub ، فاتصل بـ [الدعم] (https://support.github.com/contact).
 
-That's how you can easily become a member of the GitHub Documentation community. :sparkles:
+هكذا يمكنك أن تصبح بسهولة عضوًا في مجتمع GitHub Documentation. : بريق:
 
 ## READMEs
 
-In addition to the README you're reading right now, this repo includes other READMEs that describe the purpose of each subdirectory in more detail:
+بالإضافة إلى README الذي تقرأه الآن ، يتضمن هذا الريبو READMEs الأخرى التي تصف الغرض من كل دليل فرعي بمزيد من التفصيل:
 
 - [content/README.md](content/README.md)
 - [content/graphql/README.md](content/graphql/README.md)
@@ -50,14 +50,14 @@ In addition to the README you're reading right now, this repo includes other REA
 - [stylesheets/README.md](stylesheets/README.md)
 - [tests/README.md](tests/README.md)
 
-## License
+## رخصة
 
-The GitHub product documentation in the assets, content, and data folders are licensed under a [CC-BY license](LICENSE).
+يتم ترخيص وثائق منتج GitHub في الأصول والمحتوى ومجلدات البيانات بموجب [ترخيص CC-BY] (LICENSE).
 
-All other code in this repository is licensed under the [MIT license](LICENSE-CODE).
+جميع الرموز الأخرى الموجودة في هذا المستودع مرخصة بموجب [ترخيص MIT] (LICENSE-CODE).
 
-When using the GitHub logos, be sure to follow the [GitHub logo guidelines](https://github.com/logos).
+عند استخدام شعارات GitHub ، تأكد من اتباع [إرشادات شعار GitHub] (https://github.com/logos).
 
-## Thanks :purple_heart:
+## شكرا: purple_heart:
 
-Thanks for all your contributions and efforts towards improving the GitHub documentation. We thank you for being part of our :sparkles: community :sparkles:!
+نشكرك على كل مساهماتك وجهودك لتحسين وثائق GitHub. نشكرك على كونك جزءًا من: التألق: المجتمع: البريق :!
