@@ -1,5 +1,5 @@
 {% ifversion fpt %}
-1. Si tu sitio de {% data variables.product.prodname_pages %} se compiló desde un repositorio público, este se compila y despliega con un flujo de trabajo de {% data variables.product.prodname_actions %} a menos de que hayas configurado a tu sitio de {% data variables.product.prodname_pages %} para que utilice una herramienta de IC diferente. Para obtener más información sobre cómo ver el estado del flujo de trabajo, consulta la sección "[Ver el historial de ejecución del flujo de trabajo](/actions/monitoring-and-troubleshooting-workflows/viewing-workflow-run-history)".
+1. Unless your {% data variables.product.prodname_pages %} site is built from a private or internal repository and published from a branch, your site is built and deployed with a {% data variables.product.prodname_actions %} workflow. Para obtener más información sobre cómo ver el estado del flujo de trabajo, consulta la sección "[Ver el historial de ejecución del flujo de trabajo](/actions/monitoring-and-troubleshooting-workflows/viewing-workflow-run-history)".
 
 {% note %}
 

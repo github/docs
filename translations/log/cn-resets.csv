@@ -404,7 +404,6 @@ translations/zh-CN/data/reusables/package_registry/authenticate_with_pat_for_con
 translations/zh-CN/data/reusables/package_registry/docker_registry_deprecation_status.md,Listed in localization-support#489
 translations/zh-CN/data/reusables/package_registry/next-steps-for-packages-enterprise-setup.md,broken liquid tags
 translations/zh-CN/data/reusables/package_registry/packages-cluster-support.md,broken liquid tags
-translations/zh-CN/data/reusables/pages/check-workflow-run.md,broken liquid tags
 translations/zh-CN/data/reusables/pages/pages-builds-with-github-actions-public-beta.md,broken liquid tags
 translations/zh-CN/data/reusables/repositories/deleted_forks_from_private_repositories_warning.md,broken liquid tags
 translations/zh-CN/data/reusables/repositories/enable-security-alerts.md,broken liquid tags

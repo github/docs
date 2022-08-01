@@ -27,7 +27,7 @@ topics:
 * 使用 [Octocat 或 GitHub 徽标](https://github.com/logos)来标识您的产品适用于 GitHub
 * 在您的网站上发布有关您的集成的视频或博客
 
-## 准备加入 GitHub 开发者计划吗？</h3>
+## 准备加入 GitHub 开发者计划吗？
 
 成员资格向满足以下条件的个人开发者和公司开放：
 
