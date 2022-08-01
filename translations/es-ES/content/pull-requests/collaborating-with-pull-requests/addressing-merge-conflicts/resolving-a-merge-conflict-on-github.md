@@ -35,7 +35,7 @@ If a site administrator disables the merge conflict editor for pull requests bet
 
  {% tip %}
 
- **Tip:** If the **Resolve conflicts** button is deactivated, your pull request's merge conflict is too complex to resolve on {% data variables.product.product_name %}{% ifversion ghes or ghae %} or the site administrator has disabled the conflict editor for pull requests between repositories{% endif %}. You must resolve the merge conflict using an alternative Git client, or by using Git on the command line. For more information see "[Resolving a merge conflict using the command line](/github/collaborating-with-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-using-the-command-line."
+ **Tip:** If the **Resolve conflicts** button is deactivated, your pull request's merge conflict is too complex to resolve on {% data variables.product.product_name %}{% ifversion ghes or ghae %} or the site administrator has disabled the conflict editor for pull requests between repositories{% endif %}. You must resolve the merge conflict using an alternative Git client, or by using Git on the command line. For more information see "[Resolving a merge conflict using the command line](/github/collaborating-with-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-using-the-command-line)."
 
  {% endtip %}
 {% data reusables.pull_requests.decide-how-to-resolve-competing-line-change-merge-conflict %}

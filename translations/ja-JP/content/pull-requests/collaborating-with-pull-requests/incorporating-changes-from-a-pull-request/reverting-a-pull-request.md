@@ -17,7 +17,7 @@ topics:
 
 ## プルリクエストの打ち消しについて
 
-{% data variables.product.product_name %} で Pull Request を打ち消すと、マージされた元の Pull Request からマージ コミットを 1 回元に戻した、新しい Pull Request が作成されます。
+{% data variables.product.product_name %} で Pull Request を打ち消すと、マージされた元の Pull Request からマージ コミットを 1 回元に戻した、新しい Pull Request が作成されます。 To revert pull requests, you must have [write permissions](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization) in the repository.
 
 ## Pull Request を打ち消す
 
@@ -34,5 +34,5 @@ Git を使用して個々のコミットを手動で元に戻す方法の詳細�
 
 {% data reusables.repositories.sidebar-pr %}
 2. [Pull Requests] のリストで、打ち消す Pull Request をクリックします。
-3. その Pull Request の下部周辺で、[**Revert**] をクリックします。 ![[Revert pull request] リンク](/assets/images/help/pull_requests/revert-pull-request-link.png)
+3. その Pull Request の下部周辺で、[**Revert**] をクリックします。 If the **Revert** option isn't displayed, you'll need to ask the repository administrator for write permissions. ![[Revert pull request] リンク](/assets/images/help/pull_requests/revert-pull-request-link.png)
 4. 結果の Pull Request をマージします。 詳しい情報については[プルリクエストのマージ](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request)を参照してください。

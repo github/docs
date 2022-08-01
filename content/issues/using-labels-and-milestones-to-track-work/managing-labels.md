@@ -12,7 +12,7 @@ redirect_from:
   - /articles/creating-and-editing-labels-for-issues-and-pull-requests
   - /articles/creating-a-label
   - /github/managing-your-work-on-github/creating-a-label
-  - /articles/customizing-issue-labels/
+  - /articles/customizing-issue-labels
   - /articles/applying-labels-to-issues-and-pull-requests
   - /github/managing-your-work-on-github/applying-labels-to-issues-and-pull-requests
   - /articles/editing-a-label
@@ -108,3 +108,4 @@ Deleting a label will remove the label from issues and pull requests.
 - "[Filtering and searching issues and pull requests](/issues/tracking-your-work-with-issues/filtering-and-searching-issues-and-pull-requests)"{% ifversion fpt or ghes or ghec %}
 - "[Managing default labels for repositories in your organization](/articles/managing-default-labels-for-repositories-in-your-organization)"{% endif %}{% ifversion fpt or ghec %}
 - "[Encouraging helpful contributions to your project with labels](/communities/setting-up-your-project-for-healthy-contributions/encouraging-helpful-contributions-to-your-project-with-labels)"{% endif %}
+- "[Basic writing and formatting syntax](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#using-emoji)"

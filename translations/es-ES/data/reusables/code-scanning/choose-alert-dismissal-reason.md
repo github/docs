@@ -1,1 +1,3 @@
 Es importante elegir la razón adecuada del menú desplegable, ya que esto puede afectar si la consulta continuará incluyéndose en los análisis futuros.
+{% ifversion comment-dismissed-code-scanning-alert %}Opcionalmente, puedes comentar en un rechazo para registrar el contexto del rechazo de una alerta. El comentario de rechazo se agrega a la línea de tiempo de la alerta y puede utilizarse como justificación durante los reportes y auditorías. Puedes recuperar o establecer un comentario utilizando la API de REST del escaneo de código. El comentario se contiene en `dismissed_comment` para la terminal `alerts/{alert_number}`. Para obtener más información, consulta la sección "[Escaneo de código](/rest/code-scanning#update-a-code-scanning-alert)".
+{% endif %}

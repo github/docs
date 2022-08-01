@@ -3,7 +3,7 @@ title: 关于采购公司的组织
 intro: 企业使用组织与多个所有者和管理员协作处理共享的项目。 您可以为客户创建组织，代他们付款，然后将组织的所有权转给客户。
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/about-organizations-for-procurement-companies
-  - /articles/about-organizations-for-resellers/
+  - /articles/about-organizations-for-resellers
   - /articles/about-organizations-for-procurement-companies
   - /github/setting-up-and-managing-billing-and-payments-on-github/setting-up-paid-organizations-for-procurement-companies/about-organizations-for-procurement-companies
 versions:
@@ -15,7 +15,7 @@ topics:
 shortTitle: 关于组织
 ---
 
-要访问组织，每个成员都必须登录到其自己的个人用户帐户。
+要访问组织，每个成员都必须登录到其自己的个人帐户。
 
 组织成员可有不同的角色，如*所有者*或*帐单管理员*：
 

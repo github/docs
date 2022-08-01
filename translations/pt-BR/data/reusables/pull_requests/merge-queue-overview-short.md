@@ -1,3 +1,0 @@
-If repository administrators enable merge queues for pull requests targeting selected branches within a repository, contributors to these branches can add their pull requests to a merge queue once the required checks have passed.
-
-{% data variables.product.product_name %} will process the merge queue, and will merge the pull requests on your behalf if you're a contributor, by fast-forwarding the default branch.

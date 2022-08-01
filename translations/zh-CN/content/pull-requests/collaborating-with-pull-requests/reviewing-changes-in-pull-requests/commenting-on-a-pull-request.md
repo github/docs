@@ -2,9 +2,9 @@
 title: 评论拉取请求
 redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/reviewing-changes-in-pull-requests/commenting-on-a-pull-request
-  - /articles/adding-commit-comments/
-  - /articles/commenting-on-the-diff-of-a-pull-request/
-  - /articles/commenting-on-differences-between-files/
+  - /articles/adding-commit-comments
+  - /articles/commenting-on-the-diff-of-a-pull-request
+  - /articles/commenting-on-differences-between-files
   - /articles/commenting-on-a-pull-request
   - /github/collaborating-with-issues-and-pull-requests/commenting-on-a-pull-request
   - /github/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/commenting-on-a-pull-request

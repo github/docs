@@ -2,7 +2,6 @@
 title: Migrar do Travis CI para o GitHub Actions
 intro: '{% data variables.product.prodname_actions %} e o Travis CI compartilham várias semelhanças, o que ajuda a tornar relativamente fácil a migração para {% data variables.product.prodname_actions %}.'
 redirect_from:
-  - /actions/migrating-to-github-actions/migrating-from-travis-ci-to-github-actions
   - /actions/learn-github-actions/migrating-from-travis-ci-to-github-actions
 versions:
   fpt: '*'
@@ -20,7 +19,6 @@ shortTitle: Fazer a migração a partir da CI do Travis
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## Introdução
 
@@ -61,9 +59,9 @@ O Travis CI pode usar `stages` para executar trabalhos em paralelo. Da mesma for
 
 O Travis CI e {% data variables.product.prodname_actions %} são compatíveis com selos de status, o que permite que você indique se uma criação está sendo aprovada ou falhando. Para obter mais informações, consulte ["Adicionar um selo de status de fluxo de trabalho ao seu repositório](/actions/managing-workflow-runs/adding-a-workflow-status-badge)".
 
-### Usar uma matriz de criação
+### Usando uma matriz
 
-O Travis CI e {% data variables.product.prodname_actions %} são compatíveis com uma matriz de criação, o que permite que você realize testes usando combinações de sistemas operacionais e pacotes de software. Para obter mais informações, consulte "[Usar uma matriz de criação](/actions/learn-github-actions/managing-complex-workflows#using-a-build-matrix)".
+O Travis CI e {% data variables.product.prodname_actions %} são compatíveis com uma matriz, o que permite que você realize testes usando combinações de sistemas operacionais e pacotes de software. Para obter mais informações, consulte "[Usando uma matriz para seus trabalhos](/actions/using-jobs/using-a-matrix-for-your-jobs)".
 
 Abaixo, há um exemplo de comparação da sintaxe para cada sistema:
 
@@ -103,7 +101,7 @@ jobs:
 
 ### Apontar para branches específicos
 
-O Travis CI e {% data variables.product.prodname_actions %} permitem que você aponte a sua CI para um branch específico. Para obter mais informações, consulte "[Sintaxe do fluxo de trabalho para o GitHub Actions](/actions/reference/workflow-syntax-for-github-actions#onpushpull_requestbranchestags)".
+O Travis CI e {% data variables.product.prodname_actions %} permitem que você aponte a sua CI para um branch específico. Para obter mais informações, consulte "[Sintaxe do fluxo de trabalho para o GitHub Actions](/actions/reference/workflow-syntax-for-github-actions#onpushbranchestagsbranches-ignoretags-ignore)".
 
 Abaixo, há um exemplo da sintaxe para cada sistema:
 
@@ -166,13 +164,13 @@ git:
 {% endraw %}
 </td>
 <td class="d-table-cell v-align-top">
-{% raw %}
+
 ```yaml
-- uses: actions/checkout@v2
+- uses: {% data reusables.actions.action-checkout %}
   with:
     submodules: false
 ```
-{% endraw %}
+
 </td>
 </tr>
 </table>
@@ -181,7 +179,7 @@ git:
 
 O Travis CI e {% data variables.product.prodname_actions %} podem adicionar variáveis de ambiente personalizadas a uma matriz de teste, que permite que você faça referência à variável em uma etapa posterior.
 
-Em {% data variables.product.prodname_actions %}, você pode usar a chave `incluir` para adicionar variáveis de ambiente personalizadas a uma matriz. {% data reusables.github-actions.matrix-variable-example %}
+Em {% data variables.product.prodname_actions %}, você pode usar a chave `incluir` para adicionar variáveis de ambiente personalizadas a uma matriz. {% data reusables.actions.matrix-variable-example %}
 
 ## Principais recursos em {% data variables.product.prodname_actions %}
 
@@ -189,7 +187,7 @@ Ao fazer a migração do Travis CI, considere os recursos principais a seguir em
 
 ### Armazenar segredos
 
-{% data variables.product.prodname_actions %} permite armazenar segredos e referenciá-los em seus trabalhos. Organizações de {% data variables.product.prodname_actions %} podem limitar quais repositórios podem acessar segredos da organização. {% ifversion fpt or ghes > 3.0 or ghae or ghec %}As regras de proteção de ambiente podem exigir a aprovação manual de um fluxo de trabalho para acessar segredos de ambiente. {% endif %}Para obter mais informações, consulte "[Segredos criptografados](/actions/reference/encrypted-secrets)".
+{% data variables.product.prodname_actions %} permite armazenar segredos e referenciá-los em seus trabalhos. Organizações de {% data variables.product.prodname_actions %} podem limitar quais repositórios podem acessar segredos da organização. As regras de proteção de ambiente podem exigir a aprovação manual de um fluxo de trabalho para acessar segredos de ambiente. Para obter mais informações, consulte "[Segredos criptografados](/actions/reference/encrypted-secrets)".
 
 ### Compartilhar arquivos entre trabalhos e fluxos de trabalho
 
@@ -199,14 +197,19 @@ Ao fazer a migração do Travis CI, considere os recursos principais a seguir em
 
 Se os seus trabalhos exigirem hardware ou software específico, {% data variables.product.prodname_actions %} permitirá que você hospede seus próprios executores e envie seus trabalhos para eles processarem. {% data variables.product.prodname_actions %} também permite usar políticas para controlar como esses executores são acessados, concedendo acesso ao nível da organização ou do repositório. Para obter mais informações, consulte ["Hospedar seus próprios executores](/actions/hosting-your-own-runners)".
 
+{% ifversion fpt or ghec %}
+
 ### Trabalhos simultâneos e tempo de execução
 
 Os trabalhos simultâneos e os tempos de execução do fluxo de trabalho em {% data variables.product.prodname_actions %} podem variar dependendo do seu plano de {% data variables.product.company_short %}. Para obter mais informações, consulte "[Limites de uso, cobrança e administração](/actions/reference/usage-limits-billing-and-administration)".
 
+{% endif %}
+
 ### Usar diferentes linguagens em {% data variables.product.prodname_actions %}
 
 Ao trabalhar com diferentes linguagens em {% data variables.product.prodname_actions %}, você pode criar uma etapa no seu trabalho para configurar as dependências da sua linguagem. Para obter mais informações sobre como trabalhar com uma linguagem em particular, consulte o guia específico:
-  - [Criar e testar Node.js ou Python](/actions/guides/building-and-testing-nodejs-or-python)
+  - [Criar e testar Node.js](/actions/guides/building-and-testing-nodejs)
+  - [Criar e testar o Python](/actions/guides/building-and-testing-python)
   - [Criar e testar PowerShell](/actions/guides/building-and-testing-powershell)
   - [Criar e estar o Java com o Maven](/actions/guides/building-and-testing-java-with-maven)
   - [Criar e estar o Java com o Gradle](/actions/guides/building-and-testing-java-with-gradle)
@@ -281,26 +284,30 @@ script:
 {% endraw %}
 </td>
 <td class="d-table-cell v-align-top">
-{% raw %}
+
 ```yaml
 jobs:
   run_python:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/setup-python@v2
+      - uses: {% data reusables.actions.action-setup-python %}
         with:
           python-version: '3.7'
           architecture: 'x64'
       - run: python script.py
 ```
-{% endraw %}
+
 </td>
 </tr>
 </table>
 
 ## Memorizar dependências
 
-O Travis CI e {% data variables.product.prodname_actions %} permitem que você armazene as as dependências em cache manualmente para reutilização posterior. Esse exemplo demonstra a sintaxe do cache para cada sistema.
+O Travis CI e {% data variables.product.prodname_actions %} permitem que você armazene as as dependências em cache manualmente para reutilização posterior.
+
+{% ifversion actions-caching %}
+
+Esse exemplo demonstra a sintaxe do cache para cada sistema.
 
 <table>
 <tr>
@@ -321,21 +328,25 @@ cache: npm
 {% endraw %}
 </td>
 <td class="d-table-cell v-align-top">
-{% raw %}
+
 ```yaml
-- nome: Módulos do nó da cache
-  usa: actions/cache@v2
-  com:
-    caminho: ~/.npm
-    key: v1-npm-deps-${{ hashFiles('**/package-lock.json') }}
+- name: Cache node modules
+  uses: {% data reusables.actions.action-cache %}
+  with:
+    path: ~/.npm
+    key: {% raw %}v1-npm-deps-${{ hashFiles('**/package-lock.json') }}{% endraw %}
     restore-keys: v1-npm-deps-
 ```
-{% endraw %}
+
 </td>
 </tr>
 </table>
 
-O cache de {% data variables.product.prodname_actions %} só é aplicável para repositórios hospedados em {% data variables.product.prodname_dotcom_the_website %}. Para obter mais informações, consulte "<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">Memorizar dependências para acelerar fluxos de trabalho</a>".
+{% else %}
+
+{% data reusables.actions.caching-availability %}
+
+{% endif %}
 
 ## Exemplos de tarefas comuns
 
@@ -400,7 +411,7 @@ script:
 {% endraw %}
 </td>
 <td>
-{% raw %}
+
 ```yaml
 name: Node.js CI
 on: [push]
@@ -408,16 +419,16 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: {% data reusables.actions.action-checkout %}
       - name: Use Node.js
-        uses: actions/setup-node@v2
+        uses: {% data reusables.actions.action-setup-node %}
         with:
           node-version: '12.x'
       - run: npm install
       - run: npm run build
       - run: npm test
 ```
-{% endraw %}
+
 </td>
 </tr>
 </table>

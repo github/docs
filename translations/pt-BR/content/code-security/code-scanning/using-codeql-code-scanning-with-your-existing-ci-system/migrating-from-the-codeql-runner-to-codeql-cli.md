@@ -5,8 +5,8 @@ intro: 'Você pode usar o {% data variables.product.prodname_codeql_cli %} para 
 product: '{% data reusables.gated-features.code-scanning %}'
 versions:
   fpt: '*'
-  ghes: '>=3.1'
-  ghae: next
+  ghes: '*'
+  ghae: '*'
   ghec: '*'
 topics:
   - Advanced Security
@@ -38,7 +38,9 @@ Um fluxo de trabalho típico que usa o {% data variables.product.prodname_codeql
 - `codeql base de dados analisa` para executar consultas para analisar cada banco de dados de {% data variables.product.prodname_codeql %} e resumir os resultados de um arquivo SARIF. Esse comando deve ser executado uma vez para cada linguagem ou banco de dados.
 - `github do codeql upload-results` para fazer o upload dos arquivos SARIF para {% data variables.product.prodname_dotcom %} resultantes e serem exibidos como alertas de verificação de código. Esse comando deve ser executado uma vez para cada linguagem ou arquivo SARIF.
 
-Para obter mais informações, consulte "[Configurar {% data variables.product.prodname_codeql_cli %} no seu sistema de CI](/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/configuring-codeql-cli-in-your-ci-system)."
+O {% data variables.product.prodname_codeql_runner %} tem váris segmentos por padrão. O {% data variables.product.prodname_codeql_cli %} só usa um único segmento por padrão, mas permite que você especifique a quantidade de segmentos que você deseja que ele use. Se você deseja replicar o comportamento do {% data variables.product.prodname_codeql_runner %} para usar todos os segmentos disponíveis na máquina ao usar o {% data variables.product.prodname_codeql_cli %}, você pode passar `--threads 0` para `codeql analyze`.
+
+Para obter mais informações, consulte "[Configurar o {% data variables.product.prodname_codeql_cli %} no seu sistema de CI](/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/configuring-codeql-cli-in-your-ci-system)".
 
 ## Exemplos de usos comuns para o {% data variables.product.prodname_codeql_cli %}
 
@@ -48,9 +50,9 @@ Estes exemplos assumem que o código-fonte foi check-out para o diretório de tr
 
 Esses exemplos também assumem que a {% data variables.product.prodname_codeql_cli %} é colocado no PATH atual.
 
-Nestes exemplos, um token de {% data variables.product.prodname_dotcom %} com escopos adequados é armazenado na variável de ambiente `$TOKEN` e passado para os comandos de exemplo via stdin ou é armazenado na variável de ambiente `$GITHUB_TOKEN`.
+Nestes exemplos, um token de {% data variables.product.prodname_dotcom %} com escopos adequados é armazenado na variável de ambiente `$TOKEN` e passado para os comandos de exemplo via `stdin` ou é armazenado na variável de ambiente `$GITHUB_TOKEN`.
 
-O nome da ref e o commit SHA que está sendo verificado e analisado nesses exemplos são conhecidos durante o fluxo de trabalho. Para um branch, use `refs/heads/BRANCH-NAME` como ref. Para o commit principal de um pull request, use `refs/pulls/NUMBER/head`. Para um commit de merge gerado por {% data variables.product.prodname_dotcom %} de um pull request, use `refs/pulls/NUMBER/merge`. Todos ps exemplos abaixo usam `refs/heads/main`. Se você usar um nome de branch diferente, deverá modificar o código do exemplo.
+O nome da ref e o commit SHA que está sendo verificado e analisado nesses exemplos são conhecidos durante o fluxo de trabalho. Para um branch, use `refs/heads/BRANCH-NAME` como ref. Para o commit principal de um pull request, use `refs/pull/NUMBER/head`. Para um commit de merge gerado por {% data variables.product.prodname_dotcom %} de um pull request, use `refs/pull/NUMBER/merge`. Todos ps exemplos abaixo usam `refs/heads/main`. Se você usar um nome de branch diferente, deverá modificar o código do exemplo.
 
 ### Linguagem única não compilada (JavaScript)
 

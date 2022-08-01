@@ -11,12 +11,11 @@ versions:
 type: tutorial
 topics:
   - Action development
-shortTitle: Composite action
+shortTitle: Acción copuesta
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## Introducción
 
@@ -24,11 +23,11 @@ En esta guía, aprenderás acerca de los componentes básicos necesarios para cr
 
 Una vez que completes este proyecto, deberías comprender cómo crear tu propia acción compuesta y probarla en un flujo de trabajo.
 
-{% data reusables.github-actions.context-injection-warning %}
+{% data reusables.actions.context-injection-warning %}
 
 ## Prerrequisitos
 
-Before you begin, you'll create a repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}.
+Antes de comenzar, deberás crear un repositorio en {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}.
 
 1. Crea un repositorio público nuevo en {% data variables.product.product_location %}. Puedes elegir cualquier nombre de repositorio o utilizar el siguiente ejemplo de `hello-world-composite-action`. Puedes agregar estos archivos después de que tu proyecto se haya subido a {% data variables.product.product_name %}. Para obtener más información, consulta "[Crear un repositorio nuevo](/articles/creating-a-new-repository)".
 
@@ -76,16 +75,18 @@ Before you begin, you'll create a repository on {% ifversion ghae %}{% data vari
     outputs:
       random-number:
         description: "Random number"
-        value: ${{ steps.random-number-generator.outputs.random-id }}
+        value: ${{ steps.random-number-generator.outputs.random-number }}
     runs:
       using: "composite"
       steps:
         - run: echo Hello ${{ inputs.who-to-greet }}.
           shell: bash
         - id: random-number-generator
-          run: echo "::set-output name=random-id::$(echo $RANDOM)"
+          run: echo "::set-output name=random-number::$(echo $RANDOM)"
           shell: bash
-        - run: ${{ github.action_path }}/goodbye.sh
+        - run: echo "${{ github.action_path }}" >> $GITHUB_PATH
+          shell: bash          
+        - run: goodbye.sh
           shell: bash
     ```
     {% endraw %}
@@ -116,7 +117,6 @@ El siguiente código de flujo de trabajo utiliza la acción completada de "hello
 
 Copia el código del flujo de trabajo en un archivo de `.github/workflows/main.yml` en otro repositorio, pero reemplaza `actions/hello-world-composite-action@v1` con el repositorio y etiqueta que creaste. También puedes reemplazar la entrada `who-to-greet` con tu nombre.
 
-{% raw %}
 **.github/workflows/main.yml**
 ```yaml
 on: [push]
@@ -126,14 +126,13 @@ jobs:
     runs-on: ubuntu-latest
     name: A job to say hello
     steps:
-      - uses: actions/checkout@v2
+      - uses: {% data reusables.actions.action-checkout %}
       - id: foo
         uses: actions/hello-world-composite-action@v1
         with:
           who-to-greet: 'Mona the Octocat'
-      - run: echo random-number ${{ steps.foo.outputs.random-number }}
+      - run: echo random-number {% raw %}${{ steps.foo.outputs.random-number }}{% endraw %}
         shell: bash
 ```
-{% endraw %}
 
 Desde tu repositorio, da clic en la pestaña de **Acciones** y selecciona la última ejecución de flujo de trabajo. La salida deberá incluir "Hello Mona the Octocat", el resultado del script de "Goodbye" y un número aleatorio.

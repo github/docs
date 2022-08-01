@@ -2,8 +2,8 @@
 title: Criar rodapé ou barra lateral no wiki
 intro: Você pode adicionar uma barra lateral ou um footer personalizado para seu wiki a fim de fornecer aos leitores informações mais contextuais.
 redirect_from:
-  - /articles/creating-a-footer/
-  - /articles/creating-a-sidebar/
+  - /articles/creating-a-footer
+  - /articles/creating-a-sidebar
   - /articles/creating-a-footer-or-sidebar-for-your-wiki
   - /github/building-a-strong-community/creating-a-footer-or-sidebar-for-your-wiki
 product: '{% data reusables.gated-features.wikis %}'

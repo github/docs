@@ -2,9 +2,9 @@
 title: 管理远程仓库
 intro: '了解如何使用计算机上的本地仓库以及 {% data variables.product.product_name %} 上托管的远程仓库。'
 redirect_from:
-  - /categories/18/articles/
-  - /remotes/
-  - /categories/managing-remotes/
+  - /categories/18/articles
+  - /remotes
+  - /categories/managing-remotes
   - /articles/managing-remote-repositories
   - /articles/adding-a-remote
   - /github/using-git/adding-a-remote
@@ -107,7 +107,7 @@ git@{% data variables.command_line.codeblock %}:<em>USERNAME</em>/<em>REPOSITORY
   > origin  https://{% data variables.command_line.codeblock %}/<em>USERNAME/REPOSITORY</em>.git (push)
   ```
 
-下次对远程仓库执行 `git fetch`、`git pull` 或 `git push` 操作时，您需要提供 GitHub 用户名和密码。 {% data reusables.user_settings.password-authentication-deprecation %}
+下次对远程仓库执行 `git fetch`、`git pull` 或 `git push` 操作时，您需要提供 GitHub 用户名和密码。 {% data reusables.user-settings.password-authentication-deprecation %}
 
 您可以[使用凭据小助手](/github/getting-started-with-github/caching-your-github-credentials-in-git)让 Git 在每次与 GitHub 会话时记住您的 GitHub 用户名和个人访问令牌。
 
@@ -173,7 +173,7 @@ $ git remote -v
 
 ### 故障排除：无法将配置部分 'remote.[old name]' 重命名为 'remote.[new name]'
 
-This error means that the old remote name you typed doesn't exist.
+此错误表示您键入的旧远程名称不存在。
 
 您可以使用 `git remote -v` 命令检查当前存在哪些远程：
 
@@ -194,6 +194,8 @@ $ git remote -v
 
 `git remote rm` 命令使用一个参数：
 * 远程名称，例如 `destination`
+
+从存储库中删除远程 URL 只会取消本地和远程存储库的链接。 它不会删除远程存储库。
 
 ## 示例
 
@@ -217,7 +219,7 @@ $ git remote -v
 
 {% warning %}
 
-**注**：`git remote rm` 不会从服务器中删除远程仓库。  它只是从本地仓库中删除远程及其引用。
+**注意**：`git remote rm` 不会从服务器中删除远程存储库。  它只是从本地仓库中删除远程及其引用。
 
 {% endwarning %}
 

@@ -10,18 +10,21 @@
 /.github/ @github/docs-engineering
 /script/ @github/docs-engineering
 /includes/ @github/docs-engineering
-app.json @github/docs-engineering
+/lib/search/popular-pages.json @github/docs-engineering
 Dockerfile @github/docs-engineering
 package-lock.json @github/docs-engineering
 package.json @github/docs-engineering
 
 # Localization
+/.github/actions-scripts/create-translation-batch-pr.js @github/docs-localization
+/.github/workflows/create-translation-batch-pr.yml @github/docs-localization
 /.github/workflows/crowdin.yml @github/docs-localization
 /crowdin*.yml @github/docs-engineering @github/docs-localization
-/translations/ @github/docs-engineering @github/docs-localization @github-actions
+/translations/ @github/docs-engineering @github/docs-localization @Octomerger
+/translations/log/ @github/docs-localization @Octomerger
 
 # Site Policy
-/content/github/site-policy/ @github/site-policy-admins
+/content/site-policy/ @github/site-policy-admins
 
 # Content strategy
 /contributing/content-markup-reference.md @github/docs-content-strategy
@@ -29,7 +32,3 @@ package.json @github/docs-engineering
 /contributing/content-model.md @github/docs-content-strategy
 /contributing/content-style-guide.md @github/docs-content-strategy
 /contributing/content-templates.md @github/docs-content-strategy
-
-# Make sure that Octokit maintainers get notified about changes
-# relevant to the Octokit libraries (https://github.com/octokit)
-/content/rest/reference @github/octokit-maintainers

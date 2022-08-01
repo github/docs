@@ -28,11 +28,11 @@ O GitHub anunciou os seguintes planos e mudanças de preços:
 
 ## Como posso melhorar meu plano?
 
-Para atualizar o plano da sua conta de usuário, consulte "[Atualizando a assinatura de sua conta pessoal](/billing/managing-billing-for-your-github-account/upgrading-your-github-subscription#upgrading-your-personal-accounts-subscription)." Para atualizar o plano da sua organização, consulte "[Atualizando a assinatura da sua organização](/billing/managing-billing-for-your-github-account/upgrading-your-github-subscription#upgrading-your-organizations-subscription)."
+Para atualizar o plano da sua pessoal, consulte "[Atualizando a assinatura de sua conta pessoal](/billing/managing-billing-for-your-github-account/upgrading-your-github-subscription#upgrading-your-personal-accounts-subscription)." Para atualizar o plano da sua organização, consulte "[Atualizando a assinatura da sua organização](/billing/managing-billing-for-your-github-account/upgrading-your-github-subscription#upgrading-your-organizations-subscription)."
 
 ## Como posso rebaixar meu plano?
 
-Para rebaixar o plano da sua conta de usuário, consulte "[Rebaixando a assinatura de sua conta de usuário](/billing/managing-billing-for-your-github-account/downgrading-your-github-subscription#downgrading-your-user-accounts-subscription)." Para rebaixar o plano da sua organização, consulte "[Rebaixando a assinatura da sua organização](/billing/managing-billing-for-your-github-account/downgrading-your-github-subscription#downgrading-your-organizations-subscription)."
+Para rebaixar o plano da sua pessoal, consulte "[Rebaixando a assinatura da sua conta pessoal](/billing/managing-billing-for-your-github-account/downgrading-your-github-subscription#downgrading-your-personal-accounts-subscription)." Para rebaixar o plano da sua organização, consulte "[Rebaixando a assinatura da sua organização](/billing/managing-billing-for-your-github-account/downgrading-your-github-subscription#downgrading-your-organizations-subscription)."
 
 ## Se eu rebaixar do GitHub Team ou de um plano antigo para o GitHub Free, quais recursos perderei?
 - Revisores necessários em repositórios privados
@@ -80,7 +80,7 @@ Se a conta de sua organização atualmente usa o plano GitHub Team para Open Sou
 
 ## O que é o Suporte à Comunidade do GitHub?
 
-O Suporte à Comunidade do GitHub inclui suporte através do nosso [Fórum Comunitário](https://github.community/), onde você pode navegar por soluções da comunidade GitHub, fazer novas perguntas e compartilhar ideias. O Suporte à Comunidade do GitHub é fornecido por Engenheiros de Suporte da Equipe do GitHub, que moderam o Fórum Comunitário juntamente com os membros mais ativos da nossa comunidade. Se você precisar denunciar spam, denunciar abusos ou tiver problemas com acesso à conta, você pode enviar uma mensagem para nossa Equipe de Suporte no https://support.github.com/.
+GitHub Community Support includes support through our [{% data variables.product.prodname_github_community %} discussions](https://github.com/orgs/community/discussions), where you can browse solutions from the GitHub community, ask new questions, and share ideas. GitHub Community Support is staffed by Support Engineers on the GitHub Team, who moderate {% data variables.product.prodname_github_community %} along with our most active community members. Se você precisar denunciar spam, denunciar abusos ou tiver problemas com acesso à conta, você pode enviar uma mensagem para nossa Equipe de Suporte no https://support.github.com/.
 
 ## Como essa mudança afeta os benefícios educacionais?
 

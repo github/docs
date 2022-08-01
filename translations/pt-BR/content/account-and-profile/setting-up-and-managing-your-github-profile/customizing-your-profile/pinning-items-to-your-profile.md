@@ -2,7 +2,7 @@
 title: Fixar itens no seu perfil
 intro: Você pode fixar gists e repositórios no seu perfil para que outras pessoas possam ver seu melhor trabalho rapidamente.
 redirect_from:
-  - /articles/pinning-repositories-to-your-profile/
+  - /articles/pinning-repositories-to-your-profile
   - /articles/pinning-items-to-your-profile
   - /github/setting-up-and-managing-your-github-profile/pinning-items-to-your-profile
   - /github/setting-up-and-managing-your-github-profile/customizing-your-profile/pinning-items-to-your-profile

@@ -132,7 +132,7 @@ Um comentário foi adicionado ao problema ou pull request.
 | `html_url`           | `string`  | A URL de HTML do comentário do problema.                                                                                                                        |
 | `issue_url`          | `string`  | A URL de HTML do problema.                                                                                                                                      |
 | `id`                 | `inteiro` | O identificador exclusivo do evento.                                                                                                                            |
-| `node_id`            | `string`  | O [ID de nó global]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql/guides/using-global-node-ids) do evento.                                       |
+| `node_id`            | `string`  | O [ID de nó global](/graphql/guides/using-global-node-ids) do evento.                                                                                           |
 | `usuário`            | `objeto`  | A pessoa que comentou sobre o problema.                                                                                                                         |
 | `created_at`         | `string`  | A marca de tempo que indica quando o comentário foi adicionado.                                                                                                 |
 | `updated_at`         | `string`  | A marca de tempo que indica quando o comentário foi atualizado ou criado, se o comentário nunca for atualizado.                                                 |
@@ -158,7 +158,7 @@ Um commit foi adicionado ao branch `HEAD` do pull request.
 | Nome          | Tipo               | Descrição                                                                                                                                                         |
 | ------------- | ------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `sha`         | `string`           | O SHA do commit no pull request.                                                                                                                                  |
-| `node_id`     | `string`           | O [ID de nó global]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql/guides/using-global-node-ids) do evento.                                         |
+| `node_id`     | `string`           | O [ID de nó global](/graphql/guides/using-global-node-ids) do evento.                                                                                             |
 | `url`         | `string`           | A URL da API REST para recuperar o commit.                                                                                                                        |
 | `html_url`    | `string`           | A URL de HTML do commit.                                                                                                                                          |
 | `autor`       | `objeto`           | A pessoa que autorizou o commit.                                                                                                                                  |
@@ -320,6 +320,16 @@ O branch `HEAD` do pull request foi restaurado para o último commit conhecido.
 |:-------------------------- |:--------------------------:|:--------------------------------:|
 | <ul><li>Pull requests</li></ul> |           **X**            |              **X**               |
 
+## head_ref_force_pushed
+
+O branch HEAD do pull request foi criado por push forçado.
+
+### Disponibilidade
+
+| Tipo de problema           | API de eventos de problema | API de eventos da linha de tempo |
+|:-------------------------- |:--------------------------:|:--------------------------------:|
+| <ul><li>Pull requests</li></ul> |           **X**            |              **X**               |
+
 ### Propriedades do objeto do evento
 
 {% data reusables.issue-events.issue-event-common-properties %}
@@ -446,7 +456,7 @@ O problema foi fixado.
 
 ## ready_for_review
 
-A draft pull request was marked as ready for review.
+Um rascunho de pull request foi marcado como pronto para revisão.
 
 ### Disponibilidade
 
@@ -630,7 +640,7 @@ O pull request foi revisado.
 | Nome                 | Tipo      | Descrição                                                                                                                                                       |
 | -------------------- | --------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `id`                 | `inteiro` | O identificador exclusivo do evento.                                                                                                                            |
-| `node_id`            | `string`  | O [ID de nó global]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql/guides/using-global-node-ids) do evento.                                       |
+| `node_id`            | `string`  | O [ID de nó global](/graphql/guides/using-global-node-ids) do evento.                                                                                           |
 | `usuário`            | `objeto`  | A pessoa que comentou sobre o problema.                                                                                                                         |
 | `texto`              | `string`  | O texto do resumo da revisão.                                                                                                                                   |
 | `commit_id`          | `string`  | O SHA do último commit no pull request no momento da revisão.                                                                                                   |

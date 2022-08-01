@@ -3,10 +3,10 @@ title: Encontrando maneiras de contribuir com o código aberto no GitHub
 intro: 'Você pode encontrar maneiras de contribuir para projetos de código aberto em {% data variables.product.product_location %} que são relevantes para você.'
 permissions: '{% data reusables.enterprise-accounts.emu-permission-interact %}'
 redirect_from:
-  - /articles/where-can-i-find-open-source-projects-to-work-on/
-  - /articles/finding-interesting-projects-on-github/
-  - /articles/about-official-github-mirrors/
-  - /articles/about-github-mirrors/
+  - /articles/where-can-i-find-open-source-projects-to-work-on
+  - /articles/finding-interesting-projects-on-github
+  - /articles/about-official-github-mirrors
+  - /articles/about-github-mirrors
   - /articles/finding-open-source-projects-on-github
   - /github/getting-started-with-github/finding-open-source-projects-on-github
   - /github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github
@@ -25,7 +25,7 @@ Se houver um tópico específico que lhe interessa, visite `github.com/topics/<t
 
 Se você esteve ativo em {% data variables.product.product_location %}, você pode encontrar recomendações personalizadas para projetos e bons problemas iniciais com base em suas contribuições anteriores, estrelas e outras atividades em [Explorar](https://github.com/explore). Você também pode se inscrever no boletim informativo Explorar para receber e-mails sobre oportunidades de contribuir para {% data variables.product.product_name %} com base em seus interesses. Para se inscrever, consulte [Explorar newsletter de e-mail](https://github.com/explore/subscribe).
 
-Acompanhe atividades recentes em repositórios que você inspeciona e de pessoas que segue na seção "All activity" (Todas as atividades) de seu painel pessoal. Para obter mais informações, consulte "[Sobre seu painel pessoal](/articles/about-your-personal-dashboard)".
+Mantenha as atividades recentes de repositórios que você inspeciona, bem como pessoas e organizações que você segue, com seu painel pessoal. Para obter mais informações, consulte "[Sobre seu painel pessoal](/articles/about-your-personal-dashboard)".
 
 {% data reusables.support.ask-and-answer-forum %}
 

@@ -3,18 +3,18 @@ title: Fazer downgrade da sua assinatura do GitHub
 intro: 'Você pode fazer o downgrade da assinatura para qualquer tipo de conta em {% data variables.product.product_location %} a qualquer momento.'
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/downgrading-your-github-subscription
-  - /articles/downgrading-your-personal-account-s-billing-plan/
-  - /articles/how-do-i-cancel-my-account/
-  - /articles/downgrading-a-user-account-to-free/
-  - /articles/removing-paid-seats-from-your-organization/
-  - /articles/downgrading-your-organization-s-paid-seats/
-  - /articles/downgrading-your-organization-s-billing-plan/
-  - /articles/downgrading-an-organization-with-per-seat-pricing-to-free/
-  - /articles/downgrading-an-organization-with-per-repository-pricing-to-free/
-  - /articles/downgrading-your-organization-to-free/
-  - /articles/downgrading-your-organization-from-the-business-plan-to-the-team-plan/
-  - /articles/downgrading-your-organization-from-github-business-cloud-to-the-team-plan/
-  - /articles/downgrading-your-github-billing-plan/
+  - /articles/downgrading-your-personal-account-s-billing-plan
+  - /articles/how-do-i-cancel-my-account
+  - /articles/downgrading-a-user-account-to-free
+  - /articles/removing-paid-seats-from-your-organization
+  - /articles/downgrading-your-organization-s-paid-seats
+  - /articles/downgrading-your-organization-s-billing-plan
+  - /articles/downgrading-an-organization-with-per-seat-pricing-to-free
+  - /articles/downgrading-an-organization-with-per-repository-pricing-to-free
+  - /articles/downgrading-your-organization-to-free
+  - /articles/downgrading-your-organization-from-the-business-plan-to-the-team-plan
+  - /articles/downgrading-your-organization-from-github-business-cloud-to-the-team-plan
+  - /articles/downgrading-your-github-billing-plan
   - /articles/downgrading-your-github-subscription
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-your-github-account/downgrading-your-github-subscription
 versions:
@@ -31,16 +31,16 @@ shortTitle: Downgrade da assinatura
 
 ## Rebaixando sua assinatura {% data variables.product.product_name %}
 
-Quando você faz o downgrade (rebaixa) a assinatura da sua conta de usuário ou organização, as alterações de preços e recursos da conta fazem efeito a partir da próxima data de faturamento. Alterações em sua conta de usuário paga ou assinatura de organização não afetam assinaturas ou pagamentos para outros recursos pagos {% data variables.product.prodname_dotcom %}. Para obter mais informações, consulte "[Como a atualização ou o downgrade afeta o processo de cobrança?](/articles/how-does-upgrading-or-downgrading-affect-the-billing-process)."
+Quando você faz o downgrade a assinatura da sua conta pessoal ou organização, as alterações de preços e recursos da conta fazem efeito a partir da próxima data de faturamento. Alterações em sua conta pessoal paga ou assinatura de organização não afetam assinaturas ou pagamentos para outras funcionalidades pagas {% data variables.product.prodname_dotcom %}. Para obter mais informações, consulte "[Como a atualização ou o downgrade afeta o processo de cobrança?](/articles/how-does-upgrading-or-downgrading-affect-the-billing-process)."
 
-## Fazer downgrade da sua assinatura de conta de usuário
+## Fazendo o downgrade da assinatura da sua conta pessoal
 
-Se você fizer o downgrade da sua conta de usuário de {% data variables.product.prodname_pro %} para {% data variables.product.prodname_free_user %}, a conta perderá o acesso a ferramentas avançadas de revisão de código em repositórios privados. {% data reusables.gated-features.more-info %}
+Se você fizer o downgrade da sua conta pessoal de {% data variables.product.prodname_pro %} para {% data variables.product.prodname_free_user %}, a conta perderá o acesso a ferramentas avançadas de revisão de código em repositórios privados. {% data reusables.gated-features.more-info %}
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.billing_plans %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.billing_plans %}
 1. Em "Plano atual", use o menu suspenso **Editar** e clique em **Fazer downgrade para grátis**. ![Botão Downgrade to free (Fazer downgrade para o Free)](/assets/images/help/billing/downgrade-to-free.png)
-5. Leia as informações sobre os recursos aos quais sua organização deixará de ter acesso na próxima data de sua cobrança e clique em **Eu compreendi. Continue com o downgrade**. ![Continuar com o botão de downgrade](/assets/images/help/billing/continue-with-downgrade.png)
+5. Leia as informações sobre as funcionalidades às quais a sua conta pessoal não terá mais acesso na sua próxima data de cobrança e, em seguida, clique em **Eu entendo. Continue com o downgrade**. ![Continuar com o botão de downgrade](/assets/images/help/billing/continue-with-downgrade.png)
 
 Se você tiver publicado um site do {% data variables.product.prodname_pages %} em um repositório privado e adicionado um domínio personalizado, remova ou atualize seus registros DNS antes de fazer downgrade do {% data variables.product.prodname_pro %} para {% data variables.product.prodname_free_user %}, a fim de evitar o risco de uma aquisição de domínio. Para obter mais informações, consulte "[Gerenciar um domínio personalizado para seu site do {% data variables.product.prodname_pages %}](/articles/managing-a-custom-domain-for-your-github-pages-site)".
 
@@ -51,6 +51,13 @@ Se você tiver publicado um site do {% data variables.product.prodname_pages %} 
 Se você fizer o downgrade da sua organização de {% data variables.product.prodname_team %} para {% data variables.product.prodname_free_team %}, para uma organização, a conta perderá o acesso a ferramentas avançadas de colaboração e gerenciamento para equipes.
 
 Se você fizer o downgrade da sua organização de {% data variables.product.prodname_ghe_cloud %} para {% data variables.product.prodname_team %} ou {% data variables.product.prodname_free_team %}, a conta perderá o acesso a controles avançados de segurança, conformidade e implantação. {% data reusables.gated-features.more-info %}
+
+
+{% note %}
+
+**Nota:** Se você estiver testando {% data variables.product.prodname_ghe_cloud %} no momento e você não comprar {% data variables.product.prodname_enterprise %} antes do término do teste, sua organização será automaticamente rebaixada para {% data variables.product.prodname_free_team %} ou {% data variables.product.prodname_team %}. Para obter mais informações, consulte "[Configurar uma versão de avaliação do {% data variables.product.prodname_ghe_cloud %}](/get-started/signing-up-for-github/setting-up-a-trial-of-github-enterprise-cloud#finishing-your-trial)".
+
+{% endnote %}
 
 {% data reusables.organizations.billing-settings %}
 1. Em "Plano atual", use o menu suspenso **Editar** e clique na opção de downgrade que você deseja. ![Botão Downgrade (Fazer downgrade)](/assets/images/help/billing/downgrade-option-button.png)
@@ -84,5 +91,4 @@ Para reduzir o número de estações pagas usadas pela sua organização, remova
 - "[Produtos do {% data variables.product.prodname_dotcom %}](/articles/github-s-products)"
 - "[Como a atualização ou o downgrade afetam o processo de cobrança?](/articles/how-does-upgrading-or-downgrading-affect-the-billing-process)"
 - "[Sobre a cobrança no {% data variables.product.prodname_dotcom %}](/articles/about-billing-on-github)"
-- "[Remover forma de pagamento](/articles/removing-a-payment-method)"
 - "[Sobre preços por usuário](/articles/about-per-user-pricing)"

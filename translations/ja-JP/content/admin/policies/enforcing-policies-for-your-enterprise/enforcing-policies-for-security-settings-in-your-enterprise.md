@@ -2,16 +2,15 @@
 title: Enforcing policies for security settings in your enterprise
 intro: 'You can enforce policies to manage security settings in your enterprise''s organizations, or allow policies to be set in each organization.'
 permissions: Enterprise owners can enforce policies for security settings in an enterprise.
-product: '{% data reusables.gated-features.enterprise-accounts %}'
 miniTocMaxHeadingLevel: 3
 redirect_from:
-  - /articles/enforcing-security-settings-for-organizations-in-your-business-account/
-  - /articles/enforcing-security-settings-for-organizations-in-your-enterprise-account/
+  - /articles/enforcing-security-settings-for-organizations-in-your-business-account
+  - /articles/enforcing-security-settings-for-organizations-in-your-enterprise-account
   - /articles/enforcing-security-settings-in-your-enterprise-account
   - /github/articles/managing-allowed-ip-addresses-for-organizations-in-your-enterprise-account
   - /github/setting-up-and-managing-your-enterprise-account/enforcing-security-settings-in-your-enterprise-account
   - /github/setting-up-and-managing-your-enterprise/enforcing-security-settings-in-your-enterprise-account
-  - github/setting-up-and-managing-your-enterprise/setting-policies-for-organizations-in-your-enterprise-account/enforcing-security-settings-in-your-enterprise-account
+  - /github/setting-up-and-managing-your-enterprise/setting-policies-for-organizations-in-your-enterprise-account/enforcing-security-settings-in-your-enterprise-account
 versions:
   ghec: '*'
   ghes: '*'
@@ -32,7 +31,7 @@ You can enforce policies to control the security settings for organizations owne
 
 ## Requiring two-factor authentication for organizations in your enterprise
 
-Enterprise owners can require that organization members, billing managers, and outside collaborators in all organizations owned by an enterprise use two-factor authentication to secure their personal accounts.
+Enterprise owners can require that organization members, billing managers, and outside collaborators in all organizations owned by an enterprise use two-factor authentication to secure their user accounts.
 
 Before you can require 2FA for all organizations owned by your enterprise, you must enable two-factor authentication for your own account. 詳細は「[2 要素認証 (2FA) でアカウントを保護する](/articles/securing-your-account-with-two-factor-authentication-2fa/)」を参照してください。
 
@@ -40,9 +39,9 @@ Before you can require 2FA for all organizations owned by your enterprise, you m
 
 **警告:**
 
-- When you require two-factor authentication for your enterprise, members, outside collaborators, and billing managers (including bot accounts) in all organizations owned by your enterprise who do not use 2FA will be removed from the organization and lose access to its repositories. Organization のプライベートリポジトリのフォークへのアクセスも失います。 Organization から削除されてから 3 か月以内に、削除されたユーザが自分の個人アカウントで 2 要素認証を有効にすれば、そのユーザのアクセス権限および設定を復元できます。 詳しい情報については、「[Organization の以前のメンバーを回復する](/articles/reinstating-a-former-member-of-your-organization)」を参照してください。
-- Any organization owner, member, billing manager, or outside collaborator in any of the organizations owned by your enterprise who disables 2FA for their personal account after you've enabled required two-factor authentication will automatically be removed from the organization.
-- If you're the sole owner of a enterprise that requires two-factor authentication, you won't be able to disable 2FA for your personal account without disabling required two-factor authentication for the enterprise.
+- When you require two-factor authentication for your enterprise, members, outside collaborators, and billing managers (including bot accounts) in all organizations owned by your enterprise who do not use 2FA will be removed from the organization and lose access to its repositories. Organization のプライベートリポジトリのフォークへのアクセスも失います。 You can reinstate their access privileges and settings if they enable two-factor authentication for their account within three months of their removal from your organization. 詳しい情報については、「[Organization の以前のメンバーを回復する](/articles/reinstating-a-former-member-of-your-organization)」を参照してください。
+- Any organization owner, member, billing manager, or outside collaborator in any of the organizations owned by your enterprise who disables 2FA for their account after you've enabled required two-factor authentication will automatically be removed from the organization.
+- If you're the sole owner of a enterprise that requires two-factor authentication, you won't be able to disable 2FA for your user account without disabling required two-factor authentication for the enterprise.
 
 {% endwarning %}
 
@@ -68,7 +67,7 @@ You can restrict network traffic to your enterprise on {% data variables.product
 
 {% elsif ghec %}
 
-Enterprise owners can restrict access to assets owned by organizations in an enterprise by configuring an allow list for specific IP addresses. {% data reusables.identity-and-permissions.ip-allow-lists-example-and-restrictions %}
+Enterprise owners can restrict access to private assets owned by organizations in an enterprise by configuring an allow list for specific IP addresses. {% data reusables.identity-and-permissions.ip-allow-lists-example-and-restrictions %}
 
 {% data reusables.identity-and-permissions.ip-allow-lists-cidr-notation %}
 
@@ -117,7 +116,7 @@ Enterprise owners can restrict access to assets owned by organizations in an ent
 
 ### IP許可リストで {% data variables.product.prodname_actions %} を使用する
 
-{% data reusables.github-actions.ip-allow-list-self-hosted-runners %}
+{% data reusables.actions.ip-allow-list-self-hosted-runners %}
 
 {% endif %}
 
@@ -127,9 +126,11 @@ Enterprise owners can restrict access to assets owned by organizations in an ent
 
 You can use a SSH certificate authorities (CA) to allow members of any organization owned by your enterprise to access that organization's repositories using SSH certificates you provide. {% data reusables.organizations.can-require-ssh-cert %}詳しい情報については、「[SSS 認証局について](/organizations/managing-git-access-to-your-organizations-repositories/about-ssh-certificate-authorities)」を参照してください。
 
+{% data reusables.organizations.add-extension-to-cert %}
+
 ### SSH 認証局を追加する
 
-{% data reusables.organizations.add-extension-to-cert %}
+If you require SSH certificates for your enterprise, enterprise members should use a special URL for Git operations over SSH. 詳しい情報については、「[SSH 認証局について](/organizations/managing-git-access-to-your-organizations-repositories/about-ssh-certificate-authorities#about-ssh-urls-with-ssh-certificates)」を参照してください。
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
@@ -147,9 +148,8 @@ CAを削除すると、元に戻すことはできません。 同じCAを使用
 {% data reusables.organizations.delete-ssh-ca %}
 
 {% ifversion ghec or ghae %}
-
 ## 参考リンク
 
-- "[About identity and access management for your enterprise](/admin/authentication/managing-identity-and-access-for-your-enterprise/about-identity-and-access-management-for-your-enterprise)"
-
+- "[About identity and access management for your enterprise](/admin/authentication/managing-identity-and-access-for-your-enterprise/about-identity-and-access-management-for-your-enterprise)"{% ifversion ghec %}
+- "[Accessing compliance reports for your enterprise](/admin/overview/accessing-compliance-reports-for-your-enterprise)"{% endif %}
 {% endif %}

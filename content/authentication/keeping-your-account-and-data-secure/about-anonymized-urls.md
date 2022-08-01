@@ -2,7 +2,7 @@
 title: About anonymized URLs
 intro: 'If you upload an image or video to {% data variables.product.product_name %}, the URL of the image or video will be modified so your information is not trackable.'
 redirect_from:
-  - /articles/why-do-my-images-have-strange-urls/
+  - /articles/why-do-my-images-have-strange-urls
   - /articles/about-anonymized-image-urls
   - /authenticating-to-github/about-anonymized-image-urls
   - /github/authenticating-to-github/about-anonymized-urls

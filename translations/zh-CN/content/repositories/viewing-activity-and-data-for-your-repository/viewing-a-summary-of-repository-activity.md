@@ -1,6 +1,6 @@
 ---
 title: 查看仓库活动的摘要
-intro: 'You can view an overview of a repository''s pull request, issue, and commit activity.'
+intro: 您可以查看存储库的拉取请求、议题和提交活动的概述。
 product: '{% data reusables.gated-features.repository-insights %}'
 redirect_from:
   - /articles/viewing-a-summary-of-repository-activity
@@ -16,13 +16,13 @@ topics:
 shortTitle: 查看仓库活动
 ---
 
-## About Pulse
+## 关于 Pulse
 
-您可以通过 Pulse 查看仓库活动的概览。 Pulse includes a list of open and merged pull requests, open and closed issues, and a graph showing the commit activity for the top 15 users who committed to the default branch of the project in the selected [time period](/articles/viewing-a-summary-of-repository-activity#filtering-by-time).
+您可以通过 Pulse 查看仓库活动的概览。 Pulse 包括打开及合并的拉取请求列表、打开和关闭的议题列表，以及显示在所选[时间段](/articles/viewing-a-summary-of-repository-activity#filtering-by-time)提交到项目默认分支的前 15 名用户的提交活动图表。
 
 如果提交合作作者的提交已合并到仓库的默认分支并且他们是贡献最多提交的前 15 名用户，则提交合作作者将包括在提交活动摘要中。
 
-## Accessing Pulse
+## 访问 Pulse
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.accessing-repository-graphs %}

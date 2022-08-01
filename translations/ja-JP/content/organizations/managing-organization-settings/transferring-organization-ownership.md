@@ -2,7 +2,7 @@
 title: Organization の所有権を移譲する
 intro: '他の誰かを Organization アカウントのオーナーにするには、新しいオーナーを追加し、{% ifversion fpt or ghec %}請求情報が更新されることを確認し、{% endif %}アカウントから自分を削除します。'
 redirect_from:
-  - /articles/needs-polish-how-do-i-give-ownership-to-an-organization-to-someone-else/
+  - /articles/needs-polish-how-do-i-give-ownership-to-an-organization-to-someone-else
   - /articles/transferring-organization-ownership
   - /github/setting-up-and-managing-organizations-and-teams/transferring-organization-ownership
 versions:
@@ -16,7 +16,7 @@ topics:
 shortTitle: 所有権の移譲
 ---
 
-{% ifversion fpt or ghec %}
+{% ifversion ghec %}
 {% note %}
 
 **注釈:** {% data reusables.enterprise-accounts.invite-organization %}

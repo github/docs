@@ -1,8 +1,8 @@
 ---
 title: Recursos de aprendizagem Git e GitHub
 redirect_from:
-  - /articles/good-resources-for-learning-git-and-github/
-  - /articles/what-are-other-good-resources-for-learning-git-and-github/
+  - /articles/good-resources-for-learning-git-and-github
+  - /articles/what-are-other-good-resources-for-learning-git-and-github
   - /articles/git-and-github-learning-resources
   - /github/getting-started-with-github/git-and-github-learning-resources
   - /github/getting-started-with-github/quickstart/git-and-github-learning-resources
@@ -19,7 +19,7 @@ shortTitle: Recursos de aprendizagem
 
 ## Usar o Git
 
-Familiarize-se com o Git acessando o [site oficial do projeto Git](https://git-scm.com) e lendo o [livro do ProGit](http://git-scm.com/book). Você pode revisar a [lista de comandos Git](https://git-scm.com/docs) ou a [referência de consultas de comandos Git](http://gitref.org) e usar o simulador [Try Git](https://try.github.com) (Experimentar o Git).
+Familiarize-se com o Git acessando o [site oficial do projeto Git](https://git-scm.com) e lendo o [livro do ProGit](http://git-scm.com/book). Você também pode revisar a [lista de comandos Git](https://git-scm.com/docs).
 
 ## Usar {% data variables.product.product_name %}
 
@@ -45,7 +45,7 @@ Nosso {% data variables.product.prodname_dotcom %} [canal do YouTube de Treiname
 
 ### Cursos grátis
 
-{% data variables.product.product_name %} oferece uma série de treinamentos interativos, [sob demanda](https://lab.github.com/), incluindo [Introdução a {% data variables.product.prodname_dotcom %}](https://lab.github.com/githubtraining/introduction-to-github); cursos sobre linguagens de programação e ferramentas, como HTML, Python e NodeJS; e cursos sobre ferramentas específicas de {% data variables.product.product_name %}, como {% data variables.product.prodname_actions %}.
+{% data variables.product.product_name %} oferece uma série de cursos interativos, [por demanda](https://skills.github.com/) incluindo [Introdução a {% data variables.product.prodname_dotcom %}](https://github.com/skills/introduction-to-github); e cursos em ferramentas específicas de {% data variables.product.product_name %}, como {% data variables.product.prodname_actions %}.
 
 ### Programas educacionais online do {% data variables.product.prodname_dotcom %}
 
@@ -57,7 +57,7 @@ O {% data variables.product.prodname_dotcom %} oferece [aulas presenciais](https
 
 ## Extras
 
-An interactive [online Git course](https://www.pluralsight.com/courses/code-school-git-real) from [Pluralsight](https://www.pluralsight.com/codeschool) has seven levels with dozens of exercises in a fun game format. Fique à vontade para adaptar nossos [modelos .gitignore](https://github.com/github/gitignore) de acordo com as suas necessidades.
+Um [curso online e interativo sobre o Git](https://www.pluralsight.com/courses/code-school-git-real) da [Pluralsight](https://www.pluralsight.com/codeschool) tem sete níveis com dezenas de exercícios em formato de jogos divertidos. Fique à vontade para adaptar nossos [modelos .gitignore](https://github.com/github/gitignore) de acordo com as suas necessidades.
 
 Amplie seu alcance {% data variables.product.prodname_dotcom %} com {% ifversion fpt or ghec %}[integrações](/articles/about-integrations){% else %}integrações{% endif %} ou instalando [{% data variables.product.prodname_desktop %}](https://desktop.github.com) o robusto editor de texto [Atom](https://atom.io).
 

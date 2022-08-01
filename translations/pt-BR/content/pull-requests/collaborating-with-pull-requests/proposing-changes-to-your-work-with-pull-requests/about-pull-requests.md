@@ -3,7 +3,7 @@ title: Sobre pull requests
 intro: 'As pull requests permitem que você informe outras pessoas sobre as alterações das quais você fez push para um branch em um repositório no {% data variables.product.product_name %}. Depois que uma pull request é aberta, você pode discutir e revisar as possíveis alterações com colaboradores e adicionar commits de acompanhamento antes que as alterações sofram merge no branch base.'
 redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests
-  - /articles/using-pull-requests/
+  - /articles/using-pull-requests
   - /articles/about-pull-requests
   - /github/collaborating-with-issues-and-pull-requests/about-pull-requests
   - /github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests
@@ -22,17 +22,17 @@ topics:
 
 **Observação:** ao trabalhar com pull requests, lembre-se do seguinte:
 * Se estiver trabalhando no [modo de repositório compartilhado](/pull-requests/collaborating-with-pull-requests/getting-started/about-collaborative-development-models), é recomendável usar um branch de tópico para sua pull request. Embora você possa enviar pull requests de qualquer branch ou commit, com um branch de tópico, é possível fazer push de commits de acompanhamento caso seja preciso atualizar as alterações propostas.
-* Ao fazer push de commits para uma pull request, não force o push. O push forçado pode corromper a pull request.
+* Tenha muito cuidado quando fizer push forçado de commits para um pull request. Faz push forçado das alterações no histórico do repositório e pode corromper o seu pull request. Se outros colaboradores fizerem o branch do projeto antes de um push forçado, este poderá substituir os commits nos quais os colaboradores basearam o seu trabalho.
 
 {% endnote %}
 
-Você pode criar pull requests no {% data variables.product.prodname_dotcom_the_website %}, com {% data variables.product.prodname_desktop %}, em {% data variables.product.prodname_codespaces %}, em {% data variables.product.prodname_mobile %} e ao usar a CLI do GitHub.
+Você pode criar pull requests no {% data variables.product.prodname_dotcom_the_website %}, com {% data variables.product.prodname_desktop %}, em {% data variables.product.prodname_github_codespaces %}, em {% data variables.product.prodname_mobile %} e ao usar a CLI do GitHub.
 
 Após inicialização de uma pull request, você verá uma página de revisão que mostra uma visão geral de alto nível das alterações entre seu branch (o branch de comparação) e o branch base do repositório. É possível adicionar um resumo das alterações propostas, revisar as alterações feitas pelos commits, adicionar etiquetas, marcos e responsáveis, bem como fazer @menção a contribuidores individuais ou equipes. Para obter mais informações, consulte "[Criar uma pull request](/articles/creating-a-pull-request)".
 
 Depois que tiver criado uma pull request, você poderá fazer push dos commits do branch de tópico para adicioná-los à sua pull request existente. Esses commits aparecerão em ordem cronológica na pull request e as alterações estarão visíveis na guia "Files chenged" (Arquivos alterados).
 
-Outros contribuidores podem revisar as alterações propostas, adicionar comentários de revisão, contribuir com a discussão da pull request e, até mesmo, adicionar commits à pull request.
+Outros contribuidores podem revisar as alterações propostas, adicionar comentários de revisão, contribuir com a discussão da pull request e, até mesmo, adicionar commits à pull request. {% ifversion pull-request-approval-limit %}{% data reusables.pull_requests.code-review-limits %}{% endif %}
 
 {% ifversion fpt or ghec %}
 Você pode ver as informações sobre o status da implantação atual do branch e atividades passadas de implantação na guia "Conversa". Para obter mais informações, consulte "[Exibir atividade de implantação para um repositório](/repositories/viewing-activity-and-data-for-your-repository/viewing-deployment-activity-for-your-repository)".
@@ -72,6 +72,6 @@ As páginas de comparação e pull request usam métodos diferentes para calcula
 ## Leia mais
 
 - "[pull request](/articles/github-glossary/#pull-request)" no glossário do {% data variables.product.prodname_dotcom %}
-- "[About branches](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches)"
+- "[Sobre branches](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches)"
 - "[Comentando em uma pull request](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/commenting-on-a-pull-request)"
 - "[Fechar uma pull request](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/closing-a-pull-request)"

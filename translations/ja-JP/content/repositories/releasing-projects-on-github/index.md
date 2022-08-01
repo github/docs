@@ -2,8 +2,8 @@
 title: GitHub でプロジェクトをリリースする
 intro: ほかの人がダウンロードできるように、ソフトウェア、リリースノート、およびバイナリファイルをパッケージ化したリリースを作成できます。
 redirect_from:
-  - /categories/85/articles/
-  - /categories/releases/
+  - /categories/85/articles
+  - /categories/releases
   - /github/administering-a-repository/releasing-projects-on-github
 versions:
   fpt: '*'

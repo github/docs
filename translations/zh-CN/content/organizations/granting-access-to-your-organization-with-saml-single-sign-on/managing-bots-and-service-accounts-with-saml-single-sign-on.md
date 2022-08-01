@@ -1,12 +1,10 @@
 ---
 title: 使用 SAML 单点登录管理自动程序和服务帐户
 intro: 启用了 SAML 单点登录的组织可保留对自动程序和服务帐户的访问权限。
-product: '{% data reusables.gated-features.saml-sso %}'
 redirect_from:
   - /articles/managing-bots-and-service-accounts-with-saml-single-sign-on
   - /github/setting-up-and-managing-organizations-and-teams/managing-bots-and-service-accounts-with-saml-single-sign-on
 versions:
-  fpt: '*'
   ghec: '*'
 topics:
   - Organizations

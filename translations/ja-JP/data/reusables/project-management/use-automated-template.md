@@ -1,1 +1,1 @@
-プロジェクトボードテンプレートを使って、自動化が設定済みのプロジェクトボードを作成できます。 詳細は「[プロジェクトボードについて](/articles/about-project-boards#templates-for-project-boards)」を参照してください。
+You can use a {% data variables.projects.projects_v1_board %} template to create a {% data variables.projects.projects_v1_board %} with automation already configured. 詳細については、「[{% data variables.product.prodname_projects_v1 %}について](/articles/about-project-boards#templates-for-project-boards)」を参照してください。

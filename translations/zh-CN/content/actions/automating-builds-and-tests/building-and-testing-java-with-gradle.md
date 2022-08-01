@@ -19,13 +19,13 @@ shortTitle: 构建和测试 Java & Gradle
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## 简介
 
-本指南介绍如何使用 Gradle 构建系统为 Java 项目创建执行持续集成 (CI) 的工作流程。 您创建的工作流程将允许您查看拉取请求提交何时会在默认分支上导致构建或测试失败； 这个方法可帮助确保您的代码始终是健康的。 您可以扩展 CI 工作流程以缓存文件并且从工作流程运行上传构件。
+本指南介绍如何使用 Gradle 构建系统为 Java 项目创建执行持续集成 (CI) 的工作流程。 您创建的工作流程将允许您查看拉取请求提交何时会在默认分支上导致构建或测试失败； 这个方法可帮助确保您的代码始终是健康的。 您可以扩展 CI 工作流程以{% ifversion actions-caching %}缓存文件并且{% endif %}从工作流程运行上传构件。
 
-{% ifversion ghae %}有关如何确定 {% data variables.actions.hosted_runner %} 已安装所需软件的说明，请参阅“[创建自定义映像](/actions/using-github-hosted-runners/creating-custom-images)”。
+{% ifversion ghae %}
+{% data reusables.actions.self-hosted-runners-software %}
 {% else %}
 {% data variables.product.prodname_dotcom %} 托管的运行器有工具缓存预安装的软件，包括 Java Development Kits (JDKs) 和 Gradle。 有关软件以及 JDK 和 Gradle 预安装版本的列表，请参阅 [{% data variables.product.prodname_dotcom %} 托管的运行器的规格](/actions/reference/specifications-for-github-hosted-runners/#supported-software)。
 {% endif %}
@@ -40,16 +40,18 @@ shortTitle: 构建和测试 Java & Gradle
 
 {% data reusables.actions.enterprise-setup-prereq %}
 
-## 从 Gradle 工作流程模板开始
+## 使用 Gradle 入门工作流程
 
-{% data variables.product.prodname_dotcom %} 提供有 Gradle 工作流程模板，应该适用于大多数基于 Gradle 的 Java 项目。 更多信息请参阅 [Gradle 工作流程模板](https://github.com/actions/starter-workflows/blob/main/ci/gradle.yml)。
+{% data variables.product.prodname_dotcom %} 提供有 Gradle 入门工作流程，适用于大多数基于 Gradle 的 Java 项目。 更多信息请参阅 [Gradle 入门工作流程](https://github.com/actions/starter-workflows/blob/main/ci/gradle.yml)。
 
-要快速开始，您可以在创建新工作流程时选择预配置的 Gradle 模板。 更多信息请参阅“[{% data variables.product.prodname_actions %} 快速入门](/actions/quickstart)”。
+要快速开始，您可以在创建新工作流程时选择预配置的 Gradle 入门工作流程。 更多信息请参阅“[{% data variables.product.prodname_actions %} 快速入门](/actions/quickstart)”。
 
 您也可以通过在仓库的 `.github/workflow` 目录中创建新文件来手动添加此工作流程。
 
 ```yaml{:copy}
 {% data reusables.actions.actions-not-certified-by-github-comment %}
+
+{% data reusables.actions.actions-use-sha-pinning-comment %}
 
 name: Java CI
 
@@ -60,16 +62,18 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: {% data reusables.actions.action-checkout %}
       - name: Set up JDK 11
-        uses: actions/setup-java@v2
+        uses: {% data reusables.actions.action-setup-java %}
         with:
           java-version: '11'
           distribution: 'adopt'
       - name: Validate Gradle wrapper
         uses: gradle/wrapper-validation-action@e6e38bacfdf1a337459f332974bb2327a31aaf4b
       - name: Build with Gradle
-        run: ./gradlew build
+        uses: gradle/gradle-build-action@67421db6bd0bf253fb4bd25b31ebb98943c375e1
+        with:
+          arguments: build
 ```
 
 此工作流程执行以下步骤：
@@ -77,13 +81,13 @@ jobs:
 1. `checkout` 步骤在运行器上下载仓库的副本。
 2. `setup-java` 步骤配置 Adoptium 的 Java 11 JDK。
 3. “验证 Gradle 包装器”步骤验证源树中存在的 Gradle Wrapper JAR 文件的校验和。
-4. “使用 Gradle 构建”步骤运行 `gradlew` wrapper 脚本以确保可以创建您的代码构建、测试通过和包。
+4. “使用 Gradle 构建”步骤使用 Gradle 组织在 {% data variables.product.prodname_dotcom %}上提供的 `gradle/gradle-build-action` 操作进行构建。 该操作负责调用 Gradle、收集结果以及在作业之间缓存状态。 更多信息请参阅 [`gradle/gradle-build-action`](https://github.com/gradle/gradle-build-action)。
 
-在创建构建和测试工作流程时，默认工作流模板是很好的起点，然后您可以自定义模板以满足项目的需求。
+在创建构建和测试工作流程时，默认入门工作流程是很好的起点，然后您可以自定义入门工作流程以满足项目的需求。
 
-{% data reusables.github-actions.example-github-runner %}
+{% data reusables.actions.example-github-runner %}
 
-{% data reusables.github-actions.java-jvm-architecture %}
+{% data reusables.actions.java-jvm-architecture %}
 
 ## 构建和测试代码
 
@@ -93,49 +97,30 @@ jobs:
 
 如果使用不同的命令来构建项目，或者想要使用不同的任务，则可以指定这些命令。 例如，您可能想要运行在 _ci.gradle_ 文件中配置的 `package` 任务。
 
-{% raw %}
 ```yaml{:copy}
 steps:
-  - uses: actions/checkout@v2
-  - uses: actions/setup-java@v2
+  - uses: {% data reusables.actions.action-checkout %}
+  - uses: {% data reusables.actions.action-setup-java %}
     with:
       java-version: '11'
       distribution: 'adopt'
   - name: Validate Gradle wrapper
     uses: gradle/wrapper-validation-action@e6e38bacfdf1a337459f332974bb2327a31aaf4b
   - name: Run the Gradle package task
-    run: ./gradlew -b ci.gradle package
+    uses: gradle/gradle-build-action@67421db6bd0bf253fb4bd25b31ebb98943c375e1
+    with:
+      arguments: -b ci.gradle package
 ```
-{% endraw %}
+
+{% ifversion actions-caching %}
 
 ## 缓存依赖项
 
-使用 {% data variables.product.prodname_dotcom %} 托管的运行器时，您可以缓存依赖项以加速工作流程运行。 运行成功后，您的本地 Gradle 缓存将存储在 GitHub Actions 基础架构中。 在未来的工作流程运行中，缓存将会恢复，因此不需要从远程包仓库下载依赖项。 您可以简单地使用 [`setup-java` 操作](https://github.com/marketplace/actions/setup-java-jdk)缓存依赖项，也可使用 [`cache` 操作](https://github.com/actions/cache)进行自定义和更高级的配置。
+可以缓存构建依赖项以加快工作流程运行速度。 成功运行后， `gradle/gradle-build-action` 会缓存 Gradle 用户主目录的重要部分。 在将来的作业中，将还原缓存，这样就不需要重新编译构建脚本，也不需要从远程包存储库下载依赖项。
 
-{% raw %}
-```yaml{:copy}
-steps:
-  - uses: actions/checkout@v2
-  - name: Set up JDK 11
-    uses: actions/setup-java@v2
-    with:
-      java-version: '11'
-      distribution: 'adopt'
-      cache: gradle
-  - name: Validate Gradle wrapper
-    uses: gradle/wrapper-validation-action@e6e38bacfdf1a337459f332974bb2327a31aaf4b
-  - name: Build with Gradle
-    run: ./gradlew build
-  - name: Cleanup Gradle Cache
-    # Remove some files from the Gradle cache, so they aren't cached by GitHub Actions.
-    # Restoring these files from a GitHub Actions cache might cause problems for future builds.
-    run: |
-      rm -f ~/.gradle/caches/modules-2/modules-2.lock
-      rm -f ~/.gradle/caches/modules-2/gc.properties
-```
-{% endraw %}
+使用 `gradle/gradle-build-action` 操作时，缓存默认启用。 更多信息请参阅 [`gradle/gradle-build-action`](https://github.com/gradle/gradle-build-action#caching)。
 
-此工作流程将保存本地 Gradle 包缓存的内容，位于运行器主目录的 `.gradle/caches` 和 `.gradle/wrapper` 目录中。 缓存键将是 gradle 构建文件（包括 Gradle wrapper 属性文件）的哈希内容，因此对它们的任何更改都将使缓存无效。
+{% endif %}
 
 ## 将工作流数据打包为构件
 
@@ -143,20 +128,21 @@ steps:
 
 Gradle 通常会在 `build/libs` 目录中创建 JAR、EAR 或 WAR 等输出文件。 您可以使用 `upload-artifact` 操作上传该目录的内容。
 
-{% raw %}
 ```yaml{:copy}
 steps:
-  - uses: actions/checkout@v2
-  - uses: actions/setup-java@v2
+  - uses: {% data reusables.actions.action-checkout %}
+  - uses: {% data reusables.actions.action-setup-java %}
     with:
       java-version: '11'
       distribution: 'adopt'
   - name: Validate Gradle wrapper
     uses: gradle/wrapper-validation-action@e6e38bacfdf1a337459f332974bb2327a31aaf4b
-  - run: ./gradlew build
-  - uses: actions/upload-artifact@v2
+  - name: Build with Gradle
+    uses: gradle/gradle-build-action@67421db6bd0bf253fb4bd25b31ebb98943c375e1
+    with:
+      arguments: build
+  - uses: {% data reusables.actions.action-upload-artifact %}
     with:
       name: Package
       path: build/libs
 ```
-{% endraw %}

@@ -12,10 +12,8 @@ type: tutorial
 shortTitle: Servidores proxy
 ---
 
-{% data reusables.actions.ae-self-hosted-runners-notice %}
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## Configurar un servidor proxy mediante variables de entorno
 
@@ -36,6 +34,8 @@ Si necesitas un ejecutor autoalojado para comunicarte a través de un servidor p
 Las variables de entorno de proxy se leen cuando se inicia la aplicación del ejecutor autoalojado, por lo que debes establecer las variables de entorno antes de configurar o iniciar la aplicación del ejecutor autoalojado. Si cambia la configuración de tu proxy, debes reiniciar la aplicación del ejecutor autoalojado.
 
 En las máquinas Windows, los nombres de las variables de entorno proxy no distinguen mayúsculas de minúsculas. En las máquinas Linux y macOS, te recomendamos que uses todas las variables de entorno en minúsculas. Si tienes una variable de entorno tanto en minúsculas como en mayúsculas en Linux o macOS, por ejemplo `https_proxy` y `HTTPS_PROXY`, la aplicación del ejecutor autoalojado usa la variable de entorno en minúscula.
+
+{% data reusables.actions.self-hosted-runner-ports-protocols %}
 
 ## Usar un archivo.env para establecer la configuración del proxy
 

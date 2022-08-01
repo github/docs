@@ -1,7 +1,7 @@
 ---
 title: Alterar a mensagem do commit
 redirect_from:
-  - /articles/can-i-delete-a-commit-message/
+  - /articles/can-i-delete-a-commit-message
   - /articles/changing-a-commit-message
   - /github/committing-changes-to-your-project/changing-a-commit-message
   - /github/committing-changes-to-your-project/creating-and-editing-commits/changing-a-commit-message
@@ -54,7 +54,7 @@ O recomendável é evitar tanto quanto possível o push forçado, uma vez que is
 1. Siga as [etapas acima](/articles/changing-a-commit-message#commit-has-not-been-pushed-online) para corrigir a mensagem do commit.
 2. Use o comando `push --force-with-lease` para fazer push forçado sobre o commit antigo.
   ```shell
-  $ git push --force-with-lease <em>example-branch</em>
+  $ git push --force-with-lease origin <em>example-branch</em>
   ```
 
 **Alterar a mensagem das mensagens mais antigas ou múltiplas do commit**
@@ -103,7 +103,7 @@ Se precisar corrigir a mensagem de vários commits ou de um commit antigo, você
 5. Em cada arquivo de commit resultante, digite a nova mensagem do commit, salve o arquivo e feche-o.
 6. Quando estiver pronto para fazer push das suas alterações para o GitHub, use o comando push --force para fazer push forçado sobre o commit antigo.
 ```shell
-$ git push --force <em>example-branch</em>
+$ git push --force origin <em>example-branch</em>
 ```
 
 Para obter mais informações sobre rebase interativo, consulte a seção sobre o "[modo interativo](https://git-scm.com/docs/git-rebase#_interactive_mode)" no manual do Git.

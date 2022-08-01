@@ -3,8 +3,8 @@ title: GitHub Marketplace アプリケーションの支払いプランをダウ
 intro: '別の支払いプランを使用したい場合は、{% data variables.product.prodname_marketplace %} アプリケーションをいつでもダウングレードできます。'
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/downgrading-the-billing-plan-for-a-github-marketplace-app
-  - /articles/downgrading-an-app-for-your-personal-account/
-  - /articles/downgrading-an-app-for-your-organization/
+  - /articles/downgrading-an-app-for-your-personal-account
+  - /articles/downgrading-an-app-for-your-organization
   - /articles/downgrading-the-billing-plan-for-a-github-marketplace-app
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-marketplace-apps/downgrading-the-billing-plan-for-a-github-marketplace-app
 versions:
@@ -25,8 +25,8 @@ shortTitle: 支払いプランのダウングレード
 
 ## 個人アカウントのアプリケーションをダウングレードする
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.billing_plans %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.billing_plans %}
 {% data reusables.marketplace.downgrade-app-billing-settings %}
 {% data reusables.marketplace.choose-new-plan %}
 {% data reusables.marketplace.choose-new-quantity %}

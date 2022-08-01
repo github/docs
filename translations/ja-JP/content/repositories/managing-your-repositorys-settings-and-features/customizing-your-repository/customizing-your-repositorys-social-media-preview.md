@@ -17,10 +17,14 @@ shortTitle: Social media preview
 
 画像を追加するまでは、リポジトリへのリンクは、リポジトリの基本的な情報とオーナーのアバターを表示します。 リポジトリに画像を追加すると、さまざまなソーシャルプラットフォーム上で、あなたのプロジェクトが見つかりやすくなります。
 
+## Adding an image to customize the social media preview of your repository
+
 {% ifversion not ghae %}画像をプライベートリポジトリにアップロードできますが、画像はパブリックリポジトリからのみ共有できます。{% endif %}
 
 {% tip %}
-ヒント: 画像は、1 MB 未満の PNG、JPG または GIF である必要があります。 最高の画質を得るため、画像は 640 × 320 ピクセルに収めるようおすすめします。
+
+**Tip:** Your image should be a PNG, JPG, or GIF file under 1 MB in size. 最高の画質を得るため、画像は 640 × 320 ピクセルに収めるようおすすめします。
+
 {% endtip %}
 
 {% data reusables.repositories.navigate-to-repo %}
@@ -30,3 +34,16 @@ shortTitle: Social media preview
     - 画像を削除するには、[**Remove image**] をクリックします。
 
     ![ソーシャルプレビューのドロップダウン](/assets/images/help/repository/social-preview.png)
+
+## About transparency
+
+We support PNG images with transparency. Many communication platforms support a dark mode, so using a transparent social preview may be beneficial. The transparent image below is acceptable on a dark background; however, this may not always be the case.
+
+When using an image with transparency, keep in mind how it may look on different color backgrounds or platforms that don't support transparency.
+
+{% tip %}
+
+**Tip:** If you aren't sure, we recommend using an image with a solid background.
+{% endtip %}
+
+![Social preview transparency](/assets/images/help/repository/social-preview-transparency.png)

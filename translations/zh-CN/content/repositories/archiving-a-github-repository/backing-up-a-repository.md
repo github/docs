@@ -1,6 +1,6 @@
 ---
 title: 备份仓库
-intro: 'You can use{% ifversion ghes or ghae %} Git and{% endif %} the API {% ifversion fpt or ghec %}or a third-party tool {% endif %}to back up your repository.'
+intro: '可使用{% ifversion ghes or ghae %} Git 和{% endif %} API {% ifversion fpt or ghec %}或第三方工具{% endif %}备份仓库。'
 redirect_from:
   - /articles/backing-up-a-repository
   - /github/creating-cloning-and-archiving-repositories/backing-up-a-repository
@@ -24,7 +24,7 @@ topics:
 - 要将仓库的 Git 数据下载到本地计算机，您需要克隆该仓库。 更多信息请参阅“[克隆仓库](/articles/cloning-a-repository)”。
 - 还可以下载仓库的 wiki。 更多信息请参阅“[添加或删除 wiki 页面](/communities/documenting-your-project-with-wikis/adding-or-editing-wiki-pages)”。
 
-克隆仓库或 wiki 时，仅下载 Git 数据，例如项目文件和提交历史记录。 You can use our API to export other elements of your repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} to your local machine:
+克隆仓库或 wiki 时，仅下载 Git 数据，例如项目文件和提交历史记录。 您可以使用我们的 API 将 {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} 上存储库的其他元素导出到本地计算机：
 
 - [议题](/rest/reference/issues#list-issues-for-a-repository)
 - [拉取请求](/rest/reference/pulls#list-pull-requests)
@@ -37,7 +37,7 @@ topics:
 - [项目](/rest/reference/projects#list-repository-projects)
 {% endif %}
 
-Once you have {% ifversion ghes or ghae %}a local version of all the content you want to back up, you can create a zip archive and {% else %}downloaded your archive, you can {% endif %}copy it to an external hard drive and/or upload it to a cloud-based backup or storage service such as [Azure Blob Storage](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blobs-overview/), [Google Drive](https://www.google.com/drive/) or [Dropbox](https://www.dropbox.com/).
+拥有{% ifversion ghes or ghae %}要备份的所有内容的本地版本后，可以创建一个 zip 存档，以及在{% else %}下载存档后，可以 {% endif %}将其复制到外部硬盘驱动器和/或将其上传到基于云的备份或存储服务，例如 [Azure Blob Storage](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blobs-overview/)、[Google Drive](https://www.google.com/drive/) 或 [Dropbox](https://www.dropbox.com/)。
 
 {% ifversion fpt or ghec %}
 ## 第三方备份工具

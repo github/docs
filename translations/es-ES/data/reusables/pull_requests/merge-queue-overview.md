@@ -1,3 +1,5 @@
-Merge queues for pull requests can increase the rate at which pull requests are merged into a busy default branch, whilst ensuring that CI checks pass.
+Una cola de fusión puede aumentar la tasa en la que se fusionan las solicitudes de cambios en una rama destino mientras se asegura de que pasen todas las verificaciones de protección de rama requeridas.
 
-Once a pull request has passed any required checks and approvals, a contributor can add the pull request to the merge queue. The queue then creates a temporary branch with that pull request and any pull requests ahead of it in the queue, and triggers any required continuous integration (CI) checks. Once CI checks pass, {% data variables.product.product_name %} merges the pull request by fast-forwarding the default branch.
+Una vez que una solicitud de cambios pasa el resto de las verificaciones de protección de rama requeridas, un usuario con acceso de escritura al repositorio puede agregar dicha solicitud de cambios a una cola de fusión.
+
+Una cola de fusión podría utilizar {% data variables.product.prodname_actions %}. Para obtener más información, consulta la sección "[{% data variables.product.prodname_actions %}](/actions/)".

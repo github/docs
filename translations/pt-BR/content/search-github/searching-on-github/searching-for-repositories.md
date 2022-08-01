@@ -2,7 +2,7 @@
 title: Pesquisar repositórios
 intro: 'Você pode pesquisar repositórios no {% data variables.product.product_name %} e limitar os resultados usando qualquer combinação dos qualificadores de pesquisa de repositórios.'
 redirect_from:
-  - /articles/searching-repositories/
+  - /articles/searching-repositories
   - /articles/searching-for-repositories
   - /github/searching-for-information-on-github/searching-for-repositories
   - /github/searching-for-information-on-github/searching-on-github/searching-for-repositories
@@ -24,14 +24,15 @@ Para incluir bifurcações nos resultados da pesquisa, você precisará adiciona
 
 ## Pesquisar por nome do repositório, descrição ou conteúdo do arquivo README
 
-Com o qualificador `in`, você pode restringir a pesquisa ao nome do repositório, descrição do repositório, conteúdo do arquivo README ou qualquer combinação desses itens. Quando você omite esse qualificador, somente o nome e a descrição do repositório são pesquisados.
+Com o qualificador `in`, você pode restringir a pesquisa ao nome do repositório, descrição do repositório, t[opicos do repositório, conteúdo do arquivo README ou qualquer combinação desses itens. Ao omitir este qualificador, apenas o nome do repositório, pesquisam-se a descrição e os tópicos.
 
 | Qualifier         | Exemplo                                                                                                                                                                                       |
 | ----------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `in:name`         | [**jquery in:name**](https://github.com/search?q=jquery+in%3Aname&type=Repositories) corresponde aos repositórios com "jquery" no nome do respositório.                                       |
 | `in:description`  | [**jquery in:name,description**](https://github.com/search?q=jquery+in%3Aname%2Cdescription&type=Repositories) corresponde aos repositórios com "jquery" no nome ou descrição do repositório. |
+| `in:topics`       | [**jquery in:topics**](https://github.com/search?q=jquery+in%3Atopics&type=Repositories) corresponde a repositórios etiquetados com "jquery" como tópico.                                     |
 | `in:readme`       | [**jquery em:readme**](https://github.com/search?q=jquery+in%3Areadme&type=Repositories) corresponde aos repositórios que mencionam "jquery" no arquivo README do repositório.                |
-| `repo:owner/name` | [**repo:octocat/hello-world**](https://github.com/search?q=repo%3Aoctocat%2Fhello-world) identifica um nome de repositório específico.                                                        |
+| `repo:owner/name` | [**repo:octocat/hello-world**](https://github.com/search?q=repo%3Aoctocat%2Fhello-world) corresponde um nome de repositório específico.                                                       |
 
 ## Pesquisar com base no conteúdo do repositório
 
@@ -111,17 +112,17 @@ Os dois usam uma data como parâmetro. {% data reusables.time_date.date_format %
 
 Você pode pesquisar repositórios com base na linguagem do código nos repositórios.
 
-| Qualifier                 | Exemplo                                                                                                                                                                                      |
-| ------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <code>language:<em>LANGUAGE</em></code> | [**rails language:javascript**](https://github.com/search?q=rails+language%3Ajavascript&type=Repositories) identificar repositórios com a palavra"rails" e que foram escritos em JavaScript. |
+| Qualifier                 | Exemplo                                                                                                                                                                              |
+| ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| <code>language:<em>LANGUAGE</em></code> | [**`rails language:javascript`**](https://github.com/search?q=rails+language%3Ajavascript&type=Repositories) corresponde reposit´rios com a palavra "rails" gravaddos no JavaScript. |
 
 ## Pesquisar por tópico
 
 Você pode encontrar todos os repositórios classificados com um determinado tópico. Para obter mais informações, consulte "[Classificar seu repositório com tópicos](/github/administering-a-repository/classifying-your-repository-with-topics)".
 
-| Qualifier                 | Exemplo                                                                                                                                                                                     |
-| ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <code>topic:<em>TOPIC</em></code> | [**topic:jekyll**](https://github.com/search?utf8=%E2%9C%93&q=topic%3Ajekyll&type=Repositories&ref=searchresults) identifica os repositórios que foram classificados com o tópico "jekyll". |
+| Qualifier                 | Exemplo                                                                                                                                                                           |
+| ------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <code>topic:<em>TOPIC</em></code> | [**`topic:jekyll`**](https://github.com/search?utf8=%E2%9C%93&q=topic%3Ajekyll&type=Repositories&ref=searchresults) corresponde repositórios classificados com o tópico "Jekyll". |
 
 ## Pesquisar por número de tópicos
 
@@ -148,7 +149,7 @@ Você pode pesquisar repositórios pelo tipo de licença nos repositórios. É p
 
 Você pode filtrar sua pesquisa com base na visibilidade dos repositórios. Para obter mais informações, consulte "[Sobre repositórios](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)".
 
-| Qualifier  | Example | ------------- | ------------- |{% ifversion fpt or ghes or ghec %} | `is:public` | [**is:public org:github**](https://github.com/search?q=is%3Apublic+org%3Agithub&type=Repositories) matches public repositories owned by {% data variables.product.company_short %}.{% endif %} | `is:internal` | [**is:internal test**](https://github.com/search?q=is%3Ainternal+test&type=Repositories) matches internal repositories that you can access and contain the word "test". | `is:private` | [**is:private pages**](https://github.com/search?q=is%3Aprivate+pages&type=Repositories) corresponde a repositórios privados que você pode acessar e que contêm a palavra "pages".
+| Qualificador | Exemplo | ------------- | ------------- |{% ifversion fpt or ghes or ghec %} | `is:public` | [**is:public org:github**](https://github.com/search?q=is%3Apublic+org%3Agithub&type=Repositories) corresponde repositórios públicos pertencentes a {% data variables.product.company_short %}.{% endif %}{% ifversion ghes or ghec or ghae %} | `is:internal` | [**is:internal test**](https://github.com/search?q=is%3Ainternal+test&type=Repositories) corresponde repositórios internos que você pode acessar e que contêm a palavra "test".{% endif %} | `is:private` | [**is:private pages**](https://github.com/search?q=is%3Aprivate+pages&type=Repositories) corresponde repositórios privados que você pode acessar e que contêm a palavra "pages."
 
 {% ifversion fpt or ghec %}
 
@@ -180,7 +181,7 @@ Você pode pesquisar repositórios que têm um número mínimo de problemas com 
 
 | Qualifier                  | Exemplo                                                                                                                                                                                                                                                           |
 | -------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `good-first-issues:>n`  | [**good-first-issues:&gt;2 javascript**](https://github.com/search?utf8=%E2%9C%93&q=javascript+good-first-issues%3A%3E2&type=) identifica os repositórios com mais de dois problemas com a etiqueta `good-first-issue` e que contêm a palavra "javascript". |
+| `good-first-issues:>n`  | [**`good-first-issues:&gt;2 javascript`**](https://github.com/search?utf8=%E2%9C%93&q=javascript+good-first-issues%3A%3E2&type=) corresponde repositórios com mais de dois problemas etiquetados como `good-first-issue` e que contêm a palavra "javascript." |
 | `help-wanted-issues:>n` | [**help-wanted-issues:&gt;4 react**](https://github.com/search?utf8=%E2%9C%93&q=react+help-wanted-issues%3A%3E4&type=) identifica os repositórios com mais de quatro problemas com a etiqueta `help-wanted` e que contêm a palavra "React".                 |
 
 ## Pesquisar com base na capacidade de patrocinador

@@ -2,9 +2,9 @@
 title: Sobre domínios personalizados e GitHub Pages
 intro: 'O {% data variables.product.prodname_pages %} permite o uso de domínios personalizados, ou a alteração da raiz do URL do seu site do padrão, como ''octocat.github.io'', para qualquer domínio que você possua.'
 redirect_from:
-  - /articles/about-custom-domains-for-github-pages-sites/
-  - /articles/about-supported-custom-domains/
-  - /articles/custom-domain-redirects-for-your-github-pages-site/
+  - /articles/about-custom-domains-for-github-pages-sites
+  - /articles/about-supported-custom-domains
+  - /articles/custom-domain-redirects-for-your-github-pages-site
   - /articles/about-custom-domains-and-github-pages
   - /github/working-with-github-pages/about-custom-domains-and-github-pages
 product: '{% data reusables.gated-features.pages %}'
@@ -28,7 +28,7 @@ O {% data variables.product.prodname_pages %} trabalha com dois tipos de domíni
 
 Você pode definir as duas configurações apex e subdomínio de `www` para o seu site. Para obter mais informações sobre domínios apex, consulte "[Usar um domínio apex para o seu site {% data variables.product.prodname_pages %}](#using-an-apex-domain-for-your-github-pages-site)".
 
-É recomendável sempre usar um subdomínio `www`, mesmo se você também usar um domínio apex. Ao criar um novo site com um domínio apex, tentamos proteger automaticamente o subdomínio `www` para uso ao servir o conteúdo do seu site. Se você configurar um subdomínio `www`, nós tentaremos proteger automaticamente o domínio apex associado. Para obter mais informações, consulte "[Gerenciar um domínio personalizado para seu site do {% data variables.product.prodname_pages %}](/articles/managing-a-custom-domain-for-your-github-pages-site)".
+É recomendável sempre usar um subdomínio `www`, mesmo se você também usar um domínio apex. Ao criar um novo site com um domínio apex, tentamos proteger automaticamente o subdomínio `www` para uso ao servir o conteúdo do seu site, mas você precisa fazer as alterações de DNS para usar o subdomínio `www`. Se você configurar um subdomínio `www`, nós tentaremos proteger automaticamente o domínio apex associado. Para obter mais informações, consulte "[Gerenciar um domínio personalizado para seu site do {% data variables.product.prodname_pages %}](/articles/managing-a-custom-domain-for-your-github-pages-site)".
 
 Depois que você configurar um domínio personalizado para um site de usuário ou organização, o domínio personalizado substituirá a parte `<user>.github.io` ou `<organization>.github.io` da URL para qualquer site de projeto de propriedade da conta que não tenha um domínio personalizado configurado. Por exemplo, se o domínio personalizado para o site de usuário for `www.octocat.com` e você tiver um site de projeto sem domínio personalizado configurado que seja publicado de um repositório chamado `octo-project`, o site do {% data variables.product.prodname_pages %} para esse repositório estará disponível em `www.octocat.com/octo-project`.
 
@@ -56,9 +56,9 @@ Um domínio apex é configurado com um registro `A`, `ALIAS` ou `ANAME` por meio
 
 {% data reusables.pages.www-and-apex-domain-recommendation %} Para obter mais informações, consulte "[Gerenciar um domínio personalizado para o seu site de {% data variables.product.prodname_pages %}](/github/working-with-github-pages/managing-a-custom-domain-for-your-github-pages-site/#configuring-a-subdomain)".
 
-## Securing the custom domain for your {% data variables.product.prodname_pages %} site
+## Protegendo o domínio personalizado para o seu site do {% data variables.product.prodname_pages %}
 
-{% data reusables.pages.secure-your-domain %} For more information, see "[Verifying your custom domain for {% data variables.product.prodname_pages %}](/pages/configuring-a-custom-domain-for-your-github-pages-site/verifying-your-custom-domain-for-github-pages)" and "[Managing a custom domain for your {% data variables.product.prodname_pages %} site](/articles/managing-a-custom-domain-for-your-github-pages-site)."
+{% data reusables.pages.secure-your-domain %} Para obter mais informações, consulte "[Verificando o seu domínio personalizado para {% data variables.product.prodname_pages %}](/pages/configuring-a-custom-domain-for-your-github-pages-site/verifying-your-custom-domain-for-github-pages)" e "[Gerenciando um domínio personalizado para o site do seu {% data variables.product.prodname_pages %}](/articles/managing-a-custom-domain-for-your-github-pages-site)."
 
 Há alguns motivos para que seu site possa ser desabilitado automaticamente.
 

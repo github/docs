@@ -1,7 +1,9 @@
 import { defaults } from 'lodash-es'
-import webhookPayloads from '../../lib/webhooks/index.js'
+import getWebhookPayloads from '../../lib/webhooks/index.js'
 import nonEnterpriseDefaultVersion from '../../lib/non-enterprise-default-version.js'
 import { allVersions } from '../../lib/all-versions.js'
+
+let webhookPayloads = null
 
 export default function webhooksContext(req, res, next) {
   const currentVersionObj = allVersions[req.context.currentVersion]
@@ -9,6 +11,11 @@ export default function webhooksContext(req, res, next) {
   // and to versions that don't exist
   if (!req.pagePath.includes('webhook') || !currentVersionObj) {
     return next()
+  }
+
+  // Idempotent for consecutive calls
+  if (!webhookPayloads) {
+    webhookPayloads = getWebhookPayloads()
   }
 
   // Get the name of the dir under lib/webhooks/static

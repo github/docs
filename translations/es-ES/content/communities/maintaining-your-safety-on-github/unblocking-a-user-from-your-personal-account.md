@@ -20,8 +20,8 @@ Puedes desbloquear un usuario en los parámetros de tu cuenta o desde la página
 
 ## Desbloquear a un usuario en tus parámetros de cuenta
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.blocked_users %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.blocked_users %}
 3. En "Blocked users" (Usuarios bloqueados), al lado del usuario que quieres desbloquear, haz clic en **Unblock** (Desbloquear). ![Botón Unblock user (Desbloquear usuario)](/assets/images/help/organizations/org-unblock-user-button.png)
 
 ## Desbloquear un usuario desde su página de perfil

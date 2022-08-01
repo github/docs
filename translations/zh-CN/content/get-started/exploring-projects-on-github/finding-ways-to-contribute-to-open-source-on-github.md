@@ -3,10 +3,10 @@ title: 寻找在 GitHub 上参与开源项目的方法
 intro: '您可以找到在 {% data variables.product.product_location %} 上参加与您相关的开源项目的方法。'
 permissions: '{% data reusables.enterprise-accounts.emu-permission-interact %}'
 redirect_from:
-  - /articles/where-can-i-find-open-source-projects-to-work-on/
-  - /articles/finding-interesting-projects-on-github/
-  - /articles/about-official-github-mirrors/
-  - /articles/about-github-mirrors/
+  - /articles/where-can-i-find-open-source-projects-to-work-on
+  - /articles/finding-interesting-projects-on-github
+  - /articles/about-official-github-mirrors
+  - /articles/about-github-mirrors
   - /articles/finding-open-source-projects-on-github
   - /github/getting-started-with-github/finding-open-source-projects-on-github
   - /github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github
@@ -25,7 +25,7 @@ shortTitle: 为开源做贡献
 
 如果您一直活跃在 {% data variables.product.product_location %} 上，可以根据您过去的参与、标星以及在 [Explore](https://github.com/explore) 中的其他活动，为您的项目找到个性化的建议和合适的第一个议题。 您还可以注册 Explore 通讯以根据您的兴趣接收相关电子邮件，了解参与 {% data variables.product.product_name %} 的机会。 要注册，请参阅 [Explore 电子邮件通讯](https://github.com/explore/subscribe)。
 
-在个人仪表板的“All activity（所有活动）”部分中，了解您关注的仓库和人员的最新活动。 更多信息请参阅“[关于个人仪表板](/articles/about-your-personal-dashboard)”。
+使用个人仪表板及时了解您关注的存储库和人员以及组织的最近活动。 更多信息请参阅“[关于个人仪表板](/articles/about-your-personal-dashboard)”。
 
 {% data reusables.support.ask-and-answer-forum %}
 

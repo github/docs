@@ -54,7 +54,7 @@ export default async function learningTrack(req, res, next) {
   // page, we still want to render the learning track banner in that case.
   // Also handles Liquid conditionals in the track path.
   if (guideIndex < 0) {
-    for (const redirect of req.context.page.redirect_from) {
+    for (const redirect of req.context.page.redirect_from || []) {
       if (guideIndex >= 0) break
 
       guideIndex = await indexOfLearningTrackGuide(trackGuidePaths, redirect, req.context)

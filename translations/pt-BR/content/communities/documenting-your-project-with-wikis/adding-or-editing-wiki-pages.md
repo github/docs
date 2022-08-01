@@ -2,10 +2,10 @@
 title: Adicionar ou editar páginas wiki
 intro: 'Você pode adicionar e editar páginas wiki diretamente no {% data variables.product.product_name %} ou localmente usando a linha de comando.'
 redirect_from:
-  - /articles/adding-wiki-pages-via-the-online-interface/
-  - /articles/editing-wiki-pages-via-the-online-interface/
-  - /articles/adding-and-editing-wik-pages-locally/
-  - /articles/adding-and-editing-wiki-pages-locally/
+  - /articles/adding-wiki-pages-via-the-online-interface
+  - /articles/editing-wiki-pages-via-the-online-interface
+  - /articles/adding-and-editing-wik-pages-locally
+  - /articles/adding-and-editing-wiki-pages-locally
   - /articles/adding-or-editing-wiki-pages
   - /github/building-a-strong-community/adding-or-editing-wiki-pages
 product: '{% data reusables.gated-features.wikis %}'
@@ -34,7 +34,7 @@ shortTitle: Gerenciar páginas wiki
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-wiki %}
 4. Usando a barra lateral do wiki, navegue até a página que deseja alterar. No canto superior direito da página, clique em **Edit** (Editar). ![Botão Wiki edit page (Editar página wiki)](/assets/images/help/wiki/wiki_edit_page_button.png)
-5. Use o editor de texto para editar o conteúdo da página. ![WYSIWYG do wiki](/assets/images/help/wiki/wiki_wysiwyg.png)
+5. Use the text editor to edit the page's content. ![WYSIWYG do wiki](/assets/images/help/wiki/wiki_wysiwyg.png)
 6. Digite uma mensagem do commit descrevendo as alterações. ![Mensagem do commit do wiki](/assets/images/help/wiki/wiki_commit_message.png)
 7. Para fazer commit das alterações no wiki, clique em **Save Page** (Salvar página).
 
@@ -44,7 +44,7 @@ Os wikis fazem parte dos repositórios Git, de modo que é possível fazer alter
 
 ### Clonar wikis para seu computador
 
-Cada wiki fornece uma maneira fácil de clonar o respectivo conteúdo para seu computador. Você pode clonar o repositório no seu computador com a URL fornecida:
+Cada wiki fornece uma maneira fácil de clonar o respectivo conteúdo para seu computador. Depois de criar uma página inicial em {% data variables.product.product_name %}, você pode clonar o repositório para o seu computador com o URL fornecido:
 
 ```shell
 $ git clone https://github.com/<em>YOUR_USERNAME</em>/<em>YOUR_REPOSITORY</em>.wiki.git

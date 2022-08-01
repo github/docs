@@ -2,11 +2,11 @@
 
 {% note %}
 
-**ノート**: 以下のガイドは{% data variables.product.prodname_dotcom_the_website %}のREST APIを使用しています。
+**Note**: The following guide uses the REST API for {% data variables.product.prodname_dotcom_the_website %}.
 
-- {% data variables.product.product_name %}のAPIにアクセスするために<code>{% data variables.product.api_url_pre %}</code>を使ってください。
+- Use <code>{% data variables.product.api_url_pre %}</code> to access the API for {% data variables.product.product_name %}. 
 
-- このガイドは、{% data variables.product.product_location %}にはないかもしれないユーザ名とリポジトリを指定しています。 同様の出力を得るためには、別の名前を使わなければならないかもしれません。
+- The guide specifies usernames and repositories that may not exist on {% data variables.product.product_location %}. You may need to use different names to see similar output.
 
 {% endnote %}
 

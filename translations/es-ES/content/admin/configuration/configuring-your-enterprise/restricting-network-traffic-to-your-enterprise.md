@@ -70,4 +70,4 @@ Para las restricciones a nivel de instancia que utilizan los NSG de Azure, conta
 
 ## Utilizar {% data variables.product.prodname_actions %} con un listado de direcciones IP permitidas
 
-{% data reusables.github-actions.ip-allow-list-hosted-runners %}
+{% data reusables.actions.ip-allow-list-self-hosted-runners %}

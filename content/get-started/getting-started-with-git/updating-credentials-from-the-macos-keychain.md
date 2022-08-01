@@ -18,11 +18,11 @@ shortTitle: macOS Keychain credentials
 
 **Note:** Updating credentials from the macOS Keychain only applies to users who manually configured a PAT using the  `osxkeychain` helper that is built-in to macOS. 
 
-We recommend you either [configure SSH](/articles/generating-an-ssh-key) or upgrade to the [Git Credential Manager Core](/get-started/getting-started-with-git/caching-your-github-credentials-in-git) (GCM Core) instead. GCM Core can manage authentication on your behalf (no more manual PATs) including 2FA (two-factor auth).
+We recommend you either [configure SSH](/articles/generating-an-ssh-key) or upgrade to the [Git Credential Manager](/get-started/getting-started-with-git/caching-your-github-credentials-in-git) (GCM) instead. GCM can manage authentication on your behalf (no more manual PATs) including 2FA (two-factor auth).
 
 {% endtip %}
 
-{% data reusables.user_settings.password-authentication-deprecation %}
+{% data reusables.user-settings.password-authentication-deprecation %}
 
 ## Updating your credentials via Keychain Access
 

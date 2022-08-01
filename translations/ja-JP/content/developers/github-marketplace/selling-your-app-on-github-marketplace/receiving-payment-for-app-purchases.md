@@ -2,10 +2,10 @@
 title: アプリケーションの購入に対する支払いの受け取り
 intro: '各月の終わりに、{% data variables.product.prodname_marketplace %}リストに対する支払いを受け取ります。'
 redirect_from:
-  - /apps/adding-integrations/managing-pricing-and-payments-for-a-github-marketplace-listing/receiving-payment-for-a-github-marketplace-listing/
-  - /apps/marketplace/managing-pricing-and-payments-for-a-github-marketplace-listing/receiving-payment-for-a-github-marketplace-listing/
-  - /apps/marketplace/pricing-payments-and-free-trials/receiving-payment-for-a-github-marketplace-listing/
-  - /apps/marketplace/selling-your-app/receiving-payment-for-github-marketplace-listings/
+  - /apps/adding-integrations/managing-pricing-and-payments-for-a-github-marketplace-listing/receiving-payment-for-a-github-marketplace-listing
+  - /apps/marketplace/managing-pricing-and-payments-for-a-github-marketplace-listing/receiving-payment-for-a-github-marketplace-listing
+  - /apps/marketplace/pricing-payments-and-free-trials/receiving-payment-for-a-github-marketplace-listing
+  - /apps/marketplace/selling-your-app/receiving-payment-for-github-marketplace-listings
   - /marketplace/selling-your-app/receiving-payment-for-github-marketplace-listings
   - /developers/github-marketplace/receiving-payment-for-app-purchases
 versions:

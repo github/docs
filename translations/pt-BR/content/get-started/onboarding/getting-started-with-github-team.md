@@ -7,19 +7,19 @@ versions:
 
 Este guia irá ajudar você a configurar e gerenciar sua conta {% data variables.product.prodname_team %} como proprietário da organização.
 
-## Part 1: Configuring your account on {% data variables.product.product_location %}
-Como os primeiros passos para começar com {% data variables.product.prodname_team %}, você deverá criar uma conta de usuário ou entrar na sua conta existente em {% data variables.product.prodname_dotcom %}, criar uma organização e configurar a cobrança.
+## Parte 1: Configurar sua conta em {% data variables.product.product_location %}
+Como os primeiros passos para começar com {% data variables.product.prodname_team %}, você deverá criar uma conta pessoal ou entrar na sua conta existente em {% data variables.product.prodname_dotcom %}, criar uma organização e configurar a cobrança.
 
 ### 1. Sobre organizações
 As organizações são contas compartilhadas onde empresas e projetos de código aberto podem colaborar em muitos projetos de uma vez. Os proprietários e administradores podem gerenciar o acesso de integrantes aos dados e projetos da organização com recursos avançados administrativos e de segurança. Para obter mais informações sobre os recursos das organizações, consulte "[Sobre as organizações](/organizations/collaborating-with-groups-in-organizations/about-organizations#terms-of-service-and-data-protection-for-organizations)".
 
 ### 2. Criando uma organização e inscrevendo-se em {% data variables.product.prodname_team %}
-Before creating an organization, you will need to create a user account or log in to your existing account on {% data variables.product.product_location %}. Para obter mais informações, consulte "[Inscrever-se em uma nova conta do {% data variables.product.prodname_dotcom %}](/get-started/signing-up-for-github/signing-up-for-a-new-github-account)".
+Antes de criar uma organização, você deverá criar uma conta pessoal ou efetuar o login na sua conta existente em {% data variables.product.product_location %}. Para obter mais informações, consulte "[Inscrever-se em uma nova conta do {% data variables.product.prodname_dotcom %}](/get-started/signing-up-for-github/signing-up-for-a-new-github-account)".
 
-Uma vez que a sua conta de usuário está configurada, você derá criar uma organização e escolher um plano. Aqui é onde você pode escolher uma assinatura de {% data variables.product.prodname_team %} para a sua organização. Para obter mais informações, consulte "[Criar uma nova organização do zero](/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch)".
+Uma vez que a sua conta pessoal está configurada, você derá criar uma organização e escolher um plano. Aqui é onde você pode escolher uma assinatura de {% data variables.product.prodname_team %} para a sua organização. Para obter mais informações, consulte "[Criar uma nova organização do zero](/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch)".
 
 ### 3. Gerenciando a cobrança para uma organização
-Você deve gerenciar as configurações de cobrança, método de pagamento e produtos pagos para cada uma das suas contas pessoais e organizações separadamente. Você pode alternar entre as configurações para a suas diferentes contas usando o alternador de contexto nas suas configurações. For more information, see "[Switching between settings for your different accounts](/billing/managing-your-github-billing-settings/about-billing-on-github#switching-between-settings-for-your-different-accounts)."
+Você deve gerenciar as configurações de cobrança, método de pagamento e produtos pagos para cada uma das suas contas pessoais e organizações separadamente. Você pode alternar entre as configurações para a suas diferentes contas usando o alternador de contexto nas suas configurações. Para obter mais informações, consulte "[Alternando entre as configurações para as suas diferentes contas](/billing/managing-your-github-billing-settings/about-billing-on-github#switching-between-settings-for-your-different-accounts)".
 
 A página de configurações de cobrança da sua organização permite que você gerencie configurações como seu método de pagamento, ciclo de cobrança e e-mail de cobrança, ou visualize informações como a sua assinatura, data de faturamento e histórico de pagamento. Você também pode ver e fazer a atualização do seu armazenamento e dos minutos do GitHub Action. Para obter mais informações sobre como gerenciar suas configurações de cobrança, consulte "[Gerenciando suas configurações de cobrança de {% data variables.product.prodname_dotcom %}](/billing/managing-your-github-billing-settings)".
 
@@ -66,7 +66,7 @@ Você pode ajudar a tornar sua organização mais segura ao recomendar ou exigir
 {% data reusables.getting-started.customizing-and-automating %}
 ### 1. Usar {% data variables.product.prodname_marketplace %}
 {% data reusables.getting-started.marketplace %}
-### 2. Using the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API
+### 2. Usando a API de {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %}
 {% data reusables.getting-started.api %}
 
 ### 3. Criando {% data variables.product.prodname_actions %}
@@ -83,13 +83,16 @@ Você pode ajudar a tornar sua organização mais segura ao recomendar ou exigir
 ### 2. Interagindo com o {% data variables.product.prodname_gcf %}
 {% data reusables.support.ask-and-answer-forum %}
 
-### 3. Aprendendo com {% data variables.product.prodname_learning %}
-{% data reusables.getting-started.learning-lab %}
+### 3. Lendo sobre {% data variables.product.prodname_team %} em {% data variables.product.prodname_docs %}
+Você pode ler a documentação que reflete as funcionalidades disponíveis com {% data variables.product.prodname_team %}. Para obter mais informações, consulte "[Sobre as versões do {% data variables.product.prodname_docs %}](/get-started/learning-about-github/about-versions-of-github-docs)."
 
-### 4. Apoiar a comunidade de código aberto
+### 4. Aprendendo com {% data variables.product.prodname_learning %}
+{% data reusables.getting-started.learning %}
+
+### 5. Apoiar a comunidade de código aberto
 {% data reusables.getting-started.sponsors %}
 
-### 5. Entrar em contato com o {% data variables.contact.github_support %}
+### 6. Entrar em contato com o {% data variables.contact.github_support %}
 {% data reusables.getting-started.contact-support %}
 ## Leia mais
 

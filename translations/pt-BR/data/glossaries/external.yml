@@ -7,10 +7,6 @@
   description: >-
     Token usado no lugar de uma senha ao executar operações do Git em HTTPS com Git na linha de comando ou na API. Também chamado de token de acesso pessoal.
 - 
-  term: token de recuperação de conta
-  description: >-
-    **Obsoleto e será desativado em 1 de dezembro de 2021.** A credencial de autenticação armazenada como parte de uma configuração de recuperação de conta denominada Recuperação de Contas em Outro Lugar Recover que permite que você armazene essa credencial de backup.
-- 
   term: Visualização da API
   description: >-
     Forma de testar novas APIs e alterações nos métodos existentes antes de integrá-las como parte da API oficial do GitHub.
@@ -206,6 +202,10 @@
   description: >-
     O diff é a diferença nas alterações entre dois commits ou o registro das alterações salvas. O diff descreverá visualmente o que foi adicionado ou removido de um arquivo desde o commit mais recente.
 - 
+  term: diretório
+  description: >-
+    Uma pasta que contém uma ou mais arquivos ou pastas. Você pode criar diretórios para organizar o conteúdo de um repositório.
+- 
   term: sujo
   description: >-
     Uma árvore de trabalho é considerada "suja" se contiver modificações que não passaram por commit no branch atual.
@@ -214,7 +214,7 @@
   description: Notificações enviadas para o endereço de e-mail de um usuário.
 - 
   term: enterprise account
-  description: As contas corporativas permitem que você gerencie a política e a cobrança centralmente para várias organizações de {% data variables.product.prodname_dotcom_the_website %}. {% data reusables.gated-features.enterprise-accounts %}
+  description: As contas corporativas permitem que você gerencie a política e a cobrança centralmente para várias organizações. {% data reusables.gated-features.enterprise-accounts %}
 - 
   term: Explorador
   description: >-
@@ -572,10 +572,6 @@
   description: >-
     Reaplicar uma série de alterações de um branch para uma base diferente e redefinir o HEAD daquele branch para o resultado.
 - 
-  term: recuperação de contas em outro lugar
-  description: >-
-    **Obsoleto e será desabilitado em 1 de dezembro de 2021.** Permite aos usuários adicionar uma camada de segurança extra à conta do GitHub em caso de perda do acesso à autenticação de dois fatores ou aos códigos de recuperação. Os usuários podem associar suas contas do GitHub às contas do Facebook armazenando uma credencial de autenticação em forma de token de recuperação para a conta do GitHub no Facebook.
-- 
   term: código de recuperação
   description: Código que ajuda a recuperar o acesso à conta do GitHub.
 - 
@@ -602,9 +598,9 @@
   description: >-
     Repositórios são o elemento mais essencial do GitHub e podem ser imaginados como pastas de um projeto. O repositório contém todos os arquivos do projeto (inclusive a documentação) e armazena o histórico de revisão de cada arquivo. Repositórios podem ter vários colaboradores e podem ser públicos ou privados.
 - 
-  term: repository cache
+  term: cache do repositório
   description: >-
-    A read-only mirror of repositories for your GitHub Enterprise server instance, located near distributed teams and CI clients.
+    Um espelho somente leitura de repositórios para o seu exemplo de servidor do GitHub Enterprise, localizado perto de equipes distribuídas e clientes de CI.
 - 
   term: gráfico do repositório
   description: Representação visual dos dados do seu repositório.

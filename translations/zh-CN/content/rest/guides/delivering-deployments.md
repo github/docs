@@ -2,8 +2,8 @@
 title: 交付部署
 intro: 使用部署 REST API，您可以构建与您的服务器和第三方应用程序交互的自定义工具。
 redirect_from:
-  - /guides/delivering-deployments/
-  - /guides/automating-deployments-to-integrators/
+  - /guides/delivering-deployments
+  - /guides/automating-deployments-to-integrators
   - /v3/guides/delivering-deployments
 versions:
   fpt: '*'
@@ -20,7 +20,7 @@ topics:
 
 本指南将使用该 API 来演示您可以使用的设置。 在我们的场景中，我们将：
 
-* 合并拉取请求
+* 合并拉取请求.
 * 在 CI 完成后，我们将相应地设置拉取请求的状态。
 * 合并拉取请求后，我们将在服务器上运行部署。
 

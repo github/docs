@@ -3,7 +3,7 @@ title: Monitorar usando SNMP
 intro: 'O {% data variables.product.prodname_enterprise %} fornece dados sobre o uso de disco, CPU, memória e muito mais no SNMP.'
 redirect_from:
   - /enterprise/admin/installation/monitoring-using-snmp
-  - /enterprise/admin/articles/monitoring-using-snmp/
+  - /enterprise/admin/articles/monitoring-using-snmp
   - /enterprise/admin/enterprise-management/monitoring-using-snmp
   - /admin/enterprise-management/monitoring-using-snmp
 versions:
@@ -18,7 +18,7 @@ topics:
 
 O SNMP é um padrão comum para monitorar dispositivos em uma rede. É altamente recomendável ativar o SNMP para monitorar a integridade da {% data variables.product.product_location %} e saber quando adicionar mais memória, armazenamento ou potência do processador à máquina host.
 
-O {% data variables.product.prodname_enterprise %} tem uma instalação SNMP padrão que permite aproveitar [vários plugins](http://www.monitoring-plugins.org/doc/man/check_snmp.html) disponíveis para Nagios ou qualquer outro sistema de monitoramento.
+O {% data variables.product.prodname_enterprise %} tem uma instalação SNMP padrão que permite aproveitar [vários plugins](https://www.monitoring-plugins.org/doc/man/check_snmp.html) disponíveis para Nagios ou qualquer outro sistema de monitoramento.
 
 ## Configurar SMTP v2c
 
@@ -66,7 +66,7 @@ Se habilitar o SNMP v3, você poderá aproveitar o aumento da segurança baseada
 
 #### Consultar dados SNMP
 
-As informações de hardware e software do appliance estão disponíveis no SNMP v3. Devido à falta de criptografia e privacidade para os níveis de segurança dw `noAuthNoPriv` e `authNoPriv`, excluimos a tabela `hrSWRun` (1.3.6.1.2.1.25.4) dos relatórios SNMP resultantes. Incluímos esta tabela para o caso de você estar usando o nível de segurança `authPriv`. Para obter mais informações, consulte a "[Documentação de referência do OID](http://oidref.com/1.3.6.1.2.1.25.4)".
+As informações de hardware e software do appliance estão disponíveis no SNMP v3. Devido à falta de criptografia e privacidade para os níveis de segurança dw `noAuthNoPriv` e `authNoPriv`, excluimos a tabela `hrSWRun` (1.3.6.1.2.1.25.4) dos relatórios SNMP resultantes. Incluímos esta tabela para o caso de você estar usando o nível de segurança `authPriv`. Para obter mais informações, consulte a "[Documentação de referência do OID](https://oidref.com/1.3.6.1.2.1.25.4)".
 
 Com o SNMP v2c, ficam disponíveis somente as informações em nível de hardware. Os aplicativos e serviços no {% data variables.product.prodname_enterprise %} não têm OIDs configurados para reportar métricas. Diversas MIBs estão disponíveis, o que pode ser visto ao executar `snmpwalk` em uma estação de trabalho à parte com suporte SNMP na rede:
 

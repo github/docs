@@ -1,8 +1,8 @@
 ---
 title: Impedir os usuários de criarem organizações
 redirect_from:
-  - /enterprise/admin/articles/preventing-users-from-creating-organizations/
-  - /enterprise/admin/hidden/preventing-users-from-creating-organizations/
+  - /enterprise/admin/articles/preventing-users-from-creating-organizations
+  - /enterprise/admin/hidden/preventing-users-from-creating-organizations
   - /enterprise/admin/user-management/preventing-users-from-creating-organizations
   - /admin/user-management/preventing-users-from-creating-organizations
 intro: Você pode impedir que usuários criem organizações na sua empresa.

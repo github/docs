@@ -5,7 +5,7 @@ import { useMainContext } from 'components/context/MainContext'
 import { useTranslation } from 'components/hooks/useTranslation'
 import { ExcludesNull } from 'components/lib/ExcludesNull'
 import { useVersion } from 'components/hooks/useVersion'
-import { useLanguages } from 'components/context/LanguagesContext'
+import { useSession } from 'components/lib/get-session'
 import styles from './HeaderNotifications.module.scss'
 
 enum NotificationType {
@@ -21,34 +21,36 @@ type Notif = {
 export const HeaderNotifications = () => {
   const router = useRouter()
   const { currentVersion } = useVersion()
-  const { relativePath, allVersions, data, userLanguage, currentPathWithoutLanguage } =
-    useMainContext()
-  const { languages } = useLanguages()
+  const { relativePath, allVersions, data, currentPathWithoutLanguage, page } = useMainContext()
+  const session = useSession()
+  const userLanguage = session?.userLanguage
+  const languages = session?.languages || {}
+
   const { t } = useTranslation('header')
 
   const translationNotices: Array<Notif> = []
-  if (router.locale !== 'en') {
+  if (router.locale === 'en') {
+    if (userLanguage && userLanguage !== 'en' && languages[userLanguage]?.wip === false) {
+      translationNotices.push({
+        type: NotificationType.TRANSLATION,
+        content: `This article is also available in <a href="/${userLanguage}${currentPathWithoutLanguage}">${languages[userLanguage]?.name}</a>.`,
+      })
+    }
+  } else {
     if (relativePath?.includes('/site-policy')) {
       translationNotices.push({
         type: NotificationType.TRANSLATION,
         content: data.reusables.policies.translation,
       })
-    } else if (router.locale && languages[router.locale].wip !== true) {
+    } else if (router.locale && languages[router.locale]?.wip !== true) {
       translationNotices.push({
         type: NotificationType.TRANSLATION,
         content: t('notices.localization_complete'),
       })
-    } else if (router.locale && languages[router.locale].wip) {
+    } else if (router.locale && languages[router.locale]?.wip) {
       translationNotices.push({
         type: NotificationType.TRANSLATION,
         content: t('notices.localization_in_progress'),
-      })
-    }
-  } else {
-    if (userLanguage && userLanguage !== 'en' && languages[userLanguage]?.wip === false) {
-      translationNotices.push({
-        type: NotificationType.TRANSLATION,
-        content: `This article is also available in <a href="/${userLanguage}${currentPathWithoutLanguage}">${languages[userLanguage].name}</a>.`,
       })
     }
   }
@@ -69,7 +71,7 @@ export const HeaderNotifications = () => {
     ...translationNotices,
     ...releaseNotices,
     // ONEOFF EARLY ACCESS NOTICE
-    (relativePath || '').includes('early-access/')
+    (relativePath || '').includes('early-access/') && !page.noEarlyAccessBanner
       ? {
           type: NotificationType.EARLY_ACCESS,
           content: t('notices.early_access'),

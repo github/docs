@@ -33,12 +33,13 @@ Em seguida, quando for dito para buscar `https://github.example.com/myorg/myrepo
 
 ## Configurando um cache de repositório
 
-1. Durante o beta, você deve habilitar o sinalizador de recurso para o cache do repositório no dispositivo principal de {% data variables.product.prodname_ghe_server %}.
+{% ifversion ghes = 3.3 %}
+1. No seu dispositivo primário de {% data variables.product.prodname_ghe_server %}, habilite o sinalizador do recurso para o cache do repositório.
 
    ```
    $ ghe-config cluster.cache-enabled true
    ```
-
+{%- endif %}
 1. Configure um novo appliance do {% data variables.product.prodname_ghe_server %} na plataforma desejada. Este dispositivo será o cache do repositório. Para obter mais informações, consulte "[Configurar instância do {% data variables.product.prodname_ghe_server %}](/admin/guides/installation/setting-up-a-github-enterprise-server-instance)".
 {% data reusables.enterprise_installation.replica-steps %}
 1. Conecte ao endereço IP do repositório utilizando o SSH.
@@ -46,7 +47,13 @@ Em seguida, quando for dito para buscar `https://github.example.com/myorg/myrepo
    ```shell
    $ ssh -p 122 admin@<em>REPLICA IP</em>
    ```
+{%- ifversion ghes = 3.3 %}
+1. Na réplica do seu cache, habilite o sinalizador do recurso para o cache do repositório.
 
+   ```
+   $ ghe-config cluster.cache-enabled true
+   ```
+{%- endif %}
 {% data reusables.enterprise_installation.generate-replication-key-pair %}
 {% data reusables.enterprise_installation.add-ssh-key-to-primary %}
 1. Para verificar a conexão com o primário e habilitar o modo de réplica no cache do repositório, execute `ghe-repl-setup` novamente.
@@ -55,10 +62,10 @@ Em seguida, quando for dito para buscar `https://github.example.com/myorg/myrepo
    $ ghe-repl-setup <em>PRIMARY IP</em>
    ```
 
-1. Defina um `cache_location` para o cache do repositório, substituindo *CACHE-LOCATION* por um identificador alfanumérico, como a região onde o cache é implantado.
+1. Defina um `cache_location` para o cache do repositório, substituindo *CACHE-LOCATION* por um identificador alfanumérico, como a região onde o cache é implantado. Também defina um nome de centro de dados para este cache; novos caches tentarão semear de outro cache no mesmo centro de dados.
 
    ```shell
-   $ ghe-repl-node --cache <em>CACHE-LOCATION</em>
+   $ ghe-repl-node --cache <em>CACHE-LOCATION</em> --datacenter <em>REPLICA-DC-NAME</em>
    ```
 
 {% data reusables.enterprise_installation.replication-command %}
@@ -68,6 +75,14 @@ Em seguida, quando for dito para buscar `https://github.example.com/myorg/myrepo
 ## Políticas de localização de dados
 
 Você pode controlar a localidade de dados configurando as políticas de localização de dados para seus repositórios com o comando `spokesctl cache-policy` As políticas de localização de dados determinam quais redes de repositório são replicadas em quais caches de repositório. Por padrão, nenhuma rede de repositório será replicada em todos os caches de repositórios até que uma política de localização de dados seja configurada.
+
+As políticas de localização de dados afetam apenas o conteúdo do Git. O conteúdo no banco de dados, como problemas e comentários de pull request, serão replicados em todos os nós independentemente da política.
+
+{% note %}
+
+**Observação:** As políticas de localização de dados não são as mesmas que o controle de acesso. Você deve usar as funções do repositório para controlar quais usuários podem acessar um repositório. Para obter mais informações sobre as funções do repositório, consulte "[Funções do repositório para uma organização](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)".
+
+{% endnote %}
 
 Você pode configurar uma política para replicar todas as redes com o sinalizador `--default`. Por exemplo, este comando irá criar uma política de replicação de uma única cópia de cada rede de repositório no conjunto de caches de repositórios cujo `cache_location` é "kansas".
 

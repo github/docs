@@ -176,7 +176,7 @@ versions:
 
 ## Next steps
 
-<!-- Provide a quick recap of what has been accomplished in the quick start as a means of transitioning to next steps. Include 2-3 actionable next steps that the user take after completing the quickstart. Always link to conceptual content on the feature or product. You can also link off to other related information on docs.github.com or in GitHub Learning Labs. -->
+<!-- Provide a quick recap of what has been accomplished in the quick start as a means of transitioning to next steps. Include 2-3 actionable next steps that the user take after completing the quickstart. Always link to conceptual content on the feature or product. You can also link off to other related information on docs.github.com or in GitHub Skills. -->
 ```
 
 ## Tutorial 
@@ -300,7 +300,7 @@ versions:
   - Include any additional features the setup action might provide that are useful to CI.
   - If applicable, provide examples of configuring exact versions or major/minor versions.
   - Include information about software already installed on GitHub-hosted runners or software configuration necessary to build and test the project. 
-  - Provide examples of configuring build matrix strategies.
+  - Provide examples of configuring matrix strategies.
   - Link out to any docs about available software on the GitHub-hosted runners. (Ex. https://docs.github.com/en/actions/reference/software-installed-on-github-hosted-runners).
   - Include code samples.
 -->

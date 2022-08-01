@@ -1,19 +1,24 @@
 ---
 title: Saltarse las ejecuciones de código
-intro: You can skip workflow runs triggered by the `push` and `pull_request` events by including a command in your commit message.
+intro: Puedes omitir las ejecuciones de flujo de trabajo que se activen con los eventos de `push` y `pull_request` si incluyes un comando en tu mensaje de confirmación.
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: ghae-next
+  ghae: '*'
   ghec: '*'
-shortTitle: Skip workflow runs
+shortTitle: Omitir ejecuciones de flujo de trabajo
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
-Workflows that would otherwise be triggered using `on: push` or `on: pull_request` won't be triggered if you add any of the following strings to the commit message in a push, or the HEAD commit of a pull request:
+{% note %}
+
+**Nota:** Si un flujo de trabajo se omite debido a un [filtrado de ruta](/actions/using-workflows/workflow-syntax-for-github-actions#onpushpull_requestpull_request_targetpathspaths-ignore), [filtrado de rama](/actions/using-workflows/workflow-syntax-for-github-actions#onpull_requestpull_request_targetbranchesbranches-ignore) o a un mensaje de confirmación (consultar a continuación), entonces las verificaciones asociadas con dicho flujo de trabajo permanecerán en un estado de "Pendiente". Las solicitudes de cambios que requieran que esas verificaciones tengan éxito quedarán bloqueadas para fusión.
+
+{% endnote %}
+
+Los flujos de trabajo que comúnmente se activarían utilizando `on: push` o `on: pull_request`, no se activarán si agregas cualquiera de las siguientes secuencias al mensaje de confirmación en una subida o a la confirmación PRINCIPAL (HEAD) de una solicitud de cambios:
 
 * `[skip ci]`
 * `[ci skip]`
@@ -21,7 +26,9 @@ Workflows that would otherwise be triggered using `on: push` or `on: pull_reques
 * `[skip actions]`
 * `[actions skip]`
 
-Como alternativa, puedes finalizar el mensaje de confirmación con dos líneas vacías seguidas de ya sea `skip-checks: true` o `skip-checks:true`.
+Como alternativa, puedes finalizar el mensaje de confirmación con dos líneas vacías seguidas de ya sea:
+- `skip-checks:true`
+- `skip-checks: true`
 
 No podrás fusionar la solicitud de cambios si tu repositorio se cofiguró para requerir que las verificaciones específicas pasen primero. Para permitir que la solicitud de cambios se fusione, puedes subir una confirmación nueva a la solicitud de cambios sin la instrucción de salto en el mensaje de confirmación.
 
@@ -31,4 +38,4 @@ No podrás fusionar la solicitud de cambios si tu repositorio se cofiguró para 
 
 {% endnote %}
 
-Skip instructions only apply to the workflow run(s) that would be triggered by the commit that contains the skip instructions. You can also disable a workflow from running. Para obtener más información, consulta la sección "[Inhabilitar y habilitar un flujo de trabajo](/actions/managing-workflow-runs/disabling-and-enabling-a-workflow)".
+Las instrucciones de omisión solo aplican a las ejecuciones de flujo de trabajo que pudieran activarse mediante la confirmación que contiene dichas instrucciones. También puedes inhabilitar un flujo de trabajo para que no se ejecute. Para obtener más información, consulta la sección "[Inhabilitar y habilitar un flujo de trabajo](/actions/managing-workflow-runs/disabling-and-enabling-a-workflow)".

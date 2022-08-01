@@ -19,7 +19,6 @@ shortTitle: Deploy to Amazon ECS
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## はじめに
 
@@ -27,7 +26,7 @@ This guide explains how to use {% data variables.product.prodname_actions %} to 
 
 On every new push to `main` in your {% data variables.product.company_short %} repository, the {% data variables.product.prodname_actions %} workflow builds and pushes a new container image to Amazon ECR, and then deploys a new task definition to Amazon ECS.
 
-{% ifversion fpt or ghec or ghae-issue-4856 %}
+{% ifversion fpt or ghec or ghae-issue-4856 or ghes > 3.4 %}
 
 {% note %}
 
@@ -46,7 +45,8 @@ On every new push to `main` in your {% data variables.product.company_short %} r
    たとえば[AWS CLI](https://aws.amazon.com/cli/)を使って以下を行います。
 
    {% raw %}```bash{:copy}
-   aws ecr create-repository \ --repository-name MY_ECR_REPOSITORY \ --region MY_AWS_REGION
+   aws ecr create-repository \
+    --repository-name MY_ECR_REPOSITORY \ --region MY_AWS_REGION
    ```{% endraw %}
 
    以下のワークフロー中では、`ECR_REPOSITORY`変数に同じAmazon ECRリポジトリ名（ここでは`MY_ECR_REPOSITORY`）を使っていることを確認してください。
@@ -77,9 +77,7 @@ On every new push to `main` in your {% data variables.product.company_short %} r
 
    IAMユーザに推奨されるIAMポリシー及びアクセスキーの認証情報を処理するメソッドについては、以下で使われている各アクションのドキュメンテーションを参照してください。
 
-{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
 5. Optionally, configure a deployment environment. {% data reusables.actions.about-environments %}
-{% endif %}
 
 ## Creating the workflow
 
@@ -93,6 +91,8 @@ Once you've completed the prerequisites, you can proceed with creating the workf
 
 ```yaml{:copy}
 {% data reusables.actions.actions-not-certified-by-github-comment %}
+
+{% data reusables.actions.actions-use-sha-pinning-comment %}
 
 name: Deploy to Amazon ECS
 
@@ -117,11 +117,11 @@ jobs:
     runs-on: ubuntu-latest
     environment: production
 
-    {% raw %}steps:
+    steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: {% data reusables.actions.action-checkout %}
 
-      - name: Configure AWS credentials
+      {% raw %}- name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@13d241b293754004c80624b5567555c4a39ffbe3
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}

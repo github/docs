@@ -3,10 +3,10 @@ title: Encontrar maneras para colaborar con el código abierto en GitHub
 intro: 'Puedes encontrar maneras de contribuir a los proyectos de código abierto en {% data variables.product.product_location %} que te parezcan relevantes.'
 permissions: '{% data reusables.enterprise-accounts.emu-permission-interact %}'
 redirect_from:
-  - /articles/where-can-i-find-open-source-projects-to-work-on/
-  - /articles/finding-interesting-projects-on-github/
-  - /articles/about-official-github-mirrors/
-  - /articles/about-github-mirrors/
+  - /articles/where-can-i-find-open-source-projects-to-work-on
+  - /articles/finding-interesting-projects-on-github
+  - /articles/about-official-github-mirrors
+  - /articles/about-github-mirrors
   - /articles/finding-open-source-projects-on-github
   - /github/getting-started-with-github/finding-open-source-projects-on-github
   - /github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github
@@ -25,7 +25,7 @@ Si hay un tema en particular que te interese, visita `github.com/topics/<topic>`
 
 Si has tenido actividad en {% data variables.product.product_location %} recientemente, puedes encontrar recomendaciones personalizadas para proyectos e informes de problemas iniciales que se basen en tus contribuciones, estrellas y otras actividades previas en [Explore](https://github.com/explore). También puedes registrarte para el boletín Explore para recibir correos electrónicos sobre las oportunidades disponibles para colaborar con {% data variables.product.product_name %} de acuerdo a tus intereses. Para registrarte, consulta [Boletín Explore por correo](https://github.com/explore/subscribe).
 
-Mantente al tanto de las actividades recientes de los repositorios y personas que sigues en la sección "Toda la actividad" de tu tablero personal. Para obtener más información, consulta "[Acerca de tu tablero personal](/articles/about-your-personal-dashboard)".
+Mantente al tanto con la actividad reciente de los repositorios que observas, así como de las personas y organizaciones que sigues con tu tablero personal. Para obtener más información, consulta "[Acerca de tu tablero personal](/articles/about-your-personal-dashboard)".
 
 {% data reusables.support.ask-and-answer-forum %}
 

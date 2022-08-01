@@ -1,6 +1,6 @@
 ---
 title: 测试 SSH 连接
-intro: 'After you''ve set up your SSH key and added it to your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}, you can test your connection.'
+intro: '设置 SSH 密钥并将其添加到您在 {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} 上的帐户后，您可以测试连接。'
 redirect_from:
   - /articles/testing-your-ssh-connection
   - /github/authenticating-to-github/testing-your-ssh-connection
@@ -37,7 +37,7 @@ shortTitle: 测试 SSH 连接
   > Are you sure you want to continue connecting (yes/no)?
   ```
 
-3. 验证所看到消息中的指纹是否匹配 {% ifversion fpt or ghec %}[{% data variables.product.prodname_dotcom %} 的 RSA 公钥指纹](/github/authenticating-to-github/githubs-ssh-key-fingerprints){% else %}您企业的公钥指纹{% endif %}。 如果是，则输入 `yes`：
+3. 验证所看到消息中的指纹是否匹配 {% ifversion fpt or ghec %}[{% data variables.product.prodname_dotcom %} 的公钥指纹](/github/authenticating-to-github/githubs-ssh-key-fingerprints){% else %}您企业的公钥指纹{% endif %}。 如果是，则输入 `yes`：
   ```shell
   > Hi <em>username</em>! You've successfully authenticated, but GitHub does not
   > provide shell access.
@@ -56,5 +56,11 @@ shortTitle: 测试 SSH 连接
   这是某些 Linux 发行版的已知问题。 更多信息请参阅[“错误：代理承认没有签署”](/articles/error-agent-admitted-failure-to-sign)。
 
   {% endlinux %}
+
+   {% note %}
+
+   **注意：** 远程命令应以代码 1 退出。
+
+   {% endnote %}
 
 4. 验证生成的消息包含您的用户名。 如果收到“权限被拒绝”消息，请参阅[“错误：权限被拒绝（公钥）”](/articles/error-permission-denied-publickey)。

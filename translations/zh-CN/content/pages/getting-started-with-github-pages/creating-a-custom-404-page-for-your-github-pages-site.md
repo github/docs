@@ -2,7 +2,7 @@
 title: 为 GitHub Pages 站点创建自定义 404 页面
 intro: 您可以自定义在人们尝试访问您站点上不存在的页面时显示的 404 错误页面。
 redirect_from:
-  - /articles/custom-404-pages/
+  - /articles/custom-404-pages
   - /articles/creating-a-custom-404-page-for-your-github-pages-site
   - /github/working-with-github-pages/creating-a-custom-404-page-for-your-github-pages-site
 product: '{% data reusables.gated-features.pages %}'

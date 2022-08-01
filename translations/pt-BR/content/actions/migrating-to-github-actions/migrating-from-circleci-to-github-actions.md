@@ -2,7 +2,6 @@
 title: Migrar do CircleCI para o GitHub Actions
 intro: 'O GitHub Actions e o CircleCI compartilham várias semelhanças em termos de configuração, o que torna a migração para o GitHub Actions relativamente fácil.'
 redirect_from:
-  - /actions/migrating-to-github-actions/migrating-from-circleci-to-github-actions
   - /actions/learn-github-actions/migrating-from-circleci-to-github-actions
 versions:
   fpt: '*'
@@ -20,7 +19,6 @@ shortTitle: Fazer a migração a partir do CircleCI
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## Introdução
 
@@ -38,7 +36,7 @@ Para obter mais informações, consulte "[Conceitos básicos para {% data variab
 Ao fazer a migração do CircleCI, considere as seguintes diferenças:
 
 - O paralelismo do teste automático do CircleCI agrupa automaticamente os testes de acordo com regras especificadas pelo usuário ou com informações históricas de temporização. Esta funcionalidade não foi criada em {% data variables.product.prodname_actions %}.
-- As ações que são executadas em contêineres Docker são sensíveis a problemas de permissões, uma vez que os contêineres têm um mapeamento diferente de usuários. Você pode evitar muitos desses problemas se não usar a instrução `USUÁRIO` no seu *arquivo Docker*. {% ifversion ghae %}Para obter instruções sobre como ter certeza de que o {% data variables.actions.hosted_runner %} tem o software necessário instalado, consulte "[Criar imagens personalizadas](/actions/using-github-hosted-runners/creating-custom-images).".
+- As ações que são executadas em contêineres Docker são sensíveis a problemas de permissões, uma vez que os contêineres têm um mapeamento diferente de usuários. Você pode evitar muitos desses problemas se não usar a instrução `USUÁRIO` no seu *arquivo Docker*. {% ifversion ghae %}{% data reusables.actions.self-hosted-runners-software %}
 {% else %}Para obter mais informações sobre o sistema de arquivos Docker em executores hospedados em {% data variables.product.product_name %}, consulte "[Ambientes virtuais para executores hospedados em {% data variables.product.product_name %}](/actions/reference/virtual-environments-for-github-hosted-runners#docker-container-filesystem)."
 {% endif %}
 
@@ -52,7 +50,7 @@ Tanto o CircleCI quanto o {% data variables.product.prodname_actions %} configur
 
 Tanto o CircleCI quanto o {% data variables.product.prodname_actions %} fornecem um mecanismo para reutilizar e compartilhar tarefas em um fluxo de trabalho. O CircleCI usa um conceito chamado orbs, escrito em YAML, para fornecer tarefas que as pessoas podem reutilizar em um fluxo de trabalho. O {% data variables.product.prodname_actions %} tem componentes potentes, reutilizáveis e flexíveis denominados ações, que você cria com arquivos JavaScript ou imagens Docker. Você pode criar ações gravando códigos personalizados que interajam com o seu repositório da maneira que você quiser, inclusive fazendo integrações com as APIs do {% data variables.product.product_name %} e qualquer API de terceiros disponível publicamente. Por exemplo, as ações podem publicar módulos npm, enviar alertas SMS quando problemas urgentes forem criados ou implantar códigos prontos para produção. Para obter mais informações, consulte "[Criar ações](/actions/creating-actions)".
 
-O CircleCI pode reutilizar partes dos fluxos de trabalho com âncoras e aliases YAML. O {% data variables.product.prodname_actions %} suporta a necessidade mais comum de reutilização usando matrizes de criação. Para obter mais informações sobre matrizes de criação, consulte "[Gerenciar fluxos de trabalho complexos](/actions/learn-github-actions/managing-complex-workflows/#using-a-build-matrix)".
+O CircleCI pode reutilizar partes dos fluxos de trabalho com âncoras e aliases YAML. {% data variables.product.prodname_actions %} é compatível com a necessidade mais comum de reutilização usando matrizes. Para obter mais informações sobre matrizes, consulte "[Usando uma matriz para seus trabalhos](/actions/using-jobs/using-a-matrix-for-your-jobs)."
 
 ## Usar imagens do Docker
 
@@ -65,9 +63,8 @@ Recomendamos que você se afaste das imagens pré-criadas do CircleCI, ao migrar
 
 {% ifversion ghae %}
 Para obter mais informações sobre o sistema de arquivos Docker, consulte "[sistema de arquivos do Docker](/actions/using-github-hosted-runners/about-ae-hosted-runners#docker-container-filesystem)".
-Para obter instruções sobre como garantir o seu
 
-{% data variables.actions.hosted_runner %} tem o software necessário instalado, consulte "[Criar imagens personalizadas](/actions/using-github-hosted-runners/creating-custom-images)".
+{% data reusables.actions.self-hosted-runners-software %}
 {% else %}
 Para obter mais informações sobre o sistema de arquivos Docker, consulte "[Ambientes virtuais para executores hospedados em {% data variables.product.product_name %}](/actions/reference/virtual-environments-for-github-hosted-runners#docker-container-filesystem)".
 Para obter mais informações sobre as ferramentas e pacotes disponíveis em
@@ -84,6 +81,8 @@ Para obter mais informações, consulte "[Usar variáveis de ambiente](/actions/
 ## Armazenar em cache
 
 O CircleCI e o {% data variables.product.prodname_actions %} fornecem um método para armazenar arquivos de cache no arquivo de configuração manualmente.
+
+{% ifversion actions-caching %}
 
 Abaixo, há um exemplo da sintaxe para cada sistema.
 
@@ -108,21 +107,25 @@ GitHub Actions
 {% endraw %}
 </td>
 <td class="d-table-cell v-align-top">
-{% raw %}
+
 ```yaml
-- nome: Módulos do nó da cache
-  usa: actions/cache@v2
-  com:
-    caminho: ~/.npm
-    key: v1-npm-deps-${{ hashFiles('**/package-lock.json') }}
+- name: Cache node modules
+  uses: {% data reusables.actions.action-cache %}
+  with:
+    path: ~/.npm
+    key: {% raw %}v1-npm-deps-${{ hashFiles('**/package-lock.json') }}{% endraw %}
     restore-keys: v1-npm-deps-
 ```
-{% endraw %}
+
 </td>
 </tr>
 </table>
 
-O cache de {% data variables.product.prodname_actions %} só é aplicável para repositórios hospedados em {% data variables.product.prodname_dotcom_the_website %}. Para obter mais informações, consulte "<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">Memorizar dependências para acelerar fluxos de trabalho</a>".
+{% else %}
+
+{% data reusables.actions.caching-availability %}
+
+{% endif %}
 
 {% data variables.product.prodname_actions %} não tem o equivalente ao Docker Layer Caching (DLC) do CircleCI.
 
@@ -158,10 +161,10 @@ GitHub Actions
 {% endraw %}
 </td>
 <td class="d-table-cell v-align-top">
-{% raw %}
+
 ```yaml
 - name: Upload math result for job 1
-  uses: actions/upload-artifact@v2
+  uses: {% data reusables.actions.action-upload-artifact %}
   with:
     name: homework
     path: math-homework.txt
@@ -169,11 +172,11 @@ GitHub Actions
 ...
 
 - name: Download math result for job 1
-  uses: actions/download-artifact@v2
+  uses: {% data reusables.actions.action-download-artifact %}
   with:
     name: homework
 ```
-{% endraw %}
+
 </td>
 </tr>
 </table>
@@ -253,7 +256,7 @@ fluxos de trabalho:
 {% endraw %}
 </td>
 <td class="d-table-cell v-align-top">
-{% raw %}
+
 ```yaml
 name: Containers
 
@@ -287,7 +290,7 @@ jobs:
       # See https://docs.github.com/actions/reference/virtual-environments-for-github-hosted-runners#docker-container-filesystem
       - name: Setup file system permissions
         run: sudo chmod -R 777 $GITHUB_WORKSPACE /github /__w/_temp
-      - uses: actions/checkout@v2
+      - uses: {% data reusables.actions.action-checkout %}
       - name: Install dependencies
         run: bundle install --path vendor/bundle
       - name: Setup environment configuration
@@ -297,7 +300,6 @@ jobs:
       - name: Run tests
         run: bundle exec rake
 ```
-{% endraw %}
 </td>
 </tr>
 </table>
@@ -404,9 +406,11 @@ fluxos de trabalho:
 {% endraw %}
 </td>
 <td class="d-table-cell v-align-top">
-{% raw %}
+
 ```yaml
-{% endraw %}{% data reusables.actions.actions-not-certified-by-github-comment %}{% raw %}
+{% data reusables.actions.actions-not-certified-by-github-comment %}
+
+{% data reusables.actions.actions-use-sha-pinning-comment %}
 
 name: Containers
 
@@ -439,16 +443,16 @@ jobs:
         options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: {% data reusables.actions.action-checkout %}
       - name: Setup Ruby
         uses: eregon/use-ruby-action@477b21f02be01bcb8030d50f37cfec92bfa615b6
         with:
-          ruby-version: ${{ matrix.ruby }}
+          ruby-version: {% raw %}${{ matrix.ruby }}{% endraw %}
       - name: Cache dependencies
-        uses: actions/cache@v2
+        uses: {% data reusables.actions.action-cache %}
         with:
           path: vendor/bundle
-          key: administrate-${{ matrix.image }}-${{ hashFiles('Gemfile.lock') }}
+          key: administrate-{% raw %}${{ matrix.image }}-${{ hashFiles('Gemfile.lock') }}{% endraw %}
       - name: Install postgres headers
         run: |
           sudo apt-get update
@@ -466,7 +470,6 @@ jobs:
       - name: Run appraisal
         run: bundle exec appraisal rake
 ```
-{% endraw %}
 </td>
 </tr>
 </table>

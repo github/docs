@@ -16,12 +16,12 @@ topics:
 
 リポジトリの名前を変更すると、プロジェクトサイトの URL を除くすべての既存の情報は、下記を含む新しい名前に自動的にリダイレクトされます。
 
-* 問題
+* Issue
 * Wiki
 * Star
 * フォロワー
 
-For more information on project sites, see "[About {% data variables.product.prodname_pages %}](/pages/getting-started-with-github-pages/about-github-pages#types-of-github-pages-sites)."
+プロジェクトサイトに関する詳しい情報については「[{% data variables.product.prodname_pages %}について](/pages/getting-started-with-github-pages/about-github-pages#types-of-github-pages-sites)」を参照してください。
 
 Web トラフィックのリダイレクトに加え、前の場所をターゲットにしたすべての `git clone`、`git fetch`、または `git push` 操作は、引き続き新しい場所に対して行われているように機能します。 ただし、混乱を低減するため、既存のローカルクローンが新しいリポジトリ URL を指すよう更新することを強く推奨します。 これを行うには、コマンドラインで  `git remote` を使用します。
 
@@ -29,7 +29,7 @@ Web トラフィックのリダイレクトに加え、前の場所をターゲ�
 $ git remote set-url origin <em>新しい URL</em>
 ```
 
-For more information, see "[Managing remote repositories](/github/getting-started-with-github/managing-remote-repositories)."
+詳しい情報については「[リモートリポジトリの管理](/github/getting-started-with-github/managing-remote-repositories)」を参照してください。
 
 {% ifversion fpt or ghec %}
 
@@ -37,11 +37,11 @@ For more information, see "[Managing remote repositories](/github/getting-starte
 
 {% endif %}
 
-{% tip %}
+{% note %}
 
-**ヒント:** {% data reusables.organizations.owners-and-admins-can %}リポジトリの名前を変更できます。 {% data reusables.organizations.new-repo-permissions-more-info %}
+**Note:** {% data variables.product.prodname_dotcom %} will not redirect calls to an action hosted by a renamed repository. Any workflow that uses that action will fail with the error `repository not found`. Instead, create a new repository and action with the new name and archive the old repository. For more information, see "[Archiving repositories](/repositories/archiving-a-github-repository/archiving-repositories)."
 
-{% endtip %}
+{% endnote %}
 
 {% warning %}
 

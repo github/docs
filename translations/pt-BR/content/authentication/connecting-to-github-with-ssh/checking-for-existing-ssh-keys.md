@@ -15,6 +15,16 @@ topics:
 shortTitle: Verificar se há chave SSH existente
 ---
 
+## Sobre as chaves SSH
+
+Você pode usar SSH para executar operações do Git nos repositórios do {% ifversion fpt or ghec or ghes %}{% data variables.product.product_location %}{% elsif ghae %}{% data variables.product.product_name %}{% endif %}. Para obter mais informações, consulte[Sobre SSH](/authentication/connecting-to-github-with-ssh/about-ssh)".
+
+Se você tiver uma chave SSH existente, você pode usar a chave para autenticar as operações do Git por SSH.
+
+## Verificar se há chaves SSH
+
+Antes de gerar uma nova chave SSH, você deve verificar a chave existente no seu computador.
+
 {% data reusables.ssh.key-type-support %}
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
@@ -25,7 +35,7 @@ shortTitle: Verificar se há chave SSH existente
   # Lists the files in your .ssh directory, if they exist
   ```
 
-3. Verifique a listagem do diretório para verificar se você já tem uma chave SSH pública. Por padrão, o nome de arquivo {% ifversion ghae %} de uma chave pública compatível com {% data variables.product.product_name %} é *id_rsa.pub*.{% elsif fpt or ghes %}nomes de arquivos de chaves públicas compatíveis com {% data variables.product.product_name %} são um dos listados a seguir.
+3. Verifique a listagem do diretório para verificar se você já tem uma chave SSH pública. Por padrão, o nome de arquivo {% ifversion ghae %} de uma chave pública compatível com {% data variables.product.product_name %} é *id_rsa.pub*.{% else %}nomes de arquivos de chaves públicas compatíveis com {% data variables.product.product_name %} são um dos listados a seguir.
     - *id_rsa.pub*
     - *id_ecdsa.pub*
     - *id_ed25519.pub*{% endif %}

@@ -1,4 +1,6 @@
-Si tu sitio es un proyecto independiente, puedes crear un repositorio nuevo para almacenar el código fuente del mismo. If your site is associated with an existing project, you can add the source code to that project's repository, in a `/docs` folder on the default branch or on a different branch. Por ejemplo, si estás creando un sitio para publicar documentación para un proyecto que ya está en {% data variables.product.product_name %}, podrías querer almacenar el código fuente para este sitio en el mismo repositorio donde se encuentra el proyecto.
+You can either create a repository or choose an existing repository for your site.
+
+If you want to create a {% data variables.product.prodname_pages %} site for a repository where not all of the files in the repository are related to the site, you will be able to configure a publishing source for your site. For example, you can have a dedicated branch and folder to hold your site source files{% ifversion pages-custom-workflow %}, or you can use a custom {% data variables.product.prodname_actions %} workflow to build and deploy your site source files{% endif %}.
 
 {% ifversion fpt or ghec %}Si la cuenta a la que pertenece el repositorio utiliza {% data variables.product.prodname_free_user %} o {% data variables.product.prodname_free_team %} para organizaciones, el repositorio deberá ser público.{% endif %}
 

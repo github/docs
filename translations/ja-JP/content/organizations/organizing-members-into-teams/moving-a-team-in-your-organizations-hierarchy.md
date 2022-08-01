@@ -2,7 +2,7 @@
 title: Organization 階層内で Team を移動する
 intro: チームメンテナと Organization のオーナーは、親チームの下に Team を入れ子にしたり、ネストした入れ子チームの親を変更または削除したりすることができます。
 redirect_from:
-  - /articles/changing-a-team-s-parent/
+  - /articles/changing-a-team-s-parent
   - /articles/moving-a-team-in-your-organization-s-hierarchy
   - /articles/moving-a-team-in-your-organizations-hierarchy
   - /github/setting-up-and-managing-organizations-and-teams/moving-a-team-in-your-organizations-hierarchy
@@ -30,7 +30,7 @@ Organization のオーナーは、Team の親を変更できます。 チーム�
 {% endtip %}
 
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.teams %}
 4. Team のリストで、親を変更する Team の名前をクリックします。 ![Organization の Team のリスト](/assets/images/help/teams/click-team-name.png)
 {% data reusables.organizations.team_settings %}

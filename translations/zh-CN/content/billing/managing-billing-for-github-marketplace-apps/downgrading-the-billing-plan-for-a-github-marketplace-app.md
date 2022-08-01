@@ -3,8 +3,8 @@ title: 降级 GitHub Marketplace 应用程序的结算方案
 intro: '如果您想要使用不同的结算方案，可以随时降级您的 {% data variables.product.prodname_marketplace %} 应用程序。'
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/downgrading-the-billing-plan-for-a-github-marketplace-app
-  - /articles/downgrading-an-app-for-your-personal-account/
-  - /articles/downgrading-an-app-for-your-organization/
+  - /articles/downgrading-an-app-for-your-personal-account
+  - /articles/downgrading-an-app-for-your-organization
   - /articles/downgrading-the-billing-plan-for-a-github-marketplace-app
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-marketplace-apps/downgrading-the-billing-plan-for-a-github-marketplace-app
 versions:
@@ -25,8 +25,8 @@ shortTitle: 降级结算方案
 
 ## 降级个人帐户的应用程序
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.billing_plans %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.billing_plans %}
 {% data reusables.marketplace.downgrade-app-billing-settings %}
 {% data reusables.marketplace.choose-new-plan %}
 {% data reusables.marketplace.choose-new-quantity %}

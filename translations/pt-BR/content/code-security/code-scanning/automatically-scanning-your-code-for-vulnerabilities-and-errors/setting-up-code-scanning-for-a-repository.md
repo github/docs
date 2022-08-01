@@ -24,8 +24,6 @@ topics:
   - Repositories
 ---
 
-<!--For this article in earlier GHES versions, see /content/github/finding-security-vulnerabilities-and-errors-in-your-code-->
-
 {% data reusables.code-scanning.beta %}
 {% data reusables.code-scanning.enterprise-enable-code-scanning-actions %}
 
@@ -35,13 +33,63 @@ Você decide como gerar alertas de {% data variables.product.prodname_code_scann
 
 {% data reusables.code-scanning.enabling-options %}
 
-## Configurar {% data variables.product.prodname_code_scanning %} usando ações
+{% ifversion fpt or ghes > 3.4 or ghae-issue-6251 or ghec %}
+{% data reusables.code-scanning.about-analysis-origins-link %}
+{% endif %}
 
-{% ifversion fpt or ghec %}Usando ações para executar {% data variables.product.prodname_code_scanning %} usará minutos. Para obter mais informações, consulte "[Sobre a cobrança do {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions/about-billing-for-github-actions)."{% endif %}
+{% ifversion ghes or ghae %}
+{% note %}
+
+**Observação:** Se você desejar usar a análise de CodeQL, este artigo descreve as funcionalidades disponíveis com a versão da ação CodeQL e o pacote da CLI do CodeQL associado incluído na versão inicial desta versão de {% data variables.product.product_name %}. Se a sua empresa usar uma versão mais recente da ação CodeQL, consulte o [o artigo de {% data variables.product.prodname_ghe_cloud %}](/enterprise-cloud@latest/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/setting-up-code-scanning-for-a-repository) para obter informações sobre as funcionalidades mais recentes. {% ifversion not ghae %} Para obter informações sobre como usar a versão mais recente, consulte "[Configurando a digitalização de código para o seu dispositivo](/admin/advanced-security/configuring-code-scanning-for-your-appliance#configuring-codeql-analysis-on-a-server-without-internet-access)".{% endif %}
+
+{% endnote %}
+{% endif %}
+
+{% ifversion ghae %}
+## Pré-requisitos
+
+Antes de configurar {% data variables.product.prodname_code_scanning %} para um repositório, você deverá garantir que haja pelo menos um executor de {% data variables.product.prodname_actions %} auto-hospedado disponível para o repositório.
+
+Os proprietários da empresa, administradores de organização e repositórios podem adicionar executores auto-hospedados. Para obter mais informações, consulte "[Sobre executores auto-hospedados](/actions/hosting-your-own-runners/about-self-hosted-runners)" e "[Adicionar executores auto-hospedados](/actions/hosting-your-own-runners/adding-self-hosted-runners)".
+{% endif %}
+
+{% ifversion fpt or ghec %}
+## Configurar {% data variables.product.prodname_code_scanning %} usando fluxos de trabalho iniciais
+
+{% data reusables.advanced-security.starter-workflows-beta %}
+
+{% ifversion ghes or ghae %}
+{% note %}
+
+**Observação:** Este artigo descreve as funcionalidades disponíveis com a versão da ação CodeQL e o pacote da CLI do CodeQL associado incluído na versão inicial desta versão de {% data variables.product.product_name %}. Se a sua empresa usar uma versão mais recente da ação CodeQL, consulte o [o artigo de {% data variables.product.prodname_ghe_cloud %}](/enterprise-cloud@latest/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/setting-up-code-scanning-for-a-repository) para obter informações sobre as funcionalidades mais recentes. {% ifversion not ghae %} Para obter informações sobre como usar a versão mais recente, consulte "[Configurando a digitalização de código para o seu dispositivo](/admin/advanced-security/configuring-code-scanning-for-your-appliance#configuring-codeql-analysis-on-a-server-without-internet-access)".{% endif %}
+
+{% endnote %}
+{% endif %}
+
+{% data reusables.advanced-security.starter-workflow-overview %} Os fluxos de trabalho iniciais de {% data variables.product.prodname_code_scanning_capc %} estão disponíveis apenas para o seu repositório se {% data variables.product.prodname_code_scanning %} estiver habilitado.
+
+{% data reusables.code-scanning.billing %}
 
 {% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.actions-tab %}
+1. Se o repositório já tiver pelo menos um fluxo de trabalho configurado e em execução, clique em **Novo fluxo de trabalho** e vá para a etapa 5. Se, atualmente, não houver fluxos de trabalho configurados para o repositório, vá para a próxima etapa. ![Captura de tela do botão novo fluxo de trabalho](/assets/images/help/security/actions-new-workflow-button.png)
+1. Role para baixo até a categoria "Segurança" e clique em **Configurar** no fluxo de trabalho que você deseja configurar, ou clique em **Visualizar todos** para ver todos os fluxos de trabalho de segurança disponíveis. ![Captura de tela da seção de segurança de fluxos de trabalho](/assets/images/help/security/actions-workflows-security-section.png)
+1. No painel direito da página do fluxo de trabalho, clique em **Documentação** e siga as instruções na tela para adaptar o fluxo de trabalho às suas necessidades. ![Screenshot of the Documentation tab for starter workflows](/assets/images/help/security/actions-workflows-documentation.png) Para obter mais informações, consulte "[Usndo fluxos de trabalho iniciais](/actions/using-workflows/using-starter-workflows#using-starter-workflows)" e "[Configurando {% data variables.product.prodname_code_scanning %}](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning)."
+
+{% endif %}
+
+## Configurando {% data variables.product.prodname_code_scanning %} manualmente
+
+{% ifversion fpt %}
+
+Você pode configurar {% data variables.product.prodname_code_scanning %} em qualquer repositório público onde tenha acesso de gravação.
+
+{% endif %}
+
+{% data reusables.code-scanning.billing %}
+{% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-security %}
-3. À direita dos " alertas de {% data variables.product.prodname_code_scanning_capc %}", clique em **Configurar {% data variables.product.prodname_code_scanning %}**. {% ifversion fpt or ghes > 3.0 or ghae-next or ghec %}Se {% data variables.product.prodname_code_scanning %} está faltando, peça ao proprietário da organização ou administrador do repositório para habilitar {% data variables.product.prodname_GH_advanced_security %}. Para mais informações consulte "[Gerenciar as configurações de segurança e análise para a sua organização](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)" ou "[Gerenciar as configurações de segurança e análise para o seu repositório](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository).{% endif %} ![Botão "Configurar {% data variables.product.prodname_code_scanning %}" à direita de "{% data variables.product.prodname_code_scanning_capc %}" na Visão Geral de Segurança](/assets/images/help/security/overview-set-up-code-scanning.png)
+1. À direita dos alertas de "{% data variables.product.prodname_code_scanning_capc %} ", clique em **Configurar {% data variables.product.prodname_code_scanning %}**.{% ifversion ghec or ghes or ghae %} Se faltar {% data variables.product.prodname_code_scanning %}, você deverá pedir a um proprietário ou administrador da organização que havilite o {% data variables.product.prodname_GH_advanced_security %}.{% endif %} Para obter mais informações, consulte "[Gerenciando as configurações de segurança e análise da sua organização](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)" ou "[gerenciando configurações de segurança e análise do seu repositório](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository)". ![Botão "Configurar {% data variables.product.prodname_code_scanning %}" à direita de "{% data variables.product.prodname_code_scanning_capc %}" na Visão Geral de Segurança](/assets/images/help/security/overview-set-up-code-scanning.png)
 4. Em "Começar com {% data variables.product.prodname_code_scanning %}", clique em **Configurar este fluxo de trabalho** no {% data variables.product.prodname_codeql_workflow %} ou em um fluxo de trabalho de terceiros. !["Set up this workflow" button under "Get started with {% data variables.product.prodname_code_scanning %}" heading](/assets/images/help/repository/code-scanning-set-up-this-workflow.png)Os fluxos de trabalho são exibidos apenas se forem relevantes para as linguagens de programação detectadas no repositório. O {% data variables.product.prodname_codeql_workflow %} é sempre exibido, mas o botão "Configurar este fluxo de trabalho" só é habilitado se a análise de {% data variables.product.prodname_codeql %} for compatível com as linguagens presentes no repositório.
 5. Para personalizar como {% data variables.product.prodname_code_scanning %} faz a varredura do seu código, edite o fluxo de trabalho.
 
@@ -83,11 +131,7 @@ Depois de configurar o {% data variables.product.prodname_code_scanning %} para 
 
 **Observação:** Se você criou um pull request para adicionar o fluxo de trabalho de {% data variables.product.prodname_code_scanning %} ao repositório, os alertas desse pull request não serão exibidos diretamente na página de {% data variables.product.prodname_code_scanning_capc %} até que o pull request seja mesclado. Se algum alerta for encontrado, você poderá visualizá-los, antes do merge do pull request, clicando no link dos **_n_ alertas encontrados** no banner na página de {% data variables.product.prodname_code_scanning_capc %}.
 
-{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
-  ![Clique no link "n alertas encontrados"](/assets/images/help/repository/code-scanning-alerts-found-link.png)
-{% else %}
-  ![Clique no link "n alertas encontrados"](/assets/images/enterprise/3.1/help/repository/code-scanning-alerts-found-link.png)
-{% endif %}
+![Clique no link "n alertas encontrados"](/assets/images/help/repository/code-scanning-alerts-found-link.png)
 
 {% endnote %}
 
@@ -99,9 +143,9 @@ Os nomes das verificações de análise de {% data variables.product.prodname_co
 
   ![Verificações de pull request de {% data variables.product.prodname_code_scanning %}](/assets/images/help/repository/code-scanning-pr-checks.png)
 
-Quando os trabalhos de {% data variables.product.prodname_code_scanning %} forem concluídos, {% data variables.product.prodname_dotcom %} calcula se quaisquer alertas foram adicionados pelo pull request e adiciona a entrada "{% data variables.product.prodname_code_scanning_capc %} results / TOOL NAME" à lista de verificações. Depois de {% data variables.product.prodname_code_scanning %} ser executado pelo menos uma vez, você poderá clicar em **Detalhes** para visualizar os resultados da análise. Se você usou um pull request para adicionar {% data variables.product.prodname_code_scanning %} ao repositório, inicialmente você verá uma mensagem de {% ifversion fpt or ghes > 3.2 or ghae-issue-3891 or ghec %} "Análise não encontrada"{% else %}"Análise ausente"{% endif %} ao clicar em **Detalhes** na verificação de "resultados de {% data variables.product.prodname_code_scanning_capc %} NOME DA FERRAMENTA.
+Quando os trabalhos de {% data variables.product.prodname_code_scanning %} forem concluídos, {% data variables.product.prodname_dotcom %} calcula se quaisquer alertas foram adicionados pelo pull request e adiciona a entrada "{% data variables.product.prodname_code_scanning_capc %} results / TOOL NAME" à lista de verificações. Depois de {% data variables.product.prodname_code_scanning %} ser executado pelo menos uma vez, você poderá clicar em **Detalhes** para visualizar os resultados da análise. Se você usou um pull request para adicionar {% data variables.product.prodname_code_scanning %} ao repositório, inicialmente você verá uma mensagem de {% ifversion fpt or ghes > 3.2 or ghae or ghec %} "Análise não encontrada"{% else %}"Análise ausente"{% endif %} ao clicar em **Detalhes** na verificação de "{% data variables.product.prodname_code_scanning_capc %} results / TOOL NAME".
 
-{% ifversion fpt or ghes > 3.2 or ghae-issue-3891 or ghec %}
+{% ifversion fpt or ghes > 3.2 or ghae or ghec %}
   ![Análise não encontrada para mensagem de commit](/assets/images/help/repository/code-scanning-analysis-not-found.png)
 
 A tabela lista uma ou mais categorias. Cada categoria está relacionada a análises específicas, para a mesma ferramenta e commit, realizadas em uma linguagem diferente ou em uma parte diferente do código. Para cada categoria a tabela mostra as duas análises que {% data variables.product.prodname_code_scanning %} tentou comparar para determinar quais alertas foram introduzidos ou corrigidos no pull request.
@@ -111,13 +155,13 @@ Por exemplo, na captura de tela acima, {% data variables.product.prodname_code_s
   ![Análise ausente para mensagem de commit](/assets/images/enterprise/3.2/repository/code-scanning-missing-analysis.png)
 {% endif %}
 
-{% ifversion fpt or ghes > 3.2 or ghae-issue-3891 or ghec %}
+{% ifversion fpt or ghes > 3.2 or ghae or ghec %}
 ### Motivos para a mensagem "Análise não encontrada"
 {% else %}
 ### Motivos para a mensagem "Análise ausente"
 {% endif %}
 
-Depois que {% data variables.product.prodname_code_scanning %} analisou o código em um pull request, ele precisa comparar a análise do branch de tópico (o branch que você usou para criar o pull request) com a análise do branch de base (o branch no qual você deseja mesclar o pull request). Isso permite que {% data variables.product.prodname_code_scanning %} calcule quais alertas foram recém-introduzidos pelo pull request, que alertas já estavam presentes no branch de base e se alguns alertas existentes são corrigidos pelas alterações no pull request. Inicialmente, se você usar um pull request para adicionar {% data variables.product.prodname_code_scanning %} a um repositório, o branch de base ainda não foi analisado. Portanto, não é possível computar esses detalhes. Neste caso, quando você clicar nos resultados verificando o pull request você verá a mensagem {% ifversion fpt or ghes > 3.2 or ghae-issue-3891 or ghec %}"Análise não encontrada"{% else %}"Análise ausente do commit base SHA-HASH"{% endif %}.
+Depois que {% data variables.product.prodname_code_scanning %} analisou o código em um pull request, ele precisa comparar a análise do branch de tópico (o branch que você usou para criar o pull request) com a análise do branch de base (o branch no qual você deseja mesclar o pull request). Isso permite que {% data variables.product.prodname_code_scanning %} calcule quais alertas foram recém-introduzidos pelo pull request, que alertas já estavam presentes no branch de base e se alguns alertas existentes são corrigidos pelas alterações no pull request. Inicialmente, se você usar um pull request para adicionar {% data variables.product.prodname_code_scanning %} a um repositório, o branch de base ainda não foi analisado. Portanto, não é possível computar esses detalhes. Neste caso, quando você clicar nos resultados verificando o pull request você verá a mensagem {% ifversion fpt or ghes > 3.2 or ghae or ghec %}"Análise não encontrada"{% else %}"Análise ausente do commit base SHA-HASH"{% endif %}.
 
 Há outras situações em que não pode haver análise para o último commit do branch de base para um pull request. Isso inclui:
 
@@ -125,11 +169,7 @@ Há outras situações em que não pode haver análise para o último commit do 
 
   Para verificar se um branch foi verificado, acesse a página {% data variables.product.prodname_code_scanning_capc %}, clique no menu suspenso **Branch** e selecione o branch relevante.
 
-{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
-  ![Escolha um branch no menu suspenso Branch](/assets/images/help/repository/code-scanning-branch-dropdown.png)
-{% else %}
-  ![Escolha um branch no menu suspenso Branch](/assets/images/enterprise/3.1/help/repository/code-scanning-branch-dropdown.png)
-{% endif %}
+![Escolha um branch no menu suspenso Branch](/assets/images/help/repository/code-scanning-branch-dropdown.png)
 
   A solução nesta situação é adicionar o nome do branch de base para a especificação `on:push` e `on:pull_request` no fluxo de trabalho de {% data variables.product.prodname_code_scanning %} nesse branch e, em seguida, fazer uma alteração que atualize o pull request aberto que você deseja escanear.
 

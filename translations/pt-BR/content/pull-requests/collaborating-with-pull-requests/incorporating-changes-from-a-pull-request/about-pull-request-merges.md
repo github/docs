@@ -1,9 +1,9 @@
 ---
 title: Sobre merges de pull request
-intro: 'You can [merge pull requests](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request) by retaining all the commits in a feature branch, squashing all commits into a single commit, or by rebasing individual commits from the `head` branch onto the `base` branch.'
+intro: 'Você pode [fazer merge de pull requests](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request) mantendo todos os commits em um branch de recurso, fazendo a cmbinação por squash de todos os commits em um único commit, ou rebaseando os commits individuais a partir do branch `head` no branch `base`.'
 redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/incorporating-changes-from-a-pull-request/about-pull-request-merges
-  - /articles/about-pull-request-merge-squashing/
+  - /articles/about-pull-request-merge-squashing
   - /articles/about-pull-request-merges
   - /github/collaborating-with-issues-and-pull-requests/about-pull-request-merges
   - /github/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/about-pull-request-merges
@@ -24,12 +24,16 @@ topics:
 
 ### Mesclar mensagem para uma mesclagem por squash
 
-Quando você faz combinação por squash e merge, o {% data variables.product.prodname_dotcom %} gera uma mensagem de commit que você pode mudar se quiser. O padrão da mensagem depende se a  pull request contém vários commits ou apenas um. Nós não incluímos commits de merge quando contamos o número total de commits.
+Ao fazer combinação por squash e merge, {% data variables.product.prodname_dotcom %} gera uma mensagem de commit padrão, que você pode editar. A mensagem padrão depende do número de commits no pull request, que não inclui commits de merge.
 
 | Número de commits | Sumário                                                                           | Descrição                                                                                        |
 | ----------------- | --------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------ |
 | Um commit         | O título da mensagem de commit do único commit, seguido do número de pull request | O texto da mensagem de commit para o único commit                                                |
 | Mais de um commit | Título da pull request, seguido do número da pull request                         | Uma lista das mensagens de commit para todos os commits combinados por squash, por ordem de data |
+
+{% ifversion fpt or ghec or ghes > 3.5 or ghae-issue-7042 %}
+As pessoas com acesso de administrador a um repositório podem configurar o repositório para usar o título do pull request como a mensagem de merge padrão para todos os commits combinados por squash. Para obter mais informações, consulte "[Configurar o commit combinado por squash](/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/configuring-commit-squashing-for-pull-requests)".
+{% endif %}
 
 ### Fazendo combinação por squash e merge com um branch de longa duração
 

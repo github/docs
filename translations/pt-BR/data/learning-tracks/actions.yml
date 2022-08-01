@@ -37,6 +37,35 @@ deploy_to_the_cloud:
     - /actions/deployment/deploying-to-amazon-elastic-container-service
     - /actions/deployment/deploying-to-azure-app-service
     - /actions/deployment/deploying-to-google-kubernetes-engine
+adopting_github_actions_for_your_enterprise_ghec:
+  title: 'Adote o GitHub Actions para a sua empresa'
+  description: 'Aprenda a planejar e implementar uma implantação de {% data variables.product.prodname_actions %} na sua empresa.'
+  versions:
+    ghec: '*'
+  guides:
+    - /admin/github-actions/getting-started-with-github-actions-for-your-enterprise/about-github-actions-for-enterprises
+    - /actions/learn-github-actions/understanding-github-actions
+    - /admin/github-actions/getting-started-with-github-actions-for-your-enterprise/introducing-github-actions-to-your-enterprise
+    - /admin/github-actions/getting-started-with-github-actions-for-your-enterprise/migrating-your-enterprise-to-github-actions
+    - /admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-cloud
+    - /actions/security-guides/security-hardening-for-github-actions
+    - /billing/managing-billing-for-github-actions/about-billing-for-github-actions
+adopting_github_actions_for_your_enterprise_ghes_and_ghae:
+  title: 'Adote o GitHub Actions para a sua empresa'
+  description: 'Aprenda a planejar e implementar uma implantação de {% data variables.product.prodname_actions %} na sua empresa.'
+  versions:
+    ghes: '*'
+    ghae: '*'
+  guides:
+    - /admin/github-actions/getting-started-with-github-actions-for-your-enterprise/about-github-actions-for-enterprises
+    - /actions/learn-github-actions/understanding-github-actions
+    - /admin/github-actions/getting-started-with-github-actions-for-your-enterprise/introducing-github-actions-to-your-enterprise
+    - /admin/github-actions/getting-started-with-github-actions-for-your-enterprise/migrating-your-enterprise-to-github-actions
+    - /admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-cloud
+    - /admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server
+    - /admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-self-hosted-runners-for-your-enterprise
+    - /actions/security-guides/security-hardening-for-github-actions
+    - /billing/managing-billing-for-github-actions/about-billing-for-github-actions
 hosting_your_own_runners:
   title: 'Hospede seus próprios executores'
   description: 'Você pode criar executores auto-hospedados para executar fluxos de trabalho em um ambiente altamente personalizável.'

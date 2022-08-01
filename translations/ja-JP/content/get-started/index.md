@@ -3,19 +3,19 @@ title: GitHub を使ってみる
 shortTitle: 始めましょう！
 intro: '{% data variables.product.prodname_dotcom %} を使用してソフトウェアの構築、出荷、および保守を始める方法を学びます。 当社の製品を探索し、アカウントにサインアップして、世界最大の開発コミュニティと繋がりましょう。'
 redirect_from:
-  - /categories/54/articles/
-  - /categories/bootcamp/
-  - /categories/32/articles/
-  - /categories/2/articles/
-  - /categories/organizations/
-  - /categories/about-github/
-  - /categories/53/articles/
-  - /categories/setup/
+  - /categories/54/articles
+  - /categories/bootcamp
+  - /categories/32/articles
+  - /categories/2/articles
+  - /categories/organizations
+  - /categories/about-github
+  - /categories/53/articles
+  - /categories/setup
   - /categories/getting-started-with-github
-  - /categories/19/articles/
+  - /categories/19/articles
   - /categories/using-git
   - /github/using-git
-  - /github/getting-started-with-github/
+  - /github/getting-started-with-github
 versions:
   fpt: '*'
   ghes: '*'
@@ -37,6 +37,7 @@ featuredLinks:
     - /github/getting-started-with-github/signing-up-for-a-new-github-account
     - /get-started/quickstart/hello-world
     - /github/getting-started-with-github/set-up-git
+    - /get-started/learning-about-github/about-versions-of-github-docs
     - /github/getting-started-with-github/github-glossary
     - /github/getting-started-with-github/fork-a-repo
     - /github/getting-started-with-github/keyboard-shortcuts
@@ -56,8 +57,12 @@ children:
   - /learning-about-github
   - /signing-up-for-github
   - /using-github
+  - /writing-on-github
+  - /importing-your-projects-to-github
   - /exploring-projects-on-github
   - /getting-started-with-git
   - /using-git
+  - /customizing-your-github-workflow
+  - /privacy-on-github
 ---
 

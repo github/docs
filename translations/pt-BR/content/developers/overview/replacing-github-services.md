@@ -2,8 +2,8 @@
 title: Substituir os GitHub Services
 intro: 'Se você ainda depende dos serviços obsoletos do {% data variables.product.prodname_dotcom %}, aprenda como migrar seus hooks de serviço para webhooks.'
 redirect_from:
-  - /guides/replacing-github-services/
-  - /v3/guides/automating-deployments-to-integrators/
+  - /guides/replacing-github-services
+  - /v3/guides/automating-deployments-to-integrators
   - /v3/guides/replacing-github-services
 versions:
   fpt: '*'
@@ -32,7 +32,7 @@ Como uma alternativa ao serviço de e-mail, agora você pode começar a usar not
 
 P GitHub Services (às vezes referido como Hooks de Serviço) é o método legado de integração, em que o GitHub hospedou uma parte dos serviços do nosso integrador por meio do [repositório `github-services`](https://github.com/github/github-services). Ações executadas no GitHub acionam esses serviços e você pode usá-los para acionar ações fora do GitHub.
 
-{% ifversion ghes or ghae %}
+{% ifversion ghes %}
 ## Encontrar repositórios que usam o GitHub Services
 Fornecemos um script de linha de comando que ajuda a identificar quais repositórios usam o GitHub Services. Para obter mais informações, consulte [ghe-legacy-github-services-report](/enterprise/{{currentVersion}}/admin/articles/command-line-utilities/#ghe-legacy-github-services-report).{% endif %}
 

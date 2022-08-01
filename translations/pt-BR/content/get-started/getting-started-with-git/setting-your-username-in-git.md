@@ -23,12 +23,12 @@ Alterar o nome associado aos commits do Git usando o `git config` afeta somente 
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
 
-2. {% data reusables.user_settings.set_your_git_username %}
+2. {% data reusables.user-settings.set_your_git_username %}
    ```shell
    $ git config --global user.name "<em>Mona Lisa</em>"
    ```
 
-3. {% data reusables.user_settings.confirm_git_username_correct %}
+3. {% data reusables.user-settings.confirm_git_username_correct %}
    ```shell
    $ git config --global user.name
    > Mona Lisa
@@ -40,12 +40,12 @@ Alterar o nome associado aos commits do Git usando o `git config` afeta somente 
 
 2. Altere o diretório de trabalho atual para o repositório local no qual deseja configurar o nome associado aos commits do Git.
 
-3. {% data reusables.user_settings.set_your_git_username %}
+3. {% data reusables.user-settings.set_your_git_username %}
    ```shell
    $ git config user.name "<em>Mona Lisa</em>"
    ```
 
-3. {% data reusables.user_settings.confirm_git_username_correct %}
+3. {% data reusables.user-settings.confirm_git_username_correct %}
    ```shell
    $ git config user.name
    > Mona Lisa

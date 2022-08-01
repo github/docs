@@ -2,8 +2,8 @@
 title: About commit signature verification
 intro: 'Using GPG or S/MIME, you can sign tags and commits locally. These tags or commits are marked as verified on {% data variables.product.product_name %} so other people can be confident that the changes come from a trusted source.'
 redirect_from:
-  - /articles/about-gpg-commit-and-tag-signatures/
-  - /articles/about-gpg/
+  - /articles/about-gpg-commit-and-tag-signatures
+  - /articles/about-gpg
   - /articles/about-commit-signature-verification
   - /github/authenticating-to-github/about-commit-signature-verification
   - /github/authenticating-to-github/managing-commit-signature-verification/about-commit-signature-verification
@@ -28,6 +28,8 @@ Commits and tags have the following verification statuses, depending on whether 
 
 {% data reusables.identity-and-permissions.vigilant-mode-beta-note %}
 
+Signing commits differs from signing off on a commit. For more information about signing off on commits, see "[Managing the commit signoff policy for your repository](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-the-commit-signoff-policy-for-your-repository)."
+
 ### Default statuses
 
 | Status         | Description |
@@ -35,6 +37,11 @@ Commits and tags have the following verification statuses, depending on whether 
 | **Verified**   | The commit is signed and the signature was successfully verified.
 | **Unverified** | The commit is signed but the signature could not be verified.
 | No verification status | The commit is not signed.
+
+### Signature verification for rebase and merge
+{% data reusables.pull_requests.rebase_and_merge_verification %}
+
+For more information, see "[Rebasing and merging your commits](/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/about-merge-methods-on-github#rebasing-and-merging-your-commits)."
 
 ### Statuses with vigilant mode enabled
 
@@ -48,8 +55,11 @@ Repository administrators can enforce required commit signing on a branch to blo
 
 {% data reusables.identity-and-permissions.verification-status-check %}
 
-{% ifversion fpt or ghec %}
-{% data variables.product.product_name %} will automatically use GPG to sign commits you make using the {% data variables.product.product_name %} web interface. Commits signed by {% data variables.product.product_name %} will have a verified status on {% data variables.product.product_name %}. You can verify the signature locally using the public key available at https://github.com/web-flow.gpg. The full fingerprint of the key is `5DE3 E050 9C47 EA3C F04A 42D3 4AEE 18F8 3AFD EB23`. You can optionally choose to have {% data variables.product.product_name %} sign commits you make in {% data variables.product.prodname_codespaces %}. For more information about enabling GPG verification for your codespaces, see "[Managing GPG verification for {% data variables.product.prodname_codespaces %}](/github/developing-online-with-codespaces/managing-gpg-verification-for-codespaces)."
+{% ifversion fpt or ghec or ghes > 3.4 %}
+{% ifversion ghes %}If a site administrator has enabled web commit signing, {% data variables.product.product_name %} will automatically use GPG to sign commits you make using the web interface. Commits signed by {% data variables.product.product_name %} will have a verified status. You can verify the signature locally using the public key available at `https://HOSTNAME/web-flow.gpg`. For more information, see "[Configuring web commit signing](/admin/configuration/configuring-your-enterprise/configuring-web-commit-signing)."
+{% else %}{% data variables.product.prodname_dotcom %} will automatically use GPG to sign commits you make using the web interface. Commits signed by {% data variables.product.prodname_dotcom %} will have a verified status. You can verify the signature locally using the public key available at https://github.com/web-flow.gpg. The full fingerprint of the key is `5DE3 E050 9C47 EA3C F04A 42D3 4AEE 18F8 3AFD EB23`.
+
+You can optionally choose to have {% data variables.product.prodname_dotcom %} sign commits you make in {% data variables.product.prodname_github_codespaces %}. For more information about enabling GPG verification for your codespaces, see "[Managing GPG verification for {% data variables.product.prodname_github_codespaces %}](/codespaces/managing-your-codespaces/managing-gpg-verification-for-github-codespaces)."{% endif %}
 {% endif %}
 
 ## GPG commit signature verification
@@ -62,7 +72,7 @@ To sign commits using GPG and have those commits verified on {% data variables.p
 
 1. [Check for existing GPG keys](/articles/checking-for-existing-gpg-keys)
 2. [Generate a new GPG key](/articles/generating-a-new-gpg-key)
-3. [Add a new GPG key to your GitHub account](/articles/adding-a-new-gpg-key-to-your-github-account)
+3. [Add a GPG key to your GitHub account](/articles/adding-a-gpg-key-to-your-github-account)
 4. [Tell Git about your signing key](/articles/telling-git-about-your-signing-key)
 5. [Sign commits](/articles/signing-commits)
 6. [Sign tags](/articles/signing-tags)
@@ -71,7 +81,7 @@ To sign commits using GPG and have those commits verified on {% data variables.p
 
 You can use S/MIME to sign commits with an X.509 key issued by your organization.
 
-{% data variables.product.product_name %} uses [the Debian ca-certificates package](https://packages.debian.org/hu/jessie/ca-certificates), the same trust store used by Mozilla browsers, to confirm that your locally signed commits and tags are cryptographically verifiable against a public key in a trusted root certificate.
+{% data variables.product.product_name %} uses [the Debian ca-certificates package](https://packages.debian.org/bullseye/ca-certificates), the same trust store used by Mozilla browsers, to confirm that your locally signed commits and tags are cryptographically verifiable against a public key in a trusted root certificate.
 
 {% data reusables.gpg.smime-git-version %}
 

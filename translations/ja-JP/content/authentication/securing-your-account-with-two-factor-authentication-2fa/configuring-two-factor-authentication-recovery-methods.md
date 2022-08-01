@@ -2,11 +2,11 @@
 title: 2 要素認証リカバリ方法を設定する
 intro: 2 要素認証のクレデンシャルを紛失した場合に備え、アカウントへのアクセスを回復するさまざまな方法を設定できます。
 redirect_from:
-  - /articles/downloading-your-two-factor-authentication-recovery-codes/
-  - /articles/setting-a-fallback-authentication-number/
-  - /articles/about-recover-accounts-elsewhere/
-  - /articles/adding-a-fallback-authentication-method-with-recover-accounts-elsewhere/
-  - /articles/generating-and-storing-an-account-recovery-token/
+  - /articles/downloading-your-two-factor-authentication-recovery-codes
+  - /articles/setting-a-fallback-authentication-number
+  - /articles/about-recover-accounts-elsewhere
+  - /articles/adding-a-fallback-authentication-method-with-recover-accounts-elsewhere
+  - /articles/generating-and-storing-an-account-recovery-token
   - /articles/configuring-two-factor-authentication-recovery-methods
   - /github/authenticating-to-github/configuring-two-factor-authentication-recovery-methods
   - /github/authenticating-to-github/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication-recovery-methods
@@ -31,8 +31,8 @@ shortTitle: Configure 2FA recovery
 
 新しいリカバリコードを生成するか、2 要素認証を無効化してから再有効化すると、セキュリティ設定にあるリカバリコードが自動的に更新されます。
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.security %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.security %}
 {% data reusables.two_fa.show-recovery-codes %}
 4. リカバリコードを安全な場所に保存します。 リカバリコードは、アカウントにアクセスできなくなった場合に、再びアクセスするために役立ちます。
     - リカバリコードをデバイスに保存するには、[**Download**] をクリックします。
@@ -43,8 +43,8 @@ shortTitle: Configure 2FA recovery
 
 アクセス回復のためにリカバリコードを一度使うと、再利用はできません。 16 個のリカバリコードをすべて使った場合は、別のコードのリストを生成できます。 リカバリコードのセットを新しく生成すると、以前生成したコードはすべて無効になります。
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.security %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.security %}
 {% data reusables.two_fa.show-recovery-codes %}
 3. リカバリコードのセットを新しく作成するには、[**Generate new recovery codes**] をクリックします。 ![[Generate new recovery codes] ボタン](/assets/images/help/2fa/generate-new-recovery-codes.png)
 
@@ -68,8 +68,8 @@ shortTitle: Configure 2FA recovery
 
 {% endwarning %}
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.security %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.security %}
 3. [Fallback SMS number] の隣にある [**Add**] をクリックします。 ![[Add fallback SMS number] ボタン](/assets/images/help/2fa/add-fallback-sms-number-button.png)
 4. [Fallback SMS number] の下にある [**Add fallback SMS number**] をクリックします。 ![[Add fallback SMS number] テキスト](/assets/images/help/2fa/add_fallback_sms_number_text.png)
 5. 国コードを選択し、携帯電話番号を入力します。 入力した情報が正しいことを確認してから、[**Set fallback**] をクリックします。 ![フォールバック SMS 番号の設定](/assets/images/help/2fa/2fa-fallback-number.png)

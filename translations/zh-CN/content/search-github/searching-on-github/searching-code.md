@@ -32,6 +32,7 @@ topics:
 - 只有_默认分支_被索引用于代码搜索。{% ifversion fpt or ghec %}
 - 只有小于 384 KB 的文件可搜索。{% else %}* 只有小于 5 MB 的文件可搜索。
 - 只有每个文件的前 500 KB 可搜索。{% endif %}
+- 最多可搜索 4,000 个私有{% ifversion ghec or ghes or ghae %} 和内部{% endif %} 存储库。 这 4,000 个存储库将是您有权访问的前 10,000 个私有{% ifversion ghec or ghes or ghae %} 和内部{% endif %} 存储库中的最新更新。
 - 只能搜索少于 500,000 个文件的仓库。{% ifversion fpt or ghec %}
 - 只能搜索去年有活动或已在搜索结果中返回的仓库。{% endif %}
 - 除了 [`filename`](#search-by-filename) 搜索以外，搜索源代码时必须始终包括至少一个搜索词。 例如，搜索 [`language:javascript`](https://github.com/search?utf8=%E2%9C%93&q=language%3Ajavascript&type=Code&ref=searchresults) 无效，而搜索 [`amazing language:javascript`](https://github.com/search?utf8=%E2%9C%93&q=amazing+language%3Ajavascript&type=Code&ref=searchresults) 有效。
@@ -62,14 +63,13 @@ topics:
 
 您可使用 `path` 限定符搜索仓库中特定位置显示的源代码。 使用 `path:/` 可搜索位于仓库根目录级别的文件。 或者，指定目录名称或目录路径以搜索位于该命令或其任何子目录中的文件。
 
-| 限定符                        | 示例                                                                                                                                                                                                                                                                                                                               |
-| -------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <code>path:/</code>  | [**octocat filename:readme path:/**](https://github.com/search?utf8=%E2%9C%93&q=octocat+filename%3Areadme+path%3A%2F&type=Code) 匹配位于仓库根目录级别且含有 "octocat" 字样的 _readme_ 文件。                                                                                                                                                        |
-| <code>path:<em>DIRECTORY</em></code>  | [**form path:cgi-bin language:perl**](https://github.com/search?q=form+path%3Acgi-bin+language%3Aperl&type=Code) matches Perl files with the word "form" in the <em>cgi-bin</em> directory, or in any of its subdirectories.                                                                                              |
-| <code>path:<em>PATH/TO/DIRECTORY</em></code> | [**console path:app/public language:javascript**](https://github.com/search?q=console+path%3A%22app%2Fpublic%22+language%3Ajavascript&type=Code) matches JavaScript files with the word "console" in the <em>app/public</em> directory, or in any of its subdirectories (even if they reside in <em>app/public/js/form-validators</em>). |
+| 限定符                        | 示例                                                                                                                                                                                                                                                        |
+| -------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <code>path:/</code>  | [**octocat filename:readme path:/**](https://github.com/search?utf8=%E2%9C%93&q=octocat+filename%3Areadme+path%3A%2F&type=Code) 匹配位于仓库根目录级别且含有 "octocat" 字样的 _readme_ 文件。                                                                                 |
+| <code>path:<em>DIRECTORY</em></code>  | [**form path:cgi-bin language:perl**](https://github.com/search?q=form+path%3Acgi-bin+language%3Aperl&type=Code) 匹配 <em>cgi-bin</em> 目录或其任何子目录中有单词“form”的 Perl 文件。                                                                                 |
+| <code>path:<em>PATH/TO/DIRECTORY</em></code> | [**`console path:app/public language:javascript`**](https://github.com/search?q=console+path%3A%22app%2Fpublic%22+language%3Ajavascript&type=Code) 匹配 <em>app/public</em> 目录或其任何子目录（即使其位于 <em>app/public/js/form-validators</em> 中）中且含有单词“console”的 JavaScript 文件。 |
 
 ## 按语言搜索
-<!-- If you make changes to this feature, update /getting-started-with-github/github-language-support to reflect any changes. -->
 
 您可以基于所编写的语言搜索代码。 `language` 限定符可以是语言名称或别名。 有关支持的语言及其名称和别名的完整列表，请参阅 [github/linguist repository](https://github.com/github/linguist/blob/master/lib/linguist/languages.yml)。
 

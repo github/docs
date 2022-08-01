@@ -53,7 +53,7 @@ _检查套件_是一组_检查运行_（单个 CI 测试）。 套件和运行�
 
 ## 基本要求
 
-在开始之前，如果您尚未熟悉 [GitHub 应用程序](/apps/)、[web 挂钩](/webhooks)和[检查 API](/rest/reference/checks)，可能需要先熟悉一下。 您将在 [REST API 文档](/rest)中找到更多 API。 检查 API 也可用于 [GraphQL]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql)，但本快速入门指南侧重于 REST。 更多信息请参阅 GraphQL [检查套件]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql/reference/objects#checksuite)和[检查运行]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql/reference/objects#checkrun)对象。
+在开始之前，如果您尚未熟悉 [GitHub 应用程序](/apps/)、[web 挂钩](/webhooks)和[检查 API](/rest/reference/checks)，可能需要先熟悉一下。 您将在 [REST API 文档](/rest)中找到更多 API。 检查 API 也可用于 [GraphQL](/graphql)，但本快速入门指南侧重于 REST。 更多信息请参阅 GraphQL [检查套件](/graphql/reference/objects#checksuite)和[检查运行](/graphql/reference/objects#checkrun)对象。
 
 您将使用 [Ruby 编程语言](https://www.ruby-lang.org/en/)、[Smee](https://smee.io/) web 挂钩有效负载交付服务、用于 GitHub REST API 的 [Octokit.rb Ruby 库](http://octokit.github.io/octokit.rb/)以及 [Sinatra web 框架](http://sinatrarb.com/)来创建检查 API CI 服务器应用程序。
 
@@ -150,14 +150,14 @@ def create_check_run
     # The payload structure differs depending on whether a check run or a check suite event occurred.
     @payload['check_run'].nil? ? @payload['check_suite']['head_sha'] : @payload['check_run']['head_sha'],
     # [Hash] 'Accept' header option, to avoid a warning about the API not being ready for production use.
-    accept: 'application/vnd.github.v3+json'
+    accept: 'application/vnd.github+json'
   )
 end
 ```
 
 此代码使用 [create_check_run 方法](https://rdoc.info/gems/octokit/Octokit%2FClient%2FChecks:create_check_run)调用“[创建检查运行](/rest/reference/checks#create-a-check-run)”端点。
 
-要创建检查运行，只有两个输入参数是必需的：`name` 和 `head_sha`。 在本快速入门中的稍后部分，我们将使用 [Rubocop](https://rubocop.readthedocs.io/en/latest/) 来实现 CI 测试，这就是在此处使用名称 "Octo Rubocop" 的原因，但是您可以为检查运行选择任何想用的名称。
+要创建检查运行，只有两个输入参数是必需的：`name` 和 `head_sha`。 在本快速入门的后面部分，我们将使用 [RuboCop](https://rubocop.readthedocs.io/en/latest/) 来实现 CI 测试，这就是此处使用名称 "Octo RuboCop" 的原因，但您可以选择任何想要用于检查运行的名称。
 
 您现在仅提供必需的参数以使基本功能正常工作，但是稍后您将在收集有关检查运行的更多信息时更新检查运行。 默认情况下，GitHub 将 `status` 设置为 `queued`。
 
@@ -220,7 +220,7 @@ def initiate_check_run
     @payload['repository']['full_name'],
     @payload['check_run']['id'],
     status: 'in_progress',
-    accept: 'application/vnd.github.v3+json'
+    accept: 'application/vnd.github+json'
   )
 
   # ***** RUN A CI TEST *****
@@ -231,7 +231,7 @@ def initiate_check_run
     @payload['check_run']['id'],
     status: 'completed',
     conclusion: 'success',
-    accept: 'application/vnd.github.v3+json'
+    accept: 'application/vnd.github+json'
   )
 end
 ```
@@ -546,7 +546,7 @@ text = "Octo RuboCop version: #{@output['metadata']['rubocop_version']}"
   @payload['check_run']['id'],
   status: 'completed',
   conclusion: 'success',
-  accept: 'application/vnd.github.v3+json'
+  accept: 'application/vnd.github+json'
 )
 ```
 
@@ -570,7 +570,7 @@ text = "Octo RuboCop version: #{@output['metadata']['rubocop_version']}"
     description: 'Automatically fix all linter notices.',
     identifier: 'fix_rubocop_notices'
   }],
-  accept: 'application/vnd.github.v3+json'
+  accept: 'application/vnd.github+json'
 )
 ```
 

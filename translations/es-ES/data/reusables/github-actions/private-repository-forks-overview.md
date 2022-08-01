@@ -1,5 +1,0 @@
-Si dependes en el uso de bifurcaciones de tus repositorios privados, puedes configurar las políticas que controlan cómo los usuarios pueden ejecutar flujos de trabajo en los eventos de `pull_request`. Disponible solo para repositorios privados e internos, puedes configurar los ajustes de esta política para empresas, organizaciones y repositorios. For enterprise accounts, the policies are applied to all repositories in all organizations.
-
-- **Ejecutar flujos de trabajo desde las solicitudes de extracción de las bifurcaciones** - permite a los usuarios ejecutar flujos de trabajo desde las solicitudes de extracción de las bifurcaciones utilizando un `GITHUB_TOKEN` con permisos de solo lectura y sin acceso a los secretos.
-- **Enviar tokens de escritura a los flujos de trabajo desde las solicitudes de extracción** - Permite a las solicitudes de extracción de las bifuraciones utilizar un `GITHUB_TOKEN` con permiso de escritura.
-- **Enviar secretos a los flujos de trabajo desde las solicitudes de extracción** - Pone disponibles todos los secretos de la solicitud de extracción.

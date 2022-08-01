@@ -2,8 +2,8 @@
 title: プラン変更の処理
 intro: '{% data variables.product.prodname_marketplace %} アプリケーションのアップグレードあるいはダウングレードによって、[`marketplace_purchase` イベント](/marketplace/integrating-with-the-github-marketplace-api/github-marketplace-webhook-events/) webhookが`changed`アクション付きでトリガされ、それによってアップグレードあるいはダウングレードのフローが開始されます。'
 redirect_from:
-  - /apps/marketplace/administering-listing-plans-and-user-accounts/upgrading-or-downgrading-plans/
-  - /apps/marketplace/integrating-with-the-github-marketplace-api/upgrading-and-downgrading-plans/
+  - /apps/marketplace/administering-listing-plans-and-user-accounts/upgrading-or-downgrading-plans
+  - /apps/marketplace/integrating-with-the-github-marketplace-api/upgrading-and-downgrading-plans
   - /marketplace/integrating-with-the-github-marketplace-api/upgrading-and-downgrading-plans
   - /developers/github-marketplace/handling-plan-changes
 versions:
@@ -50,7 +50,7 @@ GitHubは、変更が有効になるとwebhookを送信します。 たとえば
 
 アップグレードURLを使い、ユーザをアプリケーションのUIからGitHub上でのアップグレードへリダイレクトできます。
 
-```
+```text
 https://www.github.com/marketplace/<LISTING_NAME>/upgrade/<LISTING_PLAN_NUMBER>/<CUSTOMER_ACCOUNT_ID>
 ```
 

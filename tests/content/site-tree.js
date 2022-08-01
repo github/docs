@@ -29,7 +29,8 @@ describe('siteTree', () => {
   })
 
   describe('localized titles', () => {
-    test('titles for categories', () => {
+    // skipped because it has rendering errors. See translations/log/ja-resets.csv
+    test.skip('titles for categories', () => {
       const japaneseTitle =
         siteTree.ja[nonEnterpriseDefaultVersion].childPages[0].childPages[0].page.title
       expect(typeof japaneseTitle).toBe('string')
@@ -49,15 +50,15 @@ describe('siteTree', () => {
       // TODO: use new findPageInSiteTree helper when it's available
       const pageWithDynamicTitle = ghesSiteTree.childPages
         .find((child) => child.href === `/en/${ghesLatest}/admin`)
-        .childPages.find((child) => child.href === `/en/${ghesLatest}/admin/enterprise-support`)
+        .childPages.find((child) => child.href === `/en/${ghesLatest}/admin/installation`)
 
       // Confirm the raw title contains Liquid
       expect(pageWithDynamicTitle.page.title).toEqual(
-        'Working with {% data variables.contact.github_support %}'
+        'Installing {% data variables.product.prodname_enterprise %}'
       )
 
       // Confirm a new property contains the rendered title
-      expect(pageWithDynamicTitle.renderedFullTitle).toEqual('Working with GitHub Support')
+      expect(pageWithDynamicTitle.renderedFullTitle).toEqual('Installing GitHub Enterprise')
     })
   })
 

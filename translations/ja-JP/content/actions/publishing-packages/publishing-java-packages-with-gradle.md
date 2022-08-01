@@ -20,11 +20,10 @@ shortTitle: Java packages with Gradle
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## はじめに
 
-{% data reusables.github-actions.publishing-java-packages-intro %}
+{% data reusables.actions.publishing-java-packages-intro %}
 
 ## 必要な環境
 
@@ -78,7 +77,10 @@ publishing {
 この設定で、`gradle publish`コマンドの実行によってパッケージをMaven Central Repositoryに公開するワークフローを作成できます。 デプロイのステップでは、ユーザ名とパスワードのための環境変数か、Mavenリポジトリの認証に使うトークンを環境変数に設定する必要があります。 詳しい情報については、「[暗号化されたシークレットの作成と利用](/github/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)」を参照してください。
 
 ```yaml{:copy}
+
 {% data reusables.actions.actions-not-certified-by-github-comment %}
+
+{% data reusables.actions.actions-use-sha-pinning-comment %}
 
 name: Publish package to the Maven Central Repository
 on:
@@ -88,23 +90,25 @@ jobs:
   publish:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: {% data reusables.actions.action-checkout %}
       - name: Set up Java
-        uses: actions/setup-java@v2
+        uses: {% data reusables.actions.action-setup-java %}
         with:
           java-version: '11'
           distribution: 'adopt'
       - name: Validate Gradle wrapper
         uses: gradle/wrapper-validation-action@e6e38bacfdf1a337459f332974bb2327a31aaf4b
       - name: Publish package
-        run: gradle publish
+        uses: gradle/gradle-build-action@67421db6bd0bf253fb4bd25b31ebb98943c375e1
+        with:
+          arguments: publish
         env:
           MAVEN_USERNAME: {% raw %}${{ secrets.OSSRH_USERNAME }}{% endraw %}
           MAVEN_PASSWORD: {% raw %}${{ secrets.OSSRH_TOKEN }}{% endraw %}
 ```
 
-{% data reusables.github-actions.gradle-workflow-steps %}
-1. `gradle publish`コマンドを実行して、`OSSRH` Mavenリポジトリに公開してください。 環境変数の`MAVEN_USERNAME`は`OSSRH_USERNAME`シークレットの内容で、環境変数の`MAVEN_PASSWORD`は`OSSRH_TOKEN`シークレットの内容で設定されます。
+{% data reusables.actions.gradle-workflow-steps %}
+1. Runs the [`gradle/gradle-build-action`](https://github.com/gradle/gradle-build-action) action with the `publish` argument to publish to the `OSSRH` Maven repository. 環境変数の`MAVEN_USERNAME`は`OSSRH_USERNAME`シークレットの内容で、環境変数の`MAVEN_PASSWORD`は`OSSRH_TOKEN`シークレットの内容で設定されます。
 
    ワークフロー中でのシークレットの利用に関する詳しい情報については「[暗号化されたシークレットの作成と利用](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)」を参照してください。
 
@@ -114,7 +118,7 @@ jobs:
 
 _build.gradle_のpublishingブロックには、{% data variables.product.prodname_registry %}を指す新しいMavenリポジトリを定義できます。  そのリポジトリの設定では、CIワークフローの実行で設定された環境変数を活用することもできます。  環境変数の`GITHUB_ACTOR`はユーザ名として利用でき、環境変数の`GITHUB_TOKEN`には`GITHUB_TOKEN`シークレットを設定できます。
 
-{% data reusables.github-actions.github-token-permissions %}
+{% data reusables.actions.github-token-permissions %}
 
 For example, if your organization is named "octocat" and your repository is named "hello-world", then the {% data variables.product.prodname_registry %} configuration in _build.gradle_ would look similar to the below example.
 
@@ -145,7 +149,10 @@ publishing {
 With this configuration, you can create a workflow that publishes your package to {% data variables.product.prodname_registry %} by running the `gradle publish` command.
 
 ```yaml{:copy}
+
 {% data reusables.actions.actions-not-certified-by-github-comment %}
+
+{% data reusables.actions.actions-use-sha-pinning-comment %}
 
 name: Publish package to GitHub Packages
 on:
@@ -153,26 +160,28 @@ on:
     types: [created]
 jobs:
   publish:
-    runs-on: ubuntu-latest {% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
+    runs-on: ubuntu-latest 
     permissions: 
       contents: read
-      packages: write {% endif %}
+      packages: write 
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-java@v2
+      - uses: {% data reusables.actions.action-checkout %}
+      - uses: {% data reusables.actions.action-setup-java %}
         with:
           java-version: '11'
           distribution: 'adopt'
       - name: Validate Gradle wrapper
         uses: gradle/wrapper-validation-action@e6e38bacfdf1a337459f332974bb2327a31aaf4b
       - name: Publish package
-        run: gradle publish
+        uses: gradle/gradle-build-action@67421db6bd0bf253fb4bd25b31ebb98943c375e1
+        with:
+          arguments: publish
         env:
           GITHUB_TOKEN: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
 ```
 
-{% data reusables.github-actions.gradle-workflow-steps %}
-1. {% data variables.product.prodname_registry %}に公開するために` gradle publish `コマンドを実行してください。 環境変数`GITHUB_TOKEN`には、`GITHUB_TOKEN`シークレットの内容が設定されます。 {% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}The `permissions` key specifies the access that the `GITHUB_TOKEN` secret will allow.{% endif %}
+{% data reusables.actions.gradle-workflow-steps %}
+1. Runs the [`gradle/gradle-build-action`](https://github.com/gradle/gradle-build-action) action with the `publish` argument to publish to {% data variables.product.prodname_registry %}. 環境変数`GITHUB_TOKEN`には、`GITHUB_TOKEN`シークレットの内容が設定されます。 The `permissions` key specifies the access that the `GITHUB_TOKEN` secret will allow.
 
    ワークフロー中でのシークレットの利用に関する詳しい情報については「[暗号化されたシークレットの作成と利用](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)」を参照してください。
 
@@ -221,7 +230,10 @@ publishing {
 この設定で、`gradle publish`コマンドの実行によってパッケージをMaven Central Repositoryと{% data variables.product.prodname_registry %}の両方に公開するワークフローを作成できます。
 
 ```yaml{:copy}
+
 {% data reusables.actions.actions-not-certified-by-github-comment %}
+
+{% data reusables.actions.actions-use-sha-pinning-comment %}
 
 name: Publish package to the Maven Central Repository and GitHub Packages
 on:
@@ -229,28 +241,30 @@ on:
     types: [created]
 jobs:
   publish:
-    runs-on: ubuntu-latest {% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
+    runs-on: ubuntu-latest 
     permissions: 
       contents: read
-      packages: write {% endif %}
+      packages: write 
     steps:
-      - uses: actions/checkout@v2
+      - uses: {% data reusables.actions.action-checkout %}
       - name: Set up Java
-        uses: actions/setup-java@v2
+        uses: {% data reusables.actions.action-setup-java %}
         with:
           java-version: '11'
           distribution: 'adopt'
       - name: Validate Gradle wrapper
         uses: gradle/wrapper-validation-action@e6e38bacfdf1a337459f332974bb2327a31aaf4b
       - name: Publish package
-        run: gradle publish
+        uses: gradle/gradle-build-action@67421db6bd0bf253fb4bd25b31ebb98943c375e1
+        with:
+          arguments: publish
         env: {% raw %}
           MAVEN_USERNAME: ${{ secrets.OSSRH_USERNAME }}
           MAVEN_PASSWORD: ${{ secrets.OSSRH_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}{% endraw %}
 ```
 
-{% data reusables.github-actions.gradle-workflow-steps %}
-1. `OSSRH` Mavenリポジトリと{% data variables.product.prodname_registry %}に公開するために` gradle publish`コマンドを実行してください。 環境変数の`MAVEN_USERNAME`は`OSSRH_USERNAME`シークレットの内容で、環境変数の`MAVEN_PASSWORD`は`OSSRH_TOKEN`シークレットの内容で設定されます。 環境変数`GITHUB_TOKEN`には、`GITHUB_TOKEN`シークレットの内容が設定されます。 {% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}The `permissions` key specifies the access that the `GITHUB_TOKEN` secret will allow.{% endif %}
+{% data reusables.actions.gradle-workflow-steps %}
+1. Runs the [`gradle/gradle-build-action`](https://github.com/gradle/gradle-build-action) action with the `publish` argument to publish to the `OSSRH` Maven repository and {% data variables.product.prodname_registry %}. 環境変数の`MAVEN_USERNAME`は`OSSRH_USERNAME`シークレットの内容で、環境変数の`MAVEN_PASSWORD`は`OSSRH_TOKEN`シークレットの内容で設定されます。 環境変数`GITHUB_TOKEN`には、`GITHUB_TOKEN`シークレットの内容が設定されます。 The `permissions` key specifies the access that the `GITHUB_TOKEN` secret will allow.
 
    ワークフロー中でのシークレットの利用に関する詳しい情報については「[暗号化されたシークレットの作成と利用](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)」を参照してください。

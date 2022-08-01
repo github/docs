@@ -4,6 +4,7 @@ intro: É possível fornecer feedback automaticamente sobre envios de código de
 miniTocMaxHeadingLevel: 3
 versions:
   fpt: '*'
+permissions: 'Organization owners who are admins for a classroom can set up and use autograding on assignments in a classroom. {% data reusables.classroom.classroom-admins-link %}'
 redirect_from:
   - /education/manage-coursework-with-github-classroom/adding-tests-for-auto-grading
   - /education/manage-coursework-with-github-classroom/reviewing-auto-graded-work-teachers
@@ -20,7 +21,7 @@ Pode usar uma estrutura de teste, executar um comando personalizado, escrever te
 
 Você pode ter uma visão geral dos alunos que estão passando testes de avaliação automática acessando a atividade em {% data variables.product.prodname_classroom %}. Uma marca de verificação verde significa que todos os testes estão passando para o aluno, e um X vermelho significa que alguns ou todos os testes estão falhando para o aluno. Se você ganhou pontos para um ou mais testes, uma bolha irá mostrar a pontuação para os testes da pontuação máxima possível para a atividade.
 
-![Visão geral de uma atividade com resultados de avaliação automática](/assets/images/help/classroom/autograding-hero.png)
+![Visão geral de uma atividade com resultados de avaliação automática](/assets/images/help/classroom/assignment-individual-hero.png)
 
 ## Métodos de avaliação
 
@@ -59,7 +60,7 @@ Um comando de execução executa um comando de configuração e, em seguida, exe
 
 Você pode adicionar testes de avaliação automática durante a criação de uma nova atividade. {% data reusables.classroom.for-more-information-about-assignment-creation %}
 
-Você pode adicionar, editar ou excluir testes de avaliação automática para uma atividade existente. Se você alterar os testes de avaliação automática para uma atribuição existente, os repositórios de atividade existentes não serão afetados. Um aluno ou equipe deve aceitar a atividade e criar um novo repositório de atividade para usar os novos testes.
+Você pode adicionar, editar ou excluir testes de avaliação automática para uma atividade existente. Todas as alterações feitas por meio da interface do usuário do Classroom serão enviadas por push para os repositórios de alunos existentes. Portanto, tenha cuidado ao editar seus testes.
 
 {% data reusables.classroom.sign-into-github-classroom %}
 {% data reusables.classroom.click-classroom-in-list %}

@@ -2,7 +2,7 @@
 title: Building a CI server
 intro: Build your own CI system using the Status API.
 redirect_from:
-  - /guides/building-a-ci-server/
+  - /guides/building-a-ci-server
   - /v3/guides/building-a-ci-server
 versions:
   fpt: '*'
@@ -170,7 +170,7 @@ build your own CI setup to use this example.
 You can always rely on [GitHub integrations][integrations].
 
 [deploy API]: /rest/reference/repos#deployments
-[status API]: /rest/reference/repos#statuses
+[status API]: /rest/reference/commits#commit-statuses
 [ngrok]: https://ngrok.com/
 [using ngrok]: /webhooks/configuring/#using-ngrok
 [platform samples]: https://github.com/github/platform-samples/tree/master/api/ruby/building-a-ci-server

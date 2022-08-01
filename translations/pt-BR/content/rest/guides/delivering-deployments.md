@@ -2,8 +2,8 @@
 title: Entregar implantações
 intro: 'Ao usar a API RESt de implantações, você pode criar ferramentas personalizadas que interagem com seu servidor e um aplicativo de terceiros.'
 redirect_from:
-  - /guides/delivering-deployments/
-  - /guides/automating-deployments-to-integrators/
+  - /guides/delivering-deployments
+  - /guides/automating-deployments-to-integrators
   - /v3/guides/delivering-deployments
 versions:
   fpt: '*'
@@ -20,7 +20,7 @@ A [API de Implantações][deploy API] fornece seus projetos hospedados em {% dat
 
 Este guia usará a API para demonstrar uma configuração que você pode usar. No nosso cenário, iremos:
 
-* Fazer merge de um pull request
+* Fazer merge de um pull request.
 * Quando a CI terminar, definiremos o status do pull request.
 * Quando o pull request for mesclado, executaremos a nossa implantação no nosso servidor.
 

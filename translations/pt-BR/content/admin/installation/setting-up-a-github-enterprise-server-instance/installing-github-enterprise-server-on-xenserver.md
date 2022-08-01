@@ -2,7 +2,7 @@
 title: Instalar o GitHub Enterprise Server no XenServer
 intro: 'Para instalar o {% data variables.product.prodname_ghe_server %} no XenServer, você deve implantar a imagem de disco do {% data variables.product.prodname_ghe_server %} em um host do XenServer.'
 redirect_from:
-  - /enterprise/admin/guides/installation/installing-github-enterprise-on-xenserver/
+  - /enterprise/admin/guides/installation/installing-github-enterprise-on-xenserver
   - /enterprise/admin/installation/installing-github-enterprise-server-on-xenserver
   - /admin/installation/installing-github-enterprise-server-on-xenserver
 versions:
@@ -34,10 +34,9 @@ shortTitle: Instalar no XenServer
 
 ## Baixar a imagem do {% data variables.product.prodname_ghe_server %}
 
-{% data reusables.enterprise_installation.enterprise-download-procedural %}
 {% data reusables.enterprise_installation.download-license %}
 {% data reusables.enterprise_installation.download-appliance %}
-4. Selecione {% data variables.product.prodname_dotcom %} On-premises e clique em **XenServer (VHD)**.
+4. Em "{% data variables.product.prodname_dotcom %} no local", selecione o menu suspenso "Selecione seu hipervisor" e clique em **XenServer (VHD)**.
 5. Para baixar o arquivo de licença, clique em **Download license** (Baixar licença).
 
 ## Criar a instância do {% data variables.product.prodname_ghe_server %}

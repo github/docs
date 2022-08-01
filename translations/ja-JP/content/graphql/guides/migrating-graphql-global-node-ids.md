@@ -1,34 +1,34 @@
 ---
-title: Migrating GraphQL global node IDs
-intro: 'Learn about the two global node ID formats and how to migrate from the legacy format to the new format.'
+title: GraphQLグローバルノードIDの移行
+intro: 2つのグローバルノードIDフォーマットについて、そして旧来のフォーマットから新フォーマットへの移行方法について学びます。
 versions:
   fpt: '*'
   ghec: '*'
 topics:
   - API
-shortTitle: Migrating global node IDs
+shortTitle: グローバルノードIDの移行
 ---
 
-## Background
+## 背景
 
-The {% data variables.product.product_name %} GraphQL API currently supports two types of global node ID formats. The legacy format will be deprecated and replaced with a new format.  This guide shows you how to migrate to the new format, if necessary. 
+{% data variables.product.product_name %} GraphQL APIは、現在2種類のグローバルノードIDフォーマットをサポートしています。 旧来のフォーマットは非推奨と成り、新しいフォーマットで置き換えられます。  このガイドは、必要な場合の新フォーマットへの移行方法を紹介します。
 
-By migrating to the new format, you ensure that the response times of your requests remain consistent and small. You also ensure that your application continues to work once the legacy IDs are fully deprecated.
+新しいフォーマットに移行することで、リクエストに対するレスポンスタイムが一貫して小さくなることが保証できます。 また、旧来のIDが完全に非推奨になっても、アプリケーションが動作し続けられることも保証できます。
 
-To learn more about why the legacy global node ID format will be deprecated, see "[New global ID format coming to GraphQL](https://github.blog/2021-02-10-new-global-id-format-coming-to-graphql)."
+旧来のグローバルノードIDフォーマットが非推奨になる理由について学ぶには、「[GraphQLに新しいグローバルIDフォーマットが到来](https://github.blog/2021-02-10-new-global-id-format-coming-to-graphql)」を参照してください。
 
-## Determining if you need to take action
+## 対応の必要性の判断
 
-You only need to follow the migration steps if you store references to GraphQL global node IDs.  These IDs correspond to the `id` field for any object in the schema.  If you don't store any global node IDs, then you can continue to interact with the API with no change.
+GraphQLグローバルノードIDへの参照を保存している場合にのみ、移行のステップを踏んでいかなければなりません。  これらのIDは、スキーマ中の任意のオブジェクトの`id`フィールドに対応します。  グローバルノードIDをまったく保存していないなら、変更なしにAPIを扱い続けられます。
 
-Additionally, if you currently decode the legacy IDs to extract type information (for example, if you use the first two characters of `PR_kwDOAHz1OX4uYAah` to determine if the object is a pull request), your service will break since the format of the IDs has changed.  You should migrate your service to treat these IDs as opaque strings.  These IDs will be unique, therefore you can rely on them directly as references.
+加えて、現在は旧来のIDを型情報を抽出するためにデコードしている（たとえば`PR_kwDOAHz1OX4uYAah`の最初の2文字を利用してそのオブジェクトがPull Requestかを判断している場合）なら、IDのフォーマットが変更されたために、そのサービスは動かなくなります。  これらのIDを不透明な文字列として扱うよう、サービスを移行しなければなりません。  これらのIDは一意になるので、直接参照として依存できます。
 
 
-## Migrating to the new global IDs
+## 新しいグローバルIDへの移行
 
-To facilitate migration to the new ID format, you can use the `X-Github-Next-Global-ID` header in your GraphQL API requests. The value of the `X-Github-Next-Global-ID` header can be `1` or `0`.  Setting the value to `1` will force the response payload to always use the new ID format for any object that you requested the `id` field for.  Setting the value to `0` will revert to default behavior, which is to show the legacy ID or new ID depending on the object creation date. 
+新しいIDフォーマットへの移行を容易にするために、GraphQL APIリクエスト中で`X-Github-Next-Global-ID`ヘッダを利用できます。 `X-Github-Next-Global-ID`の値は`1`もしくは`0`にできます。  値を`1`にすれば、`id`フィールドをリクエストされたすべてのオブジェクトに対し、レスポンスのペイロードでは常に新しいIDフォーマットが使われるようになります。  値を`0`に設定するとデフォルトの動作に戻ります。この場合、オブジェクトの作成日に応じて旧来のIDもしくは新IDが示されます。
 
-Here is an example request using cURL:
+以下は、cURLを使ったリクエストの例です:
 
 ```
 $ curl \
@@ -38,14 +38,13 @@ $ curl \
   -d '{ "query": "{ node(id: \"MDQ6VXNlcjM0MDczMDM=\") { id } }" }'
 ```
 
-Even though the legacy ID `MDQ6VXNlcjM0MDczMDM=` was used in the query, the response will contain the new ID format:
+クエリでは旧来のIDの`MDQ6VXNlcjM0MDczMDM=`が使われていますが、レスポンスには新しいIDのフォーマットが含まれています。
 ```
 {"data":{"node":{"id":"U_kgDOADP9xw"}}}
 ```
-With the `X-Github-Next-Global-ID` header, you can find the new ID format for legacy IDs that you reference in your application. You can then update those references with the ID received in the response. You should update all references to legacy IDs and use the new ID format for any subsequent requests to the API. 
-To perform bulk operations, you can use aliases to submit multiple node queries in one API call. For more information, see "[the GraphQL docs](https://graphql.org/learn/queries/#aliases)."
+`X-Github-Next-Global-ID`ヘッダを使うと、アプリケーションで参照する旧来のIDに対する新IDフォーマットが見つかります。 レスポンスで受信されたIDで、それらの参照を更新できます。 旧来のidへの参照をすべて更新し、移行のAPIへのリクエストでは新しいIDフォーマットを使わなければなりません。 バルク操作を行う際には、1つのAPIコールで複数ノードのクエリをサブミットするために、エイリアスを利用できます。 詳しい情報については「[GraphQLのドキュメント](https://graphql.org/learn/queries/#aliases)」を参照してください。
 
-You can also get the new ID for a collection of items. For example, if you wanted to get the new ID for the last 10 repositories in your organization, you could use a query like this:
+アイテムのコレクションに対して新しいIDを取得することもできます。 たとえば、Organization中の最後の10個のリポジトリの新しいIDを取得したい場合は、以下のようなクエリを使うことができます。
 ```
 {
   organization(login: "github") {
@@ -62,8 +61,8 @@ You can also get the new ID for a collection of items. For example, if you wante
 }
 ```
 
-Note that setting `X-Github-Next-Global-ID` to `1` will affect the return value of every `id` field in your query.  This means that even when you submit a non-`node` query, you will get back the new format ID if you requested the `id` field.
+`X-Github-Next-Global-ID`を`1`に設定していることが、クエリの返値の中のすべての`id`フィールドに影響していることに注意してください。  これは、非`node`クエリをサブミットしていたとしても、`id`フィールドをリクエストすれば新しいフォーマットのIDが返されるということを意味します。
 
-## Sharing feedback
+## フィードバックを送る
 
-If you have any concerns about the rollout of this change impacting your app, please [contact {% data variables.product.product_name %}](https://support.github.com/contact) and include information such as your app name so that we can better assist you.
+自分のアプリケーションに影響するこの変更のロールアウトに関して懸念があるなら、[{% data variables.product.product_name %}にお問い合わせ](https://support.github.com/contact)いただき、私どもがうまく支援させていただけるよう、アプリケーション名などの情報をお知らせください。

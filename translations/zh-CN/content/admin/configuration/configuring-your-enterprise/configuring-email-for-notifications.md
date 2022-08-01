@@ -2,10 +2,10 @@
 title: 配置电子邮件通知
 intro: '为了让用户轻松地快速响应 {% data variables.product.product_name %} 上的活动，您可以配置 {% data variables.product.product_location %} 对议题、拉取请求和提交注释发送电子邮件通知。'
 redirect_from:
-  - /enterprise/admin/guides/installation/email-configuration/
-  - /enterprise/admin/articles/configuring-email/
-  - /enterprise/admin/articles/troubleshooting-email/
-  - /enterprise/admin/articles/email-configuration-and-troubleshooting/
+  - /enterprise/admin/guides/installation/email-configuration
+  - /enterprise/admin/articles/configuring-email
+  - /enterprise/admin/articles/troubleshooting-email
+  - /enterprise/admin/articles/email-configuration-and-troubleshooting
   - /enterprise/admin/user-management/configuring-email-for-notifications
   - /admin/configuration/configuring-email-for-notifications
 versions:
@@ -26,10 +26,7 @@ shortTitle: 配置电子邮件通知
 ## 为企业配置 SMTP
 
 {% ifversion ghes %}
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.management-console %}
-2. 在页面顶部，单击 **Settings**。 ![Settings 选项卡](/assets/images/enterprise/management-console/settings-tab.png)
-3. 在左侧边栏中，单击 **Email**。 ![Email 选项卡](/assets/images/enterprise/management-console/email-sidebar.png)
+{% data reusables.enterprise_site_admin_settings.email-settings %}
 4. 选择 **Enable email**。 这将同时启用出站和入站电子邮件，不过，要想入站电子邮件正常运行，您还需要按照下文“[配置 DNS 和防火墙设置以允许传入的电子邮件](#configuring-dns-and-firewall-settings-to-allow-incoming-emails)”所述配置您的 DNS 设置。 ![启用出站电子邮件](/assets/images/enterprise/management-console/enable-outbound-email.png)
 5. 键入 SMTP 服务器的设置。
       - 在 **Server address** 字段中，输入您的 SMTP 服务器的地址。
@@ -39,7 +36,7 @@ shortTitle: 配置电子邮件通知
       - 在 **No-reply email address** 字段中，输入要在所有通知电子邮件的 From 和 To 字段中使用的电子邮件地址。
 6. 如果您想丢弃发送到无回复电子邮件地址的所有传入电子邮件，请选中 **Discard email addressed to the no-reply email address**。 ![用于丢弃发送到无回复电子邮件地址的电子邮件的复选框](/assets/images/enterprise/management-console/discard-noreply-emails.png)
 7. 在 **Support（支持）**下，选择用于向您的用户提供附加支持的链接类型。
-    - **Email**：内部电子邮件地址。
+    - **Email（电子邮件）**：内部电子邮件地址。
     - **URL**：内部支持站点的链接。 您必须包括 `http://` 或 `https://`。 ![支持电子邮件或 URL](/assets/images/enterprise/management-console/support-email-url.png)
 8. [测试电子邮件递送](#testing-email-delivery)。
 {% elsif ghae %}
@@ -74,7 +71,19 @@ shortTitle: 配置电子邮件通知
 
 4. 如果测试电子邮件失败，请[排查电子邮件设置问题](#troubleshooting-email-delivery)。
 5. 当测试电子邮件成功后，在页面的底部单击 **Save settings**。 ![Save settings 按钮](/assets/images/enterprise/management-console/save-settings.png)
-6. 等待配置运行完毕。![配置实例](/assets/images/enterprise/management-console/configuration-run.png)
+{% data reusables.enterprise_site_admin_settings.wait-for-configuration-run %}
+
+{% ifversion require-tls-for-smtp %}
+## 对 SMTP 连接强制实施 TLS
+
+您可以对所有传入的 SMTP 连接强制实施 TLS 加密，这有助于满足 ISO-27017 认证要求。
+
+{% data reusables.enterprise_site_admin_settings.email-settings %}
+1. 在“Authentication（身份验证）”下，选择 **Enforce TLS auth (recommended)（强制实施 TLS 身份验证[推荐]）**。
+
+   ![“ "强制实施 TLS 身份验证（推荐）" ”复选框的屏幕截图](/assets/images/enterprise/configuration/enforce-tls-for-smtp-checkbox.png)
+{% data reusables.enterprise_management_console.save-settings %}
+{% endif %}
 
 ## 配置 DNS 和防火墙设置以允许传入的电子邮件
 
@@ -89,7 +98,7 @@ shortTitle: 配置电子邮件通知
 
 ### 创建支持包
 
-如果您无法根据显示的错误消息确定什么地方出错，可以下载包含您的邮件服务器与 {% data variables.product.prodname_ghe_server %} 之间的整个 SMTP 对话的[支持包](/enterprise/{{ currentVersion }}/admin/guides/enterprise-support/providing-data-to-github-support)。 在下载并提取支持包后，请检查 *enterprise-manage-logs/unicorn.log* 中的条目，查看整个 SMTP 对话日志和任何相关错误。
+如果您无法根据显示的错误消息确定什么地方出错，可以下载包含您的邮件服务器与 {% data variables.product.prodname_ghe_server %} 之间的整个 SMTP 对话的[支持包](/enterprise/admin/guides/enterprise-support/providing-data-to-github-support)。 在下载并提取支持包后，请检查 *enterprise-manage-logs/unicorn.log* 中的条目，查看整个 SMTP 对话日志和任何相关错误。
 
 该独角兽日志应以类似于下面所示的方式显示事务：
 

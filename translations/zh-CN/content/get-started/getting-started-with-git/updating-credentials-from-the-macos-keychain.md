@@ -1,6 +1,6 @@
 ---
-title: 更新 OSX 密钥链中的凭据
-intro: '如果在 {% data variables.product.product_name %} 上更改您的{% ifversion not ghae %}用户名、密码或{% endif %}个人访问令牌，您需要在 "git-credit al-osxkeychain" 小助手中更新您保存的凭据。'
+title: Updating credentials from the macOS Keychain
+intro: 'You''ll need to update your saved credentials in the `git-credential-osxkeychain` helper if you change your{% ifversion not ghae %} username, password, or{% endif %} personal access token on {% data variables.product.product_name %}.'
 redirect_from:
   - /articles/updating-credentials-from-the-osx-keychain
   - /github/using-git/updating-credentials-from-the-osx-keychain
@@ -12,29 +12,29 @@ versions:
   ghes: '*'
   ghae: '*'
   ghec: '*'
-shortTitle: macOS 密钥链凭据
+shortTitle: macOS Keychain credentials
 ---
-
 {% tip %}
 
-**Note:** Updating credentials from the macOS Keychain only applies to users who manually configured a PAT using the  `osxkeychain` helper that is built-in to macOS.
+**Note:** Updating credentials from the macOS Keychain only applies to users who manually configured a PAT using the  `osxkeychain` helper that is built-in to macOS. 
 
-We recommend you either [configure SSH](/articles/generating-an-ssh-key) or upgrade to the [Git Credential Manager Core](/get-started/getting-started-with-git/caching-your-github-credentials-in-git) (GCM Core) instead. GCM Core can manage authentication on your behalf (no more manual PATs) including 2FA (two-factor auth).
+We recommend you either [configure SSH](/articles/generating-an-ssh-key) or upgrade to the [Git Credential Manager](/get-started/getting-started-with-git/caching-your-github-credentials-in-git) (GCM) instead. GCM can manage authentication on your behalf (no more manual PATs) including 2FA (two-factor auth).
 
 {% endtip %}
 
-{% data reusables.user_settings.password-authentication-deprecation %}
+{% data reusables.user-settings.password-authentication-deprecation %}
 
-## 通过 Keychain Access 更新凭据
+## Updating your credentials via Keychain Access
 
-1. 单击菜单栏右侧的 Spotlight 图标（放大镜）。 键入 `Keychain access`，然后按 Enter 键启动应用程序。 ![Spotlight 搜索栏](/assets/images/help/setup/keychain-access.png)
-2. 在 Keychain Access 中，搜索 **{% data variables.command_line.backticks %}**。
-3. 查找 `{% data variables.command_line.backticks %}` 的“互联网密码”条目。
-4. 相应地编辑或删除该条目。
+1. Click on the Spotlight icon (magnifying glass) on the right side of the menu bar. Type `Keychain access` then press the Enter key to launch the app.
+   ![Spotlight Search bar](/assets/images/help/setup/keychain-access.png)
+2. In Keychain Access, search for **{% data variables.command_line.backticks %}**.
+3. Find the "internet password" entry for `{% data variables.command_line.backticks %}`.
+4. Edit or delete the entry accordingly.
 
-## 通过命令行删除凭据
+## Deleting your credentials via the command line
 
-通过命令行，您可以使用凭据小助手直接擦除密钥链条目。
+Through the command line, you can use the credential helper directly to erase the keychain entry.
 
 ```shell
 $ git credential-osxkeychain erase
@@ -43,8 +43,8 @@ protocol=https
 > <em>[Press Return]</em>
 ```
 
-如果成功，则不会打印出任何内容。 要测试其是否有效，请尝试从 {% data variables.product.product_location %} 克隆私有仓库。 如果提示您输入密码，则该密钥链条目已删除。
+If it's successful, nothing will print out. To test that it works, try and clone a private repository from {% data variables.product.product_location %}. If you are prompted for a password, the keychain entry was deleted.
 
-## 延伸阅读
+## Further reading
 
-- “[在 Git 中缓存您的 {% data variables.product.prodname_dotcom %} 凭据](/github/getting-started-with-github/caching-your-github-credentials-in-git/)”
+- "[Caching your {% data variables.product.prodname_dotcom %} credentials in Git](/github/getting-started-with-github/caching-your-github-credentials-in-git/)"

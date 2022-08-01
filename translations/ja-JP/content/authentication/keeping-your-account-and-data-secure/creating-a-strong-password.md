@@ -2,7 +2,7 @@
 title: 強力なパスワードの作成
 intro: 'Secure your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} with a strong and unique password using a password manager.'
 redirect_from:
-  - /articles/what-is-a-strong-password/
+  - /articles/what-is-a-strong-password
   - /articles/creating-a-strong-password
   - /github/authenticating-to-github/creating-a-strong-password
   - /github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-strong-password
@@ -31,7 +31,7 @@ You must choose or generate a password for your account on {% ifversion ghae %}{
 
 ブラウザを使用して {% data variables.product.product_name %} にログオンする場合のみパスワードを使用できます。 コマンドラインや API などの他の方法で {% data variables.product.product_name %} を認証する場合は、他の認証情報を使用する必要があります。 詳しい情報については、「[{% data variables.product.prodname_dotcom %} への認証について](/github/authenticating-to-github/about-authentication-to-github)」を参照してください。
 
-{% ifversion fpt or ghec %}{% data reusables.user_settings.password-authentication-deprecation %}{% endif %}
+{% ifversion fpt or ghec %}{% data reusables.user-settings.password-authentication-deprecation %}{% endif %}
 
 ## 参考リンク
 

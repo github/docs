@@ -2,7 +2,7 @@
 title: Auditing users across your enterprise
 intro: 'The audit log dashboard shows site administrators the actions performed by all users and organizations across your enterprise within the current month and previous six months. The audit log includes details such as who performed the action, what the action was, and when the action was performed.'
 redirect_from:
-  - /enterprise/admin/guides/user-management/auditing-users-across-an-organization/
+  - /enterprise/admin/guides/user-management/auditing-users-across-an-organization
   - /enterprise/admin/user-management/auditing-users-across-your-instance
   - /admin/user-management/auditing-users-across-your-instance
   - /admin/user-management/auditing-users-across-your-enterprise
@@ -80,7 +80,7 @@ The `org` qualifier limits actions to a specific organization. For example:
 
 ### Search based on the action performed
 
-The `action` qualifier searches for specific events, grouped within categories. For information on the events associated with these categories, see "[Audited actions](/admin/user-management/audited-actions)".
+The `action` qualifier searches for specific events, grouped within categories. For information on the events associated with these categories, see "[Audit log events for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise)".
 
 | Category name | Description
 |------------------|-------------------
@@ -112,7 +112,7 @@ The `country` qualifier filters actions by the originating country.
 
 The `created` qualifier filters actions by the time they occurred.
 - Define dates using the format of `YYYY-MM-DD`--that's year, followed by month, followed by day.
-- Dates support [greater than, less than, and range qualifiers](/enterprise/{{ currentVersion }}/user/articles/search-syntax). For example:
+- Dates support [greater than, less than, and range qualifiers](/enterprise/user/articles/search-syntax). For example:
   * `created:2014-07-08` finds all events that occurred on July 8th, 2014.
   * `created:>=2014-07-01` finds all events that occurred on or after July 8th, 2014.
   * `created:<=2014-07-01` finds all events that occurred on or before July 8th, 2014.

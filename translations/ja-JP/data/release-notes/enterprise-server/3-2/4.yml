@@ -1,0 +1,30 @@
+---
+date: '2021-11-23'
+intro: 複数のお客様に影響する重大なバグのため、ダウンロードは無効になりました。修正は次回のパッチで利用可能になります。
+sections:
+  security_fixes:
+    - パッケージは最新のセキュリティバージョンにアップデートされました。
+  bugs:
+    - GitHub Actionsが有効化されている場合、`ghe-repl-start`もしくは`ghe-repl-status`を実行すると、データベースへの接続でエラーが返されることがあります。
+    - pre-receiveフックが`PATH`の未定義で失敗します。
+    - 'インスタンスが以前にレプリカとして設定されていた場合、`ghe-repl-setup`を実行すると`cannot create directory /data/user/elasticsearch: File exists`というエラーが返されます。'
+    - '`ghe-support-bundle`を実行すると、`integer expression expected`というエラーが返されます。'
+    - '高可用性レプリカをセットアップした後、`ghe-repl-status`は`unexpected unclosed action in command`というエラーを出力に含めました。'
+    - 大規模なクラスタ環境に置いて、一部のフロントエンドノードで認証バックエンドが利用できなくなることがあります。
+    - GHESクラスタにおいて、一部の重要なサービスがバックエンドノードで利用できないことがあります。
+    - '`/repos` APIによってユーザに返されたリポジトリ権限は、完全なリストを返しません。'
+    - GraphQL スキーマの`Team`オブジェクトの`childTeams`接続は、一部の状況で誤った結果を生成しました。
+    - 高可用性設定では、リポジトリのメンテナンスは成功した場合であっても常にstafftoolsで失敗があったと表示しました。
+    - ユーザ定義のパターンは、 `package.json`あるいは`yarn.lock`といったファイル内のシークレットを検出しません。
+  changes:
+    - '`ghe-cluster-suport-bundle`でクラスタSupport Bundleを作成する際の`gzip`圧縮の追加外部レイヤーは、デフォルトでオフになりました。この外部圧縮は、ghe-cluster-suport-bundle -c`コマンドラインオプションで適用できます。'
+    - 体験を改善するためのモバイルアプリケーションのデータ収集についてユーザにリマインドするために、管理コンソールにテキストを追加しました。
+    - '{% data variables.product.prodname_github_connect %}データ接続レコードには、有効化された{% data variables.product.prodname_github_connect %}機能のリストが含まれるようになりました。[2021年12月09日更新]'
+  known_issues:
+    - 新しくセットアップされたユーザを持たない{% data variables.product.prodname_ghe_server %}で、攻撃者が最初の管理ユーザを作成できました。
+    - アップグレードの過程で、カスタムのファイアウォールのルールが削除されます。
+    - Git LFSが追跡するファイル[Webインターフェースからアップロードされたもの](https://github.com/blog/2105-upload-files-to-your-repositories)が、不正にリポジトリに直接追加されてしまいます。
+    - 同じリポジトリ内のファイルパスが255文字を超えるblobへのパーマリンクを含むIssueをクローズできませんでした。
+    - GitHub Connectで"Users can search GitHub.com"が有効化されている場合、GitHub.comの検索結果にプライベート及びインターナルリポジトリのIssueが含まれません。
+    - '{% data variables.product.prodname_registry %}のnpmレジストリは、メタデータのレスポンス中で時間の値を返さなくなります。これは、大きなパフォーマンス改善のために行われました。メタデータレスポンスの一部として時間の値を返すために必要なすべてのデータは保持し続け、既存のパフォーマンスの問題を解決した将来に、この値を返すことを再開します。'
+    - pre-receive フックの処理に固有のリソース制限によって、pre-receive フックに失敗するものが生じることがあります。

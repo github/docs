@@ -1,6 +1,6 @@
 ---
 title: Configurar ramas y fusiones en tu repositorio
-intro: 'You can manage branches in your repository, configure the way branches are merged in your repository, and protect important branches by defining the mergeability of pull requests.'
+intro: 'Puedes administrar las ramas en tu repositorio, configurar la forma en la que estas se fusionan en él y proteger las ramas importantes definiendo la capacidad de fusión de las solicitudes de cambios.'
 versions:
   fpt: '*'
   ghes: '*'

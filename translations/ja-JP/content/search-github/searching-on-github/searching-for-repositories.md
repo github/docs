@@ -2,7 +2,7 @@
 title: リポジトリを検索する
 intro: '{% data variables.product.product_name %} 上のリポジトリを検索することができます。そして、これらのリポジトリを検索する修飾子を組み合わせることで、検索結果を絞ることができます。'
 redirect_from:
-  - /articles/searching-repositories/
+  - /articles/searching-repositories
   - /articles/searching-for-repositories
   - /github/searching-for-information-on-github/searching-for-repositories
   - /github/searching-for-information-on-github/searching-on-github/searching-for-repositories
@@ -24,14 +24,15 @@ shortTitle: Search for repositories
 
 ## リポジトリ名、説明、または README ファイルの内容で検索
 
-`in` 修飾子によって、リポジトリ名、リポジトリの説明、README ファイルの内容や、これらの組み合わせに限定した検索ができます。 この修飾子を省略した場合、リポジトリ名および説明だけが検索されます。
+With the `in` qualifier you can restrict your search to the repository name, repository description, repository topics, contents of the README file, or any combination of these. When you omit this qualifier, only the repository name, description, and topics are searched.
 
 | 修飾子               | サンプル                                                                                                                                                    |
 | ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `in:name`         | [**jquery in:name**](https://github.com/search?q=jquery+in%3Aname&type=Repositories) は、リポジトリ名に「jquery」が含まれるリポジトリにマッチします。                                |
 | `in:description`  | [**jquery in:name,description**](https://github.com/search?q=jquery+in%3Aname%2Cdescription&type=Repositories) は、リポジトリ名または説明に「jquery」が含まれるリポジトリにマッチします。 |
+| `in:topics`       | [**jquery in:topics**](https://github.com/search?q=jquery+in%3Atopics&type=Repositories) matches repositories labeled with "jquery" as a topic.         |
 | `in:readme`       | [**jquery in:readme**](https://github.com/search?q=jquery+in%3Areadme&type=Repositories) は、リポジトリの README ファイルで「jquery」をメンションしているリポジトリにマッチします。           |
-| `repo:owner/name` | [**repo:octocat/hello-world**](https://github.com/search?q=repo%3Aoctocat%2Fhello-world) は、特定のリポジトリ名にマッチします。                                            |
+| `repo:owner/name` | [**repo:octocat/hello-world**](https://github.com/search?q=repo%3Aoctocat%2Fhello-world) matches a specific repository name.                            |
 
 ## リポジトリの内容で検索
 
@@ -111,17 +112,17 @@ shortTitle: Search for repositories
 
 リポジトリのコードの言語に基づいてリポジトリを検索できます。
 
-| 修飾子                       | サンプル                                                                                                                                                         |
-| ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| <code>language:<em>LANGUAGE</em></code> | [**rails language:javascript**](https://github.com/search?q=rails+language%3Ajavascript&type=Repositories) は、JavaScript 形式で記述された「rails」という単語があるリポジトリにマッチします。 |
+| 修飾子                       | サンプル                                                                                                                                                                                    |
+| ------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <code>language:<em>LANGUAGE</em></code> | [**`rails language:javascript`**](https://github.com/search?q=rails+language%3Ajavascript&type=Repositories) matches repositories with the word "rails" that are written in JavaScript. |
 
 ## Topics で検索
 
 特定の Topics で分類されたすべてのリポジトリを見つけることができます。 詳細は「[トピックでリポジトリを分類する](/github/administering-a-repository/classifying-your-repository-with-topics)」を参照してください。
 
-| 修飾子                       | サンプル                                                                                                                                                  |
-| ------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <code>topic:<em>TOPIC</em></code> | [**topic:jekyll**](https://github.com/search?utf8=%E2%9C%93&q=topic%3Ajekyll&type=Repositories&ref=searchresults) は、Topics「jekyll」で分類されたリポジトリにマッチします。 |
+| 修飾子                       | サンプル                                                                                                                                                                                        |
+| ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <code>topic:<em>TOPIC</em></code> | [**`topic:jekyll`**](https://github.com/search?utf8=%E2%9C%93&q=topic%3Ajekyll&type=Repositories&ref=searchresults) matches repositories that have been classified with the topic "Jekyll." |
 
 ## Topics の数で検索
 
@@ -148,7 +149,7 @@ shortTitle: Search for repositories
 
 リポジトリの可視性に基づいて検索を絞り込むことができます。 For more information, see "[About repositories](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)."
 
-| Qualifier  | Example | ------------- | ------------- |{% ifversion fpt or ghes or ghec %} | `is:public` | [**is:public org:github**](https://github.com/search?q=is%3Apublic+org%3Agithub&type=Repositories) matches public repositories owned by {% data variables.product.company_short %}.{% endif %} | `is:internal` | [**is:internal test**](https://github.com/search?q=is%3Ainternal+test&type=Repositories) matches internal repositories that you can access and contain the word "test". | `is:private` | [**is:private pages**](https://github.com/search?q=is%3Aprivate+pages&type=Repositories) は、自分がアクセスできて「pages」という単語を含むプライベートリポジトリにマッチします。
+| Qualifier  | Example | ------------- | ------------- |{% ifversion fpt or ghes or ghec %} | `is:public` | [**is:public org:github**](https://github.com/search?q=is%3Apublic+org%3Agithub&type=Repositories) matches public repositories owned by {% data variables.product.company_short %}.{% endif %}{% ifversion ghes or ghec or ghae %} | `is:internal` | [**is:internal test**](https://github.com/search?q=is%3Ainternal+test&type=Repositories) matches internal repositories that you can access and contain the word "test".{% endif %} | `is:private` | [**is:private pages**](https://github.com/search?q=is%3Aprivate+pages&type=Repositories) matches private repositories that you can access and contain the word "pages."
 
 {% ifversion fpt or ghec %}
 
@@ -178,10 +179,10 @@ shortTitle: Search for repositories
 
 `help-wanted` ラベルや `good-first-issue` ラベルの付いた Issue の最低数があるリポジトリを、`help-wanted-issues:>n` 修飾子や `good-first-issues:>n` 修飾子によって検索できます。 詳細は、「[ラベルを使用してプロジェクトに役立つコントリビューションを促す](/communities/setting-up-your-project-for-healthy-contributions/encouraging-helpful-contributions-to-your-project-with-labels)」を参照してください。
 
-| 修飾子                        | サンプル                                                                                                                                                                                                               |
-| -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `good-first-issues:>n`  | [**good-first-issues:&gt;2 javascript**](https://github.com/search?utf8=%E2%9C%93&q=javascript+good-first-issues%3A%3E2&type=) は、「javascript」という単語を含む、`good-first-issue` ラベルが付いた３つ以上の Issue のあるリポジトリにマッチします。 |
-| `help-wanted-issues:>n` | [**help-wanted-issues:&gt;4 react**](https://github.com/search?utf8=%E2%9C%93&q=react+help-wanted-issues%3A%3E4&type=) は、「React」という単語を含む、`help-wanted` ラベルが付いた 5 つ以上の Issue のあるリポジトリにマッチします。                 |
+| 修飾子                        | サンプル                                                                                                                                                                                                                                                   |
+| -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `good-first-issues:>n`  | [**`good-first-issues:&gt;2 javascript`**](https://github.com/search?utf8=%E2%9C%93&q=javascript+good-first-issues%3A%3E2&type=) matches repositories with more than two issues labeled `good-first-issue` and that contain the word "javascript." |
+| `help-wanted-issues:>n` | [**help-wanted-issues:&gt;4 react**](https://github.com/search?utf8=%E2%9C%93&q=react+help-wanted-issues%3A%3E4&type=) は、「React」という単語を含む、`help-wanted` ラベルが付いた 5 つ以上の Issue のあるリポジトリにマッチします。                                                     |
 
 ## Search based on ability to sponsor
 

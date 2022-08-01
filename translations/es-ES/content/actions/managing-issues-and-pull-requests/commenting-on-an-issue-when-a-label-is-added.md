@@ -17,7 +17,6 @@ shortTitle: Agregar una etiqueta para comentar en la propuesta
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## Introducción
 
@@ -34,6 +33,8 @@ En el tutorial, primero harás un archivo de flujo de trabajo que utilice la [ac
     ```yaml{:copy}
 {% indented_data_reference reusables.actions.actions-not-certified-by-github-comment spaces=4 %}
 
+{% indented_data_reference reusables.actions.actions-use-sha-pinning-comment spaces=4 %}
+
     name: Add comment
     on:
       issues:
@@ -42,9 +43,9 @@ En el tutorial, primero harás un archivo de flujo de trabajo que utilice la [ac
     jobs:
       add-comment:
         if: github.event.label.name == 'help-wanted'
-        runs-on: ubuntu-latest{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
+        runs-on: ubuntu-latest
         permissions:
-          issues: write{% endif %}
+          issues: write
         steps:
           - name: Add comment
             uses: peter-evans/create-or-update-comment@a35cf36e5301d70b76f316e867e7788a55a31dae

@@ -8,7 +8,6 @@ import lunrJa from 'lunr-languages/lunr.ja.js'
 import lunrEs from 'lunr-languages/lunr.es.js'
 import lunrPt from 'lunr-languages/lunr.pt.js'
 import fs from 'fs/promises'
-import rank from './rank.js'
 import validateRecords from './validate-records.js'
 import { compress } from '../../lib/search/compress.js'
 
@@ -25,7 +24,6 @@ export default class LunrIndex {
 
     // Add custom rankings
     this.records = records.map((record) => {
-      record.customRanking = rank(record)
       return record
     })
 
@@ -62,7 +60,6 @@ export default class LunrIndex {
       this.field('title', { boost: 5 })
       this.field('content')
       this.field('topics')
-      this.field('customRanking')
 
       this.metadataWhitelist = ['position']
 
@@ -81,16 +78,22 @@ export default class LunrIndex {
     return Object.fromEntries(this.records.map((record) => [record.objectID, record]))
   }
 
-  async write() {
+  async write({
+    outDirectory = path.posix.join(__dirname, '../../lib/search/indexes'),
+    compressFiles = true,
+  }) {
     this.build()
 
     // Write the parsed records
     await Promise.resolve(this.recordsObject)
       .then(JSON.stringify)
-      .then(compress)
+      .then((str) => (compressFiles ? compress(str) : str))
       .then((content) =>
         fs.writeFile(
-          path.posix.join(__dirname, '../../lib/search/indexes', `${this.name}-records.json.br`),
+          path.join(
+            outDirectory,
+            compressFiles ? `${this.name}-records.json.br` : `${this.name}-records.json`
+          ),
           content
           // Do not set to 'utf8'
         )
@@ -99,10 +102,10 @@ export default class LunrIndex {
     // Write the index
     await Promise.resolve(this.index)
       .then(JSON.stringify)
-      .then(compress)
+      .then((str) => (compressFiles ? compress(str) : str))
       .then((content) =>
         fs.writeFile(
-          path.posix.join(__dirname, '../../lib/search/indexes', `${this.name}.json.br`),
+          path.join(outDirectory, compressFiles ? `${this.name}.json.br` : `${this.name}.json`),
           content
           // Do not set to 'utf8'
         )

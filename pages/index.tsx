@@ -1,24 +1,13 @@
 import { GetServerSideProps } from 'next'
 
-import {
-  MainContextT,
-  MainContext,
-  getMainContext,
-  useMainContext,
-  ProductT,
-  ProductGroupT,
-} from 'components/context/MainContext'
+import { MainContextT, MainContext, getMainContext } from 'components/context/MainContext'
 
 import React from 'react'
 import { DefaultLayout } from 'components/DefaultLayout'
 import { useTranslation } from 'components/hooks/useTranslation'
-import { useVersion } from 'components/hooks/useVersion'
-import { useRouter } from 'next/router'
-import { OctocatHeader } from 'components/landing/OctocatHeader'
 import { ArticleList } from 'components/landing/ArticleList'
-import { Search } from 'components/Search'
-import { Link } from 'components/Link'
-import * as Octicons from '@primer/octicons-react'
+import { HomePageHero } from 'components/homepage/HomePageHero'
+import { ProductSelections } from 'components/homepage/ProductSelections'
 
 type FeaturedLink = {
   href: string
@@ -31,133 +20,29 @@ type Props = {
   popularLinks: Array<FeaturedLink>
   gettingStartedLinks: Array<FeaturedLink>
 }
-export default function MainLanding({ mainContext, gettingStartedLinks, popularLinks }: Props) {
+
+export default function MainHomePage({ mainContext, gettingStartedLinks, popularLinks }: Props) {
   return (
     <MainContext.Provider value={mainContext}>
       <DefaultLayout>
-        <LandingPage gettingStartedLinks={gettingStartedLinks} popularLinks={popularLinks} />
+        <HomePage gettingStartedLinks={gettingStartedLinks} popularLinks={popularLinks} />
       </DefaultLayout>
     </MainContext.Provider>
   )
 }
 
-type LandingPageProps = {
+type HomePageProps = {
   popularLinks: Array<FeaturedLink>
   gettingStartedLinks: Array<FeaturedLink>
 }
-function LandingPage(props: LandingPageProps) {
-  const router = useRouter()
+function HomePage(props: HomePageProps) {
   const { gettingStartedLinks, popularLinks } = props
-  const { productGroups, isFPT } = useMainContext()
-  const { currentVersion } = useVersion()
-  const { t } = useTranslation(['homepage', 'search', 'toc'])
-
-  function showProduct(product: ProductT) {
-    return isFPT || product.versions?.includes(currentVersion) || product.external
-  }
-
-  function href(product: ProductT) {
-    return `${!product.external ? `/${router.locale}` : ''}${
-      product.versions?.includes(currentVersion) && !isFPT
-        ? `/${currentVersion}/${product.id}`
-        : product.href
-    }`
-  }
-
-  const groupIcon = {
-    height: '22px',
-  }
-
-  function icon(group: ProductGroupT) {
-    if (group.icon) {
-      return (
-        <div className="pr-3">
-          <img src={group.icon} alt={group.name} style={groupIcon}></img>
-        </div>
-      )
-    } else if (group.octicon) {
-      const octicon: React.FunctionComponent = (
-        Octicons as { [name: string]: React.FunctionComponent }
-      )[group.octicon] as React.FunctionComponent
-
-      return (
-        <div className="pr-3">
-          {React.createElement(octicon, groupIcon as React.Attributes, null)}
-        </div>
-      )
-    }
-  }
+  const { t } = useTranslation(['toc'])
 
   return (
     <div>
-      {/* <!-- Hero --> */}
-      <section id="landing" className="color-bg-subtle p-6">
-        {/* eslint-disable-next-line jsx-a11y/no-autofocus */}
-        <Search iconSize={24} variant="expanded">
-          {({ SearchInput, SearchResults }) => {
-            return (
-              <div className="container-xl">
-                <div className="gutter gutter-xl-spacious d-lg-flex flex-row-reverse flex-items-center">
-                  <div className="col-lg-7">
-                    <OctocatHeader />
-                  </div>
-                  <div className="col-lg-5">
-                    <h1 className="text-semibold">{t('search:need_help')}</h1>
-                    {SearchInput}
-                  </div>
-                </div>
-
-                <div>{SearchResults}</div>
-              </div>
-            )
-          }}
-        </Search>
-      </section>
-
-      {/* <!-- Show all the child groups --> */}
-      <section className="container-xl pb-lg-4 mt-6 px-3 px-md-6" data-testid="product">
-        <div className="">
-          <div className="d-flex flex-wrap gutter gutter-xl-spacious">
-            {productGroups.map((group) => {
-              return (
-                <div className="d-flex flex-column col-12 col-sm-6 col-lg-4 pb-4" key={group.name}>
-                  <div className="flex-auto ws-normal">
-                    <div className="d-flex flex-items-center">
-                      {icon(group)}
-
-                      <div>
-                        <h3>{group.name}</h3>
-                      </div>
-                    </div>
-
-                    <div className="pt-2 mb-4 text-normal">
-                      <ul className="list-style-none">
-                        {group.children.map((product) => {
-                          if (!showProduct(product)) {
-                            return null
-                          }
-
-                          return (
-                            <li key={product.name} className="pt-2">
-                              <Link
-                                href={href(product)}
-                                target={product.external ? '_blank' : undefined}
-                              >
-                                {product.name}
-                              </Link>
-                            </li>
-                          )
-                        })}
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              )
-            })}
-          </div>
-        </div>
-      </section>
-
+      <HomePageHero />
+      <ProductSelections />
       <div className="mt-6 px-3 px-md-6 container-xl">
         <div className="container-xl">
           <div className="gutter gutter-xl-spacious clearfix">

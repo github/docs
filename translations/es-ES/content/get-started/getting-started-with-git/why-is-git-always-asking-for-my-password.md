@@ -16,7 +16,7 @@ shortTitle: Contraseñas de Git
 
 Utilizar una URL remota de tipo HTTPS tiene algunas ventajas comparadas con el uso de SSH. Es más fácil de configurar que SSH, y habitualmente trabaja mediante cortafuectos y proxies estrictos. Sin embargo, también te solicita que ingreses tus credenciales de {% data variables.product.product_name %} cada vez que extraes o subes un repositorio.
 
-{% data reusables.user_settings.password-authentication-deprecation %}
+{% data reusables.user-settings.password-authentication-deprecation %}
 
 Puedes evitar que se te solicite tu contraseña si configuras Git para que [almacene tus credenciales en el caché](/github/getting-started-with-github/caching-your-github-credentials-in-git). Ya que hayas configurado el almacenamiento de credenciales en caché, Git utilizará to token de acceso personal almacenado en caché automáticamente cada que extraigas o subas información a un repositorio utilizando HTTPS.
 

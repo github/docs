@@ -2,9 +2,9 @@
 title: リモートリポジトリを管理する
 intro: 'お手元のコンピューター上にあるローカルリポジトリと、{% data variables.product.product_name %} にホストされているリポジトリを使用する方法を学びます。'
 redirect_from:
-  - /categories/18/articles/
-  - /remotes/
-  - /categories/managing-remotes/
+  - /categories/18/articles
+  - /remotes
+  - /categories/managing-remotes
   - /articles/managing-remote-repositories
   - /articles/adding-a-remote
   - /github/using-git/adding-a-remote
@@ -107,9 +107,9 @@ git@{% data variables.command_line.codeblock %}:<em>USERNAME</em>/<em>REPOSITORY
   > origin  https://{% data variables.command_line.codeblock %}/<em>USERNAME/REPOSITORY</em>.git (push)
   ```
 
-次にリモートリポジトリに対して `git fetch`、`git pull`、または `git push` を実行するときに、GitHub ユーザ名とパスワードを求められます。 {% data reusables.user_settings.password-authentication-deprecation %}
+次にリモートリポジトリに対して `git fetch`、`git pull`、または `git push` を実行するときに、GitHub ユーザ名とパスワードを求められます。 {% data reusables.user-settings.password-authentication-deprecation %}
 
-You can [use a credential helper](/github/getting-started-with-github/caching-your-github-credentials-in-git) so Git will remember your GitHub username and personal access token every time it talks to GitHub.
+[認証情報ヘルパーを使用](/github/getting-started-with-github/caching-your-github-credentials-in-git)すると、Git が GitHub と通信するたびに、GitHub のユーザ名と個人アクセストークンを記憶します。
 
 ### リモート URL の HTTPS から SSH への切り替え
 
@@ -195,6 +195,8 @@ Use the `git remote rm` command to remove a remote URL from your repository.
 `git remote rm` コマンドは 1 つの引数を取ります:
 * リモート名 (`destination` など)
 
+Removing the remote URL from your repository only unlinks the local and remote repositories. It does not delete the remote repository.
+
 ## サンプル
 
 次の例は (推奨されるとおり) [HTTPS を使用してクローンを作成](/github/getting-started-with-github/about-remote-repositories/#cloning-with-https-urls)したと想定しています。
@@ -217,7 +219,7 @@ $ git remote -v
 
 {% warning %}
 
-**メモ**: `git remote rm` はリモートリポジトリをサーバから削除するわけではありません。  リモートとその参照をローカルリポジトリから削除するだけです。
+**Note**: `git remote rm` does not delete the remote repository from the server.  リモートとその参照をローカルリポジトリから削除するだけです。
 
 {% endwarning %}
 

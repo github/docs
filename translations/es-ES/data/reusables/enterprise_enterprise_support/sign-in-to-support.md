@@ -1,1 +1,1 @@
-1. If a support engineer has given you an upload link for your support bundle, use this link. Otherwise, visit https://support.github.com/ and sign in (if prompted) to an enterprise account that is entitled to support.
+1. Si un ingeniero de soporte te dio un enlace de carga para tu paquete de soporte, utiliza este enlace. De lo contrario, visita https://support.github.com/ e inicia sesión (en caso de que se te solicite hacerlo) en una cuenta empresarial que tenga derechos de soporte.

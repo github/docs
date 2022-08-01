@@ -1,3 +1,3 @@
-You can view the single sign-on identity that a member has linked to their account on {% data variables.product.product_location %}.
+Puedes ver la identidad de inicio único que un miembro enlace a su cuenta en {% data variables.product.product_location %}.
 
-If a member links the wrong identity to their account on {% data variables.product.product_location %}, you can revoke the linked identity to allow the member to try again.
+Si un miembro enlaza la identidad errónea a su cuenta de {% data variables.product.product_location %}, puedes revocar dicha identidad para permitir que el miembro lo vuelva a intentar.

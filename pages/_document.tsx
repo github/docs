@@ -2,7 +2,7 @@ import Document, { DocumentContext, Html, Head, Main, NextScript } from 'next/do
 
 import { ServerStyleSheet } from 'styled-components'
 
-import { getThemeProps } from 'components/lib/getThemeProps'
+import { getTheme } from 'lib/get-theme.js'
 
 export default class MyDocument extends Document {
   static async getInitialProps(ctx: DocumentContext) {
@@ -18,7 +18,7 @@ export default class MyDocument extends Document {
       const initialProps = await Document.getInitialProps(ctx)
       return {
         ...initialProps,
-        cssThemeProps: getThemeProps(ctx.req, 'css'),
+        cssThemeProps: getTheme(ctx.req, true),
         styles: (
           <>
             {initialProps.styles}

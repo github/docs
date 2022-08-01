@@ -2,8 +2,8 @@
 title: 删除仓库
 intro: 如果您是组织所有者或拥有仓库或复刻的管理员权限，可删除任何仓库或复刻。 删除复刻仓库不会删除上游仓库。
 redirect_from:
-  - /delete-a-repo/
-  - /deleting-a-repo/
+  - /delete-a-repo
+  - /deleting-a-repo
   - /articles/deleting-a-repository
   - /github/administering-a-repository/deleting-a-repository
   - /github/administering-a-repository/managing-repository-settings/deleting-a-repository
@@ -25,11 +25,11 @@ topics:
 **警告**：
 
 - 删除仓库将**永久**删除发行版附件和团队权限。 此操作**必须**完成。
-- Deleting a private or internal repository will delete all forks of the repository.
+- 删除私有 {% ifversion ghes or ghec or ghae %} 或内部 {% endif %} 仓库将删除仓库的所有复刻。
 
 {% endwarning %}
 
-Some deleted repositories can be restored within 90 days of deletion. {% ifversion ghes or ghae %}Your site administrator may be able to restore a deleted repository for you. 更多信息请参阅“[恢复删除的仓库](/admin/user-management/managing-repositories-in-your-enterprise/restoring-a-deleted-repository)”。 {% else %}For more information, see "[Restoring a deleted repository](/articles/restoring-a-deleted-repository)."{% endif %}
+某些已删除的存储库可以在删除后的 90 天内恢复。 {% ifversion ghes or ghae %}站点管理员或能为您恢复已删除的存储库。 更多信息请参阅“[恢复删除的仓库](/admin/user-management/managing-repositories-in-your-enterprise/restoring-a-deleted-repository)”。 {% else %}更多信息请参阅“[恢复删除的仓库](/articles/restoring-a-deleted-repository)”。{% endif %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}

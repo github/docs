@@ -71,7 +71,7 @@ shortTitle: Commit to PR branch from fork
 
  {% tip %}
 
- **ヒント:** 例も含めたプルリクエストブランチに関する詳しい情報については「[プルリクエストを作成する](/articles/creating-a-pull-request/#changing-the-branch-range-and-destination-repository)」を参照してください。
+ **ヒント:** 例も含めたプルリクエストブランチに関する詳しい情報については「[プルリクエストを作成する](/articles/creating-a-pull-request#changing-the-branch-range-and-destination-repository)」を参照してください。
 
  {% endtip %}
 8. これで、このブランチに対して任意の操作を実行できます。 新しいコミットのプッシュ、ローカルでのテスト、他のブランチからのマージを行うことができます。 自由に修正しましょう。

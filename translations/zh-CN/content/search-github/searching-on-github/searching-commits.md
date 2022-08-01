@@ -105,7 +105,16 @@ topics:
 
 `is` 限定符匹配具有指定可见性的仓库中的提交。 更多信息请参阅“[关于仓库](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)”。
 
-| 限定符  | 示例 | ------------- | ------------- |{% ifversion fpt or ghes or ghec %} | `is:public` | [**is:public**](https://github.com/search?q=is%3Apublic&type=Commits) 匹配对公共仓库的提交。{% endif %} | `is:internal` | [**is:internal**](https://github.com/search?q=is%3Ainternal&type=Commits) 匹配对内部仓库的提交。 | `is:private` | [**is:private**](https://github.com/search?q=is%3Aprivate&type=Commits) 匹配对私有仓库的提交。
+| 限定符 | 示例 |
+| --- | -- |
+|     |    |
+{%- ifversion fpt or ghes or ghec %}
+| `is:public` | [**is:public**](https://github.com/search?q=is%3Apublic&type=Commits) 匹配提交到公共存储库。
+{%- endif %}
+{%- ifversion ghes or ghec or ghae %}
+| `is:internal` | [**is:internal**](https://github.com/search?q=is%3Ainternal&type=Commits) 匹配提交到内部存储库。
+{%- endif %}
+| `is:private` | [**is:private**](https://github.com/search?q=is%3Aprivate&type=Commits) 匹配对私有仓库的提交。
 
 ## 延伸阅读
 

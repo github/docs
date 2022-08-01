@@ -19,15 +19,19 @@
 | Checkout.com              | Checkout.com 测试密钥                   |
 | Clojars                   | Clojars 部署令牌                        |
 | CloudBees CodeShip        | CloudBees CodeShip 凭据               |
-| Contributed Systems       | Contributed Systems Credentials     |
+| Contributed Systems       | Contributed Systems 凭据              |
 | Databricks                | Databricks 访问令牌                     |
 | Datadog                   | Datadog API 密钥                      |
+| DigitalOcean              | DigitalOcean 个人访问令牌                 |
+| DigitalOcean              | DigitalOcean OAuth 令牌               |
+| DigitalOcean              | DigitalOcean 刷新令牌                   |
+| DigitalOcean              | DigitalOcean 系统令牌                   |
 | Discord                   | Discord 自动程序令牌                      |
 | Doppler                   | Doppler 个人令牌                        |
 | Doppler                   | Doppler 服务令牌                        |
 | Doppler                   | Doppler CLI 令牌                      |
 | Doppler                   | Doppler SCIM 令牌                     |
-| Doppler                   | Doppler Audit Token                 |
+| Doppler                   | Doppler Audit 令牌                    |
 | Dropbox                   | Dropbox 访问令牌                        |
 | Dropbox                   | Dropbox 短暂访问令牌                      |
 | Dynatrace                 | Dynatrace 访问令牌                      |
@@ -35,7 +39,7 @@
 | Finicity                  | Finicity App 密钥                     |
 | Frame.io                  | Frame.io JSON Web 令牌                |
 | Frame.io                  | Frame.io Developer 令牌               |
-| FullStory                 | FullStory API Key                   |
+| FullStory                 | FullStory API 密钥                    |
 | GitHub                    | GitHub 个人访问令牌                       |
 | GitHub                    | GitHub OAuth 访问令牌                   |
 | GitHub                    | GitHub 刷新令牌                         |
@@ -49,6 +53,7 @@
 | Hubspot                   | Hubspot API 密钥                      |
 | Ionic                     | Ionic 个人访问令牌                        |
 | Ionic                     | Ionic 刷新令牌                          |
+| JD Cloud                  | JD Cloud 访问密钥                       |
 | 线性                        | 线性 API 密钥                           |
 | 线性                        | 线性 OAuth 访问令牌                       |
 | Mailchimp                 | Mailchimp API 密钥                    |
@@ -58,12 +63,13 @@
 | 元数据                       | Facebook Access Token               |
 | npm                       | npm 访问令牌                            |
 | NuGet                     | NuGet API 密钥                        |
+| Octopus Deploy            | Octopus Deploy API 密钥               |
 | OpenAI                    | OpenAI API 密钥                       |
 | Palantir                  | Palantir JSON Web 令牌                |
-| PlanetScale               | PlanetScale Database Password       |
-| PlanetScale               | PlanetScale OAuth Token             |
-| PlanetScale               | PlanetScale Service Token           |
-| Plivo                     | Plivo Auth ID and Token             |
+| PlanetScale               | Planetscale 数据库密码                   |
+| PlanetScale               | Planetscale OAuth 令牌                |
+| PlanetScale               | PlanetScale 服务令牌                    |
+| Plivo                     | Plivo 验证 ID 和令牌                     |
 | Postman                   | Postman API 密钥                      |
 | Proctorio                 | Proctorio 消费者密钥                     |
 | Proctorio                 | Proctorio 链接密钥                      |
@@ -71,10 +77,13 @@
 | Proctorio                 | Proctorio 密钥                        |
 | Pulumi                    | Pulumi 访问令牌                         |
 | PyPI                      | PyPI API 令牌                         |
+| redirect.pizza            | redirect.pizza API 令牌               |
 | RubyGems                  | RubyGems API 密钥                     |
 | Samsara                   | Samsara API 令牌                      |
 | Samsara                   | Samsara OAuth 访问令牌                  |
 | SendGrid                  | SendGrid API Key                    |
+| Sendinblue                | SendinBlue API 密钥                   |
+| Sendinblue                | SendinBlue SMTP 密钥                  |
 | Shopify                   | Shopify App 共享密钥                    |
 | Shopify                   | Shopify 访问令牌                        |
 | Shopify                   | Shopify 自定义应用访问令牌                   |
@@ -88,7 +97,10 @@
 | Stripe                    | Stripe 测试 API 密钥                    |
 | Stripe                    | Stripe Live API 限制密钥                |
 | Stripe                    | Stripe 测试 API 限制密钥                  |
+| Supabase                  | Supabase 服务密钥                       |
 | Tencent Cloud             | 腾讯云密钥 ID                            |
 | Twilio                    | Twilio 帐户字符串标识符                     |
 | Twilio                    | Twilio API 密钥                       |
+| Typeform                  | Typeform 个人访问令牌                     |
 | Valour                    | Valour 访问令牌                         |
+| Zuplo                     | Zuplo Consumer API                  |

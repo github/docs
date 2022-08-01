@@ -1,13 +1,14 @@
 ---
 title: REST API のリソース
-intro: 'Learn how to navigate the resources provided by the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API.'
+intro: '{% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} APIが提供するリソースにアクセスする方法を学んでください。'
 redirect_from:
-  - /rest/initialize-the-repo/
+  - /rest/initialize-the-repo
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
   ghec: '*'
+miniTocMaxHeadingLevel: 3
 topics:
   - API
 ---
@@ -15,21 +16,9 @@ topics:
 
 公式の {% data variables.product.product_name %} REST API を構成するリソースについて説明しています。 ご不明な点やご要望がございましたら、{% data variables.contact.contact_support %} までご連絡ください。
 
-## 最新バージョン
-
-デフォルトでは、`{% data variables.product.api_url_code %}` へのすべてのリクエストが REST API の **v3** [バージョン](/developers/overview/about-githubs-apis)を受け取ります。 [`Accept` ヘッダを介してこのバージョンを明示的にリクエストする](/rest/overview/media-types#request-specific-version)ことをお勧めします。
-
-    Accept: application/vnd.github.v3+json
-
-{% ifversion fpt or ghec %}
-
-For information about GitHub's GraphQL API, see the [v4 documentation]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql). For information about migrating to GraphQL, see "[Migrating from REST]({% ifversion ghec%}/free-pro-team@latest{% endif %}/graphql/guides/migrating-from-rest-to-graphql)."
-
-{% endif %}
-
 ## スキーマ
 
-{% ifversion fpt or ghec %}All API access is over HTTPS, and{% else %}The API is{% endif %} accessed from `{% data variables.product.api_url_code %}`.  すべてのデータは
+{% ifversion fpt or ghec %}すべての API アクセスは HTTPS 経由で行われ、{% else %}API は{% endif %} `{% data variables.product.api_url_code %}` からアクセスされます。  すべてのデータは
 JSON として送受信されます。
 
 ```shell
@@ -41,9 +30,9 @@ $ curl -I {% data variables.product.api_url_pre %}/users/octocat/orgs
 > Content-Type: application/json; charset=utf-8
 > ETag: "a00049ba79152d03380c34652f2cb612"
 > X-GitHub-Media-Type: github.v3
-> X-RateLimit-Limit: 5000
-> X-RateLimit-Remaining: 4987
-> X-RateLimit-Reset: 1350085394{% ifversion ghes %}
+> x-ratelimit-limit: 5000
+> x-ratelimit-remaining: 4987
+> x-ratelimit-reset: 1350085394{% ifversion ghes %}
 > X-GitHub-Enterprise-Version: {{ currentVersion | remove: "enterprise-server@" }}.0{% elsif ghae %}
 > X-GitHub-Enterprise-Version: GitHub AE{% endif %}
 > Content-Length: 5
@@ -53,7 +42,7 @@ $ curl -I {% data variables.product.api_url_pre %}/users/octocat/orgs
 
 空白のフィールドは、省略されるのではなく `null` として含まれます。
 
-All timestamps return in UTC time, ISO 8601 format:
+すべてのタイムスタンプは、 ISO 8601フォーマットのUTC時間で返されます。
 
     YYYY-MM-DDTHH:MM:SSZ
 
@@ -113,13 +102,13 @@ curl -u my_client_id:my_client_secret '{% data variables.product.api_url_pre %}/
 `client_id` と `client_secret` を使用してもユーザとして認証_されず_、OAuth アプリケーションを識別してレート制限を増やすだけです。 アクセス許可はユーザにのみ付与され、アプリケーションには付与されません。また、認証されていないユーザに表示されるデータのみが返されます。 このため、サーバー間のシナリオでのみ OAuth2 キー/シークレットを使用する必要があります。 OAuth アプリケーションのクライアントシークレットをユーザーに漏らさないようにしてください。
 
 {% ifversion ghes %}
-プライベートモードでは、OAuth2 キーとシークレットを使用して認証することはできません。認証しようとすると `401 Unauthorized` が返されます。 For more information, see "[Enabling private mode](/admin/configuration/configuring-your-enterprise/enabling-private-mode)".
+プライベートモードでは、OAuth2 キーとシークレットを使用して認証することはできません。認証しようとすると `401 Unauthorized` が返されます。 詳しい情報については、 「[プライベートモードを有効化する](/admin/configuration/configuring-your-enterprise/enabling-private-mode)」を参照してください。
 {% endif %}
 {% endif %}
 
 {% ifversion fpt or ghec %}
 
-[認証されていないレート制限の詳細](#increasing-the-unauthenticated-rate-limit-for-oauth-applications)をお読みください。
+[認証されていないレート制限の詳細](#increasing-the-unauthenticated-rate-limit-for-oauth-apps)をお読みください。
 
 {% endif %}
 
@@ -176,7 +165,7 @@ $ curl {% ifversion fpt or ghae or ghec %}
 
 ## GraphQL グローバルノード ID
 
-See the guide on "[Using Global Node IDs]({% ifversion ghec%}/free-pro-team@latest{% endif %}/graphql/guides/using-global-node-ids)" for detailed information about how to find `node_id`s via the REST API and use them in GraphQL operations.
+REST API を介して `node_id` を検索し、それらを GraphQL 操作で使用する方法について詳しくは、「[グローバルノード ID を使用する](/graphql/guides/using-global-node-ids)」のガイドを参照してください。
 
 ## クライアントエラー
 
@@ -226,7 +215,7 @@ See the guide on "[Using Global Node IDs]({% ifversion ghec%}/free-pro-team@late
 
 ## HTTP リダイレクト
 
-API v3 は、必要に応じて HTTP リダイレクトを使用します。 クライアントは、リクエストがリダイレクトされる可能性があることを想定する必要があります。 HTTP リダイレクトの受信はエラー*ではなく*、クライアントはそのリダイレクトに従う必要があります。 リダイレクトのレスポンスには、クライアントがリクエストを繰り返す必要があるリソースの URI を含む `Location` ヘッダフィールドがあります。
+{% data variables.product.product_name %} REST APIは、適切な場合はHTTPリダイレクトを使用します。 クライアントは、リクエストがリダイレクトされる可能性があることを想定する必要があります。 HTTP リダイレクトの受信はエラー*ではなく*、クライアントはそのリダイレクトに従う必要があります。 リダイレクトのレスポンスには、クライアントがリクエストを繰り返す必要があるリソースの URI を含む `Location` ヘッダフィールドがあります。
 
 | ステータスコード    | 説明                                                                                                                                       |
 | ----------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
@@ -237,7 +226,7 @@ API v3 は、必要に応じて HTTP リダイレクトを使用します。 ク
 
 ## HTTP メソッド
 
-API v3 は、可能な限り各アクションに適切な HTTPメソッドを使用しようとします。
+可能な場合、{% data variables.product.product_name %} REST APIはそれぞれのアクションに対して適切なHTTPメソッドを使うように努めます。
 
 | メソッド     | 説明                                                                                                                            |
 | -------- | ----------------------------------------------------------------------------------------------------------------------------- |
@@ -250,7 +239,7 @@ API v3 は、可能な限り各アクションに適切な HTTPメソッドを�
 
 ## ハイパーメディア
 
-すべてのリソースには、他のリソースにリンクしている 1 つ以上の `*_url` プロパティがある場合があります。  これらは、適切な API クライアントが自分で URL を構築する必要がないように、明示的な URL を提供することを目的としています。  API クライアントには、これらを使用することを強くお勧めしています。  そうすることで、開発者が今後の API のアップグレードを容易に行うことができます。  All URLs are expected to be proper [RFC 6570][rfc] URI templates.
+すべてのリソースには、他のリソースにリンクしている 1 つ以上の `*_url` プロパティがある場合があります。  これらは、適切な API クライアントが自分で URL を構築する必要がないように、明示的な URL を提供することを目的としています。  API クライアントには、これらを使用することを強くお勧めしています。  そうすることで、開発者が今後の API のアップグレードを容易に行うことができます。  すべての URL は、適切な [RFC 6570][rfc] URI テンプレートであることが前提となります。
 
 次に、[uri_template][uri] などを使用して、これらのテンプレートを展開できます。
 
@@ -286,7 +275,7 @@ $ curl '{% data variables.product.api_url_pre %}/user/repos?page=2&per_page=100'
 
 {% endnote %}
 
-The [Link header](https://datatracker.ietf.org/doc/html/rfc5988) includes pagination information. 例:
+[Link ヘッダ](https://datatracker.ietf.org/doc/html/rfc5988)には、ページネーション情報が含まれています。 例:
 
     Link: <{% data variables.product.api_url_code %}/user/repos?page=3&per_page=100>; rel="next",
       <{% data variables.product.api_url_code %}/user/repos?page=50&per_page=100>; rel="last"
@@ -297,7 +286,7 @@ _この例は、読みやすいように改行されています。_
 
     Link: <{% data variables.product.api_url_code %}/orgs/ORG/audit-log?after=MTYwMTkxOTU5NjQxM3xZbGI4VE5EZ1dvZTlla09uWjhoZFpR&before=>; rel="next",
 
-This `Link` response header contains one or more [Hypermedia](/rest#hypermedia) link relations, some of which may require expansion as [URI templates](https://datatracker.ietf.org/doc/html/rfc6570).
+この `Link` レスポンスヘッダには、1 つ以上の[ハイパーメディア](/rest#hypermedia)リンク関係が含まれています。その一部は、[URI テンプレート](https://datatracker.ietf.org/doc/html/rfc6570)としての拡張が必要な場合があります。
 
 使用可能な `rel` の値は以下のとおりです。
 
@@ -308,23 +297,67 @@ This `Link` response header contains one or more [Hypermedia](/rest#hypermedia) 
 | `first` | 結果の最初のページのリンク関係。  |
 | `prev`  | 結果の直前のページのリンク関係。  |
 
+## タイムアウト
+
+If {% data variables.product.prodname_dotcom %} takes more than 10 seconds to process an API request, {% data variables.product.prodname_dotcom %} will terminate the request and you will receive a timeout response like this:
+
+```json
+{
+    "message": "Server Error"
+}
+```
+
+{% data variables.product.product_name %} reserves the right to change the timeout window to protect the speed and reliability of the API.
+
 ## レート制限
 
-Basic 認証または OAuth を使用する API リクエストの場合、1 時間あたり最大 5,000 件のリクエストを作成できます。 認証されたリクエストは、[Basic 認証](#basic-authentication)または [OAuth トークン](#oauth2-token-sent-in-a-header)のどちらが使用されたかに関係なく、認証されたユーザに関連付けられます。 つまり、ユーザが認証したすべての OAuth アプリケーションは、同じユーザが所有する異なるトークンで認証する場合、1 時間あたり 5,000 リクエストという同じ割り当てを共有します。
+{% data variables.product.product_location %}への様々な種類のAPIリクエストは、様々なレート制限に従います。
 
-{% ifversion fpt or ghec %}
-
-{% data variables.product.prodname_ghe_cloud %} アカウントに属するユーザの場合、同じ {% data variables.product.prodname_ghe_cloud %} アカウントが所有するリソースに OAuth トークンを使用して行うリクエストについては、1 時間当たりのリクエスト制限が 15,000 件まで増加します。
-
-{% endif %}
-
-ビルトインの`GITHUB_TOKEN`をGitHub Actionsで使う場合、レート制限はリポジトリごとに1時間あたり1,000リクエストです。 GitHub Enterprise Cloudアカウントに属するOrganizationでは、この制限はリポジトリごとに1時間あたり15,000リクエストです。
-
-認証されていないリクエストでは、レート制限により 1 時間あたり最大 60 リクエストまで可能です。 認証されていないリクエストは、リクエストを行っているユーザではなく、発信元の IP アドレスに関連付けられます。
+加えて、Search APIには専用の制限があります。 詳しい情報についてはREST APIのドキュメンテーションの「[検索](/rest/reference/search#rate-limit)」を参照してください。
 
 {% data reusables.enterprise.rate_limit %}
 
-[Search API にはカスタムのレート制限ルール](/rest/reference/search#rate-limit)があることに注意してください。
+{% data reusables.rest-api.always-check-your-limit %}
+
+### 個人アカウントからのリクエスト
+
+個人アクセストークンで認証された直接のAPIリクエストは、user-to-serverリクエストです。 OAuth AppあるいはGitHub Appは、ユーザが認可した後、user-to-serverリクエストをユーザの代わりに発行することもできます。 詳しい情報については「[個人アクセストークンの作成](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)」、「[OAuth Appの認可](/authentication/keeping-your-account-and-data-secure/authorizing-oauth-apps)」、「[GitHub Appの認可](/authentication/keeping-your-account-and-data-secure/authorizing-github-apps)」を参照してください。
+
+{% data variables.product.product_name %}は、すべてのuser-to-serverリクエストを認証されたユーザと関連づけます。 OAuth App及びGitHubについては、これはアプリケーションを認可したユーザです。 すべてのuser-to-serverリクエストは、認証されたユーザのレート制限に対してカウントされます。
+
+{% data reusables.apps.user-to-server-rate-limits %}
+
+{% ifversion fpt or ghec %}
+
+{% data reusables.apps.user-to-server-rate-limits-ghec %}
+
+{% ifversion fpt or ghec or ghes %}
+
+認証されていないリクエストでは、レート制限により 1 時間あたり最大 60 リクエストまで可能です。 認証されていないリクエストは、リクエストを発行した人ではなく、発信元の IP アドレスに関連付けられます。
+
+{% endif %}
+
+{% endif %}
+
+### GitHub Appからのリクエスト
+
+GitHub Appからのリクエストは、user-to-serverあるいはserver-to-serverリクエストのいずれかになります。 GitHub Appのレート制限に関する詳しい情報については「[GitHub Appのレート制限](/developers/apps/building-github-apps/rate-limits-for-github-apps)」を参照してください。
+
+### GitHub Actionsからのリクエスト
+
+GitHub Actionsワークフロー内のリクエストの認証には、ビルトインの`GITHUB_TOKEN`が使えます。 詳しい情報については「[自動トークン認証](/actions/security-guides/automatic-token-authentication)」を参照してください。
+
+`GITHUB_TOKEN`を使う場合、レート制限はリポジトリごとに1時間あたり1,000リクエストです。{% ifversion fpt or ghec %}{% data variables.product.product_location %}上のEnterpriseアカウントに属するリソースへのアクセスについては{% data variables.product.prodname_ghe_cloud %}のレート制限が適用され、その制限はリポジトリごとに1時間あたり15,000リクエストです。{% endif %}
+
+### レート制限のステータスのチェック
+
+レート制限APIとレスポンスのHTTPヘッダは、任意の時点におけるユーザまたはユーザのアプリケーションが利用できるAPIコール数の信頼できるソースです。
+
+#### レート制限API
+
+レート制限APIを使って、現在の制限に達することなくレート制限のステータスをチェックできます。 詳しい情報については「[レート制限](/rest/reference/rate-limit)」を参照してください。
+
+#### レート制限HTTPヘッダ
 
 API リクエストの返された HTTP ヘッダは、現在のレート制限ステータスを示しています。
 
@@ -332,16 +365,18 @@ API リクエストの返された HTTP ヘッダは、現在のレート制限�
 $ curl -I {% data variables.product.api_url_pre %}/users/octocat
 > HTTP/2 200
 > Date: Mon, 01 Jul 2013 17:27:06 GMT
-> X-RateLimit-Limit: 60
-> X-RateLimit-Remaining: 56
-> X-RateLimit-Reset: 1372700873
+> x-ratelimit-limit: 60
+> x-ratelimit-remaining: 56
+> x-ratelimit-used: 4
+> x-ratelimit-reset: 1372700873
 ```
 
 | ヘッダ名                    | 説明                                                                            |
 | ----------------------- | ----------------------------------------------------------------------------- |
-| `X-RateLimit-Limit`     | 1 時間あたりのリクエスト数の上限。                                                            |
-| `X-RateLimit-Remaining` | 現在のレート制限ウィンドウに残っているリクエストの数。                                                   |
-| `X-RateLimit-Reset`     | 現在のレート制限ウィンドウが [UTC エポック秒](http://en.wikipedia.org/wiki/Unix_time)でリセットされる時刻。 |
+| `x-ratelimit-limit`     | 1 時間あたりのリクエスト数の上限。                                                            |
+| `x-ratelimit-remaining` | 現在のレート制限ウィンドウに残っているリクエストの数。                                                   |
+| `x-ratelimit-used`      | 現在のレート制限ウィンドウ内で発行したリクエスト数。                                                    |
+| `x-ratelimit-reset`     | 現在のレート制限ウィンドウが [UTC エポック秒](http://en.wikipedia.org/wiki/Unix_time)でリセットされる時刻。 |
 
 時刻に別の形式を使用する必要がある場合は、最新のプログラミング言語で作業を完了できます。 たとえば、Web ブラウザでコンソールを開くと、リセット時刻を JavaScript の Date オブジェクトとして簡単に取得できます。
 
@@ -355,9 +390,10 @@ new Date(1372700873 * 1000)
 ```shell
 > HTTP/2 403
 > Date: Tue, 20 Aug 2013 14:50:41 GMT
-> X-RateLimit-Limit: 60
-> X-RateLimit-Remaining: 0
-> X-RateLimit-Reset: 1377013266
+> x-ratelimit-limit: 60
+> x-ratelimit-remaining: 0
+> x-ratelimit-used: 60
+> x-ratelimit-reset: 1377013266
 
 > {
 >    "message": "API rate limit exceeded for xxx.xxx.xxx.xxx. (But here's the good news: Authenticated requests get a higher rate limit. Check out the documentation for more details.)",
@@ -365,19 +401,18 @@ new Date(1372700873 * 1000)
 > }
 ```
 
-API ヒットを発生させることなく、[レート制限ステータスを確認](/rest/reference/rate-limit)できます。
+### OAuth Appの認証されていないレート制限の増加
 
-### OAuth アプリケーションの認証されていないレート制限を増やす
-
-OAuth アプリケーションが認証されていない呼び出しをより高いレート制限で行う必要がある場合は、エンドポイントルートの前にアプリのクライアント ID とシークレットを渡すことができます。
+OAuth Appが認証されていない呼び出しをより高いレート制限で行う必要がある場合は、エンドポイントルートの前にアプリのクライアント ID とシークレットを渡すことができます。
 
 ```shell
-$ curl -u my_client_id:my_client_secret {% data variables.product.api_url_pre %}/user/repos
+$ curl -u my_client_id:my_client_secret -I {% data variables.product.api_url_pre %}/user/repos
 > HTTP/2 200
 > Date: Mon, 01 Jul 2013 17:27:06 GMT
-> X-RateLimit-Limit: 5000
-> X-RateLimit-Remaining: 4966
-> X-RateLimit-Reset: 1372700873
+> x-ratelimit-limit: 5000
+> x-ratelimit-remaining: 4966
+> x-ratelimit-used: 34
+> x-ratelimit-reset: 1372700873
 ```
 
 {% note %}
@@ -390,11 +425,11 @@ $ curl -u my_client_id:my_client_secret {% data variables.product.api_url_pre %}
 
 Basic 認証または OAuth を使用してレート制限を超えた場合、API レスポンスをキャッシュし、[条件付きリクエスト](#conditional-requests)を使用することで問題を解決できます。
 
-### Secondary rate limits
+### セカンダリレート制限
 
-{% data variables.product.product_name %} で高品質のサービスを提供するにあたって、API を使用するときに、いくつかのアクションに追加のレート制限が適用される場合があります。 For example, using the API to rapidly create content, poll aggressively instead of using webhooks, make multiple concurrent requests, or repeatedly request data that is computationally expensive may result in secondary rate limiting.
+{% data variables.product.product_name %} で高品質のサービスを提供するにあたって、API を使用するときに、いくつかのアクションに追加のレート制限が適用される場合があります。 たとえば、API を使用してコンテンツを急速に作成する、webhook を使用する代わりに積極的にポーリングする、複数の同時リクエストを行う、計算コストが高いデータを繰り返しリクエストするなどの行為によって、セカンダリレート制限が適用される場合があります。
 
-Secondary rate limits are not intended to interfere with legitimate use of the API. 通常のレート制限が、ユーザにとって唯一の制限であるべきです。 優良な API ユーザにふさわしい振る舞いをしているかどうかを確認するには、[ベストプラクティスのガイドライン](/guides/best-practices-for-integrators/)をご覧ください。
+セカンダリレート制限は、API の正当な使用を妨げることを意図したものではありません。 通常のレート制限が、ユーザにとって唯一の制限であるべきです。 優良な API ユーザにふさわしい振る舞いをしているかどうかを確認するには、[ベストプラクティスのガイドライン](/guides/best-practices-for-integrators/)をご覧ください。
 
 アプリケーションがこのレート制限をトリガーすると、次のような有益なレスポンスを受け取ります。
 
@@ -457,9 +492,9 @@ $ curl -I {% data variables.product.api_url_pre %}/user
 > ETag: "644b5b0155e6404a9cc4bd9d8b1ae730"
 > Last-Modified: Thu, 05 Jul 2012 15:31:30 GMT
 > Vary: Accept, Authorization, Cookie
-> X-RateLimit-Limit: 5000
-> X-RateLimit-Remaining: 4996
-> X-RateLimit-Reset: 1372700873
+> x-ratelimit-limit: 5000
+> x-ratelimit-remaining: 4996
+> x-ratelimit-reset: 1372700873
 
 $ curl -I {% data variables.product.api_url_pre %}/user -H 'If-None-Match: "644b5b0155e6404a9cc4bd9d8b1ae730"'
 > HTTP/2 304
@@ -467,18 +502,18 @@ $ curl -I {% data variables.product.api_url_pre %}/user -H 'If-None-Match: "644b
 > ETag: "644b5b0155e6404a9cc4bd9d8b1ae730"
 > Last-Modified: Thu, 05 Jul 2012 15:31:30 GMT
 > Vary: Accept, Authorization, Cookie
-> X-RateLimit-Limit: 5000
-> X-RateLimit-Remaining: 4996
-> X-RateLimit-Reset: 1372700873
+> x-ratelimit-limit: 5000
+> x-ratelimit-remaining: 4996
+> x-ratelimit-reset: 1372700873
 
 $ curl -I {% data variables.product.api_url_pre %}/user -H "If-Modified-Since: Thu, 05 Jul 2012 15:31:30 GMT"
 > HTTP/2 304
 > Cache-Control: private, max-age=60
 > Last-Modified: Thu, 05 Jul 2012 15:31:30 GMT
 > Vary: Accept, Authorization, Cookie
-> X-RateLimit-Limit: 5000
-> X-RateLimit-Remaining: 4996
-> X-RateLimit-Reset: 1372700873
+> x-ratelimit-limit: 5000
+> x-ratelimit-remaining: 4996
+> x-ratelimit-reset: 1372700873
 ```
 
 ## オリジン間リソース共有
@@ -491,7 +526,7 @@ API は、任意のオリジンからの AJAX リクエストに対して、オ�
 $ curl -I {% data variables.product.api_url_pre %} -H "Origin: http://example.com"
 HTTP/2 302
 Access-Control-Allow-Origin: *
-Access-Control-Expose-Headers: ETag, Link, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval
+Access-Control-Expose-Headers: ETag, Link, X-GitHub-OTP, x-ratelimit-limit, x-ratelimit-remaining, x-ratelimit-reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval
 ```
 
 CORS プリフライトリクエストは次のようになります。
@@ -502,7 +537,7 @@ HTTP/2 204
 Access-Control-Allow-Origin: *
 Access-Control-Allow-Headers: Authorization, Content-Type, If-Match, If-Modified-Since, If-None-Match, If-Unmodified-Since, X-GitHub-OTP, X-Requested-With
 Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE
-Access-Control-Expose-Headers: ETag, Link, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval
+Access-Control-Expose-Headers: ETag, Link, X-GitHub-OTP, x-ratelimit-limit, x-ratelimit-remaining, x-ratelimit-reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval
 Access-Control-Max-Age: 86400
 ```
 
@@ -516,9 +551,9 @@ $ curl {% data variables.product.api_url_pre %}?callback=foo
 > /**/foo({
 >   "meta": {
 >     "status": 200,
->     "X-RateLimit-Limit": "5000",
->     "X-RateLimit-Remaining": "4966",
->     "X-RateLimit-Reset": "1372700873",
+>     "x-ratelimit-limit": "5000",
+>     "x-ratelimit-remaining": "4966",
+>     "x-ratelimit-reset": "1372700873",
 >     "Link": [ // pagination headers and other links
 >       ["{% data variables.product.api_url_pre %}?page=2", {"rel": "next"}]
 >     ]
@@ -583,14 +618,14 @@ JavaScript ハンドラを記述して、コールバックを処理できます
 
 ## タイムゾーン
 
-新しいコミットの作成など、新しいデータを作成する一部のリクエストでは、タイムスタンプを指定または生成するときにタイムゾーン情報を提供できます。 We apply the following rules, in order of priority, to determine timezone information for such API calls.
+新しいコミットの作成など、新しいデータを作成する一部のリクエストでは、タイムスタンプを指定または生成するときにタイムゾーン情報を提供できます。 そういったAPI 呼び出しのタイムゾーン情報を決定する際に、優先順位に従って次のルールを適用します。
 
 * [ISO 8601 タイムスタンプにタイムゾーン情報を明示的に提供する](#explicitly-providing-an-iso-8601-timestamp-with-timezone-information)
 * [`Time-Zone` ヘッダを使用する](#using-the-time-zone-header)
 * [ユーザが最後に認識されたタイムゾーンを使用する](#using-the-last-known-timezone-for-the-user)
 * [他のタイムゾーン情報を含まない UTC をデフォルトにする](#defaulting-to-utc-without-other-timezone-information)
 
-Note that these rules apply only to data passed to the API, not to data returned by the API. As mentioned in "[Schema](#schema)," timestamps returned by the API are in UTC time, ISO 8601 format.
+これらのルールは、APIに渡されたデータに対してのみ適用され、APIが返す日付には適用されないことに注意してください。 「[スキーマ](#schema)」にあるように、APIが返すタイムスタンプはUTCでISO8601フォーマットです。
 
 ### ISO 8601 タイムスタンプにタイムゾーン情報を明示的に提供する
 

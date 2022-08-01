@@ -35,7 +35,7 @@ Se um administrador do site desabilitar o editor de conflitos de merge para pull
 
  {% tip %}
 
- **Dica:** se o botão **Resolve conflicts** (Resolver conflitos) estiver desativado, o conflito de merge da pull request é muito complexo para ser resolvido no {% data variables.product.product_name %}{% ifversion ghes or ghae %} ou o administrador do site desabilitou o editor de conflitos para pull requests entre repositórios{% endif %}. Você deve resolver o conflito de merge usando um cliente Git alternativo, ou usando o Git na linha de comando. For more information see "\[Resolving a merge conflict using the command line\](/github/collaborating-with-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-using-the-command-line."
+ **Dica:** se o botão **Resolve conflicts** (Resolver conflitos) estiver desativado, o conflito de merge da pull request é muito complexo para ser resolvido no {% data variables.product.product_name %}{% ifversion ghes or ghae %} ou o administrador do site desabilitou o editor de conflitos para pull requests entre repositórios{% endif %}. Você deve resolver o conflito de merge usando um cliente Git alternativo, ou usando o Git na linha de comando. Para obter mais informações, consulte "[Resolver um conflito de merge usando a linha de comando](/github/collaborating-with-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-using-the-command-line)".
 
  {% endtip %}
 {% data reusables.pull_requests.decide-how-to-resolve-competing-line-change-merge-conflict %}

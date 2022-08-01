@@ -2,7 +2,7 @@
 title: CIサーバーの構築
 intro: Status APIで独自のCIシステムを構築しましょう。
 redirect_from:
-  - /guides/building-a-ci-server/
+  - /guides/building-a-ci-server
   - /v3/guides/building-a-ci-server
 versions:
   fpt: '*'
@@ -84,7 +84,7 @@ end
 
 サーバーの環境を整えたところで、最初の要件、すなわちCIステータスの設定 (および更新) を行う準備が整いました。 サーバーを更新するごとに、[**Redeliver**]をクリックして同じペイロードを送信できます。 変更を行うたびに新しいプルリクエストを作成する必要はありません。
 
-Since we're interacting with the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API, we'll use [Octokit.rb][octokit.rb] to manage our interactions. そのクライアントは、以下のように構成します。
+{% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} APIとやりとりをしているので、そのやりとりを管理するために[Octokit.rb][octokit.rb]を使います。 そのクライアントは、以下のように構成します。
 
 ``` ruby
 # !!! DO NOT EVER USE HARD-CODED VALUES IN A REAL APP !!!
@@ -132,7 +132,7 @@ GitHubでは長年、CIを管理するため[Janky][janky]の特定のバージ�
 
 これら全ての通信は、チャットルームに集約されます。 この例を使用するために、独自のCI設定を構築する必要はありません。 いつでも[GitHubインテグレーション][integrations]に頼ることができます。
 
-[status API]: /rest/reference/repos#statuses
+[status API]: /rest/reference/commits#commit-statuses
 [ngrok]: https://ngrok.com/
 [using ngrok]: /webhooks/configuring/#using-ngrok
 [platform samples]: https://github.com/github/platform-samples/tree/master/api/ruby/building-a-ci-server

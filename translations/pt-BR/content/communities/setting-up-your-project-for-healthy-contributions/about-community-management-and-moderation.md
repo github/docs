@@ -17,6 +17,8 @@ shortTitle: Gerenciamento & moderação
 
 {% data variables.product.prodname_dotcom %} também oferece ferramentas para mantenedores de repositório definirem e aplicarem padrões de comportamento mais altos em suas próprias comunidades em {% data variables.product.prodname_dotcom_the_website %}.
 
+Os proprietários da organização podem especificar integrantes da organização como moderadores. Isso fornece a esses integrantes o acesso a funcionalidades de moderação de outra forma reservados para os proprietários da organização. Para obter mais informações, consulte "[Gerenciando os moderadores na sua organização](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-moderators-in-your-organization)".
+
 Depois de estabelecer padrões de comportamento para sua comunidade, você pode incentivar um ambiente agradável e produtivo, respondendo ao comportamento perturbador de maneira rápida e justa. A moderação eficaz cria confiança em sua comunidade e ajuda os colaboradores a se sentirem seguros e bem-vindos.
 
 ## Ferramentas para moderar sua comunidade
@@ -34,5 +36,3 @@ Os contribuidor sempre podem reportar conteúdo disruptivo para {% data variable
 - "[Seu Código de Conduta](https://opensource.guide/code-of-conduct/)" nos Guias de Código Aberto
 - "[Construindo comunidades acolhedoras](https://opensource.guide/building-community/)" nos Guias de Código Aberto
 - "[Liderança e Governança](https://opensource.guide/leadership-and-governance/)" nos Guias de Código Aberto
-- "[Humilhação e por que ela é inapropriada](https://github.community/t5/Studies-in-Community/Shaming-and-why-it-is-inappropriate/ba-p/12728)" no Fórum Comunitário do GitHub
-- "[Ser tóxico não é uma crítica construtiva](https://github.community/t5/Studies-in-Community/Being-toxic-is-not-constructive-criticism/ba-p/8029)" no Fórum Comunitário do GitHub

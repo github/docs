@@ -3,7 +3,7 @@ title: 创建和编辑议题及拉取请求的里程碑
 intro: 您可以创建里程碑来跟踪仓库中议题或拉取请求组的进度。
 redirect_from:
   - /github/managing-your-work-on-github/tracking-the-progress-of-your-work-with-milestones/creating-and-editing-milestones-for-issues-and-pull-requests
-  - /articles/creating-milestones-for-issues-and-pull-requests/
+  - /articles/creating-milestones-for-issues-and-pull-requests
   - /articles/creating-and-editing-milestones-for-issues-and-pull-requests
   - /github/managing-your-work-on-github/creating-and-editing-milestones-for-issues-and-pull-requests
 versions:

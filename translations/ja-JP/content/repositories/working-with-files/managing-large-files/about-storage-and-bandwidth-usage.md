@@ -1,9 +1,9 @@
 ---
-title: ストレージと帯域の利用について
+title: About storage and bandwidth usage
 intro: '{% data reusables.large_files.free-storage-bandwidth-amount %}'
 redirect_from:
-  - /articles/billing-plans-for-large-file-storage/
-  - /articles/billing-plans-for-git-large-file-storage/
+  - /articles/billing-plans-for-large-file-storage
+  - /articles/billing-plans-for-git-large-file-storage
   - /articles/about-storage-and-bandwidth-usage
   - /github/managing-large-files/about-storage-and-bandwidth-usage
   - /github/managing-large-files/versioning-large-files/about-storage-and-bandwidth-usage
@@ -12,39 +12,38 @@ versions:
   ghec: '*'
 shortTitle: Storage & bandwidth
 ---
+{% data variables.large_files.product_name_short %} is available for every repository on {% data variables.product.product_name %}, whether or not your account or organization has a paid subscription.
 
-{% data variables.product.product_name %} 上のすべてのリポジトリで、あなたのアカウントもしくは Organization が有料プランを持っているかどうかにかかわらず、{% data variables.large_files.product_name_short %} が利用できます。
+## Tracking storage and bandwidth use
 
-## ストレージと帯域の利用の追跡
+When you commit and push a change to a file tracked with {% data variables.large_files.product_name_short %}, a new version of the entire file is pushed and the total file size is counted against the repository owner's storage limit. When you download a file tracked with {% data variables.large_files.product_name_short %}, the total file size is counted against the repository owner's bandwidth limit. {% data variables.large_files.product_name_short %} uploads do not count against the bandwidth limit.
 
-{% data variables.large_files.product_name_short %}で追跡されているファイルに変更をコミットしてプッシュした場合、ファイルは全体として新しいバージョンがプッシュされ、総ファイルサイズがリポジトリのオーナーのストレージ制限に対してカウントされます。 {% data variables.large_files.product_name_short %}で追跡されているファイルをダウンロードすると、総ファイルサイズはリポジトリのオーナーの帯域制限に対してカウントされます。 {% data variables.large_files.product_name_short %}のアップロードは帯域制限に対してカウントされません。
-
-例:
-- 500 MB のファイルを {% data variables.large_files.product_name_short %} にプッシュすると、あなたに割り当てられた 500 MB のストレージを使うことになりますが、あなたの帯域は消費されません。 1 バイト分の変更を加えてそのファイルを再度プッシュすると、さらに 500 MB のストレージが使われ、帯域は消費されません。これらの 2 つのプッシュによる合計で、1 GB のストレージが使われ、帯域の消費はありません。
-- LFS で追跡されている 500 MB のファイルをダウンロードした場合、リポジトリのオーナーに割り当てられている帯域を 500 MB 消費します。 コラボレータがそのファイルに変更をプッシュし、あなたが新しいバージョンをローカルのリポジトリにプルしたなら、あなたは 500 MB の帯域を新たに消費するため、この 2 つのダウンロードでの合計の使用帯域は 1 GB になります。
+For example:
+- If you push a 500 MB file to {% data variables.large_files.product_name_short %}, you'll use 500 MB of your allotted storage and none of your bandwidth. If you make a 1 byte change and push the file again, you'll use another 500 MB of storage and no bandwidth, bringing your total usage for these two pushes to 1 GB of storage and zero bandwidth.
+- If you download a 500 MB file that's tracked with LFS, you'll use 500 MB of the repository owner's allotted bandwidth. If a collaborator pushes a change to the file and you pull the new version to your local repository, you'll use another 500 MB of bandwidth, bringing the total usage for these two downloads to 1 GB of bandwidth.
 - If {% data variables.product.prodname_actions %} downloads a 500 MB file that is tracked with LFS, it will use 500 MB of the repository owner's allotted bandwidth.
 
 {% ifversion fpt or ghec %}
-{% data variables.large_files.product_name_long %}（{% data variables.large_files.product_name_short %}）オブジェクトがリポジトリのソースコードアーカイブに含まれている場合、それらのアーカイブをダウンロードすると、リポジトリの帯域幅の使用量にカウントされます。 詳しい情報については、「[リポジトリのアーカイブ内の {% data variables.large_files.product_name_short %} オブジェクトを管理する](/github/administering-a-repository/managing-git-lfs-objects-in-archives-of-your-repository)」を参照してください。
+If {% data variables.large_files.product_name_long %} ({% data variables.large_files.product_name_short %}) objects are included in source code archives for your repository, downloads of those archives will count towards bandwidth usage for the repository. For more information, see "[Managing {% data variables.large_files.product_name_short %} objects in archives of your repository](/github/administering-a-repository/managing-git-lfs-objects-in-archives-of-your-repository)."
 {% endif %}
 
 {% tip %}
 
-**ヒント**:
+**Tips**:
 - {% data reusables.large_files.owner_quota_only %}
 - {% data reusables.large_files.does_not_carry %}
 
 {% endtip %}
 
-## ストレージの容量
+## Storage quota
 
-データパックを購入せずに {% data variables.large_files.initial_storage_quota %}以上にストレージを使用した場合でも、引き続き大きなアセットを持つリポジトリをクローンすることができますが、取り出せるのはポインタファイルのみであり、新しいファイルをプッシュして戻すことはできません。 ポインタファイルに関する詳しい情報については、「[{% data variables.large_files.product_name_long %}について](/github/managing-large-files/about-git-large-file-storage#pointer-file-format)」を参照してください。
+If you use more than {% data variables.large_files.initial_storage_quota %} of storage without purchasing a data pack, you can still clone repositories with large assets, but you will only retrieve the pointer files, and you will not be able to push new files back up. For more information about pointer files, see "[About {% data variables.large_files.product_name_long %}](/github/managing-large-files/about-git-large-file-storage#pointer-file-format)."
 
-## 帯域の容量
+## Bandwidth quota
 
-データパックを購入せずに {% data variables.large_files.initial_bandwidth_quota %}以上の帯域を月あたりに利用した場合、翌月までアカウントの {% data variables.large_files.product_name_short %}サポートは無効化されます。
+If you use more than {% data variables.large_files.initial_bandwidth_quota %} of bandwidth per month without purchasing a data pack, {% data variables.large_files.product_name_short %} support is disabled on your account until the next month.
 
-## 参考リンク
+## Further reading
 
-- 「[ {% data variables.large_files.product_name_long %}の利用状況を表示する](/articles/viewing-your-git-large-file-storage-usage)」
-- 「[{% data variables.large_files.product_name_long %} の支払いを管理する](/articles/managing-billing-for-git-large-file-storage)」
+- "[Viewing your {% data variables.large_files.product_name_long %} usage](/articles/viewing-your-git-large-file-storage-usage)"
+- "[Managing billing for {% data variables.large_files.product_name_long %}](/articles/managing-billing-for-git-large-file-storage)"

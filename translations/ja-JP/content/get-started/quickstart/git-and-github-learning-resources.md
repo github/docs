@@ -1,8 +1,8 @@
 ---
 title: Git と GitHub の学習リソース
 redirect_from:
-  - /articles/good-resources-for-learning-git-and-github/
-  - /articles/what-are-other-good-resources-for-learning-git-and-github/
+  - /articles/good-resources-for-learning-git-and-github
+  - /articles/what-are-other-good-resources-for-learning-git-and-github
   - /articles/git-and-github-learning-resources
   - /github/getting-started-with-github/git-and-github-learning-resources
   - /github/getting-started-with-github/quickstart/git-and-github-learning-resources
@@ -19,7 +19,7 @@ shortTitle: Learning resources
 
 ## Git を使用する
 
-[公式 Git プロジェクトサイト](https://git-scm.com)にアクセスして [ProGit book](http://git-scm.com/book) を読み、Git に慣れましょう。 [Try Git](https://try.github.com) シミュレーターを使用しながら、[Git コマンドリスト](https://git-scm.com/docs)や[Git コマンドルックアップ参照](http://gitref.org)を確認できます。
+[公式 Git プロジェクトサイト](https://git-scm.com)にアクセスして [ProGit book](http://git-scm.com/book) を読み、Git に慣れましょう。 You can also review the [Git command list](https://git-scm.com/docs).
 
 ## {% data variables.product.product_name %}を使用する
 
@@ -45,7 +45,7 @@ shortTitle: Learning resources
 
 ### 無料コース
 
-{% data variables.product.product_name %} は、[{% data variables.product.prodname_dotcom %} の紹介](https://lab.github.com/githubtraining/introduction-to-github)を含む一連のインタラクティブな[オンデマンドトレーニングコース](https://lab.github.com/)を提供しています。HTML、Python、NodeJS などのプログラミング言語とツールに関するコースや、{% data variables.product.prodname_actions %} などの {% data variables.product.product_name %} 固有のツールに関するコースがあります。
+{% data variables.product.product_name %} offers a series of interactive, [on-demand training courses](https://skills.github.com/) including [Introduction to {% data variables.product.prodname_dotcom %}](https://github.com/skills/introduction-to-github); and courses on {% data variables.product.product_name %} specific tools such as {% data variables.product.prodname_actions %}.
 
 ### {% data variables.product.prodname_dotcom %}のウェブベース教育プログラム
 

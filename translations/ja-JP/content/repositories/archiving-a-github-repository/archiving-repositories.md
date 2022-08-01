@@ -27,11 +27,19 @@ topics:
 {% endnote %}
 {% endif %}
 
+{% ifversion ghec or ghes > 3.4 or ghae-issue-6329 %}
+{% note %}
+
+**Note:** Customers who use {% data variables.product.prodname_GH_advanced_security %} can enable {% data variables.product.prodname_secret_scanning %} on archived repositories. 詳しい情報については「[{% data variables.product.prodname_secret_scanning %}について](/code-security/secret-scanning/about-secret-scanning#about-secret-scanning-for-private-repositories)」を参照してください。
+
+{% endnote %}
+{% endif %}
+
 {% data reusables.repositories.archiving-repositories-recommendation %}
 
 リポジトリがアーカイブされると、コラボレータや Team の追加や削除ができなくなります。 リポジトリへのアクセス権を持つコントリビューターは、プロジェクトをフォークするか Star を付けることだけができます。
 
-リポジトリがアーカイブされると、その Issue、プルリクエスト、コード、ラベル、マイルストーン、プロジェクト、wiki、リリース、コミット、タグ、ブランチ、リアクション、コードスキャンアラート、およびコメントが読み取り専用になります。 アーカイブされたリポジトリに変更を加えるには、まずそのリポジトリのアーカイブ解除をしなければなりません。
+When a repository is archived, its issues, pull requests, code, labels, milestones, projects, wiki, releases, commits, tags, branches, reactions, code scanning alerts, comments and permissions become read-only. アーカイブされたリポジトリに変更を加えるには、まずそのリポジトリのアーカイブ解除をしなければなりません。
 
 アーカイブされたリポジトリに対して検索ができます。 詳しい情報については[リポジトリの検索](/search-github/searching-on-github/searching-for-repositories/#search-based-on-whether-a-repository-is-archived)を参照してください。 詳しい情報については[リポジトリの検索](/articles/searching-for-repositories/#search-based-on-whether-a-repository-is-archived)を参照してください。 詳しい情報については[Issueやプルリクエストの検索](/search-github/searching-on-github/searching-issues-and-pull-requests/#search-based-on-whether-a-repository-is-archived)を参照してください。
 

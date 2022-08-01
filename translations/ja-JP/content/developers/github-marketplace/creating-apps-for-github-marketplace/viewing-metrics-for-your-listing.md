@@ -2,9 +2,9 @@
 title: リストのメトリクスの参照
 intro: '{% data variables.product.prodname_marketplace %} Insightsのページは、{% data variables.product.prodname_github_app %}のメトリクスを表示します。 このメトリクスを使って{% data variables.product.prodname_github_app %}のパフォーマンスを追跡し、価格、プラン、無料トライアル、マーケティングキャンペーンの効果の可視化の方法に関する判断を、より多くの情報に基づいて行えます。'
 redirect_from:
-  - /apps/marketplace/managing-github-marketplace-listings/viewing-performance-metrics-for-a-github-marketplace-listing/
-  - /apps/marketplace/viewing-performance-metrics-for-a-github-marketplace-listing/
-  - /apps/marketplace/github-marketplace-insights/
+  - /apps/marketplace/managing-github-marketplace-listings/viewing-performance-metrics-for-a-github-marketplace-listing
+  - /apps/marketplace/viewing-performance-metrics-for-a-github-marketplace-listing
+  - /apps/marketplace/github-marketplace-insights
   - /marketplace/github-marketplace-insights
   - /developers/github-marketplace/viewing-metrics-for-your-listing
 versions:
@@ -29,7 +29,7 @@ Insightsページには、選択された期間に対する以下のパフォー
 
 * **Subscription value:** サブスクリプションで可能な合計収入（米ドル）。 この値は、プランや無料トライアルがまったくキャンセルされず、すべてのクレジット取引が成功した場合に可能な収入を示します。 subscription valueには、選択された期間内に無料トライアルで始まったプランの全額が、仮にその期間に金銭取引がなかったとしても含まれます。 subscription valueには、選択された期間内にアップグレードされたプランの全額も含まれますが、日割り計算の文は含まれません。 個別の取引を見てダウンロードするには、「[GitHub Marketplaceの取引](/marketplace/github-marketplace-transactions/)」を参照してください。
 * **Visitors:** GitHub Appのリスト内のページを見た人数。 この数字には、ログインした訪問者とログアウトした訪問者がどちらも含まれます。
-* **Pageviews:** GitHub Appのリスト内のページが受けた閲覧数です。 一人の訪問者が複数のページビューを生成できます。
+* **Pageviews:** GitHub Appのリスト内のページが受けた閲覧数です。 A single visitor can generate more than one page view.
 
 {% note %}
 

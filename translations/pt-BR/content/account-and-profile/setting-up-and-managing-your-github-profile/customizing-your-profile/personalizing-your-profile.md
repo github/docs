@@ -2,11 +2,11 @@
 title: Personalizar seu perfil
 intro: 'É possível compartilhar informações sobre você mesmo com outros usuários do {% data variables.product.product_name %} definindo uma imagem e adicionando uma bio ao seu perfil.'
 redirect_from:
-  - /articles/adding-a-bio-to-your-profile/
-  - /articles/setting-your-profile-picture/
-  - /articles/how-do-i-set-up-my-profile-picture/
-  - /articles/gravatar-problems/
-  - /articles/how-do-i-set-up-my-avatar/
+  - /articles/adding-a-bio-to-your-profile
+  - /articles/setting-your-profile-picture
+  - /articles/how-do-i-set-up-my-profile-picture
+  - /articles/gravatar-problems
+  - /articles/how-do-i-set-up-my-avatar
   - /articles/personalizing-your-profile
   - /github/setting-up-and-managing-your-github-profile/personalizing-your-profile
   - /github/setting-up-and-managing-your-github-profile/customizing-your-profile/personalizing-your-profile
@@ -26,24 +26,27 @@ Sua imagem de perfil ajuda a identificá-lo no {% data variables.product.product
 
 Ao se inscrever em uma conta, o {% data variables.product.product_name %} fornece a você uma "identicon" gerada aleatoriamente. [Sua identicon](https://github.com/blog/1586-identicons) é gerada a partir de um hash de seu ID de usuário e não há como controlar suas cores ou padrão. É possível substituir sua identicon por uma imagem que represente você.
 
-{% tip %}
+{% note %}
 
-**Dica**: Sua imagem de perfil deve ser um arquivo PNG, JPG ou GIF com tamanho menor que 1 MB. Para melhor qualidade de renderização, recomendamos uma imagem de aproximadamente 500 por 500 pixels.
+**Observação{% ifversion ghec %}s{% endif %}**: {% ifversion ghec %}
 
-{% endtip %}
+* {% endif %}Sua foto de perfil deve ser um arquivo PNG, JPG ou GIF, e deve ter um tamanho inferior a 1 MB de tamanho e menor que 3000 por 3000 pixels. Para melhor qualidade de renderização, recomendamos uma imagem de aproximadamente 500 por 500 pixels.
+{% ifversion ghec %}* As imagens de perfil do Gravatar não são compatíveis com {% data variables.product.prodname_emus %}.{% endif %}
+
+{% endnote %}
 
 ### Definir uma imagem de perfil
 
-{% data reusables.user_settings.access_settings %}
+{% data reusables.user-settings.access_settings %}
 2. Em **Profile Picture** (Imagem de perfil), clique em {% octicon "pencil" aria-label="The edit icon" %} **Edit** (Editar). ![Editar imagem de perfil](/assets/images/help/profile/edit-profile-photo.png)
-3. Clique em **Upload a photo...** (Fazer upload de uma foto...). ![Atualizar imagem de perfil](/assets/images/help/profile/edit-profile-picture-options.png)
+3. Clique em **Fazer o upload de uma foto...**.{% ifversion not ghae %} ![Update profile picture](/assets/images/help/profile/edit-profile-picture-options.png){% endif %}
 3. Recorte sua imagem. Quando terminar, clique em **Set new profile picture** (Definir nova imagem de perfil). ![Cortar foto carregada](/assets/images/help/profile/avatar_crop_and_save.png)
 
 ### Redefinir sua imagem de perfil para a identicon
 
-{% data reusables.user_settings.access_settings %}
+{% data reusables.user-settings.access_settings %}
 2. Em **Profile Picture** (Imagem de perfil), clique em {% octicon "pencil" aria-label="The edit icon" %} **Edit** (Editar). ![Editar imagem de perfil](/assets/images/help/profile/edit-profile-photo.png)
-3. Para reverter para sua identicon, clique em **Remove photo** (Remover foto). Se o seu endereço de e-mail está associado a um [Gravatar](https://en.gravatar.com/), você não pode reverter para sua identicon. Em vez disso, clique em **Revert to Gravatar** (Reverter para Gravatar). ![Atualizar imagem de perfil](/assets/images/help/profile/edit-profile-picture-options.png)
+3. Para reverter para sua identicon, clique em **Remove photo** (Remover foto). {% ifversion not ghae %}}Se o seu endereço de e-mail estiver associado a um [Gravatar](https://en.gravatar.com/), você não poderá reverter para o seu identicon. Em vez disso, clique em **Revert to Gravatar** (Reverter para Gravatar). ![Update profile picture](/assets/images/help/profile/edit-profile-picture-options.png){% endif %}
 
 ## Alterar seu nome de perfil
 
@@ -57,7 +60,7 @@ Você pode alterar o nome que é exbido em seu perfil. Este nome também pode se
 {% endnote %}
 {% endif %}
 
-{% data reusables.user_settings.access_settings %}
+{% data reusables.user-settings.access_settings %}
 2. Em "Name" (Nome), digite o nome que deseja exibir em seu perfil. ![Campo nome em configurações de perfil](/assets/images/help/profile/name-field.png)
 
 ## Adicionar uma bio ao seu perfil
@@ -76,7 +79,7 @@ Para um formulário mais longo e uma maneira mais proeminente de exibir informa�
 
 {% endnote %}
 
-{% data reusables.user_settings.access_settings %}
+{% data reusables.user-settings.access_settings %}
 2. Em **Bio**, adicione o conteúdo que deseja exibir em seu perfil. O campo bio é limitado a 160 caracteres. ![Atualizar a bio no perfil](/assets/images/help/profile/bio-field.png)
 
   {% tip %}
@@ -116,29 +119,36 @@ Se você selecionar a opção "Busy" (Ocupado), quando as pessoas fizerem @menç
 
 Ao participar de determinados programas, {% data variables.product.prodname_dotcom %} exibe automaticamente um selo no seu perfil.
 
-| Selo                                                                                                                                   | Programa                                                                   | Descrição                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| -------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| ![Ícone do selo do Contribuidor do Helicóptero de Marte 2020](/assets/images/help/profile/badge-mars-2020-small.png)                   | **Contribuidor do Helicóptero de Marte de 2020**                           | Se você criou algum(ns) commit(s) presente no histórico de commit para a tag relevante de uma biblioteca de código aberto utilizada na Missão de Helicóptero de Marte 2020, você receberá um selo do Helicóptero 2020 no seu perfil. Passar o mouse sobre o selo mostra vários dos repositórios para os quais você contribuiu na missão. Para a lista completa de repositórios que qualificarão você para o selo, consulte "[Lista de repositórios qualificados para o selo do Helicóptero de Colaborador de Marte de 2020](/github/setting-up-and-managing-your-github-profile/personalizing-your-profile#list-of-qualifying-repositories-for-mars-2020-helicopter-contributor-badge)". |
-| ![Ícone de selo do Contribuidor do Cofre do Código do do Ártico](/assets/images/help/profile/badge-arctic-code-vault-small.png)        | **{% data variables.product.prodname_arctic_vault %} Colaborador**       | Se você criou algum(ns) commit(s) no branch-padrão de um repositório arquivado no programa Cofre do Ártico 2020, você receberá um selo de contribuidor de {% data variables.product.prodname_arctic_vault %} no seu perfil. Passar o mouse sobre o selo mostra vários dos repositórios para os quais você contribuiu que faziam parte do programa. Para obter mais informações sobre o programa, consulte [{% data variables.product.prodname_archive %}](https://archiveprogram.github.com).                                                                                                                                                                                          |
-| ![Ícone do selo de patrocinador de {% data variables.product.prodname_dotcom %}](/assets/images/help/profile/badge-sponsors-small.png) | **Patrocinador de {% data variables.product.prodname_dotcom %}**           | Se você patrocinou um contribuidor de código aberto por meio de {% data variables.product.prodname_sponsors %} você receberá um selo do Sponsor de {% data variables.product.prodname_dotcom %} no seu perfil. Clicar no selo direcionará você para a aba **Patrocínio** do seu perfil. Para obter mais informações, consulte "[Patrocinar contribuidores de código aberto](/github/supporting-the-open-source-community-with-github-sponsors/sponsoring-open-source-contributors)".                                                                                                                                                                                                   |
-| {% octicon "cpu" aria-label="The Developer Program icon" %}                                                                            | **Integrante do programa de desenvolvedores**                              | Se você for um integrante registrado do Programa de Desenvolvedor de {% data variables.product.prodname_dotcom %}, ao criar um aplicativo com a API de {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %}, você receberá um selo de integrante do Programa no seu perfil. Para obter mais informações sobre o Programa de Desenvolvedores de {% data variables.product.prodname_dotcom %}, consulte o [Desenvolvedor do GitHub](/program/).                                                                                                                                                       |
-| {% octicon "star-fill" aria-label="The star icon" %}                                                                                   | **Pro**                                                                    | Se você usar {% data variables.product.prodname_pro %}, você receberá um selo PRO no seu perfil. Para obter mais informações sobre o {% data variables.product.prodname_pro %}, consulte "[Produtos do {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/githubs-products#github-pro)".                                                                                                                                                                                                                                                                                                                                                                |
-| {% octicon "lock" aria-label="The lock icon" %}                                                                                        | **Security Bug Bounty Hunter**                                             | Se você ajudou a identificar vulnerabilidades de segurança, o seu perfil receberá um selo Security Bug Bounty Hunter. Para obter mais informações sobre o programa de segurança {% data variables.product.prodname_dotcom %}, consulte [{% data variables.product.prodname_dotcom %} Segurança.](https://bounty.github.com/).                                                                                                                                                                                                                                                                                                                                                            |
-| {% octicon "mortar-board" aria-label="The mortar-board icon" %}                                                                        | **Especialista de campus de {% data variables.product.prodname_dotcom %}** | Se você participar do {% data variables.product.prodname_campus_program %}, você receberá um selo do especialista de campus de {% data variables.product.prodname_dotcom %} no seu perfil. Para obter mais informações sobre o programa de Especialistas de Campus, consulte [Especialistas de campus](https://education.github.com/experts).                                                                                                                                                                                                                                                                                                                                          |
-
-## Desabilitar selos no seu perfil
-
-Você pode desabilitar alguns dos selos para programas de {% data variables.product.prodname_dotcom %} em que você participa, incluindo os selos de contribuidor PRO, {% data variables.product.prodname_arctic_vault %} contribuidor de helicóptero de Marte 2020.
-
-{% data reusables.user_settings.access_settings %}
-2. Em "Configurações de perfil", desmarque o selo que você deseja desabilitar. ![Caixa de seleção para deixar de exibir um selo no seu perfil](/assets/images/help/profile/profile-badge-settings.png)
-3. Clique em **Update preferences** (Atualizar preferências).
+| Selo                                                            | Programa                                                                   | Descrição                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --------------------------------------------------------------- | -------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| {% octicon "cpu" aria-label="The Developer Program icon" %}     | **Membro do programa de desenvolvedores**                                  | Se você for um integrante registrado do Programa de Desenvolvedor de {% data variables.product.prodname_dotcom %}, ao criar um aplicativo com a API de {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %}, você receberá um selo de integrante do Programa no seu perfil. Para obter mais informações sobre o Programa de Desenvolvedores de {% data variables.product.prodname_dotcom %}, consulte o [Desenvolvedor do GitHub](/program/).                              |
+| {% octicon "star-fill" aria-label="The star icon" %}            | **Pro**                                                                    | Se você usar {% data variables.product.prodname_pro %}, você receberá um selo PRO no seu perfil. Para obter mais informações sobre o {% data variables.product.prodname_pro %}, consulte "[Produtos do {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/githubs-products#github-pro)".                                                                                                                                                                                                                                       |
+| {% octicon "lock" aria-label="The lock icon" %}                 | **Security Bug Bounty Hunter**                                             | Se você ajudou a identificar vulnerabilidades de segurança, o seu perfil receberá um selo Security Bug Bounty Hunter. Para obter mais informações sobre o programa de segurança {% data variables.product.prodname_dotcom %}, consulte [{% data variables.product.prodname_dotcom %} Segurança.](https://bounty.github.com/).                                                                                                                                                                                                                                   |
+| {% octicon "mortar-board" aria-label="The mortar-board icon" %} | **Especialista de campus de {% data variables.product.prodname_dotcom %}** | Se você participar do {% data variables.product.prodname_campus_program %}, você receberá um selo do especialista de campus de {% data variables.product.prodname_dotcom %} no seu perfil. Para obter mais informações sobre o programa de Especialistas de Campus, consulte [Especialistas de campus](https://education.github.com/experts).                                                                                                                                                                                                                 |
+| {% octicon "shield" aria-label="The shield icon" %}             | **Crédito da consultoria de segurança**                                    | Se uma assessoria de segurança que você enviar ao [Banco de dados da consultoria de{% data variables.product.prodname_dotcom %}](https://github.com/advisories) for aceita, você receberá um crachá de crédito da consultoria de segurança no seu perfil. Para obter mais informações sobre as consultorias de segurança de {% data variables.product.prodname_dotcom %}, consulte [Consultorias de segurança de{% data variables.product.prodname_dotcom %}](/code-security/repository-security-advisories/about-github-security-advisories-for-repositories). |
+| {% octicon "check" aria-label="The check icon" %}               | **Discussão respondida**                                                   | Se sua resposta a uma discussão for marcada como a resposta, você receberá um selo respondido por Discussão no seu perfil. Para obter mais informações sobre as Discussões de {% data variables.product.prodname_dotcom %}, consulte [Sobre discussões](/discussions/collaborating-with-your-community-using-discussions/about-discussions).                                                                                                                                                                                                                    |
 
 {% endif %}
 
-## Lista de repositórios qualificados paro selo de contribuidor Helicóptero de Marte de 2020
+{% ifversion fpt or ghec %}
 
-Se você criou qualquer commit presente no histórico de commit da tag listada em um ou mais dos repositórios abaixo, você receberá o selo do Contribuidor de Marte do Helicóptero 2020 no seu perfil. O commit da autoria tem que estar com um endereço de e-mail verificado associado à sua conta no momento em que {% data variables.product.prodname_dotcom %} determinou as contribuições elegíveis, para ser atribuído a você. Você pode ser o autor original ou [um dos coautores](/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/creating-a-commit-with-multiple-authors) do commit. As alterações futuras em e-mails verificados não terão efeito no selo. Criamos a lista com base nas informações recebidas do Laboratório de Propulsão de Jato da NASA.
+## Ganhando conquistas
+
+As conquistas comemoram eventos e ações específicos que acontecem em {% data variables.product.prodname_dotcom %}. Eles aparecerão como pequenos selos listados na barra lateral do seu perfil. Clicar ou passar o sobre uma conquista mostrará uma visão detalhada que indica como a conquista foi realizada com uma breve descrição e links para os eventos contribuintes. Os links do evento só serão visíveis para os usuários que têm acesso ao repositório ou organização em que o evento ocorreu. Os links de eventos parecerão inacessíveis para todos os usuários sem acesso.
+
+Para parar contribuições privadas de contar para suas conquistas ou para desabilitar completamente as Conquistas, consulte "[Mostrando suas contribuições privadas e Conquistas no seu perfil](/articles/publicizing-or-hiding-your-private-contributions-on-your-profile)".
+
+{% note %}
+
+**Observação**: Este recurso está atualmente na versão beta e está sujeito a alterações.
+
+{% endnote %}
+
+{% endif %}
+
+## Lista de repositórios qualificados para a conquista de contribuidor Helicóptero de Marte de 2020
+
+Se você criou qualquer commit presente no histórico de commit da tag listada em um ou mais dos repositórios abaixo, você receberá a conquista do Contribuidor de Marte do Helicóptero 2020 no seu perfil. O commit da autoria tem que estar com um endereço de e-mail verificado associado à sua conta no momento em que {% data variables.product.prodname_dotcom %} determinou as contribuições elegíveis, para ser atribuído a você. Você pode ser o autor original ou [um dos coautores](/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/creating-a-commit-with-multiple-authors) do commit. As alterações futuras em e-mails verificados não terão efeito no selo. Criamos a lista com base nas informações recebidas do Laboratório de Propulsão de Jato da NASA.
 
 | {% data variables.product.prodname_dotcom %} Repositório                      | Versão    | Tag                                                                                                        |
 | ----------------------------------------------------------------------------- | --------- | ---------------------------------------------------------------------------------------------------------- |

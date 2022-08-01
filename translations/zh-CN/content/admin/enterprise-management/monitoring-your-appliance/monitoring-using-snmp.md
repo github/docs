@@ -3,7 +3,7 @@ title: 使用 SNMP 进行监视
 intro: '{% data variables.product.prodname_enterprise %} 通过 SNMP 提供关于磁盘使用情况、CPU 利用率和内存使用情况等方面的数据。'
 redirect_from:
   - /enterprise/admin/installation/monitoring-using-snmp
-  - /enterprise/admin/articles/monitoring-using-snmp/
+  - /enterprise/admin/articles/monitoring-using-snmp
   - /enterprise/admin/enterprise-management/monitoring-using-snmp
   - /admin/enterprise-management/monitoring-using-snmp
 versions:
@@ -18,7 +18,7 @@ topics:
 
 SNMP 是一种用于通过网络监视设备的公共标准。 强烈建议启用 SNMP，以便监视 {% data variables.product.product_location %} 的健康状态并了解何时向主机增加更多内存、存储空间或处理器能力。
 
-{% data variables.product.prodname_enterprise %} 采用标准 SNMP 安装，因此您可以充分利用 Nagios 或其他任何监视系统可用的[多种插件](http://www.monitoring-plugins.org/doc/man/check_snmp.html)。
+{% data variables.product.prodname_enterprise %} 采用标准 SNMP 安装，因此您可以充分利用 Nagios 或其他任何监视系统可用的[多种插件](https://www.monitoring-plugins.org/doc/man/check_snmp.html)。
 
 ## 配置 SNMP v2c
 
@@ -66,7 +66,7 @@ SNMP 是一种用于通过网络监视设备的公共标准。 强烈建议启�
 
 #### 查询 SNMP 数据
 
-关于您的设备的硬件和软件级信息都适用于 SNMP v3。 由于 `noAuthNoPriv` 和 `authNoPriv` 安全等级缺乏加密和隐私，因此我们的结果 SNMP 报告中不包括 `hrSWRun` 表 (1.3.6.1.2.1.25.4.)。 如果您使用的是 `authPriv` 安全等级，我们将包括此表。 更多信息请参阅“[OID 参考文档](http://oidref.com/1.3.6.1.2.1.25.4)。
+关于您的设备的硬件和软件级信息都适用于 SNMP v3。 由于 `noAuthNoPriv` 和 `authNoPriv` 安全等级缺乏加密和隐私，因此我们的结果 SNMP 报告中不包括 `hrSWRun` 表 (1.3.6.1.2.1.25.4.)。 如果您使用的是 `authPriv` 安全等级，我们将包括此表。 更多信息请参阅“[OID 参考文档](https://oidref.com/1.3.6.1.2.1.25.4)。
 
 如果使用 SNMP v2c，则仅会提供关于您的设备的硬件级信息。 {% data variables.product.prodname_enterprise %} 中的应用程序和服务未配置 OID 来报告指标。 有多个 MIB 可用，在网络中 SNMP 的支持下，在单独的工作站上运行 `smpwaste` 可以看到：
 

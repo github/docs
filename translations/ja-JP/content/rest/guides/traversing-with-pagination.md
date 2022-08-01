@@ -2,7 +2,7 @@
 title: ページネーションの詳細
 intro: Search API を使ったいくつかの例で、ページネーションを使用してレスポンスを扱うために方法を調べましょう。
 redirect_from:
-  - /guides/traversing-with-pagination/
+  - /guides/traversing-with-pagination
   - /v3/guides/traversing-with-pagination
 versions:
   fpt: '*'
@@ -14,7 +14,7 @@ topics:
 shortTitle: ページネーション付きのトラバース
 ---
 
-The {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API provides a vast wealth of information for developers to consume. ほとんどの場合は、要求している情報が_多すぎる_ということに気付くかもしれません。サーバーに負担をかけすぎないため、API は自動的に[リクエストされたアイテムをページネーション][pagination]します。
+{% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} APIは、開発者が利用できる情報を豊富に提供します。 ほとんどの場合は、要求している情報が_多すぎる_ということに気付くかもしれません。サーバーに負担をかけすぎないため、API は自動的に[リクエストされたアイテムをページネーション](/rest/overview/resources-in-the-rest-api#pagination)します。
 
 このガイドでは、 Search APIを呼び出し、ページネーションを使って結果を反復処理します。 このプロジェクトの完全なソースコードは、[platform-samples][platform samples]リポジトリにあります。
 
@@ -205,7 +205,6 @@ puts "The prev page link is #{prev_page_href}"
 puts "The next page link is #{next_page_href}"
 ```
 
-[pagination]: /rest#pagination
 [platform samples]: https://github.com/github/platform-samples/tree/master/api/ruby/traversing-with-pagination
 [octokit.rb]: https://github.com/octokit/octokit.rb
 [personal token]: /articles/creating-an-access-token-for-command-line-use

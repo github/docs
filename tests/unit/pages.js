@@ -1,6 +1,6 @@
 import { jest } from '@jest/globals'
 import path from 'path'
-import { loadPages, loadPageMap } from '../../lib/page-data.js'
+import { loadPages, loadPageMap, correctTranslationOrphans } from '../../lib/page-data.js'
 import libLanguages from '../../lib/languages.js'
 import { liquid } from '../../lib/render-content/index.js'
 import patterns from '../../lib/patterns.js'
@@ -13,13 +13,24 @@ import removeFPTFromPath from '../../lib/remove-fpt-from-path.js'
 const languageCodes = Object.keys(libLanguages)
 const slugger = new GithubSlugger()
 
+// By default, the tests don't change that each translation has an
+// equivalent English page (e.g. `translations/*/content/foo.md`
+// expects `content/foo.md`)
+// Set the environment variable `TEST_TRANSLATION_MATCHING=true`
+// to enable that test.
+const testIfRequireTranslationMatching = JSON.parse(
+  process.env.TEST_TRANSLATION_MATCHING || 'false'
+)
+  ? test
+  : test.skip
+
 describe('pages module', () => {
   jest.setTimeout(60 * 1000)
 
   let pages
 
   beforeAll(async () => {
-    pages = await loadPages()
+    pages = await correctTranslationOrphans(await loadPages())
   })
 
   describe('loadPages', () => {
@@ -76,8 +87,8 @@ describe('pages module', () => {
 
       const message = `Found ${duplicates.length} duplicate redirect_from ${
         duplicates.length === 1 ? 'path' : 'paths'
-      }. 
-      Ensure that you don't define the same path more than once in the redirect_from property in a single file and across all English files. 
+      }.
+      Ensure that you don't define the same path more than once in the redirect_from property in a single file and across all English files.
       You may also receive this error if you have defined the same children property more than once.\n
   ${duplicates.join('\n')}`
       expect(duplicates.length, message).toBe(0)
@@ -121,6 +132,7 @@ describe('pages module', () => {
       const frontmatterErrors = chain(pages)
         // .filter(page => page.languageCode === 'en')
         .map((page) => page.frontmatterErrors)
+        .filter(Boolean)
         .flatten()
         .value()
 
@@ -152,26 +164,29 @@ describe('pages module', () => {
       expect(liquidErrors.length, failureMessage).toBe(0)
     })
 
-    test('every non-English page has a matching English page', async () => {
-      const englishPaths = chain(walk('content', { directories: false }))
-        .uniq()
-        .value()
+    testIfRequireTranslationMatching(
+      'every non-English page has a matching English page',
+      async () => {
+        const englishPaths = chain(walk('content', { directories: false }))
+          .uniq()
+          .value()
 
-      const nonEnglishPaths = chain(Object.values(libLanguages))
-        .filter((language) => language.code !== 'en')
-        .map((language) => walk(`${language.dir}/content`, { directories: false }))
-        .flatten()
-        .uniq()
-        .value()
+        const nonEnglishPaths = chain(Object.values(libLanguages))
+          .filter((language) => language.code !== 'en')
+          .map((language) => walk(`${language.dir}/content`, { directories: false }))
+          .flatten()
+          .uniq()
+          .value()
 
-      const diff = difference(nonEnglishPaths, englishPaths)
-      const failureMessage = `
+        const diff = difference(nonEnglishPaths, englishPaths)
+        const failureMessage = `
 Found ${diff.length} non-English pages without a matching English page:\n - ${diff.join('\n - ')}
 
 Remove them with script/i18n/prune-stale-files.js and commit your changes using "git commit --no-verify".
 `
-      expect(diff.length, failureMessage).toBe(0)
-    })
+        expect(diff.length, failureMessage).toBe(0)
+      }
+    )
   })
 
   describe('loadPageMap', () => {

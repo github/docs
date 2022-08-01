@@ -19,7 +19,6 @@ shortTitle: Build & test PowerShell
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## Introduction
 
@@ -27,7 +26,8 @@ This guide shows you how to use PowerShell for CI. It describes how to use Peste
 
 {% data variables.product.prodname_dotcom %}-hosted runners have a tools cache with pre-installed software, which includes PowerShell and Pester. 
 
-{% ifversion ghae %}For instructions on how to make sure your {% data variables.actions.hosted_runner %} has the required software installed, see "[Creating custom images](/actions/using-github-hosted-runners/creating-custom-images)."
+{% ifversion ghae %}
+{% data reusables.actions.self-hosted-runners-software %}
 {% else %}For a full list of up-to-date software and the pre-installed versions of PowerShell and Pester, see "[Specifications for {% data variables.product.prodname_dotcom %}-hosted runners](/actions/reference/specifications-for-github-hosted-runners/#supported-software)".
 {% endif %}
 
@@ -47,7 +47,6 @@ To automate your testing with PowerShell and Pester, you can add a workflow that
 
 This example workflow file must be added to your repository's `.github/workflows/` directory:
 
-{% raw %}
 ```yaml
 name: Test PowerShell on Ubuntu
 on: push
@@ -58,7 +57,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository code
-        uses: actions/checkout@v2
+        uses: {% data reusables.actions.action-checkout %}
       - name: Perform a Pester test from the command-line
         shell: pwsh
         run: Test-Path resultsfile.log | Should -Be $true
@@ -67,17 +66,14 @@ jobs:
         run: |
           Invoke-Pester Unit.Tests.ps1 -Passthru
 ```
-{% endraw %}
 
 * `shell: pwsh` - Configures the job to use PowerShell when running the `run` commands.
 * `run: Test-Path resultsfile.log` - Check whether a file called `resultsfile.log` is present in the repository's root directory.
 * `Should -Be $true` - Uses Pester to define an expected result. If the result is unexpected, then {% data variables.product.prodname_actions %} flags this as a failed test. For example:
 
-  {% ifversion fpt or ghes > 3.0 or ghae or ghec %}
+  
   ![Failed Pester test](/assets/images/help/repository/actions-failed-pester-test-updated.png)
-  {% else %}
-  ![Failed Pester test](/assets/images/help/repository/actions-failed-pester-test.png)
-  {% endif %}
+  
 
 * `Invoke-Pester Unit.Tests.ps1 -Passthru` - Uses Pester to execute tests defined in a file called `Unit.Tests.ps1`. For example, to perform the same test described above, the `Unit.Tests.ps1` will contain the following:
   ```
@@ -108,25 +104,23 @@ The table below describes the locations for various PowerShell modules in each {
 
 {% endnote %}
 
-When using {% data variables.product.prodname_dotcom %}-hosted runners, you can also cache dependencies to speed up your workflow. For more information, see "<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">Caching dependencies to speed up workflows</a>."
+{% ifversion actions-caching %}You can also cache dependencies to speed up your workflow. For more information, see "[Caching dependencies to speed up workflows](/actions/using-workflows/caching-dependencies-to-speed-up-workflows)."{% endif %}
 
 For example, the following job installs the `SqlServer` and `PSScriptAnalyzer` modules:
 
-{% raw %}
 ```yaml
 jobs:
   install-dependencies:
     name: Install dependencies
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: {% data reusables.actions.action-checkout %}
       - name: Install from PSGallery
         shell: pwsh
         run: |
           Set-PSRepository PSGallery -InstallationPolicy Trusted
           Install-Module SqlServer, PSScriptAnalyzer
 ```
-{% endraw %}
 
 {% note %}
 
@@ -134,22 +128,23 @@ jobs:
 
 {% endnote %}
 
+{% ifversion actions-caching %}
+
 ### Caching dependencies
 
-When using {% data variables.product.prodname_dotcom %}-hosted runners, you can cache PowerShell dependencies using a unique key, which allows you to restore the dependencies for future workflows with the [`cache`](https://github.com/marketplace/actions/cache) action. For more information, see "<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">Caching dependencies to speed up workflows</a>."
+You can cache PowerShell dependencies using a unique key, which allows you to restore the dependencies for future workflows with the [`cache`](https://github.com/marketplace/actions/cache) action. For more information, see "[Caching dependencies to speed up workflows](/actions/using-workflows/caching-dependencies-to-speed-up-workflows)."
 
 PowerShell caches its dependencies in different locations, depending on the runner's operating system. For example, the `path` location used in the following Ubuntu example will be different for a Windows operating system.
 
-{% raw %}
 ```yaml
 steps:
-  - uses: actions/checkout@v2
+  - uses: {% data reusables.actions.action-checkout %}
   - name: Setup PowerShell module cache
     id: cacher
-    uses: actions/cache@v2
+    uses: {% data reusables.actions.action-cache %}
     with:
       path: "~/.local/share/powershell/Modules"
-      key: ${{ runner.os }}-SqlServer-PSScriptAnalyzer
+      key: {% raw %}${{ runner.os }}-SqlServer-PSScriptAnalyzer{% endraw %}
   - name: Install required PowerShell modules
     if: steps.cacher.outputs.cache-hit != 'true'
     shell: pwsh
@@ -157,7 +152,8 @@ steps:
       Set-PSRepository PSGallery -InstallationPolicy Trusted
       Install-Module SqlServer, PSScriptAnalyzer -ErrorAction Stop
 ```
-{% endraw %}
+
+{% endif %}
 
 ## Testing your code
 
@@ -167,13 +163,12 @@ You can use the same commands that you use locally to build and test your code.
 
 The following example installs `PSScriptAnalyzer` and uses it to lint all `ps1` files in the repository. For more information, see [PSScriptAnalyzer on GitHub](https://github.com/PowerShell/PSScriptAnalyzer).
 
-{% raw %}
 ```yaml
   lint-with-PSScriptAnalyzer:
     name: Install and run PSScriptAnalyzer
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: {% data reusables.actions.action-checkout %}
       - name: Install PSScriptAnalyzer module
         shell: pwsh
         run: |
@@ -191,7 +186,6 @@ The following example installs `PSScriptAnalyzer` and uses it to lint all `ps1` 
               Write-Output "There were $($errors.Count) errors and $($warnings.Count) warnings total."
           }
 ```
-{% endraw %}
 
 ## Packaging workflow data as artifacts
 
@@ -199,7 +193,6 @@ You can upload artifacts to view after a workflow completes. For example, you ma
 
 The following example demonstrates how you can use the `upload-artifact` action to archive the test results received from `Invoke-Pester`. For more information, see the [`upload-artifact` action](https://github.com/actions/upload-artifact).
 
-{% raw %}
 ```yaml
 name: Upload artifact from Ubuntu
 
@@ -210,18 +203,17 @@ jobs:
     name: Run Pester and upload results
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: {% data reusables.actions.action-checkout %}
       - name: Test with Pester
         shell: pwsh
         run: Invoke-Pester Unit.Tests.ps1 -Passthru | Export-CliXml -Path Unit.Tests.xml
       - name: Upload test results
-        uses: actions/upload-artifact@v2
+        uses: {% data reusables.actions.action-upload-artifact %}
         with:
           name: ubuntu-Unit-Tests
           path: Unit.Tests.xml
-    if: ${{ always() }}
+    if: {% raw %}${{ always() }}{% endraw %}
 ```
-{% endraw %}
 
 The `always()` function configures the job to continue processing even if there are test failures. For more information, see "[always](/actions/reference/context-and-expression-syntax-for-github-actions#always)."
 
@@ -231,7 +223,6 @@ You can configure your workflow to publish your PowerShell module to the PowerSh
 
 The following example creates a package and uses `Publish-Module` to publish it to the PowerShell Gallery:
 
-{% raw %}
 ```yaml
 name: Publish PowerShell Module
 
@@ -243,13 +234,12 @@ jobs:
   publish-to-gallery:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: {% data reusables.actions.action-checkout %}
       - name: Build and publish
         env:
-          NUGET_KEY: ${{ secrets.NUGET_KEY }}
+          NUGET_KEY: {% raw %}${{ secrets.NUGET_KEY }}{% endraw %}
         shell: pwsh
         run: |
           ./build.ps1 -Path /tmp/samplemodule
           Publish-Module -Path /tmp/samplemodule -NuGetApiKey $env:NUGET_KEY -Verbose
 ```
-{% endraw %}

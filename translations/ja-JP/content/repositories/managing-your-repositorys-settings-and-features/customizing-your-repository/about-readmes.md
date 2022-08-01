@@ -2,8 +2,8 @@
 title: READMEについて
 intro: リポジトリにREADMEファイルを追加して、そのプロジェクトがなぜ有益なのか、そのプロジェクトで何ができるか、そのプロジェクトをどのように使えるかを他者に伝えることができます。
 redirect_from:
-  - /articles/section-links-on-readmes-and-blob-pages/
-  - /articles/relative-links-in-readmes/
+  - /articles/section-links-on-readmes-and-blob-pages
+  - /articles/relative-links-in-readmes
   - /articles/about-readmes
   - /github/creating-cloning-and-archiving-repositories/about-readmes
   - /github/creating-cloning-and-archiving-repositories/creating-a-repository-on-github/about-readmes
@@ -29,7 +29,9 @@ README ファイルをリポジトリに追加して、プロジェクトに関�
 - このプロジェクトに関するヘルプをどこで得るか
 - このプロジェクトのメンテナンス者とコントリビューター
 
-README ファイルをリポジトリのルート、`docs`、または隠れディレクトリ `.github` に置けば、{% data variables.product.product_name %} はそれを認識して自動的に README をリポジトリへの訪問者に提示します。
+If you put your README file in your repository's hidden `.github`, root, or `docs` directory, {% data variables.product.product_name %} will recognize and automatically surface your README to repository visitors.
+
+If a repository contains more than one README file, then the file shown is chosen from locations in the following order: the `.github` directory, then the repository's root directory, and finally the `docs` directory.
 
 ![github/scientistリポジトリのメインページとそのREADMEファイル](/assets/images/help/repository/repo-with-readme.png)
 
@@ -41,21 +43,11 @@ README ファイルをリポジトリのルート、`docs`、または隠れデ�
 
 ![ユーザ名/ユーザ名リポジトリの README ファイル](/assets/images/help/repository/username-repo-with-readme.png)
 
-{% ifversion fpt or ghae-next or ghes > 3.1 or ghec %}
-
 ## Auto-generated table of contents for README files
 
 For the rendered view of any Markdown file in a repository, including README files, {% data variables.product.product_name %} will automatically generate a table of contents based on section headings. You can view the table of contents for a README file by clicking the {% octicon "list-unordered" aria-label="The unordered list icon" %}  menu icon at the top left of the rendered page.
 
 ![README with automatically generated TOC](/assets/images/help/repository/readme-automatic-toc.png)
-
-The auto-generated table of contents is enabled by default for all Markdown files in a repository, but you can disable this feature for your repository.
-
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-settings %}
-1. Under "Features", deselect **Table of contents**. ![Automatic TOC setting for repositories](/assets/images/help/repository/readme-automatic-toc-setting.png)
-
-{% endif %}
 
 ## READMEファイルのセクションリンクとblobページ
 

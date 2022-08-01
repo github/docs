@@ -8,14 +8,16 @@ const github = getOctokit(token)
 // https://docs.github.com/en/graphql/reference/enums#mergestatestatus
 // https://docs.github.com/en/graphql/reference/enums#mergeablestate
 
-/* 
-  This script gets a list of automerge-enabled PRs and sorts them 
+/*
+  This script gets a list of automerge-enabled PRs and sorts them
   by priority. The PRs with the skip-to-front-of-merge-queue label
-  are prioritized first. The rest of the PRs are sorted by the date 
-  they were updated. This is basically a FIFO queue, while allowing 
+  are prioritized first. The rest of the PRs are sorted by the date
+  they were updated. This is basically a FIFO queue, while allowing
   writers the ability to skip the line when high-priority ships are
   needed but a freeze isn't necessary.
 */
+
+const DRY_RUN = Boolean(JSON.parse(process.env.DRY_RUN || 'false'))
 
 main()
 
@@ -45,6 +47,15 @@ async function main() {
               labels (first:$firstLabels){
                 nodes {
                   name
+                }
+              }
+              commits(last: 1) {
+                nodes {
+                  commit {
+                    statusCheckRollup {
+                      state
+                    }
+                  }
                 }
               }
             }
@@ -105,6 +116,14 @@ async function main() {
       // a PR is green and the automerge is enabled
       .filter((pr) => pr.mergeStateStatus !== 'DIRTY')
       .filter((pr) => pr.mergeStateStatus !== 'UNSTABLE')
+      .filter((pr) => {
+        const nodes = pr.commits.nodes
+        if (!nodes || !nodes.length) {
+          // If it has no commits, why is it even here? Anyway, skip it.
+          return false
+        }
+        return nodes[0].commit.statusCheckRollup.state !== 'FAILURE'
+      })
 
     autoMergeEnabledPRs.push(...filteredPrs)
   }
@@ -120,11 +139,15 @@ async function main() {
   if (prioritizedPrList.length) {
     const nextInQueue = prioritizedPrList.shift()
     // Update the branch for the next PR in the merge queue
-    github.rest.pulls.updateBranch({
-      owner: org,
-      repo,
-      pull_number: nextInQueue.number,
-    })
+    if (DRY_RUN) {
+      console.log('DRY RUN! But *would* update on next-in-queue')
+    } else {
+      github.rest.pulls.updateBranch({
+        owner: org,
+        repo,
+        pull_number: nextInQueue.number,
+      })
+    }
     console.log(`⏱ Total PRs in the merge queue: ${prioritizedPrList.length + 1}`)
     console.log(`🚂 Updated branch for PR #${JSON.stringify(nextInQueue, null, 2)}`)
   }

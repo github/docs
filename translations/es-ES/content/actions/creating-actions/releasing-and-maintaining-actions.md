@@ -1,7 +1,7 @@
 ---
-title: Releasing and maintaining actions
-shortTitle: Releasing and maintaining actions
-intro: You can leverage automation and open source best practices to release and maintain actions.
+title: Lanzar y mantener las acciones
+shortTitle: Lanzar y mantener las acciones
+intro: Puedes aprovechar la automatización y las mejores prácticas de código abierto para lanzar y mantener acciones.
 type: tutorial
 topics:
   - Action development
@@ -9,6 +9,7 @@ topics:
   - Community
 versions:
   fpt: '*'
+  ghec: '*'
   ghes: '*'
   ghae: '*'
 ---
@@ -18,77 +19,77 @@ versions:
 
 ## Introducción
 
-After you create an action, you'll want to continue releasing new features while working with community contributions. This tutorial describes an example process you can follow to release and maintain actions in open source. The example:
+Después de que creas una acción, querrás seguir lanzando características nuevas mientras trabajas con las contribuciones de la comunidad. Este tutorial describe un proceso de ejemplo que puedes seguir para lanzar y mantener las acciones en los proyectos de código abierto. El ejemplo:
 
-* Leverages {% data variables.product.prodname_actions %} for continuous integration, dependency updates, release management, and task automation.
-* Provides confidence through automated tests and build badges.
-* Indicates how the action can be used, ideally as part of a broader workflow.
-* Signal what type of community contributions you welcome. (For example, issues, pull requests, or vulnerability reports.)
+* Aprovecha las {% data variables.product.prodname_actions %} para la integración continua, actualizaciones de dependencias, administración de lanzamientos y automatización de tareas.
+* Proporciona confianza a través de las pruebas automatizadas e insignias de compilación.
+* Indica cómo puede utilizarse la acción, idealmente, como parte de un flujo de trabajo más amplio.
+* Señala qué tipo de contribuciones de la comunidad recibes. (Por ejemplo: propuestas, solicitudes de cambios o reportes de vulnerabilidades.)
 
-For an applied example of this process, see [github-developer/javascript-action](https://github.com/github-developer/javascript-action).
+Para encontrar un ejemplo aplicado de este proceso, consulta [github-developer/javascript-action](https://github.com/github-developer/javascript-action).
 
-## Developing and releasing actions
+## Desarrollar y lanzar las acciones
 
-In this section, we discuss an example process for developing and releasing actions and show how to use {% data variables.product.prodname_actions %} to automate the process.
+En esta sección, debatimos un proceso de ejemplo para desarrollar y lanzar acciones y mostramos cómo utilizar las {% data variables.product.prodname_actions %} para automatizar el proceso.
 
-### About JavaScript actions
+### Acerca de las acciones de JavaScript
 
-JavaScript actions are Node.js repositories with metadata. However, JavaScript actions have additional properties compared to traditional Node.js projects:
+Las acciones de JavaScript son repositorios de Node.js con metadatos. Sin embargo, las acciones de JavaScript tienen propiedades adicionales comparadas con los proyectos tradicionales de Node.js:
 
-* Dependent packages are committed alongside the code, typically in a compiled and minified form. This means that automated builds and secure community contributions are important.
+* Los paquetes dependientes se confirman junto con el código, habitualmente de forma compilada y minificada. Esto significa que las compilaciones automatizadas y contribuciones seguras de la comunidad, son importantes.
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
-* Tagged releases can be published directly to {% data variables.product.prodname_marketplace %} and consumed by workflows across {% data variables.product.prodname_dotcom %}.
+* Los lanzamientos etiquetados pueden publicarse directamente en {% data variables.product.prodname_marketplace %} y consumirse mediante flujos de trabajo a lo largo de {% data variables.product.prodname_dotcom %}.
 
 {% endif %}
 
-* Many actions make use of {% data variables.product.prodname_dotcom %}'s APIs and third party APIs, so we encourage robust end-to-end testing.
+* Muchas de las acciones utilizan las API de {% data variables.product.prodname_dotcom %} y de terceros, así que recomendamos hacer pruebas robustas de extremo a extremo.
 
-### Setting up {% data variables.product.prodname_actions %} workflows
+### Configurar los flujos de trabajo de {% data variables.product.prodname_actions %}
 
-To support the developer process in the next section, add two {% data variables.product.prodname_actions %} workflows to your repository:
+Para apoyar el proceso de desarrollo en la siguiente sección, agrega dos flujos de trabajo de {% data variables.product.prodname_actions %} a tu repositorio:
 
-1. Add a workflow that triggers when a commit is pushed to a feature branch or to `main` or when a pull request is created. Configure the workflow to run your unit and integration tests. For an example, see [this workflow](https://github.com/github-developer/javascript-action/blob/963a3b9a9c662fd499419a240ed8c49411ff5add/.github/workflows/test.yml).
-2. Add a workflow that triggers when a release is published or edited. Configure the workflow to ensure semantic tags are in place. You can use an action like [JasonEtco/build-and-tag-action](https://github.com/JasonEtco/build-and-tag-action) to compile and bundle the JavaScript and metadata file and force push semantic major, minor, and patch tags. For an example, see [this workflow](https://github.com/github-developer/javascript-action/blob/963a3b9a9c662fd499419a240ed8c49411ff5add/.github/workflows/publish.yml). For more information about semantic tags, see "[About semantic versioning](https://docs.npmjs.com/about-semantic-versioning)."
+1. Agrega un flujo de trabajo que se active cuando se suba una confirmación a una rama de característica o a `main` o cuando se cree una solicitud de cambios. Configura el flujo de trabajo para que ejecute tus pruebas de unidad y de integración. Para encontrar un ejemplo, consulta [este flujo de trabajo](https://github.com/github-developer/javascript-action/blob/963a3b9a9c662fd499419a240ed8c49411ff5add/.github/workflows/test.yml).
+2. Agrega un flujo de trabajo que se active cuando se publique o edite un lanzamiento. Configura el flujo de trabajo para garantizar que cuentes con etiquetas semánticas. Puedes utilizar una acción como [JasonEtco/build-and-tag-action](https://github.com/JasonEtco/build-and-tag-action) para compilar y empaquetar el archivo de metadatos y de JavaScript y subir forzadamente las etiquetas semánticas mayores, menores y de parche. Para un ejemplo, vea [este flujo de trabajo](https://github.com/github-developer/javascript-action/blob/963a3b9a9c662fd499419a240ed8c49411ff5add/.github/workflows/publish.yml). Para obtener más información sobre las etiquetas semánticas, consulta la sección "[Acerca del versionamiento semántico](https://docs.npmjs.com/about-semantic-versioning)".
 
-### Example developer process
+### Proceso de desarrollo ejemplo
 
-Here is an example process that you can follow to automatically run tests, create a release{% ifversion fpt%} and publish to {% data variables.product.prodname_marketplace %}{% endif %}, and publish your action.
+Aquí tienes un proceso de ejemplo que puedes seguir para ejecutar pruebas automáticas, crear un lanzamiento{% ifversion fpt or ghec%} y publicarlo en {% data variables.product.prodname_marketplace %}{% endif %} y publicar tu acción.
 
-1. Do feature work in branches per GitHub flow. For more information, see "[GitHub flow](/get-started/quickstart/github-flow)."
-   * Whenever a commit is pushed to the feature branch, your testing workflow will automatically run the tests.
+1. Realiza trabajo de características en las ramas por flujo de GitHub. Para obtener más información, consulta la sección "[Flujo de GitHub](/get-started/quickstart/github-flow)".
+   * Cuando se suba una confirmación a la rama de característica, tu flujo de trabajo de pruebas ejecutará las pruebas automáticamente.
 
-2. Create pull requests to the `main` branch to initiate discussion and review, merging when ready.
+2. Crea solicitudes de cambios en la rama `main` para iniciar debates y revisiones, fusionándolas cuando estén listas.
 
-   * When a pull request is opened, either from a branch or a fork, your testing workflow will again run the tests, this time with the merge commit.
+   * Cuando se abre una solicitud de cambios, ya sea desde una rama o una bifurcación, tu flujo de trabajo de prueba volverá a ejecutar las pruebas, esta vez, con la confirmación de fusión.
 
-   * **Note:** for security reasons, workflows triggered by `pull_request` from forks have restricted `GITHUB_TOKEN` permissions and do not have access to secrets. If your tests or other workflows triggered upon pull request require access to secrets, consider using a different event like a [manual trigger](/actions/reference/events-that-trigger-workflows#manual-events) or a [`pull_request_target`](/actions/reference/events-that-trigger-workflows#pull_request_target). Read more [here](/actions/reference/events-that-trigger-workflows#pull-request-events-for-forked-repositories).
+   * **Nota:** por razones de seguridad, los flujos de trabajo se activan mediante `pull_request` desde las bifurcaciones que tienen permisos de `GITHUB_TOKEN` restringidos y no tienen acceso a los secretos. Su tus pruebas u otros flujos de trabajo que se activaron en la solicitud de cambios requieren acceso a secretos, considera utilizar un evento diferente como un [activador manual](/actions/reference/events-that-trigger-workflows#manual-events) o una [`pull_request_target`](/actions/reference/events-that-trigger-workflows#pull_request_target). Puedes leer más al respecto [aquí](/actions/reference/events-that-trigger-workflows#pull-request-events-for-forked-repositories).
 
-3. Create a semantically tagged release. {% ifversion fpt %} You may also publish to {% data variables.product.prodname_marketplace %} with a simple checkbox. {% endif %} For more information, see "[Managing releases in a repository](/github/administering-a-repository/managing-releases-in-a-repository#creating-a-release)"{% ifversion fpt %} and "[Publishing actions in {% data variables.product.prodname_marketplace %}](/actions/creating-actions/publishing-actions-in-github-marketplace#publishing-an-action)"{% endif %}.
+3. Crea un lanzamiento con etiquetado semántico. {% ifversion fpt or ghec %} También puedes publicar en {% data variables.product.prodname_marketplace %} con una casilla de verificación sencilla. {% endif %} Para obtener más información, consulta las secciones "[Adminsitrar los lanzamientos en un repositorio](/github/administering-a-repository/managing-releases-in-a-repository#creating-a-release)"{% ifversion fpt or ghec %} y "[Publicar acciones en {% data variables.product.prodname_marketplace %}](/actions/creating-actions/publishing-actions-in-github-marketplace#publishing-an-action)"{% endif %}.
 
-   * When a release is published or edited, your release workflow will automatically take care of compilation and adjusting tags.
+   * Cuando se publica o edita un lanzamiento, el flujo de trabajo de este se encargará automáticamente de la compilación y ajuste de etiquetas.
 
-   * We recommend creating releases using semantically versioned tags – for example, `v1.1.3` – and keeping major (`v1`) and minor (`v1.1`) tags current to the latest appropriate commit. For more information, see "[About custom actions](/actions/creating-actions/about-custom-actions#using-release-management-for-actions)" and "[About semantic versioning](https://docs.npmjs.com/about-semantic-versioning).
+   * Te recomendamos crear lanzamientos utilizando etiquetas versionadas semánticamente; como por ejemplo: `v1.1.3`; y mantener las etiquetas mayores (`v1`) y menores (`v1.1`) al corriente con sus confirmaciones más recientes adecuadas. Para obtener más información, consulta la sección "[Acerca de las acciones personalizadas](/actions/creating-actions/about-custom-actions#using-release-management-for-actions)" y "[Acerca del versionamiento semántico](https://docs.npmjs.com/about-semantic-versioning).
 
 ### Resultados
 
-Unlike some other automated release management strategies, this process intentionally does not commit dependencies to the `main` branch, only to the tagged release commits. By doing so, you encourage users of your action to reference named tags or `sha`s, and you help ensure the security of third party pull requests by doing the build yourself during a release.
+A diferencia de algunas otras estrategias de administración de lanzamientos automatizadas, este proceso no confirma dependencias en la rama `main` a propósito, sino únicamente em las confirmaciones de lanzamiento etiquetadas. Al hacerlo, animas a los usuarios de tu acción a referenciar las etiquetas nombradas o los `sha` y ayudas a garantizar la seguridad de las solicitudes de cambios de terceros al crear la compilación tú mismo durante un lanzamiento.
 
-Using semantic releases means that the users of your actions can pin their workflows to a version and know that they might continue to receive the latest stable, non-breaking features, depending on their comfort level:
+El utilizar lanzamientos semánticos significa que los usuarios de tus acciones pueden fijar sus flujos de trabajo a una versión y tener por seguro que podrían seguir recibiendo las últimas características constantes y estables, dependiendo de su nivel de confort:
 
-## Working with the community
+## Trabajar con la comunidad
 
-{% data variables.product.product_name %} provides tools and guides to help you work with the open source community. Here are a few tools we recommend setting up for healthy bidirectional communication. By providing the following signals to the community, you encourage others to use, modify, and contribute to your action:
+{% data variables.product.product_name %} proporciona herramientas y guías para ayudarte a trabajar con la comunidad de código abierto. Aquí tienes algunas herramientas que te recomendamos configurar para tener una comunicación bidireccional saludable. Al proporcionar las siguientes señales a la comunidad, motivas a los demás a utilizar, modificar y contribuir con tu acción:
 
-* Maintain a `README` with plenty of usage examples and guidance. Para obtener más información, consulta "[Acerca de los README](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes)".
-* Include a workflow status badge in your `README` file. Para obtener más información, consulta la sección "[Agregar una insignia de estado de flujo de trabajo](/actions/managing-workflow-runs/adding-a-workflow-status-badge)". Also visit [shields.io](https://shields.io/) to learn about other badges that you can add.{% ifversion fpt %}
-* Add community health files like `CODE_OF_CONDUCT`, `CONTRIBUTING`, and `SECURITY`. For more information, see "[Creating a default community health file](/github/building-a-strong-community/creating-a-default-community-health-file#supported-file-types)."{% endif %}
-* Keep issues current by utilizing actions like [actions/stale](https://github.com/actions/stale).
+* Mantener un `README` con suficientes ejemplos de uso y lineamientos. Para obtener más información, consulta "[Acerca de los README](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes)".
+* Incluye una insignia de estado de flujo de trabajo en tu archivo `README`. Para obtener más información, consulta la sección "[Agregar una insignia de estado de flujo de trabajo](/actions/managing-workflow-runs/adding-a-workflow-status-badge)". También, visita [shields.io](https://shields.io/) para aprender sobre el resto de las insignias que puedes agregar.{% ifversion fpt or ghec %}
+* Agrega archivos de salud comunitaria como `CODE_OF_CONDUCT`, `CONTRIBUTING` y `SECURITY`. Para obtener más información, consulta "[Crear un archivo de salud predeterminado para la comunidad](/github/building-a-strong-community/creating-a-default-community-health-file#supported-file-types)".{% endif %}
+* Mantén las propuestas al día utilizando acciones como [actions/stale](https://github.com/actions/stale).
 
 ## Leer más
 
-Examples where similar patterns are employed include:
+Los ejemplos donde se emplean patrones similares incluyen:
 
 * [github/super-linter](https://github.com/github/super-linter)
 * [octokit/request-action](https://github.com/octokit/request-action)

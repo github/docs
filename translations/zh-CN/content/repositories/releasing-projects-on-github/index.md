@@ -2,8 +2,8 @@
 title: 在 GitHub 上发布项目
 intro: 您可以创建发行版以打包软件、发行说明和二进制文件，供他人下载。
 redirect_from:
-  - /categories/85/articles/
-  - /categories/releases/
+  - /categories/85/articles
+  - /categories/releases
   - /github/administering-a-repository/releasing-projects-on-github
 versions:
   fpt: '*'

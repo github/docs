@@ -2,9 +2,9 @@
 title: Crear un repositorio nuevo
 intro: Puedes crear un repositorio nuevo en tu cuenta personal o la cuenta de cualquier organización en la que tengas los permisos suficientes.
 redirect_from:
-  - /creating-a-repo/
-  - /articles/creating-a-repository-in-an-organization/
-  - /articles/creating-a-new-organization-repository/
+  - /creating-a-repo
+  - /articles/creating-a-repository-in-an-organization
+  - /articles/creating-a-new-organization-repository
   - /articles/creating-a-new-repository
   - /articles/creating-an-internal-repository
   - /github/setting-up-and-managing-your-enterprise-account/creating-an-internal-repository
@@ -26,17 +26,15 @@ topics:
 
 {% endtip %}
 
-{% ifversion fpt or ghae or ghes or ghec %}
 {% tip %}
 
 **Tip**: También puedes crear un repositorio utilizando el {% data variables.product.prodname_cli %}. Para obtener más información, consulta "[`gh repo create`](https://cli.github.com/manual/gh_repo_create)" en la documentación de {% data variables.product.prodname_cli %}.
 
 {% endtip %}
-{% endif %}
 
 {% data reusables.repositories.create_new %}
-2. Otra opción para crear un repositorio con la estructura del directorio y los archivos de un repositorio existente es usar el menú desplegable **Elegir una plantilla** y seleccionar un repositorio de plantillas. Verás repositorios de plantillas que te pertenecen a ti y a las organizaciones de las que eres miembro o bien repositorios de plantillas que has usado anteriormente. Para obtener más información, consulta "[Crear un repositorio a partir de una plantilla](/articles/creating-a-repository-from-a-template)". ![Template drop-down menu](/assets/images/help/repository/template-drop-down.png){% ifversion fpt or ghae or ghes or ghec %}
-3. De manera opcional, si decides utilizar una plantilla, para incluir la estructura del directorio y los archivos de todas las ramas en la misma y no solo la rama predeterminada, selecciona **Incluir todas las ramas**. ![Include all branches checkbox](/assets/images/help/repository/include-all-branches.png){% endif %}
+2. Otra opción para crear un repositorio con la estructura del directorio y los archivos de un repositorio existente es usar el menú desplegable **Elegir una plantilla** y seleccionar un repositorio de plantillas. Verás repositorios de plantillas que te pertenecen a ti y a las organizaciones de las que eres miembro o bien repositorios de plantillas que has usado anteriormente. Para obtener más información, consulta "[Crear un repositorio a partir de una plantilla](/articles/creating-a-repository-from-a-template)". ![Menú desplegable de la plantilla](/assets/images/help/repository/template-drop-down.png)
+3. De manera opcional, si decides utilizar una plantilla, para incluir la estructura del directorio y los archivos de todas las ramas en la misma y no solo la rama predeterminada, selecciona **Incluir todas las ramas**. ![Casilla de verificación de incluir todas las ramas](/assets/images/help/repository/include-all-branches.png)
 3. En el menú desplegable de Propietario, selecciona la cuenta en la cual quieres crear el repositorio. ![Menú desplegable Propietario](/assets/images/help/repository/create-repository-owner.png)
 {% data reusables.repositories.repo-name %}
 {% data reusables.repositories.choose-repo-visibility %}

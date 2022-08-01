@@ -77,16 +77,6 @@
   owning_teams:
     - '@github/github-projects'
 - 
-  title: コンテンツ添付ファイルの作成
-  description: このプレビューは、コンテンツ添付ファイルの作成のサポートを追加します。
-  toggled_by: ':corsair-preview'
-  announcement: null
-  updates: null
-  toggled_on:
-    - Mutation.createContentAttachment
-  owning_teams:
-    - '@github/feature-lifecycle'
-- 
   title: ラベルのプレビュー
   description: >-
     このプレビューは、ラベルの追加、更新、作成、削除のサポートを追加します。

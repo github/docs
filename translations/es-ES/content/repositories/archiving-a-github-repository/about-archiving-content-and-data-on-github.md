@@ -30,7 +30,7 @@ El {% data variables.product.prodname_archive %} permite que los socios terceros
 
 El uso responsable de los archivos incluye respetar la privacidad de los usuarios. Para obtener más información, consulta "[Información pública sobre GitHub](/free-pro-team@latest/github/site-policy/github-privacy-statement#public-information-on-github)".
 
-Puedes optar por que tu repositorio salga del {% data variables.product.prodname_archive %}. Para obtener más información, consulta la sección "[Optar por que tu repositorio público entre o salga del {% data variables.product.prodname_archive %}](/github/understanding-how-github-uses-and-protects-your-data/opting-into-or-out-of-the-github-archive-program-for-your-public-repository)".
+Puedes optar por que tu repositorio salga del {% data variables.product.prodname_archive %}. Para obtener más información, consulta la sección "[Optar por que tu repositorio público entre o salga del {% data variables.product.prodname_archive %}](/get-started/privacy-on-github/opting-into-or-out-of-the-github-archive-program-for-your-public-repository)".
 
 ## Agregar una licencia de código abierto para aumentar la capacidad de archivado
 

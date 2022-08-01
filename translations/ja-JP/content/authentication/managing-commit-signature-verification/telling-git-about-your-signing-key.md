@@ -2,7 +2,7 @@
 title: Git へ署名キーを伝える
 intro: ローカルでコミットに署名するには、使用する GPG または X.509 キーがあることを Git に知らせる必要があります。
 redirect_from:
-  - /articles/telling-git-about-your-gpg-key/
+  - /articles/telling-git-about-your-gpg-key
   - /articles/telling-git-about-your-signing-key
   - /github/authenticating-to-github/telling-git-about-your-signing-key
   - /github/authenticating-to-github/managing-commit-signature-verification/telling-git-about-your-signing-key
@@ -44,6 +44,12 @@ If you're using a GPG key that matches your committer identity and your verified
   ```shell
   $ if [ -r ~/.bash_profile ]; then echo 'export GPG_TTY=$(tty)' >> ~/.bash_profile; \
     else echo 'export GPG_TTY=$(tty)' >> ~/.profile; fi
+  ```
+1. Optionally, to prompt you to enter a PIN or passphrase when required, install `pinentry-mac`. For example, using [Homebrew](https://brew.sh/):
+  ```shell
+  $ brew install pinentry-mac
+  $ echo "pinentry-program $(which pinentry-mac)" >> ~/.gnupg/gpg-agent.conf
+  $ killall gpg-agent
   ```
 
 {% data reusables.gpg.x-509-key %}
@@ -91,16 +97,10 @@ If you're using a GPG key that matches your committer identity and your verified
 {% data reusables.gpg.list-keys-with-note %}
 {% data reusables.gpg.copy-gpg-key-id %}
 {% data reusables.gpg.paste-gpg-key-id %}
-1. GPG キーを bash プロファイルに追加するには、次のコマンドを実行します。
-  ```shell
-  $ if [ -r ~/.bash_profile ]; then echo 'export GPG_TTY=$(tty)' >> ~/.bash_profile; \
-    else echo 'export GPG_TTY=$(tty)' >> ~/.profile; fi
+1. To add your GPG key to your `.bashrc` startup file, run the following command:
+  ```bash
+  $ [ -f ~/.bashrc ] && echo 'export GPG_TTY=$(tty)' >> ~/.bashrc
   ```
-  {% note %}
-
-  **メモ:** `.bash_profile` を持っていない場合、このコマンドで `.profile` に GPG キーを追加します。
-
-  {% endnote %}
 
 {% endlinux %}
 
@@ -109,7 +109,7 @@ If you're using a GPG key that matches your committer identity and your verified
 - [既存の GPG キーのチェック](/articles/checking-for-existing-gpg-keys)
 - [新しい GPG キーの生成](/articles/generating-a-new-gpg-key)
 - [GPG キーで検証済みのメールアドレスを使う](/articles/using-a-verified-email-address-in-your-gpg-key)
-- [GitHub アカウントへの新しい GPG キーの追加](/articles/adding-a-new-gpg-key-to-your-github-account)
+- "[Adding a GPG key to your GitHub account](/articles/adding-a-gpg-key-to-your-github-account)"
 - [GPG キーとメールの関連付け](/articles/associating-an-email-with-your-gpg-key)
 - 「[コミットに署名する](/articles/signing-commits)」
 - 「[タグに署名する](/articles/signing-tags)」

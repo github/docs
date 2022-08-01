@@ -2,27 +2,27 @@
 title: Solucionar problemas de erros de criação do Jekyll para sites do GitHub Pages
 intro: 'Você pode usar mensagens de erro de criação do Jekyll para solucionar problemas com seu site do {% data variables.product.prodname_pages %}.'
 redirect_from:
-  - /articles/page-build-failed-missing-docs-folder/
-  - /articles/page-build-failed-invalid-submodule/
-  - /articles/page-build-failed-missing-submodule/
-  - /articles/page-build-failed-markdown-errors/
-  - /articles/page-build-failed-config-file-error/
-  - /articles/page-build-failed-unknown-tag-error/
-  - /articles/page-build-failed-tag-not-properly-terminated/
-  - /articles/page-build-failed-tag-not-properly-closed/
-  - /articles/page-build-failed-file-does-not-exist-in-includes-directory/
-  - /articles/page-build-failed-file-is-a-symlink/
-  - /articles/page-build-failed-symlink-does-not-exist-within-your-sites-repository/
-  - /articles/page-build-failed-file-is-not-properly-utf-8-encoded/
-  - /articles/page-build-failed-invalid-post-date/
-  - /articles/page-build-failed-invalid-sass-or-scss/
-  - /articles/page-build-failed-invalid-highlighter-language/
-  - /articles/page-build-failed-relative-permalinks-configured/
-  - /articles/page-build-failed-syntax-error-in-for-loop/
-  - /articles/page-build-failed-invalid-yaml-in-data-file/
-  - /articles/page-build-failed-date-is-not-a-valid-datetime/
-  - /articles/troubleshooting-github-pages-builds/
-  - /articles/troubleshooting-jekyll-builds/
+  - /articles/page-build-failed-missing-docs-folder
+  - /articles/page-build-failed-invalid-submodule
+  - /articles/page-build-failed-missing-submodule
+  - /articles/page-build-failed-markdown-errors
+  - /articles/page-build-failed-config-file-error
+  - /articles/page-build-failed-unknown-tag-error
+  - /articles/page-build-failed-tag-not-properly-terminated
+  - /articles/page-build-failed-tag-not-properly-closed
+  - /articles/page-build-failed-file-does-not-exist-in-includes-directory
+  - /articles/page-build-failed-file-is-a-symlink
+  - /articles/page-build-failed-symlink-does-not-exist-within-your-sites-repository
+  - /articles/page-build-failed-file-is-not-properly-utf-8-encoded
+  - /articles/page-build-failed-invalid-post-date
+  - /articles/page-build-failed-invalid-sass-or-scss
+  - /articles/page-build-failed-invalid-highlighter-language
+  - /articles/page-build-failed-relative-permalinks-configured
+  - /articles/page-build-failed-syntax-error-in-for-loop
+  - /articles/page-build-failed-invalid-yaml-in-data-file
+  - /articles/page-build-failed-date-is-not-a-valid-datetime
+  - /articles/troubleshooting-github-pages-builds
+  - /articles/troubleshooting-jekyll-builds
   - /articles/troubleshooting-jekyll-build-errors-for-github-pages-sites
   - /github/working-with-github-pages/troubleshooting-jekyll-build-errors-for-github-pages-sites
 product: '{% data reusables.gated-features.pages %}'
@@ -43,12 +43,12 @@ Se o Jekyll encontrar um erro ao criar seu site do {% data variables.product.pro
 Se você recebeu uma mensagem de erro genérica, verifique os problemas comuns.
 - Você está usando plugins incompatíveis. Para obter mais informações, consulte "[Sobre o {% data variables.product.prodname_pages %} e o Jekyll](/articles/about-github-pages-and-jekyll#plugins)".{% ifversion fpt or ghec %}
 - Seu repositório excedeu os limites de tamanho. Para obter mais informações, consulte "[Qual é a minha quota de disco?](/articles/what-is-my-disk-quota)"{% endif %}
-- Você alterou a configuração `source` no arquivo *_config.yml*. {% data variables.product.prodname_pages %} substitui essa configuração durante o processo de criação.
-- Um nome de arquivo na fonte de publicação contém dois pontos (`:`), o que não é permitido.
+- Você alterou a configuração `source` no arquivo *_config.yml*. {% ifversion pages-custom-workflow %}If you publish your site from a branch, {% endif %}{% data variables.product.prodname_pages %} overrides this setting during the build process.
+- A filename in your published files contains a colon (`:`) which is not supported.
 
 Se você recebeu uma mensagem de erro específica, revise abaixo as informações de solução de problemas relativas à mensagem de erro.
 
-Depois que tiver corrigido os possíveis erros, faça push das alterações para a fonte de publicação do seu site para ativar outra criação no {% data variables.product.product_name %}.
+{% ifversion pages-custom-workflow %}After you've fixed any errors, trigger another build by pushing the changes to your site's source branch (if you are publishing from a branch) or by triggering your custom {% data variables.product.prodname_actions %} workflow (if you are publishing with {% data variables.product.prodname_actions %}).{% else %}After you've fixed any errors, push the changes to your site's publishing source to trigger another build on {% data variables.product.product_name %}.{% endif %}
 
 ## Erro no arquivo de configuração
 
@@ -74,7 +74,7 @@ Este erro significa que o código faz referência a um arquivo que não existe n
 
 ## O arquivo é um link simbólico
 
-Este erro significa que o código faz referência a um arquivo com link simbólico que não existe na fonte de publicação do seu site.
+This error means that your code references a symlinked file that does not exist in the published files for your site.
 
 {% data reusables.pages.search-for-includes %} Se algum dos arquivos a que você fez referência for com link simbólico, copie ou mova os arquivos para o diretório *_includes*.
 
@@ -162,9 +162,9 @@ Para solucionar problemas, remova a linha `relative_permalinks` do arquivo *_con
 
 ## O link simbólico não existe no repositório do site
 
-Este erro significa que seu site inclui um link simbólico que não existe na fonte de publicação do site. Para obter mais informações sobre links simbólicos, consulte "[Link simbólico](https://en.wikipedia.org/wiki/Symbolic_link)" na Wikipédia.
+This error means that your site includes a symbolic link (symlink) that does not exist in the published files for your site. Para obter mais informações sobre links simbólicos, consulte "[Link simbólico](https://en.wikipedia.org/wiki/Symbolic_link)" na Wikipédia.
 
-Para solucionar problemas, determine se o arquivo na mensagem de erro é usado para criar o site. Se ele não for ou se você não quiser que o arquivo seja um link simbólico, exclua o arquivo. Se o arquivo de link simbólico for necessário para criar seu site, verifique se o arquivo ou o diretório a que ele faz referência está na fonte de publicação do site. Para incluir ativos externos, considere usar {% ifversion fpt or ghec %}`submódulo do Git` ou {% endif %}um gerenciador de pacotes terceirizado como o [Bower](https://bower.io/).{% ifversion fpt or ghec %} Para obter mais informações, consulte "[Usar submódulos com o {% data variables.product.prodname_pages %}](/articles/using-submodules-with-github-pages)".{% endif %}
+Para solucionar problemas, determine se o arquivo na mensagem de erro é usado para criar o site. Se ele não for ou se você não quiser que o arquivo seja um link simbólico, exclua o arquivo. If the symlinked file is necessary to build your site, make sure the file or directory the symlink references is in the published files for your site. Para incluir ativos externos, considere usar {% ifversion fpt or ghec %}`submódulo do Git` ou {% endif %}um gerenciador de pacotes terceirizado como o [Bower](https://bower.io/).{% ifversion fpt or ghec %} Para obter mais informações, consulte "[Usar submódulos com o {% data variables.product.prodname_pages %}](/articles/using-submodules-with-github-pages)".{% endif %}
 
 ## Erro de sintaxe no loop 'for'
 

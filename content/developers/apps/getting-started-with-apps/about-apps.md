@@ -2,9 +2,9 @@
 title: About apps
 intro: 'You can build integrations with the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} APIs to add flexibility and reduce friction in your own workflow.{% ifversion fpt or ghec %} You can also share integrations with others on [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace).{% endif %}'
 redirect_from:
-  - /apps/building-integrations/setting-up-a-new-integration/
-  - /apps/building-integrations/
-  - /apps/getting-started-with-building-apps/
+  - /apps/building-integrationssetting-up-a-new-integration
+  - /apps/building-integrations
+  - /apps/getting-started-with-building-apps
   - /apps/about-apps
   - /developers/apps/about-apps
 versions:
@@ -27,7 +27,7 @@ For a walkthrough of the process of building a {% data variables.product.prodnam
 
 {% data variables.product.prodname_github_apps %} are first-class actors within GitHub. A {% data variables.product.prodname_github_app %} acts on its own behalf, taking actions via the API directly using its own identity, which means you don't need to maintain a bot or service account as a separate user.
 
-{% data variables.product.prodname_github_apps %} can be installed directly on organizations and user accounts and granted access to specific repositories. They come with built-in webhooks and narrow, specific permissions. When you set up your {% data variables.product.prodname_github_app %}, you can select the repositories you want it to access. For example, you can set up an app called `MyGitHub` that writes issues in the `octocat` repository and _only_ the `octocat` repository. To install a {% data variables.product.prodname_github_app %}, you must be an organization owner or have admin permissions in a repository.
+{% data variables.product.prodname_github_apps %} can be installed directly on organizations and personal accounts and granted access to specific repositories. They come with built-in webhooks and narrow, specific permissions. When you set up your {% data variables.product.prodname_github_app %}, you can select the repositories you want it to access. For example, you can set up an app called `MyGitHub` that writes issues in the `octocat` repository and _only_ the `octocat` repository. To install a {% data variables.product.prodname_github_app %}, you must be an organization owner or have admin permissions in a repository.
 
 {% data reusables.apps.app_manager_role %}
 
@@ -84,7 +84,7 @@ Keep these ideas in mind when using personal access tokens:
 * You can perform one-off cURL requests.
 * You can run personal scripts.
 * Don't set up a script for your whole team or company to use.
-* Don't set up a shared user account to act as a bot user.{% ifversion fpt or ghes > 3.2 or ghae-issue-4374 or ghec %}
+* Don't set up a shared personal account to act as a bot user.{% ifversion fpt or ghes > 3.2 or ghae or ghec %}
 * Do set an expiration for your personal access tokens, to help keep your information secure.{% endif %}
 
 ## Determining which integration to build

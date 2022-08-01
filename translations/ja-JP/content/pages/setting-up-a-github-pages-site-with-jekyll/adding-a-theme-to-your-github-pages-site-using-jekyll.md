@@ -2,8 +2,8 @@
 title: Jekyll を使用して GitHub Pages サイトにテーマを追加する
 intro: テーマを追加およびカスタマイズすることにより、Jekyll サイトをパーソナライズできます。
 redirect_from:
-  - /articles/customizing-css-and-html-in-your-jekyll-theme/
-  - /articles/adding-a-jekyll-theme-to-your-github-pages-site/
+  - /articles/customizing-css-and-html-in-your-jekyll-theme
+  - /articles/adding-a-jekyll-theme-to-your-github-pages-site
   - /articles/adding-a-theme-to-your-github-pages-site-using-jekyll
   - /github/working-with-github-pages/adding-a-theme-to-your-github-pages-site-using-jekyll
 product: '{% data reusables.gated-features.pages %}'
@@ -49,7 +49,7 @@ shortTitle: Pagesサイトへのテーマの追加
   ---
   ---
 
-  @import "{{ site.theme }}";
+  @import "{% raw %}{{ site.theme }}{% endraw %}";
   ```
 3. カスタム CSS または Sass (インポートファイルも含む) があれば `@import` 行の直後に追加します。
 

@@ -2,7 +2,6 @@
 title: 在企业中实施仓库管理策略
 intro: 您可以在企业组织内执行仓库管理策略，或允许在每个组织中设置策略。
 permissions: Enterprise owners can enforce policies for repository management in an enterprise.
-product: '{% data reusables.gated-features.enterprise-accounts %}'
 redirect_from:
   - /enterprise/admin/installation/configuring-the-default-visibility-of-new-repositories-on-your-appliance
   - /enterprise/admin/guides/user-management/preventing-users-from-changing-a-repository-s-visibility
@@ -10,26 +9,26 @@ redirect_from:
   - /enterprise/admin/user-management/restricting-repository-creation-in-your-instance
   - /enterprise/admin/user-management/preventing-users-from-deleting-organization-repositories
   - /enterprise/admin/installation/setting-git-push-limits
-  - /enterprise/admin/guides/installation/git-server-settings/
-  - /enterprise/admin/articles/setting-git-push-limits/
+  - /enterprise/admin/guides/installation/git-server-settings
+  - /enterprise/admin/articles/setting-git-push-limits
   - /enterprise/admin/user-management/allowing-admins-to-enable-anonymous-git-read-access-to-public-repositories
   - /enterprise/admin/installation/disabling-the-merge-conflict-editor-for-pull-requests-between-repositories
   - /enterprise/admin/developer-workflow/blocking-force-pushes-on-your-appliance
   - /enterprise/admin/developer-workflow/blocking-force-pushes-to-repositories-owned-by-a-user-account-or-organization
   - /enterprise/admin/developer-workflow/blocking-force-pushes-to-a-repository
-  - /enterprise/admin/articles/blocking-force-pushes-on-your-appliance/
-  - /enterprise/admin/guides/user-management/preventing-users-from-changing-anonymous-git-read-access-to-a-repository/
+  - /enterprise/admin/articles/blocking-force-pushes-on-your-appliance
+  - /enterprise/admin/guides/user-management/preventing-users-from-changing-anonymous-git-read-access-to-a-repository
   - /enterprise/admin/user-management/preventing-users-from-changing-anonymous-git-read-access
-  - /enterprise/admin/articles/blocking-force-pushes-to-a-repository/
-  - /enterprise/admin/articles/block-force-pushes/
-  - /enterprise/admin/articles/blocking-force-pushes-for-a-user-account/
-  - /enterprise/admin/articles/blocking-force-pushes-for-an-organization/
-  - /enterprise/admin/articles/blocking-force-pushes-to-repositories-owned-by-a-user-account-or-organization/
+  - /enterprise/admin/articles/blocking-force-pushes-to-a-repository
+  - /enterprise/admin/articles/block-force-pushes
+  - /enterprise/admin/articles/blocking-force-pushes-for-a-user-account
+  - /enterprise/admin/articles/blocking-force-pushes-for-an-organization
+  - /enterprise/admin/articles/blocking-force-pushes-to-repositories-owned-by-a-user-account-or-organization
   - /enterprise/admin/developer-workflow/blocking-force-pushes
   - /enterprise/admin/policies/enforcing-repository-management-policies-in-your-enterprise
   - /admin/policies/enforcing-repository-management-policies-in-your-enterprise
-  - /articles/enforcing-repository-management-settings-for-organizations-in-your-business-account/
-  - /articles/enforcing-repository-management-policies-for-organizations-in-your-enterprise-account/
+  - /articles/enforcing-repository-management-settings-for-organizations-in-your-business-account
+  - /articles/enforcing-repository-management-policies-for-organizations-in-your-enterprise-account
   - /articles/enforcing-repository-management-policies-in-your-enterprise-account
   - /github/setting-up-and-managing-your-enterprise-account/enforcing-repository-management-policies-in-your-enterprise-account
   - /github/setting-up-and-managing-your-enterprise/enforcing-repository-management-policies-in-your-enterprise-account
@@ -72,16 +71,16 @@ shortTitle: 仓库管理策略
 
 {% endif %}
 
-## 执行 {% ifversion ghec or ghes > 3.1 or ghae-next %}基础{% else %}默认{% endif %} 仓库权限的策略
+## 执行 {% ifversion ghec or ghes or ghae %}基础{% else %}默认{% endif %} 仓库权限的策略
 
-在企业帐户拥有的所有组织中，您可以为组织成员设置{% ifversion ghec or ghes > 3.1 or ghae-next %}基础{% else %}默认{% endif %}仓库权限级别（无、读取、写入或管理），或允许所有者在组织级别管理设置。
+在企业帐户拥有的所有组织中，您可以为组织成员设置{% ifversion ghec or ghes or ghae %}基础{% else %}默认{% endif %}仓库权限级别（无、读取、写入或管理），或允许所有者在组织级别管理设置。
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.repositories-tab %}
-4. 在“{% ifversion ghec or ghes > 3.1 or ghae-next %}基础{% else %}默认{% endif %} 权限”下，查看有关更改设置的信息。 {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
-5. 在“{% ifversion ghec or ghes > 3.1 or ghae-next %}基础{% else %}默认{% endif %} 权限”下，使用下拉菜单并选择策略。
-  {% ifversion ghec or ghes > 3.1 or ghae-next %}
+4. 在“{% ifversion ghec or ghes or ghae %}基础{% else %}默认{% endif %} 权限”下，查看有关更改设置的信息。 {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
+5. 在“{% ifversion ghec or ghes or ghae %}基础{% else %}默认{% endif %} 权限”下，使用下拉菜单并选择策略。
+  {% ifversion ghec or ghes or ghae %}
   ![带有仓库权限策略选项的下拉菜单](/assets/images/help/business-accounts/repository-permissions-policy-drop-down.png)
   {% else %}
   ![带有仓库权限策略选项的下拉菜单](/assets/images/enterprise/business-accounts/repository-permissions-policy-drop-down.png)
@@ -101,7 +100,9 @@ shortTitle: 仓库管理策略
 {% data reusables.enterprise-accounts.repo-creation-policy %}
 {% data reusables.enterprise-accounts.repo-creation-types %}
 {% else %}
-6. 在“Repository creation（仓库创建）”下，使用下拉菜单并选择策略。 ![包含仓库创建策略的下拉菜单](/assets/images/enterprise/site-admin-settings/repository-creation-drop-down.png)
+6. 在“Repository creation（仓库创建）”下，使用下拉菜单并选择策略。
+
+  ![包含仓库创建策略的下拉菜单](/assets/images/enterprise/site-admin-settings/repository-creation-drop-down.png)
 {% endif %}
 
 ## 实施有关复刻私有或内部仓库的策略
@@ -112,17 +113,27 @@ shortTitle: 仓库管理策略
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.repositories-tab %}
 3. 在“Repository forking”（仓库复刻）下，审查有关更改设置的信息。 {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
-4. 在“Repository forking（仓库复刻）”下，使用下拉菜单并选择策略。 ![带有仓库复刻策略选项的下拉菜单](/assets/images/help/business-accounts/repository-forking-policy-drop-down.png)
+4. 在“Repository forking（仓库复刻）”下，使用下拉菜单并选择策略。
+
+  ![带有仓库复刻策略选项的下拉菜单](/assets/images/help/business-accounts/repository-forking-policy-drop-down.png)
+
+{% ifversion innersource-fork-policies %}
+5. 如果启用了复刻，则可以指定允许用户复刻存储库的位置。 查看有关更改设置的信息并选择策略。
+
+    ![显示存储库复刻策略选项列表的屏幕截图](/assets/images/help/business-accounts/repository-forking-policy-settings.png)
+{% endif %}
+
 
 ## 执行邀请{% ifversion ghec %} 外部{% endif %} 协作者参与仓库的策略
 
-在您的企业帐户拥有的所有组织中，您可以允许成员邀请{% ifversion ghec %}外部{% endif %}协作者加入仓库、将{% ifversion ghec %}外部协作者{% endif %}邀请限制为组织所有者或允许所有者在组织级别管理设置。
+在企业拥有的所有组织中，您可以允许成员邀请{% ifversion ghec %}外部{% endif %} 协作者访问存储库，限制{% ifversion ghec %}外部协作者 {% endif %}邀请组织所有者，{% ifversion prevent-org-admin-add-outside-collaborator %}限制{% ifversion ghec %}外部协作者 {% endif %}邀请企业所有者，{% endif %}或允许组织所有者在组织级别管理设置。
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.repositories-tab %}
 3. 在“仓库 {% ifversion ghec %}外部协作者{% elsif ghes or ghae %}邀请{% endif %}”下，请查看有关更改设置的信息。 {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
 4. 在“仓库 {% ifversion ghec %}外部协作者{% elsif ghes or ghae %}邀请{% endif %}”下，使用下拉菜单并选择策略。
+
   {% ifversion ghec %}
   ![带有外部协作者邀请策略选项的下拉菜单](/assets/images/help/business-accounts/repository-invitation-policy-drop-down.png)
   {% elsif ghes or ghae %}
@@ -174,7 +185,9 @@ shortTitle: 仓库管理策略
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 3. 在 **Repository policies（仓库策略）**选项卡中的“Repository issue deletion（仓库议题删除）”下，审查有关更改设置的信息。 {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
-4. 在“Repository issue deletion（仓库议题删除）”下，使用下拉菜单并选择策略。 ![带有议题删除策略选项的下拉菜单](/assets/images/help/business-accounts/repository-issue-deletion-policy-drop-down.png)
+4. 在“Repository issue deletion（仓库议题删除）”下，使用下拉菜单并选择策略。
+
+  ![带有议题删除策略选项的下拉菜单](/assets/images/help/business-accounts/repository-issue-deletion-policy-drop-down.png)
 
 {% ifversion ghes or ghae %}
 
@@ -189,6 +202,28 @@ shortTitle: 仓库管理策略
 {% data reusables.enterprise-accounts.options-tab %}
 4. 在“Repository upload limit”下，使用下拉菜单，然后单击最大对象大小。 ![包含最大对象大小选项的下拉菜单](/assets/images/enterprise/site-admin-settings/repo-upload-limit-dropdown.png)
 5. （可选）要对企业中的所有仓库实施最大上传限制，请选择 **Enforce on all repositories（对所有仓库强制执行）** ![对所有仓库选项强制执行最大对象限制](/assets/images/enterprise/site-admin-settings/all-repo-upload-limit-option.png)
+
+{% ifversion profile-name-enterprise-setting %}
+
+## 强制实施在存储库中显示成员名称的策略
+
+在企业拥有的所有组织中，您可以允许成员在公共和内部存储库的问题和拉取请求中查看评论作者的个人资料名称，以及他们的用户名。
+
+![评论中显示的评论者个人资料名称](/assets/images/help/issues/commenter-full-name.png)
+
+{% note %}
+
+**注意：** 对企业中的所有存储库强制实施此策略时，它将覆盖私有存储库的组织设置。 更多信息请参阅“[管理组织中成员名称的显示](/organizations/managing-organization-settings/managing-the-display-of-member-names-in-your-organization)”。
+
+{% endnote %}
+
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.policies-tab %}
+{% data reusables.enterprise-accounts.options-tab %}
+4. Under "Allow members to see the comment author's profile name in public and internal repositories", select the dropdown menu and click a policy. ![突出显示了策略下拉列表的选项页面的屏幕截图](/assets/images/enterprise/site-admin-settings/comment-authors-profile-name-drop-down.png)
+5. Optionally, to enforce the display of profile names for all repositories in your enterprise, select **Enforce for all repositories on the instance**. ![Screenshot of "Enforce for all repositories" option emphasized](/assets/images/enterprise/site-admin-settings/enforce-for-all-repositories-option.png)
+
+{% endif %}
 
 ## 为仓库之间的拉取请求配置合并冲突编辑器
 
@@ -252,9 +287,21 @@ shortTitle: 仓库管理策略
 
 {% data reusables.enterprise_user_management.disclaimer-for-git-read-access %}
 
-{% ifversion ghes %}如果您已经在企业上[启用私密模式](/enterprise/admin/configuration/enabling-private-mode)，{% else %}您{% endif %}可以允许仓库管理员启用对公共仓库的匿名 Git 读取访问。
+If you have [enabled private mode](/enterprise/admin/configuration/enabling-private-mode) for {% data variables.product.product_location %}, you can allow repository administrators to enable anonymous Git read access to public repositories.
 
 启用匿名 Git 读取允许用户在企业上为自定义工具绕过身份验证。 当您或仓库管理员为仓库启用此权限设置时，未经过身份验证的 Git 操作（和具有 {% data variables.product.product_name %} 的网络访问权限的任何人）将获得仓库的读取权限（无需身份验证）。
+
+Anonymous Git read access is disabled by default.{% ifversion ghes = 3.4 or ghes = 3.5 or ghes = 3.6 or ghes = 3.7 %} When you upgrade to {% data variables.product.product_name %} 3.6 or later, anonymous Git read access is automatically disabled at the application level, and `git://` connections on port 9418 will return the following error.
+
+```
+The unauthenticated git protocol on port 9418 is no longer supported.
+```
+
+If you wish to support the unathenticated Git protocol in your environment, you must manually re-enable the feature. {% data variables.product.company_short %} recommends using SSH instead of the Git protocol. 更多信息请参阅 [{% data variables.product.prodname_blog %}](https://github.blog/2022-06-28-improving-git-protocol-security-on-github-enterprise-server)。
+
+{% endif %}
+
+
 
 如有必要，您可以通过锁定仓库的访问设置，阻止仓库管理员更改企业上仓库的匿名 Git 访问设置。 在您锁定仓库的 Git 读取权限设置后，只有站点管理员可以更改设置。
 

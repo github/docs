@@ -14,16 +14,11 @@ export type BumpLinkPropsT = {
 export const BumpLink = ({ as, children, href, title, className }: BumpLinkPropsT) => {
   const Component = as || 'a'
 
-  const symbol = <span className={styles.symbol}>→</span>
   let extendedTitle: ReactNode
   if (typeof title === 'string') {
-    extendedTitle = (
-      <span className="h4">
-        {title} {symbol}
-      </span>
-    )
+    extendedTitle = <span className="h4">{title}</span>
   } else {
-    extendedTitle = cloneElement(title, title.props, title.props.children, symbol)
+    extendedTitle = cloneElement(title, title.props, title.props.children)
   }
 
   return (

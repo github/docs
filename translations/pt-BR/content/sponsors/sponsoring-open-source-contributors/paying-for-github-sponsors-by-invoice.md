@@ -19,4 +19,3 @@ As empresas podem usar um método de fatura para participar do programa de {% da
 
 Você pode participar deste programa em fase beta conversando com seu representante de vendas ou [entrando em contato conosco](https://support.github.com/contact/org-sponsors-waitlist).
 
-Para informações sobre receber pagamentos do serviço de Patrocinadores para empresas, consulte "[Recebendo pagamentos de Sponsors para empresas](/sponsors/receiving-sponsorships-through-github-sponsors/sponsors-for-companies)."

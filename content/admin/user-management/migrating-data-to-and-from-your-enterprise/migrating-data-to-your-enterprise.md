@@ -2,14 +2,14 @@
 title: Migrating data to your enterprise
 intro: 'After generating a migration archive, you can import the data to your target {% data variables.product.prodname_ghe_server %} instance. You''ll be able to review changes for potential conflicts before permanently applying the changes to your target instance.'
 redirect_from:
-  - /enterprise/admin/guides/migrations/importing-migration-data-to-github-enterprise/
+  - /enterprise/admin/guides/migrations/importing-migration-data-to-github-enterprise
   - /enterprise/admin/migrations/applying-the-imported-data-on-github-enterprise-server
   - /enterprise/admin/migrations/reviewing-migration-data
   - /enterprise/admin/migrations/completing-the-import-on-github-enterprise-server
-  - /enterprise/admin/guides/migrations/applying-the-imported-data-on-github-enterprise/
-  - /enterprise/admin/guides/migrations/reviewing-the-imported-data/
-  - /enterprise/admin/guides/migrations/completing-the-import-on-github-enterprise/
-  - /enterprise/admin/guides/migrations/importing-migration-data-to-github-enterprise-server/
+  - /enterprise/admin/guides/migrations/applying-the-imported-data-on-github-enterprise
+  - /enterprise/admin/guides/migrations/reviewing-the-imported-data
+  - /enterprise/admin/guides/migrations/completing-the-import-on-github-enterprise
+  - /enterprise/admin/guides/migrations/importing-migration-data-to-github-enterprise-server
   - /enterprise/admin/user-management/migrating-data-to-your-enterprise
   - /admin/user-management/migrating-data-to-your-enterprise
 versions:
@@ -34,7 +34,7 @@ After you prepare the data and resolve conflicts, you can apply the imported dat
 
     ```shell
     $ ghe-migrator import /home/admin/<em>MIGRATION_GUID</em>.tar.gz -g <em>MIGRATION_GUID</em> -u <em>username</em> -p <em>TOKEN</em>
-    
+
     > Starting GitHub::Migrator
     > Import 100% complete /
     ```
@@ -128,7 +128,7 @@ After your migration is applied to your target instance and you have reviewed th
 
 ### Unlocking repositories from an organization on {% data variables.product.prodname_dotcom_the_website %}
 
-To unlock the repositories on a {% data variables.product.prodname_dotcom_the_website %} organization, you'll send a `DELETE` request to <a href="/rest/reference/migrations#unlock-an-organization-repository" class="dotcom-only">the migration unlock endpoint</a>. You'll need:
+To unlock the repositories on a {% data variables.product.prodname_dotcom_the_website %} organization, you'll send a `DELETE` request to [the migration unlock endpoint](/free-pro-team@latest/rest/migrations#unlock-an-organization-repository). You'll need:
   * Your access token for authentication
   * The unique `id` of the migration
   * The name of the repository to unlock
@@ -140,7 +140,7 @@ curl -H "Authorization: token <em>GITHUB_ACCESS_TOKEN</em>" -X DELETE \
 
 ### Deleting repositories from an organization on {% data variables.product.prodname_dotcom_the_website %}
 
-After unlocking the {% data variables.product.prodname_dotcom_the_website %} organization's repositories, you should delete every repository you previously migrated using [the repository delete endpoint](/rest/reference/repos/#delete-a-repository). You'll need your access token for authentication:
+After unlocking the {% data variables.product.prodname_dotcom_the_website %} organization's repositories, you should delete every repository you previously migrated using [the repository delete endpoint](/rest/repos/#delete-a-repository). You'll need your access token for authentication:
 ```shell
 curl -H "Authorization: token <em>GITHUB_ACCESS_TOKEN</em>" -X DELETE \
   https://api.github.com/repos/<em>orgname</em>/<em>repo_name</em>

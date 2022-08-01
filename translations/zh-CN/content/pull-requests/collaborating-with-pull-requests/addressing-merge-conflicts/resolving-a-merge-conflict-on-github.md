@@ -35,7 +35,7 @@ shortTitle: 解决合并冲突
 
  {% tip %}
 
- **提示：**如果停用 **Resolve conflicts（解决冲突）**按钮，则拉取请求的合并冲突过于复杂而无法在 {% data variables.product.product_name %} 上解决{% ifversion ghes or ghae %}或站点管理员已禁用仓库之间拉取请求的冲突编辑器{% endif %}。 必须使用备用 Git 客户端或在命令行上使用 Git 解决合并冲突。 For more information see "\[Resolving a merge conflict using the command line\](/github/collaborating-with-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-using-the-command-line."
+ **提示：**如果停用 **Resolve conflicts（解决冲突）**按钮，则拉取请求的合并冲突过于复杂而无法在 {% data variables.product.product_name %} 上解决{% ifversion ghes or ghae %}或站点管理员已禁用仓库之间拉取请求的冲突编辑器{% endif %}。 必须使用备用 Git 客户端或在命令行上使用 Git 解决合并冲突。 更多信息请参阅“[使用命令行解决合并冲突](/github/collaborating-with-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-using-the-command-line)”。
 
  {% endtip %}
 {% data reusables.pull_requests.decide-how-to-resolve-competing-line-change-merge-conflict %}

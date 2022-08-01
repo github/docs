@@ -2,8 +2,8 @@
 title: GitHub Marketplace API 的 web 挂钩事件
 intro: '{% data variables.product.prodname_marketplace %} app 从 Marketplace 购买事件 web 挂钩接收有关用户计划更改的信息。 当用户购买、取消或更改其付款计划时，就会触发 Marketplace 购买事件。'
 redirect_from:
-  - /apps/marketplace/setting-up-github-marketplace-webhooks/about-webhook-payloads-for-a-github-marketplace-listing/
-  - /apps/marketplace/integrating-with-the-github-marketplace-api/github-marketplace-webhook-events/
+  - /apps/marketplace/setting-up-github-marketplace-webhooks/about-webhook-payloads-for-a-github-marketplace-listing
+  - /apps/marketplace/integrating-with-the-github-marketplace-api/github-marketplace-webhook-events
   - /marketplace/integrating-with-the-github-marketplace-api/github-marketplace-webhook-events
   - /developers/github-marketplace/webhook-events-for-the-github-marketplace-api
 versions:
@@ -46,17 +46,17 @@ Web 挂钩 `POST` 请求具有特殊标头。 有关详细信息，请参阅“[
 
 `plan` 对象含有以下键：
 
-| 键                        | 类型      | 描述                                                 |
-| ------------------------ | ------- | -------------------------------------------------- |
-| `id`                     | `整数`    | 此计划的唯一标识符。                                         |
-| `name`                   | `字符串`   | 计划的名称。                                             |
-| `说明`                     | `字符串`   | 此计划的说明。                                            |
-| `monthly_price_in_cents` | `整数`    | 此计划的每月价格（以美分为单位）。 例如，每月费用 10 美元的商品将显示价格 1000 美分。   |
-| `yearly_price_in_cents`  | `整数`    | 此计划的每年价格（以美分为单位）。 例如，每月费用 100 美元的商品将显示价格 10000 美分。 |
-| `price_model`            | `字符串`   | 此商品的定价模型。 可以是 `flat-rate`、`per-unit` 或 `free` 之一。  |
-| `has_free_trial`         | `布尔值`   | 当此商品提供免费试用时，该值为 `true`。                            |
-| `unit_name`              | `字符串`   | 单位的名称。 如果定价模型不是 `per-unit`，则该值为 `nil`。             |
-| `bullet`                 | `字符串数组` | 定价计划中设置的项目符号的名称。                                   |
+| 键                        | 类型      | 描述                                                  |
+| ------------------------ | ------- | --------------------------------------------------- |
+| `id`                     | `整数`    | 此计划的唯一标识符。                                          |
+| `name`                   | `字符串`   | 计划的名称。                                              |
+| `说明`                     | `字符串`   | 此计划的说明。                                             |
+| `monthly_price_in_cents` | `整数`    | 此计划的每月价格（以美分为单位）。 例如，每月费用 10 美元的商品将显示价格 1000 美分。    |
+| `yearly_price_in_cents`  | `整数`    | 此计划的每年价格（以美分为单位）。 例如，每月费用 100 美元的商品将显示价格 120000 美分。 |
+| `price_model`            | `字符串`   | 此商品的定价模型。 可以是 `flat-rate`、`per-unit` 或 `free` 之一。   |
+| `has_free_trial`         | `布尔值`   | 当此商品提供免费试用时，该值为 `true`。                             |
+| `unit_name`              | `字符串`   | 单位的名称。 如果定价模型不是 `per-unit`，则该值为 `nil`。              |
+| `bullet`                 | `字符串数组` | 定价计划中设置的项目符号的名称。                                    |
 
 <br/>
 

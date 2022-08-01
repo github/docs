@@ -1,6 +1,6 @@
 ---
-title: Organization メンバーのプロジェクトボードへのアクセスを管理する
-intro: Organization のオーナーまたはプロジェクトボード管理者は、Organization のすべてのメンバーについて、プロジェクトボードのデフォルトの権限レベルを設定できます。
+title: 'Managing access to a {% data variables.product.prodname_project_v1 %} for organization members'
+intro: 'As an organization owner or {% data variables.projects.projects_v1_board %} admin, you can set a default permission level for a {% data variables.projects.projects_v1_board %} for all organization members.'
 redirect_from:
   - /articles/managing-access-to-a-project-board-for-organization-members
   - /github/setting-up-and-managing-organizations-and-teams/managing-access-to-a-project-board-for-organization-members
@@ -13,21 +13,25 @@ topics:
   - Organizations
   - Teams
 shortTitle: メンバーのアクセスの管理
+allowTitleToDifferFromFilename: true
 ---
 
-デフォルトでは、Organization のメンバーはその Organization のプロジェクトボードに対する書き込みアクセスを持ちます。ただし、Organization のオーナーまたはプロジェクトボード管理者が、特定のプロジェクトボードに異なる権限を設定している場合は例外です。
+{% data reusables.projects.project_boards_old %}
+
+By default, organization members have write access to their organization's {% data variables.projects.projects_v1_boards %} unless organization owners or {% data variables.projects.projects_v1_board %} admins set different permissions for specific {% data variables.projects.projects_v1_boards %}.
 
 ## Organization のすべてのメンバーに対して標準の権限レベルを設定する
 
 {% tip %}
 
-**ヒント:** Organization メンバーの、プロジェクトボードに対する権限を高くすることができます。 詳しい情報については、「[Organization のプロジェクトボードの権限](/articles/project-board-permissions-for-an-organization)」を参照してください。
+**Tip:** You can give an organization member higher permissions to {% data variables.projects.projects_v1_board %}. 詳しい情報については、「[Organization のプロジェクトボードの権限](/articles/project-board-permissions-for-an-organization)」を参照してください。
 
 {% endtip %}
 
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
-{% data reusables.organizations.organization-wide-project %}
+{% data reusables.user-settings.access_org %}
+{% data reusables.organizations.organization-wide-project %}{% ifversion projects-v2 %}
+1. Click **Projects (classic)**{% endif %}
 {% data reusables.project-management.select-project %}
 {% data reusables.project-management.click-menu %}
 {% data reusables.project-management.access-collaboration-settings %}
@@ -36,6 +40,6 @@ shortTitle: メンバーのアクセスの管理
 
 ## 参考リンク
 
-- 「[Organization のプロジェクトボードに対する個々のアクセスを管理する](/articles/managing-an-individual-s-access-to-an-organization-project-board)」
-- 「[Organization のプロジェクトボードに対するチームのアクセスを管理する](/articles/managing-team-access-to-an-organization-project-board)」
-- [Organization のプロジェクトボード権限](/articles/project-board-permissions-for-an-organization)
+- "[Managing an individual’s access to an organization {% data variables.product.prodname_project_v1 %}](/articles/managing-an-individual-s-access-to-an-organization-project-board)"
+- "[Managing team access to an organization {% data variables.product.prodname_project_v1 %}](/articles/managing-team-access-to-an-organization-project-board)"
+- "[{% data variables.product.prodname_project_v1_caps %} permissions for an organization](/articles/project-board-permissions-for-an-organization)"

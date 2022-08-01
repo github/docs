@@ -2,7 +2,7 @@
 title: 将管理团队迁移到改进的组织权限
 intro: 如果您的组织是在 2015 年 9 月之后创建的，则您的组织默认具有改进的组织权限。 在 2015 年 9 月之前创建的组织可能需要将较旧的所有者和管理员团队迁移到改进的权限模型。 旧管理员团队的成员在其团队被迁移到改进的组织权限模型之前，自动保留创建仓库的权限。
 redirect_from:
-  - /articles/migrating-your-previous-admin-teams-to-the-improved-organization-permissions/
+  - /articles/migrating-your-previous-admin-teams-to-the-improved-organization-permissions
   - /articles/migrating-admin-teams-to-improved-organization-permissions
   - /github/setting-up-and-managing-organizations-and-teams/migrating-admin-teams-to-improved-organization-permissions
 versions:
@@ -21,7 +21,7 @@ shortTitle: 迁移管理团队
 
 您可以将旧管理员团队迁移到改进的组织权限，以删除此能力。
 
-For more information, see "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)."
+更多信息请参阅“[组织的仓库角色](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)”。
 
 {% warning %}
 
@@ -40,6 +40,6 @@ For more information, see "[Repository roles for an organization](/organizations
 ## 迁移单一管理员团队
 
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.specific_team %}
 1. 在团队说明框中，单击 **Migrate team（迁移团队）**。 ![迁移团队按钮](/assets/images/help/teams/migrate-a-legacy-admin-team.png)

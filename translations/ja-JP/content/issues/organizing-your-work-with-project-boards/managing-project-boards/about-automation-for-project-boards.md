@@ -1,31 +1,29 @@
 ---
-title: プロジェクトボードの自動化について
-intro: プロジェクトボードカードのステータスを関連するIssueやプルリクエストと同期させておくために、自動化されたワークフローを設定できます。
+title: '{% data variables.product.prodname_projects_v1 %}の自動化について'
+intro: '{% data variables.projects.projects_v1_board %}カードのステータスと、関連するIssue及びPull Requestとの同期を保つための自動化ワークフローを設定できます。'
 redirect_from:
   - /github/managing-your-work-on-github/managing-project-boards/about-automation-for-project-boards
   - /articles/about-automation-for-project-boards
   - /github/managing-your-work-on-github/about-automation-for-project-boards
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
-  ghec: '*'
+  feature: projects-v1
 topics:
   - Pull requests
-shortTitle: プロジェクトボードの自動化
+shortTitle: '{% data variables.product.prodname_projects_v1 %}の自動化'
+allowTitleToDifferFromFilename: true
 ---
 
 {% data reusables.projects.project_boards_old %}
 
-{% data reusables.project-management.automate-project-board-permissions %} 詳細は「[Organization のプロジェクトボードの権限](/articles/project-board-permissions-for-an-organization)」を参照してください。
+{% data reusables.project-management.automate-project-board-permissions %} 詳しい情報については[Organizationの{% data variables.product.prodname_projects_v1_caps %}の権限](/articles/project-board-permissions-for-an-organization)」を参照してください。
 
-プロジェクトボードの列に対するトリガーとなるイベントに基づいて、アクションを自動化できます。 これによって、プロジェクトボードを管理するための手作業のタスクの一部を撤廃できます。 たとえば"To do"列を設定して、プロジェクトボードに追加された新しいIssueあるいはプルリクエストが自動的に設定された列に移動するようにできます。 詳しい情報については[プロジェクトボードのための自動化の設定](/articles/configuring-automation-for-project-boards)を参照してください。
+アクションを、{% data variables.projects.projects_v1_board %}の列に対するイベントによるトリガーに基づいて自動化できます。 これによって、{% data variables.projects.projects_v1_board %}の管理のための主導のタスクの一部を削減できます。 例えば、{% data variables.projects.projects_v1_board %}に対して新しいIssueやPull Requestを追加する"To do"列が、自動的に設定された列に移動されるように設定できます。 詳しい情報については「[{% data variables.product.prodname_projects_v1 %}の自動化の設定](/articles/configuring-automation-for-project-boards)」を参照してください。
 
 {% data reusables.project-management.use-automated-template %}
 
 {% data reusables.project-management.copy-project-boards %}
 
-プロジェクトボードの自動化は、特定のアクションに対する標準化されたワークフローを作成することによって、プロジェクトボードの目的とTeamの開発プロセスの共通理解を育むための役にも立ちます。
+{% data variables.projects.projects_v1_board_caps %}の自動化は、特定のアクションに対する標準化されたワークフローを作成することによって、Teamが{% data variables.projects.projects_v1_board %}の目的とTeamの開発プロセスの共通理解を促進するための役にも立ちます。
 
 {% data reusables.project-management.resync-automation %}
 
@@ -39,11 +37,10 @@ shortTitle: プロジェクトボードの自動化
 
 ## プロジェクトの進捗の追跡
 
-進捗は、プロジェクトボードで追跡できます。 [To do]、[In progress]、または [Done] 列のカードの数は、プロジェクトの進捗全体にカウントされます。 {% data reusables.project-management.project-progress-locations %}
+{% data variables.projects.projects_v1_board %}の進捗を追跡できます。 [To do]、[In progress]、または [Done] 列のカードの数は、プロジェクトの進捗全体にカウントされます。 {% data reusables.project-management.project-progress-locations %}
 
-詳細については「[プロジェクトボードで進捗を追跡する](/github/managing-your-work-on-github/tracking-progress-on-your-project-board)」を参照してください。
+詳しい情報については「[{% data variables.product.prodname_project_v1 %}の進捗の追跡](/github/managing-your-work-on-github/tracking-progress-on-your-project-board)」を参照してください。
 
 ## 参考リンク
-- 「[プロジェクトボードの自動化を設定する](/articles/configuring-automation-for-project-boards)」{% ifversion fpt or ghec %}
-- [プロジェクトボードのコピー](/articles/copying-a-project-board)
-{% endif %}
+- 「[{% data variables.product.prodname_projects_v1 %}の自動化の設定](/articles/configuring-automation-for-project-boards)」{% ifversion fpt or ghec %}
+- 「[{% data variables.product.prodname_project_v1 %}のコピー](/articles/copying-a-project-board)」{% endif %}

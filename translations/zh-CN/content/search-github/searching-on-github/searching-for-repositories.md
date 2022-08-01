@@ -2,7 +2,7 @@
 title: 搜索仓库
 intro: '您可以在 {% data variables.product.product_name %} 上搜索仓库，并使用这些仓库搜索限定符的任意组合缩小结果范围。'
 redirect_from:
-  - /articles/searching-repositories/
+  - /articles/searching-repositories
   - /articles/searching-for-repositories
   - /github/searching-for-information-on-github/searching-for-repositories
   - /github/searching-for-information-on-github/searching-on-github/searching-for-repositories
@@ -24,12 +24,13 @@ shortTitle: 搜索仓库
 
 ## 按仓库名称、说明或自述文件内容搜索
 
-通过 `in` 限定符，您可以将搜索限制为仓库名称、仓库说明、自述文件内容或这些的任意组合。 如果省略此限定符，则只搜索仓库名称和说明。
+通过 `in` 限定符，您可以将搜索限制为仓库名称、仓库说明、仓库主题、自述文件内容或这些的任意组合。 如果省略此限定符，则只搜索仓库名称、说明和主题。
 
 | 限定符               | 示例                                                                                                                                        |
 | ----------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
 | `in:name`         | [**jquery in:name**](https://github.com/search?q=jquery+in%3Aname&type=Repositories) 匹配仓库名称中含有 "jquery" 的仓库。                              |
 | `in:description`  | [**jquery in:name,description**](https://github.com/search?q=jquery+in%3Aname%2Cdescription&type=Repositories) 匹配仓库名称或说明中含有 "jquery" 的仓库。 |
+| `in:topics`       | [**jquery in:topics**](https://github.com/search?q=jquery+in%3Atopics&type=Repositories) 匹配标记为“jquery”作为主题的存储库。                           |
 | `in:readme`       | [**jquery in:readme**](https://github.com/search?q=jquery+in%3Areadme&type=Repositories) 匹配仓库自述文件中提及 "jquery" 的仓库。                        |
 | `repo:owner/name` | [**repo:octocat/hello-world**](https://github.com/search?q=repo%3Aoctocat%2Fhello-world) 匹配特定仓库名称。                                        |
 
@@ -111,17 +112,17 @@ shortTitle: 搜索仓库
 
 您可以根据仓库中代码的语言搜索仓库。
 
-| 限定符                       | 示例                                                                                                                                             |
-| ------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
-| <code>language:<em>LANGUAGE</em></code> | [**rails language:javascript**](https://github.com/search?q=rails+language%3Ajavascript&type=Repositories) 匹配具有 "rails" 字样、以 JavaScript 编写的仓库。 |
+| 限定符                       | 示例                                                                                                                                              |
+| ------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
+| <code>language:<em>LANGUAGE</em></code> | [**`rails language:javascript`**](https://github.com/search?q=rails+language%3Ajavascript&type=Repositories) 匹配用 JavaScript 编写、包含单词“rails”的存储库。 |
 
 ## 按主题搜索
 
 您可以找到按特定主题分类的所有仓库。 更多信息请参阅“[使用主题对仓库分类](/github/administering-a-repository/classifying-your-repository-with-topics)”。
 
-| 限定符                       | 示例                                                                                                                                      |
-| ------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
-| <code>topic:<em>TOPIC</em></code> | [**topic:jekyll**](https://github.com/search?utf8=%E2%9C%93&q=topic%3Ajekyll&type=Repositories&ref=searchresults)匹配已归类为 "jekyll" 主题的仓库。 |
+| 限定符                       | 示例                                                                                                                                          |
+| ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
+| <code>topic:<em>TOPIC</em></code> | [**`topic:jekyll`**](https://github.com/search?utf8=%E2%9C%93&q=topic%3Ajekyll&type=Repositories&ref=searchresults) 匹配属于 "Jekyll" 主题类别的存储库。 |
 
 ## 按主题数量搜索
 
@@ -148,7 +149,7 @@ shortTitle: 搜索仓库
 
 您可以根据仓库的可见性过滤搜索。 更多信息请参阅“[关于仓库](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)”。
 
-| Qualifier  | Example | ------------- | ------------- |{% ifversion fpt or ghes or ghec %} | `is:public` | [**is:public org:github**](https://github.com/search?q=is%3Apublic+org%3Agithub&type=Repositories) matches public repositories owned by {% data variables.product.company_short %}.{% endif %} | `is:internal` | [**is:internal test**](https://github.com/search?q=is%3Ainternal+test&type=Repositories) matches internal repositories that you can access and contain the word "test". | `is:private` | [**is:private pages**](https://github.com/search?q=is%3Aprivate+pages&type=Repositories) 匹配您可以访问并且包含单词 "pages" 的私有仓库。
+| 限定符  | 示例 | ------------- | ------------- |{% ifversion fpt or ghes or ghec %} | `is:public` | [**is:public org:github**](https://github.com/search?q=is%3Apublic+org%3Agithub&type=Repositories) 匹配 {% data variables.product.company_short %} 拥有的公共存储库。{% endif %}{% ifversion ghes or ghec or ghae %} | `is:internal` | [**is:internal test**](https://github.com/search?q=is%3Ainternal+test&type=Repositories) 匹配您可以访问并且包含单词“test”的存储库。{% endif %} | `is:private` | [**is:private pages**](https://github.com/search?q=is%3Aprivate+pages&type=Repositories) 匹配您可以访问并且包含单词“pages”的存储库。
 
 {% ifversion fpt or ghec %}
 
@@ -180,7 +181,7 @@ shortTitle: 搜索仓库
 
 | 限定符                        | 示例                                                                                                                                                                                             |
 | -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `good-first-issues:>n`  | [**good-first-issues:&gt;2 javascript**](https://github.com/search?utf8=%E2%9C%93&q=javascript+good-first-issues%3A%3E2&type=) 匹配具有超过两个标签为 `good-first-issue` 的议题且包含 "javascript" 字样的仓库。 |
+| `good-first-issues:>n`  | [**`good-first-issues:&gt;2 javascript`**](https://github.com/search?utf8=%E2%9C%93&q=javascript+good-first-issues%3A%3E2&type=) 匹配具有超过两个标签为 `good-first-issue` 的议题并且包含单词“javascript”的存储库。 |
 | `help-wanted-issues:>n` | [**help-wanted-issues:&gt;4 react**](https://github.com/search?utf8=%E2%9C%93&q=react+help-wanted-issues%3A%3E4&type=) 匹配具有超过四个标签为 `help-wanted` 的议题且包含 "React" 字样的仓库。                   |
 
 ## 基于赞助能力的搜索

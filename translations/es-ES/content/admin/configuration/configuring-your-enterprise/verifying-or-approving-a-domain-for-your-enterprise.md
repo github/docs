@@ -5,7 +5,7 @@ intro: 'Puedes verificar tu propiedad de dominios con {% data variables.product.
 product: '{% data reusables.gated-features.verify-and-approve-domain %}'
 versions:
   ghec: '*'
-  ghes: '>=3.2'
+  ghes: '*'
 permissions: Enterprise owners can verify or approve a domain for an enterprise account.
 type: how_to
 topics:
@@ -30,9 +30,9 @@ Puedes confirmar que tu empresa controle los sitios web y direcciones de correo 
 
 Después de que verificas la propiedad de los dominios de tus cuentas empresariales, se mostrará una insignia de "Verificado" en el perfil de cada organización que liste el dominio en su perfil. {% data reusables.organizations.verified-domains-details %}
 
-Los propietarios de las organizaciones podrán verificar la identidad de los miembros de éstas si visualizan la dirección de correo electrónico de cada miembro dentro del dominio verificado.
+Para los dominios configurados a nivel empresarial, los propietarios empresariales pueden verificar la identidad de los miembros organizaconales viendo la dirección de correo electrónico de cada miembro dentro del dominio verificado. Los propietarios de las empresas también pueden ver una lista de miembros empresariales que no tienen una dirección de correo electrónico de un dominio verificado asociada con su cuenta de usuario en {% data variables.product.prodname_dotcom %}. Para obtener más información, consulta la sección "[Ver a los miembros sin un a dirección de correo electrónico desde un dominio verificado](/admin/user-management/managing-users-in-your-enterprise/viewing-people-in-your-enterprise#viewing-members-without-an-email-address-from-a-verified-domain)".
 
-Después de que verificas los dominios para tu cuenta empresarial, puedes restringir las notificaciones de correo electrónico a los dominios verificados para todas las organizaciones que le pertenezcan a tu cuenta empresarial. For more information, see "[Restricting email notifications for your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/restricting-email-notifications-for-your-enterprise)."
+Después de que verificas los dominios para tu cuenta empresarial, puedes restringir las notificaciones de correo electrónico a los dominios verificados para todas las organizaciones que le pertenezcan a tu cuenta empresarial. Para obtener más información, consulta la sección "[Restringir las notificaciones por correo electrónico para tu empresa](/admin/policies/enforcing-policies-for-your-enterprise/restricting-email-notifications-for-your-enterprise)".
 
 Incluso si no restringieras las notificaciones por correo electrónico para la cuenta empresarial, en caso de que un propietario de organización lo haya hecho, los miembros de dicha organización podrán recibir notificaciones en cualquier dominio que la empresa haya verificado o aprobado para la cuenta empresarial adicionalmente a cualquier dominio que se haya verificado o aprobado previamente para la organización. Para obtener más información sobre cómo restringir las notificaciones de una organización, consulta la sección "[Restringir las notificaciones por correo electrónico para tu organización](/organizations/keeping-your-organization-secure/restricting-email-notifications-for-your-organization)".
 
@@ -44,9 +44,9 @@ Los propietarios de organización también pueden verificar dominios adicionales
 
 {% data reusables.enterprise-accounts.approved-domains-about %}
 
-Después de que apruebas los dominios en tu cuenta empresarial, puedes restringir las notificaciones por correo electrónico para la actividad dentro de esta a los usuarios con direcciones de correo electrónico verificadas dentro de los dominios aprobados o verificados. For more information, see "[Restricting email notifications for your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/restricting-email-notifications-for-your-enterprise)."
+Después de que apruebas los dominios en tu cuenta empresarial, puedes restringir las notificaciones por correo electrónico para la actividad dentro de esta a los usuarios con direcciones de correo electrónico verificadas dentro de los dominios aprobados o verificados. Para obtener más información, consulta la sección "[Restringir las notificaciones por correo electrónico para tu empresa](/admin/policies/enforcing-policies-for-your-enterprise/restricting-email-notifications-for-your-enterprise)".
 
-{% ifversion ghec %}To receive email notifications, the owner of the user account must verify the email address on {% data variables.product.product_name %}. Para obtener más información, consulta "[Verificar tu dirección de correo electrónico](/github/getting-started-with-github/verifying-your-email-address)".{% endif %}
+{% ifversion ghec %}Para recibir notificaciones por correo electrónico, el propietario de la cuenta de usuario debe verificar la dirección de correo electrónico en {% data variables.product.product_name %}. Para obtener más información, consulta "[Verificar tu dirección de correo electrónico](/github/getting-started-with-github/verifying-your-email-address)".{% endif %}
 
 Los propietarios de la organización no pueden ver la dirección de correo electrónico ni qué cuenta de usuario está asociada con alguna de ellas desde un dominio aprobado.
 

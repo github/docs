@@ -3,7 +3,7 @@ title: リポジトリが削除されたり可視性が変更されたりする�
 intro: リポジトリを削除したり、その可視性を変更したりすると、そのリポジトリのフォークに影響します。
 redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/working-with-forks/what-happens-to-forks-when-a-repository-is-deleted-or-changes-visibility
-  - /articles/changing-the-visibility-of-a-network/
+  - /articles/changing-the-visibility-of-a-network
   - /articles/what-happens-to-forks-when-a-repository-is-deleted-or-changes-visibility
   - /github/collaborating-with-issues-and-pull-requests/what-happens-to-forks-when-a-repository-is-deleted-or-changes-visibility
   - /github/collaborating-with-pull-requests/working-with-forks/what-happens-to-forks-when-a-repository-is-deleted-or-changes-visibility
@@ -44,7 +44,7 @@ shortTitle: Deleted or changes visibility
 言い換えれば、パブリックリポジトリのフォークは、親リポジトリが非公開にされた後も、独自の別のリポジトリネットワークで公開されたままになります。 これにより、フォークオーナーは作業を中断せずに作業を継続できます。 このようにパブリックフォークが別のネットワークに移動されなかった場合、それらのフォークのオーナーは適切な[アクセス許可](/articles/access-permissions-on-github)を取得してプルする必要があります。 以前はこれらのアクセス権が必要ではなかったとしても、(現在はプライベートになっている) 親リポジトリからの変更を取得して送信します。
 
 {% ifversion ghes or ghae %}
-パブリックリポジトリで匿名の Git 読み取りアクセスが有効になっていて、そのリポジトリが非公開になっている場合、リポジトリのすべてのフォークは匿名の Git 読み取りアクセスを失い、デフォルトの無効設定に戻ります。 分岐したリポジトリが公開された場合、リポジトリ管理者は匿名の Git 読み取りアクセスを再度有効にすることができます。 詳細は「[リポジトリに対する匿名 Git 読み取りアクセスを有効化する](/enterprise/{{ currentVersion }}/user/articles/enabling-anonymous-git-read-access-for-a-repository)」を参照してください。
+パブリックリポジトリで匿名の Git 読み取りアクセスが有効になっていて、そのリポジトリが非公開になっている場合、リポジトリのすべてのフォークは匿名の Git 読み取りアクセスを失い、デフォルトの無効設定に戻ります。 分岐したリポジトリが公開された場合、リポジトリ管理者は匿名の Git 読み取りアクセスを再度有効にすることができます。 詳細は「[リポジトリに対する匿名 Git 読み取りアクセスを有効化する](/enterprise/user/articles/enabling-anonymous-git-read-access-for-a-repository)」を参照してください。
 {% endif %}
 
 ### プライベートリポジトリを削除する
@@ -61,17 +61,13 @@ shortTitle: Deleted or changes visibility
 
 {% endif %}
 
-{% ifversion fpt or ghae or ghes or ghec %}
+{% ifversion ghes or ghec or ghae %}
 
 ## 内部リポジトリの表示を変更する
 
-{% note %}
 
-**注釈:** {% data reusables.gated-features.internal-repos %}
 
-{% endnote %}
-
-Enterprise のポリシーでフォークが許可されている場合、内部リポジトリのフォークはすべてプライベートになります。 内部リポジトリの表示を変更した場合、Organization またはユーザアカウントが所有するフォークはすべてプライベートのままになります。
+Enterprise のポリシーでフォークが許可されている場合、内部リポジトリのフォークはすべてプライベートになります。 If you change the visibility of an internal repository, any fork owned by an organization or personal account will remain private.
 
 ### 内部リポジトリを削除する
 

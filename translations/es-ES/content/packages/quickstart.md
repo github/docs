@@ -11,7 +11,6 @@ shortTitle: Inicio Rápido
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## Introducción
 
@@ -19,16 +18,16 @@ En esta guía, crearás un flujo de trabajo de {% data variables.product.prodnam
 
 ## Publicar tu paquete
 
-1. Crea un repositorio nuevo en {% data variables.product.prodname_dotcom %}, agregando el `.gitignore` para Node. {% ifversion ghes < 3.1 %} Crea un repositorio privado si te gustaría borrar este paquete más adelante, los paquetes públicos no pueden borrarse.{% endif %} Para obtener más información, consulta la sección "[Crear un repositorio nuevo ](/github/creating-cloning-and-archiving-repositories/creating-a-new-repository)".
+1. Crea un repositorio nuevo en {% data variables.product.prodname_dotcom %}, agregando el `.gitignore` para Node. Para obtener más información, consulta la sección "[Crear un repositorio nuevo](/github/creating-cloning-and-archiving-repositories/creating-a-new-repository)".
 2. Clona el repositorio en tu máquina local.
     ```shell
-    $ git clone https://{% ifversion ghae %}<em>YOUR-HOSTNAME</em>{% else %}github.com{% endif %}/<em>YOUR-USERNAME</em>/<em>YOUR-REPOSITORY</em>.git
+    $ git clone https://{% ifversion ghes or ghae %}<em>YOUR-HOSTNAME</em>{% else %}github.com{% endif %}/<em>YOUR-USERNAME</em>/<em>YOUR-REPOSITORY</em>.git
     $ cd <em>YOUR-REPOSITORY</em>
     ```
 3. Crea un archivo `index.js` y agrega una alerta básica que diga "Hello world!"
     {% raw %}
     ```javascript{:copy}
-    alert("Hello, World!");
+    console.log("Hello, World!");
     ```
     {% endraw %}
 4. Inicializa un paquete de npm con `npm init`. En el asistente de inicialización de paquetes, ingresa tu paquete con el nombre: _`@YOUR-USERNAME/YOUR-REPOSITORY`_, y configura el script de pruebas en `exit 0`. Esto generará un archivo `package.json` con información sobre tu paquete.
@@ -50,7 +49,7 @@ En esta guía, crearás un flujo de trabajo de {% data variables.product.prodnam
     $ git push
     ```
 6. Crea un directorio de `.github/workflows`. En este directorio, crea un archivo que se llame `release-package.yml`.
-7. Copia el siguiente contenido de YAML en el archivo `release-package.yml`{% ifversion ghae %}, reemplazando a `YOUR-HOSTNAME` con el nombre de tu empresa{% endif %}.
+7. Copia el siguiente contenido de YAML en el archivo `release-package.yml`{% ifversion ghes or ghae %}, reemplazando a `YOUR-HOSTNAME` con el nombre de tu empresa{% endif %}.
     ```yaml{:copy}
     name: Node.js Package
 
@@ -62,8 +61,8 @@ En esta guía, crearás un flujo de trabajo de {% data variables.product.prodnam
       build:
         runs-on: ubuntu-latest
         steps:
-          - uses: actions/checkout@v2
-          - uses: actions/setup-node@v2
+          - uses: {% data reusables.actions.action-checkout %}
+          - uses: {% data reusables.actions.action-setup-node %}
             with:
               node-version: 12
           - run: npm ci
@@ -71,16 +70,16 @@ En esta guía, crearás un flujo de trabajo de {% data variables.product.prodnam
 
       publish-gpr:
         needs: build
-        runs-on: ubuntu-latest{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
+        runs-on: ubuntu-latest
         permissions:
           packages: write
-          contents: read{% endif %}
+          contents: read
         steps:
-          - uses: actions/checkout@v2
-          - uses: actions/setup-node@v2
+          - uses: {% data reusables.actions.action-checkout %}
+          - uses: {% data reusables.actions.action-setup-node %}
             with:
               node-version: 12
-              registry-url: {% ifversion ghae %}https://npm.YOUR-HOSTNAME.com/{% else %}https://npm.pkg.github.com/{% endif %}
+              registry-url: {% ifversion ghes or ghae %}https://npm.YOUR-HOSTNAME.com/{% else %}https://npm.pkg.github.com/{% endif %}
           - run: npm ci
           - run: npm publish
             env:
@@ -120,7 +119,6 @@ Puedes ver todos los paquetes que has publicado.
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.package_registry.packages-from-code-tab %}
 {% data reusables.package_registry.navigate-to-packages %}
-
 
 ## Instalar un paquete publicado
 

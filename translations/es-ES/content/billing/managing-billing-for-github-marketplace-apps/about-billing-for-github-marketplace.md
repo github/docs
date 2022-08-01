@@ -41,7 +41,7 @@ Cuando eliges un plan pago con una prueba gratuita:
 - Si tienes otras suscripciones o planes pagos, una vez que finaliza tu prueba de 14 días, al método de pago en el archivo se le cobrará de inmediato un monto prorrateado por el tiempo restante hasta tu próxima fecha de facturación.
 - Si tienes otras suscripciones o planes pagos, en tu próxima fecha de facturación, tu recibo detalla los cargos por tu plan {% data variables.product.prodname_dotcom %} pago y tu suscripción a la app.
 
-{% data reusables.user_settings.context_switcher %}
+{% data reusables.user-settings.context_switcher %}
 
 ## Limites de plan unitario
 

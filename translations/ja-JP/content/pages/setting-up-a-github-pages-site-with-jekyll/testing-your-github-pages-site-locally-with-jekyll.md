@@ -2,8 +2,8 @@
 title: Jekyll を使用して GitHub Pages サイトをローカルでテストする
 intro: '{% data variables.product.prodname_pages %} サイトをローカルでビルドすると、サイトに対する変更のプレビューとテストを行うことができます。'
 redirect_from:
-  - /articles/setting-up-your-pages-site-locally-with-jekyll/
-  - /articles/setting-up-your-github-pages-site-locally-with-jekyll/
+  - /articles/setting-up-your-pages-site-locally-with-jekyll
+  - /articles/setting-up-your-github-pages-site-locally-with-jekyll
   - /articles/testing-your-github-pages-site-locally-with-jekyll
   - /github/working-with-github-pages/testing-your-github-pages-site-locally-with-jekyll
 product: '{% data reusables.gated-features.pages %}'
@@ -49,6 +49,12 @@ Jekyll を使用してサイトをテストする前に、以下の操作が必�
   >  Server running... press ctrl-c to stop.
   ```
 3. サイトをプレビューするには、ウェブブラウザで `http://localhost:4000` を開きます。
+
+{% note %}
+
+**ノート:** Ruby 3.0及びJekyll 4.2.xあるいはそれより古いものを使っているなら、`bundle install`を実行する前にプロジェクトのGemfileに`webrick` gemを追加する必要があります。
+
+{% endnote %}
 
 ## {% data variables.product.prodname_pages %} gem の更新
 

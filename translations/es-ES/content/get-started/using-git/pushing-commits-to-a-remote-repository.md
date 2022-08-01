@@ -1,8 +1,8 @@
 ---
-title: Subir confirmaciones de cambios a un repositorio remoto
-intro: Utiliza `git push` para subir confirmaciones de cambios realizadas en tu rama local a un repositorio remoto.
+title: Pushing commits to a remote repository
+intro: Use `git push` to push commits made on your local branch to a remote repository.
 redirect_from:
-  - /articles/pushing-to-a-remote/
+  - /articles/pushing-to-a-remote
   - /articles/pushing-commits-to-a-remote-repository
   - /github/using-git/pushing-commits-to-a-remote-repository
   - /github/getting-started-with-github/pushing-commits-to-a-remote-repository
@@ -12,96 +12,108 @@ versions:
   ghes: '*'
   ghae: '*'
   ghec: '*'
-shortTitle: Subir confirmaciones a un remoto
+shortTitle: Push commits to a remote
 ---
+## About `git push`
+The `git push` command takes two arguments:
 
-## Acerca de `git push`
-El comando `git push` toma dos argumentos:
+* A remote name, for example, `origin`
+* A branch name, for example, `main`
 
-* Un nombre remoto, por ejemplo, `origin`
-* Un nombre de rama, por ejemplo, `main`
-
-Por ejemplo:
+For example:
 
 ```shell
 git push <em> &lt;REMOTENAME> &lt;BRANCHNAME> </em>
 ```
 
-Como ejemplo, habitualmente ejecutas `git push origin main` para subir tus cambios locales a tu repositorio en línea.
+As an example, you usually run `git push origin main` to push your local changes
+to your online repository.
 
-## Renombrar ramas
+## Renaming branches
 
-Para renombrar una rama, utilizarías el mismo comando `git push`, pero agregarías un argumento más: el nombre de la nueva rama. Por ejemplo:
+To rename a branch, you'd use the same `git push` command, but you would add
+one more argument: the name of the new branch. For example:
 
 ```shell
 git push <em> &lt;REMOTENAME> &lt;LOCALBRANCHNAME></em>:<em>&lt;REMOTEBRANCHNAME> </em>
 ```
 
-Esto sube `LOCALBRANCHNAME` a tu `REMOTENAME`, pero es renombrado a `REMOTEBRANCHNAME`.
+This pushes the `LOCALBRANCHNAME` to your `REMOTENAME`, but it is renamed to `REMOTEBRANCHNAME`.
 
-## Abordar errores sin avance rápido
+## Dealing with "non-fast-forward" errors
 
-Si tu copia local de un repositorio está desincronizada, o "atrasada", con respecto al repositorio ascendente al que estás subiendo, recibirás un mensaje que dice que `non-fast-forward updates were rejected (las actualizaciones sin avance rápido se rechazaron)`. Esto significa que debes recuperar, o "extraer", los cambios ascendentes, antes de poder subir tus cambios locales.
+If your local copy of a repository is out of sync with, or "behind," the upstream
+repository you're pushing to, you'll get a message saying `non-fast-forward updates were rejected`.
+This means that you must retrieve, or "fetch," the upstream changes, before
+you are able to push your local changes.
 
-Para obtener más información sobre este error, consulta "[Resolver errores sin avance rápido](/github/getting-started-with-github/dealing-with-non-fast-forward-errors)."
+For more information on this error, see "[Dealing with non-fast-forward errors](/github/getting-started-with-github/dealing-with-non-fast-forward-errors)."
 
-## Subir etiquetas
+## Pushing tags
 
-Por defecto, y sin parámetros adicionales, `git push` envía todas las ramas que coinciden para que tengan el mismo nombre que las ramas remotas.
+By default, and without additional parameters, `git push` sends all matching branches
+that have the same names as remote branches.
 
-Para subir una etiqueta única, puedes emitir el mismo comando que al subir una rama:
+To push a single tag, you can issue the same command as pushing a branch:
 
 ```shell
 git push <em> &lt;REMOTENAME> &lt;TAGNAME> </em>
 ```
 
-Para subir todas tus etiquetas, puede escribir el comando:
+To push all your tags, you can type the command:
 
 ```shell
 git push <em> &lt;REMOTENAME></em> --tags
 ```
 
-## Eliminar una etiqueta o rama remota
+## Deleting a remote branch or tag
 
-La sintaxis para borrar una rama es un poco críptica a primera vista:
+The syntax to delete a branch is a bit arcane at first glance:
 
 ```shell
 git push <em> &lt;REMOTENAME></em> :<em>&lt;BRANCHNAME> </em>
 ```
 
-Nota que hay un espacio antes de los dos puntos. El comando se parece a los mismos pasos que tomarías para renombrar una rama. Sin embargo, aquí estás informándole a Git que no suba _nada_ dentro de `BRANCHNAME` en `REMOTENAME`. Debido a esto, `git push` elimina la rama en el repositorio remoto.
+Note that there is a space before the colon. The command resembles the same steps
+you'd take to rename a branch. However, here, you're telling Git to push _nothing_
+into `BRANCHNAME` on `REMOTENAME`. Because of this, `git push` deletes the branch
+on the remote repository.
 
-## Remotos y bifurcaciones
+## Remotes and forks
 
-Posiblemente ya sepas que [puedes "bifurcar" repositorios](https://guides.github.com/overviews/forking/) en GitHub.
+You might already know that [you can "fork" repositories](https://guides.github.com/overviews/forking/) on GitHub.
 
-Cuando clonas un repositorio de tu propiedad, le proporcionas una URL remota que le indica a Git dónde extraer y subir actualizaciones. Si deseas colaborar con el repositorio original, agregarías una nueva a URL remota, normalmente llamada `upstream` (ascendente), a tu clon de Git local:
+When you clone a repository you own, you provide it with a remote URL that tells
+Git where to fetch and push updates. If you want to collaborate with the original
+repository, you'd add a new remote URL, typically called `upstream`, to
+your local Git clone:
 
 ```shell
 git remote add upstream <em> &lt;THEIR_REMOTE_URL> </em>
 ```
 
-Ahora, puedes extraer actualizaciones y ramas de *sus* bifurcaciones:
+Now, you can fetch updates and branches from *their* fork:
 
 ```shell
-git extrae ascendente
-# Toma las ramas de los remotos ascendentes
-> remoto: Contando objetos: 75, realizado.
+git fetch upstream
+# Grab the upstream remote's branches
+> remote: Counting objects: 75, done.
 > remote: Compressing objects: 100% (53/53), done.
-> remoto: Total 62 (delta 27), reutilizados 44 (delta 9)
-> Descompimiendo objetos: 100 % (62/62), realziado.
+> remote: Total 62 (delta 27), reused 44 (delta 9)
+> Unpacking objects: 100% (62/62), done.
 > From https://{% data variables.command_line.codeblock %}/<em>octocat</em>/<em>repo</em>
 >  * [new branch]      main     -> upstream/main
 ```
 
-Cuando hayas finalizado tus cambios locales, puedes subir tu rama local a GitHub e [iniciar una solicitud de extracción](/articles/about-pull-requests).
+When you're done making local changes, you can push your local branch to GitHub
+and [initiate a pull request](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests).
 
-Para obtener más información sobre cómo trabajar con bifurcaciones, consulta "[Sincronizar una bifurcación](/articles/syncing-a-fork)".
+For more information on working with forks, see "[Syncing a fork](/pull-requests/collaborating-with-pull-requests/working-with-forks/syncing-a-fork)".
 
-## Leer más
+## Further reading
 
-- [El capítulo "Remotos" del libro "Pro Git"](https://git-scm.com/book/ch5-2.html)
-- [Página principal de `git remote`](https://git-scm.com/docs/git-remote.html)
-- "[Git cheatsheet](/articles/git-cheatsheet)" (Hoja introductoria de Git)
-- "[Flujos de trabajo de Git](/github/getting-started-with-github/git-workflows)"
-- "[Manual de Git](https://guides.github.com/introduction/git-handbook/)"
+- [The "Remotes" chapter from the "Pro Git" book](https://git-scm.com/book/ch5-2.html)
+- [`git remote` main page](https://git-scm.com/docs/git-remote.html)
+- "[Git cheatsheet](/articles/git-cheatsheet)"
+- "[Git workflows](/github/getting-started-with-github/git-workflows)"
+- "[Git Handbook](https://guides.github.com/introduction/git-handbook/)"

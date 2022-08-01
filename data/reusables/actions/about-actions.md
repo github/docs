@@ -1,1 +1,1 @@
-{% data variables.product.prodname_actions %} helps you automate tasks within your software development life cycle.
+{% data variables.product.prodname_actions %} is a continuous integration and continuous delivery (CI/CD) platform that allows you to automate your build, test, and deployment pipeline.

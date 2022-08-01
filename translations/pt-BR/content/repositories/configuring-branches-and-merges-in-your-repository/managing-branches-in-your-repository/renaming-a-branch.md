@@ -1,11 +1,11 @@
 ---
 title: Renomear um branch
 intro: É possível alterar o nome de um branch em um repositório.
-permissions: People with write permissions to a repository can rename a branch in the repository. People with admin permissions can rename the default branch.
+permissions: 'People with write permissions to a repository can rename a branch in the repository unless it is the [default branch](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches#about-the-default-branch){% ifversion fpt or ghec or ghes > 3.3 %} or a [protected branch](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches){% endif %}. People with admin permissions can rename the default branch{% ifversion fpt or ghec or ghes > 3.3 %} and protected branches{% endif %}.'
 versions:
   fpt: '*'
-  ghes: '>=3.1'
-  ghae: next
+  ghes: '*'
+  ghae: '*'
   ghec: '*'
 topics:
   - Repositories
@@ -16,7 +16,7 @@ redirect_from:
 
 ## Sobre a renomeação de branches
 
-Você pode renomear um branch em um repositório em {% data variables.product.product_location %}. For more information about branches, see "[About branches](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches))."
+Você pode renomear um branch em um repositório em {% data variables.product.product_location %}. Para obter mais informações sobre os branches, consulte "[Sobre os branches](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches))."
 
 Ao renomear um branch em {% data variables.product.product_location %}, todas as URLs que contiverem o nome do branch antigo serão automaticamente redirecionadas para a URL equivalente para o branch renomeado. Atualizam-se também as políticas de proteção de branch também, bem como o branch base para pull requests abertos (incluindo aqueles para bifurcações) e rascunhos de versões. Depois que a renomeação for concluída, {% data variables.product.prodname_dotcom %} fornecerá instruções na página inicial do repositório direcionando os colaboradores para atualizar seus ambientes do Git locais.
 

@@ -35,7 +35,7 @@ shortTitle: Resolve merge conflicts
 
  {% tip %}
 
- **ヒント:** [**Resolve conflicts**] ボタンが作動しない場合、指定した Pull Request のマージ コンフリクトは {% data variables.product.product_name %} で解決するには複雑すぎ{% ifversion ghes or ghae %} るか、サイトの管理者がリポジトリ間の Pull Request に対してコンフリクト エディターを無効にしてい{% endif %}ます。 別の Git クライアントを使用するか、コマンドラインで Git を使用して、マージのコンフリクトを解決する必要があります。 For more information see "\[Resolving a merge conflict using the command line\](/github/collaborating-with-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-using-the-command-line."
+ **ヒント:** [**Resolve conflicts**] ボタンが作動しない場合、指定した Pull Request のマージ コンフリクトは {% data variables.product.product_name %} で解決するには複雑すぎ{% ifversion ghes or ghae %} るか、サイトの管理者がリポジトリ間の Pull Request に対してコンフリクト エディターを無効にしてい{% endif %}ます。 別の Git クライアントを使用するか、コマンドラインで Git を使用して、マージのコンフリクトを解決する必要があります。 詳細は「[コマンド ラインを使用してマージコンフリクトを解決する](/github/collaborating-with-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-using-the-command-line)」を参照してください。
 
  {% endtip %}
 {% data reusables.pull_requests.decide-how-to-resolve-competing-line-change-merge-conflict %}

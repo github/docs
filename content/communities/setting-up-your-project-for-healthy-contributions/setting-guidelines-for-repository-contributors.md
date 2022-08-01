@@ -7,7 +7,7 @@ versions:
   ghae: '*'
   ghec: '*'
 redirect_from:
-  - /articles/how-do-i-set-up-guidelines-for-contributors/
+  - /articles/how-do-i-set-up-guidelines-for-contributors
   - /articles/setting-guidelines-for-repository-contributors
   - /github/building-a-strong-community/setting-guidelines-for-repository-contributors
 topics:
@@ -27,7 +27,7 @@ For both owners and contributors, contribution guidelines save time and hassle c
 
 {% ifversion fpt or ghes or ghec %}
 
-You can create default contribution guidelines for your organization{% ifversion fpt or ghes or ghec %} or user account{% endif %}. For more information, see "[Creating a default community health file](//communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)."
+You can create default contribution guidelines for your organization{% ifversion fpt or ghes or ghec %} or personal account{% endif %}. For more information, see "[Creating a default community health file](//communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)."
 
 {% endif %}
 

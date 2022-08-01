@@ -22,7 +22,6 @@ jobs:
         uses: actions/github-script@2b34a689ec86a68d8ab9478298f91d5401337b7d
         id: is-internal-contributor
         with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
           result-encoding: string
           script: |
             const repo = context.payload.repository.name
@@ -47,9 +46,3 @@ jobs:
         with:
           add-labels: 'triage'
           ignore-if-labeled: true
-      - name: Triage to project board
-        uses: rachmari/actions-add-new-issue-to-column@1a459ef92308ba7c9c9dc2fcdd72f232495574a9
-        with:
-          action-token: ${{ secrets.GITHUB_TOKEN }}
-          project-url: 'https://github.com/github/docs/projects/1'
-          column-name: 'Triage'

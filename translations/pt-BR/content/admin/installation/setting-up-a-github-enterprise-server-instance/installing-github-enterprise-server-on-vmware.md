@@ -2,10 +2,10 @@
 title: Instalar o GitHub Enterprise Server no VMware
 intro: 'Para instalar o {% data variables.product.prodname_ghe_server %} no VMware, você deve fazer o download do cliente do VMware vSphere e, em seguida, fazer o download e implantar o software do {% data variables.product.prodname_ghe_server %}.'
 redirect_from:
-  - /enterprise/admin/articles/getting-started-with-vmware/
-  - /enterprise/admin/articles/installing-vmware-tools/
-  - /enterprise/admin/articles/vmware-esxi-virtual-machine-maximums/
-  - /enterprise/admin/guides/installation/installing-github-enterprise-on-vmware/
+  - /enterprise/admin/articles/getting-started-with-vmware
+  - /enterprise/admin/articles/installing-vmware-tools
+  - /enterprise/admin/articles/vmware-esxi-virtual-machine-maximums
+  - /enterprise/admin/guides/installation/installing-github-enterprise-on-vmware
   - /enterprise/admin/installation/installing-github-enterprise-server-on-vmware
   - /admin/installation/installing-github-enterprise-server-on-vmware
 versions:
@@ -31,10 +31,9 @@ shortTitle: Instalar em VMware
 
 ## Baixar a imagem do {% data variables.product.prodname_ghe_server %}
 
-{% data reusables.enterprise_installation.enterprise-download-procedural %}
 {% data reusables.enterprise_installation.download-license %}
 {% data reusables.enterprise_installation.download-appliance %}
-4. Selecione {% data variables.product.prodname_dotcom %} On-premises e clique em **VMware ESXi/vSphere (OVA)**.
+4. Em "{% data variables.product.prodname_dotcom %} nas instalações", selecione o menu suspenso "Selecionar seu hipervisor" e clique em **VMware ESXi/vSphere (OVA)**.
 5. Clique em **Download for VMware ESXi/vSphere (OVA)** (Baixar para VMware ESXi/vSphere [OVA]).
 
 ## Criar a instância do {% data variables.product.prodname_ghe_server %}

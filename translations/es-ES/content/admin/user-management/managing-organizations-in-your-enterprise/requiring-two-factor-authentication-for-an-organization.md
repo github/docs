@@ -24,19 +24,19 @@ Para obtener más información, consulta "[Acerca de la autenticación de dos fa
 
 ## Requisitos para aplicar la autenticación de dos factores
 
-Antes de poder solicitarle a los miembros de la organización y a los colaboradores externos que usen 2FA, debes [activar la autenticación de dos factores](/enterprise/{{ currentVersion }}/user/articles/securing-your-account-with-two-factor-authentication-2fa/) para tu cuenta personal propia.
+Antes de poder solicitarle a los miembros de la organización y a los colaboradores externos que usen 2FA, debes [activar la autenticación de dos factores](/enterprise/user/articles/securing-your-account-with-two-factor-authentication-2fa/) para tu cuenta personal propia.
 
 {% warning %}
 
 **Advertencias:**
 
-- Cuando solicitas la autenticación de dos factores, los miembros y los colaboradores externos (incluidas cuentas bot) que no usan la 2FA serán eliminados de la organización y perderán acceso a sus repositorios, incluidas sus bifurcaciones de los repositorios privados. Si activan la 2FA para su cuenta personal dentro de los tres meses de haber sido eliminados de la organización, puedes [reinstalar sus parámetros y sus privilegios de acceso](/enterprise/{{ currentVersion }}/user/articles/reinstating-a-former-member-of-your-organization).
+- Cuando solicitas la autenticación de dos factores, los miembros y los colaboradores externos (incluidas cuentas bot) que no usan la 2FA serán eliminados de la organización y perderán acceso a sus repositorios, incluidas sus bifurcaciones de los repositorios privados. Si activan la 2FA para su cuenta personal dentro de los tres meses de haber sido eliminados de la organización, puedes [reinstalar sus parámetros y sus privilegios de acceso](/enterprise/user/articles/reinstating-a-former-member-of-your-organization).
 - Cuando se solicita la 2FA, los miembros de la organización o los colaboradores externos que desactiven la 2FA se eliminarán automáticamente de la organización.
 - Si eres el único propietario de una organización que requiere autenticación de dos factores, no podrás inhabilitar la 2FA de tu cuenta personal sin inhabilitar la autenticación de dos factores para la organización.
 
 {% endwarning %}
 
-Antes de solicitar el uso de la autenticación de dos factores, te recomendamos notificar a los miembros de la organización y a los colaboradores externos y pedirles que configuren la 2FA para sus cuentas. Puedes [ ver si los miembros y los colaboradores externos ya usan 2FA](/enterprise/{{ currentVersion }}/user/articles/viewing-whether-users-in-your-organization-have-2fa-enabled) en la pestaña Personas de una organización.
+Antes de solicitar el uso de la autenticación de dos factores, te recomendamos notificar a los miembros de la organización y a los colaboradores externos y pedirles que configuren la 2FA para sus cuentas. Puedes [ ver si los miembros y los colaboradores externos ya usan 2FA](/enterprise/user/articles/viewing-whether-users-in-your-organization-have-2fa-enabled) en la pestaña Personas de una organización.
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
@@ -46,7 +46,7 @@ Antes de solicitar el uso de la autenticación de dos factores, te recomendamos 
 
 ## Ver las personas que se eliminaron de tu organización
 
-Para ver las personas que fueron automáticamente eliminadas de tu organización por no cumplir cuando solicitaste la autenticación de dos factores, puedes [buscar el registro de auditoría](/enterprise/{{ currentVersion }}/admin/guides/installation/searching-the-audit-log/) usando el campo de búsqueda `reason:two_factor_requirement_non_compliance`.
+Para ver las personas que fueron automáticamente eliminadas de tu organización por no cumplir cuando solicitaste la autenticación de dos factores, puedes [buscar el registro de auditoría](/enterprise/admin/guides/installation/searching-the-audit-log/) usando el campo de búsqueda `reason:two_factor_requirement_non_compliance`.
 
 {% data reusables.audit_log.octicon_icon %}
 {% data reusables.enterprise_site_admin_settings.access-settings %}
@@ -65,7 +65,7 @@ Si algún miembro o colaborador externo se eliminó de la organización cuando h
 
 ## Leer más
 
-- "[Ver si los usuarios de tu organización tienen la 2FA activada](/enterprise/{{ currentVersion }}/user/articles/viewing-whether-users-in-your-organization-have-2fa-enabled)"
-- "[Asegurar tu cuenta con autenticación de dos factores (2FA)](/enterprise/{{ currentVersion }}/user/articles/securing-your-account-with-two-factor-authentication-2fa)"
-- "[Reinstalar un miembro antiguo de tu organización](/enterprise/{{ currentVersion }}/user/articles/reinstating-a-former-member-of-your-organization)"
-- "[Reinstalar el acceso a tu organización para un colaborador externo antiguo](/enterprise/{{ currentVersion }}/user/articles/reinstating-a-former-outside-collaborator-s-access-to-your-organization)"
+- "[Ver si los usuarios de tu organización tienen la 2FA activada](/enterprise/user/articles/viewing-whether-users-in-your-organization-have-2fa-enabled)"
+- "[Asegurar tu cuenta con autenticación de dos factores (2FA)](/enterprise/user/articles/securing-your-account-with-two-factor-authentication-2fa)"
+- "[Reinstalar un miembro antiguo de tu organización](/enterprise/user/articles/reinstating-a-former-member-of-your-organization)"
+- "[Reinstalar el acceso a tu organización de un colaborador externo antiguo](/enterprise/user/articles/reinstating-a-former-outside-collaborator-s-access-to-your-organization)"

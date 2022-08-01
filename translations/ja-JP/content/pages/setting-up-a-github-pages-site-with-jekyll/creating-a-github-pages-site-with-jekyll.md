@@ -32,6 +32,7 @@ Jekyll を使用して {% data variables.product.prodname_pages %} サイトを�
 
 {% data reusables.repositories.create_new %}
 {% data reusables.repositories.owner-drop-down %}
+{% indented_data_reference reusables.pages.emu-org-only spaces=3 %}
 {% data reusables.pages.create-repo-name %}
 {% data reusables.repositories.choose-repo-visibility %}
 
@@ -68,7 +69,9 @@ Jekyll を使用して {% data variables.product.prodname_pages %} サイトを�
  サイトを `gh-pages` ブランチから公開する場合には、`gh-pages` ブランチを作成してチェックアウトします。
  ```shell
  $ git checkout --orphan gh-pages
- # Creates a new branch, with no history or contents, called gh-pages and switches to the gh-pages branch
+ # 履歴やコンテンツなしでgh-pagesという新しいブランチを作成、gh-pagesブランチに切り替え
+ $ git rm -rf 
+ # ワーキングディレクトリでデフォルトブランチからコンテンツを削除
  ```
 1. 新しい Jekyll サイトを作成するには、`jekyll new` コマンドを使用します。
    ```shell
@@ -87,7 +90,7 @@ Jekyll を使用して {% data variables.product.prodname_pages %} サイトを�
 
    正しいバージョンの Jekyll は、`github-pages` gem の依存関係としてインストールされます。
 1. Gemfile を保存して閉じます。
-1. From the command line, run `bundle install`.
+1. コマンドラインから`bundle install`を実行
 1. あるいは、`_config.yml`ファイルに必要な編集を加えてください。 これは、リポジトリがサブディレクトリでホストされている場合に相対パスに対して必要です。  詳しい情報については「[サブフォルダを分割して新しいリポジトリにする](/github/getting-started-with-github/using-git/splitting-a-subfolder-out-into-a-new-repository)」を参照してください。
    ```yml
    domain: my-site.github.io       # HTTPSを強制したいなら、ドメインの先頭でhttpを指定しない。例: example.com
@@ -100,7 +103,7 @@ Jekyll を使用して {% data variables.product.prodname_pages %} サイトを�
 git add .
 git commit -m 'Initial GitHub pages site with Jekyll'
 ```
-1. Add your repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} as a remote, replacing {% ifversion ghes or ghae %}_HOSTNAME_ with your enterprise's hostname,{% endif %} _USER_ with the account that owns the repository{% ifversion ghes or ghae %},{% endif %} and _REPOSITORY_ with the name of the repository.
+1. {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}でリモートとしてリポジトリを追加してください。{% ifversion ghes or ghae %}_HOSTNAME_をEnterpriseのホスト名で、{% endif %}_USER_をリポジトリを所有するアカウントで、{% ifversion ghes or ghae %}{% endif %}_REPOSITORY_をリポジトリ名で置き換えてください。
 ```shell
 {% ifversion fpt or ghec %}
 $ git remote add origin https://github.com/<em>USER</em>/<em>REPOSITORY</em>.git
@@ -116,9 +119,9 @@ $ git remote add origin https://<em>HOSTNAME</em>/<em>USER</em>/<em>REPOSITORY</
 {% data reusables.pages.navigate-site-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.pages.sidebar-pages %}
-{% ifversion fpt or ghec %}
-{% data reusables.pages.choose-visibility %}{% endif %}
+{% data reusables.pages.choose-visibility %}
 {% data reusables.pages.visit-site %}
+{% data reusables.pages.check-workflow-run %}
 
 {% data reusables.pages.admin-must-push %}
 

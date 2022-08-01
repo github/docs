@@ -5,10 +5,7 @@ redirect_from:
   - /apps/using-content-attachments
   - /developers/apps/using-content-attachments
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
-  ghec: '*'
+  ghes: <3.4
 topics:
   - GitHub Apps
 ---
@@ -122,7 +119,7 @@ curl -X "POST" "{% data variables.product.api_url_code %}/graphql" \
 }'
 ```
 
-`node_id`の詳しい情報については「[グローバルノードIDの利用]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql/guides/using-global-node-ids)」を参照してください。
+`node_id`の詳しい情報については「[グローバルノードIDの利用](/graphql/guides/using-global-node-ids)」を参照してください。
 
 ## ProbotとGitHub Appマニフェストの利用例
 

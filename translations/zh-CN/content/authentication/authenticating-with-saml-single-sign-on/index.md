@@ -1,13 +1,12 @@
 ---
 title: 使用 SAML 单点登录进行身份验证
-intro: '您可以使用 SAML 单点登录 (SSO)向 {% ifversion fpt %} {% data variables.product.product_name %} 组织验证 {% elsif ghae %}{% data variables.product.product_location %} {% endif %}{% ifversion fpt %}并查看您活动的会话{% endif %}。'
-product: '{% data reusables.gated-features.saml-sso %}'
+intro: '您可以使用 SAML 单点登录 (SSO) 向 {% data variables.product.product_name %} 进行身份验证{% ifversion ghec %}，并查看活动的会话{% endif %}。'
 redirect_from:
-  - /articles/authenticating-to-a-github-organization-with-saml-single-sign-on/
+  - /articles/authenticating-to-a-github-organization-with-saml-single-sign-on
   - /articles/authenticating-with-saml-single-sign-on
-  - /github/authenticating-to-github/authenticating-with-saml-single-sign-on/
+  - /github/authenticating-to-github/authenticating-with-saml-single-sign-on
+  - /authentication/authenticating-with-saml-single-sign-on
 versions:
-  fpt: '*'
   ghae: '*'
   ghec: '*'
 topics:

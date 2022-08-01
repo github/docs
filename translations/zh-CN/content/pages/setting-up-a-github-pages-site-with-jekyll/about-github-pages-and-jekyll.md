@@ -7,15 +7,15 @@ redirect_from:
   - /articles/configuring-jekyll-plugins
   - /articles/using-syntax-highlighting-on-github-pages
   - /articles/files-that-start-with-an-underscore-are-missing
-  - /articles/sitemaps-for-github-pages/
-  - /articles/search-engine-optimization-for-github-pages/
-  - /articles/repository-metadata-on-github-pages/
-  - /articles/atom-rss-feeds-for-github-pages/
-  - /articles/redirects-on-github-pages/
-  - /articles/emoji-on-github-pages/
-  - /articles/mentions-on-github-pages/
-  - /articles/using-jekyll-plugins-with-github-pages/
-  - /articles/adding-jekyll-plugins-to-a-github-pages-site/
+  - /articles/sitemaps-for-github-pages
+  - /articles/search-engine-optimization-for-github-pages
+  - /articles/repository-metadata-on-github-pages
+  - /articles/atom-rss-feeds-for-github-pages
+  - /articles/redirects-on-github-pages
+  - /articles/emoji-on-github-pages
+  - /articles/mentions-on-github-pages
+  - /articles/using-jekyll-plugins-with-github-pages
+  - /articles/adding-jekyll-plugins-to-a-github-pages-site
   - /articles/about-github-pages-and-jekyll
   - /github/working-with-github-pages/about-github-pages-and-jekyll
 product: '{% data reusables.gated-features.pages %}'
@@ -112,7 +112,7 @@ kramdown:
 
 为了使网站更容易读取，代码片段在 {% data variables.product.prodname_pages %} 上突显，就像在 {% data variables.product.product_name %} 上突显一样。 有关在 {% data variables.product.product_name %} 上突显语法的更多信息，请参阅“[创建和突显代码块](/articles/creating-and-highlighting-code-blocks)”。
 
-默认情况下，网站上的代码块将被 Jekyll 突出显示。 Jekyll 使用 [Rouge](https://github.com/jneen/rouge) 突显工具，它兼容于 [Pygments](http://pygments.org/)。 如果在 *_config.yml* 文件中指定 Pygments，将改用 Rouge。 Jekyll 不能使用任何其他语法突显工具，如果您在 *_config.yml* 文件中指定其他语法突显工具，将会收到页面构建警告。 更多信息请参阅“[关于 {% data variables.product.prodname_pages %} 站点的 Jekyll 构建错误](/articles/about-jekyll-build-errors-for-github-pages-sites)”。
+默认情况下，网站上的代码块将被 Jekyll 突出显示。 Jekyll 使用 [Rouge](https://github.com/jneen/rouge) 突显工具，它兼容于 [Pygments](http://pygments.org/)。 Pygments 已被弃用，在 Jekyll 4 中不受支持。 如果在 *_config.yml* 文件中指定 Pygments，将改用 Rouge。 Jekyll 不能使用任何其他语法突显工具，如果您在 *_config.yml* 文件中指定其他语法突显工具，将会收到页面构建警告。 更多信息请参阅“[关于 {% data variables.product.prodname_pages %} 站点的 Jekyll 构建错误](/articles/about-jekyll-build-errors-for-github-pages-sites)”。
 
 如果想使用其他突显工具，如 `highlight.js`，则必须更新项目的 *_config.yml* 文件来禁用 Jekyll 的语法突显。
 

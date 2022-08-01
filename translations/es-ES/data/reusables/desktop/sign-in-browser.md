@@ -1,0 +1,1 @@
+1. In the "Sign in Using Your Browser" pane, click **Continue With Browser**. {% data variables.product.prodname_desktop %} abrirá tu buscador predeterminado. ![Inicio de sesión mediante el enlace de su navegador](/assets/images/help/desktop/sign-in-browser.png)

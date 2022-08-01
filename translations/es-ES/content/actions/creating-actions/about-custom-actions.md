@@ -20,14 +20,13 @@ topics:
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## Acercad e las acciones personalizadas
 
 Puedes crear acciones por medio de a escritura de un código personalizado que interactúe con tu repositorio de la manera que desees, incluida la integración con las API de {% data variables.product.prodname_dotcom %} y cualquier API de terceros disponible públicamente. Por ejemplo, una acción puede publicar módulos npm, enviar alertas por SMS cuando se crean propuestas urgentes o implementar un código listo para producción.
 
 {% ifversion fpt or ghec %}
-Puedes escribir tus propias acciones para usar en tu flujo de trabajo o compartir las acciones que crees con la comunidad {% data variables.product.prodname_dotcom %}. Para compartir las acciones que creaste, tu repositorio debe ser público.
+Puedes escribir tus propias acciones para usar en tu flujo de trabajo o compartir las acciones que crees con la comunidad {% data variables.product.prodname_dotcom %}. Para compartir las acciones que creaste con todos, tu repositorio debe ser público. {% ifversion internal-actions %}Para compartir las acciones únicamente con tu empresa, tu repositorio debe ser interno.{% endif %}
 {% endif %}
 
 Las acciones pueden ejecutarse directamente en una máquina o en un contenedor Docker. Puedes definir las entradas, salidas y variables de entorno de una acción.
@@ -36,7 +35,7 @@ Las acciones pueden ejecutarse directamente en una máquina o en un contenedor D
 
 Puedes crear acciones de contenedor Docker y JavaScript. Las acciones requieren un archivo de metadatos para definir las entradas, salidas y puntos de entrada para tu acción. El nombre del archivo de metadatos debe ser `action.yml` o `action.yaml`. Para obtener más información, consulta "[Sintaxis de metadatos para {% data variables.product.prodname_actions %}](/articles/metadata-syntax-for-github-actions)"
 
-| Type                | Sistema operativo     |
+| Tipo                | Sistema operativo     |
 | ------------------- | --------------------- |
 | Contenedor Docker   | Linux                 |
 | JavaScript          | Linux, macOS, Windows |
@@ -48,13 +47,13 @@ Los contenedores Docker empaquetan el entorno con el código de las {% data vari
 
 Un contenedor Docker te permite usar versiones específicas de un sistema operativo, dependencias, herramientas y código. Para las acciones que se deben ejecutar en una configuración de entorno específica, Docker es una opción ideal porque puedes personalizar el sistema operativo y las herramientas. Debido a la latencia para crear y recuperar el contenedor, las acciones del contenedor Docker son más lentas que las acciones de JavaScript.
 
-Las acciones de contenedor de Docker solo pueden ejecutarse en ejecutores con un sistema operativo Linux. {% data reusables.github-actions.self-hosted-runner-reqs-docker %}
+Las acciones de contenedor de Docker solo pueden ejecutarse en ejecutores con un sistema operativo Linux. {% data reusables.actions.self-hosted-runner-reqs-docker %}
 
 ### Acciones de JavaScript
 
 Las acciones de JavaScript pueden ejecutarse directamente en una máquina del ejecutor y separar el código de acción del entorno utilizado para ejecutar el código. El uso de una acción de JavaScript simplifica el código de acción y se ejecuta más rápido que una acción de contenedor Docker.
 
-{% data reusables.github-actions.pure-javascript %}
+{% data reusables.actions.pure-javascript %}
 
 Si estás desarrollando un proyecto Node.js, el conjunto de herramientas de las {% data variables.product.prodname_actions %} te ofrece paquetes que puedes usar en tu proyecto para acelerar el desarrollo. Para obtener más información, consulta el repositorio [actions/toolkit](https://github.com/actions/toolkit).
 
@@ -70,11 +69,13 @@ Si estás desarrollando una acción para que otras personas la utilicen, te reco
 Con el almacenamiento de una acción en su propio repositorio es más fácil para la comunidad {% data variables.product.prodname_dotcom %} descubrir la acción, reduce el alcance de la base de código para que los desarrolladores solucionen problemas y extiendan la acción, y desacopla el control de versiones de otro código de aplicación.
 {% endif %}
 
-{% ifversion fpt or ghec %}Si estás creando una acción que no piensas poner disponible públicamente, puedes {% else %} puedes {% endif %} almacenar los archivos de dicha acción en cualquier ubicación de tu repositorio. Si tienes la intención de combinar la acción, el flujo de trabajo y el código de aplicación en un único repositorio, es recomendable que almacenes las acciones en el directorio `.github`. Por ejemplo, `.github/actions/action-a` y `.github/actions/action-b`.
+{% data reusables.actions.internal-actions-summary %}
+
+{% ifversion fpt or ghec %}Si estás creando una acción que no piensas poner disponible para otros, puedes {% else %} Puedes {% endif %} almacenar los archivos de dicha acción en cualquier ubicación de tu repositorio. Si tienes la intención de combinar la acción, el flujo de trabajo y el código de aplicación en un único repositorio, es recomendable que almacenes las acciones en el directorio `.github`. Por ejemplo, `.github/actions/action-a` y `.github/actions/action-b`.
 
 ## Compatibilidad con {% data variables.product.prodname_ghe_server %}
 
-To ensure that your action is compatible with {% data variables.product.prodname_ghe_server %}, you should make sure that you do not use any hard-coded references to {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API URLs. You should instead use environment variables to refer to the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API:
+Para garantizar de que tu acción es compatible con {% data variables.product.prodname_ghe_server %}, debes asegurarte de que no utilices ninguna referencia escrita a mano para las URL de la API de {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %}. En vez de esto, deberías utilizar variables de ambiente para referirte a la API de {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %}:
 
 - Crear y validar un lanzamiento en una rama de lanzamiento (tal como `release/v1`) antes de crear la etiqueta de lanzamiento (por ejemplo, `v1.0.2`).
 - Para el caso de GraphQL, utiliza la variable de ambiente `GITHUB_GRAPHQL_URL`.
@@ -87,7 +88,7 @@ Esta sección explica cómo puedes utilizar la administración de lanzamientos p
 
 ### Buenas prácticas para la administración de lanzamientos
 
-Si estás desarrollando una acción para que la utilicen otras personas, te recomendamos utilizar la administración de lanzamientos para controlar cómo distribuyes las actualizaciones. Los usuarios pueden esperar que una versión mayor de una acción incluya correcciones críticas y parches de seguridad necesarios y que se mantenga compatible con los flujos de trabajo existentes. Deberías considerar lanzar una versión mayor cada que tus cambios afecten la compatibilidad.
+Si estás desarrollando una acción para que la utilicen otras personas, te recomendamos utilizar la administración de lanzamientos para controlar cómo distribuyes las actualizaciones. Los usuarios pueden esperar que una versión de parche de una acción incluya las correcciones y parches de seguridad críticos y necesarios mientras aún sigue siendo compatible con sus flujo de trabajo existentes. Deberías considerar lanzar una versión mayor cada que tus cambios afecten la compatibilidad.
 
 Bajo este acercamiento de administración de lanzamientos, los usuarios no deberían referenciar una rama predeterminada de una acción, ya que es probable que contenga el código más reciente y, en consecuencia, podría ser inestable. En vez de esto, puedes recomendar a tus usuarios que especifiquen una versión mayor cuando utilicen tu acción, y únicamente dirigirlos a una versión más específica si encuentran algún problema.
 
@@ -128,7 +129,7 @@ steps:
 
 ### Utilizar el SHA de las confirmaciones para la administración de lanzamientos
 
-Cada confirmación de Git recibe un valor calculado de SHA, el cual es único e inmutable. Los usuarios de tus acciones podrían preferir obtener un valor de SHA para la confirmación, ya que este acercamiento puede ser más confiable que especificar una etiqueta, la cual podría borrarse o moverse. Sin embargo, esto significa que los usuarios no recibirán ls actualizaciones posteriores que se hagan a la acción. {% ifversion fpt or ghes > 3.0 or ghae or ghec %}Debes utilizar el valor completo del SHA de la confirmación y no el abreviado.{% else %}El utilizar el valor completo del SHA de la confirmación en vez del abreviado ayuda a prevenir que las personas utilicen una confirmación mal intencionada que utiice la misma abreviación.{% endif %}
+Cada confirmación de Git recibe un valor calculado de SHA, el cual es único e inmutable. Los usuarios de tus acciones podrían preferir obtener un valor de SHA para la confirmación, ya que este acercamiento puede ser más confiable que especificar una etiqueta, la cual podría borrarse o moverse. Sin embargo, esto significa que los usuarios no recibirán ls actualizaciones posteriores que se hagan a la acción. Debes utilizar un valor SHA completo de la confirmación y no un valor abreviado.
 
 ```yaml
 steps:

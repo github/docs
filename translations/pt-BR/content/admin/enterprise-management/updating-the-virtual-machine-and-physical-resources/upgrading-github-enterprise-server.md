@@ -3,15 +3,15 @@ title: Atualizar o GitHub Enterprise Server
 intro: 'Atualize o {% data variables.product.prodname_ghe_server %} para usar os recursos e atualizações de segurança mais recentes.'
 redirect_from:
   - /enterprise/admin/installation/upgrading-github-enterprise-server
-  - /enterprise/admin/articles/upgrading-to-the-latest-release/
-  - /enterprise/admin/articles/migrations-and-upgrades/
-  - /enterprise/admin/guides/installation/upgrading-the-github-enterprise-virtual-machine/
-  - /enterprise/admin/guides/installation/upgrade-packages-for-older-releases/
-  - /enterprise/admin/articles/upgrading-older-installations/
-  - /enterprise/admin/hidden/upgrading-older-installations/
-  - /enterprise/admin/hidden/upgrading-github-enterprise-using-a-hotpatch-early-access-program/
-  - /enterprise/admin/hidden/upgrading-github-enterprise-using-a-hotpatch/
-  - /enterprise/admin/guides/installation/upgrading-github-enterprise/
+  - /enterprise/admin/articles/upgrading-to-the-latest-release
+  - /enterprise/admin/articles/migrations-and-upgrades
+  - /enterprise/admin/guides/installation/upgrading-the-github-enterprise-virtual-machine
+  - /enterprise/admin/guides/installation/upgrade-packages-for-older-releases
+  - /enterprise/admin/articles/upgrading-older-installations
+  - /enterprise/admin/hidden/upgrading-older-installations
+  - /enterprise/admin/hidden/upgrading-github-enterprise-using-a-hotpatch-early-access-program
+  - /enterprise/admin/hidden/upgrading-github-enterprise-using-a-hotpatch
+  - /enterprise/admin/guides/installation/upgrading-github-enterprise
   - /enterprise/admin/enterprise-management/upgrading-github-enterprise-server
   - /admin/enterprise-management/upgrading-github-enterprise-server
 versions:
@@ -23,23 +23,26 @@ topics:
 shortTitle: Atualizando GHES
 ---
 
+{% ifversion ghes < 3.3 %}{% data reusables.enterprise.upgrade-ghes-for-features %}{% endif %}
+
 ## Preparar para a atualização
 
-1. Determine uma estratégia de atualização e escolha uma versão para atualizar. Para obter mais informações, consulte "[Requisitos de atualização](/enterprise/{{ currentVersion }}/admin/guides/installation/upgrade-requirements/)".
-3. Crie um backup da instância primária usando o {% data variables.product.prodname_enterprise_backup_utilities %}. Para obter mais informações, consulte o [Arquivo README.md do {% data variables.product.prodname_enterprise_backup_utilities %}](https://github.com/github/backup-utils#readme).
-4. Se você estiver atualizando com um pacote de atualização, programe um período de manutenção para os usuários finais do {% data variables.product.prodname_ghe_server %}. Se estiver usando um hotpatch, não será necessário recorrer ao modo de manutenção.
+1. Determine uma estratégia de atualização e escolha uma versão para atualizar. Para obter mais informações, consulte "[Requisitos de atualização](/enterprise/admin/guides/installation/upgrade-requirements/)" e consulte o [{% data variables.enterprise.upgrade_assistant %}](https://support.github.com/enterprise/server-upgrade) para encontrar o caminho de atualização da sua versão atual.
+1. Crie um backup da instância primária usando o {% data variables.product.prodname_enterprise_backup_utilities %}. Para obter mais informações, consulte o [Arquivo README.md do {% data variables.product.prodname_enterprise_backup_utilities %}](https://github.com/github/backup-utils#readme).
+1. Se {% data variables.product.product_location %} usa executores efêmeros auto-hospedados para {% data variables.product.prodname_actions %} e você desabilitou as atualizações automáticas, atualizar os seus executores para a versão do aplicativo do executor que sua instância atualizada será executada.
+1. Se você estiver atualizando com um pacote de atualização, programe um período de manutenção para os usuários finais do {% data variables.product.prodname_ghe_server %}. Se estiver usando um hotpatch, não será necessário recorrer ao modo de manutenção.
 
   {% note %}
 
-  **Observação:** o período de manutenção depende do tipo de atualização a ser feita. Atualizações com hotpatch normalmente não exigem período de manutenção. É preciso reinicializar a instância em alguns casos, mas o processo pode ser feito em outro momento. Seguindo o esquema de versões do MAJOR.FEATURE.PATCH, as versões de patch que usam pacote de atualização costumam gerar menos de cinco minutos de tempo de inatividade. Versões de recursos que incluem migrações de dados levam mais tempo, dependendo do desempenho do armazenamento e da quantidade de dados migrados. Para obter mais informações, consulte "[Habilitar e programar o modo de manutenção](/enterprise/{{ currentVersion }}/admin/guides/installation/enabling-and-scheduling-maintenance-mode)".
+  **Observação:** o período de manutenção depende do tipo de atualização a ser feita. Atualizações com hotpatch costumam não exigir período de manutenção. É preciso reinicializar a instância em alguns casos, mas o processo pode ser feito em outro momento. Seguindo o esquema de versões do MAJOR.FEATURE.PATCH, as versões de patch que usam pacote de atualização costumam gerar menos de cinco minutos de tempo de inatividade. Versões de recursos que incluem migrações de dados levam mais tempo, dependendo do desempenho do armazenamento e da quantidade de dados migrados. Para obter mais informações, consulte "[Habilitar e programar o modo de manutenção](/enterprise/admin/guides/installation/enabling-and-scheduling-maintenance-mode)".
 
   {% endnote %}
 
-{% data reusables.enterprise_installation.upgrade-hardware-requirements %}
-
 ## Obter um instantâneo
 
-Instantâneo é um ponto de verificação de uma máquina virtual (VM) em um momento específico. É altamente recomendável obter um instantâneo antes de atualizar sua máquina virtual para que você possa recuperar a VM em caso de falha. Se você estiver atualizando para uma nova versão do recurso, obtenha um instantâneo da VM. Se você estiver atualizando para uma versão de patch, vincule o disco de dados existente.
+Instantâneo é um ponto de verificação de uma máquina virtual (VM) em um momento específico. É altamente recomendável obter um instantâneo antes de atualizar sua máquina virtual para que você possa recuperar a VM em caso de falha. Apenas recomendamos tirar um instantâneo da VM quando o dispositivo estiver desligado ou em modo de manutenção e todos os trabalhos em segundo plano estiverem concluídos.
+
+Se você estiver atualizando para uma nova versão do recurso, obtenha um instantâneo da VM. Se você estiver atualizando para uma versão de patch, vincule o disco de dados existente.
 
 Há dois tipos de instantâneo:
 
@@ -65,7 +68,9 @@ Há dois tipos de instantâneo:
 
 ## Atualizar com hotpatch
 
-{% data reusables.enterprise_installation.hotpatching-explanation %} Ao usar o {% data variables.enterprise.management_console %}, é possível instalar um hotpatch na mesma hora ou programar a instalação para depois. Você pode usar o shell administrativo para instalar um hotpatch com o utilitário `ghe-upgrade`. Para obter mais informações, consulte "[Requisitos de atualização](/enterprise/{{ currentVersion }}/admin/guides/installation/upgrade-requirements/)".
+{% data reusables.enterprise_installation.hotpatching-explanation %}
+
+Ao usar o {% data variables.enterprise.management_console %}, você pode instalar um hotpatch imediatamente ou programá-lo para instalação posterior. Você pode usar o shell administrativo para instalar um hotpatch com o utilitário `ghe-upgrade`. Para obter mais informações, consulte "[Requisitos de atualização](/enterprise/admin/guides/installation/upgrade-requirements/)".
 
 {% note %}
 
@@ -74,7 +79,7 @@ Há dois tipos de instantâneo:
 {% ifversion ghes %}
 - Se {% data variables.product.product_location %} estiver executando a compilação de um candidato à versão, você não poderá atualizar com um hotpatch.
 
-- {% endif %}Instalando um hotpatch usando o {% data variables.enterprise.management_console %} não está disponível em ambientes com cluster. Para instalar um hotpatch em um ambiente em cluster, consulte "[Atualizar um cluster](/enterprise/{{ currentVersion }}/admin/clustering/upgrading-a-cluster#upgrading-with-a-hotpatch)".
+- {% endif %}Instalando um hotpatch usando o {% data variables.enterprise.management_console %} não está disponível em ambientes com cluster. Para instalar um hotpatch em um ambiente em cluster, consulte "[Atualizar um cluster](/enterprise/admin/clustering/upgrading-a-cluster#upgrading-with-a-hotpatch)".
 
 {% endnote %}
 
@@ -82,7 +87,11 @@ Há dois tipos de instantâneo:
 
 #### Instalar um hotpatch usando o {% data variables.enterprise.management_console %}
 
-1. Habilite atualizações automáticas. Para obter mais informações, consulte "[Habilitar atualizações automáticas](/enterprise/{{ currentVersion }}/admin/guides/installation/enabling-automatic-update-checks/)".
+Você pode usar o {% data variables.enterprise.management_console %} para atualizar com um hotpatch, habilitando as atualizações automáticas. Em seguida, será apresentada a última versão de {% data variables.product.prodname_ghe_server %} disponível para a qual você pode atualizar.
+
+Se o alvo de atualização que lhe foi apresentado for uma versão do recurso em vez de uma versão de patch, você não poderá usar {% data variables.enterprise.management_console %} para instalar um hotpatch. Você deve instalar o hotpatch usando o shell administrativo. Para obter mais informações, consulte "[Instalando um hotpatch usando o shell administrativo](#installing-a-hotpatch-using-the-administrative-shell)."
+
+1. Habilite atualizações automáticas. Para obter mais informações, consulte "[Habilitar atualizações automáticas](/enterprise/admin/guides/installation/enabling-automatic-update-checks/)".
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% data reusables.enterprise_management_console.updates-tab %}
@@ -133,7 +142,7 @@ Appliances configurados para alta disponibilidade e replicação geográfica usa
 
 ## Atualizar com pacote de atualização
 
-Mesmo que seja possível usar um hotpatch para fazer a atualização do patch em uma série, você deve usar um pacote de atualização a fim de atualizar para uma versão mais recente. Por exemplo, use um pacote ao atualizar da versão `2.11.10` para a `2.12.4`, já que elas estão em séries diferentes. Para obter mais informações, consulte "[Requisitos de atualização](/enterprise/{{ currentVersion }}/admin/guides/installation/upgrade-requirements/)".
+Mesmo que seja possível usar um hotpatch para fazer a atualização do patch em uma série, você deve usar um pacote de atualização a fim de atualizar para uma versão mais recente. Por exemplo, use um pacote ao atualizar da versão `2.11.10` para a `2.12.4`, já que elas estão em séries diferentes. Para obter mais informações, consulte "[Requisitos de atualização](/enterprise/admin/guides/installation/upgrade-requirements/)".
 
 ### Atualizar um appliance com pacote de atualização
 
@@ -142,7 +151,7 @@ Mesmo que seja possível usar um hotpatch para fazer a atualização do patch em
 {% data reusables.enterprise_installation.ssh-into-instance %}
 2. {% data reusables.enterprise_installation.enterprise-download-upgrade-pkg %} Selecione a plataforma adequada e copie a URL do pacote de atualização (arquivo *.pkg*).
 {% data reusables.enterprise_installation.download-package %}
-4. Habilite o modo de manutenção e aguarde a conclusão de todos os processos ativos na instância do {% data variables.product.prodname_ghe_server %}. Para obter mais informações, consulte "[Habilitar e programar o modo de manutenção](/enterprise/{{ currentVersion }}/admin/guides/installation/enabling-and-scheduling-maintenance-mode)".
+4. Habilite o modo de manutenção e aguarde a conclusão de todos os processos ativos na instância do {% data variables.product.prodname_ghe_server %}. Para obter mais informações, consulte "[Habilitar e programar o modo de manutenção](/enterprise/admin/guides/installation/enabling-and-scheduling-maintenance-mode)".
 
   {% note %}
 
@@ -163,6 +172,9 @@ Mesmo que seja possível usar um hotpatch para fazer a atualização do patch em
   Target root partition:  /dev/xvda2
   Proceed with installation? [y/N]
   ```
+{% ifversion ip-exception-list %}
+1. Opcionalmente, para validar a atualização, configure uma lista de exceções IP para permitir o acesso a uma lista especificada de endereços IP. Para obter mais informações, consulte "[Validando as alterações no modo de manutenção usando a lista de exceção de IP](/admin/configuration/configuring-your-enterprise/enabling-and-scheduling-maintenance-mode#validating-changes-in-maintenance-mode-using-the-ip-exception-list)".
+{% endif %}
 7. Em atualizações de appliance único, desabilite o modo de manutenção para os usuários poderem trabalhar com a {% data variables.product.product_location %}.
 
   {% note %}
@@ -183,7 +195,7 @@ Appliances configurados para alta disponibilidade e replicação geográfica usa
 
 {% endwarning %}
 
-1. Na instância primária, habilite o modo de manutenção e aguarde a conclusão de todos os processos ativos. Para obter mais informações, consulte "[Habilitar o modo de manutenção](/enterprise/{{ currentVersion }}/admin/guides/installation/enabling-and-scheduling-maintenance-mode/)".
+1. Na instância primária, habilite o modo de manutenção e aguarde a conclusão de todos os processos ativos. Para obter mais informações, consulte "[Habilitar o modo de manutenção](/enterprise/admin/guides/installation/enabling-and-scheduling-maintenance-mode/)".
 {% data reusables.enterprise_installation.replica-ssh %}
 3. Na instância de réplica (ou em todas as instâncias de réplica), se você estiver executando várias réplicas como parte da replicação geográfica, execute `ghe-repl-stop` para parar a replicação.
 4. Atualize a instância primária seguindo as instruções em "[Atualizar um appliance com pacote de atualização](#upgrading-a-single-appliance-with-an-upgrade-package)".
@@ -221,9 +233,11 @@ Em caso de falha ou interrupção da atualização, volte a sua instância ao es
 
 ### Voltar a uma versão de patch
 
-Para reverter uma versão de patch, use o comando `ghe-upgrade` com o switch `--allow-patch-rollback`. {% data reusables.enterprise_installation.command-line-utilities-ghe-upgrade-rollback %}
+Para reverter uma versão de patch, use o comando `ghe-upgrade` com o switch `--allow-patch-rollback`. Antes de reverter tudo, a replicação deve ser temporariamente parada executando `ghe-repl-stop` em todas as instâncias de réplica. {% data reusables.enterprise_installation.command-line-utilities-ghe-upgrade-rollback %}
 
-Para obter mais informações, consulte "[Utilitários de linha de comando](/enterprise/{{ currentVersion }}/admin/guides/installation/command-line-utilities/#ghe-upgrade)".
+Uma vez que a reversão estiver completa, reinicie a replicação executando `ghe-repl-start` em todas as réplicas.
+
+Para obter mais informações, consulte "[Utilitários de linha de comando](/enterprise/admin/guides/installation/command-line-utilities/#ghe-upgrade)".
 
 ### Voltar a uma versão de recurso
 

@@ -2,8 +2,8 @@
 title: 使用 Jekyll 向 GitHub Pages 站点添加主题
 intro: 您可以通过添加和自定义主题来个性化 Jekyll 站点。
 redirect_from:
-  - /articles/customizing-css-and-html-in-your-jekyll-theme/
-  - /articles/adding-a-jekyll-theme-to-your-github-pages-site/
+  - /articles/customizing-css-and-html-in-your-jekyll-theme
+  - /articles/adding-a-jekyll-theme-to-your-github-pages-site
   - /articles/adding-a-theme-to-your-github-pages-site-using-jekyll
   - /github/working-with-github-pages/adding-a-theme-to-your-github-pages-site-using-jekyll
 product: '{% data reusables.gated-features.pages %}'
@@ -49,7 +49,7 @@ shortTitle: 将主题添加到 Pages 站点
   ---
   ---
 
-  @import "{{ site.theme }}";
+  @import "{% raw %}{{ site.theme }}{% endraw %}";
   ```
 3. 在 `@import` 行的后面直接添加您喜欢的任何自定义 CSS 或 Sass（包括导入）。
 

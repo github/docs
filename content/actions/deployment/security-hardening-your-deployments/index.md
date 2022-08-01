@@ -1,11 +1,12 @@
 ---
 title: Security hardening your deployments
 shortTitle: Security hardening your deployments
-intro: 'Use OpenID Connect within your workflows to authenticate with your cloud provider.'
+intro: Use OpenID Connect within your workflows to authenticate with your cloud provider.
 versions:
   fpt: '*'
-  ghae: 'issue-4856'
+  ghae: issue-4856
   ghec: '*'
+  ghes: '>=3.5'
 children:
   - /about-security-hardening-with-openid-connect
   - /configuring-openid-connect-in-amazon-web-services
@@ -15,3 +16,4 @@ children:
   - /configuring-openid-connect-in-cloud-providers
   - /using-openid-connect-with-reusable-workflows
 ---
+

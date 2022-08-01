@@ -35,7 +35,7 @@ sections:
     - 'Arquivos LFS do Git [enviados através da interface web](https://github.com/blog/2105-upload-files-to-your-repositories) são adicionados diretamente ao repositório e de forma incorreta.'
     - 'Os problemas não podem ser fechados se contiverem um permalink para um blob no mesmo repositório onde o caminho do arquivo tem mais de 255 caracteres.'
     - 'Quando "Usuários podem pesquisar pelo GitHub.com" está habilitado com o GitHub Connect, os problemas em repositórios privados e internos não estão incluídos nos resultados de pesquisa do GitHub.com.'
-    - 'When maintenance mode is enabled, some services continue to be listed as "active processes". The services identified are expected to run during maintenance mode. If you experience this issue and are unsure, contact [GitHub Enterprise Support](https://support.github.com/contact).'
+    - 'Quando o modo de manutenção está habilitado, alguns serviços continuam listados como "processos ativos". Espera-se que os serviços identificados sejam executados durante o modo de manutenção. Se você tiver problemas e tiver dúvidas, entre em contato com o [Suporte do GitHub Enterprise](https://support.github.com/contact).'
     - 'O registro duplicado para `/var/log/messages`, `/var/log/syslog`, e `/var/log/user.log` geraram um aumento na utilização do volume raiz.'
     - 'Os usuários podem ignorar uma mensagem obrigatória sem marcar todas as caixas de seleção.'
     - '[Script de hook de pre-receive](/admin/policies/execuing-policy-with-pre-receive-hooks) não pode escrever arquivos temporários, o que pode gerar falha na execução de script. Os usuários que usam hooks pre-receive devem testar em um ambiente de treinamento para ver se os scripts exigem acesso de gravação.'

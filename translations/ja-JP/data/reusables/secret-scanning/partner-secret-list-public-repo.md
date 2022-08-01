@@ -22,6 +22,10 @@
 | Contributed Systems       | Contributed Systems Credentials                     |
 | Databricks                | Databricks Access Token                             |
 | Datadog                   | Datadog API Key                                     |
+| DigitalOcean              | DigitalOcean Personal Access Token                  |
+| DigitalOcean              | DigitalOcean OAuth Token                            |
+| DigitalOcean              | DigitalOcean Refresh Token                          |
+| DigitalOcean              | DigitalOcean System Token                           |
 | Discord                   | Discord Bot Token                                   |
 | Doppler                   | Doppler Personal Token                              |
 | Doppler                   | Doppler Service Token                               |
@@ -49,6 +53,7 @@
 | Hubspot                   | Hubspot API Key                                     |
 | Ionic                     | Ionic Personal Access Token                         |
 | Ionic                     | Ionic Refresh Token                                 |
+| JD Cloud                  | JD Cloud Access Key                                 |
 | Linear                    | Linear API Key                                      |
 | Linear                    | Linear OAuth Access Token                           |
 | Mailchimp                 | Mailchimp API Key                                   |
@@ -58,6 +63,7 @@
 | メタ情報                      | Facebook Access Token                               |
 | npm                       | npm Access Token                                    |
 | NuGet                     | NuGet API Key                                       |
+| Octopus Deploy            | Octopus Deploy API Key                              |
 | OpenAI                    | OpenAI API Key                                      |
 | Palantir                  | Palantir JSON Web Token                             |
 | PlanetScale               | PlanetScale Database Password                       |
@@ -71,10 +77,13 @@
 | Proctorio                 | Proctorio Secret Key                                |
 | Pulumi                    | Pulumi Access Token                                 |
 | PyPI                      | PyPI API Token                                      |
+| redirect.pizza            | redirect.pizza API Token                            |
 | RubyGems                  | RubyGems API Key                                    |
 | Samsara                   | Samsara API Token                                   |
 | Samsara                   | Samsara OAuth Access Token                          |
 | SendGrid                  | SendGrid API Key                                    |
+| Sendinblue                | Sendinblue API Key                                  |
+| Sendinblue                | Sendinblue SMTP Key                                 |
 | Shopify                   | Shopify App Shared Secret                           |
 | Shopify                   | Shopify Access Token                                |
 | Shopify                   | Shopify Custom App Access Token                     |
@@ -88,7 +97,10 @@
 | Stripe                    | Stripe Test API Secret Key                          |
 | Stripe                    | Stripe Live API Restricted Key                      |
 | Stripe                    | Stripe Test API Restricted Key                      |
+| Supabase                  | Supabase Service Key                                |
 | Tencent Cloud             | Tencent Cloud Secret ID                             |
 | Twilio                    | Twilio Account String Identifier                    |
 | Twilio                    | Twilio API Key                                      |
+| Typeform                  | Typeform Personal Access Token                      |
 | Valour                    | Valour Access Token                                 |
+| Zuplo                     | Zuplo Consumer API                                  |

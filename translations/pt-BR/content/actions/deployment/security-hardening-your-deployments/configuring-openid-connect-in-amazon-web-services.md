@@ -7,6 +7,7 @@ versions:
   fpt: '*'
   ghae: issue-4856
   ghec: '*'
+  ghes: '>=3.5'
 type: tutorial
 topics:
   - Security
@@ -31,20 +32,20 @@ Este guia explica como configurar o AWS para confiar no OIDC de {% data variable
 
 Para adicionar o provedor OIDC de {% data variables.product.prodname_dotcom %} ao IAM, consulte a [documentação AWS](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_create_oidc.html).
 
-- Para a URL do provedor: Use `https://token.actions.githubusercontent.com`
+- Para o URL do provedor: Use {% ifversion ghes %}`https://HOSTNAME/_services/token`{% else %}`https://token.actions.githubusercontent.com`{% endif %}
 - Para o "público": Use `sts.amazonaws.com` se você estiver usando a [ação oficial](https://github.com/aws-actions/configure-aws-credentials).
 
 ### Configurando a função e a política de confiança
 
 Para configurar a função e confiar no IAM, consulte a documentação do AWS para ["Assumindo uma função"](https://github.com/aws-actions/configure-aws-credentials#assuming-a-role) e ["Criando uma função para a identidade web ou federação de conexão do OpenID"](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-idp_oidc.html).
 
-Por padrão, a validação inclui apenas a condição de público (`aud`). Portanto, você deve adicionar manualmente a condição de assunto (`sub`). Edite o relacionamento de confiança para adicionar o campo `sub` às condições de validação. Por exemplo:
+Edite o relacionamento de confiança para adicionar o campo `sub` às condições de validação. Por exemplo:
 
 ```json{:copy}
 "Condition": {
   "StringEquals": {
-    "token.actions.githubusercontent.com:aud": "https://github.com/octo-org",
-    "token.actions.githubusercontent.com:sub": "repo:octo-org/octo-repo:ref:refs/heads/octo-branch"
+    "{% ifversion ghes %}HOSTNAME/_services/token{% else %}token.actions.githubusercontent.com{% endif %}:aud": "sts.amazonaws.com",
+    "{% ifversion ghes %}HOSTNAME/_services/token{% else %}token.actions.githubusercontent.com{% endif %}:sub": "repo:octo-org/octo-repo:ref:refs/heads/octo-branch"
   }
 }
 ```
@@ -57,14 +58,7 @@ Para atualizar seus fluxos de trabalho para o OIDC, você deverá fazer duas alt
 
 ### Adicionando configurações de permissões
 
-O fluxo de trabalho exigirá uma configuração `permissões` com um valor de [`id-token`](/actions/security-guides/automatic-token-authentication#permissions-for-the-github_token) definido. If you only need to fetch an OIDC token for a single job, then this permission can be set within that job. Por exemplo:
-
-```yaml{:copy}
-permissions:
-  id-token: write
-```
-
-Você pode precisar especificar permissões adicionais aqui, dependendo das necessidades do seu fluxo de trabalho.
+ {% data reusables.actions.oidc-permissions-token %}
 
 ### Solicitando o token de acesso
 
@@ -72,7 +66,7 @@ A ação `aws-actions/configure-aws-credentials` recebe um JWT do provedor do OI
 
 - `<example-bucket-name>`: Adicione o nome do seu bucket S3 aqui.
 - `<role-to-assume>`: Substitua o exemplo pela sua função do AWS.
-- `<example-aws-region>`: Add the name of your AWS region here.
+- `<example-aws-region>`: Adicione o nome do seu AWS aqui.
 
 ```yaml{:copy}
 # Sample workflow to access AWS resources when workflow is tied to branch
@@ -86,15 +80,15 @@ env:
 # permission can be added at job level or workflow level    
 permissions:
       id-token: write
-      contents: write    # This is required for actions/checkout@v1
+      contents: read    # This is required for actions/checkout
 jobs:
   S3PackageUpload:
     runs-on: ubuntu-latest
     steps:
       - name: Git clone the repository
-        uses: actions/checkout@v1
+        uses: {% data reusables.actions.action-checkout %}
       - name: configure aws credentials
-        uses: aws-actions/configure-aws-credentials@master
+        uses: aws-actions/configure-aws-credentials@v1
         with:
           role-to-assume: arn:aws:iam::1234567890:role/example-role
           role-session-name: samplerolesession

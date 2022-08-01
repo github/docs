@@ -2,7 +2,7 @@
 title: Movendo uma equipe na hierarquia da organização
 intro: 'Mantenedores de equipes e proprietários de organizações podem encaixar uma equipe abaixo de uma equipe principal, ou ainda, alterar ou remover uma principal da equipe aninhada.'
 redirect_from:
-  - /articles/changing-a-team-s-parent/
+  - /articles/changing-a-team-s-parent
   - /articles/moving-a-team-in-your-organization-s-hierarchy
   - /articles/moving-a-team-in-your-organizations-hierarchy
   - /github/setting-up-and-managing-organizations-and-teams/moving-a-team-in-your-organizations-hierarchy
@@ -30,7 +30,7 @@ Proprietários de organizações podem mudar a principal de qualquer equipe. Man
 {% endtip %}
 
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.teams %}
 4. Na lista de equipes, clique no nome da equipe cuja principal você deseja alterar. ![Lista das equipes da organização](/assets/images/help/teams/click-team-name.png)
 {% data reusables.organizations.team_settings %}

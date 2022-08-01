@@ -6,6 +6,7 @@ redirect_from:
   - /admin/user-management/removing-users-from-teams-and-organizations
 versions:
   ghes: '*'
+  ghae: '*'
 type: how_to
 topics:
   - Access management
@@ -25,6 +26,8 @@ Organizationのメンバーを削除できるのは、オーナーもしくはTe
 
 ## Teamメンバーの削除
 
+{% ifversion ghes %}
+
 {% warning %}
 
 **ノート：**{% data reusables.enterprise_management_console.badge_indicator %}
@@ -33,8 +36,10 @@ LDAPグループに同期しているTeamの既存メンバーを削除するに
 
 {% endwarning %}
 
+{% endif %}
+
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.specific_team %}
 4. 削除する個人を選択します。 ![Organization メンバーの横のチェックボックス](/assets/images/help/teams/team-member-check-box.png)
 5. Team メンバーのリストの上のドロップダウンメニューで、[**Remove from team**] をクリックします。 ![ロールを変更するオプションのあるドロップダウンメニュー](/assets/images/help/teams/bulk-edit-drop-down.png)
@@ -42,7 +47,7 @@ LDAPグループに同期しているTeamの既存メンバーを削除するに
 ## Organizationからのユーザの削除
 
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.people %}
 4. Organization から削除したいユーザの名前の隣で、チェックボックをクリックします。 ![削除するユーザを選択する](/assets/images/help/organizations/Organization-remove-user.png)
 5. ページの上部のOrganizationの名前の下で**Remove from organization（Organizationから削除）**をクリックしてください。 ![Organizationボタンからの削除](/assets/images/help/organizations/Organization-remove-from-organization-button.png)

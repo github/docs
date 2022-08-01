@@ -3,7 +3,7 @@ title: Gerenciar usuários na sua empresa
 intro: Você pode controlar atividades do usuário e gerenciar configurações de usuário.
 redirect_from:
   - /github/setting-up-and-managing-your-enterprise/managing-users-in-your-enterprise
-  - /enterprise/admin/guides/user-management/enabling-avatars-and-identicons/
+  - /enterprise/admin/guides/user-management/enabling-avatars-and-identicons
   - /enterprise/admin/user-management/basic-account-settings
   - /enterprise/admin/user-management/user-security
   - /enterprise/admin/user-management/managing-users-in-your-enterprise
@@ -27,6 +27,7 @@ children:
   - /viewing-and-managing-a-users-saml-access-to-your-enterprise
   - /auditing-users-across-your-enterprise
   - /impersonating-a-user
+  - /removing-a-member-from-your-enterprise
   - /managing-dormant-users
   - /suspending-and-unsuspending-users
   - /placing-a-legal-hold-on-a-user-or-organization

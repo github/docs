@@ -2,9 +2,9 @@
 title: Remover dados confidenciais do repositório
 intro: 'Se você fizer commit de dados confidenciais, como uma senha ou chave SSH em um repositório Git, poderá removê-los do histórico. Para remover completamente arquivos indesejados do histórico de um repositório, você pode usar a ferramenta `git filter-repo` ou a ferramenta de código aberto BFG Repo-Cleaner.'
 redirect_from:
-  - /remove-sensitive-data/
-  - /removing-sensitive-data/
-  - /articles/remove-sensitive-data/
+  - /remove-sensitive-data
+  - /removing-sensitive-data
+  - /articles/remove-sensitive-data
   - /articles/removing-sensitive-data-from-a-repository
   - /github/authenticating-to-github/removing-sensitive-data-from-a-repository
   - /github/authenticating-to-github/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository
@@ -25,9 +25,9 @@ Você pode remover o arquivo com o commit mais recente com `git rm`. Para obter 
 
 {% warning %}
 
-Este artigo diz a você como tornar commits com dados confidenciais inacessíveis a partir de quaisquer branches ou tags do seu repositório em {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}. No entanto, é importante destacar que esses commits talvez ainda possam ser acessados em clones ou bifurcações do repositório diretamente por meio de hashes SHA-1 em visualizações em cache no {% data variables.product.product_name %} e por meio de qualquer pull request que faça referência a eles. Não é possível remover dados confidenciais dos clones ou bifurcações de usuários do seu repositório, mas você pode remover permanentemente as visualizações e referências em cache para os dados confidenciais em pull requests no {% data variables.product.product_name %} entrando em contato com {% data variables.contact.contact_support %}.
+**Aviso**: Este artigo diz a você como tornar commits com dados confidenciais inacessíveis a partir de quaisquer branches ou tags do seu repositório em {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}. No entanto, esses commits talvez ainda possam ser acessados em clones ou bifurcações do repositório diretamente por meio de hashes SHA-1 em visualizações em cache no {% data variables.product.product_name %} e por meio de qualquer pull request que faça referência a eles. Não é possível remover dados confidenciais dos clones ou bifurcações de usuários do seu repositório, mas você pode remover permanentemente as visualizações e referências em cache para os dados confidenciais em pull requests no {% data variables.product.product_name %} entrando em contato com {% data variables.contact.contact_support %}.
 
-**Aviso: Depois de ter feito o push de um commit para {% data variables.product.product_name %}, você deve considerar todos os dados confidenciais no commit comprometido.** Se você fez o commit de uma senha, altere-a! Se tiver feito commit de uma chave, crie outra. A remoção dos dados comprometidos não resolve sua exposição inicial, especialmente em clones ou bifurcações existentes do seu repositório. Considere essas limitações ao tomar a decisão de reescrever a história do repositório.
+**Depois de ter feito o push de um commit para {% data variables.product.product_name %}, você deve considerar todos os dados confidenciais no commit comprometido.** Se você fez o commit de uma senha, altere-a! Se tiver feito commit de uma chave, crie outra. A remoção dos dados comprometidos não resolve sua exposição inicial, especialmente em clones ou bifurcações existentes do seu repositório. Considere essas limitações ao tomar a decisão de reescrever a história do repositório.
 
 {% endwarning %}
 
@@ -51,7 +51,7 @@ Para substituir todo o texto relacionado no `passwords.txt` sempre que ele for e
 $ bfg --replace-text passwords.txt
 ```
 
-Depois que os dados confidenciais são removidos, você deve fazer push forçado das suas alterações para {% data variables.product.product_name %}.
+Depois que os dados confidenciais são removidos, você deve fazer push forçado das suas alterações para {% data variables.product.product_name %}. Fazer push forçado reescreve o histórico do repositório, o que remove dados confidenciais do histórico de commit. Se você fizer push forçado, isso poderá pode sobrescrever commits nos quais outras pessoas basearam o seu trabalho.
 
 ```shell
 $ git push --force
@@ -125,7 +125,7 @@ Para ilustrar como `git filter-repo` funciona, mostraremos como remover seu arqu
   >  1 files changed, 1 insertions(+), 0 deletions(-)
   ```
 6. Verifique se você removeu todo o conteúdo desejado do histórico do repositório e fez checkout de todos os branches.
-7. Quando você estiver satisfeito com o estado do seu repositório, faça push forçado das alterações locais para sobrescrever o repositório em {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}, bem como de todos os branches para os quais você fez o push:
+7. Quando você estiver satisfeito com o estado do seu repositório, faça push forçado das alterações locais para sobrescrever o repositório em {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}, bem como de todos os branches para os quais você fez o push. É necessário um push forçado para remover dados confidenciais do seu histórico de commit.
   ```shell
   $ git push origin --force --all
   > Counting objects: 1074, done.
@@ -152,7 +152,7 @@ Para ilustrar como `git filter-repo` funciona, mostraremos como remover seu arqu
 
 Depois de usar a ferramenta BFG ou `git filter-repo` para remover os dados confidenciais e fazer push das suas alterações para {% data variables.product.product_name %}, você deve seguir mais algumas etapas para remover completamente os dados de {% data variables.product.product_name %}.
 
-1. Entre em contato com o {% data variables.contact.contact_support %} e solicite a remoção das visualizações em cache e das referências aos dados confidenciais em pull requests no {% data variables.product.product_name %}. Forneça o nome do repositório e/ou um link para o commit que você precisa que seja removido.
+1. Entre em contato com o {% data variables.contact.contact_support %} e solicite a remoção das visualizações em cache e das referências aos dados confidenciais em pull requests no {% data variables.product.product_name %}. Forneça o nome do repositório e/ou um link para o commit que você precisa removido.{% ifversion ghes %} Para obter mais informações sobre como os administradores do site podem remover objetos do Git inacessíveis, consulte "[Utilitários da linha de comando](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-repo-gc)."{% endif %}
 
 2. Peça para os colaboradores [fazerem rebase](https://git-scm.com/book/en/Git-Branching-Rebasing), *e não* merge, nos branches criados a partir do histórico antigo do repositório. Um commit de merge poderia reintroduzir o histórico antigo completo (ou parte dele) que você acabou de se dar ao trabalho de corrigir.
 

@@ -13,10 +13,8 @@ type: tutorial
 shortTitle: Utilizar ejecutores en un flujo de trabajo
 ---
 
-{% data reusables.actions.ae-self-hosted-runners-notice %}
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 Para obtener más información sobre cómo crear etiquetas personalizadas y predeterminadas, consulta la sección "[Utilizar etiquetas con ejecutores auto-hospedados](/actions/hosting-your-own-runners/using-labels-with-self-hosted-runners)".
 
@@ -24,9 +22,9 @@ Para obtener más información sobre cómo crear etiquetas personalizadas y pred
 
 Las etiquetas te permiten enviar jobs de flujo de trabajo a tipos específicos de ejecutores auto-hospedados, de acuerdo con sus características compartidas. Por ejemplo, si tu job requiere una componente de hardware o paquete de software específico, puedes asignar una etiqueta personalizada a un ejecutor y después configurar tu job para que solo se ejecute en los ejecutores con esta etiqueta.
 
-{% data reusables.github-actions.self-hosted-runner-labels-runs-on %}
+{% data reusables.actions.self-hosted-runner-labels-runs-on %}
 
-Para obtener más información, consulta "[Sintaxis de flujo de trabajo para {% data variables.product.prodname_actions %}](/github/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idruns-on)."
+Para obtener más información, consulta la sección "[Sintaxis de flujo de trabajo para {% data variables.product.prodname_actions %}](/github/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idruns-on)".
 
 ## Utilizar etiquetas predeterminadas para enrutar jobs
 
@@ -71,8 +69,13 @@ Estas etiquetas operan acumulativamente, así que las etiquetas de un ejecutor a
 
 Cuando enrutas un job hacia un ejecutor auto-hospedado, {% data variables.product.prodname_dotcom %} busca un ejecutor que coincida con las etiquetas `runs-on` del job:
 
-{% ifversion fpt or ghes > 3.2 or ghae-next or ghec %}
-- {% data variables.product.prodname_dotcom %} primero busca un ejecutor inactivo a nivel de repositorio, luego, a nivel organizacional {% ifversion fpt or ghec %} y si la organización es parte de una empresa,{% endif %} entonces a nivel empresarial.
+{% ifversion fpt or ghes > 3.3 or ghae or ghec %}
+- Si {% data variables.product.prodname_dotcom %} encuentra un ejecutor inactivo en línea que empate con las etiquetas de `runs-on` del job, este se asignará y enviará al ejecutor.
+  - Si ele ejecutor no recoge el job asignado en 60 segundos, este volverá a ponerse en cola para que el ejecutor nuevo pueda aceptarlo.
+- Si {% data variables.product.prodname_dotcom %} no encuentra un ejecutor en línea y uno inactivo que empato con sus etiquetas de `runs-on`, entonces dicho job permanecerá en cola hasta que un ejecutor se conecte.
+- Si el job permanece en cola por más de 24 horas, este fallará.
+{% elsif ghes = 3.3 %}
+- {% data variables.product.prodname_dotcom %} primero busca un ejecutor a nivel de repositorio y luego a nivel organizacional, posteriormente, lo hace a nivel empresarial.
 - Si {% data variables.product.prodname_dotcom %} encuentra un ejecutor inactivo en algún nivel que empate con las etiquetas de `runs-on` del job, dicho job se asignará entonces y se enviará al ejecutor.
   - Si el ejecutor no toma el job asignado dentro de 60 segundos, dicho job se pondrá en cola en todos los niveles y esperará que un ejecutor de cualquier nivel que empate se ponga en línea y lo tome.
 - Si {% data variables.product.prodname_dotcom %} no encuentra un ejecutor inactivo y en línea en cualquier nivel, el job se pondrá en cola para todos los niveles y esperará que un ejecutor de cualquier nivel que empate se muestre en línea y lo tome.

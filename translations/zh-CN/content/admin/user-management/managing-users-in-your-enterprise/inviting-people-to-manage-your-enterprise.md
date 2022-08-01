@@ -1,12 +1,11 @@
 ---
 title: 邀请人员管理企业
 intro: '您可以 {% ifversion ghec %}邀请人们成为企业所有者或帐单管理员，以{% elsif ghes %}添加企业所有者到{% endif %}企业帐户。 也可以删除不再需要访问企业帐户的企业所有者{% ifversion ghec %}或帐单管理员{% endif %}。'
-product: '{% data reusables.gated-features.enterprise-accounts %}'
 permissions: 'Enterprise owners can {% ifversion ghec %}invite other people to become{% elsif ghes %}add{% endif %} additional enterprise administrators.'
 redirect_from:
   - /github/setting-up-and-managing-your-enterprise/managing-users-in-your-enterprise/inviting-people-to-manage-your-enterprise
   - /github/setting-up-and-managing-your-enterprise-account/inviting-people-to-manage-your-enterprise-account
-  - /articles/inviting-people-to-collaborate-in-your-business-account/
+  - /articles/inviting-people-to-collaborate-in-your-business-account
   - /articles/inviting-people-to-manage-your-enterprise-account
   - /github/setting-up-and-managing-your-enterprise/inviting-people-to-manage-your-enterprise
 versions:
@@ -44,11 +43,15 @@ shortTitle: 邀请人员进行管理
 
 ## {% ifversion ghec %}邀请{% elsif ghes %}添加{% endif %} 企业管理员到您的企业帐户
 
-{% ifversion ghec %}在邀请别人加入企业帐户后，他们必须接受电子邮件邀请，然后才可访问企业帐户。 Pending invitations will expire after 7 days.{% endif %}
+{% ifversion ghec %}在邀请别人加入企业帐户后，他们必须接受电子邮件邀请，然后才可访问企业帐户。 待处理的邀请将在 7 天后过期。{% endif %}
+
+{% ifversion enterprise-membership-view-improvements %}
+您可以查看所有待处理的邀请，以成为企业帐户的管理员。 更多信息请参阅“[查看企业中的人员](/admin/user-management/managing-users-in-your-enterprise/viewing-people-in-your-enterprise#viewing-pending-invitations)”。
+{% endif %}
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.people-tab %}
-1. 在左侧边栏中，单击 **Administrators（管理员）**。 ![左侧边栏中的管理员选项卡](/assets/images/help/business-accounts/administrators-tab.png)
+{% data reusables.enterprise-accounts.administrators-tab %}
 1. 在管理员列表上方，单击 {% ifversion ghec %}**邀请管理员**{% elsif ghes %}**添加所有者**{% endif %}。
   {% ifversion ghec %}
   ![企业所有者列表上方的"邀请管理员"按钮](/assets/images/help/business-accounts/invite-admin-button.png)
@@ -64,12 +67,17 @@ shortTitle: 邀请人员进行管理
 
 只有企业所有者才可从企业帐户删除其他企业管理员。
 
+{% ifversion ghec %}
+如果要删除的管理员是企业拥有的任何组织的成员，则可以选择 **Convert to member（转换为成员）**，这将删除其管理角色但保留其组织成员身份，或选择 **Remove from enterprise（从企业中删除）**，这将删除其管理角色和组织成员身份。
+{% endif %}
+
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.people-tab %}
-1. 在您要删除的人员用户名旁边，单击 {% octicon "gear" aria-label="The Settings gear" %}，然后单击 **Remove owner（删除所有者）**{% ifversion ghec %} 或**Remove billing manager（删除帐单管理员）**。{% endif %}
+{% data reusables.enterprise-accounts.administrators-tab %}
+1. 在您要删除的人员用户名旁边，单击 {% octicon "gear" aria-label="The Settings gear" %}，然后单击 {% ifversion ghes %}**Remove owner（删除所有者）**{% elsif ghec %}**Convert to member（转换为成员）**或 **Remove from enterprise（从企业中删除）**。{% endif %}。
   {% ifversion ghec %}
   ![包含删除企业管理员的菜单选项的设置齿轮](/assets/images/help/business-accounts/remove-admin.png)
   {% elsif ghes %}
   ![包含删除企业管理员的菜单选项的设置齿轮](/assets/images/help/business-accounts/ghes-remove-owner.png)
   {% endif %}
-1. 阅读确认，然后单击 **Remove owner（删除所有者）**{% ifversion ghec %} 或 **Remove billing manager（删除帐单管理员）**{% endif %}。
+1. 阅读确认信息，然后单击 {% ifversion ghes %}**Remove owner（删除所有者）**{% elsif ghec %}**Yes, convert USERNAME to member（是，将 [用户名] 转换为成员）**{% endif %}。

@@ -3,18 +3,18 @@ title: 降级 GitHub 订阅
 intro: '您可以随时降级 {% data variables.product.product_location %} 上任何类型的帐户的订阅。'
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/downgrading-your-github-subscription
-  - /articles/downgrading-your-personal-account-s-billing-plan/
-  - /articles/how-do-i-cancel-my-account/
-  - /articles/downgrading-a-user-account-to-free/
-  - /articles/removing-paid-seats-from-your-organization/
-  - /articles/downgrading-your-organization-s-paid-seats/
-  - /articles/downgrading-your-organization-s-billing-plan/
-  - /articles/downgrading-an-organization-with-per-seat-pricing-to-free/
-  - /articles/downgrading-an-organization-with-per-repository-pricing-to-free/
-  - /articles/downgrading-your-organization-to-free/
-  - /articles/downgrading-your-organization-from-the-business-plan-to-the-team-plan/
-  - /articles/downgrading-your-organization-from-github-business-cloud-to-the-team-plan/
-  - /articles/downgrading-your-github-billing-plan/
+  - /articles/downgrading-your-personal-account-s-billing-plan
+  - /articles/how-do-i-cancel-my-account
+  - /articles/downgrading-a-user-account-to-free
+  - /articles/removing-paid-seats-from-your-organization
+  - /articles/downgrading-your-organization-s-paid-seats
+  - /articles/downgrading-your-organization-s-billing-plan
+  - /articles/downgrading-an-organization-with-per-seat-pricing-to-free
+  - /articles/downgrading-an-organization-with-per-repository-pricing-to-free
+  - /articles/downgrading-your-organization-to-free
+  - /articles/downgrading-your-organization-from-the-business-plan-to-the-team-plan
+  - /articles/downgrading-your-organization-from-github-business-cloud-to-the-team-plan
+  - /articles/downgrading-your-github-billing-plan
   - /articles/downgrading-your-github-subscription
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-your-github-account/downgrading-your-github-subscription
 versions:
@@ -31,16 +31,16 @@ shortTitle: 降级订阅
 
 ## 降级您的 {% data variables.product.product_name %} 订阅
 
-降级用户帐户或组织的订阅时，定价和帐户功能更改将在下一个帐单日期生效。 对付费用户帐户或组织订阅的更改不影响其他付费 {% data variables.product.prodname_dotcom %} 功能的订阅或付款。 更多信息请参阅“[升级或降低对结算过程有何影响？](/articles/how-does-upgrading-or-downgrading-affect-the-billing-process)”
+降级个人帐户或组织的订阅时，定价和帐户功能更改将在下一个帐单日期生效。 对付费个人帐户或组织订阅的更改不影响其他付费 {% data variables.product.prodname_dotcom %} 功能的订阅或付款。 更多信息请参阅“[升级或降低对结算过程有何影响？](/articles/how-does-upgrading-or-downgrading-affect-the-billing-process)”
 
-## 降级用户帐户的订阅
+## 降级个人帐户的订阅
 
-如果您将您的用户帐户从 {% data variables.product.prodname_pro %} 降级为 {% data variables.product.prodname_free_user %}，该帐户将失去对私有仓库中高级代码审查工具的访问权限。 {% data reusables.gated-features.more-info %}
+如果您将您的个人帐户从 {% data variables.product.prodname_pro %} 降级为 {% data variables.product.prodname_free_user %}，该帐户将失去对私有仓库中高级代码审查工具的访问权限。 {% data reusables.gated-features.more-info %}
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.billing_plans %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.billing_plans %}
 1. 在“Current plan（当前计划）”下，使用 **Edit（编辑）**下拉菜单并单击 **Downgrade to Free（降级到免费 ）**。 ![降级到免费按钮](/assets/images/help/billing/downgrade-to-free.png)
-5. 阅读有关信息，了解您的用户帐户在下一个结算日期将不再拥有访问权限的功能，然后单击 **I understand. Continue with downgrade（我明白。继续降级）**。 ![继续降级按钮](/assets/images/help/billing/continue-with-downgrade.png)
+5. 阅读有关信息，了解您的个人帐户在下一个结算日期将不再拥有访问权限的功能，然后单击 **I understand. Continue with downgrade（我明白。继续降级）**。 ![继续降级按钮](/assets/images/help/billing/continue-with-downgrade.png)
 
 如果您在私有仓库中发布了 {% data variables.product.prodname_pages %} 站点，并添加了自定义域，在从 {% data variables.product.prodname_pro %} 降级至 {% data variables.product.prodname_free_user %} 前，请删除或更新您的 DNS 记录，以避免域接管的风险。 更多信息请参阅“[管理 {% data variables.product.prodname_pages %} 网站的自定义域](/articles/managing-a-custom-domain-for-your-github-pages-site)。
 
@@ -51,6 +51,13 @@ shortTitle: 降级订阅
 如果将您的组织从 {% data variables.product.prodname_team %} 降级到 {% data variables.product.prodname_free_team %}，该帐户将失去对团队高级协作和管理工具的访问权限。
 
 如果将您的组织从 {% data variables.product.prodname_ghe_cloud %} 降级到 {% data variables.product.prodname_team %} 或 {% data variables.product.prodname_free_team %}，该帐户将失去对高级安全性、合规性和部署控件的访问权限。 {% data reusables.gated-features.more-info %}
+
+
+{% note %}
+
+**注意：** 如果您当前正在试用 {% data variables.product.prodname_ghe_cloud %}，并且在试用期结束前未购买 {% data variables.product.prodname_enterprise %} ，则您的组织将自动降级为 {% data variables.product.prodname_free_team %} 或 {% data variables.product.prodname_team %}。 更多信息请参阅“[设置 {% data variables.product.prodname_ghe_cloud %} 的试用](/get-started/signing-up-for-github/setting-up-a-trial-of-github-enterprise-cloud#finishing-your-trial)”。
+
+{% endnote %}
 
 {% data reusables.organizations.billing-settings %}
 1. 在“Current plan（当前计划）”下，使用 **Edit（编辑）**下拉菜单，单击您想要的降级选项。 ![降级按钮](/assets/images/help/billing/downgrade-option-button.png)
@@ -84,5 +91,4 @@ shortTitle: 降级订阅
 - “[{% data variables.product.prodname_dotcom %} 的产品](/articles/github-s-products)”
 - "[升级或降级对结算过程有何影响？](/articles/how-does-upgrading-or-downgrading-affect-the-billing-process)"
 - “[关于 {% data variables.product.prodname_dotcom %} 的计费](/articles/about-billing-on-github)”
-- “[删除付款方式](/articles/removing-a-payment-method)”
 - “[关于每用户定价](/articles/about-per-user-pricing)”

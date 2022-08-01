@@ -16,7 +16,6 @@ topics:
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## Introduction
 
@@ -33,6 +32,8 @@ In the tutorial, you will first make a workflow file that uses the [`andymckay/l
     ```yaml{:copy}
 {% indented_data_reference reusables.actions.actions-not-certified-by-github-comment spaces=4 %}
 
+{% indented_data_reference reusables.actions.actions-use-sha-pinning-comment spaces=4 %}
+
     name: Label issues
     on:
       issues:
@@ -41,12 +42,12 @@ In the tutorial, you will first make a workflow file that uses the [`andymckay/l
           - opened
     jobs:
       label_issues:
-        runs-on: ubuntu-latest{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
+        runs-on: ubuntu-latest
         permissions:
-          issues: write{% endif %}
+          issues: write
         steps:
           - name: Label issues
-            uses: andymckay/labeler@5c59dabdfd4dd5bd9c6e6d255b01b9d764af4414
+            uses: andymckay/labeler@e6c4322d0397f3240f0e7e30a33b5c5df2d39e90
             with:
               add-labels: "triage"
               repo-token: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}

@@ -94,16 +94,6 @@
   owning_teams:
     - '@github/github-projects'
 - 
-  title: Crear adjuntos de contenido
-  description: Esta vista previa agrega soporte para crear adjuntos de contenido.
-  toggled_by: ':corsair-preview'
-  announcement: null
-  updates: null
-  toggled_on:
-    - Mutation.createContentAttachment
-  owning_teams:
-    - '@github/feature-lifecycle'
-- 
   title: Vista Previa de Etiquetas
   description: >-
     Esta vista previa agrega soporte para crear, actualizar, agregar y borrar etiquetas.

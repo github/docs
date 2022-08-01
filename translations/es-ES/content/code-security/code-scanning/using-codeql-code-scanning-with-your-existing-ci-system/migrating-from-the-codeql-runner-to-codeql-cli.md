@@ -5,8 +5,8 @@ intro: 'Puedes utilizar el {% data variables.product.prodname_codeql_cli %} para
 product: '{% data reusables.gated-features.code-scanning %}'
 versions:
   fpt: '*'
-  ghes: '>=3.1'
-  ghae: next
+  ghes: '*'
+  ghae: '*'
   ghec: '*'
 topics:
   - Advanced Security
@@ -38,6 +38,8 @@ Un flujo de trabajo habitual utiliza el {% data variables.product.prodname_codeq
 - `codeql database analyze` para ejecutar consultas para analizar cada base de datos de {% data variables.product.prodname_codeql %} y resumir los resultados en un archivo SARIF. Este comando debe ejecutarse una vez para cada lenguaje o base de datos.
 - `codeql github upload-results` para cargar los archivos SARIF resultantes a {% data variables.product.prodname_dotcom %}, para que se muestre como alertas del escaneo de código. Este comando debe ejecutarse una vez para cada archivo SARIF o lenguaje.
 
+El {% data variables.product.prodname_codeql_runner %} tiene capacidades de subprocesamiento múltiple predeterminadamente. El {% data variables.product.prodname_codeql_cli %} solo utiliza un subproceso predeterminadamente, pero te permite especificar la cantidad de subprocesos que quieres utilizar. Si quieres replicar el comportamiento del {% data variables.product.prodname_codeql_runner %} para utilizar todos los subprocesos disponibles en la máquina cuando utilizas el {% data variables.product.prodname_codeql_cli %}, puedes pasar `--threads 0` a `codeql database analyze`.
+
 Para obtener más información, consulta la sección "[Configurar el {% data variables.product.prodname_codeql_cli %} en tu sistema de IC](/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/configuring-codeql-cli-in-your-ci-system)".
 
 ## Ejemplos de usos comunes para el {% data variables.product.prodname_codeql_cli %}
@@ -48,13 +50,13 @@ Estos ejemplos asumen que el código fuente se verificó en el directorio de tra
 
 Estos ejemplos también asumen que el {% data variables.product.prodname_codeql_cli %} se coloca en la RUTA correcta.
 
-En estos ejemplos, un token de{% data variables.product.prodname_dotcom %} con alcance suficiente se almacena en la variable de ambiente `$TOKEN` y se pasa por los comandos de ejemplo a través de stdin o se almacena en la variable de ambiente `$GITHUB_TOKEN`.
+En estos ejemplos, un token de {% data variables.product.prodname_dotcom %} con un alcance suficiente se almacena en la variable de ambiente `$TOKEN` y se pasa a los comandos de ejemplo a través de `stdin` o se almacena en la variable de ambiente `$GITHUB_TOKEN`.
 
-El nombre de ref y el SHA de confirmación que se verifican y analizan en estos ejemplos se conocen durante el flujo de trabajo. En el caso de las ramas, utiliza `refs/heads/BRANCH-NAME` como el ref. En el caso de la confirmación de encabezado de una solicitud de cambios, utiliza `refs/pulls/NUMBER/head`. En el caso de una confirmación de fusión generada por {% data variables.product.prodname_dotcom %} para una solicitud de cambios, utiliza `refs/pulls/NUMBER/merge`. Todos los siguientes ejemplos utilizan `refs/heads/main`. Si utilizas un nombre de rama diferente, debes modificar el código de muestra.
+El nombre de ref y el SHA de confirmación que se verifican y analizan en estos ejemplos se conocen durante el flujo de trabajo. En el caso de las ramas, utiliza `refs/heads/BRANCH-NAME` como el ref. Para la confirmación principal de una solicitud de cambios, utiliza `refs/pull/NUMBER/head`. Para una confirmación de fusión generada por {% data variables.product.prodname_dotcom %} de una solicitud de cambios, utiliza `refs/pull/NUMBER/merge`. Todos los siguientes ejemplos utilizan `refs/heads/main`. Si utilizas un nombre de rama diferente, debes modificar el código de muestra.
 
 ### Lenguaje sencillo no compilado (JavaScript)
 
-Runner:
+Ejecutor:
 ```bash
 echo "$TOKEN" | codeql-runner-linux init --repository my-org/example-repo \
     --languages javascript \
@@ -83,7 +85,7 @@ echo "$TOKEN" | codeql github upload-results --repository=my-org/example-repo \
 
 Se puede tomar un enfoque similar para los lenguajes compilados o los lenguajes múltiples.
 
-Runner:
+Ejecutor:
 ```bash
 echo "$TOKEN" | codeql-runner-linux init --repository my-org/example-repo \
     --languages javascript \
@@ -113,7 +115,7 @@ echo "$TOKEN" | codeql github upload-results --repository=my-org/example-repo \
 
 Se puede tomar un enfoque similar para los lenguajes compilados o los lenguajes múltiples.
 
-Runner:
+Ejecutor:
 ```bash
 echo "$TOKEN" | codeql-runner-linux init --repository my-org/example-repo \
     --languages javascript \
@@ -142,7 +144,7 @@ echo "$TOKEN" | codeql github upload-results --repository=my-org/example-repo \
 
 ### Lenguaje sencillo no compilado utilizando compilación automática (Java)
 
-Runner:
+Ejecutor:
 ```bash
 echo "$TOKEN" | codeql-runner-linux init --repository my-org/example-repo \
     --languages java \
@@ -176,7 +178,7 @@ echo "$TOKEN" | codeql github upload-results --repository=my-org/example-repo \
 
 ### Lenguaje sencillo no copilado utilizando un comando de compilación personalizado (Java)
 
-Runner:
+Ejecutor:
 ```bash
 echo "$TOKEN" | codeql-runner-linux init --repository my-org/example-repo \
     --languages java \
@@ -211,7 +213,7 @@ echo "$TOKEN" | codeql github upload-results --repository=my-org/example-repo \
 
 El rastreo de compilación indirecta para los lenguajes compilados habilita al {% data variables.product.prodname_codeql %} para que detecte los pasos de compilación entre los pasos de `init` y `analyze`, cuando el código no puede compilarse utilizando la compilación automática o una línea de comandos compilada explícita. Esto es útil cuando se utilizan pasos de compilación preconfigurados desde tu sistema de IC, tales como las tareas de `VSBuild` y `MSBuild` en Azure DevOps.
 
-Runner:
+Ejecutor:
 ```yaml
 - task: CmdLine@1
   displayName: CodeQL Initialization
@@ -333,7 +335,7 @@ CLI:
 
 Este ejemplo no es estrictamente posible dentro del {% data variables.product.prodname_codeql_runner %}. Solo se analizará un lenguaje (el lenguaje compilado que tenga la mayoría de los archivos).
 
-Runner:
+Ejecutor:
 ```bash
 echo "$TOKEN" | codeql-runner-linux init --repository my-org/example-repo \
     --languages cpp,python \
@@ -373,7 +375,7 @@ done
 
 ### Lenguajes múltiples utilizando un comando de compilación personalizado (C++, Python)
 
-Runner:
+Ejecutor:
 ```bash
 echo "$TOKEN" | codeql-runner-linux init --repository my-org/example-repo \
     --languages cpp,python \

@@ -2,7 +2,7 @@
 title: Migrar uma equipe de administradores para permissões de organização aprimoradas
 intro: 'Se sua organização foi criada depois de setembro de 2015, tem permissões de organização aprimoradas por padrão. Organizações criadas antes de setembro de 2015 podem precisar migrar proprietários e equipes de administradores antigos para o modelo de permissões aprimoradas. Integrantes de equipes de administradores legadas mantêm automaticamente a capacidade de criar repositórios até que as equipes sejam migradas para o modelo de permissões de organização aprimoradas.'
 redirect_from:
-  - /articles/migrating-your-previous-admin-teams-to-the-improved-organization-permissions/
+  - /articles/migrating-your-previous-admin-teams-to-the-improved-organization-permissions
   - /articles/migrating-admin-teams-to-improved-organization-permissions
   - /github/setting-up-and-managing-organizations-and-teams/migrating-admin-teams-to-improved-organization-permissions
 versions:
@@ -21,7 +21,7 @@ Equipes de administradores legadas são equipes que foram criadas com o nível d
 
 Você pode remover essa capacidade migrando suas equipes de administradores legadas para as permissões de organização aprimoradas.
 
-For more information, see "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)."
+Para obter mais informações, consulte "[Funções do repositório para uma organização](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)".
 
 {% warning %}
 
@@ -40,6 +40,6 @@ For more information, see "[Repository roles for an organization](/organizations
 ## Migrar uma única equipe de administradores
 
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.specific_team %}
 1. Na caixa de descrição de equipe, clique em **Migrate team** (Migrar equipe). ![Botão Migrate team (Migrar equipe)](/assets/images/help/teams/migrate-a-legacy-admin-team.png)

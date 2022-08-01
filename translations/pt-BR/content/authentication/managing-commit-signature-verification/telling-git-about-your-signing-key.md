@@ -2,7 +2,7 @@
 title: Informar ao Git sobre a chave de assinatura
 intro: 'Para assinar commits localmente, você precisa informar ao Git que há uma chave GPG ou X.509 que você gostaria de usar.'
 redirect_from:
-  - /articles/telling-git-about-your-gpg-key/
+  - /articles/telling-git-about-your-gpg-key
   - /articles/telling-git-about-your-signing-key
   - /github/authenticating-to-github/telling-git-about-your-signing-key
   - /github/authenticating-to-github/managing-commit-signature-verification/telling-git-about-your-signing-key
@@ -44,6 +44,12 @@ Se você tiver várias chaves GPG, precisará informar ao Git qual deve ser usad
   ```shell
   $ if [ -r ~/.bash_profile ]; then echo 'export GPG_TTY=$(tty)' >> ~/.bash_profile; \
     else echo 'export GPG_TTY=$(tty)' >> ~/.profile; fi
+  ```
+1. Opcionalmente, para solicitar que você digite um PIN ou senha quando necessário, instale `pinentry-mac`. Por exemplo, usando [Homebrew](https://brew.sh/):
+  ```shell
+  $ brew install pinentry-mac
+  $ echo "pinentry-program $(which pinentry-mac)" >> ~/.gnupg/gpg-agent.conf
+  $ killall gpg-agent
   ```
 
 {% data reusables.gpg.x-509-key %}
@@ -91,16 +97,10 @@ Se você tiver várias chaves GPG, precisará informar ao Git qual deve ser usad
 {% data reusables.gpg.list-keys-with-note %}
 {% data reusables.gpg.copy-gpg-key-id %}
 {% data reusables.gpg.paste-gpg-key-id %}
-1. Para adicionar a sua chave GPG ao seu perfil bash, execute o seguinte comando:
-  ```shell
-  $ if [ -r ~/.bash_profile ]; then echo 'export GPG_TTY=$(tty)' >> ~/.bash_profile; \
-    else echo 'export GPG_TTY=$(tty)' >> ~/.profile; fi
+1. Para adicionar a sua chave de GPG ao seu arquivo de inicialização `.bashrc`, execute o seguinte comando:
+  ```bash
+  $ [ -f ~/.bashrc ] && echo 'export GPG_TTY=$(tty)' >> ~/.bashrc
   ```
-  {% note %}
-
-  **Observação:** se você não tiver `.bash_profile`, este comando adicionará sua chave GPG a `.profile`.
-
-  {% endnote %}
 
 {% endlinux %}
 
@@ -109,7 +109,7 @@ Se você tiver várias chaves GPG, precisará informar ao Git qual deve ser usad
 - "[Verificar se há chaves GPG existentes](/articles/checking-for-existing-gpg-keys)"
 - "[Gerar uma nova chave GPG](/articles/generating-a-new-gpg-key)"
 - "[Usar um endereço de e-mail verificado na chave GPG](/articles/using-a-verified-email-address-in-your-gpg-key)"
-- "[Adicionar uma nova chave GPG à sua conta do GitHub](/articles/adding-a-new-gpg-key-to-your-github-account)"
+- "[Adicionar uma chave GPG à sua conta do GitHub](/articles/adding-a-gpg-key-to-your-github-account)"
 - "[Associar um e-mail à sua chave GPG](/articles/associating-an-email-with-your-gpg-key)"
 - "[Assinar commits](/articles/signing-commits)"
 - "[Assinar tags](/articles/signing-tags)"

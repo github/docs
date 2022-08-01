@@ -1,6 +1,6 @@
 ---
-title: AWS で GitHub Packages を有効にする
-intro: 'AWS を外部ストレージとして {% data variables.product.prodname_registry %} を設定します。'
+title: Enabling GitHub Packages with AWS
+intro: 'Set up {% data variables.product.prodname_registry %} with AWS as your external storage.'
 versions:
   ghes: '*'
 type: tutorial
@@ -14,18 +14,18 @@ shortTitle: Enable Packages with AWS
 
 {% warning %}
 
-**警告:**
-- {% data variables.product.company_short %} は特定のオブジェクトのアクセス許可または追加のアクセス制御リスト (ACL) をストレージバケット設定に適用しないため、ストレージバケットに必要な制限付きアクセスポリシーを設定することが重要です。 たとえば、バケットを公開すると、バケット内のデータにパブリックなインターネットからアクセスできるようになります。 詳しい情報については、AWS ドキュメントの「[バケットとオブジェクトのアクセス許可を設定する](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/set-permissions.html)」を参照してください。
-- {% data variables.product.prodname_actions %} ストレージに使用するバケットとは別に、{% data variables.product.prodname_registry %} 専用のバケットを使用することをお勧めします。
-- 今後使用予定のバケットを忘れずに設定するようにしてください。 {% data variables.product.prodname_registry %} の使用開始後にストレージを変更することはお勧めしません。
+**Warnings:**
+- It is critical that you configure any restrictive access policies you need for your storage bucket, because {% data variables.product.company_short %} does not apply specific object permissions or additional access control lists (ACLs) to your storage bucket configuration. For example, if you make your bucket public, data in the bucket will be accessible to the public internet. For more information, see "[Setting bucket and object access permissions](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/set-permissions.html)" in the AWS Documentation.
+- We recommend using a dedicated bucket for {% data variables.product.prodname_registry %}, separate from the bucket you use for {% data variables.product.prodname_actions %} storage.
+- Make sure to configure the bucket you'll want to use in the future. We do not recommend changing your storage after you start using {% data variables.product.prodname_registry %}.
 
 {% endwarning %}
 
-## 必要な環境
+## Prerequisites
 
-{% data variables.product.product_location_enterprise %} で {% data variables.product.prodname_registry %} を有効にして設定する前に、AWS ストレージバケットを準備する必要があります。 AWS ストレージバケットを準備するには、[AWS ドキュメント](https://docs.aws.amazon.com/index.html)にある公式 AWS ドキュメントを参照することをお勧めします。
+Before you can enable and configure {% data variables.product.prodname_registry %} on {% data variables.product.product_location_enterprise %}, you need to prepare your AWS storage bucket. To prepare your AWS storage bucket, we recommend consulting the official AWS docs at [AWS Documentation](https://docs.aws.amazon.com/index.html).
 
-AWS アクセスキー ID とシークレットに次の権限があることを確認します。
+Ensure your AWS access key ID and secret have the following permissions:
   - `s3:PutObject`
   - `s3:GetObject`
   - `s3:ListBucketMultipartUploads`
@@ -34,7 +34,7 @@ AWS アクセスキー ID とシークレットに次の権限があることを
   - `s3:DeleteObject`
   - `s3:ListBucket`
 
-## AWS 外部ストレージで {% data variables.product.prodname_registry %} を有効化する
+## Enabling {% data variables.product.prodname_registry %} with AWS external storage
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
@@ -42,20 +42,20 @@ AWS アクセスキー ID とシークレットに次の権限があることを
 {% data reusables.package_registry.enable-enterprise-github-packages %}
 
 {% ifversion ghes %}
-1. [Packages Storage] で、[**Amazon S3**] を選択し、ストレージバケットの詳細を入力します。
-    - **AWS Service URL: **バケットのサービス URL。 たとえば、S3 バケットが `us-west-2` リージョンで作成された場合、この値は `https://s3.us-west-2.amazonaws.com` である必要があります。
+1. Under "Packages Storage", select **Amazon S3** and enter your storage bucket's details:
+    - **AWS Service URL:** The service URL for your bucket. For example, if your S3 bucket was created in the `us-west-2 region`, this value should be `https://s3.us-west-2.amazonaws.com`.
 
-      詳しい情報については、AWS ドキュメントの「[AWS サービスエンドポイント](https://docs.aws.amazon.com/general/latest/gr/rande.html)」を参照してください。
+      For more information, see "[AWS service endpoints](https://docs.aws.amazon.com/general/latest/gr/rande.html)" in the AWS documentation.
 
-    - **AWS S3 Bucket:** {% data variables.product.prodname_registry %} 専用の S3 バケットの名前。
-    - **AWS S3 Access Key** および **AWS S3 Secret Key**: バケットにアクセスするための AWS アクセスキー ID と シークレットキー。
+    - **AWS S3 Bucket:** The name of your S3 bucket dedicated to {% data variables.product.prodname_registry %}.
+    - **AWS S3 Access Key** and **AWS S3 Secret Key**: The AWS access key ID and secret key to access your bucket.
 
-      AWS アクセスキーの管理の詳細については、「[AWS ID およびアクセス管理のドキュメント](https://docs.aws.amazon.com/iam/index.html)」を参照してください。
+      For more information on managing AWS access keys, see the "[AWS Identity and Access Management Documentation](https://docs.aws.amazon.com/iam/index.html)."
 
-    ![S3 AWS バケットの詳細入力ボックス](/assets/images/help/package-registry/s3-aws-storage-bucket-details.png)
+    ![Entry boxes for your S3 AWS bucket's details](/assets/images/help/package-registry/s3-aws-storage-bucket-details.png)
 {% endif %}
 {% data reusables.enterprise_management_console.save-settings %}
 
-## 次のステップ
+## Next steps
 
 {% data reusables.package_registry.next-steps-for-packages-enterprise-setup %}

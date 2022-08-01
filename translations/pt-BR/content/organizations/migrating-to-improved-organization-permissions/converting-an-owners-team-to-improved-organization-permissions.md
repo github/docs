@@ -2,8 +2,8 @@
 title: Migrar uma equipe de proprietários para permissões de organização aprimoradas
 intro: 'Se sua organização foi criada depois de setembro de 2015, tem permissões de organização aprimoradas por padrão. Organizações criadas antes de setembro de 2015 podem precisar migrar proprietários e equipes de administradores antigos para o modelo de permissões aprimoradas. O "proprietário" é agora uma função administrativa fornecida a integrantes individuais da sua organização. Os integrantes da equipe de proprietários legada recebem automaticamente privilégios de proprietário.'
 redirect_from:
-  - /articles/converting-your-previous-owners-team-to-the-improved-organization-permissions-early-access-program/
-  - /articles/converting-your-previous-owners-team-to-the-improved-organization-permissions/
+  - /articles/converting-your-previous-owners-team-to-the-improved-organization-permissions-early-access-program
+  - /articles/converting-your-previous-owners-team-to-the-improved-organization-permissions
   - /articles/converting-an-owners-team-to-improved-organization-permissions
   - /github/setting-up-and-managing-organizations-and-teams/converting-an-owners-team-to-improved-organization-permissions
 versions:
@@ -30,7 +30,7 @@ Você tem algumas opções para converter sua equipe de proprietários legada:
 {% endtip %}
 
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.owners-team %}
 {% data reusables.organizations.convert-owners-team-confirm %}
 5. No campo de nome da equipe, escolha um novo nome para a equipe de proprietários. Por exemplo:
@@ -48,7 +48,7 @@ Você tem algumas opções para converter sua equipe de proprietários legada:
 {% endwarning %}
 
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.owners-team %}
 {% data reusables.organizations.convert-owners-team-confirm %}
 5. Na parte inferior da página, revise o aviso e clique em **Delete the Owners team** (Excluir a equipe de proprietários). ![Link para excluir a equipe de proprietários](/assets/images/help/teams/owners-team-delete.png)

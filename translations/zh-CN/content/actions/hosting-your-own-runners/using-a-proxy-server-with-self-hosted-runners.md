@@ -12,10 +12,8 @@ type: tutorial
 shortTitle: 代理服务器
 ---
 
-{% data reusables.actions.ae-self-hosted-runners-notice %}
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## 使用环境变量配置代理服务器
 
@@ -36,6 +34,8 @@ shortTitle: 代理服务器
 当自托管运行器应用程序启动时，会读取代理环境变量，因此您必须在配置或启动自托管运行器应用程序之前设置环境变量。 如果您的代理配置更改，必须重新启动自托管运行器应用程序。
 
 在 Windows 机器上，代理环境变量名称不区分大小写。 在 Linux 和 macOS 机器上，建议环境变量全部小写。 如果您在 Linux 或 macOS 上同时有小写和大写的环境变量， 例如，`https://clus_proxy` 和 `HTTPS_PROXY`，自托管运行器应用程序将使用小写环境变量。
+
+{% data reusables.actions.self-hosted-runner-ports-protocols %}
 
 ## 使用 .env 文件设置代理配置
 

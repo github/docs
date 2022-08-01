@@ -12,10 +12,8 @@ type: tutorial
 shortTitle: Proxy servers
 ---
 
-{% data reusables.actions.ae-self-hosted-runners-notice %}
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## 環境変数を利用したプロキシサーバーの設定
 
@@ -36,6 +34,8 @@ shortTitle: Proxy servers
 プロキシの環境変数は、セルフホストランナーアプリケーションの起動時に読み込まれるので、これらの環境変数はセルフホストランナーアプリケーションを設定あるいは起動する前に設定しなければなりません。 プロキシの設定が変更された場合には、セルフホストランナーアプリケーションを再起動しなければなりません。
 
 Windowsマシンで、プロキシ環境変数名で大文字小文字は区別されません。 Linux及びmacOSマシンで、環境変数はすべて小文字にすることをおすすめします。 たとえば`https_proxy`と`HTTPS_PROXY`といったように、大文字と小文字の環境変数をLinuxもしくはmacOSで使った場合、セルフホストランナーアプリケーションは小文字の環境変数を使います。
+
+{% data reusables.actions.self-hosted-runner-ports-protocols %}
 
 ## .envファイルを使用したプロキシ設定
 

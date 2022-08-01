@@ -2,8 +2,8 @@
 title: Gerenciar comentários conflituosos
 intro: 'Você pode {% ifversion fpt or ghec %}ocultar, editar,{% else %}editar{% endif %} ou excluir comentários sobre problemas, pull request e commits.'
 redirect_from:
-  - /articles/editing-a-comment/
-  - /articles/deleting-a-comment/
+  - /articles/editing-a-comment
+  - /articles/deleting-a-comment
   - /articles/managing-disruptive-comments
   - /github/building-a-strong-community/managing-disruptive-comments
 versions:
@@ -18,7 +18,7 @@ shortTitle: Gerenciar comentários
 
 ## Ocultar um comentário
 
-Qualquer pessoa com acesso de gravação em um repositório podem ocultar comentários sobre problemas, pull requests e commits.
+{% ifversion fpt or ghec %}Os moderadores de organização e qualquer pessoa{% else %}{% endif %} com acesso de gravação a um repositório podem ocultar comentários em problemas, pull requests e commits.
 
 Se um comentário não diz respeito ao assunto, está desatualizado ou resolvido, pode ser que você queira ocultar o comentário para manter o foco da discussão ou fazer uma pull request mais simples para navegar e revisar. Comentários ocultos são minimizados, mas as pessoas com acesso de leitura no repositório podem expandi-los.
 
@@ -35,7 +35,7 @@ Se um comentário não diz respeito ao assunto, está desatualizado ou resolvido
 
 ## Mostrar um comentário
 
-Qualquer pessoa com acesso de gravação em um repositório pode reexibir comentários sobre problemas, pull requests e commits.
+{% ifversion fpt or ghec %}Os moderadores de organização e qualquer pessoa{% else %}{% endif %} com acesso de gravação a um repositório podem exibir comentários em problemas, pull requests e commits.
 
 1. Navegue até o comentário que deseja mostrar.
 2. No canto superior direito do comentário, clique em **{% octicon "fold" aria-label="The fold icon" %} Show comment** (Mostrar comentário). ![Mostrar texto de comentário](/assets/images/help/repository/hidden-comment-show.png)
@@ -47,11 +47,13 @@ Qualquer pessoa com acesso de gravação em um repositório pode editar comentá
 
 Considera-se apropriado editar um comentário e remover o conteúdo que não contribui para a conversa e viole o código de conduta da sua comunidade{% ifversion fpt or ghec %} ou as diretrizes [da Comunidade do GitHub](/free-pro-team@latest/github/site-policy/github-community-guidelines){% endif %}.
 
-Quando editar um comentário, anote a localização de onde o comentário foi removido e, opcionalmente, os motivos para a remoção.
+Por vezes, pode fazer sentido indicar claramente as edições e a sua justificativa.
 
-Qualquer pessoa com acesso de leitura em um repositório pode visualizar o histórico de edição do comentário. O menu suspenso **edited** (editado) na parte superior do comentário tem um histório de edições mostrando o usuário e o horário de cada edição.
+Dito isso, qualquer pessoa com acesso de leitura a um repositório pode ver o histórico de edição de um comentário. O menu suspenso **edited** (editado) na parte superior do comentário tem um histório de edições mostrando o usuário e o horário de cada edição.
 
 ![Comentário com observação adicional que o conteúdo foi redacted (suprimido)](/assets/images/help/repository/content-redacted-comment.png)
+
+## Redação de informações confidenciais
 
 Autores do comentário e pessoas com acesso de gravação a um repositório podem excluir informações confidenciais do histórico de edição de um comentário. Para obter mais informações, consulte "[Controlar as alterações em um comentário](/communities/moderating-comments-and-conversations/tracking-changes-in-a-comment)".
 
@@ -65,13 +67,13 @@ Autores do comentário e pessoas com acesso de gravação a um repositório pode
 
 Qualquer pessoa com acesso de gravação em um repositório pode excluir comentários sobre problemas, pull requests e commits. Proprietários de organização, mantenedores de equipes e o autor do comentário também podem excluir um comentário na página da equipe.
 
+Se o comentário contém algum conteúdo construtivo que contribui para a conversa sobre o problema ou pull request, você pode editar o comentário.
+
 Excluir um comentário é o seu último recurso como moderador. É apropriado excluir um comentário se todo o comentário não adicionar conteúdo construtivo a uma conversa e violar o código de conduta da sua comunidade{% ifversion fpt or ghec %} ou [Diretrizes da Comunidade](/free-pro-team@latest/github/site-policy/github-community-guidelines){% endif %}.
 
 Excluir um comentário cria um evento na linha do tempo visível a qualquer um com acesso de leitura no repositório. No entanto, o nome de usuário da pessoa que excluiu o comentário somente pode ser visualizado pelas pessoas com acesso de gravação ao repositório. Para qualquer pessoa sem acesso de gravação, o evento na linha do tempo é anônimo.
 
 ![Evento anônimo de linha do tempo de um comentário excluído](/assets/images/help/issues/anonymized-timeline-entry-for-deleted-comment.png)
-
-Se o comentário contém algum conteúdo construtivo que contribui para a conversa sobre o problema ou pull request, você pode editar o comentário.
 
 {% note %}
 
@@ -79,6 +81,13 @@ Se o comentário contém algum conteúdo construtivo que contribui para a conver
 
 {% endnote %}
 
+### Etapas para excluir um comentário
+
 1. Navegue até o comentário que deseja excluir.
 2. No canto superior direito do comentário, clique em {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} e em **Delete** (Excluir). ![Ícone horizontal kebab e menu comment moderation (moderação de comentários) mostrando as opções edit, hide, delete e report (editar, ocultar, excluir e denunciar)](/assets/images/help/repository/comment-menu.png)
 3. Opcionalmente, escreva um comentário informando que você deletou o comentário e por quê.
+
+{% ifversion fpt or ghec %}
+## Leia mais
+- "[Gerenciando moderadores na sua organização](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-moderators-in-your-organization)"
+{% endif %} 

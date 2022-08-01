@@ -117,7 +117,7 @@ Verifica si tienes acceso al repositorio de alguna de las siguientes maneras:
 
 En muy raros casos, es posible que no tengas el acceso SSH correcto al repositorio.
 
-Debes asegurarte de que la clave SSH que estás usando se encuentre conectada con tu usuario de {% data variables.product.product_name %}. Para comprobarlo, escribe lo siguiente en la línea de comando:
+Debes asegurarte de que la llave SSH que estás utilizando esté adjunta a tu cuenta personal en {% data variables.product.product_name %}. Para comprobarlo, escribe lo siguiente en la línea de comando:
 
 ```shell
 $ ssh -T git@{% data variables.command_line.codeblock %}
@@ -125,7 +125,9 @@ $ ssh -T git@{% data variables.command_line.codeblock %}
 > provide shell access.
 ```
 
-Si el repositorio pertenece a una organización y estás utilizando una llave SSH generada por una OAuth App, puede que algún dueño de la organización haya restringido el acceso OAuth App. Para obtener más información, consulta la sección "<a href="/organizations/restricting-access-to-your-organizations-data/about-oauth-app-access-restrictions" class="dotcom-only">Acerca de las restricciones de acceso a las OAuth Apps</a>".
+{% ifversion fpt or ghec %}
+Si el repositorio pertenece a una organización y estás utilizando una llave SSH generada por una OAuth App, puede que algún dueño de la organización haya restringido el acceso OAuth App. Para obtener más información, consulta la sección "[Acerca de las restricciones de acceso a las OAuth Apps](/organizations/restricting-access-to-your-organizations-data/about-oauth-app-access-restrictions)".
+{% endif %}
 
 Para obtener más información, consulta "[Agregar una nueva clave SSH a tu cuenta de GitHub](/articles/adding-a-new-ssh-key-to-your-github-account)".
 

@@ -7,7 +7,7 @@ versions:
   ghae: '*'
   ghec: '*'
 redirect_from:
-  - /articles/how-do-i-set-up-guidelines-for-contributors/
+  - /articles/how-do-i-set-up-guidelines-for-contributors
   - /articles/setting-guidelines-for-repository-contributors
   - /github/building-a-strong-community/setting-guidelines-for-repository-contributors
 topics:
@@ -28,7 +28,7 @@ shortTitle: 参与指南
 
 {% ifversion fpt or ghes or ghec %}
 
-您可以为组织{% ifversion fpt or ghes or ghec %}或用户帐户{% endif %}创建默认的参与指南。 更多信息请参阅“[创建默认社区健康文件](//communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)”。
+您可以为组织{% ifversion fpt or ghes or ghec %} 或个人帐户{% endif %} 创建默认的参与指南。 更多信息请参阅“[创建默认社区健康文件](//communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)”。
 
 {% endif %}
 

@@ -2,10 +2,10 @@
 title: 在 VMware 上安装 GitHub Enterprise Server
 intro: '要在 VMWare 上安装 {% data variables.product.prodname_ghe_server %}，您必须下载 VMWare vSphere 客户端，然后下载并部署 {% data variables.product.prodname_ghe_server %} 软件。'
 redirect_from:
-  - /enterprise/admin/articles/getting-started-with-vmware/
-  - /enterprise/admin/articles/installing-vmware-tools/
-  - /enterprise/admin/articles/vmware-esxi-virtual-machine-maximums/
-  - /enterprise/admin/guides/installation/installing-github-enterprise-on-vmware/
+  - /enterprise/admin/articles/getting-started-with-vmware
+  - /enterprise/admin/articles/installing-vmware-tools
+  - /enterprise/admin/articles/vmware-esxi-virtual-machine-maximums
+  - /enterprise/admin/guides/installation/installing-github-enterprise-on-vmware
   - /enterprise/admin/installation/installing-github-enterprise-server-on-vmware
   - /admin/installation/installing-github-enterprise-server-on-vmware
 versions:
@@ -31,10 +31,9 @@ shortTitle: 在 VMware 上安装
 
 ## 下载 {% data variables.product.prodname_ghe_server %} 映像
 
-{% data reusables.enterprise_installation.enterprise-download-procedural %}
 {% data reusables.enterprise_installation.download-license %}
 {% data reusables.enterprise_installation.download-appliance %}
-4. 选择 {% data variables.product.prodname_dotcom %} 内部部署，然后单击 **VMware ESXi/vSphere (OVA)**。
+4. 在“{% data variables.product.prodname_dotcom %} 本地”下，选择“Select your hypervisor（选择您的虚拟机管理程序）”下拉菜单，然后单击 **VMware ESXi/vSphere (OVA)**。
 5. 单击 **Download for VMware ESXi/vSphere (OVA)**。
 
 ## 创建 {% data variables.product.prodname_ghe_server %} 实例

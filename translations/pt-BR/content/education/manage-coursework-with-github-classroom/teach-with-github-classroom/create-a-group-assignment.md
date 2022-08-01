@@ -3,6 +3,7 @@ title: Criar uma atribuição em grupo
 intro: Você pode criar uma atribuição colaborativa para equipes de alunos que participam do seu curso.
 versions:
   fpt: '*'
+permissions: 'Organization owners who are admins for a classroom can create and manage group assignments for a classroom. {% data reusables.classroom.classroom-admins-link %}'
 redirect_from:
   - /education/manage-coursework-with-github-classroom/create-group-assignments
   - /education/manage-coursework-with-github-classroom/create-a-group-assignment
@@ -21,6 +22,8 @@ Quando um aluno aceita uma atividade em grupo, o aluno poderá criar uma nova eq
 Você pode decidir quantas equipes uma atividade pode ter e quantos integrantes cada equipe pode ter. Cada equipe que um estudante cria para uma atividade é uma equipe dentro da sua organização em {% data variables.product.product_name %}. A visibilidade da equipe é secreta. Equipes criadas em {% data variables.product.product_name %} não aparecerão em {% data variables.product.prodname_classroom %}. Para obter mais informações, consulte "[Sobre equipes](/organizations/organizing-members-into-teams/about-teams)".
 
 Para uma demonstração de vídeo da criação de uma atividade de grupo, consulte "[Fundamentos de configuração de {% data variables.product.prodname_classroom %}](/education/manage-coursework-with-github-classroom/basics-of-setting-up-github-classroom)".
+
+{% data reusables.classroom.reuse-assignment-link %}
 
 ## Pré-requisitos
 
@@ -93,6 +96,8 @@ Por padrão, uma nova atividade criará um repositório vazio para cada equipe c
 
 {% data reusables.classroom.about-online-ides %} Para obter mais informações, consulte "[Integrar {% data variables.product.prodname_classroom %} com um IDE](/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide)."
 
+{% data reusables.classroom.classroom-codespaces-link %}
+
 {% data reusables.classroom.assignments-guide-choose-an-online-ide %}
 
 {% data reusables.classroom.assignments-guide-click-continue-after-starter-code-and-feedback %}
@@ -126,9 +131,19 @@ Você pode ver as equipes que estão trabalhando ou que enviaram uma atividade n
   <img alt="Atividade em grupo" class="procedural-image-wrapper" src="/assets/images/help/classroom/assignment-group-hero.png">
 </div>
 
+## Monitorando o progresso dos alunos
+A página de visão geral de atividades exibe informações sobre a aceitação da sua atividade e o progresso da equipe. Você pode ter diferentes informações resumidas, com base nas configurações das suas atividades.
+
+- **Total de equipes**: O número de equipes que foram criadas.
+- **Alunos cadastrados**: O número de alunos na lista da sala de aula.
+- **Alunos fora de uma equipe**: O número de alunos na lista de participantes da sala de aula que ainda não se juntaram a uma equipe.
+-  **Equipes aceitas**: O número de equipes que aceitaram esta atividade.
+-  **Envios das atividaeds**: O número de equipes que enviaram a atividade. O envio é acionado no prazo da atividade.
+-  **Equipes em teste**: O número de equipes que estão atualmente passando os testes de autoavaliação para esta atividade.
+
 ## Próximas etapas
 
-- Após criar a atividade e seus alunos formarem equipes, os integrantes da equipe poderão começar a trabalhar nas atividades usando os recursos do Git e do {% data variables.product.product_name %}. Os alunos podem clonar o repositório, realizar commits de push, gerenciar branches, criar e revisar pull requests, resolver conflitos de merge e discutir alterações com problemas. Tanto você como a equipe podem revisar o histórico de commit do repositório. Para obter mais informações, consulte "[Primeiros passos com {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github)," "[repositórios](/repositories)," "[Usando o Git](/github/getting-started-with-github/using-git), e "[Colaborando com problemas e pull requests](/github/collaborating-with-issues-and-pull-requests)e o curso grátis em [Gerenciando conflitos de merge](https://lab.github.com/githubtraining/managing-merge-conflicts) de {% data variables.product.prodname_learning %}.
+- Após criar a atividade e seus alunos formarem equipes, os integrantes da equipe poderão começar a trabalhar nas atividades usando os recursos do Git e do {% data variables.product.product_name %}. Os alunos podem clonar o repositório, realizar commits de push, gerenciar branches, criar e revisar pull requests, resolver conflitos de merge e discutir alterações com problemas. Tanto você como a equipe podem revisar o histórico de commit do repositório. Para obter mais informações, consulte "[Primeiros passos com {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github)," "[Repositórios](/repositories)," "[Usando o Git](/github/getting-started-with-github/using-git)", e "[Colaborando com problemas e pull requests](/github/collaborating-with-issues-and-pull-requests)" e o curso grátis em [Resolvendo conflitos de merge](https://github.com/skills/resolve-merge-conflicts) de {% data variables.product.prodname_learning %}.
 
 - Quando uma equipe termina uma atividade, você poderá revisar os arquivos no repositório, ou você poderá revisar o histórico e as visualizações do repositório para entender melhor como a equipe colaborou. Para obter mais informações, consulte "[Visualizar dados do repositório com gráficos](/github/visualizing-repository-data-with-graphs)".
 

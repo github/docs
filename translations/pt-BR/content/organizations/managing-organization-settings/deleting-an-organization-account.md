@@ -1,6 +1,6 @@
 ---
 title: Excluir uma conta de organização
-intro: 'Quando você exclui uma organização, todos os repositórios, bifurcações de repositórios privados, wikis, problemas, pull requests e páginas de projeto ou de organização são excluídos também. {% ifversion fpt or ghec %}Your billing will end, and after 90 days the organization name becomes available for use on a new user or organization account.{% endif %}'
+intro: 'Quando você exclui uma organização, todos os repositórios, bifurcações de repositórios privados, wikis, problemas, pull requests e páginas de projeto ou de organização são excluídos também. {% ifversion fpt or ghec %}Sua cobrança terminará e, após 90 dias o nome da organização estará disponível para uso em uma nova conta de usuário ou da organização.{% endif %}'
 redirect_from:
   - /articles/deleting-an-organization-account
   - /github/setting-up-and-managing-organizations-and-teams/deleting-an-organization-account
@@ -12,7 +12,7 @@ versions:
 topics:
   - Organizations
   - Teams
-shortTitle: Excluir conta da organização
+shortTitle: Excluir organização
 ---
 
 {% ifversion fpt or ghec %}
@@ -26,7 +26,15 @@ shortTitle: Excluir conta da organização
 
 ## 1. Fazer backup do conteúdo da organização
 
-Depois que você exclui uma organização, o GitHub **não pode restaurar o conteúdo que você tem lá**. Portanto, antes de excluir sua organização, certifique-se de ter uma cópia de todos os repositórios, wikis, problemas e quadros de projetos da conta.
+{% ifversion not ghes %} Após excluir uma organização, {% data variables.product.company_short %} **não pode restaurar o seu conteúdo**. Portanto, antes de{% else %}antes de{% endif %} você excluir sua organização, certifique-se de ter uma cópia de todos os repositórios, wikis, problemas e quadros de projetos da conta.
+
+{% ifversion ghes %}
+{% note %}
+
+**Observação:** Se necessário, um administrador do site para {% data variables.product.product_location %} poderá restaurar parcialmente uma organização excluída. Para obter mais informações, consulte "[Restaurar uma organização excluída](/admin/user-management/managing-organizations-in-your-enterprise/restoring-a-deleted-organization)".
+
+{% endnote %}
+{% endif %}
 
 ## 2. Excluir a organização
 

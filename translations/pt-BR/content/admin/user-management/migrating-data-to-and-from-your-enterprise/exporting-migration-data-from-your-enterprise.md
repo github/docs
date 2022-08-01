@@ -2,12 +2,12 @@
 title: Exportar dados de migração da sua empresa
 intro: 'Para alterar as plataformas ou mover de uma instância de teste para uma instância de produção você pode exportar os dados de migração de uma instância do {% data variables.product.prodname_ghe_server %} preparando a instância, bloqueando os repositórios e gerando um arquivo de migração.'
 redirect_from:
-  - /enterprise/admin/guides/migrations/exporting-migration-data-from-github-enterprise/
+  - /enterprise/admin/guides/migrations/exporting-migration-data-from-github-enterprise
   - /enterprise/admin/migrations/exporting-migration-data-from-github-enterprise-server
   - /enterprise/admin/migrations/preparing-the-github-enterprise-server-source-instance
   - /enterprise/admin/migrations/exporting-the-github-enterprise-server-source-repositories
-  - /enterprise/admin/guides/migrations/preparing-the-github-enterprise-source-instance/
-  - /enterprise/admin/guides/migrations/exporting-the-github-enterprise-source-repositories/
+  - /enterprise/admin/guides/migrations/preparing-the-github-enterprise-source-instance
+  - /enterprise/admin/guides/migrations/exporting-the-github-enterprise-source-repositories
   - /enterprise/admin/user-management/exporting-migration-data-from-your-enterprise
   - /admin/user-management/exporting-migration-data-from-your-enterprise
 versions:
@@ -99,7 +99,7 @@ shortTitle: Exportar da sua empresa
   > logout
   > Connection to <em>hostname</em> closed.
   ```
-9. Copie o arquivo de migração para o seu computador usando o comando [`scp`](https://linuxacademy.com/blog/linux/ssh-and-scp-howto-tips-tricks#scp). O arquivo terá o nome do GUID de Migração:
+9. Copie o arquivo de migração para seu computador usando o comando [`scp`](https://acloudguru.com/blog/engineering/ssh-and-scp-howto-tips-tricks#scp). O arquivo terá o nome do GUID de Migração:
   ```shell
   $ scp -P 122 admin@<em>hostname</em>:/data/github/current/tmp/<em>MIGRATION_GUID</em>.tar.gz ~/Desktop
   ```

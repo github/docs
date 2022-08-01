@@ -42,7 +42,7 @@ topics:
 
 ## 参考リンク
 
-- [Issueやプルリクエストのためのマイルストーンの作成と編集](/articles/creating-and-editing-milestones-for-issues-and-pull-requests)
-- [Issue及びプルリクエストとのマイルストーンの関連づけ](/articles/associating-milestones-with-issues-and-pull-requests)
-- [マイルストーンによるIssue及びプルリクエストのフィルタリング](/articles/filtering-issues-and-pull-requests-by-milestone)
+- [IssueやPull Requestのためのマイルストーンの作成と編集](/articles/creating-and-editing-milestones-for-issues-and-pull-requests)
+- [Issue及びPull Requestとのマイルストーンの関連づけ](/articles/associating-milestones-with-issues-and-pull-requests)
+- [マイルストーンによるIssue及びPull Requestのフィルタリング](/articles/filtering-issues-and-pull-requests-by-milestone)
 - [マイルストーンの進捗の表示](/articles/viewing-your-milestone-s-progress)

@@ -7,6 +7,7 @@ versions:
   fpt: '*'
   ghae: issue-4856
   ghec: '*'
+  ghes: '>=3.5'
 type: tutorial
 topics:
   - Security
@@ -39,7 +40,7 @@ Orientação adicional para a configuração do provedor de identidade:
 
 - Para aumentar a segurança, verifique se você revisou ["Configurando a confiança do OIDC com a nuvem"](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#configuring-the-oidc-trust-with-the-cloud). Por exemplo, consulte ["Configurar o assunto no seu provedor de nuvem"](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#configuring-the-subject-in-your-cloud-provider).
 - Para a conta de serviço estar disponível para configuração, ela deverá ser atribuída à função `roles/iam.workloadIdentityUser`. Para obter mais informações, consulte [a documentação do GCP](https://cloud.google.com/iam/docs/workload-identity-federation?_ga=2.114275588.-285296507.1634918453#conditions).
-- A URL do emissor a usar: `https://token.actions.githubusercontent.com`
+- O URL do emissor a usar: {% ifversion ghes %}`https://HOSTNAME/_services/token`{% else %}`https://token.actions.githubusercontent.com`{% endif %}
 
 ## Atualizar o seu fluxo de trabalho de {% data variables.product.prodname_actions %}
 
@@ -49,14 +50,7 @@ Para atualizar seus fluxos de trabalho para o OIDC, você deverá fazer duas alt
 
 ### Adicionando configurações de permissões
 
-O fluxo de trabalho exigirá uma configuração `permissões` com um valor de [`id-token`](/actions/security-guides/automatic-token-authentication#permissions-for-the-github_token) definido. If you only need to fetch an OIDC token for a single job, then this permission can be set within that job. Por exemplo:
-
-```yaml{:copy}
-permissions:
-  id-token: write
-```
-
-Você pode precisar especificar permissões adicionais aqui, dependendo das necessidades do seu fluxo de trabalho.
+ {% data reusables.actions.oidc-permissions-token %}
 
 ### Solicitando o token de acesso
 
@@ -70,6 +64,7 @@ Este exemplo tem um trabalho denominado `Get_OIDC_ID_token` que usa ações para
 
 Esta ação troca um token do OIDC do {% data variables.product.prodname_dotcom %} por um token de acesso do Google Cloud, usando [a Federação de Identidade de Carga](https://cloud.google.com/iam/docs/workload-identity-federation).
 
+{% raw %}
 ```yaml{:copy}
 name: List services in GCP
 on:
@@ -95,5 +90,6 @@ jobs:
       name: 'gcloud'
       run: |-
         gcloud auth login --brief --cred-file="${{ steps.auth.outputs.credentials_file_path }}"
-        gcloud config list
+        gcloud services list
 ```
+{% endraw %}

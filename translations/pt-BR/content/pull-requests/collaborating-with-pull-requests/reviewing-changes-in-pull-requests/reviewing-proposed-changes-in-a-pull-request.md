@@ -24,21 +24,20 @@ Você pode revisar as alterações em um arquivo de pull request por vez. Ao rev
 
 ## Iniciar uma revisão
 
-{% include tool-switcher %}
-
 {% webui %}
 
 {% data reusables.repositories.sidebar-pr %}
 {% data reusables.repositories.choose-pr-review %}
 {% data reusables.repositories.changed-files %}
-{% ifversion fpt or ghec or ghes > 3.2 or ghae-next %}
+{% ifversion fpt or ghec or ghes > 3.3 or ghae %}
 
-   You can change the format of the diff view in this tab by clicking {% octicon "gear" aria-label="The Settings gear" %} and choosing the unified or split view. The choice you make will apply when you view the diff for other pull requests.
+   Você pode alterar o formato da visualização do diff nesta aba clicando em {% octicon "gear" aria-label="The Settings gear" %} e escolhendo a exibição unificada ou dividida. A escolha que você fizer será aplicada quando você visualizar o diff para outros pull requests.
 
-   ![Diff view settings](/assets/images/help/pull_requests/diff-view-settings.png)
+   ![Configurações de exibição do diff](/assets/images/help/pull_requests/diff-view-settings.png)
 
-   You can also choose to hide whitespace differences. The choice you make only applies to this pull request and will be remembered the next time you visit this page.
+   Você também pode optar por ocultar as diferenças nos espaços em branco. A escolha que você fizer só se aplica a este pull request e será lembrada na próxima vez que você acessar esta página.
 {% endif %}
+1. Opcionalmente, filtre os arquivos para mostrar apenas os arquivos que deseja revisar{% ifversion pr-tree-view %} ou usar a árvore de arquivos para acessar um arquivo específico{% endif %}. Para obter mais informações, consulte "[Filtrando arquivos em um pull request](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/filtering-files-in-a-pull-request)".
 {% data reusables.repositories.start-line-comment %}
 {% data reusables.repositories.type-line-comment %}
 {% data reusables.repositories.suggest-changes %}
@@ -55,21 +54,21 @@ Antes de enviar a revisão, os comentários em linha ficam com status _pendente_
 
 {% codespaces %}
 
-Você pode usar [{% data variables.product.prodname_codespaces %}](/codespaces/overview) para testar, executar e revisar pull requests.
+Você pode usar [{% data variables.product.prodname_github_codespaces %}](/codespaces/overview) para testar, executar e revisar pull requests.
 
 {% data reusables.codespaces.review-pr %}
 
-Para obter mais informações sobre a revisão de pull requests em {% data variables.product.prodname_codespaces %}, consulte "[Usando codespaces para pull requests](/codespaces/developing-in-codespaces/using-codespaces-for-pull-requests)"
+Para obter mais informações sobre pull requests em {% data variables.product.prodname_codespaces %}, consulte "[Usando {% data variables.product.prodname_github_codespaces %} para pull requests](/codespaces/developing-in-codespaces/using-github-codespaces-for-pull-requests)".
 
 {% endcodespaces %}
 {% endif %}
 
-{% ifversion fpt or ghes > 3.1 or ghec %}
+{% ifversion fpt or ghes or ghec %}
 ## Revisar alterações de dependência
 
 {% data reusables.dependency-review.beta %}
 
-Se o pull request contiver alterações em dependências, você poderá usar a revisão de dependências para um manifesto ou arquivo de bloqueio para ver o que mudou e verificar se as alterações introduzem vulnerabilidades de segurança. Para obter mais informações, consulte "[Revisar as mudanças de dependências em um pull request](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/incorporating-feedback-in-your-pull-request)".
+Se o pull request contiver alterações em dependências, você poderá usar a revisão de dependências para um manifesto ou arquivo de bloqueio para ver o que mudou e verificar se as alterações introduzem vulnerabilidades de segurança. Para obter mais informações, consulte "[Revisar as mudanças de dependências em um pull request](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-dependency-changes-in-a-pull-request)".
 
 {% data reusables.repositories.changed-files %}
 

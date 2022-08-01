@@ -19,13 +19,13 @@ shortTitle: Build & test Java with Maven
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## はじめに
 
-このガイドは、ソフトウェアプロジェクト管理ツールのMavenを使ってJavaのプロジェクトのための継続的インテグレーション（CI）を実行するワークフローを作成する方法を紹介します。 作成するワークフローによって、Pull Requestに対するコミットがデフォルトブランチに対してビルドあるいはテストの失敗を引き起こしたことを見ることができるようになります。このアプローチは、コードが常に健全であることを保証するための役に立ちます。 CIワークフローを拡張して、ファイルをキャッシュし、ワークフローの実行による成果物をアップロードするようにもできます。
+このガイドは、ソフトウェアプロジェクト管理ツールのMavenを使ってJavaのプロジェクトのための継続的インテグレーション（CI）を実行するワークフローを作成する方法を紹介します。 作成するワークフローによって、Pull Requestに対するコミットがデフォルトブランチに対してビルドあるいはテストの失敗を引き起こしたことを見ることができるようになります。このアプローチは、コードが常に健全であることを保証するための役に立ちます。 You can extend your CI workflow to {% ifversion actions-caching %}cache files and{% endif %} upload artifacts from a workflow run.
 
-{% ifversion ghae %}{% data variables.actions.hosted_runner %} に必要なソフトウェアがインストールされていることを確認する方法については、「[カスタムイメージの作成](/actions/using-github-hosted-runners/creating-custom-images)」を参照してください。
+{% ifversion ghae %}
+{% data reusables.actions.self-hosted-runners-software %}
 {% else %}
 {% data variables.product.prodname_dotcom %}ホストランナーは、Java Development Kits（JDKs）及びMavenを含むプリインストールされたソフトウェアを伴うツールキャッシュを持ちます。 JDK および Maven のソフトウェアとプリインストールされたバージョンのリストについては、「[{% data variables.product.prodname_dotcom %} でホストされているランナーの仕様](/actions/reference/specifications-for-github-hosted-runners/#supported-software)」を参照してください。
 {% endif %}
@@ -40,15 +40,14 @@ Java及びMavenフレームワークの基本的な理解をしておくこと�
 
 {% data reusables.actions.enterprise-setup-prereq %}
 
-## Mavenワークフローテンプレートで始める
+## Using the Maven starter workflow
 
-{% data variables.product.prodname_dotcom %}は、ほとんどのMavenベースのJavaプロジェクトで使えるMavenワークフローテンプレートを提供しています。 詳しい情報については、[Maven ワークフローテンプレート](https://github.com/actions/starter-workflows/blob/main/ci/maven.yml)を参照してください。
+{% data variables.product.prodname_dotcom %} provides a Maven starter workflow that will work for most Maven-based Java projects. For more information, see the [Maven starter workflow](https://github.com/actions/starter-workflows/blob/main/ci/maven.yml).
 
-素早く始めるには、新しいワークフローを作成する際に事前設定されたMavenテンプレートを選択できます。 詳しい情報については、「[{% data variables.product.prodname_actions %} のクイックスタート](/actions/quickstart)」を参照してください。
+To get started quickly, you can choose the preconfigured Maven starter workflow when you create a new workflow. 詳しい情報については、「[{% data variables.product.prodname_actions %} のクイックスタート](/actions/quickstart)」を参照してください。
 
 リポジトリの`.github/workflows`に新しいファイルを作成して、手作業でこのワークフローを追加することもできます。
 
-{% raw %}
 ```yaml{:copy}
 name: Java CI
 
@@ -59,16 +58,15 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: {% data reusables.actions.action-checkout %}
       - name: Set up JDK 11
-        uses: actions/setup-java@v2
+        uses: {% data reusables.actions.action-setup-java %}
         with:
           java-version: '11'
           distribution: 'adopt'
       - name: Build with Maven
-        run: mvn --batch-mode --update-snapshots verify
+        run: mvn --batch-mode --update-snapshots package
 ```
-{% endraw %}
 
 このワークフローは以下のステップを実行します。
 
@@ -76,11 +74,11 @@ jobs:
 2. `setup-java` ステップは、 Adoptium で Java 11 JDK を設定します。
 3. "Build with Maven"ステップは、Mavenの`package`ターゲットを非インタラクティブモードで実行し、コードがビルドされ、テストをパスし、パッケージが作成できることを保証します。
 
-デフォルトのワークフローテンプレートは、ビルドとテストのワークフローを構築する際の素晴らしい出発点であり、プロジェクトの要求に合わせてこのテンプレートをカスタマイズできます。
+The default starter workflows are excellent starting points when creating your build and test workflow, and you can customize the starter workflow to suit your project’s needs.
 
-{% data reusables.github-actions.example-github-runner %}
+{% data reusables.actions.example-github-runner %}
 
-{% data reusables.github-actions.java-jvm-architecture %}
+{% data reusables.actions.java-jvm-architecture %}
 
 ## コードのビルドとテスト
 
@@ -90,29 +88,28 @@ jobs:
 
 プロジェクトのビルドに異なるコマンドを使ったり、異なるターゲットを使いたいのであれば、それらを指定できます。 たとえば、_pom-ci.xml_ファイル中で設定された`verify`ターゲットを実行したいこともあるでしょう。
 
-{% raw %}
 ```yaml{:copy}
 steps:
-  - uses: actions/checkout@v2
-  - uses: actions/setup-java@v2
+  - uses: {% data reusables.actions.action-checkout %}
+  - uses: {% data reusables.actions.action-setup-java %}
     with:
       java-version: '11'
       distribution: 'adopt'
   - name: Run the Maven verify phase
     run: mvn --batch-mode --update-snapshots verify
 ```
-{% endraw %}
+
+{% ifversion actions-caching %}
 
 ## 依存関係のキャッシング
 
-{% data variables.product.prodname_dotcom %}ホストランナーを使用する場合、依存関係をキャッシュしてワークフローの実行を高速化できます。 実行に成功した後、ローカルのMavenリポジトリがGitHub Actionsのインフラストラクチャ上に保存されます。 その後のワークフローの実行では、キャッシュがリストアされ、依存関係をリモートのMavenリポジトリからダウンロードする必要がなくなります。 You can cache dependencies simply using the [`setup-java` action](https://github.com/marketplace/actions/setup-java-jdk) or can use [`cache` action](https://github.com/actions/cache) for custom and more advanced configuration.
+ワークフローの実行速度を上げるために、依存関係をキャッシュすることもできます。 After a successful run, your local Maven repository will be stored in a cache. その後のワークフローの実行では、キャッシュがリストアされ、依存関係をリモートのMavenリポジトリからダウンロードする必要がなくなります。 You can cache dependencies simply using the [`setup-java` action](https://github.com/marketplace/actions/setup-java-jdk) or can use [`cache` action](https://github.com/actions/cache) for custom and more advanced configuration.
 
-{% raw %}
 ```yaml{:copy}
 steps:
-  - uses: actions/checkout@v2
+  - uses: {% data reusables.actions.action-checkout %}
   - name: Set up JDK 11
-    uses: actions/setup-java@v2
+    uses: {% data reusables.actions.action-setup-java %}
     with:
       java-version: '11'
       distribution: 'adopt'
@@ -120,9 +117,10 @@ steps:
   - name: Build with Maven
     run: mvn --batch-mode --update-snapshots verify
 ```
-{% endraw %}
 
 このワークフローは、ランナーのホームディレクトリ内の`.m2`ディレクトリにあるローカルのMavenリポジトリの内容を保存します。 キャッシュのキーは_pom.xml_の内容をハッシュしたものになるので、_pom.xml_が変更されればキャッシュは無効になります。
+
+{% endif %}
 
 ## 成果物としてのワークフローのデータのパッケージ化
 
@@ -130,19 +128,17 @@ steps:
 
 Mavenは通常、JAR、EAR、WARのような出力ファイルを`target`ディレクトリに作成します。 それらを成果物としてアップロードするために、アップロードする成果物を含む新しいディレクトリにそれらをコピーできます。 たとえば、`staging`というディレクトリを作成できます。 として、そのディレクトリの内容を`upload-artifact`アクションを使ってアップロードできます。
 
-{% raw %}
 ```yaml{:copy}
 steps:
-  - uses: actions/checkout@v2
-  - uses: actions/setup-java@v2
+  - uses: {% data reusables.actions.action-checkout %}
+  - uses: {% data reusables.actions.action-setup-java %}
     with:
       java-version: '11'
       distribution: 'adopt'
   - run: mvn --batch-mode --update-snapshots verify
   - run: mkdir staging && cp target/*.jar staging
-  - uses: actions/upload-artifact@v2
+  - uses: {% data reusables.actions.action-upload-artifact %}
     with:
       name: Package
       path: staging
 ```
-{% endraw %}

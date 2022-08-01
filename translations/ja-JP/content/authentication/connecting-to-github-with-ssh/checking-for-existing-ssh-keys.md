@@ -15,6 +15,16 @@ topics:
 shortTitle: Check for existing SSH key
 ---
 
+## About SSH keys
+
+You can use SSH to perform Git operations in repositories on {% ifversion fpt or ghec or ghes %}{% data variables.product.product_location %}{% elsif ghae %}{% data variables.product.product_name %}{% endif %}. 詳しい情報については「[SSHについて](/authentication/connecting-to-github-with-ssh/about-ssh)」を参照してください。
+
+If you have an existing SSH key, you can use the key to authenticate Git operations over SSH.
+
+## 既存の SSH キーの確認
+
+Before you generate a new SSH key, you should check your local machine for existing keys.
+
 {% data reusables.ssh.key-type-support %}
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
@@ -25,7 +35,7 @@ shortTitle: Check for existing SSH key
   # .ssh ディレクトリ内のファイルを一覧表示する（存在する場合）
   ```
 
-3. ディレクトリの一覧から、公開 SSH キーをすでに持っているか確認します。 By default, the {% ifversion ghae %}filename of a supported public key for {% data variables.product.product_name %} is *id_rsa.pub*.{% elsif fpt or ghes %}filenames of supported public keys for {% data variables.product.product_name %} are one of the following.
+3. ディレクトリの一覧から、公開 SSH キーをすでに持っているか確認します。 By default, the {% ifversion ghae %}filename of a supported public key for {% data variables.product.product_name %} is *id_rsa.pub*.{% else %}filenames of supported public keys for {% data variables.product.product_name %} are one of the following.
     - *id_rsa.pub*
     - *id_ecdsa.pub*
     - *id_ed25519.pub*{% endif %}

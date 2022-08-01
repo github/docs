@@ -13,10 +13,13 @@ on:
       - closed
       - unlabeled
 
+permissions:
+  contents: none
+
 jobs:
   first-responder-triage-pr:
     name: Triage PR to FR project board
-    if: github.repository == 'github/docs-internal' && github.event.pull_request.draft == false && github.event.action != 'unlabeled' && github.event.action != 'closed'
+    if: github.repository == 'github/docs-internal' && github.event.pull_request.draft == false && github.event.action != 'unlabeled' && github.event.action != 'closed' && github.actor != 'dependabot[bot]'
     runs-on: ubuntu-latest
 
     steps:
@@ -40,7 +43,7 @@ jobs:
             )
             const logins = teamMembers.data.map(member => member.login)
             // ignore PRs opened by docs bot accounts
-            logins.push('Octomerger', 'octoglot')
+            logins.push('Octomerger', 'octoglot', 'docubot')
             if (logins.some(login => login === updatedIssueInformation.data.user.login)) {
               console.log(`This issue or pull request was authored by a member of the github/docs team.`)
               return 'true'
@@ -63,7 +66,7 @@ jobs:
 
   first-responder-remove-pr:
     name: Remove PR from FR project board
-    if: github.repository == 'github/docs-internal' && ((github.event.label.name == 'docs-content-fr' && github.event.action == 'unlabeled') || github.event.action == 'closed')
+    if: github.repository == 'github/docs-internal' && ((github.event.label.name == 'docs-content-fr' && github.event.action == 'unlabeled') || github.event.action == 'closed') && github.actor != 'dependabot[bot]'
     runs-on: ubuntu-latest
 
     steps:

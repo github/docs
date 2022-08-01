@@ -74,7 +74,7 @@ $ git fetch upstream recover-B
 
 ## Evitar pushes forçados
 
-Evite o push forçado em um repositório, a menos que seja absolutamente necessário. Isso se aplica especialmente quando mais de uma pessoa pode fazer push no repositório.
+Evite o push forçado em um repositório, a menos que seja absolutamente necessário. Isso se aplica especialmente quando mais de uma pessoa pode fazer push no repositório. Se alguém fizer push forçado em um repositório, ele poderá sobrescrever commits em que outras pessoas basearam seu trabalho. O push forçado faz alterações no histórico do repositório e pode corromper pull requests.
 
 ## Leia mais
 

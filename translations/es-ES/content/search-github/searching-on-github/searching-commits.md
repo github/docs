@@ -1,6 +1,6 @@
 ---
-title: Buscar confirmaciones de cambios
-intro: 'Puedes buscar confirmaciones de cambios en {% data variables.product.product_name %} y acotar los resultados utilizando estos calificadores de búsqueda de confirmaciones con cualquier combinación.'
+title: Searching commits
+intro: 'You can search for commits on {% data variables.product.product_name %} and narrow the results using these commit search qualifiers in any combination.'
 redirect_from:
   - /articles/searching-commits
   - /github/searching-for-information-on-github/searching-commits
@@ -13,100 +13,107 @@ versions:
 topics:
   - GitHub search
 ---
+You can search for commits globally across all of {% data variables.product.product_name %}, or search for commits within a particular repository or organization. For more information, see "[About searching on {% data variables.product.company_short %}](/search-github/getting-started-with-searching-on-github/about-searching-on-github)."
 
-Puedes buscar confirmaciones de cambios globalmente a través de todos los {% data variables.product.product_name %}, o buscar confirmaciones de cambios dentro de un repositorio particular u organización. Para obtener más información, consulta "[Acerca de buscar en {% data variables.product.company_short %}](/search-github/getting-started-with-searching-on-github/about-searching-on-github)".
-
-Cuando buscas confirmaciones de cambios, se busca únicamente la [rama predeterminada](/articles/about-branches) de un repositorio.
+When you search for commits, only the [default branch](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches) of a repository is searched.
 
 {% data reusables.search.syntax_tips %}
 
-## Buscar dentro de los mensajes de confirmación
+## Search within commit messages
 
-Puedes encontrar confirmaciones que contengan determinadas palabras en el mensaje. Por ejemplo, [**fix typo**](https://github.com/search?q=fix+typo&type=Commits) encuentra las confirmaciones que contienen las palabras "fix" y "typo."
+You can find commits that contain particular words in the message. For example, [**fix typo**](https://github.com/search?q=fix+typo&type=Commits) matches commits containing the words "fix" and "typo."
 
-## Buscar por el autor o la persona que confirma el cambio
+## Search by author or committer
 
-Puedes encontrar confirmaciones de cambios por un usuario particular con los calificadores `author` (autor) o `committer` (persona que confirma el cambio).
+You can find commits by a particular user with the `author` or `committer` qualifiers.
 
-| Qualifier                 | Ejemplo                                                                                                                                       |
-| ------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| <code>author:<em>USERNAME</em></code> | [**author:defunkt**](https://github.com/search?q=author%3Adefunkt&type=Commits) encuentra confirmaciones cuya autoría corresponde a @defunkt. |
-| <code>committer:<em>USERNAME</em></code> | [**committer:defunkt**](https://github.com/search?q=committer%3Adefunkt&type=Commits) encuentra confirmaciones de @defunkt.                   |
+| Qualifier  | Example
+| ------------- | -------------
+| <code>author:<em>USERNAME</em></code> | [**author:defunkt**](https://github.com/search?q=author%3Adefunkt&type=Commits) matches commits authored by @defunkt.
+| <code>committer:<em>USERNAME</em></code> | [**committer:defunkt**](https://github.com/search?q=committer%3Adefunkt&type=Commits) matches commits committed by @defunkt.
 
-Los calificadores `author-name` y `committer-name` encuentran confirmaciones por el nombre de su autor o de la persona que confirma el cambio.
+The `author-name` and `committer-name` qualifiers match commits by the name of the author or committer.
 
-| Qualifier                 | Ejemplo                                                                                                                                                                                         |
-| ------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <code>author-name:<em>NAME</em></code> | [**author-name:wanstrath**](https://github.com/search?q=author-name%3Awanstrath&type=Commits) encuentra confirmaciones con "wanstrath" en el nombre de autor.                                   |
-| <code>committer-name:<em>NAME</em></code> | [**committer-name:wanstrath**](https://github.com/search?q=committer-name%3Awanstrath&type=Commits) encuentra confirmaciones con "wanstrath" en el nombre de la persona que confirma el cambio. |
+| Qualifier  | Example
+| ------------- | -------------
+| <code>author-name:<em>NAME</em></code> | [**author-name:wanstrath**](https://github.com/search?q=author-name%3Awanstrath&type=Commits) matches commits with "wanstrath" in the author name.
+| <code>committer-name:<em>NAME</em></code> | [**committer-name:wanstrath**](https://github.com/search?q=committer-name%3Awanstrath&type=Commits) matches commits with "wanstrath" in the committer name.
 
-Los calificadores `author-email` y `committer-email` encuentran confirmaciones por la dirección completa de correo electrónico del autor o de la persona que confirma el cambio.
+The `author-email` and `committer-email` qualifiers match commits by the author's or committer's full email address.
 
-| Qualifier                 | Ejemplo                                                                                                                                                                  |
-| ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| <code>author-email:<em>EMAIL</em></code> | [**author-email:chris@github.com**](https://github.com/search?q=author-email%3Achris%40github.com&type=Commits) encuentra confirmaciones cuyo autor es chris@github.com. |
-| <code>committer-email:<em>EMAIL</em></code> | [**committer-email:chris@github.com**](https://github.com/search?q=committer-email%3Achris%40github.com&type=Commits) encuentra confirmaciones de chris@github.com.      |
+| Qualifier  | Example
+| ------------- | -------------
+| <code>author-email:<em>EMAIL</em></code> | [**author-email:chris@github.com**](https://github.com/search?q=author-email%3Achris%40github.com&type=Commits) matches commits authored by chris@github.com.
+| <code>committer-email:<em>EMAIL</em></code> | [**committer-email:chris@github.com**](https://github.com/search?q=committer-email%3Achris%40github.com&type=Commits) matches commits committed by chris@github.com.
 
-## Buscar por fecha de autoría o de confirmación
+## Search by authored or committed date
 
-Utiliza los calificadores `author-date` y `committer-date` para encontrar confirmaciones que fueron creadas o confirmadas dentro de un rango de fechas especificado.
+Use the `author-date` and `committer-date` qualifiers to match commits authored or committed within the specified date range.
 
 {% data reusables.search.date_gt_lt %}
 
-| Qualifier                 | Ejemplo                                                                                                                                                                              |
-| ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| <code>author-date:<em>YYYY-MM-DD</em></code> | [**author-date:&lt;2016-01-01**](https://github.com/search?q=author-date%3A<2016-01-01&type=Commits) encuentra confirmaciones creadas antes del 2016-01-01.                    |
-| <code>committer-date:<em>YYYY-MM-DD</em></code> | [**committer-date:&gt;2016-01-01**](https://github.com/search?q=committer-date%3A>2016-01-01&type=Commits) encuentra las confirmaciones que se crearon después del 2016-01-01. |
+| Qualifier  | Example
+| ------------- | -------------
+| <code>author-date:<em>YYYY-MM-DD</em></code> | [**author-date:&lt;2016-01-01**](https://github.com/search?q=author-date%3A<2016-01-01&type=Commits) matches commits authored before 2016-01-01.
+| <code>committer-date:<em>YYYY-MM-DD</em></code> | [**committer-date:&gt;2016-01-01**](https://github.com/search?q=committer-date%3A>2016-01-01&type=Commits) matches commits committed after 2016-01-01.
 
-## Filtrar confirmaciones de fusión
+## Filter merge commits
 
-Los filtros del calificador `merge` de confirmación de fusión.
+The `merge` qualifier filters merge commits.
 
-| Qualifier     | Ejemplo                                                                                                          |
-| ------------- | ---------------------------------------------------------------------------------------------------------------- |
-| `merge:true`  | [**merge:true**](https://github.com/search?q=merge%3Atrue&type=Commits) encuentra confirmaciones de fusión.      |
-| `merge:false` | [**merge:false**](https://github.com/search?q=merge%3Afalse&type=Commits) encuentra confirmaciones de no fusión. |
+| Qualifier  | Example
+| ------------- | -------------
+| `merge:true` | [**merge:true**](https://github.com/search?q=merge%3Atrue&type=Commits) matches merge commits.
+| `merge:false` | [**merge:false**](https://github.com/search?q=merge%3Afalse&type=Commits) matches non-merge commits.
 
-## Filtrar por hash
+## Search by hash
 
-El calificador `hash` encuentra confirmaciones con el hash SHA-1 especificado.
+The `hash` qualifier matches commits with the specified SHA-1 hash.
 
-| Qualifier                 | Ejemplo                                                                                                                                                                                                                                         |
-| ------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <code>hash:<em>HASH</em></code> | [**hash:124a9a0ee1d8f1e15e833aff432fbb3b02632105**](https://github.com/github/gitignore/search?q=hash%3A124a9a0ee1d8f1e15e833aff432fbb3b02632105&type=Commits) encuentra confirmaciones con el hash `124a9a0ee1d8f1e15e833aff432fbb3b02632105`. |
+| Qualifier  | Example
+| ------------- | -------------
+| <code>hash:<em>HASH</em></code> | [**hash:124a9a0ee1d8f1e15e833aff432fbb3b02632105**](https://github.com/github/gitignore/search?q=hash%3A124a9a0ee1d8f1e15e833aff432fbb3b02632105&type=Commits) matches commits with the hash `124a9a0ee1d8f1e15e833aff432fbb3b02632105`.
 
-## Filtrar por padre
+## Search by parent
 
-El calificador `parent` (padre) encuentra confirmaciones cuyo padre tiene el hash SHA-1 especificado.
+The `parent` qualifier matches commits whose parent has the specified SHA-1 hash.
 
-| Qualifier                 | Ejemplo                                                                                                                                                                                                                                                                           |
-| ------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <code>parent:<em>HASH</em></code> | [**parent:124a9a0ee1d8f1e15e833aff432fbb3b02632105**](https://github.com/github/gitignore/search?q=parent%3A124a9a0ee1d8f1e15e833aff432fbb3b02632105&type=Commits&utf8=%E2%9C%93) encuentra el hijo de las confirmaciones con el hash `124a9a0ee1d8f1e15e833aff432fbb3b02632105`. |
+| Qualifier  | Example
+| ------------- | -------------
+| <code>parent:<em>HASH</em></code> | [**parent:124a9a0ee1d8f1e15e833aff432fbb3b02632105**](https://github.com/github/gitignore/search?q=parent%3A124a9a0ee1d8f1e15e833aff432fbb3b02632105&type=Commits&utf8=%E2%9C%93) matches children of commits with the hash `124a9a0ee1d8f1e15e833aff432fbb3b02632105`.
 
-## Filtrar por árbol
+## Search by tree
 
-El calificador `tree` (árbol) encuentra confirmaciones con el hash de árbol de git SHA-1 especificado.
+The `tree` qualifier matches commits with the specified SHA-1 git tree hash.
 
-| Qualifier                  | Ejemplo                                                                                                                                                            |
-| -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| <code>tree:<em>HASH</em></code> | [**tree:99ca967**](https://github.com/github/gitignore/search?q=tree%3A99ca967&type=Commits) encuentra confirmaciones que se refieren al hash del árbol `99ca967`. |
+| Qualifier  | Example
+| ------------- | -------------
+| <code>tree:<em>HASH</em></code> | [**tree:99ca967**](https://github.com/github/gitignore/search?q=tree%3A99ca967&type=Commits) matches commits that refer to the tree hash `99ca967`.
 
-## Buscar dentro de los repositorios de un usuario u organización
+## Search within a user's or organization's repositories
 
-Para buscar confirmaciones en todos los repositorios que son propiedad de una determinada organización o usuario, utiliza el calificador `user` (usuario) u `org` (organización). Para buscar confirmaciones en un repositorio específico, utiliza el calificador `repo`.
+To search commits in all repositories owned by a certain user or organization, use the `user` or `org` qualifier. To search commits in a specific repository, use the `repo` qualifier.
 
-| Qualifier                  | Ejemplo                                                                                                                                                                                                                                    |
-| -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| <code>user:<em>USERNAME</em></code> | [**gibberish user:defunkt**](https://github.com/search?q=gibberish+user%3Adefunkt&type=Commits&utf8=%E2%9C%93) encuentra mensajes de confirmación con la palabra "gibberish" en repositorios propiedad de @defunkt.                        |
-| <code>org:<em>ORGNAME</em></code> | [**test org:github**](https://github.com/search?utf8=%E2%9C%93&q=test+org%3Agithub&type=Commits) encuentra mensajes de confirmación con la palabra "test" en repositorios propiedad de @github.                                            |
-| <code>repo:<em>USERNAME/REPO</em></code> | [**language repo:defunkt/gibberish**](https://github.com/search?utf8=%E2%9C%93&q=language+repo%3Adefunkt%2Fgibberish&type=Commits) encuentra mensajes de confirmación con la palabra "language" en un repositorio "gibberish" de @defunkt. |
+| Qualifier  | Example
+| ------------- | -------------
+| <code>user:<em>USERNAME</em></code> | [**gibberish user:defunkt**](https://github.com/search?q=gibberish+user%3Adefunkt&type=Commits&utf8=%E2%9C%93) matches commit messages with the word "gibberish" in repositories owned by @defunkt.
+| <code>org:<em>ORGNAME</em></code> | [**test org:github**](https://github.com/search?utf8=%E2%9C%93&q=test+org%3Agithub&type=Commits) matches commit messages with the word "test" in repositories owned by @github.
+| <code>repo:<em>USERNAME/REPO</em></code> | [**language repo:defunkt/gibberish**](https://github.com/search?utf8=%E2%9C%93&q=language+repo%3Adefunkt%2Fgibberish&type=Commits) matches commit messages with the word "language" in @defunkt's "gibberish" repository.
 
-## Filtrar por visibilidad de repositorio
+## Filter by repository visibility
 
-El calificador `is` coincide con las confirmaciones de los repositorios con la visibilidad especificada. Para obtener más información, consulta la sección "[Acerca de los repositorios](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)".
+The `is` qualifier matches commits from repositories with the specified visibility. For more information, see "[About repositories](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)."
 
-| Calificador| Ejemplo | ------------- | ------------- |{% ifversion fpt or ghes or ghec %} | `is:public` | [**is:public**](https://github.com/search?q=is%3Apublic&type=Commits) coincide con las confirmaciones de los repositorios públicos.{% endif %} | `is:internal` | [**is:internal**](https://github.com/search?q=is%3Ainternal&type=Commits) coincide con las confirmaciones de los repositorios internos. | `is:private` | [**is:private**](https://github.com/search?q=is%3Aprivate&type=Commits) coincide con las confirmaciones de los repositorios privados.
+| Qualifier  | Example
+| ------------- | ------------- |
+{%- ifversion fpt or ghes or ghec %}
+| `is:public` | [**is:public**](https://github.com/search?q=is%3Apublic&type=Commits) matches commits to public repositories.
+{%- endif %}
+{%- ifversion ghes or ghec or ghae %}
+| `is:internal` | [**is:internal**](https://github.com/search?q=is%3Ainternal&type=Commits) matches commits to internal repositories.
+{%- endif %}
+| `is:private` | [**is:private**](https://github.com/search?q=is%3Aprivate&type=Commits) matches commits to private repositories.
 
-## Leer más
+## Further reading
 
-- "[Clasificar los resultados de la búsqueda](/search-github/getting-started-with-searching-on-github/sorting-search-results/)"
+- "[Sorting search results](/search-github/getting-started-with-searching-on-github/sorting-search-results/)"

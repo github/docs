@@ -2,9 +2,9 @@
 title: Administrar repositorios remotos
 intro: 'Aprende a trabajar con tus repositorios locales en tu computadora y repositorios remotos alojados en {% data variables.product.product_name %}.'
 redirect_from:
-  - /categories/18/articles/
-  - /remotes/
-  - /categories/managing-remotes/
+  - /categories/18/articles
+  - /remotes
+  - /categories/managing-remotes
   - /articles/managing-remote-repositories
   - /articles/adding-a-remote
   - /github/using-git/adding-a-remote
@@ -107,7 +107,7 @@ git@{% data variables.command_line.codeblock %}:<em>USERNAME</em>/<em>REPOSITORY
   > origin  https://{% data variables.command_line.codeblock %}/<em>USERNAME/REPOSITORY</em>.git (push)
   ```
 
-La próxima vez que ejecutes `git`, `git pull` o `git push` en el repositorio remoto, se te pedirá el nombre de usuario y la contraseña de GitHub. {% data reusables.user_settings.password-authentication-deprecation %}
+La próxima vez que ejecutes `git`, `git pull` o `git push` en el repositorio remoto, se te pedirá el nombre de usuario y la contraseña de GitHub. {% data reusables.user-settings.password-authentication-deprecation %}
 
 Puedes [utilizar un ayudante de credenciales](/github/getting-started-with-github/caching-your-github-credentials-in-git) para que Git recuerde tu nombre de usuario y token de acceso personal cada vez que se comunique con GitHub.
 
@@ -173,7 +173,7 @@ $ git remote -v
 
 ### Solución de problemas: No se pudo renombrar la sección de configuración 'remote.[old name]' a 'remote.[new name]'
 
-Este error significa que el remoto que probaste con el nombre del remoto antiguo que escribiste no existe.
+Este error significa que el nombre remoto antiguo que tecleaste ya no existe.
 
 Puedes verificar los remotos que existen actualmente con el comando `git remote -v`:
 
@@ -194,6 +194,8 @@ Utiliza el comando `git remote rm` para eliminar una URL remota de tu repositori
 
 El comando `git remote rm` toma un argumento:
 * El nombre de un remoto, por ejemplo `destination` (destino)
+
+El eliminar la URL remota de tu repositorio únicamente desenlazará los repositorios remoto y local. Esto no borra el repositorio remoto.
 
 ## Ejemplo
 
@@ -217,7 +219,7 @@ $ git remote -v
 
 {% warning %}
 
-**Nota**: `git remote rm` no elimina el repositorio remoto del servidor.  Simplemente, elimina de tu repositorio local el remoto y sus referencias.
+**Nota**: `git remote rm` no borra el repositorio remoto del servidor.  Simplemente, elimina de tu repositorio local el remoto y sus referencias.
 
 {% endwarning %}
 

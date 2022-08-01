@@ -2,8 +2,8 @@
 title: 对提交签名
 intro: 您可以使用 GPG 或 S/MIME 在本地对提交进行签名。
 redirect_from:
-  - /articles/signing-commits-and-tags-using-gpg/
-  - /articles/signing-commits-using-gpg/
+  - /articles/signing-commits-and-tags-using-gpg
+  - /articles/signing-commits-using-gpg
   - /articles/signing-commits
   - /github/authenticating-to-github/signing-commits
   - /github/authenticating-to-github/managing-commit-signature-verification/signing-commits
@@ -37,7 +37,7 @@ topics:
 
 1. 当本地分支中的提交更改时，请将 S 标志添加到 git commit 命令：
   ```shell
-  $ git commit -S -m <em>your commit message</em>
+  $ git commit -S -m <em>"your commit message"</em>
   # Creates a signed commit
   ```
 2. 如果您使用 GPG，则创建提交后，提供您[生成 GPG 密钥](/articles/generating-a-new-gpg-key)时设置的密码。
@@ -54,7 +54,7 @@ topics:
 
 * "[检查现有 GPG 密钥](/articles/checking-for-existing-gpg-keys)"
 * "[生成新 GPG 密钥](/articles/generating-a-new-gpg-key)"
-* "[添加新 GPG 密钥到 GitHub 帐户](/articles/adding-a-new-gpg-key-to-your-github-account)"
+* "[添加 GPG 密钥到 GitHub 帐户](/articles/adding-a-gpg-key-to-your-github-account)"
 * "[向 Git 告知您的签名密钥](/articles/telling-git-about-your-signing-key)"
 * "[将电子邮件与 GPG 密钥关联](/articles/associating-an-email-with-your-gpg-key)"
 * "[对标记签名](/articles/signing-tags)"

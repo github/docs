@@ -21,7 +21,7 @@ shortTitle: 行動規範の追加
 
 テンプレートを使用するか、手動でカスタムの行動規範を作成して、プロジェクトに行動規範を追加できます。 行動規範はどちらの方法でも利用できますが、「行動規範」はテンプレートを使用する場合にのみ、リポジトリのコミュニティプロフィールで完了としてマークされます。 他者または Organization が作成した行動規範を使用する場合は、必ずソースからの帰属ガイドラインに従ってください。 コミュニティプロフィールの詳細については、「[パブリックリポジトリのコミュニティプロフィールについて](//communities/setting-up-your-project-for-healthy-contributions/about-community-profiles-for-public-repositories)」を参照してください。
 
-Organization またはユーザアカウント用にデフォルトの行動規範を作成できます。 詳しい情報については「[デフォルトのコミュニティ健全性ファイルを作成する](/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)」を参照してください。
+You can create a default code of conduct for your organization or personal account. 詳しい情報については「[デフォルトのコミュニティ健全性ファイルを作成する](/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)」を参照してください。
 
 ## テンプレートを使用して行動規範を追加する
 

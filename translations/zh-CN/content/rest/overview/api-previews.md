@@ -4,10 +4,7 @@ intro: 您可以使用 API 预览来试用新功能并在这些功能正式发�
 redirect_from:
   - /v3/previews
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
-  ghec: '*'
+  ghes: <3.4
 topics:
   - API
 ---
@@ -49,14 +46,6 @@ API 预览允许您试用新的 API 以及对现有 API 方法的更改（在它
 
 {% endif %}
 
-{% ifversion ghes %}
-## 预接收环境
-
-创建、列出、更新和删除预接收挂钩的环境。
-
-**自定义媒体类型：** `eye-scream-preview` **公布日期：** [2015-07-29](/rest/reference/enterprise-admin#pre-receive-environments)
-{% endif %}
-
 {% ifversion ghes < 3.3 %}
 ## 项目
 
@@ -90,7 +79,7 @@ API 预览允许您试用新的 API 以及对现有 API 方法的更改（在它
 
 {% endif %}
 
-{% ifversion ghae or ghes %}
+{% ifversion ghes < 3.3 %}
 
 ## 全局 web 挂钩
 
@@ -118,16 +107,6 @@ API 预览允许您试用新的 API 以及对现有 API 方法的更改（在它
 
 {% endif %}
 
-
-{% ifversion ghes %}
-
-## 对仓库的匿名 Git 访问
-
-当 {% data variables.product.prodname_ghe_server %} 实例处于私有模式时，站点和仓库管理员可以为公共仓库启用匿名 Git 访问。
-
-**自定义媒体类型：** `x-ray-preview` **公布日期：** [2018-07-12](https://blog.github.com/2018-07-12-introducing-enterprise-2-14/)
-
-{% endif %}
 {% ifversion ghes < 3.3 %}
 
 ## 项目卡详细信息
@@ -137,21 +116,12 @@ REST API 对[议题事件](/rest/reference/issues#events)和[议题时间表事�
 **自定义媒体类型：** `starfox-preview` **公布日期：** [2018-09-05](https://developer.github.com/changes/2018-09-05-project-card-events)
 
 {% endif %}
-{% ifversion fpt or ghec %}
-
-## GitHub 应用程序清单
-
-GitHub 应用程序清单允许用户创建预配置的 GitHub 应用程序。 更多信息请参阅“[从清单创建 GitHub 应用程序](/apps/building-github-apps/creating-github-apps-from-a-manifest/)”。
-
-**自定义媒体类型：** `fury-preview`
-
-{% endif %}
 
 {% ifversion ghes < 3.3 %}
 
 ## 部署状态
 
-现在，您可以更新[部署状态](/rest/reference/repos#create-a-deployment-status)的 `environment` 并使用 `in_progress` 和 `queued` 状态。 创建部署状态时，现在可以使用 `auto_inactive` 参数将旧的 `production` 部署标记为 `inactive`。
+现在，您可以更新[部署状态](/rest/reference/deployments#create-a-deployment-status)的 `environment` 并使用 `in_progress` 和 `queued` 状态。 创建部署状态时，现在可以使用 `auto_inactive` 参数将旧的 `production` 部署标记为 `inactive`。
 
 **自定义媒体类型：** `flash-preview` **公布日期：** [2018-10-16](https://developer.github.com/changes/2018-10-16-deployments-environments-states-and-auto-inactive-updates/)
 
@@ -167,12 +137,14 @@ GitHub 应用程序清单允许用户创建预配置的 GitHub 应用程序。 �
 
 {% endif %}
 
+{% ifversion ghes < 3.4 %}
 ## 内容附件
 
 现在，您可以在 GitHub 中使用 {% data variables.product.prodname_unfurls %} API 提供有关链接到注册域的 URL 的更多信息。 更多信息请参阅“[使用内容附件](/apps/using-content-attachments/)”。
 
 **自定义媒体类型：** `corsair-preview` **公布日期：** [2018-12-10](https://developer.github.com/changes/2018-12-10-content-attachments-api/)
 
+{% endif %}
 {% ifversion ghes < 3.3 %}
 
 ## 启用和禁用页面

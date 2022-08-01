@@ -1,8 +1,8 @@
 ---
 title: Sobre merges de subárvore do Git
 redirect_from:
-  - /articles/working-with-subtree-merge/
-  - /subtree-merge/
+  - /articles/working-with-subtree-merge
+  - /subtree-merge
   - /articles/about-git-subtree-merges
   - /github/using-git/about-git-subtree-merges
   - /github/getting-started-with-github/about-git-subtree-merges
@@ -53,7 +53,7 @@ A melhor maneira de explicar merges de subárvore é mostrar com exemplo. O que 
 
 1. Adicione uma nova URL remota apontando para o projeto separado em que estávamos interessados.
   ```shell
-  $ git remote add -f spoon-knife git@github.com:octocat/Spoon-Knife.git
+  $ git remote add -f spoon-knife https://github.com/octocat/Spoon-Knife.git
   > Updating spoon-knife
   > warning: no common commits
   > remote: Counting objects: 1732, done.
@@ -61,7 +61,7 @@ A melhor maneira de explicar merges de subárvore é mostrar com exemplo. O que 
   > remote: Total 1732 (delta 1086), reused 1558 (delta 967)
   > Receiving objects: 100% (1732/1732), 528.19 KiB | 621 KiB/s, done.
   > Resolving deltas: 100% (1086/1086), done.
-  > From git://github.com/octocat/Spoon-Knife
+  > From https://github.com/octocat/Spoon-Knife
   >  * [new branch]      main     -> Spoon-Knife/main
   ```
 2. Faça merge do projeto `Spoon-Knife` no projeto Git local. Isso não muda qualquer um de seus arquivos localmente, mas prepara o Git para a próxima etapa.

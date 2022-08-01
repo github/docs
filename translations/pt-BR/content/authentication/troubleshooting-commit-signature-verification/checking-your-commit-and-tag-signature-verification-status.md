@@ -2,7 +2,7 @@
 title: Confirmar o status de verificação da assinatura do commit e da tag
 intro: 'Você pode conferir o status da verificação da assinatura do commit e da tag no {% data variables.product.product_name %}.'
 redirect_from:
-  - /articles/checking-your-gpg-commit-and-tag-signature-verification-status/
+  - /articles/checking-your-gpg-commit-and-tag-signature-verification-status
   - /articles/checking-your-commit-and-tag-signature-verification-status
   - /github/authenticating-to-github/checking-your-commit-and-tag-signature-verification-status
   - /github/authenticating-to-github/troubleshooting-commit-signature-verification/checking-your-commit-and-tag-signature-verification-status

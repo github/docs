@@ -2,11 +2,11 @@
 title: Configurar la autenticación de dos factores mediante métodos de recuperación
 intro: Puedes configurar diversos métodos de recuperación para acceder a tu cuenta si pierdes tus credenciales de autenticación de dos factores.
 redirect_from:
-  - /articles/downloading-your-two-factor-authentication-recovery-codes/
-  - /articles/setting-a-fallback-authentication-number/
-  - /articles/about-recover-accounts-elsewhere/
-  - /articles/adding-a-fallback-authentication-method-with-recover-accounts-elsewhere/
-  - /articles/generating-and-storing-an-account-recovery-token/
+  - /articles/downloading-your-two-factor-authentication-recovery-codes
+  - /articles/setting-a-fallback-authentication-number
+  - /articles/about-recover-accounts-elsewhere
+  - /articles/adding-a-fallback-authentication-method-with-recover-accounts-elsewhere
+  - /articles/generating-and-storing-an-account-recovery-token
   - /articles/configuring-two-factor-authentication-recovery-methods
   - /github/authenticating-to-github/configuring-two-factor-authentication-recovery-methods
   - /github/authenticating-to-github/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication-recovery-methods
@@ -31,8 +31,8 @@ Para mantener la cuenta segura, no compartas ni distribuyas tus códigos de recu
 
 Si generas nuevos códigos de recuperación o inhabilitas y vuelves a habilitar 2FA, los códigos de recuperación de tus parámetros de seguridad se actualizarán automáticamente.
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.security %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.security %}
 {% data reusables.two_fa.show-recovery-codes %}
 4. Guarda tus códigos de recuperación en un lugar seguro. Tus códigos de recuperación te ayudarán a regresar a tu cuenta si pierdes acceso.
     - Para guardar tus códigos de recuperación en tu dispositivo, haz clic en **Download** (Descargar).
@@ -43,8 +43,8 @@ Si generas nuevos códigos de recuperación o inhabilitas y vuelves a habilitar 
 
 Una vez que usas un código de recuperación para recuperar el acceso a tu cuenta, no puedes volver a usarlo. Si has usado los 16 códigos de recuperación, puedes generar otra lista de códigos. La generación de un nuevo conjunto de códigos de recuperación invalidará todos los códigos que generaste previamente.
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.security %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.security %}
 {% data reusables.two_fa.show-recovery-codes %}
 3. Para crear otro lote de códigos de recuperación, haz clic en **Generate new recovery codes** (Generar nuevos códigos de recuperación). ![Botón para generar nuevos códigos de recuperación](/assets/images/help/2fa/generate-new-recovery-codes.png)
 
@@ -68,8 +68,8 @@ Puedes usar un número de reserva independientemente de que hayas configurado la
 
 {% endwarning %}
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.security %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.security %}
 3. Al lado de "Fallback SMS number" (Número de SMS de reserva), haz clic en **Add** (Agregar). ![Botón para agregar número de SMS de reserva](/assets/images/help/2fa/add-fallback-sms-number-button.png)
 4. En "Fallback SMS number" (Número de SMS de reserva), haz clic en **Add fallbacck SMS number (Agregar número de SMS de reserva). ![Agregar texto al número de SMS de reserva](/assets/images/help/2fa/add_fallback_sms_number_text.png)</p></li>
 5

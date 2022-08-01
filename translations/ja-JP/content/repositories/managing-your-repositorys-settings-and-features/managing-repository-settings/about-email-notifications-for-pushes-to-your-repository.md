@@ -3,9 +3,9 @@ title: リポジトリへのプッシュに対するメール通知について
 intro: 誰かがリポジトリにプッシュしたときに、特定のメールアドレスにメール通知を自動的に送信するように設定できます。
 permissions: People with admin permissions in a repository can enable email notifications for pushes to your repository.
 redirect_from:
-  - /articles/managing-notifications-for-pushes-to-a-repository/
-  - /articles/receiving-email-notifications-for-pushes-to-a-repository/
-  - /articles/about-email-notifications-for-pushes-to-your-repository/
+  - /articles/managing-notifications-for-pushes-to-a-repository
+  - /articles/receiving-email-notifications-for-pushes-to-a-repository
+  - /articles/about-email-notifications-for-pushes-to-your-repository
   - /github/receiving-notifications-about-activity-on-github/about-email-notifications-for-pushes-to-your-repository
   - /github/administering-a-repository/about-email-notifications-for-pushes-to-your-repository
   - /github/administering-a-repository/managing-repository-settings/about-email-notifications-for-pushes-to-your-repository
@@ -31,7 +31,7 @@ shortTitle: Email notifications for pushes
 - コミットの一部として変更されたファイル群
 - コミットメッセージ
 
-リポジトリへのプッシュに対して受け取るメール通知はフィルタリングできます。 詳細は、{% ifversion fpt or ghae or ghes or ghec %}「[通知を設定する](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#filtering-email-notifications){% else %}「[メール通知について](/github/receiving-notifications-about-activity-on-github/about-email-notifications)」を参照してください。 プッシュのメール通知を無効にすることもできます。 詳しい情報については、「[通知の配信方法を選択する](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/choosing-the-delivery-method-for-your-notifications){% endif %}」を参照してください。
+リポジトリへのプッシュに対して受け取るメール通知はフィルタリングできます。 詳しい情報については、「[通知を設定する](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#filtering-email-notifications)」を参照してください。
 
 ## リポジトリへのプッシュに対するメール通知の有効化
 
@@ -43,10 +43,5 @@ shortTitle: Email notifications for pushes
 7. [**Setup notifications**] をクリックします。 ![設定通知ボタン](/assets/images/help/settings/setup_notifications_settings.png)
 
 ## 参考リンク
-{% ifversion fpt or ghae or ghes or ghec %}
 - 「[通知について](/github/managing-subscriptions-and-notifications-on-github/about-notifications)」
-{% else %}
-- 「[通知について](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/about-notifications)」
-- [通知の配信方法を選択する](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/choosing-the-delivery-method-for-your-notifications)
-- 「[メール通知について](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/about-email-notifications)」
-- 「[Web 通知について](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/about-web-notifications)」{% endif %}
+

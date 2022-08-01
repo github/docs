@@ -12,7 +12,7 @@ redirect_from:
   - /articles/conditions-for-large-files
   - /github/managing-large-files/conditions-for-large-files
   - /github/managing-large-files/working-with-large-files/conditions-for-large-files
-  - /articles/what-is-the-size-limit-for-a-repository/
+  - /articles/what-is-the-size-limit-for-a-repository
   - /articles/what-is-my-disk-quota
   - /github/managing-large-files/what-is-my-disk-quota
   - /github/managing-large-files/working-with-large-files/what-is-my-disk-quota
@@ -40,7 +40,7 @@ shortTitle: Large files
 
 {% endnote %}
 
-{% ifversion ghes %}By default, {% endif %}{% data variables.product.product_name %} blocks pushes that exceed {% data variables.large_files.max_github_size %}. {% ifversion ghes %}However, a site administrator can configure a different limit for {% data variables.product.product_location %}.  For more information, see "[Setting Git push limits](/enterprise/{{ currentVersion }}/admin/guides/installation/setting-git-push-limits)."{% endif %}
+{% ifversion ghes %}By default, {% endif %}{% data variables.product.product_name %} blocks pushes that exceed {% data variables.large_files.max_github_size %}. {% ifversion ghes %}However, a site administrator can configure a different limit for {% data variables.product.product_location %}.  For more information, see "[Setting Git push limits](/enterprise/admin/guides/installation/setting-git-push-limits)."{% endif %}
 
 To track files beyond this limit, you must use {% data variables.large_files.product_name_long %} ({% data variables.large_files.product_name_short %}). For more information, see "[About {% data variables.large_files.product_name_long %}](/repositories/working-with-files/managing-large-files/about-git-large-file-storage)."
 

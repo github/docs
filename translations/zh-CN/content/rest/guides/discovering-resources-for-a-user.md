@@ -2,7 +2,7 @@
 title: 为用户发现资源
 intro: 了解如何通过向 REST API 发出经过身份验证的请求，找到您的应用程序能够为用户可靠地访问的仓库和组织。
 redirect_from:
-  - /guides/discovering-resources-for-a-user/
+  - /guides/discovering-resources-for-a-user
   - /v3/guides/discovering-resources-for-a-user
 versions:
   fpt: '*'
@@ -14,7 +14,7 @@ topics:
 shortTitle: 为用户发现资源
 ---
 
- 
+
 
 向 {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API 发出经过身份验证的请求时，应用程序通常需要获取当前用户的仓库和组织。 在本指南中，我们将介绍如何可靠地发现这些资源。
 
@@ -26,7 +26,7 @@ shortTitle: 为用户发现资源
 
 ## 发现您的应用程序能够为用户访问的仓库
 
-用户除了拥有他们自己的个人仓库之外，可能还是其他用户和组织所拥有仓库上的协作者。 总的来说，这些仓库是用户有权访问的仓库：要么是用户具有读取或写入权限的私有仓库，要么是用户具有写入权限的{% ifversion not ghae %}公共{% else %}内部{% endif %}仓库。
+用户除了拥有他们自己的个人仓库之外，可能还是其他用户和组织所拥有仓库上的协作者。 总的来说，这些仓库是用户有权访问的仓库：要么是用户具有读取或写入权限的私有仓库，要么是用户具有写入权限的{% ifversion fpt %}公共{% elsif ghec or ghes %}公共或内部{% elsif ghae %}内部{% endif %}仓库。
 
 [OAuth 作用域][scopes]和[组织应用程序策略][oap]决定了您的应用程序可以为用户访问其中哪些仓库。 使用下面的工作流程来发现这些仓库。
 

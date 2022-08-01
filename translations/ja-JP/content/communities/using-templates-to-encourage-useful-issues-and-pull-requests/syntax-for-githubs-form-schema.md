@@ -101,7 +101,8 @@ topics:
 ```YAML{:copy}
 body:
 - type: markdown
-  value: "## Thank you for contributing to our project!"
+  attributes:
+    value: "## Thank you for contributing to our project!"
 - type: markdown
   attributes:
     value: |
@@ -185,7 +186,7 @@ body:
   attributes:
     label: Bug prevalence
     description: "How often do you or others encounter this bug?"
-    placeholder: "Example: Whenever I visit the user account page (1-2 times a week)"
+    placeholder: "Example: Whenever I visit the personal account page (1-2 times a week)"
   validations:
     required: true
 ```
@@ -241,7 +242,7 @@ body:
 
 | キー        | 説明                                                  | 必須 | 種類   | デフォルト                                           | 有効な値                                            |
 | --------- | --------------------------------------------------- | -- | ---- | ----------------------------------------------- | ----------------------------------------------- |
-| `ラベル`     | フォームに表示される、予想されるユーザ入力の簡単な説明。                        | 任意 | 文字列型 | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %}
+| `ラベル`     | フォームに表示される、予想されるユーザ入力の簡単な説明。                        | 必須 | 文字列型 | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %}
 | `説明`      | フォームに表示されるチェックボックスのセットの説明。 Markdown フォーマットをサポートします。 | 任意 | 文字列型 | 空の文字列                                           | {% octicon "dash" aria-label="The dash icon" %}
 | `options` | ユーザが選択できるチェックボックスの配列。 構文については、以下を参照してください。          | 必須 | 配列   | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %}
 

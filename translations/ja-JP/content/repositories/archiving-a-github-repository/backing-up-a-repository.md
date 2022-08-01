@@ -26,7 +26,7 @@ topics:
 
 リポジトリもしくは wiki をクローンすると、プロジェクトのファイルやコミット履歴などの Git のデータだけがダウンロードされます。 You can use our API to export other elements of your repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} to your local machine:
 
-- [問題](/rest/reference/issues#list-issues-for-a-repository)
+- [Issue](/rest/reference/issues#list-issues-for-a-repository)
 - [プルリクエスト](/rest/reference/pulls#list-pull-requests)
 - [フォーク](/rest/reference/repos#list-forks)
 - [コメント](/rest/reference/issues#list-issue-comments-for-a-repository)

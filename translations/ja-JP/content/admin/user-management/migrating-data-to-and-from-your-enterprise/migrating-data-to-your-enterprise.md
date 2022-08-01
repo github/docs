@@ -2,14 +2,14 @@
 title: Enterprise にデータを移行する
 intro: '移行アーカイブを作成すると、ターゲットの {% data variables.product.prodname_ghe_server %} インスタンスにデータをインポートできます。 変更を恒久的にターゲットのインスタンスに適用する前に、潜在的なコンフリクトがないか変更をレビューできます。'
 redirect_from:
-  - /enterprise/admin/guides/migrations/importing-migration-data-to-github-enterprise/
+  - /enterprise/admin/guides/migrations/importing-migration-data-to-github-enterprise
   - /enterprise/admin/migrations/applying-the-imported-data-on-github-enterprise-server
   - /enterprise/admin/migrations/reviewing-migration-data
   - /enterprise/admin/migrations/completing-the-import-on-github-enterprise-server
-  - /enterprise/admin/guides/migrations/applying-the-imported-data-on-github-enterprise/
-  - /enterprise/admin/guides/migrations/reviewing-the-imported-data/
-  - /enterprise/admin/guides/migrations/completing-the-import-on-github-enterprise/
-  - /enterprise/admin/guides/migrations/importing-migration-data-to-github-enterprise-server/
+  - /enterprise/admin/guides/migrations/applying-the-imported-data-on-github-enterprise
+  - /enterprise/admin/guides/migrations/reviewing-the-imported-data
+  - /enterprise/admin/guides/migrations/completing-the-import-on-github-enterprise
+  - /enterprise/admin/guides/migrations/importing-migration-data-to-github-enterprise-server
   - /enterprise/admin/user-management/migrating-data-to-your-enterprise
   - /admin/user-management/migrating-data-to-your-enterprise
 versions:
@@ -61,7 +61,7 @@ After you prepare the data and resolve conflicts, you can apply the imported dat
 | Team                          | `Team`                        |
 | マイルストーン                       | `マイルストーン`                     |
 | プロジェクトボード                     | `project`                     |
-| 問題                            | `Issue`                       |
+| Issue                         | `Issue`                       |
 | Issueのコメント                    | `issue_comment`               |
 | プルリクエスト                       | `pull_request`                |
 | プルリクエストのレビュー                  | `pull_request_review`         |
@@ -129,7 +129,7 @@ $ ghe-migrator audit -s failed_import,failed_map,failed_rename,failed_merge -g <
 
 ### {% data variables.product.prodname_dotcom_the_website %} で Organization からリポジトリのロックを解除する
 
-{% data variables.product.prodname_dotcom_the_website %} Organization のリポジトリをアンロックするには、`DELETE` リクエストを<a href="/rest/reference/migrations#unlock-an-organization-repository" class="dotcom-only">移行アンロックエンドポイント</a>に送信します。 以下が必要です:
+{% data variables.product.prodname_dotcom_the_website %} Organization のリポジトリをアンロックするには、`DELETE` リクエストを[移行アンロックエンドポイント](/free-pro-team@latest/rest/migrations#unlock-an-organization-repository)に送信します。 以下が必要です:
   * 認証のためのアクセストークン
   * 移行のユニーク`id`
   * アンロックするリポジトリの名前
@@ -141,7 +141,7 @@ curl -H "Authorization: token <em>GITHUB_ACCESS_TOKEN</em>" -X DELETE \
 
 ### {% data variables.product.prodname_dotcom_the_website %} で Organization からリポジトリを削除する
 
-{% data variables.product.prodname_dotcom_the_website %} Organization のリポジトリをロック解除した後、[リポジトリ削除エンドポイント](/rest/reference/repos/#delete-a-repository)を使用して以前に移行したすべてのリポジトリを削除する必要があります。 認証のためのアクセストークンが必要になります。
+{% data variables.product.prodname_dotcom_the_website %} Organization のリポジトリをロック解除した後、[リポジトリ削除エンドポイント](/rest/repos/#delete-a-repository)を使用して以前に移行したすべてのリポジトリを削除する必要があります。 認証のためのアクセストークンが必要になります。
 ```shell
 curl -H "Authorization: token <em>GITHUB_ACCESS_TOKEN</em>" -X DELETE \
   https://api.github.com/repos/<em>orgname</em>/<em>repo_name</em>

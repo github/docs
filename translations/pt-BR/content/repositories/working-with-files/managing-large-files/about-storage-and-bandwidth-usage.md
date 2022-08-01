@@ -2,8 +2,8 @@
 title: Sobre o uso de armazenamento e largura de banda
 intro: '{% data reusables.large_files.free-storage-bandwidth-amount %}'
 redirect_from:
-  - /articles/billing-plans-for-large-file-storage/
-  - /articles/billing-plans-for-git-large-file-storage/
+  - /articles/billing-plans-for-large-file-storage
+  - /articles/billing-plans-for-git-large-file-storage
   - /articles/about-storage-and-bandwidth-usage
   - /github/managing-large-files/about-storage-and-bandwidth-usage
   - /github/managing-large-files/versioning-large-files/about-storage-and-bandwidth-usage

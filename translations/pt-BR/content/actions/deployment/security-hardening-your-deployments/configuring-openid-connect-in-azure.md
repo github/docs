@@ -7,6 +7,7 @@ versions:
   fpt: '*'
   ghae: issue-4856
   ghec: '*'
+  ghes: '>=3.5'
 type: tutorial
 topics:
   - Security
@@ -50,14 +51,7 @@ Para atualizar seus fluxos de trabalho para o OIDC, você deverá fazer duas alt
 
 ### Adicionando configurações de permissões
 
-O fluxo de trabalho exigirá uma configuração `permissões` com um valor de [`id-token`](/actions/security-guides/automatic-token-authentication#permissions-for-the-github_token) definido. If you only need to fetch an OIDC token for a single job, then this permission can be set within that job. Por exemplo:
-
-```yaml{:copy}
-permissions:
-  id-token: write
-```
-
-Você pode precisar especificar permissões adicionais aqui, dependendo das necessidades do seu fluxo de trabalho.
+ {% data reusables.actions.oidc-permissions-token %}
 
 ### Solicitando o token de acesso
 
@@ -65,36 +59,28 @@ A ação [`azure/login`](https://github.com/Azure/login) recebe um JWT do proved
 
 O exemplo a seguir troca um token de ID do OIDC com o Azure para receber um token de acesso, que pode, em seguida, ser usado para acessar os recursos da nuvem.
 
+{% raw %}
 ```yaml{:copy}
-name: Run Azure Login with OpenID Connect
+name: Run Azure Login with OIDC
 on: [push]
 
 permissions:
       id-token: write
-
+      contents: read
 jobs: 
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
+      - name: 'Az CLI login'
+        uses: azure/login@v1
+        with:
+          client-id: ${{ secrets.AZURE_CLIENT_ID }}
+          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
 
-    - name: Installing CLI-beta for OpenID Connect
-      run: |
-        cd ../..
-        CWD="$(pwd)"
-        python3 -m venv oidc-venv
-        . oidc-venv/bin/activate
-        echo "activated environment"
-        python3 -m pip install -q --upgrade pip
-        echo "started installing cli beta"
-        pip install -q --extra-index-url https://azcliprod.blob.core.windows.net/beta/simple/ azure-cli
-        echo "***************installed cli beta*******************"
-        echo "$CWD/oidc-venv/bin" >> $GITHUB_PATH
-
-    - name: 'Az CLI login'
-      uses: azure/login@v1.4.0
-      with:
-        client-id: {% raw %}${{ secrets.AZURE_CLIENTID }}{% endraw %}
-        tenant-id: {% raw %}${{ secrets.AZURE_TENANTID }}{% endraw %}
-        subscription-id: {% raw %}${{ secrets.AZURE_SUBSCRIPTIONID }}{% endraw %}
+      - name: 'Run az commands'
+        run: |
+          az account show
+          az group list
 ```
- 
+ {% endraw %}

@@ -2,7 +2,7 @@
 title: 关于匿名化 URL
 intro: '如果将图像或视频上传到 {% data variables.product.product_name %}，图像或视频 URL 将会修改，这样便无法跟踪您的信息。'
 redirect_from:
-  - /articles/why-do-my-images-have-strange-urls/
+  - /articles/why-do-my-images-have-strange-urls
   - /articles/about-anonymized-image-urls
   - /authenticating-to-github/about-anonymized-image-urls
   - /github/authenticating-to-github/about-anonymized-urls
@@ -29,7 +29,7 @@ topics:
 
 {% tip %}
 
-Windows users will either need to use the Git PowerShell (which is installed alongside [{% data variables.product.prodname_desktop %}](https://desktop.github.com/)) or download [curl for Windows](http://curl.haxx.se/download.html).
+Windows 用户需要使用 Git PowerShell（随 [{% data variables.product.prodname_desktop %}](https://desktop.github.com/) 一起安装）或下载 [curl for Windows](http://curl.haxx.se/download.html)。
 
 {% endtip %}
 

@@ -2,7 +2,7 @@
 title: 'Erro: agente com falha ao entrar'
 intro: 'Em raras circunstâncias, a conexão com o {% data variables.product.product_name %} via SSH no Linux produz o erro "Agente com falha ao entrar usando a chave". Siga estas etapas para resolver o problema.'
 redirect_from:
-  - /articles/error-agent-admitted-failure-to-sign-using-the-key/
+  - /articles/error-agent-admitted-failure-to-sign-using-the-key
   - /articles/error-agent-admitted-failure-to-sign
   - /github/authenticating-to-github/error-agent-admitted-failure-to-sign
   - /github/authenticating-to-github/troubleshooting-ssh/error-agent-admitted-failure-to-sign

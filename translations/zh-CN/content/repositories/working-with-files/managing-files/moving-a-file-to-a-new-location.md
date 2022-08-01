@@ -1,6 +1,6 @@
 ---
 title: 将文件移至新位置
-intro: 'You can move a file to a different directory on {% data variables.product.product_name %} or by using the command line.'
+intro: '您可以在 {% data variables.product.product_name %} 上或使用命令行将文件移动到其他目录。'
 redirect_from:
   - /articles/moving-a-file-to-a-new-location
   - /github/managing-files-in-a-repository/moving-a-file-to-a-new-location
@@ -20,13 +20,13 @@ shortTitle: 移动 文件
 
 除了更改文件位置之外，您也可以在同一提交中[更新文件内容](/articles/editing-files-in-your-repository)或[提供新名称](/articles/renaming-a-file)。
 
-## Moving a file to a new location on {% data variables.product.product_name %}
+## 将文件移动到 {% data variables.product.product_name %} 上的新位置
 
 {% tip %}
 
 **提示**：
 
-- 如果尝试在您没有访问权限的仓库中移动文件，我们会将项目复刻到您的用户帐户，并在您提交更改后帮助您发送[拉取请求](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)到原仓库。
+- 如果尝试在您没有访问权限的仓库中移动文件，我们会将项目复刻到您的个人帐户，并在您提交更改后帮助您发送[拉取请求](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)到原仓库。
 - 有些文件（如图像）需要您从命令行移动它们。 更多信息请参阅“[使用命令行将文件移至新位置](/articles/moving-a-file-to-a-new-location-using-the-command-line)”。
 - {% data reusables.repositories.protected-branches-block-web-edits-uploads %}
 

@@ -25,7 +25,7 @@ Depois de criar um aplicativo GitHub privado, é possível instalá-lo em um dos
 
 1. Na [página de configurações dos aplicativos GitHub](https://github.com/settings/apps), selecione seu aplicativo.
 2. Na barra lateral esquerda, clique em **Instalar aplicativo**.
-3. Clique em **Instalar** ao lado de organização ou conta de usuário que contém o repositório correto.
+3. Clique em **Instalar** ao lado de organização ou conta pessoal que contém o repositório correto.
 4. Instale o aplicativo em todos os repositórios ou repositórios selecionados. ![Permissões de instalação do aplicativo](/assets/images/install_permissions.png)
 5. Uma vez instalado, você verá as opções de configuração para o aplicativo na conta selecionada. Você pode fazer alterações aqui ou pode repetir as etapas anteriores para instalar o aplicativo em outra conta.
 

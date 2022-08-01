@@ -14,7 +14,6 @@ topics:
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## Visão Geral
 
@@ -76,7 +75,7 @@ jobs:
         run: |
           expr 1 + 1 > output.log
       - name: Upload output file
-        uses: actions/upload-artifact@v2
+        uses: {% data reusables.actions.action-upload-artifact %}
         with:
           name: output-log-file
           path: output.log
@@ -89,7 +88,7 @@ jobs:
   example-job:
     steps:
       - name: Download a single artifact
-        uses: actions/download-artifact@v2
+        uses: {% data reusables.actions.action-download-artifact %}
         with:
           name: output-log-file
 ```

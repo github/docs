@@ -3,8 +3,8 @@ title: Eventos de webhook e cargas
 intro: 'Para cada evento de webhook, você pode revisar quando o evento ocorrer, uma carga de exemplo, bem como as descrições sobre os parâmetros do objeto da carga.'
 product: '{% data reusables.gated-features.enterprise_account_webhooks %}'
 redirect_from:
-  - /early-access/integrations/webhooks/
-  - /v3/activity/events/types/
+  - /early-access/integrations/webhooks
+  - /v3/activity/events/types
   - /webhooks/event-payloads
   - /developers/webhooks-and-events/webhook-events-and-payloads
 versions:
@@ -49,14 +49,14 @@ As propriedades únicas para um evento de webhook são as mesmas propriedades qu
 
 As cargas de HTTP POST que são entregues no ponto de extremidade da URL configurado do seu webhook conterão vários cabeçalhos especiais:
 
-| Header                        | Descrição                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| ----------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `X-GitHub-Event`              | Nome do evento que ativou a entrega.                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| Header                        | Descrição                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| ----------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `X-GitHub-Event`              | Nome do evento que ativou a entrega.                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | `X-GitHub-Delivery`           | Um [GUID](http://en.wikipedia.org/wiki/Globally_unique_identifier) para identificar a entrega.{% ifversion ghes or ghae %}
-| `X-GitHub-Enterprise-Version` | A versão da instância do {% data variables.product.prodname_ghe_server %} que enviou a carga do HTTP POST.                                                                                                                                                                                                                                                                                                                                                                    |
+| `X-GitHub-Enterprise-Version` | A versão da instância do {% data variables.product.prodname_ghe_server %} que enviou a carga do HTTP POST.                                                                                                                                                                                                                                                                                                                                                               |
 | `X-GitHub-Enterprise-Host`    | O nome de host da instância do {% data variables.product.prodname_ghe_server %} que enviou a carga HTTP POST.{% endif %}{% ifversion not ghae %}
-| `X-Hub-Signature`             | Este cabeçalho é enviado se o webhook for configurado com um [`secret`](/rest/reference/repos#create-hook-config-params). This is the HMAC hex digest of the request body, and is generated using the SHA-1 hash function and the `secret` as the HMAC `key`.{% ifversion fpt or ghes or ghec %} `X-Hub-Signature` is provided for compatibility with existing integrations, and we recommend that you use the more secure `X-Hub-Signature-256` instead.{% endif %}{% endif %}
-| `X-Hub-Signature-256`         | Este cabeçalho é enviado se o webhook for configurado com um [`secret`](/rest/reference/repos#create-hook-config-params). Este é o resumo hexadecimal HMAC do texto da solicitação e é gerado usando a função hash SHA-256 e a `segredo` como a `chave` HMAC.                                                                                                                                                                                                                   |
+| `X-Hub-Signature`             | Este cabeçalho é enviado se o webhook for configurado com um [`secret`](/rest/reference/repos#create-hook-config-params). Este é o resumo hexadecimal doHMAC do texto da solicitação, e é gerada usando a função hash SHA-1 e o `segredo` como a `chave` do HMAC.{% ifversion fpt or ghes or ghec %} `X-Hub-Signature` é fornecido para compatibilidade com integrações existentes, e recomendamos que você use o `X-Hub-Signature-256` mais seguro.{% endif %}{% endif %}
+| `X-Hub-Signature-256`         | Este cabeçalho é enviado se o webhook for configurado com um [`secret`](/rest/reference/repos#create-hook-config-params). Este é o resumo hexadecimal HMAC do texto da solicitação e é gerado usando a função hash SHA-256 e a `segredo` como a `chave` HMAC.                                                                                                                                                                                                              |
 
 Além disso, o `User-Agent` para as solicitações terá o prefixo `GitHub-Hookshot/`.
 
@@ -101,7 +101,7 @@ Além disso, o `User-Agent` para as solicitações terá o prefixo `GitHub-Hooks
 > }
 ```
 
-{% ifversion fpt or ghes > 3.2 or ghae-next or ghec %}
+{% ifversion fpt or ghes > 3.2 or ghae or ghec %}
 ## branch_protection_rule
 
 Atividade relacionada a uma regra de proteção do branch. Para obter mais informações, consulte[Sobre as regras de proteção do branch](/github/administering-a-repository/defining-the-mergeability-of-pull-requests/about-protected-branches#about-branch-protection-rules)".
@@ -127,6 +127,34 @@ Atividade relacionada a uma regra de proteção do branch. Para obter mais infor
 
 {{ webhookPayloadsForCurrentVersion.branch_protection_rule.edited }}
 {% endif %}
+
+{% ifversion ghes > 3.3 %}
+## cache_sync
+
+Um ref do Git foi sincronizado com sucesso para uma réplica de cache. Para obter mais informações, consulte "[Sobre o cache do repositório](/admin/enterprise-management/caching-repositories/about-repository-caching)".
+
+### Disponibilidade
+
+- Webhooks do repositório
+- Webhooks da organização
+
+### Objeto da carga do webhook
+
+| Tecla            | Tipo     | Descrição                                                 |
+| ---------------- | -------- | --------------------------------------------------------- |
+| `cache_location` | `string` | A localização do servidor de cache que foi atualizado.    |
+| `ref`            | `string` | A ref que foi atualizada.                                 |
+| `antes`          | `string` | O OID da ref na réplica do cache antes de ser atualizado. |
+| `depois`         | `string` | O OID do ref na réplica do cache após a atualização.      |
+{% data reusables.webhooks.repo_desc %}
+{% data reusables.webhooks.org_desc %}
+{% data reusables.webhooks.sender_desc %}
+
+### Exemplo de carga de webhook
+
+{{ webhookPayloadsForCurrentVersion.cache_sync.synced }}
+{% endif %}
+
 ## check_run
 
 {% data reusables.webhooks.check_run_short_desc %}
@@ -177,7 +205,7 @@ Atividade relacionada a uma regra de proteção do branch. Para obter mais infor
 
 ## code_scanning_alert
 
-Os {% data variables.product.prodname_github_app %}s com a permissão `security_events`
+{% data reusables.webhooks.code_scanning_alert_event_short_desc %}
 
 ### Disponibilidade
 
@@ -191,7 +219,7 @@ Os {% data variables.product.prodname_github_app %}s com a permissão `security_
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.app_desc %}
-</code>remetente`| <code>objeto` | Se a </code> de ação ` for <code>reopened_by_user` ou `closed_by_user`, o objeto `remetente` será o usuário que ativou o evento. O objeto `remetente` é {% ifversion fpt or ghec %}`github`{% elsif ghes > 3.0 or ghae-next %}`github-enterprise`{% else %}vazio{% endif %} para todas as outras ações.
+</code>remetente`| <code>objeto` | Se a </code> de ação ` for <code>reopened_by_user` ou `closed_by_user`, o objeto `remetente` será o usuário que ativou o evento. O objeto `sender` está {% ifversion fpt or ghec %}`github`{% elsif ghes or ghae %}`github-enterprise`{% else %}vazio{% endif %} para todas as outras ações.
 
 ### Exemplo de carga de webhook
 
@@ -219,6 +247,7 @@ Os {% data variables.product.prodname_github_app %}s com a permissão `security_
 
 {{ webhookPayloadsForCurrentVersion.commit_comment.created }}
 
+{% ifversion ghes < 3.4 %}
 ## content_reference
 
 {% data reusables.webhooks.content_reference_short_desc %}
@@ -233,13 +262,14 @@ Os eventos de webhook são acionados com base na especificidade do domínio que 
 
 {{ webhookPayloadsForCurrentVersion.content_reference.created }}
 
+{% endif %}
 ## create
 
 {% data reusables.webhooks.create_short_desc %}
 
 {% note %}
 
-**Observação:** Você não receberá um webhook para este evento ao fazer push de mais de três tags de uma vez.
+**Observação:** Você não receberá um webhook para este evento ao criar mais de três tags de uma só vez.
 
 {% endnote %}
 
@@ -323,10 +353,10 @@ Os eventos de webhook são acionados com base na especificidade do domínio que 
 
 ### Objeto da carga do webhook
 
-| Tecla         | Tipo                                        | Descrição                                                  |
-| ------------- | ------------------------------------------- | ---------------------------------------------------------- |{% ifversion fpt or ghes or ghae or ghec %}
-| `Ação`        | `string`                                    | A ação realizada. Pode ser `criado`.{% endif %}
-| `implantação` | `objeto`                                    | The [implantação](/rest/reference/repos#list-deployments). |
+| Tecla         | Tipo     | Descrição                                                      |
+| ------------- | -------- | -------------------------------------------------------------- |
+| `Ação`        | `string` | A ação realizada. Pode ser `criado`.                           |
+| `implantação` | `objeto` | A [implantação](/rest/reference/deployments#list-deployments). |
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.app_desc %}
@@ -348,14 +378,14 @@ Os eventos de webhook são acionados com base na especificidade do domínio que 
 
 ### Objeto da carga do webhook
 
-| Tecla                              | Tipo                                        | Descrição                                                                                  |
-| ---------------------------------- | ------------------------------------------- | ------------------------------------------------------------------------------------------ |{% ifversion fpt or ghes or ghae or ghec %}
-| `Ação`                             | `string`                                    | A ação realizada. Pode ser `criado`.{% endif %}
-| `implantação_status`               | `objeto`                                    | O [estado de implantação](/rest/reference/repos#list-deployment-statuses).                 |
-| `deployment_status["state"]`       | `string`                                    | O novo estado. Pode ser `pendente`, `sucesso`, `falha` ou `erro`.                          |
-| `deployment_status["target_url"]`  | `string`                                    | O link opcional adicionado ao status.                                                      |
-| `deployment_status["description"]` | `string`                                    | A descrição opcional legível para pessoas adicionada ao status.                            |
-| `implantação`                      | `objeto`                                    | A [implantação](/rest/reference/repos#list-deployments) à qual este status está associado. |
+| Tecla                              | Tipo     | Descrição                                                                                        |
+| ---------------------------------- | -------- | ------------------------------------------------------------------------------------------------ |
+| `Ação`                             | `string` | A ação realizada. Pode ser `criado`.                                                             |
+| `implantação_status`               | `objeto` | O [status da implantação](/rest/reference/deployments#list-deployment-statuses).                 |
+| `deployment_status["state"]`       | `string` | O novo estado. Pode ser `pendente`, `sucesso`, `falha` ou `erro`.                                |
+| `deployment_status["target_url"]`  | `string` | O link opcional adicionado ao status.                                                            |
+| `deployment_status["description"]` | `string` | A descrição opcional legível para pessoas adicionada ao status.                                  |
+| `implantação`                      | `objeto` | A [implantação](/rest/reference/deployments#list-deployments) à qual este status está associado. |
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.app_desc %}
@@ -370,7 +400,7 @@ Os eventos de webhook são acionados com base na especificidade do domínio que 
 
 {% data reusables.webhooks.discussions-webhooks-beta %}
 
-Atividade relacionada a uma discussão. Para obter mais informações, consulte "[Usar a API do GraphQL para discussões]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql/guides/using-the-graphql-api-for-discussions)".
+Atividade relacionada a uma discussão. Para obter mais informações, consulte "[Usar a API do GraphQL para discussões](/graphql/guides/using-the-graphql-api-for-discussions)".
 ### Disponibilidade
 
 - Webhooks do repositório
@@ -379,9 +409,9 @@ Atividade relacionada a uma discussão. Para obter mais informações, consulte 
 
 ### Objeto da carga do webhook
 
-| Tecla  | Tipo     | Descrição                                                                                                                                                             |
-| ------ | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `Ação` | `string` | A ação realizada. Pode ser `created`, `edited`, `deleted`, `pinned`, `unpinned`, `locked`, `unlocked`, `transferred`, `category_changed`, `answered` ou `unanswered`. |
+| Tecla  | Tipo     | Descrição                                                                                                                                                                                     |
+| ------ | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `Ação` | `string` | A ação realizada. Pode ser `created`, `edited`, `deleted`, `pinned`, `unpinned`, `locked`, `unlocked`, `transferred`, `category_changed`, `answered`, `unanswered`, `labeled` ou `unlabeled`. |
 {% data reusables.webhooks.discussion_desc %}
 {% data reusables.webhooks.repo_desc_graphql %}
 {% data reusables.webhooks.org_desc_graphql %}
@@ -395,7 +425,7 @@ Atividade relacionada a uma discussão. Para obter mais informações, consulte 
 
 {% data reusables.webhooks.discussions-webhooks-beta %}
 
-Atividade relacionada a um comentário em uma discussão. Para obter mais informações, consulte "[Usar a API do GraphQL para discussões]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql/guides/using-the-graphql-api-for-discussions)".
+Atividade relacionada a um comentário em uma discussão. Para obter mais informações, consulte "[Usar a API do GraphQL para discussões](/graphql/guides/using-the-graphql-api-for-discussions)".
 
 ### Disponibilidade
 
@@ -405,10 +435,10 @@ Atividade relacionada a um comentário em uma discussão. Para obter mais inform
 
 ### Objeto da carga do webhook
 
-| Tecla        | Tipo     | Descrição                                                                                                                                                           |
-| ------------ | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `Ação`       | `string` | A ação realizada. Pode ser `criado`, `editado` ou `excluído`.                                                                                                       |
-| `comentário` | `objeto` | O recurso [`comentário de discussão`]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql/guides/using-the-graphql-api-for-discussions#discussioncomment). |
+| Tecla        | Tipo     | Descrição                                                                                                       |
+| ------------ | -------- | --------------------------------------------------------------------------------------------------------------- |
+| `Ação`       | `string` | A ação realizada. Pode ser `criado`, `editado` ou `excluído`.                                                   |
+| `comentário` | `objeto` | O recurso [`comentário de discussão`](/graphql/guides/using-the-graphql-api-for-discussions#discussioncomment). |
 {% data reusables.webhooks.discussion_desc %}
 {% data reusables.webhooks.repo_desc_graphql %}
 {% data reusables.webhooks.org_desc_graphql %}
@@ -781,8 +811,6 @@ O webhook em que este evento está configurado em foi excluído. Este evento só
 
 {% endif %}
 
-{% ifversion fpt or ghae or ghec %}
-
 ## pacote
 
 Atividade relacionada a {% data variables.product.prodname_registry %}. {% data reusables.webhooks.action_type_desc %} Para obter mais informações, consulte "[Gerenciar pacotes com {% data variables.product.prodname_registry %}](/github/managing-packages-with-github-packages)" para saber mais sobre {% data variables.product.prodname_registry %}.
@@ -802,7 +830,6 @@ Atividade relacionada a {% data variables.product.prodname_registry %}. {% data 
 ### Exemplo de carga de webhook
 
 {{ webhookPayloadsForCurrentVersion.package.published }}
-{% endif %}
 
 ## page_build
 
@@ -819,7 +846,7 @@ Atividade relacionada a {% data variables.product.prodname_registry %}. {% data 
 | Tecla   | Tipo      | Descrição                                                                               |
 | ------- | --------- | --------------------------------------------------------------------------------------- |
 | `id`    | `inteiro` | O identificador exclusivo da criação de páginas.                                        |
-| `build` | `objeto`  | A [Listar as criações do GitHub Pages](/rest/reference/repos#list-github-pages-builds). |
+| `build` | `objeto`  | A [Listar as criações do GitHub Pages](/rest/reference/pages#list-github-pages-builds). |
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.app_desc %}
@@ -845,7 +872,7 @@ Atividade relacionada a {% data variables.product.prodname_registry %}. {% data 
 | -------------- | --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `zen`          | `string`  | String aleatória do Github zen.                                                                                                                                                                                                                                                                                                                                                                                         |
 | `hook_id`      | `inteiro` | O ID do webhook que acionou o ping.                                                                                                                                                                                                                                                                                                                                                                                     |
-| `hook`         | `objeto`  | A [configuração do webhook](/rest/reference/repos#get-a-repository-webhook).                                                                                                                                                                                                                                                                                                                                            |
+| `hook`         | `objeto`  | A [configuração do webhook](/rest/reference/webhooks#get-a-repository-webhook).                                                                                                                                                                                                                                                                                                                                         |
 | `hook[app_id]` | `inteiro` | Ao registrar um novo {% data variables.product.prodname_github_app %}, {% data variables.product.product_name %} envia um evento de ping para a **URL do webhook** que você especificou no registro. O evento contém o `app_id`, que é necessário para a [efetuar a autenticação](/apps/building-integrations/setting-up-and-registering-github-apps/about-authentication-options-for-github-apps/) em um aplicativo. |
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.org_desc %}
@@ -854,6 +881,38 @@ Atividade relacionada a {% data variables.product.prodname_registry %}. {% data 
 ### Exemplo de carga de webhook
 
 {{ webhookPayloadsForCurrentVersion.ping }}
+
+## project
+
+{% data reusables.webhooks.project_short_desc %}
+
+### Disponibilidade
+
+- Webhooks do repositório
+- Webhooks da organização
+- {% data variables.product.prodname_github_apps %} com a permissão `repository_projects` ou `organization_projects`
+
+{% ifversion projects-v2 %}
+{% note %}
+
+**Note**: This event only occurs for {% data variables.product.prodname_projects_v1 %}.
+
+{% endnote %}
+{% endif %}
+
+### Objeto da carga do webhook
+
+{% data reusables.webhooks.project_properties %}
+{% data reusables.webhooks.repo_desc %}
+{% data reusables.webhooks.org_desc %}
+{% data reusables.webhooks.app_desc %}
+{% data reusables.webhooks.sender_desc %}
+
+### Exemplo de carga de webhook
+
+{{ webhookPayloadsForCurrentVersion.project.created }}
+
+{% ifversion fpt or ghes or ghec %}
 
 ## project_card
 
@@ -864,6 +923,14 @@ Atividade relacionada a {% data variables.product.prodname_registry %}. {% data 
 - Webhooks do repositório
 - Webhooks da organização
 - {% data variables.product.prodname_github_apps %} com a permissão `repository_projects` ou `organization_projects`
+
+{% ifversion projects-v2 %}
+{% note %}
+
+**Note**: This event only occurs for {% data variables.product.prodname_projects_v1 %}.
+
+{% endnote %}
+{% endif %}
 
 ### Objeto da carga do webhook
 
@@ -887,6 +954,14 @@ Atividade relacionada a {% data variables.product.prodname_registry %}. {% data 
 - Webhooks da organização
 - {% data variables.product.prodname_github_apps %} com a permissão `repository_projects` ou `organization_projects`
 
+{% ifversion projects-v2 %}
+{% note %}
+
+**Note**: This event only occurs for {% data variables.product.prodname_projects_v1 %}.
+
+{% endnote %}
+{% endif %}
+
 ### Objeto da carga do webhook
 
 {% data reusables.webhooks.project_column_properties %}
@@ -899,29 +974,40 @@ Atividade relacionada a {% data variables.product.prodname_registry %}. {% data 
 
 {{ webhookPayloadsForCurrentVersion.project_column.created }}
 
-## project
+{% ifversion project-beta-webhooks %}
 
-{% data reusables.webhooks.project_short_desc %}
+## projects_v2_item
+
+{% note %}
+
+**Note:** Webhook events for {% data variables.projects.projects_v2 %} are currently in beta and subject to change. To share feedback about {% data variables.projects.projects_v2 %} webhooks with {% data variables.product.product_name %}, see the [Projects webhook feedback discussion](https://github.com/orgs/community/discussions/17405).
+
+{% endnote %}
+
+Activity related to items in a {% data variables.projects.project_v2 %}. {% data reusables.webhooks.action_type_desc %} Para obter mais informações, consulte "[Sobre {% data variables.projects.projects_v2 %}](/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects).
 
 ### Disponibilidade
 
-- Webhooks do repositório
 - Webhooks da organização
-- {% data variables.product.prodname_github_apps %} com a permissão `repository_projects` ou `organization_projects`
+- {% data variables.product.prodname_github_apps %} com a permissão de `organization_projects`
 
 ### Objeto da carga do webhook
 
-{% data reusables.webhooks.project_properties %}
-{% data reusables.webhooks.repo_desc %}
+| Tecla              | Tipo     | Descrição                                                                                                                                                                                                                                                                                                                                                                                                  |
+| ------------------ | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `Ação`             | `string` | A ação que foi executada no item do projeto. Pode ser: `archived`, `converted`, `created`, `edited`, `restored`, `deleted` ou `reordered`.                                                                                                                                                                                                                                                                 |
+| `projects_v2_item` | `objeto` | O item do projeto em si. Para encontrar mais informações sobre o item do projeto, você pode usar `node_id` (o ID do nó do item do projeto) e `project_node_id` (o ID do nó do projeto) para consultar informações na API do GraphQL. For more information, see "[Using the API to manage projects](/issues/planning-and-tracking-with-projects/automating-your-project/using-the-api-to-manage-projects)." |
+| `alterações`       | `objeto` | As alterações no item do projeto.                                                                                                                                                                                                                                                                                                                                                                          |
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.app_desc %}
 {% data reusables.webhooks.sender_desc %}
 
 ### Exemplo de carga de webhook
 
-{{ webhookPayloadsForCurrentVersion.project.created }}
+{{ webhookPayloadsForCurrentVersion.projects_v2_item.created }}
 
-{% ifversion fpt or ghes or ghec %}
+{% endif %}
+
 ## público
 
 {% data reusables.webhooks.public_short_desc %}
@@ -1015,6 +1101,28 @@ As entregas para eventos `review_requested` e `review_request_removed` terão um
 
 {{ webhookPayloadsForCurrentVersion.pull_request_review_comment.created }}
 
+## pull_request_review_thread
+
+{% data reusables.webhooks.pull_request_review_thread_short_desc %}
+
+### Disponibilidade
+
+- Webhooks do repositório
+- Webhooks da organização
+- {% data variables.product.prodname_github_apps %} com a permissão `pull_requests`
+
+### Objeto da carga do webhook
+
+{% data reusables.webhooks.pull_request_thread_properties %}
+{% data reusables.webhooks.repo_desc %}
+{% data reusables.webhooks.org_desc %}
+{% data reusables.webhooks.app_desc %}
+{% data reusables.webhooks.sender_desc %}
+
+### Exemplo de carga de webhook
+
+{{ webhookPayloadsForCurrentVersion.pull_request_review_thread.resolved }}
+
 ## push
 
 {% data reusables.webhooks.push_short_desc %}
@@ -1033,29 +1141,29 @@ As entregas para eventos `review_requested` e `review_request_removed` terão um
 
 ### Objeto da carga do webhook
 
-| Tecla                      | Tipo      | Descrição                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-| -------------------------- | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `ref`                      | `string`  | O [`git ref completo`](/rest/reference/git#refs) que foi empurrado. Exemplo: `refs/heads/main` ou `refs/tags/v3.14.1`.                                                                                                                                                                                                                                                                                                                             |
-| `antes`                    | `string`  | O SHA do último commit em `ref` antes do push.                                                                                                                                                                                                                                                                                                                                                                                                     |
-| `depois`                   | `string`  | O SHA do último commit no `ref` após o push.                                                                                                                                                                                                                                                                                                                                                                                                       |
-| `created`                  | `boolean` | Se este push criou o `ref`.                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| `deleted`                  | `boolean` | Se este push excluiu o `ref`.                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| `forced`                   | `boolean` | Se este push foi um push forçado do `ref`.                                                                                                                                                                                                                                                                                                                                                                                                         |
-| `head_commit`              | `objeto`  | Para pushes em que `after` é ou aponta para um objeto de commit, uma representação expandida desse commit. Para pushes em que `after` refere-se a um objeto de tag anotada, uma representação expandida do commit apontada pela tag anotada.                                                                                                                                                                                                       |
-| `compare`                  | `string`  | A URL que mostra as alterações na atualização deste `ref`, do commit `before` para o commit `after`. Para um `ref` recém-criado que é diretamente baseado no branch padrão, esta é a comparação entre o cabeçalho do branch padrão e o commit `after`. Caso contrário, isso mostra todos os commits até o commit `after`.                                                                                                                          |
-| `commits`                  | `array`   | Um array de objetos de commit, que descreve os commits carregados. (Os commits que sofreram push são todos commits incluídos no `compare` entre o commit `before` e o commit `after`.) O array inclui um máximo de 20 commits. Se necessário, você pode usar a [API de Commits](/rest/reference/repos#commits) para obter commits adicionais. Este limite é aplicado apenas aos eventos da linha do tempo e não é aplicado às entregas do webhook. |
-| `commits[][id]`            | `string`  | O SHA do commit.                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-| `commits[][timestamp]`     | `string`  | O carimbo de tempo ISO 8601 do commit.                                                                                                                                                                                                                                                                                                                                                                                                             |
-| `commits[][message]`       | `string`  | A mensagem do commit.                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| `commits[][author]`        | `objeto`  | O autor do git do commit.                                                                                                                                                                                                                                                                                                                                                                                                                          |
-| `commits[][author][name]`  | `string`  | O nome do autor do git.                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| `commits[][author][email]` | `string`  | O endereço de e-mail do autor do git.                                                                                                                                                                                                                                                                                                                                                                                                              |
-| `commits[][url]`           | `url`     | URL que aponta para o recurso de commit de API.                                                                                                                                                                                                                                                                                                                                                                                                    |
-| `commits[][distinct]`      | `boolean` | Se este compromisso é diferente de qualquer outro que tenha sido carregado anteriormente.                                                                                                                                                                                                                                                                                                                                                          |
-| `commits[][added]`         | `array`   | Um array de arquivos adicionados no commit.                                                                                                                                                                                                                                                                                                                                                                                                        |
-| `commits[][modified]`      | `array`   | Um array de arquivos modificados pelo commit.                                                                                                                                                                                                                                                                                                                                                                                                      |
-| `commits[][removed]`       | `array`   | Um array de arquivos removidos no commit.                                                                                                                                                                                                                                                                                                                                                                                                          |
-| `pusher`                   | `objeto`  | O usuário que fez o push dos commits.                                                                                                                                                                                                                                                                                                                                                                                                              |
+| Tecla                      | Tipo      | Descrição                                                                                                                                                                                                                                                                                                                 |
+| -------------------------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `ref`                      | `string`  | O [`git ref completo`](/rest/reference/git#refs) que foi empurrado. Exemplo: `refs/heads/main` ou `refs/tags/v3.14.1`.                                                                                                                                                                                                    |
+| `antes`                    | `string`  | O SHA do último commit em `ref` antes do push.                                                                                                                                                                                                                                                                            |
+| `depois`                   | `string`  | O SHA do último commit no `ref` após o push.                                                                                                                                                                                                                                                                              |
+| `created`                  | `boolean` | Se este push criou o `ref`.                                                                                                                                                                                                                                                                                               |
+| `deleted`                  | `boolean` | Se este push excluiu o `ref`.                                                                                                                                                                                                                                                                                             |
+| `forced`                   | `boolean` | Se este push foi um push forçado do `ref`.                                                                                                                                                                                                                                                                                |
+| `head_commit`              | `objeto`  | Para pushes em que `after` é ou aponta para um objeto de commit, uma representação expandida desse commit. Para pushes em que `after` refere-se a um objeto de tag anotada, uma representação expandida do commit apontada pela tag anotada.                                                                              |
+| `compare`                  | `string`  | A URL que mostra as alterações na atualização deste `ref`, do commit `before` para o commit `after`. Para um `ref` recém-criado que é diretamente baseado no branch padrão, esta é a comparação entre o cabeçalho do branch padrão e o commit `after`. Caso contrário, isso mostra todos os commits até o commit `after`. |
+| `commits`                  | `array`   | Um array de objetos de commit, que descreve os commits carregados. (Os commits que sofreram push são todos commits incluídos no `compare` entre o commit `before` e o commit `after`.)                                                                                                                                    |
+| `commits[][id]`            | `string`  | O SHA do commit.                                                                                                                                                                                                                                                                                                          |
+| `commits[][timestamp]`     | `string`  | O carimbo de tempo ISO 8601 do commit.                                                                                                                                                                                                                                                                                    |
+| `commits[][message]`       | `string`  | A mensagem do commit.                                                                                                                                                                                                                                                                                                     |
+| `commits[][author]`        | `objeto`  | O autor do git do commit.                                                                                                                                                                                                                                                                                                 |
+| `commits[][author][name]`  | `string`  | O nome do autor do git.                                                                                                                                                                                                                                                                                                   |
+| `commits[][author][email]` | `string`  | O endereço de e-mail do autor do git.                                                                                                                                                                                                                                                                                     |
+| `commits[][url]`           | `url`     | URL que aponta para o recurso de commit de API.                                                                                                                                                                                                                                                                           |
+| `commits[][distinct]`      | `boolean` | Se este compromisso é diferente de qualquer outro que tenha sido carregado anteriormente.                                                                                                                                                                                                                                 |
+| `commits[][added]`         | `array`   | Um array de arquivos adicionados no commit.                                                                                                                                                                                                                                                                               |
+| `commits[][modified]`      | `array`   | Um array de arquivos modificados pelo commit.                                                                                                                                                                                                                                                                             |
+| `commits[][removed]`       | `array`   | Um array de arquivos removidos no commit.                                                                                                                                                                                                                                                                                 |
+| `pusher`                   | `objeto`  | O usuário que fez o push dos commits.                                                                                                                                                                                                                                                                                     |
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.app_desc %}
@@ -1088,7 +1196,6 @@ As entregas para eventos `review_requested` e `review_request_removed` terão um
 
 {{ webhookPayloadsForCurrentVersion.release.published }}
 
-{% ifversion fpt or ghes or ghae or ghec %}
 ## repository_dispatch
 
 Este evento ocorre quando um {% data variables.product.prodname_github_app %} envia uma solicitação de `POST` para o "[Crie um evento de envio de repositório](/rest/reference/repos#create-a-repository-dispatch-event)" endpoint.
@@ -1100,7 +1207,6 @@ Este evento ocorre quando um {% data variables.product.prodname_github_app %} en
 ### Exemplo de carga de webhook
 
 {{ webhookPayloadsForCurrentVersion.repository_dispatch }}
-{% endif %}
 
 ## repositório
 
@@ -1116,7 +1222,7 @@ Este evento ocorre quando um {% data variables.product.prodname_github_app %} en
 
 | Tecla  | Tipo     | Descrição                                                                          |
 | ------ | -------- | ---------------------------------------------------------------------------------- |
-| `Ação` | `string` | A ação que foi executada. Este pode ser um dos seguintes:<ul><li>`created` - Um repositório foi criado.</li><li>`deleted` - Um repositório foi excluído.</li><li>`archived` - Um repositório está arquivado.</li><li>`unarchived` - Um repositório não está arquivado.</li>{% ifversion ghes or ghae %}<li>`anonymous_access_enabled` - Um repositório está [habilitado para acesso anônimo ao Git](/rest/overview/api-previews#anonymous-git-access-to-repositories), `anonymous_access_disabled` - Um repositório está [desativado para acesso anônimo ao Git](/rest/overview/api-previews#anonymous-git-access-to-repositories)</li>{% endif %}<li>`edited` - As informações de um repositório são editadas.</li><li>`renamed` - Um repositório é renomeado.</li><li>`transferred` - Um repositório é transferido.</li><li>`publicized` - Um repositório é publicado.</li><li> `privatizado` - Um repositório é privatizado.</li></ul> |
+| `Ação` | `string` | A ação que foi executada. Este pode ser um dos seguintes:<ul><li>`created` - Um repositório foi criado.</li><li>`deleted` - Um repositório foi excluído.</li><li>`archived` - Um repositório está arquivado.</li><li>`unarchived` - Um repositório não está arquivado.</li>{% ifversion ghes or ghae %}<li>`anonymous_access_enabled` - Um repositório está [habilitado para acesso anônimo ao Git](/admin/policies/enforcing-policies-for-your-enterpris/enforcing-repository-management-policies-in-your-enterprise), `anonymous_access_disabled` - Um repositório está [desabilitado para acesso anônimo ao Git](/admin/policies/enforcing-policies-for-your-enterpris/enforcing-repository-management-polices-in-your-enterprise)</li>{% endif %}<li>`edited` - As informações de um repositório são editadas.</li><li>`renamed` - Um repositório é renomeado.</li><li>`transferred` - Um repositório é transferido.</li><li>`publicized` - Um repositório é publicado.</li><li> `privatizado` - Um repositório é privatizado.</li></ul> |
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.app_desc %}
@@ -1169,7 +1275,7 @@ Este evento ocorre quando um {% data variables.product.prodname_github_app %} en
 
 {% endif %}
 
-{% ifversion fpt or ghes > 3.0 or ghec %}
+{% ifversion ghes or ghec %}
 
 ## secret_scanning_alert
 
@@ -1194,11 +1300,35 @@ Este evento ocorre quando um {% data variables.product.prodname_github_app %} en
 {{ webhookPayloadsForCurrentVersion.secret_scanning_alert.reopened }}
 {% endif %}
 
+{% ifversion ghes > 3.4 or ghec or ghae-issue-6581 %}
+## secret_scanning_alert_location
+
+{% data reusables.webhooks.secret_scanning_alert_location_event_short_desc %}
+
+### Disponibilidade
+
+- Webhooks do repositório
+- Webhooks da organização
+- {% data variables.product.prodname_github_apps %} com a permissão `secret_scanning_alerts:read`
+
+### Objeto da carga do webhook
+
+{% data reusables.webhooks.secret_scanning_alert_location_event_properties %}
+{% data reusables.webhooks.repo_desc %}
+{% data reusables.webhooks.org_desc %}
+{% data reusables.webhooks.app_desc %}
+
+### Exemplo de carga de webhook
+
+{{ webhookPayloadsForCurrentVersion.secret_scanning_alert_location.created }}
+{% endif %}
+
 {% ifversion fpt or ghes or ghec %}
 ## security_advisory
 
-Atividade relacionada a uma consultora de segurança. Uma consultoria de segurança fornece informações sobre vulnerabilidades relacionadas à segurança em softwares no GitHub. O conjunto de dados da consultoria de segurança também promove os alertas de segurança do GitHub, consulte "[Sobre os alertas para dependências vulneráveis](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies/)."
-{% endif %}
+Atividade relacionada a uma consultoria de segurança que foi revisada por {% data variables.product.company_short %}. Uma consultoria de segurança revisada por {% data variables.product.company_short %} fornece informações sobre vulnerabilidades relacionadas à segurança no software em {% data variables.product.prodname_dotcom %}.
+
+O conjunto de dados consultivos de segurança também alimentam o GitHub {% data variables.product.prodname_dependabot_alerts %}. Para obter mais informações, consulte "[Sobre {% data variables.product.prodname_dependabot_alerts %}](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies/)".
 
 ### Disponibilidade
 
@@ -1214,6 +1344,36 @@ Atividade relacionada a uma consultora de segurança. Uma consultoria de seguran
 ### Exemplo de carga de webhook
 
 {{ webhookPayloadsForCurrentVersion.security_advisory.published }}
+
+{% endif %}
+
+{% ifversion ghas-enablement-webhook %}
+
+## security_and_analysis
+
+Atividade relacionada à habilitação ou desabilitação de recursos de segurança e análise de código para um repositório ou organização.
+
+### Disponibilidade
+
+- Webhooks do repositório
+- Webhooks da organização
+- {% data variables.product.prodname_github_apps %} com pelo menos acesso `somente leitura` na administração de repositórios
+
+### Objeto da carga do webhook
+
+| Tecla        | Tipo     | Descrição                                                                            |
+| ------------ | -------- | ------------------------------------------------------------------------------------ |
+| `alterações` | `objeto` | As alterações que foram feitas nas funcionalidades de segurança e análise do código. |
+{% data reusables.webhooks.repo_desc %}
+{% data reusables.webhooks.org_desc %}
+{% data reusables.webhooks.app_desc %}
+{% data reusables.webhooks.sender_desc %}
+
+### Exemplo de carga de webhook
+
+{{ webhookPayloadsForCurrentVersion.security_and_analysis }}
+
+{% endif %}
 
 {% ifversion fpt or ghec %}
 ## patrocínio
@@ -1393,12 +1553,23 @@ Esse evento ocorre quando alguém aciona a execução de um fluxo de trabalho no
 
 - {% data variables.product.prodname_github_apps %} deve ter a permissão do conteúdo `` para receber este webhook.
 
+### Objeto da carga do webhook
+
+| Tecla    | Tipo     | Descrição                                                                                                                           |
+| -------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------- |
+| `inputs` | `objeto` | Entradas para o fluxo de trabalho. Cada chave representa o nome do valor de entrada e o seu valor representa o valor dessa entrada. |
+{% data reusables.webhooks.org_desc %}
+| `ref` | `string` | O ref do branch a partir do qual o fluxo de trabalho foi executado. |
+{% data reusables.webhooks.repo_desc %}
+{% data reusables.webhooks.sender_desc %}
+| `workflow` | `string` | Caminho relativo para o arquivo do fluxo de trabalho, que contém o fluxo de trabalho. |
+
 ### Exemplo de carga de webhook
 
 {{ webhookPayloadsForCurrentVersion.workflow_dispatch }}
 {% endif %}
 
-{% ifversion fpt or ghes > 3.2 or ghec %}
+{% ifversion fpt or ghes > 3.2 or ghec or ghae %}
 
 ## workflow_job
 

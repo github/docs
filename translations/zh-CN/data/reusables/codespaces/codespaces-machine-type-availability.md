@@ -1,0 +1,1 @@
+您对可用计算机类型的选择可能受到为组织配置的策略或存储库的最低计算机类型规范的限制。 更多信息请参阅“[限制对计算机类型的访问](/codespaces/managing-codespaces-for-your-organization/restricting-access-to-machine-types)”和“[为代码空间计算机设置最小规范](/codespaces/setting-up-your-project-for-codespaces/setting-a-minimum-specification-for-codespace-machines)”。

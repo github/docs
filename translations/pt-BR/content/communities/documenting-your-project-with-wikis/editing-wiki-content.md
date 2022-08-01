@@ -2,13 +2,13 @@
 title: Editar conteúdo de wiki
 intro: Você pode adicionar imagens e links no conteúdo do seu wiki e usar alguns formatos do MediaWiki compatíveis.
 redirect_from:
-  - /articles/adding-links-to-wikis/
-  - /articles/how-do-i-add-links-to-my-wiki/
-  - /articles/how-do-i-add-or-upload-images-to-the-wiki/
-  - /articles/needs-writing-review-how-do-i-add-or-upload-images-to-the-wiki/
-  - /articles/how-do-i-add-images-to-my-wiki/
-  - /articles/adding-images-to-wikis/
-  - /articles/supported-mediawiki-formats/
+  - /articles/adding-links-to-wikis
+  - /articles/how-do-i-add-links-to-my-wiki
+  - /articles/how-do-i-add-or-upload-images-to-the-wiki
+  - /articles/needs-writing-review-how-do-i-add-or-upload-images-to-the-wiki
+  - /articles/how-do-i-add-images-to-my-wiki
+  - /articles/adding-images-to-wikis
+  - /articles/supported-mediawiki-formats
   - /articles/editing-wiki-content
   - /github/building-a-strong-community/editing-wiki-content
 product: '{% data reusables.gated-features.wikis %}'
@@ -48,7 +48,7 @@ Para vincular a uma imagem em um repositório no {% data variables.product.produ
 ## Formatos do MediaWiki compatíveis
 
 Seja qual for a linguagem de marcação em que sua página wiki foi escrita, sempre haverá uma sintaxe do MediaWiki disponível para você.
-- Links ([exceto Asciidoc](https://github.com/gollum/gollum/commit/d1cf698b456cd6a35a54c6a8e7b41d3068acec3b))
+- Links ([exceto AsciiDoc](https://github.com/gollum/gollum/commit/d1cf698b456cd6a35a54c6a8e7b41d3068acec3b))
 - Regras horizontais via `---`
 - Entidades de símbolo abreviadas (como `&delta;` ou `&euro;`)
 

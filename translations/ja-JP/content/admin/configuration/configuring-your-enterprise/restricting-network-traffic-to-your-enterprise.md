@@ -70,4 +70,4 @@ Azure NSG を使用したインスタンスレベルの制限については、E
 
 ## IP許可リストで {% data variables.product.prodname_actions %} を使用する
 
-{% data reusables.github-actions.ip-allow-list-hosted-runners %}
+{% data reusables.actions.ip-allow-list-self-hosted-runners %}

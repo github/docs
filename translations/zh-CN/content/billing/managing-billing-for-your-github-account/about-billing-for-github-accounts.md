@@ -3,12 +3,12 @@ title: 关于 GitHub 帐户的计费
 intro: '{% data variables.product.company_short %} 为每个开发者或团队提供免费和付费产品。'
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-accounts
-  - /articles/what-is-the-total-cost-of-using-an-organization-account/
-  - /articles/what-are-the-costs-of-using-an-organization-account/
-  - /articles/what-plan-should-i-choose/
-  - /articles/do-you-have-custom-plans/
-  - /articles/user-account-billing-plans/
-  - /articles/organization-billing-plans/
+  - /articles/what-is-the-total-cost-of-using-an-organization-account
+  - /articles/what-are-the-costs-of-using-an-organization-account
+  - /articles/what-plan-should-i-choose
+  - /articles/do-you-have-custom-plans
+  - /articles/user-account-billing-plans
+  - /articles/organization-billing-plans
   - /articles/github-s-billing-plans
   - /articles/about-billing-for-github-accounts
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-your-github-account/about-billing-for-github-accounts
@@ -30,7 +30,9 @@ shortTitle: 关于计费
 
 您可以使用现有 {% data variables.product.product_name %} 付款信息购买其他功能和产品。 更多信息请参阅“[关于 {% data variables.product.prodname_dotcom %} 的计费](/articles/about-billing-on-github)”。
 
-{% data reusables.user_settings.context_switcher %}
+{% data reusables.accounts.accounts-billed-separately %}
+
+{% data reusables.user-settings.context_switcher %}
 
 {% tip %}
 

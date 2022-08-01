@@ -2,10 +2,10 @@
 title: VMware で GitHub Enterprise Server をインストールする
 intro: '{% data variables.product.prodname_ghe_server %} を VMware にインストールするには、VMware vSphere クライアントをダウンロードしてから、{% data variables.product.prodname_ghe_server %} ソフトウェアをダウンロードしてデプロイする必要があります。'
 redirect_from:
-  - /enterprise/admin/articles/getting-started-with-vmware/
-  - /enterprise/admin/articles/installing-vmware-tools/
-  - /enterprise/admin/articles/vmware-esxi-virtual-machine-maximums/
-  - /enterprise/admin/guides/installation/installing-github-enterprise-on-vmware/
+  - /enterprise/admin/articles/getting-started-with-vmware
+  - /enterprise/admin/articles/installing-vmware-tools
+  - /enterprise/admin/articles/vmware-esxi-virtual-machine-maximums
+  - /enterprise/admin/guides/installation/installing-github-enterprise-on-vmware
   - /enterprise/admin/installation/installing-github-enterprise-server-on-vmware
   - /admin/installation/installing-github-enterprise-server-on-vmware
 versions:
@@ -31,10 +31,9 @@ shortTitle: Install on VMware
 
 ## {% data variables.product.prodname_ghe_server %} イメージをダウンロードする
 
-{% data reusables.enterprise_installation.enterprise-download-procedural %}
 {% data reusables.enterprise_installation.download-license %}
 {% data reusables.enterprise_installation.download-appliance %}
-4. {% data variables.product.prodname_dotcom %}オンプレミスを選択し、**VMware ESXi/vSphere (OVA)**をクリックしてください。
+4. Under "{% data variables.product.prodname_dotcom %} On-premises", select the "Select your hypervisor" dropdown menu and click **VMware ESXi/vSphere (OVA)**.
 5. **Download for VMware ESXi/vSphere (OVA)**をクリックしてください。
 
 ## {% data variables.product.prodname_ghe_server %} インスタンスを作成する

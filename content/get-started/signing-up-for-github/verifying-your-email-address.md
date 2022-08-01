@@ -2,8 +2,8 @@
 title: Verifying your email address
 intro: 'Verifying your primary email address ensures strengthened security, allows {% data variables.product.prodname_dotcom %} staff to better assist you if you forget your password, and gives you access to more features on {% data variables.product.prodname_dotcom %}.'
 redirect_from:
-  - /articles/troubleshooting-email-verification/
-  - /articles/setting-up-email-verification/
+  - /articles/troubleshooting-email-verification
+  - /articles/setting-up-email-verification
   - /articles/verifying-your-email-address
   - /github/getting-started-with-github/verifying-your-email-address
   - /github/getting-started-with-github/signing-up-for-github/verifying-your-email-address
@@ -35,15 +35,15 @@ If you do not verify your email address, you will not be able to:
 
 **Warnings**:
 
-- {% data reusables.user_settings.no-verification-disposable-emails %}
-- {% data reusables.user_settings.verify-org-approved-email-domain %}
+- {% data reusables.user-settings.no-verification-disposable-emails %}
+- {% data reusables.user-settings.verify-org-approved-email-domain %}
 
 {% endwarning %}
 
 ## Verifying your email address
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.emails %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.emails %}
 1. Under your email address, click **Resend verification email**.
   ![Resend verification email link](/assets/images/help/settings/email-verify-button.png)
 4. {% data variables.product.prodname_dotcom %} will send you an email with a link in it. After you click that link, you'll be taken to your {% data variables.product.prodname_dotcom %} dashboard and see a confirmation banner.
@@ -53,7 +53,7 @@ If you do not verify your email address, you will not be able to:
 
 ### Unable to send verification email
 
-{% data reusables.user_settings.no-verification-disposable-emails %}
+{% data reusables.user-settings.no-verification-disposable-emails %}
 
 ### Error page after clicking verification link
 

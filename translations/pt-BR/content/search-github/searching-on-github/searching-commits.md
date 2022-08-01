@@ -105,7 +105,16 @@ Para pesquisar commits em todos os repositórios de um determinado usuário ou o
 
 O qualificador `is` corresponde a commits dos repositórios com a visibilidade especificada. Para obter mais informações, consulte "[Sobre repositórios](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)".
 
-| Qualificador | Exemplo | ------------- | ------------- |{% ifversion fpt or ghes or ghec %} | `is:public` | [**is:public**](https://github.com/search?q=is%3Apublic&type=Commits) corresponde aos dos repositórios públicos.{% endif %} | `is:internal` | [**is:internal**](https://github.com/search?q=is%3Ainternal&type=Commits) corresponde aos commits dos repositórios internos. | `is:private` | [**is:private**](https://github.com/search?q=is%3Aprivate&type=Commits) corresponde aos commits dos repositórios privados.
+| Qualifier | Exemplo |
+| --------- | ------- |
+|           |         |
+{%- ifversion fpt or ghes or ghec %}
+| `is:public` | [**is:public**](https://github.com/search?q=is%3Apublic&type=Commits) corresponde os commits aos repositórios públicos.
+{%- endif %}
+{%- ifversion ghes or ghec or ghae %}
+| `is:internal` | [**is:internal**](https://github.com/search?q=is%3Ainternal&type=Commits) corresponde commits a repositórios internos.
+{%- endif %}
+| `is:private` | [**is:private**](https://github.com/search?q=is%3Aprivate&type=Commits) corresponde aos commits dos repositórios privados.
 
 ## Leia mais
 

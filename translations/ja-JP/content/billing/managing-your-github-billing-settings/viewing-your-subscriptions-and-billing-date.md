@@ -4,10 +4,10 @@ intro: アカウントのプラン、有料機能と製品、および次の請�
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-your-github-billing-settings/viewing-your-subscriptions-and-billing-date
   - /github/setting-up-and-managing-billing-and-payments-on-github/viewing-your-subscriptions-and-billing-date
-  - /articles/finding-your-next-billing-date/
-  - /articles/finding-your-personal-account-s-next-billing-date/
-  - /articles/finding-your-organization-s-next-billing-date/
-  - /articles/viewing-your-plans-and-billing-date/
+  - /articles/finding-your-next-billing-date
+  - /articles/finding-your-personal-account-s-next-billing-date
+  - /articles/finding-your-organization-s-next-billing-date
+  - /articles/viewing-your-plans-and-billing-date
   - /articles/viewing-your-subscriptions-and-billing-date
 versions:
   fpt: '*'
@@ -22,8 +22,8 @@ shortTitle: サブスクリプションと請求日
 
 ## 個人アカウントの次の請求日を確認する
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.billing_plans %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.billing_plans %}
 {% data reusables.dotcom_billing.next_billing_date %}
 
 ## Organization の次の請求日を確認する

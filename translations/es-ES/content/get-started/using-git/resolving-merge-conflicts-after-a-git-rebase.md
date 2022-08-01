@@ -1,6 +1,6 @@
 ---
-title: Resolver conflictos de fusión después de una rebase de Git
-intro: 'Cuando realizas una operación `git rebase`, normalmente mueves confirmaciones de un lado a otro. Por este motivo, puedes generar una situación en la que se introduzca un conflicto de fusión. Esto implica que dos de tus confirmaciones modificaron la misma línea del mismo archivo, y Git no sabe qué cambio aplicar.'
+title: Resolving merge conflicts after a Git rebase
+intro: 'When you perform a `git rebase` operation, you''re typically moving commits around. Because of this, you might get into a situation where a merge conflict is introduced. That means that two of your commits modified the same line in the same file, and Git doesn''t know which change to apply.'
 redirect_from:
   - /articles/resolving-merge-conflicts-after-a-git-rebase
   - /github/using-git/resolving-merge-conflicts-after-a-git-rebase
@@ -11,24 +11,23 @@ versions:
   ghes: '*'
   ghae: '*'
   ghec: '*'
-shortTitle: Resolver conflictos después de rebasar
+shortTitle: Resolve conflicts after rebase
 ---
-
-Después de reordenar y manipular confirmaciones utilizando `git rebase`, si ocurre un conflicto de fusión, Git te lo informará con el siguiente mensaje impreso en el terminal:
+After you reorder and manipulate commits using `git rebase`, should a merge conflict occur, Git will tell you so with the following message printed to the terminal:
 
 ```shell
-error: no se pudo aplicar fa39187... algo para agregar al parte A
+error: could not apply fa39187... something to add to patch A
 
-Cuando hayas resuelto este problema, ejecuta "git rebase --continue".
-Si prefieres saltear este parche, ejecuta "git rebase --skip".
-Para revisar la rama original y detener el proceso de rebase, ejecuta "git rebase --abort".
-No se pudo aplicar fa39187f3c3dfd2ab5faa38ac01cf3de7ce2e841... Cambia el archivo falso
+When you have resolved this problem, run "git rebase --continue".
+If you prefer to skip this patch, run "git rebase --skip" instead.
+To check out the original branch and stop rebasing, run "git rebase --abort".
+Could not apply fa39187f3c3dfd2ab5faa38ac01cf3de7ce2e841... Change fake file
 ```
 
-Aquí Git te está diciendo qué confirmación está causando el conflicto (`fa39187`). Se te ofrecen tres opciones:
+Here, Git is telling you which commit is causing the conflict (`fa39187`). You're given three choices:
 
-* Puedes ejecutar `git rebase --abort` para deshacer por completo la rebase. Git te regresará al estado de tu rama tal como estaba antes de haber pedido `git rebase`.
-* Puedes ejecutar `git rebase --skip` para saltear por completo la confirmación. Esto significa que no se incluirá ninguno de los cambios introducidos por la confirmación problemática. Es muy poco común que elijas esta opción.
-* Puedes corregir el conflicto.
+* You can run `git rebase --abort` to completely undo the rebase. Git will return you to your branch's state as it was before `git rebase` was called.
+* You can run `git rebase --skip` to completely skip the commit. That means that none of the changes introduced by the problematic commit will be included. It is very rare that you would choose this option.
+* You can fix the conflict.
 
-Para corregir el conflicto, puedes seguir [los procedimientos estándar para resolver conflictos de fusión desde la línea de comando](/articles/resolving-a-merge-conflict-using-the-command-line). Cuando termines, tendrás que pedir `git rebase --continue` para que Git continúe procesando el resto de la rebase.
+To fix the conflict, you can follow [the standard procedures for resolving merge conflicts from the command line](/github/collaborating-with-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-using-the-command-line). When you're finished, you'll need to call `git rebase --continue` in order for Git to continue processing the rest of the rebase.

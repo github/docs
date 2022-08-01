@@ -3,6 +3,7 @@ title: Connect a learning management system to GitHub Classroom
 intro: 'You can configure an LTI-compliant learning management system (LMS) to connect to {% data variables.product.prodname_classroom %} so that you can import a roster for your classroom.'
 versions:
   fpt: '*'
+permissions: 'Organization owners who are admins for a classroom can connect learning management systems to {% data variables.product.prodname_classroom %}. {% data reusables.classroom.classroom-admins-link %}'
 redirect_from:
   - /education/manage-coursework-with-github-classroom/configuring-a-learning-management-system-for-github-classroom
   - /education/manage-coursework-with-github-classroom/connect-to-lms

@@ -1,36 +1,34 @@
 ---
-title: プロジェクトボードの編集
-intro: 既存のプロジェクトボードのタイトルと説明を編集できます。
+title: 'Editing a {% data variables.product.prodname_project_v1 %}'
+intro: 'You can edit the title and description of an existing {% data variables.projects.projects_v1_board %}.'
 redirect_from:
   - /github/managing-your-work-on-github/managing-project-boards/editing-a-project-board
-  - /articles/editing-a-project/
-  - /articles/editing-and-deleting-a-project/
+  - /articles/editing-a-project
+  - /articles/editing-and-deleting-a-project
   - /articles/editing-a-project-board
   - /github/managing-your-work-on-github/editing-a-project-board
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
-  ghec: '*'
+  feature: projects-v1
 topics:
   - Pull requests
+allowTitleToDifferFromFilename: true
 ---
 
 {% data reusables.projects.project_boards_old %}
 
 {% tip %}
 
-**ヒント:** プロジェクトボード内での列の追加、削除、編集の詳細については、「[プロジェクトボードの作成](/articles/creating-a-project-board)」を参照してください。
+**Tip:** For details on adding, removing, or editing columns in your {% data variables.projects.projects_v1_board %}, see "[Creating a {% data variables.product.prodname_project_v1 %}](/articles/creating-a-project-board)."
 
 {% endtip %}
 
-1. 編集するプロジェクトボードに移動します。
+1. Navigate to the {% data variables.projects.projects_v1_board %} you want to edit.
 {% data reusables.project-management.click-menu %}
 {% data reusables.project-management.click-edit-sidebar-menu-project-board %}
-4. プロジェクトボードの名前と説明を必要に応じて修正し、[**Save project**] をクリックします。 ![プロジェクトボードの名前と説明欄に記入し、[Save project] ボタンをクリックします。](/assets/images/help/projects/edit-project-board-save-button.png)
+4. Modify the {% data variables.projects.projects_v1_board %} name and description as needed, then click **Save project**. ![プロジェクトボードの名前と説明欄に記入し、[Save project] ボタンをクリックします。](/assets/images/help/projects/edit-project-board-save-button.png)
 
 ## 参考リンク
 
-- [プロジェクトボードについて](/articles/about-project-boards)
-- [プロジェクトボードへの Issue およびプルリクエストの追加](/articles/adding-issues-and-pull-requests-to-a-project-board)
-- [プロジェクトボードの削除](/articles/deleting-a-project-board)
+- [{% data variables.product.prodname_projects_v1 %}について](/articles/about-project-boards)
+- "[Adding issues and pull requests to a {% data variables.product.prodname_project_v1 %}](/articles/adding-issues-and-pull-requests-to-a-project-board)"
+- "[Deleting a {% data variables.product.prodname_project_v1 %}](/articles/deleting-a-project-board)"

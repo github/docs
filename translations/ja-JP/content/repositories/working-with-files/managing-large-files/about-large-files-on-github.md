@@ -12,7 +12,7 @@ redirect_from:
   - /articles/conditions-for-large-files
   - /github/managing-large-files/conditions-for-large-files
   - /github/managing-large-files/working-with-large-files/conditions-for-large-files
-  - /articles/what-is-the-size-limit-for-a-repository/
+  - /articles/what-is-the-size-limit-for-a-repository
   - /articles/what-is-my-disk-quota
   - /github/managing-large-files/what-is-my-disk-quota
   - /github/managing-large-files/working-with-large-files/what-is-my-disk-quota
@@ -40,7 +40,7 @@ shortTitle: Large files
 
 {% endnote %}
 
-{% ifversion ghes %}デフォルトでは、{% endif %}{% data variables.product.product_name %}は{% data variables.large_files.max_github_size %}以上のプッシュをブロックします。 {% ifversion ghes %} ただし、サイト管理者は {% data variables.product.product_location %} に別の制限を設定できます。  For more information, see "[Setting Git push limits](/enterprise/{{ currentVersion }}/admin/guides/installation/setting-git-push-limits)."{% endif %}
+{% ifversion ghes %}デフォルトでは、{% endif %}{% data variables.product.product_name %}は{% data variables.large_files.max_github_size %}以上のプッシュをブロックします。 {% ifversion ghes %} ただし、サイト管理者は {% data variables.product.product_location %} に別の制限を設定できます。  For more information, see "[Setting Git push limits](/enterprise/admin/guides/installation/setting-git-push-limits)."{% endif %}
 
 To track files beyond this limit, you must use {% data variables.large_files.product_name_long %} ({% data variables.large_files.product_name_short %}). 詳しい情報については、「[{% data variables.large_files.product_name_long %} について](/repositories/working-with-files/managing-large-files/about-git-large-file-storage)」を参照してください。
 

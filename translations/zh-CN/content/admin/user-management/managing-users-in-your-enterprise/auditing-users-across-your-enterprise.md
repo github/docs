@@ -1,8 +1,8 @@
 ---
 title: 审核整个企业的用户
-intro: The audit log dashboard shows site administrators the actions performed by all users and organizations across your enterprise within the current month and previous six months. 审核日志包含操作执行人、操作内容和执行时间等详细信息。
+intro: 审核日志仪表板向站点管理员显示企业中所有用户和组织在当前月份和前六个月内执行的操作。 审核日志包含操作执行人、操作内容和执行时间等详细信息。
 redirect_from:
-  - /enterprise/admin/guides/user-management/auditing-users-across-an-organization/
+  - /enterprise/admin/guides/user-management/auditing-users-across-an-organization
   - /enterprise/admin/user-management/auditing-users-across-your-instance
   - /admin/user-management/auditing-users-across-your-instance
   - /admin/user-management/auditing-users-across-your-enterprise
@@ -47,7 +47,7 @@ shortTitle: 审计用户
 **注意：**
 
 - 您无法使用文本搜索审核条目，但您可以使用多个筛选器构建搜索查询。 {% data variables.product.product_name %} 支持在 {% data variables.product.product_name %} 中使用多种运算符进行搜索。 更多信息请参阅“[关于在 {% data variables.product.prodname_dotcom %} 上搜索](/github/searching-for-information-on-github/about-searching-on-github)”。
-- Audit records are available for the current month and every day of the previous six months.
+- 提供当月和前六个月每天的审核记录。
 
 {% endwarning %}
 
@@ -81,7 +81,7 @@ shortTitle: 审计用户
 
 ### 基于执行的操作搜索
 
-`action` 限定符可搜索特定事件（按类别组织）。 有关与这些类别相关的事件的信息，请参阅“[审核的操作](/admin/user-management/audited-actions)”。
+`action` 限定符可搜索特定事件（按类别组织）。 有关与这些类别相关的事件的信息，请参阅“[审核企业的日志事件](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise)”。
 
 | 类别名称   | 描述                   |
 | ------ | -------------------- |
@@ -113,7 +113,7 @@ shortTitle: 审计用户
 
 `created` 限定符可根据事件发生的时间筛选操作。
 - 使用 `YYYY-MM-DD` 格式定义日期，即年后面是月份，之后是具体日期。
-- 日期支持[大于、小于和范围限定符](/enterprise/{{ currentVersion }}/user/articles/search-syntax)。 例如：
+- 日期支持[大于、小于和范围限定符](/enterprise/user/articles/search-syntax)。 例如：
   * `created:2014-07-08` 会找到在 2014 年 7 月 8 日发生的所有事件。
   * `created:>=2014-07-01` 会找到在 2014 年 7 月 8 日或之后发生的所有事件。
   * `created:<=2014-07-01` 会找到在 2014 年 7 月 8 日或之前发生的所有事件。

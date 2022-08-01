@@ -1,5 +1,5 @@
 ---
-title: Criar uma pull request
+title: Criar um pull request
 intro: 'Crie um pull request para fazer sugestões e colaborar nas alterações de um repositório. Essas alterações são propostas em um *branch*, que garante que o branch-padrão só contém trabalho concluído e aprovado.'
 permissions: 'Anyone with read access to a repository can create a pull request. {% data reusables.enterprise-accounts.emu-permission-propose %}'
 redirect_from:
@@ -46,8 +46,6 @@ Quando você muda qualquer uma das informações no intervalo de branches, as á
 {% endtip %}
 
 ## Criar a pull request
-
-{% include tool-switcher %}
 
 {% webui %}
 
@@ -156,7 +154,7 @@ gh pr create --web
 1. Verifique se o branch local e o repositório do qual você está fazendo merge, o branch remoto e o repositório no qual você está fazendo merge estão corretos. Em seguida, dê ao pull request um título e uma descrição. ![Barra lateral de pull request do GitHub](/assets/images/help/codespaces/codespaces-commit-pr.png)
 1. Clique em **Criar**.
 
-Para obter mais informações sobre a criação de pull requests em {% data variables.product.prodname_codespaces %}, consulte "[Usando codespaces para pull requests](/codespaces/developing-in-codespaces/using-codespaces-for-pull-requests)"
+Para obter mais informações sobre como criar pull requests em {% data variables.product.prodname_github_codespaces %}, consulte "[Usando {% data variables.product.prodname_github_codespaces %} para pull requests](/codespaces/developing-in-codespaces/using-github-codespaces-for-pull-requests)".
 
 {% endcodespaces %}
 
@@ -164,6 +162,7 @@ Para obter mais informações sobre a criação de pull requests em {% data vari
 ## Leia mais
 
 - "[Criar uma pull request de uma bifurcação](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork)"
+- "[Mantendo o seu pull request sincronizado com o branch de base](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/keeping-your-pull-request-in-sync-with-the-base-branch)"
 - "[Alterar o branch base de uma pull request](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/changing-the-base-branch-of-a-pull-request)"
 - "[Adicionar problemas e pull requests a um quadro de projeto da barra lateral](/articles/adding-issues-and-pull-requests-to-a-project-board/#adding-issues-and-pull-requests-to-a-project-board-from-the-sidebar)"
 - "[Sobre automação de problemas e pull requests com parâmetros de consulta](/issues/tracking-your-work-with-issues/creating-issues/about-automation-for-issues-and-pull-requests-with-query-parameters)"

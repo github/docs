@@ -50,13 +50,13 @@ For example, you can use `https://github.com/sponsors/{account}?metadata_campaig
 ## 最近のスポンサーシップアクティビティを表示する
 
 {% data reusables.sponsors.navigate-to-sponsors-dashboard %}
-{% data reusables.sponsors.activity-tab %}
+{% data reusables.sponsors.your-sponsors-tab %}
 
 ## スポンサーシップデータをエクスポートする
 
 スポンサーシップのトランザクションは 月単位でエクスポートできます。 {% data variables.product.company_short %} で、選択した月のスポンサーすべてのトランザクションデータがメールでエクスポートされます。 エクスポートが完了したら、別の月のデータをエクスポートできます。 スポンサードアカウントごとに、1 時間に 10 セットまでのデータをエクスポートできます。
 
 {% data reusables.sponsors.navigate-to-sponsors-dashboard %}
-{% data reusables.sponsors.activity-tab %}
-1. {% octicon "download" aria-label="The download icon" %}[**Export**] をクリックします。 ![エクスポートボタン](/assets/images/help/sponsors/export-all.png)
+{% data reusables.sponsors.your-sponsors-tab %}
+1. In the top-right, click {% octicon "download" aria-label="The download icon" %} **Export**. ![エクスポートボタン](/assets/images/help/sponsors/export-all.png)
 1. エクスポートしたいデータの時間枠と形式を選択し、[**Start export**] をクリックします。 ![データエクスポートのオプション](/assets/images/help/sponsors/export-your-sponsors.png)

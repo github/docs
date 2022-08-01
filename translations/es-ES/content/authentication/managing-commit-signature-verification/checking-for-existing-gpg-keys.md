@@ -28,12 +28,17 @@ shortTitle: Llaves GPG existentes
 {% data reusables.gpg.list-keys-with-note %}
 3. Comprueba el resultado de los comandos para ver si tienes un par de llaves GPG.
     * Si no hay pares de llaves GPG o no quieres usar algunas de las que están disponibles para las confirmaciones y las etiquetas firmadas, [genera una nueva llave GPG](/articles/generating-a-new-gpg-key).
-    * Si existe un nuevo par de llaves GPG existente y quieres usarlo para firmar confirmaciones y etiquetas, [agrega tu llave GPG a tu cuenta de GitHub](/articles/adding-a-new-gpg-key-to-your-github-account).
+    * Si ya existe un par de llaves GPG y quieres utilizarlo para firmar confirmaciones y etiquetas, puedes mostrar la llave pública utilizando el siguiente comando, sustituyendo la ID de la llave GPG que te gustaría usar. En este ejemplo, el ID de la llave GPG es `3AA5C34371567BD2`:
+      ```shell
+      $ gpg --armor --export <em>3AA5C34371567BD2</em>
+      # Prints the GPG key ID, in ASCII armor format
+      ```
+      Entonces podrás [Agregar tu llave GPG a tu cuenta de GitHub](/articles/adding-a-gpg-key-to-your-github-account).
 
 ## Leer más
 
 * "[Generar una llave GPG nueva](/articles/generating-a-new-gpg-key)"
-* "[Agregar una nueva llave GPG a tu cuenta de GitHub](/articles/adding-a-new-gpg-key-to-your-github-account)"
+* "[Agregar una llave GPG a tu cuenta de GitHub](/articles/adding-a-gpg-key-to-your-github-account)"
 * "[Informar a Git sobre tu llave de firma](/articles/telling-git-about-your-signing-key)"
 * "[Asociar un correo electrónico con tu llave GPG](/articles/associating-an-email-with-your-gpg-key)"
 * "[Firmar confirmaciones](/articles/signing-commits)"

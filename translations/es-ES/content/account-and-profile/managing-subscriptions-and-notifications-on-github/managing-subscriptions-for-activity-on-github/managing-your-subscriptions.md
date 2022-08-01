@@ -24,7 +24,7 @@ Para ayudarte a entender tus suscripciones y decidir si quieres desuscribirte, c
 
 ## Elegir cómo darte de baja
 
-Para dejar de observar (o para desuscribirte de) un repositorio rápidamente, ve a la página de "Repositorios en observación", donde puedes ver todos los repositorios que estás observando. Para obtener más información, consulta la sección "[Dejar de observar un repositorio](#unwatch-a-repository)".
+Para dejar de observar (o desuscribirte de) los repositorios rápidamente, navega a [github.com/watching](https://github.com/watching) para ver todos los repositorios que estás siguiendo. Para obtener más información, consulta la sección "[Dejar de observar los repositorios](#unwatching-repositories)".
 
 Para desuscribirte de varias notificaciones al mismo tiempo, puedes hacerlo utilizando tu bandeja de entrada o en la página de suscripciones. Ambas de estas opciones ofrecen más contexto acerca de tus suscripciones que la página de "Repositorios en observación".
 
@@ -55,19 +55,28 @@ Cuando te desuscribes de las notificaciones en tu bandeja de entrada, desaparece
 
 2. Selecciona las notificaciones de las cuales quieres darte de baja. En la esquina superior derecha, da clic en **Darse de baja** ![Página de suscripciones](/assets/images/help/notifications-v2/unsubscribe-from-subscriptions-page.png)
 
-## Dejar de seguir un repositorio
+## Dejar de observar los repositorios
 
 Cuando dejas de observar un repositorio, de desuscribes de notificaciones futuras del mismo, a menos de que participes en una conversación o te @mencionen.
 
 {% data reusables.notifications.access_notifications %}
-1. En la barra lateral izquierda, bajo la lista de repositorios, utiliza el menú desplegable de "Administrar notificaciones" para dar clic en **Repositorios que sigues**. ![Opciones del menú desplegable de administrar notificaciones](/assets/images/help/notifications-v2/manage-notifications-options.png)
+1. En la barra lateral izquierda, bajo la lista de repositorios, utiliza el menú desplegable de "Administrar notificaciones" para dar clic en **Repositorios que sigues**.
+
+  ![Opciones del menú desplegable de administrar notificaciones](/assets/images/help/notifications-v2/manage-notifications-options.png)
+
 2. En la página de repositorios que sigues, después de que hayas evaluado aquellos que estás siguiendo, decide si quieres:
-  {% ifversion fpt or ghes > 3.0 or ghae-next or ghec %}
-    - Dejar de seguir un repositorio
-    - Ignorar todas las notificaciones de un repositorio
-    - Personaliza los tipos de evento para los cuales recibes notificaciones ({% data reusables.notifications-v2.custom-notification-types %}, en caso de que se haya habilitado)
-  {% else %}
-    - Dejar de seguir un repositorio
-    - Observar únicamente los lanzamientos de un repositorio
-    - Ignorar todas las notificaciones de un repositorio
-  {% endif %}
+
+   - Dejar de seguir un repositorio
+   - Ignorar todas las notificaciones de un repositorio
+   - Si se habilitan, personaliza los tipos de evento para los cuales recibes notificaciones ({% data reusables.notifications-v2.custom-notification-types %})
+
+{%- ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5819 %}
+1. Opcionalmente, para desuscribirte de todos los repositorios que le pertenecen a algún usuario u organización, selecciona el menú desplegable de **Dejar de observar todos** y haz clic en la organización que tiene los repositorios de los cuales quieres desuscribirte. El botón para dejar de observar todos los repositorios solo se encuentra disponible si estás observando toda la actividad o notificaciones personalizadas en más de 10 repositorios.
+
+   ![Captura de pantalla del botón "Dejar de observar todos".](/assets/images/help/notifications-v2/unsubscribe-from-all-repos.png)
+
+   - Haz clic en **Dejar de observar** para confirmar que quieres dejar de observar los repositorios que le pertenecen al usuario u organización seleccionado o haz clic en **Cancelar** para cancelar la acción.
+
+   ![Captura de pantalla del diálogo de confirmación para dejar de observar todos.](/assets/images/help/notifications-v2/unwatch-repo-dialog.png)
+
+{% endif %}

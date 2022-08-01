@@ -3,9 +3,9 @@ title: Alterar a duração do ciclo de cobrança
 intro: 'Você pode pagar pela assinatura da sua conta, bem como de outros recursos e produtos pagos em um ciclo de cobrança mensal ou anual.'
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/changing-the-duration-of-your-billing-cycle
-  - /articles/monthly-and-yearly-billing/
-  - /articles/switching-between-monthly-and-yearly-billing-for-your-personal-account/
-  - /articles/switching-between-monthly-and-yearly-billing-for-your-organization/
+  - /articles/monthly-and-yearly-billing
+  - /articles/switching-between-monthly-and-yearly-billing-for-your-personal-account
+  - /articles/switching-between-monthly-and-yearly-billing-for-your-organization
   - /articles/changing-the-duration-of-your-billing-cycle
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-your-github-billing-settings/changing-the-duration-of-your-billing-cycle
 versions:
@@ -23,8 +23,8 @@ Quando você altera a duração do ciclo de cobrança, sua assinatura do {% data
 
 ## Alterar a duração do ciclo de cobrança da sua conta pessoal
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.billing_plans %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.billing_plans %}
 {% data reusables.dotcom_billing.change_plan_duration %}
 {% data reusables.dotcom_billing.confirm_duration_change %}
 

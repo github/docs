@@ -1,7 +1,7 @@
 ---
 title: 更改提交消息
 redirect_from:
-  - /articles/can-i-delete-a-commit-message/
+  - /articles/can-i-delete-a-commit-message
   - /articles/changing-a-commit-message
   - /github/committing-changes-to-your-project/changing-a-commit-message
   - /github/committing-changes-to-your-project/creating-and-editing-commits/changing-a-commit-message
@@ -54,7 +54,7 @@ versions:
 1. 按照[上述步骤](/articles/changing-a-commit-message#commit-has-not-been-pushed-online)修改提交消息。
 2. 使用 `push --force-with-lease` 命令强制推送经修改的旧提交。
   ```shell
-  $ git push --force-with-lease <em>example-branch</em>
+  $ git push --force-with-lease origin <em>example-branch</em>
   ```
 
 **修改旧提交或多个提交的消息**
@@ -103,7 +103,7 @@ versions:
 5. 在每个生成的提交文件中，键入新的提交消息，保存文件，然后关闭它。
 6. 准备好将更改推送到 GitHub 时，请使用 push - force 命令强制推送旧提交。
 ```shell
-$ git push --force <em>example-branch</em>
+$ git push --force origin <em>example-branch</em>
 ```
 
 有关交互式变基的更多信息，请参阅 Git 手册中的“[交互模式](https://git-scm.com/docs/git-rebase#_interactive_mode)”。

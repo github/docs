@@ -2,7 +2,7 @@
 title: 在个人资料中嵌入项目
 intro: 您可以将 Gist 和仓库置顶在个人资料中，使其他人可以很快看到您的得意之作。
 redirect_from:
-  - /articles/pinning-repositories-to-your-profile/
+  - /articles/pinning-repositories-to-your-profile
   - /articles/pinning-items-to-your-profile
   - /github/setting-up-and-managing-your-github-profile/pinning-items-to-your-profile
   - /github/setting-up-and-managing-your-github-profile/customizing-your-profile/pinning-items-to-your-profile

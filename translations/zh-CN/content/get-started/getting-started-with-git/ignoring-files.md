@@ -1,8 +1,8 @@
 ---
 title: 忽略文件
 redirect_from:
-  - /git-ignore/
-  - /ignore-files/
+  - /git-ignore
+  - /ignore-files
   - /articles/ignoring-files
   - /github/using-git/ignoring-files
   - /github/getting-started-with-github/ignoring-files
@@ -28,7 +28,7 @@ GitHub 在 `github/gitignore` 公共仓库中维护建议用于许多常用操�
    $ touch .gitignore
   ```
 
-   If the command succeeds, there will be no output.
+   如果命令成功，则不会有输出。
 
 例如 *.gitignore* 文件，请参阅 Octocat 仓库中的“[一些常见的 .gitignore 配置](https://gist.github.com/octocat/9257657)”。
 

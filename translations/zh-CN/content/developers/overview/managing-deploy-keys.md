@@ -2,8 +2,11 @@
 title: 管理部署密钥
 intro: 了解在自动化部署脚本时管理服务器上的 SSH 密钥的不同方法，以及哪种方法最适合您。
 redirect_from:
-  - /guides/managing-deploy-keys/
+  - /guides/managing-deploy-keys
   - /v3/guides/managing-deploy-keys
+  - /deploy-keys
+  - /articles/managing-deploy-keys
+  - /multiple-keys
 versions:
   fpt: '*'
   ghes: '*'
@@ -34,11 +37,11 @@ topics:
 #### 设置
 
 1. 在本地开启代理转发。 更多信息请参阅[我们的 SSH 代理转发指南][ssh-agent-forwarding]。
-2. 将部署脚本设置为使用代理转发。 例如，在 bash 脚本中，启用代理转发如下所示：`ssh -A serverA 'bash -s' < deploy.sh`
+2. 将部署脚本设置为使用代理转发。 例如，在 bash 脚本中，启用代理转发如下所示： `ssh -A serverA 'bash -s' < deploy.sh`
 
 ## 使用 OAuth 令牌进行 HTTPS 克隆
 
-如果不想使用 SSH 密钥，您可以使用 [HTTPS 结合 OAuth 令牌][git-automation]。
+如果不想使用 SSH 密钥，可以将 HTTPS 与 OAuth 令牌结合使用。
 
 #### 优点
 
@@ -57,7 +60,7 @@ topics:
 
 #### 设置
 
-请参阅[使用令牌的 Git 自动化指南][git-automation]。
+请参阅 [我们的指南，了解如何创建个人访问令牌](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)。
 
 ## 部署密钥
 
@@ -78,7 +81,7 @@ topics:
 
 #### 设置
 
-1. 在服务器上[运行 `ssh-keygen` 进程][generating-ssh-keys]，并记住保存生成的公共/私有 RSA 密钥对的位置。
+1. 在服务器上[运行 `ssh-keygen` 进程][generating-ssh-keys]，并记住保存生成的公共和私有 RSA 密钥对的位置。
 2. 在 {% data variables.product.product_name %} 的右上角，单击您的个人资料照片，然后单击 **Your profile（您的个人资料）**。 ![个人资料导航](/assets/images/profile-page.png)
 3. 在个人资料页面上，单击 **Repositories（仓库）**，然后单击仓库的名称。 ![仓库链接](/assets/images/repos.png)
 4. 在仓库中，单击 **Settings（设置）**。 ![仓库设置](/assets/images/repo-settings.png)
@@ -117,7 +120,7 @@ $ git clone git@{% ifversion fpt or ghec %}github.com{% else %}my-GHE-hostname.c
 
 如果您的服务器需要访问一个或多个组织的仓库，您可以使用 GitHub 应用程序来定义您需要的访问权限，然后从该 GitHub 应用程序生成 _tightly-scoped_、_server-to-server_ 令牌。 服务器到服务器令牌可以扩展到单个或多个仓库，并且可以拥有细致的权限。 例如，您可以生成对仓库内容具有只读权限的令牌。
 
-由于 GitHub 应用程序是 {% data variables.product.product_name %} 上的一类角色，因此服务器到服务器令牌不限于任何 GitHub 用户，这使它们堪比“服务令牌”。 此外，服务器到服务器令牌有专门的速率限制，与它们所依据的组织规模相当。 更多信息请参阅“[GitHub 应用程序的速率限制](/developers/apps/rate-limits-for-github-apps)”。
+由于 GitHub 应用程序是 {% data variables.product.product_name %} 上的一类角色，因此服务器到服务器令牌不限于任何 GitHub 用户，这使它们堪比“服务令牌”。 此外，服务器到服务器令牌有专门的速率限制，与它们所依据的组织规模相当。 更多信息请参阅“[{% data variables.product.prodname_github_apps %} 的速率限制](/developers/apps/rate-limits-for-github-apps)”。
 
 #### 优点
 
@@ -177,11 +180,12 @@ $ git clone git@{% ifversion fpt or ghec %}github.com{% else %}my-GHE-hostname.c
 1. 在服务器上[运行 `ssh-keygen` 进程][generating-ssh-keys]，并将公钥附加到机器用户帐户。
 2. 授予机器用户帐户访问要自动化的仓库的权限。 为此，您可以将帐户添加为[协作者][collaborator]、添加为[外部协作者][outside-collaborator]或添加到组织中的[团队][team]。
 
+## 延伸阅读
+- [配置通知](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications#organization-alerts-notification-options)
+
 [ssh-agent-forwarding]: /guides/using-ssh-agent-forwarding/
 [generating-ssh-keys]: /articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/#generating-a-new-ssh-key
 [tos]: /free-pro-team@latest/github/site-policy/github-terms-of-service/
-[git-automation]: /articles/git-automation-with-oauth-tokens
-[git-automation]: /articles/git-automation-with-oauth-tokens
 [collaborator]: /articles/inviting-collaborators-to-a-personal-repository
 [outside-collaborator]: /articles/adding-outside-collaborators-to-repositories-in-your-organization
 [team]: /articles/adding-organization-members-to-a-team

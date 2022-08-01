@@ -1,5 +1,5 @@
 ---
-title: コードスキャンと統合する
+title: Code scanningと統合する
 shortTitle: Code Scanningと統合
 intro: 'データを SARIF ファイルとしてアップロードすることで、サードパーティーのコード解析ツールを{% data variables.product.prodname_dotcom %} {% data variables.product.prodname_code_scanning %} と統合できます。'
 product: '{% data reusables.gated-features.code-scanning %}'
@@ -22,4 +22,3 @@ children:
   - /sarif-support-for-code-scanning
 ---
 
-<!--For this article in earlier GHES versions, see /content/github/finding-security-vulnerabilities-and-errors-in-your-code-->

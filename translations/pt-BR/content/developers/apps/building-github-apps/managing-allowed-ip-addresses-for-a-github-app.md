@@ -12,12 +12,12 @@ shortTitle: Gerenciar endereços IP permitidos
 
 ## Sobre listas de endereços IP permitidos para {% data variables.product.prodname_github_apps %}
 
-Os proprietários da empresa e da organização podem restringir o acesso aos ativos configurando uma lista de endereços IP permitidos. Esta lista especifica os endereços IP autorizados a se conectar. For more information, see "[Enforcing policies for security settings in your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise#managing-allowed-ip-addresses-for-organizations-in-your-enterprise)."
+Os proprietários da empresa e da organização podem restringir o acesso aos ativos configurando uma lista de endereços IP permitidos. Esta lista especifica os endereços IP autorizados a se conectar. Para obter mais informações, consulte "[Aplicando políticas de segurança na sua empresa](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise#managing-allowed-ip-addresses-for-organizations-in-your-enterprise)".
 
 Quando uma organização tem uma lista de autorizações, aplicativos de terceiros que se conectam por meio de {% data variables.product.prodname_github_app %}, terá acesso negado, a menos que ambos os pontos a seguir sejam verdadeiros:
 
 * O criador do {% data variables.product.prodname_github_app %} configurou uma lista de permissões para o aplicativo que especifica os endereços IP em que o aplicativo é executado. Veja abaixo detalhes de como fazer isso.
-* O proprietário da organização escolheu permitir que os endereços na lista de permitidos do {% data variables.product.prodname_github_app %} sejam adicionados à sua própria lista de permissões. Para obter mais informações, consulte "[Gerenciar endereços IP permitidos para a sua organização](/organizations/keeping-your-organization-secure/managing-allowed-ip-addresses-for-your-organization#allowing-access-by-github-apps)".
+* O proprietário da organização escolheu permitir que os endereços na lista de permitidos do {% data variables.product.prodname_github_app %} sejam adicionados à sua própria lista de permissões. Para obter mais informações, consulte "[Gerenciar endereços IP permitidos para sua organização](/{% ifversion fpt %}enterprise-cloud@latest/{% endif %}organizations/keeping-your-organization-secure/managing-allowed-ip-addresses-for-your-organization#using-github-actions-with-an-ip-allow-list){% ifversion fpt %}" na documentação de {% data variables.product.prodname_ghe_cloud %}.{% else %}"{% endif %}
 
 {% data reusables.apps.ip-allow-list-only-apps %}
 

@@ -4,7 +4,7 @@ intro: 'Você pode impedir que as informações da sua empresa se convertam em c
 product: '{% data reusables.gated-features.restrict-email-domain %}'
 versions:
   ghec: '*'
-  ghes: '>=3.2'
+  ghes: '*'
 permissions: Enterprise owners can restrict email notifications for an enterprise.
 type: how_to
 topics:
@@ -26,7 +26,7 @@ Ao restringir as notificações por e-mail, os integrantes da empresa só podem 
 
 {% data reusables.enterprise-accounts.approved-domains-beta-note %}
 
-Os domínios podem ser herdados da empresa ou configurados para a organização específica. For more information, see "[Verifying or approving a domain for your enterprise](/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise)" and "[Restricting email notifications for your organization](/organizations/keeping-your-organization-secure/restricting-email-notifications-for-your-organization)."
+Os domínios podem ser herdados da empresa ou configurados para a organização específica. Para mais informações, consulte "[verificar ou aprovar um domínio para a sua empresa](/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise)" e[Restringir notificações de e-mail para a sua organização](/organizations/keeping-your-organization-secure/restricting-email-notifications-for-your-organization)".
 
 {% data reusables.notifications.email-restrictions-verification %}
 

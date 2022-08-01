@@ -1,7 +1,6 @@
 ---
 title: Tipos de evento de GitHub
 intro: 'Para la API de Eventos de {% data variables.product.prodname_dotcom %}, aprende acerca de cada tipo de evento, la acción que los desencadena en {% data variables.product.prodname_dotcom %}, y las propiedades exclusivas de cada evento.'
-product: '{% data reusables.gated-features.enterprise-accounts %}'
 redirect_from:
   - /v3/activity/event_types
   - /developers/webhooks-and-events/github-event-types
@@ -24,22 +23,30 @@ La API de eventos puede devolver diferentes tipos de ventos que se activan de ac
 
 Los objetos de los eventos que se devuelven de las terminales de la API de Eventos tienen la misma estructura.
 
-| Nombre del atributo de la API del Evento | Descripción                                                                                                                                                                                                       |
-| ---------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `id`                                     | Identificador único para el evento.                                                                                                                                                                               |
-| `type`                                   | El tipo de evento. Los eventos utilizan PascalCase para el nombre.                                                                                                                                                |
-| `actor (actor)`                          | El usuario que activó el evento.                                                                                                                                                                                  |
-| `actor.id`                               | El identificador único para el actor.                                                                                                                                                                             |
-| `actor.login`                            | El nombre de usuario para el actor.                                                                                                                                                                               |
-| `actor.display_login`                    | El formato de visualización específico para el nombre de usuario.                                                                                                                                                 |
-| `actor.gravatar_id`                      | El identificador único del perfil de Gravatar para el actor.                                                                                                                                                      |
-| `actor.url`                              | La URL de la API de REST que se utiliza para recuperar el objeto del usuario, el cual incluye información adicional del usuario.                                                                                  |
-| `actor.avatar_url`                       | La URL de la imagen de perfil del actor.                                                                                                                                                                          |
-| `repo`                                   | El objeto del repositorio en donde ocurrió el evento.                                                                                                                                                             |
-| `repo.id`                                | El identificador único del repositorio.                                                                                                                                                                           |
-| `repo.name`                              | El nombre del repositorio, el cual incluye también al nombre del propietario. Por ejemplo, el nombre del repositorio `hello-world`, cuyo propietario es la cuenta de usuario `octocat`, es `octocat/hello-world`. |
-| `repo.url`                               | La URL de la API de REST que se utiliza para recuperar el objeto del repositorio, el cual incluye información adicional sobre dicho repositorio.                                                                  |
-| `payload`                                | El objeto de la carga útil del evento que es exclusivo para el tipo de evento. En el siguiente ejemplo puedes ver el tipo de evento para el objeto de `payload` de la API de eventos.                             |
+| Nombre del atributo de la API del Evento | Descripción                                                                                                                                                                                               |
+| ---------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `id`                                     | Identificador único para el evento.                                                                                                                                                                       |
+| `type`                                   | El tipo de evento. Los eventos utilizan PascalCase para el nombre.                                                                                                                                        |
+| `actor (actor)`                          | El usuario que activó el evento.                                                                                                                                                                          |
+| `actor.id`                               | El identificador único para el actor.                                                                                                                                                                     |
+| `actor.login`                            | El nombre de usuario para el actor.                                                                                                                                                                       |
+| `actor.display_login`                    | El formato de visualización específico para el nombre de usuario.                                                                                                                                         |
+| `actor.gravatar_id`                      | El identificador único del perfil de Gravatar para el actor.                                                                                                                                              |
+| `actor.url`                              | La URL de la API de REST que se utiliza para recuperar el objeto del usuario, el cual incluye información adicional del usuario.                                                                          |
+| `actor.avatar_url`                       | La URL de la imagen de perfil del actor.                                                                                                                                                                  |
+| `repo`                                   | El objeto del repositorio en donde ocurrió el evento.                                                                                                                                                     |
+| `repo.id`                                | El identificador único del repositorio.                                                                                                                                                                   |
+| `repo.name`                              | El nombre del repositorio, el cual incluye también al nombre del propietario. Por ejemplo, `octocat/hello-world` es el nombre del repositorio `hello-world` que pertenece a la cuenta personal `octocat`. |
+| `repo.url`                               | La URL de la API de REST que se utiliza para recuperar el objeto del repositorio, el cual incluye información adicional sobre dicho repositorio.                                                          |
+| `payload`                                | El objeto de la carga útil del evento que es exclusivo para el tipo de evento. En el siguiente ejemplo puedes ver el tipo de evento para el objeto de `payload` de la API de eventos.                     |
+| `public`                                 | Si todos los usuarios pueden ver el evento.                                                                                                                                                               |
+| `created_at (creado en)`                 | La fecha y hora cuando se activó el evento. Se formatea de acuerdo con el ISO 8601.                                                                                                                       |
+| `org`                                    | La organización que eligió el actor para realizar la acción que activa el evento.<br />_La propiedad se muestra en el objeto del evento únicamente si es aplicable._                              |
+| `org.id`                                 | El identificador único de la organización.                                                                                                                                                                |
+| `org.login`                              | El nombre de la organización.                                                                                                                                                                             |
+| `org.gravatar_id`                        | El identificador único del perfil de Gravatar de la organización.                                                                                                                                         |
+| `org.url`                                | La URL de la API de REST para recuperar el objeto de la organización, el cual incluye información adicional de la organización.                                                                           |
+| `org.avatar_url`                         | La URL de la imagen del perfil de la organización.                                                                                                                                                        |
 
 ### Ejemplo con el objeto de evento WatchEvent
 
@@ -192,7 +199,7 @@ Este evento devuelve un objeto de `payload` vacío.
 
 ### Objeto de `payload` del evento
 
-| Clave                  | Type        | Descripción                                              |
+| Clave                  | Tipo        | Descripción                                              |
 | ---------------------- | ----------- | -------------------------------------------------------- |
 | `Acción`               | `secuencia` | La acción que se realizó. Puede ser `created`.           |
 | `solicitud_extracción` | `objeto`    | La solicitud de cambios a la cual pertenece la revisión. |
@@ -209,6 +216,16 @@ Este evento devuelve un objeto de `payload` vacío.
 {% data reusables.webhooks.pull_request_review_comment_event_api_properties %}
 {% data reusables.webhooks.pull_request_review_comment_properties %}
 
+## PullRequestReviewThreadEvent
+
+{% data reusables.webhooks.pull_request_review_thread_short_desc %}
+
+{% data reusables.webhooks.events_api_payload %}
+
+### Objeto de `payload` del evento
+
+{% data reusables.webhooks.pull_request_thread_properties %}
+
 ## PushEvent
 
 {% data reusables.webhooks.push_short_desc %}
@@ -217,7 +234,7 @@ Este evento devuelve un objeto de `payload` vacío.
 
 ### Objeto de `payload` del evento
 
-| Clave                      | Type        | Descripción                                                                                                                                                                                                                                                                                                                                                                          |
+| Clave                      | Tipo        | Descripción                                                                                                                                                                                                                                                                                                                                                                          |
 | -------------------------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `push_id`                  | `número`    | Identificador único para la carga.                                                                                                                                                                                                                                                                                                                                                   |
 | `tamaño`                   | `número`    | La cantidad de confirmaciones de la carga.                                                                                                                                                                                                                                                                                                                                           |

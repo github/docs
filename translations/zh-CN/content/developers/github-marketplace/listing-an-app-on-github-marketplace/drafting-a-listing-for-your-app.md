@@ -2,15 +2,15 @@
 title: 起草应用程序上架信息
 intro: '当您创建 {% data variables.product.prodname_marketplace %} 上架信息时，GitHub 将其保存为草稿模式，直到您提交应用程序以供审批。 您的上架信息向客户显示如何使用您的应用程序。'
 redirect_from:
-  - /apps/adding-integrations/listing-apps-on-github-marketplace/listing-an-app-on-github-marketplace/
-  - /apps/marketplace/listing-apps-on-github-marketplace/listing-an-app-on-github-marketplace/
-  - /apps/marketplace/getting-started-with-github-marketplace-listings/listing-an-app-on-github-marketplace/
-  - /apps/marketplace/creating-and-submitting-your-app-for-approval/listing-an-app-on-github-marketplace/
-  - /apps/adding-integrations/managing-listings-on-github-marketplace/removing-a-listing-from-github-marketplace/
-  - /apps/marketplace/managing-github-marketplace-listings/removing-a-listing-from-github-marketplace/
-  - /apps/adding-integrations/managing-listings-on-github-marketplace/editing-a-github-marketplace-listing/
-  - /apps/marketplace/managing-github-marketplace-listings/editing-a-github-marketplace-listing/
-  - /apps/marketplace/listing-on-github-marketplace/creating-a-draft-github-marketplace-listing/
+  - /apps/adding-integrations/listing-apps-on-github-marketplace/listing-an-app-on-github-marketplace
+  - /apps/marketplace/listing-apps-on-github-marketplace/listing-an-app-on-github-marketplace
+  - /apps/marketplace/getting-started-with-github-marketplace-listings/listing-an-app-on-github-marketplace
+  - /apps/marketplace/creating-and-submitting-your-app-for-approval/listing-an-app-on-github-marketplace
+  - /apps/adding-integrations/managing-listings-on-github-marketplace/removing-a-listing-from-github-marketplace
+  - /apps/marketplace/managing-github-marketplace-listings/removing-a-listing-from-github-marketplace
+  - /apps/adding-integrations/managing-listings-on-github-marketplace/editing-a-github-marketplace-listing
+  - /apps/marketplace/managing-github-marketplace-listings/editing-a-github-marketplace-listing
+  - /apps/marketplace/listing-on-github-marketplace/creating-a-draft-github-marketplace-listing
   - /marketplace/listing-on-github-marketplace/creating-a-draft-github-marketplace-listing
   - /developers/github-marketplace/drafting-a-listing-for-your-app
 versions:

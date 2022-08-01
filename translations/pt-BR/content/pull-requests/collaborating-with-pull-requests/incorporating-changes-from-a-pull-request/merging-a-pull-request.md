@@ -33,15 +33,13 @@ O repositório pode ser configurado para que o branch principal de um pull reque
 
 {% endnote %}
 
-Pull requests are merged using [the `--no-ff` option](https://git-scm.com/docs/git-merge#_fast_forward_merge), except for [pull requests with squashed or rebased commits](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/about-pull-request-merges), which are merged using the fast-forward option.
+Os pull requests sofrem merge com [a opção`--no-ff`](https://git-scm.com/docs/git-merge#_fast_forward_merge), exceto pelos [pull requests com commits com combinação por squash ou com rebase](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/about-pull-request-merges), que passam por merge com a opção fast-forward.
 
 {% data reusables.pull_requests.close-issues-using-keywords %}
 
 Se decidir que não quer que as alterações em um branch de tópico sofram merge no branch upstream, é possível [fechar a pull request](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/closing-a-pull-request) sem fazer merge.
 
 ## Fazer merge de uma pull request
-
-{% include tool-switcher %}
 
 {% webui %}
 

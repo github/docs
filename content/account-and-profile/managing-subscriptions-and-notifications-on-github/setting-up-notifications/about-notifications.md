@@ -2,7 +2,7 @@
 title: About notifications
 intro: 'Notifications provide updates about the activity on {% data variables.product.product_location %} that you''ve subscribed to. You can use the notifications inbox to customize, triage, and manage your updates.'
 redirect_from:
-  - /articles/notifications/
+  - /articles/notifications
   - /articles/about-notifications
   - /github/managing-subscriptions-and-notifications-on-github/about-notifications-beta
   - /github/managing-subscriptions-and-notifications-on-github/about-notifications
@@ -15,9 +15,6 @@ versions:
 topics:
   - Notifications
 ---
-{% ifversion ghes %}
-{% data reusables.mobile.ghes-release-phase %}
-{% endif %}
 
 ## Notifications and subscriptions
 
@@ -28,9 +25,8 @@ You can choose to receive ongoing updates about specific activity on {% data var
 You can choose to subscribe to notifications for:
 - A conversation in a specific issue, pull request, or gist.
 - All activity in a repository or team discussion.
-- CI activity, such as the status of workflows in repositories set up with {% data variables.product.prodname_actions %}. {% ifversion fpt or ghes > 3.0 or ghae-next or ghec %}
-- Repository {% data reusables.notifications-v2.custom-notification-types %} (if enabled).{% else %}
-- Releases in a repository.{% endif %}
+- CI activity, such as the status of workflows in repositories set up with {% data variables.product.prodname_actions %}. 
+- Repository {% data reusables.notifications-v2.custom-notification-types %} (if enabled).
 
 You can also choose to automatically watch all repositories that you have push access to, except forks. You can watch any other repository you have access to manually by clicking **Watch**.
 
@@ -48,7 +44,7 @@ In general, you are automatically subscribed to conversations by default when yo
 - Changed the state of a thread, such as by closing an issue or merging a pull request.
 - Had a team you're a member of @mentioned.
 
-By default, you also automatically watch all repositories that you create and are owned by your user account.
+By default, you also automatically watch all repositories that you create and are owned by your personal account.
 
 To unsubscribe from conversations you're automatically subscribed to, you can change your notification settings or directly unsubscribe or unwatch activity on {% data variables.product.product_location %}. For more information, see "[Managing your subscriptions](/github/managing-subscriptions-and-notifications-on-github/managing-your-subscriptions)."
 
@@ -63,7 +59,7 @@ To keep your subscriptions manageable, review your subscriptions and watched rep
 To customize how you'd like to receive updates for specific pull requests or issues, you can configure your preferences within the issue or pull request. For more information, see "[Triaging a single notification](/github/managing-subscriptions-and-notifications-on-github/triaging-a-single-notification#customizing-when-to-receive-future-updates-for-an-issue-or-pull-request)."
 
 {% ifversion fpt or ghes or ghec %}
-You can customize and schedule push notifications in the {% data variables.product.prodname_mobile %} app. For more information, see "[Configuring notifications](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#managing-your-notification-settings-with-github-for-mobile)."
+You can customize and schedule push notifications in the {% data variables.product.prodname_mobile %} app. For more information, see "[Configuring notifications](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#managing-your-notification-settings-with-github-mobile)."
 {% endif %}
 
 ## Reasons for receiving notifications
@@ -100,4 +96,4 @@ Notifications that are not marked as **Saved** are kept for 5 months. Notificati
 
 ## Feedback and support
 
-If you have feedback or feature requests for notifications, use the [feedback form for notifications](https://support.github.com/contact/feedback?contact%5Bcategory%5D=notifications&contact%5Bsubject%5D=Product+feedback).
+If you have feedback or feature requests for notifications, use a [{% data variables.product.prodname_github_community %} discussion](https://github.com/orgs/community/discussions/categories/general).

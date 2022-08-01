@@ -2,8 +2,8 @@
 title: GitHub Appの権限の設定
 intro: '{% data reusables.shortdesc.permissions_github_apps %}'
 redirect_from:
-  - /apps/building-integrations/setting-up-and-registering-github-apps/about-permissions-for-github-apps/
-  - /apps/building-github-apps/permissions-for-github-apps/
+  - /apps/building-integrations/setting-up-and-registering-github-apps/about-permissions-for-github-apps
+  - /apps/building-github-apps/permissions-for-github-apps
   - /apps/building-github-apps/setting-permissions-for-github-apps
   - /developers/apps/setting-permissions-for-github-apps
 versions:

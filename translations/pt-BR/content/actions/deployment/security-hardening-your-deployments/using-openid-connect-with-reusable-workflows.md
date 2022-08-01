@@ -7,8 +7,9 @@ redirect_from:
   - /actions/deployment/security-hardening-your-deployments/using-oidc-with-your-reusable-workflows
 versions:
   fpt: '*'
-  ghae: issue-4757-and-5856
+  ghae: issue-4757
   ghec: '*'
+  ghes: '>=3.5'
 type: how_to
 topics:
   - Workflows
@@ -17,12 +18,6 @@ topics:
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-
-{% note %}
-
-**Observação:** Os fluxos de trabalho reutilizáveis estão atualmente na versão beta e sujeitos a alterações.
-
-{% endnote %}
 
 ## Sobre fluxos de trabalho reutilizáveis
 
@@ -50,11 +45,14 @@ Por exemplo, o token do OIDC a seguir é para um trabalho que fazia parte de um 
 {
   "jti": "example-id",
   "sub": "repo:octo-org/octo-repo:environment:prod",
-  "aud": "https://github.com/octo-org",
+  "aud": "{% ifversion ghes %}https://HOSTNAME{% else %}https://github.com{% endif %}/octo-org",
   "ref": "refs/heads/main",
   "sha": "example-sha",
   "repository": "octo-org/octo-repo",
   "repository_owner": "octo-org",
+  "actor_id": "12",
+  "repository_id": "74",
+  "repository_owner_id": "65",
   "run_id": "example-run-id",
   "run_number": "10",
   "run_attempt": "2",
@@ -65,7 +63,7 @@ Por exemplo, o token do OIDC a seguir é para um trabalho que fazia parte de um 
   "event_name": "workflow_dispatch",
   "ref_type": "branch",
   "job_workflow_ref": "octo-org/octo-automation/.github/workflows/oidc.yml@refs/heads/main",
-  "iss": "https://token.actions.githubusercontent.com",
+  "iss": "{% ifversion ghes %}https://HOSTNAME/_services/token{% else %}https://token.actions.githubusercontent.com{% endif %}",
   "nbf": 1632492967,
   "exp": 1632493867,
   "iat": 1632493567

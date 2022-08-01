@@ -20,7 +20,6 @@ shortTitle: Ação do JavaScript
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## Introdução
 
@@ -30,17 +29,17 @@ Este guia usa o módulo Node.js do kit de ferramentas {% data variables.product.
 
 Ao terminar esse projeto, você entenderá como criar sua própria ação JavaScript e poderá testá-la em um fluxo de trabalho.
 
-{% data reusables.github-actions.pure-javascript %}
+{% data reusables.actions.pure-javascript %}
 
-{% data reusables.github-actions.context-injection-warning %}
+{% data reusables.actions.context-injection-warning %}
 
 ## Pré-requisitos
 
 Antes de começar, você deverá fazer o download do Node.js e criar um repositório público em {% data variables.product.prodname_dotcom %}.
 
-1. Baixe e instale o Node.js, que inclui npm.
+1. Faça o download e instale o Node.js {% ifversion fpt or ghes > 3.3 or ghae-issue-5504 or ghec %}16.x{% else %}12.x{% endif %}, o que inclui npm.
 
-  https://nodejs.org/en/download/current/
+  {% ifversion fpt or ghes > 3.3 or ghae-issue-5504 or ghec %}https://nodejs.org/en/download/{% else %}https://nodejs.org/en/download/releases/{% endif %}
 
 1. Crie um novo repositório público em {% data variables.product.product_location %} e chame-o de "hello-world-javascript-action". Para obter mais informações, consulte "[Criar um repositório novo](/articles/creating-a-new-repository)".
 
@@ -48,13 +47,13 @@ Antes de começar, você deverá fazer o download do Node.js e criar um reposit�
 
 1. No seu terminal, mude os diretórios para seu novo repositório.
 
-  ```shell
+  ```shell{:copy}
   cd hello-world-javascript-action
   ```
 
 1. No terminal, inicialize o diretório com npm para gerar um arquivo `package.json`.
 
-  ```shell
+  ```shell{:copy}
   npm init -y
   ```
 
@@ -62,19 +61,19 @@ Antes de começar, você deverá fazer o download do Node.js e criar um reposit�
 
 Crie um novo arquivo denominado `action.yml` no diretório `hello-world-javascript-action` com o código de exemplo a seguir. Para obter mais informações, consulte "[Sintaxe dos metadados para {% data variables.product.prodname_actions %}}](/actions/creating-actions/metadata-syntax-for-github-actions)."
 
-```yaml
+```yaml{:copy}
 name: 'Hello World'
 description: 'Greet someone and record the time'
 inputs:
-  who-to-greet:  # id da entrada
+  who-to-greet:  # id of input
     description: 'Who to greet'
     required: true
     default: 'World'
 outputs:
-  time: # id da saída
+  time: # id of output
     description: 'The time we greeted you'
 runs:
-  using: 'node12'
+  using: {% ifversion fpt or ghes > 3.3 or ghae-issue-5504 or ghec %}'node16'{% else %}'node12'{% endif %}
   main: 'index.js'
 ```
 
@@ -92,7 +91,7 @@ O conjunto de ferramentas oferece mais do que pacotes `core` and `github`. Para 
 
 No seu terminal, instale os pacotes de conjunto de ferramentas de ações `core` e `github`.
 
-```shell
+```shell{:copy}
 npm install @actions/core
 npm install @actions/github
 ```
@@ -108,7 +107,7 @@ O GitHub Actions fornece informações de contexto sobre o evento webhook, Git r
 Adicione um arquivo novo denominado `index.js`, com o seguinte código:
 
 {% raw %}
-```javascript
+```javascript{:copy}
 const core = require('@actions/core');
 const github = require('@actions/github');
 
@@ -142,7 +141,7 @@ No diretório `hello-world-javascript-action`, crie um arquivo `README.md` que e
 - Variáveis de ambiente usadas pela ação;
 - Um exemplo de uso da ação no fluxo de trabalho.
 
-```markdown
+```markdown{:copy}
 # Hello world javascript action
 
 Esta ação imprime "Hello World" ou "Hello" + o nome de uma pessoa a ser cumprimentada no log.
@@ -174,7 +173,7 @@ No seu terminal, faça commit dos arquivos `action.yml`, `index.js`, `node_modul
 
 Adicionar uma tag da versão para versões da sua ação é considerada uma prática recomendada. Para obter mais informações sobre versões da sua ação, consulte "[Sobre ações](/actions/automating-your-workflow-with-github-actions/about-actions#using-release-management-for-actions)".
 
-```shell
+```shell{:copy}
 git add action.yml index.js node_modules/* package.json package-lock.json README.md
 git commit -m "My first action is ready"
 git tag -a -m "My first action release" v1.1
@@ -194,7 +193,7 @@ Verificar seu diretório `node_modules` pode causar problemas. Como alternativa,
 1. Se você já verificou o diretório `node_modules`, remova-o. `rm -rf node_modules/*`
 
 1. No seu terminal, faça commit das atualizações para os arquivos `action.yml`, `dist/index.js` e `node_modules`.
-```shell
+```shell{:copy}
 git add action.yml dist/index.js node_modules/*
 git commit -m "Use vercel/ncc"
 git tag -a -m "My first action release" v1.1
@@ -214,7 +213,7 @@ Este exemplo demonstra como sua nova ação pública pode ser executada dentro d
 Copie o seguinte YAML em um novo arquivo em `.github/workflows/main.yml` e atualize a linha `uses: octocat/hello-world-javascript-action@v1.1` com seu nome de usuário e o nome do repositório público que você criou acima. Você também pode substituir a entrada `who-to-greet` pelo seu nome.
 
 {% raw %}
-```yaml
+```yaml{:copy}
 on: [push]
 
 jobs:
@@ -239,37 +238,29 @@ Quando este fluxo de trabalho é acionado, o executor fará o download da ação
 
 Copie o código do fluxo de trabalho em um arquivo `.github/workflows/main.yml` no repositório da ação. Você também pode substituir a entrada `who-to-greet` pelo seu nome.
 
-{% raw %}
 **.github/workflows/main.yml**
-```yaml
-em: [push]
+```yaml{:copy}
+on: [push]
 
-trabalhos:
+jobs:
   hello_world_job:
     runs-on: ubuntu-latest
-    nome: Um trabalho para dizer "Olá"
-    etapas:
-      # Para usar a ação privada desse repositório,
-      # você deve verificar o repositório
-      - nome: Checkout
-        usa: actions/checkout@v2
-      - nome: Etapa da ação "Olá, mundo"
-        usa: ./ # Usa uma ação no diretório-raiz
-        id: olá
-        com:
+    name: A job to say hello
+    steps:
+      # To use this repository's private action,
+      # you must check out the repository
+      - name: Checkout
+        uses: {% data reusables.actions.action-checkout %}
+      - name: Hello world action step
+        uses: ./ # Uses an action in the root directory
+        id: hello
+        with:
           who-to-greet: 'Mona the Octocat'
-      # Usa a saída da etapa `hello`
-      - nome: Obtém o tempo de saída
-        executar: echo "O tempo foi ${{ steps.hello.outputs.time }}"
+      # Use the output from the `hello` step
+      - name: Get the output time
+        run: echo "The time was {% raw %}${{ steps.hello.outputs.time }}{% endraw %}"
 ```
-{% endraw %}
 
-No seu repositório, clique na aba **Ações** e selecione a última execução do fluxo de trabalho. {% ifversion fpt or ghes > 3.0 or ghae or ghec %}Em **Trabalhos** ou no gráfico de visualização, clique em **A job to say hello**. {% endif %}Você deverá ver "Hello Mona the Octocat" ou o nome que você usou como entrada em `who-to-greet` e o horário impresso no log.
+No seu repositório, clique na aba **Ações** e selecione a última execução do fluxo de trabalho. Em **Trabalhos** ou no gráfico de visualização, clique em **A job to say hello**. Você deverá ver "Hello Mona the Octocat" ou o nome que você usou como entrada em `who-to-greet` e o horário impresso no log.
 
-{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
 ![Uma captura de tela de sua ação em um fluxo de trabalho](/assets/images/help/repository/javascript-action-workflow-run-updated-2.png)
-{% elsif ghes %}
-![Uma captura de tela de sua ação em um fluxo de trabalho](/assets/images/help/repository/javascript-action-workflow-run-updated.png)
-{% else %}
-![Uma captura de tela de sua ação em um fluxo de trabalho](/assets/images/help/repository/javascript-action-workflow-run.png)
-{% endif %}

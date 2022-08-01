@@ -3,12 +3,12 @@ title: GitHub アカウントの支払いについて
 intro: '{% data variables.product.company_short %} は、すべての開発者あるいは Team に対して無償版と有償版の製品が用意されています。'
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-accounts
-  - /articles/what-is-the-total-cost-of-using-an-organization-account/
-  - /articles/what-are-the-costs-of-using-an-organization-account/
-  - /articles/what-plan-should-i-choose/
-  - /articles/do-you-have-custom-plans/
-  - /articles/user-account-billing-plans/
-  - /articles/organization-billing-plans/
+  - /articles/what-is-the-total-cost-of-using-an-organization-account
+  - /articles/what-are-the-costs-of-using-an-organization-account
+  - /articles/what-plan-should-i-choose
+  - /articles/do-you-have-custom-plans
+  - /articles/user-account-billing-plans
+  - /articles/organization-billing-plans
   - /articles/github-s-billing-plans
   - /articles/about-billing-for-github-accounts
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-your-github-account/about-billing-for-github-accounts
@@ -30,7 +30,9 @@ shortTitle: 支払いについて
 
 既存の {% data variables.product.product_name %} の支払い情報で追加の機能や製品をご購入いただくことができます。 詳細は「[ {% data variables.product.prodname_dotcom %} の支払いについて](/articles/about-billing-on-github)」を参照してください。
 
-{% data reusables.user_settings.context_switcher %}
+{% data reusables.accounts.accounts-billed-separately %}
+
+{% data reusables.user-settings.context_switcher %}
 
 {% tip %}
 

@@ -2,11 +2,11 @@
 title: リポジトリの言語について
 intro: リポジトリ内のファイルやディレクトリが、リポジトリを構成する言語を決定します。 リポジトリの言語を見れば、そのリポジトリの簡単な概要が得られます。
 redirect_from:
-  - /articles/my-repository-is-marked-as-the-wrong-language/
-  - /articles/why-isn-t-my-favorite-language-recognized/
-  - /articles/my-repo-is-marked-as-the-wrong-language/
-  - /articles/why-isn-t-sql-recognized-as-a-language/
-  - /articles/why-isn-t-my-favorite-language-recognized-by-github/
+  - /articles/my-repository-is-marked-as-the-wrong-language
+  - /articles/why-isn-t-my-favorite-language-recognized
+  - /articles/my-repo-is-marked-as-the-wrong-language
+  - /articles/why-isn-t-sql-recognized-as-a-language
+  - /articles/why-isn-t-my-favorite-language-recognized-by-github
   - /articles/about-repository-languages
   - /github/creating-cloning-and-archiving-repositories/about-repository-languages
   - /github/creating-cloning-and-archiving-repositories/creating-a-repository-on-github/about-repository-languages

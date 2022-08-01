@@ -1,15 +1,16 @@
 ---
 title: Managing projects using Jira
-intro: 'You can integrate Jira with {% data variables.product.prodname_enterprise %} for project management.'
+intro: 'You can integrate Jira with {% data variables.product.product_name %} for project management.'
 redirect_from:
-  - /enterprise/admin/guides/installation/project-management-using-jira/
-  - /enterprise/admin/articles/project-management-using-jira/
+  - /enterprise/admin/guides/installation/project-management-using-jira
+  - /enterprise/admin/articles/project-management-using-jira
   - /enterprise/admin/developer-workflow/managing-projects-using-jira
   - /enterprise/admin/developer-workflow/customizing-your-instance-with-integrations
   - /enterprise/admin/user-management/managing-projects-using-jira
   - /admin/user-management/managing-projects-using-jira
 versions:
   ghes: '*'
+  ghae: '*'
 type: how_to
 topics:
   - Enterprise
@@ -60,10 +61,10 @@ shortTitle: Project management with Jira
 
 5. [**Add New Account**] (新規アカウントを追加) モーダルで、{% data variables.product.prodname_enterprise %} の設定を記入してください。
     - From the **Host** dropdown menu, choose **{% data variables.product.prodname_enterprise %}**.
-    - **Team or User Account** の欄には、{% data variables.product.prodname_enterprise %}のOrganization、または個人アカウントの名前を入力する。
+    - In the **Team or User Account** field, type the name of your {% data variables.product.prodname_enterprise %} organization or user account.
     - **OAuth Key** の欄には、{% data variables.product.prodname_enterprise %}のディベロッパーアプリケーションのClient ID を入力する。
     - **OAuth Secret** の欄には、{% data variables.product.prodname_enterprise %}のデベロッパーアプリケーションの Client Secret を入力する。
-    - If you don't want to link new repositories owned by your {% data variables.product.prodname_enterprise %} organization or personal account, deselect **Auto Link New Repositories**.
+    - If you don't want to link new repositories owned by your {% data variables.product.prodname_enterprise %} organization or user account, deselect **Auto Link New Repositories**.
     - If you don't want to enable smart commits, deselect **Enable Smart Commits**.
     - [**Add**] をクリックします。
 6. {% data variables.product.prodname_enterprise %}に対して与えるアクセス権を確認して、**Authorize application** をクリックする。

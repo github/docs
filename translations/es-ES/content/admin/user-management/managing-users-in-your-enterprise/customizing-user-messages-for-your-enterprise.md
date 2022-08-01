@@ -2,7 +2,7 @@
 title: Personalizar los mensajes de usuario para tu empresa
 shortTitle: Personalizar los mensajes de usuario
 redirect_from:
-  - /enterprise/admin/user-management/creating-a-custom-sign-in-message/
+  - /enterprise/admin/user-management/creating-a-custom-sign-in-message
   - /enterprise/admin/user-management/customizing-user-messages-on-your-instance
   - /admin/user-management/customizing-user-messages-on-your-instance
   - /admin/user-management/customizing-user-messages-for-your-enterprise
@@ -72,7 +72,7 @@ Los mensajes obligatorios tienen varios usos.
 
 Si incluyes cajas de verificación con lenguaje de marcado en el mensaje, todas ellas deberán seleccionarse antes de que el usuario pueda descartar el mensaje. Por ejemplo, si incluyes tus condiciones de servicio en el mensaje obligatorio, puede que necesites que cada usuario seleccione una casilla para confirmar que leyó dichas condiciones.
 
-Cada vez que un usuario vea un mensaje obligatorio, se crea un evento de bitácora de auditoría. El evento incluye la versión del mensaje que vio el usuario. Para obtener más información, consulta la sección "[Acciones auditadas](/admin/user-management/audited-actions)".
+Cada vez que un usuario vea un mensaje obligatorio, se crea un evento de bitácora de auditoría. El evento incluye la versión del mensaje que vio el usuario. Para obtener más información, consulta la sección "[Eventos de bitácora de auditoría para tu empressa](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise)".
 
 {% note %}
 
@@ -107,6 +107,9 @@ También puedes configurar un letrero de anuncio en el shell administrativo util
 {% data reusables.enterprise-accounts.messages-tab %}
 1. {% ifversion ghes or ghae %}A la derecha de{% else %}Debajo de {% endif %} "Anuncio", da clic en **Agregar anuncio**. ![Botón Agregar mensaje](/assets/images/enterprise/site-admin-settings/add-announcement-button.png)
 1. Debajo de "Anuncio", en el campo de texto, teclea el anuncio que quieras mostrar en un letrero. ![Campo de texto para ingresar el anuncio](/assets/images/enterprise/site-admin-settings/announcement-text-field.png)
-1. Opcionalmente, debajo de "Vence en", selecciona el menú desplegable de calendario y da clic en la fecha de vencimiento. ![Menú desplegable de calendario para elegir una fecha de vencimiento](/assets/images/enterprise/site-admin-settings/expiration-drop-down.png)
+1. Opcionalmente, debajo de "Vence en", selecciona el menú desplegable de calendario y da clic en la fecha de vencimiento. ![Calendar drop-down menu to choose expiration date](/assets/images/enterprise/site-admin-settings/expiration-drop-down.png){% ifversion ghe-announce-dismiss %}
+1. Opcionalmente, para permitir que cada usuario descarte el anuncio, selecciona **Descartable por el usuario**.
+
+   ![Captura de pantalla de la casilla de verificación de "Descartable por el usuario"](/assets/images/enterprise/site-admin-settings/user-dismissible-checkbox.png){% endif %}
 {% data reusables.enterprise_site_admin_settings.message-preview-save %}
 {% endif %}

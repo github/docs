@@ -17,7 +17,6 @@ shortTitle: Move assigned issues
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## Introduction
 
@@ -34,6 +33,8 @@ In the tutorial, you will first make a workflow file that uses the [`alex-page/g
 
     ```yaml{:copy}
 {% indented_data_reference reusables.actions.actions-not-certified-by-github-comment spaces=4 %}
+
+{% indented_data_reference reusables.actions.actions-use-sha-pinning-comment spaces=4 %}
 
     name: Move assigned card
     on:
@@ -64,7 +65,7 @@ In the tutorial, you will first make a workflow file that uses the [`alex-page/g
 
 Whenever an issue in your repository is assigned, the issue will be moved to the specified project board column. If the issue is not already on the project board, it will be added to the project board.
 
-If your repository is user-owned, the `alex-page/github-project-automation-plus` action will act on all projects in your repository or user account that have the specified project name and column. Likewise, if your repository is organization-owned, the action will act on all projects in your repository or organization that have the specified project name and column.
+If your repository is user-owned, the `alex-page/github-project-automation-plus` action will act on all projects in your repository or personal account that have the specified project name and column. Likewise, if your repository is organization-owned, the action will act on all projects in your repository or organization that have the specified project name and column.
 
 Test your workflow by assigning an issue in your repository.
 

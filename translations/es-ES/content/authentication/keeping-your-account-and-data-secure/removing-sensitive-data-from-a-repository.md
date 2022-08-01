@@ -2,9 +2,9 @@
 title: Eliminar datos confidenciales de un repositorio
 intro: 'Si confirmas datos confidenciales, como una contraseña o clave SSH en un repositorio de Git, puedes eliminarlos del historial. Para eliminar archivos no deseados por completo del historial de un repositorio, puedes utilizar ya sea la herramienta `git filter-repo` o la herramienta de código abierto BFG Repo-Cleaner.'
 redirect_from:
-  - /remove-sensitive-data/
-  - /removing-sensitive-data/
-  - /articles/remove-sensitive-data/
+  - /remove-sensitive-data
+  - /removing-sensitive-data
+  - /articles/remove-sensitive-data
   - /articles/removing-sensitive-data-from-a-repository
   - /github/authenticating-to-github/removing-sensitive-data-from-a-repository
   - /github/authenticating-to-github/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository
@@ -25,9 +25,9 @@ Puedes eliminar el archivo desde la última confirmación con `git rm`. Para obt
 
 {% warning %}
 
-This article tells you how to make commits with sensitive data unreachable from any branches or tags in your repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}. Sin embargo, es importante tener en cuenta que esas confirmaciones pueden seguir siendo accesibles desde cualquier clon o bifurcación de tu repositorio, directamente por medio de sus hashes de SHA-1 en las visualizaciones cacheadas en {% data variables.product.product_name %} y a través de cualquier solicitud de extracción que las referencie. No puedes eliminar los datos sensibles desde los clones o bifurcaciones de tu repositorio que tengan otros usuarios, pero puedes eliminar las vistas almacenadas en caché permanentemente, así como las referencias a los datos sensibles en las solicitudes de cambios en {% data variables.product.product_name %} si contactas al {% data variables.contact.contact_support %}.
+**Advertencia**: Este artículo te dice cómo hacer confirmaciones con datos sensibles que son inalcanzables desde cualquier rama o etiqueta en tu repositorio de {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}. Sin embargo, aún se podría tener acceso a estas confirmaciones en cualquier clon o bifurcación de tu repositorio, directamente a través de los hashes SHA-1 en las vistas de caché en {% data variables.product.product_name %} y a través de cualquier solicitud de cambio que las referencie. No puedes eliminar los datos sensibles desde los clones o bifurcaciones de tu repositorio que tengan otros usuarios, pero puedes eliminar las vistas almacenadas en caché permanentemente, así como las referencias a los datos sensibles en las solicitudes de cambios en {% data variables.product.product_name %} si contactas al {% data variables.contact.contact_support %}.
 
-**Advertencia: Una vez que hayas subido una confirmación a {% data variables.product.product_name %}, deberías considerar cualquier dato sensible en la confirmación como puesto en riesgo.** Si confirmaste una contraseña, ¡cámbiala! Si confirmaste una clave, genera una nueva. El eliminar los datos puestos en riesgo no resuelve su exposición inicial, especialmente en clones o bifurcaciones de tu repositorio existentes. Considera estas limitaciones en tu decisión para reescribir el historial de tu repositorio.
+**Una vez que hayas subido una confirmación a {% data variables.product.product_name %}, deberías considerar cualquier dato sensible en la confirmación que se puso en riesgo.** Si confirmaste una contraseña, ¡cámbiala! Si confirmaste una clave, genera una nueva. El eliminar los datos puestos en riesgo no resuelve su exposición inicial, especialmente en clones o bifurcaciones de tu repositorio existentes. Considera estas limitaciones en tu decisión para reescribir el historial de tu repositorio.
 
 {% endwarning %}
 
@@ -51,7 +51,7 @@ Para reemplazar todo el texto detallado en `passwords.txt` donde sea que se encu
 $ bfg --replace-text passwords.txt
 ```
 
-Después de que se eliminan los datos sensibles, debes subir forzadamente tus cambios a {% data variables.product.product_name %}.
+Después de que se eliminan los datos sensibles, debes subir forzadamente tus cambios a {% data variables.product.product_name %}. El forzar las subidas reescribirá el historial de los repositorios, lo cual eliminará los datos sensibles del historial de confirmaciones. Si haces subidas forzadas, esto podría sobreescribir las confirmaciones en las cuales otros hayan basado su trabajo.
 
 ```shell
 $ git push --force
@@ -125,7 +125,7 @@ Para ilustrar cómo funciona `git filter-repo`, te mostraremos cómo eliminar tu
   >  1 files changed, 1 insertions(+), 0 deletions(-)
   ```
 6. Comprueba que hayas eliminado todo lo que querías del historial de tu repositorio y que todas tus ramas estén revisadas.
-7. Once you're happy with the state of your repository, force-push your local changes to overwrite your repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}, as well as all the branches you've pushed up:
+7. Una vez que estés satisfecho con el estado de tu repositorio, haz una subida forzada de tus cambios locales para sobreescribir tu repositorio de {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}, así como las ramas que hayas subido. Se requiere una subida forzada para eliminar los datos sensibles de tu historial de confirmaciones.
   ```shell
   $ git push origin --force --all
   > Counting objects: 1074, done.
@@ -152,7 +152,7 @@ Para ilustrar cómo funciona `git filter-repo`, te mostraremos cómo eliminar tu
 
 Después de utilizar ya sea la herramienta de BFG o `git filter-repo` para eliminar los datos sensibles y subir tus cambios a {% data variables.product.product_name %}, debes tomar algunos pasos adicionales para eliminar los datos de {% data variables.product.product_name %} completamente.
 
-1. Contáctate con {% data variables.contact.contact_support %} y pregúntale cómo eliminar visualizaciones cacheadas y referencias a los datos confidenciales en las solicitudes de extracción en {% data variables.product.product_name %}. Por favor, proporciona el nombre del repositorio o un enlace a la confirmación que necesitas eliminar.
+1. Contáctate con {% data variables.contact.contact_support %} y pregúntale cómo eliminar visualizaciones cacheadas y referencias a los datos confidenciales en las solicitudes de extracción en {% data variables.product.product_name %}. Por favor, proporciona el nombre de un repositorio o un enlace a la confirmación que necesitas que se elimine.{% ifversion ghes %} Para obtener más información sobre cómo los administradores de sitio pueden eliminar objetos inalcanzables de Git, consulta la sección "[Utilidades de línea de comandos](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-repo-gc)".{% endif %}
 
 2. Pídeles a tus colaboradores que [rebasen](https://git-scm.com/book/en/Git-Branching-Rebasing), *no* fusionen, cualquier rama que hayan creado fuera del historial de tu repositorio antiguo (contaminado). Una confirmación de fusión podría volver a introducir algo o todo el historial contaminado sobre el que acabas de tomarte el trabajo de purgar.
 

@@ -1,6 +1,7 @@
-Before you can authorize a personal access token or SSH key, you must have a linked SAML identity. If you're a member of an organization where SAML SSO is enabled, you can create a linked identity by authenticating to your organization with your IdP at least once. 更多信息请参阅“[关于使用 SAML 单点登录进行身份验证](/authentication/authenticating-with-saml-single-sign-on/about-authentication-with-saml-single-sign-on)”。
+在授权个人访问令牌或 SSH 密钥之前，您必须具有链接的 SAML 标识。 如果您是启用了 SAML SSO 的组织的成员，则可以通过至少一次使用 IdP 向组织验证来创建链接身份。 更多信息请参阅“[关于使用 SAML 单点登录进行身份验证](/authentication/authenticating-with-saml-single-sign-on/about-authentication-with-saml-single-sign-on)”。
 
-After you authorize a personal access token or SSH key, the authorization does not expire. The token or key will stay authorized until revoked in one of these ways.
-- An organization owner revokes the authorization.
-- You are removed from the organization.
-- The scopes in a personal access token are edited, or the token is regenerated.
+授权个人访问令牌或 SSH 密钥后。 令牌或密钥将保持授权状态，直到以下面方式之一吊销。
+- 组织或企业所有者撤销授权。
+- 您已从组织中删除。
+- 编辑个人访问令牌中的范围，或重新生成令牌。
+- 个人访问令牌已过期，如创建期间所定义的那样。

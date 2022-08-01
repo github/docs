@@ -2,7 +2,7 @@
 title: アプリケーションでのGitHub APIの利用
 intro: イベントを待ち受けるアプリケーションのセットアップと、Octokitライブラリを使ったREST APIの操作の方法を学んでください。
 redirect_from:
-  - /apps/building-your-first-github-app/
+  - /apps/building-your-first-github-app
   - /apps/quickstart-guides/using-the-github-api-in-your-app
   - /developers/apps/using-the-github-api-in-your-app
 versions:
@@ -82,7 +82,7 @@ shortTitle: REST APIでアプリケーションをビルドする
 
 アプリケーションの権限を更新するには、以下の手順に従います。
 
-1. [アプリケーションの設定ページ](https://github.com/settings/apps)からアプリケーションを選択肢、サイドバーの [**Permissions & Webhooks**] をクリックします。
+1. [アプリケーションの設定ページ](https://github.com/settings/apps)からアプリケーションを選択し、サイドバーの [**Permissions & Webhooks**] をクリックします。
 1. "Permissions（権限）"セクションで"Issues"を見つけ、隣の"Access（アクセス）"ドロップダウンで**Read & Write（読み書き）**を選択してください。 このオプションはIssueとラベルの両方へのアクセスを許可するものと説明されており、これはまさに必要なことです。
 1. "Subscribe to events（イベントのサブスクライブ）"セクションで、**Issues**を選択してこのイベントをサブスクライブしてください。
 {% data reusables.apps.accept_new_permissions_steps %}

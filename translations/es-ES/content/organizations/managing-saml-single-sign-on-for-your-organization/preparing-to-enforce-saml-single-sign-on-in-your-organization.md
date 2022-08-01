@@ -1,18 +1,18 @@
 ---
 title: Prepararse para aplicar el inicio de sesión único SAML en tu organización
 intro: 'Antes de aplicar el inicio de sesión único de SAML en tu organización, deberías verificar la membresía de tu organización y configurar las configuraciones de conexión para tu proveedor de identidad.'
-product: '{% data reusables.gated-features.saml-sso %}'
 redirect_from:
   - /articles/preparing-to-enforce-saml-single-sign-on-in-your-organization
   - /github/setting-up-and-managing-organizations-and-teams/preparing-to-enforce-saml-single-sign-on-in-your-organization
 versions:
-  fpt: '*'
   ghec: '*'
 topics:
   - Organizations
   - Teams
 shortTitle: Prepararse para requerir el SSO de SAML
 ---
+
+{% data reusables.saml.ghec-only %}
 
 {% data reusables.saml.when-you-enforce %} Antes de requerir el SSO de SAML en tu organización, debes revisar la membrecía de la misma, habilitar el SSO de SAML y revisar el acceso de SAML de los miembros de esta. Para obtener más información, consulta lo siguiente.
 

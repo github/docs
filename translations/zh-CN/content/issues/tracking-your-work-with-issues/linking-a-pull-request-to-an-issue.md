@@ -3,8 +3,8 @@ title: 将拉取请求链接到议题
 intro: 您可以将拉取请求链接到议题，以显示修复正在进行中，并在拉取请求被合并时自动关闭该议题。
 redirect_from:
   - /github/managing-your-work-on-github/managing-your-work-with-issues-and-pull-requests/linking-a-pull-request-to-an-issue
-  - /articles/closing-issues-via-commit-message/
-  - /articles/closing-issues-via-commit-messages/
+  - /articles/closing-issues-via-commit-message
+  - /articles/closing-issues-via-commit-messages
   - /articles/closing-issues-using-keywords
   - /github/managing-your-work-on-github/closing-issues-using-keywords
   - /github/managing-your-work-on-github/linking-a-pull-request-to-an-issue
@@ -27,7 +27,7 @@ shortTitle: 将 PR 链接到议题
 
 ## 关于链接的议题和拉取请求
 
-您可以{% ifversion fpt or ghes or ghae or ghec %}手动或{% endif %}使用拉取请求说明中支持的关键词将议题链接到拉取请求。
+您可以手动将议题链接到拉取请求，也可以使用拉取请求描述中的受支持关键字。
 
 当您将拉取请求链接到拉取请求指向的议题，如果有人正在操作该议题，协作者可以看到。
 
@@ -35,7 +35,7 @@ shortTitle: 将 PR 链接到议题
 
 ## 使用关键词将拉取请求链接到议题
 
-您可以在拉取请求说明或提交消息中使用支持的关键字将拉取请求链接到议题（请注意，拉取请求必须在默认分支上）。
+您可以通过在拉取请求说明或提交消息中使用支持的关键词将拉取请求链接到议题。 拉取请求**必须**在默认分支上。
 
 * close
 * closes
@@ -47,7 +47,7 @@ shortTitle: 将 PR 链接到议题
 * resolves
 * resolved
 
-If you use a keyword to reference a pull request comment in another pull request, the pull requests will be linked. Merging the referencing pull request will also close the referenced pull request.
+如果使用关键字在另一个拉取请求中引用拉取请求注释，则将链接拉取请求。 合并引用拉取请求也会关闭引用的拉取请求。
 
 关闭关键词的语法取决于议题是否与拉取请求在同一仓库中。
 
@@ -57,12 +57,10 @@ If you use a keyword to reference a pull request comment in another pull request
 | 不同仓库中的议题 | *KEYWORD* *OWNER*/*REPOSITORY*#*ISSUE-NUMBER* | `Fixes octo-org/octo-repo#100`                                 |
 | 多个议题     | 对每个议题使用完整语法                                   | `Resolves #10, resolves #123, resolves octo-org/octo-repo#100` |
 
-{% ifversion fpt or ghes or ghae or ghec %}只有手动链接的拉取请求才能手动取消链接。 要取消链接您使用关键词链接的议题，必须编辑拉取请求说明以删除该关键词。{% endif %}
+只能手动取消链接手动链接的拉取请求。 要取消链接您使用关键词链接的议题，必须编辑拉取请求说明以删除该关键词。
 
 您也可以在提交消息中使用关闭关键词。 议题将在提交合并到默认分支时关闭，但包含提交的拉取请求不会列为链接的拉取请求。
 
-
-{% ifversion fpt or ghes or ghae or ghec %}
 ## 手动将拉取请求链接到议题
 
 对仓库有写入权限的任何人都可以手动将拉取请求链接到议题。
@@ -72,9 +70,12 @@ If you use a keyword to reference a pull request comment in another pull request
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-pr %}
 3. 在拉取请求列表中，单击要链接到议题的拉取请求。
+{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6234 %}
+4. 在右侧边栏的“Development（开发）”部分，单击 {% octicon "gear" aria-label="The Gear icon" %}。
+{% else %}
 4. 在右侧边栏中，单击 **Linked issues（链接的议题）**。 ![右侧边栏中链接的议题](/assets/images/help/pull_requests/linked-issues.png)
-5. 单击要链接到拉取请求的议题。 ![下拉以链接议题](/assets/images/help/pull_requests/link-issue-drop-down.png)
 {% endif %}
+5. 单击要链接到拉取请求的议题。 ![下拉以链接议题](/assets/images/help/pull_requests/link-issue-drop-down.png)
 
 ## 延伸阅读
 

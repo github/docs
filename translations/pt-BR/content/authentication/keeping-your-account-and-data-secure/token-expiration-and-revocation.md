@@ -14,7 +14,7 @@ redirect_from:
   - /github/authenticating-to-github/keeping-your-account-and-data-secure/token-expiration-and-revocation
 ---
 
-Se um token {% ifversion fpt or ghae-issue-4374 or ghes > 3.2 or ghec %}venceu ou {% endif %} foi revogado, ele não poderá mais ser usado para autenticar o Git e solicitações de API. Não é possível restaurar um token vencido ou revogado, você ou o aplicativo deverá criar um novo token.
+Se um token {% ifversion fpt or ghae or ghes > 3.2 or ghec %}venceu ou {% endif %} foi revogado, ele não poderá mais ser usado para autenticar o Git e solicitações de API. Não é possível restaurar um token vencido ou revogado, você ou o aplicativo deverá criar um novo token.
 
 Este artigo explica os possíveis motivos pelos quais seu token {% data variables.product.product_name %} pode ser revogado ou vencido.
 
@@ -24,7 +24,7 @@ Este artigo explica os possíveis motivos pelos quais seu token {% data variable
 
 {% endnote %}
 
-{% ifversion fpt or ghae-issue-4374 or ghes > 3.2 or ghec %}
+{% ifversion fpt or ghae or ghes > 3.2 or ghec %}
 ## Token revogado após atingir sua data de validade
 
 Ao criar um token de acesso pessoal, recomendamos que você defina uma data de vencimento para o seu token. Ao alcançar a data de vencimento do seu token, este será automaticamente revogado. Para obter mais informações, consulte "[Criando um token de acesso pessoal](/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token)."
@@ -53,6 +53,8 @@ Depois que uma autorização for revogada, todos os tokens associados à autoriz
 ## Token revogado por {% data variables.product.prodname_oauth_app %}
 
 O proprietário de um {% data variables.product.prodname_oauth_app %} pode revogar a autorização de uma conta do seu aplicativo. Isso também irá revogar todos os tokens associados à autorização. Para obter mais informações sobre a revogação de autorizações do seu aplicativo OAuth, consulte[Excluir uma autorização de aplicativo](/rest/reference/apps#delete-an-app-authorization). "
+
+Os proprietários de {% data variables.product.prodname_oauth_app %} também podem revogar tokens individuais associados a uma autorização. Para obter mais informações sobre a revogação de tokens individuais para o seu aplicativo OAuth, consulte "[Excluir um token](/rest/apps/oauth-applications#delete-an-app-token)".
 
 ## Token revogado devido ao excesso de tokens para um {% data variables.product.prodname_oauth_app %} com o mesmo escopo
 

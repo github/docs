@@ -17,7 +17,7 @@ topics:
 
 リポジトリのフォークはリポジトリのコピーと似ていますが、次の 2 つの大きな違いがあります。
 
-* プルリクエストを使ってユーザが所有するフォークからの変更をオリジナルのリポジトリ（*上流*のリポジトリとも呼ばれます）に提案できます。
+* You can use a pull request to suggest changes from your user-owned fork to the original repository in its GitHub instance, also known as the *upstream* repository.
 * 上流のリポジトリと自分のフォークを同期させることで、上流のリポジトリからの変更を自分のローカルフォークへ持ち込めます。
 
 {% data reusables.repositories.you-can-fork %}
@@ -32,11 +32,11 @@ If you're a member of a {% data variables.product.prodname_emu_enterprise %}, th
 
 フォークを削除しても、オリジナルの上流のリポジトリは削除されません。 オリジナルに影響を与えることなく、コラボレータの追加、ファイル名の変更、{% data variables.product.prodname_pages %} の生成など、自分のフォークに必要な変更を加えることができます。{% ifversion fpt or ghec %}削除されたフォークリポジトリを復元することはできません。 詳しい情報については、「[削除されたリポジトリを復元する](/articles/restoring-a-deleted-repository)」を参照してください。{% endif %}
 
-オープンソースプロジェクトでは、フォークを使用して、上流のリポジトリに提供される前にアイデアや変更をイテレーションすることがよくあります。 ユーザ所有のフォークに変更を加え、作業を上流リポジトリと比較するプルリクエストをオープンすると、上流リポジトリへのプッシュアクセスできる人に対して、変更をプルリクエストブランチにプッシュする権限を付与することができます。 これにより、リポジトリメンテナがマージする前に、ユーザが所有するフォークからプルリクエストブランチに対してローカルでコミットを実行したり、テストを実行したりすることができるようになり、コラボレーションがスピードアップします。 Organization が所有するフォークにプッシュ権限を与えることはできません。
+オープンソースプロジェクトでは、フォークを使用して、上流のリポジトリに提供される前にアイデアや変更をイテレーションすることがよくあります。 When you make changes in your user-owned fork and open a pull request that compares your work to the upstream repository, you can give anyone with push access to the upstream repository permission to push changes to your pull request branch (including deleting the branch). これにより、リポジトリメンテナがマージする前に、ユーザが所有するフォークからプルリクエストブランチに対してローカルでコミットを実行したり、テストを実行したりすることができるようになり、コラボレーションがスピードアップします。 Organization が所有するフォークにプッシュ権限を与えることはできません。
 
 {% data reusables.repositories.private_forks_inherit_permissions %}
 
-既存のリポジトリのコンテンツから新しいリポジトリを作成するが、将来にわたって変更を上流にマージしない場合、リポジトリを複製するか、リポジトリがテンプレートである場合は、リポジトリをテンプレートとして使うことができます。 For more information, see "[Duplicating a repository](/articles/duplicating-a-repository)" and "[Creating a repository from a template](/articles/creating-a-repository-from-a-template)".
+If you want to create a new repository from the contents of an existing repository but don't want to merge your changes to the upstream in the future, you can duplicate the repository or, if the repository is a template, you can use the repository as a template. For more information, see "[Duplicating a repository](/articles/duplicating-a-repository)" and "[Creating a repository from a template](/articles/creating-a-repository-from-a-template)".
 
 ## 参考リンク
 

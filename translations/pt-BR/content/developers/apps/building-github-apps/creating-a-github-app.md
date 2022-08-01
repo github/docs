@@ -2,8 +2,8 @@
 title: Criar um aplicativo GitHub
 intro: '{% data reusables.shortdesc.creating_github_apps %}'
 redirect_from:
-  - /early-access/integrations/creating-an-integration/
-  - /apps/building-integrations/setting-up-and-registering-github-apps/registering-github-apps/
+  - /early-access/integrations/creating-an-integration
+  - /apps/building-integrations/setting-up-and-registering-github-apps/registering-github-apps
   - /apps/building-github-apps/creating-a-github-app
   - /developers/apps/creating-a-github-app
 versions:
@@ -35,7 +35,7 @@ topics:
 
 1. Opcionalmente, em "Descrição", digite uma descrição do aplicativo que os usuários irão ver. ![Campo para uma descrição do seu aplicativo GitHub](/assets/images/github-apps/github_apps_description.png)
 1. Em "URL da página inicial", digite a URL completa do site do seu aplicativo. ![Campo para a URL da página inicial do seu aplicativo GitHub](/assets/images/github-apps/github_apps_homepage_url.png)
-{% ifversion fpt or ghes > 3.0 or ghec %}
+{% ifversion fpt or ghes or ghec %}
 1. Em "URL de retorno de chamada", digite a URL completa para redirecionar após um usuário autorizar a instalação. Esta URL é usada se o aplicativo precisar identificar e autorizar solicitações de usuário para servidor.
 
   Você pode usar **Adicionar URL de retorno de chamada** para fornecer URLs de retorno de chamadas adicionais até o limite máximo de 10.
@@ -46,7 +46,8 @@ topics:
 
 {% endif %}
 1. Por padrão, para melhorar a segurança de seus aplicativos, seus aplicativos usarão os tokens de autorização do usuário. Para optar por não usar tokens do usuário expirados, você deverá desmarcar "Expirar tokens de autorização do usuário". Para saber mais sobre como configurar o fluxo de atualização do token e os benefícios de expirar os tokens do usuário, consulte "[Atualizando tokens de acesso do usuário para o servidor](/apps/building-github-apps/refreshing-user-to-server-access-tokens/)." ![Opção para expirar os tokens dos usuários durante a configuração dos aplicativos GitHub](/assets/images/github-apps/expire-user-tokens-selection.png)
-1. Se seu aplicativo autoriza usuários a usar o fluxo OAuth, você pode selecionar **Solicitar autorização de usuário (OAuth) durante a instalação** para permitir que pessoas autorizem o aplicativo ao instalá-lo, economizando uma etapa. Se você selecionar esta opção, a "URL de configuração" irá tornar-se indisponível e os usuários serão redirecionados para a "URL de retorno de chamada de autorização do usuário" após a instalação do aplicativo. Consulte "[Autorizando usuários durante a instalação](/apps/installing-github-apps/#authorizing-users-during-installation)" para obter mais informações. ![Solicitar autorização de usuário durante a instalação](/assets/images/github-apps/github_apps_request_auth_upon_install.png)
+1. Se seu aplicativo autoriza usuários a usar o fluxo OAuth, você pode selecionar **Solicitar autorização de usuário (OAuth) durante a instalação** para permitir que pessoas autorizem o aplicativo ao instalá-lo, economizando uma etapa. Se você selecionar esta opção, a "URL de configuração" irá tornar-se indisponível e os usuários serão redirecionados para a "URL de retorno de chamada de autorização do usuário" após a instalação do aplicativo. Consulte "[Autorizando usuários durante a instalação](/apps/installing-github-apps/#authorizing-users-during-installation)" para obter mais informações. ![Request user authorization during installation](/assets/images/github-apps/github_apps_request_auth_upon_install.png){% ifversion device-flow-is-opt-in %}
+1. Se o seu aplicativo GitHub usar o fluxo do dispositivo para identificar e autorizar usuários, clique em **Habilitar fluxo de dispositivo**. Para obter mais informações sobre o fluxo do dispositivo, consulte "[Autorizando aplicativos OAuth](/developers/apps/building-oauth-apps/authorizing-oauth-apps#device-flow)". ![Screenshot showing field for enabling device flow](/assets/images/oauth-apps/enable-device-flow.png){% endif %}
 1. Se for necessária uma configuração adicional após a instalação, adicione um "Configurar URL" para redirecionar os usuários após a instalação do seu aplicativo. ![Campo para a URL de configuração do seu aplicativo GitHub ](/assets/images/github-apps/github_apps_setup_url.png)
 
   {% note %}

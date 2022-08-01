@@ -2,9 +2,9 @@
 title: Managing remote repositories
 intro: 'Learn to work with your local repositories on your computer and remote repositories hosted on {% data variables.product.product_name %}.'
 redirect_from:
-  - /categories/18/articles/
-  - /remotes/
-  - /categories/managing-remotes/
+  - /categories/18/articles
+  - /remotes
+  - /categories/managing-remotes
   - /articles/managing-remote-repositories
   - /articles/adding-a-remote
   - /github/using-git/adding-a-remote
@@ -106,7 +106,7 @@ git@{% data variables.command_line.codeblock %}:<em>USERNAME</em>/<em>REPOSITORY
   > origin  https://{% data variables.command_line.codeblock %}/<em>USERNAME/REPOSITORY</em>.git (push)
   ```
 
-The next time you `git fetch`, `git pull`, or `git push` to the remote repository, you'll be asked for your GitHub username and password. {% data reusables.user_settings.password-authentication-deprecation %}
+The next time you `git fetch`, `git pull`, or `git push` to the remote repository, you'll be asked for your GitHub username and password. {% data reusables.user-settings.password-authentication-deprecation %}
 
 You can [use a credential helper](/github/getting-started-with-github/caching-your-github-credentials-in-git) so Git will remember your GitHub username and personal access token every time it talks to GitHub.
 
@@ -193,6 +193,8 @@ Use the `git remote rm` command to remove a remote URL from your repository.
 
 The `git remote rm` command takes one argument:
 * A remote name, for example, `destination`
+
+Removing the remote URL from your repository only unlinks the local and remote repositories. It does not delete the remote repository.
 
 ## Example
 

@@ -1,8 +1,8 @@
 ---
 title: About Git rebase
 redirect_from:
-  - /rebase/
-  - articles/interactive-rebase/
+  - /rebase
+  - /articles/interactive-rebase
   - /articles/about-git-rebase
   - /github/using-git/about-git-rebase
   - /github/getting-started-with-github/about-git-rebase

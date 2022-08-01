@@ -2,11 +2,11 @@
 title: GitHub Enterprise 11.10.xから2.1.23への移行
 redirect_from:
   - /enterprise/admin/installation/migrating-from-github-enterprise-1110x-to-2123
-  - /enterprise/admin-guide/migrating/
-  - /enterprise/admin/articles/migrating-github-enterprise/
-  - /enterprise/admin/guides/installation/migrating-from-github-enterprise-v11-10-34x/
-  - /enterprise/admin/articles/upgrading-to-a-newer-release/
-  - /enterprise/admin/guides/installation/migrating-to-a-different-platform-or-from-github-enterprise-11-10-34x/
+  - /enterprise/admin-guide/migrating
+  - /enterprise/admin/articles/migrating-github-enterprise
+  - /enterprise/admin/guides/installation/migrating-from-github-enterprise-v11-10-34x
+  - /enterprise/admin/articles/upgrading-to-a-newer-release
+  - /enterprise/admin/guides/installation/migrating-to-a-different-platform-or-from-github-enterprise-11-10-34x
   - /enterprise/admin/guides/installation/migrating-from-github-enterprise-11-10-x-to-2-1-23
   - /enterprise/admin/enterprise-management/migrating-from-github-enterprise-1110x-to-2123
   - /admin/enterprise-management/migrating-from-github-enterprise-1110x-to-2123
@@ -54,7 +54,7 @@ shortTitle: Migrate from 11.10.x to 2.1.23
 6. バックアップホストへのアクセス用のSSHキーを"Add new SSH key（新しいSSHキーの追加）"に貼り付けてください。 ![バックアップの認証](/assets/images/enterprise/migration/migration-authorize-backup-host.png)
 7. [**Add key**] をクリックしてから、[**Continue**] をクリックします。
 8. 新しいインスタンスへデータを移行するためにバックアップホストで実行する`ghe-restore`コマンドをコピーしてください。 ![移行の開始](/assets/images/enterprise/migration/migration-restore-start.png)
-9. 古いインスタンスでメンテナンスモードを有効化し、すべてのアクティブなプロセスが完了するのを待ってください。 詳しい情報については"[メンテナンスモードの有効化とスケジューリング](/enterprise/{{ currentVersion }}/admin/guides/installation/enabling-and-scheduling-maintenance-mode)"を参照してください。
+9. 古いインスタンスでメンテナンスモードを有効化し、すべてのアクティブなプロセスが完了するのを待ってください。 詳しい情報については"[メンテナンスモードの有効化とスケジューリング](/enterprise/admin/guides/installation/enabling-and-scheduling-maintenance-mode)"を参照してください。
 
   {% note %}
 
@@ -95,4 +95,4 @@ shortTitle: Migrate from 11.10.x to 2.1.23
   {% endnote %}
 
 15. DNS または IP アドレスの割り当てのどちらかを使用して、ユーザーのネットワークトラフィックを古いインスタンスから新しいインスタンスに切り替えます。
-16. 最新のパッチリリース {{ currentVersion }} にアップグレードします。 詳細は「[{% data variables.product.prodname_ghe_server %} をアップグレードする](/enterprise/admin/guides/installation/upgrading-github-enterprise-server/)」を参照してください。
+16. Upgrade to the latest patch release of {% data variables.product.prodname_ghe_server %}. 詳細は「[{% data variables.product.prodname_ghe_server %} をアップグレードする](/enterprise/admin/guides/installation/upgrading-github-enterprise-server/)」を参照してください。

@@ -2,10 +2,10 @@
 title: Anular la publicación de un sitio de Páginas de GitHub
 intro: 'Puedes publicar tu sitio de {% data variables.product.prodname_pages %} para que éste deje de estar disponible.'
 redirect_from:
-  - /articles/how-do-i-unpublish-a-project-page/
-  - /articles/unpublishing-a-project-page/
-  - /articles/unpublishing-a-project-pages-site/
-  - /articles/unpublishing-a-user-pages-site/
+  - /articles/how-do-i-unpublish-a-project-page
+  - /articles/unpublishing-a-project-page
+  - /articles/unpublishing-a-project-pages-site
+  - /articles/unpublishing-a-user-pages-site
   - /articles/unpublishing-a-github-pages-site
   - /github/working-with-github-pages/unpublishing-a-github-pages-site
 product: '{% data reusables.gated-features.pages %}'
@@ -19,6 +19,18 @@ topics:
   - Pages
 shortTitle: Dejar de publicar el sitio de las páginas
 ---
+
+{% ifversion pages-custom-workflow %}
+
+When you unpublish your site, the site will no longer be available. Any existing repository settings or content will not be affected.
+
+{% data reusables.repositories.navigate-to-repo %}
+1. Under **{% data variables.product.prodname_pages %}**, next to the **Your site is live at** message, click {% octicon "kebab-horizontal" aria-label="the horizontal kebab icon" %}.
+1. In the menu that appears, select **Unpublish site**.
+
+   ![Drop down menu to unpublish site](/assets/images/help/pages/unpublish-site.png)
+
+{% else %}
 
 ## Anular la publicación de un sitio de proyecto
 
@@ -35,3 +47,5 @@ shortTitle: Dejar de publicar el sitio de las páginas
 {% data reusables.repositories.navigate-to-repo %}
 2. Borra la rama que estás utilizando como fuente de publicación, o borra todo el repositorio. Para obtener más información, consulta "[Crear y eliminar ramas dentro de tu repositorio](/articles/creating-and-deleting-branches-within-your-repository#deleting-a-branch)" y "[Eliminar un repositorio](/articles/deleting-a-repository)".
 {% data reusables.pages.update_your_dns_settings %}
+
+{% endif %}

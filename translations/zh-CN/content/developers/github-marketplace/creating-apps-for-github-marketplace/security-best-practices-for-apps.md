@@ -2,7 +2,7 @@
 title: 应用程序的安全最佳实践
 intro: '准备在 {% data variables.product.prodname_marketplace %} 上分享安全应用程序的指南。'
 redirect_from:
-  - /apps/marketplace/getting-started/security-review-process/
+  - /apps/marketplace/getting-started/security-review-process
   - /marketplace/getting-started/security-review-process
   - /developers/github-marketplace/security-review-process-for-submitted-apps
   - /developers/github-marketplace/security-best-practices-for-apps
@@ -60,4 +60,4 @@ topics:
 
 您应该定期对生产基础架构进行漏洞扫描。 您应该对漏洞扫描的结果进行分类，并定义您同意修复漏洞的时间段。
 
-如果您还没有准备好设置完整的漏洞管理程序，最好先创建一个修补流程。 有关创建补丁管理策略的指南，请参阅这篇 TechRepublic 文章“[建立补丁管理策略](https://www.techrepublic.com/blog/it-security/establish-a-patch-management-policy-87756/)”。
+如果您还没有准备好设置完整的漏洞管理程序，最好先创建一个修补流程。 有关创建补丁管理策略的指南，请参阅这篇 TechRepublic 文章“[建立补丁管理策略](https://www.techrepublic.com/article/establish-a-patch-management-policy-87756/)”。

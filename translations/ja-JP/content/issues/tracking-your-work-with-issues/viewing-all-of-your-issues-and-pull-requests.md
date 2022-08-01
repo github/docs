@@ -25,4 +25,4 @@ Issue およびPull Requestダッシュボードは、すべてのページの�
 
 ## 参考リンク
 
-- {% ifversion fpt or ghes or ghae or ghec %}"[Viewing your subscriptions](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions#reviewing-repositories-that-youre-watching){% else %}"[Listing the repositories you're watching](/github/receiving-notifications-about-activity-on-github/listing-the-repositories-youre-watching){% endif %}"
+- 「[プランの表示](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions#reviewing-repositories-that-youre-watching)」

@@ -2,9 +2,9 @@
 title: 行終端を処理するようGitを設定する
 intro: diff における問題を回避するため、行終端を正しく処理できるよう Git を設定できます。
 redirect_from:
-  - /dealing-with-lineendings/
-  - /line-endings/
-  - /articles/dealing-with-line-endings/
+  - /dealing-with-lineendings
+  - /line-endings
+  - /articles/dealing-with-line-endings
   - /articles/configuring-git-to-handle-line-endings
   - /github/using-git/configuring-git-to-handle-line-endings
   - /github/getting-started-with-github/configuring-git-to-handle-line-endings

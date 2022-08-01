@@ -15,7 +15,7 @@ topics:
 shortTitle: Remover gerentes do aplicativo GitHub
 ---
 
-For more information about {% data variables.product.prodname_github_app %} manager permissions, see "[Roles in an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization#github-app-managers)."
+Para obter mais informações sobre as permissões do gerenciador de {% data variables.product.prodname_github_app %}, consulte "[Funções em uma organização](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization#github-app-managers)."
 
 ## Remover as permissões de gerente do {% data variables.product.prodname_github_app %} em toda a organização
 

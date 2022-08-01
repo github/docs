@@ -2,7 +2,7 @@
 title: 検索構文を理解する
 intro: '{% data variables.product.product_name %} の検索では、特定の数字や単語にマッチするクエリを作成できます。'
 redirect_from:
-  - /articles/search-syntax/
+  - /articles/search-syntax
   - /articles/understanding-the-search-syntax
   - /github/searching-for-information-on-github/understanding-the-search-syntax
   - /github/searching-for-information-on-github/getting-started-with-searching-on-github/understanding-the-search-syntax
@@ -61,7 +61,7 @@ shortTitle: Understand search syntax
 | クエリ                        | サンプル                                                                                                                                                                                                                                                                                                                                                                                       |
 | -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | <code><em>YYYY</em>-<em>MM</em>-<em>DD</em>T<em>HH</em>:<em>MM</em>:<em>SS</em>+<em>00</em>:<em>00</em></code> | **[cats created:2017-01-01T01:00:00+07:00..2017-03-01T15:30:15+07:00](https://github.com/search?utf8=%E2%9C%93&q=cats+created%3A2017-01-01T01%3A00%3A00%2B07%3A00..2017-03-01T15%3A30%3A15%2B07%3A00&type=Issues)** 2017 年 1 月 1 日午前 1 時（世界協定時`+7時間`）と 2017 年 3 月 1 日午後 3 時（世界協定時 `+7時間`）の間に作成された Issue にマッチします。 （世界協定時`+7時間`）と 2017 年 3 月 1 日午後 3 時 （世界協定時 `+7時間`）の間に作成された Issue にマッチします。 |
-| <code><em>YYYY</em>-<em>MM</em>-<em>DD</em>T<em>HH</em>:<em>MM</em>:<em>SS</em>Z</code> | **[cats created:2016-03-21T14:11:00Z..2016-04-07T20:45:00Z](https://github.com/search?utf8=%E2%9C%93&q=cats+created%3A2016-03-21T14%3A11%3A00Z..2016-04-07T20%3A45%3A00Z&type=Issues)** は、2016 年 3 月 21 日午後 2 時 11 分と 2016 年 4 月 7 日 8 時 45 分の間に作成された Issue にマッチします。                                                                                                                       |
+| <code><em>YYYY</em>-<em>MM</em>-<em>DD</em>T<em>HH</em>:<em>MM</em>:<em>SS</em>Z</code> | **[cats created:2016-03-21T14:11:00Z..2016-04-07T20:45:00Z](https://github.com/search?utf8=%E2%9C%93&q=cats+created%3A2016-03-21T14%3A11%3A00Z..2016-04-07T20%3A45%3A00Z&type=Issues)** matches issues created between March 21, 2016 at 2:11pm and April 7, 2016 at 8:45pm.                                                                                                               |
 
 ## 一定の検索結果の除外
 
@@ -73,9 +73,10 @@ shortTitle: Understand search syntax
 
 検索結果を絞り込む他の方法としては、一定のサブセットを除外することです。 `-` のプリフィックスを修飾子に付けることで、その修飾子にマッチする全ての結果を除外できます。
 
-| クエリ                        | サンプル                                                                                                                                                                                                                    |
-| -------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <code>-<em>QUALIFIER</em></code> | **[mentions:defunkt -org:github](https://github.com/search?utf8=%E2%9C%93&q=mentions%3Adefunkt+-org%3Agithub&type=Issues)** matches issues mentioning @defunkt that are not in repositories in the GitHub organization. |
+| クエリ                        | サンプル                                                                                                                                                                                                                                            |
+| -------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <code>-<em>QUALIFIER</em></code> | **[`cats stars:>10 -language:javascript`](https://github.com/search?q=cats+stars%3A>10+-language%3Ajavascript&type=Repositories)** matches repositories with the word "cats" that have more than 10 stars but are not written in JavaScript. |
+|                            | **[`mentions:defunkt -org:github`](https://github.com/search?utf8=%E2%9C%93&q=mentions%3Adefunkt+-org%3Agithub&type=Issues)** matches issues mentioning @defunkt that are not in repositories in the GitHub organization                        |
 
 ## 空白のあるクエリに引用符を使う
 
@@ -86,7 +87,6 @@ shortTitle: Understand search syntax
 
 スペースなど、いくつかの英数字以外の記号は、引用符で囲ったコード検索クエリから省かれるので、結果が予想外のものになる場合があります。
 
-{% ifversion fpt or ghes or ghae or ghec %}
 ## ユーザ名によるクエリ
 
 検索クエリに、`user`、`actor`、`assignee`などユーザ名を必要とする修飾子が含まれる場合は、任意の {% data variables.product.product_name %} ユーザ名を使用して特定の個人を指定するか、`@me`を使用して現在のユーザを指定することができます。
@@ -97,4 +97,3 @@ shortTitle: Understand search syntax
 | `QUALIFIER:@me`      | [`is:issue assignee:@me`](https://github.com/search?q=is%3Aissue+assignee%3A%40me&type=Issues) は、結果を表示している個人に割り当てられた Issue に一致します。 |
 
 `@me` は必ず修飾子とともに使用し、`@me main.workflow` のように検索用語としては使用できません。
-{% endif %}

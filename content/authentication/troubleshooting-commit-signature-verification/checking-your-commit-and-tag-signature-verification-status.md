@@ -2,7 +2,7 @@
 title: Checking your commit and tag signature verification status
 intro: 'You can check the verification status of your commit and tag signatures on {% data variables.product.product_name %}.'
 redirect_from:
-  - /articles/checking-your-gpg-commit-and-tag-signature-verification-status/
+  - /articles/checking-your-gpg-commit-and-tag-signature-verification-status
   - /articles/checking-your-commit-and-tag-signature-verification-status
   - /github/authenticating-to-github/checking-your-commit-and-tag-signature-verification-status
   - /github/authenticating-to-github/troubleshooting-commit-signature-verification/checking-your-commit-and-tag-signature-verification-status

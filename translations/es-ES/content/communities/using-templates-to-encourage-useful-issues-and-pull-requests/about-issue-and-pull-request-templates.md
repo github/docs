@@ -18,7 +18,7 @@ Una vez que creas las plantillas de propuestas y solicitudes de extracción en t
 
 {% ifversion fpt or ghes or ghec %}
 
-Puedes crear plantillas predeterminadas de propuestas y solicitudes de cambios para tu cuenta de organización o de usuario. Para obtener más información, consulta "[Crear un archivo de salud predeterminado para la comunidad](/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)."
+Puedes crear plantillas de solicitudes de cambios y propuestas predeterminadas para tu cuenta de organización o personal. Para obtener más información, consulta "[Crear un archivo de salud predeterminado para la comunidad](/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)."
 
 {% endif %}
 
@@ -36,9 +36,7 @@ Al usar el creador de plantillas, puedes especificar un título y una descripci�
 Con los formatos de propuesta, puedes crear plantillas que tengan campos de formatos web utilizando el modelado de formatos de {% data variables.product.prodname_dotcom %}. Cuando un contribuyente abre una propuesta utilizando un formato de propuesta, las entradas de este formato se convierten en un comentario de propuesta con lenguaje de marcado estándar. Puedes especificar varios tipos diferentes de entradas y configurarlas como se requieran para ayudar a que los contribuyentes abran las propuestas accionables en tu repositorio. Para obtener más información, consulta las secciones "[Configurar plantillas de propuestas en tu repositorio](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/configuring-issue-templates-for-your-repository#creating-issue-forms)" y "[Sintaxis para emitir formatos](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-issue-forms)".
 {% endif %}
 
-{% ifversion fpt or ghae or ghes or ghec %}
 {% data reusables.repositories.issue-template-config %} Para obtener más información, consulta "[Configurar plantillas de propuestas para tu repositorio](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/configuring-issue-templates-for-your-repository#configuring-the-template-chooser)".
-{% endif %}
 
 Las plantillas de propuestas se almacenan en la rama por defecto del repositorio, en un directorio oculto `.github/ISSUE_TEMPLATE`. Si creas una plantilla en otra rama, no estará disponible para que la usen los colaboradores. Los nombres de archivo de las plantillas de propuestas no distinguen entre mayúsculas y minúsculas y necesitan tener una extensión *.md*.{% ifversion fpt or ghec %}Las plantillas de propuestas que se crearon con formatos de propuesta necesitan una extensión *.yml*.{% endif %}{% data reusables.repositories.valid-community-issues %}
 

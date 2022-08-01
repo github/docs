@@ -2,8 +2,8 @@
 title: コマンドラインのユーティリティ
 intro: '{% data variables.product.prodname_ghe_server %} には、特定の問題を解決したり特定のタスクを実行するのに役立つさまざまなユーティリティが搭載されています。'
 redirect_from:
-  - /enterprise/admin/articles/viewing-all-services/
-  - /enterprise/admin/articles/command-line-utilities/
+  - /enterprise/admin/articles/viewing-all-services
+  - /enterprise/admin/articles/command-line-utilities
   - /enterprise/admin/installation/command-line-utilities
   - /enterprise/admin/configuration/command-line-utilities
   - /admin/configuration/command-line-utilities
@@ -16,17 +16,13 @@ topics:
   - SSH
 ---
 
-SSH 管理ユーザとしてサインインした後では、VM 上のどこからでもこれらのコマンドを実行できます。 詳しくは、"[管理シェル（SSH）へのアクセス方法](/enterprise/{{ currentVersion }}/admin/guides/installation/accessing-the-administrative-shell-ssh/)を参照してください。"
+SSH 管理ユーザとしてサインインした後では、VM 上のどこからでもこれらのコマンドを実行できます。 詳しくは、"[管理シェル（SSH）へのアクセス方法](/enterprise/admin/guides/installation/accessing-the-administrative-shell-ssh/)を参照してください。"
 
 ## 一般的
 
 ### ghe-announce
 
 このユーティリティは、あらゆる {% data variables.product.prodname_enterprise %} ページの上部にバナーを設定します。 これを使用すればユーザにメッセージを配信することができます。
-
-{% ifversion ghes %}
-{% data variables.product.product_name %} の Enterprise 設定を使用して、お知らせバナーを設定することもできます。 詳しい情報については「[インスタンス上でのユーザメッセージをカスタマイズする](/enterprise/admin/user-management/customizing-user-messages-on-your-instance#creating-a-global-announcement-banner)」を参照してください。
-{% endif %}
 
 ```shell
 # 皆に見えるメッセージを設定する
@@ -37,7 +33,23 @@ $ ghe-announce -u
 > Removed the announcement message
 ```
 
-{% ifversion ghes > 3.1 %}
+{% ifversion ghe-announce-dismiss %}
+To allow each user to dismiss the announcement for themselves, use the `-d` flag.
+```shell
+# Sets a user-dismissible message that's visible to everyone
+$ ghe-announce -d -s MESSAGE
+> Announcement message set.
+# Removes a previously set message
+$ ghe-announce -u
+> Removed the announcement message, which was user dismissible: MESSAGE
+```
+{% endif %}
+
+{% ifversion ghes %}
+{% data variables.product.product_name %} の Enterprise 設定を使用して、お知らせバナーを設定することもできます。 詳しい情報については「[インスタンス上でのユーザメッセージをカスタマイズする](/enterprise/admin/user-management/customizing-user-messages-on-your-instance#creating-a-global-announcement-banner)」を参照してください。
+{% endif %}
+
+{% ifversion ghes %}
 <!--For earlier releases of GHES, see the previous service `ghe-resque-info`-->
 
 ### ghe-aqueduct
@@ -115,7 +127,7 @@ $ ghe-config -l
 ```
 
 {% ifversion ghes %}
-API レート制限からユーザのリストを除外できます。 詳しい情報については、「[REST API のリソース](/rest/overview/resources-in-the-rest-api#rate-limiting)」を参照してください。
+Allows you to exempt a list of users from REST API rate limits. A hard limit of 120,000 requests will still apply to these users. 詳しい情報については、「[REST API のリソース](/rest/overview/resources-in-the-rest-api#rate-limiting)」を参照してください。
 
 ``` shell
 $ ghe-config app.github.rate-limiting-exempt-users "<em>hubot</em> <em>github-actions</em>"
@@ -125,7 +137,7 @@ $ ghe-config app.github.rate-limiting-exempt-users "<em>hubot</em> <em>github-ac
 
 ### ghe-config-apply
 
-このユーティリティは、{% data variables.enterprise.management_console %} の設定の適用や、システムサービスのリロード、アプリケーションサービスのリロード、保留中のデータベースマイグレーションを行います。 これは、{% data variables.enterprise.management_console %} の Web UIで [**Save settings**] をクリックすること、または [`/setup/api/configure` エンドポイント](/enterprise/{{ currentVersion }}/user/rest/reference/enterprise-admin#management-console)に POST リクエストを送信するのと同様です。
+このユーティリティは、{% data variables.enterprise.management_console %} の設定の適用や、システムサービスのリロード、アプリケーションサービスのリロード、保留中のデータベースマイグレーションを行います。 これは、{% data variables.enterprise.management_console %} の Web UIで [**Save settings**] をクリックすること、または [`/setup/api/configure` エンドポイント](/enterprise/user/rest/reference/enterprise-admin#management-console)に POST リクエストを送信するのと同様です。
 
 手動で実行することはないと思いますが、設定を保存する過程をSSH 経由で自動化したい場合に利用できます。
 
@@ -193,7 +205,7 @@ $ ghe-es-index-status -do | column -ts,
 
 ### ghe-legacy-github-services-report
 
-このユーティリティは、2018 年 10 月 1 日に廃止予定の統合方式である {% data variables.product.prodname_dotcom %} サービスを使用しているアプライアンス上のリポジトリを一覧表示します。 アプライアンス上のユーザーは、特定のリポジトリへのプッシュに対する通知を作成するために、{% data variables.product.prodname_dotcom %} サービスを設定している場合があります。 詳しい情報については、{% data variables.product.prodname_blog %} で「[{% data variables.product.prodname_dotcom %} サービスの非推奨をアナウンスする](https://developer.github.com/changes/2018-04-25-github-services-deprecation/)」、または「[{% data variables.product.prodname_dotcom %} サービスを置き換える](/developers/overview/replacing-github-services)」を参照してください。 このコマンドの詳細や追加のオプションについては、`-h` フラグを使用してください。
+このユーティリティは、2018 年 10 月 1 日に廃止予定の統合方式である {% data variables.product.prodname_dotcom %} サービスを使用しているアプライアンス上のリポジトリを一覧表示します。 アプライアンス上のユーザーは、特定のリポジトリへのプッシュに対する通知を作成するために、{% data variables.product.prodname_dotcom %} サービスを設定している場合があります。 For more information, see "[Announcing the deprecation of {% data variables.product.prodname_dotcom %} Services](https://developer.github.com/changes/2018-04-25-github-services-deprecation/)" on {% data variables.product.prodname_blog %} or "[Replacing {% data variables.product.prodname_dotcom %} Services](/developers/overview/replacing-github-services)." このコマンドの詳細や追加のオプションについては、`-h` フラグを使用してください。
 
 ```shell
 ghe-legacy-github-services-report
@@ -210,7 +222,7 @@ ghe-logs-tail
 
 ### ghe-maintenance
 
-このユーティリティにより、インストールのメンテナンスモードの状態を制御できます。 これは主に舞台裏で {% data variables.enterprise.management_console %} によって使用されるように設計されていますが、直接使用することもできます。
+このユーティリティにより、インストールのメンテナンスモードの状態を制御できます。 これは主に舞台裏で {% data variables.enterprise.management_console %} によって使用されるように設計されていますが、直接使用することもできます。 詳しい情報については"[メンテナンスモードの有効化とスケジューリング](/admin/guides/installation/enabling-and-scheduling-maintenance-mode)"を参照してください。
 
 ```shell
 ghe-maintenance -h
@@ -277,33 +289,6 @@ ghe-org-admin-promote -a
 $ ghe-reactivate-admin-login
 ```
 
-{% ifversion ghes < 3.2 %}
-<!--For more recent releases of GHES, see the replacement service `ghe-aqueduct`-->
-
-### ghe-resque-info
-
-このユーティリティは、アクティブでありかつキュー内にある、バックグラウンドジョブに関する情報を表示します。 あらゆるページの上部には、管理統計バーと同じジョブ数が表示されます。
-
-このユーティリティは、Resque サーバーでバックグラウンドジョブの処理に問題があるかどうかを識別するのに役立ちます。 以下のどのシナリオも Resque の問題を示している可能性があります。
-
-* 背景のジョブの数が増えていますが、実行中のジョブの数は同じままです。
-* イベントフィードが更新されない。
-* webhook はトリガーされていません。
-* Git プッシュ後、ウェブインタフェースが更新されない。
-
-Resque の故障を懸念している場合は、{% data variables.contact.contact_ent_support %} に連絡してください。
-
-このコマンドでは、キューでのジョブ停止または再開をすることができます。
-
-```shell
-$ ghe-resque-info
-# キューと現在キューに入っているジョブの数を表示する
-$ ghe-resque-info -p <em>QUEUE</em>
-# 特定のキューを停止する
-$ ghe-resque-info -r <em>QUEUE</em>
-# 特定のキューを再開する
-```
-{% endif %}
 
 ### ghe-saml-mapping-csv
 
@@ -353,11 +338,23 @@ stop/waiting
 
 ### ghe-set-password
 
-`ghe-set-password` では、[{% data variables.enterprise.management_console %}](/enterprise/{{ currentVersion }}/admin/guides/installation/accessing-the-management-console) に認証するための新しいパスワードを設定することができます。
+With `ghe-set-password`, you can set a new password to authenticate into the [{% data variables.enterprise.management_console %}](/enterprise/admin/guides/installation/accessing-the-management-console).
 
 ```shell
 ghe-set-password <新しいパスワード>
 ```
+
+### ghe-setup-network
+
+This utility allows you to configure the primary network interface.
+
+To enter visual mode, which will guide you through configuration of network settings:
+
+```shell
+$ ghe-setup-network -v
+```
+
+追加オプションを確認するには -h フラグを使用してください。
 
 ### ghe-ssh-check-host-keys
 
@@ -394,7 +391,7 @@ SSH のホストキーを廃棄しますか？ /etc/ssh/ssh_host_* にある既�
 
 ### ghe-ssh-weak-fingerprints
 
-このユーティリティは、{% data variables.product.prodname_enterprise %} のアプライアンスに保存されている脆弱なSSHキーの報告を作成します。 ユーザのキーを一括アクションとして取り消すことができます。 このユーティリティは、脆弱なシステムキーについて報告します。取り消しは、[{% data variables.enterprise.management_console %}](/enterprise/{{ currentVersion }}/admin/guides/installation/accessing-the-management-console) で手動的に行う必要があります。
+このユーティリティは、{% data variables.product.prodname_enterprise %} のアプライアンスに保存されている脆弱なSSHキーの報告を作成します。 ユーザのキーを一括アクションとして取り消すことができます。 The utility will report weak system keys, which you must manually revoke in the [{% data variables.enterprise.management_console %}](/enterprise/admin/guides/installation/accessing-the-management-console).
 
 ```shell
 # ユーザのシステムの脆弱なキーの報告を表示
@@ -406,7 +403,7 @@ $ ghe-ssh-weak-fingerprints --revoke
 
 ### ghe-ssl-acme
 
-このユーティリティでは、 {% data variables.product.prodname_enterprise %} のアプライアンスに Let's Encrypt の証明書をインストールすることができます。 詳しくは、"[TLS の設定方法](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-tls)。" を参照してください。
+このユーティリティでは、 {% data variables.product.prodname_enterprise %} のアプライアンスに Let's Encrypt の証明書をインストールすることができます。 For more information, see "[Configuring TLS](/enterprise/admin/guides/installation/configuring-tls)."
 
 `-x`フラグを使って、ACME設定を削除できます。
 
@@ -418,9 +415,9 @@ ghe-ssl-acme -e
 
 このユーティリティでは、{% data variables.product.prodname_enterprise %} のサーバにカスタムルートのCA証明書をインストールできます。 証明書は PEM 形式でなければなりません。 さらに、証明書の提供者が1つのファイルに複数のCA証明書を含めている場合は、それらを個別のファイルに分けて `ghe-ssl-ca-certificate-install` に各々を渡す必要があります。
 
-S/MIME コミット署名の検証のために証明書チェーンを追加するには、このユーティリティを実行します。 詳細は「[コミット署名の検証について](/enterprise/{{ currentVersion }}/user/articles/about-commit-signature-verification/)」を参照してください。
+S/MIME コミット署名の検証のために証明書チェーンを追加するには、このユーティリティを実行します。 For more information, see "[About commit signature verification](/enterprise/user/articles/about-commit-signature-verification/)."
 
-他のサーバが自己署名証明書または必要な CA バンドルがついていない SSL 証明書を使っているため {% data variables.product.product_location %} がそのサーバに接続できない場合、このユーティリティを使ってください。 これを確認する方法は、{% data variables.product.product_location %} から`openssl s_client -connect host:port -verify 0 -CApath /etc/ssl/certs` を実行することです。 リモートサーバの SSL 証明書を確認できたら、`SSL-Session` が次のように0の終了コードを表示します。
+Run this utility when {% data variables.product.product_location %} is unable to connect to another server because the latter is using a self-signed SSL certificate or an SSL certificate for which it doesn't provide the necessary CA bundle. One way to confirm this is to run `openssl s_client -connect host:port -verify 0 -CApath /etc/ssl/certs` from {% data variables.product.product_location %}. リモートサーバの SSL 証明書を確認できたら、`SSL-Session` が次のように0の終了コードを表示します。
 
 ```
 SSL-Session:
@@ -435,7 +432,7 @@ SSL-Session:
     Verify return code: 0 (ok)
 ```
 
-リモートサーバの SSL 証明書を確認*できない*場合は、`SSL-Session` が0ではない終了コードを表示します。
+If, on the other hand, the remote server's SSL certificate can *not* be verified, your `SSL-Session` should have a nonzero return code:
 
 ```
 SSL-Session:
@@ -458,9 +455,19 @@ SSL-Session:
 ghe-ssl-ca-certificate-install -c <em>/path/to/certificate</em>
 ```
 
+### ghe-ssl-certificate-setup
+
+This utility allows you to update an SSL certificate for {% data variables.product.product_location %}.
+
+このコマンドの詳細や追加のオプションについては、`-h` フラグを使用してください。
+
+```shell
+ghe-ssl-certificate-setup
+```
+
 ### ghe-ssl-generate-csr
 
-このユーティリティにより、秘密鍵と証明書署名要求 (CSR) を生成できます。これらを商用またはプライベートの認証局と共有することで、インスタンスで使用する有効な証明書を取得できます。 詳しくは、"[TLS の設定方法](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-tls)。" を参照してください。
+このユーティリティにより、秘密鍵と証明書署名要求 (CSR) を生成できます。これらを商用またはプライベートの認証局と共有することで、インスタンスで使用する有効な証明書を取得できます。 For more information, see "[Configuring TLS](/enterprise/admin/guides/installation/configuring-tls)."
 
 このコマンドの詳細や追加のオプションについては、`-h` フラグを使用してください。
 
@@ -478,7 +485,7 @@ $ ghe-storage-extend
 
 ### ghe-version
 
-このユーティリティは、{% data variables.product.product_location %} のバージョンやプラットフォーム、ビルドを表示します。
+This utility prints the version, platform, and build of {% data variables.product.product_location %}.
 
 ```shell
 $ ghe-version
@@ -626,7 +633,7 @@ ghe-btop [ <port number> | --help | --usage ]
 
 #### ghe-governor
 
-This utility helps to analyze Git traffic. It queries _Governor_ data files, located under `/data/user/gitmon`. {% data variables.product.company_short %} holds one hour of data per file, retained for two weeks. For more information, see [Analyzing Git traffic using Governor](https://github.community/t/analyzing-git-traffic-using-governor/13516) in {% data variables.product.prodname_gcf %}.
+This utility helps to analyze Git traffic. It queries _Governor_ data files, located under `/data/user/gitmon`. {% data variables.product.company_short %} holds one hour of data per file, retained for two weeks. For more information, see [Analyzing Git traffic using Governor](https://github.community/t/analyzing-git-traffic-using-governor/13516) in {% data variables.product.prodname_github_community %}.
 
 ```bash
 ghe-governor <subcommand> <column> [options]
@@ -663,8 +670,40 @@ ghe-repo <em>ユーザ名</em>/<em>reponame</em>
 
 任意の`--prune` の引数を付けて、ブランチやタグ、refに参照されていない、届かないGitオブジェクトを除くことができます。 これは、[以前抹消した機密情報](/enterprise/user/articles/remove-sensitive-data/) を直ちに削除するのに役立ちます。
 
+{% warning %}
+
+**Warning**: Before using the `--prune` argument to remove unreachable Git objects, put {% data variables.product.product_location %} into maintenance mode, or ensure the repository is offline. 詳しい情報については"[メンテナンスモードの有効化とスケジューリング](/admin/configuration/configuring-your-enterprise/enabling-and-scheduling-maintenance-mode)"を参照してください。
+
+{% endwarning %}
+
 ```shell
 ghe-repo-gc <em>ユーザ名</em>/<em>reponame</em>
+```
+
+## {% data variables.product.prodname_actions %}
+
+### ghe-actions-check
+
+This utility checks that all services for {% data variables.product.prodname_actions %} are healthy. For more information, see  "[Getting started with {% data variables.product.prodname_actions %} for {% data variables.product.product_name %}](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server)" and "[Troubleshooting {% data variables.product.prodname_actions %} for your enterprise](/admin/github-actions/advanced-configuration-and-troubleshooting/troubleshooting-github-actions-for-your-enterprise)."
+
+```shell
+ghe-actions-check
+```
+
+### ghe-actions-precheck
+
+This utility tests the blob storage configuration for {% data variables.product.prodname_actions %} on {% data variables.product.product_location %}. You can use the utility to verify your storage configuration before you enable {% data variables.product.prodname_actions %} for your instance.
+
+For more information about the configuration of {% data variables.product.prodname_actions %}, see "[Getting started with {% data variables.product.prodname_actions %} for {% data variables.product.product_name %}](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server)."
+
+```shell
+ghe-actions-precheck -p [<em>provider</em>] -cs ["<em>connectionstring</em>"]
+```
+
+If your storage system is configured correctly, you'll see the following output.
+
+```
+All Storage tests passed
 ```
 
 ## インポートとエクスポート
@@ -673,7 +712,7 @@ ghe-repo-gc <em>ユーザ名</em>/<em>reponame</em>
 
 `ghe-migrator` は、他のGitHubインスタンスに移行するためのハイファイツールです。 インスタンスを統合、もしくは Organization やユーザ、Team、リポジトリをGitHub.comから {% data variables.product.prodname_enterprise %} に移行することができます。
 
-詳しくは、[ユーザやOrganization、リポジトリデータの移行](/enterprise/admin/guides/migrations/)の説明書を参照してください。
+For more information, please see our guides on [migrating data to and from your enterprise](/enterprise/admin/user-management/migrating-data-to-and-from-your-enterprise/).
 
 ### git-import-detect
 
@@ -709,6 +748,20 @@ git-import-tfs-raw
 ```shell
 git-import-rewrite
 ```
+
+{% ifversion ghes > 3.3 %}
+
+## セキュリティ
+
+### ghe-find-insecure-git-operations
+
+This utility searches your instance's logs and identifies Git operations over SSH that use insecure algorithms or hash functions, including DSA, RSA-SHA-1, HMAC-SHA-1, and CBC ciphers. You can use the output to support each client's transition to a more secure SSH connection. For more information, see [{% data variables.product.prodname_blog %}](https://github.blog/2022-06-28-improving-git-protocol-security-on-github-enterprise-server){% ifversion ghes < 3.6 %}.{% elsif ghes > 3.5 %} and "[Configuring SSH connections to your instance](/admin/configuration/configuring-your-enterprise/configuring-ssh-connections-to-your-instance)."{% endif %}
+
+```shell
+ghe-find-insecure-git-operations
+```
+
+{% endif %}
 
 ## サポート
 
@@ -770,7 +823,7 @@ ghe-support-upload -f <em>path/to/your/file</em> -t <em>ticket-id</em>
 
 ### ghe-upgrade
 
-このユーティリティは、アップグレードパッケージをインストール、または確認します。 アップグレードが失敗した場合や中断された場合は、このユーティリティを使用してパッチリリースをロールバックすることもできます。 詳細は「[{% data variables.product.prodname_ghe_server %} をアップグレードする](/enterprise/{{ currentVersion }}/admin/guides/installation/upgrading-github-enterprise-server/)」を参照してください。
+このユーティリティは、アップグレードパッケージをインストール、または確認します。 アップグレードが失敗した場合や中断された場合は、このユーティリティを使用してパッチリリースをロールバックすることもできます。 詳細は「[{% data variables.product.prodname_ghe_server %} をアップグレードする](/enterprise/admin/guides/installation/upgrading-github-enterprise-server/)」を参照してください。
 
 アップグレードパッケージを確認するには以下のようにします。
 ```shell
@@ -830,13 +883,13 @@ ghe-license-usage
 
 ### ghe-org-membership-update
 
-このユーティリティは、インスタンスでメンバー全員に対して、デフォルトの Organization メンバーシップの可視性の設定を必須化します。 詳しい情報については、「[Organization メンバーの可視性の設定](/enterprise/{{ currentVersion }}/admin/guides/user-management/configuring-visibility-for-organization-membership)」を参照してください。 設定可能なオプションは、`public` または `private` です。
+このユーティリティは、インスタンスでメンバー全員に対して、デフォルトの Organization メンバーシップの可視性の設定を必須化します。 For more information, see "[Configuring visibility for organization membership](/enterprise/admin/guides/user-management/configuring-visibility-for-organization-membership)." 設定可能なオプションは、`public` または `private` です。
 
 ```shell
 ghe-org-membership-update --visibility=<em>SETTING</em>
 ```
 
-### ghe-user-csv
+### `ghe-user-csv`
 
 このユーティリティは、インストール内のすべてのユーザのリストを CSV 形式でエクスポートします。 CSV ファイルにはメールアドレスやユーザの種類 (例えば、アドミンやユーザなど) や所有しているリポジトリの数、所有している SSH キーの数、Organization のメンバーの数、最後にログインしたときの IP アドレスなどが含まれています。 その他のオプションを利用するには、`-h` のフラグを使ってください。
 

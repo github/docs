@@ -2,9 +2,9 @@
 title: カスタムドメインとGitHub Pagesについて
 intro: '{% data variables.product.prodname_pages %} では、カスタムドメインを使用する、つまりサイトの URL を ''octocat.github.io'' などのデフォルトからあなたが所有するドメインに変更することができます。'
 redirect_from:
-  - /articles/about-custom-domains-for-github-pages-sites/
-  - /articles/about-supported-custom-domains/
-  - /articles/custom-domain-redirects-for-your-github-pages-site/
+  - /articles/about-custom-domains-for-github-pages-sites
+  - /articles/about-supported-custom-domains
+  - /articles/custom-domain-redirects-for-your-github-pages-site
   - /articles/about-custom-domains-and-github-pages
   - /github/working-with-github-pages/about-custom-domains-and-github-pages
 product: '{% data reusables.gated-features.pages %}'
@@ -28,7 +28,7 @@ shortTitle: GitHub Pagesにおけるカスタムドメイン
 
 サイトには、Apex及び`www`サブドメインのいずれか、あるいは両方の設定をセットアップできます。 Apexドメインに関する詳しい情報については「[{% data variables.product.prodname_pages %}サイトでのApexドメインの利用](#using-an-apex-domain-for-your-github-pages-site)」を参照してください。
 
-Apex ドメインを使用している場合でも、`www` サブドメインを使用することをおすすめします。 Apexドメインで新しいサイトを作成する場合、サイトのコンテンツを提供する際に`www`サブドメインも利用できるように保護が自動的に試みられます。 `www`サブドメインを設定すれば、関連するApexドメインの保護が自動的に試みられます。 詳しい情報については、「[{% data variables.product.prodname_pages %} サイト用のカスタムドメインを管理する](/articles/managing-a-custom-domain-for-your-github-pages-site)」を参照してください。
+Apex ドメインを使用している場合でも、`www` サブドメインを使用することをおすすめします。 Apexドメインで新しいサイトを作成すると、`www`サブドメインはサイトのコンテンツを提供する際に使用するために保護が自動的に試みられますが、`www`サブドメインを使うためのDNSの変更はユーザが行わなければなりません。 `www`サブドメインを設定すれば、関連するApexドメインの保護が自動的に試みられます。 詳しい情報については、「[{% data variables.product.prodname_pages %} サイト用のカスタムドメインを管理する](/articles/managing-a-custom-domain-for-your-github-pages-site)」を参照してください。
 
 ユーザまたは Organization サイトのカスタムドメインを設定すると、カスタムドメインを設定していないアカウントが所有するプロジェクトサイトの URL で、`<user>.github.io` または `<organization>.github.io` の部分がカスタムドメインによって置き換えられます。 たとえば、サイトのカスタムドメインが `www.octocat.com` で、`octo-project` というリポジトリから公開されているプロジェクトサイトにまだカスタムドメインを設定していない場合、そのリポジトリの {% data variables.product.prodname_pages %} サイトは、`www.octocat.com/octo-project` で公開されます。
 
@@ -56,9 +56,9 @@ Apex ドメインは、DNS プロバイダを通じて、`A`、`ALIAS`、`ANAME`
 
 {% data reusables.pages.www-and-apex-domain-recommendation %} 詳しい情報については、「[{% data variables.product.prodname_pages %} サイト用のカスタムドメインを管理する](/github/working-with-github-pages/managing-a-custom-domain-for-your-github-pages-site/#configuring-a-subdomain)」を参照してください。
 
-## Securing the custom domain for your {% data variables.product.prodname_pages %} site
+## {% data variables.product.prodname_pages %}サイトのためのカスタムドメインの保護
 
-{% data reusables.pages.secure-your-domain %} For more information, see "[Verifying your custom domain for {% data variables.product.prodname_pages %}](/pages/configuring-a-custom-domain-for-your-github-pages-site/verifying-your-custom-domain-for-github-pages)" and "[Managing a custom domain for your {% data variables.product.prodname_pages %} site](/articles/managing-a-custom-domain-for-your-github-pages-site)."
+{% data reusables.pages.secure-your-domain %} 詳しい情報については「[{% data variables.product.prodname_pages %}のカスタムドメインの検証](/pages/configuring-a-custom-domain-for-your-github-pages-site/verifying-your-custom-domain-for-github-pages)」及び「[{% data variables.product.prodname_pages %}サイトのためのカスタムドメインの管理](/articles/managing-a-custom-domain-for-your-github-pages-site)」を参照してください。
 
 サイトが自動的に無効化される理由は、いくつかあります。
 

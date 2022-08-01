@@ -21,7 +21,7 @@ shortTitle: 添加行为准则
 
 您可以使用模板向项目添加行为准则，或手动创建自定义行为准则。 您的行为守则可以通过以下任何方式获得，但如果您使用模板，“行为准则”只在您仓库的社区配置文件中标记为完成。 如果您使用由他人或组织编写的行为准则，必须遵守来源方的任何归属指导原则。 有关社区配置文件的信息，请参阅“[关于公共仓库的社区配置文件](//communities/setting-up-your-project-for-healthy-contributions/about-community-profiles-for-public-repositories)”。
 
-您可以为组织或用户帐户创建默认的行为准则。 更多信息请参阅“[创建默认社区健康文件](/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)”。
+您可以为组织或个人帐户创建默认的行为准则。 更多信息请参阅“[创建默认社区健康文件](/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)”。
 
 ## 使用模板添加行为准则
 

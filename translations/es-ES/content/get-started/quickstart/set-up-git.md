@@ -1,14 +1,14 @@
 ---
 title: Configurar Git
 redirect_from:
-  - /git-installation-redirect/
-  - /linux-git-installation/
-  - /linux-set-up-git/
-  - /mac-git-installation/
-  - /mac-set-up-git/
-  - /set-up-git-redirect/
-  - /win-git-installation/
-  - /win-set-up-git/
+  - /git-installation-redirect
+  - /linux-git-installation
+  - /linux-set-up-git
+  - /mac-git-installation
+  - /mac-set-up-git
+  - /set-up-git-redirect
+  - /win-git-installation
+  - /win-set-up-git
   - /articles/set-up-git
   - /github/getting-started-with-github/set-up-git
   - /github/getting-started-with-github/quickstart/set-up-git
@@ -27,11 +27,11 @@ topics:
 
 ## Utilizar GitHub
 
-Para usar Git en la línea de comando, deberás descargar, instalar y configurar Git en tu computadora. También puedes instalar el {% data variables.product.prodname_cli %} para utilizar {% data variables.product.prodname_dotcom %} desde la línea de comandos. Para obtener más información, consulta la sección "[Acerca de {% data variables.product.prodname_cli %}](/github-cli/github-cli/about-github-cli)".
+Para utilizar Git en la línea de comandos, necesitarás descargar, instalar y configurar Git en tu computadora. También puedes instalar el {% data variables.product.prodname_cli %} para utilizar {% data variables.product.prodname_dotcom %} desde la línea de comandos. Para obtener más información, consulta la sección "[Acerca de {% data variables.product.prodname_cli %}](/github-cli/github-cli/about-github-cli)".
 
-Si deseas trabajar con Git de forma local, pero no deseas utilizar la línea de comando, puedes descargar e instalar en su lugar el cliente [{% data variables.product.prodname_desktop %}]({% data variables.product.desktop_link %}).  Para obtener más información, consulta la sección "[Instalar y configurar {% data variables.product.prodname_desktop %}](/desktop/installing-and-configuring-github-desktop/)".
+Si quieres trabajar con Git de forma local, pero no quieres utilizar la línea de comandos, puedes descargar e instalar el cliente de [{% data variables.product.prodname_desktop %}]({% data variables.product.desktop_link %}) en su lugar.  Para obtener más información, consulta la sección "[Instalar y configurar {% data variables.product.prodname_desktop %}](/desktop/installing-and-configuring-github-desktop/)".
 
-Si no deseas trabajar con archivos de forma local, {% data variables.product.product_name %} te permite realizar muchas acciones relacionadas con Git de forma directa en el navegador, lo que incluye:
+Si no necesitas trabajar localmente con los archivos, {% data variables.product.product_name %} te permite completar muchas acciones relacionadas con Git directamente en el buscador, incluyendo:
 
 - [Crear un repositorio](/articles/create-a-repo)
 - [Bifurcar un repositorio](/articles/fork-a-repo)
@@ -41,12 +41,22 @@ Si no deseas trabajar con archivos de forma local, {% data variables.product.pro
 ## Configurar Git
 
 1. [Descarga e instala la última versión de Git](https://git-scm.com/downloads).
+
+{% note %}
+
+**Nota**: Si estás utilizando un dispositivo con Chrome OS, necesitarás realizar configuraciones adicionales:
+
+2. Instala un emulador de terminal como Termux desde la Google Play Store en tu dispositivo Chrome OS.
+3. Instala Git desde el emulador de terminal que instalaste. Por ejemplo, ingresa `apt install git` en Termux y teclea `y` cuando se te indique.
+
+{% endnote %}
+
 2. [Configura tu nombre de usuario en Git](/github/getting-started-with-github/setting-your-username-in-git).
 3. [Configura tu dirección de correo electrónico de confirmación en Git](/articles/setting-your-commit-email-address).
 
-## Pasos siguientes: Autenticación con {% data variables.product.prodname_dotcom %} desde Git
+## Autenticarte con {% data variables.product.prodname_dotcom %} desde Git
 
-Cuando te conectas a un repositorio {% data variables.product.prodname_dotcom %} desde Git, deberás autenticarte con {% data variables.product.product_name %} utilizando HTTPS o SSH.
+Cuando te conectes a un repositorio de {% data variables.product.prodname_dotcom %} desde Git, necesitarás autenticarte con {% data variables.product.product_name %} utilizando ya sea HTTPS o SSH.
 
 {% note %}
 
@@ -56,18 +66,21 @@ Cuando te conectas a un repositorio {% data variables.product.prodname_dotcom %}
 
 ### Conectar por HTTPS (recomendado)
 
-Si [clonas con HTTPS](/github/getting-started-with-github/about-remote-repositories/#cloning-with-https-urls), puedes [almacenar tus credenciales de {% data variables.product.prodname_dotcom %} en el caché dentro de Git](/github/getting-started-with-github/caching-your-github-credentials-in-git) utilizando un asistente de credenciales.
+Si clonas con HTTPS, puedes guardar tus credenciales de {% data variables.product.prodname_dotcom %} en el caché en Git utilizando un ayudante para credenciales. Para obtener más información, consulta las secciones "[Clonar con URL de HTTPS](/github/getting-started-with-github/about-remote-repositories/#cloning-with-https-urls)" y "[Guardar tus credenciales de {% data variables.product.prodname_dotcom %} en caché en Git](/github/getting-started-with-github/caching-your-github-credentials-in-git)".
 
 ### Conectar por SSH
 
-Si clonas [con SSH](/github/getting-started-with-github/about-remote-repositories/#cloning-with-ssh-urls), debes [generar las claves de SSH](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent) en cada computadora que utilices para subir o extraer desde {% data variables.product.product_name %}.
+Si clonas con SSH, debes generar llaves SSH en cada computadora que utilices para subir o extraer información desde {% data variables.product.product_name %}. Para obtener más información, consulta las secciones "[Clonar con URL de SSH](/github/getting-started-with-github/about-remote-repositories/#cloning-with-ssh-urls)" y "[Generar una llave SSH nueva](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)".
 
-## Celebrar
+## Pasos siguientes
 
-¡Felicitaciones, ahora tienes configurado todo Git y {% data variables.product.prodname_dotcom %}! Ahora puedes elegir crear un repositorio en donde puedas poner tus proyectos. Esta es una forma excelente de respaldar tu código y facilita compartirlo en todo el mundo. Para obtener más información, consulta "[Crear un repositorio](/articles/create-a-repo)".
+Ahora Git y {% data variables.product.prodname_dotcom %} están completamente configurados. Ahora puedes elegir crear un repositorio en donde puedas poner tus proyectos. El guardar tu código en un repositorio te permite respaldarlo y compartirlo con todo el mundo.
 
-Puedes crear una copia de un repositorio si la bifurcas y propones los cambios que quieres ver si afectar al repositorio de nivel superior. Para obtener más información, consulta "[Bifurcar un repositorio](/articles/fork-a-repo)."
+* {% data reusables.getting-started.create-a-repository %}.
 
-Each repository on {% data variables.product.prodname_dotcom %} is owned by a person or an organization. Puedes interactuar con las personas, repositorios y organizaciones conectándote y siguiéndolos en {% data variables.product.product_name %}. Para obtener más información, consulta la sección "[Sé sociable ](/articles/be-social)".
+* {% data reusables.getting-started.fork-a-repository %}
 
-{% data reusables.support.connect-in-the-forum-bootcamp %}
+* {% data reusables.getting-started.being-social %}
+
+
+* {% data reusables.support.connect-in-the-forum-bootcamp %}

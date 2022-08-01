@@ -28,8 +28,8 @@ Organization から自分を削除するには:
  - Organization のメンバーまたはオーナーの場合は「[Organization から自分を削除する](/articles/removing-yourself-from-an-organization/)」を参照してください。
  - 外部コラボレーターの場合は、Organization のオーナーかリポジトリの管理者に Organization のリポジトリから削除してもらうよう依頼してください。 詳細は「[Organization における人のロールを表示する](/articles/viewing-people-s-roles-in-an-organization)」および「[外部コラボレーターを Organization リポジトリから削除する](/articles/removing-an-outside-collaborator-from-an-organization-repository/)」を参照してください。
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.security %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.security %}
 3. [**Disable**] をクリックします。 ![[Disable two-factor authentication] ボタン](/assets/images/help/2fa/disable-two-factor-authentication.png)
 
 ## 参考リンク

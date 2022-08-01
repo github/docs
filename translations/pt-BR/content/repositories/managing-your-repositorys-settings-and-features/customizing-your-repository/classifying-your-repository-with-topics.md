@@ -2,7 +2,7 @@
 title: Classificar repositório com tópicos
 intro: 'Para ajudar outras pessoas a encontrar seu projeto e a contribuir com ele, você pode adicionar tópicos ao repositório relacionados à intenção do projeto, área de assunto, grupos de afinidade ou outras características importantes.'
 redirect_from:
-  - /articles/about-topics/
+  - /articles/about-topics
   - /articles/classifying-your-repository-with-topics
   - /github/administering-a-repository/classifying-your-repository-with-topics
   - /github/administering-a-repository/managing-repository-settings/classifying-your-repository-with-topics
@@ -28,7 +28,7 @@ Para procurar os tópicos mais usados, vá para https://github.com/topics/.
 
 Os administradores de repositório podem adicionar qualquer tópico que desejarem a um repositório. Os tópicos úteis para classificar um repositório incluem a finalidade pretendida do repositório, área de assunto, comunidade ou linguagem.{% ifversion fpt or ghec %}Além disso, o {% data variables.product.product_name %} analisa o conteúdo do repositório público e gera tópicos sugeridos que os administradores de repositório podem aceitar ou rejeitar. O conteúdo do repositório privado não é analisado e não recebe sugestões de tópico.{% endif %}
 
-{% ifversion ghae %}Interno {% else %}Público, interna, {% endif %}e repositórios privados podem ter tópicos, embora você veja apenas repositórios privados aos quais você tem acesso nos resultados de pesquisa de tópicos.
+Os repositórios {% ifversion fpt %}público e privado{% elsif ghec or ghes %}público, privado e interno{% elsif ghae %}privado e interno{% endif %} podem ter tópicos, embora você veja apenas repositórios privados aos quais você tem acesso nos resultados de pesquisa de tópicos.
 
 Você pode pesquisar repositórios que são associados a um tópico específico. Para obter mais informações, consulte "[Pesquisar repositórios](/search-github/searching-on-github/searching-for-repositories#search-by-topic)". Também é possível pesquisar uma lista de tópicos no {% data variables.product.product_name %}. Para obter mais informações, consulte "[Pesquisar tópicos](/search-github/searching-on-github/searching-topics)".
 

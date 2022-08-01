@@ -13,11 +13,8 @@
     box-shadow: var(--color-shadow-medium);
   }
 
-  // make sure images that contain emoji render at the expected size
   img[src*="https://github.githubassets.com/images/icons/emoji"]
   {
-    height: 20px;
-    width: 20px;
     box-shadow: none;
   }
 }
@@ -25,4 +22,11 @@
 .markdown-body img {
   max-height: 32rem;
   padding: 0;
+}
+
+// make sure images that contain emoji render at the expected size
+.markdown-body img[src*="https://github.githubassets.com/images/icons/emoji"]
+{
+  height: 20px;
+  width: 20px;
 }

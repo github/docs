@@ -2,13 +2,13 @@
 title: 编写应用程序的上架说明
 intro: '要在 {% data variables.product.prodname_marketplace %} 中[上架应用程序](/marketplace/listing-on-github-marketplace/)，您需要根据 GitHub 的指南编写应用程序的说明并提供图像。'
 redirect_from:
-  - /apps/marketplace/getting-started-with-github-marketplace-listings/guidelines-for-writing-github-app-descriptions/
-  - /apps/marketplace/creating-and-submitting-your-app-for-approval/writing-github-app-descriptions/
-  - /apps/adding-integrations/listing-apps-on-github-marketplace/guidelines-for-creating-a-github-marketplace-listing/
-  - /apps/marketplace/listing-apps-on-github/guidelines-for-creating-a-github-marketplace-listing/
-  - /apps/marketplace/getting-started-with-github-marketplace-listings/guidelines-for-creating-github-marketplace-listing-images/
-  - /apps/marketplace/creating-and-submitting-your-app-for-approval/creating-github-marketplace-listing-images/
-  - /apps/marketplace/listing-on-github-marketplace/writing-github-marketplace-listing-descriptions/
+  - /apps/marketplace/getting-started-with-github-marketplace-listings/guidelines-for-writing-github-app-descriptions
+  - /apps/marketplace/creating-and-submitting-your-app-for-approval/writing-github-app-descriptions
+  - /apps/adding-integrations/listing-apps-on-github-marketplace/guidelines-for-creating-a-github-marketplace-listing
+  - /apps/marketplace/listing-apps-on-github/guidelines-for-creating-a-github-marketplace-listing
+  - /apps/marketplace/getting-started-with-github-marketplace-listings/guidelines-for-creating-github-marketplace-listing-images
+  - /apps/marketplace/creating-and-submitting-your-app-for-approval/creating-github-marketplace-listing-images
+  - /apps/marketplace/listing-on-github-marketplace/writing-github-marketplace-listing-descriptions
   - /marketplace/listing-on-github-marketplace/writing-github-marketplace-listing-descriptions
   - /developers/github-marketplace/writing-a-listing-description-for-your-app
 versions:
@@ -168,7 +168,7 @@ shortTitle: 写入列表说明
 
   ### 学习所需的技能
 
-  GitHub Learning Lab 可以帮助您学习如何使用 GitHub、如何使用 Markdown 更有效地沟通以及如何处理合并冲突等。
+  GitHub Skills 可以帮助您学习如何使用 GitHub、如何使用 Markdown 更有效地沟通以及如何处理合并冲突等。
 
 - 仅大写专有名词。
 

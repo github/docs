@@ -17,7 +17,6 @@ shortTitle: QuickStart
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## Introdução
 
@@ -40,9 +39,9 @@ O exemplo a seguir mostra como os trabalhos de {% data variables.product.prodnam
         steps:
           - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
           - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
-          - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
+          - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."{% endraw %}
           - name: Check out repository code
-            uses: actions/checkout@v2
+            uses: {% data reusables.actions.action-checkout %}{% raw %}
           - run: echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
           - run: echo "🖥️ The workflow is now ready to test your code on the runner."
           - name: List files in the repository
@@ -75,9 +74,12 @@ Fazer commit do arquivo de fluxo de trabalho para um branch em seu repositório 
 
    Por exemplo, você pode ver a lista de arquivos no seu repositório: ![Exemplo do detalhe da ação](/assets/images/help/repository/actions-quickstart-log-detail.png)
 
-## Mais modelos de fluxo de trabalho
+## Mais fluxos de trabalho iniciais
 
 {% data reusables.actions.workflow-template-overview %}
+
+## Exemplos mais complexos
+{% data reusables.actions.link-to-example-library %}
 
 ## Próximas etapas
 

@@ -1,8 +1,8 @@
 ---
 title: Azure で GitHub Enterprise Server をインストールする
-intro: 'Azure に {% data variables.product.prodname_ghe_server %} をインストールするには、DS シリーズのインスタンスにデプロイし、Premium-LRS ストレージを使用する必要があります。'
+intro: 'To install {% data variables.product.prodname_ghe_server %} on Azure, you must deploy onto a memory-optimized instance that supports premium storage.'
 redirect_from:
-  - /enterprise/admin/guides/installation/installing-github-enterprise-on-azure/
+  - /enterprise/admin/guides/installation/installing-github-enterprise-on-azure
   - /enterprise/admin/installation/installing-github-enterprise-server-on-azure
   - /admin/installation/installing-github-enterprise-server-on-azure
 versions:
@@ -30,26 +30,23 @@ shortTitle: Install on Azure
 
 ## 仮想マシンタイプの決定
 
-Azure で{% data variables.product.product_location %} を起動する前に、Organization のニーズに最適なマシンタイプを決定する必要があります。 {% data variables.product.product_name %} の最小要件を確認するには、「[最小要件](#minimum-requirements)」を参照してください。
+Azure で{% data variables.product.product_location %} を起動する前に、Organization のニーズに最適なマシンタイプを決定する必要があります。 For more information about memory optimized machines, see "[Memory optimized virtual machine sizes](https://docs.microsoft.com/en-gb/azure/virtual-machines/sizes-memory)" in the Microsoft Azure documentation. To review the minimum resource requirements for {% data variables.product.product_name %}, see "[Minimum requirements](#minimum-requirements)."
+
 
 {% data reusables.enterprise_installation.warning-on-scaling %}
 
-{% data variables.product.prodname_ghe_server %} アプライアンスは、プレミアムストレージのデータディスクを必要としており、プレミアムストレージをサポートするあらゆる Azure VM でサポートされます。 接尾辞が `s` の Azure VM タイプは、プレミアムストレージをサポートしています。 詳しい情報については、Azure ドキュメントの「[Azure で使用できるディスクの種類](https://docs.microsoft.com/en-us/azure/virtual-machines/disks-types#premium-ssd)」および「[Azure プレミアムストレージ: 高性能の設計](https://docs.microsoft.com/en-us/azure/virtual-machines/premium-storage-performance)」を参照してください。
-
-{% data variables.product.company_short %} は、{% data variables.product.prodname_ghe_server %} にメモリ最適化された VM を推奨しています。 詳しい情報については、Azure ドキュメントの「[メモリに最適化された仮想マシンのサイズ](https://docs.microsoft.com/en-us/azure/virtual-machines/sizes-memory)」を参照してください。
-
-{% data variables.product.prodname_ghe_server %} は、VM タイプをサポートするあらゆる地域をサポートします。 各 VM でサポートされているリージョンの詳細については、Azure の「[リージョン別の利用可能な製品](https://azure.microsoft.com/regions/services/)」を参照してください。
+{% data reusables.enterprise_installation.azure-instance-recommendation %}
 
 ## {% data variables.product.prodname_ghe_server %} 仮想マシンを作成する
 
 {% data reusables.enterprise_installation.create-ghe-instance %}
 
-1. 最新の {% data variables.product.prodname_ghe_server %} アプライアンスイメージを見つけます。 `vm image list` コマンドの詳細については、Microsoft のドキュメントの「[az vm image list](https://docs.microsoft.com/cli/azure/vm/image?view=azure-cli-latest#az_vm_image_list)」を参照してください。
+1. 最新の {% data variables.product.prodname_ghe_server %} アプライアンスイメージを見つけます。 For more information about the `vm image list` command, see "[`az vm image list`](https://docs.microsoft.com/cli/azure/vm/image?view=azure-cli-latest#az_vm_image_list)" in the Microsoft documentation.
   ```shell
   $ az vm image list --all -f GitHub-Enterprise | grep '"urn":' | sort -V
   ```
 
-2. 見つけたアプライアンスイメージを使用して新しい VM を作成します。 詳しい情報については、Microsoftドキュメンテーションの「[az vm create](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az_vm_create)」を参照してください。
+2. 見つけたアプライアンスイメージを使用して新しい VM を作成します。 For more information, see "[`az vm create`](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az_vm_create)" in the Microsoft documentation.
 
   VM の名前、リソースグループ、VM のサイズ、優先する Azure リージョンの名前、前の手順でリストしたアプライアンスイメージ VM の名前、およびプレミアムストレージ用のストレージ SKU についてのオプションを渡します。 リソースグループに関する詳しい情報については、Microsoft ドキュメンテーションの「[Resource groups](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groups)」を参照してください。
 
@@ -57,7 +54,7 @@ Azure で{% data variables.product.product_location %} を起動する前に、O
   $ az vm create -n <em>VM_NAME</em> -g <em>RESOURCE_GROUP</em> --size <em>VM_SIZE</em> -l <em>REGION</em> --image <em>APPLIANCE_IMAGE_NAME</em> --storage-sku Premium_LRS
   ```
 
-3. 必要なポートを開くように VM でセキュリティを設定します。 詳しい情報については、Microsoft ドキュメンテーションの「[az vm open-port](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az_vm_open_port)」を参照してください。 どのポートを開く必要があるかを判断するための各ポートの説明については、以下の表を参照してください。
+3. 必要なポートを開くように VM でセキュリティを設定します。 For more information, see "[`az vm open-port`](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az_vm_open_port)" in the Microsoft documentation. どのポートを開く必要があるかを判断するための各ポートの説明については、以下の表を参照してください。
 
   ```shell
   $ az vm open-port -n <em>VM_NAME</em> -g <em>RESOURCE_GROUP</em> --port <em>PORT_NUMBER</em>
@@ -67,7 +64,7 @@ Azure で{% data variables.product.product_location %} を起動する前に、O
 
   {% data reusables.enterprise_installation.necessary_ports %}
 
-4. 暗号化されていない新しいデータディスクを作成してVMにアタッチし、ユーザライセンス数に応じてサイズを設定してください。 詳しい情報については、Microsoft ドキュメンテーションの「[az vm disk attach](https://docs.microsoft.com/cli/azure/vm/disk?view=azure-cli-latest#az_vm_disk_attach)」を参照してください。
+4. 暗号化されていない新しいデータディスクを作成してVMにアタッチし、ユーザライセンス数に応じてサイズを設定してください。 For more information, see "[`az vm disk attach`](https://docs.microsoft.com/cli/azure/vm/disk?view=azure-cli-latest#az_vm_disk_attach)" in the Microsoft documentation.
 
   VM の名前 (`ghe-acme-corp` など)、リソースグループ、プレミアムストレージ SKU、ディスクのサイズ (`100` など)、および作成する VHD の名前についてのオプションを渡します。
 
@@ -83,7 +80,7 @@ Azure で{% data variables.product.product_location %} を起動する前に、O
 
 ## {% data variables.product.prodname_ghe_server %} 仮想マシンを設定する
 
-1. VM を設定する前に、VMがReadyRole ステータスになるのを待つ必要があります。 VM のステータスを `vm list` コマンドで確認します。 詳しい情報については、Microsoft ドキュメンテーションの「[az vm list](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az_vm_list)」を参照してください。
+1. VM を設定する前に、VMがReadyRole ステータスになるのを待つ必要があります。 VM のステータスを `vm list` コマンドで確認します。 For more information, see "[`az vm list`](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az_vm_list)" in the Microsoft documentation.
   ```shell
   $ az vm list -d -g <em>RESOURCE_GROUP</em> -o table
   > Name    ResourceGroup    PowerState    PublicIps     Fqdns    Location    Zones

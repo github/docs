@@ -1,1 +1,1 @@
-`true` if branch protections are configured for the ref that triggered the workflow run.
+`verdadeiro` se as proteções dos branches estiverem configuradas para o ref, que acionou a execução do fluxo de trabalho.

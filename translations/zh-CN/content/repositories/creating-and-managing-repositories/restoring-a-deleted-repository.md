@@ -1,6 +1,7 @@
 ---
 title: 恢复已删除的仓库
-intro: 您可以恢复一些已删除的仓库来恢复其内容。
+intro: '{% ifversion ghes or ghae %}企业所有者{% elsif fpt or ghec %}您{% endif %} 可以还原某些已删除的存储库以恢复其内容。'
+permissions: '{% ifversion ghes or ghae %}{% elsif fpt or ghec %}Anyone can restore deleted repositories that were owned by their own personal account. Organization owners can restore deleted repositories that were owned by the organization.{% endif %}'
 redirect_from:
   - /articles/restoring-a-deleted-repository
   - /github/administering-a-repository/restoring-a-deleted-repository
@@ -15,8 +16,11 @@ topics:
 shortTitle: 恢复已删除的仓库
 ---
 
-{% ifversion fpt or ghec %}
-任何人都可以恢复其用户帐户拥有的已删除仓库。 组织所有者可以恢复该组织所拥有的已删除仓库。
+{% ifversion ghes or ghae %}
+
+通常，{% ifversion ghes %}{% data variables.product.product_location %}上{% endif %}已删除的存储库可以在 90 天内由企业所有者恢复。 更多信息请参阅“[恢复删除的仓库](/admin/user-management/managing-repositories-in-your-enterprise/restoring-a-deleted-repository)”。
+
+{% else %}
 
 ## 关于仓库恢复
 
@@ -28,13 +32,13 @@ shortTitle: 恢复已删除的仓库
 
 恢复仓库不会恢复发行版附件或团队权限。 已恢复的议题不会被标记。
 
-## 恢复用户帐户所拥有的已删除仓库
+## 恢复个人帐户所拥有的已删除仓库
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.repo-tab %}
-{% data reusables.user_settings.deleted-repos %}
-{% data reusables.user_settings.restore-repo %}
-{% data reusables.user_settings.restore-confirmation %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.repo-tab %}
+{% data reusables.user-settings.deleted-repos %}
+{% data reusables.user-settings.restore-repo %}
+{% data reusables.user-settings.restore-confirmation %}
 
 ## 恢复组织所拥有的已删除仓库
 
@@ -42,13 +46,11 @@ shortTitle: 恢复已删除的仓库
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.deleted-repos %}
-{% data reusables.user_settings.restore-repo %}
-{% data reusables.user_settings.restore-confirmation %}
+{% data reusables.user-settings.restore-repo %}
+{% data reusables.user-settings.restore-confirmation %}
 
 ## 延伸阅读
 
 - "[删除仓库](/articles/deleting-a-repository)"
 
-{% else %}
-Usually, deleted repositories can be restored within 90 days by a {% data variables.product.prodname_enterprise %} site administrator. 更多信息请参阅“[恢复删除的仓库](/admin/user-management/managing-repositories-in-your-enterprise/restoring-a-deleted-repository)”。
 {% endif %}

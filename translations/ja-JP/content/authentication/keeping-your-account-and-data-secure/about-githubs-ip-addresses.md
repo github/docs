@@ -2,10 +2,10 @@
 title: GitHubのIPアドレスについて
 intro: '{% data variables.product.product_name %}は複数のIPアドレスの範囲からアプリケーションを提供します。この範囲は、APIを通じて取得できます。'
 redirect_from:
-  - /articles/what-ip-addresses-does-github-use-that-i-should-whitelist/
-  - /categories/73/articles/
-  - /categories/administration/
-  - /articles/github-s-ip-addresses/
+  - /articles/what-ip-addresses-does-github-use-that-i-should-whitelist
+  - /categories/73/articles
+  - /categories/administration
+  - /articles/github-s-ip-addresses
   - /articles/about-github-s-ip-addresses
   - /articles/about-githubs-ip-addresses
   - /github/authenticating-to-github/about-githubs-ip-addresses
@@ -29,7 +29,7 @@ shortTitle: GitHub's IP addresses
 
 These IP addresses are used by {% data variables.product.prodname_dotcom %} to serve our content, deliver webhooks, and perform hosted {% data variables.product.prodname_actions %} builds.
 
-これらの範囲は[CIDR表記](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#CIDR_notation)になっています。 [CIDR / VLSM Supernet Calculator](http://www.subnet-calculator.com/cidr.php)のようなツールを使って、CIDR表記をIPアドレスの範囲に変換できます。
+これらの範囲は[CIDR表記](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#CIDR_notation)になっています。 You can use an online conversion tool to convert from CIDR notation to IP address ranges, for example: [CIDR to IPv4 conversion site](https://www.ipaddressguide.com/cidr).
 
 We make changes to our IP addresses from time to time. IP アドレスによる許可はお勧めしませんが、これらの IP 範囲を使用する場合は、API を定期的にモニタリングすることを強くお勧めします。
 

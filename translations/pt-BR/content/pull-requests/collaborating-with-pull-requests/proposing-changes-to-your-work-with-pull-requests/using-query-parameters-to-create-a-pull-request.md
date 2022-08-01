@@ -20,7 +20,7 @@ Você pode usar parâmetros de consulta para abrir pull requests. Os parâmetros
 
 {% endtip %}
 
-Você deve ter as permissões adequadas para qualquer ação para usar o parâmetro de consulta equivalente. Por exemplo, você precisa de permissão para adicionar uma etiqueta a um pull request para usar os parâmetros de consulta de `etiquetas`. For more information, see "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)."
+Você deve ter as permissões adequadas para qualquer ação para usar o parâmetro de consulta equivalente. Por exemplo, você precisa de permissão para adicionar uma etiqueta a um pull request para usar os parâmetros de consulta de `etiquetas`. Para obter mais informações, consulte "[Funções do repositório para uma organização](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)".
 
 Se você criar uma URL inválida usando parâmetros de consulta, ou se você não tiver as permissões adequadas, a URL retornará uma página de erro `404 Not Found`. Se você criar uma URL que excede o limite do servidor, a URL retornará uma página de erro de `414 URI Too Long`.
 

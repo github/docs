@@ -3,7 +3,7 @@ title: 关于状态检查
 intro: 状态检查用于获知您的提交是否符合为您参与的仓库设置的条件。
 redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/collaborating-on-repositories-with-code-quality-features/about-status-checks
-  - /articles/about-statuses/
+  - /articles/about-statuses
   - /articles/about-status-checks
   - /github/collaborating-with-issues-and-pull-requests/about-status-checks
   - /github/collaborating-with-pull-requests/collaborating-on-repositories-with-code-quality-features/about-status-checks
@@ -33,9 +33,9 @@ topics:
 - 检查
 - 状态
 
-_Checks_ are different from _statuses_ in that they provide line annotations, more detailed messaging, and are only available for use with {% data variables.product.prodname_github_apps %}.
+_检查_与_状态_的不同之处在于它们提供行注解、更详细的信息，并且只适用于 {% data variables.product.prodname_github_apps %}。
 
-组织所有者和能够推送到仓库的用户可使用 {% data variables.product.product_name %} 的 API 创建检查和状态。 更多信息请参阅“[检查](/rest/reference/checks)”和“[状态](/rest/reference/repos#statuses)”。
+组织所有者和能够推送到仓库的用户可使用 {% data variables.product.product_name %} 的 API 创建检查和状态。 更多信息请参阅“[检查](/rest/reference/checks)”和“[状态](/rest/reference/commits#commit-statuses)”。
 
 ## 检查
 
@@ -45,7 +45,7 @@ _Checks_ are different from _statuses_ in that they provide line annotations, mo
 
 {% note %}
 
-**Note:** The **Checks** tab only gets populated for pull requests if you set up _checks_, not _statuses_, for the repository.
+**注意：** 仅当您为存储库设置了_检查_（而不是_状态_）时，才会为拉取请求填充 **Checks（检查）**选项卡。
 
 {% endnote %}
 
@@ -77,3 +77,9 @@ _Checks_ are different from _statuses_ in that they provide line annotations, mo
   >
   request-checks: true"
   ```
+
+{% ifversion fpt or ghec %}
+### 状态检查的保留
+
+{% data reusables.pull_requests.retention-checks-data %}
+{% endif %}

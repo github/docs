@@ -1,12 +1,11 @@
 ---
 title: Enterprise を管理するようユーザを招待する
 intro: 'You can {% ifversion ghec %}invite people to become enterprise owners or billing managers for{% elsif ghes %}add enterprise owners to{% endif %} your enterprise account. You can also remove enterprise owners {% ifversion ghec %}or billing managers {% endif %}who no longer need access to the enterprise account.'
-product: '{% data reusables.gated-features.enterprise-accounts %}'
 permissions: 'Enterprise owners can {% ifversion ghec %}invite other people to become{% elsif ghes %}add{% endif %} additional enterprise administrators.'
 redirect_from:
   - /github/setting-up-and-managing-your-enterprise/managing-users-in-your-enterprise/inviting-people-to-manage-your-enterprise
   - /github/setting-up-and-managing-your-enterprise-account/inviting-people-to-manage-your-enterprise-account
-  - /articles/inviting-people-to-collaborate-in-your-business-account/
+  - /articles/inviting-people-to-collaborate-in-your-business-account
   - /articles/inviting-people-to-manage-your-enterprise-account
   - /github/setting-up-and-managing-your-enterprise/inviting-people-to-manage-your-enterprise
 versions:
@@ -46,9 +45,13 @@ If your enterprise uses {% data variables.product.prodname_emus %}, enterprise o
 
 {% ifversion ghec %}After you invite someone to join the enterprise account, they must accept the emailed invitation before they can access the enterprise account. Pending invitations will expire after 7 days.{% endif %}
 
+{% ifversion enterprise-membership-view-improvements %}
+You can see all pending invitations to become an administrator of your enterprise account. 詳しい情報については、「[Enterprise の人を表示する](/admin/user-management/managing-users-in-your-enterprise/viewing-people-in-your-enterprise#viewing-pending-invitations)」を参照してください。
+{% endif %}
+
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.people-tab %}
-1. 左サイドバーで [**Administrators**] をクリックします。 ![左サイドバーの [Administrators] タブ](/assets/images/help/business-accounts/administrators-tab.png)
+{% data reusables.enterprise-accounts.administrators-tab %}
 1. Above the list of administrators, click {% ifversion ghec %}**Invite admin**{% elsif ghes %}**Add owner**{% endif %}.
   {% ifversion ghec %}
   !["Invite admin" button above the list of enterprise owners](/assets/images/help/business-accounts/invite-admin-button.png)
@@ -64,12 +67,17 @@ If your enterprise uses {% data variables.product.prodname_emus %}, enterprise o
 
 Enterprise アカウントから他の Enterprise 管理者を削除できるのは、Enterprise オーナーだけです。
 
+{% ifversion ghec %}
+If the administrator you want to remove is a member of any organizations owned by the enterprise, you can choose **Convert to member**, which will remove their administrative role but retain their organization memberships, or **Remove from enterprise**, which will remove both their administrative role and organization memberships.
+{% endif %}
+
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.people-tab %}
-1. Next to the username of the person you'd like to remove, click {% octicon "gear" aria-label="The Settings gear" %}, then click **Remove owner**{% ifversion ghec %} or **Remove billing manager**{% endif %}.
+{% data reusables.enterprise-accounts.administrators-tab %}
+1. Next to the username of the person you'd like to remove, click {% octicon "gear" aria-label="The Settings gear" %}, then click {% ifversion ghes %}**Remove owner**{% elsif ghec %}**Convert to member** or **Remove from enterprise**.{% endif %}.
   {% ifversion ghec %}
   ![Enterprise 管理者を削除するためのメニュー オプション付きの設定「歯車」アイコン](/assets/images/help/business-accounts/remove-admin.png)
   {% elsif ghes %}
   ![Enterprise 管理者を削除するためのメニュー オプション付きの設定「歯車」アイコン](/assets/images/help/business-accounts/ghes-remove-owner.png)
   {% endif %}
-1. Read the confirmation, then click **Remove owner**{% ifversion ghec %} or **Remove billing manager**{% endif %}.
+1. Read the confirmation, then click {% ifversion ghes %}**Remove owner**{% elsif ghec %}**Yes, convert USERNAME to member**{% endif %}.

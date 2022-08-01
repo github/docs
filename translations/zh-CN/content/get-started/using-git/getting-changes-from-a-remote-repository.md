@@ -2,7 +2,7 @@
 title: 从远程仓库获取更改
 intro: 您可以使用常用 Git 命令访问远程仓库。
 redirect_from:
-  - /articles/fetching-a-remote/
+  - /articles/fetching-a-remote
   - /articles/getting-changes-from-a-remote-repository
   - /github/using-git/getting-changes-from-a-remote-repository
   - /github/getting-started-with-github/getting-changes-from-a-remote-repository
@@ -74,7 +74,7 @@ $ git pull <em>remotename</em> <em>branchname</em>
 # 获取在线更新并将其与您的本地工作进行合并
 ```
 
-由于 `pull` 会对检索到的更改执行合并，因此应确保在运行 `pull` 命令之前提交您的本地工作。 If you run into \[a merge conflict\](/github/collaborating-with-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-using-the-command-line you cannot resolve, or if you decide to quit the merge, you can use `git merge --abort` to take the branch back to where it was in before you pulled.
+由于 `pull` 会对检索到的更改执行合并，因此应确保在运行 `pull` 命令之前提交您的本地工作。 如果您遇到无法解决的[合并冲突](/github/collaborating-with-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-using-the-command-line)，或者您决定退出合并，可使用 `git merge --abort` 将分支恢复到您拉取之前的状态。
 
 ## 延伸阅读
 

@@ -3,6 +3,7 @@ title: グループ課題の作成
 intro: コースに参加している学生のTeamのために、共同課題を作成できます。
 versions:
   fpt: '*'
+permissions: 'Organization owners who are admins for a classroom can create and manage group assignments for a classroom. {% data reusables.classroom.classroom-admins-link %}'
 redirect_from:
   - /education/manage-coursework-with-github-classroom/create-group-assignments
   - /education/manage-coursework-with-github-classroom/create-a-group-assignment
@@ -21,6 +22,8 @@ redirect_from:
 1つの課題に取り組むチームの数と、各Teamのメンバーの数を決めることができます。 学生が課題ために作成する各グループは、{% data variables.product.product_name %}のOrganization内のTeamです。 Teamの可視性はシークレットとなります。 {% data variables.product.product_name %}上で作成したTeamは、{% data variables.product.prodname_classroom %}では表示されません。 詳細は「[Team について](/organizations/organizing-members-into-teams/about-teams)」を参照してください。
 
 グループ課題作成の方法を説明する動画については、「[{% data variables.product.prodname_classroom %}の設定の基本](/education/manage-coursework-with-github-classroom/basics-of-setting-up-github-classroom)」を参照してください。
+
+{% data reusables.classroom.reuse-assignment-link %}
 
 ## 必要な環境
 
@@ -93,6 +96,8 @@ redirect_from:
 
 {% data reusables.classroom.about-online-ides %}詳しい情報については、「[{% data variables.product.prodname_classroom %} と IDE の統合](/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide)」を参照してください。
 
+{% data reusables.classroom.classroom-codespaces-link %}
+
 {% data reusables.classroom.assignments-guide-choose-an-online-ide %}
 
 {% data reusables.classroom.assignments-guide-click-continue-after-starter-code-and-feedback %}
@@ -126,9 +131,19 @@ redirect_from:
   <img alt="グループ課題" class="procedural-image-wrapper" src="/assets/images/help/classroom/assignment-group-hero.png">
 </div>
 
+## Monitoring students' progress
+The assignment overview page displays information about your assignment acceptances and team progress. You may have different summary information based on the configurations of your assignments.
+
+- **Total teams**: The number of teams that have been created.
+- **Rostered students**: The number of students on the Classroom's roster.
+- **Students not on a team**: The number of students on the Classroom roster who have not yet joined a team.
+-  **Accepted teams**: The number of teams who have accepted this assignment.
+-  **Assignment submissions**: The number of teams that have submitted the assignment. Submission is triggered at the assignment deadline.
+-  **Passing teams**: The number of teams that are currently passing the autograding tests for this assignment.
+
 ## 次のステップ
 
-- 課題を作成し、学生がTeamを編成した後、TeamメンバーはGitと{% data variables.product.product_name %}の機能を使用して課題を開始できます。 学生はリポジトリのクローン、コミットのプッシュ、ブランチの管理、プルリクエストの作成およびレビュー、マージコンフリクトへの対処、およびIssueの変更に関するディスカッションが可能です。 あなたもTeamも、リポジトリのコミット履歴をレビューできます。 For more information, see "[Getting started with {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github)," "[Repositories](/repositories)," "[Using Git](/github/getting-started-with-github/using-git)," and "[Collaborating with issues and pull requests](/github/collaborating-with-issues-and-pull-requests)," and the free course on [managing merge conflicts](https://lab.github.com/githubtraining/managing-merge-conflicts) from {% data variables.product.prodname_learning %}.
+- 課題を作成し、学生がTeamを編成した後、TeamメンバーはGitと{% data variables.product.product_name %}の機能を使用して課題を開始できます。 学生はリポジトリのクローン、コミットのプッシュ、ブランチの管理、プルリクエストの作成およびレビュー、マージコンフリクトへの対処、およびIssueの変更に関するディスカッションが可能です。 あなたもTeamも、リポジトリのコミット履歴をレビューできます。 For more information, see "[Getting started with {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github)," "[Repositories](/repositories)," "[Using Git](/github/getting-started-with-github/using-git)," and "[Collaborating with issues and pull requests](/github/collaborating-with-issues-and-pull-requests)," and the free course on [resolving merge conflicts](https://github.com/skills/resolve-merge-conflicts) from {% data variables.product.prodname_learning %}.
 
 - 課題を完了したチームがある場合は、そのリポジトリにあるファイルをレビューできます。また、チームがどのように協力したかをより深く理解するため、リポジトリの履歴や視覚化されたデータを確認できます。 詳しい情報については、「[リポジトリデータをグラフで可視化する](/github/visualizing-repository-data-with-graphs)」を参照してください。
 

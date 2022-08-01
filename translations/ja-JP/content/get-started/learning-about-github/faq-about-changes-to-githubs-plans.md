@@ -28,11 +28,11 @@ GitHub は、以下のプランと価格の変更を発表しました。
 
 ## プランのアップグレード方法
 
-ユーザアカウントのプランをアップグレードするには、「[個人アカウントのサブスクリプションのアップグレード](/billing/managing-billing-for-your-github-account/upgrading-your-github-subscription#upgrading-your-personal-accounts-subscription)」を参照してください。 Organizationのプランをアップグレードするには、「[Organizationのサブスクリプションのアップグレード](/billing/managing-billing-for-your-github-account/upgrading-your-github-subscription#upgrading-your-organizations-subscription)」を参照してください。
+To upgrade your personal account's plan, see "[Upgrading your personal account's subscription](/billing/managing-billing-for-your-github-account/upgrading-your-github-subscription#upgrading-your-personal-accounts-subscription)." Organizationのプランをアップグレードするには、「[Organizationのサブスクリプションのアップグレード](/billing/managing-billing-for-your-github-account/upgrading-your-github-subscription#upgrading-your-organizations-subscription)」を参照してください。
 
 ## プランのダウングレード方法
 
-アカウントのプランをダウングレードするには、「[ユーザアカウントのサブスクリプションのダウングレード](/billing/managing-billing-for-your-github-account/downgrading-your-github-subscription#downgrading-your-user-accounts-subscription)」を参照してください。 Organizationのプランをダウングレードするには、「[Organizationのサブスクリプションのダウングレード](/billing/managing-billing-for-your-github-account/downgrading-your-github-subscription#downgrading-your-organizations-subscription)」を参照してください。
+To downgrade your personal account's plan, see "[Downgrading your personal account's subscription](/billing/managing-billing-for-your-github-account/downgrading-your-github-subscription#downgrading-your-personal-accounts-subscription)." Organizationのプランをダウングレードするには、「[Organizationのサブスクリプションのダウングレード](/billing/managing-billing-for-your-github-account/downgrading-your-github-subscription#downgrading-your-organizations-subscription)」を参照してください。
 
 ## GitHub Teamあるいは旧来のプランからGitHub Freeにダウングレードした場合、なくなるのはどの機能ですか？
 - プライベートリポジトリでの必須レビュー担当者
@@ -80,7 +80,7 @@ GitHub Freeの各製品の差異の詳細については、「[{% data variables
 
 ## GitHub コミュニティサポートとは
 
-GitHub コミュニティサポートには、[コミュニティフォーラム](https://github.community/)によるサポートが含まれており、GitHub コミュニティで解決方法を閲覧したり、新しい質問をしたり、アイデアを共有したりすることができます。 GitHub コミュニティサポートには、GitHub Team のサポートエンジニアが配置されています。サポートエンジニアは、最もアクティブなコミュニティメンバーと共にコミュニティフォーラムを管理しています。 スパムの報告、不正利用の報告、アカウントへのアクセスに問題がある場合は、https://support.github.com/ からサポートチームにメッセージを送信できます。
+GitHub Community Support includes support through our [{% data variables.product.prodname_github_community %} discussions](https://github.com/orgs/community/discussions), where you can browse solutions from the GitHub community, ask new questions, and share ideas. GitHub Community Support is staffed by Support Engineers on the GitHub Team, who moderate {% data variables.product.prodname_github_community %} along with our most active community members. スパムの報告、不正利用の報告、アカウントへのアクセスに問題がある場合は、https://support.github.com/ からサポートチームにメッセージを送信できます。
 
 ## この変更による教育関係の特典への影響
 

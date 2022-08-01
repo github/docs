@@ -14,7 +14,7 @@ This guide will walk you through setting up, configuring and managing {% data va
 
 {% data variables.product.company_short %} hosts {% data variables.product.prodname_ghe_cloud %}. You can deploy and host {% data variables.product.prodname_ghe_server %} in your own datacenter or a supported cloud provider.
 
-For an overview of how {% data variables.product.product_name %} works, see "[System overview](/admin/overview/system-overview)."
+For more information about {% data variables.product.product_name %}, see "[About {% data variables.product.prodname_ghe_server %}](/admin/overview/about-github-enterprise-server)."
 
 ## Part 1: Installing {% data variables.product.product_name %}
 To get started with {% data variables.product.product_name %}, you will need to create your enterprise account, install the instance, use the Management Console for initial setup, configure your instance, and manage billing. 
@@ -67,12 +67,12 @@ As an enterprise owner or administrator, you can manage settings on user, reposi
 ## Part 3: Building securely
 To increase the security of {% data variables.product.product_location %}, you can configure authentication for enterprise members, use tools and audit logging to stay in compliance, configure security and analysis features for your organizations, and optionally enable {% data variables.product.prodname_GH_advanced_security %}.
 ### 1. Authenticating enterprise members
-You can use {% data variables.product.product_name %}'s built-in authentication method, or you can choose between an established authentication provider, such as CAS, LDAP, or SAML, to integrate your existing accounts and centrally manage user access to {% data variables.product.product_location %}. For more information, see "[Authenticating users for {% data variables.product.product_location %}](/admin/authentication/authenticating-users-for-your-github-enterprise-server-instance)."
+You can use {% data variables.product.product_name %}'s built-in authentication method, or you can choose between an external authentication provider, such as CAS, LDAP, or SAML, to integrate your existing accounts and centrally manage user access to {% data variables.product.product_location %}. For more information, see "[About authentication for your enterprise](/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-authentication-for-your-enterprise)."
 
 You can also require two-factor authentication for each of your organizations. For more information, see "[Requiring two factor authentication for an organization](/admin/user-management/managing-organizations-in-your-enterprise/requiring-two-factor-authentication-for-an-organization)."
 
 ### 2. Staying in compliance
-You can implement required status checks and commit verifications to enforce your organization's compliance standards and automate compliance workflows. You can also use the audit log for your organization to review actions performed by your team. For more information, see "[Enforcing policy with pre-receive hooks](/admin/policies/enforcing-policy-with-pre-receive-hooks)" and "[Audit logging](/admin/user-management/monitoring-activity-in-your-enterprise/audit-logging)."
+You can implement required status checks and commit verifications to enforce your organization's compliance standards and automate compliance workflows. You can also use the audit log for your organization to review actions performed by your team. For more information, see "[Enforcing policy with pre-receive hooks](/admin/policies/enforcing-policy-with-pre-receive-hooks)" and "[About the audit log for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/about-the-audit-log-for-your-enterprise)."
 
 {% ifversion ghes %}
 ### 3. Configuring security features for your organizations
@@ -114,7 +114,13 @@ If you are the owner of both a {% data variables.product.product_name %} instanc
 
 ## Part 6: Using {% data variables.product.prodname_dotcom %}'s learning and support resources
 Your enterprise members can learn more about Git and {% data variables.product.prodname_dotcom %} with our learning resources, and you can get the support you need when setting up and managing {% data variables.product.product_location %} with {% data variables.product.prodname_dotcom %} Enterprise Support.
-### 1. Learning with {% data variables.product.prodname_learning %}
-{% data reusables.getting-started.learning-lab-enterprise %}
-### 2. Working with {% data variables.product.prodname_dotcom %} Enterprise Support
+
+### 1. Reading about {% data variables.product.product_name %} on {% data variables.product.prodname_docs %}
+
+You can read documentation that reflects the features available with {% data variables.product.prodname_ghe_server %}. For more information, see "[About versions of {% data variables.product.prodname_docs %}](/get-started/learning-about-github/about-versions-of-github-docs)."
+
+### 2. Learning with {% data variables.product.prodname_learning %}
+{% data reusables.getting-started.learning-enterprise %}
+
+### 3. Working with {% data variables.product.prodname_dotcom %} Enterprise Support
 {% data reusables.getting-started.contact-support-enterprise %}

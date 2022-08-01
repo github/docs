@@ -2,8 +2,8 @@
 title: GitHub Marketplace APIのためのwebhookイベント
 intro: '{% data variables.product.prodname_marketplace %}アプリケーションは、ユーザのプランに対する変更に関する情報を、Marketplaceの購入イベントwebhookから受け取ります。 Marketplaceの購入イベントは、ユーザが支払いプランの購入、キャンセル、変更をした場合にトリガーされます。'
 redirect_from:
-  - /apps/marketplace/setting-up-github-marketplace-webhooks/about-webhook-payloads-for-a-github-marketplace-listing/
-  - /apps/marketplace/integrating-with-the-github-marketplace-api/github-marketplace-webhook-events/
+  - /apps/marketplace/setting-up-github-marketplace-webhooks/about-webhook-payloads-for-a-github-marketplace-listing
+  - /apps/marketplace/integrating-with-the-github-marketplace-api/github-marketplace-webhook-events
   - /marketplace/integrating-with-the-github-marketplace-api/github-marketplace-webhook-events
   - /developers/github-marketplace/webhook-events-for-the-github-marketplace-api
 versions:
@@ -46,17 +46,17 @@ webhookの`POST`リクエストには、特別なヘッダがあります。 詳
 
 `plan`オブジェクトには以下のキーがあります。
 
-| キー                       | 種類                 | 説明                                                     |
-| ------------------------ | ------------------ | ------------------------------------------------------ |
-| `id`                     | `integer`          | このプランの一意の識別子。                                          |
-| `name`                   | `string`           | プラン名。                                                  |
-| `説明`                     | `string`           | プランの説明。                                                |
-| `monthly_price_in_cents` | `integer`          | このプランのセント (米国の通貨) 単位の月額。 たとえば、月額10米ドルのリストは1000セントです。   |
-| `yearly_price_in_cents`  | `integer`          | このプランのセント (米国の通貨) 単位の年額。 たとえば、月額100米ドルのリストは10000セントです。 |
-| `price_model`            | `string`           | このリストの価格モデル。 `flat-rate`、`per-unit`、`free`のいずれかです。     |
-| `has_free_trial`         | `boolean`          | このリストが無料トライアルを提供する場合は`true`になります。                      |
-| `unit_name`              | `string`           | ユニットの名前。 価格モデルが`per-unit`でない場合、これは`nil`になります。          |
-| `bullet`                 | `array of strings` | 価格プランに設定されている箇条書きの名前。                                  |
+| キー                       | 種類                 | 説明                                                      |
+| ------------------------ | ------------------ | ------------------------------------------------------- |
+| `id`                     | `integer`          | このプランの一意の識別子。                                           |
+| `name`                   | `string`           | プラン名。                                                   |
+| `説明`                     | `string`           | プランの説明。                                                 |
+| `monthly_price_in_cents` | `integer`          | このプランのセント (米国の通貨) 単位の月額。 たとえば、月額10米ドルのリストは1000セントです。    |
+| `yearly_price_in_cents`  | `integer`          | このプランのセント (米国の通貨) 単位の年額。 たとえば、月額100米ドルのリストは120000セントです。 |
+| `price_model`            | `string`           | このリストの価格モデル。 `flat-rate`、`per-unit`、`free`のいずれかです。      |
+| `has_free_trial`         | `boolean`          | このリストが無料トライアルを提供する場合は`true`になります。                       |
+| `unit_name`              | `string`           | ユニットの名前。 価格モデルが`per-unit`でない場合、これは`nil`になります。           |
+| `bullet`                 | `array of strings` | 価格プランに設定されている箇条書きの名前。                                   |
 
 <br/>
 

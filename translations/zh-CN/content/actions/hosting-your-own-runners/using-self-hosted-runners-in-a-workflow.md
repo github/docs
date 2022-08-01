@@ -13,10 +13,8 @@ type: tutorial
 shortTitle: 在工作流程中使用运行器
 ---
 
-{% data reusables.actions.ae-self-hosted-runners-notice %}
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 有关创建自定义和默认标签的信息，请参阅“[将标签与自托管运行器一起使用](/actions/hosting-your-own-runners/using-labels-with-self-hosted-runners)。”
 
@@ -24,7 +22,7 @@ shortTitle: 在工作流程中使用运行器
 
 标签允许您根据其共同特征向特定类型的自托管运行器发送工作流程作业。 例如，如果您的作业需要特定的硬件组件或软件包。 您可以将一个自定义标签分配给运行器，然后将您的作业配置为仅在带该标签的运行器中执行。
 
-{% data reusables.github-actions.self-hosted-runner-labels-runs-on %}
+{% data reusables.actions.self-hosted-runner-labels-runs-on %}
 
 更多信息请参阅“[{% data variables.product.prodname_actions %} 的工作流程语法](/github/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idruns-on)”。
 
@@ -71,8 +69,13 @@ runs-on: [self-hosted, linux, x64, gpu]
 
 将作业路由到自托管运行器时，{% data variables.product.prodname_dotcom %} 将查找与作业的 `runs-on` 标签匹配的运行器：
 
-{% ifversion fpt or ghes > 3.2 or ghae-next or ghec %}
-- {% data variables.product.prodname_dotcom %} 先在仓库级别搜索在线和空闲的运行器，然后在组织级别搜索运行器{% ifversion fpt or ghec %}并且如果组织是企业的一部分，{% endif %}然后在企业级别搜索运行器。
+{% ifversion fpt or ghes > 3.3 or ghae or ghec %}
+- 如果 {% data variables.product.prodname_dotcom %} 找到一个在线的空闲运行器与作业的 `runs-on` 标签匹配，则作业被分配并发送到运行器。
+  - 如果运行器在 60 秒内未收到分配的任务，任务将被重新排队，以便新的运行器能够接纳它。
+- 如果 {% data variables.product.prodname_dotcom %} 找不到匹配作业 `runs-on` 标签的在线和空闲运行器，则任务将继续排队，直到运行器上线为止。
+- 如果作业排队的时间超过 24 小时，则作业将失败。
+{% elsif ghes = 3.3 %}
+- {% data variables.product.prodname_dotcom %} 先在仓库级别搜索运行器，然后在组织级别搜索运行器，然后在企业级别搜索运行器。
 - 如果 {% data variables.product.prodname_dotcom %} 在某个级别找到一个在线的空闲运行器与作业的 `runs-on` 标签匹配，则作业被分配并发送到运行器。
   - 如果运行器在 60 秒内未收到分配的作业，该作业将在所有级别排队，等待任何级别的匹配运行器上线和接收作业。
 - 如果 {% data variables.product.prodname_dotcom %} 在任何级别都找不到在线和空闲的运行器，则作业将在所有级别排队，等待任何级别的匹配运行器上线并接收作业。

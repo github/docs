@@ -2,8 +2,8 @@
 title: 使用主题选择器将主题添加到 GitHub Pages 站点
 intro: '您可以将主题添加到 {% data variables.product.prodname_pages %} 站点，以自定义站点的外观。'
 redirect_from:
-  - /articles/creating-a-github-pages-site-with-the-jekyll-theme-chooser/
-  - /articles/adding-a-jekyll-theme-to-your-github-pages-site-with-the-jekyll-theme-chooser/
+  - /articles/creating-a-github-pages-site-with-the-jekyll-theme-chooser
+  - /articles/adding-a-jekyll-theme-to-your-github-pages-site-with-the-jekyll-theme-chooser
   - /articles/adding-a-theme-to-your-github-pages-site-with-the-theme-chooser
   - /github/working-with-github-pages/adding-a-theme-to-your-github-pages-site-with-the-theme-chooser
 product: '{% data reusables.gated-features.pages %}'
@@ -13,11 +13,20 @@ versions:
 topics:
   - Pages
 shortTitle: 将主题添加到 Pages 站点
+permissions: 'People with admin permissions for a repository can use the theme chooser to add a theme to a {% data variables.product.prodname_pages %} site.'
 ---
 
-拥有仓库管理员权限的人可以使用主题选择器向 {% data variables.product.prodname_pages %} 站点添加主题。
-
 ## 关于主题选择器
+
+{% ifversion pages-custom-workflow %}
+
+{% note %}
+
+**Note**: The Jekyll theme chooser is not supported for {% data variables.product.prodname_pages %} sites that are published with a custom {% data variables.product.prodname_actions %} workflow. If you build your site with Jekyll and publish your site with a custom {% data variables.product.prodname_actions %} workflow, you can add a theme by editing the `_config.yml` file. For more information, see "[Adding a theme to your GitHub Pages site using Jekyll](/pages/setting-up-a-github-pages-site-with-jekyll/adding-a-theme-to-your-github-pages-site-using-jekyll)."
+
+{% endnote %}
+
+{% endif %}
 
 主题选择器可用于向仓库添加 Jekyll 主题。 有关 Jekyll 的更多信息，请参阅“[关于 {% data variables.product.prodname_pages %} 和 Jekyll](/articles/about-github-pages-and-jekyll)”。
 

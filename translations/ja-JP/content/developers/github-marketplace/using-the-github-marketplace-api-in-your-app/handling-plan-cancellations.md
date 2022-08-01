@@ -2,8 +2,8 @@
 title: プランのキャンセルの処理
 intro: '{% data variables.product.prodname_marketplace %}アプリケーションをキャンセルすると、[`marketplace_purchase`イベント](/marketplace/integrating-with-the-github-marketplace-api/github-marketplace-webhook-events) webhookが`cancelled`アクション付きでトリガされます。これによって、キャンセルのフローが開始されます。'
 redirect_from:
-  - /apps/marketplace/administering-listing-plans-and-user-accounts/cancelling-plans/
-  - /apps/marketplace/integrating-with-the-github-marketplace-api/cancelling-plans/
+  - /apps/marketplace/administering-listing-plans-and-user-accounts/cancelling-plans
+  - /apps/marketplace/integrating-with-the-github-marketplace-api/cancelling-plans
   - /marketplace/integrating-with-the-github-marketplace-api/cancelling-plans
   - /developers/github-marketplace/handling-plan-cancellations
 versions:

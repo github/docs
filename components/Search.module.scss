@@ -1,14 +1,12 @@
-/* TODO remove mark styling if https://github.com/primer/css/pull/1756 ships */
 .resultsContainer mark {
+  font-weight: bolder;
   background: none;
   color: inherit;
 }
 
 .searchResultContent mark {
-  color: var(--color-fg-default);
-  background-color: var(--color-attention-subtle);
+  font-weight: bolder;
 }
-/* end TODO */
 
 .searchResultContent {
   max-height: 4rem;
@@ -44,4 +42,30 @@
 
 .headerSearchResults {
   max-height: 80vh;
+}
+
+.searchWording {
+  margin: 0.6rem 0 0.5rem 0.5rem;
+}
+
+.selectWording {
+  margin: 0.64rem 0.5rem 0 0;
+}
+
+.versionSearchContainer {
+  overflow: hidden;
+}
+
+// The value in the /cb-XXXXX prefix on the URL isn't important. It just
+// needs to be unique so the asset can be cached in the CDN beyond
+// every prod deployment.
+// Just remember to change it if you change the image.
+.searchIconBackground24 {
+  background: var(--color-canvas-default)
+    url("/assets/cb-303/images/octicons/search-24.svg") no-repeat 12px;
+}
+
+.searchIconBackground16 {
+  background: var(--color-canvas-default)
+    url("/assets/cb-262/images/octicons/search-16.svg") no-repeat 6px;
 }

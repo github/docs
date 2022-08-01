@@ -20,7 +20,6 @@ topics:
   - Integration
 ---
 
-<!--For this article in earlier GHES versions, see /content/github/finding-security-vulnerabilities-and-errors-in-your-code-->
 
 {% data reusables.code-scanning.beta %}
 {% data reusables.code-scanning.enterprise-enable-code-scanning %}
@@ -28,6 +27,10 @@ topics:
 Como alternativa para executar o {% data variables.product.prodname_code_scanning %} dentro do {% data variables.product.prodname_dotcom %}, você pode realizar a análise em outro lugar e, posteriormente, fazer o upload dos resultados. Alertas para {% data variables.product.prodname_code_scanning %} que você executa externamente são exibidos da mesma forma que os alertas para  {% data variables.product.prodname_code_scanning %} que você executa dentro de {% data variables.product.prodname_dotcom %}. Para obter mais informações, consulte "[Gerenciar alertas de {% data variables.product.prodname_code_scanning %} para o seu repositório](/code-security/secure-coding/managing-code-scanning-alerts-for-your-repository)".
 
 Se você usar uma ferramenta de análise estática de terceiros que pode produzir dados de resultados como Formato de Intercâmbio de Resultados de Análise Estática (SARIF) 2.1.0, você pode fazer o upload desses dados em {% data variables.product.prodname_dotcom %}. Para obter mais informações, consulte "[Fazer o upload de um arquivo SARIF para o GitHub](/code-security/secure-coding/uploading-a-sarif-file-to-github)".
+
+{% ifversion fpt or ghes > 3.4 or ghae-issue-6251 or ghec %}
+{% data reusables.code-scanning.about-analysis-origins-link %}
+{% endif %}
 
 ## Integrações com webhooks
 

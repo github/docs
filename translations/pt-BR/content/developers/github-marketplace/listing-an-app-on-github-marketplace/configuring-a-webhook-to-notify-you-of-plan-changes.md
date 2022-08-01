@@ -2,10 +2,10 @@
 title: Configurar um webhook para notificá-lo de alterações de plano
 intro: 'Após [criar um rascunho da listagem do {% data variables.product.prodname_marketplace %} ](/marketplace/listing-on-github-marketplace/creating-a-draft-github-marketplace-listing/), você pode configurar um webhook que notifica você quando ocorrem alterações nos planos da conta do cliente. Após configurar o webhook, você pode [gerenciar os tipos de evento `marketplace_purchase`](/marketplace/integrating-with-the-github-marketplace-api/github-marketplace-webhook-events/) no seu aplicativo.'
 redirect_from:
-  - /apps/adding-integrations/managing-listings-on-github-marketplace/adding-webhooks-for-a-github-marketplace-listing/
-  - /apps/marketplace/managing-github-marketplace-listings/adding-webhooks-for-a-github-marketplace-listing/
-  - /apps/marketplace/setting-up-github-marketplace-webhooks/creating-a-webhook-for-a-github-marketplace-listing/
-  - /apps/marketplace/listing-on-github-marketplace/configuring-the-github-marketplace-webhook/
+  - /apps/adding-integrations/managing-listings-on-github-marketplace/adding-webhooks-for-a-github-marketplace-listing
+  - /apps/marketplace/managing-github-marketplace-listings/adding-webhooks-for-a-github-marketplace-listing
+  - /apps/marketplace/setting-up-github-marketplace-webhooks/creating-a-webhook-for-a-github-marketplace-listing
+  - /apps/marketplace/listing-on-github-marketplace/configuring-the-github-marketplace-webhook
   - /marketplace/listing-on-github-marketplace/configuring-the-github-marketplace-webhook
   - /developers/github-marketplace/configuring-a-webhook-to-notify-you-of-plan-changes
 versions:

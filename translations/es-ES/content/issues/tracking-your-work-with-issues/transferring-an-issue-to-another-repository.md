@@ -16,17 +16,19 @@ topics:
 shortTitle: Transferir una propuesta
 ---
 
-To transfer an open issue to another repository, you must have write access to the repository the issue is in and the repository you're transferring the issue to. For more information, see "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)."
+Para transferir una propuesta abierta a otro repositorio, debes tener acceso de escritura en el repositorio en el cual se encuentra la propuesta y en el que la recibirá cuando la transfieras. Para obtener más información, consulta la sección "[Roles de repositorio para una organización](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)".
 
-Solo puedes transferir propuestas entre repositorios que son propiedad del mismo usuario o de la misma cuenta de la organización. {% ifversion fpt or ghes or ghec %}No puedes transferir una propuesta desde un repositorio privado hacia un repositorio público.{% endif %}
+{% note %}
 
-Cuando transfieres un informe de problemas, se retendrá tanto los comentarios como las personas asignadas. No se retendrán los hitos y etiquetas de la propuesta. Esta propuesta se mantendrá en cualquier tablero de proyecto que pertenezca al usuario o que se encuentre en la organización y se eliminará de cualquier tablero de proyecto de los repositorios. Para obtener más información, consulta "[Acerca de los tableros de proyectos](/articles/about-project-boards)."
+**Nota**: Solo puedes transferir propuestas entre los repositorios que pertenezcan a la misma cuenta de usuario o de organización. {% ifversion fpt or ghes or ghec %}Una propuesta de repositorio privado no puede transferirse a un repositorio público.{% endif %}
+
+{% endnote %}
+
+Cuando transfieres una propuesta, los comentarios, etiquetas y asignados se retienen. Los hitos de la propuesta no se retienen. Esta propuesta se mantendrá en cualquier tablero de proyecto que pertenezca al usuario o que se encuentre en la organización y se eliminará de cualquier tablero de proyecto de los repositorios. Para obtener más información, consulta "[Acerca de los tableros de proyectos](/articles/about-project-boards)."
 
 Las personas o equipos que se mencionan en la propuesta recibirán una notificación que les haga saber que la propuesta se transfirió a un repositorio nuevo. La URL original se redirige a la URL nueva de la propuesta. Las personas que no tengan permisos de lectura en el repositorio nuevo verán un anuncio que les hará saber que la propuesta se transfirió a un repositorio nuevo al que no pueden acceder.
 
 ## Transferir una propuesta abierta a otro repositorio
-
-{% include tool-switcher %}
 
 {% webui %}
 

@@ -2,8 +2,8 @@
 title: Agregar un tema a tu sitio de Páginas de GitHub con el selector de tema
 intro: 'Puedes añadir un tema a tu sitio de {% data variables.product.prodname_pages %} para personalizar la apariencia de tu sitio.'
 redirect_from:
-  - /articles/creating-a-github-pages-site-with-the-jekyll-theme-chooser/
-  - /articles/adding-a-jekyll-theme-to-your-github-pages-site-with-the-jekyll-theme-chooser/
+  - /articles/creating-a-github-pages-site-with-the-jekyll-theme-chooser
+  - /articles/adding-a-jekyll-theme-to-your-github-pages-site-with-the-jekyll-theme-chooser
   - /articles/adding-a-theme-to-your-github-pages-site-with-the-theme-chooser
   - /github/working-with-github-pages/adding-a-theme-to-your-github-pages-site-with-the-theme-chooser
 product: '{% data reusables.gated-features.pages %}'
@@ -13,11 +13,20 @@ versions:
 topics:
   - Pages
 shortTitle: Agregar un tema al sitio de Páginas
+permissions: 'People with admin permissions for a repository can use the theme chooser to add a theme to a {% data variables.product.prodname_pages %} site.'
 ---
 
-Las personas con permisos de administración para un repositorio pueden usar el selector de temas para agregar un tema al sitio de {% data variables.product.prodname_pages %}.
-
 ## Acerca del selector de temas
+
+{% ifversion pages-custom-workflow %}
+
+{% note %}
+
+**Note**: The Jekyll theme chooser is not supported for {% data variables.product.prodname_pages %} sites that are published with a custom {% data variables.product.prodname_actions %} workflow. If you build your site with Jekyll and publish your site with a custom {% data variables.product.prodname_actions %} workflow, you can add a theme by editing the `_config.yml` file. For more information, see "[Adding a theme to your GitHub Pages site using Jekyll](/pages/setting-up-a-github-pages-site-with-jekyll/adding-a-theme-to-your-github-pages-site-using-jekyll)."
+
+{% endnote %}
+
+{% endif %}
 
 El selector de temas agrega un tema de Jekyll a tu repositorio. Para obtener más información acerca de Jekyll, consulta "[Acerca de las {% data variables.product.prodname_pages %} y Jekyll](/articles/about-github-pages-and-jekyll)".
 

@@ -1,0 +1,1 @@
+Una matriz de jobs puede generar un máximo de 256 jobs por ejecución de flujo de trabajo. Este límite aplica tanto a los ejecutores hospedados en {% data variables.product.product_name %} como a los auto-hospedados.

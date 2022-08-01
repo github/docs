@@ -13,9 +13,10 @@ topics:
   - Codespaces
   - Fundamentals
   - Developer
+shortTitle: 删除代码空间
 ---
 
- 
+
 
 {% data reusables.codespaces.concurrent-codespace-limit %}
 
@@ -25,7 +26,7 @@ topics:
 
 {% endnote %}
 
-{% include tool-switcher %}
+## 删除代码空间
 
 {% webui %}
 
@@ -48,17 +49,54 @@ topics:
 
 {% data reusables.cli.cli-learn-more %}
 
-To delete a codespace use the `gh codespace delete` subcommand and then choose a codespace from the list that's displayed.
+若要删除代码空间，请使用 `gh codespace delete` 子命令，然后从显示的列表中选择一个代码空间。
 
 ```shell
 gh codespace delete
 ```
 
-If you have unsaved changes, you'll be prompted to confirm deletion. You can use the `-f` flag to force deletion, avoiding this prompt.
+如果您有未保存的更改，系统将提示您确认删除。 您可以使用 `--force` 标志强制删除，从而避免出现此提示。
 
-For more information about this command, see [the {% data variables.product.prodname_cli %} manual](https://cli.github.com/manual/gh_codespace_delete).
+有关此命令的详细信息，请参阅 [ {% data variables.product.prodname_cli %} 手册](https://cli.github.com/manual/gh_codespace_delete)。
+
+{% endcli %}
+
+## 批量删除代码空间
+
+{% webui %}
+
+可以使用 {% data variables.product.prodname_cli %} 通过单个命令删除多个或全部代码空间。 有关详细信息，请单击此页面顶部附近的 **{% data variables.product.prodname_cli %}** 选项卡。
+
+{% endwebui %}
+
+{% vscode %}
+
+可以使用 {% data variables.product.prodname_cli %} 通过单个命令删除多个或全部代码空间。 有关详细信息，请单击此页面顶部附近的 **{% data variables.product.prodname_cli %}** 选项卡。
+
+{% endvscode %}
+
+
+{% cli %}
+
+您可以使用 `gh codespace delete` 后接以下标志之一，以单个命令删除多个或全部代码空间：
+
+`--all` - 删除所有代码空间。
+
+`--repo REPOSITORY` - 删除此存储库的所有代码空间。 或者与 `--days` 标志一起使用，以按代码空间存在的时长进行筛选。
+
+`--all` - 删除早于指定天数的所有代码空间。 可以与 `--repo` 标志一起使用。
+
+默认情况下，系统会提示您确认删除包含未保存更改的任何代码空间。 您可以使用 `--force` 标志跳过此确认。
+
+### 示例
+
+删除您 7 天以前创建的 `octo-org/octo-repo` 存储库的所有代码空间。
+
+```
+gh cs delete --repo octo-org/octo-repo --days 7
+```
 
 {% endcli %}
 
 ## 延伸阅读
-- [Codespaces lifecycle](/codespaces/developing-in-codespaces/codespaces-lifecycle)
+- [代码空间生命周期](/codespaces/developing-in-codespaces/codespaces-lifecycle)

@@ -1,8 +1,8 @@
 ---
 title: 关于 Git 子树合并
 redirect_from:
-  - /articles/working-with-subtree-merge/
-  - /subtree-merge/
+  - /articles/working-with-subtree-merge
+  - /subtree-merge
   - /articles/about-git-subtree-merges
   - /github/using-git/about-git-subtree-merges
   - /github/getting-started-with-github/about-git-subtree-merges
@@ -53,7 +53,7 @@ versions:
 
 1. 新增指向我们感兴趣的单独项目的远程 URL。
   ```shell
-  $ git remote add -f spoon-knife git@github.com:octocat/Spoon-Knife.git
+  $ git remote add -f spoon-knife https://github.com/octocat/Spoon-Knife.git
   > Updating spoon-knife
   > warning: no common commits
   > remote: Counting objects: 1732, done.
@@ -61,7 +61,7 @@ versions:
   > remote: Total 1732 (delta 1086), reused 1558 (delta 967)
   > Receiving objects: 100% (1732/1732), 528.19 KiB | 621 KiB/s, done.
   > Resolving deltas: 100% (1086/1086), done.
-  > From git://github.com/octocat/Spoon-Knife
+  > From https://github.com/octocat/Spoon-Knife
   >  * [new branch]      main     -> Spoon-Knife/main
   ```
 2. 将 `Spon-Knife` 项目合并到当地 Git 项目。 这不会在本地更改任何文件，但会为下一步准备 Git。

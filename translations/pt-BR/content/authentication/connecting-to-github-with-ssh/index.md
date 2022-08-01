@@ -2,15 +2,15 @@
 title: Conectar-se ao GitHub com SSH
 intro: 'Você pode conectar-se a {% data variables.product.product_name %} usando o protocolo Secure Shell (SSH), que fornece um canal seguro por meio de uma rede insegura.'
 redirect_from:
-  - /key-setup-redirect/
-  - /linux-key-setup/
-  - /mac-key-setup/
-  - /msysgit-key-setup/
-  - /articles/ssh-key-setup/
-  - /articles/generating-ssh-keys/
-  - /articles/generating-an-ssh-key/
+  - /key-setup-redirect
+  - /linux-key-setup
+  - /mac-key-setup
+  - /msysgit-key-setup
+  - /articles/ssh-key-setup
+  - /articles/generating-ssh-keys
+  - /articles/generating-an-ssh-key
   - /articles/connecting-to-github-with-ssh
-  - /github/authenticating-to-github/connecting-to-github-with-ssh/
+  - /github/authenticating-to-github/connecting-to-github-with-ssh
 versions:
   fpt: '*'
   ghes: '*'

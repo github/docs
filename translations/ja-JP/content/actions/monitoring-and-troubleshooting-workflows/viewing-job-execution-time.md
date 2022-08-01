@@ -11,9 +11,8 @@ shortTitle: View job execution time
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
-請求可能なジョブ実行時間（分）は、{% data variables.product.prodname_dotcom %} ホストランナーを使用するプライベートリポジトリで実行されるジョブに対してのみ表示されます。 パブリックリポジトリで {% data variables.product.prodname_actions %} を使用する場合、またはセルフホストランナーで実行されるジョブの場合、請求対象となる実行時間はありません。
+Billable job execution minutes are only shown for jobs run on private repositories that use {% data variables.product.prodname_dotcom %}-hosted runners and are rounded up to the next minute. パブリックリポジトリで {% data variables.product.prodname_actions %} を使用する場合、またはセルフホストランナーで実行されるジョブの場合、請求対象となる実行時間はありません。
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.actions-tab %}
@@ -23,6 +22,6 @@ shortTitle: View job execution time
 
    {% note %}
 
-   **ノート:** 表示される請求可能な時間には、丸めや分数の乗数は含まれません。 四捨五入や分乗数を含む {% data variables.product.prodname_actions %} の使用状況の合計を表示するには、「[{% data variables.product.prodname_actions %} の使用状況を表示する](/billing/managing-billing-for-github-actions/viewing-your-github-actions-usage)」を参照してください。
+   **Note:** The billable time shown does not include any minute multipliers. To view your total {% data variables.product.prodname_actions %} usage, including minute multipliers, see "[Viewing your {% data variables.product.prodname_actions %} usage](/billing/managing-billing-for-github-actions/viewing-your-github-actions-usage)."
 
    {% endnote %}

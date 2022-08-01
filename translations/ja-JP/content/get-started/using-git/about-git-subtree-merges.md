@@ -1,8 +1,8 @@
 ---
 title: Gitのサブツリーのマージについて
 redirect_from:
-  - /articles/working-with-subtree-merge/
-  - /subtree-merge/
+  - /articles/working-with-subtree-merge
+  - /subtree-merge
   - /articles/about-git-subtree-merges
   - /github/using-git/about-git-subtree-merges
   - /github/getting-started-with-github/about-git-subtree-merges
@@ -53,7 +53,7 @@ versions:
 
 1. 関心のある別個のプロジェクトを指す新しいリモート URL を追加します。
   ```shell
-  $ git remote add -f spoon-knife git@github.com:octocat/Spoon-Knife.git
+  $ git remote add -f spoon-knife https://github.com/octocat/Spoon-Knife.git
   > Updating spoon-knife
   > warning: no common commits
   > remote: Counting objects: 1732, done.
@@ -61,7 +61,7 @@ versions:
   > remote: Total 1732 (delta 1086), reused 1558 (delta 967)
   > Receiving objects: 100% (1732/1732), 528.19 KiB | 621 KiB/s, done.
   > Resolving deltas: 100% (1086/1086), done.
-  > From git://github.com/octocat/Spoon-Knife
+  > From https://github.com/octocat/Spoon-Knife
   >  * [new branch]      main     -> Spoon-Knife/main
   ```
 2. `Spoon-Knife` プロジェクトをローカルの Git プロジェクトにマージします。 こうしてもローカルではファイルはまったく変更されませんが、Git は次のステップに備えることになります。

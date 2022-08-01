@@ -4,6 +4,7 @@ intro: 您可以通过配置测试在作业仓库中运行，来自动提供对�
 miniTocMaxHeadingLevel: 3
 versions:
   fpt: '*'
+permissions: 'Organization owners who are admins for a classroom can set up and use autograding on assignments in a classroom. {% data reusables.classroom.classroom-admins-link %}'
 redirect_from:
   - /education/manage-coursework-with-github-classroom/adding-tests-for-auto-grading
   - /education/manage-coursework-with-github-classroom/reviewing-auto-graded-work-teachers
@@ -20,7 +21,7 @@ redirect_from:
 
 您可以通过导航 {% data variables.product.prodname_classroom %} 中的作业来查看哪些学生通过了自动分级测试的概况。 绿色复选标记表示学生的所有测试都已通过，红色 X 表示学生的部分或所有测试都未通过。 如果您为一个或多个测试评分，则气泡会显示测试的分数以及作业可得最高分数。
 
-![包含自动评分结果的作业概述](/assets/images/help/classroom/autograding-hero.png)
+![包含自动评分结果的作业概述](/assets/images/help/classroom/assignment-individual-hero.png)
 
 ## 评分方法
 
@@ -59,7 +60,7 @@ redirect_from:
 
 您可以在创建新作业时添加自动评分测试。 {% data reusables.classroom.for-more-information-about-assignment-creation %}
 
-您可以添加、编辑或删除现有作业的自动评分测试。 如果您更改现有作业的自动评分测试，现有作业仓库将不会受到影响。 学生或团队必须接受作业并创建一个新的作业仓库来使用新的测试。
+您可以添加、编辑或删除现有作业的自动评分测试。 通过课堂 UI 所做的所有更改都将推送到现有的学生资料库，因此在编辑测试时要小心。
 
 {% data reusables.classroom.sign-into-github-classroom %}
 {% data reusables.classroom.click-classroom-in-list %}

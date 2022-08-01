@@ -2,8 +2,8 @@
 title: プロジェクトのコントリビューターを表示する
 intro: 'リポジトリへのコミットにコントリビュートした人{% ifversion fpt or ghec %}とその依存関係{% endif %}を表示できます。'
 redirect_from:
-  - /articles/i-don-t-see-myself-in-the-contributions-graph/
-  - /articles/viewing-contribution-activity-in-a-repository/
+  - /articles/i-don-t-see-myself-in-the-contributions-graph
+  - /articles/viewing-contribution-activity-in-a-repository
   - /articles/viewing-a-projects-contributors
   - /github/visualizing-repository-data-with-graphs/viewing-a-projects-contributors
   - /github/visualizing-repository-data-with-graphs/accessing-basic-repository-data/viewing-a-projects-contributors
@@ -42,7 +42,7 @@ shortTitle: View project contributors
 
 {% tip %}
 
-**ヒント:** リポジトリへのコミットのコントリビューターを一覧表示する方法については、「[リポジトリ](/rest/reference/repos#list-contributors)」を参照してください。
+**Tip:** To list all commit contributors in a repository, see "[List repository contributors](/rest/repos/repos#list-repository-contributors)."
 
 {% endtip %}
 

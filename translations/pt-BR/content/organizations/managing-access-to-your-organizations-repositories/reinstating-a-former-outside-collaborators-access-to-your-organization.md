@@ -16,7 +16,7 @@ topics:
 shortTitle: Restabelecer colaborador
 ---
 
-Quando o acesso de um colaborador externo aos repositórios privados da sua organização é removido, os privilégios e configurações de acesso do usuário são salvos por três meses. You can restore the user's privileges if you {% ifversion fpt or ghec %}invite{% else %}add{% endif %} them back to the organization within that time frame.
+Quando o acesso de um colaborador externo aos repositórios privados da sua organização é removido, os privilégios e configurações de acesso do usuário são salvos por três meses. Você poderá restaurar os privilégios do usuário se {% ifversion fpt or ghec %}convidá-lo{% else %}adicioná-lo{% endif %} novamente na organização durante esse período.
 
 {% data reusables.two_fa.send-invite-to-reinstate-user-before-2fa-is-enabled %}
 
@@ -33,14 +33,14 @@ Ao restabelecer um ex-colaborador externo, você pode restaurar:
 
 **Dicas**:
 
- - Somente proprietários da organização podem restabelecer o acesso de um colaborador externo à organização. For more information, see "[Roles in an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)."
+ - Apenas proprietários da organização podem reinserir o acesso dos colaboradores externos à organização.{% ifversion prevent-org-admin-add-outside-collaborator %} Os proprietários de empresas podem restringir ainda mais a capacidade de restabelecer o acesso dos colaboradores externos apenas a proprietários das empresas.{% endif %} Para obter mais informações, consulte "[Funções em uma organização](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)".
  - O fluxo de restabelecimento de um integrante no {% data variables.product.product_location %} pode usar o termo "integrante" para descrever o restabelecimento de um colaborador externo, mas se você restabelecer o usuário e mantiver os privilégios anteriores, ele terá apenas as [permissões anteriores de colaborador externo](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization#outside-collaborators).{% ifversion fpt or ghec %}
  - Se a organização tiver uma assinatura paga por usuário, ela deverá ter uma licença não utilizada disponível para você poder convidar um integrante para participar da organização ou restabelecer um ex-integrante da organização. Para obter mais informações, consulte "[Sobre preços por usuário](/articles/about-per-user-pricing)."{% endif %}
 
 {% endtip %}
 
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.people %}
 {% data reusables.organizations.invite_member_from_people_tab %}
 {% data reusables.organizations.reinstate-user-type-username %}
@@ -76,4 +76,4 @@ Ao restabelecer um ex-colaborador externo, você pode restaurar:
 
 ## Leia mais
 
-- "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)"
+- "[Funções do repositório para uma organização](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)"

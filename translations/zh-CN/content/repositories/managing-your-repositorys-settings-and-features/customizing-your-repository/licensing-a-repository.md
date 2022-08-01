@@ -2,7 +2,7 @@
 title: 许可仓库
 intro: GitHub 上的公共仓库常用于共享开源软件。 要使仓库真正开源，您需要许可它供其他人免费使用、更改和分发软件。
 redirect_from:
-  - /articles/open-source-licensing/
+  - /articles/open-source-licensing
   - /articles/licensing-a-repository
   - /github/creating-cloning-and-archiving-repositories/licensing-a-repository
   - /github/creating-cloning-and-archiving-repositories/creating-a-repository-on-github/licensing-a-repository
@@ -90,7 +90,7 @@ topics:
 
 ## 免责声明
 
-GitHub 开源许可的目标是提供一个起点，帮助您做出明智的决定。 GitHub 显示许可信息以帮助用户了解开源许可以及使用它们的项目。 我们希望它有帮助，但请记住，我们不是律师，像其他人一样，我们也会犯错。 For that reason, GitHub provides the information on an "as-is" basis and makes no warranties regarding any information or licenses provided on or through it, and disclaims liability for damages resulting from using the license information. 如果对适合您的代码的许可有任何疑问，或有任何其他相关的问题，最好咨询专业人员。
+GitHub 开源许可的目标是提供一个起点，帮助您做出明智的决定。 GitHub 显示许可信息以帮助用户了解开源许可以及使用它们的项目。 我们希望它有帮助，但请记住，我们不是律师，像其他人一样，我们也会犯错。 因此，GitHub“按原样”提供信息，对提供或通过其提供的任何信息或许可不做任何保证，并对使用许可信息所造成的损害不承担责任。 如果对适合您的代码的许可有任何疑问，或有任何其他相关的问题，最好咨询专业人员。
 
 ## 延伸阅读
 

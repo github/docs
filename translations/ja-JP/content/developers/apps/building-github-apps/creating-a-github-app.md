@@ -2,8 +2,8 @@
 title: GitHub App を作成する
 intro: '{% data reusables.shortdesc.creating_github_apps %}'
 redirect_from:
-  - /early-access/integrations/creating-an-integration/
-  - /apps/building-integrations/setting-up-and-registering-github-apps/registering-github-apps/
+  - /early-access/integrations/creating-an-integration
+  - /apps/building-integrations/setting-up-and-registering-github-apps/registering-github-apps
   - /apps/building-github-apps/creating-a-github-app
   - /developers/apps/creating-a-github-app
 versions:
@@ -35,7 +35,7 @@ topics:
 
 1. 必要に応じて、ユーザーに表示されるアプリケーションの説明を [Description] に入力します。 ![GitHub App の説明フィールド](/assets/images/github-apps/github_apps_description.png)
 1. [Homepage URL] に、アプリケーションのウェブサイトの完全な URL を入力します。 ![GitHub App のホームページ URL フィールド](/assets/images/github-apps/github_apps_homepage_url.png)
-{% ifversion fpt or ghes > 3.0 or ghec %}
+{% ifversion fpt or ghes or ghec %}
 1. [Callback URL] に、ユーザがインストールを認可した後にリダイレクトされる URL を完全な形で入力します。 この URL は、アプリケーションがユーザからサーバへのリクエストを識別して承認する必要がある場合に使用されます。
 
   [**Add callback URL**] を使用して、コールバック URL を最大 10 個追加できます。
@@ -46,7 +46,8 @@ topics:
 
 {% endif %}
 1. デフォルトでは、アプリケーションのセキュリティを高めるため、アプリケーションは期限付きのユーザ認可トークンを使用します。 期限付きのユーザトークンの使用をオプトアウトするには、[Expire user authorization tokens] の選択を解除する必要があります。 リフレッシュトークンフローの設定と、期限付きユーザトークンの利点に関する詳細については、「[ユーザからサーバーに対するアクセストークンをリフレッシュする](/apps/building-github-apps/refreshing-user-to-server-access-tokens/)」を参照してください。 ![GitHub App のセットアップ中に期限付きユーザトークンをオプトインするオプション](/assets/images/github-apps/expire-user-tokens-selection.png)
-1. アプリケーションが OAuth フローを使用してユーザを認可する場合、[**Request user authorization (OAuth) during installation**] を選択して、ユーザーかアプリをインストール時に認可するようにできます。 このオプションを選択した場合、[Setup URL] が利用できなくなり、アプリケーションのインストール後にユーザはあなたが設定した [User authorization callback URL] にリダイレクトされます。 詳しい情報については「[インストール中にユーザを認可する](/apps/installing-github-apps/#authorizing-users-during-installation)」を参照してください。 ![インストール時にユーザの認可を要求する](/assets/images/github-apps/github_apps_request_auth_upon_install.png)
+1. アプリケーションが OAuth フローを使用してユーザを認可する場合、[**Request user authorization (OAuth) during installation**] を選択して、ユーザーかアプリをインストール時に認可するようにできます。 このオプションを選択した場合、[Setup URL] が利用できなくなり、アプリケーションのインストール後にユーザはあなたが設定した [User authorization callback URL] にリダイレクトされます。 詳しい情報については「[インストール中にユーザを認可する](/apps/installing-github-apps/#authorizing-users-during-installation)」を参照してください。 ![Request user authorization during installation](/assets/images/github-apps/github_apps_request_auth_upon_install.png){% ifversion device-flow-is-opt-in %}
+1. If your GitHub App will use the device flow to identify and authorize users, click **Enable Device Flow**. For more information about the device flow, see "[Authorizing OAuth Apps](/developers/apps/building-oauth-apps/authorizing-oauth-apps#device-flow)." ![Screenshot showing field for enabling device flow](/assets/images/oauth-apps/enable-device-flow.png){% endif %}
 1. インストール後に追加の設定が必要な場合、[Setup URL] を追加して、アプリケーションをインストールした後にユーザをリダイレクトします。 ![GitHub App のセットアップ URL フィールド ](/assets/images/github-apps/github_apps_setup_url.png)
 
   {% note %}

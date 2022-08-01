@@ -53,7 +53,7 @@ Os gerentes de cobrança **não** podem:
 {% ifversion ghec %}
 {% note %}
 
-**Observação:** Se sua organização for gerenciada usando [Contas Corporativas](/github/setting-up-and-managing-your-enterprise/managing-your-enterprise-account/about-enterprise-accounts) você não poderá convidar os Gerentes de Cobrança no nível da organização.
+**Observação:** Se a sua organização pertencer a uma conta corporativa, você não pode convidar gerentes de cobrança no nível da organização. Para obter mais informações, consulte "[Sobre contas corporativas](/admin/overview/about-enterprise-accounts)".
 
 {% endnote %}
 {% endif %}
@@ -63,3 +63,7 @@ A pessoa convidada receberá um e-mail de convite solicitando que ela se torne u
 {% data reusables.organizations.billing-settings %}
 1. Em "Gerenciamento de cobrança", ao lado de "Gerentes de cobrança", clique em **Adicionar**. ![Convidar gerente de cobrança](/assets/images/help/billing/settings_billing_managers_list.png)
 6. Digite o nome de usuário ou endereço de e-mail da pessoa que deseja adicionar e clique em **Send invitation** (Enviar convite). ![Página para convidar gerente de cobrança](/assets/images/help/billing/billing_manager_invite.png)
+
+## Leia mais
+
+- "[Convidando pessoas para gerenciar a sua empresa](/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise/inviting-people-to-manage-your-enterprise)"{% ifversion fpt %} na documentação de {% data variables.product.prodname_ghe_cloud %}{% endif %}

@@ -11,7 +11,9 @@ topics:
   - Upgrades
 ---
 
-{% data variables.product.product_name %} 在不断改进，通过功能和补丁版本引入新功能和漏洞补丁。 {% ifversion ghae %}{% data variables.product.prodname_ghe_managed %} 是一项完全管理的服务，因此 {% data variables.product.company_short %} 可完成企业的升级过程。{% endif %}
+{% ifversion ghes < 3.3 %}{% data reusables.enterprise.upgrade-ghes-for-features %}{% endif %}
+
+{% data reusables.enterprise.constantly-improving %}{% ifversion ghae %}{% data variables.product.prodname_ghe_managed %} 是一项完全管理的服务，因此 {% data variables.product.company_short %} 可完成企业的升级过程。{% endif %}
 
 功能版本包括新的功能和功能升级，通常每季度进行一次。 {% ifversion ghae %}{% data variables.product.company_short %} 会将您的企业升级到最新的功能版本。 您的企业如有任何计划内的停机，都会提前通知您。{% endif %}
 
@@ -37,7 +39,7 @@ topics:
 
 只包含热补丁和漏洞补丁的补丁版本会更频繁地发布。 首次发布时通常提供补丁版本，没有候选版本。 升级到补丁版本通常需要不到五分钟的停机时间。
 
-要将您的企业升级到新版本，请参阅“[发行说明](/enterprise-server/admin/release-notes)”和“[升级 {% data variables.product.prodname_ghe_server %}](/admin/enterprise-management/upgrading-github-enterprise-server)”。
+要将您的企业升级到新版本，请参阅“[发行说明](/enterprise-server/admin/release-notes)”和“[升级 {% data variables.product.prodname_ghe_server %}](/admin/enterprise-management/upgrading-github-enterprise-server)”。 由于只能从最多落后两个版本的功能版本进行升级，因此请使用 [{% data variables.enterprise.upgrade_assistant %}](https://support.github.com/enterprise/server-upgrade) 查找当前版本中的升级路径。
 
 {% endif %}
 

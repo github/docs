@@ -1,6 +1,6 @@
 date: '2021-11-09'
 release_candidate: true
-deprecated: false
+deprecated: true
 intro: |
   {% note %}
 
@@ -168,6 +168,11 @@ sections:
         # https://github.com/github/releases/issues/1588
         - Performance improvements have been made to {% data variables.product.prodname_actions %}, which may result in higher maximum job concurrency.
 
+    - heading: 'GitHub Packages changes'
+      notes:
+        # https://github.com/github/docs-content/issues/5554
+        - When a repository is deleted, any associated package files are now immediately deleted from your {% data variables.product.prodname_registry %} external storage.
+
     - heading: 'Dependabot and Dependency graph changes'
       notes:
         # https://github.com/github/releases/issues/1141
@@ -205,7 +210,7 @@ sections:
         - You can now use the REST API to configure custom autolinks to external resources. The REST API now provides beta `GET`/`POST`/`DELETE` endpoints which you can use to view, add, or delete custom autolinks associated with a repository. For more information, see "[Autolinks](/rest/reference/repos#autolinks)."
 
         # https://github.com/github/releases/issues/1578
-        - You can now use the REST API to sync a forked repository with its upstream repository. For more information, see "[Repositories](/rest/reference/repos#sync-a-fork-branch-with-the-upstream-repository)" in the REST API documentation.
+        - You can now use the REST API to sync a forked repository with its upstream repository. For more information, see "[Branches](/rest/reference/branches#sync-a-fork-branch-with-the-upstream-repository)" in the REST API documentation.
 
         # https://github.com/github/releases/issues/1527
         - Enterprise administrators on GitHub Enterprise Server can now use the REST API to enable or disable Git LFS for a repository. For more information, see "[Repositories](/rest/reference/repos#git-lfs)."

@@ -1,12 +1,10 @@
 ---
 title: 关于使用 SAML 单点登录管理身份和访问
 intro: '如果您使用身份提供程序 (IdP) 集中管理用户身份和应用程序，可以配置安全声明标记语言 (SAML) 单点登录 (SSO) 来保护组织在 {% data variables.product.prodname_dotcom %} 上的资源。'
-product: '{% data reusables.gated-features.saml-sso %}'
 redirect_from:
   - /articles/about-identity-and-access-management-with-saml-single-sign-on
   - /github/setting-up-and-managing-organizations-and-teams/about-identity-and-access-management-with-saml-single-sign-on
 versions:
-  fpt: '*'
   ghec: '*'
 topics:
   - Organizations
@@ -20,11 +18,11 @@ shortTitle: 使用 SAML SSO 的 IAM
 
 {% data reusables.saml.dotcom-saml-explanation %}
 
+{% data reusables.saml.ghec-only %}
+
 {% data reusables.saml.saml-accounts %}
 
 组织所有者可以对单个组织强制实施 SAML SSO，企业所有者可以为企业帐户中的所有组织强制实施 SAML SSO。 更多信息请参阅“[配置企业的 SAML 单点登录](/enterprise-cloud@latest/admin/authentication/managing-identity-and-access-for-your-enterprise/configuring-saml-single-sign-on-for-your-enterprise)”。
-
-{% data reusables.saml.saml-requires-ghec %}{% ifversion fpt %} {% data reusables.enterprise.link-to-ghec-trial %}{% endif %}
 
 {% data reusables.saml.outside-collaborators-exemption %}
 
@@ -48,7 +46,9 @@ shortTitle: 使用 SAML SSO 的 IAM
 
 {% data reusables.saml.saml-supported-idps %}
 
-有些 IdP 支持配置通过 SCIM 访问 {% data variables.product.prodname_dotcom %} 组织。 {% data reusables.scim.enterprise-account-scim %} 更多信息请参阅“[关于 SCIM](/organizations/managing-saml-single-sign-on-for-your-organization/about-scim)”。
+有些 IdP 支持配置通过 SCIM 访问 {% data variables.product.prodname_dotcom %} 组织。 更多信息请参阅“[关于组织的 SCIM](/organizations/managing-saml-single-sign-on-for-your-organization/about-scim-for-organizations)”。
+
+{% data reusables.scim.enterprise-account-scim %}
 
 ## 使用 SAML SSO 添加成员到组织
 
@@ -56,7 +56,7 @@ shortTitle: 使用 SAML SSO 的 IAM
 
 要供应新用户而不使用组织所有者的邀请，您可以使用 URL `https://github.com/orgs/ORGANIZATION/sso/sign_up`，将 _ORGANIZATION_ 替换为组织的名称。 例如，您可以配置 IdP，让能访问 IdP 的任何人都可单击 IdP 仪表板上的链接加入 {% data variables.product.prodname_dotcom %} 组织。
 
-如果您的 IdP 支持 SCIM，当您在 IdP 上授予访问权限时，{% data variables.product.prodname_dotcom %} 可以自动邀请成员加入您的组织。 如果您删除成员对 SAML IdP 上 {% data variables.product.prodname_dotcom %} 组织的访问权限，该成员将自动从 {% data variables.product.prodname_dotcom %} 组织删除。 更多信息请参阅“[关于 SCIM](/organizations/managing-saml-single-sign-on-for-your-organization/about-scim)”。
+如果您的 IdP 支持 SCIM，当您在 IdP 上授予访问权限时，{% data variables.product.prodname_dotcom %} 可以自动邀请成员加入您的组织。 如果您删除成员对 SAML IdP 上 {% data variables.product.prodname_dotcom %} 组织的访问权限，该成员将自动从 {% data variables.product.prodname_dotcom %} 组织删除。 更多信息请参阅“[关于组织的 SCIM](/organizations/managing-saml-single-sign-on-for-your-organization/about-scim-for-organizations)”。
 
 {% data reusables.organizations.team-synchronization %}
 
@@ -64,5 +64,6 @@ shortTitle: 使用 SAML SSO 的 IAM
 
 ## 延伸阅读
 
+- “[SAML 配置参考](/admin/identity-and-access-management/using-saml-for-enterprise-iam/saml-configuration-reference)”
 - "[关于双重身份验证和 SAML 单点登录](/articles/about-two-factor-authentication-and-saml-single-sign-on)"
 - "[关于使用 SAML 单点登录进行身份验证](/github/authenticating-to-github/about-authentication-with-saml-single-sign-on)"

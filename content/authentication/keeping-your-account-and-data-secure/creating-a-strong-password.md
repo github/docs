@@ -2,7 +2,7 @@
 title: Creating a strong password
 intro: 'Secure your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} with a strong and unique password using a password manager.'
 redirect_from:
-  - /articles/what-is-a-strong-password/
+  - /articles/what-is-a-strong-password
   - /articles/creating-a-strong-password
   - /github/authenticating-to-github/creating-a-strong-password
   - /github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-strong-password
@@ -30,7 +30,7 @@ To keep your account secure, we recommend you follow these best practices:
 
 You can only use your password to log on to {% data variables.product.product_name %} using your browser. When you authenticate to {% data variables.product.product_name %} with other means, such as the command line or API, you should use other credentials. For more information, see "[About authentication to {% data variables.product.prodname_dotcom %}](/github/authenticating-to-github/about-authentication-to-github)." 
 
-{% ifversion fpt or ghec %}{% data reusables.user_settings.password-authentication-deprecation %}{% endif %}
+{% ifversion fpt or ghec %}{% data reusables.user-settings.password-authentication-deprecation %}{% endif %}
 
 ## Further reading
 

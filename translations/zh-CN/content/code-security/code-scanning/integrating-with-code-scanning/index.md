@@ -22,4 +22,3 @@ children:
   - /sarif-support-for-code-scanning
 ---
 
-<!--For this article in earlier GHES versions, see /content/github/finding-security-vulnerabilities-and-errors-in-your-code-->

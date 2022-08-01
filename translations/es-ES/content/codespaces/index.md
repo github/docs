@@ -1,7 +1,7 @@
 ---
-title: Documentación de Codespaces de GitHub
-shortTitle: Acerca de GitHub Codespaces
-intro: 'Crea un codespace o comienza a desarrollar en un ambiente de desarrollo seguro, configurable y dedicado que funciona donde y como tu quieras.'
+title: GitHub Codespaces Documentation
+shortTitle: GitHub Codespaces
+intro: 'Create a codespace to start developing in a secure, configurable, and dedicated development environment that works how and where you want it to.'
 introLinks:
   overview: /codespaces/overview
   quickstart: /codespaces/getting-started/quickstart
@@ -11,12 +11,20 @@ featuredLinks:
     - /codespaces/managing-codespaces-for-your-organization/enabling-codespaces-for-your-organization
     - /codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project
     - /codespaces/managing-codespaces-for-your-organization/managing-repository-access-for-your-organizations-codespaces
-    - /codespaces/managing-codespaces-for-your-organization/reviewing-your-organizations-audit-logs-for-codespaces
+    - /codespaces/developing-in-codespaces/codespaces-lifecycle
   popular:
     - /codespaces/getting-started-with-codespaces/getting-started-with-your-nodejs-project-in-codespaces
     - /codespaces/getting-started-with-codespaces/getting-started-with-your-python-project-in-codespaces
     - /codespaces/getting-started-with-codespaces/getting-started-with-your-java-project-in-codespaces
     - /codespaces/getting-started-with-codespaces/getting-started-with-your-dotnet-project
+  videos:
+    - title: 'Inside GitHub: Moving GitHub''s Development to Codespaces – Cory Wilkerson'
+      href: 'https://www.youtube-nocookie.com/embed/Lj_RpjEuESE'
+    - title: 'Making Codespaces Work for You – Allison Weins, Bailey Brooks'
+      href: 'https://www.youtube-nocookie.com/embed/X9Z-rUixnzk'
+    - title: Coding in the cloud with GitHub Codespaces and VS Code – Damian Brady
+      href: 'https://www.youtube-nocookie.com/embed/xWr_yH_AGVs'
+  videosHeading: GitHub Universe 2021 videos
   guideCards:
     - /codespaces/getting-started/deep-dive
     - /codespaces/developing-in-codespaces/creating-a-codespace
@@ -26,7 +34,7 @@ featuredLinks:
 product_video: 'https://www.youtube-nocookie.com/embed/_W9B7qc9lVc'
 communityRedirect:
   name: Provide GitHub Feedback
-  href: 'https://github.com/github/feedback/discussions/categories/codespaces-feedback'
+  href: 'https://github.com/orgs/community/discussions/categories/codespaces'
 redirect_from:
   - /github/developing-online-with-github-codespaces
   - /github/developing-online-with-codespaces
@@ -38,9 +46,10 @@ versions:
 children:
   - /overview
   - /getting-started
+  - /developing-in-codespaces
   - /setting-up-your-project-for-codespaces
   - /customizing-your-codespace
-  - /developing-in-codespaces
+  - /prebuilding-your-codespaces
   - /managing-your-codespaces
   - /managing-codespaces-for-your-organization
   - /codespaces-reference

@@ -2,8 +2,8 @@
 title: Probar tu sitio de Páginas de GitHub localmente con Jekyll
 intro: 'Puedes compilar tu sitio de {% data variables.product.prodname_pages %} localmente para previsualizar y probar los cambios en tu sitio.'
 redirect_from:
-  - /articles/setting-up-your-pages-site-locally-with-jekyll/
-  - /articles/setting-up-your-github-pages-site-locally-with-jekyll/
+  - /articles/setting-up-your-pages-site-locally-with-jekyll
+  - /articles/setting-up-your-github-pages-site-locally-with-jekyll
   - /articles/testing-your-github-pages-site-locally-with-jekyll
   - /github/working-with-github-pages/testing-your-github-pages-site-locally-with-jekyll
 product: '{% data reusables.gated-features.pages %}'
@@ -49,6 +49,12 @@ Antes de que puedas usar Jekyll para probar un sitio, debes hacer lo siguiente:
   >  Server running... press ctrl-c to stop.
   ```
 3. Para previsualizar tu sitio, en tu navegador web, navega hasta `http://localhost:4000`.
+
+{% note %}
+
+**Nota:** Si estás utilizando Ruby 3.0 y Jekyll 4.2.x o anterior, necesitarás agregar la gema de `webrick` al Gemfile de tu proyecto antes de ejecutar `bundle install`.
+
+{% endnote %}
 
 ## Actualizar la gema de {% data variables.product.prodname_pages %}
 

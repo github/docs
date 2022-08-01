@@ -2,8 +2,8 @@
 title: 使用 GitHub 应用程序进行身份验证
 intro: '{% data reusables.shortdesc.authenticating_with_github_apps %}'
 redirect_from:
-  - /apps/building-integrations/setting-up-and-registering-github-apps/about-authentication-options-for-github-apps/
-  - /apps/building-github-apps/authentication-options-for-github-apps/
+  - /apps/building-integrations/setting-up-and-registering-github-apps/about-authentication-options-for-github-apps
+  - /apps/building-github-apps/authentication-options-for-github-apps
   - /apps/building-github-apps/authenticating-with-github-apps
   - /developers/apps/authenticating-with-github-apps
 versions:
@@ -39,7 +39,7 @@ shortTitle: 身份验证
 {% endnote %}
 
 ## 验证私钥
-{% data variables.product.product_name %} generates a fingerprint for each private and public key pair using the SHA-256 hash function. 您可以生成私钥指纹，然后与 {% data variables.product.product_name %} 显示的指纹相比较，以验证私钥是否与 {% data variables.product.product_name %} 上存储的公钥匹配。
+{% data variables.product.product_name %} 使用 SHA-256 哈希函数为每对私钥和公钥生成指纹。 您可以生成私钥指纹，然后与 {% data variables.product.product_name %} 显示的指纹相比较，以验证私钥是否与 {% data variables.product.product_name %} 上存储的公钥匹配。
 
 要验证私钥：
 
@@ -95,7 +95,7 @@ puts jwt
 创建 JWT 后，在 API 请求的 `Header` 中对它进行设置。
 
 ```shell
-$ curl -i -H "Authorization: Bearer YOUR_JWT" -H "Accept: application/vnd.github.v3+json" {% data variables.product.api_url_pre %}/app
+$ curl -i -H "Authorization: Bearer YOUR_JWT" -H "Accept: application/vnd.github+json" {% data variables.product.api_url_pre %}/app
 ```
 
 `YOUR_JWT` 是必须替换的值。
@@ -126,7 +126,7 @@ $ curl -i -H "Authorization: Bearer YOUR_JWT" -H "Accept: application/vnd.github
 ```shell
 $ curl -i -X GET \
 -H "Authorization: Bearer YOUR_JWT" \
--H "Accept: application/vnd.github.v3+json" \
+-H "Accept: application/vnd.github+json" \
 {% data variables.product.api_url_pre %}/app/installations
 ```
 
@@ -137,7 +137,7 @@ $ curl -i -X GET \
 ```shell
 $ curl -i -X POST \
 -H "Authorization: Bearer YOUR_JWT" \
--H "Accept: application/vnd.github.v3+json" \
+-H "Accept: application/vnd.github+json" \
 {% data variables.product.api_url_pre %}/app/installations/:installation_id/access_tokens
 ```
 
@@ -148,7 +148,7 @@ $ curl -i -X POST \
 ```shell
 $ curl -i \
 -H "Authorization: token YOUR_INSTALLATION_ACCESS_TOKEN" \
--H "Accept: application/vnd.github.v3+json" \
+-H "Accept: application/vnd.github+json" \
 {% data variables.product.api_url_pre %}/installation/repositories
 ```
 

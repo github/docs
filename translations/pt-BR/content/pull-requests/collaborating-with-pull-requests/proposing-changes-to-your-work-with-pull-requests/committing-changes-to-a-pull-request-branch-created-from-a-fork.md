@@ -71,7 +71,7 @@ Somente o usuário que criou a pull request pode dar a você permissão para faz
 
  {% tip %}
 
- **Dica:** para obter mais informações sobre branches de pull request, incluindo exemplos, consulte "[Criar uma pull request](/articles/creating-a-pull-request/#changing-the-branch-range-and-destination-repository)".
+ **Dica:** para obter mais informações sobre branches de pull request, incluindo exemplos, consulte "[Criar uma pull request](/articles/creating-a-pull-request#changing-the-branch-range-and-destination-repository)".
 
  {% endtip %}
 8. Nesse ponto, você pode fazer qualquer coisa que desejar com este branch. É possível fazer push de novos commits para ele, executar alguns testes locais ou fazer merge de outros branches no branch. Faça modificações conforme desejado.

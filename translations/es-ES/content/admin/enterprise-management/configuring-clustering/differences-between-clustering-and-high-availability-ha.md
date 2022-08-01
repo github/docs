@@ -35,16 +35,12 @@ Tanto la alta disponibilidad (HA, por sus siglas en inglés) como el agrupamient
 
 ## Copias de seguridad y recuperación ante desastres
 
-HA y Clustering no deben ser considerados como un reemplazo para copias de seguridad regulares. Para obtener más información, consulta "[Configurar copias de seguridad en tu aparato](/enterprise/admin/guides/installation/configuring-backups-on-your-appliance)"
+Ni el HA ni el Clústering debe considerarse como un reemplazo de los respaldos habituales. Para obtener más información, consulta "[Configurar copias de seguridad en tu aparato](/enterprise/admin/guides/installation/configuring-backups-on-your-appliance)"
 
 ## Supervisar
 
-Las características de disponibilidad, especialmente las que tienen conmutación automática como Agrupación, pueden enmascarar una falla dado que el servicio generalmente no se ve interrumpido cuando algo falla. Ya sea que esté usando HA o Agrupación, supervisar el estado de cada instancia es importante para que puedas estar al tanto cuando se produce una falla. Para obtener más información sobre la supervisión, consulta "
-[Umbrales de alerta recomendados](/enterprise/{{ page.version }}/admin/guides/installation/recommended-alert-thresholds/)" y [Supervisar nodos de agrupación](/enterprise/{{ page.version}}/admin/guides/clustering/monitoring-cluster-nodes/)".</p> 
-
-
+Las características de disponibilidad, especialmente las que tienen conmutación automática como Agrupación, pueden enmascarar una falla dado que el servicio generalmente no se ve interrumpido cuando algo falla. Ya sea que esté usando HA o Agrupación, supervisar el estado de cada instancia es importante para que puedas estar al tanto cuando se produce una falla. Para obtener más información sobre el monitoreo, consulta las secciones "[Umbrales de alerta recomendados](/enterprise/admin/guides/installation/recommended-alert-thresholds/)" y "[Monitorear los nodos de clúster](/enterprise/{{ currentVersion}}/admin/guides/clustering/monitoring-cluster-nodes/)".
 
 ## Leer más
-
 - Para obtener más información acerca del {% data variables.product.prodname_ghe_server %} Agrupamiento, visite la sección de "[Acerca del agrupamiento](/enterprise/{{ currentVersion}}/admin/guides/clustering/about-clustering/)."
-- Para obtener más información sobre HA, consulta "[Configurar {% data variables.product.prodname_ghe_server %} para alta disponibilidad](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-github-enterprise-server-for-high-availability/)".
+- Para obtener más información sobre HA, consulta "[Configurar {% data variables.product.prodname_ghe_server %} para alta disponibilidad](/enterprise/admin/guides/installation/configuring-github-enterprise-server-for-high-availability/)".

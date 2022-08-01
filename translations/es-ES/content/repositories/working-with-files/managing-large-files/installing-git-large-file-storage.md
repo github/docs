@@ -2,7 +2,7 @@
 title: Instalar Git Large File Storage
 intro: 'Para utilizar {% data variables.large_files.product_name_short %}, tendrás que descargar e instalar un programa nuevo, además de Git.'
 redirect_from:
-  - /articles/installing-large-file-storage/
+  - /articles/installing-large-file-storage
   - /articles/installing-git-large-file-storage
   - /github/managing-large-files/installing-git-large-file-storage
   - /github/managing-large-files/versioning-large-files/installing-git-large-file-storage

@@ -2,7 +2,7 @@
 title: アウトバウンドのWebプロキシサーバの設定
 intro: 'プロキシサーバは、{% data variables.product.product_location %}に追加のセキュリティのレベルをもたらしてくれます。'
 redirect_from:
-  - /enterprise/admin/guides/installation/configuring-a-proxy-server/
+  - /enterprise/admin/guides/installation/configuring-a-proxy-server
   - /enterprise/admin/installation/configuring-an-outbound-web-proxy-server
   - /enterprise/admin/configuration/configuring-an-outbound-web-proxy-server
   - /admin/configuration/configuring-an-outbound-web-proxy-server

@@ -3,7 +3,7 @@ title: ステータスチェックについて
 intro: ステータスチェックを利用すると、コントリビュート先のリポジトリの条件をコミットが満たしているかどうかを知ることができます。
 redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/collaborating-on-repositories-with-code-quality-features/about-status-checks
-  - /articles/about-statuses/
+  - /articles/about-statuses
   - /articles/about-status-checks
   - /github/collaborating-with-issues-and-pull-requests/about-status-checks
   - /github/collaborating-with-pull-requests/collaborating-on-repositories-with-code-quality-features/about-status-checks
@@ -35,7 +35,7 @@ topics:
 
 _Checks_ are different from _statuses_ in that they provide line annotations, more detailed messaging, and are only available for use with {% data variables.product.prodname_github_apps %}.
 
-Organization オーナー、およびリポジトリにプッシュアクセスを持つユーザは、{% data variables.product.product_name %} の API でチェックおよびステータスを作成できます。 詳しい情報については、「[チェック](/rest/reference/checks)」および「[ ステータス](/rest/reference/repos#statuses)」を参照してください。
+Organization オーナー、およびリポジトリにプッシュアクセスを持つユーザは、{% data variables.product.product_name %} の API でチェックおよびステータスを作成できます。 詳しい情報については、「[チェック](/rest/reference/checks)」および「[ ステータス](/rest/reference/commits#commit-statuses)」を参照してください。
 
 ## チェック
 
@@ -77,3 +77,9 @@ Organization オーナー、およびリポジトリにプッシュアクセス�
   >
   request-checks: true"
   ```
+
+{% ifversion fpt or ghec %}
+### Retention of status checks
+
+{% data reusables.pull_requests.retention-checks-data %}
+{% endif %}

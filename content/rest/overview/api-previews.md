@@ -4,10 +4,7 @@ intro: You can use API previews to try out new features and provide feedback bef
 redirect_from:
   - /v3/previews
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
-  ghec: '*'
+  ghes: <3.4
 topics:
   - API
 ---
@@ -53,15 +50,6 @@ Get a [list of events](/rest/reference/issues#timeline) for an issue or pull req
 
 {% endif %}
 
-{% ifversion ghes %}
-## Pre-receive environments
-
-Create, list, update, and delete environments for pre-receive hooks.
-
-**Custom media type:** `eye-scream-preview`
-**Announced:** [2015-07-29](/rest/reference/enterprise-admin#pre-receive-environments)
-{% endif %}
-
 {% ifversion ghes < 3.3 %}
 ## Projects
 
@@ -99,7 +87,7 @@ View all [codes of conduct](/rest/reference/codes-of-conduct) or get which code 
 
 {% endif %}
 
-{% ifversion ghae or ghes %}
+{% ifversion ghes < 3.3 %}
 
 ## Global webhooks
 
@@ -130,17 +118,6 @@ You can now [require multiple approving reviews](/rest/reference/repos#branches)
 
 {% endif %}
 
-
-{% ifversion ghes %}
-
-## Anonymous Git access to repositories
-
-When a {% data variables.product.prodname_ghe_server %} instance is in private mode, site and repository administrators can enable anonymous Git access for a public repository.
-
-**Custom media type:** `x-ray-preview`
-**Announced:** [2018-07-12](https://blog.github.com/2018-07-12-introducing-enterprise-2-14/)
-
-{% endif %}
 {% ifversion ghes < 3.3 %}
 
 ## Project card details
@@ -151,21 +128,12 @@ The REST API responses for [issue events](/rest/reference/issues#events) and [is
 **Announced:** [2018-09-05](https://developer.github.com/changes/2018-09-05-project-card-events)
 
 {% endif %}
-{% ifversion fpt or ghec %}
-
-## GitHub App Manifests
-
-GitHub App Manifests allow people to create preconfigured GitHub Apps. See "[Creating GitHub Apps from a manifest](/apps/building-github-apps/creating-github-apps-from-a-manifest/)" for more details.
-
-**Custom media type:** `fury-preview`
-
-{% endif %}
 
 {% ifversion ghes < 3.3 %}
 
 ## Deployment statuses
 
-You can now update the `environment` of a [deployment status](/rest/reference/repos#create-a-deployment-status) and use the `in_progress` and `queued` states. When you create deployment statuses, you can now use the `auto_inactive` parameter to mark old `production` deployments as `inactive`.
+You can now update the `environment` of a [deployment status](/rest/reference/deployments#create-a-deployment-status) and use the `in_progress` and `queued` states. When you create deployment statuses, you can now use the `auto_inactive` parameter to mark old `production` deployments as `inactive`.
 
 **Custom media type:** `flash-preview`
 **Announced:** [2018-10-16](https://developer.github.com/changes/2018-10-16-deployments-environments-states-and-auto-inactive-updates/)
@@ -183,6 +151,7 @@ You can now configure whether organization members can create repositories and w
 
 {% endif %}
 
+{% ifversion ghes < 3.4 %}
 ## Content attachments
 
 You can now provide more information in GitHub for URLs that link to registered domains by using the {% data variables.product.prodname_unfurls %} API. See "[Using content attachments](/apps/using-content-attachments/)" for more details.
@@ -190,6 +159,7 @@ You can now provide more information in GitHub for URLs that link to registered 
 **Custom media types:** `corsair-preview`
 **Announced:** [2018-12-10](https://developer.github.com/changes/2018-12-10-content-attachments-api/)
 
+{% endif %}
 {% ifversion ghes < 3.3 %}
 
 ## Enable and disable Pages

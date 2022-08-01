@@ -20,7 +20,7 @@ topics:
 
 ## 必要な環境
 
-Issueを作成するにはリポジトリが必要です。 書き込みアクセス権を持つ既存のリポジトリを利用することも、新しいリポジトリを作成することもできます。 {% data reusables.enterprise-accounts.emu-permission-repo %} The repository must have issues enabled. リポジトリの作成に関する詳細は「[新しいリポジトリの作成](/articles/creating-a-new-repository)」を参照してください。 リポジトリでIssueが無効化されている場合、Issueを有効化する方法に関する情報については「[Issueの無効化](/github/administering-a-repository/managing-repository-settings/disabling-issues)」を参照してください。
+Issueを作成するにはリポジトリが必要です。 書き込みアクセス権を持つ既存のリポジトリを利用することも、新しいリポジトリを作成することもできます。 {% data reusables.enterprise-accounts.emu-permission-repo %} リポジトリはIssueを有効化していなければなりません。 リポジトリの作成に関する詳細は「[新しいリポジトリの作成](/articles/creating-a-new-repository)」を参照してください。 リポジトリでIssueが無効化されている場合、Issueを有効化する方法に関する情報については「[Issueの無効化](/github/administering-a-repository/managing-repository-settings/disabling-issues)」を参照してください。
 
 ## 空のIssueのオープン
 
@@ -71,7 +71,7 @@ Issueを分類するために、ラベルを追加してください。 たと�
 
 ## プロジェクトへのIssueの追加
 
-Issueを既存のプロジェクトに追加できます。 {% ifversion fpt or ghec %}プロジェクト（ベータ）を使っているなら、プロジェクトのメタデータを展開することもできます。 {% endif %}プロジェクトに関する詳しい情報については{% ifversion fpt or ghec %}「[プロジェクト（ベータ）について](/issues/trying-out-the-new-projects-experience/about-projects)」及び{% endif %}「[プロジェクトボードで作業を整理する](/issues/organizing-your-work-with-project-boards)」を参照してください。
+You can add the issue to an existing project{% ifversion projects-v2 %} and populate metadata for the project. {% endif %} For more information about projects, see {% ifversion projects-v2 %}"[About projects](/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects)."{% else %}"[Organizing your work with project boards](/issues/organizing-your-work-with-project-boards)."{% endif %}
 
 ![プロジェクトを持つIssue](/assets/images/help/issues/issue-project.png)
 
@@ -81,7 +81,7 @@ Issueを既存のプロジェクトに追加できます。 {% ifversion fpt or 
 
 ## コミュニケーション
 
-Issueを作成した後は、そのIssueにコメントを追加して会話を続けてください。 コラボレータあるいはTeamを@メンションして、コメントに注意を惹きつけることができます。 同じリポジトリ内の関連するIssueをリンクするために、`#`につづいてIssueのタイトルの一部を続け、リンクしたいIssueをクリックできます。 くわしいじょうほうについては「[GitHubでの執筆](/github/writing-on-github)」を参照してください。
+Issueを作成した後は、そのIssueにコメントを追加して会話を続けてください。 コラボレータあるいはTeamを@メンションして、コメントに注意を惹きつけることができます。 同じリポジトリ内の関連するIssueをリンクするために、`#`につづいてIssueのタイトルの一部を続け、リンクしたいIssueをクリックできます。 くわしい情報については「[GitHubでの執筆](/github/writing-on-github)」を参照してください。
 
 ![Issueのコメント](/assets/images/help/issues/issue-comment.png)
 
@@ -97,5 +97,5 @@ Issueは、幅広い目的で使用できます。 例:
 {% data variables.product.prodname_github_issues %} で次のステップに進む際に役立つ、以下のようなリソースを参照してください。
 
 - Issueについてさらに学ぶには「[Issueについて](/issues/tracking-your-work-with-issues/about-issues)」を参照してください。
-- プロジェクトが計画と追跡にどのように役立つかをさらに学ぶには、{% ifversion fpt or ghec %}「[プロジェクト（ベータ）について](/issues/trying-out-the-new-projects-experience/about-projects)」あるいは{% endif %}「[プロジェクトボードでの作業の整理](/issues/organizing-your-work-with-project-boards)」を参照してください。
+- To learn more about how projects can help you with planning and tracking, see {% ifversion projects-v2 %}"[About projects](/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects)."{% else %}"[Organizing your work with project boards](/issues/organizing-your-work-with-project-boards)."{% endif %}
 - Issueテンプレート{% ifversion fpt or ghec %}及びIssueフォーム{% endif %}を利用して、コントリビューターが特定の情報を提供してくれるよう促進することについてさらに学ぶには「[IssueやPull Requestが役立つものになるよう促進するためのテンプレートの利用](/communities/using-templates-to-encourage-useful-issues-and-pull-requests)」を参照してください。

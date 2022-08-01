@@ -2,7 +2,7 @@
 title: マージコンフリクトへの対処
 intro: あなたの変更とベースブランチとの間にマージコンフリクトが発生している場合、プルリクエストの変更をマージする前にマージコンフリクトに対処しなければなりません。
 redirect_from:
-  - /github/collaborating-with-issues-and-pull-requests/addressing-merge-conflicts/
+  - /github/collaborating-with-issues-and-pull-requests/addressing-merge-conflicts
   - /articles/addressing-merge-conflicts
   - /github/collaborating-with-pull-requests/addressing-merge-conflicts
 versions:

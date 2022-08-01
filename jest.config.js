@@ -13,7 +13,7 @@ if (testTranslation) {
   reporters.push('jest-github-actions-reporter')
 }
 
-module.exports = {
+export default {
   coverageThreshold: {
     global: {
       branches: 95,
@@ -23,9 +23,13 @@ module.exports = {
     },
   },
   preset: isBrowser ? 'jest-puppeteer' : undefined,
+  moduleNameMapper: {
+    // fix for "Unexpected token 'export'" error when running jest
+    '@primer/behaviors': '<rootDir>/node_modules/@primer/behaviors/dist/cjs/index.js',
+  },
   reporters,
   modulePathIgnorePatterns: ['assets/'],
-  setupFilesAfterEnv: ['@alex_neo/jest-expect-message'],
+  setupFilesAfterEnv: ['./jest.setup.js', '@alex_neo/jest-expect-message'],
   ...(isBrowser ? {} : { testEnvironment: 'node' }),
   testPathIgnorePatterns: [
     'node_modules/',
@@ -37,4 +41,6 @@ module.exports = {
   ],
   testMatch: ['**/tests/**/*.js'],
   testLocationInResults: isActions,
+  globalSetup: './script/start-server-for-jest.js',
+  globalTeardown: './script/kill-server-for-jest.js',
 }

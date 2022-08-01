@@ -16,7 +16,7 @@ shortTitle: Manage payouts
 
 ## {% data variables.product.prodname_sponsors %} からの支払いについて
 
-{% data variables.product.prodname_sponsors %} からの支払いを管理できるのは、Stripe Connect を通じて支払っている場合だけです。 スポンサードユーザアカウントに対して、ACH 送金や電信を通じて支払われている場合は、スポンサードオープンソースのコントリビューターダッシュボードで [**Payouts**] タブが表示されません。 スポンサード Organization は、支払いに Stripe Connect しか使用できません。 詳細は、「[オープンソースコントリビューターに対する {% data variables.product.prodname_sponsors %} について](/sponsors/receiving-sponsorships-through-github-sponsors/about-github-sponsors-for-open-source-contributors#sponsorship-payouts)」を参照してください。
+{% data variables.product.prodname_sponsors %} からの支払いを管理できるのは、Stripe Connect を通じて支払っている場合だけです。 If you are paid through ACH transfer or wire transfer for your sponsored personal account, you will not see the **Payouts** tab on your sponsored open source contributor dashboard. スポンサード Organization は、支払いに Stripe Connect しか使用できません。 詳細は、「[オープンソースコントリビューターに対する {% data variables.product.prodname_sponsors %} について](/sponsors/receiving-sponsorships-through-github-sponsors/about-github-sponsors-for-open-source-contributors#sponsorship-payouts)」を参照してください。
 
 {% data reusables.sponsors.payout-info %}
 

@@ -2,7 +2,7 @@
 title: 自定义企业的用户消息
 shortTitle: 自定义用户消息
 redirect_from:
-  - /enterprise/admin/user-management/creating-a-custom-sign-in-message/
+  - /enterprise/admin/user-management/creating-a-custom-sign-in-message
   - /enterprise/admin/user-management/customizing-user-messages-on-your-instance
   - /admin/user-management/customizing-user-messages-on-your-instance
   - /admin/user-management/customizing-user-messages-for-your-enterprise
@@ -72,7 +72,7 @@ topics:
 
 如果消息中包含 Markdown 复选框，则用户必须选中所有复选框才能忽略消息。 例如，如果您在必读消息中包含服务条款，您可以要求每个用户选中复选框以确认他们阅读了这些条款。
 
-每次用户看到必读消息时，都会创建审核日志事件。 该事件包括用户看到的消息的版本。 更多信息请参阅“[已审核操作](/admin/user-management/audited-actions)”。
+每次用户看到必读消息时，都会创建审核日志事件。 该事件包括用户看到的消息的版本。 更多信息请参阅“[审核企业的日志事件](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise)”。
 
 {% note %}
 
@@ -107,6 +107,9 @@ topics:
 {% data reusables.enterprise-accounts.messages-tab %}
 1. {% ifversion ghes or ghae %}在“Announcement（公告）”的右侧{% else %}下面{% endif %}，单击 **Add announcement（添加公告）**。 ![Add message 按钮](/assets/images/enterprise/site-admin-settings/add-announcement-button.png)
 1. 在“Announcement（公告）”下的在文本字段中键入要显示在横幅中的公告。 ![用于输入公告的文本字段](/assets/images/enterprise/site-admin-settings/announcement-text-field.png)
-1. （可选）在“Expires on（到期日）”下，选择日历下拉菜单并单击一个到期日。 ![用于选择到期日期的日历下拉菜单](/assets/images/enterprise/site-admin-settings/expiration-drop-down.png)
+1. （可选）在“Expires on（到期日）”下，选择日历下拉菜单并单击一个到期日。 ![Calendar drop-down menu to choose expiration date](/assets/images/enterprise/site-admin-settings/expiration-drop-down.png){% ifversion ghe-announce-dismiss %}
+1. （可选）要允许每个用户关闭通知，请选择 **User dismissible（用户可消除）**。
+
+   ![“ "用户可消除" ”复选框的屏幕截图](/assets/images/enterprise/site-admin-settings/user-dismissible-checkbox.png){% endif %}
 {% data reusables.enterprise_site_admin_settings.message-preview-save %}
 {% endif %}

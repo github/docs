@@ -12,11 +12,15 @@ miniTocMaxHeadingLevel: 3
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## Monitorando seus fluxos de trabalho
 
-{% ifversion fpt or ghae or ghes > 3.0 or ghec %}
+{% ifversion github-runner-dashboard %}
+### Monitorando os seus trabalhos atuais na sua organização ou empresa
+
+{% data reusables.actions.github-hosted-runners-check-concurrency %}
+
+{% endif %}
 
 ### Usar o gráfico de visualização
 
@@ -25,8 +29,6 @@ Cada execução de fluxo de trabalho gera um gráfico em tempo real que ilustra 
    ![Gráfico de fluxo de trabalho](/assets/images/help/images/workflow-graph.png)
 
 Para obter mais informações, consulte "[Usar o gráfico de visualização](/actions/monitoring-and-troubleshooting-workflows/using-the-visualization-graph)".
-
-{% endif %}
 
 ### Adicionar um selo de status de fluxo de trabalho
 

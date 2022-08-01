@@ -8,16 +8,20 @@
 
 import { stat, readFile, writeFile, readdir } from 'fs/promises'
 import path from 'path'
-import program from 'commander'
+import { program } from 'commander'
 import { execSync } from 'child_process'
 import mkdirp from 'mkdirp'
 import rimraf from 'rimraf'
-import getOperations from './utils/get-operations.js'
 import yaml from 'js-yaml'
+import slugger from 'github-slugger'
+
+import { categoriesWithoutSubcategories } from '../../lib/rest/index.js'
+import getOperations from './utils/get-operations.js'
 
 const tempDocsDir = path.join(process.cwd(), 'openapiTmp')
 const githubRepoDir = path.join(process.cwd(), '../github')
 const dereferencedPath = path.join(process.cwd(), 'lib/rest/static/dereferenced')
+const appsStaticPath = path.join(process.cwd(), 'lib/rest/static/apps')
 const decoratedPath = path.join(process.cwd(), 'lib/rest/static/decorated')
 const openApiReleasesDir = `${githubRepoDir}/app/api/description/config/releases`
 
@@ -33,13 +37,15 @@ program
   )
   .option('-d --include-deprecated', 'Includes schemas that are marked as `deprecated: true`')
   .option('-u --include-unpublished', 'Includes schemas that are marked as `published: false`')
+  .option('--redirects-only', 'Only generate the redirects file')
   .parse(process.argv)
 
-const { decorateOnly, versions, includeUnpublished, includeDeprecated } = program.opts()
+const { decorateOnly, versions, includeUnpublished, includeDeprecated, redirectsOnly } =
+  program.opts()
 
 // Check that the github/github repo exists. If the files are only being
 // decorated, the github/github repo isn't needed.
-if (!decorateOnly) {
+if (!decorateOnly && !redirectsOnly) {
   try {
     await stat(githubRepoDir)
   } catch (error) {
@@ -68,11 +74,13 @@ main()
 
 async function main() {
   // Generate the dereferenced OpenAPI schema files
-  if (!decorateOnly) {
+  if (!decorateOnly && !redirectsOnly) {
     await getDereferencedFiles()
   }
   // Decorate the dereferenced files in a format ingestible by docs.github.com
-  await decorate()
+  if (!redirectsOnly) {
+    await decorate()
+  }
 
   console.log(
     '\n🏁 The static REST API files are now up-to-date with your local `github/github` checkout. To revert uncommitted changes, run `git checkout lib/rest/static/*.\n\n'
@@ -128,6 +136,29 @@ async function getDereferencedFiles() {
   }
 }
 
+async function getCategoryOverrideRedirects() {
+  const { operationUrls, sectionUrls } = JSON.parse(
+    await readFile('script/rest/utils/rest-api-overrides.json', 'utf8')
+  )
+
+  const operationRedirects = {}
+  console.log('\n➡️  Updating REST API redirect exception list.\n')
+  Object.values(operationUrls).forEach((value) => {
+    const oldUrl = value.originalUrl.replace('/rest/reference', '/rest')
+    const anchor = oldUrl.split('#')[1]
+    const subcategory = value.subcategory
+    const redirectTo = subcategory
+      ? `/rest/${value.category}/${subcategory}#${anchor}`
+      : `/rest/${value.category}#${anchor}`
+    operationRedirects[oldUrl] = redirectTo
+  })
+  const redirects = {
+    ...operationRedirects,
+    ...sectionUrls,
+  }
+  return redirects
+}
+
 async function decorate() {
   console.log('\n🎄 Decorating the OpenAPI schema files in lib/rest/static/dereferenced.\n')
   const dereferencedSchemas = {}
@@ -137,19 +168,133 @@ async function decorate() {
     dereferencedSchemas[key] = schema
   }
 
+  const operationsEnabledForGitHubApps = {}
+  const clientSideRedirects = await getCategoryOverrideRedirects()
+
   for (const [schemaName, schema] of Object.entries(dereferencedSchemas)) {
     try {
-      // munge OpenAPI definitions object in an array of operations objects
+      // get all of the operations for a particular version of the openapi
       const operations = await getOperations(schema)
-
       // process each operation, asynchronously rendering markdown and stuff
       await Promise.all(operations.map((operation) => operation.process()))
 
+      // For each rest operation that doesn't have an override defined
+      // in script/rest/utils/rest-api-overrides.json,
+      // add a client-side redirect
+      operations.forEach((operation) => {
+        // A handful of operations don't have external docs properties
+        const externalDocs = operation.getExternalDocs()
+        if (!externalDocs) {
+          return
+        }
+        const oldUrl = `/rest${
+          externalDocs.url.replace('/rest/reference', '/rest').split('/rest')[1]
+        }`
+
+        if (!(oldUrl in clientSideRedirects)) {
+          // There are some operations that aren't nested in the sidebar
+          // For these, don't need to add a client-side redirect, the
+          // frontmatter redirect will handle it for us.
+          if (categoriesWithoutSubcategories.includes(operation.category)) {
+            return
+          }
+          const anchor = oldUrl.split('#')[1]
+          const subcategory = operation.subcategory
+
+          // If there is no subcategory, a new page with the same name as the
+          // category was created. That page name may change going forward.
+          const redirectTo = subcategory
+            ? `/rest/${operation.category}/${subcategory}#${anchor}`
+            : `/rest/${operation.category}/${operation.category}#${anchor}`
+          clientSideRedirects[oldUrl] = redirectTo
+        }
+
+        // There are a lot of section headings that we'll want to redirect too,
+        // now that subcategories are on their own page. For example,
+        // /rest/reference/actions#artifacts should redirect to
+        // /rest/actions/artifacts
+        if (operation.subcategory) {
+          const sectionRedirectFrom = `/rest/${operation.category}#${operation.subcategory}`
+          const sectionRedirectTo = `/rest/${operation.category}/${operation.subcategory}`
+          if (!(sectionRedirectFrom in clientSideRedirects)) {
+            clientSideRedirects[sectionRedirectFrom] = sectionRedirectTo
+          }
+        }
+      })
+
+      const categories = [...new Set(operations.map((operation) => operation.category))].sort()
+
+      // Orders the operations by their category and subcategories.
+      // All operations must have a category, but operations don't need
+      // a subcategory. When no subcategory is present, the subcategory
+      // property is an empty string ('').
+      /* 
+        Example:
+        {
+          [category]: {
+            '': {
+              "description": "",
+              "operations": []
+            },
+            [subcategory sorted alphabetically]: {
+              "description": "",
+              "operations": []
+            }
+          }
+        }
+      */
+      const operationsByCategory = {}
+      categories.forEach((category) => {
+        operationsByCategory[category] = {}
+        const categoryOperations = operations.filter((operation) => operation.category === category)
+        categoryOperations
+          .filter((operation) => !operation.subcategory)
+          .map((operation) => (operation.subcategory = operation.category))
+
+        const subcategories = [
+          ...new Set(categoryOperations.map((operation) => operation.subcategory)),
+        ].sort()
+        // the first item should be the item that has no subcategory
+        // e.g., when the subcategory = category
+        const firstItemIndex = subcategories.indexOf(category)
+        if (firstItemIndex > -1) {
+          const firstItem = subcategories.splice(firstItemIndex, 1)[0]
+          subcategories.unshift(firstItem)
+        }
+
+        subcategories.forEach((subcategory) => {
+          operationsByCategory[category][subcategory] = {}
+
+          const subcategoryOperations = categoryOperations.filter(
+            (operation) => operation.subcategory === subcategory
+          )
+
+          operationsByCategory[category][subcategory] = subcategoryOperations
+        })
+      })
+
       const filename = path.join(decoratedPath, `${schemaName}.json`).replace('.deref', '')
       // write processed operations to disk
-      await writeFile(filename, JSON.stringify(operations, null, 2))
-
+      await writeFile(filename, JSON.stringify(operationsByCategory, null, 2))
       console.log('Wrote', path.relative(process.cwd(), filename))
+
+      // Create the enabled-for-apps.json file used for
+      // https://docs.github.com/en/rest/overview/endpoints-available-for-github-apps
+      operationsEnabledForGitHubApps[schemaName] = {}
+      for (const category of categories) {
+        const categoryOperations = operations.filter((operation) => operation.category === category)
+
+        // This is a collection of operations that have `enabledForGitHubApps = true`
+        // It's grouped by resource title to make rendering easier
+        operationsEnabledForGitHubApps[schemaName][category] = categoryOperations
+          .filter((operation) => operation.enabledForGitHubApps)
+          .map((operation) => ({
+            slug: slugger.slug(operation.title),
+            subcategory: operation.subcategory,
+            verb: operation.verb,
+            requestPath: operation.requestPath,
+          }))
+      }
     } catch (error) {
       console.error(error)
       console.log(
@@ -158,6 +303,20 @@ async function decorate() {
       process.exit(1)
     }
   }
+  await writeFile(
+    path.join(appsStaticPath, 'enabled-for-apps.json'),
+    JSON.stringify(operationsEnabledForGitHubApps, null, 2)
+  )
+  console.log('Wrote', path.relative(process.cwd(), `${appsStaticPath}/enabled-for-apps.json`))
+  await writeFile(
+    'lib/redirects/static/client-side-rest-api-redirects.json',
+    JSON.stringify(clientSideRedirects, null, 2),
+    'utf8'
+  )
+  console.log(
+    'Wrote',
+    path.relative(process.cwd(), `lib/redirects/static/client-side-rest-api-redirects.json`)
+  )
 }
 
 async function validateInputParameters(schemas) {

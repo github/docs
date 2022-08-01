@@ -3,8 +3,8 @@ title: Git Large File Storage をアップグレードする
 intro: '追加のデータパックを購入すると、{% data variables.large_files.product_name_short %} の毎月の帯域幅容量と総ストレージ容量を増やすことができます。'
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/upgrading-git-large-file-storage
-  - /articles/purchasing-additional-storage-and-bandwidth-for-a-personal-account/
-  - /articles/purchasing-additional-storage-and-bandwidth-for-an-organization/
+  - /articles/purchasing-additional-storage-and-bandwidth-for-a-personal-account
+  - /articles/purchasing-additional-storage-and-bandwidth-for-an-organization
   - /articles/upgrading-git-large-file-storage
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-git-large-file-storage/upgrading-git-large-file-storage
 versions:
@@ -21,8 +21,8 @@ shortTitle: Git LFSストレージのアップグレード
 
 ## 個人アカウント用に追加のストレージと帯域幅を購入する
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.billing_plans %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.billing_plans %}
 {% data reusables.dotcom_billing.lfs-add-data %}
 {% data reusables.large_files.pack_selection %}
 {% data reusables.large_files.pack_confirm %}

@@ -1,6 +1,6 @@
 ---
-title: Administrar la eliminación automática de ramas
-intro: Puedes hacer que se eliminen automáticamente ramas centrales después de que se fusionen solicitudes de extracción en tu repositorio.
+title: Managing the automatic deletion of branches
+intro: You can have head branches automatically deleted after pull requests are merged in your repository.
 redirect_from:
   - /articles/managing-the-automatic-deletion-of-branches
   - /github/administering-a-repository/managing-the-automatic-deletion-of-branches
@@ -12,15 +12,15 @@ versions:
   ghec: '*'
 topics:
   - Repositories
-shortTitle: Borrado de rama automático
+shortTitle: Automatic branch deletion
 ---
-
-Cualquier persona con permisos de administrador a un repositorio puede habilitar e inhabilitar la eliminación automática de ramas.
+Anyone with admin permissions to a repository can enable or disable the automatic deletion of branches.
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-3. Dentro de "Merge button" (Botón fusionar), selecciona o deselecciona **Automatically delete head branches (Eliminar automáticamente ramas centrales)**. ![Casilla de verificación para habilitar o inhabilitar la eliminación automática de ramas](/assets/images/help/repository/automatically-delete-branches.png)
+3. Under {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6069 %}"Pull Requests"{% else %}"Merge button"{% endif %}, select or unselect **Automatically delete head branches**.
+  ![Checkbox to enable or disable automatic deletion of branches](/assets/images/help/repository/automatically-delete-branches.png)
 
-## Leer más
-- "[Fusionar una solicitud de extracción](/articles/merging-a-pull-request)"
-- "[Crear y eliminar ramas dentro de tu repositorio](/articles/creating-and-deleting-branches-within-your-repository/)"
+## Further reading
+- "[Merging a pull request](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request)"
+- "[Creating and deleting branches within your repository](/articles/creating-and-deleting-branches-within-your-repository)"

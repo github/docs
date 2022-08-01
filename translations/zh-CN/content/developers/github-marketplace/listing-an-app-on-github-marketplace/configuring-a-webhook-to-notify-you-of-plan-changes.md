@@ -2,10 +2,10 @@
 title: 配置 web 挂钩以通知您计划更改
 intro: '在[创建 {% data variables.product.prodname_marketplace %} 上架信息草稿](/marketplace/listing-on-github-marketplace/creating-a-draft-github-marketplace-listing/) 后，您可以配置 web 挂钩，以便在客户帐户计划发生更改时通知您。 配置 web 挂钩后，您可以在应用程序中[处理 `marketplace_purchase` 事件类型](/marketplace/integrating-with-the-github-marketplace-api/github-marketplace-webhook-events/)。'
 redirect_from:
-  - /apps/adding-integrations/managing-listings-on-github-marketplace/adding-webhooks-for-a-github-marketplace-listing/
-  - /apps/marketplace/managing-github-marketplace-listings/adding-webhooks-for-a-github-marketplace-listing/
-  - /apps/marketplace/setting-up-github-marketplace-webhooks/creating-a-webhook-for-a-github-marketplace-listing/
-  - /apps/marketplace/listing-on-github-marketplace/configuring-the-github-marketplace-webhook/
+  - /apps/adding-integrations/managing-listings-on-github-marketplace/adding-webhooks-for-a-github-marketplace-listing
+  - /apps/marketplace/managing-github-marketplace-listings/adding-webhooks-for-a-github-marketplace-listing
+  - /apps/marketplace/setting-up-github-marketplace-webhooks/creating-a-webhook-for-a-github-marketplace-listing
+  - /apps/marketplace/listing-on-github-marketplace/configuring-the-github-marketplace-webhook
   - /marketplace/listing-on-github-marketplace/configuring-the-github-marketplace-webhook
   - /developers/github-marketplace/configuring-a-webhook-to-notify-you-of-plan-changes
 versions:

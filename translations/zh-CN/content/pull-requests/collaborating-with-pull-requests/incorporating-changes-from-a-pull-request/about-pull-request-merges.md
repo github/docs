@@ -1,9 +1,9 @@
 ---
 title: 关于拉取请求合并
-intro: 'You can [merge pull requests](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request) by retaining all the commits in a feature branch, squashing all commits into a single commit, or by rebasing individual commits from the `head` branch onto the `base` branch.'
+intro: '您可以通过将所有提交保留在功能分支中、将所有提交压缩到一个提交中，或者将个别提交从“头部分支”变基为“基本”分支，以 [合并拉取请求](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request)。'
 redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/incorporating-changes-from-a-pull-request/about-pull-request-merges
-  - /articles/about-pull-request-merge-squashing/
+  - /articles/about-pull-request-merge-squashing
   - /articles/about-pull-request-merges
   - /github/collaborating-with-issues-and-pull-requests/about-pull-request-merges
   - /github/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/about-pull-request-merges
@@ -24,12 +24,16 @@ topics:
 
 ### 合并压缩合并的消息
 
-在压缩与合并时，{% data variables.product.prodname_dotcom %} 生成提交消息，您可以根据需要更改该消息。 消息默认值取决于拉取请求是包含多个提交还是只包含一个。 在计算提交总数时，我们不包括合并提交。
+在压缩与合并时，{% data variables.product.prodname_dotcom %} 生成默认提交消息，您可以进行编辑。 默认消息取决于拉取请求中的提交次数，不包括合并提交。
 
 | 提交数  | 摘要                   | 描述                  |
 | ---- | -------------------- | ------------------- |
 | 一个提交 | 单个提交的提交消息标题，后接拉取请求编号 | 单个提交的提交消息正文         |
 | 多个提交 | 拉取请求标题，后接拉取请求编号      | 按日期顺序列出所有被压缩提交的提交消息 |
+
+{% ifversion fpt or ghec or ghes > 3.5 or ghae-issue-7042 %}
+对存储库具有管理员访问权限的人员可以将存储库配置为使用拉取请求的标题作为所有压缩提交的默认合并消息。 更多信息请参阅“[配置提交压缩](/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/configuring-commit-squashing-for-pull-requests)”。
+{% endif %}
 
 ### 压缩与合并长运行分支
 

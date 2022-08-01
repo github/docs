@@ -1,1 +1,7 @@
-1. {% data variables.product.product_name %}の管理アカウントから、任意のページの右上にある{% octicon "rocket" aria-label="The rocket ship" %}をクリックしてください。 ![サイトアドミン設定にアクセスするための宇宙船のアイコン](/assets/images/enterprise/site-admin-settings/access-new-settings.png)
+1. From an administrative account on {% data variables.product.product_name %}, in the upper-right corner of any page, click {% octicon "rocket" aria-label="The rocket ship" %}.
+
+   ![Screenshot of the rocket ship icon for accessing site admin settings](/assets/images/enterprise/site-admin-settings/access-new-settings.png)
+
+1. If you're not already on the "Site admin" page, in the upper-left corner, click **Site admin**.
+
+   ![Screenshot of "Site admin" link](/assets/images/enterprise/site-admin-settings/site-admin-link.png)

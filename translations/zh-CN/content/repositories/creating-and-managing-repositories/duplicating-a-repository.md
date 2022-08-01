@@ -1,8 +1,8 @@
 ---
 title: 镜像仓库
-intro: 'To maintain a mirror of a repository without forking it, you can run a special clone command, then mirror-push to the new repository.'
+intro: 要维护存储库的镜像而不对其进行复刻，可以运行特殊的克隆命令，然后镜像推送到新存储库。
 redirect_from:
-  - /articles/duplicating-a-repo/
+  - /articles/duplicating-a-repo
   - /articles/duplicating-a-repository
   - /github/creating-cloning-and-archiving-repositories/duplicating-a-repository
   - /github/creating-cloning-and-archiving-repositories/creating-a-repository-on-github/duplicating-a-repository
@@ -19,13 +19,13 @@ topics:
 
 {% note %}
 
-**Note:** If you have a project hosted on another version control system, you can automatically import your project to {% data variables.product.prodname_dotcom %} using the {% data variables.product.prodname_dotcom %} Importer tool. For more information, see "[About {% data variables.product.prodname_dotcom %} Importer](/github/importing-your-projects-to-github/importing-source-code-to-github/about-github-importer)."
+**注意：** 如果您在其他版本控制系统上托管了项目，则可以使用 {% data variables.product.prodname_dotcom %} 导入程序工具自动将项目导入到 {% data variables.product.prodname_dotcom %}。 更多信息请参阅“[关于 {% data variables.product.prodname_dotcom %} Importer](/get-started/importing-your-projects-to-github/importing-source-code-to-github/about-github-importer)”。
 
 {% endnote %}
 
 {% endif %}
 
-Before you can push the original repository to your new copy, or _mirror_, of the repository, you must [create the new repository](/articles/creating-a-new-repository) on {% data variables.product.product_location %}. 在以下示例中，`exampleuser/new-repository` 或 `exampleuser/mirrored` 是镜像。
+在将原始存储库推送到存储库的新副本或_镜像_之前，必须在 {% data variables.product.product_location %} 上[创建新的存储库](/articles/creating-a-new-repository)。 在以下示例中，`exampleuser/new-repository` 或 `exampleuser/mirrored` 是镜像。
 
 ## 镜像仓库
 
@@ -36,13 +36,13 @@ Before you can push the original repository to your new copy, or _mirror_, of th
   ```
 3. 镜像推送至新仓库。
   ```shell
-  $ cd <em>old-repository</em>
+  $ cd <em>old-repository.git</em>
   $ git push --mirror https://{% data variables.command_line.codeblock %}/<em>exampleuser</em>/<em>new-repository</em>.git
   ```
 4. 删除您之前创建的临时本地仓库。
   ```shell
   $ cd ..
-  $ rm -rf <em>old-repository</em>
+  $ rm -rf <em>old-repository.git</em>
   ```
 
 ## 镜像包含 {% data variables.large_files.product_name_long %} 对象的仓库。
@@ -54,7 +54,7 @@ Before you can push the original repository to your new copy, or _mirror_, of th
   ```
 3. 导航到刚克隆的仓库。
   ```shell
-  $ cd <em>old-repository</em>
+  $ cd <em>old-repository.git</em>
   ```
 4. 拉取仓库的 {% data variables.large_files.product_name_long %} 对象。
   ```shell
@@ -71,7 +71,7 @@ Before you can push the original repository to your new copy, or _mirror_, of th
 7. 删除您之前创建的临时本地仓库。
   ```shell
   $ cd ..
-  $ rm -rf <em>old-repository</em>
+  $ rm -rf <em>old-repository.git</em>
   ```
 
 ## 镜像其他位置的仓库
@@ -98,8 +98,8 @@ Before you can push the original repository to your new copy, or _mirror_, of th
 {% ifversion fpt or ghec %}
 ## 延伸阅读
 
-* "[Pushing changes to GitHub](/desktop/contributing-and-collaborating-using-github-desktop/making-changes-in-a-branch/pushing-changes-to-github#pushing-changes-to-github)"
-* "[About Git Large File Storage and GitHub Desktop](/desktop/getting-started-with-github-desktop/about-git-large-file-storage-and-github-desktop)"
-* “[关于 GitHub 导入工具](/github/importing-your-projects-to-github/importing-source-code-to-github/about-github-importer)”
+* "[将更改推送到 GitHub](/desktop/contributing-and-collaborating-using-github-desktop/making-changes-in-a-branch/pushing-changes-to-github#pushing-changes-to-github)"
+* "[关于 Git 大文件存储和 GitHub Desktop](/desktop/getting-started-with-github-desktop/about-git-large-file-storage-and-github-desktop)"
+* “[关于 GitHub 导入工具](/get-started/importing-your-projects-to-github/importing-source-code-to-github/about-github-importer)”
 
 {% endif %}

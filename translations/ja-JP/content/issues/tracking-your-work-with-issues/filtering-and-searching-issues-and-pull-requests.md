@@ -1,6 +1,6 @@
 ---
-title: Filtering and searching issues and pull requests
-intro: 'To find detailed information about a repository on {% data variables.product.product_name %}, you can filter, sort, and search issues and pull requests that are relevant to the repository.'
+title: Issue及びPull Requestのフィルタリングと検索
+intro: '{% data variables.product.product_name %}上のリポジトリに関する詳細情報を見つけるために、そのリポジトリに関連するIssueやPull Requestをフィルタリング、ソート、検索できます。'
 redirect_from:
   - /github/managing-your-work-on-github/finding-information-in-a-repository/filtering-issues-and-pull-requests-by-assignees
   - /articles/filtering-issues-and-pull-requests-by-assignees
@@ -41,23 +41,23 @@ versions:
 topics:
   - Issues
   - Pull requests
-shortTitle: Filter and search
+shortTitle: フィルタリングと検索
 type: how_to
 ---
 
 {% data reusables.cli.filter-issues-and-pull-requests-tip %}
 
-## Issue およびプルリクエストをフィルタリングする
+## Issue およびPull Requestをフィルタリングする
 
-Issue およびプルリクエストには、適用してリストを整理するためのデフォルトのフィルタが備わっています。
+Issue およびPull Requestには、適用してリストを整理するためのデフォルトのフィルタが備わっています。
 
 {% data reusables.search.requested_reviews_search %}
 
-Issue およびプルリクエストをフィルタリングして、以下を探すことができます:
-- すべてのオープンな Issue およびプルリクエスト
-- 自分で作成した Issue およびプルリクエスト
-- 自分に割り当てられた Issue およびプルリクエスト
-- 自分が [**@メンション**](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams)された Issue およびプルリクエスト
+Issue およびPull Requestをフィルタリングして、以下を探すことができます:
+- すべてのオープンな Issue およびPull Request
+- 自分で作成した Issue およびPull Request
+- 自分に割り当てられた Issue およびPull Request
+- 自分が [**@メンション**](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams)された Issue およびPull Request
 
 {% data reusables.cli.filter-issues-and-pull-requests-tip %}
 
@@ -65,9 +65,9 @@ Issue およびプルリクエストをフィルタリングして、以下を�
 {% data reusables.repositories.sidebar-issue-pr %}
 3. [**Filters**] をクリックしてフィルタの種類を選びます。 ![[Filters] ドロップダウンメニューを使用する](/assets/images/help/issues/issues_filter_dropdown.png)
 
-## Issue およびプルリクエストをアサインされた人でフィルタリングする
+## Issue およびPull Requestをアサインされた人でフィルタリングする
 
-Once you've [assigned an issue or pull request to someone](/articles/assigning-issues-and-pull-requests-to-other-github-users), you can find items based on who's working on them.
+[IssueあるいはPull Requestを誰かに割り当てたら](/articles/assigning-issues-and-pull-requests-to-other-github-users)、それらについての作業をしている人に基づいてアイテムを見つけることができます。
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-issue-pr %}
@@ -80,9 +80,9 @@ Once you've [assigned an issue or pull request to someone](/articles/assigning-i
 
 {% endtip %}
 
-## Issue およびプルリクエストをラベルでフィルタリングする
+## Issue およびPull Requestをラベルでフィルタリングする
 
-Once you've [applied labels to an issue or pull request](/articles/applying-labels-to-issues-and-pull-requests), you can find items based on their labels.
+[IssueあるいはPull Requestにラベルを適用したら](/articles/applying-labels-to-issues-and-pull-requests)、アイテムをラベルに基づいて見つけることができます。
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-issue-pr %}
@@ -97,33 +97,31 @@ Once you've [applied labels to an issue or pull request](/articles/applying-labe
 
 ## プルリクエストをレビューステータスでフィルタリングする
 
-フィルタを使用して、レビューステータスでプルリクエストをフィルタリングしたり、自分でレビューしたプルリクエストや他のユーザにレビューするよう依頼されたプルリクエストを検索したりできます。
+フィルタを使用して、レビューステータスでPull Requestをフィルタリングしたり、自分でレビューしたPull Requestや他のユーザにレビューするよう依頼されたPull Requestを検索したりできます。
 
-プルリクエストのリポジトリのリストをフィルタリングして、次の検索を行えます:
-- まだ[レビュー](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews)されていないプルリクエスト
-- マージの前に[レビューが必要](/github/administering-a-repository/about-protected-branches#require-pull-request-reviews-before-merging)なプルリクエスト
-- レビュー担当者が承認したプルリクエスト
-- レビュー担当者が変更を求めているプルリクエスト
-- Pull requests that you have reviewed{% ifversion fpt or ghae or ghes > 3.2 or ghec %}
-- Pull requests that someone has asked you directly to review{% endif %}
-- [自分、または自分のチームに誰かがレビューを依頼](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/requesting-a-pull-request-review)したプルリクエスト
+Pull Requestのリポジトリのリストをフィルタリングして、次の検索を行えます:
+- まだ[レビュー](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews)されていないPull Request
+- マージの前に[レビューが必要](/github/administering-a-repository/about-protected-branches#require-pull-request-reviews-before-merging)なPull Request
+- レビュー担当者が承認したPull Request
+- レビュー担当者が変更を求めているPull Request
+- 自分がレビューしたPull Request{% ifversion fpt or ghae-issue-5181 or ghes > 3.2 or ghec %}
+- 誰かから直接レビューを求められたPull Request{% endif %}
+- [自分、または自分のチームに誰かがレビューを依頼](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/requesting-a-pull-request-review)したPull Request
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-pr %}
 3. 右上にある [Reviews] ドロップダウンメニューをクリックします。 ![プルリクエストのリストの上にあるフィルタメニュー内の [Reviews] ドロップダウンメニュー](/assets/images/help/pull_requests/reviews-filter-dropdown.png)
-4. フィルタを選択してます。そのフィルタのステータスのプルリクエストすべてが検索されます。 ![[Reviews] ドロップダウンメニュー内のフィルタのリスト](/assets/images/help/pull_requests/pr-review-filters.png)
+4. フィルタを選択してます。そのフィルタのステータスのPull Requestすべてが検索されます。 ![[Reviews] ドロップダウンメニュー内のフィルタのリスト](/assets/images/help/pull_requests/pr-review-filters.png)
 
 ## 検索を使用して Issue およびプルリクエストをフィルタリングする
 
-You can use advanced filters to search for issues and pull requests that meet specific criteria.
+特定の条件を満たすIssueやPull Requestを検索するために、高度なフィルターを使うことができます。
 
-### Searching for issues and pull requests
-
-{% include tool-switcher %}
+### IssueやPull Requestの検索
 
 {% webui %}
 
-Issue とプルリクエストの検索バーを使用すると、独自のカスタムフィルターを定義し、さまざまな基準で並べ替えることができます。 検索バーは、各リポジトリの [**Issues**] および [**Pull requests**] タブ、ならびに[Issues および Pull requests のダッシュボード](/articles/viewing-all-of-your-issues-and-pull-requests)にあります。
+Issue とPull Requestの検索バーを使用すると、独自のカスタムフィルターを定義し、さまざまな基準で並べ替えることができます。 検索バーは、各リポジトリの [**Issues**] および [**Pull requests**] タブ、ならびに[Issues および Pull requests のダッシュボード](/articles/viewing-all-of-your-issues-and-pull-requests)にあります。
 
 ![Issue およびプルリクエストの検索バー](/assets/images/help/issues/issues_search_bar.png)
 
@@ -139,15 +137,15 @@ Issue とプルリクエストの検索バーを使用すると、独自のカ�
 
 {% data reusables.cli.cli-learn-more %}
 
-You can use the {% data variables.product.prodname_cli %} to search for issues or pull requests. Use the `gh issue list` or `gh pr list` subcommand along with the `--search` argument and a search query.
+{% data variables.product.prodname_cli %}を使ってIssueやPull Requestを検索できます。 `--search`引数や検索クエリとともに`gh issue list`あるいは`gh pr list`サブコマンドを使ってください。
 
-For example, you can list, in order of date created, all issues that have no assignee and that have the label `help wanted` or `bug`.
+たとえば、アサインされた人がなく、`help wanted`あるいは`bug`というラベルを持つすべてのIssueを、作成された日付順にリストできます。
 
 ```shell
 gh issue list --search 'no:assignee label:"help wanted",bug sort:created-asc'
 ```
 
-You can also list all pull requests that mention the `octo-org/octo-team` team.
+`octo-org/octo-team`チームをメンションしているすべてのPull Requestをリストすることもできます。
 
 ```shell
 gh pr list --search "team:octo-org/octo-team"
@@ -155,64 +153,62 @@ gh pr list --search "team:octo-org/octo-team"
 
 {% endcli %}
 
-### About search terms
+### 検索語について
 
-Issue およびプルリクエストの検索用語により、次のことができます:
+Issue およびPull Requestの検索用語により、次のことができます:
 
-- 作者による Issue とプルリクエストのフィルタリング: `state:open type:issue author:octocat`
-- [特定の人に関連するが、必ずしも **@メンション**](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams)ではない Issue とプルリクエストのフィルタリング: `state:open type:issue involves:octocat`
-- アサインされた人による Issues とプルリクエストのフィルタリング: `state:open type:issue assignee:octocat`
-- ラベルにより Issue とプルエストをフィルタリング: `state:open type:issue label:"bug"`
+- 作者による Issue とPull Requestのフィルタリング: `state:open type:issue author:octocat`
+- [特定の人に関連するが、必ずしも **@メンション**](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams)ではない Issue とPull Requestのフィルタリング: `state:open type:issue involves:octocat`
+- アサインされた人による Issues とPull Requestのフィルタリング: `state:open type:issue assignee:octocat`
+- ラベルにより Issue とPull Requestをフィルタリング: `state:open type:issue label:"bug"`
 - 次の用語の前に `-` を使用して検索用語を除外: `state:open type:issue -author:octocat`
 
-{% ifversion fpt or ghes > 3.2 or ghae-next or ghec %}
+{% ifversion fpt or ghes > 3.2 or ghae or ghec %}
 {% tip %}
 
-**Tip:** You can filter issues and pull requests by label using logical OR or using logical AND.
-- To filter issues using logical OR, use the comma syntax: `label:"bug","wip"`.
-- To filter issues using logical AND, use separate label filters: `label:"bug" label:"wip"`.
+**参考:** 論理和あるいは論理積を使って、ラベルでIssueやPull Requestをフィルタリングできます。
+- 論理和を使ってIssueをフィルタリングするには、カンマ構文を使ってください:`label:"bug","wip"`
+- 論理積を使ってIssueをフィルタリングするには、個別のラベルフィルタを使ってください:`label:"bug" label:"wip"`
 
 {% endtip %}
 {% endif %}
 
-{% ifversion fpt or ghes or ghae or ghec %}
 Issueについては、以下も検索に利用できます。
 
-- クローズしているリファレンス`linked:pr`によってプルリクエストにリンクされているIssueのフィルタリング
-{% endif %}
+- クローズしているリファレンス`linked:pr`によってPull RequestにリンクされているIssueのフィルタリング{% ifversion issue-close-reasons %}
+- `is:closed reason:complete`や`is:closed reason:"not planned"`といった、クローズされた理由によるIssueのフィルタリング{% endif %}
 
 プルリクエストについては、検索を利用して以下の操作もできます。
-- [ドラフト](/articles/about-pull-requests#draft-pull-requests)プルリクエストのフィルタリング: `is:draft`
-- まだ[レビュー](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews)されていないプルリクエストのフィルタリング: `state:open type:pr review:none`
-- マージされる前に[レビューを必要とする](/github/administering-a-repository/about-protected-branches#require-pull-request-reviews-before-merging)プルリクエストのフィルタリング: `state:open type:pr review:required`
-- レビュー担当者が承認したプルリクエストのフィルタリング: `state:open type:pr review:approved`
-- レビュー担当者が変更を要求したプルリクエストのフィルタリング: `state:open type:pr review:changes_requested`
-- [レビュー担当者](/articles/about-pull-request-reviews/)によるプルリクエストのフィルタリング: `state:open type:pr reviewed-by:octocat`
-- Filter pull requests by the specific user [requested for review](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/requesting-a-pull-request-review): `state:open type:pr review-requested:octocat`{% ifversion fpt or ghae or ghes > 3.2 or ghec %}
-- Filter pull requests that someone has asked you directly to review: `state:open type:pr user-review-requested:@me`{% endif %}
-- レビューを要求されたチームによるプルリクエストのフィルタリング: `state:open type:pr team-review-requested:github/atom`{% ifversion fpt or ghes or ghae or ghec %}
-- プルリクエストでクローズできるIssueにリンクされているプルリクエストのフィルタリング: `linked:issue`{% endif %}
+- [ドラフト](/articles/about-pull-requests#draft-pull-requests)Pull Requestのフィルタリング: `is:draft`
+- まだ[レビュー](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews)されていないPull Requestのフィルタリング: `state:open type:pr review:none`
+- マージされる前に[レビューを必要とする](/github/administering-a-repository/about-protected-branches#require-pull-request-reviews-before-merging)Pull Requestのフィルタリング: `state:open type:pr review:required`
+- レビュー担当者が承認したPull Requestのフィルタリング: `state:open type:pr review:approved`
+- レビュー担当者が変更を要求したPull Requestのフィルタリング: `state:open type:pr review:changes_requested`
+- [レビュー担当者](/articles/about-pull-request-reviews/)によるPull Requestのフィルタリング: `state:open type:pr reviewed-by:octocat`
+- [レビューを要求された](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/requesting-a-pull-request-review)特定のユーザーによるPull Requestのフィルタリング: `state:open type:pr review-requested:octocat`{% ifversion fpt or ghae-issue-5181 or ghes > 3.2 or ghec %}
+- 誰かから直接レビューを求められたPull Requestのフィルタリング:`state:open type:pr user-review-requested:@me`{% endif %}
+- レビューを要求されたチームによるプルリクエストのフィルタリング: `state:open type:pr team-review-requested:github/atom`
+- プルリクエストでクローズできるIssueにリンクされているプルリクエストのフィルタリング: `linked:issue`
 
-## Issue およびプルリクエストをソートする
+## Issue およびPull Requestをソートする
 
 フィルターは、特定の期間の情報をよりよく提供するためにソートできます。
 
 これらのフィルタービューでソートできます。
 
-* 一番新しく作成された Issue またはプルリクエスト
-* 一番古くに作成された Issue またはプルリクエスト
-* 最もコメントされた Issue またはプルリクエスト
-* 最もコメントされていない Issue およびプルリクエスト
-* 一番新しく更新された Issue またはプルリクエスト
-* 一番古くに更新された Issue またはプルリクエスト
-* The most added reaction on issues or pull requests
+* 一番新しく作成された Issue またはPull Request
+* 一番古くに作成された Issue またはPull Request
+* 最もコメントされた Issue またはPull Request
+* 最もコメントされていない Issue およびPull Request
+* 一番新しく更新された Issue またはPull Request
+* 一番古くに更新された Issue またはPull Request
+* 最もリアクションがあったIssueまたはPull Request
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-issue-pr %}
 1. 右上にあるソートドロップダウンメニューをクリックします。 ![ソートドロップダウンタブを使用する](/assets/images/help/issues/issues_sort_dropdown.png)
 
 ソートの選択を解除するには、[**Sort**] > [**Newest**] をクリックします。
-
 
 ## フィルターを共有する
 
@@ -228,4 +224,4 @@ Issue が生成した URL は、どのユーザにも送れます。そして、
 
 ## 参考リンク
 
-- "[Searching issues and pull requests](/articles/searching-issues)""
+- 「[Issue及びPull Requestの検索](/articles/searching-issues)」

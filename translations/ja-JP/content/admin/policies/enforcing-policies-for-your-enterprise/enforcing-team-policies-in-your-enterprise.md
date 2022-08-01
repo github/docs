@@ -2,10 +2,9 @@
 title: Enforcing team policies in your enterprise
 intro: 'You can enforce policies for teams in your enterprise''s organizations, or allow policies to be set in each organization.'
 permissions: Enterprise owners can enforce policies for teams in an enterprise.
-product: '{% data reusables.gated-features.enterprise-accounts %}'
 redirect_from:
-  - /articles/enforcing-team-settings-for-organizations-in-your-business-account/
-  - /articles/enforcing-team-policies-for-organizations-in-your-enterprise-account/
+  - /articles/enforcing-team-settings-for-organizations-in-your-business-account
+  - /articles/enforcing-team-policies-for-organizations-in-your-enterprise-account
   - /articles/enforcing-team-policies-in-your-enterprise-account
   - /github/setting-up-and-managing-your-enterprise-account/enforcing-team-policies-in-your-enterprise-account
   - /github/setting-up-and-managing-your-enterprise/enforcing-team-policies-in-your-enterprise-account

@@ -11,7 +11,6 @@ shortTitle: 手动运行工作流程
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## 配置工作流程手动运行
 
@@ -20,8 +19,6 @@ shortTitle: 手动运行工作流程
 {% data reusables.repositories.permissions-statement-write %}
 
 ## 运行工作流程
-
-{% include tool-switcher %}
 
 {% webui %}
 
@@ -73,4 +70,10 @@ gh run watch
 
 使用 REST API 时，应将 `inputs` 和 `ref` 配置为请求正文参数。 如果忽略输入，则使用工作流程文件中定义的默认值。
 
-有关使用 REST API 的更多信息，请参阅“[创建工作流程调度事件](/rest/reference/actions/#create-a-workflow-dispatch-event)”。
+{% note %}
+
+**注意：** 您最多可以为 `workflow_dispatch` 事件定义 10 个 `inputs`。
+
+{% endnote %}
+
+有关使用 REST API 的更多信息，请参阅“[创建工作流调度事件](/rest/reference/actions/#create-a-workflow-dispatch-event)”。

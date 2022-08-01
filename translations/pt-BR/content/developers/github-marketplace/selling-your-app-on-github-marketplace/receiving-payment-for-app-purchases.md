@@ -2,10 +2,10 @@
 title: Receber pagamento por compras de aplicativo
 intro: 'Ao final de cada mês, você receberá um pagamento pela sua listagem em {% data variables.product.prodname_marketplace %}.'
 redirect_from:
-  - /apps/adding-integrations/managing-pricing-and-payments-for-a-github-marketplace-listing/receiving-payment-for-a-github-marketplace-listing/
-  - /apps/marketplace/managing-pricing-and-payments-for-a-github-marketplace-listing/receiving-payment-for-a-github-marketplace-listing/
-  - /apps/marketplace/pricing-payments-and-free-trials/receiving-payment-for-a-github-marketplace-listing/
-  - /apps/marketplace/selling-your-app/receiving-payment-for-github-marketplace-listings/
+  - /apps/adding-integrations/managing-pricing-and-payments-for-a-github-marketplace-listing/receiving-payment-for-a-github-marketplace-listing
+  - /apps/marketplace/managing-pricing-and-payments-for-a-github-marketplace-listing/receiving-payment-for-a-github-marketplace-listing
+  - /apps/marketplace/pricing-payments-and-free-trials/receiving-payment-for-a-github-marketplace-listing
+  - /apps/marketplace/selling-your-app/receiving-payment-for-github-marketplace-listings
   - /marketplace/selling-your-app/receiving-payment-for-github-marketplace-listings
   - /developers/github-marketplace/receiving-payment-for-app-purchases
 versions:

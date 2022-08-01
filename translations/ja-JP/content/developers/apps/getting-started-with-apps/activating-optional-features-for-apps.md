@@ -16,18 +16,18 @@ shortTitle: オプション機能の有効化
 
 {% warning %}
 
-**警告:** {% ifversion ghes < 3.1 %}ベータ版{% else %}オプション{% endif %}機能は変更される場合があります。
+**Warning:**  Optional features are subject to change.
 
 {% endwarning %}
 
-## {% data variables.product.prodname_github_apps %} の{% ifversion ghes < 3.1 %}ベータ版{% else %}オプション{% endif %}機能を有効化する
+## Activating optional features for {% data variables.product.prodname_github_apps %}
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.developer_settings %}
-3. {% ifversion ghes < 3.1 %}ベータ版{% else %}オプション{% endif %}機能を有効化する {% data variables.product.prodname_github_app %} を選択します。
+3. Select the {% data variables.product.prodname_github_app %} you want to enable an optional feature for.
 {% data reusables.apps.optional_feature_activation %}
 
-## {% data variables.product.prodname_oauth_apps %} の{% ifversion ghes < 3.1 %}ベータ版{% else %}オプション{% endif %}機能を有効化する
+## Activating optional features for {% data variables.product.prodname_oauth_apps %}
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.developer_settings %}

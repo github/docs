@@ -6,15 +6,14 @@ redirect_from:
   - /github/authenticating-to-github/viewing-and-managing-your-active-saml-sessions
   - /github/authenticating-to-github/authenticating-with-saml-single-sign-on/viewing-and-managing-your-active-saml-sessions
 versions:
-  fpt: '*'
   ghec: '*'
 topics:
   - SSO
 shortTitle: 活动的 SAML 会话
 ---
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.security %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.security %}
 3. 在“Sessions（会话）”下，您可以看到活动的 SAML 会话。 ![活动 SAML 会话列表](/assets/images/help/settings/saml-active-sessions.png)
 4. 要查看会话详细信息，请单击 **See more（查看更多）**。 ![用于打开 SAML 会话详细信息的按钮](/assets/images/help/settings/saml-expand-session-details.png)
 5. 要撤销会话，请单击 **Revoke SAML（撤销 SAML）**。 ![撤销 SAML 会话的按钮](/assets/images/help/settings/saml-revoke-session.png)

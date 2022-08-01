@@ -25,7 +25,7 @@ shortTitle: HTTPSでのサイトの保護
 
 {% note %}
 
-**Note:** RFC3280 states that the maximum length of the common name should be 64 characters. Therefore, the entire domain name of your {% data variables.product.prodname_pages %} site must be less than 64 characters long for a certificate to be successfully created.
+**ノート:** RFC3280は、コモンネームの最大長は64文字でなければならないとしています。 したがって、証明書が正常に作成されるようにするには、{% data variables.product.prodname_pages %}サイトのドメイン名全体の長さは64文字未満でなければなりません。
 
 {% endnote %}
 
@@ -35,6 +35,12 @@ shortTitle: HTTPSでのサイトの保護
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.pages.sidebar-pages %}
 3. [{% data variables.product.prodname_pages %}] で、[**Enforce HTTPS**] を選択します。 ![[Enforce HTTPS] チェックボックス](/assets/images/help/pages/enforce-https-checkbox.png)
+
+## 証明書プロビジョニングのトラブルシューティング（"Certificate not yet created" error"）
+
+Pagesの設定でカスタムドメインを設定もしくは変更した場合、自動DNSチェックが開始されます。 このチェックは、DNS設定が{% data variables.product.prodname_dotcom %}による自動的な証明書の取得を許可するように設定されているかを判断します。 このチェックに成功すると、{% data variables.product.prodname_dotcom %}は[Let's Encrypt](https://letsencrypt.org/)にTLS証明書をリクエストするジョブをキューイングします。 有効な証明書を受信すると、{% data variables.product.prodname_dotcom %}は自動的にそれをPagesのTLSターミネーションを処理するサーバーにアップロードします。 このプロセスが正常に終了すると、カスタムドメイン名の横にチェックマークが表示されます。
+
+このプロセスには多少の時間がかかることがあります。 **Save（保存）**をクリックしてから数分経ってもこのプロセスが終了しないなら、カスタムドメイン名の隣にある**Remove（削除）**をクリックしてみてください。 ドメイン名を再入力し、**Save（保存）**をもう一度クリックしてください。 これでプロビジョニングのプロセスがキャンセルされ、再起動されます。
 
 ## 混在したコンテンツの問題を解決する
 
@@ -60,4 +66,4 @@ shortTitle: HTTPSでのサイトの保護
 |:----------:|:----------------------------------------------------------------------------------------------------------------:|:------------------------------------------------------------------------------------------------------------------:|
 |    CSS     |                      `<link rel="stylesheet" href="http://example.com/css/main.css">`                      |                      `<link rel="stylesheet" href="https://example.com/css/main.css">`                       |
 | JavaScript |            `<script type="text/javascript" src="http://example.com/js/main.js"></script>`            |            `<script type="text/javascript" src="https://example.com/js/main.js"></script>`             |
-|     画像     | `<A HREF="http://www.somesite.com"><IMG SRC="http://www.example.com/logo.jpg" alt="Logo"></a>` | `<A HREF="https://www.somesite.com"><IMG SRC="https://www.example.com/logo.jpg" alt="Logo"></a>` |  
+|     画像     | `<a href="http://www.somesite.com"><img src="http://www.example.com/logo.jpg" alt="Logo"></a>` | `<a href="https://www.somesite.com"><img src="https://www.example.com/logo.jpg" alt="Logo"></a>` |  

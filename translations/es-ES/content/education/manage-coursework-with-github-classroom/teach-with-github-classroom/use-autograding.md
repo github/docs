@@ -4,6 +4,7 @@ intro: Puedes proporcionar retroalimentación automáticamente en las emisiones 
 miniTocMaxHeadingLevel: 3
 versions:
   fpt: '*'
+permissions: 'Organization owners who are admins for a classroom can set up and use autograding on assignments in a classroom. {% data reusables.classroom.classroom-admins-link %}'
 redirect_from:
   - /education/manage-coursework-with-github-classroom/adding-tests-for-auto-grading
   - /education/manage-coursework-with-github-classroom/reviewing-auto-graded-work-teachers
@@ -20,7 +21,7 @@ Puedes utiizar un marco de trabajo de prueba, ejecutar un comando personalizado,
 
 Puedes ver un resumen de qué estudiantes están pasando las pruebas con calificación automática si navegas a la tarea en {% data variables.product.prodname_classroom %}. Una marca verde significa que el alumno está pasando todas las pruebas, la X roja significa que el alumno falló en algunas o todas las pruebas. Si otorgas puntos para una o más pruebas, entonces una burbuja mostrará la puntuación de éstas con base en la puntuación máxima posible para la tarea.
 
-![Resumen de una tarea con resultados de calificación automática](/assets/images/help/classroom/autograding-hero.png)
+![Resumen de una tarea con resultados de calificación automática](/assets/images/help/classroom/assignment-individual-hero.png)
 
 ## Métodos para calificar
 
@@ -59,7 +60,7 @@ Una prueba de comando de ejecución ejecuta un comando de configuración y luego
 
 Puedes agregar pruebas de calificación automática durante la creación de una tarea nueva. {% data reusables.classroom.for-more-information-about-assignment-creation %}
 
-Puedes agregar, editar o borrar las pruebas de calificación automática para una tarea existente. Si cambias las pruebas de calificación automática para una tarea existente, los repositorios de tareas existentes no se verán afectados. Un alumno o equipo debe aceptar la tarea y crear un repositorio de tareas nuevo para utilizar las pruebas nuevas.
+Puedes agregar, editar o borrar las pruebas de calificación automática para una tarea existente. Todos los cambios que se hagan a través de la IU del aula se subirán a los repositorios existentes de los alumnos, así que edita tus pruebas con cuidado.
 
 {% data reusables.classroom.sign-into-github-classroom %}
 {% data reusables.classroom.click-classroom-in-list %}

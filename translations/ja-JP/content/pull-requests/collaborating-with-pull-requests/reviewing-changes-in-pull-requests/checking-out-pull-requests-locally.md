@@ -25,8 +25,6 @@ shortTitle: Check out a PR locally
 
 ## アクティブなプルリクエストをローカルで修正する
 
-{% include tool-switcher %}
-
 {% webui %}
 
 {% data reusables.repositories.sidebar-pr %}

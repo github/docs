@@ -1,6 +1,6 @@
 ---
-title: 安装包
-intro: '您可以从 {% data variables.product.prodname_registry %} 安装包，并将包用作自己项目中的依赖项。'
+title: Installing a package
+intro: 'You can install a package from {% data variables.product.prodname_registry %} and use the package as a dependency in your own project.'
 product: '{% data reusables.gated-features.packages %}'
 redirect_from:
   - /github/managing-packages-with-github-packages/installing-a-package
@@ -17,17 +17,17 @@ versions:
 {% data reusables.package_registry.packages-ghes-release-stage %}
 {% data reusables.package_registry.packages-ghae-release-stage %}
 
-## 关于包的安装
+## About package installation
 
-您可以在 {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} 上搜索，以查找 {% data variables.product.prodname_registry %} 中可以在自己项目中安装的包。 更多信息请参阅“[搜索 {% data variables.product.prodname_registry %} 中的包](/search-github/searching-on-github/searching-for-packages)”。
+You can search on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} to find packages in {% data variables.product.prodname_registry %} that you can install in your own project. For more information, see "[Searching {% data variables.product.prodname_registry %} for packages](/search-github/searching-on-github/searching-for-packages)."
 
-找到包后，您可以在包页面上阅读包的说明以及安装和使用说明。
+After you find a package, you can read the package's description and installation and usage instructions on the package page.
 
-## 安装包
+## Installing a package
 
-您可以按照一般准则，使用任何{% ifversion fpt or ghae or ghec %}支持的包客户端{% else %}为您的实例启用的包类型{% endif %}从 {% data variables.product.prodname_registry %} 安装包。
+You can install a package from {% data variables.product.prodname_registry %} using any {% ifversion fpt or ghae or ghec %}supported package client{% else %}package type enabled for your instance{% endif %} by following the same general guidelines.
 
-1. 按照包客户端的说明，向 {% data variables.product.prodname_registry %} 验证。 更多信息请参阅“[向 GitHub Packages 验证](/packages/learn-github-packages/introduction-to-github-packages#authenticating-to-github-packages)”。
-2. 按照包客户端的说明安装包。
+1. Authenticate to {% data variables.product.prodname_registry %} using the instructions for your package client. For more information, see "[Authenticating to GitHub Packages](/packages/learn-github-packages/introduction-to-github-packages#authenticating-to-github-packages)."
+2. Install the package using the instructions for your package client.
 
-有关包客户端的具体说明，请参阅“[使用 {% data variables.product.prodname_registry %} 注册表](/packages/working-with-a-github-packages-registry)”。
+For instructions specific to your package client, see "[Working with a {% data variables.product.prodname_registry %} registry](/packages/working-with-a-github-packages-registry)."

@@ -2,7 +2,7 @@
 title: Classifying your repository with topics
 intro: 'To help other people find and contribute to your project, you can add topics to your repository related to your project''s intended purpose, subject area, affinity groups, or other important qualities.'
 redirect_from:
-  - /articles/about-topics/
+  - /articles/about-topics
   - /articles/classifying-your-repository-with-topics
   - /github/administering-a-repository/classifying-your-repository-with-topics
   - /github/administering-a-repository/managing-repository-settings/classifying-your-repository-with-topics
@@ -27,7 +27,7 @@ To browse the most used topics, go to https://github.com/topics/.
 
 Repository admins can add any topics they'd like to a repository. Helpful topics to classify a repository include the repository's intended purpose, subject area, community, or language.{% ifversion fpt or ghec %} Additionally, {% data variables.product.product_name %} analyzes public repository content and generates suggested topics that repository admins can accept or reject. Private repository content is not analyzed and does not receive topic suggestions.{% endif %}
 
-{% ifversion ghae %}Internal {% else %}Public, internal, {% endif %}and private repositories can have topics, although you will only see private repositories that you have access to in topic search results.
+{% ifversion fpt %}Public and private{% elsif ghec or ghes %}Public, private, and internal{% elsif ghae %}Private and internal{% endif %} repositories can have topics, although you will only see private repositories that you have access to in topic search results.
 
 You can search for repositories that are associated with a particular topic. For more information, see "[Searching for repositories](/search-github/searching-on-github/searching-for-repositories#search-by-topic)." You can also search for a list of topics on {% data variables.product.product_name %}. For more information, see "[Searching topics](/search-github/searching-on-github/searching-topics)."
 

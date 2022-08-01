@@ -1,0 +1,2 @@
+1. Debajo de "{% data variables.product.prodname_secret_scanning_caps %}" y debajo de "Protección contra subida", haz clic en **Habilitar todo**. ![Captura de pantalla que muestra cómo habilitar la protección de subida para el {% data variables.product.prodname_secret_scanning %} en una organización](/assets/images/help/organizations/secret-scanning-enable-push-protection.png)
+1. Opcionalmente, haz clic en "Habilitar automáticamente para los repositorios privados agregados al {% data variables.product.prodname_secret_scanning %}".

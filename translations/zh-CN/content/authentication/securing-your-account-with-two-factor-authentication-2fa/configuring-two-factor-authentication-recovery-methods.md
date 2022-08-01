@@ -2,11 +2,11 @@
 title: 配置双重身份验证恢复方法
 intro: 您可以设置多种恢复方法，以便在丢失双重身份验证凭据的情况下访问您的帐户。
 redirect_from:
-  - /articles/downloading-your-two-factor-authentication-recovery-codes/
-  - /articles/setting-a-fallback-authentication-number/
-  - /articles/about-recover-accounts-elsewhere/
-  - /articles/adding-a-fallback-authentication-method-with-recover-accounts-elsewhere/
-  - /articles/generating-and-storing-an-account-recovery-token/
+  - /articles/downloading-your-two-factor-authentication-recovery-codes
+  - /articles/setting-a-fallback-authentication-number
+  - /articles/about-recover-accounts-elsewhere
+  - /articles/adding-a-fallback-authentication-method-with-recover-accounts-elsewhere
+  - /articles/generating-and-storing-an-account-recovery-token
   - /articles/configuring-two-factor-authentication-recovery-methods
   - /github/authenticating-to-github/configuring-two-factor-authentication-recovery-methods
   - /github/authenticating-to-github/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication-recovery-methods
@@ -31,8 +31,8 @@ shortTitle: 配置 2FA 恢复
 
 如果您生成新的恢复代码或禁用并重新启用 2FA，则安全设置中的恢复代码会自动更新。
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.security %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.security %}
 {% data reusables.two_fa.show-recovery-codes %}
 4. 将恢复代码保存在安全的位置。 在失去访问权限时，恢复代码可帮助您恢复帐户登录。
     - 要在设备上保存恢复代码，请单击 **Download（下载）**。
@@ -43,8 +43,8 @@ shortTitle: 配置 2FA 恢复
 
 使用某个恢复代码恢复帐户访问后，该代码无法再用。 用完全部 16 个恢复代码后，可以生成另一个代码列表。 生成一组新的恢复代码将导致此前生成的任何代码失效。
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.security %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.security %}
 {% data reusables.two_fa.show-recovery-codes %}
 3. 要创建另一批恢复代码，请单击 **Generate new recovery codes（生成新的恢复代码）**。 ![生成新恢复代码按钮](/assets/images/help/2fa/generate-new-recovery-codes.png)
 
@@ -68,8 +68,8 @@ shortTitle: 配置 2FA 恢复
 
 {% endwarning %}
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.security %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.security %}
 3. 在“Fallback SMS number（后备 SMS 号码）”旁边，单击 **Add（添加）**。 ![添加后备 SMS 号码按钮](/assets/images/help/2fa/add-fallback-sms-number-button.png)
 4. 在“Fallback SMS number（后备 SMS 号码）”下，单击 **Add fallback SMS number（添加后备 SMS 号码）**。 ![添加后备 SMS 号码文本](/assets/images/help/2fa/add_fallback_sms_number_text.png)
 5. 选择您的国家/地区代码并键入您的手机号码，包括区号。 确认信息无误后，单击 **Set fallback（设置后备号码）**。 ![设置后备 SMS 号码](/assets/images/help/2fa/2fa-fallback-number.png)

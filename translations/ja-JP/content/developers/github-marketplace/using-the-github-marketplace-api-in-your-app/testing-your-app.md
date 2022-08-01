@@ -2,8 +2,8 @@
 title: アプリをテストする
 intro: 'リストを{% data variables.product.prodname_marketplace %}にサブミットする前に、APIとwebhookを使ってアプリケーションをテストし、顧客に理想的な体験を提供できるようにすることをGitHubはおすすめします。 オンボーディングの専門家の検証前に、アプリケーションは支払いフローを適切に処理しなければなりません。'
 redirect_from:
-  - /apps/marketplace/testing-apps-apis-and-webhooks/
-  - /apps/marketplace/integrating-with-the-github-marketplace-api/testing-github-marketplace-apps/
+  - /apps/marketplace/testing-apps-apis-and-webhooks
+  - /apps/marketplace/integrating-with-the-github-marketplace-api/testing-github-marketplace-apps
   - /marketplace/integrating-with-the-github-marketplace-api/testing-github-marketplace-apps
   - /developers/github-marketplace/testing-your-app
 versions:

@@ -24,8 +24,6 @@ You can clone your existing repository or clone another person's existing reposi
 
 ## Cloning a repository
 
-{% include tool-switcher %}
-
 {% webui %}
 
 {% data reusables.repositories.navigate-to-repo %}
@@ -89,7 +87,7 @@ If you're unable to clone a repository, check that:
 
 - You can connect using HTTPS. For more information, see "[HTTPS cloning errors](/github/creating-cloning-and-archiving-repositories/https-cloning-errors)."
 - You have permission to access the repository you want to clone. For more information, see "[Error: Repository not found](/github/creating-cloning-and-archiving-repositories/error-repository-not-found)."
-- The default branch you want to clone still exists. For more information, see  have permission to access the repository you want to clone. For more information, see "[Error: Remote HEAD refers to nonexistent ref, unable to checkout](/github/creating-cloning-and-archiving-repositories/error-remote-head-refers-to-nonexistent-ref-unable-to-checkout)."
+- The default branch you want to clone still exists. For more information, see "[Error: Remote HEAD refers to nonexistent ref, unable to checkout](/repositories/creating-and-managing-repositories/troubleshooting-cloning-errors#error-remote-head-refers-to-nonexistent-ref-unable-to-checkout)."
 
 {% ifversion fpt or ghec %}
 

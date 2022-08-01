@@ -18,7 +18,7 @@ shortTitle: Asociar el correo electrónico con una llave GPG
 
 {% note %}
 
-If you're using a GPG key that matches your committer identity and your verified email address associated with your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}, then you can begin signing commits and signing tags.
+Si estás utilizando una llave GPG que empata con tu identidad de confirmante y tu dirección de correo electrónico verificada asociada con tu cuenta de {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}, entonces puedes comenzar a firmar confirmaciones y etiquetas.
 
 {% endnote %}
 
@@ -51,13 +51,13 @@ If you're using a GPG key that matches your committer identity and your verified
   $ gpg --armor --export <em>3AA5C34371567BD2</em>
   # Prints the GPG key, in ASCII armor format
   ```
-11. Carga la llave GPG al [agregarla a tu cuenta GitHub](/articles/adding-a-new-gpg-key-to-your-github-account).
+11. Carga la llave GPG al [agregarla a tu cuenta GitHub](/articles/adding-a-gpg-key-to-your-github-account).
 
 ## Leer más
 
 - "[Comprobar llaves GPG existentes](/articles/checking-for-existing-gpg-keys)"
 - "[Generar una llave GPG nueva](/articles/generating-a-new-gpg-key)"
 - "[Utilizar una dirección de correo electrónico verificada en tu llave GPG](/articles/using-a-verified-email-address-in-your-gpg-key)"
-- "[Agregar una nueva llave GPG a tu cuenta de GitHub](/articles/adding-a-new-gpg-key-to-your-github-account)"
+- "[Agregar una llave GPG a tu cuenta de GitHub](/articles/adding-a-gpg-key-to-your-github-account)"
 - "[Firmar confirmaciones](/articles/signing-commits)"
 - "[Firmar etiquetas](/articles/signing-tags)"

@@ -1,0 +1,1 @@
+La actividad relacionada con las ubicaciones de las alertas del escaneo de secretos en un repositorio. El tipo de actividad se especifica en la propiedad de la acción del objeto de la carga útil. Para obtener más información, consulta API de REST de "[escaneo de secretos](/rest/reference/secret-scanning)".

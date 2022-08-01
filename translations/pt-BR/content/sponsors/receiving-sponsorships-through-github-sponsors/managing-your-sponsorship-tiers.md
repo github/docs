@@ -49,6 +49,43 @@ shortTitle: Gerenciar camadas de pagamento
 {% data reusables.sponsors.tier-update %}
 {% data reusables.sponsors.retire-tier %}
 
+## Adicionando um repositório a uma camada de patrocínio
+
+{% data reusables.sponsors.sponsors-only-repos %}
+
+### Sobre adicionar repositórios a uma camada de patrocínio
+
+Para adicionar um repositório a uma camada, o repositório deve ser privado e pertencente a uma organização, e você deverá ter acesso de administrador ao repositório.
+
+Ao adicionar um repositório a uma camada, {% data variables.product.company_short %} irá enviar automaticamente convites de repositórios a novos patrocinadores e remover o acesso quando um patrocínio for cancelado.
+
+Apenas contas pessoais, não organizações, podem ser convidadas para repositórios privados associados a uma camada de patrocínio.
+
+Também é possível adicionar ou remover manualmente os colaboradores no repositório e o {% data variables.product.company_short %} não irá substituí-los na sincronização.
+
+### Sobre transferências para repositórios adicionados às camadas de patrocínio
+
+Se você transferir um repositório adicionado a um nível de patrocínio, os patrocinadores que têm acesso ao repositório através da camada poderão ser afetados.
+
+- Se o perfil patrocinado for para uma organização e o repositório for transferido para uma organização diferente, os patrocinadores atuais serão transferidos, mas os novos patrocinadores não serão adicionados. O novo proprietário do repositório pode remover patrocinadores existentes.
+- Se o perfil patrocinado for para uma conta pessoal, o repositório será transferido para uma organização, e a conta pessoal terá acesso de administrador ao novo repositório, os patrocinadores existentes serão transferidos e os novos patrocinadores continuarão sendo adicionados ao repositório.
+- Se o repositório for transferido para uma conta pessoal, todos os patrocinadores serão removidos e novos patrocinadores não serão adicionados ao repositório.
+
+### Adicionando um repositório a uma camada de patrocínio
+
+{% data reusables.sponsors.navigate-to-sponsors-dashboard %}
+{% data reusables.sponsors.navigate-to-sponsor-tiers-tab %}
+{% data reusables.sponsors.edit-tier %}
+1. Selecione **Conceder aos patrocinadores acesso ao repositório privado**.
+
+   ![Captura de tela da caixa de seleção para conceder acesso de patrocinadores a um repositório privado](/assets/images/help/sponsors/grant-sponsors-access-to-repo-checkbox.png)
+
+1. Selecione o menu suspenso e clique no repositório que você deseja adicionar.
+
+   ![Captura de tela do menu suspenso para escolher o repositório para conceder acesso ao](/assets/images/help/sponsors/grant-sponsors-access-to-repo-dropdown.png)
+
+{% data reusables.sponsors.tier-update %}
+
 ## Habilitar camadas com quantidades personalizadas
 
 {% data reusables.sponsors.navigate-to-sponsors-dashboard %}

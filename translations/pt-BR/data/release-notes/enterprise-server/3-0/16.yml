@@ -8,6 +8,7 @@ sections:
     - 'As contagens dos trabalhadores de Resque foram exibidas incorretamente no modo de manutenção. {% comment %} https://github.com/github/enterprise2/pull/26898, https://github.com/github/enterprise2/pull/26883 {% endcomment %}'
     - 'A memória memorizada memcached poderia ser zero no modo de clustering. {% comment %} https://github.com/github/enterprise2/pull/26927, https://github.com/github/enterprise2/pull/26832 {% endcomment %}'
     - 'Corrige versões {% data variables.product.prodname_pages %} para que elas levem em conta a configuração NO_PROXY do aparelho. Isto é relevante para os aparelhos configurados apenas com um proxy HTTP. (atualização 2021-09-30) {% comment %} https://github.com/github/pages/pull/3360 {% endcomment %}'
+    - 'A configuração do GitHub Connect da instância de origem foi sempre restaurada para novas instâncias mesmo quando `--config` option for `ghe-restore` não foi usada. Isto geraria um conflito com a conexão e a sincronização de licença do GitHub Connect se as instâncias de origem e destino estivessem on-line ao mesmo tempo. A correção também exige atualização do backup-utils para a versão 3.2.0 ou superior. [atualizado: 2021-11-18]'
   known_issues:
     - Em uma nova configuração de {% data variables.product.prodname_ghe_server %} sem qualquer usuário, um invasor pode criar o primeiro usuário administrador.
     - As regras de firewall personalizadas são removidas durante o processo de atualização.

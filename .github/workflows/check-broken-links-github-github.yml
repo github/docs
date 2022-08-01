@@ -9,6 +9,9 @@ on:
   schedule:
     - cron: '20 13 * * 1' # run every Monday at 1:20PM UTC
 
+permissions:
+  contents: read
+
 # **IMPORTANT:** Do not change the FREEZE environment variable set here!
 # This workflow runs on a recurring basis. To temporarily disable it (e.g.,
 # during a docs deployment freeze), add an Actions Secret to the repo settings
@@ -36,16 +39,34 @@ jobs:
           exit 1 # prevents further steps from running
 
       - name: Checkout
-        uses: actions/checkout@1e204e9a9253d643386038d443f96446fa156a97
+        uses: actions/checkout@dcd71f646680f2efd8db4afa5ad64fdcba30e748
 
       - name: Setup Node
-        uses: actions/setup-node@270253e841af726300e85d718a5f606959b2903c
+        uses: actions/setup-node@17f8bd926464a1afa4c6a11669539e9c1ba77048
         with:
-          node-version: 16.13.x
+          node-version: '16.15.0'
           cache: npm
 
       - name: Install Node.js dependencies
         run: npm ci
+
+      - name: Build server
+        run: npm run build
+
+      - name: Start server in the background
+        env:
+          NODE_ENV: production
+          PORT: 4000
+          # Overload protection is on by default (when NODE_ENV==production)
+          # but it would help in this context.
+          DISABLE_OVERLOAD_PROTECTION: true
+          # Render caching won't help when we visit every page exactly once.
+          DISABLE_RENDERING_CACHE: true
+        run: |
+
+          node server.js &
+          sleep 5
+          curl --retry-connrefused --retry 3 -I http://localhost:4000/
 
       - name: Run broken github/github link check
         run: |

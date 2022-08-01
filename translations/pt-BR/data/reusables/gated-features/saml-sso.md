@@ -1,1 +1,0 @@
-O logon único do SAML está disponível com {% data variables.product.prodname_ghe_cloud %}{% ifversion ghae %} e {% data variables.product.prodname_ghe_managed %}{% endif %}. Para obter mais informações, consulte os "[Produtos do GitHub](/articles/githubs-products)".

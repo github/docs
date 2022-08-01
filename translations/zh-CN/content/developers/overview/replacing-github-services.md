@@ -2,8 +2,8 @@
 title: 替换 GitHub 服务
 intro: '如果您仍然依赖已弃用的 {% data variables.product.prodname_dotcom %} 服务，请了解如何将服务挂钩迁移到 web 挂钩。'
 redirect_from:
-  - /guides/replacing-github-services/
-  - /v3/guides/automating-deployments-to-integrators/
+  - /guides/replacing-github-services
+  - /v3/guides/automating-deployments-to-integrators
   - /v3/guides/replacing-github-services
 versions:
   fpt: '*'
@@ -32,7 +32,7 @@ topics:
 
 GitHub 服务（有时称为服务挂钩）是传统的集成方法，其中 GitHub 通过[ `github-services` 仓库](https://github.com/github/github-services)托管集成者的部分服务。 在 GitHub 上执行的操作会触发这些服务，您可以使用这些服务在 GitHub 之外触发操作。
 
-{% ifversion ghes or ghae %}
+{% ifversion ghes %}
 ## 查找使用 GitHub 服务的仓库
 我们提供命令行脚本，帮助您识别设备上哪些仓库使用 GitHub 服务。 更多信息请参阅 [ghe-legacy-github-services-report](/enterprise/{{currentVersion}}/admin/articles/command-line-utilities/#ghe-legacy-github-services-report)。{% endif %}
 

@@ -2,8 +2,8 @@
 title: Exibir contribuidores do projeto
 intro: 'Você pode ver quem contribuiu com commits para um repositório{% ifversion fpt or ghec %} e as dependências dele{% endif %}.'
 redirect_from:
-  - /articles/i-don-t-see-myself-in-the-contributions-graph/
-  - /articles/viewing-contribution-activity-in-a-repository/
+  - /articles/i-don-t-see-myself-in-the-contributions-graph
+  - /articles/viewing-contribution-activity-in-a-repository
   - /articles/viewing-a-projects-contributors
   - /github/visualizing-repository-data-with-graphs/viewing-a-projects-contributors
   - /github/visualizing-repository-data-with-graphs/accessing-basic-repository-data/viewing-a-projects-contributors
@@ -42,7 +42,7 @@ Se você não aparecer no gráfico de contribuidores de um repositório, pode se
 
 {% tip %}
 
-**Dica:** para listar todos os contribuidores de commit em um repositório, consulte "[Repositórios](/rest/reference/repos#list-contributors)".
+**Dica:** Para listar todos os colaboradores do commit em um repositório, consulte "[Listar os contribuidores do repositório](/rest/repos/repos#list-repository-contributors)".
 
 {% endtip %}
 

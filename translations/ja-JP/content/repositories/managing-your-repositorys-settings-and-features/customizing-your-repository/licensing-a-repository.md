@@ -2,7 +2,7 @@
 title: リポジトリのライセンス
 intro: GitHub のパブリックリポジトリは、オープンソース ソフトウェアの共有にも頻繁に利用されています。 リポジトリを真にオープンソースにしたければ、他のユーザが自由にそのソフトウェアを使用でき、変更や配布もできるように、ライセンスを付与する必要があります。
 redirect_from:
-  - /articles/open-source-licensing/
+  - /articles/open-source-licensing
   - /articles/licensing-a-repository
   - /github/creating-cloning-and-archiving-repositories/licensing-a-repository
   - /github/creating-cloning-and-archiving-repositories/creating-a-repository-on-github/licensing-a-repository

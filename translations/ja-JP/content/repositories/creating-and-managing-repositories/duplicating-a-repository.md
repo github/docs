@@ -2,7 +2,7 @@
 title: リポジトリを複製する
 intro: 'To maintain a mirror of a repository without forking it, you can run a special clone command, then mirror-push to the new repository.'
 redirect_from:
-  - /articles/duplicating-a-repo/
+  - /articles/duplicating-a-repo
   - /articles/duplicating-a-repository
   - /github/creating-cloning-and-archiving-repositories/duplicating-a-repository
   - /github/creating-cloning-and-archiving-repositories/creating-a-repository-on-github/duplicating-a-repository
@@ -19,7 +19,7 @@ topics:
 
 {% note %}
 
-**Note:** If you have a project hosted on another version control system, you can automatically import your project to {% data variables.product.prodname_dotcom %} using the {% data variables.product.prodname_dotcom %} Importer tool. For more information, see "[About {% data variables.product.prodname_dotcom %} Importer](/github/importing-your-projects-to-github/importing-source-code-to-github/about-github-importer)."
+**Note:** If you have a project hosted on another version control system, you can automatically import your project to {% data variables.product.prodname_dotcom %} using the {% data variables.product.prodname_dotcom %} Importer tool. For more information, see "[About {% data variables.product.prodname_dotcom %} Importer](/get-started/importing-your-projects-to-github/importing-source-code-to-github/about-github-importer)."
 
 {% endnote %}
 
@@ -36,13 +36,13 @@ Before you can push the original repository to your new copy, or _mirror_, of th
   ```
 3. 新しいリポジトリをミラープッシュします。
   ```shell
-  $ cd <em>old-repository</em>
+  $ cd <em>old-repository.git</em>
   $ git push --mirror https://{% data variables.command_line.codeblock %}/<em>exampleuser</em>/<em>new-repository</em>.git
   ```
 4. 先ほど作成した一時ローカルリポジトリを削除します。
   ```shell
   $ cd ..
-  $ rm -rf <em>old-repository</em>
+  $ rm -rf <em>old-repository.git</em>
   ```
 
 ## {% data variables.large_files.product_name_long %} オブジェクトを含むリポジトリをミラーする
@@ -54,7 +54,7 @@ Before you can push the original repository to your new copy, or _mirror_, of th
   ```
 3. クローンしたリポジトリに移動します。
   ```shell
-  $ cd <em>old-repository</em>
+  $ cd <em>old-repository.git</em>
   ```
 4. リポジトリの {% data variables.large_files.product_name_long %} オブジェクトをプルします。
   ```shell
@@ -71,7 +71,7 @@ Before you can push the original repository to your new copy, or _mirror_, of th
 7. 先ほど作成した一時ローカルリポジトリを削除します。
   ```shell
   $ cd ..
-  $ rm -rf <em>old-repository</em>
+  $ rm -rf <em>old-repository.git</em>
   ```
 
 ## 別の場所にあるリポジトリをミラーする
@@ -100,6 +100,6 @@ Before you can push the original repository to your new copy, or _mirror_, of th
 
 * "[Pushing changes to GitHub](/desktop/contributing-and-collaborating-using-github-desktop/making-changes-in-a-branch/pushing-changes-to-github#pushing-changes-to-github)"
 * "[About Git Large File Storage and GitHub Desktop](/desktop/getting-started-with-github-desktop/about-git-large-file-storage-and-github-desktop)"
-* 「[GitHub Importer について](/github/importing-your-projects-to-github/importing-source-code-to-github/about-github-importer)」
+* 「[GitHub Importer について](/get-started/importing-your-projects-to-github/importing-source-code-to-github/about-github-importer)」
 
 {% endif %}

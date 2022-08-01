@@ -2,8 +2,8 @@
 title: 关于存储和带宽使用情况
 intro: '{% data reusables.large_files.free-storage-bandwidth-amount %}'
 redirect_from:
-  - /articles/billing-plans-for-large-file-storage/
-  - /articles/billing-plans-for-git-large-file-storage/
+  - /articles/billing-plans-for-large-file-storage
+  - /articles/billing-plans-for-git-large-file-storage
   - /articles/about-storage-and-bandwidth-usage
   - /github/managing-large-files/about-storage-and-bandwidth-usage
   - /github/managing-large-files/versioning-large-files/about-storage-and-bandwidth-usage
@@ -22,7 +22,7 @@ shortTitle: 存储和带宽
 例如：
 - 如果将 500 MB 文件推送到 {% data variables.large_files.product_name_short %}，您将使用 500 MB 的分配存储空间，而不使用带宽。 如果进行 1 个字节的更改后再次推送文件，您会使用另外 500 MB 的存储空间，但仍然不使用带宽，所以两次推送的总使用量是 1 GB 存储空间和零带宽。
 - 如果下载一个使用 LFS 跟踪的 500 MB 文件，您将使用仓库所有者分配的 500 MB 带宽。 如果协作者推送文件更改并将新版本拉取到本地仓库，您将使用另外 500 MB 的带宽，所以两次下载的总使用量是 1 GB 带宽。
-- If {% data variables.product.prodname_actions %} downloads a 500 MB file that is tracked with LFS, it will use 500 MB of the repository owner's allotted bandwidth.
+- 如果 {% data variables.product.prodname_actions %} 下载了使用 LFS 跟踪的 500 MB 文件，它将使用存储库所有者分配的 500 MB 带宽。
 
 {% ifversion fpt or ghec %}
 如果 {% data variables.large_files.product_name_long %} ({% data variables.large_files.product_name_short %}) 对象包含在仓库的源代码存档中，则下载这些存档将会计入仓库的带宽使用量。 更多信息请参阅“[管理仓库存档中的 {% data variables.large_files.product_name_short %} 对象](/github/administering-a-repository/managing-git-lfs-objects-in-archives-of-your-repository)”。

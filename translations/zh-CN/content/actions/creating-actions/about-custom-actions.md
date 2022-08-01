@@ -1,5 +1,5 @@
 ---
-title: About custom actions
+title: 关于自定义操作
 intro: '操作是可以组合来创建作业和自定义工作流程的单个任务。 您可以创建自己的操作，或者使用和自定义 {% data variables.product.prodname_dotcom %} 社区分享的操作。'
 redirect_from:
   - /articles/about-actions
@@ -20,14 +20,13 @@ topics:
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
-## About custom actions
+## 关于自定义操作
 
 您可以编写自定义代码来创建操作，以您喜欢的方式与仓库交互，包括使用 {% data variables.product.prodname_dotcom %} 的 API 以及任何公开的第三方 API 进行交互。 例如，操作可以发布 npm 模块、在创建紧急议题时发送短信提醒，或者部署可用于生产的代码。
 
 {% ifversion fpt or ghec %}
-您可以编写自己的操作以用于工作流程，或者与 {% data variables.product.prodname_dotcom %} 社区共享您创建的操作。 要共享您创建的操作，您的仓库必须是公共的。
+您可以编写自己的操作以用于工作流程，或者与 {% data variables.product.prodname_dotcom %} 社区共享您创建的操作。 要与每个人共享您创建的操作，您的仓库必须是公共的。 {% ifversion internal-actions %}若要仅在企业内共享操作，存储库必须是内部的。{% endif %}
 {% endif %}
 
 操作可以直接在计算机或 Docker 容器中运行。 您可以定义操作的输入、输出和环境变量。
@@ -48,13 +47,13 @@ Docker 容器使用 {% data variables.product.prodname_actions %} 代码封装�
 
 Docker 容器允许使用特定版本的操作系统、依赖项、工具和代码。 对于必须在特定环境配置中运行的操作，Docker 是一个理想的选择，因为您可以自定义操作系统和工具。 由于创建和检索容器的延时，Docker 容器操作慢于 JavaScript 操作。
 
-Docker 容器操作只能在使用 Linux 操作系统的运行器上执行。 {% data reusables.github-actions.self-hosted-runner-reqs-docker %}
+Docker 容器操作只能在使用 Linux 操作系统的运行器上执行。 {% data reusables.actions.self-hosted-runner-reqs-docker %}
 
 ### JavaScript 操作
 
 JavaScript 操作可以直接在运行器计算机上运行，并将操作代码与用于运行代码的环境分开。 使用 JavaScript 操作可简化操作代码，执行速度快于 Docker 容器操作。
 
-{% data reusables.github-actions.pure-javascript %}
+{% data reusables.actions.pure-javascript %}
 
 如果您正在开发 Node.js 项目，{% data variables.product.prodname_actions %} 工具包提供可用于项目中加速开发的软件包。 更多信息请参阅 [actions/toolkit](https://github.com/actions/toolkit) 仓库。
 
@@ -70,11 +69,13 @@ _复合_操作允许您在一个操作中组合多个工作流程步骤。 例�
 将操作存储在其自己的仓库中更便于 {% data variables.product.prodname_dotcom %} 社区发现操作，缩小代码库范围以便开发者修复问题和扩展操作，以及从其他应用程序代码的版本解耦操作的版本。
 {% endif %}
 
-{% ifversion fpt or ghec %}如果创建不打算公开的操作，您{% else %}您{% endif %}可以将操作的文件存储在您的仓库中的任何位置。 如果计划将操作、工作流程和应用程序代码合并到一个仓库中，建议将操作存储在 `.github` 目录中。 例如，`.github/actions/action-a` 和 `.github/actions/action-b`。
+{% data reusables.actions.internal-actions-summary %}
+
+{% ifversion fpt or ghec %}如果创建不打算供他人使用的操作，您{% else %}您{% endif %}可以将操作的文件存储在您的仓库中的任何位置。 如果计划将操作、工作流程和应用程序代码合并到一个仓库中，建议将操作存储在 `.github` 目录中。 例如，`.github/actions/action-a` 和 `.github/actions/action-b`。
 
 ## 与 {% data variables.product.prodname_ghe_server %} 的兼容性
 
-To ensure that your action is compatible with {% data variables.product.prodname_ghe_server %}, you should make sure that you do not use any hard-coded references to {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API URLs. You should instead use environment variables to refer to the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API:
+为了确保操作与 {% data variables.product.prodname_ghe_server %} 兼容，应确保不使用任何硬编码引用来引用 {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API URL。 您应该改用环境变量来引用 {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API：
 
 - 创建发行版标记（例如，`v1.0.2`）之前，在发行版分支（如 `release/v1`）上创建发行版并进行验证。
 - 对于 GraphQL，使用 `GITHUB_GRAPHQL_URL` 环境变量。
@@ -87,7 +88,7 @@ To ensure that your action is compatible with {% data variables.product.prodname
 
 ### 发行版管理的良好做法
 
-如果您正在开发供其他人使用的操作，建议使用发行版管理来控制分发更新的方式。 用户期望操作的主要版本包括必要的关键修补程序和安全补丁，同时仍与其现有工作流程保持兼容。 每当更改影响兼容性时，应考虑发布新的主要版本。
+如果您正在开发供其他人使用的操作，建议使用发行版管理来控制分发更新的方式。 用户可以期望操作的修补程序版本包括必要的关键修复和安全修补程序，同时仍与其现有工作流程保持兼容。 每当更改影响兼容性时，应考虑发布新的主要版本。
 
 在此发行版管理方法下，用户不应引用操作的默认分支，因为它可能包含最新的代码，因此可能不稳定。 相反地，您可以建议用户在使用您的操作时指定主要版本，并且仅在遇到问题时将其定向到更具体的版本。
 
@@ -128,7 +129,7 @@ steps:
 
 ### 使用提交的 SHA 进行发行版管理
 
-每个 Git 提交都会收到一个计算出来的 SHA 值，该值是唯一且不可更改的。 您操作的用户可能更喜欢依赖提交的 SHA 值，因为此方法会比指定可删除或移动的标记更可靠。 但是，这意味着用户将不会收到对该操作所做的进一步更新。 {% ifversion fpt or ghes > 3.0 or ghae or ghec %}您必须使用提交的完整 SHA 值，而不是缩写值。{% else %}使用提交的完整 SHA 值而不使用缩写值有助于防止他人使用相同缩写值进行恶意提交。{% endif %}
+每个 Git 提交都会收到一个计算出来的 SHA 值，该值是唯一且不可更改的。 您操作的用户可能更喜欢依赖提交的 SHA 值，因为此方法会比指定可删除或移动的标记更可靠。 但是，这意味着用户将不会收到对该操作所做的进一步更新。 必须使用提交的完整 SHA 值，而不是缩写值。
 
 ```yaml
 steps:

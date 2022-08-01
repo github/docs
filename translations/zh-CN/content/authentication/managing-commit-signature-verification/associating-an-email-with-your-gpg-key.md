@@ -18,7 +18,7 @@ shortTitle: 将电子邮件与 GPG 密钥关联
 
 {% note %}
 
-If you're using a GPG key that matches your committer identity and your verified email address associated with your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}, then you can begin signing commits and signing tags.
+如果您使用与您的提交者身份以及 {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}上帐户关联的已验证电子邮件地址相匹配的 GPG 密钥，则可以开始对提交和标签进行签名。
 
 {% endnote %}
 
@@ -51,13 +51,13 @@ If you're using a GPG key that matches your committer identity and your verified
   $ gpg --armor --export <em>3AA5C34371567BD2</em>
   # Prints the GPG key, in ASCII armor format
   ```
-11. [添加 GPG 密钥到 GitHub 帐户](/articles/adding-a-new-gpg-key-to-your-github-account)以上传该 GPG 密钥。
+11. [添加 GPG 密钥到 GitHub 帐户](/articles/adding-a-gpg-key-to-your-github-account)以上传该 GPG 密钥。
 
 ## 延伸阅读
 
 - "[检查现有 GPG 密钥](/articles/checking-for-existing-gpg-keys)"
 - "[生成新 GPG 密钥](/articles/generating-a-new-gpg-key)"
 - "[在 GPG 密钥中使用经验证的电子邮件地址](/articles/using-a-verified-email-address-in-your-gpg-key)"
-- "[添加新 GPG 密钥到 GitHub 帐户](/articles/adding-a-new-gpg-key-to-your-github-account)"
+- "[添加 GPG 密钥到 GitHub 帐户](/articles/adding-a-gpg-key-to-your-github-account)"
 - "[对提交签名](/articles/signing-commits)"
 - "[对标记签名](/articles/signing-tags)"

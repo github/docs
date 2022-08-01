@@ -2,13 +2,11 @@
 title: Visualizar e gerenciar o acesso SAML de um integrante à sua organização
 intro: 'Você pode visualizar e revogar a identidade vinculada de um integrante da organização, as sessões ativas e as credenciais autorizadas.'
 permissions: Organization owners can view and manage a member's SAML access to an organization.
-product: '{% data reusables.gated-features.saml-sso %}'
 redirect_from:
   - /articles/viewing-and-revoking-organization-members-authorized-access-tokens
   - /github/setting-up-and-managing-organizations-and-teams/viewing-and-revoking-organization-members-authorized-access-tokens
   - /github/setting-up-and-managing-organizations-and-teams/viewing-and-managing-a-members-saml-access-to-your-organization
 versions:
-  fpt: '*'
   ghec: '*'
 topics:
   - Organizations
@@ -18,7 +16,7 @@ shortTitle: Gerenciar acesso SAML
 
 ## Sobre o acesso SAML à sua organização
 
-When you enable SAML single sign-on for your organization, each organization member can link their external identity on your identity provider (IdP) to their existing account on {% data variables.product.product_location %}. Para acessar os recursos da sua organização no {% data variables.product.product_name %}, o integrante deverá ter uma sessão SAML ativa em seu navegador. Para acessar os recursos da sua organização usando a API ou o Git, o integrante deve usar um token de acesso pessoal ou chave SSH que o integrante autorizou a usar com a sua organização.
+Ao habilitar o logon único SAML para a sua organização, cada integrante da organização pode vincular sua identidade externa no seu provedor de identidade (IdP) à sua conta atual em {% data variables.product.product_location %}. Para acessar os recursos da sua organização no {% data variables.product.product_name %}, o integrante deverá ter uma sessão SAML ativa em seu navegador. Para acessar os recursos da sua organização usando a API ou o Git, o integrante deve usar um token de acesso pessoal ou chave SSH que o integrante autorizou a usar com a sua organização.
 
 Você pode visualizar e revogar a identidade vinculada de cada integrante, as sessões ativas e as credenciais autorizadas na mesma página.
 
@@ -26,7 +24,7 @@ Você pode visualizar e revogar a identidade vinculada de cada integrante, as se
 
 {% data reusables.saml.about-linked-identities %}
 
-Quando disponível, a entrada incluirá dados de SCIM. Para obter mais informações, consulte "[Sobre o SCIM](/organizations/managing-saml-single-sign-on-for-your-organization/about-scim)".
+Quando disponível, a entrada incluirá dados de SCIM. Para obter mais informações, consulte "[Sobre SCIM para as organizações](/organizations/managing-saml-single-sign-on-for-your-organization/about-scim-for-organizations)".
 
 {% warning %}
 
@@ -41,7 +39,7 @@ Quando disponível, a entrada incluirá dados de SCIM. Para obter mais informaç
 {% data reusables.identity-and-permissions.revoking-identity-team-sync %}
 
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.people %}
 {% data reusables.saml.click-person-revoke-identity %}
 {% data reusables.saml.saml-identity-linked %}
@@ -52,7 +50,7 @@ Quando disponível, a entrada incluirá dados de SCIM. Para obter mais informaç
 ## Visualizar e revogar uma sessão ativa de SAML
 
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.people %}
 {% data reusables.saml.click-person-revoke-session %}
 {% data reusables.saml.saml-identity-linked %}
@@ -64,7 +62,7 @@ Quando disponível, a entrada incluirá dados de SCIM. Para obter mais informaç
 {% data reusables.saml.about-authorized-credentials %}
 
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.people %}
 {% data reusables.saml.click-person-revoke-credentials %}
 {% data reusables.saml.saml-identity-linked %}
@@ -74,5 +72,5 @@ Quando disponível, a entrada incluirá dados de SCIM. Para obter mais informaç
 
 ## Leia mais
 
-- "[About identity and access management with SAML single sign-on](/articles/about-identity-and-access-management-with-saml-single-sign-on)"{% ifversion ghec %}
-- "[Viewing and managing a user's SAML access to your enterprise account](/admin/user-management/managing-users-in-your-enterprise/viewing-and-managing-a-users-saml-access-to-your-enterprise)"{% endif %}
+- "[Sobre a identidade e gerenciamento de acesso com o logon único SAML](/articles/about-identity-and-access-management-with-saml-single-sign-on)"{% ifversion ghec %}
+- "[Visualizando e gerenciando o acesso SAML de um usuário à sua conta corporativa](/admin/user-management/managing-users-in-your-enterprise/viewing-and-managing-a-users-saml-access-to-your-enterprise)"{% endif %}

@@ -20,7 +20,6 @@ shortTitle: JavaScript action
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## Introduction
 
@@ -30,17 +29,17 @@ This guide uses the {% data variables.product.prodname_actions %} Toolkit Node.j
 
 Once you complete this project, you should understand how to build your own JavaScript action and test it in a workflow.
 
-{% data reusables.github-actions.pure-javascript %}
+{% data reusables.actions.pure-javascript %}
 
-{% data reusables.github-actions.context-injection-warning %}
+{% data reusables.actions.context-injection-warning %}
 
 ## Prerequisites
 
 Before you begin, you'll need to download Node.js and create a public {% data variables.product.prodname_dotcom %} repository.
 
-1. Download and install Node.js 12.x, which includes npm.
+1. Download and install Node.js {% ifversion fpt or ghes > 3.3 or ghae-issue-5504 or ghec %}16.x{% else %}12.x{% endif %}, which includes npm.
 
-  https://nodejs.org/en/download/current/
+  {% ifversion fpt or ghes > 3.3 or ghae-issue-5504 or ghec %}https://nodejs.org/en/download/{% else %}https://nodejs.org/en/download/releases/{% endif %}
 
 1. Create a new public repository on {% data variables.product.product_location %} and call it "hello-world-javascript-action". For more information, see "[Create a new repository](/articles/creating-a-new-repository)."
 
@@ -74,7 +73,7 @@ outputs:
   time: # id of output
     description: 'The time we greeted you'
 runs:
-  using: 'node12'
+  using: {% ifversion fpt or ghes > 3.3 or ghae-issue-5504 or ghec %}'node16'{% else %}'node12'{% endif %}
   main: 'index.js'
 ```
 
@@ -142,7 +141,7 @@ In your `hello-world-javascript-action` directory, create a `README.md` file tha
 - Environment variables the action uses.
 - An example of how to use your action in a workflow.
 
-```markdown
+```markdown{:copy}
 # Hello world javascript action
 
 This action prints "Hello World" or "Hello" + the name of a person to greet to the log.
@@ -199,7 +198,7 @@ Checking in your `node_modules` directory can cause problems. As an alternative,
   `rm -rf node_modules/*`
 
 1. From your terminal, commit the updates to your `action.yml`, `dist/index.js`, and `node_modules` files.
-```shell
+```shell{:copy}
 git add action.yml dist/index.js node_modules/*
 git commit -m "Use vercel/ncc"
 git tag -a -m "My first action release" v1.1
@@ -244,7 +243,6 @@ When this workflow is triggered, the runner will download the `hello-world-javas
 
 Copy the workflow code into a `.github/workflows/main.yml` file in your action's repository. You can also replace the `who-to-greet` input with your name.
 
-{% raw %}
 **.github/workflows/main.yml**
 ```yaml{:copy}
 on: [push]
@@ -257,7 +255,7 @@ jobs:
       # To use this repository's private action,
       # you must check out the repository
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: {% data reusables.actions.action-checkout %}
       - name: Hello world action step
         uses: ./ # Uses an action in the root directory
         id: hello
@@ -265,16 +263,9 @@ jobs:
           who-to-greet: 'Mona the Octocat'
       # Use the output from the `hello` step
       - name: Get the output time
-        run: echo "The time was ${{ steps.hello.outputs.time }}"
+        run: echo "The time was {% raw %}${{ steps.hello.outputs.time }}{% endraw %}"
 ```
-{% endraw %}
 
-From your repository, click the **Actions** tab, and select the latest workflow run. {% ifversion fpt or ghes > 3.0 or ghae or ghec %}Under **Jobs** or in the visualization graph, click **A job to say hello**. {% endif %}You should see "Hello Mona the Octocat" or the name you used for the `who-to-greet` input and the timestamp printed in the log.
+From your repository, click the **Actions** tab, and select the latest workflow run. Under **Jobs** or in the visualization graph, click **A job to say hello**. You should see "Hello Mona the Octocat" or the name you used for the `who-to-greet` input and the timestamp printed in the log.
 
-{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
 ![A screenshot of using your action in a workflow](/assets/images/help/repository/javascript-action-workflow-run-updated-2.png)
-{% elsif ghes %}
-![A screenshot of using your action in a workflow](/assets/images/help/repository/javascript-action-workflow-run-updated.png)
-{% else %}
-![A screenshot of using your action in a workflow](/assets/images/help/repository/javascript-action-workflow-run.png)
-{% endif %}

@@ -1,10 +1,10 @@
 ---
-title: プルリクエストをIssueにリンクする
-intro: プルリクエストをIssueにリンクして、修正が進行中であることを示し、プルリクエストがマージされるときIssueを自動的にクローズすることができます。
+title: Pull RequestをIssueにリンクする
+intro: Pull RequestをIssueにリンクして、修正が進行中であることを示し、Pull RequestがマージされるときIssueを自動的にクローズすることができます。
 redirect_from:
   - /github/managing-your-work-on-github/managing-your-work-with-issues-and-pull-requests/linking-a-pull-request-to-an-issue
-  - /articles/closing-issues-via-commit-message/
-  - /articles/closing-issues-via-commit-messages/
+  - /articles/closing-issues-via-commit-message
+  - /articles/closing-issues-via-commit-messages
   - /articles/closing-issues-using-keywords
   - /github/managing-your-work-on-github/closing-issues-using-keywords
   - /github/managing-your-work-on-github/linking-a-pull-request-to-an-issue
@@ -21,21 +21,21 @@ shortTitle: IssueへのPRのリンク
 
 {% note %}
 
-**注釈:** プルリクエストにおける特別なキーワードは、プルリクエストがリポジトリの*デフォルト* ブランチをターゲットするときに解釈されます。 ただし、PRのベースが*それ以外のブランチ*である場合、それらのキーワードは無視され、リンクは作成されません。PRのマージはこのIssueに対して何の効果も持ちません。 **キーワードの1つを使用してプルリクエストをIssueにリンクしたい場合は、PRがデフォルトブランチ上になければなりません。**
+**注釈:** Pull Requestにおける特別なキーワードは、Pull Requestがリポジトリの*デフォルト* ブランチをターゲットするときに解釈されます。 ただし、PRのベースが*それ以外のブランチ*である場合、それらのキーワードは無視され、リンクは作成されません。PRのマージはこのIssueに対して何の効果も持ちません。 **キーワードの1つを使用してPull RequestをIssueにリンクしたい場合は、PRがデフォルトブランチ上になければなりません。**
 
 {% endnote %}
 
-## リンクされたIssueとプルリクエストについて
+## リンクされたIssueとPull Requestについて
 
-{% ifversion fpt or ghes or ghae or ghec %}手動で、または{% endif %}プルリクエストの説明でサポートされているキーワードを使用して、Issueをプルリクエストにリンクすることができます。
+手動で、またはPull Requestの説明でサポートされているキーワードを使用して、IssueをPull Requestにリンクすることができます。
 
-プルリクエストが対処するIssueにそのプルリクエストにリンクすると、コラボレータは、誰かがそのIssueに取り組んでいることを確認できます。
+Pull Requestが対処するIssueにそのPull Requestをリンクすると、コラボレータは、誰かがそのIssueに取り組んでいることを確認できます。
 
-リンクされたプルリクエストをリポジトリのデフォルトブランチにマージすると、それにリンクされているIssueは自動的にクローズされます。 デフォルトブランチの詳細については、「[デフォルトブランチを変更する](/github/administering-a-repository/changing-the-default-branch)」を参照してください。
+リンクされたPull Requestをリポジトリのデフォルトブランチにマージすると、それにリンクされているIssueは自動的にクローズされます。 デフォルトブランチの詳細については、「[デフォルトブランチを変更する](/github/administering-a-repository/changing-the-default-branch)」を参照してください。
 
-## キーワードを使用してプルリクエストをIssueにリンクする
+## キーワードを使用してPull RequestをIssueにリンクする
 
-プルリクエストの説明で、またはコミットメッセージで、サポートされているキーワードを使用してプルリクエストにIssueにリンクすることができます (プルリクエストはデフォルトブランチになければなりません)。
+Pull Requestの説明もしくはコミットメッセージ中でサポートされているキーワードを使い、Pull RequestをIssueへリンクできます。 Pull Requestはデフォルトブランチに**ある必要があります**。
 
 * close
 * closes
@@ -47,9 +47,9 @@ shortTitle: IssueへのPRのリンク
 * resolves
 * resolved
 
-If you use a keyword to reference a pull request comment in another pull request, the pull requests will be linked. Merging the referencing pull request will also close the referenced pull request.
+他のPull RequestでPull Requestのコメントを参照するためにキーワードを使用すると、Pull Requestはリンクされます。 参照元のPull Requestをマージすると、参照先のPull Requestもクローズされます。
 
-クローズするキーワードの構文は、Issueがプルリクエストと同じリポジトリにあるかどうかによって異なります。
+クローズするキーワードの構文は、IssueがPull Requestと同じリポジトリにあるかどうかによって異なります。
 
 | リンクするIssue       | 構文                                            | サンプル                                                           |
 | ---------------- | --------------------------------------------- | -------------------------------------------------------------- |
@@ -57,13 +57,11 @@ If you use a keyword to reference a pull request comment in another pull request
 | Issueが別のリポジトリにある | *KEYWORD* *OWNER*/*REPOSITORY*#*ISSUE-NUMBER* | `Fixes octo-org/octo-repo#100`                                 |
 | 複数の Issue        | Issueごとに完全な構文を使用                              | `Resolves #10, resolves #123, resolves octo-org/octo-repo#100` |
 
-{% ifversion fpt or ghes or ghae or ghec %}手動でリンクを解除できるのは、手動でリンクされたプルリクエストだけです。 キーワードを使用してリンクしたIssueのリンクを解除するには、プルリクエストの説明を編集してそのキーワードを削除する必要があります。{% endif %}
+手動でリンクされたPull Requestのみが手動でリンク解除できます。 キーワードを使用してリンクしたIssueのリンクを解除するには、Pull Requestの説明を編集してそのキーワードを削除する必要があります。
 
-クローズするキーワードは、コミットメッセージでも使用できます。 デフォルトブランチにコミットをマージするとIssueはクローズされますが、そのコミットを含むプルリクエストは、リンクされたプルリクエストとしてリストされません。
+クローズするキーワードは、コミットメッセージでも使用できます。 デフォルトブランチにコミットをマージするとIssueはクローズされますが、そのコミットを含むPull Requestは、リンクされたPull Requestとしてリストされません。
 
-
-{% ifversion fpt or ghes or ghae or ghec %}
-## 手動でプルリクエストをIssueにリンクする
+## 手動でPull RequestをIssueにリンクする
 
 リポジトリへの書き込み権限があるユーザなら誰でも、手動でプルリクエストをIssueにリンクできます。
 
@@ -71,10 +69,13 @@ If you use a keyword to reference a pull request comment in another pull request
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-pr %}
-3. プルリクエストのリストで、Issueにリンクしたいプルリクエストをクリックします。
+3. Pull Requestのリストで、IssueにリンクしたいPull Requestをクリックします。
+{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6234 %}
+4. 右のサイドバーで、"Development（開発）"セクション内で{% octicon "gear" aria-label="The Gear icon" %}をクリックしてください。
+{% else %}
 4. 右のサイドバーで、[**Linked issues**] をクリックします。 ![右サイドバーの [Linked issues]](/assets/images/help/pull_requests/linked-issues.png)
-5. プルリクエストにリンクするIssueをクリックします。 ![Issueをリンクするドロップダウン](/assets/images/help/pull_requests/link-issue-drop-down.png)
 {% endif %}
+5. Pull RequestにリンクするIssueをクリックします。 ![Issueをリンクするドロップダウン](/assets/images/help/pull_requests/link-issue-drop-down.png)
 
 ## 参考リンク
 

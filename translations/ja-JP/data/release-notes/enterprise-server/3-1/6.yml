@@ -1,24 +1,23 @@
----
 date: '2021-08-24'
 sections:
   security_fixes:
-    - パッケージは最新のセキュリティバージョンにアップデートされました。
+    - Packages have been updated to the latest security versions.
   bugs:
-    - 画像あるいはPull Requestに非常に大きな画像もしくはアニメーションGIFを添付すると失敗します。
-    - 自動アップデートに関係するJournaldのメッセージ (`Adding h/m/s random time.`)が、syslogに記録されました。
-    - 名前付きパイプ（FIFO）を作成したカスタムのpre-receive フックは、クラッシュもしくはハングし、タイムアウトエラーを生じさせます。
-    - 監査ログの高度な検索ページにフィルタを追加しても、適切なファセットプレフィックスと値付きでクエリテキストボックスがリアルタイムで展開されませんでした。
-    - リクエストに失敗する内部APIへのGitフックが、明示的な`nil`を返す代わりに`undefined method body for "success":String (NoMethodError)`という例外を返しました。
-    - インテグレーションが削除されると、関係の無いOAuthアプリケーションあるいはインテグレーションも削除されてしまう可能性がありました。
-    - 絵文字を含む必須のメッセージが追加された場合、そのメッセージを表示あるいは変更しようとすると500 Internal Server Errorが返されます。
+    - Attaching very large images or animated GIFs to images or pull requests would fail.
+    - Journald messages related to automatic updates (`Adding h/m/s random time.`) were logged to syslog.
+    - Custom pre-receive hooks that created named pipes (FIFOs) would crash or hang, resulting in a timeout error.
+    - Adding filters to the audit log advanced search page did not populate the query text box in real-time with the correct facet prefix and value.
+    - Git hooks to the internal API that result in failing requests returned the exception `undefined method body for "success":String (NoMethodError)` instead of returning an explicit `nil`.
+    - When an integration was removed, it was possible for an unrelated OAuth application or integration to also be removed.
+    - When a mandatory message containing an emoji character was added, attempting to view or change the message would return a 500 Internal Server Error.
   changes:
-    - REST APIが返す権限のリストに`triage`と`maintain` を追加しました。
+    - Adds `triage` and `maintain` to the list of permissions returned by the REST API.
   known_issues:
-    - '{% data variables.product.prodname_registry %}のnpmレジストリは、メタデータのレスポンス中で時間の値を返さなくなります。これは、大きなパフォーマンス改善のために行われました。メタデータレスポンスの一部として時間の値を返すために必要なすべてのデータは保持し続け、既存のパフォーマンスの問題を解決した将来に、この値を返すことを再開します。'
-    - 新しくセットアップされたユーザを持たない{% data variables.product.prodname_ghe_server %}で、攻撃者が最初の管理ユーザを作成できました。
-    - アップグレードの過程で、カスタムのファイアウォールのルールが削除されます。
-    - Git LFSが追跡するファイル[Webインターフェースからアップロードされたもの](https://github.com/blog/2105-upload-files-to-your-repositories)が、不正にリポジトリに直接追加されてしまいます。
-    - 同じリポジトリ内のファイルパスが255文字を超えるblobへのパーマリンクを含むIssueをクローズできませんでした。
-    - GitHub Connectで"Users can search GitHub.com"が有効化されている場合、GitHub.comの検索結果にプライベート及びインターナルリポジトリのIssueが含まれません。
-    - '{% data variables.product.prodname_ghe_server %}で{% data variables.product.prodname_actions %}が有効化されていると、`ghe-repl-teardown`でのレプリカノードの解体は成功しますが、`ERROR:Running migrations`が返されることがあります。'
-    - pre-receive フックの処理に固有のリソース制限によって、pre-receive フックに失敗するものが生じることがあります。
+    - The {% data variables.product.prodname_registry %} npm registry no longer returns a time value in metadata responses. This was done to allow for substantial performance improvements. We continue to have all the data necessary to return a time value as part of the metadata response and will resume returning this value in the future once we have solved the existing performance issues.
+    - On a freshly set up {% data variables.product.prodname_ghe_server %} without any users, an attacker could create the first admin user.
+    - Custom firewall rules are removed during the upgrade process.
+    - Git LFS tracked files [uploaded through the web interface](https://github.com/blog/2105-upload-files-to-your-repositories) are incorrectly added directly to the repository.
+    - Issues cannot be closed if they contain a permalink to a blob in the same repository, where the blob's file path is longer than 255 characters.
+    - When "Users can search GitHub.com" is enabled with GitHub Connect, issues in private and internal repositories are not included in GitHub.com search results.
+    - If {% data variables.product.prodname_actions %} is enabled for {% data variables.product.prodname_ghe_server %}, teardown of a replica node with `ghe-repl-teardown` will succeed, but may return `ERROR:Running migrations`.
+    - Resource limits that are specific to processing pre-receive hooks may cause some pre-receive hooks to fail.

@@ -1,18 +1,18 @@
 ---
 title: Preparar para exigir o logon único SAML na organização
 intro: 'Antes de exigir o logon único SAML na organização, você deve verificar a associação da organização e configurar as definições de conexão para seu provedor de identidade.'
-product: '{% data reusables.gated-features.saml-sso %}'
 redirect_from:
   - /articles/preparing-to-enforce-saml-single-sign-on-in-your-organization
   - /github/setting-up-and-managing-organizations-and-teams/preparing-to-enforce-saml-single-sign-on-in-your-organization
 versions:
-  fpt: '*'
   ghec: '*'
 topics:
   - Organizations
   - Teams
 shortTitle: Prepare-se para aplicar o SSO do SAML
 ---
+
+{% data reusables.saml.ghec-only %}
 
 {% data reusables.saml.when-you-enforce %} antes de aplicar o SAML SSO na sua organização, você deverá revisar a associação da organização, habilitar o SAML SSO e revisar o acesso SAML dos integrantes da organização. Para obter mais informações, consulte o seguinte.
 

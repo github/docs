@@ -2,15 +2,15 @@
 title: Configurar copias de seguridad en tu aparato
 shortTitle: Configurar respaldos
 redirect_from:
-  - /enterprise/admin/categories/backups-and-restores/
-  - /enterprise/admin/articles/backup-and-recovery/
-  - /enterprise/admin/articles/backing-up-github-enterprise/
-  - /enterprise/admin/articles/restoring-github-enterprise/
-  - /enterprise/admin/articles/backing-up-repository-data/
-  - /enterprise/admin/articles/restoring-enterprise-data/
-  - /enterprise/admin/articles/restoring-repository-data/
-  - /enterprise/admin/articles/backing-up-enterprise-data/
-  - /enterprise/admin/guides/installation/backups-and-disaster-recovery/
+  - /enterprise/admin/categories/backups-and-restores
+  - /enterprise/admin/articles/backup-and-recovery
+  - /enterprise/admin/articles/backing-up-github-enterprise
+  - /enterprise/admin/articles/restoring-github-enterprise
+  - /enterprise/admin/articles/backing-up-repository-data
+  - /enterprise/admin/articles/restoring-enterprise-data
+  - /enterprise/admin/articles/restoring-repository-data
+  - /enterprise/admin/articles/backing-up-enterprise-data
+  - /enterprise/admin/guides/installation/backups-and-disaster-recovery
   - /enterprise/admin/installation/configuring-backups-on-your-appliance
   - /enterprise/admin/configuration/configuring-backups-on-your-appliance
   - /admin/configuration/configuring-backups-on-your-appliance
@@ -73,7 +73,7 @@ Es posible que se requieran más recursos según su uso, como la actividad del u
   {% endnote %}
 
 4. Configura el valor `GHE_DATA_DIR` en la ubicación del sistema de archivos donde deseas almacenar las instantáneas de copia de seguridad.
-5. Abre la página de configuración de tu instancia primaria en `https://HOSTNAME/setup/settings` y agrega la clave SSH del host de copia de seguridad a la lista de claves SSH autorizadas. Para obtener más información, consulta [Acceder al shell administrativo (SSH)](/enterprise/{{ currentVersion }}/admin/guides/installation/accessing-the-administrative-shell-ssh/).
+5. Abre la página de configuración de tu instancia primaria en `https://HOSTNAME/setup/settings` y agrega la clave SSH del host de copia de seguridad a la lista de claves SSH autorizadas. Para obtener más información, consulta [Acceder al shell administrativo (SSH)](/enterprise/admin/guides/installation/accessing-the-administrative-shell-ssh/).
 6. Verifica la conectividad SSH con {% data variables.product.product_location %} con el comando `ghe-host-check`.
   ```shell
   $ bin/ghe-host-check        
@@ -130,6 +130,10 @@ $ ghe-restore -c 169.154.1.1
 > Visita https://169.154.1.1/setup/settings para revisar la configuración del aparato.
 ```
 
+{% ifversion ip-exception-list %}
+Opcionalmente, para validar la restauración, configura una lista de excepción de IP para permitir el acceso una lista de direcciones IP específicas. Para obtener más información, consulta la sección "[Validar los cambios en modo de mantenimiento utilizando la lista de excepción de IP](/admin/configuration/configuring-your-enterprise/enabling-and-scheduling-maintenance-mode#validating-changes-in-maintenance-mode-using-the-ip-exception-list)".
+{% endif %}
+
 {% note %}
 
 **Nota:** Los ajustes de red están excluidos de la instantánea de copias de seguridad. Debes configurar manualmente la red en el aparato objetivo para el {% data variables.product.prodname_ghe_server %} como obligatoria para tu entorno.
@@ -137,5 +141,5 @@ $ ghe-restore -c 169.154.1.1
 {% endnote %}
 
 Puedes utilizar estas otras opciones con el comando `ghe-restore`:
-- La marca `-c` sobrescribe los ajustes, el certificado y los datos de licencia en el host objetivo, incluso si ya está configurado. Omite esta marca si estás configurando una instancia de preparación con fines de prueba y si quieres conservar la configuración existente en el objetivo. Para obtener más información, consulta la sección "Utilizar una copia de seguridad y restablecer los comandos" de [{% data variables.product.prodname_enterprise_backup_utilities %} README](https://github.com/github/backup-utils#using-the-backup-and-restore-commands).
+- La marca `-c` sobrescribe los ajustes, el certificado y los datos de licencia en el host objetivo, incluso si ya está configurado. Omite esta marca si estás configurando una instancia de preparación con fines de prueba y si quieres conservar la configuración existente en el objetivo. Para obtener más información, consulta la sección "Utilizar los comandos de restablecimiento y respaldo" del [README de {% data variables.product.prodname_enterprise_backup_utilities %}](https://github.com/github/backup-utils#using-the-backup-and-restore-commands).
 - La marca `-s` te permite seleccionar otra instantánea de copias de seguridad.

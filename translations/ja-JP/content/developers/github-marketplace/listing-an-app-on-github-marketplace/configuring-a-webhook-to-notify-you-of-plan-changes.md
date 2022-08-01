@@ -2,10 +2,10 @@
 title: プランの変更を通知するようwebhookを設定する
 intro: '[ドラフトの{% data variables.product.prodname_marketplace %}リストを作成](/marketplace/listing-on-github-marketplace/creating-a-draft-github-marketplace-listing/)したあと、顧客のアカウントのプランに変更があった場合に通知するよう、webhookを設定できます。 webhookを設定すると、アプリケーション中で[`marketplace_purchase`イベントタイプを処理](/marketplace/integrating-with-the-github-marketplace-api/github-marketplace-webhook-events/)できるようになります。'
 redirect_from:
-  - /apps/adding-integrations/managing-listings-on-github-marketplace/adding-webhooks-for-a-github-marketplace-listing/
-  - /apps/marketplace/managing-github-marketplace-listings/adding-webhooks-for-a-github-marketplace-listing/
-  - /apps/marketplace/setting-up-github-marketplace-webhooks/creating-a-webhook-for-a-github-marketplace-listing/
-  - /apps/marketplace/listing-on-github-marketplace/configuring-the-github-marketplace-webhook/
+  - /apps/adding-integrations/managing-listings-on-github-marketplace/adding-webhooks-for-a-github-marketplace-listing
+  - /apps/marketplace/managing-github-marketplace-listings/adding-webhooks-for-a-github-marketplace-listing
+  - /apps/marketplace/setting-up-github-marketplace-webhooks/creating-a-webhook-for-a-github-marketplace-listing
+  - /apps/marketplace/listing-on-github-marketplace/configuring-the-github-marketplace-webhook
   - /marketplace/listing-on-github-marketplace/configuring-the-github-marketplace-webhook
   - /developers/github-marketplace/configuring-a-webhook-to-notify-you-of-plan-changes
 versions:

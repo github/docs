@@ -2,10 +2,10 @@
 title: Criar um site do GitHub Pages
 intro: 'É possível criar um site do {% data variables.product.prodname_pages %} em um repositório novo ou existente.'
 redirect_from:
-  - /articles/creating-pages-manually/
-  - /articles/creating-project-pages-manually/
-  - /articles/creating-project-pages-from-the-command-line/
-  - /articles/creating-project-pages-using-the-command-line/
+  - /articles/creating-pages-manually
+  - /articles/creating-project-pages-manually
+  - /articles/creating-project-pages-from-the-command-line
+  - /articles/creating-project-pages-using-the-command-line
   - /articles/creating-a-github-pages-site
   - /github/working-with-github-pages/creating-a-github-pages-site
 product: '{% data reusables.gated-features.pages %}'
@@ -27,6 +27,7 @@ shortTitle: Criar um site do GitHub Pages
 
 {% data reusables.repositories.create_new %}
 {% data reusables.repositories.owner-drop-down %}
+{% indented_data_reference reusables.pages.emu-org-only spaces=3 %}
 {% data reusables.pages.create-repo-name %}
 {% data reusables.repositories.choose-repo-visibility %}
 {% data reusables.repositories.initialize-with-readme %}
@@ -40,19 +41,17 @@ shortTitle: Criar um site do GitHub Pages
 
 {% data reusables.pages.navigate-site-repo %}
 {% data reusables.pages.decide-publishing-source %}
-3. Se a fonte de publicação que você escolheu já existe, navegue até ela. Caso contrário, crie a fonte de publicação.
-4. Na raiz da fonte de publicação, crie um novo arquivo chamado `index.md` com o conteúdo que você deseja exibir na página principal do seu site.
+1. Create the entry file for your site. {% data variables.product.prodname_pages %} will look for an `index.html`, `index.md`, or `README.md` file as the entry file for your site.
 
-  {% tip %}
+   {% ifversion pages-custom-workflow %}If your publishing source is a branch and folder, the entry file must be at the top level of the source folder on the source branch. For example, if your publishing source is the `/docs` folder on the `main` branch, your entry file must be located in the `/docs` folder on a branch called `main`.
 
-  **Tip:** If `index.html` is present, this will be used instead of `index.md`. If neither `index.html` nor `index.md` are present, `README.md` will be used.
-
-  {% endtip %}
+   If your publishing source is a {% data variables.product.prodname_actions %} workflow, the artifact that you deploy must include the entry file at the top level of the artifact. Instead of adding the entry file to your repository, you may choose to have your {% data variables.product.prodname_actions %} workflow generate your entry file when the workflow runs.{% else %} The entry file must be at the top level of your chosen publishing source. For example, if your publishing source is the `/docs` folder on the `main` branch, your entry file must be located in the `/docs` folder on a branch called `main`.{% endif %}
 {% data reusables.pages.configure-publishing-source %}
 {% data reusables.repositories.sidebar-settings %}
-{% data reusables.pages.sidebar-pages %}{% ifversion fpt or ghec %}
-{% data reusables.pages.choose-visibility %}{% endif %}
+{% data reusables.pages.sidebar-pages %}
+{% data reusables.pages.choose-visibility %}
 {% data reusables.pages.visit-site %}
+{% data reusables.pages.check-workflow-run %}
 
 {% data reusables.pages.admin-must-push %}
 

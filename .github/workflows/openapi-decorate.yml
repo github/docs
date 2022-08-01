@@ -11,6 +11,11 @@ permissions:
   contents: write
   pull-requests: write
 
+# This allows a subsequently queued workflow run to interrupt previous runs
+concurrency:
+  group: '${{ github.workflow }} @ ${{ github.event.pull_request.head.label || github.head_ref || github.ref }}'
+  cancel-in-progress: true
+
 jobs:
   generate-decorated-files:
     if: >-
@@ -26,12 +31,20 @@ jobs:
           add-labels: 'github-openapi-bot'
 
       - name: Checkout repository code
-        uses: actions/checkout@1e204e9a9253d643386038d443f96446fa156a97
+        uses: actions/checkout@dcd71f646680f2efd8db4afa5ad64fdcba30e748
+        with:
+          # actions/checkout by default will leave you in a detached head state
+          # so we need to specify the PR head ref explicitly since we're making
+          # changes that we want to commit to the branch.
+          ref: ${{ github.event.pull_request.head.ref }}
+          # Using a PAT is necessary so that the new commit will trigger the
+          # CI in the PR. (Events from GITHUB_TOKEN don't trigger new workflows.)
+          token: ${{ secrets.DOCUBOT_REPO_PAT }}
 
       - name: Setup node
-        uses: actions/setup-node@270253e841af726300e85d718a5f606959b2903c
+        uses: actions/setup-node@17f8bd926464a1afa4c6a11669539e9c1ba77048
         with:
-          node-version: 16.13.x
+          node-version: '16.15.0'
           cache: npm
 
       - name: Install dependencies
@@ -41,10 +54,10 @@ jobs:
         run: script/rest/update-files.js --decorate-only
 
       - name: Check in the decorated files
-        uses: EndBug/add-and-commit@2bdc0a61a03738a1d1bda24d566ad0dbe3083d87
+        uses: EndBug/add-and-commit@050a66787244b10a4874a2a5f682130263edc192
         with:
           # The arguments for the `git add` command
-          add: 'lib/rest/static/decorated'
+          add: '["lib/rest/static/apps", "lib/rest/static/decorated", "lib/redirects/static/client-side-rest-api-redirects.json"]'
 
           # The message for the commit
           message: 'Add decorated OpenAPI schema files'

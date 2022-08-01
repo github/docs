@@ -2,11 +2,11 @@
 title: 授权 OAuth 应用程序
 intro: '{% data reusables.shortdesc.authorizing_oauth_apps %}'
 redirect_from:
-  - /apps/building-integrations/setting-up-and-registering-oauth-apps/about-authorization-options-for-oauth-apps/
-  - /apps/building-integrations/setting-up-and-registering-oauth-apps/directing-users-to-review-their-access/
-  - /apps/building-integrations/setting-up-and-registering-oauth-apps/creating-multiple-tokens-for-oauth-apps/
-  - /v3/oauth/
-  - /apps/building-oauth-apps/authorization-options-for-oauth-apps/
+  - /apps/building-integrations/setting-up-and-registering-oauth-apps/about-authorization-options-for-oauth-apps
+  - /apps/building-integrations/setting-up-and-registering-oauth-apps/directing-users-to-review-their-access
+  - /apps/building-integrations/setting-up-and-registering-oauth-apps/creating-multiple-tokens-for-oauth-apps
+  - /v3/oauth
+  - /apps/building-oauth-apps/authorization-options-for-oauth-apps
   - /apps/building-oauth-apps/authorizing-oauth-apps
   - /developers/apps/authorizing-oauth-apps
 versions:
@@ -24,8 +24,8 @@ topics:
 
 要授权您的 OAuth 应用程序，请考虑哪个授权流程最适合您的应用程序。
 
-- [Web 应用程序流程](#web-application-flow)：用于授权在浏览器中运行标准 OAuth 应用程序的用户。 （不支持 [隐含的授予类型](https://tools.ietf.org/html/rfc6749#section-4.2)。）{% ifversion fpt or ghae or ghes > 3.0 or ghec %}
-- [设备流程](#device-flow)：用于无头应用程序，例如 CLI 工具。{% endif %}
+- [Web 应用程序流程](#web-application-flow)：用于授权在浏览器中运行标准 OAuth 应用程序的用户。 （不支持[隐式授予类型](https://tools.ietf.org/html/rfc6749#section-4.2)。）
+- [设备流程](#device-flow)：用于无头应用程序，例如 CLI 工具。
 
 ## Web 应用程序流程
 
@@ -80,7 +80,7 @@ topics:
 默认情况下，响应采用以下形式：
 
 ```
-access_token={% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}gho_16C7e42F292c6912E7710c838347Ae178B4a{% else %}e72e16c7e42f292c6912e7710c838347ae178b4a{% endif %}&scope=repo%2Cgist&token_type=bearer
+access_token=gho_16C7e42F292c6912E7710c838347Ae178B4a&scope=repo%2Cgist&token_type=bearer
 ```
 
 {% data reusables.apps.oauth-auth-vary-response %}
@@ -88,7 +88,7 @@ access_token={% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}gho_16C7e42F2
 ```json
 Accept: application/json
 {
-  "access_token":"{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}gho_16C7e42F292c6912E7710c838347Ae178B4a{% else %}e72e16c7e42f292c6912e7710c838347ae178b4a{% endif %}",
+  "access_token":"gho_16C7e42F292c6912E7710c838347Ae178B4a",
   "scope":"repo,gist",
   "token_type":"bearer"
 }
@@ -99,7 +99,7 @@ Accept: application/xml
 <OAuth>
   <token_type>bearer</token_type>
   <scope>repo,gist</scope>
-  <access_token>{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}gho_16C7e42F292c6912E7710c838347Ae178B4a{% else %}e72e16c7e42f292c6912e7710c838347ae178b4a{% endif %}</access_token>
+  <access_token>gho_16C7e42F292c6912E7710c838347Ae178B4a</access_token>
 </OAuth>
 ```
 
@@ -116,8 +116,6 @@ Accept: application/xml
 curl -H "Authorization: token OAUTH-TOKEN" {% data variables.product.api_url_pre %}/user
 ```
 
-{% ifversion fpt or ghae or ghes > 3.0 or ghec %}
-
 ## 设备流程
 
 {% note %}
@@ -127,6 +125,12 @@ curl -H "Authorization: token OAUTH-TOKEN" {% data variables.product.api_url_pre
 {% endnote %}
 
 设备流程允许您授权用户使用无头应用程序，例如 CLI 工具或 Git 凭据管理器。
+
+{% ifversion device-flow-is-opt-in %}
+
+在使用设备流识别和授权用户之前，必须先在应用的设置中启用它。 有关在应用中启用设备流的详细信息，请参阅“[修改 OAuth 应用程序](/developers/apps/managing-oauth-apps/modifying-an-oauth-app)”（对于 OAuth 应用程序）和“[修改 GitHub 应用程序](/developers/apps/managing-github-apps/modifying-a-github-app)”（对于 GitHub 应用程序）。
+
+{% endif %}
 
 ### 设备流程概述
 
@@ -218,7 +222,7 @@ Accept: application/xml
 默认情况下，响应采用以下形式：
 
 ```
-access_token={% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}gho_16C7e42F292c6912E7710c838347Ae178B4a{% else %}e72e16c7e42f292c6912e7710c838347ae178b4a{% endif %}&token_type=bearer&scope=repo%2Cgist
+access_token=gho_16C7e42F292c6912E7710c838347Ae178B4a&token_type=bearer&scope=repo%2Cgist
 ```
 
 {% data reusables.apps.oauth-auth-vary-response %}
@@ -226,7 +230,7 @@ access_token={% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}gho_16C7e42F2
 ```json
 Accept: application/json
 {
- "access_token": "{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}gho_16C7e42F292c6912E7710c838347Ae178B4a{% else %}e72e16c7e42f292c6912e7710c838347ae178b4a{% endif %}",
+ "access_token": "gho_16C7e42F292c6912E7710c838347Ae178B4a",
   "token_type": "bearer",
   "scope": "repo,gist"
 }
@@ -235,7 +239,7 @@ Accept: application/json
 ```xml
 Accept: application/xml
 <OAuth>
-  <access_token>{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}gho_16C7e42F292c6912E7710c838347Ae178B4a{% else %}e72e16c7e42f292c6912e7710c838347ae178b4a{% endif %}</access_token>
+  <access_token>gho_16C7e42F292c6912E7710c838347Ae178B4a</access_token>
   <token_type>bearer</token_type>
   <scope>gist,repo</scope>
 </OAuth>
@@ -257,11 +261,10 @@ Accept: application/xml
 | `unsupported_grant_type`       | 授予类型必须为 `urn:ietf:params:oauth:grant-type:device_code`，并在您轮询 OAuth 令牌请求 `POST {% data variables.product.oauth_host_code %}/login/oauth/access_token` 时作为输入参数包括在内。                                                                                      |
 | `incorrect_client_credentials` | 对于设备流程，您必须传递应用程序的客户端 ID，您可以在应用程序设置页面上找到该 ID。 设备流程不需要 `client_secret`。                                                                                                                                                                                  |
 | `incorrect_device_code`        | 提供的 device_code 无效。                                                                                                                                                                                                                                    |
-| `access_denied`                | 当用户在授权过程中单击取消时，您将收到 `access_denied` 错误，用户将无法再次使用验证码。                                                                                                                                                                                                   |
+| `access_denied`                | 当用户在授权过程中单击取消时，您将收到 `access_denied` 错误，用户将无法再次使用验证码。{% ifversion device-flow-is-opt-in %}
+| `device_flow_disabled`         | 尚未在应用的设置中启用设备流。 更多信息请参阅“[设备流](#device-flow)”。{% endif %}
 
 更多信息请参阅“[OAuth 2.0 设备授权授予](https://tools.ietf.org/html/rfc8628#section-3.5)”。
-
-{% endif %}
 
 ## 非 Web 应用程序流程
 
@@ -293,10 +296,10 @@ Accept: application/xml
 
 可选的 `redirect_uri` 参数也可用于本地主机 URL。 如果应用程序指定 URL 和端口，授权后，应用程序用户将被重定向到提供的 URL 和端口。 `redirect_uri` 不需要匹配应用程序回调 url 中指定的端口。
 
-对于 `http://localhost/path` 回调 URL，您可以使用此 `redirect_uri`：
+对于 `http://127.0.0.1/path` 回调 URL，您可以使用此 `redirect_uri`：
 
 ```
-http://localhost:1234/path
+http://127.0.0.1:1234/path
 ```
 
 ## 为 OAuth 应用程序创建多个令牌
@@ -329,7 +332,7 @@ http://localhost:1234/path
 
 * "[对授权请求错误进行故障排除](/apps/managing-oauth-apps/troubleshooting-authorization-request-errors)"
 * "[对 OAuth 应用程序访问令牌请求错误进行故障排除](/apps/managing-oauth-apps/troubleshooting-oauth-app-access-token-request-errors)"
-{% ifversion fpt or ghae or ghes > 3.0 or ghec %}* "[Device flow errors](#error-codes-for-the-device-flow)"{% endif %}{% ifversion fpt or ghae-issue-4374 or ghes > 3.2 or ghec %}
+* "[设备流错误](#error-codes-for-the-device-flow)"{% ifversion fpt or ghae or ghes > 3.2 or ghec %}
 * "[令牌到期和撤销](/github/authenticating-to-github/keeping-your-account-and-data-secure/token-expiration-and-revocation)"{% endif %}
 
 ## 延伸阅读

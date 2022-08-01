@@ -1,9 +1,9 @@
 ---
-title: Deploying with GitHub Actions
+title: Desplegar con GitHub Actions
 intro: Aprende a controlar los despliegues con características como ambientes y concurrencia.
 versions:
   fpt: '*'
-  ghes: '>=3.1'
+  ghes: '*'
   ghae: '*'
   ghec: '*'
 type: overview
@@ -16,7 +16,6 @@ shortTitle: Desplegar con GitHub Actions
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## Introducción
 
@@ -133,6 +132,8 @@ jobs:
         # ...deployment-specific steps
 ```
 
+Para obtener orientación sobre cómo escribir pasos específicos para los despliegues, consulta la sección "[Encontrar ejemplos de despliegues](#finding-deployment-examples)".
+
 ## Visualizar el historial de despliegues
 
 Cuando se despliega un flujo de trabajo de {% data variables.product.prodname_actions %} en un ambiente, dicho ambiente se desplegará en la página principal del repositorio. Para obtener más información sobre cómo visualizar los despliegues hacia los ambientes, consulta la sección "[Ver el historial de despliegue](/developers/overview/viewing-deployment-history)".
@@ -146,7 +147,7 @@ También puedes ver las bitácoras de cada ejecución de flujo de trabajo y el h
 ## Rastrear los despliegues a través de las apps
 
 {% ifversion fpt or ghec %}
-If your personal account or organization on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} is integrated with Microsoft Teams or Slack, you can track deployments that use environments through Microsoft Teams or Slack. Por ejemplo, puedes recibir notificaciones a través de la app cuando la aprobación de un despliegue está pendiente, cuando está aprobado o cuando cambia su estado. Para obtener más información sobre cómo integrar Microsoft Teams o Slack, consulta la sección "[Extensiones e integraciones de GitHub](/github/customizing-your-github-workflow/exploring-integrations/github-extensions-and-integrations#team-communication-tools)".
+Si tu cuenta personal u organización de {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} está integrada con Microsoft Teams o Slack, puedes rastrear los despliegues que utilizan ambientes a través de estos programas. Por ejemplo, puedes recibir notificaciones a través de la app cuando la aprobación de un despliegue está pendiente, cuando está aprobado o cuando cambia su estado. Para obtener más información sobre cómo integrar Microsoft Teams o Slack, consulta la sección "[Extensiones e integraciones de GitHub](/github/customizing-your-github-workflow/exploring-integrations/github-extensions-and-integrations#team-communication-tools)".
 {% endif %}
 
 También puedes crear una app que utilice despliegues y webhooks de estados de despliegues para rastrearlos. {% data reusables.actions.environment-deployment-event %} Para obtener más información, consulta las secciones "[Apps](/developers/apps)" y "[Eventos y cargas útiles de los webhooks](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#deployment)".
@@ -155,7 +156,7 @@ También puedes crear una app que utilice despliegues y webhooks de estados de d
 
 ## Elegir un ejecutor
 
-Puedes ejecutar tu flujo de trabajo de despliegue en los ejecutores hospedados en {% data variables.product.company_short %} o en los auto-hospedados. El tráfico de los ejecutores hospedados en {% data variables.product.company_short %} puede venir desde un [rango amplio de direcciones de red](/rest/reference/meta#get-github-meta-information). Si estás desplegando hacia un ambiente interno y tu compañía restringe el tráfico externo en las redes privadas, podría ser que los flujos de trabajo de {% data variables.product.prodname_actions %} que se ejecuten en ejecutores hospedados en {% data variables.product.company_short %} no se estén comunicando con tus servicios o recursos internos. Para superar esto, puedes hospedar tus propios ejecutores. Para obtener más información, consulta las secciones "[Acerca de los ejecutores auto-hospedados](/actions/hosting-your-own-runners/about-self-hosted-runners)" y "[Acercad e los ejecutores hospedados en GitHub](/actions/using-github-hosted-runners/about-github-hosted-runners)".
+Puedes ejecutar tu flujo de trabajo de despliegue en los ejecutores hospedados en {% data variables.product.company_short %} o en los auto-hospedados. El tráfico de los ejecutores hospedados en {% data variables.product.company_short %} puede venir desde un [rango amplio de direcciones de red](/rest/reference/meta#get-github-meta-information). Si estás desplegando hacia un ambiente interno y tu empresa restringe el tráfico externo en las redes privadas, los flujos de trabajo de {% data variables.product.prodname_actions %} que se ejecutan en los ejecutores hospedados en {% data variables.product.company_short %} podrían no tener la capacidad de comunicarse con tus recursos o servicios internos. Para superar esto, puedes hospedar tus propios ejecutores. Para obtener más información, consulta las secciones "[Acerca de los ejecutores auto-hospedados](/actions/hosting-your-own-runners/about-self-hosted-runners)" y "[Acercad e los ejecutores hospedados en GitHub](/actions/using-github-hosted-runners/about-github-hosted-runners)".
 
 {% endif %}
 
@@ -165,7 +166,7 @@ Puedes utilizar una insignia de estado para mostrar el estado de tu flujo de tra
 
 Para obtener más información, consulta la sección "[Agregar una insignia de estado de flujo de trabajo](/actions/managing-workflow-runs/adding-a-workflow-status-badge)".
 
-## Pasos siguientes
+## Encontrar ejemplos de despliegues
 
 Este artículo demostró características de las {% data variables.product.prodname_actions %} que puedes agregar a tus flujos de trabajo de despliegue.
 

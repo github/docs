@@ -3,9 +3,9 @@ title: Assinaturas com desconto para contas do GitHub
 intro: 'O {% data variables.product.product_name %} oferece descontos para estudantes, professores, instituições educacionais, organizações sem fins lucrativos e bibliotecas.'
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/discounted-subscriptions-for-github-accounts
-  - /articles/discounted-personal-accounts/
-  - /articles/discounted-organization-accounts/
-  - /articles/discounted-billing-plans/
+  - /articles/discounted-personal-accounts
+  - /articles/discounted-organization-accounts
+  - /articles/discounted-billing-plans
   - /articles/discounted-subscriptions-for-github-accounts
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-your-github-account/discounted-subscriptions-for-github-accounts
 versions:

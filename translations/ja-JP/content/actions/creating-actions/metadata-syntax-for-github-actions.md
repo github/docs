@@ -13,35 +13,35 @@ versions:
   ghae: '*'
   ghec: '*'
 type: reference
+miniTocMaxHeadingLevel: 4
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## {% data variables.product.prodname_actions %}のYAML構文について
 
-Docker及びJavaScriptアクションにはメタデータファイルが必要です。 このメタデータのファイル名は`action.yml`もしくは`action.yaml`でなければなりません。 メタデータファイル中のデータは、アクションの入力、出力、メインエントリポイントを定義します。
+All actions require a metadata file. このメタデータのファイル名は`action.yml`もしくは`action.yaml`でなければなりません。 The data in the metadata file defines the inputs, outputs, and runs configuration for your action.
 
 アクションのメタデータファイルはYAML構文を使います。 YAMLについて詳しくない場合は、「[Learn YAML in five minutes (5分で学ぶYAML)](https://www.codeproject.com/Articles/1214409/Learn-YAML-in-five-minutes)」をお読みください。
 
 ## `name`
 
-**Required** The name of your action. {% data variables.product.prodname_dotcom %} displays the `name` in the **Actions** tab to help visually identify actions in each job.
+**必須**アクションの名前。 {% data variables.product.prodname_dotcom %}は`name`を**Actions**タブに表示して、それぞれのジョブのアクションを見て区別しやすくします。
 
 ## `作者`
 
-**Optional** The name of the action's author.
+**オプション** アクションの作者の名前。
 
 ## `説明`
 
-**Required** A short description of the action.
+**必須** アクションの短い説明。
 
 ## `inputs`
 
-**Optional** Input parameters allow you to specify data that the action expects to use during runtime. {% data variables.product.prodname_dotcom %}は、inputsパラメータを環境変数として保存します。 大文字が使われているInputsのidは、実行時に小文字に変換されます。 inputsのidには小文字を使うことをおすすめします。
+**オプション** inputsパラメーターを使うと、アクションが実行時に使うデータを指定できます。 {% data variables.product.prodname_dotcom %}は、inputsパラメータを環境変数として保存します。 大文字が使われているInputsのidは、実行時に小文字に変換されます。 inputsのidには小文字を使うことをおすすめします。
 
-### サンプル
+### Example: Specifying inputs
 
 この例では、numOctocatsとoctocatEyeColorという 2つの入力を設定しています。 入力のnumOctocatsは必須ではなく、デフォルトの値は'1'になっています。 入力のoctocatEyeColorは必須であり、デフォルト値を持ちません。 このアクションを使うワークフローのファイルは、`with`キーワードを使ってoctocatEyeColorの入力値を設定しなければなりません。 `with`構文に関する詳しい情報については「[{% data variables.product.prodname_actions %}のためのワークフローの構文](/articles/workflow-syntax-for-github-actions/#jobsjob_idstepswith)」を参照してください。
 
@@ -66,31 +66,33 @@ To access the environment variable in a Docker container action, you must pass t
 
 ### `inputs.<input_id>`
 
-**Required** A `string` identifier to associate with the input. `<input_id>`の値は、入力のメタデータのマップです。 `<input_id>`は、`inputs`オブジェクト内でユニークな識別子でなければなりません。 `<input_id>`は、文字あるいは`_`で始める必要があり、英数字、`-`、`_`しか使用できません。
+**必須** `文字列型`の識別子で、入力と結びつけられます。 `<input_id>`の値は、入力のメタデータのマップです。 `<input_id>`は、`inputs`オブジェクト内でユニークな識別子でなければなりません。 `<input_id>`は、文字あるいは`_`で始める必要があり、英数字、`-`、`_`しか使用できません。
 
 ### `inputs.<input_id>.description`
 
-**Required** A `string` description of the input parameter.
+**必須** 入力パラメーターの`文字列`での説明。
 
 ### `inputs.<input_id>.required`
 
-**Required** A `boolean` to indicate whether the action requires the input parameter. パラメーターが必須の場合は`true`に設定してください。
+**必須** この入力パラメーターがアクションに必須かどうかを示す`論理値`。 パラメーターが必須の場合は`true`に設定してください。
 
 ### `inputs.<input_id>.default`
 
-**Optional** A `string` representing the default value. デフォルト値は、入力パラメーターがワークフローファイルで指定されなかった場合に使われます。
+**オプション** デフォルト値を示す`文字列`。 デフォルト値は、入力パラメーターがワークフローファイルで指定されなかった場合に使われます。
 
 ### `inputs.<input_id>.deprecationMessage`
 
 **オプション** 入力パラメータが使用されている場合、この `string` は警告メッセージとしてログに記録されます。 この警告で入力が非推奨であることをユーザに通知し、その他の方法を知らせることができます。
 
-## `outputs`
+## `outputs` for Docker container and JavaScript actions
 
 **オプション** アクションが設定するデータを宣言できる出力パラメータ。 ワークフローで後に実行されるアクションは、先行して実行されたアクションが設定した出力データを利用できます。  たとえば、2つの入力を加算(x + y = z)するアクションがあれば、そのアクションは他のアクションが入力として利用できる合計値(z)を出力できます。
 
+{% data reusables.actions.output-limitations %}
+
 メタデータファイル中でアクション内の出力を宣言しなくても、出力を設定してワークフロー中で利用することはできます。 アクション中での出力の設定に関する詳しい情報については「[{% data variables.product.prodname_actions %}のワークフローコマンド](/actions/reference/workflow-commands-for-github-actions/#setting-an-output-parameter)」を参照してください。
 
-### サンプル
+### Example: Declaring outputs for Docker container and JavaScript actions
 
 ```yaml
 outputs:
@@ -108,9 +110,11 @@ outputs:
 
 ## `outputs` for composite actions
 
-**オプション** `outputs` `outputs.<output_id>` および `outputs.<output_id>.description`（「[{% data variables.product.prodname_actions %} の `outputs`](/actions/creating-actions/metadata-syntax-for-github-actions#outputs)」を参照）と同じパラメーターを使用しますが、`value` トークンも含まれます。
+**Optional** `outputs` use the same parameters as `outputs.<output_id>` and `outputs.<output_id>.description` (see "[`outputs` for Docker container and JavaScript actions](#outputs-for-docker-container-and-javascript-actions)"), but also includes the `value` token.
 
-### サンプル
+{% data reusables.actions.output-limitations %}
+
+### Example: Declaring outputs for composite actions
 
 {% raw %}
 ```yaml
@@ -133,43 +137,52 @@ runs:
 
 For more information on how to use context syntax, see "[Contexts](/actions/learn-github-actions/contexts)."
 
+## `runs`
+
+**Required** Specifies whether this is a JavaScript action, a composite action, or a Docker container action and how the action is executed.
+
 ## JavaScriptアクションのための`runs`
 
-**必須** アクションのコードと、コードを実行するのに使われるアプリケーションへのパスを設定します。
+**Required** Configures the path to the action's code and the runtime used to execute the code.
 
-### Node.jsを使用する例
+### Example: Using Node.js {% ifversion fpt or ghes > 3.3 or ghae-issue-5504 or ghec %}v16{% else %}v12{% endif %}
 
 ```yaml
 runs:
-  using: 'node12'
+  using: {% ifversion fpt or ghes > 3.3 or ghae-issue-5504 or ghec %}'node16'{% else %}'node12'{% endif %}
   main: 'main.js'
 ```
 
 ### `runs.using`
 
-**必須** [`main`](#runsmain)で指定されたコードを実行するのに使われるアプリケーション。
+**Required** The runtime used to execute the code specified in [`main`](#runsmain).
+
+- Use `node12` for Node.js v12.{% ifversion fpt or ghes > 3.3 or ghae-issue-5504 or ghec %}
+- Use `node16` for Node.js v16.{% endif %}
 
 ### `runs.main`
 
-**必須** アクションのコードを含むファイル。 [`using`](#runsusing)で指定されたアプリケーションがこのファイルを実行します。
+**必須** アクションのコードを含むファイル。 The runtime specified in [`using`](#runsusing) executes this file.
 
-### `pre`
+### `runs.pre`
 
-**オプション** `main:`アクションが開始される前の、ジョブの開始時点でスクリプトを実行できるようにします。 たとえば、`pre:`を使って必要なセットアップスクリプトを実行できます。 The application specified with the [`using`](#runsusing) syntax will execute this file. `pre:`アクションはデフォルトで常に実行されますが、[`pre-if`](#pre-if)を使ってこれをオーバーライドすることができます。
+**オプション** `main:`アクションが開始される前の、ジョブの開始時点でスクリプトを実行できるようにします。 たとえば、`pre:`を使って必要なセットアップスクリプトを実行できます。 The runtime specified with the [`using`](#runsusing) syntax will execute this file. The `pre:` action always runs by default but you can override this using [`runs.pre-if`](#runspre-if).
 
 この例では、`pre:`アクションは`setup.js`というスクリプトを実行します。
 
 ```yaml
 runs:
-  using: 'node12'
+  using: {% ifversion fpt or ghes > 3.3 or ghae-issue-5504 or ghec %}'node16'{% else %}'node12'{% endif %}
   pre: 'setup.js'
   main: 'index.js'
   post: 'cleanup.js'
 ```
 
-### `pre-if`
+### `runs.pre-if`
 
-**オプション** `pre:`アクションの実行条件を定義できるようにしてくれます。 `pre:`アクションは、`pre-if`内の条件が満たされたときにのみ実行されます。 設定されなかった場合、`pre-if`のデフォルトは`always()`になります。 まだステップは実行されていないので、`step`コンテキストは利用できないことに注意してください。
+**オプション** `pre:`アクションの実行条件を定義できるようにしてくれます。 `pre:`アクションは、`pre-if`内の条件が満たされたときにのみ実行されます。 設定されなかった場合、`pre-if`のデフォルトは`always()`になります。 In `pre-if`, status check functions evaluate against the job's status, not the action's own status.
+
+まだステップは実行されていないので、`step`コンテキストは利用できないことに注意してください。
 
 以下の例では、`cleanup.js`はLinuxベースのランナー上でのみ実行されます。
 
@@ -178,24 +191,24 @@ runs:
   pre-if: runner.os == 'linux'
 ```
 
-### `post`
+### `runs.post`
 
-**オプション** `main:`アクションの終了後、ジョブの終わりにスクリプトを実行できるようにします。 たとえば、`post:`を使って特定のプロセスを終了させたり、不要なファイルを削除したりできます。 The application specified with the [`using`](#runsusing) syntax will execute this file.
+**オプション** `main:`アクションの終了後、ジョブの終わりにスクリプトを実行できるようにします。 たとえば、`post:`を使って特定のプロセスを終了させたり、不要なファイルを削除したりできます。 The runtime specified with the [`using`](#runsusing) syntax will execute this file.
 
 この例では、`post:`アクションは`cleanup.js`というスクリプトを実行します。
 
 ```yaml
 runs:
-  using: 'node12'
+  using: {% ifversion fpt or ghes > 3.3 or ghae-issue-5504 or ghec %}'node16'{% else %}'node12'{% endif %}
   main: 'index.js'
   post: 'cleanup.js'
 ```
 
 `post:`アクションはデフォルトで常に実行されますが、`post-if`を使ってこれをオーバーライドすることができます。
 
-### `post-if`
+### `runs.post-if`
 
-**オプション** `post:`アクションの実行条件を定義できるようにしてくれます。 `post:`アクションは、`post-if`内の条件が満たされたときにのみ実行されます。 設定されなかった場合、`post-if`のデフォルトは`always()`になります。
+**オプション** `post:`アクションの実行条件を定義できるようにしてくれます。 `post:`アクションは、`post-if`内の条件が満たされたときにのみ実行されます。 設定されなかった場合、`post-if`のデフォルトは`always()`になります。 In `post-if`, status check functions evaluate against the job's status, not the action's own status.
 
 たとえば、この`cleanup.js`はLinuxベースのランナー上でのみ実行されます。
 
@@ -206,15 +219,15 @@ runs:
 
 ## `runs` for composite actions
 
-**必須** 複合アクションへのパス、およびコードの実行に使用されるアプリケーションを設定します。
+**Required** Configures the path to the composite action.
 
 ### `runs.using`
 
-**Required** To use a composite action, set this to `"composite"`.
+**Required** You must set this value to `'composite'`.
 
 ### `runs.steps`
 
-{% ifversion fpt or ghes > 3.2 or ghae-issue-4853 or ghec %}
+{% ifversion fpt or ghes > 3.2 or ghae or ghec %}
 **Required** The steps that you plan to run in this action. These can be either `run` steps or `uses` steps.
 {% else %}
 **Required** The steps that you plan to run in this action.
@@ -222,7 +235,7 @@ runs:
 
 #### `runs.steps[*].run`
 
-{% ifversion fpt or ghes > 3.2 or ghae-issue-4853 or ghec %}
+{% ifversion fpt or ghes > 3.2 or ghae or ghec %}
 **Optional** The command you want to run. これは、インラインでも、アクションリポジトリ内のスクリプトでもかまいません。
 {% else %}
 **必須** 実行するコマンド。 これは、インラインでも、アクションリポジトリ内のスクリプトでもかまいません。
@@ -252,10 +265,41 @@ runs:
 
 #### `runs.steps[*].shell`
 
-{% ifversion fpt or ghes > 3.2 or ghae-issue-4853 or ghec %}
-**Optional** The shell where you want to run the command. [こちら](/actions/reference/workflow-syntax-for-github-actions#using-a-specific-shell)にリストされている任意のシェルを使用できます。 Required if `run` is set.
+{% ifversion fpt or ghes > 3.2 or ghae or ghec %}
+**Optional** The shell where you want to run the command. [こちら](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepsshell)にリストされている任意のシェルを使用できます。 Required if `run` is set.
 {% else %}
-**必須** コマンドを実行するシェル。 [こちら](/actions/reference/workflow-syntax-for-github-actions#using-a-specific-shell)にリストされている任意のシェルを使用できます。 Required if `run` is set.
+**必須** コマンドを実行するシェル。 [こちら](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepsshell)にリストされている任意のシェルを使用できます。 Required if `run` is set.
+{% endif %}
+
+{% ifversion fpt or ghes > 3.3 or ghae-issue-5504 or ghec %}
+#### `runs.steps[*].if`
+
+**Optional** You can use the `if` conditional to prevent a step from running unless a condition is met. 条件文を作成するには、サポートされている任意のコンテキストや式が使えます。
+
+{% data reusables.actions.expression-syntax-if %} 詳しい情報については「[式](/actions/learn-github-actions/expressions)」を参照してください。
+
+**Example: Using contexts**
+
+ このステップは、イベントの種類が`pull_request`でイベントアクションが`unassigned`の場合にのみ実行されます。
+
+ ```yaml
+steps:
+  - run: echo This event is a pull request that had an assignee removed.
+    if: {% raw %}${{ github.event_name == 'pull_request' && github.event.action == 'unassigned' }}{% endraw %}
+```
+
+**Example: Using status check functions**
+
+The `my backup step` only runs when the previous step of a composite action fails. 詳しい情報については「[式](/actions/learn-github-actions/expressions#status-check-functions)」を参照してください。
+
+```yaml
+steps:
+  - name: My first step
+    uses: octo-org/action-name@main
+  - name: My backup step
+    if: {% raw %}${{ failure() }}{% endraw %}
+    uses: actions/heroku@1.0.0
+```
 {% endif %}
 
 #### `runs.steps[*].name`
@@ -274,7 +318,7 @@ runs:
 
 **オプション**  コマンドを実行する作業ディレクトリを指定します。
 
-{% ifversion fpt or ghes > 3.2 or ghae-issue-4853 or ghec %}
+{% ifversion fpt or ghes > 3.2 or ghae or ghec %}
 #### `runs.steps[*].uses`
 
 **Optional**  Selects an action to run as part of a step in your job. アクションとは、再利用可能なコードの単位です。 ワークフロー、パブリックリポジトリ、または[公開されているDockerコンテナイメージ](https://hub.docker.com/)と同じリポジトリで定義されているアクションを使用できます。
@@ -284,7 +328,7 @@ Git ref、SHA、またはDockerタグ番号を指定して、使用している�
 - 特定のメジャーアクションバージョンを使用すると、互換性を維持したまま重要な修正とセキュリティパッチを受け取ることができます。 ワークフローが引き続き動作することも保証できます。
 - アクションのデフォルトブランチを使用すると便利なこともありますが、別のユーザが破壊的変更を加えた新しいメジャーバージョンをリリースすると、ワークフローが動作しなくなる場合があります。
 
-Some actions require inputs that you must set using the [`with`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepswith) keyword. 必要な入力を判断するには、アクションのREADMEファイルをお読みください。
+入力が必要なアクションもあり、入力を[`with`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepswith)キーワードを使って設定する必要があります。 必要な入力を判断するには、アクションのREADMEファイルをお読みください。
 
 ```yaml
 runs:
@@ -293,9 +337,9 @@ runs:
     # Reference a specific commit
     - uses: actions/checkout@a81bbbf8298c0fa03ea29cdc473d45769f953675
     # Reference the major version of a release
-    - uses: actions/checkout@v2
+    - uses: {% data reusables.actions.action-checkout %}
     # Reference a specific version
-    - uses: actions/checkout@v2.2.0
+    - uses: {% data reusables.actions.action-checkout %}.2.0
     # Reference a branch
     - uses: actions/checkout@main
     # References a subdirectory in a public GitHub repository at a specific branch, ref, or SHA
@@ -325,11 +369,19 @@ runs:
 ```
 {% endif %}
 
-## Dockerアクションのための`runs`
+{% ifversion ghes > 3.5 or ghae-issue-6573 %}
 
-**必須** Dockerアクションのために使われるイメージを設定します。
+#### `runs.steps[*].continue-on-error`
 
-### リポジトリでのDockerfileの利用例
+**Optional**  Prevents the action from failing when a step fails. Set to `true` to allow the action to pass when this step fails.
+
+{% endif %}
+
+## `runs` for Docker container actions
+
+**Required** Configures the image used for the Docker container action.
+
+### Example: Using a Dockerfile in your repository
 
 ```yaml
 runs:
@@ -337,7 +389,7 @@ runs:
   image: 'Dockerfile'
 ```
 
-### パブリックなDockerレジストリコンテナを利用する例
+### Example: Using public Docker registry container
 
 ```yaml
 runs:
@@ -349,11 +401,11 @@ runs:
 
 **必須** この値は`'docker'`に設定しなければなりません。
 
-### `pre-entrypoint`
+### `runs.pre-entrypoint`
 
-**オプション** `entrypoint`アクションが始まる前にスクリプトを実行できるようにしてくれます。 たとえば、`pre-entrypoint:`を使って必要なセットアップスクリプトを実行できます。 {% data variables.product.prodname_actions %}は`docker run`を使ってこのアクションを起動し、同じベースイメージを使う新しいコンテナ内でスクリプトを実行します。 これはすなわち、ランタイムの状態はメインの`entrypoint`コンテナとは異なるということで、必要な状態はワークスペースや`HOME`内、あるいは`STATE_`変数としてアクセスしなければなりません。 `pre-entrypoint:`アクションはデフォルトで常に実行されますが、[`pre-if`](#pre-if)を使ってこれをオーバーライドすることができます。
+**オプション** `entrypoint`アクションが始まる前にスクリプトを実行できるようにしてくれます。 たとえば、`pre-entrypoint:`を使って必要なセットアップスクリプトを実行できます。 {% data variables.product.prodname_actions %}は`docker run`を使ってこのアクションを起動し、同じベースイメージを使う新しいコンテナ内でスクリプトを実行します。 これはすなわち、ランタイムの状態はメインの`entrypoint`コンテナとは異なるということで、必要な状態はワークスペースや`HOME`内、あるいは`STATE_`変数としてアクセスしなければなりません。 The `pre-entrypoint:` action always runs by default but you can override this using [`runs.pre-if`](#runspre-if).
 
-The application specified with the [`using`](#runsusing) syntax will execute this file.
+The runtime specified with the [`using`](#runsusing) syntax will execute this file.
 
 この例では、`pre-entrypoint:`アクションは`setup.sh`というスクリプトを実行します。
 
@@ -383,7 +435,7 @@ runs:
 
 ### `post-entrypoint`
 
-**オプション** `run.entrypoint`アクションが完了した後に、クリーンアップスクリプトを実行できるようにしてくれます。 {% data variables.product.prodname_actions %}はこのアクションを起動するのに`docker run`を使います。 {% data variables.product.prodname_actions %}はスクリプトを同じベースイメージを使って新しいコンテナ内で実行するので、ランタイムの状態はメインの`entrypoint`コンテナとは異なります。 必要な状態には、ワークスペースや`HOME`内、あるいは`STATE_`変数としてアクセスできます。 `post-entrypoint:`アクションはデフォルトで常に実行されますが、[`post-if`](#post-if)を使ってこれをオーバーライドすることができます。
+**オプション** `run.entrypoint`アクションが完了した後に、クリーンアップスクリプトを実行できるようにしてくれます。 {% data variables.product.prodname_actions %}はこのアクションを起動するのに`docker run`を使います。 {% data variables.product.prodname_actions %}はスクリプトを同じベースイメージを使って新しいコンテナ内で実行するので、ランタイムの状態はメインの`entrypoint`コンテナとは異なります。 必要な状態には、ワークスペースや`HOME`内、あるいは`STATE_`変数としてアクセスできます。 The `post-entrypoint:` action always runs by default but you can override this using [`runs.post-if`](#runspost-if).
 
 ```yaml
 runs:
@@ -401,13 +453,13 @@ runs:
 
 `args`は、`Dockerfile`中の`CMD`命令の場所で使われます。 `Dockerfile`中で`CMD`を使うなら、以下の優先順位順のガイドラインを利用してください。
 
-{% data reusables.github-actions.dockerfile-guidelines %}
+{% data reusables.actions.dockerfile-guidelines %}
 
 環境変数をアクションに渡す必要がある場合は、変数置換を行えるようアクションがコマンドシェルで実行されていることを確認してください。 たとえば、`entrypoint`属性が`"sh -c"`に設定されているなら、`args`はコマンドシェル内で実行されます。 あるいは、`Dockerfile`が`ENTRYPOINT`を使って同じコマンド（`"sh -c"`）を実行しているなら、`args`はコマンドシェル内で実行されます。
 
 {% data variables.product.prodname_actions %}での`CMD`命令の利用に関する詳しい情報については、「[{% data variables.product.prodname_actions %}のDockerfileサポート](/actions/creating-actions/dockerfile-support-for-github-actions/#cmd)」を参照してください。
 
-#### サンプル
+#### Example: Defining arguments for the Docker container
 
 {% raw %}
 ```yaml
@@ -425,7 +477,7 @@ runs:
 
 アクションをパーソナライズして見分けられるようにするために、カラーと[Feather](https://feathericons.com/)アイコンを使ってバッジを作ることができます。 バッジは、[{% data variables.product.prodname_marketplace %}](https://github.com/marketplace?type=actions)内のアクション名の隣に表示されます。
 
-### サンプル
+### Example: Configuring branding for an action
 
 ```yaml
 branding:
@@ -439,11 +491,46 @@ branding:
 
 ### `branding.icon`
 
-利用する[Feather](https://feathericons.com/)アイコンの名前。
+The name of the v4.28.0 [Feather](https://feathericons.com/) icon to use. Brand icons are omitted as well as the following:
 
 <table>
 <tr>
-<td>activity</td>
+<td>coffee</td>
+<td>カラム</td>
+<td>divide-circle</td>
+<td>divide-square</td>
+</tr>
+<tr>
+<td>divide</td>
+<td>frown</td>
+<td>hexagon</td>
+<td>key</td>
+</tr>
+<tr>
+<td>meh</td>
+<td>mouse-pointer</td>
+<td>smile</td>
+<td>ツール</td>
+</tr>
+<tr>
+<td>x-octagon</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</table>
+
+Here is an exhaustive list of all currently supported icons:
+
+
+<!-- 
+  This table should match the icon list in `app/models/repository_actions/icons.rb` in the internal github repo.
+  To support a new icon, update `app/models/repository_actions/icons.rb` and add the svg to `/static/images/icons/feather` in the internal github repo. 
+-->
+
+<table>
+<tr>
+<td>アクティビティ</td>
 <td>airplay</td>
 <td>alert-circle</td>
 <td>alert-octagon</td>
@@ -458,7 +545,7 @@ branding:
 <td>align-right</td>
 <td>anchor</td>
 <td>aperture</td>
-<td>archive</td>
+<td>アーカイブ</td>
 </tr>
 <tr>
 <td>arrow-down-circle</td>
@@ -537,10 +624,10 @@ branding:
 <td>cloud-rain</td>
 <td>cloud-snow</td>
 <td>cloud</td>
-<td>code</td>
+<td>コード</td>
 </tr>
 <tr>
-<td>command</td>
+<td>コマンド</td>
 <td>compass</td>
 <td>copy</td>
 <td>corner-down-left</td>
@@ -582,254 +669,249 @@ branding:
 <td>eye</td>
 </tr>
 <tr>
-<td>facebook</td>
 <td>fast-forward</td>
 <td>feather</td>
 <td>file-minus</td>
-</tr>
-<tr>
 <td>file-plus</td>
-<td>file-text</td>
-<td>file</td>
-<td>film</td>
 </tr>
 <tr>
+<td>file-text</td>
+<td>ファイル</td>
+<td>film</td>
 <td>filter</td>
-<td>flag</td>
+</tr>
+<tr>
+<td>フラグ</td>
 <td>folder-minus</td>
 <td>folder-plus</td>
+<td>folder</td>
 </tr>
 <tr>
-<td>folder</td>
 <td>gift</td>
 <td>git-branch</td>
 <td>git-commit</td>
+<td>git-merge</td>
 </tr>
 <tr>
-<td>git-merge</td>
 <td>git-pull-request</td>
 <td>globe</td>
 <td>grid</td>
+<td>hard-drive</td>
 </tr>
 <tr>
-<td>hard-drive</td>
-<td>hash</td>
+<td>ハッシュ</td>
 <td>headphones</td>
 <td>heart</td>
+<td>help-circle</td>
 </tr>
 <tr>
-<td>help-circle</td>
 <td>home</td>
 <td>image</td>
 <td>inbox</td>
+<td>info</td>
 </tr>
 <tr>
-<td>info</td>
 <td>italic</td>
 <td>layers</td>
 <td>layout</td>
+<td>life-buoy</td>
 </tr>
 <tr>
-<td>life-buoy</td>
 <td>link-2</td>
 <td>link</td>
 <td>list</td>
+<td>loader</td>
 </tr>
 <tr>
-<td>loader</td>
 <td>lock</td>
 <td>log-in</td>
 <td>log-out</td>
+<td>mail</td>
 </tr>
 <tr>
-<td>mail</td>
 <td>map-pin</td>
 <td>map</td>
 <td>maximize-2</td>
+<td>maximize</td>
 </tr>
 <tr>
-<td>maximize</td>
 <td>menu</td>
 <td>message-circle</td>
 <td>message-square</td>
+<td>mic-off</td>
 </tr>
 <tr>
-<td>mic-off</td>
 <td>mic</td>
 <td>minimize-2</td>
 <td>minimize</td>
+<td>minus-circle</td>
 </tr>
 <tr>
-<td>minus-circle</td>
 <td>minus-square</td>
 <td>minus</td>
 <td>monitor</td>
+<td>moon</td>
 </tr>
 <tr>
-<td>moon</td>
 <td>more-horizontal</td>
 <td>more-vertical</td>
 <td>move</td>
+<td>music</td>
 </tr>
 <tr>
-<td>music</td>
 <td>navigation-2</td>
 <td>navigation</td>
 <td>octagon</td>
+<td>package</td>
 </tr>
 <tr>
-<td>package</td>
 <td>paperclip</td>
 <td>pause-circle</td>
 <td>pause</td>
+<td>percent</td>
 </tr>
 <tr>
-<td>percent</td>
 <td>phone-call</td>
 <td>phone-forwarded</td>
 <td>phone-incoming</td>
+<td>phone-missed</td>
 </tr>
 <tr>
-<td>phone-missed</td>
 <td>phone-off</td>
 <td>phone-outgoing</td>
 <td>phone</td>
+<td>pie-chart</td>
 </tr>
 <tr>
-<td>pie-chart</td>
 <td>play-circle</td>
 <td>play</td>
 <td>plus-circle</td>
+<td>plus-square</td>
 </tr>
 <tr>
-<td>plus-square</td>
 <td>plus</td>
 <td>pocket</td>
 <td>power</td>
+<td>printer</td>
 </tr>
 <tr>
-<td>printer</td>
 <td>radio</td>
 <td>refresh-ccw</td>
 <td>refresh-cw</td>
+<td>repeat</td>
 </tr>
 <tr>
-<td>repeat</td>
-<td>rewind</td>
+<td>巻き戻し</td>
 <td>rotate-ccw</td>
 <td>rotate-cw</td>
+<td>rss</td>
 </tr>
 <tr>
-<td>rss</td>
 <td>save</td>
 <td>scissors</td>
 <td>search</td>
+<td>send</td>
 </tr>
 <tr>
-<td>send</td>
 <td>server</td>
 <td>settings</td>
 <td>share-2</td>
+<td>share</td>
 </tr>
 <tr>
-<td>share</td>
 <td>shield-off</td>
 <td>shield</td>
 <td>shopping-bag</td>
-</tr>
-<tr>
 <td>shopping-cart</td>
-<td>shuffle</td>
-<td>sidebar</td>
-<td>skip-back</td>
 </tr>
 <tr>
+<td>shuffle</td>
+<td>サイドバー</td>
+<td>skip-back</td>
 <td>skip-forward</td>
+</tr>
+<tr>
 <td>slash</td>
 <td>sliders</td>
 <td>smartphone</td>
+<td>speaker</td>
 </tr>
 <tr>
-<td>speaker</td>
 <td>square</td>
 <td>Star</td>
 <td>stop-circle</td>
+<td>sun</td>
 </tr>
 <tr>
-<td>sun</td>
 <td>sunrise</td>
 <td>sunset</td>
 <td>tablet</td>
+<td>タグ</td>
 </tr>
 <tr>
-<td>tag</td>
 <td>target</td>
 <td>terminal</td>
 <td>thermometer</td>
+<td>thumbs-down</td>
 </tr>
 <tr>
-<td>thumbs-down</td>
 <td>thumbs-up</td>
 <td>toggle-left</td>
 <td>toggle-right</td>
+<td>trash-2</td>
 </tr>
 <tr>
-<td>trash-2</td>
 <td>trash</td>
 <td>trending-down</td>
 <td>trending-up</td>
+<td>triangle</td>
 </tr>
 <tr>
-<td>triangle</td>
 <td>truck</td>
 <td>tv</td>
 <td>type</td>
+<td>umbrella</td>
 </tr>
 <tr>
-<td>umbrella</td>
 <td>underline</td>
 <td>unlock</td>
 <td>upload-cloud</td>
+<td>アップロード</td>
 </tr>
 <tr>
-<td>upload</td>
 <td>user-check</td>
 <td>user-minus</td>
 <td>user-plus</td>
+<td>user-x</td>
 </tr>
 <tr>
-<td>user-x</td>
-<td>user</td>
+<td>ユーザ</td>
 <td>users</td>
 <td>video-off</td>
+<td>video</td>
 </tr>
 <tr>
-<td>video</td>
 <td>voicemail</td>
 <td>volume-1</td>
 <td>volume-2</td>
+<td>volume-x</td>
 </tr>
 <tr>
-<td>volume-x</td>
 <td>volume</td>
 <td>Watch</td>
 <td>wifi-off</td>
+<td>wifi</td>
 </tr>
 <tr>
-<td>wifi</td>
 <td>wind</td>
 <td>x-circle</td>
 <td>x-square</td>
+<td>x</td>
 </tr>
 <tr>
-<td>x</td>
 <td>zap-off</td>
 <td>zap</td>
 <td>zoom-in</td>
-</tr>
-<tr>
 <td>zoom-out</td>
-<td></td>
-<td></td>
-<td></td>
+</tr>
 </table>

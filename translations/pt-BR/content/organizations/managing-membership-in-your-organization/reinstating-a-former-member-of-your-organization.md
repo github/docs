@@ -1,6 +1,6 @@
 ---
 title: Restabelecer ex-integrantes da organização
-intro: 'Organization owners can {% ifversion fpt or ghec %}invite former organization members to rejoin{% else %}add former members to{% endif%} your organization, and choose whether to restore the person''s former role, access permissions, forks, and settings.'
+intro: 'Os proprietários da organização podem {% ifversion fpt or ghec %}convidar ex-integrantes da organização a voltar a juntar-se{% else %}e adicionar ex-integrantes {% endif%} à sua organização e escolher se deseja restaurar a função anterior, as permissões de acesso, as bifurcações e as configurações dessa pessoa.'
 redirect_from:
   - /articles/reinstating-a-former-member-of-your-organization
   - /github/setting-up-and-managing-organizations-and-teams/reinstating-a-former-member-of-your-organization
@@ -18,7 +18,20 @@ shortTitle: Restabelecer um integrante
 
 ## Sobre a reintegração de integrantes
 
-Se você [remover um usuário da sua organização](/articles/removing-a-member-from-your-organization){% ifversion ghae %} ou{% else %},{% endif %} [converter um integrante da organização em um colaborador externo](/articles/converting-an-organization-member-to-an-outside-collaborator){% ifversion not ghae %}, ou um usuário foi removido da sua organização porque você [pediu aos integrantes e colaboradores externos para habilitar a autenticação de dois fatores (2FA)](/articles/requiring-two-factor-authentication-in-your-organization){% endif %}, os privilégios e configurações do usuário ficarão salvos por três meses. You can restore the user's privileges if you {% ifversion fpt or ghec %}invite{% else %}add{% endif %} them back to the organization within that time frame.
+Se um usuário for removido da sua organização de uma das seguintes maneiras, os privilégios e configurações de acesso do usuário serão salvos por três meses.
+
+- Você removeu manualmente o usuário da organização. Para obter mais informações, consulte "[Removendo um integrante da sua organização](/organizations/managing-membership-in-your-organization/removing-a-member-from-your-organization)."{% ifversion not ghae %}
+- O usuário foi removido da sua organização porque você solicitou aos integrantes e colaboradores externos que habilitassem a autenticação de dois fatores (2FA). Para obter mais informações, consulte "[Exigindo autenticação de dois fatores na sua organização](/organizations/keeping-your-organization-secure/requiring-two-factor-authentication-in-your-organization)".{% endif %}{% ifversion fpt or ghec %}
+- O usuário foi removido da sua organização porque você aplicou o logon único SAML. Para obter mais informações, consulte "[Aplicando o logon único SAML para a sua organização](/enterprise-cloud@latest/organizations/managing-saml-single-sign-on-for-your-organization/enforcing-saml-single-sign-on-for-your-organization){% ifversion fpt %}" na documentação de {% data variables.product.prodname_ghe_cloud %}.{% else %}."{% endif %}{% endif %}
+- Você converteu um integrante da organização em um colaborador externo. Para obter mais informações, consulte "[Convertendo um integrante da organização em um colaborador externo](/organizations/managing-access-to-your-organizations-repositories/converting-an-organization-member-to-an-outside-collaborator)."
+
+Você poderá restaurar os privilégios do usuário se {% ifversion fpt or ghec %}convidá-lo{% else %}adicioná-lo{% endif %} novamente na organização durante esse período.
+
+{% note %}
+
+**Organização:** {% data reusables.saml.removed-users-can-rejoin %} Você não precisa convidar esses usuários para entrar novamente. Em vez disso, o usuário pode acessar sua conta pessoal, acessar a organização e clicar no banner para efetuar a autenticação por meio do logon único SAML.
+
+{% endnote %}
 
 {% data reusables.two_fa.send-invite-to-reinstate-user-before-2fa-is-enabled %}
 
@@ -42,7 +55,7 @@ Se a sua organização tem uma assinatura paga por usuário, uma licença não u
 ## Restabelecer ex-integrantes da organização
 
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.people %}
 {% data reusables.organizations.invite_member_from_people_tab %}
 {% data reusables.organizations.reinstate-user-type-username %}

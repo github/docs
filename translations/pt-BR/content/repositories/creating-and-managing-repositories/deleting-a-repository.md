@@ -2,8 +2,8 @@
 title: Excluir um repositório
 intro: Você poderá excluir qualquer repositório ou bifurcação se for proprietário da organização ou tiver permissões de administrador para o repositório ou a bifurcação. A exclusão de um repositório bifurcado não elimina o repositório upstream.
 redirect_from:
-  - /delete-a-repo/
-  - /deleting-a-repo/
+  - /delete-a-repo
+  - /deleting-a-repo
   - /articles/deleting-a-repository
   - /github/administering-a-repository/deleting-a-repository
   - /github/administering-a-repository/managing-repository-settings/deleting-a-repository
@@ -25,11 +25,11 @@ Os {% data reusables.organizations.owners-and-admins-can %} excluem um repositó
 **Avisos**:
 
 - Excluir um repositório irá excluir **permanentemente** anexos da versão e permissões da equipe. Esta ação **não pode** ser desfeita.
-- Deleting a private or internal repository will delete all forks of the repository.
+- Excluir um{% ifversion ghes or ghec or ghae %} privado ou um repositório{% endif %} interno irá excluir todas as bifurcações do repositório.
 
 {% endwarning %}
 
-Some deleted repositories can be restored within 90 days of deletion. {% ifversion ghes or ghae %}Your site administrator may be able to restore a deleted repository for you. Para obter mais informações, consulte "[Restaurar um repositório excluído](/admin/user-management/managing-repositories-in-your-enterprise/restoring-a-deleted-repository)". {% else %}For more information, see "[Restoring a deleted repository](/articles/restoring-a-deleted-repository)."{% endif %}
+Alguns repositórios excluídos podem ser restaurados dentro de 90 dias de exclusão. {% ifversion ghes or ghae %}O administrador do seu site pode ser capaz de restaurar um repositório excluído para você. Para obter mais informações, consulte "[Restaurar um repositório excluído](/admin/user-management/managing-repositories-in-your-enterprise/restoring-a-deleted-repository)". {% else %}Para obter mais informações, consulte "[Restaurar um repositório excluído](/articles/restoring-a-deleted-repository)".{% endif %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}

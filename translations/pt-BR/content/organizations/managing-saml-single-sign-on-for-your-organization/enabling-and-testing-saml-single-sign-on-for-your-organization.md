@@ -1,12 +1,10 @@
 ---
 title: Habilitar e testar logon único de SAML para sua organização
 intro: 'Os administradores e proprietários da organização podem habilitar o logon único (SSO, Single Sign-On) de SAML para adicionar uma camada extra de segurança à organização.'
-product: '{% data reusables.gated-features.saml-sso %}'
 redirect_from:
   - /articles/enabling-and-testing-saml-single-sign-on-for-your-organization
   - /github/setting-up-and-managing-organizations-and-teams/enabling-and-testing-saml-single-sign-on-for-your-organization
 versions:
-  fpt: '*'
   ghec: '*'
 topics:
   - Organizations
@@ -18,13 +16,15 @@ shortTitle: Habilitar & testar o SSO do SAML
 
 Você pode habilitar o SAML SSO na sua organização sem exigir que todos os integrantes o utilizem. A habilitação (em vez da aplicação) do SAML SSO facilitará a adoção dele pela organização. Depois que a maioria dos integrantes da sua organização já estiver usando o SAML SSO, você poderá aplicá-lo a toda a organização.
 
+{% data reusables.saml.ghec-only %}
+
 Se você habilitar em vez de aplicar o SAML SSO, os integrantes da organização que preferem não usá-lo poderão continuar sendo integrantes da organização. Para obter mais informações sobre a aplicação do SAML SSO, consulte "[Aplicar logon único de SAML para sua organização](/articles/enforcing-saml-single-sign-on-for-your-organization)".
 
 {% data reusables.saml.outside-collaborators-exemption %}
 
-## Habilitar e testar logon único de SAML para sua organização
+{% data reusables.saml.saml-disabled-linked-identities-removed %}
 
-{% data reusables.saml.saml-requires-ghec %}{% ifversion fpt %} {% data reusables.enterprise.link-to-ghec-trial %}{% endif %}
+## Habilitar e testar logon único de SAML para sua organização
 
 Antes de aplicar o SAML SSO na sua organização, certifique-se de preparar a organização. Para obter mais informações, consulte "[Preparar para aplicar logon único de SAML na organização](/articles/preparing-to-enforce-saml-single-sign-on-in-your-organization)".
 
@@ -58,3 +58,4 @@ Para obter mais informações sobre os provedores de identidade (IdPs) que {% da
 ## Leia mais
 
 - "[Sobre gerenciamento de identidade e acesso com o SAML de logon único](/articles/about-identity-and-access-management-with-saml-single-sign-on)"
+- "[Referência da configuração do SAML](/admin/identity-and-access-management/using-saml-for-enterprise-iam/saml-configuration-reference)"

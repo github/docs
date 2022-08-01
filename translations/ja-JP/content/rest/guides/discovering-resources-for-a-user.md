@@ -2,7 +2,7 @@
 title: ユーザのリソースを調べる
 intro: REST APIに対する認証済みリクエストにおいて、アプリケーションがアクセスできるユーザのリポジトリやOrganizationを確実に調べる方法を学びます。
 redirect_from:
-  - /guides/discovering-resources-for-a-user/
+  - /guides/discovering-resources-for-a-user
   - /v3/guides/discovering-resources-for-a-user
 versions:
   fpt: '*'
@@ -14,11 +14,11 @@ topics:
 shortTitle: ユーザのリソースを見つける
 ---
 
- 
 
-When making authenticated requests to the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API, applications often need to fetch the current user's repositories and organizations. このガイドでは、これらのリソースを確実に調べる方法について説明します。
 
-To interact with the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API, we'll be using [Octokit.rb][octokit.rb]. このプロジェクトの完全なソースコードは、[platform-samples][platform samples]リポジトリにあります。
+{% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} APIに対して認証済みのリクエストを行う際には、アプリケーションがカレントユーザのリポジトリやOrganizationをフェッチしなければならないことがしばしばあります。 このガイドでは、これらのリソースを確実に調べる方法について説明します。
+
+{% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} APIとやりとりをするために、[Octokit.rb][octokit.rb]を使います。 このプロジェクトの完全なソースコードは、[platform-samples][platform samples]リポジトリにあります。
 
 ## はじめましょう
 
@@ -26,7 +26,7 @@ To interact with the {% ifversion fpt or ghec %}{% data variables.product.prodna
 
 ## アプリケーションでアクセス可能なユーザのリポジトリを調べる
 
-ユーザは、個人でリポジトリを所有する他に、別のユーザやOrganizationが所有するリポジトリのコラボレータであることもあります。 まとめると、ユーザが権限を持ってアクセスできるリポジトリがあります。それはユーザが読み取りあるいは書き込みアクセスを持つプライベートリポジトリであったり、ユーザが書き込み権限を持つ{% ifversion not ghae %}パブリック{% else %}インターナル{% endif %}リポジトリであったりします。
+ユーザは、個人でリポジトリを所有する他に、別のユーザやOrganizationが所有するリポジトリのコラボレータであることもあります。 まとめると、ユーザが権限を持ってアクセスできるリポジトリがあります。それはユーザが読み取りあるいは書き込みアクセスを持つプライベートリポジトリであったり、ユーザが書き込み権限を持つ{% ifversion fpt %}パブリック{% elsif ghec or ghes %}パブリックもしくはインターナル{% elsif ghae %}インターナル{% endif %}リポジトリであったりします。
 
 アプリがユーザのどのリポジトリにアクセスできるかを決めるのは、[OAuthスコープ][scopes]および[Organizationのアプリケーションポリシー][oap]です。 以下のワークフローを使用して、これらのリポジトリを調べます。
 

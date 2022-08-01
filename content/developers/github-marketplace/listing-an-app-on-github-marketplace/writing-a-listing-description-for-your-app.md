@@ -2,13 +2,13 @@
 title: Writing a listing description for your app
 intro: 'To [list your app](/marketplace/listing-on-github-marketplace/) in the {% data variables.product.prodname_marketplace %}, you''ll need to write descriptions of your app and provide images that follow GitHub''s guidelines.'
 redirect_from:
-  - /apps/marketplace/getting-started-with-github-marketplace-listings/guidelines-for-writing-github-app-descriptions/
-  - /apps/marketplace/creating-and-submitting-your-app-for-approval/writing-github-app-descriptions/
-  - /apps/adding-integrations/listing-apps-on-github-marketplace/guidelines-for-creating-a-github-marketplace-listing/
-  - /apps/marketplace/listing-apps-on-github/guidelines-for-creating-a-github-marketplace-listing/
-  - /apps/marketplace/getting-started-with-github-marketplace-listings/guidelines-for-creating-github-marketplace-listing-images/
-  - /apps/marketplace/creating-and-submitting-your-app-for-approval/creating-github-marketplace-listing-images/
-  - /apps/marketplace/listing-on-github-marketplace/writing-github-marketplace-listing-descriptions/
+  - /apps/marketplace/getting-started-with-github-marketplace-listings/guidelines-for-writing-github-app-descriptions
+  - /apps/marketplace/creating-and-submitting-your-app-for-approval/writing-github-app-descriptions
+  - /apps/adding-integrations/listing-apps-on-github-marketplace/guidelines-for-creating-a-github-marketplace-listing
+  - /apps/marketplace/listing-apps-on-github/guidelines-for-creating-a-github-marketplace-listing
+  - /apps/marketplace/getting-started-with-github-marketplace-listings/guidelines-for-creating-github-marketplace-listing-images
+  - /apps/marketplace/creating-and-submitting-your-app-for-approval/creating-github-marketplace-listing-images
+  - /apps/marketplace/listing-on-github-marketplace/writing-github-marketplace-listing-descriptions
   - /marketplace/listing-on-github-marketplace/writing-github-marketplace-listing-descriptions
   - /developers/github-marketplace/writing-a-listing-description-for-your-app
 versions:
@@ -166,7 +166,7 @@ You can add more information in the optional "Detailed description" field. You s
 
   ### Learn the skills you need
 
-  GitHub Learning Lab can help you learn how to use GitHub, communicate more effectively with Markdown, handle merge conflicts, and more.
+  GitHub Skills can help you learn how to use GitHub, communicate more effectively with Markdown, handle merge conflicts, and more.
 
 - Only capitalize proper nouns.
 

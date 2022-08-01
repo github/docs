@@ -2,7 +2,7 @@
 title: Duplicar um repositório
 intro: 'Para manter um espelho de um repositório sem a bifurcação, é possível executar um comando especial de clone e, em seguida, fazer push do espelho para o novo repositório.'
 redirect_from:
-  - /articles/duplicating-a-repo/
+  - /articles/duplicating-a-repo
   - /articles/duplicating-a-repository
   - /github/creating-cloning-and-archiving-repositories/duplicating-a-repository
   - /github/creating-cloning-and-archiving-repositories/creating-a-repository-on-github/duplicating-a-repository
@@ -19,7 +19,7 @@ topics:
 
 {% note %}
 
-**Observação:** Se você tem um projeto hospedado em outro sistema de controle de versão, você poderá importar automaticamente seu projeto para {% data variables.product.prodname_dotcom %} usando a ferramenta Importador de {% data variables.product.prodname_dotcom %}. Para obter mais informações, consulte "[Sobre o importador de {% data variables.product.prodname_dotcom %}](/github/importing-your-projects-to-github/importing-source-code-to-github/about-github-importer)."
+**Observação:** Se você tem um projeto hospedado em outro sistema de controle de versão, você poderá importar automaticamente seu projeto para {% data variables.product.prodname_dotcom %} usando a ferramenta Importador de {% data variables.product.prodname_dotcom %}. Para obter mais informações, consulte "[Sobre o importador de {% data variables.product.prodname_dotcom %}](/get-started/importing-your-projects-to-github/importing-source-code-to-github/about-github-importer)."
 
 {% endnote %}
 
@@ -36,13 +36,13 @@ Antes de fazer push do repositório original para sua nova cópia ou _espelho_ d
   ```
 3. Faça espelhamento/push no novo repositório.
   ```shell
-  $ cd <em>old-repository</em>
+  $ cd <em>old-repository.git</em>
   $ git push --mirror https://{% data variables.command_line.codeblock %}/<em>exampleuser</em>/<em>new-repository</em>.git
   ```
 4. Remova o repositório local temporário que você criou anteriormente.
   ```shell
   $ cd ..
-  $ rm -rf <em>old-repository</em>
+  $ rm -rf <em>old-repository.git</em>
   ```
 
 ## Espelhar um repositório que contém objetos do {% data variables.large_files.product_name_long %}
@@ -54,7 +54,7 @@ Antes de fazer push do repositório original para sua nova cópia ou _espelho_ d
   ```
 3. Navegue até o repositório que você acabou de clonar.
   ```shell
-  $ cd <em>old-repository</em>
+  $ cd <em>old-repository.git</em>
   ```
 4. Extraia os objetos do {% data variables.large_files.product_name_long %} do repositório.
   ```shell
@@ -71,7 +71,7 @@ Antes de fazer push do repositório original para sua nova cópia ou _espelho_ d
 7. Remova o repositório local temporário que você criou anteriormente.
   ```shell
   $ cd ..
-  $ rm -rf <em>old-repository</em>
+  $ rm -rf <em>old-repository.git</em>
   ```
 
 ## Espelhar um repositório em outro local
@@ -100,6 +100,6 @@ Assim como um clone bare, um clone espelhado inclui todos os branches remotes e 
 
 * "[Enviando por push as alterações para o GitHub](/desktop/contributing-and-collaborating-using-github-desktop/making-changes-in-a-branch/pushing-changes-to-github#pushing-changes-to-github)"
 * "[Sobre o armazenamento de arquivos grandes do Git e do GitHub Desktop](/desktop/getting-started-with-github-desktop/about-git-large-file-storage-and-github-desktop)"
-* "[Sobre o Importador do GitHub](/github/importing-your-projects-to-github/importing-source-code-to-github/about-github-importer)"
+* "[Sobre o Importador do GitHub](/get-started/importing-your-projects-to-github/importing-source-code-to-github/about-github-importer)"
 
 {% endif %}

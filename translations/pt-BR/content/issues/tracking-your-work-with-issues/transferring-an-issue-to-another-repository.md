@@ -16,17 +16,19 @@ topics:
 shortTitle: Transferir um problema
 ---
 
-To transfer an open issue to another repository, you must have write access to the repository the issue is in and the repository you're transferring the issue to. For more information, see "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)."
+Para transferir um problema aberto para outro repositório, é preciso ter acesso de gravação no repositório em que o problema está e no repositório para onde você está transferindo o problema. Para obter mais informações, consulte "[Funções do repositório para uma organização](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)".
 
-Você somente pode transferir problemas entre repositórios pertencentes à mesma conta de usuário ou organização. {% ifversion fpt or ghes or ghec %}Você não pode transferir um problema de um repositório privado para um repositório público.{% endif %}
+{% note %}
 
-Quando você transfere um problema, os comentários e responsáveis são mantidos. As etiquetas e os marcos do problema não são retidos. Esse problema permanecerá em qualquer quadro de projeto pertencente ao usuário ou à organização e será removido dos quadros de projeto de todos os repositórios. Para obter mais informações, consulte "[Sobre quadros de projeto](/articles/about-project-boards)".
+**Observação**: Você só pode transferir problemas entre repositórios pertencentes à mesma conta de usuário ou de organização. {% ifversion fpt or ghes or ghec %}Um problema de repositório privado não pode ser transferido para um repositório público.{% endif %}
+
+{% endnote %}
+
+Ao transferir um problema, os comentários, etiquetas e responsáveis são mantidos. Os marcos do problema não são mantidos. Esse problema permanecerá em qualquer quadro de projeto pertencente ao usuário ou à organização e será removido dos quadros de projeto de todos os repositórios. Para obter mais informações, consulte "[Sobre quadros de projeto](/articles/about-project-boards)".
 
 As pessoas ou equipes mencionadas no problema receberão uma notificação informando que o problema foi transferido para um novo repositório. O URL original redirecionará para o novo URL do problema. As pessoas que não tenham permissões de leitura no novo repositório verão um banner informando que o problema foi transferido para um novo repositório ao qual elas não têm acesso.
 
 ## Transferir um problema aberto para outro repositório
-
-{% include tool-switcher %}
 
 {% webui %}
 

@@ -11,9 +11,8 @@ shortTitle: 查看作业执行时间
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
-仅为在私有仓库上运行，使用 {% data variables.product.prodname_dotcom %}- 托管的运行器的作业显示可计费作业执行分钟数。 如果在公共仓库中使用 {% data variables.product.prodname_actions %}，或在自托管的运行器中运行作业时，将没有可计费分钟数。
+计费作业执行分钟数仅显示在使用 {% data variables.product.prodname_dotcom %} 托管运行器的私有存储库上运行的作业，并四舍五入到下一分钟。 如果在公共仓库中使用 {% data variables.product.prodname_actions %}，或在自托管的运行器中运行作业时，将没有可计费分钟数。
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.actions-tab %}
@@ -23,6 +22,6 @@ shortTitle: 查看作业执行时间
 
    {% note %}
 
-   **注意：**显示的可计费时间不包括任何四舍五入或分钟乘数。 要查看您的 {% data variables.product.prodname_actions %} 总使用情况，包括四舍五入和分钟乘法，请参阅"[查看您的 {% data variables.product.prodname_actions %} 使用情况](/billing/managing-billing-for-github-actions/viewing-your-github-actions-usage)。"
+   **注意：** 显示的计费时间不包括任何分钟乘数。 要查看您的 {% data variables.product.prodname_actions %} 总使用情况，包括分钟乘法，请参阅"[查看您的 {% data variables.product.prodname_actions %} 使用情况](/billing/managing-billing-for-github-actions/viewing-your-github-actions-usage)。"
 
    {% endnote %}

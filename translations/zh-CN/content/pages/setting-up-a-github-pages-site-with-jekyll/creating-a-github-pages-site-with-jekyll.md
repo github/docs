@@ -32,6 +32,7 @@ shortTitle: 使用 Jekyll 创建站点
 
 {% data reusables.repositories.create_new %}
 {% data reusables.repositories.owner-drop-down %}
+{% indented_data_reference reusables.pages.emu-org-only spaces=3 %}
 {% data reusables.pages.create-repo-name %}
 {% data reusables.repositories.choose-repo-visibility %}
 
@@ -68,7 +69,9 @@ shortTitle: 使用 Jekyll 创建站点
  如果选择从 `gh-pages` 分支发布站点，则创建并检出 `gh-pages` 分支。
  ```shell
  $ git checkout --orphan gh-pages
- # Creates a new branch, with no history or contents, called gh-pages and switches to the gh-pages branch
+ # Creates a new branch, with no history or contents, called gh-pages, and switches to the gh-pages branch
+ $ git rm -rf 
+ # Removes the contents from your default branch from the working directory
  ```
 1. 要创建新 Jekyll 站点，请使用 `jekyll new` 命令：
    ```shell
@@ -116,9 +119,9 @@ $ git remote add origin https://<em>HOSTNAME</em>/<em>USER</em>/<em>REPOSITORY</
 {% data reusables.pages.navigate-site-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.pages.sidebar-pages %}
-{% ifversion fpt or ghec %}
-{% data reusables.pages.choose-visibility %}{% endif %}
+{% data reusables.pages.choose-visibility %}
 {% data reusables.pages.visit-site %}
+{% data reusables.pages.check-workflow-run %}
 
 {% data reusables.pages.admin-must-push %}
 

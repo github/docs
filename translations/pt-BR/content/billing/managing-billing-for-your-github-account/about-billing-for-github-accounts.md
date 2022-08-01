@@ -3,12 +3,12 @@ title: Sobre a cobrança de contas do GitHub
 intro: 'O {% data variables.product.company_short %} oferece produtos gratuitos e pagos para cada desenvolvedor ou equipe.'
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-accounts
-  - /articles/what-is-the-total-cost-of-using-an-organization-account/
-  - /articles/what-are-the-costs-of-using-an-organization-account/
-  - /articles/what-plan-should-i-choose/
-  - /articles/do-you-have-custom-plans/
-  - /articles/user-account-billing-plans/
-  - /articles/organization-billing-plans/
+  - /articles/what-is-the-total-cost-of-using-an-organization-account
+  - /articles/what-are-the-costs-of-using-an-organization-account
+  - /articles/what-plan-should-i-choose
+  - /articles/do-you-have-custom-plans
+  - /articles/user-account-billing-plans
+  - /articles/organization-billing-plans
   - /articles/github-s-billing-plans
   - /articles/about-billing-for-github-accounts
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-your-github-account/about-billing-for-github-accounts
@@ -30,7 +30,9 @@ Você pode optar pela cobrança mensal ou anual, além de poder atualizar ou faz
 
 É possível comprar outros recursos e produtos com suas informações de pagamento existentes do {% data variables.product.product_name %}. Para obter mais informações, consulte "[Sobre a cobrança no {% data variables.product.prodname_dotcom %}](/articles/about-billing-on-github)."
 
-{% data reusables.user_settings.context_switcher %}
+{% data reusables.accounts.accounts-billed-separately %}
+
+{% data reusables.user-settings.context_switcher %}
 
 {% tip %}
 

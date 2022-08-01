@@ -19,7 +19,6 @@ shortTitle: Deploy to Google Kubernetes Engine
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## はじめに
 
@@ -27,7 +26,7 @@ This guide explains how to use {% data variables.product.prodname_actions %} to 
 
 GKEはGoogle CloudによるマネージドなKubernetesクラスタサービスで、コンテナ化されたワークロードをクラウドもしくはユーザ自身のデータセンターでホストできます。 詳しい情報については[Google Kubernetes Engine](https://cloud.google.com/kubernetes-engine)を参照してください。
 
-{% ifversion fpt or ghec or ghae-issue-4856 %}
+{% ifversion fpt or ghec or ghae-issue-4856 or ghes > 3.4 %}
 
 {% note %}
 
@@ -91,8 +90,12 @@ $ gcloud services enable \
   ```
   $ gcloud projects add-iam-policy-binding $GKE_PROJECT \
     --member=serviceAccount:$SA_EMAIL \
-    --role=roles/container.admin \
-    --role=roles/storage.admin \
+    --role=roles/container.admin
+  $ gcloud projects add-iam-policy-binding $GKE_PROJECT \
+    --member=serviceAccount:$SA_EMAIL \
+    --role=roles/storage.admin
+  $ gcloud projects add-iam-policy-binding $GKE_PROJECT \
+    --member=serviceAccount:$SA_EMAIL \
     --role=roles/container.clusterViewer
   ```
   {% endraw %}
@@ -115,13 +118,11 @@ $ gcloud services enable \
 Store the name of your project as a secret named `GKE_PROJECT`. For more information about how to store a secret, see "[Encrypted secrets](/actions/security-guides/encrypted-secrets)."
 
 ### （オプション）kustomizeの設定
-Kustomizeは、YAML仕様を管理するために使われるオプションのツールです。 _kustomization_ ファイルの作成後、以下のワークフローを使用して、イメージのフィールドを動的に設定し、結果を `kubectl` にパイプすることができます。 詳しい情報については、「[kustomize の使い方](https://github.com/kubernetes-sigs/kustomize#usage)」を参照してください。
+Kustomizeは、YAML仕様を管理するために使われるオプションのツールです。 After creating a `kustomization` file, the workflow below can be used to dynamically set fields of the image and pipe in the result to `kubectl`. 詳しい情報については、「[kustomize の使い方](https://github.com/kubernetes-sigs/kustomize#usage)」を参照してください。
 
-{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
 ### (Optional) Configure a deployment environment
 
 {% data reusables.actions.about-environments %}
-{% endif %}
 
 ## ワークフローの作成
 
@@ -135,6 +136,8 @@ Under the `env` key, change the value of `GKE_CLUSTER` to the name of your clust
 
 ```yaml{:copy}
 {% data reusables.actions.actions-not-certified-by-github-comment %}
+
+{% data reusables.actions.actions-use-sha-pinning-comment %}
 
 name: Build and Deploy to GKE
 
@@ -158,7 +161,7 @@ jobs:
 
     steps:
     - name: Checkout
-      uses: actions/checkout@v2
+      uses: {% data reusables.actions.action-checkout %}
 
     # Setup gcloud CLI
     - uses: google-github-actions/setup-gcloud@94337306dda8180d967a56932ceb4ddcf01edae7

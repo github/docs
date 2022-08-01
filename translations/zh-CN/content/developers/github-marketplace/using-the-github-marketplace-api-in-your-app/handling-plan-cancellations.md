@@ -2,8 +2,8 @@
 title: 处理计划取消
 intro: '取消 {% data variables.product.prodname_marketplace %} 应用程序将触发 [`marketplace_purchase` 事件](/marketplace/integrating-with-the-github-marketplace-api/github-marketplace-webhook-events) web 挂钩，挂钩中带有可启动取消流程的 `cancelled` 操作。'
 redirect_from:
-  - /apps/marketplace/administering-listing-plans-and-user-accounts/cancelling-plans/
-  - /apps/marketplace/integrating-with-the-github-marketplace-api/cancelling-plans/
+  - /apps/marketplace/administering-listing-plans-and-user-accounts/cancelling-plans
+  - /apps/marketplace/integrating-with-the-github-marketplace-api/cancelling-plans
   - /marketplace/integrating-with-the-github-marketplace-api/cancelling-plans
   - /developers/github-marketplace/handling-plan-cancellations
 versions:

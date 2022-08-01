@@ -3,7 +3,7 @@ title: 关于协作开发模式
 intro: 使用拉取请求的方式取决于项目中使用的开发模型类型。 您可以使用复刻和拉取模型或共享仓库模型。
 redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/getting-started/about-collaborative-development-models
-  - /articles/types-of-collaborative-development-models/
+  - /articles/types-of-collaborative-development-models
   - /articles/about-collaborative-development-models
   - /github/collaborating-with-issues-and-pull-requests/about-collaborative-development-models
   - /github/collaborating-with-pull-requests/getting-started/about-collaborative-development-models
@@ -23,7 +23,7 @@ shortTitle: 协作开发
 
 {% tip %}
 
-**提示：** {% data reusables.open-source.open-source-guide-general %} {% data reusables.open-source.open-source-learning-lab %}
+**提示：** {% data reusables.open-source.open-source-guide-general %} {% data reusables.open-source.open-source-learning %}
 
 {% endtip %}
 

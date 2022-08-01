@@ -2,7 +2,7 @@
 title: Entender a sintaxe de pesquisa
 intro: 'Durante a pesquisa no {% data variables.product.product_name %}, é possível criar consultas que correspondam a palavras e números específicos.'
 redirect_from:
-  - /articles/search-syntax/
+  - /articles/search-syntax
   - /articles/understanding-the-search-syntax
   - /github/searching-for-information-on-github/understanding-the-search-syntax
   - /github/searching-for-information-on-github/getting-started-with-searching-on-github/understanding-the-search-syntax
@@ -61,7 +61,7 @@ Você pode usar `>`, `>=`, `<`, `<=` e [consultas de intervalo](#query-for-value
 | Consulta                   | Exemplo                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
 | -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | <code><em>YYYY</em>-<em>MM</em>-<em>DD</em>T<em>HH</em>:<em>MM</em>:<em>SS</em>+<em>00</em>:<em>00</em></code> | **[cats created:2017-01-01T01:00:00+07:00..2017-03-01T15:30:15+07:00](https://github.com/search?utf8=%E2%9C%93&q=cats+created%3A2017-01-01T01%3A00%3A00%2B07%3A00..2017-03-01T15%3A30%3A15%2B07%3A00&type=Issues)** corresponde a problemas criados entre 01 de janeiro de 2017 à 1h, com uma diferença de fuso horário de `07:00` em relação ao UTC, e 01 de março de 2017 às 15h, com uma diferença de fuso horário de `07:00` em relação ao UTC. com um ajuste de UTC de `07:00` e 1 de março de 2017 às 15h. com um ajuste de UTC de `07:00`. |
-| <code><em>YYYY</em>-<em>MM</em>-<em>DD</em>T<em>HH</em>:<em>MM</em>:<em>SS</em>Z</code> | **[cats created:2016-03-21T14:11:00Z..2016-04-07T20:45:00Z](https://github.com/search?utf8=%E2%9C%93&q=cats+created%3A2016-03-21T14%3A11%3A00Z..2016-04-07T20%3A45%3A00Z&type=Issues)** corresponde a problemas criados entre 21 de março de 2016 às 14h11 e 07 de abril de 2106 às 20h45.                                                                                                                                                                                                                                                        |
+| <code><em>YYYY</em>-<em>MM</em>-<em>DD</em>T<em>HH</em>:<em>MM</em>:<em>SS</em>Z</code> | **[cats created:2016-03-21T14:11:00Z..2016-04-07T20:45:00Z](https://github.com/search?utf8=%E2%9C%93&q=cats+created%3A2016-03-21T14%3A11%3A00Z..2016-04-07T20%3A45%3A00Z&type=Issues)** corresponde a problemas criados entre 21 de março de 2016 às 14h11 e 07 de abril de 2016 às 20h45.                                                                                                                                                                                                                                                        |
 
 ## Excluir determinados resultados
 
@@ -73,9 +73,10 @@ Usando a sintaxe `NOT`, é possível excluir resultados contendo uma determinada
 
 Outra maneira de restringir os resultados da pesquisa é excluir determinados subconjuntos. Adicione um prefixo a qualquer qualificador de pesquisa com um `-` para excluir todos os resultados correspondentes a esse qualificador.
 
-| Consulta                   | Exemplo                                                                                                                                                                                                                 |
-| -------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <code>-<em>QUALIFIER</em></code> | **[mentions:defunkt -org:github](https://github.com/search?utf8=%E2%9C%93&q=mentions%3Adefunkt+-org%3Agithub&type=Issues)** matches issues mentioning @defunkt that are not in repositories in the GitHub organization. |
+| Consulta                   | Exemplo                                                                                                                                                                                                                                                |
+| -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| <code>-<em>QUALIFIER</em></code> | **[`cats stars:>10 -language:javascript`](https://github.com/search?q=cats+stars%3A>10+-language%3Ajavascript&type=Repositories)** corresponde repositórios com a palavra "cats" com mais de 10 estrelas, mas que não estão gravados no JavaScript. |
+|                            | **[`mentions:defunkt -org:github`](https://github.com/search?utf8=%E2%9C%93&q=mentions%3Adefunkt+-org%3Agithub&type=Issues)** corresponde problemas que mencionam @defunkt que não estão em repositórios na organização do GitHub                      |
 
 ## Usar aspas para consultas com espaço em branco
 
@@ -86,7 +87,6 @@ Se a consulta de pesquisa contém espaço em branco, é preciso colocá-lo entre
 
 Alguns símbolos não alfanuméricos, como espaços, são descartados de consultas de pesquisa de código entre aspas, por isso os resultados podem ser inesperados.
 
-{% ifversion fpt or ghes or ghae or ghec %}
 ## Consultas com nomes de usuário
 
 Se sua consulta de pesquisa contiver um qualificador que exige um nome de usuário, como, por exemplo, `usuário`, `ator` ou `responsável`, você poderá usar qualquer nome de usuário de {% data variables.product.product_name %}, para especificar uma pessoa específica ou `@me` para especificar o usuário atual.
@@ -97,4 +97,3 @@ Se sua consulta de pesquisa contiver um qualificador que exige um nome de usuár
 | `QUALIFIER:@me`      | [`is:issue assignee:@me`](https://github.com/search?q=is%3Aissue+assignee%3A%40me&type=Issues) corresponde a problemas atribuídos à pessoa que está visualizando os resultados |
 
 Você só pode usar `@me` com um qualificador e não como termo de pesquisa, como `@me main.workflow`.
-{% endif %}

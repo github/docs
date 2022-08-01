@@ -2,9 +2,9 @@
 title: Excluir e restaurar branches em uma pull request
 intro: 'Se você tem acesso de gravação em um repositório, pode excluir os branches que estão associados a pull requests fechadas ou mescladas. Não é possível excluir branches associados a pull requests abertas.'
 redirect_from:
-  - /articles/tidying-up-pull-requests/
-  - /articles/restoring-branches-in-a-pull-request/
-  - /articles/deleting-unused-branches/
+  - /articles/tidying-up-pull-requests
+  - /articles/restoring-branches-in-a-pull-request
+  - /articles/deleting-unused-branches
   - /articles/deleting-and-restoring-branches-in-a-pull-request
   - /github/administering-a-repository/deleting-and-restoring-branches-in-a-pull-request
   - /github/administering-a-repository/managing-branches-in-your-repository/deleting-and-restoring-branches-in-a-pull-request

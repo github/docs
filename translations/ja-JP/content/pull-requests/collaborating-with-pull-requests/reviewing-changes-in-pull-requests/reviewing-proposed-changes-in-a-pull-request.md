@@ -24,14 +24,12 @@ shortTitle: Review proposed changes
 
 ## レビューを開始する
 
-{% include tool-switcher %}
-
 {% webui %}
 
 {% data reusables.repositories.sidebar-pr %}
 {% data reusables.repositories.choose-pr-review %}
 {% data reusables.repositories.changed-files %}
-{% ifversion fpt or ghec or ghes > 3.2 or ghae-next %}
+{% ifversion fpt or ghec or ghes > 3.3 or ghae %}
 
    You can change the format of the diff view in this tab by clicking {% octicon "gear" aria-label="The Settings gear" %} and choosing the unified or split view. The choice you make will apply when you view the diff for other pull requests.
 
@@ -39,6 +37,7 @@ shortTitle: Review proposed changes
 
    You can also choose to hide whitespace differences. The choice you make only applies to this pull request and will be remembered the next time you visit this page.
 {% endif %}
+1. Optionally, filter the files to show only the files you want to review{% ifversion pr-tree-view %} or use the file tree to navigate to a specific file{% endif %}. For more information, see "[Filtering files in a pull request](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/filtering-files-in-a-pull-request)."
 {% data reusables.repositories.start-line-comment %}
 {% data reusables.repositories.type-line-comment %}
 {% data reusables.repositories.suggest-changes %}
@@ -55,21 +54,21 @@ shortTitle: Review proposed changes
 
 {% codespaces %}
 
-You can use [{% data variables.product.prodname_codespaces %}](/codespaces/overview) to test, run, and review pull requests.
+You can use [{% data variables.product.prodname_github_codespaces %}](/codespaces/overview) to test, run, and review pull requests.
 
 {% data reusables.codespaces.review-pr %}
 
-For more information on reviewing pull requests in {% data variables.product.prodname_codespaces %}, see "[Using Codespaces for pull requests](/codespaces/developing-in-codespaces/using-codespaces-for-pull-requests)."
+For more information on reviewing pull requests in {% data variables.product.prodname_codespaces %}, see "[Using {% data variables.product.prodname_github_codespaces %} for pull requests](/codespaces/developing-in-codespaces/using-github-codespaces-for-pull-requests)."
 
 {% endcodespaces %}
 {% endif %}
 
-{% ifversion fpt or ghes > 3.1 or ghec %}
+{% ifversion fpt or ghes or ghec %}
 ## 依存関係の変更をレビューする
 
 {% data reusables.dependency-review.beta %}
 
-プルリクエストに依存関係への変更が含まれている場合は、マニフェストまたはロックファイルの依存関係のレビューを使用して、何が変更されたかを確認し、変更によるセキュリティの脆弱性の発生の有無を確認できます。 詳しい情報については「[Pull Request中の依存関係の変更のレビュー](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/incorporating-feedback-in-your-pull-request)」を参照してください。
+プルリクエストに依存関係への変更が含まれている場合は、マニフェストまたはロックファイルの依存関係のレビューを使用して、何が変更されたかを確認し、変更によるセキュリティの脆弱性の発生の有無を確認できます。 詳しい情報については「[Pull Request中の依存関係の変更のレビュー](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-dependency-changes-in-a-pull-request)」を参照してください。
 
 {% data reusables.repositories.changed-files %}
 

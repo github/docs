@@ -2,8 +2,8 @@
 title: 创建文件的永久链接
 intro: '在 {% data variables.product.product_location %} 上查看文件时，您可以按 "y" 键将 URL 更新为指向所查看文件精确版本的永久链接。'
 redirect_from:
-  - /articles/getting-a-permanent-link-to-a-file/
-  - /articles/how-do-i-get-a-permanent-link-from-file-view-to-permanent-blob-url/
+  - /articles/getting-a-permanent-link-to-a-file
+  - /articles/how-do-i-get-a-permanent-link-from-file-view-to-permanent-blob-url
   - /articles/getting-permanent-links-to-files
   - /github/managing-files-in-a-repository/getting-permanent-links-to-files
   - /github/managing-files-in-a-repository/managing-files-on-github/getting-permanent-links-to-files
@@ -33,7 +33,7 @@ shortTitle: 文件的永久链接
 
 分支头部的文件版本可能会随着新的提交而改变，因此如果您复制常规的 URL，当以后有人查看时，文件内容可能会不同。
 
-## 按 <kbd>y</kbd> 键可永久链接到特定提交中的文件
+## 按 <kbd>Y</kbd> 键可永久链接到特定提交中的文件
 
 要创建所查看文件特定版本的永久链接，不要在 URL 中使用分支名称（例如上例中的 `main` 部分），而是输入提交 id。  这将永久链接到该提交中文件的精确版本。  例如：
 

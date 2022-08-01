@@ -17,13 +17,12 @@ shortTitle: Build & test Swift
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## はじめに
 
 このガイドでは、Swift パッケージをビルドしてテストする方法を説明します。
 
-{% ifversion ghae %} To build and test your Swift project on {% data variables.product.prodname_ghe_managed %}, you will need to create a custom operating system image that includes the necessary Swift dependencies. {% data variables.actions.hosted_runner %} に必要なソフトウェアがインストールされていることを確認する方法については、「[カスタムイメージの作成](/actions/using-github-hosted-runners/creating-custom-images)」を参照してください。
+{% ifversion ghae %} To build and test your Swift project on {% data variables.product.prodname_ghe_managed %}, the necessary Swift dependencies are required. {% data reusables.actions.self-hosted-runners-software %}
 {% else %}{% data variables.product.prodname_dotcom %} ホストランナーには、ソフトウェアがプリインストールされたツールキャッシュがあり、Ubuntu および macOS ランナーには、Swift パッケージをビルドするための依存関係が含まれています。 最新のソフトウェアとプレインストールされたバージョンの Swift および Xcode の完全なリストについては、「[GitHub ホストランナーについて](/actions/using-github-hosted-runners/about-github-hosted-runners#supported-software)」を参照してください。{% endif %}
 
 ## 必要な環境
@@ -32,13 +31,12 @@ YAMLの構文と、{% data variables.product.prodname_actions %}でのYAMLの使
 
 Swift パッケージの基本を理解しておくことをお勧めします。 詳細については、Apple 開発者ドキュメントの「[Swift パッケージ](https://developer.apple.com/documentation/swift_packages)」を参照してください。
 
-## Swift ワークフローテンプレートを使い始める
+## Using the Swift starter workflow
 
-{% data variables.product.prodname_dotcom %} は、ほとんどの Swift プロジェクトで機能する Swift ワークフローテンプレートを提供しています。このガイドには、このテンプレートをカスタマイズする方法の例が含まれています。 詳しい情報については、[Swift ワークフローテンプレート](https://github.com/actions/starter-workflows/blob/main/ci/swift.yml)を参照してください。
+{% data variables.product.prodname_dotcom %} provides a Swift starter workflow that should work for most Swift projects, and this guide includes examples that show you how to customize this starter workflow. For more information, see the [Swift starter workflow](https://github.com/actions/starter-workflows/blob/main/ci/swift.yml).
 
-手早く始めるために、テンプレートをリポジトリの`.github/workflows`ディレクトリに追加してください。
+To get started quickly, add the starter workflow to the `.github/workflows` directory of your repository.
 
-{% raw %}
 ```yaml{:copy}
 name: Swift
 
@@ -50,13 +48,12 @@ jobs:
     runs-on: macos-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: {% data reusables.actions.action-checkout %}
       - name: Build
         run: swift build
       - name: Run tests
         run: swift test
 ```
-{% endraw %}
 
 ## Swift バージョンの指定
 
@@ -68,10 +65,14 @@ jobs:
 
 ### 複数の Swift バージョンを使用する
 
-ビルドマトリックスで Swift の複数のバージョンを使用するようにジョブを設定できます。
+You can configure your job to use multiple versions of Swift in a matrix.
 
 ```yaml{:copy}
+
 {% data reusables.actions.actions-not-certified-by-github-comment %}
+
+{% data reusables.actions.actions-use-sha-pinning-comment %}
+
 
 name: Swift
 
@@ -86,10 +87,10 @@ jobs:
         swift: ["5.2", "5.3"]
     runs-on: {% raw %}${{ matrix.os }}{% endraw %}
     steps:
-      - uses: fwal/setup-swift@d43a564349d1341cd990cfbd70d94d63b8899475
+      - uses: fwal/setup-swift@2040b795e5c453c3a05fcb8316496afc8a74f192
         with:
           swift-version: {% raw %}${{ matrix.swift }}{% endraw %}
-      - uses: actions/checkout@
+      - uses: {% data reusables.actions.action-checkout %}
       - name: Build
         run: swift build
       - name: Run tests
@@ -103,7 +104,7 @@ jobs:
 {% raw %}
 ```yaml{:copy}
 steps:
-  - uses: fwal/setup-swift@d43a564349d1341cd990cfbd70d94d63b8899475
+  - uses: fwal/setup-swift@2040b795e5c453c3a05fcb8316496afc8a74f192
     with:
       swift-version: "5.3.3"
   - name: Get swift version
@@ -115,11 +116,10 @@ steps:
 
 ローカルで使うのと同じコマンドを使用して、Swift でコードをビルドおよびテストできます。 以下は、ジョブでの `swift build` と `swift test` の使用例です。
 
-{% raw %}
 ```yaml{:copy}
 steps:
-  - uses: actions/checkout@v2
-  - uses: fwal/setup-swift@d43a564349d1341cd990cfbd70d94d63b8899475
+  - uses: {% data reusables.actions.action-checkout %}
+  - uses: fwal/setup-swift@2040b795e5c453c3a05fcb8316496afc8a74f192
     with:
       swift-version: "5.3.3"
   - name: Build
@@ -127,4 +127,3 @@ steps:
   - name: Run tests
     run: swift test
 ```
-{% endraw %}

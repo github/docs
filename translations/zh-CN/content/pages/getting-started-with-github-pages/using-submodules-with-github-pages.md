@@ -2,7 +2,7 @@
 title: 将子模块用于 GitHub Pages
 intro: '您可以将子模块用于 {% data variables.product.prodname_pages %} 以在站点代码中包含其他项目。'
 redirect_from:
-  - /articles/using-submodules-with-pages/
+  - /articles/using-submodules-with-pages
   - /articles/using-submodules-with-github-pages
   - /github/working-with-github-pages/using-submodules-with-github-pages
 product: '{% data reusables.gated-features.pages %}'

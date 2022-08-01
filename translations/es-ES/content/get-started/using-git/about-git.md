@@ -1,6 +1,6 @@
 ---
-title: About Git
-intro: 'Learn about the version control system, Git, and how it works with {% data variables.product.product_name %}.'
+title: Acerca de Git
+intro: 'Aprende sobre el sistema de control de versiones, Git y cómo funciona con {% data variables.product.product_name %}.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -13,66 +13,66 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-## About version control and Git
+## Acerca del control de versiones y de Git
 
-A version control system, or VCS, tracks the history of changes as people and teams collaborate on projects together. As developers make changes to the project, any earlier version of the project can be recovered at any time.
+Un sistema de control de versiones o VCS (Version Control System, por sus siglas en inglés), rastrea el historial de cambios conforme las personas y los equipos colaboran juntos en los proyectos. Conforme los desarrolladores hacen cambios al proyecto, cualquier versión anterior de este puede recuperarse en cualquier momento.
 
-Developers can review project history to find out:
+Los desarrolladores pueden revisar el historial de proyectos para averiguar:
 
-- Which changes were made?
-- Who made the changes?
-- When were the changes made?
-- Why were changes needed?
+- ¿Qué cambios se hicieron?
+- ¿Quién los hizo?
+- ¿Cuándo se hicieron?
+- ¿Por qué se necesitaban?
 
-VCSs give each contributor a unified and consistent view of a project, surfacing work that's already in progress. Seeing a transparent history of changes, who made them, and how they contribute to the development of a project helps team members stay aligned while working independently.
+Los VCS le proporcionan a cada contribuyente una vista consistente y unificada de un proyecto, lo cual muestra el trabajo que ya está en progreso. El ver un historial de cambios transparente, quién los hizo y cómo contribuyen al desarrollo de un proyecto, ayuda a que los miembros de los equipos se alineen mientras trabajan independientemente.
 
-In a distributed version control system, every developer has a full copy of the project and project history. Unlike once popular centralized version control systems, DVCSs don't need a constant connection to a central repository. Git is the most popular distributed version control system. Git is commonly used for both open source and commercial software development, with significant benefits for individuals, teams and businesses.
+En un sistema de control de versiones distribuido, cada desarrollador tiene una copia integral del proyecto y del historial del mismo. A diferencia de los sistemas de control de versiones centralizados populares, los DVCS necesitan una conexión constante a un repositorio central. Git es el sistema de control de versiones distribuido más popular. Git se utiliza habitualmente tanto para el desarrollo de proyectos de código abierto como comerciales y tiene beneficios significativos para los individuos, equipos y negocios.
 
-- Git lets developers see the entire timeline of their changes, decisions, and progression of any project in one place. From the moment they access the history of a project, the developer has all the context they need to understand it and start contributing.
+- Git permite que los desarrolladores vean la línea de tiempo completa para los cambios, decisiones y progresión de cualquier proyecto en un solo lugar. Desde el momento en el que acceden al historial de un proyecto, el desarrollador tiene todo el contexto que necesitan para entenderlo y comenzar a contribuir.
 
-- Developers work in every time zone. With a DVCS like Git, collaboration can happen any time while maintaining source code integrity. Using branches, developers can safely propose changes to production code.
+- Los desarrolladores trabajan en todos los husos horarios. Con un DVCS como Git, las colaboraciones pueden tomar lugar en cualquier momento, mientras se mantiene la integridad del código fuente. Al utilizar las ramas, los desarrolladores pueden proponer cambios al código de producción de forma segura.
 
-- Businesses using Git can break down communication barriers between teams and keep them focused on doing their best work. Plus, Git makes it possible to align experts across a business to collaborate on major projects.
+- Los negocios que utilizan Git pueden derribar las barreras de comunicación entre los equipos y mantenerlos enfocados en que realicen su mejor trabajo. Además, Git permite alinear a expertos a lo largo de los negocios para que colaboren en los proyectos principales.
 
 ## Acerca de los repositorios
 
-A repository, or Git project, encompasses the entire collection of files and folders associated with a project, along with each file's revision history. The file history appears as snapshots in time called commits. The commits can be organized into multiple lines of development called branches. Because Git is a DVCS, repositories are self-contained units and anyone who has a copy of the repository can access the entire codebase and its history. Using the command line or other ease-of-use interfaces, a Git repository also allows for: interaction with the history, cloning the repository, creating branches, committing, merging, comparing changes across versions of code, and more.
+Un repositorio o proyecto de Git comprende toda la colección de archivos y carpetas asociados con un proyecto, en conjunto con el historial de revisión de cada archivo. El historial del archivo se muestra como capturas de pantalla en el tiempo, las cuales se denominan "confirmaciones". Estas confirmaciones pueden organizarse en varias líneas de desarrollo, llamadas "ramas". Ya que Git es un DVCS, los repositorios son unidades auto-contenidas y cualquiera que tenga una copia del repositorio puede acceder a toda la base de código y a su historial. Utilizando la línea de comandos o cualquier otra interfaz de facilidad de uso, un repositorio de Git también permite: interactuar con el historial, clonar el repositorio, crear ramas, confirmar, fusionar y comparar cambios entre las versiones del código y más.
 
-Through platforms like {% data variables.product.product_name %}, Git also provides more opportunities for project transparency and collaboration. Public repositories help teams work together to build the best possible final product.
+A través de plataformas como {% data variables.product.product_name %}, Git también proporciona más oportunidades para la transparencia y colaboración en los proyectos. Los repositorios públicos hacen que los equipos trabajen en conjunto para crear el mejor producto final posible.
 
-## How {% data variables.product.product_name %} works
+## Cómo funciona {% data variables.product.product_name %}
 
-{% data variables.product.product_name %} hosts Git repositories and provides developers with tools to ship better code through command line features, issues (threaded discussions), pull requests, code review, or the use of a collection of free and for-purchase apps in the {% data variables.product.prodname_marketplace %}. With collaboration layers like the {% data variables.product.product_name %} flow, a community of 15 million developers, and an ecosystem with hundreds of integrations, {% data variables.product.product_name %} changes the way software is built.
+{% data variables.product.product_name %} hospeda repositorios de Git y proporciona a los desarrolladores las herramientas para generar un código mejor mediante características de línea de comandos, propuestas (debates en hilo), solicitudes de cambio, revisión de código o el uso de un conjunto de apps gratuitas y de pago en {% data variables.product.prodname_marketplace %}. Con las capas de colaboración tales como el flujo de {% data variables.product.product_name %}, una comunidad de 15 millones de desarrolladores y un ecosistema con cientos de integraciones, {% data variables.product.product_name %} cambia la forma en la que se crea el software.
 
-{% data variables.product.product_name %} builds collaboration directly into the development process. Work is organized into repositories where developers can outline requirements or direction and set expectations for team members. Then, using the {% data variables.product.product_name %} flow, developers simply create a branch to work on updates, commit changes to save them, open a pull request to propose and discuss changes, and merge pull requests once everyone is on the same page. For more information, see "[GitHub flow](/get-started/quickstart/github-flow)."
+{% data variables.product.product_name %} crea una colaboración directamente en el proceso de desarrollo. El trabajo se organiza en los repositorios donde los desarrolladores pueden describir los requisitos o la dirección y marcar las expectativas para los miembros de los equipos. Posteriormente, utilizando el flujo de {% data variables.product.product_name %}, los desarrolladores simplemente crean una rama para trabajar en las actualizaciones, confirmar cambios para guardarlos, abrir una solicitud de cambios para proponerlos y debatirlos y fusionar solicitudes de cambio una vez que todos estén de acuerdo. Para obtener más información, consulta la sección "[Flujo de GitHub](/get-started/quickstart/github-flow)".
 
-## {% data variables.product.product_name %} and the command line
+## {% data variables.product.product_name %} y la línea de comandos
 
-### Basic Git commands
+### Comandos básicos de Git
 
-To use Git, developers use specific commands to copy, create, change, and combine code. These commands can be executed directly from the command line or by using an application like {% data variables.product.prodname_desktop %}. Here are some common commands for using Git:
+Para utilizar Git, los desarrolladores utilizan comandos específicos para copiar, crear, cambiar y combinar el código. Estos comandos pueden ejecutarse directamente desde la línea de comandos o utilizando una aplicación como {% data variables.product.prodname_desktop %}. Aquí tienes algunos comandos comunes para utilizar Git:
 
-- `git init` initializes a brand new Git repository and begins tracking an existing directory. It adds a hidden subfolder within the existing directory that houses the internal data structure required for version control.
+- `git init` inicializa un repositorio nuevo de Git y comienza a rastrear el directorio existente. Este agrega una subcarpeta oculta dentro del directorio existente que hospeda la estructura de datos interna que se requiere para el control de versiones.
 
-- `git clone` creates a local copy of a project that already exists remotely. The clone includes all the project's files, history, and branches.
+- `git clone` crea una copia local de un proyecto que ya existe remotamente. El clon incluye todos los archivos, historial y ramas del proyecto.
 
-- `git add` stages a change. Git tracks changes to a developer's codebase, but it's necessary to stage and take a snapshot of the changes to include them in the project's history. This command performs staging, the first part of that two-step process. Any changes that are staged will become a part of the next snapshot and a part of the project's history. Staging and committing separately gives developers complete control over the history of their project without changing how they code and work.
+- `git add` prueba un cambio. Git rastrea los cambios que se hacen a la base de código de un desarrollador, pero es necesario probarlos y tomar una captura de pantalla de ellos para incluirla en el historial del proeycto. Este comando realiza pruebas, la primera parte de este proceso de dos pasos. Cualquier cambio que se pruebe, se convertirá en parte de la siguiente captura de pantalla y también del historial del proyecto. Las pruebas y confirmaciones por separado otorgan a los desarrolladores el control completo sobre el historial y sobre el proyecto sin cambiar la forma en la que codifican y trabajan.
 
-- `git commit` saves the snapshot to the project history and completes the change-tracking process. In short, a commit functions like taking a photo. Anything that's been staged with `git add` will become a part of the snapshot with `git commit`.
+- `git commit` guarda la captura de pantalla del historial del proeycto y completa el proceso de rastreo de cambios. En resumen, una confirmación funciona tal como el tomar una fotografía. Todo lo que se pruebe con `git add` se convertirá en parte de la captura de pantalla con `git commit`.
 
-- `git status` shows the status of changes as untracked, modified, or staged.
+- `git status` muestra el estado de los cambios como "sin rastrear", "modificados" o "probados".
 
-- `git branch` shows the branches being worked on locally.
+- `git branch` muestra las ramas en las que se está trabajando localmente.
 
-- `git merge` merges lines of development together. This command is typically used to combine changes made on two distinct branches. For example, a developer would merge when they want to combine changes from a feature branch into the main branch for deployment.
+- `git merge` fusiona las líneas de desarrollo juntas. Este comando habitualmente se utiliza para combinar los cambios que se realizan en dos ramas distintas. Por ejemplo, un desarrollador podría hacer una fusión cuando necesite combinar los cambios de una rama de característica en la rama de desarrollo principal.
 
-- `git pull` updates the local line of development with updates from its remote counterpart. Developers use this command if a teammate has made commits to a branch on a remote, and they would like to reflect those changes in their local environment.
+- `git pull` actualiza la línea de desarrollo local con actualizaciones de sus contrapartes remotas. Los desarrolladores utilizan este comando si un compañero de equipo hizo confirmaciones en una rama en un repositorio remoto y quieren reflejarlos en su ambiente local.
 
-- `git push` updates the remote repository with any commits made locally to a branch.
+- `git push` actualiza el repositorio remoto con cualquier confirmación que se haga localmente a una rama.
 
-For more information, see the [full reference guide to Git commands](https://git-scm.com/docs).
+Para obtener más información, consulta la [guía de referencia completa para los comandos de Git](https://git-scm.com/docs).
 
-### Example: Contribute to an existing repository
+### Ejemplo: Contribuir con un repositorio existente
 
 ```bash
 # download a repository on {% data variables.product.product_name %} to our machine
@@ -100,9 +100,9 @@ git commit -m "my snapshot"
 git push --set-upstream origin my-branch
 ```
 
-### Example: Start a new repository and publish it to {% data variables.product.product_name %}
+### Ejemplo: Comienza un repositorio nuevo y publícalo en {% data variables.product.product_name %}
 
-First, you will need to create a new repository on {% data variables.product.product_name %}. For more information, see "[Hello World](/get-started/quickstart/hello-world)." **Do not** initialize the repository with a README, .gitignore or License file. This empty repository will await your code.
+Primero, necesitas crear un repositorio nuevo en {% data variables.product.product_name %}. Para obtener más información, consulta la sección "[Hello World](/get-started/quickstart/hello-world)". **No** inicialices el repositorio con un archivo README, .gitignore o de licencia. Este repositorio vacío esperará tu código.
 
 ```bash
 # create a new directory, and initialize it with git-specific functions
@@ -127,9 +127,9 @@ git remote add origin https://github.com/YOUR-USERNAME/YOUR-REPOSITORY-NAME.git
 git push --set-upstream origin main
 ```
 
-### Example: contribute to an existing branch on {% data variables.product.product_name %}
+### Ejemplo: contribuye con una rama existente en {% data variables.product.product_name %}
 
-This example assumes that you already have a project called `repo` already on the machine and that a new branch has been pushed to {% data variables.product.product_name %} since the last time changes were made locally.
+Este ejemplo asumen que ya tienes un proyecto llamado `repo` en la máquina y que se subió una rama nueva a {% data variables.product.product_name %} desde la última vez que se realizaron los cambios localmente.
 
 ```bash
 # change into the `repo` directory
@@ -153,27 +153,27 @@ git commit -m "edit file1"
 git push
 ```
 
-## Models for collaborative development
+## Modelos para el desarrollo colaborativo
 
-There are two primary ways people collaborate on {% data variables.product.product_name %}:
+Hay dos formas principales para que las personas colaboren en {% data variables.product.product_name %}:
 
-1. Shared repository
-2. Fork and pull
+1. Un repositorio compartido
+2. Bifurcar y extraer
 
-With a shared repository, individuals and teams are explicitly designated as contributors with read, write, or administrator access. This simple permission structure, combined with features like protected branches, helps teams progress quickly when they adopt {% data variables.product.product_name %}.
+Con un repositorio compartido, los individuos y equipos se designan explícitamente como contribuyentes con acceso de lectura, escritura o administrativo. Esta estructura de permisos simple, en combinación con características como las ramas protegidas, ayuda a que los equipos progresen rápidamente cuando adoptan {% data variables.product.product_name %}.
 
-For an open source project, or for projects to which anyone can contribute, managing individual permissions can be challenging, but a fork and pull model allows anyone who can view the project to contribute. A fork is a copy of a project under an developer's personal account. Every developer has full control of their fork and is free to implement a fix or new feature. Work completed in forks is either kept separate, or is surfaced back to the original project via a pull request. There, maintainers can review the suggested changes before they're merged. For more information, see "[Contributing to projects](/get-started/quickstart/contributing-to-projects)."
+Para un proyecto de código abierto o para aquellos en los que cualquiera puede contribuir, el administrar los permisos individuales puede ser retador, pero un modelo de bifurcación y extracción permite que cualquiera que pueda ver el proyecto contribuya con este. Una bifurcación es una copia de un proyecto en una cuenta personal de un desarrollador. Cada desarrollador tiene control total de su bifurcación y puede implementar una corrección o característica nueva. El trabajo que se completa en las bifurcaciones se mantiene por separado o se vuelve a llevar al proyecto original con una solicitud de cambios. Allí, los mantenedores pueden revisar los cambios sugeridos antes de que se fusionen. Para obtener más información, consulta la sección "[Contribuir con los proyectos](/get-started/quickstart/contributing-to-projects)".
 
 ## Leer más
 
-The {% data variables.product.product_name %} team has created a library of educational videos and guides to help users continue to develop their skills and build better software.
+El equipo de {% data variables.product.product_name %} creó una librería de videos educativos y guías para ayudar a que los usuarios sigan desarrollando sus habilidades y creando software mejor.
 
-- [Beginner projects to explore](https://github.com/showcases/great-for-new-contributors)
-- [{% data variables.product.product_name %} video guides](https://youtube.com/githubguides)
+- [Proyectos de principiante a explorar](https://github.com/showcases/great-for-new-contributors)
+- [Video guías de {% data variables.product.product_name %}](https://youtube.com/githubguides)
 
-For a detailed look at Git practices, the videos below show how to get the most out of some Git commands.
+Para obtener una vista detallada de las prácticas de Git, los siguientes videos muestran cómo obtener el mayor provecho de algunos de sus comandos.
 
-- [Working locally](https://www.youtube.com/watch?v=rBbbOouhI-s&index=2&list=PLg7s6cbtAD17Gw5u8644bgKhgRLiJXdX4)
+- [Trabajar localmente](https://www.youtube.com/watch?v=rBbbOouhI-s&index=2&list=PLg7s6cbtAD17Gw5u8644bgKhgRLiJXdX4)
 - [`git status`](https://www.youtube.com/watch?v=SxmveNrZb5k&list=PLg7s6cbtAD17Gw5u8644bgKhgRLiJXdX4&index=3)
-- [Two-step commits](https://www.youtube.com/watch?v=Vb0Ghkkc2hk&index=4&list=PLg7s6cbtAD17Gw5u8644bgKhgRLiJXdX4)
-- [`git pull` and `git push`](https://www.youtube.com/watch?v=-uQHV9GOA0w&index=5&list=PLg7s6cbtAD17Gw5u8644bgKhgRLiJXdX4)
+- [Confirmaciones de dos pasos](https://www.youtube.com/watch?v=Vb0Ghkkc2hk&index=4&list=PLg7s6cbtAD17Gw5u8644bgKhgRLiJXdX4)
+- [`git pull` y `git push`](https://www.youtube.com/watch?v=-uQHV9GOA0w&index=5&list=PLg7s6cbtAD17Gw5u8644bgKhgRLiJXdX4)

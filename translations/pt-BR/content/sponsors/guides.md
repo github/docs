@@ -3,7 +3,7 @@ title: Guias do GitHub Sponsors
 shortTitle: Guias
 intro: 'Aprenda a tirar o melhor de {% data variables.product.prodname_sponsors %}.'
 allowTitleToDifferFromFilename: true
-layout: product-sublanding
+layout: product-guides
 versions:
   fpt: '*'
   ghec: '*'

@@ -1,5 +1,6 @@
-import { getDOM } from '../helpers/supertest.js'
 import { jest } from '@jest/globals'
+
+import { getDOM } from '../helpers/e2etest.js'
 
 jest.setTimeout(3 * 60 * 1000)
 
@@ -26,8 +27,6 @@ describe('learning tracks', () => {
       const found = href.match(/.*\?learn=(.*)/i)
       expect(found).not.toBeNull()
       const trackName = found[1]
-
-      // check all the links contain track name
       $(trackElem)
         .find('a.Box-row')
         .each((i, elem) => {
@@ -52,7 +51,7 @@ describe('navigation banner', () => {
 
   test('render navigation banner when url is a redirect to a learning track URL', async () => {
     const $ = await getDOM(
-      '/enterprise/admin/enterprise-management/enabling-automatic-update-checks?learn=upgrade_your_instance'
+      '/en/enterprise/admin/enterprise-management/enabling-automatic-update-checks?learn=upgrade_your_instance'
     )
     expect($('[data-testid=learning-track-nav]')).toHaveLength(1)
     const $navLinks = $('[data-testid=learning-track-nav] a')

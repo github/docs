@@ -21,20 +21,31 @@ on:
     paths:
       - 'lib/rest/static/**'
       - 'script/rest/**/*.js'
+      - 'script/rest/**/*.json'
       - 'package*.json'
+      - 'lib/redirects/static/**/*.json'
+      - '.github/workflows/openapi-schema-check.yml'
+
+permissions:
+  contents: read
+
+# This allows a subsequently queued workflow run to interrupt previous runs
+concurrency:
+  group: '${{ github.workflow }} @ ${{ github.event.pull_request.head.label || github.head_ref || github.ref }}'
+  cancel-in-progress: true
 
 jobs:
   check-schema-versions:
     if: ${{ github.repository == 'github/docs-internal' }}
-    runs-on: ${{ fromJSON('["ubuntu-latest", "self-hosted"]')[github.repository == 'github/docs-internal'] }}
+    runs-on: ubuntu-20.04-xl
     steps:
       - name: Checkout repository code
-        uses: actions/checkout@1e204e9a9253d643386038d443f96446fa156a97
+        uses: actions/checkout@dcd71f646680f2efd8db4afa5ad64fdcba30e748
 
       - name: Setup node
-        uses: actions/setup-node@270253e841af726300e85d718a5f606959b2903c
+        uses: actions/setup-node@17f8bd926464a1afa4c6a11669539e9c1ba77048
         with:
-          node-version: 16.13.x
+          node-version: '16.15.0'
           cache: npm
 
       - name: Install dependencies

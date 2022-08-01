@@ -13,9 +13,8 @@ topics:
   - Organizations
   - Teams
 shortTitle: Eliminar a un miembro
+permissions: Organization owners can remove members from an organization.
 ---
-
-Solo los propietarios de la organización pueden eliminar usuarios de una organización.
 
 {% ifversion fpt or ghec %}
 
@@ -24,7 +23,10 @@ Solo los propietarios de la organización pueden eliminar usuarios de una organi
 **Advertencia:** Cuando eliminas a algún miembro de una organización:
 - La cuenta de licencias pagadas no baja de categoría automáticamente. Para pagar por menos licencias después de eliminar usuarios de tu organización, sigue los pasos de la sección "[Bajar el cupo límite de plazas pagadas en tu organización](/articles/downgrading-your-organization-s-paid-seats)".
 - Los miembros eliminados perderán el acceso a las bifurcaciones privadas de los repositorios privados de tu organización, pero aún podrían tener copias locales de estas. Sin embargo, no pueden sincronizar las copias locales con tus repositorios de la organización. Se pueden restaurar las bifurcaciones privadas del usuario si se lo reinstala [como miembro de la organización](/articles/reinstating-a-former-member-of-your-organization) dentro de los tres meses posteriores a haber sido eliminado de la organización. En última instancia, tú eres el responsable de asegurar que las personas que perdieron acceso a un repositorio borren cualquier información confidencial o propiedad intelectual.
--  Si tu organización le pertenece a una cuenta empresarial, los miembros eliminados también perderán acceso a las bifurcaciones privadas de los repositorios internos de tu organización en caso de que el miembro que se elimine no sea miembro de otra organización que le pertenezca a la misma cuenta empresarial. Para obtener más información, consulta "[Acerca de las cuentas de empresa](/enterprise-cloud@latest/admin/overview/about-enterprise-accounts)".
+- Cuando se bifurcan los repositorios privados a otras organizaciones, estas pueden controlar el acceso a la red de la bifurcación. Esto significa que los usuarios podrían retener el acceso a las bifurcaciones incluso después de acceder a la organización original, ya que aún tendrán acceso explícito a través de una bifurcación.
+{%- ifversion ghec %}
+-  Los miembros eliminados también perderán acceso a las bifurcaciones privadas de los repositorios internos de tu organización en caso de que el miembro eliminado no es miembro de alguna otra organización que le pertenezca a la misma cuenta empresarial. Para obtener más información, consulta "[Acerca de las cuentas de empresa](/admin/overview/about-enterprise-accounts)".
+{%- endif %}
 - Cualquier invitación a una organización que envíe un miembro eliminado, y que no se haya aceptado, se cancelará y no se podrá acceder a ella.
 
 {% endwarning %}
@@ -53,7 +55,7 @@ Para ayudar con la transición de la persona que estás eliminando de tu organiz
 ## Revocar la membresía del usuario
 
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.people %}
 4. Selecciona el miembro o los miembros que quieres eliminar de la organización. ![Lista de miembros con dos miembros seleccionados](/assets/images/help/teams/list-of-members-selected-bulk.png)
 5. Arriba de la lista de miembros, utiliza el menú desplegable y haz clic en **Remove from organization** (Eliminar de la organización). ![Menú desplegable con la opción para eliminar miembros](/assets/images/help/teams/user-bulk-management-options.png)
@@ -61,4 +63,5 @@ Para ayudar con la transición de la persona que estás eliminando de tu organiz
 
 ## Leer más
 
-- "[Eliminar de un equipo a miembros de la organización](/articles/removing-organization-members-from-a-team)"
+- "[Eliminar a los miembros organizacionales de un equipo](/articles/removing-organization-members-from-a-team)"{% ifversion remove-enterprise-members %}
+- "[Eliminar a um miembro de tu empresa](/admin/user-management/managing-users-in-your-enterprise/removing-a-member-from-your-enterprise)"{% endif %}

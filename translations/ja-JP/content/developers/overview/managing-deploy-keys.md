@@ -2,8 +2,11 @@
 title: デプロイキーの管理
 intro: デプロイメントのスクリプトを自動化する際にサーバー上のSSHキーを管理する様々な方法と、どれが最適な方法かを学んでください。
 redirect_from:
-  - /guides/managing-deploy-keys/
+  - /guides/managing-deploy-keys
   - /v3/guides/managing-deploy-keys
+  - /deploy-keys
+  - /articles/managing-deploy-keys
+  - /multiple-keys
 versions:
   fpt: '*'
   ghes: '*'
@@ -34,11 +37,11 @@ SSHエージェントのフォワーディング、OAuthトークンでのHTTPS�
 #### セットアップ
 
 1. エージェントのフォワーディングをローカルでオンにしてください。 詳しい情報については[SSHエージェントフォワーディングのガイド][ssh-agent-forwarding]を参照してください。
-2. エージェントフォワーディングを使用するように、デプロイスクリプトを設定してください。 たとえばbashのスクリプトでは、以下のようにしてエージェントのフォワーディングを有効化することになるでしょう。 `ssh -A serverA 'bash -s' < deploy.sh`
+2. エージェントフォワーディングを使用するように、デプロイスクリプトを設定してください。 For example, on a bash script, enabling agent forwarding would look something like this: `ssh -A serverA 'bash -s' < deploy.sh`
 
 ## OAuthトークンを使ったHTTPSでのクローニング
 
-SSHキーを使いたくないなら、[OAuthトークンでHTTPS][git-automation]を利用できます。
+If you don't want to use SSH keys, you can use HTTPS with OAuth tokens.
 
 #### 長所
 
@@ -57,7 +60,7 @@ SSHキーを使いたくないなら、[OAuthトークンでHTTPS][git-automatio
 
 #### セットアップ
 
-[トークンでのGit自動化ガイド][git-automation]を参照してください。
+See [our guide on creating a personal access token](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token).
 
 ## デプロイキー
 
@@ -78,7 +81,7 @@ SSHキーを使いたくないなら、[OAuthトークンでHTTPS][git-automatio
 
 #### セットアップ
 
-1. サーバー上で[`ssh-keygen`の手順を実行][generating-ssh-keys]し、生成された公開／秘密RSAキーのペアを保存した場所を覚えておいてください。
+1. [Run the `ssh-keygen` procedure][generating-ssh-keys] on your server, and remember where you save the generated public and private rsa key pair.
 2. {% data variables.product.product_name %}の任意のページの右上で、プロフィールの写真をクリックし、続いて**Your profile（あなたのプロフィール）**をクリックしてください。 ![プロフィールへのアクセス](/assets/images/profile-page.png)
 3. プロフィールページで**Repositories（リポジトリ）**をクリックし、続いてリポジトリの名前をクリックしてください。 ![リポジトリのリンク](/assets/images/repos.png)
 4. リポジトリで**Settings（設定）**をクリックしてください。 ![リポジトリの設定](/assets/images/repo-settings.png)
@@ -117,7 +120,7 @@ $ git clone git@{% ifversion fpt or ghec %}github.com{% else %}my-GHE-hostname.c
 
 サーバーがOrganizationをまたいでリポジトリにアクセスする必要がある場合、GitHub Appで必要なアクセスを定義して、そのGitHub Appから_スコープを厳格に設定した_、_サーバー対サーバー_のトークンを生成します。 サーバー対サーバーのトークンは単一または複数のリポジトリをスコープとすることができ、権限を細かく設定できます。 たとえば、リポジトリのコンテンツへの読み取り専用アクセス権を持つトークンを生成できます。
 
-GitHub Appは{% data variables.product.product_name %}でも主役級の存在なので、サーバー間トークンはあらゆるGitHubユーザから分離され、「サービストークン」に相当します。 さらに、サーバー間トークンには独自のレート制限があり、その制限は実行されるOrganizationの規模に応じて拡大されます。 詳しい情報については、「[Github Appsのレート制限](/developers/apps/rate-limits-for-github-apps)」を参照してください。
+GitHub Appは{% data variables.product.product_name %}でも主役級の存在なので、サーバー間トークンはあらゆるGitHubユーザから分離され、「サービストークン」に相当します。 さらに、サーバー間トークンには独自のレート制限があり、その制限は実行されるOrganizationの規模に応じて拡大されます。 For more information, see [Rate limits for {% data variables.product.prodname_github_apps %}](/developers/apps/rate-limits-for-github-apps).
 
 #### 長所
 
@@ -177,11 +180,13 @@ GitHub Appは{% data variables.product.product_name %}でも主役級の存在�
 1. サーバー上で[`ssh-keygen`の手順を実行][generating-ssh-keys]し、公開鍵をマシンユーザアカウントに添付してください。
 2. マシンユーザアカウントに自動化したいリポジトリへのアクセスを付与してください。 これは、アカウントを[コラボレータ][collaborator]、[外部のコラボレータ][outside-collaborator]として、あるいはOrganization内の[Team][team]に追加することでも行えます。
 
+## 参考リンク
+- [通知を設定する](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications#organization-alerts-notification-options)
+
 [ssh-agent-forwarding]: /guides/using-ssh-agent-forwarding/
 [generating-ssh-keys]: /articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/#generating-a-new-ssh-key
+[generating-ssh-keys]: /articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/#generating-a-new-ssh-key
 [tos]: /free-pro-team@latest/github/site-policy/github-terms-of-service/
-[git-automation]: /articles/git-automation-with-oauth-tokens
-[git-automation]: /articles/git-automation-with-oauth-tokens
 [collaborator]: /articles/inviting-collaborators-to-a-personal-repository
 [outside-collaborator]: /articles/adding-outside-collaborators-to-repositories-in-your-organization
 [team]: /articles/adding-organization-members-to-a-team

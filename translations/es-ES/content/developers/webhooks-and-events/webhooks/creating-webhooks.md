@@ -22,9 +22,9 @@ Crear un webhook es un proceso de dos pasos. Primero necesitas configurar la for
 
 ## Exponer un host local al internet
 
-Para los propósitos de este tutorial, utilizaremos un servidor local para recibir imágenes de {% data variables.product.prodname_dotcom %}. Así que, primero que nada, necesitamos exponer nuestro ambiente de desarrollo local al internet. Utilizaremos ngrok para hacerlo. ngrok está disponible, gratuitamente, para los sistemas operativos principales. Para obtener más información, consulta [la página de descarga de ngrok](https://ngrok.com/download).
+Para los propósitos de este tutorial, utilizaremos un servidor local para recibir imágenes de {% data variables.product.prodname_dotcom %}. Así que, primero que nada, necesitamos exponer nuestro ambiente de desarrollo local al internet. Utilizaremos ngrok para hacerlo. ngrok está disponible, gratuitamente, para los sistemas operativos principales. Para obtener más información, consulta la [página de descarga de `ngrok`](https://ngrok.com/download).
 
-Después de instalar ngrok, puedes exponer a tu host local si ejecutas `./ngrok http 4567` en la línea de comandos. el número de puerto en el que nuestro servidor escuchará mensajes es el 4567. Deberías ver una línea que se ve más o menos así:
+Después de instalar `ngrok`, puedes exponer a tu localhost ejecutando `./ngrok http 4567` en la línea de comandos. el número de puerto en el que nuestro servidor escuchará mensajes es el 4567. Deberías ver una línea que se ve más o menos así:
 
 ```shell
 $ Forwarding    http://7e9ea9dc.ngrok.io -> 127.0.0.1:4567

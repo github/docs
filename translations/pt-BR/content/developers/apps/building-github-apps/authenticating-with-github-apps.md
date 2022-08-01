@@ -2,8 +2,8 @@
 title: Autenticar com os aplicativos GitHub
 intro: '{% data reusables.shortdesc.authenticating_with_github_apps %}'
 redirect_from:
-  - /apps/building-integrations/setting-up-and-registering-github-apps/about-authentication-options-for-github-apps/
-  - /apps/building-github-apps/authentication-options-for-github-apps/
+  - /apps/building-integrations/setting-up-and-registering-github-apps/about-authentication-options-for-github-apps
+  - /apps/building-github-apps/authentication-options-for-github-apps
   - /apps/building-github-apps/authenticating-with-github-apps
   - /developers/apps/authenticating-with-github-apps
 versions:
@@ -39,7 +39,7 @@ Para gerar uma chave privada:
 {% endnote %}
 
 ## Verificar chaves privadas
-{% data variables.product.product_name %} generates a fingerprint for each private and public key pair using the SHA-256 hash function. Você pode verificar se a sua chave privada corresponde à chave pública armazenada no {% data variables.product.product_name %}, gerando a impressão digital da sua chave privada e comparando-a com a impressão digital exibida no {% data variables.product.product_name %}.
+O {% data variables.product.product_name %} gera uma impressão digital para cada par de chave privada e pública usando a função hash SHA-256. Você pode verificar se a sua chave privada corresponde à chave pública armazenada no {% data variables.product.product_name %}, gerando a impressão digital da sua chave privada e comparando-a com a impressão digital exibida no {% data variables.product.product_name %}.
 
 Para verificar uma chave privada:
 
@@ -95,7 +95,7 @@ Use o seu identificador de {% data variables.product.prodname_github_app %}(`YOU
 Após criar o JWT, defina-o no `Cabeçalho` da solicitação de API:
 
 ```shell
-$ curl -i -H "Authorization: Bearer YOUR_JWT" -H "Accept: application/vnd.github.v3+json" {% data variables.product.api_url_pre %}/app
+$ curl -i -H "Authorization: Bearer YOUR_JWT" -H "Accept: application/vnd.github+json" {% data variables.product.api_url_pre %}/app
 ```
 
 `YOUR_JWT` é o valor que você deve substituir.
@@ -126,7 +126,7 @@ Para listar as instalações para um aplicativo autenticado, inclua o JWT [gerad
 ```shell
 $ curl -i -X GET \
 -H "Authorization: Bearer YOUR_JWT" \
--H "Accept: application/vnd.github.v3+json" \
+-H "Accept: application/vnd.github+json" \
 {% data variables.product.api_url_pre %}/app/installations
 ```
 
@@ -137,7 +137,7 @@ Para criar um token de acesso de instalação, inclua o JWT [gerado acima](#jwt-
 ```shell
 $ curl -i -X POST \
 -H "Authorization: Bearer YOUR_JWT" \
--H "Accept: application/vnd.github.v3+json" \
+-H "Accept: application/vnd.github+json" \
 {% data variables.product.api_url_pre %}/app/installations/:installation_id/access_tokens
 ```
 
@@ -148,7 +148,7 @@ Para efetuar a autenticação com um token de acesso de instalação, inclua-o n
 ```shell
 $ curl -i \
 -H "Authorization: token YOUR_INSTALLATION_ACCESS_TOKEN" \
--H "Accept: application/vnd.github.v3+json" \
+-H "Accept: application/vnd.github+json" \
 {% data variables.product.api_url_pre %}/installation/repositories
 ```
 

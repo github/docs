@@ -5,9 +5,7 @@ redirect_from:
   - /articles/downloading-your-organization-s-saml-single-sign-on-recovery-codes
   - /articles/downloading-your-organizations-saml-single-sign-on-recovery-codes
   - /github/setting-up-and-managing-organizations-and-teams/downloading-your-organizations-saml-single-sign-on-recovery-codes
-product: '{% data reusables.gated-features.saml-sso %}'
 versions:
-  fpt: '*'
   ghec: '*'
 topics:
   - Organizations
@@ -15,7 +13,7 @@ topics:
 shortTitle: SAMLリカバリコードのダウンロード
 ---
 
-リカバリコードは共有や配布しないでください。 We recommend saving them with a password manager such as [LastPass](https://lastpass.com/) or [1Password](https://1password.com/).
+リカバリコードは共有や配布しないでください。 [LastPass](https://lastpass.com/)あるいは[1Password](https://1password.com/)といったパスワードマネージャーに保存することをおすすめします。
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}

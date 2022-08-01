@@ -2,7 +2,7 @@
 title: 转让组织所有权
 intro: '要使其他人成为组织帐户的所有者，您必须添加新所有者{% ifversion fpt or ghec %}，确保帐单信息已更新，{% endif %}然后将自身从该帐户中删除。'
 redirect_from:
-  - /articles/needs-polish-how-do-i-give-ownership-to-an-organization-to-someone-else/
+  - /articles/needs-polish-how-do-i-give-ownership-to-an-organization-to-someone-else
   - /articles/transferring-organization-ownership
   - /github/setting-up-and-managing-organizations-and-teams/transferring-organization-ownership
 versions:
@@ -16,7 +16,7 @@ topics:
 shortTitle: 转移所有权
 ---
 
-{% ifversion fpt or ghec %}
+{% ifversion ghec %}
 {% note %}
 
 **注：**{% data reusables.enterprise-accounts.invite-organization %}

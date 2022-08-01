@@ -3,10 +3,10 @@ title: GitHub でオープンソースにコントリビュートする方法を
 intro: '自分に関連する {% data variables.product.product_location %} のオープンソースプロジェクトにコントリビュートする方法を見つけることができます。'
 permissions: '{% data reusables.enterprise-accounts.emu-permission-interact %}'
 redirect_from:
-  - /articles/where-can-i-find-open-source-projects-to-work-on/
-  - /articles/finding-interesting-projects-on-github/
-  - /articles/about-official-github-mirrors/
-  - /articles/about-github-mirrors/
+  - /articles/where-can-i-find-open-source-projects-to-work-on
+  - /articles/finding-interesting-projects-on-github
+  - /articles/about-official-github-mirrors
+  - /articles/about-github-mirrors
   - /articles/finding-open-source-projects-on-github
   - /github/getting-started-with-github/finding-open-source-projects-on-github
   - /github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github
@@ -25,7 +25,7 @@ shortTitle: Contribute to open source
 
 {% data variables.product.product_location %} で積極的に活動している場合は、[Explore](https://github.com/explore) での過去のコントリビューション、Star、およびその他のアクティビティに基づいて、プロジェクトについての個別の推奨事項と good first issue を見つけることができます。 Explore ニュースレターにサインアップして、あなたの興味に基づいて {% data variables.product.product_name %} にコントリビュートする機会について記載されたメールを受け取ることもできます。 サインアップするには、「[Explore メールニュースレター](https://github.com/explore/subscribe)」を参照してください。
 
-パーソナルダッシュボードの [All activity] セクションで、Watch しているリポジトリやフォローしているユーザについての最新情報を入手できます。 詳しい情報については[パーソナルダッシュボードについて](/articles/about-your-personal-dashboard)を参照してください。
+Keep up with recent activity from repositories you watch, as well as people and organizations you follow, with your personal dashboard. 詳しい情報については[パーソナルダッシュボードについて](/articles/about-your-personal-dashboard)を参照してください。
 
 {% data reusables.support.ask-and-answer-forum %}
 

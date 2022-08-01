@@ -19,7 +19,6 @@ shortTitle: Desplegar hacia Google Kubernetes Engine
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## Introducción
 
@@ -27,7 +26,7 @@ Esta guía te explica cómo utilizar las {% data variables.product.prodname_acti
 
 GKE es un agrupamiento administrado de Kubernetes de Google Cloud que puede hospedar tus cargas de trabajo contenerizadas en la nube o en tu propio centro de datos. Para obtener más información, consulta la página de [Google Kubernetes Engine](https://cloud.google.com/kubernetes-engine).
 
-{% ifversion fpt or ghec or ghae-issue-4856 %}
+{% ifversion fpt or ghec or ghae-issue-4856 or ghes > 3.4 %}
 
 {% note %}
 
@@ -91,8 +90,12 @@ Este procedimiento demuestra cómo crear la cuenta de servicio para tu integraci
   ```
   $ gcloud projects add-iam-policy-binding $GKE_PROJECT \
     --member=serviceAccount:$SA_EMAIL \
-    --role=roles/container.admin \
-    --role=roles/storage.admin \
+    --role=roles/container.admin
+  $ gcloud projects add-iam-policy-binding $GKE_PROJECT \
+    --member=serviceAccount:$SA_EMAIL \
+    --role=roles/storage.admin
+  $ gcloud projects add-iam-policy-binding $GKE_PROJECT \
+    --member=serviceAccount:$SA_EMAIL \
     --role=roles/container.clusterViewer
   ```
   {% endraw %}
@@ -115,13 +118,11 @@ Este procedimiento demuestra cómo crear la cuenta de servicio para tu integraci
 Almacenar el nombre de tu proyecto como un secreto llamado `GKE_PROJECT`. Para obtener más información sobre cómo almacenar un secreto, consulta la sección "[Secretos cifrados](/actions/security-guides/encrypted-secrets)".
 
 ### (Opcional) Configurar kustomize
-Kustomize es una herramietna opcional que se utiliza para administrar las especificaciones YAML. Después de crear un archivo de _kustomization_, el flujo de trabajo que se muestra a continuación puede utilizarse para configurar dinámicamente los campos de la imagen y agregar el resultado a `kubectl`. Para obtener más información, consulta la sección [uso de kustomize](https://github.com/kubernetes-sigs/kustomize#usage).
+Kustomize es una herramietna opcional que se utiliza para administrar las especificaciones YAML. Después de crear un archivo de `kustomization`, el siguiente flujo de trabajo puede utilizarse para configurar campos de la imagen dinámicamente y agregar el resultado en `kubectl`. Para obtener más información, consulta la sección [uso de kustomize](https://github.com/kubernetes-sigs/kustomize#usage).
 
-{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
 ### (Opcional) Configurar un ambiente de despliegue
 
 {% data reusables.actions.about-environments %}
-{% endif %}
 
 ## Crear un flujo de trabajo
 
@@ -135,6 +136,8 @@ Debajo de la llave `env`, cambia el valor de `GKE_CLUSTER` al nombre de tu clús
 
 ```yaml{:copy}
 {% data reusables.actions.actions-not-certified-by-github-comment %}
+
+{% data reusables.actions.actions-use-sha-pinning-comment %}
 
 name: Build and Deploy to GKE
 
@@ -158,7 +161,7 @@ jobs:
 
     steps:
     - name: Checkout
-      uses: actions/checkout@v2
+      uses: {% data reusables.actions.action-checkout %}
 
     # Setup gcloud CLI
     - uses: google-github-actions/setup-gcloud@94337306dda8180d967a56932ceb4ddcf01edae7

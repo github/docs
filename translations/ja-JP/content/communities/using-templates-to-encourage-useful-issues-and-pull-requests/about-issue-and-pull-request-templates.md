@@ -18,7 +18,7 @@ shortTitle: テンプレートについて
 
 {% ifversion fpt or ghes or ghec %}
 
-Organization またはユーザアカウントのデフォルトの Issue とプルリクエストテンプレートを作成できます。 詳しい情報については「[デフォルトのコミュニティ健全性ファイルを作成する](/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)」を参照してください。
+You can create default issue and pull request templates for your organization or personal account. 詳しい情報については「[デフォルトのコミュニティ健全性ファイルを作成する](/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)」を参照してください。
 
 {% endif %}
 
@@ -36,9 +36,7 @@ Issue テンプレートは、コントリビューターが Issue の内容を�
 Issue フォームでは、{% data variables.product.prodname_dotcom %} フォームスキーマを使用して、Web フォームフィールドを持つテンプレートを作成できます。 コントリビューターが Issue フォームを使用して Issue をオープンすると、フォーム入力は標準のマークダウン Issue コメントに変換されます。 さまざまな入力タイプを指定し、必要に応じて入力を設定して、コントリビューターがリポジトリで実行可能な Issue をオープンすることができるようにすることができます。 詳しい情報については、「[リポジトリの Issue テンプレートを設定する](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/configuring-issue-templates-for-your-repository#creating-issue-forms)」および「[Issue フォームの構文](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-issue-forms)」を参照してください。
 {% endif %}
 
-{% ifversion fpt or ghae or ghes or ghec %}
 {% data reusables.repositories.issue-template-config %}詳しい情報については、「[リポジトリ用に Issue テンプレートを設定する](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/configuring-issue-templates-for-your-repository#configuring-the-template-chooser)」を参照してください。
-{% endif %}
 
 Issue テンプレートは、リポジトリのデフォルトブランチ中の隠しディレクトリ `.github/ISSUE_TEMPLATE` に保存されます。 テンプレートを他のブランチで作成した場合、それをコラボレーターが使うことはできません。 Issue テンプレートのファイル名では大文字と小文字は区別されず、*.md* 拡張子が必要です。{% ifversion fpt or ghec %} Issue フォームで作成された Issue テンプレートには、*.yml* 拡張子が必要です。{% endif %} {% data reusables.repositories.valid-community-issues %}
 

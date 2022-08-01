@@ -2,7 +2,7 @@
 title: Acerca de las notificaciones
 intro: 'Las notificaciones proporcionan actualizaciones sobre las actividades de {% data variables.product.product_location %} a las que te hayas suscrito. Puedes utilizar la bandeja de notificaciones para personalizar, clasificar y administrar tus actualizaciones.'
 redirect_from:
-  - /articles/notifications/
+  - /articles/notifications
   - /articles/about-notifications
   - /github/managing-subscriptions-and-notifications-on-github/about-notifications-beta
   - /github/managing-subscriptions-and-notifications-on-github/about-notifications
@@ -16,10 +16,6 @@ topics:
   - Notifications
 ---
 
-{% ifversion ghes %}
-{% data reusables.mobile.ghes-release-phase %}
-{% endif %}
-
 ## Notificaciones y suscripciones
 
 Puedes elegir recibir actualizaciones continuas sobre actividades específicas en {% data variables.product.product_location %} mediante una suscripción. Las notificaciones son actualizaciones que recibes por alguna actividad específica a la que te hayas suscrito.
@@ -29,13 +25,12 @@ Puedes elegir recibir actualizaciones continuas sobre actividades específicas e
 Puedes elegir suscribirte a las notificaciones de:
 - Una conversación sobre un informe de problemas, solicitud de extracción o gist específico.
 - Todas las actividades en un repositorio o en un debate de equipo.
-- Actividades de CI, tales como el estado de los flujos de trabajo en los repositorios configurados con {% data variables.product.prodname_actions %}. {% ifversion fpt or ghes > 3.0 or ghae-next or ghec %}
-- Repositorio {% data reusables.notifications-v2.custom-notification-types %} (si se habilitó).{% else %}
-- Lanzamientos en un repositorio.{% endif %}
+- Actividades de CI, tales como el estado de los flujos de trabajo en los repositorios configurados con {% data variables.product.prodname_actions %}.
+- Repositorio {% data reusables.notifications-v2.custom-notification-types %} (en caso de que estén habilitadas).
 
 También puedes elegir seguir automáticamente todos los repositorios en los que tienes acceso de escritura, con excepción de sus bifurcaciones. Puedes seguir de cerca manualmente a cualquier otro repositorio al que tengas acceso si das clic en **Seguir**.
 
-Si ya no te interesa alguna conversación, te puedes dar de baja, dejar de seguir o personalizar los tipos de notificaciones que recibirás en el futuro. Por ejemplo, si ya no quieres recibir notificaciones de algún repositorio en particular, puedes dar clic en **Darse de baja**. Para obtener más información, consulta la sección "[Administrar tus suscripciones](/github/managing-subscriptions-and-notifications-on-github/managing-your-subscriptions)".
+Si ya no te interesa alguna conversación, te puedes dar de baja, dejar de seguir o personalizar los tipos de notificaciones que recibirás en el futuro. Por ejemplo, si ya no quieres recibir notificaciones de algún repositorio en particular, puedes dar clic en **Darse de baja**. Para obtener más información, consulta la opción "[Administrar tus suscripciones](/github/managing-subscriptions-and-notifications-on-github/managing-your-subscriptions)".
 
 ### Suscripciones predeterminadas
 
@@ -49,9 +44,9 @@ Generalmente, estarás suscrito automática y predeterminadamente a las conversa
 - Has cambiado el estado de un hilo, como cuando cierras un informe de problemas o fusionas una solicitud de extracción.
 - Se ha @mencionado a algún equipo al que pertenezcas.
 
-También está predeterminado que sigas automáticamente a todos los repositorios que has creado y sean propiedad de tu cuenta de usuario.
+Predeterminadamente, también observarás automáticamente a todos los repositorios que crees y que le pertenezcan a tu cuenta personal.
 
-Para darte de baja de las conversaciones a las cuales estás suscrito automáticamente, puedes cambiar tu configuración de notificaciones o darte de baja directamente o dejar de seguir la actividad de {% data variables.product.product_location %}. Para obtener más información, consulta la sección "[Administrar tus suscripciones](/github/managing-subscriptions-and-notifications-on-github/managing-your-subscriptions)".
+Para darte de baja de las conversaciones a las cuales estás suscrito automáticamente, puedes cambiar tu configuración de notificaciones o darte de baja directamente o dejar de seguir la actividad de {% data variables.product.product_location %}. Para obtener más información, consulta la opción "[Administrar tus suscripciones](/github/managing-subscriptions-and-notifications-on-github/managing-your-subscriptions)".
 
 ## Personalizar notificaciones y suscripciones
 
@@ -64,7 +59,7 @@ Para poder seguir administrando tus suscripciones, revisa los repositorios que s
 Para personalizar la manera en la que deseas recibir actualizaciones para solicitudes de extracción o informes de problemas específicos, puedes configurar tus preferencias dentro de las mismas. Para obtener más información, consulta la sección "[Clasificar una sola notificación](/github/managing-subscriptions-and-notifications-on-github/triaging-a-single-notification#customizing-when-to-receive-future-updates-for-an-issue-or-pull-request)".
 
 {% ifversion fpt or ghes or ghec %}
-Puedes personalizar y programar notificaciones de subida en la app de {% data variables.product.prodname_mobile %}. Para obtener más información, consulta la sección "[Configurar las notificaciones](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#managing-your-notification-settings-with-github-for-mobile)".
+Puedes personalizar y programar notificaciones de subida en la app de {% data variables.product.prodname_mobile %}. Para obtener más información, consulta la sección "[Configurar las notificaciones](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#managing-your-notification-settings-with-github-mobile)".
 {% endif %}
 
 ## Razones para que recibas notificaciones
@@ -101,4 +96,4 @@ Las notificaciones que no se marquen como **Guardadas** se mantendrán por 5 mes
 
 ## Retroalimentación y soporte
 
-Si tienes retroalimentación o alguna solicitud de características, utiliza el [formato de retroalimentación para notificaciones](https://support.github.com/contact/feedback?contact%5Bcategory%5D=notifications&contact%5Bsubject%5D=Product+feedback).
+If you have feedback or feature requests for notifications, use a [{% data variables.product.prodname_github_community %} discussion](https://github.com/orgs/community/discussions/categories/general).

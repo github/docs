@@ -1,8 +1,8 @@
 ---
 title: Bibliotecas
-intro: 'You can use the official Octokit library and other third-party libraries to extend and simplify how you use the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API.'
+intro: 'Puedes utilizar la librería oficial de Octokit y otras librerías de terceros para extender y simplificar la forma en que usas la API de {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %}.'
 redirect_from:
-  - /libraries/
+  - /libraries
   - /v3/libraries
 versions:
   fpt: '*'
@@ -18,7 +18,7 @@ topics:
   <h1>El Octokit tiene muchos sabores</h1>
   <p class="lead">Utiliza la biblioteca oficial de Octokit, o elige entre cualquiera de las bibliotecas de terceros disponibles.</p>
   <div class="octokit-links"><br/>
-     <div class="octokit-language"> <span>Ruby → </span><a href="https://github.com/octokit/octokit.rb">octokit.rb</a></div><br/>
+     <div class="octokit-language"><span>Ruby → </span><a href="https://github.com/octokit/octokit.rb">octokit.rb</a></div><br/>
      <div class="octokit-language"><span>.NET → </span> <a href="https://github.com/octokit/octokit.net">octokit.net</a></div><br/>
      <div class="octokit-language"><span>JavaScript → </span> <a href="https://github.com/octokit/octokit.js">octokit/octokit.js</a></div><br/>
   </div>
@@ -36,7 +36,7 @@ topics:
 
 | Nombre de la librería | Repositorio                                                             |
 | --------------------- | ----------------------------------------------------------------------- |
-| **github.dart**       | [DirectMyFile/github.dart](https://github.com/DirectMyFile/github.dart) |
+| **github.dart**       | [SpinlockLabs/github.dart](https://github.com/SpinlockLabs/github.dart) |
 
 ### Emacs Lisp
 
@@ -74,7 +74,7 @@ topics:
 | Nombre de la librería                                                     | Repositorio                                                             |
 | ------------------------------------------------------------------------- | ----------------------------------------------------------------------- |
 | **Biblioteca de NodeJS de GitHub**                                        | [pksunkara/octonode](https://github.com/pksunkara/octonode)             |
-| **programa de seguridad gh3 de la API v3 de lado del cliente**            | [k33g/gh3](https://github.com/k33g/gh3)                                 |
+| **Wrapper gh3 de la API del lado del cliente**                            | [k33g/gh3](https://github.com/k33g/gh3)                                 |
 | **El wrapper de Github.js sobre la API de GitHub**                        | [michael/github](https://github.com/michael/github)                     |
 | **Librería de CoffeeScript basada en Promise para el buscador de NodeJS** | [philschatz/github-client](https://github.com/philschatz/github-client) |
 
@@ -135,9 +135,10 @@ topics:
 
 ### Rust
 
-| Nombre de la librería | Repositorio                                                   |
-| --------------------- | ------------------------------------------------------------- |
-| **Octocrab**          | [XAMPPRocky/octocrab](https://github.com/XAMPPRocky/octocrab) |
+| Nombre de la librería | Repositorio                                                       |
+| --------------------- | ----------------------------------------------------------------- |
+| **Octocrab**          | [XAMPPRocky/octocrab](https://github.com/XAMPPRocky/octocrab)     |
+| **Octocat**           | [octocat-rs/octocat-rs](https://github.com/octocat-rs/octocat-rs) |
 
 ### Scala
 

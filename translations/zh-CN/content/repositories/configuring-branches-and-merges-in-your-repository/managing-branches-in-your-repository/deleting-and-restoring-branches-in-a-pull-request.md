@@ -2,9 +2,9 @@
 title: 删除和恢复拉取请求中的分支
 intro: 如果拥有仓库的写入权限，可删除与已关闭或已合并拉取请求关联的分支。 无法删除与已打开拉取请求关联的分支。
 redirect_from:
-  - /articles/tidying-up-pull-requests/
-  - /articles/restoring-branches-in-a-pull-request/
-  - /articles/deleting-unused-branches/
+  - /articles/tidying-up-pull-requests
+  - /articles/restoring-branches-in-a-pull-request
+  - /articles/deleting-unused-branches
   - /articles/deleting-and-restoring-branches-in-a-pull-request
   - /github/administering-a-repository/deleting-and-restoring-branches-in-a-pull-request
   - /github/administering-a-repository/managing-branches-in-your-repository/deleting-and-restoring-branches-in-a-pull-request
@@ -15,7 +15,7 @@ versions:
   ghec: '*'
 topics:
   - Repositories
-shortTitle: Delete & restore branches
+shortTitle: 删除和恢复分支
 ---
 
 ## 删除用于拉取请求的分支

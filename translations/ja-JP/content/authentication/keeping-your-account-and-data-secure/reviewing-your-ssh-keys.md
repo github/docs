@@ -2,8 +2,8 @@
 title: SSH キーをレビューする
 intro: 'To keep your credentials secure, you should regularly audit your SSH keys, deploy keys, and review authorized applications that access your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}.'
 redirect_from:
-  - /articles/keeping-your-application-access-tokens-safe/
-  - /articles/keeping-your-ssh-keys-and-application-access-tokens-safe/
+  - /articles/keeping-your-application-access-tokens-safe
+  - /articles/keeping-your-ssh-keys-and-application-access-tokens-safe
   - /articles/reviewing-your-ssh-keys
   - /github/authenticating-to-github/reviewing-your-ssh-keys
   - /github/authenticating-to-github/keeping-your-account-and-data-secure/reviewing-your-ssh-keys
@@ -21,8 +21,8 @@ topics:
 
 {% mac %}
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.ssh %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.ssh %}
 3. [SSH Settings] ページで、自分のアカウントに関連付けられている SSH キーを書き留めます。 覚えていないか古くなっている場合は、[**Delete**] をクリックします。 残しておきたい有効な SSH キーがある場合は、[**Approve**] をクリックします。 ![SSH キーのリスト](/assets/images/help/settings/settings-ssh-key-review.png)
 
   {% tip %}
@@ -47,8 +47,8 @@ topics:
 
 {% windows %}
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.ssh %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.ssh %}
 3. [SSH Settings] ページで、自分のアカウントに関連付けられている SSH キーを書き留めます。 覚えていないか古くなっている場合は、[**Delete**] をクリックします。 残しておきたい有効な SSH キーがある場合は、[**Approve**] をクリックします。 ![SSH キーのリスト](/assets/images/help/settings/settings-ssh-key-review.png)
 
   {% tip %}
@@ -75,8 +75,8 @@ topics:
 
 {% linux %}
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.ssh %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.ssh %}
 3. [SSH Settings] ページで、自分のアカウントに関連付けられている SSH キーを書き留めます。 覚えていないか古くなっている場合は、[**Delete**] をクリックします。 残しておきたい有効な SSH キーがある場合は、[**Approve**] をクリックします。 ![SSH キーのリスト](/assets/images/help/settings/settings-ssh-key-review.png)
 
   {% tip %}

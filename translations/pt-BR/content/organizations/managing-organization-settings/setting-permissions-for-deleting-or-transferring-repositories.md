@@ -2,7 +2,7 @@
 title: Definir permissões para excluir ou transferir repositórios
 intro: 'Você pode permitir que integrantes da organização com permissões de administrador no repositório excluam ou transfiram o repositório, ou limitem a capacidade de excluir ou transferir repositórios aos proprietários da organização.'
 redirect_from:
-  - /articles/setting-permissions-for-deleting-or-transferring-repositories-in-your-organization/
+  - /articles/setting-permissions-for-deleting-or-transferring-repositories-in-your-organization
   - /articles/setting-permissions-for-deleting-or-transferring-repositories
   - /github/setting-up-and-managing-organizations-and-teams/setting-permissions-for-deleting-or-transferring-repositories
 versions:

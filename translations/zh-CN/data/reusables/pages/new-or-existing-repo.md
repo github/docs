@@ -1,4 +1,6 @@
-如果站点是一个独立的项目，您可以创建新仓库来存储站点源代码。 If your site is associated with an existing project, you can add the source code to that project's repository, in a `/docs` folder on the default branch or on a different branch. 例如，如果您创建站点来发布已经在 {% data variables.product.product_name %} 上的项目文档， 您可能想要将站点的源代码存储在与项目相同的仓库中。
+You can either create a repository or choose an existing repository for your site.
+
+If you want to create a {% data variables.product.prodname_pages %} site for a repository where not all of the files in the repository are related to the site, you will be able to configure a publishing source for your site. For example, you can have a dedicated branch and folder to hold your site source files{% ifversion pages-custom-workflow %}, or you can use a custom {% data variables.product.prodname_actions %} workflow to build and deploy your site source files{% endif %}.
 
 {% ifversion fpt or ghec %}如果拥有仓库的帐户使用组织的 {% data variables.product.prodname_free_user %} 或 {% data variables.product.prodname_free_team %}，仓库必须是公共的。{% endif %}
 

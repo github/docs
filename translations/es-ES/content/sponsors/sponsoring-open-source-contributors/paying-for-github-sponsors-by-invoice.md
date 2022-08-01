@@ -19,4 +19,3 @@ Las compañías utilizan un método de facturación para participar en el progra
 
 Puedes unirte a este programa beta si hablas con tu representante de ventas o si [nos contactas](https://support.github.com/contact/org-sponsors-waitlist).
 
-Para obtener más información sobre cómo recibir pagos del servicio de Patrocinadores para Compañías, consulta la sección "[Recibir pagos de los Patrocinadores para Compañías](/sponsors/receiving-sponsorships-through-github-sponsors/sponsors-for-companies)".

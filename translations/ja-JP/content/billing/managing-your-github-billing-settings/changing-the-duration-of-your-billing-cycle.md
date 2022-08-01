@@ -3,9 +3,9 @@ title: 支払いサイクル期間の変更
 intro: アカウントのプランや、その他有料機能、有料製品は、月次または年次のサイクルで支払うことができます。
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/changing-the-duration-of-your-billing-cycle
-  - /articles/monthly-and-yearly-billing/
-  - /articles/switching-between-monthly-and-yearly-billing-for-your-personal-account/
-  - /articles/switching-between-monthly-and-yearly-billing-for-your-organization/
+  - /articles/monthly-and-yearly-billing
+  - /articles/switching-between-monthly-and-yearly-billing-for-your-personal-account
+  - /articles/switching-between-monthly-and-yearly-billing-for-your-organization
   - /articles/changing-the-duration-of-your-billing-cycle
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-your-github-billing-settings/changing-the-duration-of-your-billing-cycle
 versions:
@@ -23,8 +23,8 @@ shortTitle: 支払いサイクル
 
 ## 個人アカウントの支払いサイクル期間の変更
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.billing_plans %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.billing_plans %}
 {% data reusables.dotcom_billing.change_plan_duration %}
 {% data reusables.dotcom_billing.confirm_duration_change %}
 

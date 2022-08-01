@@ -6,7 +6,7 @@ redirect_from:
   - /enterprise/admin/migrations/generating-a-list-of-migration-conflicts
   - /enterprise/admin/migrations/reviewing-migration-conflicts
   - /enterprise/admin/migrations/resolving-migration-conflicts-or-setting-up-custom-mappings
-  - /enterprise/admin/guides/migrations/preparing-the-migrated-data-for-import-to-github-enterprise/
+  - /enterprise/admin/guides/migrations/preparing-the-migrated-data-for-import-to-github-enterprise
   - /enterprise/admin/user-management/preparing-to-migrate-data-to-your-enterprise
   - /admin/user-management/preparing-to-migrate-data-to-your-enterprise
 versions:
@@ -20,7 +20,7 @@ shortTitle: Prepare to migrate data
 
 ## 移行したデータを {% data variables.product.prodname_ghe_server %} にインポートするための準備
 
-1. [`scp`](https://linuxacademy.com/blog/linux/ssh-and-scp-howto-tips-tricks#scp) コマンドを使って、ソースインスタンスまたは Organization から生成された移行アーカイブを {% data variables.product.prodname_ghe_server %} ターゲットにコピーします:
+1. [`scp`](https://acloudguru.com/blog/engineering/ssh-and-scp-howto-tips-tricks#scp) コマンドを使って、ソースインスタンスまたは Organization から生成された移行アーカイブを {% data variables.product.prodname_ghe_server %} ターゲットにコピーします:
 
     ```shell
     $ scp -P 122 <em>/path/to/archive/MIGRATION_GUID.tar.gz</em> admin@<em>hostname</em>:/home/admin/
@@ -44,7 +44,7 @@ shortTitle: Prepare to migrate data
     $ ghe-migrator conflicts -g <em>MIGRATION_GUID</em> > conflicts.csv
     ```
     - コンフリクトが報告されなければ、「[Enterprise にデータを移行する](/enterprise/admin/guides/migrations/applying-the-imported-data-on-github-enterprise-server/)」のステップに従って安全にデータをインポートできます。
-2. コンフリクトがある場合は、[`scp`](https://linuxacademy.com/blog/linux/ssh-and-scp-howto-tips-tricks#scp) コマンドを使って *conflicts.csv* をローカルコンピュータにコピーします。
+2. コンフリクトがある場合は、[`scp`](https://acloudguru.com/blog/engineering/ssh-and-scp-howto-tips-tricks#scp) コマンドを使って *conflicts.csv* をローカルコンピュータにコピーします。
   ```shell
   $ scp -P 122 admin@<em>hostname</em>:conflicts.csv ~/Desktop
   ```
@@ -134,7 +134,7 @@ $ ghe-migrator audit -m user -g <em>MIGRATION_GUID</em> > users.csv
 
 ### 修正された移行データの適用
 
-1. 変更を加えた後、修正された *conflicts.csv* (または適切な形式のその他のマッピング *.csv*) を [`scp`](https://linuxacademy.com/blog/linux/ssh-and-scp-howto-tips-tricks#scp) コマンドを使ってターゲットインスタンスに適用します。
+1. 変更を加えた後、修正された *conflicts.csv* (または適切な形式のその他のマッピング *.csv*) を [`scp`](https://acloudguru.com/blog/engineering/ssh-and-scp-howto-tips-tricks#scp) コマンドを使ってターゲットインスタンスに適用します。
 
     ```shell
     $ scp -P 122 ~/Desktop/conflicts.csv admin@<em>hostname</em>:/home/admin/
