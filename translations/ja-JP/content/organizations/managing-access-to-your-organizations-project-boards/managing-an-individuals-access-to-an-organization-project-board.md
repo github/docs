@@ -67,4 +67,4 @@ When you remove a collaborator from a {% data variables.projects.projects_v1_boa
 
 ## 参考リンク
 
-- "[{% data variables.product.prodname_project_v1_caps %} permissions for an organization](/articles/project-board-permissions-for-an-organization)"
+- 「[Organizationの{% data variables.product.prodname_project_v1_caps %}の権限](/articles/project-board-permissions-for-an-organization)」
