@@ -1,19 +1,17 @@
 ---
-title: 添加注释到项目板
-intro: 您可以添加注释到项目板以用作任务提醒，或者添加与项目板相关的信息。
+title: 'Adding notes to a {% data variables.product.prodname_project_v1 %}'
+intro: 'You can add notes to a {% data variables.projects.projects_v1_board %} to serve as task reminders or to add information related to the {% data variables.projects.projects_v1_board %}.'
 redirect_from:
   - /github/managing-your-work-on-github/tracking-the-progress-of-your-work-with-project-boards/adding-notes-to-a-project-board
   - /articles/adding-notes-to-a-project
   - /articles/adding-notes-to-a-project-board
   - /github/managing-your-work-on-github/adding-notes-to-a-project-board
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
-  ghec: '*'
+  feature: projects-v1
 topics:
   - Pull requests
-shortTitle: 添加备注到板
+shortTitle: 'Add notes to {% data variables.product.prodname_project_v1 %}'
+allowTitleToDifferFromFilename: true
 ---
 
 {% data reusables.projects.project_boards_old %}
@@ -23,17 +21,17 @@ shortTitle: 添加备注到板
 **提示：**
 - 您可以使用 Markdown 语法格式化注释。 例如，可以使用标题、链接、任务列表或表情符号。 更多信息请参阅“[基本撰写和格式语法](/articles/basic-writing-and-formatting-syntax)”。
 - 可以通过拖放或键盘快捷键对注释重新排序以及在列之间移动它们。 {% data reusables.project-management.for-more-info-project-keyboard-shortcuts %}
-- 项目板必须至少有一列才可添加注释。 更多信息请参阅“[创建项目板](/articles/creating-a-project-board)”。
+- Your {% data variables.projects.projects_v1_board %} must have at least one column before you can add notes. 更多信息请参阅“[创建项目板](/articles/creating-a-project-board)”。
 
 {% endtip %}
 
-在注释中添加议题、拉取请求或另一个项目板的 URL 时，在文本下面的摘要卡中会看到预览。
+When you add a URL for an issue, pull request, or another {% data variables.projects.projects_v1_board %} to a note, you'll see a preview in a summary card below your text.
 
 ![显示议题和另一个项目板预览的项目板卡](/assets/images/help/projects/note-with-summary-card.png)
 
-## 添加注释到项目板
+## Adding notes to a {% data variables.projects.projects_v1_board %}
 
-1. 导航到您要在其中添加注释的项目板。
+1. Navigate to the {% data variables.projects.projects_v1_board %} where you want to add notes.
 2. 在要添加注释的列中，单击 {% octicon "plus" aria-label="The plus icon" %}。 ![列标题中的加号](/assets/images/help/projects/add-note-button.png)
 3. 输入您的注释，然后单击 **Add（添加）**。 ![用于输入注释的字段和添加卡按钮](/assets/images/help/projects/create-and-add-note-button.png)
 
@@ -51,17 +49,17 @@ shortTitle: 添加备注到板
 
 {% tip %}
 
-**提示：**您可以添加注释正文的内容以 @提及某人、链接到其他议题或拉取请求，以及添加表情符号。 这些 {% data variables.product.prodname_dotcom %} Flavored Markdown 功能在项目板注释中不受支持，但在注释转换为议题之后，它们会正确显示。 有关使用这些功能的更多信息，请参阅“[关于在 {% data variables.product.prodname_dotcom %} 上编写和设置格式](/articles/about-writing-and-formatting-on-github)”。
+**提示：**您可以添加注释正文的内容以 @提及某人、链接到其他议题或拉取请求，以及添加表情符号。 These {% data variables.product.prodname_dotcom %} Flavored Markdown features aren't supported within {% data variables.projects.projects_v1_board %} notes, but once your note is converted to an issue, they'll appear correctly. 有关使用这些功能的更多信息，请参阅“[关于在 {% data variables.product.prodname_dotcom %} 上编写和设置格式](/articles/about-writing-and-formatting-on-github)”。
 
 {% endtip %}
 
 1. 导航到您要转换为议题的注释。
 {% data reusables.project-management.project-note-more-options %}
 3. 单击 **Convert to issue（转换为议题）**。 ![转换为议题按钮](/assets/images/help/projects/convert-to-issue.png)
-4. 如果卡在全组织项目板上，请从下拉菜单中选择要添加议题到其中的仓库。 ![列出可在其中创建议题的仓库的下拉菜单](/assets/images/help/projects/convert-note-choose-repository.png)
+4. If the card is on an organization-wide {% data variables.projects.projects_v1_board %}, in the drop-down menu, choose the repository you want to add the issue to. ![列出可在其中创建议题的仓库的下拉菜单](/assets/images/help/projects/convert-note-choose-repository.png)
 5. 可以选择编辑预填的议题标题，并输入议题正文。 ![议题标题和正文字段](/assets/images/help/projects/convert-note-issue-title-body.png)
 6. 单击 **Convert to issue（转换为议题）**。
-7. 该注释会自动转换为议题。 在项目板中，新议题卡与之前注释的位置一样。
+7. 该注释会自动转换为议题。 In the {% data variables.projects.projects_v1_board %}, the new issue card will be in the same location as the previous note.
 
 ## 编辑和删除注释
 
@@ -72,7 +70,7 @@ shortTitle: 添加备注到板
 
 ## 延伸阅读
 
-- "[关于项目板](/articles/about-project-boards)"
-- "[创建项目板](/articles/creating-a-project-board)"
-- "[编辑项目板](/articles/editing-a-project-board)"
-- "[添加议题和拉取请求到项目板](/articles/adding-issues-and-pull-requests-to-a-project-board)"
+- "[关于 {% data variables.product.prodname_projects_v1 %}](/articles/about-project-boards)"
+- "[创建 {% data variables.product.prodname_project_v1 %}](/articles/creating-a-project-board)"
+- "[Editing a {% data variables.product.prodname_project_v1 %}](/articles/editing-a-project-board)"
+- "[Adding issues and pull requests to a {% data variables.product.prodname_project_v1 %}](/articles/adding-issues-and-pull-requests-to-a-project-board)"

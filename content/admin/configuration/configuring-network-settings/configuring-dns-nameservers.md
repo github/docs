@@ -30,16 +30,12 @@ The nameservers you specify must resolve {% data variables.product.product_locat
 
 {% data reusables.enterprise_installation.ssh-into-instance %}
 
-2. To edit your nameservers, enter:
+2. To edit your nameservers, use the `ghe-setup-network` command in visual mode. For more information, see "[Command-line utilities](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-setup-network)."
 
   ```shell
-  sudo vim /etc/resolvconf/resolv.conf.d/head
+  ghe-setup-network -v
   ```
 
-{% data reusables.enterprise_installation.preventing-nameservers-change %}
-
-3. Append any `nameserver` entries, then save the file.
-4. After verifying your changes, save the file.
 5. To add your new nameserver entries to {% data variables.product.product_location %}, run the following:
 
   ```shell

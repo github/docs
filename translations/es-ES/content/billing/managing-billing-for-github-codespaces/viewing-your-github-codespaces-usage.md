@@ -22,6 +22,9 @@ Los propietarios de la organización y gerentes de facturación pueden ver el us
 {% data reusables.organizations.billing-settings %}
 {% data reusables.dotcom_billing.codespaces-minutes %}
 {% data reusables.dotcom_billing.actions-packages-report-download-org-account %}
+1. Filter the report to show only rows that mention "Codespaces" in the `Product` field.
+
+   ![A usage report filtered for Codespaces](/assets/images/help/codespaces/CSV-usage-report.png)
 
 {% ifversion ghec %}
 ## Visualizar el uso de {% data variables.product.prodname_codespaces %} para tu cuenta empresarial

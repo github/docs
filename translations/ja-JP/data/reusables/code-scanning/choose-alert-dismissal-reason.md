@@ -1,3 +1,3 @@
 クエリが将来の分析に含まれ続けるかに影響することがあるので、ドロップダウンメニューから適切な理由を選択することは重要です。
-{% ifversion comment-dismissed-code-scanning-alert %}Optionally, you can comment on a dismissal to record the context of an alert dismissal. The dismissal comment is added to the alert timeline and can be used as justification during auditing and reporting. You can retrieve or set a comment by using the code scanning REST API. The comment is contained in `dismissed_comment` for the `alerts/{alert_number}` endpoint. For more information, see "[Code Scanning](/rest/code-scanning#update-a-code-scanning-alert)."
+{% ifversion comment-dismissed-code-scanning-alert %}あるいは、アラートの却下に関するコンテキストを記録するために、却下の際にコメントすることができます。 却下のコメントはアラートのタイムラインに追加され、監査とレポートの際の正当性として利用できます。 コードスキャンニングのREST APIを使用して、コメントの取得や設定ができます。 コメントは、`alerts/{alert_number}`エンドポイントの`dismissed_comment`に含まれています。 詳しい情報については「[Code scanning](/rest/code-scanning#update-a-code-scanning-alert)」を参照してください。
 {% endif %}

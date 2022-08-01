@@ -1,5 +1,5 @@
 ---
-title: GitHub Codespaces logs
+title: Logs do GitHub Codespaces
 intro: 'Visão geral dos locais de registros usados por {% data variables.product.prodname_github_codespaces %}.'
 product: '{% data reusables.gated-features.codespaces %}'
 versions:

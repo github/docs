@@ -252,4 +252,6 @@ restore-keys: |
 
 您可以使用 {% data variables.product.product_name %} REST API 来管理缓存。 {% ifversion actions-cache-list-delete-apis %}您可以使用 API 列出和删除缓存条目，并查看缓存使用情况。{% elsif actions-cache-management %}目前，您可以使用 API 查看缓存使用情况，预计在将来的更新中会有更多的功能。{% endif %} 有关详细信息，请参阅“[{% data variables.product.prodname_actions %} 缓存](/rest/actions/cache)”REST API 文档。
 
+You can also install a {% data variables.product.prodname_cli %} extension to manage your caches from the command line. For more information about the extension, see [the extension documentation](https://github.com/actions/gh-actions-cache#readme). For more information about {% data variables.product.prodname_cli %} extensions, see "[Using GitHub CLI extensions](/github-cli/github-cli/using-github-cli-extensions)."
+
 {% endif %}

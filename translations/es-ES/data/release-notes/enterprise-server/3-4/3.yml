@@ -17,7 +17,7 @@ sections:
     - 'Los videos que se suben a los comentarios de las propuestas no se representaron adecuadamente.'
     - 'When using GitHub Enterprise Importer to import a repository, some issues would fail to import due to incorrectly configured project timeline events.'
     - 'Al utilizar `ghe-migrator`, una migración falló en importar los archivos de video adjuntos en las propuestas y solicitudes de cambios.'
-    - 'The Releases page would return a 500 error when the repository has tags that contain non-ASCII characters. [Updated: 2022-06-10]'
+    - 'La página de lanzamientos devolvió un error 500 cuando el repositorio tuvo etiquetas que contenían caracteres diferentes a los de ASCII. [Actualizado: 2022-06-10]'
     - 'Upgrades would sometimes fail while migrating dependency graph data. [Updated: 2022-06-30]'
   changes:
     - 'En las configuraciones de disponibilidad alta, se aclara que la página de resumen de replicación en la consola de administración solo muestra la configuración de replicación actual y no el estado de replicación actual.'

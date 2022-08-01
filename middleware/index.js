@@ -14,7 +14,6 @@ import cookieParser from './cookie-parser.js'
 import csrf from './csrf.js'
 import handleCsrfErrors from './handle-csrf-errors.js'
 import { setDefaultFastlySurrogateKey } from './set-fastly-surrogate-key.js'
-import setFastlyCacheHeaders from './set-fastly-cache-headers.js'
 import reqUtils from './req-utils.js'
 import recordRedirect from './record-redirect.js'
 import handleErrors from './handle-errors.js'
@@ -29,7 +28,6 @@ import findPage from './find-page.js'
 import blockRobots from './block-robots.js'
 import archivedEnterpriseVersionsAssets from './archived-enterprise-versions-assets.js'
 import api from './api/index.js'
-import events from './events.js'
 import search from './search.js'
 import healthz from './healthz.js'
 import anchorRedirect from './anchor-redirect.js'
@@ -251,7 +249,6 @@ export default function (app) {
 
   // *** Rendering, 2xx responses ***
   app.use('/api', instrument(api, './api'))
-  app.use('/events', instrument(events, './events'))
   app.use('/search', instrument(search, './search'))
   app.use('/healthz', instrument(healthz, './healthz'))
   app.use('/anchor-redirect', instrument(anchorRedirect, './anchor-redirect'))
@@ -304,9 +301,6 @@ export default function (app) {
     // make any changes to the following line:
     app.use('/fastly-cache-test', fastlyCacheTest)
   }
-
-  // *** Headers for pages only ***
-  app.use(setFastlyCacheHeaders)
 
   // handle serving NextJS bundled code (/_next/*)
   app.use(instrument(next, './next'))

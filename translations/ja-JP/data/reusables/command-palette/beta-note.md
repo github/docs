@@ -1,5 +1,5 @@
 {% note %}
 
-**Note:** The {% data variables.product.prodname_command_palette %} is currently in public beta and is subject to change.
+**ノート:** {% data variables.product.prodname_command_palette %}は現在パブリックベータであり、変更されることがあります。
 
 {% endnote %}

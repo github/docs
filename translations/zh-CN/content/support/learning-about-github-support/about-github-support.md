@@ -17,6 +17,8 @@ redirect_from:
   - /github/working-with-github-support/github-enterprise-cloud-support
   - /articles/business-plan-support
   - /articles/github-business-cloud-support
+  - /admin/enterprise-support/about-support-for-advanced-security
+  - /enterprise-server/admin/enterprise-support/about-support-for-advanced-security
 topics:
   - Support
 ---

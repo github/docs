@@ -892,10 +892,10 @@ GitHub Marketplace の購入に関連するアクティビティ。 {% data reus
 - Organization webhook
 - `repository_projects` または `organization_projects` 権限のある {% data variables.product.prodname_github_apps %}
 
-{% ifversion fpt or ghec %}
+{% ifversion projects-v2 %}
 {% note %}
 
-**Note**: This event does not occur for Projects (beta).
+**Note**: This event only occurs for {% data variables.product.prodname_projects_v1 %}.
 
 {% endnote %}
 {% endif %}
@@ -924,10 +924,10 @@ GitHub Marketplace の購入に関連するアクティビティ。 {% data reus
 - Organization webhook
 - `repository_projects` または `organization_projects` 権限のある {% data variables.product.prodname_github_apps %}
 
-{% ifversion fpt or ghec %}
+{% ifversion projects-v2 %}
 {% note %}
 
-**Note**: This event does not occur for Projects (beta).
+**Note**: This event only occurs for {% data variables.product.prodname_projects_v1 %}.
 
 {% endnote %}
 {% endif %}
@@ -954,6 +954,14 @@ GitHub Marketplace の購入に関連するアクティビティ。 {% data reus
 - Organization webhook
 - `repository_projects` または `organization_projects` 権限のある {% data variables.product.prodname_github_apps %}
 
+{% ifversion projects-v2 %}
+{% note %}
+
+**Note**: This event only occurs for {% data variables.product.prodname_projects_v1 %}.
+
+{% endnote %}
+{% endif %}
+
 ### webhook ペイロードオブジェクト
 
 {% data reusables.webhooks.project_column_properties %}
@@ -972,11 +980,11 @@ GitHub Marketplace の購入に関連するアクティビティ。 {% data reus
 
 {% note %}
 
-**Note:** Webhook events for Projects (beta) are currently in beta and subject to change. To share feedback about Projects (beta) webhooks with {% data variables.product.product_name %}, see the [Projects (beta) webhook feedback discussion](https://github.com/github/feedback/discussions/17405).
+**ノート:** {% data variables.projects.projects_v2 %}のwebhookイベントは現在ベータであり、変更されることがあります。 To share feedback about {% data variables.projects.projects_v2 %} webhooks with {% data variables.product.product_name %}, see the [Projects webhook feedback discussion](https://github.com/orgs/community/discussions/17405).
 
 {% endnote %}
 
-Activity related to items in a Projects (beta) project. {% data reusables.webhooks.action_type_desc %} For more information, see "[About projects (beta)](/issues/trying-out-the-new-projects-experience/about-projects)."
+Activity related to items in a {% data variables.projects.project_v2 %}. {% data reusables.webhooks.action_type_desc %} For more information, see "[About {% data variables.projects.projects_v2 %}](/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects)."
 
 ### 利用の可否
 
@@ -985,11 +993,11 @@ Activity related to items in a Projects (beta) project. {% data reusables.webhoo
 
 ### webhook ペイロードオブジェクト
 
-| キー                 | 種類       | 説明                                                                                                                                                                                                                                                                                                                                                                                    |
-| ------------------ | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `action`           | `string` | The action that was performed on the project item. Can be one of `archived`, `converted`, `created`, `edited`, `restored`, `deleted`, or `reordered`.                                                                                                                                                                                                                                 |
-| `projects_v2_item` | `オブジェクト` | The project item itself. To find more information about the project item, you can use `node_id` (the node ID of the project item) and `project_node_id` (the node ID of the project) to query information in the GraphQL API. For more information, see "[Using the API to manage projects (beta)](/issues/trying-out-the-new-projects-experience/using-the-api-to-manage-projects)." |
-| `changes`          | `オブジェクト` | The changes to the project item.                                                                                                                                                                                                                                                                                                                                                      |
+| キー                 | 種類       | 説明                                                                                                                                                                                                                                                                                                                                                                                                  |
+| ------------------ | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `action`           | `string` | The action that was performed on the project item. Can be one of `archived`, `converted`, `created`, `edited`, `restored`, `deleted`, or `reordered`.                                                                                                                                                                                                                                               |
+| `projects_v2_item` | `オブジェクト` | The project item itself. To find more information about the project item, you can use `node_id` (the node ID of the project item) and `project_node_id` (the node ID of the project) to query information in the GraphQL API. For more information, see "[Using the API to manage projects](/issues/planning-and-tracking-with-projects/automating-your-project/using-the-api-to-manage-projects)." |
+| `changes`          | `オブジェクト` | The changes to the project item.                                                                                                                                                                                                                                                                                                                                                                    |
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.app_desc %}
 {% data reusables.webhooks.sender_desc %}
@@ -1320,7 +1328,7 @@ Activity related to items in a Projects (beta) project. {% data reusables.webhoo
 
 Activity related to a security advisory that has been reviewed by {% data variables.product.company_short %}. A {% data variables.product.company_short %}-reviewed security advisory provides information about security-related vulnerabilities in software on {% data variables.product.prodname_dotcom %}.
 
-The security advisory dataset also powers the GitHub {% data variables.product.prodname_dependabot_alerts %}. 詳しい情報については、「[{% data variables.product.prodname_dependabot_alerts %} について](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies/)」を参照してください。
+The security advisory dataset also powers the GitHub {% data variables.product.prodname_dependabot_alerts %}. 詳しい情報については「[{% data variables.product.prodname_dependabot_alerts %}について](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies/)」を参照してください。
 
 ### 利用の可否
 

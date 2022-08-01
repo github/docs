@@ -58,7 +58,7 @@ Você pode usar [{% data variables.product.prodname_github_codespaces %}](/codes
 
 {% data reusables.codespaces.review-pr %}
 
-For more information on reviewing pull requests in {% data variables.product.prodname_codespaces %}, see "[Using {% data variables.product.prodname_github_codespaces %} for pull requests](/codespaces/developing-in-codespaces/using-github-codespaces-for-pull-requests)."
+Para obter mais informações sobre pull requests em {% data variables.product.prodname_codespaces %}, consulte "[Usando {% data variables.product.prodname_github_codespaces %} para pull requests](/codespaces/developing-in-codespaces/using-github-codespaces-for-pull-requests)".
 
 {% endcodespaces %}
 {% endif %}

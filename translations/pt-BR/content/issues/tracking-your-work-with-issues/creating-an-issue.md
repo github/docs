@@ -90,7 +90,7 @@ Você pode abrir um novo problema a partir de um comentário em um problema ou p
 {% data reusables.repositories.assign-an-issue-as-project-maintainer %}
 {% data reusables.repositories.submit-new-issue %}
 
-{% ifversion fpt or ghec %}
+{% ifversion discussions %}
 
 ## Criando um problema da discussão
 

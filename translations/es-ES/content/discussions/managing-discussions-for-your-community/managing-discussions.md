@@ -3,8 +3,7 @@ title: Administrar los debates
 intro: 'You can categorize, spotlight, transfer, or delete the discussions.'
 permissions: Repository administrators and people with write or greater access to a repository can manage discussions in the repository. Repository administrators and people with write or greater access to the source repository for organization discussions can manage discussions in the organization.
 versions:
-  fpt: '*'
-  ghec: '*'
+  feature: discussions
 shortTitle: Administrar los debates
 redirect_from:
   - /discussions/managing-discussions-for-your-community/managing-discussions-in-your-repository
@@ -17,7 +16,7 @@ redirect_from:
 
 Organization owners can choose the permissions required to create a discussion in repositories owned by the organization. Similarly, to choose the permissions required to create an organization discussion, organization owners can change the permissions required in the source repository. Para obtener más información, consulta la sección "[Administrar la creación de debates para los repositorios de tu organización](/organizations/managing-organization-settings/managing-discussion-creation-for-repositories-in-your-organization)".
 
-Como mantenedor de debates, puedes crear recursos comunitarios para impulsar los debates que se alinien con la meta general del proyecto y mantener así un foro abierto y amistoso para los colaboradores. El crear un código de conducta o lineamientos de contribución para que los colaboradores los sigan te ayudará a proporcionar un foro colaborativo y productivo. Para obtener más información sobre cómo crear recursos comunitarios, consulta las secciones "[Agregar un código de conducta a tu proyecto](/communities/setting-up-your-project-for-healthy-contributions/adding-a-code-of-conduct-to-your-project)" y "[Configurar los lineamientos para los contribuyentes de un repositorio](/communities/setting-up-your-project-for-healthy-contributions/setting-guidelines-for-repository-contributors)".
+Como mantenedor de debates, puedes crear recursos comunitarios para impulsar los debates que se alinien con la meta general del proyecto y mantener así un foro abierto y amistoso para los colaboradores. Creating{% ifversion fpt or ghec %} a code of conduct or{% endif %} contribution guidelines for collaborators to follow will help facilitate a collaborative and productive forum. For more information on creating community resources, see{% ifversion fpt or ghec %} "[Adding a code of conduct to your project](/communities/setting-up-your-project-for-healthy-contributions/adding-a-code-of-conduct-to-your-project)," and{% endif %} "[Setting guidelines for repository contributors](/communities/setting-up-your-project-for-healthy-contributions/setting-guidelines-for-repository-contributors)."
 
 Cuando un debate produce una idea o error que está listo para solucionarse, puedes crear una propuesta nueva desde un debate. Para obtener más información, consulta la sección "[Crear una propuesta](/issues/tracking-your-work-with-issues/creating-an-issue#creating-an-issue-from-a-discussion)".
 
@@ -29,11 +28,11 @@ Para obtener más información sobre cómo proporcionar un debate sano, consulta
 
 Para administrar los debates en un repositorio, debes habilitar los {% data variables.product.prodname_discussions %} en este. Para obtener más información, consulta la sección "[Habilitar o inhabilitar los {% data variables.product.prodname_discussions %} para un repositorio](/github/administering-a-repository/enabling-or-disabling-github-discussions-for-a-repository)".
 
-To manage discussions in an organization, {% data variables.product.prodname_discussions %} must be enabled for the organization. For more information, see "[Enabling or disabling {% data variables.product.prodname_discussions %} for an organization](/organizations/managing-organization-settings/enabling-or-disabling-github-discussions-for-an-organization)."
+To manage discussions in an organization, {% data variables.product.prodname_discussions %} must be enabled for the organization. Para obtener más información, consulta la sección "[Habilitar o inhabilitar los {% data variables.product.prodname_discussions %} para una organización](/organizations/managing-organization-settings/enabling-or-disabling-github-discussions-for-an-organization)".
 
 ## Cambiar la categoría de un debate
 
-Puedes categorizar los debates para ayudar a que los miembros de la comunidad encuentren aquellos que tengan alguna relación. For more information, see "[Managing categories for discussions](/discussions/managing-discussions-for-your-community/managing-categories-for-discussions)."
+Puedes categorizar los debates para ayudar a que los miembros de la comunidad encuentren aquellos que tengan alguna relación. Para obtener más información, consulta la sección "[Administrar las categorías de los debates](/discussions/managing-discussions-for-your-community/managing-categories-for-discussions)".
 
 También puedes migrar un debate a una categoría diferente. It's not possible to move a discussion to or from the polls category.
 
@@ -75,7 +74,7 @@ Editar un debate que se ha fijado no cambiará la categoría del mismo. Para obt
 
 ## Transferir un debate
 
-Para transferir un debate, debes tener permisos para crear debates en el repositorio a donde quieras trasnferirlo. If you want to transfer a discussion to an organization, you must have permissions to create discussions in the source repository for the organization's discussions. Solo puedes transferir debates entre los repositorios que pertenezcan a la misma cuenta de organización o de usuario. No puedes transferir un debate desde un repositorio privado hacia uno público.
+Para transferir un debate, debes tener permisos para crear debates en el repositorio a donde quieras trasnferirlo. If you want to transfer a discussion to an organization, you must have permissions to create discussions in the source repository for the organization's discussions. Solo puedes transferir debates entre los repositorios que pertenezcan a la misma cuenta de organización o de usuario. You can't transfer a discussion from a private{% ifversion ghec or ghes %} or internal{% endif %} repository to a public repository.
 
 {% data reusables.discussions.navigate-to-repo-or-org %}
 {% data reusables.discussions.discussions-tab %}

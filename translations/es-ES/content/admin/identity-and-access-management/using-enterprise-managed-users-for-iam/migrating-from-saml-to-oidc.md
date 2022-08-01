@@ -1,6 +1,6 @@
 ---
 title: Migrating from SAML to OIDC
-shortTitle: Migrating from SAML to OIDC
+shortTitle: Migrarte de SAML a OIDC
 intro: 'If you''re using SAML to authenticate members in your {% data variables.product.prodname_emu_enterprise %}, you can migrate to OpenID Connect (OIDC) and benefit from support for your IdP''s Conditional Access Policy.'
 product: '{% data reusables.gated-features.emus %}'
 versions:

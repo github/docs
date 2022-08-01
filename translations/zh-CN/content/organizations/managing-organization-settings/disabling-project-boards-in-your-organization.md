@@ -1,6 +1,6 @@
 ---
-title: 删除组织中的项目板
-intro: 组织所有者可关闭组织中的组织范围的项目板和仓库项目板。
+title: 'Disabling {% ifversion projects-v2 %}projects{% else %}project boards{% endif %} in your organization'
+intro: 'Organization owners can turn off {% ifversion projects-v2 %}organization-wide {% data variables.projects.projects_v2 %}, organization-wide {% data variables.projects.projects_v1_boards %}, and repository-level {% data variables.projects.projects_v1_boards %}{% else %}organization-wide project boards and repository project boards{% endif %} in an organization.'
 redirect_from:
   - /github/managing-your-work-on-github/managing-project-boards/disabling-project-boards-in-your-organization
   - /articles/disabling-project-boards-in-your-organization
@@ -12,12 +12,14 @@ versions:
   ghec: '*'
 topics:
   - Pull requests
-shortTitle: 禁用项目板
+shortTitle: Disable projects
+allowTitleToDifferFromFilename: true
 ---
 
-禁用组织范围的项目板后，将无法在组织级别创建新的项目板，并且将无法通过其先前的 URL 访问任何现有组织级别项目板。 组织仓库中的项目板不受影响。
+禁用组织范围的项目板后，将无法在组织级别创建新的项目板，并且将无法通过其先前的 URL 访问任何现有组织级别项目板。 组织仓库中的项目板不受影响。 {% ifversion projects-v2 %}These settings apply to {% data variables.projects.projects_v2 %} and {% data variables.projects.projects_v1_boards %}.{% endif %}
 
 在组织中禁用仓库项目板后，将无法在任何组织仓库中创建新项目板，并且将无法通过其先前的 URL 访问组织仓库中的任何现有项目板。 组织级别的项目板不受影响。
+
 
 禁用项目板后，在时间表或[审核日志](/organizations/keeping-your-organization-secure/reviewing-the-audit-log-for-your-organization)中将不再看到项目板信息。
 
@@ -36,7 +38,8 @@ shortTitle: 禁用项目板
 
 ## 延伸阅读
 
-- "[关于项目板](/articles/about-project-boards)"
-- "[关闭项目板](/articles/closing-a-project-board)"
-- “[删除项目板](/articles/deleting-a-project-board)”
-- “[在仓库中禁用项目板](/articles/disabling-project-boards-in-a-repository)”
+{% ifversion projects-v2 %}- "[About {% data variables.product.prodname_projects_v2 %}](/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects)"{% endif %}
+- "[关于 {% data variables.product.prodname_projects_v1 %}](/articles/about-project-boards)"
+- "[Closing a {% data variables.projects.projects_v1_board %}](/articles/closing-a-project-board)"
+- "[Deleting a {% data variables.projects.projects_v1_board %}](/articles/deleting-a-project-board)"
+- "[Disabling {% data variables.projects.projects_v1_boards %} in a repository](/articles/disabling-project-boards-in-a-repository)"

@@ -78,8 +78,8 @@ Aqui está um exemplo de arquivo *config.yml*.
 blank_issues_enabled: false
 contact_links:
   - name: {% data variables.product.prodname_gcf %}
-    url: https://github.community/
-    about: Pergunte e responda dúvidas aqui.
+    url: https://github.com/orgs/community/discussions
+    about: Please ask and answer questions here.
   - name: {% data variables.product.prodname_dotcom %} Recompensa de bug de segurança
     url: https://bounty.github.com/
     about: Reporte vulnerabilidades de segurança aqui.

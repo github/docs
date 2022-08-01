@@ -55,6 +55,8 @@ Este fluxo de trabalho usa o mecanismo de interpretação `helm` para a ação [
 ```yaml{:copy}
 {% data reusables.actions.actions-not-certified-by-github-comment %}
 
+{% data reusables.actions.actions-use-sha-pinning-comment %}
+
 name: Build and deploy to Azure Kubernetes Service
 
 env:

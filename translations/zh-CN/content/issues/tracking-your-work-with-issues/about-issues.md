@@ -32,7 +32,7 @@ topics:
 
 您可以通过项目组织议题并排定优先级。 {% ifversion fpt or ghec %}要跟踪作为较大议题一部分的议题，您可以使用任务列表。{% endif %} 要对相关议题进行分类，您可以使用标签和里程碑。
 
-有关项目的更多信息，请参阅 {% ifversion fpt or ghec %}“[关于项目（测试版）](/issues/trying-out-the-new-projects-experience/about-projects)”和{% endif %}“[组织对项目板的使用](/issues/organizing-your-work-with-project-boards)”。 {% ifversion fpt or ghec %}有关任务列表的更多信息，请参阅“[关于任务列表](/issues/tracking-your-work-with-issues/creating-issues/about-task-lists)”。 {% endif %}有关标签和里程碑的更多信息，请参阅“[使用标签和里程碑跟踪工作](/issues/using-labels-and-milestones-to-track-work)”。
+For more information about projects, see {% ifversion projects-v2 %}"[About projects](/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects)." {% else %}"[Organizing your work with project boards](/issues/organizing-your-work-with-project-boards)."{% endif %} {% ifversion fpt or ghec %}For more information about task lists, see "[About task lists](/issues/tracking-your-work-with-issues/creating-issues/about-task-lists)." {% endif %}有关标签和里程碑的更多信息，请参阅“[使用标签和里程碑跟踪工作](/issues/using-labels-and-milestones-to-track-work)”。
 
 ## 保持更新
 
@@ -48,7 +48,8 @@ topics:
 
 您可以在议题中@提及能访问您的仓库的协作者，以提请他们注意评论。 要将相关议题链接到同一仓库，您可以键入 `#`，后接议题标题的一部分，然后点击要链接的议题。 为了沟通责任，您可以分配议题。 如果您发现自己经常输入相同的评论，可以使用已保存的回复。
 {% ifversion fpt or ghec %} 更多信息请参阅“[基本编写和格式语法](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)”和“[将议题和拉取请求分配到其他 GitHub 用户](/issues/tracking-your-work-with-issues/assigning-issues-and-pull-requests-to-other-github-users)”。
-
+{% endif %}
+{% ifversion discussions %}
 ## 比较议题和讨论
 
 有些对话更适合 {% data variables.product.prodname_discussions %}。 {% data reusables.discussions.you-can-use-discussions %} 有关何时使用议题或讨论的指导，请参阅“[在 GitHub 上沟通](/github/getting-started-with-github/quickstart/communicating-on-github)”。

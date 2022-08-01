@@ -1,10 +1,9 @@
 ---
 title: Moderar discussões
-intro: 'Você pode promover uma colaboração saudável marcando comentários como respostas, bloqueando ou desbloqueando discussões, convertendo problemas para discussões, bem como e editar ou excluir comentários, discussões e categorias que não estão alinhadas com o código de conduta da sua comunidade.'
+intro: 'Você pode promover uma colaboração saudável marcando comentários como respostas, bloqueando ou desbloqueando discussões, convertendo problemas em discussões e editando ou excluindo comentários, discussões e categorias que não estão alinhadas com o código de conduta da sua comunidade{% ifversion fpt or ghec %}, organização{% elsif ghes > 3.5 %} as diretrizes de contribuição da organização{% endif %}.'
 permissions: People with triage access to a repository can moderate discussions in the repository. People with triage access to the source repository for organization discussions can moderate discussions in the organization.
 versions:
-  fpt: '*'
-  ghec: '*'
+  feature: discussions
 ---
 
 

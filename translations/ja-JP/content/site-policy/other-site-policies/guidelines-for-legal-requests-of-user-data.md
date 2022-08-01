@@ -174,7 +174,7 @@ GitHub, Inc. c/o Corporation Service Company
 Sacramento, CA 95833-3505
 ```
 
-legal@support.github.com に CC を送信することもできます。
+Courtesy copies may be emailed to legal-support@github.com
 
 要求を送る際は、次の情報を含めて、できるだけ具体的かつ範囲を絞った内容にしてください。
 

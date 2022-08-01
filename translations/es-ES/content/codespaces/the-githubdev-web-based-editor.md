@@ -16,7 +16,7 @@ redirect_from:
 
 {% note %}
 
-**Nota:** el github.dev {% data variables.product.prodname_serverless %} se encuentra acutalmente en vista previa beta. Puedes proporcionar retroalimentación [En nuestros debates](https://github.co/browser-editor-feedback).
+**Nota:** el github.dev {% data variables.product.prodname_serverless %} se encuentra acutalmente en vista previa beta. Puedes proporcionar retroalimentación [En nuestros debates](https://github.com/community/community/discussions/categories/general).
 
 {% endnote %}
 

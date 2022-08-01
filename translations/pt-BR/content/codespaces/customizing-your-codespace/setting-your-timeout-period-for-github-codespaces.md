@@ -1,5 +1,5 @@
 ---
-title: Setting your timeout period for GitHub Codespaces
+title: Definir seu período de tempo limite para os GitHub Codespaces
 shortTitle: Definir o tempo limite
 intro: 'Você pode definir seu tempo limite padrão para {% data variables.product.prodname_codespaces %} na sua página de configurações pessoais.'
 product: '{% data reusables.gated-features.codespaces %}'

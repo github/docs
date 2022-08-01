@@ -3,7 +3,7 @@ title: Transmitir la bitácora de auditoría para tu empresa
 intro: 'Puedes trasmitir datos de eventos de Git y de auditorías desde {% data variables.product.prodname_dotcom %} hacia un sistema externo de administración de datos.'
 miniTocMaxHeadingLevel: 3
 versions:
-  ghec: '*'
+  feature: audit-log-streaming
 type: tutorial
 topics:
   - Auditing
@@ -17,6 +17,14 @@ redirect_from:
 permissions: Enterprise owners can configure audit log streaming.
 ---
 
+{% ifversion ghes %}
+{% note %}
+
+**Note:** Audit log streaming is currently in beta for {% data variables.product.product_name %} and is subject to change.
+
+{% endnote %}
+{% endif %}
+
 ## Acerca de la transmisión de bitácoras de auditoría
 
 Para ayudarte a proteger tu propiedad intelectual y mantener el cumplimiento en tu organización, puedes utilizar la transmisión para mantener copias de tus datos de bitácoras de auditoría y monitorear:
@@ -24,11 +32,11 @@ Para ayudarte a proteger tu propiedad intelectual y mantener el cumplimiento en 
 
 Los beneficios de transmitir datos de auditoría incluyen:
 
-* **Exploración de datos**. Puedes examinar los eventos transmitidos utilizando tu herramienta preferida para consultar cantidades grandes de datos. La transmisión contiene tanto los eventos de auditoría como los de Git a lo largo de toda la cuenta empresarial.
-* **Continuidad de datos**. Puedes pausar la transmisión por hasta siete días sin perder datos de auditoría.
+* **Exploración de datos**. Puedes examinar los eventos transmitidos utilizando tu herramienta preferida para consultar cantidades grandes de datos. The stream contains both audit events and Git events across the entire enterprise account.{% ifversion pause-audit-log-stream %}
+* **Continuidad de datos**. You can pause the stream for up to seven days without losing any audit data.{% endif %}
 * **Retención de datos**. Puedes mantener tus bitácoras de auditoría y datos de eventos de Git exportados siempre que lo necesites.
 
-Los propietrios de empresas pueden configurar, pausar o borrar una transmisión en cualquier momento. La transmisión exporta los datos de auditoría de todas las organizaciones en tu empresa.
+Enterprise owners can set up{% ifversion pause-audit-log-stream %}, pause,{% endif %} or delete a stream at any time. The stream exports the audit and Git events data for all of the organizations in your enterprise.
 
 ## Configurar la transmisión de bitácoras de auditoría
 
@@ -272,6 +280,7 @@ Para transmitir bitácoras de auditoría a la terminal del Recolector de Eventos
 1. Haz clic en **Verificar terminal** para verificar que {% data variables.product.prodname_dotcom %} puede conectarse y escribir en la terminal de Splunk. ![Verificar la terminal](/assets/images/help/enterprises/audit-stream-check-splunk.png)
 {% data reusables.enterprise.verify-audit-log-streaming-endpoint %}
 
+{% ifversion pause-audit-log-stream %}
 ## Pausar la transmisión de bitácoras de auditoría
 
 El pausar la transmisión te permite realizar el mantenimiento de la aplicación receptora sin perder datos de auditoría. Las bitácoras de auditoría se almacenan por hasta siete días en {% data variables.product.product_location %} y luego se exportan cuando dejas de pausar la transmisión.
@@ -284,6 +293,7 @@ El pausar la transmisión te permite realizar el mantenimiento de la aplicación
 1. Se mostrará un mensaje de confirmación. Haz clic en **Pausar transmisión** para confirmar.
 
 Cuando la aplicación esté lista para recibir bitácoras de auditoría nuevamente, haz clic en **Reanudar transmisión** para reiniciar la transmisión de bitácoras de auditoría.
+{% endif %}
 
 ## Borrar la transmisión de bitácoras de auditoría
 

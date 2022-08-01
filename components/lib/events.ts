@@ -1,8 +1,8 @@
 /* eslint-disable camelcase */
 import { v4 as uuidv4 } from 'uuid'
 import Cookies from 'js-cookie'
-import getCsrf from './get-csrf'
 import parseUserAgent from './user-agent'
+import { getSession, waitForSession } from './get-session'
 
 const COOKIE_NAME = '_docs-events'
 
@@ -83,8 +83,10 @@ function getMetaContent(name: string) {
 }
 
 export function sendEvent({ type, version = '1.0.0', ...props }: SendEventProps) {
+  const session = getSession()
+
   const body = {
-    _csrf: getCsrf(),
+    _csrf: session?.csrfToken,
 
     type,
 
@@ -130,7 +132,7 @@ export function sendEvent({ type, version = '1.0.0', ...props }: SendEventProps)
   }
 
   const blob = new Blob([JSON.stringify(body)], { type: 'application/json' })
-  const endpoint = '/events'
+  const endpoint = '/api/events'
   try {
     // Only send the beacon if the feature is not disabled in the user's browser
     // Even if the function exists, it can still throw an error from the call being blocked
@@ -273,14 +275,16 @@ function initPrintEvent() {
 }
 
 export default function initializeEvents() {
-  initPageAndExitEvent() // must come first
-  initLinkEvent()
-  initClipboardEvent()
-  initCopyButtonEvent()
-  initPrintEvent()
-  // survey event in ./survey.js
-  // experiment event in ./experiment.js
-  // search and search_result event in ./search.js
-  // redirect event in middleware/record-redirect.js
-  // preference event in ./display-tool-specific-content.js
+  waitForSession(() => {
+    initPageAndExitEvent() // must come first
+    initLinkEvent()
+    initClipboardEvent()
+    initCopyButtonEvent()
+    initPrintEvent()
+    // survey event in ./survey.js
+    // experiment event in ./experiment.js
+    // search and search_result event in ./search.js
+    // redirect event in middleware/record-redirect.js
+    // preference event in ./display-tool-specific-content.js
+  })
 }
