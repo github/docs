@@ -2171,7 +2171,6 @@
         "requestPath": "/repos/{owner}/{repo}/import/lfs"
       }
     ],
-    "oauth-authorizations": [],
     "orgs": [
       {
         "slug": "list-organizations",
