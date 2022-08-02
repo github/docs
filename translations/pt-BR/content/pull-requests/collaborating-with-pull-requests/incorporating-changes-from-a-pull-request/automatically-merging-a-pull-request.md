@@ -24,7 +24,7 @@ Antes de usar o merge automático com um pull request, o merge automático deve 
 
 Depois que você ativar o merge automático para uma pull request, se alguém que não tiver permissões de gravação no repositório fizer push de novas alterações no branch principal ou alterar o branch de base do pull request, o merge automático será desabilitado. Por exemplo, se um mantenedor permitir o merge automático para um pull request a partir de uma bifurcação, o merge automático será desabilitado depois que um colaborador fizer push de novas alterações no pull request.
 
-Você pode fornecer feedback sobre o merge automático por meio de uma discussão de [uma discussão de feedback de {% data variables.product.product_name %}](https://github.com/github/feedback/discussions/categories/pull-requests-feedback).
+You can provide feedback about auto-merge through a [{% data variables.product.prodname_github_community %} discussion](https://github.com/orgs/community/discussions/categories/pull-requests).
 
 ## Habilitar merge automático
 

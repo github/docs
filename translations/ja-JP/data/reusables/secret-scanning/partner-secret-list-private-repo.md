@@ -1,20 +1,15 @@
-| Provider      | サポートされているシークレット                 | Secret type                         |
-| ------------- | ------------------------------- | ----------------------------------- |
-| Adafruit IO   | Adafruit IO Key                 | adafruit_io_key                   |
-| Adobe         | Adobe Device Token              | adobe_device_token                |
-| Adobe         | Adobe Service Token             | adobe_service_token               |
-| Adobe         | Adobe Short-Lived Access Token  | adobe_short_lived_access_token  |
-| Adobe         | Adobe JSON Web Token            | adobe_jwt                           |
-| Alibaba Cloud | Alibaba Cloud Access Key ID     | alibaba_cloud_access_key_id     |
-| Alibaba Cloud | Alibaba Cloud Access Key Secret | alibaba_cloud_access_key_secret |
+| Provider      | サポートされているシークレット                                                  | シークレットの種類                                                                |
+| ------------- | ---------------------------------------------------------------- | ------------------------------------------------------------------------ |
+| Adafruit IO   | Adafruit IO Key                                                  | adafruit_io_key                                                        |
+| Adobe         | Adobe Device Token                                               | adobe_device_token                                                     |
+| Adobe         | Adobe Service Token                                              | adobe_service_token                                                    |
+| Adobe         | Adobe Short-Lived Access Token                                   | adobe_short_lived_access_token                                       |
+| Adobe         | Adobe JSON Web Token                                             | adobe_jwt                                                                |
+| Alibaba Cloud | Alibaba Cloud Access Key ID with Alibaba Cloud Access Key Secret | alibaba_cloud_access_key_id </br>alibaba_cloud_access_key_secret |
 {%- ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5845 %}
-Amazon | Amazon OAuth Client ID | amazon_oauth_client_id{% endif %}
-{%- ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5845 %}
-Amazon | Amazon OAuth Client Secret | amazon_oauth_client_secret{% endif %} Amazon Web Services (AWS) | Amazon AWS Access Key ID | aws_access_key_id Amazon Web Services (AWS) | Amazon AWS Secret Access Key | aws_secret_access_key
+Amazon | Amazon OAuth Client ID with Amazon OAuth Client Secret | amazon_oauth_client_id </br>amazon_oauth_client_secret{% endif %} Amazon Web Services (AWS) | Amazon AWS Access Key ID with Amazon AWS Secret Access Key | aws_access_key_id </br>aws_secret_access_key
 {%- ifversion fpt or ghec or ghes > 3.2 or ghae %}
-Amazon Web Services (AWS) | Amazon AWS Session Token | aws_session_token{% endif %}
-{%- ifversion fpt or ghec or ghes > 3.2 or ghae %}
-Amazon Web Services (AWS) | Amazon AWS Temporary Access Key ID | aws_temporary_access_key_id{% endif %} Asana | Asana Personal Access Token | asana_personal_access_token Atlassian | Atlassian API Token | atlassian_api_token Atlassian | Atlassian JSON Web Token | atlassian_jwt Atlassian | Bitbucket Server Personal Access Token | bitbucket_server_personal_access_token
+Amazon Web Services (AWS) | Amazon AWS Session Token with Amazon AWS Temporary Access Key ID and Amazon AWS Secret Access Key | aws_session_token </br>aws_temporary_access_key_id </br>aws_secret_access_key{% endif %} Asana | Asana Personal Access Token | asana_personal_access_token Atlassian | Atlassian API Token | atlassian_api_token Atlassian | Atlassian JSON Web Token | atlassian_jwt Atlassian | Bitbucket Server Personal Access Token | bitbucket_server_personal_access_token
 {%- ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5845 %}
 Azure | Azure Active Directory Application Secret | azure_active_directory_application_secret{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5845 %}
@@ -32,19 +27,15 @@ FullStory | FullStory API Key | fullstory_api_key{% endif %} GitHub | GitHub Per
 {%- ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5845 %}
 GitLab | GitLab Access Token | gitlab_access_token{% endif %} GoCardless | GoCardless Live Access Token | gocardless_live_access_token GoCardless | GoCardless Sandbox Access Token | gocardless_sandbox_access_token
 {%- ifversion fpt or ghec or ghes > 3.2 or ghae %}
-Google | Firebase Cloud Messaging Server Key | firebase_cloud_messaging_server_key{% endif %} Google | Google API Key | google_api_key Google | Google Cloud Private Key ID | google_cloud_private_key_id
+Google | Firebase Cloud Messaging Server Key | firebase_cloud_messaging_server_key{% endif %} Google | Google API Key | google_api_key Google | Google Cloud Private Key ID |
 {%- ifversion fpt or ghec or ghes > 3.2 or ghae %}
-Google | Google Cloud Storage Access Key Secret | google_cloud_storage_access_key_secret{% endif %}
+Google | Google Cloud Storage Service Account Access Key ID with Google Cloud Storage Access Key Secret | google_cloud_storage_service_account_access_key_id </br>google_cloud_storage_access_key_secret{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.2 or ghae %}
-Google | Google Cloud Storage Service Account Access Key ID | google_cloud_storage_service_account_access_key_id{% endif %}
-{%- ifversion fpt or ghec or ghes > 3.2 or ghae %}
-Google | Google Cloud Storage User Access Key ID | google_cloud_storage_user_access_key_id{% endif %}
+Google | Google Cloud Storage User Access Key ID with Google Cloud Storage Access Key Secret | google_cloud_storage_user_access_key_id </br>google_cloud_storage_access_key_secret{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5845 %}
 Google | Google OAuth Access Token | google_oauth_access_token{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5845 %}
-Google | Google OAuth Client ID | google_oauth_client_id{% endif %}
-{%- ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5845 %}
-Google | Google OAuth Client Secret | google_oauth_client_secret{% endif %}
+Google | Google OAuth Client ID with Google OAuth Client Secret | google_oauth_client_id </br>google_oauth_client_secret{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5845 %}
 Google | Google OAuth Refresh Token | google_oauth_refresh_token{% endif %} Grafana | Grafana API Key | grafana_api_key HashiCorp | Terraform Cloud / Enterprise API Token | terraform_api_token HashiCorp | HashiCorp Vault Batch Token | hashicorp_vault_batch_token HashiCorp | HashiCorp Vault Service Token | hashicorp_vault_service_token Hubspot | Hubspot API Key | hubspot_api_key Intercom | Intercom Access Token | intercom_access_token Ionic | Ionic Personal Access Token | ionic_personal_access_token Ionic | Ionic Refresh Token | ionic_refresh_token
 {%- ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6944 %}
@@ -80,9 +71,7 @@ PlanetScale | PlanetScale OAuth Token | planetscale_oauth_token{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.2 or ghae %}
 PlanetScale | PlanetScale Service Token | planetscale_service_token{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.2 or ghae %}
-Plivo | Plivo Auth ID | plivo_auth_id{% endif %}
-{%- ifversion fpt or ghec or ghes > 3.2 or ghae %}
-Plivo | Plivo Auth Token | plivo_auth_token{% endif %} Postman | Postman API Key | postman_api_key Proctorio | Proctorio Consumer Key | proctorio_consumer_key Proctorio | Proctorio Linkage Key | proctorio_linkage_key Proctorio | Proctorio Registration Key | proctorio_registration_key Proctorio | Proctorio Secret Key | proctorio_secret_key Pulumi | Pulumi Access Token | pulumi_access_token PyPI | PyPI API Token | pypi_api_token
+Plivo | Plivo Auth ID with Plivo Auth Token | plivo_auth_id </br>plivo_auth_token{% endif %} Postman | Postman API Key | postman_api_key Proctorio | Proctorio Consumer Key | proctorio_consumer_key Proctorio | Proctorio Linkage Key | proctorio_linkage_key Proctorio | Proctorio Registration Key | proctorio_registration_key Proctorio | Proctorio Secret Key | proctorio_secret_key Pulumi | Pulumi Access Token | pulumi_access_token PyPI | PyPI API Token | pypi_api_token
 {%- ifversion fpt or ghec or ghes > 3.5 or ghae-issue-7375 %}
 redirect.pizza | redirect.pizza API Token | redirect_pizza_api_token{% endif %} RubyGems | RubyGems API Key | rubygems_api_key Samsara | Samsara API Token | samsara_api_token Samsara | Samsara OAuth Access Token | samsara_oauth_access_token
 {%- ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6944 %}

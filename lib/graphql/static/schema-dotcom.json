@@ -36596,6 +36596,16 @@
           "href": "/graphql/reference/objects#sponsorsactivityconnection",
           "arguments": [
             {
+              "name": "actions",
+              "description": "<p>Filter activities to only the specified actions.</p>",
+              "type": {
+                "name": "[SponsorsActivityAction!]",
+                "id": "sponsorsactivityaction",
+                "kind": "enums",
+                "href": "/graphql/reference/enums#sponsorsactivityaction"
+              }
+            },
+            {
               "name": "after",
               "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
               "type": {
@@ -36648,7 +36658,7 @@
             {
               "name": "period",
               "defaultValue": "MONTH",
-              "description": "<p>Filter activities returned to only those that occurred in a given time range.</p>",
+              "description": "<p>Filter activities returned to only those that occurred in the most recent\nspecified time period. Set to ALL to avoid filtering by when the activity occurred.</p>",
               "type": {
                 "name": "SponsorsActivityPeriod",
                 "id": "sponsorsactivityperiod",
@@ -41974,6 +41984,26 @@
           "id": "int",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#int"
+        },
+        {
+          "name": "fieldValueByName",
+          "description": "<p>A specific field value given a field name.</p>",
+          "type": "ProjectV2ItemFieldValue",
+          "id": "projectv2itemfieldvalue",
+          "kind": "unions",
+          "href": "/graphql/reference/unions#projectv2itemfieldvalue",
+          "arguments": [
+            {
+              "name": "name",
+              "description": "<p>The name of the field to return the field value of.</p>",
+              "type": {
+                "name": "String!",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            }
+          ]
         },
         {
           "name": "fieldValues",
@@ -48068,6 +48098,154 @@
           "id": "repository",
           "kind": "objects",
           "href": "/graphql/reference/objects#repository"
+        }
+      ]
+    },
+    {
+      "name": "PullRequestThread",
+      "kind": "objects",
+      "id": "pullrequestthread",
+      "href": "/graphql/reference/objects#pullrequestthread",
+      "description": "<p>A threaded list of comments for a given pull request.</p>",
+      "implements": [
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/interfaces#node"
+        }
+      ],
+      "fields": [
+        {
+          "name": "comments",
+          "description": "<p>A list of pull request comments associated with the thread.</p>",
+          "type": "PullRequestReviewCommentConnection!",
+          "id": "pullrequestreviewcommentconnection",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#pullrequestreviewcommentconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "skip",
+              "description": "<p>Skips the first <em>n</em> elements in the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            }
+          ]
+        },
+        {
+          "name": "isCollapsed",
+          "description": "<p>Whether or not the thread has been collapsed (resolved).</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "isOutdated",
+          "description": "<p>Indicates whether this thread was outdated by newer changes.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "isResolved",
+          "description": "<p>Whether this thread has been resolved.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "pullRequest",
+          "description": "<p>Identifies the pull request associated with this thread.</p>",
+          "type": "PullRequest!",
+          "id": "pullrequest",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#pullrequest"
+        },
+        {
+          "name": "repository",
+          "description": "<p>Identifies the repository associated with this thread.</p>",
+          "type": "Repository!",
+          "id": "repository",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#repository"
+        },
+        {
+          "name": "resolvedBy",
+          "description": "<p>The user who resolved this thread.</p>",
+          "type": "User",
+          "id": "user",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#user"
+        },
+        {
+          "name": "viewerCanReply",
+          "description": "<p>Indicates whether the current viewer can reply to this thread.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "viewerCanResolve",
+          "description": "<p>Whether or not the viewer can resolve this thread.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "viewerCanUnresolve",
+          "description": "<p>Whether or not the viewer can unresolve this thread.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
         }
       ]
     },
@@ -68045,6 +68223,16 @@
           "href": "/graphql/reference/objects#sponsorsactivityconnection",
           "arguments": [
             {
+              "name": "actions",
+              "description": "<p>Filter activities to only the specified actions.</p>",
+              "type": {
+                "name": "[SponsorsActivityAction!]",
+                "id": "sponsorsactivityaction",
+                "kind": "enums",
+                "href": "/graphql/reference/enums#sponsorsactivityaction"
+              }
+            },
+            {
               "name": "after",
               "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
               "type": {
@@ -68097,7 +68285,7 @@
             {
               "name": "period",
               "defaultValue": "MONTH",
-              "description": "<p>Filter activities returned to only those that occurred in a given time range.</p>",
+              "description": "<p>Filter activities returned to only those that occurred in the most recent\nspecified time period. Set to ALL to avoid filtering by when the activity occurred.</p>",
               "type": {
                 "name": "SponsorsActivityPeriod",
                 "id": "sponsorsactivityperiod",
@@ -72481,6 +72669,16 @@
           "href": "/graphql/reference/objects#sponsorsactivityconnection",
           "arguments": [
             {
+              "name": "actions",
+              "description": "<p>Filter activities to only the specified actions.</p>",
+              "type": {
+                "name": "[SponsorsActivityAction!]",
+                "id": "sponsorsactivityaction",
+                "kind": "enums",
+                "href": "/graphql/reference/enums#sponsorsactivityaction"
+              }
+            },
+            {
               "name": "after",
               "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
               "type": {
@@ -72533,7 +72731,7 @@
             {
               "name": "period",
               "defaultValue": "MONTH",
-              "description": "<p>Filter activities returned to only those that occurred in a given time range.</p>",
+              "description": "<p>Filter activities returned to only those that occurred in the most recent\nspecified time period. Set to ALL to avoid filtering by when the activity occurred.</p>",
               "type": {
                 "name": "SponsorsActivityPeriod",
                 "id": "sponsorsactivityperiod",

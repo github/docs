@@ -44,8 +44,9 @@ If you purchased {% data variables.product.prodname_enterprise %} through a Micr
 
 ### Billing for {% data variables.product.prodname_codespaces %} prebuilds
 
+{% data reusables.codespaces.billing-for-prebuilds-default %} 
 
-{% data reusables.codespaces.billing-for-prebuilds %} 
+{% data reusables.codespaces.billing-for-prebuilds-reducing %} 
 
 ## Setting a spending limit
 

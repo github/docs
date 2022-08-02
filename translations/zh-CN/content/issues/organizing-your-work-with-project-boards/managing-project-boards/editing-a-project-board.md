@@ -1,6 +1,6 @@
 ---
-title: 编辑项目板
-intro: 您可以编辑现有项目板的标题和说明。
+title: 'Editing a {% data variables.product.prodname_project_v1 %}'
+intro: 'You can edit the title and description of an existing {% data variables.projects.projects_v1_board %}.'
 redirect_from:
   - /github/managing-your-work-on-github/managing-project-boards/editing-a-project-board
   - /articles/editing-a-project
@@ -8,29 +8,27 @@ redirect_from:
   - /articles/editing-a-project-board
   - /github/managing-your-work-on-github/editing-a-project-board
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
-  ghec: '*'
+  feature: projects-v1
 topics:
   - Pull requests
+allowTitleToDifferFromFilename: true
 ---
 
 {% data reusables.projects.project_boards_old %}
 
 {% tip %}
 
-**提示：**有关添加、删除或编辑项目板中列的详细信息，请参阅 “[创建项目板](/articles/creating-a-project-board)”。
+**Tip:** For details on adding, removing, or editing columns in your {% data variables.projects.projects_v1_board %}, see "[Creating a {% data variables.product.prodname_project_v1 %}](/articles/creating-a-project-board)."
 
 {% endtip %}
 
-1. 导航到要编辑的项目板。
+1. Navigate to the {% data variables.projects.projects_v1_board %} you want to edit.
 {% data reusables.project-management.click-menu %}
 {% data reusables.project-management.click-edit-sidebar-menu-project-board %}
-4. 根据需要修改项目板名称和说明，然后单击 **Save project（保存项目）**。 ![带有项目板名称和说明的字段，以及保存项目按钮](/assets/images/help/projects/edit-project-board-save-button.png)
+4. Modify the {% data variables.projects.projects_v1_board %} name and description as needed, then click **Save project**. ![带有项目板名称和说明的字段，以及保存项目按钮](/assets/images/help/projects/edit-project-board-save-button.png)
 
 ## 延伸阅读
 
-- "[关于项目板](/articles/about-project-boards)"
-- "[添加议题和拉取请求到项目板](/articles/adding-issues-and-pull-requests-to-a-project-board)"
-- “[删除项目板](/articles/deleting-a-project-board)”
+- "[关于 {% data variables.product.prodname_projects_v1 %}](/articles/about-project-boards)"
+- "[Adding issues and pull requests to a {% data variables.product.prodname_project_v1 %}](/articles/adding-issues-and-pull-requests-to-a-project-board)"
+- "[Deleting a {% data variables.product.prodname_project_v1 %}](/articles/deleting-a-project-board)"

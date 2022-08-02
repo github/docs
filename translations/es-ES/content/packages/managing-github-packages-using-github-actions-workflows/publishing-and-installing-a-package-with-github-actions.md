@@ -32,7 +32,7 @@ Puedes ampliar las capacidades de CI y CD de tu repositorio publicando o instala
 
 ### Autenticarse en los registros de paquetes en {% data variables.product.prodname_dotcom %}
 
-{% ifversion fpt or ghec %}Si quieres que tu flujo de trabajo se autentique en el {% data variables.product.prodname_registry %} para acceder a un registro de paquete diferente al de {% data variables.product.prodname_container_registry %} en {% data variables.product.product_location %}, entonces{% else %} Para autenticarte en los registros de paquetes en {% data variables.product.product_name %},{% endif %} te recomendamos utilizar el `GITHUB_TOKEN` que crea {% data variables.product.product_name %} automáticamente para tu repositorio cuando habilitas las {% data variables.product.prodname_actions %} en vez de un token de acceso personal para autenticación. Debes configurar los permisos para este token de acceso en el archivo de flujo de trabajo para otorgar acceso de lectura para el alcance `contents` y de escritura para el alcance `packages`. For forks, the `GITHUB_TOKEN` is granted read access for the parent repository. Para obtener más información, consulta "[Autenticar con el GITHUB_TOKEN](/actions/configuring-and-managing-workflows/authenticating-with-the-github_token)".
+{% ifversion fpt or ghec %}Si quieres que tu flujo de trabajo se autentique en el {% data variables.product.prodname_registry %} para acceder a un registro de paquete diferente al de {% data variables.product.prodname_container_registry %} en {% data variables.product.product_location %}, entonces{% else %} Para autenticarte en los registros de paquetes en {% data variables.product.product_name %},{% endif %} te recomendamos utilizar el `GITHUB_TOKEN` que crea {% data variables.product.product_name %} automáticamente para tu repositorio cuando habilitas las {% data variables.product.prodname_actions %} en vez de un token de acceso personal para autenticación. Debes configurar los permisos para este token de acceso en el archivo de flujo de trabajo para otorgar acceso de lectura para el alcance `contents` y de escritura para el alcance `packages`. Para las bifurcaciones, al `GITHUB_TOKEN` se le otorga acceso de lectura para el repositorio padre. Para obtener más información, consulta "[Autenticar con el GITHUB_TOKEN](/actions/configuring-and-managing-workflows/authenticating-with-the-github_token)".
 
 Puedes hacer referencia al `GITHUB_TOKEN` en tu archivo de flujo de trabajo mediante el contexto {% raw %}`{{secrets.GITHUB_TOKEN}}`{% endraw %}. Para más información, consulta "[Autenticando con el GITHUB_TOKEN](/actions/automating-your-workflow-with-github-actions/authenticating-with-the-github_token)."
 
@@ -89,10 +89,13 @@ Crea un archivo de flujo de trabajo nuevo en tu repositorio (tal como `.github/w
 {% data reusables.package_registry.publish-docker-image %}
 
 {% else %}
-```yaml{:copy}
-name: Create and publish a Docker image
 
+```yaml{:copy}
 {% data reusables.actions.actions-not-certified-by-github-comment %}
+
+{% data reusables.actions.actions-use-sha-pinning-comment %}
+
+name: Create and publish a Docker image
 
 on:
   push:

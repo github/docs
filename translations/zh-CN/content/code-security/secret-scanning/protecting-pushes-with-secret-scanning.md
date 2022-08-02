@@ -24,7 +24,15 @@ shortTitle: 推送保护
 
 到目前为止，{% data variables.product.prodname_secret_scanning_GHAS %} 在推送_后_检查机密，并向用户提醒暴露的机密。 {% data reusables.secret-scanning.push-protection-overview %}
 
+If a contributor bypasses a push protection block for a secret, {% data variables.product.prodname_dotcom %}:
+- generates an alert.
+- creates an alert in the "Security" tab of the repository.
+- adds the bypass event to the audit log.{% ifversion secret-scanning-push-protection-email %}
+- sends an email alert to organization owners, security managers, and repository administrators, with a link to the related secret and the reason why it was allowed.{% endif %}
+
 {% data variables.product.prodname_secret_scanning_caps %} 作为推送保护，当前会扫描存储库中查找由以下服务提供商颁发的机密。
+
+{% data reusables.secret-scanning.secret-scanning-pattern-pair-matches %}
 
 {% data reusables.secret-scanning.secret-list-private-push-protection %}
 
@@ -78,6 +86,8 @@ shortTitle: 推送保护
 
 {% data reusables.secret-scanning.push-protection-allow-secrets-alerts %}
 
+{% data reusables.secret-scanning.push-protection-allow-email %}
+
 1. 访问 {% data variables.product.prodname_dotcom %} 在推送被阻止时返回的 URL。 ![显示包含用于取消阻止密钥推送的选项的表单屏幕截图](/assets/images/help/repository/secret-scanning-unblock-form.png)
 {% data reusables.secret-scanning.push-protection-choose-allow-secret-options %}
 1. 单击 **Allow me to push this secret（允许我推送此机密）**。
@@ -101,6 +111,8 @@ shortTitle: 推送保护
 如果 {% data variables.product.prodname_dotcom %} 阻止了您认为可以安全推送的机密，则可以允许该机密并说明应允许该机密的原因。 如果确认某个机密是真实的，并且打算稍后修复它，则应尽快修复。
 
 {% data reusables.secret-scanning.push-protection-allow-secrets-alerts %}
+
+{% data reusables.secret-scanning.push-protection-allow-email %}
 
 如果确认某个机密是真实的，并且打算稍后修复它，则应尽快修复。
 

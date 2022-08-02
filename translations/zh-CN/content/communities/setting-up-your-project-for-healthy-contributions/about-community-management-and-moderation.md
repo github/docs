@@ -36,5 +36,3 @@ shortTitle: 管理和调节
 - 开源指南中的“[您的行为准则](https://opensource.guide/code-of-conduct/)”
 - 开源指南中的“[创建受欢迎的社区](https://opensource.guide/building-community/)”
 - 开源指南中的“[领导和治理](https://opensource.guide/leadership-and-governance/)”
-- GitHub 社区论坛中的“[羞辱及其不宜的原因](https://github.community/t5/Studies-in-Community/Shaming-and-why-it-is-inappropriate/ba-p/12728)”
-- GitHub 社区论坛中的“[恶毒不是建设性的批评](https://github.community/t5/Studies-in-Community/Being-toxic-is-not-constructive-criticism/ba-p/8029)”

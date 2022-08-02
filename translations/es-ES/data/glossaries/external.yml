@@ -204,7 +204,7 @@
 - 
   term: directorio
   description: >-
-    A folder containing one or more files or folders. You can create directories to organize the contents of a repository.
+    Una carpeta que contiene uno o más archivos o carpetas. Puedes crear directorios para organizar el contenido de un repositorio.
 - 
   term: sucio
   description: >-

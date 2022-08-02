@@ -53,16 +53,6 @@ Para aplicativos OAuth, você deve usar o [fluxo de aplicativo web](/apps/buildi
 curl -H 'Authorization: token my-oauth-token' https://api.github.com/user/repos
 ```
 
-### Chamadas para API de autorização do OAuth
-
-Se você estiver fazendo chamadas de [API de autorização do OAuth](/enterprise-server/rest/reference/oauth-authorizations) para gerenciar as autorizações do seu aplicativo OAuth ou para gerar tokens de acesso de forma similar a este exemplo:
-
-```bash
-curl -u my_username:my_password -X POST "https://api.github.com/authorizations" -d '{"scopes":["public_repo"], "note":"my token", "client_id":"my_client_id", "client_secret":"my_client_secret"}'
-```
-
-Você deverá alternar para o fluxo do aplicativo web [](/apps/building-oauth-apps/authorizing-oauth-apps/#web-application-flow) para gerar tokens de acesso.
-
 ## Tempo esgotado
 
 Se  {% data variables.product.product_name %} demorar mais de 10 segundos para processar uma solicitação de API, {% data variables.product.product_name %} encerrará a solicitação e você receberá uma resposta de tempo esgotado.

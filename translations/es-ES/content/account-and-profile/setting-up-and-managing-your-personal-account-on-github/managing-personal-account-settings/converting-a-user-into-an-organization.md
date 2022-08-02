@@ -11,6 +11,7 @@ intro: Puedes convertir tu cuenta personal en una organización. Esto permite qu
 versions:
   fpt: '*'
   ghes: '*'
+  ghae: '*'
   ghec: '*'
 topics:
   - Accounts
@@ -19,24 +20,25 @@ shortTitle: Un usuario en una organización
 
 {% warning %}
 
-**Advertencia**: Antes de convertir un usuario en una organización, ten en cuenta estos puntos:
+**Advertencia**: Antes de convertir un usuario en una organización, ten en cuenta estos puntos.
 
- - **Ya no** podrás iniciar sesión en la cuenta personal convertida.
- - **Ya no** podrás crear o modificar gists que pertenecen a la cuenta personal convertida.
- - Una organización **no puede** volver a convertirse en un usuario.
- - Las llaves SSH, tokens de OAuth, perfiles de trabajo, reacciones, y el resto de la información asociada con el usuario, **no** se transferirán a la organización. Esto es solo verdadero para la cuenta personal que se está convirtiendo y no para cualquiera de los colaboradores de la cuenta personal.
- - Cualquier confirmación que se haga con la cuenta personal convertida **ya no estará vinculada** a ella. Las confirmaciones **permanecerán** intactas.
- - Se borrará cualquier bifurcación o repositorio privado que se haga con la cuenta personal convertida.
-
+* **Ya no** podrás iniciar sesión en la cuenta personal convertida.
+* **Ya no** podrás crear o modificar gists que pertenecen a la cuenta personal convertida.
+* Una organización **no puede** volver a convertirse en un usuario.
+* The SSH keys, OAuth tokens, job profile, reactions, and associated user information, **will not** be transferred to the organization. Esto es solo verdadero para la cuenta personal que se está convirtiendo y no para cualquiera de los colaboradores de la cuenta personal.
+* Cualquier confirmación que se haga con la cuenta personal convertida **ya no estará vinculada** a ella. Las confirmaciones **permanecerán** intactas.
+* Any existing comments made by the converted personal account **will no longer be linked** to that account. The comments themselves **will** remain intact, but will be associated with the `ghost` user.
+* Se borrará cualquier bifurcación o repositorio privado que se haga con la cuenta personal convertida.
 {% endwarning %}
 
+{% ifversion fpt or ghec or ghes %}
 ## Mantener tu cuenta personal y crear una organización nueva manualmente
 
 Si quieres que tu organización tenga el mismo nombre que estás usando actualmente para tu cuenta personal o si quieres mantener intacta la información en ella, entonces debes crear una organización nueva y transferir tus repositorios a esta en vez de convertir tu cuenta personal en una organización.
 
 1. Para retener el nombre de tu cuenta personal y usarlo individualmente, [cambia su nombre](/articles/changing-your-github-username) a algo nuevo y maravilloso.
 2. [Crea una organización nueva](/articles/creating-a-new-organization-from-scratch) con el nombre original de tu cuenta personal.
-3. [Transfiere tus repositorios](/articles/transferring-a-repository) a tu nueva cuenta de la organización.
+3. [Transfer your repositories](/articles/transferring-a-repository) to your new organization account.{% endif %}
 
 ## Convertir tu cuenta personal en una organización automáticamente
 

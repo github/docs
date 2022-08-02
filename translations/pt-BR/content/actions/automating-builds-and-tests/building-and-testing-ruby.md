@@ -38,6 +38,8 @@ Para iniciar rapidamente, adicione o fluxo de trabalho inicial para o diretório
 ```yaml
 {% data reusables.actions.actions-not-certified-by-github-comment %}
 
+{% data reusables.actions.actions-use-sha-pinning-comment %}
+
 name: Ruby
 
 on:
@@ -101,6 +103,8 @@ O fluxo de trabalho totalmente atualizado com uma estratégia de matriz pode par
 
 ```yaml
 {% data reusables.actions.actions-not-certified-by-github-comment %}
+
+{% data reusables.actions.actions-use-sha-pinning-comment %}
 
 name: Ruby CI
 
@@ -206,6 +210,8 @@ O exemplo a seguir da matriz testa todas as versões estáveis e versões princi
 ```yaml
 {% data reusables.actions.actions-not-certified-by-github-comment %}
 
+{% data reusables.actions.actions-use-sha-pinning-comment %}
+
 name: Matrix Testing
 
 on:
@@ -239,6 +245,8 @@ O exemplo a seguir instala `rubocop` e o utiliza para fazer lint de todos os arq
 ```yaml
 {% data reusables.actions.actions-not-certified-by-github-comment %}
 
+{% data reusables.actions.actions-use-sha-pinning-comment %}
+
 name: Linting
 
 on: [push]
@@ -264,6 +272,8 @@ Você pode armazenar qualquer token de acesso ou credenciais necessárias para p
 
 ```yaml
 {% data reusables.actions.actions-not-certified-by-github-comment %}
+
+{% data reusables.actions.actions-use-sha-pinning-comment %}
 
 name: Ruby Gem
 

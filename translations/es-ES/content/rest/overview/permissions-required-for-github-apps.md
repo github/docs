@@ -712,6 +712,7 @@ _Equipos_
 - [`GET /repos/:owner/:repo/pages/builds/latest`](/rest/reference/pages#get-latest-pages-build) (:read)
 {% ifversion fpt or ghec -%}
 - [`GET /repos/:owner/:repo/pages/health`](/rest/reference/pages#get-a-dns-health-check-for-github-pages) (:write)
+- [`POST /repos/:owner/:repo/pages/deployment`](/rest/reference/repos#create-a-github-pages-deployment) (:write)
 {% endif %}
 
 ### Permiso sobre las "solicitudes de extracción"

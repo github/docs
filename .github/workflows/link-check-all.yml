@@ -53,7 +53,7 @@ jobs:
           # Don't care about CDN caching image URLs
           DISABLE_REWRITE_ASSET_URLS: true
         run: |
-          ./script/rendered-content-link-checker.mjs \
+          ./script/rendered-content-link-checker.js \
             --language en \
             --max 100 \
             --check-anchors \
@@ -66,7 +66,7 @@ jobs:
           # Don't care about CDN caching image URLs
           DISABLE_REWRITE_ASSET_URLS: true
         run: |
-          ./script/rendered-content-link-checker.mjs \
+          ./script/rendered-content-link-checker.js \
             --language en \
             --exit \
             --verbose \

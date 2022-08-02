@@ -9,6 +9,9 @@ redirect_from:
   - /github/setting-up-and-managing-your-enterprise-account/managing-organizations-in-your-enterprise-account
   - /github/setting-up-and-managing-your-enterprise/managing-organizations-in-your-enterprise-account
   - /admin/user-management/managing-organizations-in-your-enterprise/managing-unowned-organizations-in-your-enterprise
+  - /github/setting-up-and-managing-your-enterprise/managing-organizations-in-your-enterprise-account/managing-unowned-organizations-in-your-enterprise-account
+  - /github/setting-up-and-managing-your-enterprise-account/managing-unowned-organizations-in-your-enterprise-account
+  - /github/setting-up-and-managing-your-enterprise/managing-unowned-organizations-in-your-enterprise-account
 intro: '组织适合在您的公司内创建不同的用户组，例如部门或参与相似项目的组。 属于组织的{% ifversion ghae %}内部{% else %}公共和内部{% endif %}仓库可供企业中其他组织中的成员访问，而私有仓库只能供被授予访问权限的组织成员访问。'
 versions:
   ghec: '*'

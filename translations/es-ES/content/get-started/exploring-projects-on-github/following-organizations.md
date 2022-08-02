@@ -1,6 +1,6 @@
 ---
-title: Following organizations
-intro: 'You can follow organizations on {% data variables.product.product_name %} to receive notifications about their activity.'
+title: Seguir organizaciones
+intro: 'Puedes seguir organizaciones en {% data variables.product.product_name %} para recibir notificaciones sobre su actividad.'
 versions:
   feature: for-you-feed
 topics:
@@ -9,13 +9,13 @@ topics:
 
 {% note %}
 
-**Note:** The ability to follow organizations is currently in public beta and subject to change.
+**Nota:** La capacidad de seguir organizaciones se encuentra actualmente en beta público y está sujeta a cambios.
 
 {% endnote %}
 
 ## Aceca de los seguidores en {% data variables.product.product_name %}
 
-When you follow organizations, you'll see their public activity on your personal dashboard. Para obtener más información, consulta "[Acerca de tu tablero personal](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/about-your-personal-dashboard#staying-updated-with-activity-from-the-community)".
+Cuando sigues organizaciones, puedes ver su actividad pública en tu tablero personal. Para obtener más información, consulta "[Acerca de tu tablero personal](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/about-your-personal-dashboard#staying-updated-with-activity-from-the-community)".
 
 Puedes dejar de seguir a una organización si no quieres ver su actividad {% ifversion fpt or ghec %}pública{% endif %} en {% data variables.product.product_name %}.
 
