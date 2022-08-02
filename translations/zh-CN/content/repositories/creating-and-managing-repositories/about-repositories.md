@@ -90,7 +90,15 @@ topics:
 
 {% data reusables.repositories.internal-repo-default %}
 
-企业的任何成员都可以复刻企业中组织拥有的任何内部存储库。 复刻的存储库将属于成员的个人帐户，复刻的可见性将是私有的。 如果用户从企业拥有的所有组织中删除，该用户的内部仓库复刻也会自动删除。
+{% ifversion ghec %}Unless your enterprise uses {% data variables.product.prodname_emus %}, members{% else %}Members{% endif %} of the enterprise can fork any internal repository owned by an organization in the enterprise. 复刻的存储库将属于成员的个人帐户，复刻的可见性将是私有的。 如果用户从企业拥有的所有组织中删除，该用户的内部仓库复刻也会自动删除。
+
+{% ifversion ghec %}
+{% note %}
+
+**Note:** {% data variables.product.prodname_managed_users_caps %} cannot fork internal repositories. For more information, see "[About {% data variables.product.prodname_emus %}](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users#abilities-and-restrictions-of-managed-user-accounts)."
+
+{% endnote %}
+{% endif %}
 {% endif %}
 
 ## 限制查看仓库中的内容和差异
@@ -101,9 +109,9 @@ topics:
 
 ### 文本限制
 
-超过 **512 KB** 的文本文件始终显示为纯文本。 代码不强调语法，散文文件不会转换成 HTML（如 Markdown、AsciiDoc *等*）。
+超过 **512 KB** 的文本文件始终显示为纯文本。 Code is not syntax highlighted, and prose files are not converted to HTML (such as Markdown, AsciiDoc, *etc.*).
 
-超过 **5 MB** 的文本文件仅通过其源 URL 访问，将通过 `{% data variables.product.raw_github_com %}` 提供；例如 `https://{% data variables.product.raw_github_com %}/octocat/Spoon-Knife/master/index.html`。 单击 **Raw（源）**按钮获取文件的源 URL。
+Text files over **5 MB** are only available through their raw URLs, which are served through `{% data variables.product.raw_github_com %}`; for example, `https://{% data variables.product.raw_github_com %}/octocat/Spoon-Knife/master/index.html`. Click the **Raw** button to get the raw URL for a file.
 
 ### 差异限制
 
@@ -118,7 +126,7 @@ topics:
 
 ### 提交列表限制
 
-比较视图和拉取请求页面显示 `base` 与 `head` 修订之间的提交列表。 这些列表限于 **250** 次提交。 如果超过该限制，将会出现一条表示附加评论的注释（但不显示）。
+比较视图和拉取请求页面显示 `base` 与 `head` 修订之间的提交列表。 These lists are limited to **250** commits. 如果超过该限制，将会出现一条表示附加评论的注释（但不显示）。
 
 ## 延伸阅读
 
