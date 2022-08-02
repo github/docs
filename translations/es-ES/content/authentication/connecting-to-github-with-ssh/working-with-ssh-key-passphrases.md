@@ -17,7 +17,9 @@ topics:
 shortTitle: Frases de acceso de llave SSH
 ---
 
-Con las claves SSH, si alguien obtiene acceso a tu computadora, también tiene acceso a cada sistema que usa esa clave. Para agregar una capa extra de seguridad, puedes incluir una contraseña a tu clave SSH. Puedes usar `ssh-agent` para guardar tu contraseña de forma segura y no tener que volver a ingresarla.
+## Acerca de las frases de acceso para las llaves SSH
+
+Con las llaves SSH, si alguien obtiene acceso a tu computadora, el atacante puede obtener acceso a cada sistema que las utilice. Para agregar una capa extra de seguridad, puedes incluir una contraseña a tu clave SSH. Para evitar ingresar la frase de acceso cada que te conectas, puedes guardarla de forma segura en el agente SSH.
 
 ## Agregar o cambiar una contraseña
 
@@ -103,7 +105,3 @@ La primera vez que usas tu clave, se te pedirá que ingreses tu contraseña. Si 
 De lo contrario, puedes almacenar tu contraseña en la keychain cuando agregues tu clave a ssh-agent. Para obtener más información, consulta "[Agregar tu clave SSH a ssh-agent](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#adding-your-ssh-key-to-the-ssh-agent)."
 
 {% endmac %}
-
-## Leer más
-
-- "[Acerca de SSH](/articles/about-ssh)"

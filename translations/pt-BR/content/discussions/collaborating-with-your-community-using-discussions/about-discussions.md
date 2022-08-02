@@ -2,8 +2,7 @@
 title: Sobre discussões
 intro: 'Use discussões para fazer e responder perguntas, compartilhar informações, fazer anúncios e conduzir ou participar de uma conversa sobre um projeto em {% data variables.product.product_name %}.'
 versions:
-  fpt: '*'
-  ghec: '*'
+  feature: discussions
 ---
 
 
@@ -22,7 +21,7 @@ Você pode usar discussões no repositório para discutir tópicos específicos 
 
 Você não precisa fechar uma discussão como você fecha um problema ou um pull request.
 
-Se um administrador de repositório ou mantenedor do projeto habilitar {% data variables.product.prodname_discussions %} para um repositório, qualquer pessoa que visitar o repositório poderá criar e participar de discussões do repositório. Se um proprietário da organização permitir que {% data variables.product.prodname_discussions %} para uma organização, qualquer pessoa que possa visualizar o repositório de origem pode criar uma discussão na organização.
+Se o administrador de um repositório ou mantenedor do projeto habilitar {% data variables.product.prodname_discussions %} para um repositório, qualquer pessoa que tiver acesso ao repositório poderá criar e participar de discussões do repositório. Se um proprietário da organização permitir que {% data variables.product.prodname_discussions %} para uma organização, qualquer pessoa que possa visualizar o repositório de origem pode criar uma discussão na organização.
 
 Os administradores de repositório e mantenedores de projetos podem gerenciar as discussões e categorias de discussão em um repositório e fixar discussões para aumentar a visibilidade da discussão. Os moderadores e colaboradores podem marcar comentários como respostas, travar discussões e converter problemas em discussões. Da mesma forma, para discussões na organização, a função de um usuário no repositório de origem determina como um usuário pode interagir com as discussões da organização. Para obter mais informações, consulte "[Funções do repositório para uma organização](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)".
 
@@ -30,7 +29,7 @@ Para obter mais informações sobre o gerenciamento das discussões, consulte "[
 
 ## Sobre as enquetes
 
-Você pode criar enquetes na categoria de enquetes para medir o interesse em novas idéias e na direção do projeto. Qualquer pessoa com acesso de leitura ao seu repositório pode criar enquetes, votar em enquetes e ver seus resultados. Usuários desconectados podem ver os resultados de enquetes em repositórios públicos.
+Você pode criar enquetes na categoria de enquetes para medir o interesse em novas idéias e na direção do projeto. Qualquer pessoa com acesso de leitura ao seu repositório pode criar pesquisas, votar em enquetes e ver seus resultados.{% ifversion fpt or ghec %} Os usuários desconectados podem visualizar os resultados das enquetes em repositórios públicos.{% endif %}
 
 As enquetes exigem uma pergunta e pelo menos duas opções. Você pode adicionar um máximo de oito opções e as opções podem conter, no máximo, 128 caracteres.
 
@@ -64,12 +63,12 @@ Você pode destacar discussões que contenham conversas importantes, úteis ou e
 
 ## Compartilhando feedback
 
-Você pode compartilhar seus comentários sobre {% data variables.product.prodname_discussions %} com {% data variables.product.company_short %}. Para se juntar à conversa, consulte [`github/feedback`](https://github.com/github/feedback/discussions?discussions_q=category%3A%22Discussions+Feedback%22).
+Você pode compartilhar seus comentários sobre {% data variables.product.prodname_discussions %} com {% data variables.product.company_short %}. To join the conversation, see [{% data variables.product.prodname_github_community %} discussions](https://github.com/orgs/community/discussions/categories/discussions).
 
 ## Leia mais
 
 - "[Sobre escrita e formatação em {% data variables.product.prodname_dotcom %}](/github/writing-on-github/about-writing-and-formatting-on-github)"
 - "[Pesquisar discussões](/search-github/searching-on-github/searching-discussions)"
 - "[Sobre notificações](/github/managing-subscriptions-and-notifications-on-github/about-notifications)"
-- "[Moderar comentários e conversas](/communities/moderating-comments-and-conversations)"
-- "[Mantendo sua segurança no {% data variables.product.prodname_dotcom %}](/communities/maintaining-your-safety-on-github)"
+- "[Moderando comentários e conversas](/communities/moderating-comments-and-conversations)"{% ifversion fpt or ghec %}
+- "[Mantendo sua segurança em {% data variables.product.prodname_dotcom %}](/communities/maintaining-your-safety-on-github)"{% endif %}

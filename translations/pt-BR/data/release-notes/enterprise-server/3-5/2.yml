@@ -3,7 +3,7 @@ sections:
   security_fixes:
     - "**MÉDIO**: Impede um ataque em que um parâmetro da string de consulta `org` pode ser especificado para uma URL do GitHub Enterprise Server que dê acesso aos committers ativos de outra organização."
     - "**MÉDIO**: Garante que o `github.company.com` e `github-company.com` não sejam avaliados por serviços internos como nomes de host idênticos, impedindo um potencial ataque de segurança do lado do servidor (SSRF)."
-    - "**LOW**: An attacker could access the Management Console with a path traversal attack via HTTP even if external firewall rules blocked HTTP access."
+    - "**BAIXO**: Um invasor pode acessar o Console de Gerenciamento com um ataque de deslocamento de caminho através de HTTP, mesmo se regras de firewall externas bloquearem o acesso ao HTTP."
     - Os pacotes foram atualizados para as últimas versões de segurança.
   bugs:
     - Os arquivos dentro de um arquivo artefato não puderam ser abertos após a descompactação devido a permissões restritivas.

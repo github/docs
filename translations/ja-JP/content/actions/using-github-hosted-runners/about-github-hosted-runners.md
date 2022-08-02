@@ -87,12 +87,12 @@ While the job runs, the logs and output can be viewed in the {% data variables.p
 ## サポートされているランナーとハードウェアリソース
 
 Windows および Linux 仮想マシンのハードウェア仕様:
-- 2コアCPU
+- 2-core CPU (x86_64)
 - 7 GB of RAM
 - 14 GB of SSD space
 
 macOS 仮想マシンのハードウェア仕様:
-- 3-core CPU
+- 3-core CPU (x86_64)
 - 14 GB of RAM
 - 14 GB of SSD space
 

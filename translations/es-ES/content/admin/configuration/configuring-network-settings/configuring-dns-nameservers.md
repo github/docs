@@ -31,16 +31,12 @@ Los servidores de nombres que especifiques deben resolver el nombre del host de 
 
 {% data reusables.enterprise_installation.ssh-into-instance %}
 
-2. Para editar tus servidores de nombres, ingresa lo siguiente:
+2. To edit your nameservers, use the `ghe-setup-network` command in visual mode. Para obtener más información, consulta la sección "[Utilidades de línea de comandos](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-setup-network)".
 
   ```shell
-  sudo vim /etc/resolvconf/resolv.conf.d/head
+  ghe-setup-network -v
   ```
 
-{% data reusables.enterprise_installation.preventing-nameservers-change %}
-
-3. Agrega cualquier entrada de `nameserver` (servidor de nombres) y luego guarda el archivo.
-4. Después de verificar tus cambios, guarda el archivo.
 5. Para agregar tus entradas nuevas de servidores de nombres en {% data variables.product.product_location %}, ejecuta lo siguiente:
 
   ```shell

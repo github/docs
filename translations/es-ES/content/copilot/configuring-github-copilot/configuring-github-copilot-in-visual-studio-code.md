@@ -37,30 +37,30 @@ You can use the default keyboard shortcuts in {% data variables.product.prodname
 
 {% windows %}
 
-| Acción                                                                                       | Shortcut                         | Command name                             |
-|:-------------------------------------------------------------------------------------------- |:-------------------------------- |:---------------------------------------- |
-| Accept an inline suggestion                                                                  | <kbd>Tab</kbd>                   | editor.action.inlineSuggest.commit       |
-| Dismiss an inline suggestion                                                                 | <kbd>Esc</kbd>                   | editor.action.inlineSuggest.hide         |
-| Show next inline suggestion                                                                  | <kbd>Alt</kbd>+<kbd>]</kbd>      | editor.action.inlineSuggest.showNext     |
-| Show previous inline suggestion                                                              | <kbd>Alt</kbd>+<kbd>[</kbd>      | editor.action.inlineSuggest.showPrevious |
-| Trigger inline suggestion                                                                    | <kbd>Alt</kbd>+<kbd>\</kbd>     | editor.action.inlineSuggest.trigger      |
-| Open {% data variables.product.prodname_copilot %} (additional suggestions in separate pane) | <kbd>Ctrl</kbd>+<kbd>Enter</kbd> | github.copilot.generate                  |
-| Toggle {% data variables.product.prodname_copilot %} on/off                                  | _No default shortcut_            | github.copilot.toggleCopilot             |
+| Acción                                                                                                   | Atajo                            | Nombre del comando                       |
+|:-------------------------------------------------------------------------------------------------------- |:-------------------------------- |:---------------------------------------- |
+| Aceptar una sugerencia en una línea                                                                      | <kbd>Tab</kbd>                   | editor.action.inlineSuggest.commit       |
+| Descartar una sugerencia dentro de una línea                                                             | <kbd>Esc</kbd>                   | editor.action.inlineSuggest.hide         |
+| Mostrar la siguiente sugerencia dentro de una línea                                                      | <kbd>Alt</kbd>+<kbd>]</kbd>      | editor.action.inlineSuggest.showNext     |
+| Mostrar la sugerencia anterior en la línea                                                               | <kbd>Alt</kbd>+<kbd>[</kbd>      | editor.action.inlineSuggest.showPrevious |
+| Activar las sugerencias dentro de las líneas                                                             | <kbd>Alt</kbd>+<kbd>\</kbd>     | editor.action.inlineSuggest.trigger      |
+| Abre el {% data variables.product.prodname_copilot %} (sugerencias adicionales en un panel por separado) | <kbd>Ctrl</kbd>+<kbd>Enter</kbd> | github.copilot.generate                  |
+| Activa y desactiva el {% data variables.product.prodname_copilot %}                                      | _Sin atajo predeterminado_       | github.copilot.toggleCopilot             |
 
 {% endwindows %}
 
 
 {% linux %}
 
-| Acción                                                                                       | Shortcut                         | Command name                             |
-|:-------------------------------------------------------------------------------------------- |:-------------------------------- |:---------------------------------------- |
-| Accept an inline suggestion                                                                  | <kbd>Tab</kbd>                   | editor.action.inlineSuggest.commit       |
-| Dismiss an inline suggestion                                                                 | <kbd>Esc</kbd>                   | editor.action.inlineSuggest.hide         |
-| Show next inline suggestion                                                                  | <kbd>Alt</kbd>+<kbd>]</kbd>      | editor.action.inlineSuggest.showNext     |
-| Show previous inline suggestion                                                              | <kbd>Alt</kbd>+<kbd>[</kbd>      | editor.action.inlineSuggest.showPrevious |
-| Trigger inline suggestion                                                                    | <kbd>Alt</kbd>+<kbd>\</kbd>     | editor.action.inlineSuggest.trigger      |
-| Open {% data variables.product.prodname_copilot %} (additional suggestions in separate pane) | <kbd>Ctrl</kbd>+<kbd>Enter</kbd> | github.copilot.generate                  |
-| Toggle {% data variables.product.prodname_copilot %} on/off                                  | _No default shortcut_            | github.copilot.toggleCopilot             |
+| Acción                                                                                                   | Atajo                            | Nombre del comando                       |
+|:-------------------------------------------------------------------------------------------------------- |:-------------------------------- |:---------------------------------------- |
+| Aceptar una sugerencia en una línea                                                                      | <kbd>Tab</kbd>                   | editor.action.inlineSuggest.commit       |
+| Descartar una sugerencia dentro de una línea                                                             | <kbd>Esc</kbd>                   | editor.action.inlineSuggest.hide         |
+| Mostrar la siguiente sugerencia dentro de una línea                                                      | <kbd>Alt</kbd>+<kbd>]</kbd>      | editor.action.inlineSuggest.showNext     |
+| Mostrar la sugerencia anterior en la línea                                                               | <kbd>Alt</kbd>+<kbd>[</kbd>      | editor.action.inlineSuggest.showPrevious |
+| Activar las sugerencias dentro de las líneas                                                             | <kbd>Alt</kbd>+<kbd>\</kbd>     | editor.action.inlineSuggest.trigger      |
+| Abre el {% data variables.product.prodname_copilot %} (sugerencias adicionales en un panel por separado) | <kbd>Ctrl</kbd>+<kbd>Enter</kbd> | github.copilot.generate                  |
+| Activa y desactiva el {% data variables.product.prodname_copilot %}                                      | _Sin atajo predeterminado_       | github.copilot.toggleCopilot             |
 
 {% endlinux %}
 

@@ -136,7 +136,7 @@ Notifications provide updates about the activity on {% data variables.product.pr
 ### 8. {% data variables.product.prodname_pages %} の活用
 You can use {% data variables.product.prodname_pages %} to create and host a website directly from a repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}. 詳しい情報については、「[{% data variables.product.prodname_pages %} について](/pages/getting-started-with-github-pages/about-github-pages)」を参照してください。
 
-{% ifversion fpt or ghec %}
+{% ifversion discussions %}
 ### 9. {% data variables.product.prodname_discussions %}を使用する
 You can enable {% data variables.product.prodname_discussions %} for your repository to help build a community around your project. Maintainers, contributors and visitors can use discussions to share announcements, ask and answer questions, and participate in conversations around goals. 詳しい情報については「[ディスカッションについて](/discussions/collaborating-with-your-community-using-discussions/about-discussions)」を参照してください。
 {% endif %}

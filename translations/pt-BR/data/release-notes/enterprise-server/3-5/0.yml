@@ -237,13 +237,13 @@ sections:
       heading: Eventos do Git no log de auditoria da empresa
       notes:
         - |
-          Os seguintes eventos relacionados ao Gits agora podem aparecer no log de auditorias corporativas. Se você habilitar o recurso e definir um período de retenção de log de auditoria, os novos eventos estarão disponíveis para pesquisa por meio da interface do usuário e API, ou exportação via JSON ou CSV.
+          The following Git-related events can now appear in the enterprise audit log. If you enable the feature and set an audit log retention period, the new events will be available for search via the UI and API, or export via JSON or CSV.
 
           - `git.clone`
           - `git.fetch`
-          - `git. ush`
+          - `git.push`
 
-          Devido ao grande número de eventos do Git registrados, recomendamos que você monitore o armazenamento de arquivos da sua instância e revise as configurações de alerta relacionadas. Para obter mais informações, consulte "[Eventos do log de auditoria para a sua empresa](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#git-category-actions)" e "[Monitorando o armazenamento](/admin/enterprise-management/monitoring-your-appliance/recommended-alert-thresholds#monitoring-storage)."
+          Due to the large number of Git events logged, we recommend you monitor your instance's file storage and review your related alert configurations. For more information, see "[Configuring the audit log for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/configuring-the-audit-log-for-your-enterprise#managing-git-events-in-the-audit-log)."
     - 
       heading: Melhorias nos CODEOWNERS
       notes:
@@ -292,7 +292,7 @@ sections:
       Minimum requirements for root storage and memory increased for GitHub Enterprise Server 2.10 and 3.0, and are now enforced as of 3.5.0.
 
         - In version 2.10, the minimum requirement for root storage increased from 80 GB to 200 GB. As of 3.5.0, system preflight checks will fail if the root storage is smaller than 80 GB.
-        - In version 3.0, the minimum requirement for memory increased to from 16 GB to 32 GB. As of 3.5.0, system preflight checks will fail if the system has less than 28 GB of memory.
+        - In version 3.0, the minimum requirement for memory increased from 16 GB to 32 GB. As of 3.5.0, system preflight checks will fail if the system has less than 28 GB of memory.
 
       For more information, see the minimum requirements for each supported deployment platform in "[Setting up a GitHub Enterprise Server instance](/admin/installation/setting-up-a-github-enterprise-server-instance)." [Updated: 2022-06-20]
     - |
@@ -321,7 +321,7 @@ sections:
       O MinIO anunciou a remoção do MinIO Gateway iniciando em 1 de Junho de 2022. Embora o Gateway MinIO para o NAS continue sendo um dos provedores de armazenamento compatíveis com o Github Actions e Github Packages, recomendamos transferir para o suporte do MinIO LTS para utilizar suporte e correções de erros do MinIO. Para obter mais informações sobre limites de taxa, consulte "[Remoção Agendada do MinIO Gateway para GCS, Azure, HDFS no repositório minio/minio](https://github.com/minio/minio/issues/14331)."
   deprecations:
     - 
-      heading: Change to the format of authentication tokens affects GitHub Connect
+      heading: A alteração no formato de autenticação dos tokens afeta o GitHub Connect
       notes:
         - |
           O GitHub Connect não funcionará mais após 3 de junho para instâncias executadas no GitHub Enterprise Server 3.1 ou anterior, devido à alteração no formato dos tokens de autenticação do GitHub. Para continuar usando o GitHub Connect, atualize para o GitHub Enterprise Server 3.2 ou superior. Para obter mais informações, consulte o [Blogue do GitHub](https://github.blog/2022-05-20-action-needed-by-github-customers-using-ghes-3-1-and-older-to-adopt-new-authentication-token-format-updates/). [Atualizado: 2022-06-14]
@@ -344,5 +344,5 @@ sections:
     - O registro npm de {% data variables.product.prodname_registry %} não retorna mais o valor de tempo em respostas de metadados. Isso foi feito para permitir melhorias substanciais de desempenho. Continuamos a ter todos os dados necessários para devolver um valor de tempo como parte da resposta aos metadados e retomaremos o retorno desse valor no futuro, assim que tivermos resolvido os problemas de desempenho existentes.
     - Os limites de recursos que são específicos para processamento de hooks pre-receive podem causar falha em alguns hooks pre-receive.
     - Os serviços de ações precisam ser reiniciados após a restauração de um dispositivo de um backup em um host diferente.
-    - 'Deleted repositories will not be purged from disk automatically after the 90-day retention period ends. [Updated: 2022-06-08]'
+    - 'Os repositórios excluídos não serão excluídos do disco automaticamente após o período de retenção de 90 dias. [Atualizado: 2022-06-08]'
     - 'O Console de Gerenciamento pode aparecer preso na tela de _Starting_ depois de atualizar uma instância subprovisionada para o GitHub Enterprise Server 3.5. [Atualizado: 2022-06-20]'

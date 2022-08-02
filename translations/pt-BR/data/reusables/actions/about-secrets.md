@@ -1,1 +1,1 @@
-Encrypted secrets allow you to store sensitive information, such as access tokens, in your repository, repository environments, or organization.
+Os segredos criptografados permitem que você armazene informações confidenciais, como tokens de acesso, em seu repositório, ambientes de repositório ou organização.

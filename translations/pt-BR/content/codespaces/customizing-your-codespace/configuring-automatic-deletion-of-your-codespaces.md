@@ -13,7 +13,7 @@ type: how_to
 
 Por padrão, {% data variables.product.prodname_codespaces %} são excluídos automaticamente depois que forem parados e permanecerem inativos por 30 dias.
 
-No entanto, como {% data variables.product.prodname_codespaces %} está sujeito a cobrança de armazenamento, você pode preferir reduzir o período de retenção alterando seu período padrão nas suas configurações pessoais para {% data variables.product.prodname_github_codespaces %}. For more information about storage charges, see "[About billing for {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#codespaces-pricing)."
+No entanto, como {% data variables.product.prodname_codespaces %} está sujeito a cobrança de armazenamento, você pode preferir reduzir o período de retenção alterando seu período padrão nas suas configurações pessoais para {% data variables.product.prodname_github_codespaces %}. Para obter mais informações sobre as cobranças de armazenamento, consulte "[Sobre a cobrança para o {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#codespaces-pricing)."
 
 {% note %}
 
@@ -50,7 +50,7 @@ Cada codespace tem o seu próprio período de retenção. Poderão, portanto, te
 
    {% warning %}
 
-   **Aviso**: Configurar o período para `0` fará com que seus codespaces sejam imediatamente excluídos quando você pará-los ou quando o tempo se esgotar devido à inatividade. For more information, see "[Setting your timeout period for {% data variables.product.prodname_github_codespaces %}](/codespaces/customizing-your-codespace/setting-your-timeout-period-for-github-codespaces)."
+   **Aviso**: Configurar o período para `0` fará com que seus codespaces sejam imediatamente excluídos quando você pará-los ou quando o tempo se esgotar devido à inatividade. Para obter mais informações, consulte "[Definir seu período de tempo limite para {% data variables.product.prodname_github_codespaces %}](/codespaces/customizing-your-codespace/setting-your-timeout-period-for-github-codespaces)".
 
    {% endwarning %}
 

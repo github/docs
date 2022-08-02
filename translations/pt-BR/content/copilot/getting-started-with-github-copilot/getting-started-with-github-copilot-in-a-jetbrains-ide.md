@@ -23,9 +23,9 @@ Se você usar um JetBrains IDE, você pode ver e incorporar sugestões de {% dat
 
 Para usar {% data variables.product.prodname_copilot %} em um JetBrains IDE, você deve instalar a extensão de {% data variables.product.prodname_copilot %}. O procedimento a seguir irá guiá-lo na instalação do plugin de {% data variables.product.prodname_copilot %} no IntelliJ IDEA. As etapas para instalar o plugin em outro IDE compatível podem ser diferentes.
 
-1. In your JetBrains IDE, under the **File** menu for Windows or under the name of your IDE for Mac (for example, **PyCharm** or **IntelliJ**), click **Settings** for Windows or **Preferences** for Mac.
-2. In the left-side menu of the **Settings/Preferences** dialog box, click **Plugins**.
-3. At the top of the **Settings/Preferences** dialog box, click **Marketplace**. In the search bar, search for **{% data variables.product.prodname_copilot %}**, then click **Install**. ![Captura de tela da pesquisa do Marketplace](/assets/images/help/copilot/jetbrains-marketplace.png)
+1. No seu JetBrains IDE, no menu **Arquivo** para Windows ou sob o nome do seu IDE para Mac (por exemplo, **PyCharm** ou **IntelliJ**), clique em **Configurações** para Windows ou **Preferências** para Mac.
+2. No menu à esquerda da caixa de diálogo **Settings/Preferences** clique em **Plugins**.
+3. Na parte superior da caixa de diálogo **Settings/Preferences** clique em **Marketplace**. Na barra de pesquisa, pesquise **{% data variables.product.prodname_copilot %}** e, em seguida, clique em **Instalar**. ![Captura de tela da pesquisa do Marketplace](/assets/images/help/copilot/jetbrains-marketplace.png)
 1. Depois que {% data variables.product.prodname_copilot %} for instalado, clique em **Reiniciar o IDE**.
 1. Depois que seu JetBrains IDE tiver sido reiniciado, clique no menu **Ferramentas**. Clique em **{% data variables.product.prodname_copilot %}** e, em seguida, clique em **Efetuar login para {% data variables.product.prodname_dotcom %}**. ![Captura de tela do menu de ferramentas do JetBrains](/assets/images/help/copilot/jetbrains-tools-menu.png)
 1. Na caixa de diálogo "Efetuar o login em {% data variables.product.prodname_dotcom %}", para copiar o código do dispositivo e abrir a janela de ativação do dispositivo, clique em **Copiar e abrir**. ![Captura de tela da cópia do código do dispositivo e aberta](/assets/images/help/copilot/device-code-copy-and-open.png)

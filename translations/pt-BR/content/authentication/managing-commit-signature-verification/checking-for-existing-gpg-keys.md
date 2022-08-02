@@ -38,7 +38,7 @@ shortTitle: Chaves GPG existentes
 ## Leia mais
 
 * "[Gerar uma nova chave GPG](/articles/generating-a-new-gpg-key)"
-* "[Adding a GPG key to your GitHub account](/articles/adding-a-gpg-key-to-your-github-account)"
+* "[Adicionar uma chave GPG à sua conta do GitHub](/articles/adding-a-gpg-key-to-your-github-account)"
 * "[Avisar o Git sobre sua chave de assinatura](/articles/telling-git-about-your-signing-key)"
 * "[Associar um e-mail à sua chave GPG](/articles/associating-an-email-with-your-gpg-key)"
 * "[Assinar commits](/articles/signing-commits)"

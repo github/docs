@@ -15,6 +15,8 @@ topics:
 
 {% data variables.product.prodname_ghe_managed %} ofrece una plataforma de desarrollo que va desde la idea hasta la producción. Puedes incrementar la velocidad de desarrollo con las herramientas que los equipos conocen y adoran mientras mantienes el cumplimiento regulatorio y de la industria con controles de acceso y seguridad, automatización de flujos de trabajo y requerimiento de políticas únicos.
 
+{% data reusables.enterprise.about-github-for-enterprises %}
+
 ## Una nube de disponibilidad alta y escala planetaria
 
 {% data variables.product.prodname_ghe_managed %} es un servicio totalmente administrado, el cual se hospeda en una arquitectura de disponibilidad alta. {% data variables.product.prodname_ghe_managed %} se hospeda globalmente en una nube que puede escalarse para ser compatible con el ciclo de vida integral de tu desarrollo, sin límites. {% data variables.product.prodname_dotcom %} administra integralmente los respaldos, recuperaciones de fallos y de desastres para que jamás tengas que preocuparte por tus datos o tu servicio.

@@ -246,13 +246,13 @@ sections:
       heading: 企业审核日志中的 Git 事件
       notes:
         - |
-          以下与 Git 相关的事件现在可以显示在企业审核日志中。如果启用该功能并设置审核日志保留期，则新事件将可用于通过 UI 和 API 进行搜索，或通过 JSON 或 CSV 导出。
+          The following Git-related events can now appear in the enterprise audit log. If you enable the feature and set an audit log retention period, the new events will be available for search via the UI and API, or export via JSON or CSV.
 
-          - 'git.clone'
-          - 'git.fetch'
-          - 'git.push'
+          - `git.clone`
+          - `git.fetch`
+          - `git.push`
 
-          由于记录了大量的 Git 事件，我们建议您监控实例的文件存储并查看相关的警报配置。有关详细信息，请参阅“[企业的审核日志事件](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#git-category-actions)”和“[Monitoring storage](/admin/enterprise-management/monitoring-your-appliance/recommended-alert-thresholds#monitoring-storage)”。
+          Due to the large number of Git events logged, we recommend you monitor your instance's file storage and review your related alert configurations. For more information, see "[Configuring the audit log for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/configuring-the-audit-log-for-your-enterprise#managing-git-events-in-the-audit-log)."
     - 
       heading: 对 CODEOWNERS 的改进
       notes:

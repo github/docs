@@ -25,7 +25,7 @@ Puedes utilizar tu instalación local de {% data variables.product.prodname_vsco
 
 Predeterminadamente, si creas un codespace nuevo en {% data variables.product.prodname_dotcom_the_website %}, este se abrirá en el buscador. Si prefieres que cualquier codespace nuevo se abra en {% data variables.product.prodname_vscode_shortname %} automáticamente, puedes configurar que {% data variables.product.prodname_vscode_shortname %} sea tu editor predeterminado. Para obtener más información, consulta la sección "[Configurar tu editor predeterminado para {% data variables.product.prodname_github_codespaces %}](/codespaces/customizing-your-codespace/setting-your-default-editor-for-github-codespaces)".
 
-Si prefieres trabajar en el buscador pero quieres seguir utilizando tus extensiones existentes, temas y atajos de {% data variables.product.prodname_vscode_shortname %}, puedes activar la Sincronización de Ajustes. For more information, see "[Personalizing {% data variables.product.prodname_github_codespaces %} for your account](/codespaces/customizing-your-codespace/personalizing-github-codespaces-for-your-account#settings-sync)."
+Si prefieres trabajar en el buscador pero quieres seguir utilizando tus extensiones existentes, temas y atajos de {% data variables.product.prodname_vscode_shortname %}, puedes activar la Sincronización de Ajustes. Para obtener más información, consulta la sección "[Personalizar {% data variables.product.prodname_github_codespaces %} para tu cuenta](/codespaces/customizing-your-codespace/personalizing-github-codespaces-for-your-account#settings-sync)".
 
 ## Prerrequisitos
 

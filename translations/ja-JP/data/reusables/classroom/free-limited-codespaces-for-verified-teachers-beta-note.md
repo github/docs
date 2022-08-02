@@ -1,5 +1,5 @@
 {% note %}
 
-**Note**: The {% data variables.product.prodname_codespaces %} Education benefit is currently in public beta and subject to change. During the beta release, your organization will not be charged if you exceed the free allowance.
+**ノート**: {% data variables.product.prodname_codespaces %} Education benefitは現在パブリックベータであり、変更されることがあります。 このベータリリースの間、無料分を超えてもOrganizationには課金されません。
 
 {% endnote %}

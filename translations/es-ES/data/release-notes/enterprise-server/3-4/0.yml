@@ -28,9 +28,9 @@ sections:
       heading: La seguridad del dependabot y las actualizaciones de versión están en beta público
       notes:
         - |
-          El {% data variables.product.prodname_dependabot %} ahora está disponible en {% data variables.product.prodname_ghe_server %} 3.4 como un beta público y ofrece tanto actualziaciones de versión como de seguridad para varios ecosistemas populares. El {% data variables.product.prodname_dependabot %} en {% data variables.product.prodname_ghe_server %} requiere {% data variables.product.prodname_actions %} y un conjunto de ejecutores auto-hospedados configurado para que el mismo {% data variables.product.prodname_dependabot %} los utilice. El {% data variables.product.prodname_dependabot %} en {% data variables.product.prodname_ghe_server %} también requiere que un administrador habilite tanto {% data variables.product.prodname_github_connect %} como el mismo {% data variables.product.prodname_dependabot %}. Puedes compartir tu retroalimentación y sugerencias en el [Debate de GitHub sobre la retroalimentación para el {% data variables.product.prodname_dependabot %}](https://github.com/github/feedback/discussions/categories/dependabot-feedback). Para obtener más información y probar el beta, consulta la sección "[Configurar la seguridad y las actualizaciones de versión del {% data variables.product.prodname_dependabot %} en tu empresa](/admin/github-actions/enabling-github-actions-for-github-enterprise-server/setting-up-dependabot-updates)".
+          {% data variables.product.prodname_dependabot %} is now available in {% data variables.product.prodname_ghe_server %} 3.4 as a public beta, offering both version updates and security updates for several popular ecosystems. {% data variables.product.prodname_dependabot %} on {% data variables.product.prodname_ghe_server %} requires {% data variables.product.prodname_actions %} and a pool of self-hosted runners configured for {% data variables.product.prodname_dependabot %} use. {% data variables.product.prodname_dependabot %} on {% data variables.product.prodname_ghe_server %} also requires {% data variables.product.prodname_github_connect %} and {% data variables.product.prodname_dependabot %} to be enabled by an administrator. Beta feedback and suggestions can be shared in the [{% data variables.product.prodname_dependabot %} Feedback GitHub discussion](https://github.com/community/community/discussions/categories/dependabot). For more information and to try the beta, see "[Setting up {% data variables.product.prodname_dependabot %} security and version updates on your enterprise](/admin/github-actions/enabling-github-actions-for-github-enterprise-server/setting-up-dependabot-updates)."
     - 
-      heading: SAML authentication supports encrypted assertions
+      heading: La autenticación de SAML es compatible con las aserciones cifradas
       notes:
         - |
           Si utilizas la autenticación de SAML para {% data variables.product.prodname_ghe_server %}, ahora puedes configurar las aserciones cifradas desde tu IdP para mejorar la seguridad. Las aserciones cifradas agregan una capa adicional de cifrado cuando tu IdP transmite información a {% data variables.product.product_location %}. Para obtener más información, consulta la sección "[Utilizar SAML](/admin/identity-and-access-management/authenticating-users-for-your-github-enterprise-server-instance/using-saml#enabling-encrypted-assertions)".
@@ -40,7 +40,7 @@ sections:
       notes:
         - Ahora los usuarios pueden elegir la cantidad de espacios que da una tabulación si configuran su tamaño de tabulación en los ajustes de "Apariencia" de sus cuentas de usuario. Todo el código con una sangría de tabulación se interpretará utilizando el tamaño de tabulación preferido.
         - El registro de conexión de datos de {% data variables.product.prodname_github_connect %} ahora incluye un conteo de la cantidad de usuarios inactivos y activos y el periodo de inactividad configurado.
-        - You can now give users access to enterprise-specific links by adding custom footers to {% data variables.product.prodname_ghe_server %}. For more information, see "[Configuring custom footers](/admin/configuration/configuring-your-enterprise/configuring-custom-footers)."
+        - Ahora puedes dar a los usuarios acceso a los enlaces específicos de la empresa si agregas pies de página personalizados a {% data variables.product.prodname_ghe_server %}. Para obtener más información, consulta la sección "[Configurar los pies de página personalizados](/admin/configuration/configuring-your-enterprise/configuring-custom-footers)".
     - 
       heading: Cambios de rendimiento
       notes:
@@ -135,7 +135,7 @@ sections:
           Para obtener más información, consulta la sección "[Escaneo de código](/rest/reference/code-scanning)" en la documentación de la API de REST.
         - 'Los clientes de la {% data variables.product.prodname_GH_advanced_security %} ahora pueden utilizar la API de REST para recuperar resultados del escaneo de secretos en repositorios privados a nivel empresarial. La terminal nueva complementa a las terminales existentes a nivel de repositorio y organización. Para obtener más información, consulta la sección "[Escaneo de secretos](/rest/reference/secret-scanning)" en la documentación de la API de REST.'
     - 
-      heading: Mobile changes
+      heading: Cambios móviles
       notes:
         - La compatibilidad con {% data variables.product.prodname_mobile %} ahora está habilitada predeterminadamente para las instancias nuevas de {% data variables.product.prodname_ghe_server %}. Si no habilitaste o inhabilitaste {% data variables.product.prodname_mobile %} explícitamente, {% data variables.product.prodname_mobile %} se habilitará cuando mejores a {% data variables.product.prodname_ghe_server %} 3.4.0 o posterior. Si previamente inhabilitaste o habilitaste a {% data variables.product.prodname_mobile %} para tu instancia, tu preferencia se preservará cuando hagas la mejora. Para obtener más información, consulta la sección "[Administrar a {% data variables.product.prodname_mobile %} para tu empresa](/admin/configuration/configuring-your-enterprise/managing-github-mobile-for-your-enterprise)".
   #No security/bug fixes for the GA release
@@ -202,7 +202,7 @@ sections:
 
           Para iniciar una tarea de mantenimiento de repositorio manualmente, dirígete a `https://<hostname>/stafftools/repositories/<owner>/<repository>/network` en cada repositorio afectado y haz clic en el botón **Schedule**.
     - 
-      heading: Change to the format of authentication tokens affects GitHub Connect
+      heading: El cambio al formato de tokens de autenticación afecta a GitHub Connect
       notes:
         - |
           GitHub Connect ya no funcionará después del 3 de junio para las instancias que ejecutan GitHub Enterprise Server 3.1 o anterior, debido a que el formato de los tokens de autenticación de GitHub cambiará. Para obtener más información, consulta la [Bitácora de cambios de GitHub](https://github.blog/2022-05-20-action-needed-by-github-connect-customers-using-ghes-3-1-and-older-to-adopt-new-authentication-token-format-updates/). [Actualizado: 2022-06-14]

@@ -1,5 +1,5 @@
-There are three visibility settings:
+可視性の設定は3つあります:
 
-* `private` - Visible only to you. This is the default setting when you forward a port.
-* `org` - Visible to members of the organization that owns the repository.
-* `public` - Visible to anyone who knows the URL and port number.
+* `private` - 自分にだけ見えます。 これはポートをフォワードする際のデフォルト設定です。
+* `org` - リポジトリを所有するOrganizationのメンバーに見えます。
+* `public` - URLとポート番号を知っている人なら誰にでも見えます。

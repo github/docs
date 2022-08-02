@@ -1,6 +1,6 @@
 ---
-title: 项目
-intro: Projects API 允许您在仓库中创建、列出、更新、删除和自定义项目。
+title: '{% data variables.product.prodname_projects_v1_caps %}'
+intro: 'The {% data variables.product.prodname_projects_v1 %} API lets you create, list, update, delete and customize {% data variables.projects.projects_v1_boards %}.'
 redirect_from:
   - /v3/projects
   - /rest/reference/projects
@@ -12,6 +12,7 @@ versions:
 topics:
   - API
 miniTocMaxHeadingLevel: 3
+allowTitleToDifferFromFilename: true
 children:
   - /projects
   - /cards

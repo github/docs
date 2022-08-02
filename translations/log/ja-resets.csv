@@ -5,6 +5,7 @@ translations/ja-JP/content/account-and-profile/setting-up-and-managing-your-gith
 translations/ja-JP/content/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-settings-on-your-profile/viewing-contributions-on-your-profile.md,broken liquid tags
 translations/ja-JP/content/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/adding-an-email-address-to-your-github-account.md,broken liquid tags
 translations/ja-JP/content/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/about-your-personal-dashboard.md,broken liquid tags
+translations/ja-JP/content/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/best-practices-for-leaving-your-company.md,broken liquid tags
 translations/ja-JP/content/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/managing-the-default-branch-name-for-your-repositories.md,broken liquid tags
 translations/ja-JP/content/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/permission-levels-for-a-personal-account-repository.md,broken liquid tags
 translations/ja-JP/content/actions/creating-actions/about-custom-actions.md,broken liquid tags
@@ -113,6 +114,7 @@ translations/ja-JP/content/code-security/code-scanning/using-codeql-code-scannin
 translations/ja-JP/content/code-security/dependabot/dependabot-alerts/about-dependabot-alerts.md,broken liquid tags
 translations/ja-JP/content/code-security/dependabot/dependabot-alerts/browsing-security-advisories-in-the-github-advisory-database.md,broken liquid tags
 translations/ja-JP/content/code-security/dependabot/dependabot-alerts/configuring-dependabot-alerts.md,broken liquid tags
+translations/ja-JP/content/code-security/dependabot/dependabot-alerts/editing-security-advisories-in-the-github-advisory-database.md,broken liquid tags
 translations/ja-JP/content/code-security/dependabot/dependabot-security-updates/about-dependabot-security-updates.md,broken liquid tags
 translations/ja-JP/content/code-security/dependabot/dependabot-security-updates/configuring-dependabot-security-updates.md,broken liquid tags
 translations/ja-JP/content/code-security/dependabot/index.md,broken liquid tags
@@ -172,7 +174,7 @@ translations/ja-JP/content/get-started/learning-about-github/about-github-advanc
 translations/ja-JP/content/get-started/privacy-on-github/managing-data-use-settings-for-your-private-repository.md,broken liquid tags
 translations/ja-JP/content/get-started/using-github/github-mobile.md,broken liquid tags
 translations/ja-JP/content/get-started/writing-on-github/editing-and-sharing-content-with-gists/creating-gists.md,broken liquid tags
-translations/ja-JP/content/issues/tracking-your-work-with-issues/planning-and-tracking-work-for-your-team-or-project.md,broken liquid tags
+translations/ja-JP/content/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards.md,broken liquid tags
 translations/ja-JP/content/issues/tracking-your-work-with-issues/transferring-an-issue-to-another-repository.md,broken liquid tags
 translations/ja-JP/content/organizations/collaborating-with-groups-in-organizations/about-your-organizations-news-feed.md,broken liquid tags
 translations/ja-JP/content/organizations/collaborating-with-your-team/about-team-discussions.md,Listed in localization-support#489
@@ -189,6 +191,7 @@ translations/ja-JP/content/packages/learn-github-packages/introduction-to-github
 translations/ja-JP/content/packages/learn-github-packages/publishing-a-package.md,broken liquid tags
 translations/ja-JP/content/packages/managing-github-packages-using-github-actions-workflows/publishing-and-installing-a-package-with-github-actions.md,broken liquid tags
 translations/ja-JP/content/packages/quickstart.md,broken liquid tags
+translations/ja-JP/content/packages/working-with-a-github-packages-registry/migrating-to-the-container-registry-from-the-docker-registry.md,broken liquid tags
 translations/ja-JP/content/packages/working-with-a-github-packages-registry/working-with-the-apache-maven-registry.md,broken liquid tags
 translations/ja-JP/content/packages/working-with-a-github-packages-registry/working-with-the-container-registry.md,broken liquid tags
 translations/ja-JP/content/packages/working-with-a-github-packages-registry/working-with-the-docker-registry.md,broken liquid tags
@@ -279,11 +282,17 @@ translations/ja-JP/data/reusables/advanced-security/about-committer-numbers-ghec
 translations/ja-JP/data/reusables/advanced-security/license-overview.md,broken liquid tags
 translations/ja-JP/data/reusables/apps/user-to-server-rate-limits-ghec.md,broken liquid tags
 translations/ja-JP/data/reusables/audit_log/audit-log-action-categories.md,broken liquid tags
+translations/ja-JP/data/reusables/billing/ghes-with-no-enterprise-account.md,broken liquid tags
 translations/ja-JP/data/reusables/classroom/classroom-codespaces-link.md,broken liquid tags
+translations/ja-JP/data/reusables/code-scanning/beta-alert-tracking-in-issues.md,broken liquid tags
 translations/ja-JP/data/reusables/code-scanning/enterprise-enable-code-scanning-actions.md,broken liquid tags
 translations/ja-JP/data/reusables/code-scanning/enterprise-enable-code-scanning.md,broken liquid tags
+translations/ja-JP/data/reusables/code-scanning/run-additional-queries.md,broken liquid tags
 translations/ja-JP/data/reusables/code-scanning/upload-sarif-ghas.md,broken liquid tags
 translations/ja-JP/data/reusables/community/report-content.md,broken liquid tags
+translations/ja-JP/data/reusables/copilot/dotcom-settings.md,broken liquid tags
+translations/ja-JP/data/reusables/copilot/enabling-or-disabling-in-vsc.md,broken liquid tags
+translations/ja-JP/data/reusables/copilot/enabling-or-disabling-vs.md,broken liquid tags
 translations/ja-JP/data/reusables/dotcom_billing/actions-packages-storage-enterprise-account.md,broken liquid tags
 translations/ja-JP/data/reusables/dotcom_billing/downgrade-org-to-free.md,broken liquid tags
 translations/ja-JP/data/reusables/dotcom_billing/lfs-remove-data.md,broken liquid tags

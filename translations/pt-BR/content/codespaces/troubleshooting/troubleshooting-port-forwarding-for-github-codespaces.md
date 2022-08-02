@@ -1,5 +1,5 @@
 ---
-title: Troubleshooting port forwarding for GitHub Codespaces
+title: Solução de problemas de encaminhamento de porta para o GitHub Codespaces
 intro: Etapas de solução de problemas para problemas comuns de encaminhamento de portas.
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
