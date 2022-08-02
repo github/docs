@@ -132,7 +132,6 @@ describe('server', () => {
   test('sets Fastly cache control headers to bypass pages', async () => {
     const res = await get('/en')
     expect(res.headers['cache-control']).toBe('private, no-store')
-    expect(res.headers['surrogate-control']).toBe('private, no-store')
     expect(res.headers['surrogate-key']).toBe(SURROGATE_ENUMS.DEFAULT)
   })
 

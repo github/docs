@@ -14,7 +14,6 @@ import cookieParser from './cookie-parser.js'
 import csrf from './csrf.js'
 import handleCsrfErrors from './handle-csrf-errors.js'
 import { setDefaultFastlySurrogateKey } from './set-fastly-surrogate-key.js'
-import setFastlyCacheHeaders from './set-fastly-cache-headers.js'
 import reqUtils from './req-utils.js'
 import recordRedirect from './record-redirect.js'
 import handleErrors from './handle-errors.js'
@@ -302,9 +301,6 @@ export default function (app) {
     // make any changes to the following line:
     app.use('/fastly-cache-test', fastlyCacheTest)
   }
-
-  // *** Headers for pages only ***
-  app.use(setFastlyCacheHeaders)
 
   // handle serving NextJS bundled code (/_next/*)
   app.use(instrument(next, './next'))

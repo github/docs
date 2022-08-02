@@ -294,7 +294,7 @@ sections:
       Minimum requirements for root storage and memory increased for GitHub Enterprise Server 2.10 and 3.0, and are now enforced as of 3.5.0.
 
         - In version 2.10, the minimum requirement for root storage increased from 80 GB to 200 GB. As of 3.5.0, system preflight checks will fail if the root storage is smaller than 80 GB.
-        - In version 3.0, the minimum requirement for memory increased to from 16 GB to 32 GB. As of 3.5.0, system preflight checks will fail if the system has less than 28 GB of memory.
+        - In version 3.0, the minimum requirement for memory increased from 16 GB to 32 GB. As of 3.5.0, system preflight checks will fail if the system has less than 28 GB of memory.
 
       For more information, see the minimum requirements for each supported deployment platform in "[Setting up a GitHub Enterprise Server instance](/admin/installation/setting-up-a-github-enterprise-server-instance)." [Updated: 2022-06-20]
     - |

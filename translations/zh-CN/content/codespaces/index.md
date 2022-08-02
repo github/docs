@@ -34,7 +34,7 @@ featuredLinks:
 product_video: 'https://www.youtube-nocookie.com/embed/_W9B7qc9lVc'
 communityRedirect:
   name: Provide GitHub Feedback
-  href: 'https://github.com/github/feedback/discussions/categories/codespaces-feedback'
+  href: 'https://github.com/orgs/community/discussions/categories/codespaces'
 redirect_from:
   - /github/developing-online-with-github-codespaces
   - /github/developing-online-with-codespaces

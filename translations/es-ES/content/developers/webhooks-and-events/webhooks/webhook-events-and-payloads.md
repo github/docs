@@ -980,7 +980,7 @@ Actividad relacionada con el {% data variables.product.prodname_registry %}. {% 
 
 {% note %}
 
-**Nota:** Los eventos de webhook para los {% data variables.projects.projects_v2 %} se encuentran actualmente en beta y están sujetos a cambios. To share feedback about {% data variables.projects.projects_v2 %} webhooks with {% data variables.product.product_name %}, see the [Projects webhook feedback discussion](https://github.com/github/feedback/discussions/17405).
+**Nota:** Los eventos de webhook para los {% data variables.projects.projects_v2 %} se encuentran actualmente en beta y están sujetos a cambios. To share feedback about {% data variables.projects.projects_v2 %} webhooks with {% data variables.product.product_name %}, see the [Projects webhook feedback discussion](https://github.com/orgs/community/discussions/17405).
 
 {% endnote %}
 
