@@ -15,7 +15,7 @@ topics:
   - Legal
 ---
 
-Effective date: May 31, 2022
+Effective date: September 1, 2022
 
 Thanks for entrusting GitHub Inc. or GitHub B.V. (“GitHub”, “we”, "us" or "our") with your source code, your projects, and your personal data. This Privacy Statement explains our practices regarding the collection, use, and disclosure of your data, including any personal data we collect and process in connection with our website and any applications, software, products, and services provided by GitHub, including any Beta Previews (collectively “Service”). 
 
@@ -25,7 +25,7 @@ All capitalized terms have their definition in [GitHub’s Terms of Service](/gi
 
 ## The short version
 
-We use your personal information as this Privacy Statement describes. No matter where you are, where you live, or what your citizenship is, we provide the same high standard of privacy protection to all our users around the world, regardless of their country of origin or location.
+We use your personal information as this Privacy Statement describes. No matter where you are, where you live, or what your citizenship is, you have the same high standard of privacy protection when using GitHub's products as all our users around the world, regardless of their country of origin or location.
 
 To see our Privacy Notice to residents of California, please go to [GitHub's Notice about the California Consumer Privacy Act](#githubs-notice-to-california-residents) or scroll down.
 
@@ -34,12 +34,12 @@ To see our Privacy Notice to residents of California, please go to [GitHub's Not
 
 | Section | What can you find there? |
 |---|---|
-| [Who is responsible for the processing of your information](#who-is-responsible-for-the-processing-of-your-information) | Subject to limited exceptions, GitHub is the controller and entity responsible for the processing of your personal data in connection with the Website or Service. |
+| [Who is responsible for the processing of your information](#who-is-responsible-for-the-processing-of-your-information) | GitHub is the controller and entity responsible for the processing of your personal data in connection with the Website or Service if you are in North America. For individuals outside North America the data controller is GitHub B.V. |
 | [What information GitHub collects](#what-information-github-collects) | GitHub collects information directly from you for your registration, payment, transactions, and user profile. We also automatically collect from you your usage information, cookies, and device information, subject, where necessary, to your consent. GitHub may also collect personal data from third parties. We only collect the minimum amount of personal data necessary from you, unless you choose to provide more.|
 | [How GitHub uses your information](#how-github-uses-your-information) | In this section, we describe the ways in which we use your information, including to provide you the Service, to communicate with you, for security and compliance purposes, and to improve our Website or Service or develop new features and functionality of our Website or Service. We also describe the legal basis upon which we process your information, where legally required. |
 | [How we share the information we collect](#how-we-share-the-information-we-collect) | We may share your information with third parties under one of the following circumstances: with your consent, with our service providers, for security purposes, to comply with our legal obligations, or when there is a change of control or sale of corporate entities or business units. We do not sell your personal information and we do not host advertising on GitHub. |
 | [Your choices regarding our processing of your personal data](#your-choices-regarding-our-processing-of-your-personal-data) | We provide ways for you to access, alter, or delete your personal information. |
-| [Cookies](#cookies) | We only use strictly necessary cookies to provide, secure, and improve our Website or Service or develop new features and functionality of our Website or Service. We offer a page that makes this very transparent. We do not send any information to third-party analytics services. |
+| [Cookies](#cookies) | Except for cookies used on our Enterprise Marketing Pages, we only use strictly necessary cookies to provide, secure, and improve our Website or Service or develop new features and functionality of our Website or Service.<br><br>As described below, we may use non-essential cookies on certain pages of our website to support our enterprise marketing efforts and market our products and services to enterprise customers, for example on resources.github.com (collectively “Enterprise Marketing Pages”).<br><br>We offer a page that makes all uses of cookies very transparent. |
 | [How GitHub secures your information](#how-github-secures-your-information) | We take all measures reasonably necessary to protect the confidentiality, integrity, and availability of your personal data on GitHub and to protect the resilience of our servers. |
 | [Communication preferences](#communication-preferences) | We communicate with you by email. You can control the way we contact you in your account settings, or by contacting us. |
 | [Resolving complaints](#resolving-complaints) | In the unlikely event that we are unable to resolve a privacy concern quickly and thoroughly, we provide a path of dispute resolution. |
@@ -122,13 +122,14 @@ We may use your information to provide, administer, analyze, manage, and operate
 - Personalization of our Service by understanding you and your preferences to enhance your experience and enjoyment using our Service.
 - Provide customer support and respond to your questions.
 - Deliver promotional communications with you about new services, features, offers, promotions, and other information about our Service.
+- Personalize and measure the effectiveness of enterprise business ads, promotional communications or marketing you receive related to the Enterprise Marketing Pages.
 - Send you information, including confirmations, invoices, technical notices, updates, security alerts, support and administrative messages.
 
 We combine data we collect from different sources for these purposes and to give you a more seamless, consistent, and personalized experience.
 
 ## How we share the information we collect
 
-We share personal data with your consent or as necessary to complete your transactions or provide the services you have requested or authorized. In addition, we may share each of the categories of your personal data described above with the types of third parties  described below for the following business purposes:
+We share personal data as described below, including with your consent or as necessary to complete your transactions or provide the services you have requested or authorized. In addition, we may share each of the categories of your personal data described above with the types of third parties described below for the following business purposes:
 
 ### Public information
 You may select options available through our Service to publicly display and share your name and/or username and certain other information, such as your profile, demographic data, content and files, or geolocation data. For example, if you would like your email address to remain private, even when you’re commenting on public repositories, [you can adjust your setting for your email address to be private in your user profile](https://github.com/settings/emails). You can also [update your local Git configuration to use your private email address](/github/setting-up-and-managing-your-github-user-account/setting-your-commit-email-address). Please see more about email addresses in commit messages [here](/github/setting-up-and-managing-your-github-user-account/setting-your-commit-email-address). 
@@ -214,13 +215,16 @@ We rely on different lawful bases for collecting and processing personal data ab
 
 ### Cookies and tracking technologies
 
-GitHub uses cookies to provide, secure and improve our  Service or to develop new features and functionality of our Service. For example, we use them to keep you logged in, remember your preferences, identify your device for security purposes, compile statistical reports, and provide information for future development of GitHub. We use our own cookies and do not use any third-party service providers in this context. If you disable your browser or device’s ability to accept these cookies, you will not be able to log in or use our Service. We provide more information about [cookies on GitHub](/github/site-policy/github-subprocessors-and-cookies#cookies-on-github) on our [GitHub Subprocessors and Cookies](/github/site-policy/github-subprocessors-and-cookies) page that describes the cookies we set, the needs we have for those cookies, and the expiration of such cookies.
+GitHub uses cookies to provide, secure and improve our  Service or to develop new features and functionality of our Service. For example, we use them to (i) keep you logged in, (ii) remember your preferences, (iii) identify your device for security and fraud purposes, including as needed to maintain the integrity of our Service, (iv) compile statistical reports, and (v) provide information and insight for future development of GitHub. 
+
+
+For Enterprise Marketing Pages, we may also use non-essential cookies to  (i) gather information about enterprise users’ interests and online activities to personalize their experiences, including by making the ads, content, recommendations, and marketing seen or received more relevant and (ii) serve and measure the effectiveness of targeted advertising and other marketing efforts. If you disable the non-essential cookies on the Enterprise Marketing Pages, the ads, content, and marketing you see may be less relevant. We provide more information about [cookies on GitHub](/github/site-policy/github-subprocessors-and-cookies#cookies-on-github) on our [GitHub Subprocessors and Cookies](/github/site-policy/github-subprocessors-and-cookies) page that describes the cookies we set, the needs we have for those cookies, and the expiration of such cookies.
 
 Our emails to users may contain a pixel tag, which is a small, clear image that can tell us whether or not you have opened an email and what your IP address is. We use this pixel tag to make our email communications more effective and to make sure we are not sending you unwanted email.
 
 ### DNT
 
-"[Do Not Track](https://www.eff.org/issues/do-not-track)" (DNT) is a privacy preference you can set in your browser if you do not want online services to collect and share certain kinds of information about your online activity from third party tracking services. GitHub responds to browser DNT signals and follows the [W3C standard for responding to DNT signals](https://www.w3.org/TR/tracking-dnt/). If you would like to set your browser to signal that you would not like to be tracked, please check your browser's documentation for how to enable that signal. There are also good applications that block online tracking, such as [Privacy Badger](https://privacybadger.org/).
+"[Do Not Track](https://www.eff.org/issues/do-not-track)" (DNT) is a privacy preference you can set in your browser if you do not want online services to collect and share certain kinds of information about your online activity from third party tracking services. Some services may respond to browser DNT signals and follow the [W3C standard for responding to DNT signals](https://www.w3.org/TR/tracking-dnt/). If you would like to set your browser to signal that you would not like to be tracked, please check your browser's documentation for how to enable that signal. There are also good applications that block online tracking, such as [Privacy Badger](https://privacybadger.org/) or [uBlock Origin](https://github.com/gorhill/uBlock/).
 
 ## Retention of personal data
 We retain personal data for as long as necessary to provide the services and fulfill the transactions you have requested, comply with our legal obligations, resolve disputes, enforce our agreements, and other legitimate and lawful business purposes. Because these needs can vary for different data types in the context of different services, actual retention periods can vary significantly based on criteria such as user expectations or consent, the sensitivity of the data, the availability of automated controls that enable users to delete data, and our legal or contractual obligations. For example, we may retain your personal data for longer periods, where necessary, subject to applicable law, for security purposes. 
