@@ -134,12 +134,6 @@ jobs:
           node script/i18n/fix-translation-errors.js
           git add ${{ matrix.language_dir }} && git commit -m "Run script/i18n/fix-translation-errors.js" || echo "Nothing to commit"
 
-      # step 8a in docs-engineering/crowdin.md
-      - name: Check parsing
-        run: |
-          node script/i18n/lint-translation-files.js --check parsing | tee -a /tmp/batch.log | cat
-          git add ${{ matrix.language_dir }} && git commit -m "Run script/i18n/lint-translation-files.js --check parsing" || echo "Nothing to commit"
-
       # step 8b in docs-engineering/crowdin.md
       - name: Check rendering
         run: |
