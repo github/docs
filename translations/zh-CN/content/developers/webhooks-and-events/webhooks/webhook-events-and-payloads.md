@@ -16,9 +16,6 @@ topics:
   - Webhooks
 shortTitle: Webhook events & payloads
 ---
-{% ifversion fpt or ghec %}
-
-{% endif %}
 
 {% data reusables.webhooks.webhooks_intro %}
 
@@ -100,7 +97,7 @@ Also, the `User-Agent` for the requests will have the prefix `GitHub-Hookshot/`.
 > }
 ```
 
-{% ifversion fpt or ghes > 3.2 or ghae or ghec %}
+{% ifversion fpt or ghes > 3.3 or ghae or ghec %}
 ## branch_protection_rule
 
 Activity related to a branch protection rule. For more information, see "[About branch protection rules](/github/administering-a-repository/defining-the-mergeability-of-pull-requests/about-protected-branches#about-branch-protection-rules)."
@@ -710,6 +707,41 @@ For a detailed description of this payload and the payload for each type of `act
 ### Webhook payload example
 
 {{ webhookPayloadsForCurrentVersion.membership.removed }}
+
+{% ifversion fpt or ghec %}
+
+## merge_group
+
+{% data reusables.pull_requests.merge-queue-beta %}
+
+Activity related to merge groups in a merge queue. The type of activity is specified in the action property of the payload object.
+
+
+### Availability
+
+- Repository webhooks
+- Organization webhooks
+- {% data variables.product.prodname_github_apps %} with the `merge_queues` permission
+
+### Webhook payload object
+
+Key | Type | Description
+----|------|-------------
+`action`|`string` | The action that was performed. Currently, can only be `checks_requested`.
+`merge_group`|`object` | The merge group.
+`merge_group[head_sha]`|`string` | The SHA of the merge group.
+`merge_group[head_ref]`|`string` | The full ref of the merge group.
+`merge_group[base_ref]`|`string` | The full ref of the branch the merge group will be merged into.
+{% data reusables.webhooks.repo_desc %}
+{% data reusables.webhooks.org_desc %}
+{% data reusables.webhooks.app_desc %}
+{% data reusables.webhooks.sender_desc %}
+
+### Webhook payload example
+
+{{ webhookPayloadsForCurrentVersion.merge_group.checks_requested }}
+
+{% endif %}
 
 ## meta
 
@@ -1324,7 +1356,7 @@ Key | Type | Description
 {% ifversion fpt or ghes or ghec %}
 ## security_advisory
 
-Activity related to a security advisory that has been reviewed by {% data variables.product.company_short %}. A {% data variables.product.company_short %}-reviewed security advisory provides information about security-related vulnerabilities in software on {% data variables.product.prodname_dotcom %}. 
+Activity related to a security advisory that has been reviewed by {% data variables.product.company_short %}. A {% data variables.product.company_short %}-reviewed security advisory provides information about security-related vulnerabilities in software on {% data variables.product.prodname_dotcom %}.
 
 The security advisory dataset also powers the GitHub {% data variables.product.prodname_dependabot_alerts %}. For more information, see "[About {% data variables.product.prodname_dependabot_alerts %}](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies/)."
 
