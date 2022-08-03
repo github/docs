@@ -255,7 +255,7 @@ codeload.github.com
 
 {% ifversion fpt or ghec %}
 
-This is not an issue with {% data variables.product.prodname_dotcom %}-hosted runners because each {% data variables.product.prodname_dotcom %}-hosted runner is always a clean isolated virtual machine, and it is destroyed at the end of the job execution.
+This is not an issue with {% data variables.product.prodname_dotcom %}-hosted runners because each {% data variables.product.prodname_dotcom %}-hosted runner is always a clean isolated runner image, and it is destroyed at the end of the job execution.
 
 {% endif %}
 

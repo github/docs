@@ -276,7 +276,7 @@ runs-on: ubuntu-latest
 </td>
 <td>
 
-Configures the job to run on an Ubuntu Linux runner. This means that the job will execute on a fresh virtual machine hosted by {% data variables.product.prodname_dotcom %}. For syntax examples using other runners, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idruns-on)."
+Configures the job to run on an Ubuntu Linux runner. This means that the job will execute on a fresh runner image hosted by {% data variables.product.prodname_dotcom %}. For syntax examples using other runners, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idruns-on)."
 </td>
 </tr>
 <tr>

@@ -1,6 +1,6 @@
 ---
 title: About GitHub-hosted runners
-intro: '{% data variables.product.prodname_dotcom %} offers hosted virtual machines to run workflows. The virtual machine contains an environment of tools, packages, and settings available for {% data variables.product.prodname_actions %} to use.'
+intro: '{% data variables.product.prodname_dotcom %} offers hosted runner images to run workflows. The runner image contains an environment of tools, packages, and settings available for {% data variables.product.prodname_actions %} to use.'
 redirect_from:
   - /articles/virtual-environments-for-github-actions
   - /github/automating-your-workflow-with-github-actions/virtual-environments-for-github-actions
@@ -24,7 +24,7 @@ shortTitle: GitHub-hosted runners
 
 Runners are the machines that execute jobs in a {% data variables.product.prodname_actions %} workflow. For example, a runner can clone your repository locally, install testing software, and then run commands that evaluate your code. 
 
-{% data variables.product.prodname_dotcom %} provides runners that you can use to run your jobs, or you can [host your own runners](/actions/hosting-your-own-runners/about-self-hosted-runners). Each {% data variables.product.prodname_dotcom %}-hosted runner is a new virtual machine (VM) hosted by {% data variables.product.prodname_dotcom %} with the runner application and other tools preinstalled, and is available with Ubuntu Linux, Windows, or macOS operating systems. When you use a {% data variables.product.prodname_dotcom %}-hosted runner, machine maintenance and upgrades are taken care of for you.
+{% data variables.product.prodname_dotcom %} provides runners that you can use to run your jobs, or you can [host your own runners](/actions/hosting-your-own-runners/about-self-hosted-runners). Each {% data variables.product.prodname_dotcom %}-hosted runner is a new runner image hosted by {% data variables.product.prodname_dotcom %} with the runner application and other tools preinstalled, and is available with Ubuntu Linux, Windows, or macOS operating systems. When you use a {% data variables.product.prodname_dotcom %}-hosted runner, machine maintenance and upgrades are taken care of for you.
 
 {% ifversion not ghes %}
 
@@ -38,7 +38,7 @@ The following diagram demonstrates how two jobs in a workflow are executed on tw
 
 ![Two runners processing separate jobs](/assets/images/help/images/overview-github-hosted-runner.png)
 
-The following example workflow has two jobs, named `Run-npm-on-Ubuntu` and `Run-PSScriptAnalyzer-on-Windows`. When this workflow is triggered, {% data variables.product.prodname_dotcom %} provisions a new virtual machine for each job. 
+The following example workflow has two jobs, named `Run-npm-on-Ubuntu` and `Run-PSScriptAnalyzer-on-Windows`. When this workflow is triggered, {% data variables.product.prodname_dotcom %} provisions a new runner image for each job. 
 
 - The job named `Run-npm-on-Ubuntu` is executed on a Linux VM, because the job's `runs-on:` specifies `ubuntu-latest`. 
 - The job named `Run-PSScriptAnalyzer-on-Windows` is executed on a Windows VM, because the job's `runs-on:` specifies `windows-latest`. 
@@ -86,12 +86,12 @@ While the job runs, the logs and output can be viewed in the {% data variables.p
 
 ## Supported runners and hardware resources
 
-Hardware specification for Windows and Linux virtual machines:
+Hardware specification for Windows and Linux runner images:
 - 2-core CPU (x86_64)
 - 7 GB of RAM
 - 14 GB of SSD space
 
-Hardware specification for macOS virtual machines:
+Hardware specification for macOS runner images:
 - 3-core CPU (x86_64)
 - 14 GB of RAM
 - 14 GB of SSD space
@@ -148,9 +148,9 @@ In addition, if the workflow run has been successfully queued, but has not been 
 
 ## Administrative privileges
 
-The Linux and macOS virtual machines both run using passwordless `sudo`. When you need to execute commands or install tools that require more privileges than the current user, you can use `sudo` without needing to provide a password. For more information, see the "[Sudo Manual](https://www.sudo.ws/man/1.8.27/sudo.man.html)."
+The Linux and macOS runner images both run using passwordless `sudo`. When you need to execute commands or install tools that require more privileges than the current user, you can use `sudo` without needing to provide a password. For more information, see the "[Sudo Manual](https://www.sudo.ws/man/1.8.27/sudo.man.html)."
 
-Windows virtual machines are configured to run as administrators with User Account Control (UAC) disabled. For more information, see "[How User Account Control works](https://docs.microsoft.com/windows/security/identity-protection/user-account-control/how-user-account-control-works)" in the Windows documentation.
+Windows runner images are configured to run as administrators with User Account Control (UAC) disabled. For more information, see "[How User Account Control works](https://docs.microsoft.com/windows/security/identity-protection/user-account-control/how-user-account-control-works)" in the Windows documentation.
 
 ## IP addresses
 
@@ -170,7 +170,7 @@ The list of {% data variables.product.prodname_actions %} IP addresses returned 
 
 ## File systems
 
-{% data variables.product.prodname_dotcom %} executes actions and shell commands in specific directories on the virtual machine. The file paths on virtual machines are not static. Use the environment variables {% data variables.product.prodname_dotcom %} provides to construct file paths for the `home`, `workspace`, and `workflow` directories.
+{% data variables.product.prodname_dotcom %} executes actions and shell commands in specific directories on the runner image. The file paths on runner images are not static. Use the environment variables {% data variables.product.prodname_dotcom %} provides to construct file paths for the `home`, `workspace`, and `workflow` directories.
 
 | Directory | Environment variable | Description |
 |-----------|----------------------|-------------|
