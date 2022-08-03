@@ -97,7 +97,7 @@ Also, the `User-Agent` for the requests will have the prefix `GitHub-Hookshot/`.
 > }
 ```
 
-{% ifversion fpt or ghes > 3.2 or ghae or ghec %}
+{% ifversion fpt or ghes > 3.3 or ghae or ghec %}
 ## branch_protection_rule
 
 Activity related to a branch protection rule. For more information, see "[About branch protection rules](/github/administering-a-repository/defining-the-mergeability-of-pull-requests/about-protected-branches#about-branch-protection-rules)."

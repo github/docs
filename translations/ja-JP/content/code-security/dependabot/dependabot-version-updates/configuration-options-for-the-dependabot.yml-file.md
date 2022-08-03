@@ -776,7 +776,7 @@ registries:
 
 {% note %}
 
-**Note:** We don't support the Azure Container Registry (ACR).
+**ノート:** Azure Container Registry (ACR)はサポートされていません。
 
 {% endnote %}
 

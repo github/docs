@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
+import { ThemeProviderProps } from '@primer/react'
 
 const MAX_CACHE = 5000 // milliseconds
 const RETRY = 500 // milliseconds
@@ -18,8 +19,12 @@ type Session = {
   csrfToken: string
   userLanguage: string // en, es, ja, cn
   languages: Record<string, LanguageItem> // en... name nativeName code hreflang redirectPatterns dir wip
-  theme: object // colorMode, nightTheme, dayTheme
-  themeCSS: object // colorMode, nightTheme, dayTheme
+  theme: { colorMode: Pick<ThemeProviderProps, 'colorMode'>; nightTheme: string; dayTheme: string }
+  themeCss: {
+    colorMode: Pick<ThemeProviderProps, 'colorMode'>
+    nightTheme: string
+    dayTheme: string
+  }
 }
 
 let sessionCache: Session | null
