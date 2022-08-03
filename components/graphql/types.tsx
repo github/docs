@@ -61,11 +61,9 @@ export type FieldT = GraphqlT & {
   arguments?: ArgumentT[]
 }
 
-export type QueryItemT = GraphqlT & {
+export type QueryT = GraphqlT & {
   args: GraphqlT[]
 }
-
-export type QueryT = { connections: QueryItemT[]; fields: QueryItemT[] }
 
 export type MutationT = GraphqlT & {
   inputFields: FieldT[]

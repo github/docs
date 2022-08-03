@@ -1,6 +1,5 @@
 import React from 'react'
 import cx from 'classnames'
-import { LinkIcon } from '@primer/octicons-react'
 
 import { Enum } from 'components/graphql/Enum'
 import { InputObject } from 'components/graphql/InputObject'
@@ -36,29 +35,7 @@ export const GraphqlPage = ({ schema, pageName, objects }: Props) => {
   // for each section.
   if (pageName === 'queries') {
     graphqlItems.push(
-      <h2 id="connections" key="query-connections-heading">
-        <a className="doctocat-link" href="#connections">
-          <LinkIcon className="octicon-link" size="small" />
-        </a>
-        Connections
-      </h2>
-    )
-    graphqlItems.push(
-      ...(schema as QueryT).connections.map((item) => (
-        <Query item={item} key={item.id + item.name} />
-      ))
-    )
-    graphqlItems.push(
-      <h2 id="fields" key="query-fields-heading">
-        <a className="doctocat-link" href="#fields">
-          <LinkIcon className="octicon-link" size="small" />
-        </a>
-        Fields
-      </h2>
-    )
-
-    graphqlItems.push(
-      ...(schema as QueryT).fields.map((item) => <Query item={item} key={item.id + item.name} />)
+      ...(schema as QueryT[]).map((item) => <Query item={item} key={item.id + item.name} />)
     )
   } else if (pageName === 'enums') {
     graphqlItems.push(
