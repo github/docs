@@ -21,14 +21,6 @@ After you've performed a sudo-protected action, you'll only be asked to re-authe
 
 {% endnote %}
 
-## Confirm access using your password
-
-1. Enter your password and choose "Confirm".
-  ![Sudo Mode Prompt Password](/assets/images/help/settings/sudo_mode_prompt_password.png)
-
-    - If the password is correct, the sudo access request will be completed.
-    - If you've forgotten your password, you will need to [request a new password](/authentication/keeping-your-account-and-data-secure/updating-your-github-access-credentials#requesting-a-new-password) before you are able to perform any sudo-protected action.
-
 ## Confirm access using a security key
 
 If you [configured two-factor authentication using a security key](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication#configuring-two-factor-authentication-using-a-security-key), you can use your security key to confirm sudo mode access.
@@ -81,6 +73,14 @@ If you set up two-factor authentication via text messages, {% data variables.pro
     - If the authentication code is correct, the sudo access request will be completed.
 
 {% endif %}
+
+## Confirm access using your password
+
+1. Enter your password and choose "Confirm".
+  ![Sudo Mode Prompt Password](/assets/images/help/settings/sudo_mode_prompt_password.png)
+
+    - If the password is correct, the sudo access request will be completed.
+    - If you've forgotten your password, you will need to [request a new password](/authentication/keeping-your-account-and-data-secure/updating-your-github-access-credentials#requesting-a-new-password) before you are able to perform any sudo-protected action.
 
 ## Further reading
 
