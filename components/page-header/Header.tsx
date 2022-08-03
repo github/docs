@@ -64,7 +64,8 @@ export const Header = () => {
       <header
         className={cx(
           'color-bg-default px-3 px-md-6 pt-3 pb-3 position-sticky top-0 z-3 border-bottom',
-          scroll && 'color-shadow-small'
+          scroll && 'color-shadow-small',
+          styles.fullVerticalScroll
         )}
       >
         {/* desktop header */}
