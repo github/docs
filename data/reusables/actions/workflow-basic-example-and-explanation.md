@@ -82,7 +82,7 @@ Defines a job named <code>check-bats-version</code>. The child keys will define 
   ```
 </td>
 <td>
-  Configures the job to run on the latest version of an Ubuntu Linux runner. This means that the job will execute on a fresh runner image hosted by GitHub. For syntax examples using other runners, see "<a href="/actions/reference/workflow-syntax-for-github-actions#jobsjob_idruns-on">Workflow syntax for {% data variables.product.prodname_actions %}</a>."
+  Configures the job to run on the latest version of an Ubuntu Linux runner. This means that the job will execute on a fresh virtual machine hosted by GitHub. For syntax examples using other runners, see "<a href="/actions/reference/workflow-syntax-for-github-actions#jobsjob_idruns-on">Workflow syntax for {% data variables.product.prodname_actions %}</a>."
 </td>
 </tr>
 <tr>

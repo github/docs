@@ -119,7 +119,7 @@ jobs:
 
 ## Required clean-up on self-hosted runners
 
-{% data variables.product.prodname_dotcom %}-hosted runners are isolated runner images that are automatically destroyed at the end of the job execution. This means that the certificates and provisioning profile used on the runner during the job will be destroyed with the runner when the job is completed.
+{% data variables.product.prodname_dotcom %}-hosted runners are isolated virtual machines that are automatically destroyed at the end of the job execution. This means that the certificates and provisioning profile used on the runner during the job will be destroyed with the runner when the job is completed.
 
 On self-hosted runners, the `$RUNNER_TEMP` directory is cleaned up at the end of the job execution, but the keychain and provisioning profile might still exist on the runner.
 
