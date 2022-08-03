@@ -65590,6 +65590,14 @@
           "href": "/graphql/reference/objects#repository"
         },
         {
+          "name": "size",
+          "description": "<p>Entry byte size.</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        },
+        {
           "name": "submodule",
           "description": "<p>If the TreeEntry is for a directory occupied by a submodule project, this returns the corresponding submodule.</p>",
           "type": "Submodule",
