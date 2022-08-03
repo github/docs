@@ -156,7 +156,7 @@ jobs:
       - name: Check in CSV report
         run: |
           mkdir -p translations/log
-          csvFile=translations/log/${{ matrix.language }}-resets.csv
+          csvFile=translations/log/msft-${{ matrix.language }}-resets.csv
           script/i18n/report-reset-files.js --report-type=csv --language=${{ matrix.language }} --log-file=/tmp/batch.log > $csvFile
           git add -f $csvFile && git commit -m "Check in ${{ matrix.language }} CSV report" || echo "Nothing to commit"
 
