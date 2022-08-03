@@ -4,10 +4,10 @@ import { Link } from 'components/Link'
 import { GraphqlItem } from './GraphqlItem'
 import { Table } from './Table'
 import { useTranslation } from 'components/hooks/useTranslation'
-import type { QueryItemT } from './types'
+import type { QueryT } from './types'
 
 type Props = {
-  item: QueryItemT
+  item: QueryT
 }
 
 export function Query({ item }: Props) {

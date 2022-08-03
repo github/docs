@@ -32,32 +32,16 @@ describe('graphql json files', () => {
     graphqlVersions.forEach((version) => {
       const schemaJsonPerVersion = readJsonFile(`lib/graphql/static/schema-${version}.json`)
       // all graphql types are arrays except for queries
-      graphqlTypes
-        .filter((type) => type !== 'queries')
-        .forEach((type) => {
-          schemaJsonPerVersion[type].forEach((typeObj) => {
-            const key = JSON.stringify(typeObj) + type
-            if (typeObjsTested.has(key)) return
-            typeObjsTested.add(key)
+      graphqlTypes.forEach((type) => {
+        schemaJsonPerVersion[type].forEach((typeObj) => {
+          const key = JSON.stringify(typeObj) + type
+          if (typeObjsTested.has(key)) return
+          typeObjsTested.add(key)
 
-            const { valid, errors } = revalidator.validate(typeObj, schemaValidator[type])
-            const errorMessage = JSON.stringify(errors, null, 2)
-            expect(valid, errorMessage).toBe(true)
-          })
+          const { valid, errors } = revalidator.validate(typeObj, schemaValidator[type])
+          const errorMessage = JSON.stringify(errors, null, 2)
+          expect(valid, errorMessage).toBe(true)
         })
-
-      // check query connections separately
-      schemaJsonPerVersion.queries.connections.forEach((connection) => {
-        const { valid, errors } = revalidator.validate(connection, schemaValidator.queryConnections)
-        const errorMessage = JSON.stringify(errors, null, 2)
-        expect(valid, errorMessage).toBe(true)
-      })
-
-      // check query fields separately
-      schemaJsonPerVersion.queries.fields.forEach((field) => {
-        const { valid, errors } = revalidator.validate(field, schemaValidator.queryFields)
-        const errorMessage = JSON.stringify(errors, null, 2)
-        expect(valid, errorMessage).toBe(true)
       })
     })
   })
