@@ -53,16 +53,6 @@ curl -H 'Authorization: token my_access_token' https://api.github.com/user/repos
 curl -H 'Authorization: token my-oauth-token' https://api.github.com/user/repos
 ```
 
-### 调用 OAuth 授权 API
-
-如果要调用 [OAuth 授权 API](/enterprise-server/rest/reference/oauth-authorizations) 来管理 OAuth 应用的授权或生成访问令牌，类似于以下示例：
-
-```bash
-curl -u my_username:my_password -X POST "https://api.github.com/authorizations" -d '{"scopes":["public_repo"], "note":"my token", "client_id":"my_client_id", "client_secret":"my_client_secret"}'
-```
-
-然后您必须切换到 [web 应用程序流程](/apps/building-oauth-apps/authorizing-oauth-apps/#web-application-flow)来生成访问令牌。
-
 ## 超时
 
 如果  {% data variables.product.product_name %} 需要超过 10 秒来处理一个 API 请求， {% data variables.product.product_name %} 将会终止请求，并且您将收到超时响应。
