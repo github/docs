@@ -11,7 +11,7 @@ import { cacheControlFactory } from './cache-control.js'
 
 const noCacheControl = cacheControlFactory(0)
 
-const htmlCacheControl = cacheControlFactory(0)
+const htmlCacheControl = cacheControlFactory(60)
 // We'll start with no cache, the increase to one minute (60),
 // then five minutes (60 * 5), finally ten minutes (60 * 10)
 
@@ -23,21 +23,6 @@ async function buildRenderedPage(req) {
   const pageRenderTimed = statsd.asyncTimer(page.render, 'middleware.render_page', [`path:${path}`])
 
   const renderedPage = await pageRenderTimed(context)
-
-  // handle special-case prerendered GraphQL objects page
-  if (path.endsWith('graphql/reference/objects')) {
-    return renderedPage + context.graphql.prerenderedObjectsForCurrentVersion.html
-  }
-
-  // handle special-case prerendered GraphQL input objects page
-  if (path.endsWith('graphql/reference/input-objects')) {
-    return renderedPage + context.graphql.prerenderedInputObjectsForCurrentVersion.html
-  }
-
-  // handle special-case prerendered GraphQL mutations page
-  if (path.endsWith('graphql/reference/mutations')) {
-    return renderedPage + context.graphql.prerenderedMutationsForCurrentVersion.html
-  }
 
   return renderedPage
 }

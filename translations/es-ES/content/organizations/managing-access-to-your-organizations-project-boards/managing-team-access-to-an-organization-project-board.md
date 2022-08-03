@@ -26,9 +26,9 @@ allowTitleToDifferFromFilename: true
 
 {% endwarning %}
 
-## Giving a team access to a {% data variables.projects.projects_v1_board %}
+## Otorgar acceso a un equipo para un {% data variables.projects.projects_v1_board %}
 
-You can give an entire team the same permission level to a {% data variables.projects.projects_v1_board %}.
+Puedes otorgar el mismo nivel de permiso para un {% data variables.projects.projects_v1_board %} a todo un equipo.
 
 {% note %}
 

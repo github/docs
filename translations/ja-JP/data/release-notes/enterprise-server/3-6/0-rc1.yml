@@ -164,19 +164,19 @@ sections:
         - |
           Enterpriseのオーナーは、Organizationのオーナーがインスタンスのリポジトリにコラボレータを招待するのを防ぐことができます。詳しい情報については「[リポジトリへのコラボレータの招待に関するポリシーの施行](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-inviting-collaborators-to-repositories)」を参照してください。
         - |
-          Users can grant exceptions to GitHub Apps for any branch protection rule that supports exceptions. For more information, see "[About apps](/developers/apps/getting-started-with-apps/about-apps)" and "[Managing a branch protection rule](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/managing-a-branch-protection-rule)."
+          ユーザは、例外をサポートするブランチ保護ルールに対してGitHub Appに例外を許可できます。詳しい情報については「[アプリケーションについて](/developers/apps/getting-started-with-apps/about-apps)」及び「[ブランチ保護ルールの管理](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/managing-a-branch-protection-rule)」を参照してください。
     - 
       heading: コミット
       notes:
         - |
-          For public GPG signing keys that are expired or revoked, GitHub Enterprise Server verifies Git commit signatures and show commits as verified if the user made the commit while the key was still valid. Users can also upload expired or revoked GPG keys. For more information, see "[About commit signature verification](/authentication/managing-commit-signature-verification/about-commit-signature-verification)."
+          期限切れになって取り消された公開GPG署名キーについて、ユーザがコミットをキーが有効なうちに行っていれば、GitHub Enterprise ServerはGitコミット署名を検証し、コミットが検証されたと表示します。ユーザは、期限切れあるいは取り消されたGPGキーをアップロードすることもできます。詳しい情報については「[コミット署名の検証について](/authentication/managing-commit-signature-verification/about-commit-signature-verification)」を参照してください。
         - |
-          To affirm that a commit complies with the rules and licensing governing a repository, organization owners and repository administrators can now require developers to sign off on commits made through the web interface. For more information, see "[Managing the commit signoff policy for your organization](/organizations/managing-organization-settings/managing-the-commit-signoff-policy-for-your-organization)" and "[Managing the commit signoff policy for your repository](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-the-commit-signoff-policy-for-your-repository)."
+          コミットがリポジトリを管理するルールやライセンスの下で編集されたことを確認するために、Organizationオーナー及びリポジトリ管理者は、開発者にWebインターフェースを通じて行ったコミットにサインオフすることを要求できるようになりました。詳しい情報については「[Organizationのコミットサインオフポリシーの管理](/organizations/managing-organization-settings/managing-the-commit-signoff-policy-for-your-organization)」及び「[リポジトリのコミットサインオフポリシーの管理](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-the-commit-signoff-policy-for-your-repository)」を参照してください。
     - 
       heading: プルリクエスト
       notes:
         - |
-          Using the file tree located in the **Files changed** tab of a pull request, users can navigate modified files, understand the size and scope of changes, and focus reviews. The file tree appears if a pull request modifies at least two files, and the browser window is sufficiently wide. For more information, see "[Reviewing proposed changes in a pull request](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-proposed-changes-in-a-pull-request)" and "[Filtering files in a pull request](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/filtering-files-in-a-pull-request)."
+          Pull Requestの**Files changed（変更されたファイル）**タブにあるファイルツリーを使って、ユーザは変更されたファイルに見ていき、変更のサイズとスコープを理解し、レビューに集中できます。このファイルツリーは、Pull Requestが少なくとも2つのファイルを変更しており、ブラウザのウィンドウが十分に広いときに表示されます。詳しい情報については「[Pull Requestで提案された変更のレビュー(/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-proposed-changes-in-a-pull-request)」及び「[Pull Requestのファイルのフィルタリング](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/filtering-files-in-a-pull-request)」を参照してください。
         - |
           Users can default to using pull requests titles as the commit message for all squash merges. For more information, see "[Configuring commit squashing for pull requests](/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/configuring-commit-squashing-for-pull-requests)."
     - 

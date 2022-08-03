@@ -5,6 +5,7 @@ translations/zh-CN/content/account-and-profile/setting-up-and-managing-your-gith
 translations/zh-CN/content/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-settings-on-your-profile/viewing-contributions-on-your-profile.md,broken liquid tags
 translations/zh-CN/content/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-settings-on-your-profile/why-are-my-contributions-not-showing-up-on-my-profile.md,broken liquid tags
 translations/zh-CN/content/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/about-your-personal-dashboard.md,broken liquid tags
+translations/zh-CN/content/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/best-practices-for-leaving-your-company.md,rendering error
 translations/zh-CN/content/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/changing-your-github-username.md,rendering error
 translations/zh-CN/content/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/managing-the-default-branch-name-for-your-repositories.md,broken liquid tags
 translations/zh-CN/content/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-your-membership-in-organizations/about-organization-membership.md,broken liquid tags
@@ -292,7 +293,6 @@ translations/zh-CN/content/rest/apps/marketplace.md,broken liquid tags
 translations/zh-CN/content/rest/enterprise-admin/index.md,broken liquid tags
 translations/zh-CN/content/rest/guides/basics-of-authentication.md,Listed in localization-support#489
 translations/zh-CN/content/rest/guides/getting-started-with-the-checks-api.md,broken liquid tags
-translations/zh-CN/content/rest/guides/getting-started-with-the-rest-api.md,broken liquid tags
 translations/zh-CN/content/rest/overview/other-authentication-methods.md,Listed in localization-support#489
 translations/zh-CN/content/rest/overview/other-authentication-methods.md,broken liquid tags
 translations/zh-CN/content/rest/overview/resources-in-the-rest-api.md,Listed in localization-support#489

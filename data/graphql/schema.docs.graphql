@@ -29821,6 +29821,16 @@ type ProjectV2Item implements Node {
   databaseId: Int
 
   """
+  A specific field value given a field name
+  """
+  fieldValueByName(
+    """
+    The name of the field to return the field value of
+    """
+    name: String!
+  ): ProjectV2ItemFieldValue
+
+  """
   List of field values
   """
   fieldValues(
@@ -47792,6 +47802,11 @@ type TreeEntry {
   The Repository the tree entry belongs to
   """
   repository: Repository!
+
+  """
+  Entry byte size
+  """
+  size: Int!
 
   """
   If the TreeEntry is for a directory occupied by a submodule project, this returns the corresponding submodule
