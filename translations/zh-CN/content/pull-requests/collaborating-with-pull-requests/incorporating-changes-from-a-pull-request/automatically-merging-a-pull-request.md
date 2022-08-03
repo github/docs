@@ -24,7 +24,7 @@ shortTitle: 自动合并 PR
 
 对拉取请求启用自动合并后，如果没有仓库写入权限的人员将新更改推送到头部分支或切换拉取请求的基础分支，则自动合并将被禁用。 例如，如果维护者允许从复刻自动合并拉取请求，则在贡献者推送对拉取请求的新更改后，自动合并将被禁用。
 
-您可以通过 [{% data variables.product.product_name %} 反馈讨论](https://github.com/github/feedback/discussions/categories/pull-requests-feedback)提供有关自动合并的反馈。
+You can provide feedback about auto-merge through a [{% data variables.product.prodname_github_community %} discussion](https://github.com/orgs/community/discussions/categories/pull-requests).
 
 ## 启用自动合并
 

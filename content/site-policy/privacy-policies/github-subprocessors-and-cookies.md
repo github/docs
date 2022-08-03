@@ -16,6 +16,12 @@ topics:
 
 Effective date: **April 2, 2021**
 
+{% note %}
+
+**Note:** Changes to the list of cookies on this page are currently pending.
+
+{% endnote %}
+
 GitHub provides a great deal of transparency regarding how we use your data, how we collect your data, and with whom we share your data. To that end, we provide this page, which details [our subprocessors](#github-subprocessors), and how we use [cookies](#cookies-on-github).
 
 ## GitHub Subprocessors

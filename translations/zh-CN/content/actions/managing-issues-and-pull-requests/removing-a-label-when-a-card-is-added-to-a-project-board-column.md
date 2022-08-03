@@ -30,9 +30,10 @@ shortTitle: 添加卡片时删除标签
 2. 选择属于仓库的项目。 此工作流程不能用于属于用户或组织的项目。 您可以使用现有项目，也可以创建新项目。 有关创建项目的更多信息，请参阅“[创建项目板](/github/managing-your-work-on-github/creating-a-project-board)”。
 3. {% data reusables.actions.make-workflow-file %}
 4. 将以下 YAML 内容复制到工作流程文件中。
-
     ```yaml{:copy}
 {% indented_data_reference reusables.actions.actions-not-certified-by-github-comment spaces=4 %}
+
+{% indented_data_reference reusables.actions.actions-use-sha-pinning-comment spaces=4 %}
 
     name: Remove labels
     on:

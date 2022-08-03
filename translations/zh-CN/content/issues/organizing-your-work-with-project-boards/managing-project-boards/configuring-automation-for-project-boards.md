@@ -1,15 +1,12 @@
 ---
-title: 配置项目板的自动化
-intro: 您可以设置自动工作流程 - 在发生指定事件时将议题和拉取请求移动到项目板的列中。
+title: 'Configuring automation for {% data variables.product.prodname_projects_v1 %}'
+intro: 'You can set up automatic workflows to move issues and pull requests to a {% data variables.projects.projects_v1_board %} column when a specified event occurs.'
 redirect_from:
   - /github/managing-your-work-on-github/managing-project-boards/configuring-automation-for-project-boards
   - /articles/configuring-automation-for-project-boards
   - /github/managing-your-work-on-github/configuring-automation-for-project-boards
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
-  ghec: '*'
+  feature: projects-v1
 topics:
   - Pull requests
   - Projects
@@ -17,11 +14,12 @@ topics:
   - Project management
 shortTitle: 配置自动化
 type: how_to
+allowTitleToDifferFromFilename: true
 ---
 
 {% data reusables.projects.project_boards_old %}
 
-{% data reusables.project-management.automate-project-board-permissions %} 更多信息请参阅“[关于项目板的自动化](/articles/about-automation-for-project-boards)”。
+{% data reusables.project-management.automate-project-board-permissions %} For more information, see "[About automation for {% data variables.product.prodname_projects_v1 %}](/articles/about-automation-for-project-boards)."
 
 {% data reusables.project-management.use-automated-template %}
 
@@ -33,7 +31,7 @@ type: how_to
 
 {% endtip %}
 
-1. 导航到要自动化的项目板。
+1. Navigate to the {% data variables.projects.projects_v1_board %} you want to automate.
 2. 在要自动化的列中，单击 {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}。 ![编辑图标](/assets/images/help/projects/edit-column-button.png)
 3. 单击 **Manage automation（管理自动化）**。 ![管理自动化按钮](/assets/images/help/projects/manage-automation-button.png)
 4. 使用 Preset（预设）下拉菜单，选择一个自动化预设。 ![从菜单中选择预设自动化](/assets/images/help/projects/select-automation.png)
@@ -41,4 +39,4 @@ type: how_to
 6. 单击 **Update automation（更新自动化）**。
 
 ## 延伸阅读
-- “[关于项目板的自动化](/articles/about-automation-for-project-boards)”
+- "[About automation for {% data variables.product.prodname_projects_v1 %}](/articles/about-automation-for-project-boards)"

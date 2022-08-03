@@ -15,9 +15,19 @@ shortTitle: 自定义组织配置文件
 ## 关于组织的资料页面
 
 {% ifversion org-profile-pin-private %}
-您可以自定义组织的概述页面，以显示专用于公共用户或组织成员的内容。 已登录到 {% data variables.product.prodname_dotcom %} 的组织成员在访问组织的个人资料页面时，将显示成员视图。 非组织成员的用户将显示公共视图。
+You can customize your organization's Overview page to show a README and pinned repositories dedicated to public users or members of the organization.
 
-![组织配置文件页面的图像](/assets/images/help/organizations/new_organization_page.png)
+![Image of a public organization profile page](/assets/images/help/organizations/public_profile.png)
+
+Members of your organization who are signed into {% data variables.product.prodname_dotcom %}, can select a `member` or `public` view of the README and pinned repositories when they visit your organization's profile page.
+
+![Image of a public organization profile page view context switcher](/assets/images/help/organizations/profile_view_switcher_public.png)
+
+The view defaults to `member` if either a members-only README or members-only pinned repositories are present, and `public` otherwise.
+
+![Image of a members only organization profile page](/assets/images/help/organizations/member_only_profile.png)
+
+Users who are not members of your organization will be shown a `public` view.
 
 ### 固定的仓库
 
@@ -26,6 +36,7 @@ shortTitle: 自定义组织配置文件
 只有组织所有者才能固定存储库。 更多信息请参阅“[将仓库固定到组织的资料](#pinning-repositories-to-your-organizations-profile)”。
 
 ### 组织资料 README
+
 {% endif %}
 
 您可以通过为公共用户和组织成员创建组织资料 README 来共享有关如何与组织互动的信息。 {% data variables.product.prodname_dotcom %} 在组织的“Overview（概述）”选项卡中显示组织资料 README。
@@ -53,7 +64,7 @@ shortTitle: 自定义组织配置文件
 2. 在组织的 `.github-private` 存储库中，在 `profile` 文件夹中创建 `README.md` 文件。
 3. 将更改提交到 `README.md` 文件。 `README.md` 的内容将显示在组织资料的成员视图中。
 
-   ![组织私有 README 的图像](/assets/images/help/organizations/org_member_readme.png)
+   ![Image of an organization's member-only README](/assets/images/help/organizations/org_member_readme.png)
 
 ## 将存储库固定到组织的资料
 

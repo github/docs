@@ -49,7 +49,7 @@ Organization内では、ロールをOrganization、Team、リポジトリのレ�
 
 継承されたロールにまだ含まれていない場合にのみ、追加の権限を選択できます。 たとえば、継承されたロールがリポジトリへの**Write**アクセスを提供しているなら、"Close a pull request"権限は継承されたロールに既に含まれています。
 
-{% ifversion ghec %}
+{% ifversion discussions %}
 ### Discussions
 
 - **Create a discussion category（ディスカッションカテゴリの作成）**: 新しいディスカッションカテゴリを作成できる。 詳しい情報については「[新しいディスカッションカテゴリの作成](/discussions/managing-discussions-for-your-community/managing-categories-for-discussions#creating-a-category)」を参照してください。

@@ -34,6 +34,8 @@ Organizations using {% data variables.product.prodname_ghe_cloud %} with {% data
 
 {% data variables.product.product_name %} currently scans public repositories for secrets issued by the following service providers. For more information about {% data variables.product.prodname_secret_scanning_partner %}, see "[About {% data variables.product.prodname_secret_scanning_partner %}](/code-security/secret-scanning/about-secret-scanning#about-secret-scanning-for-partner-patterns)."
 
+{% data reusables.secret-scanning.secret-scanning-pattern-pair-matches %}
+
 {% data reusables.secret-scanning.partner-secret-list-public-repo %}
 {% endif %}
 
@@ -41,6 +43,8 @@ Organizations using {% data variables.product.prodname_ghe_cloud %} with {% data
 ## Supported secrets{% ifversion ghec %} for advanced security{% endif %}
 
 When {% data variables.product.prodname_secret_scanning_GHAS %} is enabled, {% data variables.product.prodname_dotcom %} scans for secrets issued by the following service providers. {% ifversion ghec %}For more information about {% data variables.product.prodname_secret_scanning_GHAS %}, see "[About {% data variables.product.prodname_secret_scanning_GHAS %}](/code-security/secret-scanning/about-secret-scanning#about-secret-scanning-for-advanced-security)."{% endif %}
+
+{% data reusables.secret-scanning.secret-scanning-pattern-pair-matches %}
 
 If you use the REST API for secret scanning, you can use the `Secret type` to report on secrets from specific issuers. For more information, see "[Secret scanning](/enterprise-cloud@latest/rest/secret-scanning)."
  

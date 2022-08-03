@@ -1,7 +1,7 @@
 ---
-title: Managing prebuilds
-shortTitle: Manage prebuilds
-intro: 'You can review, modify, and delete the prebuild configurations for your repository.'
+title: Administrar las precompilaciones
+shortTitle: Administrar las precompilaciones
+intro: 'Puedes revisar, modificar y borrar las configuraciones de precompilación de tu repositorio.'
 versions:
   fpt: '*'
   ghec: '*'
@@ -12,113 +12,88 @@ product: '{% data reusables.gated-features.codespaces %}'
 miniTocMaxHeadingLevel: 3
 ---
 
-## Checking, changing, and deleting your prebuild configurations
+## Verificar, cambiar y borrar tus configuraciones de precompilación
 
-The prebuilds that you configure for a repository are created and updated using a {% data variables.product.prodname_actions %} workflow, managed by the {% data variables.product.prodname_github_codespaces %} service. 
+Las precompilaciones que configures para un repositorio se crean y actualizan utilizando un flujo de trabajo de {% data variables.product.prodname_actions %}, que administra el servicio de {% data variables.product.prodname_github_codespaces %}.
 
-Depending on the settings in a prebuild configuration, the workflow to update the prebuild template may be triggered by these events:
+Dependiendo de los ajustes en una configuración de precompilación, el flujo de trabajo para actualizar la plantilla de precompilación podría activarse con estos eventos:
 
-* Creating or updating the prebuild configuration
-* Pushing a commit or a pull request to a branch that's configured to have prebuilds
-* Changing any of the dev container configuration files
-* A schedule that you've defined in the prebuild configuration
-* Manually triggering the workflow
+* Crear o actualizar la configuración de precompilación
+* Subir una confirmación o una solicitud de cambios a una rama que está configurada para tener precompilaciones
+* Cambiar cualquiera de los archivos de configuración del contenedor dev
+* Un itinerario que definiste en la configuración de la precompilación
+* Activar el flujo de trabajo manualmente
 
-The settings in the prebuild configuration determine which events automatically trigger an update of the prebuild template. For more information, see "[Configuring prebuilds](/codespaces/prebuilding-your-codespaces/configuring-prebuilds#configuring-a-prebuild)." 
+Los ajustes en la configuración de precompilación determinan qué eventos activan automáticamente una actualización de la plantilla de precompilación. Para obtener más información, consulta la sección "[Configurar las precompilaciones](/codespaces/prebuilding-your-codespaces/configuring-prebuilds#configuring-a-prebuild)".
 
-People with admin access to a repository can check the progress of prebuilds, edit, and delete prebuild configurations. 
+Las personas con acceso administrativo a un repositorio pueden verificar el progreso de las precompilaciones, así como editar y borrar las configuraciones de estas.
 
-### Viewing the progress of prebuilds
-You can view the current status of the latest workflow run for each prebuild configuration you've set up on the {% data variables.product.prodname_codespaces %} page of your repository settings. For example, "Currently running" or "Last run 1 hour ago."
+### Ver el progreso de las precompilaciones
+Pudes ver el estado actual de la ejecución de flujo de trabajo más reciente para cada configuración de precompilación que hayas ajustado en la página de {% data variables.product.prodname_codespaces %} de tus ajustes de repositorio. Por ejemplo, "Actualmente en ejecución" o "Última ejecución hace 1 hora".
 
-To see the log output for the latest prebuild workflow run, click **See output**.
+Para ver la salida de bitácora de la ejecución de flujo de trabajo de la precompilación más reciente, haz clic en **Ver la salida**.
 
-![The 'See output' button](/assets/images/help/codespaces/prebuilds-see-output.png) 
+![El botón de 'Ver salida'](/assets/images/help/codespaces/prebuilds-see-output.png)
 
-This displays the output of the most recent run of the workflow in the **Actions** tab.
+Esto muestra la salida de la ejecución más reciente del flujo de trabajo en la pestaña de **Acciones**.
 
-![The prebuild workflow output](/assets/images/help/codespaces/prebuilds-log-output.png) 
+![La salida de flujo de trabajo de precompilación](/assets/images/help/codespaces/prebuilds-log-output.png)
 
-Alternatively, to view all prebuild workflow runs associated with the specified branch, click the ellipsis button and choose **View runs** from the dropdown menu.
+Como alternativa, para ver todas las ejecuciones de flujo de trabajo de una precompilación asociadas con la rama especificada, haz clic en el botón de puntos suspensivos y elige **Ver ejecuciones** del menú desplegable.
 
-![The 'View runs' option in the drop-down menu](/assets/images/help/codespaces/prebuilds-view-runs.png) 
+![La opción de 'Ver ejecuciones' en el menú desplegable](/assets/images/help/codespaces/prebuilds-view-runs.png)
 
-This displays the workflow run history for prebuilds for the associated branch.
+Esto muestra el historial de ejecución de flujo de trabajo para las precompilaciones para la rama asociada.
 
-![The workflow run history](/assets/images/help/codespaces/prebuilds-workflow-runs.png) 
+![El historial de ejecución de flujo de trabajo](/assets/images/help/codespaces/prebuilds-workflow-runs.png)
 
-### Editing a prebuild configuration
+### Editar una configuración de precompilación
 
-1. On the {% data variables.product.prodname_codespaces %} page of your repository settings, click the ellipsis to the right of the prebuild configuration you want to edit.
-1. In the dropdown menu, click **Edit**.
- 
-   ![The 'Edit' option in the drop-down menu](/assets/images/help/codespaces/prebuilds-edit.png) 
+1. En la página de {% data variables.product.prodname_codespaces %} de tus ajustes de repositorio, haz clic en los puntos suspensivos a la derecha de la configuración de precompilación que quieras editar.
+1. En el menú desplegable, haz clic en **Editar**.
 
-1. Make the required changes to the prebuild configuration, then click **Update**. 
+   ![La opción de 'Editar' en el menú desplegable](/assets/images/help/codespaces/prebuilds-edit.png)
 
-### Disabling a prebuild configuration
+1. Haz los cambios requeridos en la configuración de precompilación y luego haz clic en **Actualizar**.
 
-To pause the update of prebuild templates for a configuration, you can disable workflow runs for the configuration. Disabling the workflow runs for a prebuild configuration does not delete any previously created prebuild templates for that configuration and, as a result, codespaces will continue to be generated from an existing prebuild template.
+   {% data reusables.codespaces.prebuilds-permission-authorization %}
 
-Disabling the workflow runs for a prebuild configuration is useful if you need to investigate template creation failures.
 
-1. On the {% data variables.product.prodname_codespaces %} page of your repository settings, click the ellipsis to the right of the prebuild configuration you want to disable.
-1. In the dropdown menu, click **Disable runs**.
+### Inhabilitar una configuración de precompilación
 
-   ![The 'Disable runs' option in the drop-down menu](/assets/images/help/codespaces/prebuilds-disable.png)
+Para pausar la actualización de las plantillas de precompilación de una configuración, puedes inhabilitar las ejecuciones de flujo de trabajo para dicha configuración. El inhabilitar las ejecuciones de flujo de trabajo para una configuración de precompilación no borra ninguna plantilla de precompilación creada anteriormente para dicha configuración y, como resultado, los codespaces seguirán generándose desde una plantilla de precompilación existente.
 
-1. To confirm that you want to disable this configuration, click **OK**.
+El inhabilitar las ejecuciones de flujos de trabajo para una configuración precompilada es útil si necesitas investigar los fallos en la creación de plantillas.
 
-### Deleting a prebuild configuration
+1. En la página de {% data variables.product.prodname_codespaces %} de tus ajustes de repositorio, haz clic en los puntos suspensivos a la derecha de la configuración de precompilación que quieras inhabilitar.
+1. En el menú desplegable, haz clic en **Inhabilitar ejecuciones**.
 
-Deleting a prebuild configuration also deletes all previously created prebuild templates for that configuration. As a result, shortly after you delete a configuration, prebuilds generated by that configuration will no longer be available when you create a new codespace.
+   ![La opción de 'Inhabilitar ejecuciones' en el menú desplegable](/assets/images/help/codespaces/prebuilds-disable.png)
 
-After you delete a prebuild configuration, workflow runs for that configuration that have been queued or started will still run. They will be listed in the workflow run history, along with previously completed workflow runs.
+1. Para confirmar que quieres inhabilitar esta configuración, haz clic en **OK**.
 
-1. On the {% data variables.product.prodname_codespaces %} page of your repository settings, click the ellipsis to the right of the prebuild configuration you want to delete.
-1. In the dropdown menu, click **Delete**.
+### Borrar una configuración de precompilación
 
-   ![The 'Delete' option in the drop-down menu](/assets/images/help/codespaces/prebuilds-delete.png)
+El borrar una configuración de preocmpilación también borrar todas las plantillas de precompilación que se hayan creado previamente para dicha configuración. Como resultado, poco después de que borres una configuración, las precompilaciones generadas por dicha configuración ya no estarán disponibles cuando crees un codespace nuevo.
 
-1. Click **OK** to confirm the deletion.
+Después de que borras una configuración de precompilación, todavía se ejecutarán las ejecuciones de flujo de trabajo de dicha configuración que se hayan puesto en cola o que hayan iniciado. Se listarán en el historial de ejecución de flujo de trabajo junto con las ejecuciones de flujo de trabajo que se hayan completado previamente.
 
-### Manually trigger prebuilds
+1. En la página de {% data variables.product.prodname_codespaces %} de tus ajustes de repositorio, haz clic en los puntos suspensivos a la derecha de la configuración de precompilación que quieras borrar.
+1. En el menú desplegable, haz clic en **Borrar**.
 
-It may be useful to manually trigger a workflow run for a prebuild configuration. Generally this is only necessary if you are debugging a problem with the workflow for a prebuild configuration.
+   ![La opción de 'Borrar' en el menú desplegable](/assets/images/help/codespaces/prebuilds-delete.png)
 
-1. On the {% data variables.product.prodname_codespaces %} page of your repository settings, click the ellipsis to the right of the prebuild configuration whose workflow you want to trigger.
-1. In the dropdown menu, click **Manually trigger**.
+1. Haz clic en **OK** para confirmar el borrado.
 
-   ![The 'Manually trigger' option in the drop-down menu](/assets/images/help/codespaces/prebuilds-manually-trigger.png) 
+### Activar las precompilaciones manualmente
 
-## Allowing a prebuild to access external resources
+Puede ser útil activar una ejecución de flujo de trabajo manualmente para una configuración precompilada. Generalmente, esto solo es necesario si estás depurando un problema con el flujo de trabajo de una configuración de precompilación.
 
-By default, the {% data variables.product.prodname_actions %} workflow for a prebuild configuration can only access its own repository contents. Your project may use additional resources to build the development environment, such as files in other repositories, packages, GHCR images, and APIs. To allow your prebuild setup to access these resources, you will need to create a new personal account and then use this account to create a personal access token (PAT) with the appropriate scopes.
+1. En la página de {% data variables.product.prodname_codespaces %} de tus ajustes de repositorio, haz clic en los puntos suspensivos a la derecha de la configuración de precompilación cuyo flujo de trabajo quieras activar.
+1. En el menú desplegable, haz clic en **Activar manualmente**.
 
-1. Create a new personal account on {% data variables.product.prodname_dotcom %}. 
-   
-   {% warning %}
-   
-   **Warning**: Although you can generate the PAT using your existing personal account, we strongly recommend creating a new account with access only to the target repositories required for your scenario. This is because the access token's `repository` permission grants access to all of the repositories that the account has access to. For more information, see "[Signing up for a new GitHub account](/get-started/signing-up-for-github/signing-up-for-a-new-github-account)" and "[Security hardening for {% data variables.product.prodname_actions %}](/actions/security-guides/security-hardening-for-github-actions#considering-cross-repository-access)."
-   
-   {% endwarning %}
-1. Give the new account read access to the required repositories. For more information, see "[Managing an individual's access to an organization repository](/organizations/managing-access-to-your-organizations-repositories/managing-an-individuals-access-to-an-organization-repository)."
-1. While signed into the new account, create a PAT with the `repo` scope. Optionally, if the prebuild will need to download packages from the {% data variables.product.company_short %} {% data variables.product.prodname_container_registry %}, also select the `read:packages` scope. For more information, see "[Creating a personal access token](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)."
+   ![La opción de 'Activar manualmente' en le menú desplegable](/assets/images/help/codespaces/prebuilds-manually-trigger.png)
 
-   !['repo' and 'packages' scopes selected for a PAT](/assets/images/help/codespaces/prebuilds-select-scopes.png) 
-   
-   If the prebuild will use a package from the {% data variables.product.company_short %} {% data variables.product.prodname_container_registry %}, you will need to either grant the new account access to the package or configure the package to inherit the access permissions of the repository you are prebuilding. For more information, see "[Configuring a package's access control and visibility](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility)."   
-{% ifversion ghec %}1. Authorize the token for use with SAML single sign-on (SSO), so that it can access repositories that are owned by organizations with SSO enabled. For more information, see "[Authorizing a personal access token for use with SAML single sign-on](/authentication/authenticating-with-saml-single-sign-on/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on)."
+## Leer más
 
-   ![The button to configure SSO for a PAT](/assets/images/help/codespaces/configure-SSO-for-PAT.png) 
-
-{% endif %}
-1. Copy the token string. You will assign this to a {% data variables.product.prodname_codespaces %} repository secret.
-1. Sign back into the account that has admin access to the repository. 
-1. In the repository for which you want to create {% data variables.product.prodname_codespaces %} prebuilds, create a new {% data variables.product.prodname_codespaces %} repository secret called `CODESPACES_PREBUILD_TOKEN`, giving it the value of the token you created and copied. For more information, see "[Managing encrypted secrets for your repository and organization for {% data variables.product.prodname_github_codespaces %}](/codespaces/managing-codespaces-for-your-organization/managing-encrypted-secrets-for-your-repository-and-organization-for-github-codespaces#adding-secrets-for-a-repository)."
-
-The PAT will be used for all subsequent prebuild templates created for your repository. Unlike other {% data variables.product.prodname_codespaces %} repository secrets, the `CODESPACES_PREBUILD_TOKEN` secret is only used for prebuilding and will not be available to use in codespaces created from your repository.
-
-## Further reading
-
-- "[Troubleshooting prebuilds](/codespaces/troubleshooting/troubleshooting-prebuilds)"
+- "[Solucionar problemas de las compilaciones previas](/codespaces/troubleshooting/troubleshooting-prebuilds)"

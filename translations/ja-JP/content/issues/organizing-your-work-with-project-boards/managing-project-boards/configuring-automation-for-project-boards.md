@@ -1,15 +1,12 @@
 ---
-title: プロジェクトボードの自動化を設定する
-intro: 指定したイベントが発生した時に Issue やプルリクエストをプロジェクトボードに移動させるよう、自動化されたワークフローを設定できます。
+title: '{% data variables.product.prodname_projects_v1 %}の自動化の設定'
+intro: '指定されたイベントが発生したときに、IssueやPull Requestを{% data variables.projects.projects_v1_board %}の列に移動させる自動化ワークフローをセットアップできます。'
 redirect_from:
   - /github/managing-your-work-on-github/managing-project-boards/configuring-automation-for-project-boards
   - /articles/configuring-automation-for-project-boards
   - /github/managing-your-work-on-github/configuring-automation-for-project-boards
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
-  ghec: '*'
+  feature: projects-v1
 topics:
   - Pull requests
   - Projects
@@ -17,11 +14,12 @@ topics:
   - Project management
 shortTitle: 自動化の設定
 type: how_to
+allowTitleToDifferFromFilename: true
 ---
 
 {% data reusables.projects.project_boards_old %}
 
-{% data reusables.project-management.automate-project-board-permissions %}詳しい情報については、「[プロジェクトボードの自動化について](/articles/about-automation-for-project-boards)」を参照してください。
+{% data reusables.project-management.automate-project-board-permissions %} 詳しい情報については「[{% data variables.product.prodname_projects_v1 %}の自動化について](/articles/about-automation-for-project-boards)」を参照してください。
 
 {% data reusables.project-management.use-automated-template %}
 
@@ -33,7 +31,7 @@ type: how_to
 
 {% endtip %}
 
-1. 自動化したいプロジェクトボードに移動します。
+1. 自動化したい{% data variables.projects.projects_v1_board %}にアクセスしてください。
 2. 自動化したい列で、{% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}をクリックします。 ![編集アイコン](/assets/images/help/projects/edit-column-button.png)
 3. [**Manage automation**] をクリックします。 ![[Manage automation] ボタン](/assets/images/help/projects/manage-automation-button.png)
 4. [Preset] ドロップダウンメニューで、自動化のプリセットを 1 つ選びます。 ![メニューから自動化のプリセットを選択](/assets/images/help/projects/select-automation.png)
@@ -41,4 +39,4 @@ type: how_to
 6. [**Update automation**] をクリックします。
 
 ## 参考リンク
-- [プロジェクトボードの自動化について](/articles/about-automation-for-project-boards)
+- 「[{% data variables.product.prodname_projects_v1 %}の自動化について](/articles/about-automation-for-project-boards)」

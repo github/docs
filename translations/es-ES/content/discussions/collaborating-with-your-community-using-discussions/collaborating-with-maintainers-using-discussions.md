@@ -4,8 +4,7 @@ shortTitle: Colaborar con los mantenedores
 intro: 'Puedes contribuir a las metas, planes, salud y comunidad de un proyecto en {% data variables.product.product_name %} si te comunicas con los mantenedores del proyecto en un debate.'
 permissions: 'People with read access to a repository can start and participate in discussions and polls in the repository. People with read access to the source repository for organization discussions can start and participate in discussions and polls in the organization. {% data reusables.enterprise-accounts.emu-permission-interact %}'
 versions:
-  fpt: '*'
-  ghec: '*'
+  feature: discussions
 ---
 
 
@@ -53,4 +52,6 @@ Puedes buscar debates y filtrar la lista de estos en un repositorio u organizaci
 ## Leer más
 
 - "[Acerca de escribir y dar formato en {% data variables.product.prodname_dotcom %}](/github/writing-on-github/about-writing-and-formatting-on-github)"
+{%- ifversion fpt or ghec %}
 - "[Mantener tu seguridad en {% data variables.product.prodname_dotcom %}](/communities/maintaining-your-safety-on-github)"
+{%- endif %}

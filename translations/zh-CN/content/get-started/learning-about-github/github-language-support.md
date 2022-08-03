@@ -25,7 +25,7 @@ redirect_from:
 
 {% data variables.product.prodname_dotcom %} 功能的核心语言包括 C、C++、C#、Go、Java、JavaScript、PHP、Python、Ruby、Scala 和 TypeScript。 对于支持包管理器的功能，当前支持的包管理器及其相关语言包含在表中。
 
-某些功能支持其他语言或包管理器。 如果您想知道某个功能是否支持另一种语言或请求支持某种语言，请访问[社区论坛](https://github.community/)。
+某些功能支持其他语言或包管理器。 If you want to know whether another language is supported for a feature or to request support for a language, visit [{% data variables.product.prodname_github_community %} discussions](https://github.com/orgs/community/discussions).
 
 | 语言 {% data reusables.supported-languages.products-table-header %}
 {% data reusables.supported-languages.C %}

@@ -14,7 +14,6 @@ import cookieParser from './cookie-parser.js'
 import csrf from './csrf.js'
 import handleCsrfErrors from './handle-csrf-errors.js'
 import { setDefaultFastlySurrogateKey } from './set-fastly-surrogate-key.js'
-import setFastlyCacheHeaders from './set-fastly-cache-headers.js'
 import reqUtils from './req-utils.js'
 import recordRedirect from './record-redirect.js'
 import handleErrors from './handle-errors.js'
@@ -29,7 +28,6 @@ import findPage from './find-page.js'
 import blockRobots from './block-robots.js'
 import archivedEnterpriseVersionsAssets from './archived-enterprise-versions-assets.js'
 import api from './api/index.js'
-import events from './events.js'
 import search from './search.js'
 import healthz from './healthz.js'
 import anchorRedirect from './anchor-redirect.js'
@@ -42,7 +40,6 @@ import categoriesForSupport from './categories-for-support.js'
 import triggerError from './trigger-error.js'
 import releaseNotes from './contextualizers/release-notes.js'
 import whatsNewChangelog from './contextualizers/whats-new-changelog.js'
-import graphQL from './contextualizers/graphql.js'
 import webhooks from './contextualizers/webhooks.js'
 import layout from './contextualizers/layout.js'
 import currentProductTree from './contextualizers/current-product-tree.js'
@@ -58,7 +55,7 @@ import assetPreprocessing from './asset-preprocessing.js'
 import archivedAssetRedirects from './archived-asset-redirects.js'
 import favicons from './favicons.js'
 import setStaticAssetCaching from './static-asset-caching.js'
-import cacheFullRendering from './cache-full-rendering.js'
+// import cacheFullRendering from './cache-full-rendering.js'
 import protect from './overload-protection.js'
 import fastHead from './fast-head.js'
 import fastlyCacheTest from './fastly-cache-test.js'
@@ -251,7 +248,6 @@ export default function (app) {
 
   // *** Rendering, 2xx responses ***
   app.use('/api', instrument(api, './api'))
-  app.use('/events', instrument(events, './events'))
   app.use('/search', instrument(search, './search'))
   app.use('/healthz', instrument(healthz, './healthz'))
   app.use('/anchor-redirect', instrument(anchorRedirect, './anchor-redirect'))
@@ -281,11 +277,10 @@ export default function (app) {
 
   // For performance, this is before contextualizers if, on a cache hit,
   // we can't reuse a rendered response without having to contextualize.
-  app.get('/*', asyncMiddleware(instrument(cacheFullRendering, './cache-full-rendering')))
+  // app.get('/*', asyncMiddleware(instrument(cacheFullRendering, './cache-full-rendering')))
 
   // *** Preparation for render-page: contextualizers ***
   app.use(asyncMiddleware(instrument(releaseNotes, './contextualizers/release-notes')))
-  app.use(instrument(graphQL, './contextualizers/graphql'))
   app.use(instrument(webhooks, './contextualizers/webhooks'))
   app.use(asyncMiddleware(instrument(whatsNewChangelog, './contextualizers/whats-new-changelog')))
   app.use(instrument(layout, './contextualizers/layout'))
@@ -304,9 +299,6 @@ export default function (app) {
     // make any changes to the following line:
     app.use('/fastly-cache-test', fastlyCacheTest)
   }
-
-  // *** Headers for pages only ***
-  app.use(setFastlyCacheHeaders)
 
   // handle serving NextJS bundled code (/_next/*)
   app.use(instrument(next, './next'))

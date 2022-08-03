@@ -10,7 +10,6 @@ import { jest } from '@jest/globals'
 
 const previewsJson = readJsonFile('./lib/graphql/static/previews.json')
 const upcomingChangesJson = readJsonFile('./lib/graphql/static/upcoming-changes.json')
-const prerenderedObjectsJson = readJsonFile('./lib/graphql/static/prerendered-objects.json')
 const allVersionValues = Object.values(allVersions)
 const graphqlVersions = allVersionValues.map((v) => v.miscVersionName)
 const graphqlTypes = readJsonFile('./lib/graphql/types.json').map((t) => t.kind)
@@ -22,7 +21,6 @@ describe('graphql json files', () => {
     graphqlVersions.forEach((version) => {
       expect(version in previewsJson).toBe(true)
       expect(version in upcomingChangesJson).toBe(true)
-      expect(version in prerenderedObjectsJson).toBe(true)
     })
   })
 
@@ -84,28 +82,6 @@ describe('graphql json files', () => {
           expect(valid, errorMessage).toBe(true)
         })
       })
-    })
-  })
-
-  test('prerendered objects validation', () => {
-    graphqlVersions.forEach((version) => {
-      // TODO: Is this still true?
-      //
-      // shape of prerenderedObject: {
-      //   html: <div>foo</div>,
-      //   miniToc: {contents: '<a>bar</a>', headingLevel: N, indentationLevel: N}
-      //  }
-      const prerenderedHtml = prerenderedObjectsJson[version].html
-      expect(typeof prerenderedHtml).toBe('string')
-      expect(prerenderedHtml.startsWith('<div>')).toBe(true)
-      const prerenderedMiniToc = prerenderedObjectsJson[version].miniToc
-      expect(Array.isArray(prerenderedMiniToc)).toBe(true)
-      expect(prerenderedMiniToc.length).toBeGreaterThan(0)
-      expect(typeof prerenderedMiniToc[0].contents).toBe('object')
-
-      // TODO: Check whether the following should be removed or updated.
-      // expect(typeof prerenderedMiniToc[0].headingLevel).toBe('number')
-      // expect(typeof prerenderedMiniToc[0].indentationLevel).toBe('number')
     })
   })
 })

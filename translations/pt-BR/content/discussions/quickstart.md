@@ -3,21 +3,20 @@ title: Início Rápido para Discussões do GitHub
 intro: 'Habilite o {% data variables.product.prodname_discussions %} em um repositório ou organização existente e inicie conversas com a sua comunidade.'
 allowTitleToDifferFromFilename: true
 versions:
-  fpt: '*'
-  ghec: '*'
+  feature: discussions
 shortTitle: QuickStart
 ---
 
 
 ## Introdução
 
-{% data variables.product.prodname_discussions %} é um fórum de comunicação colaborativo para a comunidade sobre um projeto de código aberto. As discussões são para conversas que precisam ser transparentes e acessíveis, mas não precisam ser rastreadas em um quadro de projeto e não estão relacionadas ao código, diferente de {% data variables.product.prodname_github_issues %}. As discussões permitem uma conversa fluida e aberta em um fórum público.
+{% data variables.product.prodname_discussions %} é um fórum de comunicação colaborativo para a comunidade sobre código aberto ou projeto interno. As discussões são para conversas que precisam ser transparentes e acessíveis, mas não precisam ser rastreadas em um quadro de projeto e não estão relacionadas ao código, diferente de {% data variables.product.prodname_github_issues %}. As discussões permitem uma conversa fluida e aberta em um fórum público.
 
 As discussões dão um espaço para conversas mais colaborativas, conectando-se e dando uma área mais centralizada para se conectar e encontrar informações.
 
 ## Habilitar {% data variables.product.prodname_discussions %} no seu repositório
 
-Os proprietários de repositórios e pessoas com acesso de escrita podem habilitar {% data variables.product.prodname_discussions %} para uma comunidade nos seus repositórios públicos e privados.
+Os proprietários de repositórios e pessoas com acesso de gravação podem habilitar {% data variables.product.prodname_discussions %} para uma comunidade em seus repositórios privados {% ifversion ghes > 3.5 %}, internos{% endif %} e privados. A visibilidade de uma discussão é herdada do repositório em que a discussão é criada.
 
 Ao habilitar {% data variables.product.prodname_discussions %} pela primeira vez, você será convidado a configurar um post de boas-vindas.
 
@@ -42,7 +41,7 @@ Você pode dar as boas-vindas à sua comunidade e apresentar uma nova forma de s
 
 ## Configurar diretrizes da comunidade para colaboradores
 
-Para discussões de repositório, você pode definir diretrizes de contribuição para incentivar os colaboradores a terem conversas significativas e úteis que sejam relevantes para o repositório. Você também pode atualizar o README do repositório para comunicar as expectativas quando os colaboradores devem abrir um problema ou discussão. Para obter mais informações sobre como fornecer diretrizes para o seu projeto, consulte "[Adicionar um código de conduta ao seu projeto](/communities/setting-up-your-project-for-healthy-contributions/adding-a-code-of-conduct-to-your-project)" e "[Configurar seu projeto para contribuições saudáveis](/communities/setting-up-your-project-for-healthy-contributions)".
+Para discussões de repositório, você pode definir diretrizes de contribuição para incentivar os colaboradores a terem conversas significativas e úteis que sejam relevantes para o repositório. Você também pode atualizar o README do repositório para comunicar as expectativas quando os colaboradores devem abrir um problema ou discussão. Para obter mais informações sobre como fornecer diretrizes para o seu projeto, consulte{% ifversion fpt or ghec %} "[Adicionando um código de conduta ao seu projeto](/communities/setting-up-your-project-for-healthy-contributions/adding-a-code-of-conduct-to-your-project)" e{% endif %} "[Configurando seu projeto para contribuições saudáveis](/communities/setting-up-your-project-for-healthy-contributions)".
 
 Para discussões na organização, você compartilha informações sobre como se envolver com a sua organização criando um perfil README da organização. Para obter mais informações, consulte "[Personalizar o perfil da sua organização](/organizations/collaborating-with-groups-in-organizations/customizing-your-organizations-profile)".
 

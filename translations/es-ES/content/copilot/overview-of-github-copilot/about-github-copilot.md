@@ -5,7 +5,7 @@ versions:
   feature: copilot
 topics:
   - Copilot
-shortTitle: About GitHub Copilot
+shortTitle: Acerca del Copiloto de GitHub
 ---
 
 ## Acerca de {% data variables.product.prodname_copilot %}

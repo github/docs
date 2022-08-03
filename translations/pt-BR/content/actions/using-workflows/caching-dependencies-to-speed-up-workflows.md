@@ -310,4 +310,6 @@ Para informações sobre como alterar as políticas para o limite de tamanho do 
 
 Você pode usar a API REST de {% data variables.product.product_name %} para gerenciar seus caches. {% ifversion actions-cache-list-delete-apis %}Você pode usar a API para listar e excluir entradas de cache e ver o seu uso de cache.{% elsif actions-cache-management %}Atualmente você pode usar a API para ver seu uso de cache, com mais funcionalidades em atualizações futuras.{% endif %} Para obter mais informações, consulte o "[{% data variables.product.prodname_actions %} Cache](/rest/actions/cache)" na documentação da API REST.
 
+You can also install a {% data variables.product.prodname_cli %} extension to manage your caches from the command line. For more information about the extension, see [the extension documentation](https://github.com/actions/gh-actions-cache#readme). For more information about {% data variables.product.prodname_cli %} extensions, see "[Using GitHub CLI extensions](/github-cli/github-cli/using-github-cli-extensions)."
+
 {% endif %}

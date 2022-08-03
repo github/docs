@@ -44,9 +44,9 @@ Se você tem muitas dependências para gerenciar, você pode querer personalizar
 
 Por padrão, o {% data variables.product.prodname_dependabot %} faz o rebasamento automaticamente das pull requests para resolver quaisquer conflitos. Se você preferir lidar com conflitos de merge manualmente, pode desativar isso usando a opção `rebase-strategy`. Para obter detalhes, consulte "[Opções de configuração para o arquivo dependabot.yml](/github/administering-a-repository/configuration-options-for-dependency-updates#rebase-strategy). ".
 
-## Allowing {% data variables.product.prodname_dependabot %} to rebase and force push over extra commits
+## Permitir que {% data variables.product.prodname_dependabot %} faça o rebase e faça push forçado por meio de commits extras
 
-By default, {% data variables.product.prodname_dependabot %} will stop rebasing a pull request once extra commits have been pushed to it. To allow {% data variables.product.prodname_dependabot %} to force push over commits added to its branches, include any of the following strings: `[dependabot skip]` , `[skip dependabot]`, `[dependabot-skip]`, or `[skip-dependabot]`, in either lower or uppercase, to the commit message.
+Por padrão, {% data variables.product.prodname_dependabot %} parará de fazer rebase de um pull request uma vez que commits extras tenham sido enviados por push para ele. Para permitir {% data variables.product.prodname_dependabot %} que faça push forçado por meio de de commits adicionados a seus branches, inclua qualquer uma das seguintes strings: `[dependabot skip]` , `[skip dependabot]`, `[dependabot-skip]` ou `[skip-dependabot]`, em letra maiúscula ou minúscula, para a mensagem do commit.
 
 ## Gerenciando pull requests {% data variables.product.prodname_dependabot %} com comandos de comentário
 

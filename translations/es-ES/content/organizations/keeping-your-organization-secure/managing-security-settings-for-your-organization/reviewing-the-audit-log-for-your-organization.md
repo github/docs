@@ -52,6 +52,7 @@ Para buscar eventos específicos, utiliza el calificador `action` en tu consulta
 | [`discussion_post_reply`](#discussion_post_reply-category-actions)                                                                                                                                                                                                                | Contiene todas las actividades relacionadas con las respuestas a los debates que se publican en una página de equipo.{% ifversion fpt or ghes or ghec %}
 | [`empresa`](#enterprise-category-actions)                                                                                                                                                                                                                                         | Contiene las actividades relacionadas con la configuración de la empresa.                                                                                                                                                                                                                                                                                                                                                                                         |{% endif %}
 | [`gancho`](#hook-category-actions)                                                                                                                                                                                                                                                | Contiene todas las actividades relacionadas con los webhooks.                                                                                                                                                                                                                                                                                                                                                                                                     |
+| [`integration_installation`](#integration_installation-category-actions)                                                                                                                                                                                                          | Contains activities related to integrations installed in an account.                                                                                                                                                                                                                                                                                                                                                                                              |
 | [`integration_installation_request`](#integration_installation_request-category-actions)                                                                                                                                                                                          | Contiene todas las actividades relacionadas con las solicitudes de los miembros de la organización para que los propietarios aprueben las integraciones para el uso en la organización. |{% ifversion ghec or ghae %}
 | [`ip_allow_list`](#ip_allow_list-category-actions)                                                                                                                                                                                                                                | Contiene todas las actividades relacionadas para habilitar o inhabilitar la lista de IP permitidas de una organización.                                                                                                                                                                                                                                                                                                                                           |
 | [`ip_allow_list_entry`](#ip_allow_list_entry-category-actions)                                                                                                                                                                                                                    | Contiene las actividades relacionadas con la creación, el borrado y la edición de una entrada en una lista de IP permitidas para una organización.{% endif %}
@@ -361,6 +362,20 @@ Un resumen de algunas de las acciones más comunes que se registran como eventos
 | `config_changed (configuración modificada)` | Se activa cuando se modifica la configuración de un enlace existente.                                                         |
 | `destroy (destruir)`                        | Se activa cuando se eliminó un enlace existente de un repositorio.                                                            |
 | `events_changed (eventos modificados)`      | Se activa cuando se modificaron los eventos en un enlace.                                                                     |
+
+### `integration_installation` category actions
+
+| Acción                  | Descripción                                                       |
+| ----------------------- | ----------------------------------------------------------------- |
+| `contact_email_changed` | Se cambió un correo electrónico de contacto para una integración. |
+| `create (crear)`        | Se instaló una integración.                                       |
+| `destroy (destruir)`    | Se desinstaló una integración.                                    |
+| `repositories_added`    | Se agregaron repositorios a una integración.                      |
+| `repositories_removed`  | Se eliminaron repositorios de una integración.                    |
+{%- ifversion fpt or ghec %}
+| `suspend` | An integration was suspended. | `unsuspend` | An integration was unsuspended.
+{%- endif %}
+| `version_updated` | Permissions for an integration were updated.
 
 ### Acciones de la categoría`integration_installation_request`
 
@@ -818,4 +833,6 @@ Para obtener más información, consulta la sección "[Administrar la publicaci�
 ## Leer más
 
 - "[Mantener tu organización segura](/articles/keeping-your-organization-secure)"{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5146 %}
+{%- ifversion fpt or ghec %}
 - "[Exportar la información de miembro para tu organización](/organizations/managing-membership-in-your-organization/exporting-member-information-for-your-organization)"{% endif %}
+{%- endif %}

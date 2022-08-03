@@ -73,6 +73,18 @@ shortTitle: 配置电子邮件通知
 5. 当测试电子邮件成功后，在页面的底部单击 **Save settings**。 ![Save settings 按钮](/assets/images/enterprise/management-console/save-settings.png)
 {% data reusables.enterprise_site_admin_settings.wait-for-configuration-run %}
 
+{% ifversion require-tls-for-smtp %}
+## 对 SMTP 连接强制实施 TLS
+
+您可以对所有传入的 SMTP 连接强制实施 TLS 加密，这有助于满足 ISO-27017 认证要求。
+
+{% data reusables.enterprise_site_admin_settings.email-settings %}
+1. 在“Authentication（身份验证）”下，选择 **Enforce TLS auth (recommended)（强制实施 TLS 身份验证[推荐]）**。
+
+   ![“ "强制实施 TLS 身份验证（推荐）" ”复选框的屏幕截图](/assets/images/enterprise/configuration/enforce-tls-for-smtp-checkbox.png)
+{% data reusables.enterprise_management_console.save-settings %}
+{% endif %}
+
 ## 配置 DNS 和防火墙设置以允许传入的电子邮件
 
 如果您希望允许通知的电子邮件回复，则必须配置 DNS 设置。

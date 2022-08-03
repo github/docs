@@ -55,6 +55,8 @@ This workflow uses the `helm` render engine for the [`azure/k8s-bake` action](ht
 ```yaml{:copy}
 {% data reusables.actions.actions-not-certified-by-github-comment %}
 
+{% data reusables.actions.actions-use-sha-pinning-comment %}
+
 name: Build and deploy to Azure Kubernetes Service
 
 env:

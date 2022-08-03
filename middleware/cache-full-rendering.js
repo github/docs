@@ -3,11 +3,6 @@ import zlib from 'zlib'
 import cheerio from 'cheerio'
 import QuickLRU from 'quick-lru'
 
-// This is what NextJS uses when it injects the JSON serialized
-// in the `<script id="__NEXT_DATA__">`
-import { htmlEscapeJsonString } from 'next/dist/server/htmlescape.js'
-
-import { getTheme } from '../lib/get-theme.js'
 import statsd from '../lib/statsd.js'
 
 const HEADER_NAME = 'x-middleware-cache'
@@ -127,41 +122,9 @@ function setHeaders(headers, res) {
 }
 
 function mutateCheeriobodyByRequest($, req) {
-  // A fresh CSRF token into the <meta> tag
-  const freshCsrfToken = req.csrfToken()
-  $('meta[name="csrf-token"]').attr('content', freshCsrfToken)
-
-  // Populate if you have the `dotcom_user` user cookie and it's truthy
-  const isDotComAuthenticated = Boolean(req.cookies?.dotcom_user)
-
-  const cssTheme = getTheme(req, true)
-  const theme = getTheme(req, false)
-
-  // The <body> needs tags pertaining to the parsed theme
-  // Don't use `$.data()` because it doesn't actually mutate the "DOM"
-  // https://github.com/cheeriojs/cheerio/issues/950#issuecomment-274324269
-  $('body')
-    .attr('data-color-mode', cssTheme.colorMode)
-    .attr('data-dark-theme', cssTheme.nightTheme)
-    .attr('data-light-theme', cssTheme.dayTheme)
-
   // Update the __NEXT_DATA__ too with the equivalent pieces
   const nextData = $('script#__NEXT_DATA__')
   console.assert(nextData.length === 1, 'Not exactly 1')
-  // Note, once we upgrade to cheerio >= v1.0.0-rc.11
-  // we can access this with `.text()`.
-  // See https://github.com/cheeriojs/cheerio/releases/tag/v1.0.0-rc.11
-  // and https://github.com/cheeriojs/cheerio/pull/2509
-  const parsedNextData = JSON.parse(nextData.get()[0].children[0].data)
-  parsedNextData.props.csrfToken = freshCsrfToken
-  parsedNextData.props.dotComAuthenticatedContext.isDotComAuthenticated = isDotComAuthenticated
-  parsedNextData.props.languagesContext.userLanguage = req.context.userLanguage
-  parsedNextData.props.themeProps = {
-    colorMode: theme.colorMode,
-    nightTheme: theme.nightTheme,
-    dayTheme: theme.dayTheme,
-  }
-  nextData.text(htmlEscapeJsonString(JSON.stringify(parsedNextData)))
 
   // The <ThemeProvider {...} preventSSRMismatch> component will
   // inject a script tag too that looks like this:
@@ -172,7 +135,4 @@ function mutateCheeriobodyByRequest($, req) {
   //
   const primerData = $('script#__PRIMER_DATA__')
   console.assert(primerData.length === 1, 'Not exactly 1')
-  const parsedPrimerData = JSON.parse(primerData.get()[0].children[0].data)
-  parsedPrimerData.resolvedServerColorMode = cssTheme.colorMode === 'dark' ? 'night' : 'day'
-  primerData.text(htmlEscapeJsonString(JSON.stringify(parsedPrimerData)))
 }

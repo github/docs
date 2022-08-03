@@ -1,6 +1,6 @@
 ---
-title: Managing moderators in your organization
-intro: 'You can give an individual or team in your organization the ability to block and limit access, by assigning them to the moderator role.'
+title: Administrar moderadores en tu organización
+intro: Puedes proporcionar a un individuo o equipo de tu organización la capacidad de bloquear y limitar el acceso si les asignas el rol de moderador.
 permissions: Organization owners can assign the moderator role.
 versions:
   fpt: '*'
@@ -9,10 +9,10 @@ topics:
   - Organizations
   - Teams
   - Community
-shortTitle: Managing moderators
+shortTitle: Administrar moderadores
 ---
 
-## About organization moderators
+## Acerca de los moderadores de las organizaciones
 
 Algunas veces es necesario bloquear a un contribuyente o configurar los límites de interacción de tu organización o para los repositorios individuales. Como propietario de organización, puedes llevar a cabo estas tareas, pero podrías necesitar delegar estas tareas a otros miembros de tu organización. Puedes hacer esto asignando el rol de moderador a un miembro de la organización o a un equipo.
 

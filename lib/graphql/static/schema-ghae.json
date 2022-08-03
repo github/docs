@@ -38462,6 +38462,154 @@
       ]
     },
     {
+      "name": "PullRequestThread",
+      "kind": "objects",
+      "id": "pullrequestthread",
+      "href": "/graphql/reference/objects#pullrequestthread",
+      "description": "<p>A threaded list of comments for a given pull request.</p>",
+      "implements": [
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/interfaces#node"
+        }
+      ],
+      "fields": [
+        {
+          "name": "comments",
+          "description": "<p>A list of pull request comments associated with the thread.</p>",
+          "type": "PullRequestReviewCommentConnection!",
+          "id": "pullrequestreviewcommentconnection",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#pullrequestreviewcommentconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "skip",
+              "description": "<p>Skips the first <em>n</em> elements in the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            }
+          ]
+        },
+        {
+          "name": "isCollapsed",
+          "description": "<p>Whether or not the thread has been collapsed (resolved).</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "isOutdated",
+          "description": "<p>Indicates whether this thread was outdated by newer changes.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "isResolved",
+          "description": "<p>Whether this thread has been resolved.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "pullRequest",
+          "description": "<p>Identifies the pull request associated with this thread.</p>",
+          "type": "PullRequest!",
+          "id": "pullrequest",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#pullrequest"
+        },
+        {
+          "name": "repository",
+          "description": "<p>Identifies the repository associated with this thread.</p>",
+          "type": "Repository!",
+          "id": "repository",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#repository"
+        },
+        {
+          "name": "resolvedBy",
+          "description": "<p>The user who resolved this thread.</p>",
+          "type": "User",
+          "id": "user",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#user"
+        },
+        {
+          "name": "viewerCanReply",
+          "description": "<p>Indicates whether the current viewer can reply to this thread.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "viewerCanResolve",
+          "description": "<p>Whether or not the viewer can resolve this thread.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "viewerCanUnresolve",
+          "description": "<p>Whether or not the viewer can unresolve this thread.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        }
+      ]
+    },
+    {
       "name": "PullRequestTimelineConnection",
       "kind": "objects",
       "id": "pullrequesttimelineconnection",
@@ -54174,6 +54322,14 @@
           "id": "repository",
           "kind": "objects",
           "href": "/graphql/reference/objects#repository"
+        },
+        {
+          "name": "size",
+          "description": "<p>Entry byte size.</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
         },
         {
           "name": "submodule",
@@ -73332,7 +73488,7 @@
     },
     {
       "name": "Boolean",
-      "description": "Represents `true` or `false` values.",
+      "description": "<p>Represents <code>true</code> or <code>false</code> values.</p>",
       "id": "boolean",
       "href": "/graphql/reference/scalars#boolean"
     },
@@ -73352,7 +73508,7 @@
     },
     {
       "name": "Float",
-      "description": "Represents signed double-precision fractional values as specified by [IEEE 754](https://en.wikipedia.org/wiki/IEEE_floating_point).",
+      "description": "<p>Represents signed double-precision fractional values as specified by <a href=\"https://en.wikipedia.org/wiki/IEEE_floating_point\">IEEE 754</a>.</p>",
       "id": "float",
       "href": "/graphql/reference/scalars#float"
     },
@@ -73409,13 +73565,13 @@
     },
     {
       "name": "ID",
-      "description": "Represents a unique identifier that is Base64 obfuscated. It is often used to refetch an object or as key for a cache. The ID type appears in a JSON response as a String; however, it is not intended to be human-readable. When expected as an input type, any string (such as `\"VXNlci0xMA==\"`) or integer (such as `4`) input value will be accepted as an ID.",
+      "description": "<p>Represents a unique identifier that is Base64 obfuscated. It is often used to refetch an object or as key for a cache. The ID type appears in a JSON response as a String; however, it is not intended to be human-readable. When expected as an input type, any string (such as <code>\"VXNlci0xMA==\"</code>) or integer (such as <code>4</code>) input value will be accepted as an ID.</p>",
       "id": "id",
       "href": "/graphql/reference/scalars#id"
     },
     {
       "name": "Int",
-      "description": "Represents non-fractional signed whole numeric values. Int can represent values between -(2^31) and 2^31 - 1.",
+      "description": "<p>Represents non-fractional signed whole numeric values. Int can represent values between -(2^31) and 2^31 - 1.</p>",
       "id": "int",
       "href": "/graphql/reference/scalars#int"
     },
@@ -73428,7 +73584,7 @@
     },
     {
       "name": "String",
-      "description": "Represents textual data as UTF-8 character sequences. This type is most often used by GraphQL to represent free-form human-readable text.",
+      "description": "<p>Represents textual data as UTF-8 character sequences. This type is most often used by GraphQL to represent free-form human-readable text.</p>",
       "id": "string",
       "href": "/graphql/reference/scalars#string"
     },

@@ -73150,7 +73150,7 @@
   "scalars": [
     {
       "name": "Boolean",
-      "description": "Represents `true` or `false` values.",
+      "description": "<p>Represents <code>true</code> or <code>false</code> values.</p>",
       "id": "boolean",
       "href": "/graphql/reference/scalars#boolean"
     },
@@ -73170,7 +73170,7 @@
     },
     {
       "name": "Float",
-      "description": "Represents signed double-precision fractional values as specified by [IEEE 754](https://en.wikipedia.org/wiki/IEEE_floating_point).",
+      "description": "<p>Represents signed double-precision fractional values as specified by <a href=\"https://en.wikipedia.org/wiki/IEEE_floating_point\">IEEE 754</a>.</p>",
       "id": "float",
       "href": "/graphql/reference/scalars#float"
     },
@@ -73227,13 +73227,13 @@
     },
     {
       "name": "ID",
-      "description": "Represents a unique identifier that is Base64 obfuscated. It is often used to refetch an object or as key for a cache. The ID type appears in a JSON response as a String; however, it is not intended to be human-readable. When expected as an input type, any string (such as `\"VXNlci0xMA==\"`) or integer (such as `4`) input value will be accepted as an ID.",
+      "description": "<p>Represents a unique identifier that is Base64 obfuscated. It is often used to refetch an object or as key for a cache. The ID type appears in a JSON response as a String; however, it is not intended to be human-readable. When expected as an input type, any string (such as <code>\"VXNlci0xMA==\"</code>) or integer (such as <code>4</code>) input value will be accepted as an ID.</p>",
       "id": "id",
       "href": "/graphql/reference/scalars#id"
     },
     {
       "name": "Int",
-      "description": "Represents non-fractional signed whole numeric values. Int can represent values between -(2^31) and 2^31 - 1.",
+      "description": "<p>Represents non-fractional signed whole numeric values. Int can represent values between -(2^31) and 2^31 - 1.</p>",
       "id": "int",
       "href": "/graphql/reference/scalars#int"
     },
@@ -73246,7 +73246,7 @@
     },
     {
       "name": "String",
-      "description": "Represents textual data as UTF-8 character sequences. This type is most often used by GraphQL to represent free-form human-readable text.",
+      "description": "<p>Represents textual data as UTF-8 character sequences. This type is most often used by GraphQL to represent free-form human-readable text.</p>",
       "id": "string",
       "href": "/graphql/reference/scalars#string"
     },
