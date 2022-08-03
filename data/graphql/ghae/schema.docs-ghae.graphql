@@ -38801,6 +38801,11 @@ type TreeEntry {
   repository: Repository!
 
   """
+  Entry byte size
+  """
+  size: Int!
+
+  """
   If the TreeEntry is for a directory occupied by a submodule project, this returns the corresponding submodule
   """
   submodule: Submodule
