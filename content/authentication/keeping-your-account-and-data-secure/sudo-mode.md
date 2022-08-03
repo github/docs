@@ -15,6 +15,8 @@ topics:
 ---
 After you've performed a sudo-protected action, you'll only be asked to re-authenticate again after a few hours of inactivity. Every sudo-protected action resets this timer.
 
+{% ifversion fpt or ghec or ghes > 3.6 %}
+
 {% note %}
 
 **Note**: Depending on the authentication options available on your account, {% data variables.product.product_name %} will prioritize the most secure option for sudo authentication. However, you can always fallback to alternatives (like providing a password).
@@ -29,6 +31,8 @@ If you [configured two-factor authentication using a security key](/authenticati
   ![Sudo Mode Prompt Security Key](/assets/images/help/settings/sudo_mode_prompt_security_key.png)
 
     - If the security key is authenticated, the sudo access request will be completed.
+
+{% endif %}
 
 {% ifversion fpt or ghec %}
 
@@ -46,6 +50,8 @@ If you have installed and signed in to {% data variables.product.prodname_mobile
 
 {% endif %}
 
+{% ifversion fpt or ghec or ghes > 3.6 %}
+
 ## Confirm access with a two-factor authentication code
 
 If you have [configured two-factor authentication](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication), you will be prompted to provide an authentication code from {% ifversion fpt or ghec %}a text message or{% endif %} your TOTP app.
@@ -58,6 +64,8 @@ If you chose to set up two-factor authentication using a TOTP application on you
   ![Sudo Mode Prompt TOTP App](/assets/images/help/settings/sudo_mode_prompt_totp_app.png)
 
     - If the authentication code is correct, the sudo access request will be completed.
+
+{% endif %}
 
 {% ifversion fpt or ghec %}
 
@@ -85,5 +93,5 @@ If you set up two-factor authentication via text messages, {% data variables.pro
 ## Further reading
 
 - [Unix `sudo` command](http://en.wikipedia.org/wiki/Sudo)
-- [Configuring two-factor authentication](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication)
+{% ifversion fpt or ghec or ghes > 3.6 %}- [Configuring two-factor authentication](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication){% endif %}
 {% ifversion fpt or ghec %}- [Using {% data variables.product.prodname_mobile %}](/get-started/using-github/github-mobile).{% endif %}
