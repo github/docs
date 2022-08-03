@@ -1,8 +1,10 @@
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
+import { ThemeProviderProps } from '@primer/react'
 
 const MAX_CACHE = 5000 // milliseconds
 const RETRY = 500 // milliseconds
+const WAIT_CHECK = 100 // millisecond
 
 type LanguageItem = {
   name: string
@@ -17,8 +19,12 @@ type Session = {
   csrfToken: string
   userLanguage: string // en, es, ja, cn
   languages: Record<string, LanguageItem> // en... name nativeName code hreflang redirectPatterns dir wip
-  theme: object // colorMode, nightTheme, dayTheme
-  themeCSS: object // colorMode, nightTheme, dayTheme
+  theme: { colorMode: Pick<ThemeProviderProps, 'colorMode'>; nightTheme: string; dayTheme: string }
+  themeCss: {
+    colorMode: Pick<ThemeProviderProps, 'colorMode'>
+    nightTheme: string
+    dayTheme: string
+  }
 }
 
 let sessionCache: Session | null
@@ -44,6 +50,12 @@ export async function fetchSession(): Promise<Session | null> {
   sessionCache = null
   await new Promise((resolve) => setTimeout(resolve, RETRY))
   return fetchSession()
+}
+
+// For subscribers outside of React
+export function waitForSession(fn: Function) {
+  if (getSession()) return fn()
+  setTimeout(() => waitForSession(fn), WAIT_CHECK)
 }
 
 // React hook version

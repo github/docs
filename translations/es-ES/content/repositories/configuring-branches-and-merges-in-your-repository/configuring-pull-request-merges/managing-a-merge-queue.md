@@ -19,20 +19,8 @@ redirect_from:
 
 {% data reusables.pull_requests.merge-queue-overview %}
 
-La cola de fusión crea ramas temporales con un prefijo especial para validad cambios de las solicitudes de cambios. Los cambios en las solicitudes de cambios se agrupan entonces con la última versión de `base_branch`, así como con los cambios frente a ella en la cola. {% data variables.product.product_name %} fusionará todos estos cambios en la `base_branch` una vez que pasen las verificaciones que requieren las protecciones de rama de la `base_branch`.
+La cola de fusión crea ramas temporales con un prefijo especial para validad cambios de las solicitudes de cambios. The changes in the pull request are then grouped into a `merge_group` with the latest version of the `base_branch` as well as changes ahead of it in the queue. {% data variables.product.product_name %} fusionará todos estos cambios en la `base_branch` una vez que pasen las verificaciones que requieren las protecciones de rama de la `base_branch`.
 
-Podrías necesitar actualizar tu configuración de Integración Continua (IC) para activar compilaciones en los nombres de rama que inicien con el prefijo especial `gh-readonly-queue/{base_branch}` después de que se crea el grupo.
-
-Por ejemplo, con {% data variables.product.prodname_actions %}, un flujo de trabajo con el siguiente activador se ejecutará cada vez que una solicitud de cambios que apunte a la rama base `main` se ponga en cola de fusión.
-
-```yaml
-on:
-  push:
-    branches:
-    - gh-readonly-queue/main/**
-```
-
-{% data reusables.pull_requests.merge-queue-merging-method %}
 
 Para obtener más información acerca de los métodos de fusión, consulta "[Acerca de la fusión de solicitudes de extracción](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/about-pull-request-merges)."
 
@@ -45,6 +33,24 @@ Para obtener más información acerca de los métodos de fusión, consulta "[Ace
 {% endnote %}
 
 {% data reusables.pull_requests.merge-queue-reject %}
+
+### Triggering merge group checks with {% data variables.product.prodname_actions %}
+
+You can use the `merge_group` event to trigger your {% data variables.product.prodname_actions %} workflow when a pull request is added to a merge queue. Note that this is a different event from the `pull_request` and `push` events.
+
+A workflow that reports a check which is required by the target branch's protections would look like this:
+
+```yaml
+on:
+  pull_request:
+  merge_group:
+```
+
+For more information see "[Events that trigger workflows](/actions/using-workflows/events-that-trigger-workflows#merge-group)"
+
+### Triggering merge group checks with other CI providers
+
+With other CI providers, you may need to update your CI configuration to run when a branch that begins with the special prefix `gh-readonly-queue/{base_branch}` is created.
 
 ## Administrar una cola de fusión
 

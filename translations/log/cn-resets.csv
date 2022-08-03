@@ -5,6 +5,7 @@ translations/zh-CN/content/account-and-profile/setting-up-and-managing-your-gith
 translations/zh-CN/content/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-settings-on-your-profile/viewing-contributions-on-your-profile.md,broken liquid tags
 translations/zh-CN/content/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-settings-on-your-profile/why-are-my-contributions-not-showing-up-on-my-profile.md,broken liquid tags
 translations/zh-CN/content/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/about-your-personal-dashboard.md,broken liquid tags
+translations/zh-CN/content/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/best-practices-for-leaving-your-company.md,rendering error
 translations/zh-CN/content/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/changing-your-github-username.md,rendering error
 translations/zh-CN/content/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/managing-the-default-branch-name-for-your-repositories.md,broken liquid tags
 translations/zh-CN/content/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-your-membership-in-organizations/about-organization-membership.md,broken liquid tags
@@ -292,7 +293,6 @@ translations/zh-CN/content/rest/apps/marketplace.md,broken liquid tags
 translations/zh-CN/content/rest/enterprise-admin/index.md,broken liquid tags
 translations/zh-CN/content/rest/guides/basics-of-authentication.md,Listed in localization-support#489
 translations/zh-CN/content/rest/guides/getting-started-with-the-checks-api.md,broken liquid tags
-translations/zh-CN/content/rest/guides/getting-started-with-the-rest-api.md,broken liquid tags
 translations/zh-CN/content/rest/overview/other-authentication-methods.md,Listed in localization-support#489
 translations/zh-CN/content/rest/overview/other-authentication-methods.md,broken liquid tags
 translations/zh-CN/content/rest/overview/resources-in-the-rest-api.md,Listed in localization-support#489
@@ -378,15 +378,15 @@ translations/zh-CN/data/reusables/dependency-submission/about-dependency-submiss
 translations/zh-CN/data/reusables/dotcom_billing/downgrade-org-to-free.md,broken liquid tags
 translations/zh-CN/data/reusables/education/access-github-community-exchange.md,broken liquid tags
 translations/zh-CN/data/reusables/enterprise-accounts/emu-password-reset-session.md,broken liquid tags
-translations/zh-CN/data/reusables/enterprise-accounts/emu-short-summary.md,broken liquid tags
+translations/zh-CN/data/reusables/enterprise-accounts/emu-short-summary.md,rendering error
 translations/zh-CN/data/reusables/enterprise-licensing/about-license-sync.md,broken liquid tags
 translations/zh-CN/data/reusables/enterprise-licensing/verified-domains-license-sync.md,broken liquid tags
 translations/zh-CN/data/reusables/enterprise-licensing/you-can-sync-for-a-combined-view.md,broken liquid tags
 translations/zh-CN/data/reusables/enterprise_installation/hardware-considerations-all-platforms.md,broken liquid tags
 translations/zh-CN/data/reusables/enterprise_management_console/badge_indicator.md,broken liquid tags
-translations/zh-CN/data/reusables/enterprise_user_management/consider-usernames-for-external-authentication.md,broken liquid tags
+translations/zh-CN/data/reusables/enterprise_user_management/consider-usernames-for-external-authentication.md,rendering error
 translations/zh-CN/data/reusables/gated-features/codespaces-classroom-articles.md,broken liquid tags
-translations/zh-CN/data/reusables/gated-features/enterprise-accounts.md,broken liquid tags
+translations/zh-CN/data/reusables/gated-features/enterprise-accounts.md,rendering error
 translations/zh-CN/data/reusables/gated-features/packages.md,broken liquid tags
 translations/zh-CN/data/reusables/gated-features/secret-scanning-partner.md,broken liquid tags
 translations/zh-CN/data/reusables/gated-features/secret-scanning.md,broken liquid tags
@@ -408,9 +408,9 @@ translations/zh-CN/data/reusables/pages/pages-builds-with-github-actions-public-
 translations/zh-CN/data/reusables/repositories/deleted_forks_from_private_repositories_warning.md,broken liquid tags
 translations/zh-CN/data/reusables/repositories/enable-security-alerts.md,broken liquid tags
 translations/zh-CN/data/reusables/repositories/select-marketplace-apps.md,broken liquid tags
-translations/zh-CN/data/reusables/saml/saml-session-oauth.md,broken liquid tags
+translations/zh-CN/data/reusables/saml/saml-session-oauth.md,rendering error
 translations/zh-CN/data/reusables/saml/you-must-periodically-authenticate.md,Listed in localization-support#489
-translations/zh-CN/data/reusables/saml/you-must-periodically-authenticate.md,broken liquid tags
+translations/zh-CN/data/reusables/saml/you-must-periodically-authenticate.md,rendering error
 translations/zh-CN/data/reusables/scim/after-you-configure-saml.md,broken liquid tags
 translations/zh-CN/data/reusables/secret-scanning/enterprise-enable-secret-scanning.md,broken liquid tags
 translations/zh-CN/data/reusables/secret-scanning/partner-program-link.md,broken liquid tags

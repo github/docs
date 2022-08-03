@@ -7,15 +7,15 @@ sections:
       heading: Função do gerente de segurança
       notes:
         - |
-          Os proprietários da organização agora podem conceder às equipes o acesso para gerenciar alertas de segurança e configurações de seus repositórios. A função "gerente de segurança" pode ser aplicada a qualquer equipe e concede aos integrantes da equipe o seguinte acesso:
+          Organization owners can now grant teams the access to manage security alerts and settings on their repositories. The "security manager" role can be applied to any team and grants the team's members the following access:
 
-          - Acesso de leitura em todos os repositórios da organização.
-          - Acesso de gravação em todos os alertas de segurança na organização.
-          - Acesso na aba de segurança a nível da organização.
-          - Acesso de gravação nas configurações de segurança no nível da organização.
-          - Acesso de gravação nas configurações de segurança no nível de repositório.
+          - Read access on all repositories in the organization.
+          - Write access on all security alerts in the organization.
+          - Access to the organization-level security tab.
+          - Write access on security settings at the organization level.
+          - Write access on security settings at the repository level.
 
-          Para obter mais informações, consulte "[Gerenciando gerentes de segurança na sua organização](/organizations/managing-peopleles-access-to-your-organization-with-roles/managing-security-managers-in-your-organization)."
+          The security manager role is available as a public beta and subject to change. For more information, see "[Managing security managers in your organization](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-security-managers-in-your-organization)." [Updated 2022-07-29]
     - 
       heading: 'Executores efêmeros auto-hospedados no GitHub Actions e novos webhooks para dimensionamento automático'
       notes:

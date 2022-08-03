@@ -1,7 +1,7 @@
 ---
 title: '{% data variables.product.prodname_projects_v1 %}の管理'
 shortTitle: '{% data variables.product.prodname_projects_v1 %}の管理'
-intro: 'Learn how to create and manage {% data variables.projects.projects_v1_boards %}'
+intro: '{% data variables.projects.projects_v1_boards %}の作成と管理の方法を学んでください'
 versions:
   feature: projects-v1
 topics:
