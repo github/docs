@@ -3,7 +3,7 @@ import { expect, jest, test } from '@jest/globals'
 import { get } from '../helpers/e2etest.js'
 // import { PREFERRED_LOCALE_COOKIE_NAME } from '../../middleware/detect-language.js'
 
-describe('in-memory render caching', () => {
+describe.skip('in-memory render caching', () => {
   jest.setTimeout(30 * 1000)
 
   test('second render should be a cache hit', async () => {

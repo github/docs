@@ -11,7 +11,7 @@ import { cacheControlFactory } from './cache-control.js'
 
 const noCacheControl = cacheControlFactory(0)
 
-const htmlCacheControl = cacheControlFactory(0)
+const htmlCacheControl = cacheControlFactory(60)
 // We'll start with no cache, the increase to one minute (60),
 // then five minutes (60 * 5), finally ten minutes (60 * 10)
 
