@@ -4,7 +4,7 @@ import React from 'react'
 import { GraphqlPage } from 'components/graphql/GraphqlPage'
 import { getGraphqlSchema, getMiniToc } from 'lib/graphql/index.js'
 import { MainContextT, MainContext, getMainContext } from 'components/context/MainContext'
-import type { ObjectT, QueryItemT, GraphqlT } from 'components/graphql/types'
+import type { ObjectT, GraphqlT } from 'components/graphql/types'
 import { AutomatedPage } from 'components/article/AutomatedPage'
 import {
   AutomatedPageContext,
@@ -59,24 +59,10 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
   // content/graphql/reference/*
   const automatedPageContext = getAutomatedPageContextFromRequest(req)
 
-  if (graphqlPageName === 'queries') {
-    const connectionItems = schema.connections.map((item: QueryItemT) => item.name)
-    const connectionMiniToc = await getMiniToc(
-      req.context,
-      'connections',
-      connectionItems,
-      3,
-      '## Connections\n'
-    )
-    const fieldItems = schema.fields.map((item: QueryItemT) => item.name)
-    const fieldMiniToc = await getMiniToc(req.context, 'fields', fieldItems, 3, '## Fields\n')
-    automatedPageContext.miniTocItems.push(...connectionMiniToc, ...fieldMiniToc)
-  } else {
-    const items = schema.map((item: GraphqlT) => item.name)
-    const graphqlMiniTocItems = await getMiniToc(req.context, graphqlPageName, items)
-    // Update the existing context to include the miniTocItems from GraphQL
-    automatedPageContext.miniTocItems.push(...graphqlMiniTocItems)
-  }
+  const items = schema.map((item: GraphqlT) => item.name)
+  const graphqlMiniTocItems = await getMiniToc(req.context, graphqlPageName, items)
+  // Update the existing context to include the miniTocItems from GraphQL
+  automatedPageContext.miniTocItems.push(...graphqlMiniTocItems)
 
   return {
     props: {
