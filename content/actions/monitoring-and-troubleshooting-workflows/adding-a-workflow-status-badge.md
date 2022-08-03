@@ -16,7 +16,6 @@ shortTitle: Add a status badge
 
 {% data reusables.repositories.actions-workflow-status-badge-intro %}
 
-## About adding a workflow status badge
 
 To add a workflow status badge to your `README.md` file, first find the URL for the status badge you would like to display. Then you can use Markdown to display the badge as an image in your `README.md` file. For more information about image markup in Markdown, see "[Basic writing and formatting syntax](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#images)."
 
