@@ -49,11 +49,15 @@ export default function GQLExplorer({ mainContext, graphqlExplorerUrl }: Props) 
 export const getServerSideProps: GetServerSideProps<Props> = async (context) => {
   const req = context.req as any
   const res = context.res as any
+  const graphqlExplorerUrl =
+    process.env.NODE_ENV === 'production'
+      ? 'https://graphql.github.com/explorer'
+      : 'http://localhost:3000'
 
   return {
     props: {
       mainContext: getMainContext(req, res),
-      graphqlExplorerUrl: req.context.graphql.explorerUrl,
+      graphqlExplorerUrl,
     },
   }
 }

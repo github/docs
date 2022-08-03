@@ -2,6 +2,7 @@
 import { diff, ChangeType } from '@graphql-inspector/core'
 import { loadSchema } from '@graphql-tools/load'
 import fs from 'fs'
+import renderContent from '../../lib/render-content/index.js'
 
 /**
  * Tag `changelogEntry` with `date: YYYY-mm-dd`, then prepend it to the JSON
@@ -91,15 +92,27 @@ export async function createChangelogEntry(
       upcomingChanges: [],
     }
 
+    const cleanedSchemaChanges = cleanMessagesFromChanges(schemaChangesToReport)
+    const renderedScheamChanges = await Promise.all(
+      cleanedSchemaChanges.map(async (change) => {
+        return await renderContent(change)
+      })
+    )
     const schemaChange = {
       title: 'The GraphQL schema includes these changes:',
       // Replace single quotes which wrap field/argument/type names with backticks
-      changes: cleanMessagesFromChanges(schemaChangesToReport),
+      changes: renderedScheamChanges,
     }
     changelogEntry.schemaChanges.push(schemaChange)
 
     for (const previewTitle in previewChangesToReport) {
       const previewChanges = previewChangesToReport[previewTitle]
+      const cleanedPreviewChanges = cleanMessagesFromChanges(previewChanges.changes)
+      const renderedPreviewChanges = await Promise.all(
+        cleanedPreviewChanges.map(async (change) => {
+          return renderContent(change)
+        })
+      )
       const cleanTitle = cleanPreviewTitle(previewTitle)
       const entryTitle =
         'The [' +
@@ -109,19 +122,25 @@ export async function createChangelogEntry(
         ') includes these changes:'
       changelogEntry.previewChanges.push({
         title: entryTitle,
-        changes: cleanMessagesFromChanges(previewChanges.changes),
+        changes: renderedPreviewChanges,
       })
     }
 
     if (addedUpcomingChanges.length > 0) {
+      const cleanedUpcomingChanges = addedUpcomingChanges.map((change) => {
+        const location = change.location
+        const description = change.description
+        const date = change.date.split('T')[0]
+        return 'On member `' + location + '`:' + description + ' **Effective ' + date + '**.'
+      })
+      const renderedUpcomingChanges = await Promise.all(
+        cleanedUpcomingChanges.map(async (change) => {
+          return await renderContent(change)
+        })
+      )
       changelogEntry.upcomingChanges.push({
         title: 'The following changes will be made to the schema:',
-        changes: addedUpcomingChanges.map(function (change) {
-          const location = change.location
-          const description = change.description
-          const date = change.date.split('T')[0]
-          return 'On member `' + location + '`:' + description + ' **Effective ' + date + '**.'
-        }),
+        changes: renderedUpcomingChanges,
       })
     }
 
