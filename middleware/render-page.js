@@ -24,21 +24,6 @@ async function buildRenderedPage(req) {
 
   const renderedPage = await pageRenderTimed(context)
 
-  // handle special-case prerendered GraphQL objects page
-  if (path.endsWith('graphql/reference/objects')) {
-    return renderedPage + context.graphql.prerenderedObjectsForCurrentVersion.html
-  }
-
-  // handle special-case prerendered GraphQL input objects page
-  if (path.endsWith('graphql/reference/input-objects')) {
-    return renderedPage + context.graphql.prerenderedInputObjectsForCurrentVersion.html
-  }
-
-  // handle special-case prerendered GraphQL mutations page
-  if (path.endsWith('graphql/reference/mutations')) {
-    return renderedPage + context.graphql.prerenderedMutationsForCurrentVersion.html
-  }
-
   return renderedPage
 }
 

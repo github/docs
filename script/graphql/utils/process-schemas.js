@@ -5,13 +5,17 @@ import helpers from './schema-helpers.js'
 import fs from 'fs/promises'
 import path from 'path'
 
-const externalScalars = JSON.parse(
+const externalScalarsJSON = JSON.parse(
   await fs.readFile(path.join(process.cwd(), './lib/graphql/non-schema-scalars.json'))
-).map((scalar) => {
-  scalar.id = helpers.getId(scalar.name)
-  scalar.href = helpers.getFullLink('scalars', scalar.id)
-  return scalar
-})
+)
+const externalScalars = await Promise.all(
+  externalScalarsJSON.map(async (scalar) => {
+    scalar.description = await helpers.getDescription(scalar.description)
+    scalar.id = helpers.getId(scalar.name)
+    scalar.href = helpers.getFullLink('scalars', scalar.id)
+    return scalar
+  })
+)
 
 // select and format all the data from the schema that we need for the docs
 // used in the build step by script/graphql/build-static-files.js
