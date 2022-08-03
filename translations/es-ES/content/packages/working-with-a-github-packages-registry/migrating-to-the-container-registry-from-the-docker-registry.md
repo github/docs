@@ -56,7 +56,7 @@ Después de la migración, ya no podrás utilizar la API de GraphQL para consult
 
 ## Acerca de la facturación para {% data variables.product.prodname_container_registry %}
 
-For more information about billing for the {% data variables.product.prodname_container_registry %}, see "[About billing for {% data variables.product.prodname_registry %}](/billing/managing-billing-for-github-packages/about-billing-for-github-packages)."
+Para obtener más información sobre la facturación del {% data variables.product.prodname_container_registry %}, consulta la sección "[Acerca de la facturación para el {% data variables.product.prodname_registry %}](/billing/managing-billing-for-github-packages/about-billing-for-github-packages)".
 
 {% endif %}
 
@@ -64,6 +64,6 @@ For more information about billing for the {% data variables.product.prodname_co
 
 ## Leer más
 
-- "[Migrating your enterprise to the {% data variables.product.prodname_container_registry %} from the Docker registry](/admin/packages/migrating-your-enterprise-to-the-container-registry-from-the-docker-registry)"
+- "[Migrar tu empresa al {% data variables.product.prodname_container_registry %} desde el registro de Docker](/admin/packages/migrating-your-enterprise-to-the-container-registry-from-the-docker-registry)"
 
 {% endif %}
