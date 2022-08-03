@@ -86,4 +86,4 @@ If you set up two-factor authentication via text messages, {% data variables.pro
 
 - [Unix `sudo` command](http://en.wikipedia.org/wiki/Sudo)
 - [Configuring two-factor authentication](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication)
-- [Using {% data variables.product.prodname_mobile %}](/get-started/using-github/github-mobile).
+{% ifversion fpt or ghec %}- [Using {% data variables.product.prodname_mobile %}](/get-started/using-github/github-mobile).{% endif %}
