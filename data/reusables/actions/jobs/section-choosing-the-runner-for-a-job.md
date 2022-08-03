@@ -6,7 +6,7 @@ Use `jobs.<job_id>.runs-on` to define the type of machine to run the job on. {% 
 
 ### Choosing {% data variables.product.prodname_dotcom %}-hosted runners
 
-If you use a {% data variables.product.prodname_dotcom %}-hosted runner, each job runs in a fresh instance of a virtual environment specified by `runs-on`.
+If you use a {% data variables.product.prodname_dotcom %}-hosted runner, each job runs in a fresh instance of a runner image specified by `runs-on`.
 
 Available {% data variables.product.prodname_dotcom %}-hosted runner types are:
 
