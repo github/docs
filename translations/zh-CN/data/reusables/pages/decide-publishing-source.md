@@ -1,1 +1,1 @@
-1. 确定要使用的发布源。  更多信息请参阅“[关于 {% data variables.product.prodname_pages %}](/articles/about-github-pages#publishing-sources-for-github-pages-sites)”。
+1. 确定要使用的发布源。 For more information, see "[Configuring a publishing source for your GitHub Pages site](/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)."

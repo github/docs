@@ -381,6 +381,34 @@ on:
     types: [created, deleted]
 ```
 
+{% ifversion fpt or ghec  %}
+
+### `merge_group`
+
+| webhook イベントのペイロード                                                                                 | アクティビティタイプ         | `GITHUB_SHA`           | `GITHUB_REF`           |
+| -------------------------------------------------------------------------------------------------- | ------------------ | ---------------------- | ---------------------- |
+| [`merge_group`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#merge_group) | `checks_requested` | SHA of the merge group | Ref of the merge group |
+
+{% data reusables.pull_requests.merge-queue-beta %}
+
+{% note %}
+
+**Note**: {% data reusables.developer-site.multiple_activity_types %} Although only the `checks_requested` activity type is supported, specifying the activity type will keep your workflow specific if more activity types are added in the future. For information about each activity type, see "[Webhook events and payloads](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#merge_group)." {% data reusables.developer-site.limit_workflow_to_activity_types %}
+
+{% endnote %}
+
+Runs your workflow when a pull request is added to a merge queue, which adds the pull request to a merge group. For more information see "[Merging a pull request with a merge queue](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request-with-a-merge-queue)".
+
+For example, you can run a workflow when the `checks_requested` activity has occurred.
+
+```yaml
+on:
+  merge_group:
+    types: [checks_requested]
+
+```
+
+{% endif %}
 ### `マイルストーン`
 
 | webhook イベントのペイロード                                                                           | アクティビティタイプ                                                                                                  | `GITHUB_SHA`      | `GITHUB_REF` |
@@ -415,7 +443,7 @@ on:
 
 {% data reusables.actions.branch-requirement %}
 
-Runs your workflow when someone pushes to a branch that is the publishing source for {% data variables.product.prodname_pages %}, if {% data variables.product.prodname_pages %} is enabled for the repository. For more information about {% data variables.product.prodname_pages %} publishing sources, see "[Configuring a publishing source for your GitHub Pages site](/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site#choosing-a-publishing-source)." REST API の詳細については、「[ページ](/rest/reference/repos#pages)」を参照してください。
+Runs your workflow when someone pushes to a branch that is the publishing source for {% data variables.product.prodname_pages %}, if {% data variables.product.prodname_pages %} is enabled for the repository. For more information about {% data variables.product.prodname_pages %} publishing sources, see "[Configuring a publishing source for your GitHub Pages site](/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)." REST API の詳細については、「[ページ](/rest/reference/repos#pages)」を参照してください。
 
 たとえば、`page_build` イベントが発生したときにワークフローを実行する例は、次のとおりです。
 
@@ -603,7 +631,7 @@ jobs:
 
 #### Running your workflow based on the head or base branch of a pull request
 
-You can use the `branches` or `branches-ignore` filter to configure your workflow to only run on pull requests that target specific branches. For more information, see "[Workflow syntax for GitHub Actions](/actions/learn-github-actions/workflow-syntax-for-github-actions#onpull_requestpull_request_targetbranchesbranches-ignore)."
+You can use the `branches` or `branches-ignore` filter to configure your workflow to only run on pull requests that target specific branches. 詳しい情報については「[GitHub Actionsのワークフロー構文](/actions/learn-github-actions/workflow-syntax-for-github-actions#onpull_requestpull_request_targetbranchesbranches-ignore)」を参照してください。
 
 For example, this workflow will run when someone opens a pull request that targets a branch whose name starts with `releases/`:
 
@@ -612,7 +640,7 @@ on:
   pull_request:
     types:
       - opened
-    branches:    
+    branches:
       - 'releases/**'
 ```
 
@@ -625,7 +653,7 @@ on:
   pull_request:
     types:
       - opened
-    branches:    
+    branches:
       - 'releases/**'
     paths:
       - '**.js'
@@ -650,7 +678,7 @@ jobs:
 
 #### Running your workflow based on files changed in a pull request
 
-You can also configure your workflow to run when a pull request changes specific files. For more information, see "[Workflow syntax for GitHub Actions](/actions/learn-github-actions/workflow-syntax-for-github-actions#onpushpull_requestpull_request_targetpathspaths-ignore)."
+You can also configure your workflow to run when a pull request changes specific files. 詳しい情報については「[GitHub Actionsのワークフロー構文](/actions/learn-github-actions/workflow-syntax-for-github-actions#onpushpull_requestpull_request_targetpathspaths-ignore)」を参照してください。
 
 For example, this workflow will run when a pull request includes a change to a JavaScript file (`.js`):
 
@@ -670,7 +698,7 @@ on:
   pull_request:
     types:
       - opened
-    branches:    
+    branches:
       - 'releases/**'
     paths:
       - '**.js'
@@ -800,7 +828,7 @@ on:
 
 #### Running your workflow based on the head or base branch of a pull request
 
-You can use the `branches` or `branches-ignore` filter to configure your workflow to only run on pull requests that target specific branches. For more information, see "[Workflow syntax for GitHub Actions](/actions/learn-github-actions/workflow-syntax-for-github-actions#onpull_requestpull_request_targetbranchesbranches-ignore)."
+You can use the `branches` or `branches-ignore` filter to configure your workflow to only run on pull requests that target specific branches. 詳しい情報については「[GitHub Actionsのワークフロー構文](/actions/learn-github-actions/workflow-syntax-for-github-actions#onpull_requestpull_request_targetbranchesbranches-ignore)」を参照してください。
 
 For example, this workflow will run when someone opens a pull request that targets a branch whose name starts with `releases/`:
 
@@ -809,7 +837,7 @@ on:
   pull_request_target:
     types:
       - opened
-    branches:    
+    branches:
       - 'releases/**'
 ```
 
@@ -822,7 +850,7 @@ on:
   pull_request_target:
     types:
       - opened
-    branches:    
+    branches:
       - 'releases/**'
     paths:
       - '**.js'
@@ -847,7 +875,7 @@ jobs:
 
 #### Running your workflow based on files changed in a pull request
 
-You can use the `paths` or `paths-ignore` filter to configure your workflow to run when a pull request changes specific files. For more information, see "[Workflow syntax for GitHub Actions](/actions/learn-github-actions/workflow-syntax-for-github-actions#onpushpull_requestpull_request_targetpathspaths-ignore)."
+You can use the `paths` or `paths-ignore` filter to configure your workflow to run when a pull request changes specific files. 詳しい情報については「[GitHub Actionsのワークフロー構文](/actions/learn-github-actions/workflow-syntax-for-github-actions#onpushpull_requestpull_request_targetpathspaths-ignore)」を参照してください。
 
 For example, this workflow will run when a pull request includes a change to a JavaScript file (`.js`):
 
@@ -867,7 +895,7 @@ on:
   pull_request_target:
     types:
       - opened
-    branches:    
+    branches:
       - 'releases/**'
     paths:
       - '**.js'
@@ -896,9 +924,9 @@ jobs:
 
 ### `プッシュ`
 
-| webhook イベントのペイロード                                                                   | アクティビティタイプ | `GITHUB_SHA`                                  | `GITHUB_REF` |
-| ------------------------------------------------------------------------------------ | ---------- | --------------------------------------------- | ------------ |
-| [`プッシュ`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#push) | n/a        | プッシュされたコミット、ただし (デフォルトブランチの際に) ブランチを削除する場合を除く | 更新された ref    |
+| webhook イベントのペイロード                                                                   | アクティビティタイプ | `GITHUB_SHA`                                                                                                                     | `GITHUB_REF` |
+| ------------------------------------------------------------------------------------ | ---------- | -------------------------------------------------------------------------------------------------------------------------------- | ------------ |
+| [`プッシュ`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#push) | n/a        | When you delete a branch, the SHA in the workflow run (and its associated refs) reverts to the default branch of the repository. | 更新された ref    |
 
 {% note %}
 
@@ -929,14 +957,14 @@ on:
 
 #### Running your workflow only when a push to specific branches occurs
 
-You can use the `branches` or `branches-ignore` filter to configure your workflow to only run when specific branches are pushed. For more information, see "[Workflow syntax for GitHub Actions](/actions/learn-github-actions/workflow-syntax-for-github-actions#onpushbranchestagsbranches-ignoretags-ignore)."
+You can use the `branches` or `branches-ignore` filter to configure your workflow to only run when specific branches are pushed. 詳しい情報については「[GitHub Actionsのワークフロー構文](/actions/learn-github-actions/workflow-syntax-for-github-actions#onpushbranchestagsbranches-ignoretags-ignore)」を参照してください。
 
 For example, this workflow will run when someone pushes to `main` or to a branch that starts with `releases/`.
 
 ```yaml
 on:
   push:
-    branches:    
+    branches:
       - 'main'
       - 'releases/**'
 ```
@@ -948,7 +976,7 @@ on:
 ```yaml
 on:
   push:
-    branches:    
+    branches:
       - 'releases/**'
     paths:
       - '**.js'
@@ -958,20 +986,20 @@ on:
 
 #### Running your workflow only when a push of specific tags occurs
 
-You can use the `tags` or `tags-ignore` filter to configure your workflow to only run when specific tags are pushed. For more information, see "[Workflow syntax for GitHub Actions](/actions/learn-github-actions/workflow-syntax-for-github-actions#onpushbranchestagsbranches-ignoretags-ignore)."
+You can use the `tags` or `tags-ignore` filter to configure your workflow to only run when specific tags are pushed. 詳しい情報については「[GitHub Actionsのワークフロー構文](/actions/learn-github-actions/workflow-syntax-for-github-actions#onpushbranchestagsbranches-ignoretags-ignore)」を参照してください。
 
 For example, this workflow will run when someone pushes a tag that starts with `v1.`.
 
 ```yaml
 on:
   push:
-    tags:        
+    tags:
       - v1.**
 ```
 
 #### Running your workflow only when a push affects specific files
 
-You can use the `paths` or `paths-ignore` filter to configure your workflow to run when a push to specific files occurs. For more information, see "[Workflow syntax for GitHub Actions](/actions/learn-github-actions/workflow-syntax-for-github-actions#onpushpull_requestpull_request_targetpathspaths-ignore)."
+You can use the `paths` or `paths-ignore` filter to configure your workflow to run when a push to specific files occurs. 詳しい情報については「[GitHub Actionsのワークフロー構文](/actions/learn-github-actions/workflow-syntax-for-github-actions#onpushpull_requestpull_request_targetpathspaths-ignore)」を参照してください。
 
 For example, this workflow will run when someone pushes a change to a JavaScript file (`.js`):
 
@@ -989,7 +1017,7 @@ on:
 ```yaml
 on:
   push:
-    branches:    
+    branches:
       - 'releases/**'
     paths:
       - '**.js'
@@ -1011,7 +1039,7 @@ on:
 
 {% data reusables.actions.branch-requirement %}
 
-Runs your workflow when activity related to {% data variables.product.prodname_registry %} occurs in your repository. For more information, see "[{% data variables.product.prodname_registry %} Documentation](/packages)."
+Runs your workflow when activity related to {% data variables.product.prodname_registry %} occurs in your repository. 詳しい情報については、「[{% data variables.product.prodname_registry %} のドキュメント](/packages)」を参照してください。
 
 For example, you can run a workflow when a new package version has been `published`.
 
@@ -1063,7 +1091,7 @@ on:
 
 {% data reusables.actions.branch-requirement %}
 
-You can use the {% data variables.product.product_name %} API to trigger a webhook event called [`repository_dispatch`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#repository_dispatch) when you want to trigger a workflow for activity that happens outside of {% data variables.product.product_name %}. 詳細については、「[リポジトリディスパッチ イベントの作成](/rest/reference/repos#create-a-repository-dispatch-event)」を参照してください。
+{% data variables.product.product_name %} の外部で生じるアクティビティのためにワークフローをトリガーしたい場合、{% data variables.product.product_name %} API を使って、[`repository_dispatch`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#repository_dispatch) と呼ばれる webhook イベントをトリガーできます。 詳細については、「[リポジトリディスパッチ イベントの作成](/rest/reference/repos#create-a-repository-dispatch-event)」を参照してください。
 
 When you make a request to create a `repository_dispatch` event, you must specify an `event_type` to describe the activity type. By default, all `repository_dispatch`  activity types trigger a workflow to run. You can use the `types` keyword to limit your workflow to run when a specific `event_type` value is sent in the `repository_dispatch` webhook payload.
 
@@ -1252,26 +1280,26 @@ on: workflow_dispatch
 This example defines inputs called `logLevel`, `tags`, and `environment`. You pass values for these inputs to the workflow when you run it. This workflow then prints the values to the log, using the {% ifversion actions-unified-inputs %}`inputs.logLevel`, `inputs.tags`, and  `inputs.environment`{% else %}`github.event.inputs.logLevel`, `github.event.inputs.tags`, and  `github.event.inputs.environment`{% endif %} context properties.
 
 ```yaml
-on: 
+on:
   workflow_dispatch:
     inputs:
       logLevel:
-        description: 'Log level'     
+        description: 'Log level'
         required: true
-        default: 'warning' 
+        default: 'warning'
         type: choice
         options:
         - info
         - warning
-        - debug 
+        - debug
       tags:
         description: 'Test scenario tags'
-        required: false 
+        required: false
         type: boolean
       environment:
         description: 'Environment to run tests against'
         type: environment
-        required: true 
+        required: true
 
 jobs:
   log-the-inputs:
@@ -1422,7 +1450,7 @@ jobs:
   upload:
     runs-on: ubuntu-latest
 
-    steps:        
+    steps:
       - name: Save PR number
         env:
           PR_NUMBER: {% raw %}${{ github.event.number }}{% endraw %}

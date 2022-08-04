@@ -7,6 +7,9 @@ import statsd from '../lib/statsd.js'
 import { allVersions } from '../lib/all-versions.js'
 import { isConnectionDropped } from './halt-on-dropped-connection.js'
 import { nextApp, nextHandleRequest } from './next.js'
+import { cacheControlFactory } from './cache-control.js'
+
+const htmlCacheControl = cacheControlFactory(60 * 10)
 
 async function buildRenderedPage(req) {
   const { context } = req
@@ -16,21 +19,6 @@ async function buildRenderedPage(req) {
   const pageRenderTimed = statsd.asyncTimer(page.render, 'middleware.render_page', [`path:${path}`])
 
   const renderedPage = await pageRenderTimed(context)
-
-  // handle special-case prerendered GraphQL objects page
-  if (path.endsWith('graphql/reference/objects')) {
-    return renderedPage + context.graphql.prerenderedObjectsForCurrentVersion.html
-  }
-
-  // handle special-case prerendered GraphQL input objects page
-  if (path.endsWith('graphql/reference/input-objects')) {
-    return renderedPage + context.graphql.prerenderedInputObjectsForCurrentVersion.html
-  }
-
-  // handle special-case prerendered GraphQL mutations page
-  if (path.endsWith('graphql/reference/mutations')) {
-    return renderedPage + context.graphql.prerenderedMutationsForCurrentVersion.html
-  }
 
   return renderedPage
 }
@@ -51,6 +39,7 @@ export default async function renderPage(req, res, next) {
   const { context } = req
   const { page } = context
   const path = req.pagePath || req.path
+  htmlCacheControl(res)
 
   // render a 404 page
   if (!page) {

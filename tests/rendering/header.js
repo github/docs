@@ -2,7 +2,6 @@ import { expect, jest } from '@jest/globals'
 
 import { getDOM } from '../helpers/e2etest.js'
 import { oldestSupported } from '../../lib/enterprise-server-releases.js'
-import { getUserLanguage } from '../helpers/script-data.js'
 
 describe('header', () => {
   jest.setTimeout(5 * 60 * 1000)
@@ -21,7 +20,7 @@ describe('header', () => {
     expect($('#github-logo a[href="/en"]').length).toBe(0)
   })
 
-  describe('language links', () => {
+  describe.skip('language links', () => {
     test('lead to the same page in a different language', async () => {
       const $ = await getDOM(
         '/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/managing-a-branch-protection-rule'
@@ -83,34 +82,34 @@ describe('header', () => {
       ).toBe(1)
     })
 
-    test("renders a link to the same page in user's preferred language, if available", async () => {
-      const headers = { 'accept-language': 'ja' }
-      const $ = await getDOM('/en', { headers })
-      expect(getUserLanguage($)).toBe('ja')
+    test.skip("renders a link to the same page in user's preferred language, if available", async () => {
+      // const headers = { 'accept-language': 'ja' }
+      // const $ = await getDOM('/en', { headers })
+      // expect(getUserLanguage($)).toBe('ja')
     })
 
-    test("renders a link to the same page if user's preferred language is Chinese - PRC", async () => {
-      const headers = { 'accept-language': 'zh-CN' }
-      const $ = await getDOM('/en', { headers })
-      expect(getUserLanguage($)).toBe('cn')
+    test.skip("renders a link to the same page if user's preferred language is Chinese - PRC", async () => {
+      // const headers = { 'accept-language': 'zh-CN' }
+      // const $ = await getDOM('/en', { headers })
+      // expect(getUserLanguage($)).toBe('cn')
     })
 
-    test("renders a link to the same page in user's preferred language from multiple, if available", async () => {
-      const headers = { 'accept-language': 'ja, *;q=0.9' }
-      const $ = await getDOM('/en', { headers })
-      expect(getUserLanguage($)).toBe('ja')
+    test.skip("renders a link to the same page in user's preferred language from multiple, if available", async () => {
+      // const headers = { 'accept-language': 'ja, *;q=0.9' }
+      // const $ = await getDOM('/en', { headers })
+      // expect(getUserLanguage($)).toBe('ja')
     })
 
-    test("renders a link to the same page in user's preferred language with weights, if available", async () => {
-      const headers = { 'accept-language': 'ja;q=1.0, *;q=0.9' }
-      const $ = await getDOM('/en', { headers })
-      expect(getUserLanguage($)).toBe('ja')
+    test.skip("renders a link to the same page in user's preferred language with weights, if available", async () => {
+      // const headers = { 'accept-language': 'ja;q=1.0, *;q=0.9' }
+      // const $ = await getDOM('/en', { headers })
+      // expect(getUserLanguage($)).toBe('ja')
     })
 
-    test("renders a link to the user's 2nd preferred language if 1st is not available", async () => {
-      const headers = { 'accept-language': 'zh-TW,zh;q=0.9,ja *;q=0.8' }
-      const $ = await getDOM('/en', { headers })
-      expect(getUserLanguage($)).toBe('ja')
+    test.skip("renders a link to the user's 2nd preferred language if 1st is not available", async () => {
+      // const headers = { 'accept-language': 'zh-TW,zh;q=0.9,ja *;q=0.8' }
+      // const $ = await getDOM('/en', { headers })
+      // expect(getUserLanguage($)).toBe('ja')
     })
   })
 
