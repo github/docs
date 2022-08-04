@@ -63,11 +63,11 @@ jobs:
 
     steps:
       - uses: {% data reusables.actions.action-checkout %}
-      - name: Set up JDK 11
+      - name: Set up JDK 17
         uses: {% data reusables.actions.action-setup-java %}
         with:
-          java-version: '11'
-          distribution: 'adopt'
+          java-version: '17'
+          distribution: 'temurin'
       - name: Validate Gradle wrapper
         uses: gradle/wrapper-validation-action@e6e38bacfdf1a337459f332974bb2327a31aaf4b
       - name: Build with Gradle
@@ -79,7 +79,7 @@ jobs:
 This workflow performs the following steps:
 
 1. The `checkout` step downloads a copy of your repository on the runner.
-2. The `setup-java` step configures the Java 11 JDK by Adoptium.
+2. The `setup-java` step configures the Eclipse Temurin (Java) 17 JDK by Eclipse Adoptium.
 3. The "Validate Gradle wrapper" step validates the checksums of Gradle Wrapper JAR files present in the source tree.
 4. The "Build with Gradle" step does a build using the `gradle/gradle-build-action` action provided by the Gradle organization on {% data variables.product.prodname_dotcom %}. The action takes care of invoking Gradle, collecting results, and caching state between jobs. For more information see [`gradle/gradle-build-action`](https://github.com/gradle/gradle-build-action).
 
@@ -102,8 +102,8 @@ steps:
   - uses: {% data reusables.actions.action-checkout %}
   - uses: {% data reusables.actions.action-setup-java %}
     with:
-      java-version: '11'
-      distribution: 'adopt'
+      java-version: '17'
+      distribution: 'temurin'
   - name: Validate Gradle wrapper
     uses: gradle/wrapper-validation-action@e6e38bacfdf1a337459f332974bb2327a31aaf4b
   - name: Run the Gradle package task
@@ -133,8 +133,8 @@ steps:
   - uses: {% data reusables.actions.action-checkout %}
   - uses: {% data reusables.actions.action-setup-java %}
     with:
-      java-version: '11'
-      distribution: 'adopt'
+      java-version: '17'
+      distribution: 'temurin'
   - name: Validate Gradle wrapper
     uses: gradle/wrapper-validation-action@e6e38bacfdf1a337459f332974bb2327a31aaf4b
   - name: Build with Gradle
