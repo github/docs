@@ -5,9 +5,7 @@ name: Dry run Elasticsearch indexing
 # **Who does it impact**: Docs engineering.
 
 on:
-  push:
-    branches:
-      - gh-readonly-queue/main/**
+  merge_group:
   pull_request:
     paths:
       - script/search/index-elasticsearch.js

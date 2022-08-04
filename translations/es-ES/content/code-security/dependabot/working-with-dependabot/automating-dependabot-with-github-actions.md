@@ -33,14 +33,14 @@ El {% data variables.product.prodname_dependabot %} crea las solicitudes de camb
 El {% data variables.product.prodname_dependabot %} puede activar flujos de trabajo de las {% data variables.product.prodname_actions %} en sus solicitudes de cambios y comentarios; sin embargo, algunos eventos se tratan de forma distinta.
 
 {% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5792 %}
-Para el caso de los flujos de trabajo que inicia el {% data variables.product.prodname_dependabot %} (`github.actor == "dependabot[bot]"`) y que utilizan los eventos `pull_request`, `pull_request_review`, `pull_request_review_comment`, `push`, `create`, `deployment` y `deployment_status`, aplican las siguientes restricciones:
+For workflows initiated by {% data variables.product.prodname_dependabot %} (`github.actor == 'dependabot[bot]'`) using the `pull_request`, `pull_request_review`, `pull_request_review_comment`, `push`, `create`, `deployment`, and `deployment_status` events, the following restrictions apply:
 {% endif %}
 
 - {% ifversion ghes = 3.3 %} El `GITHUB_TOKEN` tiene permisos de solo lectura, a menos de que tu adminsitrador haya eliminado las restricciones.{% else %} El `GITHUB_TOKEN` tiene permisos de solo lectura predeterminadamente.{% endif %}
 - {% ifversion ghes = 3.3 %}No se puede acceder a los secretos a menos de que tu administrador haya eliminado las restricciones.{% else %}Los secretos se llenan desde los secretos del {% data variables.product.prodname_dependabot %}. Los secretos de las {% data variables.product.prodname_actions %} no están disponibles.{% endif %}
 
 {% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5792 %}
-Para el caso de los flujos de trabajo que inicia el {% data variables.product.prodname_dependabot %}(`github.actor == "dependabot[bot]"`) y utilizan el evento `pull_request_target`, si {% data variables.product.prodname_dependabot %} (`github.actor == "dependabot[bot]"`) creó la ref base de la solicitud de cambios, entonces el `GITHUB_TOKEN` será de solo lectura y los secretos no estarán disponibles.
+For workflows initiated by {% data variables.product.prodname_dependabot %} (`github.actor == 'dependabot[bot]'`) using the `pull_request_target` event, if the base ref of the pull request was created by {% data variables.product.prodname_dependabot %} (`github.actor == 'dependabot[bot]'`), the `GITHUB_TOKEN` will be read-only and secrets are not available.
 {% endif %}
 
 {% ifversion actions-stable-actor-ids %}These restrictions apply even if the workflow is re-run by a different actor.{% endif %}

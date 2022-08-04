@@ -119,7 +119,7 @@ async function main() {
     title: TITLE,
     base: BASE,
     head: HEAD,
-    body: `New translation batch for ${LANGUAGE}. You can see the log in [\`translations/log/${LANGUAGE}-resets.csv\`](https://github.com/${OWNER}/${REPO}/tree/${HEAD}/translations/log/${LANGUAGE}-resets.csv).`,
+    body: `New translation batch for ${LANGUAGE}. You can see the log in [\`translations/log/${LANGUAGE}-resets.csv\`](https://github.com/${OWNER}/${REPO}/tree/${HEAD}/translations/log/msft-${LANGUAGE}-resets.csv).`,
     labels: ['translation-batch', `translation-batch-${LANGUAGE}`],
     owner: OWNER,
     repo: REPO,

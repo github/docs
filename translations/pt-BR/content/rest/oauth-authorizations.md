@@ -2,8 +2,6 @@
 title: Autorizações do OAuth
 intro: As autorizações do OAuth permitem gerenciar os aplicativos do OAuth para sua conta.
 versions:
-  fpt: '*'
-  ghec: '*'
   ghes: '*'
 topics:
   - API

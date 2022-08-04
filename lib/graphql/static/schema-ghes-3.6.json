@@ -1,597 +1,593 @@
 {
-  "queries": {
-    "connections": [
-      {
-        "name": "organizations",
-        "type": "OrganizationConnection!",
-        "kind": "objects",
-        "id": "organizationconnection",
-        "href": "/graphql/reference/objects#organizationconnection",
-        "description": "<p>A list of organizations.</p>",
-        "args": [
-          {
-            "name": "after",
-            "type": "String",
-            "id": "string",
-            "kind": "scalars",
-            "href": "/graphql/reference/scalars#string",
-            "description": "<p>Returns the elements in the list that come after the specified cursor.</p>"
-          },
-          {
-            "name": "before",
-            "type": "String",
-            "id": "string",
-            "kind": "scalars",
-            "href": "/graphql/reference/scalars#string",
-            "description": "<p>Returns the elements in the list that come before the specified cursor.</p>"
-          },
-          {
-            "name": "first",
-            "type": "Int",
-            "id": "int",
-            "kind": "scalars",
-            "href": "/graphql/reference/scalars#int",
-            "description": "<p>Returns the first <em>n</em> elements from the list.</p>"
-          },
-          {
-            "name": "last",
-            "type": "Int",
-            "id": "int",
-            "kind": "scalars",
-            "href": "/graphql/reference/scalars#int",
-            "description": "<p>Returns the last <em>n</em> elements from the list.</p>"
-          }
-        ]
-      },
-      {
-        "name": "search",
-        "type": "SearchResultItemConnection!",
-        "kind": "objects",
-        "id": "searchresultitemconnection",
-        "href": "/graphql/reference/objects#searchresultitemconnection",
-        "description": "<p>Perform a search across resources.</p>",
-        "args": [
-          {
-            "name": "after",
-            "type": "String",
-            "id": "string",
-            "kind": "scalars",
-            "href": "/graphql/reference/scalars#string",
-            "description": "<p>Returns the elements in the list that come after the specified cursor.</p>"
-          },
-          {
-            "name": "before",
-            "type": "String",
-            "id": "string",
-            "kind": "scalars",
-            "href": "/graphql/reference/scalars#string",
-            "description": "<p>Returns the elements in the list that come before the specified cursor.</p>"
-          },
-          {
-            "name": "first",
-            "type": "Int",
-            "id": "int",
-            "kind": "scalars",
-            "href": "/graphql/reference/scalars#int",
-            "description": "<p>Returns the first <em>n</em> elements from the list.</p>"
-          },
-          {
-            "name": "last",
-            "type": "Int",
-            "id": "int",
-            "kind": "scalars",
-            "href": "/graphql/reference/scalars#int",
-            "description": "<p>Returns the last <em>n</em> elements from the list.</p>"
-          },
-          {
-            "name": "query",
-            "type": "String!",
-            "id": "string",
-            "kind": "scalars",
-            "href": "/graphql/reference/scalars#string",
-            "description": "<p>The search string to look for.</p>"
-          },
-          {
-            "name": "type",
-            "type": "SearchType!",
-            "id": "searchtype",
-            "kind": "enums",
-            "href": "/graphql/reference/enums#searchtype",
-            "description": "<p>The types of search items to search within.</p>"
-          }
-        ]
-      },
-      {
-        "name": "securityAdvisories",
-        "type": "SecurityAdvisoryConnection!",
-        "kind": "objects",
-        "id": "securityadvisoryconnection",
-        "href": "/graphql/reference/objects#securityadvisoryconnection",
-        "description": "<p>GitHub Security Advisories.</p>",
-        "args": [
-          {
-            "name": "after",
-            "type": "String",
-            "id": "string",
-            "kind": "scalars",
-            "href": "/graphql/reference/scalars#string",
-            "description": "<p>Returns the elements in the list that come after the specified cursor.</p>"
-          },
-          {
-            "name": "before",
-            "type": "String",
-            "id": "string",
-            "kind": "scalars",
-            "href": "/graphql/reference/scalars#string",
-            "description": "<p>Returns the elements in the list that come before the specified cursor.</p>"
-          },
-          {
-            "name": "classifications",
-            "type": "[SecurityAdvisoryClassification!]",
-            "id": "securityadvisoryclassification",
-            "kind": "enums",
-            "href": "/graphql/reference/enums#securityadvisoryclassification",
-            "description": "<p>A list of classifications to filter advisories by.</p>"
-          },
-          {
-            "name": "first",
-            "type": "Int",
-            "id": "int",
-            "kind": "scalars",
-            "href": "/graphql/reference/scalars#int",
-            "description": "<p>Returns the first <em>n</em> elements from the list.</p>"
-          },
-          {
-            "name": "last",
-            "type": "Int",
-            "id": "int",
-            "kind": "scalars",
-            "href": "/graphql/reference/scalars#int",
-            "description": "<p>Returns the last <em>n</em> elements from the list.</p>"
-          },
-          {
-            "name": "publishedSince",
-            "type": "DateTime",
-            "id": "datetime",
-            "kind": "scalars",
-            "href": "/graphql/reference/scalars#datetime",
-            "description": "<p>Filter advisories to those published since a time in the past.</p>"
-          },
-          {
-            "name": "updatedSince",
-            "type": "DateTime",
-            "id": "datetime",
-            "kind": "scalars",
-            "href": "/graphql/reference/scalars#datetime",
-            "description": "<p>Filter advisories to those updated since a time in the past.</p>"
-          }
-        ]
-      },
-      {
-        "name": "securityVulnerabilities",
-        "type": "SecurityVulnerabilityConnection!",
-        "kind": "objects",
-        "id": "securityvulnerabilityconnection",
-        "href": "/graphql/reference/objects#securityvulnerabilityconnection",
-        "description": "<p>Software Vulnerabilities documented by GitHub Security Advisories.</p>",
-        "args": [
-          {
-            "name": "after",
-            "type": "String",
-            "id": "string",
-            "kind": "scalars",
-            "href": "/graphql/reference/scalars#string",
-            "description": "<p>Returns the elements in the list that come after the specified cursor.</p>"
-          },
-          {
-            "name": "before",
-            "type": "String",
-            "id": "string",
-            "kind": "scalars",
-            "href": "/graphql/reference/scalars#string",
-            "description": "<p>Returns the elements in the list that come before the specified cursor.</p>"
-          },
-          {
-            "name": "classifications",
-            "type": "[SecurityAdvisoryClassification!]",
-            "id": "securityadvisoryclassification",
-            "kind": "enums",
-            "href": "/graphql/reference/enums#securityadvisoryclassification",
-            "description": "<p>A list of advisory classifications to filter vulnerabilities by.</p>"
-          },
-          {
-            "name": "ecosystem",
-            "type": "SecurityAdvisoryEcosystem",
-            "id": "securityadvisoryecosystem",
-            "kind": "enums",
-            "href": "/graphql/reference/enums#securityadvisoryecosystem",
-            "description": "<p>An ecosystem to filter vulnerabilities by.</p>"
-          },
-          {
-            "name": "first",
-            "type": "Int",
-            "id": "int",
-            "kind": "scalars",
-            "href": "/graphql/reference/scalars#int",
-            "description": "<p>Returns the first <em>n</em> elements from the list.</p>"
-          },
-          {
-            "name": "last",
-            "type": "Int",
-            "id": "int",
-            "kind": "scalars",
-            "href": "/graphql/reference/scalars#int",
-            "description": "<p>Returns the last <em>n</em> elements from the list.</p>"
-          },
-          {
-            "name": "package",
-            "type": "String",
-            "id": "string",
-            "kind": "scalars",
-            "href": "/graphql/reference/scalars#string",
-            "description": "<p>A package name to filter vulnerabilities by.</p>"
-          },
-          {
-            "name": "severities",
-            "type": "[SecurityAdvisorySeverity!]",
-            "id": "securityadvisoryseverity",
-            "kind": "enums",
-            "href": "/graphql/reference/enums#securityadvisoryseverity",
-            "description": "<p>A list of severities to filter vulnerabilities by.</p>"
-          }
-        ]
-      },
-      {
-        "name": "users",
-        "type": "UserConnection!",
-        "kind": "objects",
-        "id": "userconnection",
-        "href": "/graphql/reference/objects#userconnection",
-        "description": "<p>A list of users.</p>",
-        "args": [
-          {
-            "name": "after",
-            "type": "String",
-            "id": "string",
-            "kind": "scalars",
-            "href": "/graphql/reference/scalars#string",
-            "description": "<p>Returns the elements in the list that come after the specified cursor.</p>"
-          },
-          {
-            "name": "before",
-            "type": "String",
-            "id": "string",
-            "kind": "scalars",
-            "href": "/graphql/reference/scalars#string",
-            "description": "<p>Returns the elements in the list that come before the specified cursor.</p>"
-          },
-          {
-            "name": "first",
-            "type": "Int",
-            "id": "int",
-            "kind": "scalars",
-            "href": "/graphql/reference/scalars#int",
-            "description": "<p>Returns the first <em>n</em> elements from the list.</p>"
-          },
-          {
-            "name": "last",
-            "type": "Int",
-            "id": "int",
-            "kind": "scalars",
-            "href": "/graphql/reference/scalars#int",
-            "description": "<p>Returns the last <em>n</em> elements from the list.</p>"
-          }
-        ]
-      }
-    ],
-    "fields": [
-      {
-        "name": "codeOfConduct",
-        "type": "CodeOfConduct",
-        "kind": "objects",
-        "id": "codeofconduct",
-        "href": "/graphql/reference/objects#codeofconduct",
-        "description": "<p>Look up a code of conduct by its key.</p>",
-        "args": [
-          {
-            "name": "key",
-            "type": "String!",
-            "id": "string",
-            "kind": "scalars",
-            "href": "/graphql/reference/scalars#string",
-            "description": "<p>The code of conduct's key.</p>"
-          }
-        ]
-      },
-      {
-        "name": "codesOfConduct",
-        "type": "[CodeOfConduct]",
-        "kind": "objects",
-        "id": "codeofconduct",
-        "href": "/graphql/reference/objects#codeofconduct",
-        "description": "<p>Look up a code of conduct by its key.</p>",
-        "args": []
-      },
-      {
-        "name": "enterprise",
-        "type": "Enterprise",
-        "kind": "objects",
-        "id": "enterprise",
-        "href": "/graphql/reference/objects#enterprise",
-        "description": "<p>Look up an enterprise by URL slug.</p>",
-        "args": [
-          {
-            "name": "invitationToken",
-            "type": "String",
-            "id": "string",
-            "kind": "scalars",
-            "href": "/graphql/reference/scalars#string",
-            "description": "<p>The enterprise invitation token.</p>"
-          },
-          {
-            "name": "slug",
-            "type": "String!",
-            "id": "string",
-            "kind": "scalars",
-            "href": "/graphql/reference/scalars#string",
-            "description": "<p>The enterprise URL slug.</p>"
-          }
-        ]
-      },
-      {
-        "name": "license",
-        "type": "License",
-        "kind": "objects",
-        "id": "license",
-        "href": "/graphql/reference/objects#license",
-        "description": "<p>Look up an open source license by its key.</p>",
-        "args": [
-          {
-            "name": "key",
-            "type": "String!",
-            "id": "string",
-            "kind": "scalars",
-            "href": "/graphql/reference/scalars#string",
-            "description": "<p>The license's downcased SPDX ID.</p>"
-          }
-        ]
-      },
-      {
-        "name": "licenses",
-        "type": "[License]!",
-        "kind": "objects",
-        "id": "license",
-        "href": "/graphql/reference/objects#license",
-        "description": "<p>Return a list of known open source licenses.</p>",
-        "args": []
-      },
-      {
-        "name": "meta",
-        "type": "GitHubMetadata!",
-        "kind": "objects",
-        "id": "githubmetadata",
-        "href": "/graphql/reference/objects#githubmetadata",
-        "description": "<p>Return information about the GitHub instance.</p>",
-        "args": []
-      },
-      {
-        "name": "node",
-        "type": "Node",
-        "kind": "interfaces",
-        "id": "node",
-        "href": "/graphql/reference/interfaces#node",
-        "description": "<p>Fetches an object given its ID.</p>",
-        "args": [
-          {
-            "name": "id",
-            "type": "ID!",
-            "id": "id",
-            "kind": "scalars",
-            "href": "/graphql/reference/scalars#id",
-            "description": "<p>ID of the object.</p>"
-          }
-        ]
-      },
-      {
-        "name": "nodes",
-        "type": "[Node]!",
-        "kind": "interfaces",
-        "id": "node",
-        "href": "/graphql/reference/interfaces#node",
-        "description": "<p>Lookup nodes by a list of IDs.</p>",
-        "args": [
-          {
-            "name": "ids",
-            "type": "[ID!]!",
-            "id": "id",
-            "kind": "scalars",
-            "href": "/graphql/reference/scalars#id",
-            "description": "<p>The list of node IDs.</p>"
-          }
-        ]
-      },
-      {
-        "name": "organization",
-        "type": "Organization",
-        "kind": "objects",
-        "id": "organization",
-        "href": "/graphql/reference/objects#organization",
-        "description": "<p>Lookup a organization by login.</p>",
-        "args": [
-          {
-            "name": "login",
-            "type": "String!",
-            "id": "string",
-            "kind": "scalars",
-            "href": "/graphql/reference/scalars#string",
-            "description": "<p>The organization's login.</p>"
-          }
-        ]
-      },
-      {
-        "name": "rateLimit",
-        "type": "RateLimit",
-        "kind": "objects",
-        "id": "ratelimit",
-        "href": "/graphql/reference/objects#ratelimit",
-        "description": "<p>The client's rate limit information.</p>",
-        "args": [
-          {
-            "name": "dryRun",
-            "defaultValue": false,
-            "type": "Boolean",
-            "id": "boolean",
-            "kind": "scalars",
-            "href": "/graphql/reference/scalars#boolean",
-            "description": "<p>If true, calculate the cost for the query without evaluating it.</p>"
-          }
-        ]
-      },
-      {
-        "name": "relay",
-        "type": "Query!",
-        "kind": "objects",
-        "id": "query",
-        "href": "/graphql/reference/objects#query",
-        "description": "<p>Hack to workaround <a href=\"https://github.com/facebook/relay/issues/112\">https://github.com/facebook/relay/issues/112</a> re-exposing the root query object.</p>",
-        "args": []
-      },
-      {
-        "name": "repository",
-        "type": "Repository",
-        "kind": "objects",
-        "id": "repository",
-        "href": "/graphql/reference/objects#repository",
-        "description": "<p>Lookup a given repository by the owner and repository name.</p>",
-        "args": [
-          {
-            "name": "followRenames",
-            "defaultValue": true,
-            "type": "Boolean",
-            "id": "boolean",
-            "kind": "scalars",
-            "href": "/graphql/reference/scalars#boolean",
-            "description": "<p>Follow repository renames. If disabled, a repository referenced by its old name will return an error.</p>"
-          },
-          {
-            "name": "name",
-            "type": "String!",
-            "id": "string",
-            "kind": "scalars",
-            "href": "/graphql/reference/scalars#string",
-            "description": "<p>The name of the repository.</p>"
-          },
-          {
-            "name": "owner",
-            "type": "String!",
-            "id": "string",
-            "kind": "scalars",
-            "href": "/graphql/reference/scalars#string",
-            "description": "<p>The login field of a user or organization.</p>"
-          }
-        ]
-      },
-      {
-        "name": "repositoryOwner",
-        "type": "RepositoryOwner",
-        "kind": "interfaces",
-        "id": "repositoryowner",
-        "href": "/graphql/reference/interfaces#repositoryowner",
-        "description": "<p>Lookup a repository owner (ie. either a User or an Organization) by login.</p>",
-        "args": [
-          {
-            "name": "login",
-            "type": "String!",
-            "id": "string",
-            "kind": "scalars",
-            "href": "/graphql/reference/scalars#string",
-            "description": "<p>The username to lookup the owner by.</p>"
-          }
-        ]
-      },
-      {
-        "name": "resource",
-        "type": "UniformResourceLocatable",
-        "kind": "interfaces",
-        "id": "uniformresourcelocatable",
-        "href": "/graphql/reference/interfaces#uniformresourcelocatable",
-        "description": "<p>Lookup resource by a URL.</p>",
-        "args": [
-          {
-            "name": "url",
-            "type": "URI!",
-            "id": "uri",
-            "kind": "scalars",
-            "href": "/graphql/reference/scalars#uri",
-            "description": "<p>The URL.</p>"
-          }
-        ]
-      },
-      {
-        "name": "securityAdvisory",
-        "type": "SecurityAdvisory",
-        "kind": "objects",
-        "id": "securityadvisory",
-        "href": "/graphql/reference/objects#securityadvisory",
-        "description": "<p>Fetch a Security Advisory by its GHSA ID.</p>",
-        "args": [
-          {
-            "name": "ghsaId",
-            "type": "String!",
-            "id": "string",
-            "kind": "scalars",
-            "href": "/graphql/reference/scalars#string",
-            "description": "<p>GitHub Security Advisory ID.</p>"
-          }
-        ]
-      },
-      {
-        "name": "topic",
-        "type": "Topic",
-        "kind": "objects",
-        "id": "topic",
-        "href": "/graphql/reference/objects#topic",
-        "description": "<p>Look up a topic by name.</p>",
-        "args": [
-          {
-            "name": "name",
-            "type": "String!",
-            "id": "string",
-            "kind": "scalars",
-            "href": "/graphql/reference/scalars#string",
-            "description": "<p>The topic's name.</p>"
-          }
-        ]
-      },
-      {
-        "name": "user",
-        "type": "User",
-        "kind": "objects",
-        "id": "user",
-        "href": "/graphql/reference/objects#user",
-        "description": "<p>Lookup a user by login.</p>",
-        "args": [
-          {
-            "name": "login",
-            "type": "String!",
-            "id": "string",
-            "kind": "scalars",
-            "href": "/graphql/reference/scalars#string",
-            "description": "<p>The user's login.</p>"
-          }
-        ]
-      },
-      {
-        "name": "viewer",
-        "type": "User!",
-        "kind": "objects",
-        "id": "user",
-        "href": "/graphql/reference/objects#user",
-        "description": "<p>The currently authenticated user.</p>",
-        "args": []
-      }
-    ]
-  },
+  "queries": [
+    {
+      "name": "codeOfConduct",
+      "type": "CodeOfConduct",
+      "kind": "objects",
+      "id": "codeofconduct",
+      "href": "/graphql/reference/objects#codeofconduct",
+      "description": "<p>Look up a code of conduct by its key.</p>",
+      "args": [
+        {
+          "name": "key",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>The code of conduct's key.</p>"
+        }
+      ]
+    },
+    {
+      "name": "codesOfConduct",
+      "type": "[CodeOfConduct]",
+      "kind": "objects",
+      "id": "codeofconduct",
+      "href": "/graphql/reference/objects#codeofconduct",
+      "description": "<p>Look up a code of conduct by its key.</p>",
+      "args": []
+    },
+    {
+      "name": "enterprise",
+      "type": "Enterprise",
+      "kind": "objects",
+      "id": "enterprise",
+      "href": "/graphql/reference/objects#enterprise",
+      "description": "<p>Look up an enterprise by URL slug.</p>",
+      "args": [
+        {
+          "name": "invitationToken",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>The enterprise invitation token.</p>"
+        },
+        {
+          "name": "slug",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>The enterprise URL slug.</p>"
+        }
+      ]
+    },
+    {
+      "name": "license",
+      "type": "License",
+      "kind": "objects",
+      "id": "license",
+      "href": "/graphql/reference/objects#license",
+      "description": "<p>Look up an open source license by its key.</p>",
+      "args": [
+        {
+          "name": "key",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>The license's downcased SPDX ID.</p>"
+        }
+      ]
+    },
+    {
+      "name": "licenses",
+      "type": "[License]!",
+      "kind": "objects",
+      "id": "license",
+      "href": "/graphql/reference/objects#license",
+      "description": "<p>Return a list of known open source licenses.</p>",
+      "args": []
+    },
+    {
+      "name": "meta",
+      "type": "GitHubMetadata!",
+      "kind": "objects",
+      "id": "githubmetadata",
+      "href": "/graphql/reference/objects#githubmetadata",
+      "description": "<p>Return information about the GitHub instance.</p>",
+      "args": []
+    },
+    {
+      "name": "node",
+      "type": "Node",
+      "kind": "interfaces",
+      "id": "node",
+      "href": "/graphql/reference/interfaces#node",
+      "description": "<p>Fetches an object given its ID.</p>",
+      "args": [
+        {
+          "name": "id",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "description": "<p>ID of the object.</p>"
+        }
+      ]
+    },
+    {
+      "name": "nodes",
+      "type": "[Node]!",
+      "kind": "interfaces",
+      "id": "node",
+      "href": "/graphql/reference/interfaces#node",
+      "description": "<p>Lookup nodes by a list of IDs.</p>",
+      "args": [
+        {
+          "name": "ids",
+          "type": "[ID!]!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "description": "<p>The list of node IDs.</p>"
+        }
+      ]
+    },
+    {
+      "name": "organization",
+      "type": "Organization",
+      "kind": "objects",
+      "id": "organization",
+      "href": "/graphql/reference/objects#organization",
+      "description": "<p>Lookup a organization by login.</p>",
+      "args": [
+        {
+          "name": "login",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>The organization's login.</p>"
+        }
+      ]
+    },
+    {
+      "name": "organizations",
+      "type": "OrganizationConnection!",
+      "kind": "objects",
+      "id": "organizationconnection",
+      "href": "/graphql/reference/objects#organizationconnection",
+      "description": "<p>A list of organizations.</p>",
+      "args": [
+        {
+          "name": "after",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>Returns the elements in the list that come after the specified cursor.</p>"
+        },
+        {
+          "name": "before",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>Returns the elements in the list that come before the specified cursor.</p>"
+        },
+        {
+          "name": "first",
+          "type": "Int",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int",
+          "description": "<p>Returns the first <em>n</em> elements from the list.</p>"
+        },
+        {
+          "name": "last",
+          "type": "Int",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int",
+          "description": "<p>Returns the last <em>n</em> elements from the list.</p>"
+        }
+      ]
+    },
+    {
+      "name": "rateLimit",
+      "type": "RateLimit",
+      "kind": "objects",
+      "id": "ratelimit",
+      "href": "/graphql/reference/objects#ratelimit",
+      "description": "<p>The client's rate limit information.</p>",
+      "args": [
+        {
+          "name": "dryRun",
+          "defaultValue": false,
+          "type": "Boolean",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean",
+          "description": "<p>If true, calculate the cost for the query without evaluating it.</p>"
+        }
+      ]
+    },
+    {
+      "name": "relay",
+      "type": "Query!",
+      "kind": "objects",
+      "id": "query",
+      "href": "/graphql/reference/objects#query",
+      "description": "<p>Hack to workaround <a href=\"https://github.com/facebook/relay/issues/112\">https://github.com/facebook/relay/issues/112</a> re-exposing the root query object.</p>",
+      "args": []
+    },
+    {
+      "name": "repository",
+      "type": "Repository",
+      "kind": "objects",
+      "id": "repository",
+      "href": "/graphql/reference/objects#repository",
+      "description": "<p>Lookup a given repository by the owner and repository name.</p>",
+      "args": [
+        {
+          "name": "followRenames",
+          "defaultValue": true,
+          "type": "Boolean",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean",
+          "description": "<p>Follow repository renames. If disabled, a repository referenced by its old name will return an error.</p>"
+        },
+        {
+          "name": "name",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>The name of the repository.</p>"
+        },
+        {
+          "name": "owner",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>The login field of a user or organization.</p>"
+        }
+      ]
+    },
+    {
+      "name": "repositoryOwner",
+      "type": "RepositoryOwner",
+      "kind": "interfaces",
+      "id": "repositoryowner",
+      "href": "/graphql/reference/interfaces#repositoryowner",
+      "description": "<p>Lookup a repository owner (ie. either a User or an Organization) by login.</p>",
+      "args": [
+        {
+          "name": "login",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>The username to lookup the owner by.</p>"
+        }
+      ]
+    },
+    {
+      "name": "resource",
+      "type": "UniformResourceLocatable",
+      "kind": "interfaces",
+      "id": "uniformresourcelocatable",
+      "href": "/graphql/reference/interfaces#uniformresourcelocatable",
+      "description": "<p>Lookup resource by a URL.</p>",
+      "args": [
+        {
+          "name": "url",
+          "type": "URI!",
+          "id": "uri",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#uri",
+          "description": "<p>The URL.</p>"
+        }
+      ]
+    },
+    {
+      "name": "search",
+      "type": "SearchResultItemConnection!",
+      "kind": "objects",
+      "id": "searchresultitemconnection",
+      "href": "/graphql/reference/objects#searchresultitemconnection",
+      "description": "<p>Perform a search across resources.</p>",
+      "args": [
+        {
+          "name": "after",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>Returns the elements in the list that come after the specified cursor.</p>"
+        },
+        {
+          "name": "before",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>Returns the elements in the list that come before the specified cursor.</p>"
+        },
+        {
+          "name": "first",
+          "type": "Int",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int",
+          "description": "<p>Returns the first <em>n</em> elements from the list.</p>"
+        },
+        {
+          "name": "last",
+          "type": "Int",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int",
+          "description": "<p>Returns the last <em>n</em> elements from the list.</p>"
+        },
+        {
+          "name": "query",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>The search string to look for.</p>"
+        },
+        {
+          "name": "type",
+          "type": "SearchType!",
+          "id": "searchtype",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#searchtype",
+          "description": "<p>The types of search items to search within.</p>"
+        }
+      ]
+    },
+    {
+      "name": "securityAdvisories",
+      "type": "SecurityAdvisoryConnection!",
+      "kind": "objects",
+      "id": "securityadvisoryconnection",
+      "href": "/graphql/reference/objects#securityadvisoryconnection",
+      "description": "<p>GitHub Security Advisories.</p>",
+      "args": [
+        {
+          "name": "after",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>Returns the elements in the list that come after the specified cursor.</p>"
+        },
+        {
+          "name": "before",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>Returns the elements in the list that come before the specified cursor.</p>"
+        },
+        {
+          "name": "classifications",
+          "type": "[SecurityAdvisoryClassification!]",
+          "id": "securityadvisoryclassification",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#securityadvisoryclassification",
+          "description": "<p>A list of classifications to filter advisories by.</p>"
+        },
+        {
+          "name": "first",
+          "type": "Int",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int",
+          "description": "<p>Returns the first <em>n</em> elements from the list.</p>"
+        },
+        {
+          "name": "last",
+          "type": "Int",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int",
+          "description": "<p>Returns the last <em>n</em> elements from the list.</p>"
+        },
+        {
+          "name": "publishedSince",
+          "type": "DateTime",
+          "id": "datetime",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#datetime",
+          "description": "<p>Filter advisories to those published since a time in the past.</p>"
+        },
+        {
+          "name": "updatedSince",
+          "type": "DateTime",
+          "id": "datetime",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#datetime",
+          "description": "<p>Filter advisories to those updated since a time in the past.</p>"
+        }
+      ]
+    },
+    {
+      "name": "securityAdvisory",
+      "type": "SecurityAdvisory",
+      "kind": "objects",
+      "id": "securityadvisory",
+      "href": "/graphql/reference/objects#securityadvisory",
+      "description": "<p>Fetch a Security Advisory by its GHSA ID.</p>",
+      "args": [
+        {
+          "name": "ghsaId",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>GitHub Security Advisory ID.</p>"
+        }
+      ]
+    },
+    {
+      "name": "securityVulnerabilities",
+      "type": "SecurityVulnerabilityConnection!",
+      "kind": "objects",
+      "id": "securityvulnerabilityconnection",
+      "href": "/graphql/reference/objects#securityvulnerabilityconnection",
+      "description": "<p>Software Vulnerabilities documented by GitHub Security Advisories.</p>",
+      "args": [
+        {
+          "name": "after",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>Returns the elements in the list that come after the specified cursor.</p>"
+        },
+        {
+          "name": "before",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>Returns the elements in the list that come before the specified cursor.</p>"
+        },
+        {
+          "name": "classifications",
+          "type": "[SecurityAdvisoryClassification!]",
+          "id": "securityadvisoryclassification",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#securityadvisoryclassification",
+          "description": "<p>A list of advisory classifications to filter vulnerabilities by.</p>"
+        },
+        {
+          "name": "ecosystem",
+          "type": "SecurityAdvisoryEcosystem",
+          "id": "securityadvisoryecosystem",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#securityadvisoryecosystem",
+          "description": "<p>An ecosystem to filter vulnerabilities by.</p>"
+        },
+        {
+          "name": "first",
+          "type": "Int",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int",
+          "description": "<p>Returns the first <em>n</em> elements from the list.</p>"
+        },
+        {
+          "name": "last",
+          "type": "Int",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int",
+          "description": "<p>Returns the last <em>n</em> elements from the list.</p>"
+        },
+        {
+          "name": "package",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A package name to filter vulnerabilities by.</p>"
+        },
+        {
+          "name": "severities",
+          "type": "[SecurityAdvisorySeverity!]",
+          "id": "securityadvisoryseverity",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#securityadvisoryseverity",
+          "description": "<p>A list of severities to filter vulnerabilities by.</p>"
+        }
+      ]
+    },
+    {
+      "name": "topic",
+      "type": "Topic",
+      "kind": "objects",
+      "id": "topic",
+      "href": "/graphql/reference/objects#topic",
+      "description": "<p>Look up a topic by name.</p>",
+      "args": [
+        {
+          "name": "name",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>The topic's name.</p>"
+        }
+      ]
+    },
+    {
+      "name": "user",
+      "type": "User",
+      "kind": "objects",
+      "id": "user",
+      "href": "/graphql/reference/objects#user",
+      "description": "<p>Lookup a user by login.</p>",
+      "args": [
+        {
+          "name": "login",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>The user's login.</p>"
+        }
+      ]
+    },
+    {
+      "name": "users",
+      "type": "UserConnection!",
+      "kind": "objects",
+      "id": "userconnection",
+      "href": "/graphql/reference/objects#userconnection",
+      "description": "<p>A list of users.</p>",
+      "args": [
+        {
+          "name": "after",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>Returns the elements in the list that come after the specified cursor.</p>"
+        },
+        {
+          "name": "before",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>Returns the elements in the list that come before the specified cursor.</p>"
+        },
+        {
+          "name": "first",
+          "type": "Int",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int",
+          "description": "<p>Returns the first <em>n</em> elements from the list.</p>"
+        },
+        {
+          "name": "last",
+          "type": "Int",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int",
+          "description": "<p>Returns the last <em>n</em> elements from the list.</p>"
+        }
+      ]
+    },
+    {
+      "name": "viewer",
+      "type": "User!",
+      "kind": "objects",
+      "id": "user",
+      "href": "/graphql/reference/objects#user",
+      "description": "<p>The currently authenticated user.</p>",
+      "args": []
+    }
+  ],
   "mutations": [
     {
       "name": "abortQueuedMigrations",
@@ -75678,7 +75674,7 @@
     },
     {
       "name": "Boolean",
-      "description": "Represents `true` or `false` values.",
+      "description": "<p>Represents <code>true</code> or <code>false</code> values.</p>",
       "id": "boolean",
       "href": "/graphql/reference/scalars#boolean"
     },
@@ -75698,7 +75694,7 @@
     },
     {
       "name": "Float",
-      "description": "Represents signed double-precision fractional values as specified by [IEEE 754](https://en.wikipedia.org/wiki/IEEE_floating_point).",
+      "description": "<p>Represents signed double-precision fractional values as specified by <a href=\"https://en.wikipedia.org/wiki/IEEE_floating_point\">IEEE 754</a>.</p>",
       "id": "float",
       "href": "/graphql/reference/scalars#float"
     },
@@ -75755,13 +75751,13 @@
     },
     {
       "name": "ID",
-      "description": "Represents a unique identifier that is Base64 obfuscated. It is often used to refetch an object or as key for a cache. The ID type appears in a JSON response as a String; however, it is not intended to be human-readable. When expected as an input type, any string (such as `\"VXNlci0xMA==\"`) or integer (such as `4`) input value will be accepted as an ID.",
+      "description": "<p>Represents a unique identifier that is Base64 obfuscated. It is often used to refetch an object or as key for a cache. The ID type appears in a JSON response as a String; however, it is not intended to be human-readable. When expected as an input type, any string (such as <code>\"VXNlci0xMA==\"</code>) or integer (such as <code>4</code>) input value will be accepted as an ID.</p>",
       "id": "id",
       "href": "/graphql/reference/scalars#id"
     },
     {
       "name": "Int",
-      "description": "Represents non-fractional signed whole numeric values. Int can represent values between -(2^31) and 2^31 - 1.",
+      "description": "<p>Represents non-fractional signed whole numeric values. Int can represent values between -(2^31) and 2^31 - 1.</p>",
       "id": "int",
       "href": "/graphql/reference/scalars#int"
     },
@@ -75774,7 +75770,7 @@
     },
     {
       "name": "String",
-      "description": "Represents textual data as UTF-8 character sequences. This type is most often used by GraphQL to represent free-form human-readable text.",
+      "description": "<p>Represents textual data as UTF-8 character sequences. This type is most often used by GraphQL to represent free-form human-readable text.</p>",
       "id": "string",
       "href": "/graphql/reference/scalars#string"
     },

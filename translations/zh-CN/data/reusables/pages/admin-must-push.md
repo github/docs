@@ -1,5 +1,5 @@
 {% tip %}
 
-**注意**：如果您的网站尚未自动发布，请确保具有管理员权限和经过验证的电子邮件地址的人员已推送到发布源。
+**Note**: {% ifversion pages-custom-workflow %}If you are publishing from a branch and{% else %}If{% endif %} your site has not published automatically, make sure someone with admin permissions and a verified email address has pushed to the publishing source.
 
 {% endtip %}

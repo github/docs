@@ -1,6 +1,9 @@
 import express from 'express'
+import { cacheControlFactory } from './cache-control.js'
 
 const router = express.Router()
+
+const noCacheControl = cacheControlFactory(0)
 
 /**
  * Returns the healthiness of the service.
@@ -9,10 +12,7 @@ const router = express.Router()
  * For example: if we have a failing database connection we may return a 500 status here.
  */
 router.get('/', function healthz(req, res, next) {
-  res.set({
-    'surrogate-control': 'private, no-store',
-    'cache-control': 'private, no-store',
-  })
+  noCacheControl(res)
 
   res.sendStatus(200)
 })

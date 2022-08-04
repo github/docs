@@ -31,7 +31,7 @@ Los prerrequisitos para las transferencias de repositorio son:
 - Cuando transfieres un repositorio que te pertenece a otra cuenta personal, el propietario nuevo recibirá un correo electrónico de confirmación.{% ifversion fpt or ghec %} El correo electrónico de confirmación incluye las instrucciones para aceptar la transferencia. Si el propietario nuevo no acepta la transferencia en el transcurso de un día, la invitación se vencerá.{% endif %}
 - Para transferirle un repositorio que te pertenece a una organización, debes tener permiso para crear un repositorio en la organización de destino.
 - La cuenta objetivo no debe tener un repositorio con el mismo nombre o una bifurcación en la misma red.
-- El propietario original del repositorio se agrega como colaborador en el repositorio transferido. El resto de los colaboradores del repositorio transferido permanecerán intactos.{% ifversion ghec or ghes or ghae %}
+- El propietario original del repositorio se agrega como colaborador en el repositorio transferido. Other collaborators to the transferred repository remain intact.{% ifversion ghes < 3.7 %}
 - Los repositorios internos no pueden transferirse.{% endif %}
 - Las bifurcaciones privadas no se pueden transferir.
 
