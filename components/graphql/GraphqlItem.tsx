@@ -1,5 +1,4 @@
-import { LinkIcon } from '@primer/octicons-react'
-
+import { LinkIconHeading } from 'components/article/LinkIconHeading'
 import type { GraphqlT } from './types'
 import { Notice } from './Notice'
 
@@ -16,17 +15,13 @@ export function GraphqlItem({ item, heading, children, headingLevel = 2 }: Props
     <>
       {headingLevel === 2 && (
         <h2 id={lowerCaseName}>
-          <a className="doctocat-link" href={`#${lowerCaseName}`}>
-            <LinkIcon className="octicon-link" size="small" />
-          </a>
+          <LinkIconHeading slug={lowerCaseName} />
           {item.name}
         </h2>
       )}
       {headingLevel === 3 && (
         <h3 id={lowerCaseName}>
-          <a className="doctocat-link" href={`#${lowerCaseName}`}>
-            <LinkIcon className="octicon-link" size="small" />
-          </a>
+          <LinkIconHeading slug={lowerCaseName} />
           {item.name}
         </h3>
       )}
