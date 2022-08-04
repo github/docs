@@ -1,8 +1,8 @@
 import React from 'react'
 import GithubSlugger from 'github-slugger'
 import cx from 'classnames'
-import { LinkIcon } from '@primer/octicons-react'
 
+import { LinkIconHeading } from 'components/article/LinkIconHeading'
 import { useTranslation } from 'components/hooks/useTranslation'
 import { PreviewT } from 'components/graphql/types'
 import styles from 'components/ui/MarkdownContent/MarkdownContent.module.scss'
@@ -20,9 +20,7 @@ export function Previews({ schema }: Props) {
     return (
       <div className={cx(styles.markdownBody, styles.automatedPages)} key={slug}>
         <h2 id={slug}>
-          <a className="doctocat-link" href={`#${slug}`}>
-            <LinkIcon className="octicon-link" size="small" />
-          </a>
+          <LinkIconHeading slug={slug} />
           {item.title}
         </h2>
         <p>{item.description}</p>
