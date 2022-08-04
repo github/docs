@@ -22,13 +22,13 @@ shortTitle: Dejar de publicar el sitio de las páginas
 
 {% ifversion pages-custom-workflow %}
 
-When you unpublish your site, the site will no longer be available. Any existing repository settings or content will not be affected.
+Cuando dejes de publicar tu sitio, este ya no estará disponible. Cualquier ajuste o contenido de un repositorio existente seguirá sin afectación.
 
 {% data reusables.repositories.navigate-to-repo %}
-1. Under **{% data variables.product.prodname_pages %}**, next to the **Your site is live at** message, click {% octicon "kebab-horizontal" aria-label="the horizontal kebab icon" %}.
-1. In the menu that appears, select **Unpublish site**.
+1. Debajo de **{% data variables.product.prodname_pages %}**, junto al mensaje de **Tu sitio está publicado en**, haz clic en el {% octicon "kebab-horizontal" aria-label="the horizontal kebab icon" %}.
+1. En el menú que se muestra, selecciona **Dejar de publicar el sitio**.
 
-   ![Drop down menu to unpublish site](/assets/images/help/pages/unpublish-site.png)
+   ![Menú desplegable para dejar de publicar el sitio](/assets/images/help/pages/unpublish-site.png)
 
 {% else %}
 

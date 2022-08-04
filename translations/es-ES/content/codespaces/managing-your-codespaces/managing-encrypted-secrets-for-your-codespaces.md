@@ -77,19 +77,19 @@ Puedes actualizar el valor de un secreto existente y puedes cambiar qué reposit
 
 ## Utilizar secretos
 
-A secret is exported as an environment variable into the user's terminal session.
+El secreto se exporta como una variable de ambiente en la sesión de la terminal del usuario.
 
-  ![Displaying the value of an exported secret in the terminal](/assets/images/help/codespaces/exported-codespace-secret.png)
+  ![Mostrar el valor de un secreto exportado en la terminal](/assets/images/help/codespaces/exported-codespace-secret.png)
 
-You can use secrets in a codespace after the codespace is built and is running. For example, a secret can be used:
+Puedes utilizar secretos en un codespace después de que este se compile y esté ejecutándose. Por ejemplo, un secreto puede utilizarse:
 
-* When launching an application from the integrated terminal or ssh session.
-* Within a dev container lifecycle script that is run after the codespace is running. For more information about dev container lifecycle scripts, see the documentation on containers.dev: [Specification](https://containers.dev/implementors/json_reference/#lifecycle-scripts).
+* Al lanzar una aplicación desde la terminal integrada o sesión ssh.
+* Dentro de un script de ciclo de vida de un contenedor dev que se ejecuta después de que el codespace esté en ejecución. Para obtener más información sobre los scripts de ciclo de vida de contenedor dev, consulta la documentación sobre containers.dev: [Especificación](https://containers.dev/implementors/json_reference/#lifecycle-scripts).
 
-Codespace secrets cannot be used during:
+Los secretos de los codespaces no pueden utilizarse durante:
 
-* Codespace build time (that is, within a Dockerfile or custom entry point).
-* Within a dev container feature. For more information, see the `features` attribute in the documentation on containers.dev: [Specification](https://containers.dev/implementors/json_reference/#general-properties).
+* El tiempo de compilación de un codespace (es decir, dentro de un Dockerfile o punto de entrada personalizado).
+* Dentro de una característica de contenedor dev. Para obtener más información, consulta el atributo de `features` en la documentación de containers.dev: [Especificación](https://containers.dev/implementors/json_reference/#general-properties).
 
 ## Leer más
 
