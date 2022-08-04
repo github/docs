@@ -46,8 +46,8 @@ You can link to an image in a repository on {% data variables.product.product_na
 
     [[https://github.com/USERNAME/REPOSITORY/blob/main/img/octocat.png|alt=octocat]]
 
-{% ifversion math %}
-## Adding mathematical expressions{% ifversion mermaid %} and diagrams{% endif %}{% endif %}
+{% ifversion fpt or ghec or ghes > 3.6 or ghae > 3.6 %}
+## Adding mathematical expressions and diagrams{% endif %}
 
 {% data reusables.getting-started.math-and-diagrams %}
 
