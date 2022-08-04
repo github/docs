@@ -13,3 +13,8 @@
 @import "shadows.scss";
 @import "syntax-highlighting.scss";
 @import "utilities.scss";
+
+// render a gray background until we know the color mode via XHR
+html {
+  background: #777;
+}
