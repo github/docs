@@ -1,7 +1,7 @@
 ---
-title: 'Tracking progress on your {% data variables.product.prodname_projects_v1 %}'
-shortTitle: 'Tracking {% data variables.product.prodname_projects_v1 %}'
-intro: 'Learn how to track your work on {% data variables.projects.projects_v1_board %}'
+title: '{% data variables.product.prodname_projects_v1 %}の進捗を追跡する'
+shortTitle: '{% data variables.product.prodname_projects_v1 %}の追跡'
+intro: '{% data variables.projects.projects_v1_board %}上の作業の追跡のやり方を学んでください。'
 versions:
   feature: projects-v1
 topics:

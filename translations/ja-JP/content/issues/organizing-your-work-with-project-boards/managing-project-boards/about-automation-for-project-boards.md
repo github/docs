@@ -1,6 +1,6 @@
 ---
-title: 'About automation for {% data variables.product.prodname_projects_v1 %}'
-intro: 'You can configure automatic workflows to keep the status of {% data variables.projects.projects_v1_board %} cards in sync with the associated issues and pull requests.'
+title: '{% data variables.product.prodname_projects_v1 %}の自動化について'
+intro: '{% data variables.projects.projects_v1_board %}カードのステータスと、関連するIssue及びPull Requestとの同期を保つための自動化ワークフローを設定できます。'
 redirect_from:
   - /github/managing-your-work-on-github/managing-project-boards/about-automation-for-project-boards
   - /articles/about-automation-for-project-boards
@@ -9,21 +9,21 @@ versions:
   feature: projects-v1
 topics:
   - Pull requests
-shortTitle: 'Automation for {% data variables.product.prodname_projects_v1 %}'
+shortTitle: '{% data variables.product.prodname_projects_v1 %}の自動化'
 allowTitleToDifferFromFilename: true
 ---
 
 {% data reusables.projects.project_boards_old %}
 
-{% data reusables.project-management.automate-project-board-permissions %}  For more information, see "[{% data variables.product.prodname_projects_v1_caps %} permissions for an organization](/articles/project-board-permissions-for-an-organization)."
+{% data reusables.project-management.automate-project-board-permissions %} 詳しい情報については[Organizationの{% data variables.product.prodname_projects_v1_caps %}の権限](/articles/project-board-permissions-for-an-organization)」を参照してください。
 
-You can automate actions based on triggering events for {% data variables.projects.projects_v1_board %} columns. This eliminates some of the manual tasks in managing a {% data variables.projects.projects_v1_board %}. For example, you can configure a "To do" column, where any new issues or pull requests you add to a {% data variables.projects.projects_v1_board %} are automatically moved to the configured column. For more information, see "[Configuring automation for {% data variables.product.prodname_projects_v1 %}](/articles/configuring-automation-for-project-boards)."
+アクションを、{% data variables.projects.projects_v1_board %}の列に対するイベントによるトリガーに基づいて自動化できます。 これによって、{% data variables.projects.projects_v1_board %}の管理のための主導のタスクの一部を削減できます。 例えば、{% data variables.projects.projects_v1_board %}に対して新しいIssueやPull Requestを追加する"To do"列が、自動的に設定された列に移動されるように設定できます。 詳しい情報については「[{% data variables.product.prodname_projects_v1 %}の自動化の設定](/articles/configuring-automation-for-project-boards)」を参照してください。
 
 {% data reusables.project-management.use-automated-template %}
 
 {% data reusables.project-management.copy-project-boards %}
 
-{% data variables.projects.projects_v1_board_caps %} automation can also help teams develop a shared understanding of a {% data variables.projects.projects_v1_board %}'s purpose and the team's development process by creating a standard workflow for certain actions.
+{% data variables.projects.projects_v1_board_caps %}の自動化は、特定のアクションに対する標準化されたワークフローを作成することによって、Teamが{% data variables.projects.projects_v1_board %}の目的とTeamの開発プロセスの共通理解を促進するための役にも立ちます。
 
 {% data reusables.project-management.resync-automation %}
 
@@ -37,10 +37,10 @@ You can automate actions based on triggering events for {% data variables.projec
 
 ## プロジェクトの進捗の追跡
 
-You can track the progress on your {% data variables.projects.projects_v1_board %}. [To do]、[In progress]、または [Done] 列のカードの数は、プロジェクトの進捗全体にカウントされます。 {% data reusables.project-management.project-progress-locations %}
+{% data variables.projects.projects_v1_board %}の進捗を追跡できます。 [To do]、[In progress]、または [Done] 列のカードの数は、プロジェクトの進捗全体にカウントされます。 {% data reusables.project-management.project-progress-locations %}
 
-For more information, see "[Tracking progress on your {% data variables.product.prodname_project_v1 %}](/github/managing-your-work-on-github/tracking-progress-on-your-project-board)."
+詳しい情報については「[{% data variables.product.prodname_project_v1 %}の進捗の追跡](/github/managing-your-work-on-github/tracking-progress-on-your-project-board)」を参照してください。
 
 ## 参考リンク
-- "[Configuring automation for {% data variables.product.prodname_projects_v1 %}](/articles/configuring-automation-for-project-boards)"{% ifversion fpt or ghec %}
-- "[Copying a {% data variables.product.prodname_project_v1 %}](/articles/copying-a-project-board)"{% endif %}
+- 「[{% data variables.product.prodname_projects_v1 %}の自動化の設定](/articles/configuring-automation-for-project-boards)」{% ifversion fpt or ghec %}
+- 「[{% data variables.product.prodname_project_v1 %}のコピー](/articles/copying-a-project-board)」{% endif %}
