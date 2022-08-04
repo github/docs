@@ -35,6 +35,6 @@ The person you invite to be your successor must have a {% data variables.product
 3. Under "Successor settings", to invite a successor, begin typing a username, full name, or email address, then click their name when it appears.
    ![Successor invitation search field](/assets/images/help/settings/settings-invite-successor-search-field.png)
 4. Click **Add successor**.
-5. If prompted, [confirm access to your account](/authentication/keeping-your-account-and-data-secure/sudo-mode).
+{% data reusables.user-settings.sudo-mode-popup %}
 6. The user you've invited will be listed as "Pending" until they agree to become your successor.
    ![Pending successor invitation](/assets/images/help/settings/settings-pending-successor.png)
