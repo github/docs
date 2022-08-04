@@ -15,7 +15,7 @@ topics:
 ---
 After you've performed a sudo-protected action, you'll only be asked to re-authenticate again after a few hours of inactivity. Every sudo-protected action resets this timer.
 
-{% ifversion fpt or ghec or ghes > 3.6 %}
+{% ifversion totp-and-mobile-sudo-challenge %}
 
 {% note %}
 
@@ -50,7 +50,7 @@ If you have installed and signed in to {% data variables.product.prodname_mobile
 
 {% endif %}
 
-{% ifversion fpt or ghec or ghes > 3.6 %}
+{% ifversion totp-and-mobile-sudo-challenge %}
 
 ## Confirm access with a two-factor authentication code
 
@@ -93,5 +93,5 @@ If you set up two-factor authentication via text messages, {% data variables.pro
 ## Further reading
 
 - [Unix `sudo` command](http://en.wikipedia.org/wiki/Sudo)
-{% ifversion fpt or ghec or ghes > 3.6 %}- [Configuring two-factor authentication](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication){% endif %}
+{% ifversion totp-and-mobile-sudo-challenge %}- [Configuring two-factor authentication](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication){% endif %}
 {% ifversion fpt or ghec %}- [Using {% data variables.product.prodname_mobile %}](/get-started/using-github/github-mobile).{% endif %}
