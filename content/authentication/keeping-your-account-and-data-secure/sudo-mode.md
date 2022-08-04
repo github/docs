@@ -1,6 +1,6 @@
 ---
 title: Sudo mode
-intro: '{% data variables.product.product_name %} requires re-authentication before you can modify your email address, authorize third-party applications, or add new public keys, or initiate other *sudo-protected* actions.'
+intro: 'To confirm access to your account before you perform a potentially sensitive action, {% data variables.product.product_location %} prompts for authentication.'
 redirect_from:
   - /articles/sudo-mode
   - /github/authenticating-to-github/sudo-mode
@@ -13,15 +13,32 @@ topics:
   - Identity
   - Access management
 ---
-After you've performed a sudo-protected action, you'll only be asked to re-authenticate again after a few hours of inactivity. Every sudo-protected action resets this timer.
 
-{% ifversion totp-and-mobile-sudo-challenge %}
+## About sudo mode
+
+To maintain the security of your account when you perform a potentially sensitive action on {% data variables.product.product_location %}, you must authenticate even though you're already signed in. For example, {% data variables.product.company_short %} considers the following actions sensitive because each action could allow a new person or system to access your account.
+
+- Modification of an associated email address
+- Authorization of a third-party application
+- Addition of a new SSH key
+
+You can authenticate using your password{% ifversion totp-and-mobile-sudo-challenge %}. Optionally, you can authenticate using a security key or authentication code for two-factor authentication (2FA), or with {% data variables.product.prodname_mobile %}{% endif %}.
+
+After you authenticate to perform a sensitive action, your session is temporarily in "sudo mode." In sudo mode, you can perform sensitive actions without authentication. {% data variables.product.product_location %} will wait a few hours before prompting you for authentication again. During this time, any sensitive action that you perform will reset the timer.
+
+{% ifversion ghes %}
 
 {% note %}
 
-**Note**: Depending on the authentication options available on your account, {% data variables.product.product_name %} will prioritize the most secure option for sudo authentication. However, you can always fallback to alternatives (like providing a password).
+**Note**: If {% data variables.product.product_location %} uses an external authentication method like CAS or SAML SSO, you will not receive prompts to enter sudo mode. For more information, contact your site administrator.
 
 {% endnote %}
+
+{% endif %}
+
+"sudo" is a reference to a program on Unix systems, where the name is short for "**su**peruser **do**." For more information, see [sudo](https://wikipedia.org/wiki/Sudo) on Wikipedia.
+
+{% ifversion totp-and-mobile-sudo-challenge %}
 
 ## Confirm access using a security key
 
