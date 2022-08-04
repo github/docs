@@ -17,8 +17,8 @@ shortTitle: Educadores & Pesquisadores
 
 Com os serviços e ferramentas do {% data variables.product.prodname_education %} para educadores de todos os níveis, você pode:
   - Usar o [{% data variables.product.prodname_classroom %}](https://classroom.github.com) para distribuir código, dar feedback aos alunos e coletar atribuições no {% data variables.product.prodname_dotcom %}.
-  - Ingressar na nossa [{% data variables.product.prodname_education_community %}](https://education.github.com/forum) para discutir tendências atuais na educação tecnológica com seus colegas ao redor do mundo.
-  - [Solicitar um kit surpresa do {% data variables.product.prodname_dotcom %}](https://github.com/orgs/github-community/discussions/13) com materiais e brindes educativos para os estudantes.
+  - Ingressar na nossa [{% data variables.product.prodname_education_community %}](https://github.com/orgs/community/discussions/categories/github-education) para discutir tendências atuais na educação tecnológica com seus colegas ao redor do mundo.
+  - [Solicitar um kit surpresa do {% data variables.product.prodname_dotcom %}](https://github.com/orgs/community/discussions/13) com materiais e brindes educativos para os estudantes.
   {% data reusables.education.apply-for-team %}
 
 ## {% data variables.product.prodname_education %} para pesquisadores

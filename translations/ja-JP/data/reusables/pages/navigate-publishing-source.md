@@ -1,1 +1,1 @@
-1. サイトの公開ソースにアクセスしてください。 公開元に関する詳しい情報については、「[{% data variables.product.prodname_pages %} について](/articles/about-github-pages#publishing-sources-for-github-pages-sites)」を参照してください。
+1. サイトの公開ソースにアクセスしてください。 For more information, see "[Configuring a publishing source for your GitHub Pages site](/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)."

@@ -2,8 +2,6 @@
 title: OAuth 授权
 intro: 通过 OAuth 授权，您可以管理 OAuth 应用程序对您的帐户的访问权限。
 versions:
-  fpt: '*'
-  ghec: '*'
   ghes: '*'
 topics:
   - API

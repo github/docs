@@ -1,5 +1,5 @@
 {% tip %}
 
-**Note**: {% ifversion pages-custom-workflow %}If you are publishing from a branch and{% else %}If{% endif %} your site has not published automatically, make sure someone with admin permissions and a verified email address has pushed to the publishing source.
+**Nota**: {% ifversion pages-custom-workflow %}Si estás publicando desde una rama y{% else %}Si{% endif %} tu sitio no se publicó automáticamente, asegúrate de que alguien con permisos administrativos y una dirección de correo electrónico verificada lo haya subido a la fuente de publicación.
 
 {% endtip %}
