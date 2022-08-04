@@ -8,7 +8,7 @@ shortTitle: Create diagrams
 
 ## About creating diagrams
 
-You can create diagrams in Markdown using three different syntaxes: mermaid, geoJSON and topoJSON, and ASCII STL.
+You can create diagrams in Markdown using three different syntaxes: mermaid, geoJSON and topoJSON, and ASCII STL. Diagram rendering is {% data reusables.getting-started.available-throughout %}
 
 ## Creating Mermaid diagrams
 
