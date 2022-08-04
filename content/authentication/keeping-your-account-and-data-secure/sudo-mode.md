@@ -9,6 +9,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
+miniTocMaxHeadingLevel: 3
 topics:
   - Identity
   - Access management
@@ -21,8 +22,6 @@ To maintain the security of your account when you perform a potentially sensitiv
 - Modification of an associated email address
 - Authorization of a third-party application
 - Addition of a new SSH key
-
-You can authenticate using your password{% ifversion totp-and-mobile-sudo-challenge %}. Optionally, you can authenticate using a security key or authentication code for two-factor authentication (2FA), or with {% data variables.product.prodname_mobile %}{% endif %}.
 
 After you authenticate to perform a sensitive action, your session is temporarily in "sudo mode." In sudo mode, you can perform sensitive actions without authentication. {% data variables.product.product_location %} will wait a few hours before prompting you for authentication again. During this time, any sensitive action that you perform will reset the timer.
 
@@ -38,77 +37,58 @@ After you authenticate to perform a sensitive action, your session is temporaril
 
 "sudo" is a reference to a program on Unix systems, where the name is short for "**su**peruser **do**." For more information, see [sudo](https://wikipedia.org/wiki/Sudo) on Wikipedia.
 
+## Confirming access for sudo mode
+
+To confirm access for sudo mode, you {% ifversion totp-and-mobile-sudo-challenge %}can{% else %}must{% endif %} authenticate with your password.{% ifversion totp-and-mobile-sudo-challenge %} Optionally, you can use a different authentication method, like {% ifversion fpt or ghec %}a security key, {% data variables.product.prodname_mobile %}, or a 2FA code{% elsif ghes %}a security key or a 2FA code{% endif %}.{% endif %}
+
 {% ifversion totp-and-mobile-sudo-challenge %}
+- [Confirming access using a security key](#confirming-access-using-a-security-key)
+{%- ifversion fpt or ghec %}
+- [Confirming access using GitHub Mobile](#confirming-access-using-github-mobile)
+{%- endif %}
+- [Confirming access using a 2FA code](#confirming-access-using-a-2fa-code)
+- [Confirming access using your password](#confirming-access-using-your-password)
 
-## Confirm access using a security key
+### Confirming access using a security key
 
-If you [configured two-factor authentication using a security key](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication#configuring-two-factor-authentication-using-a-security-key), you can use your security key to confirm sudo mode access.
+You must configure two-factor authentication (2FA) for your account using a security key to confirm access to your account for sudo mode using the security key. For more information, see "[Configuring two-factor authentication](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication#configuring-two-factor-authentication-using-a-security-key)."
 
-1. Choose "Use security key" and follow the browser specific prompts.
-  ![Sudo Mode Prompt Security Key](/assets/images/help/settings/sudo_mode_prompt_security_key.png)
+When prompted to authenticate for sudo mode, click **Use security key**, then follow the prompts.
 
-    - If the security key is authenticated, the sudo access request will be completed.
+![Screenshot of security key option for sudo mode](/assets/images/help/settings/sudo_mode_prompt_security_key.png)
 
 {% endif %}
 
 {% ifversion fpt or ghec %}
 
-## Confirm access with {% data variables.product.prodname_mobile %}
+### Confirming access using {% data variables.product.prodname_mobile %}
 
-If you have installed and signed in to {% data variables.product.prodname_mobile %}, you may choose to authenticate with {% data variables.product.prodname_mobile %} to confirm sudo access.
+You must install and sign into {% data variables.product.prodname_mobile %} to confirm access to your account for sudo mode using the app. For more information, see "[{% data variables.product.prodname_mobile %}](/get-started/using-github/github-mobile)."
 
-1. When your phone is available, choose "Use GitHub Mobile".
-  ![Sudo Mode Prompt GitHub Mobile prompt](/assets/images/help/settings/sudo_mode_prompt_github_mobile_prompt.png)
-2. {% data variables.product.product_name %} will send you a push notification to confirm access. Opening the push notification or opening the {% data variables.product.prodname_mobile %} app will display a prompt, asking you to approve or reject the authentication attempt to enter sudo mode.
-  ![Sudo Mode Prompt GitHub Mobile verification](/assets/images/help/settings/sudo_mode_prompt_github_mobile.png)
+1. When prompted to authenticate for sudo mode, click **Use GitHub Mobile**.
 
-    - Upon approving the authentication attempt using {% data variables.product.prodname_mobile %}, your browser will complete the sudo access request automatically.
-    - Rejecting the authentication attempt will deny the sudo access request.
+   ![Screenshot of {% data variables.product.prodname_mobile %} option for sudo mode](/assets/images/help/settings/sudo_mode_prompt_github_mobile_prompt.png)
+1. Open {% data variables.product.prodname_mobile %}. {% data variables.product.prodname_mobile %} will display numbers that you must enter on {% data variables.product.product_location %} to approve the request.
+
+   ![Screenshot of numbers from {% data variables.product.prodname_mobile %} to enter on {% data variables.product.product_name %} to approve sudo mode access](/assets/images/help/settings/sudo_mode_prompt_github_mobile.png)
+1. On {% data variables.product.product_name %}, type the numbers displayed in {% data variables.product.prodname_mobile %}.
 
 {% endif %}
 
 {% ifversion totp-and-mobile-sudo-challenge %}
 
-## Confirm access with a two-factor authentication code
+### Confirming access using a 2FA code
 
-If you have [configured two-factor authentication](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication), you will be prompted to provide an authentication code from {% ifversion fpt or ghec %}a text message or{% endif %} your TOTP app.
+You must configure 2FA using a TOTP mobile app{% ifversion fpt or ghec %} or text messages{% endif %} to confirm access to your account for sudo mode using a 2FA code. For more information, see "[Configuring two-factor authentication](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication#configuring-two-factor-authentication-using-a-totp-mobile-app)."
 
-### Generating a code through a TOTP application
+When prompted to authenticate for sudo mode, type the authentication code from your TOTP mobile app{% ifversion fpt or ghec %} or the text message{% endif %}, then click **Verify**.
 
-If you chose to set up two-factor authentication using a TOTP application on your smartphone, you can generate an authentication code for {% data variables.product.product_name %} at any time. In most cases, just launching the application will generate a new code. You should refer to your application's documentation for specific instructions.
+![Screenshot of 2FA code prompt for sudo mode](/assets/images/help/settings/sudo_mode_prompt_2fa_code.png)
 
-1. Enter the authentication code from your TOTP application.
-  ![Sudo Mode Prompt TOTP App](/assets/images/help/settings/sudo_mode_prompt_totp_app.png)
-
-    - If the authentication code is correct, the sudo access request will be completed.
+### Confirming access using your password
 
 {% endif %}
 
-{% ifversion fpt or ghec %}
+When prompted to authenticate for sudo mode, type your password, then click **Confirm**.
 
-### Receiving a text message
-
-If you set up two-factor authentication via text messages, {% data variables.product.product_name %} will send you a text message with your authentication code.
-
-1. When your phone is available, choose "Send SMS".
-  ![Sudo Mode Prompt TOTP send SMS](/assets/images/help/settings/sudo_mode_prompt_totp_sms_prompt.png)
-2. Enter the authentication code received.
-  ![Sudo Mode Prompt TOTP verify SMS](/assets/images/help/settings/sudo_mode_prompt_totp_sms.png)
-
-    - If the authentication code is correct, the sudo access request will be completed.
-
-{% endif %}
-
-## Confirm access using your password
-
-1. Enter your password and choose "Confirm".
-  ![Sudo Mode Prompt Password](/assets/images/help/settings/sudo_mode_prompt_password.png)
-
-    - If the password is correct, the sudo access request will be completed.
-    - If you've forgotten your password, you will need to [request a new password](/authentication/keeping-your-account-and-data-secure/updating-your-github-access-credentials#requesting-a-new-password) before you are able to perform any sudo-protected action.
-
-## Further reading
-
-- [Unix `sudo` command](http://en.wikipedia.org/wiki/Sudo)
-{% ifversion totp-and-mobile-sudo-challenge %}- [Configuring two-factor authentication](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication){% endif %}
-{% ifversion fpt or ghec %}- [Using {% data variables.product.prodname_mobile %}](/get-started/using-github/github-mobile).{% endif %}
+![Screenshot of password prompt for sudo mode](/assets/images/help/settings/sudo_mode_prompt_password.png)
