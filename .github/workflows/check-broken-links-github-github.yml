@@ -71,9 +71,6 @@ jobs:
         env:
           NODE_ENV: production
           PORT: 4000
-          # Overload protection is on by default (when NODE_ENV==production)
-          # but it would help in this context.
-          DISABLE_OVERLOAD_PROTECTION: true
           # Render caching won't help when we visit every page exactly once.
           DISABLE_RENDERING_CACHE: true
         run: |
