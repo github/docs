@@ -9,7 +9,10 @@ import { isConnectionDropped } from './halt-on-dropped-connection.js'
 import { nextApp, nextHandleRequest } from './next.js'
 import { cacheControlFactory } from './cache-control.js'
 
-const htmlCacheControl = cacheControlFactory(60 * 60)
+const browserCacheControl = cacheControlFactory(60) // 1 minute for browsers
+const cdnCacheControl = cacheControlFactory(60 * 60 * 24, {
+  key: 'surrogate-control',
+}) // 24 hours for CDN, we purge this with each deploy
 
 async function buildRenderedPage(req) {
   const { context } = req
@@ -39,7 +42,8 @@ export default async function renderPage(req, res, next) {
   const { context } = req
   const { page } = context
   const path = req.pagePath || req.path
-  htmlCacheControl(res)
+  browserCacheControl(res)
+  cdnCacheControl(res)
 
   // render a 404 page
   if (!page) {
