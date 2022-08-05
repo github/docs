@@ -70,7 +70,7 @@ describe('featuredLinks', () => {
     test('Enterprise user intro links have expected values', async () => {
       const $ = await getDOM(`/en/enterprise/${enterpriseServerReleases.latest}/user/get-started`)
       const $featuredLinks = $('[data-testid=article-list] a')
-      expect($featuredLinks).toHaveLength(11)
+      expect($featuredLinks).toHaveLength(13)
       expect($featuredLinks.eq(0).attr('href')).toBe(
         `/en/enterprise-server@${enterpriseServerReleases.latest}/github/getting-started-with-github/githubs-products`
       )
