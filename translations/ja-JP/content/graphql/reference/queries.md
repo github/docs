@@ -1,6 +1,6 @@
 ---
 title: クエリ
-miniTocMaxHeadingLevel: 2
+miniTocMaxHeadingLevel: 3
 redirect_from:
   - /v4/query
   - /v4/reference/query
@@ -25,14 +25,4 @@ topics:
 
 {% endnote %}
 
-## コネクション
-
-{% for item in graphql.schemaForCurrentVersion.queries.connections %}
-  {% include graphql-query %}
-{% endfor %}
-
-## フィールド
-
-{% for item in graphql.schemaForCurrentVersion.queries.fields %}
-  {% include graphql-query %}
-{% endfor %}
+<!-- Content after this section is automatically generated -->

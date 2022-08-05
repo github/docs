@@ -20,5 +20,4 @@ Por exemplo, o objeto [`Repositório`](/graphql/reference/objects#repository) te
 
 Para obter mais informações, consulte "[Introdução ao GraphQL](/graphql/guides/introduction-to-graphql)".
 
-<!-- this page is pre-rendered by scripts because it's too big to load dynamically -->
-<!-- see lib/graphql/static/prerendered-objects.json -->
+<!-- Content after this section is automatically generated -->

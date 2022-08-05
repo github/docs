@@ -2,23 +2,26 @@ import React, { useEffect } from 'react'
 import App from 'next/app'
 import type { AppProps, AppContext } from 'next/app'
 import Head from 'next/head'
-import { ThemeProvider, ThemeProviderProps, SSRProvider } from '@primer/react'
+import { ThemeProvider, SSRProvider, ThemeProviderProps } from '@primer/react'
 
 import '../stylesheets/index.scss'
 
 import events from 'components/lib/events'
 import experiment from 'components/lib/experiment'
-import { defaultComponentTheme } from 'lib/get-theme.js'
+import { useSession } from 'components/hooks/useSession'
 
 type MyAppProps = AppProps & {
   isDotComAuthenticated: boolean
-  themeProps: typeof defaultComponentTheme & Pick<ThemeProviderProps, 'colorMode'>
 }
-const MyApp = ({ Component, pageProps, themeProps }: MyAppProps) => {
+
+type colorModeAuto = Pick<ThemeProviderProps, 'colorMode'>
+
+const MyApp = ({ Component, pageProps }: MyAppProps) => {
+  const { session, isLoadingSession } = useSession()
   useEffect(() => {
-    events()
+    events(session?.csrfToken)
     experiment()
-  }, [])
+  }, [session])
 
   return (
     <>
@@ -47,12 +50,22 @@ const MyApp = ({ Component, pageProps, themeProps }: MyAppProps) => {
       </Head>
       <SSRProvider>
         <ThemeProvider
-          colorMode={themeProps.colorMode}
-          dayScheme={themeProps.dayTheme}
-          nightScheme={themeProps.nightTheme}
-          preventSSRMismatch
+          colorMode={
+            (session?.theme?.colorMode as colorModeAuto['colorMode']) ||
+            ('auto' as colorModeAuto['colorMode'])
+          }
+          dayScheme={session?.theme?.dayTheme || 'light'}
+          nightScheme={session?.theme?.nightTheme || 'dark'}
         >
-          <Component {...pageProps} />
+          {/* Appears Next.js can't modify <body> after server rendering: https://stackoverflow.com/a/54774431 */}
+          <div
+            data-color-mode={session?.themeCss?.colorMode || 'auto'}
+            data-dark-theme={session?.themeCss?.nightTheme || 'dark'}
+            data-light-theme={session?.themeCss?.dayTheme || 'light'}
+            hidden={isLoadingSession}
+          >
+            <Component {...pageProps} />
+          </div>
         </ThemeProvider>
       </SSRProvider>
     </>
@@ -64,16 +77,11 @@ const MyApp = ({ Component, pageProps, themeProps }: MyAppProps) => {
 // executed every time **in the client** if it was the first time
 // ever (since restart) or from a cached HTML.
 MyApp.getInitialProps = async (appContext: AppContext) => {
-  const { ctx } = appContext
   // calls page's `getInitialProps` and fills `appProps.pageProps`
   const appProps = await App.getInitialProps(appContext)
-  const req: any = ctx.req
-
-  const { getTheme } = await import('lib/get-theme.js')
 
   return {
     ...appProps,
-    themeProps: getTheme(req),
   }
 }
 

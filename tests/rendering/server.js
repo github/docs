@@ -129,9 +129,9 @@ describe('server', () => {
     expect(csp.get('style-src').includes("'unsafe-inline'")).toBe(true)
   })
 
-  test('sets Fastly cache control headers to bypass pages', async () => {
+  test('sets Fastly cache control headers', async () => {
     const res = await get('/en')
-    expect(res.headers['cache-control']).toBe('private, no-store')
+    expect(res.headers['cache-control']).toMatch(/public, max-age=/)
     expect(res.headers['surrogate-key']).toBe(SURROGATE_ENUMS.DEFAULT)
   })
 

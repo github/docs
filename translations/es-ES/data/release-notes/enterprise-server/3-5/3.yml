@@ -5,6 +5,7 @@ sections:
     - '**MEDIA**: Previene que un atacante ejecute código de Javascript explotando una vulnerabilidad de scripting entre sitios (XSS) en los elementos desplegables de IU dentro de la interfaz web de GitHub Enterprise Server.'
     - 'Actualiza Grafana a la versión 7.5.16, lo cual trata varias vulnerabilidades de seguridad, incluyendo el [CVE-2020-13379](https://github.com/advisories/GHSA-wc9w-wvq2-ffm9) y el [CVE-2022-21702](https://github.com/grafana/grafana/security/advisories/GHSA-xc3p-28hw-q24g).'
     - 'Los paquetes se actualizaron a las últimas versiones de seguridad.'
+    - '**MEDIUM**: A stored XSS vulnerability was identified in GitHub Enterprise Server that allowed the injection of arbitrary attributes. This injection was blocked by Github''s Content Security Policy (CSP). This vulnerability was reported via the GitHub Bug Bounty program and has been assigned [CVE-2022-23733](https://www.cve.org/CVERecord?id=CVE-2022-23733).  [Updated: 2022-07-31]'
   bugs:
     - 'En algunos casos, el demonio de collectd pudo haber consumido memoria excesiva.'
     - 'En algunos casos, los respaldos de los archivos de bitácora rotados pudieron haber acumulado y consumido un almacenamiento excesivo.'
