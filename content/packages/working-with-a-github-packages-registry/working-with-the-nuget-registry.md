@@ -232,6 +232,8 @@ Your NuGet package may fail to push if the `RepositoryUrl` in *.csproj* is not s
 
 If you're using a nuspec file, ensure that it has a `repository` element with the required `type` and `url` attributes.
 
+Using a `GITHUB_TOKEN` for authentication in a GitHub action to install a NuGet package from another repository will fail. The `GITHUB_TOKEN` is repository-scoped. Use a personal access token (PAT) instead.
+ 
 ## Further reading
 
 - "[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package)"
