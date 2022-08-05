@@ -20,6 +20,4 @@ topics:
 
 詳しい情報については「[GraphQLの紹介](/graphql/guides/introduction-to-graphql)」を参照してください。
 
-{% for item in graphql.schemaForCurrentVersion.enums %}
-  {% include graphql-enum %}
-{% endfor %}
+<!-- Content after this section is automatically generated -->

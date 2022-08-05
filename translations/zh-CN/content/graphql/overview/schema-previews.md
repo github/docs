@@ -23,32 +23,3 @@ topics:
 **注：**目前无法通过 Explorer 访问预览下的 GraphQL 架构成员。
 
 {% endnote %}
-
-{% for preview in graphql.previewsForCurrentVersion %}
-## {{ preview.title }}
-
-{{ preview.description }}
-
-要切换此预览并访问以下架构成员，必须在 `Accept` 标头中提供自定义媒体类型：
-
-```
-{{ preview.accept_header }}
-```
-
-预览的架构成员：
-
-{% for schemaMemberPath in preview.toggled_on %}
-- `{{ schemaMemberPath }}`
-{% endfor %}
-
-{% if preview.announcement %}
-**公告：** [{{ preview.announcement.date }}]({{ preview.announcement.url }})
-{% endif %}
-
-{% if preview.updates %}
-{% for update in preview.updates %}
-**更新时间：** [{{ update.date }}]({{ update.url }})
-{% endfor %}
-{% endif %}
-
-{% endfor %}
