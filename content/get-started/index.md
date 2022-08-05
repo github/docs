@@ -26,7 +26,7 @@ introLinks:
   quickstart: /github/getting-started-with-github/quickstart
 featuredLinks:
   guides:
-    - /get-started/learning-about-github/githubs-products
+    - /github/getting-started-with-github/githubs-products
     - /github/getting-started-with-github/create-a-repo
     - /get-started/onboarding/getting-started-with-your-github-account
     - /get-started/onboarding/getting-started-with-github-team
