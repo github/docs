@@ -16,6 +16,15 @@ import { useSession } from 'components/hooks/useSession'
 
 import styles from './Search.module.scss'
 
+// This is a temporary thing purely for the engineers of this project.
+// When we are content that the new Elasticsearch-based middleware can
+// wrap searches that match the old JSON format, but based on Elasticsearch
+// behind the scene, we can change this component to always use
+// /api/search/legacy. Then, when time allows we can change this component
+// to use the new JSON format (/api/search/v1) and change the code to
+// use that instead.
+const USE_LEGACY_SEARCH = JSON.parse(process.env.NEXT_PUBLIC_USE_LEGACY_SEARCH || 'false')
+
 type SearchResult = {
   url: string
   breadcrumbs: string
@@ -32,6 +41,7 @@ type Props = {
   iconSize: number
   children?: (props: { SearchInput: ReactNode; SearchResults: ReactNode }) => ReactNode
 }
+
 export function Search({
   isHeaderSearch = false,
   isMobileSearch = false,
@@ -58,7 +68,7 @@ export function Search({
     : 'en'
 
   const fetchURL = query
-    ? `/search?${new URLSearchParams({
+    ? `/${USE_LEGACY_SEARCH ? 'api/search/legacy' : 'search'}?${new URLSearchParams({
         language,
         version,
         query,
