@@ -20,5 +20,4 @@ Por ejemplo, [`CommitAuthor`](/graphql/reference/input-objects#commitauthor) tom
 
 Para obtener más información, consulta la sección "[Acerca de las mutaciones](/graphql/guides/forming-calls-with-graphql#about-mutations)".
 
-<!-- this page is pre-rendered by scripts because it's too big to load dynamically -->
-<!-- see lib/graphql/static/prerendered-input-objects.json -->
+<!-- Content after this section is automatically generated -->
