@@ -63,6 +63,7 @@ const MyApp = ({ Component, pageProps }: MyAppProps) => {
             data-color-mode={session?.themeCss?.colorMode || 'auto'}
             data-dark-theme={session?.themeCss?.nightTheme || 'dark'}
             data-light-theme={session?.themeCss?.dayTheme || 'light'}
+            hidden={!session?.themeCss?.colorMode}
           >
             <Component {...pageProps} />
           </div>
