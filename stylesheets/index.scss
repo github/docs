@@ -14,7 +14,8 @@
 @import "syntax-highlighting.scss";
 @import "utilities.scss";
 
-// render a gray background until we know the color mode via XHR
-html {
+// render a mostly gray background until we know the color mode via XHR
+html,
+body {
   background: #6e7781;
 }

@@ -62,7 +62,10 @@ const MyApp = ({ Component, pageProps }: MyAppProps) => {
             data-color-mode={session?.themeCss?.colorMode || 'auto'}
             data-dark-theme={session?.themeCss?.nightTheme || 'dark'}
             data-light-theme={session?.themeCss?.dayTheme || 'light'}
-            hidden={isLoadingSession}
+            style={
+              /* render a mostly gray background until we know the color mode via XHR */
+              { opacity: isLoadingSession ? 0.1 : 1 }
+            }
           >
             <Component {...pageProps} />
           </div>
