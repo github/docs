@@ -9,7 +9,7 @@ import { isConnectionDropped } from './halt-on-dropped-connection.js'
 import { nextApp, nextHandleRequest } from './next.js'
 import { cacheControlFactory } from './cache-control.js'
 
-const htmlCacheControl = cacheControlFactory(60 * 10)
+const htmlCacheControl = cacheControlFactory(60 * 60)
 
 async function buildRenderedPage(req) {
   const { context } = req

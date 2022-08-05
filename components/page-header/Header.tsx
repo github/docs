@@ -6,7 +6,7 @@ import { useVersion } from 'components/hooks/useVersion'
 
 import { Link } from 'components/Link'
 import { useMainContext } from 'components/context/MainContext'
-import { useSession } from 'components/lib/get-session'
+import { useSession } from 'components/hooks/useSession'
 import { LanguagePicker } from './LanguagePicker'
 import { HeaderNotifications } from 'components/page-header/HeaderNotifications'
 import { ProductPicker } from 'components/page-header/ProductPicker'
@@ -26,7 +26,7 @@ export const Header = () => {
   )
   const [scroll, setScroll] = useState(false)
 
-  const session = useSession()
+  const { session } = useSession()
 
   const signupCTAVisible =
     session &&
