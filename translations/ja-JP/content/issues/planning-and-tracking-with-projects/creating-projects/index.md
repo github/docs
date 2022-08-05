@@ -1,7 +1,7 @@
 ---
-title: 'Creating {% data variables.projects.projects_v2 %}'
-shortTitle: 'Creating {% data variables.projects.projects_v2 %}'
-intro: 'Learn about creating projects and migrating your {% data variables.projects.projects_v1_boards %}.'
+title: '{% data variables.projects.projects_v2 %}の作成'
+shortTitle: '{% data variables.projects.projects_v2 %}の作成'
+intro: 'プロジェクトの作成と{% data variables.projects.projects_v1_boards %}の移行について学んでください。'
 versions:
   feature: projects-v2
 topics:
