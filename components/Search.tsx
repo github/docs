@@ -12,7 +12,7 @@ import { useMainContext } from './context/MainContext'
 import { DEFAULT_VERSION, useVersion } from 'components/hooks/useVersion'
 import { useQuery } from 'components/hooks/useQuery'
 import { Link } from 'components/Link'
-import { useSession } from 'components/lib/get-session'
+import { useSession } from 'components/hooks/useSession'
 
 import styles from './Search.module.scss'
 
@@ -46,7 +46,7 @@ export function Search({
   const inputRef = useRef<HTMLInputElement>(null)
   const { t } = useTranslation('search')
   const { currentVersion } = useVersion()
-  const session = useSession()
+  const { session } = useSession()
   const languages = session?.languages
 
   // Figure out language and version for index
