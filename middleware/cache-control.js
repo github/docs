@@ -16,7 +16,10 @@
 //    res.send(body)
 //
 // Max age is in seconds
-export function cacheControlFactory(maxAge = 60 * 60, { public_ = true, immutable = false } = {}) {
+export function cacheControlFactory(
+  maxAge = 60 * 60,
+  { key = 'cache-control', public_ = true, immutable = false } = {}
+) {
   const directives = [
     maxAge && public_ && 'public',
     maxAge && `max-age=${maxAge}`,
@@ -27,6 +30,6 @@ export function cacheControlFactory(maxAge = 60 * 60, { public_ = true, immutabl
     .filter(Boolean)
     .join(', ')
   return (res) => {
-    res.set('cache-control', directives)
+    res.set(key, directives)
   }
 }
