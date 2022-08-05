@@ -82,8 +82,6 @@ To re-enable Universal Links, long-press any {% data variables.product.product_n
 
 ## Sharing feedback
 
-If you find a bug in {% data variables.product.prodname_mobile %}, you can email us at <a href="mailto:mobilefeedback@github.com">mobilefeedback@github.com</a>.
-
 You can submit feature requests or other feedback for {% data variables.product.prodname_mobile %} on [{% data variables.product.prodname_github_community %}](https://github.com/orgs/community/discussions/categories/mobile).
 
 ## Opting out of beta releases for iOS
