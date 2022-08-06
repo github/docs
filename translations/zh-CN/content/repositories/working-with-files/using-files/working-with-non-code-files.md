@@ -363,7 +363,7 @@ graph TD
 
 如果您的图表根本没有呈现，请使用 [Mermaid 实时编辑器](https://mermaid.live/edit)检查您的图表，以验证它是否包含有效的 Mermaid Markdown 语法。
 
-如果图表显示，但未按预期显示，则可以创建新的[反馈讨论](https://github.com/github/feedback/discussions/categories/general-feedback)，并添加 `mermaid` 标记。
+If the chart displays, but does not appear as you'd expect, you can create a new [{% data variables.product.prodname_github_community %} discussion](https://github.com/orgs/community/discussions/categories/general), and add the `Mermaid` label.
 
 #### 已知问题
 

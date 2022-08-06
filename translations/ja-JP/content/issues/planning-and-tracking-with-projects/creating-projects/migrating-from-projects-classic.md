@@ -1,6 +1,6 @@
 ---
-title: 'Migrating from {% data variables.product.prodname_projects_v1 %}'
-intro: 'You can migrate your {% data variables.projects.projects_v1_board %} to the new {% data variables.product.prodname_projects_v2 %} experience.'
+title: '{% data variables.product.prodname_projects_v1 %}からの移行'
+intro: '{% data variables.projects.projects_v1_board %}を新しい{% data variables.product.prodname_projects_v2 %}の体験へ移行できます。'
 miniTocMaxHeadingLevel: 3
 versions:
   feature: projects-v2
@@ -27,7 +27,7 @@ allowTitleToDifferFromFilename: true
 
 ## プロジェクトの移行について
 
-You can migrate your project boards to the new {% data variables.product.prodname_projects_v2 %} experience and try out tables, multiple views, new automation options, and powerful field types. For more information, see "[About projects](/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects)."
+プロジェクトボードを新しい{% data variables.product.prodname_projects_v2 %}体験へ移行し、テーブル、複数のビュー、新しい自動化の選択肢、強力なフィールドタイプを試してください。 詳しい情報については「[プロジェクトについて](/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects)」を参照してください。
 
 ## Organizationのプロジェクトボードの移行
 
@@ -50,7 +50,7 @@ You can migrate your project boards to the new {% data variables.product.prodnam
 
 {% note %}
 
-**Note:** {% data variables.projects.projects_v2_caps %} does not support repository level projects. リポジトリプロジェクトボードを移行する場合、リポジトリプロジェクトを所有しているOrganizationもしくは個人アカウントに移行することになり、移行されたプロジェクトはオリジナルのリポジトリにピン止めされます。
+**ノート:** {% data variables.projects.projects_v2_caps %}はリポジトリレベルのプロジェクトをサポートしません。 リポジトリプロジェクトボードを移行する場合、リポジトリプロジェクトを所有しているOrganizationもしくは個人アカウントに移行することになり、移行されたプロジェクトはオリジナルのリポジトリにピン止めされます。
 
 {% endnote %}
 

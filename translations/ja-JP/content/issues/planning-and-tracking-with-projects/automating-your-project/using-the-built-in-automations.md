@@ -1,7 +1,7 @@
 ---
-title: Using the built-in automations
-shortTitle: Using built-in automations
-intro: You can use built-in workflows to automate your projects.
+title: ビルトイン自動化の利用
+shortTitle: ビルトイン自動化の利用
+intro: ビルトインワークフローを使ってプロジェクトを自動化できます。
 miniTocMaxHeadingLevel: 3
 versions:
   feature: projects-v2
@@ -12,12 +12,12 @@ topics:
 
 {% note %}
 
-**Note:** Built-in workflows are available as part of a limited beta.
+**ノート:** ビルトインワークフローは限定ベータの一部として利用できます。
 
 {% endnote %}
 
 {% data reusables.projects.about-workflows %}
 
-プロジェクトでは、組み込みのワークフローを有効化あるいは無効化できます。
+プロジェクトでは、ビルトインワークフローを有効化あるいは無効化できます。
 
 {% data reusables.projects.enable-basic-workflow %}

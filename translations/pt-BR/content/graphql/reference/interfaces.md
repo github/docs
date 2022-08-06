@@ -20,6 +20,4 @@ Por exemplo, [`Bloqueável`](/graphql/reference/interfaces#lockable) é uma inte
 
 Para obter mais informações, consulte "[Implementação](/graphql/guides/introduction-to-graphql#implementation)".
 
-{% for item in graphql.schemaForCurrentVersion.interfaces %}
-  {% include graphql-interface %}
-{% endfor %}
+<!-- Content after this section is automatically generated -->

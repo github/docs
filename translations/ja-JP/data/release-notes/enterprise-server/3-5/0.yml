@@ -290,13 +290,12 @@ sections:
       GitHub Appがリリースアセットをアップロードできるようになりました。
   changes:
     - |
-      ルートストレージとメモリの最小要件はGitHub Enterprise Server 2.10と3.0で増加され、3.5.0で強制されました。
+      Minimum requirements for root storage and memory increased for GitHub Enterprise Server 2.10 and 3.0, and are now enforced as of 3.5.0.
 
-      - バージョン2.10では、ルートストレージの最小要件は80GBから200GBに増やされました。3.5.0では、システムのプリフライトチェックはルートストレージが80GB未満の場合失敗します。
+        - In version 2.10, the minimum requirement for root storage increased from 80 GB to 200 GB. As of 3.5.0, system preflight checks will fail if the root storage is smaller than 80 GB.
+        - In version 3.0, the minimum requirement for memory increased from 16 GB to 32 GB. As of 3.5.0, system preflight checks will fail if the system has less than 28 GB of memory.
 
-      - バージョン3.0では、メモリの最小要件が16GBから32GBに増やされました。3.5.0では、システムのプリフライトチェックはシステムが28GB未満のメモリしか持っていない場合失敗します。
-
-      詳しい情報については、「[GitHub Enterprise Serverインスタンスのセットアップ](/admin/installation/setting-up-a-github-enterprise-server-instance)」中のサポートされている各デプロイメントプラットフォームに対する最小要件を参照してください。[更新: 2022年6月20日]
+      For more information, see the minimum requirements for each supported deployment platform in "[Setting up a GitHub Enterprise Server instance](/admin/installation/setting-up-a-github-enterprise-server-instance)." [Updated: 2022-06-20]
     - |
       OAuth及びGitHub Appsでデバイス認可フローを使うためには、この機能を手動で有効化しなければなりません。この変更は、アプリケーションがGitHub Enterprise Serverのユーザに対するフィッシング攻撃に使われる可能性を、インテグレーターがそのリスクを認識し、この形態の認証をサポートする意識的な選択を確実に行うことによって下げるものです。OAuth AppもしくはGitHub Appを所有もしくは管理していて、デバイスフローを使いたいのであれば、アプリケーションの設定ページからアプリケーションに対して有効化できます。デバイスフローAPIのエンドポイントは、この機能が有効化されていないアプリケーションに対してはステータスコード`400`を返します。詳しい情報については「[OAuth Appsの認可](/developers/apps/building-oauth-apps/authorizing-oauth-apps#device-flow)」を参照してください。
     - |

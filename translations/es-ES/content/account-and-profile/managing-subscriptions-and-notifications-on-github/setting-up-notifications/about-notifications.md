@@ -96,4 +96,4 @@ Las notificaciones que no se marquen como **Guardadas** se mantendrán por 5 mes
 
 ## Retroalimentación y soporte
 
-Si tienes retroalimentación o solicitudes de características para las notificaciones, utiliza un [debate de retroalimentación de {% data variables.product.product_name %}](https://github.com/github/feedback/discussions/categories/general-feedback).
+If you have feedback or feature requests for notifications, use a [{% data variables.product.prodname_github_community %} discussion](https://github.com/orgs/community/discussions/categories/general).

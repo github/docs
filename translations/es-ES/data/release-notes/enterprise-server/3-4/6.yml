@@ -5,6 +5,7 @@ sections:
     - '**MEDIA**: Previene que un atacante ejecute código de Javascript explotando una vulnerabilidad de scripting entre sitios (XSS) en los elementos desplegables de IU dentro de la interfaz web de GitHub Enterprise Server.'
     - 'Actualiza Grafana a la versión 7.5.16, lo cual trata varias vulnerabilidades de seguridad, incluyendo el [CVE-2020-13379](https://github.com/advisories/GHSA-wc9w-wvq2-ffm9) y el [CVE-2022-21702](https://github.com/grafana/grafana/security/advisories/GHSA-xc3p-28hw-q24g).'
     - 'Los paquetes se actualizaron a las últimas versiones de seguridad.'
+    - '**MEDIUM**: A stored XSS vulnerability was identified in GitHub Enterprise Server that allowed the injection of arbitrary attributes. This injection was blocked by Github''s Content Security Policy (CSP). This vulnerability was reported via the GitHub Bug Bounty program and has been assigned [CVE-2022-23733](https://www.cve.org/CVERecord?id=CVE-2022-23733).  [Updated: 2022-07-31]'
   bugs:
     - 'En algunos casos, el demonio de collectd pudo haber consumido memoria excesiva.'
     - 'En algunos casos, los respaldos de los archivos de bitácora rotados pudieron haber acumulado y consumido un almacenamiento excesivo.'
@@ -12,8 +13,8 @@ sections:
     - 'En algunos casos en donde una rama protegida requirió más de una revisión de aprobación, se pudo haber fusionado una solicitud de cambios con una cantidad menor de revisiones de aprobación que la requerida.'
     - 'En las instancias que utilizan autenticación de LDAP, el mensaje de autenticación para modo sudo colocó incorrectamente el cursor dentro del campo de contraseña predeterminadamente cuando los campos de texto tanto para el nombre de usuario como par ala contraseña estaban visibles.'
     - 'In some cases, scheduled GitHub Actions workflows could become disabled.'
-    - 'The Billing API''s "[Get GitHub Advanced Security active committers for an organization](/rest/billing#get-github-advanced-security-active-committers-for-an-organization)" endpoint now returns `Link` headers to provide information about pagination.'
-    - 'The Billing API''s "[Get GitHub Advanced Security active committers for an organization](/rest/billing#get-github-advanced-security-active-committers-for-an-organization)" endpoint now returns the correct number of total committers.'
+    - 'La terminal de la API de facturación de "[Obtener los confirmantes activos de GitHub Advanced Security para una organización](/rest/billing#get-github-advanced-security-active-committers-for-an-organization)" ahora devuelve encabezados de `Link` para proporcionar información sobre la paginación.'
+    - 'La terminal de la API de facturación de "[Obtener los confirmantes activos de GitHub Advanced Security para una organización](/rest/billing#get-github-advanced-security-active-committers-for-an-organization)" ahora devuelve la cantidad correcta de confirmantes totales.'
   changes:
     - 'La utilidad de línea de comandos `ghe-set-password` inicia automáticamente los servicios requeridos cuando la instancia se arranca en modo de recuperación.'
     - 'Las métricas para los procesos en segundo plano de `aqueduct` se otorgan para el reenvío de Collectd y se muestran en la consola de administración.'
