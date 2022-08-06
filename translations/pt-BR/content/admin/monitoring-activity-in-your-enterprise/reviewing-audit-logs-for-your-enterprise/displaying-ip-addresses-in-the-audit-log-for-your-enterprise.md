@@ -14,12 +14,6 @@ topics:
   - Security
 ---
 
-{% note %}
-
-**Observação:** A exibição de endereços IP no log de auditoria corporativa está atualmente em beta público e está sujeita a alterações.
-
-{% endnote %}
-
 ## Sobre a exibição de endereços IP no log de auditoria
 
 Por padrão, {% data variables.product.product_name %} não exibe o endereço IP de origem para eventos no registro de auditoria da sua empresa. Opcionalmente, para garantir a conformidade e responder a ameaças, você pode exibir o endereço IP completo associado ao criador responsável por cada evento. De modo geral, os criadores são usuários, mas também podem ser aplicativos ou integrações.
