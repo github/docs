@@ -82,8 +82,6 @@ Para reabilitar o Universal Links, mantenha pressionado qualquer link {% data va
 
 ## Compartilhando feedback
 
-Se você encontrar um erro em {% data variables.product.prodname_mobile %}, você pode nos enviar um e-mail para <a href="mailto:mobilefeedback@github.com">mobilefeedback@github.com</a>.
-
 You can submit feature requests or other feedback for {% data variables.product.prodname_mobile %} on [{% data variables.product.prodname_github_community %}](https://github.com/orgs/community/discussions/categories/mobile).
 
 ## Desativando versões beta para iOS

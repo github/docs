@@ -48,28 +48,28 @@ topics:
 
 ## {% data variables.product.prodname_codeql %}のデバッグ成果物の作成
 
-You can obtain artifacts to help you debug {% data variables.product.prodname_codeql %}. デバッグ成果物は、`debug-artifacts`という名前の成果物としてワークフローの実行にアップロードされます。 このデータには、{% data variables.product.prodname_codeql %}ログ、{% data variables.product.prodname_codeql %}データベース（群）、ワークフローが生成したSARIFファイル（群）が含まれます。
+{% data variables.product.prodname_codeql %}のデバッグに役立てるために、成果物を取得できます。 デバッグ成果物は、`debug-artifacts`という名前の成果物としてワークフローの実行にアップロードされます。 このデータには、{% data variables.product.prodname_codeql %}ログ、{% data variables.product.prodname_codeql %}データベース（群）、ワークフローが生成したSARIFファイル（群）が含まれます。
 
-These artifacts will help you debug problems with {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %}. GitHubのサポートに連絡すると、このデータを求められることがあります。
+これらの成果物は、{% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %}の問題をデバッグするために役立ちます。 GitHubのサポートに連絡すると、このデータを求められることがあります。
 
 {% endif %}
 
 {% ifversion codeql-action-debug-logging %}
 
-### Creating {% data variables.product.prodname_codeql %} debugging artifacts by re-running jobs with debug logging enabled
+### デバッグロギングを有効にしてジョブを再実行することによって、{% data variables.product.prodname_codeql %}のデバッグ用の成果物を作成する
 
-You can create {% data variables.product.prodname_codeql %} debugging artifacts by enabling debug logging and re-running the jobs. For more information about re-running {% data variables.product.prodname_actions %} workflows and jobs, see "[Re-running workflows and jobs](/actions/managing-workflow-runs/re-running-workflows-and-jobs)."
+デバッグロギングを有効化して、ジョブを再実行することにより、{% data variables.product.prodname_codeql %}のデバッグ用成果物を作成できます。 {% data variables.product.prodname_actions %}ワークフロー及びジョブの再実行に関する詳しい情報については「[ワークフローとジョブの再実行](/actions/managing-workflow-runs/re-running-workflows-and-jobs)」を参照してください。
 
-You need to ensure that you select **Enable debug logging** . This option enables runner diagnostic logging and step debug logging for the run. You'll then be able to download `debug-artifacts` to investigate further. You do not need to modify the workflow file when creating {% data variables.product.prodname_codeql %} debugging artifacts by re-running jobs.
+**Enable debug logging（デバッグロギングを有効化）**を確実に選択してください。 このオプションは、実行に対するランナーの診断ロギングとステップデバッグロギングを有効化します。 そうすれば、さらなる調査のために`debug-artifacts`をダウンロードできるようになります。 {% data variables.product.prodname_codeql %}のデバッグ用成果物をジョブの再実行によって作成する際に、ワークフローを修正する必要はありません。
 
 
 {% endif %}
 
 {% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5601 %}
 
-### Creating {% data variables.product.prodname_codeql %} debugging artifacts using a workflow flag
+### ワークフローのフラグを利用した{% data variables.product.prodname_codeql %}のデバッグ用成果物の作成
 
-You can create {% data variables.product.prodname_codeql %} debugging artifacts by using a flag in your workflow. For this, you need to modify the `init` step of your {% data variables.product.prodname_codeql_workflow %} file and set `debug: true`.
+{% data variables.product.prodname_codeql %}のデバッグ用成果物は、ワークフローのフラグを使って作成できます。 そのためには、{% data variables.product.prodname_codeql_workflow %}ファイルの`init`ステップを変更し、`debug: true`を設定しなければなりません。
 
 ```yaml
 - name: Initialize CodeQL
@@ -248,7 +248,7 @@ GitHubがホストするLinuxを使用したランナーでは、{% data variabl
 
 ## エラー:「ディスク不足」または「メモリ不足」
 
-On very large projects, {% data variables.product.prodname_codeql %} may run out of disk or memory on the runner.
+非常に大きいプロジェクトの場合、{% data variables.product.prodname_codeql %}はランナーのディスクもしくはメモリを使い切ってしまうかもしれません。
 {% ifversion fpt or ghec %}ホストされた{% data variables.product.prodname_actions %}ランナーでこの問題が生じた場合は、弊社が問題を調査できるよう{% data variables.contact.contact_support %}に連絡してください。
 {% else %}この問題が生じたら、ランナー上のメモリを増やしてみてください。{% endif %}
 

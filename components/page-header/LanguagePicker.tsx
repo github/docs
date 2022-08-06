@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router'
 import Cookies from 'js-cookie'
 
-import { useSession } from 'components/lib/get-session'
+import { useSession } from 'components/hooks/useSession'
 import { Picker } from 'components/ui/Picker'
 import { useTranslation } from 'components/hooks/useTranslation'
 
@@ -14,7 +14,7 @@ type Props = {
 
 export const LanguagePicker = ({ variant }: Props) => {
   const router = useRouter()
-  const session = useSession()
+  const { session } = useSession()
   const languages = session?.languages
   const locale = router.locale || 'en'
 

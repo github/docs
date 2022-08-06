@@ -241,13 +241,14 @@ async function indexVersion(
   })
 
   // POPULATE
-  const operations = Object.values(records).flatMap((doc) => {
+  const allRecords = Object.values(records).sort((a, b) => b.popularity - a.popularity)
+  const operations = allRecords.flatMap((doc) => {
     const { title, objectID, content, breadcrumbs, headings, topics } = doc
     const record = {
       url: objectID,
       title,
       title_autocomplete: title,
-      content,
+      content: escapeHTML(content),
       breadcrumbs,
       headings,
       topics: topics.filter(Boolean),
@@ -291,6 +292,10 @@ async function indexVersion(
       console.log('Deleted', index.index)
     }
   }
+}
+
+function escapeHTML(content) {
+  return content.replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;')
 }
 
 async function loadRecords(indexName, sourceDirectory) {

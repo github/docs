@@ -258,7 +258,7 @@ async function getBodyParams(paramsObject, requiredParams) {
       // Stores the types listed under the `Type` column in the `Parameters`
       // table in the REST API docs. When the parameter contains oneOf
       // there are multiple acceptable parameters that we should list.
-      const paramArray = []
+      let paramArray = []
 
       const oneOfArray = param.oneOf
       const isOneOfObjectOrArray = oneOfArray
@@ -300,7 +300,12 @@ async function getBodyParams(paramsObject, requiredParams) {
         remainingItems.splice(indexOfArrayType, 1)
         paramArray.push(...remainingItems)
       } else if (param.type) {
-        paramArray.push(...param.type)
+        paramArray = paramArray.flat()
+        for (const type of param.type) {
+          if (type && paramArray.indexOf(type) === -1) {
+            paramArray.push(type)
+          }
+        }
       }
       // Supports backwards compatibility for OpenAPI 3.0
       // In 3.1 a nullable type is part of the param.type array and

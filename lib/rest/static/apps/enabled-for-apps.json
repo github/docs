@@ -380,7 +380,7 @@
         "requestPath": "/repos/{owner}/{repo}/actions/oidc/customization/sub"
       },
       {
-        "slug": "set-the-opt-out-flag-of-an-oidc-subject-claim-customization-for-a-repository",
+        "slug": "set-the-opt-in-flag-of-an-oidc-subject-claim-customization-for-a-repository",
         "subcategory": "oidc",
         "verb": "put",
         "requestPath": "/repos/{owner}/{repo}/actions/oidc/customization/sub"
