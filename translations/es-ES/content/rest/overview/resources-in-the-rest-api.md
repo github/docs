@@ -227,7 +227,7 @@ Podrían utilizarse otros códigos de estado de redirección de acuerdo con la e
 
 ## Verbos HTTP
 
-En medida de lo posible, la API de REST de {% data variables.product.product_name %} se esfuerza para utilizar los verbos apropiados de HTTP para cada acción.
+En medida de lo posible, la API de REST de {% data variables.product.product_name %} se esfuerza para utilizar los verbos apropiados de HTTP para cada acción. Toma en cuenta que los verbos HTTP distinguen entre mayúsculas y minúsculas.
 
 | Verbo    | Descripción                                                                                                                                                                                                                                  |
 | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
