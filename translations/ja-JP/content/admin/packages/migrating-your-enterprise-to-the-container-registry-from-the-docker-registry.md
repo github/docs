@@ -16,11 +16,11 @@ topics:
 
 ## {% data variables.product.prodname_container_registry %} について
 
-{% data reusables.package_registry.container-registry-benefits %} For more information, see "[Working with the {% data variables.product.prodname_container_registry %}](/packages/working-with-a-github-packages-registry/working-with-the-container-registry)."
+{% data reusables.package_registry.container-registry-benefits %} 詳しい情報については「[{% data variables.product.prodname_container_registry %}での作業](/packages/working-with-a-github-packages-registry/working-with-the-container-registry)」を参照してください。
 
 For more information about configuring {% data variables.product.prodname_registry %} for {% data variables.product.product_location %}, see "[Getting started with {% data variables.product.prodname_registry %} for your enterprise](/admin/packages/getting-started-with-github-packages-for-your-enterprise)."
 
-## About migration from the Docker registry
+## Dockerレジストリからの移行について
 
 {% data reusables.package_registry.container-registry-replaces-docker-registry %} If the Docker registry on {% data variables.product.product_location %} contains images, you must manually migrate the images to the {% data variables.product.prodname_container_registry %}.
 

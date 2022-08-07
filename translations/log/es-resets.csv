@@ -126,7 +126,7 @@ translations/es-ES/content/codespaces/getting-started/deep-dive.md,Listed in loc
 translations/es-ES/content/codespaces/index.md,Listed in localization-support#489
 translations/es-ES/content/codespaces/managing-your-codespaces/managing-repository-access-for-your-codespaces.md,broken liquid tags
 translations/es-ES/content/codespaces/overview.md,Listed in localization-support#489
-translations/es-ES/content/codespaces/prebuilding-your-codespaces/managing-prebuilds.md,broken liquid tags
+translations/es-ES/content/codespaces/prebuilding-your-codespaces/allowing-a-prebuild-to-access-other-repositories.md,broken liquid tags
 translations/es-ES/content/codespaces/setting-up-your-project-for-codespaces/setting-up-your-dotnet-project-for-codespaces.md,Listed in localization-support#489
 translations/es-ES/content/codespaces/setting-up-your-project-for-codespaces/setting-up-your-java-project-for-codespaces.md,Listed in localization-support#489
 translations/es-ES/content/codespaces/setting-up-your-project-for-codespaces/setting-up-your-nodejs-project-for-codespaces.md,Listed in localization-support#489
@@ -303,7 +303,6 @@ translations/es-ES/data/release-notes/enterprise-server/3-2/0.yml,broken liquid 
 translations/es-ES/data/release-notes/enterprise-server/3-6/0-rc1.yml,broken liquid tags
 translations/es-ES/data/release-notes/github-ae/2021-06/2021-12-06.yml,broken liquid tags
 translations/es-ES/data/release-notes/github-ae/2022-05/2022-05-17.yml,broken liquid tags
-translations/es-ES/data/reusables/actions/contacting-support.md,broken liquid tags
 translations/es-ES/data/reusables/actions/enterprise-marketplace-actions.md,broken liquid tags
 translations/es-ES/data/reusables/actions/enterprise-storage-ha-backups.md,broken liquid tags
 translations/es-ES/data/reusables/actions/settings-ui/settings-actions-general.md,rendering error

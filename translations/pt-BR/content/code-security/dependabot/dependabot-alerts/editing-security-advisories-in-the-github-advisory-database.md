@@ -22,7 +22,7 @@ shortTitle: Editar banco de dados consultivo
 ## Sobre a edição de consultorias no {% data variables.product.prodname_advisory_database %}
 Consultorias de segurança em {% data variables.product.prodname_advisory_database %} em [github.com/advisories](https://github.com/advisories) são consideradas consultorias globais. Qualquer pessoa pode sugerir melhorias em qualquer consultoria de segurança global na {% data variables.product.prodname_advisory_database %}. Você pode editar ou adicionar qualquer detalhe, incluindo ecossistemas adicionalmente afetados, nível de gravidade ou descrição de quem é impactado. A equipe de curadoria da {% data variables.product.prodname_security %} irá revisar as melhorias apresentadas e publicá-las em {% data variables.product.prodname_advisory_database %}, se aceitas.
 {% ifversion fpt or ghec %}
-Somente proprietários e administradores de repositórios podem editar consultorias de segurança no nível do repositório. For more information, see "[Editing a repository security advisory](/code-security/security-advisories/editing-a-security-advisory)."{% endif %}
+Somente proprietários e administradores de repositórios podem editar consultorias de segurança no nível do repositório. Para obter mais informações, consulte"[Editando a consultoria de segurança de um repositório](/code-security/security-advisories/editing-a-security-advisory)."{% endif %}
 
 ## Editando consultorias no banco de dados consultivo do GitHub
 
@@ -36,12 +36,12 @@ Somente proprietários e administradores de repositórios podem editar consultor
 Você também pode abrir um pull request diretamente em um arquivo consultivo no repositório [github/advisory-database](https://github.com/github/advisory-database). Para obter mais informações, consulte as [diretrizes de contribuição](https://github.com/github/advisory-database/blob/main/CONTRIBUTING.md).
 
 {% ifversion security-advisories-ghes-ghae %}
-## Editing advisories from {% data variables.product.product_location %}
+## Editando consultorias de {% data variables.product.product_location %}
 
-If you have {% data variables.product.prodname_github_connect %} enabled for {% data variables.product.product_location %}, you will be able to see advisories by adding `/advisories` to the instance url.
+Se você tiver {% data variables.product.prodname_github_connect %} habilitado para {% data variables.product.product_location %}, você poderá ver consultorias adicionando `/advisories` à URL da instância.
 
-1. Navigate to `https://HOSTNAME/advisories`.
+1. Acesse `https://HOSTNAME/advisories`.
 2. Selecione a consultoria de segurança com a qual você gostaria de contribuir.
-3. On the right-hand side of the page, click the **Suggest improvements for this vulnerability on Github.com.** link. A new tab opens with the same security advisory on {% data variables.product.prodname_dotcom_the_website %}. ![Link para sugerir melhorias](/assets/images/help/security/suggest-improvements-to-advisory-on-github-com.png)
-4. Edit the advisory, following steps four through six in "[Editing advisories in the GitHub Advisory Database](#editing-advisories-in-the-github-advisory-database)" above.
+3. No lado direito da página, clique no link **Sugerir melhorias para esta vulnerabilidade no no Github.com**. Uma noba guia será aberta com a mesma consultoria de segurança em {% data variables.product.prodname_dotcom_the_website %}. ![Link para sugerir melhorias](/assets/images/help/security/suggest-improvements-to-advisory-on-github-com.png)
+4. Edite a consultoria, seguindo os passos quatro a seis em "[Editando consultorias no banco de dados do GitHub](#editing-advisories-in-the-github-advisory-database)" acima.
 {% endif %}

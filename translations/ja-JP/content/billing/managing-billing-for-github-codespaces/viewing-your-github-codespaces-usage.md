@@ -22,6 +22,9 @@ Organization については、Organization のオーナーと支払いマネー
 {% data reusables.organizations.billing-settings %}
 {% data reusables.dotcom_billing.codespaces-minutes %}
 {% data reusables.dotcom_billing.actions-packages-report-download-org-account %}
+1. レポートをフィルタして、`Product`フィールドで"Codespaces"をメンションしている行だけを表示させてください。
+
+   ![Codespacesでフィルターされた使用状況レポート](/assets/images/help/codespaces/CSV-usage-report.png)
 
 {% ifversion ghec %}
 ## Enterprise アカウントの {% data variables.product.prodname_codespaces %} の使用状況を表示する

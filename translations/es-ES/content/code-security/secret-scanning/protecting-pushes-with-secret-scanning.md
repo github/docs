@@ -24,7 +24,15 @@ shortTitle: Protección contra subidas
 
 Has ahora, el {% data variables.product.prodname_secret_scanning_GHAS %} verifica secretos _después_ de una subida y alerta a los usuarios sobre los secretos expuestos. {% data reusables.secret-scanning.push-protection-overview %}
 
+If a contributor bypasses a push protection block for a secret, {% data variables.product.prodname_dotcom %}:
+- generates an alert.
+- creates an alert in the "Security" tab of the repository.
+- adds the bypass event to the audit log.{% ifversion secret-scanning-push-protection-email %}
+- sends an email alert to organization owners, security managers, and repository administrators, with a link to the related secret and the reason why it was allowed.{% endif %}
+
 El {% data variables.product.prodname_secret_scanning_caps %} como protección contra subidas actualmente escanea los repositorios para encontrar secretos que hayan emitido los siguientes proveedores de servicios.
+
+{% data reusables.secret-scanning.secret-scanning-pattern-pair-matches %}
 
 {% data reusables.secret-scanning.secret-list-private-push-protection %}
 
@@ -78,6 +86,8 @@ Si confirmas que un secreto es real y que pretendes corregirlo después, debes i
 
 {% data reusables.secret-scanning.push-protection-allow-secrets-alerts %}
 
+{% data reusables.secret-scanning.push-protection-allow-email %}
+
 1. Visita la URL que devolvió {% data variables.product.prodname_dotcom %} cuando se bloqueó tu subida. ![Captura de pantalla que muestra un formulario con opciones para desbloquear la subida de un secreto](/assets/images/help/repository/secret-scanning-unblock-form.png)
 {% data reusables.secret-scanning.push-protection-choose-allow-secret-options %}
 1. Haz clic en **Permitirme subir este secreto**.
@@ -101,6 +111,8 @@ Puedes eliminar el secreto del archivo utilizando la IU web. Una vez que elimine
 Si {% data variables.product.prodname_dotcom %} bloquea un secreto que piensas se puede subir con seguridad, puedes permitirlo y especificar la razón por la cual se debería de permitir. Si confirmas que un secreto es real y que pretendes corregirlo después, debes intentar remediarlo tan pronto como sea posible.
 
 {% data reusables.secret-scanning.push-protection-allow-secrets-alerts %}
+
+{% data reusables.secret-scanning.push-protection-allow-email %}
 
 Si confirmas que un secreto es real y que pretendes corregirlo después, debes intentar remediarlo tan pronto como sea posible.
 

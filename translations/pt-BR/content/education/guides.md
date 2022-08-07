@@ -46,3 +46,5 @@ Participe da comunidade, receba treinamento de {% data variables.product.company
 - [{% data variables.product.prodname_education_community %}]({% data variables.product.prodname_education_forum_link %})
 - [Sobre Especialistas de campus](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/about-campus-experts)
 - [Sobre Consultores de campus](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/about-campus-advisors)
+- [Sobre {% data variables.product.prodname_community_exchange %}](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-for-your-schoolwork/about-github-community-exchange)
+- [Contribute with GitHub Community Exchange](/education/contribute-with-github-community-exchange)

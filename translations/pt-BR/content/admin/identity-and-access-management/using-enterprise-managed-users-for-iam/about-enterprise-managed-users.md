@@ -66,7 +66,7 @@ Para usar {% data variables.product.prodname_emus %}, você precisa de um tipo d
 
 O {% data variables.product.prodname_managed_users_caps %} só pode contribuir para repositórios privados e internos da sua empresa e repositórios privados pertencentes à sua conta de usuário. {% data variables.product.prodname_managed_users_caps %} tem acesso somente leitura a toda a comunidade de {% data variables.product.prodname_dotcom %} em geral. Estas restrições de acesso e visibilidade para usuários e conteúdo aplicam-se a todas as solicitações, incluindo solicitações da API.
 
-* {% data variables.product.prodname_managed_users %} não pode ser convidado para organizações ou repositórios fora da empresa, nem o {% data variables.product.prodname_managed_users %} pode ser convidado para outras empresas.
+* {% data variables.product.prodname_managed_users_caps %} não pode ser convidado para organizações ou repositórios fora da empresa, nem o {% data variables.product.prodname_managed_users %} pode ser convidado para outras empresas.
 * Os colaboradores externos não são compatíveis com {% data variables.product.prodname_emus %}.
 * {% data variables.product.prodname_managed_users_caps %} não pode criar problemas ou pull requests, comentar ou adicionar reações, nem estrelas, inspeção ou repositórios de bifurcação fora da empresa.
 * {% data variables.product.prodname_managed_users_caps %} pode visualizar todos os repositórios públicos em {% data variables.product.prodname_dotcom_the_website %}, mas não pode fazer push de código para repositórios fora da empresa.

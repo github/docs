@@ -22,6 +22,9 @@ redirect_from:
 {% data reusables.organizations.billing-settings %}
 {% data reusables.dotcom_billing.codespaces-minutes %}
 {% data reusables.dotcom_billing.actions-packages-report-download-org-account %}
+1. Filter the report to show only rows that mention "Codespaces" in the `Product` field.
+
+   ![A usage report filtered for Codespaces](/assets/images/help/codespaces/CSV-usage-report.png)
 
 {% ifversion ghec %}
 ## 查看企业帐户的 {% data variables.product.prodname_codespaces %} 使用情况

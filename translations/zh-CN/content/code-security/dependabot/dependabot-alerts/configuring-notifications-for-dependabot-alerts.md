@@ -58,7 +58,7 @@ topics:
 
 ## 如何减少 {% data variables.product.prodname_dependabot_alerts %} 通知的噪音
 
-如果您想要收到太多 {% data variables.product.prodname_dependabot_alerts %} 的通知，我们建议您选择加入每周的电子邮件摘要，或者在保持 {% data variables.product.prodname_dependabot_alerts %} 启用时关闭通知。 您仍可导航到仓库的 Security（安全性）选项卡查看 {% data variables.product.prodname_dependabot_alerts %}。 更多信息请参阅“[查看和更新 {% data variables.product.prodname_dependabot_alerts %}](/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts)”。
+如果您想要收到太多 {% data variables.product.prodname_dependabot_alerts %} 的通知，我们建议您选择加入每周的电子邮件摘要，或者在保持 {% data variables.product.prodname_dependabot_alerts %} 启用时关闭通知。 您仍可导航到仓库的 Security（安全性）选项卡查看 {% data variables.product.prodname_dependabot_alerts %}。 For more information, see "[Viewing and updating {% data variables.product.prodname_dependabot_alerts %}](/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts)."
 
 ## 延伸阅读
 

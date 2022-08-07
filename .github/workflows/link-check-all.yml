@@ -6,10 +6,10 @@ name: 'Link Checker: All English'
 
 on:
   workflow_dispatch:
+  merge_group:
   push:
     branches:
       - main
-      - gh-readonly-queue/main/**
   pull_request:
 
 permissions:

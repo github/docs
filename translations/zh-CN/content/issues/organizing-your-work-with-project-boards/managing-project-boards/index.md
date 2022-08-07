@@ -1,12 +1,9 @@
 ---
-title: 管理项目板
-shortTitle: 管理项目板
-intro: 了解如何创建和管理项目板
+title: '管理 {% data variables.product.prodname_projects_v1 %}'
+shortTitle: '管理 {% data variables.product.prodname_projects_v1 %}'
+intro: 'Learn how to create and manage {% data variables.projects.projects_v1_boards %}'
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
-  ghec: '*'
+  feature: projects-v1
 topics:
   - Issues
   - Projects
@@ -24,6 +21,7 @@ children:
   - /deleting-a-project-board
 redirect_from:
   - /github/managing-your-work-on-github/managing-project-boards
+allowTitleToDifferFromFilename: true
 ---
 
 {% data reusables.projects.project_boards_old %}

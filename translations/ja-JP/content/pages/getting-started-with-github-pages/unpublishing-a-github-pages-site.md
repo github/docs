@@ -20,6 +20,18 @@ topics:
 shortTitle: Pagesサイトの公開取り下げ
 ---
 
+{% ifversion pages-custom-workflow %}
+
+When you unpublish your site, the site will no longer be available. Any existing repository settings or content will not be affected.
+
+{% data reusables.repositories.navigate-to-repo %}
+1. Under **{% data variables.product.prodname_pages %}**, next to the **Your site is live at** message, click {% octicon "kebab-horizontal" aria-label="the horizontal kebab icon" %}.
+1. In the menu that appears, select **Unpublish site**.
+
+   ![Drop down menu to unpublish site](/assets/images/help/pages/unpublish-site.png)
+
+{% else %}
+
 ## プロジェクトサイトを取り下げる
 
 {% data reusables.repositories.navigate-to-repo %}
@@ -35,3 +47,5 @@ shortTitle: Pagesサイトの公開取り下げ
 {% data reusables.repositories.navigate-to-repo %}
 2. 公開元として使用しているブランチを削除するか、リポジトリ全体を削除します。 詳細は「[リポジトリ内でブランチを作成および削除する](/articles/creating-and-deleting-branches-within-your-repository#deleting-a-branch)」および「[リポジトリを削除する](/articles/deleting-a-repository)」を参照してください。
 {% data reusables.pages.update_your_dns_settings %}
+
+{% endif %}

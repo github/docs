@@ -71,6 +71,8 @@ As opções `build-push-action` necessárias para o Docker Hub são:
 ```yaml{:copy}
 {% data reusables.actions.actions-not-certified-by-github-comment %}
 
+{% data reusables.actions.actions-use-sha-pinning-comment %}
+
 name: Publish Docker image
 
 on:
@@ -144,8 +146,11 @@ As opções de `build-push-action` necessárias para {% data variables.product.p
 O fluxo de trabalho acima é acionado por um push para o branch da "versão". Ele verifica o repositório GitHub e usa `login-action` para fazer login no {% data variables.product.prodname_container_registry %}. Em seguida, extrai etiquetas e tags para a imagem do Docker. Finalmente, ele usa a ação `de build-push-action` para criar a imagem e publicá-la no {% data variables.product.prodname_container_registry %}.
 
 {% else %}
+
 ```yaml{:copy}
 {% data reusables.actions.actions-not-certified-by-github-comment %}
+
+{% data reusables.actions.actions-use-sha-pinning-comment %}
 
 name: Publish Docker image
 
@@ -195,6 +200,8 @@ O fluxo de trabalho a seguir usa os passos das seções anteriores ("[Publicar i
 
 ```yaml{:copy}
 {% data reusables.actions.actions-not-certified-by-github-comment %}
+
+{% data reusables.actions.actions-use-sha-pinning-comment %}
 
 name: Publish Docker image
 

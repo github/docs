@@ -45,6 +45,15 @@ shortTitle: 自动链接的引用
 如果您在列表中引用议题、拉取请求或讨论，则引用将展开以显示标题和状态。 有关任务列表的更多信息，请参阅“[关于任务列表](/issues/tracking-your-work-with-issues/creating-issues/about-task-lists)”。
 {% endif %}
 
+## 标签
+When referencing the URL of a label in Markdown, the label is automatically rendered. Only labels of the same repository are rendered, URLs pointing to a label from a different repository are rendered as any [URL](/get-started/writing-on-github/working-with-advanced-formatting/autolinked-references-and-urls#urls).
+
+The URL of a label can be found by navigating to the labels page and clicking on a label. For example, the URL of the label "enhancement" in our public [docs repository](https://github.com/github/docs/) is
+
+```md
+https://github.com/github/docs/labels/enhancement
+```
+
 ## 提交 SHA
 
 对提交 SHA 哈希的引用会自动转换为指向 {% data variables.product.product_name %} 上提交的短链接。

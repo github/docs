@@ -5,7 +5,7 @@ sections:
     - "**BAJA**: Un atacante pudo acceder a la consola de administración con un ataque de recorrido de ruta a través de HTTP, incluso si las reglas de cortafuegos externo bloqueaban el acceso HTTP."
     - Los paquetes se actualizaron a las últimas versiones de seguridad.
   bugs:
-    - In some cases, site administrators were not automatically added as enterprise owners.
+    - En algunos casos, los administradores de sitio no se agregaron automáticamente como propietarios de empresa.
     - After merging a branch into the default branch, the "History" link for a file would still link to the previous branch instead of the target branch.
   changes:
     - El crear o actualizar ejecuciones de verificación o suites de verificación pudo devolver un `500 Internal Server Error` si el valor para campos específicos, como el de nombre, era demasiado largo.

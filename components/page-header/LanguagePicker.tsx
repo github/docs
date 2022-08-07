@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router'
 import Cookies from 'js-cookie'
 
-import { useLanguages } from 'components/context/LanguagesContext'
+import { useSession } from 'components/hooks/useSession'
 import { Picker } from 'components/ui/Picker'
 import { useTranslation } from 'components/hooks/useTranslation'
 
@@ -14,11 +14,16 @@ type Props = {
 
 export const LanguagePicker = ({ variant }: Props) => {
   const router = useRouter()
-  const { languages } = useLanguages()
+  const { session } = useSession()
+  const languages = session?.languages
   const locale = router.locale || 'en'
+
+  const { t } = useTranslation('picker')
+
+  if (!languages) return null
+
   const langs = Object.values(languages)
   const selectedLang = languages[locale]
-  const { t } = useTranslation('picker')
 
   // The `router.asPath` will always be without a hash in SSR
   // So to avoid a hydraration failure on the client, we have to

@@ -80,7 +80,7 @@ GitHub 宣布了以下计划和价格变更：
 
 ## 什么是 GitHub Community Support?
 
-GitHub Community Support 包括通过我们的[社区论坛](https://github.community/)提供支持，您可以在其中浏览 GitHub 社区的解决方案、提出新问题和交流意见。 GitHub Community Support 的工作人员由 GitHub Team 的支持工程师组成，他们与最活跃的社区成员一起主持社区论坛。 如果您要举报垃圾邮件、举报滥用行为或报告帐户访问问题，您可以在 https://support.github.com/ 上向我们的支持团队发送消息。
+GitHub Community Support includes support through our [{% data variables.product.prodname_github_community %} discussions](https://github.com/orgs/community/discussions), where you can browse solutions from the GitHub community, ask new questions, and share ideas. GitHub Community Support is staffed by Support Engineers on the GitHub Team, who moderate {% data variables.product.prodname_github_community %} along with our most active community members. 如果您要举报垃圾邮件、举报滥用行为或报告帐户访问问题，您可以在 https://support.github.com/ 上向我们的支持团队发送消息。
 
 ## 本次变更对教育福利有何影响？
 

@@ -15,15 +15,15 @@ topics:
 shortTitle: Verificar la llave SSH existente
 ---
 
-## About SSH keys
+## Acerca de las llaves SSH
 
-You can use SSH to perform Git operations in repositories on {% ifversion fpt or ghec or ghes %}{% data variables.product.product_location %}{% elsif ghae %}{% data variables.product.product_name %}{% endif %}. Para obtener más información, consulta la sección "[Acerca de SSH](/authentication/connecting-to-github-with-ssh/about-ssh)".
+Puedes utilizar SSH para llevar a cabo operaciones de Git en repositorios con {% ifversion fpt or ghec or ghes %}{% data variables.product.product_location %}{% elsif ghae %}{% data variables.product.product_name %}{% endif %}. Para obtener más información, consulta la sección "[Acerca de SSH](/authentication/connecting-to-github-with-ssh/about-ssh)".
 
-If you have an existing SSH key, you can use the key to authenticate Git operations over SSH.
+Si tienes una llave SSH existente, puedes utilizarla para autenticar operaciones de Git a través de SSH.
 
 ## Comprobar tus claves SSH existentes
 
-Before you generate a new SSH key, you should check your local machine for existing keys.
+Antes de que generes una llave SSH nueva, debes verificar si tu máquina local cuenta con llaves existentes.
 
 {% data reusables.ssh.key-type-support %}
 

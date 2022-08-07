@@ -74,14 +74,14 @@ Los propietarios de las empresas pueden configurar los correos electrónicos par
 {% data reusables.enterprise_site_admin_settings.wait-for-configuration-run %}
 
 {% ifversion require-tls-for-smtp %}
-## Enforcing TLS for SMTP connections
+## Requerir TLS para conexiones SMTP
 
-You can enforce TLS encryption for all incoming SMTP connections, which can help satisfy an ISO-27017 certification requirement.
+Puedes requerir el cifrado de TLS para todas las conexiones entrantes de SMTP, lo cual puede ayudar a satisfacer un requisito de certificación ISO-27017.
 
 {% data reusables.enterprise_site_admin_settings.email-settings %}
-1. Under "Authentication," select **Enforce TLS auth (recommended)**.
+1. Debajo de "Autenticación", selecciona **requerir la autenticación con TLS (recomendado)**.
 
-   ![Screenshot of the "Enforce TLS auth (recommended)" checkbox](/assets/images/enterprise/configuration/enforce-tls-for-smtp-checkbox.png)
+   ![Captura de pantalla de la casilla de verificación de "Requerir la autenticación con TLS (recomendado)"](/assets/images/enterprise/configuration/enforce-tls-for-smtp-checkbox.png)
 {% data reusables.enterprise_management_console.save-settings %}
 {% endif %}
 
@@ -92,7 +92,7 @@ Si quieres permitir respuestas de correo electrónico para las notificaciones, d
 1. Asegúrate de que el puerto 25 en la instancia esté accesible para tu servidor SMTP.
 2. Crea un registro A que apunte a `reply.[hostname]`. Dependiendo de tu proveedor DNS y de la configuración del host de instancia, es posible que puedas crear un registro A único que apunte a `*.[hostname]`.
 3. Crea un registro MX que apunte a `reply.[hostname]` para que los correos electrónicos para ese dominio sean enrutados a la instancia.
-4. Crea un registro MX que apunte a `noreply.[hostname]` para `[hostname]` para que las respuestas a la dirección `cc` en los correos electrónicos para notificación sean enrutados a la instancia. For more information, see {% ifversion ghes %}"[Configuring notifications](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications){% else %}"[About email notifications](/github/receiving-notifications-about-activity-on-github/about-email-notifications){% endif %}."
+4. Crea un registro MX que apunte a `noreply.[hostname]` para `[hostname]` para que las respuestas a la dirección `cc` en los correos electrónicos para notificación sean enrutados a la instancia. Para obtener más información, consulta la sección {% ifversion ghes %}"[Configurar notificaciones](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications){% else %}"[Acerca de las notificaciones por correo electrónico](/github/receiving-notifications-about-activity-on-github/about-email-notifications){% endif %}".
 
 ## Solución de problemas de entrega de correo electrónico
 

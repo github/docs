@@ -50,7 +50,7 @@
 {%- ifversion ghae %}
 | `external_group` | Contains activities related to Okta groups. | `external_identity` | Contains activities related to a user in an Okta group.
 {%- endif %}
-| `gist` | Contains activities related to Gists. | `git` | Contains activities related to Git events. | `hook` | Contains activities related to webhooks. | `integration` | Contains activities related to integrations in an account. | `integration_installation` | Contains activities related to integrations installed in an account. | `integration_installation_request`  | Contains activities related to organization member requests for owners to approve integrations for use in the organization.
+| `gist` | Contains activities related to Gists. | `hook` | Contains activities related to webhooks. | `integration` | Contains activities related to integrations in an account. | `integration_installation` | Contains activities related to integrations installed in an account. | `integration_installation_request`  | Contains activities related to organization member requests for owners to approve integrations for use in the organization.
 {%- ifversion ghec or ghae %}
 | `ip_allow_list`   | Contains activities related to enabling or disabling the IP allow list for an organization. | `ip_allow_list_entry`   | Contains activities related to the creation, deletion, and editing of an IP allow list entry for an organization.
 {%- endif %}

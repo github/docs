@@ -6,7 +6,7 @@ import { useVersion } from 'components/hooks/useVersion'
 
 import { Link } from 'components/Link'
 import { useMainContext } from 'components/context/MainContext'
-import { useAuth } from 'components/context/DotComAuthenticatedContext'
+import { useSession } from 'components/hooks/useSession'
 import { LanguagePicker } from './LanguagePicker'
 import { HeaderNotifications } from 'components/page-header/HeaderNotifications'
 import { ProductPicker } from 'components/page-header/ProductPicker'
@@ -26,10 +26,11 @@ export const Header = () => {
   )
   const [scroll, setScroll] = useState(false)
 
-  const { isDotComAuthenticated } = useAuth()
+  const { session } = useSession()
 
   const signupCTAVisible =
-    !isDotComAuthenticated &&
+    session &&
+    !session.isSignedIn &&
     (currentVersion === 'free-pro-team@latest' || currentVersion === 'enterprise-cloud@latest')
 
   useEffect(() => {
@@ -63,7 +64,8 @@ export const Header = () => {
       <header
         className={cx(
           'color-bg-default px-3 px-md-6 pt-3 pb-3 position-sticky top-0 z-3 border-bottom',
-          scroll && 'color-shadow-small'
+          scroll && 'color-shadow-small',
+          styles.fullVerticalScroll
         )}
       >
         {/* desktop header */}

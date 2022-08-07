@@ -256,7 +256,7 @@ Other redirection status codes may be used in accordance with the HTTP 1.1 spec.
 ## HTTP verbs
 
 Where possible, the {% data variables.product.product_name %} REST API strives to use appropriate HTTP verbs for each
-action.
+action. Note that HTTP verbs are case-sensitive.
 
 Verb | Description
 -----|-----------
@@ -341,6 +341,18 @@ Name | Description
 `last` |The link relation for the last page of results.
 `first` |The link relation for the first page of results.
 `prev` |The link relation for the immediate previous page of results.
+
+## Timeouts
+
+If {% data variables.product.prodname_dotcom %} takes more than 10 seconds to process an API request, {% data variables.product.prodname_dotcom %} will terminate the request and you will receive a timeout response like this:
+
+```json
+{
+    "message": "Server Error"
+}
+```
+
+{% data variables.product.product_name %} reserves the right to change the timeout window to protect the speed and reliability of the API.
 
 ## Rate limiting
 

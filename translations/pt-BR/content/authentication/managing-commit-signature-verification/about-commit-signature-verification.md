@@ -29,7 +29,7 @@ Os commits e tags têm o seguinte status de verificação, dependendo se você h
 
 {% data reusables.identity-and-permissions.vigilant-mode-beta-note %}
 
-Signing commits differs from signing off on a commit. For more information about signing off on commits, see "[Managing the commit signoff policy for your repository](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-the-commit-signoff-policy-for-your-repository)."
+A assinatura de commits difere encerrar a sessão em um commit. Para obter mais informações sobre a encerrar sessão nos commits, consulte "[Gerenciando a política de encerramento de sessão do commit do seu repositório](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-the-commit-signoff-policy-for-your-repository). "
 
 ### Status padrão
 

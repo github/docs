@@ -205,22 +205,22 @@ shortTitle: 仓库管理策略
 
 {% ifversion profile-name-enterprise-setting %}
 
-## Enforcing a policy for the display of member names in your repositories
+## 强制实施在存储库中显示成员名称的策略
 
-Across all organizations owned by your enterprise, you can allow members to see a comment author's profile name, in addition to their username, in issues and pull requests for public and internal repositories.
+在企业拥有的所有组织中，您可以允许成员在公共和内部存储库的问题和拉取请求中查看评论作者的个人资料名称，以及他们的用户名。
 
 ![评论中显示的评论者个人资料名称](/assets/images/help/issues/commenter-full-name.png)
 
 {% note %}
 
-**Note:** When this policy is enforced for all repositories in the enterprise, it overrides the organization setting for private repositories. For more information, see "[Managing the display of member names in your organization](/organizations/managing-organization-settings/managing-the-display-of-member-names-in-your-organization)".
+**注意：** 对企业中的所有存储库强制实施此策略时，它将覆盖私有存储库的组织设置。 更多信息请参阅“[管理组织中成员名称的显示](/organizations/managing-organization-settings/managing-the-display-of-member-names-in-your-organization)”。
 
 {% endnote %}
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.options-tab %}
-4. Under "Allow members to see the comment author's profile name in public and internal repositories", select the dropdown menu and click a policy. ![Screenshot of Options page with policy drop down emphasized](/assets/images/enterprise/site-admin-settings/comment-authors-profile-name-drop-down.png)
+4. Under "Allow members to see the comment author's profile name in public and internal repositories", select the dropdown menu and click a policy. ![突出显示了策略下拉列表的选项页面的屏幕截图](/assets/images/enterprise/site-admin-settings/comment-authors-profile-name-drop-down.png)
 5. Optionally, to enforce the display of profile names for all repositories in your enterprise, select **Enforce for all repositories on the instance**. ![Screenshot of "Enforce for all repositories" option emphasized](/assets/images/enterprise/site-admin-settings/enforce-for-all-repositories-option.png)
 
 {% endif %}

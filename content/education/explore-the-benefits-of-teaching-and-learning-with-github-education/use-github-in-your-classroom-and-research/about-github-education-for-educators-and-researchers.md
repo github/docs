@@ -16,8 +16,8 @@ shortTitle: Educators & researchers
 
 With {% data variables.product.prodname_education %}'s tools and services for educators of all levels, you can:
   - Use [{% data variables.product.prodname_classroom %}](https://classroom.github.com) to distribute code, give students feedback, and collect assignments on {% data variables.product.prodname_dotcom %}.
-  - Join our [{% data variables.product.prodname_education_community %}](https://education.github.com/forum) to discuss current trends in technology education with your peers from around the world.
-  - [Request a {% data variables.product.prodname_dotcom %} swag bag](https://github.com/orgs/github-community/discussions/13) with educational materials and goodies for your students.
+  - Join our [{% data variables.product.prodname_education_community %}](https://github.com/orgs/community/discussions/categories/github-education) to discuss current trends in technology education with your peers from around the world.
+  - [Request a {% data variables.product.prodname_dotcom %} swag bag](https://github.com/orgs/community/discussions/13) with educational materials and goodies for your students.
   {% data reusables.education.apply-for-team %}
 
 ## {% data variables.product.prodname_education %} for researchers

@@ -68,7 +68,11 @@ Os exemplos abaixo demonstram o uso da ação `fwal/setup-fast`.
 Você pode configurar seu trabalho para usar várias versões do Swift em uma matriz.
 
 ```yaml{:copy}
+
 {% data reusables.actions.actions-not-certified-by-github-comment %}
+
+{% data reusables.actions.actions-use-sha-pinning-comment %}
+
 
 name: Swift
 

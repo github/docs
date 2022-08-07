@@ -13,7 +13,7 @@ miniTocMaxHeadingLevel: 3
 
 {% note %}
 
-This article is part of a series on adopting {% data variables.product.prodname_GH_advanced_security %} at scale. For the previous article in this series, see "[Phase 5: Rollout and scale code scanning](/code-security/adopting-github-advanced-security-at-scale/phase-5-rollout-and-scale-code-scanning)."
+Este artículo es parte de una serie de cómo adoptar la {% data variables.product.prodname_GH_advanced_security %} a escala. For the previous article in this series, see "[Phase 5: Rollout and scale code scanning](/code-security/adopting-github-advanced-security-at-scale/phase-5-rollout-and-scale-code-scanning)."
 
 {% endnote %}
 

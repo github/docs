@@ -233,7 +233,7 @@ Outros códigos de status de redirecionamento podem ser usados de acordo com a e
 
 ## Verbos HTTP
 
-Sempre que possível, a API REST do {% data variables.product.product_name %} busca usar verbos HTTP apropriados para cada ação.
+Sempre que possível, a API REST do {% data variables.product.product_name %} busca usar verbos HTTP apropriados para cada ação. Note that HTTP verbs are case-sensitive.
 
 | Verbo    | Descrição                                                                                                                                                                                                                        |
 | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -303,6 +303,18 @@ Os valores de `rel` possíveis são:
 | `last`    | A relação de link para a última página de resultados.            |
 | `first`   | A relação de link para a primeira página de resultados.          |
 | `prev`    | A relação de link para a página de resultados anterior imediata. |
+
+## Tempo esgotado
+
+If {% data variables.product.prodname_dotcom %} takes more than 10 seconds to process an API request, {% data variables.product.prodname_dotcom %} will terminate the request and you will receive a timeout response like this:
+
+```json
+{
+    "message": "Server Error"
+}
+```
+
+{% data variables.product.product_name %} reserves the right to change the timeout window to protect the speed and reliability of the API.
 
 ## Limite de taxa
 

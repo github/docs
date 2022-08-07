@@ -17,7 +17,7 @@ shortTitle: 添加新的 SSH 密钥
 
 ## About addition of SSH keys to your account
 
-{% data reusables.ssh.about-ssh %} For more information, see "[About SSH](/authentication/connecting-to-github-with-ssh/about-ssh)."
+{% data reusables.ssh.about-ssh %} 更多信息请参阅“[关于 SSH](/authentication/connecting-to-github-with-ssh/about-ssh)”。
 
 After you generate an SSH key pair, you must add the public key to {% ifversion fpt or ghec or ghes %}{% data variables.product.product_location %}{% elsif ghae %}{% data variables.product.product_name %}{% endif %} to enable SSH access for your account.
 
@@ -90,7 +90,7 @@ Before adding a new SSH key to your account on {% ifversion ghae %}{% data varia
 5. 在 "Title"（标题）字段中，为新密钥添加描述性标签。 例如，如果您使用的是个人 Mac，此密钥名称可能是 "Personal MacBook Air"。
 6. 将密钥粘贴到 "Key"（密钥）字段。 ![密钥字段](/assets/images/help/settings/ssh-key-paste.png)
 7. 单击 **Add SSH key（添加 SSH 密钥）**。 ![添加密钥按钮](/assets/images/help/settings/ssh-add-key.png)
-8. 如有提示，请确认您的 {% data variables.product.product_name %} 密码。 ![Sudo 模式对话框](/assets/images/help/settings/sudo_mode_popup.png)
+{% data reusables.user-settings.sudo-mode-popup %}
 
 {% endwebui %}
 
@@ -122,7 +122,7 @@ Before adding a new SSH key to your account on {% ifversion ghae %}{% data varia
 5. 在 "Title"（标题）字段中，为新密钥添加描述性标签。 例如，如果您使用的是个人 Mac，此密钥名称可能是 "Personal MacBook Air"。
 6. 将密钥粘贴到 "Key"（密钥）字段。 ![密钥字段](/assets/images/help/settings/ssh-key-paste.png)
 7. 单击 **Add SSH key（添加 SSH 密钥）**。 ![添加密钥按钮](/assets/images/help/settings/ssh-add-key.png)
-8. 如有提示，请确认您的 {% data variables.product.product_name %} 密码。 ![Sudo 模式对话框](/assets/images/help/settings/sudo_mode_popup.png)
+{% data reusables.user-settings.sudo-mode-popup %}
 
 {% endwebui %}
 
