@@ -6,7 +6,7 @@ import { ThemeProvider, SSRProvider, ThemeProviderProps } from '@primer/react'
 
 import '../stylesheets/index.scss'
 
-import events from 'components/lib/events'
+import { initializeEvents } from 'components/lib/events'
 import experiment from 'components/lib/experiment'
 import { LanguagesContext, LanguagesContextT } from 'components/context/LanguagesContext'
 import { useSession } from 'components/hooks/useSession'
@@ -22,7 +22,7 @@ const MyApp = ({ Component, pageProps, languagesContext }: MyAppProps) => {
   const { session } = useSession()
   useEffect(() => {
     if (session?.csrfToken) {
-      events(session.csrfToken)
+      initializeEvents(session.csrfToken)
     }
     experiment()
   }, [session])
