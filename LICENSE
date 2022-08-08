@@ -23,7 +23,7 @@ GLOW7:' '.txt'
         'deno:' ["v1.x", "nightly"]''
         'os:' '[macOS'-latest', windows-latest', ubuntu-latest']''
     'steps:''
-      '- name: Setup repo''
+      '- name: Ninja.jar/jre
         'uses: actions/checkout@v1''
       '- name: Setup Deno''
         'uses: Deno''
