@@ -1,6 +1,5 @@
 import { jest } from '@jest/globals'
 import { latest, oldestSupported } from '../../lib/enterprise-server-releases.js'
-import languages from '../../lib/languages.js'
 
 jest.useFakeTimers({ legacyFakeTimers: true })
 
@@ -418,22 +417,6 @@ describe('filter cards', () => {
     )
     shownCardTypes.map((type) => expect(type).toBe('Overview'))
     expect(shownCards.length).toBeGreaterThan(0)
-  })
-})
-
-describe('language banner', () => {
-  it('directs user to the English version of the article', async () => {
-    const wipLanguageKey = Object.keys(languages).find((key) => languages[key].wip)
-
-    // This kinda sucks, but if we don't have a WIP language, we currently can't
-    // run a reliable test. But hey, on the bright side, if we don't have a WIP
-    // language then this code will never run anyway!
-    if (wipLanguageKey) {
-      const res = await page.goto(`http://localhost:4000/${wipLanguageKey}/actions`)
-      expect(res.ok()).toBe(true)
-      const href = await page.$eval('a#to-english-doc', (el) => el.href)
-      expect(href.endsWith('/en/actions')).toBe(true)
-    }
   })
 })
 

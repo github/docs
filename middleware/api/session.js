@@ -11,7 +11,6 @@ router.get('/', (req, res) => {
     isSignedIn: Boolean(req.cookies?.dotcom_user),
     csrfToken: req.csrfToken?.() || '',
     userLanguage: req.userLanguage,
-    languages: req.context.languages,
     theme: getTheme(req),
     themeCss: getTheme(req, true),
   })
