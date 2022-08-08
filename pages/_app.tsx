@@ -6,20 +6,24 @@ import { ThemeProvider, SSRProvider, ThemeProviderProps } from '@primer/react'
 
 import '../stylesheets/index.scss'
 
-import events from 'components/lib/events'
+import { initializeEvents } from 'components/lib/events'
 import experiment from 'components/lib/experiment'
+import { LanguagesContext, LanguagesContextT } from 'components/context/LanguagesContext'
 import { useSession } from 'components/hooks/useSession'
 
 type MyAppProps = AppProps & {
   isDotComAuthenticated: boolean
+  languagesContext: LanguagesContextT
 }
 
 type colorModeAuto = Pick<ThemeProviderProps, 'colorMode'>
 
-const MyApp = ({ Component, pageProps }: MyAppProps) => {
-  const { session, isLoadingSession } = useSession()
+const MyApp = ({ Component, pageProps, languagesContext }: MyAppProps) => {
+  const { session } = useSession()
   useEffect(() => {
-    events(session?.csrfToken)
+    if (session?.csrfToken) {
+      initializeEvents(session.csrfToken)
+    }
     experiment()
   }, [session])
 
@@ -62,12 +66,10 @@ const MyApp = ({ Component, pageProps }: MyAppProps) => {
             data-color-mode={session?.themeCss?.colorMode || 'auto'}
             data-dark-theme={session?.themeCss?.nightTheme || 'dark'}
             data-light-theme={session?.themeCss?.dayTheme || 'light'}
-            style={
-              /* render a mostly gray background until we know the color mode via XHR */
-              { opacity: isLoadingSession ? 0.1 : 1 }
-            }
           >
-            <Component {...pageProps} />
+            <LanguagesContext.Provider value={languagesContext}>
+              <Component {...pageProps} />
+            </LanguagesContext.Provider>
           </div>
         </ThemeProvider>
       </SSRProvider>
@@ -80,11 +82,18 @@ const MyApp = ({ Component, pageProps }: MyAppProps) => {
 // executed every time **in the client** if it was the first time
 // ever (since restart) or from a cached HTML.
 MyApp.getInitialProps = async (appContext: AppContext) => {
+  const { ctx } = appContext
   // calls page's `getInitialProps` and fills `appProps.pageProps`
   const appProps = await App.getInitialProps(appContext)
+  const req: any = ctx.req
+
+  // Have to define the type manually here because `req.context.languages`
+  // comes from Node JS and is not type-aware.
+  const languages: LanguagesContextT = req.context.languages
 
   return {
     ...appProps,
+    languagesContext: { languages },
   }
 }
 
