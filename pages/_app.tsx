@@ -8,7 +8,7 @@ import '../stylesheets/index.scss'
 
 import events from 'components/lib/events'
 import experiment from 'components/lib/experiment'
-import { useSession } from 'components/lib/get-session'
+import { useSession } from 'components/hooks/useSession'
 
 type MyAppProps = AppProps & {
   isDotComAuthenticated: boolean
@@ -17,12 +17,11 @@ type MyAppProps = AppProps & {
 type colorModeAuto = Pick<ThemeProviderProps, 'colorMode'>
 
 const MyApp = ({ Component, pageProps }: MyAppProps) => {
+  const { session, isLoadingSession } = useSession()
   useEffect(() => {
-    events()
+    events(session?.csrfToken)
     experiment()
-  }, [])
-
-  const session = useSession()
+  }, [session])
 
   return (
     <>
@@ -58,12 +57,15 @@ const MyApp = ({ Component, pageProps }: MyAppProps) => {
           dayScheme={session?.theme?.dayTheme || 'light'}
           nightScheme={session?.theme?.nightTheme || 'dark'}
         >
-          {/* Appears Next.js can't modify <body> after server rendering:  https://stackoverflow.com/a/54774431 */}
+          {/* Appears Next.js can't modify <body> after server rendering: https://stackoverflow.com/a/54774431 */}
           <div
             data-color-mode={session?.themeCss?.colorMode || 'auto'}
             data-dark-theme={session?.themeCss?.nightTheme || 'dark'}
             data-light-theme={session?.themeCss?.dayTheme || 'light'}
-            hidden={!session?.themeCss?.colorMode}
+            style={
+              /* render a mostly gray background until we know the color mode via XHR */
+              { opacity: isLoadingSession ? 0.1 : 1 }
+            }
           >
             <Component {...pageProps} />
           </div>

@@ -55,7 +55,6 @@ import assetPreprocessing from './asset-preprocessing.js'
 import archivedAssetRedirects from './archived-asset-redirects.js'
 import favicons from './favicons.js'
 import setStaticAssetCaching from './static-asset-caching.js'
-import protect from './overload-protection.js'
 import fastHead from './fast-head.js'
 import fastlyCacheTest from './fastly-cache-test.js'
 import fastRootRedirect from './fast-root-redirect.js'
@@ -99,15 +98,6 @@ export default function (app) {
   //    left-most entry in the X-Forwarded-For header.
   //
   app.set('trust proxy', true)
-
-  // *** Overload Protection ***
-  // Only used in production because our tests can overload the server
-  if (
-    process.env.NODE_ENV === 'production' &&
-    !JSON.parse(process.env.DISABLE_OVERLOAD_PROTECTION || 'false')
-  ) {
-    app.use(protect)
-  }
 
   // *** Request logging ***
   if (ENABLE_DEV_LOGGING) {
@@ -247,7 +237,7 @@ export default function (app) {
 
   // *** Rendering, 2xx responses ***
   app.use('/api', instrument(api, './api'))
-  app.use('/search', instrument(search, './search'))
+  app.use('/search', instrument(search, './search')) // The old search API
   app.use('/healthz', instrument(healthz, './healthz'))
   app.use('/anchor-redirect', instrument(anchorRedirect, './anchor-redirect'))
   app.get('/_ip', instrument(remoteIP, './remoteIP'))

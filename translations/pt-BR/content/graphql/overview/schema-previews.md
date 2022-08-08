@@ -23,32 +23,3 @@ Para acessar uma pré-visualização de esquema, você deverá fornecer um [tipo
 **Observação:** Os integrantes do esquema do GraphQL na pré-visualização não podem ser acessados pelo Explorador no momento.
 
 {% endnote %}
-
-{% for preview in graphql.previewsForCurrentVersion %}
-## {{ preview.title }}
-
-{{ preview.description }}
-
-Para alternar essa visualização e acesso aos seguintes integrantes do esquema, você deve fornecer um tipo de mídia personalizada no cabeçalho `Aceitar`:
-
-```
-{{ preview.accept_header }}
-```
-
-Integrantes do esquema pré-visualizados:
-
-{% for schemaMemberPath in preview.toggled_on %}
-- `{{ schemaMemberPath }}`
-{% endfor %}
-
-{% if preview.announcement %}
-**Anunciado:** [{{ preview.announcement.date }}]({{ preview.announcement.url }})
-{% endif %}
-
-{% if preview.updates %}
-{% for update in preview.updates %}
-**Atualizado:** [{{ update.date }}]({{ update.url }})
-{% endfor %}
-{% endif %}
-
-{% endfor %}

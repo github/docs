@@ -128,8 +128,8 @@ Now, create a custom field named `Priority` and containing the values: `High`, `
 ビューの目的を示すために、分かりやすい名前を付けてください。
 
 {% data reusables.projects.open-view-menu %}
-1. Click {% octicon "pencil" aria-label="the pencil icon" %} **Rename view**. ![Screenshot showing the rename menu item](/assets/images/help/projects-v2/rename-view.png)
-1. Type the new name for your view.
+1. {% octicon "pencil" aria-label="the pencil icon" %} **Rename view（ビューの名前の変更）**をクリックしてください。 ![名前の変更のメニューアイテムが表示されているスクリーンショット](/assets/images/help/projects-v2/rename-view.png)
+1. ビューの新しい名前を入力してください。
 1. To save changes, press <kbd>Return</kbd>.
 
 ![優先度の例](/assets/images/help/projects/project-view-switch.gif)
@@ -147,5 +147,5 @@ Now, create a custom field named `Priority` and containing the values: `High`, `
 
 ## 参考リンク
 
-- "[Adding items to your project](/issues/planning-and-tracking-with-projects/managing-items-in-your-project/adding-items-to-your-project)"
-- "[Customizing a view](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/customizing-a-view)"
+- 「[プロジェクトへのアイテムの追加](/issues/planning-and-tracking-with-projects/managing-items-in-your-project/adding-items-to-your-project)」
+- 「[ビューのカスタマイズ](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/customizing-a-view)」
