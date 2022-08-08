@@ -96,11 +96,11 @@ products:
       possible_types: Tipos posibles
       preview_notice: Aviso de previsualización
       deprecation_notice: Aviso de depreciación
-      preview_period: During the preview period, the API may change without notice.
+      preview_period: Durante el periodo de vista previa, la API podría cambiar sin aviso previo.
     overview:
-      preview_header: 'To toggle this preview and access the following schema members, you must provide a custom media type in the `Accept` header:'
+      preview_header: 'Para activar esta vista previa y acceder a los siguientes miembros del modelo, debes proporcionar un tipo de medios personalizado en el encabezado `Accept`:'
       preview_schema_members: 'Miembros del modelo previstos'
-      announced: Announced
+      announced: Anunciado
       updates: Actualizaciones
   rest:
     reference:
