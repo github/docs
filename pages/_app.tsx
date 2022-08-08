@@ -19,9 +19,11 @@ type MyAppProps = AppProps & {
 type colorModeAuto = Pick<ThemeProviderProps, 'colorMode'>
 
 const MyApp = ({ Component, pageProps, languagesContext }: MyAppProps) => {
-  const { session, isLoadingSession } = useSession()
+  const { session } = useSession()
   useEffect(() => {
-    events(session?.csrfToken)
+    if (session?.csrfToken) {
+      events(session.csrfToken)
+    }
     experiment()
   }, [session])
 
@@ -64,10 +66,6 @@ const MyApp = ({ Component, pageProps, languagesContext }: MyAppProps) => {
             data-color-mode={session?.themeCss?.colorMode || 'auto'}
             data-dark-theme={session?.themeCss?.nightTheme || 'dark'}
             data-light-theme={session?.themeCss?.dayTheme || 'light'}
-            style={
-              /* render a mostly gray background until we know the color mode via XHR */
-              { opacity: isLoadingSession ? 0.1 : 1 }
-            }
           >
             <LanguagesContext.Provider value={languagesContext}>
               <Component {...pageProps} />
