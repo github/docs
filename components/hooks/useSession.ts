@@ -9,19 +9,10 @@ export default async function fetcher<JSON = any>(
   return res.json()
 }
 
-type LanguageItem = {
-  name: string
-  nativeName?: string
-  code: string
-  hreflang: string
-  wip?: boolean
-}
-
 export type Session = {
   isSignedIn: boolean
   csrfToken: string
   userLanguage: string // en, es, ja, cn
-  languages: Record<string, LanguageItem>
   theme: {
     colorMode: Pick<ThemeProviderProps, 'colorMode'>
     nightTheme: string
