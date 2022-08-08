@@ -63,10 +63,7 @@ macOS Monterey 12
 </td>
 <td>
 <code>macos-12</code>
-</td>
-<td>
-O macOS 12 está atualmente em beta público.
-</td>
+  </td>
 </tr>
 <tr>
 <td>
@@ -81,12 +78,13 @@ A etiqueta <code>macos-latest</code> usa a imagem do executor macOS 11 atualment
 </tr>
 <tr>
 <td>
-macOS Catalina 10.15
+macOS Catalina 10.15 <sup>[deprecated]</sup>
 </td>
 <td>
 <code>macos-10.15</code>
 </td>
 <td>
+Migrate to <code>macOS-11</code> or <code>macOS-12</code>. For more information, see <A href="https://github.blog/changelog/2022-07-20-github-actions-the-macos-10-15-actions-runner-image-is-being-deprecated-and-will-be-removed-by-8-30-22/">this GitHub blog post</A>.
 </td>
 </tr>
 </tbody>

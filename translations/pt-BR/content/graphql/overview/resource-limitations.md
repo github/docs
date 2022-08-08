@@ -14,7 +14,7 @@ topics:
 
 ## Limite de nó
 
-Para passar a validação do [esquema](/graphql/guides/introduction-to-graphql#schema), todas as [chamadas ](/graphql/guides/forming-calls-with-graphql) da API v4 do GraphQL devem atender a esses padrões:
+Para passar a validação do [esquema](/graphql/guides/introduction-to-graphql#schema), todas as [chamadas ](/graphql/guides/forming-calls-with-graphql) da API do GraphQL devem atender a esses padrões:
 
 * Os clientes devem fornecer um `primeiro` ou `último` argumento [conexão](/graphql/guides/introduction-to-graphql#connection).
 * Os valores de `primeiro` e `último` devem ser entre 1 e 100.
@@ -130,30 +130,30 @@ Estes dois exemplos mostram como calcular os nós totais em uma chamada.
 
 ## Limite de taxa
 
-O [limite de taxas](/rest/overview/resources-in-the-rest-api#rate-limiting) do GraphQL API v4 é diferente dos limites de taxa do REST API v3.
+O limite da API do GraphQL é diferente dos [limites de taxa](/rest/overview/resources-in-the-rest-api#rate-limiting) da API REST.
 
 Por que os limites de taxa de API são diferentes? Com o [GraphQL](/graphql), uma chamada do GraphQL pode substituir [várias chamadas de REST](/graphql/guides/migrating-from-rest-to-graphql). Uma chamada única e complexa do GraphQL poderia ser o equivalente a milhares de solicitações de REST. Embora uma única chamada GraphQL fique bem abaixo do limite de taxa de API REST, a consulta pode ser muito cara para os servidores do GitHub calcularem.
 
-Para representar com precisão o custo de servidor de uma consulta, a API v4 do GraphQL calcula a **pontuação de um limite de taxa** de uma chamada com base em uma escala normalizada de pontos. Os fatores de pontuação de uma consulta no primeiro e último argumentos em uma conexão principal e suas conexões auxiliares.
+Para representar com precisão o custo de servidor de uma consulta, a API do GraphQL calcula a **pontuação de um limite de taxa** de uma chamada com base em uma escala normalizada de pontos. Os fatores de pontuação de uma consulta no primeiro e último argumentos em uma conexão principal e suas conexões auxiliares.
 
 * A fórmula usa argumentos `primeiros` e `último` na conexão principal e nas conexões secundárias para pré-calcular o potencial de carga nos sistemas do GitHub, como MySQL, ElasticSearch e Git.
 * Cada nova conexão tem o seu valor próprio de pontos. Os pontos são combinados com outros pontos da chamada para uma pontuação de limite de taxa geral.
 
-O limite de taxa de câmbio da API v4 do GraphQL é **5.000 pontos por hora**.
+O limite de taxa de câmbio da API do GraphQL é **5.000 pontos por hora**.
 
-Observe que 5.000 pontos por hora não é o mesmo que 5.000 chamadas por hora: a API v4 do GraphQL e a API v3 de REST usam diferentes limites de taxa.
+Observe que 5.000 pontos por hora não é o mesmo que 5.000 chamadas por hora: a API do GraphQL e a API de REST usam diferentes limites de taxa.
 
 {% note %}
 
-**Observação**: A fórmula atual e o limite de taxa estão sujeitos a alterações à medida que observamos como os desenvolvedores usam a API v4 do GraphQL.
+**Observação**: A fórmula atual e o limite de taxa estão sujeitos a alterações à medida que observamos como os desenvolvedores usam a API do GraphQL.
 
 {% endnote %}
 
 ### Retornar o status de limite da chamada
 
-Com a API REST v3, você pode verificar o status do limite de taxa [inspecionando](/rest/overview/resources-in-the-rest-api#rate-limiting) os cabeçalhos HTTP retornados.
+Com a API REST, você pode verificar o status do limite de taxa [inspecionando](/rest/overview/resources-in-the-rest-api#rate-limiting) os cabeçalhos HTTP retornados.
 
-Com o GraphQL API v4, você pode verificar o status do limite de taxa consultando campos no objeto `rateLimit`:
+Com o GraphQL API, você pode verificar o status do limite de taxa consultando campos no objeto `rateLimit`:
 
 ```graphql
 query {
@@ -186,7 +186,7 @@ Consultar o objeto `rateLimit` retorna a pontuação de uma chamada, mas executa
 
 {% note %}
 
-**Observação**: O custo mínimo de uma chamada para a API v4 do GraphQL é **1**, o que representa uma única solicitação.
+**Observação**: O custo mínimo de uma chamada para a API do GraphQL é **1**, o que representa uma única solicitação.
 
 {% endnote %}
 

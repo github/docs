@@ -43,12 +43,12 @@ Si Jekyll encuentra un error al compilar tu sitio de {% data variables.product.p
 Si recibiste un mensaje de error genérico, revisa los problemas comunes.
 - Estás usando plugins no compatibles. Para obtener más información, consulta "[Acerca de las {% data variables.product.prodname_pages %} y Jekyll](/articles/about-github-pages-and-jekyll#plugins)".{% ifversion fpt or ghec %}
 - Tu repositorio ha excedido nuestros límites de tamaño del repositorio. Para obtener más información, consulta "[¿Cuál es mi cuota de disco?](/articles/what-is-my-disk-quota)"{% endif %}
-- Cambiaste el parámetro `fuente` de tu archivo *_config.yml*. {% data variables.product.prodname_pages %} reemplaza este parámetro durante el proceso de compilación.
-- Un nombre de archivo en tu fuente de publicación contiene dos puntos (`:`), los cuales no se admiten.
+- Cambiaste el parámetro `fuente` de tu archivo *_config.yml*. {% ifversion pages-custom-workflow %}Si publicaste tu sitio desde una rama, {% endif %}{% data variables.product.prodname_pages %} anula este ajuste durante el proceso de compilación.
+- Un nombre de archivo en tus archivos publicados contiene dos puntos (`:`), lo cual no es compatible.
 
 Si recibiste un mensaje de error específico, revisa la información de solución de problemas para el mensaje de error que aparece a continuación.
 
-Después de haber corregido los errores, sube los cambios a la fuente de publicación de tu sitio para activar otra compilación en {% data variables.product.product_name %}.
+{% ifversion pages-custom-workflow %}Después de que hayas corregido cualquier error, activa otra compilación subiendo los cambios a la rama origen de tu sitio (si estás publicando desde una rama) o activando tu flujo de trabajo de {% data variables.product.prodname_actions %} personalizado (si estás publicando con {% data variables.product.prodname_actions %}).{% else %}Después de que hayas corregido cualquier error, sube los cambios a la fuente de publicación de tu sitio o activa otra compilación en {% data variables.product.product_name %}.{% endif %}
 
 ## Error de archivo de configuración
 
@@ -74,7 +74,7 @@ Este error significa que tu código hace referencia a un archivo que no existe e
 
 ## El archivo es un enlace simbólico
 
-Este error significa que tu código hace referencia a un archivo simbólico que no existe en la fuente de publicación de tu sitio.
+Este error significa que tu código referencia un archivo con enlace simbólico que no existe en los archivos publicados para tu sitio.
 
 {% data reusables.pages.search-for-includes %} Si alguno de los archivos a los que has hecho referencia es un enlace simbólico, copia o mueve los archivos al directorio *_includes*.
 
@@ -162,9 +162,9 @@ Para solucionar el problema, elimina la línea `relativa_permalinks` de tu archi
 
 ## El enlace simbólico no existe dentro del repositorio de tu sitio
 
-Este error significa que tu sitio incluye un enlace simbólico (symlink) que no existe en la fuente de publicación de tu sitio. Para obtener más información acerca de los enlaces simbólicos, consulta "[Enlace simbólico](https://en.wikipedia.org/wiki/Symbolic_link)" en Wikipedia.
+Este error significa que tu sitio incluye un enlace simbólico (symlink) que no existe en los archivos publicados para tu sitio. Para obtener más información acerca de los enlaces simbólicos, consulta "[Enlace simbólico](https://en.wikipedia.org/wiki/Symbolic_link)" en Wikipedia.
 
-Para solucionar el problema, determina si el archivo en el mensaje de error se utiliza para compilar tu sitio. De lo contrario, o si no quieres que el archivo sea un enlace simbólico, elimina el archivo. Si el archivo de enlace simbólico se necesita para compilar tu sitio, asegúrate de que el archivo o el directorio al que hace referencia el enlace simbólico esté en la fuente de publicación de tu sitio. Para incluir activos externos, considera usar {% ifversion fpt or ghec %}`submódulo de git` o {% endif %}un administrador de paquetes de terceros como [Bower](https://bower.io/).{% ifversion fpt or ghec %} Para obtener más información, consulta "[Usar submódulos con las {% data variables.product.prodname_pages %}](/articles/using-submodules-with-github-pages)".{% endif %}
+Para solucionar el problema, determina si el archivo en el mensaje de error se utiliza para compilar tu sitio. De lo contrario, o si no quieres que el archivo sea un enlace simbólico, elimina el archivo. Si el archivo de enlace simbólico es necesario para compilar tu sitio, asegúrate de que el archivo o directorio al cuál hace referencia el symlink esté en los archivos publicados para tu sitio. Para incluir activos externos, considera usar {% ifversion fpt or ghec %}`submódulo de git` o {% endif %}un administrador de paquetes de terceros como [Bower](https://bower.io/).{% ifversion fpt or ghec %} Para obtener más información, consulta "[Usar submódulos con las {% data variables.product.prodname_pages %}](/articles/using-submodules-with-github-pages)".{% endif %}
 
 ## Error de sintaxis en el bucle 'for'
 

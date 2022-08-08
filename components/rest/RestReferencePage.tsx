@@ -3,12 +3,13 @@ import { useRouter } from 'next/router'
 import dynamic from 'next/dynamic'
 import cx from 'classnames'
 
+import useLazyLoadHighlightJS from 'components/hooks/useLazyLoadHighlightJS'
 import { DefaultLayout } from 'components/DefaultLayout'
 import { MarkdownContent } from 'components/ui/MarkdownContent'
 import { Lead } from 'components/ui/Lead'
 import { RestOperation } from './RestOperation'
 import styles from './RestOperation.module.scss'
-import { useRestContext } from 'components/context/RestContext'
+import { useAutomatedPageContext } from 'components/context/AutomatedPageContext'
 import { Operation } from './types'
 
 const ClientSideHighlightJS = dynamic(() => import('components/article/ClientSideHighlightJS'), {
@@ -28,7 +29,7 @@ export type StructuredContentT = {
 
 export const RestReferencePage = ({ restOperations }: StructuredContentT) => {
   const { asPath } = useRouter()
-  const { title, intro, renderedPage } = useRestContext()
+  const { title, intro, renderedPage } = useAutomatedPageContext()
   // We have some one-off redirects for rest api docs
   // currently those are limited to the repos page, but
   // that will grow soon as we restructure the rest api docs.
@@ -73,23 +74,7 @@ export const RestReferencePage = ({ restOperations }: StructuredContentT) => {
     })
   }, [])
 
-  // If the page contains `[data-highlight]` blocks, these pages need
-  // syntax highlighting. But not every page needs it, so it's conditionally
-  // lazy-loaded on the client.
-  const [lazyLoadHighlightJS, setLazyLoadHighlightJS] = useState(false)
-  useEffect(() => {
-    // It doesn't need to use querySelector because all we care about is if
-    // there is greater than zero of these in the DOM.
-    // Note! This "core selector", which determines whether to bother
-    // or not, needs to match what's used inside ClientSideHighlightJS.tsx
-    if (document.querySelector('[data-highlight]')) {
-      setLazyLoadHighlightJS(true)
-    }
-
-    // Important to depend on the current path because the first page you
-    // load, before any client-side navigation, might not need it, but the
-    // consecutive one does.
-  }, [asPath])
+  const lazyLoadHighlightJS = useLazyLoadHighlightJS(asPath)
 
   return (
     <DefaultLayout>
@@ -107,21 +92,17 @@ export const RestReferencePage = ({ restOperations }: StructuredContentT) => {
             {intro}
           </Lead>
         )}
-        <MarkdownContent>
-          {renderedPage && <MarkdownContent className="pt-3 pb-4">{renderedPage}</MarkdownContent>}
-          {restOperations &&
-            restOperations.length > 0 &&
-            restOperations.map((operation, index) => (
-              <React.Fragment
+        {renderedPage && <MarkdownContent className="pt-3 pb-4">{renderedPage}</MarkdownContent>}
+        {restOperations.length > 0 && (
+          <MarkdownContent className="pt-3 pb-4">
+            {restOperations.map((operation) => (
+              <RestOperation
                 key={`${operation.title}-${operation.category}-${operation.subcategory}`}
-              >
-                <RestOperation
-                  key={`restOperation-${operation.title}-${index}`}
-                  operation={operation}
-                />
-              </React.Fragment>
+                operation={operation}
+              />
             ))}
-        </MarkdownContent>
+          </MarkdownContent>
+        )}
       </div>
     </DefaultLayout>
   )

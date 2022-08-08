@@ -1,5 +1,5 @@
 {% note %}
 
-**Note**: Each line of this workflow is explained in the next section at "[Understanding the example](#understanding-the-example)."
+**ノート**: このワークフローの各行は「[例を理解する](#understanding-the-example)」の次のセクションで説明されています。
 
 {% endnote %}

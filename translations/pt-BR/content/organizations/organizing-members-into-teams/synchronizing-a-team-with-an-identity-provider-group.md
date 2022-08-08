@@ -1,6 +1,6 @@
 ---
 title: Sincronizar uma equipe com um grupo de provedor de identidade
-intro: 'Você pode sincronizar uma equipe do {% data variables.product.product_name %} com um grupo de provedor de identidade (IdP) para adicionar e remover automaticamente os integrantes da equipe.'
+intro: 'Você pode sincronizar uma equipe de {% data variables.product.product_name %} com um grupo de provedor de identidade (IdP) compatível para adicionar e remover automaticamente os integrantes da equipe.'
 redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/synchronizing-a-team-with-an-identity-provider-group
 permissions: 'Organization owners and team maintainers can synchronize a {% data variables.product.prodname_dotcom %} team with an IdP group.'

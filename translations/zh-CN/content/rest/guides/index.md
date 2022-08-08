@@ -25,4 +25,4 @@ children:
   - /getting-started-with-the-checks-api
 ---
 
-文档的这一部分旨在让您使用实际 {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API 应用程序开始运行。 We'll go over everything you need to know, from authentication to results manipulation to integrating results with other apps. Every tutorial will include a project, and each project will be saved and documented in our public [platform-samples](https://github.com/github/platform-samples) repository. ![The Octocat](/assets/images/electrocat.png)
+文档的这一部分旨在让您使用实际 {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API 应用程序开始运行。 我们将介绍您需要了解的所有内容，从身份验证到结果操作，再到将结果与其他应用程序集成。 每个教程都将包含一个项目，每个项目都将保存并记录在我们的公共 [platform-samples](https://github.com/github/platform-samples) 存储库中。 ![The Octocat](/assets/images/electrocat.png)

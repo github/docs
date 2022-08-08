@@ -36,9 +36,9 @@ You can choose the IDE you'd like to use for an assignment when you create an as
 
 The first time you configure an assignment using a different IDE, you must ensure that it is set up correctly.
 
-Unless you use {% data variables.product.prodname_github_codespaces %}, you must authorize the OAuth app for the IDE for your organization. For all repositories, grant the app **read** access to metadata, administration, and code, and **write** access to administration and code. For more information, see "[Authorizing OAuth Apps](/github/authenticating-to-github/authorizing-oauth-apps)."
+Unless you use {% data variables.product.prodname_codespaces %}, you must authorize the OAuth app for the IDE for your organization. For all repositories, grant the app **read** access to metadata, administration, and code, and **write** access to administration and code. For more information, see "[Authorizing OAuth Apps](/github/authenticating-to-github/authorizing-oauth-apps)."
 
-{% data variables.product.prodname_github_codespaces %} does not require an OAuth app, but you need to enable {% data variables.product.prodname_github_codespaces %} for your organization to be able to configure an assignment with {% data variables.product.prodname_codespaces %}. For more information, see "[Using {% data variables.product.prodname_github_codespaces %} with {% data variables.product.prodname_classroom %}](/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide/using-github-codespaces-with-github-classroom#enabling-codespaces-for-your-organization)."
+{% data variables.product.prodname_codespaces %} does not require an OAuth app, but you need to enable {% data variables.product.prodname_codespaces %} for your organization to be able to configure an assignment with {% data variables.product.prodname_codespaces %}. For more information, see "[Using {% data variables.product.prodname_codespaces %} with {% data variables.product.prodname_classroom %}](/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide/using-github-codespaces-with-github-classroom#enabling-codespaces-for-your-organization)."
 
 ## Further reading
 

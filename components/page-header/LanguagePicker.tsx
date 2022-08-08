@@ -1,8 +1,7 @@
 import { useRouter } from 'next/router'
 import Cookies from 'js-cookie'
 
-import { Link } from 'components/Link'
-import { useLanguages } from 'components/context/LanguagesContext'
+import { useSession } from 'components/hooks/useSession'
 import { Picker } from 'components/ui/Picker'
 import { useTranslation } from 'components/hooks/useTranslation'
 
@@ -15,11 +14,16 @@ type Props = {
 
 export const LanguagePicker = ({ variant }: Props) => {
   const router = useRouter()
-  const { languages } = useLanguages()
+  const { session } = useSession()
+  const languages = session?.languages
   const locale = router.locale || 'en'
+
+  const { t } = useTranslation('picker')
+
+  if (!languages) return null
+
   const langs = Object.values(languages)
   const selectedLang = languages[locale]
-  const { t } = useTranslation('picker')
 
   // The `router.asPath` will always be without a hash in SSR
   // So to avoid a hydraration failure on the client, we have to
@@ -27,9 +31,9 @@ export const LanguagePicker = ({ variant }: Props) => {
   // in a "denormalized" way.
   const routerPath = router.asPath.split('#')[0]
 
-  function rememberPreferredLanguage(code: string) {
+  function rememberPreferredLanguage(value: string) {
     try {
-      Cookies.set(PREFERRED_LOCALE_COOKIE_NAME, code, {
+      Cookies.set(PREFERRED_LOCALE_COOKIE_NAME, value, {
         expires: 365,
         secure: document.location.protocol !== 'http:',
       })
@@ -44,34 +48,20 @@ export const LanguagePicker = ({ variant }: Props) => {
   }
 
   return (
-    <Picker
-      variant={variant}
-      data-testid="language-picker"
-      defaultText={t('language_picker_default_text')}
-      options={langs
-        .filter((lang) => !lang.wip)
-        .map((lang) => ({
-          text: lang.nativeName || lang.name,
-          selected: lang === selectedLang,
-          item: (
-            <Link
-              href={routerPath}
-              locale={lang.code}
-              onClick={() => {
-                rememberPreferredLanguage(lang.code)
-              }}
-            >
-              {lang.nativeName ? (
-                <>
-                  <span lang={lang.code}>{lang.nativeName}</span> (
-                  <span lang="en">{lang.name}</span>)
-                </>
-              ) : (
-                <span lang={lang.code}>{lang.name}</span>
-              )}
-            </Link>
-          ),
-        }))}
-    />
+    <div data-testid="language-picker">
+      <Picker
+        variant={variant}
+        defaultText={t('language_picker_default_text')}
+        options={langs
+          .filter((lang) => !lang.wip)
+          .map((lang) => ({
+            text: lang.nativeName || lang.name,
+            selected: lang === selectedLang,
+            locale: lang.code,
+            href: `${routerPath}`,
+            onselect: rememberPreferredLanguage,
+          }))}
+      />
+    </div>
   )
 }

@@ -1,6 +1,6 @@
 Cuando se utiliza el evento `workflow_dispatch`, puedes especificar opcionalmente entradas que se pasan al flujo de trabajo.
 
-The triggered workflow receives the inputs in the {% ifversion actions-unified-inputs %}`inputs`{% else %}`github.event.inputs`{% endif %} context. For more information, see "[Contexts]({% ifversion actions-unified-inputs %}/actions/learn-github-actions/contexts#inputs-context{% else %}/actions/learn-github-actions/contexts#github-context{% endif %})."
+El flujo de trabajo activado recibe las entradas en el contexto {% ifversion actions-unified-inputs %}`inputs`{% else %}`github.event.inputs`{% endif %}. Para obtener más información, consulta la sección "[Contextos]({% ifversion actions-unified-inputs %}/actions/learn-github-actions/contexts#inputs-context{% else %}/actions/learn-github-actions/contexts#github-context{% endif %})".
 
 {% data reusables.actions.inputs-vs-github-event-inputs %}
 

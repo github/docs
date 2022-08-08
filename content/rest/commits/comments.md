@@ -1,6 +1,6 @@
 ---
 title: Commit comments
-intro: 'The Commit comments API lets you create and edit comments that relate to specific commits.'
+intro: The Commit comments API lets you create and edit comments that relate to specific commits.
 versions:
   fpt: '*'
   ghes: '*'

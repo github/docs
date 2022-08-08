@@ -112,15 +112,13 @@ shortTitle: Manage from your inbox
 - `is:gist`
 - `is:issue-or-pull-request`
 - `is:release`
-- `is:repository-invitation`{% ifversion fpt or ghes or ghae or ghec %}
-- `is:repository-vulnerability-alert`{% endif %}{% ifversion fpt or ghec %}
+- `is:repository-invitation`
+- `is:repository-vulnerability-alert`{% ifversion fpt or ghec %}
 - `is:repository-advisory`{% endif %}
 - `is:team-discussion`{% ifversion fpt or ghec %}
 - `is:discussion`{% endif %}
 
-{% ifversion fpt or ghes or ghae or ghec %}
-For information about reducing noise from notifications for {% data variables.product.prodname_dependabot_alerts %}, see "[Configuring notifications for vulnerable dependencies](/github/managing-security-vulnerabilities/configuring-notifications-for-vulnerable-dependencies)."
-{% endif %}
+For information about reducing noise from notifications for {% data variables.product.prodname_dependabot_alerts %}, see "[Configuring notifications for {% data variables.product.prodname_dependabot_alerts %}](/code-security/dependabot/dependabot-alerts/configuring-notifications-for-dependabot-alerts)."
 
 `is:` クエリを使用して、通知がトリアージされた方法を記述することもできます。
 
@@ -133,20 +131,20 @@ For information about reducing noise from notifications for {% data variables.pr
 
 更新を受信した理由で通知をフィルタするには、`reason:` クエリを使用できます。 たとえば、自分 (または自分が所属する Team) がプルリクエストのレビューをリクエストされたときに通知を表示するには、`reason:review-requested` を使用します。 詳しい情報については、「[通知について](/github/managing-subscriptions-and-notifications-on-github/about-notifications#reasons-for-receiving-notifications)」を参照してください。
 
-| クエリ                       | 説明                                                                                         |
-| ------------------------- | ------------------------------------------------------------------------------------------ |
-| `reason:assign`           | 割り当てられている Issue またはプルリクエストに更新があるとき。                                                        |
-| `reason:author`           | プルリクエストまたは Issue を開くと、更新または新しいコメントがあったとき。                                                  |
-| `reason:comment`          | Issue、プルリクエスト、または Team ディスカッションにコメントしたとき。                                                  |
-| `reason:participating`    | Issue、プルリクエスト、Team ディスカッションについてコメントしたり、@メンションされているとき。                                      |
-| `reason:invitation`       | Team、Organization、またはリポジトリに招待されたとき。                                                        |
-| `reason:manual`           | まだサブスクライブしていない Issue またはプルリクエストで [**Subscribe**] をクリックしたとき。                                |
-| `reason:mention`          | 直接@メンションされたとき。                                                                             |
-| `reason:review-requested` | 自分または参加している Team が、プルリクエストを確認するようにリクエストされているとき。{% ifversion fpt or ghes or ghae or ghec %}
-| `reason:security-alert`   | リポジトリに対してセキュリティアラートが発行されたとき。{% endif %}
-| `reason:state-change`     | プルリクエストまたは Issue の状態が変更されたとき。 たとえば、Issue がクローズされたり、プルリクエストがマージされた場合です。                     |
-| `reason:team-mention`     | メンバーになっている Team が@メンションされたとき。                                                              |
-| `reason:ci-activity`      | リポジトリに、新しいワークフロー実行ステータスなどの CI 更新があるとき。                                                     |
+| クエリ                       | 説明                                                                     |
+| ------------------------- | ---------------------------------------------------------------------- |
+| `reason:assign`           | 割り当てられている Issue またはプルリクエストに更新があるとき。                                    |
+| `reason:author`           | プルリクエストまたは Issue を開くと、更新または新しいコメントがあったとき。                              |
+| `reason:comment`          | Issue、プルリクエスト、または Team ディスカッションにコメントしたとき。                              |
+| `reason:participating`    | Issue、プルリクエスト、Team ディスカッションについてコメントしたり、@メンションされているとき。                  |
+| `reason:invitation`       | Team、Organization、またはリポジトリに招待されたとき。                                    |
+| `reason:manual`           | まだサブスクライブしていない Issue またはプルリクエストで [**Subscribe**] をクリックしたとき。            |
+| `reason:mention`          | 直接@メンションされたとき。                                                         |
+| `reason:review-requested` | 自分または自分が参加している Team が、プルリクエストのレビューをリクエストされたとき。                         |
+| `reason:security-alert`   | リポジトリに対してセキュリティアラートが発行されたとき。                                           |
+| `reason:state-change`     | プルリクエストまたは Issue の状態が変更されたとき。 たとえば、Issue がクローズされたり、プルリクエストがマージされた場合です。 |
+| `reason:team-mention`     | メンバーになっている Team が@メンションされたとき。                                          |
+| `reason:ci-activity`      | リポジトリに、新しいワークフロー実行ステータスなどの CI 更新があるとき。                                 |
 
 {% ifversion fpt or ghec %}
 ### サポートされている `author:` クエリ
@@ -161,7 +159,6 @@ Organization ごとに通知をフィルタするには、`org:` クエリを使
 
 {% endif %}
 
-{% ifversion fpt or ghes or ghae or ghec %}
 ## {% data variables.product.prodname_dependabot %}カスタムフィルタ
 
 {% ifversion fpt or ghec or ghes > 3.2 %}
@@ -170,16 +167,15 @@ If you use {% data variables.product.prodname_dependabot %} to keep your depende
 - `reason:security_alert` は {% data variables.product.prodname_dependabot_alerts %} とセキュリティアップデートのプルリクエストの通知を表示します。
 - `author:app/dependabot` は {% data variables.product.prodname_dependabot %} によって生成された通知を表示します。 これには、{% data variables.product.prodname_dependabot_alerts %}、セキュリティアップデートのプルリクエスト、およびバージョン更新のプルリクエストが含まれます。
 
-{% data variables.product.prodname_dependabot %} の詳細については、「[{% data variables.product.prodname_dependabot_alerts %} について](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies)」を参照してください。
+{% data variables.product.prodname_dependabot %}に関する詳しい情報については「[{% data variables.product.prodname_dependabot_alerts %}について](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies)」を参照してください。
 {% endif %}
 
 {% ifversion ghes < 3.3 or ghae %}
 
-If you use {% data variables.product.prodname_dependabot %} to tell you about vulnerable dependencies, you can use and save these custom filters to show notifications for {% data variables.product.prodname_dependabot_alerts %}:
+If you use {% data variables.product.prodname_dependabot %} to tell you about insecure dependencies, you can use and save these custom filters to show notifications for {% data variables.product.prodname_dependabot_alerts %}:
 - `is:repository_vulnerability_alert`
 - `reason:security_alert`
 
-{% data variables.product.prodname_dependabot %} の詳細については、「[{% data variables.product.prodname_dependabot_alerts %} について](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)」を参照してください。
+{% data variables.product.prodname_dependabot %}に関する詳しい情報については「[{% data variables.product.prodname_dependabot_alerts %}について](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)」を参照してください。
 {% endif %}
 
-{% endif %}

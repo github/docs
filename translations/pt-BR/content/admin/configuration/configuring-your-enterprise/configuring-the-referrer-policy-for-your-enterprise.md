@@ -3,7 +3,7 @@ title: Configurar a política de indicação para a sua empresa
 shortTitle: Configurar a política de indicação
 intro: 'Você pode aumentar a privacidade do {% data variables.product.product_location %} configurando a política para solicitações de origem cruzada.'
 versions:
-  ghes: '>=3.2'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise

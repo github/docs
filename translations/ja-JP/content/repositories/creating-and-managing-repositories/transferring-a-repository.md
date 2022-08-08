@@ -31,7 +31,7 @@ Prerequisites for repository transfers:
 - When you transfer a repository that you own to another personal account, the new owner will receive a confirmation email.{% ifversion fpt or ghec %} The confirmation email includes instructions for accepting the transfer. 新しいオーナーが移譲を 1 日以内に受け入れなければ、招待は期限切れになります。{% endif %}
 - 自分が所有しているリポジトリを Organization に移譲するには、対象 Organization のリポジトリを作成する権限が必要です。
 - ターゲットのアカウントは、同じ名前のリポジトリを持っていたり、同じネットワーク内にフォークを持っていたりしてはなりません。
-- リポジトリのオリジナルのオーナーは、移譲されたリポジトリにコラボレーターとして追加されます。 Other collaborators to the transferred repository remain intact.{% ifversion ghec or ghes or ghae %}
+- リポジトリのオリジナルのオーナーは、移譲されたリポジトリにコラボレーターとして追加されます。 Other collaborators to the transferred repository remain intact.{% ifversion ghes < 3.7 %}
 - Internal repositories can't be transferred.{% endif %}
 - プライベートフォークは移譲できません。
 

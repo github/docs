@@ -87,14 +87,14 @@ jobs:
 ## 支持的运行器和硬件资源
 
 Windows 和 Linux 虚拟机的硬件规格：
-- 2 核 CPU
-- 7 GB RAM 内存
-- 14 GB SSD 硬盘空间
+- 2 核 CPU (x86_64)
+- 7 GB RAM
+- 14 GB SSD 空间
 
 MacOS 虚拟机的硬件规格：
-- 3 核 CPU
-- 14 GB RAM 内存
-- 14 GB SSD 硬盘空间
+- 3 核 CPU (x86_64)
+- 14 GB RAM
+- 14 GB SSD 空间
 
 {% data reusables.actions.supported-github-runners %}
 
@@ -109,6 +109,7 @@ MacOS 虚拟机的硬件规格：
 
 有关每个运行器操作系统包含的工具整个列表，请参阅以下链接：
 
+* [Ubuntu 22.04 LTS](https://github.com/actions/virtual-environments/blob/main/images/linux/Ubuntu2204-Readme.md)
 * [Ubuntu 20.04 LTS](https://github.com/actions/virtual-environments/blob/main/images/linux/Ubuntu2004-Readme.md)
 * [Ubuntu 18.04 LTS](https://github.com/actions/virtual-environments/blob/main/images/linux/Ubuntu1804-Readme.md)
 * [Windows Server 2022](https://github.com/actions/virtual-environments/blob/main/images/win/Windows2022-Readme.md)

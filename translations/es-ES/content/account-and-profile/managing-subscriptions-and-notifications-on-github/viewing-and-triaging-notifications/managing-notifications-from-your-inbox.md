@@ -112,15 +112,13 @@ To filter notifications for specific activity on {% data variables.product.produ
 - `is:gist`
 - `is:issue-or-pull-request`
 - `is:release`
-- `is:repository-invitation`{% ifversion fpt or ghes or ghae or ghec %}
-- `is:repository-vulnerability-alert`{% endif %}{% ifversion fpt or ghec %}
+- `is:repository-invitation`
+- `is:repository-vulnerability-alert`{% ifversion fpt or ghec %}
 - `is:repository-advisory`{% endif %}
 - `is:team-discussion`{% ifversion fpt or ghec %}
 - `is:discussion`{% endif %}
 
-{% ifversion fpt or ghes or ghae or ghec %}
-For information about reducing noise from notifications for {% data variables.product.prodname_dependabot_alerts %}, see "[Configuring notifications for vulnerable dependencies](/github/managing-security-vulnerabilities/configuring-notifications-for-vulnerable-dependencies)."
-{% endif %}
+For information about reducing noise from notifications for {% data variables.product.prodname_dependabot_alerts %}, see "[Configuring notifications for {% data variables.product.prodname_dependabot_alerts %}](/code-security/dependabot/dependabot-alerts/configuring-notifications-for-dependabot-alerts)."
 
 You can also use the `is:` query to describe how the notification was triaged.
 
@@ -142,8 +140,8 @@ To filter notifications by why you've received an update, you can use the `reaso
 | `reason:invitation` | When you're invited to a team, organization, or repository.
 | `reason:manual` | When you click **Subscribe** on an issue or pull request you weren't already subscribed to.
 | `reason:mention` | You were directly @mentioned.
-| `reason:review-requested` | You or a team you're on have been requested to review a pull request.{% ifversion fpt or ghes or ghae or ghec %}
-| `reason:security-alert` | When a security alert is issued for a repository.{% endif %}
+| `reason:review-requested` | You or a team you're on have been requested to review a pull request.
+| `reason:security-alert` | When a security alert is issued for a repository.
 | `reason:state-change`  | When the state of a pull request or issue is changed. For example, an issue is closed or a pull request is merged.
 | `reason:team-mention` | When a team you're a member of is @mentioned.
 | `reason:ci-activity` | When a repository has a CI update, such as a new workflow run status.
@@ -161,7 +159,6 @@ For example, to see notifications from the octo-org organization, use `org:octo-
 
 {% endif %}
 
-{% ifversion fpt or ghes or ghae or ghec %}
 ## {% data variables.product.prodname_dependabot %} custom filters
 
 {% ifversion fpt or ghec or ghes > 3.2 %}
@@ -175,11 +172,10 @@ For more information about {% data variables.product.prodname_dependabot %}, see
 
 {% ifversion ghes < 3.3 or ghae %}
 
-If you use {% data variables.product.prodname_dependabot %} to tell you about vulnerable dependencies, you can use and save these custom filters to show notifications for {% data variables.product.prodname_dependabot_alerts %}:
+If you use {% data variables.product.prodname_dependabot %} to tell you about insecure dependencies, you can use and save these custom filters to show notifications for {% data variables.product.prodname_dependabot_alerts %}:
 - `is:repository_vulnerability_alert` 
 - `reason:security_alert`
 
 For more information about {% data variables.product.prodname_dependabot %}, see "[About {% data variables.product.prodname_dependabot_alerts %}](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)."
 {% endif %}
 
-{% endif %}

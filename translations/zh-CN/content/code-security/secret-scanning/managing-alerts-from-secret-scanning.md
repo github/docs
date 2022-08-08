@@ -72,10 +72,10 @@ shortTitle: 管理秘密警报
 {% endnote %}
 {% endif %}
 
-{% ifversion fpt or ghes > 3.1 or ghae-issue-4910 or ghec %}
+{% ifversion fpt or ghes or ghae-issue-4910 or ghec %}
 ## 配置 {% data variables.product.prodname_secret_scanning %} 警报的通知
 
-当检测到新的机密时，{% data variables.product.product_name %} 会根据用户的通知首选项通知对仓库安全警报具有访问权限的所有用户。 如果您正在关注该仓库，已为仓库的安全警报或所有活动启用通知功能， 或者您是包含机密的提交的作者且未忽略该仓库，您将会收到警报。
+当检测到新的机密时，{% data variables.product.product_name %} 会根据用户的通知首选项通知对仓库安全警报具有访问权限的所有用户。 如果您正在关注该仓库，已为仓库的安全警报或所有活动启用通知功能， 或者您是包含机密的提交的作者且未忽略该仓库，您将会收到电子邮件通知。
 
 更多信息请参阅“[管理仓库的安全和分析设置](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository#granting-access-to-security-alerts)”和“[配置通知](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#configuring-your-watch-settings-for-an-individual-repository)”。
 {% endif %}

@@ -56,7 +56,7 @@ Você pode habilitar ou desabilitar funcionalidades para todos os repositórios.
 {% data reusables.advanced-security.note-org-enable-uses-seats %}
 
 1. Acesse as configurações de segurança e análise da sua organização. Para obter mais informações, consulte "[Exibir as configurações de segurança e análise](#displaying-the-security-and-analysis-settings)".
-2. Em "Código de segurança e análise" à direita do recurso, clique em **Desabilitar tudo** ou **Habilitar tudo**. {% ifversion ghes > 3.0 or ghec %}O controle para "{% data variables.product.prodname_GH_advanced_security %}" fica desabilitado se você não tiver estações disponíveis na sua licença de {% data variables.product.prodname_GH_advanced_security %}.{% endif %}
+2. Em "Código de segurança e análise" à direita do recurso, clique em **Desabilitar tudo** ou **Habilitar tudo**. {% ifversion ghes or ghec %}O controle para "{% data variables.product.prodname_GH_advanced_security %}" fica desabilitado se você não tiver estações disponíveis na sua licença de {% data variables.product.prodname_GH_advanced_security %}.{% endif %}
    {% ifversion fpt %}
    ![Botão "Habilitar tudo" ou "Desabilitar tudo" para os recursos de "Configurar segurança e análise"](/assets/images/help/organizations/security-and-analysis-disable-or-enable-all-fpt.png)
    {% endif %}
@@ -66,7 +66,7 @@ Você pode habilitar ou desabilitar funcionalidades para todos os repositórios.
    {% ifversion ghes > 3.2 %}
    ![Botão "Habilitar tudo" ou "Desabilitar tudo" para os recursos de "Configurar segurança e análise"](/assets/images/enterprise/3.3/organizations/security-and-analysis-disable-or-enable-all-ghas.png)
    {% endif %}
-   {% ifversion ghes = 3.1 or ghes = 3.2 %}
+   {% ifversion ghes = 3.2 %}
    ![Botão "Habilitar tudo" ou "Desabilitar tudo" para os recursos de "Configurar segurança e análise"](/assets/images/enterprise/3.1/help/organizations/security-and-analysis-disable-or-enable-all-ghas.png)
    {% endif %}
 
@@ -103,11 +103,8 @@ Você pode habilitar ou desabilitar funcionalidades para todos os repositórios.
   {% ifversion ghes > 3.2 %}
    ![Captura de tela de uma caixa de seleção para habilitar um revurso para novos repositórios](/assets/images/enterprise/3.3/organizations/security-and-analysis-enable-or-disable-feature-checkbox.png)
    {% endif %}
-   {% ifversion ghes = 3.1 or ghes = 3.2 %}
+   {% ifversion ghes = 3.2 %}
    ![Captura de tela de uma caixa de seleção para habilitar um revurso para novos repositórios](/assets/images/enterprise/3.1/help/organizations/security-and-analysis-enable-or-disable-feature-checkbox.png)
-   {% endif %}
-   {% ifversion ghes = 3.0 %}
-   ![Captura de tela de uma caixa de seleção para habilitar um revurso para novos repositórios](/assets/images/enterprise/3.0/organizations/security-and-analysis-enable-or-disable-secret-scanning-checkbox.png)
    {% endif %}
    {% ifversion ghae %}
    ![Captura de tela de uma caixa de seleção para habilitar um revurso para novos repositórios](/assets/images/enterprise/github-ae/organizations/security-and-analysis-enable-or-disable-secret-scanning-checkbox-ghae.png)
@@ -156,5 +153,5 @@ Você pode gerenciar o acesso a funcionalidades de {% data variables.product.pro
 
 - "[Protegendo o seu repositório](/code-security/getting-started/securing-your-repository)"{% ifversion not fpt %}
 - "[Sobre a verificação de segredo](/github/administering-a-repository/about-secret-scanning)"{% endif %}{% ifversion not ghae %}
-- "[Sobre o gráfico de dependências](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)"{% endif %}{% ifversion fpt or ghec or ghes or ghae %}
-- "[Sobre a segurança da cadeia de suprimentos](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-supply-chain-security)"{% endif %}
+- "[Sobre o gráfico de dependências](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)"{% endif %}
+- "[Sobre a segurança da cadeia de suprimentos](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-supply-chain-security)"

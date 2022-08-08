@@ -2,8 +2,9 @@ import React, { useState, useEffect, useRef, ReactNode, RefObject } from 'react'
 import { useRouter } from 'next/router'
 import useSWR from 'swr'
 import cx from 'classnames'
-import { ActionList, DropdownMenu, Flash, Label } from '@primer/react'
-import { ItemInput } from '@primer/react/lib/ActionList/List'
+import { Flash, Label, ActionList, ActionMenu } from '@primer/react'
+import { ItemInput } from '@primer/react/lib/deprecated/ActionList/List'
+import { InfoIcon } from '@primer/octicons-react'
 
 import { useTranslation } from 'components/hooks/useTranslation'
 import { sendEvent, EventType } from 'components/lib/events'
@@ -11,9 +12,18 @@ import { useMainContext } from './context/MainContext'
 import { DEFAULT_VERSION, useVersion } from 'components/hooks/useVersion'
 import { useQuery } from 'components/hooks/useQuery'
 import { Link } from 'components/Link'
-import { useLanguages } from './context/LanguagesContext'
+import { useSession } from 'components/hooks/useSession'
 
 import styles from './Search.module.scss'
+
+// This is a temporary thing purely for the engineers of this project.
+// When we are content that the new Elasticsearch-based middleware can
+// wrap searches that match the old JSON format, but based on Elasticsearch
+// behind the scene, we can change this component to always use
+// /api/search/legacy. Then, when time allows we can change this component
+// to use the new JSON format (/api/search/v1) and change the code to
+// use that instead.
+const USE_LEGACY_SEARCH = JSON.parse(process.env.NEXT_PUBLIC_USE_LEGACY_SEARCH || 'false')
 
 type SearchResult = {
   url: string
@@ -31,6 +41,7 @@ type Props = {
   iconSize: number
   children?: (props: { SearchInput: ReactNode; SearchResults: ReactNode }) => ReactNode
 }
+
 export function Search({
   isHeaderSearch = false,
   isMobileSearch = false,
@@ -45,16 +56,19 @@ export function Search({
   const inputRef = useRef<HTMLInputElement>(null)
   const { t } = useTranslation('search')
   const { currentVersion } = useVersion()
-  const { languages } = useLanguages()
+  const { session } = useSession()
+  const languages = session?.languages
 
   // Figure out language and version for index
   const { searchVersions, nonEnterpriseDefaultVersion } = useMainContext()
   // fall back to the non-enterprise default version (FPT currently) on the homepage, 404 page, etc.
   const version = searchVersions[currentVersion] || searchVersions[nonEnterpriseDefaultVersion]
-  const language = (Object.keys(languages).includes(router.locale || '') && router.locale) || 'en'
+  const language = languages
+    ? (Object.keys(languages).includes(router.locale || '') && router.locale) || 'en'
+    : 'en'
 
   const fetchURL = query
-    ? `/search?${new URLSearchParams({
+    ? `/${USE_LEGACY_SEARCH ? 'api/search/legacy' : 'search'}?${new URLSearchParams({
         language,
         version,
         query,
@@ -114,11 +128,20 @@ export function Search({
   const isLoading = isLoadingRaw && isLoadingDebounced
 
   useEffect(() => {
-    if ((router.query.query || '') !== debouncedQuery) {
-      const [asPathRoot, asPathQuery = ''] = router.asPath.split('?')
+    // Because we don't want to have to type .trim() everywhere we
+    // use this variable and we also don't want to change the origin.
+    // This variable is used to decide if and what we should change
+    // the URL to.
+    // Trim whitespace to make sure there's anything left and when
+    // do put this debounced query into the query string, we use it
+    // with the whitespace trimmed.
+    const query = debouncedQuery.trim()
+
+    if ((router.query.query || '') !== query) {
+      const [asPathRoot, asPathQuery = ''] = router.asPath.split('#')[0].split('?')
       const params = new URLSearchParams(asPathQuery)
-      if (debouncedQuery) {
-        params.set('query', debouncedQuery)
+      if (query) {
+        params.set('query', query)
       } else {
         params.delete('query')
       }
@@ -323,12 +346,13 @@ function ShowSearchResults({
   debug: boolean
   query: string
 }) {
-  const { t } = useTranslation('search')
+  const { t } = useTranslation(['pages', 'search'])
   const router = useRouter()
   const { currentVersion } = useVersion()
   const { allVersions } = useMainContext()
   const searchVersion = allVersions[currentVersion].versionTitle
   const [selectedVersion, setSelectedVersion] = useState<ItemInput | undefined>()
+  const currentVersionPathSegment = currentVersion === DEFAULT_VERSION ? '' : `/${currentVersion}`
 
   const latestVersions = new Set(
     Object.keys(allVersions)
@@ -397,12 +421,32 @@ function ShowSearchResults({
             >
               Select version:
             </p>
-            <DropdownMenu
-              placeholder={searchVersion}
-              items={searchVersions}
-              selectedItem={selectedVersion}
-              onChange={setSelectedVersion}
-            />
+            <ActionMenu>
+              <ActionMenu.Button sx={{ display: 'inline-block' }}>
+                {selectedVersion ? selectedVersion.text : searchVersion}
+              </ActionMenu.Button>
+              <ActionMenu.Overlay>
+                <ActionList selectionVariant="single">
+                  {searchVersions.map((searchVersion) => {
+                    return (
+                      <ActionList.Item
+                        onSelect={() => setSelectedVersion(searchVersion)}
+                        key={searchVersion.key}
+                      >
+                        {searchVersion.text}
+                      </ActionList.Item>
+                    )
+                  })}
+
+                  <ActionList.LinkItem
+                    className="f6"
+                    href={`/${router.locale}${currentVersionPathSegment}/get-started/learning-about-github/about-versions-of-github-docs`}
+                  >
+                    {t('about_versions')} <InfoIcon />
+                  </ActionList.LinkItem>
+                </ActionList>
+              </ActionMenu.Overlay>
+            </ActionMenu>
           </div>
         </div>
         {/* We might have results AND isLoading. For example, the user typed
@@ -419,67 +463,63 @@ function ShowSearchResults({
           {t('matches_displayed')}: {results.length === 0 ? t('no_results') : results.length}
         </p>
 
-        <ActionList
-          items={results.map(({ url, breadcrumbs, title, content, score, popularity }) => {
-            return {
-              key: url,
-              text: title,
-              renderItem: () => (
-                <ActionList.Item as="div">
-                  <Link href={url} className="no-underline color-fg-default">
-                    <li
-                      data-testid="search-result"
-                      className={cx('list-style-none', styles.resultsContainer)}
-                    >
-                      <div className={cx('py-2 px-3')}>
-                        {/* Breadcrumbs in search records don't include the page title. These fields may contain <mark> elements that we need to render */}
-                        <Label variant="small" sx={{ bg: 'accent.emphasis' }}>
-                          {breadcrumbs.length === 0
-                            ? title.replace(/<\/?[^>]+(>|$)|(\/)/g, '')
-                            : breadcrumbs
-                                .split(' / ')
-                                .slice(0, 1)
-                                .join(' ')
-                                .replace(/<\/?[^>]+(>|$)|(\/)/g, '')}
-                        </Label>
-                        {debug && (
-                          <small className="float-right">
-                            score: {score.toFixed(4)} popularity: {popularity.toFixed(4)}
-                          </small>
-                        )}
-                        <h2
-                          className={cx('mt-2 text-normal f3 d-block')}
-                          dangerouslySetInnerHTML={{
-                            __html: title,
-                          }}
-                        />
-                        <div
-                          className={cx(styles.searchResultContent, 'mt-1 d-block overflow-hidden')}
-                          style={{ maxHeight: '2.5rem' }}
-                          dangerouslySetInnerHTML={{ __html: content }}
-                        />
-                        <div
-                          className={'d-block mt-2 opacity-70 text-small'}
-                          dangerouslySetInnerHTML={
-                            breadcrumbs.length === 0
-                              ? { __html: `${title}`.replace(/<\/?[^>]+(>|$)|(\/)/g, '') }
-                              : {
-                                  __html: breadcrumbs
-                                    .split(' / ')
-                                    .slice(0, breadcrumbs.length - 1)
-                                    .join(' / ')
-                                    .replace(/<\/?[^>]+(>|$)/g, ''),
-                                }
-                          }
-                        />
-                      </div>
-                    </li>
-                  </Link>
-                </ActionList.Item>
-              ),
-            }
+        <ActionList variant="full">
+          {results.map(({ url, breadcrumbs, title, content, score, popularity }) => {
+            return (
+              <ActionList.Item className="width-full" key={url}>
+                <Link href={url} className="no-underline color-fg-default">
+                  <div
+                    data-testid="search-result"
+                    className={cx('list-style-none', styles.resultsContainer)}
+                  >
+                    <div className={cx('py-2 px-3')}>
+                      {/* Breadcrumbs in search records don't include the page title. These fields may contain <mark> elements that we need to render */}
+                      <Label size="small" variant="accent">
+                        {breadcrumbs.length === 0
+                          ? title.replace(/<\/?[^>]+(>|$)|(\/)/g, '')
+                          : breadcrumbs
+                              .split(' / ')
+                              .slice(0, 1)
+                              .join(' ')
+                              .replace(/<\/?[^>]+(>|$)|(\/)/g, '')}
+                      </Label>
+                      {debug && (
+                        <small className="float-right">
+                          score: {score.toFixed(4)} popularity: {popularity.toFixed(4)}
+                        </small>
+                      )}
+                      <h2
+                        className={cx('mt-2 text-normal f3 d-block')}
+                        dangerouslySetInnerHTML={{
+                          __html: title,
+                        }}
+                      />
+                      <div
+                        className={cx(styles.searchResultContent, 'mt-1 d-block overflow-hidden')}
+                        style={{ maxHeight: '2.5rem' }}
+                        dangerouslySetInnerHTML={{ __html: content }}
+                      />
+                      <div
+                        className={'d-block mt-2 opacity-70 text-small'}
+                        dangerouslySetInnerHTML={
+                          breadcrumbs.length === 0
+                            ? { __html: `${title}`.replace(/<\/?[^>]+(>|$)|(\/)/g, '') }
+                            : {
+                                __html: breadcrumbs
+                                  .split(' / ')
+                                  .slice(0, breadcrumbs.length - 1)
+                                  .join(' / ')
+                                  .replace(/<\/?[^>]+(>|$)/g, ''),
+                              }
+                        }
+                      />
+                    </div>
+                  </div>
+                </Link>
+              </ActionList.Item>
+            )
           })}
-        />
+        </ActionList>
       </div>
     )
     return <div>{ActionListResults}</div>

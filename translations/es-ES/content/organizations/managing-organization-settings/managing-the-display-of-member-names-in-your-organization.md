@@ -22,6 +22,9 @@ Los propietarios de la organización pueden administrar la visualización de los
 
 Cada miembro de la organización elige su propio nombre de perfil en sus configuraciones. Para obtener más información, consulta la sección "[Personalizar tu perfil](/github/setting-up-and-managing-your-github-profile/personalizing-your-profile#changing-your-profile-name)."
 
+{% ifversion profile-name-enterprise-setting %}
+Es posible que no puedas configurar este ajuste para tu organización si un propietario de la empresa configuró una política a nivel empresarial. Para obtener más información, consulta la sección "[Requerir políticas de administración de repositorios en tu empresa](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-inviting-outside-collaborators-to-repositories)".{% endif %}
+
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.member-privileges %}

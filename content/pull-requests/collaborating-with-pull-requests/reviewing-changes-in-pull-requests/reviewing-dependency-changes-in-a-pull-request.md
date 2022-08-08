@@ -30,14 +30,19 @@ shortTitle: Review dependency changes
 
 {% ifversion ghec %}Before you can use dependency review in a private repository, you must enable the dependency graph. For more information, see "[Exploring the dependencies of a repository](/code-security/supply-chain-security/understanding-your-software-supply-chain/exploring-the-dependencies-of-a-repository#enabling-and-disabling-the-dependency-graph-for-a-private-repository)."{% endif %}
 
-{% ifversion ghes > 3.1 %} Before you can use dependency review, you must enable the dependency graph and connect {% data variables.product.product_location %} to {% data variables.product.prodname_dotcom_the_website %}. For more information, see "[Enabling alerts for vulnerable dependencies on {% data variables.product.prodname_ghe_server %}](/admin/configuration/managing-connections-between-github-enterprise-server-and-github-enterprise-cloud/enabling-alerts-for-vulnerable-dependencies-on-github-enterprise-server)."{% endif %}
+{% ifversion ghes %} Before you can use dependency review, you must enable the dependency graph and connect {% data variables.product.product_location %} to {% data variables.product.prodname_dotcom_the_website %}. For more information, see "[Enabling alerts for vulnerable dependencies on {% data variables.product.prodname_ghe_server %}](/admin/configuration/managing-connections-between-github-enterprise-server-and-github-enterprise-cloud/enabling-alerts-for-vulnerable-dependencies-on-github-enterprise-server)."{% endif %}
 
 Dependency review allows you to "shift left". You can use the provided predictive information to catch vulnerable dependencies before they hit production. For more information, see "[About dependency review](/code-security/supply-chain-security/about-dependency-review)."
 
 {% ifversion fpt or ghec or ghes > 3.5 or ghae-issue-6396 %}
-You can use the Dependency Review GitHub Action to help enforce dependency reviews on pull requests in your repository. For more information, see "[Dependency review enforcement](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review#dependency-review-enforcement)."
+
+You can use the {% data variables.product.prodname_dependency_review_action %} to help enforce dependency reviews on pull requests in your repository. {% data reusables.dependency-review.dependency-review-action-overview %}
+
+{% ifversion dependency-review-action-configuration %}
+You can configure the {% data variables.product.prodname_dependency_review_action %} to better suit your needs by specifying the type of dependency vulnerability you wish to catch. For more information, see "[Configuring dependency review](/code-security/supply-chain-security/understanding-your-software-supply-chain/configuring-dependency-review#configuring-the-dependency-review-github-action)." 
 {% endif %}
 
+{% endif %}
 ## Reviewing dependencies in a pull request
 
 {% data reusables.repositories.sidebar-pr %}

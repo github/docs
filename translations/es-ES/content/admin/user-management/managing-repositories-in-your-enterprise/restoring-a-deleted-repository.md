@@ -1,6 +1,6 @@
 ---
 title: Restaurando un repositorio eliminado
-intro: You can restore deleted repositories to recover their contents.
+intro: Puedes restablecer los repositorios borrados para recuperar su contenido.
 permissions: Enterprise owners can restore a deleted repository.
 versions:
   ghes: '*'

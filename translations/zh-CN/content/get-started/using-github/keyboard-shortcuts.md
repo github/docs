@@ -47,7 +47,7 @@ versions:
 | <kbd>G</kbd> <kbd>P</kbd> | 转到 **Pull requests（拉取请求）**选项卡。 更多信息请参阅“[关于拉取请求](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)”。{% ifversion fpt or ghes or ghec %}
 | <kbd>G</kbd> <kbd>A</kbd> | 转到 **Actions（操作）**选项卡。 更多信息请参阅“[关于 Actions](/actions/getting-started-with-github-actions/about-github-actions)”。{% endif %}
 | <kbd>G</kbd> <kbd>B</kbd> | 转到 **Projects（项目）**选项卡。 更多信息请参阅“[关于项目板](/articles/about-project-boards)”。                                                                                                                                   |
-| <kbd>G</kbd> <kbd>W</kbd> | 转到 **Wiki** 选项卡。 更多信息请参阅“[关于 wiki](/communities/documenting-your-project-with-wikis/about-wikis)”。{% ifversion fpt or ghec %}
+| <kbd>G</kbd> <kbd>W</kbd> | 转到 **Wiki** 选项卡。 更多信息请参阅“[关于 wiki](/communities/documenting-your-project-with-wikis/about-wikis)”。{% ifversion discussions %}
 | <kbd>G</kbd> <kbd>G</kbd> | 转到 **Discussions（讨论）**选项卡。 更多信息请参阅“[关于讨论](/discussions/collaborating-with-your-community-using-discussions/about-discussions)”。{% endif %}
 
 ## 源代码编辑
@@ -92,8 +92,8 @@ versions:
 | 键盘快捷键                                                                                                                                                      | 描述                                                                                                                                                                           |
 | ---------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | <kbd>Command</kbd>+<kbd>B</kbd> (Mac) 或 </br> <kbd>Ctrl</kbd>+<kbd>B</kbd> (Windows/Linux)                                                                 | 插入 Markdown 格式用于粗体文本                                                                                                                                                         |
-| <kbd>Command</kbd>+<kbd>I</kbd> (Mac) 或 </br> <kbd>Ctrl</kbd>+<kbd>I</kbd> (Windows/Linux)                                                                 | 插入斜体文本的 Markdown 格式{% ifversion fpt or ghae or ghes > 3.1 or ghec %}
-| <kbd>Command</kbd>+<kbd>E</kbd> (Mac) 或 </br> <kbd>Ctrl</kbd>+<kbd>E</kbd> (Windows/Linux)                                                                 | 在行中插入代码或命令的 Markdown 格式{% endif %}{% ifversion fpt or ghae-issue-5434 or ghes > 3.1 or ghec %}
+| <kbd>Command</kbd>+<kbd>I</kbd> (Mac) 或 </br> <kbd>Ctrl</kbd>+<kbd>I</kbd> (Windows/Linux)                                                                 | 插入 Markdown 格式用于斜体文本                                                                                                                                                         |
+| <kbd>Command</kbd>+<kbd>E</kbd> (Mac) 或 </br> <kbd>Ctrl</kbd>+<kbd>E</kbd> (Windows/Linux)                                                                 | 在行中插入代码或命令的 Markdown 格式{% ifversion fpt or ghae-issue-5434 or ghes or ghec %}
 | <kbd>Command</kbd>+<kbd>K</kbd> (Mac) 或 </br> <kbd>Ctrl</kbd>+<kbd>K</kbd> (Windows/Linux)                                                                 | 插入用于创建链接的 Markdown 格式{% endif %}{% ifversion fpt or ghae-issue-7103 or ghes > 3.5 or ghec %}
 | <kbd>Command</kbd>+<kbd>V</kbd> (Mac) 或 </br> <kbd>Ctrl</kbd>+<kbd>V</kbd> (Windows/Linux)                                                                 | 在应用于突出显示的文本时创建 Markdown 链接{% endif %}
 | <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Mac) 或 </br> <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Windows/Linux)                               | 在 **Write（撰写）**和 **Preview（预览）**评论选项卡之间切换{% ifversion fpt or ghae or ghes > 3.4 or ghec %}
@@ -146,7 +146,34 @@ versions:
 | <kbd>Alt</kbd> 并单击                                   | 通过按下 <kbd>Alt</kbd> 并单击 **Show outdated（显示已过期）**或 **Hide outdated（隐藏已过期）**，在折叠和展开拉取请求中所有过期的审查评论之间切换。                                                                                            |
 | 单击，然后按住 <kbd>Shift</kbd> 并单击                         | 单击一个行号，按住 <kbd>Shift</kbd>，然后单击另一行号，便可对拉取请求的多行发表评论。 更多信息请参阅“[评论拉取请求](/github/collaborating-with-issues-and-pull-requests/commenting-on-a-pull-request#adding-line-comments-to-a-pull-request)”。 |
 
-## 项目板
+{% ifversion projects-v2 %}
+
+## {% data variables.projects.projects_v2_caps %}
+
+### Navigating a project
+
+| 键盘快捷键                                                                           | 描述                           |
+| ------------------------------------------------------------------------------- | ---------------------------- |
+| <kbd>⌘</kbd>+<kbd>f</kbd> (Mac) or <kbd>Ctrl</kbd>+<kbd>f</kbd> (Windows/Linux) | Focus filter field           |
+| <kbd>←</kbd>                                                                    | Move cell focus to the left  |
+| <kbd>→</kbd>                                                                    | Move cell focus to the right |
+| <kbd>↑</kbd>                                                                    | Move cell focus up           |
+| <kbd>↓</kbd>                                                                    | Move cell focus down         |
+
+### Manipulating a project
+
+| 键盘快捷键                                                                                                               | 描述                                    |
+| ------------------------------------------------------------------------------------------------------------------- | ------------------------------------- |
+| <kbd>Enter</kbd>                                                                                                    | Toggle edit mode for the focused cell |
+| <kbd>Escape</kbd>                                                                                                   | Cancel editing for the focused cell   |
+| <kbd>⌘</kbd>+<kbd>Shift</kbd>+<kbd>\</kbd> (Mac) or <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>\</kbd> (Windows/Linux) | Open row actions menu                 |
+| <kbd>Shift</kbd>+<kbd>Space</kbd>                                                                                   | 选择项目                                  |
+| <kbd>Space</kbd>                                                                                                    | Open selected item                    |
+| <kbd>e</kbd>                                                                                                        | Archive selected items                |
+
+{% endif %}
+
+## {% data variables.product.prodname_projects_v1_caps %}
 
 ### 移动列
 
@@ -207,7 +234,6 @@ versions:
 | <kbd>Shift</kbd>+<kbd>U</kbd> | 标记为未读 |
 | <kbd>Shift</kbd>+<kbd>I</kbd> | 标记为已读 |
 | <kbd>Shift</kbd>+<kbd>M</kbd> | 取消订阅  |
-
 
 ## 网络图
 

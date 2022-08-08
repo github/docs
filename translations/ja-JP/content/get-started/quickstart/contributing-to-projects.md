@@ -26,7 +26,17 @@ This tutorial uses [the Spoon-Knife project](https://github.com/octocat/Spoon-Kn
 
 1. Navigate to the `Spoon-Knife` project at https://github.com/octocat/Spoon-Knife.
 2. Click **Fork**. ![[Fork] ボタン](/assets/images/help/repository/fork_button.png)
-1. {% data variables.product.product_name %} will take you to your copy (your fork) of the Spoon-Knife repository.
+3. Select an owner for the forked repository. ![Create a new fork page with owner dropdown emphasized](/assets/images/help/repository/fork-choose-owner.png)
+4. By default, forks are named the same as their parent repositories. You can change the name of the fork to distinguish it further. ![Create a new fork page with repository name field emphasized](/assets/images/help/repository/fork-choose-repo-name.png)
+5. Optionally, add a description of your fork. ![Create a new fork page with description field emphasized](/assets/images/help/repository/fork-description.png)
+6. Choose whether to copy only the default branch or all branches to the new fork. For many forking scenarios, such as contributing to open-source projects, you only need to copy the default branch. By default, only the default branch is copied. ![Option to copy only the default branch](/assets/images/help/repository/copy-default-branch-only.png)
+7. Click **Create fork**. ![Emphasized create fork button](/assets/images/help/repository/fork-create-button.png)
+
+{% note %}
+
+**Note:** If you want to copy additional branches from the parent repository, you can do so from the **Branches** page. 詳しい情報については[リポジトリ内でのブランチの作成と削除](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository)を参照してください。
+
+{% endnote %}
 
 ## Cloning a fork
 
@@ -81,7 +91,7 @@ gh repo fork <em>repository</em> --clone=true
 
 ## Making and pushing changes
 
-Go ahead and make a few changes to the project using your favorite text editor, like [Atom](https://atom.io). You could, for example, change the text in `index.html` to add your GitHub username.
+Go ahead and make a few changes to the project using your favorite text editor, like [Visual Studio Code](https://code.visualstudio.com). You could, for example, change the text in `index.html` to add your GitHub username.
 
 When you're ready to submit your changes, stage and commit your changes. `git add .` tells Git that you want to include all of your changes in the next commit. `git commit` takes a snapshot of those changes.
 

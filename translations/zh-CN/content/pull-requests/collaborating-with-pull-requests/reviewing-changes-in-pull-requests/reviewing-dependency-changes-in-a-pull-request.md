@@ -31,14 +31,19 @@ shortTitle: 查看依赖项更改
 
 {% ifversion ghec %}在私有存储库中使用依赖项审查之前，必须启用依赖项关系图。 更多信息请参阅“[探索仓库的依赖项](/code-security/supply-chain-security/understanding-your-software-supply-chain/exploring-the-dependencies-of-a-repository#enabling-and-disabling-the-dependency-graph-for-a-private-repository)”。{% endif %}
 
-{% ifversion ghes > 3.1 %} 在使用依赖项评审之前，必须启用依赖项关系图并将 {% data variables.product.product_location %} 连接到 {% data variables.product.prodname_dotcom_the_website %}。 更多信息请参阅“[为 {% data variables.product.prodname_ghe_server %} 上的有漏洞依赖项启用安全警报](/admin/configuration/managing-connections-between-github-enterprise-server-and-github-enterprise-cloud/enabling-alerts-for-vulnerable-dependencies-on-github-enterprise-server)”。{% endif %}
+{% ifversion ghes %} 在使用依赖项评审之前，必须启用依赖项关系图并将 {% data variables.product.product_location %} 连接到 {% data variables.product.prodname_dotcom_the_website %}。 更多信息请参阅“[为 {% data variables.product.prodname_ghe_server %} 上的有漏洞依赖项启用安全警报](/admin/configuration/managing-connections-between-github-enterprise-server-and-github-enterprise-cloud/enabling-alerts-for-vulnerable-dependencies-on-github-enterprise-server)”。{% endif %}
 
 依赖关系审核允许您“左移”。 您可以使用所提供的预测信息在易受攻击的依赖项进入生产之前捕获它们。 更多信息请参阅“[关于依赖项审查](/code-security/supply-chain-security/about-dependency-review)”。
 
 {% ifversion fpt or ghec or ghes > 3.5 or ghae-issue-6396 %}
-可以使用依赖项审查 GitHub 操作来帮助对存储库中的拉取请求强制实施依赖项审查。 更多信息请参阅“[依赖项审查实施](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review#dependency-review-enforcement)”。
+
+您可以使用 {% data variables.product.prodname_dependency_review_action %} 来帮助对存储库中的拉取请求强制执行依赖项评审。 {% data reusables.dependency-review.dependency-review-action-overview %}
+
+{% ifversion dependency-review-action-configuration %}
+您可以通过指定要捕获的依赖项漏洞的类型来配置 {% data variables.product.prodname_dependency_review_action %} 以更好地满足您的需求。 更多信息请参阅“[配置依赖项审查](/code-security/supply-chain-security/understanding-your-software-supply-chain/configuring-dependency-review#configuring-the-dependency-review-github-action)”。
 {% endif %}
 
+{% endif %}
 ## 审查拉取请求中的依赖项
 
 {% data reusables.repositories.sidebar-pr %}

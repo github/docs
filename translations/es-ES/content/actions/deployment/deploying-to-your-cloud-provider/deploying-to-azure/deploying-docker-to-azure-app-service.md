@@ -81,6 +81,8 @@ Asegúrate de configurar a `AZURE_WEBAPP_NAME` en la clave `env` del flujo de tr
 ```yaml{:copy}
 {% data reusables.actions.actions-not-certified-by-github-comment %}
 
+{% data reusables.actions.actions-use-sha-pinning-comment %}
+
 name: Build and deploy a container to an Azure Web App
 
 env:
@@ -138,10 +140,10 @@ jobs:
       - name: Deploy to Azure Web App
         id: deploy-to-webapp
         uses: azure/webapps-deploy@0b651ed7546ecfc75024011f76944cb9b381ef1e
-          with:
-            app-name: {% raw %}${{ env.AZURE_WEBAPP_NAME }}{% endraw %}
-            publish-profile: {% raw %}${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}{% endraw %}
-            images: 'ghcr.io/{% raw %}${{ env.REPO }}{% endraw %}:{% raw %}${{ github.sha }}{% endraw %}'
+        with:
+          app-name: {% raw %}${{ env.AZURE_WEBAPP_NAME }}{% endraw %}
+          publish-profile: {% raw %}${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}{% endraw %}
+          images: 'ghcr.io/{% raw %}${{ env.REPO }}{% endraw %}:{% raw %}${{ github.sha }}{% endraw %}'
 ```
 
 ## Recursos adicionales

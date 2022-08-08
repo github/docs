@@ -8,6 +8,10 @@ Te recomendamos utilizar configuraciones de hardware diferentes dependiendo de l
 
 {% data reusables.enterprise_installation.hardware-rec-table %}
 
+{% data reusables.actions.more-resources-for-ghes %}
+
+{% data reusables.enterprise_installation.about-adjusting-resources %}
+
 ### Almacenamiento
 
 Recomendamos un SSD de alto rendimiento con operaciones de altas de entrada/salida por segundo (IOPS) y latencia baja para {% data variables.product.prodname_ghe_server %}. Las cargas de trabajo son intensivas para las I/O. Si utilizas un hipervisor de metal puro, te recomendamos adjuntar directamente el disco o utilizar un disco de una red de área de almacenamiento (SAN).
@@ -20,7 +24,7 @@ Para configurar las {% data variables.product.prodname_actions %}, debes proporc
 
 {% endif %}
 
-El espacio disponible en el sistema de archivos raíz será de 50% del tamaño total en disco. Puedes redimensionar el disco raíz de tu instancia si creas una instancia nueva o si utilizas una instancia existente. Para obtener más información, consulta las secciones "[Resumen del sistema](/enterprise/admin/guides/installation/system-overview#storage-architecture)" y "[Incrementar la capacidad de almacenamiento](/enterprise/{{ currentVersion }}/admin/guides/installation/increasing-storage-capacity)".
+El espacio disponible en el sistema de archivos raíz será de 50% del tamaño total en disco. Puedes redimensionar el disco raíz de tu instancia si creas una instancia nueva o si utilizas una instancia existente. Para obtener más información, consulta las secciones "[Resumen del sistema](/enterprise/admin/guides/installation/system-overview#storage-architecture)" y "[Incrementar la capacidad de almacenamiento](/enterprise/admin/guides/installation/increasing-storage-capacity)".
 
 ### CPU y memoria
 

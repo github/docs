@@ -126,20 +126,20 @@ Issue またはプルリクエストにコメントが追加された。
 
 {% data reusables.issue-events.timeline_events_object_properties %}
 
-| 名前                   | 種類        | 説明                                                                                                             |
-| -------------------- | --------- | -------------------------------------------------------------------------------------------------------------- |
-| `url`                | `string`  | Issue コメントを取得する REST API URL。                                                                                  |
-| `html_url`           | `string`  | Issue コメントの HTML URL。                                                                                          |
-| `issue_url`          | `string`  | Issue の HTML URL。                                                                                              |
-| `id`                 | `integer` | イベントの一意の識別子。                                                                                                   |
-| `node_id`            | `string`  | イベントの[グローバルノード ID]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql/guides/using-global-node-ids)。 |
-| `ユーザ`                | `オブジェクト`  | この Issue についてコメントしたユーザ。                                                                                        |
-| `created_at`         | `string`  | コメントの追加日時を示すタイムスタンプ。                                                                                           |
-| `updated_at`         | `string`  | コメントが更新されていない場合に、コメントの更新または作成日時を示すタイムスタンプ。                                                                     |
-| `author_association` | `string`  | Issue のリポジトリでユーザが保持している権限。 たとえば、リポジトリの所有者がコメントを作成した場合、値は「`OWNER`」になります。                                        |
-| `body`               | `string`  | コメント本文テキスト。                                                                                                    |
-| `event`              | `string`  | イベントの値は `"commented"` です。                                                                                      |
-| `actor`              | `オブジェクト`  | イベントを生成したユーザ。                                                                                                  |
+| 名前                   | 種類        | 説明                                                                      |
+| -------------------- | --------- | ----------------------------------------------------------------------- |
+| `url`                | `string`  | Issue コメントを取得する REST API URL。                                           |
+| `html_url`           | `string`  | Issue コメントの HTML URL。                                                   |
+| `issue_url`          | `string`  | Issue の HTML URL。                                                       |
+| `id`                 | `integer` | イベントの一意の識別子。                                                            |
+| `node_id`            | `string`  | イベントの[グローバルノード ID](/graphql/guides/using-global-node-ids)。              |
+| `ユーザ`                | `オブジェクト`  | この Issue についてコメントしたユーザ。                                                 |
+| `created_at`         | `string`  | コメントの追加日時を示すタイムスタンプ。                                                    |
+| `updated_at`         | `string`  | コメントが更新されていない場合に、コメントの更新または作成日時を示すタイムスタンプ。                              |
+| `author_association` | `string`  | Issue のリポジトリでユーザが保持している権限。 たとえば、リポジトリの所有者がコメントを作成した場合、値は「`OWNER`」になります。 |
+| `body`               | `string`  | コメント本文テキスト。                                                             |
+| `event`              | `string`  | イベントの値は `"commented"` です。                                               |
+| `actor`              | `オブジェクト`  | イベントを生成したユーザ。                                                           |
 
 ## committed
 
@@ -155,19 +155,19 @@ Issue またはプルリクエストにコメントが追加された。
 
 {% data reusables.issue-events.timeline_events_object_properties %}
 
-| 名前         | 種類                 | 説明                                                                                                             |
-| ---------- | ------------------ | -------------------------------------------------------------------------------------------------------------- |
-| `sha`      | `string`           | プルリクエスト内のコミットの SHA。                                                                                            |
-| `node_id`  | `string`           | イベントの[グローバルノード ID]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql/guides/using-global-node-ids)。 |
-| `url`      | `string`           | コミットを取得する REST API URL。                                                                                        |
-| `html_url` | `string`           | コミットの HTML URL。                                                                                                |
-| `作者`       | `オブジェクト`           | コミットの作者。                                                                                                       |
-| `コミッター`    | `オブジェクト`           | 作者に代わってコミットしたユーザ。                                                                                              |
-| `ツリー`      | `オブジェクト`           | コミットの Git ツリー。                                                                                                 |
-| `message`  | `string`           | コミットメッセージ。                                                                                                     |
-| `親`        | `array of objects` | 親コミットのリスト。                                                                                                     |
-| `検証`       | `オブジェクト`           | コミットの署名の検証結果。 詳しい情報については、「[署名検証オブジェクト](/rest/reference/git#get-a-commit)」を参照してください。                            |
-| `event`    | `string`           | イベントの値は `"committed"` です。                                                                                      |
+| 名前         | 種類                 | 説明                                                                                  |
+| ---------- | ------------------ | ----------------------------------------------------------------------------------- |
+| `sha`      | `string`           | プルリクエスト内のコミットの SHA。                                                                 |
+| `node_id`  | `string`           | イベントの[グローバルノード ID](/graphql/guides/using-global-node-ids)。                          |
+| `url`      | `string`           | コミットを取得する REST API URL。                                                             |
+| `html_url` | `string`           | コミットの HTML URL。                                                                     |
+| `作者`       | `オブジェクト`           | コミットの作者。                                                                            |
+| `コミッター`    | `オブジェクト`           | 作者に代わってコミットしたユーザ。                                                                   |
+| `ツリー`      | `オブジェクト`           | コミットの Git ツリー。                                                                      |
+| `message`  | `string`           | コミットメッセージ。                                                                          |
+| `親`        | `array of objects` | 親コミットのリスト。                                                                          |
+| `検証`       | `オブジェクト`           | コミットの署名の検証結果。 詳しい情報については、「[署名検証オブジェクト](/rest/reference/git#get-a-commit)」を参照してください。 |
+| `event`    | `string`           | イベントの値は `"committed"` です。                                                           |
 
 ## connected
 
@@ -588,20 +588,20 @@ Issue またはプルリクエストが再開された。
 
 {% data reusables.issue-events.timeline_events_object_properties %}
 
-| 名前                   | 種類        | 説明                                                                                                             |
-| -------------------- | --------- | -------------------------------------------------------------------------------------------------------------- |
-| `id`                 | `integer` | イベントの一意の識別子。                                                                                                   |
-| `node_id`            | `string`  | イベントの[グローバルノード ID]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql/guides/using-global-node-ids)。 |
-| `ユーザ`                | `オブジェクト`  | この Issue についてコメントしたユーザ。                                                                                        |
-| `body`               | `string`  | レビューの概要テキスト。                                                                                                   |
-| `commit_id`          | `string`  | レビュー時のプルリクエストの最新コミットの SHA。                                                                                     |
-| `submitted_at`       | `string`  | レビューの送信日時を示すタイムスタンプ。                                                                                           |
-| `state`              | `string`  | サブミットされたレビューの状態。 `commented`、`changes_requested`、`approved` のいずれかになります。                                        |
-| `html_url`           | `string`  | レビューの HTML URL。                                                                                                |
-| `pull_request_url`   | `string`  | プルリクエストを取得する REST API URL。                                                                                     |
-| `author_association` | `string`  | Issue のリポジトリでユーザが保持している権限。 たとえば、リポジトリの所有者がコメントを作成した場合、値は「`OWNER`」になります。                                        |
-| `_links`             | `オブジェクト`  | `html_url` および `pull_request_url`。                                                                             |
-| `event`              | `string`  | イベントの値は `"reviewed"` です。                                                                                       |
+| 名前                   | 種類        | 説明                                                                      |
+| -------------------- | --------- | ----------------------------------------------------------------------- |
+| `id`                 | `integer` | イベントの一意の識別子。                                                            |
+| `node_id`            | `string`  | イベントの[グローバルノード ID](/graphql/guides/using-global-node-ids)。              |
+| `ユーザ`                | `オブジェクト`  | この Issue についてコメントしたユーザ。                                                 |
+| `body`               | `string`  | レビューの概要テキスト。                                                            |
+| `commit_id`          | `string`  | レビュー時のプルリクエストの最新コミットの SHA。                                              |
+| `submitted_at`       | `string`  | レビューの送信日時を示すタイムスタンプ。                                                    |
+| `state`              | `string`  | サブミットされたレビューの状態。 `commented`、`changes_requested`、`approved` のいずれかになります。 |
+| `html_url`           | `string`  | レビューの HTML URL。                                                         |
+| `pull_request_url`   | `string`  | プルリクエストを取得する REST API URL。                                              |
+| `author_association` | `string`  | Issue のリポジトリでユーザが保持している権限。 たとえば、リポジトリの所有者がコメントを作成した場合、値は「`OWNER`」になります。 |
+| `_links`             | `オブジェクト`  | `html_url` および `pull_request_url`。                                      |
+| `event`              | `string`  | イベントの値は `"reviewed"` です。                                                |
 
 ## subscribed
 

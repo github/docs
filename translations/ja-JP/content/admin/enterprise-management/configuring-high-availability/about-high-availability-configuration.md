@@ -30,7 +30,7 @@ After replication has been established, the {% data variables.enterprise.managem
 
 High Availability設定は、以下に対するソリューションとしては適切ではありません。
 
-  - **スケーリング外**。 Geo-replicationを使えば地理的にトラフィックを分散させることができるものの、書き込みのパフォーマンスはプライマリアプライアンスの速度と可用性によって制限されます。 For more information, see "[About geo-replication](/enterprise/{{ currentVersion }}/admin/guides/installation/about-geo-replication/)."{% ifversion ghes > 3.2 %}
+  - **スケーリング外**。 Geo-replicationを使えば地理的にトラフィックを分散させることができるものの、書き込みのパフォーマンスはプライマリアプライアンスの速度と可用性によって制限されます。 For more information, see "[About geo-replication](/enterprise/admin/guides/installation/about-geo-replication/)."{% ifversion ghes > 3.2 %}
   - **CI/CD load**. If you have a large number of CI clients that are geographically distant from your primary instance, you may benefit from configuring a repository cache. For more information, see "[About repository caching](/admin/enterprise-management/caching-repositories/about-repository-caching)."{% endif %}
   - **プライマリアプライアンスのバックアップ**。 High Availabilityレプリカは、システム災害復旧計画のオフサイトバックアップを置き換えるものではありません。 データ破壊や損失の中には、プライマリからレプリカへ即座にレプリケーションされてしまうものもあります。 安定した過去の状態への安全なロールバックを保証するには、履歴スナップショットでの定期的なバックアップを行う必要があります。
   - **ダウンタイムゼロのアップグレード**。 コントロールされた昇格のシナリオにおけるデータ損失やスプリットブレインの状況を避けるには、プライマリアプライアンスをメンテナンスモードにして、すべての書き込みが完了するのを待ってからレプリカを昇格させてください。
@@ -45,13 +45,13 @@ DNS フェイルオーバーでは、プライマリの {% data variables.produc
 
 フェイルオーバーの間、プライマリはメンテナンスモードにして、プライマリのDNSレコードはレプリカアプライアンスのIPアドレスへリダイレクトしなければなりません。 トラフィックをプライマリからレプリカへリダイレクトするのに要する時間は、TTLの設定とDNSレコードの更新に必要な時間に依存します。
 
-Geo-replication を使用している場合は、トラフィックを最も近いレプリカに転送するように Geo DNS を設定する必要があります。 For more information, see "[About geo-replication](/enterprise/{{ currentVersion }}/admin/guides/installation/about-geo-replication/)."
+Geo-replication を使用している場合は、トラフィックを最も近いレプリカに転送するように Geo DNS を設定する必要があります。 For more information, see "[About geo-replication](/enterprise/admin/guides/installation/about-geo-replication/)."
 
 ### ロードバランサ
 
 {% data reusables.enterprise_clustering.load_balancer_intro %} {% data reusables.enterprise_clustering.load_balancer_dns %}
 
-フェイルオーバーの間、プライマリアプライアンスはメンテナンスモードにしなければなりません。 ロードバランサは、レプリカがプライマリに昇格したときに自動的に検出するように設定することも、手動での設定変更が必要なようにしておくこともできます。 ユーザからのトラフィックに反応する前に、レプリカはプライマリに手動で昇格させておかなければなりません、 For more information, see "[Using {% data variables.product.prodname_ghe_server %} with a load balancer](/enterprise/{{ currentVersion }}/admin/guides/installation/using-github-enterprise-server-with-a-load-balancer/)."
+フェイルオーバーの間、プライマリアプライアンスはメンテナンスモードにしなければなりません。 ロードバランサは、レプリカがプライマリに昇格したときに自動的に検出するように設定することも、手動での設定変更が必要なようにしておくこともできます。 ユーザからのトラフィックに反応する前に、レプリカはプライマリに手動で昇格させておかなければなりません、 For more information, see "[Using {% data variables.product.prodname_ghe_server %} with a load balancer](/enterprise/admin/guides/installation/using-github-enterprise-server-with-a-load-balancer/)."
 
 {% data reusables.enterprise_installation.monitoring-replicas %}
 
@@ -187,5 +187,5 @@ Success: Replica has been promoted to primary and is now accepting requests.
 
 ## 参考リンク
 
-- "[High Availabilityレプリカの作成](/enterprise/{{ currentVersion }}/admin/guides/installation/creating-a-high-availability-replica)"
+- "[Creating a high availability replica](/enterprise/admin/guides/installation/creating-a-high-availability-replica)"
 - "[Network ports](/admin/configuration/configuring-network-settings/network-ports)"

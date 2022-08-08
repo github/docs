@@ -12,8 +12,6 @@ product: '{% data reusables.gated-features.codespaces %}'
 miniTocMaxHeadingLevel: 3
 ---
 
-{% data reusables.codespaces.prebuilds-beta-note %}
-
 Para obter mais informações sobre as pré-compilações de {% data variables.product.prodname_codespaces %}, consulte "[Pré-compilando os seus codespaces](/codespaces/prebuilding-your-codespaces)".
 
 ## Verificando se um código foi criado a partir de uma pré-compilação?
@@ -26,7 +24,7 @@ Se você tiver a sua preferência de editor de {% data variables.product.prodnam
 
 ![A mensagem "codespaces da pre-criação encontrados"](/assets/images/help/codespaces/prebuilt-codespace-found.png)
 
-Da mesma forma, se sua preferência de editor for "{% data variables.product.prodname_vscode_shortname %}", o terminal integrado conterá a mensagem "Você está em um codespace pré-criado e definido pela configuração de pré-compilação para seu repositório" ao criar um novo codespace. Para obter mais informações, consulte "[Definindo seu editor padrão para codespaces](/codespaces/customizing-your-codespace/setting-your-default-editor-for-codespaces)".
+Da mesma forma, se sua preferência de editor for "{% data variables.product.prodname_vscode_shortname %}", o terminal integrado conterá a mensagem "Você está em um codespace pré-criado e definido pela configuração de pré-compilação para seu repositório" ao criar um novo codespace. Para obter mais informações, consulte "[Definindo seu editor padrão para {% data variables.product.prodname_github_codespaces %}](/codespaces/customizing-your-codespace/setting-your-default-editor-for-github-codespaces)".
 
 Depois de criar um codespace, você pode verificar se ele foi criado a partir de uma pré-compilação executando o seguinte comando {% data variables.product.prodname_cli %} no terminal:
 
@@ -57,7 +55,13 @@ Essas são as coisas a serem verificadas se a etiqueta " Pré-compilação de {%
 * Verifique se uma alteração para a configuração do contêiner de desenvolvimento foi enviada por push para o branch habilitado pela pré-compilação recentemente. Se for dessa forma, normalmente você terá que esperar até que o fluxo de trabalho de pré-criação, aguarde até que a execução do fluxo de trabalho de pré-compilação seja concluída antes que as pré-criações estejam disponíveis novamente.
 * Se nenhuma alteração de configuração foi realizada recentemente, acesse a aba **Ações** do seu repositório, clique em **{% octicon "codespaces" aria-label="The Codespaces icon" %} Pré-compilações de {% data variables.product.prodname_codespaces %}** na lista de fluxos de trabalho e verifique se as execuções do fluxo de trabalho de pré-compilação são sendo bem-sucedidas. Se as últimas execuções de um fluxo de trabalho falharem e uma ou mais dessas execuções falharam continham alterações na configuração do contêiner de desenvolvimento, não haverá pré-compilações disponíveis para o branch associado.
 
+## Some resources cannot be accessed in codespaces created using a prebuild
+
+If the `devcontainer.json` configuration file for a prebuild configuration specifies that permissions for access to other repositories are required, then the repository administrator is prompted to authorize these permissions when they create or update the prebuild configuration. If the administrator does not grant all of the requested permissions there's a chance that problems may occur in the prebuild, and in codespaces created from this prebuild. This is true even if the user who creates a codespace based on this prebuild _does_ grant all of the permissions when they are prompted to do so.
+
 ## Solucionando problemas de execução de fluxo de trabalho com falhas para pré-compilações
+
+If the `devcontainer.json` configuration file for a prebuild configuration is updated to specify that permissions for access to other repositories are required, and a repository administrator has not been prompted to authorize these permissions for the prebuild configuration, then the prebuild workflow may fail. Try updating the prebuild configuration, without making any changes. If, when you click **Update**, the authorization page is displayed, check that the requested permissions are appropriate and, if so, authorize the request. For more information, see "[Managing prebuilds](/codespaces/prebuilding-your-codespaces/managing-prebuilds#editing-a-prebuild-configuration)" and "[Managing access to other repositories within your codespace](/codespaces/managing-your-codespaces/managing-repository-access-for-your-codespaces#setting-additional-repository-permissions)."
 
 Se o fluxo de trabalho for executado para uma configuração de pré-compilação falhar, você poderá desabilitar temporariamente a configuração de pré-compilação durante a investigação. Para obter mais informações, consulte "[Gereciando pré-compilações](/codespaces/prebuilding-your-codespaces/managing-prebuilds#disabling-a-prebuild-configuration)".
 

@@ -18,6 +18,9 @@ versions:
 
 {% data reusables.commits.about-commits %}
 
+{% ifversion commit-signoffs %}
+If the repository you are committing to has compulsory commit signoffs enabled, and you are committing via the web interface, you will automatically sign off on the commit as part of the commit process. For more information, see "[Managing the commit signoff policy for your repository](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-the-commit-signoff-policy-for-your-repository)." {% endif %}
+
 共同作業しているコミットに共作者を追加できます。 詳しい情報については、「[複数の作者を持つコミットを作成する](/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/creating-a-commit-with-multiple-authors)」を参照してください。
 
 {% ifversion fpt or ghec %}
@@ -39,6 +42,28 @@ If your commit is not on the default branch (`main`), the label will show the br
 コミットがデフォルトブランチにある場合は、そのコミットを含むタグがすべて表示され、ブランチのリストにはデフォルトブランチのみが表示されます。 For more information on tags, see "[Git Basics - Tagging](https://git-scm.com/book/en/v2/Git-Basics-Tagging)" in the Git documentation.
 
 ![Screenshot of commit with commit tag emphasized](/assets/images/help/commits/commit-tag-label.png)
+
+{% ifversion commit-tree-view %}
+
+## Using the file tree
+
+You can use the file tree to navigate between files in a commit.
+
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.navigate-to-commit-page %}
+1. コミットメッセージリンクをクリックしてコミットに移動します。 ![Screenshot of commit with commit message link emphasized](/assets/images/help/commits/commit-message-link.png)
+1. Click on a file in the file tree to view the corresponding file diff. If the file tree is hidden, click {% octicon "sidebar-collapse" aria-label="The sidebar collapse icon" %} to display the file tree.
+
+  {% note %}
+
+  **Note**: The file tree will not display if your screen width is too narrow or if the commit only includes one file.
+
+  {% endnote %}
+
+  ![Screenshot of filter changed files search box and file tree emphasized](/assets/images/help/repository/file-tree.png)
+1. To filter by file path, enter part or all of the file path in the **Filter changed files** search box.
+
+{% endif %}
 
 ## 参考リンク
 - 「[{% data variables.product.prodname_desktop %} でプロジェクトの変更をコミットしてレビューする](/desktop/contributing-to-projects/committing-and-reviewing-changes-to-your-project#about-commits)」

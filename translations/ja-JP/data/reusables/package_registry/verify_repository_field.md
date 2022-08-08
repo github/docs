@@ -1,1 +1,1 @@
-1. プロジェクトの*package.json*中の`repository`フィールドを検証してください。 `repository`フィールドは、{% data variables.product.prodname_dotcom %}リポジトリのURLと一致していなければなりません。 たとえば、あなたのリポジトリのURLが`github.com/my-org/test`なら、repositoryフィールドは`git://github.com/my-org/test.git`でなければなりません。
+1. プロジェクトの*package.json*中の`repository`フィールドを検証してください。 `repository`フィールドは、{% data variables.product.prodname_dotcom %}リポジトリのURLと一致していなければなりません。 For example, if your repository URL is `github.com/my-org/test` then the repository field should be `https://github.com/my-org/test.git`.

@@ -35,9 +35,9 @@ sections:
       heading: 'Alertas do Dependabot'
       notes:
         - |
-          Os alertas do Dependabot agora podem notificar você de vulnerabilidades em suas dependências do GitHub AE. Você pode habilitar alertas de dependência, habilitando o gráfico de dependências, habilitando o GitHub Connect e sincronizando vulnerabilidades do banco de dados de consultoria do GitHub. Este recurso está na versão beta e sujeito a alterações. Para obter mais informações, consulte "[Sobre alertas para dependências vulneráveis](/code-security/supply chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-alerts-for-vulnerable-dependencies).
+          Os alertas do dependabot agora podem notificar você de vulnerabilidades nas suas dependências do GitHub AE. Você pode habilitar alertas do Dependabot, habilitando o gráfico de dependências, habilitando o GitHub Connect e sincronizando vulnerabilidades do banco de dados de consultoria do GitHub. Este recurso está na versão beta e sujeito a alterações. Para obter mais informações, consulte "[Sobre alertas do Dependabot](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts).
 
-          Após habilitar os alertas do Dependabot, os integrantes da sua organização receberão notificações sempre que uma nova vulnerabilidade que afetar suas dependências for adicionada ao banco de dados de consultoria do GitHub ou uma dependência vulnerável for adicionada ao seu manifesto. Os integrantes podem personalizar as configurações de notificação. Para obter mais informações, consulte "[Configurando as notificações para dependências vulneráveis](/code-security/supply chain-security/managing-vulnerabilities-in-your-projects-dependencies/configuring-notifications-for-vulnerable-dependencies)." <!-- ⚠️ Artigos estarão disponíveis quando nós alternamos os sinalizadores do recurso de conteúdo -->
+          Após habilitar os alertas do dependabot, os integrantes da sua organização receberão notificações sempre que uma nova vulnerabilidade que afete suas dependências for adicionada ao banco de dados do GitHub Advisory ou uma dependência vulnerável for adicionada ao seu manifesto. Os integrantes podem personalizar as configurações de notificação. Para obter mais informações, consulte "[Configurando as notificações para % variáveis de dados.product.prodname_dependabot_alerts %}](/code-security/dependabot/dependabot-alerts/configuring-notifications-for-dependabot-alerts)." <!-- ⚠️ Os artigos estarão disponíveis quando alternamos sinalizadores de recursos de conteúdo -->
     - 
       heading: 'Função de gerente de segurança para organizações'
       notes:
@@ -113,11 +113,9 @@ sections:
       heading: 'Melhorias de Markdown'
       notes:
         - |
-          You can now use footnote syntax in any Markdown field to reference relevant information without disrupting the flow of your prose. Footnotes are displayed as superscript links. Click a footnote to jump to the reference, displayed in a new section at the bottom of the document. For more information, see "[Basic writing and formatting syntax](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#footnotes)." <!-- ⚠️ Section on page will be available when we toggle content feature flags -->
+          Agora você pode usar a sintaxe de nota de rodapé em qualquer campo Markdown para referenciar informações relevantes sem interromper o fluxo da sua prosa. As notas de rodapé são exibidas como links de superscript. Clique em uma nota de rodapé para saltar para a referência, exibida em uma nova seção na parte inferior do documento. Para obter mais informações, consulte "[Sintaxe de escrita e formatação básicas](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#footnotes)." <!-- ⚠️ A seção na página estará disponível quando alternarmos os sinalizadores dos recursos -->
         - |
           Agora você pode alternar entre a exibição de origem e a exibição interpretada do Markdown através da interface do usuário da web clicando no botão {% octicon "code" aria-label="The Code icon" %} para "Exibir o diff de origem" na parte superior de qualquer arquivo do Markdown. Anteriormente, você precisava usar a vista do último responsável para vincular a números de linha específicos na fonte de um arquivo Markdown.
-        - |
-          Agora você pode adicionar imagens e vídeos aos arquivos Markdown nos gists, colando-os no corpo do Markdown ou selecionando-os da caixa de diálogo na parte inferior do arquivo Markdown. Para obter informações sobre tipos de arquivos compatíveis, consulte "[Anexando arquivos](/github/writing-on-github/working-with-advanced-formatting/attaching-files)."
         - |
           O GitHub AE agora gera automaticamente uma tabela de conteúdos para Wikis, baseada em cabeçalhos.
   changes:
@@ -189,3 +187,8 @@ sections:
       notes:
         - |
           Ao arrastar e soltar arquivos como imagens e vídeos para um editor de Markdown, o GitHub AE agora usa a localização do ponteiro do mouse em vez do cursor ao colocar o arquivo.
+    - 
+      heading: 'API REST'
+      notes:
+        - |
+          As pré-visualizações da API REST agora se atualizaram e fazem parte oficial da API. Os cabeçalhos de visualização não são mais necessários para API REST, mas ainda funcionará como esperado se você continuar a especificar uma pré-visualização atualizada no cabeçalho `Accept` de uma solicitação.

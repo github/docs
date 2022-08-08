@@ -12,7 +12,7 @@ The entire conversation will be collapsed and marked as resolved, making it easi
 
 If the suggestion in a comment is out of your pull request's scope, you can open a new issue that tracks the feedback and links back to the original comment. For more information, see "[Opening an issue from a comment](/github/managing-your-work-on-github/opening-an-issue-from-a-comment)."
 
-{% ifversion fpt or ghes > 3.1 or ghae-issue-4382 or ghec %}
+{% ifversion fpt or ghes or ghae-issue-4382 or ghec %}
 #### Discovering and navigating conversations
 
 You can discover and navigate to all the conversations in your pull request using the **Conversations** menu that's shown at the top of the **Files Changed** tab.

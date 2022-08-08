@@ -8,7 +8,7 @@ redirect_from:
   - /organizations/managing-organization-settings/verifying-your-organizations-domain
 permissions: Organization owners can verify or approve a domain for an organization.
 versions:
-  ghes: '>=3.2'
+  ghes: '*'
   ghec: '*'
 type: how_to
 topics:
@@ -35,7 +35,7 @@ Organization のドメインの所有権を検証したあと、「検証済み�
 
 {% data reusables.organizations.verified-domains-details %}
 
-{% ifversion ghec or ghes > 3.1 %}
+{% ifversion ghec or ghes %}
 Organization のドメインの所有権を検証したあと、その Organizationへのメール通知を制限することができます。 詳しい情報については「[Organizationのメール通知の制限](/organizations/keeping-your-organization-secure/restricting-email-notifications-for-your-organization)」を参照してください。
 {% endif %}
 
@@ -51,7 +51,7 @@ Organizationのためのドメインを承認したあと、Organization内の�
 
 Enterpriseオーナーは、承認済みドメイン内の通知をどのOrganizationメンバーあるいはメールアドレスが受け取るのかを、見ることはできません。
 
-Enterpriseオーナーは、Enterpriseが所有するOrganizationのための追加ドメインを承認することもできます。 {% ifversion ghec %}詳しい情報については「[Enterpriseのドメインの検証もしくは承認](/enterprise-cloud@latest/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise)」を参照してください。{% endif %}{% ifversion ghes > 3.1 %}詳しい情報については「[Enterpriseのドメインの検証もしくは承認](/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise)」を参照してください。{% endif %}
+Enterpriseオーナーは、Enterpriseが所有するOrganizationのための追加ドメインを承認することもできます。 {% ifversion ghec %}詳しい情報については「[Enterpriseのドメインの検証もしくは承認](/enterprise-cloud@latest/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise)」を参照してください。{% endif %}{% ifversion ghes %}詳しい情報については「[Enterpriseのドメインの検証もしくは承認](/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise)」を参照してください。{% endif %}
 
 ## Organizationのためのドメインの検証
 

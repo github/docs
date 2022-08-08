@@ -51,13 +51,13 @@ Si estás utilizando una llave GPG que empata con tu identidad de confirmante y 
   $ gpg --armor --export <em>3AA5C34371567BD2</em>
   # Prints the GPG key, in ASCII armor format
   ```
-11. Carga la llave GPG al [agregarla a tu cuenta GitHub](/articles/adding-a-new-gpg-key-to-your-github-account).
+11. Carga la llave GPG al [agregarla a tu cuenta GitHub](/articles/adding-a-gpg-key-to-your-github-account).
 
 ## Leer más
 
 - "[Comprobar llaves GPG existentes](/articles/checking-for-existing-gpg-keys)"
 - "[Generar una llave GPG nueva](/articles/generating-a-new-gpg-key)"
 - "[Utilizar una dirección de correo electrónico verificada en tu llave GPG](/articles/using-a-verified-email-address-in-your-gpg-key)"
-- "[Agregar una nueva llave GPG a tu cuenta de GitHub](/articles/adding-a-new-gpg-key-to-your-github-account)"
+- "[Agregar una llave GPG a tu cuenta de GitHub](/articles/adding-a-gpg-key-to-your-github-account)"
 - "[Firmar confirmaciones](/articles/signing-commits)"
 - "[Firmar etiquetas](/articles/signing-tags)"

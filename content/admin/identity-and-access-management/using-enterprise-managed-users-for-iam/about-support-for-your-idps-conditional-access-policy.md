@@ -4,7 +4,7 @@ shortTitle: Conditional access policy
 intro: 'When your enterprise uses OIDC SSO, {% data variables.product.prodname_dotcom %} will validate access to your enterprise and its resources using your IdP''s Conditional Access Policy (CAP).'
 product: '{% data reusables.gated-features.emus %}'
 versions:
-  feature: 'oidc-for-emu'
+  feature: oidc-for-emu
 topics:
   - Accounts
   - Authentication

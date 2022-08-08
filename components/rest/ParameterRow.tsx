@@ -55,7 +55,7 @@ export function ParameterRow({
               </a>
             )}
             <div className="pt-2">
-              {defaultValue && (
+              {defaultValue !== undefined && (
                 <p>
                   <span>{t('rest.reference.default')}: </span>
                   <code>{defaultValue.toString()}</code>

@@ -34,4 +34,4 @@ A replicação geográfica não aumentará a capacidade de uma instância do {% 
 {% data reusables.enterprise_installation.monitoring-replicas %}
 
 ## Leia mais
-- [Criar réplicas de replicação geográfica](/enterprise/{{ currentVersion }}/admin/guides/installation/creating-a-high-availability-replica/#creating-geo-replication-replicas)
+- [Criar réplicas de replicação geográfica](/enterprise/admin/guides/installation/creating-a-high-availability-replica/#creating-geo-replication-replicas)

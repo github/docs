@@ -107,6 +107,9 @@ También puedes configurar un letrero de anuncio en el shell administrativo util
 {% data reusables.enterprise-accounts.messages-tab %}
 1. {% ifversion ghes or ghae %}A la derecha de{% else %}Debajo de {% endif %} "Anuncio", da clic en **Agregar anuncio**. ![Botón Agregar mensaje](/assets/images/enterprise/site-admin-settings/add-announcement-button.png)
 1. Debajo de "Anuncio", en el campo de texto, teclea el anuncio que quieras mostrar en un letrero. ![Campo de texto para ingresar el anuncio](/assets/images/enterprise/site-admin-settings/announcement-text-field.png)
-1. Opcionalmente, debajo de "Vence en", selecciona el menú desplegable de calendario y da clic en la fecha de vencimiento. ![Menú desplegable de calendario para elegir una fecha de vencimiento](/assets/images/enterprise/site-admin-settings/expiration-drop-down.png)
+1. Opcionalmente, debajo de "Vence en", selecciona el menú desplegable de calendario y da clic en la fecha de vencimiento. ![Calendar drop-down menu to choose expiration date](/assets/images/enterprise/site-admin-settings/expiration-drop-down.png){% ifversion ghe-announce-dismiss %}
+1. Opcionalmente, para permitir que cada usuario descarte el anuncio, selecciona **Descartable por el usuario**.
+
+   ![Captura de pantalla de la casilla de verificación de "Descartable por el usuario"](/assets/images/enterprise/site-admin-settings/user-dismissible-checkbox.png){% endif %}
 {% data reusables.enterprise_site_admin_settings.message-preview-save %}
 {% endif %}

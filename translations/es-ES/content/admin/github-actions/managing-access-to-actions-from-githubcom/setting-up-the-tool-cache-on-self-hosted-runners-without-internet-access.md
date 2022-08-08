@@ -31,7 +31,7 @@ Puedes poblar el caché de la herramienta del ejecutor si ejecutas un flujo de t
 
 {% note %}
 
-**Nota:** Solo puedes utilizar un caché de la herramienta del ejecutor hospedado en {% data variables.product.prodname_dotcom %} para un ejecutor auto-hospedado que tenga un sistema operativo y arquitectura idénticos. Por ejemplo, si estás utilizando un ejecutor hospedado en {% data variables.product.prodname_dotcom %} con `ubuntu-18.04` para generar un caché de la herramienta, tu ejecutor auto-hospedado también debe ser una máquina con Ubuntu 18.04 de 64 bits. Para obtener más información sobre los ejecutores hospedados en {% data variables.product.prodname_dotcom %}, consulta la sección "<a href="/actions/reference/virtual-environments-for-github-hosted-runners#supported-runners-and-hardware-resources" class="dotcom-only">Ambientes virtuales para los ejecutores hospedados en GitHub</a>".
+**Nota:** Solo puedes utilizar un caché de la herramienta del ejecutor hospedado en {% data variables.product.prodname_dotcom %} para un ejecutor auto-hospedado que tenga un sistema operativo y arquitectura idénticos. Por ejemplo, si estás utilizando un ejecutor hospedado en {% data variables.product.prodname_dotcom %} con `ubuntu-18.04` para generar un caché de la herramienta, tu ejecutor auto-hospedado también debe ser una máquina con Ubuntu 18.04 de 64 bits. Para obtener más información sobre los ejecutores hospedados en {% data variables.product.prodname_dotcom %}, consulta la sección "[Ambientes virtuales para los ejecutores hospedados en GitHub](/free-pro-team@latest/actions/using-github-hosted-runners/about-github-hosted-runners#supported-runners-and-hardware-resources)".
 
 {% endnote %}
 

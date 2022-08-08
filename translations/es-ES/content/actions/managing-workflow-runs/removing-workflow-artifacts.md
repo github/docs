@@ -16,7 +16,7 @@ shortTitle: Eliminar los artefactos de un flujo de trabajo
 
 {% warning %}
 
-**Warning:** Once you delete an artifact, it cannot be restored.
+**Advertencia:** Una vez que borres un artefacto, este no se puede restablecer.
 
 {% endwarning %}
 

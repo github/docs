@@ -36,5 +36,3 @@ Contributors can always report disruptive content to {% data variables.contact.g
 - "[Your Code of Conduct](https://opensource.guide/code-of-conduct/)" from the Open Source Guides
 - "[Building Welcoming Communities](https://opensource.guide/building-community/)" from the Open Source Guides
 - "[Leadership and Governance](https://opensource.guide/leadership-and-governance/)" from the Open Source Guides
-- "[Shaming and why it is inappropriate](https://github.community/t5/Studies-in-Community/Shaming-and-why-it-is-inappropriate/ba-p/12728)" from the GitHub Community Forum
-- "[Being toxic is not constructive criticism](https://github.community/t5/Studies-in-Community/Being-toxic-is-not-constructive-criticism/ba-p/8029)" from the GitHub Community Forum

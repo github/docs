@@ -1,32 +1,30 @@
 ---
-title: Reabrir um quadro de projeto fechado
-intro: Você pode reabrir um painel de projeto fechado e reiniciar qualquer automação de fluxo de trabalho que tenha sido configurada para o quadro de projetos.
+title: 'Reopening a closed {% data variables.product.prodname_project_v1 %}'
+intro: 'You can reopen a closed {% data variables.projects.projects_v1_board %} and restart any workflow automation that was configured for the {% data variables.projects.projects_v1_board %}.'
 redirect_from:
   - /github/managing-your-work-on-github/managing-project-boards/reopening-a-closed-project-board
   - /articles/reopening-a-closed-project-board
   - /github/managing-your-work-on-github/reopening-a-closed-project-board
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
-  ghec: '*'
+  feature: projects-v1
 topics:
   - Pull requests
-shortTitle: Reabrir quadro de projeto
+shortTitle: 'Reopen {% data variables.product.prodname_project_v1 %}'
+allowTitleToDifferFromFilename: true
 ---
 
 {% data reusables.projects.project_boards_old %}
 
-Quando você fecha um quadro de projeto, todas as automações de fluxo de trabalho configuradas para o quadro de projeto são pausadas por padrão. Para obter mais informações, consulte "[Fechar um quadro de projeto](/articles/closing-a-project-board)".
+When you close a {% data variables.projects.projects_v1_board %}, any workflow automation that was configured for the {% data variables.projects.projects_v1_board %} will pause by default. For more information, see "[Closing a {% data variables.product.prodname_project_v1 %}](/articles/closing-a-project-board)."
 
-Quando você reabre um quadro de projeto, tem a opção de *sincronizar* a automação, o que atualiza a posição dos cartões no quadro de acordo com as configurações de automação definidas para o quadro.
+When you reopen a {% data variables.projects.projects_v1_board %}, you have the option to *sync* automation, which updates the position of the cards on the board according to the automation settings configured for the board.
 
-1. Navegue até o quadro de projeto que deseja reabrir.
+1. Navigate to the {% data variables.projects.projects_v1_board %} you want to reopen.
 {% data reusables.project-management.click-menu %}
-3. Escolha se deseja sincronizar a automação do quadro de projeto ao reabri-lo.
-    - Para reabrir o quadro de projeto e sincronizar a automação, clique em **Reopen and sync project** (Reabrir e sincronizar projeto). ![Selecione o botão "Reopen and resync project" (Reabrir e sincronizar projeto)](/assets/images/help/projects/reopen-and-sync-project.png)
-    - Para reabrir o quadro de projeto sem sincronizar a automação, use o menu suspenso reopen (reabrir) e clique em **Reopen only** (Somente reabrir). Em seguida, clique em **Reopen only** (Somente reabrir). ![Menu suspenso de reabertura de quadro de projeto fechado](/assets/images/help/projects/reopen-closed-project-board-drop-down-menu.png)
+3. Choose whether to sync automation for your {% data variables.projects.projects_v1_board %} or reopen your {% data variables.projects.projects_v1_board %} without syncing.
+    - To reopen your {% data variables.projects.projects_v1_board %} and sync automation, click **Reopen and sync project**. ![Selecione o botão "Reopen and resync project" (Reabrir e sincronizar projeto)](/assets/images/help/projects/reopen-and-sync-project.png)
+    - To reopen your {% data variables.projects.projects_v1_board %} without syncing automation, using the reopen drop-down menu, click **Reopen only**. Em seguida, clique em **Reopen only** (Somente reabrir). ![Menu suspenso de reabertura de quadro de projeto fechado](/assets/images/help/projects/reopen-closed-project-board-drop-down-menu.png)
 
 ## Leia mais
 
-- "[Configurar a automação para quadros de projeto](/articles/configuring-automation-for-project-boards)"
+- "[Configuring automation for {% data variables.product.prodname_projects_v1 %}](/articles/configuring-automation-for-project-boards)"

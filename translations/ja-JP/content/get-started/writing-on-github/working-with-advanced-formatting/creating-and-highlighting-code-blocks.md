@@ -69,7 +69,7 @@ Look! You can see my backticks.
 {% ifversion mermaid %}
 ## Creating diagrams
 
-You can also use code blocks to create diagrams in Markdown. GitHub supports Mermaid, geoJSON, topoJSON, and ASCII STL syntax. For more information, see "[Creating diagrams](/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams)."
+You can also use code blocks to create diagrams in Markdown. GitHub supports Mermaid, GeoJSON, TopoJSON, and ASCII STL syntax. For more information, see "[Creating diagrams](/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams)."
 
 {% endif %}
 ## 参考リンク

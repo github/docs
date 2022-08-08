@@ -19,6 +19,8 @@ Este guia irá ajudar você a configurar e gerenciar sua conta de {% data variab
 
 A principal diferença entre os produtos é que {% data variables.product.prodname_ghe_cloud %} é hospedado por {% data variables.product.prodname_dotcom %}, enquanto {% data variables.product.prodname_ghe_server %} é auto-hospedado.
 
+{% data reusables.enterprise.about-github-for-enterprises %}
+
 Com {% data variables.product.prodname_ghe_cloud %}, você tem a opção de usar {% data variables.product.prodname_emus %}. {% data reusables.enterprise-accounts.emu-short-summary %}
 
 Se você optar por deixar seus integrantes criarem e gerenciarem suas próprias contas pessoais, há dois tipos de contas que você pode usar com {% data variables.product.prodname_ghe_cloud %}:
@@ -29,8 +31,6 @@ Se você optar por deixar seus integrantes criarem e gerenciarem suas próprias 
 ### 1. Compreender as diferenças entre uma conta de organização e a conta corporativa
 
 As contas da organização e da empresa estão disponíveis com {% data variables.product.prodname_ghe_cloud %}. Uma organização é uma conta compartilhada em que grupos de pessoas podem colaborar em vários projetos de uma só vez, e os proprietários e administradores podem gerenciar o acesso a dados e projetos. Uma conta corporativa permite a colaboração entre várias organizações e permite que os proprietários gerenciem centralmente a política, cobrança e segurança dessas organizações. Para obter mais informações sobre as diferenças, consulte "[Organizações e contas corporativas](/organizations/collaborating-with-groups-in-organizations/about-organizations#organizations-and-enterprise-accounts)".
-
-
 
 Se você escolher uma conta corporativa, tenha em mente que algumas políticas só podem ser definidas no nível organizacional, enquanto outras podem ser aplicadas a todas as organizações de uma empresa.
 
