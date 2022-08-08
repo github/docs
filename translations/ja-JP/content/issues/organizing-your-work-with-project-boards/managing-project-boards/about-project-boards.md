@@ -1,5 +1,5 @@
 ---
-title: '{% data variables.product.prodname_projects_v1 %}について'
+title: About {% data variables.product.prodname_projects_v1 %}
 intro: '{% data variables.product.prodname_projects_v1_caps %} on {% data variables.product.product_name %} help you organize and prioritize your work. You can create {% data variables.projects.projects_v1_boards %} for specific feature work, comprehensive roadmaps, or even release checklists. With {% data variables.product.prodname_projects_v1 %}, you have the flexibility to create customized workflows that suit your needs.'
 redirect_from:
   - /github/managing-your-work-on-github/managing-project-boards/about-project-boards
@@ -7,7 +7,7 @@ redirect_from:
   - /articles/about-project-boards
   - /github/managing-your-work-on-github/about-project-boards
 versions:
-  feature: projects-v1
+  feature: "projects-v1"
 topics:
   - Pull requests
 allowTitleToDifferFromFilename: true
@@ -15,17 +15,17 @@ allowTitleToDifferFromFilename: true
 
 {% data reusables.projects.project_boards_old %}
 
-{% data variables.projects.projects_v1_boards_caps %} are made up of issues, pull requests, and notes that are categorized as cards in columns of your choosing. 列内のカードの並び替え、列から列へのカードの移動、および列の順序の変更には、ドラッグアンドドロップまたはキーボードショートカットが利用できます。
+{% data variables.projects.projects_v1_boards_caps %} are made up of issues, pull requests, and notes that are categorized as cards in columns of your choosing. You can drag and drop or use keyboard shortcuts to reorder cards within a column, move cards from column to column, and change the order of columns.
 
 {% data variables.projects.projects_v1_board_caps %} cards contain relevant metadata for issues and pull requests, like labels, assignees, the status, and who opened it. {% data reusables.project-management.edit-in-project %}
 
-You can create notes within columns to serve as task reminders, references to issues and pull requests from any repository on {% data variables.product.product_location %}, or to add information related to the {% data variables.projects.projects_v1_board %}. You can create a reference card for another {% data variables.projects.projects_v1_board %} by adding a link to a note. ノートでは要求を満たせない場合、ノートを Issue に変換することができます。 For more information on converting notes to issues, see "[Adding notes to a {% data variables.product.prodname_project_v1 %}](/articles/adding-notes-to-a-project-board)."
+You can create notes within columns to serve as task reminders, references to issues and pull requests from any repository on {% data variables.product.product_location %}, or to add information related to the {% data variables.projects.projects_v1_board %}. You can create a reference card for another {% data variables.projects.projects_v1_board %} by adding a link to a note. If the note isn't sufficient for your needs, you can convert it to an issue. For more information on converting notes to issues, see "[Adding notes to a {% data variables.product.prodname_project_v1 %}](/articles/adding-notes-to-a-project-board)."
 
-プロジェクトボードには以下の種類があります:
+Types of project boards:
 
 - **User-owned {% data variables.projects.projects_v1_board %}** can contain issues and pull requests from any personal repository.
 - **Organization-wide {% data variables.projects.projects_v1_board %}** can contain issues and pull requests from any repository that belongs to an organization.  {% data reusables.project-management.link-repos-to-project-board %} For more information, see "[Linking a repository to a {% data variables.product.prodname_project_v1 %}](/articles/linking-a-repository-to-a-project-board)."
-- **Repository {% data variables.projects.projects_v1_board %}** are scoped to issues and pull requests within a single repository. 他のリポジトリの Issue やプルリクエストを参照するノートも含まれます。
+- **Repository {% data variables.projects.projects_v1_board %}** are scoped to issues and pull requests within a single repository. They can also include notes that reference issues and pull requests in other repositories.
 
 ## Creating and viewing {% data variables.projects.projects_v1_boards %}
 
@@ -33,7 +33,7 @@ To create a {% data variables.projects.projects_v1_board %} for your organizatio
 
 If an organization-owned {% data variables.projects.projects_v1_board %} includes issues or pull requests from a repository that you don't have permission to view, the card will be redacted.  For more information, see "[{% data variables.product.prodname_project_v1_caps %} permissions for an organization](/articles/project-board-permissions-for-an-organization)."
 
-The activity view shows the {% data variables.projects.projects_v1_board %}'s recent history, such as cards someone created or moved between columns. アクティビティビューにアクセスするには、[**Menu**] をクリックしてスクロールダウンします。
+The activity view shows the {% data variables.projects.projects_v1_board %}'s recent history, such as cards someone created or moved between columns. To access the activity view, click **Menu** and scroll down.
 
 To find specific cards on a {% data variables.projects.projects_v1_board %} or view a subset of the cards, you can filter {% data variables.projects.projects_v1_board %} cards. For more information, see "[Filtering cards on a {% data variables.product.prodname_project_v1 %}](/articles/filtering-cards-on-a-project-board)."
 
@@ -47,14 +47,14 @@ You can also [disable {% data variables.projects.projects_v1_boards %} in a repo
 
 ## Templates for {% data variables.projects.projects_v1_boards %}
 
-You can use templates to quickly set up a new {% data variables.projects.projects_v1_board %}. When you use a template to create a {% data variables.projects.projects_v1_board %}, your new board will include columns as well as cards with tips for using {% data variables.product.prodname_projects_v1 %}. また、自動化が設定済みのテンプレートを選択することもできます。
+You can use templates to quickly set up a new {% data variables.projects.projects_v1_board %}. When you use a template to create a {% data variables.projects.projects_v1_board %}, your new board will include columns as well as cards with tips for using {% data variables.product.prodname_projects_v1 %}. You can also choose a template with automation already configured.
 
-| テンプレート                       | 説明                                                                             |
-| ---------------------------- | ------------------------------------------------------------------------------ |
-| Basic kanban                 | [To do]、[In progress]、[Done] 列でタスクを追跡します。                                      |
-| Automated kanban             | カードは自動的に [To do]、[In progress]、[Done] の列間を移動します。                               |
-| Automated kanban with review | プルリクエストレビューのステータスのための追加のトリガーで、カードは [To do]、[In progress]、[Done] 列の間を自動的に移動します。 |
-| Bug triage                   | [To do]、[High priority]、[Low priority]、[Closed] 列でバグのトリアージと優先順位付けをします。         |
+| Template | Description |
+| --- | --- |
+| Basic kanban | Track your tasks with To do, In progress, and Done columns |
+| Automated kanban | Cards automatically move between To do, In progress, and Done columns | 
+| Automated kanban with review | Cards automatically move between To do, In progress, and Done columns, with additional triggers for pull request review status |
+| Bug triage | Triage and prioritize bugs with To do, High priority, Low priority, and Closed columns |
 
 For more information on automation for {% data variables.product.prodname_projects_v1 %}, see "[About automation for {% data variables.product.prodname_projects_v1 %}](/articles/about-automation-for-project-boards)."
 
@@ -62,11 +62,11 @@ For more information on automation for {% data variables.product.prodname_projec
 
 {% data reusables.project-management.copy-project-boards %}
 
-## 参考リンク
+## Further reading
 
-- [{% data variables.product.prodname_project_v1 %}を作成する](/articles/creating-a-project-board)
+- "[Creating a {% data variables.product.prodname_project_v1 %}](/articles/creating-a-project-board)"
 - "[Editing a {% data variables.product.prodname_project_v1 %}](/articles/editing-a-project-board)"{% ifversion fpt or ghec %}
 - "[Copying a {% data variables.product.prodname_project_v1 %}](/articles/copying-a-project-board)"{% endif %}
 - "[Adding issues and pull requests to a {% data variables.product.prodname_project_v1 %}](/articles/adding-issues-and-pull-requests-to-a-project-board)"
 - "[{% data variables.product.prodname_project_v1_caps %} permissions for an organization](/articles/project-board-permissions-for-an-organization)"
-- [キーボードショートカット](/articles/keyboard-shortcuts/#project-boards)
+- "[Keyboard shortcuts](/articles/keyboard-shortcuts/#project-boards)"

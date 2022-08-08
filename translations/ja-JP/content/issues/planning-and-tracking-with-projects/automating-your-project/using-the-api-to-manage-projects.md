@@ -1,7 +1,7 @@
 ---
-title: 'Using the API to manage {% data variables.product.prodname_projects_v2 %}'
-shortTitle: Automating with the API
-intro: You can use the GraphQL API to automate your projects.
+title: '{% data variables.product.prodname_projects_v2 %}の管理のためのAPIの利用'
+shortTitle: APIでの自動化
+intro: GraphQL APIを使ってプロジェクトを自動化できます。
 miniTocMaxHeadingLevel: 3
 versions:
   feature: projects-v2
@@ -13,7 +13,7 @@ topics:
 allowTitleToDifferFromFilename: true
 ---
 
-この記事では、GraphQL API を使用してプロジェクトを管理する方法を説明します。 For more information about how to use the API in a {% data variables.product.prodname_actions %} workflow, see "[Automating {% data variables.product.prodname_projects_v2 %} using Actions](/issues/planning-and-tracking-with-projects/automating-your-project/automating-projects-using-actions)." 利用可能なデータタイプの完全なリストについては「[リファレンス](/graphql/reference)」を参照してください。
+この記事では、GraphQL API を使用してプロジェクトを管理する方法を説明します。 {% data variables.product.prodname_actions %}ワークフローでこのAPIを使う方法に関する詳しい情報については「[Actionsを使った{% data variables.product.prodname_projects_v2 %}の自動化](/issues/planning-and-tracking-with-projects/automating-your-project/automating-projects-using-actions)」を参照してください。 利用可能なデータタイプの完全なリストについては「[リファレンス](/graphql/reference)」を参照してください。
 
 {% data reusables.projects.graphql-deprecation %}
 
@@ -715,6 +715,6 @@ gh api graphql -f query='
 ```
 {% endcli %}
 
-## Using webhooks
+## webhookの利用
 
-You can use webhooks to subscribe to events taking place in your project. For example, when an item is edited, {% data variables.product.product_name %} can send a HTTP POST payload to the webhook's configured URL which can trigger automation on your server. For more information about webhooks, see "[About webhooks](/developers/webhooks-and-events/webhooks/about-webhooks)." To learn more about the `projects_v2_item` webhook event, see "[Webhook events and payloads](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#projects_v2_item)."
+webhookを使ってプロジェクトで生じるイベントをサブスクライブできます。 たとえば、アイテムが編集されたとき、{% data variables.product.product_name %}はHTTP POSTのペイロードをwebhookの設定されたURLに送信でき、それによってサーバーで自動化をトリガーできます。 webhookに関する詳しい情報については「[webhookについて](/developers/webhooks-and-events/webhooks/about-webhooks)」を参照してください。 `projects_v2_item` webhookイベントに関してさらに学ぶには、「[webhookのイベントとペイロード](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#projects_v2_item)」を参照してください。

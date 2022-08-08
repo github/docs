@@ -90,7 +90,7 @@ Depois de adicionar uma nova chave SSH à sua conta em {% ifversion ghae %}{% da
 5. No campo "Title" (Título), adicione uma etiqueta descritiva para a nova chave. Por exemplo, se estiver usando um Mac pessoal, você poderá chamar essa chave de "MacBook Air Pessoal".
 6. Cole sua chave no campo "Key" (Chave). ![O campo de chave](/assets/images/help/settings/ssh-key-paste.png)
 7. Clique em **Add SSH key** (Adicionar chave SSH). ![O botão Add key (Adicionar chave)](/assets/images/help/settings/ssh-add-key.png)
-8. Se solicitado, confirme sua senha do {% data variables.product.product_name %}.![Caixa de diálogo Sudo mode (Modo sudo)](/assets/images/help/settings/sudo_mode_popup.png)
+{% data reusables.user-settings.sudo-mode-popup %}
 
 {% endwebui %}
 
@@ -122,7 +122,7 @@ Depois de adicionar uma nova chave SSH à sua conta em {% ifversion ghae %}{% da
 5. No campo "Title" (Título), adicione uma etiqueta descritiva para a nova chave. Por exemplo, se estiver usando um Mac pessoal, você poderá chamar essa chave de "MacBook Air Pessoal".
 6. Cole sua chave no campo "Key" (Chave). ![O campo de chave](/assets/images/help/settings/ssh-key-paste.png)
 7. Clique em **Add SSH key** (Adicionar chave SSH). ![O botão Add key (Adicionar chave)](/assets/images/help/settings/ssh-add-key.png)
-8. Se solicitado, confirme sua senha do {% data variables.product.product_name %}.![Caixa de diálogo Sudo mode (Modo sudo)](/assets/images/help/settings/sudo_mode_popup.png)
+{% data reusables.user-settings.sudo-mode-popup %}
 
 {% endwebui %}
 

@@ -1,7 +1,7 @@
-import { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
 import dynamic from 'next/dynamic'
 
+import useLazyLoadHighlightJS from 'components/hooks/useLazyLoadHighlightJS'
 import { DefaultLayout } from 'components/DefaultLayout'
 import { ArticleTitle } from 'components/article/ArticleTitle'
 import { MarkdownContent } from 'components/ui/MarkdownContent'
@@ -20,23 +20,7 @@ export const AutomatedPage = ({ children }: Props) => {
   const { asPath } = useRouter()
   const { title, intro, renderedPage, miniTocItems } = useAutomatedPageContext()
 
-  // If the page contains `[data-highlight]` blocks, these pages need
-  // syntax highlighting. But not every page needs it, so it's conditionally
-  // lazy-loaded on the client.
-  const [lazyLoadHighlightJS, setLazyLoadHighlightJS] = useState(false)
-  useEffect(() => {
-    // It doesn't need to use querySelector because all we care about is if
-    // there is greater than zero of these in the DOM.
-    // Note! This "core selector", which determines whether to bother
-    // or not, needs to match what's used inside ClientSideHighlightJS.tsx
-    if (document.querySelector('[data-highlight]')) {
-      setLazyLoadHighlightJS(true)
-    }
-
-    // Important to depend on the current path because the first page you
-    // load, before any client-side navigation, might not need it, but the
-    // consecutive one does.
-  }, [asPath])
+  const lazyLoadHighlightJS = useLazyLoadHighlightJS(asPath)
 
   return (
     <DefaultLayout>

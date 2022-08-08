@@ -16,6 +16,12 @@ topics:
 
 Fecha de entrada en vigor: **2 de abril de 2021**
 
+{% note %}
+
+**Note:** Changes to the list of cookies on this page are currently pending.
+
+{% endnote %}
+
 GitHub ofrece una gran cantidad de transparencia en cuanto a cómo usamos tus datos, cómo recopilamos tus datos y con quién los compartimos. Para este propósito, proporcionamos esta página, la cual detalla [nuestros subprocesadores](#github-subprocessors) y cómo utilizamos las [cookies](#cookies-on-github).
 
 ## Subprocesadores de GitHub
@@ -78,4 +84,4 @@ Ya que la cantidad de nombres y cookies puede cambiar, la tabla siguiente se pod
 
 _*_ Las fechas de **vencimiento** para las cookies que se listan a continuación generalmente se aplican permanentemente.
 
-(i) Por favor, ten encuenta que si bien limitamos nuestro uso de cookies de terceros a aquellas necesarias para proporcionar una funcionalidad externa cuando interpretamos el contenido externo, algunas páginas en nuestro sitio web podrían configurar otras cookies de terceros. Por ejemplo, es posible que insertamos contenido, como vídeos, desde otro sitio que establezca una cookie. Si bien tratamos de minimizar estas cookies de terceros, no siempre podemos controlar qué cookies establece este contenido de terceros.
+(i) Por favor, ten encuenta que si bien limitamos nuestro uso de cookies de terceros a aquellas necesarias para proporcionar una funcionalidad externa cuando interpretamos el contenido externo, algunas páginas en nuestro sitio web podrían configurar otras cookies de terceros. Por ejemplo, es posible que insertemos contenido, como vídeos, desde otro sitio que establezca una cookie. Si bien tratamos de minimizar estas cookies de terceros, no siempre podemos controlar qué cookies configura dicho contenido.

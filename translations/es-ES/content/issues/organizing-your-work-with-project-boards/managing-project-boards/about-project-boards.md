@@ -1,6 +1,6 @@
 ---
 title: 'Acerca de las {% data variables.product.prodname_projects_v1 %}'
-intro: '{% data variables.product.prodname_projects_v1_caps %} on {% data variables.product.product_name %} help you organize and prioritize your work. You can create {% data variables.projects.projects_v1_boards %} for specific feature work, comprehensive roadmaps, or even release checklists. With {% data variables.product.prodname_projects_v1 %}, you have the flexibility to create customized workflows that suit your needs.'
+intro: '{% data variables.product.prodname_projects_v1_caps %} on {% data variables.product.product_name %} help you organize and prioritize your work. You can create {% data variables.projects.projects_v1_boards %} for specific feature work, comprehensive roadmaps, or even release checklists. Con {% data variables.product.prodname_projects_v1 %}, tienes la flexibilidad de crear flujos de trabajo personalizados que se acopñlen a tus necesidades.'
 redirect_from:
   - /github/managing-your-work-on-github/managing-project-boards/about-project-boards
   - /articles/about-projects
@@ -15,11 +15,11 @@ allowTitleToDifferFromFilename: true
 
 {% data reusables.projects.project_boards_old %}
 
-{% data variables.projects.projects_v1_boards_caps %} are made up of issues, pull requests, and notes that are categorized as cards in columns of your choosing. Puedes arrastrar y soltar o usar los atajos del teclado para reordenar las tarjetas dentro de una columna, mover tarjetas de columna a columna y cambiar el orden de las columnas.
+Los {% data variables.projects.projects_v1_boards_caps %} se componen de propuestas, solicitudes de cambios y notas que se categorizan como tarjetas en las columnas de tu elección. Puedes arrastrar y soltar o usar los atajos del teclado para reordenar las tarjetas dentro de una columna, mover tarjetas de columna a columna y cambiar el orden de las columnas.
 
-{% data variables.projects.projects_v1_board_caps %} cards contain relevant metadata for issues and pull requests, like labels, assignees, the status, and who opened it. {% data reusables.project-management.edit-in-project %}
+Las tarjetas de los {% data variables.projects.projects_v1_board_caps %} contienen metadatos relevantes para las propuestas y solicitudes de cambios, como etiquetas, asignados, el estado y quién la abrió. {% data reusables.project-management.edit-in-project %}
 
-You can create notes within columns to serve as task reminders, references to issues and pull requests from any repository on {% data variables.product.product_location %}, or to add information related to the {% data variables.projects.projects_v1_board %}. You can create a reference card for another {% data variables.projects.projects_v1_board %} by adding a link to a note. Si la nota no es suficiente para tus necesidades, puedes convertirla en una propuesta. For more information on converting notes to issues, see "[Adding notes to a {% data variables.product.prodname_project_v1 %}](/articles/adding-notes-to-a-project-board)."
+Puedes crear notas dentro de las columnas para que sirvan como recordatorios de tareas, referencias a las propuestas y solicitudes de cambio de cualquier repositorio en {% data variables.product.product_location %} o para agregar la información relacionada con el {% data variables.projects.projects_v1_board %}. Puedes crear una tarjeta de referencia para otro {% data variables.projects.projects_v1_board %} si agregas un enlace a una nota. Si la nota no es suficiente para tus necesidades, puedes convertirla en una propuesta. For more information on converting notes to issues, see "[Adding notes to a {% data variables.product.prodname_project_v1 %}](/articles/adding-notes-to-a-project-board)."
 
 Tipos de tableros de proyecto:
 

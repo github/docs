@@ -13,4 +13,4 @@ versions:
 
 ## 关于缓存 API
 
-{% data variables.product.prodname_actions %} 缓存 API 允许您查询和管理存储库的 {% data variables.product.prodname_actions %} 缓存。 更多信息请参阅“[缓存依赖项以加快工作流程](/actions/advanced-guides/caching-dependencies-to-speed-up-workflows#usage-limits-and-eviction-policy)”。
+{% data variables.product.prodname_actions %} 缓存 API 允许您查询和管理存储库的 {% data variables.product.prodname_actions %} 缓存。 {% ifversion actions-cache-management %}You can also install a {% data variables.product.prodname_cli %} extension to manage your caches from the command line. {% endif %}For more information, see "[Caching dependencies to speed up workflows](/actions/advanced-guides/caching-dependencies-to-speed-up-workflows#managing-caches)."

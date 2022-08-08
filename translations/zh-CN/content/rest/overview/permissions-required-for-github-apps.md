@@ -712,6 +712,7 @@ _团队_
 - [`GET /repos/:owner/:repo/pages/builds/latest`](/rest/reference/pages#get-latest-pages-build) (:read)
 {% ifversion fpt or ghec -%}
 - [`GET /repos/:owner/:repo/pages/health`](/rest/reference/pages#get-a-dns-health-check-for-github-pages) (:write)
+- [`POST /repos/:owner/:repo/pages/deployment`](/rest/reference/repos#create-a-github-pages-deployment) (:write)
 {% endif %}
 
 ### 有关“拉取请求”的权限

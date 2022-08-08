@@ -17,5 +17,7 @@ children:
   - /viewing-insights-from-your-project
   - /managing-your-project
 allowTitleToDifferFromFilename: true
+redirect_from:
+  - /issues/trying-out-the-new-projects-experience
 ---
 

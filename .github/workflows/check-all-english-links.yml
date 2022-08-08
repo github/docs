@@ -52,8 +52,6 @@ jobs:
         env:
           NODE_ENV: production
           PORT: 4000
-          DISABLE_OVERLOAD_PROTECTION: true
-          DISABLE_RENDERING_CACHE: true
           # We don't want or need the changelog entries in this context.
           CHANGELOG_DISABLED: true
           # The default is 10s. But because this runs overnight, we can

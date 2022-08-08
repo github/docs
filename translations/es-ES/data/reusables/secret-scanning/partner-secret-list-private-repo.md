@@ -7,9 +7,9 @@
 | Adobe         | Token Web de JSON de Adobe                                       | adobe_jwt                                                                |
 | Alibaba Cloud | Alibaba Cloud Access Key ID with Alibaba Cloud Access Key Secret | alibaba_cloud_access_key_id </br>alibaba_cloud_access_key_secret |
 {%- ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5845 %}
-Amazon | Amazon OAuth Client ID with Amazon OAuth Client Secret | amazon_oauth_client_id </br>amazon_oauth_client_secret{% endif %} Amazon Web Services (AWS) | Amazon AWS Access Key ID with Amazon AWS Secret Access Key | aws_access_key_id </br>aws_secret_access_key
+Amazon | ID de Cliente OAuth de Amazon con Secreto de Cliente OAuth de Amazon | amazon_oauth_client_id </br>amazon_oauth_client_secret{% endif %} Amazon Web Services (AWS) | ID de Llave de Acceso de Amazon AWS con Llave de Acceso del Secreto de Amazon AWS | aws_access_key_id </br>aws_secret_access_key
 {%- ifversion fpt or ghec or ghes > 3.2 or ghae %}
-Amazon Web Services (AWS) | Amazon AWS Session Token with Amazon AWS Temporary Access Key ID and Amazon AWS Secret Access Key | aws_session_token </br>aws_temporary_access_key_id </br>aws_secret_access_key{% endif %} Asana | Asana Personal Access Token | asana_personal_access_token Atlassian | Atlassian API Token | atlassian_api_token Atlassian | Atlassian JSON Web Token | atlassian_jwt Atlassian | Bitbucket Server Personal Access Token | bitbucket_server_personal_access_token
+Amazon Web Services (AWS) | Token de Sesión de Amazon AWS con ID de Llave de Acceso Temporal de Amazon AWS y Llave de Acceso Secreto de Amazon AWS | aws_session_token </br>aws_temporary_access_key_id </br>aws_secret_access_key{% endif %} Asana | Token de Acceso Personal a Asana | asana_personal_access_token Atlassian | Token de la API de Atlassian | atlassian_api_token Atlassian | Token Web JSON de Atlassian | atlassian_jwt Atlassian | Token de Acceso Personal al Servidor de Bitbucket Server | bitbucket_server_personal_access_token
 {%- ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5845 %}
 Azure | Secreto de la Aplicación de Azure Active Directory | azure_active_directory_application_secret{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5845 %}
@@ -27,15 +27,15 @@ FullStory | Llave de la API de FullStory | fullstory_api_key{% endif %} GitHub |
 {%- ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5845 %}
 GitLab | Token de Acceso a GitLab | gitlab_access_token{% endif %} GoCardless | Toekn de Acceso en Vivo a GoCardless | gocardless_live_access_token GoCardless | Token de Acceso de Prueba a GoCardless | gocardless_sandbox_access_token
 {%- ifversion fpt or ghec or ghes > 3.2 or ghae %}
-Google | Firebase Cloud Messaging Server Key | firebase_cloud_messaging_server_key{% endif %} Google | Google API Key | google_api_key Google | Google Cloud Private Key ID |
+Google | Llave del Servidor de Mensajería de Firebase Cloud | firebase_cloud_messaging_server_key{% endif %} Google | Llave de la API de Google | google_api_key Google | ID de Llave Privada de Google Cloud |
 {%- ifversion fpt or ghec or ghes > 3.2 or ghae %}
-Google | Google Cloud Storage Service Account Access Key ID with Google Cloud Storage Access Key Secret | google_cloud_storage_service_account_access_key_id </br>google_cloud_storage_access_key_secret{% endif %}
+Google | ID de Llave de Acceso a la Cuenta de Servicio de Almacenamiento de Google Cloud con Secreto de la Llave de Acceso para Almacenamiento de Google Cloud | google_cloud_storage_service_account_access_key_id </br>google_cloud_storage_access_key_secret{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.2 or ghae %}
-Google | Google Cloud Storage User Access Key ID with Google Cloud Storage Access Key Secret | google_cloud_storage_user_access_key_id </br>google_cloud_storage_access_key_secret{% endif %}
+Google | ID de Llave de Acceso de Usuario al Almacenamiento de Google Cloud con Secreto de Llave de Acceso al Almacenamiento de Google Cloud | google_cloud_storage_user_access_key_id </br>google_cloud_storage_access_key_secret{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5845 %}
 Google | Token de Acceso OAuth a Google | google_oauth_access_token{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5845 %}
-Google | Google OAuth Client ID with Google OAuth Client Secret | google_oauth_client_id </br>google_oauth_client_secret{% endif %}
+Google | ID de Cliente OAuth de Google con Secreto de Cliente OAuth de Google | google_oauth_client_id </br>google_oauth_client_secret{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5845 %}
 Google | Token de Actualización OAuth de Google | google_oauth_refresh_token{% endif %} Grafana | Llave de la API de Grafana | grafana_api_key HashiCorp | Token de la API de Terraform Cloud / Enterprise | terraform_api_token HashiCorp | Token de Lote de HashiCorp Vault | hashicorp_vault_batch_token HashiCorp | Token de Servicio HashiCorp Vault | hashicorp_vault_service_token Hubspot | Llave de la API de Hubspot | hubspot_api_key Intercom | Token de Acceso de Intercom | intercom_access_token Ionic | Token de Acceso Personal de Ionic | ionic_personal_access_token Ionic | Token de Actualización de Ionic | ionic_refresh_token
 {%- ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6944 %}
@@ -71,7 +71,7 @@ PlanetScale | Token de OAuth de PlanetScale | planetscale_oauth_token{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.2 or ghae %}
 PlanetScale | Token de Servicio de PlanetScale | planetscale_service_token{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.2 or ghae %}
-Plivo | Plivo Auth ID with Plivo Auth Token | plivo_auth_id </br>plivo_auth_token{% endif %} Postman | Postman API Key | postman_api_key Proctorio | Proctorio Consumer Key | proctorio_consumer_key Proctorio | Proctorio Linkage Key | proctorio_linkage_key Proctorio | Proctorio Registration Key | proctorio_registration_key Proctorio | Proctorio Secret Key | proctorio_secret_key Pulumi | Pulumi Access Token | pulumi_access_token PyPI | PyPI API Token | pypi_api_token
+Plivo | ID de Autenticación de Plivo con Token de Autenticación de Plivo | plivo_auth_id </br>plivo_auth_token{% endif %} Postman | Llave de la API de Postman | postman_api_key Proctorio | Llave de Consumidor de Proctorio | proctorio_consumer_key Proctorio | Llave de Enlace de Proctorio | proctorio_linkage_key Proctorio | Llave de Registro de Proctorio | proctorio_registration_key Proctorio | Llave de Secreto de Proctorio | proctorio_secret_key Pulumi | Token de Acceso de Pulumi | pulumi_access_token PyPI | Token de la API de PyPI | pypi_api_token
 {%- ifversion fpt or ghec or ghes > 3.5 or ghae-issue-7375 %}
 redirect.pizza | Token de la API de redirect.pizza | redirect_pizza_api_token{% endif %} RubyGems | Llave de la API de RubyGems | rubygems_api_key Samsara | Token de la API de Samsara | samsara_api_token Samsara | Token de Acceso OAuth de Samsara | samsara_oauth_access_token
 {%- ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6944 %}
