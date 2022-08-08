@@ -3,7 +3,6 @@ import { useRouter } from 'next/router'
 import dynamic from 'next/dynamic'
 import cx from 'classnames'
 
-import useLazyLoadHighlightJS from 'components/hooks/useLazyLoadHighlightJS'
 import { DefaultLayout } from 'components/DefaultLayout'
 import { MarkdownContent } from 'components/ui/MarkdownContent'
 import { Lead } from 'components/ui/Lead'
@@ -11,10 +10,7 @@ import { RestOperation } from './RestOperation'
 import styles from './RestOperation.module.scss'
 import { useAutomatedPageContext } from 'components/context/AutomatedPageContext'
 import { Operation } from './types'
-
-const ClientSideHighlightJS = dynamic(() => import('components/article/ClientSideHighlightJS'), {
-  ssr: false,
-})
+import { ClientSideHighlight } from 'components/ClientSideHighlight'
 
 const ClientSideRedirectExceptions = dynamic(
   () => import('components/article/ClientsideRedirectExceptions'),
@@ -74,14 +70,12 @@ export const RestReferencePage = ({ restOperations }: StructuredContentT) => {
     })
   }, [])
 
-  const lazyLoadHighlightJS = useLazyLoadHighlightJS(asPath)
-
   return (
     <DefaultLayout>
       {/* Doesn't matter *where* this is included because it will
       never render anything. It always just return null. */}
       {loadClientsideRedirectExceptions && <ClientSideRedirectExceptions />}
-      {lazyLoadHighlightJS && <ClientSideHighlightJS />}
+      <ClientSideHighlight />
       <div
         className={cx(styles.restOperation, 'px-3 px-md-6 my-4 container-xl')}
         data-search="article-body"
