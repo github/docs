@@ -1,7 +1,7 @@
 <table style="width:100%">
 <thead>
   <tr>
-    <th style="width:35%"><b>Virtual environment</b></th>
+    <th style="width:35%"><b>Runner image</b></th>
     <th style="width:25%"><b>YAML workflow label</b></th>
     <th style="width:40%"><b>Notes</b></th>
   </tr>
@@ -92,7 +92,7 @@ Migrate to <code>macOS-11</code> or <code>macOS-12</code>. For more information,
 
 {% note %}
 
-**Note:** The `-latest` virtual environments are the latest stable images that {% data variables.product.prodname_dotcom %} provides, and might not be the most recent version of the operating system available from the operating system vendor.
+**Note:** The `-latest` runner images are the latest stable images that {% data variables.product.prodname_dotcom %} provides, and might not be the most recent version of the operating system available from the operating system vendor.
 
 {% endnote %}
 
