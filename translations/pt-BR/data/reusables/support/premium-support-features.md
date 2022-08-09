@@ -2,6 +2,10 @@ In addition to all of the benefits of {% data variables.contact.enterprise_suppo
   - Suporte gravado, em inglês, por meio do nosso portal de suporte 24 horas por dia, 7 dais por semana
   - Phone support via callback request, in English, through our support portal 24 hours per day, 7 days per week
   - Um Contrato de nível de serviço (SLA, Service Level Agreement) com tempos de resposta inicial garantidos
+  - Escalation management
+    - The ability to escalate ticket progression in the {% data variables.contact.enterprise_portal %}
+    - A dedicated team of Incident Coordinators who orchestrate all necessary {% data variables.product.company_short %} parties to resolve urgent tickets
   - Acesso a conteúdo premium
-  - Scheduled Health Checks
-  - Administration assistance hours ({% data variables.product.premium_plus_support_plan %} only)
+  - Verificações de integridade
+  - Application upgrade assistance: Before you upgrade {% data variables.product.prodname_ghe_server %}, we review your upgrade plans, playbooks, and other documentation and answer questions specific to your environment ({% data variables.product.premium_plus_support_plan %} only)
+  - Technical advisory hours ({% data variables.product.premium_plus_support_plan %} only)

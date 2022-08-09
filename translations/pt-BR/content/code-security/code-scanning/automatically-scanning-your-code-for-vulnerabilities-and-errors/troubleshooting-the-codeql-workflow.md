@@ -3,6 +3,7 @@ title: Solucionar problemas no fluxo de trabalho do CodeQL
 shortTitle: Solução de problemas no fluxo de trabalho do CodeQL
 intro: 'Se você estiver tendo problemas com {% data variables.product.prodname_code_scanning %}, você usar estas dicas para resolver problemas.'
 product: '{% data reusables.gated-features.code-scanning %}'
+miniTocMaxHeadingLevel: 3
 redirect_from:
   - /github/finding-security-vulnerabilities-and-errors-in-your-code/troubleshooting-code-scanning
   - /github/finding-security-vulnerabilities-and-errors-in-your-code/troubleshooting-the-codeql-workflow
@@ -47,7 +48,28 @@ Para produzir a saída de log mais detalhada, você pode habilitar o log de depu
 
 ## Criando artefatos de depuração de {% data variables.product.prodname_codeql %}
 
-Você pode obter artefatos para ajudar você a depurar {% data variables.product.prodname_codeql %}, definindo um sinalizador da configuração de depuração. Modifique a etapa `init` do seu arquivo de fluxo de trabalho {% data variables.product.prodname_codeql %} e defina `debug: true`.
+You can obtain artifacts to help you debug {% data variables.product.prodname_codeql %}. Os artefatos de depuração serão carregados para a execução do fluxo de trabalho como um artefato denominado `debug-artifacts`. Os dados contém os registros de {% data variables.product.prodname_codeql %}, banco(s) de dados de {% data variables.product.prodname_codeql %}, e todo(s) o(s) outro(s) arquivo(s) SARIF produzido(s) pelo fluxo de trabalho.
+
+These artifacts will help you debug problems with {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %}. Se você entrar em contato com o suporte do GitHub, eles poderão pedir estes dados.
+
+{% endif %}
+
+{% ifversion codeql-action-debug-logging %}
+
+### Creating {% data variables.product.prodname_codeql %} debugging artifacts by re-running jobs with debug logging enabled
+
+You can create {% data variables.product.prodname_codeql %} debugging artifacts by enabling debug logging and re-running the jobs. For more information about re-running {% data variables.product.prodname_actions %} workflows and jobs, see "[Re-running workflows and jobs](/actions/managing-workflow-runs/re-running-workflows-and-jobs)."
+
+You need to ensure that you select **Enable debug logging** . This option enables runner diagnostic logging and step debug logging for the run. You'll then be able to download `debug-artifacts` to investigate further. You do not need to modify the workflow file when creating {% data variables.product.prodname_codeql %} debugging artifacts by re-running jobs.
+
+
+{% endif %}
+
+{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5601 %}
+
+### Creating {% data variables.product.prodname_codeql %} debugging artifacts using a workflow flag
+
+You can create {% data variables.product.prodname_codeql %} debugging artifacts by using a flag in your workflow. For this, you need to modify the `init` step of your {% data variables.product.prodname_codeql_workflow %} file and set `debug: true`.
 
 ```yaml
 - name: Initialize CodeQL
@@ -55,10 +77,6 @@ Você pode obter artefatos para ajudar você a depurar {% data variables.product
   with:
     debug: true
 ```
-
-Os artefatos de depuração serão carregados para a execução do fluxo de trabalho como um artefato denominado `debug-artifacts`. Os dados contém os registros de {% data variables.product.prodname_codeql %}, banco(s) de dados de {% data variables.product.prodname_codeql %}, e todo(s) o(s) outro(s) arquivo(s) SARIF produzido(s) pelo fluxo de trabalho.
-
-Estes artefatos ajudarão você a depurar problemas com digitalização de código de {% data variables.product.prodname_codeql %}. Se você entrar em contato com o suporte do GitHub, eles poderão pedir estes dados.
 
 {% endif %}
 
@@ -74,10 +92,10 @@ Se ocorrer uma falha na uma criação automática de código para uma linguagem 
 
   ```yaml
   jobs:
-    analyze:{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
+    analyze:
       permissions:
         security-events: write
-        actions: read{% endif %}
+        actions: read
       ...
       strategy:
         fail-fast: false
@@ -164,7 +182,6 @@ O artefato conterá uma cópia arquivada dos arquivos de origem digitalizados po
 
 {% data reusables.code-scanning.alerts-found-in-generated-code %}
 
-
 ## Erros de extração no banco de dados
 
 A equipe de {% data variables.product.prodname_codeql %} trabalha constantemente em erros críticos de extração para garantir que todos os arquivos de origem possam ser digitalizados. No entanto, os extratores de {% data variables.product.prodname_codeql %} às vezes geram erros durante a criação do banco de dados. {% data variables.product.prodname_codeql %} fornece informações sobre erros de extração e avisos gerados durante a criação do banco de dados em um arquivo de registro. A informação sobre o diagnóstico de extração fornece uma indicação da saúde geral do banco de dados. A maioria dos erros dos extratores não impactam a análise significativamente. Um pequeno número de erros de extrator é saudável e normalmente indica um bom estado de análise.
@@ -176,7 +193,6 @@ No entanto, se você vir erros de extrator na grande maioria dos arquivos que fo
 
 O recurso de {% data variables.product.prodname_codeql %} `autobuild` usa heurística para criar o código em um repositório. No entanto, às vezes, essa abordagem resulta em uma análise incompleta de um repositório. Por exemplo, quando uma compilação múltipla de `build.sh` existe em um único repositório, é possível que a análise não seja concluída, já que a etapa `autobuild` executará apenas um dos comandos. A solução é substituir a etapa `autobuild` pelas etapas de criação que criam todo o código-fonte que você deseja analisar. Para obter mais informações, consulte "[Configurar o fluxo de trabalho do {% data variables.product.prodname_codeql %} para linguagens compiladas](/code-security/secure-coding/configuring-the-codeql-workflow-for-compiled-languages#adding-build-steps-for-a-compiled-language)".
 {% endif %}
-
 
 ## A criação demora muito tempo
 
@@ -230,7 +246,7 @@ Se a execução de um fluxo de trabalho para {% data variables.product.prodname_
 
 ## Erro: "Fora do disco" ou "Sem memória"
 
-Em projetos muito grandes, {% data variables.product.prodname_codeql %} pode ficar sem disco ou memória no executor.
+On very large projects, {% data variables.product.prodname_codeql %} may run out of disk or memory on the runner.
 {% ifversion fpt or ghec %}Se encontrar esse problema em um executor de {% data variables.product.prodname_actions %} hospedado, entre em contato com {% data variables.contact.contact_support %} para que possamos investigar o problema.
 {% else %}Se você encontrar esse problema, tente aumentar a memória no executor.{% endif %}
 

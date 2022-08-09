@@ -3,7 +3,7 @@ title: Managing custom repository roles for an organization
 intro: You can more granularly control access to your organization's repositories by creating custom repository roles.
 permissions: Organization owners can manage custom repository roles.
 versions:
-  feature: 'custom-repository-roles'
+  feature: custom-repository-roles
 topics:
   - Organizations
   - Teams
@@ -49,7 +49,7 @@ After choosing an inherited role, you can select additional permissions for your
 
 You can only choose an additional permission if it's not already included in the inherited role. For example, if the inherited role offers **Write** access to a repository, then the "Close a pull request" permission will already be included in the inherited role.
 
-{% ifversion ghec %}
+{% ifversion discussions %}
 ### Discussions
 
 - **Create a discussion category**: Ability to create a new discussion category. For more information, see "[Creating a new discussion category](/discussions/managing-discussions-for-your-community/managing-categories-for-discussions#creating-a-category)".

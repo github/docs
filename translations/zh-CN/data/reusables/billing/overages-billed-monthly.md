@@ -1,1 +1,1 @@
-Overages are always billed monthly regardless of your billing term (even if your account is otherwise billed annually).
+无论您的结算期如何，超额金额始终按月计费（即使您的帐户按年计费）。

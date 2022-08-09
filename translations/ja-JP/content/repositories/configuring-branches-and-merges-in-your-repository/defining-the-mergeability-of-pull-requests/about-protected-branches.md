@@ -43,8 +43,7 @@ topics:
 ブランチ保護ルールごとに、次の設定を有効にするか無効にするかを選択できます。
 - [マージ前に Pull Request レビュー必須](#require-pull-request-reviews-before-merging)
 - [マージ前にステータスチェック必須](#require-status-checks-before-merging)
-{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
-- [Require conversation resolution before merging](#require-conversation-resolution-before-merging){% endif %}
+- [Require conversation resolution before merging](#require-conversation-resolution-before-merging)
 - [署名済みコミットの必須化](#require-signed-commits)
 - [直線状の履歴必須](#require-linear-history)
 {% ifversion fpt or ghec %}
@@ -103,11 +102,9 @@ Any person or integration with write permissions to a repository can set the sta
 
 トラブルシューティング情報については、「[必須ステータスチェックのトラブルシューティング](/github/administering-a-repository/troubleshooting-required-status-checks)」を参照してください。
 
-{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
 ### Require conversation resolution before merging
 
 Requires all comments on the pull request to be resolved before it can be merged to a protected branch. This ensures that all comments are addressed or acknowledged before merge.
-{% endif %}
 
 ### 署名済みコミットの必須化
 
@@ -186,7 +183,7 @@ If someone force pushes to a branch, the force push may overwrite commits that o
 
 フォースプッシュを有効化しても、他のブランチ保護ルールは上書きされません。 たとえば、ブランチに直線状のコミット履歴が必要な場合、そのブランチにマージコミットをフォースプッシュすることはできません。
 
-{% ifversion ghes or ghae %}サイト管理者がリポジトリ内のすべてのブランチへのフォースプッシュをブロックしている場合、保護されたブランチのフォースプッシュを有効にすることはできません。 For more information, see "[Blocking force pushes to repositories owned by a personal account or organization](/enterprise/{{ currentVersion }}/admin/developer-workflow/blocking-force-pushes-to-repositories-owned-by-a-user-account-or-organization)."
+{% ifversion ghes or ghae %}サイト管理者がリポジトリ内のすべてのブランチへのフォースプッシュをブロックしている場合、保護されたブランチのフォースプッシュを有効にすることはできません。 For more information, see "[Blocking force pushes to repositories owned by a personal account or organization](/enterprise/admin/developer-workflow/blocking-force-pushes-to-repositories-owned-by-a-user-account-or-organization)."
 
 サイト管理者がデフォルトブランチへのフォースプッシュのみをブロックしている場合、他の保護されたブランチに対してフォースプッシュを有効にできます。{% endif %}
 

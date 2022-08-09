@@ -14,11 +14,13 @@ versions:
 topics:
   - Pull requests
 ---
-You can only delete issues in a repository owned by your personal account. You cannot delete issues in a repository owned by another personal account, even if you are a collaborator there.
+The ability to delete issues depends on whether the repository is owned by a personal account or an organization:
+- The only account that can delete issues in a repository owned by a personal account is that account.
+- Only accounts with admin or owner permissions can delete issues in a repository owned by an organization.
 
-To delete an issue in a repository owned by an organization, an organization owner must enable deleting an issue for the organization's repositories, and you must have admin or owner permissions in the repository. For more information, see "[Allowing people to delete issues in your organization](/articles/allowing-people-to-delete-issues-in-your-organization)" and "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)."
+  To delete an issue in a repository owned by an organization, an organization owner must enable deleting issues for the organization's repositories. For more information, see "[Allowing people to delete issues in your organization](/articles/allowing-people-to-delete-issues-in-your-organization)" and "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)."
 
-Collaborators do not receive a notification when you delete an issue. When visiting the URL of a deleted issue, collaborators will see a message stating that the issue is deleted. People with admin or owner permissions in the repository will additionally see the username of the person who deleted the issue and when it was deleted.
+Collaborators do not receive a notification when issues are deleted. When visiting the URL of a deleted issue, collaborators will see a message stating that the web page can't be found (but they can use the API to determine that it was deleted). People with admin or owner permissions in the repository will additionally see the username of the person who deleted the issue and when it was deleted.
 
 1. Navigate to the issue you want to delete.
 2. On the right side bar, under "Notifications", click **Delete issue**.

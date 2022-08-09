@@ -10,10 +10,10 @@ topics:
 redirect_from:
   - /codespaces/customizing-your-codespace/prebuilding-codespaces-for-your-project
 children:
-  - /about-codespaces-prebuilds
+  - /about-github-codespaces-prebuilds
   - /configuring-prebuilds
+  - /allowing-a-prebuild-to-access-other-repositories
   - /managing-prebuilds
   - /testing-dev-container-changes
 ---
- 
-{% data reusables.codespaces.prebuilds-beta-note %}
+

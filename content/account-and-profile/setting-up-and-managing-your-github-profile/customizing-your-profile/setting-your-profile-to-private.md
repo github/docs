@@ -1,6 +1,6 @@
 ---
 title: Setting your profile to private
-intro: A private profile displays only limited information, and hides some activity.
+intro: 'A private profile displays only limited information, and hides some activity.'
 versions:
   fpt: '*'
 topics:

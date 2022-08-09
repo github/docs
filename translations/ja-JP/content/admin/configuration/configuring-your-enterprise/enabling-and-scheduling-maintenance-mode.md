@@ -79,7 +79,7 @@ You can also use a command-line utility to configure the IP exception list. For 
 
 ## {% data variables.product.prodname_enterprise_api %}でのメンテナンスモードのスケジューリング
 
-{% data variables.product.prodname_enterprise_api %}では、様々な時間や日付にメンテナンスをスケジューリングできます。 詳しい情報については、「[Management Console](/enterprise/{{ currentVersion }}/user/rest/reference/enterprise-admin#enable-or-disable-maintenance-mode)」を参照してください。
+{% data variables.product.prodname_enterprise_api %}では、様々な時間や日付にメンテナンスをスケジューリングできます。 詳しい情報については、「[Management Console](/enterprise/user/rest/reference/enterprise-admin#enable-or-disable-maintenance-mode)」を参照してください。
 
 ## クラスタ内の全ノードでのメンテナンスモードの有効化もしくは無効化
 

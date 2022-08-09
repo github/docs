@@ -96,6 +96,12 @@ products:
       possible_types: Tipos possíveis
       preview_notice: Aviso de pré-visualização
       deprecation_notice: Aviso de descontinuação
+      preview_period: During the preview period, the API may change without notice.
+    overview:
+      preview_header: 'To toggle this preview and access the following schema members, you must provide a custom media type in the `Accept` header:'
+      preview_schema_members: 'Integrantes do esquema pré-visualizados'
+      announced: Announced
+      updates: Atualizações
   rest:
     reference:
       default: Padrão
@@ -179,7 +185,7 @@ product_landing:
   try_another: Try another filter or add your code example.
   no_result: Sorry, there are no guides that match your filter.
   learn: Learn how to add a code example
-  communities_using_discussions: Comunidades que usam discussões
+  communities_using_discussions: Communities on GitHub.com using discussions
   add_your_community: Add your community
   sponsor_community: GitHub Sponsors community
   supported_releases: Supported releases

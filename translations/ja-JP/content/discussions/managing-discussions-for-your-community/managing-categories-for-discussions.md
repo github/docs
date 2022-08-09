@@ -3,8 +3,7 @@ title: Managing categories for discussions
 intro: 'You can categorize discussions to organize conversations for your community members, and you can choose a format for each category.'
 permissions: Repository administrators and people with write or greater access to a repository can manage categories for discussions in the repository. Repository administrators and people with write or greater access to the source repository for organization discussions can manage categories for discussions in the organization.
 versions:
-  fpt: '*'
-  ghec: '*'
+  feature: discussions
 shortTitle: Manage categories
 redirect_from:
   - /discussions/managing-discussions-for-your-community/managing-categories-for-discussions-in-your-repository
@@ -23,7 +22,7 @@ redirect_from:
 
 | カテゴリ            | 目的                                                                    | Format          |
 |:--------------- |:--------------------------------------------------------------------- |:--------------- |
-| 📣 Announcements | Updates and news from project maintainers                             | Announcement    |
+| 📣 Announcements | Updates and news from project maintainers                             | アナウンス           |
 | #️⃣ 全般          | プロジェクトに関連するすべての事柄                                                     | 自由回答形式のディスカッション |
 | 💡 Ideas         | プロジェクトを変更または改善するためのアイデア                                               | 自由回答形式のディスカッション |
 | 🗳 Polls         | Polls with multiple options for the community to vote for and discuss | Polls           |
@@ -43,7 +42,7 @@ redirect_from:
 
 カテゴリを編集して、カテゴリの絵文字、タイトル、説明、およびディスカッション形式を変更できます。
 
-1. On {% data variables.product.product_location %}, navigate to the main page of the repository or organization where you want to create a category.
+1. On {% data variables.product.product_location %}, navigate to the main page of the repository or organization where you want to edit a category.
 {% data reusables.discussions.discussions-tab %}
 1. リストのカテゴリの右側にある {% octicon "pencil" aria-label="The pencil icon" %} をクリックします ![リポジトリのカテゴリリストのカテゴリの右側にある [Edit] ボタン](/assets/images/help/discussions/click-edit-for-category.png)
 1. {% data reusables.discussions.edit-category-details %}
@@ -54,7 +53,7 @@ redirect_from:
 
 カテゴリを削除すると、{% data variables.product.product_name %} は、削除されたカテゴリのすべてのディスカッションを、選択した既存のカテゴリに移動します。
 
-1. On {% data variables.product.product_location %}, navigate to the main page of the repository or organization where you want to create a category.
+1. On {% data variables.product.product_location %}, navigate to the main page of the repository or organization where you want to delete a category.
 {% data reusables.discussions.discussions-tab %}
 1. リストのカテゴリの右側にある {% octicon "trash" aria-label="The trash icon" %} をクリックします ![リポジトリのカテゴリリストのカテゴリの右側にある [Trash] ボタン](/assets/images/help/discussions/click-delete-for-category.png)
 1. ドロップダウンメニューを使用して、削除するカテゴリのディスカッションの新しいカテゴリを選択します。 ![既存のカテゴリを削除するときに新しいカテゴリを選択するためのドロップダウンメニュー](/assets/images/help/discussions/choose-new-category.png)

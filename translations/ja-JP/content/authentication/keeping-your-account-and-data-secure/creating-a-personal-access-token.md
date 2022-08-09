@@ -55,7 +55,7 @@ A token with no assigned scopes can only access public information. トークン
 8. [**Generate token**] をクリックします。 ![[Generate token] ボタン](/assets/images/help/settings/generate_token.png)
    {% ifversion fpt or ghec %}
    ![新しく作成されたトークン](/assets/images/help/settings/personal_access_tokens.png)
-   {% elsif ghes > 3.1 or ghae %}
+   {% elsif ghes or ghae %}
    ![新しく作成されたトークン](/assets/images/help/settings/personal_access_tokens_ghe.png)
    {% else %}
    ![新しく作成されたトークン](/assets/images/help/settings/personal_access_tokens_ghe_legacy.png)

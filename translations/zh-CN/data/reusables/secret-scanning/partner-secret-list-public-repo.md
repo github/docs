@@ -22,10 +22,10 @@
 | Contributed Systems       | Contributed Systems 凭据              |
 | Databricks                | Databricks 访问令牌                     |
 | Datadog                   | Datadog API 密钥                      |
-| DigitalOcean              | DigitalOcean Personal Access Token  |
-| DigitalOcean              | DigitalOcean OAuth Token            |
-| DigitalOcean              | DigitalOcean Refresh Token          |
-| DigitalOcean              | DigitalOcean System Token           |
+| DigitalOcean              | DigitalOcean 个人访问令牌                 |
+| DigitalOcean              | DigitalOcean OAuth 令牌               |
+| DigitalOcean              | DigitalOcean 刷新令牌                   |
+| DigitalOcean              | DigitalOcean 系统令牌                   |
 | Discord                   | Discord 自动程序令牌                      |
 | Doppler                   | Doppler 个人令牌                        |
 | Doppler                   | Doppler 服务令牌                        |
@@ -77,6 +77,7 @@
 | Proctorio                 | Proctorio 密钥                        |
 | Pulumi                    | Pulumi 访问令牌                         |
 | PyPI                      | PyPI API 令牌                         |
+| redirect.pizza            | redirect.pizza API 令牌               |
 | RubyGems                  | RubyGems API 密钥                     |
 | Samsara                   | Samsara API 令牌                      |
 | Samsara                   | Samsara OAuth 访问令牌                  |
@@ -102,3 +103,4 @@
 | Twilio                    | Twilio API 密钥                       |
 | Typeform                  | Typeform 个人访问令牌                     |
 | Valour                    | Valour 访问令牌                         |
+| Zuplo                     | Zuplo Consumer API                  |

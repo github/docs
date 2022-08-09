@@ -16,7 +16,7 @@ permissions: 'Site administrators can configure web commit signing for {% data v
 
 ## About web commit signing
 
-If you enable web commit signing, {% data variables.product.product_name %} will automatically use GPG to sign commits users make on the web interface of {% data variables.product.product_location %}. Commits signed by {% data variables.product.product_name %} will have a verified status. Para obtener más información, consulta "[Acerca de la verificación de firmas en las confirmaciones](/authentication/managing-commit-signature-verification/about-commit-signature-verification)."
+If you enable web commit signing, {% data variables.product.product_name %} will automatically use GPG to sign commits users make on the web interface of {% data variables.product.product_location %}. Las confirmaciones que firme {% data variables.product.product_name %} tendrán un estado de verificado. Para obtener más información, consulta "[Acerca de la verificación de firmas en las confirmaciones](/authentication/managing-commit-signature-verification/about-commit-signature-verification)."
 
 You can enable web commit signing, rotate the private key used for web commit signing, and disable web commit signing.
 

@@ -39,7 +39,8 @@ Você pode filtrar arquivos em um pull request por tipo de extensão de arquivo,
 {% data reusables.repositories.sidebar-pr %}
 1. Na lista de pull requests, clique na pull request que você gostaria de filtrar.
 {% data reusables.repositories.changed-files %}
-1. Se a árvore de arquivos estiver oculta, clique em **Mostrar árvore de arquivos** para exibir a árvore de arquivos.
+
+1. Clique em um arquivo na árvore de arquivos para ver o diff do arquivo correspondente. Se a árvore de arquivos estiver oculta, clique em {% octicon "sidebar-collapse" aria-label="The sidebar collapse icon" %} para exibir a árvore de arquivos.
 
    {% note %}
 
@@ -47,7 +48,7 @@ Você pode filtrar arquivos em um pull request por tipo de extensão de arquivo,
 
    {% endnote %}
 
-1. Clique em um arquivo na árvore de arquivos para ver o diff do arquivo correspondente. ![Árvore de arquivos do pull request](/assets/images/help/pull_requests/pr-file-tree.png)
+   ![Captura de tela do filtro de caixa de pesquisa de arquivos alterada e a árvore de arquivos destacada](/assets/images/help/repository/file-tree.png)
 1. Para filtrar por caminho do arquivo, digite parte ou todo o caminho do arquivo na caixa de pesquisa **Filtrar arquivos alterados**. Como alternativa, use o menu suspenso do filtro de arquivos. Para obter mais informações, consulte "[Usando o menu suspenso do filro de arquivos](#using-the-file-filter-dropdown)."
 
 {% endif %}

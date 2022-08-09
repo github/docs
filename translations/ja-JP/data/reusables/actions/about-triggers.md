@@ -1,8 +1,8 @@
-Workflow triggers are events that cause a workflow to run. These events can be:
+ワークフロートリガーは、ワークフローの実行を引き起こすイベントです。 それらのイベントには以下のようなものがあります。
 
-- Events that occur in your workflow's repository
-- Events that occur outside of {% data variables.product.product_name %} and trigger a `repository_dispatch` event on {% data variables.product.product_name %}
-- Scheduled times
-- Manual
+- ワークフローのリポジトリ内で発生するイベント
+- {% data variables.product.product_name %}の外部で発生し、{% data variables.product.product_name %}上で`repository_dispatch`をトリガーするイベント
+- スケジュールされた時刻
+- 手動
 
-For example, you can configure your workflow to run when a push is made to the default branch of your repository, when a release is created, or when an issue is opened.
+たとえば、リポジトリのデフォルトブランチにプッシュが行われたときや、リリースが作成されたときや、Issueがオープンされたときにワークフローが実行されるように設定できます。

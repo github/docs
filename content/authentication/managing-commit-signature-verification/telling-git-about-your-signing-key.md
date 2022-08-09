@@ -113,7 +113,7 @@ If you have multiple GPG keys, you need to tell Git which one to use.
 - "[Checking for existing GPG keys](/articles/checking-for-existing-gpg-keys)"
 - "[Generating a new GPG key](/articles/generating-a-new-gpg-key)"
 - "[Using a verified email address in your GPG key](/articles/using-a-verified-email-address-in-your-gpg-key)"
-- "[Adding a new GPG key to your GitHub account](/articles/adding-a-new-gpg-key-to-your-github-account)"
+- "[Adding a GPG key to your GitHub account](/articles/adding-a-gpg-key-to-your-github-account)"
 - "[Associating an email with your GPG key](/articles/associating-an-email-with-your-gpg-key)"
 - "[Signing commits](/articles/signing-commits)"
 - "[Signing tags](/articles/signing-tags)"

@@ -33,7 +33,7 @@ shortTitle: dependabot.ymlの設定
 
 セキュリティアップデートに影響するオプションは、次にセキュリティアラートがセキュリティアップデートのためのプルリクエストをトリガーするときにも使用されます。  詳しい情報については、「[{% data variables.product.prodname_dependabot_security_updates %} を設定する](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/configuring-dependabot-security-updates)」を参照してください。
 
-*dependabot.yml* ファイルには、必須の最上位キーに `version` と `updates` の 2 つがあります。 あるいは、トップレベルの`registries`キー{% ifversion fpt or ghec or ghes > 3.4 %}や`enable-beta-ecosystems`キー{% endif %}を含めることができます。 ファイルは、`version: 2` で始まる必要があります。
+*dependabot.yml* ファイルには、必須の最上位キーに `version` と `updates` の 2 つがあります。 あるいは、トップレベルの`registries`キー{% ifversion ghes = 3.5 %}や`enable-beta-ecosystems`キー{% endif %}を含めることができます。 ファイルは、`version: 2` で始まる必要があります。
 
 ## *dependabot.yml*ファイルの設定オプション
 
@@ -280,7 +280,7 @@ updates:
       prefix-development: "pip dev"
       include: "scope"
 ```
-If you use the same configuration as in the example above, bumping the `requests` library in the `pip` development dependency group will generate a commit message of:
+上の例と同じ設定を使った場合、`pip`の依存関係グループ内の`requests`のバージョンを上げると、以下のようなコミットメッセージが生成されます。
 
    `pip dev: bump requests from 1.0.0 to 1.0.1`
 
@@ -774,6 +774,12 @@ registries:
 
 ### `docker-registry`
 
+{% note %}
+
+**ノート:** Azure Container Registry (ACR)はサポートされていません。
+
+{% endnote %}
+
 `docker-registry` タイプは、ユーザ名とパスワードをサポートします。
 
 {% raw %}
@@ -974,8 +980,9 @@ registries:
 
 version: 2
 enable-beta-ecosystems: true
-updates:
-  - package-ecosystem: "pub"
+updates:{% ifversion fpt or ghec or ghes > 3.5 %}
+  - package-ecosystem: "beta-ecosystem"{% else %}
+  - package-ecosystem: "pub"{% endif %}
     directory: "/"
     schedule:
       interval: "daily"

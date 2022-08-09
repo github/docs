@@ -2,8 +2,7 @@
 title: Buscar debates
 intro: 'Puedes buscar debates en {% data variables.product.product_name %} y reducir los resultados utilizando calificadores.'
 versions:
-  fpt: '*'
-  ghec: '*'
+  feature: discussions
 topics:
   - GitHub search
 redirect_from:

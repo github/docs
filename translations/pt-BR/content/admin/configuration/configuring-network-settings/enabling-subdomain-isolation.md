@@ -50,13 +50,13 @@ Quando o isolamento do subdomínio está ativado, o {% data variables.product.pr
 
 Antes de habilitar o isolamento de subdomínio, você deve definir as configurações de rede do novo domínio.
 
-- Em vez de um endereço IP, especifique um nome de domínio válido como nome de host. Para obter mais informações, consulte "[Configurar nome de host](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-a-hostname)".
+- Em vez de um endereço IP, especifique um nome de domínio válido como nome de host. Para obter mais informações, consulte "[Configurar nome de host](/enterprise/admin/guides/installation/configuring-a-hostname)".
 
 {% data reusables.enterprise_installation.changing-hostname-not-supported %}
 
 - Configure um registro curinga do Sistema de Nomes de Domínio (DNS) ou registros DNS individuais para os subdomínios listados acima. É recomendável criar um registro A para `*.HOSTNAME` que aponte para o endereço IP do servidor, de modo que não seja preciso criar vários registros para cada subdomínio.
 - Obtenha um certificado curinga de Segurança da Camada de Transporte (TLS) para `*.HOSTNAME` com Nome Alternativo da Entidade (SAN) para `HOSTNAME` e o domínio curinga `*.HOSTNAME`. Por exemplo, se o nome de host for `github.octoinc.com`, obtenha um certificado com valor de nome comum definido como `*.github.octoinc.com` e valor SAN definido para `github.octoinc.com` e `*.github.octoinc.com`.
-- Habilite o TLS no appliance. Para obter mais informações, consulte "[Configurar TLS](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-tls/)".
+- Habilite o TLS no appliance. Para obter mais informações, consulte "[Configurar o TLS](/enterprise/admin/guides/installation/configuring-tls/)".
 
 ## Habilitar isolamento de subdomínio
 

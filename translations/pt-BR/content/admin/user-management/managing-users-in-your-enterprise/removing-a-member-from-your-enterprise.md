@@ -10,12 +10,6 @@ topics:
 shortTitle: Remover integrante
 ---
 
-{% note %}
-
-**Nota:** A capacidade de remover integrantes da empresa encontra-se em versão beta e está sujeita a alterações.
-
-{% endnote %}
-
 ## Sobre a remoção de integrantes da empresa
 
 Ao remover um integrante da sua empresa, o integrante será removido de todas as organizações pertencentes à sua empresa.

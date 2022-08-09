@@ -19,7 +19,7 @@ shortTitle: 创建 HA 副本
 
 ## 创建高可用性副本
 
-1. 在所需平台上设置新的 {% data variables.product.prodname_ghe_server %} 设备。 副本设备应镜像主设备的 CPU、RAM 和存储设置。 建议您在独立环境中安装副本设备。 底层硬件、软件和网络组件应与主设备的相应部分隔离。 如果要使用云提供商，请使用单独的区域或分区。 更多信息请参阅“[设置 {% data variables.product.prodname_ghe_server %} 实例](/enterprise/{{ currentVersion }}/admin/guides/installation/setting-up-a-github-enterprise-server-instance)”。
+1. 在所需平台上设置新的 {% data variables.product.prodname_ghe_server %} 设备。 副本设备应镜像主设备的 CPU、RAM 和存储设置。 建议您在独立环境中安装副本设备。 底层硬件、软件和网络组件应与主设备的相应部分隔离。 如果要使用云提供商，请使用单独的区域或分区。 更多信息请参阅“[设置 {% data variables.product.prodname_ghe_server %} 实例](/enterprise/admin/guides/installation/setting-up-a-github-enterprise-server-instance)”。
 1. 确保主设备和新的副本设备可以通过端口 122/TCP 和 1194/UDP 相互通信。 更多信息请参阅“[网络端口](/admin/configuration/configuring-network-settings/network-ports#administrative-ports)”。
 1. 在浏览器中，导航到新副本设备的 IP 地址并上传您的 {% data variables.product.prodname_enterprise %} 许可。
 {% data reusables.enterprise_installation.replica-steps %}
@@ -38,7 +38,7 @@ shortTitle: 创建 HA 副本
 
 ## 创建 Geo-replication 副本
 
-此示例配置使用一个主设备和两个副本，它们位于三个不同的地理区域。 由于三个节点可以位于不同网络中，要求所有节点均可从其他所有节点到达。 必需的管理端口至少应向其他所有节点开放。 有关端口要求的更多信息，请参阅“[网络端口](/enterprise/{{ currentVersion }}/admin/guides/installation/network-ports/#administrative-ports)”。
+此示例配置使用一个主设备和两个副本，它们位于三个不同的地理区域。 由于三个节点可以位于不同网络中，要求所有节点均可从其他所有节点到达。 必需的管理端口至少应向其他所有节点开放。 有关端口要求的更多信息，请参阅“[网络端口](/enterprise/admin/guides/installation/network-ports/#administrative-ports)”。
 
 1. 在第一个副本上运行 `ghe-repl-setup`，采用与创建标准双节点配置相同的方式创建第一个副本。
   ```shell
@@ -98,6 +98,6 @@ shortTitle: 创建 HA 副本
 
 ## 延伸阅读
 
-- "[关于高可用性配置](/enterprise/{{ currentVersion }}/admin/guides/installation/about-high-availability-configuration)"
-- "[用于复制管理的实用程序](/enterprise/{{ currentVersion }}/admin/guides/installation/about-high-availability-configuration/#utilities-for-replication-management)"
-- “[关于 Geo-replication](/enterprise/{{ currentVersion }}/admin/guides/installation/about-geo-replication/)”
+- "[关于高可用性配置](/enterprise/admin/guides/installation/about-high-availability-configuration)"
+- "[用于复制管理的实用程序](/enterprise/admin/guides/installation/about-high-availability-configuration/#utilities-for-replication-management)"
+- “[关于 Geo-replication](/enterprise/admin/guides/installation/about-geo-replication/)”

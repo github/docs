@@ -33,7 +33,7 @@ shortTitle: 配置 dependabot.yml
 
 下次安全警报触发安全更新的拉取请求时将使用所有同时影响安全更新的选项。  更多信息请参阅“[配置 {% data variables.product.prodname_dependabot_security_updates %}](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/configuring-dependabot-security-updates)。”
 
-*dependabot.yml* 文件有两个必需的顶级密钥：`version` 和 `updates`。 您可以选择包括顶级 `registries` 密钥{% ifversion fpt or ghec or ghes > 3.4 %} 和/或 `enable-beta-ecosystems` 密钥{% endif %}。 该文件必须以 `version: 2` 开头。
+*dependabot.yml* 文件有两个必需的顶级密钥：`version` 和 `updates`。 您可以选择包括顶级 `registries` 密钥{% ifversion ghes = 3.5 %} 和/或 `enable-beta-ecosystems` 密钥{% endif %}。 该文件必须以 `version: 2` 开头。
 
 ## *dependabot.yml* 文件的配置选项
 
@@ -280,7 +280,7 @@ updates:
       prefix-development: "pip dev"
       include: "scope"
 ```
-If you use the same configuration as in the example above, bumping the `requests` library in the `pip` development dependency group will generate a commit message of:
+如果使用与上述示例中相同的配置，则在 `pip` 开发依赖项组中刷入 `requests` 库将生成以下提交消息：
 
    `pip dev: bump requests from 1.0.0 to 1.0.1`
 
@@ -775,6 +775,12 @@ registries:
 
 ### `docker-registry`
 
+{% note %}
+
+**Note:** We don't support the Azure Container Registry (ACR).
+
+{% endnote %}
+
 `docker-registration` 类型支持用户名和密码。
 
 {% raw %}
@@ -975,8 +981,9 @@ registries:
 
 version: 2
 enable-beta-ecosystems: true
-updates:
-  - package-ecosystem: "pub"
+updates:{% ifversion fpt or ghec or ghes > 3.5 %}
+  - package-ecosystem: "beta-ecosystem"{% else %}
+  - package-ecosystem: "pub"{% endif %}
     directory: "/"
     schedule:
       interval: "daily"

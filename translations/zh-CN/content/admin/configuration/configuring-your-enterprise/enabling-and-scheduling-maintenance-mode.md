@@ -79,7 +79,7 @@ IP 例外列表提供对 {% data variables.product.product_location %} 的受控
 
 ## 通过 {% data variables.product.prodname_enterprise_api %} 排定维护模式
 
-您可以通过 {% data variables.product.prodname_enterprise_api %} 排定在其他时间或日期进行维护。 更多信息请参阅“[管理控制台](/enterprise/{{ currentVersion }}/user/rest/reference/enterprise-admin#enable-or-disable-maintenance-mode)”。
+您可以通过 {% data variables.product.prodname_enterprise_api %} 排定在其他时间或日期进行维护。 更多信息请参阅“[管理控制台](/enterprise/user/rest/reference/enterprise-admin#enable-or-disable-maintenance-mode)”。
 
 ## 为集群中的所有节点启用或禁用维护模式
 

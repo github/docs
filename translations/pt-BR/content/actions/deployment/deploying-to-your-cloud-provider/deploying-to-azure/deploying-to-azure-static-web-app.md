@@ -54,6 +54,8 @@ Para obter mais informações sobre esses valores, consulte "[Criar configuraç�
 ```yaml{:copy}
 {% data reusables.actions.actions-not-certified-by-github-comment %}
 
+{% data reusables.actions.actions-use-sha-pinning-comment %}
+
 name: Deploy web app to Azure Static Web Apps
 
 env:
@@ -61,7 +63,7 @@ env:
   API_LOCATION: "api" # location of your api source code - optional
   APP_ARTIFACT_LOCATION: "build" # location of client code build output
 
-  on:
+on:
   push:
     branches:
       - main
@@ -72,6 +74,7 @@ env:
 
 permissions:
   issues: write
+  contents: read
 
 jobs:
   build_and_deploy:

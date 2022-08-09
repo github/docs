@@ -4,11 +4,10 @@
 name: Pull request labeler
 on: [ pull_request_target ]
 
-{% ifversion fpt or ghes > 3.1 or ghae or ghec %}permissions:
+permissions:
   contents: read
   pull-requests: write
 
-{% endif %}
 jobs:
   triage:
     runs-on: ubuntu-latest

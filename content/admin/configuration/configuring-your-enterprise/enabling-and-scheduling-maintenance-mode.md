@@ -86,7 +86,7 @@ You can also use a command-line utility to configure the IP exception list. For 
 
 ## Scheduling maintenance mode with {% data variables.product.prodname_enterprise_api %}
 
-You can schedule maintenance for different times or dates with {% data variables.product.prodname_enterprise_api %}. For more information, see "[Management Console](/enterprise/{{ currentVersion }}/user/rest/reference/enterprise-admin#enable-or-disable-maintenance-mode)."
+You can schedule maintenance for different times or dates with {% data variables.product.prodname_enterprise_api %}. For more information, see "[Management Console](/enterprise/user/rest/reference/enterprise-admin#enable-or-disable-maintenance-mode)."
 
 ## Enabling or disabling maintenance mode for all nodes in a cluster
 

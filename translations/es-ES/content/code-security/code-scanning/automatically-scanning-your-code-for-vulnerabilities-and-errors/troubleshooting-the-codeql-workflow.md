@@ -3,6 +3,7 @@ title: Solucionar problemas en el flujo de trabajo de CodeQL
 shortTitle: Solucionar problemas del flujo de trabajo de CodeQL
 intro: 'Si tienes problemas con el {% data variables.product.prodname_code_scanning %}, puedes solucionarlos si utilizas estos tips para resolver estos asuntos.'
 product: '{% data reusables.gated-features.code-scanning %}'
+miniTocMaxHeadingLevel: 3
 redirect_from:
   - /github/finding-security-vulnerabilities-and-errors-in-your-code/troubleshooting-code-scanning
   - /github/finding-security-vulnerabilities-and-errors-in-your-code/troubleshooting-the-codeql-workflow
@@ -47,7 +48,28 @@ Para producir una salida más detallada de bitácoras, puedes habilitar el regis
 
 ## Crear artefactos de depuración de {% data variables.product.prodname_codeql %}
 
-Puedes obtener artefactos para que te ayuden a depurar {% data variables.product.prodname_codeql %} si seleccionas un marcador de configuración de depuración. Modifica el paso de `init` de tu archivo de flujo de trabajo de {% data variables.product.prodname_codeql %} y configura `debug: true`.
+You can obtain artifacts to help you debug {% data variables.product.prodname_codeql %}. Los artefactos de depuración se cargarán a la ejecución de flujo de trabajo como un artefacto de nombre `debug-artifacts`. Los datos contienen las bitácoras de {% data variables.product.prodname_codeql %}. la(s) base(s) de datos de {% data variables.product.prodname_codeql %} y cualquier archivo SARIF que produzca el flujo de trabajo.
+
+These artifacts will help you debug problems with {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %}. Si contactas al soporte de GitHub, podrían pedirte estos datos.
+
+{% endif %}
+
+{% ifversion codeql-action-debug-logging %}
+
+### Creating {% data variables.product.prodname_codeql %} debugging artifacts by re-running jobs with debug logging enabled
+
+You can create {% data variables.product.prodname_codeql %} debugging artifacts by enabling debug logging and re-running the jobs. For more information about re-running {% data variables.product.prodname_actions %} workflows and jobs, see "[Re-running workflows and jobs](/actions/managing-workflow-runs/re-running-workflows-and-jobs)."
+
+You need to ensure that you select **Enable debug logging** . This option enables runner diagnostic logging and step debug logging for the run. You'll then be able to download `debug-artifacts` to investigate further. You do not need to modify the workflow file when creating {% data variables.product.prodname_codeql %} debugging artifacts by re-running jobs.
+
+
+{% endif %}
+
+{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5601 %}
+
+### Creating {% data variables.product.prodname_codeql %} debugging artifacts using a workflow flag
+
+You can create {% data variables.product.prodname_codeql %} debugging artifacts by using a flag in your workflow. For this, you need to modify the `init` step of your {% data variables.product.prodname_codeql_workflow %} file and set `debug: true`.
 
 ```yaml
 - name: Initialize CodeQL
@@ -55,10 +77,6 @@ Puedes obtener artefactos para que te ayuden a depurar {% data variables.product
   with:
     debug: true
 ```
-
-Los artefactos de depuración se cargarán a la ejecución de flujo de trabajo como un artefacto de nombre `debug-artifacts`. Los datos contienen las bitácoras de {% data variables.product.prodname_codeql %}. la(s) base(s) de datos de {% data variables.product.prodname_codeql %} y cualquier archivo SARIF que produzca el flujo de trabajo.
-
-Estos artefactos te ayudarán a depurar los problemas con el escaneo de código de {% data variables.product.prodname_codeql %}. Si contactas al soporte de GitHub, podrían pedirte estos datos.
 
 {% endif %}
 
@@ -74,10 +92,10 @@ Si una compilación automática de código para un lenguaje compilado dentro de 
 
   ```yaml
   jobs:
-    analyze:{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
+    analyze:
       permissions:
         security-events: write
-        actions: read{% endif %}
+        actions: read
       ...
       strategy:
         fail-fast: false
@@ -166,7 +184,6 @@ El artefacto contendrá una copia archivada de los archivos de código fuente qu
 
 {% data reusables.code-scanning.alerts-found-in-generated-code %}
 
-
 ## Extracción de errores en la base de datos
 
 El equipo de {% data variables.product.prodname_codeql %} trabaja constantemente en los errores de extracción críticos para asegurarse de que todos los archivos de código fuente pueden escanearse. Sin embargo, los extractores de {% data variables.product.prodname_codeql %} sí generan errores durante la creación de bases de datos ocasionalmente. {% data variables.product.prodname_codeql %} proporciona información acerca de los errores de extracción y las advertencias que se generan durante la creación de bases de datos en un archivo de bitácora. La información de diagnóstico de extracción proporciona una indicación de la salud general de la base de datos. La mayoría de los errores del extractor no impactan el análisis significativamente. Una pequeña parte de los errores del extractor es saludable y, a menudo, indica un buen estado del análisis.
@@ -178,7 +195,6 @@ Sin embargo, si ves errores del extractor en la vasta mayoría de archivos que s
 
 La característica de `autobuild` de {% data variables.product.prodname_codeql %} utiliza la heurística para compilar el código en un repositorio, sin embargo, algunas veces este acercamiento da como resultado un análisis incompleto de un repositorio. Por ejemplo, cuando existen comandos múltiples de `build.sh` en un solo repositorio, el análisis podría no completarse, ya que el paso de `autobuild` solo se ejecutará en uno de los comandos. La solución es reemplazar el paso de `autobuild` con los pasos de compilación que compilarán todo el código fuente que quieras analizar. Para obtener más información, consulta la sección "[Configurar el flujo de trabajo de {% data variables.product.prodname_codeql %} para los lenguajes compilados](/code-security/secure-coding/configuring-the-codeql-workflow-for-compiled-languages#adding-build-steps-for-a-compiled-language)".
 {% endif %}
-
 
 ## La compilación tarda demasiado
 
@@ -232,7 +248,7 @@ Si la ejecución de un flujo de trabajo para {% data variables.product.prodname_
 
 ## Error: "Out of disk" o "Out of memory"
 
-En proyectos muy grandes, {% data variables.product.prodname_codeql %} podría quedarse sin memoria o espacio de disco en el ejecutor.
+On very large projects, {% data variables.product.prodname_codeql %} may run out of disk or memory on the runner.
 {% ifversion fpt or ghec %}Si te encuentras con este problema en un ejecutor de {% data variables.product.prodname_actions %}, contacta a {% data variables.contact.contact_support %} para que podamos investigar el problema.
 {% else %}Si llegas a tener este problema, intenta incrementar la memoria en el ejecutor.{% endif %}
 

@@ -11,14 +11,23 @@ topics:
 shortTitle: Organizationのプロフィールのカスタマイズ
 ---
 
-{% ifversion org-profile-pin-private %}
 
 ## Organization のプロフィールページについて
 
-Organizationの概要ページをカスタマイズして、一般ユーザあるいはOrganizationのメンバー専用のコンテンツを表示できます。 {% data variables.product.prodname_dotcom %}にサインインしたOrganizationのメンバーには、Organizationのプロフィールページにアクセスした際にメンバービューが表示されます。 Organizationのメンバーではないユーザには、公開ビューが表示されます。
+{% ifversion org-profile-pin-private %}
+You can customize your organization's Overview page to show a README and pinned repositories dedicated to public users or members of the organization.
 
-![Organizationプロフィールページの画像](/assets/images/help/organizations/new_organization_page.png)
-{% endif %}
+![Image of a public organization profile page](/assets/images/help/organizations/public_profile.png)
+
+Members of your organization who are signed into {% data variables.product.prodname_dotcom %}, can select a `member` or `public` view of the README and pinned repositories when they visit your organization's profile page.
+
+![Image of a public organization profile page view context switcher](/assets/images/help/organizations/profile_view_switcher_public.png)
+
+The view defaults to `member` if either a members-only README or members-only pinned repositories are present, and `public` otherwise.
+
+![Image of a members only organization profile page](/assets/images/help/organizations/member_only_profile.png)
+
+Users who are not members of your organization will be shown a `public` view.
 
 ### Pinned repositories
 
@@ -27,6 +36,8 @@ Organizationの概要ページをカスタマイズして、一般ユーザあ�
 リポジトリをピン留めできるのはOrganizationのオーナーだけです。 詳しい情報については「[Organizationのプロフィールへのリポジトリのピン止め](#pinning-repositories-to-your-organizations-profile)」を参照してください。
 
 ### OrganizationプロフィールのREADME
+
+{% endif %}
 
 一般ユーザとOrganizationのメンバーの双方に向けてOrganizationのプロフィールのREADMEを作成することで、Organizationとの関わり方に関する情報を共有できます。 {% data variables.product.prodname_dotcom %}は、OrganizationのプロフィールのREADMEをOrgaizationの”Overview（概要）"タブに表示します。
 
@@ -53,11 +64,11 @@ OrganizationのプロフィールのREADMEにどういった情報を含める�
 2. Organizationの`.github-private`リポジトリで、`profile`フォルダ内に`README.md`というファイルを作成してください。
 3. `README.md`ファイルへの変更をコミットしてください。 `README.md`の内容は、Organizationプロフィールのメンバービューに表示されます。
 
-   ![OrganizationのプライベートREADMEの画像](/assets/images/help/organizations/org_member_readme.png)
+   ![Image of an organization's member-only README](/assets/images/help/organizations/org_member_readme.png)
 
 ## Organizationのプロフィールへのリポジトリのピン止め
 
-頻繁に使われるようなリポジトリなど、強調したいリポジトリをOrganizationのプロフィールページにピン止めできます。 Organizaitonのプロフィールにピン止めするリポジトリを選択するには、Organizationのオーナーか管理者でなければなりません。
+頻繁に使われるようなリポジトリなど、強調したいリポジトリをOrganizationのプロフィールページにピン止めできます。 Organizaitonのプロフィールにピン止めするリポジトリを選択するには、Organizationのオーナーでなければなりません。
 
 1. Organizationのプロフィールページにアクセスしてください。
 2. ページの右のサイドバー内の{% octicon "eye" aria-label="The eye octicon" %} "View as"リンク内で、ドロップダウンメニューから**Public（公開）**もしくは**Member（メンバー）**プロフィールビューを選択してください。

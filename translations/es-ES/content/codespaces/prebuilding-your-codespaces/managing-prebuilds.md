@@ -12,11 +12,9 @@ product: '{% data reusables.gated-features.codespaces %}'
 miniTocMaxHeadingLevel: 3
 ---
 
-{% data reusables.codespaces.prebuilds-beta-note %}
-
 ## Verificar, cambiar y borrar tus configuraciones de precompilación
 
-Las precompilaciones que configuras para un repositorio se crean y actualizan utilizando un flujo de trabajo de {% data variables.product.prodname_actions %} que admistra el servicio de {% data variables.product.prodname_codespaces %}.
+Las precompilaciones que configures para un repositorio se crean y actualizan utilizando un flujo de trabajo de {% data variables.product.prodname_actions %}, que administra el servicio de {% data variables.product.prodname_github_codespaces %}.
 
 Dependiendo de los ajustes en una configuración de precompilación, el flujo de trabajo para actualizar la plantilla de precompilación podría activarse con estos eventos:
 
@@ -58,6 +56,9 @@ Esto muestra el historial de ejecución de flujo de trabajo para las precompilac
 
 1. Haz los cambios requeridos en la configuración de precompilación y luego haz clic en **Actualizar**.
 
+   {% data reusables.codespaces.prebuilds-permission-authorization %}
+
+
 ### Inhabilitar una configuración de precompilación
 
 Para pausar la actualización de las plantillas de precompilación de una configuración, puedes inhabilitar las ejecuciones de flujo de trabajo para dicha configuración. El inhabilitar las ejecuciones de flujo de trabajo para una configuración de precompilación no borra ninguna plantilla de precompilación creada anteriormente para dicha configuración y, como resultado, los codespaces seguirán generándose desde una plantilla de precompilación existente.
@@ -92,34 +93,6 @@ Puede ser útil activar una ejecución de flujo de trabajo manualmente para una 
 1. En el menú desplegable, haz clic en **Activar manualmente**.
 
    ![La opción de 'Activar manualmente' en le menú desplegable](/assets/images/help/codespaces/prebuilds-manually-trigger.png)
-
-## Permitir que la precompilación acceda a recursos externos
-
-Predeterminadamente, el flujo de trabajo de {% data variables.product.prodname_actions %} para una configuración de compilación previa solo puede acceder al contenido de su propio repositorio. Tu proyecto podría utilizar recursos adicionales para compilar el ambiente de desarrollo, tal como archivos en otros repositorios, paquetes, imágenes de GHCR y API. Para permitir que tu configuración de precompilación acceda a estos recursos, necesitarás crear una cuenta personal nueva y luego utilizar esta cuenta para crear un token de acceso personal (PAT) con los alcances adecuados.
-
-1. Create a new personal account on {% data variables.product.prodname_dotcom %}.
-
-   {% warning %}
-
-   **Warning**: Although you can generate the PAT using your existing personal account, we strongly recommend creating a new account with access only to the target repositories required for your scenario. This is because the access token's `repository` permission grants access to all of the repositories that the account has access to. Para obtener más información, consulta las secciones "[Registrarse para obtener una cuenta nueva de GitHub](/get-started/signing-up-for-github/signing-up-for-a-new-github-account)" y "[Fortalecimiento de seguridad para las {% data variables.product.prodname_actions %}](/actions/security-guides/security-hardening-for-github-actions#considering-cross-repository-access)".
-
-   {% endwarning %}
-1. Give the new account read access to the required repositories. Para obtener más información, consulta la sección "[Administrar el acceso de un individuo a un repositorio de la organización](/organizations/managing-access-to-your-organizations-repositories/managing-an-individuals-access-to-an-organization-repository)".
-1. While signed into the new account, create a PAT with the `repo` scope. Optionally, if the prebuild will need to download packages from the {% data variables.product.company_short %} {% data variables.product.prodname_container_registry %}, also select the `read:packages` scope. Para obtener más información, consulta la sección "[Crear un token de acceso personal](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)".
-
-   !['repo' and 'packages' scopes selected for a PAT](/assets/images/help/codespaces/prebuilds-select-scopes.png)
-
-   If the prebuild will use a package from the {% data variables.product.company_short %} {% data variables.product.prodname_container_registry %}, you will need to either grant the new account access to the package or configure the package to inherit the access permissions of the repository you are prebuilding. Para obtener más información, consulta la sección "[Configurar el control de accesos y la visibilidad de un paquete](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility)".
-{% ifversion ghec %}1. Authorize the token for use with SAML single sign-on (SSO), so that it can access repositories that are owned by organizations with SSO enabled. Para obtener más información, consulta la sección "[Autorizar un token de acceso personal para utilizar con el inicio de sesión único de SAML](/authentication/authenticating-with-saml-single-sign-on/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on)".
-
-   ![The button to configure SSO for a PAT](/assets/images/help/codespaces/configure-SSO-for-PAT.png)
-
-{% endif %}
-1. Copy the token string. You will assign this to a {% data variables.product.prodname_codespaces %} repository secret.
-1. Sign back into the account that has admin access to the repository.
-1. In the repository for which you want to create {% data variables.product.prodname_codespaces %} prebuilds, create a new {% data variables.product.prodname_codespaces %} repository secret called `CODESPACES_PREBUILD_TOKEN`, giving it the value of the token you created and copied. For more information, see "[Managing encrypted secrets for your repository and organization for {% data variables.product.prodname_codespaces %}](/codespaces/managing-codespaces-for-your-organization/managing-encrypted-secrets-for-your-repository-and-organization-for-codespaces#adding-secrets-for-a-repository)."
-
-The PAT will be used for all subsequent prebuild templates created for your repository. Unlike other {% data variables.product.prodname_codespaces %} repository secrets, the `CODESPACES_PREBUILD_TOKEN` secret is only used for prebuilding and will not be available to use in codespaces created from your repository.
 
 ## Leer más
 

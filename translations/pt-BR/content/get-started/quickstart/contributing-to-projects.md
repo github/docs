@@ -26,7 +26,17 @@ Este tutorial usa [o projeto Spoon-Knife](https://github.com/octocat/Spoon-Knife
 
 1. Acecsse o projeto `Spoon-Knife` em https://github.com/octocat/Spoon-Knife.
 2. Clique em **Bifurcação**. ![Botão Fork (Bifurcação)](/assets/images/help/repository/fork_button.png)
-1. {% data variables.product.product_name %} irá direcionar você para sua cópia (sua bifurcação) do repositório Spoon-Knife.
+3. Select an owner for the forked repository. ![Create a new fork page with owner dropdown emphasized](/assets/images/help/repository/fork-choose-owner.png)
+4. By default, forks are named the same as their parent repositories. You can change the name of the fork to distinguish it further. ![Create a new fork page with repository name field emphasized](/assets/images/help/repository/fork-choose-repo-name.png)
+5. Optionally, add a description of your fork. ![Create a new fork page with description field emphasized](/assets/images/help/repository/fork-description.png)
+6. Choose whether to copy only the default branch or all branches to the new fork. For many forking scenarios, such as contributing to open-source projects, you only need to copy the default branch. By default, only the default branch is copied. ![Option to copy only the default branch](/assets/images/help/repository/copy-default-branch-only.png)
+7. Click **Create fork**. ![Emphasized create fork button](/assets/images/help/repository/fork-create-button.png)
+
+{% note %}
+
+**Note:** If you want to copy additional branches from the parent repository, you can do so from the **Branches** page. Para obter mais informações, consulte "[Criar e excluir branches em seu repositório](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository)".
+
+{% endnote %}
 
 ## Clonando uma bifurcação
 
@@ -81,7 +91,7 @@ gh repo fork <em>repository</em> --clone=true
 
 ## Fazendo e enviando por push as alterações
 
-Siga em frente e faça algumas alterações no projeto usando o seu editor de texto favorito, como [Atom](https://atom.io). Você pode, por exemplo, alterar o texto em `index.html` para adicionar o seu nome de usuário do GitHub.
+Faça algumas alterações no projeto usando o seu editor de texto favorito, como [Visual Studio Code](https://code.visualstudio.com). Você pode, por exemplo, alterar o texto em `index.html` para adicionar o seu nome de usuário do GitHub.
 
 Quando estiver pronto para enviar suas alterações, teste e faça commit das suas alterações. `git add .` informa ao Git que você deseja incluir todas as alterações no próximo commit. `git commit` tira um instantâneo dessas alterações.
 

@@ -1,1 +1,1 @@
-If you use both the `branches` filter and the `paths` filter, the workflow will only run when both filters are satisfied.
+如果同时使用 `branches` 筛选器和 `paths` 筛选器，则仅当同时满足这两个筛选器时，工作流程才会运行。

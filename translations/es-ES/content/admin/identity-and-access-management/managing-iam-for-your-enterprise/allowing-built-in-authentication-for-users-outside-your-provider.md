@@ -20,7 +20,7 @@ shortTitle: Fallback authentication
 
 ## About built-in authentication for users outside your provider
 
-By default, when you enable external authentication for {% data variables.product.product_name %}, built-in authentication is disabled for your instance. For more information, see "[About authentication for your enterprise](/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-authentication-for-your-enterprise#external-authentication)."
+By default, when you enable external authentication for {% data variables.product.product_name %}, built-in authentication is disabled for your instance. Para obtener más información, consulta la sección "[Acerca de la autenticación para tu empresa](/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-authentication-for-your-enterprise#external-authentication)".
 
 If you're unable to add specific accounts to your external authentication provider, such as accounts for contractors or machine users, you can configure fallback authentication. Fallback authentication allows built-in authentication for outside users and to access a fallback account if your authentication provider is unavailable.
 
@@ -28,7 +28,7 @@ If you configure built-in authentication and a person successfully authenticates
 
 {% warning %}
 
-**Advertencia:** Si desactivas la autenticación integrada, debes suspender individualmente a todo usuario que ya no debe tener acceso a la instancia. Para obtener más información, consulta "[Suspender y anular suspensión de usuarios](/enterprise/{{ currentVersion }}/admin/guides/user-management/suspending-and-unsuspending-users)."
+**Advertencia:** Si desactivas la autenticación integrada, debes suspender individualmente a todo usuario que ya no debe tener acceso a la instancia. Para obtener más información, consulta "[Suspender y anular suspensión de usuarios](/enterprise/admin/guides/user-management/suspending-and-unsuspending-users)."
 
 {% endwarning %}
 

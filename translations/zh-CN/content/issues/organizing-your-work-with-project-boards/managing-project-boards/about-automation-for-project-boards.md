@@ -1,31 +1,29 @@
 ---
-title: 关于项目板的自动化
-intro: 您可以配置自动工作流程来保持项目板卡状态与相关的议题及拉取请求同步。
+title: 'About automation for {% data variables.product.prodname_projects_v1 %}'
+intro: 'You can configure automatic workflows to keep the status of {% data variables.projects.projects_v1_board %} cards in sync with the associated issues and pull requests.'
 redirect_from:
   - /github/managing-your-work-on-github/managing-project-boards/about-automation-for-project-boards
   - /articles/about-automation-for-project-boards
   - /github/managing-your-work-on-github/about-automation-for-project-boards
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
-  ghec: '*'
+  feature: projects-v1
 topics:
   - Pull requests
-shortTitle: 项目板的自动化
+shortTitle: 'Automation for {% data variables.product.prodname_projects_v1 %}'
+allowTitleToDifferFromFilename: true
 ---
 
 {% data reusables.projects.project_boards_old %}
 
-{% data reusables.project-management.automate-project-board-permissions %}  更多信息请参阅“[组织的项目板权限](/articles/project-board-permissions-for-an-organization)”。
+{% data reusables.project-management.automate-project-board-permissions %}  For more information, see "[{% data variables.product.prodname_projects_v1_caps %} permissions for an organization](/articles/project-board-permissions-for-an-organization)."
 
-您可以根据项目板列的触发事件自动执行操作。 这可以节省项目板管理过程中的一些手动任务。 例如，您可以配置 "To do"（待处理）列，其中您添加到项目板的任何新议题或拉取请求都会自动移至配置的列。 更多信息请参阅“[配置项目板的自动化](/articles/configuring-automation-for-project-boards)”。
+You can automate actions based on triggering events for {% data variables.projects.projects_v1_board %} columns. This eliminates some of the manual tasks in managing a {% data variables.projects.projects_v1_board %}. For example, you can configure a "To do" column, where any new issues or pull requests you add to a {% data variables.projects.projects_v1_board %} are automatically moved to the configured column. For more information, see "[Configuring automation for {% data variables.product.prodname_projects_v1 %}](/articles/configuring-automation-for-project-boards)."
 
 {% data reusables.project-management.use-automated-template %}
 
 {% data reusables.project-management.copy-project-boards %}
 
-项目板自动化通过为某些操作创建标准工作流程，也可帮助团队对项目板的目的和团队开发流程达成一致的理解。
+{% data variables.projects.projects_v1_board_caps %} automation can also help teams develop a shared understanding of a {% data variables.projects.projects_v1_board %}'s purpose and the team's development process by creating a standard workflow for certain actions.
 
 {% data reusables.project-management.resync-automation %}
 
@@ -39,10 +37,10 @@ shortTitle: 项目板的自动化
 
 ## 项目进度跟踪
 
-您可以跟踪项目板上的进度。 "To do"（待处理）、"In progress"（进行中）或 "Done"（完成）列中的卡计入总体项目进度。 {% data reusables.project-management.project-progress-locations %}
+You can track the progress on your {% data variables.projects.projects_v1_board %}. "To do"（待处理）、"In progress"（进行中）或 "Done"（完成）列中的卡计入总体项目进度。 {% data reusables.project-management.project-progress-locations %}
 
-更多信息请参阅“[跟踪项目板上的进度](/github/managing-your-work-on-github/tracking-progress-on-your-project-board)”。
+For more information, see "[Tracking progress on your {% data variables.product.prodname_project_v1 %}](/github/managing-your-work-on-github/tracking-progress-on-your-project-board)."
 
 ## 延伸阅读
-- "[配置项目板的自动化](/articles/configuring-automation-for-project-boards)"{% ifversion fpt or ghec %}
-- "[复制项目板](/articles/copying-a-project-board)"{% endif %}
+- "[Configuring automation for {% data variables.product.prodname_projects_v1 %}](/articles/configuring-automation-for-project-boards)"{% ifversion fpt or ghec %}
+- "[Copying a {% data variables.product.prodname_project_v1 %}](/articles/copying-a-project-board)"{% endif %}

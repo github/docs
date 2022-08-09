@@ -27,7 +27,7 @@ Contacta por correo electrónico a <a href="mailto:partnerships@github.com">part
 * Utiliza el [Logo de Octocat o de GitHub](https://github.com/logos) para denotar que tu producto se integra con GitHub
 * Publica un video o un blog en tu sitio web que explique esta integración
 
-## ¿Estás listo para unirte al Programa de Desarrollador de GitHub?</h3>
+## ¿Estás listo para unirte al Programa de Desarrollador de GitHub?
 
 La membrecía está disponible para los desarrolladores individuales y para las comañías que tienen:
 

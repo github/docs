@@ -25,6 +25,10 @@ You can see all current enterprise members and enterprise administrators{% ifver
 
 You can view all the current enterprise owners{% ifversion ghec %} and billing managers{% endif %} for your enterprise.{% ifversion enterprise-membership-view-improvements %} You can see useful information about each administrator{% ifversion ghec %} and filter the list by role{% endif %}.{% endif %} You can find a specific person by searching for their username or display name.
 
+{% ifversion ghes > 3.5 %}
+Enterprise owners whose accounts are suspended are included in the list of enterprise administrators, and are identified as suspended. You should consider demoting any suspended owners you see. For more information, see "[Promoting or demoting a site administrator](/admin/user-management/managing-users-in-your-enterprise/promoting-or-demoting-a-site-administrator#demoting-a-site-administrator-from-the-enterprise-settings)."
+{% endif %}
+
 {% ifversion not ghae %}
 You can also remove an administrator. For more information. see "[Inviting people to manage your enterprise](/admin/user-management/managing-users-in-your-enterprise/inviting-people-to-manage-your-enterprise#removing-an-enterprise-administrator-from-your-enterprise-account)."
 {% endif %}
@@ -64,7 +68,6 @@ You can view more information about the person's access to your enterprise, such
   
 {% endif %}
 
-
 {% ifversion ghec %}
 ## Viewing pending invitations
 
@@ -92,7 +95,6 @@ If you use {% data variables.product.prodname_vss_ghe %}, the list of pending in
 
    ![Screenshot of the "Members", "Administrators", and "Outside collaborators" tabs](/assets/images/help/enterprises/pending-invitations-type-tabs.png)
 
-
 ## Viewing suspended members in an {% data variables.product.prodname_emu_enterprise %}
 
 If your enterprise uses {% data variables.product.prodname_emus %}, you can also view suspended users. Suspended users are members who have been deprovisioned after being unassigned from the {% data variables.product.prodname_emu_idp_application %} application or deleted from the identity provider. For more information, see "[About Enterprise Managed Users](/admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/about-enterprise-managed-users)."
@@ -108,7 +110,7 @@ If your enterprise uses {% data variables.product.prodname_emus %}, you can also
 
 You can view a list of all dormant users {% ifversion ghes or ghae %} who have not been suspended and {% endif %}who are not site administrators. {% data reusables.enterprise-accounts.dormant-user-activity-threshold %} For more information, see "[Managing dormant users](/admin/user-management/managing-users-in-your-enterprise/managing-dormant-users)."
 
-{% ifversion ghec or ghes > 3.1 %}
+{% ifversion ghec or ghes %}
 ## Viewing members without an email address from a verified domain
 
 You can view a list of members in your enterprise who don't have an email address from a verified domain associated with their user account on {% data variables.product.prodname_dotcom_the_website %}.

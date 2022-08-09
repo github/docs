@@ -4,8 +4,7 @@ shortTitle: メンテナとコラボレーションする
 intro: 'ディスカッションでプロジェクトのメンテナと連絡を取り合うことにより、{% data variables.product.product_name %} でプロジェクトの目標、計画、健全性、およびコミュニティに貢献できます。'
 permissions: 'People with read access to a repository can start and participate in discussions and polls in the repository. People with read access to the source repository for organization discussions can start and participate in discussions and polls in the organization. {% data reusables.enterprise-accounts.emu-permission-interact %}'
 versions:
-  fpt: '*'
-  ghec: '*'
+  feature: discussions
 ---
 
 
@@ -53,4 +52,6 @@ You can search for discussions and filter the list of discussions in a repositor
 ## 参考リンク
 
 - 「[{% data variables.product.prodname_dotcom %} での書き方と書式設定について](/github/writing-on-github/about-writing-and-formatting-on-github)」
+{%- ifversion fpt or ghec %}
 - 「[{% data variables.product.prodname_dotcom %} での安全性を維持する](/communities/maintaining-your-safety-on-github)」
+{%- endif %}

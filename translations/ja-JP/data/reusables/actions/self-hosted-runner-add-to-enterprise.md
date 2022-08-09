@@ -3,10 +3,10 @@
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.actions-tab %}
 {% data reusables.enterprise-accounts.actions-runners-tab %}
-1. Click **New runner**.
+1. [**New runner**]をクリックしてください。
 {% data reusables.actions.self-hosted-runner-configure %}
 {%- elsif ghae or ghes < 3.4 %}
-To add a self-hosted runner to an enterprise, you must be an enterprise owner.
+セルフホストランナーをEnterpriseに追加するには、Enterpriseのオーナーでなければなりません。
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.actions-tab %}

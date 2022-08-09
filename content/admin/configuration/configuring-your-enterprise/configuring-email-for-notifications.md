@@ -85,6 +85,18 @@ settings to allow incoming emails](#configuring-dns-and-firewall-settings-to-all
 ![Save settings button](/assets/images/enterprise/management-console/save-settings.png)
 {% data reusables.enterprise_site_admin_settings.wait-for-configuration-run %}
 
+{% ifversion require-tls-for-smtp %}
+## Enforcing TLS for SMTP connections
+
+You can enforce TLS encryption for all incoming SMTP connections, which can help satisfy an ISO-27017 certification requirement.
+
+{% data reusables.enterprise_site_admin_settings.email-settings %}
+1. Under "Authentication," select **Enforce TLS auth (recommended)**.
+
+   ![Screenshot of the "Enforce TLS auth (recommended)" checkbox](/assets/images/enterprise/configuration/enforce-tls-for-smtp-checkbox.png)
+{% data reusables.enterprise_management_console.save-settings %}
+{% endif %}
+
 ## Configuring DNS and firewall settings to allow incoming emails
 
 If you want to allow email replies to notifications, you must configure your DNS settings.
@@ -98,7 +110,7 @@ If you want to allow email replies to notifications, you must configure your DNS
 
 ### Create a Support Bundle
 
-If you cannot determine what is wrong from the displayed error message, you can download a [support bundle](/enterprise/{{ currentVersion }}/admin/guides/enterprise-support/providing-data-to-github-support) containing the entire SMTP conversation between your mail server and {% data variables.product.prodname_ghe_server %}. Once you've downloaded and extracted the bundle, check the entries in *enterprise-manage-logs/unicorn.log* for the entire SMTP conversation log and any related errors.
+If you cannot determine what is wrong from the displayed error message, you can download a [support bundle](/enterprise/admin/guides/enterprise-support/providing-data-to-github-support) containing the entire SMTP conversation between your mail server and {% data variables.product.prodname_ghe_server %}. Once you've downloaded and extracted the bundle, check the entries in *enterprise-manage-logs/unicorn.log* for the entire SMTP conversation log and any related errors.
 
 The unicorn log should show a transaction similar to the following:
 

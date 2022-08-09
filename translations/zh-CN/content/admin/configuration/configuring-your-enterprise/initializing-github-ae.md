@@ -8,6 +8,7 @@ topics:
   - Enterprise
 redirect_from:
   - /admin/configuration/initializing-github-ae
+  - /enterprise-server@latest/admin/configuration/configuring-your-enterprise/initializing-github-ae
 ---
 
 ## 关于初始化

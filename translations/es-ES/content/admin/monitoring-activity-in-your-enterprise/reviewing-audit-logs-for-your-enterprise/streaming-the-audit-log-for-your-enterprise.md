@@ -1,21 +1,29 @@
 ---
-title: Streaming the audit log for your enterprise
+title: Transmitir la bitácora de auditoría para tu empresa
 intro: 'Puedes trasmitir datos de eventos de Git y de auditorías desde {% data variables.product.prodname_dotcom %} hacia un sistema externo de administración de datos.'
 miniTocMaxHeadingLevel: 3
 versions:
-  ghec: '*'
+  feature: audit-log-streaming
 type: tutorial
 topics:
   - Auditing
   - Enterprise
   - Logging
   - Organizations
-shortTitle: Stream audit logs
+shortTitle: Transmitir bitácoras de auditoría
 redirect_from:
   - /github/setting-up-and-managing-your-enterprise/managing-organizations-in-your-enterprise-account/streaming-the-audit-logs-for-organizations-in-your-enterprise-account
   - /admin/user-management/managing-organizations-in-your-enterprise/streaming-the-audit-logs-for-organizations-in-your-enterprise-account
 permissions: Enterprise owners can configure audit log streaming.
 ---
+
+{% ifversion ghes %}
+{% note %}
+
+**Note:** Audit log streaming is currently in beta for {% data variables.product.product_name %} and is subject to change.
+
+{% endnote %}
+{% endif %}
 
 ## Acerca de la transmisión de bitácoras de auditoría
 
@@ -24,11 +32,11 @@ Para ayudarte a proteger tu propiedad intelectual y mantener el cumplimiento en 
 
 Los beneficios de transmitir datos de auditoría incluyen:
 
-* **Exploración de datos**. Puedes examinar los eventos transmitidos utilizando tu herramienta preferida para consultar cantidades grandes de datos. La transmisión contiene tanto los eventos de auditoría como los de Git a lo largo de toda la cuenta empresarial.
-* **Continuidad de datos**. Puedes pausar la transmisión por hasta siete días sin perder datos de auditoría.
-* **Retención de datos**. You can keep your exported audit logs and Git events data as long as you need to.
+* **Exploración de datos**. Puedes examinar los eventos transmitidos utilizando tu herramienta preferida para consultar cantidades grandes de datos. The stream contains both audit events and Git events across the entire enterprise account.{% ifversion pause-audit-log-stream %}
+* **Continuidad de datos**. You can pause the stream for up to seven days without losing any audit data.{% endif %}
+* **Retención de datos**. Puedes mantener tus bitácoras de auditoría y datos de eventos de Git exportados siempre que lo necesites.
 
-Los propietrios de empresas pueden configurar, pausar o borrar una transmisión en cualquier momento. La transmisión exporta los datos de auditoría de todas las organizaciones en tu empresa.
+Enterprise owners can set up{% ifversion pause-audit-log-stream %}, pause,{% endif %} or delete a stream at any time. The stream exports the audit and Git events data for all of the organizations in your enterprise.
 
 ## Configurar la transmisión de bitácoras de auditoría
 
@@ -42,6 +50,16 @@ Puedes configurar la transmisión de bitácoras de auditoría en {% data variabl
 
 ### Configurar la transmisión para Amazon S3
 
+{% ifversion streaming-oidc-s3 %}
+Puedes configurar la transmisión de S3 con claves de acceso o, para evitar el almacenar secretos de vida larga en {% data variables.product.product_name %}, con OpenID Connect (OIDC).
+
+- [Configurar la transmisión a S3 con llaves de acceso](#setting-up-streaming-to-s3-with-access-keys)
+- [Configurar la transmisión a S3 con OpenID Connect](#setting-up-streaming-to-s3-with-openid-connect)
+- [Inhabilitar la transmisión a S3 con OpenID Connect](#disabling-streaming-to-s3-with-openid-connect)
+
+#### Configurar la transmisión a S3 con llaves de acceso
+{% endif %}
+
 Para transmitir bitácoras de auditoría a la terminal de Amazon S3, debes tener un bucket y llaves de acceso. Para obtener más información, consulta la sección [Crear, configurar y trabajar con los buckets de Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/creating-buckets-s3.html) en la documentación de AWS. Asegúrate de bloquear el acceso público al bucket para proteger la información de tu bitácora de auditoría.
 
 Para configurar la transmisión de bitácora de auditoría desde {% data variables.product.prodname_dotcom %}, necesitarás:
@@ -52,22 +70,76 @@ Para configurar la transmisión de bitácora de auditoría desde {% data variabl
 Para obtener más información sobre cómo crear o acceder a tu ID de llave de acceso y llave de secreto, consulta la sección [Entender y obtener tus credenciales de AWS](https://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html) en la documentación de AWS.
 
 {% data reusables.enterprise.navigate-to-log-streaming-tab %}
-1. Haz clic en **Configurar transmisión** y selecciona **Amazon S3**.
+{% data reusables.audit_log.streaming-choose-s3 %}{% ifversion streaming-oidc-s3 %}
+1. Debajo de "Autenticación", haz clic en **Claves de acceso**.
 
-   ![Elige Amazon S3 del menú desplegable](/assets/images/help/enterprises/audit-stream-choice-s3.png)
+   ![Captura de pantalla de las opciones de autenticación para la transmisión a Amazon S3](/assets/images/help/enterprises/audit-log-streaming-s3-access-keys.png){% endif %}
+1. Configurar los ajustes de transmisión.
 
-1. En la página de configuración, ingresa:
-   * El nombre del bucket al cual quieres transmitir. Por ejemplo, `auditlog-streaming-test`.
-   * Tu ID de llave de acceso. Por ejemplo, `ABCAIOSFODNN7EXAMPLE1`.
-   * Tu llave secreta. Por ejemplo, `aBcJalrXUtnWXYZ/A1MDENG/zPxRfiCYEXAMPLEKEY`.
-
-   ![Ingresar la configuración de transmisión](/assets/images/help/enterprises/audit-stream-add-s3.png)
-
-1. Haz clic en **Verificar terminal** para verificar que {% data variables.product.prodname_dotcom %} pueda conectarse y escribir en la terminal de Amazon S3.
-
-   ![Verificar la terminal](/assets/images/help/enterprises/audit-stream-check.png)
-
+   - Debajo de "Bucket", escribe el nombre del bucket al que quieras transmitir. Por ejemplo, `auditlog-streaming-test`.
+   - Debajo de "ID de clave de acceso", escribe tu ID de clave de acceso. Por ejemplo, `ABCAIOSFODNN7EXAMPLE1`.
+   - Debajo de "Clave secreta", escribe tu clave secreta. Por ejemplo, `aBcJalrXUtnWXYZ/A1MDENG/zPxRfiCYEXAMPLEKEY`.
+{% data reusables.audit_log.streaming-check-s3-endpoint %}
 {% data reusables.enterprise.verify-audit-log-streaming-endpoint %}
+
+{% ifversion streaming-oidc-s3 %}
+#### Configurar la transmisión a S3 con OpenID Connect
+
+1. En AWS, agrega el proveedor de OIDC de {% data variables.product.prodname_dotcom %} para IAM. Para obtener más información, consulta la sección [Crear proveedores de identidad de OpenID Connect (OIDC)](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_create_oidc.html) en la documentación de AWS.
+
+   - Para la URL de proveedor, utiliza `https://oidc-configuration.audit-log.githubusercontent.com`.
+   - Para "Audiencia", utiliza `sts.amazonaws.com`.
+1. Crea un bucket y bloquea el acceso público a este. Para obtener más información, consulta la sección "[Crear, configurar y trabajar con buckets de Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/creating-buckets-s3.html) en la documentación de AWS.
+1. Crea una política que permita que {% data variables.product.company_short %} escriba en el bucket. {% data variables.product.prodname_dotcom %} solo requiere los siguientes permisos.
+
+   ```
+   {
+      "Version": "2012-10-17",
+      "Statement": [
+         {
+            "Sid": "VisualEditor0",
+            "Effect": "Allow",
+            "Action": [
+               "s3:PutObject"
+            ],
+            "Resource": "arn:aws:s3:::example-bucket/*"
+        }
+      ]
+   }
+   ```
+   Para obtener más información, consulta la sección [Crear políticas de IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_create.html) en la documentación de AWS.
+1. Configura el rol y la política de confianza para el IdP de {% data variables.product.prodname_dotcom %}. Para obtener más información, consulta la sección [Crear un rol para la identidad web o Federación de OpenID Connect (consola)](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-idp_oidc.html) en la documentación de AWS.
+
+   - Agrega la política de permisos que creaste anteriormente para permitir la escritura en el bucket.
+   - Edita la relación d confianza para agregar el campo `sub` a las condiciones de validación, reemplazando `ENTERPRISE` con el nombre de tu empresa.
+     ```
+     "Condition": {
+        "StringEquals": {
+           "oidc-configuration.audit-log.githubusercontent.com:aud": "sts.amazonaws.com",
+           "oidc-configuration.audit-log.githubusercontent.com:sub": "https://github.com/ENTERPRISE"
+         }
+      }
+      ```
+   - Anota el Nombre de Recurso de Amazon (ARN) del rol creado.
+{% data reusables.enterprise.navigate-to-log-streaming-tab %}
+{% data reusables.audit_log.streaming-choose-s3 %}
+1. Debajo de "Autenticación", haz clic en **OpenID Connect**.
+
+   ![Captura de pantalla de las opciones de autenticación para la transmisión a Amazon S3](/assets/images/help/enterprises/audit-log-streaming-s3-oidc.png)
+1. Configurar los ajustes de transmisión.
+
+   - Debajo de "Bucket", escribe el nombre del bucket al que quieras transmitir. Por ejemplo, `auditlog-streaming-test`.
+   - Debajo de "Rol de ARN", escribe el rol de ARN que anotaste anteriormente. Por ejemplo, `arn:aws::iam::1234567890:role/github-audit-log-streaming-role`.
+{% data reusables.audit_log.streaming-check-s3-endpoint %}
+{% data reusables.enterprise.verify-audit-log-streaming-endpoint %}
+
+#### Inhabilitar la transmisión a S3 con OpenID Connect
+
+Si quieres inhabilitar la transmisión a S3 con OIDC por cualquier razón, tal como el descubrimiento de una vulnerabilidad de seguridad en OIDC, borra el proveedor de OIDC de {% data variables.product.prodname_dotcom %} que creaste en AWS cuando configures la transmisión. Para obtener más información, consulta la sección [Crear proveedores de identidad de OpenID Connect (OIDC)](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_create_oidc.html) en la documentación de AWS.
+
+Posteriormente, configura la transmisión con las claves de acceso hasta que se resuelva la vulnerabilidad. Para obtener más información, consulta la sección [Configurar la transmisión hacia S3 con claves de acceso](#setting-up-streaming-to-s3-with-access-keys)".
+
+{% endif %}
 
 ### Configurar la transmisión hacia Azure Blob Storage
 
@@ -208,6 +280,7 @@ Para transmitir bitácoras de auditoría a la terminal del Recolector de Eventos
 1. Haz clic en **Verificar terminal** para verificar que {% data variables.product.prodname_dotcom %} puede conectarse y escribir en la terminal de Splunk. ![Verificar la terminal](/assets/images/help/enterprises/audit-stream-check-splunk.png)
 {% data reusables.enterprise.verify-audit-log-streaming-endpoint %}
 
+{% ifversion pause-audit-log-stream %}
 ## Pausar la transmisión de bitácoras de auditoría
 
 El pausar la transmisión te permite realizar el mantenimiento de la aplicación receptora sin perder datos de auditoría. Las bitácoras de auditoría se almacenan por hasta siete días en {% data variables.product.product_location %} y luego se exportan cuando dejas de pausar la transmisión.
@@ -220,6 +293,7 @@ El pausar la transmisión te permite realizar el mantenimiento de la aplicación
 1. Se mostrará un mensaje de confirmación. Haz clic en **Pausar transmisión** para confirmar.
 
 Cuando la aplicación esté lista para recibir bitácoras de auditoría nuevamente, haz clic en **Reanudar transmisión** para reiniciar la transmisión de bitácoras de auditoría.
+{% endif %}
 
 ## Borrar la transmisión de bitácoras de auditoría
 

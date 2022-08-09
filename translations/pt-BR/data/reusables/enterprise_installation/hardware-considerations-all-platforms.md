@@ -8,6 +8,10 @@ Recomendamos diferentes configurações de hardware, dependendo do número de li
 
 {% data reusables.enterprise_installation.hardware-rec-table %}
 
+{% data reusables.actions.more-resources-for-ghes %}
+
+{% data reusables.enterprise_installation.about-adjusting-resources %}
+
 ### Armazenamento
 
 Recomendamos um SSD de alto desempenho com operações de alta entrada/saída por segundo (IOPS) e baixa latência para {% data variables.product.prodname_ghe_server %}. Cargas de trabalho são intensivas em I/O. Se você usar um hipervisor de metal simples, recomendamos anexar diretamente o disco ou usar um disco a partir de uma rede de área de armazenamento (SAN).
@@ -20,7 +24,7 @@ To configure {% data variables.product.prodname_actions %}, you must provide ext
 
 {% endif %}
 
-The available space on the root filesystem will be 50% of the total disk size. Você pode redimensionar o disco raiz da sua instância criando uma nova instância ou usando uma instância existente. For more information, see "[System overview](/enterprise/admin/guides/installation/system-overview#storage-architecture)" and "[Increasing storage capacity](/enterprise/{{ currentVersion }}/admin/guides/installation/increasing-storage-capacity)."
+The available space on the root filesystem will be 50% of the total disk size. Você pode redimensionar o disco raiz da sua instância criando uma nova instância ou usando uma instância existente. For more information, see "[System overview](/enterprise/admin/guides/installation/system-overview#storage-architecture)" and "[Increasing storage capacity](/enterprise/admin/guides/installation/increasing-storage-capacity)."
 
 ### CPU e memória
 

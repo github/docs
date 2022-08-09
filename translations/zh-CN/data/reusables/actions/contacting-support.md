@@ -1,4 +1,4 @@
-如果需要任何与工作流程配置相关的帮助，比如语法、{% data variables.product.prodname_dotcom %} 托管的运行器或构建操作，请在 [{% data variables.product.prodname_gcf %} 的 {% data variables.product.prodname_actions %} 类别](https://github.community/c/code-to-cloud/github-actions/41)中查找现有主题或发起一个新主题。
+If you need help with anything related to workflow configuration, such as syntax, {% data variables.product.prodname_dotcom %}-hosted runners, or building actions, look for an existing topic or start a new one in the [{% data variables.product.prodname_github_community %}'s {% data variables.product.prodname_actions %} and {% data variables.product.prodname_registry %} category](https://github.com/orgs/github-community/discussions/categories/actions-and-packages).
 
 如果您有对 {% data variables.product.prodname_actions %} 的反馈或功能请求，请在 {% data variables.contact.contact_feedback_actions %} 中分享。
 

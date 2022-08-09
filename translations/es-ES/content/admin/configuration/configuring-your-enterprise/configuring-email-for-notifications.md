@@ -73,6 +73,18 @@ Los propietarios de las empresas pueden configurar los correos electrónicos par
 5. Cuando el correo electrónico de prueba es exitoso, en la parte inferior de la página, haz clic en **Guardar parámetros**. ![Botón Guardar parámetros](/assets/images/enterprise/management-console/save-settings.png)
 {% data reusables.enterprise_site_admin_settings.wait-for-configuration-run %}
 
+{% ifversion require-tls-for-smtp %}
+## Requerir TLS para conexiones SMTP
+
+Puedes requerir el cifrado de TLS para todas las conexiones entrantes de SMTP, lo cual puede ayudar a satisfacer un requisito de certificación ISO-27017.
+
+{% data reusables.enterprise_site_admin_settings.email-settings %}
+1. Debajo de "Autenticación", selecciona **requerir la autenticación con TLS (recomendado)**.
+
+   ![Captura de pantalla de la casilla de verificación de "Requerir la autenticación con TLS (recomendado)"](/assets/images/enterprise/configuration/enforce-tls-for-smtp-checkbox.png)
+{% data reusables.enterprise_management_console.save-settings %}
+{% endif %}
+
 ## Configurar DNS y parámetros de firewall para permitir correos electrónicos entrantes
 
 Si quieres permitir respuestas de correo electrónico para las notificaciones, debes configurar los parámetros de tu DNS.
@@ -86,7 +98,7 @@ Si quieres permitir respuestas de correo electrónico para las notificaciones, d
 
 ### Crea un Paquete de soporte
 
-Si no puedes determinar qué es lo que está mal desde el mensaje de error que se muestra, puedes descargar un [paquete de soporte](/enterprise/{{ currentVersion }}/admin/guides/enterprise-support/providing-data-to-github-support) que contiene toda la conversación de SMTP entre tu servidor de correo y {% data variables.product.prodname_ghe_server %}. Una vez que hayas descargado y extraído el paquete, verifica las entradas en *enterprise-manage-logs/unicorn.log* para toda la bitácora de conversaciones de SMTP y cualquier error relacionado.
+Si no puedes determinar lo que está mal desde el mensaje de error mostrado, puedes descargar un [paquete de soporte](/enterprise/admin/guides/enterprise-support/providing-data-to-github-support) que contiene toda la conversación SMTP entre tu servidor de correo y {% data variables.product.prodname_ghe_server %}. Una vez que hayas descargado y extraído el paquete, verifica las entradas en *enterprise-manage-logs/unicorn.log* para toda la bitácora de conversaciones de SMTP y cualquier error relacionado.
 
 El registro unicornio debería mostrar una transacción similar a la siguiente:
 

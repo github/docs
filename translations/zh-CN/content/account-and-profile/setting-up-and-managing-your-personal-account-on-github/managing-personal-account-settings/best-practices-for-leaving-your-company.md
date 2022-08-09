@@ -1,6 +1,6 @@
 ---
-title: 关于离开公司的最佳实践
-intro: '如果您在 {% data variables.product.product_name %} 上的帐户同时用于个人和工作用途，那么您在离开公司或组织的时候需要注意一些问题。'
+title: Best practices for leaving your company
+intro: 'If you use your account on {% data variables.product.product_name %} for both personal and work purposes, there are a few things to keep in mind when you leave your company or organization.'
 redirect_from:
   - /articles/best-practices-for-leaving-your-company
   - /github/setting-up-and-managing-your-github-user-account/best-practices-for-leaving-your-company
@@ -11,30 +11,31 @@ versions:
   ghec: '*'
 topics:
   - Accounts
-shortTitle: 离开您的公司
+shortTitle: Leaving your company
 ---
 
-在离开公司之前，请确保在个人帐户中更新以下信息：
+Before you leave your company, make sure you update the following information in your personal account:
 
-- 通过[在电子邮件设置中删除公司电子邮件地址](/articles/changing-your-primary-email-address)来取消其验证。 然后，您可以在不验证的情况下重新添加它，以保留与您的帐户相关联的所有相关提交。
-- [将您的主电子邮件地址](/articles/changing-your-primary-email-address)从公司电子邮件地址更改为个人电子邮件地址。
-{% ifversion fpt or ghec %}
-- [验证新的主电子邮件地址](/articles/verifying-your-email-address)。
-{% endif %}
-- [更改您的 GitHub 用户名](/articles/changing-your-github-username)以删除对公司或组织的任何引用（如有必要）。
+- Unverify your company email address by [deleting it in your Email settings](/articles/changing-your-primary-email-address). You can then re-add it without verifying to keep any associated commits linked to your account.
+- [Change your primary email address](/articles/changing-your-primary-email-address) from your company email to your personal email.
+- [Verify your new primary email address](/articles/verifying-your-email-address).
+- [Change your GitHub username](/articles/changing-your-github-username) to remove any references to your company or organization, if necessary.
+- If you've enabled two-factor (2FA) authentication for your personl account, make sure that you (not your company) control the 2FA authentication method you have configured. For more information, see "[Configuring two-factor authentication](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication)."
 
-## 离开组织
+## Leaving organizations
 
-如果您在使用属于组织的仓库，则应[删除自己的组织成员身份](/articles/removing-yourself-from-an-organization)。 请注意，如果您是组织所有者，应先将[组织的所有权转让](/articles/transferring-organization-ownership)给其他人。
+If you've been working with repositories that belong to an organization, you'll want to [remove yourself as a member of the organization](/articles/removing-yourself-from-an-organization). Note that if you are the organization owner, you should first [transfer ownership of the organization](/articles/transferring-organization-ownership) to another person.
 
-## 删除与个人仓库的职业关联
+Unless you're using a {% data variables.product.prodname_managed_user %}, you'll still be able to access your personal account, even after leaving the organization. For more information about {% data variables.product.prodname_emus %}, see "[About {% data variables.product.prodname_emus %}]({% ifversion not ghec%}/enterprise-cloud@latest{% endif %}/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users){% ifversion not ghec %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}."{% endif %}
 
-如果您在属于其他人个人帐户的仓库中与他们进行了职业协作，则应从这些仓库中[删除自己的协作者身份](/articles/removing-yourself-from-a-collaborator-s-repository)。
+## Removing professional associations with personal repositories
 
-- [停止关注与工作相关的仓库](https://github.com/watching)。 您不再需要这些通知了！
-- [转让您拥有的仓库](/articles/how-to-transfer-a-repository)，在您离开后，其他人可能需要继续使用该仓库处理工作。
-- [删除与您的工作相关且属于您的复刻](/articles/deleting-a-repository)。 不用担心，删除复刻不会删除上游仓库。
-- 删除您的计算机上可能存在的复刻本地副本：
+If you've been collaborating professionally with another person on repositories that belong to their personal account, you'll want to [remove yourself as a collaborator](/articles/removing-yourself-from-a-collaborator-s-repository) from those repositories.
+
+- [Stop watching repositories](https://github.com/watching) related to your work. You won't want those notifications anymore!
+- [Transfer repositories you own](/articles/how-to-transfer-a-repository) that others may need to continue working on after you leave.
+- [Delete forks that belong to you](/articles/deleting-a-repository) that are related to the work you were doing. Don't worry, deleting a fork doesn't delete the upstream repository.
+- Delete local copies of your forks that may exist on your computer:
 
 ```shell
 $ rm -rf <em>work_directory</em>

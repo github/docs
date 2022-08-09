@@ -17,13 +17,9 @@ topics:
 shortTitle: webhookイベントとペイロード
 ---
 
-{% ifversion fpt or ghec %}
-
-{% endif %}
-
 {% data reusables.webhooks.webhooks_intro %}
 
-このページに表示されているイベントをサブスクライブする webhook を作成できます。 各 webhook イベントには、webhook プロパティの説明とペイロードの例が含まれています。 詳しい情報については「[webhook を作成する](/webhooks/creating/)」を参照してください。
+このページに表示されているイベントをサブスクライブする webhook を作成できます。 各 webhook イベントには、webhook プロパティの説明とペイロードの例が含まれています。 For more information, see "[Creating webhooks](/webhooks/creating/)."
 
 ## webhook ペイロードオブジェクトの共通プロパティ
 
@@ -101,7 +97,7 @@ webhook によって設定されている URL エンドポイントに配信さ�
 > }
 ```
 
-{% ifversion fpt or ghes > 3.2 or ghae or ghec %}
+{% ifversion fpt or ghes > 3.3 or ghae or ghec %}
 ## branch_protection_rule
 
 ブランチ保護ルールに関するアクティビティです。 詳しい情報については「[ブランチ保護ルールについて](/github/administering-a-repository/defining-the-mergeability-of-pull-requests/about-protected-branches#about-branch-protection-rules)」を参照してください。
@@ -219,7 +215,7 @@ A Git ref has been successfully synced to a cache replica. For more information,
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.app_desc %}
-`sender` | `object` | `action` が `reopened_by_user` または `closed_by_user` の場合、`sender` オブジェクトは、イベントをトリガーしたユーザになります。 `sender`オブジェクトは、他の全てのアクションに対して{% ifversion fpt or ghec %}`github`{% elsif ghes or ghae %}`github-enterprise`{% else %}empty{% endif %}です。
+`sender` | `object` | `action` が `reopened_by_user` または `closed_by_user` の場合、`sender` オブジェクトは、イベントをトリガーしたユーザになります。 The `sender` object is {% ifversion fpt or ghec %}`github`{% elsif ghes or ghae %}`github-enterprise`{% else %}empty{% endif %} for all other actions.
 
 ### webhook ペイロードの例
 
@@ -353,10 +349,10 @@ webhook イベントは、登録したドメインの特異性に基づいてト
 
 ### webhook ペイロードオブジェクト
 
-| キー           | 種類       | 説明                                                       |
-| ------------ | -------- | -------------------------------------------------------- |
-| `action`     | `string` | 実行されたアクション。 `created `になりうる。                             |
-| `deployment` | `オブジェクト` | [デプロイメント](/rest/reference/deployments#list-deployments)。 |
+| キー           | 種類       | 説明                                                              |
+| ------------ | -------- | --------------------------------------------------------------- |
+| `action`     | `string` | 実行されたアクション。 `created `になりうる。                                    |
+| `deployment` | `オブジェクト` | The [deployment](/rest/reference/deployments#list-deployments). |
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.app_desc %}
@@ -378,14 +374,14 @@ webhook イベントは、登録したドメインの特異性に基づいてト
 
 ### webhook ペイロードオブジェクト
 
-| キー                                 | 種類       | 説明                                                                         |
-| ---------------------------------- | -------- | -------------------------------------------------------------------------- |
-| `action`                           | `string` | 実行されたアクション。 `created `になりうる。                                               |
-| `deployment_status`                | `オブジェクト` | [デプロイメントステータス](/rest/reference/deployments#list-deployment-statuses)。      |
-| `deployment_status["state"]`       | `string` | 新しい状態。 `pending`、`success`、`failure`、`error` のいずれかを指定可。                    |
-| `deployment_status["target_url"]`  | `string` | ステータスに追加されたオプションのリンク。                                                      |
-| `deployment_status["description"]` | `string` | オプションの人間可読の説明がステータスに追加。                                                    |
-| `deployment`                       | `オブジェクト` | このステータスが関連付けられている [デプロイメント](/rest/reference/deployments#list-deployments)。 |
+| キー                                 | 種類       | 説明                                                                                                  |
+| ---------------------------------- | -------- | --------------------------------------------------------------------------------------------------- |
+| `action`                           | `string` | 実行されたアクション。 `created `になりうる。                                                                        |
+| `deployment_status`                | `オブジェクト` | The [deployment status](/rest/reference/deployments#list-deployment-statuses).                      |
+| `deployment_status["state"]`       | `string` | 新しい状態。 `pending`、`success`、`failure`、`error` のいずれかを指定可。                                             |
+| `deployment_status["target_url"]`  | `string` | ステータスに追加されたオプションのリンク。                                                                               |
+| `deployment_status["description"]` | `string` | オプションの人間可読の説明がステータスに追加。                                                                             |
+| `deployment`                       | `オブジェクト` | The [deployment](/rest/reference/deployments#list-deployments) that this status is associated with. |
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.app_desc %}
@@ -400,7 +396,7 @@ webhook イベントは、登録したドメインの特異性に基づいてト
 
 {% data reusables.webhooks.discussions-webhooks-beta %}
 
-ディスカッションに関連するアクティビティ。 詳しい情報については、「[ディスカッションでのGraphQL APIの利用]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql/guides/using-the-graphql-api-for-discussions)」を参照してください。
+ディスカッションに関連するアクティビティ。 詳しい情報については、「[ディスカッションでのGraphQL APIの利用](/graphql/guides/using-the-graphql-api-for-discussions)」を参照してください。
 ### 利用の可否
 
 - リポジトリ webhook
@@ -425,7 +421,7 @@ webhook イベントは、登録したドメインの特異性に基づいてト
 
 {% data reusables.webhooks.discussions-webhooks-beta %}
 
-ディスカッションのコメントに関連するアクティビティ。 詳しい情報については、「[ディスカッションでのGraphQL APIの利用]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql/guides/using-the-graphql-api-for-discussions)」を参照してください。
+ディスカッションのコメントに関連するアクティビティ。 詳しい情報については、「[ディスカッションでのGraphQL APIの利用](/graphql/guides/using-the-graphql-api-for-discussions)」を参照してください。
 
 ### 利用の可否
 
@@ -435,10 +431,10 @@ webhook イベントは、登録したドメインの特異性に基づいてト
 
 ### webhook ペイロードオブジェクト
 
-| キー       | 種類       | 説明                                                                                                                                                         |
-| -------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `action` | `string` | 実行されたアクション。 `created`、`edited`、`deleted` のいずれかを指定可。                                                                                                        |
-| `コメント`   | `オブジェクト` | [`discussion comment`]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql/guides/using-the-graphql-api-for-discussions#discussioncomment) のリソース。 |
+| キー       | 種類       | 説明                                                                                                     |
+| -------- | -------- | ------------------------------------------------------------------------------------------------------ |
+| `action` | `string` | 実行されたアクション。 `created`、`edited`、`deleted` のいずれかを指定可。                                                    |
+| `コメント`   | `オブジェクト` | [`discussion comment`](/graphql/guides/using-the-graphql-api-for-discussions#discussioncomment) のリソース。 |
 {% data reusables.webhooks.discussion_desc %}
 {% data reusables.webhooks.repo_desc_graphql %}
 {% data reusables.webhooks.org_desc_graphql %}
@@ -712,7 +708,42 @@ GitHub Marketplace の購入に関連するアクティビティ。 {% data reus
 
 {{ webhookPayloadsForCurrentVersion.membership.removed }}
 
-## メタ情報
+{% ifversion fpt or ghec %}
+
+## merge_group
+
+{% data reusables.pull_requests.merge-queue-beta %}
+
+Activity related to merge groups in a merge queue. アクティビティのタイプは、ペイロードオブジェクトのactionプロパティで指定されます。
+
+
+### 利用の可否
+
+- リポジトリ webhook
+- Organization webhook
+- {% data variables.product.prodname_github_apps %} with the `merge_queues` permission
+
+### webhook ペイロードオブジェクト
+
+| キー                      | 種類       | 説明                                                              |
+| ----------------------- | -------- | --------------------------------------------------------------- |
+| `action`                | `string` | 実行されたアクション. Currently, can only be `checks_requested`.          |
+| `merge_group`           | `オブジェクト` | The merge group.                                                |
+| `merge_group[head_sha]` | `string` | The SHA of the merge group.                                     |
+| `merge_group[head_ref]` | `string` | The full ref of the merge group.                                |
+| `merge_group[base_ref]` | `string` | The full ref of the branch the merge group will be merged into. |
+{% data reusables.webhooks.repo_desc %}
+{% data reusables.webhooks.org_desc %}
+{% data reusables.webhooks.app_desc %}
+{% data reusables.webhooks.sender_desc %}
+
+### webhook ペイロードの例
+
+{{ webhookPayloadsForCurrentVersion.merge_group.checks_requested }}
+
+{% endif %}
+
+## meta
 
 このイベントが設定されている webhook が削除されました。 このイベントは、イベントがインストールされている特定のフックへの変更のみをリッスンします。 したがって、メタイベントを受信するフックごとに選択する必要があります。
 
@@ -892,10 +923,10 @@ GitHub Marketplace の購入に関連するアクティビティ。 {% data reus
 - Organization webhook
 - `repository_projects` または `organization_projects` 権限のある {% data variables.product.prodname_github_apps %}
 
-{% ifversion fpt or ghec %}
+{% ifversion projects-v2 %}
 {% note %}
 
-**Note**: This event does not occur for Projects (beta).
+**Note**: This event only occurs for {% data variables.product.prodname_projects_v1 %}.
 
 {% endnote %}
 {% endif %}
@@ -924,10 +955,10 @@ GitHub Marketplace の購入に関連するアクティビティ。 {% data reus
 - Organization webhook
 - `repository_projects` または `organization_projects` 権限のある {% data variables.product.prodname_github_apps %}
 
-{% ifversion fpt or ghec %}
+{% ifversion projects-v2 %}
 {% note %}
 
-**Note**: This event does not occur for Projects (beta).
+**Note**: This event only occurs for {% data variables.product.prodname_projects_v1 %}.
 
 {% endnote %}
 {% endif %}
@@ -954,6 +985,14 @@ GitHub Marketplace の購入に関連するアクティビティ。 {% data reus
 - Organization webhook
 - `repository_projects` または `organization_projects` 権限のある {% data variables.product.prodname_github_apps %}
 
+{% ifversion projects-v2 %}
+{% note %}
+
+**Note**: This event only occurs for {% data variables.product.prodname_projects_v1 %}.
+
+{% endnote %}
+{% endif %}
+
 ### webhook ペイロードオブジェクト
 
 {% data reusables.webhooks.project_column_properties %}
@@ -972,11 +1011,11 @@ GitHub Marketplace の購入に関連するアクティビティ。 {% data reus
 
 {% note %}
 
-**Note:** Webhook events for Projects (beta) are currently in beta and subject to change. To share feedback about Projects (beta) webhooks with {% data variables.product.product_name %}, see the [Projects (beta) webhook feedback discussion](https://github.com/github/feedback/discussions/17405).
+**ノート:** {% data variables.projects.projects_v2 %}のwebhookイベントは現在ベータであり、変更されることがあります。 To share feedback about {% data variables.projects.projects_v2 %} webhooks with {% data variables.product.product_name %}, see the [Projects webhook feedback discussion](https://github.com/orgs/community/discussions/17405).
 
 {% endnote %}
 
-Activity related to items in a Projects (beta) project. {% data reusables.webhooks.action_type_desc %} For more information, see "[About projects (beta)](/issues/trying-out-the-new-projects-experience/about-projects)."
+Activity related to items in a {% data variables.projects.project_v2 %}. {% data reusables.webhooks.action_type_desc %} For more information, see "[About {% data variables.projects.projects_v2 %}](/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects)."
 
 ### 利用の可否
 
@@ -985,11 +1024,11 @@ Activity related to items in a Projects (beta) project. {% data reusables.webhoo
 
 ### webhook ペイロードオブジェクト
 
-| キー                 | 種類       | 説明                                                                                                                                                                                                                                                                                                                                                                                    |
-| ------------------ | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `action`           | `string` | The action that was performed on the project item. Can be one of `archived`, `converted`, `created`, `edited`, `restored`, `deleted`, or `reordered`.                                                                                                                                                                                                                                 |
-| `projects_v2_item` | `オブジェクト` | The project item itself. To find more information about the project item, you can use `node_id` (the node ID of the project item) and `project_node_id` (the node ID of the project) to query information in the GraphQL API. For more information, see "[Using the API to manage projects (beta)](/issues/trying-out-the-new-projects-experience/using-the-api-to-manage-projects)." |
-| `changes`          | `オブジェクト` | The changes to the project item.                                                                                                                                                                                                                                                                                                                                                      |
+| キー                 | 種類       | 説明                                                                                                                                                                                                                                                                                                                                                                                                  |
+| ------------------ | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `action`           | `string` | The action that was performed on the project item. Can be one of `archived`, `converted`, `created`, `edited`, `restored`, `deleted`, or `reordered`.                                                                                                                                                                                                                                               |
+| `projects_v2_item` | `オブジェクト` | The project item itself. To find more information about the project item, you can use `node_id` (the node ID of the project item) and `project_node_id` (the node ID of the project) to query information in the GraphQL API. For more information, see "[Using the API to manage projects](/issues/planning-and-tracking-with-projects/automating-your-project/using-the-api-to-manage-projects)." |
+| `changes`          | `オブジェクト` | The changes to the project item.                                                                                                                                                                                                                                                                                                                                                                    |
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.app_desc %}
 {% data reusables.webhooks.sender_desc %}
@@ -1320,7 +1359,7 @@ Activity related to items in a Projects (beta) project. {% data reusables.webhoo
 
 Activity related to a security advisory that has been reviewed by {% data variables.product.company_short %}. A {% data variables.product.company_short %}-reviewed security advisory provides information about security-related vulnerabilities in software on {% data variables.product.prodname_dotcom %}.
 
-The security advisory dataset also powers the GitHub {% data variables.product.prodname_dependabot_alerts %}. 詳しい情報については、「[{% data variables.product.prodname_dependabot_alerts %} について](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies/)」を参照してください。
+The security advisory dataset also powers the GitHub {% data variables.product.prodname_dependabot_alerts %}. 詳しい情報については「[{% data variables.product.prodname_dependabot_alerts %}について](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies/)」を参照してください。
 
 ### 利用の可否
 
@@ -1336,6 +1375,34 @@ The security advisory dataset also powers the GitHub {% data variables.product.p
 ### webhook ペイロードの例
 
 {{ webhookPayloadsForCurrentVersion.security_advisory.published }}
+
+{% endif %}
+
+{% ifversion ghas-enablement-webhook %}
+
+## security_and_analysis
+
+Activity related to enabling or disabling code security and analysis features for a repository or organization.
+
+### 利用の可否
+
+- リポジトリ webhook
+- Organization webhook
+- リポジトリ管理者に少なくとも `read-only` アクセス権限がある{% data variables.product.prodname_github_apps %}
+
+### webhook ペイロードオブジェクト
+
+| キー        | 種類       | 説明                                                                     |
+| --------- | -------- | ---------------------------------------------------------------------- |
+| `changes` | `オブジェクト` | The changes that were made to the code security and analysis features. |
+{% data reusables.webhooks.repo_desc %}
+{% data reusables.webhooks.org_desc %}
+{% data reusables.webhooks.app_desc %}
+{% data reusables.webhooks.sender_desc %}
+
+### webhook ペイロードの例
+
+{{ webhookPayloadsForCurrentVersion.security_and_analysis }}
 
 {% endif %}
 
@@ -1405,7 +1472,7 @@ The security advisory dataset also powers the GitHub {% data variables.product.p
 | `state`      | `string`  | 新しい状態。 `pending`、`success`、`failure`、`error` のいずれかを指定可。                                                       |
 | `説明`         | `string`  | オプションの人間可読の説明がステータスに追加。                                                                                       |
 | `target_url` | `string`  | ステータスに追加されたオプションのリンク。                                                                                         |
-| `ブランチ`       | `array`   | ステータスの SHA を含むブランチオブジェクトの配列。 各ブランチには特定の SHA が含まれていますが、SHA がブランチの先頭である場合とそうでない場合があります。 配列には最大 10 個のブランチが含まれます。 |
+| `branches`   | `array`   | ステータスの SHA を含むブランチオブジェクトの配列。 各ブランチには特定の SHA が含まれていますが、SHA がブランチの先頭である場合とそうでない場合があります。 配列には最大 10 個のブランチが含まれます。 |
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.app_desc %}
@@ -1511,7 +1578,7 @@ The security advisory dataset also powers the GitHub {% data variables.product.p
 {% ifversion fpt or ghes or ghec %}
 ## workflow_dispatch
 
-このイベントは、 ユーザが GitHub でワークフローの実行をトリガーするか、「[ワークフローディスパッチイベントの作成](/rest/reference/actions/#create-a-workflow-dispatch-event)」エンドポイントに `POST` リクエストを送信したときに発生します。 詳しい情報については、「[ワークフローをトリガーするイベント](/actions/reference/events-that-trigger-workflows#workflow_dispatch)」を参照してください。
+このイベントは、 ユーザが GitHub でワークフローの実行をトリガーするか、「[ワークフローディスパッチイベントの作成](/rest/reference/actions/#create-a-workflow-dispatch-event)」エンドポイントに `POST` リクエストを送信したときに発生します。 詳しい情報については「[ワークフローをトリガーするイベント](/actions/reference/events-that-trigger-workflows#workflow_dispatch)」
 
 ### 利用の可否
 

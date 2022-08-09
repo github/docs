@@ -12,7 +12,7 @@ See [the contributing guide](CONTRIBUTING.md) for detailed instructions on how t
 
 We accept different [types of contributions](https://github.com/github/docs/blob/main/contributing/types-of-contributions.md), including some that don't require you to write a single line of code.
 
-On the GitHub Docs site, you can click the make a contribution button to open a pull request for quick fixes like typos, updates, or link fixes.
+On the GitHub Docs site, you can click the make a contribution button at the bottom of the page to open a pull request for quick fixes like typos, updates, or link fixes.
 
 <img src="./assets/images/contribution_cta.png" width="400">
 
@@ -41,8 +41,6 @@ In addition to the README you're reading right now, this repo includes other REA
 - [data/README.md](data/README.md)
 - [data/reusables/README.md](data/reusables/README.md)
 - [data/variables/README.md](data/variables/README.md)
-- [includes/liquid-tags/README.md](includes/liquid-tags/README.md)
-- [includes/README.md](includes/README.md)
 - [components/README.md](components/README.md)
 - [lib/liquid-tags/README.md](lib/liquid-tags/README.md)
 - [middleware/README.md](middleware/README.md)
@@ -60,4 +58,4 @@ When using the GitHub logos, be sure to follow the [GitHub logo guidelines](http
 
 ## Thanks :purple_heart:
 
-Thanks for all your contributions and efforts towards improving the GitHub documentation. We thank you being part of our :sparkles: community :sparkles:!
+Thanks for all your contributions and efforts towards improving the GitHub documentation. We thank you for being part of our :sparkles: community :sparkles:!

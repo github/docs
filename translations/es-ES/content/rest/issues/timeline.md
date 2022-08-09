@@ -2,7 +2,7 @@
 title: Timeline events
 allowTitleToDifferFromFilename: true
 shortTitle: Línea de tiempo
-intro: The Timeline events API can return different types of events triggered by timeline activity in issues and pull requests.
+intro: La API de eventos de línea de tiempo puede devolver tipos de eventos diferentes por actividad de línea de tiempo en las propuestas y solicitudes de cambios.
 versions:
   fpt: '*'
   ghes: '*'
