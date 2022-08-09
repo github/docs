@@ -30,26 +30,27 @@ shortTitle: Jekyll build errors for Pages
 
 {% endnote %}
 
+{% ifversion build-pages-with-actions %}
+If Jekyll does attempt to build your site and encounters an error, you will receive a build error message.
+{% else %}
 If Jekyll does attempt to build your site and encounters an error, you will receive a build error message. There are two main types of Jekyll build error messages.
 - A "Page build warning" message means your build completed successfully, but you may need to make changes to prevent future problems.
 - A "Page build failed" message means your build failed to complete. If Jekyll is able to detect a reason for the failure, you'll see a descriptive error message.
+{% endif %}
 
 For more information about troubleshooting build errors, see "[Troubleshooting Jekyll build errors for {% data variables.product.prodname_pages %} sites](/articles/troubleshooting-jekyll-build-errors-for-github-pages-sites)."
 
-{% ifversion fpt %} 
+{% ifversion build-pages-with-actions %}
 ## Viewing Jekyll build error messages with {% data variables.product.prodname_actions %}
 
 By default, your {% data variables.product.prodname_pages %} site is built and deployed with a {% data variables.product.prodname_actions %} workflow run unless you've configured your {% data variables.product.prodname_pages %} site to use a different CI tool. To find potential build errors, you can check the workflow run for your {% data variables.product.prodname_pages %} site by reviewing your repository's workflow runs. For more information, see "[Viewing workflow run history](/actions/monitoring-and-troubleshooting-workflows/viewing-workflow-run-history)."  For more information about how to re-run the workflow in case of an error, see "[Re-running workflows and jobs](/actions/managing-workflow-runs/re-running-workflows-and-jobs)."
-{% note %}
-
-{% data reusables.pages.pages-builds-with-github-actions-public-beta %}
-
-{% endnote %}
 {% endif %}
 
+{% ifversion build-pages-with-actions %}{% else %}
 ## Viewing your repository's build failures on {% data variables.product.product_name %}
 
 You can see build failures (but not build warnings) for your site on {% data variables.product.product_name %} in the **Settings** tab of your site's repository.
+{% endif %}
 
 ## Viewing Jekyll build error messages locally
 
@@ -63,7 +64,7 @@ We recommend testing your site locally, which allows you to see build error mess
 
 ## Viewing Jekyll build errors by email
 
-{% ifversion pages-custom-workflow %}If you are publishing from a branch, when{% else %}When{% endif %} you push changes to your publishing source on {% data variables.product.product_name %}, {% data variables.product.prodname_pages %} will attempt to build your site. If the build fails, you'll receive an email at your primary email address. You'll also receive emails for build warnings. {% data reusables.pages.build-failure-email-server %}
+{% ifversion pages-custom-workflow %}If you are publishing from a branch, when{% else %}When{% endif %} you push changes to your publishing source on {% data variables.product.product_name %}, {% data variables.product.prodname_pages %} will attempt to build your site. If the build fails, you'll receive an email at your primary email address. {% data reusables.pages.build-failure-email-server %}
 
 {% ifversion pages-custom-workflow %}If you are publishing with a custom {% data variables.product.prodname_actions %} workflow, in order to receive emails about build errors in your pull request, you must configure your workflow to run on the `pull_request` trigger. When you do this, we recommend that you skip any deploy steps if the workflow was triggered by the `pull_request` event. This will allow you to see any build errors without deploying the changes from your pull request to your site. For more information, see "[Events that trigger workflows](/actions/using-workflows/events-that-trigger-workflows#pull_request)" and "[Expressions](/actions/learn-github-actions/expressions)."{% endif %}
 
