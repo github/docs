@@ -24,7 +24,7 @@ To use {% data variables.product.prodname_copilot %} in Neovim you must have Neo
 {% mac %}
 
 {% data reusables.copilot.install-copilot-in-neovim %}
-   - To install {% data variables.product.prodname_copilot %} with the Neovim builtin plugin manager, enter the following command in Terminal.
+   - To install {% data variables.product.prodname_copilot %} with a plugin manager, enter the following command in Terminal.
 
       ```
       mkdir -p ~/.config/nvim/pack/github/start
@@ -43,7 +43,7 @@ To use {% data variables.product.prodname_copilot %} in Neovim you must have Neo
 {% windows %}
 
 {% data reusables.copilot.install-copilot-in-neovim %}
-   - To install {% data variables.product.prodname_copilot %} with the Neovim builtin plugin manager, enter the following command in Git Bash.
+   - To install {% data variables.product.prodname_copilot %} with a plugin manager, enter the following command in Git Bash.
 
       ```
       mkdir -p ~/.config/nvim/pack/github/start
@@ -63,7 +63,7 @@ To use {% data variables.product.prodname_copilot %} in Neovim you must have Neo
 {% linux %}
 
 {% data reusables.copilot.install-copilot-in-neovim %}
-   - To install {% data variables.product.prodname_copilot %} with the Neovim builtin plugin manager, enter the following command in Terminal.
+   - To install {% data variables.product.prodname_copilot %} with a plugin manager, enter the following command in Terminal.
 
       ```
       mkdir -p ~/.config/nvim/pack/github/start
