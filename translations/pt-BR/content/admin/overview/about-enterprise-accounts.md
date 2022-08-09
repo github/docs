@@ -35,7 +35,7 @@ A conta corporativa em {% ifversion ghes %}{% data variables.product.product_loc
 As organizações são contas compartilhadas em que os integrantes da empresa podem colaborar em muitos projetos de uma só vez. Os proprietários da organização podem gerenciar o acesso aos dados e projetos da organização, com recursos sofisticados de segurança e administrativos. Para obter mais informações, consulte "[Sobre organizações](/organizations/collaborating-with-groups-in-organizations/about-organizations)".
 
 {% ifversion ghec %}
-Os proprietários da empresa podem convidar organizações existentes para participar da conta corporativa ou criar novas organizações nas configurações da empresa.
+Os proprietários da empresa podem convidar organizações existentes para participar da conta corporativa ou criar novas organizações nas configurações da empresa. Para obter mais informações, consulte "[Adicionando organizações à sua empresa](/admin/user-management/managing-organizations-in-your-enterprise/adding-organizations-to-your-enterprise)".
 {% endif %}
 
 Sua conta corporativa permite que você gerencie e aplique as políticas para todas as organizações pertencentes à empresa. {% data reusables.enterprise.about-policies %} Para obter mais informações, consulte "[Sobre as políticas corporativas](/admin/policies/enforcing-policies-for-your-enterprise/about-enterprise-policies)".
