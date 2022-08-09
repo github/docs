@@ -14,8 +14,6 @@ topics:
   - Security
 ---
 
-TEST EDIT
-
 ## About display of IP addresses in the audit log
 
 By default, {% data variables.product.product_name %} does not display the source IP address for events in your enterprise's audit log. Optionally, to ensure compliance and respond to threats, you can display the full IP address associated with the actor responsible for each event. Actors are typically users, but can also be apps or integrations.
