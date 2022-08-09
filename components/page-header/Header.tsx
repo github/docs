@@ -79,10 +79,14 @@ export const Header = () => {
           >
             <Breadcrumbs />
           </div>
-          <div className="d-flex flex-items-center">
-            <VersionPicker />
-            <LanguagePicker />
 
+          <div className="mr-2">
+            <VersionPicker />
+          </div>
+
+          <LanguagePicker />
+          
+          <div className="d-flex flex-items-center">
             {signupCTAVisible && (
               <a
                 href="https://github.com/signup?ref_cta=Sign+up&ref_loc=docs+header&ref_page=docs"
