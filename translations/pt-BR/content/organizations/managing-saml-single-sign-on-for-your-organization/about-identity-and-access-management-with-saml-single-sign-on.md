@@ -12,13 +12,11 @@ topics:
 shortTitle: IAM com SSO do SAML
 ---
 
-{% data reusables.enterprise-accounts.emu-saml-note %}
+{% data reusables.saml.ghec-only %}
 
 ## Sobre o SAML SSO
 
 {% data reusables.saml.dotcom-saml-explanation %}
-
-{% data reusables.saml.ghec-only %}
 
 {% data reusables.saml.saml-accounts %}
 
@@ -26,7 +24,7 @@ Os proprietários da organização podem aplicar o SSO do SAML para uma organiza
 
 {% data reusables.saml.outside-collaborators-exemption %}
 
-Antes de ativar o SAML SSO para sua organização, é necessário conectar seu IdP à sua organização. Para obter mais informações, consulte "[Conectar o provedor de identidade à sua organização](/organizations/managing-saml-single-sign-on-for-your-organization/connecting-your-identity-provider-to-your-organization)".
+Antes de ativar o SAML SSO para sua organização, é necessário conectar seu IdP à sua organização. Para obter mais informações, consulte "[Conectando o seu provedor de identidade à sua organização](/organizations/managing-saml-single-sign-on-for-your-organization/connecting-your-identity-provider-to-your-organization)."
 
 Para uma organização, o SAML SSO pode ser desabilitado, habilitado, mas não aplicado, ou habilitado e aplicado. Depois de ativar o SSO SAML para a sua organização e os integrantes da sua organização efetuarem a autenticação com sucesso com o seu IdP, você poderá aplicar a configuração SAML SSO. Para obter mais informações sobre a aplicação de SAML SSO para a sua organização do {% data variables.product.prodname_dotcom %}, consulte "[Aplicando logon único SAML para a sua organização](/articles/enforcing-saml-single-sign-on-for-your-organization)".
 
