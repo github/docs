@@ -1,6 +1,7 @@
 import { useRouter } from 'next/router'
 import cx from 'classnames'
 
+import { useLanguages } from 'components/context/LanguagesContext'
 import { useMainContext } from 'components/context/MainContext'
 import { useTranslation } from 'components/hooks/useTranslation'
 import { ExcludesNull } from 'components/lib/ExcludesNull'
@@ -24,13 +25,13 @@ export const HeaderNotifications = () => {
   const { relativePath, allVersions, data, currentPathWithoutLanguage, page } = useMainContext()
   const { session } = useSession()
   const userLanguage = session?.userLanguage
-  const languages = session?.languages || {}
+  const { languages } = useLanguages()
 
   const { t } = useTranslation('header')
 
   const translationNotices: Array<Notif> = []
   if (router.locale === 'en') {
-    if (userLanguage && userLanguage !== 'en' && languages[userLanguage]?.wip === false) {
+    if (userLanguage && userLanguage !== 'en') {
       translationNotices.push({
         type: NotificationType.TRANSLATION,
         content: `This article is also available in <a href="/${userLanguage}${currentPathWithoutLanguage}">${languages[userLanguage]?.name}</a>.`,
@@ -42,15 +43,10 @@ export const HeaderNotifications = () => {
         type: NotificationType.TRANSLATION,
         content: data.reusables.policies.translation,
       })
-    } else if (router.locale && languages[router.locale]?.wip !== true) {
+    } else if (router.locale) {
       translationNotices.push({
         type: NotificationType.TRANSLATION,
         content: t('notices.localization_complete'),
-      })
-    } else if (router.locale && languages[router.locale]?.wip) {
-      translationNotices.push({
-        type: NotificationType.TRANSLATION,
-        content: t('notices.localization_in_progress'),
       })
     }
   }

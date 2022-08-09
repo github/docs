@@ -273,9 +273,9 @@ function initPrintEvent() {
   })
 }
 
-export default function initializeEvents(xcsrfToken?: string) {
+export function initializeEvents(xcsrfToken: string) {
   csrfToken = xcsrfToken // always update the csrfToken
-  if (initialized || !xcsrfToken) return
+  if (initialized) return
   initialized = true
   initPageAndExitEvent() // must come first
   initLinkEvent()

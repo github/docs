@@ -36,8 +36,7 @@ function getUserLanguage(browserLanguages) {
 
 function getUserLanguageFromCookie(req) {
   const value = req.cookies[PREFERRED_LOCALE_COOKIE_NAME]
-  // But if it's a WIP language, reject it.
-  if (value && languages[value] && !languages[value].wip) {
+  if (value && languages[value]) {
     return value
   }
 }
