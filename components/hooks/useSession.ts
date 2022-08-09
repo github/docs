@@ -1,4 +1,3 @@
-import type { ThemeProviderProps } from '@primer/react'
 import { useEffect } from 'react'
 import useSWR from 'swr'
 
@@ -14,16 +13,6 @@ export type Session = {
   isSignedIn: boolean
   csrfToken?: string
   userLanguage: string // en, es, ja, cn
-  theme: {
-    colorMode: Pick<ThemeProviderProps, 'colorMode'>
-    nightTheme: string
-    dayTheme: string
-  }
-  themeCss: {
-    colorMode: Pick<ThemeProviderProps, 'colorMode'>
-    nightTheme: string
-    dayTheme: string
-  }
 }
 
 // React hook version
