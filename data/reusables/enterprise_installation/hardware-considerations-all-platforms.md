@@ -8,6 +8,10 @@ We recommend different hardware configurations depending on the number of user l
 
 {% data reusables.enterprise_installation.hardware-rec-table %}
 
+{% data reusables.actions.more-resources-for-ghes %}
+
+{% data reusables.enterprise_installation.about-adjusting-resources %}
+
 ### Storage
 
 We recommend a high-performance SSD with high input/output operations per second (IOPS) and low latency for {% data variables.product.prodname_ghe_server %}. Workloads are I/O intensive. If you use a bare metal hypervisor, we recommend directly attaching the disk or using a disk from a storage area network (SAN).

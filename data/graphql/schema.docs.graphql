@@ -5417,7 +5417,8 @@ type ContributionsCollection {
   ): [PullRequestContributionsByRepository!]!
 
   """
-  Pull request review contributions made by the user.
+  Pull request review contributions made by the user. Returns the most recently
+  submitted review for each PR reviewed by the user.
   """
   pullRequestReviewContributions(
     """
@@ -10840,34 +10841,6 @@ type Enterprise implements Node {
   url: URI!
 
   """
-  A list of user accounts on this enterprise.
-  """
-  userAccounts(
-    """
-    Returns the elements in the list that come after the specified cursor.
-    """
-    after: String
-
-    """
-    Returns the elements in the list that come before the specified cursor.
-    """
-    before: String
-
-    """
-    Returns the first _n_ elements from the list.
-    """
-    first: Int
-
-    """
-    Returns the last _n_ elements from the list.
-    """
-    last: Int
-  ): EnterpriseUserAccountConnection!
-    @deprecated(
-      reason: "The `Enterprise.userAccounts` field is being removed. Use the `Enterprise.members` field instead. Removal on 2022-07-01 UTC."
-    )
-
-  """
   Is the current viewer an admin of this enterprise?
   """
   viewerIsAdmin: Boolean!
@@ -13217,46 +13190,6 @@ type EnterpriseUserAccount implements Actor & Node {
   The user within the enterprise.
   """
   user: User
-}
-
-"""
-The connection type for EnterpriseUserAccount.
-"""
-type EnterpriseUserAccountConnection {
-  """
-  A list of edges.
-  """
-  edges: [EnterpriseUserAccountEdge]
-
-  """
-  A list of nodes.
-  """
-  nodes: [EnterpriseUserAccount]
-
-  """
-  Information to aid in pagination.
-  """
-  pageInfo: PageInfo!
-
-  """
-  Identifies the total count of items in the connection.
-  """
-  totalCount: Int!
-}
-
-"""
-An edge in a connection.
-"""
-type EnterpriseUserAccountEdge {
-  """
-  A cursor for use in pagination.
-  """
-  cursor: String!
-
-  """
-  The item at the end of the edge.
-  """
-  node: EnterpriseUserAccount
 }
 
 """
@@ -25398,6 +25331,11 @@ type Organization implements Actor & MemberStatusable & Node & PackageOwner & Pr
   """
   sponsorsActivities(
     """
+    Filter activities to only the specified actions.
+    """
+    actions: [SponsorsActivityAction!] = []
+
+    """
     Returns the elements in the list that come after the specified cursor.
     """
     after: String
@@ -25423,7 +25361,8 @@ type Organization implements Actor & MemberStatusable & Node & PackageOwner & Pr
     orderBy: SponsorsActivityOrder = {field: TIMESTAMP, direction: DESC}
 
     """
-    Filter activities returned to only those that occurred in a given time range.
+    Filter activities returned to only those that occurred in the most recent
+    specified time period. Set to ALL to avoid filtering by when the activity occurred.
     """
     period: SponsorsActivityPeriod = MONTH
   ): SponsorsActivityConnection!
@@ -28755,6 +28694,14 @@ enum ProjectNextFieldType {
     )
 
   """
+  Tasks
+  """
+  TASKS
+    @deprecated(
+      reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2022-10-01 UTC."
+    )
+
+  """
   Text
   """
   TEXT
@@ -28766,14 +28713,6 @@ enum ProjectNextFieldType {
   Title
   """
   TITLE
-    @deprecated(
-      reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2022-10-01 UTC."
-    )
-
-  """
-  Tracks
-  """
-  TRACKS
     @deprecated(
       reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2022-10-01 UTC."
     )
@@ -29376,6 +29315,11 @@ type ProjectV2 implements Closable & Node & Updatable {
     Returns the last _n_ elements from the list.
     """
     last: Int
+
+    """
+    Ordering options for project v2 fields returned from the connection
+    """
+    orderBy: ProjectV2FieldOrder = {field: POSITION, direction: ASC}
   ): ProjectV2FieldConfigurationConnection!
   id: ID!
 
@@ -29402,6 +29346,11 @@ type ProjectV2 implements Closable & Node & Updatable {
     Returns the last _n_ elements from the list.
     """
     last: Int
+
+    """
+    Ordering options for project v2 items returned from the connection
+    """
+    orderBy: ProjectV2ItemOrder = {field: POSITION, direction: ASC}
   ): ProjectV2ItemConnection!
 
   """
@@ -29447,6 +29396,11 @@ type ProjectV2 implements Closable & Node & Updatable {
     Returns the last _n_ elements from the list.
     """
     last: Int
+
+    """
+    Ordering options for repositories returned from the connection
+    """
+    orderBy: RepositoryOrder = {field: CREATED_AT, direction: DESC}
   ): RepositoryConnection!
 
   """
@@ -29502,6 +29456,11 @@ type ProjectV2 implements Closable & Node & Updatable {
     Returns the last _n_ elements from the list.
     """
     last: Int
+
+    """
+    Ordering options for project v2 views returned from the connection
+    """
+    orderBy: ProjectV2ViewOrder = {field: POSITION, direction: ASC}
   ): ProjectV2ViewConnection!
 }
 
@@ -29703,6 +29662,41 @@ type ProjectV2FieldEdge {
 }
 
 """
+Ordering options for project v2 field connections
+"""
+input ProjectV2FieldOrder {
+  """
+  The ordering direction.
+  """
+  direction: OrderDirection!
+
+  """
+  The field to order the project v2 fields by.
+  """
+  field: ProjectV2FieldOrderField!
+}
+
+"""
+Properties by which project v2 field connections can be ordered.
+"""
+enum ProjectV2FieldOrderField {
+  """
+  Order project v2 fields by creation time
+  """
+  CREATED_AT
+
+  """
+  Order project v2 fields by name
+  """
+  NAME
+
+  """
+  Order project v2 fields by position
+  """
+  POSITION
+}
+
+"""
 The type of a project field.
 """
 enum ProjectV2FieldType {
@@ -29757,6 +29751,11 @@ enum ProjectV2FieldType {
   SINGLE_SELECT
 
   """
+  Tasks
+  """
+  TASKS
+
+  """
   Text
   """
   TEXT
@@ -29765,11 +29764,6 @@ enum ProjectV2FieldType {
   Title
   """
   TITLE
-
-  """
-  Tracks
-  """
-  TRACKS
 }
 
 """
@@ -29827,6 +29821,16 @@ type ProjectV2Item implements Node {
   databaseId: Int
 
   """
+  A specific field value given a field name
+  """
+  fieldValueByName(
+    """
+    The name of the field to return the field value of
+    """
+    name: String!
+  ): ProjectV2ItemFieldValue
+
+  """
   List of field values
   """
   fieldValues(
@@ -29849,6 +29853,11 @@ type ProjectV2Item implements Node {
     Returns the last _n_ elements from the list.
     """
     last: Int
+
+    """
+    Ordering options for project v2 item field values returned from the connection
+    """
+    orderBy: ProjectV2ItemFieldValueOrder = {field: POSITION, direction: ASC}
   ): ProjectV2ItemFieldValueConnection!
   id: ID!
 
@@ -30143,6 +30152,11 @@ type ProjectV2ItemFieldPullRequestValue {
     Returns the last _n_ elements from the list.
     """
     last: Int
+
+    """
+    Ordering options for pull requests.
+    """
+    orderBy: PullRequestOrder = {field: CREATED_AT, direction: ASC}
   ): PullRequestConnection
 }
 
@@ -30413,6 +30427,56 @@ type ProjectV2ItemFieldValueEdge {
   The item at the end of the edge.
   """
   node: ProjectV2ItemFieldValue
+}
+
+"""
+Ordering options for project v2 item field value connections
+"""
+input ProjectV2ItemFieldValueOrder {
+  """
+  The ordering direction.
+  """
+  direction: OrderDirection!
+
+  """
+  The field to order the project v2 item field values by.
+  """
+  field: ProjectV2ItemFieldValueOrderField!
+}
+
+"""
+Properties by which project v2 item field value connections can be ordered.
+"""
+enum ProjectV2ItemFieldValueOrderField {
+  """
+  Order project v2 item field values by the their position in the project
+  """
+  POSITION
+}
+
+"""
+Ordering options for project v2 item connections
+"""
+input ProjectV2ItemOrder {
+  """
+  The ordering direction.
+  """
+  direction: OrderDirection!
+
+  """
+  The field to order the project v2 items by.
+  """
+  field: ProjectV2ItemOrderField!
+}
+
+"""
+Properties by which project v2 item connections can be ordered.
+"""
+enum ProjectV2ItemOrderField {
+  """
+  Order project v2 items by the their position in the project
+  """
+  POSITION
 }
 
 """
@@ -30816,33 +30880,13 @@ type ProjectV2View implements Node {
     Returns the last _n_ elements from the list.
     """
     last: Int
+
+    """
+    Ordering options for the project v2 fields returned from the connection.
+    """
+    orderBy: ProjectV2FieldOrder = {field: POSITION, direction: ASC}
   ): ProjectV2FieldConnection
   id: ID!
-
-  """
-  The view's filtered items.
-  """
-  items(
-    """
-    Returns the elements in the list that come after the specified cursor.
-    """
-    after: String
-
-    """
-    Returns the elements in the list that come before the specified cursor.
-    """
-    before: String
-
-    """
-    Returns the first _n_ elements from the list.
-    """
-    first: Int
-
-    """
-    Returns the last _n_ elements from the list.
-    """
-    last: Int
-  ): ProjectV2ItemConnection!
 
   """
   The project view's layout.
@@ -30917,6 +30961,11 @@ type ProjectV2View implements Node {
     Returns the last _n_ elements from the list.
     """
     last: Int
+
+    """
+    Ordering options for the project v2 fields returned from the connection.
+    """
+    orderBy: ProjectV2FieldOrder = {field: POSITION, direction: ASC}
   ): ProjectV2FieldConnection
 
   """
@@ -30942,6 +30991,11 @@ type ProjectV2View implements Node {
     Returns the last _n_ elements from the list.
     """
     last: Int
+
+    """
+    Ordering options for the project v2 fields returned from the connection.
+    """
+    orderBy: ProjectV2FieldOrder = {field: POSITION, direction: ASC}
   ): ProjectV2FieldConnection
 }
 
@@ -31001,6 +31055,41 @@ enum ProjectV2ViewLayout {
 }
 
 """
+Ordering options for project v2 view connections
+"""
+input ProjectV2ViewOrder {
+  """
+  The ordering direction.
+  """
+  direction: OrderDirection!
+
+  """
+  The field to order the project v2 views by.
+  """
+  field: ProjectV2ViewOrderField!
+}
+
+"""
+Properties by which project v2 view connections can be ordered.
+"""
+enum ProjectV2ViewOrderField {
+  """
+  Order project v2 views by creation time
+  """
+  CREATED_AT
+
+  """
+  Order project v2 views by name
+  """
+  NAME
+
+  """
+  Order project v2 views by position
+  """
+  POSITION
+}
+
+"""
 A view within a Project.
 """
 type ProjectView implements Node {
@@ -31036,34 +31125,6 @@ type ProjectView implements Node {
       reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2022-10-01 UTC."
     )
   id: ID!
-
-  """
-  The view's filtered items.
-  """
-  items(
-    """
-    Returns the elements in the list that come after the specified cursor.
-    """
-    after: String
-
-    """
-    Returns the elements in the list that come before the specified cursor.
-    """
-    before: String
-
-    """
-    Returns the first _n_ elements from the list.
-    """
-    first: Int
-
-    """
-    Returns the last _n_ elements from the list.
-    """
-    last: Int
-  ): ProjectNextItemConnection!
-    @deprecated(
-      reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2022-10-01 UTC."
-    )
 
   """
   The project view's layout.
@@ -33566,6 +33627,87 @@ type PullRequestTemplate {
   The repository the template belongs to
   """
   repository: Repository!
+}
+
+"""
+A threaded list of comments for a given pull request.
+"""
+type PullRequestThread implements Node {
+  """
+  A list of pull request comments associated with the thread.
+  """
+  comments(
+    """
+    Returns the elements in the list that come after the specified cursor.
+    """
+    after: String
+
+    """
+    Returns the elements in the list that come before the specified cursor.
+    """
+    before: String
+
+    """
+    Returns the first _n_ elements from the list.
+    """
+    first: Int
+
+    """
+    Returns the last _n_ elements from the list.
+    """
+    last: Int
+
+    """
+    Skips the first _n_ elements in the list.
+    """
+    skip: Int
+  ): PullRequestReviewCommentConnection!
+  id: ID!
+
+  """
+  Whether or not the thread has been collapsed (resolved)
+  """
+  isCollapsed: Boolean!
+
+  """
+  Indicates whether this thread was outdated by newer changes.
+  """
+  isOutdated: Boolean!
+
+  """
+  Whether this thread has been resolved
+  """
+  isResolved: Boolean!
+
+  """
+  Identifies the pull request associated with this thread.
+  """
+  pullRequest: PullRequest!
+
+  """
+  Identifies the repository associated with this thread.
+  """
+  repository: Repository!
+
+  """
+  The user who resolved this thread
+  """
+  resolvedBy: User
+
+  """
+  Indicates whether the current viewer can reply to this thread.
+  """
+  viewerCanReply: Boolean!
+
+  """
+  Whether or not the viewer can resolve this thread
+  """
+  viewerCanResolve: Boolean!
+
+  """
+  Whether or not the viewer can unresolve this thread
+  """
+  viewerCanUnresolve: Boolean!
 }
 
 """
@@ -40278,6 +40420,11 @@ type Repository implements Node & PackageOwner & ProjectOwner & ProjectV2Recent 
     before: String
 
     """
+    Filter by the scope of the alert's dependency
+    """
+    dependencyScopes: [RepositoryVulnerabilityAlertDependencyScope!]
+
+    """
     Returns the first _n_ elements from the list.
     """
     first: Int
@@ -41659,6 +41806,11 @@ type RepositoryVulnerabilityAlert implements Node & RepositoryNode {
   dependabotUpdate: DependabotUpdate
 
   """
+  The scope of an alert's dependency
+  """
+  dependencyScope: RepositoryVulnerabilityAlertDependencyScope
+
+  """
   The reason the alert was dismissed
   """
   dismissReason: String
@@ -41751,6 +41903,21 @@ type RepositoryVulnerabilityAlertConnection {
   Identifies the total count of items in the connection.
   """
   totalCount: Int!
+}
+
+"""
+The possible scopes of an alert's dependency.
+"""
+enum RepositoryVulnerabilityAlertDependencyScope {
+  """
+  A dependency that is only used in development
+  """
+  DEVELOPMENT
+
+  """
+  A dependency that is leveraged during application runtime
+  """
+  RUNTIME
 }
 
 """
@@ -42890,9 +43057,19 @@ The possible ecosystems of a security vulnerability's package.
 """
 enum SecurityAdvisoryEcosystem {
   """
+  GitHub Actions
+  """
+  ACTIONS
+
+  """
   PHP packages hosted at packagist.org
   """
   COMPOSER
+
+  """
+  Erlang/Elixir packages hosted at hex.pm
+  """
+  ERLANG
 
   """
   Go modules
@@ -43597,6 +43774,11 @@ interface Sponsorable {
   """
   sponsorsActivities(
     """
+    Filter activities to only the specified actions.
+    """
+    actions: [SponsorsActivityAction!] = []
+
+    """
     Returns the elements in the list that come after the specified cursor.
     """
     after: String
@@ -43622,7 +43804,8 @@ interface Sponsorable {
     orderBy: SponsorsActivityOrder = {field: TIMESTAMP, direction: DESC}
 
     """
-    Filter activities returned to only those that occurred in a given time range.
+    Filter activities returned to only those that occurred in the most recent
+    specified time period. Set to ALL to avoid filtering by when the activity occurred.
     """
     period: SponsorsActivityPeriod = MONTH
   ): SponsorsActivityConnection!
@@ -47624,6 +47807,11 @@ type TreeEntry {
   The Repository the tree entry belongs to
   """
   repository: Repository!
+
+  """
+  Entry byte size
+  """
+  size: Int!
 
   """
   If the TreeEntry is for a directory occupied by a submodule project, this returns the corresponding submodule
@@ -51975,6 +52163,11 @@ type User implements Actor & Node & PackageOwner & ProfileOwner & ProjectNextOwn
   """
   sponsorsActivities(
     """
+    Filter activities to only the specified actions.
+    """
+    actions: [SponsorsActivityAction!] = []
+
+    """
     Returns the elements in the list that come after the specified cursor.
     """
     after: String
@@ -52000,7 +52193,8 @@ type User implements Actor & Node & PackageOwner & ProfileOwner & ProjectNextOwn
     orderBy: SponsorsActivityOrder = {field: TIMESTAMP, direction: DESC}
 
     """
-    Filter activities returned to only those that occurred in a given time range.
+    Filter activities returned to only those that occurred in the most recent
+    specified time period. Set to ALL to avoid filtering by when the activity occurred.
     """
     period: SponsorsActivityPeriod = MONTH
   ): SponsorsActivityConnection!

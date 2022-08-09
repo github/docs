@@ -2,7 +2,7 @@
 
 {% note %}
 
-**Note:** Experimental alerts for {% data variables.product.prodname_code_scanning %} are created using experimental technology in the {% data variables.product.prodname_codeql %} action. This feature is currently available as a beta release for JavaScript code and is subject to change.
+**ノート:**{% data variables.product.prodname_code_scanning %}の実験的アラートは、{% data variables.product.prodname_codeql %}アクションの実験的な技術を使って作成されます。 この機能は現在JavaScriptのコードに対してベータとして利用可能であり、変更されることがあります。
 
 {% endnote %}
 

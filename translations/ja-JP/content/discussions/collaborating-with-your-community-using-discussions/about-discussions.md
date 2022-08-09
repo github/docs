@@ -2,8 +2,7 @@
 title: ディスカッションについて
 intro: 'ディスカッションでは、質問、質問への回答、情報の共有、発表、{% data variables.product.product_name %} 上のプロジェクトについて会話を実施したり参加したりすることができます。'
 versions:
-  fpt: '*'
-  ghec: '*'
+  feature: discussions
 ---
 
 
@@ -22,7 +21,7 @@ You might use repository discussions to discuss topics that are specific to the 
 
 Issue やプルリクエストをクローズするように、ディスカッションをクローズする必要はありません。
 
-If a repository administrator or project maintainer enables {% data variables.product.prodname_discussions %} for a repository, anyone who visits the repository can create and participate in discussions for the repository. If an organization owner enables {% data variables.product.prodname_discussions %} for an organization, anyone who can view the source repository can create an organization discussion.
+If a repository administrator or project maintainer enables {% data variables.product.prodname_discussions %} for a repository, anyone who has access to the repository can create and participate in discussions for the repository. If an organization owner enables {% data variables.product.prodname_discussions %} for an organization, anyone who can view the source repository can create an organization discussion.
 
 リポジトリ管理者とプロジェクトメンテナは、リポジトリ内のディスカッションとディスカッションカテゴリを管理し、ディスカッションを固定してディスカッションの可視性を高めることができます。 モデレータとコラボレータは、コメントを回答としてマークしたり、ディスカッションをロックしたり、Issue をディスカッションに変換したりすることができます。 Similarly, for organization discussions, the role of a user in the source repository determines how a user can interact with organization discussions. 詳しい情報については「[Organizationのリポジトリロール](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)」を参照してください。
 
@@ -30,7 +29,7 @@ For more information about management of discussions, see "[Managing discussions
 
 ## About polls
 
-You can create polls in the polls category to gauge interest in new ideas and project direction. Anyone with read access to your repository can create polls, vote in polls, and view their results. Logged out users can view the results of polls in public repositories.
+You can create polls in the polls category to gauge interest in new ideas and project direction. Anyone with read access to your repository can create polls, vote in polls, and view their results.{% ifversion fpt or ghec %} Signed out users can view the results of polls in public repositories.{% endif %}
 
 Polls require a question and at least two options. You can add a maximum of eight options and the options can contain a maximum of 128 characters.
 
@@ -64,12 +63,12 @@ For more information, see "[Managing categories for discussions](/discussions/ma
 
 ## フィードバックを送る
 
-{% data variables.product.prodname_discussions %} に関するフィードバックを {% data variables.product.company_short %} と共有できます。 会話に参加するには、[`github/feedback`](https://github.com/github/feedback/discussions?discussions_q=category%3A%22Discussions+Feedback%22) を参照してください。
+{% data variables.product.prodname_discussions %} に関するフィードバックを {% data variables.product.company_short %} と共有できます。 To join the conversation, see [{% data variables.product.prodname_github_community %} discussions](https://github.com/orgs/community/discussions/categories/discussions).
 
 ## 参考リンク
 
 - 「[{% data variables.product.prodname_dotcom %} での書き方と書式設定について](/github/writing-on-github/about-writing-and-formatting-on-github)」
 - 「[ディスカッションを検索する](/search-github/searching-on-github/searching-discussions)」
 - 「[通知について](/github/managing-subscriptions-and-notifications-on-github/about-notifications)」
-- [コメントと会話の管理](/communities/moderating-comments-and-conversations)
-- 「[{% data variables.product.prodname_dotcom %} での安全性を維持する](/communities/maintaining-your-safety-on-github)」
+- "[Moderating comments and conversations](/communities/moderating-comments-and-conversations)"{% ifversion fpt or ghec %}
+- "[Maintaining your safety on {% data variables.product.prodname_dotcom %}](/communities/maintaining-your-safety-on-github)"{% endif %}

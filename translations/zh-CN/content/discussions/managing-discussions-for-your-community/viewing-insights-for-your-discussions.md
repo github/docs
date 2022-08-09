@@ -3,8 +3,7 @@ title: 查看讨论的见解
 intro: 讨论见解提供有关讨论的活动、视图和参与者的数据。
 permissions: Repository administrators and people with maintain access to a repository can view the insights dashboard for discussions in that repository. Repository administrators and people with maintain access to the source repository for organization discussions can view the insights dashboard for discussions in that organization.
 versions:
-  fpt: '*'
-  ghec: '*'
+  feature: discussions
 topics:
   - Discussions
 shortTitle: 查看讨论见解

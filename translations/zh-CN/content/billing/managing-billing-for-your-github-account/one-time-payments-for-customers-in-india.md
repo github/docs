@@ -23,7 +23,7 @@ shortTitle: 印度一次性付款
 - {% data variables.product.prodname_marketplace %} 购买
 - {% data variables.product.prodname_sponsors %} 交易
 - Git Large File Storage 购买
-- {% data variables.product.prodname_actions %}、{% data variables.product.prodname_registry %} 和 {% data variables.product.prodname_codespaces %} 的使用
+- {% data variables.product.prodname_actions %}、{% data variables.product.prodname_registry %} 和 {% data variables.product.prodname_github_codespaces %} 的使用
 
 为了尽量减少中断，受影响客户的定期付款已于 2021 年 10 月 29 日暂停。 受 RBI 法规影响的客户仍然可以使用付费功能和服务。
 

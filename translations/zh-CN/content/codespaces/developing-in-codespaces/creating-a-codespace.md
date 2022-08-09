@@ -43,11 +43,11 @@ shortTitle: 创建代码空间
 
 {% data reusables.codespaces.prebuilds-crossreference %}
 
-## 访问 {% data variables.product.prodname_codespaces %}
+## 访问 {% data variables.product.prodname_github_codespaces %}
 
 {% data reusables.codespaces.availability %}
 
-当您访问 {% data variables.product.prodname_codespaces %} 时，在查看仓库时会看到 **{% octicon "code" aria-label="The code icon" %} Code（代码）**下拉菜单中的“Codespaces（代码空间）”选项卡。
+当您访问 {% data variables.product.prodname_github_codespaces %} 时，在查看仓库时会看到 **{% octicon "code" aria-label="The code icon" %} Code（代码）**下拉菜单中的“Codespaces（代码空间）”选项卡。
 
 在以下条件下，您可以访问代码空间：
 
@@ -65,7 +65,7 @@ shortTitle: 创建代码空间
 
 在组织中使用 {% data variables.product.prodname_codespaces %} 之前，所有者或帐单管理员必须设定支出限额。 更多信息请参阅“[关于代码空间的支出限额](/billing/managing-billing-for-github-codespaces/managing-spending-limits-for-codespaces#about-spending-limits-for-codespaces)”。
 
-如果想为您的个人帐户或其他用户拥有的仓库创建代码空间， 并且您有权在已启用 {% data variables.product.prodname_codespaces %} 的组织中创建仓库， 您可以将用户拥有的仓库复刻到该组织，然后为该复刻创建一个代码空间。
+如果想为您的个人帐户或其他用户拥有的仓库创建代码空间， 并且您有权在已启用 {% data variables.product.prodname_github_codespaces %} 的组织中创建仓库， 您可以将用户拥有的仓库复刻到该组织，然后为该复刻创建一个代码空间。
 
 ## 创建代码空间
 
@@ -111,7 +111,7 @@ shortTitle: 创建代码空间
          **注：**
 
          * 您可以为选项页面添加书签，以便快速为此存储库和分支创建代码空间。
-         * [https://github.com/codespaces/new](https://github.com/codespaces/new) 页面提供了一种为任何存储库和分支创建代码空间的快速方法。
+         * [https://github.com/codespaces/new](https://github.com/codespaces/new) 页面提供了一种为任何存储库和分支创建代码空间的快速方法。 You can get to this page quickly by typing `codespace.new` into your browser's address bar.
          * 有关 `devcontainer.json` 文件的详细信息，请参阅“[开发容器简介](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers#devcontainerjson)”。
          * 有关计算机类型的详细信息，请参阅“[更改代码空间的计算机类型](/codespaces/customizing-your-codespace/changing-the-machine-type-for-your-codespace#about-machine-types)”。
          * {% data reusables.codespaces.codespaces-machine-type-availability %}
@@ -152,10 +152,10 @@ gh codespace create
 gh codespace create -r <em>owner</em>/<em>repo</em> -b <em>branch</em> -m <em>machine-type</em> 
 ```
 
-将 `owner/repo` 替换为仓库标识符。 将 `branch` 替换为您希望在代码空间中最初检出的分支的名称或提交的完整 SHA 哈希。 如果使用 `-r` 标志而不使用 `b` 标志，则将从默认分支创建代码空间。
+In this example, replace `owner/repo` with the repository identifier. 将 `branch` 替换为您希望在代码空间中最初检出的分支的名称或提交的完整 SHA 哈希。 如果使用 `-r` 标志而不使用 `b` 标志，则将从默认分支创建代码空间。
 
 将 `machine-type` 替换为可用计算机类型的有效标识符。 标识符是字符串，例如：`basicLinux32gb` 和 `standardLinux32gb`。 可用的计算机类型取决于仓库、您的个人帐户和您的位置。 如果输入无效或不可用的计算机类型，则错误消息中将显示可用类型。 如果省略此标志，并且有多个计算机类型可用，系统将提示您从列表中选择一个计算机类型。
 
-有关此命令的详细信息，请参阅 [{% data variables.product.prodname_cli %} 手册](https://cli.github.com/manual/gh_codespace_create)。
+For full details of the options for this command, see [the {% data variables.product.prodname_cli %} manual](https://cli.github.com/manual/gh_codespace_create).
 
 {% endcli %}

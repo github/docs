@@ -14,7 +14,7 @@ const activeProducts = Object.values(productMap).filter(
   (product) => !product.wip && !product.hidden
 )
 
-jest.useFakeTimers('legacy')
+jest.useFakeTimers({ legacyFakeTimers: true })
 
 describe('server', () => {
   jest.setTimeout(60 * 1000)
@@ -78,7 +78,7 @@ describe('server', () => {
     ).toBe(0)
   })
 
-  test('renders the Enterprise homepages with links to exptected products in both the sidebar and page body', async () => {
+  test('renders the Enterprise homepages with links to expected products in both the sidebar and page body', async () => {
     const enterpriseProducts = [
       `/en/enterprise-server@${enterpriseServerReleases.latest}`,
       '/en/enterprise-cloud@latest',
@@ -129,10 +129,9 @@ describe('server', () => {
     expect(csp.get('style-src').includes("'unsafe-inline'")).toBe(true)
   })
 
-  test('sets Fastly cache control headers to bypass pages', async () => {
+  test('sets Fastly cache control headers', async () => {
     const res = await get('/en')
-    expect(res.headers['cache-control']).toBe('private, no-store')
-    expect(res.headers['surrogate-control']).toBe('private, no-store')
+    expect(res.headers['cache-control']).toMatch(/public, max-age=/)
     expect(res.headers['surrogate-key']).toBe(SURROGATE_ENUMS.DEFAULT)
   })
 
@@ -336,7 +335,7 @@ describe('server', () => {
       )
       expect($('h2#in-this-article').length).toBe(1)
       expect($('h2#in-this-article + div div ul').length).toBeGreaterThan(0) // non-indented items
-      expect($('h2#in-this-article + div div ul li div div div ul.ml-3').length).toBeGreaterThan(0) // indented items
+      expect($('h2#in-this-article + div div ul li div div ul.ml-3').length).toBeGreaterThan(0) // indented items
     })
 
     test('does not render mini TOC in articles with only one heading', async () => {
@@ -478,17 +477,16 @@ describe('server', () => {
       expect($('a[href="/en/repositories/working-with-files/managing-files"]').length).toBe(1)
     })
 
-    test('dotcom articles on dotcom have Enterprise Admin links with latest GHE version', async () => {
+    // Any links expressed in Markdown as '.../enterprise-server@latest/...'
+    // should become '.../enterprise-server@<VERSION>/...' when rendered out.
+    test('enterprise-server@latest links get rewritten to include the latest GHE version', async () => {
       const $ = await getDOM(
-        '/en/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-self-hosted-runners-for-your-enterprise'
+        '/en/get-started/signing-up-for-github/setting-up-a-trial-of-github-enterprise-server'
       )
-      // Note any links that might expressed in Markdown as '.../enterprise-server@latest/...'
-      // becomes '.../enterprise-server@<VERSION>/...' when rendered out.
       expect(
-        $(
-          `a[href="/en/enterprise-server@${enterpriseServerReleases.latest}/admin/github-actions/managing-access-to-actions-from-githubcom/enabling-automatic-access-to-githubcom-actions-using-github-connect"]`
-        ).length
-      ).toBe(2)
+        $(`a[href="${latestEnterprisePath}/billing/managing-your-license-for-github-enterprise"]`)
+          .length
+      ).toBe(1)
     })
 
     test('dotcom articles on GHE have Enterprise user links', async () => {
@@ -718,13 +716,13 @@ describe('server', () => {
       expect($('[data-testid=table-of-contents] ul li a').length).toBeGreaterThan(5)
     })
 
-    test('map topic renders with h2 links to articles', async () => {
+    test('map topic renders with links to articles', async () => {
       const $ = await getDOM(
         '/en/get-started/importing-your-projects-to-github/importing-source-code-to-github'
       )
       expect(
         $(
-          'a[href="/en/get-started/importing-your-projects-to-github/importing-source-code-to-github/about-github-importer"] h2'
+          'li h2 a[href="/en/get-started/importing-your-projects-to-github/importing-source-code-to-github/about-github-importer"]'
         ).length
       ).toBe(1)
     })
@@ -733,15 +731,18 @@ describe('server', () => {
       const $ = await getDOM(
         '/en/get-started/importing-your-projects-to-github/importing-source-code-to-github'
       )
-      const $bumpLinks = $('[data-testid=bump-link]')
-      expect($bumpLinks.length).toBeGreaterThan(3)
+      const $links = $('[data-testid=expanded-item]')
+      expect($links.length).toBeGreaterThan(3)
     })
 
     test('map topic intros are parsed', async () => {
       const $ = await getDOM(
         '/en/get-started/importing-your-projects-to-github/importing-source-code-to-github'
       )
-      const $intro = $('[data-testid=bump-link][href*="source-code-migration-tools"] > p')
+      const $parent = $('[data-testid=expanded-item] a[href*="source-code-migration-tools"]')
+        .parent()
+        .parent()
+      const $intro = $('p', $parent)
       expect($intro.length).toBe(1)
       expect($intro.html()).toContain('You can use external tools to move your projects to GitHub')
     })
@@ -1027,7 +1028,7 @@ describe('static routes', () => {
   it('does not serve repo contents that live outside the /assets directory', async () => {
     expect((await get('/package.json', { followRedirects: true })).statusCode).toBe(404)
     expect((await get('/README.md', { followRedirects: true })).statusCode).toBe(404)
-    expect((await get('/server.mjs', { followRedirects: true })).statusCode).toBe(404)
+    expect((await get('/server.js', { followRedirects: true })).statusCode).toBe(404)
   })
 })
 

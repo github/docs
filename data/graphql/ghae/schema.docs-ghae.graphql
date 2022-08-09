@@ -4987,7 +4987,8 @@ type ContributionsCollection {
   ): [PullRequestContributionsByRepository!]!
 
   """
-  Pull request review contributions made by the user.
+  Pull request review contributions made by the user. Returns the most recently
+  submitted review for each PR reviewed by the user.
   """
   pullRequestReviewContributions(
     """
@@ -9516,34 +9517,6 @@ type Enterprise implements Node {
   url: URI!
 
   """
-  A list of user accounts on this enterprise.
-  """
-  userAccounts(
-    """
-    Returns the elements in the list that come after the specified cursor.
-    """
-    after: String
-
-    """
-    Returns the elements in the list that come before the specified cursor.
-    """
-    before: String
-
-    """
-    Returns the first _n_ elements from the list.
-    """
-    first: Int
-
-    """
-    Returns the last _n_ elements from the list.
-    """
-    last: Int
-  ): EnterpriseUserAccountConnection!
-    @deprecated(
-      reason: "The `Enterprise.userAccounts` field is being removed. Use the `Enterprise.members` field instead. Removal on 2022-07-01 UTC."
-    )
-
-  """
   Is the current viewer an admin of this enterprise?
   """
   viewerIsAdmin: Boolean!
@@ -11703,46 +11676,6 @@ type EnterpriseUserAccount implements Actor & Node {
   The user within the enterprise.
   """
   user: User
-}
-
-"""
-The connection type for EnterpriseUserAccount.
-"""
-type EnterpriseUserAccountConnection {
-  """
-  A list of edges.
-  """
-  edges: [EnterpriseUserAccountEdge]
-
-  """
-  A list of nodes.
-  """
-  nodes: [EnterpriseUserAccount]
-
-  """
-  Information to aid in pagination.
-  """
-  pageInfo: PageInfo!
-
-  """
-  Identifies the total count of items in the connection.
-  """
-  totalCount: Int!
-}
-
-"""
-An edge in a connection.
-"""
-type EnterpriseUserAccountEdge {
-  """
-  A cursor for use in pagination.
-  """
-  cursor: String!
-
-  """
-  The item at the end of the edge.
-  """
-  node: EnterpriseUserAccount
 }
 
 """
@@ -26856,6 +26789,87 @@ type PullRequestTemplate {
 }
 
 """
+A threaded list of comments for a given pull request.
+"""
+type PullRequestThread implements Node {
+  """
+  A list of pull request comments associated with the thread.
+  """
+  comments(
+    """
+    Returns the elements in the list that come after the specified cursor.
+    """
+    after: String
+
+    """
+    Returns the elements in the list that come before the specified cursor.
+    """
+    before: String
+
+    """
+    Returns the first _n_ elements from the list.
+    """
+    first: Int
+
+    """
+    Returns the last _n_ elements from the list.
+    """
+    last: Int
+
+    """
+    Skips the first _n_ elements in the list.
+    """
+    skip: Int
+  ): PullRequestReviewCommentConnection!
+  id: ID!
+
+  """
+  Whether or not the thread has been collapsed (resolved)
+  """
+  isCollapsed: Boolean!
+
+  """
+  Indicates whether this thread was outdated by newer changes.
+  """
+  isOutdated: Boolean!
+
+  """
+  Whether this thread has been resolved
+  """
+  isResolved: Boolean!
+
+  """
+  Identifies the pull request associated with this thread.
+  """
+  pullRequest: PullRequest!
+
+  """
+  Identifies the repository associated with this thread.
+  """
+  repository: Repository!
+
+  """
+  The user who resolved this thread
+  """
+  resolvedBy: User
+
+  """
+  Indicates whether the current viewer can reply to this thread.
+  """
+  viewerCanReply: Boolean!
+
+  """
+  Whether or not the viewer can resolve this thread
+  """
+  viewerCanResolve: Boolean!
+
+  """
+  Whether or not the viewer can unresolve this thread
+  """
+  viewerCanUnresolve: Boolean!
+}
+
+"""
 The connection type for PullRequestTimelineItem.
 """
 type PullRequestTimelineConnection {
@@ -32998,6 +33012,11 @@ type Repository implements Node & ProjectOwner & RepositoryInfo & Starrable & Su
     before: String
 
     """
+    Filter by the scope of the alert's dependency
+    """
+    dependencyScopes: [RepositoryVulnerabilityAlertDependencyScope!]
+
+    """
     Returns the first _n_ elements from the list.
     """
     first: Int
@@ -34289,6 +34308,11 @@ type RepositoryVulnerabilityAlert implements Node & RepositoryNode {
   dependabotUpdate: DependabotUpdate
 
   """
+  The scope of an alert's dependency
+  """
+  dependencyScope: RepositoryVulnerabilityAlertDependencyScope
+
+  """
   The reason the alert was dismissed
   """
   dismissReason: String
@@ -34381,6 +34405,21 @@ type RepositoryVulnerabilityAlertConnection {
   Identifies the total count of items in the connection.
   """
   totalCount: Int!
+}
+
+"""
+The possible scopes of an alert's dependency.
+"""
+enum RepositoryVulnerabilityAlertDependencyScope {
+  """
+  A dependency that is only used in development
+  """
+  DEVELOPMENT
+
+  """
+  A dependency that is leveraged during application runtime
+  """
+  RUNTIME
 }
 
 """
@@ -35475,9 +35514,19 @@ The possible ecosystems of a security vulnerability's package.
 """
 enum SecurityAdvisoryEcosystem {
   """
+  GitHub Actions
+  """
+  ACTIONS
+
+  """
   PHP packages hosted at packagist.org
   """
   COMPOSER
+
+  """
+  Erlang/Elixir packages hosted at hex.pm
+  """
+  ERLANG
 
   """
   Go modules
@@ -38755,6 +38804,11 @@ type TreeEntry {
   The Repository the tree entry belongs to
   """
   repository: Repository!
+
+  """
+  Entry byte size
+  """
+  size: Int!
 
   """
   If the TreeEntry is for a directory occupied by a submodule project, this returns the corresponding submodule

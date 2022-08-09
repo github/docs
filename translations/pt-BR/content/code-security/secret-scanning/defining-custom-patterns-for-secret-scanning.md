@@ -6,7 +6,7 @@ product: '{% data reusables.gated-features.secret-scanning %}'
 redirect_from:
   - /code-security/secret-security/defining-custom-patterns-for-secret-scanning
 versions:
-  ghes: '>=3.2'
+  ghes: '*'
   ghae: '*'
   ghec: '*'
 type: how_to
@@ -159,7 +159,7 @@ Antes de definir um padrão personalizado, você deverá garantir que você habi
 1. Em "Padrões de personalização de digitalização de segredos", clique em {% ifversion ghes = 3.2 %}**Novo padrão personalizado**{% else %}**Novo padrão**{% endif %}.
 {% data reusables.advanced-security.secret-scanning-add-custom-pattern-details %}
 {%- ifversion secret-scanning-custom-enterprise-36 %}
-1. When you're ready to test your new custom pattern, to identify matches in the enterprise without creating alerts, click **Save and dry run**.
+1. Quando estiver pronto para testar seu novo padrão personalizado, para identificar correspondências na empresa sem criar alertas, clique em **Salvar e testar**.
 {% data reusables.advanced-security.secret-scanning-dry-run-select-repos %}
 {% data reusables.advanced-security.secret-scanning-dry-run-results %}
 {%- endif %}
@@ -176,7 +176,7 @@ Ao salvar uma alteração em um padrão personalizado, isso irá fechar todos os
    * Para uma empresa, em "Políticas" exiba a área "Segurança Avançada" e, em seguida, clique em **Funcionalidades de segurança**. Para obter mais informações, consulte "[Definindo um padrão personalizado para uma conta corporativa](#defining-a-custom-pattern-for-an-enterprise-account)" acima.
 2. Em "{% data variables.product.prodname_secret_scanning_caps %}", à direita do padrão personalizado que você deseja editar, clique em {% octicon "pencil" aria-label="The edit icon" %}.
 {%- ifversion secret-scanning-custom-enterprise-36 %}
-3. When you're ready to test your edited custom pattern, to identify matches without creating alerts, click **Save and dry run**.
+3. Quando estiver pronto para testar seu padrão personalizado editado, para identificar correspondências sem criar alertas, clique em **Salvar e testar**.
 {%- endif %}
 4. Ao revisar e testar suas alterações, clique em **Salvar alterações**.
 {% endif %}
@@ -187,7 +187,7 @@ Ao salvar uma alteração em um padrão personalizado, isso irá fechar todos os
 
    * Para um repositório ou organização, exiba as configurações "Segurança & análise" do repositório ou organização onde o padrão personalizado foi criado. Para mais informações consulte "[Definir um padrão personalizado para um repositório](#defining-a-custom-pattern-for-a-repository)" ou "[Definir um padrão personalizado para uma organização](#defining-a-custom-pattern-for-an-organization)" acima.
    * Para uma empresa, em "Políticas" exiba a área "Segurança Avançada" e, em seguida, clique em **Funcionalidades de segurança**.  Para obter mais informações, consulte "[Definindo um padrão personalizado para uma conta corporativa](#defining-a-custom-pattern-for-an-enterprise-account)" acima.
-{%- ifversion fpt or ghes > 3.2 or ghae %}
+{%- ifversion ghec or ghes > 3.2 or ghae %}
 1. À direita do padrão personalizado que você deseja remover, clique em {% octicon "trash" aria-label="The trash icon" %}.
 1. Revise a confirmação e selecione um método para lidar com todos os alertas abertos relacionados ao padrão personalizado.
 1. Clique em **Sim, excluir este padrão**.

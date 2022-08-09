@@ -7,19 +7,12 @@ versions:
   ghes: '>= 3.5'
   ghae: issue-4925
   ghec: '*'
-showMiniToc: false
 type: how_to
 topics:
   - Workflows
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}
-
-- [Visão geral do exemplo](#example-overview)
-- [Características utilizadas neste exemplo](#features-used-in-this-example)
-- [Exemplo de fluxo de trabalho](#example-workflow)
-- [Entendendo o exemplo](#understanding-the-example)
-- [Próximas etapas](#next-steps)
 
 ## Visão geral do exemplo
 
@@ -54,7 +47,7 @@ topics:
 
 {% data reusables.actions.note-understanding-example %}
 
-<table style="width:350px">
+<table style="table-layout: fixed;">
 <thead>
   <tr>
     <th style="width:100%"></th>
@@ -76,7 +69,7 @@ on:
   pull_request:
   push:
     branches:
-      - gh-readonly-queue/main/**
+      - main
 
 permissions:
   contents: read
@@ -222,7 +215,7 @@ jobs:
 
  {% data reusables.actions.example-explanation-table-intro %}
 
-<table style="width:350px">
+<table style="table-layout: fixed;">
 <thead>
   <tr>
     <th style="width:60%"><b>Código</b></th>
@@ -284,12 +277,12 @@ Adicione o evento "pull_request", para que o fluxo de trabalho seja executado au
 ```yaml{:copy}
   push:
     branches:
-      - gh-readonly-queue/main/**
+      - main
 ```
 </td>
 <td>
 
-Adicione o evento "push", de modo que o fluxo de trabalho seja executado automaticamente toda vez que um commit for enviado por push para um branch que corresponde ao filtro "gh-readonly-queue/main/**". Para obter mais informações, consulte ['push'](/actions/using-workflows/events-that-trigger-workflows#push).
+Add the `push` event, so that the workflow runs automatically every time a commit is pushed to a branch matching the filter `main`. Para obter mais informações, consulte ['push'](/actions/using-workflows/events-that-trigger-workflows#push).
 </td>
 </tr>
 <tr>

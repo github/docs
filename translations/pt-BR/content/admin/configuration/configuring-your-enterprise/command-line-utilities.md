@@ -24,10 +24,6 @@ Depois de entrar como usuário administrador com SSH, você pode executar esses 
 
 Este utilitário insere um banner no topo de cada página do {% data variables.product.prodname_enterprise %}. Você pode usá-lo para enviar uma comunicação a todos os usuários.
 
-{% ifversion ghes %}
-Você também pode definir um banner de anúncio usando as configurações empresariais no {% data variables.product.product_name %}. Para obter mais informações, consulte "[Personalizar mensagens de usuário na instância](/enterprise/admin/user-management/customizing-user-messages-on-your-instance#creating-a-global-announcement-banner)".
-{% endif %}
-
 ```shell
 # Configura uma mensagem visível para todos
 $ ghe-announce -s MESSAGE
@@ -37,7 +33,23 @@ $ ghe-announce -u
 > Mensagem de anúncio removida
 ```
 
-{% ifversion ghes > 3.1 %}
+{% ifversion ghe-announce-dismiss %}
+Para permitir que cada usuário ignore o anúncio para si mesmo, use o sinalizador `-d`.
+```shell
+# Sets a user-dismissible message that's visible to everyone
+$ ghe-announce -d -s MESSAGE
+> Announcement message set.
+# Removes a previously set message
+$ ghe-announce -u
+> Removed the announcement message, which was user dismissible: MESSAGE
+```
+{% endif %}
+
+{% ifversion ghes %}
+Você também pode definir um banner de anúncio usando as configurações empresariais no {% data variables.product.product_name %}. Para obter mais informações, consulte "[Personalizar mensagens de usuário na instância](/enterprise/admin/user-management/customizing-user-messages-on-your-instance#creating-a-global-announcement-banner)".
+{% endif %}
+
+{% ifversion ghes %}
 <!--For earlier releases of GHES, see the previous service `ghe-resque-info`-->
 
 ### ghe-aqueduct
@@ -277,33 +289,6 @@ Use este comando para desbloquear imediatamente o {% data variables.enterprise.m
 $ ghe-reactivate-admin-login
 ```
 
-{% ifversion ghes < 3.2 %}
-<!--For more recent releases of GHES, see the replacement service `ghe-aqueduct`-->
-
-### ghe-resque-info
-
-Este utilitário exibe informações sobre trabalhos em segundo plano, ativos e em fila. Ele fornece os mesmos números de contagem de trabalhos que a barra de estatísticas de administração, na parte superior de todas as páginas.
-
-Este utilitário pode ajudar a identificar se o servidor Resque está tendo problemas ao processar trabalhos em segundo plano. Quaisquer dos cenários a seguir podem indicar problemas com o Resque:
-
-* O número de trabalhos em segundo plano está aumentando, e os trabalhos ativos continuam iguais.
-* Os feeds de evento não estão sendo atualizados.
-* Webhooks não estão sendo acionados.
-* A interface web não atualiza após um push do Git.
-
-Se você desconfiar de falha no Resque, entre em contato com o {% data variables.contact.contact_ent_support %}.
-
-Com este comando, também é possível pausar ou retomar trabalhos na fila.
-
-```shell
-$ ghe-resque-info
-# lista filas e o número de trabalhos em fila
-$ ghe-resque-info -p <em>QUEUE</em>
-# pausa a fila especificada
-$ ghe-resque-info -r <em>QUEUE</em>
-# retoma a fila especificada
-```
-{% endif %}
 
 ### ghe-saml-mapping-csv
 
@@ -358,6 +343,18 @@ Com `ghe-set-password`, você pode definir uma nova senha para autenticação no
 ```shell
 ghe-set-password <new_password>
 ```
+
+### ghe-setup-network
+
+This utility allows you to configure the primary network interface.
+
+To enter visual mode, which will guide you through configuration of network settings:
+
+```shell
+$ ghe-setup-network -v
+```
+
+Para consultar opções adicionais, use o sinalizador -h.
 
 ### ghe-ssh-check-host-keys
 
@@ -421,7 +418,7 @@ Este utilitário permite instalar um certificado CA personalizado de raiz no seu
 
 Execute este utilitário para adicionar uma cadeia de certificados para verificação de assinatura de commits S/MIME. Para obter mais informações, consulte "[Sobre a verificação de assinatura de commit](/enterprise/user/articles/about-commit-signature-verification/)".
 
-Execute este utilitário quando a {% data variables.product.product_location %} não conseguir se conectar a outro servidor por ele estar usando um certificado SSL autoassinado ou um certificado SSL para o qual não há o pacote CA necessário. Uma forma de confirmar essa questão é executar `openssl s_client -connect host:port -verify 0 -CApath /etc/ssl/certs` na {% data variables.product.product_location %}. Se o certificado SSL do servidor remoto puder ser verificado, sua `SSL-Session` deverá ter um código de retorno 0, conforme mostrado abaixo.
+Execute este utilitário quando {% data variables.product.product_location %} não conseguir se conectar a outro servidor por ele estar usando um certificado SSL autoassinado ou um certificado SSL para o qual não há o pacote CA necessário. Uma forma de confirmar isso é executar `openssl s_client -connect host:port -verify 0 -CApath /etc/ssl/certs` no {% data variables.product.product_location %}. Se o certificado SSL do servidor remoto puder ser verificado, sua `SSL-Session` deverá ter um código de retorno 0, conforme mostrado abaixo.
 
 ```
 SSL-Session:
@@ -637,7 +634,7 @@ ghe-btop [ <port number> | --help | --usage ]
 
 #### ghe-governor
 
-Este utilitário ajuda a analisar o tráfego do Git. Ela consulta arquivos de dados do _Governador_, localizados em `/data/user/gitmon`. {% data variables.product.company_short %} mantém uma hora de dados por arquivo, retidos por duas semanas. Para obter mais informações, consulte [Analisando tráfego do Git que usa o Governador](https://github.community/t/analyzing-git-traffic-using-governor/13516) em {% data variables.product.prodname_gcf %}.
+Este utilitário ajuda a analisar o tráfego do Git. Ela consulta arquivos de dados do _Governador_, localizados em `/data/user/gitmon`. {% data variables.product.company_short %} mantém uma hora de dados por arquivo, retidos por duas semanas. For more information, see [Analyzing Git traffic using Governor](https://github.community/t/analyzing-git-traffic-using-governor/13516) in {% data variables.product.prodname_github_community %}.
 
 ```bash
 ghe-governor <subcommand> <column> [options]
@@ -670,7 +667,7 @@ ghe-repo <em>username</em>/<em>reponame</em>
 
 ### ghe-repo-gc
 
-Este utilitário reempacota manualmente uma rede de repositórios para otimizar o armazenamento do pacote. Se você tem um repositório muito grande, esse comando pode ajudar a reduzir o tamanho. O {% data variables.product.prodname_enterprise %} executa automaticamente este comando durante toda a sua interação com uma rede de repositórios.
+Este utilitário empacota manualmente uma rede de repositórios para otimizar o armazenamento do pacote. Se você tem um repositório muito grande, esse comando pode ajudar a reduzir o tamanho. O {% data variables.product.prodname_enterprise %} executa automaticamente este comando durante toda a sua interação com uma rede de repositórios.
 
 Você pode adicionar o argumento opcional `--prune` para remover objetos inacessíveis do Git que não são referenciados em um branch, tag ou qualquer outra referência. Fazer isso é útil principalmente para remover de imediato [informações confidenciais já eliminadas](/enterprise/user/articles/remove-sensitive-data/).
 
@@ -752,6 +749,20 @@ Este utilitário reescreve o repositório importado. Isso dá a você a oportuni
 ```shell
 git-import-rewrite
 ```
+
+{% ifversion ghes > 3.3 %}
+
+## Segurança
+
+### ghe-find-insecure-git-operations
+
+This utility searches your instance's logs and identifies Git operations over SSH that use insecure algorithms or hash functions, including DSA, RSA-SHA-1, HMAC-SHA-1, and CBC ciphers. You can use the output to support each client's transition to a more secure SSH connection. For more information, see [{% data variables.product.prodname_blog %}](https://github.blog/2022-06-28-improving-git-protocol-security-on-github-enterprise-server){% ifversion ghes < 3.6 %}.{% elsif ghes > 3.5 %} and "[Configuring SSH connections to your instance](/admin/configuration/configuring-your-enterprise/configuring-ssh-connections-to-your-instance)."{% endif %}
+
+```shell
+ghe-find-insecure-git-operations
+```
+
+{% endif %}
 
 ## Suporte
 

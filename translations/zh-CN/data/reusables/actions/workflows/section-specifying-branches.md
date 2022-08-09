@@ -14,7 +14,7 @@ on:
       - 'releases/**'
 ```
 
-A workflow with the following trigger will only run when the workflow named `Build` runs on a branch that is not named `canary`:
+仅当名为 `Build` 的工作流程在未命名为 `canary` 的分支上运行时，具有以下触发器的工作流程才会运行：
 
 ```yaml
 on:
@@ -25,14 +25,14 @@ on:
       - "canary"
 ```
 
-You cannot use both the `branches` and `branches-ignore` filters for the same event in a workflow. If you want to both include and exclude branch patterns for a single event, use the `branches` filter along with the `!` character to indicate which branches should be excluded.
+不能同时对工作流程中的同一事件使用 `branches` 和 `branches-ignore` 筛选器。 如果要同时包含和排除单个事件的分支模式，请使用 `branches` 筛选器与 `!` 字符指示应排除哪些分支。
 
 您定义模式事项的顺序。
 
-- A matching negative pattern (prefixed with `!`) after a positive match will exclude the branch.
-- A matching positive pattern after a negative match will include the branch again.
+- 肯定匹配后的匹配否定模式（前缀为 `!`）将排除分支。
+- 否定匹配后的匹配肯定模式将再次包含分支。
 
-For example, a workflow with the following trigger will run when the workflow named `Build` runs on a branch that is named `releases/10` or `releases/beta/mona` but will not `releases/10-alpha`, `releases/beta/3-alpha`, or `main`.
+例如，当名为 `Build` 的工作流程在名为 `releases/10` 或 `releases/beta/mona`（而不是 `releases/10-alpha`、`releases/beta/3-alpha` 或 `main`）的分支上运行时，将运行具有以下触发器的工作流程。
 
 ```yaml
 on:

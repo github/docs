@@ -1,6 +1,6 @@
 ---
 title: Gitignore
-intro: 'The Gitignore API fetches `.gitignore` templates that can be used to ignore files and directories.'
+intro: The Gitignore API fetches `.gitignore` templates that can be used to ignore files and directories.
 versions:
   fpt: '*'
   ghes: '*'

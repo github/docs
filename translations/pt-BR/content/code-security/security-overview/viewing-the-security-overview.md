@@ -1,11 +1,11 @@
 ---
 title: Visualizando a visão geral de segurança
 intro: Acesse as diferentes visualizações disponíveis na visão geral de segurança
-permissions: '{% data reusables.security-center.permissions %}'
-product: '{% data reusables.gated-features.security-center %}'
+permissions: '{% data reusables.security-overview.permissions %}'
+product: '{% data reusables.gated-features.security-overview %}'
 versions:
   ghae: issue-5503
-  ghes: '>3.1'
+  ghes: '*'
   ghec: '*'
 type: how_to
 topics:
@@ -18,7 +18,7 @@ shortTitle: Ver visão geral de segurança
 ---
 
 {% ifversion ghes < 3.5 or ghae %}
-{% data reusables.security-center.beta %}
+{% data reusables.security-overview.beta %}
 {% endif %}
 
 ## Visualizar a visão geral de segurança de uma organização

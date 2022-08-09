@@ -47,7 +47,7 @@ The {% data variables.product.prodname_command_palette %} also gives you quick a
 | <kbd>G</kbd> <kbd>P</kbd> | [**Pull requests**] タブに移動します。 詳しい情報については、「[プルリクエストについて](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)」を参照してください。"{% ifversion fpt or ghes or ghec %}
 | <kbd>G</kbd> <kbd>A</kbd> | [**Actions**] タブに移動します。 詳しい情報については、「[アクションについて](/actions/getting-started-with-github-actions/about-github-actions)」を参照してください。{% endif %}
 | <kbd>G</kbd> <kbd>B</kbd> | [**Projects**] タブに移動します。 詳細は「[プロジェクトボードについて](/articles/about-project-boards)」を参照してください。                                                                                                                                       |
-| <kbd>G</kbd> <kbd>W</kbd> | [**Wiki**] タブに移動します。 For more information, see "[About wikis](/communities/documenting-your-project-with-wikis/about-wikis)."{% ifversion fpt or ghec %}
+| <kbd>G</kbd> <kbd>W</kbd> | [**Wiki**] タブに移動します。 For more information, see "[About wikis](/communities/documenting-your-project-with-wikis/about-wikis)."{% ifversion discussions %}
 | <kbd>G</kbd> <kbd>G</kbd> | Go to the **Discussions** tab. For more information, see "[About discussions](/discussions/collaborating-with-your-community-using-discussions/about-discussions)."{% endif %}
 
 ## ソースコード編集
@@ -92,8 +92,8 @@ The {% data variables.product.prodname_command_palette %} also gives you quick a
 | キーボードショートカット                                                                                                                                                | 説明                                                                                                                                                                                              |
 | ----------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | <kbd>Command</kbd>+<kbd>B</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>B</kbd> (Windows/Linux)                                                                 | 太字テキストの Markdown 書式を挿入します                                                                                                                                                                       |
-| <kbd>Command</kbd>+<kbd>I</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>I</kbd> (Windows/Linux)                                                                 | Inserts Markdown formatting for italicizing text{% ifversion fpt or ghae or ghes > 3.1 or ghec %}
-| <kbd>Command</kbd>+<kbd>E</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>E</kbd> (Windows/Linux)                                                                 | Inserts Markdown formatting for code or a command within a line{% endif %}{% ifversion fpt or ghae-issue-5434 or ghes > 3.1 or ghec %}
+| <kbd>Command</kbd>+<kbd>I</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>I</kbd> (Windows/Linux)                                                                 | イタリック体のテキストの Markdown 書式を挿入します                                                                                                                                                                  |
+| <kbd>Command</kbd>+<kbd>E</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>E</kbd> (Windows/Linux)                                                                 | Inserts Markdown formatting for code or a command within a line{% ifversion fpt or ghae-issue-5434 or ghes or ghec %}
 | <kbd>Command</kbd>+<kbd>K</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>K</kbd> (Windows/Linux)                                                                 | Inserts Markdown formatting for creating a link{% endif %}{% ifversion fpt or ghae-issue-7103 or ghes > 3.5 or ghec %}
 | <kbd>Command</kbd>+<kbd>V</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>V</kbd> (Windows/Linux)                                                                 | Creates a Markdown link when applied over highlighted text{% endif %}
 | <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Windows/Linux)                               | Toggles between the **Write** and **Preview** comment tabs{% ifversion fpt or ghae or ghes > 3.4 or ghec %}
@@ -146,7 +146,34 @@ The {% data variables.product.prodname_command_palette %} also gives you quick a
 | <kbd>Alt</kbd> およびクリック                               | Toggle between collapsing and expanding all outdated review comments in a pull request by holding down <kbd>Alt</kbd> and clicking **Show outdated** or **Hide outdated**.                                                                                                                           |
 | Click, then <kbd>Shift</kbd> and click               | Comment on multiple lines of a pull request by clicking a line number, holding <kbd>Shift</kbd>, then clicking another line number. 詳しい情報については、「[プルリクエストへコメントする](/github/collaborating-with-issues-and-pull-requests/commenting-on-a-pull-request#adding-line-comments-to-a-pull-request)」を参照してください。 |
 
-## プロジェクトボード
+{% ifversion projects-v2 %}
+
+## {% data variables.projects.projects_v2_caps %}
+
+### Navigating a project
+
+| キーボードショートカット                                                                    | 説明                           |
+| ------------------------------------------------------------------------------- | ---------------------------- |
+| <kbd>⌘</kbd>+<kbd>f</kbd> (Mac) or <kbd>Ctrl</kbd>+<kbd>f</kbd> (Windows/Linux) | Focus filter field           |
+| <kbd>←</kbd>                                                                    | Move cell focus to the left  |
+| <kbd>→</kbd>                                                                    | Move cell focus to the right |
+| <kbd>↑</kbd>                                                                    | Move cell focus up           |
+| <kbd>↓</kbd>                                                                    | Move cell focus down         |
+
+### Manipulating a project
+
+| キーボードショートカット                                                                                                        | 説明                                    |
+| ------------------------------------------------------------------------------------------------------------------- | ------------------------------------- |
+| <kbd>Enter</kbd>                                                                                                    | Toggle edit mode for the focused cell |
+| <kbd>Escape</kbd>                                                                                                   | Cancel editing for the focused cell   |
+| <kbd>⌘</kbd>+<kbd>Shift</kbd>+<kbd>\</kbd> (Mac) or <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>\</kbd> (Windows/Linux) | Open row actions menu                 |
+| <kbd>Shift</kbd>+<kbd>Space</kbd>                                                                                   | アイテムを選択                               |
+| <kbd>Space</kbd>                                                                                                    | Open selected item                    |
+| <kbd>e</kbd>                                                                                                        | Archive selected items                |
+
+{% endif %}
+
+## {% data variables.product.prodname_projects_v1_caps %}
 
 ### 列を移動する
 
@@ -203,11 +230,10 @@ The {% data variables.product.prodname_command_palette %} also gives you quick a
 
 | キーボードショートカット                  | 説明           |
 | ----------------------------- | ------------ |
-| <kbd>E</kbd>                  | 完了済としてマークします |
-| <kbd>Shift</kbd>+<kbd>U</kbd> | 未読としてマークします  |
+| <kbd>E</kbd>                  | 完了としてマーク     |
+| <kbd>Shift</kbd>+<kbd>U</kbd> | 未読としてマーク     |
 | <kbd>Shift</kbd>+<kbd>I</kbd> | 既読としてマーク     |
 | <kbd>Shift</kbd>+<kbd>M</kbd> | サブスクライブ解除します |
-
 
 ## ネットワークグラフ
 

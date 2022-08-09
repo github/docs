@@ -138,7 +138,7 @@ Tenga en cuenta que la información disponible variará de un caso a otro. Parte
   - Registros de acceso de seguridad distintos a la creación de cuentas o para una fecha y hora específica
 
 - <a name="only-with-a-search-warrant"></a>
-**Solo con una órden de registro ** — No divulgaremos el contenido privado de ninguna cuenta, a menos de que se nos exhorte a hacerlo con una orden de registro emitida bajo los procedimientos descritos en las Reglas Federales para Procedimientos Penales o en los procedimientos de dichas órdenes estatales después de que se pruebe la existencia de una causa probable. In addition to the non-public account information and account access logs mentioned above, we will also provide private account contents in response to a search warrant, which may include:
+**Solo con una órden de registro ** — No divulgaremos el contenido privado de ninguna cuenta, a menos de que se nos exhorte a hacerlo con una orden de registro emitida bajo los procedimientos descritos en las Reglas Federales para Procedimientos Penales o en los procedimientos de dichas órdenes estatales después de que se pruebe la existencia de una causa probable. Adicionalmente a la información no pública de la cuenta y de las bitácoras de acceso a la misma que se mencionan anteriormente, también proporcionaremos contenido privado de cuenta como respuesta a una orden de registro, la cual podría incluir:
 
   - Contenidos de Gists secretos
   - Código fuente u otro contenido en los repositorios privados
@@ -175,7 +175,7 @@ c/o Corporation Service Company
 Sacramento, CA 95833-3505
 ```
 
-Se pueden enviar copias de cortesía por correo electrónico a legal@support.github.com.
+Courtesy copies may be emailed to legal-support@github.com
 
 Por favor, realiza tus solicitudes lo más específicas y limitadas posible, incluyendo la siguiente información:
 

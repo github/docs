@@ -185,7 +185,7 @@ on:
   deployment_status
 ```
 
-{% ifversion fpt or ghec %}
+{% ifversion discussions %}
 ### `讨论`
 
 | Web 挂钩事件有效负载                                                                             | 活动类型                                                                                                                                                                                                                                                                                                    | `GITHUB_SHA` | `GITHUB_REF` |
@@ -381,6 +381,34 @@ on:
     types: [created, deleted]
 ```
 
+{% ifversion fpt or ghec  %}
+
+### `merge_group`
+
+| Web 挂钩事件有效负载                                                                                       | 活动类型               | `GITHUB_SHA`           | `GITHUB_REF`           |
+| -------------------------------------------------------------------------------------------------- | ------------------ | ---------------------- | ---------------------- |
+| [`merge_group`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#merge_group) | `checks_requested` | SHA of the merge group | Ref of the merge group |
+
+{% data reusables.pull_requests.merge-queue-beta %}
+
+{% note %}
+
+**Note**: {% data reusables.developer-site.multiple_activity_types %} Although only the `checks_requested` activity type is supported, specifying the activity type will keep your workflow specific if more activity types are added in the future. For information about each activity type, see "[Webhook events and payloads](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#merge_group)." {% data reusables.developer-site.limit_workflow_to_activity_types %}
+
+{% endnote %}
+
+Runs your workflow when a pull request is added to a merge queue, which adds the pull request to a merge group. For more information see "[Merging a pull request with a merge queue](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request-with-a-merge-queue)".
+
+For example, you can run a workflow when the `checks_requested` activity has occurred.
+
+```yaml
+on:
+  merge_group:
+    types: [checks_requested]
+
+```
+
+{% endif %}
 ### `里程碑`
 
 | Web 挂钩事件有效负载                                                                             | 活动类型                                                                                                        | `GITHUB_SHA` | `GITHUB_REF` |
@@ -415,7 +443,7 @@ on:
 
 {% data reusables.actions.branch-requirement %}
 
-当有人推送到作为 {% data variables.product.prodname_pages %} 的发布源的分支时，如果为存储库启用了 {% data variables.product.prodname_pages %} ，则运行工作流程。 有关 {% data variables.product.prodname_pages %} 发布源的详细信息，请参阅“[为 GitHub Pages 站点配置发布源](/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site#choosing-a-publishing-source)”。 有关 REST API 的信息，请参阅“[页面](/rest/reference/repos#pages)”。
+当有人推送到作为 {% data variables.product.prodname_pages %} 的发布源的分支时，如果为存储库启用了 {% data variables.product.prodname_pages %} ，则运行工作流程。 For more information about {% data variables.product.prodname_pages %} publishing sources, see "[Configuring a publishing source for your GitHub Pages site](/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)." 有关 REST API 的信息，请参阅“[页面](/rest/reference/repos#pages)”。
 
 例如，您可以在发生 `page_build` 事件时运行工作流程。
 
@@ -447,7 +475,7 @@ on:
 {% ifversion fpt or ghec %}
 {% note %}
 
-**注意**：此事件对项目（测试版）不会发生。 更多信息请参阅“[关于项目（测试版）](/issues/trying-out-the-new-projects-experience/about-projects)”。
+**Note**: This event only occurs for {% data variables.product.prodname_projects_v1 %}.
 
 {% endnote %}
 {% endif %}
@@ -485,7 +513,7 @@ on:
 {% ifversion fpt or ghec %}
 {% note %}
 
-**注意**：此事件对项目（测试版）不会发生。 更多信息请参阅“[关于项目（测试版）](/issues/trying-out-the-new-projects-experience/about-projects)”。
+**Note**: This event only occurs for {% data variables.product.prodname_projects_v1 %}.
 
 {% endnote %}
 {% endif %}
@@ -523,7 +551,7 @@ on:
 {% ifversion fpt or ghec %}
 {% note %}
 
-**注意**：此事件对项目（测试版）不会发生。 更多信息请参阅“[关于项目（测试版）](/issues/trying-out-the-new-projects-experience/about-projects)”。
+**Note**: This event only occurs for {% data variables.product.prodname_projects_v1 %}.
 
 {% endnote %}
 {% endif %}
@@ -612,7 +640,7 @@ on:
   pull_request:
     types:
       - opened
-    branches:    
+    branches:
       - 'releases/**'
 ```
 
@@ -625,7 +653,7 @@ on:
   pull_request:
     types:
       - opened
-    branches:    
+    branches:
       - 'releases/**'
     paths:
       - '**.js'
@@ -670,7 +698,7 @@ on:
   pull_request:
     types:
       - opened
-    branches:    
+    branches:
       - 'releases/**'
     paths:
       - '**.js'
@@ -809,7 +837,7 @@ on:
   pull_request_target:
     types:
       - opened
-    branches:    
+    branches:
       - 'releases/**'
 ```
 
@@ -822,7 +850,7 @@ on:
   pull_request_target:
     types:
       - opened
-    branches:    
+    branches:
       - 'releases/**'
     paths:
       - '**.js'
@@ -867,7 +895,7 @@ on:
   pull_request_target:
     types:
       - opened
-    branches:    
+    branches:
       - 'releases/**'
     paths:
       - '**.js'
@@ -896,9 +924,9 @@ jobs:
 
 ### `推送`
 
-| Web 挂钩事件有效负载                                                                       | 活动类型 | `GITHUB_SHA`           | `GITHUB_REF` |
-| ---------------------------------------------------------------------------------- | ---- | ---------------------- | ------------ |
-| [`推送`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#push) | n/a  | 推送的提交，除非删除分支（当它是默认分支时） | 更新的引用        |
+| Web 挂钩事件有效负载                                                                       | 活动类型 | `GITHUB_SHA`                                                                                                                     | `GITHUB_REF` |
+| ---------------------------------------------------------------------------------- | ---- | -------------------------------------------------------------------------------------------------------------------------------- | ------------ |
+| [`推送`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#push) | n/a  | When you delete a branch, the SHA in the workflow run (and its associated refs) reverts to the default branch of the repository. | 更新的引用        |
 
 {% note %}
 
@@ -921,6 +949,12 @@ on:
   push
 ```
 
+{% note %}
+
+**注意**：当 `push` web 挂钩事件触发工作流程运行时，操作 UI 的“推送者”字段显示推送者的帐户，而不是作者或提交者的帐户。 但是，如果使用带有部署密钥的 SSH 身份验证将更改推送到存储库，则“推送者”字段将是存储库管理员，他在将部署密钥添加到存储库时对其进行了验证。
+
+{% endnote %}
+
 #### 仅在推送到特定分支时运行工作流程
 
 您可以使用 `branches` 或 `branches-ignore` 筛选器，将工作流程配置为仅在推送特定分支时运行。 更多信息请参阅“[GitHub Actions 的工作流程语法](/actions/learn-github-actions/workflow-syntax-for-github-actions#onpushbranchestagsbranches-ignoretags-ignore)”。
@@ -930,7 +964,7 @@ on:
 ```yaml
 on:
   push:
-    branches:    
+    branches:
       - 'main'
       - 'releases/**'
 ```
@@ -942,7 +976,7 @@ on:
 ```yaml
 on:
   push:
-    branches:    
+    branches:
       - 'releases/**'
     paths:
       - '**.js'
@@ -952,14 +986,14 @@ on:
 
 #### 仅在发生特定标记的推送时运行工作流程
 
-您可以使用 `tags` 或 `tags-ignore` 筛选器，将工作流程配置为仅在特定标记或推送时运行。 更多信息请参阅“[GitHub Actions 的工作流程语法](/actions/learn-github-actions/workflow-syntax-for-github-actions#onpushbranchestagsbranches-ignoretags-ignore)”。
+您可以使用 `tags` 或 `tags-ignore` 筛选器，将工作流程配置为仅在特定标记推送时运行。 更多信息请参阅“[GitHub Actions 的工作流程语法](/actions/learn-github-actions/workflow-syntax-for-github-actions#onpushbranchestagsbranches-ignoretags-ignore)”。
 
 例如，当有人推送以 `v1.` 开头的标记时，此工作流程将运行。
 
 ```yaml
 on:
   push:
-    tags:        
+    tags:
       - v1.**
 ```
 
@@ -983,7 +1017,7 @@ on:
 ```yaml
 on:
   push:
-    branches:    
+    branches:
       - 'releases/**'
     paths:
       - '**.js'
@@ -1007,7 +1041,7 @@ on:
 
 当存储库中发生与 {% data variables.product.prodname_registry %} 相关的活动时运行工作流程。 更多信息请参阅“[{% data variables.product.prodname_registry %} 文档](/packages)”。
 
-例如，您可以在软件包为 `published` 时运行工作流程。
+例如，您可以在新软件包版本`发布`时运行工作流程。
 
 ```yaml
 on:
@@ -1246,26 +1280,26 @@ on: workflow_dispatch
 此示例定义了称为 `logLevel`、`tags` 和 `environment` 的输入。 在运行工作流程时，可以将这些输入的值传递给工作流程。 然后，此工作流程使用 {% ifversion actions-unified-inputs %}`inputs.logLevel`、`inputs.tags` 和 `inputs.environment`{% else %}`github.event.inputs.logLevel`、`github.event.inputs.tags`）和 `github.event.inputs.environment`{% endif %} 上下文属性，将值打印到日志中。
 
 ```yaml
-on: 
+on:
   workflow_dispatch:
     inputs:
       logLevel:
-        description: 'Log level'     
+        description: 'Log level'
         required: true
-        default: 'warning' 
+        default: 'warning'
         type: choice
         options:
         - info
         - warning
-        - debug 
+        - debug
       tags:
         description: 'Test scenario tags'
-        required: false 
+        required: false
         type: boolean
       environment:
         description: 'Environment to run tests against'
         type: environment
-        required: true 
+        required: true
 
 jobs:
   log-the-inputs:
@@ -1416,7 +1450,7 @@ jobs:
   upload:
     runs-on: ubuntu-latest
 
-    steps:        
+    steps:
       - name: Save PR number
         env:
           PR_NUMBER: {% raw %}${{ github.event.number }}{% endraw %}

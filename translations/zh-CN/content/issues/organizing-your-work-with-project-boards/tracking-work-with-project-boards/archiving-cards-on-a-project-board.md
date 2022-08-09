@@ -1,31 +1,29 @@
 ---
-title: 存档项目板上的卡
-intro: 您可以存档项目板卡，以整理工作流程而不失去项目的历史上下文。
+title: 'Archiving cards on a {% data variables.product.prodname_project_v1 %}'
+intro: 'You can archive {% data variables.projects.projects_v1_board %} cards to declutter your workflow without losing the historical context of a project.'
 redirect_from:
   - /github/managing-your-work-on-github/tracking-the-progress-of-your-work-with-project-boards/archiving-cards-on-a-project-board
   - /articles/archiving-cards-on-a-project-board
   - /github/managing-your-work-on-github/archiving-cards-on-a-project-board
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
-  ghec: '*'
+  feature: projects-v1
 topics:
   - Pull requests
-shortTitle: 存档内置卡
+shortTitle: 'Archive cards on {% data variables.product.prodname_project_v1 %}'
+allowTitleToDifferFromFilename: true
 ---
 
 {% data reusables.projects.project_boards_old %}
 
-项目板中的自动化不适用于存档的项目板卡。 例如，如果您关闭项目板存档中的议题，存档的卡不会自动移到 "Done"（完成）列。 从项目板存档恢复卡时，该卡将回到存档它的列。
+Automation in your {% data variables.projects.projects_v1_board %} does not apply to archived {% data variables.projects.projects_v1_board %} cards. For example, if you close an issue in a {% data variables.projects.projects_v1_board %}'s archive, the archived card does not automatically move to the "Done" column. When you restore a card from the {% data variables.projects.projects_v1_board %} archive, the card will return to the column where it was archived.
 
-## 存档项目板上的卡
+## Archiving cards on a {% data variables.projects.projects_v1_board %}
 
-1. 在项目板中，找到要存档的卡片，然后单击 {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}。 ![用于编辑项目板卡的选项列表](/assets/images/help/projects/select-archiving-options-project-board-card.png)
+1. In a {% data variables.projects.projects_v1_board %}, find the card you want to archive, then click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}. ![用于编辑项目板卡的选项列表](/assets/images/help/projects/select-archiving-options-project-board-card.png)
 2. 单击 **Archive（存档）**。 ![从菜单中选择存档选项](/assets/images/help/projects/archive-project-board-card.png)
 
-## 从侧栏恢复项目板中的卡
+## Restoring cards on a {% data variables.projects.projects_v1_board %} from the sidebar
 
 {% data reusables.project-management.click-menu %}
 2. 单击 {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}，然后单击 **View archive（查看存档）**。 ![从菜单中选择查看存档选项](/assets/images/help/projects/select-view-archive-option-project-board-card.png)
-3. 在要取消存档的项目板卡上方，单击 **Restore（恢复）**。 ![选择恢复项目板卡](/assets/images/help/projects/restore-card.png)
+3. Above the {% data variables.projects.projects_v1_board %} card you want to unarchive, click **Restore**. ![选择恢复项目板卡](/assets/images/help/projects/restore-card.png)

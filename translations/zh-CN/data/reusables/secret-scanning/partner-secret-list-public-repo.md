@@ -103,3 +103,4 @@
 | Twilio                    | Twilio API 密钥                       |
 | Typeform                  | Typeform 个人访问令牌                     |
 | Valour                    | Valour 访问令牌                         |
+| Zuplo                     | Zuplo Consumer API                  |

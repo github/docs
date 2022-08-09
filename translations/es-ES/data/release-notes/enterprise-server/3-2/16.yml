@@ -1,0 +1,17 @@
+date: '2022-07-21'
+sections:
+  security_fixes:
+    - '**MEDIA**: Previene un ataque en donde la falsificación de solicitudes de lado del servidor (SSRF) pudiera forzar potencialmente el puente de Subversion (SVN) para ejecutar código remoto inyectando datos arbitrarios en memcached.'
+    - 'Actualiza Grafana a la versión 7.5.16, lo cual trata varias vulnerabilidades de seguridad, incluyendo el [CVE-2020-13379](https://github.com/advisories/GHSA-wc9w-wvq2-ffm9) y el [CVE-2022-21702](https://github.com/grafana/grafana/security/advisories/GHSA-xc3p-28hw-q24g).'
+    - 'Los paquetes se actualizaron a las últimas versiones de seguridad.'
+  bugs:
+    - 'Se corrigió un problema en donde los archivos dentro de los archivos zip de los artefactos tenían permisos de 000 cuando se desempacaban utilizando una herramienta de descompresión. Ahora los archivos tenían el permiso configurado en 644, de la misma forma que funciona en GitHub.com.'
+    - 'En algunos casos, el demonio de collectd pudo haber consumido memoria excesiva.'
+    - 'En algunos casos, los respaldos de los archivos de bitácora rotados pudieron haber acumulado y consumido un almacenamiento excesivo.'
+    - 'Después de actualizar a un lanzamiento de característica nuevo y a una ejecución de configuración posterior, Elastichsearch pudo haber registrado excepciones excesivas de bitácoras mientras recompilaba los índices.'
+    - 'En algunos casos en donde una rama protegida requirió más de una revisión de aprobación, se pudo haber fusionado una solicitud de cambios con una cantidad menor de revisiones de aprobación que la requerida.'
+    - 'En las instancias que utilizan autenticación de LDAP, el mensaje de autenticación para modo sudo colocó incorrectamente el cursor dentro del campo de contraseña predeterminadamente cuando los campos de texto tanto para el nombre de usuario como par ala contraseña estaban visibles.'
+  changes:
+    - 'La utilidad de línea de comandos `ghe-set-password` inicia automáticamente los servicios requeridos cuando la instancia se arranca en modo de recuperación.'
+    - 'Las métricas para los procesos en segundo plano de `aqueduct` se otorgan para el reenvío de Collectd y se muestran en la consola de administración.'
+    - 'La ubicación de la bitácora de ejecución de migración y configuración, `/data/user/common/ghe-config.log`, ahora se muestra en la página que describe una migración en curso.'

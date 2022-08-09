@@ -74,7 +74,7 @@ For example, if a workflow defined the `numOctocats` and `octocatEyeColor` input
 
 ### `inputs.<input_id>.required`
 
-**Required** A `boolean` to indicate whether the action requires the input parameter. Set to `true` when the parameter is required.
+**Optional** A `boolean` to indicate whether the action requires the input parameter. Set to `true` when the parameter is required.
 
 ### `inputs.<input_id>.default`
 
@@ -369,9 +369,13 @@ runs:
 ```
 {% endif %}
 
+{% ifversion ghes > 3.5 or ghae-issue-6573 %}
+
 #### `runs.steps[*].continue-on-error`
 
 **Optional**  Prevents the action from failing when a step fails. Set to `true` to allow the action to pass when this step fails.
+
+{% endif %}
 
 ## `runs` for Docker container actions
 

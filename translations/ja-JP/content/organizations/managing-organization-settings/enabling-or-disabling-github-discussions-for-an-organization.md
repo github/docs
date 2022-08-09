@@ -3,8 +3,7 @@ title: OrganizationでのGitHub Discussionsの有効化もしくは無効化
 intro: 'Organization内の1つのリポジトリに限定されない会話をするための場所として、{% data variables.product.prodname_discussions %}をOrganizationで利用できます。'
 permissions: 'Organization owners can enable {% data variables.product.prodname_discussions %} for their organization.'
 versions:
-  fpt: '*'
-  ghec: '*'
+  feature: discussions
 topics:
   - Organizations
 shortTitle: Organizationのディスカッション

@@ -23,7 +23,7 @@ La regulación aplica a todas las transacciones recurrentes, incluyendo:
 - Las compras de {% data variables.product.prodname_marketplace %}
 - Las transacciones de {% data variables.product.prodname_sponsors %}
 - Compras de Almacenamiento de Archivos Grandes de Git
-- Consumo de {% data variables.product.prodname_actions %}, {% data variables.product.prodname_registry %} y {% data variables.product.prodname_codespaces %}
+- Consumo de {% data variables.product.prodname_actions %}, {% data variables.product.prodname_registry %} y {% data variables.product.prodname_github_codespaces %}
 
 Para minimizar la interrupción, se pausaron los pagos recurrentes de nuestros clientes afectados el 29 de octubre de 2021. Las características y servicios de pago se han mantenido disponibles para los clientes a los que impactó la regulación del RBI.
 

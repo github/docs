@@ -44,7 +44,6 @@ From the main page of your repository, click **{% octicon "gear" aria-label="The
 
 For more information, see "[Adding a security policy to your repository](/code-security/getting-started/adding-a-security-policy-to-your-repository)."
 
-{% ifversion fpt or ghes or ghae or ghec %}
 ## Managing the dependency graph
 
 {% ifversion fpt or ghec %}
@@ -59,9 +58,6 @@ The dependency graph is automatically generated for all public repositories, and
 
 For more information, see "[Exploring the dependencies of a repository](/code-security/supply-chain-security/exploring-the-dependencies-of-a-repository#enabling-and-disabling-the-dependency-graph-for-a-private-repository)."
 
-{% endif %}
-
-{% ifversion fpt or ghes or ghae or ghec %}
 ## Managing {% data variables.product.prodname_dependabot_alerts %}
 
 {% data variables.product.prodname_dependabot_alerts %} are generated when {% data variables.product.prodname_dotcom %} identifies a dependency in the dependency graph with a vulnerability. {% ifversion fpt or ghec %}You can enable {% data variables.product.prodname_dependabot_alerts %} for any repository.{% endif %}
@@ -77,9 +73,6 @@ For more information, see "[Exploring the dependencies of a repository](/code-se
 
 For more information, see "[About {% data variables.product.prodname_dependabot_alerts %}](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies){% ifversion fpt or ghec %}" and "[Managing security and analysis settings for your personal account](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/managing-security-and-analysis-settings-for-your-personal-account){% endif %}."
 
-{% endif %}
-
-{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
 ## Managing dependency review
 
 Dependency review lets you visualize dependency changes in pull requests before they are merged into your repositories. For more information, see "[About dependency review](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review)."
@@ -93,7 +86,6 @@ Dependency review is a {% data variables.product.prodname_GH_advanced_security %
 
 {% endif %}
 
-{% endif %}
 
 {% ifversion fpt or ghec or ghes > 3.2 %}
 

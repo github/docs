@@ -12,7 +12,7 @@ sections:
     - An incorrect database entry for repository replicas caused database corruption when performing a restore using {% data variables.product.prodname_enterprise_backup_utilities %}.
   changes:
     - Optimised the inclusion of metrics when generating a cluster support bundle.
-    - In HA configurations where Elasticsearch reported a valid yellow status, changes introduced in a previous fix would block the `ghe-repl-stop` command and not allow replication to be stopped. Using `ghe-repo-stop --force` will now force Elasticsearch to stop when the service is in a normal or valid yellow status.
+    - En las configuraciones de disponibilidad alta en donde Elasticsearch reportó un estado amarillo válido, los cambios que se introdujeron en una corrección previa bloquearon el comando `ghe-repl-stop` y no permitieron que la replicación se detuviera. El utilizar `ghe-repo-stop --force` ahora forzará a Elasticsearch a detenerse cuando el servicio está en un estado amarillo válido o normal.
   known_issues:
     - En una instancia recién configurada de {% data variables.product.prodname_ghe_server %} sin ningún usuario, un atacante podría crear el primer usuario adminsitrador.
     - Las reglas de cortafuegos personalizadas se eliminan durante el proceso de actualización.

@@ -1,7 +1,7 @@
 ---
 title: Setting a minimum specification for codespace machines
 shortTitle: Set a minimum machine spec
-intro: 'You can avoid under-resourced machine types being used for {% data variables.product.prodname_codespaces %} for your repository.'
+intro: 'You can avoid under-resourced machine types being used for {% data variables.product.prodname_github_codespaces %} for your repository.'
 permissions: People with write permissions to a repository can create or edit the codespace configuration.
 versions:
   fpt: '*'
@@ -15,7 +15,7 @@ product: '{% data reusables.gated-features.codespaces %}'
 
 ## 概要
 
-Each codespace that you create is hosted on a separate virtual machine, and you can usually choose from different types of virtual machines. Each machine type has different resources (CPUs, memory, storage) and, by default, the machine type with the least resources is used. For more information, see "[Changing the machine type for your codespace](/codespaces/customizing-your-codespace/changing-the-machine-type-for-your-codespace#about-machine-types)."
+Each codespace that you create is hosted on a separate virtual machine, and you can usually choose from different types of virtual machines. Each machine type has different resources (CPUs, memory, storage) and, by default, the machine type with the least resources is used. 詳しい情報については「[codespaceのマシンタイプの変更](/codespaces/customizing-your-codespace/changing-the-machine-type-for-your-codespace#about-machine-types)」を参照してください。
 
 If your project needs a certain level of compute power, you can configure {% data variables.product.prodname_github_codespaces %} so that only machine types that meet these requirements can be used by default, or selected by users. You configure this in a `devcontainer.json` file.
 
@@ -27,7 +27,7 @@ If your project needs a certain level of compute power, you can configure {% dat
 
 ## Setting a minimum machine specification
 
-1. {% data variables.product.prodname_codespaces %} for your repository are configured in a `devcontainer.json` file. If your repository does not already contain a `devcontainer.json` file, add one now. See "[Add a dev container configuration to your repository](/free-pro-team@latest/codespaces/setting-up-your-project-for-codespaces/setting-up-your-project-for-codespaces)."
+1. {% data variables.product.prodname_github_codespaces %} for your repository are configured in a `devcontainer.json` file. If your repository does not already contain a `devcontainer.json` file, add one now. See "[Add a dev container configuration to your repository](/free-pro-team@latest/codespaces/setting-up-your-project-for-codespaces/setting-up-your-project-for-codespaces)."
 1. Edit the `devcontainer.json` file, adding a `hostRequirements` property such as this:
 
    ```json{:copy}
@@ -40,7 +40,7 @@ If your project needs a certain level of compute power, you can configure {% dat
 
    You can specify any or all of the options: `cpus`, `memory`, and `storage`.
 
-   To check the specifications of the {% data variables.product.prodname_codespaces %} machine types that are currently available for your repository, step through the process of creating a codespace until you see the choice of machine types. 詳しい情報については、「[codespace を作成する](/codespaces/developing-in-codespaces/creating-a-codespace#creating-a-codespace)」を参照してください。
+   To check the specifications of the {% data variables.product.prodname_github_codespaces %} machine types that are currently available for your repository, step through the process of creating a codespace until you see the choice of machine types. 詳しい情報については、「[codespace を作成する](/codespaces/developing-in-codespaces/creating-a-codespace#creating-a-codespace)」を参照してください。
 
 1. Save the file and commit your changes to the required branch of the repository.
 

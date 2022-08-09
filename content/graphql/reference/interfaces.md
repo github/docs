@@ -4,10 +4,10 @@ redirect_from:
   - /v4/interface
   - /v4/reference/interface
 versions:
-  fpt: '*'
-  ghec: '*'
-  ghes: '*'
-  ghae: '*'
+  fpt: "*"
+  ghec: "*"
+  ghes: "*"
+  ghae: "*"
 topics:
   - API
 ---
@@ -20,6 +20,4 @@ For example, [`Lockable`](/graphql/reference/interfaces#lockable) is an interfac
 
 For more information, see "[Implementation](/graphql/guides/introduction-to-graphql#implementation)."
 
-{% for item in graphql.schemaForCurrentVersion.interfaces %}
-  {% include graphql-interface %}
-{% endfor %}
+<!-- Content after this section is automatically generated -->

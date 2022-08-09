@@ -20,7 +20,7 @@ shortTitle: 加密机密
  
 
 
-## 关于 {% data variables.product.prodname_codespaces %} 的加密密码
+## 关于 {% data variables.product.prodname_github_codespaces %} 的加密密码
 
 您可以将要在代码空间中使用的加密密码添加到您的个人帐户。 例如，您可能想要存储和访问以下敏感信息作为加密密码。
 
@@ -41,7 +41,7 @@ shortTitle: 加密机密
 
 ### 密码的限制
 
-您最多可以为 {% data variables.product.prodname_codespaces %} 存储 100 个密钥。
+您最多可以为 {% data variables.product.prodname_github_codespaces %} 存储 100 个密钥。
 
 密码大小限于 64 KB。
 
@@ -75,6 +75,22 @@ shortTitle: 加密机密
 1. 在“Codespaces secrets（代码空间密码）”下您要删除的密码右侧，单击 **Delete（删除）**。 !["删除" 按钮](/assets/images/help/settings/codespaces-secret-delete-button.png)
 1. 阅读警告，然后单击 **OK（确定）**。 ![确认删除密码](/assets/images/help/settings/codespaces-secret-delete-warning.png)
 
+## 使用密码
+
+A secret is exported as an environment variable into the user's terminal session.
+
+  ![Displaying the value of an exported secret in the terminal](/assets/images/help/codespaces/exported-codespace-secret.png)
+
+You can use secrets in a codespace after the codespace is built and is running. For example, a secret can be used:
+
+* When launching an application from the integrated terminal or ssh session.
+* Within a dev container lifecycle script that is run after the codespace is running. For more information about dev container lifecycle scripts, see the documentation on containers.dev: [Specification](https://containers.dev/implementors/json_reference/#lifecycle-scripts).
+
+Codespace secrets cannot be used during:
+
+* Codespace build time (that is, within a Dockerfile or custom entry point).
+* Within a dev container feature. For more information, see the `features` attribute in the documentation on containers.dev: [Specification](https://containers.dev/implementors/json_reference/#general-properties).
+
 ## 延伸阅读
 
-- "[管理用于 {% data variables.product.prodname_codespaces %} 的仓库和组织的加密密钥](/codespaces/managing-codespaces-for-your-organization/managing-encrypted-secrets-for-your-repository-and-organization-for-codespaces)"
+- "[管理用于 {% data variables.product.prodname_github_codespaces %} 的仓库和组织的加密密钥](/codespaces/managing-codespaces-for-your-organization/managing-encrypted-secrets-for-your-repository-and-organization-for-github-codespaces)"

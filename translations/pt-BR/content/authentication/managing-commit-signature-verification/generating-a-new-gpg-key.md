@@ -38,7 +38,7 @@ topics:
       ```
 4. Mediante instrução, especifique o tipo de tecla que você deseja ou pressione `Enter` para aceitar o padrão.
 5. Mediante instrução, especifique o tamanho da chave que você deseja ou pressione `Enter` para aceitar o padrão. Sua chave deve ter, no mínimo, `4096` bits.
-6. Digite o prazo de validade da chave. Pressione `Enter` para estipular a seleção padrão, indicando que chave não expira.
+6. Digite o prazo de validade da chave. Pressione `Enter` para estipular a seleção padrão, indicando que chave não expira. A menos que você exija uma data de validade, recomendamos aceitar este padrão.
 7. Verifique se suas seleções estão corretas.
 8. Insira seu ID de usuário.
 
@@ -57,12 +57,12 @@ topics:
   # Prints the GPG key ID, in ASCII armor format
   ```
 11. Copie sua chave GPG, que inicia com `-----BEGIN PGP PUBLIC KEY BLOCK-----` e termina com `-----END PGP PUBLIC KEY BLOCK-----`.
-12. [Adicione a chave GPG à sua conta GitHub](/articles/adding-a-new-gpg-key-to-your-github-account).
+12. [Adicione a chave GPG à sua conta GitHub](/articles/adding-a-gpg-key-to-your-github-account).
 
 ## Leia mais
 
 * "[Verificar se há chaves GPG existentes](/articles/checking-for-existing-gpg-keys)"
-* "[Adicionar uma nova chave GPG à sua conta do GitHub](/articles/adding-a-new-gpg-key-to-your-github-account)"
+* "[Adicionar uma chave GPG à sua conta do GitHub](/articles/adding-a-gpg-key-to-your-github-account)"
 * "[Avisar o Git sobre sua chave de assinatura](/articles/telling-git-about-your-signing-key)"
 * "[Associar um e-mail à sua chave GPG](/articles/associating-an-email-with-your-gpg-key)"
 * "[Assinar commits](/articles/signing-commits)"

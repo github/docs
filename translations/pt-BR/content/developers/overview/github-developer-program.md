@@ -27,7 +27,7 @@ Excelente! Nós adoraríamos que você fizesse parte do programa. Veja como voc�
 * Use o logotipo do [Octocat ou GitHub](https://github.com/logos) para identificar que o seu produto é compatível com o GitHub
 * Publique um vídeo ou um blog no seu site sobre sua integração
 
-## Pronto para participar do Programa de Desenvolvedor do GitHub?</h3>
+## Pronto para participar do Programa de Desenvolvedor do GitHub?
 
 A associação é aberta para desenvolvedores individuais e empresas que têm:
 

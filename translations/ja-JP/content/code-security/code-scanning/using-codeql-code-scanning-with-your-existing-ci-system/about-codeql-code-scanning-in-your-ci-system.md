@@ -32,7 +32,6 @@ redirect_from:
 
 {% data reusables.code-scanning.codeql-context-for-actions-and-third-party-tools %}
 
-{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
 <!--Content for GitHub.com, GHAE next, and GHES 3.2 and onward. CodeQL CLI is the preferred method, and CodeQL runner is deprecated. -->
 
 {% data reusables.code-scanning.codeql-cli-context-for-third-party-tools %}
@@ -66,28 +65,5 @@ Since version 2.6.3, the {% data variables.product.prodname_codeql_cli %} has ha
 
 {% endif %}
 
-{% endif %}
-
 <!--Content for GHES 3.1 only. Both CodeQL CLI and CodeQL runner are available -->
-{% ifversion ghes < 3.2 %}
-You add the {% data variables.product.prodname_codeql_cli %} or the {% data variables.product.prodname_codeql_runner %} to your third-party system, then call the tool to analyze code and upload the SARIF results to {% data variables.product.product_name %}. The resulting {% data variables.product.prodname_code_scanning %} alerts are shown alongside any alerts generated within {% data variables.product.product_name %}.
 
-[{% data variables.product.prodname_codeql_cli %}](https://github.com/github/codeql-cli-binaries/releases) version 2.6.3 is available now for {% data variables.product.prodname_ghe_server %} 3.0 and later versions. For more information on migrating to the {% data variables.product.prodname_codeql_cli %}, see "[Migrating from the CodeQL runner to CodeQL CLI](/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/migrating-from-the-codeql-runner-to-codeql-cli)."
-
-{% data reusables.code-scanning.upload-sarif-ghas %}
-
-## Comparing {% data variables.product.prodname_codeql_cli %} and {% data variables.product.prodname_codeql_runner %}
-
-{% data reusables.code-scanning.what-is-codeql-cli %}
-
-The {% data variables.product.prodname_codeql_runner %} is a deprecated command-line tool that uses the {% data variables.product.prodname_codeql_cli %} to analyze code and upload the results to {% data variables.product.product_name %}. The tool mimics the analysis run natively within {% data variables.product.product_name %} using actions.
-
-{% data variables.product.prodname_codeql_cli %} 2.6.3 is a complete replacement for the runner with full feature parity. Generally, it is better to use the {% data variables.product.prodname_codeql_cli %} directly. 
-
-For more information, see "[Installing {% data variables.product.prodname_codeql_cli %} in your CI system](/code-security/secure-coding/using-codeql-code-scanning-with-your-existing-ci-system/installing-codeql-cli-in-your-ci-system)."
-
-{% data reusables.code-scanning.deprecation-codeql-runner %}
-
-For more information about the {% data variables.product.prodname_codeql_runner %}, see "[Running {% data variables.product.prodname_codeql_runner %} in your CI system](/code-security/secure-coding/running-codeql-runner-in-your-ci-system)."
-
-{% endif %}

@@ -37,9 +37,9 @@ redirect_from:
 
 首次使用其他 IDE 配置分配时，必须确保设置正确。
 
-除非使用 {% data variables.product.prodname_github_codespaces %}，否则必须为组织的 IDE 授权 OAuth 应用程序。 对于所有仓库，授予应用程序**读取**元数据、管理和代码的权限，以及**写入**问管理和代码的权限。 更多信息请参阅“[授权 OAuth 应用程序](/github/authenticating-to-github/authorizing-oauth-apps)”。
+除非使用 {% data variables.product.prodname_codespaces %}，否则必须为组织的 IDE 授权 OAuth 应用程序。 对于所有仓库，授予应用程序**读取**元数据、管理和代码的权限，以及**写入**问管理和代码的权限。 更多信息请参阅“[授权 OAuth 应用程序](/github/authenticating-to-github/authorizing-oauth-apps)”。
 
-{% data variables.product.prodname_github_codespaces %} 不需要 OAuth 应用程序，但需要启用 {% data variables.product.prodname_github_codespaces %}，以便组织能够使用 {% data variables.product.prodname_codespaces %} 配置作业。 更多信息请参阅“[将 {% data variables.product.prodname_github_codespaces %} 与 {% data variables.product.prodname_classroom %} 一起使用](/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide/using-github-codespaces-with-github-classroom#enabling-codespaces-for-your-organization)”。
+{% data variables.product.prodname_codespaces %} 不需要 OAuth 应用程序，但需要启用 {% data variables.product.prodname_codespaces %}，以便组织能够使用 {% data variables.product.prodname_codespaces %} 配置作业。 更多信息请参阅“[将 {% data variables.product.prodname_codespaces %} 与 {% data variables.product.prodname_classroom %} 一起使用](/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide/using-github-codespaces-with-github-classroom#enabling-codespaces-for-your-organization)”。
 
 ## 延伸阅读
 

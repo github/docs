@@ -103,3 +103,4 @@
 | Twilio                    | Twilio API Key                                      |
 | Typeform                  | Typeform Personal Access Token                      |
 | Valour                    | Valour Access Token                                 |
+| Zuplo                     | Zuplo Consumer API                                  |

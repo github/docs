@@ -15,7 +15,7 @@ topics:
   - Storage
 ---
 
-## About {% data variables.product.product_name %}
+## Acerca de {% data variables.product.product_name %}
 
 {% data reusables.enterprise.ghes-is-a-self-hosted-platform %} {% data reusables.enterprise.github-distributes-ghes %} Para obtener más información, consulta la sección "[Acerca de {% data variables.product.prodname_ghe_server %}](/admin/overview/about-github-enterprise-server)".
 
@@ -118,13 +118,13 @@ Si configuras la autenticación de SAML para {% data variables.product.product_l
 
 - La cuenta de usuario de Linux del `administrador` ha controlado el acceso al sistema operativo subyacente, incluido el sistema de archivos directo y el acceso a la base de datos. Un pequeño conjunto de administradores de confianza debería tener acceso a esta cuenta, a la que pueden acceder por medio de SSH. Para obtener más información, consulta "[Acceder al shell administrativo (SSH)](/admin/configuration/configuring-your-enterprise/accessing-the-administrative-shell-ssh)".
 - Las cuentas de usuario en la aplicación web de la instancia tienen acceso total a sus propios datos y a cualquier otros que los usuarios u organizaciones otorguen acceso explícitamente.
-- Site administrators in the instance's web application are user accounts that can manage high-level web application and instance settings, user and organization account settings, and repository data.
+- Los administradores de sitio en la aplicación web de la instancia son cuentas de usuario que pueden administrar ajustes de instancia y aplicación web de alto nivel, ajustes de cuenta de organización y de usuario y datos de repositorio.
 
-For more information about {% data variables.product.product_name %}'s user permissions, see "[Access permissions on {% data variables.product.prodname_dotcom %}](/get-started/learning-about-github/access-permissions-on-github)."
+Para obtener más información sobre los permisos de usuario de {% data variables.product.product_name %}, consulta la sección "[Permisos de acceso en {% data variables.product.prodname_dotcom %}](/get-started/learning-about-github/access-permissions-on-github)".
 
 ### Autenticación
 
-{% data variables.product.product_name %} provides four authentication methods.
+{% data variables.product.product_name %} proporciona cuatro métodos de autenticación.
 
 - La autenticación de claves públicas SSH proporciona acceso del repositorio usando Git y el shell administrativo. Para obtener más información, consulta "[Acerca de SSH](/authentication/connecting-to-github-with-ssh/about-ssh)" y "[Acceder al shell administrativo (SSH)](/admin/configuration/configuring-your-enterprise/accessing-the-administrative-shell-ssh)."
 - El nombre de usuario y la autenticación de contraseña con cookies HTTP proporciona acceso a la aplicación web y la gestión de sesiones, con autenticación opcional de dos factores (2FA). Para obtener más información, consulta ña sección "[Utilizar la autenticación integrada](/admin/identity-and-access-management/authenticating-users-for-your-github-enterprise-server-instance/using-built-in-authentication)".
@@ -133,7 +133,7 @@ For more information about {% data variables.product.product_name %}'s user perm
 
 ### Auditoría y registro de acceso
 
-{% data variables.product.product_name %} stores both traditional operating system and application logs. The application also writes detailed auditing and security logs, which {% data variables.product.product_name %} stores permanently. Puedes reenviar ambos tipos de bitácoras en tiempo real a varios destinos a través del protocolo `syslog-ng`. For more information, see "[About the audit log for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/about-the-audit-log-for-your-enterprise)" and "[Log forwarding](/admin/monitoring-activity-in-your-enterprise/exploring-user-activity/log-forwarding)."
+{% data variables.product.product_name %} almacena tanto sistemas operativos tradicionales como bitácoras de aplicación. La aplicación también escribe bitácoras de seguridad y de auditoría detalladas, las cuales {% data variables.product.product_name %} almacena premanentemente. Puedes reenviar ambos tipos de bitácoras en tiempo real a varios destinos a través del protocolo `syslog-ng`. Para obtener más información, consulta las secciones "[Acerca de la bitácora de auditoría para tu empresa](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/about-the-audit-log-for-your-enterprise)" y "[Reenvío de bitácoras](/admin/monitoring-activity-in-your-enterprise/exploring-user-activity/log-forwarding)".
 
 Los registros de acceso y de auditoría incluyen información como la siguiente.
 
@@ -150,11 +150,11 @@ Los registros de acceso y de auditoría incluyen información como la siguiente.
 - Eventos push de repositorio, permisos de acceso, transferencias y renombres
 - Cambios de membresía de la organización, incluida la creación y la destrucción de equipo
 
-## Open source dependencies for {% data variables.product.product_name %}
+## Dependencias de código abierto para {% data variables.product.product_name %}
 
-You can see a complete list of dependencies in your instance's version of {% data variables.product.product_name %}, as well as each project's license, at `http(s)://HOSTNAME/site/credits`.
+Puedes ver una lista completa de dependencias en la versión de {% data variables.product.product_name %} de tu instancia, así como la licencia de cada proyecto, en `http(s)://HOSTNAME/site/credits`.
 
-Tarballs with a full list of dependencies and associated metadata are available on your instance.
+Las tarballs con una lista completa de dependencias y los metadatos asociados están disponibles en tu instancia.
 
 - Para conocer las dependencias comunes a todas las plataformas, ingresa en `/usr/local/share/enterprise/dependencies-<GHE version>-base.tar.gz`.
 - Para conocer las dependencias específicas de una plataforma, ingresa en `/usr/local/share/enterprise/dependencies-<GHE version>-<platform>.tar.gz`.

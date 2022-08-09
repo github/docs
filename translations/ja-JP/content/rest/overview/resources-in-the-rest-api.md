@@ -16,18 +16,6 @@ topics:
 
 公式の {% data variables.product.product_name %} REST API を構成するリソースについて説明しています。 ご不明な点やご要望がございましたら、{% data variables.contact.contact_support %} までご連絡ください。
 
-## 最新バージョン
-
-デフォルトでは、`{% data variables.product.api_url_code %}` へのすべてのリクエストが REST API の **v3** [バージョン](/developers/overview/about-githubs-apis)を受け取ります。 [`Accept` ヘッダを介してこのバージョンを明示的にリクエストする](/rest/overview/media-types#request-specific-version)ことをお勧めします。
-
-    Accept: application/vnd.github.v3+json
-
-{% ifversion fpt or ghec %}
-
-For information about GitHub's GraphQL API, see the [documentation]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql). GraphQL への移行についての情報は、「[REST から移行する]({% ifversion ghec%}/free-pro-team@latest{% endif %}/graphql/guides/migrating-from-rest-to-graphql)」を参照してください。
-
-{% endif %}
-
 ## スキーマ
 
 {% ifversion fpt or ghec %}すべての API アクセスは HTTPS 経由で行われ、{% else %}API は{% endif %} `{% data variables.product.api_url_code %}` からアクセスされます。  すべてのデータは
@@ -177,7 +165,7 @@ $ curl {% ifversion fpt or ghae or ghec %}
 
 ## GraphQL グローバルノード ID
 
-REST API を介して `node_id` を検索し、それらを GraphQL 操作で使用する方法について詳しくは、「[グローバルノード ID を使用する]({% ifversion ghec%}/free-pro-team@latest{% endif %}/graphql/guides/using-global-node-ids)」のガイドを参照してください。
+REST API を介して `node_id` を検索し、それらを GraphQL 操作で使用する方法について詳しくは、「[グローバルノード ID を使用する](/graphql/guides/using-global-node-ids)」のガイドを参照してください。
 
 ## クライアントエラー
 
@@ -227,7 +215,7 @@ REST API を介して `node_id` を検索し、それらを GraphQL 操作で使
 
 ## HTTP リダイレクト
 
-API v3 は、必要に応じて HTTP リダイレクトを使用します。 クライアントは、リクエストがリダイレクトされる可能性があることを想定する必要があります。 HTTP リダイレクトの受信はエラー*ではなく*、クライアントはそのリダイレクトに従う必要があります。 リダイレクトのレスポンスには、クライアントがリクエストを繰り返す必要があるリソースの URI を含む `Location` ヘッダフィールドがあります。
+{% data variables.product.product_name %} REST APIは、適切な場合はHTTPリダイレクトを使用します。 クライアントは、リクエストがリダイレクトされる可能性があることを想定する必要があります。 HTTP リダイレクトの受信はエラー*ではなく*、クライアントはそのリダイレクトに従う必要があります。 リダイレクトのレスポンスには、クライアントがリクエストを繰り返す必要があるリソースの URI を含む `Location` ヘッダフィールドがあります。
 
 | ステータスコード    | 説明                                                                                                                                       |
 | ----------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
@@ -238,7 +226,7 @@ API v3 は、必要に応じて HTTP リダイレクトを使用します。 ク
 
 ## HTTP メソッド
 
-API v3 は、可能な限り各アクションに適切な HTTPメソッドを使用しようとします。
+可能な場合、{% data variables.product.product_name %} REST APIはそれぞれのアクションに対して適切なHTTPメソッドを使うように努めます。
 
 | メソッド     | 説明                                                                                                                            |
 | -------- | ----------------------------------------------------------------------------------------------------------------------------- |
@@ -298,7 +286,7 @@ _この例は、読みやすいように改行されています。_
 
     Link: <{% data variables.product.api_url_code %}/orgs/ORG/audit-log?after=MTYwMTkxOTU5NjQxM3xZbGI4VE5EZ1dvZTlla09uWjhoZFpR&before=>; rel="next",
 
-この `Link` レスポンスヘッダには、1 つ以上の[ハイパーメディア](/rest#hypermedia)リンク関係が含まれています。その一部には、[URI テンプレート](https://datatracker.ietf.org/doc/html/rfc6570)としての拡張が必要な場合があります。
+この `Link` レスポンスヘッダには、1 つ以上の[ハイパーメディア](/rest#hypermedia)リンク関係が含まれています。その一部は、[URI テンプレート](https://datatracker.ietf.org/doc/html/rfc6570)としての拡張が必要な場合があります。
 
 使用可能な `rel` の値は以下のとおりです。
 
@@ -308,6 +296,18 @@ _この例は、読みやすいように改行されています。_
 | `last`  | 結果の最後のページのリンク関係。  |
 | `first` | 結果の最初のページのリンク関係。  |
 | `prev`  | 結果の直前のページのリンク関係。  |
+
+## タイムアウト
+
+If {% data variables.product.prodname_dotcom %} takes more than 10 seconds to process an API request, {% data variables.product.prodname_dotcom %} will terminate the request and you will receive a timeout response like this:
+
+```json
+{
+    "message": "Server Error"
+}
+```
+
+{% data variables.product.product_name %} reserves the right to change the timeout window to protect the speed and reliability of the API.
 
 ## レート制限
 
@@ -367,6 +367,7 @@ $ curl -I {% data variables.product.api_url_pre %}/users/octocat
 > Date: Mon, 01 Jul 2013 17:27:06 GMT
 > x-ratelimit-limit: 60
 > x-ratelimit-remaining: 56
+> x-ratelimit-used: 4
 > x-ratelimit-reset: 1372700873
 ```
 
@@ -374,6 +375,7 @@ $ curl -I {% data variables.product.api_url_pre %}/users/octocat
 | ----------------------- | ----------------------------------------------------------------------------- |
 | `x-ratelimit-limit`     | 1 時間あたりのリクエスト数の上限。                                                            |
 | `x-ratelimit-remaining` | 現在のレート制限ウィンドウに残っているリクエストの数。                                                   |
+| `x-ratelimit-used`      | 現在のレート制限ウィンドウ内で発行したリクエスト数。                                                    |
 | `x-ratelimit-reset`     | 現在のレート制限ウィンドウが [UTC エポック秒](http://en.wikipedia.org/wiki/Unix_time)でリセットされる時刻。 |
 
 時刻に別の形式を使用する必要がある場合は、最新のプログラミング言語で作業を完了できます。 たとえば、Web ブラウザでコンソールを開くと、リセット時刻を JavaScript の Date オブジェクトとして簡単に取得できます。
@@ -390,6 +392,7 @@ new Date(1372700873 * 1000)
 > Date: Tue, 20 Aug 2013 14:50:41 GMT
 > x-ratelimit-limit: 60
 > x-ratelimit-remaining: 0
+> x-ratelimit-used: 60
 > x-ratelimit-reset: 1377013266
 
 > {
@@ -408,6 +411,7 @@ $ curl -u my_client_id:my_client_secret -I {% data variables.product.api_url_pre
 > Date: Mon, 01 Jul 2013 17:27:06 GMT
 > x-ratelimit-limit: 5000
 > x-ratelimit-remaining: 4966
+> x-ratelimit-used: 34
 > x-ratelimit-reset: 1372700873
 ```
 
@@ -651,4 +655,3 @@ $ curl -H "Time-Zone: Europe/Amsterdam" -X POST {% data variables.product.api_ur
 [uri]: https://github.com/hannesg/uri_template
 
 [pagination-guide]: /guides/traversing-with-pagination
-

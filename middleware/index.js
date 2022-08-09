@@ -14,7 +14,6 @@ import cookieParser from './cookie-parser.js'
 import csrf from './csrf.js'
 import handleCsrfErrors from './handle-csrf-errors.js'
 import { setDefaultFastlySurrogateKey } from './set-fastly-surrogate-key.js'
-import setFastlyCacheHeaders from './set-fastly-cache-headers.js'
 import reqUtils from './req-utils.js'
 import recordRedirect from './record-redirect.js'
 import handleErrors from './handle-errors.js'
@@ -28,7 +27,7 @@ import handleRedirects from './redirects/handle-redirects.js'
 import findPage from './find-page.js'
 import blockRobots from './block-robots.js'
 import archivedEnterpriseVersionsAssets from './archived-enterprise-versions-assets.js'
-import events from './events.js'
+import api from './api/index.js'
 import search from './search.js'
 import healthz from './healthz.js'
 import anchorRedirect from './anchor-redirect.js'
@@ -41,7 +40,6 @@ import categoriesForSupport from './categories-for-support.js'
 import triggerError from './trigger-error.js'
 import releaseNotes from './contextualizers/release-notes.js'
 import whatsNewChangelog from './contextualizers/whats-new-changelog.js'
-import graphQL from './contextualizers/graphql.js'
 import webhooks from './contextualizers/webhooks.js'
 import layout from './contextualizers/layout.js'
 import currentProductTree from './contextualizers/current-product-tree.js'
@@ -57,8 +55,6 @@ import assetPreprocessing from './asset-preprocessing.js'
 import archivedAssetRedirects from './archived-asset-redirects.js'
 import favicons from './favicons.js'
 import setStaticAssetCaching from './static-asset-caching.js'
-import cacheFullRendering from './cache-full-rendering.js'
-import protect from './overload-protection.js'
 import fastHead from './fast-head.js'
 import fastlyCacheTest from './fastly-cache-test.js'
 import fastRootRedirect from './fast-root-redirect.js'
@@ -66,8 +62,13 @@ import trailingSlashes from './trailing-slashes.js'
 import fastlyBehavior from './fastly-behavior.js'
 
 const { DEPLOYMENT_ENV, NODE_ENV } = process.env
-const isAzureDeployment = DEPLOYMENT_ENV === 'azure'
 const isTest = NODE_ENV === 'test' || process.env.GITHUB_ACTIONS === 'true'
+// By default, logging each request (with morgan), is on. And by default
+// it's off if you're in a production environment or running automated tests.
+// But if you set the env var, that takes precedence.
+const ENABLE_DEV_LOGGING = JSON.parse(
+  process.env.ENABLE_DEV_LOGGING || !(DEPLOYMENT_ENV === 'azure' || isTest)
+)
 
 const ENABLE_FASTLY_TESTING = JSON.parse(process.env.ENABLE_FASTLY_TESTING || 'false')
 
@@ -98,18 +99,8 @@ export default function (app) {
   //
   app.set('trust proxy', true)
 
-  // *** Overload Protection ***
-  // Only used in production because our tests can overload the server
-  if (
-    process.env.NODE_ENV === 'production' &&
-    !JSON.parse(process.env.DISABLE_OVERLOAD_PROTECTION || 'false')
-  ) {
-    app.use(protect)
-  }
-
   // *** Request logging ***
-  // Not enabled in Azure deployment because the request information is logged via another layer of the stack
-  if (!isAzureDeployment) {
+  if (ENABLE_DEV_LOGGING) {
     app.use(morgan('dev'))
   }
 
@@ -245,8 +236,8 @@ export default function (app) {
   app.use(haltOnDroppedConnection)
 
   // *** Rendering, 2xx responses ***
-  app.use('/events', instrument(events, './events'))
-  app.use('/search', instrument(search, './search'))
+  app.use('/api', instrument(api, './api'))
+  app.use('/search', instrument(search, './search')) // The old search API
   app.use('/healthz', instrument(healthz, './healthz'))
   app.use('/anchor-redirect', instrument(anchorRedirect, './anchor-redirect'))
   app.get('/_ip', instrument(remoteIP, './remoteIP'))
@@ -273,13 +264,8 @@ export default function (app) {
   // full page rendering.
   app.head('/*', fastHead)
 
-  // For performance, this is before contextualizers if, on a cache hit,
-  // we can't reuse a rendered response without having to contextualize.
-  app.get('/*', asyncMiddleware(instrument(cacheFullRendering, './cache-full-rendering')))
-
   // *** Preparation for render-page: contextualizers ***
   app.use(asyncMiddleware(instrument(releaseNotes, './contextualizers/release-notes')))
-  app.use(instrument(graphQL, './contextualizers/graphql'))
   app.use(instrument(webhooks, './contextualizers/webhooks'))
   app.use(asyncMiddleware(instrument(whatsNewChangelog, './contextualizers/whats-new-changelog')))
   app.use(instrument(layout, './contextualizers/layout'))
@@ -298,9 +284,6 @@ export default function (app) {
     // make any changes to the following line:
     app.use('/fastly-cache-test', fastlyCacheTest)
   }
-
-  // *** Headers for pages only ***
-  app.use(setFastlyCacheHeaders)
 
   // handle serving NextJS bundled code (/_next/*)
   app.use(instrument(next, './next'))

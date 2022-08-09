@@ -1,10 +1,9 @@
 ---
 title: 主持讨论
-intro: 您可以通过将评论标记为答案、锁定或解锁讨论、将议题转换为讨论，以及编辑或删除评论、讨论和不符合社区行为准则的类别，以促进健康的协作。
+intro: '您可以通过将评论标记为答案、锁定或解锁讨论、将议题转换为讨论，以及编辑或删除评论、讨论和不符合{% ifversion fpt or ghec %} 社区行为准则{% elsif ghes > 3.5 %} 组织的参与指南{% endif %} 的类别，以促进健康的协作。'
 permissions: People with triage access to a repository can moderate discussions in the repository. People with triage access to the source repository for organization discussions can moderate discussions in the organization.
 versions:
-  fpt: '*'
-  ghec: '*'
+  feature: discussions
 ---
 
 

@@ -72,7 +72,7 @@ jobs:
         run: .github/actions-scripts/prune-for-preview-env.sh
 
       - name: 'Build and push image'
-        uses: docker/build-push-action@7f9d37fa544684fb73bfe4835ed7214c255ce02b
+        uses: docker/build-push-action@1cb9d22b932e4832bb29793b7777ec860fc1cde0
         with:
           context: .
           push: true

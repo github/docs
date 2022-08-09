@@ -12,3 +12,7 @@
 .statusTable {
   table-layout: fixed !important;
 }
+
+.codeBlock code {
+  word-break: break-all;
+}

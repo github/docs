@@ -43,8 +43,7 @@ topics:
 ブランチ保護ルールごとに、次の設定を有効にするか無効にするかを選択できます。
 - [マージ前に Pull Request レビュー必須](#require-pull-request-reviews-before-merging)
 - [マージ前にステータスチェック必須](#require-status-checks-before-merging)
-{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
-- [Require conversation resolution before merging](#require-conversation-resolution-before-merging){% endif %}
+- [Require conversation resolution before merging](#require-conversation-resolution-before-merging)
 - [署名済みコミットの必須化](#require-signed-commits)
 - [直線状の履歴必須](#require-linear-history)
 {% ifversion fpt or ghec %}
@@ -103,11 +102,9 @@ Any person or integration with write permissions to a repository can set the sta
 
 トラブルシューティング情報については、「[必須ステータスチェックのトラブルシューティング](/github/administering-a-repository/troubleshooting-required-status-checks)」を参照してください。
 
-{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
 ### Require conversation resolution before merging
 
 Requires all comments on the pull request to be resolved before it can be merged to a protected branch. This ensures that all comments are addressed or acknowledged before merge.
-{% endif %}
 
 ### 署名済みコミットの必須化
 

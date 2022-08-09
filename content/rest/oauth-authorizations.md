@@ -1,9 +1,7 @@
 ---
 title: OAuth authorizations
-intro: 'The OAuth authorizations lets you manage the access OAuth applications have to your account.'
+intro: The OAuth authorizations lets you manage the access OAuth applications have to your account.
 versions:
-  fpt: '*'
-  ghec: '*'
   ghes: '*'
 topics:
   - API

@@ -14,12 +14,6 @@ topics:
   - Security
 ---
 
-{% note %}
-
-**Note:** Display of IP addresses in the enterprise audit log is currently in public beta and is subject to change.
-
-{% endnote %}
-
 ## About display of IP addresses in the audit log
 
 By default, {% data variables.product.product_name %} does not display the source IP address for events in your enterprise's audit log. Optionally, to ensure compliance and respond to threats, you can display the full IP address associated with the actor responsible for each event. Actors are typically users, but can also be apps or integrations.
@@ -55,4 +49,4 @@ If members of your enterprise access {% data variables.product.product_location 
    ![Screenshot of checkbox to enable display of IP addresses in audit logs](/assets/images/help/enterprises/audit-log-enable-source-ip-disclosure-checkbox.png)
 1. Haz clic en **Save ** (guardar).
 
-After you enable the feature, you can access the audit log to view events that include IP addresses. For more information, see "[Accessing the audit log for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/accessing-the-audit-log-for-your-enterprise)."
+After you enable the feature, you can access the audit log to view events that include IP addresses. Para obtener más información, consulta la sección "[Acceder a la bitácora de auditoría de tu empresa](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/accessing-the-audit-log-for-your-enterprise)".

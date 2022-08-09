@@ -69,6 +69,8 @@ Las opciones de `build-push-action` que se requieren para Docker Hub son:
 ```yaml{:copy}
 {% data reusables.actions.actions-not-certified-by-github-comment %}
 
+{% data reusables.actions.actions-use-sha-pinning-comment %}
+
 name: Publish Docker image
 
 on:
@@ -142,8 +144,11 @@ Las opciones de `build-push-action` requeridas para el {% data variables.product
 El flujo de trabajo anterior se activa mediante una subida a la rama "release". Verifica el repositorio de GitHub y utiliza la `login-action` para ingresar en el {% data variables.product.prodname_container_registry %}. Luego extrae las etiquetas y marcas de la imagen de Docker. Finalmente, utiliza la acción `build-push-action` para crear la imagen y publicarla en el {% data variables.product.prodname_container_registry %}.
 
 {% else %}
+
 ```yaml{:copy}
 {% data reusables.actions.actions-not-certified-by-github-comment %}
+
+{% data reusables.actions.actions-use-sha-pinning-comment %}
 
 name: Publish Docker image
 
@@ -153,10 +158,10 @@ on:
 jobs:
   push_to_registry:
     name: Push Docker image to GitHub Packages
-    runs-on: ubuntu-latest{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
+    runs-on: ubuntu-latest
     permissions:
       packages: write
-      contents: read{% endif %}
+      contents: read
     steps:
       - name: Check out the repo
         uses: {% data reusables.actions.action-checkout %}
@@ -194,6 +199,8 @@ El siguiente flujo de trabajo de ejemplo utiliza los pasos de las secciones ante
 ```yaml{:copy}
 {% data reusables.actions.actions-not-certified-by-github-comment %}
 
+{% data reusables.actions.actions-use-sha-pinning-comment %}
+
 name: Publish Docker image
 
 on:
@@ -203,10 +210,10 @@ on:
 jobs:
   push_to_registries:
     name: Push Docker image to multiple registries
-    runs-on: {% ifversion ghes %}[self-hosted]{% else %}ubuntu-latest{% endif %}{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
+    runs-on: {% ifversion ghes %}[self-hosted]{% else %}ubuntu-latest{% endif %}
     permissions:
       packages: write
-      contents: read{% endif %}
+      contents: read
     steps:
       - name: Check out the repo
         uses: {% data reusables.actions.action-checkout %}

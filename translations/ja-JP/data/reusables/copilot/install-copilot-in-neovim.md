@@ -1,0 +1,2 @@
+1. {% data variables.product.prodname_copilot %}をNeovimで使うには、{% data variables.product.prodname_copilot %}プラグインをインストールしてください。 プラグインは、プラグインマネージャーから、もしくは直接にインストールできます。
+   - vim-plugあるいはpacker.nvimのようなプラグインマネージャーを使っているなら、そのプラグインマネージャーを使って`github/copilot.vim`をインストールしてください。 詳しい情報についてはプラグインマネージャーのドキュメンテーションを参照してください。 たとえば[vim-plug](https://github.com/junegunn/vim-plug)あるいは[packer.nvim](https://github.com/wbthomason/packer.nvim)のドキュメンテーションが参照できます。
