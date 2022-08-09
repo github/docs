@@ -1,5 +1,5 @@
-{% ifversion fpt %} 
-1. If your {% data variables.product.prodname_pages %} site is built from a public repository, it is built and deployed with a {% data variables.product.prodname_actions %} workflow run unless you've configured your {% data variables.product.prodname_pages %} site to use a different CI tool. For more information about how to view the workflow status, see "[Viewing workflow run history](/actions/monitoring-and-troubleshooting-workflows/viewing-workflow-run-history)."
+{% ifversion fpt %}
+1. Unless your {% data variables.product.prodname_pages %} site is built from a private or internal repository and published from a branch, your site is built and deployed with a {% data variables.product.prodname_actions %} workflow. 有关如何查看工作流程状态的详细信息，请参阅“[查看工作流程运行历史记录](/actions/monitoring-and-troubleshooting-workflows/viewing-workflow-run-history)”。
 
 {% note %}
 

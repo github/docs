@@ -66,7 +66,7 @@ export default function handleRedirects(req, res, next) {
     // But for example, a `/authentication/connecting-to-github-with-ssh`
     // needs to become `/en/authentication/connecting-to-github-with-ssh`
     const possibleRedirectTo = `/en${req.path}`
-    if (possibleRedirectTo in req.context.pages || isDeprecatedAdminReleaseNotes(req.path)) {
+    if (possibleRedirectTo in req.context.pages || isDeprecatedVersion(req.path)) {
       const language = getLanguage(req)
 
       // Note, it's important to use `req.url` here and not `req.path`
@@ -84,7 +84,7 @@ export default function handleRedirects(req, res, next) {
 
   // do not redirect if the redirected page can't be found
   if (
-    !(req.context.pages[removeQueryParams(redirect)] || isDeprecatedAdminReleaseNotes(req.path)) &&
+    !(req.context.pages[removeQueryParams(redirect)] || isDeprecatedVersion(req.path)) &&
     !redirect.includes('://')
   ) {
     // display error on the page in development, but not in production
@@ -139,18 +139,17 @@ function removeQueryParams(redirect) {
   return new URL(redirect, 'https://docs.github.com').pathname
 }
 
-function isDeprecatedAdminReleaseNotes(path) {
+function isDeprecatedVersion(path) {
   // When we rewrote how redirects work, from a lookup model to a
   // functional model, the enterprise-server releases that got
   // deprecated since then fall between the cracks. Especially
   // for custom NextJS page-like pages like /admin/release-notes
   // These URLs don't come from any remaining .json lookup file
   // and they're not active pages either (e.g. req.context.pages)
-  if (path.includes('admin/release-notes')) {
-    for (const version of deprecatedWithFunctionalRedirects) {
-      if (path.includes(`enterprise-server@${version}`)) {
-        return true
-      }
+  const split = path.split('/')
+  for (const version of deprecatedWithFunctionalRedirects) {
+    if (split.includes(`enterprise-server@${version}`)) {
+      return true
     }
   }
   return false

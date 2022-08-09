@@ -18,19 +18,15 @@ redirect_from:
 
 默认情况下，每当您将更改推送到存储库时，{% data variables.product.prodname_github_codespaces %} 都会使用 {% data variables.product.prodname_actions %} 自动更新您的预构建。
 
-当预构建可用于存储库的特定分支以及您所在的地区时，则创建代码空间时在计算机类型选项列表中会看到“{% octicon "zap" aria-label="The zap icon" %} 预构建就绪”标签。 如果仍在创建预构建，您将看到“{% octicon "history" aria-label="The history icon" %} 预构建正在进行中”标签。 更多信息请参阅“[创建代码空间](/codespaces/developing-in-codespaces/creating-a-codespace#creating-a-codespace)”。
+When prebuilds are available for a particular branch of a repository, a particular dev container configuration file, and for your region, you'll see the "{% octicon "zap" aria-label="The zap icon" %} Prebuild ready" label in the list of machine type options when you create a codespace. 如果仍在创建预构建，您将看到“{% octicon "history" aria-label="The history icon" %} 预构建正在进行中”标签。 更多信息请参阅“[创建代码空间](/codespaces/developing-in-codespaces/creating-a-codespace#creating-a-codespace)”。
 
 ![用于选择计算机类型的对话框](/assets/images/help/codespaces/choose-custom-machine-type.png)
 
-{% note %}
-
-{% data reusables.codespaces.prebuilds-not-available %}
-
-{% endnote %}
-
 ## 关于 {% data variables.product.prodname_codespaces %} 预构建的计费
 
-{% data reusables.codespaces.billing-for-prebuilds %} 有关 {% data variables.product.prodname_codespaces %} 存储定价的详细信息，请参阅“[关于 {% data variables.product.prodname_github_codespaces %} 的计费](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces)”。
+{% data reusables.codespaces.billing-for-prebuilds-default %} 有关 {% data variables.product.prodname_codespaces %} 存储定价的详细信息，请参阅“[关于 {% data variables.product.prodname_github_codespaces %} 的计费](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces)”。
+
+{% data reusables.codespaces.billing-for-prebuilds-reducing %}
 
 使用预构建创建的代码空间的费用与常规代码空间相同。
 

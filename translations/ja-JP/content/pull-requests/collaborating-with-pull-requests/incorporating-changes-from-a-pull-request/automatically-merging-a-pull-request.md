@@ -24,7 +24,7 @@ shortTitle: Merge PR automatically
 
 プルリクエストの自動マージを有効にした後、リポジトリへの書き込み権限を持たないユーザがプルリクエストの head ブランチに新しい変更をプッシュするか、プルリクエストのベースブランチを切り替えると、自動マージは無効になります。 For example, if a maintainer enables auto-merge for a pull request from a fork, auto-merge will be disabled after a contributor pushes new changes to the pull request.
 
-You can provide feedback about auto-merge through a [{% data variables.product.product_name %} feedback discussion](https://github.com/github/feedback/discussions/categories/pull-requests-feedback).
+You can provide feedback about auto-merge through a [{% data variables.product.prodname_github_community %} discussion](https://github.com/orgs/community/discussions/categories/pull-requests).
 
 ## 自動マージの有効化
 

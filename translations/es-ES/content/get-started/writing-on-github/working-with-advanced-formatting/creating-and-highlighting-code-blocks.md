@@ -70,7 +70,7 @@ Usamos [Lingüista](https://github.com/github/linguist) para realizar la detecci
 {% ifversion mermaid %}
 ## Crear diagramas
 
-También puedes usar bloques de código para crear diagramas en el lenguaje de marcado. GitHub es compatible con la sintaxis de Mermaid, geoJSON, topoJSON y ASCII STL. Para obtener más información, consulta la sección "[Crear diagramas](/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams)".
+También puedes usar bloques de código para crear diagramas en el lenguaje de marcado. GitHub es compatible con la sintaxis de Mermaid, GeoJSON, TopoJSON y ASCII STL. Para obtener más información, consulta la sección "[Crear diagramas](/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams)".
 
 {% endif %}
 ## Leer más

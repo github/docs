@@ -185,37 +185,37 @@ sections:
         - |
           GitHub Advanced Security 客户现在可以通过 UI 和 API 为存档的存储库启用机密扫描。更多信息请参阅 REST API 文档中的“[关于机密扫描](/code-security/secret-scanning/about-secret-scanning#about-secret-scanning-for-private-repositories)”、“[关于存档的存储库](/repositories/archiving-a-github-repository/archiving-repositories)”和“[Repositories](/rest/repos/repos#update-a-repository)”。
     - 
-      heading: Secret scanning webhooks for alert locations
+      heading: 警报位置的机密扫描 web 挂钩
       notes:
         - |
-          GitHub Advanced Security customers using secret scanning can now opt to receive a webhook each time a secret is detected in a new location. The `secret_scanning_alert_location` webhook event includes location details, like the commit SHA, and the associated alert for the detection. A location is created for every new file path containing the detected secret. For more information, see "[Webhook events and payloads](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#secret_scanning_alert_location)."
+          使用机密扫描的 GitHub Advanced Security 客户现在可以选择在新位置检测到机密时接收 web 挂钩。“secret_scanning_alert_location”web 挂钩事件包括位置详细信息（如提交 SHA）和检测的关联警报。将为包含检测到的机密的每个新文件路径创建一个位置。更多信息请参阅“[web 挂钩事件和有效负载](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#secret_scanning_alert_location)”。
     - 
-      heading: View Dependabot alerts across an organization
+      heading: 查看整个组织的 Dependabot 警报
       notes:
         - |
-          GitHub Advanced Security customers can now view Dependabot alerts in in an organization's **Security** tab. This view is available to organization owners and members of teams with the [security manager role](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-security-managers-in-your-organization). For more information, see "[About the security overview](/code-security/security-overview/about-the-security-overview)."
+          GitHub Advanced Security 客户现在可以在组织的“**Security（安全）**”选项卡中查看 Dependabot 警报。此视图可供具有 [安全管理员角色](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-security-managers-in-your-organization) 的组织所有者和团队成员使用。更多信息请参阅“[关于安全性概述](/code-security/security-overview/about-the-security-overview)”。
     - 
-      heading: Configure permissions for Dependabot alerts with custom repository roles
+      heading: 使用自定义存储库角色配置 Dependabot 警报的权限
       notes:
         - |
-          You can now configure two new permissions for Dependabot alerts when managing custom repository roles.
+          现在，您可以在管理自定义存储库角色时为 Dependabot 警报配置两个新权限。
 
-          - View Dependabot alerts
-          - Dismiss or reopen Dependabot alerts
+          -
+          查看 Dependabot 警报 -
 
-          For more information, see  "[Managing custom repository roles for an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization)."
+          关闭或重新打开 Dependabot 警报 有关更多信息，请参阅“[管理组织的自定义存储库角色](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization)”。
     - 
-      heading: Reopen dismissed Dependabot alerts
+      heading: 重新打开忽略的 Dependabot 警报
       notes:
         - |
-          You can now reopen dismissed Dependabot alerts through the UI page for a closed alert. This does not affect Dependabot pull requests or the GraphQL API. For more information, see "[About Dependabot alerts](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)."
+          现在，您可以通过已关闭警报的 UI 页面重新打开已消除的 Dependabot 警报。这不会影响 Dependabot 拉取请求或 GraphQL API。更多信息请参阅“[关于 Dependabot 警报](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)”。
     - 
-      heading: Pub support for Dependabot version updates is in public beta
+      heading: 对 Dependabot 版本更新的发布支持已公开测试
       notes:
         - |
-          Users of Dependabot version updates can now proactively update dependencies for Flutter or Dart projects that use the Pub package manager.
+          Dependabot 版本更新的用户现在可以主动更新使用 Pub 包管理器的 Flutter 或 Dart 项目的依赖项。
 
-          To test [version updates](/code-security/dependabot/dependabot-version-updates/about-dependabot-version-updates) on your own Dart or Flutter repository, add the following configuration file in <code>[.github/dependabot.yaml](/code-security/dependabot/dependabot-version-updates/configuring-dependabot-version-updates#enabling-dependabot-version-updates)</code>. Note the `package-ecosystem: "pub"` and `enable-beta-ecosystems: true` flags.
+          要在您自己的 Dart 或 Flutter 存储库上测试 [版本更新](/code-security/dependabot/dependabot-version-updates/about-dependabot-version-updates)，请在 <code>[.github/dependabot.yaml](/code-security/dependabot/dependabot-version-updates/configuring-dependabot-version-updates#enabling-dependabot-version-updates)</code> 中添加以下配置文件。请注意“包生态系统：”pub“和”enable-beta-ecosystems: true“标志。
           ```yaml
           version: 2
           enable-beta-ecosystems: true
@@ -226,24 +226,24 @@ sections:
                 interval: "weekly"
           ```
     - 
-      heading: See pull request associated with a repository's Dependabot alerts via GraphQL API
+      heading: 通过 GraphQL API 查看与存储库的 Dependabot 警报关联的拉取请求
       notes:
         - |
-          The new `DependabotUpdate` GraphQL object lets you view information about what happens to your repository's security updates. When GitHub Enterprise Server detects that a dependency in your repository is vulnerable, Dependabot will attempt to open a pull request to update that dependency to a non-vulnerable version. You can now see the pull request that fixes the vulnerability. In some cases, Dependabot fails to open a pull request. Previously, the error message that Dependabot generated was only visible in the "Dependabot Alerts" section of the **Security** tab. Now, if Dependabot runs into an error when trying to open a pull request for a security alert, you can determine the reason using the GraphQL API. For more information, see "[Objects](/graphql/reference/objects#dependabotupdate)" in the GraphQL API documentation.
+          新的“DependabotUpdate”GraphQL 对象允许您查看有关存储库安全更新发生的情况的信息。当 GitHub Enterprise Server 检测到存储库中的依赖项有漏洞时，Dependabot 将尝试打开拉取请求以将该依赖项更新为无漏洞的版本。现在，您可以看到修复漏洞的拉取请求。在某些情况下，Dependabot 无法打开拉取请求。以前，Dependabot 生成的错误消息仅在“安全”选项卡的“Dependabot 警报”部分可见。现在，如果 Dependabot 在尝试打开安全警报的拉取请求时遇到错误，您可以使用 GraphQL API 确定原因。更多信息请参阅 GraphQL API 文档中的“[Objects](/graphql/reference/objects#dependabotupdate)”。
     - 
-      heading: Access more information about Dependabot alerts via GraphQL API
+      heading: 通过 GraphQL API 访问有关 Dependabot 警报的更多信息
       notes:
         - |
-          You can now view fixed alerts from Dependabot with the GraphQL API. You can also access and filter by state, as well as by unique numeric identifier, and you can filter by state on the vulnerability alert object. The following fields now exist for a `RepositoryVulnerabilityAlert`.
+          现在，您可以使用 GraphQL API 查看来自 Dependabot 的固定警报。还可以按状态和唯一数字标识符进行访问和筛选，并且可以按漏洞警报对象的状态进行筛选。“RepositoryVulnerabilityAlert”的以下字段现在存在。
 
           - `number`
           - `fixed_at`
           - `fix_reason`
           - `state`
 
-          For more information, see "[Objects](/graphql/reference/objects#repositoryvulnerabilityalert)" in the GraphQL API documentation.
+          更多信息请参阅 GraphQL API 文档中的“[Objects](/graphql/reference/objects#repositoryvulnerabilityalert)”。
     - 
-      heading: Git events in the enterprise audit log
+      heading: 企业审核日志中的 Git 事件
       notes:
         - |
           The following Git-related events can now appear in the enterprise audit log. If you enable the feature and set an audit log retention period, the new events will be available for search via the UI and API, or export via JSON or CSV.
@@ -252,69 +252,69 @@ sections:
           - `git.fetch`
           - `git.push`
 
-          Due to the large number of Git events logged, we recommend you monitor your instance's file storage and review your related alert configurations. For more information, see "[Audit log events for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#git-category-actions)" and "[Monitoring storage](/admin/enterprise-management/monitoring-your-appliance/recommended-alert-thresholds#monitoring-storage)."
+          Due to the large number of Git events logged, we recommend you monitor your instance's file storage and review your related alert configurations. For more information, see "[Configuring the audit log for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/configuring-the-audit-log-for-your-enterprise#managing-git-events-in-the-audit-log)."
     - 
-      heading: Improvements to CODEOWNERS
+      heading: 对 CODEOWNERS 的改进
       notes:
         - |
-          This release includes improvements to CODEOWNERS.
+          此版本包括对 CODEOWNERS 的改进。
 
-          - Syntax errors are now surfaced when viewing a CODEOWNERS file from the web. Previously, when a line in a CODEOWNERS file had a syntax error, the error would be ignored or in some cases cause the entire CODEOWNERS file to not load. GitHub Apps and Actions can access the same list of errors using new REST and GraphQL APIs. For more information, see "[Repositories](/rest/repos/repos#list-codeowners-errors)" in the REST API documentation or "[Objects](/graphql/reference/objects#repositorycodeowners)" in the GraphQL API documentation.
-          - After someone creates a new pull request or pushes new changes to a draft pull request, any code owners that will be requested for review are now listed in the pull request under "Reviewers". This feature gives you an early look at who will be requested to review once the pull request is marked ready for review.
-          - Comments in CODEOWNERS files can now appear at the end of a line, not just on dedicated lines.
+          - 现在，从 Web 查看 CODEOWNERS 文件时会出现语法错误。以前，当 CODEOWNERS 文件中的某一行出现语法错误时，该错误将被忽略，或者在某些情况下会导致整个 CODEOWNERS 文件无法加载。GitHub 应用程序和操作可以使用新的 REST 和 GraphQL API 访问相同的错误列表。有关更多信息，请参阅 REST API 文档中的“[Repositories]（/rest/repos/repos#list-codeowners-errors）”或 GraphQL API 文档中的“[Objects](/graphql/reference/objects#repositorycodeowners)”。
+          - 在某人创建新的拉取请求或将新更改推送到草稿拉取请求后，将请求审阅的任何代码所有者现在都列在“审阅者”下的拉取请求中。此功能可让您提前了解在拉取请求标记为已准备好进行审核后，将请求审阅的人员。
+          - CODEOWNERS 文件中的注释现在可以出现在一行的末尾，而不仅仅是在专用行上。
 
-          For more information, see "[About code owners](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners)."
+          有关更多信息，请参阅“[关于代码所有者](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners)”。
     - 
-      heading: More ways to keep a pull request's topic branch up to date
+      heading: 使拉取请求的主题分支保持最新状态的更多方法
       notes:
         - |
-          The **Update branch** button on the pull request page lets you update your pull request's branch with the latest changes from the base branch. This is useful for verifying your changes are compatible with the current version of the base branch before you merge. Two enhancements now give you more ways to keep your branch up-to-date.
+          通过拉取请求页面上的**Update branch（更新分支）**按钮，您可以使用基本分支中的最新更改来更新拉取请求的分支。这对于在合并之前验证更改是否与基本分支的当前版本兼容非常有用。现在，两项增强功能为您提供了更多方法来使您的分支保持最新状态。
 
-          - When your pull request's topic branch is out of date with the base branch, you now have the option to update it by rebasing on the latest version of the base branch. Rebasing applies the changes from your branch onto the latest version of the base branch, resulting in a branch with a linear history since no merge commit is created. To update by rebasing, click the drop down menu next to the **Update Branch** button, click **Update with rebase**, and then click **Rebase branch**. Previously, **Update branch** performed a traditional merge that always resulted in a merge commit in your pull request branch. This option is still available, but now you have the choice. For more information, see "[Keeping your pull request in sync with the base branch](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/keeping-your-pull-request-in-sync-with-the-base-branch)."
+          - 当拉取请求的主题分支与基本分支一起过期时，您现在可以选择通过重新基于最新版本的基础分支来更新它。重新定基将分支中的更改应用到基本分支的最新版本，从而生成具有线性历史记录的分支，因为不会创建合并提交。若要通过变基进行更新，请单击**Update branch（更新分支）**按钮旁边的下拉菜单，单击**Update with rebase（使用变基更新）**，然后单击**Rebase branch（变基分支）**。以前，**Update branch（更新分支）**执行了传统的合并，该合并始终导致拉取请求分支中的合并提交。此选项仍然可用，但现在您可以选择。更多信息请参阅“[保持您的拉取请求与基本分支同步](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/keeping-your-pull-request-in-sync-with-the-base-branch)”。
 
-          - A new repository setting allows the **Update branch** button to always be available when a pull request's topic branch is not up to date with the base branch. Previously, this button was only available when the **Require branches to be up to date before merging** branch protection setting was enabled. People with admin or maintainer access can manage the **Always suggest updating pull request branches** setting from the **Pull Requests** section in repository settings. For more information, see "[Managing suggestions to update pull request branches](/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/managing-suggestions-to-update-pull-request-branches)."
+          - 新的存储库设置允许**Update branch（更新分支）**按钮在拉取请求的主题分支与基本分支不是最新的时始终可用。以前，仅当启用了**Require branches to be up to date before merging（要求分支在合并之前保持最新）**分支保护设置时，此按钮才可用。具有管理员或维护者访问权限的人员可以从存储库设置中的**Pull Requests（拉取请求）**部分中管理**Always suggest updating pull request branches（始终建议更新拉取请求分支）**设置。更多信息请参阅“[管理更新拉取请求分支的建议](/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/managing-suggestions-to-update-pull-request-branches)”。
     - 
-      heading: Configure custom HTTP headers for GitHub Pages sites
+      heading: 为 GitHub Pages 网站配置自定义 HTTP 标头
       notes:
         - |
-          You can now configure custom HTTP headers that apply to all GitHub Pages sites served from your GitHub Enterprise Server instance. For more information, see "[Configuring GitHub Pages for your enterprise](/admin/configuration/configuring-your-enterprise/configuring-github-pages-for-your-enterprise#configuring-github-pages-response-headers-for-your-enterprise)."
+          现在，您可以配置自定义 HTTP 标头，这些标头适用于 GitHub 企业服务器实例提供的所有 GitHub Pages 站点。更多信息请参阅“[为您的企业配置 GitHub 页面](/admin/configuration/configuring-your-enterprise/configuring-github-pages-for-your-enterprise#configuring-github-pages-response-headers-for-your-enterprise)”。
     - 
-      heading: Ignore commits in blame view
+      heading: 在追溯视图中忽略提交
       notes:
         - |
-          It's now possible to ignore revisions in the blame view by creating a _.git-blame-ignore-revs_ file in the root of your repository. For more information, see "[Viewing a file](/repositories/working-with-files/using-files/viewing-a-file#ignore-commits-in-the-blame-view)."
+          现在，通过在存储库的根目录中创建 _.git-blame-ignore-revs_ 文件，可以忽略责备视图中的修订。更多信息请参阅“[查看文件](/repositories/working-with-files/using-files/viewing-a-file#ignore-commits-in-the-blame-view)”。
     - 
-      heading: Light high contrast theme is generally available
+      heading: 浅色高对比度主题已正式发布
       notes:
         - |
-          A light high contrast theme, with greater contrast between foreground and background elements, is now generally available. For more information, see "[Managing your theme settings](/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/managing-your-theme-settings)."
+          现在，前景和背景元素之间对比度更高的浅色高对比度主题现已正式发布。更多信息请参阅“[管理您的主题设置](/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/managing-your-theme-settings)”。
     - 
       heading: 标记保护规则
       notes:
         - |
-          Repository owners can now configure tag protection rules to protect a repository's tags. Once protected by a tag protection rule, tags matching a specified name pattern can only be created and deleted by users with the Maintain or Admin role in the repository. For more information, see "[Configuring tag protection rules](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/configuring-tag-protection-rules)."
+          存储库所有者现在可以配置标签保护规则来保护存储库的标签。受标记保护规则保护后，与指定名称模式匹配的标签只能由存储库中具有“维护”或“管理员”角色的用户创建和删除。更多信息请参阅“[配置标记保护规则](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/configuring-tag-protection-rules)”。
   bugs:
     - |
-      It is now possible for GitHub Apps to upload release assets.
+      GitHub 应用程序现在可以上传发布资产。
   changes:
     - |
-      To use the device authorization flow for OAuth and GitHub Apps, you must manually enable the feature. This change reduces the likelihood of apps being used in phishing attacks against GitHub Enterprise Server users by ensuring integrators are aware of the risks and make a conscious choice to support this form of authentication. If you own or manage an OAuth App or GitHub App and you want to use the device flow, you can enable it for your app via the app's settings page. The device flow API endpoints will respond with status code `400` to apps that have not enabled this feature. For more information, see "[Authorizing OAuth Apps](/developers/apps/building-oauth-apps/authorizing-oauth-apps#device-flow)."
+      要将设备授权流用于 OAuth 和 GitHub 应用程序，必须手动启用该功能。此更改通过确保集成商了解风险并有意识地选择支持这种形式的身份验证，降低了在针对 GitHub 企业服务器用户的网络钓鱼攻击中使用应用的可能性。如果您拥有或管理 OAuth 应用程序或 GitHub 应用程序，并且想要使用设备流，则可以通过应用的设置页为您的应用程序启用它。设备流 API 端点将使用状态代码“400”响应尚未启用此功能的应用程序。更多信息请参阅“[授权 OAuth Apps](/developers/apps/building-oauth-apps/authorizing-oauth-apps#device-flow)”。
     - |
-      The code scanning alert page now always shows the alert status and information for the default branch. There is a new "Affected branches" panel in the sidebar where you can see the status of the alert in other branches. If the alert does not exist in your default branch, the alert page will show the status as "In branch" or "In pull request" for the location where the alert was last seen. This improvement makes it easier to understand the status of alerts which have been introduced into your code base. For more information, see "[About code scanning alerts](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-alerts#about-alert-details)."
+      代码扫描警报页现在始终显示默认分支的警报状态和信息。侧边栏中有一个新的“受影响的分支”面板，您可以在其中查看其他分支中的警报状态。如果默认分支中不存在警报，则警报页面将显示上次看到警报的位置的状态为“分支中”或“拉取请求中”。通过此改进，可以更轻松地了解已引入到代码库中的警报的状态。更多令牌请参阅“[关于代码扫描警报](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-alerts#about-alert-details)”。
 
-      The alert list page is not changed and can be filtered by `branch`. You can use the code scanning API to retrieve more detailed branch information for alerts. For more information, see "[Code Scanning](/rest/code-scanning)" in the REST API documentation.
+      警报列表页不会更改，可以按“分支”进行筛选。可以使用代码扫描 API 检索更详细的警报分支信息。更多信息请参阅 REST API 文档中的“[代码扫描](/rest/code-scanning)”。
     - |
-      Code scanning now shows the details of the analysis origin of an alert. If an alert has more than one analysis origin, it is shown in the "Affected branches" sidebar and in the alert timeline. You can hover over the analysis origin icon in the "Affected branches" sidebar to see the alert status in each analysis origin. If an alert only has a single analysis origin, no information about analysis origins is displayed on the alert page. These improvements will make it easier to understand your alerts. In particular, it will help you understand those that have multiple analysis origins. This is especially useful for setups with multiple analysis configurations, such as monorepos. For more information, see "[About code scanning alerts](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-alerts#about-analysis-origins)."
+      代码扫描现在显示警报的分析来源的详细信息。如果警报具有多个分析源，则会显示在“受影响的分支”边栏和警报时间线中。您可以将鼠标悬停在“受影响的分支”边栏中的分析源图标上，以查看每个分析源中的警报状态。如果警报只有一个分析源，则警报页面上不会显示有关分析源的信息。这些改进将使人们更容易理解警报。特别是，它将帮助您了解具有多个分析源的那些。这对于具有多个分析配置的设置（如单存储库）特别有用。更多令牌请参阅“[关于代码扫描警报](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-alerts#about-analysis-origins)”。
     - |
-      Lists of repositories owned by a user or organization now have an additional filter option, "Templates", making it easier to find template repositories.
+      用户或组织拥有的存储库列表现在具有附加的筛选器选项“模板”，以便更轻松地查找模板存储库。
     - |
-      GitHub Enterprise Server can display several common image formats, including PNG, JPG, GIF, PSD, and SVG, and provides several ways to compare differences between versions. Now when reviewing added or changed images in a pull request, previews of those images are shown by default. Previously, you would see a message indicating that binary files could not be shown and you would need to toggle the "Display rich diff" option. For more information, see  "[Working with non-code files](/repositories/working-with-files/using-files/working-with-non-code-files)."
+      GitHub Enterprise Server 可以显示几种常见的图像格式，包括 PNG、JPG、GIF、PSD 和 SVG，并提供多种方法来比较版本之间的差异。现在，在拉取请求中查看添加或更改的图像时，默认情况下会显示这些图像的预览。以前，您会看到一条消息，表示无法显示二进制文件，您需要切换“显示多差异”选项。更多信息请参阅“[使用非代码文件](/repositories/working-with-files/using-files/working-with-non-code-files)”。
     - |
-      New gists are now created with a default branch name of either `main` or the alternative default branch name defined in your user settings. This matches how other repositories are created on GitHub Enterprise Server. For more information, see "[About branches](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches#about-the-default-branch)" and "[Managing the default branch name for your repositories](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/managing-the-default-branch-name-for-your-repositories)."
+      现在，将使用默认分支名称“main”或用户设置中定义的备用默认分支名称创建新 gist。这与在 GitHub Enterprise Server 上创建其他存储库的方式相匹配。更多信息请参阅“[关于分支](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches#about-the-default-branch)”和“[管理存储库的默认分支名称](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/managing-the-default-branch-name-for-your-repositories)”。
     - |
-      Gists now only show the 30 most recent comments when first displayed. You can click **Load earlier comments...** to view more. This allows gists that have many comments to appear more quickly. For more information, see "[Editing and sharing content with gists](/get-started/writing-on-github/editing-and-sharing-content-with-gists)."
+      Gists 现在只在首次显示时显示 30 条最新评论。您可以单击“**加载较早的评论...**”以查看更多内容。这允许具有许多注释的要点更快地显示。更多信息请参阅“[使用 gist 编辑和共享内容](/get-started/writing-on-github/editing-and-sharing-content-with-gists)”。
     - |
-      Settings pages for users, organizations, repositories, and teams have been redesigned, grouping similar settings pages into sections for improved information architecture and discoverability. For more information, see the [GitHub changelog](https://github.blog/changelog/2022-02-02-redesign-of-githubs-settings-pages/).
+      重新设计了用户、组织、存储库和团队的设置页面，将类似的设置页面分组为多个部分，以改进信息体系结构和可发现性。更多信息请参阅 [GitHub 变更日志](https://github.blog/changelog/2022-02-02-redesign-of-githubs-settings-pages/)。
     - |
       Focusing or hovering over a label now displays the label description in a tooltip.
     - |

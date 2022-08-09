@@ -1,1 +1,1 @@
-You can choose the delivery method and frequency of notifications about {% data variables.product.prodname_dependabot_alerts %} on repositories that you are watching or where you have subscribed to notifications for security alerts.
+Puedes elegir el método y frecuencia de entrega de las notificaciones sobre las {% data variables.product.prodname_dependabot_alerts %} en los repositorios que estás observando o en donde te hayas suscrito a las notificaciones para las alertas de seguridad.

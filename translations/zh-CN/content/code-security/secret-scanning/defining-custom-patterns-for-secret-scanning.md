@@ -187,7 +187,7 @@ aAAAe9
 
    * 对于存储库或组织，显示创建自定义模式的存储库或组织的“安全和分析”设置。 更多信息请参阅“[定义仓库的自定义模式](#defining-a-custom-pattern-for-a-repository)”或“[定义组织的自定义模式](#defining-a-custom-pattern-for-an-organization)”。
    * 对于企业，在“Policies（策略）”下显示“Advanced Security（高级安全性）”区域，然后单击 **Security features（安全功能）**。  更多信息请参阅上面的“[为企业帐户定义自定义模式](#defining-a-custom-pattern-for-an-enterprise-account)”。
-{%- ifversion fpt or ghes > 3.2 or ghae %}
+{%- ifversion ghec or ghes > 3.2 or ghae %}
 1. 在要删除的自定义模式的右侧，单击 {% octicon "trash" aria-label="The trash icon" %}。
 1. 查看确认，并选择一种方法来处理与自定义模式相关的任何打开的警报。
 1. 单击 **Yes, delete this pattern（是，删除此模式）**。

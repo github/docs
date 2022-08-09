@@ -38,6 +38,8 @@ To get started quickly, add the starter workflow to the `.github/workflows` dire
 ```yaml
 {% data reusables.actions.actions-not-certified-by-github-comment %}
 
+{% data reusables.actions.actions-use-sha-pinning-comment %}
+
 name: Ruby
 
 on:
@@ -85,7 +87,7 @@ steps:
 
 ## 複数のバージョンの Ruby でのテスト
 
-複数バージョンのRubyでワークフローを実行するように、マトリクス戦略を追加できます。 For example, you can test your code against the latest patch releases of versions 3.1, 3.0, and 2.7.
+複数バージョンのRubyでワークフローを実行するように、マトリクス戦略を追加できます。 たとえば、バージョン3.1、3.0、2.7の最新のパッチリリースでコードをテストできます。
 
 {% raw %}
 ```yaml
@@ -101,6 +103,8 @@ strategy:
 
 ```yaml
 {% data reusables.actions.actions-not-certified-by-github-comment %}
+
+{% data reusables.actions.actions-use-sha-pinning-comment %}
 
 name: Ruby CI
 
@@ -206,6 +210,8 @@ steps:
 ```yaml
 {% data reusables.actions.actions-not-certified-by-github-comment %}
 
+{% data reusables.actions.actions-use-sha-pinning-comment %}
+
 name: Matrix Testing
 
 on:
@@ -239,6 +245,8 @@ jobs:
 ```yaml
 {% data reusables.actions.actions-not-certified-by-github-comment %}
 
+{% data reusables.actions.actions-use-sha-pinning-comment %}
+
 name: Linting
 
 on: [push]
@@ -264,6 +272,8 @@ CIテストにパスしたなら、Rubyパッケージを任意のパッケー�
 
 ```yaml
 {% data reusables.actions.actions-not-certified-by-github-comment %}
+
+{% data reusables.actions.actions-use-sha-pinning-comment %}
 
 name: Ruby Gem
 

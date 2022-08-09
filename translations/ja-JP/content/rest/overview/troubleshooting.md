@@ -53,16 +53,6 @@ OAuth App の場合は、[Web アプリケーションフロー](/apps/building-
 curl -H 'Authorization: token my-oauth-token' https://api.github.com/user/repos
 ```
 
-### OAuth 認証 API の呼び出し
-
-[OAuth 認証 API](/enterprise-server/rest/reference/oauth-authorizations) を呼び出して OAuth アプリの認証を管理する、あるいはアクセストークンを生成する場合は、次の例のようにします。
-
-```bash
-curl -u my_username:my_password -X POST "https://api.github.com/authorizations" -d '{"scopes":["public_repo"], "note":"my token", "client_id":"my_client_id", "client_secret":"my_client_secret"}'
-```
-
-次に、[Web アプリケーションフロー](/apps/building-oauth-apps/authorizing-oauth-apps/#web-application-flow)に切り替えて、アクセストークンを生成します。
-
 ## タイムアウト
 
 {% data variables.product.product_name %}がAPIを処理するのに10秒以上かかると、{% data variables.product.product_name %}はリクエストを終了させ、タイムアウトのレスポンスが返されます。

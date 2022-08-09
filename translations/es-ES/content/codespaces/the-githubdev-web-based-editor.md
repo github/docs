@@ -16,7 +16,7 @@ redirect_from:
 
 {% note %}
 
-**Nota:** el github.dev {% data variables.product.prodname_serverless %} se encuentra acutalmente en vista previa beta. Puedes proporcionar retroalimentación [En nuestros debates](https://github.co/browser-editor-feedback).
+**Nota:** el github.dev {% data variables.product.prodname_serverless %} se encuentra acutalmente en vista previa beta. Puedes proporcionar retroalimentación [En nuestros debates](https://github.com/community/community/discussions/categories/general).
 
 {% endnote %}
 
@@ -34,9 +34,9 @@ El {% data variables.product.prodname_serverless %} se ejecuta completamente en 
 
 Puedes abrir cualquier repositorio de {% data variables.product.prodname_dotcom %} en el {% data variables.product.prodname_serverless %} en cualquiera de las siguientes formas:
 
-- To open the repository in the same browser tab, press `.` while browsing any repository or pull request on {% data variables.product.prodname_dotcom %}.
+- Para abrir el repositorio en la misma ventana del buscador, presiona `.` al buscar en cualquier repositorio o solicitud de cambios dentro de {% data variables.product.prodname_dotcom %}.
 
-   To open the repository in a new browser tab, hold down the shift key and press `.`.
+   Para abrir el repositorio en una nueva pestaña del buscador, mantén presionada la tecla shift y presiona `.`.
 
 - Cambiando la URL de "github.com" a "github.dev".
 - Al ver un archivo, utiliza el menú desplegable junto al {% octicon "pencil" aria-label="The edit icon" %} y selecciona **Abrir en github.dev**.

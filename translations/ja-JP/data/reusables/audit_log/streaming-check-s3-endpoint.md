@@ -1,3 +1,3 @@
-1. To verify that {% data variables.product.prodname_dotcom %} can connect and write to the Amazon S3 endpoint, click **Check endpoint**.
+1. {% data variables.product.prodname_dotcom %}がAmazon S3のエンドポイントに接続し、書き込みが行えるかを確認するには、**Check endpoint（エンドポイントのチェック）**をクリックしてください。
 
-   ![Check the endpoint](/assets/images/help/enterprises/audit-stream-check.png)
+   ![エンドポイントのチェック](/assets/images/help/enterprises/audit-stream-check.png)

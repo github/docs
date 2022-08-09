@@ -174,7 +174,7 @@ c/o Corporation Service Company
 2710 Gateway Oaks Drive, Suite 150N Sacramento, CA 95833-3505
 ```
 
-Cópias de cortesia podem ser enviadas para legal@support.github.com.
+Courtesy copies may be emailed to legal-support@github.com
 
 Por favor, faça suas solicitações da forma mais específica e breve quanto for possível, incluindo as seguintes informações:
 

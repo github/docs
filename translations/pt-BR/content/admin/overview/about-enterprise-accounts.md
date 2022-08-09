@@ -82,14 +82,6 @@ Para mais informações sobre as diferenças entre {% data variables.product.pro
 
 {% endif %}
 
-{% ifversion ghec %}
-
-## Sobre o {% data variables.product.prodname_emus %}
-
-{% data reusables.enterprise-accounts.emu-short-summary %}
-
-{% endif %}
-
 ## Sobre a cobrança para a sua conta corporativa
 
 A conta corporativa inclui o custo mensal para cada integrante da sua empresa. A conta inclui {% ifversion ghec %}todas as licenças pagas em organizações fora da sua conta corporativa, assinaturas de aplicativos em {% data variables.product.prodname_marketplace %}, {% endif %}{% ifversion ghec or ghae %}serviços adicionais pagos pela empresa{% ifversion ghec %} como pacotes de dados de {% data variables.large_files.product_name_long %},{% endif %} e{% endif %} de uso para {% data variables.product.prodname_GH_advanced_security %}.

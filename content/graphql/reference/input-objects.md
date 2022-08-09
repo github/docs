@@ -4,10 +4,10 @@ redirect_from:
   - /v4/input_object
   - /v4/reference/input_object
 versions:
-  fpt: '*'
-  ghec: '*'
-  ghes: '*'
-  ghae: '*'
+  fpt: "*"
+  ghec: "*"
+  ghes: "*"
+  ghae: "*"
 topics:
   - API
 ---
@@ -20,5 +20,4 @@ For example, [`CommitAuthor`](/graphql/reference/input-objects#commitauthor) tak
 
 For more information, see "[About mutations](/graphql/guides/forming-calls-with-graphql#about-mutations)."
 
-<!-- this page is pre-rendered by scripts because it's too big to load dynamically -->
-<!-- see lib/graphql/static/prerendered-input-objects.json -->
+<!-- Content after this section is automatically generated -->

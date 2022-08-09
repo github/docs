@@ -1,25 +1,25 @@
-The table below summarizes whether dependency scope is supported for various ecosystems and manifests, that is, whether {% data variables.product.prodname_dependabot %} can identify if a dependency is used for development or production.
+以下の表は、依存関係のスコープが様々なエコシステム及びマニフェストでサポートされているか、すなわち{% data variables.product.prodname_dependabot %}が依存関係が開発もしくは実働で利用されているかを特定できるかをまとめたものです。
 
-| **言語**                  |   **エコシステム**   |          **Manifest file**           | **Dependency scope supported**                                                      |
-|:----------------------- |:--------------:|:------------------------------------:|:----------------------------------------------------------------------------------- |
-| Go                      |    Goモジュール     |                go.mod                | No, defaults to runtime                                                             |
-| Go                      |    Goモジュール     |                go.sum                | No, defaults to runtime                                                             |
-| Java                    |     Maven      |               pom.xml                | ✔ `test` maps to development, else scope defaults to runtime                        |
-| JavaScript              |      npm       |             package.json             | ✔                                                                                   |
-| JavaScript              |      npm       |          package-lock.json           | ✔                                                                                   |
-| JavaScript              |    yarn v1     |              yarn.lock               | No, defaults to runtime                                                             |
-| PHP                     |    Composer    |            composer.json             | ✔                                                                                   |
-| PHP                     |    Composer    |            composer.lock             | ✔                                                                                   |
-| Python                  |     Poetry     |             poetry.lock              | ✔                                                                                   |
-| Python                  |     Poetry     |            pyproject.toml            | ✔                                                                                   |
-| Python                  |      pip       |           requirements.txt           | ✔ Scope is development if the filename contains `test` or `dev`, else it is runtime |
-| Python                  |      pip       |             pipfile.lock             | ✔                                                                                   |
-| Python                  |      pip       |               pipfile                | ✔                                                                                   |
-| Ruby                    |    RubyGems    |               Gemfile                | ✔                                                                                   |
-| Ruby                    |    RubyGems    |             Gemfile.lock             | No, defaults to runtime                                                             |
-| Rust                    |     Cargo      |              Cargo.toml              | ✔                                                                                   |
-| Rust                    |     Cargo      |              Cargo.lock              | No, defaults to runtime                                                             |
-| YAML                    | GitHub Actions |                  -                   | No, defaults to runtime                                                             |
-| .NET (C#, F#, VB, etc.) |     NuGet      | .csproj / .vbproj .vcxproj / .fsproj | No, defaults to runtime                                                             |
-| .NET                    |     NuGet      |           packages.config            | No, defaults to runtime                                                             |
-| .NET                    |     NuGet      |               .nuspec                | ✔ When the tag != runtime                                                           |
+| **言語**            |   **エコシステム**   |            **マニフェストファイル**            | **依存関係スコープがサポートされているか**                              |
+|:----------------- |:--------------:|:------------------------------------:|:---------------------------------------------------- |
+| Go                |    Goモジュール     |                go.mod                | いいえ。デフォルトはランタイム                                      |
+| Go                |    Goモジュール     |                go.sum                | いいえ。デフォルトはランタイム                                      |
+| Java              |     Maven      |               pom.xml                | ✔ `test`は開発にマップされ、そうでなければスコープはデフォルトでランタイム            |
+| JavaScript        |      npm       |             package.json             | ✔                                                    |
+| JavaScript        |      npm       |          package-lock.json           | ✔                                                    |
+| JavaScript        |    yarn v1     |              yarn.lock               | いいえ。デフォルトはランタイム                                      |
+| PHP               |    Composer    |            composer.json             | ✔                                                    |
+| PHP               |    Composer    |            composer.lock             | ✔                                                    |
+| Python            |     Poetry     |             poetry.lock              | ✔                                                    |
+| Python            |     Poetry     |            pyproject.toml            | ✔                                                    |
+| Python            |      pip       |           requirements.txt           | ✔ スコープは、ファイル名に`test`あるいは`dev`が含まれていれば開発、そうでなければランタイム |
+| Python            |      pip       |             pipfile.lock             | ✔                                                    |
+| Python            |      pip       |               pipfile                | ✔                                                    |
+| Ruby              |    RubyGems    |               Gemfile                | ✔                                                    |
+| Ruby              |    RubyGems    |             Gemfile.lock             | いいえ。デフォルトはランタイム                                      |
+| Rust              |     Cargo      |              Cargo.toml              | ✔                                                    |
+| Rust              |     Cargo      |              Cargo.lock              | いいえ。デフォルトはランタイム                                      |
+| YAML              | GitHub Actions |                  -                   | いいえ。デフォルトはランタイム                                      |
+| .NET (C#、F#、VBなど) |     NuGet      | .csproj / .vbproj .vcxproj / .fsproj | いいえ。デフォルトはランタイム                                      |
+| .NET              |     NuGet      |           packages.config            | いいえ。デフォルトはランタイム                                      |
+| .NET              |     NuGet      |               .nuspec                | ✔ tag != runtimeの場合                                  |

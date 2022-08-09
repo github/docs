@@ -32,3 +32,6 @@ package.json @github/docs-engineering
 /contributing/content-model.md @github/docs-content-strategy
 /contributing/content-style-guide.md @github/docs-content-strategy
 /contributing/content-templates.md @github/docs-content-strategy
+
+# Requires review of #actions-oidc-integration, docs-engineering/issues/1506
+content/actions/deployment/security-hardening-your-deployments/** @github/oidc

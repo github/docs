@@ -1,56 +1,56 @@
 ---
-title: 'Phase 5: Rollout and scale code scanning'
-intro: 'You can leverage the available APIs to rollout {% data variables.product.prodname_code_scanning %} programmatically by team and by language across your enterprise using the repository data you collected earlier.'
+title: 第 5 阶段：推出和扩展代码扫描
+intro: '您可以使用之前收集的存储库数据，利用可用的 API 按团队和语言在整个企业中以编程方式推出 {% data variables.product.prodname_code_scanning %}。'
 versions:
   ghes: '*'
   ghae: '*'
   ghec: '*'
 topics:
   - Advanced Security
-shortTitle: 5. Rollout code scanning
+shortTitle: 5. 推出代码扫描
 miniTocMaxHeadingLevel: 3
 ---
 
 {% note %}
 
-本文是关于大规模采用 {% data variables.product.prodname_GH_advanced_security %} 系列文章的一部分。 For the previous article in this series, see "[Phase 4: Create internal documentation](/code-security/adopting-github-advanced-security-at-scale/phase-4-create-internal-documentation)."
+本文是关于大规模采用 {% data variables.product.prodname_GH_advanced_security %} 系列文章的一部分。 有关本系列的上一篇文章，请参阅“[第 4 阶段：创建内部文档](/code-security/adopting-github-advanced-security-at-scale/phase-4-create-internal-documentation)”。
 
 {% endnote %}
 
 ### 启用代码扫描
 
-Using the data you collated in [Phase 2](/code-security/adopting-github-advanced-security-at-scale/phase-2-preparing-to-enable-at-scale), you can begin to enable GHAS and then {% data variables.product.prodname_code_scanning %} on your repositories, one language at a time. The step-by-step process for enabling GHAS should look like this:
+使用您在[第 2 阶段](/code-security/adopting-github-advanced-security-at-scale/phase-2-preparing-to-enable-at-scale)整理的数据，可以开始启用 GHAS，然后在存储库中的 {% data variables.product.prodname_code_scanning %} 上启用，一次一种语言。 启用 GHAS 的分步过程应如下所示：
 
-1. Enable GHAS on the repository. 更多信息请参阅“[管理仓库的安全和分析设置](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository)”。
-1. Create a pull request against the repository's default branch with a `codeql-analysis.yml` file containing an example of how to run CodeQL for that language. 更多信息请参阅“[创建拉取请求](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request)”。
-1. Create an issue in the repository to explain why a pull request has been raised. The issue you create can contain a link to the previous communication sent to all users, but can also explain what changes the pull request introduces, what next steps the team have to take, what the team's responsibilities are, and how the team should be using {% data variables.product.prodname_code_scanning %}. 更多信息请参阅“[创建议题](/issues/tracking-your-work-with-issues/creating-an-issue)”。
+1. 在存储库上启用 GHAS。 更多信息请参阅“[管理仓库的安全和分析设置](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository)”。
+1. 使用 `codeql-analysis.yml` 文件创建针对存储库的默认分支的拉取请求，该文件包含如何为该语言运行 CodeQL 的示例。 更多信息请参阅“[创建拉取请求](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request)”。
+1. 在存储库中创建议题以解释引发拉取请求的原因。 您创建的议题可以包含指向发送给所有用户的上一次通信的链接，但还可以解释拉取请求引入了哪些更改，团队必须采取的后续步骤，团队的职责是什么，以及团队应如何使用 {% data variables.product.prodname_code_scanning %}。 更多信息请参阅“[创建议题](/issues/tracking-your-work-with-issues/creating-an-issue)”。
 
-There is a publicly available tool that completes the first two steps called the [ghas-enablement tool](https://github.com/NickLiffen/ghas-enablement). You can re-run the ghas-enablement tool in batches of languages where it makes sense. For example, JavaScript, TypeScript, Python, and Go likely have a similar build process and could therefore use a similar CodeQL analysis file. The ghas-enablement tool can also be used for languages such as Java, C, and C++, but due to the varied nature of how these languages build and compile you may need to create more targeted CodeQL analysis files.
+有一个公开可用的工具可以完成前两个步骤，称为 [ghas-enablement tool](https://github.com/NickLiffen/ghas-enablement)。 您可以在有意义的语言中批量重新运行 ghas-enablement 工具。 例如，JavaScript、TypeScript、Python 和 Go 可能具有类似的构建过程，因此可以使用类似的 CodeQL 分析文件。 ghas-enablement 工具还可用于 Java、C 和 C++等语言，但由于这些语言构建和编译方式的不同，您可能需要创建更有针对性的 CodeQL 分析文件。
 
 {% note %}
 
-**Note:** If you are intending to use {% data variables.product.prodname_actions %} to control {% data variables.product.prodname_code_scanning %} and you do not use the [ghas-enablement tool](https://github.com/NickLiffen/ghas-enablement), keep in mind that there is no API access to the `.github/workflow` directory. This means that you cannot create a script without a git client underlying the automation. The workaround is to leverage bash scripting on a machine or container which has a git client. The git client can push and pull files into the `.github/workflows` directory where the `codeql-analysis.yml` file is located.
+**注意：** 如果您打算使用 {% data variables.product.prodname_actions %} 来控制 {% data variables.product.prodname_code_scanning %} ，并且不使用 [ghas-enablement 工具](https://github.com/NickLiffen/ghas-enablement)，请记住，`.github/workflow` 目录没有 API 访问权限。 这意味着如果没有自动化基础的 git 客户端，则无法创建脚本。 解决方法是在具有 git 客户端的计算机或容器上利用 bash 脚本。 git 客户端可以将文件推送和拉取到 `.github/workflows` `codeql-analysis.yml` 文件所在的目录中。
 
 {% endnote %}
 
-It is important to not just push the `codeql-analysis.yml` file the repository's default branch. Using a pull request puts ownership on the development team to review and merge, allowing the development team to learn about {% data variables.product.prodname_code_scanning %} and involving the team in the process.
+重要的是，不要只是将 `codeql-analysis.yml` 文件推送到存储库的默认分支。 使用拉取请求将所有权交给开发团队进行审查和合并，从而使开发团队能够了解 {% data variables.product.prodname_code_scanning %} 并让团队参与该过程。
 
-You should capture the pull request URLs created by automation, and check each week for any activity and see which ones are closed. After a few weeks, it may be worth creating another issue or sending internal emails if the pull request remains unmerged.
+您应该捕获由自动化创建的拉取请求 URL，每周检查是否有任何活动，并查看哪些活动已关闭。 几周后，如果拉取请求仍未合并，则可能值得创建另一个问题或发送内部电子邮件。
 
-### Creating subject matter experts
+### 创建主题专家
 
-You can then proceed to the next stage of enablement, which is creating internal subject matter experts (or SMEs) and arranging company meetings. Opening pull requests and issues in repositories will likely tackle a large percentage of your adoption, but this doesn’t tackle one-off use cases where a specific build process, framework, or library needs specific feature flags to be enabled. A more personalized and hands-on approach is required to push high adoption, especially for Java, C, and C++.
+然后，您可以进入启用的下一阶段，即创建内部主题专家（或 SME）并安排公司会议。 在存储库中打开拉取请求和议题可能要处理很大比例的采用，但这并不能解决特定构建过程，框架或库需要启用特定功能标志的一次性用例。 需要一种更加个性化和动手实践的方法来推动高采用率，特别是对于Java、C 和 C++。
 
-It’s a good idea to run regular company meetings on specific topics to educate and discuss the rollout with a larger group. This is much more time-efficient for an enterprise with thousands of repositories compared to working with one team at a time. Teams can come to sessions that are relevant to them. Some example sessions that have been run before include:
+定期就特定主题召开公司会议是个好主意，以便与更大的团队进行教育和讨论。 对于拥有数千个存储库的企业来说，与一次与一个团队合作相比，这要省时得多。 团队可以参加与他们相关的会议。 以前运行的一些示例会话包括：
 
 - 容器中的 {% data variables.product.prodname_code_scanning_capc %}
 - {% data variables.product.prodname_code_scanning_capc %} & Java Struts
 - {% data variables.product.prodname_code_scanning_capc %} & JSP
 
-You can use the data you have collected about the distribution of different languages among repositories to create targeted meetings.
+您可以使用收集的有关存储库中不同语言分布的数据来创建目标会议。
 
 {% note %}
 
-For the next article in this series, see "[Phase 6: Rollout and scale secret scanning](/code-security/adopting-github-advanced-security-at-scale/phase-6-rollout-and-scale-secret-scanning)."
+有关本系列的下一篇文章，请参阅“[第 6 阶段：推出和扩展机密扫描](/code-security/adopting-github-advanced-security-at-scale/phase-6-rollout-and-scale-secret-scanning)”。
 
 {% endnote %}

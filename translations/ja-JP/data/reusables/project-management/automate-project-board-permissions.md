@@ -1,1 +1,1 @@
-リポジトリのプロジェクトボードに自動化ワークフローをセットアップするには、リポジトリに書き込みアクセスを持っていなければなりません。 Organizationのオーナーとメンバーは、Organization全体にわたるプロジェクトボード上に自動化ワークフローを設定できます。
+To set up automatic workflows for a repository {% data variables.projects.projects_v1_board %}, you must have write access to the repository. Organization owners and members can configure automatic workflows on an organization-wide {% data variables.projects.projects_v1_board %}.

@@ -112,9 +112,12 @@ O {% data variables.product.prodname_ghe_cloud %} também inclui:
 - A opção de configurar sua empresa para {% data variables.product.prodname_emus %}, para que você possa fornecer e gerenciar integrantes com o seu provedor de identidade e restringir as contribuições dos integrantes para apenas a sua empresa. Para obter mais informações, consulte "[Sobre {% data variables.product.prodname_emus %}](/enterprise-cloud@latest/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users)."
 - A opção de gerenciar de forma centralizada a política e cobrança para várias organizações {% data variables.product.prodname_dotcom_the_website %} com uma conta corporativa. Para obter mais informações, consulte "[Sobre contas corporativas](/enterprise-cloud@latest/admin/overview/about-enterprise-accounts)".
 
-{% data variables.product.company_short %} realiza a cobrança para {% data variables.product.prodname_ghe_cloud %} por usuário. Para obter mais informações, consulte "[Sobre o preço por usuário]({% ifversion not ghec %}/enterprise-cloud@latest{% endif %}/billing/managing-billing-for-your-github-account/about-per-user-pricing){% ifversion ghec %}".{% else %}" na documentação de {% data variables.product.prodname_ghe_cloud %}.{% endif %}
+{% data reusables.enterprise.about-github-for-enterprises %}
 
 Você pode configurar uma versão para avaliar o {% data variables.product.prodname_ghe_cloud %}. Para obter mais informações, consulte "[Configurar uma versão de avaliação do {% data variables.product.prodname_ghe_cloud %}](/enterprise-cloud@latest/articles/setting-up-a-trial-of-github-enterprise-cloud)".
 
 Para obter mais informações sobre como hospedar sua própria instância de {% data variables.product.prodname_ghe_server %}, incluindo a criação de um teste, consulte "[About {% data variables.product.prodname_ghe_server %}](/enterprise-server/admin/overview/about-github-enterprise-server).".
 
+## Leia mais
+
+- "[Sobre os preços por usuário]({% ifversion not ghec %}/enterprise-cloud@latest{% endif %}/billing/managing-billing-for-your-github-account/about-per-user-pricing)"{% ifversion not ghec %} na documentação de {% data variables.product.prodname_ghe_cloud %}{% endif %}

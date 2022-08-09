@@ -1,29 +1,27 @@
 ---
-title: プロジェクトボードの削除
-intro: 既存のプロジェクトボードのコンテンツにアクセスする必要がない場合、削除することができます。
+title: '{% data variables.product.prodname_project_v1 %}の削除'
+intro: 'ボードの内容にアクセスする必要がなくなった場合、既存の{% data variables.projects.projects_v1_board %}を削除できます。'
 redirect_from:
   - /github/managing-your-work-on-github/managing-project-boards/deleting-a-project-board
   - /articles/deleting-a-project
   - /articles/deleting-a-project-board
   - /github/managing-your-work-on-github/deleting-a-project-board
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
-  ghec: '*'
+  feature: projects-v1
 topics:
   - Pull requests
+allowTitleToDifferFromFilename: true
 ---
 
 {% data reusables.projects.project_boards_old %}
 
 {% tip %}
 
-**参考**: 完了したあるいは不要なプロジェクトボードへのアクセスを維持し、そのコンテンツへのアクセスも失いたくない場合、削除する代わりに[プロジェクトボードを閉じる](/articles/closing-a-project-board)ことができます。
+**ヒント**: 完了した、あるいは不要になった{% data variables.projects.projects_v1_board %}の内容へのアクセスを失うことなく保持しておきたい場合には、削除ではなく[{% data variables.projects.projects_v1_board %}をクローズ](/articles/closing-a-project-board)することができます。
 
 {% endtip %}
 
-1. 削除対象のプロジェクトボードに移動します。
+1. 削除したい{% data variables.projects.projects_v1_board %}にアクセスしてください。
 {% data reusables.project-management.click-menu %}
 {% data reusables.project-management.click-edit-sidebar-menu-project-board %}
 4. [**Delete project**] をクリックします。 ![[Delete project] ボタン](/assets/images/help/projects/delete-project-button.png)
@@ -31,6 +29,6 @@ topics:
 
 ## 参考リンク
 
-- "[プロジェクトボードをクローズする](/articles/closing-a-project-board)"
-- [リポジトリ内のプロジェクトボードを無効化](/articles/disabling-project-boards-in-a-repository)
-- "[Organization 内のプロジェクトボードの無効化](/articles/disabling-project-boards-in-your-organization)"
+- 「[{% data variables.product.prodname_project_v1 %}のクローズ](/articles/closing-a-project-board)」
+- 「[リポジトリの{% data variables.product.prodname_project_v1_caps %}の無効化](/articles/disabling-project-boards-in-a-repository)」
+- 「[Organizationの{% data variables.product.prodname_project_v1_caps %}の無効化](/articles/disabling-project-boards-in-your-organization)」

@@ -1,7 +1,7 @@
 <table style="width:100%">
 <thead>
   <tr>
-    <th style="width:35%"><b>Virtual environment</b></th>
+    <th style="width:35%"><b>Runner image</b></th>
     <th style="width:25%"><b>YAML workflow label</b></th>
     <th style="width:40%"><b>Notes</b></th>
   </tr>
@@ -78,12 +78,13 @@ The <code>macos-latest</code> label currently uses the macOS 11 runner image.
 </tr>
 <tr>
 <td>
-macOS Catalina 10.15
+macOS Catalina 10.15 <sup>[deprecated]</sup>
 </td>
 <td>
 <code>macos-10.15</code>
 </td>
 <td>
+Migrate to <code>macOS-11</code> or <code>macOS-12</code>. For more information, see <A href="https://github.blog/changelog/2022-07-20-github-actions-the-macos-10-15-actions-runner-image-is-being-deprecated-and-will-be-removed-by-8-30-22/">this GitHub blog post</A>.
 </td>
 </tr>
 </tbody>
@@ -91,7 +92,7 @@ macOS Catalina 10.15
 
 {% note %}
 
-**Note:** The `-latest` virtual environments are the latest stable images that {% data variables.product.prodname_dotcom %} provides, and might not be the most recent version of the operating system available from the operating system vendor.
+**Note:** The `-latest` runner images are the latest stable images that {% data variables.product.prodname_dotcom %} provides, and might not be the most recent version of the operating system available from the operating system vendor.
 
 {% endnote %}
 

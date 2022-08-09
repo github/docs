@@ -1,1 +1,1 @@
-要为仓库项目板设置自动工作流程，您必须对仓库有写入权限。 组织所有者和成员可以在全组织项目委员会配置自动工作流程。
+To set up automatic workflows for a repository {% data variables.projects.projects_v1_board %}, you must have write access to the repository. Organization owners and members can configure automatic workflows on an organization-wide {% data variables.projects.projects_v1_board %}.

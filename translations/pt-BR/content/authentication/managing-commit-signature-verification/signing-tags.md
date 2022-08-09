@@ -34,7 +34,7 @@ topics:
 - "[Exibir tags do seu repositório](/articles/viewing-your-repositorys-tags)"
 - "[Verificar se há chaves GPG existentes](/articles/checking-for-existing-gpg-keys)"
 - "[Gerar uma nova chave GPG](/articles/generating-a-new-gpg-key)"
-- "[Adicionar uma nova chave GPG à sua conta do GitHub](/articles/adding-a-new-gpg-key-to-your-github-account)"
+- "[Adicionar uma chave GPG à sua conta do GitHub](/articles/adding-a-gpg-key-to-your-github-account)"
 - "[Avisar o Git sobre sua chave de assinatura](/articles/telling-git-about-your-signing-key)"
 - "[Associar um e-mail à sua chave GPG](/articles/associating-an-email-with-your-gpg-key)"
 - "[Assinar commits](/articles/signing-commits)"

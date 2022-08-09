@@ -1,12 +1,10 @@
 ---
-title: 使用项目板组织工作
-shortTitle: 项目板
-intro: '在 {% data variables.product.prodname_dotcom %} 上使用项目板管理工作'
+title: 'Organizing your work with {% data variables.product.prodname_projects_v1 %}'
+shortTitle: '{% data variables.product.prodname_projects_v1_caps %}'
+intro: 'Use {% data variables.product.prodname_projects_v1 %} to manage your work on {% data variables.product.prodname_dotcom %}'
+allowTitleToDifferFromFilename: true
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
-  ghec: '*'
+  feature: projects-v1
 topics:
   - Issues
   - Projects

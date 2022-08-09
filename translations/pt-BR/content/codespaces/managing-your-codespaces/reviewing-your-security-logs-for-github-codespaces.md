@@ -1,5 +1,5 @@
 ---
-title: Reviewing your security logs for GitHub Codespaces
+title: Revisando seus registros de segurança para o GitHub Codespaces
 shortTitle: Logs de segurança
 intro: 'Você pode usar o log de segurança para revisar todas as ações relacionadas a {% data variables.product.prodname_github_codespaces %}.'
 product: '{% data reusables.gated-features.codespaces %}'
