@@ -112,6 +112,7 @@
   overflow: hidden;
 }
 
+.keyboard-focus:hover,
 .keyboard-focus:focus {
   outline: 1px auto -webkit-focus-ring-color;
 }
