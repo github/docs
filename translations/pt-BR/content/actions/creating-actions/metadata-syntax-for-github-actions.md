@@ -74,7 +74,7 @@ Por exemplo, se um fluxo de trabalho definiu as entradas `numOctocats` e `octoca
 
 ### `inputs.<input_id>.required`
 
-**Necessário**: um `booleano` para indicar se a ação exige o parâmetro de entrada. Defina para `true` quando o parâmetro for necessário.
+**Optional** A `boolean` to indicate whether the action requires the input parameter. Defina para `true` quando o parâmetro for necessário.
 
 ### `inputs.<input_id>.default`
 

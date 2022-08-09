@@ -1,5 +1,4 @@
 import express from 'express'
-import { getTheme } from '../../lib/get-theme.js'
 import { cacheControlFactory } from '../cache-control.js'
 
 const router = express.Router()
@@ -11,9 +10,6 @@ router.get('/', (req, res) => {
     isSignedIn: Boolean(req.cookies?.dotcom_user),
     csrfToken: req.csrfToken?.() || '',
     userLanguage: req.userLanguage,
-    languages: req.context.languages,
-    theme: getTheme(req),
-    themeCss: getTheme(req, true),
   })
 })
 

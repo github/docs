@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router'
 import Cookies from 'js-cookie'
 
-import { useSession } from 'components/lib/get-session'
+import { useLanguages } from 'components/context/LanguagesContext'
 import { Picker } from 'components/ui/Picker'
 import { useTranslation } from 'components/hooks/useTranslation'
 
@@ -14,13 +14,11 @@ type Props = {
 
 export const LanguagePicker = ({ variant }: Props) => {
   const router = useRouter()
-  const session = useSession()
-  const languages = session?.languages
+  const { languages } = useLanguages()
+
   const locale = router.locale || 'en'
 
   const { t } = useTranslation('picker')
-
-  if (!languages) return null
 
   const langs = Object.values(languages)
   const selectedLang = languages[locale]
@@ -52,15 +50,13 @@ export const LanguagePicker = ({ variant }: Props) => {
       <Picker
         variant={variant}
         defaultText={t('language_picker_default_text')}
-        options={langs
-          .filter((lang) => !lang.wip)
-          .map((lang) => ({
-            text: lang.nativeName || lang.name,
-            selected: lang === selectedLang,
-            locale: lang.code,
-            href: `${routerPath}`,
-            onselect: rememberPreferredLanguage,
-          }))}
+        options={langs.map((lang) => ({
+          text: lang.nativeName || lang.name,
+          selected: lang === selectedLang,
+          locale: lang.code,
+          href: `${routerPath}`,
+          onselect: rememberPreferredLanguage,
+        }))}
       />
     </div>
   )

@@ -56,11 +56,10 @@ Within code blocks:
     ```
 
   - **Avoid**:
- 
+
     ```
     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     ```
-
 
 ### Commands
 
@@ -121,6 +120,8 @@ Workflow runs are delayed when too many workflows run at once. Since many users 
 
 Use H2 for headers, and H3 for subheaders. When referring to headers, surround the header name with quotation marks.
 - **Use:** Under “User licenses”, view your total licenses.
+
+Our guidelines for writing titles also apply to writing headers. For more information, see the [content model](/contributing/content-model.md#titles).
 
 To orient readers and help them understand if the section is relevant to them, include introductory content after a header - don’t locate a subheader directly following a header.
 
@@ -233,6 +234,7 @@ For plain text, use linebreaks to separate paragraphs in the source (two consecu
 Introduce links consistently using a standard format that clearly indicates where we’re linking.
 For links to other articles in the GitHub docs: `For more information, see "[Page or article title]()."`
 For links to another section in the same article: `For more information, see "[Header text]()."`
+For links to specific sections in other articles in the GitHub docs: `For more information, see "[Article title]()."`
 For links to external documentation: `For more information, see [Page or article title]() in the X documentation.`
 Do not include quotation marks within a hyperlink.
 
@@ -240,7 +242,7 @@ Links should be meaningful and provide high value to the user’s journey - link
 
 For accessibility and readability, avoid inline or midsentence links.
 - **Use:** OAuth2 tokens can be acquired programmatically for applications that are not websites. For more information, see "[Setting up and registering OAuth Apps](https://developer.github.com/apps/building-integrations/setting-up-and-registering-oauth-apps/)" and "[Create a new authorization](https://docs.github.com/en/enterprise-server@2.22/rest/reference/oauth-authorizations/#create-a-new-authorization)."
-- **Avoid:** Read [more about OAuth2.](https://developer.github.com/apps/building-integrations/setting-up-and-registering-oauth-apps/) Note that OAuth2 tokens can be [acquired programmatically](https://docs.github.com/en/enterprise-server@2.22/rest/reference/oauth-authorizations/#create-a-new-authorization), for applications that are not websites.     
+- **Avoid:** Read [more about OAuth2.](https://developer.github.com/apps/building-integrations/setting-up-and-registering-oauth-apps/) Note that OAuth2 tokens can be [acquired programmatically](https://docs.github.com/en/enterprise-server@2.22/rest/reference/oauth-authorizations/#create-a-new-authorization), for applications that are not websites.
 
 For more information on links and accessibility, see “[Links](https://readabilityguidelines.co.uk/content-design/links/)” in the Readability Guidelines project.
 
@@ -261,6 +263,16 @@ To link to the same article in a different version, use this format:
 > For more information, see [the VERSION documentation]().
 
 To link to a specific version, you must include the version in the path (e.g., `/enterprise-cloud@latest/admin/overview/about-enterprise-accounts`).
+
+### Links to specific sections of articles
+
+When we link to specific sections of articles, we want to make sure the link is descriptive enough so that someone knows they are in the correct spot after following a link.
+
+To link to a specific header in the same article, use this format:
+> For more information, see "[HEADER TITLE](#HEADER-TITLE)."
+
+To link to a specific header in a different article, use this format:
+> For more information, see "[ARTICLE TITLE](path-to-article#HEADER-TITLE)."
 
 ### Links to learning paths
 
@@ -332,7 +344,7 @@ Take care to distinguish between product names and product elements. For more in
 
 ## Product-specific conventions
 
-This section describes additional conventions that are specific to GitHub products. 
+This section describes additional conventions that are specific to GitHub products.
 
 ### GitHub Actions
 
@@ -367,7 +379,7 @@ Code examples that use third-party actions must include the following disclaimer
 # separate terms of service, privacy policy, and support
 # documentation.
 ```
-To insert this disclaimer, use the `{% data reusables.actions.actions-not-certified-by-github-comment %}` reusable. If the code block is indented, you must use `indented_data_reference` along with the reusable. For example: 
+To insert this disclaimer, use the `{% data reusables.actions.actions-not-certified-by-github-comment %}` reusable. If the code block is indented, you must use `indented_data_reference` along with the reusable. For example:
 
 ```
 {% indented_data_reference reusables.actions.actions-not-certified-by-github-comment spaces=4 %}
@@ -408,7 +420,7 @@ steps:
 
 For more information, see "[Using SHAs](https://docs.github.com/en/actions/learn-github-actions/finding-and-customizing-actions#using-shas)"
 
-### GitHub Codespaces 
+### GitHub Codespaces
 
 For the first mention in the body text of an article, use "GitHub Codespaces" (`{% data variables.product.prodname_github_codespaces %}`) as the product name, not just "Codespaces". After the first use, and in headings, you can use just "Codespaces" `{% data variables.product.prodname_github_codespaces %}`, but if a passage refers to the product and instances of codespaces in close proximity, use `{% data variables.product.prodname_github_codespaces %}` for the product within that passage. This helps to avoid confusion between the product and "codespaces" (lowercase c), which refers to instances of remote coding workspaces created with GitHub Codespaces.  
 
@@ -444,7 +456,7 @@ We use short titles to populate the sidebar navigation. They should give users c
   - Remove repeated words possible
 - Don’t introduce new words in short titles that aren’t in the full title
 - Short titles should be parallel to short titles for similar content
-  - **Use:** 
+  - **Use:**
     - Organizations and teams
     - Enterprise accounts
 - Short titles should still mimic format of the full title
@@ -614,7 +626,7 @@ GitHub Apps is always capitalized, because it’s a feature name.
 
 ### Currency
 
-When referring to dollars, cents, amounts of currency or using the `$` sign, ensure the currency used is defined even if the amount is zero. Use the [ISO standard currency name](https://www.iso.org/iso-4217-currency-codes.html), and the [ISO standard currency code](https://www.six-group.com/en/products-services/financial-information/data-standards.html#scrollTo=currency-codes) where possible. 
+When referring to dollars, cents, amounts of currency or using the `$` sign, ensure the currency used is defined even if the amount is zero. Use the [ISO standard currency name](https://www.iso.org/iso-4217-currency-codes.html), and the [ISO standard currency code](https://www.six-group.com/en/products-services/financial-information/data-standards.html#scrollTo=currency-codes) where possible.
 
 Use lowercase for currency names, but capitalize the reference to the country or region.
 - **Use:** US dollar.
@@ -643,7 +655,7 @@ See the “Inclusive language” section of this guide.
 
 ### Permissions
 
-A **permission** is the ability to perform a specific action. For example, the ability to delete an issue is a permission. 
+A **permission** is the ability to perform a specific action. For example, the ability to delete an issue is a permission.
 
 A **role** is a set of permissions that can be assigned to a user. Roles exist at different levels.
 
@@ -668,7 +680,7 @@ When specifying the access required to take an action, refer only to the role at
 - **Use:** `People with write access to a repository can do X to the repository.`
 - **Avoid:** `Organization owners and people with write access can do X to the repository.`
 
-For more information about word choice for permissions statments, see "[Permissions statements](/contributing/content-model.md#permissions-statements)" in the content model.
+For more information about word choice for permissions statements, see "[Permissions statements](/contributing/content-model.md#permissions-statements)" in the content model.
 
 ### Prepositions
 
