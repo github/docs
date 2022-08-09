@@ -36,7 +36,6 @@ Ubuntu 22.04
 <code>ubuntu-22.04</code>
 </td>
 <td>
-Ubuntu 22.04 is currently in public beta.
 </td>
 </tr>
 <tr>
