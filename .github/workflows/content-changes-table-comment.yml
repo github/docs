@@ -5,7 +5,7 @@ name: Content Changes Table Comment
 # **Who does it impact**: docs-internal/docs maintainers and contributors
 
 on:
-  # Trigger this workflow after preview deployment complete
+  # Trigger this workflow after preview deployment runs
   workflow_run:
     workflows:
       - Azure - Deploy Preview Environment
