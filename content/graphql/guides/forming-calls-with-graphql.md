@@ -33,7 +33,6 @@ The following scopes are recommended:
 
 ```
 repo
-repo_deployment
 read:packages
 read:org
 read:public_key

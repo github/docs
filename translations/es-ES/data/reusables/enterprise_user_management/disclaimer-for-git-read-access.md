@@ -2,8 +2,8 @@
 
 **Advertencias:**
 
-- The Git protocol is unauthenticated and unencrypted. An attacker could intercept repository data transferred over connections using this protocol.
-- If you enable anonymous Git read access, you're responsible for all access and use of the feature. {% data variables.product.company_short %} is not responsible for any unintended access, security risks, or misuse of the feature.
-- You may not use this feature to violate your license from {% data variables.product.company_short %}, including the limit on the number of user licenses for {% data variables.product.product_location %}.
+- El protocolo de Git no está autenticado ni cifrado. Un atacante pudo haber interceptado datos de repositorio que se transfirieron entre conexiones utilizando este protocolo.
+- Si habilitas el acceso de lectura anónima de Git, serás responsable de todo el acceso y uso de la característica. {% data variables.product.company_short %} no es responsable de ningún acceso no deseado, riesgos de seguridad o mal uso de la característica.
+- No puedes utilizar esta característica para violar tu licencia de {% data variables.product.company_short %}, incluyendo el límite de la cantidad de licencias de usuario para {% data variables.product.product_location %}.
 
 {% endwarning %}

@@ -96,6 +96,12 @@ products:
       possible_types: 取り得る型
       preview_notice: プレビュー通知
       deprecation_notice: 非推奨通知
+      preview_period: During the preview period, the API may change without notice.
+    overview:
+      preview_header: 'To toggle this preview and access the following schema members, you must provide a custom media type in the `Accept` header:'
+      preview_schema_members: 'Previewed schema members'
+      announced: Announced
+      updates: アップデート
   rest:
     reference:
       default: デフォルト

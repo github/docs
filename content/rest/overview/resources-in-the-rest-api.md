@@ -256,7 +256,7 @@ Other redirection status codes may be used in accordance with the HTTP 1.1 spec.
 ## HTTP verbs
 
 Where possible, the {% data variables.product.product_name %} REST API strives to use appropriate HTTP verbs for each
-action.
+action. Note that HTTP verbs are case-sensitive.
 
 Verb | Description
 -----|-----------

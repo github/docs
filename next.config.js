@@ -45,4 +45,13 @@ export default {
   // This causes problems with serving stale content, since upon revalidating
   // the CDN marks the cached content as "fresh".
   generateEtags: false,
+
+  experimental: {
+    // The output of our getServerSideProps() return large chunks of
+    // data because it contains our rendered Markdown.
+    // The default, for a "Large Page Data" warning is 128KB
+    // but many of our pages are much larger.
+    // The warning is: https://nextjs.org/docs/messages/large-page-data
+    largePageDataBytes: 1024 * 1024, // 1 MB
+  },
 }

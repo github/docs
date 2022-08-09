@@ -63,7 +63,7 @@ Você pode destacar discussões que contenham conversas importantes, úteis ou e
 
 ## Compartilhando feedback
 
-Você pode compartilhar seus comentários sobre {% data variables.product.prodname_discussions %} com {% data variables.product.company_short %}. Para se juntar à conversa, consulte [`github/feedback`](https://github.com/github/feedback/discussions?discussions_q=category%3A%22Discussions+Feedback%22).
+Você pode compartilhar seus comentários sobre {% data variables.product.prodname_discussions %} com {% data variables.product.company_short %}. To join the conversation, see [{% data variables.product.prodname_github_community %} discussions](https://github.com/orgs/community/discussions/categories/discussions).
 
 ## Leia mais
 

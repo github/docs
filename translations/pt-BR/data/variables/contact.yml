@@ -11,7 +11,7 @@ contact_dmca: >-
 contact_privacy: >-
   {% ifversion fpt or ghec %}[Formulário de contato sobre privacidade](https://github.com/contact/privacy){% endif %}
 contact_enterprise_sales: "[Equipe de Vendas do GitHub](https://github.com/enterprise/contact)"
-contact_feedback_actions: '[Feedback discussion for GitHub Actions](https://github.com/github/feedback/discussions/categories/actions-and-packages-feedback)'
+contact_feedback_actions: '[GitHub Community discussions for GitHub Actions](https://github.com/orgs/community/discussions/categories/actions-and-packages)'
 #The team that provides Standard Support
 enterprise_support: 'Suporte do GitHub Enterprise'
 #The larger team that includes Enterprise Support and Premium Support
@@ -32,5 +32,5 @@ landing_page_portal: 'Portal de suporte do GitHub'
 contact_landing_page_portal: '[Portal de suporte do GitHub](https://support.github.com/)'
 #The team that provides GitHub Community Support on the GitHub Community forum (for GitHub Free)
 community_support: 'Suporte à Comunidade GitHub'
-#The GitHub Community forum
-community_support_forum: '[GitHub Support Community](https://github.community/)'
+#GitHub Community discussions
+community_support_forum: '[GitHub Community discussions](https://github.com/orgs/community/discussions)'

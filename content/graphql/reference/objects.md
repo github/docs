@@ -4,10 +4,10 @@ redirect_from:
   - /v4/object
   - /v4/reference/object
 versions:
-  fpt: '*'
-  ghec: '*'
-  ghes: '*'
-  ghae: '*'
+  fpt: "*"
+  ghec: "*"
+  ghes: "*"
+  ghae: "*"
 topics:
   - API
 ---
@@ -20,5 +20,4 @@ For example, the [`Repository`](/graphql/reference/objects#repository) object ha
 
 For more information, see "[Introduction to GraphQL](/graphql/guides/introduction-to-graphql)."
 
-<!-- this page is pre-rendered by scripts because it's too big to load dynamically -->
-<!-- see lib/graphql/static/prerendered-objects.json -->
+<!-- Content after this section is automatically generated -->

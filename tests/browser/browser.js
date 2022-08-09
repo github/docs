@@ -1,6 +1,5 @@
 import { jest } from '@jest/globals'
 import { latest, oldestSupported } from '../../lib/enterprise-server-releases.js'
-import languages from '../../lib/languages.js'
 
 jest.useFakeTimers({ legacyFakeTimers: true })
 
@@ -54,7 +53,7 @@ describe('browser search', () => {
 
     const newPage = await browser.newPage()
     await newPage.goto(
-      `http://localhost:4000/ja/enterprise-server@${oldestSupported}/admin/installation`
+      `http://localhost:4000/en/enterprise-server@${oldestSupported}/admin/installation`
     )
 
     await newPage.setRequestInterception(true)
@@ -62,7 +61,7 @@ describe('browser search', () => {
       if (interceptedRequest.method() === 'GET' && /search\?/i.test(interceptedRequest.url())) {
         const { searchParams } = new URL(interceptedRequest.url())
         expect(searchParams.get('version')).toBe(oldestSupported)
-        expect(searchParams.get('language')).toBe('ja')
+        expect(searchParams.get('language')).toBe('en')
       }
       interceptedRequest.continue()
     })
@@ -418,22 +417,6 @@ describe('filter cards', () => {
     )
     shownCardTypes.map((type) => expect(type).toBe('Overview'))
     expect(shownCards.length).toBeGreaterThan(0)
-  })
-})
-
-describe('language banner', () => {
-  it('directs user to the English version of the article', async () => {
-    const wipLanguageKey = Object.keys(languages).find((key) => languages[key].wip)
-
-    // This kinda sucks, but if we don't have a WIP language, we currently can't
-    // run a reliable test. But hey, on the bright side, if we don't have a WIP
-    // language then this code will never run anyway!
-    if (wipLanguageKey) {
-      const res = await page.goto(`http://localhost:4000/${wipLanguageKey}/actions`)
-      expect(res.ok()).toBe(true)
-      const href = await page.$eval('a#to-english-doc', (el) => el.href)
-      expect(href.endsWith('/en/actions')).toBe(true)
-    }
   })
 })
 

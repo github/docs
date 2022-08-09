@@ -18,19 +18,15 @@ El precompilar tus codespaces te permite ser más productivo y acceder a ellos m
 
 Predeterminadamente, cada que subas cambios a tu repositorio, {% data variables.product.prodname_github_codespaces %} utiliza {% data variables.product.prodname_actions %} para actualizar tus precompilaciones automáticamente.
 
-Cuando las precompilaciones están disponibles para una rama en particular de un repositorio y para tu región, verás la etiqueta "{% octicon "zap" aria-label="The zap icon" %} Prebuild ready" en la lista de opciones de tipo de máquina al crear un codespace. Si se está creando una precompilación, verás la etiqueta "{% octicon "history" aria-label="The history icon" %} Prebuild in progress". Para obtener más información, consulta la sección "[Crear un codespace](/codespaces/developing-in-codespaces/creating-a-codespace#creating-a-codespace)".
+When prebuilds are available for a particular branch of a repository, a particular dev container configuration file, and for your region, you'll see the "{% octicon "zap" aria-label="The zap icon" %} Prebuild ready" label in the list of machine type options when you create a codespace. Si se está creando una precompilación, verás la etiqueta "{% octicon "history" aria-label="The history icon" %} Prebuild in progress". Para obtener más información, consulta la sección "[Crear un codespace](/codespaces/developing-in-codespaces/creating-a-codespace#creating-a-codespace)".
 
 ![La caja de diálogo para elegir un tipo de máquina](/assets/images/help/codespaces/choose-custom-machine-type.png)
 
-{% note %}
-
-{% data reusables.codespaces.prebuilds-not-available %}
-
-{% endnote %}
-
 ## Acerca de la facturación para las precompilaciones de {% data variables.product.prodname_codespaces %}
 
-{% data reusables.codespaces.billing-for-prebuilds %} Para obtener más detalles sobre los precios de almacenamiento de {% data variables.product.prodname_codespaces %}, consulta la sección "[Acerca de la facturación para {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces)".
+{% data reusables.codespaces.billing-for-prebuilds-default %} Para obtener más detalles sobre los precios de almacenamiento de {% data variables.product.prodname_codespaces %}, consulta la sección "[Acerca de la facturación para {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces)".
+
+{% data reusables.codespaces.billing-for-prebuilds-reducing %}
 
 El utilizar los codespaces creados utilizando precompilaciones se carga en la misma tasa que los codespaces normales.
 

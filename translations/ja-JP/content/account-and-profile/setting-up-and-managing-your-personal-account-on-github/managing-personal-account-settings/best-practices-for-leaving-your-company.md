@@ -1,5 +1,5 @@
 ---
-title: 退職のためのベストプラクティス
+title: Best practices for leaving your company
 intro: 'If you use your account on {% data variables.product.product_name %} for both personal and work purposes, there are a few things to keep in mind when you leave your company or organization.'
 redirect_from:
   - /articles/best-practices-for-leaving-your-company
@@ -16,25 +16,26 @@ shortTitle: Leaving your company
 
 Before you leave your company, make sure you update the following information in your personal account:
 
-- [メール設定から会社のメールアドレスを削除](/articles/changing-your-primary-email-address)して、会社のメールアドレスを検証済みではなくしてください。 その後、検証なしにアドレスを追加しなおして、関連するコミットをアカウントに関連付けされたままに保っておくことができます。
-- 会社のメールから個人のメールへ、[プライマリメールアドレスを変更](/articles/changing-your-primary-email-address)してください。
-{% ifversion fpt or ghec %}
-- [新しいプライマリメールアドレスを検証](/articles/verifying-your-email-address)してください。
-{% endif %}
-- 必要に応じて [GitHub のユーザ名を変更](/articles/changing-your-github-username)して、会社への言及があれば削除してください。
+- Unverify your company email address by [deleting it in your Email settings](/articles/changing-your-primary-email-address). You can then re-add it without verifying to keep any associated commits linked to your account.
+- [Change your primary email address](/articles/changing-your-primary-email-address) from your company email to your personal email.
+- [Verify your new primary email address](/articles/verifying-your-email-address).
+- [Change your GitHub username](/articles/changing-your-github-username) to remove any references to your company or organization, if necessary.
+- If you've enabled two-factor (2FA) authentication for your personl account, make sure that you (not your company) control the 2FA authentication method you have configured. For more information, see "[Configuring two-factor authentication](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication)."
 
-## Organization を離れる
+## Leaving organizations
 
-これまで Organization に属するリポジトリで作業をしてきた場合は、[Organization のメンバーから自分を削除](/articles/removing-yourself-from-an-organization)する必要があるでしょう。 あなたが Organization のオーナーである場合、まず他の人に [Organization の所有権を移譲](/articles/transferring-organization-ownership)する必要があります。
+If you've been working with repositories that belong to an organization, you'll want to [remove yourself as a member of the organization](/articles/removing-yourself-from-an-organization). Note that if you are the organization owner, you should first [transfer ownership of the organization](/articles/transferring-organization-ownership) to another person.
 
-## 個人リポジトリから職業上の関連を取り除く
+Unless you're using a {% data variables.product.prodname_managed_user %}, you'll still be able to access your personal account, even after leaving the organization. For more information about {% data variables.product.prodname_emus %}, see "[About {% data variables.product.prodname_emus %}]({% ifversion not ghec%}/enterprise-cloud@latest{% endif %}/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users){% ifversion not ghec %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}."{% endif %}
+
+## Removing professional associations with personal repositories
 
 If you've been collaborating professionally with another person on repositories that belong to their personal account, you'll want to [remove yourself as a collaborator](/articles/removing-yourself-from-a-collaborator-s-repository) from those repositories.
 
-- 仕事に関連する[リポジトリの Watch の停止](https://github.com/watching)。 それらの通知も、もう受ける必要はありません。
-- 自分の退職後に他者が作業を続ける必要があるかもしれない[自分が所有するリポジトリを移譲](/articles/how-to-transfer-a-repository)してください。
-- あなたが行っていた作業に関連する、[あなたに属するフォークの削除](/articles/deleting-a-repository)。 フォークを削除しても上流のリポジトリは削除されないので心配はいりません。
-- 自分のコンピュータ上に残っているかもしれないフォークのローカルコピーの削除。
+- [Stop watching repositories](https://github.com/watching) related to your work. You won't want those notifications anymore!
+- [Transfer repositories you own](/articles/how-to-transfer-a-repository) that others may need to continue working on after you leave.
+- [Delete forks that belong to you](/articles/deleting-a-repository) that are related to the work you were doing. Don't worry, deleting a fork doesn't delete the upstream repository.
+- Delete local copies of your forks that may exist on your computer:
 
 ```shell
 $ rm -rf <em>work_directory</em>
