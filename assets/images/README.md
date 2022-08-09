@@ -2,4 +2,4 @@
 The `/assets/images` directory holds all the site's images.
 
 
-See the [contributing docs](/CONTRIBUTING.md) for general information about working with the docs.
+See [imaging and versioning](https://github.com/github/docs/blob/main/contributing/images-and-versioning.md) from the contributing docs for more information.
