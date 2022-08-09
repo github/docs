@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import App from 'next/app'
 import type { AppProps, AppContext } from 'next/app'
 import Head from 'next/head'
-import { ThemeProvider, SSRProvider, ThemeProviderProps } from '@primer/react'
+import { ThemeProvider, SSRProvider } from '@primer/react'
 
 import '../stylesheets/index.scss'
 
@@ -10,16 +10,17 @@ import { initializeEvents } from 'components/lib/events'
 import experiment from 'components/lib/experiment'
 import { LanguagesContext, LanguagesContextT } from 'components/context/LanguagesContext'
 import { useSession } from 'components/hooks/useSession'
+import { useTheme } from 'components/hooks/useTheme'
 
 type MyAppProps = AppProps & {
   isDotComAuthenticated: boolean
   languagesContext: LanguagesContextT
 }
 
-type colorModeAuto = Pick<ThemeProviderProps, 'colorMode'>
-
 const MyApp = ({ Component, pageProps, languagesContext }: MyAppProps) => {
   const { session } = useSession()
+  const { theme } = useTheme()
+
   useEffect(() => {
     if (session?.csrfToken) {
       initializeEvents(session.csrfToken)
@@ -54,18 +55,15 @@ const MyApp = ({ Component, pageProps, languagesContext }: MyAppProps) => {
       </Head>
       <SSRProvider>
         <ThemeProvider
-          colorMode={
-            (session?.theme?.colorMode as colorModeAuto['colorMode']) ||
-            ('auto' as colorModeAuto['colorMode'])
-          }
-          dayScheme={session?.theme?.dayTheme || 'light'}
-          nightScheme={session?.theme?.nightTheme || 'dark'}
+          colorMode={theme.component.colorMode}
+          dayScheme={theme.component.dayScheme}
+          nightScheme={theme.component.nightScheme}
         >
           {/* Appears Next.js can't modify <body> after server rendering: https://stackoverflow.com/a/54774431 */}
           <div
-            data-color-mode={session?.themeCss?.colorMode || 'auto'}
-            data-dark-theme={session?.themeCss?.nightTheme || 'dark'}
-            data-light-theme={session?.themeCss?.dayTheme || 'light'}
+            data-color-mode={theme.css.colorMode}
+            data-light-theme={theme.css.lightTheme}
+            data-dark-theme={theme.css.darkTheme}
           >
             <LanguagesContext.Provider value={languagesContext}>
               <Component {...pageProps} />
