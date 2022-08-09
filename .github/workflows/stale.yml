@@ -29,3 +29,4 @@ jobs:
           exempt-pr-labels: 'never-stale,waiting for review'
           exempt-issue-labels: 'never-stale,help wanted,waiting for review'
           operations-per-run: 1000
+          close-issue-reason: not_planned
