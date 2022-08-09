@@ -6,13 +6,13 @@ import { Flash, Label, ActionList, ActionMenu } from '@primer/react'
 import { ItemInput } from '@primer/react/lib/deprecated/ActionList/List'
 import { InfoIcon } from '@primer/octicons-react'
 
+import { useLanguages } from 'components/context/LanguagesContext'
 import { useTranslation } from 'components/hooks/useTranslation'
 import { sendEvent, EventType } from 'components/lib/events'
 import { useMainContext } from './context/MainContext'
 import { DEFAULT_VERSION, useVersion } from 'components/hooks/useVersion'
 import { useQuery } from 'components/hooks/useQuery'
 import { Link } from 'components/Link'
-import { useSession } from 'components/hooks/useSession'
 
 import styles from './Search.module.scss'
 
@@ -56,8 +56,7 @@ export function Search({
   const inputRef = useRef<HTMLInputElement>(null)
   const { t } = useTranslation('search')
   const { currentVersion } = useVersion()
-  const { session } = useSession()
-  const languages = session?.languages
+  const { languages } = useLanguages()
 
   // Figure out language and version for index
   const { searchVersions, nonEnterpriseDefaultVersion } = useMainContext()
