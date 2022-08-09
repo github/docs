@@ -19,7 +19,11 @@ After you connect your account on {% data variables.product.product_location %} 
 
    ![Pesquisar um branch para criar um novo {% data variables.product.prodname_codespaces %}](/assets/images/help/codespaces/choose-branch-vscode.png)
 
-5. Click the machine type you want to use.
+5. If prompted to choose a dev container configuration file, choose a file from the list.
+
+   ![Choosing a dev container configuration file for {% data variables.product.prodname_codespaces %}](/assets/images/help/codespaces/choose-dev-container-vscode.png)
+
+6. Click the machine type you want to use.
 
    ![Tipos de instância para um novo {% data variables.product.prodname_codespaces %}](/assets/images/help/codespaces/choose-sku-vscode.png)
 

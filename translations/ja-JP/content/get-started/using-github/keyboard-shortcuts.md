@@ -146,7 +146,34 @@ The {% data variables.product.prodname_command_palette %} also gives you quick a
 | <kbd>Alt</kbd> およびクリック                               | Toggle between collapsing and expanding all outdated review comments in a pull request by holding down <kbd>Alt</kbd> and clicking **Show outdated** or **Hide outdated**.                                                                                                                           |
 | Click, then <kbd>Shift</kbd> and click               | Comment on multiple lines of a pull request by clicking a line number, holding <kbd>Shift</kbd>, then clicking another line number. 詳しい情報については、「[プルリクエストへコメントする](/github/collaborating-with-issues-and-pull-requests/commenting-on-a-pull-request#adding-line-comments-to-a-pull-request)」を参照してください。 |
 
-## プロジェクトボード
+{% ifversion projects-v2 %}
+
+## {% data variables.projects.projects_v2_caps %}
+
+### Navigating a project
+
+| キーボードショートカット                                                                    | 説明                           |
+| ------------------------------------------------------------------------------- | ---------------------------- |
+| <kbd>⌘</kbd>+<kbd>f</kbd> (Mac) or <kbd>Ctrl</kbd>+<kbd>f</kbd> (Windows/Linux) | Focus filter field           |
+| <kbd>←</kbd>                                                                    | Move cell focus to the left  |
+| <kbd>→</kbd>                                                                    | Move cell focus to the right |
+| <kbd>↑</kbd>                                                                    | Move cell focus up           |
+| <kbd>↓</kbd>                                                                    | Move cell focus down         |
+
+### Manipulating a project
+
+| キーボードショートカット                                                                                                        | 説明                                    |
+| ------------------------------------------------------------------------------------------------------------------- | ------------------------------------- |
+| <kbd>Enter</kbd>                                                                                                    | Toggle edit mode for the focused cell |
+| <kbd>Escape</kbd>                                                                                                   | Cancel editing for the focused cell   |
+| <kbd>⌘</kbd>+<kbd>Shift</kbd>+<kbd>\</kbd> (Mac) or <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>\</kbd> (Windows/Linux) | Open row actions menu                 |
+| <kbd>Shift</kbd>+<kbd>Space</kbd>                                                                                   | アイテムを選択                               |
+| <kbd>Space</kbd>                                                                                                    | Open selected item                    |
+| <kbd>e</kbd>                                                                                                        | Archive selected items                |
+
+{% endif %}
+
+## {% data variables.product.prodname_projects_v1_caps %}
 
 ### 列を移動する
 
@@ -203,8 +230,8 @@ The {% data variables.product.prodname_command_palette %} also gives you quick a
 
 | キーボードショートカット                  | 説明           |
 | ----------------------------- | ------------ |
-| <kbd>E</kbd>                  | 完了済としてマークします |
-| <kbd>Shift</kbd>+<kbd>U</kbd> | 未読としてマークします  |
+| <kbd>E</kbd>                  | 完了としてマーク     |
+| <kbd>Shift</kbd>+<kbd>U</kbd> | 未読としてマーク     |
 | <kbd>Shift</kbd>+<kbd>I</kbd> | 既読としてマーク     |
 | <kbd>Shift</kbd>+<kbd>M</kbd> | サブスクライブ解除します |
 

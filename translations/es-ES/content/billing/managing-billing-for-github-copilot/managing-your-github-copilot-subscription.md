@@ -28,7 +28,7 @@ You can cancel your {% data variables.product.prodname_copilot %} subscription a
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.billing_plans %}
-1. In the "{% data variables.product.prodname_copilot %}" section, select the **Edit** dropdown.
+1. En la sección "{% data variables.product.prodname_copilot %}", selecciona el menú desplegable de **Editar**.
    - If you have a paid subscription, click **Cancel {% data variables.product.prodname_copilot %}**.
 
    ![Screenshot of GitHub Copilot section on billing page with cancel GitHub Copilot option emphasized](/assets/images/help/copilot/copilot-billing-edit-dropdown.png)

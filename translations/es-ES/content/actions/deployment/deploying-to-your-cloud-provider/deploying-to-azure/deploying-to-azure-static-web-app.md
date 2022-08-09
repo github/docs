@@ -54,6 +54,8 @@ Para obtener más información sobre estos valores, consulta la sección "[Confi
 ```yaml{:copy}
 {% data reusables.actions.actions-not-certified-by-github-comment %}
 
+{% data reusables.actions.actions-use-sha-pinning-comment %}
+
 name: Deploy web app to Azure Static Web Apps
 
 env:

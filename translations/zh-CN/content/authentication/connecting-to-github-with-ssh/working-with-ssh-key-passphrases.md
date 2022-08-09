@@ -17,9 +17,9 @@ topics:
 shortTitle: SSH 密钥密码
 ---
 
-## About passphrases for SSH keys
+## 关于 SSH 密钥的密码
 
-With SSH keys, if someone gains access to your computer, the attacker can gain access to every system that uses that key. 要添加额外的安全层，可以向 SSH 密钥添加密码。 To avoid entering the passphrase every time you connect, you can securely save your passphrase in the SSH agent.
+使用 SSH 密钥时，如果有人获得了对您的计算机的访问权限，攻击者就可以访问使用该密钥的每个系统。 要添加额外的安全层，可以向 SSH 密钥添加密码。 为避免每次连接时都输入密码，您可以在 SSH 代理中安全地保存密码。
 
 ## 添加或更改密码
 

@@ -774,6 +774,12 @@ registries:
 
 ### `docker-registry`
 
+{% note %}
+
+**ノート:** Azure Container Registry (ACR)はサポートされていません。
+
+{% endnote %}
+
 `docker-registry` タイプは、ユーザ名とパスワードをサポートします。
 
 {% raw %}

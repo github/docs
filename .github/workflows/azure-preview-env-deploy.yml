@@ -17,6 +17,7 @@ on:
   # unlike 'pull_request_target', these only have secrets if the pull
   # request creator has permission to access secrets.
   pull_request_target:
+  merge_group:
   workflow_dispatch:
     inputs:
       PR_NUMBER:
@@ -27,9 +28,6 @@ on:
         description: 'The commit SHA to build'
         type: string
         required: true
-  push:
-    branches:
-      - gh-readonly-queue/main/**
 
 permissions:
   contents: read
@@ -200,7 +198,7 @@ jobs:
       - name: Run ARM deploy
         # This 'if' will be truth, if this workflow is...
         #  - run as a workflow_dispatch
-        #  - run because of a push to main (or gh-readonly-queue/main)
+        #  - run because of a push to main (or when added to a merge queue)
         #  - run as a regular pull request
         # But if it's a pull request, *and* for whatever reason, the pull
         # request has "Auto-merge" enabled, don't bother.

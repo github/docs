@@ -71,7 +71,7 @@ Issueを分類するために、ラベルを追加してください。 たと�
 
 ## プロジェクトへのIssueの追加
 
-Issueを既存のプロジェクトに追加できます。 {% ifversion fpt or ghec %}プロジェクト（ベータ）を使っているなら、プロジェクトのメタデータを展開することもできます。 {% endif %}プロジェクトに関する詳しい情報については{% ifversion fpt or ghec %}「[プロジェクト（ベータ）について](/issues/trying-out-the-new-projects-experience/about-projects)」及び{% endif %}「[プロジェクトボードで作業を整理する](/issues/organizing-your-work-with-project-boards)」を参照してください。
+You can add the issue to an existing project{% ifversion projects-v2 %} and populate metadata for the project. {% endif %} For more information about projects, see {% ifversion projects-v2 %}"[About projects](/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects)."{% else %}"[Organizing your work with project boards](/issues/organizing-your-work-with-project-boards)."{% endif %}
 
 ![プロジェクトを持つIssue](/assets/images/help/issues/issue-project.png)
 
@@ -97,5 +97,5 @@ Issueは、幅広い目的で使用できます。 例:
 {% data variables.product.prodname_github_issues %} で次のステップに進む際に役立つ、以下のようなリソースを参照してください。
 
 - Issueについてさらに学ぶには「[Issueについて](/issues/tracking-your-work-with-issues/about-issues)」を参照してください。
-- プロジェクトが計画と追跡にどのように役立つかをさらに学ぶには、{% ifversion fpt or ghec %}「[プロジェクト（ベータ）について](/issues/trying-out-the-new-projects-experience/about-projects)」あるいは{% endif %}「[プロジェクトボードでの作業の整理](/issues/organizing-your-work-with-project-boards)」を参照してください。
+- To learn more about how projects can help you with planning and tracking, see {% ifversion projects-v2 %}"[About projects](/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects)."{% else %}"[Organizing your work with project boards](/issues/organizing-your-work-with-project-boards)."{% endif %}
 - Issueテンプレート{% ifversion fpt or ghec %}及びIssueフォーム{% endif %}を利用して、コントリビューターが特定の情報を提供してくれるよう促進することについてさらに学ぶには「[IssueやPull Requestが役立つものになるよう促進するためのテンプレートの利用](/communities/using-templates-to-encourage-useful-issues-and-pull-requests)」を参照してください。

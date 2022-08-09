@@ -343,6 +343,18 @@ With `ghe-set-password`, you can set a new password to authenticate into the [{%
 ghe-set-password <new_password>
 ```
 
+### ghe-setup-network
+
+This utility allows you to configure the primary network interface.
+
+To enter visual mode, which will guide you through configuration of network settings:
+
+```shell
+$ ghe-setup-network -v
+```
+
+Use the -h flag for additional options.
+
 ### ghe-ssh-check-host-keys
 
 This utility checks the existing SSH host keys against the list of known leaked SSH host keys.
@@ -621,7 +633,7 @@ ghe-btop [ <port number> | --help | --usage ]
 
 #### ghe-governor
 
-This utility helps to analyze Git traffic. It queries _Governor_ data files, located under `/data/user/gitmon`. {% data variables.product.company_short %} holds one hour of data per file, retained for two weeks. For more information, see [Analyzing Git traffic using Governor](https://github.community/t/analyzing-git-traffic-using-governor/13516) in {% data variables.product.prodname_gcf %}.
+This utility helps to analyze Git traffic. It queries _Governor_ data files, located under `/data/user/gitmon`. {% data variables.product.company_short %} holds one hour of data per file, retained for two weeks. For more information, see [Analyzing Git traffic using Governor](https://github.community/t/analyzing-git-traffic-using-governor/13516) in {% data variables.product.prodname_github_community %}.
 
 ```bash
 ghe-governor <subcommand> <column> [options]

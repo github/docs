@@ -33,6 +33,8 @@ shortTitle: 添加标签以评论议题
     ```yaml{:copy}
 {% indented_data_reference reusables.actions.actions-not-certified-by-github-comment spaces=4 %}
 
+{% indented_data_reference reusables.actions.actions-use-sha-pinning-comment spaces=4 %}
+
     name: Add comment
     on:
       issues:

@@ -26,7 +26,17 @@ Este tutorial utiliza [el proyecto Spoon-Knife](https://github.com/octocat/Spoon
 
 1. Navega al proyecto `Spoon-Knife` en https://github.com/octocat/Spoon-Knife.
 2. Haz clic en **Bifurcar**. ![Botón Bifurcar](/assets/images/help/repository/fork_button.png)
-1. {% data variables.product.product_name %} te llevará a tu copia (tu bifurcación) del repositorio Spoon-Knife.
+3. Select an owner for the forked repository. ![Create a new fork page with owner dropdown emphasized](/assets/images/help/repository/fork-choose-owner.png)
+4. By default, forks are named the same as their parent repositories. You can change the name of the fork to distinguish it further. ![Create a new fork page with repository name field emphasized](/assets/images/help/repository/fork-choose-repo-name.png)
+5. Optionally, add a description of your fork. ![Create a new fork page with description field emphasized](/assets/images/help/repository/fork-description.png)
+6. Choose whether to copy only the default branch or all branches to the new fork. For many forking scenarios, such as contributing to open-source projects, you only need to copy the default branch. By default, only the default branch is copied. ![Option to copy only the default branch](/assets/images/help/repository/copy-default-branch-only.png)
+7. Click **Create fork**. ![Emphasized create fork button](/assets/images/help/repository/fork-create-button.png)
+
+{% note %}
+
+**Note:** If you want to copy additional branches from the parent repository, you can do so from the **Branches** page. Para obtener más información, consulta "[Crear y eliminar ramas dentro de tu repositorio](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository)".
+
+{% endnote %}
 
 ## Clonar una bifurcación
 

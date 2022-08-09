@@ -30,9 +30,10 @@ shortTitle: Remove label when adding card
 2. リポジトリに属するプロジェクトを選択します。 このワークフローは、ユーザまたは Organization に属するプロジェクトでは使用できません。 既存のプロジェクトを使用することも、新しいプロジェクトを作成することもできます。 プロジェクトの作成の詳細については、「[プロジェクトボードを作成する](/github/managing-your-work-on-github/creating-a-project-board)」を参照してください。
 3. {% data reusables.actions.make-workflow-file %}
 4. 次の YAML コンテンツをワークフローファイルにコピーします。
-
     ```yaml{:copy}
 {% indented_data_reference reusables.actions.actions-not-certified-by-github-comment spaces=4 %}
+
+{% indented_data_reference reusables.actions.actions-use-sha-pinning-comment spaces=4 %}
 
     name: Remove labels
     on:

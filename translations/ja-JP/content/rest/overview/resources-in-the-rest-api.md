@@ -297,6 +297,18 @@ _この例は、読みやすいように改行されています。_
 | `first` | 結果の最初のページのリンク関係。  |
 | `prev`  | 結果の直前のページのリンク関係。  |
 
+## タイムアウト
+
+If {% data variables.product.prodname_dotcom %} takes more than 10 seconds to process an API request, {% data variables.product.prodname_dotcom %} will terminate the request and you will receive a timeout response like this:
+
+```json
+{
+    "message": "Server Error"
+}
+```
+
+{% data variables.product.product_name %} reserves the right to change the timeout window to protect the speed and reliability of the API.
+
 ## レート制限
 
 {% data variables.product.product_location %}への様々な種類のAPIリクエストは、様々なレート制限に従います。

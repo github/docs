@@ -1,0 +1,3 @@
+{% data reusables.projects.add-item-bottom-row %}
+1. Teclea tu ida y luego presiona **Enter**. ![Screenshot showing pasting an issue URL to add it to the project](/assets/images/help/projects-v2/add-draft-issue.png)
+1. Para agregar cuerpo de texto, haz clic en el título del borrador de propuesta. En la caja de entrada de lenguaje de marcado que se muestra, ingresa el texto para el cuerpo del borrador de propuesta y luego haz clic en **Guardar**.
