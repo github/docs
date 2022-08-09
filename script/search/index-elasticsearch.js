@@ -277,21 +277,31 @@ async function indexVersion(
   const { count } = await client.count({ index: thisAlias })
   console.log(`Documents now in ${chalk.bold(thisAlias)}: ${chalk.bold(count.toLocaleString())}`)
 
-  // POINT THE ALIAS
-  await client.indices.putAlias({
-    index: thisAlias,
-    name: indexName,
-  })
+  // To perform an atomic operation that creates the new alias and removes
+  // the old indexes, we can use the updateAliases API with a body that
+  // includes an "actions" array. The array includes the added alias
+  // and the removed indexes. If any of the actions fail, none of the operations
+  // are performed.
+  // https://www.elastic.co/guide/en/elasticsearch/reference/master/indices-aliases.html
+  const aliasUpdates = [
+    {
+      add: {
+        index: thisAlias,
+        alias: indexName,
+      },
+    },
+  ]
   console.log(`Alias ${indexName} -> ${thisAlias}`)
 
-  // DELETE ALL OTHER OLDER INDEXES
   const indices = await client.cat.indices({ format: 'json' })
   for (const index of indices) {
     if (index.index !== thisAlias && index.index.startsWith(indexName)) {
-      await client.indices.delete({ index: index.index })
-      console.log('Deleted', index.index)
+      aliasUpdates.push({ remove_index: { index: index.index } })
+      console.log('Deleting index', index.index)
     }
   }
+
+  await client.indices.updateAliases({ body: { actions: aliasUpdates } })
 }
 
 function escapeHTML(content) {

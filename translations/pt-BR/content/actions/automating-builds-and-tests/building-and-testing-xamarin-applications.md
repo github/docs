@@ -28,8 +28,8 @@ Este guia mostra como criar um fluxo de trabalho que executa a integração cont
 
 Para obter uma lista completa das versões Xamarin SDK disponíveis nos executores do macOS hospedados em {% data variables.product.prodname_actions %}, consulte a documentação:
 
-* [macOS 10.15](https://github.com/actions/virtual-environments/blob/main/images/macos/macos-10.15-Readme.md#xamarin-bundles)
-* [macOS 11](https://github.com/actions/virtual-environments/blob/main/images/macos/macos-11-Readme.md#xamarin-bundles)
+* [macOS 10.15](https://github.com/actions/runner-images/blob/main/images/macos/macos-10.15-Readme.md#xamarin-bundles)
+* [macOS 11](https://github.com/actions/runner-images/blob/main/images/macos/macos-11-Readme.md#xamarin-bundles)
 
 {% data reusables.actions.macos-runner-preview %}
 
