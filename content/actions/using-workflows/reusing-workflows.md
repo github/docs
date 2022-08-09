@@ -169,9 +169,15 @@ jobs:
 ```
 {% endraw %}
 {% ifversion actions-reusable-workflow-matrix %}
-### Using a matrix strategy with a reusable workflow
+## Using a matrix strategy with a reusable workflow
+
+Within your reusable workflow input, you can reference the matrix context.
+
+{% data reusables.actions.jobs.about-matrix-strategy %}. For more information, see "[Using a matrix for your jobs](/actions/using-jobs/using-a-matrix-for-your-jobs)."
 
 ### Example matrix strategy with a reusable workflow
+
+This workflow file references the matrix context by defining the variable `env` with the values `[dev, stage, prod]`. The workflow will run three jobs, one for each value in the variable. The workflow file also calls a reusable workflow by using the `uses` keyword.
 
 {% raw %}
 ```yaml{:copy}
