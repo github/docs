@@ -5,6 +5,10 @@ name: Content Changes Table Comment
 # **Who does it impact**: docs-internal/docs maintainers and contributors
 
 on:
+  # Trigger this workflow after preview deployment runs
+  workflow_run:
+    workflows:
+      - Azure - Deploy Preview Environment
   workflow_dispatch:
   pull_request_target:
 
@@ -40,7 +44,6 @@ jobs:
           filters: |
             filterContentDir:
               - 'content/**/*'
-
   filterContentDir:
     needs: PR-Preview-Links
     if: ${{ needs.PR-Preview-Links.outputs.filterContentDir == 'true' }}
