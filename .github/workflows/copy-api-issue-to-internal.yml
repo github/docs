@@ -19,7 +19,7 @@ jobs:
     if: (github.event.label.name == 'rest-description' || github.event.label.name == 'graphql-description') && github.repository == 'github/docs'
     steps:
       - name: Check if this run was triggered by a member of the docs team
-        uses: actions/github-script@2b34a689ec86a68d8ab9478298f91d5401337b7d
+        uses: actions/github-script@7a5c598405937d486b0331594b5da2b14db670da
         id: triggered-by-member
         with:
           github-token: ${{secrets.DOCUBOT_READORG_REPO_WORKFLOW_SCOPES}}
