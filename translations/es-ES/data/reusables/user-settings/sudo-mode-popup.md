@@ -1,1 +1,3 @@
-1. Si se te solicita, confirma tu contraseña {% data variables.product.product_name %}.![Diálogo Modo sudo](/assets/images/help/settings/sudo_mode_popup.png)
+{%- ifversion fpt or ghec or ghes %}
+1. If prompted, confirm access to your account on {% data variables.product.product_name %}. For more information, see "[Sudo mode](/authentication/keeping-your-account-and-data-secure/sudo-mode)."
+{%- endif %}

@@ -1,8 +1,8 @@
 ---
-title: プロジェクトボード
+title: '{% data variables.product.prodname_projects_v1_caps %}'
 shortTitle: ボード
 allowTitleToDifferFromFilename: true
-intro: Project boards APIを使うと、リポジトリ中のプロジェクトの作成及び管理ができます。
+intro: 'The {% data variables.product.prodname_projects_v1 %} API lets you create and manage {% data variables.projects.projects_v1_boards %} in a repository.'
 versions:
   fpt: '*'
   ghes: '*'

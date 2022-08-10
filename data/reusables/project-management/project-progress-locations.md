@@ -1,1 +1,1 @@
-If progress tracking is enabled, a progress bar appears above the project board, on the project listing page, in the issue sidebar, and in references to the project on other project boards.
+If progress tracking is enabled, a progress bar appears above the {% data variables.projects.projects_v1_board %}, on the project listing page, in the issue sidebar, and in references to the project on other {% data variables.projects.projects_v1_boards %}.

@@ -20,6 +20,4 @@ Por ejemplo, el objeto [`Issue`](/graphql/reference/objects#issue) tiene un camp
 
 Para obtener más información, consulta la sección "[Introducción a GraphQL](/graphql/guides/introduction-to-graphql)".
 
-{% for item in graphql.schemaForCurrentVersion.enums %}
-  {% include graphql-enum %}
-{% endfor %}
+<!-- Content after this section is automatically generated -->

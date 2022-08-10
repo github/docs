@@ -1,7 +1,7 @@
 <table style="width:100%">
 <thead>
   <tr>
-    <th style="width:35%"><b>仮想環境</b></th>
+    <th style="width:35%"><b>Runner image</b></th>
     <th style="width:25%"><b>YAMLのワークフローラベル</b></th>
     <th style="width:40%"><b>注釈</b></th>
   </tr>
@@ -78,12 +78,13 @@ macOS Big Sur 11
 </tr>
 <tr>
 <td>
-macOS Catalina 10.15
+macOS Catalina 10.15 <sup>[deprecated]</sup>
 </td>
 <td>
 <code>macos-10.15</code>
 </td>
 <td>
+<code>macOS-11</code>もしくは<code>macOS-12</code>に移行してください。 詳しい情報については<A href="https://github.blog/changelog/2022-07-20-github-actions-the-macos-10-15-actions-runner-image-is-being-deprecated-and-will-be-removed-by-8-30-22/">GitHubブログのポスト</A>を参照してください。
 </td>
 </tr>
 </tbody>
@@ -91,7 +92,7 @@ macOS Catalina 10.15
 
 {% note %}
 
-**ノート:** `-latest`の仮想環境は、{% data variables.product.prodname_dotcom %}が提供している最新の安定版イメージであり、オペレーティングシステムのベンダーから提供されているオペレーティングシステムの最新バージョンではないことがあります。
+**Note:** The `-latest` runner images are the latest stable images that {% data variables.product.prodname_dotcom %} provides, and might not be the most recent version of the operating system available from the operating system vendor.
 
 {% endnote %}
 

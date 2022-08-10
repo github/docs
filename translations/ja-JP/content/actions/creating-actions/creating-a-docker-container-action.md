@@ -39,7 +39,7 @@ shortTitle: Docker container action
 {% ifversion ghae %}
 - 「[Docker コンテナファイルシステム](/actions/using-github-hosted-runners/about-ae-hosted-runners#docker-container-filesystem)」
 {% else %}
-- [{% data variables.product.prodname_dotcom %}の仮想環境](/actions/automating-your-workflow-with-github-actions/virtual-environments-for-github-hosted-runners#docker-container-filesystem)
+- "[About {% data variables.product.prodname_dotcom %}-hosted runners](/actions/using-github-hosted-runners/about-github-hosted-runners#docker-container-filesystem)"
 {% endif %}
 
 始める前に、{% data variables.product.prodname_dotcom %} リポジトリを作成する必要があります。

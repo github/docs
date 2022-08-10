@@ -2,8 +2,6 @@
 title: OAuth認証
 intro: OAuth認証を使用すると、OAuthアプリケーションが持つあなたのアカウントへのアクセスを管理できます。
 versions:
-  fpt: '*'
-  ghec: '*'
   ghes: '*'
 topics:
   - API

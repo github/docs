@@ -18,8 +18,6 @@ topics:
 
 调用 GraphQL API 时，必须指定嵌套子字段，直到仅返回标量。
 
-更多信息请参阅“[GraphQL 简介](/graphql/guides/introduction-to-graphql#field)。”
+更多信息请参阅“[GraphQL 简介](/graphql/guides/introduction-to-graphql#field)”。
 
-{% for item in graphql.schemaForCurrentVersion.scalars %}
-  {% include graphql-scalar %}
-{% endfor %}
+<!-- Content after this section is automatically generated -->

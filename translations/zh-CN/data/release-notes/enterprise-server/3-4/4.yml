@@ -34,3 +34,4 @@ sections:
       要解决此问题，您可以执行以下两个操作之一。
       - 通过上传 SAML 元数据的静态副本（不带“WantAssertionsEncrypted”属性）来重新配置 IdP。
       - 复制 SAML 元数据，删除“WantAssertionsEncrypted”属性，将其托管在 Web 服务器上，然后将 IdP 重新配置为指向该 URL。
+    - After upgrading to {% data variables.product.prodname_ghe_server %} 3.4, releases may appear to be missing from repositories. This can occur when the required Elasticsearch index migrations have not successfully completed.

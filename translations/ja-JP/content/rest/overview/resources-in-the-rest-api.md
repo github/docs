@@ -226,7 +226,7 @@ REST API を介して `node_id` を検索し、それらを GraphQL 操作で使
 
 ## HTTP メソッド
 
-可能な場合、{% data variables.product.product_name %} REST APIはそれぞれのアクションに対して適切なHTTPメソッドを使うように努めます。
+可能な場合、{% data variables.product.product_name %} REST APIはそれぞれのアクションに対して適切なHTTPメソッドを使うように努めます。 Note that HTTP verbs are case-sensitive.
 
 | メソッド     | 説明                                                                                                                            |
 | -------- | ----------------------------------------------------------------------------------------------------------------------------- |
@@ -297,6 +297,18 @@ _この例は、読みやすいように改行されています。_
 | `first` | 結果の最初のページのリンク関係。  |
 | `prev`  | 結果の直前のページのリンク関係。  |
 
+## タイムアウト
+
+If {% data variables.product.prodname_dotcom %} takes more than 10 seconds to process an API request, {% data variables.product.prodname_dotcom %} will terminate the request and you will receive a timeout response like this:
+
+```json
+{
+    "message": "Server Error"
+}
+```
+
+{% data variables.product.product_name %} reserves the right to change the timeout window to protect the speed and reliability of the API.
+
 ## レート制限
 
 {% data variables.product.product_location %}への様々な種類のAPIリクエストは、様々なレート制限に従います。
@@ -355,6 +367,7 @@ $ curl -I {% data variables.product.api_url_pre %}/users/octocat
 > Date: Mon, 01 Jul 2013 17:27:06 GMT
 > x-ratelimit-limit: 60
 > x-ratelimit-remaining: 56
+> x-ratelimit-used: 4
 > x-ratelimit-reset: 1372700873
 ```
 
@@ -362,6 +375,7 @@ $ curl -I {% data variables.product.api_url_pre %}/users/octocat
 | ----------------------- | ----------------------------------------------------------------------------- |
 | `x-ratelimit-limit`     | 1 時間あたりのリクエスト数の上限。                                                            |
 | `x-ratelimit-remaining` | 現在のレート制限ウィンドウに残っているリクエストの数。                                                   |
+| `x-ratelimit-used`      | 現在のレート制限ウィンドウ内で発行したリクエスト数。                                                    |
 | `x-ratelimit-reset`     | 現在のレート制限ウィンドウが [UTC エポック秒](http://en.wikipedia.org/wiki/Unix_time)でリセットされる時刻。 |
 
 時刻に別の形式を使用する必要がある場合は、最新のプログラミング言語で作業を完了できます。 たとえば、Web ブラウザでコンソールを開くと、リセット時刻を JavaScript の Date オブジェクトとして簡単に取得できます。
@@ -378,6 +392,7 @@ new Date(1372700873 * 1000)
 > Date: Tue, 20 Aug 2013 14:50:41 GMT
 > x-ratelimit-limit: 60
 > x-ratelimit-remaining: 0
+> x-ratelimit-used: 60
 > x-ratelimit-reset: 1377013266
 
 > {
@@ -396,6 +411,7 @@ $ curl -u my_client_id:my_client_secret -I {% data variables.product.api_url_pre
 > Date: Mon, 01 Jul 2013 17:27:06 GMT
 > x-ratelimit-limit: 5000
 > x-ratelimit-remaining: 4966
+> x-ratelimit-used: 34
 > x-ratelimit-reset: 1372700873
 ```
 
@@ -639,4 +655,3 @@ $ curl -H "Time-Zone: Europe/Amsterdam" -X POST {% data variables.product.api_ur
 [uri]: https://github.com/hannesg/uri_template
 
 [pagination-guide]: /guides/traversing-with-pagination
-

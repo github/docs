@@ -105,7 +105,7 @@ redirect_from:
 
 ## 授权请求的权限
 
-如果在 `devcontainer.json` 文件中定义了其他存储库权限，则在为此存储库创建代码空间时，系统将提示您查看并选择性地授权这些权限。 当您为存储库授权权限时，除非存储库的请求权限集已更改，否则 {% data variables.product.prodname_codespaces %} 不会重新提示您。
+If additional repository permissions are defined in the `devcontainer.json` file, you will be prompted to review and optionally authorize the permissions when you create a codespace or a prebuild configuration for this repository. 当您为存储库授权权限时，除非存储库的请求权限集已更改，否则 {% data variables.product.prodname_codespaces %} 不会重新提示您。
 
 ![请求的权限页面](/assets/images/help/codespaces/codespaces-accept-permissions.png)
 
@@ -117,7 +117,7 @@ redirect_from:
 
 {% warning %}
 
-**弃用说明**：现在不推荐使用个人帐户设置的 {% data variables.product.prodname_codespaces %} 部分中的访问和安全设置。 要启用对其他存储库的扩展访问权限，请将请求的权限添加到代码空间的开发容器定义中，如上所述。
+**Deprecation note**: The access and security setting described below is now deprecated and is documented here for reference only. 要启用对其他存储库的扩展访问权限，请将请求的权限添加到代码空间的开发容器定义中，如上所述。
 
 {% endwarning %}
 

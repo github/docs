@@ -1,19 +1,17 @@
 Provider | Supported secret | Secret type
 --- | --- | ---
 Adafruit IO | Adafruit IO Key | adafruit_io_key
-Alibaba Cloud | Alibaba Cloud Access Key ID | alibaba_cloud_access_key_id
-Alibaba Cloud | Alibaba Cloud Access Key Secret | alibaba_cloud_access_key_secret
-Amazon | Amazon OAuth Client ID | amazon_oauth_client_id
-Amazon | Amazon OAuth Client Secret | amazon_oauth_client_secret
-Amazon Web Services (AWS) | Amazon AWS Access Key ID | aws_access_key_id
-Amazon Web Services (AWS) | Amazon AWS Secret Access Key | aws_secret_access_key
-Amazon Web Services (AWS) | Amazon AWS Session Token | aws_session_token
-Amazon Web Services (AWS) | Amazon AWS Temporary Access Key ID | aws_temporary_access_key_id
+Alibaba Cloud | Alibaba Cloud Access Key ID with Alibaba Cloud Access Key Secret| alibaba_cloud_access_key_id </br>alibaba_cloud_access_key_secret
+Amazon | Amazon OAuth Client ID with Amazon OAuth Client Secret | amazon_oauth_client_id </br>amazon_oauth_client_secret
+Amazon Web Services (AWS) | Amazon AWS Access Key ID with Amazon AWS Secret Access Key | aws_access_key_id </br>aws_secret_access_key
+Amazon Web Services (AWS) | Amazon AWS Session Token with Amazon AWS Temporary Access Key ID and Amazon AWS Secret Access Key | aws_session_token </br>aws_temporary_access_key_id </br>aws_secret_access_key
 Asana | Asana Personal Access Token | asana_personal_access_token
 Atlassian | Bitbucket Server Personal Access Token | bitbucket_server_personal_access_token
 Azure | Azure Active Directory Application Secret | azure_active_directory_application_secret
 Azure | Azure Cache for Redis Access Key | azure_cache_for_redis_access_key
 Azure | Azure DevOps Personal Access Token | azure_devops_personal_access_token
+{%- ifversion fpt or ghec or ghes > 3.6 or ghae-issue-7456 %}
+Azure | Azure Storage Account Key | azure_storage_account_key{% endif %}
 Checkout.com | Checkout.com Production Secret Key | checkout_production_secret_key
 Clojars | Clojars Deploy Token | clojars_deploy_token
 Databricks | Databricks Access Token | databricks_access_token
@@ -37,9 +35,9 @@ GitHub | GitHub OAuth Access Token | github_oauth_access_token
 GitHub | GitHub Refresh Token | github_refresh_token
 GitHub | GitHub App Installation Access Token | github_app_installation_access_token
 GitHub | GitHub SSH Private Key | github_ssh_private_key
-Google | Google Cloud Storage Access Key Secret | google_cloud_storage_access_key_secret
-Google | Google Cloud Storage Service Account Access Key ID | google_cloud_storage_service_account_access_key_id
-Google | Google Cloud Storage User Access Key ID | google_cloud_storage_user_access_key_id
+Google | Google Cloud Storage Service Account Access Key ID with Google Cloud Storage Access Key Secret | google_cloud_storage_service_account_access_key_id </br>google_cloud_storage_access_key_secret
+Google | Google Cloud Storage User Access Key ID with Google Cloud Storage Access Key Secret | google_cloud_storage_user_access_key_id </br>google_cloud_storage_access_key_secret
+Google | Google OAuth Client ID with Google OAuth Client Secret | google_oauth_client_id </br>google_oauth_client_secret
 Grafana | Grafana API Key | grafana_api_key
 Hubspot | Hubspot API Key | hubspot_api_key
 Intercom | Intercom Access Token | intercom_access_token

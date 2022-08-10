@@ -20,7 +20,7 @@ shortTitle: Secretos cifrados
  
 
 
-## About encrypted secrets for {% data variables.product.prodname_github_codespaces %}
+## Acerca de los secretos cifrados para {% data variables.product.prodname_github_codespaces %}
 
 Puedes agregar secretos cifrados a tu cuenta personal si los quieres utilizar en tus codespaces. Por ejemplo, puede que quieras almacenar y acceder a la siguiente información sensible en forma de un secreto cifrado.
 
@@ -41,7 +41,7 @@ Puedes elegir qué repositorios deben tener acceso a cada secreto. Posteriorment
 
 ### Límites para los secretos
 
-You can store up to 100 secrets for {% data variables.product.prodname_github_codespaces %}.
+Puedes almacenar hasta 100 secretos para {% data variables.product.prodname_github_codespaces %}.
 
 Los secretos tienen un tamaño máximo de 64 KB.
 
@@ -74,6 +74,22 @@ Puedes actualizar el valor de un secreto existente y puedes cambiar qué reposit
 {% data reusables.user-settings.codespaces-tab %}
 1. Debajo de "Secretos de los codespaces", a la derecha del secreto que quieras borrar, da clic en **Borrar**. ![Botón de "Borrar"](/assets/images/help/settings/codespaces-secret-delete-button.png)
 1. Lee la advertencia y da clic en **OK**. ![Confirmación para borrar un secreto](/assets/images/help/settings/codespaces-secret-delete-warning.png)
+
+## Utilizar secretos
+
+El secreto se exporta como una variable de ambiente en la sesión de la terminal del usuario.
+
+  ![Mostrar el valor de un secreto exportado en la terminal](/assets/images/help/codespaces/exported-codespace-secret.png)
+
+Puedes utilizar secretos en un codespace después de que este se compile y esté ejecutándose. Por ejemplo, un secreto puede utilizarse:
+
+* Al lanzar una aplicación desde la terminal integrada o sesión ssh.
+* Dentro de un script de ciclo de vida de un contenedor dev que se ejecuta después de que el codespace esté en ejecución. Para obtener más información sobre los scripts de ciclo de vida de contenedor dev, consulta la documentación sobre containers.dev: [Especificación](https://containers.dev/implementors/json_reference/#lifecycle-scripts).
+
+Los secretos de los codespaces no pueden utilizarse durante:
+
+* El tiempo de compilación de un codespace (es decir, dentro de un Dockerfile o punto de entrada personalizado).
+* Dentro de una característica de contenedor dev. Para obtener más información, consulta el atributo de `features` en la documentación de containers.dev: [Especificación](https://containers.dev/implementors/json_reference/#general-properties).
 
 ## Leer más
 

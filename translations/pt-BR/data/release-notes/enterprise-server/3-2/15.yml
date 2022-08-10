@@ -2,7 +2,7 @@ date: '2022-06-28'
 sections:
   security_fixes:
     - "**MÉDIO**: Garante que o `github.company.com` e `github-company.com` não sejam avaliados por serviços internos como nomes de host idênticos, impedindo um potencial ataque de segurança do lado do servidor (SSRF)."
-    - "**LOW**: An attacker could access the Management Console with a path traversal attack via HTTP even if external firewall rules blocked HTTP access."
+    - "**BAIXO**: Um invasor pode acessar o Console de Gerenciamento com um ataque de deslocamento de caminho através de HTTP, mesmo se regras de firewall externas bloquearem o acesso ao HTTP."
     - Os pacotes foram atualizados para as últimas versões de segurança.
   bugs:
     - Em alguns casos, os administradores do site não foram automaticamente adicionados como proprietários da empresa.

@@ -50,9 +50,11 @@ Depois de aprovar ou rejeitar as chaves, o usuário poderá interagir normalment
 
 ## Adicionar chave SSH
 
-Os novos usuários deverão informar a senha ao adicionar uma chave SSH:
+{% ifversion ghes %}
 
-![Confirmação de senha](/assets/images/help/settings/sudo_mode_popup.png)
+When a new user adds an SSH key to an account, to confirm the user's access, {% data variables.product.product_name %} will prompt for authentication. For more information, see "[Sudo mode](/authentication/keeping-your-account-and-data-secure/sudo-mode)."
+
+{% endif %}
 
 Quando adicionar a chave, o usuário receberá um e-mail de notificação como este:
 

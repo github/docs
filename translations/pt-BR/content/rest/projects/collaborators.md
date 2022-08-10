@@ -1,8 +1,8 @@
 ---
-title: Colaboradores do quadro de projeto
+title: '{% data variables.product.prodname_project_v1_caps %} collaborators'
 shortTitle: Colaboradores
 allowTitleToDifferFromFilename: true
-intro: A API de colaboradores do quadro de projeto permite que você gerencie colaboradores em um quadro de projetos.
+intro: 'The {% data variables.product.prodname_project_v1 %} collaborators API lets you manage collaborators on a {% data variables.projects.projects_v1_board %}.'
 versions:
   fpt: '*'
   ghes: '*'

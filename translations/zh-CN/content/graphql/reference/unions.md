@@ -20,6 +20,4 @@ topics:
 
 更多信息请参阅“[GraphQL 简介](/graphql/guides/introduction-to-graphql)”。
 
-{% for item in graphql.schemaForCurrentVersion.unions %}
-  {% include graphql-union %}
-{% endfor %}
+<!-- Content after this section is automatically generated -->

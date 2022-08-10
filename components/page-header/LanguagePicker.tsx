@@ -15,10 +15,13 @@ type Props = {
 export const LanguagePicker = ({ variant }: Props) => {
   const router = useRouter()
   const { languages } = useLanguages()
+
   const locale = router.locale || 'en'
+
+  const { t } = useTranslation('picker')
+
   const langs = Object.values(languages)
   const selectedLang = languages[locale]
-  const { t } = useTranslation('picker')
 
   // The `router.asPath` will always be without a hash in SSR
   // So to avoid a hydraration failure on the client, we have to
@@ -47,15 +50,13 @@ export const LanguagePicker = ({ variant }: Props) => {
       <Picker
         variant={variant}
         defaultText={t('language_picker_default_text')}
-        options={langs
-          .filter((lang) => !lang.wip)
-          .map((lang) => ({
-            text: lang.nativeName || lang.name,
-            selected: lang === selectedLang,
-            locale: lang.code,
-            href: `${routerPath}`,
-            onselect: rememberPreferredLanguage,
-          }))}
+        options={langs.map((lang) => ({
+          text: lang.nativeName || lang.name,
+          selected: lang === selectedLang,
+          locale: lang.code,
+          href: `${routerPath}`,
+          onselect: rememberPreferredLanguage,
+        }))}
       />
     </div>
   )

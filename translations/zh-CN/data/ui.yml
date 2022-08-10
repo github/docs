@@ -96,6 +96,12 @@ products:
       possible_types: 可能的类型
       preview_notice: 预览通知
       deprecation_notice: 废弃通知
+      preview_period: During the preview period, the API may change without notice.
+    overview:
+      preview_header: 'To toggle this preview and access the following schema members, you must provide a custom media type in the `Accept` header:'
+      preview_schema_members: 'Previewed schema members'
+      announced: Announced
+      updates: 更新
   rest:
     reference:
       default: 默认值
@@ -179,7 +185,7 @@ product_landing:
   try_another: 请尝试另一个过滤器或添加您的代码示例。
   no_result: 抱歉，没有与过滤条件匹配的指南。
   learn: 了解如何添加代码示例
-  communities_using_discussions: 使用讨论的社区
+  communities_using_discussions: Communities on GitHub.com using discussions
   add_your_community: 添加您的社区
   sponsor_community: GitHub Sponsors 社区
   supported_releases: 支持的版本

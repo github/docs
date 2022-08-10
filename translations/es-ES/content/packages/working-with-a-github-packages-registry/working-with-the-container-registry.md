@@ -19,19 +19,18 @@ versions:
 shortTitle: Registro de contenedores
 ---
 
-{% ifversion ghes > 3.4 %}
-{% note %}
+{% data reusables.package_registry.container-registry-ghes-beta %}
 
-**Nota:**: {% data variables.product.prodname_container_registry %} se encuentra actualmente en beta para {% data variables.product.product_name %} y está sujeto a cambios.
+## Acerca de {% data variables.product.prodname_container_registry %}
 
-{% endnote %}
-{% endif %}
+{% data reusables.package_registry.container-registry-benefits %}
 
 {% ifversion ghes > 3.4 %}
-## Prerrequisitos
 
-Para configurar y utilizar el {% data variables.product.prodname_container_registry %} en {% data variables.product.prodname_ghe_server %}, tu administrador de sitio primero debe habilitar el {% data variables.product.prodname_registry %} **y** el aislamiento de subdominios. Para obtener más información, consulta las secciones "[Iniciar con GitHub Packages para tu empresa](/admin/packages/getting-started-with-github-packages-for-your-enterprise)" y "[Habilitar el aislamiento de subdominios](/admin/configuration/configuring-network-settings/enabling-subdomain-isolation)".
+Para utilizar el {% data variables.product.prodname_container_registry %} en {% data variables.product.product_name %}, tu administrador de sitio primero debe configurar el {% data variables.product.prodname_registry %} para tu instancia **y** habilitar el aislamiento de subdominios. Para obtener más información, consulta las secciones "[Iniciar con GitHub Packages para tu empresa](/admin/packages/getting-started-with-github-packages-for-your-enterprise)" y "[Habilitar el aislamiento de subdominios](/admin/configuration/configuring-network-settings/enabling-subdomain-isolation)".
+
 {% endif %}
+
 ## Acerca del soporte para el {% data variables.product.prodname_container_registry %}
 
 El {% data variables.product.prodname_container_registry %} es actualmente compatible con los siguientes formatos de contenedores de imagen:

@@ -204,7 +204,7 @@
 - 
   term: directory
   description: >-
-    A folder containing one or more files or folders. You can create directories to organize the contents of a repository.
+    1つ以上のファイルもしくはフォルダを含むフォルダ。リポジトリの内容を整理するためにディレクトリを作成できます。
 - 
   term: ダーティ
   description: >-
@@ -385,7 +385,7 @@
   description: >-
     Markdown は非常にシンプルでセマンティックファイル形式であり、.doc、.rtf 、.txtと大差ありません。Markdown はウェブパブリッシングの素養がない人でも簡単に文章（リンク、リスト、箇条書きなど）を書いたりウェブサイトのように表示したりできます。GitHub では Markdown をサポートしており、GitHub Flavored Markdown という特定の形式の Markdown を使用します。[GitHub Flavored Markdown の仕様](https://github.github.com/gfm/)または [GitHub で書き、フォーマットしてみる](/articles/getting-started-with-writing-and-formatting-on-github)を参照。
 - 
-  term: markup
+  term: マークアップ
   description: ドキュメントのアノテーションおよびフォーマットのためのシステム。
 - 
   term: main
@@ -396,7 +396,7 @@
   description: >-
     多くのGitリポジトリのデフォルトブランチ。デフォルトでは、新しいGitリポジトリをコマンドライン上で作成すると、`master`というブランチが作成されます。現在では、多くのツールがデフォルトブランチに代わりの名前を使うようになりました。{% ifversion fpt or ghes > 3.1 or ghae %}たとえばGitHub上で新しいリポジトリを作成すると、デフォルトブランチは`main`になります。{% endif %}
 - 
-  term: members graph
+  term: メンバーグラフ
   description: リポジトリのすべてのフォークを表示するリポジトリグラフ。
 - 
   term: メンション
@@ -422,7 +422,7 @@
   description: >-
     親チームの子チーム。子（または入れ子）チームは複数持つことができます。
 - 
-  term: network graph
+  term: ネットワークグラフ
   description: >-
     リポジトリネットワーク全体のブランチ履歴を表示するリポジトリグラフ。ルートリポジトリのブランチと、ネットワークに固有のコミットを含むフォークのブランチが含まれます。
 - 
@@ -543,10 +543,10 @@
   description: >-
     プルリクエストについてのコラボレータからのコメントで、変更を受け入れたり、プルリクエストがマージされる前にさらなる変更をリクエストしたりするもの。
 - 
-  term: pulse graph
+  term: パルスグラフ
   description: リポジトリのアクティビティの概要を示すリポジトリグラフ。
 - 
-  term: punch graph
+  term: パンチグラフ
   description: >-
     リポジトリへのアップデートの頻度を曜日または 1 日内の時間に基づいて表示するリポジトリグラフ。
 - 
