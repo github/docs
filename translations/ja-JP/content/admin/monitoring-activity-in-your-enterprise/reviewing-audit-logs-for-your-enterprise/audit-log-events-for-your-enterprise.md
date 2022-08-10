@@ -418,13 +418,13 @@ Before you'll see `git` category actions, you must enable Git events in the audi
 
 ## `integration_installation`category actions
 
-| アクション                                            | 説明                                              |
-| ------------------------------------------------ | ----------------------------------------------- |
-| `integration_installation.contact_email_changed` | A contact email for an integration was changed. |
-| `integration_installation.create`                | An integration was installed.                   |
-| `integration_installation.destroy`               | An integration was uninstalled.                 |
-| `integration_installation.repositories_added`    | Repositories were added to an integration.      |
-| `integration_installation.repositories_removed`  | Repositories were removed from an integration.  |
+| アクション                                            | 説明                        |
+| ------------------------------------------------ | ------------------------- |
+| `integration_installation.contact_email_changed` | インテグレーションの連絡先メールが変更されました。 |
+| `integration_installation.create`                | インテグレーションがインストールされました。    |
+| `integration_installation.destroy`               | インテグレーションがアンインストールされました。  |
+| `integration_installation.repositories_added`    | インテグレーションにリポジトリが追加されました。  |
+| `integration_installation.repositories_removed`  | インテグレーションからリポジトリが削除されました。 |
 {%- ifversion fpt or ghec %}
 | `integration_installation.suspend` | An integration was suspended. | `integration_installation.unsuspend` | An integration was unsuspended.
 {%- endif %}

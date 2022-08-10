@@ -34,11 +34,11 @@ topics:
 
 ## 依存関係
 
-使用しているコンテナで特定の依存関係がない場合 (たとえば、Git は PATH 変数にインストールされ、追加されている必要がある)、{% data variables.product.prodname_code_scanning %} を実行する上で困難が生じる場合があります。 依存関係の問題が生じた場合は、{% data variables.product.prodname_dotcom %} の仮想環境に通常含まれているソフトウェアのリストを確認してください。 詳しい情報については、次の場所にある特定のバージョンの `readme` ファイルを参照してください。
+使用しているコンテナで特定の依存関係がない場合 (たとえば、Git は PATH 変数にインストールされ、追加されている必要がある)、{% data variables.product.prodname_code_scanning %} を実行する上で困難が生じる場合があります。 依存関係の問題が生じた場合は、通常{% data variables.product.prodname_dotcom %}のランナーのイメージに含まれているソフトウェアのリストをレビューしてください。 詳しい情報については、次の場所にある特定のバージョンの `readme` ファイルを参照してください。
 
-* Linux: https://github.com/actions/virtual-environments/tree/main/images/linux
-* macOS: https://github.com/actions/virtual-environments/tree/main/images/macos
-* Windows: https://github.com/actions/virtual-environments/tree/main/images/win
+* Linux: https://github.com/actions/runner-images/tree/main/images/linux
+* macOS: https://github.com/actions/runner-images/tree/main/images/macos
+* Windows: https://github.com/actions/runner-images/tree/main/images/win
 
 ## ワークフローの例
 

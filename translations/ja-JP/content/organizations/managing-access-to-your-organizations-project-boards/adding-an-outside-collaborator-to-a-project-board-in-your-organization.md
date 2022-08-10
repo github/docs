@@ -1,6 +1,6 @@
 ---
-title: 'Adding an outside collaborator to a {% data variables.product.prodname_project_v1 %} in your organization'
-intro: 'As an organization owner or {% data variables.projects.projects_v1_board %} admin, you can add an outside collaborator and customize their permissions to a {% data variables.projects.projects_v1_board %}.'
+title: 'Organizationの{% data variables.product.prodname_project_v1 %}への外部のコラボレータの追加'
+intro: 'Organizationのオーナーもしくは{% data variables.projects.projects_v1_board %}の管理者は、{% data variables.projects.projects_v1_board %}に外部のコラボレータを追加してその権限をカスタマイズできます。'
 redirect_from:
   - /articles/adding-an-outside-collaborator-to-a-project-board-in-your-organization
   - /github/setting-up-and-managing-organizations-and-teams/adding-an-outside-collaborator-to-a-project-board-in-your-organization
@@ -18,7 +18,7 @@ allowTitleToDifferFromFilename: true
 
 {% data reusables.projects.project_boards_old %}
 
-An outside collaborator is a person who isn't explicitly a member of your organization, but who has permissions to a {% data variables.projects.projects_v1_board %} in your organization.
+外部のコラボレータは Organization の明示的なメンバーではありませんが、Organizationの{% data variables.projects.projects_v1_board %}への権限を持っています。
 
 {% data reusables.profile.access_org %}
 {% data reusables.user-settings.access_org %}
