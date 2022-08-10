@@ -1,11 +1,9 @@
 import languages, { languageKeys } from '../lib/languages.js'
 import parser from 'accept-language-parser'
 
-const chineseRegions = ['CN', 'HK']
+import { PREFERRED_LOCALE_COOKIE_NAME } from '../lib/constants.js'
 
-// This value is replicated in two places! See <LanguagePicker/> component.
-// Note, the only reason this is exported is to benefit the tests.
-export const PREFERRED_LOCALE_COOKIE_NAME = 'preferredlang'
+const chineseRegions = ['CN', 'HK']
 
 function translationExists(language) {
   if (language.code === 'zh') {
