@@ -1,6 +1,6 @@
 ---
-title: 'Learning about {% data variables.product.prodname_projects_v2 %}'
-intro: 'Learn about {% data variables.product.prodname_projects_v2 %} and how to make the very best of this powerful tool.'
+title: '{% data variables.product.prodname_projects_v2 %}について学ぶ'
+intro: '{% data variables.product.prodname_projects_v2 %}について、そしてこの強力なツールを最大限に活用する方法を学んでください。'
 versions:
   feature: projects-v2
 topics:
