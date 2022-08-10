@@ -31,9 +31,13 @@ export const HeaderNotifications = () => {
   const translationNotices: Array<Notif> = []
   if (router.locale === 'en') {
     if (userLanguage && userLanguage !== 'en') {
+      let href = `/${userLanguage}`
+      if (currentPathWithoutLanguage !== '/') {
+        href += currentPathWithoutLanguage
+      }
       translationNotices.push({
         type: NotificationType.TRANSLATION,
-        content: `This article is also available in <a href="/${userLanguage}${currentPathWithoutLanguage}">${languages[userLanguage]?.name}</a>.`,
+        content: `This article is also available in <a href="${href}">${languages[userLanguage]?.name}</a>.`,
       })
     }
   } else {
