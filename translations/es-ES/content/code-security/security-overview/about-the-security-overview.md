@@ -43,7 +43,7 @@ En el resumen de seguridad, puedes ver, clasificar y filtrar las alertas para en
 
 {% ifversion security-overview-views %}
 
-En el resumen de seguridad, tanto a nivel de repositorio como de organización, hay vistas dedicadas para las características de seguridad específicas, tales como alertas de escaneo de secretos y de escaneo de código. Puedes utilizar estas vistas para limitar tu análisis a un conjunto de alertas específico y reducirlos aún más con un rango de filtros específico para cada vista. Por ejemplo, en la vista de alertas del escaneo de secretos, puedes utilizar el filtro `Secret type` para ver solo las alertas de escaneo de secretos para un secreto específico, como un Token de Acceso Personal de GitHub. A nivel de repositorio, puedes utilizar el resumen de seguridad para valorar el estado de seguridad actual del repositorio específico y configurar cualquier característica de seguridad adicional que no esté utilizando el repositorio.
+In the security overview, there are dedicated views for each type of security alert, such as Dependabot, code scanning, and secret scanning alerts. Puedes utilizar estas vistas para limitar tu análisis a un conjunto de alertas específico y reducirlos aún más con un rango de filtros específico para cada vista. Por ejemplo, en la vista de alertas del escaneo de secretos, puedes utilizar el filtro `Secret type` para ver solo las alertas de escaneo de secretos para un secreto específico, como un Token de Acceso Personal de GitHub. A nivel de repositorio, puedes utilizar el resumen de seguridad para valorar el estado de seguridad actual del repositorio específico y configurar cualquier característica de seguridad adicional que no esté utilizando el repositorio.
 
 {% endif %}
 
