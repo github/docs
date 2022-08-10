@@ -221,7 +221,7 @@ jobs:
     needs: job1
     runs-on: ubuntu-latest
     strategy:
-      matrix: ${{ fromJSON(needs.job1.outputs.matrix )}}
+      matrix: ${{ fromJSON(needs.job1.outputs.matrix) }}
     steps:
       - run: build
 ```
