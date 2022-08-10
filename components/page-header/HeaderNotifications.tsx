@@ -6,7 +6,7 @@ import { useMainContext } from 'components/context/MainContext'
 import { useTranslation } from 'components/hooks/useTranslation'
 import { ExcludesNull } from 'components/lib/ExcludesNull'
 import { useVersion } from 'components/hooks/useVersion'
-import { useSession } from 'components/hooks/useSession'
+import { useUserLanguage } from 'components/hooks/useUserLanguage'
 import styles from './HeaderNotifications.module.scss'
 
 enum NotificationType {
@@ -23,8 +23,7 @@ export const HeaderNotifications = () => {
   const router = useRouter()
   const { currentVersion } = useVersion()
   const { relativePath, allVersions, data, currentPathWithoutLanguage, page } = useMainContext()
-  const { session } = useSession()
-  const userLanguage = session?.userLanguage
+  const { userLanguage } = useUserLanguage()
   const { languages } = useLanguages()
 
   const { t } = useTranslation('header')
