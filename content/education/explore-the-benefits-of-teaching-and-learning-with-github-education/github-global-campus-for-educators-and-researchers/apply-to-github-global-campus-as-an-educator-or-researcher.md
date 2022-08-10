@@ -1,6 +1,6 @@
 ---
-title: Apply for an educator or researcher discount
-intro: 'If you''re an educator or a researcher, you can apply to receive {% data variables.product.prodname_team %} for your organization account for free.'
+title: Apply to {% data variables.product.prodname_global_campus%} as an educator or researcher
+intro: 'If you''re an educator or a researcher, you can apply to join {% data variables.product.prodname_global_campus%} and receive access to the resources and benefits of {% data variables.product.prodname_education %}'
 redirect_from:
   - /education/teach-and-learn-with-github-education/apply-for-an-educator-or-researcher-discount
   - /github/teaching-and-learning-with-github-education/applying-for-an-educator-or-researcher-discount
@@ -10,9 +10,10 @@ redirect_from:
   - /articles/applying-for-a-discount-for-your-first-robotics-team
   - /articles/applying-for-an-educator-or-researcher-discount
   - /education/explore-the-benefits-of-teaching-and-learning-with-github-education/apply-for-an-educator-or-researcher-discount
+  - /education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-in-your-classroom-and-research/apply-for-an-educator-or-researcher-discount
 versions:
   fpt: '*'
-shortTitle: Apply for a discount
+shortTitle: Apply to Global Campus
 ---
 ## About educator and researcher discounts
 
