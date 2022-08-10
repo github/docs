@@ -30,7 +30,7 @@ async function main() {
     if (!fs.existsSync(versionStaticDir)) fs.mkdirSync(versionStaticDir)
 
     // Create a versioned filename.
-    const filename = path.posix.join(versionStaticDir, 'dev-toc.html')
+    const filename = path.posix.join(versionStaticDir, 'index.html')
 
     // Create a minimal context object.
     await contextualize(req, res, next)
@@ -46,7 +46,7 @@ async function main() {
   }
 
   // Default to FPT for the file to open.
-  const fptFile = path.posix.join(staticDirName, fpt, 'dev-toc.html')
+  const fptFile = path.posix.join(staticDirName, fpt, 'index.html')
 
   execSync(`open ${fptFile}`)
 
