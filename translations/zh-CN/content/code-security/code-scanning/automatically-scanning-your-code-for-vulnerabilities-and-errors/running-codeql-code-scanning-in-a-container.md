@@ -34,11 +34,11 @@ topics:
 
 ## 依赖项
 
-如果您使用的容器缺少某些依赖项（例如，Git 必须安装并添加到 PATH 变量），您可能难以运行 {% data variables.product.prodname_code_scanning %}。 如果遇到依赖项问题，请查看通常包含在 {% data variables.product.prodname_dotcom %} 虚拟环境中的软件列表。 有关更多信息，请在以下位置查看特定于版本的 `readme` 文件：
+如果您使用的容器缺少某些依赖项（例如，Git 必须安装并添加到 PATH 变量），您可能难以运行 {% data variables.product.prodname_code_scanning %}。 If you encounter dependency issues, review the list of software typically included on {% data variables.product.prodname_dotcom %}'s runner images. 有关更多信息，请在以下位置查看特定于版本的 `readme` 文件：
 
-* Linux: https://github.com/actions/virtual-environments/tree/main/images/linux
-* macOS: https://github.com/actions/virtual-environments/tree/main/images/macos
-* Windows: https://github.com/actions/virtual-environments/tree/main/images/win
+* Linux: https://github.com/actions/runner-images/tree/main/images/linux
+* macOS: https://github.com/actions/runner-images/tree/main/images/macos
+* Windows: https://github.com/actions/runner-images/tree/main/images/win
 
 ## 示例工作流程
 
