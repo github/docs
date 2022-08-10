@@ -21,8 +21,6 @@ shortTitle: セキュリティの概要の表示
 {% data reusables.security-overview.beta %}
 {% endif %}
 
-{% data reusables.security-overview.information-varies-GHAS %}
-
 ## Organizationのセキュリティの概要の表示
 
 {% data reusables.organizations.navigate-to-org %}

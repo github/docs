@@ -33,6 +33,7 @@ GraphQLサーバーと通信するには、適切なスコープを持つOAuth�
 
 ```
 repo
+repo_deployment
 read:packages
 read:org
 read:public_key

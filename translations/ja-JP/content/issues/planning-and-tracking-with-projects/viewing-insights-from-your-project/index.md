@@ -1,6 +1,6 @@
 ---
-title: '{% data variables.projects.project_v2 %}のインサイトの表示'
-shortTitle: インサイトの表示
+title: 'Viewing insights from your {% data variables.projects.project_v2 %}'
+shortTitle: Viewing insights
 intro: ...
 versions:
   feature: projects-v2

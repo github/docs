@@ -10,8 +10,6 @@ Atlassian | Bitbucket Server Personal Access Token | bitbucket_server_personal_a
 Azure | Azure Active Directory Application Secret | azure_active_directory_application_secret
 Azure | Azure Cache for Redis Access Key | azure_cache_for_redis_access_key
 Azure | Azure DevOps Personal Access Token | azure_devops_personal_access_token
-{%- ifversion fpt or ghec or ghes > 3.6 or ghae-issue-7456 %}
-Azure | Azure Storage Account Key | azure_storage_account_key{% endif %}
 Checkout.com | Checkout.com Production Secret Key | checkout_production_secret_key
 Clojars | Clojars Deploy Token | clojars_deploy_token
 Databricks | Databricks Access Token | databricks_access_token

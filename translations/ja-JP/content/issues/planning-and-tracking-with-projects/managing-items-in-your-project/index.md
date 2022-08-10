@@ -1,7 +1,7 @@
 ---
-title: '{% data variables.projects.project_v2 %}内のアイテムの管理'
-shortTitle: '{% data variables.projects.project_v2 %}内のアイテムの管理'
-intro: Issue、Pull Request、ドラフトIssueの追加と管理の方法を学んでください。
+title: 'Managing items in your {% data variables.projects.project_v2 %}'
+shortTitle: 'Managing items in your {% data variables.projects.project_v2 %}'
+intro: 'Learn how to add and manage issues, pull requests, and draft issues.'
 versions:
   feature: projects-v2
 topics:
