@@ -39,7 +39,8 @@ To add the {% data variables.product.prodname_dotcom %} OIDC provider to IAM, se
 
 To configure the role and trust in IAM, see the AWS documentation for ["Assuming a Role"](https://github.com/aws-actions/configure-aws-credentials#assuming-a-role) and ["Creating a role for web identity or OpenID connect federation"](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-idp_oidc.html).
 
-Edit the trust relationship to add the `sub` field to the validation conditions. For example:
+Edit the trust policy to add the `sub` field to the validation conditions. 
+For example:
 
 ```json{:copy}
 "Condition": {
@@ -49,6 +50,37 @@ Edit the trust relationship to add the `sub` field to the validation conditions.
   }
 }
 ```
+
+A more complete, practical example is shown below. 
+
+Here `ForAllValues` is used to match on multiple condition keys and `StringLike` is used to match any ref on the specified repo.
+Note that `ForAllValues` is [overly permissive](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_multi-value-conditions.html) and should not be used alone on an `Allow` effect. 
+In this example, the inclusion of `StringLike` means that an empty set in `ForAllValues` will still not pass the condition.
+
+```json{:copy}
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Principal": {
+                "Federated": "arn:aws:iam::123456123456:oidc-provider/token.actions.githubusercontent.com"
+            },
+            "Action": "sts:AssumeRoleWithWebIdentity",
+            "Condition": {
+                "StringLike": {
+                    "token.actions.githubusercontent.com:sub": "repo:octo-org/octo-repo:*"
+                },
+                "ForAllValues:StringEquals": {
+                    "token.actions.githubusercontent.com:iss": "https://token.actions.githubusercontent.com",
+                    "token.actions.githubusercontent.com:aud": "sts.amazonaws.com"
+                }
+            }
+        }
+    ]
+}
+```
+
 
 ## Updating your {% data variables.product.prodname_actions %} workflow
 
@@ -79,7 +111,7 @@ env:
   AWS_REGION : "<example-aws-region>"
 # permission can be added at job level or workflow level    
 permissions:
-      id-token: write
+      id-token: write   # This is required for requesting the JWT
       contents: read    # This is required for actions/checkout
 jobs:
   S3PackageUpload:
