@@ -8,7 +8,7 @@ shortTitle: 创建图表
 
 ## 关于创建图表
 
-您可以使用三种不同的语法在 Markdown 中创建图表：geoJSON、topoJSON 和 ASCII STL。
+您可以使用三种不同的语法在 Markdown 中创建图表：geoJSON、topoJSON 和 ASCII STL。 Diagram rendering is available in {% data variables.product.prodname_github_issues %}, {% data variables.product.prodname_discussions %}, pull requests, wikis, and Markdown files.
 
 ## 创建 Mermaid 图表
 
