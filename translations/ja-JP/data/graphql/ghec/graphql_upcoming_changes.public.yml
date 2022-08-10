@@ -575,6 +575,13 @@ upcoming_changes:
     criticality: 破壊的
     owner: lukewar
   - 
+    location: ProjectNextFieldType.TASKS
+    description: '`TASKS` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement.'
+    reason: '`ProjectNext`は、より多機能な`ProjectV2`に置き換えられて非推奨になりました。'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: lukewar
+  - 
     location: ProjectNextFieldType.TEXT
     description: '`TEXT`は削除されます。適切な置き換えを見つけるには、https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ にあるProjectV2ガイドに従ってください。'
     reason: '`ProjectNext`は、より多機能な`ProjectV2`に置き換えられて非推奨になりました。'
@@ -584,13 +591,6 @@ upcoming_changes:
   - 
     location: ProjectNextFieldType.TITLE
     description: '`TITLE`は削除されます。適切な置き換えを見つけるには、https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ にあるProjectV2ガイドに従ってください。'
-    reason: '`ProjectNext`は、より多機能な`ProjectV2`に置き換えられて非推奨になりました。'
-    date: '2022-10-01T00:00:00+00:00'
-    criticality: 破壊的
-    owner: lukewar
-  - 
-    location: ProjectNextFieldType.TRACKS
-    description: '`TRACKS`は削除されます。適切な置き換えを見つけるには、https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ にあるProjectV2ガイドに従ってください。'
     reason: '`ProjectNext`は、より多機能な`ProjectV2`に置き換えられて非推奨になりました。'
     date: '2022-10-01T00:00:00+00:00'
     criticality: 破壊的

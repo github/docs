@@ -1,6 +1,9 @@
-{% ifversion ghae %}
-{% data variables.product.prodname_GH_advanced_security %}のライセンスを持っているなら、Organizationのセキュリティの概要が利用できます。これは、ベータリリースの間は無料です。 {% data reusables.advanced-security.more-info-ghas %}
-{% elsif ghec or ghes %}
+{% ifversion fpt %}
+The security overview is available for organizations that use {% data variables.product.prodname_enterprise %}. 詳しい情報については「[GitHubの製品](/articles/githubs-products)」を参照してください。
+{% elsif security-overview-displayed-alerts %}
+All organizations and enterprises have a security overview. If you use {% data variables.product.prodname_GH_advanced_security %}{% ifversion ghae %}, which is free during the beta release,{% endif %} you will see additional information. {% data reusables.advanced-security.more-info-ghas %}
+{% elsif ghes < 3.7 %}
 The security overview for your organization is available if you have a license for {% data variables.product.prodname_GH_advanced_security %}. {% data reusables.advanced-security.more-info-ghas %}
-{% elsif fpt %}
-The security overview is available for organizations that use {% data variables.product.prodname_enterprise %} and have a license for {% data variables.product.prodname_GH_advanced_security %}. 詳しい情報については「[{% data variables.product.prodname_GH_advanced_security %}について](/get-started/learning-about-github/about-github-advanced-security)」を参照してください。 {% endif %}
+{% elsif ghae %}
+A security overview for your enterprise and for organizations is available if you use {% data variables.product.prodname_GH_advanced_security %}, which is free during the beta release. {% data reusables.advanced-security.more-info-ghas %}
+{% endif %}

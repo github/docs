@@ -19,7 +19,11 @@
 
    ![新しい {% data variables.product.prodname_codespaces %} を作成するためのブランチを検索する](/assets/images/help/codespaces/choose-branch-vscode.png)
 
-5. 使用したいマシンタイプをクリックしてください。
+5. If prompted to choose a dev container configuration file, choose a file from the list.
+
+   ![Choosing a dev container configuration file for {% data variables.product.prodname_codespaces %}](/assets/images/help/codespaces/choose-dev-container-vscode.png)
+
+6. 使用したいマシンタイプをクリックしてください。
 
    ![新しい {% data variables.product.prodname_codespaces %} のインスタンスタイプ](/assets/images/help/codespaces/choose-sku-vscode.png)
 
