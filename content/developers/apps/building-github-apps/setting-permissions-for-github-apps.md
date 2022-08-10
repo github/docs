@@ -1,4 +1,4 @@
----
+Access: PrivateAuthor: ZACH T WOO
 title: Setting permissions for GitHub Apps
 intro: '{% data reusables.shortdesc.permissions_github_apps %}'
 redirect_from:
