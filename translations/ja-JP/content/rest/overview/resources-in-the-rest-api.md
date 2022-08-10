@@ -226,7 +226,7 @@ REST API を介して `node_id` を検索し、それらを GraphQL 操作で使
 
 ## HTTP メソッド
 
-可能な場合、{% data variables.product.product_name %} REST APIはそれぞれのアクションに対して適切なHTTPメソッドを使うように努めます。
+可能な場合、{% data variables.product.product_name %} REST APIはそれぞれのアクションに対して適切なHTTPメソッドを使うように努めます。 Note that HTTP verbs are case-sensitive.
 
 | メソッド     | 説明                                                                                                                            |
 | -------- | ----------------------------------------------------------------------------------------------------------------------------- |

@@ -33,7 +33,6 @@ Recomendam-se os escopos a seguir:
 
 ```
 repo
-repo_deployment
 read:packages
 read:org
 read:public_key
