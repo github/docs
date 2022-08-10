@@ -90,7 +90,7 @@ After adding a new SSH key to your account on {% ifversion ghae %}{% data variab
 5. [Title] フィールドで、新しいキーを説明するラベルを追加します。 たとえば、個人のMacを使っているなら、このキーを「Personal MacBook Air」とすることができるでしょう。
 6. キーを [Key] フィールドに貼り付けます。 ![キーフィールド](/assets/images/help/settings/ssh-key-paste.png)
 7. **[Add SSH key]** をクリックしてください。 ![キーの追加ボタン](/assets/images/help/settings/ssh-add-key.png)
-8. {% data variables.product.product_name %} パスワードの確認を促された場合は、確認します。 ![sudo モードダイアログ](/assets/images/help/settings/sudo_mode_popup.png)
+{% data reusables.user-settings.sudo-mode-popup %}
 
 {% endwebui %}
 
@@ -122,7 +122,7 @@ After adding a new SSH key to your account on {% ifversion ghae %}{% data variab
 5. [Title] フィールドで、新しいキーを説明するラベルを追加します。 たとえば、個人のMacを使っているなら、このキーを「Personal MacBook Air」とすることができるでしょう。
 6. キーを [Key] フィールドに貼り付けます。 ![キーフィールド](/assets/images/help/settings/ssh-key-paste.png)
 7. **[Add SSH key]** をクリックしてください。 ![キーの追加ボタン](/assets/images/help/settings/ssh-add-key.png)
-8. {% data variables.product.product_name %} パスワードの確認を促された場合は、確認します。 ![sudo モードダイアログ](/assets/images/help/settings/sudo_mode_popup.png)
+{% data reusables.user-settings.sudo-mode-popup %}
 
 {% endwebui %}
 
