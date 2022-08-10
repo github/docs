@@ -77,6 +77,8 @@ Once user provisioning for {% data variables.product.product_name %} is configur
 
 When you connect an IdP group to a {% data variables.product.product_name %} team, all users in the group are automatically added to the team. {% ifversion ghae %}Any users who were not already members of the parent organization members are also added to the organization.{% endif %}
 
+IdP groups cannot be assigned to a GitHub team that has child teams associated.
+
 {% data reusables.profile.access_org %}
 {% data reusables.user-settings.access_org %}
 {% data reusables.organizations.specific_team %}
