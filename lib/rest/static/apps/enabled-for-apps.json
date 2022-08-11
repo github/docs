@@ -2726,7 +2726,7 @@
         "requestPath": "/repos/{owner}/{repo}/pulls/{pull_number}/merge"
       },
       {
-        "slug": "list-requested-reviewers-for-a-pull-request",
+        "slug": "get-all-requested-reviewers-for-a-pull-request",
         "subcategory": "review-requests",
         "verb": "get",
         "requestPath": "/repos/{owner}/{repo}/pulls/{pull_number}/requested_reviewers"
@@ -5948,7 +5948,7 @@
         "requestPath": "/repos/{owner}/{repo}/pulls/{pull_number}/merge"
       },
       {
-        "slug": "list-requested-reviewers-for-a-pull-request",
+        "slug": "get-all-requested-reviewers-for-a-pull-request",
         "subcategory": "review-requests",
         "verb": "get",
         "requestPath": "/repos/{owner}/{repo}/pulls/{pull_number}/requested_reviewers"
@@ -9030,7 +9030,7 @@
         "requestPath": "/repos/{owner}/{repo}/pulls/{pull_number}/merge"
       },
       {
-        "slug": "list-requested-reviewers-for-a-pull-request",
+        "slug": "get-all-requested-reviewers-for-a-pull-request",
         "subcategory": "review-requests",
         "verb": "get",
         "requestPath": "/repos/{owner}/{repo}/pulls/{pull_number}/requested_reviewers"
@@ -12309,7 +12309,7 @@
         "requestPath": "/repos/{owner}/{repo}/pulls/{pull_number}/merge"
       },
       {
-        "slug": "list-requested-reviewers-for-a-pull-request",
+        "slug": "get-all-requested-reviewers-for-a-pull-request",
         "subcategory": "review-requests",
         "verb": "get",
         "requestPath": "/repos/{owner}/{repo}/pulls/{pull_number}/requested_reviewers"
@@ -15702,7 +15702,7 @@
         "requestPath": "/repos/{owner}/{repo}/pulls/{pull_number}/merge"
       },
       {
-        "slug": "list-requested-reviewers-for-a-pull-request",
+        "slug": "get-all-requested-reviewers-for-a-pull-request",
         "subcategory": "review-requests",
         "verb": "get",
         "requestPath": "/repos/{owner}/{repo}/pulls/{pull_number}/requested_reviewers"
@@ -19138,7 +19138,7 @@
         "requestPath": "/repos/{owner}/{repo}/pulls/{pull_number}/merge"
       },
       {
-        "slug": "list-requested-reviewers-for-a-pull-request",
+        "slug": "get-all-requested-reviewers-for-a-pull-request",
         "subcategory": "review-requests",
         "verb": "get",
         "requestPath": "/repos/{owner}/{repo}/pulls/{pull_number}/requested_reviewers"
@@ -22148,7 +22148,7 @@
         "requestPath": "/repos/{owner}/{repo}/pulls/{pull_number}/merge"
       },
       {
-        "slug": "list-requested-reviewers-for-a-pull-request",
+        "slug": "get-all-requested-reviewers-for-a-pull-request",
         "subcategory": "review-requests",
         "verb": "get",
         "requestPath": "/repos/{owner}/{repo}/pulls/{pull_number}/requested_reviewers"
