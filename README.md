@@ -14,7 +14,7 @@ GitHub Docs <! - حذف في toc ->
 
 في موقع GitHub Docs ، يمكنك النقر فوق زر تقديم مساهمة أسفل الصفحة لفتح طلب سحب لإصلاحات سريعة مثل الأخطاء الإملائية أو التحديثات أو إصلاحات الارتباط.
 
-<img src = "./ asset / images / contrib_cta.png" width = "400">
+<img src = "./asset/images/contrib_cta.png" width = "400">
 
 لمزيد من المساهمات المعقدة ، يمكنك فتح مشكلة باستخدام أنسب [قالب المشكلة] (https://github.com/github/docs/issues/new/choose) لوصف التغييرات التي ترغب في رؤيتها.
 
