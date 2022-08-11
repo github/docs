@@ -58,7 +58,7 @@ You can also configure workflow automations to keep your {% data variables.proje
 
 {% data reusables.projects.classic-project-creation %}
 
-{% if classic-project-visibility-permissions %}
+{% ifversion classic-project-visibility-permissions %}
 {% note %}
 
 **Note:** {% data reusables.projects.owners-can-limit-visibility-permissions %}

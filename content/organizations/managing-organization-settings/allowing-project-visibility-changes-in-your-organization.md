@@ -24,8 +24,8 @@ You can limit the ability to change {% data variables.projects.project_v2_and_v1
 
 ## Further reading
 
-{% if projects-v2 %}
+{% ifversion projects-v2 %}
 - "[Managing visibility of your {% data variables.projects.projects_v2 %}](/issues/planning-and-tracking-with-projects/managing-your-project/managing-visibility-of-your-projects)"
-{%- endif %}{%- if projects-v1 %}
+{%- endif %}{%- ifversion projects-v1 %}
 - "[Changing {% data variables.product.prodname_project_v1 %} visibility](/issues/organizing-your-work-with-project-boards/managing-project-boards/changing-project-board-visibility)"
 {% endif %}
