@@ -16,26 +16,26 @@ shortTitle: Agregar una insignia de estado
 
 {% note %}
 
-**Note**: Workflow badges in a private repository are not accessible externally, so you won't be able to embed them or link to them from an external site.
+**Nota**: No se puede acceder a las insignias de flujo de trabajo desde el exterior hacia un repositorio privado, así que no tendrás que embeberlas ni enlazarlas desde un sitio externo.
 
 {% endnote %}
 
 {% data reusables.repositories.actions-workflow-status-badge-intro %}
 
 
-To add a workflow status badge to your `README.md` file, first find the URL for the status badge you would like to display. Then you can use Markdown to display the badge as an image in your `README.md` file. For more information about image markup in Markdown, see "[Basic writing and formatting syntax](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#images)."
+Para agregar una insignia de estado de flujo de trabajo a tu archivo `README.md`, primero encuentra la URL de la insignia de estado que te gustaría mostrar. Luego, puedes utilizar lenguaje de marcado para mostrar la insignia como imagen en tu archivo `README.md`. Para obtener más información sobre el marcado de imagen en el lenguaje de marcado, consulta la sección "[Escritura básica y sintaxis de formato](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#images)".
 
 ## Usar el nombre de archivo del flujo de trabajo
 
-You can build the URL for a workflow status badge using the name of the workflow file:
+Puedes compilar la URL para una insignia de estado de flujo de trabajo utilizando el nombre del archivo de flujo de trabajo:
 
 ```
 {% ifversion fpt or ghec %}https://github.com{% else %}<HOSTNAME>{% endif %}/<OWNER>/<REPOSITORY>/actions/workflows/<WORKFLOW_FILE>/badge.svg
 ```
 
-To display the workflow status badge in your `README.md` file, use the Markdown markup for embedding images. For more information about image markup in Markdown, see "[Basic writing and formatting syntax](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#images)."
+Para mostrar la insignia de estado de flujo de trabajo en tu archivo `README.md`, utiliza el lenguaje de marcado para embeber imágenes. Para obtener más información sobre el marcado de imagen en el lenguaje de marcado, consulta la sección "[Escritura básica y sintaxis de formato](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#images)".
 
-For example, add the following Markdown to your `README.md` file to add a status badge for a workflow with the file path `.github/workflows/main.yml`. El `OWNER` del repositorio es la organización `github` y el nombre del `REPOSITORY` es `docs`.
+Por ejemplo, agrega el siguiente lenguaje de marcado a tu archivo `README.md` para agregar una insignia de estado para un flujo de trabajo con la ruta de archivo `.github/workflows/main.yml`. El `OWNER` del repositorio es la organización `github` y el nombre del `REPOSITORY` es `docs`.
 
 ```markdown
 ![flujo de trabajo de ejemplo](https://github.com/github/docs/actions/workflows/main.yml/badge.svg)
@@ -43,9 +43,9 @@ For example, add the following Markdown to your `README.md` file to add a status
 
 ## Utilizar el parámetro `branch`
 
-To display the status of a workflow run for a specific branch, add `?branch=<BRANCH_NAME>` to the end of the status badge URL.
+Para mostrar el estado de una ejecución de flujo de trabajo para una rama específica, agrega `?branch=<BRANCH_NAME>` al final de la URL de la insignia de estado.
 
-For example, add the following Markdown to your `README.md` file to display a status badge for a branch with the name `feature-1`.
+Por ejemplo, agrega el siguiente lenguaje de marcado a tu archivo `README.md` para mostrar una insignia de estado para una rama con el nombre `feature-1`.
 
 ```markdown
 ![example branch parameter](https://github.com/github/docs/actions/workflows/main.yml/badge.svg?branch=feature-1)
@@ -53,9 +53,9 @@ For example, add the following Markdown to your `README.md` file to display a st
 
 ## Utilizar el parámetro `event`
 
-To display the status of workflow runs triggered by the `push` event, add `?event=push` to the end of the status badge URL.
+Para mostrar el estado de las ejecuciones de flujo de trabajo que se activan con el evento `push`, agrega `?event=push` al final de la URL de la insignia de estado.
 
-For example, add the following Markdown to your `README.md` file to display a badge with the status of workflow runs triggered by the `push` event, which will show the status of the build for the current state of that branch.
+Por ejemplo, agrega el siguiente lenguaje de marcado a tu archivo `README.md` para mostrar la insignia con el estado de las ejecuciones de flujo de trabajo que activa el evento `push`, lo cual te mostrará el estado de la compilación para el estado actual de dicha rama.
 
 ```markdown
 ![example event parameter](https://github.com/github/docs/actions/workflows/main.yml/badge.svg?event=push)

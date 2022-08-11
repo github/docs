@@ -15,21 +15,21 @@ shortTitle: Organizationのプロフィールのカスタマイズ
 ## Organization のプロフィールページについて
 
 {% ifversion org-profile-pin-private %}
-You can customize your organization's Overview page to show a README and pinned repositories dedicated to public users or members of the organization.
+Organizationの概要ページをカスタマイズして、一般ユーザもしくはOrganizationのメンバー専用のREADMEと固定リポジトリを表示させることができます。
 
-![Image of a public organization profile page](/assets/images/help/organizations/public_profile.png)
+![パブリックのOrganizationプロフィールページの画像](/assets/images/help/organizations/public_profile.png)
 
-Members of your organization who are signed into {% data variables.product.prodname_dotcom %}, can select a `member` or `public` view of the README and pinned repositories when they visit your organization's profile page.
+{% data variables.product.prodname_dotcom %}にサインインしたOrganizationのメンバーは、Organizationのプロフィールページにアクセスした際に、READMEと固定リポジトリの`member`もしくは`public`ビューを選択できます。
 
-![Image of a public organization profile page view context switcher](/assets/images/help/organizations/profile_view_switcher_public.png)
+![パブリックのOrganizationプロフィールページのコンテキストスイッチャーの画像](/assets/images/help/organizations/profile_view_switcher_public.png)
 
-The view defaults to `member` if either a members-only README or members-only pinned repositories are present, and `public` otherwise.
+メンバー専用のREADMEあるいはメンバー専用の固定リポジトリがある場合は`member`がデフォルトであり、そうでない場合は`public`がデフォルトになります。
 
-![Image of a members only organization profile page](/assets/images/help/organizations/member_only_profile.png)
+![メンバー専用のOrganizationプロフィールページの画像](/assets/images/help/organizations/member_only_profile.png)
 
-Users who are not members of your organization will be shown a `public` view.
+Organizationのメンバーではないユーザには、`public`ビューが表示されます。
 
-### Pinned repositories
+### 固定リポジトリ
 
 最大で一般ユーザに対し6つのリポジトリ、そしてOrganizationのメンバーに対して6つのリポジトリを選択することによって、ユーザに対して重要なリポジトリや頻繁に利用されるリポジトリへアクセスを容易にできます。 Organizationのプロフィールにリポジトリを固定すると、"Pinned（ピン止め）"セクションがプロフィールページの"Repositories（リポジトリ）"セクションの上部に表示されます。
 
@@ -64,24 +64,24 @@ OrganizationのプロフィールのREADMEにどういった情報を含める�
 2. Organizationの`.github-private`リポジトリで、`profile`フォルダ内に`README.md`というファイルを作成してください。
 3. `README.md`ファイルへの変更をコミットしてください。 `README.md`の内容は、Organizationプロフィールのメンバービューに表示されます。
 
-   ![Image of an organization's member-only README](/assets/images/help/organizations/org_member_readme.png)
+   ![Organizationのメンバー専用READMEの画像](/assets/images/help/organizations/org_member_readme.png)
 
-## Organizationのプロフィールへのリポジトリのピン止め
+## Organizationのプロフィールへのリポジトリの固定
 
-頻繁に使われるようなリポジトリなど、強調したいリポジトリをOrganizationのプロフィールページにピン止めできます。 Organizaitonのプロフィールにピン止めするリポジトリを選択するには、Organizationのオーナーでなければなりません。
+頻繁に使われるようなリポジトリなど、強調したいリポジトリをOrganizationのプロフィールページに固定できます。 Organizaitonのプロフィールに固定するリポジトリを選択するには、Organizationのオーナーでなければなりません。
 
 1. Organizationのプロフィールページにアクセスしてください。
 2. ページの右のサイドバー内の{% octicon "eye" aria-label="The eye octicon" %} "View as"リンク内で、ドロップダウンメニューから**Public（公開）**もしくは**Member（メンバー）**プロフィールビューを選択してください。
 
    ![Organizationプロフィールビューのドロップダウンの画像](/assets/images/help/organizations/org_profile_view.png)
 
-3. ピン止めされたリポジトリのセクションで、**Customize pins（ピン止めのカスタマイズ）**を選択してください。
+3. 固定リポジトリのセクションで、**Customize pins（固定のカスタマイズ）**を選択してください。
 
    ![ピン止めのカスタマイズリンクの画像](/assets/images/help/organizations/customize_pins_link.png)
 
-   - まだOrganizationのプロフィールにピン止めしたリポジトリがないなら、代わりにプロフィールページの右のサイドバーにある**pin repositories（リポジトリのピン止め）**をクリックしなければなりません。 ![右のサイドバーにあるリポジトリのピン止めリンクの画像](/assets/images/help/organizations/pin_repositories_link.png)
+   - まだOrganizationのプロフィールに固定リポジトリがないなら、代わりにプロフィールページの右のサイドバーにある**pin repositories（リポジトリの固定）**をクリックしなければなりません。 ![右のサイドバーにあるリポジトリのピン止めリンクの画像](/assets/images/help/organizations/pin_repositories_link.png)
 
-4. "Edit pinned repositories（ピン止めされたリポジトリの編集）"ダイアログボックスで、最大で6つの表示するパブリック、{% ifversion not fpt %}プライベート、もしくはインターナル{% else %}もしくはプライベート{% endif %}リポジトリの組み合わせを選択してください。
+4. "Edit pinned repositories（固定リポジトリの編集）"ダイアログボックスで、最大で6つの表示するパブリック、{% ifversion not fpt %}プライベート、もしくはインターナル{% else %}もしくはプライベート{% endif %}リポジトリの組み合わせを選択してください。
 
    ![ピン止めされたリポジトリダイアログの画像](/assets/images/help/organizations/pinned_repo_dialog.png)
 

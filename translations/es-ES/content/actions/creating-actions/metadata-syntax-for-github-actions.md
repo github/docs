@@ -74,7 +74,7 @@ Por ejemplo, si un flujo de trabajo definió las entradas de `numOctocats` y `oc
 
 ### `inputs.<input_id>.required`
 
-**Requerido** Un `boolean` (booleano) para indicar si la acción requiere el parámetro de entrada. Establecer en `true` cuando se requiera el parámetro.
+**Opcional** Un `boolean` para indicar si la acción requiere el parámetro de entrada. Establecer en `true` cuando se requiera el parámetro.
 
 ### `inputs.<input_id>.default`
 

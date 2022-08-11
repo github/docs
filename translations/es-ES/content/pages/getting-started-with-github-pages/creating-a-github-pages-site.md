@@ -41,11 +41,11 @@ shortTitle: Crear un sitio de GitHub Pages
 
 {% data reusables.pages.navigate-site-repo %}
 {% data reusables.pages.decide-publishing-source %}
-1. Create the entry file for your site. {% data variables.product.prodname_pages %} will look for an `index.html`, `index.md`, or `README.md` file as the entry file for your site.
+1. Crea el archivo de entrada para tu sitio. {% data variables.product.prodname_pages %} buscará un archivo `index.html`, `index.md` o `README.md` como el archivo de entrada para tu sitio.
 
-   {% ifversion pages-custom-workflow %}If your publishing source is a branch and folder, the entry file must be at the top level of the source folder on the source branch. For example, if your publishing source is the `/docs` folder on the `main` branch, your entry file must be located in the `/docs` folder on a branch called `main`.
+   {% ifversion pages-custom-workflow %}Si tu fuente de publicación es una rama y carpeta, el archivo de entrada debe estar en el nivel superior de la carpeta origen en la rama origen. Por ejemplo, si tu fuente de publicación es la carpeta `/docs` en la rama `main`, tu archivo de entrada debe estar ubicado en la carpeta `/docs` en una rama llamada `main`.
 
-   If your publishing source is a {% data variables.product.prodname_actions %} workflow, the artifact that you deploy must include the entry file at the top level of the artifact. Instead of adding the entry file to your repository, you may choose to have your {% data variables.product.prodname_actions %} workflow generate your entry file when the workflow runs.{% else %} The entry file must be at the top level of your chosen publishing source. For example, if your publishing source is the `/docs` folder on the `main` branch, your entry file must be located in the `/docs` folder on a branch called `main`.{% endif %}
+   Si tu fuente de publicación es un flujo de trabajo de {% data variables.product.prodname_actions %}, el artefacto que despliegues deberá incluir el archivo de entrada en el nivel superior del mismo. En vez de agregar el archivo de entrada a tu repositorio, puedes elegir que tu flujo de trabajo de {% data variables.product.prodname_actions %} genere tu archivo de entrada cuando se ejecute.{% else %} El archivo de entrada debe estar en el nivel superior de la fuente de publicación que elijas. Por ejemplo, si tu fuente de publicación es la carpeta `/docs` en la rama `main`, tu archivo de entrada debe estar ubicado en la carpeta `/docs` en una rama llamada `main`.{% endif %}
 {% data reusables.pages.configure-publishing-source %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.pages.sidebar-pages %}

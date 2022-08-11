@@ -4,9 +4,7 @@ import Cookies from 'js-cookie'
 import { useLanguages } from 'components/context/LanguagesContext'
 import { Picker } from 'components/ui/Picker'
 import { useTranslation } from 'components/hooks/useTranslation'
-
-// This value is replicated in two places! See middleware/detect-language.js
-const PREFERRED_LOCALE_COOKIE_NAME = 'preferredlang'
+import { PREFERRED_LOCALE_COOKIE_NAME } from '../../lib/constants.js'
 
 type Props = {
   variant?: 'inline'
@@ -31,6 +29,14 @@ export const LanguagePicker = ({ variant }: Props) => {
 
   function rememberPreferredLanguage(value: string) {
     try {
+      // The reason we use a cookie and not local storage is because
+      // this cookie value is used and needed by the server. For
+      // example, when doing `GET /some/page` we need the cookie
+      // to redirect to `Location: /ja/some/page`.
+      // It's important it's *not* an HttpOnly cookie because we
+      // need this in the client-side which is used to determine
+      // the UI about displaying notifications about preferred
+      // language if your cookie doesn't match the current URL.
       Cookies.set(PREFERRED_LOCALE_COOKIE_NAME, value, {
         expires: 365,
         secure: document.location.protocol !== 'http:',

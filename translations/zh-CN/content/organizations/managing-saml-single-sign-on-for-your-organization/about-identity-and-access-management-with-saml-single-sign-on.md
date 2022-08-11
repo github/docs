@@ -12,13 +12,11 @@ topics:
 shortTitle: 使用 SAML SSO 的 IAM
 ---
 
-{% data reusables.enterprise-accounts.emu-saml-note %}
+{% data reusables.saml.ghec-only %}
 
 ## 关于 SAML SSO
 
 {% data reusables.saml.dotcom-saml-explanation %}
-
-{% data reusables.saml.ghec-only %}
 
 {% data reusables.saml.saml-accounts %}
 

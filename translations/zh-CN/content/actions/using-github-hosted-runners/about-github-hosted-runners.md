@@ -105,18 +105,18 @@ MacOS 虚拟机的硬件规格：
 {% data variables.product.prodname_dotcom %} 托管的运行器中包含的软件工具每周更新。 更新过程需要几天时间，整个部署结束后，`主`分支上的预装软件列表将进行更新。
 ### 预安装的软件
 
-工作流程日志包括指向准确运行器上预安装的工具的链接。 要在工作流程日志中查找此信息，请扩展 `Set up job` 部分。 在该部分下，展开 `Virtual Environment` 部分。 `Included Software` 后面的链接将说明运行器上运行该工作流程的预安装工具。 ![Installed software link](/assets/images/actions-runner-installed-software-link.png) 更多信息请参阅“[查看工作流程运行历史记录](/actions/managing-workflow-runs/viewing-workflow-run-history)”。
+工作流程日志包括指向准确运行器上预安装的工具的链接。 要在工作流程日志中查找此信息，请扩展 `Set up job` 部分。 Under that section, expand the `Runner Image` section. `Included Software` 后面的链接将说明运行器上运行该工作流程的预安装工具。 ![Installed software link](/assets/images/actions-runner-installed-software-link.png) 更多信息请参阅“[查看工作流程运行历史记录](/actions/managing-workflow-runs/viewing-workflow-run-history)”。
 
 有关每个运行器操作系统包含的工具整个列表，请参阅以下链接：
 
-* [Ubuntu 22.04 LTS](https://github.com/actions/virtual-environments/blob/main/images/linux/Ubuntu2204-Readme.md)
-* [Ubuntu 20.04 LTS](https://github.com/actions/virtual-environments/blob/main/images/linux/Ubuntu2004-Readme.md)
-* [Ubuntu 18.04 LTS](https://github.com/actions/virtual-environments/blob/main/images/linux/Ubuntu1804-Readme.md)
-* [Windows Server 2022](https://github.com/actions/virtual-environments/blob/main/images/win/Windows2022-Readme.md)
-* [Windows Server 2019](https://github.com/actions/virtual-environments/blob/main/images/win/Windows2019-Readme.md)
-* [macOS 12](https://github.com/actions/virtual-environments/blob/main/images/macos/macos-12-Readme.md)
-* [macOS 11](https://github.com/actions/virtual-environments/blob/main/images/macos/macos-11-Readme.md)
-* [macOS 10.15](https://github.com/actions/virtual-environments/blob/main/images/macos/macos-10.15-Readme.md)
+* [Ubuntu 22.04 LTS](https://github.com/actions/runner-images/blob/main/images/linux/Ubuntu2204-Readme.md)
+* [Ubuntu 20.04 LTS](https://github.com/actions/runner-images/blob/main/images/linux/Ubuntu2004-Readme.md)
+* [Ubuntu 18.04 LTS](https://github.com/actions/runner-images/blob/main/images/linux/Ubuntu1804-Readme.md) (deprecated)
+* [Windows Server 2022](https://github.com/actions/runner-images/blob/main/images/win/Windows2022-Readme.md)
+* [Windows Server 2019](https://github.com/actions/runner-images/blob/main/images/win/Windows2019-Readme.md)
+* [macOS 12](https://github.com/actions/runner-images/blob/main/images/macos/macos-12-Readme.md)
+* [macOS 11](https://github.com/actions/runner-images/blob/main/images/macos/macos-11-Readme.md)
+* [macOS 10.15](https://github.com/actions/runner-images/blob/main/images/macos/macos-10.15-Readme.md)
 
 {% data variables.product.prodname_dotcom %} 托管的运行器除了上述参考中列出的包之外，还包括操作系统的默认内置工具。 例如，Ubuntu 和 macOS 运行器除了其他默认工具之外，还包括 `grep`、`find` 和 `which`。
 
@@ -126,7 +126,7 @@ MacOS 虚拟机的硬件规格：
 - 通常，操作提供更灵活的功能，如版本选择、传递参数的能力和参数
 - 它可确保工作流程中使用的工具版本无论软件更新如何，都将保持不变
 
-如果有您想要请求的工具，请在 [actions/virtual-environments](https://github.com/actions/virtual-environments) 打开一个议题。 此仓库还包含有关运行器上所有主要软件更新的公告。
+If there is a tool that you'd like to request, please open an issue at [actions/runner-images](https://github.com/actions/runner-images). 此仓库还包含有关运行器上所有主要软件更新的公告。
 
 ### 安装其他软件
 

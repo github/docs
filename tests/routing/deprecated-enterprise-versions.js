@@ -3,7 +3,7 @@ import { describe, jest, test } from '@jest/globals'
 import enterpriseServerReleases from '../../lib/enterprise-server-releases.js'
 import { get, getDOM } from '../helpers/e2etest.js'
 import { SURROGATE_ENUMS } from '../../middleware/set-fastly-surrogate-key.js'
-import { PREFERRED_LOCALE_COOKIE_NAME } from '../../middleware/detect-language.js'
+import { PREFERRED_LOCALE_COOKIE_NAME } from '../../lib/constants.js'
 
 jest.useFakeTimers({ legacyFakeTimers: true })
 

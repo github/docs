@@ -9,7 +9,6 @@ router.get('/', (req, res) => {
   res.json({
     isSignedIn: Boolean(req.cookies?.dotcom_user),
     csrfToken: req.csrfToken?.() || '',
-    userLanguage: req.userLanguage,
   })
 })
 

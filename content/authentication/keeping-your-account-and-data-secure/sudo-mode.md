@@ -41,13 +41,16 @@ After you authenticate to perform a sensitive action, your session is temporaril
 
 To confirm access for sudo mode, you {% ifversion totp-and-mobile-sudo-challenge %}can{% else %}must{% endif %} authenticate with your password.{% ifversion totp-and-mobile-sudo-challenge %} Optionally, you can use a different authentication method, like {% ifversion fpt or ghec %}a security key, {% data variables.product.prodname_mobile %}, or a 2FA code{% elsif ghes %}a security key or a 2FA code{% endif %}.{% endif %}
 
-{% ifversion totp-and-mobile-sudo-challenge %}
+{%- ifversion totp-and-mobile-sudo-challenge %}
 - [Confirming access using a security key](#confirming-access-using-a-security-key)
 {%- ifversion fpt or ghec %}
 - [Confirming access using GitHub Mobile](#confirming-access-using-github-mobile)
 {%- endif %}
 - [Confirming access using a 2FA code](#confirming-access-using-a-2fa-code)
 - [Confirming access using your password](#confirming-access-using-your-password)
+{%- endif %}
+
+{% ifversion totp-and-mobile-sudo-challenge %}
 
 ### Confirming access using a security key
 
@@ -56,8 +59,6 @@ You must configure two-factor authentication (2FA) for your account using a secu
 When prompted to authenticate for sudo mode, click **Use security key**, then follow the prompts.
 
 ![Screenshot of security key option for sudo mode](/assets/images/help/settings/sudo_mode_prompt_security_key.png)
-
-{% endif %}
 
 {% ifversion fpt or ghec %}
 
@@ -74,8 +75,6 @@ You must install and sign into {% data variables.product.prodname_mobile %} to c
 1. On {% data variables.product.product_name %}, type the numbers displayed in {% data variables.product.prodname_mobile %}.
 
 {% endif %}
-
-{% ifversion totp-and-mobile-sudo-challenge %}
 
 ### Confirming access using a 2FA code
 
