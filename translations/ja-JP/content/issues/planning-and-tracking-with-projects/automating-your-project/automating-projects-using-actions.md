@@ -1,7 +1,7 @@
 ---
-title: 'Automating {% data variables.product.prodname_projects_v2 %} using Actions'
-shortTitle: Automating with Actions
-intro: 'You can use {% data variables.product.prodname_actions %} to automate your projects.'
+title: 'Actionsを使った{% data variables.product.prodname_projects_v2 %}の自動化'
+shortTitle: Actionsでの自動化
+intro: '{% data variables.product.prodname_actions %}を使ってプロジェクトを自動化できます。'
 miniTocMaxHeadingLevel: 3
 versions:
   feature: projects-v2
@@ -26,11 +26,11 @@ allowTitleToDifferFromFilename: true
 
 APIを通じてプロジェクトに対して行える他の変更に関する情報については「[APIを使ったプロジェクトの管理](/issues/planning-and-tracking-with-projects/automating-your-project/using-the-api-to-manage-projects)」を参照してください。
 
-You may also want to use the **actions/add-to-project** workflow, which is maintained by {% data variables.product.company_short %} and will add the current issue or pull request to the project specified. For more information, see the [actions/add-to-project](https://github.com/actions/add-to-project) repository and README.
+{% data variables.product.company_short %}がメンテナンスしており、現在のIssueもしくはPull Requestを指定されたプロジェクトに追加してくれる**actions/add-to-project**ワークフローを利用するのもよいでしょう。 詳しい情報については[actions/add-to-project](https://github.com/actions/add-to-project)リポジトリとREADMEを参照してください。
 
 {% note %}
 
-**Note:** `GITHUB_TOKEN` is scoped to the repository level and cannot access {% data variables.projects.projects_v2 %}. To access {% data variables.projects.projects_v2 %} you can either create a {% data variables.product.prodname_github_app %} (recommended for organization projects) or a personal access token (recommended for user projects). 以下には、どちらの方法のワークフローの例も示します。
+**ノート:** `GITHUB_TOKEN`はリポジトリレベルをスコープとしており、{% data variables.projects.projects_v2 %}にはアクセスできません。 {% data variables.projects.projects_v2 %}にアクセスするには、{% data variables.product.prodname_github_app %}を作成する（Organizationプロジェクトの場合に推奨）か、個人アクセストークンを作成（ユーザプロジェクトの場合に推奨）してください。 以下には、どちらの方法のワークフローの例も示します。
 
 {% endnote %}
 

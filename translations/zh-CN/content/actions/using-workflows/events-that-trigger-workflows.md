@@ -381,6 +381,34 @@ on:
     types: [created, deleted]
 ```
 
+{% ifversion fpt or ghec  %}
+
+### `merge_group`
+
+| Web 挂钩事件有效负载                                                                                       | 活动类型               | `GITHUB_SHA`           | `GITHUB_REF`           |
+| -------------------------------------------------------------------------------------------------- | ------------------ | ---------------------- | ---------------------- |
+| [`merge_group`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#merge_group) | `checks_requested` | SHA of the merge group | Ref of the merge group |
+
+{% data reusables.pull_requests.merge-queue-beta %}
+
+{% note %}
+
+**Note**: {% data reusables.developer-site.multiple_activity_types %} Although only the `checks_requested` activity type is supported, specifying the activity type will keep your workflow specific if more activity types are added in the future. For information about each activity type, see "[Webhook events and payloads](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#merge_group)." {% data reusables.developer-site.limit_workflow_to_activity_types %}
+
+{% endnote %}
+
+Runs your workflow when a pull request is added to a merge queue, which adds the pull request to a merge group. For more information see "[Merging a pull request with a merge queue](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request-with-a-merge-queue)".
+
+For example, you can run a workflow when the `checks_requested` activity has occurred.
+
+```yaml
+on:
+  merge_group:
+    types: [checks_requested]
+
+```
+
+{% endif %}
 ### `里程碑`
 
 | Web 挂钩事件有效负载                                                                             | 活动类型                                                                                                        | `GITHUB_SHA` | `GITHUB_REF` |
@@ -415,7 +443,7 @@ on:
 
 {% data reusables.actions.branch-requirement %}
 
-当有人推送到作为 {% data variables.product.prodname_pages %} 的发布源的分支时，如果为存储库启用了 {% data variables.product.prodname_pages %} ，则运行工作流程。 有关 {% data variables.product.prodname_pages %} 发布源的详细信息，请参阅“[为 GitHub Pages 站点配置发布源](/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)”。 有关 REST API 的信息，请参阅“[页面](/rest/reference/repos#pages)”。
+当有人推送到作为 {% data variables.product.prodname_pages %} 的发布源的分支时，如果为存储库启用了 {% data variables.product.prodname_pages %} ，则运行工作流程。 For more information about {% data variables.product.prodname_pages %} publishing sources, see "[Configuring a publishing source for your GitHub Pages site](/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)." 有关 REST API 的信息，请参阅“[页面](/rest/reference/repos#pages)”。
 
 例如，您可以在发生 `page_build` 事件时运行工作流程。
 
@@ -612,7 +640,7 @@ on:
   pull_request:
     types:
       - opened
-    branches:    
+    branches:
       - 'releases/**'
 ```
 
@@ -625,7 +653,7 @@ on:
   pull_request:
     types:
       - opened
-    branches:    
+    branches:
       - 'releases/**'
     paths:
       - '**.js'
@@ -670,7 +698,7 @@ on:
   pull_request:
     types:
       - opened
-    branches:    
+    branches:
       - 'releases/**'
     paths:
       - '**.js'
@@ -809,7 +837,7 @@ on:
   pull_request_target:
     types:
       - opened
-    branches:    
+    branches:
       - 'releases/**'
 ```
 
@@ -822,7 +850,7 @@ on:
   pull_request_target:
     types:
       - opened
-    branches:    
+    branches:
       - 'releases/**'
     paths:
       - '**.js'
@@ -867,7 +895,7 @@ on:
   pull_request_target:
     types:
       - opened
-    branches:    
+    branches:
       - 'releases/**'
     paths:
       - '**.js'
@@ -936,7 +964,7 @@ on:
 ```yaml
 on:
   push:
-    branches:    
+    branches:
       - 'main'
       - 'releases/**'
 ```
@@ -948,7 +976,7 @@ on:
 ```yaml
 on:
   push:
-    branches:    
+    branches:
       - 'releases/**'
     paths:
       - '**.js'
@@ -965,7 +993,7 @@ on:
 ```yaml
 on:
   push:
-    tags:        
+    tags:
       - v1.**
 ```
 
@@ -989,7 +1017,7 @@ on:
 ```yaml
 on:
   push:
-    branches:    
+    branches:
       - 'releases/**'
     paths:
       - '**.js'
@@ -1252,26 +1280,26 @@ on: workflow_dispatch
 此示例定义了称为 `logLevel`、`tags` 和 `environment` 的输入。 在运行工作流程时，可以将这些输入的值传递给工作流程。 然后，此工作流程使用 {% ifversion actions-unified-inputs %}`inputs.logLevel`、`inputs.tags` 和 `inputs.environment`{% else %}`github.event.inputs.logLevel`、`github.event.inputs.tags`）和 `github.event.inputs.environment`{% endif %} 上下文属性，将值打印到日志中。
 
 ```yaml
-on: 
+on:
   workflow_dispatch:
     inputs:
       logLevel:
-        description: 'Log level'     
+        description: 'Log level'
         required: true
-        default: 'warning' 
+        default: 'warning'
         type: choice
         options:
         - info
         - warning
-        - debug 
+        - debug
       tags:
         description: 'Test scenario tags'
-        required: false 
+        required: false
         type: boolean
       environment:
         description: 'Environment to run tests against'
         type: environment
-        required: true 
+        required: true
 
 jobs:
   log-the-inputs:
@@ -1422,7 +1450,7 @@ jobs:
   upload:
     runs-on: ubuntu-latest
 
-    steps:        
+    steps:
       - name: Save PR number
         env:
           PR_NUMBER: {% raw %}${{ github.event.number }}{% endraw %}

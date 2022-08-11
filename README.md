@@ -41,8 +41,6 @@ GitHub Docs <! - حذف في toc ->
 - [data/README.md](data/README.md)
 - [data/reusables/README.md](data/reusables/README.md)
 - [data/variables/README.md](data/variables/README.md)
-- [includes/liquid-tags/README.md](includes/liquid-tags/README.md)
-- [includes/README.md](includes/README.md)
 - [components/README.md](components/README.md)
 - [lib/liquid-tags/README.md](lib/liquid-tags/README.md)
 - [middleware/README.md](middleware/README.md)

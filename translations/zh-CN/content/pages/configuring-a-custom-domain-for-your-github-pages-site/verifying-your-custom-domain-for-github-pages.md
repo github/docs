@@ -18,6 +18,8 @@ shortTitle: 验证自定义域
 
 验证域时，验证中还会包含任何直接子域。 例如，如果 `github.com` 自定义域经过验证，则 `docs.github.com`、`support.github.com` 和任何其他直接子域也将受到保护，以防止被接管。
 
+{% data reusables.pages.wildcard-dns-warning %}
+
 还可以验证组织{% ifversion ghec %} 或企业{% endif %}的域，这会在组织 {% ifversion ghec %}或企业{% endif %} 配置文件{% ifversion ghec %} 以及 {% data variables.product.prodname_ghe_cloud %} 上显示“已验证”徽章，允许您使用已验证的域将通知限于电子邮件地址{% endif %}。 更多信息请参阅“[验证或批准组织的域](/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization){% ifversion ghec %}”和“[验证或批准企业的域](/enterprise-cloud@latest/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise){% endif %}”。
 
 ## 验证用户站点的域

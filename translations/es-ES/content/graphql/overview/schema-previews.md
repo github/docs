@@ -23,32 +23,3 @@ Para aceder a una vista previa de modelo, necesitamos que nos proporciones un [t
 **Nota:** En este momento no se puede acceder a los miembros de modelo de GraphQL bajo vista previa a través del explorador.
 
 {% endnote %}
-
-{% for preview in graphql.previewsForCurrentVersion %}
-## {{ preview.title }}
-
-{{ preview.description }}
-
-Para alternar esta vista previa y acceder a los siguientes miembros de modelo, debes proporcionar un tipo de medios personalizado en el encabezado `Accept`:
-
-```
-{{ preview.accept_header }}
-```
-
-Miembros del modelo previstos:
-
-{% for schemaMemberPath in preview.toggled_on %}
-- `{{ schemaMemberPath }}`
-{% endfor %}
-
-{% if preview.announcement %}
-**Anunciados:** [{{ preview.announcement.date }}]({{ preview.announcement.url }})
-{% endif %}
-
-{% if preview.updates %}
-{% for update in preview.updates %}
-**Actualizados:** [{{ update.date }}]({{ update.url }})
-{% endfor %}
-{% endif %}
-
-{% endfor %}

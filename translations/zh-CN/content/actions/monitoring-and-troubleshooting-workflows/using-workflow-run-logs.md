@@ -27,7 +27,7 @@ versions:
 
 除了工作流程文件中配置的步骤外，{% data variables.product.prodname_dotcom %} 为每个作业添加了另外两个步骤，以设置和完成作业的执行。 这些步骤以名称"设置作业"和"完成作业"记录在工作流程运行中。
 
-对于在 {% data variables.product.prodname_dotcom %} 托管的运行器上运行的作业，“设置作业”记录运行器虚拟环境的详细信息。 并包含一个链接，可链接到运行器机器上的预安装工具列表。
+For jobs run on {% data variables.product.prodname_dotcom %}-hosted runners, "Set up job" records details of the runner image, and includes a link to the list of preinstalled tools that were present on the runner machine.
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.actions-tab %}

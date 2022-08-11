@@ -1190,9 +1190,9 @@ Key | Type | Description
 `commits[][author][email]`|`string` | The git author's email address.
 `commits[][url]`|`url` | URL that points to the commit API resource.
 `commits[][distinct]`|`boolean` | Whether this commit is distinct from any that have been pushed before.
-`commits[][added]`|`array` | An array of files added in the commit.
-`commits[][modified]`|`array` | An array of files modified by the commit.
-`commits[][removed]`|`array` | An array of files removed in the commit.
+`commits[][added]`|`array` | An array of files added in the commit. For extremely large commits where {% data variables.product.product_name %} is unable to calculate this list in a timely manner, this may be empty even if files were added.
+`commits[][modified]`|`array` | An array of files modified by the commit. For extremely large commits where {% data variables.product.product_name %} is unable to calculate this list in a timely manner, this may be empty even if files were modified.
+`commits[][removed]`|`array` | An array of files removed in the commit. For extremely large commits where {% data variables.product.product_name %} is unable to calculate this list in a timely manner, this may be empty even if files were removed.
 `pusher` | `object` | The user who pushed the commits.
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.org_desc %}

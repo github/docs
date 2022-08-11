@@ -25,6 +25,10 @@ shortTitle: Filtrando alertas
 
 Você pode usar filtros na visão geral de segurança para restringir seu foco baseado em uma série de fatores como, por exemplo, o nível de risco de alerta, tipo de alerta e habilitação do recurso. Diferentes filtros estão disponíveis dependendo da exibição específica e se sua análise está no nível de organização, equipe ou repositório.
 
+{% note %}
+{% data reusables.security-overview.information-varies-GHAS %}
+{% endnote %}
+
 ## Filtrar por repositório
 
 Disponível em todos os níveis da organização e no nível da equipe.

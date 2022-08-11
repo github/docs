@@ -23,32 +23,3 @@ topics:
 **ノート:** 現時点では、プレビューのGraphQLスキーマメンバーは、Explorerからはアクセスできません。
 
 {% endnote %}
-
-{% for preview in graphql.previewsForCurrentVersion %}
-## {{ preview.title }}
-
-{{ preview.description }}
-
-このプレビューを切り替えて以下のスキーマメンバーにアクセスするには、`Accept`ヘッダー内でカスタムのメディアタイプを渡さなければなりません。
-
-```
-{{ preview.accept_header }}
-```
-
-プレビューされたスキーマメンバー：
-
-{% for schemaMemberPath in preview.toggled_on %}
-- `{{ schemaMemberPath }}`
-{% endfor %}
-
-{% if preview.announcement %}
-**アナウンス：** [{{ preview.announcement.date }}]({{ preview.announcement.url }})
-{% endif %}
-
-{% if preview.updates %}
-{% for update in preview.updates %}
-**更新：** [{{ update.date }}]({{ update.url }})
-{% endfor %}
-{% endif %}
-
-{% endfor %}
