@@ -25,7 +25,12 @@
 <div/>
 
 {% for productPage in currentEnglishTree.childPages %}
+{% assign productId = productPage.page.relativePath | replace: "/index.md", "" %}
+{% if defaultOpenSections contains productId %}
+<details open class="mb-1"><summary>{{productPage.renderedFullTitle}}</summary>
+{% else %}
 <details class="mb-1"><summary>{{productPage.renderedFullTitle}}</summary>
+{% endif %}
 <ul class="products-list">
 <li title="{{productPage.renderedFullTitle}}" style="margin: 3px 0 0 30px;">
   <a title="{{ productPage.page.documentType }}" href="{{ docsRoot }}{{productPage.href}}">{{ productPage.renderedFullTitle }}</a>

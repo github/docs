@@ -3,6 +3,7 @@
 import fs from 'fs'
 import path from 'path'
 import { execSync } from 'child_process'
+import { program } from 'commander'
 import fpt from '../../lib/non-enterprise-default-version.js'
 import { allVersionKeys } from '../../lib/all-versions.js'
 import { liquid } from '../../lib/render-content/index.js'
@@ -14,6 +15,19 @@ const layout = fs.readFileSync(layoutFilename, 'utf8')
 const staticDirName = 'script/dev-toc/static'
 const staticDir = path.posix.join(process.cwd(), staticDirName)
 if (!fs.existsSync(staticDir)) fs.mkdirSync(staticDir)
+
+program
+  .description('Generate a local TOC of the docs website and open it in your browser')
+  .option(
+    '-o, --openSections [product-ids...]',
+    'open sections for one or more product IDs by default (e.g., "-o codespaces pull-requests")'
+  )
+  .parse(process.argv)
+
+const options = program.opts()
+
+const openSections = options.openSections || ''
+const defaultOpenSections = Array.isArray(openSections) ? openSections : [openSections]
 
 main()
 
@@ -37,6 +51,9 @@ async function main() {
 
     // Add the tree to the req.context.
     req.context.currentEnglishTree = req.context.siteTree.en[req.context.currentVersion]
+
+    // Add any defaultOpenSections to the context.
+    req.context.defaultOpenSections = defaultOpenSections
 
     // Parse the layout in script/dev-toc/layout.html with the context we created above.
     const outputHtml = await liquid.parseAndRender(layout, Object.assign({}, req.context))
