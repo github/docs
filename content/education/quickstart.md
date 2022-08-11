@@ -53,7 +53,7 @@ Next, you'll sign up for educator benefits and resources from {% data variables.
 {% data reusables.education.plan-to-use-github %}
 {% data reusables.education.submit-application %}
 
-Once you are a verified {% data variables.product.prodname_global_campus%} educator, you can access {% data variables.product.prodname_global_campus%} anytime by going to the [{% data variables.product.prodname_education %} website](https://education.github.com).
+Once you are a verified {% data variables.product.prodname_global_campus %} educator, you can access {% data variables.product.prodname_global_campus %} anytime by going to the [{% data variables.product.prodname_education %} website](https://education.github.com).
 
 ## Set up {% data variables.product.prodname_classroom %}
 

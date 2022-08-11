@@ -1,6 +1,6 @@
 ---
-title: 'Apply to {% data variables.product.prodname_global_campus%} as a student'
-intro: 'As a student, you can apply to join {% data variables.product.prodname_global_campus%} and receive access to the student resources and benefits offered by {% data variables.product.prodname_education %}'
+title: 'Apply to {% data variables.product.prodname_global_campus %} as a student'
+intro: 'As a student, you can apply to join {% data variables.product.prodname_global_campus %} and receive access to the student resources and benefits offered by {% data variables.product.prodname_education %}'
 redirect_from:
   - /education/teach-and-learn-with-github-education/apply-for-a-student-developer-pack
   - /github/teaching-and-learning-with-github-education/applying-for-a-student-developer-pack
@@ -15,7 +15,7 @@ shortTitle: Apply to Global Campus
 
 ## Requirements
 
-To be eligible for access to the student benefits of {% data variables.product.prodname_global_campus%}, you must:
+To be eligible for access to the student benefits of {% data variables.product.prodname_global_campus %}, you must:
 - Be currently enrolled in a degree or diploma granting course of study such as a high school, secondary school, college, university, homeschool, or similar educational institution
 - Have a verifiable school-issued email address or upload documents that prove your current student status
 - Have a [{% data variables.product.prodname_dotcom %} personal account](/articles/signing-up-for-a-new-github-account)

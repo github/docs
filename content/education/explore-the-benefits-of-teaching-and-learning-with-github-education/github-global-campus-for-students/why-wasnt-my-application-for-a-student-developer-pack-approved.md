@@ -70,4 +70,4 @@ Your instructor may still apply for a {% data variables.product.prodname_educati
 ## Further reading
 
 - "[How to get the GitHub Student Developer Pack without a student ID](https://github.blog/2019-07-30-how-to-get-the-github-student-developer-pack-without-a-student-id/)" on {% data variables.product.prodname_blog %}
-- "[Apply to {% data variables.product.prodname_global_campus%} as a student](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-students/apply-to-github-global-campus-as-a-student)"
+- "[Apply to {% data variables.product.prodname_global_campus %} as a student](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-students/apply-to-github-global-campus-as-a-student)"

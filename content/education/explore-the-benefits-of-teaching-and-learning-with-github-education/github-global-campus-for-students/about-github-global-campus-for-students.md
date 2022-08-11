@@ -1,5 +1,5 @@
 ---
-title: 'About {% data variables.product.prodname_global_campus%} for students'
+title: 'About {% data variables.product.prodname_global_campus %} for students'
 intro: '{% data variables.product.prodname_education %} offers students real-world experience with free access to various developer tools from {% data variables.product.prodname_dotcom %}''s partners.'
 redirect_from:
   - /education/teach-and-learn-with-github-education/about-github-education-for-students
@@ -19,13 +19,13 @@ Before applying for an individual discount, check if your learning community is 
 
 If you're a member of a FIRST robotics club, your mentor can apply for an educator discount so your team can collaborate using {% data variables.product.prodname_team %}, which allows unlimited users and private repositories, for free. For more information, see "[Apply for an educator or researcher discount](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/apply-for-an-educator-or-researcher-discount)."
 
-Your {% data variables.product.prodname_education %} student benefits and resources are all included in {% data variables.product.prodname_global_campus %}, a portal that allows you to access your education benefits, all in one place. Once you are a verified {% data variables.product.prodname_global_campus%} student, you can access {% data variables.product.prodname_global_campus%} anytime by going to the [{% data variables.product.prodname_education %} website](https://education.github.com). For more information, see "[{% data variables.product.prodname_global_campus%} for students](#github-global-campus-for-students)."
+Your {% data variables.product.prodname_education %} student benefits and resources are all included in {% data variables.product.prodname_global_campus %}, a portal that allows you to access your education benefits, all in one place. Once you are a verified {% data variables.product.prodname_global_campus %} student, you can access {% data variables.product.prodname_global_campus %} anytime by going to the [{% data variables.product.prodname_education %} website](https://education.github.com). For more information, see "[{% data variables.product.prodname_global_campus %} for students](#github-global-campus-for-students)."
 
 ![{% data variables.product.prodname_global_campus %} portal for students](/assets/images/help/education/global-campus-portal-students.png)
 
-## {% data variables.product.prodname_global_campus%} features for students
+## {% data variables.product.prodname_global_campus %} features for students
 
-{% data variables.product.prodname_global_campus %} is a portal from which you can access your {% data variables.product.prodname_education %} benefits and resources, all in one place. On the {% data variables.product.prodname_global_campus%} portal, students can:
+{% data variables.product.prodname_global_campus %} is a portal from which you can access your {% data variables.product.prodname_education %} benefits and resources, all in one place. On the {% data variables.product.prodname_global_campus %} portal, students can:
 - Connect with a local Campus Expert. For more information on campus experts, see "[About Campus Experts](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-at-your-educational-institution/about-campus-experts)."
 - Explore and claim offers for free industry tools from the [Student Developer Pack](https://education.github.com/pack).
 - See upcoming in-person and virtual events for students, curated by {% data variables.product.prodname_education %} and student leaders.
@@ -35,5 +35,5 @@ Your {% data variables.product.prodname_education %} student benefits and resour
 
 ## Further reading
 
-- "[About {% data variables.product.prodname_global_campus%} for educators and researchers](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-educators-and-researchers/about-github-global-campus-for-educators-and-researchers)"
+- "[About {% data variables.product.prodname_global_campus %} for educators and researchers](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-educators-and-researchers/about-github-global-campus-for-educators-and-researchers)"
 - "[About {% data variables.product.prodname_community_exchange %}](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-for-your-schoolwork/about-github-community-exchange)"

@@ -1,6 +1,6 @@
 ---
-title: 'Apply to {% data variables.product.prodname_global_campus%} as an educator or researcher'
-intro: 'If you''re an educator or a researcher, you can apply to join {% data variables.product.prodname_global_campus%} and receive access to the resources and benefits of {% data variables.product.prodname_education %}'
+title: 'Apply to {% data variables.product.prodname_global_campus %} as an educator or researcher'
+intro: 'If you''re an educator or a researcher, you can apply to join {% data variables.product.prodname_global_campus %} and receive access to the resources and benefits of {% data variables.product.prodname_education %}'
 redirect_from:
   - /education/teach-and-learn-with-github-education/apply-for-an-educator-or-researcher-discount
   - /github/teaching-and-learning-with-github-education/applying-for-an-educator-or-researcher-discount
