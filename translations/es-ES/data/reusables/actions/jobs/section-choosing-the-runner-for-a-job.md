@@ -6,7 +6,7 @@ Utiliza `jobs.<job_id>.runs-on` para definir el tipo de máquina en la cuál eje
 
 ### Elegir los ejecutores hospedados en {% data variables.product.prodname_dotcom %}
 
-Si usas un ejecutor alojado {% data variables.product.prodname_dotcom %}, cada trabajo se ejecuta en una nueva instancia de un entorno virtual especificado por `runs-on`.
+If you use a {% data variables.product.prodname_dotcom %}-hosted runner, each job runs in a fresh instance of a runner image specified by `runs-on`.
 
 Los tipos de ejecutores alojados {% data variables.product.prodname_dotcom %} disponibles son:
 
@@ -18,7 +18,7 @@ Los tipos de ejecutores alojados {% data variables.product.prodname_dotcom %} di
 runs-on: ubuntu-latest
 ```
 
-Para obtener más información, consulta "[Entornos virtuales para ejecutores alojados de {% data variables.product.prodname_dotcom %}](/github/automating-your-workflow-with-github-actions/virtual-environments-for-github-hosted-runners)".
+Para obtener más información, consulta la sección "[Acerca de los ejecutores hospedados en {% data variables.product.prodname_dotcom %}](/actions/using-github-hosted-runners/about-github-hosted-runners)".
 {% endif %}
 
 {% ifversion fpt or ghec or ghes %}

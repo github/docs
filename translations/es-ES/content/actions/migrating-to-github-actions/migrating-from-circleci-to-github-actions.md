@@ -37,7 +37,7 @@ Cuando migres desde CircleCI, considera las siguientes diferencias:
 
 - El paralelismo automático de pruebas de CircleCI agrupa las pruebas automáticamente de acuerdo con las reglas que el usuario haya especificado o el historial de información de tiempos. Esta funcionalidad no se incluye en {% data variables.product.prodname_actions %}.
 - Las acciones que se ejecutan en los contenedores de Docker distinguen entre problemas de permisos, ya que los contenedores tienen un mapeo de usuarios diferente. Puedes evitar muchos de estos problemas si no utilizas la instrucción `USER` en tu *Dockerfile*. {% ifversion ghae %}{% data reusables.actions.self-hosted-runners-software %}
-{% else %}Para obtener más información acerca del sistema de archivos de Docker en los ejecutores hospedados en {% data variables.product.product_name %}, consulta la sección "[Ambientes virtuales para los ejecutores hospedados en {% data variables.product.product_name %}](/actions/reference/virtual-environments-for-github-hosted-runners#docker-container-filesystem)".
+{% else %}Para obtener más información sobre el sistema de archivos de Docker en los ejecutores hospedados en {% data variables.product.product_name %}, consulta la sección [Acerca de los ejecutores hospedados en {% data variables.product.prodname_dotcom %}](/actions/using-github-hosted-runners/about-github-hosted-runners#docker-container-filesystem)".
 {% endif %}
 
 ## Migrar flujos de trabajo y jobs
@@ -66,10 +66,10 @@ Para obtener información sobre el sistema de archivos de Docker, consulta la se
 
 {% data reusables.actions.self-hosted-runners-software %}
 {% else %}
-Para obtener más información acerca del sistema de archivos de Docker, consulta la sección "[Ambientes virtuales para los ejecutores hospedados en {% data variables.product.product_name %}](/actions/reference/virtual-environments-for-github-hosted-runners#docker-container-filesystem)".
+Para obtener más información sobre el sistema de archivos de Docker, consulta la sección "[Acerca de los ejecutores hospedados en {% data variables.product.prodname_dotcom %}](/actions/using-github-hosted-runners/about-github-hosted-runners#docker-container-filesystem)".
 Para obtener más información sobre las herramientas y paquetes disponibles en
 
-los ambientes hospedados en {% data variables.product.prodname_dotcom %}, consulta la sección "[Especificaciones para los ejecutores hospedados en {% data variables.product.prodname_dotcom %}](/actions/reference/specifications-for-github-hosted-runners/#supported-software)".
+las imágenes de los ejecutores hospedados en {% data variables.product.prodname_dotcom %}, consulta la sección "[Especificaciones para los ejecutores hospedados en {% data variables.product.prodname_dotcom %}](/actions/reference/specifications-for-github-hosted-runners/#supported-software)".
 {% endif %}
 
 ## Utilizar variables y secretos
@@ -287,7 +287,8 @@ jobs:
 
     steps:
       # This Docker file changes sets USER to circleci instead of using the default user, so we need to update file permissions for this image to work on GH Actions.
-      # See https://docs.github.com/actions/reference/virtual-environments-for-github-hosted-runners#docker-container-filesystem
+      # See https://docs.github.com/actions/using-github-hosted-runners/about-github-hosted-runners#docker-container-filesystem
+
       - name: Setup file system permissions
         run: sudo chmod -R 777 $GITHUB_WORKSPACE /github /__w/_temp
       - uses: {% data reusables.actions.action-checkout %}

@@ -33,7 +33,6 @@ Se recomiendan los siguientes alcances:
 
 ```
 repo
-repo_deployment
 read:packages
 read:org
 read:public_key

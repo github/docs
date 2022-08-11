@@ -12,11 +12,6 @@ header:
       We publish frequent updates to our documentation, and translation of this page may still be in progress.
       For the most current information, please visit the
       <a id="to-english-doc" href="/en">English documentation</a>.
-    localization_in_progress:
-      Hello, explorer! This page is under active development or
-      still in translation. For the most up-to-date and accurate information,
-      please visit our
-      <a id="to-english-doc" href="/en">English documentation</a>.
     early_access: 📣 Please <b>do not share</b> this URL publicly. This page contains content about an early access feature.
     release_notes_use_latest: Please use the latest release for the latest security, performance, and bug fixes.
     # GHES release notes

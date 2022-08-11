@@ -14,13 +14,14 @@ topics:
   - Enterprise
   - Organizations
 shortTitle: 添加组织
+permissions: Enterprise owners can add organizations to an enterprise.
 ---
 
 ## 关于组织
 
 您的企业帐户可以拥有组织。 企业成员可以跨组织内的相关项目进行协作。 更多信息请参阅“[关于组织](/organizations/collaborating-with-groups-in-organizations/about-organizations)”。
 
-企业所有者可以在企业帐户设置内创建新组织，或邀请现有组织加入企业。 要将组织添加到企业，必须在企业帐户设置中创建组织。
+You can add a new or existing organization to your enterprise in your enterprise account's settings.
 
 您只能以这种方式将组织添加到现有企业帐户。 {% data reusables.enterprise.create-an-enterprise-account %} 更多信息请参阅“[创建企业帐户](/admin/overview/creating-an-enterprise-account)”。
 
