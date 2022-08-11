@@ -1,5 +1,5 @@
 ---
-title: 'About {% data variables.product.prodname_global_campus %} for students'
+title: 'About GitHub Global Campus for students'
 intro: '{% data variables.product.prodname_education %} offers students real-world experience with free access to various developer tools from {% data variables.product.prodname_dotcom %}''s partners.'
 redirect_from:
   - /education/teach-and-learn-with-github-education/about-github-education-for-students
