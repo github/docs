@@ -8,7 +8,7 @@ shortTitle: Crear diagramas
 
 ## Acerca de crear diagramas
 
-Puedes crear diagramas en lenguaje de marcado utilizando tres tipos de sintaxis diferentes: mermaid, geoJSON y topoJSON y ASCII STL.
+Puedes crear diagramas en lenguaje de marcado utilizando tres tipos de sintaxis diferentes: mermaid, geoJSON y topoJSON y ASCII STL. Diagram rendering is available in {% data variables.product.prodname_github_issues %}, {% data variables.product.prodname_discussions %}, pull requests, wikis, and Markdown files.
 
 ## Crear diagramas de Mermaid
 
