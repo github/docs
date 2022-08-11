@@ -12,8 +12,6 @@ header:
       We publish frequent updates to our documentation, and translation of this page may still be in progress.
       For the most current information, please visit the
       <a id="to-english-doc" href="/en">English documentation</a>.
-      If there's a problem with translations on this page, please
-      <a href="https://github.com/contact?form[subject]=translation%20issue%20on%20docs.github.com&form[comments]=">let us know</a>.
     early_access: 📣 Please <b>do not share</b> this URL publicly. This page contains content about an early access feature.
     release_notes_use_latest: Please use the latest release for the latest security, performance, and bug fixes.
     # GHES release notes
