@@ -1,5 +1,5 @@
 ---
-title: About {% data variables.product.prodname_global_campus%} for educators and researchers
+title: 'About {% data variables.product.prodname_global_campus%} for educators and researchers'
 intro: '{% data variables.product.prodname_global_campus%} offers a variety of tools to help educators and researchers work more effectively inside and outside of the classroom.'
 redirect_from:
   - /education/teach-and-learn-with-github-education/about-github-education-for-educators-and-researchers
