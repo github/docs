@@ -8,6 +8,7 @@ redirect_from:
   - /articles/why-wasn-t-my-application-for-a-student-developer-pack-approved
   - /articles/why-wasnt-my-application-for-a-student-developer-pack-approved
   - /education/explore-the-benefits-of-teaching-and-learning-with-github-education/why-wasnt-my-application-for-a-student-developer-pack-approved
+  - /education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-for-your-schoolwork/why-wasnt-my-application-for-a-student-developer-pack-approved
 versions:
   fpt: '*'
 shortTitle: Application not approved

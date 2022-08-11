@@ -6,6 +6,7 @@ redirect_from:
   - /github/teaching-and-learning-with-github-education/applying-for-a-student-developer-pack
   - /articles/applying-for-a-student-developer-pack
   - /education/explore-the-benefits-of-teaching-and-learning-with-github-education/apply-for-a-student-developer-pack
+  - /education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-for-your-schoolwork/apply-for-a-student-developer-pack
 versions:
   fpt: '*'
 shortTitle: Apply to Global Campus
