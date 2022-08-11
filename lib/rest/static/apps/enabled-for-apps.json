@@ -1542,7 +1542,7 @@
         "requestPath": "/repos/{owner}/{repo}/deployments/{deployment_id}/statuses/{status_id}"
       },
       {
-        "slug": "get-all-environments",
+        "slug": "list-environments",
         "subcategory": "environments",
         "verb": "get",
         "requestPath": "/repos/{owner}/{repo}/environments"
@@ -1564,6 +1564,36 @@
         "subcategory": "environments",
         "verb": "delete",
         "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}"
+      },
+      {
+        "slug": "list-deployment-branch-policies",
+        "subcategory": "branch-policies",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/deployment-branch-policies"
+      },
+      {
+        "slug": "create-a-deployment-branch-policy",
+        "subcategory": "branch-policies",
+        "verb": "post",
+        "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/deployment-branch-policies"
+      },
+      {
+        "slug": "get-a-deployment-branch-policy",
+        "subcategory": "branch-policies",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/deployment-branch-policies/{branch_policy_id}"
+      },
+      {
+        "slug": "update-a-deployment-branch-policy",
+        "subcategory": "branch-policies",
+        "verb": "put",
+        "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/deployment-branch-policies/{branch_policy_id}"
+      },
+      {
+        "slug": "delete-a-deployment-branch-policy",
+        "subcategory": "branch-policies",
+        "verb": "delete",
+        "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/deployment-branch-policies/{branch_policy_id}"
       }
     ],
     "emojis": [
@@ -5014,7 +5044,7 @@
         "requestPath": "/repos/{owner}/{repo}/deployments/{deployment_id}/statuses/{status_id}"
       },
       {
-        "slug": "get-all-environments",
+        "slug": "list-environments",
         "subcategory": "environments",
         "verb": "get",
         "requestPath": "/repos/{owner}/{repo}/environments"
@@ -5036,6 +5066,36 @@
         "subcategory": "environments",
         "verb": "delete",
         "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}"
+      },
+      {
+        "slug": "list-deployment-branch-policies",
+        "subcategory": "branch-policies",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/deployment-branch-policies"
+      },
+      {
+        "slug": "create-a-deployment-branch-policy",
+        "subcategory": "branch-policies",
+        "verb": "post",
+        "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/deployment-branch-policies"
+      },
+      {
+        "slug": "get-a-deployment-branch-policy",
+        "subcategory": "branch-policies",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/deployment-branch-policies/{branch_policy_id}"
+      },
+      {
+        "slug": "update-a-deployment-branch-policy",
+        "subcategory": "branch-policies",
+        "verb": "put",
+        "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/deployment-branch-policies/{branch_policy_id}"
+      },
+      {
+        "slug": "delete-a-deployment-branch-policy",
+        "subcategory": "branch-policies",
+        "verb": "delete",
+        "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/deployment-branch-policies/{branch_policy_id}"
       }
     ],
     "emojis": [
@@ -8090,7 +8150,7 @@
         "requestPath": "/repos/{owner}/{repo}/deployments/{deployment_id}/statuses/{status_id}"
       },
       {
-        "slug": "get-all-environments",
+        "slug": "list-environments",
         "subcategory": "environments",
         "verb": "get",
         "requestPath": "/repos/{owner}/{repo}/environments"
@@ -8112,6 +8172,36 @@
         "subcategory": "environments",
         "verb": "delete",
         "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}"
+      },
+      {
+        "slug": "list-deployment-branch-policies",
+        "subcategory": "branch-policies",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/deployment-branch-policies"
+      },
+      {
+        "slug": "create-a-deployment-branch-policy",
+        "subcategory": "branch-policies",
+        "verb": "post",
+        "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/deployment-branch-policies"
+      },
+      {
+        "slug": "get-a-deployment-branch-policy",
+        "subcategory": "branch-policies",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/deployment-branch-policies/{branch_policy_id}"
+      },
+      {
+        "slug": "update-a-deployment-branch-policy",
+        "subcategory": "branch-policies",
+        "verb": "put",
+        "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/deployment-branch-policies/{branch_policy_id}"
+      },
+      {
+        "slug": "delete-a-deployment-branch-policy",
+        "subcategory": "branch-policies",
+        "verb": "delete",
+        "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/deployment-branch-policies/{branch_policy_id}"
       }
     ],
     "emojis": [
@@ -11362,7 +11452,7 @@
         "requestPath": "/repos/{owner}/{repo}/deployments/{deployment_id}/statuses/{status_id}"
       },
       {
-        "slug": "get-all-environments",
+        "slug": "list-environments",
         "subcategory": "environments",
         "verb": "get",
         "requestPath": "/repos/{owner}/{repo}/environments"
@@ -11384,6 +11474,36 @@
         "subcategory": "environments",
         "verb": "delete",
         "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}"
+      },
+      {
+        "slug": "list-deployment-branch-policies",
+        "subcategory": "branch-policies",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/deployment-branch-policies"
+      },
+      {
+        "slug": "create-a-deployment-branch-policy",
+        "subcategory": "branch-policies",
+        "verb": "post",
+        "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/deployment-branch-policies"
+      },
+      {
+        "slug": "get-a-deployment-branch-policy",
+        "subcategory": "branch-policies",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/deployment-branch-policies/{branch_policy_id}"
+      },
+      {
+        "slug": "update-a-deployment-branch-policy",
+        "subcategory": "branch-policies",
+        "verb": "put",
+        "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/deployment-branch-policies/{branch_policy_id}"
+      },
+      {
+        "slug": "delete-a-deployment-branch-policy",
+        "subcategory": "branch-policies",
+        "verb": "delete",
+        "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/deployment-branch-policies/{branch_policy_id}"
       }
     ],
     "emojis": [
@@ -14755,7 +14875,7 @@
         "requestPath": "/repos/{owner}/{repo}/deployments/{deployment_id}/statuses/{status_id}"
       },
       {
-        "slug": "get-all-environments",
+        "slug": "list-environments",
         "subcategory": "environments",
         "verb": "get",
         "requestPath": "/repos/{owner}/{repo}/environments"
@@ -14777,6 +14897,36 @@
         "subcategory": "environments",
         "verb": "delete",
         "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}"
+      },
+      {
+        "slug": "list-deployment-branch-policies",
+        "subcategory": "branch-policies",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/deployment-branch-policies"
+      },
+      {
+        "slug": "create-a-deployment-branch-policy",
+        "subcategory": "branch-policies",
+        "verb": "post",
+        "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/deployment-branch-policies"
+      },
+      {
+        "slug": "get-a-deployment-branch-policy",
+        "subcategory": "branch-policies",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/deployment-branch-policies/{branch_policy_id}"
+      },
+      {
+        "slug": "update-a-deployment-branch-policy",
+        "subcategory": "branch-policies",
+        "verb": "put",
+        "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/deployment-branch-policies/{branch_policy_id}"
+      },
+      {
+        "slug": "delete-a-deployment-branch-policy",
+        "subcategory": "branch-policies",
+        "verb": "delete",
+        "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/deployment-branch-policies/{branch_policy_id}"
       }
     ],
     "emojis": [
@@ -18191,7 +18341,7 @@
         "requestPath": "/repos/{owner}/{repo}/deployments/{deployment_id}/statuses/{status_id}"
       },
       {
-        "slug": "get-all-environments",
+        "slug": "list-environments",
         "subcategory": "environments",
         "verb": "get",
         "requestPath": "/repos/{owner}/{repo}/environments"
@@ -18213,6 +18363,36 @@
         "subcategory": "environments",
         "verb": "delete",
         "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}"
+      },
+      {
+        "slug": "list-deployment-branch-policies",
+        "subcategory": "branch-policies",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/deployment-branch-policies"
+      },
+      {
+        "slug": "create-a-deployment-branch-policy",
+        "subcategory": "branch-policies",
+        "verb": "post",
+        "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/deployment-branch-policies"
+      },
+      {
+        "slug": "get-a-deployment-branch-policy",
+        "subcategory": "branch-policies",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/deployment-branch-policies/{branch_policy_id}"
+      },
+      {
+        "slug": "update-a-deployment-branch-policy",
+        "subcategory": "branch-policies",
+        "verb": "put",
+        "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/deployment-branch-policies/{branch_policy_id}"
+      },
+      {
+        "slug": "delete-a-deployment-branch-policy",
+        "subcategory": "branch-policies",
+        "verb": "delete",
+        "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/deployment-branch-policies/{branch_policy_id}"
       }
     ],
     "emojis": [
@@ -21232,7 +21412,7 @@
         "requestPath": "/repos/{owner}/{repo}/deployments/{deployment_id}/statuses/{status_id}"
       },
       {
-        "slug": "get-all-environments",
+        "slug": "list-environments",
         "subcategory": "environments",
         "verb": "get",
         "requestPath": "/repos/{owner}/{repo}/environments"
@@ -21254,6 +21434,36 @@
         "subcategory": "environments",
         "verb": "delete",
         "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}"
+      },
+      {
+        "slug": "list-deployment-branch-policies",
+        "subcategory": "branch-policies",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/deployment-branch-policies"
+      },
+      {
+        "slug": "create-a-deployment-branch-policy",
+        "subcategory": "branch-policies",
+        "verb": "post",
+        "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/deployment-branch-policies"
+      },
+      {
+        "slug": "get-a-deployment-branch-policy",
+        "subcategory": "branch-policies",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/deployment-branch-policies/{branch_policy_id}"
+      },
+      {
+        "slug": "update-a-deployment-branch-policy",
+        "subcategory": "branch-policies",
+        "verb": "put",
+        "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/deployment-branch-policies/{branch_policy_id}"
+      },
+      {
+        "slug": "delete-a-deployment-branch-policy",
+        "subcategory": "branch-policies",
+        "verb": "delete",
+        "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/deployment-branch-policies/{branch_policy_id}"
       }
     ],
     "emojis": [
