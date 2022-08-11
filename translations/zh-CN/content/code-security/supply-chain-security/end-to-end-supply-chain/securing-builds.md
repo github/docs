@@ -34,7 +34,7 @@ topics:
 
 3. 每个构建都应在新的环境中启动，这样受损的构建不会持续影响将来的构建。
 
-{% data variables.product.prodname_actions %} 可以帮助您满足这些功能。 构建说明与代码一起存储在存储库中。 您可以选择在哪个环境中运行构建，包括 Windows、Mac、Linux 或您自己托管的运行器。 每个构建都从一个新的虚拟环境开始，这使得攻击很难在构建环境中持续存在。
+{% data variables.product.prodname_actions %} 可以帮助您满足这些功能。 构建说明与代码一起存储在存储库中。 您可以选择在哪个环境中运行构建，包括 Windows、Mac、Linux 或您自己托管的运行器。 Each build starts with a fresh runner image, making it difficult for an attack to persist in your build environment.
 
 除了安全优势之外， {% data variables.product.prodname_actions %} 还允许您手动、定期或在存储库中的 git 事件上触发构建，以实现频繁、快速的构建。
 

@@ -29,4 +29,4 @@ If you reopen a {% data variables.projects.projects_v1_board %}, you have the op
 - "[Deleting a {% data variables.product.prodname_project_v1 %}](/articles/deleting-a-project-board)"
 - "[Disabling {% data variables.product.prodname_projects_v1 %} in a repository](/articles/disabling-project-boards-in-a-repository)"
 - "[Disabling {% data variables.product.prodname_projects_v1 %} in your organization](/articles/disabling-project-boards-in-your-organization)"
-- "[{% data variables.product.prodname_project_v1_caps %} permissions for an organization](/articles/project-board-permissions-for-an-organization)"
+- "[Permisos de un {% data variables.product.prodname_project_v1_caps %} para una organización](/articles/project-board-permissions-for-an-organization)"

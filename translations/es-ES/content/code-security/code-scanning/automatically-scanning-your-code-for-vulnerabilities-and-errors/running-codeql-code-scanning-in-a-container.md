@@ -34,11 +34,11 @@ Debes ejecutar a {% data variables.product.prodname_codeql %} dentro del mismo c
 
 ## Dependencias
 
-Es posible que tengas alguna dificultad para ejecutar el {% data variables.product.prodname_code_scanning %} si el contenedor que estás utilizando carece de ciertas dependencias (Por ejemplo, Git debe instalarse y agregarse a la variable PATH). Si te encuentras con algún problema en las dependencias, revisa la lista de software que habitualmente se incluye en los ambientes virtuales de {% data variables.product.prodname_dotcom %}. Para obtener más información, consulta los archivos `readme` específicos de la versión en estas ubicaciones:
+Es posible que tengas alguna dificultad para ejecutar el {% data variables.product.prodname_code_scanning %} si el contenedor que estás utilizando carece de ciertas dependencias (Por ejemplo, Git debe instalarse y agregarse a la variable PATH). If you encounter dependency issues, review the list of software typically included on {% data variables.product.prodname_dotcom %}'s runner images. Para obtener más información, consulta los archivos `readme` específicos de la versión en estas ubicaciones:
 
-* Linux: https://github.com/actions/virtual-environments/tree/main/images/linux
-* macOS: https://github.com/actions/virtual-environments/tree/main/images/macos
-* Windows: https://github.com/actions/virtual-environments/tree/main/images/win
+* Linux: https://github.com/actions/runner-images/tree/main/images/linux
+* macOS: https://github.com/actions/runner-images/tree/main/images/macos
+* Windows: https://github.com/actions/runner-images/tree/main/images/win
 
 ## Ejemplo de flujo de trabajo
 

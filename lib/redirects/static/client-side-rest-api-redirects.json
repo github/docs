@@ -731,7 +731,7 @@
   "/rest/pulls#list-pull-requests-files": "/rest/pulls/pulls#list-pull-requests-files",
   "/rest/pulls#check-if-a-pull-request-has-been-merged": "/rest/pulls/pulls#check-if-a-pull-request-has-been-merged",
   "/rest/pulls#merge-a-pull-request": "/rest/pulls/pulls#merge-a-pull-request",
-  "/rest/pulls#list-requested-reviewers-for-a-pull-request": "/rest/pulls/review-requests#list-requested-reviewers-for-a-pull-request",
+  "/rest/pulls#get-all-requested-reviewers-for-a-pull-request": "/rest/pulls/review-requests#get-all-requested-reviewers-for-a-pull-request",
   "/rest/pulls#review-requests": "/rest/pulls/review-requests",
   "/rest/pulls#request-reviewers-for-a-pull-request": "/rest/pulls/review-requests#request-reviewers-for-a-pull-request",
   "/rest/pulls#remove-requested-reviewers-from-a-pull-request": "/rest/pulls/review-requests#remove-requested-reviewers-from-a-pull-request",
