@@ -97,7 +97,7 @@ Maximum concurrency was measured using multiple repositories, job duration of ap
 
 {% note %}
 
-**Note:** Beginning with {% data variables.product.prodname_ghe_server %} 3.6, {% data variables.product.company_short %} documents connected runners as opposed to concurrent jobs. Connected runners represents the most runners you can connect and expect to utilize.
+**Note:** Beginning with {% data variables.product.prodname_ghe_server %} 3.6, {% data variables.product.company_short %} documents connected runners as opposed to concurrent jobs. Connected runners represents the most runners you can connect and expect to utilize. It should also be noted that connecting more runners than you can expect to utilize can negatively impact performance.
 {% endnote %}
 
 {% note %}
