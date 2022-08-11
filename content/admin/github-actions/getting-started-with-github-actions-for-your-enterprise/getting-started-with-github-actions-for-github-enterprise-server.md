@@ -33,7 +33,8 @@ This article explains how site administrators can configure {% data variables.pr
 
 ## Review hardware requirements
 
-{%- ifversion ghes %}
+
+{%- ifversion ghes < 3.6 %}
 
 The CPU and memory resources available to {% data variables.product.product_location %} determine the number of jobs that can be run concurrently without performance loss. {% data reusables.actions.minimum-hardware %}
 
@@ -41,6 +42,13 @@ The peak quantity of concurrent jobs running without performance loss depends on
 
 {% endif %}
 
+{%- ifversion ghes > 3.5 %}
+
+The CPU and memory resources available to {% data variables.product.product_location %} determine the number of connected runners that can be obtained without performance loss. {% data reusables.actions.minimum-hardware %}
+
+The peak quantity of connected runners without performance loss depends on such factors as job duration, artifact usage, number of repositories running Actions, and how much other work your instance is doing not related to Actions. Internal testing at GitHub demonstrated the following performance targets for GitHub Enterprise Server on a range of CPU and memory configurations:
+
+{% endif %}
 
 {%- ifversion ghes = 3.2 %}
 
