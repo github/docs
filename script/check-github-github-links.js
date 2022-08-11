@@ -42,7 +42,9 @@ const retryConfiguration = {
 // According to our Datadog metrics, the *average* time for the
 // the 'archive_enterprise_proxy' metric is ~70ms (excluding spikes)
 // which much less than 500ms.
-const timeoutConfiguration = 1000
+const timeoutConfiguration = {
+  request: 3000,
+}
 
 async function main() {
   const searchStrings = ['https://docs.github.com', 'GitHub help_url', 'GitHub developer_help_url']

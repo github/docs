@@ -17,13 +17,9 @@ topics:
 shortTitle: Eventos webhook & cargas
 ---
 
-{% ifversion fpt or ghec %}
-
-{% endif %}
-
 {% data reusables.webhooks.webhooks_intro %}
 
-Você pode criar webhooks que assinam os eventos listados nesta página. Cada evento de webhook inclui uma descrição das propriedades do webhook e uma carga de exemplo. Para obter mais informações, consulte "[Criar webhooks](/webhooks/creating/)."
+Você pode criar webhooks que assinam os eventos listados nesta página. Cada evento de webhook inclui uma descrição das propriedades do webhook e uma carga de exemplo. For more information, see "[Creating webhooks](/webhooks/creating/)."
 
 ## Propriedades comuns do objeto da carga do webhook
 
@@ -101,7 +97,7 @@ Além disso, o `User-Agent` para as solicitações terá o prefixo `GitHub-Hooks
 > }
 ```
 
-{% ifversion fpt or ghes > 3.2 or ghae or ghec %}
+{% ifversion fpt or ghes > 3.3 or ghae or ghec %}
 ## branch_protection_rule
 
 Atividade relacionada a uma regra de proteção do branch. Para obter mais informações, consulte[Sobre as regras de proteção do branch](/github/administering-a-repository/defining-the-mergeability-of-pull-requests/about-protected-branches#about-branch-protection-rules)".
@@ -219,7 +215,7 @@ Um ref do Git foi sincronizado com sucesso para uma réplica de cache. Para obte
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.app_desc %}
-</code>remetente`| <code>objeto` | Se a </code> de ação ` for <code>reopened_by_user` ou `closed_by_user`, o objeto `remetente` será o usuário que ativou o evento. O objeto `sender` está {% ifversion fpt or ghec %}`github`{% elsif ghes or ghae %}`github-enterprise`{% else %}vazio{% endif %} para todas as outras ações.
+</code>remetente`| <code>objeto` | Se a </code> de ação ` for <code>reopened_by_user` ou `closed_by_user`, o objeto `remetente` será o usuário que ativou o evento. The `sender` object is {% ifversion fpt or ghec %}`github`{% elsif ghes or ghae %}`github-enterprise`{% else %}empty{% endif %} for all other actions.
 
 ### Exemplo de carga de webhook
 
@@ -711,6 +707,41 @@ Para obter uma descrição detalhada desta carga e da carga para cada tipo de `a
 ### Exemplo de carga de webhook
 
 {{ webhookPayloadsForCurrentVersion.membership.removed }}
+
+{% ifversion fpt or ghec %}
+
+## merge_group
+
+{% data reusables.pull_requests.merge-queue-beta %}
+
+Activity related to merge groups in a merge queue. O tipo de atividade é especificado na propriedade ação do objeto da carga.
+
+
+### Disponibilidade
+
+- Webhooks do repositório
+- Webhooks da organização
+- {% data variables.product.prodname_github_apps %} with the `merge_queues` permission
+
+### Objeto da carga do webhook
+
+| Tecla                   | Tipo     | Descrição                                                            |
+| ----------------------- | -------- | -------------------------------------------------------------------- |
+| `Ação`                  | `string` | A ação que foi executada. Currently, can only be `checks_requested`. |
+| `merge_group`           | `objeto` | The merge group.                                                     |
+| `merge_group[head_sha]` | `string` | The SHA of the merge group.                                          |
+| `merge_group[head_ref]` | `string` | The full ref of the merge group.                                     |
+| `merge_group[base_ref]` | `string` | The full ref of the branch the merge group will be merged into.      |
+{% data reusables.webhooks.repo_desc %}
+{% data reusables.webhooks.org_desc %}
+{% data reusables.webhooks.app_desc %}
+{% data reusables.webhooks.sender_desc %}
+
+### Exemplo de carga de webhook
+
+{{ webhookPayloadsForCurrentVersion.merge_group.checks_requested }}
+
+{% endif %}
 
 ## meta
 

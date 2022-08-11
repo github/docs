@@ -20,5 +20,4 @@ GraphQLにおける[オブジェクト](https://graphql.github.io/graphql-spec/J
 
 詳しい情報については「[GraphQLの紹介](/graphql/guides/introduction-to-graphql)」を参照してください。
 
-<!-- this page is pre-rendered by scripts because it's too big to load dynamically -->
-<!-- see lib/graphql/static/prerendered-objects.json -->
+<!-- Content after this section is automatically generated -->

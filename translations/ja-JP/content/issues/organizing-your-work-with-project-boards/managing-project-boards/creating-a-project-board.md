@@ -1,6 +1,6 @@
 ---
 title: '{% data variables.product.prodname_project_v1 %}の作成'
-intro: '{% data variables.projects.projects_v1_boards_caps %} can be used to create customized workflows to suit your needs, like tracking and prioritizing specific feature work, comprehensive roadmaps, or even release checklists.'
+intro: '{% data variables.projects.projects_v1_boards_caps %}は、特定機能の作業の追跡と優先度付け、総合的なロードマップ、さらにはリリースチェックリストなど、ニーズを満たすカスタマイズワークフローを作成するために使用できます。'
 redirect_from:
   - /github/managing-your-work-on-github/managing-project-boards/creating-a-project-board
   - /articles/creating-a-project
@@ -23,21 +23,21 @@ allowTitleToDifferFromFilename: true
 
 {% data reusables.project-management.copy-project-boards %}
 
-{% data reusables.project-management.link-repos-to-project-board %} For more information, see "[Linking a repository to a {% data variables.product.prodname_project_v1 %} ](/articles/linking-a-repository-to-a-project-board)."
+{% data reusables.project-management.link-repos-to-project-board %} 詳しい情報については「[{% data variables.product.prodname_project_v1 %}へのリポジトリのリンク](/articles/linking-a-repository-to-a-project-board)」を参照してください。
 
-Once you've created your {% data variables.projects.projects_v1_board %}, you can add issues, pull requests, and notes to it. For more information, see "[Adding issues and pull requests to a {% data variables.product.prodname_project_v1 %}](/articles/adding-issues-and-pull-requests-to-a-project-board)" and "[Adding notes to a {% data variables.product.prodname_project_v1 %}](/articles/adding-notes-to-a-project-board)."
+{% data variables.projects.projects_v1_board %}を作成したら、Issue、Pull Request、ノートを追加できます。 詳しい情報については「[{% data variables.product.prodname_project_v1 %}へのIssueとPull Requestの追加](/articles/adding-issues-and-pull-requests-to-a-project-board)」及び「[{% data variables.product.prodname_project_v1 %}へのノートの追加](/articles/adding-notes-to-a-project-board)」を参照してください。
 
-You can also configure workflow automations to keep your {% data variables.projects.projects_v1_board %} in sync with the status of issues and pull requests. For more information, see "[About automation for {% data variables.product.prodname_projects_v1 %}](/articles/about-automation-for-project-boards)."
+{% data variables.projects.projects_v1_board %}をIssueやPull Requestのステータスと同期させておくために、ワークフローの自動化を設定することもできます。 詳しい情報については「[{% data variables.product.prodname_projects_v1 %}の自動化について](/articles/about-automation-for-project-boards)」を参照してください。
 
 {% data reusables.project-management.project-board-import-with-api %}
 
-## Creating a user-owned {% data variables.projects.projects_v1_board %}
+## ユーザが所有する{% data variables.projects.projects_v1_board %}の作成
 
 {% data reusables.projects.classic-project-creation %}
 
 {% data reusables.profile.access_profile %}
 2. プロフィールページの一番上のメインナビゲーションにある{% octicon "project" aria-label="The project board icon" %}[**Projects**] をクリックします。 ![Project tab](/assets/images/help/projects/user-projects-tab.png){% ifversion projects-v2 %}
-1. Click **Projects (classic)**{% endif %}
+1. **Projects (classic)**をクリックしてください。{% endif %}
 {% data reusables.project-management.click-new-project %}
 {% data reusables.project-management.create-project-name-description %}
 {% data reusables.project-management.choose-template %}
@@ -53,14 +53,14 @@ You can also configure workflow automations to keep your {% data variables.proje
 
 {% data reusables.project-management.edit-project-columns %}
 
-## Creating an organization-wide {% data variables.projects.projects_v1_board %}
+## Organizationの{% data variables.projects.projects_v1_board %}の作成
 
 {% data reusables.projects.classic-project-creation %}
 
 {% data reusables.profile.access_org %}
 {% data reusables.user-settings.access_org %}
 {% data reusables.organizations.organization-wide-project %}{% ifversion projects-v2 %}
-1. Click **Projects (classic)**{% endif %}
+1. **Projects (classic)**をクリックしてください。{% endif %}
 {% data reusables.project-management.click-new-project %}
 {% data reusables.project-management.create-project-name-description %}
 {% data reusables.project-management.choose-template %}
@@ -76,13 +76,13 @@ You can also configure workflow automations to keep your {% data variables.proje
 
 {% data reusables.project-management.edit-project-columns %}
 
-## Creating a repository {% data variables.projects.projects_v1_board %}
+## リポジトリの{% data variables.projects.projects_v1_board %}の作成
 
 {% data reusables.projects.classic-project-creation %}
 
 {% data reusables.repositories.navigate-to-repo %}
 2. リポジトリ名の下にある {% octicon "project" aria-label="The project board icon" %}[**Projects**] をクリックします。 ![Project tab](/assets/images/help/projects/repo-tabs-projects.png){% ifversion projects-v2 %}
-1. Click **Projects (classic)**{% endif %}
+1. **Projects (classic)**をクリックしてください。{% endif %}
 {% data reusables.project-management.click-new-project %}
 {% data reusables.project-management.create-project-name-description %}
 {% data reusables.project-management.choose-template %}

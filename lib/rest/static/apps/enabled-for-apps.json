@@ -380,7 +380,7 @@
         "requestPath": "/repos/{owner}/{repo}/actions/oidc/customization/sub"
       },
       {
-        "slug": "set-the-opt-out-flag-of-an-oidc-subject-claim-customization-for-a-repository",
+        "slug": "set-the-opt-in-flag-of-an-oidc-subject-claim-customization-for-a-repository",
         "subcategory": "oidc",
         "verb": "put",
         "requestPath": "/repos/{owner}/{repo}/actions/oidc/customization/sub"
@@ -2171,7 +2171,6 @@
         "requestPath": "/repos/{owner}/{repo}/import/lfs"
       }
     ],
-    "oauth-authorizations": [],
     "orgs": [
       {
         "slug": "list-organizations",
@@ -2406,6 +2405,24 @@
         "subcategory": "members",
         "verb": "get",
         "requestPath": "/orgs/{org}/public_members/{username}"
+      },
+      {
+        "slug": "list-security-manager-teams",
+        "subcategory": "security-managers",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/security-managers"
+      },
+      {
+        "slug": "add-a-security-manager-team",
+        "subcategory": "security-managers",
+        "verb": "put",
+        "requestPath": "/orgs/{org}/security-managers/teams/{team_slug}"
+      },
+      {
+        "slug": "remove-a-security-manager-team",
+        "subcategory": "security-managers",
+        "verb": "delete",
+        "requestPath": "/orgs/{org}/security-managers/teams/{team_slug}"
       },
       {
         "slug": "list-organizations-for-a-user",

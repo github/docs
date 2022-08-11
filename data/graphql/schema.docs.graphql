@@ -28694,6 +28694,14 @@ enum ProjectNextFieldType {
     )
 
   """
+  Tasks
+  """
+  TASKS
+    @deprecated(
+      reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2022-10-01 UTC."
+    )
+
+  """
   Text
   """
   TEXT
@@ -28705,14 +28713,6 @@ enum ProjectNextFieldType {
   Title
   """
   TITLE
-    @deprecated(
-      reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2022-10-01 UTC."
-    )
-
-  """
-  Tracks
-  """
-  TRACKS
     @deprecated(
       reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2022-10-01 UTC."
     )
@@ -29751,6 +29751,11 @@ enum ProjectV2FieldType {
   SINGLE_SELECT
 
   """
+  Tasks
+  """
+  TASKS
+
+  """
   Text
   """
   TEXT
@@ -29759,11 +29764,6 @@ enum ProjectV2FieldType {
   Title
   """
   TITLE
-
-  """
-  Tracks
-  """
-  TRACKS
 }
 
 """
@@ -29819,6 +29819,16 @@ type ProjectV2Item implements Node {
   Identifies the primary key from the database.
   """
   databaseId: Int
+
+  """
+  A specific field value given a field name
+  """
+  fieldValueByName(
+    """
+    The name of the field to return the field value of
+    """
+    name: String!
+  ): ProjectV2ItemFieldValue
 
   """
   List of field values
@@ -43047,6 +43057,11 @@ The possible ecosystems of a security vulnerability's package.
 """
 enum SecurityAdvisoryEcosystem {
   """
+  GitHub Actions
+  """
+  ACTIONS
+
+  """
   PHP packages hosted at packagist.org
   """
   COMPOSER
@@ -47792,6 +47807,11 @@ type TreeEntry {
   The Repository the tree entry belongs to
   """
   repository: Repository!
+
+  """
+  Entry byte size
+  """
+  size: Int!
 
   """
   If the TreeEntry is for a directory occupied by a submodule project, this returns the corresponding submodule

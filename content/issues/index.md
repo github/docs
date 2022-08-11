@@ -34,7 +34,7 @@ featuredLinks:
     - title: Issue Forms for open source – Luke Hefson
       href: 'https://www.youtube-nocookie.com/embed/2Yh8ueUE0oY'
   videosHeading: Videos
-product_video: '{% ifversion projects-v2 %}https://www.youtube-nocookie.com/embed/yFQ-p6wMS_Y{% else %}https://www.youtube-nocookie.com/embed/uiaLWluYJsA{% endif %}'
+product_video: '{% ifversion projects-v2 %}https://www.youtube-nocookie.com/embed/yFQ-p6wMS_Y?list=PL0lo9MOBetEG8TZty9Z38oSZAY8FjkaB7&index=1{% else %}https://www.youtube-nocookie.com/embed/uiaLWluYJsA{% endif %}'
 layout: product-landing
 beta_product: false
 versions:

@@ -1,7 +1,7 @@
 ---
-title: 'Closing and deleting your {% data variables.projects.projects_v2 %}'
-shortTitle: 'Closing and deleting {% data variables.projects.projects_v2 %}'
-intro: 'Learn about closing, re-opening, and permanently deleting a {% data variables.projects.project_v2 %}.'
+title: '{% data variables.projects.projects_v2 %}のクローズと削除'
+shortTitle: '{% data variables.projects.projects_v2 %}のクローズと削除'
+intro: '{% data variables.projects.project_v2 %}のクローズ、再オープン、完全な削除について学んでください。'
 miniTocMaxHeadingLevel: 3
 versions:
   feature: projects-v2

@@ -303,7 +303,6 @@ translations/es-ES/data/release-notes/enterprise-server/3-2/0.yml,broken liquid 
 translations/es-ES/data/release-notes/enterprise-server/3-6/0-rc1.yml,broken liquid tags
 translations/es-ES/data/release-notes/github-ae/2021-06/2021-12-06.yml,broken liquid tags
 translations/es-ES/data/release-notes/github-ae/2022-05/2022-05-17.yml,broken liquid tags
-translations/es-ES/data/reusables/actions/contacting-support.md,broken liquid tags
 translations/es-ES/data/reusables/actions/enterprise-marketplace-actions.md,broken liquid tags
 translations/es-ES/data/reusables/actions/enterprise-storage-ha-backups.md,broken liquid tags
 translations/es-ES/data/reusables/actions/settings-ui/settings-actions-general.md,rendering error

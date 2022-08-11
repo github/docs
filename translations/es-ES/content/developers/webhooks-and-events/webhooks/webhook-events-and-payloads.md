@@ -17,13 +17,9 @@ topics:
 shortTitle: Eventos de webhook & cargas útiles
 ---
 
-{% ifversion fpt or ghec %}
-
-{% endif %}
-
 {% data reusables.webhooks.webhooks_intro %}
 
-Puedes crear webhooks que se suscriban a los eventos listados en esta página. Cada evento de webhook incluye una descripción de las propiedades de dicho webhook y un ejemplo de carga útil. Para obtener más información, consulta "[Crear webhooks](/webhooks/creating/)".
+Puedes crear webhooks que se suscriban a los eventos listados en esta página. Cada evento de webhook incluye una descripción de las propiedades de dicho webhook y un ejemplo de carga útil. Para obtener más información, consulta la sección "[Crear webhooks](/webhooks/creating/)".
 
 ## Propuiedades comunes del objeto de la carga útil del webhook
 
@@ -101,7 +97,7 @@ También, el `User-Agent` para las solicitudes tendrá el prefijo `GitHub-Hooksh
 > }
 ```
 
-{% ifversion fpt or ghes > 3.2 or ghae or ghec %}
+{% ifversion fpt or ghes > 3.3 or ghae or ghec %}
 ## branch_protection_rule
 
 Actividad relacionada con una regla de protección de rama. Para obtener más información, consulta la sección "[Acerca de las reglas de protección de rama](/github/administering-a-repository/defining-the-mergeability-of-pull-requests/about-protected-branches#about-branch-protection-rules)".
@@ -219,7 +215,7 @@ Se sincronizó una Git ref exitosamente en una réplica de caché. Para obtener 
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.app_desc %}
-`sender` | `object` | Si la `action` está como `reopened_by_user` o `closed_by_user`, el objeto que sea el `sender` será el usuario que activó el evento. El objeto `sender` está {% ifversion fpt or ghec %}`github` {% elsif ghes or ghae %}`github-enterprise` {% else %}vacío{% endif %} para el resto de las acciones.
+`sender` | `object` | Si la `action` está como `reopened_by_user` o `closed_by_user`, el objeto que sea el `sender` será el usuario que activó el evento. El objeto `sender` {% ifversion fpt or ghec %}es `github`{% elsif ghes or ghae %}es `github-enterprise`{% else %}está vacío{% endif %} para el resto de las acciones.
 
 ### Ejemplo de carga útil del webhook
 
@@ -382,7 +378,7 @@ Los eventos de webhook se desencadenan basándose en la especificidad del domini
 | ---------------------------------- | ----------- | ----------------------------------------------------------------------------------------------- |
 | `Acción`                           | `secuencia` | La acción realizada. Puede ser `created`.                                                       |
 | `deployment_status`                | `objeto`    | El [estado del despliegue](/rest/reference/deployments#list-deployment-statuses).               |
-| `deployment_status["state"]`       | `secuencia` | El nuevo estado. Puede ser `pending`, `success`, `failure`, o `error`.                          |
+| `deployment_status["state"]`       | `secuencia` | El estado nuevo. Puede ser `pending`, `success`, `failure`, o `error`.                          |
 | `deployment_status["target_url"]`  | `secuencia` | El enlace opcional agregado al estado.                                                          |
 | `deployment_status["description"]` | `secuencia` | La descripción opcional legible para las personas que se agrega al estado.                      |
 | `deployment`                       | `objeto`    | El [despliegue](/rest/reference/deployments#list-deployments) con el que se asocia este estado. |
@@ -712,6 +708,41 @@ Para obtener una descripción detallada de esta carga útil y de aquella para ca
 
 {{ webhookPayloadsForCurrentVersion.membership.removed }}
 
+{% ifversion fpt or ghec %}
+
+## merge_group
+
+{% data reusables.pull_requests.merge-queue-beta %}
+
+Relacionado activamente con grupos de fusión en una cola de fusión. El tipo de actividad se especifica en la propiedad de la acción del objeto de la carga útil.
+
+
+### Disponibilidad
+
+- Webhooks de repositorio
+- Webhooks de organización
+- {% data variables.product.prodname_github_apps %} con el permiso `merge_queues`
+
+### Objeto de carga útil del webhook
+
+| Clave                   | Tipo        | Descripción                                                                  |
+| ----------------------- | ----------- | ---------------------------------------------------------------------------- |
+| `Acción`                | `secuencia` | La acción que se realizó. Actualmente, solo puede ser `checks_requested`.    |
+| `merge_group`           | `objeto`    | El grupo de fusión.                                                          |
+| `merge_group[head_sha]` | `secuencia` | El SHA del grupo de fusión.                                                  |
+| `merge_group[head_ref]` | `secuencia` | La referencia completa del grupo de fusión.                                  |
+| `merge_group[base_ref]` | `secuencia` | La referencia completa de la rama a la cual se fusionará el grupo de fusión. |
+{% data reusables.webhooks.repo_desc %}
+{% data reusables.webhooks.org_desc %}
+{% data reusables.webhooks.app_desc %}
+{% data reusables.webhooks.sender_desc %}
+
+### Ejemplo de carga útil del webhook
+
+{{ webhookPayloadsForCurrentVersion.merge_group.checks_requested }}
+
+{% endif %}
+
 ## meta
 
 Se eliminó el evento para el cual se configuró este webhook. Este evento únicamente escuchará los cambios del gancho particular en el cual se instaló. Por lo tanto, debe seleccionarse para cada gancho para el cual quieras recibir metaeventos.
@@ -895,7 +926,7 @@ Actividad relacionada con el {% data variables.product.prodname_registry %}. {% 
 {% ifversion projects-v2 %}
 {% note %}
 
-**Note**: This event only occurs for {% data variables.product.prodname_projects_v1 %}.
+**Nota**: Este evento solo ocurre para {% data variables.product.prodname_projects_v1 %}.
 
 {% endnote %}
 {% endif %}
@@ -927,7 +958,7 @@ Actividad relacionada con el {% data variables.product.prodname_registry %}. {% 
 {% ifversion projects-v2 %}
 {% note %}
 
-**Note**: This event only occurs for {% data variables.product.prodname_projects_v1 %}.
+**Nota**: Este evento solo ocurre para {% data variables.product.prodname_projects_v1 %}.
 
 {% endnote %}
 {% endif %}
@@ -957,7 +988,7 @@ Actividad relacionada con el {% data variables.product.prodname_registry %}. {% 
 {% ifversion projects-v2 %}
 {% note %}
 
-**Note**: This event only occurs for {% data variables.product.prodname_projects_v1 %}.
+**Nota**: Este evento solo ocurre para {% data variables.product.prodname_projects_v1 %}.
 
 {% endnote %}
 {% endif %}
@@ -980,11 +1011,11 @@ Actividad relacionada con el {% data variables.product.prodname_registry %}. {% 
 
 {% note %}
 
-**Nota:** Los eventos de webhook para los {% data variables.projects.projects_v2 %} se encuentran actualmente en beta y están sujetos a cambios. To share feedback about {% data variables.projects.projects_v2 %} webhooks with {% data variables.product.product_name %}, see the [Projects webhook feedback discussion](https://github.com/github/feedback/discussions/17405).
+**Nota:** Los eventos de webhook para los {% data variables.projects.projects_v2 %} se encuentran actualmente en beta y están sujetos a cambios. Para compartir la retroalimentación sobre {% data variables.projects.projects_v2 %} los webhooks con {% data variables.product.product_name %}, consulta el [Debate de retroalimentación de webhook de proyectos](https://github.com/orgs/community/discussions/17405).
 
 {% endnote %}
 
-Activity related to items in a {% data variables.projects.project_v2 %}. {% data reusables.webhooks.action_type_desc %} For more information, see "[About {% data variables.projects.projects_v2 %}](/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects)."
+Actividad relacionada con los elementos en un {% data variables.projects.project_v2 %}. {% data reusables.webhooks.action_type_desc %} Para obtener más información, consulta la sección "[Acerca de los {% data variables.projects.projects_v2 %}](/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects)".
 
 ### Disponibilidad
 
@@ -1160,9 +1191,9 @@ Las entregas para los eventos `review_requested` y `review_request_removed` tend
 | `commits[][author][email]` | `secuencia` | La dirección de correo electrónico del autor de git.                                                                                                                                                                                                                                                                                                                                         |
 | `commits[][url]`           | `url`       | URL que apunta al recurso de la API de la confirmación.                                                                                                                                                                                                                                                                                                                                      |
 | `commits[][distinct]`      | `boolean`   | Si la confirmación es distinta de cualquier otra que se haya subido antes.                                                                                                                                                                                                                                                                                                                   |
-| `commits[][added]`         | `arreglo`   | Un arreglo de archivos que se agregaron en la confirmación.                                                                                                                                                                                                                                                                                                                                  |
-| `commits[][modified]`      | `arreglo`   | Un areglo de archivos que modificó la confirmación.                                                                                                                                                                                                                                                                                                                                          |
-| `commits[][removed]`       | `arreglo`   | Un arreglo de archivos que se eliminaron en la confirmación.                                                                                                                                                                                                                                                                                                                                 |
+| `commits[][added]`         | `arreglo`   | Un arreglo de archivos que se agregaron en la confirmación. For extremely large commits where {% data variables.product.product_name %} is unable to calculate this list in a timely manner, this may be empty even if files were added.                                                                                                                                                     |
+| `commits[][modified]`      | `arreglo`   | Un areglo de archivos que modificó la confirmación. For extremely large commits where {% data variables.product.product_name %} is unable to calculate this list in a timely manner, this may be empty even if files were modified.                                                                                                                                                          |
+| `commits[][removed]`       | `arreglo`   | Un arreglo de archivos que se eliminaron en la confirmación. For extremely large commits where {% data variables.product.product_name %} is unable to calculate this list in a timely manner, this may be empty even if files were removed.                                                                                                                                                  |
 | `pusher`                   | `objeto`    | El usuario que subió la confirmación.                                                                                                                                                                                                                                                                                                                                                        |
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.org_desc %}
@@ -1438,7 +1469,7 @@ Solo puedes crear un webhook de patrocinio en {% data variables.product.prodname
 | ------------- | ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `id`          | `número`    | El identificador único del estado.                                                                                                                                                                       |
 | `sha`         | `secuencia` | El SHA de la confirmación.                                                                                                                                                                               |
-| `state`       | `secuencia` | El nuevo estado. Puede ser `pending`, `success`, `failure`, o `error`.                                                                                                                                   |
+| `state`       | `secuencia` | El estado nuevo. Puede ser `pending`, `success`, `failure`, o `error`.                                                                                                                                   |
 | `descripción` | `secuencia` | La descripción opcional legible para las personas que se agrega al estado.                                                                                                                               |
 | `url_destino` | `secuencia` | El enlace opcional agregado al estado.                                                                                                                                                                   |
 | `branches`    | `arreglo`   | Un conjunto de objetos de la rama que contiene el SHA del estado. Cada rama contiene el SHA proporcionado, pero éste puede ser o no el encabezado de la rama. El conjunto incluye un máximo de 10 ramas. |
@@ -1547,7 +1578,7 @@ El actor del evento es el [usuario](/rest/reference/users) que marcó el reposit
 {% ifversion fpt or ghes or ghec %}
 ## workflow_dispatch
 
-Este evento ocurre cuando alguien activa una ejecución de flujo de trabajo en GitHub o cuando envía una solicitud de tipo `POST` a la terminal [Crear un evento de envío de flujo de trabajo](/rest/reference/actions/#create-a-workflow-dispatch-event)". Para obtener más información, consulta "[Eventos que activan los flujos de trabajo](/actions/reference/events-that-trigger-workflows#workflow_dispatch)".
+Este evento ocurre cuando alguien activa una ejecución de flujo de trabajo en GitHub o cuando envía una solicitud de tipo `POST` a la terminal [Crear un evento de envío de flujo de trabajo](/rest/reference/actions/#create-a-workflow-dispatch-event)". Para obtener más información, consulta la sección "[Eventos que activan flujos de trabajo](/actions/reference/events-that-trigger-workflows#workflow_dispatch)".
 
 ### Disponibilidad
 
@@ -1596,7 +1627,7 @@ Este evento ocurre cuando alguien activa una ejecución de flujo de trabajo en G
 {% ifversion fpt or ghes or ghec %}
 ## workflow_run
 
-Cuando una ejecución de flujo de trabajo de {% data variables.product.prodname_actions %} se solicita o se completa. Para obtener más información, consulta "[Eventos que activan los flujos de trabajo](/actions/reference/events-that-trigger-workflows#workflow_run)".
+Cuando una ejecución de flujo de trabajo de {% data variables.product.prodname_actions %} se solicita o se completa. Para obtener más información, consulta la sección "[Eventos que activan flujos de trabajo](/actions/reference/events-that-trigger-workflows#workflow_run)".
 
 ### Disponibilidad
 

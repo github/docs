@@ -27,7 +27,7 @@ versions:
 
 **注意：** 您只能为公共存储库配置环境。 如果您将仓库从公开转换为私密，任何配置的保护规则或环境机密将被忽略， 并且您将无法配置任何环境。 如果将仓库转换回公共，您将有权访问以前配置的任何保护规则和环境机密。
 
-使用 {% data variables.product.prodname_ghe_cloud %} 的组织可以为私有仓库配置环境。 更多信息请参阅 [{% data variables.product.prodname_ghe_cloud %} 文档](/enterprise-cloud@latest/actions/deployment/targeting-different-environments/using-environments-for-deployment)。 {% data reusables.enterprise.link-to-ghec-trial %}
+Organizations with {% data variables.product.prodname_team %} and users with {% data variables.product.prodname_pro %} can configure environments for private repositories. 更多信息请参阅“[{% data variables.product.prodname_dotcom %} 的产品](/get-started/learning-about-github/githubs-products)”。
 
 {% endnote %}
 {% endif %}
@@ -72,7 +72,7 @@ versions:
 {% ifversion fpt or ghec %}
 {% note %}
 
-**注意：**要在私有存储库中创建环境，您的组织必须使用 {% data variables.product.prodname_ghe_cloud %}。 {% data reusables.enterprise.link-to-ghec-trial %}
+**Note:** Creation of an environment in a private repository is available to organizations with {% data variables.product.prodname_team %} and users with {% data variables.product.prodname_pro %}.
 
 {% endnote %}
 {% endif %}

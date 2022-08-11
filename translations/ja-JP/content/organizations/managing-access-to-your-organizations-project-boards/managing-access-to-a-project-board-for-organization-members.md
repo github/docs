@@ -1,6 +1,6 @@
 ---
-title: 'Managing access to a {% data variables.product.prodname_project_v1 %} for organization members'
-intro: 'As an organization owner or {% data variables.projects.projects_v1_board %} admin, you can set a default permission level for a {% data variables.projects.projects_v1_board %} for all organization members.'
+title: 'Organizationのメンバーに対する{% data variables.product.prodname_project_v1 %}へのアクセスの管理'
+intro: 'Organizationのオーナーまたは{% data variables.projects.projects_v1_board %}の管理者は、すべてのOrganizationメンバーに対して{% data variables.projects.projects_v1_board %}へのデフォルトの権限レベルを設定できます。'
 redirect_from:
   - /articles/managing-access-to-a-project-board-for-organization-members
   - /github/setting-up-and-managing-organizations-and-teams/managing-access-to-a-project-board-for-organization-members
@@ -18,13 +18,13 @@ allowTitleToDifferFromFilename: true
 
 {% data reusables.projects.project_boards_old %}
 
-By default, organization members have write access to their organization's {% data variables.projects.projects_v1_boards %} unless organization owners or {% data variables.projects.projects_v1_board %} admins set different permissions for specific {% data variables.projects.projects_v1_boards %}.
+デフォルトでは、Organization のメンバーはその Organization の{% data variables.projects.projects_v1_boards %}に対する書き込みアクセスを持ちます。ただし、Organization のオーナーまたは{% data variables.projects.projects_v1_board %}の管理者が、特定の{% data variables.projects.projects_v1_boards %}に異なる権限を設定している場合は例外です。
 
 ## Organization のすべてのメンバーに対して標準の権限レベルを設定する
 
 {% tip %}
 
-**Tip:** You can give an organization member higher permissions to {% data variables.projects.projects_v1_board %}. 詳しい情報については、「[Organization のプロジェクトボードの権限](/articles/project-board-permissions-for-an-organization)」を参照してください。
+**参考:** Organizationのメンバーに{% data variables.projects.projects_v1_board %}へのより高い権限を付与することができます。 詳しい情報については、「[Organization のプロジェクトボードの権限](/articles/project-board-permissions-for-an-organization)」を参照してください。
 
 {% endtip %}
 
@@ -40,6 +40,6 @@ By default, organization members have write access to their organization's {% da
 
 ## 参考リンク
 
-- "[Managing an individual’s access to an organization {% data variables.product.prodname_project_v1 %}](/articles/managing-an-individual-s-access-to-an-organization-project-board)"
-- "[Managing team access to an organization {% data variables.product.prodname_project_v1 %}](/articles/managing-team-access-to-an-organization-project-board)"
-- "[{% data variables.product.prodname_project_v1_caps %} permissions for an organization](/articles/project-board-permissions-for-an-organization)"
+- 「[Organizationの{% data variables.product.prodname_project_v1 %}への個人のアクセスの管理](/articles/managing-an-individual-s-access-to-an-organization-project-board)」
+- 「[Organizationの{% data variables.product.prodname_project_v1 %}への Team のアクセスの管理](/articles/managing-team-access-to-an-organization-project-board)」
+- 「[Organizationの{% data variables.product.prodname_project_v1_caps %}の権限](/articles/project-board-permissions-for-an-organization)」

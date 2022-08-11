@@ -50,9 +50,11 @@ Una vez que se aprueban o se rechazan sus claves, podrá interactuar con los rep
 
 ## Agregar una clave SSH
 
-Cuando los usuarios nuevos agreguen una clave SSH, se les solicitará su contraseña:
+{% ifversion ghes %}
 
-![Confirmación de contraseña](/assets/images/help/settings/sudo_mode_popup.png)
+When a new user adds an SSH key to an account, to confirm the user's access, {% data variables.product.product_name %} will prompt for authentication. For more information, see "[Sudo mode](/authentication/keeping-your-account-and-data-secure/sudo-mode)."
+
+{% endif %}
 
 Cuando un usuario agrega una clave, recibirá un correo electrónico de notificación que se verá como esto:
 

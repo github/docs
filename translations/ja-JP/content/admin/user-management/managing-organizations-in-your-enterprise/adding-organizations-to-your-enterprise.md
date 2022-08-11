@@ -14,15 +14,16 @@ topics:
   - Enterprise
   - Organizations
 shortTitle: Add organizations
+permissions: Enterprise owners can add organizations to an enterprise.
 ---
 
 ## Organizationについて
 
 Your enterprise account can own organizations. Members of your enterprise can collaborate across related projects within an organization. 詳細は「[Organization について](/organizations/collaborating-with-groups-in-organizations/about-organizations)」を参照してください。
 
-Enterprise owners can create new organizations within an enterprise account's settings or invite existing organizations to join an enterprise. To add an organization to your enterprise, you must create the organization from within the enterprise account settings.
+You can add a new or existing organization to your enterprise in your enterprise account's settings.
 
-You can only add organizations this way to an existing enterprise account. {% data reusables.enterprise.create-an-enterprise-account %} For more information, see "[Creating an enterprise account](/admin/overview/creating-an-enterprise-account)."
+You can only add organizations this way to an existing enterprise account. {% data reusables.enterprise.create-an-enterprise-account %} 詳しい情報については「[Enterpriseアカウントの作成](/admin/overview/creating-an-enterprise-account)」を参照してください。
 
 ## Enterprise アカウント内で Organization を作成する
 

@@ -30,6 +30,8 @@ redirect_from:
 
 Se os integrantes da sua empresa gerenciarem suas próprias contas de usuários em {% data variables.product.product_location %}, você pode configurar a autenticação SAML como uma restrição de acesso adicional para sua empresa ou organização. {% data reusables.saml.dotcom-saml-explanation %}
 
+{% data reusables.saml.saml-accounts %}
+
 {% data reusables.saml.about-saml-enterprise-accounts %} Para obter mais informações, consulte "[Configurar logon único SAML para a sua empresa](/admin/authentication/managing-identity-and-access-for-your-enterprise/configuring-saml-single-sign-on-for-your-enterprise)".
 
 Como alternativa, você pode fornecer e gerenciar as contas dos integrantes da empresa com {% data variables.product.prodname_emus %}. Para ajudar você a determinar se o SAML SSO ou {% data variables.product.prodname_emus %} é melhor para sua empresa, consulte "[Sobre autenticação para sua empresa](/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-authentication-for-your-enterprise#identifying-the-best-authentication-method-for-your-enterprise)".

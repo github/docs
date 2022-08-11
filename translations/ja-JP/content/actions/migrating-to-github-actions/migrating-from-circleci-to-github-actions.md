@@ -37,7 +37,7 @@ CircleCIから移行する際には、以下の差異を考慮してください
 
 - CircleCIの自動テストの並列性は、ユーザが指定したルールもしくは過去のタイミングの情報に基づいて、自動的にテストをグループ化します。 この機能は{% data variables.product.prodname_actions %}には組み込まれていません。
 - コンテナはユーザのマッピングが異なるので、Dockerコンテナ内で実行されるアクションは、権限の問題に敏感です。 これらの問題の多くは、*Dockerfile*中で`USER`命令を使わなければ回避できます。 {% ifversion ghae %}{% data reusables.actions.self-hosted-runners-software %}
-{% else %}{% data variables.product.product_name %}ホストランナー上の Docker のファイルシステムに関する詳しい情報については「[{% data variables.product.product_name %} ホストランナーの仮想環境](/actions/reference/virtual-environments-for-github-hosted-runners#docker-container-filesystem)」を参照してください。
+{% else %}For more information about the Docker filesystem on {% data variables.product.product_name %}-hosted runners, see "[About {% data variables.product.prodname_dotcom %}-hosted runners](/actions/using-github-hosted-runners/about-github-hosted-runners#docker-container-filesystem)."
 {% endif %}
 
 ## ワークフローとジョブの移行
@@ -66,10 +66,10 @@ Docker ファイルシステムの詳細については、「[Docker コンテ�
 
 {% data reusables.actions.self-hosted-runners-software %}
 {% else %}
-Dockerのファイルシステムに関する詳しい情報については「[{% data variables.product.product_name %}ホストランナーの仮想環境](/actions/reference/virtual-environments-for-github-hosted-runners#docker-container-filesystem)」を参照してください。
+For more information about the Docker filesystem, see "[About {% data variables.product.prodname_dotcom %}-hosted runners](/actions/using-github-hosted-runners/about-github-hosted-runners#docker-container-filesystem)."
 ー
 
-{% data variables.product.prodname_dotcom %} ホストの仮想環境で使用できるツールとパッケージの詳細については、「[{% data variables.product.prodname_dotcom %} ホストランナーの仕様](/actions/reference/specifications-for-github-hosted-runners/#supported-software)」を参照してください。
+{% data variables.product.prodname_dotcom %}-hosted runner images, see "[Specifications for {% data variables.product.prodname_dotcom %}-hosted runners](/actions/reference/specifications-for-github-hosted-runners/#supported-software)".
 {% endif %}
 
 ## 変数とシークレットの利用
@@ -287,7 +287,8 @@ jobs:
 
     steps:
       # This Docker file changes sets USER to circleci instead of using the default user, so we need to update file permissions for this image to work on GH Actions.
-      # See https://docs.github.com/actions/reference/virtual-environments-for-github-hosted-runners#docker-container-filesystem
+      # See https://docs.github.com/actions/using-github-hosted-runners/about-github-hosted-runners#docker-container-filesystem
+
       - name: Setup file system permissions
         run: sudo chmod -R 777 $GITHUB_WORKSPACE /github /__w/_temp
       - uses: {% data reusables.actions.action-checkout %}

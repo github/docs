@@ -1,6 +1,6 @@
 ---
-title: 'Deleting a {% data variables.product.prodname_project_v1 %}'
-intro: 'You can delete an existing {% data variables.projects.projects_v1_board %} if you no longer need access to its contents.'
+title: '{% data variables.product.prodname_project_v1 %}の削除'
+intro: 'ボードの内容にアクセスする必要がなくなった場合、既存の{% data variables.projects.projects_v1_board %}を削除できます。'
 redirect_from:
   - /github/managing-your-work-on-github/managing-project-boards/deleting-a-project-board
   - /articles/deleting-a-project
@@ -17,11 +17,11 @@ allowTitleToDifferFromFilename: true
 
 {% tip %}
 
-**Tip**: If you'd like to retain access to a completed or unneeded {% data variables.projects.projects_v1_board %} without losing access to its contents, you can [close the {% data variables.projects.projects_v1_board %}](/articles/closing-a-project-board) instead of deleting it.
+**ヒント**: 完了した、あるいは不要になった{% data variables.projects.projects_v1_board %}の内容へのアクセスを失うことなく保持しておきたい場合には、削除ではなく[{% data variables.projects.projects_v1_board %}をクローズ](/articles/closing-a-project-board)することができます。
 
 {% endtip %}
 
-1. Navigate to the {% data variables.projects.projects_v1_board %} you want to delete.
+1. 削除したい{% data variables.projects.projects_v1_board %}にアクセスしてください。
 {% data reusables.project-management.click-menu %}
 {% data reusables.project-management.click-edit-sidebar-menu-project-board %}
 4. [**Delete project**] をクリックします。 ![[Delete project] ボタン](/assets/images/help/projects/delete-project-button.png)
@@ -29,6 +29,6 @@ allowTitleToDifferFromFilename: true
 
 ## 参考リンク
 
-- "[Closing a {% data variables.product.prodname_project_v1 %}](/articles/closing-a-project-board)"
-- "[Disabling {% data variables.product.prodname_project_v1_caps %} in a repository](/articles/disabling-project-boards-in-a-repository)"
-- "[Disabling {% data variables.product.prodname_project_v1_caps %} in your organization](/articles/disabling-project-boards-in-your-organization)"
+- 「[{% data variables.product.prodname_project_v1 %}のクローズ](/articles/closing-a-project-board)」
+- 「[リポジトリの{% data variables.product.prodname_project_v1_caps %}の無効化](/articles/disabling-project-boards-in-a-repository)」
+- 「[Organizationの{% data variables.product.prodname_project_v1_caps %}の無効化](/articles/disabling-project-boards-in-your-organization)」

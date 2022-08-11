@@ -2,6 +2,7 @@
 
 import * as github from '@actions/github'
 import { setOutput } from '@actions/core'
+import got from 'got'
 
 import { getContents } from '../../script/helpers/git-utils.js'
 import parse from '../../lib/read-frontmatter.js'
@@ -47,6 +48,13 @@ const articleFiles = files.filter(
 
 const lines = await Promise.all(
   articleFiles.map(async (file) => {
+    // Action triggered on PR and after preview env is deployed. Check health to determine if preview env is ready (healthy)
+    let appUrlIsHealthy = false
+    try {
+      const res = await got.head(`${APP_URL}/healthz`, { retry: { limit: 0 } })
+      appUrlIsHealthy = res.statusCode === 200
+    } catch (err) {}
+
     const sourceUrl = file.blob_url
     const fileName = file.filename.slice(pathPrefix.length)
     const fileUrl = fileName.slice(0, fileName.lastIndexOf('.'))
@@ -70,7 +78,8 @@ const lines = await Promise.all(
     const { data } = parse(fileContents)
 
     let contentCell = ''
-    let previewCell = ''
+    let previewCell = appUrlIsHealthy ? '' : '_Deployment pending..._'
+
     let prodCell = ''
 
     if (file.status === 'added') contentCell = 'New file: '
@@ -98,12 +107,16 @@ const lines = await Promise.all(
           if (versions.toString() === nonEnterpriseDefaultVersion) {
             // omit version from fpt url
 
-            previewCell += `[${plan}](${APP_URL}/${fileUrl})<br>`
+            previewCell += appUrlIsHealthy ? `[${plan}](${APP_URL}/${fileUrl})<br>` : ''
             prodCell += `[${plan}](${PROD_URL}/${fileUrl})<br>`
           } else {
             // for non-versioned releases (ghae, ghec) use full url
 
-            previewCell += `[${plan}](${APP_URL}/${versions}/${fileUrl})<br>`
+            if (appUrlIsHealthy) {
+              previewCell += appUrlIsHealthy
+                ? `[${plan}](${APP_URL}/${versions}/${fileUrl})<br>`
+                : ''
+            }
             prodCell += `[${plan}](${PROD_URL}/${versions}/${fileUrl})<br>`
           }
         } else if (versions.length) {
@@ -113,7 +126,9 @@ const lines = await Promise.all(
           prodCell += `${plan}@ `
 
           versions.forEach((version) => {
-            previewCell += `[${version.split('@')[1]}](${APP_URL}/${version}/${fileUrl}) `
+            previewCell += appUrlIsHealthy
+              ? `[${version.split('@')[1]}](${APP_URL}/${version}/${fileUrl}) `
+              : ''
             prodCell += `[${version.split('@')[1]}](${PROD_URL}/${version}/${fileUrl}) `
           })
           previewCell += '<br>'
