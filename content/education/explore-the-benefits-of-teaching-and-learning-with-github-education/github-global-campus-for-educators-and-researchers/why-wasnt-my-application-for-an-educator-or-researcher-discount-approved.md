@@ -45,4 +45,4 @@ Educators and researchers are not eligible for the partner offers that come with
 
 ## Further reading
 
-- "[Apply for an educator or researcher discount](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/apply-for-an-educator-or-researcher-discount)"
+- "[Apply to {% data variables.product.prodname_global_campus%} as an educator or researcher](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-educators-and-researchers/apply-to-github-global-campus-as-an-educator-or-researcher)"

@@ -1,5 +1,5 @@
 ---
-title: About GitHub Global Campus for students
+title: About {% data variables.product.prodname_global_campus%} for students
 intro: '{% data variables.product.prodname_education %} offers students real-world experience with free access to various developer tools from {% data variables.product.prodname_dotcom %}''s partners.'
 redirect_from:
   - /education/teach-and-learn-with-github-education/about-github-education-for-students
@@ -13,7 +13,7 @@ shortTitle: For students
 ---
 Using {% data variables.product.prodname_dotcom %} for your school projects is a practical way to collaborate with others and build a portfolio that showcases real-world experience.
 
-Everyone with a {% data variables.product.prodname_dotcom %} account can collaborate in unlimited public and private repositories with {% data variables.product.prodname_free_user %}. As a student, you can also apply for {% data variables.product.prodname_education %} student benefits. For more information, see "[Apply to GitHub Global Campus as a student](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-students/apply-to-github-global-campus-as-a-student.md)" and [{% data variables.product.prodname_education %}](https://education.github.com/).
+Everyone with a {% data variables.product.prodname_dotcom %} account can collaborate in unlimited public and private repositories with {% data variables.product.prodname_free_user %}. As a student, you can also apply for {% data variables.product.prodname_education %} student benefits. For more information, see "[Apply to GitHub Global Campus as a student](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-students/apply-to-github-global-campus-as-a-student)" and [{% data variables.product.prodname_education %}](https://education.github.com/).
 
 Before applying for an individual discount, check if your learning community is already partnered with us as a {% data variables.product.prodname_campus_program %} school. For more information, see "[About {% data variables.product.prodname_campus_program %}](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/about-github-campus-program).
 
@@ -31,9 +31,9 @@ Your {% data variables.product.prodname_education %} student benefits and resour
 - See upcoming in-person and virtual events for students, curated by {% data variables.product.prodname_education %} and student leaders.
 - View assignments from [GitHub Classroom](https://classroom.github.com/) with upcoming due dates.
 - Stay in the know on what the community is interested in by rewatching recent [Campus TV](https://www.twitch.tv/githubeducation) episodes. Campus TV is created by {% data variables.product.prodname_dotcom %} and student community leaders and can be watched live or on demand.
-- Discover student-created repositories from GitHub Community Exchange. For more information, see "[About GitHub Community Exchange](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-students/about-github-community-exchange.md)."
+- Discover student-created repositories from GitHub Community Exchange. For more information, see "[About GitHub Community Exchange](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-students/about-github-community-exchange)."
 
 ## Further reading
 
-- "[About {% data variables.product.prodname_education %} for educators and researchers](/articles/about-github-education-for-educators-and-researchers)"
+- "[About {% data variables.product.prodname_global_campus%} for educators and researchers](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-educators-and-researchers/about-github-global-campus-for-educators-and-researchers)"
 - "[About {% data variables.product.prodname_community_exchange %}](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-for-your-schoolwork/about-github-community-exchange)"

@@ -39,4 +39,4 @@ With {% data variables.product.prodname_education %}'s tools and services for re
 
 ## Further reading
 
-- "[About {% data variables.product.prodname_global_campus%} for students](/articles/about-github-education-for-students)"
+- "[About {% data variables.product.prodname_global_campus%} for students](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-students/about-github-global-campus-for-students)"
