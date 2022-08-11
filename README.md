@@ -1,4 +1,4 @@
-GitHub Docs <! - حذف في toc ->
+GitHub Docs
 
 يحتوي هذا المستودع على رمز موقع الويب الخاص بالوثائق وملفات مصدر Markdown لـ [docs.github.com] (https://docs.github.com).
 
