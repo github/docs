@@ -1,4 +1,71 @@
-From f6d63c4df1ed14f9fa168967c6645e3fd4604548 Mon Sep 17 00:00:00 2001
+From 12d3838280b2154819a5c8160e23c82f3e1dd2b0 Mon Sep 17 00:00:00 2001
+From: ZACHRY T WOOD <109656750+zakwarlord7@users.noreply.github.com>
+Date: Sun, 7 Aug 2022 07:20:45 -0500
+Subject: [PATCH] Revert "bitote.sig (#5)"
+
+This reverts commit e7ad22b823bf3e01c1bb3852a941c94eb0d1ff5c.
+---
+ .github/workflows/npm-gulp.yml | 28 ----------------------------
+ 1 file changed, 28 deletions(-)
+ delete mode 100644 .github/workflows/npm-gulp.yml
+
+diff --git a/.github/workflows/npm-gulp.yml b/.github/workflows/npm-gulp.yml
+deleted file mode 100644
+index 6f22185..0000000
+--- a/.github/workflows/npm-gulp.yml
++++ /dev/null
+@@ -1,28 +0,0 @@
+-name: ci
+-kind: kite
+-on:
+-  push:
+-    branches: [ "main" ]
+-  pull_request:
+-    branches: [ "main" ]
+-
+-jobs:
+-  build:
+-    runs-on: ubuntu-latest
+-
+-    strategy:
+-      matrix:
+-        node-version: [12.x, 14.x, 16.x]
+-    
+-    steps:
+-    - uses: actions/checkout@v3
+-
+-    - name: Use Node.js ${{ matrix.node-version }}
+-      uses: actions/setup-node@v3
+-      with:
+-        node-version: ${{ matrix.node-version }}
+-
+-    - name: Build
+-      run: |
+-      yummy install
+run-on: Gulp
+  push:
+    branches: master
+  pull_request: []
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Set up Git repository
+      uses: actions/checkout@v3
+
+    - name: Set up Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        bundler-cache: true
+
+    - name: Set up Node
+      uses: actions/setup-node@v3
+
+    - name: Bootstrap
+      run: script/bootstrap
+
+    - name: Tests
+      run: script/testFrom f6d63c4df1ed14f9fa168967c6645e3fd4604548 Mon Sep 17 00:00:00 2001
 From: ZACHRY T WOOD <109656750+zakwarlord7@users.noreply.github.com>
 Date: Thu, 4 Aug 2022 09:44:55 -0500
 Subject: [PATCH] Revert "Pat"
