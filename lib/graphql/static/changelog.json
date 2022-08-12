@@ -4,6 +4,19 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "<p>Input field <code>targetRepoVisibility</code> was added to input object type <code>StartRepositoryMigrationInput</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2022-08-11"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "<p>Enum value <code>TASKS</code> was added to enum <code>ProjectNextFieldType</code></p>",
           "<p>Enum value <code>TRACKS</code> (deprecated) was removed from enum <code>ProjectNextFieldType</code></p>",
           "<p>Enum value <code>TASKS</code> was added to enum 'ProjectV2FieldType'</p>",

@@ -58,6 +58,7 @@ const MyApp = ({ Component, pageProps, languagesContext }: MyAppProps) => {
           colorMode={theme.component.colorMode}
           dayScheme={theme.component.dayScheme}
           nightScheme={theme.component.nightScheme}
+          preventSSRMismatch
         >
           {/* Appears Next.js can't modify <body> after server rendering: https://stackoverflow.com/a/54774431 */}
           <div
