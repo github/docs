@@ -1,0 +1,36 @@
+Name: Pathfinder
+- path: 🪁
+package: raki.u
+runs-on: Gulp.yml
+- branches: '- '[' 'mainbranch' ']
+Pulls:
+pull_request:
+- Branch: '- '[' 'trunk' ']
+#Job: :Build::-and-::Deployer:-then-::Fix-Aol'@Travis.yml/ci
+    runs-on: ubuntu-latest
+    strategy:
+# Runs:
+- run-on: runners'@explorer'@buster'@v'-'"12'.x, 14'.x, 16'.x'"''
+Step: -
+    - uses: actions/checkout@v3
+
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node-version }}
+
+    - name: Build
+      run: |
+        npm install
+        grunt
+Author: ZACHRY T WOOD
+ADDRESS: 5222 BRADFORD DR
+ADDRESS2: 5323 BRADFORD DR
+CITY, STATE ZIP-CODE: DALLAS, TX 75235-8313
+main: +1 (469) 697-4300
+notification:
+document:
+e-mail: zachryiixixiiwood@gmail.com
+e-mail: nasdaqgoogcoo@gmail.com
+e-mail: josephabanksfederalreserve@gmail.com
+e-mail: josephabanksfedralreserve@gmail.com
