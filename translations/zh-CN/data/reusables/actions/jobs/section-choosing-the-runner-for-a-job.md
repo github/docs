@@ -6,7 +6,7 @@
 
 ### 选择 {% data variables.product.prodname_dotcom %} 托管的运行器
 
-如果使用 {% data variables.product.prodname_dotcom %} 托管的运行器，每个作业将在 `runs-on` 指定的虚拟环境的新实例中运行。
+If you use a {% data variables.product.prodname_dotcom %}-hosted runner, each job runs in a fresh instance of a runner image specified by `runs-on`.
 
 可用的 {% data variables.product.prodname_dotcom %} 托管的运行器类型包括：
 
@@ -18,7 +18,7 @@
 runs-on: ubuntu-latest
 ```
 
-更多信息请参阅“[{% data variables.product.prodname_dotcom %} 托管的运行器的虚拟环境](/github/automating-your-workflow-with-github-actions/virtual-environments-for-github-hosted-runners)”。
+更多信息请参阅“[关于 {% data variables.product.prodname_dotcom %} 托管的运行器](/actions/using-github-hosted-runners/about-github-hosted-runners)”。
 {% endif %}
 
 {% ifversion fpt or ghec or ghes %}

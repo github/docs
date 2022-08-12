@@ -37,7 +37,7 @@ Ao fazer a migração do CircleCI, considere as seguintes diferenças:
 
 - O paralelismo do teste automático do CircleCI agrupa automaticamente os testes de acordo com regras especificadas pelo usuário ou com informações históricas de temporização. Esta funcionalidade não foi criada em {% data variables.product.prodname_actions %}.
 - As ações que são executadas em contêineres Docker são sensíveis a problemas de permissões, uma vez que os contêineres têm um mapeamento diferente de usuários. Você pode evitar muitos desses problemas se não usar a instrução `USUÁRIO` no seu *arquivo Docker*. {% ifversion ghae %}{% data reusables.actions.self-hosted-runners-software %}
-{% else %}For more information about the Docker filesystem on {% data variables.product.product_name %}-hosted runners, see "[About {% data variables.product.prodname_dotcom %}-hosted runners](/actions/using-github-hosted-runners/about-github-hosted-runners#docker-container-filesystem)."
+{% else %}Para obter mais informações sobre o sistema de arquivos Docker em executores hospedados em {% data variables.product.product_name %}, consulte "[Sobre executores hospedados em {% data variables.product.prodname_dotcom %}](/actions/using-github-hosted-runners/about-github-hosted-runners#docker-container-filesystem)."
 {% endif %}
 
 ## Migrar fluxos de trabalhos e trabalhos
@@ -66,10 +66,10 @@ Para obter mais informações sobre o sistema de arquivos Docker, consulte "[sis
 
 {% data reusables.actions.self-hosted-runners-software %}
 {% else %}
-For more information about the Docker filesystem, see "[About {% data variables.product.prodname_dotcom %}-hosted runners](/actions/using-github-hosted-runners/about-github-hosted-runners#docker-container-filesystem)."
+Para obter mais informações sobre o sistema de arquivos Docker, consulte "[Sobre executores hospedados em {% data variables.product.prodname_dotcom %}](/actions/using-github-hosted-runners/about-github-hosted-runners#docker-container-filesystem)".
 Para obter mais informações sobre as ferramentas e pacotes disponíveis em
 
-{% data variables.product.prodname_dotcom %}-hosted runner images, see "[Specifications for {% data variables.product.prodname_dotcom %}-hosted runners](/actions/reference/specifications-for-github-hosted-runners/#supported-software)".
+Imagens de executores hospedados em {% data variables.product.prodname_dotcom %}, consulte "[Especificações para executores hospedados em {% data variables.product.prodname_dotcom %}](/actions/reference/specifications-for-github-hosted-runners/#supported-software).
 {% endif %}
 
 ## Usar variáveis e segredos

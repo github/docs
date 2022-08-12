@@ -29,7 +29,11 @@ redirect_from:
 
 {% ifversion ghec %}
 
-{% data reusables.saml.dotcom-saml-explanation %}Para obtener más información, consulta "[Acerca de la administración de identidad y accesos con el inicio de sesión único de SAML](/organizations/managing-saml-single-sign-on-for-your-organization/about-identity-and-access-management-with-saml-single-sign-on)".
+{% data reusables.saml.dotcom-saml-explanation %}
+
+{% data reusables.saml.saml-accounts %}
+
+Para obtener más información, consulta la sección "[Acerca de la administración de identidad y accesos con el inicio de sesión único de SAML](/organizations/managing-saml-single-sign-on-for-your-organization/about-identity-and-access-management-with-saml-single-sign-on)".
 
 {% data reusables.saml.about-saml-enterprise-accounts %}
 

@@ -19,7 +19,11 @@
 
    ![搜索分支以创建新的 {% data variables.product.prodname_codespaces %}](/assets/images/help/codespaces/choose-branch-vscode.png)
 
-5. 单击您要使用的机器类型。
+5. If prompted to choose a dev container configuration file, choose a file from the list.
+
+   ![Choosing a dev container configuration file for {% data variables.product.prodname_codespaces %}](/assets/images/help/codespaces/choose-dev-container-vscode.png)
+
+6. 单击您要使用的机器类型。
 
    ![新 {% data variables.product.prodname_codespaces %} 的实例类型](/assets/images/help/codespaces/choose-sku-vscode.png)
 

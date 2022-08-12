@@ -22,7 +22,7 @@ permissions: 'People with admin permissions for a repository can use the theme c
 
 {% note %}
 
-**Note**: The Jekyll theme chooser is not supported for {% data variables.product.prodname_pages %} sites that are published with a custom {% data variables.product.prodname_actions %} workflow. If you build your site with Jekyll and publish your site with a custom {% data variables.product.prodname_actions %} workflow, you can add a theme by editing the `_config.yml` file. For more information, see "[Adding a theme to your GitHub Pages site using Jekyll](/pages/setting-up-a-github-pages-site-with-jekyll/adding-a-theme-to-your-github-pages-site-using-jekyll)."
+**Nota**: El selector de tema de Jekyll no es compatible para los sitios de {% data variables.product.prodname_pages %} que se publican con un flujo de trabajo de {% data variables.product.prodname_actions %} personalizado. Si compilas tu sitio con Jekyll y lo publicas con un flujo de trabajo de {% data variables.product.prodname_actions %} personalizado, puedes agregar un tema editando el archivo `_config.yml`. Para obtener más información, consulta "[Agregar un tema a tu sitio de GitHub Pages con Jekyll](/pages/setting-up-a-github-pages-site-with-jekyll/adding-a-theme-to-your-github-pages-site-using-jekyll)".
 
 {% endnote %}
 

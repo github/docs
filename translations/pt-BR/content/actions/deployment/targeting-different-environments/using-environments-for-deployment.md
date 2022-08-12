@@ -27,7 +27,7 @@ Você pode configurar ambientes com regras de proteção e segredos. Quando um t
 
 **Observação:** Você só pode configurar ambientes para repositórios públicos. Se você converter um repositório de público em privado, todas as regras de proteção ou segredos de ambiente configurados serão ignorados, e você não conseguirá configurar nenhum ambiente. Se você converter seu repositório de volta para público, você terá acesso a todas as regras de proteção e segredos de ambiente previamente configurados.
 
-As organizações que usam {% data variables.product.prodname_ghe_cloud %} podem configurar ambientes para repositórios privados. Para obter mais informações, consulte a [documentação de {% data variables.product.prodname_ghe_cloud %}](/enterprise-cloud@latest/actions/deployment/targeting-different-environments/using-environments-for-deployment). {% data reusables.enterprise.link-to-ghec-trial %}
+As organizações com {% data variables.product.prodname_team %} e os usuários com {% data variables.product.prodname_pro %} podem configurar ambientes para repositórios privados. Para obter mais informações, consulte os "[Produtos da {% data variables.product.prodname_dotcom %}](/get-started/learning-about-github/githubs-products)".
 
 {% endnote %}
 {% endif %}
@@ -72,7 +72,7 @@ Os segredos armazenados em um ambiente só estão disponíveis para trabalhos de
 {% ifversion fpt or ghec %}
 {% note %}
 
-**Observação:** Para criar um ambiente em um repositório privado, sua organização deve usar {% data variables.product.prodname_ghe_cloud %}. {% data reusables.enterprise.link-to-ghec-trial %}
+**Observação:** A criação de um ambiente em um repositório privado está disponível para organizações com {% data variables.product.prodname_team %} e usuários com {% data variables.product.prodname_pro %}.
 
 {% endnote %}
 {% endif %}

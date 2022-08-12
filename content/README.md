@@ -228,7 +228,7 @@ defaultPlatform: linux
 ### `defaultTool`
 
 - Purpose: Override the initial tool selection for a page, where tool refers to the application the reader is using to work with GitHub (such as GitHub.com's web UI, the GitHub CLI, or GitHub Desktop) or the GitHub APIs (such as cURL or the GitHub CLI). For more information about the tool selector, see [Markup reference for GitHub Docs](../contributing/content-markup-reference.md#tool-tags). If this frontmatter is omitted, then the tool-specific content matching the GitHub web UI is shown by default. If a user has indicated a tool preference (by clicking on a tool tab), then the user's preference will be applied instead of the default value.
-- Type: `String`, one of: `webui`, `cli`, `desktop`, `curl`, `codespaces`, `vscode`, `importer_cli`, `graphql`, `powershell`, `bash`.
+- Type: `String`, one of: `webui`, `cli`, `desktop`, `curl`, `codespaces`, `vscode`, `importer_cli`, `graphql`, `powershell`, `bash`, `javascript`.
 - Optional.
 
 ```yaml

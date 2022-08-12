@@ -86,8 +86,8 @@ Ao atribuir aos usuários, você poderá usar o atributo "Funções" no aplicati
 
 ![Captura de tela que mostra as opções da função para o usuário provisionado do Okta](/assets/images/help/enterprises/okta-emu-user-role.png)
 
-## Deprovisioning users and groups
+## Desprovisionamento de usuários e grupos
 
-To remove a user or group from {% data variables.product.product_name %}, remove the user or group from both the "Assignments" tab and the "Push groups" tab in Okta. For users, make sure the user is removed from all groups in the "Push Groups" tab.
+Para remover um usuário ou grupo de {% data variables.product.product_name %}, remova o usuário ou grupo de ambos os campos e a guia "Grupos de push" no Okta. Para usuários, certifique-se de que o usuário seja removido de todos os grupos na aba "Grupos de push".
 
 

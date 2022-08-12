@@ -10,9 +10,7 @@ export default async function fetcher<JSON = any>(
 }
 
 export type Session = {
-  isSignedIn: boolean
   csrfToken?: string
-  userLanguage: string // en, es, ja, cn
 }
 
 // React hook version
