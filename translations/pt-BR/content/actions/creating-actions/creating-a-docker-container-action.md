@@ -39,7 +39,7 @@ Pode ser útil ter um entendimento básico das variáveis do ambiente {% data va
 {% ifversion ghae %}
 - "[Sistema de arquivos para contêineres do Docker](/actions/using-github-hosted-runners/about-ae-hosted-runners#docker-container-filesystem)."
 {% else %}
-- "[About {% data variables.product.prodname_dotcom %}-hosted runners](/actions/using-github-hosted-runners/about-github-hosted-runners#docker-container-filesystem)"
+- "[Sobre executores hospedados em {% data variables.product.prodname_dotcom %}](/actions/using-github-hosted-runners/about-github-hosted-runners#docker-container-filesystem)"
 {% endif %}
 
 Antes de começar, você deverá criar um repositório de {% data variables.product.prodname_dotcom %}.

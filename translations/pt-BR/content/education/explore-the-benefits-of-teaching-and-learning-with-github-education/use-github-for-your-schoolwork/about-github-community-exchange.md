@@ -1,9 +1,9 @@
 ---
 title: Sobre o GitHub Community Exchange
-intro: 'Learn the skills you need to contribute to open source projects and grow your own portfolio, with {% data variables.product.prodname_community_exchange %}.'
+intro: 'Aprenda as habilidades de que você precisa contribuir para projetos de código aberto e aumente seu próprio portfólio, com {% data variables.product.prodname_community_exchange %}.'
 versions:
   fpt: '*'
-shortTitle: About Community Exchange
+shortTitle: Sobre o Community Exchange
 ---
 
 ## Sobre {% data variables.product.prodname_community_exchange %}
@@ -21,7 +21,7 @@ Você pode ajudar seus pares a aprender habilidades de código aberto, tornar-se
 - Envie um repositório para ensinar novas habilidades
 - Gerencie seus envios de repositórios
 
-For more information, see "[Contribute with GitHub Community Exchange](/education/contribute-with-github-community-exchange)."
+Para obter mais informações, consulte "[Contribuições para o GitHub Community Exchange](/education/contribute-with-github-community-exchange)".
 
 {% data reusables.education.access-github-community-exchange %}
 

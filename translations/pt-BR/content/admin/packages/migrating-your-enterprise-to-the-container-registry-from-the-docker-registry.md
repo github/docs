@@ -51,9 +51,9 @@ Se {% ifversion ghes %}um administrador do site{% elsif ghae %}um proprietário 
 {%- endif %}
 {% ifversion ghes %}- {% endif %}Durante a migração, não modifique as configurações da sua empresa{% ifversion ghes %} ou execute `ghe-config-apply` a partir de uma sessão SSH administrativa{% endif %}. {% ifversion ghes %}Estas ações acionarão uma configuração executada, que pode reiniciar serviços e a modificação {% elsif ghae %}destas configurações {% endif %} pode interromper a migração.
 {%- ifversion ghes %}
-- Após a migração, a pressão do armazenamento na sua instância aumentará devido à duplicação de arquivos de imagem no registro Docker e no {% data variables.product.prodname_container_registry %}. A future release of {% data variables.product.product_name %} will remove the duplicated files when all migrations are complete.
+- Após a migração, a pressão do armazenamento na sua instância aumentará devido à duplicação de arquivos de imagem no registro Docker e no {% data variables.product.prodname_container_registry %}. Uma versão futura de {% data variables.product.product_name %} removerá os arquivos duplicados quando todas as migrações estiverem concluídas.
 
-For more information about monitoring the performance and storage of {% data variables.product.product_location %}, see "[Accessing the monitor dashboard](/admin/enterprise-management/monitoring-your-appliance/accessing-the-monitor-dashboard)."
+Para obter mais informações sobre monitoramento do desempenho e armazenamento de {% data variables.product.product_location %}, consulte "[Acessando o painel de monitoramento](/admin/enterprise-management/monitoring-your-appliance/accessing-the-monitor-dashboard)".
 {% endif %}
 
 {% endnote %}
@@ -61,25 +61,25 @@ For more information about monitoring the performance and storage of {% data var
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 1. Na barra lateral esquerda, clique em **Pacotes**.
-1. To the right of the number of packages to migrate, click **Start migration**. During the migration, {% data variables.product.product_name %} will display progress on this page.
+1. À direita do número de pacotes a serem transferidos, clique em **Iniciar migração**. Durante a migração, {% data variables.product.product_name %} mostrará o progresso nesta página.
 
-After the migration completes, the page will display the results. If a migration fails, the page will show the organizations that own the package that caused the failure.
+Depois que a migração for concluída, a página exibirá os resultados. Se uma migração falhar, a página mostrará as organizações que têm o pacote que gerou a falha.
 
-## Re-running a failed organization migration
+## Executando novamente uma migração de organização com falha
 
-Prior to migration, if a user has created a package in the {% data variables.product.prodname_container_registry %} that has an identical name to an existing package in the Docker registry, the migration will fail.
+Antes da migração, se um usuário criou um pacote no {% data variables.product.prodname_container_registry %} que tem um nome idêntico ao de um pacote existente no registro Docker, a migração falhará.
 
-1. Delete the affected container in the {% data variables.product.prodname_container_registry %}. Para obter mais informações, consulte "[Excluir e restaurar um pacote](/packages/learn-github-packages/deleting-and-restoring-a-package#deleting-a-version-of-an-organization-scoped-package-on-github)".
+1. Exclua o contêiner afetado em {% data variables.product.prodname_container_registry %}. Para obter mais informações, consulte "[Excluir e restaurar um pacote](/packages/learn-github-packages/deleting-and-restoring-a-package#deleting-a-version-of-an-organization-scoped-package-on-github)".
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.packages-tab %}
-1. To the right of the number of packages to migrate, click **Re-run migration**. During the migration, {% data variables.product.product_name %} will display progress on this page.
-1. If the migration fails again, start from step 1 and re-run the migration.
+1. À direita do número de pacotes para migrar, clique em **Executar novamente a migração**. Durante a migração, {% data variables.product.product_name %} mostrará o progresso nesta página.
+1. Se a migração falhar novamente, comece da etapa 1 e execute a migração novamente.
 
 {% ifversion ghes %}
 
-## Monitoring traffic to the registries
+## Monitorando o tráfego para os registros
 
-You can use visualize traffic to the Docker registry and {% data variables.product.prodname_container_registry %} from {% data variables.product.product_location %}'s monitor dashboard. The "GitHub Container Package Registry" graph can help you confirm that you've successfully migrated all images to the {% data variables.product.prodname_container_registry %}. In the graph, "v1" represents traffic to the Docker registry, and "v2" represents traffic to the {% data variables.product.prodname_container_registry %}. Para obter mais informações, consulte "[Acessar o painel do monitor](/admin/enterprise-management/monitoring-your-appliance/accessing-the-monitor-dashboard)".
+Você pode usar o tráfego para o registro Docker e para {% data variables.product.prodname_container_registry %} no painel de monitoramento de {% data variables.product.product_location %}. O gráfico do "Registro de Pacotes de Container do GitHub" pode ajudar você a confirmar que você realizou com sucesso a migração de todas as imagens para {% data variables.product.prodname_container_registry %}. No gráfico, "v1" representa o tráfego para o registro Docker e "v2" representa o tráfego para {% data variables.product.prodname_container_registry %}. Para obter mais informações, consulte "[Acessar o painel do monitor](/admin/enterprise-management/monitoring-your-appliance/accessing-the-monitor-dashboard)".
 
 {% endif %}
