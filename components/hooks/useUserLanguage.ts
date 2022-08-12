@@ -1,10 +1,12 @@
 import { useState, useEffect } from 'react'
 import Cookies from 'js-cookie'
+import { useRouter } from 'next/router'
 
 import { languageKeys } from '../../lib/languages.js'
 import { PREFERRED_LOCALE_COOKIE_NAME } from '../../lib/constants.js'
 
 export function useUserLanguage() {
+  const { locale } = useRouter()
   const [userLanguage, setUserLanguage] = useState<string>('en')
 
   useEffect(() => {
@@ -22,7 +24,7 @@ export function useUserLanguage() {
     if (languagePreferred) {
       setUserLanguage(languagePreferred)
     }
-  }, [])
+  }, [locale])
 
   return { userLanguage }
 }
