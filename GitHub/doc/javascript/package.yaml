@@ -2,27 +2,20 @@ name: NodeJS with Grunt
 From f6d63c4df1ed14f9fa168967c6645e3fd4604548 Mon Sep 17 00:00:00 2001
 From: ZACHRY T WOOD <109656750+zakwarlord7@users.noreply.github.com>
 Date: Thu, 4 Aug 2022 09:44:55 -0500
-Subject: [PATCH] Revert "Pat"
-
+Subject: BITORE
 This reverts commit c2f909b7d1735f203bbcc13be585a68b45c13f0a.
----
- MINUTEMAN => README.md | 0
- 1 file changed, 0 insertions(+), 0 deletions(-)
- rename MINUTEMAN => README.md (100%)
-
-diff --git a/MINUTEMAN b/README.md
-similarity index 100%
-rename from MINUTEMAN
-rename to README.md
+---paradice
+Name: MINUTEMAN
+Kind: 🪁
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "mainbranch" ]
   pull_request:
     branches: [ "main" ]
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: stack-overflow
 
     strategy:
       matrix:
