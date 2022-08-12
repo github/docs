@@ -1,44 +1,44 @@
 ---
-title: Getting started with GitHub Community Exchange
+title: Primeiros passos com o GitHub Community Exchange
 shortTitle: Começar
-intro: 'Learn how to access {% data variables.product.prodname_community_exchange %} and submit your repository.'
+intro: 'Saiba como acessar {% data variables.product.prodname_community_exchange %} e enviar o seu repositório.'
 versions:
   fpt: '*'
 ---
 
 ## Introdução
 
-{% data reusables.education.about-github-community-exchange-intro %} {% data variables.product.prodname_community_exchange %} can help you make your first open source contribution or grow your own open source project.
+{% data reusables.education.about-github-community-exchange-intro %} {% data variables.product.prodname_community_exchange %} pode ajudar você a fazer sua primeira contribuição de código aberto ou ampliar seu próprio projeto de código aberto.
 
-For more information about how {% data variables.product.prodname_community_exchange %} can help you as a student, see "[About {% data variables.product.prodname_community_exchange %}](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-for-your-schoolwork/about-github-community-exchange)."
+Para obter mais informações sobre como {% data variables.product.prodname_community_exchange %} pode ajudar você como aluno, consulte "[Sobre {% data variables.product.prodname_community_exchange %}](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-for-your-schoolwork/about-github-community-exchange)".
 
-## Accessing {% data variables.product.prodname_community_exchange %}
+## Acessando {% data variables.product.prodname_community_exchange %}
 
 {% data reusables.education.access-github-community-exchange %}
 
-## Finding interesting repositories
+## Encontrando repositórios interessantes
 
-You can browse repositories submitted to {% data variables.product.prodname_community_exchange %} from the gallery page.
+Você pode pesquisar repositórios enviados para {% data variables.product.prodname_community_exchange %} a partir da página da galeria.
 
-As you think about what open source repositories may be interesting, consider if you're wanting to learn or collaborate, or if there are particular topics or languages that could be a good starting point.
+Enquanto você pensa sobre quais repositórios de código aberto podem ser interessantes, considere se você está querendo aprender ou colaborar, ou se há tópicos ou linguagens específicas que possam ser um bom ponto de partida.
 
-When exploring repositories in the {% data variables.product.prodname_community_exchange %} gallery, you can filter available repositories by purpose, topics, or languages, and search for repositories by name and description. You can sort the list of repositories in the gallery by submission date, or by the number of stars, forks, or issues a repository has.
+Ao explorar os repositórios na galeria de {% data variables.product.prodname_community_exchange %}, você pode filtrar repositórios disponíveis por propósito, tópicos ou linguagens e pesquisar repositórios por nome e descrição. Você pode classificar a lista de repositórios na galeria por data de envio ou pelo número de estrelas, bifurcações ou problemas que um repositório possui.
 
-![Screenshot of Community Exchange search box and dropdown filters](/assets/images/help/education/community-exchange-search-and-filter.png)
+![Captura de tela da caixa de pesquisa e dos filtros do menu suspensos do Community Exchange](/assets/images/help/education/community-exchange-search-and-filter.png)
 
-## Starring repositories
+## Repositórios favoritados
 
-You can star repositories listed in the {% data variables.product.prodname_community_exchange %} gallery. Starring makes it easy to find a repository in the gallery again later. Marcar um repositório com estrelas também demonstra apreciação ao trabalho do mantenedor de repositório.
+Você pode favoritar repositórios listados na galeria de {% data variables.product.prodname_community_exchange %}. Marcar como favorito facilita encontrar um repositório na galeria novamente mais tarde. Marcar um repositório com estrelas também demonstra apreciação ao trabalho do mantenedor de repositório.
 
-Repository listings in the {% data variables.product.prodname_community_exchange %} gallery can be sorted on the number of stars a repository has.
+As listagens de repositórios na galeria de {% data variables.product.prodname_community_exchange %} podem ser classificadas no número de estrelas que um repositório possui.
 
-To star a repository: Go to your {% data variables.product.prodname_community_exchange %} home page, find the repository you want to star, and click {% octicon "star" aria-label="The star icon" %} **Star** button found right by its name.
+Para marcar um repositório como favorito: acesse a página inicial do seu {% data variables.product.prodname_community_exchange %}, encontre o repositório que deseja favoritar e clique no botão {% octicon "star" aria-label="The star icon" %} **Estrela** ao lado do seu nome.
 
-## Reporting abuse
+## Denunciar abuso
 
-The {% data variables.product.prodname_community_exchange %} community moderates repository submissions. You can report abusive repositories, spammy, or disruptive content at any time.
+A comunidade de {% data variables.product.prodname_community_exchange %} modera os envios do repositório. Você pode relatar repositórios abusivos, spam ou conteúdo disruptivo a qualquer momento.
 
-To report an abusive repository: Go to your {% data variables.product.prodname_community_exchange %} home page, find the repository you want to report, click the {% octicon "kebab-horizontal" aria-label="The edit icon" %} drop-down right by its name, then click {% octicon "report" aria-label="The report symbol" %} **Report abuse**.
+Para denunciar um repositório abusivo: acesse a página inicial de {% data variables.product.prodname_community_exchange %}, encontre o repositório que deseja reportar. Clique no menu suspenso {% octicon "kebab-horizontal" aria-label="The edit icon" %} ao lado do seu nome e, em seguida, clique em {% octicon "report" aria-label="The report symbol" %} **Relatar abuso**.
 
 ## Leia mais
 

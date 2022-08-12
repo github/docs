@@ -1,6 +1,6 @@
 ---
 title: 'Sobre {% data variables.product.prodname_projects_v1 %}'
-intro: '{% data variables.product.prodname_projects_v1_caps %} on {% data variables.product.product_name %} help you organize and prioritize your work. You can create {% data variables.projects.projects_v1_boards %} for specific feature work, comprehensive roadmaps, or even release checklists. With {% data variables.product.prodname_projects_v1 %}, you have the flexibility to create customized workflows that suit your needs.'
+intro: '{% data variables.product.prodname_projects_v1_caps %} em {% data variables.product.product_name %} ajuda você a organizar e priorizar seu trabalho. Você pode criar {% data variables.projects.projects_v1_boards %} para o trabalho específico de recursos, roteiros completos ou até mesmo listas de verificação de versão. Com {% data variables.product.prodname_projects_v1 %}, você tem a flexibilidade para criar fluxos de trabalho personalizados que atendam às suas necessidades.'
 redirect_from:
   - /github/managing-your-work-on-github/managing-project-boards/about-project-boards
   - /articles/about-projects
@@ -15,9 +15,9 @@ allowTitleToDifferFromFilename: true
 
 {% data reusables.projects.project_boards_old %}
 
-{% data variables.projects.projects_v1_boards_caps %} are made up of issues, pull requests, and notes that are categorized as cards in columns of your choosing. É possível arrastar e soltar ou usar atalhos de teclado para reordenar cartões em uma coluna, mover cartões de coluna para coluna e alterar a ordem das colunas.
+{% data variables.projects.projects_v1_boards_caps %} são compostas de problemas, pull requests e notas que são categorizadas como cartões em colunas de sua escolha. É possível arrastar e soltar ou usar atalhos de teclado para reordenar cartões em uma coluna, mover cartões de coluna para coluna e alterar a ordem das colunas.
 
-{% data variables.projects.projects_v1_board_caps %} cards contain relevant metadata for issues and pull requests, like labels, assignees, the status, and who opened it. {% data reusables.project-management.edit-in-project %}
+Os cartões de {% data variables.projects.projects_v1_board_caps %} contêm metadados relevantes para problemas e pull requests, como etiquetas, responsáveis, status e quem o abriu. {% data reusables.project-management.edit-in-project %}
 
 You can create notes within columns to serve as task reminders, references to issues and pull requests from any repository on {% data variables.product.product_location %}, or to add information related to the {% data variables.projects.projects_v1_board %}. You can create a reference card for another {% data variables.projects.projects_v1_board %} by adding a link to a note. Se a observação não for suficiente para suas necessidades, você poderá convertê-la em um problema. For more information on converting notes to issues, see "[Adding notes to a {% data variables.product.prodname_project_v1 %}](/articles/adding-notes-to-a-project-board)."
 
@@ -68,5 +68,5 @@ For more information on automation for {% data variables.product.prodname_projec
 - "[Editing a {% data variables.product.prodname_project_v1 %}](/articles/editing-a-project-board)"{% ifversion fpt or ghec %}
 - "[Copying a {% data variables.product.prodname_project_v1 %}](/articles/copying-a-project-board)"{% endif %}
 - "[Adding issues and pull requests to a {% data variables.product.prodname_project_v1 %}](/articles/adding-issues-and-pull-requests-to-a-project-board)"
-- "[{% data variables.product.prodname_project_v1_caps %} permissions for an organization](/articles/project-board-permissions-for-an-organization)"
+- "[Permissões de {% data variables.product.prodname_project_v1_caps %} para uma organização](/articles/project-board-permissions-for-an-organization)"
 - "[Atalhos de teclado](/articles/keyboard-shortcuts/#project-boards)"

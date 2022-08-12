@@ -34,7 +34,7 @@ shortTitle: Gerenciar páginas wiki
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-wiki %}
 4. Usando a barra lateral do wiki, navegue até a página que deseja alterar. No canto superior direito da página, clique em **Edit** (Editar). ![Botão Wiki edit page (Editar página wiki)](/assets/images/help/wiki/wiki_edit_page_button.png)
-5. Use the text editor to edit the page's content. ![WYSIWYG do wiki](/assets/images/help/wiki/wiki_wysiwyg.png)
+5. Use o editor de texto para editar o conteúdo da página. ![WYSIWYG do wiki](/assets/images/help/wiki/wiki_wysiwyg.png)
 6. Digite uma mensagem do commit descrevendo as alterações. ![Mensagem do commit do wiki](/assets/images/help/wiki/wiki_commit_message.png)
 7. Para fazer commit das alterações no wiki, clique em **Save Page** (Salvar página).
 

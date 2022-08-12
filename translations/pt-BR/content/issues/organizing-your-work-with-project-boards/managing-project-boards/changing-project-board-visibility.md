@@ -1,6 +1,6 @@
 ---
-title: 'Changing {% data variables.product.prodname_project_v1 %} visibility'
-intro: 'As an organization owner or {% data variables.projects.projects_v1_board %} admin, you can make a {% data variables.projects.projects_v1_board %} {% ifversion ghae %}internal{% else %}public{% endif %} or private.'
+title: 'Alterando a visibilidade de {% data variables.product.prodname_project_v1 %}'
+intro: 'Como proprietário da organização ou administrador de {% data variables.projects.projects_v1_board %}, você pode tornar um {% data variables.projects.projects_v1_board %} {% ifversion ghae %}interno{% else %}público{% endif %} ou privado.'
 redirect_from:
   - /github/managing-your-work-on-github/managing-project-boards/changing-project-board-visibility
   - /articles/changing-project-board-visibility
@@ -19,7 +19,7 @@ allowTitleToDifferFromFilename: true
 
 {% tip %}
 
-**Tip:** When you make your {% data variables.projects.projects_v1_board %} {% ifversion ghae %}internal{% else %}public{% endif %}, organization members are given read access by default. You can give specific organization members write or admin permissions by giving access to teams they're on or by adding them to the {% data variables.projects.projects_v1_board %} as a collaborator. For more information, see "[{% data variables.product.prodname_project_v1_caps %} permissions for an organization](/articles/project-board-permissions-for-an-organization)."
+**Dica:** Ao se tornar o seu {% data variables.projects.projects_v1_board %} {% ifversion ghae %}interno{% else %}público{% endif %}, os integrantes da organização recebem acesso de leitura por padrão. Você pode dar permissões de gravação ou de administrador a certos integrantes da organização, dando acesso a equipes nas quais estão ou adicionando-os ao {% data variables.projects.projects_v1_board %} como colaborador. For more information, see "[{% data variables.product.prodname_project_v1_caps %} permissions for an organization](/articles/project-board-permissions-for-an-organization)."
 
 {% endtip %}
 

@@ -31,7 +31,7 @@ Os servidores de nomes que você especificar devem resolver o nome de host da {%
 
 {% data reusables.enterprise_installation.ssh-into-instance %}
 
-2. To edit your nameservers, use the `ghe-setup-network` command in visual mode. Para obter mais informações, consulte "[Utilitários de linha de comando](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-setup-network)".
+2. Para editar seus servidores de nomes, use o comando `ghe-setup-network` no modo visual. Para obter mais informações, consulte "[Utilitários de linha de comando](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-setup-network)".
 
   ```shell
   ghe-setup-network -v
