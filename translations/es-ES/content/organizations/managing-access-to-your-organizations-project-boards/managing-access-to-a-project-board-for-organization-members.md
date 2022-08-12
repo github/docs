@@ -42,4 +42,4 @@ Predeterminadamente, los miembros de las organizaciones tienen acceso de escritu
 
 - "[Administrar el acceso de un individuo al {% data variables.product.prodname_project_v1 %} de una organización](/articles/managing-an-individual-s-access-to-an-organization-project-board)"
 - "[Administrar el acceso del equipo al {% data variables.product.prodname_project_v1 %} de una organización](/articles/managing-team-access-to-an-organization-project-board)"
-- "[{% data variables.product.prodname_project_v1_caps %} permissions for an organization](/articles/project-board-permissions-for-an-organization)"
+- "[Permisos de un {% data variables.product.prodname_project_v1_caps %} para una organización](/articles/project-board-permissions-for-an-organization)"

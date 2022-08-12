@@ -19,7 +19,7 @@ allowTitleToDifferFromFilename: true
 
 {% tip %}
 
-**Tip:** Cuando hagas a tu {% data variables.projects.projects_v1_board %} {% ifversion ghae %}interno{% else %}público{% endif %}, los miembros de la organización obtendrán acceso de lectura predeterminadamente. Puedes otorgar permisos de escritura o administración a miembros específicos de la organización si les das acceso a los equipos en los que se encuentran, agregándolos al {% data variables.projects.projects_v1_board %} como colaborador. For more information, see "[{% data variables.product.prodname_project_v1_caps %} permissions for an organization](/articles/project-board-permissions-for-an-organization)."
+**Tip:** Cuando hagas a tu {% data variables.projects.projects_v1_board %} {% ifversion ghae %}interno{% else %}público{% endif %}, los miembros de la organización obtendrán acceso de lectura predeterminadamente. Puedes otorgar permisos de escritura o administración a miembros específicos de la organización si les das acceso a los equipos en los que se encuentran, agregándolos al {% data variables.projects.projects_v1_board %} como colaborador. Para obtener más información, consulta la sección "[Permisos de los {% data variables.product.prodname_project_v1_caps %} para una organización](/articles/project-board-permissions-for-an-organization)".
 
 {% endtip %}
 

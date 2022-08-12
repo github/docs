@@ -1,5 +1,5 @@
 ---
-title: Allowing project visibility changes in your organization
+title: Organizationでのプロジェクトの可視性の変更の許可
 intro: Organization owners can allow members with admin permissions to adjust the visibility of projects in their organization.
 versions:
   feature: projects-v2

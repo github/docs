@@ -126,6 +126,7 @@ In addition, your use of {% data variables.product.prodname_pages %} is subject 
 {% ifversion fpt or ghec %}
   - {% data variables.product.prodname_pages %} sites have a *soft* bandwidth limit of 100 GB per month.
   - {% data variables.product.prodname_pages %} sites have a *soft* limit of 10 builds per hour.{% ifversion pages-custom-workflow %} This limit does not apply if you build and publish your site with a custom {% data variables.product.prodname_actions %} workflow {% endif %}
+  - In order to provide consistent quality of service for all {% data variables.product.prodname_pages %} sites, rate limits may apply. These rate limits are not intended to interfere with legitimate uses of {% data variables.product.prodname_pages %}. If your request triggers rate limiting, you will receive an appropriate response with an HTTP status code of `429`, along with an informative HTML body.
 
 If your site exceeds these usage quotas, we may not be able to serve your site, or you may receive a polite email from {% data variables.contact.contact_support %} suggesting strategies for reducing your site's impact on our servers, including putting a third-party content distribution network (CDN) in front of your site, making use of other {% data variables.product.prodname_dotcom %} features such as releases, or moving to a different hosting service that might better fit your needs.
 

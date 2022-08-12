@@ -105,18 +105,18 @@ macOS 仮想マシンのハードウェア仕様:
 {% data variables.product.prodname_dotcom %} ホストランナーに含まれているソフトウェアツールは毎週更新されます。 The update process takes several days, and the list of preinstalled software on the `main` branch is updated after the whole deployment ends.
 ### Preinstalled software
 
-ワークフローログには、正確なランナーにプレインストールされているツールへのリンクが含まれています。 ワークフローログでこの情報を見つけるには、[`Set up job`] セクションを展開します。 そのセクションの下で、[`Virtual Environment`] セクションを展開します。 The link following `Included Software` will describe the preinstalled tools on the runner that ran the workflow. ![Installed software link](/assets/images/actions-runner-installed-software-link.png) 詳しい情報については、「[ワークフローの実行履歴を表示する](/actions/managing-workflow-runs/viewing-workflow-run-history)」を参照してください。
+ワークフローログには、正確なランナーにプレインストールされているツールへのリンクが含まれています。 ワークフローログでこの情報を見つけるには、[`Set up job`] セクションを展開します。 Under that section, expand the `Runner Image` section. The link following `Included Software` will describe the preinstalled tools on the runner that ran the workflow. ![Installed software link](/assets/images/actions-runner-installed-software-link.png) 詳しい情報については、「[ワークフローの実行履歴を表示する](/actions/managing-workflow-runs/viewing-workflow-run-history)」を参照してください。
 
 For the overall list of included tools for each runner operating system, see the links below:
 
-* [Ubuntu 22.04 LTS](https://github.com/actions/virtual-environments/blob/main/images/linux/Ubuntu2204-Readme.md)
-* [Ubuntu 20.04 LTS](https://github.com/actions/virtual-environments/blob/main/images/linux/Ubuntu2004-Readme.md)
-* [Ubuntu 18.04 LTS](https://github.com/actions/virtual-environments/blob/main/images/linux/Ubuntu1804-Readme.md)
-* [Windows Server 2022](https://github.com/actions/virtual-environments/blob/main/images/win/Windows2022-Readme.md)
-* [Windows Server 2019](https://github.com/actions/virtual-environments/blob/main/images/win/Windows2019-Readme.md)
-* [macOS 12](https://github.com/actions/virtual-environments/blob/main/images/macos/macos-12-Readme.md)
-* [macOS 11](https://github.com/actions/virtual-environments/blob/main/images/macos/macos-11-Readme.md)
-* [macOS 10.15](https://github.com/actions/virtual-environments/blob/main/images/macos/macos-10.15-Readme.md)
+* [Ubuntu 22.04 LTS](https://github.com/actions/runner-images/blob/main/images/linux/Ubuntu2204-Readme.md)
+* [Ubuntu 20.04 LTS](https://github.com/actions/runner-images/blob/main/images/linux/Ubuntu2004-Readme.md)
+* [Ubuntu 18.04 LTS](https://github.com/actions/runner-images/blob/main/images/linux/Ubuntu1804-Readme.md)
+* [Windows Server 2022](https://github.com/actions/runner-images/blob/main/images/win/Windows2022-Readme.md)
+* [Windows Server 2019](https://github.com/actions/runner-images/blob/main/images/win/Windows2019-Readme.md)
+* [macOS 12](https://github.com/actions/runner-images/blob/main/images/macos/macos-12-Readme.md)
+* [macOS 11](https://github.com/actions/runner-images/blob/main/images/macos/macos-11-Readme.md)
+* [macOS 10.15](https://github.com/actions/runner-images/blob/main/images/macos/macos-10.15-Readme.md)
 
 {% data variables.product.prodname_dotcom %}ホストランナーには、オペレーティングシステムのデフォルトの組み込みツールに加え、上のリファレンスのリスト内のパッケージにが含まれています。 たとえば、Ubuntu及びmacOSのランナーには、`grep`、`find`、`which`やその他のデフォルトのツールが含まれています。
 
@@ -126,7 +126,7 @@ For the overall list of included tools for each runner operating system, see the
 - アクションでは通常、バージョンの選択、引数を渡す機能、パラメータなどの機能が提供されています
 - これにより、ソフトウェアの更新に関係なく、ワークフローで使用されるツールのバージョンが同じままになります
 
-リクエストしたいツールがある場合、[actions/virtual-environments](https://github.com/actions/virtual-environments) で Issue を開いてください。 このリポジトリには、ランナーに関するすべての主要なソフトウェア更新に関するお知らせも含まれています。
+If there is a tool that you'd like to request, please open an issue at [actions/runner-images](https://github.com/actions/runner-images). このリポジトリには、ランナーに関するすべての主要なソフトウェア更新に関するお知らせも含まれています。
 
 ### Installing additional software
 

@@ -89,7 +89,7 @@ Para los repositorios en donde están habilitadas las {% data variables.product.
 
 ## Acceder a las {% data variables.product.prodname_dependabot_alerts %}
 
-Puedes ver todas las alertas que afectan un proyecto en particular{% ifversion fpt or ghec %} en la pestaña de Seguridad del repositorio o{% endif %} en la gráfica de dependencias del repositorio. Para obtener más información, consulta la sección "[Ver y actualizar las {% data variables.product.prodname_dependabot_alerts %}](/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts)".
+Puedes ver todas las alertas que afectan un proyecto en particular{% ifversion fpt or ghec %} en la pestaña de Seguridad del repositorio o{% endif %} en la gráfica de dependencias del repositorio. For more information, see "[Viewing and updating {% data variables.product.prodname_dependabot_alerts %}](/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts)."
 
 Predeterminadamente, notificamos a las personas con permisos administrativos en los repositorios afectados sobre las {% data variables.product.prodname_dependabot_alerts %} nuevas. {% ifversion fpt or ghec %}{% data variables.product.product_name %} jamás divulga las dependencias inseguras de ningún repositorio al público. También puedes hacer que las personas o los equipos que trabajan con repositorios que te pertenezcan o para los cuales tengas permisos administrativos puedan ver las {% data variables.product.prodname_dependabot_alerts %}. Para obtener más información, consulta la sección "[Administrar la configuración de seguridad y análisis para tu repositorio](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository#granting-access-to-security-alerts)".
 {% endif %}
@@ -103,5 +103,5 @@ También puedes ver todas las {% data variables.product.prodname_dependabot_aler
 ## Leer más
 
 - "[Acerca de las {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/about-dependabot-security-updates)"
-- "[Ver y actualizar las {% data variables.product.prodname_dependabot_alerts %}](/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts)"{% endif %}
+- "[Viewing and updating {% data variables.product.prodname_dependabot_alerts %}](/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts)"{% endif %}
 {% ifversion fpt or ghec %}- "[Privacidad en {% data variables.product.prodname_dotcom %}](/get-started/privacy-on-github)"{% endif %}

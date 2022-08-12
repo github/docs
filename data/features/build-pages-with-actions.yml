@@ -1,0 +1,5 @@
+# Issue 7584
+# Building Pages sites with Actions [GA]
+versions:
+  fpt: '*'
+  ghec: '*'

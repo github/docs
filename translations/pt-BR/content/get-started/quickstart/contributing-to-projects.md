@@ -26,15 +26,15 @@ Este tutorial usa [o projeto Spoon-Knife](https://github.com/octocat/Spoon-Knife
 
 1. Acecsse o projeto `Spoon-Knife` em https://github.com/octocat/Spoon-Knife.
 2. Clique em **Bifurcação**. ![Botão Fork (Bifurcação)](/assets/images/help/repository/fork_button.png)
-3. Select an owner for the forked repository. ![Create a new fork page with owner dropdown emphasized](/assets/images/help/repository/fork-choose-owner.png)
-4. By default, forks are named the same as their parent repositories. You can change the name of the fork to distinguish it further. ![Create a new fork page with repository name field emphasized](/assets/images/help/repository/fork-choose-repo-name.png)
-5. Optionally, add a description of your fork. ![Create a new fork page with description field emphasized](/assets/images/help/repository/fork-description.png)
-6. Choose whether to copy only the default branch or all branches to the new fork. For many forking scenarios, such as contributing to open-source projects, you only need to copy the default branch. By default, only the default branch is copied. ![Option to copy only the default branch](/assets/images/help/repository/copy-default-branch-only.png)
-7. Click **Create fork**. ![Emphasized create fork button](/assets/images/help/repository/fork-create-button.png)
+3. Selecione um proprietário para o repositório bifurcado. ![Crie uma nova página de bifurcação com o menu suspenso do proprietário destacado](/assets/images/help/repository/fork-choose-owner.png)
+4. Por padrão, as bifurcações recebem os mesmos nomes dos seus repositórios principais. Você pode mudar o nome da bifurcação para distingui-lo ainda mais. ![Criar uma nova página de bifurcação com o campo de nome do repositório enfatizado](/assets/images/help/repository/fork-choose-repo-name.png)
+5. Opcionalmente, adicione uma descrição da sua bifurcação. ![Criar uma nova página de bifurcação com o campo de descrição destacado](/assets/images/help/repository/fork-description.png)
+6. Escolha se deseja copiar apenas a branch padrão ou todos os branches para a nova bifurcação. Para muitos cenários de bifurcação, como contribuir para projetos de código aberto, você só precisa copiar o branch padrão. Por padrão, apenas o branch padrão é copiado. ![Opção para copiar apenas o branch padrão](/assets/images/help/repository/copy-default-branch-only.png)
+7. Clique em **Criar bifurcação**. ![Botão criar bifurcação destacado](/assets/images/help/repository/fork-create-button.png)
 
 {% note %}
 
-**Note:** If you want to copy additional branches from the parent repository, you can do so from the **Branches** page. Para obter mais informações, consulte "[Criar e excluir branches em seu repositório](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository)".
+**Observação:** Se você deseja copiar branches adicionais a partir do repositório principao, você pode fazer isso na página **Branches**. Para obter mais informações, consulte "[Criar e excluir branches em seu repositório](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository)".
 
 {% endnote %}
 

@@ -1,5 +1,5 @@
 ---
-title: Status da implementação
+title: Status da implantação
 intro: ''
 versions:
   fpt: '*'

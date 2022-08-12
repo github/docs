@@ -156,7 +156,7 @@ upcoming_changes:
     owner: lukewar
   - 
     location: ProjectNextFieldType.TASKS
-    description: '`TASKS` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement.'
+    description: 'Se eliminará a `TASKS`. Sigue la guía de ProjectV2 en https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar un reemplazo adecuado.'
     reason: La API de `ProjectNext` quedará obsoleta para favorecer la API de `ProjectV2`, la cual tiene mayores capacidades.
     date: '2022-10-01T00:00:00+00:00'
     criticality: breaking

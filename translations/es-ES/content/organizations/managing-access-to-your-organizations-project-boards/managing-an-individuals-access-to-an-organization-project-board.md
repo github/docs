@@ -1,6 +1,6 @@
 ---
-title: 'Managing an individual’s access to an organization {% data variables.product.prodname_project_v1 %}'
-intro: 'As an organization owner or {% data variables.projects.projects_v1_board %} admin, you can manage an individual member''s access to a {% data variables.projects.projects_v1_board %} owned by your organization.'
+title: 'Administrar el acceso de un individuo al {% data variables.product.prodname_project_v1 %} de una organización'
+intro: 'Como propietario de una organización o administrador de un {% data variables.projects.projects_v1_board %}, puedes administrar el acceso individual de un miembro a un {% data variables.projects.projects_v1_board %} que le pertenezca a tu organización.'
 redirect_from:
   - /articles/managing-an-individual-s-access-to-an-organization-project-board
   - /articles/managing-an-individuals-access-to-an-organization-project-board
@@ -21,11 +21,11 @@ allowTitleToDifferFromFilename: true
 
 {% note %}
 
-**Note:** {% data reusables.project-management.cascading-permissions %} For more information, see "[{% data variables.product.prodname_project_v1_caps %} permissions for an organization](/articles/project-board-permissions-for-an-organization)."
+**Nota:** {% data reusables.project-management.cascading-permissions %} Para obtener más información, consulta la sección "[Permisos de {% data variables.product.prodname_project_v1_caps %} para una organización](/articles/project-board-permissions-for-an-organization)".
 
 {% endnote %}
 
-## Giving an organization member access to a {% data variables.projects.projects_v1_board %}
+## Proporcionar a un miembro de la organización acceso a un {% data variables.projects.projects_v1_board %}
 
 {% data reusables.profile.access_org %}
 {% data reusables.user-settings.access_org %}
@@ -39,7 +39,7 @@ allowTitleToDifferFromFilename: true
 {% data reusables.project-management.add-collaborator %}
 {% data reusables.project-management.collaborator-permissions %}
 
-## Changing an organization member's access to a {% data variables.projects.projects_v1_board %}
+## Cambiar el acceso de un miembro de una organización a un {% data variables.projects.projects_v1_board %}
 
 {% data reusables.profile.access_org %}
 {% data reusables.user-settings.access_org %}
@@ -51,9 +51,9 @@ allowTitleToDifferFromFilename: true
 {% data reusables.project-management.collaborator-option %}
 {% data reusables.project-management.collaborator-permissions %}
 
-## Removing an organization member's access to a {% data variables.projects.projects_v1_board %}
+## Eliminar el acceso de un miembro de una organización para un {% data variables.projects.projects_v1_board %}
 
-When you remove a collaborator from a {% data variables.projects.projects_v1_board %}, they may still retain access to the board based on the permissions they have for other roles. To completely remove access to a {% data variables.projects.projects_v1_board %}, you must remove access for each role the person has. For instance, a person may have access to the {% data variables.projects.projects_v1_board %} as an organization member or team member. For more information, see "[{% data variables.product.prodname_project_v1_caps %} permissions for an organization](/articles/project-board-permissions-for-an-organization)."
+Cuando eliminas a un colaborador de un {% data variables.projects.projects_v1_board %}, aún podrían retener el acceso al tablero con base en los permisos que tengan para otros roles. Para eliminar el acceso a un {% data variables.projects.projects_v1_board %} completamente, debes eliminar el acceso para cada rol que tenga la persona. Por ejemplo, una persona podría tener acceso al {% data variables.projects.projects_v1_board %} como miembro de una organización o de un equipo. Para obtener más información, consulta la sección "[Permisos de los {% data variables.product.prodname_project_v1_caps %} para una organización](/articles/project-board-permissions-for-an-organization)".
 
 {% data reusables.profile.access_org %}
 {% data reusables.user-settings.access_org %}
@@ -67,4 +67,4 @@ When you remove a collaborator from a {% data variables.projects.projects_v1_boa
 
 ## Leer más
 
-- "[{% data variables.product.prodname_project_v1_caps %} permissions for an organization](/articles/project-board-permissions-for-an-organization)"
+- "[Permisos de un {% data variables.product.prodname_project_v1_caps %} para una organización](/articles/project-board-permissions-for-an-organization)"

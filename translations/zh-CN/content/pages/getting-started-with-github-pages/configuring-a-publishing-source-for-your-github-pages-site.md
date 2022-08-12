@@ -46,17 +46,11 @@ shortTitle: 配置发布源
 
 如果选择任意分支上的 `docs` 文件夹作为发布源，然后从仓库的该分支中删除了 `/docs` 文件夹，则您的站点将不会构建，并且您将收到提示缺失 `/docs` 文件夹的页面构建错误。 更多信息请参阅“[关于 {% data variables.product.prodname_pages %} 站点的 Jekyll 构建错误疑难排解](/articles/troubleshooting-jekyll-build-errors-for-github-pages-sites#missing-docs-folder)”。
 
-{% ifversion fpt %}
+{% ifversion build-pages-with-actions %}
 
 {% data variables.product.prodname_pages %} 站点将始终使用 {% data variables.product.prodname_actions %} 工作流程运行进行部署，即使您已将 {% data variables.product.prodname_pages %} 站点配置为使用其他 CI 工具构建也是如此。 大多数外部 CI 工作流程通过将构建输出提交到仓库的 `gh-pages` 分支来“部署”到 GitHub Pages，并且通常包含一个 `.nojekyll` 文件。 发生这种情况时， {% data variables.product.prodname_actions %} 工作流程将检测分支不需要构建步骤的状态，并且仅执行将站点部署到 {% data variables.product.prodname_pages %} 服务器所需的步骤。
 
-若要查找构建或部署的潜在错误，可以通过查看仓库的工作流程运行来检查 {% data variables.product.prodname_pages %} 站点的工作流程运行情况。 更多信息请参阅“[查看工作流程运行历史记录](/actions/monitoring-and-troubleshooting-workflows/viewing-workflow-run-history)”。  有关如何在出现错误时重新运行工作流程的详细信息，请参阅”[重新运行工作流程和作业](/actions/managing-workflow-runs/re-running-workflows-and-jobs)“。
-
-{% note %}
-
-{% data reusables.pages.pages-builds-with-github-actions-public-beta %}
-
-{% endnote %}
+若要查找构建或部署的潜在错误，可以通过查看仓库的工作流程运行来检查 {% data variables.product.prodname_pages %} 站点的工作流程运行情况。 更多信息请参阅“[查看工作流程运行历史记录](/actions/monitoring-and-troubleshooting-workflows/viewing-workflow-run-history)”。 有关如何在出现错误时重新运行工作流程的详细信息，请参阅”[重新运行工作流程和作业](/actions/managing-workflow-runs/re-running-workflows-and-jobs)“。
 
 {% endif %}
 
