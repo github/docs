@@ -628,6 +628,12 @@ For multiline strings, you may use a delimiter with the following syntax.
 {delimiter}
 ```
 
+{% warning %}
+
+**Warning:** Make sure the delimiter you're using is randomly generated and unique for each run. For more information, see "[Understanding the risk of script injections](/actions/security-guides/security-hardening-for-github-actions#understanding-the-risk-of-script-injections)".
+
+{% endwarning %}
+
 #### Example
 
 This example uses `EOF` as a delimiter, and sets the `JSON_RESPONSE` environment variable to the value of the `curl` response.
