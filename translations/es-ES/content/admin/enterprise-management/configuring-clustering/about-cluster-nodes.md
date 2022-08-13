@@ -6,7 +6,7 @@ redirect_from:
   - /enterprise/admin/enterprise-management/about-cluster-nodes
   - /admin/enterprise-management/about-cluster-nodes
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: overview
 topics:
   - Clustering
@@ -15,17 +15,17 @@ topics:
 
 {% data reusables.enterprise_clustering.clustering-requires-https %}
 
-### Recomendaciones mínimas de hardware
+## Recomendaciones mínimas de hardware
 Cada nodo debe tener un volumen raíz, así como un volumen de datos separado. Estas son las recomendaciones mínimas. Es posible que se requieran más recursos según su uso, como la actividad del usuario y las integraciones seleccionadas.
 
 |                                           Servicios                                            | Mínimo de memoria requerida | Mínimo de espacio libre de volumen de datos requerido |
 |:----------------------------------------------------------------------------------------------:|:---------------------------:|:-----------------------------------------------------:|
 |               `job-server`,<br/>`memcache-server`,<br/>`web-server`                |            14 GB            |                         1 GB                          |
 |              `consul-server`,<br/>`mysql-server`,<br/>`redis-server`               |            14 GB            |                         10 GB                         |
-| `git-server`,<br/>`metrics-server`,<br/>`pages-server`,<br/>`storage-server` |            7 GB             |                         10 GB                         |
+| `git-server`,<br/>`metrics-server`,<br/>`pages-server`,<br/>`storage-server` |            14 GB            |                         10 GB                         |
 |                                     `elasticsearch-server`                                     |            14 GB            |                         10 GB                         |
 
-### Servicios requeridos para agrupamiento
+## Servicios requeridos para agrupamiento
 Para una redundancia adecuada, usa estos nodos mínimos para poner en funcionamiento cada servicio.
 
 {% tip %}
@@ -42,7 +42,7 @@ Para una redundancia adecuada, usa estos nodos mínimos para poner en funcionami
 |              `git-server`,<br/>`pages-server`,<br/>`storage-server`               |             3              |
 |                                    `elasticsearch-server`                                     |             3              |
 
-### Recomendaciones de diseño de agrupación
+## Recomendaciones de diseño de agrupación
 
 La agrupación permite que los servicios que constituyen {% data variables.product.prodname_ghe_server %} experimenten un aumento gradual independientemente de los demás. Esta flexibilidad puede usarse para diseñar e implementar una agrupación que se adapta a las organizaciones con diferentes requisitos de escalabilidad. Por ejemplo, es posible que algunas organizaciones necesiten una mayor capacidad de almacenamiento para extracciones frecuentes o de gran tamaño, pero el uso del servidor web puede ser relativamente bajo. Otra organización puede tener un buen rendimiento con menos recursos de almacenamiento, pero se necesitan más nodos que ejecuten `pages-server` or `elasticsearch-server`. Hay muchas combinaciones diferentes posibles. Trabaja con tu representante de cuenta para determinar la mejor configuración de agrupación para tus necesidades específicas.
 
@@ -65,7 +65,7 @@ La agrupación permite que los servicios que constituyen {% data variables.produ
     - `storage-server`
     - `metrics-server`
 
-#### Ejemplo del diagrama de agrupación
+### Ejemplo del diagrama de agrupación
 {% note %}
 
 **Nota: Este es solo un ejemplo.** El diseño de agrupamiento óptimo de tu organización dependerá de tus necesidades exclusivas. Habla con tu representante dedicado o con {% data variables.contact.contact_enterprise_sales %} para que te podamos ayudar a determinar la mejor configuración del clúster.

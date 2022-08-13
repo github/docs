@@ -5,9 +5,10 @@ redirect_from:
   - /webhooks/creating
   - /developers/webhooks-and-events/creating-webhooks
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Webhooks
 ---
@@ -19,11 +20,11 @@ Crear un webhook es un proceso de dos pasos. Primero necesitas configurar la for
 
 {% data reusables.webhooks.webhooks-rest-api-links %}
 
-### Exponer un host local al internet
+## Exponer un host local al internet
 
-Para los propósitos de este tutorial, utilizaremos un servidor local para recibir imágenes de {% data variables.product.prodname_dotcom %}. Así que, primero que nada, necesitamos exponer nuestro ambiente de desarrollo local al internet. Utilizaremos ngrok para hacerlo. ngrok está disponible, gratuitamente, para los sistemas operativos principales. Para obtener más información, consulta [la página de descarga de ngrok](https://ngrok.com/download).
+Para los propósitos de este tutorial, utilizaremos un servidor local para recibir imágenes de {% data variables.product.prodname_dotcom %}. Así que, primero que nada, necesitamos exponer nuestro ambiente de desarrollo local al internet. Utilizaremos ngrok para hacerlo. ngrok está disponible, gratuitamente, para los sistemas operativos principales. Para obtener más información, consulta la [página de descarga de `ngrok`](https://ngrok.com/download).
 
-Después de instalar ngrok, puedes exponer a tu host local si ejecutas `./ngrok http 4567` en la línea de comandos. el número de puerto en el que nuestro servidor escuchará mensajes es el 4567. Deberías ver una línea que se ve más o menos así:
+Después de instalar `ngrok`, puedes exponer a tu localhost ejecutando `./ngrok http 4567` en la línea de comandos. el número de puerto en el que nuestro servidor escuchará mensajes es el 4567. Deberías ver una línea que se ve más o menos así:
 
 ```shell
 $ Forwarding    http://7e9ea9dc.ngrok.io -> 127.0.0.1:4567
@@ -31,7 +32,7 @@ $ Forwarding    http://7e9ea9dc.ngrok.io -> 127.0.0.1:4567
 
 Anota la URL de `*.ngrok.io`. La utilizaremos para configurar nuestro webhook.
 
-### Configurar un webhook
+## Configurar un webhook
 
 Puedes instalar webhooks en una organización o en un repositorio específico.
 
@@ -41,29 +42,29 @@ Como alternativa, puedes elegir el crear y administrar un webhook [através de l
 
 Los Webhooks necesitan configurar algunas de sus opciones antes de que los puedas utilizar. Vamos a ver cada una de éstas opciones a continuación.
 
-### URL de la carga útil
+## URL de la carga útil
 
 {% data reusables.webhooks.payload_url %}
 
 Ya que estamos desarrollando todo localmente para nuestro tutorial, lo configuraremos en la URL `*.ngrok.io`, seguido de `/payload`. Por ejemplo, `http://7e9ea9dc.ngrok.io/payload`.
 
-### Tipo de contenido
+## Tipo de contenido
 
 {% data reusables.webhooks.content_type %} Para efecto de este tutorial, está bien si usas el tipo de contenido predeterminado de `application/json`.
 
-### Secreto
+## Secreto
 
 {% data reusables.webhooks.secret %}
 
-### Verificación SSL
+## Verificación SSL
 
 {% data reusables.webhooks.webhooks_ssl %}
 
-### Activo
+## Activo
 
 Predeterminadamente, las entregas de webhook están "Activas". También puedes elegir inhabilitar la entrega de cargas útiles de webhooks si deseleccionas "Activo".
 
-### Eventos
+## Eventos
 
 Los eventos son el núcleo de los webhooks. Estos webhooks se disparan cuando se toma alguna acción específica en el repositorio, la cual intercepta tu URL de carga útil de l servidor para actuar sobre ella.
 
@@ -75,7 +76,7 @@ Cuando hayas terminado, da clic en **Agregar webhook**.
 
 Ahora que creaste el webhook, es momento de configurar nuestro servidor local para probarlo. Dirígete a [Configurar tu Servidor](/webhooks/configuring/) para aprender cómo hacerlo.
 
-#### Evento de comodín
+### Evento de comodín
 
 Para configurar un webhook para todos los eventos, utiliza el caracter de comodín (`*`) para especificar dichos eventos. Cuando agregas el evento de comodín, reemplazaremos cualquier evento existente que hayas configurado con el evento de comodín se te enviarán las cargas útiles para todos los eventos compatibles. También obtendrás automáticamente cualquier evento nuevo que pudiéramos agregar posteriormente.
 

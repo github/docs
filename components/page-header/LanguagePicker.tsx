@@ -1,99 +1,69 @@
-import cx from 'classnames'
 import { useRouter } from 'next/router'
-import { Dropdown, Details, useDetails } from '@primer/components'
-import { ChevronDownIcon } from '@primer/octicons-react'
+import Cookies from 'js-cookie'
 
-import { Link } from 'components/Link'
 import { useLanguages } from 'components/context/LanguagesContext'
+import { Picker } from 'components/ui/Picker'
+import { useTranslation } from 'components/hooks/useTranslation'
+import { PREFERRED_LOCALE_COOKIE_NAME } from '../../lib/constants.js'
 
 type Props = {
   variant?: 'inline'
 }
+
 export const LanguagePicker = ({ variant }: Props) => {
   const router = useRouter()
   const { languages } = useLanguages()
-  const { getDetailsProps } = useDetails({})
+
   const locale = router.locale || 'en'
+
+  const { t } = useTranslation('picker')
+
   const langs = Object.values(languages)
   const selectedLang = languages[locale]
 
-  if (variant === 'inline') {
-    return (
-      <Details {...getDetailsProps()} className="details-reset">
-        <summary className="outline-none" aria-label="Toggle language list">
-          <div className="d-flex flex-items-center flex-justify-between py-2">
-            <span>{selectedLang.nativeName || selectedLang.name}</span>
-            <ChevronDownIcon size={24} className="arrow ml-md-1" />
-          </div>
-        </summary>
-        <div>
-          {langs.map((lang) => {
-            if (lang.wip) {
-              return null
-            }
+  // The `router.asPath` will always be without a hash in SSR
+  // So to avoid a hydraration failure on the client, we have to
+  // normalize it to be without the hash. That way the path is treated
+  // in a "denormalized" way.
+  const routerPath = router.asPath.split('#')[0]
 
-            return (
-              <Link
-                key={lang.code}
-                href={router.asPath}
-                locale={lang.code}
-                disableClientTransition={true}
-                className={cx(
-                  'd-block py-2',
-                  lang.code === router.locale
-                    ? 'color-text-link text-underline active'
-                    : 'Link--primary no-underline'
-                )}
-              >
-                {lang.nativeName ? (
-                  <>
-                    {lang.nativeName} ({lang.name})
-                  </>
-                ) : (
-                  lang.name
-                )}
-              </Link>
-            )
-          })}
-        </div>
-      </Details>
-    )
+  function rememberPreferredLanguage(value: string) {
+    try {
+      // The reason we use a cookie and not local storage is because
+      // this cookie value is used and needed by the server. For
+      // example, when doing `GET /some/page` we need the cookie
+      // to redirect to `Location: /ja/some/page`.
+      // It's important it's *not* an HttpOnly cookie because we
+      // need this in the client-side which is used to determine
+      // the UI about displaying notifications about preferred
+      // language if your cookie doesn't match the current URL.
+      Cookies.set(PREFERRED_LOCALE_COOKIE_NAME, value, {
+        expires: 365,
+        secure: document.location.protocol !== 'http:',
+      })
+    } catch (err) {
+      // You can never be too careful because setting a cookie
+      // can fail. For example, some browser
+      // extensions disallow all setting of cookies and attempts
+      // at the `document.cookie` setter could throw. Just swallow
+      // and move on.
+      console.warn('Unable to set preferred language cookie', err)
+    }
   }
 
   return (
-    <Dropdown
-      css={`
-        ul {
-          width: unset;
-        }
-      `}
-      data-testid="language-picker"
-    >
-      <summary>
-        {selectedLang.nativeName || selectedLang.name}
-        <Dropdown.Caret />
-      </summary>
-      <Dropdown.Menu direction="sw">
-        {langs.map((lang) => {
-          if (lang.wip) {
-            return null
-          }
-
-          return (
-            <Dropdown.Item key={lang.code}>
-              <Link href={router.asPath} locale={lang.code} disableClientTransition={true}>
-                {lang.nativeName ? (
-                  <>
-                    {lang.nativeName} ({lang.name})
-                  </>
-                ) : (
-                  lang.name
-                )}
-              </Link>
-            </Dropdown.Item>
-          )
-        })}
-      </Dropdown.Menu>
-    </Dropdown>
+    <div data-testid="language-picker">
+      <Picker
+        variant={variant}
+        defaultText={t('language_picker_default_text')}
+        options={langs.map((lang) => ({
+          text: lang.nativeName || lang.name,
+          selected: lang === selectedLang,
+          locale: lang.code,
+          href: `${routerPath}`,
+          onselect: rememberPreferredLanguage,
+        }))}
+      />
+    </div>
   )
 }

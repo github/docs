@@ -1,0 +1,14 @@
+---
+date: '2021-12-13'
+sections:
+  security_fixes:
+    - '{% octicon "alert" aria-label="The alert icon" %} **严重：** Log4j 库中的远程执行代码漏洞（标识为 [CVE-2021-44228](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-44228)）影响了 3.3.1 之前所有版本的 {% data variables.product.prodname_ghe_server %} 。Log4j 库用于在 {% data variables.product.prodname_ghe_server %} 实例上运行的开源服务中。此漏洞已在 {% data variables.product.prodname_ghe_server %} 版本 3.0.22、3.1.14、3.2.6 和 3.3.1 中修复。更多信息请参阅 GitHub博客上的[这篇文章](https://github.blog/2021-12-13-githubs-response-to-log4j-vulnerability-cve-2021-44228/)。'
+    - '**2021 年 12 月 17 日更新**：此版本的现有修补程序还缓解了在此版本之后发布的 [CVE-2021-45046](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-45046)。无需对 {% data variables.product.prodname_ghe_server %} 进行额外升级即可缓解 CVE-2021-44228 和 CVE-2021-45046。'
+  known_issues:
+    - 在新建的没有任何用户的 {% data variables.product.prodname_ghe_server %} 上，攻击者可以创建第一个管理员用户。
+    - 自定义防火墙规则在升级过程中被删除。
+    - Git LFS 跟踪的文件[通过 Web 界面上传](https://github.com/blog/2105-upload-files-to-your-repositories) 被错误地直接添加到仓库。
+    - 如果议题包含文件路径长于 255 个字符的同一仓库中 blob 的永久链接，则议题无法关闭。
+    - 对 GitHub Connect 启用“用户可以搜索 GitHub.com”后，私有和内部仓库中的议题不包括在 GitHub.com 搜索结果中。
+    - 当副本节点在高可用性配置下离线时，{% data variables.product.product_name %} 仍可能将 {% data variables.product.prodname_pages %} 请求路由到离线节点，从而减少用户的 {% data variables.product.prodname_pages %} 可用性。
+    - 特定于处理预接收挂钩的资源限制可能会导致某些预接收挂钩失败。

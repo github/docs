@@ -2,24 +2,26 @@
 title: Agregar un tema a tu sitio de Páginas de GitHub con Jekyll
 intro: Puedes personalizar tu sitio Jekyll agregando y personalizando un tema.
 redirect_from:
-  - /articles/customizing-css-and-html-in-your-jekyll-theme/
-  - /articles/adding-a-jekyll-theme-to-your-github-pages-site/
+  - /articles/customizing-css-and-html-in-your-jekyll-theme
+  - /articles/adding-a-jekyll-theme-to-your-github-pages-site
   - /articles/adding-a-theme-to-your-github-pages-site-using-jekyll
   - /github/working-with-github-pages/adding-a-theme-to-your-github-pages-site-using-jekyll
 product: '{% data reusables.gated-features.pages %}'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Pages
+shortTitle: Agregar un tema al sitio de páginas
 ---
 
 Las personas con permisos de escritura para un repositorio pueden agregar un tema a un sitio de {% data variables.product.prodname_pages %} con Jekyll.
 
 {% data reusables.pages.test-locally %}
 
-### Agregar un tema
+## Agregar un tema
 
 {% data reusables.pages.navigate-site-repo %}
 {% data reusables.pages.navigate-publishing-source %}
@@ -33,7 +35,7 @@ Las personas con permisos de escritura para un repositorio pueden agregar un tem
 {% data reusables.files.choose_commit_branch %}
 {% data reusables.files.propose_file_change %}
 
-### Personalizar el CSS de tu tema
+## Personalizar el CSS de tu tema
 
 {% data reusables.pages.best-with-supported-themes %}
 
@@ -47,11 +49,11 @@ Las personas con permisos de escritura para un repositorio pueden agregar un tem
   ---
   ---
 
-  @import "{{ site.theme }}";
+  @import "{% raw %}{{ site.theme }}{% endraw %}";
   ```
 3. Agrega cualquier CSS o Sass personalizado que quieras (incluidas importaciones) inmediatamente después de la línea `@import`.
 
-### Personalizar el diseño HTML de tu tema
+## Personalizar el diseño HTML de tu tema
 
 {% data reusables.pages.best-with-supported-themes %}
 
@@ -66,6 +68,6 @@ Las personas con permisos de escritura para un repositorio pueden agregar un tem
 7. Pega el contenido del diseño personalizado que copiaste anteriormente.
 8. Personaliza el diseño como desees.
 
-### Leer más
+## Leer más
 
 - "[Crear archivos nuevos](/articles/creating-new-files)"

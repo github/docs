@@ -1,51 +1,53 @@
 ---
-title: Quickstart for finding contributors to sponsor
-intro: Learn some best practices for finding open source contributors to sponsor.
+title: Início rápido para encontrar contribuidores para patrocinar
+intro: Aprenda algumas prática recomendada para encontrar contribuidores de código aberto para patrocinar.
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 type: quick_start
 topics:
   - Open Source
+shortTitle: QuickStart
 ---
 
-### Explore projects you depend on
+## Explorar projetos de que você depende
 
-As you consider where to find open source contributors to sponsor, consider starting at https://github.com/sponsors/community.
+À medida que você considera onde encontrar contribuidores de código aberto para patrocinador, considere começar por https://github.com/patrocinadors/comunidade.
 
-If you're logged in, the sponsors results will start with public dependencies that your repositories depend on.
+Se você estiver conectado, os resultados dos patrocinadores começarão com dependências públicas das quais seus repositórios dependem.
 
-![The Babel open source project with highlighted text that says "4 of your repositories depend on this"](/assets/images/help/sponsors/example-of-open-source-project-dependency.png)
+![O projeto de código aberto Babel com texto destacado que diz "4 dos seus repositórios dependem disso"](/assets/images/help/sponsors/example-of-open-source-project-dependency.png)
 
-You can also toggle which of your accounts to view results for and further filter or search.
+Você também pode alternar qual de suas contas deseja ver os resultados, bem como outros filtros ou pesquisas.
 
-![Search options on sponsors community search page](/assets/images/help/sponsors/sponsors-search-options.png)
+![Opções de busca na página de busca da comunidade de patrocinadores](/assets/images/help/sponsors/sponsors-search-options.png)
 
-### Explore whom others sponsor
+## Explore quem as outras pessoas patrocinam
 
-You can see whom a user or organization sponsors on their {% data variables.product.prodname_dotcom %} profile page.
+Você pode ver quem um usuário ou organização patrocinou na sua página de perfil de {% data variables.product.prodname_dotcom %}.
 
-### Consider how you benefit from different contributions
+## Considere como você se beneficia de diferentes contribuições
 
-Consider whether you benefit from the work of open source contributions, such as:
+Considere se você se beneficia do trabalho das contribuições de código aberto, como:
  - Documentação
  - Design
- - Translation
- - Newsletters
- - Code reviews
+ - Tradução
+ - Boletins informativos
+ - Revisões de código
  - Tutoriais
- - Mentoring
- - Triaging issues and helping with project management
- - Answering questions
- - Event planning
+ - Mentoria
+ - Triar problemas e ajudar com gerenciamento de projeto
+ - Responder às perguntas
+ - Planejamento de evento
 
-For more information on different types of open source contributions, see the [Open source guide](https://opensource.guide/how-to-contribute/#you-dont-have-to-contribute-code).
+Para obter mais informações sobre diferentes tipos de contribuições de código aberto, consulte o [guia de código aberto](https://opensource.guide/how-to-contribute/#you-dont-have-to-contribute-code).
 
-You can check if contributors you've benefited from have {% data variables.product.prodname_sponsors %} profiles by using search at https://github.com/sponsors/community.
+Você pode conferir se os colaboradores dos quais você se beneficiou de ter perfis de {% data variables.product.prodname_sponsors %} usando a pesquisa em https://github.com/sponsors/community.
 
-### Search for a specific project or contributor
+## Pesquisar por um projeto ou colaborador específico
 
-At https://github.com/sponsors/community, you can search by ecosystem, most used, recently updated, and more. You can filter search results for your personal user account or for organizations that you're a member of.
+Em https://github.com/sponsors/community, você pode procurar pelo ecossistema mais usado, atualizado recentemente e muito mais. É possível filtrar os resultados da busca para a conta pessoal ou para as organizações das quais você é integrante.
 
-### Próximas etapas
+## Próximas etapas
 
-For more information on starting your sponsorship, see "[Sponsoring an open source contributor](/sponsors/sponsoring-open-source-contributors/sponsoring-an-open-source-contributor)."
+Para obter mais informações sobre como iniciar o seu patrocínio, consulte "[Patrocinando um colaborador de código aberto](/sponsors/sponsoring-open-source-contributors/sponsoring-an-open-source-contributor)".

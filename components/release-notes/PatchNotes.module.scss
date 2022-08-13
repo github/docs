@@ -1,8 +1,9 @@
-@import "@primer/css/layout/index.scss";
-
 .sectionHeading {
-  scroll-margin-top: 280px !important;
-  @include breakpoint(sm) {
-    scroll-margin-top: 200px !important;
-  }
+  scroll-margin-top: 70px !important;
+}
+
+.aside {
+  width: 260px;
+  height: calc(100vh - 70px);
+  top: 70px;
 }

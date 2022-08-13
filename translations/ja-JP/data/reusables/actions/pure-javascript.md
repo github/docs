@@ -1,0 +1,1 @@
+JavaScriptのアクションがGitHubがホストするすべてのランナー（Ubuntu、Windows、macOS）と互換性があることを保証するためには、作成するパッケージ化されたJacScriptのコードは純粋なJavaScriptであり、他のバイナリに依存していてはなりません。 JavaScript actions run directly on the runner and use binaries that already exist in the runner image.

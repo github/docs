@@ -1,1 +1,1 @@
-1. "{% octicon "law" aria-label="The law icon" %} Policies（{% octicon "law" aria-label="The law icon" %}ポリシー）"の下で、**Actions**をクリックしてください。
+1. Under "{% octicon "law" aria-label="The law icon" %} Policies", click **Actions**.

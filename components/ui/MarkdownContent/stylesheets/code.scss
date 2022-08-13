@@ -1,45 +1,47 @@
 .markdownBody {
   [class~="highlight"] pre,
   pre {
-    margin-top: 10px;
+    margin-top: 0.5rem;
+    border: 1px var(--color-border-default) solid;
   }
 
   [class~="height-constrained-code-block"] pre {
-    max-height: 500px;
+    max-height: 32rem;
     overflow: auto;
   }
 
   [class~="code-extra"] {
-    margin-top: 24px;
+    margin-top: 1.5rem;
 
-    pre {
+    pre,
+    div {
       margin-top: 0 !important;
       border-top-left-radius: 0 !important;
       border-top-right-radius: 0 !important;
-      border-left: 1px var(--color-auto-gray-2) solid !important;
-      border-bottom: 1px var(--color-auto-gray-2) solid !important;
-      border-right: 1px var(--color-auto-gray-2) solid !important;
+      border-left: 1px var(--color-border-default) solid !important;
+      border-bottom: 1px var(--color-border-default) solid !important;
+      border-right: 1px var(--color-border-default) solid !important;
     }
   }
 
+  // on graphql/overview/resource-limitations
+  pre [class~="redbox"],
+  pre [class~="greenbox"],
+  pre [class~="bluebox"] {
+    color: var(--color-fg-on-emphasis);
+    padding: 0 0.25rem;
+    border-radius: 4px; // primer rounded-1
+  }
+
   pre [class~="redbox"] {
-    border: 2px solid var(--color-auto-red-5);
-    padding: 2px;
-    border-radius: 2px;
-    margin-right: 2px;
+    background-color: var(--color-danger-emphasis);
   }
 
   pre [class~="greenbox"] {
-    border: 2px solid var(--color-auto-green-5);
-    padding: 2px;
-    border-radius: 2px;
-    margin-right: 2px;
+    background-color: var(--color-success-emphasis);
   }
 
   pre [class~="bluebox"] {
-    border: 2px solid var(--color-auto-blue-5);
-    padding: 2px;
-    border-radius: 2px;
-    margin-right: 2px;
+    background-color: var(--color-accent-emphasis);
   }
 }

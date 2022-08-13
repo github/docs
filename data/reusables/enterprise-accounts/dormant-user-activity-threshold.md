@@ -1,0 +1,1 @@
+{% ifversion not ghec%}By default, a{% else %}A{% endif %} user account is considered to be dormant if it has not been active for 90 days. {% ifversion not ghec %}You can configure the length of time a user must be inactive to be considered dormant{% ifversion ghes%} and choose to suspend dormant users to release user licenses{% endif %}.{% endif %}

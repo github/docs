@@ -1,0 +1,3 @@
+Your team can collaborate on {% data variables.product.product_name %} by using an organization account, which serves as a container for your shared work and gives the work a unique name and brand.
+
+Each person that uses {% data variables.product.prodname_dotcom %} always signs into a personal account, and multiple personal accounts can collaborate on shared projects by joining the same organization account. A subset of these personal accounts can be given the role of organization owner, which allows those people to granularly manage access to the organization's resources using sophisticated security and administrative features.

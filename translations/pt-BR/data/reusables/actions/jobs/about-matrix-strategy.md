@@ -1,0 +1,1 @@
+Uma estratégia de matriz permite usar variáveis em uma única definição de trabalho para criar automaticamente várias execuções de trabalho que são baseadas nas combinações das variáveis. Por exemplo, você pode usar uma estratégia de matriz para testar seu código em várias versões de uma linguagem ou em vários sistemas operacionais.

@@ -1,11 +1,14 @@
 import { useEffect, useRef } from 'react'
 import dayjs from 'dayjs'
+import cx from 'classnames'
 
 import { useTranslation } from 'components/hooks/useTranslation'
 import { PatchNotes } from './PatchNotes'
 import { Link } from 'components/Link'
 import { CurrentVersion, ReleaseNotePatch, GHESMessage } from './types'
 import { useOnScreen } from 'components/hooks/useOnScreen'
+
+import styles from './PatchNotes.module.scss'
 
 type Props = {
   patch: ReleaseNotePatch
@@ -35,21 +38,18 @@ export function GHESReleaseNotePatch({
   return (
     <div
       ref={containerRef}
-      className="mb-10 color-bg-secondary pb-6 border-bottom border-top"
+      className={cx(styles.sectionHeading, 'mb-10 pb-6 border-bottom border-top')}
       id={patch.version}
     >
-      <header
-        style={{ zIndex: 1 }}
-        className="container-xl position-sticky top-0 color-bg-secondary border-bottom px-3 pt-4 pb-2"
-      >
-        <div className="d-flex flex-items-center">
-          <h2 className="border-bottom-0 m-0 p-0">
+      <header style={{ zIndex: 1 }} className="container-xl border-bottom px-3 pt-4 pb-2">
+        <div className="d-flex flex-justify-between flex-wrap">
+          <h2 className="border-bottom-0 m-0 p-0 mt-2">
             {currentVersion.versionTitle}.{patch.patchVersion}
           </h2>
 
           {patch.release_candidate && (
             <span
-              className="IssueLabel color-bg-warning-inverse color-text-inverse ml-3"
+              className="IssueLabel color-bg-attention-emphasis color-fg-on-emphasis ml-3 flex-items-center d-inline-flex"
               style={{ whiteSpace: 'pre' }}
             >
               Release Candidate
@@ -59,17 +59,17 @@ export function GHESReleaseNotePatch({
           {currentVersion.plan === 'enterprise-server' && (
             <Link
               href={`https://enterprise.github.com/releases/${patch.downloadVersion}/download`}
-              className="ml-3 text-small text-bold"
+              className="btn btn-outline mt-2 text-small text-bold no-underline"
             >
-              Download
+              Download GitHub Enterprise Server {patch.downloadVersion}
             </Link>
           )}
         </div>
 
-        <p className="color-text-secondary mt-1">{dayjs(patch.date).format('MMMM, DD, YYYY')}</p>
+        <p className="color-fg-muted mt-1">{dayjs(patch.date).format('MMMM DD, YYYY')}</p>
 
         {patch.version !== latestPatch && currentVersion.currentRelease === latestRelease && (
-          <p className="color-text-secondary mt-1">
+          <p className="color-fg-muted mt-1">
             <span
               dangerouslySetInnerHTML={{ __html: message.ghes_release_notes_upgrade_patch_only }}
             />{' '}
@@ -78,7 +78,7 @@ export function GHESReleaseNotePatch({
         )}
 
         {patch.version === latestPatch && currentVersion.currentRelease !== latestRelease && (
-          <p className="color-text-secondary mt-1">
+          <p className="color-fg-muted mt-1">
             <span
               dangerouslySetInnerHTML={{ __html: message.ghes_release_notes_upgrade_release_only }}
             />{' '}
@@ -87,7 +87,7 @@ export function GHESReleaseNotePatch({
         )}
 
         {patch.version !== latestPatch && currentVersion.currentRelease !== latestRelease && (
-          <p className="color-text-secondary mt-1">
+          <p className="color-fg-muted mt-1">
             <span
               dangerouslySetInnerHTML={{
                 __html: message.ghes_release_notes_upgrade_patch_and_release,

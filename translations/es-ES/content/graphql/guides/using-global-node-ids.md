@@ -4,14 +4,15 @@ intro: Puedes obtener ID de nodo global de objetos a través de la API de REST y
 redirect_from:
   - /v4/guides/using-global-node-ids
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - API
 ---
 
-Puedes acceder a la mayoría de objetos en GitHub (usuarios, informes de problemas, solicitudes de extracción, etc.) utilizando ya sea la API de Rest o la de GraphQL. Con una [actualización reciente](https://developer.github.com/changes/2017-12-19-graphql-node-id/), puedes encontrar la **ID de nodo global** de muchos objetos desde dentro de la API de REST y utilizar estas ID en tus operaciones de GraphQL.
+Puedes acceder a la mayoría de objetos en GitHub (usuarios, informes de problemas, solicitudes de extracción, etc.) utilizando ya sea la API de Rest o la de GraphQL. Puedes encontrar la **ID de nodo global** de muchos objetos desde dentro de la API de REST y utilizar estas ID en tus operaciones de GraphQL. Para obtener más información, consulta la sección "[Tener una vista previa de las ID de nodo de la API de GrapHQL en los recursos de la API de REST](https://developer.github.com/changes/2017-12-19-graphql-node-id/)".
 
 {% note %}
 
@@ -19,7 +20,7 @@ Puedes acceder a la mayoría de objetos en GitHub (usuarios, informes de problem
 
 {% endnote %}
 
-### Darle uso a las ID de nodo global
+## Darle uso a las ID de nodo global
 
 Puedes seguir estos tres pasos para utilizar las ID de nodo global efectivamente:
 
@@ -29,7 +30,7 @@ Puedes seguir estos tres pasos para utilizar las ID de nodo global efectivamente
 
 Revisemos un ejemplo.
 
-### 1. Llama a una terminal de REST que recupere la ID de nodo de un objeto
+## 1. Llama a una terminal de REST que recupere la ID de nodo de un objeto
 
 Si [solicitas el usuario autenticado](/rest/reference/users#get-the-authenticated-user):
 
@@ -87,7 +88,7 @@ obtendrás una respuesta que incluye el `node_id` del usuario autenticado:
 }
 ```
 
-### 2. Encuentra el tipo de objeto en GraphQL
+## 2. Encuentra el tipo de objeto en GraphQL
 
 En este ejemplo, el valor de `node_id` es `MDQ6VXNlcjU4MzIzMQ==`. Puedes utilizar este valor para consultar el mismo objeto en GraphQL.
 
@@ -105,7 +106,7 @@ Este tipo de consulta &mdash;que es encontrar el nodo por ID&mdash; se conoce co
 
 Cuando ejecutas esta consulta, encontrarás que el `__typename` es [`User`](/graphql/reference/objects#user).
 
-### 3. Haz una búsqueda directa de nodo en GraphQL
+## 3. Haz una búsqueda directa de nodo en GraphQL
 
 Una vez que hayas confirmado el tipo, puedes utilizar un [fragmento dentro de la línea](https://graphql.github.io/learn/queries/#inline-fragments) para acceder al objeto por su ID y recuperar datos adicionales. En este ejemplo, definimos los campos que queremos consultar en `User`:
 
@@ -122,6 +123,6 @@ query {
 
 Este tipo de consulta es el acercamiento estándar para buscar un objeto por su ID de nodo global.
 
-### Utilizar las ID de nodo global en migraciones
+## Utilizar las ID de nodo global en migraciones
 
 Cuando construyes integraciones que utilizan ya sea la API de REST o de GraphQL, la mejor práctica es persistir la ID de nodo global para que puedas referenciar fácilmente los objetos a través de las versiones de las API. Para obtener más información sobre cómo manejar la transición entre REST y GraphQL, consulta la sección "[Migrarse de REST a GraphQL](/graphql/guides/migrating-from-rest-to-graphql)".

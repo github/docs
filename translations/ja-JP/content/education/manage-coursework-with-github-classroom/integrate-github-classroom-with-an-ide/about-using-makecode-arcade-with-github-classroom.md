@@ -1,32 +1,31 @@
 ---
-title: GitHub ClassroomでMakeCode Arcadeを使用する
-shortTitle: MakeCode Arcadeの使用について
-intro: 'MakeCode Arcadeを、{% data variables.product.prodname_classroom %}の課題のためのオンラインIDEとして設定できます。'
+title: About using MakeCode Arcade with GitHub Classroom
+shortTitle: About using MakeCode Arcade
+intro: 'You can configure MakeCode Arcade as the online IDE for assignments in {% data variables.product.prodname_classroom %}.'
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 redirect_from:
   - /education/manage-coursework-with-github-classroom/student-experience-makecode
   - /education/manage-coursework-with-github-classroom/about-using-makecode-arcade-with-github-classroom
 ---
+## About MakeCode Arcade
 
-### MakeCode Arcadeについて
-
-MakeCode Arcadeとは、ドラッグアンドドロップのブロックプログラミングとJavaScriptを使用してレトロなアーケードゲームを開発するためのオンライン統合開発環境 (IDE) です。 学生はMakeCode Arcadeを使ってブラウザでコードを記述、編集、実行、テスト、デバッグできます。 オンラインIDEおよび{% data variables.product.prodname_classroom %}に関する詳しい情報については、「[{% data variables.product.prodname_classroom %}とオンラインIDEの統合](/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-online-ide)」を参照してください。
+MakeCode Arcade is an online integrated development environment (IDE) for developing retro arcade games using drag-and-drop block programming and JavaScript. Students can write, edit, run, test, and debug code in a browser with MakeCode Arcade. For more information about IDEs and {% data variables.product.prodname_classroom %}, see "[Integrate {% data variables.product.prodname_classroom %} with an IDE](/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide/integrate-github-classroom-with-an-ide)."
 
 {% data reusables.classroom.readme-contains-button-for-online-ide %}
 
-学生がボタンをクリックして、初めてMakeCode Arcadeにアクセスする際は、{% data variables.product.product_name %}認証情報でMakeCode Arcadeにサインインする必要があります。 サインインすると、学生はMakeCode Arcadeで完全に構成された、課題リポジトリのコードが含まれる開発環境にアクセスできます。
+The first time the student clicks the button to visit MakeCode Arcade, the student must sign into MakeCode Arcade with {% data variables.product.product_name %} credentials. After signing in, the student will have access to a development environment containing the code from the assignment repository, fully configured on MakeCode Arcade.
 
-MakeCode Arcadeにおける作業についての詳細は、[MakeCode Arcade Tour](https://arcade.makecode.com/ide-tour)およびMakeCode Arcadeウェブサイトの[ドキュメント](https://arcade.makecode.com/docs)を参照してください。
+For more information about working on MakeCode Arcade, see the [MakeCode Arcade Tour](https://arcade.makecode.com/ide-tour) and [documentation](https://arcade.makecode.com/docs) on the MakeCode Arcade website.
 
-MakeCode Arcadeは、グループ課題のための複数人による編集をサポートしていません。 その代わり、学生はブランチやプルリクエストのようなGitおよび{% data variables.product.product_name %}の機能でコラボレートできます。
+MakeCode Arcade does not support multiplayer-editing for group assignments. Instead, students can collaborate with Git and {% data variables.product.product_name %} features like branches and pull requests.
 
-### MakeCode Arcadeによる課題の提出について
+## About submission of assignments with MakeCode Arcade
 
-デフォルトでは、MakeCode Arcadeは{% data variables.product.product_location %}の課題リポジトリにプッシュするよう設定されています。 MakeCode Arcadeで課題を進めた後、学生は画面下部にある{% octicon "mark-github" aria-label="The GitHub mark" %}{% octicon "arrow-up" aria-label="The up arrow icon" %}ボタンで、変更を{% data variables.product.product_location %}にプッシュする必要があります。
+By default, MakeCode Arcade is configured to push to the assignment repository on {% data variables.product.product_location %}. After making progress on an assignment with MakeCode Arcade, students should push changes to {% data variables.product.product_location %} using the {% octicon "mark-github" aria-label="The GitHub mark" %}{% octicon "arrow-up" aria-label="The up arrow icon" %} button at the bottom of the screen.
 
-![MakeCode Arcadeのバージョン管理機能](/assets/images/help/classroom/ide-makecode-arcade-version-control-button.png)
+![MakeCode Arcade version control functionality](/assets/images/help/classroom/ide-makecode-arcade-version-control-button.png)
 
-### 参考リンク
+## Further reading
 
-- [READMEについて](/github/creating-cloning-and-archiving-repositories/about-readmes)
+- "[About READMEs](/github/creating-cloning-and-archiving-repositories/about-readmes)"

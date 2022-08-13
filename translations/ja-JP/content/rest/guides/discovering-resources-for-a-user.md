@@ -2,29 +2,31 @@
 title: ユーザのリソースを調べる
 intro: REST APIに対する認証済みリクエストにおいて、アプリケーションがアクセスできるユーザのリポジトリやOrganizationを確実に調べる方法を学びます。
 redirect_from:
-  - /guides/discovering-resources-for-a-user/
+  - /guides/discovering-resources-for-a-user
   - /v3/guides/discovering-resources-for-a-user
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - API
+shortTitle: ユーザのリソースを見つける
 ---
 
- 
 
-{% data variables.product.product_name %} APIに対して認証済みのリクエストを行う際には、カレントユーザのリポジトリやOrganizationをフェッチする必要がある場合もあります。 このガイドでは、これらのリソースを確実に調べる方法について説明します。
 
-{% data variables.product.product_name %} APIとやり取りを行うため、ここでは[Octokit.rb][octokit.rb]を使用します。 このプロジェクトの完全なソースコードは、[platform-samples][platform samples]リポジトリにあります。
+{% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} APIに対して認証済みのリクエストを行う際には、アプリケーションがカレントユーザのリポジトリやOrganizationをフェッチしなければならないことがしばしばあります。 このガイドでは、これらのリソースを確実に調べる方法について説明します。
 
-### はじめましょう
+{% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} APIとやりとりをするために、[Octokit.rb][octokit.rb]を使います。 このプロジェクトの完全なソースコードは、[platform-samples][platform samples]リポジトリにあります。
+
+## はじめましょう
 
 まだ[「認証の基本」][basics-of-authentication]ガイドを読んでいない場合は、それを読んでから以下の例に取り組んでください。 以下の例は、[OAuthアプリケーションを登録済み][register-oauth-app]で、[アプリケーションがユーザのOAuthトークンを持っている][make-authenticated-request-for-user]ことを前提としています。
 
-### アプリケーションでアクセス可能なユーザのリポジトリを調べる
+## アプリケーションでアクセス可能なユーザのリポジトリを調べる
 
-ユーザは、個人でリポジトリを所有する他に、別のユーザやOrganizationが所有するリポジトリのコラボレータであることもあります。 まとめると、ユーザが権限を持ってアクセスできるリポジトリがあります。それはユーザが読み取りあるいは書き込みアクセスを持つプライベートリポジトリであったり、ユーザが書き込み権限を持つ{% if currentVersion != "github-ae@latest" %}パブリック{% else %}インターナル{% endif %}リポジトリであったりします。
+ユーザは、個人でリポジトリを所有する他に、別のユーザやOrganizationが所有するリポジトリのコラボレータであることもあります。 まとめると、ユーザが権限を持ってアクセスできるリポジトリがあります。それはユーザが読み取りあるいは書き込みアクセスを持つプライベートリポジトリであったり、ユーザが書き込み権限を持つ{% ifversion fpt %}パブリック{% elsif ghec or ghes %}パブリックもしくはインターナル{% elsif ghae %}インターナル{% endif %}リポジトリであったりします。
 
 アプリがユーザのどのリポジトリにアクセスできるかを決めるのは、[OAuthスコープ][scopes]および[Organizationのアプリケーションポリシー][oap]です。 以下のワークフローを使用して、これらのリポジトリを調べます。
 
@@ -61,7 +63,7 @@ client.repositories.each do |repository|
 end
 ```
 
-### アプリケーションがアクセス可能なユーザのOrganizationを調べる
+## アプリケーションがアクセス可能なユーザのOrganizationを調べる
 
 アプリケーションは、ユーザに対してOrganizationに関するあらゆるタスクを実行できます。 アプリケーションがタスクを実行するには、必要な権限を持つ[OAuth認証][scopes] が必要です。 たとえば、`read:org`スコープでは[Teamのリストを取得][list-teams]でき、`user`スコープでは[ユーザのOrganizationに属するメンバーを取得][publicize-membership]できます。 ユーザがこれらのスコープのうちの1つ以上をアプリケーションに付与すると、ユーザのOrganizationをフェッチする準備が整います。
 
@@ -89,7 +91,7 @@ client.organizations.each do |organization|
 end
 ```
 
-#### ユーザのすべてのOrganizationメンバーシップを返す
+### ユーザのすべてのOrganizationメンバーシップを返す
 
 このドキュメントを端から端まで読んだ方は、[ユーザのパブリックなOrganizationに属するメンバーを取得するAPIメソッド][list-public-orgs]に気付いたかもしれません。 ほとんどのアプリケーションでは、このAPIメソッドを避けるべきです。 このメソッドは、ユーザのパブリックなOrganizationに属するメンバーだけを返し、プライベートなOrganizationに属するメンバーは返しません。
 

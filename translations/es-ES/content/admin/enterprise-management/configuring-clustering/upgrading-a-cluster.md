@@ -6,7 +6,7 @@ redirect_from:
   - /enterprise/admin/enterprise-management/upgrading-a-cluster
   - /admin/enterprise-management/upgrading-a-cluster
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Clustering
@@ -14,7 +14,7 @@ topics:
   - Upgrades
 ---
 
-### Actualizar con un hotpatch
+## Actualizar con un hotpatch
 {% data reusables.enterprise_installation.hotpatching-explanation %}El script de instalación de hotpatch instala el hotpatch en cada nodo de la agrupación y reinicia los servicios en su secuencia adecuada para evitar el tiempo de inactividad.
 
 1. Realiza una copia de seguridad de tus datos con [{% data variables.product.prodname_enterprise_backup_utilities %}](https://github.com/github/backup-utils#readme).
@@ -23,10 +23,10 @@ topics:
   $ ghe-cluster-hotpatch https://<em>HOTPATCH-URL/FILENAME</em>.hpkg
   ```
 
-### Actualizar con un paquete de actualización
+## Actualizar con un paquete de actualización
 Usa un paquete de actualización para actualizar una agrupación de {% data variables.product.prodname_ghe_server %} a la última característica de lanzamiento. Por ejemplo, puedes actualizar desde `2.11` hasta `2.13`.
 
-#### Preparar para una actualización
+### Preparar para una actualización
 
 1. Revisa la [Configuración de red de la agrupación](/enterprise/admin/guides/clustering/cluster-network-configuration) para la versión a la que deseas avanzar y realiza las actualizaciones conforme sea necesario.
 2. Realiza una copia de seguridad de tus datos con [{% data variables.product.prodname_enterprise_backup_utilities %}](https://github.com/github/backup-utils#readme).
@@ -53,7 +53,7 @@ Usa un paquete de actualización para actualizar una agrupación de {% data vari
   ```
 6. Identifica el nodo MySQL principal, que se definió como `mysql-master = <hostname>` en `cluster.conf`. Este será el último nodo que se actualizará.
 
-#### Actualizar los nodos de la agrupación
+### Actualizar los nodos de la agrupación
 
 1. Habilita el modo de mantenimiento de acuerdo con tu ventana planificada conectando el shell administrativo de cualquier nodo de agrupación y ejecutando `ghe-cluster-maintenance -s`.
 2. **Con la excepción del nodo primario de MySQL**, conéctate al shell administrativo de cada uno de los nodos de {% data variables.product.prodname_ghe_server %}. Ejecuta el comando `ghe-upgrade`, suministrando el nombre del archivo del paquete que descargaste en el Paso 4 de [Preparar una actualización](#preparing-to-upgrade):
@@ -79,5 +79,7 @@ Usa un paquete de actualización para actualizar una agrupación de {% data vari
   > gpg: depth: 0  valid:   1  signed:   0  trust: 0-, 0q, 0n, 0m, 0f, 1u
   > gpg: Good signature from "GitHub Enterprise (Upgrade Package Key) > <enterprise@github.com>"
   ```
-5. El proceso de actualización reiniciará el nodo MySQL principal una vez que esté completo. Verifica que puedes `hacer ping` en cada nodo luego del reinicio.
-6. Cierra el modo de mantenimiento desde el shell administativo de cualquier nodo al ejecutar `ghe-cluster-maintenance -u`.
+5. El proceso de actualización reiniciará el nodo MySQL principal una vez que esté completo. Verifica que puedes hacer `ping` en cada nodo después de que reinicie.{% ifversion ghes %}
+6. Conéctate al shell administrativo del nodo primario de MySQL y ejecuta el comando `ghe-cluster-config-apply`.
+7. Cuando se cmpleta el `ghe-cluster-config-apply`, verifica que los servicios estén en un estado saludable ejecutando `ghe-cluster-status`.{% endif %}
+8. Cierra el modo de mantenimiento desde el shell administativo de cualquier nodo al ejecutar `ghe-cluster-maintenance -u`.

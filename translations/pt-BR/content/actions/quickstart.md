@@ -5,28 +5,30 @@ allowTitleToDifferFromFilename: true
 redirect_from:
   - /actions/getting-started-with-github-actions/starting-with-preconfigured-workflow-templates
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 type: quick_start
 topics:
   - Fundamentals
+shortTitle: QuickStart
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
-### Introdução
+## Introdução
 
 Você precisa apenas de um repositório de {% data variables.product.prodname_dotcom %} para criar e executar um fluxo de trabalho de {% data variables.product.prodname_actions %}. Neste guia, você adicionará um fluxo de trabalho que demonstra algumas das funcionalidades essenciais de {% data variables.product.prodname_actions %}.
 
 O exemplo a seguir mostra como os trabalhos de {% data variables.product.prodname_actions %} podem ser acionados automaticamente, onde são executados e como podem interagir com o código no seu repositório.
 
-### Criar o seu primeiro fluxo de trabalho
+## Criar o seu primeiro fluxo de trabalho
 
-1. Do seu repositório no {% data variables.product.prodname_dotcom %}, crie um novo arquivo no diretório `.github/workflows` denominado `github-actions-demo.yml`. Para obter mais informações, consulte "[Criar arquivos](/github/managing-files-in-a-repository/creating-new-files)".
-2. Copie o conteúdo de YAML a seguir para o arquivo `github-actions-demo.yml`:
+1. Crie um diretório `.github/workflows` no repositório {% data variables.product.prodname_dotcom %} se este diretório não existir.
+2. No diretório `.github/workflows`, crie um arquivo denominado `github-actions-demo.yml`. Para obter mais informações, consulte "[Criar arquivos](/github/managing-files-in-a-repository/creating-new-files)".
+3. Copie o conteúdo de YAML a seguir para o arquivo `github-actions-demo.yml`:
     {% raw %}
     ```yaml{:copy}
     name: GitHub Actions Demo
@@ -37,9 +39,9 @@ O exemplo a seguir mostra como os trabalhos de {% data variables.product.prodnam
         steps:
           - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
           - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
-          - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
+          - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."{% endraw %}
           - name: Check out repository code
-            uses: actions/checkout@v2
+            uses: {% data reusables.actions.action-checkout %}{% raw %}
           - run: echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
           - run: echo "🖥️ The workflow is now ready to test your code on the runner."
           - name: List files in the repository
@@ -53,7 +55,7 @@ O exemplo a seguir mostra como os trabalhos de {% data variables.product.prodnam
 
 Fazer commit do arquivo de fluxo de trabalho para um branch em seu repositório aciona o evento `push` e executa seu fluxo de trabalho.
 
-### Visualizar seus resultados do fluxo de trabalho
+## Visualizar os resultados do seu fluxo de trabalho
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.actions-tab %}
@@ -72,11 +74,14 @@ Fazer commit do arquivo de fluxo de trabalho para um branch em seu repositório 
 
    Por exemplo, você pode ver a lista de arquivos no seu repositório: ![Exemplo do detalhe da ação](/assets/images/help/repository/actions-quickstart-log-detail.png)
 
-### Mais modelos de fluxo de trabalho
+## Mais fluxos de trabalho iniciais
 
 {% data reusables.actions.workflow-template-overview %}
 
-### Próximas etapas
+## Exemplos mais complexos
+{% data reusables.actions.link-to-example-library %}
+
+## Próximas etapas
 
 O exemplo do fluxo de trabalho que você acabou de adicionar é executado cada vez que o código for enviado para o branch e mostra como {% data variables.product.prodname_actions %} pode funcionar com o conteúdo do seu repositório. Mas este é apenas o início do que você pode fazer com {% data variables.product.prodname_actions %}:
 
@@ -86,4 +91,3 @@ O exemplo do fluxo de trabalho que você acabou de adicionar é executado cada v
 O {% data variables.product.prodname_actions %} pode ajudá-lo a automatizar quase todos os aspectos dos processos de desenvolvimento do seu aplicativo. Pronto para começar? Aqui estão alguns recursos úteis para dar seus próximos passos com {% data variables.product.prodname_actions %}:
 
 - "[Aprenda {% data variables.product.prodname_actions %}](/actions/learn-github-actions)" para obter um tutorial aprofundado.
-- "[Guias](/actions/guides)" para casos e exemplos específicos de uso.

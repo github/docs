@@ -1,6 +1,7 @@
 ---
 title: Understanding connections between repositories
-intro: "You can better understand the connections that exist between repositories by viewing a repository's network and forks and the projects that depend on the repository."
+intro: You can better understand the connections that exist between repositories by viewing a repository's network and forks and the projects that depend on the repository.
+product: '{% data reusables.gated-features.repository-insights %}'
 redirect_from:
   - /articles/viewing-a-repository-s-network
   - /articles/viewing-a-repositorys-network
@@ -17,6 +18,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Repositories
 shortTitle: Connections between repositories
@@ -24,8 +26,7 @@ shortTitle: Connections between repositories
 
 ## Viewing a repository's network
 
-'The network graph displays the branch history of the entire repository network, including branches of the root repository and branches of forks that contain commits unique to the network.'
-product: '{% data reusables.gated-features.repository-insights %}'
+The network graph displays the branch history of the entire repository network, including branches of the root repository and branches of forks that contain commits unique to the network.
 
 ![Repository network graph](/assets/images/help/graphs/repo_network_graph.png)
 
@@ -48,7 +49,7 @@ The Members graph displays all the forks of a repository.
 
 Forks are listed alphabetically by the username of the person who forked the repository. You can click on the username to be redirected to the user's {% data variables.product.product_name %} profile page or click on the fork name to be redirected to the specific fork of the repository.
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 ![Repository members graph](/assets/images/help/graphs/repo_forks_graph_dotcom.png)
 
@@ -65,7 +66,6 @@ Forks are listed alphabetically by the username of the person who forked the rep
 3. In the left sidebar, click **Forks**.
 ![Forks tab](/assets/images/help/graphs/graphs-sidebar-forks-tab.png)
 
-{% ifversion fpt or ghes > 2.22 %}
 ## Viewing the dependencies of a repository
 
 You can use the dependency graph to explore the code your repository depends on.
@@ -74,5 +74,4 @@ Almost all software relies on code developed and maintained by other developers,
 
 The dependency graph provides a great way to visualize and explore the dependencies for a repository. For more information, see "[About the dependency graph](/code-security/supply-chain-security/about-the-dependency-graph)" and "[Exploring the dependencies of a repository](/code-security/supply-chain-security/exploring-the-dependencies-of-a-repository)."
 
-You can also set up your repository so that {% data variables.product.company_short %} alerts you automatically whenever a security vulnerability is found in one of your dependencies. For more information, see "[About alerts for vulnerable dependencies](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)."
-{% endif %}
+You can also set up your repository so that {% data variables.product.company_short %} alerts you automatically whenever a security vulnerability is found in one of your dependencies. For more information, see "[About {% data variables.product.prodname_dependabot_alerts %}](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)."

@@ -1,1 +1,0 @@
-You can use parameters to narrow the list of results. For more information about using parameters, see [Parameters](/v3/#parameters).

@@ -1,0 +1,26 @@
+---
+date: '2021-10-12'
+sections:
+  security_fixes:
+    - 'パッケージが最新のセキュリティバージョンに更新されました。{% comment %} https://github.com/github/enterprise2/pull/27034, https://github.com/github/enterprise2/pull/27010 {% endcomment %}'
+  bugs:
+    - 'カスタムのpre-receive フックが、制約の厳しすぎる仮想メモリもしくはCPU時間の制限のために失敗することがありました。{% comment %}https://github.com/github/enterprise2/pull/26971, https://github.com/github/enterprise2/pull/26955 {% endcomment %}'
+    - '`ghe-cleanup-settings`で既存のすべての設定を消去しようとすると、Management Consoleサービスの再起動に失敗しました。{% comment %} https://github.com/github/enterprise2/pull/26986, https://github.com/github/enterprise2/pull/26901 {% endcomment %}'
+    - '`ghe-repl-teardown` でのレプリケーションのティアダウンの間に、Memcachedが再起動に失敗しました。{% comment %} https://github.com/github/enterprise2/pull/26992, https://github.com/github/enterprise2/pull/26983 {% endcomment %}'
+    - '高負荷の間、上流のサービスが内部的なヘルスチェックに失敗した際に、ユーザがHTTPステータスコード503を受信することになります。{% comment %} https://github.com/github/enterprise2/pull/27081, https://github.com/github/enterprise2/pull/26999 {% endcomment %}'
+    - 'pre-receiveフック環境環境が、Alpine上のBusyBoxからcatコマンドを呼び出すことが禁じられていました。{% comment %} https://github.com/github/enterprise2/pull/27114, https://github.com/github/enterprise2/pull/27094 {% endcomment %}'
+    - '外部のデータベースパスワードが平文でログに記録されていました。{% comment %} https://github.com/github/enterprise2/pull/27172, https://github.com/github/enterprise2/pull/26413 {% endcomment %}'
+    - '`ghe-config-apply`を実行した際に、誤った`jq`のエラーメッセージが表示されることがありました。{% comment %} https://github.com/github/enterprise2/pull/27203, https://github.com/github/enterprise2/pull/26784 {% endcomment %}'
+    - 'プライマリのクラスタデータセンターからセカンダリのクラスタデータセンターへのフェイルオーバーは成功しますが、その後オリジナルのプライマリクラスタデータセンターへのフェイルバックがElasticsearchインデックスの昇格に失敗しました。{% comment %} https://github.com/github/github/pull/193180, https://github.com/github/github/pull/192447 {% endcomment %}'
+    - 'リポジトリのセルフホストランナーのサイトアドミンページがHTTP 500を返します。{% comment %} https://github.com/github/github/pull/194205 {% endcomment %}'
+    - '場合によって、`Dormant users` ページを閲覧しようとしたGitHub Enterpriseの管理者が`502 Bad Gateway`もしくは`504 Gateway Timeout`レスポンスを受信しました。{% comment %} https://github.com/github/github/pull/194259, https://github.com/github/github/pull/193609 {% endcomment %}'
+  changes:
+    - 'webhookログのリテンションウィンドウから外れたwebhookログを、より効率的に削除します。{% comment %} https://github.com/github/enterprise2/pull/27157 {% endcomment %}'
+  known_issues:
+    - 新しくセットアップされたユーザを持たない{% data variables.product.prodname_ghe_server %}で、攻撃者が最初の管理ユーザを作成できました。
+    - アップグレードの過程で、カスタムのファイアウォールのルールが削除されます。
+    - Git LFSが追跡するファイル[Webインターフェースからアップロードされたもの](https://github.com/blog/2105-upload-files-to-your-repositories)が、不正にリポジトリに直接追加されてしまいます。
+    - 同じリポジトリ内のファイルパスが255文字を超えるblobへのパーマリンクを含むIssueをクローズできませんでした。
+    - GitHub Connectで"Users can search GitHub.com"が有効化されている場合、GitHub.comの検索結果にプライベート及びインターナルリポジトリのIssueが含まれません。
+    - High Availability構成でレプリカノードがオフラインの場合でも、{% data variables.product.product_name %}が{% data variables.product.prodname_pages %}リクエストをオフラインのノードにルーティングし続ける場合があり、それによってユーザにとっての{% data variables.product.prodname_pages %}の可用性が下がってしまいます。
+    - pre-receive フックの処理に固有のリソース制限によって、pre-receive フックに失敗するものが生じることがあります。

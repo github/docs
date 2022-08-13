@@ -4,18 +4,18 @@ intro: '{% data variables.product.product_name %}との通信にプロキシサ�
 redirect_from:
   - /actions/automating-your-workflow-with-github-actions/using-a-proxy-server-with-self-hosted-runners
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 type: tutorial
+shortTitle: Proxy servers
 ---
 
-{% data reusables.actions.ae-self-hosted-runners-notice %}
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
-### 環境変数を利用したプロキシサーバーの設定
+## 環境変数を利用したプロキシサーバーの設定
 
 セルフホストランナーがプロキシサーバー経由で通信しなければならないのであれば、セルフホストランナーアプリケーションは以下の環境変数に設定されたプロキシの設定を利用します。
 
@@ -35,7 +35,9 @@ type: tutorial
 
 Windowsマシンで、プロキシ環境変数名で大文字小文字は区別されません。 Linux及びmacOSマシンで、環境変数はすべて小文字にすることをおすすめします。 たとえば`https_proxy`と`HTTPS_PROXY`といったように、大文字と小文字の環境変数をLinuxもしくはmacOSで使った場合、セルフホストランナーアプリケーションは小文字の環境変数を使います。
 
-### .envファイルを使用したプロキシ設定
+{% data reusables.actions.self-hosted-runner-ports-protocols %}
+
+## .envファイルを使用したプロキシ設定
 
 環境変数を設定することが現実的ではない場合、プロキシ設定変数をセルフホストランナーアプリケーションのディレクトリ中の_.env_という名前のファイルで設定できます。 これはたとえば、ランナーアプリケーションをシステムアカウント下のサービスとして設定したい場合に必要になるかもしれません。 ランナーアプリケーションが起動すると、_.env_中に設定されたプロキシ設定の変数を読み取ります。
 
@@ -46,7 +48,7 @@ https_proxy=http://proxy.local:8080
 no_proxy=example.com,myserver.local:443
 ```
 
-### Dockerコンテナのためのプロキシ設定
+## Dockerコンテナのためのプロキシ設定
 
 ワークフロー中でDockerコンテナアクションやサービスコンテナを使うなら、上記の環境変数の設定に加えて、プロキシサーバーを使うようDockerも設定しなければならないかもしれません。
 

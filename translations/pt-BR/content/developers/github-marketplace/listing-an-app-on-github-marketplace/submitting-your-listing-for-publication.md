@@ -6,9 +6,11 @@ redirect_from:
   - /developers/github-marketplace/submitting-your-listing-for-review
   - /developers/github-marketplace/submitting-your-listing-for-publication
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 topics:
   - Marketplace
+shortTitle: Envie o seu anúncio
 ---
 
 Quando anúncio do seu aplicativo atender aos requisitos de {% data variables.product.prodname_marketplace %}, você poderá enviar o seu aplicativo. Para obter uma visão geral dos requisitos de anúncio de aplicativos, consulte "[Requisitos para anunciar um aplicativo](/developers/github-marketplace/requirements-for-listing-an-app)".
@@ -17,7 +19,7 @@ Quando anúncio do seu aplicativo atender aos requisitos de {% data variables.pr
 
   ![Opção de visão geral para o anúncio de rascunho do Marketplace](/assets/images/marketplace/edit-marketplace-listing-overview.png)
 
-2. Para enviar o anúncio completo do aplicativo, clique **Solicitar a publicação**.
+2. Para enviar sua listagem de aplicativo concluída, clique em **Solicitar publicação**.
 
   ![Lista de verificação para "Publicar o seu aplicativo no Marketplace" com o botão de envio na parte inferior](/assets/images/marketplace/publish-your-app-checklist-and-submission.png)
 

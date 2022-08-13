@@ -2,8 +2,8 @@
 date: '2020-08-11'
 sections:
   security_fixes:
-    - '**关键：**在 GitHub 页面中发现了一个远程代码执行漏洞，允许攻击者执行命令，作为构建 GitHub Pages 网站的一部分。此问题源于在 Pages 构建过程中使用了过时和有漏洞的依赖项。要利用此漏洞，攻击者需要在 GitHub Enterprise Server 实例 上构建 GitHub Pages 站点的权限。此漏洞影响 GitHub Enterprise Server 的所有版本。为缓解此漏洞的影响，Kramdown 已更新以解决 CVE-2020-14001。 {% comment %} https://github.com/github/pages/pull/2835, https://github.com/github/pages/pull/2827 {% endcomment %}'
-    - '**高：**攻击者在 GitHub Enterprise Server 上执行时可能会将恶意参数注入 Git 子命令。这可能允许攻击者用部分用户控制的内容覆盖任意文件，并可能在 GitHub Enterprise Server 实例上执行任意命令。要利用此漏洞，攻击者需要访问 GHES 实例中仓库的权限。但由于已实施其他保护措施，因此我们无法确定积极利用这一漏洞的方法。此漏洞是通过 GitHub Security Bug Bounty 计划报告的。 {% comment %} https://github.com/github/github/pull/150936, https://github.com/github/github/pull/150634 {% endcomment %}'
+    - '{% octicon "alert" aria-label="The alert icon" %}**关键：**在 GitHub 页面中发现了一个远程代码执行漏洞，允许攻击者执行命令，作为构建 GitHub Pages 网站的一部分。此问题源于在 Pages 构建过程中使用了过时和有漏洞的依赖项。要利用此漏洞，攻击者需要在 GitHub Enterprise Server 实例 上构建 GitHub Pages 站点的权限。此漏洞影响 GitHub Enterprise Server 的所有版本。为缓解此漏洞的影响，Kramdown 已更新以解决 CVE-2020-14001。 {% comment %} https://github.com/github/pages/pull/2835, https://github.com/github/pages/pull/2827 {% endcomment %}'
+    - '**高：**高：攻击者在 GitHub Enterprise Server 上执行时可能会将恶意参数注入 Git 子命令。这可能允许攻击者用部分用户控制的内容覆盖任意文件，并可能在 GitHub Enterprise Server 实例上执行任意命令。要利用此漏洞，攻击者需要访问 GHES 实例中仓库的权限。但由于已实施其他保护措施，因此我们无法确定积极利用这一漏洞的方法。此漏洞是通过 GitHub Security Bug Bounty 计划报告的。 {% comment %} https://github.com/github/github/pull/150936, https://github.com/github/github/pull/150634 {% endcomment %}'
     - '包已更新到最新的安全版本。{% comment %} https://github.com/github/enterprise2/pull/21679, https://github.com/github/enterprise2/pull/21542, https://github.com/github/enterprise2/pull/21812, https://github.com/github/enterprise2/pull/21700 {% endcomment %}'
   bugs:
     - 'Consul 配置错误阻止在独立实例中处理一些后台任务。 {% comment %} https://github.com/github/enterprise2/pull/21463 {% endcomment %}'
@@ -26,3 +26,4 @@ sections:
     - '推送到命令行上的仓库时，不会报告安全警报。{% comment %} https://github.com/github/github/issues/143190 {% endcomment %}'
     - '审核日志可归因于 127.0.0.1，而不是实际源 IP 地址。（更新于 2020-11-02） {% comment %} https://github.com/github/enterprise2/issues/21514 {% endcomment %}'
     - "配置仓库的权限到“分类”或“维护”失败，且显示错误消息。"
+    - '当副本节点在高可用性配置下离线时，{% data variables.product.product_name %} 仍可能将 {% data variables.product.prodname_pages %} 请求路由到离线节点，从而减少用户的 {% data variables.product.prodname_pages %} 可用性。'

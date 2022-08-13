@@ -2,17 +2,19 @@
 title: Eventos do Webhook para a API do GitHub Marketplace
 intro: 'Um aplicativo do {% data variables.product.prodname_marketplace %} recebe informações sobre mudanças no plano de um usuário no webhook do evento de compra no Marketplace. Um evento de compra no Marketplace é acionado quando um usuário compra, cancela ou muda seu plano de pagamento.'
 redirect_from:
-  - /apps/marketplace/setting-up-github-marketplace-webhooks/about-webhook-payloads-for-a-github-marketplace-listing/
-  - /apps/marketplace/integrating-with-the-github-marketplace-api/github-marketplace-webhook-events/
+  - /apps/marketplace/setting-up-github-marketplace-webhooks/about-webhook-payloads-for-a-github-marketplace-listing
+  - /apps/marketplace/integrating-with-the-github-marketplace-api/github-marketplace-webhook-events
   - /marketplace/integrating-with-the-github-marketplace-api/github-marketplace-webhook-events
   - /developers/github-marketplace/webhook-events-for-the-github-marketplace-api
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 topics:
   - Marketplace
+shortTitle: Eventos webhook
 ---
 
-### Carga do webhook de compra no {% data variables.product.prodname_marketplace %}
+## Carga do webhook de compra no {% data variables.product.prodname_marketplace %}
 
 As solicitações de `POST` têm cabeçalhos especiais. Consulte "[Cabeçalhos de entrega de Webhook](/webhooks/event-payloads/#delivery-headers)" para obter mais informações. O GitHub não reenvia tentativas falhas de entrega. Certifique-se de que seu aplicativo possa receber todas as cargas do webhook enviadas pelo GitHub.
 
@@ -44,31 +46,31 @@ O objeto `marketplace_purchase` tem as seguintes chaves:
 
 O objeto `plano` tem as chaves a seguir:
 
-| Tecla                    | Tipo               | Descrição                                                                                                                             |
-| ------------------------ | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------- |
-| `id`                     | `inteiro`          | O identificador exclusivo para este plano.                                                                                            |
-| `name`                   | `string`           | O nome do plano.                                                                                                                      |
-| `descrição`              | `string`           | Descrição deste plano.                                                                                                                |
-| `monthly_price_in_cents` | `inteiro`          | O preço mensal deste plano em centavos (moeda americana). Por exemplo, uma listagem que custa 10 dólares por mês será 1000 centavos.  |
-| `yearly_price_in_cents`  | `inteiro`          | O preço anual deste plano em centavos (moeda americana). Por exemplo, uma listagem que custa 100 dólares por mês será 10000 centavos. |
-| `price_model`            | `string`           | O modelo de preço para esta listagem. Pode ser uma das `tarifas fixas`, `por unidade`, ou `grátis`.                                   |
-| `has_free_trial`         | `boolean`          | `verdadeiro` quando esta listagem oferece um teste grátis.                                                                            |
-| `unit_name`              | `string`           | O nome da unidade. Se o modelo de preços não é `por unidade`, será `nulo`.                                                            |
-| `marcador`               | `array de strigns` | Os nomes dos marcadores estabelecidos no plano de preços.                                                                             |
+| Tecla                    | Tipo               | Descrição                                                                                                                              |
+| ------------------------ | ------------------ | -------------------------------------------------------------------------------------------------------------------------------------- |
+| `id`                     | `inteiro`          | O identificador exclusivo para este plano.                                                                                             |
+| `name`                   | `string`           | O nome do plano.                                                                                                                       |
+| `descrição`              | `string`           | Descrição deste plano.                                                                                                                 |
+| `monthly_price_in_cents` | `inteiro`          | O preço mensal deste plano em centavos (moeda americana). Por exemplo, uma listagem que custa 10 dólares por mês será 1000 centavos.   |
+| `yearly_price_in_cents`  | `inteiro`          | O preço anual deste plano em centavos (moeda americana). Por exemplo, uma listagem que custa 100 dólares por mês será 120000 centavos. |
+| `price_model`            | `string`           | O modelo de preço para esta listagem. Pode ser uma das `tarifas fixas`, `por unidade`, ou `grátis`.                                    |
+| `has_free_trial`         | `boolean`          | `verdadeiro` quando esta listagem oferece um teste grátis.                                                                             |
+| `unit_name`              | `string`           | O nome da unidade. Se o modelo de preços não é `por unidade`, será `nulo`.                                                             |
+| `marcador`               | `array de strigns` | Os nomes dos marcadores estabelecidos no plano de preços.                                                                              |
 
 <br/>
 
-#### Exemplo de carga de webhook para um evento `comprado`
+### Exemplo de carga de webhook para um evento `comprado`
 Este exemplo fornece a carga do evento `comprado`.
 
 {{ webhookPayloadsForCurrentVersion.marketplace_purchase.purchased }}
 
-#### Exemplo de carga de webhook para um evento `alterado`
+### Exemplo de carga de webhook para um evento `alterado`
 
 As alterações em um plano incluem atualizações e downgrades. Este exemplo representa as cargas de eventos `alterados`,`pending_change` e `pending_change_cancelled`. A ação identifica qual destes três acontecimentos ocorreu.
 
 {{ webhookPayloadsForCurrentVersion.marketplace_purchase.changed }}
 
-#### Exemplo de carga de webhook para um evento `cancelado`
+### Exemplo de carga de webhook para um evento `cancelado`
 
 {{ webhookPayloadsForCurrentVersion.marketplace_purchase.cancelled }}

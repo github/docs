@@ -6,14 +6,16 @@ redirect_from:
   - /articles/securing-your-github-pages-site-with-https
   - /github/working-with-github-pages/securing-your-github-pages-site-with-https
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 topics:
   - Pages
+shortTitle: Asegurar el sitio con HTTPS
 ---
 
 Las personas con permisos de administración para un repositorio pueden aplicar HTTPS para un sitio de {% data variables.product.prodname_pages %}.
 
-### Acerca de HTTPS y de las {% data variables.product.prodname_pages %}
+## Acerca de HTTPS y de las {% data variables.product.prodname_pages %}
 
 Todos los sitios {% data variables.product.prodname_pages %}, incluidos los sitios que están correctamente configurados con un dominio personalizado, admiten HTTPS y la aplicación de HTTPS. Para obtener más información acerca de los dominios personalizados, consulta "[Acerca de los dominios personalizados y de las {% data variables.product.prodname_pages %}](/articles/about-custom-domains-and-github-pages)" y "[Solución de problemas de los dominios personalizados y de las {% data variables.product.prodname_pages %}](/articles/troubleshooting-custom-domains-and-github-pages#https-errors)".
 
@@ -21,14 +23,26 @@ Todos los sitios {% data variables.product.prodname_pages %}, incluidos los siti
 
 {% data reusables.pages.private_pages_are_public_warning %}
 
-### Aplicar HTTPS en tu sitio {% data variables.product.prodname_pages %}
+{% note %}
+
+**Nota:** El RFC3280 indica que la longitud máxima del nombre común debe ser de 64 caracteres. Por lo tanto, todo el nombre de dominio de tu sitio de {% data variables.product.prodname_pages %} debe ser menor a 64 caracteres de longitud para que se cree un certificado exitosamente.
+
+{% endnote %}
+
+## Aplicar HTTPS en tu sitio {% data variables.product.prodname_pages %}
 
 {% data reusables.pages.navigate-site-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.pages.sidebar-pages %}
 3. Debajo de "{% data variables.product.prodname_pages %}", selecciona **Enforce HTTPS** (Aplicar HTTPS). ![Aplicar casilla de verificación de HTTPS](/assets/images/help/pages/enforce-https-checkbox.png)
 
-### Resolver problemas con contenido mixto
+## Solución de problemas para el aprovisionamiento de certificados (error de tipo "Certificate not yet created")
+
+Cuando configuras o cambios tu dominio personalizado en los ajustes de las Páginas, comenzará una verificación automática de DNS. Esta verificación determina si tus ajustes de DNS se configuran para permitir que {% data variables.product.prodname_dotcom %} obtenga un certificado automáticamente. Si la verificación tiene éxito, {% data variables.product.prodname_dotcom %} pondrá en cola un job para solicitar un certificado TLS desde [Let's Encrypt](https://letsencrypt.org/). Cuando recibas un certificado válido, {% data variables.product.prodname_dotcom %} lo carga automáticamente a los servidores que manejan la terminación de TLS para las Páginas. Cuando este proceso se complete con éxito, se mostrará una marca de verificación al costado de tu nombre de dominio personalizado.
+
+El proceso podría tomar algo de tiempo. Si el proceso no se completa varios minutos después de que hiciste clic en **Guardar**, inténtalo haciendo clic en **Eliminar** junto a tu nombre de dominio personalizado. Vuelve a teclear el nombre de dominio y haz clic nuevamente en **Guardar**. Esto cancelará y volverá a iniciar el proceso de aprovisionamiento.
+
+## Resolver problemas con contenido mixto
 
 Si habilitas HTTPS para tu sitio de {% data variables.product.prodname_pages %}, pero el HTML de tu sitio sigue referenciando imágenes, CSS o JavaScript a través de HTTP, significa que tu sitio está ofreciendo *contenido mixto*. Ofrecer contenido mixto puede hacer que tu sitio sea menos seguro y generar problemas al cargar activos.
 
@@ -46,10 +60,10 @@ Normalmente, los activos se encuentran en las siguientes ubicaciones:
 
 {% endtip %}
 
-#### Ejemplos de activos referenciados en un archivo HTML
+### Ejemplos de activos referenciados en un archivo HTML
 
 | Tipo de activo |                                                       HTTP                                                       |                                                       HTTPS                                                        |
 |:--------------:|:----------------------------------------------------------------------------------------------------------------:|:------------------------------------------------------------------------------------------------------------------:|
 |      CSS       |                      `<link rel="stylesheet" href="http://example.com/css/main.css">`                      |                      `<link rel="stylesheet" href="https://example.com/css/main.css">`                       |
 |   JavaScript   |            `<script type="text/javascript" src="http://example.com/js/main.js"></script>`            |            `<script type="text/javascript" src="https://example.com/js/main.js"></script>`             |
-|     Image      | `<A HREF="http://www.somesite.com"><IMG SRC="http://www.example.com/logo.jpg" alt="Logo"></a>` | `<A HREF="https://www.somesite.com"><IMG SRC="https://www.example.com/logo.jpg" alt="Logo"></a>` |  
+|     Image      | `<a href="http://www.somesite.com"><img src="http://www.example.com/logo.jpg" alt="Logo"></a>` | `<a href="https://www.somesite.com"><img src="https://www.example.com/logo.jpg" alt="Logo"></a>` |  

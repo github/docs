@@ -4,10 +4,12 @@ intro: 'Review your webhook deliveries on {% data variables.product.prodname_dot
 redirect_from:
   - /webhooks/testing
   - /developers/webhooks-and-events/testing-webhooks
+  - /articles/testing-webhooks
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Webhooks
 ---
@@ -19,7 +21,7 @@ view provides some tooling for testing your deployed payloads.
 
 Every webhook has its own "Recent Deliveries" section, which lists, at a glance whether a delivery was successful (green check) or failed (red x). You can also identify when each delivery was attempted.
 
-{% data variables.product.product_name %} keeps a log of each webhook delivery for {% ifversion fpt %} 30 {% else %} 8 {% endif %} days.
+{% data variables.product.product_name %} keeps a log of each webhook delivery for {% ifversion fpt or ghec %} 30 {% else %} 8 {% endif %} days.
 
 ![Recent Deliveries view](/assets/images/webhooks_recent_deliveries.png)
 

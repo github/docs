@@ -1,5 +1,5 @@
 {% note %}
 
-**ノート：** [GitHub Desktop](https://desktop.github.com/)はコミット署名をサポートしていません。
+**Note:** [GitHub Desktop](https://desktop.github.com/) only supports commit signing if your Git client is configured to sign commits by default.
 
 {% endnote %}

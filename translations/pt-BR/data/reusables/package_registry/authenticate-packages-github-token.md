@@ -1,1 +1,1 @@
-For more information about `GITHUB_TOKEN` used in {% data variables.product.prodname_actions %} workflows, see "[Authentication in a workflow](/actions/reference/authentication-in-a-workflow#using-the-github_token-in-a-workflow)."
+Para obter mais informações sobre `GITHUB_TOKEN` usado nos fluxos de trabalho de {% data variables.product.prodname_actions %}, consulte[Autenticação em um fluxo de trabalho](/actions/reference/authentication-in-a-workflow#using-the-github_token-in-a-workflow)".

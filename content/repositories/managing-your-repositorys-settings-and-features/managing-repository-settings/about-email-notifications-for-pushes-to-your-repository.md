@@ -3,9 +3,9 @@ title: About email notifications for pushes to your repository
 intro: You can choose to automatically send email notifications to a specific email address when anyone pushes to the repository.
 permissions: People with admin permissions in a repository can enable email notifications for pushes to your repository.
 redirect_from:
-  - /articles/managing-notifications-for-pushes-to-a-repository/
-  - /articles/receiving-email-notifications-for-pushes-to-a-repository/
-  - /articles/about-email-notifications-for-pushes-to-your-repository/
+  - /articles/managing-notifications-for-pushes-to-a-repository
+  - /articles/receiving-email-notifications-for-pushes-to-a-repository
+  - /articles/about-email-notifications-for-pushes-to-your-repository
   - /github/receiving-notifications-about-activity-on-github/about-email-notifications-for-pushes-to-your-repository
   - /github/administering-a-repository/about-email-notifications-for-pushes-to-your-repository
   - /github/administering-a-repository/managing-repository-settings/about-email-notifications-for-pushes-to-your-repository
@@ -13,6 +13,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Repositories
 shortTitle: Email notifications for pushes
@@ -29,7 +30,7 @@ Each email notification for a push to a repository lists the new commits and lin
 - The files that were changed as part of the commit
 - The commit message
 
-You can filter email notifications you receive for pushes to a repository. For more information, see {% ifversion fpt or ghae or ghes %}"[Configuring notifications](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#filtering-email-notifications){% else %}"[About notification emails](/github/receiving-notifications-about-activity-on-github/about-email-notifications)." You can also turn off email notifications for pushes. For more information, see "[Choosing the delivery method for your notifications](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/choosing-the-delivery-method-for-your-notifications){% endif %}."
+You can filter email notifications you receive for pushes to a repository. For more information, see "[Configuring notifications](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#filtering-email-notifications)."
 
 ## Enabling email notifications for pushes to your repository
 
@@ -44,10 +45,5 @@ You can filter email notifications you receive for pushes to a repository. For m
 ![Setup notifications button](/assets/images/help/settings/setup_notifications_settings.png)
 
 ## Further reading
-{% ifversion fpt or ghae or ghes %}
 - "[About notifications](/github/managing-subscriptions-and-notifications-on-github/about-notifications)"
-{% else %}
-- "[About notifications](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/about-notifications)"
-- "[Choosing the delivery method for your notifications](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/choosing-the-delivery-method-for-your-notifications)"
-- "[About email notifications](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/about-email-notifications)"
-- "[About web notifications](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/about-web-notifications)"{% endif %}
+

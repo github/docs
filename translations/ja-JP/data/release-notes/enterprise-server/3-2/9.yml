@@ -1,0 +1,20 @@
+---
+date: '2022-02-17'
+sections:
+  security_fixes:
+    - ユーザが、"saml"というユーザもしくはOrganizationを登録することが可能でした。
+    - パッケージは最新のセキュリティバージョンにアップデートされました。
+  bugs:
+    - Azure Blob Storageが使われている場合、Management ConsoleでGitHub Packagesのストレージ設定を検証して保存することができませんでした。
+    - 不正な文字セットの警告で、設定オプションのmssql.backup.cadenceによってghe-config-checkが失敗しました。
+    - memcachedから2<sup>^16</sup>以上のキーを取得する際のSystemStackError（スタックが深すぎる）を修正しました。
+  changes:
+    - Secret scaningがZIP及び他のアーカイブファイルでシークレットのスキャンをスキップしてしまいます。
+  known_issues:
+    - 新しくセットアップされたユーザを持たない{% data variables.product.prodname_ghe_server %}インスタンスで、攻撃者が最初の管理ユーザを作成できました。
+    - アップグレードの過程で、カスタムのファイアウォールのルールが削除されます。
+    - Git LFSが追跡するファイル[Webインターフェースからアップロードされたもの](https://github.com/blog/2105-upload-files-to-your-repositories)が、不正にリポジトリに直接追加されてしまいます。
+    - 同じリポジトリ内のファイルパスが255文字を超えるblobへのパーマリンクを含むIssueをクローズできませんでした。
+    - GitHub Connectで"Users can search GitHub.com"が有効化されている場合、GitHub.comの検索結果にプライベート及びインターナルリポジトリのIssueが含まれません。
+    - '{% data variables.product.prodname_registry %}のnpmレジストリは、メタデータのレスポンス中で時間の値を返さなくなります。これは、大きなパフォーマンス改善のために行われました。メタデータレスポンスの一部として時間の値を返すために必要なすべてのデータは保持し続け、既存のパフォーマンスの問題を解決した将来に、この値を返すことを再開します。'
+    - pre-receive フックの処理に固有のリソース制限によって、pre-receive フックに失敗するものが生じることがあります。

@@ -5,13 +5,15 @@ redirect_from:
   - /enterprise/admin/user-management/removing-users-from-teams-and-organizations
   - /admin/user-management/removing-users-from-teams-and-organizations
 versions:
-  enterprise-server: '*'
+  ghes: '*'
+  ghae: '*'
 type: how_to
 topics:
   - Access management
   - Accounts
   - Enterprise
   - Teams
+shortTitle: Eliminar la membrecía de usuario
 ---
 
 Solo los propietarios o los administradores del equipo pueden eliminar miembros de la organización. Cuando se elimina un usuario de un equipo o una organización, sus propuestas, solicitudes de extracción y comentarios en los repositorios de la organización permanecen intactos y siguen siendo atribuidos al usuario.
@@ -22,7 +24,9 @@ Solo los propietarios o los administradores del equipo pueden eliminar miembros 
 
 {% endwarning %}
 
-### Eliminar un miembro del equipo
+## Eliminar un miembro del equipo
+
+{% ifversion ghes %}
 
 {% warning %}
 
@@ -32,16 +36,18 @@ Para eliminar un miembro existente de un equipo sincronizado a un grupo LDAP, co
 
 {% endwarning %}
 
+{% endif %}
+
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.specific_team %}
 4. Selecciona la persona o las personas que quieres eliminar. ![Casilla junto al miembro de la organización](/assets/images/help/teams/team-member-check-box.png)
 5. Arriba de la lista de miembros del equipo, utiliza el menú desplegable y haz clic en **Remove from team** (Eliminar del equipo). ![Menú desplegable con opción para cambiar el rol](/assets/images/help/teams/bulk-edit-drop-down.png)
 
-### Eliminar un usuario de una organización
+## Eliminar un usuario de una organización
 
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.people %}
 4. Al lado del nombre de los usuarios que quieras eliminar de la organización, haz clic en la casilla de verificación. ![Casilla de verificación Eliminar usuario](/assets/images/help/organizations/Organization-remove-user.png)
 5. En la parte superior de la página, debajo del nombre de la organización, haz clic en **Eliminar de la organización**. ![Botón para eliminar de la organización ](/assets/images/help/organizations/Organization-remove-from-organization-button.png)

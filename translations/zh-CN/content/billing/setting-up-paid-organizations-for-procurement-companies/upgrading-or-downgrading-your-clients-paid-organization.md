@@ -5,14 +5,15 @@ redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/upgrading-or-downgrading-your-clients-paid-organization
   - /articles/upgrading-or-downgrading-your-client-s-paid-organization
   - /articles/upgrading-or-downgrading-your-clients-paid-organization
-  - /github/setting-up-and-managing-billing-and-payments-on-github/upgrading-or-downgrading-your-clients-paid-organization
   - /github/setting-up-and-managing-billing-and-payments-on-github/setting-up-paid-organizations-for-procurement-companies/upgrading-or-downgrading-your-clients-paid-organization
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Organizations
   - Upgrades
+shortTitle: 升级或降级
 ---
 
 {% data reusables.organizations.reseller-ask-to-become-billing-manager %}
@@ -25,7 +26,7 @@ topics:
 
 {% endtip %}
 
-### 升级组织的付费席位数量
+## 升级组织的付费席位数量
 
 {% data reusables.organizations.billing-settings %}
 {% data reusables.dotcom_billing.add-seats %}
@@ -34,7 +35,7 @@ topics:
 
 添加席位后，将基于您添加的席位数量以及结算周期的剩余时间对组织存档的付款方式按比例收取费用。
 
-### 将组织的付费席位数量降级为免费
+## 将组织的付费席位数量降级为免费
 
 {% data reusables.organizations.billing-settings %}
 {% data reusables.dotcom_billing.downgrade-org-to-free %}

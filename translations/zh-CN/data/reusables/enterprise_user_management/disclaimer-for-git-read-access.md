@@ -1,5 +1,9 @@
 {% warning %}
 
-**注：**如果启用匿名 Git 读取访问，您将对此功能的所有访问和使用负责。 {% data variables.product.company_short %} 对功能的任何非预期访问或误用概不负责。 此外，使用此功能不得违反 {% data variables.product.company_short %} 的许可，包括您向我们订购的用户许可数的限制。
+**警告：**
+
+- The Git protocol is unauthenticated and unencrypted. An attacker could intercept repository data transferred over connections using this protocol.
+- If you enable anonymous Git read access, you're responsible for all access and use of the feature. {% data variables.product.company_short %} is not responsible for any unintended access, security risks, or misuse of the feature.
+- You may not use this feature to violate your license from {% data variables.product.company_short %}, including the limit on the number of user licenses for {% data variables.product.product_location %}.
 
 {% endwarning %}

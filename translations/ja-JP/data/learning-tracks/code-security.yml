@@ -1,0 +1,114 @@
+---
+#Feature available only on dotcom
+security_advisories:
+  title: 'セキュリティ脆弱性の修正及び開示'
+  description: 'リポジトリのセキュリティアドバイザリを使用して報告された脆弱性を非公開で修正し、CVEを取得してください。'
+  featured_track: '{% ifversion fpt or ghec %}true{% else %}false{% endif %}'
+  guides:
+    - /code-security/repository-security-advisories/about-coordinated-disclosure-of-security-vulnerabilities
+    - /code-security/repository-security-advisories/creating-a-repository-security-advisory
+    - /code-security/repository-security-advisories/adding-a-collaborator-to-a-repository-security-advisory
+    - /code-security/repository-security-advisories/collaborating-in-a-temporary-private-fork-to-resolve-a-repository-security-vulnerability
+    - /code-security/repository-security-advisories/publishing-a-repository-security-advisory
+    - /code-security/repository-security-advisories/editing-a-repository-security-advisory
+    - /code-security/repository-security-advisories/withdrawing-a-repository-security-advisory
+    - /code-security/repository-security-advisories/removing-a-collaborator-from-a-repository-security-advisory
+#Feature available on dotcom and GHES 3.3+, so articles available on GHAE and earlier GHES hidden to hide the learning track
+dependabot_alerts:
+  title: '安全ではない依存関係に関する通知の取得'
+  description: '依存関係内の新しい脆弱性{% ifversion GH-advisory-db-supports-malware %}もしくはマルウェア{% endif %}のアラートのためのDependabotのセットアップ'
+  guides:
+    - /code-security/dependabot/dependabot-alerts/about-dependabot-alerts
+    - '{% ifversion fpt or ghec or ghes > 3.2 %}/github/administering-a-repository/managing-repository-settings/managing-security-and-analysis-settings-for-your-repository{% endif %}'
+    - /code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts
+    - /code-security/dependabot/dependabot-alerts/configuring-notifications-for-dependabot-alerts
+    - /code-security/dependabot/working-with-dependabot/managing-pull-requests-for-dependency-updates
+    - /code-security/dependabot/working-with-dependabot/troubleshooting-the-detection-of-vulnerable-dependencies
+    - /code-security/dependabot/working-with-dependabot/troubleshooting-dependabot-errors
+#Feature available on dotcom and GHES 3.3+, so articles available on GHAE and earlier GHES hidden to hide the learning track
+dependabot_security_updates:
+  title: '脆弱な依存関係を更新するためのPull Requestを取得'
+  description: '新しい脆弱性が報告されたときにPull Requestを作成するようDependabotをセットアップ'
+  guides:
+    - /code-security/dependabot/dependabot-security-updates/about-dependabot-security-updates
+    - /code-security/dependabot/dependabot-security-updates/configuring-dependabot-security-updates
+    - '{% ifversion fpt or ghec or ghes > 3.2 %}/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/configuring-notifications-for-vulnerable-dependencies{% endif %}'
+    - '{% ifversion fpt or ghec or ghes > 3.2 %}/github/administering-a-repository/managing-repository-settings/managing-security-and-analysis-settings-for-your-repository{% endif %}'
+    - /code-security/dependabot/working-with-dependabot/managing-pull-requests-for-dependency-updates
+    - '{% ifversion fpt or ghec or ghes > 3.2 %}/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/troubleshooting-the-detection-of-vulnerable-dependencies{% endif %}'
+#Feature available only on dotcom and GHES 3.3+
+dependency_version_updates:
+  title: '依存関係を最新に保つ'
+  description: '新しいリリースをチェックし、依存関係を更新するPull Requestを作成するためにDependabotを使ってください。'
+  guides:
+    - /code-security/dependabot/dependabot-version-updates/about-dependabot-version-updates
+    - /code-security/dependabot/dependabot-version-updates/configuring-dependabot-version-updates
+    - /code-security/dependabot/dependabot-version-updates/customizing-dependency-updates
+    - /code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file
+    - /code-security/dependabot/working-with-dependabot/keeping-your-actions-up-to-date-with-dependabot
+    - /code-security/dependabot/working-with-dependabot/automating-dependabot-with-github-actions
+    - /code-security/dependabot/dependabot-version-updates/listing-dependencies-configured-for-version-updates
+    - /code-security/dependabot/working-with-dependabot/managing-encrypted-secrets-for-dependabot
+    - /code-security/dependabot/working-with-dependabot/managing-pull-requests-for-dependency-updates
+    - /code-security/dependabot/working-with-dependabot/troubleshooting-dependabot-errors
+#Feature available in GHEC, GHES 3.0 up, and GHAE. Feature limited on FPT so hidden there.
+secret_scanning:
+  title: 'シークレットのスキャン'
+  description: 'トークン、パスワード及びその他のシークレットのリポジトリへの偶発的なチェックインに対する防御として、Secret Scanningをセットアップしてください。'
+  guides:
+    - '{% ifversion not fpt %}/code-security/secret-scanning/about-secret-scanning{% endif %}'
+    - '{% ifversion not fpt %}/code-security/secret-scanning/configuring-secret-scanning-for-your-repositories{% endif %}'
+    - '{% ifversion not fpt %}/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning{% endif %}'
+    - '{% ifversion not fpt %}/code-security/secret-scanning/managing-alerts-from-secret-scanning{% endif %}'
+    - '{% ifversion not fpt %}/code-security/secret-scanning/secret-scanning-patterns{% endif %}'
+#Security overview feature available in GHEC and GHES 3.2+, so other articles hidden to hide the learning path in other versions
+security_alerts:
+  title: 'セキュリティアラートの調査と管理'
+  description: 'セキュリティアラートをどこで見つけて解決するかを学んでください。'
+  guides:
+    - '{% ifversion ghec or ghes > 3.1 %}/code-security/security-overview/about-the-security-overview {% endif %}'
+    - '{% ifversion ghec or ghes > 3.1 %}/code-security/security-overview/viewing-the-security-overview {% endif %}'
+    - '{% ifversion ghec or ghes > 3.1 %}/code-security/secret-scanning/managing-alerts-from-secret-scanning {% endif %}'
+    - '{% ifversion ghec or ghes > 3.1 %}/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository{% endif %}'
+    - '{% ifversion ghec or ghes > 3.1 %}/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/triaging-code-scanning-alerts-in-pull-requests{% endif %}'
+    - '{% ifversion ghec or ghes > 3.1 %}/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/viewing-and-updating-vulnerable-dependencies-in-your-repository{% endif %}'
+#Feature available in all versions from GHES 2.22 up
+code_security_actions:
+  title: 'GitHub ActionsでCode Scanningを実行'
+  description: '脆弱性やエラーがリポジトリに無いようにデフォルトブランチとすべてのPull Requestをチェックしてください。'
+  featured_track: '{% ifversion ghae or ghes %}true{% else %}false{% endif %}'
+  guides:
+    - /code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning
+    - /code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/setting-up-code-scanning-for-a-repository
+    - /code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning
+    - /code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-the-codeql-workflow-for-compiled-languages
+    - /code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/running-codeql-code-scanning-in-a-container
+    - /code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/troubleshooting-the-codeql-workflow
+#Feature available in all versions from GHES 2.22 up
+code_security_integration:
+  title: 'Code Scanningと統合'
+  description: 'SARIFを使用して、サードパーティのシステムからのコード分析の結果をGitHubにアップロードしてください。'
+  guides:
+    - /code-security/code-scanning/integrating-with-code-scanning/about-integration-with-code-scanning
+    - /code-security/code-scanning/integrating-with-code-scanning/uploading-a-sarif-file-to-github
+    - /code-security/code-scanning/integrating-with-code-scanning/sarif-support-for-code-scanning
+    - /rest/reference/code-scanning
+#Feature available in all versions from GHES 2.22 up
+code_security_ci:
+  title: 'CI中でCodeQL Code Scanningを実行'
+  description: '既存のCI内でCodeQLをセットアップし、結果をGitHub Code Scanningにアップロードしてください。'
+  guides:
+    - /code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/about-codeql-code-scanning-in-your-ci-system
+    - /code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/installing-codeql-cli-in-your-ci-system
+    - /code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/configuring-codeql-cli-in-your-ci-system
+    - /code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/migrating-from-the-codeql-runner-to-codeql-cli
+    - /code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/troubleshooting-codeql-runner-in-your-ci-system
+#Feature available in all versions
+end_to_end_supply_chain:
+  title: 'エンドツーエンドサプライチェーン'
+  description: 'ユーザアカウント、コード、ビルドプロセスの保護に関する考え方。'
+  guides:
+    - /code-security/supply-chain-security/end-to-end-supply-chain/end-to-end-supply-chain-overview
+    - /code-security/supply-chain-security/end-to-end-supply-chain/securing-accounts
+    - /code-security/supply-chain-security/end-to-end-supply-chain/securing-code
+    - /code-security/supply-chain-security/end-to-end-supply-chain/securing-builds

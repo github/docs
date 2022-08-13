@@ -2,12 +2,13 @@
 title: 构建 CI 服务器
 intro: 使用状态 API 构建您自己的 CI 系统。
 redirect_from:
-  - /guides/building-a-ci-server/
+  - /guides/building-a-ci-server
   - /v3/guides/building-a-ci-server
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - API
 ---
@@ -27,7 +28,7 @@ topics:
 
 注：您可以[从平台样本仓库][platform samples]下载此项目的完整源代码。
 
-### 编写服务器
+## 编写服务器
 
 我们将编写一个快速的 Sinatra 应用程序，以证明我们的本地连接工作正常。 首先编写以下代码：
 
@@ -79,11 +80,11 @@ end
 
 要测试此概念验证，请在测试仓库的分支中进行一些更改，然后打开拉取请求。 您的服务器应该会做出相应的响应！
 
-### 处理状态
+## 处理状态
 
 服务器就位后，我们就可以开始实现第一个要求，即设置（和更新）CI 状态。 请注意，无论何时更新服务器，都可以单击 **Redeliver（重新交付）**以发送相同的有效负载。 不需要每次进行更改时都发出新的拉取请求！
 
-由于我们在与 {% data variables.product.product_name %} API 进行交互，因此我们将使用 [Octokit.rb][octokit.rb] 来管理我们的交互。 我们将配置该客户端：
+由于我们在与 {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API 进行交互，因此我们将使用 [Octokit.rb][octokit.rb] 来管理我们的交互。 我们将配置该客户端：
 
 ``` ruby
 # !!! DO NOT EVER USE HARD-CODED VALUES IN A REAL APP !!!
@@ -121,7 +122,7 @@ def process_pull_request(pull_request)
 end
 ```
 
-### 结论
+## 结论
 
 在 GitHub，我们多年来一直使用 [Janky][janky] 版本来管理 CI。 基本流程本质上与我们上面构建的服务器完全相同。 在 GitHub，我们：
 
@@ -131,7 +132,7 @@ end
 
 所有这些通信都会流回我们的聊天室。 使用此示例并不需要构建自己的 CI 设置。 您始终可以依赖 [GitHub 集成][integrations]。
 
-[status API]: /rest/reference/repos#statuses
+[status API]: /rest/reference/commits#commit-statuses
 [ngrok]: https://ngrok.com/
 [using ngrok]: /webhooks/configuring/#using-ngrok
 [platform samples]: https://github.com/github/platform-samples/tree/master/api/ruby/building-a-ci-server

@@ -1,14 +1,15 @@
 import { fileURLToPath } from 'url'
 import path from 'path'
 import cheerio from 'cheerio'
+import { describe, expect } from '@jest/globals'
+
 import Page from '../../lib/page.js'
-import readJsonFile from '../../lib/read-json-file.js'
 import { allVersions } from '../../lib/all-versions.js'
 import enterpriseServerReleases, { latest } from '../../lib/enterprise-server-releases.js'
 import nonEnterpriseDefaultVersion from '../../lib/non-enterprise-default-version.js'
-// import getLinkData from '../../lib/get-link-data.js'
+import loadSiteData from '../../lib/site-data.js'
+
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
-const prerenderedObjects = readJsonFile('./lib/graphql/static/prerendered-objects.json')
 const enterpriseServerVersions = Object.keys(allVersions).filter((v) =>
   v.startsWith('enterprise-server@')
 )
@@ -18,7 +19,7 @@ const nonEnterpriseDefaultPlan = nonEnterpriseDefaultVersion.split('@')[0]
 
 const opts = {
   relativePath:
-    'github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches.md',
+    'pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches.md',
   basePath: path.join(__dirname, '../../content'),
   languageCode: 'en',
 }
@@ -78,53 +79,97 @@ describe('Page class', () => {
   })
 
   describe('page.render(context)', () => {
+    const siteData = loadSiteData()
+
     test('rewrites links to include the current language prefix and version', async () => {
       const page = await Page.init(opts)
       const context = {
         page: { version: `enterprise-server@${enterpriseServerReleases.latest}` },
         currentVersion: `enterprise-server@${enterpriseServerReleases.latest}`,
         currentPath:
-          '/en/github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches',
+          '/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches',
         currentLanguage: 'en',
+        site: siteData.en.site,
       }
       const rendered = await page.render(context)
       const $ = cheerio.load(rendered)
-      expect(page.markdown.includes('(/articles/about-pull-requests)')).toBe(true)
-      expect(page.markdown.includes('(/en/articles/about-pull-requests)')).toBe(false)
-      expect($('a[href="/articles/about-pull-requests"]').length).toBe(0)
+      expect(
+        page.markdown.includes(
+          '(/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)'
+        )
+      ).toBe(true)
+      expect(
+        page.markdown.includes(
+          '(/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)'
+        )
+      ).toBe(false)
       expect(
         $(
-          `a[href="/en/${`enterprise-server@${enterpriseServerReleases.latest}`}/articles/about-pull-requests"]`
+          'a[href="/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests"]'
+        ).length
+      ).toBe(0)
+      expect(
+        $(
+          `a[href="/en/${`enterprise-server@${enterpriseServerReleases.latest}`}/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests"]`
         ).length
       ).toBeGreaterThan(0)
     })
 
-    test('rewrites links on prerendered GraphQL page include the current language prefix and version', async () => {
-      const graphqlVersion =
-        allVersions[`enterprise-server@${enterpriseServerReleases.latest}`].miscVersionName
-      const $ = cheerio.load(prerenderedObjects[graphqlVersion].html)
-      expect($('a[href^="/graphql/reference/input-objects"]').length).toBe(0)
-      expect(
-        $(
-          `a[href^="/en/enterprise-server@${enterpriseServerReleases.latest}/graphql/reference/input-objects"]`
-        ).length
-      ).toBeGreaterThan(0)
+    // Much of this test is based on making sure we don't
+    // repeat the bug introduced in issue 1545.
+    test('rewrites links correctly for unsupported enterprise-server links', async () => {
+      const page = await Page.init({
+        relativePath: 'page-with-deprecated-enterprise-links.md',
+        basePath: path.join(__dirname, '../fixtures'),
+        languageCode: 'en',
+      })
+      const context = {
+        page: { version: `enterprise-server@${enterpriseServerReleases.latest}` },
+        currentVersion: `enterprise-server@${enterpriseServerReleases.latest}`,
+        currentPath: '/en/page-with-deprecated-enterprise-links',
+        currentLanguage: 'en',
+        site: siteData.en.site,
+      }
+      const rendered = await page.render(context)
+      // That page only contains exactly 2 links. And we can know
+      // exactly what we expect each one to be.
+      const $ = cheerio.load(rendered)
+      const first = $('a[href]').first()
+      expect(first.text()).toBe('Version 2.22')
+      expect(first.attr('href')).toBe('/en/enterprise-server@2.22')
+      const last = $('a[href]').last()
+      expect(last.text()).toBe('Version 3.2')
+      expect(last.attr('href')).toBe('/en/enterprise-server@3.2')
     })
 
     test('rewrites links in the intro to include the current language prefix and version', async () => {
       const page = await Page.init(opts)
-      page.rawIntro = '[Pull requests](/articles/about-pull-requests)'
+      page.rawIntro =
+        '[Pull requests](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)'
       const context = {
         page: { version: nonEnterpriseDefaultVersion },
         currentVersion: nonEnterpriseDefaultVersion,
         currentPath:
-          '/en/github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches',
+          '/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches',
         currentLanguage: 'en',
+        site: siteData.en.site,
       }
+      // This is needed because unit tests are weird. The page.render()
+      // method is dependent on module global cache.
+      // We need to fudge the `currentPath` so it appears to be different.
+      context.currentPath += Math.random()
       await page.render(context)
       const $ = cheerio.load(page.intro)
-      expect($('a[href="/articles/about-pull-requests"]').length).toBe(0)
-      expect($('a[href="/en/articles/about-pull-requests"]').length).toBeGreaterThan(0)
+      expect(
+        $(
+          'a[href="/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests"]'
+        ).length
+      ).toBe(0)
+      expect(
+        $(
+          'a[href="/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests"]'
+        ).length
+      ).toBeGreaterThan(0)
     })
 
     test('does not rewrite links that include deprecated enterprise release numbers', async () => {
@@ -139,6 +184,7 @@ describe('Page class', () => {
         currentVersion: `enterprise-server@${enterpriseServerReleases.latest}`,
         currentPath: `/en/enterprise-server@${enterpriseServerReleases.latest}/admin/enterprise-management/migrating-from-github-enterprise-1110x-to-2123`,
         currentLanguage: 'en',
+        site: siteData.en.site,
       }
       const rendered = await page.render(context)
       const $ = cheerio.load(rendered)
@@ -164,8 +210,9 @@ describe('Page class', () => {
       const context = {
         page: { version: nonEnterpriseDefaultVersion },
         currentVersion: nonEnterpriseDefaultVersion,
-        currentPath: `/en/${nonEnterpriseDefaultVersion}/github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches`,
+        currentPath: `/en/${nonEnterpriseDefaultVersion}/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches`,
         currentLanguage: 'en',
+        site: siteData.en.site,
       }
       const rendered = await page.render(context)
       const $ = cheerio.load(rendered)
@@ -186,7 +233,9 @@ describe('Page class', () => {
         currentVersion: `enterprise-server@${enterpriseServerReleases.latest}`,
         currentLanguage: 'en',
         enterpriseServerVersions,
+        site: siteData.en.site,
       }
+      context.currentPath = `/${context.currentLanguage}/${context.currentVersion}/${page.relativePath}`
       let rendered = await page.render(context)
       let $ = cheerio.load(rendered)
       expect($.text()).toBe(
@@ -197,6 +246,7 @@ describe('Page class', () => {
       // change version to the oldest enterprise version, re-render, and test again;
       // the results should be the same
       context.currentVersion = `enterprise-server@${enterpriseServerReleases.oldestSupported}`
+      context.currentPath = `/${context.currentLanguage}/${context.currentVersion}/${page.relativePath}`
       rendered = await page.render(context)
       $ = cheerio.load(rendered)
       expect($.text()).toBe(
@@ -207,6 +257,7 @@ describe('Page class', () => {
       // change version to non-enterprise, re-render, and test again;
       // the results should be the opposite
       context.currentVersion = nonEnterpriseDefaultVersion
+      context.currentPath = `/${context.currentLanguage}/${context.currentVersion}/${page.relativePath}`
       rendered = await page.render(context)
       $ = cheerio.load(rendered)
       expect($.text()).not.toBe(
@@ -226,23 +277,7 @@ describe('Page class', () => {
       const context = {
         currentVersion: 'enterprise-server@3.0',
         currentLanguage: 'en',
-      }
-      await expect(() => {
-        return page.render(context)
-      }).not.toThrow()
-    })
-
-    test('support next GitHub AE version in frontmatter', async () => {
-      // This fixture has `github-ae: 'next'` hardcoded in the frontmatter
-      const page = await Page.init({
-        relativePath: 'page-versioned-for-ghae-next.md',
-        basePath: path.join(__dirname, '../fixtures'),
-        languageCode: 'en',
-      })
-      // set version to @latest
-      const context = {
-        currentVersion: 'github-ae@latest',
-        currentLanguage: 'en',
+        site: siteData.en.site,
       }
       await expect(() => {
         return page.render(context)
@@ -302,7 +337,7 @@ describe('Page class', () => {
     test('sets versioned values', async () => {
       const page = await Page.init(opts)
       const expectedPath =
-        'github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches'
+        'pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches'
       expect(
         page.permalinks.find((permalink) => permalink.pageVersion === nonEnterpriseDefaultVersion)
           .href
@@ -337,18 +372,16 @@ describe('Page class', () => {
 
     test('permalinks for dotcom-only pages', async () => {
       const page = await Page.init({
-        relativePath:
-          'github/authenticating-to-github/troubleshooting-ssh/using-ssh-over-the-https-port.md',
+        relativePath: 'authentication/troubleshooting-ssh/using-ssh-over-the-https-port.md',
         basePath: path.join(__dirname, '../../content'),
         languageCode: 'en',
       })
-      const expectedPath =
-        '/en/github/authenticating-to-github/troubleshooting-ssh/using-ssh-over-the-https-port'
+      const expectedPath = '/en/authentication/troubleshooting-ssh/using-ssh-over-the-https-port'
       expect(
         page.permalinks.find((permalink) => permalink.pageVersion === nonEnterpriseDefaultVersion)
           .href
       ).toBe(expectedPath)
-      expect(page.permalinks.length).toBe(1)
+      expect(page.permalinks.length).toBe(2)
     })
 
     test('permalinks for enterprise-only pages', async () => {
@@ -405,6 +438,7 @@ describe('Page class', () => {
       ])
     })
 
+    // Docs Engineering issue: 970
     it.skip('renders learning tracks that have been defined', async () => {
       // getLinkData.mockImplementation((guides) => { return guides })
       const guides = ['/path/guide1', '/path/guide2']
@@ -488,6 +522,7 @@ describe('Page class', () => {
       expect(page.includeGuides).toStrictEqual(['/path/guide1', '/path/guide2', '/path/guide3'])
     })
 
+    // Docs Engineering issue: 971
     it.skip('renders guides and topics', async () => {
       /* getLinkData.mockImplementation(() => {
         return [{
@@ -508,6 +543,52 @@ describe('Page class', () => {
       expect(page.includeGuides).toHaveLength(3)
       expect(page.allTopics).toHaveLength(4)
       expect(page.allTopics).toEqual(expect.arrayContaining(['Spring', 'Summer', 'Fall', 'Winter']))
+    })
+  })
+
+  describe('videos', () => {
+    let page
+
+    beforeEach(async () => {
+      page = await Page.init({
+        relativePath: 'article-with-videos.md',
+        basePath: path.join(__dirname, '../fixtures'),
+        languageCode: 'en',
+      })
+    })
+
+    it('includes videos specified in the featuredLinks frontmatter', async () => {
+      expect(page.featuredLinks.videos).toStrictEqual([
+        {
+          title: 'codespaces',
+          href: 'https://www.youtube-nocookie.com/embed/cP0I9w2coGU',
+        },
+        {
+          title: 'more codespaces',
+          href: 'https://www.youtube-nocookie.com/embed/cP0I9w2coGU',
+        },
+        {
+          title: 'even more codespaces',
+          href: 'https://www.youtube-nocookie.com/embed/cP0I9w2coGU',
+        },
+      ])
+
+      expect(page.featuredLinks.videosHeading).toBe('Custom Videos heading')
+    })
+  })
+
+  describe('introLinks', () => {
+    it('includes the links specified in the introLinks frontmatter', async () => {
+      const page = await Page.init({
+        relativePath: 'article-with-introLinks.md',
+        basePath: path.join(__dirname, '../fixtures'),
+        languageCode: 'en',
+      })
+
+      expect(page.introLinks).toStrictEqual({
+        overview: 'https://github.com',
+        'custom link!': 'https://github.com/features',
+      })
     })
   })
 
@@ -545,20 +626,12 @@ describe('Page class', () => {
     })
   })
 
-  test('fixes translated frontmatter that includes verdadero', async () => {
-    const page = await Page.init({
-      relativePath: 'article-with-mislocalized-frontmatter.md',
-      basePath: path.join(__dirname, '../fixtures'),
-      languageCode: 'ja',
-    })
-    expect(page.mapTopic).toBe(true)
-  })
-
   describe('page.versions frontmatter', () => {
+    // Docs Engineering issue: 972
     test.skip('pages that apply to older enterprise versions', async () => {
       // There are none of these in the content at this time!
     })
-
+    // Docs Engineering issue: 972
     test.skip('pages that apply to newer enterprise versions', async () => {
       // There are none of these in the content at this time!
     })
@@ -608,7 +681,7 @@ describe('Page class', () => {
       // and placeholder.yml has:
       //
       // versions:
-      //   ghes: '<2.22'
+      //   ghes: '<3.0'
       //   ghae: '*'
       //
       // So we expect to get the versioning from both.
@@ -622,8 +695,6 @@ describe('Page class', () => {
       expect(page.versions.fpt).toBe('*')
       expect(page.versions.ghes).toBe('>2.21')
       expect(page.versions.ghae).toBeUndefined()
-      // The `feature` prop gets deleted by lib/get-applicable-versions, so it's undefined.
-      expect(page.versions.feature).toBeUndefined()
 
       // Test the resolved versioning, where GHES releases specified in frontmatter and in
       // feature versions are combined (i.e., one doesn't overwrite the other).
@@ -631,7 +702,7 @@ describe('Page class', () => {
       // because lib/get-applicable-versions only returns currently supported versions,
       // so as soon as 2.21 is deprecated, a test for that _not_ to exist will not be meaningful.
       // But by testing that the _latest_ GHES version is returned, we can ensure that the
-      // the frontmatter GHES `*` is not being overwritten by the placeholder's GHES `<2.22`.
+      // the frontmatter GHES `*` is not being overwritten by the placeholder's GHES `<3.0`.
       expect(page.applicableVersions.includes('free-pro-team@latest')).toBe(true)
       expect(page.applicableVersions.includes(`enterprise-server@${latest}`)).toBe(true)
       expect(page.applicableVersions.includes('github-ae@latest')).toBe(true)
@@ -691,6 +762,18 @@ describe('catches errors thrown in Page class', () => {
     await expect(getPage).rejects.toThrowError('versions')
   })
 
+  test('invalid versions frontmatter', async () => {
+    async function getPage() {
+      return await Page.init({
+        relativePath: 'page-with-invalid-product-version.md',
+        basePath: path.join(__dirname, '../fixtures'),
+        languageCode: 'en',
+      })
+    }
+
+    await expect(getPage).rejects.toThrowError('versions')
+  })
+
   test('English page with a version in frontmatter that its parent product is not available in', async () => {
     async function getPage() {
       return await Page.init({
@@ -703,17 +786,34 @@ describe('catches errors thrown in Page class', () => {
     expect(getPage).rejects.toThrowError(/`versions` frontmatter.*? product is not available in/)
   })
 
-  test('non-English page with a version in frontmatter that its parent product is not available in', async () => {
-    async function getPage() {
-      return await Page.init({
-        relativePath: 'admin/some-category/some-article-with-mismatched-versions-frontmatter.md',
-        basePath: path.join(__dirname, '../fixtures/products'),
-        languageCode: 'es',
+  describe('versionining optional attributes', () => {
+    test("re-rendering set appropriate 'product', 'permissions', 'learningTracks'", async () => {
+      const page = await Page.init({
+        relativePath: 'page-with-optional-attributes.md',
+        basePath: path.join(__dirname, '../fixtures'),
+        languageCode: 'en',
       })
-    }
+      const context = {
+        page: { version: `enterprise-server@3.2` },
+        currentVersion: `enterprise-server@3.2`,
+        currentProduct: 'snowbird',
+        currentLanguage: 'en',
+        currentPath: '/en/enterprise-server@3.2/optional/attributes',
+        fpt: false, // what the shortVersions contextualizer does
+      }
 
-    await expect(getPage).rejects.toThrowError(
-      /`versions` frontmatter.*? product is not available in/
-    )
+      await page.render(context)
+      expect(page.product).toBe('')
+      expect(page.permissions).toBe('')
+
+      // Change to FPT
+      context.page.version = nonEnterpriseDefaultVersion
+      context.version = nonEnterpriseDefaultVersion
+      context.currentPath = '/en/optional/attributes'
+      context.fpt = true
+      await page.render(context)
+      expect(page.product).toContain('FPT rulez!')
+      expect(page.permissions).toContain('FPT only!')
+    })
   })
 })

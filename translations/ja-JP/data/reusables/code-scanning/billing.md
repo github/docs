@@ -1,0 +1,1 @@
+{% ifversion fpt or ghec %}アクションを使用して {% data variables.product.prodname_code_scanning %} を実行すると、分数を消費します。 詳しい情報については、「[{% data variables.product.prodname_actions %}の支払いについて](/billing/managing-billing-for-github-actions/about-billing-for-github-actions)」を参照してください。{% endif %}

@@ -1,14 +1,23 @@
 ---
 title: 批准复刻中的工作流程运行
-intro: 当贡献者第一次向公共仓库提交拉取请求时，拥有写入权限的维护者必须批准任何工作流程运行。
-product: '{% data reusables.gated-features.actions %}'
+intro: 当外部贡献者第一次向公共仓库提交拉取请求时，拥有写入权限的维护者可能必须批准任何工作流程运行。
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
+shortTitle: 批准公共复刻运行
 ---
 
-公共仓库的复刻可以提交拉取请求以提议对仓库的 {% data variables.product.prodname_actions %} 工作流程的更改。 虽然来自复刻的工作流程无法访问敏感数据（如密钥），但如果出于滥用目的进行修改，可能会让维护者感到烦恼。 为了帮助防止这种情况，从首次贡献者收到拉取请求的工作流程不会自动运行，而必须先获得批准。
+## 关于公共复刻中的工作流程运行
 
-能够写入仓库的维护者可按照以下步骤来审查和运行来自首次贡献者的拉取请求。 在贡献者将至少一个拉取请求合并到项目仓库后，该贡献者复刻的任何未来拉取请求都将自动运行工作流程。
+{% data reusables.actions.workflow-run-approve-public-fork %}
+
+您可以配置[仓库](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#configuring-required-approval-for-workflows-from-public-forks)、[组织](/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization#configuring-required-approval-for-workflows-from-public-forks)或 [企业](/enterprise-cloud@latest/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise#enforcing-a-policy-for-fork-pull-requests-in-your-enterprise)的工作流程审批要求。
+
+已等待批准超过 30 天的工作流程运行将自动删除。
+
+## 批准公共复刻中拉取请求的工作流程运行
+
+能够写入仓库的维护者可按照以下步骤来审查和运行来自贡献者、需要审批的拉取请求上的工作流程。
 
 {% data reusables.repositories.sidebar-pr %}
 {% data reusables.repositories.choose-pr-review %}

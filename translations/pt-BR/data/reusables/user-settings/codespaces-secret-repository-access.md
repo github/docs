@@ -1,0 +1,1 @@
+1. Selecione o menu suspenso "Acesso ao repositório" e, em seguida, clique em um repositório que você quer que tenha acesso ao segredo. Repita esse procedimento para cada repositório que você quer que tenha acesso ao segredo. ![Menu suspenso "Acesso ao repositório"](/assets/images/help/settings/codespaces-secret-repository-access-drop-down.png)

@@ -5,19 +5,25 @@ redirect_from:
   - /articles/restricting-repository-creation-in-your-organization
   - /github/setting-up-and-managing-organizations-and-teams/restricting-repository-creation-in-your-organization
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
+shortTitle: Restringir criação de repositório
 ---
 
-Você pode escolher se os integrantes podem criar repositórios na sua organização. Se você permitir que os integrantes criem repositórios, você poderá escolher quais tipos de repositórios os integrantes poderão criar.{% if currentVersion == "free-pro-team@latest" %} Para permitir que os integrantes criem apenas repositórios privados, a sua organização deve usar {% data variables.product.prodname_ghe_cloud %}.{% endif %} Para obter mais informações, consulte "[Sobre a visibilidade do repositório](/github/creating-cloning-and-archiving-repositories/about-repository-visibility)".
+Você pode escolher se os integrantes podem criar repositórios na sua organização. {% ifversion ghec or ghes or ghae %}Se você permitir que os integrantes criem repositórios, você poderá escolher quais tipos de repositórios os integrantes poderão criar.{% elsif fpt %}Se você permitir que os integrantes criem repositórios, você poderá escolher se os integrantes poderão criar repositórios públicos e privados ou apenas repositórios públicos.{% endif %}Os proprietários da organização sempre podem criar qualquer tipo de repositório.
 
-Os proprietários da organização sempre podem criar qualquer tipo de repositório.
+{% ifversion fpt %}
+As organizações que usam {% data variables.product.prodname_ghe_cloud %} também podem restringir os integrantes à criação de repositórios privados. Para obter mais informações, consulte [a documentação de {% data variables.product.prodname_ghe_cloud %}](/enterprise-cloud@latest/organizations/managing-organization-settings/restricting-repository-creation-in-your-organization).
+{% endif %}
 
-{% if currentVersion == "free-pro-team@latest" %}Os proprietários da empresa{% else %}administradores do site{% endif %} podem restringir as opções disponíveis para você para a política de criação de repositório da sua organização. Para obter mais informações, consulte {% if currentVersion == "free-pro-team@latest" %}"[Aplicar políticas de gerenciamento do repositório na sua conta corporativa](/github/setting-up-and-managing-your-enterprise/enforcing-repository-management-policies-in-your-enterprise-account).{% else %}"[Restringir a criação do repositório na sua empresa](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#setting-a-policy-for-repository-creation)."{% endif %}
+{% ifversion ghec or ghae or ghes %}
+Os proprietários de empresas podem restringir as opções que você tem disponíveis para a política de criação de repositório da sua organização. Para obter mais informações, consulte "[Aplicar políticas de gerenciamento do repositório na sua empresa](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-repository-creation)".
+{% endif %}
 
 {% warning %}
 
@@ -25,10 +31,23 @@ Os proprietários da organização sempre podem criar qualquer tipo de repositó
 
 {% endwarning %}
 
-{% data reusables.organizations.internal-repos-enterprise %}
-
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.member-privileges %}
-5. Em "Criação do repositório", selecione uma ou mais opções. ![Opções de criação de repositório](/assets/images/help/organizations/repo-creation-perms-radio-buttons.png)
+5. Em "Criação do repositório", selecione uma ou mais opções.
+
+   {%- ifversion ghes or ghec or ghae %}
+   ![Opções de criação de repositório](/assets/images/help/organizations/repo-creation-perms-radio-buttons.png)
+   {%- elsif fpt %}
+   ![Opções de criação de repositório](/assets/images/help/organizations/repo-creation-perms-radio-buttons-fpt.png)
+   {%- endif %}
+
+   {% ifversion fpt or ghec %}
+   {% note %}
+
+   **Observação:** Para restringir os integrantes de criar repositórios privados apenas, sua organização deverá usar {% data variables.product.prodname_ghe_cloud %}. {% data reusables.enterprise.link-to-ghec-trial %}
+
+   {% endnote %}
+   {%- endif %}
+
 6. Clique em **Salvar**.

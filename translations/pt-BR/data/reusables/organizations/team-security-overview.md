@@ -1,1 +1,1 @@
-1. At the top of the team's page, click {% octicon "shield" aria-label="The security icon" %} **Security**. ![Team security overview](/assets/images/help/teams/org-team-page-security-overview.png)
+1. Na parte superior da página, clique em {% octicon "shield" aria-label="The security icon" %} **Segurança**. ![Visão geral da segurança da equipe](/assets/images/help/teams/org-team-page-security-overview.png)

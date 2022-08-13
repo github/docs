@@ -2,14 +2,16 @@
 title: Começar a usar a API do banco de dados do Git
 intro: 'A API do banco de dados do Git dá acesso para ler e gravar objetos do Git sem processamento no seu banco de dados do Git no {% data variables.product.product_name %} e para listar e atualizar suas referências (cabeçalhos de branch e etiquetas).'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - API
+shortTitle: Primeiros passos - API do banco de dados do Git
 ---
 
-### Visão Geral
+## Visão Geral
 
 Isso basicamente permite que você reimplemente uma série de funcionalidades do Git sobre nossa API, criando objetos sem processamento diretamente no banco de dados e atualizando referências de ramificações que você pode fazer tecnicamente sobre qualquer coisa que o Git possa fazer sem tê-lo instalado.
 
@@ -31,7 +33,7 @@ Como exemplo, se você quisesse fazer commit de uma alteração em um arquivo no
 
 Pode parecer complexo, mas, na verdade, é bem simples. Ao entender o modelo e ele oferece muitas coisas que você poderia fazer potencialmente com a API.
 
-### Verificar a mesclabilidade de pull requests
+## Verificar a mesclabilidade de pull requests
 
 {% warning %}
 

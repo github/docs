@@ -35,7 +35,7 @@ sections:
     - 'Git LFS 跟踪的文件[通过 Web 界面上传](https://github.com/blog/2105-upload-files-to-your-repositories) 被错误地直接添加到仓库。'
     - '如果议题包含文件路径长于 255 个字符的同一仓库中 blob 的永久链接，则议题无法关闭。'
     - '对 GitHub Connect 启用“用户可以搜索 GitHub.com”后，私有和内部仓库中的议题不包括在 GitHub.com 搜索结果中。'
-    - '当启用维护模式时，某些服务将继续列为“活动进程”。 指定的服务预期在维护模式下运行。如果您遇到这个问题但不确定，请联系 [GitHub Enterprise 支持](https://enterprise.githubsupport.com/hc/en-us) 或 [GitHub Premium 支持](https://premium.githubsupport.com/)。'
+    - '当启用维护模式时，某些服务将继续列为“活动进程”。 指定的服务预期在维护模式下运行。如果您遇到这个问题但不确定，请联系 [GitHub Enterprise 支持](https://support.github.com/contact)。'
     - '重复记录到 `/var/log/messages`、`/var/log/syslog` 和 `/var/log/user.log` 将提高根卷利用率。'
     - '用户无需选中所有复选框即可忽略强制消息。'
     - '[预接收挂钩脚本](/admin/policies/enforcing-policy-with-pre-receive-hooks) 无法编写临时文件，这可能导致脚本执行失败。使用预接收挂钩的用户应在暂存环境中进行测试，以查看脚本是否需要写入权限。'
@@ -68,3 +68,5 @@ sections:
         ``` 
 
       2. 如果它显示一个或多个节点受到影响，请重启受影响的节点。
+    - '当副本节点在高可用性配置下离线时，{% data variables.product.product_name %} 仍可能将 {% data variables.product.prodname_pages %} 请求路由到离线节点，从而减少用户的 {% data variables.product.prodname_pages %} 可用性。'
+    - 特定于处理预接收挂钩的资源限制可能会导致某些预接收挂钩失败。

@@ -221,7 +221,7 @@
   term: GET
   description: Un tipo de método en la API REST.
 - 
-  term: geoJSON
+  term: GeoJSON
   description: Un formato para codificar una variedad de estructuras de datos geográficos.
 - 
   term: Acuerdo de Desarrollador de GitHub Marketplace
@@ -229,7 +229,7 @@
 - 
   term: GPG
   description: >-
-    GNU Privacy Guard. Software de cifrado que puedes usar para cifrar (y descifrar) archivos que contengan datos confidenciales.
+    Guardia de Privacidad de GNU. Software de cifrado que puedes utilizar para cifrar (y descirar) archivos que contienen datos sensibles
 - 
   term: llave GPG
   description: Una clave de cifrado usada con GPG.
@@ -665,7 +665,7 @@
   description: >-
     Se puede usar en lugar de una contraseña. Los tokens pueden ser tokens de acceso personal, tokens de OAuth o tokens API.
 - 
-  term: topoJSON
+  term: TopoJSON
   description: Una extensión de GeoJSON que codifica topología.
 - 
   term: aplicación TOTP

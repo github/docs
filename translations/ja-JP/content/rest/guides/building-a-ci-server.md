@@ -2,12 +2,13 @@
 title: CIサーバーの構築
 intro: Status APIで独自のCIシステムを構築しましょう。
 redirect_from:
-  - /guides/building-a-ci-server/
+  - /guides/building-a-ci-server
   - /v3/guides/building-a-ci-server
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - API
 ---
@@ -27,7 +28,7 @@ topics:
 
 注釈: このプロジェクトの完全なソースコードは、[platform-samplesリポジトリ][platform samples]からダウンロードできます。
 
-### サーバーを書く
+## サーバーを書く
 
 ローカル接続が機能していることを証明するための、簡単なSinatraアプリケーションを書きます。 まずは以下のソースから始めましょう。
 
@@ -79,11 +80,11 @@ end
 
 この概念実証を試すため、テストリポジトリのブランチで何か変更を行い、プルリクエストを開きます。 そうすると、サーバーはそれに応じてレスポンスを返すはずです。
 
-### ステータスを扱う
+## ステータスを扱う
 
 サーバーの環境を整えたところで、最初の要件、すなわちCIステータスの設定 (および更新) を行う準備が整いました。 サーバーを更新するごとに、[**Redeliver**]をクリックして同じペイロードを送信できます。 変更を行うたびに新しいプルリクエストを作成する必要はありません。
 
-{% data variables.product.product_name %} APIとやり取りをしているので、そのやり取りを管理するため[Octokit.rb][octokit.rb]を使用します。 そのクライアントは、以下のように構成します。
+{% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} APIとやりとりをしているので、そのやりとりを管理するために[Octokit.rb][octokit.rb]を使います。 そのクライアントは、以下のように構成します。
 
 ``` ruby
 # !!! DO NOT EVER USE HARD-CODED VALUES IN A REAL APP !!!
@@ -121,7 +122,7 @@ def process_pull_request(pull_request)
 end
 ```
 
-### おわりに
+## おわりに
 
 GitHubでは長年、CIを管理するため[Janky][janky]の特定のバージョンを使用してきました。 その基本的なフローは、上記で構築してきたサーバーと本質的にまったく同じです。 GitHubでは、以下を実行しています。
 
@@ -131,7 +132,7 @@ GitHubでは長年、CIを管理するため[Janky][janky]の特定のバージ�
 
 これら全ての通信は、チャットルームに集約されます。 この例を使用するために、独自のCI設定を構築する必要はありません。 いつでも[GitHubインテグレーション][integrations]に頼ることができます。
 
-[status API]: /rest/reference/repos#statuses
+[status API]: /rest/reference/commits#commit-statuses
 [ngrok]: https://ngrok.com/
 [using ngrok]: /webhooks/configuring/#using-ngrok
 [platform samples]: https://github.com/github/platform-samples/tree/master/api/ruby/building-a-ci-server

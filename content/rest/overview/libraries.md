@@ -1,13 +1,14 @@
 ---
 title: Libraries
-intro: 'You can use the official Octokit library and other third-party libraries to extend and simplify how you use the {% data variables.product.prodname_dotcom %} API.'
+intro: 'You can use the official Octokit library and other third-party libraries to extend and simplify how you use the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API.'
 redirect_from:
-  - /libraries/
+  - /libraries
   - /v3/libraries
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - API
 ---
@@ -17,7 +18,7 @@ topics:
   <h1>Octokit comes in many flavors</h1>
   <p class="lead">Use the official Octokit library, or choose between any of the available third party libraries.</p>
   <div class="octokit-links"><br/>
-     <div class="octokit-language"> <span>Ruby → </span><a href="https://github.com/octokit/octokit.rb">octokit.rb</a></div><br/>
+     <div class="octokit-language"><span>Ruby → </span><a href="https://github.com/octokit/octokit.rb">octokit.rb</a></div><br/>
      <div class="octokit-language"><span>.NET → </span> <a href="https://github.com/octokit/octokit.net">octokit.net</a></div><br/>
      <div class="octokit-language"><span>JavaScript → </span> <a href="https://github.com/octokit/octokit.js">octokit/octokit.js</a></div><br/>
   </div>
@@ -35,7 +36,7 @@ topics:
 
 | Library name | Repository |
 |---|---|
-|**github.dart** | [DirectMyFile/github.dart](https://github.com/DirectMyFile/github.dart)|
+|**github.dart** | [SpinlockLabs/github.dart](https://github.com/SpinlockLabs/github.dart)|
 
 ### Emacs Lisp
 
@@ -73,7 +74,7 @@ topics:
 | Library name | Repository |
 |---|---|
 |**NodeJS GitHub library**| [pksunkara/octonode](https://github.com/pksunkara/octonode)|
-|**gh3 client-side API v3 wrapper**| [k33g/gh3](https://github.com/k33g/gh3)|
+|**gh3 client-side API wrapper**| [k33g/gh3](https://github.com/k33g/gh3)|
 |**Github.js wrapper around the GitHub API**|[michael/github](https://github.com/michael/github)|
 |**Promise-Based CoffeeScript library for the Browser or NodeJS**|[philschatz/github-client](https://github.com/philschatz/github-client)|
 
@@ -137,6 +138,7 @@ topics:
 | Library name | Repository |
 |---|---|
 |**Octocrab**|[XAMPPRocky/octocrab](https://github.com/XAMPPRocky/octocrab)|
+|**Octocat**|[octocat-rs/octocat-rs](https://github.com/octocat-rs/octocat-rs)|
 
 ### Scala
 

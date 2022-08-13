@@ -6,14 +6,16 @@ redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-packages
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-packages/about-billing-for-github-packages
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 type: overview
 topics:
   - Packages
   - Spending limits
+shortTitle: Acerca de la facturación
 ---
 
-### Acerca de la facturación para {% data variables.product.prodname_registry %}
+## Acerca de la facturación para {% data variables.product.prodname_registry %}
 
 {% data reusables.package_registry.packages-billing %}
 
@@ -21,11 +23,13 @@ topics:
 
 {% note %}
 
-**Actualización de facturación para el almacenamiento de imágenes de contenedor:** Durante la fase beta del {% data variables.product.prodname_container_registry %}, el almacenamiento y ancho de banda de las imágenes de Docker es gratuito para ambos de los servicios de hospedaje, tanto el previo de `docker.pkg.github.com` como el más actual, `ghcr.io`. Para obtener más información, consulta la sección "[Introducción a las {% data variables.product.prodname_registry %}](/packages/learn-github-packages/introduction-to-github-packages)".
+**Actualización de facturación para el almacenamiento de imágenes de contenedor:** Se ha extendido el periodo de uso gratuito para el ancho de banda y almacenamiento de imágenes de contenedor para el {% data variables.product.prodname_container_registry %}. Si estás utilizando el {% data variables.product.prodname_container_registry %}, se te informará por lo menos con un mes de anticipación sobre el inicio de la facturación y se te dará un estimado de cuánto es lo que debes pagar. Para obtener más información acerca del {% data variables.product.prodname_container_registry %}, consulta la sección "[Trabajar con el registro de contenedores](/packages/working-with-a-github-packages-registry/working-with-the-container-registry)".
 
 {% endnote %}
 
-Si compraste {% data variables.product.prodname_enterprise %} mediante un Acuerdo de Microsoft Enterprise, puedes conectar tu ID de Suscripción de Azure a tu cuenta empresarial para habilitar y pagar por el uso de {% data variables.product.prodname_registry %} más allá de las cantidades que se incluyen en tu cuenta. Para obtener más información, consulta la sección "[Conectar una suscripción de Azure a tu empresa](/github/setting-up-and-managing-your-enterprise/connecting-an-azure-subscription-to-your-enterprise)".
+{% ifversion ghec %}
+Si compraste {% data variables.product.prodname_enterprise %} mediante un Acuerdo de Microsoft Enterprise, puedes conectar tu ID de Suscripción de Azure a tu cuenta empresarial para habilitar y pagar por el uso de {% data variables.product.prodname_registry %} más allá de las cantidades que se incluyen en tu cuenta. Para obtener más información, consulta la sección "[Conectar una suscripción de Azure a tu empresa](/billing/managing-billing-for-your-github-account/connecting-an-azure-subscription-to-your-enterprise)".
+{% endif %}
 
 La transferencia de datos se restablece cada mes, pero no así el uso de almacenamiento.
 
@@ -46,9 +50,11 @@ Todos los datos de transferencia saliente, cuando se desencadenan mediante {% da
 
 El uso de almacenamiento se comparte con los artefactos de compilación que produce {% data variables.product.prodname_actions %} para los repositorios que pertenecen a tu cuenta. Para obtener más información, consulta "[Acerca de la facturación para {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions/about-billing-for-github-actions)".
 
-{% data variables.product.prodname_dotcom %} cobra el uso a la cuenta a la que pertenece el repositorio en donde se publica el paquete. Si tu uso de cuenta sobrepasa estos límites y has configurado un límite de gastos mayor a $0, pagarás $0.25 USD por GB de almacenamiento y $0.50 USD por GB de transferencia de datos.
+{% data variables.product.prodname_dotcom %} cobra el uso a la cuenta a la que pertenece el repositorio en donde se publica el paquete. Si tu uso de cuenta sobrepasa estos límites y configuraste un límite de gastos mayor a $0 USD, pagarás $0.008 USD por GB de almacenamiento por día y $0.50 USD por GB de transferencia de datos.
 
-Por ejemplo, si tu organización utiliza {% data variables.product.prodname_team %}, permite los gastos ilimitados, utiliza 150GB de almacenamiento, y tiene 50GB de transferencia de datos durante un mes, ésta tendrá un excedente de 148GB en el almacenamiento y de 40GB en transferencia de datos para ese mes. El excedente de almacenamiento costaría $0.25 por GB, o $37. El excedente para transferencia de datos costaría $0.50 por GB, o $20.
+Por ejemplo, si tu organización utiliza {% data variables.product.prodname_team %}, permite los gastos ilimitados, utiliza 150GB de almacenamiento, y tiene 50GB de transferencia de datos durante un mes, ésta tendrá un excedente de 148GB en el almacenamiento y de 40GB en transferencia de datos para ese mes. El excedente de almacenamiento costaría $0.008 USD por GB por día o $37 USD. El excedente para transferencia de datos costaría $0.50 USD por GB, o $20 USD.
+
+{% data reusables.dotcom_billing.pricing_calculator.pricing_cal_packages %}
 
 Al final del mes, {% data variables.product.prodname_dotcom %} redondea tu transferencia de datos al número de GB más cercano.
 
@@ -63,7 +69,9 @@ Al final del mes, {% data variables.product.prodname_dotcom %} redondea tu almac
 
 Tu uso de {% data variables.product.prodname_registry %} comparte la fecha de facturación, método de pago y recibo existente en tu cuenta. {% data reusables.dotcom_billing.view-all-subscriptions %}
 
-### Acerca de los límites de gasto
+{% data reusables.user-settings.context_switcher %}
+
+## Acerca de los límites de gasto
 
 {% data reusables.package_registry.packages-spending-limit-detailed %}
 

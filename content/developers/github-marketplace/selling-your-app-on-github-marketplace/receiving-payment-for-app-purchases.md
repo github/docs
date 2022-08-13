@@ -2,14 +2,15 @@
 title: Receiving payment for app purchases
 intro: 'At the end of each month, you''ll receive payment for your {% data variables.product.prodname_marketplace %} listing.'
 redirect_from:
-  - /apps/adding-integrations/managing-pricing-and-payments-for-a-github-marketplace-listing/receiving-payment-for-a-github-marketplace-listing/
-  - /apps/marketplace/managing-pricing-and-payments-for-a-github-marketplace-listing/receiving-payment-for-a-github-marketplace-listing/
-  - /apps/marketplace/pricing-payments-and-free-trials/receiving-payment-for-a-github-marketplace-listing/
-  - /apps/marketplace/selling-your-app/receiving-payment-for-github-marketplace-listings/
+  - /apps/adding-integrations/managing-pricing-and-payments-for-a-github-marketplace-listing/receiving-payment-for-a-github-marketplace-listing
+  - /apps/marketplace/managing-pricing-and-payments-for-a-github-marketplace-listing/receiving-payment-for-a-github-marketplace-listing
+  - /apps/marketplace/pricing-payments-and-free-trials/receiving-payment-for-a-github-marketplace-listing
+  - /apps/marketplace/selling-your-app/receiving-payment-for-github-marketplace-listings
   - /marketplace/selling-your-app/receiving-payment-for-github-marketplace-listings
   - /developers/github-marketplace/receiving-payment-for-app-purchases
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Marketplace
 shortTitle: Receive payment
@@ -22,6 +23,6 @@ For transactions made before January 1, 2021, {% data variables.product.company_
 
 {% note %}
 
-**Note:** For details of the current pricing and payment terms, see "[{% data variables.product.prodname_marketplace %} developer agreement](/github/site-policy/github-marketplace-developer-agreement)."
+**Note:** For details of the current pricing and payment terms, see "[{% data variables.product.prodname_marketplace %} developer agreement](/free-pro-team@latest/github/site-policy/github-marketplace-developer-agreement)."
 
 {% endnote %}

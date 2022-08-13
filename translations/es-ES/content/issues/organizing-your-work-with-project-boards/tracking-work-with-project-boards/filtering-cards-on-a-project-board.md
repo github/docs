@@ -1,21 +1,23 @@
 ---
-title: Filtrar tarjetas en un tablero de proyecto
-intro: Puedes filtrar las tarjetas en un tablero de proyecto para buscar tarjetas específicas o ver un subconjunto de tarjetas.
+title: 'Filtering cards on a {% data variables.product.prodname_project_v1 %}'
+intro: 'You can filter the cards on a {% data variables.projects.projects_v1_board %} to search for specific cards or view a subset of the cards.'
 redirect_from:
   - /github/managing-your-work-on-github/tracking-the-progress-of-your-work-with-project-boards/filtering-cards-on-a-project-board
   - /articles/filtering-cards-on-a-project-board
   - /github/managing-your-work-on-github/filtering-cards-on-a-project-board
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  feature: projects-v1
 topics:
   - Pull requests
+shortTitle: 'Filtrar tarjetas en {% data variables.product.prodname_project_v1 %}'
+allowTitleToDifferFromFilename: true
 ---
 
-En una tarjeta, puedes dar clic en cualquier asignado, hito, o etiqueta para filtrar el tablero de proyecto de acuerdo con ese calificador. Para limpiar la búsqueda, puedes dar clic en el mismo asignado, hito o etiqueta nuevamente.
+{% data reusables.projects.project_boards_old %}
 
-También puedes usar la barra de búsqueda "Filtrar tarjetas" en la parte superior de cada tablero de proyecto para buscar tarjetas. Puedes filtrar tarjetas usando los siguientes calificadores de búsqueda en cualquier combinación, o simplemente escribir el texto que deseas buscar.
+En una tarjeta, puedes hacer clic en cualquier asignado, hito o etiqueta para filtrar el {% data variables.projects.projects_v1_board %} por ese calificador. Para limpiar la búsqueda, puedes dar clic en el mismo asignado, hito o etiqueta nuevamente.
+
+También puedes utilizar la barra de búsqueda de "Filtrar tarjetas" en la parte superior de cda {% data variables.projects.projects_v1_board %} para buscar tarjetas. Puedes filtrar tarjetas usando los siguientes calificadores de búsqueda en cualquier combinación, o simplemente escribir el texto que deseas buscar.
 
 - Filtrar tarjetas por autor usando `author:USERNAME`
 - Filtrar tarjetas por asignatario usando `assignee:USERNAME` o `no:assignee`
@@ -26,10 +28,10 @@ También puedes usar la barra de búsqueda "Filtrar tarjetas" en la parte superi
 - Filtrar por comprobación de estado usando `status:pending`, `status:success` o `status:failure`
 - Filtrar tarjetas por tipo usando `type:issue`, `type:pr` o `type:note`
 - Filtrar tarjetas por estado y tipo usando `is:open`, `is:closed` o `is:merged` y `is:issue`, `is:pr` o `is:note`
-- Filtra tarjetas por las propuestas que están vinculadas a una solicitud de cambios mediante una referencia de cierre utilizando `linked:pr`{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}
-- Filtrar tarjetas por repositorio en un tablero de proyecto de toda la organización utilizando `repo:ORGANIZATION/REPOSITORY`{% endif %}
+- Filtrar las tarjetas por las propuestas que están enlazadas a una solicitud de cambios mediante una referencia de cierre utilizando `linked:pr`
+- Filtrar tarjetas por repositorio en un {% data variables.projects.projects_v1_board %} de toda la organización, utilizando `repo:ORGANIZATION/REPOSITORY`
 
-1. Dirígete al tablero de proyecto que contenga las tarjetas que desees filtrar.
+1. Navega al {% data variables.projects.projects_v1_board %} que contenga las tarjetas que quieres filtrar.
 2. Sobre las columnas de las tarjetas del proyecto, haz clic en la barra de búsqueda "Filtrar tarjetas" y escribe la consulta de búsqueda para filtrar las tarjetas. ![Barra de búsqueda Filtrar tarjetas](/assets/images/help/projects/filter-card-search-bar.png)
 
 {% tip %}
@@ -38,8 +40,8 @@ También puedes usar la barra de búsqueda "Filtrar tarjetas" en la parte superi
 
 {% endtip %}
 
-### Leer más
+## Leer más
 
-- "[Acerca de los tablero de proyecto](/articles/about-project-boards)"
-- "[Agregar propuestas y solicitudes de extracción a un tablero de proyecto](/articles/adding-issues-and-pull-requests-to-a-project-board)"
-- "[Agregar notas a un tablero de proyecto](/articles/adding-notes-to-a-project-board)"
+- "[Acerca de {% data variables.product.prodname_projects_v1 %}](/articles/about-project-boards)"
+- "[Agregar propuestas y solicitudes de cambios a un {% data variables.product.prodname_project_v1 %}](/articles/adding-issues-and-pull-requests-to-a-project-board)"
+- "[Agregar notas a un {% data variables.product.prodname_project_v1 %}](/articles/adding-notes-to-a-project-board)"

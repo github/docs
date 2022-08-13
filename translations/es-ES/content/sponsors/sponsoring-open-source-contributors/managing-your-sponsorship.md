@@ -5,7 +5,8 @@ redirect_from:
   - /articles/managing-your-sponsorship
   - /github/supporting-the-open-source-community-with-github-sponsors/managing-your-sponsorship
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Contacting sponsors
@@ -15,7 +16,7 @@ topics:
 
 {% data reusables.sponsors.org-sponsors-release-phase %}
 
-### Administrar la configuración de privacidad para tu patrocinio
+## Administrar la configuración de privacidad para tu patrocinio
 
 {% data reusables.sponsors.navigate-to-sponsored-account %}
 {% data reusables.sponsors.sponsorship-dashboard %}
@@ -23,7 +24,7 @@ topics:
 {% data reusables.sponsors.who-can-see-your-sponsorship %}
 {% data reusables.sponsors.update-sponsorship %}
 
-### Administrar las actualizaciones de correo electrónico para tu patrocinio
+## Administrar las actualizaciones de correo electrónico para tu patrocinio
 
 Puedes elegir si una cuenta que patrocinas puede enviarte actualizaciones por correo electrónico sobre su trabajo o no. La cuenta patrocinada no tendrá acceso a tu dirección de correo electrónico.
 
@@ -35,7 +36,7 @@ Puedes elegir si una cuenta que patrocinas puede enviarte actualizaciones por co
 {% data reusables.sponsors.choose-updates %}
 {% data reusables.sponsors.update-sponsorship %}
 
-### Leer más
+## Leer más
 
 - "[Mejorar un patrocinio](/articles/upgrading-a-sponsorship)"
 - "[Degradar un patrocinio](/articles/downgrading-a-sponsorship)"

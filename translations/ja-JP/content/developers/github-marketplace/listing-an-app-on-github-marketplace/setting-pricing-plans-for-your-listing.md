@@ -2,43 +2,45 @@
 title: リストに対する価格プランの設定
 intro: 'アプリケーションを{% data variables.product.prodname_marketplace %}上でリストする際に、アプリケーションを無料のサービスとして提供するか、アプリケーションを販売するかを選択できます。 アプリケーションを販売することを計画するなら、様々な機能レベルに対して異なる価格プランを作成できます。'
 redirect_from:
-  - /apps/adding-integrations/managing-pricing-and-payments-for-a-github-marketplace-listing/setting-a-github-marketplace-listing-s-pricing-plan/
-  - /apps/marketplace/managing-pricing-and-payments-for-a-github-marketplace-listing/setting-a-github-marketplace-listing-s-pricing-plan/
-  - /apps/marketplace/pricing-payments-and-free-trials/setting-a-github-marketplace-listing-s-pricing-plan/
-  - /apps/adding-integrations/managing-pricing-and-payments-for-a-github-marketplace-listing/about-github-marketplace-pricing-plans/
-  - /apps/marketplace/managing-pricing-and-payments-for-a-github-marketplace-listing/about-github-marketplace-pricing-plans/
-  - /apps/marketplace/pricing-payments-and-free-trials/about-github-marketplace-pricing-plans/
-  - /apps/adding-integrations/managing-pricing-and-payments-for-a-github-marketplace-listing/changing-a-github-marketplace-listing-s-pricing-plan/
-  - /apps/marketplace/managing-pricing-and-payments-for-a-github-marketplace-listing/changing-a-github-marketplace-listing-s-pricing-plan/
-  - /apps/marketplace/managing-github-marketplace-listings/changing-a-github-marketplace-listing-s-pricing-plan/
-  - /apps/marketplace/listing-on-github-marketplace/setting-a-github-marketplace-listing-s-pricing-plan/
+  - /apps/adding-integrations/managing-pricing-and-payments-for-a-github-marketplace-listing/setting-a-github-marketplace-listing-s-pricing-plan
+  - /apps/marketplace/managing-pricing-and-payments-for-a-github-marketplace-listing/setting-a-github-marketplace-listing-s-pricing-plan
+  - /apps/marketplace/pricing-payments-and-free-trials/setting-a-github-marketplace-listing-s-pricing-plan
+  - /apps/adding-integrations/managing-pricing-and-payments-for-a-github-marketplace-listing/about-github-marketplace-pricing-plans
+  - /apps/marketplace/managing-pricing-and-payments-for-a-github-marketplace-listing/about-github-marketplace-pricing-plans
+  - /apps/marketplace/pricing-payments-and-free-trials/about-github-marketplace-pricing-plans
+  - /apps/adding-integrations/managing-pricing-and-payments-for-a-github-marketplace-listing/changing-a-github-marketplace-listing-s-pricing-plan
+  - /apps/marketplace/managing-pricing-and-payments-for-a-github-marketplace-listing/changing-a-github-marketplace-listing-s-pricing-plan
+  - /apps/marketplace/managing-github-marketplace-listings/changing-a-github-marketplace-listing-s-pricing-plan
+  - /apps/marketplace/listing-on-github-marketplace/setting-a-github-marketplace-listing-s-pricing-plan
   - /marketplace/listing-on-github-marketplace/setting-a-github-marketplace-listing-s-pricing-plan
   - /developers/github-marketplace/setting-pricing-plans-for-your-listing
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 topics:
   - Marketplace
+shortTitle: 掲載する価格プランの設定
 ---
 
-### 価格プランの設定について
+## 価格プランの設定について
 
-{% data variables.product.prodname_marketplace %} offers several different types of pricing plans. 詳細にな情報については「[{% data variables.product.prodname_marketplace %}の価格プラン](/developers/github-marketplace/pricing-plans-for-github-marketplace-apps)」を参照してください。
+{% data variables.product.prodname_marketplace %}では、いくつかの種類の価格プランを提供しています。 詳細にな情報については「[{% data variables.product.prodname_marketplace %}の価格プラン](/developers/github-marketplace/pricing-plans-for-github-marketplace-apps)」を参照してください。
 
-To offer a paid plan for your app, your app must be owned by an organization that has completed the publisher verification process and met certain criteria. For more information, see "[Applying for publisher verification for your organization](/developers/github-marketplace/applying-for-publisher-verification-for-your-organization)" and "[Requirements for listing an app on {% data variables.product.prodname_marketplace %}](/marketplace/getting-started/requirements-for-listing-an-app-on-github-marketplace/)."
+アプリケーションで有料プランを提供するには、アプリケーションがパブリッシャー検証プロセスを済ませたOrganizationの所有であり、かつ特定の条件を満たす必要があります。 詳しい情報については、「[Organizationのパブリッシャー検証プロセスを申請する](/developers/github-marketplace/applying-for-publisher-verification-for-your-organization)」および「[{% data variables.product.prodname_marketplace %}アプリケーションを載せるための要件](/marketplace/getting-started/requirements-for-listing-an-app-on-github-marketplace/)」を参照してください。
 
-If your app is already published with a paid plan and you're a verified publisher, then you can publish a new paid plan from the "Edit a pricing plan" page in your Marketplace app listing settings.
+アプリケーションが有料プラン付きで既に公開されており、あなたが検証済みパブリッシャーである場合は、Marketplaceアプリケーション掲載設定の [Edit a pricing plan] ページから新しい有料プランを公開できます。
 
-![Publish this plan button](/assets/images/marketplace/publish-this-plan-button.png)
+![[Publish this plan] ボタン](/assets/images/marketplace/publish-this-plan-button.png)
 
-If your app is already published with a paid plan and but you are not a verified publisher, then you can cannot publish a new paid plan until you are a verified publisher. For more information about becoming a verified publisher, see "[Applying for publisher verification for your organization](/developers/github-marketplace/applying-for-publisher-verification-for-your-organization)."
+アプリケーションが有料プラン付きで既に公開されており、あなたが検証済みパブリッシャーでない場合は、検証済みパブリッシャーになるまで新しい有料プランを公開できません。 検証済みパブリッシャーになる方法の詳細については、「[Organizationのパブリッシャー検証プロセスを申請する](/developers/github-marketplace/applying-for-publisher-verification-for-your-organization)」を参照してください。
 
-### 価格プランの保存について
+## 価格プランの保存について
 
 価格プランは、ドラフトもしくは公開状態で保存できます。 {% data variables.product.prodname_marketplace %}リストを承認のためにサブミットしていないなら、リストが承認されるまでは公開されたプランはドラフトのプランと同じように機能し、{% data variables.product.prodname_marketplace %}上に表示されます。 ドラフトプランを利用すると、新しい価格プランを{% data variables.product.prodname_marketplace %}リストページ上で利用できるようにすることなく作成し、保存できます。 公開リスト上で価格プランを公開すると、顧客はすぐにそれを利用して購入できるようになります。 最大で10の価格プランを公開できます。
 
 顧客への課金のガイドラインについては、「[顧客への課金](/developers/github-marketplace/billing-customers)」を参照してください。
 
-### 価格プランの作成
+## 価格プランの作成
 
 {% data variables.product.prodname_marketplace %}リストの価格プランを作成するには、[{% data variables.product.prodname_marketplace %}リストページ](https://github.com/marketplace/manage)の左のサイドバーで**Plans and pricing（プラント価格）**をクリックしてください。 詳しい情報については「[ドラフトの{% data variables.product.prodname_marketplace %}リストの作成](/marketplace/listing-on-github-marketplace/creating-a-draft-github-marketplace-listing/)」を参照してください。
 
@@ -63,7 +65,7 @@ If your app is already published with a paid plan and but you are not a verified
 
 {% data reusables.marketplace.free-plan-note %}
 
-### {% data variables.product.prodname_marketplace %}リストの価格プランの変更
+## {% data variables.product.prodname_marketplace %}リストの価格プランの変更
 
 {% data variables.product.prodname_marketplace %}のリストのための価格プランが必要なくなったり、プランの詳細を調整する必要が生じた場合、そのプランを削除できます。
 
@@ -83,4 +85,4 @@ If your app is already published with a paid plan and but you are not a verified
 
 価格プランを終了した後には、削除した価格プランと同じ名前で新しい価格プランを作成できます。 たとえば、「Pro」価格プランがあるものの、定額料金を変更する必要がある場合、その「Pro」価格プランを削除し、更新された価格で新しい「Pro」価格プランを作成できます。 ユーザは、すぐに新しい価格プランで購入できるようになります。
 
-If you are not a verified publisher, then you cannot change a pricing plan for your app. For more information about becoming a verified publisher, see "[Applying for publisher verification for your organization](/developers/github-marketplace/applying-for-publisher-verification-for-your-organization)."
+あなたが検証済みパブリッシャーでない場合は、アプリケーションの価格プランを変更できません。 検証済みパブリッシャーになる方法の詳細については、「[Organizationのパブリッシャー検証プロセスを申請する](/developers/github-marketplace/applying-for-publisher-verification-for-your-organization)」を参照してください。

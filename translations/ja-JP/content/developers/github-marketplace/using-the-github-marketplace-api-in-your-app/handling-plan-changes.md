@@ -2,19 +2,20 @@
 title: プラン変更の処理
 intro: '{% data variables.product.prodname_marketplace %} アプリケーションのアップグレードあるいはダウングレードによって、[`marketplace_purchase` イベント](/marketplace/integrating-with-the-github-marketplace-api/github-marketplace-webhook-events/) webhookが`changed`アクション付きでトリガされ、それによってアップグレードあるいはダウングレードのフローが開始されます。'
 redirect_from:
-  - /apps/marketplace/administering-listing-plans-and-user-accounts/upgrading-or-downgrading-plans/
-  - /apps/marketplace/integrating-with-the-github-marketplace-api/upgrading-and-downgrading-plans/
+  - /apps/marketplace/administering-listing-plans-and-user-accounts/upgrading-or-downgrading-plans
+  - /apps/marketplace/integrating-with-the-github-marketplace-api/upgrading-and-downgrading-plans
   - /marketplace/integrating-with-the-github-marketplace-api/upgrading-and-downgrading-plans
   - /developers/github-marketplace/handling-plan-changes
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 topics:
   - Marketplace
 ---
 
 支払いに関連するアップグレード及びダウングレードに関する詳しい説明については「[{% data variables.product.prodname_marketplace %} APIとのインテグレーション](/marketplace/integrating-with-the-github-marketplace-api/)」を参照してください。
 
-### ステップ 1. 料金プランの変更イベント
+## ステップ 1. 料金プランの変更イベント
 
 顧客が{% data variables.product.prodname_marketplace %}の注文に対して以下のいずれかの変更を行うと、GitHubは`marketplace_purchase` webhookを`changed`アクション付きでアプリケーションに送信します。
 * より高価な価格プランへのアップグレードあるいは低価格なプランへのダウングレード
@@ -27,7 +28,7 @@ GitHubは、変更が有効になるとwebhookを送信します。 たとえば
 
 アプリケーションが無料トライアルを提供しているなら、無料トライアルの有効期限が切れると`marketplace_purchase` webhookを`changed`アクション付きで受け取ります。 顧客の無料トライアル期間が終了したら、その顧客を無料トライアルプランの有料バージョンにアップグレードしてください。
 
-### ステップ 2. 顧客アカウントの更新
+## ステップ 2. 顧客アカウントの更新
 
 顧客が{% data variables.product.prodname_marketplace %}の注文に対して行った支払いサイクルや価格プランの変更を反映させるために、顧客のアカウント情報を更新しなければなりません。 `changed`アクションwebhookを受信した際に、MarketplaceアプリケーションのWebサイトか、アプリケーションのUIに、価格プラン、`seat_count`（ユニット単位の価格プランの場合）、支払いサイクルのアップグレードを表示してください。
 
@@ -41,15 +42,15 @@ GitHubは、変更が有効になるとwebhookを送信します。 たとえば
 
 {% endnote %}
 
-### アップグレードの支払いの失敗
+## アップグレードの支払いの失敗
 
 {% data reusables.marketplace.marketplace-failed-purchase-event %}
 
-### アップグレードURLについて
+## アップグレードURLについて
 
 アップグレードURLを使い、ユーザをアプリケーションのUIからGitHub上でのアップグレードへリダイレクトできます。
 
-```
+```text
 https://www.github.com/marketplace/<LISTING_NAME>/upgrade/<LISTING_PLAN_NUMBER>/<CUSTOMER_ACCOUNT_ID>
 ```
 

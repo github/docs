@@ -6,14 +6,15 @@ redirect_from:
   - /enterprise/admin/user-management/importing-data-from-third-party-version-control-systems
   - /admin/user-management/importing-data-from-third-party-version-control-systems
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
   - Migration
+shortTitle: 从另一个 VCS 导入
 ---
 
-### 从 Mercurial 导入项目
+## 从 Mercurial 导入项目
 
 {% data reusables.enterprise_installation.ssh-into-instance %}
 2. 使用以下命令对项目进行原始克隆，并指定源项目的 URL 和临时仓库的路径：
@@ -26,14 +27,14 @@ topics:
   ```shell
   $ git-import-rewrite --flavor hg --authors /<em>PATH</em>/<em>AUTHORS-MAP-FILE</em>.csv /<em>PATH</em>/<em>REPO-NAME</em>.git
   ```
-5. 如果您还没有创建，请[在 {% data variables.product.prodname_ghe_server %} 上创建新的空仓库](/enterprise/{{ currentVersion }}/user/articles/creating-a-new-repository)。
+5. 如果您还没有创建，请[在 {% data variables.product.prodname_ghe_server %} 上创建新的空仓库](/enterprise/user/articles/creating-a-new-repository)。
 {% data reusables.command_line.switching_directories_procedural %}
 7. 将导入的仓库推送到 {% data variables.product.prodname_ghe_server %}：
   ```shell
   $ git push --mirror <em>PUSH-URL-ON-GITHUB-ENTERPRISE</em>
   ```
 
-### 从 Subversion 导入项目
+## 从 Subversion 导入项目
 
 {% data reusables.enterprise_installation.ssh-into-instance %}
 2. 使用以下命令对项目进行原始克隆，并指定源项目的 URL 和临时仓库的路径：
@@ -46,14 +47,14 @@ topics:
   ```shell
   $ git-import-rewrite --flavor svn --authors /<em>PATH</em>/<em>AUTHORS-MAP-FILE</em>.csv /<em>PATH</em>/<em>REPO-NAME</em>.git
   ```
-5. 如果您还没有创建，请[在 {% data variables.product.prodname_ghe_server %} 上创建新的空仓库](/enterprise/{{ currentVersion }}/user/articles/creating-a-new-repository)。
+5. 如果您还没有创建，请[在 {% data variables.product.prodname_ghe_server %} 上创建新的空仓库](/enterprise/user/articles/creating-a-new-repository)。
 {% data reusables.command_line.switching_directories_procedural %}
 7. 将导入的仓库推送到 {% data variables.product.prodname_ghe_server %}：
   ```shell
   $ git push --mirror <em>PUSH-URL-ON-GITHUB-ENTERPRISE</em>
   ```
 
-### 从 Team Foundation Version Control 导入项目
+## 从 Team Foundation Version Control 导入项目
 
 {% data reusables.enterprise_installation.ssh-into-instance %}
 2. 使用以下命令对项目进行原始克隆，并指定源项目的 URL 和临时仓库的路径：
@@ -66,13 +67,13 @@ topics:
   ```shell
   $ git-import-rewrite --flavor tfs --authors /<em>PATH</em>/<em>AUTHORS-MAP-FILE</em>.csv /<em>PATH</em>/<em>REPO-NAME</em>.git
   ```
-5. 如果您还没有创建，请[在 {% data variables.product.prodname_ghe_server %} 上创建新的空仓库](/enterprise/{{ currentVersion }}/user/articles/creating-a-new-repository)。
+5. 如果您还没有创建，请[在 {% data variables.product.prodname_ghe_server %} 上创建新的空仓库](/enterprise/user/articles/creating-a-new-repository)。
 {% data reusables.command_line.switching_directories_procedural %}
 7. 将导入的仓库推送到 {% data variables.product.prodname_ghe_server %}：
   ```shell
   $ git push --mirror <em>PUSH-URL-ON-GITHUB-ENTERPRISE</em>
   ```
 
-### 延伸阅读
+## 延伸阅读
 
-- "[命令行实用程序](/enterprise/{{ currentVersion }}/admin/guides/installation/command-line-utilities/#import-and-export)"
+- "[命令行实用程序](/enterprise/admin/guides/installation/command-line-utilities/#import-and-export)"

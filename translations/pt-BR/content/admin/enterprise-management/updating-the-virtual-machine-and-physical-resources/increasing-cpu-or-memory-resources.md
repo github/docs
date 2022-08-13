@@ -1,74 +1,111 @@
 ---
-title: Aprimorar os recursos de CPU ou memória
-intro: 'Se houver lentidão das operações na {% data variables.product.product_location_enterprise %}, pode ser necessário adicionar recursos de CPU ou memória.'
+title: Increasing CPU or memory resources
+intro: 'You can increase the CPU or memory resources for a {% data variables.product.prodname_ghe_server %} instance.'
 redirect_from:
   - /enterprise/admin/installation/increasing-cpu-or-memory-resources
   - /enterprise/admin/enterprise-management/increasing-cpu-or-memory-resources
   - /admin/enterprise-management/increasing-cpu-or-memory-resources
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
   - Infrastructure
   - Performance
+shortTitle: Increase CPU or memory
 ---
-
 {% data reusables.enterprise_installation.warning-on-upgrading-physical-resources %}
-
-### Adicionar recursos de CPU ou memória para AWS
 
 {% note %}
 
-**Observação:** para adicionar recursos de CPU ou memória ao AWS, você deve saber usar o console de gerenciamento do AWS ou a interface da linha de comandos `aws ec2` para gerenciar instâncias do EC2. Para obter detalhes sobre o uso das ferramentas do AWS escolhidas para o redimensionamento, consulte a documentação do AWS sobre [redimensionar uma instância da Amazon com EBS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-resize.html).
+**Note:** Before increasing CPU or memory resources, put your instance in maintenance mode.{% ifversion ip-exception-list %} You can validate changes by configuring an IP exception list to allow access from specified IP addresses. {% endif %} For more information, see "[Enabling and scheduling maintenance mode](/enterprise/admin/guides/installation/enabling-and-scheduling-maintenance-mode)."
 
 {% endnote %}
 
-#### Considerações de redimensionamento
+## Adding CPU or memory resources for AWS
 
-Antes de aumentar recursos de CPU ou memória do {% data variables.product.product_location %}:
+{% note %}
 
-- **Amplie sua memória com CPUs**. {% data reusables.enterprise_installation.increasing-cpus-req %}
-- **Atribua um endereço IP elástico à instância**. Se não houver IP elástica atribuída, você terá que ajustar os registros DNS A do seu host do {% data variables.product.prodname_ghe_server %} após o reinício para explicar a alteração no endereço IP público. Depois que a instância for reiniciada, a IP elástica (EIP) será automaticamente mantida se a instância for iniciada em uma VPC. Se a instância for iniciada no EC2-Classic, a IP elástica deverá ser associada outra vez manualmente.
+**Note:** To add CPU or memory resources for AWS, you must be familiar with using either the AWS management console or the `aws ec2` command line interface to manage EC2 instances. For background and details on using the AWS tools of your choice to perform the resize, see the AWS documentation on [resizing an Amazon EBS-backed instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-resize.html).
 
-#### Tipos de instância do AWS compatíveis
+{% endnote %}
 
-É necessário determinar o tipo de instância para a qual você pretende atualizar com base nas especificações de CPU/memória.
+### Resizing considerations
+
+Before increasing CPU or memory resources for {% data variables.product.product_location %}, review the following recommendations.
+
+- **Scale your memory with CPUs**. {% data reusables.enterprise_installation.increasing-cpus-req %}
+- **Assign an Elastic IP address to the instance**. If you haven't assigned an Elastic IP to your instance, you'll have to adjust the DNS A records for your {% data variables.product.prodname_ghe_server %} host after the restart to account for the change in public IP address. Once your instance restarts, the instance keeps the Elastic IP if you launched the instance in a virtual private cloud (VPC). If you create the instance in an EC2-Classic network, you must manually reassign the Elastic IP to the instance.
+
+### Supported AWS instance types
+
+You need to determine the instance type you would like to upgrade to based on CPU/memory specifications.
 
 {% data reusables.enterprise_installation.warning-on-scaling %}
 
 {% data reusables.enterprise_installation.aws-instance-recommendation %}
 
-#### Redimensionar para o AWS
+### Resizing for AWS
 
 {% note %}
 
-**Observação:** para instâncias iniciadas no EC2-Classic, anote o endereço IP elástico associado à instância e o ID da instância. Depois de reiniciar a instância, reassocie o endereço IP elástico.
+**Note:** For instances launched in EC2-Classic, write down both the Elastic IP address associated with the instance and the instance's ID. Once you restart the instance, re-associate the Elastic IP address.
 
 {% endnote %}
 
-Não é possível adicionar recursos de CPU ou memória a uma instância atual do AWS/EC2. Faça o seguinte:
+It's not possible to add CPU or memory resources to an existing AWS/EC2 instance. Instead, you must:
 
-1. Interrompa a instância.
-2. Altere o tipo de instância.
-3. Inicie a instância.
+1. Stop the instance.
+2. Change the instance type.
+3. Start the instance.
 {% data reusables.enterprise_installation.configuration-recognized %}
 
-### Adicionar recursos de CPU ou memória para OpenStack KVM
+## Adding CPU or memory resources on Microsoft Azure
 
-Não é possível adicionar recursos de CPU ou memória a uma instância atual do OpenStack KVM. Faça o seguinte:
+{% note %}
 
-1. Tire um instantâneo da instância atual;
-2. Interrompa a instância.
-3. Selecione um novo tipo de instância que tenha os recursos de CPU e/ou memória desejados.
+**Note:** To add CPU or memory resources in Microsoft Azure, you must be familiar with using either the Azure Portal, Azure CLI or Azure PowerShell to manage VM instances. For background and details on using the Azure tools of your choice to perform the resize, please refer to the Azure documentation on [changing the size of a virtual machine](https://docs.microsoft.com/en-us/azure/virtual-machines/resize-vm).
 
-### Adicionar recursos de memória ou CPU para VMware
+{% endnote %}
+
+### Resizing considerations
+
+Before increasing CPU or memory resources for {% data variables.product.product_location %}, review the following recommendations.
+
+- **Scale your memory with CPUs**. {% data reusables.enterprise_installation.increasing-cpus-req %}
+- **Assign a static IP address to the instance**. If you haven't assigned a static IP to your instance, you might have to adjust the DNS A records for your {% data variables.product.prodname_ghe_server %} host after the restart to account for the change in IP address.
+
+### Supported Microsoft Azure instance sizes
+
+You need to determine the instance size you would like to upgrade to based on CPU/memory specifications.
+
+{% data reusables.enterprise_installation.warning-on-scaling %}
+
+{% data reusables.enterprise_installation.azure-instance-recommendation %}
+
+### Resizing for Microsoft Azure
+
+You can scale the VM up by changing the VM size. Changing its size will cause it to be restarted. In some cases, you must deallocate the VM first. This can happen if the new size is not available on the hardware cluster that is currently hosting the VM. 
+
+1. Refer to the Azure documentation on [changing the size of a virtual machine](https://docs.microsoft.com/en-us/azure/virtual-machines/resize-vm) for the required steps.
+{% data reusables.enterprise_installation.configuration-recognized %}
+
+## Adding CPU or memory resources for OpenStack KVM
+
+It's not possible to add CPU or memory resources to an existing OpenStack KVM instance. Instead, you must:
+
+1. Take a snapshot of the current instance.
+2. Stop the instance.
+3. Select a new instance flavor that has the desired CPU and/or memory resources.
+
+## Adding CPU or memory resources for VMware
 
 {% data reusables.enterprise_installation.increasing-cpus-req %}
 
-1. Use o cliente vSphere para conexão com o host VMware ESXi.
-2. Desligue a {% data variables.product.product_location %}.
-3. Selecione a máquina virtual e clique em **Edit Settings** (Editar configurações).
-4. Em "Hardware", ajuste a CPU e/ou os recursos de memória alocados à máquina virtual, conforme necessário. ![Recursos de configuração VMware](/assets/images/enterprise/vmware/vsphere-hardware-tab.png)
-5. Para iniciar a máquina virtual, clique em **OK**.
+1. Use the vSphere Client to connect to the VMware ESXi host.
+2. Shut down {% data variables.product.product_location %}.
+3. Select the virtual machine and click **Edit Settings**.
+4. Under "Hardware", adjust the CPU and/or memory resources allocated to the virtual machine as needed:
+![VMware setup resources](/assets/images/enterprise/vmware/vsphere-hardware-tab.png)
+5. To start the virtual machine, click **OK**.
 {% data reusables.enterprise_installation.configuration-recognized %}

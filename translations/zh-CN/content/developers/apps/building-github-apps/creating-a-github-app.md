@@ -2,21 +2,22 @@
 title: 创建 GitHub 应用程序
 intro: '{% data reusables.shortdesc.creating_github_apps %}'
 redirect_from:
-  - /early-access/integrations/creating-an-integration/
-  - /apps/building-integrations/setting-up-and-registering-github-apps/registering-github-apps/
+  - /early-access/integrations/creating-an-integration
+  - /apps/building-integrations/setting-up-and-registering-github-apps/registering-github-apps
   - /apps/building-github-apps/creating-a-github-app
   - /developers/apps/creating-a-github-app
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - GitHub Apps
 ---
 
-{% if currentVersion == "free-pro-team@latest" %} 要了解如何使用 GitHub 应用程序清单允许用户创建预配置 GitHub 应用程序，请参阅“[从清单创建 GitHub 应用程序](/apps/building-github-apps/creating-github-apps-from-a-manifest/)。”{% endif %}
+{% ifversion fpt or ghec %} 要了解如何使用 GitHub 应用程序清单允许用户创建预配置 GitHub 应用程序，请参阅“[从清单创建 GitHub 应用程序](/apps/building-github-apps/creating-github-apps-from-a-manifest/)。”{% endif %}
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt or ghec %}
 {% note %}
 
   **注意：** {% data reusables.apps.maximum-github-apps-allowed %}
@@ -34,7 +35,7 @@ topics:
 
 1. （可选）在“Description（说明）”中，输入用户将看到的应用程序说明。 ![GitHub 应用程序说明字段](/assets/images/github-apps/github_apps_description.png)
 1. 在“Homepage URL（主页 URL）”中，输入应用程序网站的完整 URL。 ![GitHub 应用程序主页 URL 字段](/assets/images/github-apps/github_apps_homepage_url.png)
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
+{% ifversion fpt or ghes or ghec %}
 1. 在“Callback URL（回调 URL）”中，键入用户授权安装后要重定向到的完整 URL。 如果应用程序需要识别和授权用户到服务器的请求，则使用此 URL。
 
   您可以使用 **Add callback URL（添加回调 URL）**来提供额外的回调 URL，最多不超过 10 个。
@@ -44,10 +45,9 @@ topics:
 1. 在“User authorization callback URL（用户授权回调 URL）”中，键入用户授权安装后要重定向到的完整 URL。 如果应用程序需要识别和授权用户到服务器的请求，则使用此 URL。 ![GitHub 应用程序的用户授权回调 URL 字段](/assets/images/github-apps/github_apps_user_authorization.png)
 
 {% endif %}
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}
 1. 默认情况下，为了提高应用程序的安全性，应用程序将使用过期用户授权令牌。 要选择不使用过期用户令牌，您必须取消选中“Expire user authorization tokens（过期用户授权令牌）”。 要了解有关设置刷新令牌流程和过期用户令牌的好处，请参阅“[刷新用户到服务器的访问令牌](/apps/building-github-apps/refreshing-user-to-server-access-tokens/)”。 ![在 GitHub 应用程序设置过程中选择加入过期用户令牌的选项](/assets/images/github-apps/expire-user-tokens-selection.png)
-{% endif %}
-1. 如果应用程序授权用户使用 OAuth 流程，您可以选择**在安装过程中请求用户授权 (OAuth)**，以允许用户在安装应用程序时授权它，从而省去一个步骤。 如果您选择此选项，则“设置 URL”将不可用，用户在安装应用程序后将被重定向到您的“用户授权回调 URL”。 更多信息请参阅“[在安装过程中授权用户](/apps/installing-github-apps/#authorizing-users-during-installation)”。 ![安装过程中请求用户授权](/assets/images/github-apps/github_apps_request_auth_upon_install.png)
+1. 如果应用程序授权用户使用 OAuth 流程，您可以选择**在安装过程中请求用户授权 (OAuth)**，以允许用户在安装应用程序时授权它，从而省去一个步骤。 如果您选择此选项，则“设置 URL”将不可用，用户在安装应用程序后将被重定向到您的“用户授权回调 URL”。 更多信息请参阅“[在安装过程中授权用户](/apps/installing-github-apps/#authorizing-users-during-installation)”。 ![Request user authorization during installation](/assets/images/github-apps/github_apps_request_auth_upon_install.png){% ifversion device-flow-is-opt-in %}
+1. 如果您的 GitHub 应用程序将使用设备流来识别和授权用户，请单击 **Enable Device Flow（启用设备流）**。 有关设备流的更多信息，请参阅“[授权 OAuth 应用程序](/developers/apps/building-oauth-apps/authorizing-oauth-apps#device-flow)”。 ![Screenshot showing field for enabling device flow](/assets/images/oauth-apps/enable-device-flow.png){% endif %}
 1. 如果安装后需要附加设置，请添加一个“设置 URL”以便在用户安装应用程序后重定向他们。 ![GitHub 应用程序的设置 URL 字段 ](/assets/images/github-apps/github_apps_setup_url.png)
 
   {% note %}

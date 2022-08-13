@@ -2,11 +2,13 @@
 title: Sponsors GraphQL API を使ってみる
 intro: GraphQL API を使用して、スポンサーシップを管理または確認するためのカスタムインテグレーションを構築できます。
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 type: overview
 topics:
   - GraphQL
   - API
+shortTitle: Sponsors GraphQL API
 ---
 
 GraphQL API の使用を始めるには、「[GraphQL の概要](/graphql/guides/introduction-to-graphql)」を参照してください。

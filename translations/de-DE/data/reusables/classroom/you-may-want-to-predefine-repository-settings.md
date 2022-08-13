@@ -1,1 +1,0 @@
-You may want to predefine the default settings for the assignment repositories that {% data variables.product.prodname_classroom %} creates from a template repository. For example, you may want to disable issues, define labels for pull requests, or protect a branch in some or all of the repositories.

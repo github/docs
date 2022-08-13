@@ -1,14 +1,14 @@
 ---
-title: Auditar a los usuarios a lo largo de tu empresa
-intro: 'El tablero de bitácoras de auditoría muestra a los administradores de sitio las acciones que realizan todos los usuarios y organizaciones en toda la empresa durante los últimos 90 días, incluyendo detalles tales como quién realizó la acción, de qué acción se trata, y cuándo se llevó a cabo.'
+title: Auditing users across your enterprise
+intro: 'The audit log dashboard shows site administrators the actions performed by all users and organizations across your enterprise within the current month and previous six months. The audit log includes details such as who performed the action, what the action was, and when the action was performed.'
 redirect_from:
-  - /enterprise/admin/guides/user-management/auditing-users-across-an-organization/
+  - /enterprise/admin/guides/user-management/auditing-users-across-an-organization
   - /enterprise/admin/user-management/auditing-users-across-your-instance
   - /admin/user-management/auditing-users-across-your-instance
   - /admin/user-management/auditing-users-across-your-enterprise
 versions:
-  enterprise-server: '*'
-  github-ae: '*'
+  ghes: '*'
+  ghae: '*'
 type: how_to
 topics:
   - Auditing
@@ -16,104 +16,104 @@ topics:
   - Organizations
   - Security
   - User account
+shortTitle: Audit users
 ---
+## Accessing the audit log
 
-### Acceder al registro de auditoría
+The audit log dashboard gives you a visual display of audit data across your enterprise.
 
-El tablero de bitácoras de auditoría te proporciona una presentación visual de los datos de auditoría a lo largo de tu empresa.
-
-![Tablero de registro de auditoría en toda la instancia](/assets/images/enterprise/site-admin-settings/audit-log-dashboard-admin-center.png)
+![Instance wide audit log dashboard](/assets/images/enterprise/site-admin-settings/audit-log-dashboard-admin-center.png)
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.audit-log-tab %}
 
-Dentro del mapa, puedes usar panorámica y zoom para ver eventos en todo el mundo. Mantén el puntero sobre un país para ver un recuento rápido de los eventos de ese país.
+Within the map, you can pan and zoom to see events around the world. Hover over a country to see a quick count of events from that country.
 
-### Buscar eventos a través de tu empresa
+## Searching for events across your enterprise
 
-La bitácora de auditoría lista la siguiente información sobre las acciones que se llevan a cabo dentro de tu empresa:
+The audit log lists the following information about actions made within your enterprise:
 
-* [El repositorio](#search-based-on-the-repository) en el cual una acción fue realizada.
-* [El usuario](#search-based-on-the-user) que realizó la acción.
-* [La organización](#search-based-on-the-organization) a la cual pertenece la acción.
-* [La acción](#search-based-on-the-action-performed) que fue realizada.
-* [El país](#search-based-on-the-location) en el que la acción fue realizada.
-* [La fecha y la hora](#search-based-on-the-time-of-action) en que ocurrió la acción.
+* [The repository](#search-based-on-the-repository) an action was performed in
+* [The user](#search-based-on-the-user) who performed the action
+* [Which organization](#search-based-on-the-organization) an action pertained to
+* [The action](#search-based-on-the-action-performed) that was performed
+* [Which country](#search-based-on-the-location) the action took place in
+* [The date and time](#search-based-on-the-time-of-action) the action occurred
 
 {% warning %}
 
-**Notas:**
+**Notes:**
 
-- Si bien no puedes utilizar texto para buscar entradas de auditoría, puedes crear consultas de búsqueda usando una variedad de filtros. {% data variables.product.product_name %} es compatible con muchos operadores para hacer búsquedas a través de {% data variables.product.product_name %}. Para obtener más información, consulta [Acerca de buscar en {% data variables.product.prodname_dotcom %}](/github/searching-for-information-on-github/about-searching-on-github)".
-- Para buscar eventos de más de 90 días, usa el calificador `created`.
+- While you can't use text to search for audit entries, you can construct search queries using a variety of filters. {% data variables.product.product_name %} supports many operators for searching across {% data variables.product.product_name %}. For more information, see "[About searching on {% data variables.product.prodname_dotcom %}](/github/searching-for-information-on-github/about-searching-on-github)."
+- Audit records are available for the current month and every day of the previous six months.
 
 {% endwarning %}
 
-#### Búsqueda basada en el repositorio
+### Search based on the repository
 
-El calificador `repo` limita las acciones a un repositorio específico que le pertenece a tu organización. Por ejemplo:
+The `repo` qualifier limits actions to a specific repository owned by your organization. For example:
 
-* `repo:my-org/our-repo` encuentra todos los eventos que ocurrieron para el repositorio `our-repo` en la organización `my-org`.
-* `repo:my-org/our-repo repo:my-org/another-repo` encuentra todos los eventos que ocurrieron tanto para los repositorios `our-repo` como `another-repo` en la organización `my-org`.
-* `-repo:my-org/not-this-repo` excluye todos los eventos que ocurrieron para el repositorio `not-this-repo` en la organización `my-org`.
+* `repo:my-org/our-repo` finds all events that occurred for the `our-repo` repository in the `my-org` organization.
+* `repo:my-org/our-repo repo:my-org/another-repo` finds all events that occurred for both the `our-repo` and `another-repo` repositories in the `my-org` organization.
+* `-repo:my-org/not-this-repo` excludes all events that occurred for the `not-this-repo` repository in the `my-org` organization.
 
-Debes incluir el nombre de tu organización dentro del calificador `repo`; si buscas solo `repo:our-repo` no funcionará.
+You must include your organization's name within the `repo` qualifier; searching for just `repo:our-repo` will not work.
 
-#### Búsqueda basada en el usuario
+### Search based on the user
 
-El calificador `actor` examina eventos basados en el miembro de tu organización que realizó la acción. Por ejemplo:
+The `actor` qualifier scopes events based on the member of your organization that performed the action. For example:
 
-* `actor:octocat` encuentra todos los eventos realizados por `octocat`.
-* `actor:octocat actor:hubot` encuentra todos los eventos realizados tanto por `octocat` como por `hubot`.
-* `-actor:hubot` excluye todos los eventos realizados por `hubot`.
+* `actor:octocat` finds all events performed by `octocat`.
+* `actor:octocat actor:hubot` finds all events performed by both `octocat` and `hubot`.
+* `-actor:hubot` excludes all events performed by `hubot`.
 
-Solo puedes usar un nombre de usuario {% data variables.product.product_name %}, no el nombre real de un individuo.
+You can only use a {% data variables.product.product_name %} username, not an individual's real name.
 
-#### Búsqueda basada en la organización
+### Search based on the organization
 
-El calificador `org` limita las acciones a una organización específica. Por ejemplo:
+The `org` qualifier limits actions to a specific organization. For example:
 
-* `org:my-org` encuentra todos los eventos que ocurrieron para la organización `my-org`.
-* `org:my-org action:team` encuentra todos los eventos del equipo realizados dentro de la organización `my-org`.
-* `-org:my-org` excluye todos los eventos que ocurrieron para la organización `my-org`.
+* `org:my-org` finds all events that occurred for the `my-org` organization.
+* `org:my-org action:team` finds all team events performed within the `my-org` organization.
+* `-org:my-org` excludes all events that occurred for the `my-org` organization.
 
-#### Búsqueda basada en la acción realizada
+### Search based on the action performed
 
-El calificador `action` busca los eventos específicos, agrupados dentro de categorías. Para obtener más información sobre los eventos asociados con estas categorías, consulta la sección "[Acciones auditadas](/admin/user-management/audited-actions)".
+The `action` qualifier searches for specific events, grouped within categories. For information on the events associated with these categories, see "[Audit log events for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise)".
 
-| Nombre de la categoría | Descripción                                                                                           |
-| ---------------------- | ----------------------------------------------------------------------------------------------------- |
-| `gancho`               | Contiene todas las actividades relacionadas con los webhooks.                                         |
-| `org`                  | Contiene todas las actividades relacionadas con los miembros de la organización.                      |
-| `repo`                 | Contiene todas las actividades relacionadas con los repositorios que le pertenecen a tu organización. |
-| `equipo`               | Contiene todas las actividades relacionadas con los equipos en tu organización.                       |
+| Category name | Description
+|------------------|-------------------
+| `hook` | Contains all activities related to webhooks.
+| `org` | Contains all activities related organization membership
+| `repo` | Contains all activities related to the repositories owned by your organization.
+| `team` | Contains all activities related to teams in your organization.
 
-Puedes buscar conjuntos específicos de acciones utilizando estos términos. Por ejemplo:
+You can search for specific sets of actions using these terms. For example:
 
-* `action:team` encuentra todos los eventos agrupados dentro de la categoría de equipo.
-* `-action:billing` excluye todos los eventos en la categoría de facturación.
+* `action:team` finds all events grouped within the team category.
+* `-action:billing` excludes all events in the billing category.
 
-Cada categoría tiene un conjunto de eventos asociados con los que puedes filtrar. Por ejemplo:
+Each category has a set of associated events that you can filter on. For example:
 
-* `action:team.create` encuentra todos los eventos donde se creó un equipo.
-* `-action:billing.change_email` excluye todos los eventos donde se modificó el correo electrónico de facturación.
+* `action:team.create` finds all events where a team was created.
+* `-action:billing.change_email` excludes all events where the billing email was changed.
 
-#### Búsqueda basada en la ubicación
+### Search based on the location
 
-El calificador `country` filtra las acciones por el país de origen.
-- Puedes utilizar un código corto de dos letras del país o el nombre completo.
-- Los países con espacios en sus nombres deben encerrarse entre comillas. Por ejemplo:
-  * `country:de` encuentra todos los eventos ocurridos en Alemania.
-  * `country:Mexico` encuentra todos los eventos ocurridos en México.
-  * `country:"United States"` encuentra todos los eventos que ocurrieron en Estados Unidos.
+The `country` qualifier filters actions by the originating country.
+- You can use a country's two-letter short code or its full name.
+- Countries with spaces in their name must be wrapped in quotation marks. For example:
+  * `country:de` finds all events that occurred in Germany.
+  * `country:Mexico` finds all events that occurred in Mexico.
+  * `country:"United States"` all finds events that occurred in the United States.
 
-#### Búsqueda basada en la fecha de acción
+### Search based on the time of action
 
-El calificador `created` filtra las acciones por la fecha en la que ocurrieron.
-- Define fechas usando el formato `YYYY-MM-DD`-- es decir, año, seguido del mes, seguido del día.
-- Las fechas admiten [ calificadores mayor que, menor que y rango](/enterprise/{{ currentVersion }}/user/articles/search-syntax). Por ejemplo:
-  * `created:2014-07-08` encuentra todos los eventos ocurridos el 8 de julio de 2014.
-  * `created:>=2014-07-01` encuentra todos los eventos ocurridos el 8 de julio de 2014 o posteriormente.
-  * `created:<=2014-07-01` encuentra todos los eventos ocurridos el 8 de julio de 2014 o anteriormente.
-  * `created:2014-07-01..2014-07-31` encuentra todos los eventos ocurridos en el mes de julio de 2014.
+The `created` qualifier filters actions by the time they occurred.
+- Define dates using the format of `YYYY-MM-DD`--that's year, followed by month, followed by day.
+- Dates support [greater than, less than, and range qualifiers](/enterprise/user/articles/search-syntax). For example:
+  * `created:2014-07-08` finds all events that occurred on July 8th, 2014.
+  * `created:>=2014-07-01` finds all events that occurred on or after July 8th, 2014.
+  * `created:<=2014-07-01` finds all events that occurred on or before July 8th, 2014.
+  * `created:2014-07-01..2014-07-31` finds all events that occurred in the month of July 2014.

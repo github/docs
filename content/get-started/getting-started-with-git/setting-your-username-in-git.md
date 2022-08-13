@@ -10,6 +10,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 shortTitle: Set your username
 ---
 ## About Git usernames
@@ -21,12 +22,12 @@ Changing the name associated with your Git commits using `git config` will only 
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
 
-2. {% data reusables.user_settings.set_your_git_username %}
+2. {% data reusables.user-settings.set_your_git_username %}
    ```shell
    $ git config --global user.name "<em>Mona Lisa</em>"
    ```
 
-3. {% data reusables.user_settings.confirm_git_username_correct %}
+3. {% data reusables.user-settings.confirm_git_username_correct %}
    ```shell
    $ git config --global user.name
    > Mona Lisa
@@ -38,12 +39,12 @@ Changing the name associated with your Git commits using `git config` will only 
 
 2. Change the current working directory to the local repository where you want to configure the name that is associated with your Git commits.
 
-3. {% data reusables.user_settings.set_your_git_username %}
+3. {% data reusables.user-settings.set_your_git_username %}
    ```shell
    $ git config user.name "<em>Mona Lisa</em>"
    ```
 
-3. {% data reusables.user_settings.confirm_git_username_correct %}
+3. {% data reusables.user-settings.confirm_git_username_correct %}
    ```shell
    $ git config user.name
    > Mona Lisa

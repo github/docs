@@ -6,14 +6,16 @@ redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-packages
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-packages/about-billing-for-github-packages
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 type: overview
 topics:
   - Packages
   - Spending limits
+shortTitle: Sobre a cobrança
 ---
 
-### Sobre a cobrança do {% data variables.product.prodname_registry %}
+## Sobre a cobrança do {% data variables.product.prodname_registry %}
 
 {% data reusables.package_registry.packages-billing %}
 
@@ -21,11 +23,13 @@ topics:
 
 {% note %}
 
-**Atualização de cobrança para armazenamento de imagens de contêiner:** Durante a fase beta do {% data variables.product.prodname_container_registry %}, o armazenamento de imagens e a largura de banda do Docker são grátis tanto para os serviços de hospedagem `docker.pkg.github.com` anteriores quanto atuais `ghcr.io`. Para obter mais informações, consulte "[Introdução a {% data variables.product.prodname_registry %}](/packages/learn-github-packages/introduction-to-github-packages)".
+**A atualização de cobrança para armazenamento de imagens do contêiner:** O período de uso grátis para armazenamento de imagens do contêiner e largura de banda para {% data variables.product.prodname_container_registry %} foi ampliado. Se estiver usando {% data variables.product.prodname_container_registry %}, você será informado com pelo menos um mês antes de começar a cobrar e receberá uma estimativa de quanto espera pagar. Para obter mais informações sobre {% data variables.product.prodname_container_registry %}, consulte "[Trabalhando com o registro do contêiner](/packages/working-with-a-github-packages-registry/working-with-the-container-registry)".
 
 {% endnote %}
 
-Se você comprou {% data variables.product.prodname_enterprise %} por meio de um Contrato da Microsoft Enterprise, você pode conectar o seu ID de assinatura do Azure à sua conta corporativa para habilitar e pagar o uso de {% data variables.product.prodname_registry %}, além dos valores incluindo na sua conta. Para obter mais informações, consulte "[Conectar uma assinatura do Azure à sua empresa](/github/setting-up-and-managing-your-enterprise/connecting-an-azure-subscription-to-your-enterprise)".
+{% ifversion ghec %}
+Se você comprou {% data variables.product.prodname_enterprise %} por meio de um Contrato da Microsoft Enterprise, você pode conectar o seu ID de assinatura do Azure à sua conta corporativa para habilitar e pagar o uso de {% data variables.product.prodname_registry %}, além dos valores incluindo na sua conta. Para obter mais informações, consulte "[Conectar uma assinatura do Azure à sua empresa](/billing/managing-billing-for-your-github-account/connecting-an-azure-subscription-to-your-enterprise)".
+{% endif %}
 
 A transferência de dados é reiniciada todos os meses, mas o uso do armazenamento não.
 
@@ -46,9 +50,11 @@ Todos os dados transferidos, quando acionados por {% data variables.product.prod
 
 O uso do armazenamento é compartilhado com artefatos de construção produzidos por {% data variables.product.prodname_actions %} para repositórios de sua conta. Para obter mais informações, consulte "[Sobre a cobrança do {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions/about-billing-for-github-actions)."
 
-O {% data variables.product.prodname_dotcom %} cobra o uso da conta que possui o repositório onde o pacote é publicado. Se o uso da sua conta ultrapassar esses limites e você definir um limite de gastos acima de $0, você pagará US$ 0,25 por GB de armazenamento e US$ 0,50 por GB de transferência de dados.
+O {% data variables.product.prodname_dotcom %} cobra o uso da conta que possui o repositório onde o pacote é publicado. Se o uso da sua conta ultrapassar esses limites e você definir um limite de gastos acima de US$ 0, você pagará US$ 0,008 por GB de armazenamento por dia e US$ 0,50 por GB de transferência de dados.
 
-Por exemplo, se sua organização usa {% data variables.product.prodname_team %}, permite gastos ilimitados, usa 150GB de armazenamento, e possui 50GB de transferência de dados durante um mês, a organização teria excessos de 148GB para armazenamento e 40GB para transferência de dados para esse mês. O excesso de armazenamento custaria $0,25 por GB ou $37. O excesso de transferência de dados custaria $0,50 por GB ou $20.
+Por exemplo, se sua organização usa {% data variables.product.prodname_team %}, permite gastos ilimitados, usa 150GB de armazenamento, e possui 50GB de transferência de dados durante um mês, a organização teria excessos de 148GB para armazenamento e 40GB para transferência de dados para esse mês. O excesso de armazenamento custaria US$ 0,008 por GB por dia ou US$ 37. O excesso para transferência de dados custaria US$ 0,50 ou US$ 20 por GB.
+
+{% data reusables.dotcom_billing.pricing_calculator.pricing_cal_packages %}
 
 No final do mês, {% data variables.product.prodname_dotcom %} arredonda sua transferência de dados para o GB mais próximo.
 
@@ -63,7 +69,9 @@ No final do mês, {% data variables.product.prodname_dotcom %} arredonda seu arm
 
 Se uso de {% data variables.product.prodname_registry %} compartilha a data de cobrança, o método de pagamento e o recibo que já existem para sua conta. {% data reusables.dotcom_billing.view-all-subscriptions %}
 
-### Sobre limites de gastos
+{% data reusables.user-settings.context_switcher %}
+
+## Sobre limites de gastos
 
 {% data reusables.package_registry.packages-spending-limit-detailed %}
 

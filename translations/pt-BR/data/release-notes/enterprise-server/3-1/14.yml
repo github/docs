@@ -1,0 +1,15 @@
+---
+date: '2021-12-13'
+sections:
+  security_fixes:
+    - '{% octicon "alert" aria-label="The alert icon" %} **Crítico:** A vulnerabilidade da execução de um código remoto na biblioteca Log4j, identificada como [CVE-2021-44228](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-44228) afetou todas as versões de {% data variables.product.prodname_ghe_server %} anteriores a 3.3.1. A biblioteca Log4j é usada comom um serviço de código aberto em execução na instância de {% data variables.product.prodname_ghe_server %}. Essa vulnerabilidade foi corrigida nas versões {% data variables.product.prodname_ghe_server %} 3.0.22, 3.1.14, 3.2.6 e 3.3.1. Para obter mais informações, consulte [essa postagem](https://github.blog/2021-12-13-githubs-response-to-log4j-vulnerability-cve-2021-44228/) no blogue do GitHub.'
+    - '**Atualização de 17 de dezembro de 2021**: As correções em vigor para esta versão também mitigam o [CVE-2021-45046](https://cve.mitre.org/cgi-bin/cvename. gi?name=CVE-2021-45046), que foi publicado após esta versão. Nenhuma atualização adicional para {% data variables.product.prodname_ghe_server %} é necessária para mitigar CVE-2021-44228 e CVE-2021-45046.'
+  known_issues:
+    - O registro npm de {% data variables.product.prodname_registry %} não retorna mais o valor de tempo em respostas de metadados. Isso foi feito para permitir melhorias substanciais de desempenho. Continuamos a ter todos os dados necessários para devolver um valor de tempo como parte da resposta aos metadados e retomaremos o retorno desse valor no futuro, assim que tivermos resolvido os problemas de desempenho existentes.
+    - Em uma nova configuração de {% data variables.product.prodname_ghe_server %} sem qualquer usuário, um invasor pode criar o primeiro usuário administrador.
+    - As regras de firewall personalizadas são removidas durante o processo de atualização.
+    - Arquivos LFS do Git [enviados através da interface web](https://github.com/blog/2105-upload-files-to-your-repositories) são adicionados diretamente ao repositório e de forma incorreta.
+    - Os problemas não podem ser fechados se contiverem um permalink para um blob no mesmo repositório, onde o caminho do arquivo blob's é maior que 255 caracteres.
+    - Quando "Usuários podem pesquisar pelo GitHub.com" está habilitado com o GitHub Connect, os problemas em repositórios privados e internos não estão incluídos nos resultados de pesquisa do GitHub.com.
+    - Se o {% data variables.product.prodname_actions %} estiver habilitado para {% data variables.product.prodname_ghe_server %}, a desmontagem de um nó de réplica com `ghe-repl-teardown` será bem-sucedida, mas poderá retornar `ERROR:Running migrations`.
+    - Os limites de recursos que são específicos para processamento de hooks pre-receive podem causar falha em alguns hooks pre-receive.

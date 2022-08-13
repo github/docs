@@ -1,7 +1,11 @@
-{% if currentVersion == "github-ae@latest" %}Se as políticas da empresa permitem a bifurcação de repositórios internos e privados, Você{% else %}Você{% endif %} pode criar um fork de um repositório para a sua conta de usuário ou para qualquer organização onde você tenha permissões de criação de repositório. Para obter mais informações, consulte "[Níveis de permissão para uma organização](/articles/permission-levels-for-an-organization)".
+{% ifversion ghae %}
+If the policies for your enterprise permit forking private and internal repositories, you can fork a repository to your personal account or an organization where you have repository creation permissions. Para obter mais informações, consulte "[Funções em uma organização](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)".
 
-{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
+{% elsif ghes or ghec %}
+You can fork a private or internal repository to your personal account or an organization on
+{% data variables.product.product_location %} where you have repository creation permissions, if settings for the repository and your enterprise policies allow forking.
 
-Se você tem acesso a um repositório privado e o proprietário permite a bifurcação, você pode criar um fork do repositório para a conta do usuário ou para qualquer organização em {% if currentVersion == "free-pro-team@latest"%}{% data variables.product.prodname_team %}{% else %}{% data variables.product.product_location %}{% endif %} onde você tem permissões de criação de repositório. {% if currentVersion == "free-pro-team@latest" %}Você não pode criar um repositório privado para uma organização usando {% data variables.product.prodname_free_team %}. Para obter mais informações, consulte "[produtos do GitHub](/articles/githubs-products)."{% endif %}
-
+{% elsif fpt %}
+If you have access to a private repository and the owner permits forking, you can fork the repository to your personal account, or an organization on
+{% data variables.product.prodname_team %} where you have repository creation permissions. You cannot fork a private repository to an organization using {% data variables.product.prodname_free_team %}. Para obter mais informações, consulte os "[Produtos do GitHub](/articles/githubs-products)".
 {% endif %}

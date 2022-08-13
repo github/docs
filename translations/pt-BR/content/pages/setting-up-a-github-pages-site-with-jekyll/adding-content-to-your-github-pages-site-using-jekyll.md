@@ -6,16 +6,18 @@ redirect_from:
   - /articles/adding-content-to-your-github-pages-site-using-jekyll
   - /github/working-with-github-pages/adding-content-to-your-github-pages-site-using-jekyll
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Pages
+shortTitle: Adicionar conteúdo ao site de Páginas
 ---
 
 Pessoas com permissões de gravação para um repositório podem adicionar conteúdo a um site do {% data variables.product.prodname_pages %} usando o Jekyll.
 
-### Sobre conteúdo em sites do Jekyll
+## Sobre conteúdo em sites do Jekyll
 
 Para poder adicionar conteúdo a um site do Jekyll no {% data variables.product.prodname_pages %}, você precisa criar o site do Jekyll. Para obter mais informações, consulte "[Criar um site do {% data variables.product.prodname_pages %} com o Jekyll](/articles/creating-a-github-pages-site-with-jekyll)".
 
@@ -29,7 +31,7 @@ O tema engloba layouts, inclusões e folhas de estilo padrão que serão aplicad
 
 {% data reusables.pages.test-locally %}
 
-### Adicionar uma nova página ao site
+## Adicionar uma nova página ao site
 
 {% data reusables.pages.navigate-site-repo %}
 {% data reusables.pages.navigate-publishing-source %}
@@ -51,7 +53,7 @@ O tema engloba layouts, inclusões e folhas de estilo padrão que serão aplicad
 {% data reusables.files.confirm_merge %}
 {% data reusables.files.delete_branch %}
 
-### Adicionar uma nova postagem ao site
+## Adicionar uma nova postagem ao site
 
 {% data reusables.pages.navigate-site-repo %}
 {% data reusables.pages.navigate-publishing-source %}
@@ -77,6 +79,6 @@ O tema engloba layouts, inclusões e folhas de estilo padrão que serão aplicad
 
 Seu post já deve estar no seu site! Se a URL de base do seu site for `https://octocat.github.io`, o seu novo post estará localizado em `https://octocat.github.io/YYYY/MM/DD/TITLE.html`.
 
-### Próximas etapas
+## Próximas etapas
 
 {% data reusables.pages.add-jekyll-theme %} Para obter mais informações, consulte "[Adicionar um tema ao site do {% data variables.product.prodname_pages %} usando o Jekyll](/articles/adding-a-theme-to-your-github-pages-site-using-jekyll)".

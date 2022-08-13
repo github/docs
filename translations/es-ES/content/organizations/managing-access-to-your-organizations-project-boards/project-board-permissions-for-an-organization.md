@@ -1,44 +1,49 @@
 ---
-title: Permisos de tablero de proyecto para una organización
-intro: 'Los propietarios de la organización y las personas con permisos de administradores de los tableros de proyecto pueden personalizar quién tiene permisos de lectura, escritura y de administrador en los tableros de proyecto de tu organización.'
+title: 'Permisos de {% data variables.product.prodname_project_v1_caps %} para una organización'
+intro: 'Los propietarios de organizaciones y las personas con permisos administrativos en un {% data variables.projects.projects_v1_board %} pueden personalizar quién tiene permisos de lectura, escritura y administrador para los {% data variables.projects.projects_v1_boards %} de tu organización.'
 redirect_from:
   - /articles/project-board-permissions-for-an-organization
   - /github/setting-up-and-managing-organizations-and-teams/project-board-permissions-for-an-organization
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
+shortTitle: 'Permisos de la {% data variables.product.prodname_project_v1_caps %}'
+allowTitleToDifferFromFilename: true
 ---
 
-### Resumen de permisos
+{% data reusables.projects.project_boards_old %}
 
-Hay tres niveles de permisos para las personas y para los equipos a un tablero de proyecto:
+## Resumen de permisos
+
+Existen tres niveles de permisos para un {% data variables.projects.projects_v1_board %} para las personas y equipos:
 
 {% data reusables.project-management.project-board-permissions %}
 
-Los propietarios de la organización y las personas con permisos de administrador pueden otorgarle acceso a una persona a un tablero de proyecto de una organización de manera individual, como un colaborador externo o como miembro de la organización, o a través de su membresía en un equipo o una organización. Un colaborador externo es alguien que no es miembro de la organización pero a quien le han otorgado permisos para colaborar en tu organización.
+Los propietarios de las organizaciones y las personas con permisos administrativos pueden otorgar a una persona acceso individual al {% data variables.projects.projects_v1_board %} de una organización, ya sea como colaborador externo o miembro de la organización, o mediante su membrecía en una organización o equipo. Un colaborador externo es alguien que no es miembro de la organización pero a quien le han otorgado permisos para colaborar en tu organización.
 
-Los propietarios de la organización y las personas con permisos de administrador a un tablero de proyecto también pueden:
+Los propietarios de las organizaciones o las personas con permisos administrativos para un {% data variables.projects.projects_v1_board %} también pueden:
 - Configurar permisos predeterminados a un tablero de proyecto para todos los miembros de la organización.
-- Administrar el acceso al tablero de proyecto para los miembros de la organización, los equipos y los colaboradores externos. Para obtener más información, consulta "[Administrar el acceso de equipo a un tablero de proyecto de una organización](/articles/managing-team-access-to-an-organization-project-board)", "[Administrar el acceso de una persona a un tablero de proyecto de una organización](/articles/managing-an-individual-s-access-to-an-organization-project-board)", o "[Administrar el acceso a un tablero de proyecto para los miembros de una organización](/articles/managing-access-to-a-project-board-for-organization-members)."
-- Administrar la visibilidad del tablero de proyecto. Para obtener más información, consulta "[Administrar el acceso a un tablero de proyecto para los miembros de una organización](/articles/managing-access-to-a-project-board-for-organization-members)."
+- Administrar el acceso al tablero de proyecto para los miembros de la organización, los equipos y los colaboradores externos. Para obtener más información, consulta las secciones "[Administrar el acceso de un equipo al {% data variables.product.prodname_project_v1 %} de una organización](/articles/managing-team-access-to-an-organization-project-board)", "[Administrar el acceso individual al {% data variables.product.prodname_project_v1 %} de una organización](/articles/managing-an-individual-s-access-to-an-organization-project-board)" o "[Administrar el acceso a un {% data variables.product.prodname_project_v1 %} para los miembros de una organización](/articles/managing-access-to-a-project-board-for-organization-members)".
+- Administrar la visibilidad del tablero de proyecto. Para obtener más información, consulta la sección "[Administrar el acceso a un {% data variables.product.prodname_project_v1 %} para los miembros de una organización](/articles/managing-access-to-a-project-board-for-organization-members)".
 
-### Permisos en cascada para tableros de proyecto
+## Permisos de cascada para los {% data variables.projects.projects_v1_boards %}
 
 {% data reusables.project-management.cascading-permissions %}
 
-Por ejemplo, si el propietario de la organización ha otorgado a todos los miembros de la organización permisos de lectura a un tablero de proyecto y un administrador de tablero de proyecto le otorga a un miembro de la organización permisos de escritura a ese tablero como colaborador individual, esa persona tendría permisos de escritura al tablero de proyecto.
+Por ejemplo, si un propietario de organización ha otorgado a permisos de lectura a todos sus miembros para un {% data variables.projects.projects_v1_board %} y un administrador de {% data variables.projects.projects_v1_board %} otorga permisos de escritura a un miembro de la organización para dicho tablero como colaborador individual, esta persona tendría permisos de escritura en el {% data variables.projects.projects_v1_board %}.
 
-### Visibilidad del tablero de proyecto
+## Visibilidad de {% data variables.projects.projects_v1_board_caps %}
 
-{% data reusables.project-management.project-board-visibility %} puedes cambiar la visibilidad del tablero de proyecto de privado a {% if currentVersion == "github-ae@latest" %}interno{% else %}público{% endif %} y de vuelta. Para obtener más información, consulta "[Cambiar la visibilidad de un tablero de proyecto](/articles/changing-project-board-visibility)".
+{% data reusables.project-management.project-board-visibility %} Puedes cambiar la visibilidad del {% data variables.projects.projects_v1_board %} de privado a {% ifversion ghae %}interno{% else %}público{% endif %} y de vuelta. Para obtener más información, consulta la sección "[Cambiar la visibilidad de un {% data variables.product.prodname_project_v1 %}](/articles/changing-project-board-visibility)".
 
-### Leer más
+## Leer más
 
-- "[Cambiar la visibilidad de un tablero de proyecto](/articles/changing-project-board-visibility)."
-- "[Administrar el acceso de una persona a un tablero de proyecto de una organización](/articles/managing-an-individual-s-access-to-an-organization-project-board)"
-- "[Administrar el acceso de equipo a un tablero de proyecto de una organización](/articles/managing-team-access-to-an-organization-project-board)"
-- "[Administrar el acceso a un tablero de proyecto para los miembros de una organización](/articles/managing-access-to-a-project-board-for-organization-members)."
+- "[Cambiar la visibilidad de un {% data variables.product.prodname_project_v1 %}](/articles/changing-project-board-visibility)"
+- "[Administrar el acceso de un individuo al {% data variables.product.prodname_project_v1 %} de una organización](/articles/managing-an-individual-s-access-to-an-organization-project-board)"
+- "[Administrar el acceso del equipo al {% data variables.product.prodname_project_v1 %} de una organización](/articles/managing-team-access-to-an-organization-project-board)"
+- "[Administrar el acceso a un {% data variables.product.prodname_project_v1 %} para los miembros de la organización](/articles/managing-access-to-a-project-board-for-organization-members)"

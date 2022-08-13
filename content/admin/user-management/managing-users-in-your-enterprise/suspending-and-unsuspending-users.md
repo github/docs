@@ -1,11 +1,11 @@
 ---
 title: Suspending and unsuspending users
 redirect_from:
-  - /enterprise/admin/articles/suspending-a-user/
-  - /enterprise/admin/articles/unsuspending-a-user/
-  - /enterprise/admin/articles/viewing-suspended-users/
-  - /enterprise/admin/articles/suspended-users/
-  - /enterprise/admin/articles/suspending-and-unsuspending-users/
+  - /enterprise/admin/articles/suspending-a-user
+  - /enterprise/admin/articles/unsuspending-a-user
+  - /enterprise/admin/articles/viewing-suspended-users
+  - /enterprise/admin/articles/suspended-users
+  - /enterprise/admin/articles/suspending-and-unsuspending-users
   - /enterprise/admin/user-management/suspending-and-unsuspending-users
   - /admin/user-management/suspending-and-unsuspending-users
 intro: 'If a user leaves or moves to a different part of the company, you should remove or modify their ability to access {% data variables.product.product_location %}.'
@@ -69,7 +69,7 @@ As when suspending a user, unsuspending a user takes effect immediately. The use
 ## Suspending a user from the command line
 
 {% data reusables.enterprise_installation.ssh-into-instance %}
-2. Run [ghe-user-suspend](/enterprise/{{ currentVersion }}/admin/guides/installation/command-line-utilities#ghe-user-suspend) with the username to suspend.
+2. Run [ghe-user-suspend](/enterprise/admin/guides/installation/command-line-utilities#ghe-user-suspend) with the username to suspend.
   ```shell
   $ ghe-user-suspend <em>username</em>
   ```
@@ -94,7 +94,7 @@ You can create a custom message that suspended users will see when attempting to
 ## Unsuspending a user from the command line
 
 {% data reusables.enterprise_installation.ssh-into-instance %}
-2. Run [ghe-user-unsuspend](/enterprise/{{ currentVersion }}/admin/guides/installation/command-line-utilities#ghe-user-unsuspend) with the username to unsuspend.
+2. Run [ghe-user-unsuspend](/enterprise/admin/guides/installation/command-line-utilities#ghe-user-unsuspend) with the username to unsuspend.
   ```shell
   $ ghe-user-unsuspend <em>username</em>
   ```

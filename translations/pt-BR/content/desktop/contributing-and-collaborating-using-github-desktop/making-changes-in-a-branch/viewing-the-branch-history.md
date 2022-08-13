@@ -5,7 +5,8 @@ redirect_from:
   - /desktop/contributing-to-projects/viewing-the-branch-history
   - /desktop/contributing-and-collaborating-using-github-desktop/viewing-the-branch-history
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+shortTitle: Visualizar histórico do branch
 ---
 
 Cada commit mostra o seguinte:
@@ -19,6 +20,6 @@ Cada commit mostra o seguinte:
 2. Na guia **History** (Histórico), clique no commit que deseja revisar. ![Commit na guia History (Histórico)](/assets/images/help/desktop/branch-history-commit.png)
 3. Se houver vários arquivos no commit, clique em um deles para ver as mudanças feitas no arquivo e no commit em questão. ![Arquivo no commit](/assets/images/help/desktop/branch-history-file.png)
 
-### Leia mais
+## Leia mais
 
 - "[Sincronizar o branch](/desktop/guides/contributing-to-projects/syncing-your-branch/)"

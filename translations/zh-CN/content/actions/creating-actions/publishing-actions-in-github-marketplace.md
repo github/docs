@@ -1,21 +1,20 @@
 ---
 title: 在 GitHub Marketplace 中发布操作
 intro: '您可以在 {% data variables.product.prodname_marketplace %} 中发布操作，以及与 {% data variables.product.prodname_dotcom %} 社区共享您创建的操作。'
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /github/automating-your-workflow-with-github-actions/publishing-actions-in-github-marketplace
   - /actions/automating-your-workflow-with-github-actions/publishing-actions-in-github-marketplace
   - /actions/building-actions/publishing-actions-in-github-marketplace
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 type: how_to
+shortTitle: 在 GitHub Marketplace 中发布
 ---
-
-{% data reusables.actions.ae-beta %}
 
 您必须接受服务条款才能在 {% data variables.product.prodname_marketplace %} 中发布操作。
 
-### 关于发布操作
+## 关于发布操作
 
 必须先在您的仓库中创建操作，然后才可发布操作。 更多信息请参阅“[创建操作](/actions/creating-actions)”。
 
@@ -32,7 +31,7 @@ type: how_to
   - `name` 无法匹配现有的 {% data variables.product.prodname_marketplace %} 类别。
   - {% data variables.product.prodname_dotcom %} 将保留 {% data variables.product.prodname_dotcom %} 功能的名称。
 
-### 发布操作
+## 发布操作
 
 您可以将已创建的操作标记为新发行版并发布，便可将其添加到 {% data variables.product.prodname_marketplace %}。
 
@@ -47,7 +46,7 @@ type: how_to
 1. 使用版本标记操作，并添加发行版标题。 这有助于人们知道发行版包含哪些变化或特征。 人们将在操作的专门 {% data variables.product.prodname_marketplace %} 页面中看到版本。 ![标记版本](/assets/images/help/repository/marketplace_actions_version.png)
 1. 完成所有其他字段，然后单击 **Publish release（发布发行版）**。 发布需要使用双重身份验证。 更多信息请参阅“[配置双重身份验证](/articles/configuring-two-factor-authentication/)”。 ![发布版本](/assets/images/help/repository/marketplace_actions_publishrelease.png)
 
-### 从 {% data variables.product.prodname_marketplace %} 删除操作
+## 从 {% data variables.product.prodname_marketplace %} 删除操作
 
 要从 {% data variables.product.prodname_marketplace %} 删除已发布的操作，您需要更新每个已发布的发行版。 对已发布到 {% data variables.product.prodname_marketplace %} 的操作的每个发行版执行以下步骤。
 

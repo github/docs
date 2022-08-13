@@ -1,44 +1,49 @@
 ---
-title: Permissões do quadro de projeto da organização
-intro: 'Proprietários da organização e pessoas com permissões de administradores de quadro de projeto podem personalizar quem tem permissões de leitura, gravação e de administrador nos quadros de projeto da organização.'
+title: '{% data variables.product.prodname_project_v1_caps %} permissions for an organization'
+intro: 'Organization owners and people with {% data variables.projects.projects_v1_board %} admin permissions can customize who has read, write, and admin permissions to your organization’s {% data variables.projects.projects_v1_boards %}.'
 redirect_from:
   - /articles/project-board-permissions-for-an-organization
   - /github/setting-up-and-managing-organizations-and-teams/project-board-permissions-for-an-organization
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
+shortTitle: 'Permissões do {% data variables.product.prodname_project_v1_caps %}'
+allowTitleToDifferFromFilename: true
 ---
 
-### Visão geral das permissões
+{% data reusables.projects.project_boards_old %}
 
-Existem três níveis de permissões em um quadro de projeto para pessoas e equipes:
+## Visão geral das permissões
+
+There are three levels of permissions to a {% data variables.projects.projects_v1_board %} for people and teams:
 
 {% data reusables.project-management.project-board-permissions %}
 
-Os proprietários da organização e pessoas com permissões de administrador podem conceder acesso a alguém a um quadro de projeto da organização individualmente, como colaborador externo ou integrante da organização, ou ainda, por meio da associação dele a uma equipe ou organização. Um colaborador externo é uma pessoa que não é integrante da organização mas recebeu permissões para colaborar na organização.
+Organization owners and people with admin permissions can give a person access to an organization {% data variables.projects.projects_v1_board %} individually, as an outside collaborator or organization member, or through their membership in a team or organization. Um colaborador externo é uma pessoa que não é integrante da organização mas recebeu permissões para colaborar na organização.
 
-Proprietários da organização e pessoas com permissões de administrador em um quadro de projeto também podem:
+Organization owners and people with admin permissions to a {% data variables.projects.projects_v1_board %} can also:
 - Definir permissões de quadro de projeto padrão para todos os integrantes da organização.
-- Gerenciar o acesso de integrantes, equipes e colaboradores externos da organização ao quadro de projeto. Para obter mais informações, consulte "[Gerenciar o acesso da equipe a um quadro de projeto da organização](/articles/managing-team-access-to-an-organization-project-board)", "[Gerenciar o acesso de um indivíduo a um quadro de projeto da organização](/articles/managing-an-individual-s-access-to-an-organization-project-board)" ou "[Gerenciar o acesso de integrantes da organização a um quadro de projeto](/articles/managing-access-to-a-project-board-for-organization-members)".
-- Gerenciar a visibilidade do quadro de projeto. Para obter mais informações, consulte "[Gerenciar o acesso de integrantes da organização a um quadro de projeto](/articles/managing-access-to-a-project-board-for-organization-members)".
+- Gerenciar o acesso de integrantes, equipes e colaboradores externos da organização ao quadro de projeto. For more information, see "[Managing team access to an organization {% data variables.product.prodname_project_v1 %}](/articles/managing-team-access-to-an-organization-project-board)", "[Managing an individual’s access to an organization {% data variables.product.prodname_project_v1 %}](/articles/managing-an-individual-s-access-to-an-organization-project-board)", or "[Managing access to a {% data variables.product.prodname_project_v1 %} for organization members](/articles/managing-access-to-a-project-board-for-organization-members)."
+- Gerenciar a visibilidade do quadro de projeto. For more information, see "[Managing access to a {% data variables.product.prodname_project_v1 %} for organization members](/articles/managing-access-to-a-project-board-for-organization-members)."
 
-### Permissões de acesso em cascata para quadros de projeto
+## Cascading permissions for {% data variables.projects.projects_v1_boards %}
 
 {% data reusables.project-management.cascading-permissions %}
 
-Por exemplo, se um proprietário da organização concedeu a todos os integrantes de uma equipe permissões de leitura em um quadro de projeto e um administrador de quadro de projeto concede permissões de gravação a um integrante da equipe naquele quadro de projeto como um colaborador individual, essa pessoa teria permissões de gravação no quadro de projeto.
+For example, if an organization owner has given all organization members read permissions to a {% data variables.projects.projects_v1_board %}, and a {% data variables.projects.projects_v1_board %} admin gives an organization member write permissions to that board as an individual collaborator, that person would have write permissions to the {% data variables.projects.projects_v1_board %}.
 
-### Visibilidade do quadro de projeto
+## {% data variables.projects.projects_v1_board_caps %} visibility
 
-{% data reusables.project-management.project-board-visibility %} Você pode alterar a visibilidade do quadro de projeto de privado para {% if currentVersion == "github-ae@latest" %}interno{% else %}public{% endif %} e novamente para privado. Para obter mais informações, consulte "[Alterar a visibilidade do quadro de projeto](/articles/changing-project-board-visibility)".
+{% data reusables.project-management.project-board-visibility %} You can change the {% data variables.projects.projects_v1_board %}'s visibility from private to {% ifversion ghae %}internal{% else %}public{% endif %} and back again. For more information, see "[Changing {% data variables.product.prodname_project_v1 %} visibility](/articles/changing-project-board-visibility)."
 
-### Leia mais
+## Leia mais
 
-- "[Alterar a visibilidade do quadro de projeto](/articles/changing-project-board-visibility)"
-- "[Gerenciar o acesso de um indivíduo a um quadro de projeto da organização](/articles/managing-an-individual-s-access-to-an-organization-project-board)"
-- "[Gerenciar o acesso da equipe a um quadro de projeto da organização](/articles/managing-team-access-to-an-organization-project-board)"
-- "[Gerenciar o acesso de integrantes da organização a um quadro de projeto](/articles/managing-access-to-a-project-board-for-organization-members)"
+- "[Changing {% data variables.product.prodname_project_v1 %} visibility](/articles/changing-project-board-visibility)"
+- "[Managing an individual’s access to an organization {% data variables.product.prodname_project_v1 %}](/articles/managing-an-individual-s-access-to-an-organization-project-board)"
+- "[Managing team access to an organization {% data variables.product.prodname_project_v1 %}](/articles/managing-team-access-to-an-organization-project-board)"
+- "[Managing access to a {% data variables.product.prodname_project_v1 %} for organization members](/articles/managing-access-to-a-project-board-for-organization-members)"

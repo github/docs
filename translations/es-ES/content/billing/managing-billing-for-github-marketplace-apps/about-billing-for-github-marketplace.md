@@ -4,13 +4,14 @@ intro: 'Si instalas una app paga en {% data variables.product.prodname_marketpla
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-marketplace
   - /articles/about-billing-for-github-marketplace
-  - /github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-marketplace
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-marketplace-apps/about-billing-for-github-marketplace
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 type: overview
 topics:
   - Marketplace
+shortTitle: Facturación para GitHub Marketplace
 ---
 
 {% data variables.product.prodname_marketplace %} incluye apps con planes de precios gratuitos y pagos. Después de comprar e instalar una app, puedes actualizar, bajar de categoría o cancerla en cualquier momento.
@@ -19,7 +20,7 @@ topics:
 
 {% data reusables.marketplace.marketplace-org-perms %}
 
-### Métodos de pago y ciclos de facturación para las compras de {% data variables.product.prodname_marketplace %}
+## Métodos de pago y ciclos de facturación para las compras de {% data variables.product.prodname_marketplace %}
 
 Tendrás el mismo método de pago para todas las suscripciones y los planes pagos en todo {% data variables.product.prodname_dotcom %}.
 
@@ -40,11 +41,13 @@ Cuando eliges un plan pago con una prueba gratuita:
 - Si tienes otras suscripciones o planes pagos, una vez que finaliza tu prueba de 14 días, al método de pago en el archivo se le cobrará de inmediato un monto prorrateado por el tiempo restante hasta tu próxima fecha de facturación.
 - Si tienes otras suscripciones o planes pagos, en tu próxima fecha de facturación, tu recibo detalla los cargos por tu plan {% data variables.product.prodname_dotcom %} pago y tu suscripción a la app.
 
-### Limites de plan unitario
+{% data reusables.user-settings.context_switcher %}
+
+## Limites de plan unitario
 
 Si eliges un plan unitario (por ejemplo, un plan que cobra por usuario) y excedes las unidades por las que estás pagando, el integrador puede desactivar tu acceso hasta que actualices la app. Para obtener más información, consulta [Actualizar el plan de facturación para una app del {% data variables.product.prodname_marketplace %}](/articles/upgrading-the-billing-plan-for-a-github-marketplace-app)".
 
-### Bajar de categoría una app {% data variables.product.prodname_marketplace %}
+## Bajar de categoría una app {% data variables.product.prodname_marketplace %}
 
 Si bajas de categoría la suscripción de tu app a un plan más económico o si cancelas la suscripción de una app paga, tus cambios entrarán en vigencia al finalizar tu ciclo de facturación actual. Tu suscripción se moverá a tu nuevo plan en tu próxima fecha de facturación.
 
@@ -54,7 +57,7 @@ Si cancelas una app en un plan gratuito, tu suscripción terminará de inmediato
 
 Si cancelas un prueba gratuita en un plan pago, tu suscripción se cancela de inmediato y perderás el acceso a la app. Para obtener más información, consulta [Cancelar una app de {% data variables.product.prodname_marketplace %}](/articles/canceling-a-github-marketplace-app)".
 
-### Leer más
+## Leer más
 
 - "[Acerca de {% data variables.product.prodname_marketplace %}](/articles/about-github-marketplace)"
 - "[Comprar e instalar aplicaciones en {% data variables.product.prodname_marketplace %}](/articles/purchasing-and-installing-apps-in-github-marketplace)"

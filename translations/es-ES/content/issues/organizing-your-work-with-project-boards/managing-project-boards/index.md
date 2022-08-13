@@ -1,11 +1,9 @@
 ---
-title: Administrar tableros de proyecto
-shortTitle: Administrar tableros de proyecto
-intro: Aprende cómo crear y administrar los tableros de proyecto
+title: 'Administrar las {% data variables.product.prodname_projects_v1 %}'
+shortTitle: 'Administrar las {% data variables.product.prodname_projects_v1 %}'
+intro: 'Aprende cómo crear y administrar los {% data variables.projects.projects_v1_boards %}'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  feature: projects-v1
 topics:
   - Issues
   - Projects
@@ -23,5 +21,7 @@ children:
   - /deleting-a-project-board
 redirect_from:
   - /github/managing-your-work-on-github/managing-project-boards
+allowTitleToDifferFromFilename: true
 ---
 
+{% data reusables.projects.project_boards_old %}

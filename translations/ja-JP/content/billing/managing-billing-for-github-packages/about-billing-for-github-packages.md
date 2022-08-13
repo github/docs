@@ -1,72 +1,79 @@
 ---
-title: GitHubパッケージの支払いについて
-intro: 'アカウントに含まれるストレージやデータ転送を超えて{% data variables.product.prodname_registry %}を使用したい場合は、追加の使用分が請求されます。'
+title: About billing for GitHub Packages
+intro: 'If you want to use {% data variables.product.prodname_registry %} beyond the storage or data transfer included in your account, you will be billed for additional usage.'
 product: '{% data reusables.gated-features.packages %}'
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-packages
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-packages/about-billing-for-github-packages
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 type: overview
 topics:
   - Packages
   - Spending limits
+shortTitle: About billing
 ---
-
-### {% data variables.product.prodname_registry %}の支払いについて
+## About billing for {% data variables.product.prodname_registry %}
 
 {% data reusables.package_registry.packages-billing %}
 
-{% data reusables.package_registry.packages-spending-limit-brief %} 詳しい情報については、「[利用上限について](#about-spending-limits)」を参照してください。
+{% data reusables.package_registry.packages-spending-limit-brief %} For more information, see "[About spending limits](#about-spending-limits)."
 
 {% note %}
 
-**Billing update for container image storage:** During the beta phase of the {% data variables.product.prodname_container_registry %}, Docker image storage and bandwidth are free for both the previous `docker.pkg.github.com` and current `ghcr.io` hosting services. 詳しい情報については、「[{% data variables.product.prodname_registry %} の紹介](/packages/learn-github-packages/introduction-to-github-packages)」を参照してください。
+**Billing update for container image storage:** The period of free use for container image storage and bandwidth for the {% data variables.product.prodname_container_registry %} has been extended. If you are using {% data variables.product.prodname_container_registry %} you'll be informed at least one month in advance of billing commencing and you'll be given an estimate of how much you should expect to pay. For more information about the {% data variables.product.prodname_container_registry %}, see "[Working with the Container registry](/packages/working-with-a-github-packages-registry/working-with-the-container-registry)."
 
 {% endnote %}
 
-Microsoft Enterprise Agreement を通じて {% data variables.product.prodname_enterprise %} を購入した場合、Azure サブスクリプション ID を Enterprise アカウントに接続して、アカウントを含む金額を超える {% data variables.product.prodname_registry %} の使用を有効にして支払うことができます。 詳しい情報については、「[Azure サブスクリプションを Enterprise に接続する](/github/setting-up-and-managing-your-enterprise/connecting-an-azure-subscription-to-your-enterprise)」を参照してください。
+{% ifversion ghec %}
+If you purchased {% data variables.product.prodname_enterprise %} through a Microsoft Enterprise Agreement, you can connect your Azure Subscription ID to your enterprise account to enable and pay for {% data variables.product.prodname_registry %} usage beyond the amounts including with your account. For more information, see "[Connecting an Azure subscription to your enterprise](/billing/managing-billing-for-your-github-account/connecting-an-azure-subscription-to-your-enterprise)."
+{% endif %}
 
-データ転送は毎月リセットされますが、ストレージはリセットされません。
+Data transfer resets every month, while storage usage does not.
 
-| 製品                                                               | ストレージ | データ転送 (月あたり) |
-| ---------------------------------------------------------------- | ----- | ------------ |
-| {% data variables.product.prodname_free_user %}                | 500MB | 1GB          |
-| {% data variables.product.prodname_pro %}                        | 2GB   | 10GB         |
-| Organization の {% data variables.product.prodname_free_team %} | 500MB | 1GB          |
-| {% data variables.product.prodname_team %}                       | 2GB   | 10GB         |
-| {% data variables.product.prodname_ghe_cloud %}                | 50GB  | 100GB        |
+Product | Storage | Data transfer (per month)
+------- | ------- | ---------
+{% data variables.product.prodname_free_user %} | 500MB | 1GB
+{% data variables.product.prodname_pro %} | 2GB | 10GB
+{% data variables.product.prodname_free_team %} for organizations | 500MB | 1GB |
+{% data variables.product.prodname_team %} | 2GB | 10GB
+{% data variables.product.prodname_ghe_cloud %} | 50GB | 100GB
 
-{% data variables.product.prodname_actions %}によってトリガーされる送信時のデータ転送と、ソースを問わず着信時のデータ転送は無料です。 `GITHUB_TOKEN`を使用して{% data variables.product.prodname_registry %}にログインしているときは、{% data variables.product.prodname_actions %}を使用してパッケージをダウンロードしていると想定します。
+All data transferred out, when triggered by {% data variables.product.prodname_actions %}, and data transferred in from any source is free. We determine you are downloading packages using {% data variables.product.prodname_actions %} when you log in to {% data variables.product.prodname_registry %} using a `GITHUB_TOKEN`.
 
-|                         | ホスト利用 | セルフホスト |
-| ----------------------- | ----- | ------ |
-| `GITHUB_TOKEN`を使用するアクセス | 無料    | 無料     |
-| パーソナルアクセストークンを使用するアクセス  | 無料    | $      |
+||Hosted|Self-Hosted|
+|-|-|-|
+|Access using a `GITHUB_TOKEN`|Free|Free|
+|Access using a personal access token|Free|$|
 
-ストレージの使用量は、ユーザ自身のアカウントで所有されているリポジトリの{% data variables.product.prodname_actions %}によって生成されるビルドアーチファクトと共有されます。 詳しい情報については、「[{% data variables.product.prodname_actions %}の支払いについて](/billing/managing-billing-for-github-actions/about-billing-for-github-actions)」を参照してください。
+Storage usage is shared with build artifacts produced by {% data variables.product.prodname_actions %} for repositories owned by your account. For more information, see "[About billing for {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions/about-billing-for-github-actions)."
 
-{% data variables.product.prodname_dotcom %}は、パッケージが公開されているリポジトリを所有するアカウントの利用状況に課金をします。 アカウントの利用状況がこれらの制限を超え、使用制限を$0より上に設定している場合は、ストレージ1 GBあたり0.25 USD、データ転送GBあたり0.50 USDを請求されます。
+{% data variables.product.prodname_dotcom %} charges usage to the account that owns the repository where the package is published. If your account's usage surpasses these limits and you have set a spending limit above $0 USD, you will pay $0.008 USD per GB of storage per day and $0.50 USD per GB of data transfer.
 
-たとえば、Organizationが{% data variables.product.prodname_team %}を使用し、無制限の利用を許可しており、1か月あたりのストレージ使用量が150 GB、データ転送が50GBだった場合、そのOrganizationの当月の超過分はストレージが148GB、データ転送が40GBということです。 ストレージの超過分は、GBあたり$0.25または$37です。 データ転送の超過分は、GBあたり$0.50または$20です。
+For example, if your organization uses {% data variables.product.prodname_team %}, allows unlimited spending, uses 150GB of storage, and has 50GB of data transfer out during a month, the organization would have overages of 148GB for storage and 40GB for data transfer for that month. The storage overage would cost $0.008 USD per GB per day or $37 USD. The overage for data transfer would cost $0.50 USD per GB or $20 USD. 
 
-月末に、{% data variables.product.prodname_dotcom %}はデータ転送を最も近いGBに丸めます。
+{% data reusables.dotcom_billing.pricing_calculator.pricing_cal_packages %}
 
-{% data variables.product.prodname_dotcom %}は、毎月の利用状況をその月の時間の利用状況に基づいて計算します。 たとえば、3月の10日間にストレージを3 GB使用し、3月の21日間に12GBを使用した場合、ストレージの利用状況は次のようになります。
+At the end of the month, {% data variables.product.prodname_dotcom %} rounds your data transfer to the nearest GB.
 
-- 3 GB x 10日 x (1日24 時間) = 720 GB時間
-- 12 GB x 21日 x (1日24 時間) = 6,048 GB時間
-- 720 GB時間 + 6,048 GB時間 = 6,768 GB時間
-- 6,768 GB時間 / (月あたり744時間) = 9.0967 GB月
+{% data variables.product.prodname_dotcom %} calculates your storage usage for each month based on hourly usage during that month. For example, if you use 3 GB of storage for 10 days of March and 12 GB for 21 days of March, your storage usage would be:
 
-月末に、{% data variables.product.prodname_dotcom %}はストレージ使用量を最も近いGBに丸めます。 したがって、この3月のストレージ使用量は9.097 GBになります。
+- 3 GB x 10 days x (24 hours per day) = 720 GB-Hours
+- 12 GB x 21 days x (24 hours per day) = 6,048 GB-Hours
+- 720 GB-Hours + 6,048 GB-Hours = 6,768 GB-Hours
+- 6,768 GB-Hours / (744 hours per month) = 9.0967 GB-Months
 
-あなたの{% data variables.product.prodname_registry %} 利用状況は、アカウントの既存の請求日、支払い方法、領収書を共有します。 {% data reusables.dotcom_billing.view-all-subscriptions %}
+At the end of the month, {% data variables.product.prodname_dotcom %} rounds your storage to the nearest MB. Therefore, your storage usage for March would be 9.097 GB.
 
-### 利用上限について
+Your {% data variables.product.prodname_registry %} usage shares your account's existing billing date, payment method, and receipt. {% data reusables.dotcom_billing.view-all-subscriptions %}
+
+{% data reusables.user-settings.context_switcher %}
+
+## About spending limits
 
 {% data reusables.package_registry.packages-spending-limit-detailed %}
 
-アカウントの利用上限の管理と変更については、「[{% data variables.product.prodname_registry %} の利用上限の管理](/billing/managing-billing-for-github-packages/managing-your-spending-limit-for-github-packages)」を参照してください。
+For information on managing and changing your account's spending limit, see "[Managing your spending limit for {% data variables.product.prodname_registry %}](/billing/managing-billing-for-github-packages/managing-your-spending-limit-for-github-packages)."
 
 {% data reusables.dotcom_billing.actions-packages-unpaid-account %}

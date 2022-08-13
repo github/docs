@@ -1,0 +1,1 @@
+如果您的企业帐户具有 GitHub Advanced Security 许可证，则可以对企业帐户拥有的组织实施策略来管理 {% data variables.product.prodname_dotcom %} Advanced Security 功能。 更多信息请参阅“[在企业帐户实施高级安全策略](/enterprise-cloud@latest/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-advanced-security-in-your-enterprise)”。

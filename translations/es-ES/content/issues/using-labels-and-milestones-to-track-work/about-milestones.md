@@ -6,9 +6,10 @@ redirect_from:
   - /articles/about-milestones
   - /github/managing-your-work-on-github/about-milestones
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
 ---
@@ -27,7 +28,7 @@ Además, puedes editar el hito desde la página del hito y crear nuevas propuest
 
 ![Página del hito](/assets/images/help/issues/milestone-info-page.png)
 
-### Priorizar propuestas y solicitudes de extracción en hitos
+## Priorizar propuestas y solicitudes de extracción en hitos
 
 Puedes priorizar propuestas y solicitudes de extracción abiertas en un hito haciendo clic a la izquierda de la casilla de verificación de una propuesta o solicitud de extracción, arrastrándola a una nueva ubicación y colocándola ahí.
 
@@ -39,7 +40,7 @@ Puedes priorizar propuestas y solicitudes de extracción abiertas en un hito hac
 
 ![Hito reordenado](/assets/images/help/issues/milestone-reordered.gif)
 
-### Leer más
+## Leer más
 
 - "[Crear y editar hitos para propuestas y solicitudes de extracción](/articles/creating-and-editing-milestones-for-issues-and-pull-requests)"
 - "[Asociar hitos con propuestas y solicitudes de extracción](/articles/associating-milestones-with-issues-and-pull-requests)"

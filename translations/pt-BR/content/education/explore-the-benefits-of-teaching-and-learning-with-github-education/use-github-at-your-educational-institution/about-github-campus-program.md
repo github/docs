@@ -8,7 +8,8 @@ redirect_from:
   - /education/explore-the-benefits-of-teaching-and-learning-with-github-education/about-github-education
   - /education/explore-the-benefits-of-teaching-and-learning-with-github-education/about-github-campus-program
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+shortTitle: Programa de campus do GitHub
 ---
 
 {% data variables.product.prodname_campus_program %} é um pacote de acesso premium de {% data variables.product.prodname_dotcom %} para instituições orientadas para o ensino que concedem graus, diplomas ou certificados. {% data variables.product.prodname_campus_program %} inclui:
@@ -19,9 +20,9 @@ versions:
 - Acesso exclusivo a novas funcionalidades, swage específico do GitHub Education e ferramentas grátis de desenvolvedor dos parceiros de {% data variables.product.prodname_dotcom %}
 - Acesso automatizado a recursos premium do {% data variables.product.prodname_education %}, como o {% data variables.product.prodname_student_pack %}
 
-Para ler sobre como o GitHub é usado pelos educadores, consulte [histórias do GitHub Education](https://education.github.com/stories).
+Para ler sobre como o GitHub é usado pelos educadores, consulte [Histórias do GitHub Education](https://education.github.com/stories).
 
-### Termos e condições de {% data variables.product.prodname_campus_program %}
+## Termos e condições de {% data variables.product.prodname_campus_program %}
 
 - A licença é grátis por um ano e será renovada automaticamente a cada 2 anos. Você pode continuar com a licença grátis desde que você continue operando nos termos do contrato. Qualquer escola que concorde com os [termos do programa](https://education.github.com/schools/terms) é bem-vinda.
 
@@ -29,12 +30,12 @@ Para ler sobre como o GitHub é usado pelos educadores, consulte [histórias do 
 
 - Você deve oferecer {% data variables.product.prodname_dotcom %} para todos os seus departamentos técnicos e acadêmicos e o logotipo da sua escola será compartilhado no site do GitHub Education como parceiro do {% data variables.product.prodname_campus_program %}.
 
-- Novas organizações da empresa são automaticamente adicionadas à sua conta corporativa. Para adicionar organizações que existiam antes de sua escola juntar-se à {% data variables.product.prodname_campus_program %}, entre em contato com o [suporte do GitHub Education](https://support.github.com/contact/education). Para obter mais informações sobre como administrar sua empresa, consulte "[Configurar e gerenciar sua empresa](/github/setting-up-and-managing-your-enterprise)". Novas organizações da empresa são automaticamente adicionadas à sua conta corporativa. Para adicionar organizações que existiam antes de sua escola juntar-se à {% data variables.product.prodname_campus_program %}, entre em contato com o suporte do GitHub Education.
+- Novas organizações da empresa são automaticamente adicionadas à sua conta corporativa. Para adicionar organizações que existiam antes de sua escola juntar-se à {% data variables.product.prodname_campus_program %}, entre em contato com o [suporte do GitHub Education](https://support.github.com/contact/education). Para obter mais informações sobre como administrar sua empresa, consulte a documentação de [administradores da empresa ](/admin). Novas organizações da empresa são automaticamente adicionadas à sua conta corporativa. Para adicionar organizações que existiam antes de sua escola juntar-se à {% data variables.product.prodname_campus_program %}, entre em contato com o suporte do GitHub Education.
 
 
-Para ler mais sobre as práticas de privacidade de {% data variables.product.prodname_dotcom %}, consulte ["Práticas Globais de Privacidade"](/github/site-policy/global-privacy-practices)
+Para ler mais sobre as práticas de privacidade de {% data variables.product.prodname_dotcom %}, consulte ["Práticas Globais de Privacidade"](/github/site-policy/global-privacy-practices)."
 
-### Elegibilidade do aplicativo de {% data variables.product.prodname_campus_program %}
+## Elegibilidade do aplicativo de {% data variables.product.prodname_campus_program %}
 
 - Muitas vezes, um campus CTO/CIO, Dean, presidente do departamento ou responsável pela tecnologia assina os termos do programa em nome do campus.
 

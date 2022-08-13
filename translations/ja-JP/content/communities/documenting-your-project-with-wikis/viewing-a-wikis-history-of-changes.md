@@ -7,14 +7,16 @@ redirect_from:
   - /articles/viewing-a-wikis-history-of-changes
   - /github/building-a-strong-community/viewing-a-wikis-history-of-changes
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Community
+shortTitle: 変更履歴の表示
 ---
 
-### ウィキ履歴を表示する
+## ウィキ履歴を表示する
 
 ウィキ履歴には以下が含まれます:
 - 変更を加えたユーザ
@@ -26,19 +28,19 @@ topics:
 3. ウィキサイドバーを使用して、履歴を表示したいページに移動します。
 4. ウィキの上部にあるリビジョンリンクをクリックします。 ![ウィキリビジョンリンク](/assets/images/help/wiki/wiki_revision_link.png)
 
-### 以前のコンテンツを表示する
+## 以前のコンテンツを表示する
 
 ウィキ履歴表で、[SHA-1 ハッシュ](http://en.wikipedia.org/wiki/SHA-1) (右端の文字と数字の並び) をクリックして、特定の時点で存在していたウィキページを表示することができます。
 
 ![ウィキ SHA 番号](/assets/images/help/wiki/wiki_sha_number.png)
 
-### 2 つのリビジョンを比較する
+## 2 つのリビジョンを比較する
 
 1. 比較したい 2 つの行を選択します。
 2. 履歴表の上部にある [**Compare Revisions**] をクリックします。 ![ウィキ リビジョン比較ボタン](/assets/images/help/wiki/wiki_compare_revisions.png)
 3. どの行が追加、削除、および修正されたかを示す変更の diff が表示されます。
 
-### 以前の変更を打ち消す
+## 以前の変更を打ち消す
 
 ウィキを編集する権限を持っている場合にのみ、変更を打ち消すことができます。
 

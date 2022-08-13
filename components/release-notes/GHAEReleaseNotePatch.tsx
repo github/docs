@@ -1,9 +1,12 @@
 import { useRef, useEffect } from 'react'
+import cx from 'classnames'
 
 import { useTranslation } from 'components/hooks/useTranslation'
 import { useOnScreen } from 'components/hooks/useOnScreen'
 import { PatchNotes } from './PatchNotes'
 import { ReleaseNotePatch } from './types'
+
+import styles from './PatchNotes.module.scss'
 
 type Props = { patch: ReleaseNotePatch; didEnterView: () => void }
 export function GHAEReleaseNotePatch({ patch, didEnterView }: Props) {
@@ -16,36 +19,29 @@ export function GHAEReleaseNotePatch({ patch, didEnterView }: Props) {
     }
   }, [onScreen])
 
-  const bannerText = patch.currentWeek
-    ? t('banner_text_current')
-    : `${t('banner_text_past')} ${patch.friendlyDate}.`
+  const bannerText = t('banner_text')
 
   return (
     <div
       ref={containerRef}
-      className="mb-10 color-bg-secondary pb-6 border-bottom border-top"
+      className={cx(styles.sectionHeading, 'mb-10 pb-6 border-bottom border-top')}
       id={patch.date}
     >
-      <header
-        style={{ zIndex: 1 }}
-        className="container-xl position-sticky top-0 color-bg-secondary border-bottom px-3 pt-4 pb-2"
-      >
+      <header style={{ zIndex: 1 }} className="container-xl border-bottom px-3 pt-4 pb-2">
         <div className="d-flex flex-items-center">
           <h2 className="border-bottom-0 m-0 p-0">{patch.title}</h2>
 
           {patch.release_candidate && (
             <span
-              className="IssueLabel color-bg-warning-inverse color-text-inverse ml-3"
+              className="IssueLabel color-bg-attention-emphasis color-fg-on-emphasis ml-3"
               style={{ whiteSpace: 'pre' }}
             >
               Release Candidate
             </span>
           )}
-
-          <button className="js-print btn-link ml-3 text-small text-bold">Print</button>
         </div>
-        <p className="color-text-secondary mt-1">
-          {patch.friendlyDate} - {bannerText}
+        <p className="color-fg-muted mt-1">
+          {bannerText} {patch.friendlyDate}.
         </p>
       </header>
 

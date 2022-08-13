@@ -1,0 +1,23 @@
+---
+date: '2021-10-28'
+sections:
+  security_fixes:
+    - 'Fue posible que las contraseñas de texto claro terminaran en algunos archivos de bitácora.'
+    - 'Se agregaron varias llaves SSH públicas débiles conocidas a la lista de llaves no permitidas y estas ya no pueden registrarse. Adicionalmente, se bloquearon a las versiones de GitKraken que se sabe generarán llaves SSH débiles (7.6.x, 7.7.x y 8.0.0) para que no generen llaves públicas nuevas.'
+    - 'Los paquetes se actualizaron a las últimas versiones de seguridad.'
+  bugs:
+    - 'El restablecimiento pudo haber fallado para el servidor empresarial en modo de clústering si el orquestador no estaba saludable.'
+    - 'Los enlaces de los codespaces se mostraron en los ajustes de la organización.'
+    - 'Los usuarios que son propietarios de muchas organizaciones no pudieron utilizar varias partes de la aplicación.'
+    - 'Se arregló un enlace a https://docs.github.com.'
+  changes:
+    - 'Las optimizaciones de búsqueda y rendimiento de jobs para los repositorios con muchas refs.'
+  known_issues:
+    - Después de guardar un lanzamiento nuevo en un repositorio, la página de `/releases` mostró un error 500. Se espera tener una solución a este problema en la versión 3.2.3.
+    - En una instalación nueva de {% data variables.product.prodname_ghe_server %} que no tenga ningún usuario, cualquier atacante podría crear el primer usuario administrativo.
+    - Las reglas de cortafuegos personalizadas se eliminan durante el proceso de actualización.
+    - Los archivos rastreados del LFS de Git que se [cargaron mediante la interface web](https://github.com/blog/2105-upload-files-to-your-repositories) se agregaron incorrecta y directamente al repositorio.
+    - Las propuestas no pudieron cerrarse si contenían un permalink a un blob en el mismo repositorio en donde la ruta de archvio del blob era más grande a 255 caracteres.
+    - Cuando se habilita "Los usuarios pueden buscar en GitHub.com" con GitHub Connect, las propuestas en los repositorios privados e internos no se incluirán en los resultados de búsqueda de GitHub.com.
+    - El registor de npm del {% data variables.product.prodname_registry %} ya no regresa un valor de tiempo en las respuestas de metadatos. Esto se hizo para permitir mejoras de rendimiento sustanciales. Seguimos teniendo todos los datos necesarios para devolver un valor de tiempo como parte de la respuesta de metadatos y terminaremos de devolver este valor ene l futuro una vez que hayamos resuelto los problemas de rendimiento existentes.
+    - Los límites de recursos que son específicos para procesar ganchos de pre-recepción podrían ocasionar que fallen algunos ganchos de pre-recepción.

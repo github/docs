@@ -1,5 +1,17 @@
 {% warning %}
 
-**警告**: {% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}サイト管理者がPublic Pagesを有効化したなら、{% endif %}{% data variables.product.prodname_pages %}サイトは{% if currentVersion == "free-pro-team@latest" %}デフォルトで{% endif %}、サイトのリポジトリがプライベートもしくはインターナルであっても、インターネット上で公開利用できます。{% if currentVersion == "free-pro-team@latest" %} {% data reusables.pages.about-private-publishing %}そうでない場合は、もし{% else %}もし{% endif %}センシティブなデータがサイトのリポジトリにあるなら、公開前にそのデータを削除しておくとよいでしょう。 詳しい情報については、{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %} 「[Enterpriseの{% data variables.product.prodname_pages %}の設定](/admin/configuration/configuring-github-pages-for-your-enterprise#enabling-public-sites-for-github-pages)」及び{% endif %}「[リポジトリの可視性について](/github/creating-cloning-and-archiving-repositories/about-repository-visibility){% if currentVersion == "free-pro-team@latest" %}」及び「[{% data variables.product.prodname_pages %}サイトの可視性の変更](/pages/getting-started-with-github-pages/changing-the-visibility-of-your-github-pages-site)」{% else %}」{% endif %}を参照してください。
+{% ifversion fpt %}
+**Warning**:
+{% data variables.product.prodname_pages %} sites are publicly available on the internet, even if the repository for the site is private. If you have sensitive data in your site's repository, you may want to remove the data before publishing. For more information, see "[About repositories](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)."
+{% elsif ghec %}
+**Warning**: Unless your enterprise uses
+{% data variables.product.prodname_emus %}, {% data variables.product.prodname_pages %} sites are publicly available on the internet by default, even if the repository for the site is private or internal. You can publish a site privately by managing access control for the site. Otherwise, if you have sensitive data in your site's repository, you may want to remove the data before publishing. For more information, see "[About repositories](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)" and "[Changing the visibility of your {% data variables.product.prodname_pages %} site](/pages/getting-started-with-github-pages/changing-the-visibility-of-your-github-pages-site)."
+{% elsif ghae %}
+**Warning**:
+{% data variables.product.prodname_pages %} sites are visible to all enterprise members, even if the repository for the site is private. If you have sensitive data in your site's repository, you may want to remove the data before publishing. For more information, see "[About repositories](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)."
+{% elsif ghes %}
+**Warning**: If your site administrator has enabled Public Pages,
+{% data variables.product.prodname_pages %} sites are publicly available on the internet, even if the repository for the site is private or internal. If you have sensitive data in your site's repository, you may want to remove the data before publishing. For more information, see "[Configuring {% data variables.product.prodname_pages %} for your enterprise](/admin/configuration/configuring-github-pages-for-your-enterprise#enabling-public-sites-for-github-pages)" and "[About repositories](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)."
+{% endif %}
 
 {% endwarning %}

@@ -2,22 +2,24 @@
 title: Adicionar ou editar páginas wiki
 intro: 'Você pode adicionar e editar páginas wiki diretamente no {% data variables.product.product_name %} ou localmente usando a linha de comando.'
 redirect_from:
-  - /articles/adding-wiki-pages-via-the-online-interface/
-  - /articles/editing-wiki-pages-via-the-online-interface/
-  - /articles/adding-and-editing-wik-pages-locally/
-  - /articles/adding-and-editing-wiki-pages-locally/
+  - /articles/adding-wiki-pages-via-the-online-interface
+  - /articles/editing-wiki-pages-via-the-online-interface
+  - /articles/adding-and-editing-wik-pages-locally
+  - /articles/adding-and-editing-wiki-pages-locally
   - /articles/adding-or-editing-wiki-pages
   - /github/building-a-strong-community/adding-or-editing-wiki-pages
 product: '{% data reusables.gated-features.wikis %}'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Community
+shortTitle: Gerenciar páginas wiki
 ---
 
-### Adicionar páginas wiki
+## Adicionar páginas wiki
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-wiki %}
@@ -27,7 +29,7 @@ topics:
 6. Digite uma mensagem do commit descrevendo o novo arquivo que você está adicionando. ![Mensagem do commit do wiki](/assets/images/help/wiki/wiki_commit_message.png)
 7. Para fazer commit das alterações no wiki, clique em **Save Page** (Salvar página).
 
-### Editar páginas wiki
+## Editar páginas wiki
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-wiki %}
@@ -36,13 +38,13 @@ topics:
 6. Digite uma mensagem do commit descrevendo as alterações. ![Mensagem do commit do wiki](/assets/images/help/wiki/wiki_commit_message.png)
 7. Para fazer commit das alterações no wiki, clique em **Save Page** (Salvar página).
 
-### Adicionar ou editar páginas wiki localmente
+## Adicionar ou editar páginas wiki localmente
 
 Os wikis fazem parte dos repositórios Git, de modo que é possível fazer alterações localmente e fazer push delas no seu repositório usando o fluxo de trabalho Git.
 
-#### Clonar wikis para seu computador
+### Clonar wikis para seu computador
 
-Cada wiki fornece uma maneira fácil de clonar o respectivo conteúdo para seu computador. Você pode clonar o repositório no seu computador com a URL fornecida:
+Cada wiki fornece uma maneira fácil de clonar o respectivo conteúdo para seu computador. Depois de criar uma página inicial em {% data variables.product.product_name %}, você pode clonar o repositório para o seu computador com o URL fornecido:
 
 ```shell
 $ git clone https://github.com/<em>YOUR_USERNAME</em>/<em>YOUR_REPOSITORY</em>.wiki.git
@@ -51,7 +53,7 @@ $ git clone https://github.com/<em>YOUR_USERNAME</em>/<em>YOUR_REPOSITORY</em>.w
 
 Depois de clonar o wiki, é possível adicionar novos arquivos, editar os existentes e fazer commit das alterações. Você e seus colaboradores podem criar branches ao trabalhar em wikis, mas somente as alterações enviadas por push ao branch-padrão serão ativadas e disponibilizadas para os seus leitores.
 
-### Sobre nomes de arquivo de wiki
+## Sobre nomes de arquivo de wiki
 
 O nome de arquivo determina o título da sua página wiki e a extensão do arquivo determina como o conteúdo do wiki será renderizado.
 

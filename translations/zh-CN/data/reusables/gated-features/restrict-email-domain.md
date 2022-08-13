@@ -1,1 +1,1 @@
-限制以电子邮件发送通知到域名电子邮件可用于 {% data variables.product.prodname_ghe_cloud %}。 更多信息请参阅“[GitHub's products](/articles/githubs-products)”。
+将电子邮件通知限制为已批准或已验证的域，适用于 {% data variables.product.prodname_ghe_cloud %} 和 {% data variables.product.prodname_ghe_server %}。 更多信息请参阅“[GitHub's products](/articles/githubs-products)”。

@@ -1,0 +1,1 @@
+1. Debajo de "Organizaciones", junto al nombre de tu organización, haz clic en **Ajustes**. ![Captura de pantalla de una organización junto al botón de "Ajustes"](/assets/images/help/organizations/list-of-organizations.png)

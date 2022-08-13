@@ -4,7 +4,7 @@ intro: '您可以为企业启用 {% data variables.product.prodname_registry %}�
 redirect_from:
   - /enterprise/admin/packages
 versions:
-  enterprise-server: '>=2.22'
+  ghes: '*'
 topics:
   - Enterprise
 children:
@@ -14,8 +14,10 @@ children:
   - /enabling-github-packages-with-minio
   - /quickstart-for-configuring-your-minio-storage-bucket-for-github-packages
   - /configuring-package-ecosystem-support-for-your-enterprise
+  - /migrating-your-enterprise-to-the-container-registry-from-the-docker-registry
+shortTitle: 管理 GitHub Packages
 ---
 
 {% data reusables.package_registry.packages-ghes-release-stage %}
-  {% if currentVersion ver_gt "enterprise-server@2.22" %}
+  {% ifversion ghes %}
   {% endif %}

@@ -1,35 +1,47 @@
 ---
-title: Azure Blob Storage で GitHub Packages を有効化する
-intro: 'Azure Blob Storage を外部ストレージとして {% data variables.product.prodname_registry %} を設定します。'
+title: Enabling GitHub Packages with Azure Blob Storage
+intro: 'Set up {% data variables.product.prodname_registry %} with Azure Blob Storage as your external storage.'
 versions:
-  enterprise-server: '>=3.0'
+  ghes: '*'
+type: tutorial
 topics:
   - Enterprise
+  - Packages
+  - Storage
+shortTitle: Enable Packages with Azure
 ---
 
 {% warning %}
 
-**警告:**
-- {% data variables.product.company_short %} は特定のオブジェクトのアクセス許可または追加のアクセス制御リスト (ACL) をストレージバケット設定に適用しないため、ストレージバケットに必要な制限付きアクセスポリシーを設定することが重要です。 たとえば、バケットを公開すると、バケット内のデータにパブリックなインターネットからアクセスできるようになります。
-- {% data variables.product.prodname_actions %} ストレージに使用するバケットとは別に、{% data variables.product.prodname_registry %} 専用のバケットを使用することをお勧めします。
-- 今後使用予定のバケットを忘れずに設定するようにしてください。 {% data variables.product.prodname_registry %} の使用開始後にストレージを変更することはお勧めしません。
+**Warnings:**
+- It is critical that you set the restrictive access policies you need for your storage bucket, because {% data variables.product.company_short %} does not apply specific object permissions or additional access control lists (ACLs) to your storage bucket configuration. For example, if you make your bucket public, data in the bucket will be accessible on the public internet.
+- We recommend using a dedicated bucket for {% data variables.product.prodname_registry %}, separate from the bucket you use for {% data variables.product.prodname_actions %} storage.
+- Make sure to configure the bucket you'll want to use in the future. We do not recommend changing your storage after you start using {% data variables.product.prodname_registry %}.
 
 {% endwarning %}
 
-### 必要な環境
+## Prerequisites
 
-{% data variables.product.product_location_enterprise %} で {% data variables.product.prodname_registry %} を有効にして設定する前に、Azure Blob ストレージバケットを準備する必要があります。 Azure Blob ストレージバケットを準備するには、公式の [Azure Blob Storage ドキュメントサイト](https://docs.microsoft.com/en-us/azure/storage/blobs/)にある公式 Azure Blob ストレージドキュメントを参照することをお勧めします。
+Before you can enable and configure {% data variables.product.prodname_registry %} on {% data variables.product.product_location_enterprise %}, you need to prepare your Azure Blob storage bucket. To prepare your Azure Blob storage bucket, we recommend consulting the official Azure Blob storage docs at the official [Azure Blob Storage documentation site](https://docs.microsoft.com/en-us/azure/storage/blobs/).
 
-### Azure Blob Storage で {% data variables.product.prodname_registry %} を有効化する
+## Enabling {% data variables.product.prodname_registry %} with Azure Blob Storage
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% data reusables.enterprise_site_admin_settings.packages-tab %}
 {% data reusables.package_registry.enable-enterprise-github-packages %}
-1. [Packages Storage] で [**Azure Blob Storage**] を選択し、パッケージストレージバケットの Azure コンテナ名と接続文字列型を入力します。 ![Azure Blob ストレージコンテナ名と接続文字列型ボックス](/assets/images/help/package-registry/azure-blob-storage-settings.png)
+1. Under "Packages Storage", select **Azure Blob Storage** and enter your Azure container name for your packages storage bucket and connection string.
+  ![Azure Blob storage container name and connection string boxes](/assets/images/help/package-registry/azure-blob-storage-settings.png)
+
+  {% note %}
+
+  **Note:** You can find your Azure Connection String by navigating to the Access Key menu in your Azure storage account. 
+  Usage of a SAS Token or SAS URL as connection string is not currently supported.
+  
+  {% endnote %}
 
 {% data reusables.enterprise_management_console.save-settings %}
 
-### 次のステップ
+## Next steps
 
 {% data reusables.package_registry.next-steps-for-packages-enterprise-setup %}

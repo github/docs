@@ -1,1 +1,1 @@
-1. OrganizationのSettings（設定）サイドバーで、**Blocked users（ブロックされたユーザ）**をクリックしてください。 ![Organizationの設定内のブロックされたユーザ](/assets/images/help/organizations/org-settings-block-users.png)
+1. In the sidebar, select **{% octicon "report" aria-label="The report icon" %} Moderation**, then click **Blocked users**.

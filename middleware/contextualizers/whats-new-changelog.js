@@ -1,10 +1,10 @@
-import { getRssFeed, getChangelogItems } from '../../lib/changelog.js'
+import { getChangelogItems } from '../../lib/changelog.js'
 import getApplicableVersions from '../../lib/get-applicable-versions.js'
 
 export default async function whatsNewChangelog(req, res, next) {
   if (!req.context.page) return next()
   if (!req.context.page.changelog) return next()
-  const label = req.context.page.changelog.label
+  const label = req.context.page.changelog.label.split(/\s+/g).join('')
 
   // If there is no `versions` prop in the changelog frontmatter, assume the changelog should display in all versions.
   if (req.context.page.changelog.versions) {
@@ -23,7 +23,9 @@ export default async function whatsNewChangelog(req, res, next) {
 
   req.context.changelogUrl = labelUrls[label] || `https://github.blog/changelog/label/${label}`
 
-  const feed = await getRssFeed(req.context.changelogUrl)
-  req.context.whatsNewChangelog = await getChangelogItems(req.context.page.changelog.prefix, feed)
+  req.context.whatsNewChangelog = await getChangelogItems(
+    req.context.page.changelog.prefix,
+    req.context.changelogUrl
+  )
   return next()
 }

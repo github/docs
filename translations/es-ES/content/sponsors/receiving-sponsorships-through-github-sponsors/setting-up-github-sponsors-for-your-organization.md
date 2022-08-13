@@ -7,21 +7,23 @@ redirect_from:
   - /github/supporting-the-open-source-community-with-github-sponsors/setting-up-github-sponsors-for-your-organization
 permissions: 'Organization owners can set up {% data variables.product.prodname_sponsors %} for an organization.'
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Organizations
   - Sponsors profile
   - Open Source
+shortTitle: Configuración para una organización
 ---
 
-### Unirte a {% data variables.product.prodname_sponsors %}
+## Unirte a {% data variables.product.prodname_sponsors %}
 
 {% data reusables.sponsors.you-can-be-a-sponsored-organization %} {% data reusables.sponsors.stripe-supported-regions %}
 
 Después de recibir una invitación para que tu organización se una a {% data variables.product.prodname_sponsors %} puedes completar los pasos a continuación para que se convierta en una organización patrocinada.
 
-Para unirte a {% data variables.product.prodname_sponsors %} como un colaborador individual independiente a una organización, consulta la sección "[Configurar {% data variables.product.prodname_sponsors %} para tu cuenta de usuario](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-user-account)".
+Para unirte a {% data variables.product.prodname_sponsors %} como un colaborador individual independiente a una organización, consulta la sección "[Configurar {% data variables.product.prodname_sponsors %} para tu cuenta personal](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-personal-account)".
 
 {% data reusables.sponsors.navigate-to-github-sponsors %}
 {% data reusables.sponsors.view-eligible-accounts %}
@@ -29,7 +31,7 @@ Para unirte a {% data variables.product.prodname_sponsors %} como un colaborador
 {% data reusables.sponsors.contact-info %}
 {% data reusables.sponsors.accept-legal-terms %}
 
-### Completar un perfil de organización patrocinada
+## Completar un perfil de organización patrocinada
 
 {% data reusables.sponsors.navigate-to-sponsors-dashboard %}
 {% data reusables.sponsors.navigate-to-profile-tab %}
@@ -40,7 +42,7 @@ Para unirte a {% data variables.product.prodname_sponsors %} como un colaborador
 {% data reusables.sponsors.opt-in-to-being-featured %}
 {% data reusables.sponsors.save-profile %}
 
-### Crear niveles de patrocinio
+## Crear niveles de patrocinio
 
 {% data reusables.sponsors.tier-details %}
 
@@ -50,13 +52,14 @@ Para unirte a {% data variables.product.prodname_sponsors %} como un colaborador
 {% data reusables.sponsors.navigate-to-sponsor-tiers-tab %}
 {% data reusables.sponsors.click-add-tier %}
 {% data reusables.sponsors.tier-price-description %}
+{% data reusables.sponsors.add-welcome-message %}
 {% data reusables.sponsors.save-tier-draft %}
 {% data reusables.sponsors.review-and-publish-tier %}
 {% data reusables.sponsors.add-more-tiers %}
 
-### Emitir tu información bancaria
+## Emitir tu información bancaria
 
-Como organización patrocinada, deberás recibir pagos en una cuenta bancaria dedicada a tu organización en una región compatible. Puedes obtener una cuenta bancaria comercial a través de servicios como [Open Collective](https://opencollective.com/) y [Stripe Atlas](https://stripe.com/atlas). La región en la cual opera legalmente tu organización y la región de tu cuenta bancaria deberán coincidir. La persona que configura a {% data variables.product.prodname_sponsors %} para la organización debe vivir en la región compatible también. {% data reusables.sponsors.stripe-supported-regions %}
+Como organización patrocinada, recibirás pagos en una cuenta bancaria en una región compatible. Esta puede ser una cuenta bancaria dedicada para tu organización o una cuenta bancaria personal. Puedes obtener una cuenta bancaria de negocios a través de servicios como [Stripe Atlas](https://stripe.com/atlas) o unirte a un host fiscal como [Open Collective](https://opencollective.com/). La persona que configura a {% data variables.product.prodname_sponsors %} para la organización debe vivir en la región compatible también. {% data reusables.sponsors.stripe-supported-regions %}
 
 {% data reusables.sponsors.double-check-stripe-info %}
 
@@ -65,27 +68,26 @@ Como organización patrocinada, deberás recibir pagos en una cuenta bancaria de
 
 Para obtener más información acerca de cómo configurar Stripe Connect utilizando Open Collective, consulta la sección [Configurar {% data variables.product.prodname_sponsors %}](https://docs.opencollective.com/help/collectives/github-sponsors) en los documentos de Open Collective.
 
-### Emitir tu información de facturación
+## Emitir tu información de facturación
 
 {% data reusables.sponsors.tax-form-information-org %}
 
 {% data reusables.sponsors.navigate-to-sponsors-dashboard %}
-{% data reusables.sponsors.settings-tab %}
-{% data reusables.sponsors.country-of-residence %}
 {% data reusables.sponsors.overview-tab %}
 {% data reusables.sponsors.tax-form-link %}
 
-### Habilitar la autenticación de dos factores (2FA) en tu cuenta {% data variables.product.prodname_dotcom %}
+## Habilitar la autenticación de dos factores (2FA) en tu cuenta {% data variables.product.prodname_dotcom %}
 
-Antes de que tu organización pueda convertirse en patrocinada, deberás habilitar la autenticación de dos factores en tu cuenta de {% data variables.product.product_name %}. Para obtener más información, consulta "[Configurar autenticación de dos factores](/articles/configuring-two-factor-authentication)".
+Antes de que tu organización pueda convertirse en una organización patrocinada, debes habilitar la 2FA para tu cuenta en {% data variables.product.product_location %}. Para obtener más información, consulta "[Configurar autenticación de dos factores](/articles/configuring-two-factor-authentication)".
 
-### Enviar tu aplicación a {% data variables.product.prodname_dotcom %} para su aprobación
+## Enviar tu aplicación a {% data variables.product.prodname_dotcom %} para su aprobación
 
 {% data reusables.sponsors.navigate-to-sponsors-dashboard %}
 {% data reusables.sponsors.request-approval %}
 
 {% data reusables.sponsors.github-review-app %}
 
-### Leer más
+## Leer más
+
 - "[Acerca de {% data variables.product.prodname_sponsors %}](/sponsors/getting-started-with-github-sponsors/about-github-sponsors)"
 - "[Recibir patrocinios a través de {% data variables.product.prodname_sponsors %}](/sponsors/receiving-sponsorships-through-github-sponsors)".

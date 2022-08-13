@@ -1,11 +1,9 @@
 ---
-title: Acompanhar o andamento do quadro de projeto
-shortTitle: Monitorando projetos
-intro: Aprenda a monitorar o seu trabalho em quadros de projetos
+title: 'Tracking progress on your {% data variables.product.prodname_projects_v1 %}'
+shortTitle: 'Tracking {% data variables.product.prodname_projects_v1 %}'
+intro: 'Learn how to track your work on {% data variables.projects.projects_v1_board %}'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  feature: projects-v1
 topics:
   - Issues
   - Projects
@@ -17,5 +15,7 @@ children:
   - /archiving-cards-on-a-project-board
 redirect_from:
   - /github/managing-your-work-on-github/tracking-the-progress-of-your-work-with-project-boards
+allowTitleToDifferFromFilename: true
 ---
 
+{% data reusables.projects.project_boards_old %}

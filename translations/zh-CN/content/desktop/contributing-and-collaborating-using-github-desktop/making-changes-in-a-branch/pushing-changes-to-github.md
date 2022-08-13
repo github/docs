@@ -7,10 +7,10 @@ redirect_from:
   - /desktop/contributing-to-projects/pushing-changes-to-github
   - /desktop/contributing-and-collaborating-using-github-desktop/pushing-changes-to-github
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 ---
 
-### 关于推送更改到 {% data variables.product.prodname_dotcom %}
+## 关于推送更改到 {% data variables.product.prodname_dotcom %}
 
 在推送更改时，会将本地仓库中已提交的更改发送到 {% data variables.product.prodname_dotcom %} 上的远程仓库。 如果在本地更改项目，并且希望其他人也能访问这些更改，您必须将更改推送到 {% data variables.product.prodname_dotcom %}。
 
@@ -18,7 +18,7 @@ versions:
 
 {% data reusables.desktop.protected-branches %}
 
-### 推送更改到 {% data variables.product.prodname_dotcom %}
+## 推送更改到 {% data variables.product.prodname_dotcom %}
 
 {% note %}
 
@@ -35,6 +35,6 @@ versions:
 2. 如果 {% data variables.product.prodname_desktop %} 提示您从远程提取新的提交，请单击 **Fetch（提取）**。 ![提取按钮](/assets/images/help/desktop/fetch-newer-commits.png)
 3. （可选）单击 **Create Pull Request（创建拉取请求）**来打开拉取请求并协作进行您的更改。 更多信息请参阅“[创建议题或拉取请求](/desktop/contributing-to-projects/creating-an-issue-or-pull-request)”。 ![创建拉取请求按钮](/assets/images/help/desktop/create-pull-request.png)
 
-### 延伸阅读
+## 延伸阅读
 - {% data variables.product.prodname_dotcom %} 词汇表中的“[推送](/github/getting-started-with-github/github-glossary/#push)”
 - “[提交和审查对项目的更改](/desktop/contributing-to-projects/committing-and-reviewing-changes-to-your-project)”

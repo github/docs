@@ -1,7 +1,11 @@
-{% if currentVersion == "github-ae@latest" %}如果企业的策略允许复刻内部和私有仓库{% else %}您{% endif %}可以将仓库复刻到您的用户帐户或具有仓库创建权限的任何组织。 更多信息请参阅“[组织的权限级别](/articles/permission-levels-for-an-organization)”。
+{% ifversion ghae %}
+如果您的企业策略允许复刻私有存储库和内部存储库，您可以将仓库复刻到您的个人帐户或您具有存储库创建权限的组织。 更多信息请参阅“[组织中的角色](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)”。
 
-{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
+{% elsif ghes or ghec %}
+您可以将私有或内部存储库复刻到您在
+您具有存储库创建权限的 {% data variables.product.product_location %} 上的个人帐户或组织（如果存储库的设置和企业策略允许复刻）。
 
-如果您可以访问私有仓库且所有者允许复刻，则您可以将该仓库复刻到您的用户帐户或者 {% if currentVersion == "free-pro-team@latest"%}{% data variables.product.prodname_team %}{% else %}{% data variables.product.product_location %}{% endif %} 上您具有仓库创建权限的任何组织。 {% if currentversion == "free proteam@latest" %}您不能将私有仓库复刻到使用 {% data variables.product.prodname_free_team %} 的组织。 更多信息请参阅“[GitHub 的产品](/articles/githubs-products)”。{% endif %}
-
+{% elsif fpt %}
+如果您有权访问私有存储库，并且所有者允许复刻，则可以将存储库复刻到您在
+您具有存储库创建权限的 {% data variables.product.prodname_team %} 上的个人帐户或组织。 您不能将私有存储库复刻到使用 {% data variables.product.prodname_free_team %} 的组织。 更多信息请参阅“[GitHub 的产品](/articles/githubs-products)”。
 {% endif %}

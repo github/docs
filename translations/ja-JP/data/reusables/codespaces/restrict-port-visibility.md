@@ -1,0 +1,1 @@
+Organizationのオーナーは、ポートのフォワードをパブリックに、あるいはOrganization内で利用できるようにする機能を制限できます。 詳しい情報については「[フォワードされたポートの可視性の制限](/codespaces/managing-codespaces-for-your-organization/restricting-the-visibility-of-forwarded-ports)」を参照してください。
