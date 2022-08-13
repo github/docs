@@ -69,7 +69,7 @@ Quando quiser usar um {% data variables.product.prodname_oauth_app %} que se int
 | Dados pessoais do usuário | Os dados do usuário incluem informações encontradas no seu perfil de usuário, como nome, endereço de e-mail e localização.                                                                                                                                                                                                      |
 | Repositórios              | As informações de repositório incluem os nomes dos contribuidores, os branches que você criou e os arquivos reais dentro do repositório. Os apps podem solicitar acesso para repositórios públicos ou privados em um nível amplo de usuário.                                                                                    |
 | Exclusão de repositório   | Os apps podem solicitar a exclusão de repositórios que você administra, mas não terão acesso ao seu código. |{% ifversion projects-oauth-scope %}
-| Projetos                  | Access to user and organization {% data variables.projects.projects_v2 %}. Os aplicativos podem solicitar acesso somente leitura/gravação ou leitura. 
+| Projetos                  | Acesso ao usuário e organização de {% data variables.projects.projects_v2 %}. Os aplicativos podem solicitar acesso somente leitura/gravação ou leitura. 
 {% endif %}
 
 ## Solicitar permissões atualizadas

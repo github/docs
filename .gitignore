@@ -9,6 +9,7 @@ coverage/
 /assets/images/early-access
 /content/early-access
 /data/early-access
+/script/dev-toc/static
 .next
 .eslintcache
 *.tsbuildinfo

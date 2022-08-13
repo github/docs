@@ -57,8 +57,15 @@ O gráfico de dependências permite explorar os ecossistemas e pacotes dos quais
 
 Você pode encontrar o gráfico de dependências na aba **Ideias** para o seu repositório. Para obter mais informações, consulte "[Sobre o gráfico de dependência](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)".
 
+{% ifversion security-overview-displayed-alerts %}
+### Visão geral da segurança
+
+A visão geral de segurança permite que você revise as configurações e alertas de segurança, facilitando a identificação dos repositórios e organizações com maior risco. Para obter mais informações, consulte "[Sobre a visão geral de segurança](/code-security/security-overview/about-the-security-overview)".
+
+{% else %}
 ### Visão geral de segurança para repositórios
-Para todos os repositórios públicos, a visão geral de segurança mostra quais funcionalidades de segurança estão habilitadas no repositório e oferece a opção de configurar quaisquer recursos de segurança disponíveis que não estão habilitadas no momento.
+A visão geral de segurança mostra quais funcionalidades de segurança estão habilitadas no repositório e oferece a você a opção de configurar quaisquer funcionalidades de segurança disponíveis que ainda não estejam habilitadas.
+{% endif %}
 
 ## Disponível com {% data variables.product.prodname_GH_advanced_security %}
 
@@ -66,7 +73,7 @@ Para todos os repositórios públicos, a visão geral de segurança mostra quais
 As funcionalidades de {% data variables.product.prodname_GH_advanced_security %} a seguir estão disponíveis e são grátos para repositórios públicos em {% data variables.product.prodname_dotcom_the_website %}. As organizações que usam {% data variables.product.prodname_ghe_cloud %} com uma licença para {% data variables.product.prodname_GH_advanced_security %} podem usar o conjunto completo de funcionalidades em qualquer um dos seus repositórios. Para obter uma lista dos recursos disponíveis com {% data variables.product.prodname_ghe_cloud %}, consulte a [a documentação de {% data variables.product.prodname_ghe_cloud %}](/enterprise-cloud@latest/code-security/getting-started/github-security-features#available-with-github-advanced-security).
 
 {% elsif ghec %}
-Muitas funcionalidades de {% data variables.product.prodname_GH_advanced_security %} estão disponíveis e gratuitos para repositórios públicos em {% data variables.product.prodname_dotcom_the_website %}. As organizações de uma empresa que tem uma licença {% data variables.product.prodname_GH_advanced_security %} podem usar todos as funcionalidades a seguir em seus repositórios. {% data reusables.advanced-security.more-info-ghas %}
+Muitas funcionalidades de {% data variables.product.prodname_GH_advanced_security %} estão disponíveis e gratuitos para repositórios públicos em {% data variables.product.prodname_dotcom_the_website %}. As organizações de uma empresa que têm uma licença de {% data variables.product.prodname_GH_advanced_security %} podem usar as seguintes funcionalidades em todos os seus repositórios. {% data reusables.advanced-security.more-info-ghas %}
 
 {% elsif ghes %}
 As funcionalidades de {% data variables.product.prodname_GH_advanced_security %} estão disponíveis para empresas com uma licença para {% data variables.product.prodname_GH_advanced_security %}. As funcionalidades são restritas aos repositórios pertencentes a uma organização. {% data reusables.advanced-security.more-info-ghas %}
@@ -85,7 +92,7 @@ Detectar automaticamente vulnerabilidades de segurança e erros de codificação
 Detectar automaticamente segredos vazados em todos os repositórios públicos. {% data variables.product.company_short %} informa ao provedor de serviços relevante que o segredo pode estar comprometido. Para obter detalhes dos segredos e provedores de serviço compatíveis, consulte "[ Padrões de {% data variables.product.prodname_secret_scanning_caps %}](/code-security/secret-scanning/secret-scanning-patterns)".
 {% endif %}
 
-{% ifversion not fpt %}
+{% ifversion ghec or ghes or ghae %}
 ### {% data variables.product.prodname_secret_scanning_GHAS_caps %}
 
 {% ifversion ghec %}
@@ -99,12 +106,12 @@ Detectar automaticamente tokens ou credenciais que foram verificados em um repos
 
 Mostre o impacto completo das alterações nas dependências e veja detalhes de qualquer versão vulnerável antes de fazer merge de um pull request. Para obter mais informações, consulte "[Sobre a revisão de dependências](/code-security/supply-chain-security/about-dependency-review)".
 
-{% ifversion ghec or ghes or ghae %}
-### Visão geral de segurança das organizações{% ifversion ghec or ghes > 3.4 or ghae-issue-6199 %}, empresas,{% endif %} e equipes
+{% ifversion security-overview-displayed-alerts %}<!--Section appears in non-GHAS features above-->
 
-{% ifversion ghec %}
-Disponível apenas com uma licença para {% data variables.product.prodname_GH_advanced_security %}.
-{% endif %}
+{% elsif fpt %}<!--Feature requires enterprise product-->
+
+{% else %}
+### Visão geral de segurança das organizações{% ifversion ghes > 3.4 or ghae-issue-6199 %}, empresas,{% endif %} e equipes
 
 Revise a configuração de segurança e os alertas para sua organização e identifique os repositórios com maior risco. Para obter mais informações, consulte "[Sobre a visão geral de segurança](/code-security/security-overview/about-the-security-overview)".
 {% endif %}

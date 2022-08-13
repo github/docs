@@ -64,16 +64,6 @@ For OAuth Apps, you should use the [web application flow](/apps/building-oauth-a
 curl -H 'Authorization: token my-oauth-token' https://api.github.com/user/repos
 ```
 
-### Calls to OAuth Authorizations API
-
-If you're making [OAuth Authorization API](/enterprise-server/rest/reference/oauth-authorizations) calls to manage your OAuth app's authorizations or to generate access tokens, similar to this example:
-
-```bash
-curl -u my_username:my_password -X POST "https://api.github.com/authorizations" -d '{"scopes":["public_repo"], "note":"my token", "client_id":"my_client_id", "client_secret":"my_client_secret"}'
-```
-
-Then you must switch to the [web application flow](/apps/building-oauth-apps/authorizing-oauth-apps/#web-application-flow) to generate access tokens.
-
 ## Timeouts
 
 If  {% data variables.product.product_name %} takes more than 10 seconds to process an API request, {% data variables.product.product_name %} will terminate the request and you will receive a timeout response.

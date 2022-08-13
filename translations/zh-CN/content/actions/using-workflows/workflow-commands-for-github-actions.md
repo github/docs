@@ -25,7 +25,7 @@ versions:
 
 操作可以与运行器机器进行通信，以设置环境变量，其他操作使用的输出值，将调试消息添加到输出日志和其他任务。
 
-大多数工作流程命令使用特定格式的 `echo` 命令，而其他工作流程则通过写入文件被调用。 更多信息请参阅“[环境文件](#environment-files)”。
+大多数工作流程命令使用特定格式的 `echo` 命令，而其他工作流程则通过写入文件被调用。 For more information, see "[Environment files](#environment-files)."
 
 ### 示例
 
@@ -622,6 +622,12 @@ steps:
 {value}
 {delimiter}
 ```
+
+{% warning %}
+
+**Warning:** Make sure the delimiter you're using is randomly generated and unique for each run. For more information, see "[Understanding the risk of script injections](/actions/security-guides/security-hardening-for-github-actions#understanding-the-risk-of-script-injections)".
+
+{% endwarning %}
 
 #### 示例
 

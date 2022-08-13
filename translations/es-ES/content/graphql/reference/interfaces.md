@@ -20,6 +20,4 @@ Por ejemplo, [`Lockable`](/graphql/reference/interfaces#lockable) es una interfa
 
 Para obtener más información, consulta la sección "[Implementación](/graphql/guides/introduction-to-graphql#implementation)".
 
-{% for item in graphql.schemaForCurrentVersion.interfaces %}
-  {% include graphql-interface %}
-{% endfor %}
+<!-- Content after this section is automatically generated -->

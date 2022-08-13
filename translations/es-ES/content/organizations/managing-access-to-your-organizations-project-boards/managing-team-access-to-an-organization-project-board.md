@@ -1,6 +1,6 @@
 ---
-title: 'Managing team access to an organization {% data variables.product.prodname_project_v1 %}'
-intro: 'As an organization owner or {% data variables.projects.projects_v1_board %} admin, you can give a team access to a {% data variables.projects.projects_v1_board %} owned by your organization.'
+title: 'Administrar el acceso de un equipo al {% data variables.product.prodname_project_v1 %} de una organización'
+intro: 'Como propietario de organización o administrador de {% data variables.projects.projects_v1_board %}, puedes dar acceso a un equipo para un {% data variables.projects.projects_v1_board %} que le pertenezca a tu organización.'
 redirect_from:
   - /articles/managing-team-access-to-an-organization-project-board
   - /github/setting-up-and-managing-organizations-and-teams/managing-team-access-to-an-organization-project-board
@@ -21,14 +21,14 @@ allowTitleToDifferFromFilename: true
 {% warning %}
 
 **Advertencias:**
-- You can change a team's permission level if the team has direct access to a {% data variables.projects.projects_v1_board %}. If the team's access to the {% data variables.projects.projects_v1_board %} is inherited from a parent team, you must change the parent team's access to the {% data variables.projects.projects_v1_board %}.
-- If you add or remove {% data variables.projects.projects_v1_board %} access for a parent team, each of that parent's child teams will also receive or lose access to the {% data variables.projects.projects_v1_board %}. Para obtener más información, consulta "[Acerca de los equipos](/articles/about-teams)".
+- Puedes cambiar el nivel de permiso de un equipo si este tiene acceso directo a un {% data variables.projects.projects_v1_board %}. Si el acceso de un equipo al {% data variables.projects.projects_v1_board %} se hereda de un equipo padre, debes cambiar el acceso de dicho equipo padre al {% data variables.projects.projects_v1_board %}.
+- Si agregas o eliminas el acceso a un {% data variables.projects.projects_v1_board %} para un equipo padre, cada uno de los equipos hijos de este también recibirán o perderán el acceso al {% data variables.projects.projects_v1_board %}. Para obtener más información, consulta "[Acerca de los equipos](/articles/about-teams)".
 
 {% endwarning %}
 
-## Giving a team access to a {% data variables.projects.projects_v1_board %}
+## Otorgar acceso a un equipo para un {% data variables.projects.projects_v1_board %}
 
-You can give an entire team the same permission level to a {% data variables.projects.projects_v1_board %}.
+Puedes otorgar el mismo nivel de permiso para un {% data variables.projects.projects_v1_board %} a todo un equipo.
 
 {% note %}
 

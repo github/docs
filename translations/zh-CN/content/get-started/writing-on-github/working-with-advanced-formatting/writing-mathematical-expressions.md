@@ -6,9 +6,13 @@ versions:
 shortTitle: 数学表达式
 ---
 
+## About writing mathematical expressions
+
 为了清晰地沟通数学表达式，{% data variables.product.product_name %} 在 Markdown 中支持 LaTeX 格式的数学。 更多信息请参阅维基教科书中的 [LaTeX/Math](http://en.wikibooks.org/wiki/LaTeX/Mathematics)。
 
 {% data variables.product.company_short %} 的数学渲染能力使用 MathJax；这是一个开源、基于JavaScript 的显示引擎。 MathJax 支持广泛的 LaTeX 宏，以及几个有用的可访问性扩展。 更多信息请参阅 [MathJax 文档](http://docs.mathjax.org/en/latest/input/tex/index.html#tex-and-latex-support) 和 [MathJax 辅助功能扩展文档](https://mathjax.github.io/MathJax-a11y/docs/#reader-guide)。
+
+Mathematical expressions rendering is available in {% data variables.product.prodname_github_issues %}, {% data variables.product.prodname_discussions %}, pull requests, {% ifversion fpt or ghec or ghes > 3.6 or ghae-issue-7647 %}wikis, {% endif %}and Markdown files.
 
 ## 编写内联表达式
 

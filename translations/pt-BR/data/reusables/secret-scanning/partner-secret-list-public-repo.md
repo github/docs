@@ -71,12 +71,15 @@
 | PlanetScale               | PlanetScale Service Token                                 |
 | Plivo                     | Plivo Auth ID and Token                                   |
 | Postman                   | Chave da API de Postman                                   |
+| Prefect                   | Prefect Server API Key                                    |
+| Prefect                   | Prefect User API Token                                    |
 | Proctorio                 | Chave de Consumidor de Proctorio                          |
 | Proctorio                 | Chave de vínculo de Proctorio                             |
 | Proctorio                 | Chave de registro de Proctorio                            |
 | Proctorio                 | Chave de segredo de Proctorio                             |
 | Pulumi                    | Token de acesso de Pulumi                                 |
 | PyPI                      | PyPI API Token                                            |
+| ReadMe                    | ReadMe API Access Key                                     |
 | redirect.pizza            | redirect.pizza API Token                                  |
 | RubyGems                  | RubyGems API Key                                          |
 | Samsara                   | Token de API de Samsara                                   |
@@ -102,5 +105,6 @@
 | Twilio                    | Identificador de string de conta de Twilio                |
 | Twilio                    | Chave da API de Twilio                                    |
 | Typeform                  | Typeform Personal Access Token                            |
+| Uniwise                   | WISEflow API Key                                          |
 | Valour                    | Valour Access Token                                       |
 | Zuplo                     | Zuplo Consumer API                                        |

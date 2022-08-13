@@ -34,7 +34,7 @@ Existen varias capacidades de seguridad que debe tener un sistema de compilació
 
 3. Cada compilación debería iniciar en un ambiente nuevo, para que las compilaciones puestas en riesgo no persistan para afectar compilaciones futuras.
 
-{% data variables.product.prodname_actions %} puede ayudarte a lograr estas capacidades. Las instrucciones de compilación se almacenan en tu repositorio, junto con tu código. Tú eliges en qué ambiente se ejecuta tu compilación, incluyendo los de Windows, Mac, Linux o los ejecutores que hospedas tú mismo. Cada compilación inicia con un ambiente virtual nuevo, lo que hace difícil que un ataque persista en tu ambiente de compilación.
+{% data variables.product.prodname_actions %} puede ayudarte a lograr estas capacidades. Las instrucciones de compilación se almacenan en tu repositorio, junto con tu código. Tú eliges en qué ambiente se ejecuta tu compilación, incluyendo los de Windows, Mac, Linux o los ejecutores que hospedas tú mismo. Each build starts with a fresh runner image, making it difficult for an attack to persist in your build environment.
 
 Adicionalmente a los beneficios de seguridad, {% data variables.product.prodname_actions %} te permite activar compilaciones manualmente, regularmente o en eventos de git en tu repositorio para las compilaciones rápidas y frecuentes.
 

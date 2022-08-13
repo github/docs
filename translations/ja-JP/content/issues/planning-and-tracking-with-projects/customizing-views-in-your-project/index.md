@@ -1,7 +1,7 @@
 ---
-title: 'Customizing views in your {% data variables.projects.project_v2 %}'
-shortTitle: Customizing views
-intro: 'You can create multiple views to look at your project from different angles, deciding which items to show and how to present them.'
+title: '{% data variables.projects.project_v2 %}でのビューのカスタマイズ'
+shortTitle: ビューのカスタマイズ
+intro: プロジェクトを様々な角度から見るための複数のビューを作成し、表示するアイテムとそれらをどのように表示するかを決定できます。
 versions:
   feature: projects-v2
 topics:
