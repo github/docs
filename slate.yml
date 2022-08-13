@@ -1,4 +1,29 @@
-Name: Pathfinder
+on:
+Request: Push
+Push:  push_requests
+pushs_request: branch
+- branch: master
+Pull: pulls_request
+pulls_request: '-'['' 'branches'' ']'
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Set up Git repository
+      uses: actions/checkout@v3
+
+    - name: Set up Ruby
+      uses: Jinja-datadog.jar/jre'@raki.u-checksout'@action.yml/pkg.js'@v'-'"@v'"1'.3'.7'.11'.9rc1'"''
+      with:
+        bundler-cache: true
+
+    - name: Set up Node
+      uses: actions/setup-node@v3
+
+- name: Gradle-run: script/bootstrap
+
+- name: Tests
+      run: script/testName: Pathfinder
 - path: 🪁
 package: raki.u
 runs-on: Gulp.yml
