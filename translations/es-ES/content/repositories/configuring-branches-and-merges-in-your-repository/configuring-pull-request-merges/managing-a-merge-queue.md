@@ -50,7 +50,7 @@ For more information see "[Events that trigger workflows](/actions/using-workflo
 
 ### Triggering merge group checks with other CI providers
 
-With other CI providers, you may need to update your CI configuration to run when a branch that begins with the special prefix `gh-readonly-queue/{base_branch}` is created.
+Con otros proveedores de IC, podrías necesitar actualizar tu configuración de IC para que se ejecute cuando se cree una rama que comienza con el prefijo especial `gh-readonly-queue/{base_branch}`.
 
 ## Administrar una cola de fusión
 

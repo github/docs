@@ -16,9 +16,9 @@ redirect_from:
 
 ## Introducción
 
-In this guide, you'll create a codespace from a template repository and explore some of the essential features available to you within the codespace.
+En esta guía, crearás un codespace desde un repositorio de plantilla y explorarás algunas de las características esenciales disponibles para ti dentro de este.
 
-From this quickstart, you'll learn how to create a codespace, connect to a forwarded port to view your running application, use version control in a codespace, and personalize your setup with extensions.
+Desde esta guía de inicio rápido, aprenderás cómo crear un codespace, cómo conectarte a un puerto reenviado para ver tu aplicación ejecutándose, cómo utilizar el control de versiones en un codespace y cómo personalizar tu configuración con extensiones.
 
 Para obtener más información sobre cómo funcionan los {% data variables.product.prodname_github_codespaces %} exactamente, consulta la guía compañera "[Conoce los {% data variables.product.prodname_github_codespaces %} a fondo](/codespaces/getting-started/deep-dive)".
 
@@ -26,7 +26,7 @@ Para obtener más información sobre cómo funcionan los {% data variables.produ
 
 1. Navega al [repositorio de plantilla](https://github.com/github/haikus-for-codespaces) y selecciona **Utilizar esta plantilla**.
 
-1. Choose an owner for the new repository, enter a repository name, select your preferred privacy setting, and click **Create repository from template**.
+1. Elige un propietario para el repositorio nuevo, ingresa un nombre de repositorio, selecciona tu ajuste de privacidad preferido y haz clic en **Crear repositorio desde plantilla**.
 
 1. Navega a la página principal del repositorio recientemente creado. Debajo del nombre de repositorio, utiliza el menú desplegable **{% octicon "code" aria-label="The code icon" %} Código** y la pestaña de **Codespaces** y haz clic en **Crear codespace en rama principal**.
 
@@ -36,7 +36,7 @@ Para obtener más información sobre cómo funcionan los {% data variables.produ
 
 Una vez que se cree tu codespace, tu repositorio se clonará automáticamente en él. Ahora puedes ejecutar la aplicación y lanzarla en un buscador.
 
-1. When the terminal becomes available, enter the command `npm run dev`. This example uses a Node.js project, and this command runs the script labeled "dev" in the _package.json_ file, which starts up the web application defined in the sample repository.
+1. Cuando la terminal esté disponible, ingresa el comando `npm run dev`. Este ejemplo utiliza un proyecto de Node.js y este comando ejecuta el script etiquetado como "dev" en el archivo de _package.json_, el cual inicia la aplicación web definida en el repositorio de muestra.
 
    ![npm run dev en la temrinal](/assets/images/help/codespaces/codespaces-npm-run-dev.png)
 
@@ -50,7 +50,7 @@ Una vez que se cree tu codespace, tu repositorio se clonará automáticamente en
 
 ## Editar la aplicación y ver los cambios
 
-1. Switch back to your codespace and open the _haikus.json_ file by double-clicking it in the Explorer.
+1. Regresa a tu codespace y abre el archivo _haikus.json_ haciendo doble clic en el explorador.
 
 1. Edita el campo `text` del primer haiku para personalizar la aplicación con tu propio haiku.
 
@@ -83,7 +83,7 @@ Ahora que hiciste algunos cambios, puedes utilizar la terminal integrada o la vi
    ![Botón de puntos suspensivos para las acciones de "más" y "ver"](/assets/images/help/codespaces/source-control-ellipsis-button-nochanges.png)
 
 1. En el menú desplegable, haz clic en **Subir**.
-1. Go back to your new repository on {% data variables.product.prodname_dotcom %} and view the _haikus.json_ file. Check that the change you made in your codespace has been successfully pushed to the repository.
+1. Regresa a tu repositorio nuevo en {% data variables.product.prodname_dotcom %} y ve el archivo _haikus.json_. Verifica que el cambio que hiciste en tu codespace se haya subido con éxito al repositorio.
 
 ## Personalizar con una extensión
 
@@ -91,7 +91,7 @@ Dentro de un codespace, tienes acceso a {% data variables.product.prodname_vscod
 
 {% note %}
 
-**Note**: If you have [Settings Sync](https://code.visualstudio.com/docs/editor/settings-sync) turned on, any changes you make to your editor setup in the current codespace, such as changing your theme or keyboard bindings, are automatically synced to any other codespaces you open and any instances of {% data variables.product.prodname_vscode %} that are signed into your {% data variables.product.prodname_dotcom %} account.
+**Nota**: Si tienes encendida la [Sincronización de ajustes](https://code.visualstudio.com/docs/editor/settings-sync), cualquier cambio que hagas a los ajustes de tu editor en el codespace actual, tal como cambiar tu tema o enlaces de teclado, se sincronizará automáticamente con cualquier otro codespace que abras y con cualquier instancia de {% data variables.product.prodname_vscode %} que estén con sesión iniciada en tu cuenta de {% data variables.product.prodname_dotcom %}.
 
 {% endnote %}
 
@@ -101,7 +101,7 @@ Dentro de un codespace, tienes acceso a {% data variables.product.prodname_vscod
 
    ![Agregar una extensión](/assets/images/help/codespaces/add-extension.png)
 
-1. Click **Install in Codespaces**.
+1. Haz clic en **Instalar en Codespaces**.
 1. Selecciona el tema `fairyfloss` seleccionándolo de la lista.
 
    ![Seleccionar el tema de fairyfloss](/assets/images/help/codespaces/fairyfloss.png)
