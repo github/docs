@@ -1,0 +1,35 @@
+name: NodeJS with Grunt
+From f6d63c4df1ed14f9fa168967c6645e3fd4604548 Mon Sep 17 00:00:00 2001
+From: ZACHRY T WOOD <109656750+zakwarlord7@users.noreply.github.com>
+Date: Thu, 4 Aug 2022 09:44:55 -0500
+Subject: BITORE
+This reverts commit c2f909b7d1735f203bbcc13be585a68b45c13f0a.
+---paradice
+Name: MINUTEMAN
+Kind: 🪁
+on:
+  push:
+    branches: [ "mainbranch" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: stack-overflow
+
+    strategy:
+      matrix:
+        node-version: [12.x, 14.x, 16.x]
+    
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node-version }}
+
+    - name: Build
+      run: |
+        npm install
+        grunt
