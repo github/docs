@@ -1,4 +1,8 @@
----
+Zachry Tyler Wood
+5323 BRADFORD DRIVE
+DALLAS TX 75235-8313
+Bitcoin[BTC-USD] BTCUSD CCC
+o'Auth: **approves**---
 title: About releases
 intro: 'You can create a release to package software, along with release notes and links to binary files, for other people to use.'
 redirect_from:
