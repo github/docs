@@ -67,9 +67,10 @@ Antes de definir um padrão personalizado, você deve garantir que {% data varia
 {% data reusables.repositories.navigate-to-code-security-and-analysis %}
 {% data reusables.repositories.navigate-to-ghas-settings %}
 {% data reusables.advanced-security.secret-scanning-new-custom-pattern %}
-{% data reusables.advanced-security.secret-scanning-add-custom-pattern-details %}{% ifversion secret-scanning-custom-enterprise-35 %}
+{% data reusables.advanced-security.secret-scanning-add-custom-pattern-details %}{% ifversion secret-scanning-custom-enterprise-35 or custom-pattern-dry-run-ga %}
 1. Quando estiver pronto para testar seu novo padrão personalizado, para identificar correspondências no repositório sem criar alertas, clique em **Salvar testar**.
 {% data reusables.advanced-security.secret-scanning-dry-run-results %}
+{%- ifversion secret-scanning-custom-enterprise-35 %}{% indented_data_reference reusables.secret-scanning.beta-dry-runs spaces=3 %}{% endif %}
 {% endif %}
 {% data reusables.advanced-security.secret-scanning-create-custom-pattern %}
 
@@ -122,10 +123,11 @@ Antes de definir um padrão personalizado, você deverá habilitar {% data varia
 {% data reusables.repositories.navigate-to-ghas-settings %}
 {% data reusables.advanced-security.secret-scanning-new-custom-pattern %}
 {% data reusables.advanced-security.secret-scanning-add-custom-pattern-details %}
-{%- ifversion secret-scanning-custom-enterprise-35 %}
+{%- ifversion secret-scanning-custom-enterprise-35 or custom-pattern-dry-run-ga %}
 1. Quando você estiver pronto para testar seu novo padrão personalizado, para identificar correspondências em repositórios selecionados sem criar alertas, clique em **Salvar e testar**.
 {% data reusables.advanced-security.secret-scanning-dry-run-select-repos %}
 {% data reusables.advanced-security.secret-scanning-dry-run-results %}
+{%- ifversion secret-scanning-custom-enterprise-35 %}{% indented_data_reference reusables.secret-scanning.beta-dry-runs spaces=3 %}{% endif %}
 {%- endif %}
 {% data reusables.advanced-security.secret-scanning-create-custom-pattern %}
 
@@ -141,7 +143,7 @@ Antes de definir um padrão personalizado, você deverá garantir que você habi
 
 {% note %}
 
-{% ifversion secret-scanning-custom-enterprise-36 %}
+{% ifversion secret-scanning-custom-enterprise-36 or custom-pattern-dry-run-ga %}
 **Notas:**
 - No nível corporativo, apenas o criador de um padrão personalizado pode editar o padrão e usá-lo em um teste.
 - Os proprietários de empresas só podem usar testes em repositórios aos quais têm acesso, e os proprietários de empresas não têm necessariamente acesso a todas as organizações ou repositórios da empresa.
@@ -158,10 +160,11 @@ Antes de definir um padrão personalizado, você deverá garantir que você habi
 {% data reusables.enterprise-accounts.advanced-security-security-features %}
 1. Em "Padrões de personalização de digitalização de segredos", clique em {% ifversion ghes = 3.2 %}**Novo padrão personalizado**{% else %}**Novo padrão**{% endif %}.
 {% data reusables.advanced-security.secret-scanning-add-custom-pattern-details %}
-{%- ifversion secret-scanning-custom-enterprise-36 %}
+{%- ifversion secret-scanning-custom-enterprise-36 or custom-pattern-dry-run-ga %}
 1. Quando estiver pronto para testar seu novo padrão personalizado, para identificar correspondências na empresa sem criar alertas, clique em **Salvar e testar**.
-{% data reusables.advanced-security.secret-scanning-dry-run-select-repos %}
+{% data reusables.advanced-security.secret-scanning-dry-run-select-enterprise-repos %}
 {% data reusables.advanced-security.secret-scanning-dry-run-results %}
+{%- ifversion secret-scanning-custom-enterprise-36 %}{% indented_data_reference reusables.secret-scanning.beta-dry-runs spaces=3 %}{% endif %}
 {%- endif %}
 {% data reusables.advanced-security.secret-scanning-create-custom-pattern %}
 
@@ -175,7 +178,7 @@ Ao salvar uma alteração em um padrão personalizado, isso irá fechar todos os
    * Para um repositório ou organização, exiba as configurações "Segurança & análise" do repositório ou organização onde o padrão personalizado foi criado. Para mais informações consulte "[Definir um padrão personalizado para um repositório](#defining-a-custom-pattern-for-a-repository)" ou "[Definir um padrão personalizado para uma organização](#defining-a-custom-pattern-for-an-organization)" acima.
    * Para uma empresa, em "Políticas" exiba a área "Segurança Avançada" e, em seguida, clique em **Funcionalidades de segurança**. Para obter mais informações, consulte "[Definindo um padrão personalizado para uma conta corporativa](#defining-a-custom-pattern-for-an-enterprise-account)" acima.
 2. Em "{% data variables.product.prodname_secret_scanning_caps %}", à direita do padrão personalizado que você deseja editar, clique em {% octicon "pencil" aria-label="The edit icon" %}.
-{%- ifversion secret-scanning-custom-enterprise-36 %}
+{%- ifversion secret-scanning-custom-enterprise-36 or custom-pattern-dry-run-ga  %}
 3. Quando estiver pronto para testar seu padrão personalizado editado, para identificar correspondências sem criar alertas, clique em **Salvar e testar**.
 {%- endif %}
 4. Ao revisar e testar suas alterações, clique em **Salvar alterações**.

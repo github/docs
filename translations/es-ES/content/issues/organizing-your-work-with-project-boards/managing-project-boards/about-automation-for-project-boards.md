@@ -1,6 +1,6 @@
 ---
-title: 'About automation for {% data variables.product.prodname_projects_v1 %}'
-intro: 'You can configure automatic workflows to keep the status of {% data variables.projects.projects_v1_board %} cards in sync with the associated issues and pull requests.'
+title: 'Acerca de la automatización para los {% data variables.product.prodname_projects_v1 %}'
+intro: 'Puedes configurar los flujos de trabajo automáticos para mantener el estado de las tarjetas del {% data variables.projects.projects_v1_board %} sincronizadas con las propuestas y solicitudes de cambio asociadas.'
 redirect_from:
   - /github/managing-your-work-on-github/managing-project-boards/about-automation-for-project-boards
   - /articles/about-automation-for-project-boards
@@ -9,21 +9,21 @@ versions:
   feature: projects-v1
 topics:
   - Pull requests
-shortTitle: 'Automation for {% data variables.product.prodname_projects_v1 %}'
+shortTitle: 'Automatización para los {% data variables.product.prodname_projects_v1 %}'
 allowTitleToDifferFromFilename: true
 ---
 
 {% data reusables.projects.project_boards_old %}
 
-{% data reusables.project-management.automate-project-board-permissions %}  For more information, see "[{% data variables.product.prodname_projects_v1_caps %} permissions for an organization](/articles/project-board-permissions-for-an-organization)."
+{% data reusables.project-management.automate-project-board-permissions %} Para obtener más información, consulta la sección "[Permisos de los {% data variables.product.prodname_projects_v1_caps %} para una organización](/articles/project-board-permissions-for-an-organization)".
 
-You can automate actions based on triggering events for {% data variables.projects.projects_v1_board %} columns. This eliminates some of the manual tasks in managing a {% data variables.projects.projects_v1_board %}. For example, you can configure a "To do" column, where any new issues or pull requests you add to a {% data variables.projects.projects_v1_board %} are automatically moved to the configured column. For more information, see "[Configuring automation for {% data variables.product.prodname_projects_v1 %}](/articles/configuring-automation-for-project-boards)."
+Puedes automatizar las acciones con base en los eventos activadores para las columnas del {% data variables.projects.projects_v1_board %}. Esto elimina algunas de las tareas manuales para administrar un {% data variables.projects.projects_v1_board %}. Por ejemplo, puedes configurar una columna de elementos "Por hacer", en donde cualquier propuesta o solicitud de cambios nueva que agregues a un {% data variables.projects.projects_v1_board %} se mueva automáticamente a la columna configurada. Para obtener más información, consulta la sección "[Configurar la automatización para los {% data variables.product.prodname_projects_v1 %}](/articles/configuring-automation-for-project-boards)".
 
 {% data reusables.project-management.use-automated-template %}
 
 {% data reusables.project-management.copy-project-boards %}
 
-{% data variables.projects.projects_v1_board_caps %} automation can also help teams develop a shared understanding of a {% data variables.projects.projects_v1_board %}'s purpose and the team's development process by creating a standard workflow for certain actions.
+La automatización de los {% data variables.projects.projects_v1_board_caps %} también puede ayudar a que los equipos desarrollen un entendimiento compartido del propósito de un {% data variables.projects.projects_v1_board %} y del proceso de desarrollo del equipo al crear un flujo de trabajo estándar para acciones específicas.
 
 {% data reusables.project-management.resync-automation %}
 
@@ -37,10 +37,10 @@ You can automate actions based on triggering events for {% data variables.projec
 
 ## Seguimiento de progreso del proyecto
 
-You can track the progress on your {% data variables.projects.projects_v1_board %}. Las tarjetas en las columnas "por hacer", "en curso", o "hecho" cuentan sobre el progreso general del proyecto. {% data reusables.project-management.project-progress-locations %}
+Puedes rastrear el progreso en tu {% data variables.projects.projects_v1_board %}. Las tarjetas en las columnas "por hacer", "en curso", o "hecho" cuentan sobre el progreso general del proyecto. {% data reusables.project-management.project-progress-locations %}
 
-For more information, see "[Tracking progress on your {% data variables.product.prodname_project_v1 %}](/github/managing-your-work-on-github/tracking-progress-on-your-project-board)."
+Para obtener más información, consulta la sección "[Rastrear el progreso en tu {% data variables.product.prodname_project_v1 %}](/github/managing-your-work-on-github/tracking-progress-on-your-project-board)".
 
 ## Leer más
-- "[Configuring automation for {% data variables.product.prodname_projects_v1 %}](/articles/configuring-automation-for-project-boards)"{% ifversion fpt or ghec %}
+- "[Configurar la automatización para {% data variables.product.prodname_projects_v1 %}](/articles/configuring-automation-for-project-boards)"{% ifversion fpt or ghec %}
 - "[Copiar un {% data variables.product.prodname_project_v1 %}](/articles/copying-a-project-board)"{% endif %}

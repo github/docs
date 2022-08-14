@@ -1,15 +1,15 @@
 ---
 title: Rechazar una tarea
-intro: 'You can reuse existing assignments in more than one classroom, including classrooms in a different organization.'
+intro: 'Puedes volver a utilizar las tareas existentes en más de un aula, incluyendo a las aulas en una organización diferente.'
 versions:
   fpt: '*'
 permissions: 'Organization owners who are admins for a classroom can reuse assignments from a classroom. {% data reusables.classroom.classroom-admins-link %}'
 shortTitle: Rechazar una tarea
 ---
 
-## About reusing assignments
+## Acerca de reutilizar tareas
 
-You can reuse an existing individual or group assignment in any other classroom you have access to, including classrooms in a different organization. You can also reuse multiple assignments at once from a classroom. If you choose to reuse an assignment, {% data variables.product.prodname_classroom %} will copy the assignment to the classroom you choose. If the assignment uses a template repository and you choose to reuse it in a classroom from a different organization, {% data variables.product.prodname_classroom %} will create a copy of the repository and its contents in the target organization.
+Puedes reutilizar una tarea grupal o individual existente en cualquier otra aula a la cual tengas acceso, incluyendo aquellas en una organización distinta. También puedes reutilizar tareas múltiples a la vez desde un aula. Si eliges reutilizar una tarea, {% data variables.product.prodname_classroom %} la copiará al aula que elijas. If the assignment uses a template repository and you choose to reuse it in a classroom from a different organization, {% data variables.product.prodname_classroom %} will create a copy of the repository and its contents in the target organization.
 
 The copied assignment includes assignment details such as the name, source repository, autograding test, and preferred editor. You can edit the assignment after it has been copied to make changes. You cannot make changes to the preferred editor.
 

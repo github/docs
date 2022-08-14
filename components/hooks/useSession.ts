@@ -10,7 +10,6 @@ export default async function fetcher<JSON = any>(
 }
 
 export type Session = {
-  isSignedIn: boolean
   csrfToken?: string
 }
 

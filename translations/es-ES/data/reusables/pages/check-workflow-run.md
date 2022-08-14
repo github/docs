@@ -1,9 +1,9 @@
 {% ifversion build-pages-with-actions %}
-1. Your {% data variables.product.prodname_pages %} site is built and deployed with a {% data variables.product.prodname_actions %} workflow. For more information, see "[Viewing workflow run history](/actions/monitoring-and-troubleshooting-workflows/viewing-workflow-run-history)".
+1. Tu sitio de {% data variables.product.prodname_pages %} se compila y despliega con un flujo de trabajo de {% data variables.product.prodname_actions %}. Para obtener más información, consulta la sección "[Ver el historial de ejecuciones del flujo de trabajo](/actions/monitoring-and-troubleshooting-workflows/viewing-workflow-run-history)".
 
   {% note %}
 
-  **Note:** {% data variables.product.prodname_actions %} is free for public repositories. Usage charges apply for private and internal repositories that go beyond the monthly allotment of free minutes. Para obtener más información, consulta la sección "[Límites de uso, facturación y administración](/actions/reference/usage-limits-billing-and-administration)".
+  **Nota:** {% data variables.product.prodname_actions %} es gratuito para los repositorios públicos. Los cargos de uso aplican para los repositorios internos y privados que van más allá de la asignación mensual de minutos gratuitos. Para obtener más información, consulta la sección "[Límites de uso, facturación y administración](/actions/reference/usage-limits-billing-and-administration)".
 
   {% endnote %}
 
