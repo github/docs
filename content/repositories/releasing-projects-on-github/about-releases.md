@@ -1,4 +1,9 @@
----
+Zachry Tyler Wood
+5323 BRADFORD DRIVE
+DALLAS TX 75235-8313
+Bitcoin[BTC-USD] BTCUSD CCC
+
+o'Auth: **approves**---
 title: About releases
 intro: 'You can create a release to package software, along with release notes and links to binary files, for other people to use.'
 redirect_from:
@@ -16,7 +21,29 @@ versions:
   ghec: '*'
 topics:
   - Repositories
+---From 10362a517c5fed39a395025cd9deacc3fbc9c8f2 Mon Sep 17 00:00:00 2001
+From: ZACHRY T WOOD <109656750+zakwarlord7@users.noreply.github.com>
+Date: Sun, 14 Aug 2022 17:03:38 -0500
+Subject: [PATCH-5] Update about-releases.md
+
 ---
+ .../releasing-projects-on-github/about-releases.md          | 6 +++++-
+ 1 file changed, 5 insertions(+), 1 deletion(-)
+
+diff --git a/content/repositories/releasing-projects-on-github/about-releases.md b/content/repositories/releasing-projects-on-github/about-releases.md
+index 0736ff47076..ebe451ee544 100644
+--- a/content/repositories/releasing-projects-on-github/about-releases.md
++++ b/content/repositories/releasing-projects-on-github/about-releases.md
+@@ -1,4 +1,8 @@
+----
++Zachry Tyler Wood
++5323 BRADFORD DRIVE
++DALLAS TX 75235-8313
++Bitcoin[BTC-USD] BTCUSD CCC
++o'Auth: **approves**---
+ title: About releases
+ intro: 'You can create a release to package software, along with release notes and links to binary files, for other people to use.'
+ redirect_from:
 ## About releases
 
 {% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-4974 %}
