@@ -165,6 +165,9 @@ export default class Operation {
 
   async renderBodyParameterDescriptions() {
     if (!this.#operation.requestBody) return []
+    // There is currently only one operation with more than one content type
+    // and the request body parameter types are the same for both.
+    // Operation Id: markdown/render-raw
     const contentType = Object.keys(this.#operation.requestBody.content)[0]
     let bodyParamsObject = get(
       this.#operation,
@@ -258,7 +261,7 @@ async function getBodyParams(paramsObject, requiredParams) {
       // Stores the types listed under the `Type` column in the `Parameters`
       // table in the REST API docs. When the parameter contains oneOf
       // there are multiple acceptable parameters that we should list.
-      const paramArray = []
+      let paramArray = []
 
       const oneOfArray = param.oneOf
       const isOneOfObjectOrArray = oneOfArray
@@ -300,7 +303,12 @@ async function getBodyParams(paramsObject, requiredParams) {
         remainingItems.splice(indexOfArrayType, 1)
         paramArray.push(...remainingItems)
       } else if (param.type) {
-        paramArray.push(...param.type)
+        paramArray = paramArray.flat()
+        for (const type of param.type) {
+          if (type && paramArray.indexOf(type) === -1) {
+            paramArray.push(type)
+          }
+        }
       }
       // Supports backwards compatibility for OpenAPI 3.0
       // In 3.1 a nullable type is part of the param.type array and
@@ -373,13 +381,17 @@ async function getBodyParams(paramsObject, requiredParams) {
         param.childParamsGroups.push(
           ...flatten(
             childParamsGroup.params
-              .filter((param) => param.childParamsGroups.length)
+              .filter((param) => param.childParamsGroups?.length)
               .map((param) => param.childParamsGroups)
           )
         )
       }
-
-      return param
+      const paramDecorated = { ...param }
+      delete paramDecorated.items
+      delete paramDecorated.rawDescription
+      delete paramDecorated.rawType
+      if (paramDecorated.childParamsGroups.length === 0) delete paramDecorated.childParamsGroups
+      return paramDecorated
     })
   )
 }

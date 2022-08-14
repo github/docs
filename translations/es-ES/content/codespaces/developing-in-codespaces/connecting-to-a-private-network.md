@@ -18,11 +18,26 @@ Predeterminadamente, tus codespaces tienen acceso a todos los recursos en el int
 
 ## Conectar los recursos a una red privada
 
-El método actualmente compatible para acceder a los recursos de una red privada es utilizar una VPN. No se recomienda actualmente colocar las IP de los codespaces en una lista de IP permitidas, ya que esto permitiría que todos los codespaces (tanto los tuyos como los de otros clientes) accedieran a los recursos protegidos de la red.
+There are currently two methods of accessing resources on a private network within Codespaces.
+- Using a {% data variables.product.prodname_cli %} extension to configure your local machine as a gateway to remote resources.
+- Using a VPN.
+
+### Using the GitHub CLI extension to access remote resources
+
+{% note %}
+
+**Note**: The {% data variables.product.prodname_cli %} extension is currently in beta and subject to change.
+
+{% endnote %}
+
+The {% data variables.product.prodname_cli %} extension allows you to create a bridge between a codespace and your local machine, so that the codespace can access any remote resource that is accessible from your machine. The codespace uses your local machine as a network gateway to reach those resources. For more information, see "[Using {% data variables.product.prodname_cli %} to access remote resources](https://github.com/github/gh-net#codespaces-network-bridge)."
+
+
+
 
 ### Utilizar una VPN para acceder a los recursos detrás de una red privada
 
-La forma más fácil de acceder a los recursos detrás de una red privada es llegar a ella con una VPN desde dentro de tu codespace.
+As an alternative to the {% data variables.product.prodname_cli %} extension, you can use a VPN to access resources behind a private network from within your codespace.
 
 Te recomendamos herramientas de VPN como [Open VPN](https://openvpn.net/) para acceder a los recursos de una red privada. Para obtener más información, consulta la sección "[Utilizar el cliente de OpenVPN desde GitHub Codespaces](https://github.com/codespaces-contrib/codespaces-openvpn)".
 

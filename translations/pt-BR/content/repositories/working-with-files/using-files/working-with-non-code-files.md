@@ -363,7 +363,7 @@ Ao visualizar o arquivo no repositório, ele é interpretado como um gráfico de
 
 Se o seu gráfico não faz nenhuma interpretação, verifique se ele contém uma sintaxe válida do Markdown do Mermaid, verificando sua carta com [editor ativo do Mermaid](https://mermaid.live/edit).
 
-Se o gráfico é exibido, mas não aparece como você esperava, você pode criar uma nova discussão de feedback [](https://github.com/github/feedback/discussions/categories/general-feedback) e adicionar a tag `mermaid`.
+If the chart displays, but does not appear as you'd expect, you can create a new [{% data variables.product.prodname_github_community %} discussion](https://github.com/orgs/community/discussions/categories/general), and add the `Mermaid` label.
 
 #### Problemas conhecidos
 

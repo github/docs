@@ -31,4 +31,4 @@ allowTitleToDifferFromFilename: true
 
 - "[Acerca de {% data variables.product.prodname_projects_v1 %}](/articles/about-project-boards)"
 - "[Agregar propuestas y solicitudes de cambios a un {% data variables.product.prodname_project_v1 %}](/articles/adding-issues-and-pull-requests-to-a-project-board)"
-- "[Deleting a {% data variables.product.prodname_project_v1 %}](/articles/deleting-a-project-board)"
+- "[Borrar un {% data variables.product.prodname_project_v1 %}](/articles/deleting-a-project-board)"

@@ -1,6 +1,6 @@
 ---
-title: 'Deep dive into {% data variables.product.prodname_github_codespaces %}'
-shortTitle: 'Deep dive into {% data variables.product.prodname_codespaces %}'
+title: 'Aprofundamento em {% data variables.product.prodname_github_codespaces %}'
+shortTitle: 'Aprofundamento em {% data variables.product.prodname_codespaces %}'
 intro: 'Entender o funcionamento do {% data variables.product.prodname_github_codespaces %};'
 allowTitleToDifferFromFilename: true
 product: '{% data reusables.gated-features.codespaces %}'

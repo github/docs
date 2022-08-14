@@ -31,7 +31,7 @@ Puedes poblar el caché de la herramienta del ejecutor si ejecutas un flujo de t
 
 {% note %}
 
-**Nota:** Solo puedes utilizar un caché de la herramienta del ejecutor hospedado en {% data variables.product.prodname_dotcom %} para un ejecutor auto-hospedado que tenga un sistema operativo y arquitectura idénticos. Por ejemplo, si estás utilizando un ejecutor hospedado en {% data variables.product.prodname_dotcom %} con `ubuntu-18.04` para generar un caché de la herramienta, tu ejecutor auto-hospedado también debe ser una máquina con Ubuntu 18.04 de 64 bits. Para obtener más información sobre los ejecutores hospedados en {% data variables.product.prodname_dotcom %}, consulta la sección "[Ambientes virtuales para los ejecutores hospedados en GitHub](/free-pro-team@latest/actions/using-github-hosted-runners/about-github-hosted-runners#supported-runners-and-hardware-resources)".
+**Nota:** Solo puedes utilizar un caché de la herramienta del ejecutor hospedado en {% data variables.product.prodname_dotcom %} para un ejecutor auto-hospedado que tenga un sistema operativo y arquitectura idénticos. Por ejemplo, si estás utilizando un ejecutor hospedado en {% data variables.product.prodname_dotcom %} con `ubuntu-22.04` para generar un caché de la herramienta, tu ejecutor auto-hospedado también debe ser una máquina con Ubuntu 22.04 de 64 bits. Para obtener más información sobre los ejecutores hospedados en {% data variables.product.prodname_dotcom %}, consulta la sección "[Acerca de los ejecutores hospedados en {% data variables.product.prodname_dotcom %}](/free-pro-team@latest/actions/using-github-hosted-runners/about-github-hosted-runners#supported-runners-and-hardware-resources)".
 
 {% endnote %}
 
@@ -46,14 +46,14 @@ Puedes poblar el caché de la herramienta del ejecutor si ejecutas un flujo de t
 1. En {% data variables.product.prodname_dotcom_the_website %}, navega a un repositorio que puedas utilizar para ejecutar un flujo de trabajo de {% data variables.product.prodname_actions %}.
 1. Crea un archivo de flujo de trabajo nuevo en la carpeta `.github/workflows` del repositorio, el cual cargue un artefacto que contenga el caché de la herramienta del ejecutor hospedado en {% data variables.product.prodname_dotcom %}.
 
-   El siguiente ejemplo muestra un flujo de trabajo que carga el caché de la herramienta para un ambiente de Ubuntu 18.04 utilizando la acción `setup-node` con las versiones 10 y 12 de Node.js.
+   El siguiente ejemplo muestra un flujo de trabajo que carga el caché de la herramienta para un ambiente de Ubuntu 22.04 utilizando la acción `setup-node` con las versiones 10 y 12 de Node.js.
 
    ```yaml
    name: Upload Node.js 10 and 12 tool cache
    on: push
    jobs:
      upload_tool_cache:
-       runs-on: ubuntu-18.04
+       runs-on: ubuntu-22.04
        steps:
          - name: Clear any existing tool cache
            run: |

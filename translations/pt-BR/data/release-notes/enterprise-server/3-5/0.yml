@@ -289,12 +289,12 @@ sections:
       Agora é possível para o aplicativo GitHub Apps upload de ativos de versão.
   changes:
     - |
-      Os requisitos mínimos de armazenamento root e memória foram aumentados para o GitHub Enterprise Server 2.10 e 3.0, e agora foram aplicados a partir da versão 3.5.0.
+      Minimum requirements for root storage and memory increased for GitHub Enterprise Server 2.10 and 3.0, and are now enforced as of 3.5.0.
 
-        - Na versão 2.10, o requisito mínimo de armazenamento root aumentou de 80 GB para 200 GB. A partir de 3.5.0, as verificações de pré-voo do sistema irão falhar se o armazenamento raiz for menor que 80 GB.
-        - Na versão 3.0, o requisito mínimo de memória aumentou de 16 GB para 32 GB. A partir da versão 3.5.0, os controlos de pré-voo do sistema falharão se o sistema tiver menos de 28 GB de memória.
+        - In version 2.10, the minimum requirement for root storage increased from 80 GB to 200 GB. As of 3.5.0, system preflight checks will fail if the root storage is smaller than 80 GB.
+        - In version 3.0, the minimum requirement for memory increased from 16 GB to 32 GB. As of 3.5.0, system preflight checks will fail if the system has less than 28 GB of memory.
 
-      Para obter mais informações, consulte os requisitos mínimos para cada plataforma de implantação compativel em "[Configurar uma instância do GitHub Enterprise Server](/admin/installation/setting-up-a-github-enterprise-server-instance)." [Atualizado: 2022-06-20]
+      For more information, see the minimum requirements for each supported deployment platform in "[Setting up a GitHub Enterprise Server instance](/admin/installation/setting-up-a-github-enterprise-server-instance)." [Updated: 2022-06-20]
     - |
       Para usar o fluxo de autorização do dispositivo para os aplicativos OAuth e GitHub, você deve habilitar o recurso manualmente. Essa alteração reduz a probabilidade de aplicativos serem usados em ataques de phishing contra usuários do GitHub Enterprise Server, garantindo que os integradores estejam cientes dos riscos e fazendo uma escolha consciente para apoiar essa forma de autenticação. Se você possui ou gerencia um aplicativo OAuth ou GitHub e quer usar o fluxo do dispositivo, você pode habilitá-lo para seu aplicativo através da página de configurações do aplicativo. Os pontos de extremidade da API do dispositivo responderão com o código de status `400` aos aplicativos que não habilitaram este recurso. Para obter mais informações, consulte "[Autorizando aplicativos OAuth](/developers/apps/building-oauth-apps/authorizing-oauth-apps#device-flow)".
     - |

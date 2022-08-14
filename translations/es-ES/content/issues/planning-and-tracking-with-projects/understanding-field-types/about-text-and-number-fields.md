@@ -1,6 +1,6 @@
 ---
 title: About text and number fields
-shortTitle: About text and number fields
+shortTitle: Acerca de los campos de número y de texto
 intro: You can add custom text and number fields to your project.
 miniTocMaxHeadingLevel: 3
 versions:
@@ -28,6 +28,6 @@ Alternatively, open the project command palette by pressing {% data variables.pr
 
 {% data reusables.projects.new-field %}
 1. Select **Number** ![Screenshot showing the number option](/assets/images/help/projects-v2/new-field-number.png)
-1. Haz clic en **Save ** (guardar). ![Screenshot showing save button](/assets/images/help/projects-v2/new-field-save.png)
+1. Haz clic en **Save ** (guardar). ![Captura de pantalla que muestra el botón de guardar](/assets/images/help/projects-v2/new-field-save.png)
 
-Alternatively, open the project command palette by pressing {% data variables.projects.command-palette-shortcut %} and start typing "Create new field."
+Como alternativa, abre la paleta de comandos del proyecto presionando {% data variables.projects.command-palette-shortcut %} y comienza a escribir "Create new field".

@@ -24,11 +24,11 @@ shortTitle: Protección contra subidas
 
 Has ahora, el {% data variables.product.prodname_secret_scanning_GHAS %} verifica secretos _después_ de una subida y alerta a los usuarios sobre los secretos expuestos. {% data reusables.secret-scanning.push-protection-overview %}
 
-If a contributor bypasses a push protection block for a secret, {% data variables.product.prodname_dotcom %}:
-- generates an alert.
-- creates an alert in the "Security" tab of the repository.
-- adds the bypass event to the audit log.{% ifversion secret-scanning-push-protection-email %}
-- sends an email alert to organization owners, security managers, and repository administrators, with a link to the related secret and the reason why it was allowed.{% endif %}
+Si un contribuyente omite un bloque de protección de subida para un secreto, {% data variables.product.prodname_dotcom %}:
+- genera una alerta.
+- crea una alerta en la pestaña de "Seguridad" del repositorio.
+- agrega un evento de omisión en la bitácora de auditoría.{% ifversion secret-scanning-push-protection-email %}
+- envía una alerta por correo electrónico a los propietarios de la organización, administradores de seguridad y administradores de repositorio con un enlace al secreto relacionado y con la razón por la cual se permitió.{% endif %}
 
 El {% data variables.product.prodname_secret_scanning_caps %} como protección contra subidas actualmente escanea los repositorios para encontrar secretos que hayan emitido los siguientes proveedores de servicios.
 

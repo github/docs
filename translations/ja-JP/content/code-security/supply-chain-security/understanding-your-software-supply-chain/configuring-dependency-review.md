@@ -60,9 +60,9 @@ topics:
 | ------------------ | -- | -------------------------------------------------------------------------------------------------------- |
 | `fail-on-severity` | 任意 | 重要度(`low`、`moderate`、`high`、`critical`)の閾値を定義します。</br>指定された重要度以上の脆弱性を導入するPull Requestについて、このアクションは失敗します。 |
 {%- ifversion dependency-review-action-licenses %}
-| `allow-licenses` | Optional | Contains a list of allowed licenses. You can find the possible values for this parameter in the [Licenses](/rest/licenses) page of the API documentation.</br>The action will fail on pull requests that introduce dependencies with licenses that do not match the list.|{% endif %}
+| `allow-licenses` | 任意| 許可されたライセンスのリストを含みます。 このパラメータで利用できる値は、APIドキュメンテーションの[Licenses](/rest/licenses)ページにあります。</br>このリストにマッチしないライセンスを持つ依存関係を導入するPull Requestについて、このアクションは失敗します。{% endif %}
 {%- ifversion dependency-review-action-licenses %}
-| `deny-licenses` | Optional | Contains a list of prohibited licenses. You can find the possible values for this parameter in the [Licenses](/rest/licenses) page of the API documentation.</br>The action will fail on pull requests that introduce dependencies with licenses that match the list.|{% endif %}
+| `deny-licenses` | 任意| 禁止されているライセンスのリストを含みます。 このパラメータで利用できる値は、APIドキュメンテーションの[Licenses](/rest/licenses)ページにあります。</br>このリストにマッチするライセンスを持つ依存関係を導入するPull Requestについて、このアクションは失敗します。{% endif %}
 
 {% ifversion dependency-review-action-licenses %}
 {% tip %}
@@ -93,14 +93,14 @@ jobs:
           # Possible values: "critical", "high", "moderate", "low" 
           fail-on-severity: critical
 {% ifversion dependency-review-action-licenses %}
-          # You can only can only include one of these two options: `allow-licenses` and `deny-licences`
-          # ([String]). これらのライセンスだけを許可 (オプション)
+          # `allow-licenses`及び`deny-licences`という2つのオプションのいずれかのみを含めることができます
+          # ([String])。 これらのライセンスだけを許可 (オプション)
           # 取り得る値: https://docs.github.com/en/rest/licensesからの任意の`spdx_id`値
           # 許可ライセンス: GPL-3.0, BSD-3-Clause, MIT
 
-          # ([String]). Block the pull request on these licenses (optional)
-          # Possible values: Any  `spdx_id` value(s) from https://docs.github.com/en/rest/licenses 
-          # deny-licenses: LGPL-2.0, BSD-2-Clause
+          # ([String]). これらのライセンスでPull Requestはブロック (オプション)
+          # 取り得る値: https://docs.github.com/en/rest/licensesからの任意の`spdx_id`値
+          # 拒否ライセンス: LGPL-2.0, BSD-2-Clause
 {% endif %}
 ```
 

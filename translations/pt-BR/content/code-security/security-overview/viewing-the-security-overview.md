@@ -21,6 +21,8 @@ shortTitle: Ver visão geral de segurança
 {% data reusables.security-overview.beta %}
 {% endif %}
 
+{% data reusables.security-overview.information-varies-GHAS %}
+
 ## Visualizar a visão geral de segurança de uma organização
 
 {% data reusables.organizations.navigate-to-org %}

@@ -2,23 +2,31 @@ import React, { useEffect } from 'react'
 import App from 'next/app'
 import type { AppProps, AppContext } from 'next/app'
 import Head from 'next/head'
-import { ThemeProvider, ThemeProviderProps, SSRProvider } from '@primer/react'
+import { ThemeProvider, SSRProvider } from '@primer/react'
 
 import '../stylesheets/index.scss'
 
-import events from 'components/lib/events'
+import { initializeEvents } from 'components/lib/events'
 import experiment from 'components/lib/experiment'
-import { defaultComponentTheme } from 'lib/get-theme.js'
+import { LanguagesContext, LanguagesContextT } from 'components/context/LanguagesContext'
+import { useSession } from 'components/hooks/useSession'
+import { useTheme } from 'components/hooks/useTheme'
 
 type MyAppProps = AppProps & {
   isDotComAuthenticated: boolean
-  themeProps: typeof defaultComponentTheme & Pick<ThemeProviderProps, 'colorMode'>
+  languagesContext: LanguagesContextT
 }
-const MyApp = ({ Component, pageProps, themeProps }: MyAppProps) => {
+
+const MyApp = ({ Component, pageProps, languagesContext }: MyAppProps) => {
+  const { session } = useSession()
+  const { theme } = useTheme()
+
   useEffect(() => {
-    events()
+    if (session?.csrfToken) {
+      initializeEvents(session.csrfToken)
+    }
     experiment()
-  }, [])
+  }, [session])
 
   return (
     <>
@@ -47,33 +55,40 @@ const MyApp = ({ Component, pageProps, themeProps }: MyAppProps) => {
       </Head>
       <SSRProvider>
         <ThemeProvider
-          colorMode={themeProps.colorMode}
-          dayScheme={themeProps.dayTheme}
-          nightScheme={themeProps.nightTheme}
+          colorMode={theme.component.colorMode}
+          dayScheme={theme.component.dayScheme}
+          nightScheme={theme.component.nightScheme}
           preventSSRMismatch
         >
-          <Component {...pageProps} />
+          {/* Appears Next.js can't modify <body> after server rendering: https://stackoverflow.com/a/54774431 */}
+          <div
+            data-color-mode={theme.css.colorMode}
+            data-light-theme={theme.css.lightTheme}
+            data-dark-theme={theme.css.darkTheme}
+          >
+            <LanguagesContext.Provider value={languagesContext}>
+              <Component {...pageProps} />
+            </LanguagesContext.Provider>
+          </div>
         </ThemeProvider>
       </SSRProvider>
     </>
   )
 }
 
-// Remember, function is only called once if the rendered page can
-// be in-memory cached. But still, the `<MyApp>` component will be
-// executed every time **in the client** if it was the first time
-// ever (since restart) or from a cached HTML.
 MyApp.getInitialProps = async (appContext: AppContext) => {
   const { ctx } = appContext
   // calls page's `getInitialProps` and fills `appProps.pageProps`
   const appProps = await App.getInitialProps(appContext)
   const req: any = ctx.req
 
-  const { getTheme } = await import('lib/get-theme.js')
+  // Have to define the type manually here because `req.context.languages`
+  // comes from Node JS and is not type-aware.
+  const languages: LanguagesContextT = req.context.languages
 
   return {
     ...appProps,
-    themeProps: getTheme(req),
+    languagesContext: { languages },
   }
 }
 

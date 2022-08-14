@@ -126,6 +126,7 @@ Os sites do {% data variables.product.prodname_pages %} estão sujeitos ao segui
 {% ifversion fpt or ghec %}
   - Sites de {% data variables.product.prodname_pages %} têm um limite de banda larga *flexível* de 100 GB por mês.
   - {% data variables.product.prodname_pages %} sites have a *soft* limit of 10 builds per hour.{% ifversion pages-custom-workflow %} This limit does not apply if you build and publish your site with a custom {% data variables.product.prodname_actions %} workflow {% endif %}
+  - In order to provide consistent quality of service for all {% data variables.product.prodname_pages %} sites, rate limits may apply. These rate limits are not intended to interfere with legitimate uses of {% data variables.product.prodname_pages %}. If your request triggers rate limiting, you will receive an appropriate response with an HTTP status code of `429`, along with an informative HTML body.
 
 Se o seu site exceder essas cotas de uso, talvez não possamos atender a ele ou você receba um e-mail formal do {% data variables.contact.contact_support %} sugerindo estratégias para reduzir o impacto do site em nossos servidores, como colocar uma rede de distribuição de conteúdo (CDN, Content Distribution Network) de terceiros na frente do site, usar outros recursos do {% data variables.product.prodname_dotcom %}, como versões, ou migrar para outro serviço de hospedagem que possa atender melhor às suas necessidades.
 
