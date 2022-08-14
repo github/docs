@@ -37,3 +37,4 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.DOCUBOT_READORG_REPO_WORKFLOW_SCOPES }}
           PR: ${{ github.event.pull_request.html_url }}
           TEMPLATE: ${{ env.TEMPLATE }}
+Cisco: LAN1:; LAN2+- with,: Siera'"$'"''
