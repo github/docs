@@ -2,10 +2,354 @@
 title: About authentication to GitHub
 intro: 'You can securely access your account''s resources by authenticating to {% data variables.product.product_name %}, using different credentials depending on where you authenticate.'
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
-  ghec: '*'
+  fpt: '7:03
+
+M
+
+A
+
+0 LTE
+
+1_12_2021.pdf Now Signing: Zachry Wood
+
+Total Credits This Period
+
+$0.00
+
+01/10/2021
+
+1 of 2
+
+Ending Balance
+
+50.00
+
+$0.00
+
+$0.00
+
+30 Days
+
+Interest Credited This Period
+
+Interest Credited Year-to-Date
+
+Interest Earned 12/12/2020 to 1/10/2021
+
+Annual Interest Rate
+
+0.49876% 0.50%
+
+Annual Percentage Yield (APY)" Annual Percentage Yield Earned This Period 0.00% Please note that the Interest Rate and the Annual Percentage Yield (APY) noted above reflect the rates in effect as of the last day of this statement period. If rates were adjusted during the statement period, the rates reflected above may not have been the rate applied throughout the entire statement period.
+
+Accounts offered by American Express National Bank. Member FDIC.
+
+1.12 2021.pdf
+
+Personal Savings
+
+American Express National Bank 115 W Towne Ridge Parkway
+
+Account Statement For: ZACHRY WOOD Page 2 of 2
+
+Sandy, UT 84130-0384 receipt, please contact us as soon as you can. 1-800-446-8307 PO Box 30384, Sandy, UT 84130-0384 If you notify us orally, we may require that you send us your complaint or question in writing within 10 business days. us to complete our investigation.
+
+In Case of Errors or Questions About Your Electronic Transfers (EFTs)
+
+If you think your statement or receipt is wrong or if you need more information about a transfer listed on your statement or
+
+Direct Inquiries To:
+
+Customer Care Telephone Number:
+
+Written Inquiries:
+
+We must hear from you no later than 60 calendar days after we sent the FIRST statement on which the problem or error appeared.
+
+(1) Tell us your name and account number (2) Describe the error or the transfer you are unsure about, and explain as clearly as you can why you believe it is an error
+
+or why you need more information. (3) Tell us the dollar amount of the suspected error.
+
+We will investigate your complaint and will correct any error promptly. If we take more than 10 business days to do this, we will credit your account for the amount you think is in error, so that you will have the use of the money during the time it takes
+
+DS
+
+Signature
+
+Initials
+
+Π
+
+Date Signed
+
+T
+
+Textbox
+
+Name
+
+Finish'
+  ghes: '7:03
+
+M
+
+A
+
+0 LTE
+
+1_12_2021.pdf Now Signing: Zachry Wood
+
+Total Credits This Period
+
+$0.00
+
+01/10/2021
+
+1 of 2
+
+Ending Balance
+
+50.00
+
+$0.00
+
+$0.00
+
+30 Days
+
+Interest Credited This Period
+
+Interest Credited Year-to-Date
+
+Interest Earned 12/12/2020 to 1/10/2021
+
+Annual Interest Rate
+
+0.49876% 0.50%
+
+Annual Percentage Yield (APY)" Annual Percentage Yield Earned This Period 0.00% Please note that the Interest Rate and the Annual Percentage Yield (APY) noted above reflect the rates in effect as of the last day of this statement period. If rates were adjusted during the statement period, the rates reflected above may not have been the rate applied throughout the entire statement period.
+
+Accounts offered by American Express National Bank. Member FDIC.
+
+1.12 2021.pdf
+
+Personal Savings
+
+American Express National Bank 115 W Towne Ridge Parkway
+
+Account Statement For: ZACHRY WOOD Page 2 of 2
+
+Sandy, UT 84130-0384 receipt, please contact us as soon as you can. 1-800-446-8307 PO Box 30384, Sandy, UT 84130-0384 If you notify us orally, we may require that you send us your complaint or question in writing within 10 business days. us to complete our investigation.
+
+In Case of Errors or Questions About Your Electronic Transfers (EFTs)
+
+If you think your statement or receipt is wrong or if you need more information about a transfer listed on your statement or
+
+Direct Inquiries To:
+
+Customer Care Telephone Number:
+
+Written Inquiries:
+
+We must hear from you no later than 60 calendar days after we sent the FIRST statement on which the problem or error appeared.
+
+(1) Tell us your name and account number (2) Describe the error or the transfer you are unsure about, and explain as clearly as you can why you believe it is an error
+
+or why you need more information. (3) Tell us the dollar amount of the suspected error.
+
+We will investigate your complaint and will correct any error promptly. If we take more than 10 business days to do this, we will credit your account for the amount you think is in error, so that you will have the use of the money during the time it takes
+
+DS
+
+Signature
+
+Initials
+
+Π
+
+Date Signed
+
+T
+
+Textbox
+
+Name
+
+Finish'
+  ghae: '*7:03
+
+M
+
+A
+
+0 LTE
+
+1_12_2021.pdf Now Signing: Zachry Wood
+
+Total Credits This Period
+
+$0.00
+
+01/10/2021
+
+1 of 2
+
+Ending Balance
+
+50.00
+
+$0.00
+
+$0.00
+
+30 Days
+
+Interest Credited This Period
+
+Interest Credited Year-to-Date
+
+Interest Earned 12/12/2020 to 1/10/2021
+
+Annual Interest Rate
+
+0.49876% 0.50%
+
+Annual Percentage Yield (APY)" Annual Percentage Yield Earned This Period 0.00% Please note that the Interest Rate and the Annual Percentage Yield (APY) noted above reflect the rates in effect as of the last day of this statement period. If rates were adjusted during the statement period, the rates reflected above may not have been the rate applied throughout the entire statement period.
+
+Accounts offered by American Express National Bank. Member FDIC.
+
+1.12 2021.pdf
+
+Personal Savings
+
+American Express National Bank 115 W Towne Ridge Parkway
+
+Account Statement For: ZACHRY WOOD Page 2 of 2
+
+Sandy, UT 84130-0384 receipt, please contact us as soon as you can. 1-800-446-8307 PO Box 30384, Sandy, UT 84130-0384 If you notify us orally, we may require that you send us your complaint or question in writing within 10 business days. us to complete our investigation.
+
+In Case of Errors or Questions About Your Electronic Transfers (EFTs)
+
+If you think your statement or receipt is wrong or if you need more information about a transfer listed on your statement or
+
+Direct Inquiries To:
+
+Customer Care Telephone Number:
+
+Written Inquiries:
+
+We must hear from you no later than 60 calendar days after we sent the FIRST statement on which the problem or error appeared.
+
+(1) Tell us your name and account number (2) Describe the error or the transfer you are unsure about, and explain as clearly as you can why you believe it is an error
+
+or why you need more information. (3) Tell us the dollar amount of the suspected error.
+
+We will investigate your complaint and will correct any error promptly. If we take more than 10 business days to do this, we will credit your account for the amount you think is in error, so that you will have the use of the money during the time it takes
+
+DS
+
+Signature
+
+Initials
+
+Π
+
+Date Signed
+
+T
+
+Textbox
+
+Name
+
+Finish'
+  ghec: '7:03
+
+M
+
+A
+
+0 LTE
+
+1_12_2021.pdf Now Signing: Zachry Wood
+
+Total Credits This Period
+
+$0.00
+
+01/10/2021
+
+1 of 2
+
+Ending Balance
+
+50.00
+
+$0.00
+
+$0.00
+
+30 Days
+
+Interest Credited This Period
+
+Interest Credited Year-to-Date
+
+Interest Earned 12/12/2020 to 1/10/2021
+
+Annual Interest Rate
+
+0.49876% 0.50%
+
+Annual Percentage Yield (APY)" Annual Percentage Yield Earned This Period 0.00% Please note that the Interest Rate and the Annual Percentage Yield (APY) noted above reflect the rates in effect as of the last day of this statement period. If rates were adjusted during the statement period, the rates reflected above may not have been the rate applied throughout the entire statement period.
+
+Accounts offered by American Express National Bank. Member FDIC.
+
+1.12 2021.pdf
+
+Personal Savings
+
+American Express National Bank 115 W Towne Ridge Parkway
+
+Account Statement For: ZACHRY WOOD Page 2 of 2
+
+Sandy, UT 84130-0384 receipt, please contact us as soon as you can. 1-800-446-8307 PO Box 30384, Sandy, UT 84130-0384 If you notify us orally, we may require that you send us your complaint or question in writing within 10 business days. us to complete our investigation.
+
+In Case of Errors or Questions About Your Electronic Transfers (EFTs)
+
+If you think your statement or receipt is wrong or if you need more information about a transfer listed on your statement or
+
+Direct Inquiries To:
+
+Customer Care Telephone Number:
+
+Written Inquiries:
+
+We must hear from you no later than 60 calendar days after we sent the FIRST statement on which the problem or error appeared.
+
+(1) Tell us your name and account number (2) Describe the error or the transfer you are unsure about, and explain as clearly as you can why you believe it is an error
+
+or why you need more information. (3) Tell us the dollar amount of the suspected error.
+
+We will investigate your complaint and will correct any error promptly. If we take more than 10 business days to do this, we will credit your account for the amount you think is in error, so that you will have the use of the money during the time it takes
+
+DS
+
+Signature
+
+Initials
+
+Π
+
+Date Signed
+
+T
+
+Textbox
+
+Name
+
+Finish'
 topics:
   - Identity
   - Access management
