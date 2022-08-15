@@ -30,6 +30,7 @@ program
     '-m, --prefer-main',
     'Reset file to the translated file, try using the file from `main` branch first, if not found (usually due to renaming), fall back to English source.'
   )
+  .option('-rm, --remove', 'Remove the translated files altogether')
   .option('-d, --dry-run', 'Just pretend to reset files')
   .option('-r, --reason <reason>', 'A reason why the file is getting reset')
   .parse(process.argv)
@@ -44,6 +45,14 @@ const resetToEnglishSource = (translationFilePath) => {
     'path argument must be in the format `translations/<lang>/path/to/file`'
   )
 
+  if (program.opts().remove) {
+    if (!dryRun) {
+      const fullPath = path.join(process.cwd(), translationFilePath)
+      fs.unlinkSync(fullPath)
+    }
+    console.log('-> removed: %s %s', translationFilePath, reasonMessage)
+    return
+  }
   if (!fs.existsSync(translationFilePath)) {
     return
   }
