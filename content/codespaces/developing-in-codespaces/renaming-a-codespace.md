@@ -44,7 +44,3 @@ gh codespace edit -c <em>unique name of the codespace</em> -d <em>new display na
 ```
 
 In this example, replace `unique name of the codespace` with the unique name of the codespace. Replace `new display name` with the desired display name.
-
-
-<!-- 1. Run `gh codespace list` in a terminal on your local machine to find the unique name of your codespace.
-2. Run `gh codespace edit -c <CODESPACE-ID> -d <NEW-DISPLAY-NAME>` to rename the codespace. In this example, replace `<CODESPACE-ID>` with the unique name of your codespace and `<NEW-DISPLAY-NAME>` with the new display name. -->
