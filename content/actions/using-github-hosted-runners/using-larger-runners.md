@@ -7,6 +7,12 @@ versions:
 shortTitle: Using larger runners
 ---
 
+{% note %}
+
+**Note**: Larger runners are currently in beta and subject to change.
+
+{% endnote %}
+
 ## Overview of larger runners
 
 In addition to the [standard {% data variables.product.prodname_dotcom %}-hosted runners](/actions/using-github-hosted-runners/about-github-hosted-runners#supported-runners-and-hardware-resources), {% data variables.product.prodname_dotcom %} also offers a range of larger runners with more RAM and CPU. These runners are hosted by {% data variables.product.prodname_dotcom %} and have the runner application and other tools preinstalled. Each runner is only used to process a single job, and once the job has completed the runner's virtual machine is then handled according to your autoscaling needs: the runner is reimaged and only reused within your organisation, or it is shutdown and deleted.
