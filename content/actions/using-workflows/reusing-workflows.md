@@ -190,7 +190,7 @@ jobs:
   ReuseableMatrixJobForDeployment:
     strategy:
       matrix:
-        env: [dev, stage, prod]
+        target: [dev, stage, prod]
     uses: octocat/octo-repo/.github/workflows/deployment.yml@main
     with:
       env: ${{ matrix.env }}
