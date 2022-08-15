@@ -1,11 +1,15 @@
 ---
-title: 'Error: ssh-add: illegal option -- K'
+title: 'Error: ssh-add: illegal option -- apple-use-keychain'
 intro: 'This error means your version of `ssh-add` does not support macOS keychain integration, which allows you to store your passphrase in the keychain.'
 redirect_from:
   - /articles/error-ssh-add-illegal-option-k
   - /articles/error-ssh-add-illegal-option----k
   - /github/authenticating-to-github/error-ssh-add-illegal-option----k
   - /github/authenticating-to-github/troubleshooting-ssh/error-ssh-add-illegal-option----k
+  - /articles/error-ssh-add-illegal-option-apple-use-keychain
+  - /articles/error-ssh-add-illegal-option----apple-use-keychain
+  - /github/authenticating-to-github/error-ssh-add-illegal-option----apple-use-keychain
+  - /github/authenticating-to-github/troubleshooting-ssh/error-ssh-add-illegal-option----apple-use-keychain
 versions:
   fpt: '*'
   ghes: '*'
@@ -13,16 +17,22 @@ versions:
   ghec: '*'
 topics:
   - SSH
-shortTitle: 'ssh-add: illegal option -- K'
+shortTitle: 'ssh-add: illegal option -- apple-use-keychain'
 ---
-The `-K` option is in Apple's standard version of `ssh-add`, which stores the passphrase in your keychain for you when you add an ssh key to the ssh-agent. If you have installed a different version of `ssh-add`, it may lack support for `-K`.
+The `--apple-use-keychain` option is in Apple's standard version of `ssh-add`, which stores the passphrase in your keychain for you when you add an ssh key to the ssh-agent. If you have installed a different version of `ssh-add`, it may lack support for `--apple-use-keychain`.
+
+{% note %}
+
+**Note:** In MacOS versions prior to Monterey (12.0), the `--apple-use-keychain` flag used the syntax `-K`.
+
+{% endnote %}
 
 ## Solving the issue
 
 To add your SSH private key to the ssh-agent, you can specify the path to the Apple version of `ssh-add`:
 
 ```shell
-  $ /usr/bin/ssh-add -K ~/.ssh/id_ed25519
+  $ /usr/bin/ssh-add --apple-use-keychain ~/.ssh/id_ed25519
 ```
 
 {% note %}
