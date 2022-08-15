@@ -2,9 +2,6 @@
 title: Renaming a codespace
 intro: You can use the GitHub CLI to change the codespace display name to one of your choice.
 product: '{% data reusables.gated-features.codespaces %}'
-redirect_from:
-  - /github/developing-online-with-github-codespaces/creating-a-codespace
-  - /github/developing-online-with-codespaces/creating-a-codespace
 versions:
   fpt: '*'
   ghec: '*'
