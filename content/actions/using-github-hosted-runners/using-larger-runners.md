@@ -13,11 +13,11 @@ shortTitle: Using larger runners
 
 In addition to the [standard {% data variables.product.prodname_dotcom %}-hosted runners](/actions/using-github-hosted-runners/about-github-hosted-runners#supported-runners-and-hardware-resources), {% data variables.product.prodname_dotcom %} also offers a range of larger runners with more RAM and CPU. These runners are hosted by {% data variables.product.prodname_dotcom %} and have the runner application and other tools preinstalled. Each runner is only used to process a single job, and once the job has completed the runner's virtual machine is then handled according to your autoscaling needs: the runner is reimaged and only reused within your organisation, or it is shutdown and deleted.
 
-When you add a hosted runner to an organization, you are defining the hardware and operating system configuration for a customized class of runner. {% data variables.product.prodname_dotcom %} will then create multiple instances of this runner that scale up and down to match the demands of your organization, based on the autoscaling limits you define.
+When you add a larger runner to an organization, you are defining the hardware and operating system configuration for a customized class of runner. {% data variables.product.prodname_dotcom %} will then create multiple instances of this runner that scale up and down to match the demands of your organization, based on the autoscaling limits you define.
 
 ## Architectural overview of larger runners
 
-Larger runners are managed at the organization level, where they are arranged into groups that can contain multiple instances of the runner. They can also be created at the enterprise level and shared with organizations in the hierarchy. Once you've created a group, you can then add a runner to the group and update your workflows to target the group. You can also control which repositories are permitted to send jobs to the group for processing. For more information about groups, see "[Managing access to GitHub-hosted runners using groups](/actions/using-github-hosted-runners/managing-access-to-github-hosted-runners-using-groups)."
+Larger runners are managed at the organization level, where they are arranged into groups that can contain multiple instances of the runner. They can also be created at the enterprise level and shared with organizations in the hierarchy. Once you've created a group, you can then add a runner to the group and update your workflows to target the group. You can also control which repositories are permitted to send jobs to the group for processing. For more information about groups, see "[Controlling access to larger runners](/actions/using-github-hosted-runners/controlling-access-to-larger-runners)."
 
 In the following diagram, a class of hosted runner named `16-core-ubuntu-runner` has been defined with customized hardware and operating system configuration.
 - Instances of this runner are automatically created and added to a group called `16-core-ubuntu-rg`. 
@@ -39,13 +39,13 @@ You can set following scaling options during the runner deployment process:
 
 ## Networking for larger runners
 
-Larger runners can be configured to use a static IP address from {% data variables.product.prodname_dotcom %}'s dedicated IP address pool. This means that you can connect to your runner from anywhere on the Internet.  All instances of a hosted runner will be assigned a static IP from a range that is unique to the runner.
+Larger runners can be configured to use a static IP address from {% data variables.product.prodname_dotcom %}'s dedicated IP address pool. These are public IP addresses, allowing you connect to your runner from anywhere on the internet. All instances of a larger runner will be assigned a static IP from a range that is unique to the runner, and each customer can use up to 10 static IP addresses from this pool.
 
 ## Planning for larger runners
 
 ### Create a runner group
 
-Runner groups are used to collect sets of identically-configured virtual machines. You can then decide which organizations or repositories are permitted to run jobs access to those sets of machines. You can create a group by following the steps in "[Managing access to GitHub-hosted runners using groups](/actions/using-github-hosted-runners/managing-access-to-github-hosted-runners-using-groups)." During the hosted runner deployment process, the runner can be added to an existing group, or otherwise it will join a default group. You can create a group by following the steps in "[Managing access to GitHub-hosted runners using groups](/actions/using-github-hosted-runners/managing-access-to-github-hosted-runners-using-groups)."
+Runner groups are used to collect sets of identically-configured virtual machines. You can then decide which organizations or repositories are permitted to run jobs access to those sets of machines. During the larger runner deployment process, the runner can be added to an existing group, or otherwise it will join a default group. You can create a group by following the steps in "[Controlling access to larger runners](/actions/using-github-hosted-runners/controlling-access-to-larger-runners)."
 
 ### Plan the labels for your runner group
 
@@ -53,11 +53,11 @@ When you create a runner group, you can specify a set of labels that will be app
 
 ### Understanding billing
 
-Larger runners are billed differently to the standard runners. For more information, see "[Per-minute rates for hosted runners](/billing/managing-billing-for-github-actions/about-billing-for-github-actions#per-minute-rates-for-hosted-runners)".
+Larger runners are billed differently to the standard runners. For more information, see "[Per-minute rates for larger runners](/billing/managing-billing-for-github-actions/about-billing-for-github-actions#per-minute-rates-for-larger-runners)".
 
 ## Adding a larger runner to an enterprise
 
-You can add larger runners to an enterprise, where they can be assigned to multiple organizations. The organization admins can then control which repositories can use it. To add a self-hosted runner to an enterprise, you must be an enterprise owner.
+You can add larger runners to an enterprise, where they can be assigned to multiple organizations. The organization admins can then control which repositories can use it. To add a larger runner to an enterprise, you must be an enterprise owner.
 
 You'll be able to choose an operating system and a hardware configuration from the list of available options. When new instances of this runner are deployed through autoscaling, they will use the same operating system and hardware configuration you've defined here.
 
