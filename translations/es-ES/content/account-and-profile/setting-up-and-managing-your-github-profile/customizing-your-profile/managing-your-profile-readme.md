@@ -17,7 +17,7 @@ shortTitle: El archivo README de tu perfil
 
 Puedes compartir información acerca de ti mismo con la comunidad en {% data variables.product.product_location %} si creas un README para tu perfil. {% data variables.product.prodname_dotcom %} muestra el README de tu perfil al inicio de tu página de perfil.
 
-Tú decides qué información incluir en el README de tu perfil, así que tienes todo el contro sobre cómo te presentas con los demás en {% data variables.product.prodname_dotcom %}. Aquí tienes algunos ejemplos de información que puede ser interesante, divertida o útil para los visitantes que lean el README en tu perfil.
+Tú decides qué información incluir en el README de tu perfil, así que tienes todo el control sobre cómo te presentas con los demás en {% data variables.product.prodname_dotcom %}. Aquí tienes algunos ejemplos de información que puede ser interesante, divertida o útil para los visitantes que lean el README en tu perfil.
 
 - Una sección de "sobre mí" que describa tu trabajo y tus intereses
 - Las contribuciones de las cuales estás orgulloso y el contexto de las mismas
