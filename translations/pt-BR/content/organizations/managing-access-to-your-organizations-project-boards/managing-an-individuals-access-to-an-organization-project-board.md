@@ -67,4 +67,4 @@ When you remove a collaborator from a {% data variables.projects.projects_v1_boa
 
 ## Leia mais
 
-- "[{% data variables.product.prodname_project_v1_caps %} permissions for an organization](/articles/project-board-permissions-for-an-organization)"
+- "[Permissões de {% data variables.product.prodname_project_v1_caps %} para uma organização](/articles/project-board-permissions-for-an-organization)"

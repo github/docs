@@ -1,1 +1,3 @@
-1. {% data variables.product.product_name %} パスワードの確認を促された場合は、確認します。 ![sudo モードダイアログ](/assets/images/help/settings/sudo_mode_popup.png)
+{%- ifversion fpt or ghec or ghes %}
+1. If prompted, confirm access to your account on {% data variables.product.product_name %}. For more information, see "[Sudo mode](/authentication/keeping-your-account-and-data-secure/sudo-mode)."
+{%- endif %}

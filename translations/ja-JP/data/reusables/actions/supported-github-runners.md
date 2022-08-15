@@ -1,7 +1,7 @@
 <table style="width:100%">
 <thead>
   <tr>
-    <th style="width:35%"><b>仮想環境</b></th>
+    <th style="width:35%"><b>Runner image</b></th>
     <th style="width:25%"><b>YAMLのワークフローラベル</b></th>
     <th style="width:40%"><b>注釈</b></th>
   </tr>
@@ -92,7 +92,7 @@ macOS Catalina 10.15 <sup>[deprecated]</sup>
 
 {% note %}
 
-**ノート:** `-latest`の仮想環境は、{% data variables.product.prodname_dotcom %}が提供している最新の安定版イメージであり、オペレーティングシステムのベンダーから提供されているオペレーティングシステムの最新バージョンではないことがあります。
+**Note:** The `-latest` runner images are the latest stable images that {% data variables.product.prodname_dotcom %} provides, and might not be the most recent version of the operating system available from the operating system vendor.
 
 {% endnote %}
 

@@ -21,7 +21,7 @@ permissions: Enterprise owners can add organizations to an enterprise.
 
 Sua conta corporativa pode ser proprietária de organizações. Os integrantes da sua empresa podem colaborar em projetos relacionados dentro de uma organização. Para obter mais informações, consulte "[Sobre organizações](/organizations/collaborating-with-groups-in-organizations/about-organizations)".
 
-You can add a new or existing organization to your enterprise in your enterprise account's settings.
+É possível adicionar uma organização nova ou existente às configurações da conta corporativa.
 
 Você só pode adicionar organizações dessa forma a uma conta corporativa existente. {% data reusables.enterprise.create-an-enterprise-account %} Para obter mais informações, consulte "[Criando uma conta corporativa](/admin/overview/creating-an-enterprise-account)".
 

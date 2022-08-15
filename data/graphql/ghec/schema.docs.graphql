@@ -44951,6 +44951,11 @@ input StartRepositoryMigrationInput {
   The Octoshift migration source repository URL.
   """
   sourceRepositoryUrl: URI!
+
+  """
+  The visibility of the imported repository.
+  """
+  targetRepoVisibility: String
 }
 
 """

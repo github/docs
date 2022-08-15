@@ -30,7 +30,7 @@ You can populate the runner tool cache by running a {% data variables.product.pr
 
 {% note %}
 
-**Note:** You can only use a {% data variables.product.prodname_dotcom %}-hosted runner's tool cache for a self-hosted runner that has an identical operating system and architecture. For example, if you are using a `ubuntu-18.04` {% data variables.product.prodname_dotcom %}-hosted runner to generate a tool cache, your self-hosted runner must be a 64-bit Ubuntu 18.04 machine. For more information on {% data variables.product.prodname_dotcom %}-hosted runners, see "[Virtual environments for GitHub-hosted runners](/free-pro-team@latest/actions/using-github-hosted-runners/about-github-hosted-runners#supported-runners-and-hardware-resources)."
+**Note:** You can only use a {% data variables.product.prodname_dotcom %}-hosted runner's tool cache for a self-hosted runner that has an identical operating system and architecture. For example, if you are using a `ubuntu-22.04` {% data variables.product.prodname_dotcom %}-hosted runner to generate a tool cache, your self-hosted runner must be a 64-bit Ubuntu 22.04 machine. For more information on {% data variables.product.prodname_dotcom %}-hosted runners, see "[About {% data variables.product.prodname_dotcom %}-hosted runners](/free-pro-team@latest/actions/using-github-hosted-runners/about-github-hosted-runners#supported-runners-and-hardware-resources)."
 
 {% endnote %}
 
@@ -45,14 +45,14 @@ You can populate the runner tool cache by running a {% data variables.product.pr
 1. On {% data variables.product.prodname_dotcom_the_website %}, navigate to a repository that you can use to run a {% data variables.product.prodname_actions %} workflow.
 1. Create a new workflow file in the repository's `.github/workflows` folder that uploads an artifact containing the {% data variables.product.prodname_dotcom %}-hosted runner's tool cache.
 
-   The following example demonstrates a workflow that uploads the tool cache for an Ubuntu 18.04 environment, using the `setup-node` action with Node.js versions 10 and 12.
+   The following example demonstrates a workflow that uploads the tool cache for an Ubuntu 22.04 environment, using the `setup-node` action with Node.js versions 10 and 12.
 
    ```yaml
    name: Upload Node.js 10 and 12 tool cache
    on: push
    jobs:
      upload_tool_cache:
-       runs-on: ubuntu-18.04
+       runs-on: ubuntu-22.04
        steps:
          - name: Clear any existing tool cache
            run: |

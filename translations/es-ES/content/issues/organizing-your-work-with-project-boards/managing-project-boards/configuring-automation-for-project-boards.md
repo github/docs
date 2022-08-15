@@ -1,6 +1,6 @@
 ---
-title: 'Configuring automation for {% data variables.product.prodname_projects_v1 %}'
-intro: 'You can set up automatic workflows to move issues and pull requests to a {% data variables.projects.projects_v1_board %} column when a specified event occurs.'
+title: 'Configurar la automatización para los {% data variables.product.prodname_projects_v1 %}'
+intro: 'Puedes configurar flujos de trabajo automáticos para mover propuestas y solicitudes de cambio a una columna de un {% data variables.projects.projects_v1_board %} cuando ocurre un evento específico.'
 redirect_from:
   - /github/managing-your-work-on-github/managing-project-boards/configuring-automation-for-project-boards
   - /articles/configuring-automation-for-project-boards
@@ -19,7 +19,7 @@ allowTitleToDifferFromFilename: true
 
 {% data reusables.projects.project_boards_old %}
 
-{% data reusables.project-management.automate-project-board-permissions %} For more information, see "[About automation for {% data variables.product.prodname_projects_v1 %}](/articles/about-automation-for-project-boards)."
+{% data reusables.project-management.automate-project-board-permissions %} Para obtener más información, consulta la sección "[Acerca de la automatización para los {% data variables.product.prodname_projects_v1 %}](/articles/about-automation-for-project-boards)".
 
 {% data reusables.project-management.use-automated-template %}
 
@@ -31,7 +31,7 @@ allowTitleToDifferFromFilename: true
 
 {% endtip %}
 
-1. Navigate to the {% data variables.projects.projects_v1_board %} you want to automate.
+1. Navega al {% data variables.projects.projects_v1_board %} que quieras automatizar.
 2. En la columna que deseas automatizar, haz clic en {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}. ![Icono Editar](/assets/images/help/projects/edit-column-button.png)
 3. Haz clic en **Manage automation** (Administrar automatización). ![Botón Manage automation (Administrar automatización)](/assets/images/help/projects/manage-automation-button.png)
 4. En el menú desplegable Preset (Preestablecer), selecciona el preestablecimiento de la automatización. ![Selecciona preestablecer la automatización desde el menú](/assets/images/help/projects/select-automation.png)
@@ -39,4 +39,4 @@ allowTitleToDifferFromFilename: true
 6. Haz clic en **Update automation** (Actualizar automatización).
 
 ## Leer más
-- "[About automation for {% data variables.product.prodname_projects_v1 %}](/articles/about-automation-for-project-boards)"
+- "[Acerca de la automatización para los {% data variables.product.prodname_projects_v1 %}](/articles/about-automation-for-project-boards)"

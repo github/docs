@@ -24,11 +24,11 @@ shortTitle: Proteção por push
 
 Até agora, {% data variables.product.prodname_secret_scanning_GHAS %} verifica segredos _após_ um push e alerta usuários de segredos expostos. {% data reusables.secret-scanning.push-protection-overview %}
 
-If a contributor bypasses a push protection block for a secret, {% data variables.product.prodname_dotcom %}:
-- generates an alert.
-- creates an alert in the "Security" tab of the repository.
-- adds the bypass event to the audit log.{% ifversion secret-scanning-push-protection-email %}
-- sends an email alert to organization owners, security managers, and repository administrators, with a link to the related secret and the reason why it was allowed.{% endif %}
+Se um contribuidor ignorar um bloco de proteção push para um segredo, {% data variables.product.prodname_dotcom %}:
+- gera um alerta.
+- cria um alerta na guia "Segurança" do repositório.
+- adiciona o evento de bypass ao log de auditoria.{% ifversion secret-scanning-push-protection-email %}
+- envia um alerta de e-mail para os proprietários da organização, gerentes de segurança e administradores do repositório, com um link para o segredo relacionado e a razão pela qual ele foi permitido.{% endif %}
 
 {% data variables.product.prodname_secret_scanning_caps %} como proteção por push atualmente verifica repositórios de segredos emitidos pelos seguintes prestadores de serviços.
 

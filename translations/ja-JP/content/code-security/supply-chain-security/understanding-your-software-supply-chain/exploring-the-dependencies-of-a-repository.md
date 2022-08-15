@@ -110,7 +110,7 @@ Dependency submission API（ベータ）を使ってプロジェクトにサブ�
 ## 参考リンク
 
 - [依存関係グラフについて](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)
-- 「[{% data variables.product.prodname_dependabot_alerts %}の表示と更新](/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts)」{% ifversion ghec %}
+- "[Viewing and updating {% data variables.product.prodname_dependabot_alerts %}](/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts)"{% ifversion ghec %}
 - 「[Organizationのインサイトの表示](/organizations/collaborating-with-groups-in-organizations/viewing-insights-for-your-organization)」{% endif %}{% ifversion fpt or ghec %}
 - [{% data variables.product.prodname_dotcom %}によるデータの利用と保護の方法の理解](/get-started/privacy-on-github)
 {% endif %}

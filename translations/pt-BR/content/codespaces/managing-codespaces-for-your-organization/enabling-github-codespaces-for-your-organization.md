@@ -1,5 +1,5 @@
 ---
-title: Enabling GitHub Codespaces for your organization
+title: Habilitando o GitHub Codespaces para sua organização
 shortTitle: Habilitar codespaces
 intro: 'Você pode controlar quais usuários da sua organização podem usar {% data variables.product.prodname_github_codespaces %}.'
 product: '{% data reusables.gated-features.codespaces %}'

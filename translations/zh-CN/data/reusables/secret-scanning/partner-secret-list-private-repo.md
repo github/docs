@@ -71,7 +71,11 @@ PlanetScale | PlanetScale OAuth Token | planetscale_oauth_token{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.2 or ghae %}
 PlanetScale | PlanetScale Service Token | planetscale_service_token{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.2 or ghae %}
-Plivo | Plivo Auth ID with Plivo Auth Token | plivo_auth_id </br>plivo_auth_token{% endif %} Postman | Postman API Key | postman_api_key Proctorio | Proctorio Consumer Key | proctorio_consumer_key Proctorio | Proctorio Linkage Key | proctorio_linkage_key Proctorio | Proctorio Registration Key | proctorio_registration_key Proctorio | Proctorio Secret Key | proctorio_secret_key Pulumi | Pulumi Access Token | pulumi_access_token PyPI | PyPI API Token | pypi_api_token
+Plivo | Plivo Auth ID with Plivo Auth Token | plivo_auth_id </br>plivo_auth_token{% endif %} Postman | Postman API Key | postman_api_key
+{%- ifversion fpt or ghec or ghes > 3.6 or ghae-issue-7456 %}
+Prefect | Prefect Server API Key | prefect_server_api_key Prefect | Prefect User API Key | prefect_user_api_key{% endif %} Proctorio | Proctorio Consumer Key | proctorio_consumer_key Proctorio | Proctorio Linkage Key | proctorio_linkage_key Proctorio | Proctorio Registration Key | proctorio_registration_key Proctorio | Proctorio Secret Key | proctorio_secret_key Pulumi | Pulumi Access Token | pulumi_access_token PyPI | PyPI API Token | pypi_api_token
+{%- ifversion fpt or ghec or ghes > 3.6 or ghae-issue-7456 %}
+ReadMe | ReadMe API Access Key | readmeio_api_access_token{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.5 or ghae-issue-7375 %}
 redirect.pizza | redirect.pizza API 令牌 | redirect_pizza_api_token{% endif %} RubyGems | RubyGems API 密钥 | rubygems_api_key Samsara | Samsara API 令牌 | samsara_api_token Samsara | Samsara OAuth 访问令牌 | samsara_oauth_access_token
 {%- ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6944 %}
@@ -96,6 +100,8 @@ Supabase | Supabase 服务密钥 | supabase_service_key{% endif %} Tableau | Tab
 Twilio | Twilio 访问令牌 | twilio_access_token{% endif %} Twilio | Twilio Account String 标识 | twilio_account_sid Twilio | Twilio API 密钥 | twilio_api_key
 {%- ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5845 %}
 Typeform | Typeform 个人访问令牌 | typeform_personal_access_token{% endif %}
+{%- ifversion fpt or ghec or ghes > 3.6 or ghae-issue-7456 %}
+Uniwise | WISEflow API Key | wiseflow_api_key{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6944 %}
 WorkOS | WorkOS Production API 密钥 | workos_production_api_key{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6944 %}

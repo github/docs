@@ -63,6 +63,7 @@ childGroups:
       - repositories
       - pull-requests
       - discussions
+      - copilot
   - name: CI/CD and DevOps
     octicon: GearIcon
     children:

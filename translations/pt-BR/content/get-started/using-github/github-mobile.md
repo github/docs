@@ -82,7 +82,7 @@ Para reabilitar o Universal Links, mantenha pressionado qualquer link {% data va
 
 ## Compartilhando feedback
 
-You can submit feature requests or other feedback for {% data variables.product.prodname_mobile %} on [{% data variables.product.prodname_github_community %}](https://github.com/orgs/community/discussions/categories/mobile).
+Você pode enviar solicitações de recursos ou outros feedbacks para {% data variables.product.prodname_mobile %} em [{% data variables.product.prodname_github_community %}](https://github.com/orgs/community/discussions/categories/mobile).
 
 ## Desativando versões beta para iOS
 

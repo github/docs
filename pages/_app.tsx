@@ -58,6 +58,7 @@ const MyApp = ({ Component, pageProps, languagesContext }: MyAppProps) => {
           colorMode={theme.component.colorMode}
           dayScheme={theme.component.dayScheme}
           nightScheme={theme.component.nightScheme}
+          preventSSRMismatch
         >
           {/* Appears Next.js can't modify <body> after server rendering: https://stackoverflow.com/a/54774431 */}
           <div
@@ -75,10 +76,6 @@ const MyApp = ({ Component, pageProps, languagesContext }: MyAppProps) => {
   )
 }
 
-// Remember, function is only called once if the rendered page can
-// be in-memory cached. But still, the `<MyApp>` component will be
-// executed every time **in the client** if it was the first time
-// ever (since restart) or from a cached HTML.
 MyApp.getInitialProps = async (appContext: AppContext) => {
   const { ctx } = appContext
   // calls page's `getInitialProps` and fills `appProps.pageProps`

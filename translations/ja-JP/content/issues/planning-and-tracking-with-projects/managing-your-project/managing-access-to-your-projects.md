@@ -1,7 +1,7 @@
 ---
-title: 'Managing access to your {% data variables.projects.projects_v2 %}'
-shortTitle: 'Managing {% data variables.projects.project_v2 %} access'
-intro: 'Learn how to manage team and individual access to your {% data variables.projects.project_v2 %}.'
+title: '{% data variables.projects.projects_v2 %}へのアクセスの管理'
+shortTitle: '{% data variables.projects.project_v2 %}のアクセスの管理'
+intro: '{% data variables.projects.project_v2 %}のTeam及び個人のアクセス管理の方法を学んでください。'
 miniTocMaxHeadingLevel: 3
 versions:
   feature: projects-v2
@@ -29,8 +29,8 @@ Organizationレベルのプロジェクトの管理者は、Organization全体�
 デフォルトの基本ロールは`write`であり、これはOrganization内の誰もがプロジェクトを見て編集できるということです。 この基本ロールを変更すれば、Organizationの全員に対するプロジェクトのアクセスを変更できます。 基本ロールへの変更は、Organizationのオーナーではなく、個別にアクセス権を付与されていないOrganizaitonのメンバーにだけ影響します。
 
 {% data reusables.projects.project-settings %}
-1. **Manage access（アクセス管理）**をクリックしてください。 ![Screenshot showing the "Manage access" item](/assets/images/help/projects-v2/manage-access.png)
-2. **Base role（基本ロール）**の下で、デフォルトロールを選択してください。 ![Screenshot showing the base role menu](/assets/images/help/projects-v2/base-role.png)
+1. **Manage access（アクセス管理）**をクリックしてください。 !["Manage access"アイテムを表示しているスクリーンショット](/assets/images/help/projects-v2/manage-access.png)
+2. **Base role（基本ロール）**の下で、デフォルトロールを選択してください。 ![ベースロールメニューを表示しているスクリーンショット](/assets/images/help/projects-v2/base-role.png)
    - **No access（アクセス無し）**: Organizationのオーナーと、個別にアクセス権を付与されたユーザだけがプロジェクトを見ることができます。 Organizationのオーナーは、プロジェクトの管理者でもあります。
    - **Read（読み取り）**: Organizationの全員がプロジェクトを見ることができます。 Organizationのオーナーは、プロジェクトの管理者でもあります。
    - **Write（書き込み）**: Organizationの全員がプロジェクトを見て編集できます。 Organizationのオーナーは、プロジェクトの管理者でもあります。
@@ -43,24 +43,24 @@ Organizationレベルのプロジェクトには、Team、外部のコラボレ�
 個人ユーザが既にOrganizationのメンバーになっているか、Organizationの少なくとも1つのリポジトリで外部のコラボレータになっている場合にのみ、Organizationレベルのプロジェクトに共同作業をするように招待できます。
 
 {% data reusables.projects.project-settings %}
-1. **Manage access（アクセス管理）**をクリックしてください。 ![Screenshot showing the "Manage access" item](/assets/images/help/projects-v2/manage-access.png)
-2. **Invite collaborators（コラボレータの招待）**の下で、招待したいTeamもしくは個人ユーザを検索してください。 ![Screenshot showing searching for a collaborator](/assets/images/help/projects-v2/access-search.png)
-3. Select the role for the collaborator. ![Screenshot showing selecting a role](/assets/images/help/projects-v2/access-role.png)
+1. **Manage access（アクセス管理）**をクリックしてください。 !["Manage access"アイテムを表示しているスクリーンショット](/assets/images/help/projects-v2/manage-access.png)
+2. **Invite collaborators（コラボレータの招待）**の下で、招待したいTeamもしくは個人ユーザを検索してください。 ![コラボレータの検索を表示しているスクリーンショット](/assets/images/help/projects-v2/access-search.png)
+3. コラボレータのロールを選択してください。 ![ロールの選択を表示しているスクリーンショット](/assets/images/help/projects-v2/access-role.png)
    - **Read（読み取り）**: Teamあるいは個人はプロジェクトを見ることができます。
    - **Write（書き込み）**: Teamあるいは個人はプロジェクトを編集できます。
    - **Admin（管理）**: Teamあるいは個人はプロジェクトを見て編集でき、新しいコラボレータを追加できます。
-4. **Invite（招待）**をクリックしてください。 ![Screenshot showing the invite button](/assets/images/help/projects-v2/access-invite.png)
+4. **Invite（招待）**をクリックしてください。 ![招待ボタンを表示しているスクリーンショット](/assets/images/help/projects-v2/access-invite.png)
 
 ### プロジェクトの既存のコラボレータのアクセス管理
 
 {% data reusables.projects.project-settings %}
-1. **Manage access（アクセス管理）**をクリックしてください。 ![Screenshot showing the "Manage access" item](/assets/images/help/projects-v2/manage-access.png)
+1. **Manage access（アクセス管理）**をクリックしてください。 !["Manage access"アイテムを表示しているスクリーンショット](/assets/images/help/projects-v2/manage-access.png)
 1. **Manage access（アクセス管理）**の下で、権限を変更したいコラボレータを見つけてください。
 
-   **Type（タイプ）**及び**Role（ロール）**ドロップダウンメニューを使って、アクセスリストをフィルタリングできます。 ![Screenshot showing a collaborator](/assets/images/help/projects-v2/access-find-member.png)
+   **Type（タイプ）**及び**Role（ロール）**ドロップダウンメニューを使って、アクセスリストをフィルタリングできます。 ![コラボレータを表示しているスクリーンショット](/assets/images/help/projects-v2/access-find-member.png)
 
-1. Edit the role for the collaborator(s). ![Screenshot showing changing a collaborator's role](/assets/images/help/projects-v2/access-change-role.png)
-1. Optionally, click **Remove** to remove the collaborator(s). ![Screenshot showing removing a collaborator](/assets/images/help/projects-v2/access-remove-member.png)
+1. コラボレータのロールを編集してください。 ![コラボレータのロールの変更を表示しているスクリーンショット](/assets/images/help/projects-v2/access-change-role.png)
+1. あるいは、**Remove（削除）** をクリックしてコラボレータを削除してください。 ![コラボレータの削除を表示しているスクリーンショット](/assets/images/help/projects-v2/access-remove-member.png)
 
 ## ユーザレベルプロジェクトのアクセス管理
 
@@ -73,21 +73,21 @@ Organizationレベルのプロジェクトには、Team、外部のコラボレ�
 {% endnote %}
 
 {% data reusables.projects.project-settings %}
-1. **Manage access（アクセス管理）**をクリックしてください。 ![Screenshot showing the "Manage access" item](/assets/images/help/projects-v2/manage-access.png)
-2. **Invite collaborators（コラボレータの招待）**の下で、招待したいユーザを検索してください。 ![Screenshot showing searching for a collaborator](/assets/images/help/projects-v2/access-search.png)
-3. Select the role for the collaborator. ![Screenshot showing selecting a role](/assets/images/help/projects-v2/access-role.png)
+1. **Manage access（アクセス管理）**をクリックしてください。 !["Manage access"アイテムを表示しているスクリーンショット](/assets/images/help/projects-v2/manage-access.png)
+2. **Invite collaborators（コラボレータの招待）**の下で、招待したいユーザを検索してください。 ![コラボレータの検索を表示しているスクリーンショット](/assets/images/help/projects-v2/access-search.png)
+3. コラボレータのロールを選択してください。 ![ロールの選択を表示しているスクリーンショット](/assets/images/help/projects-v2/access-role.png)
    - **Read（読み取り）**: ユーザはプロジェクトを見ることができます。
    - **Write（書き込み）**: ユーザはプロジェクトを見て編集できます。
    - **Admin（管理）**: ユーザはプロジェクトを見て編集でき、新しいコラボレータを追加できます。
-4. **Invite（招待）**をクリックしてください。 ![Screenshot showing the invite button](/assets/images/help/projects-v2/access-invite.png)
+4. **Invite（招待）**をクリックしてください。 ![招待ボタンを表示しているスクリーンショット](/assets/images/help/projects-v2/access-invite.png)
 
 ### プロジェクトの既存のコラボレータのアクセス管理
 
 {% data reusables.projects.project-settings %}
-1. **Manage access（アクセス管理）**をクリックしてください。 ![Screenshot showing the "Manage access" item](/assets/images/help/projects-v2/manage-access.png)
+1. **Manage access（アクセス管理）**をクリックしてください。 !["Manage access"アイテムを表示しているスクリーンショット](/assets/images/help/projects-v2/manage-access.png)
 1. **Manage access（アクセス管理）**の下で、権限を変更したいコラボレータを見つけてください。
 
-   **Type（タイプ）**及び**Role（ロール）**ドロップダウンメニューを使って、アクセスリストをフィルタリングできます。 ![Screenshot showing a collaborator](/assets/images/help/projects-v2/access-find-member.png)
+   **Type（タイプ）**及び**Role（ロール）**ドロップダウンメニューを使って、アクセスリストをフィルタリングできます。 ![コラボレータを表示しているスクリーンショット](/assets/images/help/projects-v2/access-find-member.png)
 
-1. Edit the role for the collaborator(s). ![Screenshot showing changing a collaborator's role](/assets/images/help/projects-v2/access-change-role.png)
-1. Optionally, click **Remove** to remove the collaborator(s). ![Screenshot showing removing a collaborator](/assets/images/help/projects-v2/access-remove-member.png)
+1. コラボレータのロールを編集してください。 ![コラボレータのロールの変更を表示しているスクリーンショット](/assets/images/help/projects-v2/access-change-role.png)
+1. あるいは、**Remove（削除）** をクリックしてコラボレータを削除してください。 ![コラボレータの削除を表示しているスクリーンショット](/assets/images/help/projects-v2/access-remove-member.png)

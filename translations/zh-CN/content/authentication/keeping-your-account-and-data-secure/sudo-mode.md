@@ -23,7 +23,7 @@ To maintain the security of your account when you perform a potentially sensitiv
 - Authorization of a third-party application
 - Addition of a new SSH key
 
-After you authenticate to perform a sensitive action, your session is temporarily in "sudo mode." In sudo mode, you can perform sensitive actions without authentication. {% data variables.product.product_location %} will wait a few hours before prompting you for authentication again. During this time, any sensitive action that you perform will reset the timer.
+After you authenticate to perform a sensitive action, your session is temporarily in "sudo mode." In sudo mode, you can perform sensitive actions without authentication. {% data variables.product.product_name %} will wait a few hours before prompting you for authentication again. During this time, any sensitive action that you perform will reset the timer.
 
 {% ifversion ghes %}
 
@@ -41,13 +41,16 @@ After you authenticate to perform a sensitive action, your session is temporaril
 
 To confirm access for sudo mode, you {% ifversion totp-and-mobile-sudo-challenge %}can{% else %}must{% endif %} authenticate with your password.{% ifversion totp-and-mobile-sudo-challenge %} Optionally, you can use a different authentication method, like {% ifversion fpt or ghec %}a security key, {% data variables.product.prodname_mobile %}, or a 2FA code{% elsif ghes %}a security key or a 2FA code{% endif %}.{% endif %}
 
-{% ifversion totp-and-mobile-sudo-challenge %}
+{%- ifversion totp-and-mobile-sudo-challenge %}
 - [Confirming access using a security key](#confirming-access-using-a-security-key)
 {%- ifversion fpt or ghec %}
 - [Confirming access using GitHub Mobile](#confirming-access-using-github-mobile)
 {%- endif %}
 - [Confirming access using a 2FA code](#confirming-access-using-a-2fa-code)
 - [Confirming access using your password](#confirming-access-using-your-password)
+{%- endif %}
+
+{% ifversion totp-and-mobile-sudo-challenge %}
 
 ### Confirming access using a security key
 
@@ -56,8 +59,6 @@ You must configure two-factor authentication (2FA) for your account using a secu
 When prompted to authenticate for sudo mode, click **Use security key**, then follow the prompts.
 
 ![Screenshot of security key option for sudo mode](/assets/images/help/settings/sudo_mode_prompt_security_key.png)
-
-{% endif %}
 
 {% ifversion fpt or ghec %}
 
@@ -75,11 +76,9 @@ You must install and sign into {% data variables.product.prodname_mobile %} to c
 
 {% endif %}
 
-{% ifversion totp-and-mobile-sudo-challenge %}
-
 ### Confirming access using a 2FA code
 
-You must configure 2FA using a TOTP mobile app{% ifversion fpt or ghec %} or text messages{% endif %} to confirm access to your account for sudo mode using a 2FA code. 更多信息请参阅“[配置双重身份验证](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication#configuring-two-factor-authentication-using-a-totp-mobile-app)”。
+You must configure 2FA using a TOTP mobile app{% ifversion fpt or ghec %} or text messages{% endif %} to confirm access to your account for sudo mode using a 2FA code. 更多信息请参阅“[配置双重身份验证](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication)”。
 
 When prompted to authenticate for sudo mode, type the authentication code from your TOTP mobile app{% ifversion fpt or ghec %} or the text message{% endif %}, then click **Verify**.
 

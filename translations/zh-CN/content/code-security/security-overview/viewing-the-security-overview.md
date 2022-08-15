@@ -21,6 +21,8 @@ shortTitle: 查看安全性概述
 {% data reusables.security-overview.beta %}
 {% endif %}
 
+{% data reusables.security-overview.information-varies-GHAS %}
+
 ## 查看组织的安全概述
 
 {% data reusables.organizations.navigate-to-org %}
