@@ -1,6 +1,6 @@
 ---
 title: Renaming a codespace
-intro: You can use the GitHub CLI to change the codespace display name to one of your choice.
+intro: You can use the {% data variables.product.prodname_cli %} to change the codespace display name to one of your choice.
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
