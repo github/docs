@@ -4,7 +4,7 @@ import type { ChildParamsGroup } from './types'
 
 type Props = {
   slug: string
-  childParamsGroups: ChildParamsGroup[]
+  childParamsGroups?: ChildParamsGroup[]
 }
 
 export function ChildBodyParametersRows({ slug, childParamsGroups }: Props) {

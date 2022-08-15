@@ -346,9 +346,9 @@ ghe-set-password <new_password>
 
 ### ghe-setup-network
 
-This utility allows you to configure the primary network interface.
+Este utilitário permite que você configure a interface primária de rede.
 
-To enter visual mode, which will guide you through configuration of network settings:
+Para entrar no modo visual, que irá guiar você por meio das configurações de rede:
 
 ```shell
 $ ghe-setup-network -v
@@ -634,7 +634,7 @@ ghe-btop [ <port number> | --help | --usage ]
 
 #### ghe-governor
 
-Este utilitário ajuda a analisar o tráfego do Git. Ela consulta arquivos de dados do _Governador_, localizados em `/data/user/gitmon`. {% data variables.product.company_short %} mantém uma hora de dados por arquivo, retidos por duas semanas. Para obter mais informações, consulte [Analisando tráfego do Git que usa o Governador](https://github.community/t/analyzing-git-traffic-using-governor/13516) em {% data variables.product.prodname_gcf %}.
+Este utilitário ajuda a analisar o tráfego do Git. Ela consulta arquivos de dados do _Governador_, localizados em `/data/user/gitmon`. {% data variables.product.company_short %} mantém uma hora de dados por arquivo, retidos por duas semanas. Para obter mais informações, consulte [Analisando tráfego do Git que usa o Governor](https://github.community/t/analyzing-git-traffic-using-governor/13516) em {% data variables.product.prodname_github_community %}.
 
 ```bash
 ghe-governor <subcommand> <column> [options]
@@ -756,7 +756,7 @@ git-import-rewrite
 
 ### ghe-find-insecure-git-operations
 
-This utility searches your instance's logs and identifies Git operations over SSH that use insecure algorithms or hash functions, including DSA, RSA-SHA-1, HMAC-SHA-1, and CBC ciphers. You can use the output to support each client's transition to a more secure SSH connection. For more information, see [{% data variables.product.prodname_blog %}](https://github.blog/2022-06-28-improving-git-protocol-security-on-github-enterprise-server){% ifversion ghes < 3.6 %}.{% elsif ghes > 3.5 %} and "[Configuring SSH connections to your instance](/admin/configuration/configuring-your-enterprise/configuring-ssh-connections-to-your-instance)."{% endif %}
+Este utilitário pesquisa os logs da sua instância e identifica operações do Git por SSH que usam algoritmos inseguros ou funções hash, incluindo DSA, RSA-SHA-1, HMAC-SHA-1 e cifras CBC. Você pode usar a saída para ajudar a transição de cada cliente para uma conexão SSH mais segura. Para obter mais informações, consulte [{% data variables.product.prodname_blog %}](https://github.blog/2022-06-28-improving-git-protocol-security-on-github-enterprise-server){% ifversion ghes < 3.6 %}.{% elsif ghes > 3.5 %} e "[Configurando conexões SSH para sua instância](/admin/configuration/configuring-your-enterprise/configuring-ssh-connections-to-your-instance)".{% endif %}
 
 ```shell
 ghe-find-insecure-git-operations

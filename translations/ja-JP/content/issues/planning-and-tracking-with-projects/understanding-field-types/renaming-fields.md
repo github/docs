@@ -1,6 +1,6 @@
 ---
-title: Renaming fields
-intro: 'Learn about renaming existing fields in your {% data variables.projects.project_v2 %}.'
+title: フィールドの名前の変更
+intro: '{% data variables.projects.project_v2 %}中の既存のフィールドの名前の変更について学んでください。'
 miniTocMaxHeadingLevel: 3
 versions:
   feature: projects-v2
@@ -10,6 +10,6 @@ topics:
 ---
 
 {% data reusables.projects.project-settings %}
-1. Click the name of the field you want to rename. ![Screenshot showing an iteration field](/assets/images/help/projects-v2/select-single-select.png)
-1. Under "Field name", type the new name for the field. ![Screenshot showing field name](/assets/images/help/projects-v2/field-rename.png)
-1. To save changes, press <kbd>Return</kbd>.
+1. 名前を変更したいフィールドの名前をクリックしてください。 ![繰り返しフィールドを表示しているスクリーンショット](/assets/images/help/projects-v2/select-single-select.png)
+1. "Field name（フィールド名）"の下で、フィールドの新しい名前を入力してください。 ![フィールド名を表示しているスクリーンショット](/assets/images/help/projects-v2/field-rename.png)
+1. 変更を保存するために<kbd>Return</kbd>を押してください。

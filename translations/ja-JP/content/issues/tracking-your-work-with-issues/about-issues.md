@@ -32,7 +32,7 @@ Issueは様々な方法で作成できるので、ワークフローで最も便
 
 プロジェクトで、Issueを整理して優先順位付けできます。 {% ifversion fpt or ghec %}大きなIssueの一部であるIssueを追跡するには、タスクリストが使えます。{% endif %}関連するIssueを分類するには、ラベルとマイルストーンが使えます。
 
-For more information about projects, see {% ifversion projects-v2 %}"[About projects](/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects)." {% else %}"[Organizing your work with project boards](/issues/organizing-your-work-with-project-boards)."{% endif %} {% ifversion fpt or ghec %}For more information about task lists, see "[About task lists](/issues/tracking-your-work-with-issues/creating-issues/about-task-lists)." {% endif %}ラベルとマイルストーンに関する詳しい情報については「[作業を追跡するためのラベルとマイルストーンの利用](/issues/using-labels-and-milestones-to-track-work)」を参照してください。
+プロジェクトに関する詳しい情報については{% ifversion projects-v2 %}「[プロジェクトについて](/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects)」 {% else %}「[プロジェクトボードで作業の整理](/issues/organizing-your-work-with-project-boards)」{% endif %}を参照してください。{% ifversion fpt or ghec %}タスクリストに関する詳しい情報については「[タスクリストについて](/issues/tracking-your-work-with-issues/creating-issues/about-task-lists)」を参照してください。 {% endif %}ラベルとマイルストーンに関する詳しい情報については「[作業を追跡するためのラベルとマイルストーンの利用](/issues/using-labels-and-milestones-to-track-work)」を参照してください。
 
 ## 最新情報の確認
 

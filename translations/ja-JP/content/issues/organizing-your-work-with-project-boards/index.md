@@ -1,7 +1,7 @@
 ---
-title: 'Organizing your work with {% data variables.product.prodname_projects_v1 %}'
+title: '{% data variables.product.prodname_projects_v1 %}での作業の整理'
 shortTitle: '{% data variables.product.prodname_projects_v1_caps %}'
-intro: 'Use {% data variables.product.prodname_projects_v1 %} to manage your work on {% data variables.product.prodname_dotcom %}'
+intro: '{% data variables.product.prodname_projects_v1 %}を使って{% data variables.product.prodname_dotcom %}上の作業を管理してください'
 allowTitleToDifferFromFilename: true
 versions:
   feature: projects-v1

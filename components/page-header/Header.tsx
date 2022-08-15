@@ -6,7 +6,7 @@ import { useVersion } from 'components/hooks/useVersion'
 
 import { Link } from 'components/Link'
 import { useMainContext } from 'components/context/MainContext'
-import { useSession } from 'components/lib/get-session'
+import { useHasAccount } from 'components/hooks/useHasAccount'
 import { LanguagePicker } from './LanguagePicker'
 import { HeaderNotifications } from 'components/page-header/HeaderNotifications'
 import { ProductPicker } from 'components/page-header/ProductPicker'
@@ -26,11 +26,10 @@ export const Header = () => {
   )
   const [scroll, setScroll] = useState(false)
 
-  const session = useSession()
+  const { hasAccount } = useHasAccount()
 
   const signupCTAVisible =
-    session &&
-    !session.isSignedIn &&
+    hasAccount === false && // don't show if `null`
     (currentVersion === 'free-pro-team@latest' || currentVersion === 'enterprise-cloud@latest')
 
   useEffect(() => {
@@ -64,7 +63,8 @@ export const Header = () => {
       <header
         className={cx(
           'color-bg-default px-3 px-md-6 pt-3 pb-3 position-sticky top-0 z-3 border-bottom',
-          scroll && 'color-shadow-small'
+          scroll && 'color-shadow-small',
+          styles.fullVerticalScroll
         )}
       >
         {/* desktop header */}

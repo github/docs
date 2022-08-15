@@ -1,1 +1,1 @@
-La etiqueta de flujo de trabajo de YAML <code>macos-latest</code> utiliza actualmente el ambiente virtual de macOS 10.15.
+The <code>macos-latest</code> YAML workflow label currently uses the macOS 10.15 runner image.

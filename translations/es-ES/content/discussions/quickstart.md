@@ -10,13 +10,13 @@ shortTitle: Inicio Rápido
 
 ## Introducción
 
-{% data variables.product.prodname_discussions %} is a collaborative communication forum for the community around an open source or internal project. Los debates existen para las conversaciones que necesitan ser transparentes y accesibles pero no necesitan rastrearse en un tablero de proyecto y no se relacionan con el código, a diferencia de los {% data variables.product.prodname_github_issues %}. Los debates habilitan las conversaciones abiertas y fluídas en un foro público.
+{% data variables.product.prodname_discussions %} es un foro de comunicación colaborativa para la comunidad que circunda un proyecto de código abierto o interno. Los debates existen para las conversaciones que necesitan ser transparentes y accesibles pero no necesitan rastrearse en un tablero de proyecto y no se relacionan con el código, a diferencia de los {% data variables.product.prodname_github_issues %}. Los debates habilitan las conversaciones abiertas y fluídas en un foro público.
 
 Los debates proporcionan un espacio para que existan conversaciones colaborativas al conectar y asignar un área más centralizada para conectarse y encontrar información.
 
 ## Habilitar los {% data variables.product.prodname_discussions %} en tu repositorio
 
-Repository owners and people with write access can enable {% data variables.product.prodname_discussions %} for a community on their public{% ifversion ghes > 3.5 %}, internal{% endif %} and private repositories. The visibility of a discussion is inherited from the repository the discussion is created in.
+Los propietarios de los repositorios y las personas con acceso de escritura pueden habilitar los {% data variables.product.prodname_discussions %} para una comunidad en sus repositorios públicos{% ifversion ghes > 3.5 %}, internos{% endif %} y privados. La visibilidad de un debate se hereda del repositorio del debate en el que esta se crea.
 
 Cuando habilitas los {% data variables.product.prodname_discussions %} por primera vez, se te invitará a configurar una publicación de bienvenida.
 
@@ -41,7 +41,7 @@ Puedes darles la bienvenida a tu comunidad y presentarles una forma nueva de com
 
 ## Configurar los lineamientos comunitarios para los contribuyentes
 
-En el caso de los debates de repositorio, puedes configurar lineamientos de contribución para fomentar que los colaboradores tengan conversaciones útiles y significativas que sean relevantes para el repositorio. También puedes actualizar el archivo de README del repositorio para comunicar tus expectativas de cuándo deberían los colaboradores abrir una propuesta o un debate. For more information about providing guidelines for your project, see{% ifversion fpt or ghec %} "[Adding a code of conduct to your project](/communities/setting-up-your-project-for-healthy-contributions/adding-a-code-of-conduct-to-your-project)" and{% endif %} "[Setting up your project for healthy contributions](/communities/setting-up-your-project-for-healthy-contributions)."
+En el caso de los debates de repositorio, puedes configurar lineamientos de contribución para fomentar que los colaboradores tengan conversaciones útiles y significativas que sean relevantes para el repositorio. También puedes actualizar el archivo de README del repositorio para comunicar tus expectativas de cuándo deberían los colaboradores abrir una propuesta o un debate. Para obtener más información sobre cómo proporcionar lineamientos para tu proyecto, consulta la sección{% ifversion fpt or ghec %} "[Agregar un código de conducta a tu proyecto](/communities/setting-up-your-project-for-healthy-contributions/adding-a-code-of-conduct-to-your-project)" y{% endif %} "[Configurar tu proyecto para que tenga contribuciones saludables](/communities/setting-up-your-project-for-healthy-contributions)".
 
 Para el caso de los debates, puedes compartir información sobre cómo participar en tu organización al crear un README de perfil para ella. Para obtener más información, consulta la sección "[Personalizar el perfil de tu organización ](/organizations/collaborating-with-groups-in-organizations/customizing-your-organizations-profile)".
 
@@ -61,7 +61,7 @@ Cualquier usuario no autenticado que pueda ver un repositorio podrá crear una e
 
 Los propietarios de los repositorios y las personas con acceso de escritura en estos pueden crear categorías nuevas para mantener los debates organizados. De la misma manera, ya que los debates de las organizaciones se basan en un repositorio origen, los propietarios de los repositorios y las personas con acceso de escritura con acceso de escritura en el repositorio origen pueden crear categorías nuevas para estos debates.
 
-Collaborators participating in and creating new discussions can group discussions into the most relevant existing categories. Los debates también pueden volver a categorizarse después de su creación. Para obtener más información, consulta la sección "[Administrar las categorías de los debates](/discussions/managing-discussions-for-your-community/managing-categories-for-discussions)".
+Los colaboradores que participan en debates nuevos pueden agruparlos en las categorías existentes más relevantes. Los debates también pueden volver a categorizarse después de su creación. Para obtener más información, consulta la sección "[Administrar las categorías de los debates](/discussions/managing-discussions-for-your-community/managing-categories-for-discussions)".
 
 {% data reusables.discussions.you-can-label-discussions %}
 

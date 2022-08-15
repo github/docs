@@ -31,7 +31,7 @@ Você pode preencher o cache da ferramenta do executor, executando um fluxo de t
 
 {% note %}
 
-**Observação:** Você só pode usar um cache de ferramenta do executor hospedado em {% data variables.product.prodname_dotcom %} para um executor auto-hospedado que possua um sistema operacional e arquitetura idênticos. Por exemplo, se você estiver usando uma `ubuntu-18. 4` do executor hospedado em {% data variables.product.prodname_dotcom %} para gerar um cache de ferramentas, seu executor auto-hospedado deverá ser uma máquina Ubuntu 18.04 de 64 bits. Para mais informações sobre executores hospedados no {% data variables.product.prodname_dotcom %}, consulte "[Ambientes virtuais para executores hospedados no GitHub](/free-pro-team@latest/actions/using-github-hosted-runners/about-github-hosted-runners#supported-runners-and-hardware-resources)".
+**Observação:** Você só pode usar um cache de ferramenta do executor hospedado em {% data variables.product.prodname_dotcom %} para um executor auto-hospedado que possua um sistema operacional e arquitetura idênticos. Por exemplo, se você estiver usando uma `ubuntu-18. 4` do executor hospedado em {% data variables.product.prodname_dotcom %} para gerar um cache de ferramentas, seu executor auto-hospedado deverá ser uma máquina Ubuntu 22.04 de 64 bits. Para obter mais informações sobre executores hospedados em {% data variables.product.prodname_dotcom %}, consulte "[Sobre executores hospedados em {% data variables.product.prodname_dotcom %}](/free-pro-team@latest/actions/using-github-hosted-runners/about-github-hosted-runners#supported-runners-and-hardware-resources)."
 
 {% endnote %}
 
@@ -46,14 +46,14 @@ Você pode preencher o cache da ferramenta do executor, executando um fluxo de t
 1. Em {% data variables.product.prodname_dotcom_the_website %}, acesse um repositório que você pode usar para executar um fluxo de trabalho de {% data variables.product.prodname_actions %}.
 1. Crie um novo arquivo de fluxo de trabalho na pasta `.github/workflows` do repositório que faz o upload de um artefato que contém o cache da ferramenta do executor armazenado em {% data variables.product.prodname_dotcom %}.
 
-   O exemplo a seguir demonstra um fluxo de trabalho que faz o upload do cache da ferramenta para um ambiente do Ubuntu 18.04, usando a ação `setup-node` com as versões 10 e 12 do Node.js.
+   O exemplo a seguir demonstra um fluxo de trabalho que faz o upload do cache da ferramenta para um ambiente do Ubuntu 22.04, usando a ação `setup-node` com as versões 10 e 12 do Node.js.
 
    ```yaml
    name: Upload Node.js 10 and 12 tool cache
    on: push
    jobs:
      upload_tool_cache:
-       runs-on: ubuntu-18.04
+       runs-on: ubuntu-22.04
        steps:
          - name: Clear any existing tool cache
            run: |

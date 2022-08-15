@@ -105,7 +105,7 @@ prodname_oauth_apps: 'OAuth Apps'
 
 # API and developer docs
 prodname_enterprise_api: 'the {% ifversion ghes %}GitHub Enterprise Server{% elsif ghae %}GitHub AE{% endif %} APIs'
-prodname_support_forum_with_url: '[GitHub API Development and Support Forum](https://github.community/c/github-api-development-and-support/37)'
+prodname_support_forum_with_url: '[APIs and Integrations discussions on GitHub Community](https://github.com/orgs/community/discussions/categories/apis-and-integrations)'
 prodname_unfurls: 'Content Attachments'
 
 # Azure AD
@@ -158,6 +158,7 @@ prodname_serverless: 'web-based editor'
 
 # GitHub resources: blog, jobs, skills
 prodname_gcf: 'GitHub Community Support'
+prodname_github_community: 'GitHub Community'
 prodname_blog: 'the GitHub Blog'
 prodname_jobs: 'GitHub Jobs'
 prodname_learning: 'GitHub Skills'

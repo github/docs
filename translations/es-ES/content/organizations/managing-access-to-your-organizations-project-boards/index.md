@@ -1,6 +1,6 @@
 ---
-title: 'Managing access to your organization’s {% data variables.product.prodname_projects_v1 %}'
-intro: 'As an organization owner or {% data variables.projects.projects_v1_board %} admin, you can give organization members, teams, and outside collaborators different levels of access to {% data variables.projects.projects_v1_boards %} owned by your organization.'
+title: 'Administrar el acceso al {% data variables.product.prodname_projects_v1 %} de tu organización'
+intro: 'Como propietario de una organización o administrador de un {% data variables.projects.projects_v1_board %}, puedes proporcionar a los miembros, equipos y colaboradores externos de una organización niveles diferentes de acceso a los {% data variables.projects.projects_v1_boards %} que pertenecen a ella.'
 redirect_from:
   - /articles/managing-access-to-your-organization-s-project-boards
   - /articles/managing-access-to-your-organizations-project-boards
@@ -20,7 +20,7 @@ children:
   - /managing-an-individuals-access-to-an-organization-project-board
   - /adding-an-outside-collaborator-to-a-project-board-in-your-organization
   - /removing-an-outside-collaborator-from-an-organization-project-board
-shortTitle: 'Manage {% data variables.product.prodname_project_v1 %} access'
+shortTitle: 'Administrar el acceso a {% data variables.product.prodname_project_v1 %}'
 allowTitleToDifferFromFilename: true
 ---
 

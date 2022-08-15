@@ -150,6 +150,11 @@ jobs:
           FASTLY_SURROGATE_KEY: 'every-deployment'
         run: npm install got && .github/actions-scripts/purge-fastly-edge-cache.js
 
+  send-slack-notification-on-failure:
+    needs: [azure-prod-build-and-deploy]
+    runs-on: ubuntu-latest
+    if: ${{ failure() }}
+    steps:
       - name: Send Slack notification if workflow failed
         uses: someimportantcompany/github-actions-slack-message@f8d28715e7b8a4717047d23f48c39827cacad340
         if: ${{ failure() }}

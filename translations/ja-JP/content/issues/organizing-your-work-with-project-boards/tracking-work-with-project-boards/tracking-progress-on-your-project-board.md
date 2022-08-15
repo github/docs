@@ -1,6 +1,6 @@
 ---
-title: 'Tracking progress on your {% data variables.product.prodname_project_v1 %}'
-intro: 'You can see the overall progress of your {% data variables.projects.projects_v1_board %} in a progress bar.'
+title: '{% data variables.product.prodname_project_v1 %}の進捗の追跡'
+intro: 'プログレスバーで、{% data variables.projects.projects_v1_board %}の全体の進捗を見ることができます。'
 redirect_from:
   - /github/managing-your-work-on-github/tracking-the-progress-of-your-work-with-project-boards/tracking-progress-on-your-project-board
   - /articles/tracking-progress-on-your-project-board
@@ -9,7 +9,7 @@ versions:
   feature: projects-v1
 topics:
   - Pull requests
-shortTitle: 'Track progress on {% data variables.product.prodname_project_v1 %}'
+shortTitle: '{% data variables.product.prodname_project_v1 %}の進捗の追跡'
 allowTitleToDifferFromFilename: true
 ---
 
@@ -17,7 +17,7 @@ allowTitleToDifferFromFilename: true
 
 {% data reusables.project-management.project-progress-locations %}
 
-1. Navigate to the {% data variables.projects.projects_v1_board %} where you want to enable or disable project progress tracking.
+1. プロジェクトの進捗の追跡を有効化もしくは無効化したい{% data variables.projects.projects_v1_board %}にアクセスしてください。
 {% data reusables.project-management.click-menu %}
 {% data reusables.project-management.click-edit-sidebar-menu-project-board %}
 4. [**Track project progress**] を選択または選択解除します。

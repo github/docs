@@ -23,9 +23,14 @@ permissions: People with write access for a forked repository can sync the fork 
 
 ## 从 web UI 同步复刻分支
 
+{% ifversion syncing-fork-web-ui %}
 1. 在 {% data variables.product.product_name %} 上，导航到您想要与上游版本库同步的复刻仓库主页。
-2. 选择 **Fetch upstream（提取上游）**下拉菜单。 !["Fetch upstream（提取上游）"下拉菜单](/assets/images/help/repository/fetch-upstream-drop-down.png)
-3. 查看上游仓库中有关提交的细节，然后单击“**提取并合并**”。 !["提取并合并"按钮](/assets/images/help/repository/fetch-and-merge-button.png)
+2. Select the **Sync fork** dropdown. !["Sync fork" dropdown emphasized](/assets/images/help/repository/sync-fork-dropdown.png)
+3. Review the details about the commits from the upstream repository, then click **Update branch**. ![Sync fork modal with "Update branch" button emphasized](/assets/images/help/repository/update-branch-button.png)
+{% else %}
+1. 在 {% data variables.product.product_name %} 上，导航到您想要与上游版本库同步的复刻仓库主页。
+2. Select the **Fetch upstream** dropdown. !["Fetch upstream（提取上游）"下拉菜单](/assets/images/help/repository/fetch-upstream-drop-down.png)
+3. 查看上游仓库中有关提交的细节，然后单击“**提取并合并**”。 !["Fetch and merge" button](/assets/images/help/repository/fetch-and-merge-button.png){% endif %}
 
 如果上游仓库的更改导致冲突，{% data variables.product.company_short %} 将提示您创建拉取请求以解决冲突。
 

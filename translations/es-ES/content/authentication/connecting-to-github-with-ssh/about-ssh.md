@@ -14,8 +14,6 @@ topics:
   - SSH
 ---
 
-## Acerca de SSH
-
 {% data reusables.ssh.about-ssh %} Para obtener más información sobre SSH, consulta la página de [Secure Shell](https://en.wikipedia.org/wiki/Secure_Shell) en Wikipedia.
 
 Cuando configuras SSH, necesitarás generar una llave SSH privada nueva y agregarla al agente SSH. También debes agregar la llave SSH pública a tu cuenta en {% data variables.product.product_name %} antes de que utilices la llave para autenticarte. Para obtener más información, consulta las secciones "[Generar una llave SSH nueva y agregarla al ssh-agent](/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)" y "[Agregar una llave SSH nueva a tu cuenta de {% data variables.product.prodname_dotcom %}](/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account)".

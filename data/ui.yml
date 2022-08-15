@@ -12,13 +12,6 @@ header:
       We publish frequent updates to our documentation, and translation of this page may still be in progress.
       For the most current information, please visit the
       <a id="to-english-doc" href="/en">English documentation</a>.
-      If there's a problem with translations on this page, please
-      <a href="https://github.com/contact?form[subject]=translation%20issue%20on%20docs.github.com&form[comments]=">let us know</a>.
-    localization_in_progress:
-      Hello, explorer! This page is under active development or
-      still in translation. For the most up-to-date and accurate information,
-      please visit our
-      <a id="to-english-doc" href="/en">English documentation</a>.
     early_access: 📣 Please <b>do not share</b> this URL publicly. This page contains content about an early access feature.
     release_notes_use_latest: Please use the latest release for the latest security, performance, and bug fixes.
     # GHES release notes
@@ -106,6 +99,12 @@ products:
       possible_types: Possible types
       preview_notice: Preview notice
       deprecation_notice: Deprecation notice
+      preview_period: During the preview period, the API may change without notice.
+    overview:
+      preview_header: 'To toggle this preview and access the following schema members, you must provide a custom media type in the `Accept` header:'
+      preview_schema_members: 'Previewed schema members'
+      announced: Announced
+      updates: Updates
   rest:
     reference:
       default: Default
