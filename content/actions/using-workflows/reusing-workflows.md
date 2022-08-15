@@ -181,7 +181,7 @@ This workflow file references the matrix context by defining the variable `env` 
 
 {% raw %}
 ```yaml{:copy}
-name: Reusable workflow with matrix strategy example
+name: Reusable workflow with matrix strategy
 
 on:
   push:
