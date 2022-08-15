@@ -754,7 +754,9 @@ describe('URLs by language', () => {
     const $ = await getDOM('/ja/site-policy/github-terms/github-terms-of-service')
     expect($.res.statusCode).toBe(200)
     // This check is true on either the translated version of the page, or when the title is pending translation and is in English.
-    expect($('h1')[0].children[0].data).toMatch(/(GitHub利用規約|GitHub Terms of Service)/)
+    expect($('h1')[0].children[0].data).toMatch(
+      /(GitHub利用規約|GitHub Terms of Service|GitHub のサービス条件)/
+    )
     expect($('h2 a[href="#summary"]').length).toBe(1)
   })
 })
