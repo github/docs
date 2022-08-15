@@ -5,7 +5,7 @@ versions:
   feature: copilot
 topics:
   - Copilot
-shortTitle: Cobrança para o GitHub Actions
+shortTitle: Cobrança para o GitHub Copilot
 ---
 
 ## Sobre a cobrança do {% data variables.product.prodname_copilot %}
