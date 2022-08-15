@@ -189,7 +189,6 @@ on:
 jobs:
   ReuseableMatrixJobForDeployment:
     strategy:
-      fail-fast: false
       matrix:
         env: [dev, stage, prod]
     uses: octocat/octo-repo/.github/workflows/deployment.yml@main
