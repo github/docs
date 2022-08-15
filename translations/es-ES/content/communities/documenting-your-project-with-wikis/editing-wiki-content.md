@@ -46,7 +46,7 @@ Puedes establecer un enlace a una imagen en un repositorio en {% data variables.
     [[https://github.com/USERNAME/REPOSITORY/blob/main/img/octocat.png|alt=octocat]]
 
 {% ifversion fpt or ghec or ghes > 3.6 or ghae-issue-7647 %}
-## Adding mathematical expressions and diagrams{% endif %}
+## Agregar expresiones matemáticas y diagramas{% endif %}
 
 {% data reusables.getting-started.math-and-diagrams %}
 

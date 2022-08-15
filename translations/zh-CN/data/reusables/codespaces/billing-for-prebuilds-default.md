@@ -1,3 +1,3 @@
-默认情况下，每次创建或更新预构建模板或推送到启用了预构建的分支时，都会触发 {% data variables.product.prodname_actions %} 工作流程。 与其他工作流程一样，在预构建工作流程运行时，它们将消耗帐户中包含的一些操作分钟数（如果有），或者产生操作分钟数的费用。 有关操作分钟数定价的详细信息，请参阅[关于 {% data variables.product.prodname_actions %} 计费](/billing/managing-billing-for-github-actions/about-billing-for-github-actions)”。
+By default, a {% data variables.product.prodname_actions %} workflow is triggered every time you create or update a prebuild, or push to a prebuild-enabled branch. 与其他工作流程一样，在预构建工作流程运行时，它们将消耗帐户中包含的一些操作分钟数（如果有），或者产生操作分钟数的费用。 有关操作分钟数定价的详细信息，请参阅[关于 {% data variables.product.prodname_actions %} 计费](/billing/managing-billing-for-github-actions/about-billing-for-github-actions)”。
 
-除了 {% data variables.product.prodname_actions %} 分钟数外，您还需要为存储与给定存储库和区域的每个预构建配置关联的预构建模板付费。 预构建模板的存储按与代码空间存储相同的费率计费。
+Alongside {% data variables.product.prodname_actions %} minutes, you will also be billed for the storage of prebuilds associated with each prebuild configuration for a given repository and region. Storage of prebuilds is billed at the same rate as storage of codespaces.

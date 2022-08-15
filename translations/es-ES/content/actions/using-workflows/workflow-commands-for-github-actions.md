@@ -25,7 +25,7 @@ versions:
 
 Las acciones pueden comunicarse con la máquina del ejecutor para establecer variables de entorno, valores de salida utilizados por otras acciones, agregar mensajes de depuración a los registros de salida y otras tareas.
 
-La mayoría de los comandos de los flujos de trabajo utilizan el comando `echo` en un formato específico, mientras que otras se invocan si escribes a un archivo. Para obtener más información, consulta la sección ["Archivos de ambiente".](#environment-files)
+La mayoría de los comandos de los flujos de trabajo utilizan el comando `echo` en un formato específico, mientras que otras se invocan si escribes a un archivo. For more information, see "[Environment files](#environment-files)."
 
 ### Ejemplo
 
@@ -622,6 +622,12 @@ Para las secuencias de lìnea mùltiple, puedes utilizar un delimitador con la s
 {value}
 {delimiter}
 ```
+
+{% warning %}
+
+**Warning:** Make sure the delimiter you're using is randomly generated and unique for each run. For more information, see "[Understanding the risk of script injections](/actions/security-guides/security-hardening-for-github-actions#understanding-the-risk-of-script-injections)".
+
+{% endwarning %}
 
 #### Ejemplo
 

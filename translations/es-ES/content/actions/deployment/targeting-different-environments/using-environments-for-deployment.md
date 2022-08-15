@@ -27,7 +27,7 @@ Puedes configurr ambientes con reglas de protección y secretos. Cuando un job d
 
 **Nota:** Solo puedes configurar ambientes para repositorios públicos. Si conviertes un repositorio de público a privado, cualquier regla de protección o secretos de ambiente que hubieses configurado se ingorarán y no podrás configurar ningún ambiente. Si conviertes tu repositorio en público nuevamente, tendrás acceso a cualquier regla de protección y secreto de ambiente que hubieras configurado previamente.
 
-Organizations with {% data variables.product.prodname_team %} and users with {% data variables.product.prodname_pro %} can configure environments for private repositories. Para obtener más información, consulta "Productos de [{% data variables.product.prodname_dotcom %}](/get-started/learning-about-github/githubs-products)".
+Las organizaciones con {% data variables.product.prodname_team %} y los usuarios con {% data variables.product.prodname_pro %} pueden configurar los ambientes para los repositorios privados. Para obtener más información, consulta "Productos de [{% data variables.product.prodname_dotcom %}](/get-started/learning-about-github/githubs-products)".
 
 {% endnote %}
 {% endif %}
@@ -72,7 +72,7 @@ Los secretos que se almacenan en un ambiente sólo se encuentran disponibles par
 {% ifversion fpt or ghec %}
 {% note %}
 
-**Note:** Creation of an environment in a private repository is available to organizations with {% data variables.product.prodname_team %} and users with {% data variables.product.prodname_pro %}.
+**Nota:** La creación de un ambiente en un repositorio privado está disponible para las organizaciones con {% data variables.product.prodname_team %} y para los usuarios con {% data variables.product.prodname_pro %}.
 
 {% endnote %}
 {% endif %}

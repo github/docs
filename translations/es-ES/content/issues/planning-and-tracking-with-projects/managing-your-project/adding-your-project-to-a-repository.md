@@ -19,4 +19,4 @@ Para que los miembros de los repositorios vean un proyecto que se lista en dicho
 1. Haz clic en {% octicon "table" aria-label="the project icon" %} **Proyectos**. ![Screenshot showing projects tab in a repository](/assets/images/help/projects-v2/repo-tab.png)
 1. Haz clic en **Agregar proyecto**. ![Screenshot showing "Add project" button](/assets/images/help/projects-v2/add-to-repo-button.png)
 1. In the search bar that appears, search for projects that are owned by the same user or organization that owns the repository. ![Screenshot showing searching for a project](/assets/images/help/projects-v2/add-to-repo-search.png)
-1. Click on a project to list it in your repository. ![Screenshot showing "Add project" button](/assets/images/help/projects-v2/add-to-repo.png)
+1. Click on a project to list it in your repository. ![Captura de pantalla que muestra el botón "Agregar proyecto"](/assets/images/help/projects-v2/add-to-repo.png)

@@ -6,10 +6,7 @@ const noCacheControl = cacheControlFactory(0)
 
 router.get('/', (req, res) => {
   noCacheControl(res)
-  res.json({
-    isSignedIn: Boolean(req.cookies?.dotcom_user),
-    csrfToken: req.csrfToken?.() || '',
-  })
+  res.json({ csrfToken: req.csrfToken?.() || '' })
 })
 
 export default router
