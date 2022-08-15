@@ -193,7 +193,7 @@ jobs:
         target: [dev, stage, prod]
     uses: octocat/octo-repo/.github/workflows/deployment.yml@main
     with:
-      env: ${{ matrix.env }}
+      target: ${{ matrix.target }}
 ```
 {% endraw %}
 
