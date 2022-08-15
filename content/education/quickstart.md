@@ -37,7 +37,7 @@ For more information, see "[Types of {% data variables.product.prodname_dotcom %
 
 ## Applying for teacher benefits
 
-Next, you'll sign up for teacher benefits and resources from {% data variables.product.company_short %}, including access to {% data variables.product.prodname_global_campus %}, a portal that allows you to access your education benefits all in one place.  {% data reusables.education.educator-requirements %}
+Next, you'll sign up for teacher benefits and resources from {% data variables.product.company_short %} by applying to {% data variables.product.prodname_global_campus %}, a portal that allows you to access your education benefits all in one place.  {% data reusables.education.educator-requirements %}
 
 {% tip %}
 
