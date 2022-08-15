@@ -50,12 +50,6 @@ const cacheAggressively = (res) => {
   // doesn't do soft-purges on these responses on every
   // automated deployment.
   setFastlySurrogateKey(res, SURROGATE_ENUMS.MANUAL)
-
-  // Because this middleware has (quite possibly) been executed before
-  // the CSRF middleware, that would have set a cookie. Remove that.
-  // The reason for removing the 'Set-Cookie' header is because
-  // otherwise Fastly won't cache it.
-  res.removeHeader('set-cookie')
 }
 
 // The way `got` does retries:
@@ -108,7 +102,6 @@ export default async function archivedEnterpriseVersions(req, res, next) {
       } else {
         noCacheControl(res)
       }
-      res.removeHeader('set-cookie')
       return res.redirect(redirectCode, redirectTo)
     }
 
@@ -129,7 +122,6 @@ export default async function archivedEnterpriseVersions(req, res, next) {
       } else {
         noCacheControl(res)
       }
-      res.removeHeader('set-cookie')
       return res.redirect(redirectCode, `/${language}${newRedirectTo}`)
     }
   }

@@ -2,6 +2,6 @@ Si configuras el SSO de SAML, los miembros de tu organización seguirán inician
 
 {% note %}
 
-**Note:** SAML SSO does not replace the normal sign-in process for {% data variables.product.prodname_dotcom %}. Unless you use {% data variables.product.prodname_emus %}, members will continue to sign into their personal accounts on {% data variables.product.prodname_dotcom_the_website %}, and each personal account will be linked to an external identity in your IdP.
+**Nota:** El SSO de SAML no reemplaza al proceso de inicio de sesión normal para {% data variables.product.prodname_dotcom %}. A menos de que utilices {% data variables.product.prodname_emus %}, los miembros seguirán iniciando sesión en sus cuenta spersonales de {% data variables.product.prodname_dotcom_the_website %} y cada cuenta personal se enlazará a una identidad externa en tu IdP.
 
 {% endnote %}
