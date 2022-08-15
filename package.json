@@ -23,7 +23,6 @@
     "connect-datadog": "0.0.9",
     "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
-    "csurf": "^1.11.0",
     "dayjs": "^1.11.3",
     "dotenv": "^16.0.1",
     "express": "^4.18.1",
@@ -161,7 +160,6 @@
     "sass": "^1.52.3",
     "start-server-and-test": "^1.14.0",
     "strip-ansi": "^7.0.1",
-    "tough-cookie": "4.0.0",
     "typescript": "^4.7.3"
   },
   "engines": {
