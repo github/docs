@@ -538,6 +538,7 @@ You can override the default shell settings in the runner's operating system usi
 
 | Supported platform | `shell` parameter | Description | Command run internally |
 |--------------------|-------------------|-------------|------------------------|
+| Linux / macOS | unspecified | The default shell on non-Windows platforms. Note that this runs a different command to when `bash` is specified explicitly. If `bash` is not found in the path, this is treated as `sh`. | `bash -e {0}` |
 | All | `bash` | The default shell on non-Windows platforms with a fallback to `sh`. When specifying a bash shell on Windows, the bash shell included with Git for Windows is used. | `bash --noprofile --norc -eo pipefail {0}` |
 | All | `pwsh` | The PowerShell Core. {% data variables.product.prodname_dotcom %} appends the extension `.ps1` to your script name. | `pwsh -command ". '{0}'"` |
 | All | `python` | Executes the python command. | `python {0}` |
@@ -793,11 +794,11 @@ strategy:
   fail-fast: false
   matrix:
     node: [13, 14]
-    os: [macos-latest, ubuntu-18.04]
+    os: [macos-latest, ubuntu-latest]
     experimental: [false]
     include:
       - node: 15
-        os: ubuntu-18.04
+        os: ubuntu-latest
         experimental: true
 ```
 {% endraw %}

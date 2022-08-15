@@ -28694,6 +28694,14 @@ enum ProjectNextFieldType {
     )
 
   """
+  Tasks
+  """
+  TASKS
+    @deprecated(
+      reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2022-10-01 UTC."
+    )
+
+  """
   Text
   """
   TEXT
@@ -28705,14 +28713,6 @@ enum ProjectNextFieldType {
   Title
   """
   TITLE
-    @deprecated(
-      reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2022-10-01 UTC."
-    )
-
-  """
-  Tracks
-  """
-  TRACKS
     @deprecated(
       reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2022-10-01 UTC."
     )
@@ -29751,6 +29751,11 @@ enum ProjectV2FieldType {
   SINGLE_SELECT
 
   """
+  Tasks
+  """
+  TASKS
+
+  """
   Text
   """
   TEXT
@@ -29759,11 +29764,6 @@ enum ProjectV2FieldType {
   Title
   """
   TITLE
-
-  """
-  Tracks
-  """
-  TRACKS
 }
 
 """
@@ -43057,6 +43057,11 @@ The possible ecosystems of a security vulnerability's package.
 """
 enum SecurityAdvisoryEcosystem {
   """
+  GitHub Actions
+  """
+  ACTIONS
+
+  """
   PHP packages hosted at packagist.org
   """
   COMPOSER
@@ -44946,6 +44951,11 @@ input StartRepositoryMigrationInput {
   The Octoshift migration source repository URL.
   """
   sourceRepositoryUrl: URI!
+
+  """
+  The visibility of the imported repository.
+  """
+  targetRepoVisibility: String
 }
 
 """

@@ -2,12 +2,12 @@
 import { v4 as uuidv4 } from 'uuid'
 import Cookies from 'js-cookie'
 import parseUserAgent from './user-agent'
-import { getSession, waitForSession } from './get-session'
 
 const COOKIE_NAME = '_docs-events'
 
 const startVisitTime = Date.now()
 
+let initialized = false
 let cookieValue: string | undefined
 let pageEventId: string | undefined
 let maxScrollY = 0
@@ -83,11 +83,7 @@ function getMetaContent(name: string) {
 }
 
 export function sendEvent({ type, version = '1.0.0', ...props }: SendEventProps) {
-  const session = getSession()
-
   const body = {
-    _csrf: session?.csrfToken,
-
     type,
 
     context: {
@@ -274,17 +270,17 @@ function initPrintEvent() {
   })
 }
 
-export default function initializeEvents() {
-  waitForSession(() => {
-    initPageAndExitEvent() // must come first
-    initLinkEvent()
-    initClipboardEvent()
-    initCopyButtonEvent()
-    initPrintEvent()
-    // survey event in ./survey.js
-    // experiment event in ./experiment.js
-    // search and search_result event in ./search.js
-    // redirect event in middleware/record-redirect.js
-    // preference event in ./display-tool-specific-content.js
-  })
+export function initializeEvents() {
+  if (initialized) return
+  initialized = true
+  initPageAndExitEvent() // must come first
+  initLinkEvent()
+  initClipboardEvent()
+  initCopyButtonEvent()
+  initPrintEvent()
+  // survey event in ./survey.js
+  // experiment event in ./experiment.js
+  // search and search_result event in ./search.js
+  // redirect event in middleware/record-redirect.js
+  // preference event in ./display-tool-specific-content.js
 }

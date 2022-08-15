@@ -777,7 +777,7 @@ registries:
 
 {% note %}
 
-**Note:** We don't support the Azure Container Registry (ACR).
+**Observação:** Nós não somos compatíveis com o Azure Container Registry (ACR).
 
 {% endnote %}
 

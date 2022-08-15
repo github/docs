@@ -20,6 +20,4 @@ topics:
 
 更多信息请参阅“[实现](/graphql/guides/introduction-to-graphql#implementation)。”
 
-{% for item in graphql.schemaForCurrentVersion.interfaces %}
-  {% include graphql-interface %}
-{% endfor %}
+<!-- Content after this section is automatically generated -->

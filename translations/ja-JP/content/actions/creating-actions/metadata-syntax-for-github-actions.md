@@ -74,7 +74,7 @@ To access the environment variable in a Docker container action, you must pass t
 
 ### `inputs.<input_id>.required`
 
-**必須** この入力パラメーターがアクションに必須かどうかを示す`論理値`。 パラメーターが必須の場合は`true`に設定してください。
+**Optional** A `boolean` to indicate whether the action requires the input parameter. パラメーターが必須の場合は`true`に設定してください。
 
 ### `inputs.<input_id>.default`
 

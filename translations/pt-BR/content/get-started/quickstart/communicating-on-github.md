@@ -147,7 +147,7 @@ Para problemas, por exemplo, você pode marcar problemas com etiquetas para uma 
 Para pull requests, você pode criar pull requests de rascunho se as suas alterações propostas ainda forem um trabalho em andamento. Não é possível fazer o merge dos pull requests de rascunho até que estejam prontos para revisão. Para obter mais informações, consulte "[Sobre pull requests](/github/collaborating-with-issues-and-pull-requests/about-pull-requests#draft-pull-requests)".
 
 {% ifversion discussions %}
-For {% data variables.product.prodname_discussions %}, you can{% ifversion fpt or ghec %} set up a code of conduct and{% endif %} pin discussions that contain important information for your community. Para obter mais informações, consulte "[Sobre discussões](/discussions/collaborating-with-your-community-using-discussions/about-discussions)".
+Para {% data variables.product.prodname_discussions %}, você pode{% ifversion fpt or ghec %} definir um código de conduta e{% endif %} marcar discussões que contêm informações importantes para sua comunidade. Para obter mais informações, consulte "[Sobre discussões](/discussions/collaborating-with-your-community-using-discussions/about-discussions)".
 {% endif %}
 
 Para discussões em equipe, você pode editar ou excluir discussões na página de uma equipe, além de poder configurar notificações para discussões em equipe. Para obter mais informações, consulte "[Sobre discussões de equipe](/organizations/collaborating-with-your-team/about-team-discussions)".

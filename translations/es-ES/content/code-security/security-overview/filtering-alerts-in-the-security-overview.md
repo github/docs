@@ -25,6 +25,10 @@ shortTitle: Filtrar alertas
 
 Puedes utilizar filtros en el resumen de seguridad para reducir tu enfoque con base en una serie de factores, como el nivel de riesgo de la alerta, el tipo de esta y la habilitación de características. Hay diferentes filtros disponibles, dependiendo de la vista específica y de si tu análisis está a nivel de organización, equipo o repositorio.
 
+{% note %}
+{% data reusables.security-overview.information-varies-GHAS %}
+{% endnote %}
+
 ## Filtrar por repositorio
 
 Disponible en todas las vistas a nivel de organización y de equipo.

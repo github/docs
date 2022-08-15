@@ -63109,6 +63109,10 @@
       "description": "<p>The possible ecosystems of a security vulnerability's package.</p>",
       "values": [
         {
+          "name": "ACTIONS",
+          "description": "<p>GitHub Actions.</p>"
+        },
+        {
           "name": "COMPOSER",
           "description": "<p>PHP packages hosted at packagist.org.</p>"
         },
@@ -70698,6 +70702,14 @@
           "id": "uri",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#uri"
+        },
+        {
+          "name": "targetRepoVisibility",
+          "description": "<p>The visibility of the imported repository.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
         }
       ]
     },

@@ -43,6 +43,7 @@ const DEFAULT_OPTIONS = {
       frameAncestors: [...GITHUB_DOMAINS],
       styleSrc: ["'self'", "'unsafe-inline'"],
       childSrc: ["'self'"], // exception for search in deprecated GHE versions
+      upgradeInsecureRequests: isDev ? null : [],
     },
   },
 }

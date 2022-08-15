@@ -1,6 +1,6 @@
 ---
-title: Teamもしくはプロジェクトの作業の計画と追跡
-intro: '{% data variables.product.prodname_dotcom %}の計画及び追跡ツールを使って、Teamあるいはプロジェクトの作業を管理するために必要なこと。'
+title: Planning and tracking work for your team or project
+intro: 'The essentials for using {% data variables.product.prodname_dotcom %}''s planning and tracking tools to manage work on a team or project.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -11,120 +11,119 @@ topics:
   - Project management
   - Projects
 ---
+## Introduction
+You can use {% data variables.product.prodname_dotcom %} repositories, issues, project boards, and other tools to plan and track your work, whether working on an individual project or cross-functional team.
 
-## はじめに
-個別のプロジェクトで作業しているにしても、機能横断的なチームで作業しているにしても、{% data variables.product.prodname_dotcom %}のリポジトリ、Issue、プロジェクトボードやその他のツールを使って作業の計画と追跡ができます。
+In this guide, you will learn how to create and set up a repository for collaborating with a group of people, create issue templates{% ifversion fpt or ghec %} and forms{% endif %}, open issues and use task lists to break down work, and establish a project board for organizing and tracking issues.
 
-このガイドでは、人々のグループとコラボレーションするためのリポジトリの作成とセットアップ、Issueテンプレート{% ifversion fpt or ghec %}及びフォーム{% endif %}の作成、Issueのオープンと作業をブレークダウンするためのタスクリストの利用、Issueを整理して追跡するためのプロジェクトボードの設置の方法を学びます。
+## Creating a repository
+When starting a new project, initiative, or feature, the first step is to create a repository. Repositories contain all of your project's files and give you a place to collaborate with others and manage your work. For more information, see "[Creating a new repository](/github/creating-cloning-and-archiving-repositories/creating-a-repository-on-github/creating-a-new-repository)."
 
-## リポジトリを作成する
-新しいプロジェクト、イニシアティブ、機能を開始するとき、最初のステップはリポジトリの作成です。 リポジトリにはプロジェクトのすべてのファイルが含まれ、他者とコラボレーションしたり、作業を管理したりする場所を提供します。 詳しい情報については「[新しいリポジトリの作成](/github/creating-cloning-and-archiving-repositories/creating-a-repository-on-github/creating-a-new-repository)」を参照してください。
+You can set up repositories for different purposes based on your needs. The following are some common use cases:
 
-必要に応じて、様々な目的のためにリポジトリをセットアップできます。 以下は、いくつかの一般的なユースケースです。
+- **Product repositories**: Larger organizations that track their work and goals around specific products may have one or more repositories containing the code and other files. These repositories can also be used for documentation, reporting on product health or future plans for the product. 
+- **Project repositories**: You can create a repository for an individual project you are working on, or for a project you are collaborating on with others. For an organization that tracks work for short-lived initiatives or projects, such as a consulting firm, there is a need to report on the health of a project and move people between different projects based on skills and needs. Code for the project is often contained in a single repository.
+- **Team repositories**: For an organization that groups people into teams, and brings projects to them, such as a dev tools team, code may be scattered across many repositories for the different work they need to track. In this case it may be helpful to have a team-specific repository as one place to track all the work the team is involved in.
+- **Personal repositories**: You can create a personal repository to track all your work in one place, plan future tasks, or even add notes or information you want to save. You can also add collaborators if you want to share this information with others. 
 
-- **製品リポジトリ**: 特定の製品に関する作業とゴールを追跡する大規模な組織は、そのコードや他のファイルを含む1つ以上のリポジトリを持つことがあります。 それらのリポジトリは、ドキュメンテーション、製品の改善性、あるいは製品の将来の計画のためにも使われることがあります。
-- **プロジェクトリポジトリ**: 作業をしている個々のプロジェクト、あるいは他者とコラボレーションしているプロジェクトのためにリポジトリを作成することができます。 短期間のイニシアティブやプロジェクトなどのための作業を追跡する、たとえばコンサルティングファームなどの組織では、プロジェクトの健全性に関するレポートや、人々をスキルや要求に応じて様々なプロジェクト間で移動させる必要があります。 こうしたプロジェクトのためのコードは、多くの場合1つのリポジトリに含まれます。
-- **チームリポジトリ**: 人々をチームにグループ化し、開発ツールチームのようなそれらのグループにプロジェクトを割り当てるような組織では、コードは追跡しなければならない様々な作業に対する多くのリポジトリに分散されるかもしれません。 この場合、そのチームが関わるすべての作業を追跡するための1つの場所として、チーム固有のリポジトリを持つとよいかもしれません。
-- **個人リポジトリ**: 個人リポジトリを作成して、自分のすべての作業を1カ所で追跡し、将来のタスクを計画し、さらには保存しておきたいノートや情報を追加しておくことさえできます。 この情報を他者と共有したい場合は、コラボレータを追加することもできます。
+You can create multiple, separate repositories if you want different access permissions for the source code and for tracking issues and discussions. For more information, see "[Creating an issues-only repository](/github/creating-cloning-and-archiving-repositories/creating-a-repository-on-github/creating-an-issues-only-repository)."
 
-ソースコードに様々なアクセス権限を設定し、Issueやディスカッションを追跡したい場合には、複数の個別のリポジトリを作成することもできます。 詳しい情報については「[Issueのみのリポジトリの作成](/github/creating-cloning-and-archiving-repositories/creating-a-repository-on-github/creating-an-issues-only-repository)」を参照してください。
+For the following examples in this guide, we will be using an example repository called Project Octocat.
+## Communicating repository information
+You can create a README.md file for your repository to introduce your team or project and communicate important information about it. A README is often the first item a visitor to your repository will see, so you can also provide information on how users or contributors can get started with the project and how to contact the team. For more information, see "[About READMEs](/github/creating-cloning-and-archiving-repositories/creating-a-repository-on-github/about-readmes)."
 
-このガイドの以下の例では、Projet Octocatというサンプルリポジトリを使います。
-## リポジトリ情報のコミュニケーション
-リポジトリにREADME.mdファイルを追加して、Teamやプロジェクトを紹介し、それらに関する重要な情報を伝えることができます。 リポジトリにアクセスした人が最初に見るのはREADMEのことが多いので、ユーザやコントリビュータがプロジェクトとどのように関わり始めたらいいのか、そしてチームとどのように連絡を取ればいいのかに関する情報を提供することもできます。 詳細は「[README について](/github/creating-cloning-and-archiving-repositories/creating-a-repository-on-github/about-readmes)」を参照してください。
+You can also create a CONTRIBUTING.md file specifically to contain guidelines on how users or contributors can contribute and interact with the team or project, such as how to open a bug fix issue or request an improvement. For more information, see "[Setting guidelines for repository contributors](/communities/setting-up-your-project-for-healthy-contributions/setting-guidelines-for-repository-contributors)."
+### README example
+We can create a README.md to introduce our new project, Project Octocat. 
 
-特に、バグ修正のIssueのオープンや改善のリクエストの方法といった、ユーザやコントリビュータがチームやプロジェクトに貢献して関わるやりかたのガイドラインを含む、CONTRIBUTING.mdファイルを作成することもできます。 詳しい情報については、「[リポジトリコントリビューターのためのガイドラインを定める](/communities/setting-up-your-project-for-healthy-contributions/setting-guidelines-for-repository-contributors)」を参照してください。
-### README の例
-新しいプロジェクトであるProject Octocatを紹介するREADME.mdを作成できます。
+![Creating README example](/assets/images/help/issues/quickstart-creating-readme.png)
+## Creating issue templates
 
-![READMEの例の作成](/assets/images/help/issues/quickstart-creating-readme.png)
-## Issue テンプレートを作成する
+You can use issues to track the different types of work that your cross-functional team or project covers, as well as gather information from those outside of your project. The following are a few common use cases for issues.
 
-Issueを使って、機能横断的なチームやプロジェクトがカバーする様々な種類の作業を追跡したり、プロジェクト外のチームやプロジェクトから情報を集めることができます。 以下は、いくつかの一般的なIssueのユースケースです。
+- Release tracking: You can use an issue to track the progress for a release or the steps to complete the day of a launch.
+- Large initiatives: You can use an issue to track progress on a large initiative or project, which is then linked to the smaller issues.
+- Feature requests: Your team or users can create issues to request an improvement to your product or project.
+- Bugs: Your team or users can create issues to report a bug. 
 
-- リリース追跡: Issueを使って、リリースやローンチ日を完了させるステップの進捗を追跡できます。
-- 大規模なイニシアティブ: Issueを使って、大規模なイニシアティブやプロジェクトの進捗を追跡できます。それらは、より小さなIssueにリンクされます。
-- 機能リクエスト: チームやユーザは、Issueを作成して製品やプロジェクトに改善をリクエストできます。
-- バグ: チームやユーザは、Issueを作成してバグを報告できます。
+Depending on the type of repository and project you are working on, you may prioritize certain types of issues over others. Once you have identified the most common issue types for your team, you can create issue templates {% ifversion fpt or ghec %}and forms{% endif %} for your repository. Issue templates {% ifversion fpt or ghec %}and forms{% endif %} allow you to create a standardized list of templates that a contributor can choose from when they open an issue in your repository. For more information, see "[Configuring issue templates for your repository](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/configuring-issue-templates-for-your-repository)."
 
-作業をしているリポジトリやプロジェクトの種類によっては、特定の種類のIssueを他よりも優先することになるかもしれません。 チームで最も一般的なIssueの種類を特定できたら、リポジトリにIssueテンプレート{% ifversion fpt or ghec %}やフォーム{% endif %}を作成できます。 Issueテンプレート{% ifversion fpt or ghec %}とフォーム{% endif %}を使うと、リポジトリでIssueをオープンするときにコントリビューターが選択できる標準化されたテンプレートのリストを作成できます。 詳しい情報については、「[リポジトリ用に Issue テンプレートを設定する](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/configuring-issue-templates-for-your-repository)」を参照してください。
+### Issue template example
+Below we are creating an issue template for reporting a bug in Project Octocat.
 
-### Issueテンプレートの例
-以下、Project OctocatでバグレポートのためのIssueテンプレートを作成しています。
+![Creating issue template example](/assets/images/help/issues/quickstart-creating-issue-template.png)
 
-![Issueテンプレートの例の作成](/assets/images/help/issues/quickstart-creating-issue-template.png)
+Now that we created the bug report issue template, you are able to select it when creating a new issue in Project Octocat.
 
-バグレポートのIssueテンプレートを作成したので、新しいIssueをProject Octocatで作成する際に選択できるようになりました。
+![Choosing issue template example](/assets/images/help/issues/quickstart-issue-creation-menu-with-template.png)
 
-![Issueテンプレートの例の選択](/assets/images/help/issues/quickstart-issue-creation-menu-with-template.png)
+## Opening issues and using task lists to track work
+You can organize and track your work by creating issues. For more information, see "[Creating an issue](/issues/tracking-your-work-with-issues/creating-issues/creating-an-issue)."
+### Issue example
+Here is an example of an issue created for a large initiative, front-end work, in Project Octocat.
 
-## Issueのオープンとタスクリストを使用した作業の追跡
-Issueを作成することで、作業を整理し、追跡できます。 詳しい情報については、「[Issue を作成する](/issues/tracking-your-work-with-issues/creating-issues/creating-an-issue)」を参照してください。
-### Issueの例
-以下は、Project Octocatの大規模なイニシアティブであるフロントエンドの作業のために作成されたIssueの例です。
+![Creating large initiative issue example](/assets/images/help/issues/quickstart-create-large-initiative-issue.png)
+### Task list example
 
-![大規模なイニシアティブのissueの例の作成](/assets/images/help/issues/quickstart-create-large-initiative-issue.png)
-### タスクリストの例
+You can use task lists to break larger issues down into smaller tasks and to track issues as part of a larger goal. {% ifversion fpt or ghec %} Task lists have additional functionality when added to the body of an issue. You can see the number of tasks completed out of the total at the top of the issue, and if someone closes an issue linked in the task list, the checkbox will automatically be marked as complete.{% endif %} For more information, see "[About task lists](/issues/tracking-your-work-with-issues/creating-issues/about-task-lists)."
 
-タスクリストを使って、大きなIssueを小さなタスクに分割し、大きなゴールの一部としてIssueを追跡できます。 {% ifversion fpt or ghec %}Issueの本体に追加されたタスクリストには、追加の機能があります。 Issueの上部では全体の中で完了したタスク数を見ることができ、誰かがタスクリストにリンクされたIssueをクローズすると、そのチェックボックスは自動的に完了としてマークされます。{% endif %}詳しい情報については「[タスクリストについて](/issues/tracking-your-work-with-issues/creating-issues/about-task-lists)」を参照してください。
+Below we have added a task list to our Project Octocat issue, breaking it down into smaller issues.
 
-以下では、Project OctocatのIssueにタスクリストを追加し、小さなIssueに分割しました。
+![Adding task list to issue example](/assets/images/help/issues/quickstart-add-task-list-to-issue.png)
 
-![Issueの例へのタスクリストの追加](/assets/images/help/issues/quickstart-add-task-list-to-issue.png)
+## Making decisions as a team
+You can use issues and discussions to communicate and make decisions as a team on planned improvements or priorities for your project. Issues are useful when you create them for discussion of specific details, such as bug or performance reports, planning for the next quarter, or design for a new initiative. Discussions are useful for open-ended brainstorming or feedback, outside the codebase and across repositories. For more information, see "[Which discussion tool should I use?](/github/getting-started-with-github/quickstart/communicating-on-github#which-discussion-tool-should-i-use)."
 
-## チームとしての意思決定
-Issueやディスカッションを使い、プロジェクトの計画された改善や優先順位についてコミュニケーションを取り、チームとして意思決定することができます。 Issueは、バグやパフォーマンスレポート、次の四半期の計画、新しいイニシアティブのデザインといった、特定の詳細に関するディスカッションのために作成すると役立ちます。 ディスカッションは、コードベース外でリポジトリをまたぐオープンエンドのブレインストーミングやフィードバックのために役立ちます。 詳しい情報については「[どのディスカッションツールを使うべきでしょうか？](/github/getting-started-with-github/quickstart/communicating-on-github#which-discussion-tool-should-i-use)」を参照してください。
+As a team, you can also communicate updates on day-to-day tasks within issues so that everyone knows the status of work. For example, you can create an issue for a large feature that multiple people are working on, and each team member can add updates with their status or open questions in that issue.
+### Issue example with project collaborators
+Here is an example of project collaborators giving a status update on their work on the Project Octocat issue.
 
-チームとして、Issue内の日々のタスクの更新についてコミュニケーションを取り、全員に作業の状況を知らせることができます。 たとえば、複数の人が作業をしている大きな機能についてのIssueを作成し、各チームメンバーがそのIssue内で状況を更新したり質問を投げたりできるようにすることができます。
-### プロジェクトのコラボレータとのIssueの例
-以下は、Project OctocatのIssueで作業状況を更新するプロジェクトのコラボレータの例です。
+![Collaborating on issue example](/assets/images/help/issues/quickstart-collaborating-on-issue.png)
+## Using labels to highlight project goals and status
+You can create labels for a repository to categorize issues, pull requests, and discussions. {% data variables.product.prodname_dotcom %} also provides default labels for every new repository that you can edit or delete. Labels are useful for keeping track of project goals, bugs, types of work, and the status of an issue.
 
-![Issueの例でのコラボレーション](/assets/images/help/issues/quickstart-collaborating-on-issue.png)
-## プロジェクトのゴールとステータスをハイライトするためのラベルの利用
-Issue、Pull Request、ディスカッションを分類するために、リポジトリにラベルを作成できます。 {% data variables.product.prodname_dotcom %}は、すべての新しいリポジトリにデフォルトのラベルを提供します。それらは編集したり削除したりできます。 ラベルは、プロジェクトのゴール、バグ、作業の種類、Issueのステータスを追跡するための役に立ちます。
+For more information, see "[Creating a label](/issues/using-labels-and-milestones-to-track-work/managing-labels#creating-a-label)."
 
-詳細は「[ラベルの作成](/issues/using-labels-and-milestones-to-track-work/managing-labels#creating-a-label)」を参照してください。
+Once you have created a label in a repository, you can apply it on any issue, pull request or discussion in the repository. You can then filter issues and pull requests by label to find all associated work. For example, find all the front end bugs in your project by filtering for issues with the `front-end` and `bug` labels. For more information, see "[Filtering and searching issues and pull requests](/issues/tracking-your-work-with-issues/filtering-and-searching-issues-and-pull-requests)."
+### Label example
+Below is an example of a `front-end` label that we created and added to the issue.
 
-リポジトリにラベルを作成すると、それはリポジトリ内の任意のIssue、Pull Request、ディスカッションに適用できます。 そして、すべての関連する作業を見つけるためにラベルでIssueやPull Requestをフィルタリングできます。 たとえば、Issueを`front-end`及び`bug`というラベルでフィルタリングし、すべてのフロントエンドのバグを見つけることができます。 詳しい情報については「[IssueやPull Requestのフィルタリングと検索](/issues/tracking-your-work-with-issues/filtering-and-searching-issues-and-pull-requests)」を参照してください。
-### ラベルの例
-以下は、作成した`front-end`の例で、Issueに追加されています。
+![Adding a label to an issue example](/assets/images/help/issues/quickstart-add-label-to-issue.png)
 
-![Issueの例へのラベルの追加](/assets/images/help/issues/quickstart-add-label-to-issue.png)
-
-## プロジェクトボードへのIssueの追加
+## Adding issues to a project board
 
 {% ifversion projects-v2 %}
 
-You can use {% data variables.projects.projects_v2 %} on {% data variables.product.prodname_dotcom %} to plan and track the work for your team. プロジェクトはカスタマイズ可能なスプレッドシートで、{% data variables.product.prodname_dotcom %}上のIssueやPull Requestと統合されており、自動的に{% data variables.product.prodname_dotcom %}上の情報を最新の状態に保ちます。 IssueやPull Requestのフィルタリング、ソート、グループ化によってレイアウトをカスタマイズできます。 To get started with projects, see "[Quickstart for projects](/issues/planning-and-tracking-with-projects/learning-about-projects/quickstart-for-projects)."
+You can use {% data variables.projects.projects_v2 %} on {% data variables.product.prodname_dotcom %} to plan and track the work for your team. A project is a customizable spreadsheet that integrates with your issues and pull requests on {% data variables.product.prodname_dotcom %}, automatically staying up-to-date with the information on {% data variables.product.prodname_dotcom %}. You can customize the layout by filtering, sorting, and grouping your issues and PRs. To get started with projects, see "[Quickstart for projects](/issues/planning-and-tracking-with-projects/learning-about-projects/quickstart-for-projects)."
 ### Project example
-以下は、作成したProject OctocatのIssueが展開されたサンプルプロジェクトの表レイアウトのビューです。
+Here is the table layout of an example project, populated with the Project Octocat issues we have created.
 
 ![Projects table layout example](/assets/images/help/issues/quickstart-projects-table-view.png)
 
-同じプロジェクトをボードとして見ることもできます。
+We can also view the same project as a board.
 
 ![Projects board layout example](/assets/images/help/issues/quickstart-projects-board-view.png)
 
 {% endif %}
 {% ifversion projects-v1 %}
 
-You can {% ifversion projects-v2 %} also use the existing{% else %} use{% endif %} {% data variables.product.prodname_projects_v1 %} on {% data variables.product.prodname_dotcom %} to plan and track your or your team's work. プロジェクトボードは、Issue、プルリクエスト、選択した列内でカードとして分類されるノートから構成されます。 機能の作業、高レベルのロードマップ、さらにはリリースチェックリストのためにプロジェクトボードを作成できます。 詳細は「[プロジェクトボードについて](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards)」を参照してください。
-### プロジェクトボードの例
-以下は、サンプルのProject Octocatのプロジェクトボードで、作成したIssueと、そのIssueをブレークダウンした小さなIssueが追加されています。
+You can {% ifversion projects-v2 %} also use the existing{% else %} use{% endif %} {% data variables.product.prodname_projects_v1 %} on {% data variables.product.prodname_dotcom %} to plan and track your or your team's work. Project boards are made up of issues, pull requests, and notes that are categorized as cards in columns of your choosing. You can create project boards for feature work, high-level roadmaps, or even release checklists. For more information, see "[About project boards](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards)."
+### Project board example
+Below is a project board for our example Project Octocat with the issue we created, and the smaller issues we broke it down into, added to it.
 
-![プロジェクトボードの例](/assets/images/help/issues/quickstart-project-board.png)
+![Project board example](/assets/images/help/issues/quickstart-project-board.png)
 
 {% endif %}
 
-## 次のステップ
+## Next steps
 
-これで、作業の計画と追跡のために{% data variables.product.prodname_dotcom %}が提供するツールについて学び、機能横断的なチームやプロジェクトのリポジトリのセットアップを始めることができました！ 以下は、さらにリポジトリをカスタマイズし、作業を整理するのに役立つリソースです。
+You have now learned about the tools {% data variables.product.prodname_dotcom %} offers for planning and tracking your work, and made a start in setting up your cross-functional team or project repository! Here are some helpful resources for further customizing your repository and organizing your work.
 
-- リポジトリの作成についてさらに学ぶための「[リポジトリについて](/github/creating-cloning-and-archiving-repositories/creating-a-repository-on-github/about-repositories)」
-- Issueの作成と管理のための様々な方法を学ぶための「[Issueでの作業の追跡](/issues/tracking-your-work-with-issues)」
-- Issueテンプレートについてさらに学ぶための「[IssueとPull Requestテンプレートについて](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/about-issue-and-pull-request-templates)」
-- ラベルの作成、編集、削除の方法を学ぶための「[ラベルの管理](/issues/using-labels-and-milestones-to-track-work/managing-labels)」
-- タスクリストについてさらに学ぶための「[タスクリストについて](/issues/tracking-your-work-with-issues/creating-issues/about-task-lists)」
+- "[About repositories](/github/creating-cloning-and-archiving-repositories/creating-a-repository-on-github/about-repositories)" for learning more about creating repositories
+- "[Tracking your work with issues](/issues/tracking-your-work-with-issues)" for learning more about different ways to create and manage issues
+- "[About issues and pull request templates](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/about-issue-and-pull-request-templates)" for learning more about issue templates
+- "[Managing labels](/issues/using-labels-and-milestones-to-track-work/managing-labels)" for learning how to create, edit and delete labels
+- "[About task lists](/issues/tracking-your-work-with-issues/creating-issues/about-task-lists)" for learning more about task lists
 {% ifversion projects-v2 %} - "[About projects](/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects)" for learning more about projects
 - "[Customizing a view](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/customizing-a-view)" for learning how to customize views for projects{% endif %}
 {% ifversion projects-v1 %}- "[About {% data variables.product.prodname_projects_v1 %}](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards)" for learning how to manage project boards{% endif %}

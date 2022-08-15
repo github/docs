@@ -20,6 +20,4 @@ Por exemplo, um campo marcado como um [`ProjectCardItem`](/graphql/reference/uni
 
 Para obter mais informações, consulte "[Introdução ao GraphQL](/graphql/guides/introduction-to-graphql)".
 
-{% for item in graphql.schemaForCurrentVersion.unions %}
-  {% include graphql-union %}
-{% endfor %}
+<!-- Content after this section is automatically generated -->

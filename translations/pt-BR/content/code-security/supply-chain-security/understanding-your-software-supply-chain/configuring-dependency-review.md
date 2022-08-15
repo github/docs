@@ -60,9 +60,9 @@ As seguintes opções de configuração estão disponíveis.
 | ------------------ | ----------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `fail-on-severity` | Opcional    | Define o limite para o nível de gravidade (`baixo`, `moderado`, `alto`, `grave`).</br>A ação irpa falhar em qualquer pull request que introduzir vulnerabilidades do nível de gravidade especificado ou superior. |
 {%- ifversion dependency-review-action-licenses %}
-| `allow-licenses` | Optional | Contains a list of allowed licenses. You can find the possible values for this parameter in the [Licenses](/rest/licenses) page of the API documentation.</br>The action will fail on pull requests that introduce dependencies with licenses that do not match the list.|{% endif %}
+| `allow-licenses` | Opcional | Contém uma lista de todas as licenças permitidas. Você pode encontrar os valores possíveis para este parâmetro na página de [Licenças](/rest/licenses) da documentação da API.</br>A ação falhará em pull requests que introduzem dependências com licenças que não correspondem à lista.{% endif %}
 {%- ifversion dependency-review-action-licenses %}
-| `deny-licenses` | Optional | Contains a list of prohibited licenses. You can find the possible values for this parameter in the [Licenses](/rest/licenses) page of the API documentation.</br>The action will fail on pull requests that introduce dependencies with licenses that match the list.|{% endif %}
+| `deny-licenses` | Opcional | Contém uma lista de licenças proibidas. Você pode encontrar os valores possíveis para este parâmetro na página [Licenças](/rest/licenses) da documentação da API.</br>A ação falhará em pull requests que introduzem dependências com licenças que correspondem à lista.|{% endif %}
 
 {% ifversion dependency-review-action-licenses %}
 {% tip %}

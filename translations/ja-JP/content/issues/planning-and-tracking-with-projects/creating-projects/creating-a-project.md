@@ -1,6 +1,6 @@
 ---
 title: '{% data variables.projects.project_v2 %}の作成'
-intro: Learn how to create an organization or user project.
+intro: Organizationもしくはユーザプロジェクトの作成方法を学んでください。
 miniTocMaxHeadingLevel: 3
 versions:
   feature: projects-v2
@@ -12,19 +12,19 @@ topics:
 allowTitleToDifferFromFilename: true
 ---
 
-{% data variables.product.prodname_projects_v2 %} are an adaptable collection of items that stay up-to-date with {% data variables.product.company_short %} data. Your projects can track issues, pull requests, and ideas that you note down. カスタムフィールドを追加して、特定の目的のためのビューを作成できます。
+{% data variables.product.prodname_projects_v2 %}は、{% data variables.product.company_short %}のデータと最新の状態を保つアイテムの適応可能なコレクションです。 プロジェクトはIssue、Pull Request、書き留めたアイデアを追跡できます。 カスタムフィールドを追加して、特定の目的のためのビューを作成できます。
 
 ## プロジェクトの作成
 
 ### Organizationプロジェクトの作成
 
-Organization projects can track issues and pull requests from the organization's repositories.
+Organizationプロジェクトは、OrganizationのリポジトリからのIssueやPull Requestを追跡できます。
 
 {% data reusables.projects.create-project %}
 
 ### ユーザプロジェクトの作成
 
-User projects can track issues and pull requests from the repositories owned by your personal account.
+ユーザプロジェクトは、個人アカウントが所有するリポジトリからのIssueやPull Requestを追跡できます。
 
 {% data reusables.projects.create-user-project %}
 
@@ -34,6 +34,6 @@ User projects can track issues and pull requests from the repositories owned by 
 
 ## 参考リンク
 
-- "[Adding your project to a repository](/issues/planning-and-tracking-with-projects/managing-your-project/adding-your-project-to-a-repository)"
-- "[Adding items to your project](/issues/planning-and-tracking-with-projects/managing-items-in-your-project/adding-items-to-your-project)"
-- "[Customizing a view](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/customizing-a-view)"
+- 「[リポジトリへのプロジェクトの追加](/issues/planning-and-tracking-with-projects/managing-your-project/adding-your-project-to-a-repository)」
+- 「[プロジェクトへのアイテムの追加](/issues/planning-and-tracking-with-projects/managing-items-in-your-project/adding-items-to-your-project)」
+- 「[ビューのカスタマイズ](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/customizing-a-view)」

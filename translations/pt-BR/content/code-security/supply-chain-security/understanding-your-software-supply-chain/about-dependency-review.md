@@ -63,7 +63,7 @@ Por padrão, a verificação {% data variables.product.prodname_dependency_revie
 A ação usa a API REST de Revisão de Dependência para obter o diff das alterações de dependência entre o commit base e o commit principal. Você pode usar a API de Revisão de Dependência para obter o diff de alterações de dependência, incluindo dados de vulnerabilidade, entre quaisquer dois commits em um repositório. Para obter mais informações, consulte "[Revisão de dependência](/rest/reference/dependency-graph#dependency-review)".
 
 {% ifversion dependency-review-action-configuration %}
-Você pode configurar a {% data variables.product.prodname_dependency_review_action %} para melhor atender às suas necessidades. For example, you can specify the severity level that will make the action fail{% ifversion dependency-review-action-licenses %}, or set an allow or deny list for licenses to scan{% endif %}. Para obter mais informações, consulte [Configurando revisão de dependências](/code-security/supply-chain-security/understanding-your-software-supply-chain/configuring-dependency-review#configuring-the-dependency-review-github-action)".
+Você pode configurar a {% data variables.product.prodname_dependency_review_action %} para melhor atender às suas necessidades. Por exemplo, você pode especificar o nível de gravidade que irá fazer a ação falhar{% ifversion dependency-review-action-licenses %} ou definir uma lista de permissões ou negação para as digitalziação de licenças{% endif %}. Para obter mais informações, consulte [Configurando revisão de dependências](/code-security/supply-chain-security/understanding-your-software-supply-chain/configuring-dependency-review#configuring-the-dependency-review-github-action)".
 {% endif %}
 
 {% endif %}

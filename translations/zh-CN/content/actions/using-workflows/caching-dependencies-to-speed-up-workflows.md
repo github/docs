@@ -20,7 +20,7 @@ miniTocMaxHeadingLevel: 3
 
 工作流程运行通常在不同运行之间重新使用相同的输出或下载的依赖项。 例如，Maven、Gradle、npm 和 Yarn 等软件包和依赖项管理工具都会对下载的依赖项保留本地缓存。
 
-{% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %} 托管的运行器在一个干净的虚拟环境中启动，每次都必须下载依赖项，造成网络利用率提高、运行时间延长和成本增加。 {% endif %}为帮助加快重新创建诸如依赖项的文件，{% data variables.product.prodname_dotcom %} 可以缓存您在工作流程中经常使用的文件。
+{% ifversion fpt or ghec %} Jobs on {% data variables.product.prodname_dotcom %}-hosted runners start in a clean runner image and must download dependencies each time, causing increased network utilization, longer runtime, and increased cost. {% endif %}为帮助加快重新创建诸如依赖项的文件，{% data variables.product.prodname_dotcom %} 可以缓存您在工作流程中经常使用的文件。
 
 要缓存作业的依赖项，可以使用 {% data variables.product.prodname_dotcom %} 的 [`cache` 操作](https://github.com/actions/cache)。 该操作将创建并还原由唯一键标识的缓存。 或者，如果要缓存下面列出的包管理器，则使用其各自的 setup-* 操作时需要的配置最少，并且将为您创建和还原依赖项缓存。
 

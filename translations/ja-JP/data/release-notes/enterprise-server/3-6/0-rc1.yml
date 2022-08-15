@@ -178,29 +178,29 @@ sections:
         - |
           Pull Requestの**Files changed（変更されたファイル）**タブにあるファイルツリーを使って、ユーザは変更されたファイルに見ていき、変更のサイズとスコープを理解し、レビューに集中できます。このファイルツリーは、Pull Requestが少なくとも2つのファイルを変更しており、ブラウザのウィンドウが十分に広いときに表示されます。詳しい情報については「[Pull Requestで提案された変更のレビュー(/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-proposed-changes-in-a-pull-request)」及び「[Pull Requestのファイルのフィルタリング](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/filtering-files-in-a-pull-request)」を参照してください。
         - |
-          Users can default to using pull requests titles as the commit message for all squash merges. For more information, see "[Configuring commit squashing for pull requests](/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/configuring-commit-squashing-for-pull-requests)."
+          ユーザは、すべてのsquashマージでPull Requestのタイトルをコミットメッセージとして使うことをデフォルトにできます。詳しい情報については「[Pull Requestのコミットsquashの設定](/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/configuring-commit-squashing-for-pull-requests)」を参照してください。
     - 
       heading: リリース
       notes:
         - |
-          When viewing the details for a particular release, users can see the creation date for each release asset. For more information, see "[Viewing your repository's releases and tags](/repositories/releasing-projects-on-github/viewing-your-repositorys-releases-and-tags)."
-        - While creating a release with automatically generated release notes, users can see the tag identified as the previous release, then choose to select a different tag to specify as the previous release. For more information, see "[Automatically generated release notes](/repositories/releasing-projects-on-github/automatically-generated-release-notes)."
+          特定のリリースの詳細を表示させるとき、ユーザは各リリースのアセットの作成日を見ることができます。詳しい情報については「[リポジトリのリリースとタグの表示](/repositories/releasing-projects-on-github/viewing-your-repositorys-releases-and-tags)」を参照してください。
+        - 自動的にリリースされたリリースノート付きでリリースを作成する場合、ユーザは以前のリリースとして識別されるタグを見ることができ、そして以前のリリースとして指定する異なるタグを選択できます。詳しい情報については「[自動的に生成されるリリースノート](/repositories/releasing-projects-on-github/automatically-generated-release-notes)」を参照してください。
     - 
       heading: Markdown
       notes:
         - |
-          Editing Markdown in the web interface has been improved.
+          WebインターフェースでのMarkdownの編集が改善されました。
 
-          - After a user selects text and pastes a URL, the selected text will become a Markdown link to the pasted URL.
-          - When a user pastes spreadsheet cells or HTML tables, the resulting text will render as a table.
-          - When a user copies text containing links, the pasted text will include the link as a Markdown link.
+          - ユーザがテキストを選択してURLを貼り付けると、選択されたテキストは貼り付けられたURLへのMarkdownリンクになります。
+          - ユーザがスプレッドシートのセルもしくはHTMLテーブルを貼り付けると、その結果のテキストは表として描画されます。
+          - ユーザがリンクを含むテキストをコピーすると、貼り付けられたテキストはそのリンクをMarkdownのリンクとして含みます。
 
-          For more information, see "[Basic writing and formatting syntax](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#links)."
+          詳しい情報については「[基本的な書き方とフォーマットの構文](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#links)」を参照してください。
         - |
-          When editing a Markdown file in the web interface, clicking the **Preview** tab will automatically scroll to the place in the preview that you were editing. The scroll location is based on the position of your cursor before you clicked the **Preview** tab.
+          MarkdownのファイルをWebインターフェースで編集する場合、**Preview（プレビュー）**タブをクリックすると自動的に編集中のプレビューの場所までスクロールします。スクロールの場所は、**Preview（プレビュー）**タブをクリックする前のカーソルの場所に基づきます。
   changes:
-    - Interactive elements in the web interface such as links and buttons show a visible outline when focused with a keyboard, to help users find the current position on a page. In addition, when focused, form fields have a higher contrast outline.
-    - If a user refreshes the page while creating a new issue or pull request, the assignees, reviewers, labels and projects will all be preserved.
+    - リンクやボタンなどのWebインターフェースにおけるインタラクティブな要素は、キーボードでフォーカスされたときに視覚的なアウトラインを表示し、ユーザがページ上の現在の場所を見つけやすくします。加えて、フォームのフィールドはフォーカスされたときに、高コントラストのアウトラインを持つようになります。
+    - 新しいIssueやPull Requestを作成する際にユーザがページを更新した場合、アサインされた人、レビュー担当者、ラベル、プロジェクトはすべて保持されます。
   known_issues:
     - 新しくセットアップされたユーザを持たない{% data variables.product.prodname_ghe_server %}インスタンスで、攻撃者が最初の管理ユーザを作成できました。
     - アップグレードの過程で、カスタムのファイアウォールのルールが削除されます。
@@ -209,7 +209,7 @@ sections:
     - GitHub Connectで"Users can search GitHub.com"が有効化されている場合、GitHub.comの検索結果にプライベート及びインターナルリポジトリのIssueが含まれません。
     - '{% data variables.product.prodname_registry %}のnpmレジストリは、メタデータのレスポンス中で時間の値を返さなくなります。これは、大きなパフォーマンス改善のために行われました。メタデータレスポンスの一部として時間の値を返すために必要なすべてのデータは保持し続け、既存のパフォーマンスの問題を解決した将来に、この値を返すことを再開します。'
     - pre-receive フックの処理に固有のリソース制限によって、pre-receive フックに失敗するものが生じることがあります。
-    - Actions services need to be restarted after restoring an instance from a backup taken on a different host.
-    - In a repository's settings, enabling the option to allow users with read access to create discussions does not enable this functionality.
-    - In some cases, users cannot convert existing issues to discussions.
-    - Custom patterns for secret scanning have `.*` as an end delimiter, specifically in the "After secret" field. This delimiter causes inconsistencies in scans for secrets across repositories, and you may notice gaps in a repository's history where no scans completed. Incremental scans may also be impacted. To prevent issues with scans, modify the end of the pattern to remove the `.*` delimiter.
+    - 他のホストで取られたバックアップからインスタンスを復元したあと、Actionsサービスは再起動する必要があります。
+    - リポジトリの設定で、読み取りアクセスを持つユーザにディスカッションの作成を許可するオプションを有効化しても、この機能は有効化されません。
+    - ユーザが既存のIssueをディスカッションに変換できないことがあります。
+    - Secret scanningのカスタムパターンは、特に"After secret"パターンにおいて`.*`を終了の区切り文字として持ちます。この区切り文字は、リポジトリにまたがるシークレットのスキャンにおいて矛盾を生じさせ、スキャンがまったく完了していないというリポジトリの履歴のギャップに気づくかもしれません。インクリメンタルなスキャンにも影響があるかもしれません。スキャンの問題を回避するために、パターンの終わりから`.*`という区切り文字を取り除く修正をしてください。
