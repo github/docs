@@ -22,11 +22,12 @@ The initial report of a vulnerability is made privately, and the full details ar
 
 ### Best practices for vulnerability reporters
 
-It's good practice to report vulnerabilities privately to maintainers. When possible, as a vulnerability reporter, we recommend you avoid:
-- Disclosing the vulnerability publicly without giving maintainers a chance to remediate.
-- Bypassing the maintainers.
-- Disclosing the vulnerability before a fixed version of the code is available.
-- Expecting to be compensated for reporting an issue, where no public bounty program exists.
+It's good practice to report vulnerabilities privately to maintainers. When possible, as a vulnerability reporter, we recommend you:
+
+- Keep the vulnerability private until the maintainers have a chance to remediate.
+- Involve the maintainers.
+- Maintain the secrecy of the vulnerability until a fixed version of the code is available.
+- Contribute for the benefit of the community rather than expecting compensation where no public bounty program exists.
 
 It's acceptable for vulnerability reporters to disclose a vulnerability publicly after a period of time, if they have tried to contact the maintainers and not received a response, or contacted them and been asked to wait too long to disclose it. 
 
@@ -37,6 +38,7 @@ We recommend vulnerability reporters clearly state the terms of their disclosure
 As a maintainer, it's good practice to clearly indicate how and where you want to receive reports for vulnerabilities. If this information is not clearly available, vulnerability reporters don't know how to contact you, and may resort to extracting developer email addresses from git commit histories to try to find an appropriate security contact. This can lead to friction, lost reports, or the publication of unresolved reports.
 
 Maintainers should disclose vulnerabilities in a timely manner. If there is a security vulnerability in your repository, we recommend you:
+
 - Treat the vulnerability as a security issue rather than a simple bug, both in your response and your disclosure. For example, you'll need to explicitly mention that the issue is a security vulnerability in the release notes.
 - Acknowledge receipt of the vulnerability report as quickly as possible, even if no immediate resources are available for investigation. This sends the message that you are quick to respond and act, and it sets a positive tone for the rest of the interaction between you and the vulnerability reporter.
 - Involve the vulnerability reporter when you verify the impact and veracity of the report. It's likely the vulnerability reporter has already spent time considering the vulnerability in a variety of scenarios, some of which you may have not considered yourself.
