@@ -71,9 +71,6 @@ COPY --chown=node:node --from=builder $APP_HOME/.next $APP_HOME/.next
 # We should always be running in production mode
 ENV NODE_ENV production
 
-# Whether to hide iframes, add warnings to external links
-ENV AIRGAP false
-
 # Preferred port for server.js
 ENV PORT 4000
 
