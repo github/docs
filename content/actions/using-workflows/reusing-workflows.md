@@ -171,7 +171,7 @@ jobs:
 {% ifversion actions-reusable-workflow-matrix %}
 ## Using a matrix strategy with a reusable workflow
 
-Jobs using the matrix strategy, can also call a reusable workflow. You can use the `uses` and `matrix` keywords in the same job.
+Jobs using the matrix strategy can call a reusable workflow.
 
 {% data reusables.actions.jobs.about-matrix-strategy %}. For more information, see "[Using a matrix for your jobs](/actions/using-jobs/using-a-matrix-for-your-jobs)."
 
