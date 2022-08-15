@@ -7,7 +7,7 @@ versions:
   ghes: '*'
 children:
   - /about-github-hosted-runners
-  - /using-high-performance-github-hosted-runners
+  - /using-larger-runners
   - /managing-access-to-github-hosted-runners-using-groups
   - /monitoring-your-current-jobs
   - /customizing-github-hosted-runners

@@ -1,4 +1,4 @@
 # Reference: #6458
-# High performance GitHub-hosted runners
+# Larger GitHub-hosted runners
 versions:
   ghec: '*'

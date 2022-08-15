@@ -1,21 +1,21 @@
 ---
-title: Using high performance GitHub-hosted runners
-intro: '{% data variables.product.prodname_dotcom %} offers more powerful hosted runners for your demanding jobs.'
+title: Using larger runners
+intro: '{% data variables.product.prodname_dotcom %} offers larger runners for your demanding jobs.'
 miniTocMaxHeadingLevel: 3
 versions:
   feature: 'actions-larger-runners'
-shortTitle: Using high performance runners
+shortTitle: Using larger runners
 ---
 
-## Overview of hosted runners
+## Overview of larger runners
 
 In addition to the [standard {% data variables.product.prodname_dotcom %}-hosted runners](/actions/using-github-hosted-runners/about-github-hosted-runners#supported-runners-and-hardware-resources), {% data variables.product.prodname_dotcom %} also offers a range of larger runners with more RAM and CPU. These runners are hosted by {% data variables.product.prodname_dotcom %} and have the runner application and other tools preinstalled. Each runner is only used for one job, and is automatically shut down and wiped after the job has completed.
 
 When you add a hosted runner to an organization, you are defining the hardware and operating system configuration for a customized class of runner. {% data variables.product.prodname_dotcom %} will then create multiple instances of this runner that scale up and down to match the demands of your organization, based on the autoscaling limits you define.
 
-## Architectural overview of hosted runners
+## Architectural overview of larger runners
 
-Hosted runners are managed at the organization level, where they are arranged into groups that can contain multiple instances of the runner. Once you've created a group, you can then add a runner to the group and update your workflows to target the group. You can also control which repositories are permitted to send jobs to the group for processing. For more information about groups, see "[Managing access to GitHub-hosted runners using groups](/actions/using-github-hosted-runners/managing-access-to-github-hosted-runners-using-groups)."
+Larger runners are managed at the organization level, where they are arranged into groups that can contain multiple instances of the runner. Once you've created a group, you can then add a runner to the group and update your workflows to target the group. You can also control which repositories are permitted to send jobs to the group for processing. For more information about groups, see "[Managing access to GitHub-hosted runners using groups](/actions/using-github-hosted-runners/managing-access-to-github-hosted-runners-using-groups)."
 
 In the following diagram, a class of hosted runner named `16-core-ubuntu-runner` has been defined with customized hardware and operating system configuration.
 - Instances of this runner are automatically created and added to a group called `16-core-ubuntu-rg`. 
@@ -25,9 +25,9 @@ In the following diagram, a class of hosted runner named `16-core-ubuntu-runner`
 
 ![Diagram](/assets/images/hosted-runner.png)
 
-## Autoscaling hosted runners
+## Autoscaling larger runners
 
-Hosted runners can be configured to scale automatically. This means that when a job is submitted to a runner group, the group will automatically add a new runner to the group if the group is not already at its maximum capacity. Each runner only processes one job at a time, so these settings effectively determine the number of jobs that can be run concurrently. 
+Larger runners can be configured to scale automatically. This means that when a job is submitted to a runner group, the group will automatically add a new runner to the group if the group is not already at its maximum capacity. Each runner only processes one job at a time, so these settings effectively determine the number of jobs that can be run concurrently. 
 
 You can set following scaling options during the runner deployment process:
 
@@ -35,11 +35,11 @@ You can set following scaling options during the runner deployment process:
 
 **Max** - Allows you to control your costs by setting the maximum parallel number of machines that are created in this set. A higher value here can help avoid workflows being blocked due to parallelism.
 
-## Networking for hosted runners
+## Networking for larger runners
 
-Hosted runners can be configured to use a static IP address from {% data variables.product.prodname_dotcom %}'s dedicated IP address pool. This means that you can connect to your runner from anywhere on the Internet.  All instances of a hosted runner will be assigned a static IP from a range that is unique to the runner.
+larger runners can be configured to use a static IP address from {% data variables.product.prodname_dotcom %}'s dedicated IP address pool. This means that you can connect to your runner from anywhere on the Internet.  All instances of a hosted runner will be assigned a static IP from a range that is unique to the runner.
 
-## Planning for hosted runners
+## Planning for larger runners
 
 ### Create a runner group
 
@@ -51,7 +51,7 @@ When you create a runner group, you can specify a set of labels that will be app
 
 ### Understanding billing
 
-The more powerful hosted runners are billed differently to the standard runners. For more information, see "[Per-minute rates for larger runners](/billing/managing-billing-for-github-actions/about-billing-for-github-actions#per-minute-rates-for-larger-runners)".
+The more powerful larger runners are billed differently to the standard runners. For more information, see "[Per-minute rates for larger runners](/billing/managing-billing-for-github-actions/about-billing-for-github-actions#per-minute-rates-for-hosted-runners)".
 
 ## Adding a new hosted runner to an organization
 
