@@ -1,12 +1,13 @@
 ---
-title: Managing access to GitHub-hosted runners using groups
-intro: You can use policies to limit access to GitHub-hosted runners that have been added to an organization or enterprise.
+title: Controlling access to larger runners
+intro: You can use policies to limit access to larger runners that have been added to an organization or enterprise.
 versions:
   feature: 'actions-larger-runners'
 type: tutorial
-shortTitle: Using runner groups
+shortTitle: Controlling access to larger runners
 ---
 
+{% data reusables.actions.larger-runners-beta %}
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 

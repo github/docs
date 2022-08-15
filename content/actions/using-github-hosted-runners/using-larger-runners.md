@@ -1,17 +1,13 @@
 ---
 title: Using larger runners
-intro: '{% data variables.product.prodname_dotcom %} offers larger runners for your demanding jobs.'
+intro: '{% data variables.product.prodname_dotcom %} offers larger runners with more RAM and CPU.'
 miniTocMaxHeadingLevel: 3
 versions:
   feature: 'actions-larger-runners'
 shortTitle: Using larger runners
 ---
 
-{% note %}
-
-**Note**: Larger runners are currently in beta and subject to change.
-
-{% endnote %}
+{% data reusables.actions.larger-runners-beta %}
 
 ## Overview of larger runners
 
@@ -43,7 +39,7 @@ You can set following scaling options during the runner deployment process:
 
 ## Networking for larger runners
 
-larger runners can be configured to use a static IP address from {% data variables.product.prodname_dotcom %}'s dedicated IP address pool. This means that you can connect to your runner from anywhere on the Internet.  All instances of a hosted runner will be assigned a static IP from a range that is unique to the runner.
+Larger runners can be configured to use a static IP address from {% data variables.product.prodname_dotcom %}'s dedicated IP address pool. This means that you can connect to your runner from anywhere on the Internet.  All instances of a hosted runner will be assigned a static IP from a range that is unique to the runner.
 
 ## Planning for larger runners
 
@@ -57,29 +53,32 @@ When you create a runner group, you can specify a set of labels that will be app
 
 ### Understanding billing
 
-The more powerful larger runners are billed differently to the standard runners. For more information, see "[Per-minute rates for larger runners](/billing/managing-billing-for-github-actions/about-billing-for-github-actions#per-minute-rates-for-hosted-runners)".
+Larger runners are billed differently to the standard runners. For more information, see "[Per-minute rates for hosted runners](/billing/managing-billing-for-github-actions/about-billing-for-github-actions#per-minute-rates-for-hosted-runners)".
 
-## Adding a new hosted runner to an organization
+## Adding a larger runner to an enterprise
 
-This procedure demonstrates how to add a customized class of hosted runner to an organization. You'll be able to choose an operating system and a hardware configuration from the list of available options. When new instances of this runner are deployed through autoscaling, they will use the same operating system and hardware configuration you've defined here..
+You can add larger runners to an enterprise, where they can be assigned to multiple organizations. The organization admins can then control which repositories can use it. To add a self-hosted runner to an enterprise, you must be an enterprise owner.
 
-You can also define the labels that identify the runner group, which is how your workflows will be able to send jobs to the runners for processing (using `runs-on`).
+You'll be able to choose an operating system and a hardware configuration from the list of available options. When new instances of this runner are deployed through autoscaling, they will use the same operating system and hardware configuration you've defined here.
+
+You can also define the labels that identify the runner group, which is how your workflows will be able to send jobs to the runners for processing (using `runs-on`). New runners are assigned to the default group. You can modify the runner's group after you've registered the runner. For more information, see "[Controlling access to larger runners](/actions/using-github-hosted-runners/controlling-access-to-larger-runners)."
+
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.policies-tab %}
+{% data reusables.enterprise-accounts.actions-tab %}
+{% data reusables.enterprise-accounts.actions-runners-tab %}
+{% data reusables.actions.add-larger-runner %}
+
+## Adding a larger runner to an organization
+
+You can add a larger runner to an organization, where the organization admins can control which repositories can use it. You'll be able to choose an operating system and a hardware configuration from the list of available options. When new instances of this runner are deployed through autoscaling, they will use the same operating system and hardware configuration you've defined here.
+
+You can also define the labels that identify the runner group, which is how your workflows will be able to send jobs to the runners for processing (using `runs-on`). New runners are assigned to the default group. You can modify the runner's group after you've registered the runner. For more information, see "[Controlling access to larger runners](/actions/using-github-hosted-runners/controlling-access-to-larger-runners)."
 
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.org_settings %}
 {% data reusables.organizations.settings-sidebar-actions-runners %}
-1. Click **New runner**, then click **{% octicon "mark-github" aria-label="New hosted runner" %} New hosted runner**.
-1. Complete the required details to configure your new runner:
-
-    - **Name**: Enter a name for your new runner. For easier identification, this should indicate its hardware and operating configuration, such as `runner-16-core-ubuntu-20-04`.
-    - **Runner image**: Choose an operating system from the available options. Once you've selected an operating system, you will be able to choose a specific version.
-    - **Runner size**: Choose a hardware configuration from the drop-down list of available options.
-    - **Auto-scaling**: Choose the minimum and maximum number of runners that can be active at any time.
-    - **Runner group**: Choose the group that your runner will be a member of. This group will host multiple instances of your runner, as they scale up and down to suit demand.
-    - **Labels**: Choose the labels that you want to apply to your runner. For easier identification, this should indicate its hardware and operating configuration, such as `16-core-ubuntu-20-04`.
-    - **Networking**: Choose the static IP address range that will be assigned to instances of the hosted runner.
-
-1. Click **Create runner**.
+{% data reusables.actions.add-larger-runner %}
 
 ## Running jobs on your runner
 

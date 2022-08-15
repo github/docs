@@ -8,7 +8,7 @@ versions:
 children:
   - /about-github-hosted-runners
   - /using-larger-runners
-  - /managing-access-to-github-hosted-runners-using-groups
+  - /controlling-access-to-larger-runners
   - /monitoring-your-current-jobs
   - /customizing-github-hosted-runners
   - /connecting-to-a-private-network
