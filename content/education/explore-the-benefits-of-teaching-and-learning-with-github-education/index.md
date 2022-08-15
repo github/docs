@@ -11,6 +11,6 @@ versions:
 children:
   - /use-github-at-your-educational-institution
   - /github-global-campus-for-students
-  - /github-global-campus-for-educators-and-researchers
+  - /github-global-campus-for-teachers
 ---
 

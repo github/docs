@@ -11,7 +11,7 @@ versions:
 children:
   - /about-github-global-campus-for-students
   - /apply-to-github-global-campus-as-a-student
-  - /why-wasnt-my-application-for-a-student-developer-pack-approved
+  - /why-wasnt-my-application-to-global-campus-for-students-approved
   - /about-github-community-exchange
 shortTitle: 'About Global Campus for students'
 ---

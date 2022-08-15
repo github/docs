@@ -15,7 +15,7 @@ In this guide, you'll get started with {% data variables.product.product_name %}
 
 {% tip %}
 
-**Tip**: If you're a student and you'd like to take advantage of an academic discount, see "[Applying for a student developer pack](/github/teaching-and-learning-with-github-education/applying-for-a-student-developer-pack)."
+**Tip**: If you're a student and you'd like to take advantage of an academic discount, see "[Apply to {% data variables.product.prodname_global_campus %} as a student](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-students/apply-to-github-global-campus-as-a-student)."
 
 {% endtip %}
 
@@ -35,9 +35,9 @@ After you create your personal account, create a free organization account. You'
 
 For more information, see "[Types of {% data variables.product.prodname_dotcom %} accounts](/github/getting-started-with-github/types-of-github-accounts)."
 
-## Applying for educator benefits
+## Applying for teacher benefits
 
-Next, you'll sign up for educator benefits and resources from {% data variables.product.company_short %}, including access to {% data variables.product.prodname_global_campus %}, a portal that allows you to access your education benefits all in one place.  {% data reusables.education.educator-requirements %}
+Next, you'll sign up for teacher benefits and resources from {% data variables.product.company_short %}, including access to {% data variables.product.prodname_global_campus %}, a portal that allows you to access your education benefits all in one place.  {% data reusables.education.educator-requirements %}
 
 {% tip %}
 
