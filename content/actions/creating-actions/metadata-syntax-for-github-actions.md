@@ -354,7 +354,7 @@ runs:
 
 #### `runs.steps[*].with`
 
-**Optional**  A `map` of the input parameters defined by the action. Each input parameter is a key/value pair.  Input parameters are set as environment variables. The variable is prefixed with INPUT_ and converted to upper case.
+**Optional**  A `map` of the input parameters defined by the action. Each input parameter is a key/value pair. For more information, see [Example: Specifying inputs](#example-specifying-inputs).
 
 ```yaml
 runs:
