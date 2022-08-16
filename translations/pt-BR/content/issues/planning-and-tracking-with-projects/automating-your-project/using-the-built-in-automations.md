@@ -1,7 +1,7 @@
 ---
-title: Using the built-in automations
-shortTitle: Using built-in automations
-intro: You can use built-in workflows to automate your projects.
+title: Usando as automações integradas
+shortTitle: Usando automações integradas
+intro: Você pode usar fluxos de trabalho integrados para automatizar seus projetos.
 miniTocMaxHeadingLevel: 3
 versions:
   feature: projects-v2
@@ -12,7 +12,7 @@ topics:
 
 {% note %}
 
-**Note:** Built-in workflows are available as part of a limited beta.
+**Observação:** Os fluxos de trabalho integrados estão disponíveis como parte de um beta limitado.
 
 {% endnote %}
 

@@ -1,3 +1,3 @@
-The {% data variables.product.prodname_dependency_review_action %} scans your pull requests for dependency changes and raises an error if any new dependencies have known vulnerabilities. The action is supported by an API endpoint that compares the dependencies between two revisions and reports any differences.
+{% data variables.product.prodname_dependency_review_action %}はPull Requestをスキャンして依存関係の変更を探し、脆弱性があることが知られている新しい依存関係があればエラーを発生させます。 このアクションは、2つのリビジョン間で依存関係を比較し、差異があれば報告するAPIエンドポイントによってサポートされています。
 
-For more information about the action and the API endpoint, see "[About dependency review](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review#dependency-review-reinforcement)," and "[Dependency review](/rest/dependency-graph/dependency-review)" in the API documentation, respectively.
+このアクションとAPIエンドポイントに関する詳しい情報については、それぞれ「[依存関係レビューについて](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review#dependency-review-reinforcement)」及びAPIドキュメンテーションの「[依存関係レビュー](/rest/dependency-graph/dependency-review)を参照してください。

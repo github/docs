@@ -1,7 +1,7 @@
 ---
 title: Allowing a prebuild to access other repositories
 shortTitle: Allow external repo access
-intro: 'You can permit your prebuild template access to other {% data variables.product.prodname_dotcom %} repositories so that it can be built successfully.'
+intro: 'You can permit your prebuild to access other {% data variables.product.prodname_dotcom %} repositories so that it can be built successfully.'
 versions:
   fpt: '*'
   ghec: '*'
@@ -55,7 +55,7 @@ You will need to create a new personal account and then use this account to crea
 1. Sign back into the account that has admin access to the repository.
 1. In the repository for which you want to create {% data variables.product.prodname_codespaces %} prebuilds, create a new {% data variables.product.prodname_codespaces %} repository secret called `CODESPACES_PREBUILD_TOKEN`, giving it the value of the token you created and copied. For more information, see "[Managing encrypted secrets for your repository and organization for {% data variables.product.prodname_github_codespaces %}](/codespaces/managing-codespaces-for-your-organization/managing-encrypted-secrets-for-your-repository-and-organization-for-github-codespaces#adding-secrets-for-a-repository)."
 
-The PAT will be used for all subsequent prebuild templates created for your repository. Unlike other {% data variables.product.prodname_codespaces %} repository secrets, the `CODESPACES_PREBUILD_TOKEN` secret is only used for prebuilding and will not be available to use in codespaces created from your repository.
+The PAT will be used for all subsequent prebuilds created for your repository. Unlike other {% data variables.product.prodname_codespaces %} repository secrets, the `CODESPACES_PREBUILD_TOKEN` secret is only used for prebuilding and will not be available to use in codespaces created from your repository.
 
 ## 参考リンク
 

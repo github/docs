@@ -1,7 +1,7 @@
 {% ifversion git-events-audit-log %}
 {% note %}
 
-**Note:** Git events are not included in search results.
+**ノート:** Gitイベントは検索結果に含まれません。
 
 {% endnote %}
 {% endif %}

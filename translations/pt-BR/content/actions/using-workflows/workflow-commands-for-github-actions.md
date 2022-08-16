@@ -625,7 +625,7 @@ Para strings linha múltipla, você pode usar um delimitador com a seguinte sint
 
 {% warning %}
 
-**Warning:** Make sure the delimiter you're using is randomly generated and unique for each run. For more information, see "[Understanding the risk of script injections](/actions/security-guides/security-hardening-for-github-actions#understanding-the-risk-of-script-injections)".
+**Aviso:** Certifique-se de que o delimitador que você está usando é gerado aleatoriamente e exclusivo para cada execução. Para obter mais informações, consulte "[Entender o risco de injeções de scripts](/actions/security-guides/security-hardening-for-github-actions#understanding-the-risk-of-script-injections)".
 
 {% endwarning %}
 
