@@ -238,13 +238,13 @@ sections:
       heading: Los eventos de Git en la bitácora de auditoría empresarial
       notes:
         - |
-          The following Git-related events can now appear in the enterprise audit log. If you enable the feature and set an audit log retention period, the new events will be available for search via the UI and API, or export via JSON or CSV.
+          Los siguientes eventos relacionados con Git ahora pueden aparecer en la bitácora de auditoría de la empresa. Si habilitas la característica y configuras un periodo de retención de bitácoras de auditoría, los eventos nuevos estarán disponibles para su búsqueda a través de la IU y la API o para exportarlos por JSON o CSV.
 
           - `git.clone`
           - `git.fetch`
           - `git.push`
 
-          Due to the large number of Git events logged, we recommend you monitor your instance's file storage and review your related alert configurations. For more information, see "[Configuring the audit log for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/configuring-the-audit-log-for-your-enterprise#managing-git-events-in-the-audit-log)."
+          Debido a la gran cantidad de eventos de Git registrados, te recomendamos que monitorees el almacenamiento de archivos de tu instancia y revises tus configuraciones de alertas relacionadas. Para obtener más información, consulta la sección "[Configurar la bitácora de auditoría para tu empresa](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/configuring-the-audit-log-for-your-enterprise#managing-git-events-in-the-audit-log)".
     - 
       heading: Mejoras a CODEOWNERS
       notes:

@@ -1,6 +1,6 @@
 ---
-title: Apply for an educator or researcher discount
-intro: 'If you''re an educator or a researcher, you can apply to receive {% data variables.product.prodname_team %} for your organization account for free.'
+title: 'Apply to GitHub Global Campus as a teacher'
+intro: 'If you''re a teacher, you can apply to join {% data variables.product.prodname_global_campus %} and receive access to the resources and benefits of {% data variables.product.prodname_education %}.'
 redirect_from:
   - /education/teach-and-learn-with-github-education/apply-for-an-educator-or-researcher-discount
   - /github/teaching-and-learning-with-github-education/applying-for-an-educator-or-researcher-discount
@@ -10,11 +10,12 @@ redirect_from:
   - /articles/applying-for-a-discount-for-your-first-robotics-team
   - /articles/applying-for-an-educator-or-researcher-discount
   - /education/explore-the-benefits-of-teaching-and-learning-with-github-education/apply-for-an-educator-or-researcher-discount
+  - /education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-in-your-classroom-and-research/apply-for-an-educator-or-researcher-discount
 versions:
   fpt: '*'
-shortTitle: Apply for a discount
+shortTitle: Apply to Global Campus
 ---
-## About educator and researcher discounts
+## About teacher discounts
 
 {% data reusables.education.about-github-education-link %}
 
@@ -22,7 +23,7 @@ shortTitle: Apply for a discount
 
 For more information about personal accounts on {% data variables.product.product_name %}, see "[Signing up for a new {% data variables.product.prodname_dotcom %} account](/github/getting-started-with-github/signing-up-for-a-new-github-account)."
 
-## Applying for an educator or researcher discount
+## Applying to {% data variables.product.prodname_global_campus %}
 
 {% data reusables.education.benefits-page %}
 {% data reusables.education.click-get-teacher-benefits %}
@@ -34,7 +35,7 @@ For more information about personal accounts on {% data variables.product.produc
 
 ## Further reading
 
-- "[Why wasn't my application for an educator or researcher discount approved?](/articles/why-wasn-t-my-application-for-an-educator-or-researcher-discount-approved)"
+- "[Why wasn't my application to Global Campus for teachers approved?](/articles/why-wasn-t-my-application-for-an-educator-or-researcher-discount-approved)"
 - [{% data variables.product.prodname_education %}](https://education.github.com)
 - [{% data variables.product.prodname_classroom %} Videos](https://classroom.github.com/videos)
 - [{% data variables.product.prodname_education_community %}]({% data variables.product.prodname_education_forum_link %})
