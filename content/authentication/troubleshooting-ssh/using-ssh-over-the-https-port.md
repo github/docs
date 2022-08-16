@@ -60,3 +60,7 @@ $ ssh -T git@{% data variables.command_line.codeblock %}
 > Hi <em>username</em>! You've successfully authenticated, but GitHub does not
 > provide shell access.
 ```
+
+## Known Hosts Requirements
+
+Add [ssh.github.com]:443 to applications that use known_hosts, see "[Github's SSH key fingerprints](authentication/keeping-your-account-and-data-secure/githubs-ssh-key-fingerprints)"
