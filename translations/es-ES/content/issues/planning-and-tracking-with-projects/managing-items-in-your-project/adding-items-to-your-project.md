@@ -30,7 +30,7 @@ Tu proyecto puede rastrear borradores de propuestas, propuestas, y solicitudes d
 {% data reusables.projects.add-item-bottom-row %}
 2. Enter <kbd>#</kbd>.
 3. Selecciona el repositorio en donde se ubica la solicitud de cambios o propuesta. Puedes teclear la parte del nombre de repositorio para reducir tus opciones. ![Screenshot showing pasting an issue URL to add it to the project](/assets/images/help/projects-v2/add-item-select-repo.png)
-4. Selecciona la propuesta o solicitud de cambios. Puedes teclear parte del título para reducir tus opciones. ![Screenshot showing pasting an issue URL to add it to the project](/assets/images/help/projects-v2/add-item-select-issue.png)
+4. Selecciona la propuesta o solicitud de cambios. Puedes teclear parte del título para reducir tus opciones. ![Captura de pantalla que muestra el pegado de una URL de propuesta para agregarlo al proyecto](/assets/images/help/projects-v2/add-item-select-issue.png)
 
 #### Bulk adding issues and pull requests
 

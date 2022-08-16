@@ -1,7 +1,7 @@
 ---
-title: Understanding field types
-shortTitle: Understanding field types
-intro: 'Learn about the different custom field types, how to add custom fields to your project, and how to manage custom fields.'
+title: フィールドタイプを理解する
+shortTitle: フィールドタイプを理解する
+intro: 様々なカスタムフィールドについて、そしてプロジェクトへのカスタムフィールドの追加の方法、カスタムフィールドの管理の方法について学んでください。
 versions:
   feature: projects-v2
 topics:

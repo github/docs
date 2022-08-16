@@ -18,11 +18,26 @@ Por padrão, os seus códigos têm acesso a todos os recursos na internet públi
 
 ## Conectando-se a recursos em uma rede privada
 
-O método atualmente compatível para acessar os recursos em uma rede privada é usar uma VPN. Atualmente, não se recomenda permitir o acesso aos IPs de códigos, pois isso permitiria que todos os códigos (seus e dos de outros clientes) acessassem os recursos protegidos pela rede.
+Atualmente, há dois métodos para acessar a recursos em rede privada dentro dos codespaces.
+- Usando uma extensão de {% data variables.product.prodname_cli %} para configurar sua máquina local como gateway para recursos remotos.
+- Usando uma VPN.
+
+### Usando a extensão do GitHub CLI para acessar recursos remotos
+
+{% note %}
+
+**Observação**: A extensão de {% data variables.product.prodname_cli %} está atualmente na versão beta e sujeita a alterações.
+
+{% endnote %}
+
+A extensão de {% data variables.product.prodname_cli %} permite que você crie uma ponte entre um codespace e sua máquina local para que o código possa acessar qualquer recurso remoto que possa ser acessado pela sua máquina. O código usa a sua máquina local como um gateway de rede para acessar esses recursos. Para obter mais informações, consulte "[Usando {% data variables.product.prodname_cli %} para acessar recursos remotos](https://github.com/github/gh-net#codespaces-network-bridge)."
+
+
+
 
 ### Usar uma VPN para acessar recursos por trás de uma rede privada
 
-A maneira mais fácil de acessar os recursos por trás de uma rede privada é criar uma VPN nessa rede de dentro do seu codespace.
+Como alternativa à extensão de {% data variables.product.prodname_cli %}, você pode usar uma VPN para acessar recursos de uma rede privada a partir de seu codespace.
 
 Recomendamos ferramentas de VPN como, por exemplo, [OpenVPN](https://openvpn.net/) para acessar recursos em uma rede privada. Para obter mais informações, consulte "[Usando o cliente da OpenVPN em codespaces do GitHub](https://github.com/codespaces-contrib/codespaces-openvpn)".
 

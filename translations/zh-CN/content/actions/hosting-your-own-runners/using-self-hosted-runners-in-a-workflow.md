@@ -63,7 +63,7 @@ runs-on: [self-hosted, linux, x64, gpu]
 - `x64` - 仅使用基于 x64 硬件的运行器。
 - `gpu` - 此自定义标签已被手动分配给安装了 GPU 硬件的自托管运行器。
 
-这些标签累计运行，所以自托管运行器的标签必须匹配所有四个标签才能处理该作业。
+These labels operate cumulatively, so a self-hosted runner must have all four labels to be eligible to process the job.
 
 ## 自托管运行器的路由优先级
 

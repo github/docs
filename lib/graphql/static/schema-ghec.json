@@ -75630,16 +75630,16 @@
           "description": "<p>Single Select.</p>"
         },
         {
+          "name": "TASKS",
+          "description": "<p>Tasks.</p>"
+        },
+        {
           "name": "TEXT",
           "description": "<p>Text.</p>"
         },
         {
           "name": "TITLE",
           "description": "<p>Title.</p>"
-        },
-        {
-          "name": "TRACKS",
-          "description": "<p>Tracks.</p>"
         }
       ]
     },
@@ -75800,16 +75800,16 @@
           "description": "<p>Single Select.</p>"
         },
         {
+          "name": "TASKS",
+          "description": "<p>Tasks.</p>"
+        },
+        {
           "name": "TEXT",
           "description": "<p>Text.</p>"
         },
         {
           "name": "TITLE",
           "description": "<p>Title.</p>"
-        },
-        {
-          "name": "TRACKS",
-          "description": "<p>Tracks.</p>"
         }
       ]
     },
@@ -86910,6 +86910,14 @@
           "id": "uri",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#uri"
+        },
+        {
+          "name": "targetRepoVisibility",
+          "description": "<p>The visibility of the imported repository.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
         }
       ]
     },

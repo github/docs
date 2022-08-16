@@ -1,6 +1,6 @@
 ---
 title: Administrar los debates
-intro: 'You can categorize, spotlight, transfer, or delete the discussions.'
+intro: 'Puedes categorizar, resaltar, transferir o borrar los debates.'
 permissions: Repository administrators and people with write or greater access to a repository can manage discussions in the repository. Repository administrators and people with write or greater access to the source repository for organization discussions can manage discussions in the organization.
 versions:
   feature: discussions
@@ -14,9 +14,9 @@ redirect_from:
 
 {% data reusables.discussions.about-discussions %} Para obtener más información sobre los debates, consulta la sección "[Acerca de los debates](/discussions/collaborating-with-your-community-using-discussions/about-discussions)".
 
-Organization owners can choose the permissions required to create a discussion in repositories owned by the organization. Similarly, to choose the permissions required to create an organization discussion, organization owners can change the permissions required in the source repository. Para obtener más información, consulta la sección "[Administrar la creación de debates para los repositorios de tu organización](/organizations/managing-organization-settings/managing-discussion-creation-for-repositories-in-your-organization)".
+Los propietarios de la organización pueden elegir los permisos que se requieren para crear un debate en los repositorios que pertenezcan a la organización. Del mismo modo, para elegir los permisos requeridos para crear un debate de organización, los propietarios de organización pueden cambiar los permisos requeridos en el repositorio origen. Para obtener más información, consulta la sección "[Administrar la creación de debates para los repositorios de tu organización](/organizations/managing-organization-settings/managing-discussion-creation-for-repositories-in-your-organization)".
 
-Como mantenedor de debates, puedes crear recursos comunitarios para impulsar los debates que se alinien con la meta general del proyecto y mantener así un foro abierto y amistoso para los colaboradores. Creating{% ifversion fpt or ghec %} a code of conduct or{% endif %} contribution guidelines for collaborators to follow will help facilitate a collaborative and productive forum. For more information on creating community resources, see{% ifversion fpt or ghec %} "[Adding a code of conduct to your project](/communities/setting-up-your-project-for-healthy-contributions/adding-a-code-of-conduct-to-your-project)," and{% endif %} "[Setting guidelines for repository contributors](/communities/setting-up-your-project-for-healthy-contributions/setting-guidelines-for-repository-contributors)."
+Como mantenedor de debates, puedes crear recursos comunitarios para impulsar los debates que se alinien con la meta general del proyecto y mantener así un foro abierto y amistoso para los colaboradores. Crear{% ifversion fpt or ghec %} un código de conducta o{% endif %} lineamientos de contribución para que sigan los colaboradores ayudará a facilitar un foro productivo y colaborativo. Para obtener más información sobre cómo crear recursos comunitarios, consulta las secciones{% ifversion fpt or ghec %} "[Agregar un código de conducta a tu proyecto](/communities/setting-up-your-project-for-healthy-contributions/adding-a-code-of-conduct-to-your-project)" y{% endif %} "[Configurar los lineamientos para los contribuyentes de un repositorio](/communities/setting-up-your-project-for-healthy-contributions/setting-guidelines-for-repository-contributors)".
 
 Cuando un debate produce una idea o error que está listo para solucionarse, puedes crear una propuesta nueva desde un debate. Para obtener más información, consulta la sección "[Crear una propuesta](/issues/tracking-your-work-with-issues/creating-an-issue#creating-an-issue-from-a-discussion)".
 
@@ -28,13 +28,13 @@ Para obtener más información sobre cómo proporcionar un debate sano, consulta
 
 Para administrar los debates en un repositorio, debes habilitar los {% data variables.product.prodname_discussions %} en este. Para obtener más información, consulta la sección "[Habilitar o inhabilitar los {% data variables.product.prodname_discussions %} para un repositorio](/github/administering-a-repository/enabling-or-disabling-github-discussions-for-a-repository)".
 
-To manage discussions in an organization, {% data variables.product.prodname_discussions %} must be enabled for the organization. Para obtener más información, consulta la sección "[Habilitar o inhabilitar los {% data variables.product.prodname_discussions %} para una organización](/organizations/managing-organization-settings/enabling-or-disabling-github-discussions-for-an-organization)".
+Para administrar los debates en una organización, {% data variables.product.prodname_discussions %} debe estar habilitado en ella. Para obtener más información, consulta la sección "[Habilitar o inhabilitar los {% data variables.product.prodname_discussions %} para una organización](/organizations/managing-organization-settings/enabling-or-disabling-github-discussions-for-an-organization)".
 
 ## Cambiar la categoría de un debate
 
 Puedes categorizar los debates para ayudar a que los miembros de la comunidad encuentren aquellos que tengan alguna relación. Para obtener más información, consulta la sección "[Administrar las categorías de los debates](/discussions/managing-discussions-for-your-community/managing-categories-for-discussions)".
 
-También puedes migrar un debate a una categoría diferente. It's not possible to move a discussion to or from the polls category.
+También puedes migrar un debate a una categoría diferente. No es posible mover un debate hacia o desde la categoría de encuestas.
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.discussions.discussions-tab %}
@@ -44,7 +44,7 @@ También puedes migrar un debate a una categoría diferente. It's not possible t
 
 ## Fijar un debate
 
-You can pin up to four important discussions above the list of discussions for the repository or organization.
+Puedes fijar hasta cuatro debates importantes arriba de la lista de debates para la organización o repositorio.
 
 {% data reusables.discussions.navigate-to-repo-or-org %}
 {% data reusables.discussions.discussions-tab %}
@@ -74,13 +74,13 @@ Editar un debate que se ha fijado no cambiará la categoría del mismo. Para obt
 
 ## Transferir un debate
 
-Para transferir un debate, debes tener permisos para crear debates en el repositorio a donde quieras trasnferirlo. If you want to transfer a discussion to an organization, you must have permissions to create discussions in the source repository for the organization's discussions. Solo puedes transferir debates entre los repositorios que pertenezcan a la misma cuenta de organización o de usuario. You can't transfer a discussion from a private{% ifversion ghec or ghes %} or internal{% endif %} repository to a public repository.
+Para transferir un debate, debes tener permisos para crear debates en el repositorio a donde quieras trasnferirlo. Si quieres transferir un debate a una organización, debes tener permisos para crear debates en el repositorio origen de los debates de dicha organización. Solo puedes transferir debates entre los repositorios que pertenezcan a la misma cuenta de organización o de usuario. No puedes transferir un debate desde un repositorio privado{% ifversion ghec or ghes %} o interno{% endif %} hacia uno público.
 
 {% data reusables.discussions.navigate-to-repo-or-org %}
 {% data reusables.discussions.discussions-tab %}
 {% data reusables.discussions.click-discussion-in-list %}
 1. En la barra laeral derecha, da clic en {% octicon "arrow-right" aria-label="The right arrow icon" %} **Transferir debate**. !["transferir debate" en la barra lateral derecha del mismo](/assets/images/help/discussions/click-transfer-discussion.png)
-1. Selecciona el menú desplegable de **Elige un repositorio** y da clic en aquél al que quieras transferir el debate. If you want to transfer a discussion to an organization, choose the source repository for the organization's discussions. ![Menú desplegable de "Elige un repositorio", campo de búsqueda de "Encuentra un repositorio", y repositorio en la lista](/assets/images/help/discussions/use-choose-a-repository-drop-down.png)
+1. Selecciona el menú desplegable de **Elige un repositorio** y da clic en aquél al que quieras transferir el debate. Si quieres transferir un debate a una organización, elige el repositorio origen para los debates de esta. ![Menú desplegable de "Elige un repositorio", campo de búsqueda de "Encuentra un repositorio", y repositorio en la lista](/assets/images/help/discussions/use-choose-a-repository-drop-down.png)
 1. Da clic en **Transferir debate**. ![Botón de "Transferir debate"](/assets/images/help/discussions/click-transfer-discussion-button.png)
 
 ## Borrar un debate
@@ -95,7 +95,7 @@ Para transferir un debate, debes tener permisos para crear debates en el reposit
 
 Puedes convertir todas las propuestas con la misma etiqueta en debates, por lote. Las propuestas subsecuentes que tengan esta etiqueta también se convertirán automáticamente en el debate y categoría que configures.
 
-1. On {% data variables.product.product_location %}, navigate to the main page of the repository or, for organization discussions, the source repository.
+1. En {% data variables.product.product_location %}, navega a la página principal del repositorio o, para los debates de organización, el repositorio origen.
 {% data reusables.repositories.sidebar-issues %}
 {% data reusables.project-management.labels %}
 1. Junto a la etiqueta que quieras convertir en una propuesta, da clic en **Convertir propuestas**.

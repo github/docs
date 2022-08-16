@@ -11,8 +11,6 @@ import morgan from 'morgan'
 import datadog from './connect-datadog.js'
 import helmet from './helmet.js'
 import cookieParser from './cookie-parser.js'
-import csrf from './csrf.js'
-import handleCsrfErrors from './handle-csrf-errors.js'
 import { setDefaultFastlySurrogateKey } from './set-fastly-surrogate-key.js'
 import reqUtils from './req-utils.js'
 import recordRedirect from './record-redirect.js'
@@ -55,7 +53,6 @@ import assetPreprocessing from './asset-preprocessing.js'
 import archivedAssetRedirects from './archived-asset-redirects.js'
 import favicons from './favicons.js'
 import setStaticAssetCaching from './static-asset-caching.js'
-import protect from './overload-protection.js'
 import fastHead from './fast-head.js'
 import fastlyCacheTest from './fastly-cache-test.js'
 import fastRootRedirect from './fast-root-redirect.js'
@@ -100,15 +97,6 @@ export default function (app) {
   //
   app.set('trust proxy', true)
 
-  // *** Overload Protection ***
-  // Only used in production because our tests can overload the server
-  if (
-    process.env.NODE_ENV === 'production' &&
-    !JSON.parse(process.env.DISABLE_OVERLOAD_PROTECTION || 'false')
-  ) {
-    app.use(protect)
-  }
-
   // *** Request logging ***
   if (ENABLE_DEV_LOGGING) {
     app.use(morgan('dev'))
@@ -124,8 +112,7 @@ export default function (app) {
   // for static assets as well.
   app.use(setDefaultFastlySurrogateKey)
 
-  // Must come before `csrf` otherwise you get a Set-Cookie on successful
-  // asset requests. And it can come before `rateLimit` because if it's a
+  // It can come before `rateLimit` because if it's a
   // 200 OK, the rate limiting won't matter anyway.
   // archivedEnterpriseVersionsAssets must come before static/assets
   app.use(
@@ -181,8 +168,7 @@ export default function (app) {
 
   // In development, let NextJS on-the-fly serve the static assets.
   // But in production, don't let NextJS handle any static assets
-  // because they are costly to generate (the 404 HTML page)
-  // and it also means that a CSRF cookie has to be generated.
+  // because they are costly to generate (the 404 HTML page).
   if (process.env.NODE_ENV !== 'development') {
     const assetDir = path.join('.next', 'static')
     if (!fs.existsSync(assetDir))
@@ -208,15 +194,12 @@ export default function (app) {
 
   // *** Security ***
   app.use(helmet)
-  app.use(cookieParser) // Must come before csrf
-  app.use(express.json()) // Must come before csrf
+  app.use(cookieParser)
+  app.use(express.json())
 
   if (ENABLE_FASTLY_TESTING) {
-    app.use(fastlyBehavior) // FOR TESTING. Must come before csrf
+    app.use(fastlyBehavior) // FOR TESTING.
   }
-
-  app.use(csrf)
-  app.use(handleCsrfErrors) // Must come before regular handle-errors
 
   // *** Headers ***
   app.set('etag', false) // We will manage our own ETags if desired
@@ -247,7 +230,7 @@ export default function (app) {
 
   // *** Rendering, 2xx responses ***
   app.use('/api', instrument(api, './api'))
-  app.use('/search', instrument(search, './search'))
+  app.use('/search', instrument(search, './search')) // The old search API
   app.use('/healthz', instrument(healthz, './healthz'))
   app.use('/anchor-redirect', instrument(anchorRedirect, './anchor-redirect'))
   app.get('/_ip', instrument(remoteIP, './remoteIP'))

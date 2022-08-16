@@ -34,7 +34,7 @@ Existem vários recursos de segurança que um sistema de construção deve ter:
 
 3. Cada compilação deve começar em um ambiente fresco, então uma construção comprometida não persiste para afetar futuras compilações.
 
-{% data variables.product.prodname_actions %} pode ajudar você a atender a esses recursos. As instruções de compilação são armazenadas no seu repositório, junto com seu código. Você escolhe o ambiente em que sua compilação é executada, incluindo Windows, Mac, Linux ou executores que você mesmo hospeda. Cada compilação começa com um novo ambiente virtual, o que torna difícil para um ataque persistir no seu ambiente de compilação.
+{% data variables.product.prodname_actions %} pode ajudar você a atender a esses recursos. As instruções de compilação são armazenadas no seu repositório, junto com seu código. Você escolhe o ambiente em que sua compilação é executada, incluindo Windows, Mac, Linux ou executores que você mesmo hospeda. Cada compilação começa com uma imagem de executor nova, o que dificulta a persistência de um ataque no seu ambiente de construção.
 
 Além dos benefícios de segurança, {% data variables.product.prodname_actions %} permite que você acione compilações manualmente, periodicamente ou em eventos do git no seu repositório para compilações frequentes e rápidas.
 

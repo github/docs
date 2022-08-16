@@ -18,6 +18,8 @@ Verificar seu domínio impede que outros usuários do GitHub de assumir seu dom�
 
 Ao verificar um domínio, todos os subdomínios imediatos também são incluídos na verificação. Por exemplo, se o domínio personalizado `github.com` for verificado, `docs.github.com`, `support.github.com` e todos os outros subdomínios imediatos também estarão protegidos contra a tomada de controle.
 
+{% data reusables.pages.wildcard-dns-warning %}
+
 Também é possível verificar um domínio para sua organização{% ifversion ghec %} ou empresa{% endif %}, que exibe um selo "Verificado" na organização {% ifversion ghec %}ou no perfil da empresa{% endif %}{% ifversion ghec %} e, em {% data variables.product.prodname_ghe_cloud %}, permite que você restrinja notificações para endereços de e-mail usando o domínio verificado{% endif %}. Para obter mais informações, consulte "[Verificando ou aprovando um domínio para a sua organização](/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization){% ifversion ghec %}" e "[Verificando ou aprovando um domínio para a sua empresa](/enterprise-cloud@latest/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise){% endif %}".
 
 ## Verificando um domínio para o seu site de usuário

@@ -1,7 +1,7 @@
 ---
-title: 'Adding your {% data variables.projects.project_v2 %} to a repository'
-shortTitle: 'Adding a {% data variables.projects.project_v2 %} to a repo'
-intro: 'You can add your {% data variables.projects.project_v2 %} to a repository to make it accessible from that repository.'
+title: '{% data variables.projects.project_v2 %}のリポジトリへの追加'
+shortTitle: '{% data variables.projects.project_v2 %}のリポジトリへの追加'
+intro: '{% data variables.projects.project_v2 %}をリポジトリへ追加して、リポジトリからアクセスできるようにすることができます。'
 miniTocMaxHeadingLevel: 3
 versions:
   feature: projects-v2
@@ -13,10 +13,10 @@ allowTitleToDifferFromFilename: true
 
 リポジトリ中で、関連するプロジェクトをリストできます。 リストできるのは、リポジトリを所有している同じユーザもしくはOrganizationが所有しているプロジェクトだけです。
 
-リポジトリのメンバーがリストされているプロジェクトを見るためには、そのプロジェクトを見ることができなければなりません。 For more information, see "[Managing visibility of your {% data variables.projects.projects_v2 %}](/issues/planning-and-tracking-with-projects/managing-your-project/managing-visibility-of-your-projects)" and "[Managing access to your {% data variables.projects.projects_v2 %}](/issues/planning-and-tracking-with-projects/managing-your-project/managing-access-to-your-projects)."
+リポジトリのメンバーがリストされているプロジェクトを見るためには、そのプロジェクトを見ることができなければなりません。 詳しい情報については「[{% data variables.projects.projects_v2 %}の可視性の管理](/issues/planning-and-tracking-with-projects/managing-your-project/managing-visibility-of-your-projects)」及び「[{% data variables.projects.projects_v2 %}へのアクセスの管理](/issues/planning-and-tracking-with-projects/managing-your-project/managing-access-to-your-projects)」を参照してください。
 
 1. {% data variables.product.prodname_dotcom %}で、リポジトリのメインページにアクセスしてください。
-1. {% octicon "table" aria-label="the project icon" %} **Projects（プロジェクト）**をクリックしてください。 ![Screenshot showing projects tab in a repository](/assets/images/help/projects-v2/repo-tab.png)
-1. **Add project（プロジェクトの追加）**をクリックしてください。 ![Screenshot showing "Add project" button](/assets/images/help/projects-v2/add-to-repo-button.png)
-1. In the search bar that appears, search for projects that are owned by the same user or organization that owns the repository. ![Screenshot showing searching for a project](/assets/images/help/projects-v2/add-to-repo-search.png)
-1. Click on a project to list it in your repository. ![Screenshot showing "Add project" button](/assets/images/help/projects-v2/add-to-repo.png)
+1. {% octicon "table" aria-label="the project icon" %} **Projects（プロジェクト）**をクリックしてください。 ![リポジトリのプロジェクトタブが表示されているスクリーンショット](/assets/images/help/projects-v2/repo-tab.png)
+1. **Add project（プロジェクトの追加）**をクリックしてください。 !["Add project"ボタンが表示されているスクリーンショット](/assets/images/help/projects-v2/add-to-repo-button.png)
+1. 表示される検索バーで、リポジトリを所有しているのと同じユーザあるいはOrganizationが所有しているプロジェクトを検索してください。 ![プロジェクトを検索しているところを表示しているスクリーンショット](/assets/images/help/projects-v2/add-to-repo-search.png)
+1. リポジトリでリストされているプロジェクトをクリックしてください。 !["Add project"ボタンが表示されているスクリーンショット](/assets/images/help/projects-v2/add-to-repo.png)

@@ -17,7 +17,7 @@ topics:
 Puedes ver tu proyecto como una tabla o como un tablero.
 
 {% data reusables.projects.open-view-menu %}
-1. Under "Layout", click either **Table** or **Board**. ![Screenshot showing layout option](/assets/images/help/projects-v2/table-or-board.png)
+1. Under "Layout", click either **Table** or **Board**. ![Captura de pantalla que muestra la opción de diseño](/assets/images/help/projects-v2/table-or-board.png)
 
 
 
@@ -81,8 +81,8 @@ En el diseño de tabla, puedes agrupar elementos por un valor de campo personali
 {% endnote %}
 
 {% data reusables.projects.open-view-menu %}
-1. Click {% octicon "rows" aria-label="the rows icon" %} **Group**. ![Screenshot showing the group menu item](/assets/images/help/projects-v2/group-menu-item.png)
-1. Click the field you want to group by. ![Screenshot showing the group menu](/assets/images/help/projects-v2/group-menu.png)
+1. Haz clic en {% octicon "rows" aria-label="the rows icon" %} **Grupo**. ![Captura de pantalla que muestra el elemento de menú de grupo](/assets/images/help/projects-v2/group-menu-item.png)
+1. Click the field you want to group by. ![Captura de pantalla que muestra el menú de grupo](/assets/images/help/projects-v2/group-menu.png)
 2. Optionally, to disable grouping, click {% octicon "x" aria-label="the x icon" %} **No grouping** at the bottom of the list. ![Screenshot showing "no grouping"](/assets/images/help/projects-v2/no-grouping.png)
 
 Alternatively, open the project command palette by pressing {% data variables.projects.command-palette-shortcut %} and start typing "Group by."

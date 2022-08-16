@@ -6,7 +6,6 @@ import { beforeAll, jest } from '@jest/globals'
 import nock from 'nock'
 import japaneseCharacters from 'japanese-characters'
 
-import '../../lib/feature-flags.js'
 import { getDOM, getJSON } from '../helpers/e2etest.js'
 import enterpriseServerReleases from '../../lib/enterprise-server-releases.js'
 

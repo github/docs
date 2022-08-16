@@ -33,7 +33,6 @@ shortTitle: 使用 GraphQL 建立调用
 
 ```
 repo
-repo_deployment
 read:packages
 read:org
 read:public_key

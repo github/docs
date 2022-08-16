@@ -45,6 +45,11 @@ Wikis 可显示 PNG、JPEG 和 GIF 图片。
 
     [[https://github.com/USERNAME/REPOSITORY/blob/main/img/octocat.png|alt=octocat]]
 
+{% ifversion fpt or ghec or ghes > 3.6 or ghae-issue-7647 %}
+## Adding mathematical expressions and diagrams{% endif %}
+
+{% data reusables.getting-started.math-and-diagrams %}
+
 ## 受支持的 MediaWiki 格式
 
 无论您的 wiki 页面以哪种标记语言编写，始终可使用某些 MediaWiki 语法。

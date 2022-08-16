@@ -1,5 +1,6 @@
 import { cacheControlFactory } from './cache-control.js'
-import { PREFERRED_LOCALE_COOKIE_NAME, getLanguageCodeFromHeader } from './detect-language.js'
+import { getLanguageCodeFromHeader } from './detect-language.js'
+import { PREFERRED_LOCALE_COOKIE_NAME } from '../lib/constants.js'
 
 const cacheControl = cacheControlFactory(0)
 

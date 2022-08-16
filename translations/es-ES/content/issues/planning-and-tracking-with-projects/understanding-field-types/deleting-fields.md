@@ -10,6 +10,6 @@ topics:
 ---
 
 {% data reusables.projects.project-settings %}
-1. Click the name of the field you want to delete. ![Screenshot showing an iteration field](/assets/images/help/projects-v2/select-single-select.png)
+1. Click the name of the field you want to delete. ![Captura de pantalla que muestra un campo de iteración](/assets/images/help/projects-v2/select-single-select.png)
 1. Next to the field's name, click {% octicon "kebab-horizontal" aria-label="The menu icon" %} to open the menu. ![Screenshot showing field name](/assets/images/help/projects-v2/field-options.png)
-1. Click **Delete field**. ![Screenshot showing field name](/assets/images/help/projects-v2/delete-field.png)
+1. Click **Delete field**. ![Captura de pantalla que muestra el nombre del campo](/assets/images/help/projects-v2/delete-field.png)
