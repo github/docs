@@ -6,7 +6,7 @@ redirect_from:
   - /early-access/integrations/authentication
   - /early-access/integrations/install-an-integration
   - /apps/adding-integrations
-  - /apps/building-integrations/setting-up-a-new-integration/about-integrations
+  - /apps/building-integrations/setting-up-a-newintegration/about-integrations
   - /apps
   - /v3/integrations
 versions:
