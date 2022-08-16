@@ -1,1 +1,1 @@
-1. サイトの公開ソースにアクセスしてください。 For more information, see "[Configuring a publishing source for your GitHub Pages site](/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)."
+1. サイトの公開ソースにアクセスしてください。 詳しい情報については[GitHub Pagesサイトのための公開ソースの設定](/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)を参照してください。
