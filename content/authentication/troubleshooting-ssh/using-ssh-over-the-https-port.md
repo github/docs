@@ -18,6 +18,12 @@ shortTitle: Use SSH over HTTPS port
 
 {% endtip %}
 
+## Getting Started
+
+The hostname for port 443 is `ssh.{% data variables.command_line.backticks %}`, not `{% data variables.command_line.backticks %}`.
+
+## Testing
+
 To test if SSH over the HTTPS port is possible, run this SSH command:
 
 ```shell
@@ -27,6 +33,12 @@ $ ssh -T -p 443 git@ssh.github.com
 ```
 
 If that worked, great! If not, you may need to [follow our troubleshooting guide](/articles/error-permission-denied-publickey).
+
+## Git Client Repository Example
+
+```
+>git clone ssh://git@ssh.{% data variables.command_line.codeblock %}:443/YOUR-USERNAME/YOUR-REPOSITORY.git
+```
 
 ## Enabling SSH connections over HTTPS
 
