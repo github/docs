@@ -142,7 +142,6 @@ translations/es-ES/content/desktop/contributing-and-collaborating-using-github-d
 translations/es-ES/content/developers/webhooks-and-events/events/issue-event-types.md,Listed in localization-support#489
 translations/es-ES/content/discussions/guides/best-practices-for-community-conversations-on-github.md,Listed in localization-support#489
 translations/es-ES/content/discussions/index.md,Listed in localization-support#489
-translations/es-ES/content/education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-for-your-schoolwork/why-wasnt-my-application-for-a-student-developer-pack-approved.md,broken liquid tags
 translations/es-ES/content/education/guides.md,Listed in localization-support#489
 translations/es-ES/content/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide/about-using-makecode-arcade-with-github-classroom.md,broken liquid tags
 translations/es-ES/content/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide/integrate-github-classroom-with-an-ide.md,rendering error
@@ -304,6 +303,7 @@ translations/es-ES/data/release-notes/enterprise-server/3-2/0.yml,broken liquid 
 translations/es-ES/data/release-notes/enterprise-server/3-6/0-rc1.yml,broken liquid tags
 translations/es-ES/data/release-notes/github-ae/2021-06/2021-12-06.yml,broken liquid tags
 translations/es-ES/data/release-notes/github-ae/2022-05/2022-05-17.yml,broken liquid tags
+translations/es-ES/data/reusables/actions/contacting-support.md,broken liquid tags
 translations/es-ES/data/reusables/actions/enterprise-marketplace-actions.md,broken liquid tags
 translations/es-ES/data/reusables/actions/enterprise-storage-ha-backups.md,broken liquid tags
 translations/es-ES/data/reusables/actions/settings-ui/settings-actions-general.md,rendering error
