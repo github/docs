@@ -99,7 +99,7 @@ Organizations with {% data variables.product.prodname_team %} and users with {% 
    1. 输入机密值。
    1. 单击 **Add secret（添加密码）**。
 
-您还可以通过 REST API 创建和配置环境。 更多信息请参阅“[环境](/rest/reference/repos#environments)”和“[密码](/rest/reference/actions#secrets)”。
+您还可以通过 REST API 创建和配置环境。 For more information, see "[Deployment environments](/rest/deployments/environments)," "[GitHub Actions Secrets](/rest/actions/secrets)," and "[Deployment branch policies](/rest/deployments/branch-policies)."
 
 运行引用不存在的环境的工作流程将使用引用的名称创建环境。 新创建的环境将不配置任何保护规则或机密。 可在仓库中编辑工作流程的任何人都可以通过工作流程文件创建环境，但只有仓库管理员才能配置环境。
 
