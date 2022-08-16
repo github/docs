@@ -47,7 +47,7 @@ Para obtener más información sobre el {% data variables.product.prodname_codeq
 
 {% ifversion codeql-action-debug-logging %}
 
-You can see more detailed information about {% data variables.product.prodname_codeql %} extractor errors and warnings that occurred during database creation by enabling debug logging. For more information, see "[Troubleshooting the CodeQL workflow](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/troubleshooting-the-codeql-workflow#creating-codeql-debugging-artifacts-by-re-running-jobs-with-debug-logging-enabled)."
+Puedes ver información más detallada sobre los errores y advertencias del extractor de {% data variables.product.prodname_codeql %} que ocurrieron durante la creación de la base de datos si habilitas el registro de depuración. Para obtener más información, consulta la sección "[Solucionar problemas del flujo de trabajo de CodeQL](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/troubleshooting-the-codeql-workflow#creating-codeql-debugging-artifacts-by-re-running-jobs-with-debug-logging-enabled)".
 
 {% endif %}
 

@@ -71,7 +71,7 @@ Para comunicar la responsabilidad, puedes asignar la propeusta a un miembro de t
 
 ## Agregar la propuesta a un proyecto
 
-You can add the issue to an existing project{% ifversion projects-v2 %} and populate metadata for the project. {% endif %} For more information about projects, see {% ifversion projects-v2 %}"[About projects](/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects)."{% else %}"[Organizing your work with project boards](/issues/organizing-your-work-with-project-boards)."{% endif %}
+Puedes agregar la propuesta a un proyecto existente{% ifversion projects-v2 %} y poblar los metadatos para el proyecto. {% endif %} Para obtener más información sobre los proyectos, consulta la sección {% ifversion projects-v2 %}"[Acerca de los proyectos](/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects)".{% else %}"[Organizar tu trabajo con los tableros de proyecto](/issues/organizing-your-work-with-project-boards)".{% endif %}
 
 ![propuesta con proyectos](/assets/images/help/issues/issue-project.png)
 

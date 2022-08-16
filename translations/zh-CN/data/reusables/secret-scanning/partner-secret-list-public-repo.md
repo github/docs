@@ -71,12 +71,15 @@
 | PlanetScale               | PlanetScale 服务令牌                    |
 | Plivo                     | Plivo 验证 ID 和令牌                     |
 | Postman                   | Postman API 密钥                      |
+| Prefect                   | Prefect Server API Key              |
+| Prefect                   | Prefect User API Token              |
 | Proctorio                 | Proctorio 消费者密钥                     |
 | Proctorio                 | Proctorio 链接密钥                      |
 | Proctorio                 | Proctorio 注册密钥                      |
 | Proctorio                 | Proctorio 密钥                        |
 | Pulumi                    | Pulumi 访问令牌                         |
 | PyPI                      | PyPI API 令牌                         |
+| ReadMe                    | ReadMe API Access Key               |
 | redirect.pizza            | redirect.pizza API 令牌               |
 | RubyGems                  | RubyGems API 密钥                     |
 | Samsara                   | Samsara API 令牌                      |
@@ -102,5 +105,6 @@
 | Twilio                    | Twilio 帐户字符串标识符                     |
 | Twilio                    | Twilio API 密钥                       |
 | Typeform                  | Typeform 个人访问令牌                     |
+| Uniwise                   | WISEflow API Key                    |
 | Valour                    | Valour 访问令牌                         |
 | Zuplo                     | Zuplo Consumer API                  |

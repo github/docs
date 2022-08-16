@@ -50,7 +50,7 @@ Por ejemplo:
 - Agrupar por un campo de prioridad personalizado para monitorear el volumen de los elementos de prioridad alta
 - Ordena por un campo personalizado de fecha para ver los elementos con la fecha de envío destino más cercana
 
-For more information, see "[Customizing a view](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/customizing-a-view)."
+Para obtener más información, consulta la sección "[Personalizar una vista](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/customizing-a-view)".
 
 ## Ten una fuente única de la verdad
 

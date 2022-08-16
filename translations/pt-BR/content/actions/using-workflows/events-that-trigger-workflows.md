@@ -385,21 +385,21 @@ on:
 
 ### `merge_group`
 
-| Carga de evento webhook                                                                            | Tipos de atividade | `GITHUB_SHA`           | `GITHUB_REF`           |
-| -------------------------------------------------------------------------------------------------- | ------------------ | ---------------------- | ---------------------- |
-| [`merge_group`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#merge_group) | `checks_requested` | SHA of the merge group | Ref of the merge group |
+| Carga de evento webhook                                                                            | Tipos de atividade | `GITHUB_SHA`          | `GITHUB_REF`          |
+| -------------------------------------------------------------------------------------------------- | ------------------ | --------------------- | --------------------- |
+| [`merge_group`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#merge_group) | `checks_requested` | SHA do grupo de merge | Ref do grupo de merge |
 
 {% data reusables.pull_requests.merge-queue-beta %}
 
 {% note %}
 
-**Note**: {% data reusables.developer-site.multiple_activity_types %} Although only the `checks_requested` activity type is supported, specifying the activity type will keep your workflow specific if more activity types are added in the future. For information about each activity type, see "[Webhook events and payloads](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#merge_group)." {% data reusables.developer-site.limit_workflow_to_activity_types %}
+**Observação**: {% data reusables.developer-site.multiple_activity_types %} Embora apenas o tipo de atividade `checks_requested` seja compatível, a especificação do tipo de atividade manterá o fluxo de trabalho específico se outros tipos de atividade forem adicionados no futuro. Para obter informações sobre cada tipo de atividade, consulte "[Eventos de webhook e cargas](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#merge_group)". {% data reusables.developer-site.limit_workflow_to_activity_types %}
 
 {% endnote %}
 
-Runs your workflow when a pull request is added to a merge queue, which adds the pull request to a merge group. For more information see "[Merging a pull request with a merge queue](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request-with-a-merge-queue)".
+Executa o fluxo de trabalho quando um pull request é adicionado a uma fila de merge, que adiciona o pull request a um grupo de merge. Para obter mais informações, consulte [Fazendo o merge de um pull request com uma fila de merge](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request-with-a-merge-queue)".
 
-For example, you can run a workflow when the `checks_requested` activity has occurred.
+Por exemplo, você pode executar um fluxo de trabalho após ocorrer a atividade `checks_requested`.
 
 ```yaml
 on:
@@ -443,7 +443,7 @@ on:
 
 {% data reusables.actions.branch-requirement %}
 
-Executa o fluxo de trabalho quando alguém faz push em um branch que é a fonte de publicação para {% data variables.product.prodname_pages %}, se o {% data variables.product.prodname_pages %} estiver habilitado no repositório. For more information about {% data variables.product.prodname_pages %} publishing sources, see "[Configuring a publishing source for your GitHub Pages site](/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)." Para obter informações sobre a API REST, consulte "[Páginas](/rest/reference/repos#pages)".
+Executa o fluxo de trabalho quando alguém faz push em um branch que é a fonte de publicação para {% data variables.product.prodname_pages %}, se o {% data variables.product.prodname_pages %} estiver habilitado no repositório. Para obter mais informações sobre fontes de publicação {% data variables.product.prodname_pages %}, consulte "[Configurando uma fonte de publicação para o site do GitHub Pages](/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)". Para obter informações sobre a API REST, consulte "[Páginas](/rest/reference/repos#pages)".
 
 Por exemplo, você pode executar um fluxo de trabalho quando o evento `page_build` ocorrer.
 
@@ -475,7 +475,7 @@ on:
 {% ifversion fpt or ghec %}
 {% note %}
 
-**Note**: This event only occurs for {% data variables.product.prodname_projects_v1 %}.
+**Observação**: Este evento ocorre apenas para {% data variables.product.prodname_projects_v1 %}.
 
 {% endnote %}
 {% endif %}
@@ -513,7 +513,7 @@ on:
 {% ifversion fpt or ghec %}
 {% note %}
 
-**Note**: This event only occurs for {% data variables.product.prodname_projects_v1 %}.
+**Observação**: Este evento ocorre apenas para {% data variables.product.prodname_projects_v1 %}.
 
 {% endnote %}
 {% endif %}
@@ -551,7 +551,7 @@ on:
 {% ifversion fpt or ghec %}
 {% note %}
 
-**Note**: This event only occurs for {% data variables.product.prodname_projects_v1 %}.
+**Observação**: Este evento ocorre apenas para {% data variables.product.prodname_projects_v1 %}.
 
 {% endnote %}
 {% endif %}
@@ -591,7 +591,7 @@ on:
 
 {% note %}
 
-**Note**: {% data reusables.developer-site.multiple_activity_types %} For information about each activity type, see "[Webhook events and payloads](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#pull_request)." Por padrão, um fluxo de trabalho só é executado quando um tipo de atividade de um evento de `pull_request` é `opened,`, `sincronize` ou `reopened`. Para acionar fluxos de trabalho em diferentes tipos de atividade, use a palavra-chave `tipos`. Para obter mais informações, consulte "[Sintaxe de fluxo de trabalho para o {% data variables.product.prodname_actions %}](/articles/workflow-syntax-for-github-actions#onevent_nametypes)".
+**Observação**: {% data reusables.developer-site.multiple_activity_types %} Para obter informações sobre cada tipo de atividade, consulte "[Eventos de webhook e cargas](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#pull_request)". Por padrão, um fluxo de trabalho só é executado quando um tipo de atividade de um evento de `pull_request` é `opened,`, `sincronize` ou `reopened`. Para acionar fluxos de trabalho em diferentes tipos de atividade, use a palavra-chave `tipos`. Para obter mais informações, consulte "[Sintaxe de fluxo de trabalho para o {% data variables.product.prodname_actions %}](/articles/workflow-syntax-for-github-actions#onevent_nametypes)".
 
 {% endnote %}
 
@@ -926,7 +926,7 @@ jobs:
 
 | Carga de evento webhook                                                              | Tipos de atividade | `GITHUB_SHA`                                                                                                                     | `GITHUB_REF`   |
 | ------------------------------------------------------------------------------------ | ------------------ | -------------------------------------------------------------------------------------------------------------------------------- | -------------- |
-| [`push`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#push) | n/a                | When you delete a branch, the SHA in the workflow run (and its associated refs) reverts to the default branch of the repository. | ref atualizado |
+| [`push`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#push) | n/a                | Ao excluir um branch, o SHA no fluxo de trabalho executado (e seus refs associados) reverte para o branch padrão do repositório. | ref atualizado |
 
 {% note %}
 

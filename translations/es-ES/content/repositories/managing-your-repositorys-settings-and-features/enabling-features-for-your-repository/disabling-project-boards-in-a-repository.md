@@ -23,4 +23,4 @@ Cuando inhabilitas los {% data variables.projects.projects_v1_boards %}, ya no v
 {% data reusables.repositories.sidebar-settings %}
 3. En "Características", quita la marca de selección de la casilla de verificación **Proyectos**. ![Casilla de verificación Eliminar proyectos](/assets/images/help/projects/disable-projects-checkbox.png)
 
-After {% data variables.projects.projects_v1_boards %} are disabled, existing {% data variables.projects.projects_v1_boards %} are inaccessible at their previous URLs. {% data reusables.organizations.disable_project_board_results %}
+Después de que se inhabiliten los {% data variables.projects.projects_v1_boards %}, los {% data variables.projects.projects_v1_boards %} existentes serán inaccesibles en sus URL previas. {% data reusables.organizations.disable_project_board_results %}

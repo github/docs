@@ -34,7 +34,7 @@ Você deve executar {% data variables.product.prodname_codeql %} dentro do cont�
 
 ## Dependências
 
-Você pode ter dificuldade para executar {% data variables.product.prodname_code_scanning %} se o contêiner que você está usando estiver com certas dependências ausentes (por exemplo, o Git deve ser instalado e adicionado à variável PATH). If you encounter dependency issues, review the list of software typically included on {% data variables.product.prodname_dotcom %}'s runner images. Para obter mais informações, consulte os arquivos de `readme` específicos da versão nesses locais:
+Você pode ter dificuldade para executar {% data variables.product.prodname_code_scanning %} se o contêiner que você está usando estiver com certas dependências ausentes (por exemplo, o Git deve ser instalado e adicionado à variável PATH). Se você encontrar problemas de dependência, revise a lista de software normalmente incluída nas imagens do executor de {% data variables.product.prodname_dotcom %}. Para obter mais informações, consulte os arquivos de `readme` específicos da versão nesses locais:
 
 * Linux: https://github.com/actions/runner-images/tree/main/images/linux
 * macOS: https://github.com/actions/runner-images/tree/main/images/macos

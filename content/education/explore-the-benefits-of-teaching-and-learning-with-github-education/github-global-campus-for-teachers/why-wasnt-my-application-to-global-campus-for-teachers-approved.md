@@ -1,6 +1,6 @@
 ---
-title: Why wasn't my application for an educator or researcher discount approved?
-intro: Review common reasons that applications for an educator or researcher discount are not approved and learn tips for reapplying successfully.
+title: Why wasn't my application to Global Campus for teachers approved?
+intro: Review common reasons that applications for {% data variables.product.prodname_global_campus %} are not approved and learn tips for reapplying successfully.
 redirect_from:
   - /education/teach-and-learn-with-github-education/why-wasnt-my-application-for-an-educator-or-researcher-discount-approved
   - /github/teaching-and-learning-with-github-education/why-wasnt-my-application-for-an-educator-or-researcher-discount-approved
@@ -8,6 +8,7 @@ redirect_from:
   - /articles/why-wasn-t-my-application-for-an-educator-or-researcher-discount-approved
   - /articles/why-wasnt-my-application-for-an-educator-or-researcher-discount-approved
   - /education/explore-the-benefits-of-teaching-and-learning-with-github-education/why-wasnt-my-application-for-an-educator-or-researcher-discount-approved
+  - /education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-in-your-classroom-and-research/why-wasnt-my-application-for-an-educator-or-researcher-discount-approved
 versions:
   fpt: '*'
 shortTitle: Application not approved
@@ -40,8 +41,8 @@ If you have other questions or concerns about the school domain, please ask your
 
 ## Non-student applying for Student Developer Pack
 
-Educators and researchers are not eligible for the partner offers that come with the [{% data variables.product.prodname_student_pack %}](https://education.github.com/pack). When you reapply, make sure that you choose **Faculty** to describe your academic status.
+Teachers are not eligible for the partner offers that come with the [{% data variables.product.prodname_student_pack %}](https://education.github.com/pack). When you reapply, make sure that you choose **Faculty** to describe your academic status.
 
 ## Further reading
 
-- "[Apply for an educator or researcher discount](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/apply-for-an-educator-or-researcher-discount)"
+- "[Apply to {% data variables.product.prodname_global_campus %} as a teacher](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-teachers/apply-to-github-global-campus-as-a-teacher)"

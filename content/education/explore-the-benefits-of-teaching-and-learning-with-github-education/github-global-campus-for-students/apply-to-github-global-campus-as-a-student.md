@@ -1,20 +1,21 @@
 ---
-title: Apply for a student developer pack
-intro: 'As a student, you can apply for the {% data variables.product.prodname_student_pack %}, which includes offers and benefits from {% data variables.product.prodname_dotcom %} partners.'
+title: 'Apply to GitHub Global Campus as a student'
+intro: 'As a student, you can apply to join {% data variables.product.prodname_global_campus %} and receive access to the student resources and benefits offered by {% data variables.product.prodname_education %}'
 redirect_from:
   - /education/teach-and-learn-with-github-education/apply-for-a-student-developer-pack
   - /github/teaching-and-learning-with-github-education/applying-for-a-student-developer-pack
   - /articles/applying-for-a-student-developer-pack
   - /education/explore-the-benefits-of-teaching-and-learning-with-github-education/apply-for-a-student-developer-pack
+  - /education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-for-your-schoolwork/apply-for-a-student-developer-pack
 versions:
   fpt: '*'
-shortTitle: Apply for a student pack
+shortTitle: Apply to Global Campus
 ---
 {% data reusables.education.about-github-education-link %}
 
 ## Requirements
 
-To be eligible for the {% data variables.product.prodname_student_pack %}, you must:
+To be eligible for {% data variables.product.prodname_global_campus %}, including {% data variables.product.prodname_student_pack %} and other benefits, you must:
 - Be currently enrolled in a degree or diploma granting course of study such as a high school, secondary school, college, university, homeschool, or similar educational institution
 - Have a verifiable school-issued email address or upload documents that prove your current student status
 - Have a [{% data variables.product.prodname_dotcom %} personal account](/articles/signing-up-for-a-new-github-account)
@@ -30,9 +31,9 @@ During your tenure as a student, you may be prompted to periodically re-verify y
 
 {% endnote %}
 
-For information about renewing your {% data variables.product.prodname_student_pack %}, see "[Expiration and renewals](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/apply-for-a-student-developer-pack/#expiration-and-renewals)."
+For information about renewing your {% data variables.product.prodname_global_campus %} access, see "[Expiration and renewals](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-students/apply-to-github-global-campus-as-a-student/#expiration-and-renewals)."
 
-## Applying for a {% data variables.product.prodname_student_pack %}
+## Applying to {% data variables.product.prodname_global_campus %}
 
 {% data reusables.education.benefits-page %}
 3. Under "Which best describes your academic status?", select **Student**.
@@ -45,7 +46,7 @@ For information about renewing your {% data variables.product.prodname_student_p
 
 ## Expiration and renewals
 
-Once your {% data variables.product.prodname_student_pack %} access expires, you may reapply if you're still eligible, although some of our partner offers cannot renew. Most of the timed offers from our partners start once you set them up. To reapply, simply return to https://education.github.com, click your profile picture, then click **Reverify your academic affiliation**.
+Once your {% data variables.product.prodname_global_campus %} access expires, you may reapply if you're still eligible, although some of our partner offers for {% data variables.product.prodname_student_pack %} cannot renew. Most of the timed offers from our partners start once you set them up. To reapply, simply return to https://education.github.com, click your profile picture, then click **Reverify your academic affiliation**.
 
 ![Menu option to reverify your academic affiliation](/assets/images/help/education/reverify-academic-affiliation.png)
 

@@ -282,7 +282,7 @@ Adicione o evento "pull_request", para que o fluxo de trabalho seja executado au
 </td>
 <td>
 
-Add the `push` event, so that the workflow runs automatically every time a commit is pushed to a branch matching the filter `main`. Para obter mais informações, consulte ['push'](/actions/using-workflows/events-that-trigger-workflows#push).
+Adicione o evento `push`, para que o fluxo de trabalho seja executado automaticamente toda vez que um commit for feito push para um branch que corresponda ao filtro `main`. Para obter mais informações, consulte ['push'](/actions/using-workflows/events-that-trigger-workflows#push).
 </td>
 </tr>
 <tr>

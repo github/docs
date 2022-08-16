@@ -1,6 +1,6 @@
 ---
-title: 'Filtering cards on a {% data variables.product.prodname_project_v1 %}'
-intro: 'You can filter the cards on a {% data variables.projects.projects_v1_board %} to search for specific cards or view a subset of the cards.'
+title: 'Filtrar las tarjetas en un {% data variables.product.prodname_project_v1 %}'
+intro: 'Puedes filtrar las tarjetas en un {% data variables.projects.projects_v1_board %} para buscar tarjetas específicas o ver un subconjunto de ellas.'
 redirect_from:
   - /github/managing-your-work-on-github/tracking-the-progress-of-your-work-with-project-boards/filtering-cards-on-a-project-board
   - /articles/filtering-cards-on-a-project-board

@@ -48,28 +48,28 @@ Para produzir a saída de log mais detalhada, você pode habilitar o log de depu
 
 ## Criando artefatos de depuração de {% data variables.product.prodname_codeql %}
 
-You can obtain artifacts to help you debug {% data variables.product.prodname_codeql %}. Os artefatos de depuração serão carregados para a execução do fluxo de trabalho como um artefato denominado `debug-artifacts`. Os dados contém os registros de {% data variables.product.prodname_codeql %}, banco(s) de dados de {% data variables.product.prodname_codeql %}, e todo(s) o(s) outro(s) arquivo(s) SARIF produzido(s) pelo fluxo de trabalho.
+Você pode obter artefatos para ajudar você a depurar {% data variables.product.prodname_codeql %}. Os artefatos de depuração serão carregados para a execução do fluxo de trabalho como um artefato denominado `debug-artifacts`. Os dados contém os registros de {% data variables.product.prodname_codeql %}, banco(s) de dados de {% data variables.product.prodname_codeql %}, e todo(s) o(s) outro(s) arquivo(s) SARIF produzido(s) pelo fluxo de trabalho.
 
-These artifacts will help you debug problems with {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %}. Se você entrar em contato com o suporte do GitHub, eles poderão pedir estes dados.
+Esses artefatos ajudarão você a depurar problemas com {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %}. Se você entrar em contato com o suporte do GitHub, eles poderão pedir estes dados.
 
 {% endif %}
 
 {% ifversion codeql-action-debug-logging %}
 
-### Creating {% data variables.product.prodname_codeql %} debugging artifacts by re-running jobs with debug logging enabled
+### Criando {% data variables.product.prodname_codeql %} que depura artefatos executando novamente trabalhos com o log de depuração habilitado
 
-You can create {% data variables.product.prodname_codeql %} debugging artifacts by enabling debug logging and re-running the jobs. For more information about re-running {% data variables.product.prodname_actions %} workflows and jobs, see "[Re-running workflows and jobs](/actions/managing-workflow-runs/re-running-workflows-and-jobs)."
+Você pode criar artefatos de depuração de {% data variables.product.prodname_codeql %}, habilitando o registro de depuração e executando novamente os trabalhos. Para obter mais informações sobre a reexecução de fluxos de trabalho e trabalhos de {% data variables.product.prodname_actions %}, consulte "[Executando novamente fluxos de trabalho e trabalhos](/actions/managing-workflow-runs/re-running-workflows-and-jobs)".
 
-You need to ensure that you select **Enable debug logging** . This option enables runner diagnostic logging and step debug logging for the run. You'll then be able to download `debug-artifacts` to investigate further. You do not need to modify the workflow file when creating {% data variables.product.prodname_codeql %} debugging artifacts by re-running jobs.
+Você precisa garantir que você selecionou **Habilitar o log de depuração**. Esta opção habilita o log de diagnóstico do executor e o log de depuração da etapa para a execução. Você poderá fazer o download `debug-artifacts` continuar investigando. Você não precisa modificar o arquivo de fluxo de trabalho ao criar {% data variables.product.prodname_codeql %} depurando artefatos reexecutando trabalhos.
 
 
 {% endif %}
 
 {% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5601 %}
 
-### Creating {% data variables.product.prodname_codeql %} debugging artifacts using a workflow flag
+### Criando artefatos de depuração de {% data variables.product.prodname_codeql %}, usando um sinalizador de fluxo de trabalho
 
-You can create {% data variables.product.prodname_codeql %} debugging artifacts by using a flag in your workflow. For this, you need to modify the `init` step of your {% data variables.product.prodname_codeql_workflow %} file and set `debug: true`.
+Você pode criar artefatos de depuração de {% data variables.product.prodname_codeql %}, usando um sinalizador no seu fluxo de trabalho. Para isso, você precisa modificar a etapa `init` do seu arquivo {% data variables.product.prodname_codeql_workflow %} e definir `debug: true`.
 
 ```yaml
 - name: Initialize CodeQL
@@ -246,7 +246,7 @@ Se a execução de um fluxo de trabalho para {% data variables.product.prodname_
 
 ## Erro: "Fora do disco" ou "Sem memória"
 
-On very large projects, {% data variables.product.prodname_codeql %} may run out of disk or memory on the runner.
+Em projetos muito grandes, {% data variables.product.prodname_codeql %} pode ficar ficar sem disco ou sem memória no executor.
 {% ifversion fpt or ghec %}Se encontrar esse problema em um executor de {% data variables.product.prodname_actions %} hospedado, entre em contato com {% data variables.contact.contact_support %} para que possamos investigar o problema.
 {% else %}Se você encontrar esse problema, tente aumentar a memória no executor.{% endif %}
 
