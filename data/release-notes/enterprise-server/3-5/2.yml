@@ -39,3 +39,4 @@ sections:
         - Reopening of dismissed Dependabot alerts
         - Enabling the **Update branch** button for all pull requests in a repository
         - Light high contrast theme
+      - '{% data reusables.release-notes.ghas-3.4-secret-scanning-known-issue %}'
