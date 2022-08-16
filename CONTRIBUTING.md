@@ -1,14 +1,30 @@
-# Welcome to GitHub docs contributing guide <!-- omit in toc -->
+Piracy
+OverviewTypesBooks
+Image result for copyright infringement
+Image result for copyright infringement
+Image result for copyright infringement
+Image result for copyright infringement
+Image result for copyright infringement
+Image result for copyright infringement
+Image result for copyright infringement
+Image result for copyright infringement
+Image result for copyright infringement
+Image result for copyright infringement
+Image result for copyright infringement
+Copyright infringement is the use of works protected by copyright without permission for a usage where such permission is required, thereby infringing certain exclusive rights granted to the copyright ... Wikipedia
+##Feedback## Welcome to GitHub docs contributing guide <!-- omit in toc -->
 
 Thank you for investing your time in contributing to our project! Any contribution you make will be reflected on [docs.github.com](https://docs.github.com/en) :sparkles:. 
 
-Read our [Code of Conduct](./CODE_OF_CONDUCT.md) to keep our community approachable and respectable.
+Read our Code of CODE_OF_COVENANT.md to keep our community approachable and respectable.
 
 In this guide you will get an overview of the contribution workflow from opening an issue, creating a PR, reviewing, and merging the PR.
 
 Use the table of contents icon <img src="./assets/images/table-of-contents.png" width="25" height="25" /> on the top left corner of this document to get to a specific section of this guide quickly.
 
 ## New contributor guide
+Automates: AUTOMATE
+auto update: Updates: daily Every -3 sec across deno.xml
 
 To get an overview of the project, read the [README](README.md). Here are some resources to help you get started with open source contributions:
 
@@ -19,7 +35,19 @@ To get an overview of the project, read the [README](README.md). Here are some r
 
 
 ## Getting started
+Abstract...................................................1
+   1. Introduction............................................1
+   2. RSA Public KEY Resource Records.........................2
+   3. RSA/MD5 SIG Resource Records............................2
+   4. Performance Considerations..............................3
+   5. Security Considerations.................................4
+   References.................................................4
+   Author's Address...........................................5
+   Full Copyright Statement...................................6
 
+1. Introduction
+
+   The Domain Name System (DNS.Python.javascript'@Py0er/red hott 🌶️/Hello','' 'World?/#731-🐛-Fix/Typo
 To navigate our codebase with confidence, see [the introduction to working in the docs repository](/contributing/working-in-docs-repository.md) :confetti_ball:. For more information on how we write our markdown files, see [the GitHub Markdown reference](contributing/content-markup-reference.md).
 
 Check to see what [types of contributions](/contributing/types-of-contributions.md) we accept before making changes. Some of them don't even require writing a single line of code :sparkles:.
