@@ -20,12 +20,7 @@ export default function handleRedirects(req, res, next) {
   // blanket redirects for languageless homepage
   if (req.path === '/') {
     const language = getLanguage(req)
-
-    // Undo the cookie setting that CSRF sets.
-    res.removeHeader('set-cookie')
-
     noCacheControl(res)
-
     return res.redirect(302, `/${language}`)
   }
 
@@ -94,9 +89,6 @@ export default function handleRedirects(req, res, next) {
     }
     return next()
   }
-
-  // Undo the cookie setting that CSRF sets.
-  res.removeHeader('set-cookie')
 
   // do the redirect if the from-URL already had a language in it
   if (pathLanguagePrefixed(req.path) || redirect.includes('://')) {

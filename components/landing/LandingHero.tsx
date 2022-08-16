@@ -3,7 +3,6 @@ import cx from 'classnames'
 import { useRouter } from 'next/router'
 import { LinkExternalIcon } from '@primer/octicons-react'
 
-import { useMainContext } from 'components/context/MainContext'
 import { Link } from 'components/Link'
 import { useProductLandingContext } from 'components/context/ProductLandingContext'
 import { useTranslation } from 'components/hooks/useTranslation'
@@ -11,7 +10,6 @@ import { useVersion } from 'components/hooks/useVersion'
 import { Lead } from 'components/ui/Lead'
 
 export const LandingHero = () => {
-  const { airGap } = useMainContext()
   const { product_video, shortTitle, title, beta_product, intro, introLinks } =
     useProductLandingContext()
   const { t } = useTranslation('product_landing')
@@ -56,16 +54,14 @@ export const LandingHero = () => {
       {product_video && (
         <div className="col-12 col-lg-6">
           <div className="position-relative" style={{ paddingBottom: '56.25%' }}>
-            {!airGap && (
-              <iframe
-                title={`${shortTitle} Video`}
-                className="top-0 left-0 position-absolute color-shadow-large rounded-1 width-full height-full"
-                src={renderIFrame ? product_video : ''}
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              ></iframe>
-            )}
+            <iframe
+              title={`${shortTitle} Video`}
+              className="top-0 left-0 position-absolute color-shadow-large rounded-1 width-full height-full"
+              src={renderIFrame ? product_video : ''}
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            ></iframe>
           </div>
         </div>
       )}

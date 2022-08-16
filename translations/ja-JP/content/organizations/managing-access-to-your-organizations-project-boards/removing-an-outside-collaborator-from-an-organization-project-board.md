@@ -1,6 +1,6 @@
 ---
-title: 'Removing an outside collaborator from an organization {% data variables.product.prodname_project_v1 %}'
-intro: 'As an organization owner or {% data variables.projects.projects_v1_board %} admin, you can remove an outside collaborator''s access to a {% data variables.projects.projects_v1_board %}.'
+title: 'Organizationの{% data variables.product.prodname_project_v1 %}からの外部のコラボレータの削除'
+intro: 'Organizationのオーナーもしくは{% data variables.projects.projects_v1_board %}の管理者は、{% data variables.projects.projects_v1_board %}への外部のコラボレータのアクセスを削除できます。'
 redirect_from:
   - /articles/removing-an-outside-collaborator-from-an-organization-project-board
   - /github/setting-up-and-managing-organizations-and-teams/removing-an-outside-collaborator-from-an-organization-project-board
