@@ -61,17 +61,17 @@ Next, create an iteration field so you can plan and track your work over repeati
 {% data reusables.projects.new-field %}
 1. Select **Iteration** ![Screenshot showing the iteration option](/assets/images/help/projects-v2/new-field-iteration.png)
 3. Para cambiar la duración de cada iteración, escribe un número nuevo y luego selecciona el menú desplegable para hacer clic en ya sea **días** o **semanas**. ![Screenshot showing the iteration duration](/assets/images/help/projects-v2/iteration-field-duration.png)
-4. Haz clic en **Save ** (guardar). ![Screenshot showing save button](/assets/images/help/projects-v2/new-field-save-and-create.png)
+4. Haz clic en **Save ** (guardar). ![Captura de pantalla que muestra el botón de guardar](/assets/images/help/projects-v2/new-field-save-and-create.png)
 
 ## Crear un campo para rastrear la prioridad
 
 Now, create a custom field named `Priority` and containing the values: `High`, `Medium`, or `Low`.
 
 {% data reusables.projects.new-field %}
-1. Select **Single select** ![Screenshot showing the single select option](/assets/images/help/projects-v2/new-field-single-select.png)
-1. Below "Options", type the first option, "High". ![Screenshot showing the single select option](/assets/images/help/projects-v2/priority-example.png)
+1. Selecciona **Selección simple** ![Captura de pantalla que muestra la opción de selección simple](/assets/images/help/projects-v2/new-field-single-select.png)
+1. Below "Options", type the first option, "High". ![Captura de pantalla que muestra la opción de selección simple](/assets/images/help/projects-v2/priority-example.png)
 1. To add additional fields, for "Medium" and "Low", click **Add option**.
-1. Haz clic en **Save ** (guardar). ![Screenshot showing save button](/assets/images/help/projects-v2/new-field-save.png)
+1. Haz clic en **Save ** (guardar). ![Captura de pantalla que muestra el botón de guardar](/assets/images/help/projects-v2/new-field-save.png)
 
 Especificar una prioridad para todas las propuestas de tu proyecto.
 
@@ -128,8 +128,8 @@ Cuando cambiaste el diseño, tu proyecto mostró un indicador para mostrar que l
 Para indicar la propuesta de la vista, dale un nombre descriptivo.
 
 {% data reusables.projects.open-view-menu %}
-1. Click {% octicon "pencil" aria-label="the pencil icon" %} **Rename view**. ![Screenshot showing the rename menu item](/assets/images/help/projects-v2/rename-view.png)
-1. Type the new name for your view.
+1. Haz clic en {% octicon "pencil" aria-label="the pencil icon" %} **Renombrar vista**. ![Captura de pantalla que muestra el elemento de menú de renombrar](/assets/images/help/projects-v2/rename-view.png)
+1. Escribe el nombre nuevo para tu vista.
 1. To save changes, press <kbd>Return</kbd>.
 
 ![Prioridades de ejemplo](/assets/images/help/projects/project-view-switch.gif)
@@ -147,5 +147,5 @@ Finalmente, agrega un flujo de trabajo integrado para configurar el estado en **
 
 ## Leer más
 
-- "[Adding items to your project](/issues/planning-and-tracking-with-projects/managing-items-in-your-project/adding-items-to-your-project)"
-- "[Customizing a view](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/customizing-a-view)"
+- "[Agregar elementos a tu proyecto](/issues/planning-and-tracking-with-projects/managing-items-in-your-project/adding-items-to-your-project)"
+- "[Personalizar una vista](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/customizing-a-view)"
