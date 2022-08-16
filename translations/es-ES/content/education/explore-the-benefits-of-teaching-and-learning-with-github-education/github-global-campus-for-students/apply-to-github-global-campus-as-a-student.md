@@ -1,21 +1,22 @@
 ---
-title: Aplicar un paquete de desarrollo para alumnos
-intro: 'Como estudiante, puedes aplicar para el {% data variables.product.prodname_student_pack %}, que incluye ofertas y beneficios de los socios de {% data variables.product.prodname_dotcom %}.'
+title: Apply to GitHub Global Campus as a student
+intro: 'As a student, you can apply to join {% data variables.product.prodname_global_campus %} and receive access to the student resources and benefits offered by {% data variables.product.prodname_education %}'
 redirect_from:
   - /education/teach-and-learn-with-github-education/apply-for-a-student-developer-pack
   - /github/teaching-and-learning-with-github-education/applying-for-a-student-developer-pack
   - /articles/applying-for-a-student-developer-pack
   - /education/explore-the-benefits-of-teaching-and-learning-with-github-education/apply-for-a-student-developer-pack
+  - /education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-for-your-schoolwork/apply-for-a-student-developer-pack
 versions:
   fpt: '*'
-shortTitle: Aplicar para un paquete de estudiante
+shortTitle: Apply to Global Campus
 ---
 
 {% data reusables.education.about-github-education-link %}
 
 ## Requisitos
 
-Para ser elegible para el {% data variables.product.prodname_student_pack %}, debes:
+To be eligible for {% data variables.product.prodname_global_campus %}, including {% data variables.product.prodname_student_pack %} and other benefits, you must:
 - Estar inscrito actualmente en un curso que otorgue un título o diploma que garantice un curso de estudio como colegio, escuela secundaria, facultad, universidad, escolarización en casa o institución educativa similar
 - Tener una dirección de correo electrónico verificable suministrada por la escuela o cargar documentos que demuestren tu situación de estudiante actual
 - Tener una [cuenta personal de {% data variables.product.prodname_dotcom %}](/articles/signing-up-for-a-new-github-account)
@@ -31,9 +32,9 @@ Es posible que se te pida periódicamente que vuelvas a verificar tu estado acad
 
 {% endnote %}
 
-Para obtener información sobre cómo renovar tu {% data variables.product.prodname_student_pack %}, consulta "[Caducidad y renovaciones](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/apply-for-a-student-developer-pack/#expiration-and-renewals)".
+For information about renewing your {% data variables.product.prodname_global_campus %} access, see "[Expiration and renewals](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-students/apply-to-github-global-campus-as-a-student/#expiration-and-renewals)."
 
-## Aplicar para un {% data variables.product.prodname_student_pack %}
+## Applying to {% data variables.product.prodname_global_campus %}
 
 {% data reusables.education.benefits-page %}
 3. En "¿Qué es lo que mejor describe tu estado académico?", selecciona **Student** (Estudiante). ![Selecciona el estado académico](/assets/images/help/education/academic-status-student.png)
@@ -45,7 +46,7 @@ Para obtener información sobre cómo renovar tu {% data variables.product.prodn
 
 ## Caducidad y renovaciones
 
-Una vez que caduca tu acceso a {% data variables.product.prodname_student_pack %}, puedes volver a aplicar si sigues siendo elegible, aunque es posible que las ofertas de algunos socios no puedan renovarse. La mayoría de las ofertas regulares de nuestros socios comiencen una vez que las configuraste. Para volver a aplicar, simplemente regresa a https://education.github.com, haz clic en tu foto de perfil y luego en **Volver a verificar tu afiliación académica**.
+Once your {% data variables.product.prodname_global_campus %} access expires, you may reapply if you're still eligible, although some of our partner offers for {% data variables.product.prodname_student_pack %} cannot renew. La mayoría de las ofertas regulares de nuestros socios comiencen una vez que las configuraste. Para volver a aplicar, simplemente regresa a https://education.github.com, haz clic en tu foto de perfil y luego en **Volver a verificar tu afiliación académica**.
 
 ![Opción de menú para volver a verificar tu afiliación académica](/assets/images/help/education/reverify-academic-affiliation.png)
 
