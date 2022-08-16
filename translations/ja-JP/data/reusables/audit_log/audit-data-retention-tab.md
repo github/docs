@@ -1,3 +1,3 @@
-1. Under "Audit log", click **Audit Data Retention**.
+1. "Audit log"の下で、**Audit Data Retention（監査データの保持）**をクリックしてください。
 
-   ![Screenshot of the "Audit Data Retention" tab](/assets/images/help/enterprises/audit-data-retention-tab.png)
+   !["Audit Data Retention"タブのスクリーンショット](/assets/images/help/enterprises/audit-data-retention-tab.png)
