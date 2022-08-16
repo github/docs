@@ -1,6 +1,5 @@
-date: '2022-07-26'
-release_candidate: true
-deprecated: true
+date: '2022-08-16'
+deprecated: false
 intro: |
   {% note %}
 
@@ -299,4 +298,3 @@ sections:
     - In a repository's settings, enabling the option to allow users with read access to create discussions does not enable this functionality.
     - In some cases, users cannot convert existing issues to discussions.
     - Custom patterns for secret scanning have `.*` as an end delimiter, specifically in the "After secret" field. This delimiter causes inconsistencies in scans for secrets across repositories, and you may notice gaps in a repository's history where no scans completed. Incremental scans may also be impacted. To prevent issues with scans, modify the end of the pattern to remove the `.*` delimiter.
-    - '{% data reusables.release-notes.ghas-3.4-secret-scanning-known-issue %}'
