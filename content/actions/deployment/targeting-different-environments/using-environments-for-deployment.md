@@ -99,7 +99,7 @@ Secrets stored in an environment are only available to workflow jobs that refere
    1. Enter the secret value.
    1. Click **Add secret**.
 
-You can also create and configure environments through the REST API. For more information, see "[Environments](/rest/reference/repos#environments)" and "[Secrets](/rest/reference/actions#secrets)."
+You can also create and configure environments through the REST API. For more information, see "[Deployment environments](/rest/deployments/environments)," "[GitHub Actions Secrets](/rest/actions/secrets)," and "[Deployment branch policies](/rest/deployments/branch-policies)."
 
 Running a workflow that references an environment that does not exist will create an environment with the referenced name. The newly created environment will not have any protection rules or secrets configured. Anyone that can edit workflows in the repository can create environments via a workflow file, but only repository admins can configure the environment.
 

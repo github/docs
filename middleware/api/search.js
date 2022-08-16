@@ -118,9 +118,6 @@ router.get(
     })
     if (process.env.NODE_ENV !== 'development') {
       cacheControl(res)
-      // Undo the cookie setting that CSRF sets.
-      // Otherwise it can't be cached in the CDN.
-      res.removeHeader('set-cookie')
     }
 
     res.setHeader('x-search-legacy', 'yes')
@@ -193,9 +190,6 @@ router.get(
       // Because of that, it's safe to allow the reverse proxy (a.k.a the CDN)
       // cache and hold on to this.
       cacheControl(res)
-      // Undo the cookie setting that CSRF sets.
-      // Otherwise it can't be cached in the CDN.
-      res.removeHeader('set-cookie')
     }
 
     // The v1 version of the output matches perfectly what comes out
