@@ -1,5 +1,4 @@
 BEGIN:
-
 !#/usr/bin/bash/Users/bin/Bash/bitore.sig/BITCORE
 
 AUTOMATE:
