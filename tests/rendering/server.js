@@ -129,9 +129,9 @@ describe('server', () => {
     expect(csp.get('style-src').includes("'unsafe-inline'")).toBe(true)
   })
 
-  test('sets Fastly cache control headers to bypass pages', async () => {
+  test('sets Fastly cache control headers', async () => {
     const res = await get('/en')
-    expect(res.headers['cache-control']).toBe('private, no-store')
+    expect(res.headers['cache-control']).toMatch(/public, max-age=/)
     expect(res.headers['surrogate-key']).toBe(SURROGATE_ENUMS.DEFAULT)
   })
 
@@ -326,7 +326,7 @@ describe('server', () => {
     test('renders mini TOC in articles with more than one heading', async () => {
       const $ = await getDOM('/en/github/getting-started-with-github/githubs-products')
       expect($('h2#in-this-article').length).toBe(1)
-      expect($('h2#in-this-article + div div ul').length).toBeGreaterThan(1)
+      expect($('h2#in-this-article + nav ul').length).toBeGreaterThan(1)
     })
 
     test('renders mini TOC in articles that includes h3s when specified by frontmatter', async () => {
@@ -334,8 +334,8 @@ describe('server', () => {
         '/en/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise'
       )
       expect($('h2#in-this-article').length).toBe(1)
-      expect($('h2#in-this-article + div div ul').length).toBeGreaterThan(0) // non-indented items
-      expect($('h2#in-this-article + div div ul li div div ul.ml-3').length).toBeGreaterThan(0) // indented items
+      expect($('h2#in-this-article + nav div ul').length).toBeGreaterThan(0) // non-indented items
+      expect($('h2#in-this-article + nav div ul li div div ul.ml-3').length).toBeGreaterThan(0) // indented items
     })
 
     test('does not render mini TOC in articles with only one heading', async () => {
@@ -358,13 +358,13 @@ describe('server', () => {
     // TODO
     test('renders mini TOC with correct links when headings contain markup', async () => {
       const $ = await getDOM('/en/actions/using-workflows/workflow-syntax-for-github-actions')
-      expect($('h2#in-this-article + div div ul a[href="#on"]').length).toBe(1)
+      expect($('h2#in-this-article + nav div ul a[href="#on"]').length).toBe(1)
     })
 
     // TODO
     test('renders mini TOC with correct links when headings contain markup in localized content', async () => {
       const $ = await getDOM('/ja/actions/using-workflows/workflow-syntax-for-github-actions')
-      expect($('h2#in-this-article + div div ul a[href="#on"]').length).toBe(1)
+      expect($('h2#in-this-article + nav div ul a[href="#on"]').length).toBe(1)
     })
   })
 
@@ -754,7 +754,9 @@ describe('URLs by language', () => {
     const $ = await getDOM('/ja/site-policy/github-terms/github-terms-of-service')
     expect($.res.statusCode).toBe(200)
     // This check is true on either the translated version of the page, or when the title is pending translation and is in English.
-    expect($('h1')[0].children[0].data).toMatch(/(GitHub利用規約|GitHub Terms of Service)/)
+    expect($('h1')[0].children[0].data).toMatch(
+      /(GitHub利用規約|GitHub Terms of Service|GitHub のサービス条件)/
+    )
     expect($('h2 a[href="#summary"]').length).toBe(1)
   })
 })
@@ -916,11 +918,11 @@ describe('extended Markdown', () => {
   test('renders expected mini TOC headings in platform-specific content', async () => {
     const $ = await getDOM('/en/github/using-git/associating-text-editors-with-git')
     expect($('h2#in-this-article').length).toBe(1)
-    expect($('h2#in-this-article + div div ul li.extended-markdown.mac').length).toBeGreaterThan(1)
+    expect($('h2#in-this-article + nav div ul li.extended-markdown.mac').length).toBeGreaterThan(1)
     expect(
-      $('h2#in-this-article + div div ul li.extended-markdown.windows').length
+      $('h2#in-this-article + nav div ul li.extended-markdown.windows').length
     ).toBeGreaterThan(1)
-    expect($('h2#in-this-article + div div ul li.extended-markdown.linux').length).toBeGreaterThan(
+    expect($('h2#in-this-article + nav div ul li.extended-markdown.linux').length).toBeGreaterThan(
       1
     )
   })
@@ -971,8 +973,7 @@ describe('static routes', () => {
     expect(res.statusCode).toBe(200)
     expect(res.headers['cache-control']).toContain('public')
     expect(res.headers['cache-control']).toMatch(/max-age=\d+/)
-    // Because static assets shouldn't use CSRF and thus shouldn't
-    // be setting a cookie.
+    // Because static assets shouldn't be setting a cookie.
     expect(res.headers['set-cookie']).toBeUndefined()
     // The "Surrogate-Key" header is set so we can do smart invalidation
     // in the Fastly CDN. This needs to be available for static assets too.
@@ -1005,8 +1006,7 @@ describe('static routes', () => {
     expect(res.statusCode).toBe(200)
     expect(res.headers['cache-control']).toContain('public')
     expect(res.headers['cache-control']).toMatch(/max-age=\d+/)
-    // Because static assets shouldn't use CSRF and thus shouldn't
-    // be setting a cookie.
+    // Because static assets shouldn't be setting a cookie.
     expect(res.headers['set-cookie']).toBeUndefined()
     expect(res.headers.etag).toBeUndefined()
     expect(res.headers['last-modified']).toBeTruthy()

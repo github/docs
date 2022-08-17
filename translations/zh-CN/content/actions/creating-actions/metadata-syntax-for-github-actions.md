@@ -74,7 +74,7 @@ inputs:
 
 ### `inputs.<input_id>.required`
 
-**必要** 表示操作是否需要输入参数的 `boolean`。 当参数为必要时设置为 `true`。
+**Optional** A `boolean` to indicate whether the action requires the input parameter. 当参数为必要时设置为 `true`。
 
 ### `inputs.<input_id>.default`
 

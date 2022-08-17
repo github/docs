@@ -1,6 +1,6 @@
 ---
-title: 'Configuring automation for {% data variables.product.prodname_projects_v1 %}'
-intro: 'You can set up automatic workflows to move issues and pull requests to a {% data variables.projects.projects_v1_board %} column when a specified event occurs.'
+title: '{% data variables.product.prodname_projects_v1 %}の自動化の設定'
+intro: '指定されたイベントが発生したときに、IssueやPull Requestを{% data variables.projects.projects_v1_board %}の列に移動させる自動化ワークフローをセットアップできます。'
 redirect_from:
   - /github/managing-your-work-on-github/managing-project-boards/configuring-automation-for-project-boards
   - /articles/configuring-automation-for-project-boards
@@ -19,7 +19,7 @@ allowTitleToDifferFromFilename: true
 
 {% data reusables.projects.project_boards_old %}
 
-{% data reusables.project-management.automate-project-board-permissions %} For more information, see "[About automation for {% data variables.product.prodname_projects_v1 %}](/articles/about-automation-for-project-boards)."
+{% data reusables.project-management.automate-project-board-permissions %} 詳しい情報については「[{% data variables.product.prodname_projects_v1 %}の自動化について](/articles/about-automation-for-project-boards)」を参照してください。
 
 {% data reusables.project-management.use-automated-template %}
 
@@ -31,7 +31,7 @@ allowTitleToDifferFromFilename: true
 
 {% endtip %}
 
-1. Navigate to the {% data variables.projects.projects_v1_board %} you want to automate.
+1. 自動化したい{% data variables.projects.projects_v1_board %}にアクセスしてください。
 2. 自動化したい列で、{% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}をクリックします。 ![編集アイコン](/assets/images/help/projects/edit-column-button.png)
 3. [**Manage automation**] をクリックします。 ![[Manage automation] ボタン](/assets/images/help/projects/manage-automation-button.png)
 4. [Preset] ドロップダウンメニューで、自動化のプリセットを 1 つ選びます。 ![メニューから自動化のプリセットを選択](/assets/images/help/projects/select-automation.png)
@@ -39,4 +39,4 @@ allowTitleToDifferFromFilename: true
 6. [**Update automation**] をクリックします。
 
 ## 参考リンク
-- "[About automation for {% data variables.product.prodname_projects_v1 %}](/articles/about-automation-for-project-boards)"
+- 「[{% data variables.product.prodname_projects_v1 %}の自動化について](/articles/about-automation-for-project-boards)」

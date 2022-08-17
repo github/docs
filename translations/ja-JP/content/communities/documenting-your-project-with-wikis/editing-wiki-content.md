@@ -45,6 +45,11 @@ topics:
 
     [[https://github.com/USERNAME/REPOSITORY/blob/main/img/octocat.png|alt=octocat]]
 
+{% ifversion fpt or ghec or ghes > 3.6 or ghae-issue-7647 %}
+## Adding mathematical expressions and diagrams{% endif %}
+
+{% data reusables.getting-started.math-and-diagrams %}
+
 ## サポートされる MediaWiki 形式
 
 ウィキがどのマークアップ言語で書かれたかにかかわらず、特定の MediaWiki 構文を常に使用できます。

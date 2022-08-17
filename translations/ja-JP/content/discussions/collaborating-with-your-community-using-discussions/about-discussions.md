@@ -63,7 +63,7 @@ For more information, see "[Managing categories for discussions](/discussions/ma
 
 ## フィードバックを送る
 
-{% data variables.product.prodname_discussions %} に関するフィードバックを {% data variables.product.company_short %} と共有できます。 会話に参加するには、[`github/feedback`](https://github.com/github/feedback/discussions?discussions_q=category%3A%22Discussions+Feedback%22) を参照してください。
+{% data variables.product.prodname_discussions %} に関するフィードバックを {% data variables.product.company_short %} と共有できます。 To join the conversation, see [{% data variables.product.prodname_github_community %} discussions](https://github.com/orgs/community/discussions/categories/discussions).
 
 ## 参考リンク
 

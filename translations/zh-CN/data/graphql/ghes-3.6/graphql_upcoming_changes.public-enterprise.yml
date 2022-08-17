@@ -80,7 +80,7 @@ upcoming_changes:
   - 
     location: RemovePullRequestFromMergeQueueInput.branch
     description: '`branch` 将被删除。'
-    reason: PRs are removed from the merge queue for the base branch, the `branch` argument is now a no-op
+    reason: PR 将从基本分支的合并队列中删除，`branch` 参数现在是 no-op
     date: '2022-10-01T00:00:00+00:00'
     criticality: 重大
     owner: jhunschejones

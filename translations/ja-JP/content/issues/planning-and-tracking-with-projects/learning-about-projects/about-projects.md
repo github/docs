@@ -1,6 +1,6 @@
 ---
 title: '{% data variables.product.prodname_projects_v2 %}について'
-intro: '{% data variables.product.prodname_projects_v2 %} is an adaptable, flexible tool for planning and tracking work on {% data variables.product.company_short %}.'
+intro: '{% data variables.product.prodname_projects_v2 %}は、{% data variables.product.company_short %}上の作業の計画と追跡のための、適応性のある柔軟なツールです。'
 allowTitleToDifferFromFilename: true
 miniTocMaxHeadingLevel: 3
 versions:
@@ -14,25 +14,25 @@ topics:
 
 ## {% data variables.product.prodname_projects_v2 %}について
 
-A project is an adaptable spreadsheet that integrates with your issues and pull requests on {% data variables.product.company_short %} to help you plan and track your work effectively. You can create and customize multiple views by filtering, sorting, grouping your issues and pull requests, adding custom fields to track metadata specific to your team, and visualize work with configurable charts. Rather than enforcing a specific methodology, a project provides flexible features you can customize to your team’s needs and processes.
+プロジェクトは、{% data variables.product.company_short %}上のIssueやPull Requestと統合された適応性のあるスプレッドシートで、作業を効果的に計画し、追跡するのに役立ちます。 IssueやPull Requestをフィルタリングし、ソートし、グループ化して、チーム固有のメタデータを追跡するためのカスタムフィールドを追加し、設定可能なグラフで作業を可視化することによって、複数のビューを作成してカスタマイズできます。 プロジェクトは、特定の方法論を強制するのではなく、チームの要求やプロセスに合わせてカスタマイズ可能な重要な機能を提供します。
 
 ### 最新の状態に保つ
 
-Your projects are built from the issues and pull requests you add, creating direct references between your project and your work. Information is synced automatically to your project as you make changes, updating your views and charts. This integration works both ways, so that when you change information about a pull request or issue in your project, the pull request or issue reflects that information. For example, change an assignee in your project and that change is shown in your issue. You can take this integration even further, group your project by assignee, and make changes to issue assignment by dragging issues into the different groups.
+プロジェクトは追加するIssueやPull Requestから構築され、プロジェクトと作業の間に直接の参照を作成します。 情報は変更があるたびにプロジェクトと自動的に同期され、ビューやグラフが更新されます。 この統合は双方向なので、Pull ReqeustやIssueに関する情報をプロジェクトから変更すると、そのPull RequestやIssueにはその情報が反映されます。 たとえばプロジェクトでアサインされた人を変更すると、その変更はIssueでも表示されます。 この統合をさらに推し進め、プロジェクトをアサインされた人でグループ化し、Issueを他のグループにドラッグすることによってIssueにアサインされた人を変更できます。
 
 ### タスクへのメタデータの追加
 
-You can use custom fields to add metadata to your tasks and build a richer view of item attributes. You’re not limited to the built-in metadata (assignee, milestone, labels, etc.) that currently exists for issues and pull requests. For example, you can add the following metadata as custom fields:
+カスタムフィールドを使って、タスクにメタデータを追加し、アイテムの属性のより豊かなビューを構築できます。 IssueやPull Requestに現在存在するビルトインのメタデータ（アサインされた人、マイルストーン、ラベルなど）に限定はされません。 たとえば、以下のメタデータをカスタムフィールドとして追加できます:
 
-- A date field to track target ship dates.
-- A number field to track the complexity of a task.
-- A single select field to track whether a task is Low, Medium, or High priority.
-- A text field to add a quick note.
-- An iteration field to plan work week-by-week, including support for breaks.
+- ターゲットの出荷日を追跡する日付フィールド。
+- タスクの複雑さを追跡する数値フィールド。
+- タスクの優先度が低、中、高なのかを追跡するための単一選択フィールド。
+- クイックノートを追加するためのテキストフィールド。
+- 休憩のサポートを含め、作業を週単位で計画するための繰り返しフィールド。
 
 ### 様々な観点からプロジェクトを見る
 
-Quickly answer your most pressing questions by tailoring your project view to give you the information you need. You can save these views, allowing you to quickly return to them as needed and make them available to your team. Views not only let you scope down the items listed but also offer two different layout options.
+必要な情報が得られるようにプロジェクトのビューを調整して、最も差し迫った疑問に素早く答えてください。 それらのビューを保存して、必要なときにすぐに戻れるように、そしてチームでそれらを利用できるようにすることができます。 ビューはリストされたアイテムだけを対象とするだけでなく、2つの異なるレイアウトの選択肢も提供します。
 
 プロジェクトは、高密度のテーブルレイアウトで表示できます。
 
@@ -46,4 +46,4 @@ Quickly answer your most pressing questions by tailoring your project view to gi
 
 ![プロジェクトのビュー](/assets/images/help/issues/project_view.png)
 
-For more information, see "[Customizing a view](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/customizing-a-view)."
+詳しい情報については「[ビューのカスタマイズ](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/customizing-a-view)」を参照してください。

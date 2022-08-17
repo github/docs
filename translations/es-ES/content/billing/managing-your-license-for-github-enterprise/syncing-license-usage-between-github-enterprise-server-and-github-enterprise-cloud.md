@@ -22,6 +22,8 @@ Para garantizar que ves los detalles actualizados de la licencia en {% data vari
 
 Si no quieres habilitar {% data variables.product.prodname_github_connect %}, puedes sincronizar el uso de licencia manualmente si subes un archivo desde {% data variables.product.prodname_ghe_server %} a {% data variables.product.prodname_dotcom_the_website %}.
 
+Cuando sincronizas el uso de licencia, solo la ID de usuario y las direcciones de correo electrónico de cada cuenta de usuario en {% data variables.product.prodname_ghe_server %} se transmiten a {% data variables.product.prodname_ghe_cloud %}.
+
 {% data reusables.enterprise-licensing.view-consumed-licenses %}
 
 {% data reusables.enterprise-licensing.verified-domains-license-sync %}
@@ -45,7 +47,7 @@ Después de que habilites {% data variables.product.prodname_github_connect %}, 
 
 ## Cargar el uso de licencia de GitHub Enterprise Server manualmente
 
-Puedes descargar un archivo JSON desde {% data variables.product.prodname_ghe_server %} y subir el archivo a {% data variables.product.prodname_ghe_cloud %} para sincronizar de forma manual el uso de la licencia de usuario entre dos implementaciones.
+Puedes descargar un archivo JSON desde {% data variables.product.prodname_ghe_server %} y subir el archivo a {% data variables.product.prodname_ghe_cloud %} para sincronizar el uso de la licencia de usuario entre dos implementaciones de forma manual.
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}

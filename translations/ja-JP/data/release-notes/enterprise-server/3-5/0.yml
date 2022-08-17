@@ -238,13 +238,13 @@ sections:
       heading: EnterpriseのAudit log内のGitイベント
       notes:
         - |
-          The following Git-related events can now appear in the enterprise audit log. If you enable the feature and set an audit log retention period, the new events will be available for search via the UI and API, or export via JSON or CSV.
+          以下のGit関連のイベントが、EnterpriseのAudit logに現れるようになりました。この機能を有効化し、Audit logの保存期間を設定すると、新しいイベントはUIやAPI経由で検索したり、JSONあるいはCSVにエクスポートしたりできるようになります。
 
           - `git.clone`
           - `git.fetch`
           - `git.push`
 
-          Due to the large number of Git events logged, we recommend you monitor your instance's file storage and review your related alert configurations. For more information, see "[Configuring the audit log for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/configuring-the-audit-log-for-your-enterprise#managing-git-events-in-the-audit-log)."
+          記録されるGitイベント数は大量なので、インスタンスのファイルストレージをモニタリングし、関連するアラート設定をレビューすることをおすすめします。詳しい情報については「[EnterpriseのAudit logの設定(/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/configuring-the-audit-log-for-your-enterprise#managing-git-events-in-the-audit-log)」を参照してください。
     - 
       heading: CODEOWNERSの改善
       notes:

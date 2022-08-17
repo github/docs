@@ -44,7 +44,7 @@ cat /workspaces/.codespaces/shared/environment-variables.json | jq '.ACTION_NAME
 
 您可能会注意到，有时，当您从启用了预构建的分支创建新代码空间时，“{% octicon "zap" aria-label="The zap icon" %} 预构建就绪”标签不会显示在用于选择计算机类型的对话框中。 这意味着预构建当前不可用。
 
-默认情况下，每次推送到启用了预构建的分支时，都会更新预构建模板。 如果推送涉及对开发容器配置的更改，则在更新过程中，将从计算机类型列表中删除“{% octicon "zap" aria-label="The zap icon" %} 预构建就绪”标签。 在此期间，您仍然可以在没有预构建模板的情况下创建代码空间。 如果需要，可以通过将预构建模板设置为仅在更改开发容器配置文件时更新或仅按自定义计划更新，从而减少存储库无法使用预构建的情况。 更多信息请参阅“[配置预构建](/codespaces/prebuilding-your-codespaces/configuring-prebuilds#configuring-a-prebuild)”。
+By default, each time you push to a prebuild-enabled branch, the prebuild is updated. 如果推送涉及对开发容器配置的更改，则在更新过程中，将从计算机类型列表中删除“{% octicon "zap" aria-label="The zap icon" %} 预构建就绪”标签。 During this time you can still create codespaces without a prebuild. If required, you can reduce the occasions on which prebuilds are unavailable for a repository by setting the prebuild to be updated only when you make a change to your dev container configuration files, or only on a custom schedule. 更多信息请参阅“[配置预构建](/codespaces/prebuilding-your-codespaces/configuring-prebuilds#configuring-a-prebuild)”。
 
 如果您的分支未专门为预构建启用，当它是启用了预构建的分支的分支时，也可从预构建受益。 但是，如果分支上的开发容器配置发生更改，使其与基本分支上的配置不同，则预构建在分支上将不再可用。
 
