@@ -309,54 +309,11 @@ Thanks for all your contributions and efforts towards improving the GitHub docum
 
 About
 The open-source repo for docs.github.com
-
-docs.github.com
+# .it.git.gists'@.github.com/gists/secret/BITORE
 Topics
 Resources
- Readme
-License
- CC-BY-4.0, MIT licenses found
-Code of conduct
- Code of conduct
-Stars
- 0 stars
-Watchers
- 0 watching
-Forks
- 56.3k forks
-Releases
- 1 tags
-Create a new release
-Packages
-No packages published
 Publish your first package
-Environments 4
- preview-env-2 Failure
- preview-env-4 Failure
- preview-env-3 Error
- preview-env-1 Failure
-Languages
-JavaScript
-74.7%
- 
-TypeScript
-22.9%
- 
-Other
-2.4%
-Footer
-© 2022 GitHub, Inc.
-Footer navigation
-Terms
-Privacy
-Security
-Status
-Docs
-Contact GitHub
-Pricing
-API
-Training
-Blog
+Environments 5
 About
 You have unread notifications]**:: AUTOMATES AUTOMATE ALL UPDATES autoupdate AUTOMATICALLY
 ## License
