@@ -1,5 +1,5 @@
 #: ALl Right Reserved by Zachry Tyler Wood COPYRIGHT CRYPTOCURRENCY #TM 09-17-2001 
-#: (((C))((R)))
+#: ((c)(r))
 #: TRADEMARK 
 #: BITORE_34173 
 #: Bitore.sig
