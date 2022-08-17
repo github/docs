@@ -1,24 +1,61 @@
-#: ALl Right Reserved by Zachry Tyler Wood COPYRIGHT CRYPTOCURRENCY #TM 09-17-2001 
-#: ((c)(r))
-#: TRADEMARK 
-#: BITORE_34173 
-#: Bitore.sig
-#: BITORE
-TIN :
-Fact: 
-633441725
-SSN: 
-633-44-1725
-Name: 
-ZACHRY TYLER WOOD
-BANK NAME :
-PNC BANK
-ACCOUNT NUMBER :
-Business CHecking's debit Card accoiunt :
-47-2041-6547
-Routing_Transit_CODE : 
-071921891
-# GitHub Docs 
+BEGIN:'
+
+!#/usr/bin/bash/Users/bin/Bash/bitore.sig/BITCORE'
+
+AUTOMATE:'
+
+AUTOMATE:'
+
+GLOW7: '"'.txt'"''
+
+# ALl Right Reserved by Zachry Tyler Wood COPYRIGHT CRYPTOCURRENCY #TM 09-17-2001' 
+
+# ((c)(r))'
+
+# TRADEMARK'
+
+#  BITORE_34173'
+
+# Bitore.sig'
+
+# BITORE'
+
+TIN :'
+
+Fact:'
+
+633441725'
+
+SSN:'
+
+633-44-1725'
+
+Name:'
+
+ZACHRY TYLER WOOD'
+
+BANK NAME :'
+
+PNC BANK'
+
+ACCOUNT NUMBER :'
+
+Business CHecking's debit Card accoiunt :'
+
+47-2041-6547'
+
+Routing_Transit_CODE :'
+
+071921891'
+
+# GitHub Docs'
+
+:BUIld::'
+
+Publish:' 
+
+-starts:'
+
 <!-- omit in toc --> 
 This repository contains the documentation website code and Markdown source files for [docs.github.com](https://docs.github.com).
 GitHub's Docs team works on pre-production content in a private repo that regularly syncs with this public repo.
