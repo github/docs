@@ -5,7 +5,6 @@ import { productMap, productGroups } from '../lib/all-products.js'
 import pathUtils from '../lib/path-utils.js'
 import productNames from '../lib/product-names.js'
 import warmServer from '../lib/warm-server.js'
-import readJsonFile from '../lib/read-json-file.js'
 import searchVersions from '../lib/search/versions.js'
 import nonEnterpriseDefaultVersion from '../lib/non-enterprise-default-version.js'
 const activeProducts = Object.values(productMap).filter(
@@ -17,18 +16,11 @@ const {
   getCategoryStringFromPath,
   getPathWithoutLanguage,
 } = pathUtils
-const featureFlags = Object.keys(readJsonFile('./feature-flags.json'))
 
 // This doesn't change just because the request changes, so compute it once.
 const enterpriseServerVersions = Object.keys(allVersions).filter((version) =>
   version.startsWith('enterprise-server@')
 )
-
-const featureFlagsObject = Object.fromEntries(
-  featureFlags.map((featureFlagName) => [featureFlagName, process.env[featureFlagName]])
-)
-
-const AIRGAP = Boolean(JSON.parse(process.env.AIRGAP || 'false'))
 
 // Supply all route handlers with a baseline `req.context` object
 // Note that additional middleware in middleware/index.js adds to this context object
@@ -36,9 +28,7 @@ export default async function contextualize(req, res, next) {
   // Ensure that we load some data only once on first request
   const { site, redirects, siteTree, pages: pageMap } = await warmServer()
 
-  req.context = Object.assign({}, featureFlagsObject)
-
-  // make feature flag environment variables accessible in layouts
+  req.context = {}
   req.context.process = { env: {} }
 
   // define each context property explicitly for code-search friendliness
@@ -63,8 +53,6 @@ export default async function contextualize(req, res, next) {
   req.context.site = site[req.language].site
   req.context.siteTree = siteTree
   req.context.pages = pageMap
-
-  if (AIRGAP || req.cookies.AIRGAP) req.context.AIRGAP = true
   req.context.searchVersions = searchVersions
   req.context.nonEnterpriseDefaultVersion = nonEnterpriseDefaultVersion
 

@@ -30,5 +30,5 @@ allowTitleToDifferFromFilename: true
 ## Leia mais
 
 - "[Sobre o {% data variables.product.prodname_projects_v1 %}](/articles/about-project-boards)"
-- "[Adding issues and pull requests to a {% data variables.product.prodname_project_v1 %}](/articles/adding-issues-and-pull-requests-to-a-project-board)"
+- "[Adicionando problemas e pull requests a um {% data variables.product.prodname_project_v1 %}](/articles/adding-issues-and-pull-requests-to-a-project-board)"
 - "[Excluindo um {% data variables.product.prodname_project_v1 %}](/articles/deleting-a-project-board)"

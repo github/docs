@@ -34,7 +34,7 @@ For more information about configuring {% data variables.product.prodname_regist
 
 {% endif %}
 
-{% data reusables.package_registry.container-registry-migration-namespaces %} For more information about the impact of migration to the {% data variables.product.prodname_container_registry %}, see "[Migrating to the  {% data variables.product.prodname_container_registry %} from the Docker registry](/packages/working-with-a-github-packages-registry/migrating-to-the-container-registry-from-the-docker-registry#about-migration-from-the-docker-registry)."
+{% data reusables.package_registry.container-registry-migration-namespaces %} Para obtener más información sobre el impacto de la migración al {% data variables.product.prodname_container_registry %}, consulta la sección "[Migrarse al {% data variables.product.prodname_container_registry %} desde el registro de Docker](/packages/working-with-a-github-packages-registry/migrating-to-the-container-registry-from-the-docker-registry#about-migration-from-the-docker-registry)".
 
 ## Migrating organizations to the {% data variables.product.prodname_container_registry %}
 
@@ -61,7 +61,7 @@ For more information about monitoring the performance and storage of {% data var
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 1. En la barra lateral izquierda, da clic en **Paquetes**.
-1. To the right of the number of packages to migrate, click **Start migration**. During the migration, {% data variables.product.product_name %} will display progress on this page.
+1. To the right of the number of packages to migrate, click **Start migration**. Durante la migración, {% data variables.product.product_name %} mostrará progreso en esta página.
 
 After the migration completes, the page will display the results. If a migration fails, the page will show the organizations that own the package that caused the failure.
 
@@ -75,11 +75,3 @@ Prior to migration, if a user has created a package in the {% data variables.pro
 {% data reusables.enterprise-accounts.packages-tab %}
 1. To the right of the number of packages to migrate, click **Re-run migration**. Durante la migración, {% data variables.product.product_name %} mostrará progreso en esta página.
 1. If the migration fails again, start from step 1 and re-run the migration.
-
-{% ifversion ghes %}
-
-## Monitoring traffic to the registries
-
-You can use visualize traffic to the Docker registry and {% data variables.product.prodname_container_registry %} from {% data variables.product.product_location %}'s monitor dashboard. The "GitHub Container Package Registry" graph can help you confirm that you've successfully migrated all images to the {% data variables.product.prodname_container_registry %}. In the graph, "v1" represents traffic to the Docker registry, and "v2" represents traffic to the {% data variables.product.prodname_container_registry %}. Para obtener más información, consulta la sección "[Acceder al tablero de monitoreo](/admin/enterprise-management/monitoring-your-appliance/accessing-the-monitor-dashboard)".
-
-{% endif %}

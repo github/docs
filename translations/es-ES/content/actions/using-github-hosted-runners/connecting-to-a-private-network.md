@@ -29,7 +29,7 @@ The following diagram gives an overview of this solution's architecture:
 
 ![Diagram of an OIDC gateway](/assets/images/help/images/actions-oidc-gateway.png)
 
-It's important that you authenticate not just that the OIDC token came from {% data variables.product.prodname_actions %}, but that it came specifically from your expected workflows, so that other {% data variables.product.prodname_actions %} users aren't able to access services in your private network. You can use OIDC claims to create these conditions. For more information, see "[Defining trust conditions on cloud roles using OIDC claims](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#defining-trust-conditions-on-cloud-roles-using-oidc-claims)."
+Es importante que autentiques no solo que el token de OIDC venga de {% data variables.product.prodname_actions %}, sino que venga específicamente de tus flujos de trabajo esperados para que otros usuarios de {% data variables.product.prodname_actions %} no puedan acceder a los servicios en tu red privada. You can use OIDC claims to create these conditions. For more information, see "[Defining trust conditions on cloud roles using OIDC claims](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#defining-trust-conditions-on-cloud-roles-using-oidc-claims)."
 
 The main disadvantage of this approach is you have to implement the API gateway to make requests on your behalf, as well as run it on the edge of your network.
 

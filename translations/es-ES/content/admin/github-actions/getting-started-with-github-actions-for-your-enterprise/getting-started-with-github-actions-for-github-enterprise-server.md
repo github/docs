@@ -34,7 +34,8 @@ Este artículo explica cómo los administradores de sitio pueden habilitar {% da
 
 ## Revisar los requisitos de hardware
 
-{%- ifversion ghes %}
+
+{%- ifversion ghes < 3.6 %}
 
 Los recursos de memoria y CPU que {% data variables.product.product_location %} tiene disponibles determinan la cantidad de jobs que se pueden ejecutar simultáneamente sin pérdida de rendimiento. {% data reusables.actions.minimum-hardware %}
 
@@ -42,6 +43,13 @@ La cantidad máxima de ejecución simultánea de jobs sin pérdida de rendimient
 
 {% endif %}
 
+{%- ifversion ghes > 3.5 %}
+
+The CPU and memory resources available to {% data variables.product.product_location %} determine the number of runners that can be configured without performance loss. {% data reusables.actions.minimum-hardware %}
+
+The peak quantity of connected runners without performance loss depends on such factors as job duration, artifact usage, number of repositories running Actions, and how much other work your instance is doing not related to Actions. Las pruebas internas en GitHub demostraron los siguientes objetivos de rendimiento para GitHub Enterprise Server en un rango de configuraciones de memoria y CPU:
+
+{% endif %}
 
 {%- ifversion ghes = 3.2 %}
 
@@ -79,6 +87,23 @@ La simultaneidad máxima se midió utilizando repositorios múltiples, una durac
 
 {% endnote %}
 
+{%- endif %}
+
+
+{%- ifversion ghes = 3.6 %}
+
+{% data reusables.actions.hardware-requirements-3.6 %}
+
+{% data variables.product.company_short %} measured maximum connected runners using multiple repositories, job duration of approximately 10 minutes, and 10 MB artifact uploads. Puedes experimentar rendimientos diferentes dependiendo de los niveles de actividad generales de tu instancia.
+
+{% note %}
+
+**Notas:**
+
+- Beginning with {% data variables.product.prodname_ghe_server %} 3.6, {% data variables.product.company_short %} documents connected runners as opposed to concurrent jobs. Connected runners represents the most runners you can connect and expect to utilize. It should also be noted that connecting more runners than you can expect to utilize can negatively impact performance.
+
+- Beginning with {% data variables.product.prodname_ghe_server %} 3.5, {% data variables.product.company_short %}'s internal testing uses 3rd generation CPUs to better reflect a typical customer configuration. Este cambio en el CPU representa una porción pequeña de los cambios a los objetivos de desempeño en esta versión de {% data variables.product.prodname_ghe_server %}.
+{% endnote %}
 {%- endif %}
 
 Si planeas habilitar las {% data variables.product.prodname_actions %} para los usuarios de una instancia existente, revisa los niveles de actividad para los usuarios y automatizaciones en la instancia y asegúrate de haber proporcionado memoria y CPU adecuados para tus usuarios. Para obtener más información acerca de cómo monitorear la capacidad y rendimiento de {% data variables.product.prodname_ghe_server %}, consulta la sección "[Monitorear tu aplicativo](/admin/enterprise-management/monitoring-your-appliance)".

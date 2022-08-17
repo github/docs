@@ -30,6 +30,11 @@ export function cacheControlFactory(
     .filter(Boolean)
     .join(', ')
   return (res) => {
+    if (process.env.NODE_ENV !== 'production' && res.hasHeader('set-cookie')) {
+      console.warn(
+        "You can't set a >0 cache-control header AND set-cookie or else the CDN will never respect the cache-control."
+      )
+    }
     res.set(key, directives)
   }
 }
