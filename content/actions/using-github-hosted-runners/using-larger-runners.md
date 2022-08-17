@@ -115,6 +115,8 @@ Runner groups are used to control which repositories can run jobs on your larger
 - If you define the larger runner type at the enterprise level, you need grant access to all the required organizations. In addition, for each organization, you must specify which repositories can access the runners in the group.
 - If you define the larger runner type at the organization level, you must specify which repositories can access the runners in the group.
 
+In the following diagram, a runner group named `16-core-ubuntu-rg` has been defined at the enterprise level. Before the repository named `octo-repo` can use the runners in the group, you must first configure the group at the enterprise level to allow access from `octo-org`. You must then configure the group at the organization level to allow access from `octo-repo`:
+
 ![Diagram explaining larger runner groups](/assets/images/larger-runner-mgmt.png)
 
 ### Allowing access to runners in an enterprise
