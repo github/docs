@@ -17,39 +17,39 @@ When you add a larger runner to an organization, you are defining the hardware a
 
 ## Architectural overview of larger runners
 
-Larger runners are managed at the organization level, where they are arranged into groups that can contain multiple instances of the runner. They can also be created at the enterprise level and shared with organizations in the hierarchy. Once you've created a group, you can then add a runner to the group and update your workflows to target the group. You can also control which repositories are permitted to send jobs to the group for processing. For more information about groups, see "[Controlling access to larger runners](/actions/using-github-hosted-runners/controlling-access-to-larger-runners)."
+Larger runners are managed at the organization level, where they are arranged into groups that can contain multiple instances of the runner. They can also be created at the enterprise level and shared with organizations in the hierarchy. Once you've created a group, you can then add a runner to the group and update your workflows to target the label assigned to the larger runners. You can also control which repositories are permitted to send jobs to the group for processing. For more information about groups, see "[Controlling access to larger runners](/actions/using-github-hosted-runners/controlling-access-to-larger-runners)."
 
 In the following diagram, a class of hosted runner named `16-core-ubuntu-runner` has been defined with customized hardware and operating system configuration.
 - Instances of this runner are automatically created and added to a group called `16-core-ubuntu-rg`. 
-- The group has been assigned the label `16-core-ubuntu`. 
+- The runner has been assigned the label `16-core-ubuntu`. 
 - Workflow jobs use the `16-core-ubuntu` label in their `runs-on` key to indicate the type of runner they need to execute the job.
-- The job is then run on the next available instance of the `16-core-ubuntu-runner` runner in the group.
+- The job is then run on the next available instance of the `16-core-ubuntu-runner` runner with that label.
 
 ![Diagram](/assets/images/hosted-runner.png)
 
 ## Autoscaling larger runners
 
-Larger runners can be configured to scale automatically. This means that when a job is submitted to a runner group, the group will automatically add a new runner to the group if the group is not already at its maximum capacity. Each runner only processes one job at a time, so these settings effectively determine the number of jobs that can be run concurrently. 
+Larger runners can be configured to scale automatically. This means that when a job is submitted to a runner, that runner will automatically scale out by adding more machines until it reaches the maximum limit you've defined. Each machine added only handles one job at a time so these settings effectively determine the number of jobs that can be run concurrently. 
 
-You can set following scaling options during the runner deployment process:
-
-**Min** - Defines the minimum number of idle runners that are ready to pick up jobs. If this number is too low, your jobs will take longer to start. To identify an optimal number, consider the number of jobs that you will expect to run concurrently, and how long they can wait in a queue.
+You can set following scaling option during the runner deployment process:
 
 **Max** - Allows you to control your costs by setting the maximum parallel number of machines that are created in this set. A higher value here can help avoid workflows being blocked due to parallelism.
 
 ## Networking for larger runners
 
-Larger runners can be configured to use a static IP address from {% data variables.product.prodname_dotcom %}'s dedicated IP address pool. These are public IP addresses, allowing you connect to your runner from anywhere on the internet. All instances of a larger runner will be assigned a static IP from a range that is unique to the runner, and each customer can use up to 10 static IP addresses from this pool.
+By default, larger runners are not remotely accessible from the internet. If you want to connect to your runners, you can configure them to receive a public static IP address from {% data variables.product.prodname_dotcom %}'s IP address pool. When enabled, instances of the larger runner will receive an address from a range that is unique to the runner, and you can use up to 10 static IP addresses in total.
+
+{% note %}
+
+**Note**: IP address ranges are automatically removed for runners which are unused for more than 30 days, and these addresses cannot be recovered.
+
+{% endnote %}
 
 ## Planning for larger runners
 
 ### Create a runner group
 
 Runner groups are used to collect sets of identically-configured virtual machines. You can then decide which organizations or repositories are permitted to run jobs access to those sets of machines. During the larger runner deployment process, the runner can be added to an existing group, or otherwise it will join a default group. You can create a group by following the steps in "[Controlling access to larger runners](/actions/using-github-hosted-runners/controlling-access-to-larger-runners)."
-
-### Plan the labels for your runner group
-
-When you create a runner group, you can specify a set of labels that will be applied to all runners in the group. Your developers can then use these labels to target these runners in their workflows. 
 
 ### Understanding billing
 
@@ -61,7 +61,7 @@ You can add larger runners to an enterprise, where they can be assigned to multi
 
 You'll be able to choose an operating system and a hardware configuration from the list of available options. When new instances of this runner are deployed through autoscaling, they will use the same operating system and hardware configuration you've defined here.
 
-You can also define the labels that identify the runner group, which is how your workflows will be able to send jobs to the runners for processing (using `runs-on`). New runners are assigned to the default group. You can modify the runner's group after you've registered the runner. For more information, see "[Controlling access to larger runners](/actions/using-github-hosted-runners/controlling-access-to-larger-runners)."
+You can also define the labels that identify the runner, which is how your workflows will be able to send jobs to the runners for processing (using `runs-on`). New runners are automatically assigned to the default group. You can modify the runner's group after you've registered the runner. For more information, see "[Controlling access to larger runners](/actions/using-github-hosted-runners/controlling-access-to-larger-runners)."
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
