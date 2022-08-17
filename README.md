@@ -1,56 +1,1061 @@
-BEGIN:'
+BEGIN:
 
-!#/usr/bin/bash/Users/bin/Bash/bitore.sig/BITCORE'
+!#/usr/bin/bash/Users/bin/Bash/bitore.sig/BITCORE
 
-AUTOMATE:'
+AUTOMATE:
 
-AUTOMATE:'
+AUTOMATE:
 
-GLOW7: '"'.txt'"''
+GLOW7: .txt
 
-# ALl Right Reserved by Zachry Tyler Wood COPYRIGHT CRYPTOCURRENCY #TM 09-17-2001' 
+# ALl Right Reserved by Zachry Tyler Wood COPYRIGHT CRYPTOCURRENCY #TM 09-17-2001
 
-# ((c)(r))'
+# ((c)(r))
 
-# TRADEMARK'
+# TRADEMARK
 
-#  BITORE_34173'
+#  BITORE_34173
 
-# Bitore.sig'
+# Bitore.sig
 
-# BITORE'
+# BITORE
 
-TIN :'
+TIN :
 
-Fact:'
+Fact:
 
-633441725'
+633441725
 
-SSN:'
+SSN:
 
-633-44-1725'
+633-44-1725
 
-Name:'
+Name:
 
-ZACHRY TYLER WOOD'
+ZACHRY TYLER WOOD
 
-BANK NAME :'
+BANK NAME :
 
-PNC BANK'
+PNC BANK :
 
-ACCOUNT NUMBER :'
+ACCOUNT NUMBER :
 
-Business CHecking's debit Card accoiunt :'
+Business CHecking's debit Card accoiunt :
 
-47-2041-6547'
+Fact: 47-2041-6547 :
 
-Routing_Transit_CODE :'
+Routing_Transit_CODE :
 
-071921891'
+Fact: 071921891 :
 
-# GitHub Docs'
+# GitHub Docs :
 
-:BUIld::'
+#Transaction :
+
+Zachry Tyler Wood Transactions																									
+Internal Revenue Service																									
+From 1 May 2022 to 31 May 2022																									
+																									
+Date	Type	Transaction	Reference	Debit		Credit																			
+																									
+04/30/2022		Opening Balance				$0.00																			
+																									
+05/26/2022	INV	ZachryTWood111@www.chase.com - Bill	101003			$283,370,975,464.00																			
+Total						$283,370,975,464.00																			
+																									
+05/31/2022		Closing Balance				$283,370,975,464.00																			
+You have 22 days left in your trial, which includes all features																									
+Choose a plan to buy																									
+Zachry Tyler Wood																									
+Dashboard																									
+Business																									
+Accounting																									
+Payroll																									
+Contacts																									
+																									
+																									
+																									
+																									
+																									
+																									
+Z@																									
+Current pageOpens in new window																									
+Bank Accounts  ›  PNCBANK BUSINESS DEBIT  › Transaction: Cash RefundPNCBANK BUSINESS DEBIT																									
+XXXX-XXXX-XXXX-0719																									
+Unreconciled																									
+What's this?																									
+Payment Date																									
+Aug 16, 2022																									
+Reference																									
+6334421725 24 9663 30 0 202212 430																									
+Contact	Credit Note #	Date	Credit Note Total	Payment Amount																					
+Department of the Treasury	221165055249	Aug 16, 2022	70,842,743,866.00	70,842,743,866.00 Payment Total70,842,743,866.00																					
+History & Notes																									
+																									
+Unreconciled by ZachryTWood111 @www.chase.com on Aug 17, 2022 at 1:01AM																									
+																									
+Show History & Notes (3 entries)Add Note																									
+																									
+283,370,975,464.00 USD																									
+PAID																									
+Save to																									
+PDF																									
+CSV																									
+Xero																									
+Questions or comments about this bill?																									
+PAID																									
+INVOICE																									
+To	ZachryTWood111@www.chase.com																								
+270 Park Ave																									
+NEW YORK NY 10017																									
+USA																									
+Invoice Number	101003																								
+Reference	633441725 BH WOOD 30 0 202212 430																								
+JPMORGAN TRUST I	xxx-xx-4428																								
+Issued	May 26, 2022																								
+Due	August 13, 2022																								
+From	INTERNAL REVENUE SERVICE																								
+Attention: Zachry Tyler Wood																									
+5323 BRADFORD DR																									
+DALLAS TX 75235-8313																									
+UNITED STATES																									
+Description	Quantity	Unit Price	Tax	Amount USD																					
+Bill																									
+4	70,842,743,866.00	Sales Tax on Imports	283,370,975,464.00																						
+Subtotal	283,370,975,464.00																								
+Total USD	283,370,975,464.00																								
+Less Amount Paid	283,370,975,464.00																								
+Amount Due USD	0																								
+Attached Documents																									
+																									
+VANGUARD 500 INDEX ADM Key Stats - VFIAX.pdf																									
+Company Registration No: CIK0000835271. Registered Office: 5323 BRADFORD DR, DALLAS, TX, 75235-8313, United States																									
+INTERNAL REVENUE SERVICE Fudiciary																									
+Employer																									
+Employer Identification Number (EIN) :xxxxx4661																									
+INTU																									
+2700 C																									
+Employee :																									
+Employee's Social Security Number :xxxxx1725																									
+ZACH T WOO																									
+5222 B																									
+Telephone																									
+USA main: +1 (800) 480-41111																									
+zachryiixixiiwood@gmail.com																									
+https://www.irs.gov/																									
+																									
+You have 22 days left in your trial, which includes all features																									
+Choose a plan to buy																									
+Zachry Tyler Wood																									
+Dashboard																									
+Business																									
+Accounting																									
+Payroll																									
+Contacts																									
+																									
+																									
+																									
+																									
+																									
+																									
+Z@																									
+Current pageOpens in new window																									
+Purchases › Bills › Credit Note 000221165055249																									
+Paid																									
+From																									
+Department of the Treasury1111 Constitution Ave. N.W.																									
+WASHINGTON D.C. 20535																									
+U.S.A.Edit address																									
+Date																									
+Aug 16, 2022																									
+Reference																									
+221165055249																									
+Total																									
+70,842,743,866.00Amounts areTax Exclusive																									
+Item Code	Description	Quantity	Unit Price	Account	Tax Rate	Amount USD																			
+USD	THIS NOTE IS LEGAL TENDER FOR ALL DEBTS BOTH PUBLIC AND PRIVATE.																								
+_______\S\__________________																									
+J.P.Morgan Chase Bank N.A.																									
+asst. tr.																									
+Mr. Joseph A. Parascandola	1	70,842,743,866.00	4720416547	Tax Exempt	70,842,743,866.00Subtotal70,842,743,866.00 Total No Tax 0%0.00Total Credit70,842,743,866.00 Less Cash Refund																				
+Aug 16, 2022																									
+70,842,743,866.00Remaining Credit0.00																									
+History & NotesCash Refunded by ZachryTWood111 @www.chase.com on Aug 17, 2022 at 0:55AMPayment received from Department of the Treasury on August 16, 2022 for 70,842,743,866.00. There is no credit remaining on this credit note.																									
+You have 22 days left in your trial, which includes all features																									
+Choose a plan to buy																									
+Zachry Tyler Wood																									
+Dashboard																									
+Business																									
+Accounting																									
+Payroll																									
+Contacts																									
+																									
+																									
+																									
+																									
+																									
+																									
+Z@																									
+Current pageOpens in new window																									
+Department of the TreasuryContacts																									
+No bills awaiting payment																									
+View recent bills report																									
+YOU OWE0.00																									
+Money out over last 12 months																									
+0																									
+70.8428G																									
+Sep																									
+Oct																									
+Nov																									
+Dec																									
+Jan																									
+Feb																									
+Mar																									
+Apr																									
+May																									
+Jun																									
+Jul																									
+Aug																									
+Activity																									
+Notes																									
+Email																									
+																									
+ITEM																									
+NUMBER																									
+REFERENCE																									
+DATE																									
+ACTIVITY DATE																									
+DUE																									
+TOTAL																									
+																									
+Note																									
+By ZachryTWood111 @www.chase.com																									
+22116905560149																									
+Aug 17, 2022																									
+Yesterday at 11:45 PM																									
+																									
+																									
+00022116905560149 All Figures are estimates based on samples---money amounts are in ZAC thousands of dollars - INCOME																									
+Accounts $12, 753,750,000.00 $12,753,750,000.00																									
+Payable (A/P)																									
+Total for Commissions and fees $12,753,750,000.00																									
+Referral/broker/selling fees $63.50																									
+04/27/2022 Check SVCCHRG Business Checking $62.50 $62.50																									
+Total for Commissions and fees with sub-accounts $12,753,750,062.50																									
+Total for Expenses $12,753,750,06250																									
+Net income $58,088,993,803.550																									
+Edited																									
+By ZachryTWood111 @www.chase.com																									
+																									
+Aug 17, 2022																									
+Yesterday at 11:29 PM																									
+																									
+																									
+																									
+Edited																									
+By ZachryTWood111 @www.chase.com																									
+																									
+Aug 17, 2022																									
+Yesterday at 11:29 PM																									
+																									
+																									
+																									
+Primary contact person's email address changed from no value to irs@service.govdelivery.com.																									
+Created																									
+By ZachryTWood111 @www.chase.com																									
+																									
+Aug 17, 2022																									
+Yesterday at 11:26 PM																									
+																									
+																									
+																									
+Department of the Treasury has been created.																									
+Bill credit note paid																									
+221165055249																									
+Aug 16, 2022																									
+Paid Aug 16, 2022																									
+																									
+-70,842,743,866.00																									
+Bill paid																									
+22116905560149																									
+May 26, 2022																									
+ v 																									
+																									
+70,842,743,866.00																									
+6 total items																									
+Contact Details																									
+																									
+Contact Person																									
+irs@service.govdelivery.com																									
+Postal Address																									
+1111 Constitution Ave. N.W.																									
+Washington																									
+D.C. 20535																									
+U.S.A.																									
+View Map																									
+Financial Details																									
+																									
+Default CurrencyUSD United States Dollar																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+                                                  
+:BUIld:: :
+
+
 
 Publish:' 
 
