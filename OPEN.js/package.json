@@ -62,8 +62,10 @@ Live mode	Use this mode when you’re ready to launch your app. Card networks or
 Use only your test API keys for testing and development. This ensures that you don’t accidentally modify your live customers or charges.
 
 If you don’t have an administrator or developer role, you may not have access to view your API keys in the Dashboard. Ask your Stripe account’s owner to add you to their team as a developer.
-
-Reveal an API secret key for live mode (one time)
+  Release::
+  Launch::
+  Deployee::
+  Publish::
 An API secret key for live mode is only visible the first time you access it. After that, the Dashboard no longer shows the secret key. Use these steps to reveal a secret key and leave a note that describes where it lives in your own systems.
 
 Open the API keys page.
