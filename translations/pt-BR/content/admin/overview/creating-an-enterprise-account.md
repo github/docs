@@ -18,14 +18,15 @@ shortTitle: Criar conta corporativa
 
 {% data reusables.enterprise.create-an-enterprise-account %} Se você pagar por fatura, você poderá criar uma conta corporativa em {% data variables.product.prodname_dotcom %}. Caso contrário, você pode [entrar em contato com nossa equipe de vendas](https://github.com/enterprise/contact?ref_page=/pricing&ref_cta=Contact%20Sales&ref_loc=cards) para criar uma conta corporativa para você.
 
-Uma conta corporativa está incluída em {% data variables.product.prodname_ghe_cloud %}. Portanto, a criação de uma não afetará a sua conta.
+An enterprise account is included with {% data variables.product.prodname_ghe_cloud %}. Creation of an enterprise account does not result in additional charges on your bill.
 
-Ao criar uma conta corporativa, a organização existente será automaticamente propriedade da conta corporativa. Todos os proprietários atuais da sua organização irão tornar-se proprietários da conta corporativa. Todos os gerentes de cobrança atuais da organização irão tornar-se gerentes de cobrança da nova conta corporativa. Os detalhes de cobrança atuais da organização, incluindo o endereço de e-mail de cobrança da organização, irão tornar-se detalhes de cobrança da conta corporativa.
+When you create an enterprise account that owns your existing organization on {% data variables.product.product_name %}, the organization's resources remain accessible to members at the same URLs. After you add your organization to the enterprise account, the following changes will apply to the organization.
 
-Se a organização estiver conectada a {% data variables.product.prodname_ghe_server %} ou {% data variables.product.prodname_ghe_managed %} por meio de {% data variables.product.prodname_github_connect %}, atualizar a organização para uma conta corporativa **não irá** atualizar a conexão. Se você deseja se conectar à nova conta corporativa, você deverá desabilitar e reabilitar {% data variables.product.prodname_github_connect %}.
+- Your existing organization will automatically be owned by the enterprise account.
+- {% data variables.product.company_short %} bills the enterprise account for usage within all organizations owned by the enterprise. The current billing details for the organization, including the organization's billing email address, will become billing details for the new enterprise account. Para obter mais informações, consulte "[Sobre a cobrança para a sua empresa](/billing/managing-billing-for-your-github-account/about-billing-for-your-enterprise)".
+- All current owners of your organization will become owners of the enterprise account, and all current billing managers of the organization will become billing managers of the new enterprise account. Para obter mais informações, consulte "[Funções em uma empresa](/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise)".
 
-- "[Gerenciando {% data variables.product.prodname_github_connect %}](/enterprise-server@latest/admin/configuration/configuring-github-connect/managing-github-connect)" na documentação de {% data variables.product.prodname_ghe_server %}
-- "[Gerenciando {% data variables.product.prodname_github_connect %}](/github-ae@latest/admin/configuration/configuring-github-connect/managing-github-connect)" na documentação de {% data variables.product.prodname_ghe_managed %}
+For more information about the changes that apply to an organization after you add the organization to an enterprise, see "[Adding organizations to your enterprise](/admin/user-management/managing-organizations-in-your-enterprise/adding-organizations-to-your-enterprise#about-addition-of-organizations-to-your-enterprise-account)."
 
 ## Criando uma conta corporativa em {% data variables.product.prodname_dotcom %}
 

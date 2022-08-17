@@ -45,6 +45,11 @@ Para vincular a uma imagem em um repositório no {% data variables.product.produ
 
     [[https://github.com/USERNAME/REPOSITORY/blob/main/img/octocat.png|alt=octocat]]
 
+{% ifversion fpt or ghec or ghes > 3.6 or ghae-issue-7647 %}
+## Adicionando expressões matemáticas e diagramas{% endif %}
+
+{% data reusables.getting-started.math-and-diagrams %}
+
 ## Formatos do MediaWiki compatíveis
 
 Seja qual for a linguagem de marcação em que sua página wiki foi escrita, sempre haverá uma sintaxe do MediaWiki disponível para você.

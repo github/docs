@@ -575,6 +575,13 @@ upcoming_changes:
     criticality: breaking
     owner: lukewar
   - 
+    location: ProjectNextFieldType.TASKS
+    description: 'Se eliminará a `TASKS`. Sigue la guía de ProjectV2 en https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar un reemplazo adecuado.'
+    reason: La API de `ProjectNext` quedará obsoleta para favorecer la API de `ProjectV2`, la cual tiene mayores capacidades.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - 
     location: ProjectNextFieldType.TEXT
     description: 'Se eliminará a `TEXT`. Sigue la guía de ProjectV2 en https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar un reemplazo adecuado.'
     reason: La API de `ProjectNext` quedará obsoleta para favorecer la API de `ProjectV2`, la cual tiene mayores capacidades.
@@ -584,13 +591,6 @@ upcoming_changes:
   - 
     location: ProjectNextFieldType.TITLE
     description: 'Se eliminará a `TITLE`. Sigue la guía de ProjectV2 en https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar un reemplazo adecuado.'
-    reason: La API de `ProjectNext` quedará obsoleta para favorecer la API de `ProjectV2`, la cual tiene mayores capacidades.
-    date: '2022-10-01T00:00:00+00:00'
-    criticality: breaking
-    owner: lukewar
-  - 
-    location: ProjectNextFieldType.TRACKS
-    description: 'Se eliminará a `TRACKS`. Sigue la guía de ProjectV2 en https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/ para encontrar un reemplazo adecuado.'
     reason: La API de `ProjectNext` quedará obsoleta para favorecer la API de `ProjectV2`, la cual tiene mayores capacidades.
     date: '2022-10-01T00:00:00+00:00'
     criticality: breaking

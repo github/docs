@@ -9,7 +9,7 @@ import enterpriseServerReleases, {
 import Page from '../../lib/page.js'
 import { get, head } from '../helpers/e2etest.js'
 import versionSatisfiesRange from '../../lib/version-satisfies-range.js'
-import { PREFERRED_LOCALE_COOKIE_NAME } from '../../middleware/detect-language.js'
+import { PREFERRED_LOCALE_COOKIE_NAME } from '../../lib/constants.js'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 

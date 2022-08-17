@@ -87,7 +87,6 @@ export type MainContextT = {
   isHomepageVersion: boolean
   isFPT: boolean
   data: DataT
-  airGap?: boolean
   error: string
   currentCategory?: string
   relativePath?: string
@@ -155,7 +154,6 @@ export const getMainContext = (req: any, res: any): MainContextT => {
         release_candidate: req.context.site.data.variables.release_candidate,
       },
     },
-    airGap: req.context.AIRGAP || false,
     currentCategory: req.context.currentCategory || '',
     currentPathWithoutLanguage: req.context.currentPathWithoutLanguage,
     relativePath: req.context.page?.relativePath,

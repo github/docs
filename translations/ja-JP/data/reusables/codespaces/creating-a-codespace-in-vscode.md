@@ -19,7 +19,11 @@
 
    ![新しい {% data variables.product.prodname_codespaces %} を作成するためのブランチを検索する](/assets/images/help/codespaces/choose-branch-vscode.png)
 
-5. 使用したいマシンタイプをクリックしてください。
+5. 開発コンテナの設定ファイルを選択するよう求められたら、リストからファイルを選択してください。
+
+   ![{% data variables.product.prodname_codespaces %}の開発コンテナの設定ファイルの選択](/assets/images/help/codespaces/choose-dev-container-vscode.png)
+
+6. 使用したいマシンタイプをクリックしてください。
 
    ![新しい {% data variables.product.prodname_codespaces %} のインスタンスタイプ](/assets/images/help/codespaces/choose-sku-vscode.png)
 

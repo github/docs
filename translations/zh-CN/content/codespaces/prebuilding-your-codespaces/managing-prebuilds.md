@@ -16,7 +16,7 @@ miniTocMaxHeadingLevel: 3
 
 您为存储库配置的预构建是使用 {% data variables.product.prodname_actions %} 工作流程创建和更新的，由 {% data variables.product.prodname_github_codespaces %} 服务管理。
 
-根据预构建配置中的设置，更新预构建模板的工作流程可能由以下事件触发：
+Depending on the settings in a prebuild configuration, the workflow to update the prebuild may be triggered by these events:
 
 * 创建或更新预构建配置
 * 将提交或拉取请求推送到配置为具有预构建的分支
@@ -24,7 +24,7 @@ miniTocMaxHeadingLevel: 3
 * 在预构建配置中定义的计划
 * 手动触发工作流程
 
-预构建配置中的设置确定哪些事件会自动触发预构建模板的更新。 更多信息请参阅“[配置预构建](/codespaces/prebuilding-your-codespaces/configuring-prebuilds#configuring-a-prebuild)”。
+The settings in the prebuild configuration determine which events automatically trigger an update of the prebuild. 更多信息请参阅“[配置预构建](/codespaces/prebuilding-your-codespaces/configuring-prebuilds#configuring-a-prebuild)”。
 
 对存储库具有管理员访问权限的人员可以检查预构建、编辑和删除预构建配置的进度。
 
@@ -61,7 +61,7 @@ miniTocMaxHeadingLevel: 3
 
 ### 禁用预构建配置
 
-要暂停更新配置的预构建模板，可以禁用配置的工作流程运行。 为预构建配置禁用工作流程不会删除以前为该配置创建的任何预构建模板，因此，代码空间将继续从现有预构建模板生成。
+To pause the update of prebuilds for a configuration, you can disable workflow runs for the configuration. Disabling the workflow runs for a prebuild configuration does not delete any previously created prebuilds for that configuration and, as a result, codespaces will continue to be generated from an existing prebuild.
 
 如果需要调查模板创建失败，则禁用工作流程运行预构建配置非常有用。
 
@@ -74,7 +74,7 @@ miniTocMaxHeadingLevel: 3
 
 ### 删除预构建配置
 
-删除预构建配置也会删除以前为该配置创建的所有预构建模板。 因此，在删除配置后不久，在创建新代码空间时，由该配置生成的预构建将不再可用。
+Deleting a prebuild configuration also deletes all previously created prebuilds for that configuration. 因此，在删除配置后不久，在创建新代码空间时，由该配置生成的预构建将不再可用。
 
 删除预构建配置后，该配置已排队或已启动的工作流程运行仍将运行。 它们将与以前完成的工作流程运行一起列在工作流程运行历史记录中。
 

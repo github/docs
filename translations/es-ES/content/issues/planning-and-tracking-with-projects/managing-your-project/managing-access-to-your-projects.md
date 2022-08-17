@@ -43,7 +43,7 @@ También puedes agregar equipos, colaboradores externos y miembros individuales 
 Solo puedes invitar a un usuario individual para que colabore con tu proyecto a nivel organizacional si ya es miembro de la organización o a un colaborador externo en por lo menos un repositorio de la organización.
 
 {% data reusables.projects.project-settings %}
-1. Haz Clic en **Administrar el acceso**. ![Screenshot showing the "Manage access" item](/assets/images/help/projects-v2/manage-access.png)
+1. Haz Clic en **Administrar el acceso**. ![Captura de pantalla que muestra el elemento "Administrar acceso"](/assets/images/help/projects-v2/manage-access.png)
 2. Debajo de **Invitar colaboradores**, busca al equipo o usuario individual que quieras invitar. ![Screenshot showing searching for a collaborator](/assets/images/help/projects-v2/access-search.png)
 3. Select the role for the collaborator. ![Screenshot showing selecting a role](/assets/images/help/projects-v2/access-role.png)
    - **Lectura**: El equipo o individuo puede ver el proyecto.
@@ -54,7 +54,7 @@ Solo puedes invitar a un usuario individual para que colabore con tu proyecto a 
 ### Administrar el acceso de un colaborador externo en tu proyecto
 
 {% data reusables.projects.project-settings %}
-1. Haz Clic en **Administrar el acceso**. ![Screenshot showing the "Manage access" item](/assets/images/help/projects-v2/manage-access.png)
+1. Haz Clic en **Administrar el acceso**. ![Captura de pantalla que muestra el elemento "Administrar acceso"](/assets/images/help/projects-v2/manage-access.png)
 1. Debajo de **Administrar acceso**, encuentra al(los) colaborador(es) cuyos permisos quieras modificar.
 
    Puedes utilizar los menús de **Tipo** y **Rol** para filtrar la lista de acceso. ![Screenshot showing a collaborator](/assets/images/help/projects-v2/access-find-member.png)
@@ -73,21 +73,21 @@ Esto solo afecta a los colaboradores para tu proyecto, no a los repositorios de 
 {% endnote %}
 
 {% data reusables.projects.project-settings %}
-1. Haz Clic en **Administrar el acceso**. ![Screenshot showing the "Manage access" item](/assets/images/help/projects-v2/manage-access.png)
-2. Debajo de **invitar colaboradores**, busca al usuario que quieras invitar. ![Screenshot showing searching for a collaborator](/assets/images/help/projects-v2/access-search.png)
-3. Select the role for the collaborator. ![Screenshot showing selecting a role](/assets/images/help/projects-v2/access-role.png)
+1. Haz Clic en **Administrar el acceso**. ![Captura de pantalla que muestra el elemento "Administrar acceso"](/assets/images/help/projects-v2/manage-access.png)
+2. Debajo de **invitar colaboradores**, busca al usuario que quieras invitar. ![Captura de pantalla que muestra la búsqueda de un colaborador](/assets/images/help/projects-v2/access-search.png)
+3. Selecciona el rol para el colaborador. ![Captura de pantalla que muestra la selección de un rol](/assets/images/help/projects-v2/access-role.png)
    - **Lectura**: El individuo puede ver el proyecto.
    - **Escritura**: El individuo puede ver y editar el proyecto.
    - **Administrador**: El individuo puede ver, editar y agregar colaboradores nuevos al proyecto.
-4. Haz clic en **Invitar**. ![Screenshot showing the invite button](/assets/images/help/projects-v2/access-invite.png)
+4. Haz clic en **Invitar**. ![Captura de pantalla que muestra el botón de invitar](/assets/images/help/projects-v2/access-invite.png)
 
 ### Administrar el acceso de un colaborador externo en tu proyecto
 
 {% data reusables.projects.project-settings %}
-1. Haz Clic en **Administrar el acceso**. ![Screenshot showing the "Manage access" item](/assets/images/help/projects-v2/manage-access.png)
+1. Haz Clic en **Administrar el acceso**. ![Captura de pantalla que muestra el elemento "Administrar acceso"](/assets/images/help/projects-v2/manage-access.png)
 1. Debajo de **Administrar acceso**, encuentra al(los) colaborador(es) cuyos permisos quieras modificar.
 
-   Puedes utilizar los menús de **Tipo** y **Rol** para filtrar la lista de acceso. ![Screenshot showing a collaborator](/assets/images/help/projects-v2/access-find-member.png)
+   Puedes utilizar los menús de **Tipo** y **Rol** para filtrar la lista de acceso. ![Captura de pantalla que muestra a un colaborador](/assets/images/help/projects-v2/access-find-member.png)
 
-1. Edit the role for the collaborator(s). ![Screenshot showing changing a collaborator's role](/assets/images/help/projects-v2/access-change-role.png)
-1. Optionally, click **Remove** to remove the collaborator(s). ![Screenshot showing removing a collaborator](/assets/images/help/projects-v2/access-remove-member.png)
+1. Editar el rol para el(los) colaborador(es). ![Captura de pantalla que muestra el cambio de rol de un colaborador](/assets/images/help/projects-v2/access-change-role.png)
+1. Opcionalmente, haz clic en **Eliminar** para eliminar a los colaboradores. ![Captura de pantalla que muestra la eliminación de un colaborador](/assets/images/help/projects-v2/access-remove-member.png)

@@ -28,8 +28,8 @@ Esta guía te muestra cómo crear un flujo de trabajo que realice integración c
 
 Para encontrar una lista completa de versiones disponibles de Xamarin SDK en los ejecutores de macOS hospedados en {% data variables.product.prodname_actions %}, consulta la documentación:
 
-* [macOS 10.15](https://github.com/actions/virtual-environments/blob/main/images/macos/macos-10.15-Readme.md#xamarin-bundles)
-* [macOS 11](https://github.com/actions/virtual-environments/blob/main/images/macos/macos-11-Readme.md#xamarin-bundles)
+* [macOS 10.15](https://github.com/actions/runner-images/blob/main/images/macos/macos-10.15-Readme.md#xamarin-bundles)
+* [macOS 11](https://github.com/actions/runner-images/blob/main/images/macos/macos-11-Readme.md#xamarin-bundles)
 
 {% data reusables.actions.macos-runner-preview %}
 
