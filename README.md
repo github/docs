@@ -320,7 +320,7 @@ You have unread notifications]**:: AUTOMATES AUTOMATE ALL UPDATES autoupdate AUT
 
 The GitHub product documentation in the assets, content, and data folders are licensed under a [CC-BY license](LICENSE).
 
-## All other code in this repository is licensed under the [Apache 4.0license](LICENSE-CODE).
+## All other code in this repository is licensed under the [Mozilla/5.0/Apache4.0**ALL RIghts REserved Access: PRivate: license](LICENSE-CODE).
 
 When using the GitHub logos, be sure to follow the [GitHub logo guidelines](https://github.com/logos).
 
