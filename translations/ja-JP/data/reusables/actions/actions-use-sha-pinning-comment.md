@@ -1,3 +1,3 @@
-# GitHub recommends pinning actions to a commit SHA.
-# To get a newer version, you will need to update the SHA.
-# You can also reference a tag or branch, but the action may change without warning.
+# GitHubでは、コミットSHAにアクションを固定することをおすすめします。
+# 新しいバージョンを入手するには、SHAをアップデートする必要があります。
+# タグやブランチを参照することもできますが、アクションは警告なしに変更されることがあります。

@@ -7,9 +7,8 @@ import { ThemeProvider, SSRProvider } from '@primer/react'
 import '../stylesheets/index.scss'
 
 import { initializeEvents } from 'components/lib/events'
-import experiment from 'components/lib/experiment'
+import { initializeExperiments } from 'components/lib/experiment'
 import { LanguagesContext, LanguagesContextT } from 'components/context/LanguagesContext'
-import { useSession } from 'components/hooks/useSession'
 import { useTheme } from 'components/hooks/useTheme'
 
 type MyAppProps = AppProps & {
@@ -18,15 +17,12 @@ type MyAppProps = AppProps & {
 }
 
 const MyApp = ({ Component, pageProps, languagesContext }: MyAppProps) => {
-  const { session } = useSession()
   const { theme } = useTheme()
 
   useEffect(() => {
-    if (session?.csrfToken) {
-      initializeEvents(session.csrfToken)
-    }
-    experiment()
-  }, [session])
+    initializeEvents()
+    initializeExperiments()
+  }, [])
 
   return (
     <>
@@ -58,6 +54,7 @@ const MyApp = ({ Component, pageProps, languagesContext }: MyAppProps) => {
           colorMode={theme.component.colorMode}
           dayScheme={theme.component.dayScheme}
           nightScheme={theme.component.nightScheme}
+          preventSSRMismatch
         >
           {/* Appears Next.js can't modify <body> after server rendering: https://stackoverflow.com/a/54774431 */}
           <div

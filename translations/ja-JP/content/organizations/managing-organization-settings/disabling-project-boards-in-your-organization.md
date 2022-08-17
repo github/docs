@@ -1,6 +1,6 @@
 ---
-title: 'Disabling {% ifversion projects-v2 %}projects{% else %}project boards{% endif %} in your organization'
-intro: 'Organization owners can turn off {% ifversion projects-v2 %}organization-wide {% data variables.projects.projects_v2 %}, organization-wide {% data variables.projects.projects_v1_boards %}, and repository-level {% data variables.projects.projects_v1_boards %}{% else %}organization-wide project boards and repository project boards{% endif %} in an organization.'
+title: 'Organizationの{% ifversion projects-v2 %}プロジェクト{% else %}プロジェクトボード{% endif %}の無効化'
+intro: 'Organizationのオーナーは、Organizationにおいて{% ifversion projects-v2 %}Organization全体の{% data variables.projects.projects_v2 %}、Organization全体の{% data variables.projects.projects_v1_boards %}、リポジトリレベルの{% data variables.projects.projects_v1_boards %}{% else %}Organization全体のプロジェクトボードとリポジトリのプロジェクトボード{% endif %}をオフにできます。'
 redirect_from:
   - /github/managing-your-work-on-github/managing-project-boards/disabling-project-boards-in-your-organization
   - /articles/disabling-project-boards-in-your-organization
@@ -12,11 +12,11 @@ versions:
   ghec: '*'
 topics:
   - Pull requests
-shortTitle: Disable projects
+shortTitle: プロジェクトの無効化
 allowTitleToDifferFromFilename: true
 ---
 
-Organization 全体でプロジェクトボードを無効化すると、Organization レベルでプロジェクトボードを新たに作成することができなくなり、既存の Organization レベルのプロジェクトボードはそれまでの URL ではアクセスできなくなります。 Organization 内にあるリポジトリのプロジェクトボードは影響を受けません。 {% ifversion projects-v2 %}These settings apply to {% data variables.projects.projects_v2 %} and {% data variables.projects.projects_v1_boards %}.{% endif %}
+Organization 全体でプロジェクトボードを無効化すると、Organization レベルでプロジェクトボードを新たに作成することができなくなり、既存の Organization レベルのプロジェクトボードはそれまでの URL ではアクセスできなくなります。 Organization 内にあるリポジトリのプロジェクトボードは影響を受けません。 {% ifversion projects-v2 %}これらの設定は、{% data variables.projects.projects_v2 %}及び{% data variables.projects.projects_v1_boards %}に適用されます。{% endif %}
 
 Organization 内にあるリポジトリのプロジェクトボードを無効化すると、Organization 内のどのリポジトリでもプロジェクトボードを新たに作成できなくなり、既存の Organization 内にあるリポジトリのプロジェクトボードはそれまでの URL でアクセスできなくなります。 Organization レベルのプロジェクトボードは影響を受けません。
 
@@ -38,8 +38,8 @@ Organization 内にあるリポジトリのプロジェクトボードを無効�
 
 ## 参考リンク
 
-{% ifversion projects-v2 %}- "[About {% data variables.product.prodname_projects_v2 %}](/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects)"{% endif %}
+{% ifversion projects-v2 %}- 「[{% data variables.product.prodname_projects_v2 %}について](/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects)」{% endif %}
 - [{% data variables.product.prodname_projects_v1 %}について](/articles/about-project-boards)
-- "[Closing a {% data variables.projects.projects_v1_board %}](/articles/closing-a-project-board)"
-- "[Deleting a {% data variables.projects.projects_v1_board %}](/articles/deleting-a-project-board)"
-- "[Disabling {% data variables.projects.projects_v1_boards %} in a repository](/articles/disabling-project-boards-in-a-repository)"
+- 「[{% data variables.projects.projects_v1_board %}のクローズ](/articles/closing-a-project-board)」
+- 「[{% data variables.projects.projects_v1_board %}の削除](/articles/deleting-a-project-board)」
+- 「[リポジトリでの{% data variables.projects.projects_v1_boards %}の無効化](/articles/disabling-project-boards-in-a-repository)」

@@ -20,12 +20,12 @@ Ao criar um campo de iteração, três iterações serão criadas automaticament
 
 ![Captura de tela que mostra as configurações para um campo de iteração](/assets/images/help/issues/iterations-example.png)
 
-## Adding an iteration field
+## Adicionando um campo de iteração
 
 {% data reusables.projects.new-field %}
-1. Select **Iteration** ![Screenshot showing the iteration option](/assets/images/help/projects-v2/new-field-iteration.png)
+1. Selecionar **Iteração** ![Captura de tela que mostra a opção de iteração](/assets/images/help/projects-v2/new-field-iteration.png)
 2. Optionally, if you don't want the iteration to start today, select the calendar dropdown next to "Starts on" and choose a new start date. ![Screenshot showing the iteration start date](/assets/images/help/projects-v2/iteration-field-starts.png)
-3. Para mudar a duração de cada iteração, digite um novo número, em seguida, selecione o menu suspenso e clique em **dias** ou **semanas**. ![Screenshot showing the iteration duration](/assets/images/help/projects-v2/iteration-field-duration.png)
+3. Para mudar a duração de cada iteração, digite um novo número, em seguida, selecione o menu suspenso e clique em **dias** ou **semanas**. ![Captura de tela que mostra a duração de iteração](/assets/images/help/projects-v2/iteration-field-duration.png)
 4. Clique em **Salvar**. ![Screenshot showing save button](/assets/images/help/projects-v2/new-field-save-and-create.png)
 
 Alternatively, open the project command palette by pressing {% data variables.projects.command-palette-shortcut %} and start typing "Create new field."

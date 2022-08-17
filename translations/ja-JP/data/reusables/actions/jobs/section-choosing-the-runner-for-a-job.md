@@ -6,7 +6,7 @@
 
 ### {% data variables.product.prodname_dotcom %}ホストランナーの選択
 
-If you use a {% data variables.product.prodname_dotcom %}-hosted runner, each job runs in a fresh instance of a runner image specified by `runs-on`.
+{% data variables.product.prodname_dotcom %}ホストランナーを使う場合、それぞれのジョブは`runs-on`で指定されたランナーイメージの新しいインスタンスで実行されます。
 
 利用可能な{% data variables.product.prodname_dotcom %}ホストランナーの種類は以下のとおりです。
 

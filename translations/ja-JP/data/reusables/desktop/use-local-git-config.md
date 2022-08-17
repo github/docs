@@ -1,1 +1,1 @@
-1. Under "For this repository I wish to", select **Use a local Git config**. ![Primary remote repositoryフィールド](/assets/images/help/desktop/use-local-git-config.png)
+1. "For this repository I wish to（このリポジトリで）"の下で**Use a local Git config（ローカルのGit設定を使用）**を選択してください。 ![Primary remote repositoryフィールド](/assets/images/help/desktop/use-local-git-config.png)

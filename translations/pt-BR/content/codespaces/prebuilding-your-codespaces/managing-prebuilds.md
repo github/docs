@@ -16,7 +16,7 @@ miniTocMaxHeadingLevel: 3
 
 As pré-compilações que você configurar para um repositórios são criadas e atualizadas usando um fluxo de trabalho de {% data variables.product.prodname_actions %}, gerenciado pelo serviço de {% data variables.product.prodname_github_codespaces %}.
 
-Dependendo das configurações em uma configuração de pré-criação, o fluxo de trabalho para atualizar o modelo de pré-criação poderá ser acionado por esses eventos:
+Dependendo das configurações em uma configuração de pré-criação, o fluxo de trabalho para atualizar a pré-criação poderá ser acionado por esses eventos:
 
 * Criando ou atualizando a configuração de pré-compilação
 * Enviando por push um commit ou um pull request para um branch configurado para pré-compilações
@@ -24,7 +24,7 @@ Dependendo das configurações em uma configuração de pré-criação, o fluxo 
 * Um agendamento que você definiu na configuração de pré-criação
 * Acionando manualmente o fluxo de trabalho
 
-As configurações na configuração de pré-criação determinam quais eventos acionaram automaticamente uma atualização do modelo de pré-criação. Para obter mais informações, consulte "[Configurando pré-criações](/codespaces/prebuilding-your-codespaces/configuring-prebuilds#configuring-a-prebuild)".
+As configurações na configuração de pré-criação determinam quais eventos acionaram automaticamente uma atualização da pré-criação. Para obter mais informações, consulte "[Configurando pré-criações](/codespaces/prebuilding-your-codespaces/configuring-prebuilds#configuring-a-prebuild)".
 
 As pessoas com acesso de administrador a um repositório podem verificar o progresso de pré-compilações, editar e excluir configurações de pré-criação.
 
@@ -61,7 +61,7 @@ Exibe o histórico de execução de fluxo de trabalho para pré-compilações pa
 
 ### Desabilitando configuração de pré-compilação
 
-Para pausar a atualização dos modelos de pré-compilação para uma configuração, você pode desabilitar as execuções de fluxo de trabalho para a configuração. Desabilitar as execuções de fluxo de trabalho para uma configuração de pré-compilação não exclui nenhum modelo de pré-compilação previamente criado para essa configuração e, como resultado, os codespaces continuarão sendo gerados a partir de um modelo de pré-compilação existente.
+Para pausar a atualização das pré-compilações para uma configuração, você pode desabilitar as execuções de fluxo de trabalho para a configuração. Desabilitar as execuções de fluxo de trabalho para uma configuração de pré-compilação não exclui nenhuma pré-compilação previamente criado para essa configuração e, como resultado, os codespaces continuarão sendo gerados a partir de uma pré-compilação existente.
 
 Desabilitar as execuções de fluxo de trabalho para uma configuração de pré-compilação é útil se você precisar investigar as falhas de criação de modelo.
 
@@ -74,7 +74,7 @@ Desabilitar as execuções de fluxo de trabalho para uma configuração de pré-
 
 ### Excluindo a configuração de uma pré-compilação
 
-A exclusão de uma configuração de pré-compilação também exclui todos os modelos de pré-compilação criados anteriormente para essa configuração. Como resultado, logo após você excluir uma configuração, as pré-compilações geradas por essa configuração não estarão disponíveis ao criar um novo codespace.
+A exclusão de uma configuração de pré-compilação também exclui todas as pré-compilações criadas anteriormente para essa configuração. Como resultado, logo após você excluir uma configuração, as pré-compilações geradas por essa configuração não estarão disponíveis ao criar um novo codespace.
 
 Depois que você excluir uma configuração de pré-compilação, as execuções do fluxo de trabalho que foram enfileirados ou iniciados ainda serão executadas. Elas serão listados no histórico de execução de fluxo de trabalho junto com execuções de fluxo de trabalho concluídas anteriormente.
 
