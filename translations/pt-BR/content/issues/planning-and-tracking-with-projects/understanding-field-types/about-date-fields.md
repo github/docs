@@ -1,7 +1,7 @@
 ---
-title: About date fields
-shortTitle: About date fields
-intro: You can create custom date fields that can be set by typing a date or using a calendar.
+title: Sobre campos de data
+shortTitle: Sobre campos de data
+intro: Você pode criar campos de data personalizados que podem ser definidos digitando uma data ou usando um calendário.
 miniTocMaxHeadingLevel: 3
 versions:
   feature: projects-v2
@@ -10,12 +10,12 @@ topics:
   - Projects
 ---
 
-You can filter for date values using the `YYYY-MM-DD` format, for example: `date:2022-07-01`. You can also use operators, such as `>`, `>=`, `<`, `<=`, and `..`. For example, `date:>2022-07-01` and `date:2022-07-01..2022-07-31`. You can also provide `@today` to represent the current day in your filter. Para obter mais informações, consulte "[Filtrando projetos](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/filtering-projects)".
+Você pode filtrar por valores de data usando o formato `YYYY-MM-DD` , por exemplo: `date:2022-07-01`. Você também pode usar operadores, como `>`, `>=`, `<`, `<=` e `.`. Por exemplo, data `:>2022-07-01` e `date:2022-07-01..2022-07-31`. Você também pode inserir `@today` para representar o dia atual em seu filtro. Para obter mais informações, consulte "[Filtrando projetos](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/filtering-projects)".
 
-## Adding a date field
+## Adicionando um campo de data
 
 {% data reusables.projects.new-field %}
-1. Select **Date** ![Screenshot showing the date option](/assets/images/help/projects-v2/new-field-date.png)
-1. Clique em **Salvar**. ![Screenshot showing save button](/assets/images/help/projects-v2/new-field-save.png)
+1. Selecione **Data** ![Captura de tela que mostra a opção de data](/assets/images/help/projects-v2/new-field-date.png)
+1. Clique em **Salvar**. ![Captura de tela que mostra o botão salvar](/assets/images/help/projects-v2/new-field-save.png)
 
-Alternatively, open the project command palette by pressing {% data variables.projects.command-palette-shortcut %} and start typing "Create new field."
+Como alternativa, abra a paleta de comandos pressionando {% data variables.projects.command-palette-shortcut %} e comece a digitar "Criar novo campo".

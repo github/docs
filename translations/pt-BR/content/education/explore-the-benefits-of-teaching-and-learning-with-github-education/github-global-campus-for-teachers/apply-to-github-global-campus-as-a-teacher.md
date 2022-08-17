@@ -1,6 +1,6 @@
 ---
-title: Solicitar um desconto de educador ou pesquisador
-intro: 'Sendo um educador ou pesquisador, você pode se candidatar para receber o {% data variables.product.prodname_team %} gratuitamente para a conta da sua organização.'
+title: Candidatar-se ao GitHub Global Campus como professor
+intro: 'Se você é professor, você pode candidatar-se para participar de {% data variables.product.prodname_global_campus %} e receber acesso aos recursos e benefícios de {% data variables.product.prodname_education %}.'
 redirect_from:
   - /education/teach-and-learn-with-github-education/apply-for-an-educator-or-researcher-discount
   - /github/teaching-and-learning-with-github-education/applying-for-an-educator-or-researcher-discount
@@ -10,12 +10,13 @@ redirect_from:
   - /articles/applying-for-a-discount-for-your-first-robotics-team
   - /articles/applying-for-an-educator-or-researcher-discount
   - /education/explore-the-benefits-of-teaching-and-learning-with-github-education/apply-for-an-educator-or-researcher-discount
+  - /education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-in-your-classroom-and-research/apply-for-an-educator-or-researcher-discount
 versions:
   fpt: '*'
-shortTitle: Solicitar desconto
+shortTitle: Candidatar-se ao Campus Global
 ---
 
-## Sobre descontos para educador e pesquisador
+## Sobre descontos para professores
 
 {% data reusables.education.about-github-education-link %}
 
@@ -23,7 +24,7 @@ shortTitle: Solicitar desconto
 
 Para obter mais informações sobre contas pessoais em {% data variables.product.product_name %}, consulte "[Cadastrar-se para uma nova conta de {% data variables.product.prodname_dotcom %} ](/github/getting-started-with-github/signing-up-for-a-new-github-account)".
 
-## Candidatar-se a um desconto de educador ou pesquisador
+## Candidatando-se a {% data variables.product.prodname_global_campus %}
 
 {% data reusables.education.benefits-page %}
 {% data reusables.education.click-get-teacher-benefits %}
@@ -35,7 +36,7 @@ Para obter mais informações sobre contas pessoais em {% data variables.product
 
 ## Leia mais
 
-- "[Por que minha solicitação para desconto de educador ou pesquisador não foi aprovada?](/articles/why-wasn-t-my-application-for-an-educator-or-researcher-discount-approved)"
+- "[Por que minha candidatura ao Glocal Campus para professores não foi aprovada?](/articles/why-wasn-t-my-application-for-an-educator-or-researcher-discount-approved)"
 - [{% data variables.product.prodname_education %}](https://education.github.com)
 - [Vídeos do {% data variables.product.prodname_classroom %}](https://classroom.github.com/videos)
 - [{% data variables.product.prodname_education_community %}]({% data variables.product.prodname_education_forum_link %})

@@ -26,7 +26,7 @@ topics:
 Você pode criar links em wikis usando markup padrão compatível para sua página ou usando sintaxe do MediaWiki. Por exemplo:
 
 - Em páginas renderizadas com Markdown, a sintaxe do link é `[Link Text](full-URL-of-wiki-page)`.
-- Com a sintaxe do MediaWiki, a sintaxe do link é `[[Link Text|nameofwikipage]]`.
+- Com sintaxe do MediaWiki, a sintaxe do link é `[[nameofwikipage├Link Text]]`.
 
 ## Adicionar imagens
 
