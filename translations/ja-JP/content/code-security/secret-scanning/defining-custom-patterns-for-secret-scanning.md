@@ -67,9 +67,10 @@ topics:
 {% data reusables.repositories.navigate-to-code-security-and-analysis %}
 {% data reusables.repositories.navigate-to-ghas-settings %}
 {% data reusables.advanced-security.secret-scanning-new-custom-pattern %}
-{% data reusables.advanced-security.secret-scanning-add-custom-pattern-details %}{% ifversion secret-scanning-custom-enterprise-35 %}
+{% data reusables.advanced-security.secret-scanning-add-custom-pattern-details %}{% ifversion secret-scanning-custom-enterprise-35 or custom-pattern-dry-run-ga %}
 1. 新しいカスタムパターンをテストする準備ができたら、アラートを作成することなくリポジトリ内のマッチを特定するために、**Save and dry run（保存してdry run）**をクリックしてください。
 {% data reusables.advanced-security.secret-scanning-dry-run-results %}
+{%- ifversion secret-scanning-custom-enterprise-35 %}{% indented_data_reference reusables.secret-scanning.beta-dry-runs spaces=3 %}{% endif %}
 {% endif %}
 {% data reusables.advanced-security.secret-scanning-create-custom-pattern %}
 
@@ -122,10 +123,11 @@ aAAAe9
 {% data reusables.repositories.navigate-to-ghas-settings %}
 {% data reusables.advanced-security.secret-scanning-new-custom-pattern %}
 {% data reusables.advanced-security.secret-scanning-add-custom-pattern-details %}
-{%- ifversion secret-scanning-custom-enterprise-35 %}
+{%- ifversion secret-scanning-custom-enterprise-35 or custom-pattern-dry-run-ga %}
 1. 新しいカスタムパターンをテストする準備ができたら、アラートを作成することなく選択したリポジトリ内のマッチを特定するために、**Save and dry run（保存してdry run）**をクリックしてください。
 {% data reusables.advanced-security.secret-scanning-dry-run-select-repos %}
 {% data reusables.advanced-security.secret-scanning-dry-run-results %}
+{%- ifversion secret-scanning-custom-enterprise-35 %}{% indented_data_reference reusables.secret-scanning.beta-dry-runs spaces=3 %}{% endif %}
 {%- endif %}
 {% data reusables.advanced-security.secret-scanning-create-custom-pattern %}
 
@@ -141,7 +143,7 @@ aAAAe9
 
 {% note %}
 
-{% ifversion secret-scanning-custom-enterprise-36 %}
+{% ifversion secret-scanning-custom-enterprise-36 or custom-pattern-dry-run-ga %}
 **ノート:**
 - Enterpriseレベルでは、カスタムパターンを編集でき、dry runで使えるのはカスタムパターンの作者だけです。
 - Enterpriseオーナーは、アクセスできるリポジトリ上でのみdry runを利用できますが、必ずしもEnterprise内のすべてのOrganizationやリポジトリにアクセスできるわけではありません。
@@ -158,10 +160,11 @@ aAAAe9
 {% data reusables.enterprise-accounts.advanced-security-security-features %}
 1. "Secret scanning custom patterns（シークレットスキャンニングのカスタムパターン）"の下で、{% ifversion ghes = 3.2 %}**New custom pattern（新規カスタムパターン）**{% else %}**New pattern（新規パターン）**{% endif %}をクリックしてください。
 {% data reusables.advanced-security.secret-scanning-add-custom-pattern-details %}
-{%- ifversion secret-scanning-custom-enterprise-36 %}
+{%- ifversion secret-scanning-custom-enterprise-36 or custom-pattern-dry-run-ga %}
 1. 新しいカスタムパターンをテストする準備ができたら、アラートを作成することなくEnterprise内のマッチを特定するために、**Save and dry run（保存してdry run）**をクリックしてください。
-{% data reusables.advanced-security.secret-scanning-dry-run-select-repos %}
+{% data reusables.advanced-security.secret-scanning-dry-run-select-enterprise-repos %}
 {% data reusables.advanced-security.secret-scanning-dry-run-results %}
+{%- ifversion secret-scanning-custom-enterprise-36 %}{% indented_data_reference reusables.secret-scanning.beta-dry-runs spaces=3 %}{% endif %}
 {%- endif %}
 {% data reusables.advanced-security.secret-scanning-create-custom-pattern %}
 
@@ -175,7 +178,7 @@ aAAAe9
    * リポジトリあるいはOrganizationの場合は、カスタムパターンが作成されたリポジトリもしくはOrganizationの"Security & analysis（セキュリティと分析）" 設定を表示させてください。 詳しい情報については上の「[リポジトリのカスタムパターンの定義](#defining-a-custom-pattern-for-a-repository)」あるいは「[Organizationのカスタムパターンの定義](#defining-a-custom-pattern-for-an-organization)」を参照してください。
    * Enterpriseの場合は、"Policies（ポリシー）"の下で"Advanced Security（高度なセキュリティ）"を表示させ、**Security features（セキュリティの機能）**をクリックしてください。 詳しい情報については、上記の「[Enterpriseアカウントでのカスタムパターンの定義](#defining-a-custom-pattern-for-an-enterprise-account)」を参照してください。
 2. "{% data variables.product.prodname_secret_scanning_caps %}"の下で、編集したいカスタムパターンの右の{% octicon "pencil" aria-label="The edit icon" %}をクリックしてください。
-{%- ifversion secret-scanning-custom-enterprise-36 %}
+{%- ifversion secret-scanning-custom-enterprise-36 or custom-pattern-dry-run-ga  %}
 3. 編集された新しいカスタムパターンをテストする準備ができたら、アラートを作成することなくマッチを特定するために、**Save and dry run（保存してdry run）**をクリックしてください。
 {%- endif %}
 4. 変更をレビューしてテストしたら、**Save changes（変更を保存）**をクリックしてください。

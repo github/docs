@@ -1,7 +1,7 @@
 ---
-title: 'Managing access to your {% data variables.projects.projects_v2 %}'
-shortTitle: 'Managing {% data variables.projects.project_v2 %} access'
-intro: 'Learn how to manage team and individual access to your {% data variables.projects.project_v2 %}.'
+title: 'Gerenciando o acesso ao seu {% data variables.projects.projects_v2 %}'
+shortTitle: 'Gerenciando o acesso a {% data variables.projects.project_v2 %}'
+intro: 'Saiba como gerenciar o acesso da equipe e o acesso individual ao seu {% data variables.projects.project_v2 %}.'
 miniTocMaxHeadingLevel: 3
 versions:
   feature: projects-v2
@@ -29,8 +29,8 @@ Administradores do projeto também podem controlar a visibilidade do seu projeto
 A função base padrão é `gravar`, o que significa que todos na organização podem ver e editar o seu projeto. Para alterar o acesso ao projeto para todos da organização, você pode alterar a função-base. As alterações na função-base afetam apenas os integrantes da organização que não são proprietários da organização e a quem não é concedido acesso individual.
 
 {% data reusables.projects.project-settings %}
-1. Clique em **Gerenciar acesso**. ![Screenshot showing the "Manage access" item](/assets/images/help/projects-v2/manage-access.png)
-2. Em **Função-base**, selecione a função-padrão. ![Screenshot showing the base role menu](/assets/images/help/projects-v2/base-role.png)
+1. Clique em **Gerenciar acesso**. ![Captura de tela que mostra o item "Gerenciar acesso"](/assets/images/help/projects-v2/manage-access.png)
+2. Em **Função-base**, selecione a função-padrão. ![Captura de tela que mostra o menu da função de base](/assets/images/help/projects-v2/base-role.png)
    - **Sem acesso**: Somente os proprietários e usuários da organização com acesso individual pode ver o projeto. Os proprietários da organização também são administradores do projeto.
    - **Leitura**: Todos na organização podem ver o projeto. Os proprietários da organização também são administradores do projeto.
    - **Gravação**: Todos os integrantes da organização podem ver e editar o projeto. Os proprietários da organização também são administradores do projeto.
@@ -43,24 +43,24 @@ Também é possível adicionar equipes, colaboradores externos e integrantes da 
 Você pode apenas convidar um usuário individual para colaborar no projeto a nível da organização se ele já for integrante da organização ou colaborador externo em pelo menos um repositório na organização.
 
 {% data reusables.projects.project-settings %}
-1. Clique em **Gerenciar acesso**. ![Screenshot showing the "Manage access" item](/assets/images/help/projects-v2/manage-access.png)
-2. Em **Convidar colaboradores**, pesquisa a equipe ou usuário individual que você deseja convidar. ![Screenshot showing searching for a collaborator](/assets/images/help/projects-v2/access-search.png)
-3. Select the role for the collaborator. ![Screenshot showing selecting a role](/assets/images/help/projects-v2/access-role.png)
+1. Clique em **Gerenciar acesso**. ![Captura de tela que mostra o item "Gerenciar acesso"](/assets/images/help/projects-v2/manage-access.png)
+2. Em **Convidar colaboradores**, pesquisa a equipe ou usuário individual que você deseja convidar. ![Captura de tela que mostra a pesquisa de um colaborador](/assets/images/help/projects-v2/access-search.png)
+3. Selecione a função para o colaborador. ![Captura de tela que mostra seleção de uma função](/assets/images/help/projects-v2/access-role.png)
    - **Leitura**: A equipe ou indivíduo pode visualizar o projeto.
    - **Gravação**: A equipe ou indivíduo pode visualizar e editar o projeto.
    - **Administrador**: A equipe ou indivíduo pode visualizar, editar e adicionar novos colaboradores ao projeto.
-4. Clique em **Convidar**. ![Screenshot showing the invite button](/assets/images/help/projects-v2/access-invite.png)
+4. Clique em **Convidar**. ![Captura de tela que mostra o botão de convite](/assets/images/help/projects-v2/access-invite.png)
 
 ### Gerenciando o acesso de um colaborador existente no seu projeto
 
 {% data reusables.projects.project-settings %}
-1. Clique em **Gerenciar acesso**. ![Screenshot showing the "Manage access" item](/assets/images/help/projects-v2/manage-access.png)
+1. Clique em **Gerenciar acesso**. ![Captura de tela que mostra o item "Gerenciar acesso"](/assets/images/help/projects-v2/manage-access.png)
 1. Em **Gerenciar acesso**, encontre o(s) colaborador(es) cujas permissões você deseja modificar.
 
-   Você pode usar o menu suspenso **Tipo** e **Função** para filtrar a lista de acesso. ![Screenshot showing a collaborator](/assets/images/help/projects-v2/access-find-member.png)
+   Você pode usar o menu suspenso **Tipo** e **Função** para filtrar a lista de acesso. ![Captura de tela que mostra um colaborador](/assets/images/help/projects-v2/access-find-member.png)
 
-1. Edit the role for the collaborator(s). ![Screenshot showing changing a collaborator's role](/assets/images/help/projects-v2/access-change-role.png)
-1. Optionally, click **Remove** to remove the collaborator(s). ![Screenshot showing removing a collaborator](/assets/images/help/projects-v2/access-remove-member.png)
+1. Editar a função para o(s) colaborador(es). ![Captura de tela que mostra mudanças na função de um colaborador](/assets/images/help/projects-v2/access-change-role.png)
+1. Opcionalmente, clique em **Remover** para remover o(s) colaborador(es). ![Captura de tela que mostra a remoção de um colaborador](/assets/images/help/projects-v2/access-remove-member.png)
 
 ## Gerenciando acesso para projetos no nível do usuário
 
@@ -73,21 +73,21 @@ Isto afeta apenas os colaboradores do projeto, não os repositórios do projeto.
 {% endnote %}
 
 {% data reusables.projects.project-settings %}
-1. Clique em **Gerenciar acesso**. ![Screenshot showing the "Manage access" item](/assets/images/help/projects-v2/manage-access.png)
-2. Em **Convidar colaboradores**, pesquise o usuário que você deseja convidar. ![Screenshot showing searching for a collaborator](/assets/images/help/projects-v2/access-search.png)
-3. Select the role for the collaborator. ![Screenshot showing selecting a role](/assets/images/help/projects-v2/access-role.png)
+1. Clique em **Gerenciar acesso**. ![Captura de tela que mostra o item "Gerenciar acesso"](/assets/images/help/projects-v2/manage-access.png)
+2. Em **Convidar colaboradores**, pesquise o usuário que você deseja convidar. ![Captura de tela que mostra a pesquisa de um colaborador](/assets/images/help/projects-v2/access-search.png)
+3. Selecione a função para o colaborador. ![Captura de tela que mostra seleção de uma função](/assets/images/help/projects-v2/access-role.png)
    - **Leitura**: O indivíduo pode visualizar o projeto.
    - **Gravação**: O indivíduo pode visualizar e editar o projeto.
    - **Administrador**: O indivíduo pode visualizar, editar e adicionar novos colaboradores ao projeto.
-4. Clique em **Convidar**. ![Screenshot showing the invite button](/assets/images/help/projects-v2/access-invite.png)
+4. Clique em **Convidar**. ![Captura de tela que mostra o botão de convite](/assets/images/help/projects-v2/access-invite.png)
 
 ### Gerenciando o acesso de um colaborador existente no seu projeto
 
 {% data reusables.projects.project-settings %}
-1. Clique em **Gerenciar acesso**. ![Screenshot showing the "Manage access" item](/assets/images/help/projects-v2/manage-access.png)
+1. Clique em **Gerenciar acesso**. ![Captura de tela que mostra o item "Gerenciar acesso"](/assets/images/help/projects-v2/manage-access.png)
 1. Em **Gerenciar acesso**, encontre o(s) colaborador(es) cujas permissões você deseja modificar.
 
-   Você pode usar o menu suspenso **Tipo** e **Função** para filtrar a lista de acesso. ![Screenshot showing a collaborator](/assets/images/help/projects-v2/access-find-member.png)
+   Você pode usar o menu suspenso **Tipo** e **Função** para filtrar a lista de acesso. ![Captura de tela que mostra um colaborador](/assets/images/help/projects-v2/access-find-member.png)
 
-1. Edit the role for the collaborator(s). ![Screenshot showing changing a collaborator's role](/assets/images/help/projects-v2/access-change-role.png)
-1. Optionally, click **Remove** to remove the collaborator(s). ![Screenshot showing removing a collaborator](/assets/images/help/projects-v2/access-remove-member.png)
+1. Editar a função para o(s) colaborador(es). ![Captura de tela que mostra mudanças na função de um colaborador](/assets/images/help/projects-v2/access-change-role.png)
+1. Opcionalmente, clique em **Remover** para remover o(s) colaborador(es). ![Captura de tela que mostra a remoção de um colaborador](/assets/images/help/projects-v2/access-remove-member.png)

@@ -12,4 +12,4 @@ topics:
 {% data reusables.projects.project-settings %}
 1. Click the name of the field you want to rename. ![Screenshot showing an iteration field](/assets/images/help/projects-v2/select-single-select.png)
 1. Under "Field name", type the new name for the field. ![Screenshot showing field name](/assets/images/help/projects-v2/field-rename.png)
-1. To save changes, press <kbd>Return</kbd>.
+1. Para salvar as alterações, pressione <kbd>Returnar</kbd>.

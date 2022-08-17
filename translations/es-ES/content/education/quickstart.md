@@ -15,7 +15,7 @@ En esta guía, iniciarás con {% data variables.product.product_name %}, regíst
 
 {% tip %}
 
-**Tip**: Si eres un alumno y te gustaría sacar partido de un descuento académico, consulta la sección "[Postularse para un paquete de desarrollo para alumnos](/github/teaching-and-learning-with-github-education/applying-for-a-student-developer-pack)".
+**Tip**: If you're a student and you'd like to take advantage of an academic discount, see "[Apply to {% data variables.product.prodname_global_campus %} as a student](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-students/apply-to-github-global-campus-as-a-student)."
 
 {% endtip %}
 
@@ -35,9 +35,9 @@ Después de crear tu cuenta personal, crea una cuenta gratuita de organización.
 
 Para obtener más información, consulta la sección "[Tipos de cuentas de {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/types-of-github-accounts)".
 
-## Postularse para un descuento de docente
+## Applying for teacher benefits
 
-A continuación, te registrarás para obtener descuentos en los servicios de {% data variables.product.company_short %}. {% data reusables.education.educator-requirements %}
+Next, you'll sign up for teacher benefits and resources from {% data variables.product.company_short %} by applying to {% data variables.product.prodname_global_campus %}, a portal that allows you to access your education benefits all in one place.  {% data reusables.education.educator-requirements %}
 
 {% tip %}
 
@@ -52,6 +52,8 @@ A continuación, te registrarás para obtener descuentos en los servicios de {% 
 {% data reusables.education.school-name %}
 {% data reusables.education.plan-to-use-github %}
 {% data reusables.education.submit-application %}
+
+Once you are a verified {% data variables.product.prodname_global_campus %} educator, you can access {% data variables.product.prodname_global_campus %} anytime by going to the [{% data variables.product.prodname_education %} website](https://education.github.com).
 
 ## Configura {% data variables.product.prodname_classroom %}
 

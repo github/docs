@@ -1,1 +1,1 @@
-1. In the "Sign in Using Your Browser" pane, click **Continue With Browser**. {% data variables.product.prodname_desktop %} はデフォルトのブラウザを開きます。 ![ブラウザリンク経由でのサインイン](/assets/images/help/desktop/sign-in-browser.png)
+1. "Sign in Using Your Browser（ブラウザを使ってサインイン）"ペインで、**Continue With Browser（ブラウザで続行）**をクリックしてください。 {% data variables.product.prodname_desktop %} はデフォルトのブラウザを開きます。 ![ブラウザリンク経由でのサインイン](/assets/images/help/desktop/sign-in-browser.png)

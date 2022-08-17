@@ -13,7 +13,7 @@ topics:
   - Advanced Security
   - Alerts
   - Repositories
-shortTitle: Protección contra subidas
+shortTitle: Enable push protection
 ---
 
 {% data reusables.secret-scanning.beta %}
@@ -30,11 +30,7 @@ Si un contribuyente omite un bloque de protección de subida para un secreto, {%
 - agrega un evento de omisión en la bitácora de auditoría.{% ifversion secret-scanning-push-protection-email %}
 - envía una alerta por correo electrónico a los propietarios de la organización, administradores de seguridad y administradores de repositorio con un enlace al secreto relacionado y con la razón por la cual se permitió.{% endif %}
 
-El {% data variables.product.prodname_secret_scanning_caps %} como protección contra subidas actualmente escanea los repositorios para encontrar secretos que hayan emitido los siguientes proveedores de servicios.
-
-{% data reusables.secret-scanning.secret-scanning-pattern-pair-matches %}
-
-{% data reusables.secret-scanning.secret-list-private-push-protection %}
+For information on the secrets and service providers supported for push protection, see "[{% data variables.product.prodname_secret_scanning_caps %} patterns](/code-security/secret-scanning/secret-scanning-patterns#supported-secrets-for-push-protection)."
 
 ## Habilitar el {% data variables.product.prodname_secret_scanning %} como una protección contra subidas
 
@@ -58,31 +54,23 @@ Los propietarios de las organizaciones, administradores de seguridad y administr
 {% data reusables.repositories.navigate-to-ghas-settings %}
 {% data reusables.advanced-security.secret-scanning-push-protection-repo %}
 
+## Using secret scanning as a push protection from the command line
 
-## Utilizar el {% data variables.product.prodname_secret_scanning %} como protección de subida desde la línea de comandos
-
-Cuando intentas subir un secreto compatible a un repositorio u organización con {% data variables.product.prodname_secret_scanning %} como una protección contra subida habilitada, {% data variables.product.prodname_dotcom %} bloqueará la subida. Puedes eliminar el secreto desde tu confirmación o seguir una URL proporcionada para permitir la subida.
+{% data reusables.secret-scanning.push-protection-command-line-choice %}
 
 Se mostrarán hasta cinco secretos detectados a la vez en la línea de comandos. Si ya se detectó un secreto en particular en el repositorio y la alerta ya existe, {% data variables.product.prodname_dotcom %} no lo bloqueará.
 
 ![Captura de pantalla que muestra que una subida está bloqueada cuando un usuario intenta subir un secreto a un repositorio](/assets/images/help/repository/secret-scanning-push-protection-with-link.png)
 
-Si necesitas eliminar el secreto de tu última confirmación (es decir, `HEAD`) en la rama que se está subiendo y cualquier confirmación anterior que lo contenga, puedes eliminarlo de `HEAD` y luego combinar las confirmaciones que haya entre ellos cuando la confirmación se introdujo y la primera versión de `HEAD` para la cual se eliminó el secreto.
+{% data reusables.secret-scanning.push-protection-remove-secret %} For more information about remediating blocked secrets, see "[Pushing a branch blocked by push protection](/code-security/secret-scanning/pushing-a-branch-blocked-by-push-protection#resolving-a-blocked-push-on-the-command-line)."
 
-{% note %}
+Si confirmas que un secreto es real y que pretendes corregirlo después, debes intentar remediarlo tan pronto como sea posible. Por ejemplo, podrías revocar el secreto y eliminarlo del historial de confirmaciones del repositorio. Real secrets that have been exposed must be revoked to avoid unauthorized access. You might consider first rotating the secret before revoking it. Para obtener más información, consulta la sección "[Eliminar datos confidenciales de un repositorio](/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository)".
 
-**Notas**:
-
-* Si tu configuración de git es compatible con las subidas a ramas múltiples y no solo a la rama predeterminada, tu subida podría bloquearse debido a que se están subiendo refs imprevistos y adicionales. Para obtener más información, consulta las [opciones de `push.default`](https://git-scm.com/docs/git-config#Documentation/git-config.txt-pushdefault) en los documentos de Git.
-* Si el {% data variables.product.prodname_secret_scanning %} excede el tiempo cuando se hace una subida, {% data variables.product.prodname_dotcom %} aún ejecutará el escaneo después de dicha subida.
-
-{% endnote %}
+{% data reusables.secret-scanning.push-protection-multiple-branch-note %}
 
 ### Permitir que se suba un secreto bloqueado
 
 Si {% data variables.product.prodname_dotcom %} bloquea un secreto que piensas se puede subir con seguridad, puedes permitirlo y especificar la razón por la cual se debería de permitir.
-
-Si confirmas que un secreto es real y que pretendes corregirlo después, debes intentar remediarlo tan pronto como sea posible. Por ejemplo, podrías revocar el secreto y eliminarlo del historial de confirmaciones del repositorio. Para obtener más información, consulta la sección "[Eliminar datos confidenciales de un repositorio](/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository)".
 
 {% data reusables.secret-scanning.push-protection-allow-secrets-alerts %}
 
@@ -96,9 +84,7 @@ Si confirmas que un secreto es real y que pretendes corregirlo después, debes i
 {% ifversion secret-scanning-push-protection-web-ui %}
 ## Utilizar el escaneo de secretos como una protección de subida desde la IU web
 
-Cuando utilizas la IU web para intentar confirmar un secreto compatible en un repositorio u organización con el escaneo de secretos como protección contra subidas habilitada, {% data variables.product.prodname_dotcom %} la bloqueará. Puedes ver un letrero en la parte superior de la página con información sobre la ubicación del secreto y este también se subrayará en el archivo para que lo puedas encontrar con facilidad.
-
-  ![Captura de pantalla que muestra una confirmación bloqueada en la IU web debido a la protección contra subidas del escaneo de secretos](/assets/images/help/repository/secret-scanning-push-protection-web-ui-commit-blocked-banner.png)
+{% data reusables.secret-scanning.push-protection-web-ui-choice %}
 
 {% data variables.product.prodname_dotcom %} solo mostrará un secreto detectado a la vez en la IU web. Si ya se detectó un secreto en particular en el repositorio y la alerta ya existe, {% data variables.product.prodname_dotcom %} no lo bloqueará.
 
@@ -108,7 +94,11 @@ Puedes eliminar el secreto del archivo utilizando la IU web. Una vez que elimine
 
 ### Saltar la protección contra subidas para un secreto
 
-Si {% data variables.product.prodname_dotcom %} bloquea un secreto que piensas se puede subir con seguridad, puedes permitirlo y especificar la razón por la cual se debería de permitir. Si confirmas que un secreto es real y que pretendes corregirlo después, debes intentar remediarlo tan pronto como sea posible.
+{% data reusables.secret-scanning.push-protection-remove-secret %} For more information about remediating blocked secrets, see "[Pushing a branch blocked by push protection](/code-security/secret-scanning/pushing-a-branch-blocked-by-push-protection#resolving-a-blocked-push-in-the-web-ui)."
+
+Si confirmas que un secreto es real y que pretendes corregirlo después, debes intentar remediarlo tan pronto como sea posible. Para obtener más información, consulta la sección "[Eliminar datos confidenciales de un repositorio](/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository)".
+
+Si {% data variables.product.prodname_dotcom %} bloquea un secreto que piensas se puede subir con seguridad, puedes permitirlo y especificar la razón por la cual se debería de permitir.
 
 {% data reusables.secret-scanning.push-protection-allow-secrets-alerts %}
 

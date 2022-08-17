@@ -23,7 +23,7 @@ Você pode arquivar um item para manter o contexto sobre o item no projeto, mas 
 ## Restaurando itens arquivados
 
 1. Navigate to your project.
-1. In the top-right, click {% octicon "kebab-horizontal" aria-label="The menu icon" %} to open the menu. ![Screenshot showing the menu icon](/assets/images/help/projects-v2/open-menu.png)
+1. Na parte superior direita, clique em {% octicon "kebab-horizontal" aria-label="The menu icon" %} para abrir o menu. ![Captura de tela que mostra o ícone de menu](/assets/images/help/projects-v2/open-menu.png)
 1. In the menu, click {% octicon "archive" aria-label="The archive icon" %} **Archived items**. ![Screenshot showing the 'Archived items' menu item](/assets/images/help/projects-v2/archived-items-menu-item.png)
 1. Opcionalmente, para filtrar os itens arquivados exibidos, digite seu filtro na caixa de texto acima da lista de itens. For more information about the available filters, see "[Filtering projects](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/filtering-projects)." ![Captura de tela que mostra o campo para filtrar itens arquivados](/assets/images/help/issues/filter-archived-items.png)
 1. To the left of each item title, select the items you would like to restore. ![Captura de tela que mostra as caixas de seleção próximas aos itens arquivados](/assets/images/help/issues/select-archived-item.png)
