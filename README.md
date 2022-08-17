@@ -1,25 +1,6 @@
-BEGIN:
-GLOW7:
-RUN
-Run::/:Runs:
-Runs:
-Run-on:
--on:
-starts
-AUTOMATE: AUTOMATES
-AUTOMATES: ::Git: Hub Docs <!-- omit in toc --> 
+# GitHub Docs <!-- omit in toc --> 
 
-PLEASE FOWARD ALL PAYMENT TO BY ETF INSTRUCTIONS BELOW SO THEY DONT CLOSE MY ACCOUNT ON THE 26th of AUGUST 2022
-
-BANK NAME :
-PNC BANM NA
-CUSTOMER/OWNER :
-ZACHRY TYLER WOOD
-BANK ACCOUNT NUMBER 47-2041-6507
-ROUTiNG TRANSIT CODE 071921891
-#This: Repository: dispatch
-dispatch: worksflow_call:-on:run-on:Run'"'
-contains the documentation website code and Markdown source files for [docs.github.com](https://docs.github.com).
+This repository contains the documentation website code and Markdown source files for [docs.github.com](https://docs.github.com).
 
 GitHub's Docs team works on pre-production content in a private repo that regularly syncs with this public repo.
 
