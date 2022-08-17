@@ -1,7 +1,7 @@
 ---
-title: 'Automating {% data variables.product.prodname_projects_v2 %} using Actions'
-shortTitle: Automating with Actions
-intro: 'You can use {% data variables.product.prodname_actions %} to automate your projects.'
+title: 'Automatizando {% data variables.product.prodname_projects_v2 %} usando o Actions'
+shortTitle: Automatizando com o Actions
+intro: 'Você pode usar {% data variables.product.prodname_actions %} para automatizar os seus projetos.'
 miniTocMaxHeadingLevel: 3
 versions:
   feature: projects-v2
@@ -26,11 +26,11 @@ Este artigo pressupõe que você tem um entendimento básico de {% data variable
 
 Para obter mais informações sobre outras alterações que você pode fazer no seu projeto por meio da API, consulte "[Usando a API para gerenciar projetos](/issues/planning-and-tracking-with-projects/automating-your-project/using-the-api-to-manage-projects)".
 
-You may also want to use the **actions/add-to-project** workflow, which is maintained by {% data variables.product.company_short %} and will add the current issue or pull request to the project specified. For more information, see the [actions/add-to-project](https://github.com/actions/add-to-project) repository and README.
+Você deverá usar o fluxo de trabalho do **actions/add-to-projeto** , que é mantido por {% data variables.product.company_short %} e adicionará o problema atual ou o pull request ao projeto especificado. Para obter mais informações, consulte o repositório [actions/add-to-project](https://github.com/actions/add-to-project) e README.
 
 {% note %}
 
-**Note:** `GITHUB_TOKEN` is scoped to the repository level and cannot access {% data variables.projects.projects_v2 %}. To access {% data variables.projects.projects_v2 %} you can either create a {% data variables.product.prodname_github_app %} (recommended for organization projects) or a personal access token (recommended for user projects). Exemplos de fluxo de trabalho para ambas as abordagens são mostrados abaixo.
+**Observação:** `GITHUB_TOKEN` tem o escopo definido para o nível de repositório e não pode acessar {% data variables.projects.projects_v2 %}. Para acessar {% data variables.projects.projects_v2 %} você pode criar um {% data variables.product.prodname_github_app %} (recomendado para projetos organizacionais) ou um token de acesso pessoal (recomendado para projetos de usuários). Exemplos de fluxo de trabalho para ambas as abordagens são mostrados abaixo.
 
 {% endnote %}
 

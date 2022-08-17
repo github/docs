@@ -10,7 +10,7 @@ versions:
   fpt: '*'
 children:
   - /use-github-at-your-educational-institution
-  - /use-github-for-your-schoolwork
-  - /use-github-in-your-classroom-and-research
+  - /github-global-campus-for-students
+  - /github-global-campus-for-teachers
 ---
 

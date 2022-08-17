@@ -625,7 +625,7 @@ Para las secuencias de lìnea mùltiple, puedes utilizar un delimitador con la s
 
 {% warning %}
 
-**Warning:** Make sure the delimiter you're using is randomly generated and unique for each run. For more information, see "[Understanding the risk of script injections](/actions/security-guides/security-hardening-for-github-actions#understanding-the-risk-of-script-injections)".
+**Advertencia:** Asegúrate de que el delimitador que estás utilizando se genere aleatoriamente y sea único para cada ejecución. Para obtener más información, consulta la sección "[Entenderel riesgo de las inyecciones de scripts](/actions/security-guides/security-hardening-for-github-actions#understanding-the-risk-of-script-injections)".
 
 {% endwarning %}
 

@@ -1,6 +1,6 @@
 ---
-title: 'Migrating from {% data variables.product.prodname_projects_v1 %}'
-intro: 'You can migrate your {% data variables.projects.projects_v1_board %} to the new {% data variables.product.prodname_projects_v2 %} experience.'
+title: 'Fazendo a migração a partir de {% data variables.product.prodname_projects_v1 %}'
+intro: 'Você pode migrar seu {% data variables.projects.projects_v1_board %} para a nova experiência de {% data variables.product.prodname_projects_v2 %}.'
 miniTocMaxHeadingLevel: 3
 versions:
   feature: projects-v2
@@ -27,7 +27,7 @@ allowTitleToDifferFromFilename: true
 
 ## Sobre a migração do projeto
 
-You can migrate your project boards to the new {% data variables.product.prodname_projects_v2 %} experience and try out tables, multiple views, new automation options, and powerful field types. For more information, see "[About projects](/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects)."
+Você pode migrar suas seções de projeto para a nova experiência de {% data variables.product.prodname_projects_v2 %} e testar tabelas, múltiplas visualizações, novas opções de automação e tipos de campo poderosos. Para obter mais informações, consulte "[Sobre os projetos](/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects)".
 
 ## Migrando um quadro de projetos de organização
 
@@ -50,7 +50,7 @@ You can migrate your project boards to the new {% data variables.product.prodnam
 
 {% note %}
 
-**Note:** {% data variables.projects.projects_v2_caps %} does not support repository level projects. Quando você migrar um quadro de projeto repositório, ele será transferido para a organização ou conta pessoal à qual pertence o projeto do repositório, e o projeto transferido será fixado no repositório original.
+**Observação:** {% data variables.projects.projects_v2_caps %} não é compatível com projetos no nível do repositório. Quando você migrar um quadro de projeto repositório, ele será transferido para a organização ou conta pessoal à qual pertence o projeto do repositório, e o projeto transferido será fixado no repositório original.
 
 {% endnote %}
 

@@ -19,35 +19,35 @@ allowTitleToDifferFromFilename: true
 
 Os cartões de {% data variables.projects.projects_v1_board_caps %} contêm metadados relevantes para problemas e pull requests, como etiquetas, responsáveis, status e quem o abriu. {% data reusables.project-management.edit-in-project %}
 
-You can create notes within columns to serve as task reminders, references to issues and pull requests from any repository on {% data variables.product.product_location %}, or to add information related to the {% data variables.projects.projects_v1_board %}. You can create a reference card for another {% data variables.projects.projects_v1_board %} by adding a link to a note. Se a observação não for suficiente para suas necessidades, você poderá convertê-la em um problema. For more information on converting notes to issues, see "[Adding notes to a {% data variables.product.prodname_project_v1 %}](/articles/adding-notes-to-a-project-board)."
+Você pode criar observações dentro de colunas para servir como lembretes de tarefas, referências a problemas e pull requests de qualquer repositório no {% data variables.product.product_location %}, ou a adicionar informações relacionadas ao {% data variables.projects.projects_v1_board %}. Você pode criar um cartão de referência para outro {% data variables.projects.projects_v1_board %} adicionando um link para uma observação. Se a observação não for suficiente para suas necessidades, você poderá convertê-la em um problema. Para obter mais informações sobre a conversão de observações em problemas, consulte "[Adicionando observações a um {% data variables.product.prodname_project_v1 %}](/articles/adding-notes-to-a-project-board)."
 
 Tipos de quadros de projeto:
 
-- **User-owned {% data variables.projects.projects_v1_board %}** can contain issues and pull requests from any personal repository.
-- **Organization-wide {% data variables.projects.projects_v1_board %}** can contain issues and pull requests from any repository that belongs to an organization.  {% data reusables.project-management.link-repos-to-project-board %} For more information, see "[Linking a repository to a {% data variables.product.prodname_project_v1 %}](/articles/linking-a-repository-to-a-project-board)."
-- **Repository {% data variables.projects.projects_v1_board %}** are scoped to issues and pull requests within a single repository. Eles também podem incluir observações que fazem referência a problemas e pull requests em outros repositórios.
+- ** Pertencente ao usuário {% data variables.projects.projects_v1_board %}** pode conter problemas e pull requests de qualquer repositório pessoal.
+- **Em toda a organização {% data variables.projects.projects_v1_board %}** pode conter problemas e pull requests de qualquer repositório que pertence a uma organização.  {% data reusables.project-management.link-repos-to-project-board %} Para obter mais informações, consulte "[Vincular um repositório a um {% data variables.product.prodname_project_v1 %}](/articles/linking-a-repository-to-a-project-board)".
+- **Repositório {% data variables.projects.projects_v1_board %}** tem o escopo definido como problemas e pull requests em um repositório único. Eles também podem incluir observações que fazem referência a problemas e pull requests em outros repositórios.
 
-## Creating and viewing {% data variables.projects.projects_v1_boards %}
+## Criando e visualizando {% data variables.projects.projects_v1_boards %}
 
-To create a {% data variables.projects.projects_v1_board %} for your organization, you must be an organization member. Organization owners and people with {% data variables.projects.projects_v1_board %} admin permissions can customize access to the {% data variables.projects.projects_v1_board %}.
+Para criar um {% data variables.projects.projects_v1_board %} para sua organização, você deve ser um integrante da organização. Os proprietários da organização e as pessoas com permissões de administrador em {% data variables.projects.projects_v1_board %} podem personalizar o acesso a {% data variables.projects.projects_v1_board %}.
 
-If an organization-owned {% data variables.projects.projects_v1_board %} includes issues or pull requests from a repository that you don't have permission to view, the card will be redacted.  For more information, see "[{% data variables.product.prodname_project_v1_caps %} permissions for an organization](/articles/project-board-permissions-for-an-organization)."
+Se um {% data variables.projects.projects_v1_board %} pertencente a uma organização incluir problemas ou pull requests de um repositório que você não tem permissão para visualizar, o cartão será redigido.  Para obter mais informações, consulte "[Permissões de {% data variables.product.prodname_project_v1_caps %} para uma organização](/articles/project-board-permissions-for-an-organization)".
 
-The activity view shows the {% data variables.projects.projects_v1_board %}'s recent history, such as cards someone created or moved between columns. Para acessar a exibição da atividade, clique em **Menu** e role para baixo.
+O modo de exibição de atividade mostra o histórico recente de {% data variables.projects.projects_v1_board %}, como cartões criados ou movidos entre colunas. Para acessar a exibição da atividade, clique em **Menu** e role para baixo.
 
-To find specific cards on a {% data variables.projects.projects_v1_board %} or view a subset of the cards, you can filter {% data variables.projects.projects_v1_board %} cards. For more information, see "[Filtering cards on a {% data variables.product.prodname_project_v1 %}](/articles/filtering-cards-on-a-project-board)."
+Para encontrar cartões específicos em um {% data variables.projects.projects_v1_board %} ou ver um subconjunto das cartões, você pode filtrar os cartões de {% data variables.projects.projects_v1_board %}. Para obter mais informações, consulte "[Filtrando cartões em um {% data variables.product.prodname_project_v1 %}](/articles/filtering-cards-on-a-project-board)".
 
-To simplify your workflow and keep completed tasks off your {% data variables.projects.projects_v1_board %}, you can archive cards. For more information, see "[Archiving cards on a {% data variables.product.prodname_project_v1 %}](/articles/archiving-cards-on-a-project-board)."
+Para simplificar seu fluxo de trabalho e manter tarefas concluídas fora do seu {% data variables.projects.projects_v1_board %}, você pode arquivar cartões. Para obter mais informações, consulte "[Arquivando cartões em um {% data variables.product.prodname_project_v1 %}](/articles/archiving-cards-on-a-project-board)".
 
-If you've completed all of your {% data variables.projects.projects_v1_board %} tasks or no longer need to use your {% data variables.projects.projects_v1_board %}, you can close the {% data variables.projects.projects_v1_board %}. For more information, see "[Closing a {% data variables.product.prodname_project_v1 %}](/articles/closing-a-project-board)."
+Se você concluiu todas as suas tarefas de {% data variables.projects.projects_v1_board %} ou não precisa mais usar seu {% data variables.projects.projects_v1_board %}, você pode fechar o {% data variables.projects.projects_v1_board %}. Para obter mais informações, consulte "[Fechando um {% data variables.product.prodname_project_v1 %}de](/articles/closing-a-project-board)".
 
-You can also [disable {% data variables.projects.projects_v1_boards %} in a repository](/articles/disabling-project-boards-in-a-repository) or [disable {% data variables.projects.projects_v1_boards %} in your organization](/articles/disabling-project-boards-in-your-organization), if you prefer to track your work in a different way.
+Você também pode [desabilitar {% data variables.projects.projects_v1_boards %} em um repositório](/articles/disabling-project-boards-in-a-repository) ou [desabilitar {% data variables.projects.projects_v1_boards %} na sua organização](/articles/disabling-project-boards-in-your-organization), se você preferir acompanhar o seu trabalho de uma forma diferente.
 
 {% data reusables.project-management.project-board-import-with-api %}
 
-## Templates for {% data variables.projects.projects_v1_boards %}
+## Modelos para {% data variables.projects.projects_v1_boards %}
 
-You can use templates to quickly set up a new {% data variables.projects.projects_v1_board %}. When you use a template to create a {% data variables.projects.projects_v1_board %}, your new board will include columns as well as cards with tips for using {% data variables.product.prodname_projects_v1 %}. Você também pode escolher um modelo com automação já configurada.
+Você pode usar modelos para configurar rapidamente um novo {% data variables.projects.projects_v1_board %}. Ao usar um modelo para criar um {% data variables.projects.projects_v1_board %}, seu novo quadro incluirá colunas, assim como cartões com dicas para usar o {% data variables.product.prodname_projects_v1 %}. Você também pode escolher um modelo com automação já configurada.
 
 | Modelo                          | Descrição                                                                                                                                                                              |
 | ------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -56,17 +56,17 @@ You can use templates to quickly set up a new {% data variables.projects.project
 | Kanban automatizado com revisão | Cartões são movidos automaticamente entre as colunas To do (Pendentes), In progress (Em andamento) e Done (Concluídos), com gatilhos adicionais para status de revisão de pull request |
 | Triagem de erros                | Faça a triagem e priorize erros com as colunas To do (Pendentes), High priority (Prioridade alta), Low priority (Prioridade baixa) e Closed (Fechados)                                 |
 
-For more information on automation for {% data variables.product.prodname_projects_v1 %}, see "[About automation for {% data variables.product.prodname_projects_v1 %}](/articles/about-automation-for-project-boards)."
+Para obter mais informações sobre automação para {% data variables.product.prodname_projects_v1 %}, consulte "[Sobre automação para o {% data variables.product.prodname_projects_v1 %}](/articles/about-automation-for-project-boards)".
 
-![{% data variables.product.prodname_project_v1 %} with basic kanban template](/assets/images/help/projects/project-board-basic-kanban-template.png)
+![{% data variables.product.prodname_project_v1 %} com modelo básico de kanban](/assets/images/help/projects/project-board-basic-kanban-template.png)
 
 {% data reusables.project-management.copy-project-boards %}
 
 ## Leia mais
 
 - "[Criar um {% data variables.product.prodname_project_v1 %}](/articles/creating-a-project-board)"
-- "[Editing a {% data variables.product.prodname_project_v1 %}](/articles/editing-a-project-board)"{% ifversion fpt or ghec %}
-- "[Copying a {% data variables.product.prodname_project_v1 %}](/articles/copying-a-project-board)"{% endif %}
-- "[Adding issues and pull requests to a {% data variables.product.prodname_project_v1 %}](/articles/adding-issues-and-pull-requests-to-a-project-board)"
+- "[Editando um {% data variables.product.prodname_project_v1 %}](/articles/editing-a-project-board)"{% ifversion fpt or ghec %}
+- "[Copiando um {% data variables.product.prodname_project_v1 %}](/articles/copying-a-project-board)"{% endif %}
+- "[Adicionando problemas e pull requests a um {% data variables.product.prodname_project_v1 %}](/articles/adding-issues-and-pull-requests-to-a-project-board)"
 - "[Permissões de {% data variables.product.prodname_project_v1_caps %} para uma organização](/articles/project-board-permissions-for-an-organization)"
 - "[Atalhos de teclado](/articles/keyboard-shortcuts/#project-boards)"

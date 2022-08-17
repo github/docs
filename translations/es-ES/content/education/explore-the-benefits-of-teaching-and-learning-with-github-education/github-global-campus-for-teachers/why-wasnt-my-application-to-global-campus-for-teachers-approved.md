@@ -1,6 +1,6 @@
 ---
-title: ¿Por qué mi solicitud para un descuento de educador o de investigador no se aprobó?
-intro: Revisa las razones comunes por las que las solicitudes para un descuento de educador o de investigador no se aprueban y lee las sugerencias para volver a solicitarlo con éxito.
+title: Why wasn't my application to Global Campus for teachers approved?
+intro: 'Review common reasons that applications for {% data variables.product.prodname_global_campus %} are not approved and learn tips for reapplying successfully.'
 redirect_from:
   - /education/teach-and-learn-with-github-education/why-wasnt-my-application-for-an-educator-or-researcher-discount-approved
   - /github/teaching-and-learning-with-github-education/why-wasnt-my-application-for-an-educator-or-researcher-discount-approved
@@ -8,6 +8,7 @@ redirect_from:
   - /articles/why-wasn-t-my-application-for-an-educator-or-researcher-discount-approved
   - /articles/why-wasnt-my-application-for-an-educator-or-researcher-discount-approved
   - /education/explore-the-benefits-of-teaching-and-learning-with-github-education/why-wasnt-my-application-for-an-educator-or-researcher-discount-approved
+  - /education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-in-your-classroom-and-research/why-wasnt-my-application-for-an-educator-or-researcher-discount-approved
 versions:
   fpt: '*'
 shortTitle: Aplicación sin aprobar
@@ -41,8 +42,8 @@ Si tienes otras preguntas o inquietudes acerca del dominio de la escuela, solici
 
 ## Personas que no son estudiantes solicitan un paquete de desarrollo para estudiantes
 
-Los educadores y los investigadores no son elegibles para las ofertas de los socios que vienen con el [{% data variables.product.prodname_student_pack %}](https://education.github.com/pack). Cuando vuelves a presentar una solicitud, asegúrate de elegir **Profesor** para describir tu situación académica.
+Teachers are not eligible for the partner offers that come with the [{% data variables.product.prodname_student_pack %}](https://education.github.com/pack). Cuando vuelves a presentar una solicitud, asegúrate de elegir **Profesor** para describir tu situación académica.
 
 ## Leer más
 
-- "[Solicitar un descuento de educador o de investigador](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/apply-for-an-educator-or-researcher-discount)"
+- "[Apply to {% data variables.product.prodname_global_campus %} as a teacher](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-teachers/apply-to-github-global-campus-as-a-teacher)"
