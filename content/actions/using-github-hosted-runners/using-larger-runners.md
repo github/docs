@@ -25,7 +25,7 @@ In the following diagram, a class of hosted runner named `16-core-ubuntu-runner`
 - Workflow jobs use the `16-core-ubuntu` label in their `runs-on` key to indicate the type of runner they need to execute the job.
 - The job is then run on the next available instance of the `16-core-ubuntu-runner` runner with that label.
 
-![Diagram](/assets/images/hosted-runner.png)
+![Diagram explaining larger runners](/assets/images/larger-runner.png)
 
 ## Autoscaling larger runners
 
@@ -68,6 +68,8 @@ You can also define the labels that identify the runner, which is how your workf
 {% data reusables.enterprise-accounts.actions-tab %}
 {% data reusables.enterprise-accounts.actions-runners-tab %}
 {% data reusables.actions.add-larger-runner %}
+1. To allow organizations to access your larger runners, you specify the list of organizations that can use it. For more information, see [Managing access to your runners](#managing-access-to-your-runners).
+
 
 ## Adding a larger runner to an organization
 
@@ -79,6 +81,7 @@ You can also define the labels that identify the runner group, which is how your
 {% data reusables.organizations.org_settings %}
 {% data reusables.organizations.settings-sidebar-actions-runners %}
 {% data reusables.actions.add-larger-runner %}
+1. To allow repositories to access your larger runners, add them to the list of repositories that can use it. For more information, see [Managing access to your runners](#managing-access-to-your-runners).
 
 ## Running jobs on your runner
 
@@ -101,7 +104,29 @@ jobs:
 
 ## Managing access to your runners
 
-To ensure your developers have access to your runners, you will need to make sure that their organization has access (from the enterprise level) and that their repository has access from an organization level.  For example, if you create an enterprise-level runner group and allocate it to an organization, you will still need to go into the organization level and specify repository level access
+Runner groups are used to control which repositories can run jobs on your larger runner. By default, runner groups use the principle of least privilege, meaning that the runners in the group will not accept jobs from repositories in your organizations. You need to grant access to each level of the management hierarchy, depending on where you've defined the larger runner:
+
+- If you define the larger runner type at the enterprise level, you need grant access to all the necessary orgnizations. In addition, for each organization, you must specify which repositories can access the runners in the group.
+- If you define the larger runner type at the organization level, you must specify which repositories can access the runners in the group.
+
+![Diagram explaining larger runner groups](/assets/images/larger-runner-mgmt.png)
+
+### Allowing access to runners in an enterprise
+
+If you're adding a larger runner to an enterprise, you will need to explicitly allow each level of the hierarchy to use the larger runners:
+
+1. At the enterprise level, enterprise admins define the larger runner's type:
+  1. As part of the definition process, enterprise admins must also specify the runner group that will host the larger runners.
+  1. The runner group specifies which organizations can use the larger runners.
+  1. Once an organization is granted access, the organization admins must still allow repositories to use the larger runners. The workflows in your repositories will not yet be able to send jobs to the larger runners until this is done:
+1. At the organization level, locate the runner group and specify which repositories can use the larger runners.
+
+### Allowing access to runners in an organization
+
+If you're adding a larger runner at the organization level, you will need to explicitly allow each level of the hierarchy to use the larger runners:
+
+1. Organization admins define the larger runner's type.
+1. Locate the runner group and specify which repositories can use the larger runners.
 
 ### Changing what organizations or repositories can access a runner group
 
