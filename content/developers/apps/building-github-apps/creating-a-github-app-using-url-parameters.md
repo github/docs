@@ -22,9 +22,7 @@ You can add query parameters to these URLs to preselect the configuration of a {
 
 The person creating the app can edit the preselected values from the {% data variables.product.prodname_github_app %} registration page, before submitting the app. If you do not include required parameters in the URL query string, like `name`, the person creating the app will need to input a value before submitting the app.
 
-{% ifversion ghes > 3.1 or fpt or ghae or ghec %}
 For apps that require a secret to secure their webhook, the secret's value must be set in the form by the person creating the app, not by using query parameters. For more information, see "[Securing your webhooks](/developers/webhooks-and-events/webhooks/securing-your-webhooks)."
-{% endif %}
 
 The following URL creates a new public app called `octocat-github-app` with a preconfigured description and callback URL. This URL also selects read and write permissions for `checks`, subscribes to the `check_run` and `check_suite` webhook events, and selects the option to request user authorization (OAuth) during installation:
 
@@ -48,7 +46,7 @@ The complete list of available query parameters, permissions, and events is list
 `public` | `boolean` | Set to `true` when your {% data variables.product.prodname_github_app %} is available to the public or `false` when it is only accessible to the owner of the app.
 `webhook_active` | `boolean` | Set to `false` to disable webhook. Webhook is enabled by default.
 `webhook_url` | `string` | The full URL that you would like to send webhook event payloads to.
-{% ifversion ghes < 3.2 or ghae %}`webhook_secret` | `string` | You can specify a secret to secure your webhooks. See "[Securing your webhooks](/webhooks/securing/)" for more details.
+{% ifversion ghae %}`webhook_secret` | `string` | You can specify a secret to secure your webhooks. See "[Securing your webhooks](/webhooks/securing/)" for more details.
 {% endif %}`events` | `array of strings` | Webhook events. Some webhook events require `read` or `write` permissions for a resource before you can select the event when registering a new {% data variables.product.prodname_github_app %}. See the "[{% data variables.product.prodname_github_app %} webhook events](#github-app-webhook-events)" section for available events and their required permissions. You can select multiple events in a query string. For example, `events[]=public&events[]=label`.{% ifversion ghes < 3.4 %}
 `domain` | `string` | The URL of a content reference.{% endif %}
 `single_file_name` | `string` | This is a narrowly-scoped permission that allows the app to access a single file in any repository. When you set the `single_file` permission to `read` or `write`, this field provides the path to the single file your {% data variables.product.prodname_github_app %} will manage. {% ifversion fpt or ghes or ghec %} If you need to manage multiple files, see `single_file_paths` below. {% endif %}{% ifversion fpt or ghes or ghec %}
@@ -88,8 +86,8 @@ Permission | Description
 [`single_file`](/rest/reference/permissions-required-for-github-apps/#permission-on-single-file) | Grants access to the [Contents API](/rest/reference/repos#contents). Can be one of: `none`, `read`, or `write`.
 [`starring`](/rest/reference/permissions-required-for-github-apps/#permission-on-starring) | Grants access to the [Starring API](/rest/reference/activity#starring). Can be one of: `none`, `read`, or `write`.
 [`statuses`](/rest/reference/permissions-required-for-github-apps/#permission-on-statuses) | Grants access to the [Statuses API](/rest/reference/commits#commit-statuses). Can be one of: `none`, `read`, or `write`.
-[`team_discussions`](/rest/reference/permissions-required-for-github-apps/#permission-on-team-discussions) | Grants access to the [Team Discussions API](/rest/reference/teams#discussions) and the [Team Discussion Comments API](/rest/reference/teams#discussion-comments). Can be one of: `none`, `read`, or `write`.{% ifversion fpt or ghes or ghae or ghec %}
-`vulnerability_alerts`| Grants access to receive {% data variables.product.prodname_dependabot_alerts %} for vulnerable dependencies in a repository. See "[About {% data variables.product.prodname_dependabot_alerts %}](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies/)" to learn more. Can be one of: `none` or `read`.{% endif %}
+[`team_discussions`](/rest/reference/permissions-required-for-github-apps/#permission-on-team-discussions) | Grants access to the [Team Discussions API](/rest/reference/teams#discussions) and the [Team Discussion Comments API](/rest/reference/teams#discussion-comments). Can be one of: `none`, `read`, or `write`.
+`vulnerability_alerts`| Grants access to receive {% data variables.product.prodname_dependabot_alerts %} in a repository. See "[About {% data variables.product.prodname_dependabot_alerts %}](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)" to learn more. Can be one of: `none` or `read`.
 `watching` | Grants access to list and change repositories a user is subscribed to. Can be one of: `none`, `read`, or `write`.
 
 ## {% data variables.product.prodname_github_app %} webhook events

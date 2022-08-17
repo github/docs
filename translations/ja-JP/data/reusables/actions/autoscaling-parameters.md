@@ -1,3 +1,3 @@
-- Optionally, autoscaling parameters for each pool.
-  - Minimum number of idle runners for the pool
-  - Active timeout: The number of minutes that a runner should remain active in the pool before the pool is reduced to the idle count
+- オプションで、各プールに対するオートスケーリングパラメータがあります。
+  - プール中のアイドル状態のランナーの最小数
+  - アクティブタイムアウト: プールがアイドル数に削減されるまでにランナーがアクティブなままでいるべき分数

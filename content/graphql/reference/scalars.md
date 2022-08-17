@@ -4,10 +4,10 @@ redirect_from:
   - /v4/scalar
   - /v4/reference/scalar
 versions:
-  fpt: '*'
-  ghec: '*'
-  ghes: '*'
-  ghae: '*'
+  fpt: "*"
+  ghec: "*"
+  ghes: "*"
+  ghae: "*"
 topics:
   - API
 ---
@@ -18,8 +18,6 @@ topics:
 
 When calling the GraphQL API, you must specify nested subfields until you return only scalars.
 
-For more information, see  "[Introduction to GraphQL](/graphql/guides/introduction-to-graphql#field)."
+For more information, see "[Introduction to GraphQL](/graphql/guides/introduction-to-graphql#field)."
 
-{% for item in graphql.schemaForCurrentVersion.scalars %}
-  {% include graphql-scalar %}
-{% endfor %}
+<!-- Content after this section is automatically generated -->

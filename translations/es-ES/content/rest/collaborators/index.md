@@ -1,6 +1,6 @@
 ---
 title: Colaboradores
-intro: 'The Collaborators API allows you to add, invite, and remove collaborators from a repository.'
+intro: 'La API de colaboradores te permite agregar, invitar y eliminar colaboradores de un repositorio.'
 allowTitleToDifferFromFilename: true
 versions:
   fpt: '*'

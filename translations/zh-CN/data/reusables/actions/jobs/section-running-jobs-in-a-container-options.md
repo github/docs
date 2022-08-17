@@ -1,4 +1,4 @@
-Use `jobs.<job_id>.container.options` to configure additional Docker container resource options. 有关选项列表，请参阅“[`docker create` options](https://docs.docker.com/engine/reference/commandline/create/#options)”。
+使用 `jobs.<job_id>.container.options` 配置其他 Docker 容器资源选项。 有关选项列表，请参阅“[`docker create` options](https://docs.docker.com/engine/reference/commandline/create/#options)”。
 
 {% warning %}
 

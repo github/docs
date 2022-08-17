@@ -17,7 +17,7 @@ versions:
 
 ## Sobre a reexecução de fluxos de trabalho e trabalhos
 
-A reexecução de um fluxo de trabalho{% ifversion re-run-jobs %} ou trabalhos em um fluxo de trabalho{% endif %} usa o mesmo `GITHUB_SHA` (commit SHA) e `GITHUB_REF` (Git ref) do evento original que acionou a execução do fluxo de trabalho. Você pode executar novamente um fluxo de trabalho{% ifversion re-run-jobs %} ou trabalhos em um fluxo de trabalho{% endif %} por até 30 dias após a execução inicial.{% ifversion debug-reruns %} Ao executar novamente um fluxo de travalho ou trabalhos em um fluxo de trabalho, você pode habilitar o registro de depuração para a nova execução. Isso permitirá o registro de diagnóstico do executor e o registro de depuração de etapas para a nova execução. Para obter mais informações sobre o registro de depuração, consulte "[Habilitando o registro de depuração](/actions/monitoring-and-troubleshooting-workflows/enabling-debug-logging)"{% endif %}
+A reexecução de um fluxo de trabalho{% ifversion re-run-jobs %} ou trabalhos em um fluxo de trabalho{% endif %} usa o mesmo `GITHUB_SHA` (commit SHA) e `GITHUB_REF` (Git ref) do evento original que acionou a execução do fluxo de trabalho. {% ifversion actions-stable-actor-ids %}O fluxo de trabalho usará os privilégios do criador que inicialmente acionou o fluxo de trabalho, não os privilégios do criador que iniciou a reexecução. {% endif %}Você pode re-executar um fluxo de trabalho{% ifversion re-run-jobs %} ou trabalhos em um fluxo de trabalho{% endif %} por até 30 dias após a execução inicial.{% ifversion re-run-jobs %} Você não pode re-executar trabalhos em um fluxo de trabalho uma vez que seus registros superaram seus limites de retenção. Para obter mais informações, consulte "[Limites de uso, cobrança e administração](/actions/learn-github-actions/usage-limits-billing-and-administration#artifact-and-log-retention-policy)."{% endif %}{% ifversion debug-reruns %} Quando você re-executar um fluxo de trabalho ou trabalhos em um fluxo de trabalho, você pode habilitar o registro de depuração para a re-execução. Isso permitirá o registro de diagnóstico do executor e o registro de depuração de etapas para a nova execução. Para obter mais informações sobre o registro de depuração, consulte "[Habilitando o registro de depuração](/actions/monitoring-and-troubleshooting-workflows/enabling-debug-logging)"{% endif %}
 
 ## Reexecutar todos os trabalhos em um fluxo de trabalho
 
@@ -139,7 +139,7 @@ gh run rerun --job <em>job-id</em> --debug
 
 {% ifversion partial-reruns-with-reusable %}
 
-## Re-running workflows and jobs with reusable workflows
+## Re-executar fluxos de trabalho e trabalhos com fluxos de trabalho reutilizáveis
 
 {% data reusables.actions.partial-reruns-with-reusable %}
 

@@ -7,19 +7,12 @@ versions:
   ghes: '> 3.1'
   ghae: '*'
   ghec: '*'
-showMiniToc: false
 type: how_to
 topics:
   - Workflows
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}
-
-- [Example overview](#example-overview)
-- [Features used in this example](#features-used-in-this-example)
-- [ワークフローの例](#example-workflow)
-- [Understanding the example](#understanding-the-example)
-- [次のステップ](#next-steps)
 
 ## Example overview
 
@@ -50,7 +43,7 @@ topics:
 
 {% data reusables.actions.note-understanding-example %}
 
-<table style="width:350px">
+<table style="table-layout: fixed;">
 <thead>
   <tr>
     <th style="width:70%"></th>
@@ -181,7 +174,7 @@ jobs:
 
 {% data reusables.actions.example-explanation-table-intro %}
 
-<table style="width:350px">
+<table style="table-layout: fixed;">
 <thead>
   <tr>
     <th style="width:60%"><b>コード</b></th>

@@ -24,14 +24,15 @@ Para incluir bifurcações nos resultados da pesquisa, você precisará adiciona
 
 ## Pesquisar por nome do repositório, descrição ou conteúdo do arquivo README
 
-Com o qualificador `in`, você pode restringir a pesquisa ao nome do repositório, descrição do repositório, conteúdo do arquivo README ou qualquer combinação desses itens. Quando você omite esse qualificador, somente o nome e a descrição do repositório são pesquisados.
+Com o qualificador `in`, você pode restringir a pesquisa ao nome do repositório, descrição do repositório, t[opicos do repositório, conteúdo do arquivo README ou qualquer combinação desses itens. Ao omitir este qualificador, apenas o nome do repositório, pesquisam-se a descrição e os tópicos.
 
 | Qualifier         | Exemplo                                                                                                                                                                                       |
 | ----------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `in:name`         | [**jquery in:name**](https://github.com/search?q=jquery+in%3Aname&type=Repositories) corresponde aos repositórios com "jquery" no nome do respositório.                                       |
 | `in:description`  | [**jquery in:name,description**](https://github.com/search?q=jquery+in%3Aname%2Cdescription&type=Repositories) corresponde aos repositórios com "jquery" no nome ou descrição do repositório. |
+| `in:topics`       | [**jquery in:topics**](https://github.com/search?q=jquery+in%3Atopics&type=Repositories) corresponde a repositórios etiquetados com "jquery" como tópico.                                     |
 | `in:readme`       | [**jquery em:readme**](https://github.com/search?q=jquery+in%3Areadme&type=Repositories) corresponde aos repositórios que mencionam "jquery" no arquivo README do repositório.                |
-| `repo:owner/name` | [**repo:octocat/hello-world**](https://github.com/search?q=repo%3Aoctocat%2Fhello-world) identifica um nome de repositório específico.                                                        |
+| `repo:owner/name` | [**repo:octocat/hello-world**](https://github.com/search?q=repo%3Aoctocat%2Fhello-world) corresponde um nome de repositório específico.                                                       |
 
 ## Pesquisar com base no conteúdo do repositório
 
@@ -90,7 +91,7 @@ Você pode pesquisar repositórios com base no número de estrelas que os reposi
 | Qualifier                 | Exemplo                                                                                                                                                                                                                                                       |
 | ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | <code>stars:<em>n</em></code> | [**stars:500**](https://github.com/search?utf8=%E2%9C%93&q=stars%3A500&type=Repositories) identifica repositórios com exatamente 500 estrelas.                                                                                                                |
-|                           | [**stars:10..20**](https://github.com/search?q=stars%3A10..20+size%3A%3C1000&type=Repositories) identifica repositórios com 10 a 20 estrelas com menos de 1.000 KB.                                                                                           |
+|                           | [**stars:10..20 size:<1000**](https://github.com/search?q=stars%3A10..20+size%3A%3C1000&type=Repositories) matches repositories 10 to 20 stars, that are smaller than 1000 KB.                                                                                |
 |                           | [**stars:&gt;=500 fork:true language:php**](https://github.com/search?q=stars%3A%3E%3D500+fork%3Atrue+language%3Aphp&type=Repositories) identifica os repositórios que tem no mínimo 500 estrelas, incluindo os bifurcados e que foram escritos em PHP. |
 
 ## Pesquisar por data da criação ou da última atualização do repositório

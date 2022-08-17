@@ -26,7 +26,7 @@ shortTitle: アプリケーションの可視性を管理
 
 ## プライベートのインストールフロー
 
-プライベートインストールフローを利用すれば、GitHub Appのオーナーだけがそのアプリケーションをインストールできます。 Limited information about the GitHub App will still exist on a public page, but the **Install** button will only be available to organization administrators or the personal account if the GitHub App is owned by an individual account. {% ifversion fpt or ghes > 3.1 or ghae or ghec %}プライベート{% else %}プライベート (内部とも呼ぶ){% endif %}のGitHub Appは、ユーザ、もしくはオーナーのOrganizationアカウントにのみインストールできます。
+プライベートインストールフローを利用すれば、GitHub Appのオーナーだけがそのアプリケーションをインストールできます。 Limited information about the GitHub App will still exist on a public page, but the **Install** button will only be available to organization administrators or the personal account if the GitHub App is owned by an individual account. Private GitHub Apps can only be installed on the user or organization account of the owner.
 
 ## GitHub Appをインストールできるユーザの変更
 
@@ -37,5 +37,5 @@ GitHub Appをインストールできるユーザを変更するには以下の�
 {% data reusables.user-settings.github_apps %}
 3. インストールオプションを変更したいGitHub Appを選択してください。 ![アプリケーションの選択](/assets/images/github-apps/github_apps_select-app.png)
 {% data reusables.user-settings.github_apps_advanced %}
-5. GitHub Appのインストールオプションに応じて、**Make public**もしくは**Make {% ifversion fpt or ghes > 3.1 or ghae or ghec %}private{% else %}internal{% endif %}**をクリックしてください。 ![GitHub Appのインストールオプションを変更するボタン](/assets/images/github-apps/github_apps_make_public.png)
-6. GitHub Appのインストールオプションに応じて、**Yes, make this GitHub App public**または**Yes, make this GitHub App {% ifversion fpt or ghes < 3.2 or ghec %}private{% else %}internal{% endif %}**をクリックしてください。 ![インストールオプションの変更の確認ボタン](/assets/images/github-apps/github_apps_confirm_installation_option.png)
+5. Depending on the installation option of your GitHub App, click either **Make public** or **Make private**. ![GitHub Appのインストールオプションを変更するボタン](/assets/images/github-apps/github_apps_make_public.png)
+6. GitHub Appのインストールオプションに応じて、**Yes, make this GitHub App public**または**Yes, make this GitHub App {% ifversion fpt or ghec %}private{% else %}internal{% endif %}**をクリックしてください。 ![インストールオプションの変更の確認ボタン](/assets/images/github-apps/github_apps_confirm_installation_option.png)

@@ -20,7 +20,7 @@ shortTitle: Segredos criptografados
  
 
 
-## Sobre os segredos criptografados para {% data variables.product.prodname_codespaces %}
+## Sobre segredos criptografados para {% data variables.product.prodname_github_codespaces %}
 
 Você pode adicionar segredos criptografados à sua conta pessoal que deseja usar nos seus codespaces. Por exemplo, você pode querer armazenar e acessar as seguintes informações confidenciais como segredos criptografados.
 
@@ -41,7 +41,7 @@ Você pode escolher quais repositórios devem ter acesso a cada segredo. Em segu
 
 ### Limites para segredos
 
-Você pode armazenar até 100 segredos para {% data variables.product.prodname_codespaces %}.
+Você pode armazenar até 100 segredos para {% data variables.product.prodname_github_codespaces %}.
 
 Os segredos são limitados a 64 kB.
 
@@ -75,6 +75,22 @@ Você pode atualizar o valor de um segredo existente, bem como alterar quais rep
 1. Em "Segredos dos codespaces", à direita do segredo que você deseja excluir, clique em **Excluir**. ![Botão "Excluir"](/assets/images/help/settings/codespaces-secret-delete-button.png)
 1. Leia o alerta e clique em **OK**. ![Confirmação para excluir um segredo](/assets/images/help/settings/codespaces-secret-delete-warning.png)
 
+## Usar segredos
+
+Um segredo é exportado como uma variável de ambiente na sessão terminal do usuário.
+
+  ![Exibindo o valor de um segredo exportado no terminal](/assets/images/help/codespaces/exported-codespace-secret.png)
+
+Você pode usar segredos em um codespace após o codespace ser construído e estiver sendo executado. Por exemplo, um segredo pode ser usado:
+
+* Ao lançar um aplicativo a partir do terminal integrado ou da sessão ssh.
+* Dentro de um script de ciclo de vida do container dev que é executado depois que o codespace está sendo executado. Para obter mais informações sobre scripts de ciclo de vida do contêiner dev consulte a documentação em containers.dev: [Especificação](https://containers.dev/implementors/json_reference/#lifecycle-scripts).
+
+Os codespaces não podem ser usados durante:
+
+* Data de compilação do código (ou seja, dentro de um arquivo Docker ou ponto de entrada personalizado).
+* Dentro de um recurso de desenvolvimento de contêiner. Para obter mais informações, consulte os atributos `funcionalidades` na documentação em containers.dev: [Especificação](https://containers.dev/implementors/json_reference/#general-properties).
+
 ## Leia mais
 
-- "[Gerenciando segredos criptografados para o seu repositório e organização para {% data variables.product.prodname_codespaces %}](/codespaces/managing-codespaces-for-your-organization/managing-encrypted-secrets-for-your-repository-and-organization-for-codespaces)"
+- "[Gerenciando segredos criptografados para o seu repositório e organização para {% data variables.product.prodname_github_codespaces %}](/codespaces/managing-codespaces-for-your-organization/managing-encrypted-secrets-for-your-repository-and-organization-for-github-codespaces)"

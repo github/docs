@@ -1,1 +1,3 @@
-您的团队可以使用组织帐户协作处理 {% data variables.product.product_name %}。 每个 {% data variables.product.prodname_dotcom %} 用户人都登录个人帐户。 多个个人帐户可以通过加入拥有存储库的同一组织帐户来协作处理共享项目。 可以为这些个人帐户的子集指定为组织所有者的角色，这允许这些人员使用复杂的安全和管理功能精细地管理对组织资源的访问。
+Your team can collaborate on {% data variables.product.product_name %} by using an organization account, which serves as a container for your shared work and gives the work a unique name and brand.
+
+Each person that uses {% data variables.product.prodname_dotcom %} always signs into a personal account, and multiple personal accounts can collaborate on shared projects by joining the same organization account. 可以为这些个人帐户的子集指定为组织所有者的角色，这允许这些人员使用复杂的安全和管理功能精细地管理对组织资源的访问。

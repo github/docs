@@ -1,15 +1,15 @@
-The job or workflow run requires a `permissions` setting with [`id-token: write`](/actions/security-guides/automatic-token-authentication#permissions-for-the-github_token). You won't be able to request the OIDC JWT ID token if the `permissions` setting for `id-token` is set to `read` or `none`.
+ジョブもしくはワークフローの実行には[`id-token: write`](/actions/security-guides/automatic-token-authentication#permissions-for-the-github_token)の`permissions`設定が必要です。 `id-token`の`permissions`の設定が`read`あるいは`none`に設定されていると、OIDC JWT IDトークンをリクエストすることはできません。
 
-The `id-token: write` setting allows the JWT to be requested from {% data variables.product.prodname_dotcom %}'s OIDC provider using one of these approaches:
+`id-token: write`と設定すると、JWTは{% data variables.product.prodname_dotcom %}のOIDCプロバイダから以下のいずれかのアプローチを使ってリクエストできます。
 
-- Using environment variables on the runner (`ACTIONS_ID_TOKEN_REQUEST_URL` and `ACTIONS_ID_TOKEN_REQUEST_TOKEN`).
-- Using `getIDToken()` from the Actions toolkit.
+- ランナー上の環境変数を使う（`ACTIONS_ID_TOKEN_REQUEST_URL`及び`ACTIONS_ID_TOKEN_REQUEST_TOKEN`）。
+- Actionsツールキットから`getIDToken()`を使う。
 
-If you only need to fetch an OIDC token for a single job, then this permission can be set within that job. 例:
+1つのジョブのためにOIDCトークンをフェッチしなければならないだけなら、この権限はそのジョブ内で設定できます。 例:
 
 ```yaml{:copy}
 permissions:
   id-token: write
 ```
 
-You may need to specify additional permissions here, depending on your workflow's requirements. 
+ワークフローの必要に応じて、ここで追加の権限を指定する必要があるかもしれません。 

@@ -14,7 +14,7 @@ This guide will walk you through setting up, configuring and managing {% data va
 
 {% data variables.product.company_short %} hosts {% data variables.product.prodname_ghe_cloud %}. You can deploy and host {% data variables.product.prodname_ghe_server %} in your own datacenter or a supported cloud provider.
 
-For an overview of how {% data variables.product.product_name %} works, see "[System overview](/admin/overview/system-overview)."
+For more information about {% data variables.product.product_name %}, see "[About {% data variables.product.prodname_ghe_server %}](/admin/overview/about-github-enterprise-server)."
 
 ## Part 1: Installing {% data variables.product.product_name %}
 To get started with {% data variables.product.product_name %}, you will need to create your enterprise account, install the instance, use the Management Console for initial setup, configure your instance, and manage billing. 

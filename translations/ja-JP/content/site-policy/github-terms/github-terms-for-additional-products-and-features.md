@@ -18,7 +18,7 @@ Version Effective Date: August 10, 2021
 
 GitHub を利用する際、数多くの追加製品や機能 (「追加製品および機能」) にもアクセス権を与えられることがあります。 「追加製品および機能」の多くはさまざまな機能を提供するため、当社との主な契約、すなわち「GitHub 利用規約」、「GitHub 企業向け利用規約」、「GitHub 一般規約」、Microsoft ボリュームライセンス契約 (それぞれ「契約」) に加えて、製品や機能に特定の規約が適用される場合があります。 以下に、こうした製品や機能と、その利用に対して適用される追加の規約を示します。
 
-「追加製品および機能」を利用することにより、お客様は以下に挙げた該当する「GitHub 追加製品および機能の利用規約」にも同意することとなります。 「追加製品および機能の GitHub 利用規約」に違反することは、「契約」に違反することにもなります。 かぎ括弧に括られた用語のうち、ここで定義されていないものについては、「契約」に示された意味を持つものとします。
+「追加製品および機能」を利用することにより、お客様は以下に挙げた該当する「GitHub 追加製品および機能の利用規約」にも同意することとなります。 A violation of these GitHub Terms for Additional Products and Features is a violation of the Agreement. かぎ括弧に括られた用語のうち、ここで定義されていないものについては、「契約」に示された意味を持つものとします。
 
 **Enterprise ユーザ向け**
 - **GitHub Enterprise Cloud** users may have access to the following Additional Products and Features: Actions, Advanced Security, Advisory Database, Codespaces, Dependabot Preview, GitHub Enterprise Importer, Learning Lab, Packages, and Pages.
@@ -89,6 +89,19 @@ The generally available version of Codespaces is not currently available for U.S
 
 ## Connect
 With GitHub Connect, you can share certain features and data between your GitHub Enterprise Server or GitHub AE instance and your GitHub Enterprise Cloud organization or enterprise account on GitHub.com. In order to enable GitHub Connect, you must have at least one (1) account on GitHub Enterprise Cloud or GitHub.com, and one (1) licensed instance of GitHub Enterprise Server or GitHub AE. Connect経由でのGitHub Enterprise CloudまたはGitHub.comの利用は、GitHub Enterprise CloudまたはGitHub.comのライセンスに基づく規約が適用されます。 「個人データ」の利用には、「[GitHubのプライバシーについての声明](/github/site-policy/github-privacy-statement)」が適用されます。
+
+## GitHub Copilot
+To use GitHub Copilot, you need to install an extension to an integrated development environment (IDE) or editor. The code you write using the GitHub Copilot extension in an IDE or editor (“**Your Code**”) is not “Content” under the Agreement until you upload it to GitHub.com.
+
+The code, functions, and other output returned to you by GitHub Copilot are called “**Suggestions**.” GitHub does not claim any rights in Suggestions, and you retain ownership of and responsibility for Your Code, including Suggestions you include in Your Code.
+
+_利用規定_
+
+Your Code is subject to the GitHub [Acceptable Use Policies](/site-policy/acceptable-use-policies/github-acceptable-use-policies). For example, you may not prompt GitHub Copilot with content that is unlawful or otherwise prohibited by the GitHub Acceptable Use Policies on GitHub.com.
+
+_Data_
+
+GitHub Copilot (i) may, depending on your preferred telemetry settings, collect snippets of Your Code, and (ii) will collect additional usage information through the IDE or editor tied to your Account. This may include personal data, as referenced in the [GitHub Privacy Statement](/site-policy/privacy-policies/github-privacy-statement). You can learn more about the collection and use of GitHub Copilot data in the [GitHub Copilot FAQ](https://github.com/features/copilot#faq-privacy).
 
 ## GitHub Enterprise Importer
 Importer is a framework for exporting data from other sources to be imported to the GitHub platform. Importer is provided “AS-IS”.

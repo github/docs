@@ -24,14 +24,15 @@ shortTitle: Search for repositories
 
 ## リポジトリ名、説明、または README ファイルの内容で検索
 
-`in` 修飾子によって、リポジトリ名、リポジトリの説明、README ファイルの内容や、これらの組み合わせに限定した検索ができます。 この修飾子を省略した場合、リポジトリ名および説明だけが検索されます。
+With the `in` qualifier you can restrict your search to the repository name, repository description, repository topics, contents of the README file, or any combination of these. When you omit this qualifier, only the repository name, description, and topics are searched.
 
 | 修飾子               | サンプル                                                                                                                                                    |
 | ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `in:name`         | [**jquery in:name**](https://github.com/search?q=jquery+in%3Aname&type=Repositories) は、リポジトリ名に「jquery」が含まれるリポジトリにマッチします。                                |
 | `in:description`  | [**jquery in:name,description**](https://github.com/search?q=jquery+in%3Aname%2Cdescription&type=Repositories) は、リポジトリ名または説明に「jquery」が含まれるリポジトリにマッチします。 |
+| `in:topics`       | [**jquery in:topics**](https://github.com/search?q=jquery+in%3Atopics&type=Repositories) matches repositories labeled with "jquery" as a topic.         |
 | `in:readme`       | [**jquery in:readme**](https://github.com/search?q=jquery+in%3Areadme&type=Repositories) は、リポジトリの README ファイルで「jquery」をメンションしているリポジトリにマッチします。           |
-| `repo:owner/name` | [**repo:octocat/hello-world**](https://github.com/search?q=repo%3Aoctocat%2Fhello-world) は、特定のリポジトリ名にマッチします。                                            |
+| `repo:owner/name` | [**repo:octocat/hello-world**](https://github.com/search?q=repo%3Aoctocat%2Fhello-world) matches a specific repository name.                            |
 
 ## リポジトリの内容で検索
 
@@ -90,7 +91,7 @@ shortTitle: Search for repositories
 | 修飾子                       | サンプル                                                                                                                                                                                               |
 | ------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | <code>stars:<em>n</em></code> | [**stars:500**](https://github.com/search?utf8=%E2%9C%93&q=stars%3A500&type=Repositories) は、Star がちょうど 500 のリポジトリにマッチします。                                                                          |
-|                           | [**stars:10..20**](https://github.com/search?q=stars%3A10..20+size%3A%3C1000&type=Repositories) は、1000 KB 未満で、Star が 10 から 20 のリポジトリにマッチします。                                                       |
+|                           | [**stars:10..20 size:<1000**](https://github.com/search?q=stars%3A10..20+size%3A%3C1000&type=Repositories) matches repositories 10 to 20 stars, that are smaller than 1000 KB.                     |
 |                           | [**stars:&gt;=500 fork:true language:php**](https://github.com/search?q=stars%3A%3E%3D500+fork%3Atrue+language%3Aphp&type=Repositories) は、PHP 形式のフォークされたリポジトリを含め Star が 500 以上のリポジトリにマッチします。 |
 
 ## リポジトリの作成時期や最終更新時期で検索

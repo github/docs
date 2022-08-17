@@ -44,7 +44,7 @@ OrganizationがSSH証明書を必要としない場合は、メンバーは自�
 
 {% note %}
 
-**Note:** You must update to OpenSSH 7.6 or later to use these commands.
+**ノート:** これらのコマンドを使うためには、OpenSSH 7.6以降へのアップデートが必要です。
 
 {% endnote %}
 

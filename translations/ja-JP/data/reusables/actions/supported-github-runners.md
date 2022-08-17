@@ -1,7 +1,7 @@
 <table style="width:100%">
 <thead>
   <tr>
-    <th style="width:35%"><b>仮想環境</b></th>
+    <th style="width:35%"><b>ランナーイメージ</b></th>
     <th style="width:25%"><b>YAMLのワークフローラベル</b></th>
     <th style="width:40%"><b>注釈</b></th>
   </tr>
@@ -15,7 +15,7 @@ Windows Server 2022
 <code>windows-latest</code>もしくは<code>windows-2022</code>
 </td>
 <td>
-The <code>windows-latest</code> label currently uses the Windows Server 2022 runner image.
+現在<code>windows-latest</code>ラベルはWindows Server 2022のランナーイメージを使用しています。
 </td>
 </tr>
 <tr>
@@ -36,7 +36,6 @@ Ubuntu 22.04
 <code>ubuntu-22.04</code>
 </td>
 <td>
-Ubuntu 22.04 is currently in public beta.
 </td>
 </tr>
 <tr>
@@ -49,12 +48,13 @@ Ubuntu 20.04
 </tr>
 <tr>
 <td>
-Ubuntu 18.04
+Ubuntu 18.04 <sup>[非推奨]</sup>
 </td>
 <td>
 <code>ubuntu-18.04</code>
 </td>
 <td>
+<code>ubuntu-20.04</code>もしくは<code>ubuntu-22.04</code>に移行。 詳しい情報については<A href="https://github.blog/changelog/2022-08-09-github-actions-the-ubuntu-18-04-actions-runner-image-is-being-deprecated-and-will-be-removed-by-12-1-22/">GitHubブログのポスト</A>を参照してください。
 </td>
 </tr>
 <tr>
@@ -63,10 +63,7 @@ macOS Monterey 12
 </td>
 <td>
 <code>macos-12</code>
-</td>
-<td>
-macOS 12 is currently in public beta.
-</td>
+  </td>
 </tr>
 <tr>
 <td>
@@ -76,17 +73,18 @@ macOS Big Sur 11
 <code>macos-latest</code>もしくは<code>macos-11</code>
 </td>
 <td>
-The <code>macos-latest</code> label currently uses the macOS 11 runner image.
+現在<code>macos-latest</code>ラベルはmacOS 11のランナーイメージを使用しています。
 </td>
 </tr>
 <tr>
 <td>
-macOS Catalina 10.15
+macOS Catalina 10.15 <sup>[deprecated]</sup>
 </td>
 <td>
 <code>macos-10.15</code>
 </td>
 <td>
+<code>macOS-11</code>もしくは<code>macOS-12</code>に移行してください。 詳しい情報については<A href="https://github.blog/changelog/2022-07-20-github-actions-the-macos-10-15-actions-runner-image-is-being-deprecated-and-will-be-removed-by-8-30-22/">GitHubブログのポスト</A>を参照してください。
 </td>
 </tr>
 </tbody>
@@ -94,12 +92,12 @@ macOS Catalina 10.15
 
 {% note %}
 
-**Note:** The `-latest` virtual environments are the latest stable images that {% data variables.product.prodname_dotcom %} provides, and might not be the most recent version of the operating system available from the operating system vendor.
+**ノート:** `-latest`ランナーイメージは、{% data variables.product.prodname_dotcom %}が提供する最新の安定版イメージであり、オペレーティングシステムのベンダーが提供する最新バージョンのオペレーティングシステムではないことがあります。
 
 {% endnote %}
 
 {% warning %}
 
-<b>Note:</b> Beta and Deprecated Images are provided "as-is", "with all faults" and "as available" and are excluded from the service level agreement and warranty. Beta Images may not be covered by customer support.
+<b>ノート:</b> ベータ及び非推奨のイメージは"as-is"、"with all faults"、"as available"で提供されており、サービスレベルアグリーメント及び保証の対象外です。 ベータのイメージは、カスタマーサポートの対象外になっていることがあります。
 
 {% endwarning %}

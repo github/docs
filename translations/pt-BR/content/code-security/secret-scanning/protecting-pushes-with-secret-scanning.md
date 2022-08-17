@@ -24,7 +24,15 @@ shortTitle: Proteção por push
 
 Até agora, {% data variables.product.prodname_secret_scanning_GHAS %} verifica segredos _após_ um push e alerta usuários de segredos expostos. {% data reusables.secret-scanning.push-protection-overview %}
 
+Se um contribuidor ignorar um bloco de proteção push para um segredo, {% data variables.product.prodname_dotcom %}:
+- gera um alerta.
+- cria um alerta na guia "Segurança" do repositório.
+- adiciona o evento de bypass ao log de auditoria.{% ifversion secret-scanning-push-protection-email %}
+- envia um alerta de e-mail para os proprietários da organização, gerentes de segurança e administradores do repositório, com um link para o segredo relacionado e a razão pela qual ele foi permitido.{% endif %}
+
 {% data variables.product.prodname_secret_scanning_caps %} como proteção por push atualmente verifica repositórios de segredos emitidos pelos seguintes prestadores de serviços.
+
+{% data reusables.secret-scanning.secret-scanning-pattern-pair-matches %}
 
 {% data reusables.secret-scanning.secret-list-private-push-protection %}
 
@@ -78,6 +86,8 @@ Se você confirmar que um segredo é real e pretender corrigi-lo mais tarde, voc
 
 {% data reusables.secret-scanning.push-protection-allow-secrets-alerts %}
 
+{% data reusables.secret-scanning.push-protection-allow-email %}
+
 1. Acesse o URL retornado por {% data variables.product.prodname_dotcom %} quando seu push foi bloqueado. ![Captura de tela que mostra o formulário com opções para desbloquear o push de um segredo](/assets/images/help/repository/secret-scanning-unblock-form.png)
 {% data reusables.secret-scanning.push-protection-choose-allow-secret-options %}
 1. Clique **Me permite enviar por push este segredo**.
@@ -101,6 +111,8 @@ Você pode remover o segredo do arquivo usando a interface de usuário da web. D
 Se {% data variables.product.prodname_dotcom %} bloquear um segredo que você acredita ser seguro enviar por push, você poderá permitir o segredo e especificar a razão pela qual ele deve ser permitido. Se você confirmar que um segredo é real e pretender corrigi-lo mais tarde, você deverá procurar remediar o segredo o mais rápido possível.
 
 {% data reusables.secret-scanning.push-protection-allow-secrets-alerts %}
+
+{% data reusables.secret-scanning.push-protection-allow-email %}
 
 Se você confirmar que um segredo é real e pretender corrigi-lo mais tarde, você deverá procurar remediar o segredo o mais rápido possível.
 

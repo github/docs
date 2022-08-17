@@ -49,7 +49,7 @@ Para ayudarte a entender cómo se utiliza la sintaxis de YAML para crear un fluj
   ```
 </td>
 <td>
-Especifica el activador de este flujo de trabajo. Este ejemplo utiliza el evento <code>push</code>, así que una ejecución de flujo de trabajo se activa cada que alguien sube un cambio al repositorio o fusiona una solicitud de cambios.  This is triggered by a push to every branch; for examples of syntax that runs only on pushes to specific branches, paths, or tags, see "<a href="/actions/reference/workflow-syntax-for-github-actions#onpushpull_requestpull_request_targetpathspaths-ignore">Workflow syntax for {% data variables.product.prodname_actions %}</a>."
+Especifica el activador de este flujo de trabajo. Este ejemplo utiliza el evento <code>push</code>, así que una ejecución de flujo de trabajo se activa cada que alguien sube un cambio al repositorio o fusiona una solicitud de cambios.  Esto se activa mediante una subida a cada rama; para encontrar ejemplos de la sintaxis que solo se ejecuta en subidas a ramas específicas, rutas o etiquetas, consulta la sección "<a href="/actions/reference/workflow-syntax-for-github-actions#onpushpull_requestpull_request_targetpathspaths-ignore">Sintaxis de flujo de trabajo para las {% data variables.product.prodname_actions %}</a>".
 </td>
 </tr>
 <tr>

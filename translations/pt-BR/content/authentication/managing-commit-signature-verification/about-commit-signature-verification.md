@@ -29,6 +29,8 @@ Os commits e tags têm o seguinte status de verificação, dependendo se você h
 
 {% data reusables.identity-and-permissions.vigilant-mode-beta-note %}
 
+A assinatura de commits difere encerrar a sessão em um commit. Para obter mais informações sobre a encerrar sessão nos commits, consulte "[Gerenciando a política de encerramento de sessão do commit do seu repositório](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-the-commit-signoff-policy-for-your-repository). "
+
 ### Status padrão
 
 | Status                    | Descrição                                                           |
@@ -58,7 +60,7 @@ Os administradores do repositório podem impor a assinatura de commit obrigatór
 {% ifversion ghes %}Se um administrador do site tiver habilitado a assinatura de commit da web, {% data variables.product.product_name %} usará automaticamente o GPG para assinar os commits que você criar usando a interface da web. Os commits assinados por {% data variables.product.product_name %} terão um status verificado. Você pode verificar a assinatura localmente usando a chave pública disponível em `https://HOSTNAME/web-flow.gpg`. Para obter mais informações, consulte "[Configurando a assinatura de commit da web](/admin/configuration/configuring-your-enterprise/configuring-web-commit-signing). "
 {% else %}{% data variables.product.prodname_dotcom %} usará automaticamente o GPG para assinar os commits que você criar usando a interface da web. Os commits assinados por {% data variables.product.prodname_dotcom %} terão um status verificado. É possível verificar a assinatura localmente usando a chave pública disponível em https://github.com/web-flow.gpg. A impressão digital completa da chave é `5DE3 E050 9C47 EA3C F04A 42D3 4AEE 18F8 3AFD EB23`.
 
-Opcionalmente, você pode escolher que {% data variables.product.prodname_dotcom %} assine os commits que você fizer em {% data variables.product.prodname_codespaces %}. Para obter mais informações sobre como habilitar a verificação do GPG para os seus codespaces, consulte "[Gerenciando a verificação do GPG para {% data variables.product.prodname_codespaces %}](/github/developing-online-with-codespaces/managing-gpg-verification-for-codespaces)."{% endif %}
+Opcionalmente, você pode escolher que {% data variables.product.prodname_dotcom %} assine os commits que você fizer em {% data variables.product.prodname_github_codespaces %}. Para obter mais informações sobre como habilitar a verificação do GPG para os seus codespaces, consulte "[Gerenciando a verificação do GPG para {% data variables.product.prodname_github_codespaces %}](/codespaces/managing-your-codespaces/managing-gpg-verification-for-github-codespaces)."{% endif %}
 {% endif %}
 
 ## Verificação da assinatura de commit GPG
@@ -71,7 +73,7 @@ Para assinar commits usando GPG e para que esses commits sejam verificados no {%
 
 1. [Verificar se há chaves GPG existentes](/articles/checking-for-existing-gpg-keys)
 2. [Gerar uma nova chave GPG](/articles/generating-a-new-gpg-key)
-3. [Adicionar uma nova chave GPG à sua conta do GitHub](/articles/adding-a-new-gpg-key-to-your-github-account)
+3. [Adicionar uma chave GPG à sua conta do GitHub](/articles/adding-a-gpg-key-to-your-github-account)
 4. [Informar o Git sobre a chave de assinatura](/articles/telling-git-about-your-signing-key)
 5. [Assinar commits](/articles/signing-commits)
 6. [Assinar tags](/articles/signing-tags)

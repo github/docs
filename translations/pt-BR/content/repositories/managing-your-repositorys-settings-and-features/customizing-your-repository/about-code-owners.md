@@ -18,7 +18,7 @@ topics:
 
 As pessoas com permissões de administrador ou proprietário podem configurar um arquivo CODEOWNERS em um repositório.
 
-As pessoas escolhidas como proprietários do código devem ter permissões de leitura para o repositório. Quando o proprietário do código é uma equipe, essa equipe deverá ser visível e ter permissões de gravação, ainda que todos os membros individuais da equipe já tenham permissões de gravação diretamente, por meio da associação da organização ou por meio de outra associação à equipe.
+As pessoas que você escolhe como proprietários do código devem ter permissões de gravação para o repositório. Quando o proprietário do código é uma equipe, essa equipe deverá ser visível e ter permissões de gravação, ainda que todos os membros individuais da equipe já tenham permissões de gravação diretamente, por meio da associação da organização ou por meio de outra associação à equipe.
 
 ## Sobre proprietários do código
 
@@ -48,7 +48,7 @@ Para reduzir o tamanho do seu arquivo CODEOWNERS, considere o uso de padrões cu
 
 ## Sintaxe de CODEOWNERS
 
-Um arquivo CODEOWNERS usa um padrão que segue a maioria das mesmas regras usadas nos arquivos [gitignore](https://git-scm.com/docs/gitignore#_pattern_format), com [algumas exceções](#syntax-exceptions). O padrão é seguido por um ou mais nomes de usuário ou nomes de equipe do {% data variables.product.prodname_dotcom %} usando o formato padrão `@username` ou `@org/team-name`. Os usuários devem ter acessso de `leitura` ao repositório e as equipes devem ter acesso explícito de `gravação`, mesmo que os integrantes da equipe já tenham acesso.
+Um arquivo CODEOWNERS usa um padrão que segue a maioria das mesmas regras usadas nos arquivos [gitignore](https://git-scm.com/docs/gitignore#_pattern_format), com [algumas exceções](#syntax-exceptions). O padrão é seguido por um ou mais nomes de usuário ou nomes de equipe do {% data variables.product.prodname_dotcom %} usando o formato padrão `@username` ou `@org/team-name`. Users and teams must have explicit `write` access to the repository, even if the team's members already have access.
 
 {% ifversion fpt or ghec%}Na maioria dos casos você{% else %}Você{% endif %} também pode se referir a um usuário por um endereço de e-mail que foi adicionado a sua conta em {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}, por exemplo, `user@example tom`. {% ifversion fpt or ghec %} Você não pode usar um endereço de e-mail para fazer referência a um {% data variables.product.prodname_managed_user %}. Para obter mais informações sobre {% data variables.product.prodname_managed_users %}, consulte "[Sobre {% data variables.product.prodname_emus %}](/enterprise-cloud@latest/admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/about-enterprise-managed-users){% ifversion fpt %}" na documentação de {% data variables.product.prodname_ghe_cloud %}.{% else %}."{% endif %}{% endif %}
 

@@ -1,1 +1,1 @@
-You can also receive the response in different formats if you provide the format in the `Accept` header. For example, `Accept: application/json` or `Accept: application/xml`:
+`Accept`ヘッダでフォーマットを指定すれば、様々なフォーマットでレスポンスを受け取ることもできます。 たとえば`Accept: application/json`あるいは`Accept: application/xml`:

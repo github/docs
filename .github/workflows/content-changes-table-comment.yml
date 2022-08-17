@@ -98,4 +98,10 @@ jobs:
             ### Content directory changes
             _You may find it useful to copy this table into the pull request summary. There you can edit it to share links to important articles or changes and to give a high-level overview of how the changes in your pull request support the overall goals of the pull request._
             ${{ steps.changes.outputs.changesTable }}
+
+            ---
+            fpt: Free, Pro, Team
+            ghec: GitHub Enterprise Cloud
+            ghes: GitHub Enterprise Server
+            ghae: GitHub AE
           edit-mode: replace

@@ -1,3 +1,3 @@
-1. In the "Code, planning, and automation" section of the sidebar, select **{% octicon "codespaces" aria-label="The codespaces icon" %} {% data variables.product.prodname_codespaces %}** then click **Policies**.
-1. On the "Codespace policies" page, click **Create Policy**.
-1. Enter a name for your new policy.
+1. サイドバーの"Code, planning, and automation（コード、計画、自動化）"のセクションで、**{% octicon "codespaces" aria-label="The codespaces icon" %} {% data variables.product.prodname_codespaces %}**を選択し、続いて** Policies（ポリシー）**をクリックしてください。
+1. "Codespace policies（ Codespaceのポリシー）"ページで、**Create Policy（ポリシーの作成）**をクリックしてください。
+1. 新しいポリシーの名前を入力してください。

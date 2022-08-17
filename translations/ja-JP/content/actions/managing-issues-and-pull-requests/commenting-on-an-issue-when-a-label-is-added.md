@@ -33,6 +33,8 @@ shortTitle: Add label to comment on issue
     ```yaml{:copy}
 {% indented_data_reference reusables.actions.actions-not-certified-by-github-comment spaces=4 %}
 
+{% indented_data_reference reusables.actions.actions-use-sha-pinning-comment spaces=4 %}
+
     name: Add comment
     on:
       issues:
@@ -41,9 +43,9 @@ shortTitle: Add label to comment on issue
     jobs:
       add-comment:
         if: github.event.label.name == 'help-wanted'
-        runs-on: ubuntu-latest{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
+        runs-on: ubuntu-latest
         permissions:
-          issues: write{% endif %}
+          issues: write
         steps:
           - name: Add comment
             uses: peter-evans/create-or-update-comment@a35cf36e5301d70b76f316e867e7788a55a31dae

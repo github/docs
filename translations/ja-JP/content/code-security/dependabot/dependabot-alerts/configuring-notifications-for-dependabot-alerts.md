@@ -21,14 +21,12 @@ topics:
   - Repositories
 ---
 
-<!--For this article in earlier GHES versions, see /content/github/managing-security-vulnerabilities-->
+## {% data variables.product.prodname_dependabot_alerts %}に対する通知について
 
-## 脆弱性のある依存関係の通知について
-
-{% data variables.product.prodname_dependabot %}がリポジトリ中に脆弱性のある依存関係を検出すると、{% data variables.product.prodname_dependabot %}アラートが生成され、そのリポジトリのセキュリティタブに表示されます。 {% data variables.product.product_name %}は、影響を受けるリポジトリのメンテナに、リポジトリの通知設定に従って新しいアラートに関する通知を行います。{% ifversion fpt or ghec %}{% data variables.product.prodname_dependabot %}は、すべてのパブリックリポジトリでデフォルトで有効化されています。 {% data variables.product.prodname_dependabot_alerts %} の場合、デフォルト設定では、特定の脆弱性ごとにグループ化された {% data variables.product.prodname_dependabot_alerts %} をメールで受信します。
+{% data variables.product.prodname_dependabot %}がリポジトリ中に脆弱性のある依存関係{% ifversion GH-advisory-db-supports-malware %}もしくはマルウェア{% endif %}を検出すると、{% data variables.product.prodname_dependabot %}アラートが生成され、そのリポジトリのセキュリティタブに表示されます。 {% data variables.product.product_name %}は、影響を受けるリポジトリのメンテナに、リポジトリの通知設定に従って新しいアラートに関する通知を行います。{% ifversion fpt or ghec %}{% data variables.product.prodname_dependabot %}は、すべてのパブリックリポジトリでデフォルトで有効化されています。 {% data variables.product.prodname_dependabot_alerts %} の場合、デフォルト設定では、特定の脆弱性ごとにグループ化された {% data variables.product.prodname_dependabot_alerts %} をメールで受信します。
 {% endif %}
 
-{% ifversion fpt or ghec %}Organization のオーナーの場合は、ワンクリックで Organization 内のすべてのリポジトリの {% data variables.product.prodname_dependabot_alerts %} を有効または無効にできます。 新しく作成されたリポジトリに対して、脆弱性のある依存関係の検出を有効にするか無効にするかを設定することもできます。 詳しい情報については、「[Organization のセキュリティおよび分析設定を管理する](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization#enabling-or-disabling-a-feature-for-all-new-repositories-when-they-are-added)」を参照してください。
+{% ifversion fpt or ghec %}Organization のオーナーの場合は、ワンクリックで Organization 内のすべてのリポジトリの {% data variables.product.prodname_dependabot_alerts %} を有効または無効にできます。 新しく作成されたリポジトリに対して{% data variables.product.prodname_dependabot_alerts %}を有効化するか無効化するかも設定できます。 詳しい情報については、「[Organization のセキュリティおよび分析設定を管理する](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization#enabling-or-disabling-a-feature-for-all-new-repositories-when-they-are-added)」を参照してください。
 {% endif %}
 
 {% ifversion ghes or ghae %}
@@ -39,7 +37,7 @@ Enterpriseオーナーは、通知なしで{% data variables.product.prodname_de
 
 ## {% data variables.product.prodname_dependabot_alerts %}の通知設定
 
-{% ifversion fpt or ghes > 3.1 or ghec %}
+{% ifversion fpt or ghes or ghec %}
 新しい{% data variables.product.prodname_dependabot %}アラートが検出されると、{% data variables.product.product_name %}はそのリポジトリの{% data variables.product.prodname_dependabot_alerts %}にアクセスできるすべてのユーザーに対し、通知設定に従って通知します。 あなたがリポジトリをWatchしていて、セキュリティアラートもしくはそのリポジトリ上のすべてのアクティビティに対する通知を有効化しているおり、そのリポジトリを無視していなければ、あなたは通知を受け取ることになります。 詳しい情報については、「[通知を設定する](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#configuring-your-watch-settings-for-an-individual-repository)」を参照してください。
 {% endif %}
 
@@ -58,9 +56,9 @@ Enterpriseオーナーは、通知なしで{% data variables.product.prodname_de
 
 {% data reusables.repositories.security-alerts-x-github-severity %} 詳しい情報については、「[通知を設定する](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#filtering-email-notifications)」を参照してください。
 
-## 脆弱性のある依存関係の通知を減らす方法
+## {% data variables.product.prodname_dependabot_alerts %}に対する通知からのノイズの削減方法
 
-{% data variables.product.prodname_dependabot_alerts %}の通知をあまりに多く受け取ることが心配なら、週次のメールダイジェストにオプトインするか、{% data variables.product.prodname_dependabot_alerts %}を有効化したままで通知をオフにすることをおすすめします。 その場合でも、リポジトリのセキュリティタブで{% data variables.product.prodname_dependabot_alerts %}を確認することはできます。 詳しい情報については「[脆弱性のある依存関係に対する{% data variables.product.prodname_dependabot_alerts %}の表示](/github/managing-security-vulnerabilities/viewing-and-updating-vulnerable-dependencies-in-your-repository)」を参照してください。
+{% data variables.product.prodname_dependabot_alerts %}の通知をあまりに多く受け取ることが心配なら、週次のメールダイジェストにオプトインするか、{% data variables.product.prodname_dependabot_alerts %}を有効化したままで通知をオフにすることをおすすめします。 その場合でも、リポジトリのセキュリティタブで{% data variables.product.prodname_dependabot_alerts %}を確認することはできます。 詳しい情報については「[{% data variables.product.prodname_dependabot_alerts %}の表示と更新](/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts)」を参照してください。
 
 ## 参考リンク
 

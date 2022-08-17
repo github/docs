@@ -60,7 +60,7 @@ GitHub will display your profile README on your profile page if all of the follo
   The generated README file is pre-populated with a template to give you some inspiration for your profile README.
   ![README file with pre-populated template](/assets/images/help/repository/personal-repository-readme-template.png)
 
-For a summary of all the available emojis and their codes, see "[Emoji cheat sheet](http://www.emoji-cheat-sheet.com/)."
+For a summary of all the available emojis and their codes, see "[Emoji cheat sheet](https://www.webfx.com/tools/emoji-cheat-sheet/)."
 
 ## Removing a profile README
 
@@ -70,7 +70,7 @@ The profile README is removed from your {% data variables.product.prodname_dotco
 - The repository is private.
 - The repository name no longer matches your username.
 
-The method you choose depends upon your needs, but if you're unsure, we recommend making your repository private. For steps on how to make your repository private, see ["Changing a repository's visibility."](/github/administering-a-repository/setting-repository-visibility#changing-a-repositorys-visibility)
+The method you choose depends upon your needs, but if you're unsure, we recommend making your repository private. For steps on how to make your repository private, see "[Changing a repository's visibility](/github/administering-a-repository/setting-repository-visibility#changing-a-repositorys-visibility)."
 
 ## Further reading
 

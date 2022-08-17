@@ -158,7 +158,7 @@ steps:
 
 ### Using SHAs
 
-If you need more reliable versioning, you should use the SHA value associated with the version of the action. SHAs are immutable and therefore more reliable than tags or branches. However this approach means you will not automatically receive updates for an action, including important bug fixes and security updates. {% ifversion fpt or ghes > 3.0 or ghae or ghec %}You must use a commit's full SHA value, and not an abbreviated value. {% endif %}This example targets an action's SHA:
+If you need more reliable versioning, you should use the SHA value associated with the version of the action. SHAs are immutable and therefore more reliable than tags or branches. However this approach means you will not automatically receive updates for an action, including important bug fixes and security updates. You must use a commit's full SHA value, and not an abbreviated value. This example targets an action's SHA:
 
 ```yaml
 steps:

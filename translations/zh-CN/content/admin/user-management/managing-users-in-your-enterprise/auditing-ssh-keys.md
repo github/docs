@@ -50,9 +50,11 @@ fatal: The remote end hung up unexpectedly
 
 ## 添加 SSH 密钥
 
-新用户在添加 SSH 密钥时将会收到需要输入密码的提示：
+{% ifversion ghes %}
 
-![密码确认](/assets/images/help/settings/sudo_mode_popup.png)
+When a new user adds an SSH key to an account, to confirm the user's access, {% data variables.product.product_name %} will prompt for authentication. For more information, see "[Sudo mode](/authentication/keeping-your-account-and-data-secure/sudo-mode)."
+
+{% endif %}
 
 在用户添加密钥时，他们会收到如下所示的通知电子邮件：
 

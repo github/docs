@@ -204,6 +204,9 @@
     A diff is the difference in changes between two commits, or saved changes.
     The diff will visually describe what was added or removed from a file since
     its last commit.
+- term: directory
+  description: >-
+    A folder containing one or more files or folders. You can create directories to organize the contents of a repository.
 - term: dirty
   description: >-
     A working tree is considered "dirty" if it contains modifications that have

@@ -4,6 +4,8 @@ intro: A API de Licença fornece informações sobre sua licença empresarial.
 versions:
   ghes: '*'
   ghae: '*'
+  ghec: '*'
+  fpt: '*'
 topics:
   - API
 miniTocMaxHeadingLevel: 3

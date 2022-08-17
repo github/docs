@@ -1,3 +1,3 @@
-Typically, you can run your codespace on a choice of remote machine, from 2 cores to 32 cores. これらはそれぞれ、異なるレベルのリソースと支払い層を持っています。 For information, see "[About billing for Codespaces](/github/developing-online-with-codespaces/about-billing-for-codespaces)."
+通常、codespaceは2コアから32コアでリモートのマシンを選択して実行できます。 これらはそれぞれ、異なるレベルのリソースと支払い層を持っています。 詳しい情報については「[{% data variables.product.prodname_github_codespaces %}の支払いについて](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces)」を参照してください。
 
-By default the machine type with the lowest valid resources is used when you create a codespace. 
+codespaceを作成したとき、デフォルトでは有効な最小リソースを持つマシンタイプが使われます。 

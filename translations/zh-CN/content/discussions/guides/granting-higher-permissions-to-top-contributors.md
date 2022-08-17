@@ -2,8 +2,7 @@
 title: 向顶级贡献者授予更高的权限
 intro: 仓库管理员可以将任何社区成员提升到主持人和维护员。
 versions:
-  fpt: '*'
-  ghec: '*'
+  feature: discussions
 shortTitle: 授予更高权限
 ---
 
@@ -16,7 +15,7 @@ shortTitle: 授予更高权限
 
 {% data reusables.discussions.navigate-to-repo-or-org %}
 {% data reusables.discussions.discussions-tab %}
-1. 将贡献者列表与其对存储库的访问权限进行比较，或者，对于组织讨论，比较源存储库，以查看谁有资格主持讨论。
+1. 将贡献者列表与其对存储库的访问权限进行比较，或者，对于组织讨论，比较源存储库，以查看谁有资格主持讨论。 ![最有帮助的贡献者的屏幕截图](/assets/images/help/discussions/most-helpful.png)
 
 ## 第 2 步：审查 {% data variables.product.prodname_discussions %} 的权限级别
 

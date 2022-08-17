@@ -1,7 +1,7 @@
 ---
 title: 为代码空间计算机设置最低规范
 shortTitle: 设置最低计算机规范
-intro: '您可以避免资源不足的计算机类型用于存储库的 {% data variables.product.prodname_codespaces %}。'
+intro: '您可以避免资源不足的计算机类型用于存储库的 {% data variables.product.prodname_github_codespaces %}。'
 permissions: People with write permissions to a repository can create or edit the codespace configuration.
 versions:
   fpt: '*'
@@ -27,7 +27,7 @@ product: '{% data reusables.gated-features.codespaces %}'
 
 ## 设置最低计算机规范
 
-1. 存储库的 {% data variables.product.prodname_codespaces %} 在 `devcontainer.json` 文件中配置。 如果您的存储库尚未包含 `devcontainer.json` 文件，请立即添加一个。 请参阅“[将开发容器配置添加到存储库](/free-pro-team@latest/codespaces/setting-up-your-project-for-codespaces/setting-up-your-project-for-codespaces)”。
+1. 存储库的 {% data variables.product.prodname_github_codespaces %} 在 `devcontainer.json` 文件中配置。 如果您的存储库尚未包含 `devcontainer.json` 文件，请立即添加一个。 请参阅“[将开发容器配置添加到存储库](/free-pro-team@latest/codespaces/setting-up-your-project-for-codespaces/setting-up-your-project-for-codespaces)”。
 1. 编辑 `devcontainer.json` 文件，添加 `hostRequirements` 属性，如下所示：
 
    ```json{:copy}
@@ -40,7 +40,7 @@ product: '{% data reusables.gated-features.codespaces %}'
 
    您可以指定任意或所有选项：`cpus`、`memory` 和 `storage`。
 
-   要检查当前可用于存储库的 {% data variables.product.prodname_codespaces %} 计算机类型的规范，请逐步完成创建代码空间的过程，直到看到选择的计算机类型。 更多信息请参阅“[创建代码空间](/codespaces/developing-in-codespaces/creating-a-codespace#creating-a-codespace)”。
+   要检查当前可用于存储库的 {% data variables.product.prodname_github_codespaces %} 计算机类型的规范，请逐步完成创建代码空间的过程，直到看到选择的计算机类型。 更多信息请参阅“[创建代码空间](/codespaces/developing-in-codespaces/creating-a-codespace#creating-a-codespace)”。
 
 1. 保存文件并将更改提交到存储库的所需分支。
 

@@ -24,12 +24,6 @@ topics:
   </div>
 </div>
 
-{% warning %}
-
-警告：截至 2021 年 10 月下旬，官方 Octokit 库目前尚未维护。 更多信息请参阅 [octokit.js 存储库中的此讨论](https://github.com/octokit/octokit.js/discussions/620)。
-
-{% endwarning %}
-
 # 第三方库
 
 ### Clojure
@@ -80,7 +74,7 @@ topics:
 | 库名称                                                   | 仓库                                                                      |
 | ----------------------------------------------------- | ----------------------------------------------------------------------- |
 | **NodeJS GitHub library**                             | [pksunkara/octonode](https://github.com/pksunkara/octonode)             |
-| **gh3 client-side API v3 wrapper**                    | [k33g/gh3](https://github.com/k33g/gh3)                                 |
+| **gh3 client-side API wrapper**                       | [k33g/gh3](https://github.com/k33g/gh3)                                 |
 | **关于 GitHub API 的 Github.js 包装程序**                    | [michael/github](https://github.com/michael/github)                     |
 | **适用于 Browser 或 NodeJS 的基于 Promise 的 CoffeeScript 库** | [philschatz/github-client](https://github.com/philschatz/github-client) |
 

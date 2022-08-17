@@ -67,12 +67,12 @@ When creating a group, you must choose a policy that defines which repositories{
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.org_settings %}
 {% data reusables.organizations.settings-sidebar-actions-runner-groups %}
-1. Under {% ifversion ghes > 3.1 or ghae %}"Runners"{% elsif ghes < 3.2 %}"Self-hosted runners"{% endif %}, click **Add new**, and then **New group**.
+1. Under {% ifversion ghes or ghae %}"Runners"{% endif %}, click **Add new**, and then **New group**.
 
     ![新しいランナーを追加](/assets/images/help/settings/actions-org-add-runner-group.png)
 1. ランナーグループの名前を入力し、リポジトリアクセスのポリシーを割り当てます。
 
-   You can configure a runner group to be accessible to a specific list of repositories, or to all repositories in the organization.{% ifversion ghec or ghes %} By default, only private repositories can access runners in a runner group, but you can override this. This setting can't be overridden if configuring an organization's runner group that was shared by an enterprise.{% endif %}
+   ランナーグループを、特定のリポジトリのリスト、もしくはEnterprise内のすべてのリポジトリからアクセスできるように設定できます。{% ifversion ghec or ghes %}デフォルトでは、プライベートリポジトリのみがランナーグループ内のランナーにアクセスできますが、これは上書きできます。 この設定は、Enterpriseによって共有されているOrganizationのランナーグループを設定している場合には上書きできません。{% endif %}
 
    {%- ifversion ghes %}
    {% warning %}
@@ -157,7 +157,7 @@ You can configure a self-hosted runner group to run either selected workflows or
 {% data reusables.actions.settings-sidebar-actions-runner-groups-selection %}
 1. Under **Workflow access**, select the dropdown menu and click **Selected workflows**.
 1. {% octicon "gear" aria-label="the gear icon" %} をクリックします。
-1. Enter a comma separated list of the workflows that can access the runner group. Use the full path, including the repository name and owner. Pin the workflow to a branch, tag, or full SHA. For example: `octo-org/octo-repo/.github/workflows/build.yml@v2, octo-org/octo-repo/.github/workflows/deploy.yml@d6dc6c96df4f32fa27b039f2084f576ed2c5c2a5, monalisa/octo-test/.github/workflows/test.yml@main`.
+1. Enter a comma separated list of the workflows that can access the runner group. Use the full path, including the repository name and owner. Pin the workflow to a branch, tag, or full SHA. 例: `octo-org/octo-repo/.github/workflows/build.yml@v2, octo-org/octo-repo/.github/workflows/deploy.yml@d6dc6c96df4f32fa27b039f2084f576ed2c5c2a5, monalisa/octo-test/.github/workflows/test.yml@main`
 
    Only jobs directly defined within the selected workflows will have access to the runner group.
 
@@ -204,7 +204,7 @@ If you don't specify a runner group during the registration process, your new se
 2. Select the **Runner group** drop-down.
 3. In "Move runner to group", choose a destination group for the runner.
 {% elsif ghae or ghes < 3.4 %}
-1. In the {% ifversion ghes > 3.1 or ghae %}"Runner groups"{% elsif ghes < 3.2 %}"Self-hosted runners"{% endif %} section of the settings page, locate the current group of the runner you want to move and expand the list of group members. ![ランナーグループのメンバーを表示](/assets/images/help/settings/actions-org-runner-group-members.png)
+1. In the {% ifversion ghes or ghae %}"Runner groups"{% endif %} section of the settings page, locate the current group of the runner you want to move and expand the list of group members. ![ランナーグループのメンバーを表示](/assets/images/help/settings/actions-org-runner-group-members.png)
 2. セルフホストランナーの横にあるチェックボックスを選択し、[**Move to group**] をクリックして、利用可能な移動先を確認します。 ![ランナーグループのメンバーを移動](/assets/images/help/settings/actions-org-runner-group-member-move.png)
 3. 移動先のグループをクリックして、ランナーを移動します。 ![ランナーグループのメンバーを移動](/assets/images/help/settings/actions-org-runner-group-member-move-destination.png)
 {% endif %}
@@ -213,16 +213,11 @@ If you don't specify a runner group during the registration process, your new se
 
 セルフホストランナーは、グループが削除されると自動的にデフォルトグループに戻ります。
 
-{% ifversion ghes > 3.1 or ghae or ghec %}
+{% ifversion ghes or ghae or ghec %}
 {% data reusables.actions.self-hosted-runner-groups-navigate-to-repo-org-enterprise %}
 1. In the list of groups, to the right of the group you want to delete, click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}.
 2. グループを削除するには、[**Remove group**] をクリックします。
 3. 確認プロンプトを確認し、[**Remove this runner group**] をクリックします。
-{% elsif ghes < 3.2 %}
-1. In the "Self-hosted runners" section of the settings page, locate the group you want to delete, and click the {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} button. ![ランナーグループの設定を表示](/assets/images/help/settings/actions-org-runner-group-kebab.png)
 
-1. グループを削除するには、[**Remove group**] をクリックします。 ![ランナーグループの設定を表示](/assets/images/help/settings/actions-org-runner-group-remove.png)
-
-1. 確認プロンプトを確認し、[**Remove this runner group**] をクリックします。
 {% endif %}
 {% endif %}

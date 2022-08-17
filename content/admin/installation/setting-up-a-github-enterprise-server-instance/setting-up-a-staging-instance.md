@@ -1,6 +1,6 @@
 ---
 title: Setting up a staging instance
-intro: You can set up a {% data variables.product.product_name %} instance in a separate, isolated environment, and use the instance to validate and test changes.
+intro: 'You can set up a {% data variables.product.product_name %} instance in a separate, isolated environment, and use the instance to validate and test changes.'
 redirect_from:
   - /enterprise/admin/installation/setting-up-a-staging-instance
   - /admin/installation/setting-up-a-staging-instance

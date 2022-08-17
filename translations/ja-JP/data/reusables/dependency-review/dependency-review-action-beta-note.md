@@ -1,5 +1,5 @@
 {% note %}
 
-**Note**: The Dependency Review GitHub Action is currently in public beta and subject to change.
+**ノート**: {% data variables.product.prodname_dependency_review_action %}は現在パブリックベータであり、変更されることがあります。
 
 {% endnote %}

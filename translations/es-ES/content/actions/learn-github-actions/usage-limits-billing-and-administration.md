@@ -57,6 +57,12 @@ Hay algunos límites de uso de {% data variables.product.prodname_actions %} cua
   | Pro            | 40                       | 5                                 |
   | Team           | 60                       | 5                                 |
   | Empresa        | 180                      | 50                                |
+
+  {% note %}
+
+  **Nota:** De ser necesario, los clientes con planes empresariales pueden solicitar un límite superior para los jobs simultáneos. Para obtener más información, contacta a {% data variables.contact.contact_ent_support %} o a tu representante de ventas.
+
+  {% endnote %}
 - **Matiz de jobs** - {% data reusables.actions.usage-matrix-limits %}
 {% data reusables.actions.usage-workflow-queue-limits %}
 
@@ -75,7 +81,7 @@ Además de los límites de uso, debes asegurarte de usar las {% data variables.p
 
 {% data reusables.actions.reusable-workflows-ghes-beta %}
 
-Si reutilizas un flujo de trabajo, la facturación siempre se asociará con el flujo de trabajo llamante. La asignación de los ejecutores hospedados en {% data variables.product.prodname_dotcom %} siempre se evalúa utilizando únicamente el contexto del llamador. El llamador no puede utilizar ejecutores hospedados en {% data variables.product.prodname_dotcom %} desde el repositorio llamado.
+Si vuelves a utilizar un flujo de trabajo la facturación siempre se asociará con aquél del que llama. La asignación de los ejecutores hospedados en {% data variables.product.prodname_dotcom %} siempre se evalúa utilizando únicamente el contexto del llamador. El llamador no puede utilizar ejecutores hospedados en {% data variables.product.prodname_dotcom %} desde el repositorio llamado.
 
 Para obtener más información, consulta la sección "[Reutilizar los flujos de trabajo](/actions/learn-github-actions/reusing-workflows)".
 {% endif %}
@@ -103,7 +109,7 @@ Para obtener más información, consulta:
 
 ## Inhabilitar y habilitar flujos de trabajo
 
-Puedes habilitar e inhabilitar flujos de trabajo independientes en tu repositorio de {% data variables.product.prodname_dotcom %}.
+Puedes habilitar e inhabilitar flujos de trabajo independientes en tu repositorio en {% data variables.product.prodname_dotcom %}.
 
 {% data reusables.actions.scheduled-workflows-disabled %}
 

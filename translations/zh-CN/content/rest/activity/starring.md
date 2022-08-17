@@ -23,6 +23,6 @@ miniTocMaxHeadingLevel: 3
 
 标星 REST API 有一个支持的自定义媒体类型。 使用此自定义媒体类型时，您将收到带有 `starred_at` 时间戳属性的响应，该属性指示星标创建的时间。 该响应还有第二个属性，该属性包括在不使用自定义媒体类型时返回的资源。 包含资源的属性为 `user` 或 `repo`。
 
-    application/vnd.github.v3.star+json
+    application/vnd.github.star+json
 
 有关媒体类型的更多信息，请参阅“[自定义媒体类型](/rest/overview/media-types)”。

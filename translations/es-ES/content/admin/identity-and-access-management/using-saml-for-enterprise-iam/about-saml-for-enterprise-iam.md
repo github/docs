@@ -30,9 +30,11 @@ redirect_from:
 
 If your enterprise members manage their own user accounts on {% data variables.product.product_location %}, you can configure SAML authentication as an additional access restriction for your enterprise or organization. {% data reusables.saml.dotcom-saml-explanation %}
 
+{% data reusables.saml.saml-accounts %}
+
 {% data reusables.saml.about-saml-enterprise-accounts %} Para obtener más información, consulta la sección "[Configurar el incio de sesión único de SAML para tu empresa](/admin/authentication/managing-identity-and-access-for-your-enterprise/configuring-saml-single-sign-on-for-your-enterprise)".
 
-Alternatively, you can provision and manage the accounts of your enterprise members with {% data variables.product.prodname_emus %}. To help you determine whether SAML SSO or {% data variables.product.prodname_emus %} is better for your enterprise, see "[About authentication for your enterprise](/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-authentication-for-your-enterprise#identifying-the-best-authentication-method-for-your-enterprise)."
+Alternatively, you can provision and manage the accounts of your enterprise members with {% data variables.product.prodname_emus %}. Para ayudarte a determinar si el SSO de SAML o las {% data variables.product.prodname_emus %} son mejores para tu empresa, consulta la sección "[Acerca de la autetnicación para tu empresa](/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-authentication-for-your-enterprise#identifying-the-best-authentication-method-for-your-enterprise)".
 
 {% data reusables.enterprise-accounts.about-recovery-codes %}Para obtener más información, consulta la sección "[Administrar los códigos de recuperación para tu empresa](/admin/identity-and-access-management/managing-recovery-codes-for-your-enterprise)".
 

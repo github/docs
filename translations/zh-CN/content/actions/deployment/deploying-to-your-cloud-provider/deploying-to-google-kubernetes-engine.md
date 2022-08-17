@@ -137,6 +137,8 @@ Kustomize 是用于管理 YAML 规范的可选工具。 在创建 `kustomization
 ```yaml{:copy}
 {% data reusables.actions.actions-not-certified-by-github-comment %}
 
+{% data reusables.actions.actions-use-sha-pinning-comment %}
+
 name: Build and Deploy to GKE
 
 on:

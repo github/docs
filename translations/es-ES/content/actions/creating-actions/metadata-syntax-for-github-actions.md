@@ -74,7 +74,7 @@ Por ejemplo, si un flujo de trabajo definió las entradas de `numOctocats` y `oc
 
 ### `inputs.<input_id>.required`
 
-**Requerido** Un `boolean` (booleano) para indicar si la acción requiere el parámetro de entrada. Establecer en `true` cuando se requiera el parámetro.
+**Opcional** Un `boolean` para indicar si la acción requiere el parámetro de entrada. Establecer en `true` cuando se requiera el parámetro.
 
 ### `inputs.<input_id>.default`
 
@@ -369,9 +369,13 @@ runs:
 ```
 {% endif %}
 
+{% ifversion ghes > 3.5 or ghae-issue-6573 %}
+
 #### `runs.steps[*].continue-on-error`
 
 **Opcional** Impide que la acción falle cuando falla un paso. Se configura en `true` para permitir que la acción pase cuando falla este paso.
+
+{% endif %}
 
 ## `runs` para las acciones de contenedores de Docker
 
@@ -451,7 +455,7 @@ Los `args` se usan en el lugar de la instrucción `CMD` en un `Dockerfile`. Si u
 
 {% data reusables.actions.dockerfile-guidelines %}
 
-Si necesitas pasar variables de ambiente a una acción, asegúrate que ésta ejecute un shell de comandos para realizar la sustitución de variables. Por ejemplo, si se configura tu atributo `entrypoint` como `"sh -c"`, entonces `args` se ejecutará en un shell de comandos. Como alternativa, si tu `Dockerfile` utiliza un `ENTRYPOINT` para ejecutar el mismo comando (`"sh -c"`), entonces `args` se ejecutará en un shell de comandos.
+Si necesitas pasar variables de ambiente a una acción, asegúrate que ésta ejecute un shell de comandos para realizar la sustitución de variables. Por ejemplo, si se configura tu atributo `entrypoint` como `"sh -c"`, entoces `args` se ejecutará en un shell de comandos. Como alternativa, si tu `Dockerfile` utiliza un `ENTRYPOINT` para ejecutar el mismo comando (`"sh -c"`), entonces `args` se ejecutará en un shell de comandos.
 
 Para obtener más información sobre el uso de la instrucción `CMD` con {% data variables.product.prodname_actions %}, consulta la sección "[Soporte de Dockerfile para {% data variables.product.prodname_actions %}](/actions/creating-actions/dockerfile-support-for-github-actions/#cmd)".
 
@@ -471,7 +475,7 @@ runs:
 
 ## `branding`
 
-Puedes usar un color y un icono de [Feather](https://feathericons.com/) para crear una insignia que personalice y diferencie tu acción. Los distintivos se muestran junto al nombre de tu acción en [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace?type=actions).
+Puedes usar un color y un icono de [Pluma](https://feathericons.com/) para crear una insignia que personalice y diferencie tu acción. Los distintivos se muestran junto al nombre de tu acción en [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace?type=actions).
 
 ### Ejemplo: Configurar la personalización de una acción
 
@@ -483,7 +487,7 @@ branding:
 
 ### `branding.color`
 
-El color de fondo del distintivo. Puede ser: `white`, `yellow`, `blue`, `green`, `orange`, `red`, `purple`, o `gray-dark`.
+El color de fondo de la insignia. Puede ser: `blanco`, `amarillow`, `azul`, `verde`, `anaranjado`, `rojo`, `púrpura` o `gris oscuro`.
 
 ### `branding.icon`
 
@@ -664,254 +668,249 @@ Aquí mostramos una lista exhaustiva de todos los iconos compatibles actualmente
 <td>eye</td>
 </tr>
 <tr>
-<td>facebook</td>
-<td>fast-forward</td>
+<td>avance rápido</td>
 <td>feather</td>
 <td>file-minus</td>
-</tr>
-<tr>
 <td>file-plus</td>
-<td>file-text</td>
-<td>file</td>
-<td>film</td>
 </tr>
 <tr>
+<td>file-text</td>
+<td>archivo</td>
+<td>film</td>
 <td>filter</td>
+</tr>
+<tr>
 <td>marcador</td>
 <td>folder-minus</td>
 <td>folder-plus</td>
+<td>folder</td>
 </tr>
 <tr>
-<td>folder</td>
 <td>gift</td>
 <td>git-branch</td>
 <td>git-commit</td>
+<td>git-merge</td>
 </tr>
 <tr>
-<td>git-merge</td>
 <td>git-pull-request</td>
 <td>globe</td>
 <td>grid</td>
+<td>hard-drive</td>
 </tr>
 <tr>
-<td>hard-drive</td>
 <td>hash</td>
 <td>headphones</td>
 <td>heart</td>
+<td>help-circle</td>
 </tr>
 <tr>
-<td>help-circle</td>
 <td>home</td>
 <td>image</td>
 <td>inbox</td>
+<td>info</td>
 </tr>
 <tr>
-<td>info</td>
 <td>italic</td>
 <td>layers</td>
 <td>layout</td>
+<td>life-buoy</td>
 </tr>
 <tr>
-<td>life-buoy</td>
 <td>link-2</td>
 <td>link</td>
 <td>list</td>
+<td>loader</td>
 </tr>
 <tr>
-<td>loader</td>
 <td>lock</td>
 <td>log-in</td>
 <td>log-out</td>
+<td>mail</td>
 </tr>
 <tr>
-<td>mail</td>
 <td>map-pin</td>
 <td>map</td>
 <td>maximize-2</td>
+<td>maximize</td>
 </tr>
 <tr>
-<td>maximize</td>
 <td>menu</td>
 <td>message-circle</td>
 <td>message-square</td>
+<td>mic-off</td>
 </tr>
 <tr>
-<td>mic-off</td>
 <td>mic</td>
 <td>minimize-2</td>
 <td>minimize</td>
+<td>minus-circle</td>
 </tr>
 <tr>
-<td>minus-circle</td>
 <td>minus-square</td>
 <td>minus</td>
 <td>monitor</td>
+<td>moon</td>
 </tr>
 <tr>
-<td>moon</td>
 <td>more-horizontal</td>
 <td>more-vertical</td>
 <td>move</td>
+<td>music</td>
 </tr>
 <tr>
-<td>music</td>
 <td>navigation-2</td>
 <td>navigation</td>
 <td>octagon</td>
+<td>paquete</td>
 </tr>
 <tr>
-<td>package</td>
 <td>paperclip</td>
 <td>pause-circle</td>
 <td>pause</td>
+<td>percent</td>
 </tr>
 <tr>
-<td>percent</td>
 <td>phone-call</td>
 <td>phone-forwarded</td>
 <td>phone-incoming</td>
+<td>phone-missed</td>
 </tr>
 <tr>
-<td>phone-missed</td>
 <td>phone-off</td>
 <td>phone-outgoing</td>
 <td>phone</td>
+<td>pie-chart</td>
 </tr>
 <tr>
-<td>pie-chart</td>
 <td>play-circle</td>
 <td>play</td>
 <td>plus-circle</td>
+<td>plus-square</td>
 </tr>
 <tr>
-<td>plus-square</td>
 <td>plus</td>
 <td>pocket</td>
 <td>power</td>
+<td>printer</td>
 </tr>
 <tr>
-<td>printer</td>
 <td>radio</td>
 <td>refresh-ccw</td>
 <td>refresh-cw</td>
+<td>repeat</td>
 </tr>
 <tr>
-<td>repeat</td>
-<td>rewind</td>
+<td>retroceder</td>
 <td>rotate-ccw</td>
 <td>rotate-cw</td>
+<td>rss</td>
 </tr>
 <tr>
-<td>rss</td>
-<td>guardar</td>
+<td>save</td>
 <td>scissors</td>
 <td>search</td>
+<td>send</td>
 </tr>
 <tr>
-<td>send</td>
 <td>server</td>
 <td>settings</td>
 <td>share-2</td>
+<td>share</td>
 </tr>
 <tr>
-<td>share</td>
 <td>shield-off</td>
 <td>shield</td>
 <td>shopping-bag</td>
-</tr>
-<tr>
 <td>shopping-cart</td>
-<td>shuffle</td>
-<td>sidebar</td>
-<td>skip-back</td>
 </tr>
 <tr>
+<td>shuffle</td>
+<td>barra lateral</td>
+<td>skip-back</td>
 <td>skip-forward</td>
+</tr>
+<tr>
 <td>slash</td>
 <td>sliders</td>
 <td>smartphone</td>
-</tr>
-<tr>
 <td>speaker</td>
-<td>square</td>
-<td>star</td>
-<td>stop-circle</td>
 </tr>
 <tr>
+<td>square</td>
+<td>estrella</td>
+<td>stop-circle</td>
 <td>sun</td>
+</tr>
+<tr>
 <td>sunrise</td>
 <td>sunset</td>
 <td>tablet</td>
+<td>etiqueta</td>
 </tr>
 <tr>
-<td>tag</td>
 <td>target</td>
 <td>terminal</td>
 <td>thermometer</td>
+<td>thumbs-down</td>
 </tr>
 <tr>
-<td>thumbs-down</td>
 <td>thumbs-up</td>
 <td>toggle-left</td>
 <td>toggle-right</td>
+<td>trash-2</td>
 </tr>
 <tr>
-<td>trash-2</td>
 <td>trash</td>
 <td>trending-down</td>
 <td>trending-up</td>
+<td>triangle</td>
 </tr>
 <tr>
-<td>triangle</td>
 <td>truck</td>
 <td>tv</td>
 <td>type</td>
+<td>umbrella</td>
 </tr>
 <tr>
-<td>umbrella</td>
 <td>underline</td>
 <td>unlock</td>
 <td>upload-cloud</td>
+<td>cargar</td>
 </tr>
 <tr>
-<td>upload</td>
 <td>user-check</td>
 <td>user-minus</td>
 <td>user-plus</td>
+<td>user-x</td>
 </tr>
 <tr>
-<td>user-x</td>
-<td>user</td>
+<td>usuario</td>
 <td>users</td>
 <td>video-off</td>
+<td>video</td>
 </tr>
 <tr>
-<td>video</td>
 <td>voicemail</td>
 <td>volume-1</td>
 <td>volume-2</td>
-</tr>
-<tr>
 <td>volume-x</td>
-<td>volume</td>
-<td>watch</td>
-<td>wifi-off</td>
 </tr>
 <tr>
+<td>volume</td>
+<td>observar</td>
+<td>wifi-off</td>
 <td>wifi</td>
+</tr>
+<tr>
 <td>wind</td>
 <td>x-circle</td>
 <td>x-square</td>
+<td>x</td>
 </tr>
 <tr>
-<td>x</td>
 <td>zap-off</td>
 <td>zap</td>
 <td>zoom-in</td>
-</tr>
-<tr>
 <td>zoom-out</td>
-<td></td>
-<td></td>
-<td></td>
+</tr>
 </table>

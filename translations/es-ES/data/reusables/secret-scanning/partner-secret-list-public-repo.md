@@ -22,10 +22,10 @@
 | Sistemas Contribuidos     | Credenciales de los sistemas contribuidos                   |
 | Databricks                | Token de Acceso de Databricks                               |
 | Datadog                   | Clave de API de Datadog                                     |
-| DigitalOcean              | DigitalOcean Personal Access Token                          |
-| DigitalOcean              | DigitalOcean OAuth Token                                    |
-| DigitalOcean              | DigitalOcean Refresh Token                                  |
-| DigitalOcean              | DigitalOcean System Token                                   |
+| DigitalOcean              | Token de Acceso Personal de DigitalOcean                    |
+| DigitalOcean              | Token OAuth de DigitalOcean                                 |
+| DigitalOcean              | Token de Actualización de DigitalOcean                      |
+| DigitalOcean              | Token de Sistema de DigitalOcean                            |
 | Discord                   | Token de Bot de Discord                                     |
 | Doppler                   | Token Personal de Doppler                                   |
 | Doppler                   | Token de Servicio de Doppler                                |
@@ -71,12 +71,16 @@
 | PlanetScale               | Token de Servicio de PlanetScale                            |
 | Plivo                     | Token e ID de Auth de Plivo                                 |
 | Postman                   | Clave de API de Postman                                     |
+| Prefect                   | Llave de la API del Servidor de Perfect                     |
+| Prefect                   | Token de la API de Usuario de Perfect                       |
 | Proctorio                 | Clave de Consumidor de Proctorio                            |
 | Proctorio                 | Clave de Enlace de Proctorio                                |
 | Proctorio                 | Clave de Registro de Proctorio                              |
 | Proctorio                 | Clave de Secreto de Proctorio                               |
 | Pulumi                    | Token de Acceso de Pulumi                                   |
 | PyPI                      | Token de la API de PyPI                                     |
+| ReadMe                    | Llave de Acceso a la API de ReadMe                          |
+| redirect.pizza            | Token de la API de redirect.pizza                           |
 | RubyGems                  | Clave de la API de RubyGems                                 |
 | Samsara                   | Token de API de Samsara                                     |
 | Samsara                   | Token de Acceso de OAuth de Samsara                         |
@@ -101,4 +105,6 @@
 | Twilio                    | Identificador de Secuencia de Cuenta de Twilio              |
 | Twilio                    | Clave de API de Twilio                                      |
 | Typeform                  | Token de acceso personal a Typeform                         |
+| Uniwise                   | Llave de la API de WISEflow                                 |
 | Valour                    | Token de acceso a Valour                                    |
+| Zuplo                     | API consumidora de Zuplo                                    |

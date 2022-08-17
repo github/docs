@@ -33,7 +33,7 @@ Você deve armazenar este arquivo no diretório `.github` do seu repositório. A
 
 Quaisquer opções que também afetem as atualizações de segurança são usadas na próxima vez que um alerta de segurança acionar um pull request para uma atualização de segurança.  Para obter mais informações, consulte "[Configurando {% data variables.product.prodname_dependabot_security_updates %}](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/configuring-dependabot-security-updates)."
 
-O arquivo *dependabot.yml* tem duas chaves obrigatórias de nível superior: `versão`e `atualizações`. Você pode, opcionalmente, incluir uma chave `registros` de nível superior {% ifversion fpt or ghec or ghes > 3.4 %} e/ou uma chave `enable-beta-ecosystem` key{% endif %}. O arquivo deve começar com a `versão: 2`.
+O arquivo *dependabot.yml* tem duas chaves obrigatórias de nível superior: `versão`e `atualizações`. Você pode, opcionalmente, incluir uma chave `registros` de nível superior {% ifversion ghes = 3.5 %} e/ou uma chave `enable-beta-ecosystem` key{% endif %}. O arquivo deve começar com a `versão: 2`.
 
 ## Opções de configuração para o arquivo *dependabot.yml*
 
@@ -280,6 +280,10 @@ updates:
       prefix-development: "pip dev"
       include: "scope"
 ```
+Se você usar a mesma configuração que no exemplo acima, o bumping na biblioteca `requests` no grupo de dependência de desenvolvimento `pip` gerará uma mensagem de commit de:
+
+   `pip dev: solicitações de bump de 1.0.0 a 1.0.1`
+
 ### `ignore`
 
 {% data reusables.dependabot.default-dependencies-allow-ignore %}
@@ -771,6 +775,12 @@ registries:
 
 ### `docker-registry`
 
+{% note %}
+
+**Observação:** Nós não somos compatíveis com o Azure Container Registry (ACR).
+
+{% endnote %}
+
 O tipo `docker-registry` é compatível com nome de usuário e senha.
 
 {% raw %}
@@ -971,8 +981,9 @@ Por padrão, {% data variables.product.prodname_dependabot %} atualiza os manife
 
 version: 2
 enable-beta-ecosystems: true
-updates:
-  - package-ecosystem: "pub"
+updates:{% ifversion fpt or ghec or ghes > 3.5 %}
+  - package-ecosystem: "beta-ecosystem"{% else %}
+  - package-ecosystem: "pub"{% endif %}
     directory: "/"
     schedule:
       interval: "daily"

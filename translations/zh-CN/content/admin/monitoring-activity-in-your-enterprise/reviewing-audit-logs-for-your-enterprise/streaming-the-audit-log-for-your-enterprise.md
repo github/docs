@@ -3,7 +3,7 @@ title: 流式传输企业的审核日志
 intro: '您可以将审核和 Git 事件数据从 {% data variables.product.prodname_dotcom %} 流式传输到外部数据管理系统。'
 miniTocMaxHeadingLevel: 3
 versions:
-  ghec: '*'
+  feature: audit-log-streaming
 type: tutorial
 topics:
   - Auditing
@@ -17,6 +17,14 @@ redirect_from:
 permissions: Enterprise owners can configure audit log streaming.
 ---
 
+{% ifversion ghes %}
+{% note %}
+
+**Note:** Audit log streaming is currently in beta for {% data variables.product.product_name %} and is subject to change.
+
+{% endnote %}
+{% endif %}
+
 ## 关于审核日志流
 
 为了帮助保护您的知识产权并保持组织的合规性，您可以使用流式处理来保留审核日志数据的副本并监控：
@@ -24,11 +32,11 @@ permissions: Enterprise owners can configure audit log streaming.
 
 流式传输审计数据的好处包括：
 
-* **数据探索**。 您可以使用首选工具检查流事件，以查询大量数据。 流包含整个企业帐户中的审核事件和 Git 事件。
-* **数据连续性**。 您可以暂停流长达七天，而不会丢失任何审核数据。
+* **数据探索**。 您可以使用首选工具检查流事件，以查询大量数据。 The stream contains both audit events and Git events across the entire enterprise account.{% ifversion pause-audit-log-stream %}
+* **数据连续性**。 You can pause the stream for up to seven days without losing any audit data.{% endif %}
 * **数据保留**。 您可以根据需要保留导出的审核日志和 Git 事件数据。
 
-企业所有者可以随时设置、暂停或删除流。 流导出企业中所有组织的审核数据。
+Enterprise owners can set up{% ifversion pause-audit-log-stream %}, pause,{% endif %} or delete a stream at any time. The stream exports the audit and Git events data for all of the organizations in your enterprise.
 
 ## 设置审核日志流
 
@@ -42,6 +50,16 @@ permissions: Enterprise owners can configure audit log streaming.
 
 ### 设置流式传输到 Amazon S3
 
+{% ifversion streaming-oidc-s3 %}
+您可以使用访问密钥设置流式传输到 S3，或者，为了避免在 {% data variables.product.product_name %} 中存储长期存在的密钥，请使用 OpenID Connect (OIDC)。
+
+- [使用访问密钥设置流式传输到 S3](#setting-up-streaming-to-s3-with-access-keys)
+- [使用 OpenID Connect 设置流式传输到 S3](#setting-up-streaming-to-s3-with-openid-connect)
+- [Disabling streaming to S3 with OpenID Connect](#disabling-streaming-to-s3-with-openid-connect)
+
+#### 使用访问密钥设置流式传输到 S3
+{% endif %}
+
 要将审核日志流式传输到 Amazon 的 S3 终端节点，您必须拥有存储桶和访问密钥。 更多信息请参阅 AWS 文档中的[创建、配置和使用 Amazon S3 存储桶](https://docs.aws.amazon.com/AmazonS3/latest/userguide/creating-buckets-s3.html)。 请务必阻止对存储桶的公共访问，以保护您的审核日志信息。
 
 要设置来自 {% data variables.product.prodname_dotcom %} 审核日志流式处理，您需要：
@@ -52,22 +70,76 @@ permissions: Enterprise owners can configure audit log streaming.
 有关创建或访问访问密钥 ID 和密钥的信息，请参阅 AWS 文档中的[了解和获取您的 AWS 凭据](https://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html)。
 
 {% data reusables.enterprise.navigate-to-log-streaming-tab %}
-1. 单击 **Configure stream（配置流）**，然后选择 **Amazon S3**。
+{% data reusables.audit_log.streaming-choose-s3 %}{% ifversion streaming-oidc-s3 %}
+1. 在“Authentication（身份验证）”下，单击 **Access keys（访问密钥）**。
 
-   ![从下拉菜单中选择 Amazon S3](/assets/images/help/enterprises/audit-stream-choice-s3.png)
+   ![用于流式传输到 Amazon S3 的身份验证选项的屏幕截图](/assets/images/help/enterprises/audit-log-streaming-s3-access-keys.png){% endif %}
+1. 配置流设置。
 
-1. 在配置页面上，输入：
-   * 要流式传输到的存储桶的名称。 例如，`auditlog-streaming-test`。
-   * 您的访问密钥 ID。 例如，`ABCAIOSFODNN7EXAMPLE1`。
-   * 您的密钥。 例如，`aBcJalrXUtnWXYZ/A1MDENG/zPxRfiCYEXAMPLEKEY`。
-
-   ![输入流设置](/assets/images/help/enterprises/audit-stream-add-s3.png)
-
-1. 单击 **Check endpoint（检查端点）**以验证 {% data variables.product.prodname_dotcom %} 是否可以连接并写入 Amazon S3 端点。
-
-   ![检查端点](/assets/images/help/enterprises/audit-stream-check.png)
-
+   - 在“Bucket（存储桶）”下，键入要流式传输到的存储桶的名称。 例如，`auditlog-streaming-test`。
+   - 在“Access Key ID（访问密钥 ID）”下，键入您的访问密钥 ID。 例如，`ABCAIOSFODNN7EXAMPLE1`。
+   - 在“Secret Key（密钥）”下，键入您的密钥。 例如，`aBcJalrXUtnWXYZ/A1MDENG/zPxRfiCYEXAMPLEKEY`。
+{% data reusables.audit_log.streaming-check-s3-endpoint %}
 {% data reusables.enterprise.verify-audit-log-streaming-endpoint %}
+
+{% ifversion streaming-oidc-s3 %}
+#### 使用 OpenID Connect 设置流式传输到 S3
+
+1. 在 AWS 中，将 {% data variables.product.prodname_dotcom %} OIDC 提供商添加到 IAM。 有关更多信息，请参阅 AWS 文档中的[创建 OpenID Connect (OIDC) 身份提供程序](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_create_oidc.html)。
+
+   - 对于提供程序 URL，请使用 `https://oidc-configuration.audit-log.githubusercontent.com`。
+   - 对于“受众”，请使用 `sts.amazonaws.com`。
+1. 创建存储桶，并阻止对存储桶的公共访问。 更多信息请参阅 AWS 文档中的[创建、配置和使用 Amazon S3 存储桶](https://docs.aws.amazon.com/AmazonS3/latest/userguide/creating-buckets-s3.html)。
+1. 创建允许 {% data variables.product.company_short %} 写入存储桶的策略。 {% data variables.product.prodname_dotcom %} 只需要以下权限。
+
+   ```
+   {
+      "Version": "2012-10-17",
+      "Statement": [
+         {
+            "Sid": "VisualEditor0",
+            "Effect": "Allow",
+            "Action": [
+               "s3:PutObject"
+            ],
+            "Resource": "arn:aws:s3:::example-bucket/*"
+        }
+      ]
+   }
+   ```
+   更多信息请参阅 AWS 文档中的[创建 IAM 策略](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_create.html)。
+1. 为 {% data variables.product.prodname_dotcom %} IdP 配置角色和信任策略。 更多信息请参阅 AWS 文档中的[为 Web 身份创建角色或 OpenID Connect Federation（控制台）](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-idp_oidc.html) 。
+
+   - 添加您在上面创建的权限策略以允许写入存储桶。
+   - 编辑信任关系以将 `sub` 字段添加到验证条件，将 `ENTERPRISE` 替换为企业名称。
+     ```
+     "Condition": {
+        "StringEquals": {
+           "oidc-configuration.audit-log.githubusercontent.com:aud": "sts.amazonaws.com",
+           "oidc-configuration.audit-log.githubusercontent.com:sub": "https://github.com/ENTERPRISE"
+         }
+      }
+      ```
+   - 记下所创建角色的 Amazon 资源名称 (ARN)。
+{% data reusables.enterprise.navigate-to-log-streaming-tab %}
+{% data reusables.audit_log.streaming-choose-s3 %}
+1. 在“Authentication（身份验证）”下，单击 **OpenID Connect**。
+
+   ![用于流式传输到 Amazon S3 的身份验证选项的屏幕截图](/assets/images/help/enterprises/audit-log-streaming-s3-oidc.png)
+1. 配置流设置。
+
+   - 在“Bucket（存储桶）”下，键入要流式传输到的存储桶的名称。 例如，`auditlog-streaming-test`。
+   - 在“ARN Role（ARN 角色）”下，键入您之前记下的 ARN 角色。 例如 `arn:aws::iam::1234567890:role/github-audit-log-streaming-role`。
+{% data reusables.audit_log.streaming-check-s3-endpoint %}
+{% data reusables.enterprise.verify-audit-log-streaming-endpoint %}
+
+#### Disabling streaming to S3 with OpenID Connect
+
+If you want to disable streaming to S3 with OIDC for any reason, such as the discovery of a security vulnerability in OIDC, delete the {% data variables.product.prodname_dotcom %} OIDC provider you created in AWS when you set up streaming. 有关更多信息，请参阅 AWS 文档中的[创建 OpenID Connect (OIDC) 身份提供程序](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_create_oidc.html)。
+
+Then, set up streaming with access keys until the vulnerability is resolved. For more information, see "[Setting up streaming to S3 with access keys](#setting-up-streaming-to-s3-with-access-keys)."
+
+{% endif %}
 
 ### 设置流式传输到 Azure Blob Storage
 
@@ -208,6 +280,7 @@ permissions: Enterprise owners can configure audit log streaming.
 1. 单击 **Check endpoint（检查端点）**以验证 {% data variables.product.prodname_dotcom %} 是否可以连接并写入 Splunk 端点。 ![检查端点](/assets/images/help/enterprises/audit-stream-check-splunk.png)
 {% data reusables.enterprise.verify-audit-log-streaming-endpoint %}
 
+{% ifversion pause-audit-log-stream %}
 ## 暂停审核日志流
 
 暂停流允许您对接收应用程序执行维护，而不会丢失审核数据。 审核日志在 {% data variables.product.product_location %} 上最多存储七天，然后在取消暂停流时导出。
@@ -220,6 +293,7 @@ permissions: Enterprise owners can configure audit log streaming.
 1. 将显示一条确认消息。 单击 **Pause stream（暂停流）**以确认。
 
 当应用程序准备好再次接收审核日志时，单击 **Resume stream（恢复流）**以重新启动流式处理审核日志。
+{% endif %}
 
 ## 删除审核日志流
 

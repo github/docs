@@ -1,1 +1,1 @@
-The architecture of the runner executing the job. Possible values are `X86`, `X64`, `ARM`, or `ARM64`.
+ジョブを実行しているランナーのアーキテクチャ。 `X86`、`X64`、`ARM`、`ARM64`のいずれかの値になります。

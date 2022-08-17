@@ -41,14 +41,11 @@ shortTitle: GitHub Pagesのサイトの作成
 
 {% data reusables.pages.navigate-site-repo %}
 {% data reusables.pages.decide-publishing-source %}
-3. 選択した公開元が既に存在する場合、公開元に移動します。 選択した公開元がまだ存在しない場合は、公開元を作成します。
-4. 公開元のルートに、サイトのメインページに表示したいコンテンツを含んだ、`index.md` という名前の新しいファイルを作成します。
+1. サイトのエントリファイルを作成してください。 {% data variables.product.prodname_pages %}は、サイトのエントリファイルとして`index.html`、`index.md`、`README.md`のいずれかのファイルを探します。
 
-  {% tip %}
+   {% ifversion pages-custom-workflow %}公開ソースがブランチとフォルダなら、エントリファイルはソースブランチのソースフォルダのトップレベルになければなりません。 たとえば、公開ソースが`main`ブランチの`/docs`フォルダにあるなら、エントリファイルは`main`というブランチの`/docs`フォルダに置かれていなければなりません。
 
-  **参考:** `index.html`があるなら、`index.md`の代わりに利用されます。 `index.html`も`index.md`もないなら、`README.md`が使われます。
-
-  {% endtip %}
+   公開ソースが{% data variables.product.prodname_actions %}ワークフローなら、デプロイする成果物のトップレベルにはエントリファイルがなければなりません。 エントリファイルをリポジトリに追加する代わりに、{% data variables.product.prodname_actions %}ワークフローに実行時にエントリファイルを生成させるよう選択することもできます。{% else %}エントリファイルは、選択した公開ソースのトップレベルになければなりません。 たとえば、公開ソースが`main`ブランチの`/docs`フォルダにあるなら、エントリファイルは`main`というブランチの`/docs`フォルダ内に置かれていなければなりません。{% endif %}
 {% data reusables.pages.configure-publishing-source %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.pages.sidebar-pages %}

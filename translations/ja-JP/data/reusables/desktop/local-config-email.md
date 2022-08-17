@@ -1,1 +1,1 @@
-1. Under **Email**, select the dropdown menu and click the email you'd like to use for your local Git configuration. ![The name field of the local Git configuration](/assets/images/help/desktop/local-config-email.png)
+1. **Email（メール）**の下で、ドロップダウンメニューを選択し、ローカルのGit設定で使いたいメールをクリックしてください。 ![ローカルのGit設定の名前フィールド](/assets/images/help/desktop/local-config-email.png)

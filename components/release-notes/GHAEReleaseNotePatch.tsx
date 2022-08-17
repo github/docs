@@ -39,8 +39,6 @@ export function GHAEReleaseNotePatch({ patch, didEnterView }: Props) {
               Release Candidate
             </span>
           )}
-
-          <button className="js-print btn-link ml-3 text-small text-bold">Print</button>
         </div>
         <p className="color-fg-muted mt-1">
           {bannerText} {patch.friendlyDate}.
