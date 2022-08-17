@@ -26,7 +26,7 @@ topics:
 Puedes crear enlaces en wikis usando el markup estándar admitido por tu página, o usando la sintaxis MediaWiki. Por ejemplo:
 
 - Si tus páginas se presentan con Markdown, la sintaxis del enlace es `[Link Text](full-URL-of-wiki-page)`.
-- Con la sintaxis MediaWiki, la sintaxis del enlace es `[[Link Text|nameofwikipage]]`.
+- With MediaWiki syntax, the link syntax is `[[nameofwikipage|Link Text]]`.
 
 ## Agregar imágenes
 
@@ -44,6 +44,11 @@ Las wikis pueden presentar imágenes PNG, JPEG y GIF.
 Puedes establecer un enlace a una imagen en un repositorio en {% data variables.product.product_name %} copiando la URL en tu navegador y usándola como la ruta que lleva a la imagen. Por ejemplo, cuando insertas una imagen en tu wiki usando Markdown, la imagen debe verse de la siguiente manera:
 
     [[https://github.com/USERNAME/REPOSITORY/blob/main/img/octocat.png|alt=octocat]]
+
+{% ifversion fpt or ghec or ghes > 3.6 or ghae-issue-7647 %}
+## Agregar expresiones matemáticas y diagramas{% endif %}
+
+{% data reusables.getting-started.math-and-diagrams %}
 
 ## Formatos MediaWiki admitidos
 

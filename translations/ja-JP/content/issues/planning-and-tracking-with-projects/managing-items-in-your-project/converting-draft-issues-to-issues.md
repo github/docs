@@ -1,7 +1,7 @@
 ---
 title: ドラフトIssueのIssueへの変換
-shortTitle: Converting draft issues
-intro: Learn how to convert draft issues into issues.
+shortTitle: ドラフトIssueの変換
+intro: ドラフトIssueをIssueに変換する方法を学んでください。
 miniTocMaxHeadingLevel: 3
 versions:
   feature: projects-v2
@@ -10,18 +10,18 @@ topics:
   - Projects
 ---
 
-## Converting draft issues in table layout
+## テーブルレイアウトでのドラフトIssueの変換
 
-1. Click the {% octicon "triangle-down" aria-label="the item menu" %} on the draft issue that you want to convert. ![Screenshot showing item menu button](/assets/images/help/projects-v2/item-context-menu-button-table.png)
-2. **Convert to issue（Issueに変換）**を選択してください。 ![Screenshot showing "Convert to issue" option](/assets/images/help/projects-v2/item-convert-to-issue.png)
-3. Select the repository that you want to add the issue to. ![Screenshot showing repository selection](/assets/images/help/projects-v2/convert-to-issue-select-repo.png)
+1. 変換したいドラフトIssueの{% octicon "triangle-down" aria-label="the item menu" %}をクリックしてください。 ![アイテムメニューボタンが表示されているスクリーンショット](/assets/images/help/projects-v2/item-context-menu-button-table.png)
+2. **Convert to issue（Issueに変換）**を選択してください。 !["Convert to issue"オプションが表示されているスクリーンショット](/assets/images/help/projects-v2/item-convert-to-issue.png)
+3. このIssueを追加したいリポジトリを選択してください。 ![リポジトリの選択が表示されているスクリーンショット](/assets/images/help/projects-v2/convert-to-issue-select-repo.png)
 
-## Converting draft issues in board layout
+## ボードレイアウトでのドラフトIssueの変換
 
-1. Click the {% octicon "kebab-horizontal" aria-label="the item menu" %} on the draft issue that you want to convert. ![Screenshot showing item menu button](/assets/images/help/projects-v2/item-context-menu-button-board.png)
-2. **Convert to issue（Issueに変換）**を選択してください。 ![Screenshot showing "Convert to issue" option](/assets/images/help/projects-v2/item-convert-to-issue.png)
-3. Select the repository that you want to add the issue to. ![Screenshot showing repository selection](/assets/images/help/projects-v2/convert-to-issue-select-repo.png)
+1. 変換したいドラフトIssueの{% octicon "kebab-horizontal" aria-label="the item menu" %}をクリックしてください。 ![アイテムメニューボタンが表示されているスクリーンショット](/assets/images/help/projects-v2/item-context-menu-button-board.png)
+2. **Convert to issue（Issueに変換）**を選択してください。 !["Convert to issue"オプションが表示されているスクリーンショット](/assets/images/help/projects-v2/item-convert-to-issue.png)
+3. このIssueを追加したいリポジトリを選択してください。 ![リポジトリの選択が表示されているスクリーンショット](/assets/images/help/projects-v2/convert-to-issue-select-repo.png)
 
 ## 参考リンク
 
-- "[Creating draft issues](/issues/planning-and-tracking-with-projects/managing-items-in-your-project/adding-items-to-your-project#creating-draft-issues)"
+- 「[ドラフトIssueの作成](/issues/planning-and-tracking-with-projects/managing-items-in-your-project/adding-items-to-your-project#creating-draft-issues)」

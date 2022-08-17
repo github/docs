@@ -20,7 +20,7 @@ permissions: Enterprise owners can configure audit log streaming.
 {% ifversion ghes %}
 {% note %}
 
-**Note:** Audit log streaming is currently in beta for {% data variables.product.product_name %} and is subject to change.
+**Nota:** La transmisión de las bitácoras de auditoría se encuentra actualmente en beta para {% data variables.product.product_name %} y está sujeta a cambios.
 
 {% endnote %}
 {% endif %}
@@ -32,11 +32,11 @@ Para ayudarte a proteger tu propiedad intelectual y mantener el cumplimiento en 
 
 Los beneficios de transmitir datos de auditoría incluyen:
 
-* **Exploración de datos**. Puedes examinar los eventos transmitidos utilizando tu herramienta preferida para consultar cantidades grandes de datos. The stream contains both audit events and Git events across the entire enterprise account.{% ifversion pause-audit-log-stream %}
-* **Continuidad de datos**. You can pause the stream for up to seven days without losing any audit data.{% endif %}
+* **Exploración de datos**. Puedes examinar los eventos transmitidos utilizando tu herramienta preferida para consultar cantidades grandes de datos. La transmisión contiene tanto eventos de auditoría como eventos de Git en toda la cuenta empresarial.{% ifversion pause-audit-log-stream %}
+* **Continuidad de datos**. Puedes pausar la transmisión por hasta siente días sin perder datos de auditoría.{% endif %}
 * **Retención de datos**. Puedes mantener tus bitácoras de auditoría y datos de eventos de Git exportados siempre que lo necesites.
 
-Enterprise owners can set up{% ifversion pause-audit-log-stream %}, pause,{% endif %} or delete a stream at any time. The stream exports the audit and Git events data for all of the organizations in your enterprise.
+Los propietarios de empresas pueden configurar{% ifversion pause-audit-log-stream %}, pausar{% endif %} o borrar una transmisión en cualquier momento. La transmisión exporta los eventos de auditoría y de Git para todas las organizaciones en tu empresa.
 
 ## Configurar la transmisión de bitácoras de auditoría
 
@@ -84,6 +84,12 @@ Para obtener más información sobre cómo crear o acceder a tu ID de llave de a
 
 {% ifversion streaming-oidc-s3 %}
 #### Configurar la transmisión a S3 con OpenID Connect
+
+{% note %}
+
+**Note:** Streaming to Amazon S3 with OpenID Connect is currently in beta and subject to change.
+
+{% endnote %}
 
 1. En AWS, agrega el proveedor de OIDC de {% data variables.product.prodname_dotcom %} para IAM. Para obtener más información, consulta la sección [Crear proveedores de identidad de OpenID Connect (OIDC)](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_create_oidc.html) en la documentación de AWS.
 

@@ -96,8 +96,7 @@ After adding a new SSH key to your account on {% ifversion ghae %}{% data variab
   ![The key field](/assets/images/help/settings/ssh-key-paste.png)
 7. Click **Add SSH key**.
   ![The Add key button](/assets/images/help/settings/ssh-add-key.png)
-8. If prompted, confirm your {% data variables.product.product_name %} password.
-  ![Sudo mode dialog](/assets/images/help/settings/sudo_mode_popup.png)
+{% data reusables.user-settings.sudo-mode-popup %}
 
 {% endwebui %}
 
@@ -132,8 +131,7 @@ After adding a new SSH key to your account on {% ifversion ghae %}{% data variab
   ![The key field](/assets/images/help/settings/ssh-key-paste.png)
 7. Click **Add SSH key**.
   ![The Add key button](/assets/images/help/settings/ssh-add-key.png)
-8. If prompted, confirm your {% data variables.product.product_name %} password.
-  ![Sudo mode dialog](/assets/images/help/settings/sudo_mode_popup.png)
+{% data reusables.user-settings.sudo-mode-popup %}
 
 {% endwebui %}
 

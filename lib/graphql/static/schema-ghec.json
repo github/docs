@@ -17420,6 +17420,14 @@
           "href": "/graphql/reference/objects#repository"
         },
         {
+          "name": "slug",
+          "description": "<p>The slug of this category.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
           "name": "updatedAt",
           "description": "<p>Identifies the date and time when the object was last updated.</p>",
           "type": "DateTime!",
@@ -54895,6 +54903,26 @@
           ]
         },
         {
+          "name": "discussionCategory",
+          "description": "<p>A discussion category by slug.</p>",
+          "type": "DiscussionCategory",
+          "id": "discussioncategory",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#discussioncategory",
+          "arguments": [
+            {
+              "name": "slug",
+              "description": "<p>The slug of the discussion category to be returned.</p>",
+              "type": {
+                "name": "String!",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            }
+          ]
+        },
+        {
           "name": "discussions",
           "description": "<p>A list of discussions that have been opened in the repository.</p>",
           "type": "DiscussionConnection!",
@@ -75630,16 +75658,16 @@
           "description": "<p>Single Select.</p>"
         },
         {
+          "name": "TASKS",
+          "description": "<p>Tasks.</p>"
+        },
+        {
           "name": "TEXT",
           "description": "<p>Text.</p>"
         },
         {
           "name": "TITLE",
           "description": "<p>Title.</p>"
-        },
-        {
-          "name": "TRACKS",
-          "description": "<p>Tracks.</p>"
         }
       ]
     },
@@ -75800,16 +75828,16 @@
           "description": "<p>Single Select.</p>"
         },
         {
+          "name": "TASKS",
+          "description": "<p>Tasks.</p>"
+        },
+        {
           "name": "TEXT",
           "description": "<p>Text.</p>"
         },
         {
           "name": "TITLE",
           "description": "<p>Title.</p>"
-        },
-        {
-          "name": "TRACKS",
-          "description": "<p>Tracks.</p>"
         }
       ]
     },
@@ -86910,6 +86938,14 @@
           "id": "uri",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#uri"
+        },
+        {
+          "name": "targetRepoVisibility",
+          "description": "<p>The visibility of the imported repository.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
         }
       ]
     },

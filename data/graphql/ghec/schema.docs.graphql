@@ -9775,6 +9775,11 @@ type DiscussionCategory implements Node & RepositoryNode {
   repository: Repository!
 
   """
+  The slug of this category.
+  """
+  slug: String!
+
+  """
   Identifies the date and time when the object was last updated.
   """
   updatedAt: DateTime!
@@ -28694,6 +28699,14 @@ enum ProjectNextFieldType {
     )
 
   """
+  Tasks
+  """
+  TASKS
+    @deprecated(
+      reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2022-10-01 UTC."
+    )
+
+  """
   Text
   """
   TEXT
@@ -28705,14 +28718,6 @@ enum ProjectNextFieldType {
   Title
   """
   TITLE
-    @deprecated(
-      reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2022-10-01 UTC."
-    )
-
-  """
-  Tracks
-  """
-  TRACKS
     @deprecated(
       reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2022-10-01 UTC."
     )
@@ -29751,6 +29756,11 @@ enum ProjectV2FieldType {
   SINGLE_SELECT
 
   """
+  Tasks
+  """
+  TASKS
+
+  """
   Text
   """
   TEXT
@@ -29759,11 +29769,6 @@ enum ProjectV2FieldType {
   Title
   """
   TITLE
-
-  """
-  Tracks
-  """
-  TRACKS
 }
 
 """
@@ -39233,6 +39238,16 @@ type Repository implements Node & PackageOwner & ProjectOwner & ProjectV2Recent 
   ): DiscussionCategoryConnection!
 
   """
+  A discussion category by slug.
+  """
+  discussionCategory(
+    """
+    The slug of the discussion category to be returned.
+    """
+    slug: String!
+  ): DiscussionCategory
+
+  """
   A list of discussions that have been opened in the repository.
   """
   discussions(
@@ -44951,6 +44966,11 @@ input StartRepositoryMigrationInput {
   The Octoshift migration source repository URL.
   """
   sourceRepositoryUrl: URI!
+
+  """
+  The visibility of the imported repository.
+  """
+  targetRepoVisibility: String
 }
 
 """

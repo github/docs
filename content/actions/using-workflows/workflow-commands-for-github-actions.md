@@ -25,7 +25,7 @@ versions:
 
 Actions can communicate with the runner machine to set environment variables, output values used by other actions, add debug messages to the output logs, and other tasks.
 
-Most workflow commands use the `echo` command in a specific format, while others are invoked by writing to a file. For more information, see ["Environment files".](#environment-files)
+Most workflow commands use the `echo` command in a specific format, while others are invoked by writing to a file. For more information, see "[Environment files](#environment-files)."
 
 ### Example
 
@@ -627,6 +627,12 @@ For multiline strings, you may use a delimiter with the following syntax.
 {value}
 {delimiter}
 ```
+
+{% warning %}
+
+**Warning:** Make sure the delimiter you're using is randomly generated and unique for each run. For more information, see "[Understanding the risk of script injections](/actions/security-guides/security-hardening-for-github-actions#understanding-the-risk-of-script-injections)".
+
+{% endwarning %}
 
 #### Example
 

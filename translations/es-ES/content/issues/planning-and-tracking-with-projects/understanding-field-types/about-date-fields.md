@@ -1,6 +1,6 @@
 ---
 title: About date fields
-shortTitle: About date fields
+shortTitle: Acerca de los campos de fecha
 intro: You can create custom date fields that can be set by typing a date or using a calendar.
 miniTocMaxHeadingLevel: 3
 versions:
@@ -16,6 +16,6 @@ You can filter for date values using the `YYYY-MM-DD` format, for example: `date
 
 {% data reusables.projects.new-field %}
 1. Select **Date** ![Screenshot showing the date option](/assets/images/help/projects-v2/new-field-date.png)
-1. Haz clic en **Save ** (guardar). ![Screenshot showing save button](/assets/images/help/projects-v2/new-field-save.png)
+1. Haz clic en **Save ** (guardar). ![Captura de pantalla que muestra el botón de guardar](/assets/images/help/projects-v2/new-field-save.png)
 
-Alternatively, open the project command palette by pressing {% data variables.projects.command-palette-shortcut %} and start typing "Create new field."
+Como alternativa, abre la paleta de comandos del proyecto presionando {% data variables.projects.command-palette-shortcut %} y comienza a escribir "Create new field".

@@ -1,5 +1,5 @@
 ---
-title: Estados de Despliegue
+title: Estados de despliegue
 intro: ''
 versions:
   fpt: '*'

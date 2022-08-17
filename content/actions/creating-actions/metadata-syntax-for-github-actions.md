@@ -74,7 +74,7 @@ For example, if a workflow defined the `numOctocats` and `octocatEyeColor` input
 
 ### `inputs.<input_id>.required`
 
-**Required** A `boolean` to indicate whether the action requires the input parameter. Set to `true` when the parameter is required.
+**Optional** A `boolean` to indicate whether the action requires the input parameter. Set to `true` when the parameter is required.
 
 ### `inputs.<input_id>.default`
 

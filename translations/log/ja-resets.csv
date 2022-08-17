@@ -175,6 +175,7 @@ translations/ja-JP/content/get-started/privacy-on-github/managing-data-use-setti
 translations/ja-JP/content/get-started/using-github/github-mobile.md,broken liquid tags
 translations/ja-JP/content/get-started/writing-on-github/editing-and-sharing-content-with-gists/creating-gists.md,broken liquid tags
 translations/ja-JP/content/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards.md,broken liquid tags
+translations/ja-JP/content/issues/tracking-your-work-with-issues/planning-and-tracking-work-for-your-team-or-project.md,broken liquid tags
 translations/ja-JP/content/issues/tracking-your-work-with-issues/transferring-an-issue-to-another-repository.md,broken liquid tags
 translations/ja-JP/content/organizations/collaborating-with-groups-in-organizations/about-your-organizations-news-feed.md,broken liquid tags
 translations/ja-JP/content/organizations/collaborating-with-your-team/about-team-discussions.md,Listed in localization-support#489
@@ -200,6 +201,7 @@ translations/ja-JP/content/packages/working-with-a-github-packages-registry/work
 translations/ja-JP/content/packages/working-with-a-github-packages-registry/working-with-the-nuget-registry.md,broken liquid tags
 translations/ja-JP/content/packages/working-with-a-github-packages-registry/working-with-the-rubygems-registry.md,broken liquid tags
 translations/ja-JP/content/pages/getting-started-with-github-pages/about-github-pages.md,broken liquid tags
+translations/ja-JP/content/pages/getting-started-with-github-pages/adding-a-theme-to-your-github-pages-site-with-the-theme-chooser.md,broken liquid tags
 translations/ja-JP/content/pages/getting-started-with-github-pages/changing-the-visibility-of-your-github-pages-site.md,broken liquid tags
 translations/ja-JP/content/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site.md,broken liquid tags
 translations/ja-JP/content/pages/setting-up-a-github-pages-site-with-jekyll/about-github-pages-and-jekyll.md,broken liquid tags
@@ -215,6 +217,7 @@ translations/ja-JP/content/repositories/working-with-files/managing-large-files/
 translations/ja-JP/content/rest/activity/events.md,broken liquid tags
 translations/ja-JP/content/rest/apps/oauth-applications.md,broken liquid tags
 translations/ja-JP/content/rest/enterprise-admin/index.md,broken liquid tags
+translations/ja-JP/content/rest/guides/getting-started-with-the-rest-api.md,broken liquid tags
 translations/ja-JP/content/sponsors/getting-started-with-github-sponsors/about-github-sponsors.md,broken liquid tags
 translations/ja-JP/content/sponsors/receiving-sponsorships-through-github-sponsors/about-github-sponsors-for-open-source-contributors.md,broken liquid tags
 translations/ja-JP/content/support/learning-about-github-support/about-github-premium-support.md,broken liquid tags
@@ -292,6 +295,7 @@ translations/ja-JP/data/reusables/community/report-content.md,broken liquid tags
 translations/ja-JP/data/reusables/copilot/dotcom-settings.md,broken liquid tags
 translations/ja-JP/data/reusables/copilot/enabling-or-disabling-in-vsc.md,broken liquid tags
 translations/ja-JP/data/reusables/copilot/enabling-or-disabling-vs.md,broken liquid tags
+translations/ja-JP/data/reusables/dependabot/enterprise-enable-dependabot.md,broken liquid tags
 translations/ja-JP/data/reusables/dotcom_billing/actions-packages-storage-enterprise-account.md,broken liquid tags
 translations/ja-JP/data/reusables/dotcom_billing/downgrade-org-to-free.md,broken liquid tags
 translations/ja-JP/data/reusables/dotcom_billing/lfs-remove-data.md,broken liquid tags

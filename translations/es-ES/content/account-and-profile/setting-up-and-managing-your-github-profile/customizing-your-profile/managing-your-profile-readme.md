@@ -66,7 +66,7 @@ El README de tu perfil se eliminará de tu perfil de {% data variables.product.p
 - El repositorio es privado.
 - El nombre del repositorio no empata con tu nombre de usuario.
 
-The method you choose is dependant upon your needs, but if you're unsure, we recommend making your repository private. Para encontrar los pasos de cómo hacer tu repositorio privado, consulta la sección ["Cambiar la visibilidad de un repositorio".](/github/administering-a-repository/setting-repository-visibility#changing-a-repositorys-visibility)
+The method you choose is dependant upon your needs, but if you're unsure, we recommend making your repository private. For steps on how to make your repository private, see "[Changing a repository's visibility](/github/administering-a-repository/setting-repository-visibility#changing-a-repositorys-visibility)."
 
 ## Leer más
 

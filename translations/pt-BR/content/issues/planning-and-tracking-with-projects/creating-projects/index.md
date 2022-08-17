@@ -1,7 +1,7 @@
 ---
-title: 'Creating {% data variables.projects.projects_v2 %}'
-shortTitle: 'Creating {% data variables.projects.projects_v2 %}'
-intro: 'Learn about creating projects and migrating your {% data variables.projects.projects_v1_boards %}.'
+title: 'Criando {% data variables.projects.projects_v2 %}'
+shortTitle: 'Criando {% data variables.projects.projects_v2 %}'
+intro: 'Saiba mais sobre como criar projetos e fazer a migração do seu {% data variables.projects.projects_v1_boards %}.'
 versions:
   feature: projects-v2
 topics:

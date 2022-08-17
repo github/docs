@@ -1,7 +1,7 @@
 ---
-title: 'Using the API to manage {% data variables.product.prodname_projects_v2 %}'
-shortTitle: Automating with the API
-intro: You can use the GraphQL API to automate your projects.
+title: 'Usando a API para gerenciar {% data variables.product.prodname_projects_v2 %}'
+shortTitle: Automatizando com a API
+intro: Você pode usar a API do GraphQL para automatizar seus projetos.
 miniTocMaxHeadingLevel: 3
 versions:
   feature: projects-v2
@@ -13,7 +13,7 @@ topics:
 allowTitleToDifferFromFilename: true
 ---
 
-Este artigo demonstra como usar a API do GraphQL para gerenciar um projeto. For more information about how to use the API in a {% data variables.product.prodname_actions %} workflow, see "[Automating {% data variables.product.prodname_projects_v2 %} using Actions](/issues/planning-and-tracking-with-projects/automating-your-project/automating-projects-using-actions)." Para uma lista completa dos tipos de dados disponíveis, consulte "[Referência](/graphql/reference)".
+Este artigo demonstra como usar a API do GraphQL para gerenciar um projeto. Para obter mais informações sobre como usar a API em um fluxo de trabalho {% data variables.product.prodname_actions %}, consulte "[Automatizando {% data variables.product.prodname_projects_v2 %} usando o Actions](/issues/planning-and-tracking-with-projects/automating-your-project/automating-projects-using-actions)". Para uma lista completa dos tipos de dados disponíveis, consulte "[Referência](/graphql/reference)".
 
 {% data reusables.projects.graphql-deprecation %}
 
@@ -594,7 +594,7 @@ gh api graphql -f query='
 
 {% note %}
 
-**Observação:** Você não pode usar `updateProjectV2ItemFieldValue` para alterar os `Responsáveis`, `Etiquetas`, `Marcos` ou `Repositório`, pois esses campos são propriedades de pull requests e problemas, não itens de projeto. Instead, you may use the following mutations:
+**Observação:** Você não pode usar `updateProjectV2ItemFieldValue` para alterar os `Responsáveis`, `Etiquetas`, `Marcos` ou `Repositório`, pois esses campos são propriedades de pull requests e problemas, não itens de projeto. Em vez disso, você pode usar as seguintes mutações:
 
 - [addAssigneesToAssignable](/graphql/reference/mutations#addassigneestoassignable)
 - [removeAssigneesFromAssignable](/graphql/reference/mutations#removeassigneesfromassignable)
@@ -715,6 +715,6 @@ gh api graphql -f query='
 ```
 {% endcli %}
 
-## Using webhooks
+## Usando webhooks
 
-You can use webhooks to subscribe to events taking place in your project. For example, when an item is edited, {% data variables.product.product_name %} can send a HTTP POST payload to the webhook's configured URL which can trigger automation on your server. For more information about webhooks, see "[About webhooks](/developers/webhooks-and-events/webhooks/about-webhooks)." To learn more about the `projects_v2_item` webhook event, see "[Webhook events and payloads](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#projects_v2_item)."
+Você pode usar webhooks para assinar eventos que ocorreram no seu projeto. Por exemplo, quando um item é editado, {% data variables.product.product_name %} pode enviar uma carta HTTP POST para a URL configurada do webhook, o que pode acionar a automação no seu servidor. Para obter mais informações sobre webhooks, consulte "[Sobre webhooks](/developers/webhooks-and-events/webhooks/about-webhooks)". Para saber mais sobre o evento e webhook `projects_v2_item`, consulte "[eventos webhook e cargas](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#projects_v2_item)".

@@ -1,5 +1,5 @@
 ---
-title: 'About insights for {% data variables.product.prodname_projects_v2 %}'
+title: '{% data variables.product.prodname_projects_v2 %}のインサイトについて'
 intro: プロジェクトのデータから構築されたグラフを表示させ、カスタマイズできます。
 miniTocMaxHeadingLevel: 3
 versions:
@@ -17,35 +17,35 @@ allowTitleToDifferFromFilename: true
 
 {% note %}
 
-**Note:** Historical charts are currently available as a feature preview for organizations using {% data variables.product.prodname_team %} and are generally available for organizations using {% data variables.product.prodname_ghe_cloud %}.
+**ノート:** 履歴グラフは現在{% data variables.product.prodname_team %}を使用しているOrganizationでは機能プレビューとして利用でき、{% data variables.product.prodname_ghe_cloud %}を利用しているOrganizationでは一般利用可能です。
 
 {% endnote %}
 
 {% endif %}
 
- You can use insights for {% data variables.product.prodname_projects_v2 %} to view, create, and customize charts that use the items added to your project as their source data. デフォルトのグラフにフィルタを適用することも、独自のグラフを作成することもできます。 When you create a chart, you set the filters, chart type, the information displayed, and the chart is available to anyone that can view the project. You can generate two types of chart: current charts and historical charts.
+ {% data variables.product.prodname_projects_v2 %}のインサイトを使い、プロジェクトに追加したアイテムをソースデータとして利用してグラフの表示、作成、カスタマイズができます。 デフォルトのグラフにフィルタを適用することも、独自のグラフを作成することもできます。 グラフを作成する際には、フィルタ、グラフの種類、表示される情報を設定します。そのグラフは、プロジェクトを見ることができる人なら誰でも利用できます。 現在のグラフと履歴グラフという2種類のグラフを生成できます。
 
- ### About current charts
+ ### 現在のグラフについて
 
-You can create current charts to visualize your project items. For example, you can create charts to show how many items are assigned to each individual, or how many issues are assigned to each upcoming iteration.
+現在のグラフを作成して、プロジェクトのアイテムを可視化できます。 たとえば、各個人にいくつのアイテムが割り当てられているかを表示するグラフや、この先の繰り返しにいくつのIssueがアサインされているかを表示するグラフを作成できます。
 
-You can also use filters to manipulate the data used to build your chart. For example, you can create a chart showing how much upcoming work you have, but limit those results to particular labels or assignees. 詳しい情報については「[プロジェクトのフィルタリング](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/filtering-projects)」を参照してください。
+グラフを構築する溜めに使われるデータを操作するために、フィルタを使うこともできます。 たとえば、この先の作業がいくつあるのかを示すグラフを作成し、ただしその結果を特定のラベルやアサインされた人に限定することができます。 詳しい情報については「[プロジェクトのフィルタリング](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/filtering-projects)」を参照してください。
 
  ![各イテレーションのアイテムの種類を表示する積み上げ列グラフのスクリーンショット](/assets/images/help/issues/column-chart-example.png)
 
-For more information, see "[Creating charts](/issues/planning-and-tracking-with-projects/viewing-insights-from-your-project/creating-charts)."
+詳しい情報については「[グラフの作成](/issues/planning-and-tracking-with-projects/viewing-insights-from-your-project/creating-charts)」を参照してください。
 
- ### About historical charts
+ ### 履歴グラフについて
 
- Historical charts are time-based charts that allow you to view your project's trends and progress. You can view the number of items, grouped by status and other fields, over time.
+ 履歴グラフは時間ベースのグラフで、プロジェクトのトレンドと進捗を表示できます。 ステータスやその他のフィールドでグループ化されたアイテム数を、時間の経過とともに表示できます。
 
  デフォルトの「バーンアップ」グラフは、時間の経過に伴うアイテムのステータスを表示し、進捗を可視化して時間の経過にともなるパターンを特定できます。
 
 ![現在の繰り返しに対するデフォルトのバーンアップグラフの例を表示しているスクリーンショット](/assets/images/help/issues/burnup-example.png)
 
- To create a historical chart, set your chart's X-axis to "Time." For more information, see "[Creating charts](/issues/planning-and-tracking-with-projects/viewing-insights-from-your-project/creating-charts)" and "[Configuring charts](/issues/planning-and-tracking-with-projects/viewing-insights-from-your-project/configuring-charts)."
+ 履歴グラフを作成するには、グラフのX軸を"Time（時間）"に設定してください。 詳しい情報については「[グラフの作成](/issues/planning-and-tracking-with-projects/viewing-insights-from-your-project/creating-charts)」及び「[グラフの設定](/issues/planning-and-tracking-with-projects/viewing-insights-from-your-project/configuring-charts)」を参照してください。
 
 ## 参考リンク
 
 - [{% data variables.product.prodname_projects_v2 %}について](/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects)
-- "[Disabling insights for {% data variables.product.prodname_projects_v2 %} in your organization](/organizations/managing-organization-settings/disabling-insights-for-projects-in-your-organization)"
+- 「[Organizationでの{% data variables.product.prodname_projects_v2 %}のインサイトの無効化](/organizations/managing-organization-settings/disabling-insights-for-projects-in-your-organization)」

@@ -63,7 +63,7 @@ runs-on: [self-hosted, linux, x64, gpu]
 - `x64` - Utiliza únicamente un ejecutor basado en hardware x64.
 - `gpu` - Esta etiqueta personalizada se asignó manualmente a los ejecutores auto-hospedados con hardware de GPU instalado.
 
-Estas etiquetas operan acumulativamente, así que las etiquetas de un ejecutor auto-hospedado deberán empatar con los cuatro criterios para poder ser elegibles para procesar el job.
+Estas etiquetas operan acumulativamente, así que un ejecutor auto-hospedado debe tener las cuatro para poder ser elegible para procesar el job.
 
 ## Precedencia de enrutamiento para los ejecutores auto-hospedados
 

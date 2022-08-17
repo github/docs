@@ -27,7 +27,7 @@ Se houver falha na execução do fluxo de trabalho, você poderá ver qual etapa
 
 Além das etapas configuradas no arquivo do fluxo de trabalho, {% data variables.product.prodname_dotcom %} acrescenta duas etapas adicionais a cada trabalho para configurar e concluir a execução do trabalho. Estas etapas estão registradas na execução do fluxo de trabalho com os nomes "Configurar trabalho" e "Concluir trabalho".
 
-Para trabalhos executados em executores hospedados no {% data variables.product.prodname_dotcom %}, "Configurar trabalho" registra os detalhes do ambiente virtual do executor e inclui um link para a lista de ferramentas pré-instaladas que estavam presentes na máquina do executor.
+Para trabalhos executados em executores hospedados em {% data variables.product.prodname_dotcom %}, "Configurar trabalho" registra detalhes da imagem do executor e inclui um link para a lista de ferramentas pré-instaladas que estavam presentes na máquina do executor.
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.actions-tab %}
