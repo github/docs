@@ -104,9 +104,15 @@ jobs:
 
 ## Managing access to your runners
 
+{% note %}
+
+**Note**: Before your workflows can send jobs to the runners, you must configure permissions for the runner group.
+
+{% endnote %}
+
 Runner groups are used to control which repositories can run jobs on your larger runner. By default, runner groups use the principle of least privilege, meaning that the runners in the group will not accept jobs from repositories in your organizations. You need to grant access to each level of the management hierarchy, depending on where you've defined the larger runner:
 
-- If you define the larger runner type at the enterprise level, you need grant access to all the necessary orgnizations. In addition, for each organization, you must specify which repositories can access the runners in the group.
+- If you define the larger runner type at the enterprise level, you need grant access to all the required organizations. In addition, for each organization, you must specify which repositories can access the runners in the group.
 - If you define the larger runner type at the organization level, you must specify which repositories can access the runners in the group.
 
 ![Diagram explaining larger runner groups](/assets/images/larger-runner-mgmt.png)
