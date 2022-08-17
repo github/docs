@@ -45,11 +45,11 @@ Você pode ver seu uso atual no seu [Portal da conta do Azure](https://portal.az
 
 {% ifversion ghec %}
 
-When you use an enterprise account on {% data variables.product.product_location %}, the enterprise account is the central point for all billing within your enterprise, including the organizations that your enterprise owns.
+Ao usar uma conta corporativa em {% data variables.product.product_location %}, a conta corporativa será o ponto central para todas as cobranças na sua empresa, incluindo as organizações pertencentes à sua empresa.
 
-If you use {% data variables.product.product_name %} with an individual organization and do not yet have an enterprise account, you create an enterprise account and add your organization. Para obter mais informações, consulte[Criando uma conta corporativa](/admin/overview/creating-an-enterprise-account)".
+Se você usa {% data variables.product.product_name %} com uma organização individual e ainda não possui uma conta corporativa, você pode criar uma conta corporativa e adicionar a sua organização. Para obter mais informações, consulte[Criando uma conta corporativa](/admin/overview/creating-an-enterprise-account)".
 
-{% data variables.product.company_short %} bills monthly for the total number of licensed seats for your enterprise account, as well as any additional services you use with {% data variables.product.prodname_ghe_cloud %}, such as {% data variables.product.prodname_actions %} minutes. If you use a standalone organization on {% data variables.product.product_name %}, you'll be billed at the organization level for all usage. For more information your bill's license seats, see "[About per-user pricing](/billing/managing-billing-for-your-github-account/about-per-user-pricing)."
+{% data variables.product.company_short %} faz a cobrança mensal para o número total de estações licenciadas para sua conta corporativa, bem como todos os serviços adicionais que você utiliza com {% data variables.product.prodname_ghe_cloud %}, como minutos de {% data variables.product.prodname_actions %}. Se você usar uma organização independente em {% data variables.product.product_name %}, você será cobrado no nível da organização para todo o uso. Para obter mais informações sobre as estações da licença da sua cobrança, consulte "[Sobre o preço por usuário](/billing/managing-billing-for-your-github-account/about-per-user-pricing)".
 
 {% elsif ghes %}
 

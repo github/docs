@@ -173,19 +173,28 @@ Se você agendar um extenso trabalho para atualizar uma dependência ou decidir 
 
 ## Visualizando e atualizando alertas fechados
 
-{% tip %}
-
-**Dica:** Você só pode reabrir alertas que já foram ignorados anteriormente. Os alertas fechados que já foram corrigidos não podem ser reabertos.
-{% endtip %}
+You can view all open alerts, and you can reopen alerts that have been previously dismissed. Os alertas fechados que já foram corrigidos não podem ser reabertos.
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-security %}
 {% data reusables.repositories.sidebar-dependabot-alerts %}
-1. Para ver apenas os alertas fechados, clique em **Fechados**.{% ifversion dependabot-bulk-alerts %} ![Screenshot showing the "Closed" option](/assets/images/help/repository/dependabot-alerts-closed-checkbox.png){% else %}
-![Screenshot showing the "Closed" option](/assets/images/help/repository/dependabot-alerts-closed.png){% endif %}
-1. Clique no alerta que você gostaria de ver ou atualizar.{% ifversion dependabot-bulk-alerts %} ![Screenshot showing a highlighted dependabot alert](/assets/images/help/repository/dependabot-alerts-select-closed-alert-checkbox.png){% else %}
-![Screenshot showing a highlighted dependabot alert](/assets/images/help/repository/dependabot-alerts-select-closed-alert.png){% endif %}
-2. Opcionalmente, se o alerta foi descartado e você deseja reabri-lo, clique em **Reabrir**. Os alertas já corrigidos não podem ser reabertos. ![Captura de tela que mostra o botão "Reabrir"](/assets/images/help/repository/reopen-dismissed-alert.png)
+1. Para visualizar os alertas fechados, clique em **Fechado**.
+
+   {%- ifversion dependabot-bulk-alerts %}
+   ![Captura de tela que mostra a opção "Fechado"](/assets/images/help/repository/dependabot-alerts-closed-checkbox.png)
+   {%- else %}
+   ![Captura de tela que mostra a opção "Fechado"](/assets/images/help/repository/dependabot-alerts-closed.png)
+   {%- endif %}
+1. Click the alert that you would like to view or update.
+
+   {%- ifversion dependabot-bulk-alerts %}
+   ![Captura de tela que mostra um alerta do dependabot destacado](/assets/images/help/repository/dependabot-alerts-select-closed-alert-checkbox.png)
+   {%- else %}
+   ![Captura de tela que mostra um alerta do dependabot destacado](/assets/images/help/repository/dependabot-alerts-select-closed-alert.png)   {%- endif %}
+2. Opcionalmente, se o alerta foi descartado e você deseja reabri-lo, clique em **Reabrir**. Os alertas já corrigidos não podem ser reabertos.
+
+   {% indented_data_reference reusables.enterprise.3-5-missing-feature spaces=3 %}
+   ![Captura de tela que mostra o botão "Reabrir"](/assets/images/help/repository/reopen-dismissed-alert.png)
 
 {% endif %}
 

@@ -1,6 +1,8 @@
 ---
 title: Sobre o GitHub Community Exchange
 intro: 'Aprenda as habilidades de que você precisa contribuir para projetos de código aberto e aumente seu próprio portfólio, com {% data variables.product.prodname_community_exchange %}.'
+redirect_from:
+  - /education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-for-your-schoolwork/about-github-community-exchange
 versions:
   fpt: '*'
 shortTitle: Sobre o Community Exchange
@@ -27,4 +29,4 @@ Para obter mais informações, consulte "[Contribuições para o GitHub Communit
 
 ## Leia mais
 
-- "[Começar com {% data variables.product.prodname_community_exchange %}](/education/contribute-with-github-community-exchange/getting-started-with-github-community-exchange)"
+- "[Primeiros passos com {% data variables.product.prodname_community_exchange %}](/education/contribute-with-github-community-exchange/getting-started-with-github-community-exchange)"

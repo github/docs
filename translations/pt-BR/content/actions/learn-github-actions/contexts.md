@@ -457,6 +457,8 @@ O contexto do `executor` contém informações sobre o executor que está execut
 {% endif %}
 | `runner.temp`       | `string` | {% data reusables.actions.runner-temp-directory-description %}
 | `runner.tool_cache` | `string` | {% ifversion ghae %}{% data reusables.actions.self-hosted-runners-software %} {% else %} {% data reusables.actions.runner-tool-cache-description %} {% endif %}
+| `runner.debug`      | `string` | {% data reusables.actions.runner-debug-description %}
+
 {%- comment %}
 A propriedade `runner.workspace` não é documentada propositalmente. É uma propriedade antecipada das ações que agora não é relevante para os usuários, em comparação com `github.workspace`. É mantido por uma questão de compatibilidade. | `runner.workspace` | `string` | |
 {%- endcomment %}
