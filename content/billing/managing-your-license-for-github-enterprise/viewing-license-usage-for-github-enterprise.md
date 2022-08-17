@@ -14,20 +14,21 @@ shortTitle: View license usage
 
 ## About license usage for {% data variables.product.prodname_enterprise %}
 
-You can view license usage for {% data variables.product.product_name %} on {% data variables.product.product_location %}.
+{% ifversion ghec %}
 
-If you use both {% data variables.product.prodname_ghe_cloud %} and {% data variables.product.prodname_ghe_server %} and sync license usage between the products, you can view license usage for both on {% data variables.product.prodname_dotcom_the_website %}. For more information about license sync, see "[Syncing license usage between {% data variables.product.prodname_ghe_server %} and {% data variables.product.prodname_ghe_cloud %}](/billing/managing-your-license-for-github-enterprise/syncing-license-usage-between-github-enterprise-server-and-github-enterprise-cloud)."
+You can view license usage for your enterprise account on {% data variables.product.prodname_ghe_cloud %} on {% data variables.product.prodname_dotcom_the_website %}.
 
-{% ifversion ghes %}
+{% data reusables.enterprise-licensing.you-can-sync-for-a-combined-view %}
 
-For more information about viewing license usage on {% data variables.product.prodname_dotcom_the_website %} and identifying when the last license sync occurred, see "[Viewing license usage for {% data variables.product.prodname_enterprise %}](/enterprise-cloud@latest/billing/managing-your-license-for-github-enterprise/viewing-license-usage-for-github-enterprise)" in the {% data variables.product.prodname_ghe_cloud %} documentation.
+{% elsif ghes %}
 
-{% endif %}
+You can view license usage for {% data variables.product.prodname_ghe_server %} on {% data variables.product.product_location %}.
 
-You can also use the REST API to return consumed licenses data and the status of the license sync job. For more information, see "[GitHub Enterprise administration](/enterprise-cloud@latest/rest/enterprise-admin/license)" in the REST API documentation.
+{% data reusables.enterprise-licensing.you-can-sync-for-a-combined-view %} For more information about the display of license usage on {% data variables.product.prodname_dotcom_the_website %} and identifying when the last license sync occurred, see "[Viewing license usage for {% data variables.product.prodname_enterprise %}](/enterprise-cloud@latest/billing/managing-your-license-for-github-enterprise/viewing-license-usage-for-github-enterprise)" in the {% data variables.product.prodname_ghe_cloud %} documentation.
 
 To learn more about the license data associated with your enterprise account and how the number of consumed user seats are calculated, see "[Troubleshooting license usage for GitHub Enterprise](/billing/managing-your-license-for-github-enterprise/troubleshooting-license-usage-for-github-enterprise)."
 
+{% endif %}
 
 ## Viewing license usage on {% ifversion ghec %}{% data variables.product.prodname_dotcom_the_website %}{% elsif ghes %}{% data variables.product.product_location %}{% endif %}
 
