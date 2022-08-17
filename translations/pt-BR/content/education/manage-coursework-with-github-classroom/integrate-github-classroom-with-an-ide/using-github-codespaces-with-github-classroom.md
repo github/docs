@@ -30,7 +30,7 @@ O benefício da educação de {% data variables.product.prodname_codespaces %} d
 
 {% data reusables.classroom.free-limited-codespaces-for-verified-teachers-beta-note %}
 
-Para tornar-se um professor verificado, você precisa ser aprovado para obter um benefício de educador para o professor. Para obter mais informações, consulte "[Candidatando-se a um benefício de professor ou educador](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-in-your-classroom-and-research/apply-for-an-educator-or-researcher-discount#applying-for-an-educator-or-researcher-discount)."
+Para tornar-se um professor verificado, você precisa ser aprovado para obter um benefício de educador para o professor. Para obter mais informações, consulte "[Candidatar-se a {% data variables.product.prodname_global_campus %} como professor](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-teachers/apply-to-github-global-campus-as-a-teacher)".
 
 Depois de ter a confirmação de que é um professor verificado, acesse [{% data variables.product.prodname_global_campus %} para professores](https://education.github.com/globalcampus/teacher) para atualizar a organização para o GitHub Team. Para obter mais informações, consulte [Produtos do GitHub](/get-started/learning-about-github/githubs-products#github-team).
 

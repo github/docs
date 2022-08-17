@@ -1,11 +1,11 @@
-| Proveedor     | Secreto compatible                                               | Tipo de secreto                                                          |
-| ------------- | ---------------------------------------------------------------- | ------------------------------------------------------------------------ |
-| Adafruit IO   | Clave de IO de Adafruit                                          | adafruit_io_key                                                        |
-| Adobe         | Token de Dispositivo de Adobe                                    | adobe_device_token                                                     |
-| Adobe         | Token de Servicio de Adobe                                       | adobe_service_token                                                    |
-| Adobe         | Token de Acceso de Vida Corta de Adobe                           | adobe_short_lived_access_token                                       |
-| Adobe         | Token Web de JSON de Adobe                                       | adobe_jwt                                                                |
-| Alibaba Cloud | Alibaba Cloud Access Key ID with Alibaba Cloud Access Key Secret | alibaba_cloud_access_key_id </br>alibaba_cloud_access_key_secret |
+| Proveedor     | Secreto compatible                                                                                | Tipo de secreto                                                          |
+| ------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------ |
+| Adafruit IO   | Clave de IO de Adafruit                                                                           | adafruit_io_key                                                        |
+| Adobe         | Token de Dispositivo de Adobe                                                                     | adobe_device_token                                                     |
+| Adobe         | Token de Servicio de Adobe                                                                        | adobe_service_token                                                    |
+| Adobe         | Token de Acceso de Vida Corta de Adobe                                                            | adobe_short_lived_access_token                                       |
+| Adobe         | Token Web de JSON de Adobe                                                                        | adobe_jwt                                                                |
+| Alibaba Cloud | ID de Llave de Acceso a la Nube de Alibaba con Secreto de la Llave de Acceso a la Nube de Alibaba | alibaba_cloud_access_key_id </br>alibaba_cloud_access_key_secret |
 {%- ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5845 %}
 Amazon | ID de Cliente OAuth de Amazon con Secreto de Cliente OAuth de Amazon | amazon_oauth_client_id </br>amazon_oauth_client_secret{% endif %} Amazon Web Services (AWS) | ID de Llave de Acceso de Amazon AWS con Llave de Acceso del Secreto de Amazon AWS | aws_access_key_id </br>aws_secret_access_key
 {%- ifversion fpt or ghec or ghes > 3.2 or ghae %}
@@ -71,7 +71,11 @@ PlanetScale | Token de OAuth de PlanetScale | planetscale_oauth_token{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.2 or ghae %}
 PlanetScale | Token de Servicio de PlanetScale | planetscale_service_token{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.2 or ghae %}
-Plivo | ID de Autenticación de Plivo con Token de Autenticación de Plivo | plivo_auth_id </br>plivo_auth_token{% endif %} Postman | Llave de la API de Postman | postman_api_key Proctorio | Llave de Consumidor de Proctorio | proctorio_consumer_key Proctorio | Llave de Enlace de Proctorio | proctorio_linkage_key Proctorio | Llave de Registro de Proctorio | proctorio_registration_key Proctorio | Llave de Secreto de Proctorio | proctorio_secret_key Pulumi | Token de Acceso de Pulumi | pulumi_access_token PyPI | Token de la API de PyPI | pypi_api_token
+Plivo | ID de Autorización de Plivo con Token de Autorización de Plivo | plivo_auth_id </br>plivo_auth_token{% endif %} Postman | Llave de la API de Postman | postman_api_key
+{%- ifversion fpt or ghec or ghes > 3.6 or ghae-issue-7456 %}
+Prefect | Llave de la API del Servidor de Prefect | prefect_server_api_key Prefect | Llave de la API de Usuario de Prefect | prefect_user_api_key{% endif %} Proctorio | Llave de Consumidor de Proctorio | proctorio_consumer_key Proctorio | Llave de Enlace de Proctorio | proctorio_linkage_key Proctorio | Llave de Registro de Proctorio | proctorio_registration_key Proctorio | Llave de Secreto de Proctorio | proctorio_secret_key Pulumi | Token de Acceso a Pulumi | pulumi_access_token PyPI | Token de la API de PyPI | pypi_api_token
+{%- ifversion fpt or ghec or ghes > 3.6 or ghae-issue-7456 %}
+ReadMe | ReadMe API Access Key | readmeio_api_access_token{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.5 or ghae-issue-7375 %}
 redirect.pizza | Token de la API de redirect.pizza | redirect_pizza_api_token{% endif %} RubyGems | Llave de la API de RubyGems | rubygems_api_key Samsara | Token de la API de Samsara | samsara_api_token Samsara | Token de Acceso OAuth de Samsara | samsara_oauth_access_token
 {%- ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6944 %}
@@ -96,6 +100,8 @@ Supabase | Llave de Servicio de Supabase | supabase_service_key{% endif %} Table
 Twilio | Token de Acceso a Twilio | twilio_access_token{% endif %} Twilio | Identificador de Secuencia de Cuenta de Twilio | twilio_account_sid Twilio | Llave de la API de Twilio | twilio_api_key
 {%- ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5845 %}
 Typeform | Token de Acceso Personal a Typeform | typeform_personal_access_token{% endif %}
+{%- ifversion fpt or ghec or ghes > 3.6 or ghae-issue-7456 %}
+Uniwise | Llave de la API de WISEflow | wiseflow_api_key{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6944 %}
 WorkOS | Llave de la API de Producción de WorkOS Production | workos_production_api_key{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6944 %}

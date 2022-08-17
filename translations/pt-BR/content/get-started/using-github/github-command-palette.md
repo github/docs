@@ -39,8 +39,8 @@ Ao abrir a paleta de comando, ela mostra sua localização no canto superior esq
 {% note %}
 
 **Notas:**
-- If you are editing Markdown text, open the command palette with <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>K</kbd> (Windows and Linux) or <kbd>Command</kbd>+<kbd>Option</kbd>+<kbd>K</kbd> (Mac).{% ifversion projects-v2 %}
-- If you are working on a {% data variables.projects.project_v2 %}, a project-specific command palette is displayed instead. For more information, see "[Customizing a view](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/customizing-a-view)."{% endif %}
+- Se você estiver editando o texto do Markdown, abra a paleta de comandos com <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>K</kbd> (Windows e Linux) ou <kbd>Command</kbd>+<kbd>Opção</kbd>+<kbd>K</kbd> (Mac).{% ifversion projects-v2 %}
+- Se você estiver trabalhando em um {% data variables.projects.project_v2 %}, uma paleta de comandos específica do projeto será exibida no lugar. Para obter mais informações, consulte "[Personalizando uma visão](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/customizing-a-view)."{% endif %}
 
 {% endnote %}
 

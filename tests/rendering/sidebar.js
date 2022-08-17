@@ -2,7 +2,6 @@ import fs from 'fs'
 import path from 'path'
 import { expect, jest } from '@jest/globals'
 
-import '../../lib/feature-flags.js'
 import getApplicableVersions from '../../lib/get-applicable-versions.js'
 import frontmatter from '../../lib/read-frontmatter.js'
 import { getDOM } from '../helpers/e2etest.js'

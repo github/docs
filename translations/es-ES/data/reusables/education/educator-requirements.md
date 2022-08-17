@@ -1,4 +1,4 @@
-Para postularte para obtener und escuento de docente o investigador, debes cumplir con los siguientes requisitos.
+To apply for teacher benefits and {% data variables.product.prodname_global_campus %} access, you must meet the following requirements.
 
 - Ser educador, miembro de una factultad, o investigador.
 - Tener una dirección de correo electrónico verificable que haya emitido una institución educativa.

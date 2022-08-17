@@ -21,7 +21,7 @@ export function sendSuccess(test: string) {
   })
 }
 
-export default function experiment() {
+export function initializeExperiments() {
   if (initialized) return
   initialized = true
   // *** Example test code ***

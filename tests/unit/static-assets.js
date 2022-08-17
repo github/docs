@@ -44,6 +44,12 @@ const mockResponse = () => {
       }
     }
   }
+  res.removeHeader = (key) => {
+    delete res.headers[key]
+  }
+  res.hasHeader = (key) => {
+    return key in res.headers
+  }
   return res
 }
 

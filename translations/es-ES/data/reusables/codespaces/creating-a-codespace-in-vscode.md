@@ -19,9 +19,9 @@ Después de que conectes tu cuenta de {% data variables.product.product_location
 
    ![Buscar una rama para crear un {% data variables.product.prodname_codespaces %} nuevo](/assets/images/help/codespaces/choose-branch-vscode.png)
 
-5. If prompted to choose a dev container configuration file, choose a file from the list.
+5. Si se te pide elegir un archivo de configuración de un contenedor dev, elige un archivo de la lista.
 
-   ![Choosing a dev container configuration file for {% data variables.product.prodname_codespaces %}](/assets/images/help/codespaces/choose-dev-container-vscode.png)
+   ![Elegir un archivo de configuración de contenedor dev para {% data variables.product.prodname_codespaces %}](/assets/images/help/codespaces/choose-dev-container-vscode.png)
 
 6. Haz clic en el tipo de máquina que quieras utilizar.
 

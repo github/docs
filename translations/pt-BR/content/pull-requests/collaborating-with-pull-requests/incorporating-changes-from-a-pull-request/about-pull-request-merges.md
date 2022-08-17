@@ -16,22 +16,36 @@ topics:
   - Pull requests
 ---
 
+## Merge your commits
+
 {% data reusables.pull_requests.default_merge_option %}
 
-## Combinar por squash e fazer merge de commits da pull request
+## Squash and merge your commits
 
 {% data reusables.pull_requests.squash_and_merge_summary %}
 
 ### Mesclar mensagem para uma mesclagem por squash
 
+{% ifversion default-merge-squash-commit-message %}
+Ao fazer combinação por squash e merge, {% data variables.product.prodname_dotcom %} gera uma mensagem de commit padrão, que você pode editar. Depending on how the repository is configured and the number of commits in the pull request, not including merge commits, this message may include the pull request title, pull request description, or information about the commits.
+{% else %}
 Ao fazer combinação por squash e merge, {% data variables.product.prodname_dotcom %} gera uma mensagem de commit padrão, que você pode editar. A mensagem padrão depende do número de commits no pull request, que não inclui commits de merge.
 
 | Número de commits | Sumário                                                                           | Descrição                                                                                        |
 | ----------------- | --------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------ |
 | Um commit         | O título da mensagem de commit do único commit, seguido do número de pull request | O texto da mensagem de commit para o único commit                                                |
 | Mais de um commit | Título da pull request, seguido do número da pull request                         | Uma lista das mensagens de commit para todos os commits combinados por squash, por ordem de data |
+{% endif %}
 
-{% ifversion fpt or ghec or ghes > 3.5 or ghae-issue-7042 %}
+| Número de commits | Sumário                                                                           | Descrição                                                                                        |
+| ----------------- | --------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------ |
+| Um commit         | O título da mensagem de commit do único commit, seguido do número de pull request | O texto da mensagem de commit para o único commit                                                |
+| Mais de um commit | Título da pull request, seguido do número da pull request                         | Uma lista das mensagens de commit para todos os commits combinados por squash, por ordem de data |
+
+{% ifversion default-merge-squash-commit-message %}
+People with maintainer or admin access to a repository can configure their repository's default merge message for all squashed commits to use the pull request title, the pull request title and commit details, or the pull request title and description. For more information, see "[Configure commit squashing](/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/configuring-commit-squashing-for-pull-requests)".{% endif %}
+
+{% ifversion ghes = 3.6 %}
 As pessoas com acesso de administrador a um repositório podem configurar o repositório para usar o título do pull request como a mensagem de merge padrão para todos os commits combinados por squash. Para obter mais informações, consulte "[Configurar o commit combinado por squash](/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/configuring-commit-squashing-for-pull-requests)".
 {% endif %}
 
@@ -43,7 +57,7 @@ Quando você cria uma pull request, o {% data variables.product.prodname_dotcom 
 
 Uma vez que esse commit está apenas no branch base e não no branch head, o ancestral comum dos dois branches permanece inalterado. Se você continuar a trabalhar no branch head e, em seguida, criar uma nova pull request entre os dois branches, a pull request incluirá todos os commits desde o ancestral comum, incluindo commits que você combinou por squash e fez merge na pull request anterior. Se não houver conflitos, você pode mesclar esses commits com segurança. No entanto, este fluxo de trabalho torna os conflitos de mesclagem mais prováveis. Se você continuar a combinar por squash e mesclar pull requests para um branch head de longo prazo, você terá que resolver os mesmos conflitos repetidamente.
 
-## Fazer rebase e merge dos commits da sua pull request
+## Rebase and merge your commits
 
 {% data reusables.pull_requests.rebase_and_merge_summary %}
 

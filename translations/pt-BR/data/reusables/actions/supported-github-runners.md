@@ -36,7 +36,6 @@ Ubuntu 22.04
 <code>ubuntu-22.04</code>
 </td>
 <td>
-O Ubuntu 22,04 está atualmente em beta público.
 </td>
 </tr>
 <tr>
@@ -49,12 +48,13 @@ Ubuntu 20.04
 </tr>
 <tr>
 <td>
-Ubuntu 18.04
+Ubuntu 18.04 <sup>[deprecated]</sup>
 </td>
 <td>
 <code>ubuntu-18.04</code>
 </td>
 <td>
+Migrate to <code>ubuntu-20.04</code> or <code>ubuntu-22.04</code>. For more information, see <A href="https://github.blog/changelog/2022-08-09-github-actions-the-ubuntu-18-04-actions-runner-image-is-being-deprecated-and-will-be-removed-by-12-1-22/">this GitHub blog post</A>.
 </td>
 </tr>
 <tr>

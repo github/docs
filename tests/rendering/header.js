@@ -60,26 +60,12 @@ describe('header', () => {
       const $ = await getDOM('/ja')
       expect($('[data-testid=header-notification][data-type=TRANSLATION]').length).toBe(1)
       expect($('[data-testid=header-notification] a[href="/en"]').length).toBe(1)
-      expect($('[data-testid=header-notification] a[href*="github.com/contact"]').length).toBe(1)
     })
 
     // Docs Engineering issue: 966
     test.skip('does not display any notices for English', async () => {
       const $ = await getDOM('/en')
       expect($('[data-testid=header-notification]').length).toBe(0)
-    })
-
-    test('displays translation disclaimer notice on localized site-policy pages', async () => {
-      const $ = await getDOM('/ja/site-policy/other-site-policies/github-logo-policy')
-      // The first case is for a complete translation, the second case is for a page pending complete translation.
-      expect(
-        $(
-          '[data-testid=header-notification][data-type=TRANSLATION] a[href="https://github.com/github/site-policy/issues"]'
-        ).length ||
-          $(
-            '[data-testid=header-notification][data-type=TRANSLATION] a[href="https://github.com/contact?form[subject]=translation%20issue%20on%20docs.github.com&form[comments]="]'
-          ).length
-      ).toBe(1)
     })
 
     test.skip("renders a link to the same page in user's preferred language, if available", async () => {

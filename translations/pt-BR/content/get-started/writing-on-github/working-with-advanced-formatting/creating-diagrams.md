@@ -8,7 +8,7 @@ shortTitle: Crie diagramas
 
 ## Sobre a criação de diagramas
 
-Você pode criar diagramas em Markdown usando três sintaxes diferentes: mermaid, geoJSON e topoJSON e ASCII STL.
+Você pode criar diagramas em Markdown usando três sintaxes diferentes: mermaid, geoJSON e topoJSON e ASCII STL. A renderização de diagrama está disponível em arquivos {% data variables.product.prodname_github_issues %}, {% data variables.product.prodname_discussions %}, pull requests, wikis e Markdown.
 
 ## Criando diagramas do mermaid
 
