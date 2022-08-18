@@ -1,1 +1,82 @@
-_
+BEGIN:
+GLOW& '"'.txt'"''
+'From 3f5d33f12fdd056d223d5ee505884023a48a4a00 Mon Sep 17 00:00:00 2001
+From: Baoshuo Ren <i@baoshuo.ren>
+Date: Wed, 27 Apr 2022 17:14:15 +0800
+Subject: [PATCH] chore: remove git.io
+
+All links on git.io will stop redirecting after April 29, 2022.
+
+- https://github.blog/changelog/2022-04-25-git-io-deprecation/
+---
+ .husky/post-checkout                | 2 +-
+ .husky/post-commit                  | 2 +-
+ .husky/post-merge                   | 2 +-
+ .husky/pre-push                     | 2 +-
+ script/toggle-ghae-feature-flags.js | 2 +-
+ 5 files changed, 5 insertions(+), 5 deletions(-)
+
+diff --git a/.husky/post-checkout b/.husky/post-checkout
+index 280d12de2a7..4f4027d51e0 100755
+--- a/.husky/post-checkout
++++ b/.husky/post-checkout
+@@ -7,5 +7,5 @@ then
+     printf >&2 "\nGitHub Docs requires Git LFS but using the 'git-lfs' on your path failed.\n"
+   fi
+ else
+-  printf >&2 "\nGitHub Docs requires Git LFS but 'git-lfs' was not found on your path.\nLearn how to install Git LFS at <https://git.io/JBCId>.\n"
++  printf >&2 "\nGitHub Docs requires Git LFS but 'git-lfs' was not found on your path.\nLearn how to install Git LFS at <https://docs.github.com/en/github/managing-large-files/versioning-large-files/installing-git-large-file-storage>.\n"
+ fi
+diff --git a/.husky/post-commit b/.husky/post-commit
+index 8951e3706c3..2c14a1c26d6 100755
+--- a/.husky/post-commit
++++ b/.husky/post-commit
+@@ -7,5 +7,5 @@ then
+     printf >&2 "\nGitHub Docs requires Git LFS but using the 'git-lfs' on your path failed.\n"
+   fi
+ else
+-  printf >&2 "\nGitHub Docs requires Git LFS but 'git-lfs' was not found on your path.\nLearn how to install Git LFS at <https://git.io/JBCId>.\n"
++  printf >&2 "\nGitHub Docs requires Git LFS but 'git-lfs' was not found on your path.\nLearn how to install Git LFS at <https://docs.github.com/en/github/managing-large-files/versioning-large-files/installing-git-large-file-storage>.\n"
+ fi
+diff --git a/.husky/post-merge b/.husky/post-merge
+index e6f13fe2443..55cb7759836 100755
+--- a/.husky/post-merge
++++ b/.husky/post-merge
+@@ -7,5 +7,5 @@ then
+     printf >&2 "\nGitHub Docs requires Git LFS but using the 'git-lfs' on your path failed.\n"
+   fi
+ else
+-  printf >&2 "\nGitHub Docs requires Git LFS but 'git-lfs' was not found on your path.\nLearn how to install Git LFS at <https://git.io/JBCId>.\n"
++  printf >&2 "\nGitHub Docs requires Git LFS but 'git-lfs' was not found on your path.\nLearn how to install Git LFS at <https://docs.github.com/en/github/managing-large-files/versioning-large-files/installing-git-large-file-storage>.\n"
+ fi
+diff --git a/.husky/pre-push b/.husky/pre-push
+index fa5490bfd8f..6210117e712 100755
+--- a/.husky/pre-push
++++ b/.husky/pre-push
+@@ -7,7 +7,7 @@ then
+     printf >&2 "\nGitHub Docs requires Git LFS but using the 'git-lfs' on your path failed.\n"
+   fi
+ else
+-  printf >&2 "\nGitHub Docs requires Git LFS but 'git-lfs' was not found on your path.\nLearn how to install Git LFS at <https://git.io/JBCId>.\n"
++  printf >&2 "\nGitHub Docs requires Git LFS but 'git-lfs' was not found on your path.\nLearn how to install Git LFS at <https://docs.github.com/en/github/managing-large-files/versioning-large-files/installing-git-large-file-storage>.\n"
+ fi
+ 
+ . "$(dirname "$0")/_/husky.sh"
+diff --git a/script/toggle-ghae-feature-flags.js b/script/toggle-ghae-feature-flags.js
+index b7606c87cb7..e2318b079c0 100755
+--- a/script/toggle-ghae-feature-flags.js
++++ b/script/toggle-ghae-feature-flags.js
+@@ -27,7 +27,7 @@ program
+   .description(
+     'Toggle issue-based, feature-flagged versioning for GitHub AE content like\n' +
+       'ghae-next or ghae-issue-1234, then commit the results.\n\n' +
+-      'Documentation: https://git.io/JCtUO\n\n' +
++      'Documentation: https://github.com/github/docs-content/blob/main/docs-content-docs/docs-content-workflows/content-creation/versioning-documentation.md#internal-versioning-conventions-for-github-ae\n\n' +
+       'Examples:\n' +
+       `  ${scriptName} -n\n` +
+       `  ${scriptName} -f 'issue-1234, issue-5678'`'"''
+       :Build::
+       Publish:
+       Larelease:
+       Launch:
+       Deployee: repositories'@zakwalrord7/Zakwarlord7/README.ms/README.md
