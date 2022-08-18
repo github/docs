@@ -106,14 +106,14 @@ jobs:
 
 {% note %}
 
-**Note**: Before your workflows can send jobs to the runners, you must configure permissions for the runner group.
+**Note**: Before your workflows can send jobs to larger runners, you must first configure permissions for the runner group. See the following sections for more information.
 
 {% endnote %}
 
-Runner groups are used to control which repositories can run jobs on your larger runner. By default, runner groups use the principle of least privilege, meaning that the runners in the group will not accept jobs from repositories in your organizations. You need to grant access to each level of the management hierarchy, depending on where you've defined the larger runner:
+Runner groups are used to control which repositories can run jobs on your larger runner. By default, runner groups use the principle of least privilege, meaning that the runners in the group will initially not accept jobs from repositories in your organizations. You must first configure the group to grant access to each level of the management hierarchy, depending on where you've defined the larger runner:
 
-- If you define the larger runner type at the enterprise level, you need grant access to all the required organizations. In addition, for each organization, you must specify which repositories can access the runners in the group.
-- If you define the larger runner type at the organization level, you must specify which repositories can access the runners in the group.
+- If you define the larger runner type at the enterprise level: you must configure the group to grant access to all the required organizations. In addition, for each organization, you must configure the group to specify which repositories are allowed access.
+- If you define the larger runner type at the organization level: you must configure the group by specifying which repositories are allowed access.
 
 In the following diagram, a runner group named `16-core-ubuntu-rg` has been defined at the enterprise level. Before the repository named `octo-repo` can use the runners in the group, you must first configure the group at the enterprise level to allow access from `octo-org`. You must then configure the group at the organization level to allow access from `octo-repo`:
 
