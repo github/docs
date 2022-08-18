@@ -128,12 +128,12 @@ This procedure demonstrates how to configure group permissions at the enterprise
   - For runner groups in an enterprise, under **Organization access**, modify what organizations can access the runner group. 
   - For runner groups in an organization, under **Repository access**, modify what repositories can access the runner group.
 
-   {% warning %}
+{% warning %}
 
-   **Warning**:
+**Warning**:
 
-   {% indented_data_reference reusables.actions.self-hosted-runner-security spaces=3 %}
+{% data reusables.actions.larger-runner-security %}
 
-   For more information, see "[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners#self-hosted-runner-security-with-public-repositories)."
+For more information, see "[Controlling access to larger runners](/actions/using-github-hosted-runners/controlling-access-to-larger-runners)."
 
-   {% endwarning %}
+{% endwarning %}
