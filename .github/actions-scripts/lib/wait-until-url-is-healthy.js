@@ -13,7 +13,7 @@ export async function waitUntilUrlIsHealthy(url) {
     await got.head(url, {
       retry: {
         limit: RETRIES,
-        calculateDelay: () => DELAY_SECONDS * 1000,
+        calculateDelay: ({ computedValue }) => Math.min(computedValue, DELAY_SECONDS * 1000),
       },
     })
     return true
