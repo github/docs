@@ -1,6 +1,6 @@
 ---
 title: 'Crear una {% data variables.product.prodname_project_v1 %}'
-intro: '{% data variables.projects.projects_v1_boards_caps %} can be used to create customized workflows to suit your needs, like tracking and prioritizing specific feature work, comprehensive roadmaps, or even release checklists.'
+intro: 'Los {% data variables.projects.projects_v1_boards_caps %} pueden utilizarse para crear flujos de trabajo personalizados que se acoplen a tus necesidades, como rastrear y priorizar el trabajo de características específicas, itinerarios integrales o incluso listas de verificación.'
 redirect_from:
   - /github/managing-your-work-on-github/managing-project-boards/creating-a-project-board
   - /articles/creating-a-project
@@ -23,15 +23,15 @@ allowTitleToDifferFromFilename: true
 
 {% data reusables.project-management.copy-project-boards %}
 
-{% data reusables.project-management.link-repos-to-project-board %} For more information, see "[Linking a repository to a {% data variables.product.prodname_project_v1 %} ](/articles/linking-a-repository-to-a-project-board)."
+{% data reusables.project-management.link-repos-to-project-board %} Para obtener más información, consulta la sección "[Enlazar un repositorio a un {% data variables.product.prodname_project_v1 %}](/articles/linking-a-repository-to-a-project-board)".
 
-Once you've created your {% data variables.projects.projects_v1_board %}, you can add issues, pull requests, and notes to it. For more information, see "[Adding issues and pull requests to a {% data variables.product.prodname_project_v1 %}](/articles/adding-issues-and-pull-requests-to-a-project-board)" and "[Adding notes to a {% data variables.product.prodname_project_v1 %}](/articles/adding-notes-to-a-project-board)."
+Una vez que hayas creado tu {% data variables.projects.projects_v1_board %}, puedes agregar propuestas, solicitudes de cambio y notas a este. Para obtener más información, consulta la sección "[Agregar propuestas y solicitudes de cambio a un {% data variables.product.prodname_project_v1 %}](/articles/adding-issues-and-pull-requests-to-a-project-board)" y "[Agregar notas a un {% data variables.product.prodname_project_v1 %}](/articles/adding-notes-to-a-project-board)".
 
-You can also configure workflow automations to keep your {% data variables.projects.projects_v1_board %} in sync with the status of issues and pull requests. For more information, see "[About automation for {% data variables.product.prodname_projects_v1 %}](/articles/about-automation-for-project-boards)."
+También puedes configurar automatizaciones de flujo de trabajo para mantener sincronizado a tu {% data variables.projects.projects_v1_board %} con el estado de las propuestas y solicitudes de cambios. Para obtener más información, consulta la sección "[Acerca de la automatización para los {% data variables.product.prodname_projects_v1 %}](/articles/about-automation-for-project-boards)".
 
 {% data reusables.project-management.project-board-import-with-api %}
 
-## Creating a user-owned {% data variables.projects.projects_v1_board %}
+## Crear un {% data variables.projects.projects_v1_board %} perteneciente a un usuario
 
 {% data reusables.projects.classic-project-creation %}
 
@@ -53,7 +53,7 @@ You can also configure workflow automations to keep your {% data variables.proje
 
 {% data reusables.project-management.edit-project-columns %}
 
-## Creating an organization-wide {% data variables.projects.projects_v1_board %}
+## Crear un {% data variables.projects.projects_v1_board %} de toda la organización
 
 {% data reusables.projects.classic-project-creation %}
 
@@ -76,7 +76,7 @@ You can also configure workflow automations to keep your {% data variables.proje
 
 {% data reusables.project-management.edit-project-columns %}
 
-## Creating a repository {% data variables.projects.projects_v1_board %}
+## Crear un {% data variables.projects.projects_v1_board %} de un repositorio
 
 {% data reusables.projects.classic-project-creation %}
 

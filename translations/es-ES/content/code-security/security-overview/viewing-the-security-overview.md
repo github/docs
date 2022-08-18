@@ -21,6 +21,8 @@ shortTitle: Ver el resumen de seguridad
 {% data reusables.security-overview.beta %}
 {% endif %}
 
+{% data reusables.security-overview.information-varies-GHAS %}
+
 ## Visualizar el resumen de seguridad de una organización
 
 {% data reusables.organizations.navigate-to-org %}

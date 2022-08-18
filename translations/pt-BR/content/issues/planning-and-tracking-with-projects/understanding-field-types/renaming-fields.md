@@ -1,6 +1,6 @@
 ---
-title: Renaming fields
-intro: 'Learn about renaming existing fields in your {% data variables.projects.project_v2 %}.'
+title: Renomeando campos
+intro: 'Aprenda a renomear os campos existentes em seu {% data variables.projects.project_v2 %}.'
 miniTocMaxHeadingLevel: 3
 versions:
   feature: projects-v2
@@ -10,6 +10,6 @@ topics:
 ---
 
 {% data reusables.projects.project-settings %}
-1. Click the name of the field you want to rename. ![Screenshot showing an iteration field](/assets/images/help/projects-v2/select-single-select.png)
-1. Under "Field name", type the new name for the field. ![Screenshot showing field name](/assets/images/help/projects-v2/field-rename.png)
-1. To save changes, press <kbd>Return</kbd>.
+1. Clique no nome do campo que você deseja renomear. ![Captura de tela que mostra um campo de iteração](/assets/images/help/projects-v2/select-single-select.png)
+1. Em "Nome do campo", digite o novo nome para o campo. ![Captura de tela que mostra o nome do campo](/assets/images/help/projects-v2/field-rename.png)
+1. Para salvar as alterações, pressione <kbd>Returnar</kbd>.

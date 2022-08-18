@@ -305,7 +305,7 @@ gh api graphql -f query='
       }
     }
   }
-}
+}'
 ```
 {% endcli %}
 

@@ -60,11 +60,11 @@ Você pode encontrar o gráfico de dependências na aba **Ideias** para o seu re
 {% ifversion security-overview-displayed-alerts %}
 ### Visão geral da segurança
 
-The security overview allows you to review security configurations and alerts, making it easy to identify the repositories and organizations at greatest risk. Para obter mais informações, consulte "[Sobre a visão geral de segurança](/code-security/security-overview/about-the-security-overview)".
+A visão geral de segurança permite que você revise as configurações e alertas de segurança, facilitando a identificação dos repositórios e organizações com maior risco. Para obter mais informações, consulte "[Sobre a visão geral de segurança](/code-security/security-overview/about-the-security-overview)".
 
 {% else %}
 ### Visão geral de segurança para repositórios
-The security overview shows which security features are enabled for the repository, and offers you the option of configuring any available security features that are not already enabled.
+A visão geral de segurança mostra quais funcionalidades de segurança estão habilitadas no repositório e oferece a você a opção de configurar quaisquer funcionalidades de segurança disponíveis que ainda não estejam habilitadas.
 {% endif %}
 
 ## Disponível com {% data variables.product.prodname_GH_advanced_security %}
@@ -73,7 +73,7 @@ The security overview shows which security features are enabled for the reposito
 As funcionalidades de {% data variables.product.prodname_GH_advanced_security %} a seguir estão disponíveis e são grátos para repositórios públicos em {% data variables.product.prodname_dotcom_the_website %}. As organizações que usam {% data variables.product.prodname_ghe_cloud %} com uma licença para {% data variables.product.prodname_GH_advanced_security %} podem usar o conjunto completo de funcionalidades em qualquer um dos seus repositórios. Para obter uma lista dos recursos disponíveis com {% data variables.product.prodname_ghe_cloud %}, consulte a [a documentação de {% data variables.product.prodname_ghe_cloud %}](/enterprise-cloud@latest/code-security/getting-started/github-security-features#available-with-github-advanced-security).
 
 {% elsif ghec %}
-Muitas funcionalidades de {% data variables.product.prodname_GH_advanced_security %} estão disponíveis e gratuitos para repositórios públicos em {% data variables.product.prodname_dotcom_the_website %}. Organizations within an enterprise that have a {% data variables.product.prodname_GH_advanced_security %} license can use the following features on all their repositories. {% data reusables.advanced-security.more-info-ghas %}
+Muitas funcionalidades de {% data variables.product.prodname_GH_advanced_security %} estão disponíveis e gratuitos para repositórios públicos em {% data variables.product.prodname_dotcom_the_website %}. As organizações de uma empresa que têm uma licença de {% data variables.product.prodname_GH_advanced_security %} podem usar as seguintes funcionalidades em todos os seus repositórios. {% data reusables.advanced-security.more-info-ghas %}
 
 {% elsif ghes %}
 As funcionalidades de {% data variables.product.prodname_GH_advanced_security %} estão disponíveis para empresas com uma licença para {% data variables.product.prodname_GH_advanced_security %}. As funcionalidades são restritas aos repositórios pertencentes a uma organização. {% data reusables.advanced-security.more-info-ghas %}

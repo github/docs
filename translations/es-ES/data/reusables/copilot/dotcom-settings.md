@@ -13,7 +13,7 @@ Una vez que tengas un periodo de prueba o suscripción del {% data variables.pro
 
 ## Enabling or disabling telemetry
 
-You can choose whether your code snippets are collected and retained by GitHub and further processed and shared with Microsoft and OpenAI by adjusting your user settings. For more information about data that {% data variables.product.prodname_copilot %} may collect depending on your telemetry settings, see "[{% data variables.product.company_short %} Terms for Additional Products and Features](/free-pro-team@latest/site-policy/github-terms/github-terms-for-additional-products-and-features#github-copilot)" and the [{% data variables.product.prodname_copilot %} privacy FAQ](https://github.com/features/copilot/#faq-privacy).
+You can choose whether your code snippets are collected and retained by GitHub and further processed and shared with Microsoft and OpenAI by adjusting your user settings. Para obtener más información sobre los datos que podría recopilar el {% data variables.product.prodname_copilot %} dependiendo de tus ajustes de telemetría, consulta la sección "[Términos de {% data variables.product.company_short %} para las características y productos adicionales](/free-pro-team@latest/site-policy/github-terms/github-terms-for-additional-products-and-features#github-copilot)" y las [Preguntas frecuentes sobre la privacidad del {% data variables.product.prodname_copilot %}](https://github.com/features/copilot/#faq-privacy).
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.copilot-settings %}

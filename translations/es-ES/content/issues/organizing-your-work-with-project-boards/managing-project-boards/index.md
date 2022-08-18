@@ -1,7 +1,7 @@
 ---
 title: 'Administrar las {% data variables.product.prodname_projects_v1 %}'
 shortTitle: 'Administrar las {% data variables.product.prodname_projects_v1 %}'
-intro: 'Learn how to create and manage {% data variables.projects.projects_v1_boards %}'
+intro: 'Aprende cómo crear y administrar los {% data variables.projects.projects_v1_boards %}'
 versions:
   feature: projects-v1
 topics:

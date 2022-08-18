@@ -226,7 +226,7 @@ REST API を介して `node_id` を検索し、それらを GraphQL 操作で使
 
 ## HTTP メソッド
 
-可能な場合、{% data variables.product.product_name %} REST APIはそれぞれのアクションに対して適切なHTTPメソッドを使うように努めます。 Note that HTTP verbs are case-sensitive.
+可能な場合、{% data variables.product.product_name %} REST APIはそれぞれのアクションに対して適切なHTTPメソッドを使うように努めます。 HTTPメソッドは大文字と小文字を区別することに注意してください。
 
 | メソッド     | 説明                                                                                                                            |
 | -------- | ----------------------------------------------------------------------------------------------------------------------------- |
@@ -299,7 +299,7 @@ _この例は、読みやすいように改行されています。_
 
 ## タイムアウト
 
-If {% data variables.product.prodname_dotcom %} takes more than 10 seconds to process an API request, {% data variables.product.prodname_dotcom %} will terminate the request and you will receive a timeout response like this:
+{% data variables.product.prodname_dotcom %}がAPIリクエストを処理するのに10秒以上かかると、{% data variables.product.prodname_dotcom %}はリクエストを終了させ、以下のようなタイムアウトのレスポンスが返されます。
 
 ```json
 {
@@ -307,7 +307,7 @@ If {% data variables.product.prodname_dotcom %} takes more than 10 seconds to pr
 }
 ```
 
-{% data variables.product.product_name %} reserves the right to change the timeout window to protect the speed and reliability of the API.
+{% data variables.product.product_name %}は、APIの速度と信頼性を保護するためにタイムアウトのウィンドウを変更する権限を留保します。
 
 ## レート制限
 

@@ -13,6 +13,7 @@ export const CodeLanguagePicker = () => {
       <SubNav.Links>
         {codeLanguages.map((language) => (
           <SubNav.Link
+            key={language.id}
             as={Link}
             href={`${routePath}?langId=${language.id}`}
             selected={language.id === currentLanguage.id}

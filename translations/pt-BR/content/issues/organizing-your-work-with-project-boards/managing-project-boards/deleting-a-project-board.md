@@ -1,6 +1,6 @@
 ---
-title: 'Deleting a {% data variables.product.prodname_project_v1 %}'
-intro: 'You can delete an existing {% data variables.projects.projects_v1_board %} if you no longer need access to its contents.'
+title: 'Excluindo um {% data variables.product.prodname_project_v1 %}'
+intro: 'Você pode excluir um {% data variables.projects.projects_v1_board %} existente se você não precisar mais de acesso ao seu conteúdo.'
 redirect_from:
   - /github/managing-your-work-on-github/managing-project-boards/deleting-a-project-board
   - /articles/deleting-a-project
@@ -17,11 +17,11 @@ allowTitleToDifferFromFilename: true
 
 {% tip %}
 
-**Tip**: If you'd like to retain access to a completed or unneeded {% data variables.projects.projects_v1_board %} without losing access to its contents, you can [close the {% data variables.projects.projects_v1_board %}](/articles/closing-a-project-board) instead of deleting it.
+**Dica**: Se você deseja manter o acesso a um {% data variables.projects.projects_v1_board %} concluído ou desnecessário sem perder acesso ao seu conteúdo, você pode [fechar o {% data variables.projects.projects_v1_board %}](/articles/closing-a-project-board) em vez de excluí-lo.
 
 {% endtip %}
 
-1. Navigate to the {% data variables.projects.projects_v1_board %} you want to delete.
+1. Acesse o {% data variables.projects.projects_v1_board %} que você deseja excluir.
 {% data reusables.project-management.click-menu %}
 {% data reusables.project-management.click-edit-sidebar-menu-project-board %}
 4. Clique em **Delete project** (Excluir projeto). ![Botão Delete project (Excluir projeto)](/assets/images/help/projects/delete-project-button.png)
@@ -29,6 +29,6 @@ allowTitleToDifferFromFilename: true
 
 ## Leia mais
 
-- "[Closing a {% data variables.product.prodname_project_v1 %}](/articles/closing-a-project-board)"
-- "[Disabling {% data variables.product.prodname_project_v1_caps %} in a repository](/articles/disabling-project-boards-in-a-repository)"
-- "[Disabling {% data variables.product.prodname_project_v1_caps %} in your organization](/articles/disabling-project-boards-in-your-organization)"
+- "[Fechando um {% data variables.product.prodname_project_v1 %}](/articles/closing-a-project-board)"
+- "[Desabilitando {% data variables.product.prodname_project_v1_caps %} em um repositório](/articles/disabling-project-boards-in-a-repository)"
+- "[Desabilitando {% data variables.product.prodname_project_v1_caps %} na sua organização](/articles/disabling-project-boards-in-your-organization)"

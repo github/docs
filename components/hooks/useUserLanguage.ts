@@ -1,11 +1,14 @@
 import { useState, useEffect } from 'react'
 import Cookies from 'js-cookie'
+import { useRouter } from 'next/router'
 
-import { languageKeys } from '../../lib/languages.js'
+import { useLanguages } from 'components/context/LanguagesContext'
 import { PREFERRED_LOCALE_COOKIE_NAME } from '../../lib/constants.js'
 
 export function useUserLanguage() {
+  const { locale } = useRouter()
   const [userLanguage, setUserLanguage] = useState<string>('en')
+  const { languages } = useLanguages()
 
   useEffect(() => {
     const languagePreferred = [
@@ -18,11 +21,12 @@ export function useUserLanguage() {
       // the region. E.g. `en-US` but in our application, we don't use
       // the region.
       .map((lang) => lang && lang.slice(0, 2).toLowerCase())
-      .find((lang) => lang && languageKeys.includes(lang))
+      .find((lang) => lang && lang in languages)
+
     if (languagePreferred) {
       setUserLanguage(languagePreferred)
     }
-  }, [])
+  }, [locale])
 
   return { userLanguage }
 }
