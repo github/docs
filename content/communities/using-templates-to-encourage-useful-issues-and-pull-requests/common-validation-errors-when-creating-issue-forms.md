@@ -629,6 +629,39 @@ body:
       - Maybe
 ```
 
+## Body cannot be empty error
+
+The template body key:value pair must not be empty. For more information about which top-level keys are required, see "[Syntax for issue forms](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-issue-forms#top-level-syntax)."
+
+
+It's possible that the `body:` section is missing, in which case you just need to add it.
+
+It's also possible there is an extra `---` (document separator) between your headers and the `body` section.
+
+### Example
+
+```yaml
+name: Support Request
+description: Something went wrong and you need help?
+---
+body:
+- type: textarea
+  attributes:
+    label: "What's wrong?"
+```
+
+The error can be fixed by removing the `---`:
+
+```yaml
+name: Support Request
+description: Something went wrong and you need help?
+
+body:
+- type: textarea
+  attributes:
+    label: "What's wrong?"
+```
+
 ## Further reading
 
 - [YAML](https://yaml.org/)
