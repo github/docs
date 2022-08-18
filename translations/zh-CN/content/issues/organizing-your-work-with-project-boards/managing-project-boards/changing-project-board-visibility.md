@@ -17,11 +17,14 @@ allowTitleToDifferFromFilename: true
 
 {% data reusables.project-management.project-board-visibility %}
 
-{% tip %}
+{% note %}
 
-**Tip:** When you make your {% data variables.projects.projects_v1_board %} {% ifversion ghae %}internal{% else %}public{% endif %}, organization members are given read access by default. You can give specific organization members write or admin permissions by giving access to teams they're on or by adding them to the {% data variables.projects.projects_v1_board %} as a collaborator. For more information, see "[{% data variables.product.prodname_project_v1_caps %} permissions for an organization](/articles/project-board-permissions-for-an-organization)."
+**{% ifversion classic-project-visibility-permissions %}Notes{% else %}Note{% endif %}:** {% ifversion classic-project-visibility-permissions %}
 
-{% endtip %}
+* {% data reusables.projects.owners-can-limit-visibility-permissions %}
+* {% endif %}When you make your {% data variables.projects.projects_v1_board %} {% ifversion ghae %}internal{% else %}public{% endif %}, organization members are given read access by default. You can give specific organization members write or admin permissions by giving access to teams they're on or by adding them to the {% data variables.projects.projects_v1_board %} as a collaborator. For more information, see "[{% data variables.product.prodname_project_v1_caps %} permissions for an organization](/articles/project-board-permissions-for-an-organization)."
+
+{% endnote %}
 
 1. 导航到您要设为{% ifversion ghae %}内部{% else %}公共{% endif %}或私有的项目板。
 {% data reusables.project-management.click-menu %}

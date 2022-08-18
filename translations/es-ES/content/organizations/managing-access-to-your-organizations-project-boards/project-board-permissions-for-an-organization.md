@@ -39,6 +39,8 @@ Por ejemplo, si un propietario de organización ha otorgado a permisos de lectur
 
 ## Visibilidad de {% data variables.projects.projects_v1_board_caps %}
 
+{% ifversion classic-project-visibility-permissions %}{% data reusables.projects.owners-can-limit-visibility-permissions %}{% endif %}
+
 {% data reusables.project-management.project-board-visibility %} Puedes cambiar la visibilidad del {% data variables.projects.projects_v1_board %} de privado a {% ifversion ghae %}interno{% else %}público{% endif %} y de vuelta. Para obtener más información, consulta la sección "[Cambiar la visibilidad de un {% data variables.product.prodname_project_v1 %}](/articles/changing-project-board-visibility)".
 
 ## Leer más

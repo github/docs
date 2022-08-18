@@ -118,7 +118,7 @@ topics:
 
 关闭警报的另一种办法是忽略它。 您可以忽略您认为不需要修复的警报。 {% data reusables.code-scanning.close-alert-examples %} 如果您对仓库有写入权限，则 **Dismiss（忽略）**按钮在代码注释和警报摘要中可用。 单击 **Dismiss（忽略）**时，您将被提示选择关闭警报的原因。
 {% ifversion comment-dismissed-code-scanning-alert %}
-![用于强调选择解除原因的下拉列表代码扫描警报屏幕截图](/assets/images/help/repository/code-scanning-alert-drop-down-reason.png)
+![用于强调选择解除原因的下拉列表代码扫描警报屏幕截图](/assets/images/help/repository/code-scanning-alert-dropdown-reason.png)
 {% else %}
 ![选择忽略警报的原因](/assets/images/help/repository/code-scanning-alert-close-drop-down.png)
 {% endif %}
