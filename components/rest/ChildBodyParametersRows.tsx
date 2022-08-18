@@ -1,57 +1,58 @@
 import { useTranslation } from 'components/hooks/useTranslation'
 import { ParameterRow } from './ParameterRow'
-import type { ChildParameter } from './types'
+import type { ChildParamsGroup } from './types'
 
 type Props = {
   slug: string
-  childParamsGroups: ChildParameter[]
-  parentName: string
-  parentType: string
+  childParamsGroups?: ChildParamsGroup[]
 }
 
-export function ChildBodyParametersRows({
-  slug,
-  parentName,
-  parentType,
-  childParamsGroups,
-}: Props) {
+export function ChildBodyParametersRows({ slug, childParamsGroups }: Props) {
   const { t } = useTranslation('products')
 
   return (
-    <tr className="border-top-0">
+    <tr className="border-none">
       <td colSpan={4} className="has-nested-table">
-        <details className="ml-1">
-          <summary role="button" aria-expanded="false" className="keyboard-focus color-fg-muted">
-            <span className="d-inline-block mb-3" id={`${slug}-${parentName}-${parentType}`}>
-              Properties of the
-              <code>{parentName}</code>
-              {parentType}
-            </span>
-          </summary>
-          <table id={`${parentName}-object`} className="mb-4 mt-2 color-bg-subtle">
-            <thead className="visually-hidden">
-              <tr>
-                <th>
-                  {`${t('rest.reference.name')}, ${t('rest.reference.type')}, ${t(
-                    'rest.reference.description'
-                  )}`}
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              {childParamsGroups.map((childParam) => {
-                return (
+        {childParamsGroups?.map((childParamGroup) => (
+          <details key={childParamGroup.id}>
+            <summary role="button" aria-expanded="false" className="keyboard-focus color-fg-muted">
+              <span className="d-inline-block mb-3" id={`${slug}-${childParamGroup.id}`}>
+                Properties of the
+                <code>{childParamGroup.parentName}</code>
+                {childParamGroup.parentType}
+              </span>
+            </summary>
+            <table
+              id={`${childParamGroup.parentName}-object`}
+              className="ml-4 mb-4 mt-2 color-bg-subtle"
+            >
+              <thead className="visually-hidden">
+                <tr>
+                  <th>
+                    {`${t('rest.reference.name')}, ${t('rest.reference.type')}, ${t(
+                      'rest.reference.description'
+                    )}`}
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                {childParamGroup.params.map((childParam, index) => (
                   <ParameterRow
-                    rowParams={childParam}
+                    name={childParam.name}
+                    description={childParam.description}
+                    type={childParam.type}
+                    isRequired={childParam.isRequired}
+                    defaultValue={childParam.default}
+                    enumValues={childParam.enum}
                     slug={slug}
                     isChild={true}
-                    key={childParam.name}
+                    key={`${index}-${childParam}`}
                   />
-                )
-              })}
-            </tbody>
-          </table>
-        </details>
+                ))}
+              </tbody>
+            </table>
+          </details>
+        ))}
       </td>
     </tr>
   )

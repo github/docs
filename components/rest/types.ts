@@ -54,20 +54,26 @@ export interface BodyParameter {
   name: string
   description: string
   type: string
-  isRequired?: boolean
+  isRequired: boolean
   default?: string
   enum?: Array<string>
-  childParamsGroups?: Array<ChildParameter>
+  childParamsGroups?: Array<ChildParamsGroup>
+}
+
+export interface ChildParamsGroup {
+  id: string
+  params: Array<ChildParameter>
+  parentName: string
+  parentType: string
 }
 
 export interface ChildParameter {
   name: string
   description: string
   type: string
-  isRequired?: boolean
+  isRequired: boolean
   enum?: Array<string>
   default?: string
-  childParamsGroups?: ChildParameter[]
 }
 
 export type ExampleT = {
