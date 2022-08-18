@@ -19,7 +19,7 @@ shortTitle: Eventos webhook & cargas
 
 {% data reusables.webhooks.webhooks_intro %}
 
-Você pode criar webhooks que assinam os eventos listados nesta página. Cada evento de webhook inclui uma descrição das propriedades do webhook e uma carga de exemplo. For more information, see "[Creating webhooks](/webhooks/creating/)."
+Você pode criar webhooks que assinam os eventos listados nesta página. Cada evento de webhook inclui uma descrição das propriedades do webhook e uma carga de exemplo. Para obter mais informações, consulte "[Criando webhooks](/webhooks/creating/)."
 
 ## Propriedades comuns do objeto da carga do webhook
 
@@ -215,7 +215,7 @@ Um ref do Git foi sincronizado com sucesso para uma réplica de cache. Para obte
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.app_desc %}
-</code>remetente`| <code>objeto` | Se a </code> de ação ` for <code>reopened_by_user` ou `closed_by_user`, o objeto `remetente` será o usuário que ativou o evento. The `sender` object is {% ifversion fpt or ghec %}`github`{% elsif ghes or ghae %}`github-enterprise`{% else %}empty{% endif %} for all other actions.
+</code>remetente`| <code>objeto` | Se a </code> de ação ` for <code>reopened_by_user` ou `closed_by_user`, o objeto `remetente` será o usuário que ativou o evento. O objeto `sender` está {% ifversion fpt or ghec %}`github`{% elsif ghes or ghae %}`github-enterprise`{% else %}vazio{% endif %} para todas as outras ações.
 
 ### Exemplo de carga de webhook
 
@@ -714,24 +714,24 @@ Para obter uma descrição detalhada desta carga e da carga para cada tipo de `a
 
 {% data reusables.pull_requests.merge-queue-beta %}
 
-Activity related to merge groups in a merge queue. O tipo de atividade é especificado na propriedade ação do objeto da carga.
+Atividade relacionada aos grupos de merge em uma fila de merge. O tipo de atividade é especificado na propriedade ação do objeto da carga.
 
 
 ### Disponibilidade
 
 - Webhooks do repositório
 - Webhooks da organização
-- {% data variables.product.prodname_github_apps %} with the `merge_queues` permission
+- {% data variables.product.prodname_github_apps %} com a permissão `merge_queues`
 
 ### Objeto da carga do webhook
 
-| Tecla                   | Tipo     | Descrição                                                            |
-| ----------------------- | -------- | -------------------------------------------------------------------- |
-| `Ação`                  | `string` | A ação que foi executada. Currently, can only be `checks_requested`. |
-| `merge_group`           | `objeto` | The merge group.                                                     |
-| `merge_group[head_sha]` | `string` | The SHA of the merge group.                                          |
-| `merge_group[head_ref]` | `string` | The full ref of the merge group.                                     |
-| `merge_group[base_ref]` | `string` | The full ref of the branch the merge group will be merged into.      |
+| Tecla                   | Tipo     | Descrição                                                             |
+| ----------------------- | -------- | --------------------------------------------------------------------- |
+| `Ação`                  | `string` | A ação que foi executada. Atualmente, só pode ser `checks_requested`. |
+| `merge_group`           | `objeto` | O grupo de merge.                                                     |
+| `merge_group[head_sha]` | `string` | O SHA do grupo de merge.                                              |
+| `merge_group[head_ref]` | `string` | O ref completo do grupo de merge.                                     |
+| `merge_group[base_ref]` | `string` | O ref completo do branch no qual o grupo merge será mesclado.         |
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.app_desc %}
@@ -926,7 +926,7 @@ Atividade relacionada a {% data variables.product.prodname_registry %}. {% data 
 {% ifversion projects-v2 %}
 {% note %}
 
-**Note**: This event only occurs for {% data variables.product.prodname_projects_v1 %}.
+**Observação**: Este evento ocorre apenas para {% data variables.product.prodname_projects_v1 %}.
 
 {% endnote %}
 {% endif %}
@@ -958,7 +958,7 @@ Atividade relacionada a {% data variables.product.prodname_registry %}. {% data 
 {% ifversion projects-v2 %}
 {% note %}
 
-**Note**: This event only occurs for {% data variables.product.prodname_projects_v1 %}.
+**Observação**: Este evento ocorre apenas para {% data variables.product.prodname_projects_v1 %}.
 
 {% endnote %}
 {% endif %}
@@ -988,7 +988,7 @@ Atividade relacionada a {% data variables.product.prodname_registry %}. {% data 
 {% ifversion projects-v2 %}
 {% note %}
 
-**Note**: This event only occurs for {% data variables.product.prodname_projects_v1 %}.
+**Observação**: Este evento ocorre apenas para {% data variables.product.prodname_projects_v1 %}.
 
 {% endnote %}
 {% endif %}
@@ -1011,11 +1011,11 @@ Atividade relacionada a {% data variables.product.prodname_registry %}. {% data 
 
 {% note %}
 
-**Note:** Webhook events for {% data variables.projects.projects_v2 %} are currently in beta and subject to change. To share feedback about {% data variables.projects.projects_v2 %} webhooks with {% data variables.product.product_name %}, see the [Projects webhook feedback discussion](https://github.com/orgs/community/discussions/17405).
+**Observação:** Os eventos de webhook para {% data variables.projects.projects_v2 %} estão atualmente no beta e sujeitos a alterações. Para compartilhar comentários sobrewebhooks de {% data variables.projects.projects_v2 %} com {% data variables.product.product_name %}, consulte a [Discussão de feedback sobre os webhooks dos projetos](https://github.com/orgs/community/discussions/17405).
 
 {% endnote %}
 
-Activity related to items in a {% data variables.projects.project_v2 %}. {% data reusables.webhooks.action_type_desc %} Para obter mais informações, consulte "[Sobre {% data variables.projects.projects_v2 %}](/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects).
+Atividade relacionada aos itens em um {% data variables.projects.project_v2 %}. {% data reusables.webhooks.action_type_desc %} Para obter mais informações, consulte "[Sobre {% data variables.projects.projects_v2 %}](/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects).
 
 ### Disponibilidade
 
@@ -1191,9 +1191,9 @@ As entregas para eventos `review_requested` e `review_request_removed` terão um
 | `commits[][author][email]` | `string`  | O endereço de e-mail do autor do git.                                                                                                                                                                                                                                                                                     |
 | `commits[][url]`           | `url`     | URL que aponta para o recurso de commit de API.                                                                                                                                                                                                                                                                           |
 | `commits[][distinct]`      | `boolean` | Se este compromisso é diferente de qualquer outro que tenha sido carregado anteriormente.                                                                                                                                                                                                                                 |
-| `commits[][added]`         | `array`   | Um array de arquivos adicionados no commit.                                                                                                                                                                                                                                                                               |
-| `commits[][modified]`      | `array`   | Um array de arquivos modificados pelo commit.                                                                                                                                                                                                                                                                             |
-| `commits[][removed]`       | `array`   | Um array de arquivos removidos no commit.                                                                                                                                                                                                                                                                                 |
+| `commits[][added]`         | `array`   | Um array de arquivos adicionados no commit. Para commits extremamente grandes, em que {% data variables.product.product_name %} não pode calcular essa lista oportunamente, isso pode ficar vazio mesmo que os arquivos tenham sido adicionados.                                                                          |
+| `commits[][modified]`      | `array`   | Um array de arquivos modificados pelo commit. Para commits extremamente grandes, em que {% data variables.product.product_name %} não pode calcular essa lista oportunamente, isso pode ficar vazio mesmo que os arquivos tenham sido modificados.                                                                        |
+| `commits[][removed]`       | `array`   | Um array de arquivos removidos no commit. Para commits extremamente grandes, em que {% data variables.product.product_name %} não pode calcular essa lista oportunamente, isso pode ficar vazio mesmo se os arquivos foram removidos.                                                                                     |
 | `pusher`                   | `objeto`  | O usuário que fez o push dos commits.                                                                                                                                                                                                                                                                                     |
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.org_desc %}

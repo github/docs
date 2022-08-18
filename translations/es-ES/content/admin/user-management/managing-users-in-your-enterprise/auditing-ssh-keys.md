@@ -52,7 +52,7 @@ Una vez que se aprueban o se rechazan sus claves, podrá interactuar con los rep
 
 {% ifversion ghes %}
 
-When a new user adds an SSH key to an account, to confirm the user's access, {% data variables.product.product_name %} will prompt for authentication. For more information, see "[Sudo mode](/authentication/keeping-your-account-and-data-secure/sudo-mode)."
+Cuando un usuario nuevo agrega una llave SSH a una cuenta, para confirmar el acceso del usuario, {% data variables.product.product_name %} pedirá su autenticación. Para obtener más información, consulta la sección "[modo Sudo](/authentication/keeping-your-account-and-data-secure/sudo-mode)".
 
 {% endif %}
 

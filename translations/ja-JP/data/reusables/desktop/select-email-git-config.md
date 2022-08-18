@@ -1,1 +1,1 @@
-1. Select the **Email** dropdown and click the email address you would like to use for your commits.
+1. **Email（メール）**ドロップダウンを選択し、コミットで使用したいメールアドレスをクリックしてください。

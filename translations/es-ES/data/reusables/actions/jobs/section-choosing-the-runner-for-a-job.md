@@ -6,7 +6,7 @@ Utiliza `jobs.<job_id>.runs-on` para definir el tipo de máquina en la cuál eje
 
 ### Elegir los ejecutores hospedados en {% data variables.product.prodname_dotcom %}
 
-If you use a {% data variables.product.prodname_dotcom %}-hosted runner, each job runs in a fresh instance of a runner image specified by `runs-on`.
+Si utilizas un ejecutor hospedado en {% data variables.product.prodname_dotcom %}, cada job se ejecutará en una instancia nueva de una imagen de ejecutor especificada por `runs-on`.
 
 Los tipos de ejecutores alojados {% data variables.product.prodname_dotcom %} disponibles son:
 

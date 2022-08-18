@@ -1,1 +1,1 @@
-1. To the right of your existing views, click **New view** ![Screenshot showing the column field menu](/assets/images/help/projects-v2/new-view.png)
+1. To the right of your existing views, click **New view** ![Captura de tela que mostra o menu de campos de coluna](/assets/images/help/projects-v2/new-view.png)

@@ -46,9 +46,9 @@ Si referencias una propuesta, solicitud de cambios o debate en una lista, la ref
 {% endif %}
 
 ## Etiquetas
-When referencing the URL of a label in Markdown, the label is automatically rendered. Only labels of the same repository are rendered, URLs pointing to a label from a different repository are rendered as any [URL](/get-started/writing-on-github/working-with-advanced-formatting/autolinked-references-and-urls#urls).
+Cuando referencies la URL de una etiqueta en lenguaje de marcado, esta se representará automáticamente. Solo las etiquetas del mismo repositorio se representarán, las URL que apunten a una etiqueta desde un repositorio diferente se representarán como cualquier [URL](/get-started/writing-on-github/working-with-advanced-formatting/autolinked-references-and-urls#urls).
 
-The URL of a label can be found by navigating to the labels page and clicking on a label. For example, the URL of the label "enhancement" in our public [docs repository](https://github.com/github/docs/) is
+Se puede encontrar la URL de una etiqueta si navegas a la página de etiquetas y haces clic en una de ellas. Por ejemplo, la URL de la etiqueta "mejora" en nuestro [repositorio de documentos](https://github.com/github/docs/) es
 
 ```md
 https://github.com/github/docs/labels/enhancement

@@ -53,7 +53,7 @@ Para obter informações sobre como escolher sua configuração preferida de con
 
 É útil pensar no arquivo `devcontainer.json` serve para fornecer "adaptação" ao invés de "personalização". Você só deve incluir coisas que todos que trabalham em sua base de código precisam como elementos padrão do ambiente de desenvolvimento, não coisas que são preferências pessoais. Coisas como os linters estão corretas para padronizar e exigir que todos realizaram a instalação. Portanto, são boas para incluir no seu arquivo `devcontainer.json`. Coisas como decoradores ou temas de interface de usuário são escolhas pessoais que não devem ser colocadas no arquivo `devcontainer.json`.
 
-Você pode personalizar seus codespaces usando dotfiles e Settings Sync. For more information, see "[Personalizing {% data variables.product.prodname_github_codespaces %} for your account](/codespaces/customizing-your-codespace/personalizing-github-codespaces-for-your-account)."
+Você pode personalizar seus codespaces usando dotfiles e Settings Sync. Para obter mais informações, consulte "[Personalizar {% data variables.product.prodname_github_codespaces %} para sua conta](/codespaces/customizing-your-codespace/personalizing-github-codespaces-for-your-account)".
 
 ### arquivo Docker
 

@@ -92,7 +92,6 @@ translations/zh-CN/content/admin/overview/about-enterprise-accounts.md,Listed in
 translations/zh-CN/content/admin/overview/about-enterprise-accounts.md,rendering error
 translations/zh-CN/content/admin/overview/about-github-enterprise-server.md,broken liquid tags
 translations/zh-CN/content/admin/overview/about-github-for-enterprises.md,rendering error
-translations/zh-CN/content/admin/overview/creating-an-enterprise-account.md,broken liquid tags
 translations/zh-CN/content/admin/packages/configuring-package-ecosystem-support-for-your-enterprise.md,broken liquid tags
 translations/zh-CN/content/admin/packages/enabling-github-packages-with-aws.md,broken liquid tags
 translations/zh-CN/content/admin/packages/enabling-github-packages-with-azure-blob-storage.md,broken liquid tags
@@ -101,6 +100,7 @@ translations/zh-CN/content/admin/packages/getting-started-with-github-packages-f
 translations/zh-CN/content/admin/packages/quickstart-for-configuring-your-minio-storage-bucket-for-github-packages.md,broken liquid tags
 translations/zh-CN/content/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-advanced-security-in-your-enterprise.md,broken liquid tags
 translations/zh-CN/content/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise.md,broken liquid tags
+translations/zh-CN/content/admin/user-management/managing-organizations-in-your-enterprise/adding-organizations-to-your-enterprise.md,broken liquid tags
 translations/zh-CN/content/admin/user-management/managing-organizations-in-your-enterprise/creating-teams.md,broken liquid tags
 translations/zh-CN/content/admin/user-management/managing-repositories-in-your-enterprise/configuring-git-large-file-storage-for-your-enterprise.md,broken liquid tags
 translations/zh-CN/content/admin/user-management/managing-users-in-your-enterprise/promoting-or-demoting-a-site-administrator.md,broken liquid tags
@@ -378,12 +378,10 @@ translations/zh-CN/data/reusables/dotcom_billing/downgrade-org-to-free.md,broken
 translations/zh-CN/data/reusables/education/access-github-community-exchange.md,broken liquid tags
 translations/zh-CN/data/reusables/enterprise-accounts/emu-password-reset-session.md,broken liquid tags
 translations/zh-CN/data/reusables/enterprise-accounts/emu-short-summary.md,rendering error
-translations/zh-CN/data/reusables/enterprise-licensing/about-license-sync.md,broken liquid tags
 translations/zh-CN/data/reusables/enterprise-licensing/verified-domains-license-sync.md,broken liquid tags
-translations/zh-CN/data/reusables/enterprise-licensing/you-can-sync-for-a-combined-view.md,broken liquid tags
 translations/zh-CN/data/reusables/enterprise_installation/hardware-considerations-all-platforms.md,broken liquid tags
 translations/zh-CN/data/reusables/enterprise_management_console/badge_indicator.md,broken liquid tags
-translations/zh-CN/data/reusables/enterprise_user_management/consider-usernames-for-external-authentication.md,rendering error
+translations/zh-CN/data/reusables/enterprise_user_management/consider-usernames-for-external-authentication.md,broken liquid tags
 translations/zh-CN/data/reusables/gated-features/codespaces-classroom-articles.md,broken liquid tags
 translations/zh-CN/data/reusables/gated-features/enterprise-accounts.md,broken liquid tags
 translations/zh-CN/data/reusables/gated-features/packages.md,broken liquid tags

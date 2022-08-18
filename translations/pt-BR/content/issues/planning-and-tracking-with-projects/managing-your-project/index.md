@@ -1,6 +1,6 @@
 ---
-title: 'Managing your {% data variables.projects.project_v2 %}'
-intro: Learn how to manage your projects and control visibility and access.
+title: 'Gerenciando seu {% data variables.projects.project_v2 %}'
+intro: Aprenda a gerenciar seus projetos e controle a visibilidade e o acesso.
 versions:
   feature: projects-v2
 topics:

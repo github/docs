@@ -570,13 +570,13 @@ _键_
 {% endif -%}
 - [`GET /orgs/:org/team/:team_id`](/rest/teams/teams#get-a-team-by-name) (:read)
 {% ifversion fpt or ghec -%}
-- [`GET /scim/v2/orgs/:org/Users`](/rest/reference/scim#list-scim-provisioned-identities) (:read)
+- [`GET /scim/v2/orgs/:org/Users`](/rest/reference/scim#list-scim-provisioned-identities) (:write)
 {% endif -%}
 {% ifversion fpt or ghec -%}
 - [`POST /scim/v2/orgs/:org/Users`](/rest/reference/scim#provision-and-invite-a-scim-user) (:write)
 {% endif -%}
 {% ifversion fpt or ghec -%}
-- [`GET /scim/v2/orgs/:org/Users/:external_identity_guid`](/rest/reference/scim#get-scim-provisioning-information-for-a-user) (:read)
+- [`GET /scim/v2/orgs/:org/Users/:external_identity_guid`](/rest/reference/scim#get-scim-provisioning-information-for-a-user) (:write)
 {% endif -%}
 {% ifversion fpt or ghec -%}
 - [`PUT /scim/v2/orgs/:org/Users/:external_identity_guid`](/rest/reference/scim#set-scim-information-for-a-provisioned-user) (:write)

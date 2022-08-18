@@ -20,9 +20,7 @@ Após comprar ou começar um teste de {% data variables.product.product_name %},
 
 ## Pré-requisitos
 
-- Antes de poder implantar {% data variables.product.product_name %}, você deve solicitar o acesso da sua equipe de conta de {% data variables.product.company_short %}. {% data variables.product.company_short %} irá habilitar a implantação de {% data variables.product.product_name %} para sua assinatura do Azure. Se você ainda não comprou {% data variables.product.product_name %}, você pode entrar em contato com {% data variables.contact.contact_enterprise_sales %} para verificar sua elegibilidade para um teste.
-
-- Você deve ter permissão para executar a operação `/register/action` para o provedor de recursos no Azure. A permissão está incluída nas funções de `Colaborador` e `Proprietário`. Para obter mais informações, consulte [Provedores de recursos e tipos do Azure](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-providers-and-types#register-resource-provider) na documentação da Microsoft.
+Você deve ter permissão para executar a operação `/register/action` para o provedor de recursos no Azure. A permissão está incluída nas funções de `Colaborador` e `Proprietário`. Para obter mais informações, consulte [Provedores de recursos e tipos do Azure](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-providers-and-types#register-resource-provider) na documentação da Microsoft.
 
 ## Implantando {% data variables.product.product_name %} com o {% data variables.actions.azure_portal %}
 
