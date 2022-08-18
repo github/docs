@@ -1,24 +1,44 @@
 import { useTranslation } from 'components/hooks/useTranslation'
 import { ChildBodyParametersRows } from './ChildBodyParametersRows'
-import type { ChildParameter } from './types'
+import type { ChildParamsGroup } from './types'
 
 type Props = {
-  rowParams: ChildParameter
+  name: string
+  type: string | string[]
+  description: string
+  isRequired?: boolean
+  defaultValue?: string
+  enumValues?: string[]
   slug: string
+  childParamsGroups?: ChildParamsGroup[] | null
   numPreviews?: number
   isChild?: boolean
 }
 
-export function ParameterRow({ rowParams, slug, numPreviews = 0, isChild = false }: Props) {
+export function ParameterRow({
+  name,
+  type,
+  description,
+  isRequired,
+  defaultValue,
+  enumValues,
+  slug,
+  childParamsGroups = null,
+  numPreviews = 0,
+  isChild = false,
+}: Props) {
   const { t } = useTranslation('products')
+
   return (
     <>
       <tr className={`${isChild ? 'color-bg-subtle' : ''}`}>
-        <td className={`${isChild ? 'px-3' : ''}`}>
+        <td className={`${isChild ? 'pl-2' : ''}`}>
           <div>
-            <code className={`text-bold ${isChild ? 'f6' : 'f5'}`}>{rowParams.name}</code>
-            <span className="color-fg-muted pl-2 f5">{rowParams.type}</span>
-            {rowParams.isRequired ? (
+            <code className={`text-bold ${isChild ? 'f6' : 'f5'}`}>{name}</code>
+            <span className="color-fg-muted pl-2 f5">
+              {Array.isArray(type) ? type.join(' or ') : type}
+            </span>
+            {isRequired ? (
               <span className={`color-fg-attention f5 ${isChild ? 'pl-3' : 'float-right'}`}>
                 {t('rest.reference.required')}
               </span>
@@ -26,7 +46,7 @@ export function ParameterRow({ rowParams, slug, numPreviews = 0, isChild = false
           </div>
 
           <div className="pl-1 pt-2 color-fg-muted f5">
-            <div dangerouslySetInnerHTML={{ __html: rowParams.description }} />
+            <div dangerouslySetInnerHTML={{ __html: description }} />
             {numPreviews > 0 && (
               <a href={`#${slug}-preview-notices`} className="d-inline">
                 {numPreviews > 1
@@ -35,18 +55,18 @@ export function ParameterRow({ rowParams, slug, numPreviews = 0, isChild = false
               </a>
             )}
             <div className="pt-2">
-              {rowParams.default && (
+              {defaultValue !== undefined && (
                 <p>
                   <span>{t('rest.reference.default')}: </span>
-                  <code>{rowParams.default}</code>
+                  <code>{defaultValue.toString()}</code>
                 </p>
               )}
-              {rowParams.enum && rowParams.enum.length && (
+              {enumValues && (
                 <p>
                   <span>{t('rest.reference.enum_description_title')}: </span>
 
-                  {rowParams.enum.map((item, index, array) => {
-                    return index !== array.length - 1 ? (
+                  {enumValues.map((item, index) => {
+                    return index !== enumValues.length - 1 ? (
                       <span key={item + index}>
                         <code>{item}</code>,{' '}
                       </span>
@@ -62,13 +82,8 @@ export function ParameterRow({ rowParams, slug, numPreviews = 0, isChild = false
           </div>
         </td>
       </tr>
-      {rowParams.childParamsGroups && rowParams.childParamsGroups.length > 0 && (
-        <ChildBodyParametersRows
-          slug={slug}
-          parentName={rowParams.name}
-          parentType={rowParams.type}
-          childParamsGroups={rowParams.childParamsGroups}
-        />
+      {childParamsGroups && childParamsGroups.length > 0 && (
+        <ChildBodyParametersRows slug={slug} childParamsGroups={childParamsGroups} />
       )}
     </>
   )
