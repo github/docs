@@ -159,7 +159,7 @@ Follow one of the procedures below to enable {% data variables.product.prodname_
 
 * [Enabling GitHub Actions with Azure Blob storage](/admin/github-actions/enabling-github-actions-with-azure-blob-storage)
 * [Enabling GitHub Actions with Amazon S3 storage](/admin/github-actions/enabling-github-actions-with-amazon-s3-storage)
-* [Enabling GitHub Actions with MinIO Gateway for NAS storage](/admin/github-actions/enabling-github-actions-with-minio-gateway-for-nas-storage)
+* [Enabling GitHub Actions with MinIO storage](/admin/github-actions/enabling-github-actions-with-minio-storage)
 
 ## Managing access permissions for {% data variables.product.prodname_actions %} in your enterprise
 
