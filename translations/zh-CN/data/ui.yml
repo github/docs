@@ -5,7 +5,7 @@ header:
   github_docs: GitHub Docs
   contact: 联系我们
   notices:
-    ghae_silent_launch: GitHub AE 目前是有限发行版。请<a href="https://enterprise.github.com/contact">联系我们的销售团队</a>以了解更多信息。
+    ghae_silent_launch: GitHub AE is currently under limited release.
     release_candidate: '# 版本名称是通过 includes/header-notification.html 在以下文本之前呈现：目前可用作发行版候选。更多信息请参阅“<a href="/admin/overview/about-upgrades-to-new-releases">关于升级到新版本</a>”。'
     localization_complete: We publish frequent updates to our documentation, and translation of this page may still be in progress. For the most current information, please visit the <a id="to-english-doc" href="/en">English documentation</a>.
     early_access: '📣请<b>不要公开分享</b>此 URL，该页面包含有关早期访问功能的内容。'

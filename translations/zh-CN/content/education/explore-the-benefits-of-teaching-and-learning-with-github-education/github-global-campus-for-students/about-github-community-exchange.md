@@ -1,6 +1,8 @@
 ---
 title: 关于 GitHub Community Exchange
 intro: 'Learn the skills you need to contribute to open source projects and grow your own portfolio, with {% data variables.product.prodname_community_exchange %}.'
+redirect_from:
+  - /education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-for-your-schoolwork/about-github-community-exchange
 versions:
   fpt: '*'
 shortTitle: About Community Exchange
