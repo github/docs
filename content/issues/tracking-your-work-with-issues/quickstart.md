@@ -71,7 +71,7 @@ To communicate responsibility, you can assign the issue to a member of your orga
 
 ## Adding the issue to a project
 
-You can add the issue to an existing project. {% ifversion fpt or ghec %}If you are using projects (beta), you can also populate metadata for the project. {% endif %} For more information about projects, see {% ifversion fpt or ghec %}"[About projects (beta)](/issues/trying-out-the-new-projects-experience/about-projects)" and {% endif %}"[Organizing your work with project boards](/issues/organizing-your-work-with-project-boards)".
+You can add the issue to an existing project{% ifversion projects-v2 %} and populate metadata for the project. {% endif %} For more information about projects, see {% ifversion projects-v2 %}"[About projects](/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects)."{% else %}"[Organizing your work with project boards](/issues/organizing-your-work-with-project-boards)."{% endif %}
 
 ![issue with projects](/assets/images/help/issues/issue-project.png)
 
@@ -97,5 +97,5 @@ You can use issues for a wide range of purposes. For example:
 Here are some helpful resources for taking your next steps with {% data variables.product.prodname_github_issues %}:
 
 - To learn more about issues, see "[About issues](/issues/tracking-your-work-with-issues/about-issues)."
-- To learn more about how projects can help you with planning and tracking, see {% ifversion fpt or ghec %}"[About projects (beta)](/issues/trying-out-the-new-projects-experience/about-projects)" or {% endif %}"[Organizing your work with project boards](/issues/organizing-your-work-with-project-boards)".
+- To learn more about how projects can help you with planning and tracking, see {% ifversion projects-v2 %}"[About projects](/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects)."{% else %}"[Organizing your work with project boards](/issues/organizing-your-work-with-project-boards)."{% endif %}
 - To learn more about using issue templates{% ifversion fpt or ghec %} and issue forms{% endif %} to encourage contributors to provide specific information, see "[Using templates to encourage useful issues and pull requests](/communities/using-templates-to-encourage-useful-issues-and-pull-requests)."

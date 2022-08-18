@@ -15,4 +15,4 @@ topics:
 shortTitle: GitHub APIが有効なエンドポイント
 ---
 
-**このページの内容は、NextJSページコンポーネントとしてレンダリングされます。**
+<!-- The content of this page is rendered as a NextJS page component. -->

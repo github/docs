@@ -35,14 +35,14 @@ The enterprise account on {% ifversion ghes %}{% data variables.product.product_
 Organizations are shared accounts where enterprise members can collaborate across many projects at once. Organization owners can manage access to the organization's data and projects with sophisticated security and administrative features. 詳細は「[Organization について](/organizations/collaborating-with-groups-in-organizations/about-organizations)」を参照してください。
 
 {% ifversion ghec %}
-Enterprise owners can invite existing organizations to join your enterprise account, or create new organizations in the enterprise settings.
+Enterprise owners can invite existing organizations to join your enterprise account, or create new organizations in the enterprise settings. 詳しい情報については「[EnterpriseへのOrganizationの追加](/admin/user-management/managing-organizations-in-your-enterprise/adding-organizations-to-your-enterprise)」を参照してください。
 {% endif %}
 
 Your enterprise account allows you to manage and enforce policies for all the organizations owned by the enterprise. {% data reusables.enterprise.about-policies %} For more information, see "[About enterprise policies](/admin/policies/enforcing-policies-for-your-enterprise/about-enterprise-policies)."
 
 {% ifversion ghec %}
 
-{% data reusables.enterprise.create-an-enterprise-account %} For more information, see "[Creating an enterprise account](/admin/overview/creating-an-enterprise-account)."
+{% data reusables.enterprise.create-an-enterprise-account %} 詳しい情報については「[Enterpriseアカウントの作成](/admin/overview/creating-an-enterprise-account)」を参照してください。
 
 {% endif %}
 
@@ -79,14 +79,6 @@ If you use both {% data variables.product.prodname_ghe_cloud %} and {% data vari
 You can also connect the enterprise account on {% data variables.product.product_location_enterprise %} to your enterprise account on {% data variables.product.prodname_dotcom_the_website %} to see license usage details for your {% data variables.product.prodname_enterprise %} subscription from {% data variables.product.prodname_dotcom_the_website %}. For more information, see {% ifversion ghec %}"[Syncing license usage between {% data variables.product.prodname_ghe_server %} and {% data variables.product.prodname_ghe_cloud %}](/enterprise-server/billing/managing-your-license-for-github-enterprise/syncing-license-usage-between-github-enterprise-server-and-github-enterprise-cloud)" in the {% data variables.product.prodname_ghe_server %} documentation.{% elsif ghes %}"[Syncing license usage between {% data variables.product.prodname_ghe_server %} and {% data variables.product.prodname_ghe_cloud %}](/billing/managing-your-license-for-github-enterprise/syncing-license-usage-between-github-enterprise-server-and-github-enterprise-cloud)."{% endif %}
 
 For more information about the differences between {% data variables.product.prodname_ghe_cloud %} and {% data variables.product.prodname_ghe_server %}, see "[{% data variables.product.prodname_dotcom %}'s products](/get-started/learning-about-github/githubs-products)." {% data reusables.enterprise-accounts.to-upgrade-or-get-started %}
-
-{% endif %}
-
-{% ifversion ghec %}
-
-## {% data variables.product.prodname_emus %}について
-
-{% data reusables.enterprise-accounts.emu-short-summary %}
 
 {% endif %}
 

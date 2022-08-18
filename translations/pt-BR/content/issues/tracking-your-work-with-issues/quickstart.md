@@ -71,7 +71,7 @@ Para comunicar-se responsabilidade, você pode atribuir o problema a um integran
 
 ## Adicionando a problema a um projeto
 
-Você pode adicionar um problema a um projeto existente. {% ifversion fpt or ghec %}Se você usar projetos (beta), você também poderá preencher os metadados do projeto. {% endif %} Para mais informações sobre projetos, consulte {% ifversion fpt or ghec %}"[Sobre projetos (beta)](/issues/trying-out-the-new-projects-experience/about-projects)e {% endif %}"[Organizar o seu trabalho com quadros de projeto](/issues/organizing-your-work-with-project-boards)".
+Você pode adicionar o problema a um projeto existente{% ifversion projects-v2 %} e preencher os metadados do projeto. {% endif %} Para obter mais informações sobre os projetos, consulte {% ifversion projects-v2 %}"[Sobre os projetos](/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects).{% else %}"[Organizando seu trabalho com os quadros de projeto](/issues/organizing-your-work-with-project-boards)."{% endif %}
 
 ![problema com projetos](/assets/images/help/issues/issue-project.png)
 
@@ -97,5 +97,5 @@ Você pode usar problemas para uma grande variedade de finalidades. Por exemplo:
 Aqui estão alguns recursos úteis para dar seus próximos passos com {% data variables.product.prodname_github_issues %}:
 
 - Para saber mais sobre problemas, consulte "[Sobre problemas](/issues/tracking-your-work-with-issues/about-issues)".
-- Para saber mais sobre como os projetos podem ajudar você no planejamento e acompanhamento, consulte {% ifversion fpt or ghec %}"[Sobre projetos (beta)](/issues/trying-out-the-new-projects-experience/about-projects)ou {% endif %}"[Organizar seu trabalho com quadros de projeto](/issues/organizing-your-work-with-project-boards)".
+- Para saber mais sobre como os projetos podem ajudar você no planejamento e acompanhamento, consulte {% ifversion projects-v2 %}"[Sobre projetos](/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects).{% else %}"[Organizando seu trabalho com os quadros de projeto](/issues/organizing-your-work-with-project-boards)".{% endif %}
 - Para aprender mais sobre o uso dos modelos de problemas{% ifversion fpt or ghec %} e formulários de problemas{% endif %} para incentivar os contribuidores a fornecer informações específicas, consulte "[Usar modelos para incentivar problemas úteis e pull requests](/communities/using-templates-to-encourage-useful-issues-and-pull-requests)".

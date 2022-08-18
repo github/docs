@@ -2,7 +2,10 @@
 
 {% note %}
 
-**Nota:** Los proyectos (beta), la experiencia de proyectos completamente nueva, ahora está dispoible. Para obtener más información sobre los proyectos (beta), consulta la sección "[Acerca de los proyectos (beta)](/issues/trying-out-the-new-projects-experience/about-projects)" y, para obtener más información sobre cómo migrar tu proyecto, consulta la sección "[Migrar tu proyecto a Proyectos (beta)](/issues/trying-out-the-new-projects-experience/migrating-your-project)".
+**Notas:**
+* {% data variables.product.prodname_projects_v2 %}, la experiencia completamente nueva de los proyectos ya está disponible. Para obtener más información sobre {% data variables.product.prodname_projects_v2 %}, consulta la sección "[Acerca de los {% data variables.product.prodname_projects_v2 %}](/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects)" y para obtener información de cómo migrar tu {% data variables.projects.projects_v1_board %}, consulta la sección "[Migrarte desde los {% data variables.product.prodname_projects_v1_caps %}](/issues/planning-and-tracking-with-projects/creating-projects/migrating-from-projects-classic)".
+* Solo puedes crear un tablero de proyecto clásico y nuevo para una organización, usuario o repositorio que ya tenga por lo menos un tablero de proyecto clásico. Si no puedes crear un tablero de proyecto clásico, crea un tablero de proyecto en su lugar.
 
 {% endnote %}
+
 {% endif %}

@@ -1,1 +1,1 @@
-为了加快代码空间的创建速度，存储库管理员可以为存储库启用 {% data variables.product.prodname_codespaces %} 预构建。 更多信息请参阅“[关于 {% data variables.product.prodname_codespaces %} 预构建](/codespaces/prebuilding-your-codespaces/about-codespaces-prebuilds)”。
+为了加快代码空间的创建速度，存储库管理员可以为存储库启用 {% data variables.product.prodname_codespaces %} 预构建。 更多信息请参阅“[关于 {% data variables.product.prodname_github_codespaces %} 预构建](/codespaces/prebuilding-your-codespaces/about-github-codespaces-prebuilds)”。

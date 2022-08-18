@@ -98,7 +98,6 @@ Você pode configurar esse comportamento para uma organização seguindo o proce
 {% data reusables.actions.private-repository-forks-configure %}
 {% endif %}
 
-{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
 ## Definindo as permissões do `GITHUB_TOKEN` para a sua organização
 
 {% data reusables.actions.workflow-permissions-intro %}
@@ -138,5 +137,4 @@ Por padrão, ao criar uma nova organização, os fluxos de trabalho não são pe
    ![Defina a permissão da aprovação de pull request GITHUB_TOKEN para esta organização](/assets/images/help/settings/actions-workflow-permissions-organization{% ifversion allow-actions-to-approve-pr %}-with-pr-{% ifversion allow-actions-to-approve-pr-with-ent-repo %}creation-{% endif %}approval{% endif %}.png)
 1. Clique em **Salvar** para aplicar as configurações.
 
-{% endif %}
 {% endif %}

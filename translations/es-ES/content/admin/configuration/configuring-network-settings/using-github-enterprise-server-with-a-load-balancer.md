@@ -89,6 +89,12 @@ Si habilitas la compatibilidad con el encabezado `X-Forwarded-For` en tu instanc
 Si {% data variables.product.product_location %} indica que tu sesión venció cuando te conectaste a la {% data variables.enterprise.management_console %} mediante un balanceador de carga, intenta una de las siguientes configuraciones en este balanceador.
 
 - Inhabilita los encabezados de `X-Forwarded-For` para tu instancia en los puertos 8080 y 8443.
-- Configura tu balanceador de carga para operar en capa 4 y utiliza el protocolo PROXY en vez de `X-Forwarded-For` para pasar las direcciones IP del cliente. Para obtener más información, consulta la sección "[Habilitar la compatibilidad con el protocolo PROXY en {% data variables.product.product_location %} ](#enabling-proxy-protocol-support-on-your-github-enterprise-server-instance)".
+- Configura tu balanceador de carga para operar en capa 4 y utiliza el protocolo PROXY en vez de `X-Forwarded-For` para pasar las direcciones IP del cliente. Para obtener más información, consulta la sección "[Habilitar el soporte de protocolo PROXY en {% data variables.product.product_location %}](#enabling-proxy-protocol-support-on-your-github-enterprise-server-instance)".
 
 Para obtener más información, refiérete a la documentación para tu balanceador de carga.
+
+### Actualizaciones en vivo a las propuestas y ejecuciones de verificaciones que no funcionan
+
+Cuando se accede a {% data variables.product.product_location %} a través de un balanceador de carga o proxy de reverso, las actualizaciones en vivo esperadas, tales como los comentarios nuevos en las propuestas y los cambios en las insignias de notificación o salidas de ejecuciones de verificaciones, podrían no mostrarse sino hasta que la página se actualice. Lo más común es cuando el proxy de reverso o balanceador de carga se está ejecutando en modo de capa 7 o no es compatible con el protocolo de [websocket](https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API) requerido.
+
+Para habilitar las actualizaciones, podrías necesitar configurar el balanceador de carga o proxy. Para obtener más información, refiérete a la documentación para tu balanceador de carga.

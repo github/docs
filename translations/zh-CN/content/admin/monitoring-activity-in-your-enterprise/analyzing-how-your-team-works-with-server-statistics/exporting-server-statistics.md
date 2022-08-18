@@ -3,12 +3,10 @@ title: Exporting Server Statistics
 shortTitle: Export Server Statistics
 intro: 'You can use your own tools to analyze your {% data variables.product.prodname_ghe_server %} usage over time by downloading your {% data variables.product.prodname_server_statistics %} metrics in a CSV or JSON file.'
 versions:
-  feature: 'server-statistics'
+  feature: server-statistics
 redirect_from:
   - /early-access/github/analyze-how-your-team-works-with-server-statistics/exploring-server-statistics
 ---
-
-{% data reusables.server-statistics.release-phase %}
 
 You can download up to the last 365 days of {% data variables.product.prodname_server_statistics %} data in a CSV or JSON file. This data, which includes aggregate metrics on repositories, issues, and pull requests, can help you anticipate the needs of your organization, understand how your team works, and show the value you get from {% data variables.product.prodname_ghe_server %}. 
 

@@ -2,7 +2,7 @@
 title: Issue events
 allowTitleToDifferFromFilename: true
 shortTitle: Eventos
-intro: The Issue events API can return different types of events triggered by activity in issues and pull requests.
+intro: La API de eventos de propuestas puede devolver tipos de eventos diferentes que se desencadenan por la actividad en las propuestas y solicitudes de cambios.
 versions:
   fpt: '*'
   ghes: '*'

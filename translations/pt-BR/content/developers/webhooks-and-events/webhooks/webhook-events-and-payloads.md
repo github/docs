@@ -17,13 +17,9 @@ topics:
 shortTitle: Eventos webhook & cargas
 ---
 
-{% ifversion fpt or ghec %}
-
-{% endif %}
-
 {% data reusables.webhooks.webhooks_intro %}
 
-Você pode criar webhooks que assinam os eventos listados nesta página. Cada evento de webhook inclui uma descrição das propriedades do webhook e uma carga de exemplo. Para obter mais informações, consulte "[Criar webhooks](/webhooks/creating/)."
+Você pode criar webhooks que assinam os eventos listados nesta página. Cada evento de webhook inclui uma descrição das propriedades do webhook e uma carga de exemplo. Para obter mais informações, consulte "[Criando webhooks](/webhooks/creating/)."
 
 ## Propriedades comuns do objeto da carga do webhook
 
@@ -101,7 +97,7 @@ Além disso, o `User-Agent` para as solicitações terá o prefixo `GitHub-Hooks
 > }
 ```
 
-{% ifversion fpt or ghes > 3.2 or ghae or ghec %}
+{% ifversion fpt or ghes > 3.3 or ghae or ghec %}
 ## branch_protection_rule
 
 Atividade relacionada a uma regra de proteção do branch. Para obter mais informações, consulte[Sobre as regras de proteção do branch](/github/administering-a-repository/defining-the-mergeability-of-pull-requests/about-protected-branches#about-branch-protection-rules)".
@@ -400,7 +396,7 @@ Os eventos de webhook são acionados com base na especificidade do domínio que 
 
 {% data reusables.webhooks.discussions-webhooks-beta %}
 
-Atividade relacionada a uma discussão. Para obter mais informações, consulte "[Usar a API do GraphQL para discussões]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql/guides/using-the-graphql-api-for-discussions)".
+Atividade relacionada a uma discussão. Para obter mais informações, consulte "[Usar a API do GraphQL para discussões](/graphql/guides/using-the-graphql-api-for-discussions)".
 ### Disponibilidade
 
 - Webhooks do repositório
@@ -425,7 +421,7 @@ Atividade relacionada a uma discussão. Para obter mais informações, consulte 
 
 {% data reusables.webhooks.discussions-webhooks-beta %}
 
-Atividade relacionada a um comentário em uma discussão. Para obter mais informações, consulte "[Usar a API do GraphQL para discussões]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql/guides/using-the-graphql-api-for-discussions)".
+Atividade relacionada a um comentário em uma discussão. Para obter mais informações, consulte "[Usar a API do GraphQL para discussões](/graphql/guides/using-the-graphql-api-for-discussions)".
 
 ### Disponibilidade
 
@@ -435,10 +431,10 @@ Atividade relacionada a um comentário em uma discussão. Para obter mais inform
 
 ### Objeto da carga do webhook
 
-| Tecla        | Tipo     | Descrição                                                                                                                                                           |
-| ------------ | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `Ação`       | `string` | A ação realizada. Pode ser `criado`, `editado` ou `excluído`.                                                                                                       |
-| `comentário` | `objeto` | O recurso [`comentário de discussão`]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql/guides/using-the-graphql-api-for-discussions#discussioncomment). |
+| Tecla        | Tipo     | Descrição                                                                                                       |
+| ------------ | -------- | --------------------------------------------------------------------------------------------------------------- |
+| `Ação`       | `string` | A ação realizada. Pode ser `criado`, `editado` ou `excluído`.                                                   |
+| `comentário` | `objeto` | O recurso [`comentário de discussão`](/graphql/guides/using-the-graphql-api-for-discussions#discussioncomment). |
 {% data reusables.webhooks.discussion_desc %}
 {% data reusables.webhooks.repo_desc_graphql %}
 {% data reusables.webhooks.org_desc_graphql %}
@@ -712,6 +708,41 @@ Para obter uma descrição detalhada desta carga e da carga para cada tipo de `a
 
 {{ webhookPayloadsForCurrentVersion.membership.removed }}
 
+{% ifversion fpt or ghec %}
+
+## merge_group
+
+{% data reusables.pull_requests.merge-queue-beta %}
+
+Atividade relacionada aos grupos de merge em uma fila de merge. O tipo de atividade é especificado na propriedade ação do objeto da carga.
+
+
+### Disponibilidade
+
+- Webhooks do repositório
+- Webhooks da organização
+- {% data variables.product.prodname_github_apps %} com a permissão `merge_queues`
+
+### Objeto da carga do webhook
+
+| Tecla                   | Tipo     | Descrição                                                             |
+| ----------------------- | -------- | --------------------------------------------------------------------- |
+| `Ação`                  | `string` | A ação que foi executada. Atualmente, só pode ser `checks_requested`. |
+| `merge_group`           | `objeto` | O grupo de merge.                                                     |
+| `merge_group[head_sha]` | `string` | O SHA do grupo de merge.                                              |
+| `merge_group[head_ref]` | `string` | O ref completo do grupo de merge.                                     |
+| `merge_group[base_ref]` | `string` | O ref completo do branch no qual o grupo merge será mesclado.         |
+{% data reusables.webhooks.repo_desc %}
+{% data reusables.webhooks.org_desc %}
+{% data reusables.webhooks.app_desc %}
+{% data reusables.webhooks.sender_desc %}
+
+### Exemplo de carga de webhook
+
+{{ webhookPayloadsForCurrentVersion.merge_group.checks_requested }}
+
+{% endif %}
+
 ## meta
 
 O webhook em que este evento está configurado em foi excluído. Este evento só ouvirá alterações no hook em que o evento está instalado. Portanto, deve ser selecionado para cada hook para o qual você gostaria de receber metaeventos.
@@ -892,10 +923,10 @@ Atividade relacionada a {% data variables.product.prodname_registry %}. {% data 
 - Webhooks da organização
 - {% data variables.product.prodname_github_apps %} com a permissão `repository_projects` ou `organization_projects`
 
-{% ifversion fpt or ghec %}
+{% ifversion projects-v2 %}
 {% note %}
 
-**Observação**: Este evento não ocorre para Projetos (beta).
+**Observação**: Este evento ocorre apenas para {% data variables.product.prodname_projects_v1 %}.
 
 {% endnote %}
 {% endif %}
@@ -924,10 +955,10 @@ Atividade relacionada a {% data variables.product.prodname_registry %}. {% data 
 - Webhooks da organização
 - {% data variables.product.prodname_github_apps %} com a permissão `repository_projects` ou `organization_projects`
 
-{% ifversion fpt or ghec %}
+{% ifversion projects-v2 %}
 {% note %}
 
-**Observação**: Este evento não ocorre para Projetos (beta).
+**Observação**: Este evento ocorre apenas para {% data variables.product.prodname_projects_v1 %}.
 
 {% endnote %}
 {% endif %}
@@ -954,6 +985,14 @@ Atividade relacionada a {% data variables.product.prodname_registry %}. {% data 
 - Webhooks da organização
 - {% data variables.product.prodname_github_apps %} com a permissão `repository_projects` ou `organization_projects`
 
+{% ifversion projects-v2 %}
+{% note %}
+
+**Observação**: Este evento ocorre apenas para {% data variables.product.prodname_projects_v1 %}.
+
+{% endnote %}
+{% endif %}
+
 ### Objeto da carga do webhook
 
 {% data reusables.webhooks.project_column_properties %}
@@ -972,11 +1011,11 @@ Atividade relacionada a {% data variables.product.prodname_registry %}. {% data 
 
 {% note %}
 
-**Observação:** Os eventos de Webhook para Projetos (beta) estão atualmente no beta e sujeitos a alterações. Para compartilhar feedback sobre webhooks de projetos (beta) com {% data variables.product.product_name %}, veja os [Webhooks de projetos (beta) de feedback](https://github.com/github/feedback/discussions/17405).
+**Observação:** Os eventos de webhook para {% data variables.projects.projects_v2 %} estão atualmente no beta e sujeitos a alterações. Para compartilhar comentários sobrewebhooks de {% data variables.projects.projects_v2 %} com {% data variables.product.product_name %}, consulte a [Discussão de feedback sobre os webhooks dos projetos](https://github.com/orgs/community/discussions/17405).
 
 {% endnote %}
 
-Atividade relacionada aos itens em um projeto (beta) {% data reusables.webhooks.action_type_desc %} Para obter mais informações, consulte "[Sobre projetos (beta)](/issues/trying-out-the-new-projects-experience/about-projects).
+Atividade relacionada aos itens em um {% data variables.projects.project_v2 %}. {% data reusables.webhooks.action_type_desc %} Para obter mais informações, consulte "[Sobre {% data variables.projects.projects_v2 %}](/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects).
 
 ### Disponibilidade
 
@@ -985,11 +1024,11 @@ Atividade relacionada aos itens em um projeto (beta) {% data reusables.webhooks.
 
 ### Objeto da carga do webhook
 
-| Tecla              | Tipo     | Descrição                                                                                                                                                                                                                                                                                                                                                                                    |
-| ------------------ | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `Ação`             | `string` | A ação que foi executada no item do projeto. Pode ser: `archived`, `converted`, `created`, `edited`, `restored`, `deleted` ou `reordered`.                                                                                                                                                                                                                                                   |
-| `projects_v2_item` | `objeto` | O item do projeto em si. Para encontrar mais informações sobre o item do projeto, você pode usar `node_id` (o ID do nó do item do projeto) e `project_node_id` (o ID do nó do projeto) para consultar informações na API do GraphQL. For more information, see "[Using the API to manage projects (beta)](/issues/trying-out-the-new-projects-experience/using-the-api-to-manage-projects)." |
-| `alterações`       | `objeto` | As alterações no item do projeto.                                                                                                                                                                                                                                                                                                                                                            |
+| Tecla              | Tipo     | Descrição                                                                                                                                                                                                                                                                                                                                                                                                  |
+| ------------------ | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `Ação`             | `string` | A ação que foi executada no item do projeto. Pode ser: `archived`, `converted`, `created`, `edited`, `restored`, `deleted` ou `reordered`.                                                                                                                                                                                                                                                                 |
+| `projects_v2_item` | `objeto` | O item do projeto em si. Para encontrar mais informações sobre o item do projeto, você pode usar `node_id` (o ID do nó do item do projeto) e `project_node_id` (o ID do nó do projeto) para consultar informações na API do GraphQL. For more information, see "[Using the API to manage projects](/issues/planning-and-tracking-with-projects/automating-your-project/using-the-api-to-manage-projects)." |
+| `alterações`       | `objeto` | As alterações no item do projeto.                                                                                                                                                                                                                                                                                                                                                                          |
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.app_desc %}
 {% data reusables.webhooks.sender_desc %}
@@ -1152,9 +1191,9 @@ As entregas para eventos `review_requested` e `review_request_removed` terão um
 | `commits[][author][email]` | `string`  | O endereço de e-mail do autor do git.                                                                                                                                                                                                                                                                                     |
 | `commits[][url]`           | `url`     | URL que aponta para o recurso de commit de API.                                                                                                                                                                                                                                                                           |
 | `commits[][distinct]`      | `boolean` | Se este compromisso é diferente de qualquer outro que tenha sido carregado anteriormente.                                                                                                                                                                                                                                 |
-| `commits[][added]`         | `array`   | Um array de arquivos adicionados no commit.                                                                                                                                                                                                                                                                               |
-| `commits[][modified]`      | `array`   | Um array de arquivos modificados pelo commit.                                                                                                                                                                                                                                                                             |
-| `commits[][removed]`       | `array`   | Um array de arquivos removidos no commit.                                                                                                                                                                                                                                                                                 |
+| `commits[][added]`         | `array`   | Um array de arquivos adicionados no commit. Para commits extremamente grandes, em que {% data variables.product.product_name %} não pode calcular essa lista oportunamente, isso pode ficar vazio mesmo que os arquivos tenham sido adicionados.                                                                          |
+| `commits[][modified]`      | `array`   | Um array de arquivos modificados pelo commit. Para commits extremamente grandes, em que {% data variables.product.product_name %} não pode calcular essa lista oportunamente, isso pode ficar vazio mesmo que os arquivos tenham sido modificados.                                                                        |
+| `commits[][removed]`       | `array`   | Um array de arquivos removidos no commit. Para commits extremamente grandes, em que {% data variables.product.product_name %} não pode calcular essa lista oportunamente, isso pode ficar vazio mesmo se os arquivos foram removidos.                                                                                     |
 | `pusher`                   | `objeto`  | O usuário que fez o push dos commits.                                                                                                                                                                                                                                                                                     |
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.org_desc %}

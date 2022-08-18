@@ -64,7 +64,6 @@ Las bifurcaciones se detallan alfabéticamente por el nombre de usuario de la pe
 {% data reusables.repositories.accessing-repository-graphs %}
 3. En la barra lateral izquierda, haz clic en **Forks** (Bifurcaciones). ![Pestaña Forks (Bifurcaciones)](/assets/images/help/graphs/graphs-sidebar-forks-tab.png)
 
-{% ifversion fpt or ghes or ghae or ghec %}
 ## Visualizar las dependencias de un repositorio
 
 Puedes utilizar la gráfica de dependencias para explorar el código del cual depende tu repositorio.
@@ -74,4 +73,3 @@ Casi todo el software depende de el código que otros desarrolladores mantienen 
 La gráfica de dependencias proporciona una forma genial de visualizar y explorar las depdendencias para un repositorio. Para obtener más información, consulta las secciones "[Acerca de la gráfica de dependencias](/code-security/supply-chain-security/about-the-dependency-graph)" y "[Explorar las dependencias de un repositorio](/code-security/supply-chain-security/exploring-the-dependencies-of-a-repository)".
 
 También puedes configurar tu repositorio para que {% data variables.product.company_short %} te alerte automáticamente en cualquier momento en el que se encuentre una vulnerabilidad de seguridad en alguna de tus dependencias. Para obtener más información, consulta la sección "[Acerca de{% data variables.product.prodname_dependabot_alerts %}](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)".
-{% endif %}

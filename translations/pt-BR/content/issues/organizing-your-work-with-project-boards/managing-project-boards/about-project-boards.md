@@ -1,55 +1,53 @@
 ---
-title: Sobre quadros de projeto
-intro: 'Os quadros de projeto no {% data variables.product.product_name %} ajudam você a organizar e priorizar seu trabalho. É possível criar quadros de projeto para trabalho de recurso específico, roteiros abrangentes ou, até mesmo, checklists de versão. Com os quadros de projeto, você tem a flexibilidade de criar fluxos de trabalho personalizados adequados às suas necessidades.'
+title: 'Sobre {% data variables.product.prodname_projects_v1 %}'
+intro: '{% data variables.product.prodname_projects_v1_caps %} em {% data variables.product.product_name %} ajuda você a organizar e priorizar seu trabalho. Você pode criar {% data variables.projects.projects_v1_boards %} para o trabalho específico de recursos, roteiros completos ou até mesmo listas de verificação de versão. Com {% data variables.product.prodname_projects_v1 %}, você tem a flexibilidade para criar fluxos de trabalho personalizados que atendam às suas necessidades.'
 redirect_from:
   - /github/managing-your-work-on-github/managing-project-boards/about-project-boards
   - /articles/about-projects
   - /articles/about-project-boards
   - /github/managing-your-work-on-github/about-project-boards
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
-  ghec: '*'
+  feature: projects-v1
 topics:
   - Pull requests
+allowTitleToDifferFromFilename: true
 ---
 
 {% data reusables.projects.project_boards_old %}
 
-Os quadros de projeto são compostos por problemas, pull requests e observações que são categorizados como cartões em colunas de sua escolha. É possível arrastar e soltar ou usar atalhos de teclado para reordenar cartões em uma coluna, mover cartões de coluna para coluna e alterar a ordem das colunas.
+{% data variables.projects.projects_v1_boards_caps %} são compostas de problemas, pull requests e notas que são categorizadas como cartões em colunas de sua escolha. É possível arrastar e soltar ou usar atalhos de teclado para reordenar cartões em uma coluna, mover cartões de coluna para coluna e alterar a ordem das colunas.
 
-Os cartões do quadro de projeto contêm metadados relevantes para problemas e pull requests, como etiquetas, responsáveis, o status e quem os abriu. {% data reusables.project-management.edit-in-project %}
+Os cartões de {% data variables.projects.projects_v1_board_caps %} contêm metadados relevantes para problemas e pull requests, como etiquetas, responsáveis, status e quem o abriu. {% data reusables.project-management.edit-in-project %}
 
-Você pode criar observações dentro de colunas para servirem de lembretes de tarefa, fazer referência a problemas e pull requests de qualquer repositório no {% data variables.product.product_location %} ou adicionar informações relacionadas ao quadro de projeto. É possível criar um cartão de referência para outro quadro de projeto adicionando um link a uma observação. Se a observação não for suficiente para suas necessidades, você poderá convertê-la em um problema. Para obter mais informações sobre como converter observações de quadro de projeto em problemas, consulte "[Adicionar observações a um quadro de projeto](/articles/adding-notes-to-a-project-board)".
+Você pode criar observações dentro de colunas para servir como lembretes de tarefas, referências a problemas e pull requests de qualquer repositório no {% data variables.product.product_location %}, ou a adicionar informações relacionadas ao {% data variables.projects.projects_v1_board %}. Você pode criar um cartão de referência para outro {% data variables.projects.projects_v1_board %} adicionando um link para uma observação. Se a observação não for suficiente para suas necessidades, você poderá convertê-la em um problema. Para obter mais informações sobre a conversão de observações em problemas, consulte "[Adicionando observações a um {% data variables.product.prodname_project_v1 %}](/articles/adding-notes-to-a-project-board)."
 
 Tipos de quadros de projeto:
 
-- Os **quadros de projeto possuídos pelo usuário** podem conter problemas e pull requests de qualquer repositório pessoal.
-- Os **quadros de projeto de toda a organização** podem conter problemas e pull requests de qualquer repositório que pertença a uma organização.  {% data reusables.project-management.link-repos-to-project-board %} Para obter mais informações, consulte "[Vincular um repositório a um quadro de projeto](/articles/linking-a-repository-to-a-project-board)."
-- Os **quadros de projeto do repositório** abrangem problemas ou pull requests dentro de um único repositório. Eles também podem incluir observações que fazem referência a problemas e pull requests em outros repositórios.
+- ** Pertencente ao usuário {% data variables.projects.projects_v1_board %}** pode conter problemas e pull requests de qualquer repositório pessoal.
+- **Em toda a organização {% data variables.projects.projects_v1_board %}** pode conter problemas e pull requests de qualquer repositório que pertence a uma organização.  {% data reusables.project-management.link-repos-to-project-board %} Para obter mais informações, consulte "[Vincular um repositório a um {% data variables.product.prodname_project_v1 %}](/articles/linking-a-repository-to-a-project-board)".
+- **Repositório {% data variables.projects.projects_v1_board %}** tem o escopo definido como problemas e pull requests em um repositório único. Eles também podem incluir observações que fazem referência a problemas e pull requests em outros repositórios.
 
-## Criar e exibir quadros de projeto
+## Criando e visualizando {% data variables.projects.projects_v1_boards %}
 
-Para criar um quadro de projeto para sua organização, você deve ser um integrante da organização. Os proprietários da organização e as pessoas com permissões de administrador de quadro de projeto podem personalizar o acesso ao quadro de projeto.
+Para criar um {% data variables.projects.projects_v1_board %} para sua organização, você deve ser um integrante da organização. Os proprietários da organização e as pessoas com permissões de administrador em {% data variables.projects.projects_v1_board %} podem personalizar o acesso a {% data variables.projects.projects_v1_board %}.
 
-Se um quadro de projeto possuído pela organização incluir problemas ou pull requests de um repositório que você não tem permissão para exibir, o cartão será removido.  Para obter mais informações, consulte "[Permissões de quadro de projeto para uma organização](/articles/project-board-permissions-for-an-organization)".
+Se um {% data variables.projects.projects_v1_board %} pertencente a uma organização incluir problemas ou pull requests de um repositório que você não tem permissão para visualizar, o cartão será redigido.  Para obter mais informações, consulte "[Permissões de {% data variables.product.prodname_project_v1_caps %} para uma organização](/articles/project-board-permissions-for-an-organization)".
 
-A exibição da atividade mostra o histórico recente do quadro de projeto, como cartões que alguém criou ou moveu entre colunas. Para acessar a exibição da atividade, clique em **Menu** e role para baixo.
+O modo de exibição de atividade mostra o histórico recente de {% data variables.projects.projects_v1_board %}, como cartões criados ou movidos entre colunas. Para acessar a exibição da atividade, clique em **Menu** e role para baixo.
 
-Para encontrar cartões específicos em um quadro de projeto ou exibir um subconjunto dos cartões, você pode filtrar cartões do quadro de projeto. Para obter mais informações, consulte "[Filtrar cartões em um quadro de projeto](/articles/filtering-cards-on-a-project-board)".
+Para encontrar cartões específicos em um {% data variables.projects.projects_v1_board %} ou ver um subconjunto das cartões, você pode filtrar os cartões de {% data variables.projects.projects_v1_board %}. Para obter mais informações, consulte "[Filtrando cartões em um {% data variables.product.prodname_project_v1 %}](/articles/filtering-cards-on-a-project-board)".
 
-Para simplificar seu fluxo de trabalho a manter as tarefas concluídas fora do quadro de projeto, você pode arquivar cartões. Para obter mais informações, consulte "[Arquivar cartões em um quadro de projeto](/articles/archiving-cards-on-a-project-board)."
+Para simplificar seu fluxo de trabalho e manter tarefas concluídas fora do seu {% data variables.projects.projects_v1_board %}, você pode arquivar cartões. Para obter mais informações, consulte "[Arquivando cartões em um {% data variables.product.prodname_project_v1 %}](/articles/archiving-cards-on-a-project-board)".
 
-Se você concluiu todas as tarefas do quadro de projeto ou não precisar mais usar o quadro de projeto, é possível fechá-lo. Para obter mais informações, consulte "[Fechar um quadro de projeto](/articles/closing-a-project-board)".
+Se você concluiu todas as suas tarefas de {% data variables.projects.projects_v1_board %} ou não precisa mais usar seu {% data variables.projects.projects_v1_board %}, você pode fechar o {% data variables.projects.projects_v1_board %}. Para obter mais informações, consulte "[Fechando um {% data variables.product.prodname_project_v1 %}de](/articles/closing-a-project-board)".
 
-Também é possível [desabilitar quadros de projeto em um repositório](/articles/disabling-project-boards-in-a-repository) ou [desabilitar quadros de projeto em sua organização](/articles/disabling-project-boards-in-your-organization), se preferir rastrear o trabalho de maneira diferente.
+Você também pode [desabilitar {% data variables.projects.projects_v1_boards %} em um repositório](/articles/disabling-project-boards-in-a-repository) ou [desabilitar {% data variables.projects.projects_v1_boards %} na sua organização](/articles/disabling-project-boards-in-your-organization), se você preferir acompanhar o seu trabalho de uma forma diferente.
 
 {% data reusables.project-management.project-board-import-with-api %}
 
-## Modelos para quadros de projeto
+## Modelos para {% data variables.projects.projects_v1_boards %}
 
-É possível usar modelos para configurar rapidamente um novo quadro de projeto. Quando você usar um modelo para criar um quadro de projeto, o novo quadro incluirá colunas, bem como cartões com dicas para usar quadros de projeto. Você também pode escolher um modelo com automação já configurada.
+Você pode usar modelos para configurar rapidamente um novo {% data variables.projects.projects_v1_board %}. Ao usar um modelo para criar um {% data variables.projects.projects_v1_board %}, seu novo quadro incluirá colunas, assim como cartões com dicas para usar o {% data variables.product.prodname_projects_v1 %}. Você também pode escolher um modelo com automação já configurada.
 
 | Modelo                          | Descrição                                                                                                                                                                              |
 | ------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -58,17 +56,17 @@ Também é possível [desabilitar quadros de projeto em um repositório](/articl
 | Kanban automatizado com revisão | Cartões são movidos automaticamente entre as colunas To do (Pendentes), In progress (Em andamento) e Done (Concluídos), com gatilhos adicionais para status de revisão de pull request |
 | Triagem de erros                | Faça a triagem e priorize erros com as colunas To do (Pendentes), High priority (Prioridade alta), Low priority (Prioridade baixa) e Closed (Fechados)                                 |
 
-Para obter mais informações sobre automação para quadros de projeto, consulte "[Sobre automação para quadros de projeto](/articles/about-automation-for-project-boards)".
+Para obter mais informações sobre automação para {% data variables.product.prodname_projects_v1 %}, consulte "[Sobre automação para o {% data variables.product.prodname_projects_v1 %}](/articles/about-automation-for-project-boards)".
 
-![Quadro de projeto com modelo de kanban básico](/assets/images/help/projects/project-board-basic-kanban-template.png)
+![{% data variables.product.prodname_project_v1 %} com modelo básico de kanban](/assets/images/help/projects/project-board-basic-kanban-template.png)
 
 {% data reusables.project-management.copy-project-boards %}
 
 ## Leia mais
 
-- "[Criar um quadro de projeto](/articles/creating-a-project-board)"
-- "[Editar um quadro de projeto](/articles/editing-a-project-board)"{% ifversion fpt or ghec %}
-- "[Copiar um quadro de projeto](/articles/copying-a-project-board)"{% endif %}
-- "[Adicionar problemas e pull requests a um quadro de projeto](/articles/adding-issues-and-pull-requests-to-a-project-board)"
-- "[Permissões de quadro de projeto para uma organização](/articles/project-board-permissions-for-an-organization)"
+- "[Criar um {% data variables.product.prodname_project_v1 %}](/articles/creating-a-project-board)"
+- "[Editando um {% data variables.product.prodname_project_v1 %}](/articles/editing-a-project-board)"{% ifversion fpt or ghec %}
+- "[Copiando um {% data variables.product.prodname_project_v1 %}](/articles/copying-a-project-board)"{% endif %}
+- "[Adicionando problemas e pull requests a um {% data variables.product.prodname_project_v1 %}](/articles/adding-issues-and-pull-requests-to-a-project-board)"
+- "[Permissões de {% data variables.product.prodname_project_v1_caps %} para uma organização](/articles/project-board-permissions-for-an-organization)"
 - "[Atalhos de teclado](/articles/keyboard-shortcuts/#project-boards)"

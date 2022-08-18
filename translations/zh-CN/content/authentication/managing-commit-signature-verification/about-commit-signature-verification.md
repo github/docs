@@ -28,6 +28,8 @@ Commits and tags have the following verification statuses, depending on whether 
 
 {% data reusables.identity-and-permissions.vigilant-mode-beta-note %}
 
+Signing commits differs from signing off on a commit. For more information about signing off on commits, see "[Managing the commit signoff policy for your repository](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-the-commit-signoff-policy-for-your-repository)."
+
 ### Default statuses
 
 | Status         | Description |
@@ -57,7 +59,7 @@ Repository administrators can enforce required commit signing on a branch to blo
 {% ifversion ghes %}If a site administrator has enabled web commit signing, {% data variables.product.product_name %} will automatically use GPG to sign commits you make using the web interface. Commits signed by {% data variables.product.product_name %} will have a verified status. You can verify the signature locally using the public key available at `https://HOSTNAME/web-flow.gpg`. For more information, see "[Configuring web commit signing](/admin/configuration/configuring-your-enterprise/configuring-web-commit-signing)."
 {% else %}{% data variables.product.prodname_dotcom %} will automatically use GPG to sign commits you make using the web interface. Commits signed by {% data variables.product.prodname_dotcom %} will have a verified status. You can verify the signature locally using the public key available at https://github.com/web-flow.gpg. The full fingerprint of the key is `5DE3 E050 9C47 EA3C F04A 42D3 4AEE 18F8 3AFD EB23`.
 
-You can optionally choose to have {% data variables.product.prodname_dotcom %} sign commits you make in {% data variables.product.prodname_codespaces %}. For more information about enabling GPG verification for your codespaces, see "[Managing GPG verification for {% data variables.product.prodname_codespaces %}](/github/developing-online-with-codespaces/managing-gpg-verification-for-codespaces)."{% endif %}
+You can optionally choose to have {% data variables.product.prodname_dotcom %} sign commits you make in {% data variables.product.prodname_github_codespaces %}. For more information about enabling GPG verification for your codespaces, see "[Managing GPG verification for {% data variables.product.prodname_github_codespaces %}](/codespaces/managing-your-codespaces/managing-gpg-verification-for-github-codespaces)."{% endif %}
 {% endif %}
 
 ## GPG commit signature verification
@@ -70,7 +72,7 @@ To sign commits using GPG and have those commits verified on {% data variables.p
 
 1. [Check for existing GPG keys](/articles/checking-for-existing-gpg-keys)
 2. [Generate a new GPG key](/articles/generating-a-new-gpg-key)
-3. [Add a new GPG key to your GitHub account](/articles/adding-a-new-gpg-key-to-your-github-account)
+3. [Add a GPG key to your GitHub account](/articles/adding-a-gpg-key-to-your-github-account)
 4. [Tell Git about your signing key](/articles/telling-git-about-your-signing-key)
 5. [Sign commits](/articles/signing-commits)
 6. [Sign tags](/articles/signing-tags)

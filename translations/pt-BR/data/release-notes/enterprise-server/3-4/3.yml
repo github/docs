@@ -18,7 +18,8 @@ sections:
     - Vídeos enviados para comentários de problemas não seriam interpretados corretamente.
     - Ao usar o GitHub Enterprise Importer para importar um repositório, alguns problemas falhariam na importação devido a eventos da linha do tempo do projeto configurados incorretamente.
     - Ao usar `ghe-migrator`, uma migração falharia na importação de anexos do arquivo de vídeo em problemas e pull requests.
-    - 'The Releases page would return a 500 error when the repository has tags that contain non-ASCII characters. [Updated: 2022-06-10]'
+    - 'A página de Versões retornaria um erro 500 quando o repositório tem tags que contêm caracteres que não são ASCII. [Atualizado: 2022-06-10]'
+    - 'As vezes as atualizações falhariam ao migrar dados do gráfico de dependências. [Atualizado: 2022-06-30]'
   changes:
     - Nas configurações de alta disponibilidade, explique que a página de visão geral de replicação no Console de Gerenciamento exibe somente a configuração de replicação atual, não o status de replicação atual.
     - O tempo limite de alocação do Nomad para o gráfico de dependência foi aumentado para garantir que as migrações pós-atualização possam ser concluídas.
@@ -35,4 +36,6 @@ sections:
     - O registro npm de {% data variables.product.prodname_registry %} não retorna mais o valor de tempo em respostas de metadados. Isso foi feito para permitir melhorias substanciais de desempenho. Continuamos a ter todos os dados necessários para devolver um valor de tempo como parte da resposta aos metadados e retomaremos o retorno desse valor no futuro, assim que tivermos resolvido os problemas de desempenho existentes.
     - Os limites de recursos que são específicos para processamento de hooks pre-receive podem causar falha em alguns hooks pre-receive.
     - |
-      After registering a self-hosted runner with the `--ephemeral` parameter on more than one level (for example, both enterprise and organization), the runner may get stuck in an idle state and require re-registration. [Updated: 2022-06-17]
+      Depois de registrar um executor auto-hospedado com o parâmetro `--ephemeral` em mais de um nível (por exemplo, tanto na empresa quanto na organização), o executor pode ficar preso em um estado ocioso e exigir o recadastro. [Atualizado: 2022-06-17]
+    - After upgrading to {% data variables.product.prodname_ghe_server %} 3.4 releases may appear to be missing from repositories. This can occur when the required Elasticsearch index migrations have not successfully completed.
+    - '{% data reusables.release-notes.ghas-3.4-secret-scanning-known-issue %}'

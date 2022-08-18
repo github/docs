@@ -44,6 +44,10 @@ Si tienes muchas dependencias para administrar, tal vez quieras personalizar la 
 
 Predeterminadamente, el {% data variables.product.prodname_dependabot %} rebasa automáticamente las solicitudes de extracción para resolver cualquier conflicto. Si prefieres manejar los conflictos de fusión manualmente, puedes inhabilitar esta opción utilizando la opción de `rebase-strategy`. Para obtener más detalles, consulta la sección "[Opciones de configuración para el archivo dependabot.yeml](/github/administering-a-repository/configuration-options-for-dependency-updates#rebase-strategy)".
 
+## Permitir que el {% data variables.product.prodname_dependabot %} rebase y suba forzadamente sobre las confirmaciones adicionales
+
+Predeterminadamente, el {% data variables.product.prodname_dependabot %} dejará de rebasar una solicitud de cambios una vez que las confirmaciones adicionales se hayan subido a esta. Para permitir que el {% data variables.product.prodname_dependabot %} suba forzadamente sobre las confirmaciones agregadas a sus ramas, incluye cualquiera de las siguientes secuencias: `[dependabot skip]` , `[skip dependabot]`, `[dependabot-skip]` o `[skip-dependabot]`, ya sea en mayúsculas o minúsculas, al mensaje de confirmación.
+
 ## Administrar las solicitudes de extracción del {% data variables.product.prodname_dependabot %} con comandos de comentario
 
 El {% data variables.product.prodname_dependabot %} responde a comandos simples en los comentarios. Cada solicitud de cambios contiene detalles de los comandos que puedes utilizar para procesarla (por ejemplo: para fusionarla, combinarla, reabrirla, cerrarla o rebasarla) bajo la sección de "comandos y opciones del {% data variables.product.prodname_dependabot %}". El objetivo es facilitar tanto como sea posible el que se pueda clasificar automáticamente las solicitudes de extracción generadas.

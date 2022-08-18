@@ -1,6 +1,6 @@
 ---
-title: Administrar el acceso a los tableros de proyecto de tu organización
-intro: 'Como propietario de la organización o administrador de un tablero de proyecto, puedes darles a los miembros de la organización, a los equipos o a colaboradores externos diferentes niveles de acceso a tableros de proyecto que son propiedad de tu organización.'
+title: 'Administrar el acceso al {% data variables.product.prodname_projects_v1 %} de tu organización'
+intro: 'Como propietario de una organización o administrador de un {% data variables.projects.projects_v1_board %}, puedes proporcionar a los miembros, equipos y colaboradores externos de una organización niveles diferentes de acceso a los {% data variables.projects.projects_v1_boards %} que pertenecen a ella.'
 redirect_from:
   - /articles/managing-access-to-your-organization-s-project-boards
   - /articles/managing-access-to-your-organizations-project-boards
@@ -20,6 +20,7 @@ children:
   - /managing-an-individuals-access-to-an-organization-project-board
   - /adding-an-outside-collaborator-to-a-project-board-in-your-organization
   - /removing-an-outside-collaborator-from-an-organization-project-board
-shortTitle: Administrar el acceso al tablero de proyecto
+shortTitle: 'Administrar el acceso a {% data variables.product.prodname_project_v1 %}'
+allowTitleToDifferFromFilename: true
 ---
 

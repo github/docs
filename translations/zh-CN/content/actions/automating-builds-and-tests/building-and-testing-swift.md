@@ -68,7 +68,11 @@ jobs:
 您可以将作业配置为在矩阵中使用多个版本的 Swift。
 
 ```yaml{:copy}
+
 {% data reusables.actions.actions-not-certified-by-github-comment %}
+
+{% data reusables.actions.actions-use-sha-pinning-comment %}
+
 
 name: Swift
 

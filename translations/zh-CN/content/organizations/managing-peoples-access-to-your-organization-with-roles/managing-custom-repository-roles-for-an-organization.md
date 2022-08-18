@@ -49,7 +49,7 @@ redirect_from:
 
 仅当继承的角色中尚未包含其他权限时，才能选择该权限。 例如，如果继承的角色提供对存储库**写入**访问权限，则“关闭拉取请求”权限将已包含在继承的角色中。
 
-{% ifversion ghec %}
+{% ifversion discussions %}
 ### Discussions
 
 - **创建讨论类别**：能够创建新的讨论类别。 更多信息请参阅“[创建新类别](/discussions/managing-discussions-for-your-community/managing-categories-for-discussions#creating-a-category)”。

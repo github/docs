@@ -1,6 +1,6 @@
 ---
 title: 查询
-miniTocMaxHeadingLevel: 2
+miniTocMaxHeadingLevel: 3
 redirect_from:
   - /v4/query
   - /v4/reference/query
@@ -25,14 +25,4 @@ topics:
 
 {% endnote %}
 
-## 连接
-
-{% for item in graphql.schemaForCurrentVersion.queries.connections %}
-  {% include graphql-query %}
-{% endfor %}
-
-## 字段
-
-{% for item in graphql.schemaForCurrentVersion.queries.fields %}
-  {% include graphql-query %}
-{% endfor %}
+<!-- Content after this section is automatically generated -->

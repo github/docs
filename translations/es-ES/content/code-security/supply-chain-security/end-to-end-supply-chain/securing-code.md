@@ -57,7 +57,7 @@ Para valorar el impacto de una vulnerabilidad en tu código, también necesitas 
 
 ## Asegurar tus tokens de comunicación
 
-A menudo, el código necesita comunicarse con otros sistemas a través de una red y requiere secretos (como una contrasella o llave de API) para autenticarse. Tu sistema necesita acceso a estos secretos para ejecutarse, pero es la mejor práctica el no incluirlos en tu código fuente. Esto es especialmente importante en el caso de los repositorios públicos, pero también para los repositorios privados a los cuales tienen acceso muchas personas.
+A menudo, el código necesita comunicarse con otros sistemas a través de una red y requiere secretos (como una contrasella o llave de API) para autenticarse. Tu sistema necesita acceso a estos secretos para ejecutarse, pero es la mejor práctica el no incluirlos en tu código fuente. Esto es especialmente importante para los repositorios a los cuales tienen acceso muchas personas{% ifversion not ghae %} y es crítico para los repositorios públicos{% endif %}.
 
 ### Detección automática de secretos confirmados a un repositorio
 

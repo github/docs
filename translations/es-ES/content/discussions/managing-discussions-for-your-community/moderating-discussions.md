@@ -1,16 +1,15 @@
 ---
 title: Moderar los debates
-intro: 'Puedes promover una colaboración sana si marcas los comentarios como respuestas, bloqueando y desbloqueando debates, convirtiendo propuestas en debates y editando o borrando los comentarios, debates y categorías que no se alineen con el código de conducta de tu comunidad.'
+intro: 'Puedes promover una colaboración saludable si marcas los comentarios como respuestas, bloqueando o desbloqueando debates, convirtiendo las propuestas en debates y editando o borrando comentarios, debates y categorías que no se alineen con {% ifversion fpt or ghec %} el código de conducta de la comunidad{% elsif ghes > 3.5 %} los lineamientos de contribución de la organización{% endif %}.'
 permissions: People with triage access to a repository can moderate discussions in the repository. People with triage access to the source repository for organization discussions can moderate discussions in the organization.
 versions:
-  fpt: '*'
-  ghec: '*'
+  feature: discussions
 ---
 
 
 ## Acerca de moderar los debates
 
-{% data reusables.discussions.about-discussions %} Si tienes permisos de clasificación para un repositorio, puedes ayudar a moderar los debates de este marcando los comentarios como respuestas, bloqueando debates que ya no sean útiles o que dañen a la comunidad y convirtiendo las propuestas en debates cuando una idea aún está en las etapas tempranas de desarrollo. De forma similar, si tienes permisos de clasificación para el repositorio origen para los debates de la organización, puedes moderarlos en esta.
+{% data reusables.discussions.about-discussions %} Si tienes permisos de clasificación para un repositorio, puedes ayudar a moderar los debates del mismo si marcas los comentarios como respuestas, bloqueas los debates que ya no sean útiles o que dañen a la comunidad y conviertes las propuestas en debates cuando una idea está aún en las primeras etapas de desarrollo. De forma similar, si tienes permisos de clasificación para el repositorio origen para los debates de la organización, puedes moderarlos en esta.
 
 ## Marcar un comentario como una respuesta
 

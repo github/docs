@@ -42,10 +42,10 @@
 
 {% ifversion fpt or ghec or ghes > 3.4 %}
 [4]
-{% ifversion ghes = 3.5 %}`pub` support is currently in beta. 任何已知的限制都可能发生变化。 请注意， {% data variables.product.prodname_dependabot %}：
+{% ifversion ghes = 3.5 %}`pub` 支持目前处于测试阶段。 任何已知的限制都可能发生变化。 请注意， {% data variables.product.prodname_dependabot %}：
    - 不支持更新 `pub` 的 git 依赖项。
    - 当尝试更新到的版本被忽略时，不会执行更新，即使早期版本可用也是如此。
 
    有关为 `pub`配置 _dependabot.yml_ 文件的信息，请参阅“[启用对 beta 级生态系统的支持](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#enable-beta-ecosystems)”。
-   {%- else %}{% data variables.product.prodname_dependabot %} won't perform an update for `pub` when the version that it tries to update to is ignored, even if an earlier version is available.{% endif %}
+   {%- else %}{% data variables.product.prodname_dependabot %} 不会在尝试更新到的版本被忽略时对 `pub` 执行更新，即使早期版本可用也是如此。{% endif %}
 {% endif %} 

@@ -58,12 +58,11 @@ Para todas as configurações de {% data variables.product.prodname_code_scannin
 
 ### Falhas de verificação de resultados {% data variables.product.prodname_code_scanning_capc %}
 
-Se os resultados {% data variables.product.prodname_code_scanning %} encontrarem algum problema com uma gravidade de `erro`{% ifversion fpt or ghes > 3.1  or ghae or ghec %}, `grave` ou `alto`,{% endif %} a verificação irá falhar e o erro será relatado nos resultados da verificação. Se todos os resultados encontrados por {% data variables.product.prodname_code_scanning %} tiverem gravidades menores, os alertas serão tratados como avisos ou observações e a verificação será considerada bem-sucedida.
+Se os resultados da verificação de {% data variables.product.prodname_code_scanning %} encontrarem algum problema com uma gravidade de `error`, `critical` ou `alta`, a verificação irá falhar e o erro será relatado nos resultados de verificação. Se todos os resultados encontrados por {% data variables.product.prodname_code_scanning %} tiverem gravidades menores, os alertas serão tratados como avisos ou observações e a verificação será considerada bem-sucedida.
 
 ![Ocorreu uma falha na verificação de {% data variables.product.prodname_code_scanning %} em um pull request](/assets/images/help/repository/code-scanning-check-failure.png)
 
-{% ifversion fpt or ghes > 3.1 or ghae or ghec %}Você pode substituir o comportamento padrão nas configurações do repositório, ao especificar o nível de gravidade {% ifversion fpt or ghes > 3.1  or ghae or ghec %}e gravidade de segurança {% endif %}que causarão uma falha de verificação de pull request. Para obter mais informações, consulte[Definir as gravidades causadoras da falha de verificação de pull request](/code-security/secure-coding/configuring-code-scanning#defining-the-severities-causing-pull-request-check-failure)".
-{% endif %}
+Você pode substituir o comportamento padrão nas configurações do repositório, ao especificar o nível de gravidade e gravidade de segurança que causarão uma falha de verificação do pull request. Para obter mais informações, consulte[Definir as gravidades causadoras da falha de verificação de pull request](/code-security/secure-coding/configuring-code-scanning#defining-the-severities-causing-pull-request-check-failure)".
 
 ### Outras verificações de {% data variables.product.prodname_code_scanning %}
 
@@ -119,7 +118,7 @@ Qualquer pessoa com acesso push a um pull request pode corrigir um alerta de {% 
 
 Uma forma alternativa de fechar um alerta é ignorá-lo. Você pode descartar um alerta se não acha que ele precisa ser corrigido. {% data reusables.code-scanning.close-alert-examples %} Se você tem permissão de gravação no repositório, o botão **Ignorar** estará disponível nas anotações de código e no resumo de alertas. Ao clicar em **Ignorar** será solicitado que você escolha um motivo para fechar o alerta.
 {% ifversion comment-dismissed-code-scanning-alert %}
-![Captura de tela do alerta de verificação de código com menu suspenso para escolher o motivo da rejeição destacado](/assets/images/help/repository/code-scanning-alert-drop-down-reason.png)
+![Captura de tela do alerta de verificação de código com menu suspenso para escolher o motivo da rejeição destacado](/assets/images/help/repository/code-scanning-alert-dropdown-reason.png)
 {% else %}
 ![Escolher um motivo para ignorar um alerta](/assets/images/help/repository/code-scanning-alert-close-drop-down.png)
 {% endif %}

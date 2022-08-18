@@ -35,12 +35,12 @@ on:
 
 #### 例: ブランチ及びタグの除外
 
-パターンが`branches-ignore`または`tags-ignore`とマッチする場合、ワークフローは実行されません。 `branches`および`tags`で定義されているパターンは、Git refの名前と照らし合わせて評価されます。 For example, the following workflow would run whenever there is a `push` event, unless the `push` event is to:
+パターンが`branches-ignore`または`tags-ignore`とマッチする場合、ワークフローは実行されません。 `branches`および`tags`で定義されているパターンは、Git refの名前と照らし合わせて評価されます。 たとえば、次のワークフローは`push`イベントがあり、その`push`イベントが以下に対するものでない場合に実行されます。
 
-- A branch named `mona/octocat` (`refs/heads/mona/octocat`)
-- A branch whose name matches `releases/**-alpha`, like `beta/3-alpha` (`refs/releases/beta/3-alpha`)
+- `mona/octocat`という名前のブランチ(`refs/heads/mona/octocat`)
+- `beta/3-alpha`のように、`releases/**-alpha`にマッチする名前のブランチ(`refs/releases/beta/3-alpha`)
 - `v2`という名前のタグ(`refs/tags/v2`)
-- A tag whose name starts with `v1.`, like `v1.9` (`refs/tags/v1.9`)
+- `v1.9`のように`v1.`で始まる名前のタグ(`refs/tags/v1.9`)
 
 ```yaml
 on:
@@ -55,11 +55,11 @@ on:
       - v1.*
 ```
 
-#### Example: Including and excluding branches and tags
+#### 例: ブランチとタグを含めるとともに除外
 
-You can't use `branches` and `branches-ignore` to filter the same event in a single workflow. Similarly, you can't use `tags` and `tags-ignore` to filter the same event in a single workflow. If you want to both include and exclude branch or tag patterns for a single event, use the `branches` or `tags` filter along with the `!` character to indicate which branches or tags should be excluded.
+`branches`及び`branches-ignore`フィルタを1つのワークフロー中の同じイベントをフィルタリングするために使うことはできません。 同様に、`tags`及び`tags-ignore`を1つのワークフロー中の同じイベントをフィルタリングするために使うことはできません。 1つのイベントに対してブランチもしくはタグパターンを含めるとともに除外したい場合には、`branches`もしくは`tags`フィルタを`!`文字とともに使って、除外すべきブランチもしくはタグを示してください。
 
-If you define a branch with the `!` character, you must also define at least one branch without the `!` character. If you only want to exclude branches, use `branches-ignore` instead. Similarly, if you define a tag with the `!` character, you must also define at least one tag without the `!` character. If you only want to exclude tags, use `tags-ignore` instead.
+`!`文字を使ってブランチを定義する場合、`!`文字なしで少なくとも1つのブランチを定義する必要もあります。 ブランチの除外だけをしたい場合には、代わりに`branches-ignore`を使ってください。 同様に、`!`文字でタグを定義する場合には、`!`なしで少なくとも1つのタグを定義する必要があります。 タグの除外だけをしたい場合には、代わりに`tags-ignore`を使ってください。
 
 パターンを定義する順序により、結果に違いが生じます。
 

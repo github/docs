@@ -1,18 +1,16 @@
 ---
-title: Alterar a visibilidade dos quadros de projeto
-intro: 'Como proprietário ou administrador de um projeto da organização, você pode tornar um quadro de projeto {% ifversion ghae %}interno{% else %}público{% endif %} ou privado.'
+title: 'Alterando a visibilidade de {% data variables.product.prodname_project_v1 %}'
+intro: 'Como proprietário da organização ou administrador de {% data variables.projects.projects_v1_board %}, você pode tornar um {% data variables.projects.projects_v1_board %} {% ifversion ghae %}interno{% else %}público{% endif %} ou privado.'
 redirect_from:
   - /github/managing-your-work-on-github/managing-project-boards/changing-project-board-visibility
   - /articles/changing-project-board-visibility
   - /github/managing-your-work-on-github/changing-project-board-visibility
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
-  ghec: '*'
+  feature: projects-v1
 topics:
   - Pull requests
 shortTitle: Alterar visibilidade
+allowTitleToDifferFromFilename: true
 ---
 
 {% data reusables.projects.project_boards_old %}
@@ -21,7 +19,7 @@ shortTitle: Alterar visibilidade
 
 {% tip %}
 
-**Dica:** Ao tornar seu quadro de projeto {% ifversion ghae %}interno{% else %}público{% endif %}, os integrantes da organização recebem acesso de leitura por padrão. Você pode conceder a integrantes específicos da organização permissões de gravação ou de administrador dando às equipes acesso ao quadro de projeto em que eles estão ativos ou adicionando-os ao quadro de projeto como um colaborador. Para obter mais informações, consulte "[Permissões de quadro de projeto para uma organização](/articles/project-board-permissions-for-an-organization)".
+**Dica:** Ao se tornar o seu {% data variables.projects.projects_v1_board %} {% ifversion ghae %}interno{% else %}público{% endif %}, os integrantes da organização recebem acesso de leitura por padrão. Você pode dar permissões de gravação ou de administrador a certos integrantes da organização, dando acesso a equipes nas quais estão ou adicionando-os ao {% data variables.projects.projects_v1_board %} como colaborador. Para obter mais informações, consulte "[Permissões de {% data variables.product.prodname_project_v1_caps %} para uma organização](/articles/project-board-permissions-for-an-organization)".
 
 {% endtip %}
 

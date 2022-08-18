@@ -1,6 +1,6 @@
 ---
 title: Comentarios sobre confirmación de cambios
-intro: The Commit comments API lets you create and edit comments that relate to specific commits.
+intro: La API de comentarios de confirmaciones te permite crear y editar los comentarios que se relacionan con confirmaciones específicas.
 versions:
   fpt: '*'
   ghes: '*'

@@ -17,55 +17,55 @@ If you use a Jetbrains IDE, {% data variables.product.prodname_copilot %} can au
 
 To configure {% data variables.product.prodname_copilot %} in a JetBrains IDE, you must install the {% data variables.product.prodname_copilot %} plugin. For more information, see "[Getting started with {% data variables.product.prodname_copilot %} in a JetBrains IDE](/copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-a-jetbrains-ide)."
 
-## Keyboard shortcuts for {% data variables.product.prodname_copilot %}
+## Atajos de teclado para el {% data variables.product.prodname_copilot %}
 
 You can use the default keyboard shortcuts for inline suggestions in your JetBrains IDE when using {% data variables.product.prodname_copilot %}. Alternatively, you can rebind the shortcuts to your preferred keyboard shortcuts for each specific command. For more information on rebinding keyboard shortcuts in your JetBrains IDE, see the JetBrains documentation. For example, you can view the [IntelliJ IDEA](https://www.jetbrains.com/help/idea/mastering-keyboard-shortcuts.html#choose-keymap) documentation.
 
 {% mac %}
 
-| Acción                                                                                       | Shortcut                                       |
-|:-------------------------------------------------------------------------------------------- |:---------------------------------------------- |
-| Accept an inline suggestion                                                                  | <kbd>Tab</kbd>                                 |
-| Dismiss an inline suggestion                                                                 | <kbd>Esc</kbd>                                 |
-| Show next inline suggestion                                                                  | <kbd>Option (⌥) or Alt</kbd>+<kbd>]</kbd>      |
-| Show previous inline suggestion                                                              | <kbd>Option (⌥) or Alt</kbd>+<kbd>[</kbd>      |
-| Trigger inline suggestion                                                                    | <kbd>Option (⌥)</kbd>+<kbd>\</kbd>            |
-| Open {% data variables.product.prodname_copilot %} (additional suggestions in separate pane) | <kbd>Option (⌥) or Alt</kbd>+<kbd>Return</kbd> |
+| Acción                                                                                                   | Atajo                                          |
+|:-------------------------------------------------------------------------------------------------------- |:---------------------------------------------- |
+| Aceptar una sugerencia en una línea                                                                      | <kbd>Tab</kbd>                                 |
+| Descartar una sugerencia dentro de una línea                                                             | <kbd>Esc</kbd>                                 |
+| Mostrar la siguiente sugerencia dentro de una línea                                                      | <kbd>Opción(⌥) or Alt</kbd>+<kbd>]</kbd>       |
+| Mostrar la sugerencia anterior en la línea                                                               | <kbd>Opción(⌥) or Alt</kbd>+<kbd>[</kbd>       |
+| Activar las sugerencias dentro de las líneas                                                             | <kbd>Opción (⌥)</kbd>+<kbd>\</kbd>            |
+| Abre el {% data variables.product.prodname_copilot %} (sugerencias adicionales en un panel por separado) | <kbd>Option (⌥) or Alt</kbd>+<kbd>Return</kbd> |
 
 {% endmac %}
 
 {% windows %}
 
-| Acción                                                                                       | Shortcut                        |
-|:-------------------------------------------------------------------------------------------- |:------------------------------- |
-| Accept an inline suggestion                                                                  | <kbd>Tab</kbd>                  |
-| Dismiss an inline suggestion                                                                 | <kbd>Esc</kbd>                  |
-| Show next inline suggestion                                                                  | <kbd>Alt</kbd>+<kbd>]</kbd>     |
-| Show previous inline suggestion                                                              | <kbd>Alt</kbd>+<kbd>[</kbd>     |
-| Trigger inline suggestion                                                                    | <kbd>Alt</kbd>+<kbd>\</kbd>    |
-| Open {% data variables.product.prodname_copilot %} (additional suggestions in separate pane) | <kbd>Alt</kbd>+<kbd>Enter</kbd> |
+| Acción                                                                                                   | Atajo                           |
+|:-------------------------------------------------------------------------------------------------------- |:------------------------------- |
+| Aceptar una sugerencia en una línea                                                                      | <kbd>Tab</kbd>                  |
+| Descartar una sugerencia dentro de una línea                                                             | <kbd>Esc</kbd>                  |
+| Mostrar la siguiente sugerencia dentro de una línea                                                      | <kbd>Alt</kbd>+<kbd>]</kbd>     |
+| Mostrar la sugerencia anterior en la línea                                                               | <kbd>Alt</kbd>+<kbd>[</kbd>     |
+| Activar las sugerencias dentro de las líneas                                                             | <kbd>Alt</kbd>+<kbd>\</kbd>    |
+| Abre el {% data variables.product.prodname_copilot %} (sugerencias adicionales en un panel por separado) | <kbd>Alt</kbd>+<kbd>Enter</kbd> |
 
 {% endwindows %}
 
 {% linux %}
 
-| Acción                                                                                       | Shortcut                        |
-|:-------------------------------------------------------------------------------------------- |:------------------------------- |
-| Accept an inline suggestion                                                                  | <kbd>Tab</kbd>                  |
-| Dismiss an inline suggestion                                                                 | <kbd>Esc</kbd>                  |
-| Show next inline suggestion                                                                  | <kbd>Alt</kbd>+<kbd>]</kbd>     |
-| Show previous inline suggestion                                                              | <kbd>Alt</kbd>+<kbd>[</kbd>     |
-| Trigger inline suggestion                                                                    | <kbd>Alt</kbd>+<kbd>\</kbd>    |
-| Open {% data variables.product.prodname_copilot %} (additional suggestions in separate pane) | <kbd>Alt</kbd>+<kbd>Enter</kbd> |
+| Acción                                                                                                   | Atajo                           |
+|:-------------------------------------------------------------------------------------------------------- |:------------------------------- |
+| Aceptar una sugerencia en una línea                                                                      | <kbd>Tab</kbd>                  |
+| Descartar una sugerencia en la línea                                                                     | <kbd>Esc</kbd>                  |
+| Mostrar la siguiente sugerencia dentro de una línea                                                      | <kbd>Alt</kbd>+<kbd>]</kbd>     |
+| Mostrar la sugerencia anterior en la línea                                                               | <kbd>Alt</kbd>+<kbd>[</kbd>     |
+| Activar las sugerencias dentro de las líneas                                                             | <kbd>Alt</kbd>+<kbd>\</kbd>    |
+| Abre el {% data variables.product.prodname_copilot %} (sugerencias adicionales en un panel por separado) | <kbd>Alt</kbd>+<kbd>Enter</kbd> |
 
 {% endlinux %}
 
 ## Habilitar o inhabilitar {% data variables.product.prodname_copilot %}
 
-You can enable or disable {% data variables.product.prodname_copilot %} from within your JetBrains IDE. The {% data variables.product.prodname_copilot %} status icon in the bottom panel of the JetBrains window indicates whether {% data variables.product.prodname_copilot %} is enabled or disabled. When enabled, the icon is highlighted. When disabled, the icon is grayed out.
+You can enable or disable {% data variables.product.prodname_copilot %} from within your JetBrains IDE. The {% data variables.product.prodname_copilot %} status icon in the bottom panel of the JetBrains window indicates whether {% data variables.product.prodname_copilot %} is enabled or disabled. Cuando se inhabilita, el icono se resalta. Cuando se inhabilita, el icono se pone gris.
 
-1. To enable or disable {% data variables.product.prodname_copilot %}, click the status icon in the bottom panel of the JetBrains window. ![Status icon in JetBrains](/assets/images/help/copilot/status-icon-jetbrains.png)
-2. If you are disabling {% data variables.product.prodname_copilot %}, you will be asked whether you want to disable it globally, or for the language of the file you are currently editing. To disable globally, click **Disable Completions**. Alternatively, click the language-specific button to disable {% data variables.product.prodname_copilot %} for the specified language. ![Disable {% data variables.product.prodname_copilot %} globally or for the current language](/assets/images/help/copilot/disable-copilot-global-or-langugage-jetbrains.png)
+1. Para habilitar o inhabilitar el {% data variables.product.prodname_copilot %}, haz clic en el icono de estado en el panel inferior de la ventana de JetBrains. ![Status icon in JetBrains](/assets/images/help/copilot/status-icon-jetbrains.png)
+2. Si estás inhabilitando el {% data variables.product.prodname_copilot %}, se te preguntará si quieres inhabilitarlo globalmente o solo para el lenguaje del archivo que estás editando actualmente. To disable globally, click **Disable Completions**. Alternatively, click the language-specific button to disable {% data variables.product.prodname_copilot %} for the specified language. ![Disable {% data variables.product.prodname_copilot %} globally or for the current language](/assets/images/help/copilot/disable-copilot-global-or-langugage-jetbrains.png)
 
 ## Configuring advanced settings for {% data variables.product.prodname_copilot %}
 

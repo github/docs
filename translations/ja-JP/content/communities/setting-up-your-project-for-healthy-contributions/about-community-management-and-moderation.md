@@ -17,7 +17,7 @@ shortTitle: 管理 & モデレーション
 
 {% data variables.product.prodname_dotcom %}は、リポジトリメンテナが{% data variables.product.prodname_dotcom_the_website %}のコミュニティでより厳格な行動規範を定義および実施するためのツールも提供しています。
 
-Organization owners can specify organization members as moderators. This gives these members access to moderation features otherwise reserved for organization owners. For more information, see "[Managing moderators in your organization](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-moderators-in-your-organization)."
+Organization owners can specify organization members as moderators. This gives these members access to moderation features otherwise reserved for organization owners. 詳しい情報については「[Organizationでのモデレーターの管理](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-moderators-in-your-organization)」を参照してください。
 
 コミュニティでの行動規範を確立すると、混乱をもたらす行動に迅速かつ公正に対応することによって快適で生産的な環境を推進できます。 効果的なモデレーションによって、コミュニティ内で信頼関係を構築し、コントリビューターに健全で友好的な雰囲気を感じてもらうことができます。
 
@@ -36,5 +36,3 @@ Organization owners can specify organization members as moderators. This gives t
 - オープンソースガイドの「[行動規範](https://opensource.guide/code-of-conduct/)」
 - オープンソースガイドの「[友好的なコミュニティを構築する](https://opensource.guide/building-community/)」
 - オープンソースガイドの「[リーダーシップとガバナンス](https://opensource.guide/leadership-and-governance/)」
-- GitHub コミュニティフォーラムの「[辱めとそれが不適切な理由](https://github.community/t5/Studies-in-Community/Shaming-and-why-it-is-inappropriate/ba-p/12728)」
-- GitHub コミュニティフォーラムの「[有害であることは建設的な批判ではない](https://github.community/t5/Studies-in-Community/Being-toxic-is-not-constructive-criticism/ba-p/8029)」

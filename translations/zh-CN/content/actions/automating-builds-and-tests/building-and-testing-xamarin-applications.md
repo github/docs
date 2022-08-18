@@ -28,8 +28,8 @@ shortTitle: 构建和测试 Xamarin 应用程序
 
 在 {% data variables.product.prodname_actions %} 托管的 macOS 运行器上有可用的 Xamarin SDK 版本的完整列表，请参阅文档：
 
-* [macOS 10.15](https://github.com/actions/virtual-environments/blob/main/images/macos/macos-10.15-Readme.md#xamarin-bundles)
-* [macOS 11](https://github.com/actions/virtual-environments/blob/main/images/macos/macos-11-Readme.md#xamarin-bundles)
+* [macOS 10.15](https://github.com/actions/runner-images/blob/main/images/macos/macos-10.15-Readme.md#xamarin-bundles)
+* [macOS 11](https://github.com/actions/runner-images/blob/main/images/macos/macos-11-Readme.md#xamarin-bundles)
 
 {% data reusables.actions.macos-runner-preview %}
 

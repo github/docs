@@ -1,8 +1,8 @@
-- To filter for any match of multiple values (an OR query), separate the values with a comma. For example `label:"good first issue",bug` will list all issues labelled `good first issue` or `bug`.
+- 要筛选多个值的任何匹配项（OR 查询），请用逗号分隔这些值。 例如， `label:"good first issue",bug` 将列出标签为 `good first issue` 或 `bug` 的所有议题。
 - 要过滤缺少特定值的字段，请在过滤器之前加入 `-`。 例如， `-label:"bug"` 只会显示没有标签的 `bug` 的项。
 - 要过滤缺少所有值的字段, 请输入 `no:`，后接字段名称。 例如，`no:assignee` 仅显示没有受理人的项。
 - 要按状态过滤，请输入 `is:`。 例如 `is: issue` 或 `is:open`。
 - 多个过滤条件之间用逗号分隔。 例如，`status:"In progress" -label:"bug" no:assignee` 仅显示状态为 `In progress`、没有标签 `bug` 且没有受理人的项。
-- To filter for the previous, current, or next iteration of an iteration field, use `@previous`, `@current`, or `@next`. 例如 `sprint:@current`。
-- To filter for items assigned to the viewer, use `@me`. For example, `assignee:@me`. Anyone using this view will see items assigned to themselves.
-- To filter date and number fields, use `>`, `>=`, `<`, `<=`, and `..` range queries. For example: `target:2022-03-01..2022-03-15`. 更多信息请参阅“[了解搜索语法](/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax)”。
+- 要筛选迭代字段的上一个、当前或下一个迭代，请使用 `@previous`、`@current` 或 `@next`。 例如 `sprint:@current`。
+- 要筛选分配给查看器的项目，请使用 `@me`。 例如 `assignee:@me`。 使用此视图的任何人都将看到分配给自己的项目。
+- 要筛选日期和数字字段，请使用 `>`、`>=`、`<`、`<=` 和 `..` 范围查询。 例如：`target:2022-03-01..2022-03-15`。 更多信息请参阅“[了解搜索语法](/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax)”。

@@ -570,13 +570,13 @@ _キー_
 {% endif -%}
 - [`GET /orgs/:org/team/:team_id`](/rest/teams/teams#get-a-team-by-name) (:read)
 {% ifversion fpt or ghec -%}
-- [`GET /scim/v2/orgs/:org/Users`](/rest/reference/scim#list-scim-provisioned-identities) (:read)
+- [`GET /scim/v2/orgs/:org/Users`](/rest/reference/scim#list-scim-provisioned-identities) (:write)
 {% endif -%}
 {% ifversion fpt or ghec -%}
 - [`POST /scim/v2/orgs/:org/Users`](/rest/reference/scim#provision-and-invite-a-scim-user) (:write)
 {% endif -%}
 {% ifversion fpt or ghec -%}
-- [`GET /scim/v2/orgs/:org/Users/:external_identity_guid`](/rest/reference/scim#get-scim-provisioning-information-for-a-user) (:read)
+- [`GET /scim/v2/orgs/:org/Users/:external_identity_guid`](/rest/reference/scim#get-scim-provisioning-information-for-a-user) (:write)
 {% endif -%}
 {% ifversion fpt or ghec -%}
 - [`PUT /scim/v2/orgs/:org/Users/:external_identity_guid`](/rest/reference/scim#set-scim-information-for-a-provisioned-user) (:write)
@@ -712,6 +712,7 @@ _Team_
 - [`GET /repos/:owner/:repo/pages/builds/latest`](/rest/reference/pages#get-latest-pages-build) (:read)
 {% ifversion fpt or ghec -%}
 - [`GET /repos/:owner/:repo/pages/health`](/rest/reference/pages#get-a-dns-health-check-for-github-pages) (:write)
+- [`POST /repos/:owner/:repo/pages/deployment`](/rest/reference/repos#create-a-github-pages-deployment) (:write)
 {% endif %}
 
 ### "pull requests"に対する権限
@@ -885,7 +886,7 @@ _Team_
 - [`DELETE /orgs/:org/dependabot/secrets/:secret_name`](/rest/reference/dependabot#delete-an-organization-secret) (:write)
 {% endif %}
 
-{% ifversion ghes > 3.0 or ghec %}
+{% ifversion ghes or ghec %}
 ### "secret scanning alerts"に対する権限
 
 - [`GET /repos/:owner/:repo/secret-scanning/alerts`](/rest/reference/secret-scanning#list-secret-scanning-alerts-for-a-repository) (:read)
@@ -899,18 +900,18 @@ _Team_
 - [`GET /repos/:owner/:repo/code-scanning/alerts`](/rest/reference/code-scanning#list-code-scanning-alerts-for-a-repository) (:read)
 - [`GET /repos/:owner/:repo/code-scanning/alerts/:alert_number`](/rest/reference/code-scanning#get-a-code-scanning-alert) (:read)
 - [`PATCH /repos/:owner/:repo/code-scanning/alerts/:alert_number`](/rest/reference/code-scanning#update-a-code-scanning-alert) (:write)
-{% ifversion fpt or ghec or ghes > 3.0 or ghae -%}
+{% ifversion fpt or ghec or ghes or ghae -%}
 - [`GET /repos/:owner/:repo/code-scanning/alerts/:alert_number/instances`](/rest/reference/code-scanning#list-instances-of-a-code-scanning-alert) (:read)
 {% endif -%}
 - [`GET /repos/:owner/:repo/code-scanning/analyses`](/rest/reference/code-scanning#list-code-scanning-analyses-for-a-repository) (:read)
-{% ifversion fpt or ghec or ghes > 3.0 or ghae -%}
+{% ifversion fpt or ghec or ghes or ghae -%}
 - [`GET /repos/:owner/:repo/code-scanning/analyses/:analysis_id`](/rest/reference/code-scanning#get-a-code-scanning-analysis-for-a-repository) (:read)
 {% endif -%}
-{% ifversion fpt or ghec or ghes > 3.0 -%}
+{% ifversion fpt or ghec or ghes -%}
 - [`DELETE /repos/:owner/:repo/code-scanning/analyses/:analysis_id`](/rest/reference/code-scanning#delete-a-code-scanning-analysis-from-a-repository) (:write)
 {% endif -%}
 - [`POST /repos/:owner/:repo/code-scanning/sarifs`](/rest/reference/code-scanning#upload-an-analysis-as-sarif-data) (:write)
-{% ifversion fpt or ghec or ghes > 3.0 or ghae -%}
+{% ifversion fpt or ghec or ghes or ghae -%}
 - [`GET /repos/:owner/:repo/code-scanning/sarifs/:sarif_id`](/rest/reference/code-scanning#get-information-about-a-sarif-upload) (:read)
 {% endif -%}
 {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-5435 -%}

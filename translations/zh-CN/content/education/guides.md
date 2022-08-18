@@ -46,3 +46,5 @@ shortTitle: 指南
 - [{% data variables.product.prodname_education_community %}]({% data variables.product.prodname_education_forum_link %})
 - [关于 Campus Experts](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/about-campus-experts)
 - [关于 Campus Advisors](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/about-campus-advisors)
+- [关于 {% data variables.product.prodname_community_exchange %}](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-for-your-schoolwork/about-github-community-exchange)
+- [Contribute with GitHub Community Exchange](/education/contribute-with-github-community-exchange)

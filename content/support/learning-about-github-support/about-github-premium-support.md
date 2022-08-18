@@ -44,7 +44,7 @@ There are two {% data variables.contact.premium_support %} plans: Premium and Pr
 |---|---|------|
 | Hours of operation | 24 x 7 | 24 x 7 |
 | Initial response time | <ul><li>30 minutes for {% data variables.product.support_ticket_priority_urgent %}</li><li>4 hours for {% data variables.product.support_ticket_priority_high %}</li></ul> | <ul><li>30 minutes for {% data variables.product.support_ticket_priority_urgent %}</li><li>4 hours for {% data variables.product.support_ticket_priority_high %}</li></ul> |
-| Support channels | <ul><li>Online ticket submission</li><li>Phone support in English via callback request</li><li>Screen share for critical issues</li></ul> | <ul><li>Online ticket submission</li><li>Phone support in English via callback request</li><li>Screen share for critical issues</li></ul> |
+| Support channels | <ul><li>Online ticket submission</li><li>Phone support in English via callback request</li><li>Screen share request for critical issues</li></ul> | <ul><li>Online ticket submission</li><li>Phone support in English via callback request</li><li>Screen share request for critical issues</li></ul> |
 | Training | Access to premium content  | <ul><li>Access to premium content</li><li>1 virtual training class per year</li></ul> |
 | Members with support entitlements | 20 | 20 |
 | Resources | Priority ticket handling | <ul><li>Priority ticket handling</li><li>Named Customer Reliability Engineer</li></ul>   |

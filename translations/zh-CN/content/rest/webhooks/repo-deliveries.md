@@ -3,7 +3,7 @@ title: 存储库 web 挂钩交付
 intro: ''
 versions:
   fpt: '*'
-  ghes: '>=3.2'
+  ghes: '*'
   ghae: '*'
   ghec: '*'
 topics:

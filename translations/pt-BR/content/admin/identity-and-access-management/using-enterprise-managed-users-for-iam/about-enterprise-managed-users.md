@@ -66,7 +66,7 @@ Para usar {% data variables.product.prodname_emus %}, você precisa de um tipo d
 
 O {% data variables.product.prodname_managed_users_caps %} só pode contribuir para repositórios privados e internos da sua empresa e repositórios privados pertencentes à sua conta de usuário. {% data variables.product.prodname_managed_users_caps %} tem acesso somente leitura a toda a comunidade de {% data variables.product.prodname_dotcom %} em geral. Estas restrições de acesso e visibilidade para usuários e conteúdo aplicam-se a todas as solicitações, incluindo solicitações da API.
 
-* {% data variables.product.prodname_managed_users %} não pode ser convidado para organizações ou repositórios fora da empresa, nem o {% data variables.product.prodname_managed_users %} pode ser convidado para outras empresas.
+* {% data variables.product.prodname_managed_users_caps %} não pode ser convidado para organizações ou repositórios fora da empresa, nem o {% data variables.product.prodname_managed_users %} pode ser convidado para outras empresas.
 * Os colaboradores externos não são compatíveis com {% data variables.product.prodname_emus %}.
 * {% data variables.product.prodname_managed_users_caps %} não pode criar problemas ou pull requests, comentar ou adicionar reações, nem estrelas, inspeção ou repositórios de bifurcação fora da empresa.
 * {% data variables.product.prodname_managed_users_caps %} pode visualizar todos os repositórios públicos em {% data variables.product.prodname_dotcom_the_website %}, mas não pode fazer push de código para repositórios fora da empresa.
@@ -96,9 +96,9 @@ Antes que seus desenvolvedores possam usar {% data variables.product.prodname_gh
 
   {% endnote %}
 
-3. After you log in as the setup user, we recommend enabling two-factor authentication. Para obter mais informações, consulte "[Configurar autenticação de dois fatores](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication)".
+3. Depois de fazer login como usuário de configuração, recomendamos habilitar a autenticação de dois fatores. Para obter mais informações, consulte "[Configurar autenticação de dois fatores](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication)".
 
-1. To get started, configure {% ifversion oidc-for-emu %}how your members will authenticate. Se você estiver usando o Diretório Ativo do Azure como seu provedor de identidade, você poderá escolher entre o OpenID Connect (OIDC) e o Security Assertion Markup Language (SAML). Ambas as opções fornecem uma experiência perfeita de login para seus integrantes, mas apenas o OIDC inclui suporte para políticas de acesso condicional (CAP). Se você estiver usando o Okta como seu provedor de identidade, você pode usar o SAML para autenticar seus integrantes .{% else %}SAML SSO para sua empresa. Para obter mais informações, consulte "[Configurando o logon único SAML para Usuários Gerenciados pela Empresa](/admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/configuring-saml-single-sign-on-for-enterprise-managed-users)."{% endif %}
+1. Para começar, configure {% ifversion oidc-for-emu %}como seus membros efetuarão a autenticação. Se você estiver usando o Diretório Ativo do Azure como seu provedor de identidade, você poderá escolher entre o OpenID Connect (OIDC) e o Security Assertion Markup Language (SAML). Ambas as opções fornecem uma experiência perfeita de login para seus integrantes, mas apenas o OIDC inclui suporte para políticas de acesso condicional (CAP). Se você estiver usando o Okta como seu provedor de identidade, você pode usar o SAML para autenticar seus integrantes .{% else %}SAML SSO para sua empresa. Para obter mais informações, consulte "[Configurando o logon único SAML para Usuários Gerenciados pela Empresa](/admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/configuring-saml-single-sign-on-for-enterprise-managed-users)."{% endif %}
 
   {% ifversion oidc-for-emu %}
 
@@ -131,4 +131,4 @@ Antes que seus desenvolvedores possam usar {% data variables.product.prodname_gh
 
 Um conflito pode ocorrer quando os usuários de provisionamento das partes únicas do identificador fornecido pelo IdP são removidos durante a normalização. Se você não puder provisionar um usuário devido a um conflito de nome de usuário, você deverá modificar o nome de usuário fornecido pelo seu IdP. Para obter mais informações, consulte "[Resolvendo conflitos de nome de usuário](/admin/identity-and-access-management/managing-iam-for-your-enterprise/username-considerations-for-external-authentication#resolving-username-conflicts). "
 
-O nome do perfil e endereço de email de um {% data variables.product.prodname_managed_user %} também é fornecido pelo IdP. {% data variables.product.prodname_managed_users_caps %} não pode alterar seu nome de perfil ou endereço de e-mail em {% data variables.product.prodname_dotcom %}.
+O nome do perfil e endereço de email de um {% data variables.product.prodname_managed_user %} também é fornecido pelo IdP. {% data variables.product.prodname_managed_users_caps %} não pode alterar seu nome de perfil ou endereço de e-mail em {% data variables.product.prodname_dotcom %}, e o IdP só pode fornecer um único endereço de e-mail.

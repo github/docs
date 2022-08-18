@@ -1,1 +1,1 @@
-This message will create an annotation, which can associate the message with a particular file in your repository. Optionally, your message can specify a position within the file.
+このメッセージはアノテーションを作成します。このアノテーションはメッセージをリポジトリ中の特定のファイルに関連づけることができます。 あるいは、メッセージはファイル中の位置を指定できます。

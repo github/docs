@@ -1,1 +1,1 @@
-プロジェクトボード内で Issue あるいはプルリクエストのタイトルをクリックして、Issue やプルリクエストを見て簡単な編集をすることができます。
+You can view and make lightweight edits to issues and pull requests within your {% data variables.projects.projects_v1_board %} by clicking on the issue or pull request's title.

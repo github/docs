@@ -1,1 +1,1 @@
-When you use the repository's `GITHUB_TOKEN` to perform tasks, events triggered by the `GITHUB_TOKEN` will not create a new workflow run. 这可以防止意外创建递归工作流程运行。 例如，如果工作流程运行使用仓库的 `GITHUB_TOKEN` 推送代码，则即使仓库包含配置为在 `push` 事件发生时运行的工作流程，新工作流程也不会运行。
+使用仓库的 `GITHUB_TOKEN` 执行任务时，`GITHUB_TOKEN` 触发的事件不会创建新的工作流程运行。 这可以防止意外创建递归工作流程运行。 例如，如果工作流程运行使用仓库的 `GITHUB_TOKEN` 推送代码，则即使仓库包含配置为在 `push` 事件发生时运行的工作流程，新工作流程也不会运行。

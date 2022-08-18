@@ -1,6 +1,6 @@
 ---
 title: Migrating from SAML to OIDC
-shortTitle: Migrating from SAML to OIDC
+shortTitle: Migrarte de SAML a OIDC
 intro: 'If you''re using SAML to authenticate members in your {% data variables.product.prodname_emu_enterprise %}, you can migrate to OpenID Connect (OIDC) and benefit from support for your IdP''s Conditional Access Policy.'
 product: '{% data reusables.gated-features.emus %}'
 versions:
@@ -46,7 +46,7 @@ If you're new to {% data variables.product.prodname_emus %} and haven't yet conf
    ![Screenshot showing the "Configure with Azure" button](/assets/images/help/enterprises/saml-to-oidc-button.png)
 1. Read both warnings and click to continue.
 {% data reusables.enterprise-accounts.emu-azure-admin-consent %}
-1. In a new tab or window, while signed in as the setup user on {% data variables.product.prodname_dotcom_the_website %}, create a personal access token with the **admin:enterprise** scope and **no expiration** and copy it to your clipboard. For more information about creating a new token, see "[Creating a personal access token](/github/setting-up-and-managing-your-enterprise/managing-your-enterprise-users-with-your-identity-provider/configuring-scim-provisioning-for-enterprise-managed-users#creating-a-personal-access-token)."
+1. In a new tab or window, while signed in as the setup user on {% data variables.product.prodname_dotcom_the_website %}, create a personal access token with the **admin:enterprise** scope and **no expiration** and copy it to your clipboard. Para obtener más información sobre cómo crear un token nuevo, consulta la sección "[Crear un token de acceso personal](/github/setting-up-and-managing-your-enterprise/managing-your-enterprise-users-with-your-identity-provider/configuring-scim-provisioning-for-enterprise-managed-users#creating-a-personal-access-token)".
 1. In the settings for the {% data variables.product.prodname_emu_idp_oidc_application %} application in Azure Portal, under "Tenant URL", type `https://api.github.com/scim/v2/enterprises/YOUR_ENTERPRISE`, replacing YOUR_ENTERPRISE with the name of your enterprise account.
 
    For example, if your enterprise account's URL is `https://github.com/enterprises/octo-corp`, the name of the enterprise account is `octo-corp`.

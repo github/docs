@@ -26,7 +26,7 @@ topics:
 
 {% endnote %}
 
-You can create pull requests on {% data variables.product.prodname_dotcom_the_website %}, with {% data variables.product.prodname_desktop %}, in {% data variables.product.prodname_codespaces %}, on {% data variables.product.prodname_mobile %}, and when using GitHub CLI.
+You can create pull requests on {% data variables.product.prodname_dotcom_the_website %}, with {% data variables.product.prodname_desktop %}, in {% data variables.product.prodname_github_codespaces %}, on {% data variables.product.prodname_mobile %}, and when using GitHub CLI.
 
 プルリクエストを初期化すると、あなたのブランチ（比較ブランチ）とリポジトリのベースブランチとの差異の高レベルの概要を示すレビューページが表示されます。 提案した変更の概要を追加したり、コミットによる変更をレビューしたり、ラベルやマイルストーン、アサインされた人を追加したり、個人のコントリビューターやTeamに@メンションできます。 詳しい情報については[プルリクエストの作成](/articles/creating-a-pull-request)を参照してください。
 

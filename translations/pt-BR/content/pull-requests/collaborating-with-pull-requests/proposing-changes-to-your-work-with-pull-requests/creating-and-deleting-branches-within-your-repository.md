@@ -17,31 +17,35 @@ shortTitle: Criar & excluir branches
 ---
 
 ## Criar um branch
-You can create a branch in different ways on {% data variables.product.product_name %}.
+Você pode criar um branch de diferentes maneiras em {% data variables.product.product_name %}.
 
 {% note %}
 
-**Note:** You can only create a branch in a repository to which you have push access.
+**Observação:** Você só pode criar um branch em um repositório ao qual você tenha acesso push.
 
 {% endnote %}
 
-### Creating a branch via the branches overview
+{% ifversion create-branch-from-overview %}
+### Criando um branch por meio da visão geral dos branches
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.navigate-to-branches %}
-1. Click **New branch**. ![Screenshot of branches overview page with new branch button emphasized](/assets/images/help/branches/new-branch-button.png)
-2. In the dialog box, enter the branch name and optionally change the branch source.  
-   If the repository is a fork, you also have the option to select the upstream repository as the branch source. ![Screenshot of branch creation modal for a fork with branch source emphasized](/assets/images/help/branches/branch-creation-popup-branch-source.png)
-3. Click **Create branch**. ![Screenshot of branch creation modal with create branch button emphasized](/assets/images/help/branches/branch-creation-popup-button.png)
+1. Clique em **Novo branch**. ![Captura de tela da página de visão geral dos ramos com o botão novo branch destacado](/assets/images/help/branches/new-branch-button.png)
+2. Na caixa de diálogo, digite o nome do branch e, opcionalmente, altere a fonte do branch.  
+   Se o repositório for uma bifurcação, você também terá a opção de selecionar o repositório upstream como fonte do branch. ![Captura de tela do modo de criação de branch para uma bifurcação com fonte de branch destacada](/assets/images/help/branches/branch-creation-popup-branch-source.png)
+3. Clique **Criar branch**. ![Captura de tela do modo de criação do branch com botão de criar branch enfatizado](/assets/images/help/branches/branch-creation-popup-button.png)
+{% endif %}
 
-### Creating a branch using the branch dropdown
+### Criando um branch usando o branch menu suspenso
 {% data reusables.repositories.navigate-to-repo %}
-1. Optionally, if you want to create the new branch from a branch other than the default branch of the repository, click {% octicon "git-branch" aria-label="The branch icon" %} **Branches** then choose another branch. ![Link de branches numa página de visão geral](/assets/images/help/branches/branches-overview-link.png)
+1. Opcionalmente, se quiser criar um novo branch a partir de um branch diferente do branch padrão do repositório, clique em {% octicon "git-branch" aria-label="The branch icon" %} **Branches** e, em seguida, escolha outro branch. ![Link de branches numa página de visão geral](/assets/images/help/branches/branches-overview-link.png)
 1. Clique no menu seletor de branch. ![menu seletor de branch](/assets/images/help/branch/branch-selection-dropdown.png)
 1. Digite um nome exclusivo para o novo branch e selecione **Create branch** (Criar branch). ![caixa de texto de criação de branch](/assets/images/help/branch/branch-creation-text-box.png)
+
 {% ifversion fpt or ghec or ghes > 3.4 %}
 ### Criando um branch para um problema
-Você pode criar um branch para trabalhar em um problema diretamente da página de problemas e começar imediatamente. For more information, see "[Creating a branch to work on an issue](/issues/tracking-your-work-with-issues/creating-a-branch-for-an-issue)".
+Você pode criar um branch para trabalhar em um problema diretamente da página de problemas e começar imediatamente. Para obter mais informações, consulte[Criando um branch para trabalhar em um problema](/issues/tracking-your-work-with-issues/creating-a-branch-for-an-issue)".
 {% endif %}
+
 ## Excluir um branch
 
 {% data reusables.pull_requests.automatically-delete-branches %}

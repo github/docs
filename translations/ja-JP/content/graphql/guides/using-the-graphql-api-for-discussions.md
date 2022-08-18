@@ -2,7 +2,7 @@
 title: ディスカッションでのGraphQL APIの利用
 intro: '{% data variables.product.prodname_discussions %} GraphQL APIの使い方を学んでください。'
 versions:
-  fpt: '*'
+  feature: discussions
 shortTitle: ディスカッションでのGraphQLの利用
 ---
 

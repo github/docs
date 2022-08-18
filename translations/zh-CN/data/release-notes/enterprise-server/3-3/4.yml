@@ -2,18 +2,18 @@
 date: '2022-02-17'
 sections:
   security_fixes:
-    - It was possible for a user to register a user or organization named "saml".
+    - 用户可以注册名为“saml”的用户或组织。
     - 包已更新到最新的安全版本。
   bugs:
-    - GitHub Packages storage settings could not be validated and saved in the Management Console when Azure Blob Storage was used.
-    - The mssql.backup.cadence configuration option failed ghe-config-check with an invalid characterset warning.
-    - Fixes SystemStackError (stack too deep) when getting more than 2<sup>^16</sup> keys from memcached.
-    - A number of select menus across the site rendered incorrectly and were not functional.
+    - 使用 Azure Blob 存储时，无法验证 GitHub 包存储设置并将其保存在管理控制台中。
+    - Mssql.backup.cadence 配置选项未通过 ghe-config-check，并显示无效的字符集警告。
+    - 修复了从 memcached 获取超过 2 个<sup>^16</sup> 密钥时的 SystemStackError（堆栈太深）。
+    - 整个站点中的许多选择菜单呈现不正确且不起作用。
   changes:
-    - Dependency Graph can now be enabled without vulnerability data, allowing customers to see what dependencies are in use and at what versions. Enabling Dependency Graph without enabling GitHub Connect will *not* provide vulnerability information.
-    - Secret scanning will skip scanning ZIP and other archive files for secrets.
+    - 现在可以在没有漏洞数据的情况下启用依赖关系图，从而允许客户查看正在使用的依赖项以及版本。在不启用 GitHub Connect 的情况下启用依赖关系图将*不*提供漏洞信息。
+    - 机密扫描将跳过扫描 ZIP 和其他存档文件的机密。
   known_issues:
-    - After upgrading to {% data variables.product.prodname_ghe_server %} 3.3, {% data variables.product.prodname_actions %} may fail to start automatically. To resolve this issue, connect to the appliance via SSH and run the `ghe-actions-start` command.
+    - 升级到 {% data variables.product.prodname_ghe_server %} 3.3 后，{% data variables.product.prodname_actions %} 可能无法自动启动。要解决此问题，请通过 SSH 连接到设备并运行“ghe-actions-start”命令。
     - 在新建的没有任何用户的 {% data variables.product.prodname_ghe_server %} 实例上，攻击者可以创建第一个管理员用户。
     - 自定义防火墙规则在升级过程中被删除。
     - Git LFS 跟踪的文件[通过 Web 界面上传](https://github.com/blog/2105-upload-files-to-your-repositories) 被错误地直接添加到仓库。
@@ -21,5 +21,5 @@ sections:
     - 对 GitHub Connect 启用“用户可以搜索 GitHub.com”后，私有和内部仓库中的议题不包括在 GitHub.com 搜索结果中。
     - '{% data variables.product.prodname_registry %} npm 注册表不再返回元数据响应的时间值。这样做是为了大幅改善性能。作为元数据响应的一部分，我们继续拥有返回时间值所需的所有数据，并将在我们解决现有性能问题后恢复返回这个值。'
     - 特定于处理预接收挂钩的资源限制可能会导致某些预接收挂钩失败。
-    - '{% data variables.product.prodname_actions %} storage settings cannot be validated and saved in the {% data variables.enterprise.management_console %} when "Force Path Style" is selected, and must instead be configured with the `ghe-actions-precheck` command line utility.'
-    - '{% data variables.product.prodname_ghe_server %} 3.3 instances installed on Azure and provisioned with 32+ CPU cores would fail to launch, due to a bug present in the current Linux kernel. [Updated: 2022-04-08]'
+    - '{% data variables.product.prodname_actions %} 存储设置在选择“Force Path Style（强制路径样式）”时无法验证和保存在 {% data variables.enterprise.management_console %} 中，而必须使用“ghe-actions-precheck”命令行实用程序进行配置。'
+    - '由于当前 Linux 内核中存在错误，{% data variables.product.prodname_ghe_server %} 在 Azure 上安装并预配了 32 个以上 CPU 内核的 3.3 实例将无法启动。[更新时间：2022 年 4 月 8 日]'

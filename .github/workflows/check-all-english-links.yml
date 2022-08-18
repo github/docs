@@ -52,8 +52,6 @@ jobs:
         env:
           NODE_ENV: production
           PORT: 4000
-          DISABLE_OVERLOAD_PROTECTION: true
-          DISABLE_RENDERING_CACHE: true
           # We don't want or need the changelog entries in this context.
           CHANGELOG_DISABLED: true
           # The default is 10s. But because this runs overnight, we can
@@ -62,7 +60,7 @@ jobs:
           # Don't care about CDN caching image URLs
           DISABLE_REWRITE_ASSET_URLS: true
         run: |
-          node server.mjs > /tmp/stdout.log 2> /tmp/stderr.log &
+          node server.js > /tmp/stdout.log 2> /tmp/stderr.log &
           sleep 6
           curl --retry-connrefused --retry 5 -I http://localhost:4000/
 

@@ -1,7 +1,7 @@
 ---
 title: GitHub Copilot
 shortTitle: GitHub Copilot
-intro: 'You can use {% data variables.product.prodname_copilot %} to get autocomplete-style suggestions from an AI pair programmer as you code.'
+intro: 'Você pode usar {% data variables.product.prodname_copilot %} para obter sugestões de estilo de preenchimento automático de um programador de pares de IA à medida que você cria o código.'
 redirect_from:
   - /github/copilot
 changelog:
@@ -19,7 +19,7 @@ featuredLinks:
     - /billing/managing-billing-for-github-copilot/about-billing-for-github-copilot
     - /copilot/configuring-github-copilot/configuring-github-copilot-in-visual-studio-code
     - /copilot/configuring-github-copilot/configuring-github-copilot-in-a-jetbrains-ide
-    - /copilot/configuring-github-copilot/configuring-github-copilot-in-visual-studio
+    - /copilot/configuring-github-copilot/configuring-github-copilot-settings-on-githubcom
 layout: product-landing
 versions:
   feature: copilot

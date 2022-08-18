@@ -19,7 +19,7 @@ sections:
   changes:
     - 现在，默认情况下，在创建具有 `ghe-cluster-suport-bundle` 的集群支持包时，`gzip` 压缩的附加外层处于关闭状态。这种外部压缩可以选择使用 `ghe-cluster-suport-bundle -c` 命令行选项来应用。
     - 我们在管理控制台中添加了额外的文本，以提醒用户移动应用程序收集数据来改善体验。
-    - The {% data variables.product.prodname_github_connect %} data connection record now includes a list of enabled {% data variables.product.prodname_github_connect %} features. [Updated 2021-12-09]
+    - '{% data variables.product.prodname_github_connect %} 数据连接记录现在包括已启用 {% data variables.product.prodname_github_connect %} 要素的列表。[2021 年 12 月 09 日更新]'
   known_issues:
     - 在新建的没有任何用户的 {% data variables.product.prodname_ghe_server %} 上，攻击者可以创建第一个管理员用户。
     - 自定义防火墙规则在升级过程中被删除。

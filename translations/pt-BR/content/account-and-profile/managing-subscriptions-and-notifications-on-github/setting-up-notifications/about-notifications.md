@@ -96,4 +96,4 @@ Notificações que não estão marcadas como **Salvas** são mantidas por 5 mese
 
 ## Feedback e suporte
 
-Se você tiver comentários ou pedidos de recursos para notificações, use uma discussão de feedback de [{% data variables.product.product_name %}](https://github.com/github/feedback/discussions/categories/general-feedback).
+Se você tiver comentários ou pedidos de recursos para notificações, use uma discussão de [{% data variables.product.prodname_github_community %}](https://github.com/orgs/community/discussions/categories/general).
