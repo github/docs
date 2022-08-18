@@ -2,7 +2,6 @@
 title: Creating a codespace
 intro: You can create a codespace for a branch in a repository to develop online.
 product: '{% data reusables.gated-features.codespaces %}'
-permissions: '{% data reusables.codespaces.availability %}'
 redirect_from:
   - /github/developing-online-with-github-codespaces/creating-a-codespace
   - /github/developing-online-with-codespaces/creating-a-codespace
@@ -44,8 +43,6 @@ If you want to use Git hooks for your codespace, then you should set up hooks us
 {% data reusables.codespaces.prebuilds-crossreference %}
 
 ## Access to {% data variables.product.prodname_github_codespaces %}
-
-{% data reusables.codespaces.availability %}
 
 When you have access to {% data variables.product.prodname_github_codespaces %}, you'll see a "Codespaces" tab within the **{% octicon "code" aria-label="The code icon" %} Code** drop-down menu when you view a repository.
 
