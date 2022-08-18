@@ -4,7 +4,7 @@ intro: Puedes prevenir las fugas de información de tu empresa hacia cuentas de 
 product: '{% data reusables.gated-features.restrict-email-domain %}'
 versions:
   ghec: '*'
-  ghes: '>=3.2'
+  ghes: '*'
 permissions: Enterprise owners can restrict email notifications for an enterprise.
 type: how_to
 topics:

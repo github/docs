@@ -1,6 +1,6 @@
 ---
 title: Starring
-intro: 'The Starring API lets you bookmark a repository.'
+intro: The Starring API lets you bookmark a repository.
 versions:
   fpt: '*'
   ghes: '*'
@@ -27,6 +27,6 @@ below). For more information, see the [Watcher API Change post](https://develope
 
 There is one supported custom media type for the Starring REST API. When you use this custom media type, you will receive a response with the `starred_at` timestamp property that indicates the time the star was created. The response also has a second property that includes the resource that is returned when the custom media type is not included. The property that contains the resource will be either `user` or `repo`.
 
-    application/vnd.github.v3.star+json
+    application/vnd.github.star+json
 
 For more information about media types, see "[Custom media types](/rest/overview/media-types)."

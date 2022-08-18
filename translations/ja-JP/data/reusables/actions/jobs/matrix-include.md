@@ -1,8 +1,8 @@
-Use `jobs.<job_id>.strategy.matrix.include` to expand existing matrix configurations or to add new configurations. The value of `include` is a list of objects.
+`jobs.<job_id>.strategy.matrix.include`を使って、既存のマトリックス設定を拡張したり、新しい設定を追加したりしてください。 `include`の値は、オブジェクトのリストです。
 
-For each object in the `include` list, the key:value pairs in the object will be added to each of the matrix combinations if none of the key:value pairs overwrite any of the original matrix values. If the object cannot be added to any of the matrix combinations, a new matrix combination will be created instead. Note that the original matrix values will not be overwritten, but added matrix values can be overwritten.
+`include`リスト中の各オブジェクトについて、オブジェクト中のkey:valueペアがいずれもオリジナルのマトリックスの値を上書きしない場合、それらのkey:valueペアはそれぞれのマトリックスの組み合わせに追加されます。 オブジェクトがマトリックスの組み合わせのいずれにも追加できない場合、代わりに新しいマトリックスの組み合わせが作成されます。 オリジナルのマトリックスの値は上書きされませんが、追加されたマトリックスの値は上書きできることに注意してください。
 
-For example, this matrix:
+たとえば、以下のマトリックス
 
 ```yaml
 strategy:
@@ -20,7 +20,7 @@ strategy:
         animal: cat
 ```
 
-will result in six jobs with the following matrix combinations:
+は、以下のマトリックスの組み合わせを持つ6つのジョブを生成します。
 
 - `{fruit: apple, animal: cat, color: pink, shape: circle}`
 - `{fruit: apple, animal: dog, color: green, shape: circle}`
@@ -29,10 +29,10 @@ will result in six jobs with the following matrix combinations:
 - `{fruit: banana}`
 - `{fruit: banana, animal: cat}`
 
-following this logic:
+以下のようなロジックに従っています。
 
-- `{color: green}` is added to all of the original matrix combinations because it can be added without overwriting any part of the original combinations.
-- `{color: pink, animal: cat}` adds `color:pink` only to the original matrix combinations that include `animal: cat`. This overwrites the `color: green` that was added by the previous `include` entry.
-- `{fruit: apple, shape: circle}` adds `shape: circle` only to the original matrix combinations that include `fruit: apple`.
-- `{fruit: banana}` cannot be added to any original matrix combination without overwriting a value, so it is added as an additional matrix combination.
-- `{fruit: banana, animal: cat}` cannot be added to any original matrix combination without overwriting a value, so it is added as an additional matrix combination. It does not add to the `{fruit: banana}` matrix combination because that combination was not one of the original matrix combinations.
+- `{color: green}`は、オリジナルの組み合わせのどの部分も上書きすることなく追加できるので、すべてのオリジナルのマトリックスの組み合わせに追加されます。
+- `{color: pink, animal: cat}`は、`animal: cat`を含むオリジナルのマトリックスの組み合わせに対して`color:pink`だけを追加します。 これは、先の`include`エントリで追加された`color: green`を上書きします。
+- `{fruit: apple, shape: circle}`は`fruit: apple`を含むオリジナルのマトリックスの組み合わせに`shape: circle`だけを追加します。
+- `{fruit: banana}`は、値を上書きせずにオリジナルのマトリックスの組み合わせに追加することができないので、追加のマトリックスの組み合わせとして追加されます。
+- `{fruit: banana, animal: cat}`は、値を上書きせずにオリジナルのマトリックスの組み合わせに追加することができないので、追加のマトリックスの組み合わせとして追加されます。 これは`{fruit: banana}`のマトリックスの組み合わせには追加されませんが、それはこの組み合わせがオリジナルのマトリックスの組み合わせの1つではないからです。

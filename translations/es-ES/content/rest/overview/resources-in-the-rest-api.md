@@ -16,18 +16,6 @@ topics:
 
 Esto describe los recursos que conforman la API de REST oficial de {% data variables.product.product_name %}. Si tienes cualquier tipo de problema o solicitud, por favor contacta a {% data variables.contact.contact_support %}.
 
-## Versión actual
-
-Predeterminadamente, todas las solicitudes a `{% data variables.product.api_url_code %}` reciben la [versión](/developers/overview/about-githubs-apis)**v3** de la API de REST. Te alentamos a [solicitar explícitamente esta versión a través del encabezado `Aceptar`](/rest/overview/media-types#request-specific-version).
-
-    Accept: application/vnd.github.v3+json
-
-{% ifversion fpt or ghec %}
-
-For information about GitHub's GraphQL API, see the [documentation]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql). Para obtener más información acerca de cómo migrarse a GraphQL, consulta la sección "[Migrarse desde REST]({% ifversion ghec%}/free-pro-team@latest{% endif %}/graphql/guides/migrating-from-rest-to-graphql)".
-
-{% endif %}
-
 ## Modelo
 
 {% ifversion fpt or ghec %}Todos los accesos de las API son através de HTTPS y se accede a{% else %}La API{% endif %} desde `{% data variables.product.api_url_code %}`.  Todos los datos se
@@ -177,7 +165,7 @@ $ curl {% ifversion fpt or ghae or ghec %}
 
 ## IDs de nodo globales de GraphQL
 
-Consulta la guía sobre cómo "[Utilizar las ID de Nodo Global]({% ifversion ghec%}/free-pro-team@latest{% endif %}/graphql/guides/using-global-node-ids)" para obtener información detallada sobre cómo encontrar las `node_id` a través de la API de REST y utilizarlas en las operaciones de GraphQL.
+Consulta la guía sobre cómo "[Utilizar las ID de Nodo Global](/graphql/guides/using-global-node-ids)" para obtener información detallada sobre cómo encontrar las `node_id` a través de la API de REST y utilizarlas en las operaciones de GraphQL.
 
 ## Errores de cliente
 
@@ -228,7 +216,7 @@ Los recursos también podría enviar errores de validación personalizados (en d
 
 ## Redireccionamientos HTTP
 
-La API v3 utiliza redireccionamientos HTTP cuando sea adecuado. Los clientes deberán asumir que cualquier solicitud podría resultar en un redireccionamiento. Recibir un redireccionamiento HTTP *no* es un error y los clientes deberán seguirlo. Las respuestas de redireccionamiento tendrán un campo de encabezado de tipo `Location` que contendrá el URI del recurso al cual el cliente deberá repetir la solicitud.
+La API de REST de {% data variables.product.product_name %} utiliza un redireccionamiento de HTTP cuando es apropiado. Los clientes deberán asumir que cualquier solicitud podría resultar en un redireccionamiento. Recibir un redireccionamiento HTTP *no* es un error y los clientes deberán seguirlo. Las respuestas de redireccionamiento tendrán un campo de encabezado de tipo `Location` que contendrá el URI del recurso al cual el cliente deberá repetir la solicitud.
 
 | Código de estado | Descripción                                                                                                                                                                                                                          |
 | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -239,7 +227,7 @@ Podrían utilizarse otros códigos de estado de redirección de acuerdo con la e
 
 ## Verbos HTTP
 
-Cuando sea posible, la API v3 intentará utilizar los verbos HTTP adecuados para cada acción.
+En medida de lo posible, la API de REST de {% data variables.product.product_name %} se esfuerza para utilizar los verbos apropiados de HTTP para cada acción. Toma en cuenta que los verbos HTTP distinguen entre mayúsculas y minúsculas.
 
 | Verbo    | Descripción                                                                                                                                                                                                                                  |
 | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -310,6 +298,18 @@ Los valores de `rel` posibles son:
 | `first` | La relación del enlace para la primera parte de los resultados.            |
 | `prev`  | La relación del enlace para la página previa inmediata de resultados.      |
 
+## Exceder el tiempo de espera
+
+Si {% data variables.product.prodname_dotcom %} toma más de 10 segundos en procesar una solicitud de API, {% data variables.product.prodname_dotcom %} finalizará la solicitud y recibirás una respuesta de tiempo de espera excedido como esta:
+
+```json
+{
+    "message": "Server Error"
+}
+```
+
+{% data variables.product.product_name %} se reserva el derecho de cambiar la ventana de tiempo de espera excedido para proteger la velocidad y confiabilidad de la API.
+
 ## Limitación de tasas
 
 Los distintos tipos de solicitudes de la API a {% data variables.product.product_location %} están sujetas a límites de tasa diferentes.
@@ -368,6 +368,7 @@ $ curl -I {% data variables.product.api_url_pre %}/users/octocat
 > Date: Mon, 01 Jul 2013 17:27:06 GMT
 > x-ratelimit-limit: 60
 > x-ratelimit-remaining: 56
+> x-ratelimit-used: 4
 > x-ratelimit-reset: 1372700873
 ```
 
@@ -375,6 +376,7 @@ $ curl -I {% data variables.product.api_url_pre %}/users/octocat
 | ----------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `x-ratelimit-limit`     | La cantidad máxima de solicitudes que puedes hacer por hora.                                                                                         |
 | `x-ratelimit-remaining` | La cantidad de solicitudes que quedan en la ventana de límite de tasa actual.                                                                        |
+| `x-ratelimit-used`      | La cantidad de solicitudes que hiciste en la ventana de límite de tasa actual.                                                                       |
 | `x-ratelimit-reset`     | La hora en la que se restablecerá la ventana de límite de tasa actual en [segundos de tiempo satelital UTC](http://en.wikipedia.org/wiki/Unix_time). |
 
 Si necesitas ver la hora en un formato diferente, cualquier lenguaje de programación moderno puede ayudarte con esta tarea. Por ejemplo, si abres la consola en tu buscador web, puedes obtener fácilmente el tiempo de restablecimiento como un objeto de Tiempo de JavaScript.
@@ -391,6 +393,7 @@ Si excedes el límite de tasa, se regresará una respuesta de error:
 > Date: Tue, 20 Aug 2013 14:50:41 GMT
 > x-ratelimit-limit: 60
 > x-ratelimit-remaining: 0
+> x-ratelimit-used: 60
 > x-ratelimit-reset: 1377013266
 
 > {
@@ -409,6 +412,7 @@ $ curl -u my_client_id:my_client_secret -I {% data variables.product.api_url_pre
 > Date: Mon, 01 Jul 2013 17:27:06 GMT
 > x-ratelimit-limit: 5000
 > x-ratelimit-remaining: 4966
+> x-ratelimit-used: 34
 > x-ratelimit-reset: 1372700873
 ```
 
@@ -652,4 +656,3 @@ Si los pasos anteriores no dan como resultado ninguna información, utilizaremos
 [uri]: https://github.com/hannesg/uri_template
 
 [pagination-guide]: /guides/traversing-with-pagination
-

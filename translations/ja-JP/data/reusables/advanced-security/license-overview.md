@@ -1,4 +1,4 @@
-{% data variables.product.prodname_GH_advanced_security %}の各ライセンスは、それらの機能を使用できるアカウントもしくはシートの最大数を指定します。 少なくとも1つのリポジトリでこの機能が有効化されているそれぞれのアクティブなコミッターは、1つのシートを使用します。 A committer is considered active if one of their commits has been pushed to the repository within the last 90 days, regardless of when it was originally authored.
+Each license for {% data variables.product.prodname_GH_advanced_security %} specifies a maximum number of accounts, or seats, that can use these features. Each active committer to at least one repository with the feature enabled uses one seat. A committer is considered active if one of their commits has been pushed to the repository within the last 90 days, regardless of when it was originally authored.
 
 {% note %}
 

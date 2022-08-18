@@ -48,7 +48,7 @@ GitHub Enterprise Server may not be sold to, exported, or re-exported to any cou
 
 ### 米米政府の制裁はどの国や地域 に適用されますか？
 
-Crimea, the separatist areas of Donetsk and Luhasnk, Cuba, Iran, North Korea, and Syria. ただしイランに関しては現在、 GitHubはイランに居住する、またはその他何らかの意味でイランの住民である開発者にための認可を財務省の外国資産管理局 (OFAC) から取得しています。 GitHubのクラウドサービス (有料、無料の両方) は、キューバにいる開発者でもほとんど利用できます。
+Crimea, the separatist areas of Donetsk and Luhansk, Cuba, Iran, North Korea, and Syria. ただしイランに関しては現在、 GitHubはイランに居住する、またはその他何らかの意味でイランの住民である開発者にための認可を財務省の外国資産管理局 (OFAC) から取得しています。 GitHubのクラウドサービス (有料、無料の両方) は、キューバにいる開発者でもほとんど利用できます。
 
 ### 制裁対象国/地域に住んでいない人や、制裁対象国/地域と職業的なつながりを持たない人がアクセスしたり異議を申し立てたりすることができるよう、GitHub は何か対策をしていますか？
 

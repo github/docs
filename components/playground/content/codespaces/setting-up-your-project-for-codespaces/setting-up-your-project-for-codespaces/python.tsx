@@ -53,7 +53,7 @@ const article: PlaygroundArticleT = {
 
         To set up your repository to use a custom dev container, you will need to create one or more \`devcontainer.json\` files. You can add these either from a template, in Visual Studio Code, or you can write your own. For more information on dev container configurations, see "[Introduction to dev containers](/codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project)".
 
-        1. Access the Command Palette (\`Shift + Command + P\` / \`Ctrl + Shift + P\`), then start typing "dev container". Select **Codespaces: Add Development Container Configuration Files...**.
+        1. Access the Command Palette (\`<kbd>Shift</kbd>+<kbd>Command</kbd>+<kbd>P</kbd>\` / \`<kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd>\`), then start typing "dev container". Select **Codespaces: Add Development Container Configuration Files...**.
           !["Codespaces: Add Development Container Configuration Files..." in the command palette](/assets/images/help/codespaces/add-prebuilt-container-command.png)
         2. For this example, click **Python 3**. If you need additional features you can select any container that’s specific to Python or a combination of tools such as Python 3 and PostgreSQL.
           ![Select Python option from the list](/assets/images/help/codespaces/add-python-prebuilt-container.png)
@@ -62,7 +62,7 @@ const article: PlaygroundArticleT = {
         4. Accept the default option to add Node.js to your customization.
           ![Add Node.js selection](/assets/images/help/codespaces/add-nodejs-selection.png)
         5. Select any additional features to install and click **OK**.
-        6. Access the command palette (\`Shift + Command + P\`/ \`Ctrl + Shift + P\`), then start typing "rebuild". Select **Codespaces: Rebuild Container**. 
+        6. Access the command palette (\`<kbd>Shift</kbd>+<kbd>Command</kbd>+<kbd>P</kbd>\`/ \`<kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd>\`), then start typing "rebuild". Select **Codespaces: Rebuild Container**. 
           ![Rebuild container option](/assets/images/help/codespaces/codespaces-rebuild.png)
       `,
     },
@@ -197,7 +197,7 @@ const article: PlaygroundArticleT = {
            "postCreateCommand": "pip3 install --user -r requirements.txt",
            \`\`\`
 
-        4. Access the command palette (\`Shift + Command + P\`/ \`Ctrl + Shift + P\`), then start typing "rebuild". Select **Codespaces: Rebuild Container**. 
+        4. Access the command palette (\`<kbd>Shift</kbd>+<kbd>Command</kbd>+<kbd>P</kbd>\`/ \`<kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd>\`), then start typing "rebuild". Select **Codespaces: Rebuild Container**. 
           
             ![Rebuild container option](/assets/images/help/codespaces/codespaces-rebuild.png)
           

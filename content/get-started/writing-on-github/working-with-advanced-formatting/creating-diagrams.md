@@ -8,7 +8,7 @@ shortTitle: Create diagrams
 
 ## About creating diagrams
 
-You can create diagrams in Markdown using three different syntaxes: mermaid, geoJSON and topoJSON, and ASCII STL.
+You can create diagrams in Markdown using three different syntaxes: mermaid, geoJSON and topoJSON, and ASCII STL. Diagram rendering is available in {% data variables.product.prodname_github_issues %}, {% data variables.product.prodname_discussions %}, pull requests, wikis, and Markdown files.
 
 ## Creating Mermaid diagrams
 
@@ -38,11 +38,11 @@ graph TD;
 
 {% endnote %}
 
-## Creating geoJSON and topoJSON maps
+## Creating GeoJSON and TopoJSON maps
 
-You can use geo/topoJSON syntax to create interactive maps. To create a map, add geoJSON or topoJSON inside a fenced code block with the `geojson` or `topojson` syntax identifier. For more information, see "[Creating and highlighting code blocks](/get-started/writing-on-github/working-with-advanced-formatting/creating-and-highlighting-code-blocks)."
+You can use GeoJSON/TopoJSON syntax to create interactive maps. To create a map, add GeoJSON or TopoJSON inside a fenced code block with the `geojson` or `topojson` syntax identifier. For more information, see "[Creating and highlighting code blocks](/get-started/writing-on-github/working-with-advanced-formatting/creating-and-highlighting-code-blocks)."
 
-### Using geoJSON
+### Using GeoJSON
 
 For example, you can create a simple map:
 
@@ -77,9 +77,9 @@ For example, you can create a simple map:
 
 ![Rendered map](/assets/images/help/writing/fenced-geojson-rendered-map.png)
 
-### Using topoJSON
+### Using TopoJSON
 
-For example, you can create a simple topoJSON map:
+For example, you can create a simple TopoJSON map:
 
 <pre>
 ```topojson

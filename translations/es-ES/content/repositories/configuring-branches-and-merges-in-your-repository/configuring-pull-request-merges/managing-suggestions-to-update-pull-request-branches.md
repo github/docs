@@ -16,6 +16,8 @@ permissions: People with maintainer permissions can enable or disable the settin
 
 Si habilitas el ajuste para que siempre sugiera actualizar ramas de solicitudes de cambios en tu repositorio, las personas con permisos de escritura siempre podrán actualizar la rama de encabezado de una solicitud de cambios, en la página de dicha solicitud, cuando no esté actualizada con la rama base. Cuando no se habilita, esta capacidad de actualización solo estará disponible cuando la rama base requiera que las ramas estén actualizadas antes de la fusión y la rama no esté actualizada. Para obtener más información, consulta la sección "[Mantener tu solicitud de cambios sincronizada con la rama base](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/keeping-your-pull-request-in-sync-with-the-base-branch)".
 
+{% data reusables.enterprise.3-5-missing-feature %}
+
 ## Administrar las sugerencias para actualizar una rama de una solicitud de cambios
 
 {% data reusables.repositories.navigate-to-repo %}

@@ -1,6 +1,7 @@
 import patterns from '../../lib/patterns.js'
 import { URL } from 'url'
 import { pathLanguagePrefixed } from '../../lib/languages.js'
+import { deprecatedWithFunctionalRedirects } from '../../lib/enterprise-server-releases.js'
 import getRedirect from '../../lib/get-redirect.js'
 import { cacheControlFactory } from '../cache-control.js'
 
@@ -11,15 +12,15 @@ export default function handleRedirects(req, res, next) {
   // never redirect assets
   if (patterns.assetPaths.test(req.path)) return next()
 
+  // Any double-slashes in the URL should be removed first
+  if (req.path.includes('//')) {
+    return res.redirect(301, req.path.replace(/\/\//g, '/'))
+  }
+
   // blanket redirects for languageless homepage
   if (req.path === '/') {
     const language = getLanguage(req)
-
-    // Undo the cookie setting that CSRF sets.
-    res.removeHeader('set-cookie')
-
     noCacheControl(res)
-
     return res.redirect(302, `/${language}`)
   }
 
@@ -60,7 +61,7 @@ export default function handleRedirects(req, res, next) {
     // But for example, a `/authentication/connecting-to-github-with-ssh`
     // needs to become `/en/authentication/connecting-to-github-with-ssh`
     const possibleRedirectTo = `/en${req.path}`
-    if (possibleRedirectTo in req.context.pages) {
+    if (possibleRedirectTo in req.context.pages || isDeprecatedVersion(req.path)) {
       const language = getLanguage(req)
 
       // Note, it's important to use `req.url` here and not `req.path`
@@ -77,7 +78,10 @@ export default function handleRedirects(req, res, next) {
   }
 
   // do not redirect if the redirected page can't be found
-  if (!req.context.pages[removeQueryParams(redirect)] && !redirect.includes('://')) {
+  if (
+    !(req.context.pages[removeQueryParams(redirect)] || isDeprecatedVersion(req.path)) &&
+    !redirect.includes('://')
+  ) {
     // display error on the page in development, but not in production
     // include final full redirect path in the message
     if (process.env.NODE_ENV !== 'production' && req.context) {
@@ -85,9 +89,6 @@ export default function handleRedirects(req, res, next) {
     }
     return next()
   }
-
-  // Undo the cookie setting that CSRF sets.
-  res.removeHeader('set-cookie')
 
   // do the redirect if the from-URL already had a language in it
   if (pathLanguagePrefixed(req.path) || redirect.includes('://')) {
@@ -128,4 +129,20 @@ function usePermanentRedirect(req) {
 
 function removeQueryParams(redirect) {
   return new URL(redirect, 'https://docs.github.com').pathname
+}
+
+function isDeprecatedVersion(path) {
+  // When we rewrote how redirects work, from a lookup model to a
+  // functional model, the enterprise-server releases that got
+  // deprecated since then fall between the cracks. Especially
+  // for custom NextJS page-like pages like /admin/release-notes
+  // These URLs don't come from any remaining .json lookup file
+  // and they're not active pages either (e.g. req.context.pages)
+  const split = path.split('/')
+  for (const version of deprecatedWithFunctionalRedirects) {
+    if (split.includes(`enterprise-server@${version}`)) {
+      return true
+    }
+  }
+  return false
 }

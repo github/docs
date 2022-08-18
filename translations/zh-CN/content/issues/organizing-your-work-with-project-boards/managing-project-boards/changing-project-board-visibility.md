@@ -1,18 +1,16 @@
 ---
-title: 更改项目板可见性
-intro: '作为组织所有者或项目板管理员，您可以将项目板设为{% ifversion ghae %}内部{% else %}公共{% endif %}或私有。'
+title: 'Changing {% data variables.product.prodname_project_v1 %} visibility'
+intro: 'As an organization owner or {% data variables.projects.projects_v1_board %} admin, you can make a {% data variables.projects.projects_v1_board %} {% ifversion ghae %}internal{% else %}public{% endif %} or private.'
 redirect_from:
   - /github/managing-your-work-on-github/managing-project-boards/changing-project-board-visibility
   - /articles/changing-project-board-visibility
   - /github/managing-your-work-on-github/changing-project-board-visibility
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
-  ghec: '*'
+  feature: projects-v1
 topics:
   - Pull requests
 shortTitle: 更改可见性
+allowTitleToDifferFromFilename: true
 ---
 
 {% data reusables.projects.project_boards_old %}
@@ -21,7 +19,7 @@ shortTitle: 更改可见性
 
 {% tip %}
 
-**提示：**将项目板设为{% ifversion ghae %}内部{% else %}公共{% endif %}时，组织成员默认获得读取权限。 您可以为特定组织成员提供写入或管理权限，方法是为他们所在的团队提供项目板访问权限或将他们作为协作者添加到项目板。 更多信息请参阅“[组织的项目板权限](/articles/project-board-permissions-for-an-organization)”。
+**Tip:** When you make your {% data variables.projects.projects_v1_board %} {% ifversion ghae %}internal{% else %}public{% endif %}, organization members are given read access by default. You can give specific organization members write or admin permissions by giving access to teams they're on or by adding them to the {% data variables.projects.projects_v1_board %} as a collaborator. For more information, see "[{% data variables.product.prodname_project_v1_caps %} permissions for an organization](/articles/project-board-permissions-for-an-organization)."
 
 {% endtip %}
 

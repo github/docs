@@ -5,6 +5,7 @@ name: Check for unallowed internal changes
 # **Who does it impact**: Docs engineering and content writers.
 
 on:
+  merge_group:
   pull_request:
     types:
       - labeled
@@ -12,9 +13,6 @@ on:
       - opened
       - reopened
       - synchronize
-  push:
-    branches:
-      - gh-readonly-queue/main/**
 
 permissions:
   # This is needed by dorny/paths-filter

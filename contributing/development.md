@@ -30,33 +30,17 @@ Note that `npm ci` and `npm run build` are steps that should typically only need
  - `npm ci` does a clean install of dependencies, without updating the `package-lock.json` file
  - `npm run build` creates static assets, such as JavaScript and CSS files
 
+Power users may want to read more about [debugging the docs application](./debugging-the-docs-application.md) with VSCode.
+
 ### Using GitHub Codespaces
 
 As an alternative, you can simply use [GitHub Codespaces](https://docs.github.com/en/codespaces/overview). For more information about using a codespace for working on GitHub documentation, see "[Working in a codespace](https://github.com/github/docs/blob/main/contributing/codespace.md)."
 
 In a matter of minutes, you will be ready to edit, preview and test your changes directly from the comfort of your browser.
 
-### Debugging with VS Code
-
-This repo has configuration for debugging with VS Code's built-in Node Debugger.
-
-1. After running the build steps, start the app by running `npm run debug`.
-1. In VS Code, click on the Debugging icon in the Activity Bar to bring up the Debug view.
-1. In the Debug View, select the **'Node: Nodemon'** configuration, then press <kbd>F5</kbd> or click the green play button. You should see all of your running node processes.
-1. Select the node process that's started with the `--inspect` flag.
-1. Debugger has now been attached. Enjoy!
-
-For more detailed instructions, please see this [VS Code recipe](https://github.com/Microsoft/vscode-recipes/tree/master/nodemon). You can also learn more about debugging using VS Code [here](https://code.visualstudio.com/docs/editor/debugging).
-
 ### Using browser shortcuts
 
 The [`script/bookmarklets`](../script/bookmarklets) directory contains some browser shortcuts that can help with reviewing GitHub documentation. See [`script/bookmarklets/README.md`](../script/bookmarklets/README.md) for details.
-
-### Viewing a top-level table of contents
-
-While running the local server, you can visit [localhost:4000/dev-toc](http://localhost:4000/dev-toc) to view a top-level TOC of all the content in the site. This page is not available on https://docs.github.com. It was created for internal GitHub writers' use.
-
-At the `/dev-toc` path, you'll see a list of available versions. Click a version, and a list of products will appear. Note that the TOC content is versioned. If you are viewing the `GitHub.com` version and you click the `Enterprise Admin` product, it will be empty, because there isn't any Admin content available on that version.
 
 ### Enabling different languages
 
@@ -77,6 +61,8 @@ The tooling for this site has changed over the years, but many of the tried-and-
 - Files in the `data` directory are available to templates via the `{% data %}` tag.
 - Markdown files can contain [frontmatter](https://jekyllrb.com/docs/front-matter).
 - The [`redirect_from`](https://github.com/jekyll/jekyll-redirect-from) Jekyll plugin behavior is supported.
+
+## READMEs
 
 For more info about working with this site, check out these READMEs:
 

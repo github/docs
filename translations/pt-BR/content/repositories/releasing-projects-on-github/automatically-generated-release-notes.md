@@ -12,12 +12,12 @@ topics:
 shortTitle: Notas de versão automatizadas
 communityRedirect:
   name: Provide GitHub Feedback
-  href: 'https://github.com/github/feedback/discussions/categories/general-feedback'
+  href: 'https://github.com/orgs/community/discussions/categories/general'
 ---
 
 ## Sobre notas de versão geradas automaticamente
 
-As otas de versão geradas automaticamente fornecem uma alternativa automatizada para escrever notas de versão manualmente para as suas versões de {% data variables.product.prodname_dotcom %}. Com as notas de versões geradas automaticamente, você pode gerar rapidamente uma visão geral do conteúdo de uma versão. Automatically generated release notes include a list of merged pull requests, a list of contributors to the release, and a link to a full changelog.
+As otas de versão geradas automaticamente fornecem uma alternativa automatizada para escrever notas de versão manualmente para as suas versões de {% data variables.product.prodname_dotcom %}. Com as notas de versões geradas automaticamente, você pode gerar rapidamente uma visão geral do conteúdo de uma versão. As observações de versão geradas automaticamente incluem uma lista de pull requests, uma lista de contribuidores para a versão e um link para o registro de alterações completo.
 
 Você também pode personalizar suas notas de versão automatizadas, usando etiquetas para criar categorias personalizadas e organizar pull requests que você deseja incluir e excluir certas etiquetas e usuários para que não apareçam na saída.
 
@@ -38,7 +38,7 @@ Você também pode personalizar suas notas de versão automatizadas, usando etiq
   {% else %}![Branch com tag das versões](/assets/images/enterprise/releases/releases-tag-branch.png)
   {% endif %}
 {%- data reusables.releases.previous-release-tag %}
-7. To the top right of the description text box, click {% ifversion previous-release-tag %}**Generate release notes**{% else %}**Auto-generate release notes**{% endif %}.{% ifversion previous-release-tag %} ![Generate release notes](/assets/images/help/releases/generate-release-notes.png){% else %}
+7. No canto superior direito da caixa de texto da descrição, clique em {% ifversion previous-release-tag %}**Gerar observações de versão**{% else %}**Gerar observações da versão automaticamente**{% endif %}.{% ifversion previous-release-tag %} ![Generate release notes](/assets/images/help/releases/generate-release-notes.png){% else %}
 ![Auto-generate release notes](/assets/images/enterprise/3.5/releases/auto-generate-release-notes.png){% endif %}
 8. Selecione as notas geradas para garantir que elas incluem todas (e apenas) as informações que você deseja incluir.
 9. Opcionalmente, para incluir arquivos binários, como programas compilados em sua versão, arraste e solte ou selecione arquivos manualmente na caixa de binários. ![Fornecer um DMG com a versão](/assets/images/help/releases/releases_adding_binary.gif)

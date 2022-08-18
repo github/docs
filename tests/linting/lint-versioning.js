@@ -19,7 +19,7 @@ import loadSiteData from '../../lib/site-data.js'
   Some tests/unit/page.js tests also exercise the frontmatter validation.
 */
 
-jest.useFakeTimers('legacy')
+jest.useFakeTimers({ legacyFakeTimers: true })
 
 const siteData = loadSiteData()
 const featureVersions = Object.entries(siteData.en.site.data.features)

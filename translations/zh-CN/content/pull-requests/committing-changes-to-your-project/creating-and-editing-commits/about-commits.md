@@ -18,6 +18,9 @@ versions:
 
 {% data reusables.commits.about-commits %}
 
+{% ifversion commit-signoffs %}
+如果您要提交的存储库启用了强制提交签核，并且您是通过 Web 界面提交的，则作为提交过程的一部分，您将自动签署提交。 更多信息请参阅“[管理存储库的提交签核策略](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-the-commit-signoff-policy-for-your-repository)”。 {% endif %}
+
 您可以对协作处理的任何提交添加合作作者。 更多信息请参阅“[创建有多个作者的提交](/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/creating-a-commit-with-multiple-authors)”。
 
 {% ifversion fpt or ghec %}
@@ -44,7 +47,7 @@ versions:
 
 ## 使用文件树
 
-You can use the file tree to navigate between files in a commit.
+您可以使用文件树在提交中的文件之间导航。
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.navigate-to-commit-page %}
@@ -53,11 +56,11 @@ You can use the file tree to navigate between files in a commit.
 
   {% note %}
 
-  **Note**: The file tree will not display if your screen width is too narrow or if the commit only includes one file.
+  **注意**：如果您的屏幕太窄或提交仅包含一个文件，则不会显示文件树。
 
   {% endnote %}
 
-  ![Screenshot of filter changed files search box and file tree emphasized](/assets/images/help/repository/file-tree.png)
+  ![突出显示筛选器已更改文件搜索框和文件树的屏幕截图](/assets/images/help/repository/file-tree.png)
 1. 要按文件路径进行筛选，请在 **Filter changed files（筛选已更改的文件）**搜索框中输入部分或全部文件路径。
 
 {% endif %}

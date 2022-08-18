@@ -74,10 +74,12 @@ class RewriteAssetPathsPlugin {
       // https://githubdocs.azureedge.net/github-images/enterprise/2.17/assets/images/foo/bar.png
       if (resource.isHtml()) {
         newBody = text.replace(
-          /(?<attribute>src|href)="(?:\.\.\/|\/)*(?<basepath>_next\/static|javascripts|stylesheets|assets\/fonts|assets\/images|node_modules)/g,
+          /(?<attribute>src|href)="(?:\.\.\/|\/)*(?<basepath>_next\/static|javascripts|stylesheets|assets\/fonts|assets\/cb-\d+\/images|node_modules)/g,
           (match, attribute, basepath) => {
             let replaced = path.join('/enterprise', this.version, basepath)
-            if (basepath === 'assets/images') {
+            const assetRegex = /assets\/cb-\d+\/images/
+            const assetMatch = basepath.match(assetRegex)
+            if (assetMatch) {
               replaced = remoteImageStoreBaseURL + replaced
             }
             const returnValue = `${attribute}="${replaced}`

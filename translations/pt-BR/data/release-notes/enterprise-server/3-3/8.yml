@@ -15,7 +15,7 @@ sections:
     - Ao usar o gerenciador de arquivos na página de um repositório, digitar a tecla backspace dentro do campo de pesquisa geraria resultados de pesquisa listados várias vezes e causaria problemas de interpretação.
     - Ao usar o GitHub Enterprise Importer para importar um repositório, alguns problemas falhariam na importação devido a eventos da linha do tempo do projeto configurados incorretamente.
     - Ao usar `ghe-migrator`, uma migração falharia na importação de anexos do arquivo de vídeo em problemas e pull requests.
-    - 'The Releases page would return a 500 error when the repository has tags that contain non-ASCII characters. [Updated: 2022-06-10]'
+    - 'A página de Versões retornaria um erro 500 quando o repositório tem tags que contêm caracteres que não são ASCII. [Atualizado: 2022-06-10]'
   changes:
     - Nas configurações de alta disponibilidade, explique que a página de visão geral de replicação no Console de Gerenciamento exibe somente a configuração de replicação atual, não o status de replicação atual.
     - Ao habilitar {% data variables.product.prodname_registry %}, explique que o uso de um token de Assinatura de Acesso Compartilhado (SAS) como string de conexão não é compatível atualmente.
@@ -32,3 +32,4 @@ sections:
     - O registro npm de {% data variables.product.prodname_registry %} não retorna mais o valor de tempo em respostas de metadados. Isso foi feito para permitir melhorias substanciais de desempenho. Continuamos a ter todos os dados necessários para devolver um valor de tempo como parte da resposta aos metadados e retomaremos o retorno desse valor no futuro, assim que tivermos resolvido os problemas de desempenho existentes.
     - Os limites de recursos que são específicos para processamento de hooks pre-receive podem causar falha em alguns hooks pre-receive.
     - 'As configurações de armazenamento de {% data variables.product.prodname_actions %} não podem ser validadas e salvas no {% data variables.enterprise.management_console %} quando "Forçar estilo de caminho" for selecionado e deverão ser definidas com a ferramenta de linha de comando `ghe-actions-precheck`.'
+    - '{% data reusables.release-notes.ghas-3.4-secret-scanning-known-issue %}'

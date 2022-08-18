@@ -20,6 +20,18 @@ topics:
 shortTitle: Dejar de publicar el sitio de las páginas
 ---
 
+{% ifversion pages-custom-workflow %}
+
+Cuando dejes de publicar tu sitio, este ya no estará disponible. Cualquier ajuste o contenido de un repositorio existente seguirá sin afectación.
+
+{% data reusables.repositories.navigate-to-repo %}
+1. Debajo de **{% data variables.product.prodname_pages %}**, junto al mensaje de **Tu sitio está publicado en**, haz clic en el {% octicon "kebab-horizontal" aria-label="the horizontal kebab icon" %}.
+1. En el menú que se muestra, selecciona **Dejar de publicar el sitio**.
+
+   ![Menú desplegable para dejar de publicar el sitio](/assets/images/help/pages/unpublish-site.png)
+
+{% else %}
+
 ## Anular la publicación de un sitio de proyecto
 
 {% data reusables.repositories.navigate-to-repo %}
@@ -35,3 +47,5 @@ shortTitle: Dejar de publicar el sitio de las páginas
 {% data reusables.repositories.navigate-to-repo %}
 2. Borra la rama que estás utilizando como fuente de publicación, o borra todo el repositorio. Para obtener más información, consulta "[Crear y eliminar ramas dentro de tu repositorio](/articles/creating-and-deleting-branches-within-your-repository#deleting-a-branch)" y "[Eliminar un repositorio](/articles/deleting-a-repository)".
 {% data reusables.pages.update_your_dns_settings %}
+
+{% endif %}

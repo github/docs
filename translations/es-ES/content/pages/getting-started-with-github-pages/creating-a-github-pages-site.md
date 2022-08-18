@@ -41,14 +41,11 @@ shortTitle: Crear un sitio de GitHub Pages
 
 {% data reusables.pages.navigate-site-repo %}
 {% data reusables.pages.decide-publishing-source %}
-3. Si ya existe la fuente de publicación que elegiste, desplázate hasta la fuente de publicación. Si la fuente de publicación que elegiste no existe, crear la fuente de publicación.
-4. En la raíz de la fuente de publicación, crea un archivo nuevo denominado `index.md` que contenga el contenido que quieras mostrar en la página principal de tu sitio.
+1. Crea el archivo de entrada para tu sitio. {% data variables.product.prodname_pages %} buscará un archivo `index.html`, `index.md` o `README.md` como el archivo de entrada para tu sitio.
 
-  {% tip %}
+   {% ifversion pages-custom-workflow %}Si tu fuente de publicación es una rama y carpeta, el archivo de entrada debe estar en el nivel superior de la carpeta origen en la rama origen. Por ejemplo, si tu fuente de publicación es la carpeta `/docs` en la rama `main`, tu archivo de entrada debe estar ubicado en la carpeta `/docs` en una rama llamada `main`.
 
-  **Tip:** Si el archivo `index.html` está presente, este se utilizará en vez de `index.md`. Si ni `index.html` ni `index.md` están presentes, se utilizará `README.md`.
-
-  {% endtip %}
+   Si tu fuente de publicación es un flujo de trabajo de {% data variables.product.prodname_actions %}, el artefacto que despliegues deberá incluir el archivo de entrada en el nivel superior del mismo. En vez de agregar el archivo de entrada a tu repositorio, puedes elegir que tu flujo de trabajo de {% data variables.product.prodname_actions %} genere tu archivo de entrada cuando se ejecute.{% else %} El archivo de entrada debe estar en el nivel superior de la fuente de publicación que elijas. Por ejemplo, si tu fuente de publicación es la carpeta `/docs` en la rama `main`, tu archivo de entrada debe estar ubicado en la carpeta `/docs` en una rama llamada `main`.{% endif %}
 {% data reusables.pages.configure-publishing-source %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.pages.sidebar-pages %}

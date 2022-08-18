@@ -1,31 +1,29 @@
 ---
-title: Acerca de automatización de tableros de proyecto
-intro: Puedes configurar flujos de trabajo automáticos para mantener el estado de las tarjetas del tablero de proyecto en sincronización con las propuestas y las solicitudes de extracción asociadas.
+title: 'Acerca de la automatización para los {% data variables.product.prodname_projects_v1 %}'
+intro: 'Puedes configurar los flujos de trabajo automáticos para mantener el estado de las tarjetas del {% data variables.projects.projects_v1_board %} sincronizadas con las propuestas y solicitudes de cambio asociadas.'
 redirect_from:
   - /github/managing-your-work-on-github/managing-project-boards/about-automation-for-project-boards
   - /articles/about-automation-for-project-boards
   - /github/managing-your-work-on-github/about-automation-for-project-boards
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
-  ghec: '*'
+  feature: projects-v1
 topics:
   - Pull requests
-shortTitle: Automatización para tableros de proyecto
+shortTitle: 'Automatización para los {% data variables.product.prodname_projects_v1 %}'
+allowTitleToDifferFromFilename: true
 ---
 
 {% data reusables.projects.project_boards_old %}
 
-{% data reusables.project-management.automate-project-board-permissions %}  Para obtener más información, consulta "[Permisos del tablero de proyecto para una organización](/articles/project-board-permissions-for-an-organization)".
+{% data reusables.project-management.automate-project-board-permissions %} Para obtener más información, consulta la sección "[Permisos de los {% data variables.product.prodname_projects_v1_caps %} para una organización](/articles/project-board-permissions-for-an-organization)".
 
-Puedes automatizar acciones en función de los eventos desencadenantes para las columnas del tablero de proyecto. Esto elimina algunas tareas manuales en la administración de un tablero de proyecto. Por ejemplo, puedes configurar una columna "Tareas pendientes", donde cualquier propuesta o solicitud de extracción que agregues a un tablero de proyecto se mueva automáticamente a la columna configurada. Para obtener más información, consulta "[Configurar automatización para tableros de proyecto](/articles/configuring-automation-for-project-boards)".
+Puedes automatizar las acciones con base en los eventos activadores para las columnas del {% data variables.projects.projects_v1_board %}. Esto elimina algunas de las tareas manuales para administrar un {% data variables.projects.projects_v1_board %}. Por ejemplo, puedes configurar una columna de elementos "Por hacer", en donde cualquier propuesta o solicitud de cambios nueva que agregues a un {% data variables.projects.projects_v1_board %} se mueva automáticamente a la columna configurada. Para obtener más información, consulta la sección "[Configurar la automatización para los {% data variables.product.prodname_projects_v1 %}](/articles/configuring-automation-for-project-boards)".
 
 {% data reusables.project-management.use-automated-template %}
 
 {% data reusables.project-management.copy-project-boards %}
 
-La automatización del tablero de proyecto también puede ayudar a los equipos a desarrollar un entendimiento común del propósito de un tablero de proyecto y del proceso de desarrollo del equipo creando un flujo de trabajo estándar para ciertas acciones.
+La automatización de los {% data variables.projects.projects_v1_board_caps %} también puede ayudar a que los equipos desarrollen un entendimiento compartido del propósito de un {% data variables.projects.projects_v1_board %} y del proceso de desarrollo del equipo al crear un flujo de trabajo estándar para acciones específicas.
 
 {% data reusables.project-management.resync-automation %}
 
@@ -39,10 +37,10 @@ La automatización del tablero de proyecto también puede ayudar a los equipos a
 
 ## Seguimiento de progreso del proyecto
 
-Puedes rastrear el progreso en tu tablero de proyecto. Las tarjetas en las columnas "por hacer", "en curso", o "hecho" cuentan sobre el progreso general del proyecto. {% data reusables.project-management.project-progress-locations %}
+Puedes rastrear el progreso en tu {% data variables.projects.projects_v1_board %}. Las tarjetas en las columnas "por hacer", "en curso", o "hecho" cuentan sobre el progreso general del proyecto. {% data reusables.project-management.project-progress-locations %}
 
-Para obtener más información, consulta la sección "[Rastrear el progreso en tu tablero de proyecto](/github/managing-your-work-on-github/tracking-progress-on-your-project-board)".
+Para obtener más información, consulta la sección "[Rastrear el progreso en tu {% data variables.product.prodname_project_v1 %}](/github/managing-your-work-on-github/tracking-progress-on-your-project-board)".
 
 ## Leer más
-- "[Configurar automatización para tableros de proyecto](/articles/configuring-automation-for-project-boards)"{% ifversion fpt or ghec %}
-- "[Copying a project board](/articles/copying-a-project-board)"{% endif %}
+- "[Configurar la automatización para {% data variables.product.prodname_projects_v1 %}](/articles/configuring-automation-for-project-boards)"{% ifversion fpt or ghec %}
+- "[Copiar un {% data variables.product.prodname_project_v1 %}](/articles/copying-a-project-board)"{% endif %}

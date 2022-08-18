@@ -7,19 +7,12 @@ versions:
   ghes: '>= 3.5'
   ghae: issue-4925
   ghec: '*'
-showMiniToc: false
 type: how_to
 topics:
   - Workflows
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}
-
-- [Example overview](#example-overview)
-- [Features used in this example](#features-used-in-this-example)
-- [ワークフローの例](#example-workflow)
-- [Understanding the example](#understanding-the-example)
-- [次のステップ](#next-steps)
 
 ## Example overview
 
@@ -54,7 +47,7 @@ topics:
 
 {% data reusables.actions.note-understanding-example %}
 
-<table style="width:350px">
+<table style="table-layout: fixed;">
 <thead>
   <tr>
     <th style="width:100%"></th>
@@ -76,7 +69,7 @@ on:
   pull_request:
   push:
     branches:
-      - gh-readonly-queue/main/**
+      - main
 
 permissions:
   contents: read
@@ -222,7 +215,7 @@ jobs:
 
  {% data reusables.actions.example-explanation-table-intro %}
 
-<table style="width:350px">
+<table style="table-layout: fixed;">
 <thead>
   <tr>
     <th style="width:60%"><b>コード</b></th>
@@ -284,12 +277,12 @@ Add the `pull_request` event, so that the workflow runs automatically every time
 ```yaml{:copy}
   push:
     branches:
-      - gh-readonly-queue/main/**
+      - main
 ```
 </td>
 <td>
 
-Add the `push` event, so that the workflow runs automatically every time a commit is pushed to a branch matching the filter `gh-readonly-queue/main/**`. For more information, see [`push`](/actions/using-workflows/events-that-trigger-workflows#push).
+Add the `push` event, so that the workflow runs automatically every time a commit is pushed to a branch matching the filter `main`. For more information, see [`push`](/actions/using-workflows/events-that-trigger-workflows#push).
 </td>
 </tr>
 <tr>

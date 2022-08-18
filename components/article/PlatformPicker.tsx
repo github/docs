@@ -135,18 +135,7 @@ export const PlatformPicker = ({ variant = 'subnav' }: Props) => {
             <UnderlineNav.Link
               key={option.id}
               data-platform={option.id}
-              as="button"
               selected={option.id === currentPlatform}
-              // Temporary fix: This should be removed when this merges: PR 24123
-              sx={{
-                color: 'var(--color-fg-default)',
-                '&.selected': { color: 'var(--color-fg-default)' },
-                ':hover': { color: 'var(--color-fg-default)' },
-                ':focus': {
-                  color: 'var(--color-fg-default)',
-                  outline: '-webkit-focus-ring-color auto 1px;',
-                },
-              }}
               onClick={() => {
                 onClickPlatform(option.id)
               }}

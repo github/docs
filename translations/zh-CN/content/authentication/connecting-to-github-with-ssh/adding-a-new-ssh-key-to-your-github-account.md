@@ -15,9 +15,20 @@ topics:
 shortTitle: 添加新的 SSH 密钥
 ---
 
-在将新的 SSH 密钥添加到 {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} 上的帐户之前，您应该具有：
-* [检查现有 SSH 密钥](/articles/checking-for-existing-ssh-keys)
-* [生成新 SSH 密钥并添加到 ssh-agent](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
+## About addition of SSH keys to your account
+
+{% data reusables.ssh.about-ssh %} 更多信息请参阅“[关于 SSH](/authentication/connecting-to-github-with-ssh/about-ssh)”。
+
+After you generate an SSH key pair, you must add the public key to {% ifversion fpt or ghec or ghes %}{% data variables.product.product_location %}{% elsif ghae %}{% data variables.product.product_name %}{% endif %} to enable SSH access for your account.
+
+## 基本要求
+
+Before adding a new SSH key to your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}, complete the following steps.
+
+1. Check for existing SSH keys. 更多信息请参阅“[检查现有 SSH 密钥](/authentication/connecting-to-github-with-ssh/checking-for-existing-ssh-keys)”。
+1. Generate a new SSH key and add it to your machine's SSH agent. 更多信息请参阅“[生成新的 SSH 密钥并添加到 ssh-agent](/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)”。
+
+## Adding a new SSH key to your account
 
 在向您在 {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} 上的帐户添加新 SSH 密钥后，您可以重新配置任何本地存储库以使用 SSH。 更多信息请参阅“[将远程 URL 从 HTTPS 转换为 SSH](/github/getting-started-with-github/managing-remote-repositories/#switching-remote-urls-from-https-to-ssh)”。
 
@@ -79,7 +90,7 @@ shortTitle: 添加新的 SSH 密钥
 5. 在 "Title"（标题）字段中，为新密钥添加描述性标签。 例如，如果您使用的是个人 Mac，此密钥名称可能是 "Personal MacBook Air"。
 6. 将密钥粘贴到 "Key"（密钥）字段。 ![密钥字段](/assets/images/help/settings/ssh-key-paste.png)
 7. 单击 **Add SSH key（添加 SSH 密钥）**。 ![添加密钥按钮](/assets/images/help/settings/ssh-add-key.png)
-8. 如有提示，请确认您的 {% data variables.product.product_name %} 密码。 ![Sudo 模式对话框](/assets/images/help/settings/sudo_mode_popup.png)
+{% data reusables.user-settings.sudo-mode-popup %}
 
 {% endwebui %}
 
@@ -111,7 +122,7 @@ shortTitle: 添加新的 SSH 密钥
 5. 在 "Title"（标题）字段中，为新密钥添加描述性标签。 例如，如果您使用的是个人 Mac，此密钥名称可能是 "Personal MacBook Air"。
 6. 将密钥粘贴到 "Key"（密钥）字段。 ![密钥字段](/assets/images/help/settings/ssh-key-paste.png)
 7. 单击 **Add SSH key（添加 SSH 密钥）**。 ![添加密钥按钮](/assets/images/help/settings/ssh-add-key.png)
-8. 如有提示，请确认您的 {% data variables.product.product_name %} 密码。 ![Sudo 模式对话框](/assets/images/help/settings/sudo_mode_popup.png)
+{% data reusables.user-settings.sudo-mode-popup %}
 
 {% endwebui %}
 

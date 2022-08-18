@@ -1,7 +1,5 @@
 import { useRouter } from 'next/router'
-import { ArrowRightIcon, InfoIcon } from '@primer/octicons-react'
 
-import { Link } from 'components/Link'
 import { useMainContext } from 'components/context/MainContext'
 import { DEFAULT_VERSION, useVersion } from 'components/hooks/useVersion'
 import { useTranslation } from 'components/hooks/useTranslation'
@@ -24,8 +22,11 @@ export const VersionPicker = ({ variant }: Props) => {
   const allLinks = (page.permalinks || []).map((permalink) => ({
     text: permalink.pageVersionTitle,
     selected: allVersions[currentVersion].versionTitle === permalink.pageVersionTitle,
-    item: <Link href={permalink.href}>{permalink.pageVersionTitle}</Link>,
+    href: permalink.href,
+    arrow: false,
+    info: false,
   }))
+
   const hasEnterpriseVersions = (page.permalinks || []).some((permalink) =>
     permalink.pageVersion.startsWith('enterprise-server')
   )
@@ -34,15 +35,9 @@ export const VersionPicker = ({ variant }: Props) => {
     allLinks.push({
       text: t('all_enterprise_releases'),
       selected: false,
-      item: (
-        <Link
-          href={`/${router.locale}/${enterpriseServerVersions[0]}/admin/all-releases`}
-          className="f6 no-underline"
-        >
-          {t('all_enterprise_releases')}{' '}
-          <ArrowRightIcon verticalAlign="middle" size={15} className="mr-2" />
-        </Link>
-      ),
+      arrow: true,
+      href: `/${router.locale}/${enterpriseServerVersions[0]}/admin/all-releases`,
+      info: false,
     })
   }
 
@@ -52,23 +47,15 @@ export const VersionPicker = ({ variant }: Props) => {
     allLinks.push({
       text: t('about_versions'),
       selected: false,
-      item: (
-        <Link
-          href={`/${router.locale}${currentVersionPathSegment}/get-started/learning-about-github/about-versions-of-github-docs`}
-          className="f6 no-underline"
-        >
-          {t('about_versions')} <InfoIcon verticalAlign="middle" size={15} className="mr-2" />
-        </Link>
-      ),
+      arrow: false,
+      info: true,
+      href: `/${router.locale}${currentVersionPathSegment}/get-started/learning-about-github/about-versions-of-github-docs`,
     })
   }
 
   return (
-    <Picker
-      variant={variant}
-      data-testid="version-picker"
-      defaultText={t('version_picker_default_text')}
-      options={allLinks}
-    />
+    <div data-testid="version-picker">
+      <Picker variant={variant} defaultText={t('version_picker_default_text')} options={allLinks} />
+    </div>
   )
 }

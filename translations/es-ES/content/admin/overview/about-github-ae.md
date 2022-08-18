@@ -11,9 +11,11 @@ topics:
 
 ## Acerca de {% data variables.product.prodname_ghe_managed %}
 
-{% data reusables.github-ae.github-ae-enables-you %}{% data variables.product.prodname_ghe_managed %} es completamente administrador, confiable y escalable, lo cual te permite acelerar la entrega sin sacrificar la administración de riesgos.
+{% data reusables.github-ae.github-ae-enables-you %} {% data variables.product.prodname_ghe_managed %} es integralmente administrado, confiable y escalable, lo cuál te permite acelerar la entrega mientras mejoras tu postura de cumplimiento y riesgos.
 
 {% data variables.product.prodname_ghe_managed %} ofrece una plataforma de desarrollo que va desde la idea hasta la producción. Puedes incrementar la velocidad de desarrollo con las herramientas que los equipos conocen y adoran mientras mantienes el cumplimiento regulatorio y de la industria con controles de acceso y seguridad, automatización de flujos de trabajo y requerimiento de políticas únicos.
+
+{% data reusables.enterprise.about-github-for-enterprises %}
 
 ## Una nube de disponibilidad alta y escala planetaria
 
@@ -21,11 +23,13 @@ topics:
 
 ## Residencia de los datos
 
-Todos tus datos se almacenan dentro de la región geográfica de tu elección. Puedes apegarte a la GDPR y a los estándares de protección de datos globales manteniendo todos tus datos dentro de tu región de elección.
+Todos tus datos se almacenan dentro de la región geográfica de tu elección. Puedes cumplir con los requisitos de residencia de datos de la RGPD y con los estándares de protección de datos globales si mantienes todos tus datos dentro de tu región elegida.
 
 ## Cuentas aisladas
 
-Todas las cuentas de desarrollador se aislan por completo en {% data variables.product.prodname_ghe_managed %}. Puedes controlar las cuentas integralmente a través de tu proveedor de identidad, haciendo obligatorio el inicio de sesión único de SAML. El SCIM te permite garantizar que los empleados solo tengan acceso a los recursos que necesitan, de acuerdo como se define en tu sistema central de administración de identidades. Para obtener más información, consulta la sección "[Administrar el acceso y la identidad en tu empresa](/admin/authentication/managing-identity-and-access-for-your-enterprise)".
+Predeterminadamente, todas las cuentas de desarrollador en {% data variables.product.product_name %} se aíslan completamente de otros servicios, incluyendo de los productos de {% data variables.product.company_short %}. Puedes controlar las cuentas mediante tu proveedor de identidad, cuando el inicio de sesión único de SAML es obligatorio. El SCIM te permite garantizar que los empleados solo tengan acceso a los recursos que necesitan, de acuerdo como se define en tu sistema central de administración de identidades. Para obtener más información, consulta la sección "[Administrar el acceso y la identidad en tu empresa](/admin/authentication/managing-identity-and-access-for-your-enterprise)".
+
+Opcionalmente, los propietarios de las empresas pueden habilitar la integración limitada entre {% data variables.product.product_name %} y {% data variables.product.prodname_dotcom_the_website %}. Para obtener más información, consulta "[Acerca de {% data variables.product.prodname_github_connect %}](/admin/configuration/configuring-github-connect/about-github-connect)."
 
 ## Acceso restringido a las redes
 

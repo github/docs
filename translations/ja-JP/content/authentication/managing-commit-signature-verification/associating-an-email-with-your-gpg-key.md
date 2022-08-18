@@ -51,13 +51,13 @@ If you're using a GPG key that matches your committer identity and your verified
   $ gpg --armor --export <em>3AA5C34371567BD2</em>
   # ASCII armor 形式で GPG キーを出力する
   ```
-11. [GPG キーを GitHub アカウントに追加](/articles/adding-a-new-gpg-key-to-your-github-account)することで、GPG キーをアップロードしてください。
+11. [GPG キーを GitHub アカウントに追加](/articles/adding-a-gpg-key-to-your-github-account)することで、GPG キーをアップロードしてください。
 
 ## 参考リンク
 
 - [既存の GPG キーのチェック](/articles/checking-for-existing-gpg-keys)
 - [新しい GPG キーの生成](/articles/generating-a-new-gpg-key)
 - [GPG キーで検証済みのメールアドレスを使う](/articles/using-a-verified-email-address-in-your-gpg-key)
-- [GitHub アカウントへの新しい GPG キーの追加](/articles/adding-a-new-gpg-key-to-your-github-account)
+- "[Adding a GPG key to your GitHub account](/articles/adding-a-gpg-key-to-your-github-account)"
 - 「[コミットに署名する](/articles/signing-commits)」
 - 「[タグに署名する](/articles/signing-tags)」

@@ -1,1 +1,1 @@
-The example workflow demonstrates the following capabilities of {% data variables.product.prodname_actions %}:
+サンプルのワークフローは、{% data variables.product.prodname_actions %}の以下の機能を紹介しています:

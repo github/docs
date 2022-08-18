@@ -47,7 +47,7 @@ Como primeiro passo, você deverá fazer um inventário completo das suas depend
 
 ### Detecção automática de vulnerabilidades em dependências
 
-{% data variables.product.prodname_dependabot %} pode ajudar você a monitorar as suas dependências e notificar você quando contiverem uma vulnerabilidade conhecida. {% ifversion fpt or ghec or ghes > 3.2 %}You can even enable {% data variables.product.prodname_dependabot %} to automatically raise pull requests that update the dependency to a secure version.{% endif %} For more information, see "[About {% data variables.product.prodname_dependabot_alerts %}](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)"{% ifversion fpt or ghec or ghes > 3.2 %} and "[About Dependabot security updates](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-dependabot-security-updates)"{% endif %}.
+{% data variables.product.prodname_dependabot %} pode ajudar você a monitorar as suas dependências e notificar você quando contiverem uma vulnerabilidade conhecida. {% ifversion fpt or ghec or ghes > 3.2 %}Você pode até mesmo habilitar {% data variables.product.prodname_dependabot %} para aumentar automaticamente os pull requests que atualizam a dependência para uma versão segura.{% endif %} Para obter mais informações, consulte "[Sobre {% data variables.product.prodname_dependabot_alerts %}](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)"{% ifversion fpt or ghec or ghes > 3.2 %} e "[Sobre as atualizações de segurança do Dependabot](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-dependabot-security-updates)"{% endif %}.
 
 ### Avaliação da exposição ao risco de uma dependência vulnerável
 
@@ -57,7 +57,7 @@ Para avaliar o impacto de uma vulnerabilidade no seu código, você também prec
 
 ## Proteja seus tokens de comunicação
 
-O código geralmente precisa se comunicar com outros sistemas por meio de uma rede e exige segredos (como uma senha, ou uma chave de API) para efetuar a autenticação. Seu sistema precisa de acesso a esses segredos para ser executado, mas a prática recomendada é não incluí-los no seu código-fonte. Isto é especialmente importante para repositórios públicos, mas também para repositórios privados aos quais muitas pessoas podem ter acesso.
+O código geralmente precisa se comunicar com outros sistemas por meio de uma rede e exige segredos (como uma senha, ou uma chave de API) para efetuar a autenticação. Seu sistema precisa de acesso a esses segredos para ser executado, mas a prática recomendada é não incluí-los no seu código-fonte. Isso é especialmente importante para repositórios aos quais muitas pessoas podem ter acesso{% ifversion not ghae %} e ser críticos para repositórios públicos{% endif %}.
 
 ### Detecção automática de segredos confirmados em um repositório
 

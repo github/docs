@@ -56,7 +56,7 @@ O GitHub irá exibir o README do seu perfil na sua página de perfil se todas as
 
   O arquivo README gerado é pré-preenchido com um modelo para dar alguma inspiração para o README do seu perfil. ![Arquivo README com modelo pré-preenchido](/assets/images/help/repository/personal-repository-readme-template.png)
 
-Para obter um resumo todos os emojis disponíveis e seus códigos, consulte "[Folha de dicas de Emoji](http://www.emoji-cheat-sheet.com/)".
+Para obter um resumo todos os emojis disponíveis e seus códigos, consulte "[Folha de dicas de Emoji](https://www.webfx.com/tools/emoji-cheat-sheet/)".
 
 ## Remover um README do perfil
 
@@ -66,7 +66,7 @@ O perfil README é removido do seu perfil de {% data variables.product.prodname_
 - O repositório é privado.
 - O nome do repositório não corresponde mais ao seu nome de usuário.
 
-The method you choose is dependant upon your needs, but if you're unsure, we recommend making your repository private. Para obter informações sobre as etapas etapas de como tornar seu repositório privado, consulte ["Alterar a visibilidade de um repositório".](/github/administering-a-repository/setting-repository-visibility#changing-a-repositorys-visibility)
+The method you choose is dependant upon your needs, but if you're unsure, we recommend making your repository private. Para os passos sobre como tornar seu repositório privado, consulte "[Alterando a visibilidade de um repositório](/github/administering-a-repository/setting-repository-visibility#changing-a-repositorys-visibility)".
 
 ## Leia mais
 

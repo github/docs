@@ -22,8 +22,6 @@ miniTocMaxHeadingLevel: 3
 
 {% endif %}
 
-{% ifversion fpt or ghae or ghes > 3.0 or ghec %}
-
 ### 視覚化グラフの利用
 
 すべてのワークフローの実行は、実行の進行を示すリアルタイムのグラフを生成します。 このグラフを使って、ワークフローをモニタリング及びデバッグできます。 例:
@@ -31,8 +29,6 @@ miniTocMaxHeadingLevel: 3
    ![ワークフローグラフ](/assets/images/help/images/workflow-graph.png)
 
 For more information, see "[Using the visualization graph](/actions/monitoring-and-troubleshooting-workflows/using-the-visualization-graph)."
-
-{% endif %}
 
 ### ワークフローステータスバッジを追加する
 

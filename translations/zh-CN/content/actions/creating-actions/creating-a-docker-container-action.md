@@ -39,7 +39,7 @@ shortTitle: Docker 容器操作
 {% ifversion ghae %}
 - “[Docker 容器文件系统](/actions/using-github-hosted-runners/about-ae-hosted-runners#docker-container-filesystem)”。
 {% else %}
-- "[{% data variables.product.prodname_dotcom %} 的虚拟环境](/actions/automating-your-workflow-with-github-actions/virtual-environments-for-github-hosted-runners#docker-container-filesystem)"
+- "[About {% data variables.product.prodname_dotcom %}-hosted runners](/actions/using-github-hosted-runners/about-github-hosted-runners#docker-container-filesystem)"
 {% endif %}
 
 在开始之前，您需要创建 {% data variables.product.prodname_dotcom %} 仓库。

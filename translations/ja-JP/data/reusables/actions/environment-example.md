@@ -1,6 +1,6 @@
-You can specify an environment for each job in your workflow. To do so, add a `jobs.<job_id>.environment` key followed by the name of the environment.
+ワークフロー内のそれぞれのジョブに、環境を指定できます。 そのためには、`jobs.<job_id>.environment`キーのあとに環境の名前を続けて追加してください。
 
-For example, this workflow will use an environment called `production`.
+たとえば、このワークフローは`production`という環境を使います。
 
 ```yaml
 name: Deployment
@@ -16,12 +16,12 @@ jobs:
     environment: production
     steps:
       - name: deploy
-        # ...deployment-specific steps
+        # ...デプロイメント固有のステップ
 ```
 
-When the above workflow runs, the `deployment` job will be subject to any rules configured for the `production` environment. For example, if the environment requires reviewers, the job will pause until one of the reviewers approves the job.
+上のワークフローが実行されると、`deployment`ジョブは`production`環境に設定されたルールに従います。 たとえば、環境がレビュー担当者を必要とする場合、ジョブはレビュー担当者の1人がジョブを承認するまで一時停止します。
 
-You can also specify a URL for the environment. The specified URL will appear on the deployments page for the repository (accessed by clicking **Environments** on the home page of your repository) and in the visualization graph for the workflow run. If a pull request triggered the workflow, the URL is also displayed as a **View deployment** button in the pull request timeline.
+環境のURLを指定することもできます。 指定されたURLはリポジトリのデプロイメントページ（リポジトリのホームページの**Environments**をクリックすればアクセスできます）と、ワークフローの実行の可視化グラフに表示されます。 Pull Requestがそのワークフローをトリガーした場合、URLはPull Requestのタイムラインの**View deployment（デプロイメントの表示）**ボタンとしても表示されます。
 
 ```yaml
 name: Deployment
@@ -39,7 +39,7 @@ jobs:
       url: https://github.com
     steps:
       - name: deploy
-        # ...deployment-specific steps
+        # ...デプロイメント固有のステップ
 ```
 
-![Workflow graph with URL](/assets/images/help/images/deploy-graph.png)
+![URL付きのワークフローグラフ](/assets/images/help/images/deploy-graph.png)

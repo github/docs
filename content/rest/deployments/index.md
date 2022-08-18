@@ -14,6 +14,8 @@ children:
   - /deployments
   - /environments
   - /statuses
+  - /branch-policies
 redirect_from:
   - /rest/reference/deployments
 ---
+

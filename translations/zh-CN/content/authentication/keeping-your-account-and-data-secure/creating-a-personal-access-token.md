@@ -57,7 +57,7 @@ A token with no assigned scopes can only access public information. To use your 
    ![Generate token button](/assets/images/help/settings/generate_token.png)
    {% ifversion fpt or ghec %}
    ![Newly created token](/assets/images/help/settings/personal_access_tokens.png)
-   {% elsif ghes > 3.1 or ghae %}
+   {% elsif ghes or ghae %}
    ![Newly created token](/assets/images/help/settings/personal_access_tokens_ghe.png)
    {% else %}
    ![Newly created token](/assets/images/help/settings/personal_access_tokens_ghe_legacy.png)

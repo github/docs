@@ -52,6 +52,8 @@ includeGuides:
   - /admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise
   - /admin/configuration/configuring-your-enterprise/managing-github-mobile-for-your-enterprise
   - /admin/configuration/connecting-your-enterprise-account-to-github-enterprise-cloud
+  - /admin/configuration/configuring-your-enterprise/configuring-ssh-connections-to-your-instance
+  - /admin/configuration/configuring-your-enterprise/configuring-host-keys-for-your-instance
   - /admin/configuration/enabling-and-scheduling-maintenance-mode
   - /admin/configuration/configuring-github-connect/enabling-automatic-user-license-sync-for-your-enterprise
   - /admin/configuration/enabling-private-mode
@@ -117,6 +119,7 @@ includeGuides:
   - /admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/about-the-audit-log-for-your-enterprise
   - /admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/accessing-the-audit-log-for-your-enterprise
   - /admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/searching-the-audit-log-for-your-enterprise
+  - /admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/configuring-the-audit-log-for-your-enterprise
   - /admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/exporting-audit-log-activity-for-your-enterprise
   - /admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/streaming-the-audit-log-for-your-enterprise
   - /admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/using-the-audit-log-api-for-your-enterprise
@@ -126,7 +129,6 @@ includeGuides:
   - /admin/monitoring-activity-in-your-enterprise/exploring-user-activity/log-forwarding
   - /admin/monitoring-activity-in-your-enterprise/exploring-user-activity/managing-global-webhooks
   - /admin/user-management/managing-organizations-in-your-enterprise/adding-organizations-to-your-enterprise
-  - /admin/user-management/managing-organizations-in-your-enterprise/managing-unowned-organizations-in-your-enterprise
   - /admin/user-management/managing-projects-using-jira
   - /admin/user-management/managing-users-in-your-enterprise/inviting-people-to-manage-your-enterprise
   - /admin/user-management/managing-users-in-your-enterprise/managing-support-entitlements-for-your-enterprise

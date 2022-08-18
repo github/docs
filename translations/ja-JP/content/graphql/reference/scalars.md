@@ -20,6 +20,4 @@ GraphQL APIを呼ぶ際には、スカラだけが返されるようになるま
 
 詳しい情報については「[GraphQLの紹介](/graphql/guides/introduction-to-graphql#field)」を参照してください。
 
-{% for item in graphql.schemaForCurrentVersion.scalars %}
-  {% include graphql-scalar %}
-{% endfor %}
+<!-- Content after this section is automatically generated -->

@@ -26,7 +26,7 @@ shortTitle: 管理应用可见性
 
 ## 私有安装流程
 
-私有安装流程只允许 GitHub 应用程序的所有者安装它。 有关 GitHub 应用程序的有限信息仍将存在于公共页面，但 **Install（安装）**按钮仅对组织管理员或个人帐户（如果 GitHub 应用程序由个人帐户所有）可用。 {% ifversion fpt or ghes > 3.1 or ghae or ghec %}私有{% else %}私有（也称为内部）{% endif %} GitHub 应用程序只能安装在所有者的用户或组织帐户上。
+私有安装流程只允许 GitHub 应用程序的所有者安装它。 有关 GitHub 应用程序的有限信息仍将存在于公共页面，但 **Install（安装）**按钮仅对组织管理员或个人帐户（如果 GitHub 应用程序由个人帐户所有）可用。 私有 GitHub 应用程序只能安装在所有者的用户或组织帐户上。
 
 ## 更改 GitHub 应用程序的安装权限
 
@@ -37,5 +37,5 @@ shortTitle: 管理应用可见性
 {% data reusables.user-settings.github_apps %}
 3. 选择要更改其安装权限选项的 GitHub 应用程序。 ![应用程序选择](/assets/images/github-apps/github_apps_select-app.png)
 {% data reusables.user-settings.github_apps_advanced %}
-5. 根据 GitHub 应用程序的安装选项，单击 **Make public（设为公共）**或 **Make {% ifversion fpt or ghes > 3.1 or ghae or ghec %}private（设为私有）{% else %}internal（设为内部）{% endif %}**。 ![更改 GitHub 应用程序安装选项的按钮](/assets/images/github-apps/github_apps_make_public.png)
-6. 根据 GitHub 应用程序的安装选项，单击 **Yes, make this GitHub App public（是，将此 GitHub 应用程序设为公共）**或 **Yes, make this GitHub App {% ifversion fpt or ghes < 3.2 or ghec %}internal（是，将此 GitHub 应用程序设为内部）{% else %}private（是，将此 GitHub 应用程序设为私有）{% endif %}**。 ![确认更改安装选项的按钮](/assets/images/github-apps/github_apps_confirm_installation_option.png)
+5. 根据 GitHub 应用程序的安装选项，单击 **Make public（设为公共）**或 **Make private（设为私有）**。 ![更改 GitHub 应用程序安装选项的按钮](/assets/images/github-apps/github_apps_make_public.png)
+6. 根据 GitHub 应用程序的安装选项，单击 **Yes, make this GitHub App public（是，将此 GitHub 应用程序设为公共）**或 **Yes, make this GitHub App {% ifversion fpt or ghec %}internal（是，将此 GitHub 应用程序设为内部）{% else %}private（是，将此 GitHub 应用程序设为私有）{% endif %}**。 ![确认更改安装选项的按钮](/assets/images/github-apps/github_apps_confirm_installation_option.png)

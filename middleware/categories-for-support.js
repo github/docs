@@ -52,9 +52,6 @@ export default async function categoriesForSupport(req, res, next) {
   // in every prod deployment.
   cacheControl(res)
 
-  // Undo the cookie setting that CSRF sets.
-  res.removeHeader('set-cookie')
-
   return res.json(allCategories)
 }
 

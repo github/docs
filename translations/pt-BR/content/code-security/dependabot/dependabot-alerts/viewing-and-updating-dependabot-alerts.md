@@ -1,6 +1,6 @@
 ---
 title: Visualizando e atualizando alertas do Dependabot
-intro: 'If {% data variables.product.product_name %} discovers insecure dependencies in your project, you can view details on the Dependabot alerts tab of your repository. Then, you can update your project to resolve or dismiss the alert.'
+intro: 'Se {% data variables.product.product_name %} descobrir dependências inseguras em seu projeto, é possível visualizar detalhes na guia de alertas do Dependabot de seu repositório. Em seguida, você pode atualizar seu projeto para resolver ou ignorar o alerta.'
 redirect_from:
   - /articles/viewing-and-updating-vulnerable-dependencies-in-your-repository
   - /github/managing-security-vulnerabilities/viewing-and-updating-vulnerable-dependencies-in-your-repository
@@ -35,11 +35,23 @@ A aba de {% data variables.product.prodname_dependabot_alerts %} do seu reposit�
 {% ifversion fpt or ghec or ghes > 3.2 %}
 ## Sobre atualizações para dependências vulneráveis no seu repositório
 
-{% data variables.product.product_name %} generates {% data variables.product.prodname_dependabot_alerts %} when we detect that your codebase is using dependencies with known security risks. Para repositórios em que {% data variables.product.prodname_dependabot_security_updates %} estão habilitados, quando {% data variables.product.product_name %} detecta uma dependência vulnerável no branch padrão, {% data variables.product.prodname_dependabot %} cria um pull request para corrigi-la. O pull request irá atualizar a dependência para a versão minimamente segura possível, o que é necessário para evitar a vulnerabilidade.
+{% data variables.product.product_name %} gera {% data variables.product.prodname_dependabot_alerts %} quando detectamos que sua base de código está usando dependências com riscos de segurança conhecidos. Para repositórios em que {% data variables.product.prodname_dependabot_security_updates %} estão habilitados, quando {% data variables.product.product_name %} detecta uma dependência vulnerável no branch padrão, {% data variables.product.prodname_dependabot %} cria um pull request para corrigi-la. O pull request irá atualizar a dependência para a versão minimamente segura possível, o que é necessário para evitar a vulnerabilidade.
 
-{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-5638 %}Você pode classificar e filtrar {% data variables.product.prodname_dependabot_alerts %} com os menus suspensos na aba {% data variables.product.prodname_dependabot_alerts %} ou digitando filtros como pares de `key:value` na barra de pesquisa. Os filtros disponíveis são repositório (por exemplo, `repo:my-repository`), pacote (por exemplo `package:django`), ecossistema (por exemplo, `ecosystem:npm`), manifesto (por exemplo, `manifest:webwolf/pom.xml`), status (for example, `is:open`), e se uma consultoria tem uma atualização (por exemplo, `has: patch`).
+{% ifversion dependabot-most-important-sort-option %} Por padrão, {% data variables.product.prodname_dependabot_alerts %} são exibidos na aba {% data variables.product.prodname_dependabot_alerts %} em ordem de importância, mas você pode ordenar alertas por outros critérios. {% endif %}{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-5638 %}Você pode classificar e filtrar {% data variables.product.prodname_dependabot_alerts %} com os menus suspensos na aba {% data variables.product.prodname_dependabot_alerts %} ou digitando filtros como pares de `key:value` na barra de pesquisa. Os filtros disponíveis são o repositório (por exemplo, `repo:my-repository`), pacote (fpor exemplo, `package:django`), ecossistema (por exemplo, `ecosystem:npm`), manifesto (por exemplo, `manifest:webwolf/pom.xml`), status (por exemplo, `is:open`) e quando uma consultoria tem uma correção (por exemplo, `has: patch`).{% ifversion dependabot-alerts-development-label %} Você também pode filtrar alertas com dados do escopo de dependência, usando `scope`, por exemplo: `scope:development` ou `scope:runtime`. Com `escopo: desenvolvimento`, a lista de alertas mostrará apenas dependências usadas durante o desenvolvimento, não durante a produção.{% endif %}
 
-Each {% data variables.product.prodname_dependabot %} alert has a unique numeric identifier and the {% data variables.product.prodname_dependabot_alerts %} tab lists an alert for every detected vulnerability{% ifversion GH-advisory-db-supports-malware %} or malware{% endif %}. O legado de {% data variables.product.prodname_dependabot_alerts %} agrupou as vulnerabilidades por dependência e gerou um único alerta por dependência. Se você acessar um alerta de legado {% data variables.product.prodname_dependabot %}, você será redirecionado para uma aba de {% data variables.product.prodname_dependabot_alerts %} filtrada para esse pacote. {% endif %}
+Cada alerta de {% data variables.product.prodname_dependabot %} tem um identificador único de número e a aba de {% data variables.product.prodname_dependabot_alerts %} lista um alerta para cada vulnerabilidade detectada. O legado de {% data variables.product.prodname_dependabot_alerts %} agrupou as vulnerabilidades por dependência e gerou um único alerta por dependência. Se você acessar um alerta de legado {% data variables.product.prodname_dependabot %}, você será redirecionado para uma aba de {% data variables.product.prodname_dependabot_alerts %} filtrada para esse pacote. {% endif %}
+{% endif %}
+
+{% ifversion dependabot-alerts-development-label %}
+## Ecossistemas e manifestos compatíveis com o escopo de dependência
+
+<!-- TODO: for now we'd have this table and heading as they are, but we're planning to replace this with at a later date a new heading containing all the available filters in one or more tables -->
+{% data reusables.dependabot.dependabot-alerts-dependency-scope %}
+
+Os alertas para pacotes listados como dependências de desenvolvimento estão marcados com a etiqueta `Desenvolvimento` na página {% data variables.product.prodname_dependabot_alerts %} e estão também disponíveis para filtragem através do filtro de `escopo`. ![Captura de tela que mostra a etiqueta "Desenvolvimento" na lista de alertas](/assets/images/help/repository/dependabot-alerts-development-label.png)
+
+A página de detalhes de alerta de alertas de pacotes com escopo de desenvolvimento mostra uma seção "Tags", que contém uma etiqueta de `Desenvolvimento`. ![Captura de tela que mostra a seção "Tags" seção na página de detalhes do alerta](/assets/images/help/repository/dependabot-alerts-tags-section.png)
+
 {% endif %}
 
 {% ifversion dependabot-alerts-vulnerable-calls %}
@@ -78,9 +90,24 @@ Para obter mais informações, consulte "[Revisando e corrigindo alertas](#revie
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-security %}
 {% data reusables.repositories.sidebar-dependabot-alerts %}
-1. Opcionalmente, para filtrar alertas, selecione o menu suspenso **Repositório**, **Pacote**, **Ecossistema** ou **Manifesto** e clique no filtro que você gostaria de aplicar. Você também pode digitar filtros na barra de pesquisa. Por exemplo, `ecosystem:npm` ou `has:patch`. Para classificar os alertas, selecione o menu suspenso **Classificar** e clique na opção que você gostaria de classificar.{% ifversion dependabot-bulk-alerts %} ![Screenshot of the filter and sort menus in the {% data variables.product.prodname_dependabot_alerts %} tab](/assets/images/help/graphs/dependabot-alerts-filters-checkbox.png){% else %}
-![Screenshot of the filter and sort menus in the {% data variables.product.prodname_dependabot_alerts %} tab](/assets/images/enterprise/3.5/dependabot/dependabot-alerts-filters.png){% endif %}
-2. Clique no alerta que você gostaria de ver.{% ifversion dependabot-bulk-alerts %} ![Alert selected in list of alerts](/assets/images/help/graphs/click-alert-in-alerts-list-checkbox.png){% else %}
+1. Opcionalmente, para filtrar alertas, selecione o menu suspenso **Repositório**, **Pacote**, **Ecossistema** ou **Manifesto** e clique no filtro que você gostaria de aplicar. Você também pode digitar filtros na barra de pesquisa. Por exemplo, `ecosystem:npm`{% ifversion ghes < 3.7 or ghae-issue-5638 %} or `has:patch`{% endif %}{% ifversion dependabot-alerts-development-label %}, `has:patch` ou `scope:development`{% endif %}. Para classificar os alertas, selecione o menu suspenso **Ordenar** e clique na opção que deseja ordenar, ou digite `sort:` na barra de pesquisa e escolha uma opção entre as sugestões (por exemplo, `sort:newest`).
+
+   {% ifversion dependabot-most-important-sort-option %}
+   {% note %}
+
+   **Observação:** Por padrão, {% data variables.product.prodname_dependabot_alerts %} são ordenados por importância. A classificação "mais importante" ajuda você a priorizar na qual {% data variables.product.prodname_dependabot_alerts %} deve se concentrar primeiro. Os alertas são classificados com base no seu impacto potencial, atuabilidade e relevância. O nosso cálculo de priorização está em melhoria constante e inclui fatores como pontuação do CVSS, âmbito de dependência, e se são encontradas chamadas de função vulneráveis para o alerta.
+   {% endnote %}
+
+   ![Captura de tela da classificação suspensa com a classificação "mais importante"](/assets/images/help/dependabot/dependabot-alerts-sort-dropdown.png)
+   {% endif %}
+
+   Você também pode clicar em uma etiqueta em um alerta para mostrar apenas alertas desse tipo.{% ifversion dependabot-alerts-development-label %} Por exemplo, clicar na etiqueta de `Desenvolvimento` na lista de alertas mostrará apenas os alertas relacionados às dependências usadas em desenvolvimento, não na produção. Para obter informações sobre a lista de ecossistemas compatíveis, consulte "[Ecossistemas e manifestos compatíveis para o escopo de dependência](#supported-ecosystems-and-manifests-for-dependency-scope)".
+
+{% endif %}
+{%- ifversion dependabot-bulk-alerts %}
+  ![Captura de tela dos menus filtro e ordenação na aba de {% data variables.product.prodname_dependabot_alerts %}](/assets/images/help/graphs/dependabot-alerts-filters-checkbox.png){% else %}
+   ![Screenshot of the filter and sort menus in the {% data variables.product.prodname_dependabot_alerts %} tab](/assets/images/enterprise/3.5/dependabot/dependabot-alerts-filters.png){% endif %}
+1. Clique no alerta que você gostaria de ver.{% ifversion dependabot-bulk-alerts %} ![Alert selected in list of alerts](/assets/images/help/graphs/click-alert-in-alerts-list-checkbox.png){% else %}
 ![Alert selected in list of alerts](/assets/images/enterprise/3.5/dependabot/click-alert-in-alerts-list-ungrouped.png){% endif %}
 
 {% else %}
@@ -92,11 +119,11 @@ Para obter mais informações, consulte "[Revisando e corrigindo alertas](#revie
 
 ## Revisando e corrigindo alertas
 
-É importante garantir que todas as suas dependências estejam limpas de qualquer fraqueza de segurança. When {% data variables.product.prodname_dependabot %} discovers vulnerabilities {% ifversion GH-advisory-db-supports-malware %}or malware{% endif %} in your dependencies, you should assess your project’s level of exposure and determine what remediation steps to take to secure your application.
+É importante garantir que todas as suas dependências estejam limpas de qualquer fraqueza de segurança. Quando {% data variables.product.prodname_dependabot %} descobrir vulnerabilidades {% ifversion GH-advisory-db-supports-malware %}ou malware{% endif %} em suas dependências, você deve avaliar o nível de exposição do seu projeto e determinar quais medidas de correção devem ser tomadas para proteger seu aplicativo.
 
-If a patched version of the dependency is available, you can generate a {% data variables.product.prodname_dependabot %} pull request to update this dependency directly from a {% data variables.product.prodname_dependabot %} alert. Se você tiver {% data variables.product.prodname_dependabot_security_updates %} habilitado, o pull request poderá estar vinculado ao alerta do Dependabot.
+Se uma versão alterada da dependência estiver disponível, é possível gerar um pull request de {% data variables.product.prodname_dependabot %} para atualizar essa dependência diretamente de um alerta do {% data variables.product.prodname_dependabot %}. Se você tiver {% data variables.product.prodname_dependabot_security_updates %} habilitado, o pull request poderá estar vinculado ao alerta do Dependabot.
 
-Nos casos em que uma versão alterada não está disponível ou em que você não puder atualizar para a versão segura, {% data variables.product.prodname_dependabot %} irá compartilhar informações adicionais para ajudar você a determinar as próximas etapas. Ao clicar para ver um alerta de {% data variables.product.prodname_dependabot %}, você pode ver todos os detalhes da consultoria de segurança para a dependência, incluindo as funções afetadas. Você pode então verificar se seu código chama as funções afetadas. This information can help you further assess your risk level, and determine workarounds or if you’re able to accept the risk represented by the security advisory.
+Nos casos em que uma versão alterada não está disponível ou em que você não puder atualizar para a versão segura, {% data variables.product.prodname_dependabot %} irá compartilhar informações adicionais para ajudar você a determinar as próximas etapas. Ao clicar para ver um alerta de {% data variables.product.prodname_dependabot %}, você pode ver todos os detalhes da consultoria de segurança para a dependência, incluindo as funções afetadas. Você pode então verificar se seu código chama as funções afetadas. Essa informação pode ajudar você a avaliar seu nível de risco e determinar soluções alternativas ou se você pode aceitar o risco representado pela consultoria de segurança.
 
 {% ifversion dependabot-alerts-vulnerable-calls %}
 
@@ -146,19 +173,28 @@ Se você agendar um extenso trabalho para atualizar uma dependência ou decidir 
 
 ## Visualizando e atualizando alertas fechados
 
-{% tip %}
-
-**Dica:** Você só pode reabrir alertas que já foram ignorados anteriormente. Os alertas fechados que já foram corrigidos não podem ser reabertos.
-{% endtip %}
+You can view all open alerts, and you can reopen alerts that have been previously dismissed. Os alertas fechados que já foram corrigidos não podem ser reabertos.
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-security %}
 {% data reusables.repositories.sidebar-dependabot-alerts %}
-1. Para ver apenas os alertas fechados, clique em **Fechados**.{% ifversion dependabot-bulk-alerts %} ![Screenshot showing the "Closed" option](/assets/images/help/repository/dependabot-alerts-closed-checkbox.png){% else %}
-![Screenshot showing the "Closed" option](/assets/images/help/repository/dependabot-alerts-closed.png){% endif %}
-1. Clique no alerta que você gostaria de ver ou atualizar.{% ifversion dependabot-bulk-alerts %} ![Screenshot showing a highlighted dependabot alert](/assets/images/help/repository/dependabot-alerts-select-closed-alert-checkbox.png){% else %}
-![Screenshot showing a highlighted dependabot alert](/assets/images/help/repository/dependabot-alerts-select-closed-alert.png){% endif %}
-2. Opcionalmente, se o alerta foi descartado e você deseja reabri-lo, clique em **Reabrir**. Os alertas já corrigidos não podem ser reabertos. ![Captura de tela que mostra o botão "Reabrir"](/assets/images/help/repository/reopen-dismissed-alert.png)
+1. Para visualizar os alertas fechados, clique em **Fechado**.
+
+   {%- ifversion dependabot-bulk-alerts %}
+   ![Captura de tela que mostra a opção "Fechado"](/assets/images/help/repository/dependabot-alerts-closed-checkbox.png)
+   {%- else %}
+   ![Captura de tela que mostra a opção "Fechado"](/assets/images/help/repository/dependabot-alerts-closed.png)
+   {%- endif %}
+1. Click the alert that you would like to view or update.
+
+   {%- ifversion dependabot-bulk-alerts %}
+   ![Captura de tela que mostra um alerta do dependabot destacado](/assets/images/help/repository/dependabot-alerts-select-closed-alert-checkbox.png)
+   {%- else %}
+   ![Captura de tela que mostra um alerta do dependabot destacado](/assets/images/help/repository/dependabot-alerts-select-closed-alert.png)   {%- endif %}
+2. Opcionalmente, se o alerta foi descartado e você deseja reabri-lo, clique em **Reabrir**. Os alertas já corrigidos não podem ser reabertos.
+
+   {% indented_data_reference reusables.enterprise.3-5-missing-feature spaces=3 %}
+   ![Captura de tela que mostra o botão "Reabrir"](/assets/images/help/repository/reopen-dismissed-alert.png)
 
 {% endif %}
 

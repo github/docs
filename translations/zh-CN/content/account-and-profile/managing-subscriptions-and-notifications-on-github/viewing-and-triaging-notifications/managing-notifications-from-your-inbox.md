@@ -112,15 +112,13 @@ shortTitle: 从收件箱管理
 - `is:gist`
 - `is:issue-or-pull-request`
 - `is:release`
-- `is:repository-invitation`{% ifversion fpt or ghes or ghae or ghec %}
-- `is:repository-vulnerability-alert`{% endif %}{% ifversion fpt or ghec %}
+- `is:repository-invitation`
+- `is:repository-vulnerability-alert`{% ifversion fpt or ghec %}
 - `is:repository-advisory`{% endif %}
 - `is:team-discussion`{% ifversion fpt or ghec %}
 - `is:discussion`{% endif %}
 
-{% ifversion fpt or ghes or ghae or ghec %}
-有关减少 {% data variables.product.prodname_dependabot_alerts %} 通知干扰的信息，请参阅“[配置漏洞依赖项的通知](/github/managing-security-vulnerabilities/configuring-notifications-for-vulnerable-dependencies)”。
-{% endif %}
+有关减少 {% data variables.product.prodname_dependabot_alerts %} 通知的噪音的信息，请参阅“[配置 {% data variables.product.prodname_dependabot_alerts %} 通知](/code-security/dependabot/dependabot-alerts/configuring-notifications-for-dependabot-alerts)”。
 
 您还可以使用 `is:` 查询来描述如何对通知进行分类。
 
@@ -133,20 +131,20 @@ shortTitle: 从收件箱管理
 
 要根据收到更新的原因过滤通知，您可以使用 `reason:` 查询。 例如，要查看当您（或您所属团队）被请求审查拉取请求时的通知，请使用 `reason:review-requested`。 更多信息请参阅“[关于通知](/github/managing-subscriptions-and-notifications-on-github/about-notifications#reasons-for-receiving-notifications)”。
 
-| 查询                        | 描述                                                            |
-| ------------------------- | ------------------------------------------------------------- |
-| `reason:assign`           | 分配给您的议题或拉取请求有更新时。                                             |
-| `reason:author`           | 当您打开拉取请求或议题并且有更新或新评论时。                                        |
-| `reason:comment`          | 当您评论了议题、拉取请求或团队讨论时。                                           |
-| `reason:participating`    | 当您评论了议题、拉取请求或团队讨论或者被@提及时。                                     |
-| `reason:invitation`       | 当您被邀请加入团队、组织或仓库时。                                             |
-| `reason:manual`           | 当您在尚未订阅的议题或拉取请求上单击 **Subscribe（订阅）**时。                        |
-| `reason:mention`          | 您被直接@提及。                                                      |
-| `reason:review-requested` | 您或您所属的团队被请求审查拉取请求。{% ifversion fpt or ghes or ghae or ghec %}
-| `reason:security-alert`   | 为仓库发出安全警报时。{% endif %}
-| `reason:state-change`     | 当拉取请求或议题的状态改变时。 例如，议题已关闭或拉取请求合并时。                             |
-| `reason:team-mention`     | 您所在的团队被@提及时。                                                  |
-| `reason:ci-activity`      | 当仓库有 CI 更新时，例如新的工作流程运行状态。                                     |
+| 查询                        | 描述                                     |
+| ------------------------- | -------------------------------------- |
+| `reason:assign`           | 分配给您的议题或拉取请求有更新时。                      |
+| `reason:author`           | 当您打开拉取请求或议题并且有更新或新评论时。                 |
+| `reason:comment`          | 当您评论了议题、拉取请求或团队讨论时。                    |
+| `reason:participating`    | 当您评论了议题、拉取请求或团队讨论或者被@提及时。              |
+| `reason:invitation`       | 当您被邀请加入团队、组织或仓库时。                      |
+| `reason:manual`           | 当您在尚未订阅的议题或拉取请求上单击 **Subscribe（订阅）**时。 |
+| `reason:mention`          | 您被直接@提及。                               |
+| `reason:review-requested` | 有人请求您或您所在的团队审查拉取请求。                    |
+| `reason:security-alert`   | 为仓库发出安全警报时。                            |
+| `reason:state-change`     | 当拉取请求或议题的状态改变时。 例如，议题已关闭或拉取请求合并时。      |
+| `reason:team-mention`     | 您所在的团队被@提及时。                           |
+| `reason:ci-activity`      | 当仓库有 CI 更新时，例如新的工作流程运行状态。              |
 
 {% ifversion fpt or ghec %}
 ### 支持的 `author:` 查询
@@ -161,7 +159,6 @@ shortTitle: 从收件箱管理
 
 {% endif %}
 
-{% ifversion fpt or ghes or ghae or ghec %}
 ## {% data variables.product.prodname_dependabot %} 自定义过滤器
 
 {% ifversion fpt or ghec or ghes > 3.2 %}
@@ -175,11 +172,10 @@ shortTitle: 从收件箱管理
 
 {% ifversion ghes < 3.3 or ghae %}
 
-如果使用 {% data variables.product.prodname_dependabot %} 来告知易受攻击的依赖项，则可以使用并保存这些自定义筛选器来显示 {% data variables.product.prodname_dependabot_alerts %} 的通知：
+如果您使用 {% data variables.product.prodname_dependabot %} 来告诉您不安全的依赖项，则可以使用这些自定义过滤器来显示 {% data variables.product.prodname_dependabot_alerts %} 的通知：
 - `is:repository_vulnerability_alert`
 - `reason:security_alert`
 
 有关 {% data variables.product.prodname_dependabot %} 的更多信息，请参阅“[关于 {% data variables.product.prodname_dependabot_alerts %}](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)”。
 {% endif %}
 
-{% endif %}

@@ -29,9 +29,7 @@ When you push a commit to {% data variables.product.product_name %} that changes
 {% data reusables.dependency-submission.dependency-submission-link %}
 {% endif %}
 
-{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
 When you create a pull request containing changes to dependencies that targets the default branch, {% data variables.product.prodname_dotcom %} uses the dependency graph to add dependency reviews to the pull request. These indicate whether the dependencies contain vulnerabilities and, if so, the version of the dependency in which the vulnerability was fixed. For more information, see "[About dependency review](/code-security/supply-chain-security/about-dependency-review)."
-{% endif %}
 
 ## Dependency graph availability
 
@@ -62,7 +60,7 @@ You can use the dependency graph to:
 
 - Explore the repositories your code depends on{% ifversion fpt or ghec %}, and those that depend on it{% endif %}. For more information, see "[Exploring the dependencies of a repository](/github/visualizing-repository-data-with-graphs/exploring-the-dependencies-of-a-repository)." {% ifversion ghec %}
 - View a summary of the dependencies used in your organization's repositories in a single dashboard. For more information, see "[Viewing insights for your organization](/articles/viewing-insights-for-your-organization#viewing-organization-dependency-insights)."{% endif %}
-- View and update vulnerable dependencies for your repository. For more information, see "[About {% data variables.product.prodname_dependabot_alerts %}](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies)."{% ifversion fpt or ghes > 3.1 or ghec %}
+- View and update vulnerable dependencies for your repository. For more information, see "[About {% data variables.product.prodname_dependabot_alerts %}](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies)."{% ifversion fpt or ghes or ghec %}
 - See information about vulnerable dependencies in pull requests. For more information, see "[Reviewing dependency changes in a pull request](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-dependency-changes-in-a-pull-request)."{% endif %}
 
 ## Supported package ecosystems
@@ -72,7 +70,7 @@ The recommended formats explicitly define which versions are used for all direct
 | Package manager | Languages | Recommended formats | All supported formats |
 | --- | --- | --- | ---|
 {%- ifversion dependency-graph-rust-support %}
-| Cargo<sup>[*]</sup> | Rust | `Cargo.lock` | `Cargo.toml`, `Cargo.lock` | 
+| Cargo{% ifversion ghes = 3.6 or ghae-issue-7563 %}<sup>[*]</sup>{% endif %} | Rust | `Cargo.lock` | `Cargo.toml`, `Cargo.lock` | 
 {%- endif %}
 | Composer             | PHP           | `composer.lock` | `composer.json`, `composer.lock` |
 | NuGet | .NET languages (C#, F#, VB), C++  |   `.csproj`, `.vbproj`, `.nuspec`, `.vcxproj`, `.fsproj` |  `.csproj`, `.vbproj`, `.nuspec`, `.vcxproj`, `.fsproj`, `packages.config` |
@@ -93,12 +91,13 @@ The recommended formats explicitly define which versions are used for all direct
 | RubyGems             | Ruby           | `Gemfile.lock` | `Gemfile.lock`, `Gemfile`, `*.gemspec` |
 | Yarn | JavaScript | `yarn.lock` | `package.json`, `yarn.lock` |
 
-{% ifversion dependency-graph-rust-support %}
+{% ifversion ghes = 3.6 or ghae-issue-7563 %}
 [*] For the initial release of Rust support, dependency graph does not have the metadata and mappings required to detect transitive dependencies. Dependency graph displays transitive dependencies, one level deep, when they are defined in a `Cargo.lock` file. {% data variables.product.prodname_dependabot_alerts %} and {% data variables.product.prodname_dependabot_security_updates %} are available for vulnerable dependencies defined in the `Cargo.lock` file.
 {% endif %}
 
 {% ifversion github-actions-in-dependency-graph %}
-[†] {% data variables.product.prodname_actions %} workflows must be located in the `.github/workflows/` directory of a repository to be recognized as manifests. Any actions or workflows referenced using the syntax `jobs[*].steps[*].uses` or `jobs.<job_id>.uses` will be parsed as dependencies. For more information, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/using-workflows/workflow-syntax-for-github-actions)."
+[†] {% data reusables.enterprise.3-5-missing-feature %} {% data variables.product.prodname_actions %} workflows must be located in the `.github/workflows/` directory of a repository to be recognized as manifests. Any actions or workflows referenced using the syntax `jobs[*].steps[*].uses` or `jobs.<job_id>.uses` will be parsed as dependencies. For more information, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/using-workflows/workflow-syntax-for-github-actions)."
+
 {% endif %}
 
 [‡] If you list your Python dependencies within a `setup.py` file, we may not be able to parse and list every dependency in your project.

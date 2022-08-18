@@ -3,7 +3,7 @@ title: Configurar la política de referente para tu empresa
 shortTitle: Configurar la política de referente
 intro: 'Puedes incrementar la privacidad de {% data variables.product.product_location %} si configuras la política para las solicitudes de origen cruzado.'
 versions:
-  ghes: '>=3.2'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise

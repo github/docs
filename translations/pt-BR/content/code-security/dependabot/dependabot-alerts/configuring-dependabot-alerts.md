@@ -1,6 +1,6 @@
 ---
 title: Configurando alertas do Dependabot
-intro: 'Enable {% data variables.product.prodname_dependabot_alerts %} to be generated when a new vulnerable dependency {% ifversion GH-advisory-db-supports-malware %}or malware {% endif %}is found in one of your repositories.'
+intro: 'Habilite o {% data variables.product.prodname_dependabot_alerts %} para ser gerado quando uma nova dependência vulnerável {% ifversion GH-advisory-db-supports-malware %} ou malware {% endif %} for encontrada em um dos seus repositórios.'
 shortTitle: Configurar alertas Dependabot
 versions:
   fpt: '*'
@@ -17,11 +17,11 @@ topics:
   - Repositories
 ---
 
-## About {% data variables.product.prodname_dependabot_alerts %} for vulnerable dependencies{% ifversion GH-advisory-db-supports-malware %} and malware{% endif %}
+## Sobre {% data variables.product.prodname_dependabot_alerts %} para dependências vulneráveis {% ifversion GH-advisory-db-supports-malware %} e malware{% endif %}
 
 {% data reusables.repositories.a-vulnerability-is %}
 
-{% data variables.product.prodname_dependabot %} scans code when a new advisory is added to the {% data variables.product.prodname_advisory_database %} or the dependency graph for a repository changes. When vulnerable dependencies{% ifversion GH-advisory-db-supports-malware %} or malware{% endif %} are detected, {% data variables.product.prodname_dependabot_alerts %} are generated. Para obter mais informações, consulte "[Sobre {% data variables.product.prodname_dependabot_alerts %}](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)".
+{% data variables.product.prodname_dependabot %} verifica o código quando uma nova consultoria é adicionada ao {% data variables.product.prodname_advisory_database %} ou ao gráfico de dependências para alterar o repositório. Quando dependências vulneráveis {% ifversion GH-advisory-db-supports-malware %} ou malware{% endif %} forem detectados, são gerados {% data variables.product.prodname_dependabot_alerts %}. Para obter mais informações, consulte "[Sobre {% data variables.product.prodname_dependabot_alerts %}](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)".
 
 Você pode habilitar ou desabilitar {% data variables.product.prodname_dependabot_alerts %} para:
 * Sua conta pessoal
@@ -59,7 +59,7 @@ Ao habilitar {% data variables.product.prodname_dependabot_alerts %} para reposi
 
 {% ifversion fpt or ghec %}Você pode gerenciar {% data variables.product.prodname_dependabot_alerts %} para o seu repositório público, privado ou interno.
 
-Por padrão, notificamos as pessoas com permissões de administrador nos repositórios afetados sobre os novos {% data variables.product.prodname_dependabot_alerts %}. {% data variables.product.product_name %} never publicly discloses insecure dependencies for any repository. Você também pode tornar o {% data variables.product.prodname_dependabot_alerts %} visível para pessoas ou repositórios de trabalho de equipes adicionais que você possui ou para os quais tem permissões de administrador.
+Por padrão, notificamos as pessoas com permissões de administrador nos repositórios afetados sobre os novos {% data variables.product.prodname_dependabot_alerts %}. {% data variables.product.product_name %} nunca divulga publicamente dependências inseguras para qualquer repositório. Você também pode tornar o {% data variables.product.prodname_dependabot_alerts %} visível para pessoas ou repositórios de trabalho de equipes adicionais que você possui ou para os quais tem permissões de administrador.
 
 {% data reusables.security.security-and-analysis-features-enable-read-only %}
 

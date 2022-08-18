@@ -1,11 +1,11 @@
 ---
 title: 查看安全性概述
 intro: 导航到安全概述中可用的不同视图
-permissions: '{% data reusables.security-center.permissions %}'
-product: '{% data reusables.gated-features.security-center %}'
+permissions: '{% data reusables.security-overview.permissions %}'
+product: '{% data reusables.gated-features.security-overview %}'
 versions:
   ghae: issue-5503
-  ghes: '>3.1'
+  ghes: '*'
   ghec: '*'
 type: how_to
 topics:
@@ -18,8 +18,10 @@ shortTitle: 查看安全性概述
 ---
 
 {% ifversion ghes < 3.5 or ghae %}
-{% data reusables.security-center.beta %}
+{% data reusables.security-overview.beta %}
 {% endif %}
+
+{% data reusables.security-overview.information-varies-GHAS %}
 
 ## 查看组织的安全概述
 

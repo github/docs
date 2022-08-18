@@ -1,7 +1,7 @@
 ---
 title: Restricting the idle timeout period
 shortTitle: Restrict timeout periods
-intro: 'You can set a maximum timeout period for any codespaces owned by your organization.'
+intro: You can set a maximum timeout period for any codespaces owned by your organization.
 product: '{% data reusables.gated-features.codespaces %}'
 permissions: 'To manage timeout constraints for an organization''s codespaces, you must be an owner of the organization.'
 versions:
@@ -16,9 +16,9 @@ topics:
 
 By default, codespaces time out after 30 minutes of inactivity. When a codespace times out it is stopped and will no longer incur charges for compute usage. 
 
-The personal settings of a {% data variables.product.prodname_dotcom %} user allow them to define their own timeout period for codespaces they create. This may be longer than the default 30-minute period. For more information, see "[Setting your timeout period for Codespaces](/codespaces/customizing-your-codespace/setting-your-timeout-period-for-codespaces)."
+The personal settings of a {% data variables.product.prodname_dotcom %} user allow them to define their own timeout period for codespaces they create. This may be longer than the default 30-minute period. For more information, see "[Setting your timeout period for {% data variables.product.prodname_github_codespaces %}](/codespaces/customizing-your-codespace/setting-your-timeout-period-for-github-codespaces)."
 
-As an organization owner, you may want to configure constraints on the maximum idle timeout period for codespaces owned by your organization. This can help you limit costs associated with codespaces that are left to timeout after long periods of inactivity. You can set a maximum timeout for all codespaces owned by your organization, or for the codespaces of specific repositories. 
+As an organization owner, you may want to configure constraints on the maximum idle timeout period for codespaces created for repositories owned by your organization. This can help you to limit costs associated with codespaces that are left to timeout after long periods of inactivity. You can set a maximum timeout for the codespaces for all repositories owned by your organization, or for the codespaces of specific repositories. 
 
 {% note %}
 
@@ -26,7 +26,7 @@ As an organization owner, you may want to configure constraints on the maximum i
 
 {% endnote %}
 
-For more information about pricing for {% data variables.product.prodname_codespaces %} compute usage, see "[About billing for Codespaces](/billing/managing-billing-for-github-codespaces/about-billing-for-codespaces#codespaces-pricing)."
+For more information about pricing for {% data variables.product.prodname_github_codespaces %} compute usage, see "[About billing for {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#codespaces-pricing)."
 
 ### Behavior when you set a maximum idle timeout constraint
 
@@ -55,11 +55,11 @@ If you add an organization-wide policy with a timeout constraint, you should set
 
 1. Enter the maximum number of minutes codespaces can remain inactive before they time out, then click **Save**.
 
-   ![Choose the port visibility options](/assets/images/help/codespaces/maximum-minutes-timeout.png)
+   ![Set the maximum timeout in minutes](/assets/images/help/codespaces/maximum-minutes-timeout.png)
 
 {% data reusables.codespaces.codespaces-policy-targets %}
-1. If you want to add another constraint to the policy, click **Add constraint** and choose another constraint. For information about other constraints, see "[Restricting access to machine types](/codespaces/managing-codespaces-for-your-organization/restricting-access-to-machine-types)" and "[Restricting the visibility of forwarded ports](/codespaces/managing-codespaces-for-your-organization/restricting-the-visibility-of-forwarded-ports)."
-1. After you have finished adding constraints to your policy, click **Save**.
+1. If you want to add another constraint to the policy, click **Add constraint** and choose another constraint. For information about other constraints, see "[Restricting access to machine types](/codespaces/managing-codespaces-for-your-organization/restricting-access-to-machine-types)," "[Restricting the visibility of forwarded ports](/codespaces/managing-codespaces-for-your-organization/restricting-the-visibility-of-forwarded-ports)," and "[Restricting the retention period for codespaces](/codespaces/managing-codespaces-for-your-organization/restricting-the-retention-period-for-codespaces)."
+1. After you've finished adding constraints to your policy, click **Save**.
 
 The policy will be applied to all new codespaces that are created, and to existing codespaces the next time they are started.
 

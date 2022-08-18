@@ -16,9 +16,6 @@ topics:
   - Webhooks
 shortTitle: Webhook events & payloads
 ---
-{% ifversion fpt or ghec %}
-
-{% endif %}
 
 {% data reusables.webhooks.webhooks_intro %}
 
@@ -100,7 +97,7 @@ Also, the `User-Agent` for the requests will have the prefix `GitHub-Hookshot/`.
 > }
 ```
 
-{% ifversion fpt or ghes > 3.2 or ghae or ghec %}
+{% ifversion fpt or ghes > 3.3 or ghae or ghec %}
 ## branch_protection_rule
 
 Activity related to a branch protection rule. For more information, see "[About branch protection rules](/github/administering-a-repository/defining-the-mergeability-of-pull-requests/about-protected-branches#about-branch-protection-rules)."
@@ -399,7 +396,7 @@ Key | Type | Description
 
 {% data reusables.webhooks.discussions-webhooks-beta %}
 
-Activity related to a discussion. For more information, see the "[Using the GraphQL API for discussions]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql/guides/using-the-graphql-api-for-discussions)."
+Activity related to a discussion. For more information, see the "[Using the GraphQL API for discussions](/graphql/guides/using-the-graphql-api-for-discussions)."
 ### Availability
 
 - Repository webhooks
@@ -424,7 +421,7 @@ Key | Type | Description
 
 {% data reusables.webhooks.discussions-webhooks-beta %}
 
-Activity related to a comment in a discussion. For more information, see "[Using the GraphQL API for discussions]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql/guides/using-the-graphql-api-for-discussions)."
+Activity related to a comment in a discussion. For more information, see "[Using the GraphQL API for discussions](/graphql/guides/using-the-graphql-api-for-discussions)."
 
 ### Availability
 
@@ -437,7 +434,7 @@ Activity related to a comment in a discussion. For more information, see "[Using
 Key | Type | Description
 ----|------|-------------
 `action` |`string` | The action performed. Can be `created`, `edited`, or `deleted`.
-`comment` | `object` | The [`discussion comment`]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql/guides/using-the-graphql-api-for-discussions#discussioncomment) resource.
+`comment` | `object` | The [`discussion comment`](/graphql/guides/using-the-graphql-api-for-discussions#discussioncomment) resource.
 {% data reusables.webhooks.discussion_desc %}
 {% data reusables.webhooks.repo_desc_graphql %}
 {% data reusables.webhooks.org_desc_graphql %}
@@ -711,6 +708,41 @@ For a detailed description of this payload and the payload for each type of `act
 
 {{ webhookPayloadsForCurrentVersion.membership.removed }}
 
+{% ifversion fpt or ghec %}
+
+## merge_group
+
+{% data reusables.pull_requests.merge-queue-beta %}
+
+Activity related to merge groups in a merge queue. The type of activity is specified in the action property of the payload object.
+
+
+### Availability
+
+- Repository webhooks
+- Organization webhooks
+- {% data variables.product.prodname_github_apps %} with the `merge_queues` permission
+
+### Webhook payload object
+
+Key | Type | Description
+----|------|-------------
+`action`|`string` | The action that was performed. Currently, can only be `checks_requested`.
+`merge_group`|`object` | The merge group.
+`merge_group[head_sha]`|`string` | The SHA of the merge group.
+`merge_group[head_ref]`|`string` | The full ref of the merge group.
+`merge_group[base_ref]`|`string` | The full ref of the branch the merge group will be merged into.
+{% data reusables.webhooks.repo_desc %}
+{% data reusables.webhooks.org_desc %}
+{% data reusables.webhooks.app_desc %}
+{% data reusables.webhooks.sender_desc %}
+
+### Webhook payload example
+
+{{ webhookPayloadsForCurrentVersion.merge_group.checks_requested }}
+
+{% endif %}
+
 ## meta
 
 The webhook this event is configured on was deleted. This event will only listen for changes to the particular hook the event is installed on. Therefore, it must be selected for each hook that you'd like to receive meta events for.
@@ -891,10 +923,10 @@ Key | Type | Description
 - Organization webhooks
 - {% data variables.product.prodname_github_apps %} with the `repository_projects` or `organization_projects` permission
 
-{% ifversion fpt or ghec %}
+{% ifversion projects-v2 %}
 {% note %}
 
-**Note**: This event does not occur for Projects (beta).
+**Note**: This event only occurs for {% data variables.product.prodname_projects_v1 %}.
 
 {% endnote %}
 {% endif %}
@@ -923,10 +955,10 @@ Key | Type | Description
 - Organization webhooks
 - {% data variables.product.prodname_github_apps %} with the `repository_projects` or `organization_projects` permission
 
-{% ifversion fpt or ghec %}
+{% ifversion projects-v2 %}
 {% note %}
 
-**Note**: This event does not occur for Projects (beta).
+**Note**: This event only occurs for {% data variables.product.prodname_projects_v1 %}.
 
 {% endnote %}
 {% endif %}
@@ -953,6 +985,14 @@ Key | Type | Description
 - Organization webhooks
 - {% data variables.product.prodname_github_apps %} with the `repository_projects` or `organization_projects` permission
 
+{% ifversion projects-v2 %}
+{% note %}
+
+**Note**: This event only occurs for {% data variables.product.prodname_projects_v1 %}.
+
+{% endnote %}
+{% endif %}
+
 ### Webhook payload object
 
 {% data reusables.webhooks.project_column_properties %}
@@ -971,11 +1011,11 @@ Key | Type | Description
 
 {% note %}
 
-**Note:** Webhook events for Projects (beta) are currently in beta and subject to change. To share feedback about Projects (beta) webhooks with {% data variables.product.product_name %}, see the [Projects (beta) webhook feedback discussion](https://github.com/github/feedback/discussions/17405).
+**Note:** Webhook events for {% data variables.projects.projects_v2 %} are currently in beta and subject to change. To share feedback about {% data variables.projects.projects_v2 %} webhooks with {% data variables.product.product_name %}, see the [Projects webhook feedback discussion](https://github.com/orgs/community/discussions/17405).
 
 {% endnote %}
 
-Activity related to items in a Projects (beta) project. {% data reusables.webhooks.action_type_desc %} For more information, see "[About projects (beta)](/issues/trying-out-the-new-projects-experience/about-projects)."
+Activity related to items in a {% data variables.projects.project_v2 %}. {% data reusables.webhooks.action_type_desc %} For more information, see "[About {% data variables.projects.projects_v2 %}](/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects)."
 
 ### Availability
 
@@ -987,7 +1027,7 @@ Activity related to items in a Projects (beta) project. {% data reusables.webhoo
 Key | Type | Description
 ----|------|-------------
 `action`|`string` | The action that was performed on the project item. Can be one of `archived`, `converted`, `created`, `edited`, `restored`, `deleted`, or `reordered`.
-`projects_v2_item`|`object` | The project item itself. To find more information about the project item, you can use `node_id` (the node ID of the project item) and `project_node_id` (the node ID of the project) to query information in the GraphQL API. For more information, see "[Using the API to manage projects (beta)](/issues/trying-out-the-new-projects-experience/using-the-api-to-manage-projects)."
+`projects_v2_item`|`object` | The project item itself. To find more information about the project item, you can use `node_id` (the node ID of the project item) and `project_node_id` (the node ID of the project) to query information in the GraphQL API. For more information, see "[Using the API to manage projects](/issues/planning-and-tracking-with-projects/automating-your-project/using-the-api-to-manage-projects)."
 `changes`|`object` | The changes to the project item.
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.app_desc %}
@@ -1150,9 +1190,9 @@ Key | Type | Description
 `commits[][author][email]`|`string` | The git author's email address.
 `commits[][url]`|`url` | URL that points to the commit API resource.
 `commits[][distinct]`|`boolean` | Whether this commit is distinct from any that have been pushed before.
-`commits[][added]`|`array` | An array of files added in the commit.
-`commits[][modified]`|`array` | An array of files modified by the commit.
-`commits[][removed]`|`array` | An array of files removed in the commit.
+`commits[][added]`|`array` | An array of files added in the commit. For extremely large commits where {% data variables.product.product_name %} is unable to calculate this list in a timely manner, this may be empty even if files were added.
+`commits[][modified]`|`array` | An array of files modified by the commit. For extremely large commits where {% data variables.product.product_name %} is unable to calculate this list in a timely manner, this may be empty even if files were modified.
+`commits[][removed]`|`array` | An array of files removed in the commit. For extremely large commits where {% data variables.product.product_name %} is unable to calculate this list in a timely manner, this may be empty even if files were removed.
 `pusher` | `object` | The user who pushed the commits.
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.org_desc %}
@@ -1316,7 +1356,7 @@ Key | Type | Description
 {% ifversion fpt or ghes or ghec %}
 ## security_advisory
 
-Activity related to a security advisory that has been reviewed by {% data variables.product.company_short %}. A {% data variables.product.company_short %}-reviewed security advisory provides information about security-related vulnerabilities in software on {% data variables.product.prodname_dotcom %}. 
+Activity related to a security advisory that has been reviewed by {% data variables.product.company_short %}. A {% data variables.product.company_short %}-reviewed security advisory provides information about security-related vulnerabilities in software on {% data variables.product.prodname_dotcom %}.
 
 The security advisory dataset also powers the GitHub {% data variables.product.prodname_dependabot_alerts %}. For more information, see "[About {% data variables.product.prodname_dependabot_alerts %}](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies/)."
 
