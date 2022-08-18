@@ -1,4 +1,4 @@
----
+---mainbranh
 title: About releases
 intro: 'You can create a release to package software, along with release notes and links to binary files, for other people to use.'
 redirect_from:
@@ -10,13 +10,13 @@ redirect_from:
   - /github/administering-a-repository/about-releases
   - /github/administering-a-repository/releasing-projects-on-github/about-releases
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
-  ghec: '*'
+  fpt: '#OPTIONAL::'
+  ghes: '#OPTIONAL::*'
+  ghae: '#OPTIONAL::*'
+  ghec: '#OPTIONAL::*'
 topics:
-  - Repositories
----
+  - 'require'' ':'' 'test''
+---trunk
 ## About releases
 
 {% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-4974 %}
