@@ -110,33 +110,16 @@ jobs:
 
 {% endnote %}
 
-Runner groups are used to control which repositories can run jobs on your larger runner. By default, runner groups use the principle of least privilege, meaning that the runners in the group will initially not accept jobs from repositories in your organizations. You must first configure the group to grant access to each level of the management hierarchy, depending on where you've defined the larger runner:
+Runner groups are used to control which repositories can run jobs on your larger runners. Subsequently, you will need to grant access to the group from each level of the management hierarchy, depending on where you've defined the larger runner:
 
-- If you define the larger runner type at the enterprise level: you must configure the group to grant access to all the required organizations. In addition, for each organization, you must configure the group to specify which repositories are allowed access.
-- If you define the larger runner type at the organization level: you must configure the group by specifying which repositories are allowed access.
+- **Runners at the enterprise level**: Configure the runner group to grant access to all the required organizations. In addition, for each organization, you must configure the group to specify which repositories are allowed access.
+- **Runners at the organization level**: Configure the runner group by specifying which repositories are allowed access.
 
-In the following diagram, a runner group named `16-core-ubuntu-rg` has been defined at the enterprise level. Before the repository named `octo-repo` can use the runners in the group, you must first configure the group at the enterprise level to allow access from `octo-org`. You must then configure the group at the organization level to allow access from `octo-repo`:
+For example, the following diagram has a runner group named `16-core-ubuntu-rg` has been defined at the enterprise level. Before the repository named `octo-repo` can use the runners in the group, you must first configure the group at the enterprise level to allow access from `octo-org`. You must then configure the group at the organization level to allow access from `octo-repo`:
 
 ![Diagram explaining larger runner groups](/assets/images/larger-runner-mgmt.png)
 
-### Allowing access to runners in an enterprise
-
-If you're adding a larger runner to an enterprise, you will need to explicitly allow each level of the hierarchy to use the larger runners:
-
-1. At the enterprise level, enterprise admins define the larger runner's type:
-  1. As part of the definition process, enterprise admins must also specify the runner group that will host the larger runners.
-  1. The runner group specifies which organizations can use the larger runners.
-  1. Once an organization is granted access, the organization admins must still allow repositories to use the larger runners. The workflows in your repositories will not yet be able to send jobs to the larger runners until this is done:
-1. At the organization level, locate the runner group and specify which repositories can use the larger runners.
-
-### Allowing access to runners in an organization
-
-If you're adding a larger runner at the organization level, you will need to explicitly allow each level of the hierarchy to use the larger runners:
-
-1. Organization admins define the larger runner's type.
-1. Locate the runner group and specify which repositories can use the larger runners.
-
-### Changing what organizations or repositories can access a runner group
+### Allowing organizations and repositories to access a runner group
 
 {% data reusables.actions.runner-groups-navigate-to-repo-org-enterprise %}
 {% data reusables.actions.settings-sidebar-actions-runner-groups-selection %}
