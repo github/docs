@@ -59,7 +59,7 @@ Você pode criar diretrizes de contribuição padrão para sua organização{% i
 Caso tenha dúvidas, estes são alguns bons exemplos de diretrizes de contribuição:
 
 - [Diretrizes de contribuição](https://github.com/atom/atom/blob/master/CONTRIBUTING.md) do editor Atom.
-- [Diretrizes de contribuição](https://github.com/rails/rails/blob/master/CONTRIBUTING.md) do Ruby on Rails.
+- [Diretrizes de contribuição](https://github.com/rails/rails/blob/main/CONTRIBUTING.md) do Ruby on Rails.
 - [Diretrizes de contribuição](https://github.com/opengovernment/opengovernment/blob/master/CONTRIBUTING.md) do Open Government.
 
 ## Leia mais

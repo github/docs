@@ -13,7 +13,7 @@ allowTitleToDifferFromFilename: true
 
 Puedes listar los proyectos relevantes en un repositorio. Solo puedes listar proyectos que le pertenezcan al mismo usuario u organización propietaria del repositorio.
 
-Para que los miembros de los repositorios vean un proyecto que se lista en dichos repositorios, deben tener visibilidad del proyecto. For more information, see "[Managing visibility of your {% data variables.projects.projects_v2 %}](/issues/planning-and-tracking-with-projects/managing-your-project/managing-visibility-of-your-projects)" and "[Managing access to your {% data variables.projects.projects_v2 %}](/issues/planning-and-tracking-with-projects/managing-your-project/managing-access-to-your-projects)."
+Para que los miembros de los repositorios vean un proyecto que se lista en dichos repositorios, deben tener visibilidad del proyecto. Para obtener más información, consulta las secciones "[Administrar la visibilidad de tu {% data variables.projects.projects_v2 %}](/issues/planning-and-tracking-with-projects/managing-your-project/managing-visibility-of-your-projects)" y "[Administrar el acceso a tu {% data variables.projects.projects_v2 %}](/issues/planning-and-tracking-with-projects/managing-your-project/managing-access-to-your-projects)".
 
 1. En {% data variables.product.prodname_dotcom %}, navega a la página principal de tu repositorio.
 1. Haz clic en {% octicon "table" aria-label="the project icon" %} **Proyectos**. ![Screenshot showing projects tab in a repository](/assets/images/help/projects-v2/repo-tab.png)

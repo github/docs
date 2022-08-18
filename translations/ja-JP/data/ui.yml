@@ -7,8 +7,7 @@ header:
   notices:
     ghae_silent_launch: GitHub AEは、現在限定リリース中です。詳細については<a href="https://enterprise.github.com/contact">営業チームにお問い合わせ</a>ください。
     release_candidate: '# バージョン名はincludes/header-notification.htmlを通じて下のテキストの前に表示されます。これは現在リリース候補として利用できます。詳しい情報については「<a href="/admin/overview/about-upgrades-to-new-releases">新しいリリースへのアップグレードについて</a>」を参照してください。'
-    localization_complete: ドキュメントには頻繁に更新が加えられ、その都度公開されています。本ページの翻訳はまだ未完成な部分があることをご了承ください。最新の情報については、<a id="to-english-doc" href="/en">英語のドキュメンテーション</a>をご参照ください。本ページの翻訳に問題がある場合は<a href="https://github.com/contact?form[subject]=translation%20issue%20on%20docs.github.com&form[comments]=">こちらまで</a>ご連絡ください。
-    localization_in_progress: こんにちは！このページは開発中か、まだ翻訳中です。最新の正しい情報を得るには、<a id="to-english-doc" href="/en">英語のドキュメンテーション</a>にアクセスしてください。
+    localization_complete: We publish frequent updates to our documentation, and translation of this page may still be in progress. For the most current information, please visit the <a id="to-english-doc" href="/en">English documentation</a>.
     early_access: '📣 このURLは公に<b>共有しないで</b>ください。このページには、早期アクセスの機能に関する内容が含まれています。'
     release_notes_use_latest: 最新のセキュリティ、パフォーマンス、バグフィックスのために、最新のリリースをお使いください。
     #GHES release notes

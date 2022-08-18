@@ -17,13 +17,26 @@ shortTitle: Add organizations
 permissions: Enterprise owners can add organizations to an enterprise.
 ---
 
-## Organizationについて
+## About addition of organizations to your enterprise account
 
 Your enterprise account can own organizations. Members of your enterprise can collaborate across related projects within an organization. 詳細は「[Organization について](/organizations/collaborating-with-groups-in-organizations/about-organizations)」を参照してください。
 
-You can add a new or existing organization to your enterprise in your enterprise account's settings.
+You can add new organizations to your enterprise account. If you do not use {% data variables.product.prodname_emus %}, you can add existing organizations on {% data variables.product.product_location %} to your enterprise. You cannot add an existing organization from an {% data variables.product.prodname_emu_enterprise %} to a different enterprise.
 
-You can only add organizations this way to an existing enterprise account. {% data reusables.enterprise.create-an-enterprise-account %} 詳しい情報については「[Enterpriseアカウントの作成](/admin/overview/creating-an-enterprise-account)」を参照してください。
+{% data reusables.enterprise.create-an-enterprise-account %} 詳しい情報については「[Enterpriseアカウントの作成](/admin/overview/creating-an-enterprise-account)」を参照してください。
+
+After you add an existing organization to your enterprise, the organization's resources remain accessible to members at the same URLs, and the following changes will apply.
+
+- The organization's members will become members of the enterprise, and {% data variables.product.company_short %} will bill the enterprise account for the organization's usage. You must ensure that the enterprise account has enough licenses to accommodate any new members. 詳しい情報については「[Enterpriseの支払いについて](/billing/managing-billing-for-your-github-account/about-billing-for-your-enterprise)」を参照してください。
+- Enterprise owners can manage their role within the organization. 詳しい情報については「[自身のEnterpriseが所有しているOrganization内での自分のロールの管理](/admin/user-management/managing-organizations-in-your-enterprise/managing-your-role-in-an-organization-owned-by-your-enterprise)」を参照してください。
+- Any policies applied to the enterprise will apply to the organization. For more information, see "[About enterprise policies](/admin/policies/enforcing-policies-for-your-enterprise/about-enterprise-policies)."
+- If SAML SSO is configured for the enterprise account, the enterprise's SAML configuration will apply to the organization. If the organization used SAML SSO, the enterprise account's configuration will replace the organization's configuration. SCIM is not available for enterprise accounts, so SCIM will be disabled for the organization. For more information, see "[Configuring SAML single sign-on for your enterprise](/admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-saml-single-sign-on-for-your-enterprise)" and "[Switching your SAML configuration from an organization to an enterprise account](/admin/identity-and-access-management/using-saml-for-enterprise-iam/switching-your-saml-configuration-from-an-organization-to-an-enterprise-account)."
+- If SAML SSO was configured for the organization, members' existing personal access tokens (PATs) or SSH keys that were authorized to access the organization's resources will be authorized to access the same resources. To access additional organizations owned by the enterprise, members must authorize the PAT or key. 詳しい情報については、「[SAMLシングルサインオンで利用するために個人アクセストークンを認可する](/authentication/authenticating-with-saml-single-sign-on/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on)」と、「[SAML シングルサインオンで使用するために SSH キーを認可する](/authentication/authenticating-with-saml-single-sign-on/authorizing-an-ssh-key-for-use-with-saml-single-sign-on)」を参照してください。
+- If the organization was connected to {% data variables.product.prodname_ghe_server %} or {% data variables.product.prodname_ghe_managed %} using {% data variables.product.prodname_github_connect %}, adding the organization to an enterprise will not update the connection. {% data variables.product.prodname_github_connect %} features will no longer function for the organization. To continue using {% data variables.product.prodname_github_connect %}, you must disable and re-enable the feature. 詳しい情報については、次の記事を参照してください。
+
+  - "[Managing {% data variables.product.prodname_github_connect %}](/enterprise-server@latest/admin/configuration/configuring-github-connect/managing-github-connect)" in the {% data variables.product.prodname_ghe_server %} documentation
+  - "[Managing {% data variables.product.prodname_github_connect %}](/github-ae@latest/admin/configuration/configuring-github-connect/managing-github-connect)" in the {% data variables.product.prodname_ghe_managed %} documentation
+- If the organization used billed {% data variables.product.prodname_marketplace %} apps, the organization can continue to use the apps, but must pay the vendor directly. For more information, contact the app's vendor.
 
 ## Enterprise アカウント内で Organization を作成する
 
