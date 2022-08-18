@@ -31,6 +31,8 @@ Tipos de quadros de projeto:
 
 Para criar um {% data variables.projects.projects_v1_board %} para sua organização, você deve ser um integrante da organização. Os proprietários da organização e as pessoas com permissões de administrador em {% data variables.projects.projects_v1_board %} podem personalizar o acesso a {% data variables.projects.projects_v1_board %}.
 
+{% ifversion classic-project-visibility-permissions %}{% data reusables.projects.owners-can-limit-visibility-permissions %}{% endif %}
+
 Se um {% data variables.projects.projects_v1_board %} pertencente a uma organização incluir problemas ou pull requests de um repositório que você não tem permissão para visualizar, o cartão será redigido.  Para obter mais informações, consulte "[Permissões de {% data variables.product.prodname_project_v1_caps %} para uma organização](/articles/project-board-permissions-for-an-organization)".
 
 O modo de exibição de atividade mostra o histórico recente de {% data variables.projects.projects_v1_board %}, como cartões criados ou movidos entre colunas. Para acessar a exibição da atividade, clique em **Menu** e role para baixo.
