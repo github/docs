@@ -19,7 +19,7 @@ Each codespace is assigned an auto-generated display name. If you have multiple 
 
 To find the display name of a codespace:
 
-- View your list of codespaces in {% data variables.product.product_name %} on https://github.com/codespaces.
+- On {% data variables.product.product_name %}, view your list of codespaces at https://github.com/codespaces.
   ![List of codespaces in GitHub](/assets/images/help/codespaces/codespaces-list-display-name.png)
 - Click the Remote Explorer in the {% data variables.product.prodname_vscode %} desktop application, or the {% data variables.product.prodname_vscode_shortname %} web client. For example: `symmetrical space telegram` in the screenshot below.
   ![List of codespaces in GitHub](/assets/images/help/codespaces/codespaces-remote-explorer.png)
