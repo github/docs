@@ -27,6 +27,18 @@ In the following diagram, a class of hosted runner named `16-core-ubuntu-runner`
 
 ![Diagram explaining larger runners](/assets/images/larger-runner.png)
 
+### Private pools and queue time
+
+{% data variables.product.prodname_dotcom %} uses two types of pools to organize and allocate machines:
+
+- **Public pool**: This pool hosts the general 2-core runners. It consists of a general shared pool of machines are used to pick up jobs from any {% data variables.product.prodname_actions %} customer. When that job is complete, those machines are re-imaged and returned to the pool. Since many customers share this pool, there is likely to be an idling re-imaged machine ready to process your job.
+
+- **Private pools**: Larger runners use private pools, which helps improves the security of the virtual machine lifecycle. With private pools, only re-imaged machines are allowed to be used within your organization or enterprise. This helps reduce concerns around re-imaged machines leaving artefacts behind. The use of private pools does affect the queue time for larger runners.
+
+When using larger runners, you can expect to see a longer job queue period than the standard runners in the public pool. Once your job is due to run, it enters a queue that submits the job to a runner for processing. Private pools contain fewer machines than the public pool, which makes it more likely that {% data variables.product.prodname_actions %} will need to create a new machine to run your job. The process of provisioning a new machine can take some time, meaning that your job will queue for a longer period than if a runner was already reimaged and sitting idle.
+
+To help improve these queue times, {% data variables.product.prodname_dotcom %} intends to add experimental support for opting out of private pools. By opting out of this feature, your runners may be moved into a public pool, though they may still be privately pooled during the beta phase. This option will be added to the runner configuration UI, when available.
+
 ## Autoscaling larger runners
 
 Larger runners can be configured to scale automatically. This means that when a job is submitted to a runner, that runner will automatically scale out by adding more machines until it reaches the maximum limit you've defined. Each machine added only handles one job at a time so these settings effectively determine the number of jobs that can be run concurrently. 
