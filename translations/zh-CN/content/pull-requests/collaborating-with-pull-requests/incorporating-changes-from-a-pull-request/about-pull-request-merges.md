@@ -16,22 +16,36 @@ topics:
   - Pull requests
 ---
 
+## Merge your commits
+
 {% data reusables.pull_requests.default_merge_option %}
 
-## 压缩与合并拉取请求提交
+## Squash and merge your commits
 
 {% data reusables.pull_requests.squash_and_merge_summary %}
 
 ### 合并压缩合并的消息
 
+{% ifversion default-merge-squash-commit-message %}
+在压缩与合并时，{% data variables.product.prodname_dotcom %} 生成默认提交消息，您可以进行编辑。 Depending on how the repository is configured and the number of commits in the pull request, not including merge commits, this message may include the pull request title, pull request description, or information about the commits.
+{% else %}
 在压缩与合并时，{% data variables.product.prodname_dotcom %} 生成默认提交消息，您可以进行编辑。 默认消息取决于拉取请求中的提交次数，不包括合并提交。
 
 | 提交数  | 摘要                   | 描述                  |
 | ---- | -------------------- | ------------------- |
 | 一个提交 | 单个提交的提交消息标题，后接拉取请求编号 | 单个提交的提交消息正文         |
 | 多个提交 | 拉取请求标题，后接拉取请求编号      | 按日期顺序列出所有被压缩提交的提交消息 |
+{% endif %}
 
-{% ifversion fpt or ghec or ghes > 3.5 or ghae-issue-7042 %}
+| 提交数  | 摘要                   | 描述                  |
+| ---- | -------------------- | ------------------- |
+| 一个提交 | 单个提交的提交消息标题，后接拉取请求编号 | 单个提交的提交消息正文         |
+| 多个提交 | 拉取请求标题，后接拉取请求编号      | 按日期顺序列出所有被压缩提交的提交消息 |
+
+{% ifversion default-merge-squash-commit-message %}
+People with maintainer or admin access to a repository can configure their repository's default merge message for all squashed commits to use the pull request title, the pull request title and commit details, or the pull request title and description. For more information, see "[Configure commit squashing](/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/configuring-commit-squashing-for-pull-requests)".{% endif %}
+
+{% ifversion ghes = 3.6 %}
 对存储库具有管理员访问权限的人员可以将存储库配置为使用拉取请求的标题作为所有压缩提交的默认合并消息。 更多信息请参阅“[配置提交压缩](/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/configuring-commit-squashing-for-pull-requests)”。
 {% endif %}
 
@@ -43,7 +57,7 @@ topics:
 
 由于此提交仅位于基础分支而不是头部分支上，因此两个分支的共同原型保持不变。 如果您继续使用头部分支，则在两个分支之间创建新的拉取请求，该拉取请求将包含自共同原型以来的所有提交，其中包括你在之前的拉取请求中压缩与合并的提交。 如果没有冲突，您可以安全地合并这些提交。 但是，此工作流会增大合并冲突的可能性。 如果您继续压缩与合并长运行头部分支的拉取请求，则必须反复解决相同的冲突。
 
-## 变基与合并拉取请求提交
+## Rebase and merge your commits
 
 {% data reusables.pull_requests.rebase_and_merge_summary %}
 
