@@ -31,7 +31,7 @@ const PROD_URL = 'https://docs.github.com'
 run()
 
 async function run() {
-  const isHealthy = await waitUntilUrlIsHealthy(APP_URL)
+  const isHealthy = await waitUntilUrlIsHealthy(new URL('/healthz', APP_URL).toString())
   if (!isHealthy) {
     return core.setFailed(`Timeout waiting for preview environment: ${APP_URL}`)
   }
