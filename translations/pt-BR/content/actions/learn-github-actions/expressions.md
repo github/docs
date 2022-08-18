@@ -125,13 +125,21 @@ O {% data variables.product.prodname_dotcom %} oferece um conjunto de funções 
 
 Retorna `verdadeiro` se a `pesquisa` contiver `item`. Se a `pesquisa` for uma array, essa função retornará `verdadeiro` se o item `` for um elemento na array. Se a `pesquisa` for uma string, essa função retornará `verdadeiro` se o `item` for uma substring da `pesquisa`. Essa função não diferencia maiúsculas de minúsculas. Lança valores em uma string.
 
-#### Exemplo de uso de array
-
-`contains(github.event.issue.labels.*.name, 'bug')` retorna se a issue relacionada ao evento possui uma etiqueta de "erro".
-
 #### Exemplo de uso de string
 
 `contains('Hello world', 'llo')` retorna `true`.
+
+#### Example using an object filter
+
+`contains(github.event.issue.labels.*.name, 'bug')` returns `true` if the issue related to the event has a label "bug".
+
+For more information, see "[Object filters](#object-filters)."
+
+#### Example matching an array of strings
+
+Instead of writing `github.event_name == "push" || github.event_name == "pull_request"`, you can use `contains()` with `fromJson()` to check if an array of strings contains an `item`.
+
+For example, `contains(fromJson('["push", "pull_request"]'), github.event_name)` returns `true` if `github.event_name` is "push" or "pull_request".
 
 ### startsWith
 
@@ -235,7 +243,7 @@ Este fluxo de trabalho usa `fromJSON` para converter variáveis de ambiente de u
 ```yaml
 name: print
 on: push
-env: 
+env:
   continue: true
   time: 3
 jobs:
@@ -252,7 +260,7 @@ jobs:
 
 `hashFiles(path)`
 
-Retorna um único hash para o conjunto de arquivos que correspondem ao padrão do `caminho`. Você pode fornecer um único padrão de `caminho` ou vários padrões de `caminho` separados por vírgulas. O `caminho` é relativo ao diretório `GITHUB_WORKSPACE` e pode incluir apenas arquivos dentro do `GITHUB_WORKSPACE`. Essa função calcula uma hash SHA-256 individual para cada arquivo correspondente e, em seguida, usa esses hashes para calcular um hash SHA-256 final para o conjunto de arquivos. Se o padrão `caminho ` não corresponder a nenhum arquivo, ele irá retornar uma string vazia. Para obter mais informações sobre o SHA-256, consulte "[SHA-2](https://en.wikipedia.org/wiki/SHA-2)".
+Retorna um único hash para o conjunto de arquivos que correspondem ao padrão do `caminho`. Você pode fornecer um único padrão de `caminho` ou vários padrões de `caminho` separados por vírgulas. O `caminho` é relativo ao diretório `GITHUB_WORKSPACE` e pode incluir apenas arquivos dentro do `GITHUB_WORKSPACE`. Essa função calcula um hash SHA-256 individual para cada arquivo correspondente e, em seguida, usa esses hashes para calcular um hash SHA-256 final para o conjunto de arquivos. Se o padrão `caminho ` não corresponder a nenhum arquivo, ele irá retornar uma string vazia. Para obter mais informações sobre o SHA-256, consulte "[SHA-2](https://en.wikipedia.org/wiki/SHA-2)".
 
 Você pode usar a correspondência de padrão de caracteres para corresponder os nomes dos arquivos. No Windows, a correspondência do padrão diferencia maiúsculas e minúsculas. Para obter mais informações sobre caracteres de correspondência de padrões suportados, consulte "[Sintaxe de fluxo de trabalho para o {% data variables.product.prodname_actions %}](/actions/using-workflows/workflow-syntax-for-github-actions/#filter-pattern-cheat-sheet)".
 
