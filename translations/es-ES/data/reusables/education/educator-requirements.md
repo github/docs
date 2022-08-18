@@ -1,4 +1,4 @@
-To apply for teacher benefits and {% data variables.product.prodname_global_campus %} access, you must meet the following requirements.
+Para solicitar los beneficios de docente y el acceso al {% data variables.product.prodname_global_campus %}, primero debes cumplir con los siguientes requisitos.
 
 - Ser educador, miembro de una factultad, o investigador.
 - Tener una dirección de correo electrónico verificable que haya emitido una institución educativa.
