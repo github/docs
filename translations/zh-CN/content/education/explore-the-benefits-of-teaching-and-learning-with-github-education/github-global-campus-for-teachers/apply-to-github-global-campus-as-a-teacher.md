@@ -1,6 +1,6 @@
 ---
-title: 申请教育者或研究人员折扣
-intro: '如果您是教育者或研究人员，可以为组织申请免费获取 {% data variables.product.prodname_team %}。'
+title: Apply to GitHub Global Campus as a teacher
+intro: 'If you''re a teacher, you can apply to join {% data variables.product.prodname_global_campus %} and receive access to the resources and benefits of {% data variables.product.prodname_education %}.'
 redirect_from:
   - /education/teach-and-learn-with-github-education/apply-for-an-educator-or-researcher-discount
   - /github/teaching-and-learning-with-github-education/applying-for-an-educator-or-researcher-discount
@@ -10,12 +10,13 @@ redirect_from:
   - /articles/applying-for-a-discount-for-your-first-robotics-team
   - /articles/applying-for-an-educator-or-researcher-discount
   - /education/explore-the-benefits-of-teaching-and-learning-with-github-education/apply-for-an-educator-or-researcher-discount
+  - /education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-in-your-classroom-and-research/apply-for-an-educator-or-researcher-discount
 versions:
   fpt: '*'
-shortTitle: 申请折扣
+shortTitle: Apply to Global Campus
 ---
 
-## 关于教育者和研究人员折扣
+## About teacher discounts
 
 {% data reusables.education.about-github-education-link %}
 
@@ -23,7 +24,7 @@ shortTitle: 申请折扣
 
 有关在 {% data variables.product.product_name %} 上创建个人帐户的更多信息，请参阅“[注册新 {% data variables.product.prodname_dotcom %} 帐户](/github/getting-started-with-github/signing-up-for-a-new-github-account)”。
 
-## 申请教育者或研究人员折扣
+## Applying to {% data variables.product.prodname_global_campus %}
 
 {% data reusables.education.benefits-page %}
 {% data reusables.education.click-get-teacher-benefits %}
@@ -35,7 +36,7 @@ shortTitle: 申请折扣
 
 ## 延伸阅读
 
-- "[为什么我的教育者或研究人员折扣申请未获得批准？](/articles/why-wasn-t-my-application-for-an-educator-or-researcher-discount-approved)"
+- "[Why wasn't my application to Global Campus for teachers approved?](/articles/why-wasn-t-my-application-for-an-educator-or-researcher-discount-approved)"
 - [{% data variables.product.prodname_education %}](https://education.github.com)
 - [{% data variables.product.prodname_classroom %} 视频](https://classroom.github.com/videos)
 - [{% data variables.product.prodname_education_community %}]({% data variables.product.prodname_education_forum_link %})

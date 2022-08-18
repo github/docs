@@ -16,6 +16,8 @@ permissions: People with maintainer permissions can enable or disable the settin
 
 如果启用该设置以始终建议更新存储库中的拉取请求分支，则当拉取请求的头部分支与基本分支不符时，具有写入权限的人员将始终能够在拉取请求页面上更新头部分支。 如果未启用，则仅当基本分支要求分支在合并之前保持最新并且分支不是最新时，才可以使用更新功能。 更多信息请参阅“[使拉取请求与基本分支保持同步](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/keeping-your-pull-request-in-sync-with-the-base-branch)”。
 
+{% data reusables.enterprise.3-5-missing-feature %}
+
 ## 管理更新请求分支的建议
 
 {% data reusables.repositories.navigate-to-repo %}

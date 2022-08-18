@@ -1,6 +1,6 @@
 ---
-title: Why wasn't my application for a student developer pack approved?
-intro: 'Review common reasons that applications for the {% data variables.product.prodname_student_pack %} are not approved and learn tips for reapplying successfully.'
+title: Why wasn't my application to Global Campus for students approved?
+intro: 'Review common reasons that applications for {% data variables.product.prodname_global_campus %} are not approved and learn tips for reapplying successfully.'
 redirect_from:
   - /education/teach-and-learn-with-github-education/why-wasnt-my-application-for-a-student-developer-pack-approved
   - /github/teaching-and-learning-with-github-education/why-wasnt-my-application-for-a-student-developer-pack-approved
@@ -8,6 +8,7 @@ redirect_from:
   - /articles/why-wasn-t-my-application-for-a-student-developer-pack-approved
   - /articles/why-wasnt-my-application-for-a-student-developer-pack-approved
   - /education/explore-the-benefits-of-teaching-and-learning-with-github-education/why-wasnt-my-application-for-a-student-developer-pack-approved
+  - /education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-for-your-schoolwork/why-wasnt-my-application-for-a-student-developer-pack-approved
 versions:
   fpt: '*'
 shortTitle: Application not approved
@@ -69,4 +70,4 @@ Your instructor may still apply for a {% data variables.product.prodname_educati
 ## Further reading
 
 - "[How to get the GitHub Student Developer Pack without a student ID](https://github.blog/2019-07-30-how-to-get-the-github-student-developer-pack-without-a-student-id/)" on {% data variables.product.prodname_blog %}
-- "[Apply for a student developer pack](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/apply-for-a-student-developer-pack)"
+- "[Apply to {% data variables.product.prodname_global_campus %} as a student](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-students/apply-to-github-global-campus-as-a-student)"

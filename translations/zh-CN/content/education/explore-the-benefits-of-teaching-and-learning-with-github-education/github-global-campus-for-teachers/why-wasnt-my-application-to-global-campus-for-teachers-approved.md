@@ -1,6 +1,6 @@
 ---
-title: 为什么我的教育工作者或研究人员折扣申请未获得批准？
-intro: 查看申请教育工作者或研究人员折扣未获批准的常见原因，并了解成功重新申请的窍门。
+title: Why wasn't my application to Global Campus for teachers approved?
+intro: 'Review common reasons that applications for {% data variables.product.prodname_global_campus %} are not approved and learn tips for reapplying successfully.'
 redirect_from:
   - /education/teach-and-learn-with-github-education/why-wasnt-my-application-for-an-educator-or-researcher-discount-approved
   - /github/teaching-and-learning-with-github-education/why-wasnt-my-application-for-an-educator-or-researcher-discount-approved
@@ -8,6 +8,7 @@ redirect_from:
   - /articles/why-wasn-t-my-application-for-an-educator-or-researcher-discount-approved
   - /articles/why-wasnt-my-application-for-an-educator-or-researcher-discount-approved
   - /education/explore-the-benefits-of-teaching-and-learning-with-github-education/why-wasnt-my-application-for-an-educator-or-researcher-discount-approved
+  - /education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-in-your-classroom-and-research/why-wasnt-my-application-for-an-educator-or-researcher-discount-approved
 versions:
   fpt: '*'
 shortTitle: 申请未被批准
@@ -41,8 +42,8 @@ shortTitle: 申请未被批准
 
 ## 非学生申请学生开发包
 
-教育工作者或研究人员没有资格获得 [{% data variables.product.prodname_student_pack %}](https://education.github.com/pack)随附的合作伙伴优惠。 当您重新申请时，确保选择 **Faculty（教职工）**来描述您的学术地位。
+Teachers are not eligible for the partner offers that come with the [{% data variables.product.prodname_student_pack %}](https://education.github.com/pack). 当您重新申请时，确保选择 **Faculty（教职工）**来描述您的学术地位。
 
 ## 延伸阅读
 
-- “[申请教育工作者或研究人员折扣](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/apply-for-an-educator-or-researcher-discount)”
+- "[Apply to {% data variables.product.prodname_global_campus %} as a teacher](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-teachers/apply-to-github-global-campus-as-a-teacher)"
