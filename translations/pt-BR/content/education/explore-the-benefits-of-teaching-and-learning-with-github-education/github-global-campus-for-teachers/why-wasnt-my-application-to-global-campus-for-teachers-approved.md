@@ -1,6 +1,6 @@
 ---
-title: Motivos da reprovação da candidatura ao desconto de educador ou pesquisador
-intro: Analise os motivos comuns para a reprovação de candidaturas ao desconto de educador ou pesquisador e veja dicas para se candidatar novamente sem problemas.
+title: Por que a minha candidatura para o Campus Global para professores não foi aprovada?
+intro: 'Analise os motivos comuns para a reprovação de candidaturas ao {% data variables.product.prodname_global_campus %} e veja dicas para se candidatar novamente sem problemas.'
 redirect_from:
   - /education/teach-and-learn-with-github-education/why-wasnt-my-application-for-an-educator-or-researcher-discount-approved
   - /github/teaching-and-learning-with-github-education/why-wasnt-my-application-for-an-educator-or-researcher-discount-approved
@@ -8,6 +8,7 @@ redirect_from:
   - /articles/why-wasn-t-my-application-for-an-educator-or-researcher-discount-approved
   - /articles/why-wasnt-my-application-for-an-educator-or-researcher-discount-approved
   - /education/explore-the-benefits-of-teaching-and-learning-with-github-education/why-wasnt-my-application-for-an-educator-or-researcher-discount-approved
+  - /education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-in-your-classroom-and-research/why-wasnt-my-application-for-an-educator-or-researcher-discount-approved
 versions:
   fpt: '*'
 shortTitle: Solicitação recusada
@@ -31,7 +32,7 @@ Se o seu endereço de e-mail acadêmico tiver um domínio não verificado, poder
 
 {% data reusables.education.pdf-support %}
 
-## Uso de e-mail acadêmico de uma escola com políticas de e-mail pouco rígidas
+## Uso de e-mail acadêmico de uma instituição de ensino com políticas de e-mail pouco rígidas
 
 Se ex-alunos e professores aposentados da sua instituição de ensino tiverem acesso vitalício a endereços de e-mail concedidos pela escola, poderemos exigir mais provas do seu status acadêmico. {% data reusables.education.upload-different-image %}
 
@@ -41,8 +42,8 @@ Se você tiver outras dúvidas sobre o domínio da instituição de ensino, peç
 
 ## Candidatura de não alunos ao pacote de desenvolvedor para estudante
 
-Educadores e pesquisadores não estão qualificados para as ofertas de parceiros que acompanham o [{% data variables.product.prodname_student_pack %}](https://education.github.com/pack). Quando você se candidatar novamente, lembre-se de escolher **Faculty** (Faculdade) para descrever seu status acadêmico.
+Os professores não são elegíveis às ofertas de parceiro que vêm com [{% data variables.product.prodname_student_pack %}](https://education.github.com/pack). Quando você se candidatar novamente, lembre-se de escolher **Faculty** (Faculdade) para descrever seu status acadêmico.
 
 ## Leia mais
 
-- "[Solicite desconto para educador ou pesquisador](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/apply-for-an-educator-or-researcher-discount)"
+- "[Candidatar-se a {% data variables.product.prodname_global_campus %} como professor](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-teachers/apply-to-github-global-campus-as-a-teacher)"

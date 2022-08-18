@@ -56,22 +56,22 @@ Em seguida, adicione um rascunho ao seu projeto.
 
 ## Adicionando um campo de iteração
 
-Next, create an iteration field so you can plan and track your work over repeating blocks of time. As iterações podem ser configuradas para atender ao modo como você e sua equipe trabalham, com comprimentos personalizáveis e a capacidade de inserir pausas.
+Em seguida, crie um campo de iteração para que você possa planejar e rastrear o seu trabalho ao longo de espaços de tempo que se repetem. As iterações podem ser configuradas para atender ao modo como você e sua equipe trabalham, com comprimentos personalizáveis e a capacidade de inserir pausas.
 
 {% data reusables.projects.new-field %}
 1. Selecionar **Iteração** ![Captura de tela que mostra a opção de iteração](/assets/images/help/projects-v2/new-field-iteration.png)
 3. Para mudar a duração de cada iteração, digite um novo número, em seguida, selecione o menu suspenso e clique em **dias** ou **semanas**. ![Captura de tela que mostra a duração de iteração](/assets/images/help/projects-v2/iteration-field-duration.png)
-4. Clique em **Salvar**. ![Screenshot showing save button](/assets/images/help/projects-v2/new-field-save-and-create.png)
+4. Clique em **Salvar**. ![Captura de tela que mostra o botão salvar](/assets/images/help/projects-v2/new-field-save-and-create.png)
 
 ## Criando um campo para monitorar a prioridade
 
 Agora, crie um campo personalizado denominado `Prioridade` e que cotném os valores: `Alto`, `Médio` ou `Baixo`.
 
 {% data reusables.projects.new-field %}
-1. Select **Single select** ![Screenshot showing the single select option](/assets/images/help/projects-v2/new-field-single-select.png)
-1. Abaixo de "Opções", digite a primeira opção, "Alta". ![Screenshot showing the single select option](/assets/images/help/projects-v2/priority-example.png)
+1. Selecione **Seleção única** ![Captura de tela que mostra a opção de seleção única](/assets/images/help/projects-v2/new-field-single-select.png)
+1. Abaixo de "Opções", digite a primeira opção, "Alta". ![Captura de tela que mostra a opção de seleção única](/assets/images/help/projects-v2/priority-example.png)
 1. Para adicionar outros campos, para "Médio" e "Baixo", clique em **Adicionar opção**.
-1. Clique em **Salvar**. ![Screenshot showing save button](/assets/images/help/projects-v2/new-field-save.png)
+1. Clique em **Salvar**. ![Captura de tela que mostra o botão salvar](/assets/images/help/projects-v2/new-field-save.png)
 
 Especifique uma prioridade para todos os problemas no seu projeto.
 
