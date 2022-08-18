@@ -1,4 +1,4 @@
-name: Add review template
+lib/rest/static/dereferenced/api.github.com.deref.jsonname: Add review template
 
 # **What it does**: When a specific label is added to a PR, adds the contents of .github/review-template.md as a comment in the PR
 # **Why we have it**: To help Docs Content team members ensure that their PR is ready for review
