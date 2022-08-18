@@ -13,7 +13,7 @@ shortTitle: Using larger runners
 
 In addition to the [standard {% data variables.product.prodname_dotcom %}-hosted runners](/actions/using-github-hosted-runners/about-github-hosted-runners#supported-runners-and-hardware-resources), {% data variables.product.prodname_dotcom %} also offers a range of larger runners with more RAM and CPU. These runners are hosted by {% data variables.product.prodname_dotcom %} and have the runner application and other tools preinstalled. Each runner is only used to process a single job, and once the job has completed the runner's virtual machine is then handled according to your autoscaling needs: the runner is reimaged and only reused within your organisation, or it is shutdown and deleted.
 
-When you add a larger runner to an organization, you are defining the hardware and operating system configuration for a customized class of runner. {% data variables.product.prodname_dotcom %} will then create multiple instances of this runner that scale up and down to match the demands of your organization, based on the autoscaling limits you define.
+When you add a larger runner to an organization, you are defining a type of machine from a selection of available hardware specifications and operating system images. Your team can use this {% data variables.product.prodname_dotcom %}-hosted compute to run jobs. {% data variables.product.prodname_dotcom %} will then create multiple instances of this runner that scale up and down to match the demands of your organization, based on the autoscaling limits you define.
 
 ## Architectural overview of larger runners
 
@@ -85,7 +85,7 @@ You can also define the labels that identify the runner group, which is how your
 
 ## Running jobs on your runner
 
-Once your runner has been been defined, you can update your workflows to send jobs to the runner for processing. In this example, a runner group is populated with Ubuntu 16-core runners and has been assigned the label `16-core-ubuntu`. The `check-bats-version` job then uses the `runs-on` key to target those runners whenever the job is run:
+Once your runner has been been defined, you can update your workflows to send jobs to the runner for processing. In this example, a runner group is populated with Ubuntu 16-core runners, which have been assigned the label `16-core-ubuntu`. If you have a runner matching this label, the `check-bats-version` job then uses the `runs-on` key to target that runner whenever the job is run:
 
 ```yaml
 name: learn-github-actions
@@ -115,11 +115,13 @@ Runner groups are used to control which repositories can run jobs on your larger
 - **Runners at the enterprise level**: Configure the runner group to grant access to all the required organizations. In addition, for each organization, you must configure the group to specify which repositories are allowed access.
 - **Runners at the organization level**: Configure the runner group by specifying which repositories are allowed access.
 
-For example, the following diagram has a runner group named `16-core-ubuntu-rg` has been defined at the enterprise level. Before the repository named `octo-repo` can use the runners in the group, you must first configure the group at the enterprise level to allow access from `octo-org`. You must then configure the group at the organization level to allow access from `octo-repo`:
+For example, the following diagram has a runner group named `16-core-ubuntu-rg` at the enterprise level. Before the repository named `octo-repo` can use the runners in the group, you must first configure the group at the enterprise level to allow access from the `octo-org` organization; you must then configure the group at the organization level to allow access from `octo-repo`:
 
 ![Diagram explaining larger runner groups](/assets/images/larger-runner-mgmt.png)
 
-### Allowing organizations and repositories to access a runner group
+### Allowing repositories to access a runner group
+
+This procedure demonstrates how to configure group permissions at the enterprise and organization levels:
 
 {% data reusables.actions.runner-groups-navigate-to-repo-org-enterprise %}
 {% data reusables.actions.settings-sidebar-actions-runner-groups-selection %}
