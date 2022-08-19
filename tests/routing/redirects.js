@@ -53,15 +53,15 @@ describe('redirects', () => {
   describe('query params', () => {
     test('are preserved in redirected URLs', async () => {
       const res = await get('/enterprise/admin?query=pulls')
-      expect(res.statusCode).toBe(302)
-      const expected = `/en/enterprise-server@${enterpriseServerReleases.latest}/admin?query=pulls`
+      expect(res.statusCode).toBe(301)
+      const expected = `/en/enterprise-server@${enterpriseServerReleases.latest}/search?query=pulls`
       expect(res.headers.location).toBe(expected)
     })
 
     test('have q= converted to query=', async () => {
       const res = await get('/en/enterprise/admin?q=pulls')
       expect(res.statusCode).toBe(301)
-      const expected = '/en/enterprise/admin?query=pulls'
+      const expected = `/en/enterprise-server@${enterpriseServerReleases.latest}/search?query=pulls`
       expect(res.headers.location).toBe(expected)
     })
 
@@ -71,13 +71,6 @@ describe('redirects', () => {
       const res = await get('/en/enterprise/admin?faq=pulls')
       expect(res.statusCode).toBe(301)
       const expected = `/en/enterprise-server@${enterpriseServerReleases.latest}/admin?faq=pulls`
-      expect(res.headers.location).toBe(expected)
-    })
-
-    test('work with redirected search paths', async () => {
-      const res = await get('/en/enterprise/admin/search?utf8=%E2%9C%93&query=pulls')
-      expect(res.statusCode).toBe(301)
-      const expected = `/en/enterprise-server@${enterpriseServerReleases.latest}/admin?utf8=%E2%9C%93&query=pulls`
       expect(res.headers.location).toBe(expected)
     })
 

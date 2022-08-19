@@ -1,0 +1,14 @@
+date: '2022-08-11'
+sections:
+  security_fixes:
+    - |
+      **重要**: GitHub Enterprise ServerのElasticsearchコンテナは、悪意あるXSLTスタイルシートを処理する際に整数切り捨ての問題に対して脆弱なバージョンのOpenJDK 8を使用していました。この脆弱性は[CVE-2022-34169](https://github.com/advisories/GHSA-9339-86wc-4qgf)として追跡されています。
+    - |
+      **高**: ユーザアカウントに以前にインストールされたアプリケーションは、ユーザアカウントがOrganizationアカウントに変換されたあとに、スコープ付きのアクセストークンでOrganizationにアクセスする権限を自動的に付与されました。この脆弱性は[GitHub Bug Bountyプログラム](https://bounty.github.com)から報告されました。
+  bugs:
+    - '`r4.4xlarge`インスタンスタイプを利用したAWS上のGitHub Enterprise Serverインスタンスが起動に失敗することがあります。'
+    - 'GitHub Advanced Securityのコミッタを計算する際に、個別のリポジトリを指定することができませんでした。詳しい情報については「[サイトアドミンのダッシュボード](/admin/configuration/configuring-your-enterprise/site-admin-dashboard#advanced-security-committers)」を参照してください。'
+    - カスタムの休眠の閾値がインスタンスに設定された場合、すべての休眠ユーザをサスペンドしても、その閾値を確実に踏まえません。休眠に関する詳しい情報については「[休眠ユーザの管理](/admin/user-management/managing-users-in-your-enterprise/managing-dormant-users)」を参照してください。
+  changes:
+    - '`pre_receive_hook.rejected_push`イベントはEnterprise Audit logに表示されませんでした。'
+    - リポジトリの移行アーカイブとユーザアカウントのアーカイブエクスポートのどちらもリリースリアクションを含みます。

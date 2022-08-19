@@ -1,0 +1,11 @@
+date: '2022-08-11'
+sections:
+  security_fixes:
+    - |
+      **重要**: GitHub Enterprise ServerのElasticsearchコンテナは、悪意あるXSLTスタイルシートを処理する際に整数切り捨ての問題に対して脆弱なバージョンのOpenJDK 8を使用していました。この脆弱性は[CVE-2022-34169](https://github.com/advisories/GHSA-9339-86wc-4qgf)として追跡されています。
+    - |
+      **高**: ユーザアカウントに以前にインストールされたアプリケーションは、ユーザアカウントがOrganizationアカウントに変換されたあとに、スコープ付きのアクセストークンでOrganizationにアクセスする権限を自動的に付与されました。この脆弱性は[GitHub Bug Bountyプログラム](https://bounty.github.com)から報告されました。
+  bugs:
+    - カスタムの休眠の閾値がインスタンスに設定された場合、すべての休眠ユーザをサスペンドしても、その閾値を確実に踏まえません。休眠に関する詳しい情報については「[休眠ユーザの管理](/admin/user-management/managing-users-in-your-enterprise/managing-dormant-users)」を参照してください。
+  changes:
+    - 'Enterprise Audit logには、`project.create`といったより多くのユーザ生成イベントが含まれるようになりました。REST APIも、`repo.create`といった追加のユーザ生成イベントを返します。詳しい情報については「[EnterpriseのAudit logへのアクセス](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/accessing-the-audit-log-for-your-enterprise)」及び「[EnterpriseでのAudit log APIの利用](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/using-the-audit-log-api-for-your-enterprise#querying-the-audit-log-rest-api)」を参照してください。'

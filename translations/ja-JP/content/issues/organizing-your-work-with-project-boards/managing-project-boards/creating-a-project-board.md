@@ -57,6 +57,14 @@ allowTitleToDifferFromFilename: true
 
 {% data reusables.projects.classic-project-creation %}
 
+{% ifversion classic-project-visibility-permissions %}
+{% note %}
+
+**ノート:** {% data reusables.projects.owners-can-limit-visibility-permissions %}
+
+{% endnote %}
+{% endif %}
+
 {% data reusables.profile.access_org %}
 {% data reusables.user-settings.access_org %}
 {% data reusables.organizations.organization-wide-project %}{% ifversion projects-v2 %}
