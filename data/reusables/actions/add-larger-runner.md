@@ -1,4 +1,4 @@
-1. Click **New runner**, then click **{% octicon "mark-github" aria-label="New hosted runner" %} New hosted runner**.
+1. Click **New runner**, then click **{% octicon "mark-github" aria-label="New hosted runner" %} New Github-hosted runner**.
 1. Complete the required details to configure your new runner:
 
     - **Name**: Enter a name for your new runner. For easier identification, this should indicate its hardware and operating configuration, such as `runner-16-core-ubuntu-20-04`.
