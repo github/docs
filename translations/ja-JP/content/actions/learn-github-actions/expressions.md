@@ -15,7 +15,7 @@ miniTocMaxHeadingLevel: 3
 
 ## About expressions
 
-You can use expressions to programmatically set environment variables in workflow files and access contexts. 式で使えるのは、リテラル値、コンテキストへの参照、関数の組み合わせです。 リテラル、コンテキストへの参照、および関数を組み合わせるには、演算子を使います。 For more information about contexts, see "[Contexts](/actions/learn-github-actions/contexts)."
+You can use expressions to programmatically set environment variables in workflow files and access contexts. 式で使えるのは、リテラル値、コンテキストへの参照、関数の組み合わせです。 リテラル、コンテキストへの参照、および関数を組み合わせるには、演算子を使います。 コンテキストに関する詳しい情報については「[コンテキスト](/actions/learn-github-actions/contexts)」を参照してください。
 
 式は、ステップを実行すべきか判断するための `if` 条件キーワードをワークフローファイル内に記述して使用するのが一般的です。 `if`条件が`true`になれば、ステップは実行されます。
 
@@ -125,13 +125,21 @@ env:
 
 `search`が`item` を含む場合、`true` を返します。 `search`が配列の場合、`item`が配列の要素であれば、この関数は`true`を返します。 `search`が文字列の場合、`item`が`search`の部分文字列であれば、この関数は`true`を返します。 この関数は大文字と小文字を区別しません。 値を文字列にキャストします。
 
-#### 配列の利用例
-
-`contains(github.event.issue.labels.*.name, 'bug')` returns whether the issue related to the event has a label "bug".
-
 #### 文字列の使用例
 
 `contains('Hello world', 'llo')` returns `true`.
+
+#### Example using an object filter
+
+`contains(github.event.issue.labels.*.name, 'bug')` returns `true` if the issue related to the event has a label "bug".
+
+For more information, see "[Object filters](#object-filters)."
+
+#### Example matching an array of strings
+
+Instead of writing `github.event_name == "push" || github.event_name == "pull_request"`, you can use `contains()` with `fromJson()` to check if an array of strings contains an `item`.
+
+For example, `contains(fromJson('["push", "pull_request"]'), github.event_name)` returns `true` if `github.event_name` is "push" or "pull_request".
 
 ### startsWith
 
@@ -221,7 +229,7 @@ jobs:
     needs: job1
     runs-on: ubuntu-latest
     strategy:
-      matrix: ${{fromJSON(needs.job1.outputs.matrix)}}
+      matrix: ${{ fromJSON(needs.job1.outputs.matrix) }}
     steps:
       - run: build
 ```
@@ -235,7 +243,7 @@ jobs:
 ```yaml
 name: print
 on: push
-env: 
+env:
   continue: true
   time: 3
 jobs:

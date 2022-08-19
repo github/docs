@@ -1,1 +1,1 @@
-{% data variables.product.company_short %} distributes {% data variables.product.product_name %} as a self-contained virtual appliance. After you provision a virtual machine and install the appliance, the instance runs a Linux operating system with a custom application stack.
+{% data variables.product.company_short %}は{% data variables.product.product_name %}を自己完結した仮想アプライアンスとして配布します。 仮想マシンをプロビジョニングしてアプライアンスをインストールしたあと、そのインスタンスはカスタムのアプリケーションスタックとともにLinuxオペレーティングシステムを動作させます。
